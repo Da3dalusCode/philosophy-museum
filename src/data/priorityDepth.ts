@@ -7,6 +7,21 @@ const idea=(name:string,explanation:string,whyItMatters:string)=>({name,explanat
 const work=(title:string,summary:string,whyItMatters:string)=>({title,summary,whyItMatters});
 
 export const priorityPhilosopherDepth:Record<string,Partial<Philosopher>>={
+  pyrrho:{
+    beginnerReadingPath:[reading('Diogenes Laertius','Life of Pyrrho, in Lives of Eminent Philosophers','beginner','Begin with the major biographical tradition while treating its exemplary anecdotes critically.'),reading('A. A. Long and D. N. Sedley','The Hellenistic Philosophers, Pyrrhonian selections','intermediate','Compare the principal fragments and reports in historical context.','secondary'),reading('Sextus Empiricus','Outlines of Pyrrhonism, Book I','intermediate','See what the much later tradition bearing Pyrrho’s name became.')],
+    advancedReadingPath:[reading('Richard Bett','Pyrrho, His Antecedents, and His Legacy','advanced','A focused reconstruction of Pyrrho and the disputes surrounding him.','secondary'),reading('Sextus Empiricus','Outlines of Pyrrhonism, complete','advanced','Compare the obscure founder with developed Pyrrhonian practice.')],
+    sourceLinks:[sep('Pyrrho','pyrrho'),wiki('Pyrrho','Pyrrho')]
+  },
+  'sextus-empiricus':{
+    beginnerReadingPath:[reading('Sextus Empiricus','Outlines of Pyrrhonism, Book I','beginner','Begin with inquiry, suspension, the modes, tranquility, and skeptical life.'),reading('Sextus Empiricus','Outlines of Pyrrhonism, Books II-III, selections','intermediate','See skepticism applied to logic, physics, and ethics.'),reading('Sextus Empiricus','Against the Mathematicians, selections','intermediate','Encounter skeptical arguments directed at specialized disciplines.')],
+    advancedReadingPath:[reading('Sextus Empiricus','Outlines of Pyrrhonism, complete','advanced','Follow the full introductory architecture of Pyrrhonian skepticism.'),reading('Michael Frede','Essays in Ancient Philosophy, skeptical essays','advanced','Explore disputes about belief and skeptical life.','secondary')],
+    sourceLinks:[sep('Sextus Empiricus','sextus-empiricus'),wiki('Sextus Empiricus','Sextus_Empiricus')]
+  },
+  lucretius:{
+    beginnerReadingPath:[reading('Lucretius','On the Nature of Things, Books I and III','beginner','Begin with atoms, void, mind, mortality, and the argument against fear of death.'),reading('Epicurus','Letter to Menoeceus','beginner','Compare the compact Epicurean therapy with Lucretius’ poetic expansion.'),reading('Lucretius','On the Nature of Things, Book II','intermediate','Study the swerve, tranquility, and the wider material cosmos.')],
+    advancedReadingPath:[reading('Lucretius','On the Nature of Things, complete','advanced','Read physics, ethics, poetic form, civilization, and the plague ending as one project.'),reading('Monica Gale','Myth and Poetry in Lucretius','advanced','A secondary study of how poetic tradition serves Epicurean philosophy.','secondary')],
+    sourceLinks:[sep('Lucretius','lucretius'),wiki('Lucretius','Lucretius')]
+  },
   zeno:{
     beginnerReadingPath:[reading('Diogenes Laertius','Life of Zeno, in Lives of Eminent Philosophers','beginner','Begin with the fullest surviving ancient biography while treating its anecdotes critically.'),reading('Cleanthes','Hymn to Zeus','beginner','See the cosmic piety developed by Zeno’s immediate successor.'),reading('A. A. Long and D. N. Sedley','The Hellenistic Philosophers, early Stoic selections','intermediate','Reconstruct early Stoic arguments from fragments and reports.','secondary')],
     advancedReadingPath:[reading('Malcolm Schofield','The Stoic Idea of the City','advanced','Study the political imagination associated with Zeno’s lost Republic.','secondary'),reading('Brad Inwood','The Cambridge Companion to the Stoics, selected chapters','advanced','Place Zeno within the development of the wider school.','secondary')],
@@ -233,6 +248,11 @@ export const priorityPhilosopherMisunderstandings:Record<string,string[]>={
   foucault:['Foucault does not claim that power is possessed only by a ruling group or that resistance is impossible.','Calling a category historically produced does not mean its effects are unreal.']
 };
 export const priorityBranchDepth:Record<string,Partial<Branch>>={
+  cynicism:{
+    beginnerReadingPath:[branchReading('Diogenes Laertius','Lives of Antisthenes, Diogenes, and Crates','beginner','Begin with the major anecdotal tradition while reading each scene critically.'),branchReading('Xenophon','Memorabilia, Socratic selections','intermediate','Recover part of the Socratic ethical inheritance transformed by Cynics.'),branchReading('Epictetus','Discourses 3.22, On Cynicism','intermediate','See a later Stoic account of the true Cynic’s demanding mission.')],
+    advancedReadingPath:[branchReading('A. A. Long','The Socratic Tradition: Diogenes, Crates, and Hellenistic Ethics','advanced','Place Cynic practice within Socratic and Hellenistic development.','secondary'),branchReading('William Desmond','Cynics','advanced','A broad secondary guide to ancient Cynic life and reception.','secondary')],
+    sourceLinks:branchSources('Cynicism','Cynicism_(philosophy)','cynics')
+  },
   skepticism:{
     beginnerReadingPath:[branchReading('Sextus Empiricus','Outlines of Pyrrhonism, Book I','beginner','Begin with skeptical inquiry, suspension, the modes, and the response to inactivity.'),branchReading('Sextus Empiricus','Outlines of Pyrrhonism, Books II-III, selections','intermediate','See skeptical methods applied to logic, physics, and ethics.'),branchReading('Montaigne','Apology for Raymond Sebond, selections','intermediate','Encounter an influential early modern transformation of skeptical materials.')],
     advancedReadingPath:[branchReading('A. A. Long and D. N. Sedley','The Hellenistic Philosophers, skeptical selections','advanced','Study Academic and Pyrrhonian evidence in context.','secondary'),branchReading('Descartes','Meditations on First Philosophy','advanced','Compare methodic doubt aimed at certainty with ancient suspension.'),branchReading('Hume','An Enquiry Concerning Human Understanding, Section XII','advanced','Examine modern skeptical arguments and mitigated response.')],
