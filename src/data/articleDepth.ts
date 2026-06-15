@@ -1,8 +1,12 @@
 import type {ArticleSection} from '../types/philosophy';
+import {ancientGreekBranchArticles,ancientGreekPhilosopherArticles} from './ancientGreekArticles';
+import {hellenisticBranchArticles,hellenisticPhilosopherArticles} from './hellenisticArticles';
 
 const section=(id:string,title:string,paragraphs:string[],relatedBranchIds?:string[],relatedPhilosopherIds?:string[],relatedWorkTitles?:string[]):ArticleSection=>({id,title,paragraphs,relatedBranchIds,relatedPhilosopherIds,relatedWorkTitles});
 
 export const philosopherArticles:Record<string,ArticleSection[]>={
+  ...ancientGreekPhilosopherArticles,
+  ...hellenisticPhilosopherArticles,
   plato:[
     section('overview','A philosophy written as an encounter',[
       'Plato is difficult to summarize because he does not write as a lecturer announcing settled conclusions. He writes dialogues: carefully staged encounters in which speakers pursue a question, discover that their first answers fail, and sometimes end without a final definition. The dramatic form is not decoration. It makes readers experience the difference between possessing a slogan and being able to give an account of what it means. Socrates is usually the central examiner, but the dialogues also let sophists, politicians, poets, mathematicians, and ambitious young Athenians expose the attractions and costs of rival ways of life.',
@@ -139,6 +143,8 @@ export const philosopherArticles:Record<string,ArticleSection[]>={
 };
 
 export const branchArticles:Record<string,ArticleSection[]>={
+  ...ancientGreekBranchArticles,
+  ...hellenisticBranchArticles,
   platonism:[
     section('overview','A tradition of intelligible order',[
       'Platonism is not one doctrine transmitted unchanged from Plato. It is a family of arguments organized around the conviction that explanation, knowledge, and value cannot be exhausted by changing sensible particulars. Platonists ask what makes many things count as equal, beautiful, or just; how the mind can grasp stable structures; and how philosophical education can reorient desire toward what is genuinely good.',

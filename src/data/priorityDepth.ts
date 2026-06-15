@@ -7,6 +7,21 @@ const idea=(name:string,explanation:string,whyItMatters:string)=>({name,explanat
 const work=(title:string,summary:string,whyItMatters:string)=>({title,summary,whyItMatters});
 
 export const priorityPhilosopherDepth:Record<string,Partial<Philosopher>>={
+  epicurus:{
+    beginnerReadingPath:[reading('Epicurus','Letter to Menoeceus','beginner','Begin with the compact ethical therapy of gods, death, desire, pleasure, and practical wisdom.'),reading('Epicurus','Principal Doctrines','beginner','Read short formulations as prompts for understanding security, friendship, justice, and limits.'),reading('Epicurus','Vatican Sayings','intermediate','See how Epicurean practice addresses gratitude, friendship, desire, and self-sufficiency.')],
+    advancedReadingPath:[reading('Epicurus','Letter to Herodotus','advanced','Study the physical theory that supports the ethical removal of fear.'),reading('Lucretius','On the Nature of Things','advanced','Encounter Epicurean physics and therapy transformed through Latin poetry.')],
+    sourceLinks:[sep('Epicurus','epicurus'),wiki('Epicurus','Epicurus')]
+  },
+  epictetus:{
+    beginnerReadingPath:[reading('Epictetus','Discourses, selected chapters','beginner','Begin with the teacher’s arguments and diagnoses before using the compressed handbook.'),reading('Epictetus','Enchiridion','beginner','Use the handbook as a set of reminders grounded in the longer Discourses.'),reading('Marcus Aurelius','Meditations, Book I','intermediate','See Epictetus’ influence within a different Stoic exercise and social position.')],
+    advancedReadingPath:[reading('Epictetus','Discourses, complete','advanced','Follow the disciplines of desire, action, and assent across the surviving classroom conversations.'),reading('A. A. Long','Epictetus: A Stoic and Socratic Guide to Life','advanced','A historically grounded study of Epictetus’ distinctive Stoicism.','secondary')],
+    sourceLinks:[sep('Epictetus','epictetus'),wiki('Epictetus','Epictetus')]
+  },
+  socrates:{
+    beginnerReadingPath:[reading('Plato','Apology','beginner','Begin with Socrates defending examination as a public and ethical practice.'),reading('Plato','Euthyphro','beginner','Watch a short definitional inquiry expose the difficulty of claiming moral expertise.'),reading('Xenophon','Memorabilia, Book I','intermediate','Compare a more practical defense of Socrates with Plato’s literary portrait.')],
+    advancedReadingPath:[reading('Plato','Gorgias','advanced','Study Socratic argument against rhetoric detached from justice.'),reading('Plato','Phaedo','advanced','Read the final-hours portrait while separating Plato’s metaphysics from the historical Socrates.'),reading('Aristophanes','Clouds','advanced','Encounter the comic public image that complicates the philosophical sources.')],
+    sourceLinks:[sep('Socrates','socrates'),wiki('Socrates','Socrates')]
+  },
   plato:{
     shortBio:'Plato turned Socratic questioning into a many-voiced philosophical literature and founded the Academy, an institution that made argument, mathematics, ethics, and political education parts of one inquiry.',
     extendedBio:['Plato wrote in the aftermath of Athens’ defeat in the Peloponnesian War and the execution of Socrates. His dialogues repeatedly ask how a city that prizes speech and freedom could mistake persuasion for knowledge and condemn an examiner of public life. Rather than present a finished doctrine in his own voice, Plato stages arguments whose dramatic settings, failures, and revisions matter to their meaning.','Across the dialogues, questions about definition and virtue expand into accounts of knowledge, desire, education, political authority, and reality. The theory of Forms is one response to the problem of how stable knowledge is possible in a changing world, but later dialogues test its difficulties. Plato’s legacy is therefore not only a set of doctrines; it is also a model of philosophy as dialectical education.'],
@@ -203,6 +218,16 @@ export const priorityPhilosopherMisunderstandings:Record<string,string[]>={
   foucault:['Foucault does not claim that power is possessed only by a ruling group or that resistance is impossible.','Calling a category historically produced does not mean its effects are unreal.']
 };
 export const priorityBranchDepth:Record<string,Partial<Branch>>={
+  epicureanism:{
+    beginnerReadingPath:[branchReading('Epicurus','Letter to Menoeceus','beginner','Begin with the ethical therapy of pleasure, desire, gods, and death.'),branchReading('Epicurus','Principal Doctrines and Vatican Sayings','beginner','Read the school’s compact claims as prompts for practice and discussion.'),branchReading('Lucretius','On the Nature of Things, selections','intermediate','Connect natural explanation to the removal of fear through poetry.')],
+    advancedReadingPath:[branchReading('Epicurus','Letter to Herodotus','advanced','Study the atomist physics supporting Epicurean ethics.'),branchReading('Lucretius','On the Nature of Things, complete','advanced','Follow the fullest surviving presentation of Epicureanism.'),branchReading('James Warren','Facing Death: Epicurus and His Critics','advanced','A focused secondary study of the Epicurean argument about death.','secondary')],
+    sourceLinks:branchSources('Epicureanism','Epicureanism','epicurus')
+  },
+  'ancient-greek':{
+    beginnerReadingPath:[branchReading('Heraclitus and Parmenides','Selected fragments with commentary','beginner','See how change, being, reason, and appearance create problems inherited by later Greek philosophy.'),branchReading('Plato','Apology and Meno','beginner','Follow Socratic examination as it expands toward knowledge and education.'),branchReading('Aristotle','Nicomachean Ethics, Books I-II','intermediate','Compare a systematic account of flourishing and habituated character.')],
+    advancedReadingPath:[branchReading('Plato','Republic selections','advanced','Connect ethics, politics, psychology, and knowledge within one sustained inquiry.'),branchReading('Aristotle','Metaphysics, Books I and VII','advanced','Study Aristotle’s history of causes and account of substance.'),branchReading('A. A. Long and D. N. Sedley','The Hellenistic Philosophers, selections','advanced','Follow Stoic, Epicurean, and skeptical arguments through translated evidence.','secondary')],
+    sourceLinks:branchSources('Ancient Greek philosophy','Ancient_Greek_philosophy')
+  },
   platonism:{
     originStory:'Platonism begins with Plato’s dialogues and the Academy, but it becomes a tradition through arguments over what those dialogues imply about Forms, knowledge, soul, education, and the good. Later Platonists systematized positions that Plato often left dramatically open.',
     historicalDevelopmentDetailed:['Plato’s Academy made dialectic, mathematics, ethics, and political education parts of a shared inquiry.','Middle Platonists developed more systematic accounts of transcendent Forms and divine intellect. Plotinus then organized reality around the One, Intellect, and Soul.','Christian, Jewish, and Islamic thinkers adapted Platonic themes of intelligibility, participation, and ascent. Renaissance Platonism and modern debates about abstract objects continue the inheritance.'],
