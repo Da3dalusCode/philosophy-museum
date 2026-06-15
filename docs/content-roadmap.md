@@ -23,35 +23,44 @@ Philosopher Profiles and Branch Explorer are moving from exhibit-card summaries 
 
 Records without authored article sections continue to render through the earlier structured exhibit layout. They should be treated as useful summaries rather than finished reference articles.
 
-## Article-format proof of concept
+## Gold-standard audited articles
+
+The current gold-standard articles each contain at least 1,800 words of authored article prose and pass the default `npm run audit:articles` check:
+
+- Philosophers: Plato, Socrates, Aristotle, Epicurus, and Epictetus.
+- Branches: Platonism, Ancient Greek Philosophy, Stoicism, and Epicureanism.
+
+These records model the target editorial depth: a clear opening orientation, sustained historical and argumentative explanation, interpretive cautions, connections across the atlas, and a practical reading path.
+
+## Article-format coverage
 
 The first philosopher records authored and rendered in the article-first format are:
 
-- Plato
+- Plato, Socrates, Aristotle, Epicurus, Epictetus
 - Kant
 - Nietzsche
 - Wittgenstein
 
 The first branch records authored and rendered in the article-first format are:
 
-- Platonism
+- Platonism, Ancient Greek Philosophy, Stoicism, Epicureanism
 - Epistemology
 - Ethics
 - Analytic Philosophy
 
-These eight records establish the editorial and UI pattern for future article packs: concise overview first, sustained historical and argumentative prose as the main body, and compact readings, sources, concepts, and atlas connections as supporting reference material.
+These records establish the editorial and UI pattern for future article packs: concise overview first, sustained historical and argumentative prose as the main body, and compact readings, sources, concepts, and atlas connections as supporting reference material. Records in this list that are not in the gold-standard audited list use the article format but have not yet reached the long-form depth floor.
 
 ## Structured deep pack
 
-The current article-grade philosopher pack is deliberately limited to twelve profiles:
+The current structured deep philosopher pack is deliberately limited to twelve profiles:
 
 - Plato, Aristotle, Augustine, Aquinas, Descartes, Hume, Kant, Nietzsche, Wittgenstein, Heidegger, Simone de Beauvoir, and Foucault.
 
-These profiles contain authored historical framing, multiple central questions, specifically explained ideas and works, named influence routes, interpretive disputes, staged reading paths, and stable reference links. Unless listed in the article-format proof of concept above, they still use the structured exhibit presentation and should be treated as candidates for future article conversion.
+These profiles contain authored historical framing, multiple central questions, specifically explained ideas and works, named influence routes, interpretive disputes, staged reading paths, and stable reference links. Unless listed in the article-format coverage above, they still use the structured exhibit presentation and should be treated as candidates for future article conversion.
 
 The current article-grade branch pack is:
 
-- Platonism, Aristotelianism, Stoicism, Metaphysics, Epistemology, Ethics, Political Philosophy, Existentialism, Phenomenology, and Analytic Philosophy.
+- Platonism, Aristotelianism, Stoicism, Epicureanism, Metaphysics, Epistemology, Ethics, Political Philosophy, Existentialism, Phenomenology, and Analytic Philosophy.
 
 These pages now contain specific origin stories, periodized development, concepts, major works, internal debates, modern relevance, misconceptions, reading paths, and reference links.
 
@@ -72,8 +81,8 @@ High-priority shallow groups include:
 
 ## Recommended future article packs
 
-1. Ancient Greek pack: Pre-Socratics, Socrates, Aristotle, and Ancient Greek Philosophy.
-2. Hellenistic pack: Epicurus, Zeno, Seneca, Epictetus, Marcus Aurelius, Stoicism, Epicureanism, and Skepticism.
+1. Ancient Greek continuation: Pre-Socratic natural philosophers, pluralists, atomists, and the major Hellenistic schools.
+2. Hellenistic continuation: Zeno, Seneca, Marcus Aurelius, and Skepticism.
 3. Medieval Christian/Jewish/Islamic pack: Augustine, Aquinas, Avicenna, Al-Ghazali, Averroes, Maimonides, Philosophy of Religion, and Medieval Scholasticism.
 4. Early Modern pack: Descartes, Spinoza, Leibniz, Locke, Hume, Rationalism, and Empiricism.
 5. Kant/German Idealism pack: Kant article expansion, Hegel, Schopenhauer, and German Idealism.
