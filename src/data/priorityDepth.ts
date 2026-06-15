@@ -7,6 +7,26 @@ const idea=(name:string,explanation:string,whyItMatters:string)=>({name,explanat
 const work=(title:string,summary:string,whyItMatters:string)=>({title,summary,whyItMatters});
 
 export const priorityPhilosopherDepth:Record<string,Partial<Philosopher>>={
+  diogenes:{
+    beginnerReadingPath:[reading('Diogenes Laertius','Life of Diogenes, in Lives of Eminent Philosophers Book VI','beginner','Begin with the major anecdotal tradition while asking what philosophical work each scene performs.'),reading('Epictetus','Discourses 3.22, On Cynicism','intermediate','See a later Stoic define the true Cynic as a demanding public vocation.'),reading('Xenophon','Memorabilia, Socratic selections','intermediate','Compare Cynic independence with a major portrait of the Socratic inheritance.')],
+    advancedReadingPath:[reading('A. A. Long','The Socratic Tradition: Diogenes, Crates, and Hellenistic Ethics','advanced','Place Diogenes within the development from Socratic practice to Hellenistic ethics.','secondary'),reading('William Desmond','Cynics','advanced','A broad historical and interpretive guide to ancient Cynicism.','secondary')],
+    sourceLinks:[wiki('Diogenes of Sinope','Diogenes')]
+  },
+  cleanthes:{
+    beginnerReadingPath:[reading('Cleanthes','Hymn to Zeus','beginner','Read the strongest surviving continuous expression of early Stoic theology and rational piety.'),reading('Diogenes Laertius','Life of Cleanthes, in Lives of Eminent Philosophers Book VII','intermediate','Encounter the biographical tradition while treating exemplary stories critically.'),reading('A. A. Long and D. N. Sedley','The Hellenistic Philosophers, Cleanthes selections','intermediate','Place the hymn and fragments within early Stoic physics and ethics.','secondary')],
+    advancedReadingPath:[reading('A. A. Long and D. N. Sedley','The Hellenistic Philosophers, early Stoic theology and physics','advanced','Reconstruct Cleanthes’ positions alongside Zeno and Chrysippus.','secondary'),reading('Brad Inwood','The Cambridge Companion to the Stoics, selected chapters','advanced','Study Cleanthes within the institutional and philosophical development of the Stoa.','secondary')],
+    sourceLinks:[wiki('Cleanthes','Cleanthes')]
+  },
+  chrysippus:{
+    beginnerReadingPath:[reading('Diogenes Laertius','Life of Chrysippus, in Lives of Eminent Philosophers Book VII','beginner','Begin with the ancient account of his works, arguments, and place in the Stoa.'),reading('Cicero','On Fate','intermediate','Study the ancient dispute over fate, causation, and responsibility.'),reading('A. A. Long and D. N. Sedley','The Hellenistic Philosophers, Stoic logic and psychology selections','intermediate','Reconstruct the system from organized fragments and reports.','secondary')],
+    advancedReadingPath:[reading('Susanne Bobzien','Determinism and Freedom in Stoic Philosophy','advanced','A detailed study of Stoic fate and responsibility.','secondary'),reading('Benson Mates','Stoic Logic','advanced','A focused reconstruction of Stoic logical theory.','secondary')],
+    sourceLinks:[wiki('Chrysippus','Chrysippus')]
+  },
+  plotinus:{
+    beginnerReadingPath:[reading('Plotinus','Ennead I.6, On Beauty','beginner','Enter Plotinian ascent through beauty, form, and ethical transformation.'),reading('Plotinus','Ennead V.1, On the Three Primary Hypostases','intermediate','Study the One, Intellect, and Soul in a concentrated treatise.'),reading('Porphyry','Life of Plotinus','intermediate','Understand the biographical and editorial portrait through which the Enneads survive.')],
+    advancedReadingPath:[reading('Plotinus','Enneads, selected treatises on the One, Intellect, Soul, and evil','advanced','Follow the metaphysical architecture across distinct argumentative occasions.'),reading('Lloyd Gerson','Plotinus','advanced','A systematic secondary interpretation of Plotinus’ philosophy.','secondary')],
+    sourceLinks:[sep('Plotinus','plotinus'),wiki('Plotinus','Plotinus')]
+  },
   pyrrho:{
     beginnerReadingPath:[reading('Diogenes Laertius','Life of Pyrrho, in Lives of Eminent Philosophers','beginner','Begin with the major biographical tradition while treating its exemplary anecdotes critically.'),reading('A. A. Long and D. N. Sedley','The Hellenistic Philosophers, Pyrrhonian selections','intermediate','Compare the principal fragments and reports in historical context.','secondary'),reading('Sextus Empiricus','Outlines of Pyrrhonism, Book I','intermediate','See what the much later tradition bearing Pyrrho’s name became.')],
     advancedReadingPath:[reading('Richard Bett','Pyrrho, His Antecedents, and His Legacy','advanced','A focused reconstruction of Pyrrho and the disputes surrounding him.','secondary'),reading('Sextus Empiricus','Outlines of Pyrrhonism, complete','advanced','Compare the obscure founder with developed Pyrrhonian practice.')],
@@ -248,6 +268,11 @@ export const priorityPhilosopherMisunderstandings:Record<string,string[]>={
   foucault:['Foucault does not claim that power is possessed only by a ruling group or that resistance is impossible.','Calling a category historically produced does not mean its effects are unreal.']
 };
 export const priorityBranchDepth:Record<string,Partial<Branch>>={
+  neoplatonism:{
+    beginnerReadingPath:[branchReading('Plotinus','Ennead I.6, On Beauty','beginner','Begin with beauty and ascent before approaching the full metaphysical architecture.'),branchReading('Plotinus','Ennead V.1, On the Three Primary Hypostases','intermediate','Study the One, Intellect, and Soul.'),branchReading('Porphyry','Life of Plotinus','intermediate','See how Plotinus’ student framed the teacher and edited the Enneads.')],
+    advancedReadingPath:[branchReading('Iamblichus','On the Mysteries, selections','advanced','Examine the later defense of theurgy and embodied ritual practice.'),branchReading('Proclus','Elements of Theology, selections','advanced','Encounter a highly systematic account of procession, participation, and return.'),branchReading('Pseudo-Dionysius','Mystical Theology','advanced','See Christian negative theology transform Neoplatonic ascent.')],
+    sourceLinks:branchSources('Neoplatonism','Neoplatonism','neoplatonism')
+  },
   cynicism:{
     beginnerReadingPath:[branchReading('Diogenes Laertius','Lives of Antisthenes, Diogenes, and Crates','beginner','Begin with the major anecdotal tradition while reading each scene critically.'),branchReading('Xenophon','Memorabilia, Socratic selections','intermediate','Recover part of the Socratic ethical inheritance transformed by Cynics.'),branchReading('Epictetus','Discourses 3.22, On Cynicism','intermediate','See a later Stoic account of the true Cynic’s demanding mission.')],
     advancedReadingPath:[branchReading('A. A. Long','The Socratic Tradition: Diogenes, Crates, and Hellenistic Ethics','advanced','Place Cynic practice within Socratic and Hellenistic development.','secondary'),branchReading('William Desmond','Cynics','advanced','A broad secondary guide to ancient Cynic life and reception.','secondary')],
