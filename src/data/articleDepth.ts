@@ -1,5 +1,6 @@
 import type {ArticleSection} from '../types/philosophy';
 import {ancientGreekBranchArticles,ancientGreekPhilosopherArticles} from './ancientGreekArticles';
+import {hellenisticFoundationBranchArticles,hellenisticFoundationPhilosopherArticles} from './hellenisticFoundationArticles';
 import {hellenisticBranchArticles,hellenisticPhilosopherArticles} from './hellenisticArticles';
 import {romanHellenisticBranchArticles,romanHellenisticPhilosopherArticles} from './romanHellenisticArticles';
 
@@ -7,6 +8,7 @@ const section=(id:string,title:string,paragraphs:string[],relatedBranchIds?:stri
 
 export const philosopherArticles:Record<string,ArticleSection[]>={
   ...ancientGreekPhilosopherArticles,
+  ...hellenisticFoundationPhilosopherArticles,
   ...hellenisticPhilosopherArticles,
   ...romanHellenisticPhilosopherArticles,
   plato:[
@@ -146,6 +148,7 @@ export const philosopherArticles:Record<string,ArticleSection[]>={
 
 export const branchArticles:Record<string,ArticleSection[]>={
   ...ancientGreekBranchArticles,
+  ...hellenisticFoundationBranchArticles,
   ...hellenisticBranchArticles,
   ...romanHellenisticBranchArticles,
   platonism:[
