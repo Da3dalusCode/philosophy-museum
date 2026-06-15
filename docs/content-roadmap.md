@@ -27,8 +27,8 @@ Records without authored article sections continue to render through the earlier
 
 The current gold-standard articles each contain at least 1,800 words of authored article prose and pass the default `npm run audit:articles` check:
 
-- Philosophers: Plato, Socrates, Aristotle, Epicurus, Epictetus, Zeno of Citium, Seneca, Marcus Aurelius, Pyrrho, Sextus Empiricus, and Lucretius.
-- Branches: Platonism, Ancient Greek Philosophy, Stoicism, Epicureanism, Skepticism, and Cynicism.
+- Philosophers: Plato, Socrates, Aristotle, Epicurus, Epictetus, Zeno of Citium, Seneca, Marcus Aurelius, Pyrrho, Sextus Empiricus, Lucretius, Diogenes, Cleanthes, Chrysippus, and Plotinus.
+- Branches: Platonism, Ancient Greek Philosophy, Stoicism, Epicureanism, Skepticism, Cynicism, Aristotelianism, and Neoplatonism.
 
 These records model the target editorial depth: a clear opening orientation, sustained historical and argumentative explanation, interpretive cautions, connections across the atlas, and a practical reading path.
 
@@ -36,14 +36,14 @@ These records model the target editorial depth: a clear opening orientation, sus
 
 The first philosopher records authored and rendered in the article-first format are:
 
-- Plato, Socrates, Aristotle, Epicurus, Epictetus, Zeno of Citium, Seneca, Marcus Aurelius, Pyrrho, Sextus Empiricus, Lucretius
+- Plato, Socrates, Aristotle, Epicurus, Epictetus, Zeno of Citium, Seneca, Marcus Aurelius, Pyrrho, Sextus Empiricus, Lucretius, Diogenes, Cleanthes, Chrysippus, Plotinus
 - Kant
 - Nietzsche
 - Wittgenstein
 
 The first branch records authored and rendered in the article-first format are:
 
-- Platonism, Ancient Greek Philosophy, Stoicism, Epicureanism, Skepticism, Cynicism
+- Platonism, Ancient Greek Philosophy, Stoicism, Epicureanism, Skepticism, Cynicism, Aristotelianism, Neoplatonism
 - Epistemology
 - Ethics
 - Analytic Philosophy
@@ -60,7 +60,7 @@ These profiles contain authored historical framing, multiple central questions, 
 
 The current article-grade branch pack is:
 
-- Platonism, Aristotelianism, Stoicism, Epicureanism, Skepticism, Cynicism, Metaphysics, Epistemology, Ethics, Political Philosophy, Existentialism, Phenomenology, and Analytic Philosophy.
+- Platonism, Aristotelianism, Neoplatonism, Stoicism, Epicureanism, Skepticism, Cynicism, Metaphysics, Epistemology, Ethics, Political Philosophy, Existentialism, Phenomenology, and Analytic Philosophy.
 
 These pages now contain specific origin stories, periodized development, concepts, major works, internal debates, modern relevance, misconceptions, reading paths, and reference links.
 
@@ -82,14 +82,15 @@ High-priority shallow groups include:
 ## Recommended future article packs
 
 1. Ancient Greek continuation: Pre-Socratic natural philosophers, pluralists, atomists, and the major Hellenistic schools.
-2. Hellenistic continuation: Cleanthes, Chrysippus, Diogenes, and the early Academic skeptics.
-3. Medieval Christian/Jewish/Islamic pack: Augustine, Aquinas, Avicenna, Al-Ghazali, Averroes, Maimonides, Philosophy of Religion, and Medieval Scholasticism.
-4. Early Modern pack: Descartes, Spinoza, Leibniz, Locke, Hume, Rationalism, and Empiricism.
-5. Kant/German Idealism pack: Kant article expansion, Hegel, Schopenhauer, and German Idealism.
-6. Analytic pack: Frege, Russell, Moore, Carnap, Quine, Anscombe, logic, language, mind, and science.
-7. Continental pack: Husserl, Heidegger, Sartre, Beauvoir, Foucault, Derrida, Phenomenology, Existentialism, and Continental Philosophy.
-8. Indian/Buddhist/Chinese pack: Buddha, Nagarjuna, Shankara, Confucius, Laozi, Zhuangzi, and dedicated tradition pages.
-9. Feminist/critical/decolonial pack: Beauvoir, Fanon, Butler, Davis, bell hooks, feminist philosophy, and future race, decolonial, care, and disability branches.
+2. Hellenistic continuation: the early Academic skeptics, later Peripatetics, and further Cynic figures.
+3. Late antique continuation: Porphyry, Iamblichus, Proclus, Pseudo-Dionysius, and late antique commentary traditions.
+4. Medieval Christian/Jewish/Islamic pack: Augustine, Aquinas, Avicenna, Al-Ghazali, Averroes, Maimonides, Philosophy of Religion, and Medieval Scholasticism.
+5. Early Modern pack: Descartes, Spinoza, Leibniz, Locke, Hume, Rationalism, and Empiricism.
+6. Kant/German Idealism pack: Kant article expansion, Hegel, Schopenhauer, and German Idealism.
+7. Analytic pack: Frege, Russell, Moore, Carnap, Quine, Anscombe, logic, language, mind, and science.
+8. Continental pack: Husserl, Heidegger, Sartre, Beauvoir, Foucault, Derrida, Phenomenology, Existentialism, and Continental Philosophy.
+9. Indian/Buddhist/Chinese pack: Buddha, Nagarjuna, Shankara, Confucius, Laozi, Zhuangzi, and dedicated tradition pages.
+10. Feminist/critical/decolonial pack: Beauvoir, Fanon, Butler, Davis, bell hooks, feminist philosophy, and future race, decolonial, care, and disability branches.
 
 ## Image and source strategy
 
