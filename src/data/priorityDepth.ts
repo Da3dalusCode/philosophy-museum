@@ -7,6 +7,21 @@ const idea=(name:string,explanation:string,whyItMatters:string)=>({name,explanat
 const work=(title:string,summary:string,whyItMatters:string)=>({title,summary,whyItMatters});
 
 export const priorityPhilosopherDepth:Record<string,Partial<Philosopher>>={
+  zeno:{
+    beginnerReadingPath:[reading('Diogenes Laertius','Life of Zeno, in Lives of Eminent Philosophers','beginner','Begin with the fullest surviving ancient biography while treating its anecdotes critically.'),reading('Cleanthes','Hymn to Zeus','beginner','See the cosmic piety developed by Zeno’s immediate successor.'),reading('A. A. Long and D. N. Sedley','The Hellenistic Philosophers, early Stoic selections','intermediate','Reconstruct early Stoic arguments from fragments and reports.','secondary')],
+    advancedReadingPath:[reading('Malcolm Schofield','The Stoic Idea of the City','advanced','Study the political imagination associated with Zeno’s lost Republic.','secondary'),reading('Brad Inwood','The Cambridge Companion to the Stoics, selected chapters','advanced','Place Zeno within the development of the wider school.','secondary')],
+    sourceLinks:[wiki('Zeno of Citium','Zeno_of_Citium')]
+  },
+  seneca:{
+    beginnerReadingPath:[reading('Seneca','Moral Letters, selected letters','beginner','Begin with practical reflections on time, friendship, crowds, illness, and death.'),reading('Seneca','On the Shortness of Life','beginner','Follow a sustained argument about occupation, attention, and postponed living.'),reading('Seneca','On Anger, Book I','intermediate','Study anger as an endorsed judgment rather than an irresistible force.')],
+    advancedReadingPath:[reading('Seneca','On Benefits','advanced','Examine giving, gratitude, obligation, and hierarchy in Roman social life.'),reading('Seneca','Natural Questions, selections','advanced','Connect Stoic natural inquiry with ethical enlargement.'),reading('Seneca','Thyestes','advanced','Encounter passion and tyranny through tragedy.')],
+    sourceLinks:[sep('Seneca','seneca'),wiki('Seneca','Seneca_the_Younger')]
+  },
+  'marcus-aurelius':{
+    beginnerReadingPath:[reading('Marcus Aurelius','Meditations, Books I-II','beginner','Begin with gratitude, inherited character, and the first concentrated exercises.'),reading('Epictetus','Discourses, selected chapters','intermediate','Recover the arguments about impressions, agency, and roles behind Marcus’ notes.'),reading('Marcus Aurelius','Meditations, Books IV-VI','intermediate','Follow recurring exercises on impermanence, action, and social nature.')],
+    advancedReadingPath:[reading('Marcus Aurelius','Meditations, complete','advanced','Read the repetitions and shifts as a sustained private practice rather than isolated quotations.'),reading('Pierre Hadot','The Inner Citadel','advanced','A major secondary interpretation organized around Stoic disciplines.','secondary')],
+    sourceLinks:[sep('Marcus Aurelius','marcus-aurelius'),wiki('Marcus Aurelius','Marcus_Aurelius')]
+  },
   epicurus:{
     beginnerReadingPath:[reading('Epicurus','Letter to Menoeceus','beginner','Begin with the compact ethical therapy of gods, death, desire, pleasure, and practical wisdom.'),reading('Epicurus','Principal Doctrines','beginner','Read short formulations as prompts for understanding security, friendship, justice, and limits.'),reading('Epicurus','Vatican Sayings','intermediate','See how Epicurean practice addresses gratitude, friendship, desire, and self-sufficiency.')],
     advancedReadingPath:[reading('Epicurus','Letter to Herodotus','advanced','Study the physical theory that supports the ethical removal of fear.'),reading('Lucretius','On the Nature of Things','advanced','Encounter Epicurean physics and therapy transformed through Latin poetry.')],
@@ -218,6 +233,11 @@ export const priorityPhilosopherMisunderstandings:Record<string,string[]>={
   foucault:['Foucault does not claim that power is possessed only by a ruling group or that resistance is impossible.','Calling a category historically produced does not mean its effects are unreal.']
 };
 export const priorityBranchDepth:Record<string,Partial<Branch>>={
+  skepticism:{
+    beginnerReadingPath:[branchReading('Sextus Empiricus','Outlines of Pyrrhonism, Book I','beginner','Begin with skeptical inquiry, suspension, the modes, and the response to inactivity.'),branchReading('Sextus Empiricus','Outlines of Pyrrhonism, Books II-III, selections','intermediate','See skeptical methods applied to logic, physics, and ethics.'),branchReading('Montaigne','Apology for Raymond Sebond, selections','intermediate','Encounter an influential early modern transformation of skeptical materials.')],
+    advancedReadingPath:[branchReading('A. A. Long and D. N. Sedley','The Hellenistic Philosophers, skeptical selections','advanced','Study Academic and Pyrrhonian evidence in context.','secondary'),branchReading('Descartes','Meditations on First Philosophy','advanced','Compare methodic doubt aimed at certainty with ancient suspension.'),branchReading('Hume','An Enquiry Concerning Human Understanding, Section XII','advanced','Examine modern skeptical arguments and mitigated response.')],
+    sourceLinks:branchSources('Ancient skepticism','Philosophical_skepticism','skepticism-ancient')
+  },
   epicureanism:{
     beginnerReadingPath:[branchReading('Epicurus','Letter to Menoeceus','beginner','Begin with the ethical therapy of pleasure, desire, gods, and death.'),branchReading('Epicurus','Principal Doctrines and Vatican Sayings','beginner','Read the school’s compact claims as prompts for practice and discussion.'),branchReading('Lucretius','On the Nature of Things, selections','intermediate','Connect natural explanation to the removal of fear through poetry.')],
     advancedReadingPath:[branchReading('Epicurus','Letter to Herodotus','advanced','Study the atomist physics supporting Epicurean ethics.'),branchReading('Lucretius','On the Nature of Things, complete','advanced','Follow the fullest surviving presentation of Epicureanism.'),branchReading('James Warren','Facing Death: Epicurus and His Critics','advanced','A focused secondary study of the Epicurean argument about death.','secondary')],
