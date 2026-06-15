@@ -1,4 +1,4 @@
-import {useMemo,useState} from 'react';
+import {useEffect,useMemo,useRef,useState} from 'react';
 import {ArrowRight,BookOpen,Clock3,GitCompareArrows,GitBranch,HelpCircle,Landmark,Link2,Network,Search,Scale,UserRound} from 'lucide-react';
 import {philosophers,philosopherById} from '../../data/philosophers';
 import {branchById} from '../../data/branches';
@@ -11,6 +11,8 @@ export function PhilosopherProfile({selectedId,onSelect,onBranch,onCompare}:{sel
   const[q,setQ]=useState('');
   const list=useMemo(()=>{const needle=q.toLowerCase();return philosophers.filter(p=>`${p.name} ${p.tradition} ${p.mainIdeas.join(' ')}`.toLowerCase().includes(needle))},[q]);
   const p=philosopherById(selectedId)??philosophers[0];
+  const previousPhilosopherId=useRef(p.id);
+  useEffect(()=>{if(previousPhilosopherId.current!==p.id){window.scrollTo({top:0,behavior:'auto'});previousPhilosopherId.current=p.id}},[p.id]);
   const image=p.image;
   return <div className="page philosopher-atlas-page compact-content-page"><PageHead eyebrow="Thinkers in context" title="Philosopher Profiles" text="Biographies, questions, works, and influence routes show how a thinker changed the conversation."/>
     <div className="profiles-layout"><aside className="profile-list"><label><Search size={15}/><input value={q} onChange={e=>setQ(e.target.value)} placeholder="Find a thinker, tradition, or idea…"/></label><div className="profile-list-scroll">{list.map(x=><button className={`selectable-card ${p.id===x.id?'active is-selected':''}`} key={x.id} onClick={()=>onSelect(x.id)}><PhilosopherPortrait philosopher={x}/><span><b>{x.name}</b><small>{x.lifespan} · {x.tradition}</small></span><ArrowRight size={13}/></button>)}</div></aside>

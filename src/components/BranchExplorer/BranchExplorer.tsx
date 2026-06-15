@@ -1,4 +1,4 @@
-import {useMemo,useState} from 'react';
+import {useEffect,useMemo,useRef,useState} from 'react';
 import {ArrowRight,BookOpen,Clock3,Compass,Lightbulb,Link2,Network,Quote,Scale,Search,Sparkles,Users} from 'lucide-react';
 import {branches,branchById} from '../../data/branches';
 import {philosopherById} from '../../data/philosophers';
@@ -10,6 +10,8 @@ export function BranchExplorer({selectedId,onSelect,onPhilosopher,onCompare}:{se
   const[q,setQ]=useState('');
   const branchList=useMemo(()=>{const needle=q.toLowerCase();return branches.filter(branch=>`${branch.name} ${branch.category} ${branch.shortDefinition}`.toLowerCase().includes(needle))},[q]);
   const b=branchById(selectedId)??branches[0];
+  const previousBranchId=useRef(b.id);
+  useEffect(()=>{if(previousBranchId.current!==b.id){window.scrollTo({top:0,behavior:'auto'});previousBranchId.current=b.id}},[b.id]);
   return <div className="explorer"><aside className="branch-sidebar"><div className="branch-index-intro"><div className="eyebrow">The branch index</div><h2>Choose a lens</h2><p>Branches are conversations organized around durable questions.</p><label><Search size={14}/><input value={q} onChange={event=>setQ(event.target.value)} placeholder="Find a branch or question…"/></label></div><div className="branch-list">{branchList.map(x=><button key={x.id} className={`selectable-card ${x.id===b.id?'active is-selected':''}`} onClick={()=>onSelect(x.id)}><i style={{background:x.color}}/>{x.name}<small>{x.category}</small></button>)}</div></aside>
     <article className={`branch-page deep-branch-page ${b.articleSections?'article-page':''}`} style={{'--accent':b.color} as React.CSSProperties}>
       <section className="branch-hero"><div><div className="eyebrow"><Compass size={15}/>{b.category} · began {b.roughStartYear<0?`c. ${Math.abs(b.roughStartYear)} BCE`:b.roughStartYear}</div><h1>{b.name}</h1><p className="purpose">{b.oneSentencePurpose}</p><div className="hero-actions"><button className="btn btn-primary" onClick={()=>document.getElementById('questions')?.scrollIntoView({behavior:'smooth'})}>Begin with the questions <ArrowRight size={16}/></button>{b.contrastingBranchIds[0]&&<button className="btn btn-ghost" onClick={()=>onCompare(b.id,b.contrastingBranchIds[0])}><Scale size={16}/> Compare a rival</button>}</div></div><div className="orb"><Sparkles size={34}/><span>{b.category}</span></div></section>
