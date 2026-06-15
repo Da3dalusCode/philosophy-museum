@@ -17,30 +17,43 @@ The atlas now includes meaningful starting coverage for:
 - Metaphysics, epistemology, ethics, politics, mind, language, science, religion, and aesthetics.
 - Pragmatist, phenomenological, existentialist, analytic, continental, feminist, and critical traditions.
 
-## Deepened in Phase 3A
+## Article-first direction
 
-Priority philosopher profiles now have structured material for:
+Philosopher Profiles and Branch Explorer are moving from exhibit-card summaries toward article-grade reference pages. The new model preserves concise structured fields for the Philosophy Wall, comparisons, quick reference, readings, and connections, while adding `articleSections` as the primary depth layer. Article sections use sustained paragraph prose, stable headings, a contents rail, and optional links to related branches, philosophers, and works.
 
-- Short and extended biography.
-- Central questions and detailed ideas.
-- Intellectual development.
-- Influences received and influence on later thought.
-- Interpretive tensions.
-- Branch contributions.
-- Structured beginner and advanced reading routes.
+Records without authored article sections continue to render through the earlier structured exhibit layout. They should be treated as useful summaries rather than finished reference articles.
 
-The deepest priority pack covers major figures from Socrates through Derrida, including Hellenistic, Islamic, scholastic, early modern, nineteenth-century, and twentieth-century thinkers.
+## Article-format proof of concept
 
-Priority branch pages now support:
+The first philosopher records authored and rendered in the article-first format are:
 
-- Origin stories and detailed historical development.
-- Detailed concepts.
-- Internal debates and rival positions.
-- Major figures and works.
-- Modern relevance and misconceptions.
-- Structured beginner and advanced readings.
+- Plato
+- Kant
+- Nietzsche
+- Wittgenstein
 
-Platonism, Aristotelianism, and Neoplatonism are now first-class Branch Explorer destinations.
+The first branch records authored and rendered in the article-first format are:
+
+- Platonism
+- Epistemology
+- Ethics
+- Analytic Philosophy
+
+These eight records establish the editorial and UI pattern for future article packs: concise overview first, sustained historical and argumentative prose as the main body, and compact readings, sources, concepts, and atlas connections as supporting reference material.
+
+## Structured deep pack
+
+The current article-grade philosopher pack is deliberately limited to twelve profiles:
+
+- Plato, Aristotle, Augustine, Aquinas, Descartes, Hume, Kant, Nietzsche, Wittgenstein, Heidegger, Simone de Beauvoir, and Foucault.
+
+These profiles contain authored historical framing, multiple central questions, specifically explained ideas and works, named influence routes, interpretive disputes, staged reading paths, and stable reference links. Unless listed in the article-format proof of concept above, they still use the structured exhibit presentation and should be treated as candidates for future article conversion.
+
+The current article-grade branch pack is:
+
+- Platonism, Aristotelianism, Stoicism, Metaphysics, Epistemology, Ethics, Political Philosophy, Existentialism, Phenomenology, and Analytic Philosophy.
+
+These pages now contain specific origin stories, periodized development, concepts, major works, internal debates, modern relevance, misconceptions, reading paths, and reference links.
 
 ## Current shallow areas
 
@@ -57,27 +70,17 @@ High-priority shallow groups include:
 - Logical empiricism, philosophy of science, and postwar analytic ethics.
 - Decolonial philosophy, philosophy of race, disability philosophy, and global feminist traditions.
 
-## Priority future expansion packs
+## Recommended future article packs
 
-### Phase 3B: Global traditions
-
-- Build dedicated branch pages for Jain, Confucian, Daoist, Mohist, Legalist, Vedanta, Nyaya, Buddhist epistemology, Jewish philosophy, and Illuminationist philosophy.
-- Add historical-development events that connect these traditions without forcing them into a European periodization.
-
-### Phase 3C: Modern analysis and science
-
-- Deepen Frege, Moore, Carnap, Quine, Popper, Kuhn, and philosophy of science.
-- Add philosophy of mathematics, social epistemology, and philosophy of technology.
-
-### Phase 3D: Ethics, power, and society
-
-- Deepen Murdoch, Foot, Thomson, Nagel, Parfit, Nussbaum, Butler, Davis, bell hooks, and Fanon.
-- Add care ethics, philosophy of race, decolonial philosophy, and disability philosophy.
-
-### Phase 3E: Works and guided reading
-
-- Create structured work pages and connect readings directly to wall landmarks.
-- Expand Learning Paths around primary texts, interpretive disputes, and comparison exercises.
+1. Ancient Greek pack: Pre-Socratics, Socrates, Aristotle, and Ancient Greek Philosophy.
+2. Hellenistic pack: Epicurus, Zeno, Seneca, Epictetus, Marcus Aurelius, Stoicism, Epicureanism, and Skepticism.
+3. Medieval Christian/Jewish/Islamic pack: Augustine, Aquinas, Avicenna, Al-Ghazali, Averroes, Maimonides, Philosophy of Religion, and Medieval Scholasticism.
+4. Early Modern pack: Descartes, Spinoza, Leibniz, Locke, Hume, Rationalism, and Empiricism.
+5. Kant/German Idealism pack: Kant article expansion, Hegel, Schopenhauer, and German Idealism.
+6. Analytic pack: Frege, Russell, Moore, Carnap, Quine, Anscombe, logic, language, mind, and science.
+7. Continental pack: Husserl, Heidegger, Sartre, Beauvoir, Foucault, Derrida, Phenomenology, Existentialism, and Continental Philosophy.
+8. Indian/Buddhist/Chinese pack: Buddha, Nagarjuna, Shankara, Confucius, Laozi, Zhuangzi, and dedicated tradition pages.
+9. Feminist/critical/decolonial pack: Beauvoir, Fanon, Butler, Davis, bell hooks, feminist philosophy, and future race, decolonial, care, and disability branches.
 
 ## Image and source strategy
 
@@ -85,7 +88,8 @@ High-priority shallow groups include:
 - Missing or uncertain images deliberately use the existing fallback medallion.
 - No image should be added until its source and reuse terms are confidently verified.
 - Source-link fields support SEP, IEP, Wikimedia, Wikidata, primary texts, public-domain texts, and other reliable references.
-- Phase 3A leaves unverified source and image arrays empty rather than inventing metadata.
+- The article-grade pack adds a small set of stable SEP and Wikipedia reference links.
+- Portrait metadata remains intentionally deferred. Each candidate image still needs URL, source page, creator credit, license, and license URL verified together; profiles continue to use fallback medallions meanwhile.
 
 ## Editorial standards
 
@@ -94,3 +98,4 @@ High-priority shallow groups include:
 - Do not invent quotations, citations, image credits, or licenses.
 - Treat every tradition as an evolving argument rather than a single doctrine.
 - Prefer a small number of carefully structured additions over generic filler.
+- Use article prose for explanation and cards only where comparison, navigation, or quick reference genuinely benefits.
