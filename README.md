@@ -11,6 +11,21 @@ npm run dev
 
 Open the local URL printed by Vite (normally `http://localhost:5173`). Build with `npm run build`; inspect the production build with `npm run preview`.
 
+## Deploy to GitHub Pages
+
+This repository is configured as a public draft site for GitHub Pages:
+
+https://da3daluscode.github.io/philosophy-museum/
+
+Before deploying, verify the production build locally:
+
+```bash
+npm run build
+npm run preview
+```
+
+The GitHub Pages workflow builds the Vite app and publishes `dist` when changes are pushed to `main`, or when the workflow is run manually.
+
 ## Views
 
 - **Big History:** Filterable chronological events with connected branches and thinkers.
