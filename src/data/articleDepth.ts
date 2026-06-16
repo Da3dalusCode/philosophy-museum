@@ -1,18 +1,22 @@
 import type {ArticleSection} from '../types/philosophy';
+import {academicSkepticPhilosopherArticles} from './academicSkepticArticles';
 import {ancientGreekBranchArticles,ancientGreekPhilosopherArticles} from './ancientGreekArticles';
 import {earlyStoicSystemPhilosopherArticles} from './earlyStoicSystemArticles';
 import {hellenisticFoundationBranchArticles,hellenisticFoundationPhilosopherArticles} from './hellenisticFoundationArticles';
 import {hellenisticBranchArticles,hellenisticPhilosopherArticles} from './hellenisticArticles';
+import {lateAntiqueBridgePhilosopherArticles} from './lateAntiqueBridgeArticles';
 import {lateAntiqueInheritanceBranchArticles,lateAntiqueInheritancePhilosopherArticles} from './lateAntiqueInheritanceArticles';
 import {romanHellenisticBranchArticles,romanHellenisticPhilosopherArticles} from './romanHellenisticArticles';
 
 const section=(id:string,title:string,paragraphs:string[],relatedBranchIds?:string[],relatedPhilosopherIds?:string[],relatedWorkTitles?:string[]):ArticleSection=>({id,title,paragraphs,relatedBranchIds,relatedPhilosopherIds,relatedWorkTitles});
 
 export const philosopherArticles:Record<string,ArticleSection[]>={
+  ...academicSkepticPhilosopherArticles,
   ...ancientGreekPhilosopherArticles,
   ...earlyStoicSystemPhilosopherArticles,
   ...hellenisticFoundationPhilosopherArticles,
   ...hellenisticPhilosopherArticles,
+  ...lateAntiqueBridgePhilosopherArticles,
   ...lateAntiqueInheritancePhilosopherArticles,
   ...romanHellenisticPhilosopherArticles,
   plato:[

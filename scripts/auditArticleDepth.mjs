@@ -10,14 +10,14 @@ const moduleUrlFor=async path=>{
   return`data:text/javascript;base64,${Buffer.from(moduleCompiled).toString('base64')}`;
 };
 let compiled=ts.transpileModule(source,{compilerOptions}).outputText;
-for(const path of ['ancientGreekArticles','earlyStoicSystemArticles','hellenisticFoundationArticles','hellenisticArticles','lateAntiqueInheritanceArticles','romanHellenisticArticles']){
+for(const path of ['academicSkepticArticles','ancientGreekArticles','earlyStoicSystemArticles','hellenisticFoundationArticles','hellenisticArticles','lateAntiqueBridgeArticles','lateAntiqueInheritanceArticles','romanHellenisticArticles']){
   compiled=compiled.replace(new RegExp(`from ['"]\\./${path}['"]`),`from '${await moduleUrlFor(path)}'`);
 }
 const moduleUrl=`data:text/javascript;base64,${Buffer.from(compiled).toString('base64')}`;
 const {branchArticles,philosopherArticles}=await import(moduleUrl);
 
 const requested=process.argv.slice(2);
-const targets=requested.length?requested:['plato','platonism','socrates','aristotle','ancient-greek','epicurus','epictetus','stoicism','epicureanism','zeno','seneca','marcus-aurelius','skepticism','pyrrho','sextus-empiricus','lucretius','cynicism','diogenes','cleanthes','chrysippus','plotinus','aristotelianism','neoplatonism'];
+const targets=requested.length?requested:['plato','platonism','socrates','aristotle','ancient-greek','epicurus','epictetus','stoicism','epicureanism','zeno','seneca','marcus-aurelius','skepticism','pyrrho','sextus-empiricus','lucretius','cynicism','diogenes','cleanthes','chrysippus','plotinus','aristotelianism','neoplatonism','arcesilaus','carneades','porphyry','iamblichus','proclus','pseudo-dionysius'];
 const countWords=sections=>sections.flatMap(section=>section.paragraphs).join(' ').match(/\b[\p{L}\p{N}][\p{L}\p{N}’'-]*\b/gu)?.length??0;
 const minimum=1800;
 
