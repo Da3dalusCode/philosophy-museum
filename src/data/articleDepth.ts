@@ -6,6 +6,7 @@ import {hellenisticFoundationBranchArticles,hellenisticFoundationPhilosopherArti
 import {hellenisticBranchArticles,hellenisticPhilosopherArticles} from './hellenisticArticles';
 import {lateAntiqueBridgePhilosopherArticles} from './lateAntiqueBridgeArticles';
 import {lateAntiqueInheritanceBranchArticles,lateAntiqueInheritancePhilosopherArticles} from './lateAntiqueInheritanceArticles';
+import {medievalBridgePhilosopherArticles} from './medievalBridgeArticles';
 import {romanHellenisticBranchArticles,romanHellenisticPhilosopherArticles} from './romanHellenisticArticles';
 
 const section=(id:string,title:string,paragraphs:string[],relatedBranchIds?:string[],relatedPhilosopherIds?:string[],relatedWorkTitles?:string[]):ArticleSection=>({id,title,paragraphs,relatedBranchIds,relatedPhilosopherIds,relatedWorkTitles});
@@ -18,6 +19,7 @@ export const philosopherArticles:Record<string,ArticleSection[]>={
   ...hellenisticPhilosopherArticles,
   ...lateAntiqueBridgePhilosopherArticles,
   ...lateAntiqueInheritancePhilosopherArticles,
+  ...medievalBridgePhilosopherArticles,
   ...romanHellenisticPhilosopherArticles,
   plato:[
     section('overview','A philosophy written as an encounter',[
