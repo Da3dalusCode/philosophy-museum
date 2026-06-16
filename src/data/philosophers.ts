@@ -26,11 +26,16 @@ const specs:P[]=[
 ['zeno','Zeno of Citium',-334,-262,'Cyprus / Athens','Stoic',['stoicism'],'Founded Stoicism and joined virtue, reason, nature, and cosmopolitan community.',['Live according to nature','virtue'],['Fragments and reports']],
 ['cleanthes','Cleanthes',-330,-230,'Athens','Stoic',['stoicism'],'Preserved and developed early Stoicism, emphasizing cosmic order.',['Logos','cosmic order'],['Hymn to Zeus']],
 ['chrysippus','Chrysippus',-279,-206,'Athens','Stoic',['stoicism','logic'],'Systematized Stoic logic, ethics, and physics so thoroughly that the school endured.',['Assent','fate and responsibility'],['Fragments and reports']],
+['arcesilaus','Arcesilaus',-316,-241,'Athens','Academic Skeptic',['skepticism','epistemology','platonism'],'Turned Plato’s Academy toward skeptical dialectic and challenged Stoic claims to secure cognition.',['Suspension of judgment','dialectical opposition'],['Reports preserved by later writers']],
+['carneades','Carneades',-214,-129,'Athens','Academic Skeptic',['skepticism','epistemology','ethics'],'Developed formidable skeptical critiques while explaining action through persuasive appearances.',['Persuasive impression','argument on both sides'],['Reports preserved by Cicero and later writers']],
 ['epictetus','Epictetus',50,135,'Roman Empire','Roman Stoic',['stoicism'],'Turned Stoic ethics into a practical discipline of judgment, desire, and action.',['Control','disciplined judgment'],['Enchiridion','Discourses']],
 ['seneca','Seneca',4,65,'Rome','Roman Stoic',['stoicism'],'Explored how imperfect people can practice Stoicism amid wealth, politics, grief, and anger.',['Time','anger','moral practice'],['Letters from a Stoic']],
 ['marcus-aurelius','Marcus Aurelius',121,180,'Rome','Roman Stoic',['stoicism'],'Recorded private exercises in attention, duty, mortality, and character.',['Duty','memento mori'],['Meditations']],
 ['sextus-empiricus','Sextus Empiricus',160,210,'Mediterranean','Pyrrhonian',['skepticism'],'Presented skeptical arguments designed to produce suspension of judgment.',['Suspension of judgment'],['Outlines of Pyrrhonism']],
 ['plotinus','Plotinus',204,270,'Roman Empire','Neoplatonist',['metaphysics'],'Developed a vision of reality flowing from an ultimate unity.',['The One'],['Enneads']],
+['porphyry','Porphyry',234,305,'Tyre / Rome','Neoplatonist',['neoplatonism','logic'],'Edited Plotinus, transmitted Aristotelian logic, and joined philosophical purification to disciplined interpretation.',['Universals','philosophical purification'],['Isagoge','Life of Plotinus']],
+['iamblichus','Iamblichus',245,325,'Syria','Neoplatonist',['neoplatonism','philosophy-of-religion'],'Recast Neoplatonic ascent through theurgy, ritual, and an elaborate hierarchy of divine causes.',['Theurgy','divine hierarchy'],['On the Mysteries','Life of Pythagoras']],
+['proclus','Proclus',412,485,'Athens','Neoplatonist',['neoplatonism','metaphysics'],'Systematized late Neoplatonic causality, participation, procession, and return.',['Henads','procession and return'],['Elements of Theology','Platonic Theology']],
 ['confucius','Confucius',-551,-479,'China','Confucian',['chinese-philosophy','ethics'],'Centered ethical cultivation on humane relationships, ritual, and responsible example.',['Humaneness','ritual'],['Analects']],
 ['laozi','Laozi',-600,-500,'China','Daoist',['chinese-philosophy'],'Associated with a vision of effortless action aligned with the Dao.',['Dao','non-forcing'],['Daodejing']],
 ['zhuangzi','Zhuangzi',-369,-286,'China','Daoist',['chinese-philosophy'],'Used stories and paradoxes to loosen rigid perspectives.',['Perspective','spontaneity'],['Zhuangzi']],
@@ -141,5 +146,13 @@ const specs:P[]=[
 ['angela-davis','Angela Davis',1944,null,'United States','Critical / feminist',['feminist-philosophy','political-philosophy'],'Connects abolition, race, gender, class, and institutional critique.',['Abolition','intersectional struggle'],['Women, Race & Class']],
 ['bell-hooks','bell hooks',1952,2021,'United States','Feminist / critical',['feminist-philosophy','political-philosophy'],'Connected feminist theory to race, class, education, love, and everyday practice.',['Oppositional gaze','love and education'],['Feminist Theory: From Margin to Center']]
 ];
-export const philosophers=specs.map(make).map(applyPhilosopherDepth);
+const relationshipDepth:Record<string,Pick<Philosopher,'influencedByIds'|'influencedIds'|'disagreementIds'>>={
+  arcesilaus:{influencedByIds:['socrates','plato'],influencedIds:['carneades'],disagreementIds:['zeno','chrysippus']},
+  carneades:{influencedByIds:['arcesilaus'],influencedIds:[],disagreementIds:['chrysippus']},
+  porphyry:{influencedByIds:['plotinus','plato','aristotle'],influencedIds:['iamblichus'],disagreementIds:[]},
+  iamblichus:{influencedByIds:['porphyry','plotinus','pythagoras'],influencedIds:['proclus'],disagreementIds:['porphyry']},
+  proclus:{influencedByIds:['iamblichus','plotinus','plato'],influencedIds:['pseudo-dionysius'],disagreementIds:[]},
+  'pseudo-dionysius':{influencedByIds:['proclus'],influencedIds:['aquinas'],disagreementIds:[]}
+};
+export const philosophers=specs.map(make).map(p=>({...p,...relationshipDepth[p.id]})).map(applyPhilosopherDepth);
 export const philosopherById=(id:string)=>philosophers.find(p=>p.id===id);

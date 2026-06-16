@@ -4,7 +4,7 @@
 
 As of Phase 3A, the atlas contains approximately:
 
-- 135 philosopher records.
+- 140 philosopher records.
 - 36 branch and school records.
 - 28 sustained school bands on the Philosophy Wall.
 - 24 selected landmark works on the Philosophy Wall.
@@ -27,7 +27,7 @@ Records without authored article sections continue to render through the earlier
 
 The current gold-standard articles each contain at least 1,800 words of authored article prose and pass the default `npm run audit:articles` check:
 
-- Philosophers: Plato, Socrates, Aristotle, Epicurus, Epictetus, Zeno of Citium, Seneca, Marcus Aurelius, Pyrrho, Sextus Empiricus, Lucretius, Diogenes, Cleanthes, Chrysippus, and Plotinus.
+- Philosophers: Plato, Socrates, Aristotle, Epicurus, Epictetus, Zeno of Citium, Seneca, Marcus Aurelius, Pyrrho, Sextus Empiricus, Lucretius, Diogenes, Cleanthes, Chrysippus, Plotinus, Arcesilaus, Carneades, Porphyry, Iamblichus, Proclus, and Pseudo-Dionysius.
 - Branches: Platonism, Ancient Greek Philosophy, Stoicism, Epicureanism, Skepticism, Cynicism, Aristotelianism, and Neoplatonism.
 
 These records model the target editorial depth: a clear opening orientation, sustained historical and argumentative explanation, interpretive cautions, connections across the atlas, and a practical reading path.
@@ -36,7 +36,7 @@ These records model the target editorial depth: a clear opening orientation, sus
 
 The first philosopher records authored and rendered in the article-first format are:
 
-- Plato, Socrates, Aristotle, Epicurus, Epictetus, Zeno of Citium, Seneca, Marcus Aurelius, Pyrrho, Sextus Empiricus, Lucretius, Diogenes, Cleanthes, Chrysippus, Plotinus
+- Plato, Socrates, Aristotle, Epicurus, Epictetus, Zeno of Citium, Seneca, Marcus Aurelius, Pyrrho, Sextus Empiricus, Lucretius, Diogenes, Cleanthes, Chrysippus, Plotinus, Arcesilaus, Carneades, Porphyry, Iamblichus, Proclus, Pseudo-Dionysius
 - Kant
 - Nietzsche
 - Wittgenstein
@@ -82,8 +82,8 @@ High-priority shallow groups include:
 ## Recommended future article packs
 
 1. Ancient Greek continuation: Pre-Socratic natural philosophers, pluralists, atomists, and the major Hellenistic schools.
-2. Hellenistic continuation: the early Academic skeptics, later Peripatetics, and further Cynic figures.
-3. Late antique continuation: Porphyry, Iamblichus, Proclus, Pseudo-Dionysius, and late antique commentary traditions.
+2. Hellenistic continuation: later Peripatetics, further Cynic figures, and the transmission of Academic skepticism after Carneades.
+3. Late antique continuation: later commentators, successors in the Syrian and Athenian schools, and early Byzantine transformations.
 4. Medieval Christian/Jewish/Islamic pack: Augustine, Aquinas, Avicenna, Al-Ghazali, Averroes, Maimonides, Philosophy of Religion, and Medieval Scholasticism.
 5. Early Modern pack: Descartes, Spinoza, Leibniz, Locke, Hume, Rationalism, and Empiricism.
 6. Kant/German Idealism pack: Kant article expansion, Hegel, Schopenhauer, and German Idealism.

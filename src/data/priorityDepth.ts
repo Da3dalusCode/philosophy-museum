@@ -7,6 +7,36 @@ const idea=(name:string,explanation:string,whyItMatters:string)=>({name,explanat
 const work=(title:string,summary:string,whyItMatters:string)=>({title,summary,whyItMatters});
 
 export const priorityPhilosopherDepth:Record<string,Partial<Philosopher>>={
+  arcesilaus:{
+    beginnerReadingPath:[reading('Cicero','Academica, selections on Arcesilaus and cognition','intermediate','Begin with a major source for the skeptical Academy and its dispute with Stoic epistemology.'),reading('Diogenes Laertius','Life of Arcesilaus, in Lives of Eminent Philosophers Book IV','beginner','Encounter the biographical tradition while separating anecdotes from philosophical reconstruction.'),reading('A. A. Long and D. N. Sedley','The Hellenistic Philosophers, Academic skeptical selections','intermediate','Place the surviving reports beside their Stoic targets.','secondary')],
+    advancedReadingPath:[reading('Sextus Empiricus','Against the Logicians, Academic skeptical passages','advanced','Compare later skeptical reports of Academic arguments against cognition.'),reading('Cicero','Academica, complete surviving books and fragments','advanced','Study Academic skepticism through its most important Latin transmitter.')],
+    sourceLinks:[wiki('Arcesilaus','Arcesilaus')]
+  },
+  carneades:{
+    beginnerReadingPath:[reading('Cicero','Academica, selections on Carneades and persuasive impressions','intermediate','Begin with the key evidence for Carneadean criticism and practical judgment.'),reading('Cicero','On the Nature of the Gods, Carneadean arguments','intermediate','See skeptical method applied to providence and natural theology.'),reading('A. A. Long and D. N. Sedley','The Hellenistic Philosophers, Carneades selections','intermediate','Organize fragmentary evidence across epistemology and ethics.','secondary')],
+    advancedReadingPath:[reading('Cicero','On the Republic, Book III fragments','advanced','Study the Roman debate over justice associated with Carneades’ embassy.'),reading('Sextus Empiricus','Against the Logicians, passages on Academic criteria','advanced','Compare later reports of Carneadean epistemology.')],
+    sourceLinks:[wiki('Carneades','Carneades')]
+  },
+  porphyry:{
+    beginnerReadingPath:[reading('Porphyry','Life of Plotinus','beginner','See how biography, editing, and philosophical community frame the Enneads.'),reading('Porphyry','Isagoge','intermediate','Enter Porphyry’s logical legacy through predication and the problem of universals.'),reading('Porphyry','On Abstinence, selections','intermediate','Connect purification, diet, justice, and philosophical practice.')],
+    advancedReadingPath:[reading('Porphyry','On the Cave of the Nymphs','advanced','Study allegorical interpretation and philosophical readings of inherited poetry.'),reading('Plotinus','Enneads, selected treatises in Porphyry’s arrangement','advanced','Examine the editorial structure through which Porphyry transmitted his teacher.')],
+    sourceLinks:[sep('Porphyry','porphyry'),wiki('Porphyry','Porphyry_(philosopher)')]
+  },
+  iamblichus:{
+    beginnerReadingPath:[reading('Iamblichus','On the Mysteries, selections','intermediate','Begin with the defense of theurgy, symbols, prayer, and divine action.'),reading('Iamblichus','Life of Pythagoras','intermediate','Study philosophical community and education through a late antique exemplary life.'),reading('Porphyry','Letter to Anebo, surviving questions','intermediate','Recover the critical questions to which On the Mysteries responds.')],
+    advancedReadingPath:[reading('Iamblichus','On the Mysteries, complete','advanced','Follow the full argument for ritual mediation and the limits of human intellect.'),reading('John Dillon','Iamblichi Chalcidensis in Platonis Dialogos Commentariorum Fragmenta','advanced','Study fragmentary evidence for Iamblichus’ Platonic interpretation.','secondary')],
+    sourceLinks:[sep('Iamblichus','iamblichus'),wiki('Iamblichus','Iamblichus')]
+  },
+  proclus:{
+    beginnerReadingPath:[reading('Proclus','Elements of Theology, selected propositions','intermediate','Trace the core relations of causality, participation, procession, and return.'),reading('Proclus','Commentary on the First Book of Euclid’s Elements, selections','intermediate','See how mathematical demonstration fits Proclus’ philosophical curriculum.'),reading('Proclus','Commentary on the Timaeus, selections','advanced','Encounter systematic metaphysics through close interpretation of Plato.')],
+    advancedReadingPath:[reading('Proclus','Elements of Theology, complete','advanced','Follow the full demonstrative architecture of Proclean metaphysics.'),reading('Proclus','Platonic Theology, selections','advanced','Study the system’s relation to Platonic dialogues and late antique theology.')],
+    sourceLinks:[sep('Proclus','proclus'),wiki('Proclus','Proclus')]
+  },
+  'pseudo-dionysius':{
+    beginnerReadingPath:[reading('Pseudo-Dionysius','Mystical Theology','intermediate','Begin with the compact account of affirmation, negation, and unknowing.'),reading('Pseudo-Dionysius','Divine Names, selections','intermediate','Study naming, participation, goodness, beauty, and divine causality.'),reading('Pseudo-Dionysius','Celestial Hierarchy, selections','intermediate','See how mediation and symbolic interpretation organize the corpus.')],
+    advancedReadingPath:[reading('Pseudo-Dionysius','Ecclesiastical Hierarchy','advanced','Examine liturgy, institution, symbols, and mediated illumination.'),reading('Proclus','Elements of Theology, selected parallels','advanced','Compare the late Neoplatonic causal grammar transformed by the Dionysian corpus.')],
+    sourceLinks:[wiki('Pseudo-Dionysius the Areopagite','Pseudo-Dionysius_the_Areopagite')]
+  },
   diogenes:{
     beginnerReadingPath:[reading('Diogenes Laertius','Life of Diogenes, in Lives of Eminent Philosophers Book VI','beginner','Begin with the major anecdotal tradition while asking what philosophical work each scene performs.'),reading('Epictetus','Discourses 3.22, On Cynicism','intermediate','See a later Stoic define the true Cynic as a demanding public vocation.'),reading('Xenophon','Memorabilia, Socratic selections','intermediate','Compare Cynic independence with a major portrait of the Socratic inheritance.')],
     advancedReadingPath:[reading('A. A. Long','The Socratic Tradition: Diogenes, Crates, and Hellenistic Ethics','advanced','Place Diogenes within the development from Socratic practice to Hellenistic ethics.','secondary'),reading('William Desmond','Cynics','advanced','A broad historical and interpretive guide to ancient Cynicism.','secondary')],
