@@ -1,0 +1,94 @@
+export type WallSchool={id:string;name:string;startYear:number;endYear:number;row:number;color:string;summary:string;branchId?:string;philosopherIds:string[]};
+export type WallWork={id:string;title:string;year:number;authorId?:string;schoolId:string;branchIds:string[];summary:string};
+export type WallInfluenceKind='influenced'|'develops-into'|'reacts-against'|'overlaps-with'|'revives-transforms';
+export type WallInfluence={id:string;sourceId:string;targetId:string;kind:WallInfluenceKind;summary:string;curated:boolean};
+
+export const wallPeriods=[
+  {name:'Pre-Classical',start:-700,end:-480},{name:'Classical',start:-480,end:-323},{name:'Hellenistic',start:-323,end:-31},
+  {name:'Roman',start:-31,end:300},{name:'Late Antique',start:300,end:600},{name:'Medieval',start:600,end:1400},
+  {name:'Renaissance',start:1400,end:1550},{name:'Early Modern',start:1550,end:1700},{name:'Enlightenment',start:1700,end:1800},
+  {name:'19th Century',start:1800,end:1900},{name:'Modern',start:1900,end:1950},{name:'Contemporary',start:1950,end:2026}
+];
+
+export const wallSchools:WallSchool[]=[
+  {id:'milesian',name:'Milesian / Ionian natural philosophy',startYear:-625,endYear:-525,row:0,color:'#d87f68',summary:'Natural explanations replace inherited myth as the main route into change and order.',philosopherIds:['thales','anaximander','anaximenes']},
+  {id:'pythagorean',name:'Pythagoreanism',startYear:-570,endYear:-350,row:1,color:'#c997d4',summary:'Number, harmony, and a disciplined communal life form one philosophical vision.',philosopherIds:['pythagoras','philolaus']},
+  {id:'eleatic',name:'Eleatic school',startYear:-515,endYear:-430,row:2,color:'#81a9dd',summary:'Reason challenges the apparent reality of motion, plurality, and change.',philosopherIds:['parmenides','zeno-elea']},
+  {id:'atomism',name:'Atomism',startYear:-500,endYear:-250,row:3,color:'#77b7c8',summary:'Change is explained through indivisible bodies moving in void.',philosopherIds:['leucippus','democritus']},
+  {id:'sophists',name:'Sophists',startYear:-490,endYear:-380,row:4,color:'#db9a62',summary:'Language, judgment, civic argument, and education become central.',philosopherIds:['protagoras','gorgias']},
+  {id:'platonism',name:'Platonism',startYear:-387,endYear:550,row:5,color:'#9988e6',summary:'The Academy and its heirs connect knowledge, forms, ethics, and political order.',branchId:'platonism',philosopherIds:['plato','plotinus']},
+  {id:'aristotelianism',name:'Aristotelianism',startYear:-335,endYear:1650,row:6,color:'#b29a68',summary:'Aristotle’s methods and categories travel through ancient, Islamic, and scholastic traditions.',branchId:'aristotelianism',philosopherIds:['aristotle','averroes','aquinas']},
+  {id:'cynicism',name:'Cynicism',startYear:-445,endYear:200,row:7,color:'#d57862',summary:'Radical simplicity and frank speech expose dependence on convention.',branchId:'cynicism',philosopherIds:['antisthenes','diogenes']},
+  {id:'stoicism',name:'Stoicism',startYear:-300,endYear:250,row:8,color:'#d99b5b',summary:'Virtue, reason, nature, and practiced judgment define a philosophy of life.',branchId:'stoicism',philosopherIds:['zeno','cleanthes','chrysippus','seneca','epictetus','marcus-aurelius']},
+  {id:'epicureanism',name:'Epicureanism',startYear:-307,endYear:300,row:9,color:'#e4bb63',summary:'Modest pleasure, friendship, and natural explanation promise freedom from fear.',branchId:'epicureanism',philosopherIds:['epicurus','lucretius']},
+  {id:'skepticism',name:'Skepticism',startYear:-360,endYear:300,row:10,color:'#729edb',summary:'Suspending judgment tests claims to certainty and promises tranquility.',branchId:'skepticism',philosopherIds:['pyrrho','sextus-empiricus']},
+  {id:'confucianism',name:'Confucian philosophy',startYear:-550,endYear:2026,row:11,color:'#df776e',summary:'Ethical cultivation, relationship, ritual, and responsible government form a continuing tradition.',branchId:'chinese-philosophy',philosopherIds:['confucius','mencius','xunzi']},
+  {id:'daoism',name:'Daoist philosophy',startYear:-520,endYear:2026,row:12,color:'#68b8a8',summary:'The Way, non-forcing, spontaneity, and shifting perspectives challenge rigid order.',branchId:'chinese-philosophy',philosopherIds:['laozi','zhuangzi']},
+  {id:'buddhist',name:'Buddhist philosophy',startYear:-480,endYear:2026,row:13,color:'#e2b65c',summary:'Suffering, impermanence, no-self, and liberation generate diverse philosophical traditions.',branchId:'buddhist-philosophy',philosopherIds:['buddha','nagarjuna','vasubandhu','dignaga','dharmakirti']},
+  {id:'neoplatonism',name:'Neoplatonism',startYear:200,endYear:600,row:4,color:'#a786d6',summary:'Platonism is transformed into a metaphysics of emanation, unity, and return.',branchId:'neoplatonism',philosopherIds:['plotinus','augustine','pseudo-dionysius']},
+  {id:'islamic',name:'Islamic philosophy',startYear:800,endYear:1400,row:2,color:'#58b89a',summary:'Greek philosophy is translated, criticized, and transformed in Arabic intellectual cultures.',branchId:'islamic-philosophy',philosopherIds:['al-kindi','al-farabi','avicenna','al-ghazali','averroes']},
+  {id:'scholasticism',name:'Scholasticism',startYear:1050,endYear:1500,row:7,color:'#9b91cf',summary:'Universities organize precise argument around logic, nature, theology, and law.',branchId:'medieval-scholasticism',philosopherIds:['anselm','aquinas','duns-scotus','ockham']},
+  {id:'rationalism',name:'Rationalism',startYear:1630,endYear:1780,row:1,color:'#689ee0',summary:'Reason and innate structure are treated as major sources of knowledge.',branchId:'rationalism',philosopherIds:['descartes','spinoza','leibniz']},
+  {id:'empiricism',name:'Empiricism',startYear:1600,endYear:1800,row:3,color:'#57b9bf',summary:'Experience and observation become the testing ground for knowledge.',branchId:'empiricism',philosopherIds:['bacon','locke','berkeley','hume']},
+  {id:'political',name:'Political philosophy',startYear:1650,endYear:2026,row:5,color:'#ee8d75',summary:'Authority, liberty, rights, justice, and institutions become an explicit modern argument.',branchId:'political-philosophy',philosopherIds:['hobbes','montesquieu','rousseau','wollstonecraft','marx','rawls','nozick','arendt','fanon','angela-davis']},
+  {id:'german-idealism',name:'German Idealism',startYear:1781,endYear:1850,row:6,color:'#b288d9',summary:'Mind, reason, freedom, nature, and history are developed as an interconnected system.',branchId:'german-idealism',philosopherIds:['kant','fichte','schelling','hegel']},
+  {id:'utilitarianism',name:'Utilitarianism',startYear:1789,endYear:2026,row:8,color:'#8bd17c',summary:'Consequences for overall well-being become a central standard of action and policy.',branchId:'utilitarianism',philosopherIds:['mill']},
+  {id:'pragmatism',name:'Pragmatism',startYear:1870,endYear:2026,row:10,color:'#d3a65c',summary:'Ideas are tested through consequences, inquiry, and lived practice.',branchId:'pragmatism',philosopherIds:['peirce','william-james','dewey']},
+  {id:'phenomenology',name:'Phenomenology',startYear:1900,endYear:2026,row:1,color:'#c38de0',summary:'Lived experience is carefully described before being explained from outside.',branchId:'phenomenology',philosopherIds:['husserl','heidegger','merleau-ponty']},
+  {id:'existentialism',name:'Existentialism',startYear:1843,endYear:2026,row:3,color:'#e8798e',summary:'Freedom, anxiety, responsibility, mortality, and meaning become central.',branchId:'existentialism',philosopherIds:['kierkegaard','nietzsche','sartre','beauvoir','camus']},
+  {id:'analytic',name:'Analytic philosophy',startYear:1900,endYear:2026,row:6,color:'#77aadd',summary:'Logic, language, clarity, and careful argument define a broad modern tradition.',branchId:'analytic-philosophy',philosopherIds:['frege','russell','g-e-moore','wittgenstein','carnap','quine','anscombe']},
+  {id:'continental',name:'Continental philosophy',startYear:1900,endYear:2026,row:8,color:'#ca7fb5',summary:'History, culture, experience, power, and critique animate several related movements.',branchId:'continental-philosophy',philosopherIds:['heidegger','merleau-ponty','sartre','levinas','gadamer','fanon','foucault','derrida','habermas']},
+  {id:'feminist',name:'Feminist philosophy',startYear:1792,endYear:2026,row:12,color:'#ed79a5',summary:'Gender, power, exclusion, embodiment, and standpoint transform philosophical questions.',branchId:'feminist-philosophy',philosopherIds:['wollstonecraft','beauvoir','judith-butler','angela-davis','bell-hooks']}
+];
+
+export const wallWorks:WallWork[]=[
+  {id:'republic',title:'Republic',year:-375,authorId:'plato',schoolId:'platonism',branchIds:['political-philosophy','ethics','metaphysics'],summary:'Justice, education, knowledge, and political order are joined in one landmark dialogue.'},
+  {id:'nicomachean-ethics',title:'Nicomachean Ethics',year:-340,authorId:'aristotle',schoolId:'aristotelianism',branchIds:['ethics'],summary:'Virtue and flourishing are framed across a whole human life.'},
+  {id:'nature-things',title:'On the Nature of Things',year:-55,authorId:'lucretius',schoolId:'epicureanism',branchIds:['epicureanism'],summary:'Epicurean atomism becomes a major Latin philosophical poem.'},
+  {id:'meditations',title:'Meditations',year:175,authorId:'marcus-aurelius',schoolId:'stoicism',branchIds:['stoicism'],summary:'Private Stoic exercises join attention, duty, and mortality.'},
+  {id:'confessions',title:'Confessions',year:397,authorId:'augustine',schoolId:'neoplatonism',branchIds:['philosophy-of-religion','metaphysics'],summary:'Inwardness, will, memory, and time become philosophical subjects.'},
+  {id:'summa',title:'Summa Theologiae',year:1270,authorId:'aquinas',schoolId:'scholasticism',branchIds:['medieval-scholasticism','philosophy-of-religion'],summary:'Scholastic synthesis reaches a systematic landmark.'},
+  {id:'meditations-first',title:'Meditations on First Philosophy',year:1641,authorId:'descartes',schoolId:'rationalism',branchIds:['rationalism','epistemology'],summary:'Methodic doubt resets modern debates about knowledge and mind.'},
+  {id:'leviathan',title:'Leviathan',year:1651,authorId:'hobbes',schoolId:'political',branchIds:['political-philosophy'],summary:'Political authority is grounded in escape from insecurity and conflict.'},
+  {id:'locke-essay',title:'Essay Concerning Human Understanding',year:1690,authorId:'locke',schoolId:'empiricism',branchIds:['empiricism','epistemology'],summary:'Experience and the limits of knowledge become a modern program.'},
+  {id:'pure-reason',title:'Critique of Pure Reason',year:1781,authorId:'kant',schoolId:'german-idealism',branchIds:['epistemology','metaphysics'],summary:'Kant transforms the dispute between rationalism and empiricism.'},
+  {id:'spirit',title:'Phenomenology of Spirit',year:1807,authorId:'hegel',schoolId:'german-idealism',branchIds:['german-idealism'],summary:'Consciousness and freedom are understood through historical development.'},
+  {id:'fear-trembling',title:'Fear and Trembling',year:1843,authorId:'kierkegaard',schoolId:'existentialism',branchIds:['existentialism'],summary:'Subjective commitment and faith challenge systematic philosophy.'},
+  {id:'on-liberty',title:'On Liberty',year:1859,authorId:'mill',schoolId:'utilitarianism',branchIds:['utilitarianism','political-philosophy'],summary:'Liberty and utility are brought into a productive tension.'},
+  {id:'genealogy',title:'On the Genealogy of Morality',year:1887,authorId:'nietzsche',schoolId:'existentialism',branchIds:['ethics','continental-philosophy'],summary:'Moral values are investigated as historical constructions.'},
+  {id:'logical-investigations',title:'Logical Investigations',year:1900,authorId:'husserl',schoolId:'phenomenology',branchIds:['phenomenology'],summary:'Phenomenology emerges as a rigorous descriptive method.'},
+  {id:'tractatus',title:'Tractatus',year:1921,authorId:'wittgenstein',schoolId:'analytic',branchIds:['analytic-philosophy','logic'],summary:'Language, facts, and logical form redefine philosophical method.'},
+  {id:'being-time',title:'Being and Time',year:1927,authorId:'heidegger',schoolId:'phenomenology',branchIds:['ontology','phenomenology'],summary:'The question of being is renewed through situated existence.'},
+  {id:'second-sex',title:'The Second Sex',year:1949,authorId:'beauvoir',schoolId:'feminist',branchIds:['feminist-philosophy','existentialism'],summary:'Situated freedom is joined to a major analysis of gendered power.'},
+  {id:'theory-justice',title:'A Theory of Justice',year:1971,authorId:'rawls',schoolId:'political',branchIds:['political-philosophy'],summary:'Justice as fairness resets contemporary political philosophy.'},
+  {id:'discipline-punish',title:'Discipline and Punish',year:1975,authorId:'foucault',schoolId:'continental',branchIds:['continental-philosophy','political-philosophy'],summary:'Institutions, knowledge, and power are shown to form subjects.'}
+  ,{id:'vindication-rights-woman',title:'A Vindication of the Rights of Woman',year:1792,authorId:'wollstonecraft',schoolId:'feminist',branchIds:['feminist-philosophy','political-philosophy'],summary:'Equality and education are brought together in an early feminist political argument.'}
+  ,{id:'sense-reference',title:'On Sense and Reference',year:1892,authorId:'frege',schoolId:'analytic',branchIds:['analytic-philosophy','philosophy-of-language'],summary:'Meaning and reference are distinguished in a foundational analytic essay.'}
+  ,{id:'james-pragmatism',title:'Pragmatism',year:1907,authorId:'william-james',schoolId:'pragmatism',branchIds:['pragmatism'],summary:'The pragmatic method is presented through consequences and lived differences.'}
+  ,{id:'perception',title:'Phenomenology of Perception',year:1945,authorId:'merleau-ponty',schoolId:'phenomenology',branchIds:['phenomenology','philosophy-of-mind'],summary:'Embodied perception becomes a primary philosophical starting point.'}
+];
+
+export const wallInfluences:WallInfluence[]=[
+  {id:'milesian-atomism',sourceId:'milesian',targetId:'atomism',kind:'develops-into',summary:'Natural explanation develops into more systematic accounts of matter and change.',curated:true},
+  {id:'pythagorean-platonism',sourceId:'pythagorean',targetId:'platonism',kind:'influenced',summary:'Mathematical harmony helps shape Platonic accounts of order.',curated:true},
+  {id:'eleatic-platonism',sourceId:'eleatic',targetId:'platonism',kind:'influenced',summary:'Eleatic arguments sharpen Plato’s distinction between appearance and intelligible reality.',curated:true},
+  {id:'sophists-plato',sourceId:'sophists',targetId:'platonism',kind:'reacts-against',summary:'Plato develops philosophy partly through sustained argument with sophistic rhetoric and relativism.',curated:true},
+  {id:'plato-aristotle',sourceId:'platonism',targetId:'aristotelianism',kind:'reacts-against',summary:'Aristotle inherits Plato’s questions while revising the theory of Forms.',curated:true},
+  {id:'cynic-stoic',sourceId:'cynicism',targetId:'stoicism',kind:'develops-into',summary:'Stoicism transforms Cynic independence into a systematic ethics and cosmology.',curated:true},
+  {id:'plato-neoplatonism',sourceId:'platonism',targetId:'neoplatonism',kind:'revives-transforms',summary:'Late antique Platonists transform Plato into a metaphysics of emanation and return.',curated:true},
+  {id:'aristotle-islamic',sourceId:'aristotelianism',targetId:'islamic',kind:'revives-transforms',summary:'Islamic philosophers translate, criticize, and extend Aristotle.',curated:true},
+  {id:'islamic-scholastic',sourceId:'islamic',targetId:'scholasticism',kind:'influenced',summary:'Arabic philosophy becomes a major route by which Aristotle and new metaphysics enter Latin debate.',curated:true},
+  {id:'aristotle-scholastic',sourceId:'aristotelianism',targetId:'scholasticism',kind:'revives-transforms',summary:'Scholasticism integrates Aristotelian methods into university theology and philosophy.',curated:true},
+  {id:'rational-empirical',sourceId:'rationalism',targetId:'empiricism',kind:'reacts-against',summary:'Rival accounts of knowledge sharpen one another across early modern philosophy.',curated:true},
+  {id:'empirical-idealism',sourceId:'empiricism',targetId:'german-idealism',kind:'reacts-against',summary:'Kant’s critical project responds directly to Hume’s empiricism and skepticism.',curated:true},
+  {id:'rational-idealism',sourceId:'rationalism',targetId:'german-idealism',kind:'revives-transforms',summary:'German Idealism inherits and transforms rationalist system-building.',curated:true},
+  {id:'idealism-existentialism',sourceId:'german-idealism',targetId:'existentialism',kind:'reacts-against',summary:'Existential thinkers resist total systems by returning to lived commitment and individual existence.',curated:true},
+  {id:'idealism-continental',sourceId:'german-idealism',targetId:'continental',kind:'develops-into',summary:'History and dialectic remain major resources for continental philosophy.',curated:true},
+  {id:'phenomenology-existentialism',sourceId:'phenomenology',targetId:'existentialism',kind:'develops-into',summary:'Existentialism transforms phenomenological description into an account of freedom and responsibility.',curated:true},
+  {id:'phenomenology-continental',sourceId:'phenomenology',targetId:'continental',kind:'develops-into',summary:'Phenomenology becomes a central route into later continental thought.',curated:true},
+  {id:'analytic-continental',sourceId:'analytic',targetId:'continental',kind:'overlaps-with',summary:'Both traditions pursue meaning and language through different methods and inheritances.',curated:true},
+  {id:'existential-feminist',sourceId:'existentialism',targetId:'feminist',kind:'revives-transforms',summary:'Feminist philosophy transforms existential freedom through analyses of gender and power.',curated:true},
+  {id:'political-feminist',sourceId:'political',targetId:'feminist',kind:'overlaps-with',summary:'Questions of authority, justice, and exclusion connect political and feminist philosophy.',curated:true},
+  {id:'stoic-buddhist',sourceId:'stoicism',targetId:'buddhist',kind:'overlaps-with',summary:'Both traditions train desire and response to suffering while differing about self and nature.',curated:false},
+  {id:'pragmatism-analytic',sourceId:'pragmatism',targetId:'analytic',kind:'overlaps-with',summary:'Pragmatist accounts of inquiry and meaning intersect with parts of analytic philosophy.',curated:false}
+];
