@@ -25,18 +25,20 @@ Records without authored article sections continue to render through the earlier
 
 ## Gold-standard audited articles
 
-The current gold-standard articles each contain at least 1,800 words of authored article prose and pass the default `npm run audit:articles` check:
+The current gold-standard articles pass the default `npm run audit:articles` check. Earlier gold-standard records meet the original 1,800-word floor; the medieval bridge records added after that standard use the stricter 2,000-word floor.
 
-- Philosophers: Plato, Socrates, Aristotle, Epicurus, Epictetus, Zeno of Citium, Seneca, Marcus Aurelius, Pyrrho, Sextus Empiricus, Lucretius, Diogenes, Cleanthes, Chrysippus, Plotinus, Arcesilaus, Carneades, Porphyry, Iamblichus, Proclus, and Pseudo-Dionysius.
+- Philosophers: Plato, Socrates, Aristotle, Epicurus, Epictetus, Zeno of Citium, Seneca, Marcus Aurelius, Pyrrho, Sextus Empiricus, Lucretius, Diogenes, Cleanthes, Chrysippus, Plotinus, Arcesilaus, Carneades, Porphyry, Iamblichus, Proclus, Pseudo-Dionysius, Augustine, Boethius, Anselm, Thomas Aquinas, Ibn Sina / Avicenna, and Maimonides.
 - Branches: Platonism, Ancient Greek Philosophy, Stoicism, Epicureanism, Skepticism, Cynicism, Aristotelianism, and Neoplatonism.
 
 These records model the target editorial depth: a clear opening orientation, sustained historical and argumentative explanation, interpretive cautions, connections across the atlas, and a practical reading path.
+
+The medieval bridge pass begins the Christian/Jewish/Islamic transition from late antiquity into scholastic and post-Avicennian debates, with special attention to faith and reason, divine language, law, grace, free will, necessary being, and philosophical interpretation.
 
 ## Article-format coverage
 
 The first philosopher records authored and rendered in the article-first format are:
 
-- Plato, Socrates, Aristotle, Epicurus, Epictetus, Zeno of Citium, Seneca, Marcus Aurelius, Pyrrho, Sextus Empiricus, Lucretius, Diogenes, Cleanthes, Chrysippus, Plotinus, Arcesilaus, Carneades, Porphyry, Iamblichus, Proclus, Pseudo-Dionysius
+- Plato, Socrates, Aristotle, Epicurus, Epictetus, Zeno of Citium, Seneca, Marcus Aurelius, Pyrrho, Sextus Empiricus, Lucretius, Diogenes, Cleanthes, Chrysippus, Plotinus, Arcesilaus, Carneades, Porphyry, Iamblichus, Proclus, Pseudo-Dionysius, Augustine, Boethius, Anselm, Thomas Aquinas, Ibn Sina / Avicenna, Maimonides
 - Kant
 - Nietzsche
 - Wittgenstein
@@ -84,7 +86,7 @@ High-priority shallow groups include:
 1. Ancient Greek continuation: Pre-Socratic natural philosophers, pluralists, atomists, and the major Hellenistic schools.
 2. Hellenistic continuation: later Peripatetics, further Cynic figures, and the transmission of Academic skepticism after Carneades.
 3. Late antique continuation: later commentators, successors in the Syrian and Athenian schools, and early Byzantine transformations.
-4. Medieval Christian/Jewish/Islamic pack: Augustine, Aquinas, Avicenna, Al-Ghazali, Averroes, Maimonides, Philosophy of Religion, and Medieval Scholasticism.
+4. Medieval Christian/Jewish/Islamic continuation: Al-Ghazali, Averroes, Philosophy of Religion, Medieval Scholasticism, Jewish medieval philosophy after Maimonides, and post-Avicennian Islamic traditions.
 5. Early Modern pack: Descartes, Spinoza, Leibniz, Locke, Hume, Rationalism, and Empiricism.
 6. Kant/German Idealism pack: Kant article expansion, Hegel, Schopenhauer, and German Idealism.
 7. Analytic pack: Frege, Russell, Moore, Carnap, Quine, Anscombe, logic, language, mind, and science.
