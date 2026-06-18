@@ -44,6 +44,8 @@ Founder integrity fixes now require branch origin metadata, major figure lists, 
 
 The focused `npm run audit:accuracy` script checks these high-priority consistency rules. Remaining accuracy work should continue as fact-check packs: review ancient and cross-cultural chronologies, expand membership statuses to more branches, and compare branch origin stories against timeline and wall metadata before adding new article packs.
 
+The second accuracy pass extends those rules to ancient and cross-cultural chronology. Chinese, Indian, Buddhist, Jain, Daoist, Confucian, Mohist, Legalist, and Vedanta-related records should not imply modern exact dating where the evidence is traditional, approximate, legendary, or disputed. Broad tradition pages should distinguish canonical figures, critics, commentators, school systematizers, and later reception instead of treating every figure as a simple member of one school. Current locked checks cover Confucius, Laozi, Zhuangzi, Mahavira, Kanada, Patanjali, Shankara, Ramanuja, Dignaga, Dharmakirti, and the broad Chinese/Indian/Buddhist branch figure lists.
+
 ## Article-format coverage
 
 The first philosopher records authored and rendered in the article-first format are:
