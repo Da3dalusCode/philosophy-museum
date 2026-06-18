@@ -4,7 +4,7 @@
 
 As of Phase 3A, the atlas contains approximately:
 
-- 140 philosopher records.
+- 141 philosopher records.
 - 36 branch and school records.
 - 28 sustained school bands on the Philosophy Wall.
 - 24 selected landmark works on the Philosophy Wall.
@@ -33,6 +33,16 @@ The current gold-standard articles pass the default `npm run audit:articles` che
 These records model the target editorial depth: a clear opening orientation, sustained historical and argumentative explanation, interpretive cautions, connections across the atlas, and a practical reading path.
 
 The medieval bridge pass begins the Christian/Jewish/Islamic transition from late antiquity into scholastic and post-Avicennian debates, with special attention to faith and reason, divine language, law, grace, free will, necessary being, and philosophical interpretation.
+
+## Accuracy hardening pass
+
+The metadata layer now distinguishes rough placement anchors from display claims. Philosophers with uncertain, legendary, floruit, or pseudonymous chronology can carry `dateDisplay`, `dateConfidence`, and `dateNote` while preserving numeric years for sorting, wall placement, and timelines.
+
+Branch membership now supports a status vocabulary for disputed or historically indirect labels: founder, central, major, precursor, associated, critic, disputed, self-rejected-label, influence, and later-reception. This is especially important where shallow branch IDs would otherwise flatten Kant’s relation to German Idealism, Kierkegaard and Nietzsche’s relation to existentialism, Camus’ rejected existentialist label, Augustine’s reception of Platonism, and the distinction between Antisthenes and Diogenes in Cynicism.
+
+Founder integrity fixes now require branch origin metadata, major figure lists, timelines, and wall bands to represent canonical early figures where practical. The first locked checks cover Bentham and Mill for Utilitarianism, Peirce/James/Dewey for Pragmatism, Frege/Russell/Moore/Wittgenstein for Analytic Philosophy, and Antisthenes/Diogenes for Cynicism.
+
+The focused `npm run audit:accuracy` script checks these high-priority consistency rules. Remaining accuracy work should continue as fact-check packs: review ancient and cross-cultural chronologies, expand membership statuses to more branches, and compare branch origin stories against timeline and wall metadata before adding new article packs.
 
 ## Article-format coverage
 
