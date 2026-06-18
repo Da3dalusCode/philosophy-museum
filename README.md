@@ -47,7 +47,7 @@ Core interfaces live in `src/types/philosophy.ts`. Local records live in `src/da
 - **Timeline event:** Add a `TimelineEvent` in `src/data/timelineEvents.ts` and connect branch/philosopher IDs.
 - **Learning path:** Add a path with ordered steps in `src/data/learningPaths.ts`.
 
-Keep explanations beginner-readable, mark approximate dates, and never invent exact quotations.
+Keep explanations beginner-readable, mark date confidence for uncertain ancient or pseudonymous figures, avoid binary school labels when membership is disputed, distinguish broad traditions from specific schools with membership statuses such as canonical figure, commentator, or school systematizer, represent canonical founders or early figures in branch origin metadata, and never invent exact quotations.
 
 ## Known limitations
 
