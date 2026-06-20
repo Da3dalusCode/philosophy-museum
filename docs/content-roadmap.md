@@ -5,7 +5,7 @@
 As of Phase 3A, the atlas contains approximately:
 
 - 141 philosopher records.
-- 36 branch and school records.
+- 43 branch and school records.
 - 28 sustained school bands on the Philosophy Wall.
 - 24 selected landmark works on the Philosophy Wall.
 
@@ -45,6 +45,8 @@ Founder integrity fixes now require branch origin metadata, major figure lists, 
 The focused `npm run audit:accuracy` script checks these high-priority consistency rules. Remaining accuracy work should continue as fact-check packs: review ancient and cross-cultural chronologies, expand membership statuses to more branches, and compare branch origin stories against timeline and wall metadata before adding new article packs.
 
 The second accuracy pass extends those rules to ancient and cross-cultural chronology. Chinese, Indian, Buddhist, Jain, Daoist, Confucian, Mohist, Legalist, and Vedanta-related records should not imply modern exact dating where the evidence is traditional, approximate, legendary, or disputed. Broad tradition pages should distinguish canonical figures, critics, commentators, school systematizers, and later reception instead of treating every figure as a simple member of one school. Current locked checks cover Confucius, Laozi, Zhuangzi, Mahavira, Kanada, Patanjali, Shankara, Ramanuja, Dignaga, Dharmakirti, and the broad Chinese/Indian/Buddhist branch figure lists.
+
+The branch content-model pass splits named cross-cultural traditions out of over-broad umbrella records where the app already represents them. Chinese Philosophy remains an umbrella, while Confucianism, Daoism, Mohism, and Legalism are branch records with their own figure lists and relationship edges. Indian Philosophy remains an umbrella, while Jainism, Vedanta, Buddhist Philosophy, and Buddhist Epistemology carry their own branch records. Future content packs should add deeper prose to these branches rather than folding them back into umbrella tradition pages.
 
 ## Article-format coverage
 
