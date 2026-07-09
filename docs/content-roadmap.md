@@ -2,14 +2,16 @@
 
 ## Current coverage
 
-As of Phase 3A, the atlas contains approximately:
+As of Phase 3B, the atlas contains approximately:
 
 - 141 philosopher records.
 - 43 branch and school records.
 - 28 sustained school bands on the Philosophy Wall.
 - 24 selected landmark works on the Philosophy Wall.
+- Article-grade coverage for 122 of 141 philosopher records, measured by `npm run report:coverage`.
+- Article-grade coverage for 11 of 43 branch and school records, making branch depth the main remaining content gap.
 
-Coverage is strongest for ancient Greek philosophy, Hellenistic schools, early modern European philosophy, German Idealism, existentialism, analytic philosophy, and major twentieth-century continental philosophy.
+Coverage is strongest for ancient Greek philosophy, Pre-Socratic and Hellenistic schools, early modern European philosophy, medieval Christian/Islamic/scholastic philosophy, Chinese and Indian/Buddhist core traditions, analytic philosophy, pragmatism and philosophy of science, feminist/social philosophy, and late twentieth-century ethics.
 
 The atlas now includes meaningful starting coverage for:
 
@@ -25,14 +27,18 @@ Records without authored article sections continue to render through the earlier
 
 ## Gold-standard audited articles
 
-The current gold-standard articles pass the default `npm run audit:articles` check. Earlier gold-standard records meet the original 1,800-word floor; the medieval bridge records added after that standard use the stricter 2,000-word floor.
+The current gold-standard articles pass the default `npm run audit:articles` check. Most article records meet the 1,800-word floor. Medieval bridge, scholastic, medieval Islamic continuation, and early modern core records use the stricter 2,000-word floor.
 
-- Philosophers: Plato, Socrates, Aristotle, Epicurus, Epictetus, Zeno of Citium, Seneca, Marcus Aurelius, Pyrrho, Sextus Empiricus, Lucretius, Diogenes, Cleanthes, Chrysippus, Plotinus, Arcesilaus, Carneades, Porphyry, Iamblichus, Proclus, Pseudo-Dionysius, Augustine, Boethius, Anselm, Thomas Aquinas, Ibn Sina / Avicenna, and Maimonides.
+- Philosophers, ancient and Hellenistic: Thales, Anaximander, Anaximenes, Pythagoras, Philolaus, Parmenides, Zeno of Elea, Heraclitus, Empedocles, Anaxagoras, Leucippus, Democritus, Protagoras, Gorgias, Antisthenes, Plato, Socrates, Aristotle, Epicurus, Epictetus, Zeno of Citium, Seneca, Marcus Aurelius, Pyrrho, Sextus Empiricus, Lucretius, Diogenes, Cleanthes, Chrysippus, Arcesilaus, and Carneades.
+- Philosophers, late antique and medieval: Plotinus, Porphyry, Iamblichus, Proclus, Pseudo-Dionysius, Origen, Gregory of Nyssa, Augustine, Boethius, John Scotus Eriugena, Anselm, Peter Abelard, Thomas Aquinas, Ibn Sina / Avicenna, Maimonides, Al-Kindi, Al-Farabi, Al-Ghazali, Averroes, Duns Scotus, William of Ockham, Meister Eckhart, and Marsilius of Padua.
+- Philosophers, cross-cultural: Confucius, Laozi, Zhuangzi, Mencius, Xunzi, Mozi, Han Feizi, Zhu Xi, Wang Yangming, Siddhartha Gautama / the Buddha, Nagarjuna, Mahavira, Kanada, Patanjali, Vasubandhu, Dignaga, Dharmakirti, Adi Shankara, Ramanuja, and Madhva.
+- Philosophers, early modern and Enlightenment: Machiavelli, Francis Bacon, Descartes, Hobbes, Anne Conway, Spinoza, Locke, Berkeley, Leibniz, Hume, Montesquieu, Adam Smith, Rousseau, Mary Astell, Mary Wollstonecraft, Bentham, and John Stuart Mill.
+- Philosophers, nineteenth and twentieth century: Hegel, Schopenhauer, Kierkegaard, Marx, Frege, Bertrand Russell, G. E. Moore, Rudolf Carnap, W. V. O. Quine, Elizabeth Anscombe, Peirce, William James, Dewey, Whitehead, Popper, Kuhn, Merleau-Ponty, Levinas, Gadamer, Iris Murdoch, Philippa Foot, Judith Jarvis Thomson, Thomas Nagel, Derek Parfit, Martha Nussbaum, Judith Butler, Angela Davis, and bell hooks.
 - Branches: Platonism, Ancient Greek Philosophy, Stoicism, Epicureanism, Skepticism, Cynicism, Aristotelianism, and Neoplatonism.
 
 These records model the target editorial depth: a clear opening orientation, sustained historical and argumentative explanation, interpretive cautions, connections across the atlas, and a practical reading path.
 
-The medieval bridge pass begins the Christian/Jewish/Islamic transition from late antiquity into scholastic and post-Avicennian debates, with special attention to faith and reason, divine language, law, grace, free will, necessary being, and philosophical interpretation.
+The medieval bridge and continuation passes now cover the Christian/Jewish/Islamic transition from late antiquity into scholastic and post-Avicennian debates, with special attention to faith and reason, divine language, law, grace, free will, necessary being, political order, mysticism, and philosophical interpretation.
 
 ## Accuracy hardening pass
 
@@ -50,21 +56,16 @@ The branch content-model pass splits named cross-cultural traditions out of over
 
 ## Article-format coverage
 
-The first philosopher records authored and rendered in the article-first format are:
+The philosopher records authored and rendered in the article-first format now include every philosopher listed in the gold-standard audited section above. Kant, Nietzsche, and Wittgenstein also have earlier article-format records, but they are not currently part of the default long-form audit floor.
 
-- Plato, Socrates, Aristotle, Epicurus, Epictetus, Zeno of Citium, Seneca, Marcus Aurelius, Pyrrho, Sextus Empiricus, Lucretius, Diogenes, Cleanthes, Chrysippus, Plotinus, Arcesilaus, Carneades, Porphyry, Iamblichus, Proclus, Pseudo-Dionysius, Augustine, Boethius, Anselm, Thomas Aquinas, Ibn Sina / Avicenna, Maimonides
-- Kant
-- Nietzsche
-- Wittgenstein
-
-The first branch records authored and rendered in the article-first format are:
+The branch records authored and rendered in the article-first format are:
 
 - Platonism, Ancient Greek Philosophy, Stoicism, Epicureanism, Skepticism, Cynicism, Aristotelianism, Neoplatonism
 - Epistemology
 - Ethics
 - Analytic Philosophy
 
-These records establish the editorial and UI pattern for future article packs: concise overview first, sustained historical and argumentative prose as the main body, and compact readings, sources, concepts, and atlas connections as supporting reference material. Records in this list that are not in the gold-standard audited list use the article format but have not yet reached the long-form depth floor.
+These records establish the editorial and UI pattern for future article packs: concise overview first, sustained historical and argumentative prose as the main body, and compact readings, sources, concepts, and atlas connections as supporting reference material. Branch coverage remains much thinner than philosopher coverage and should be the next large content frontier.
 
 ## Structured deep pack
 
@@ -72,41 +73,34 @@ The current structured deep philosopher pack is deliberately limited to twelve p
 
 - Plato, Aristotle, Augustine, Aquinas, Descartes, Hume, Kant, Nietzsche, Wittgenstein, Heidegger, Simone de Beauvoir, and Foucault.
 
-These profiles contain authored historical framing, multiple central questions, specifically explained ideas and works, named influence routes, interpretive disputes, staged reading paths, and stable reference links. Unless listed in the article-format coverage above, they still use the structured exhibit presentation and should be treated as candidates for future article conversion.
+These profiles contain authored historical framing, multiple central questions, specifically explained ideas and works, named influence routes, interpretive disputes, staged reading paths, and stable reference links. Plato, Aristotle, Augustine, Aquinas, Descartes, Hume, Kant, Nietzsche, and Wittgenstein now have some form of article-first coverage. Heidegger, Simone de Beauvoir, and Foucault still use the structured exhibit presentation and should be treated as high-priority candidates for article conversion.
 
-The current article-grade branch pack is:
+The current audited article-grade branch pack is:
 
-- Platonism, Aristotelianism, Neoplatonism, Stoicism, Epicureanism, Skepticism, Cynicism, Metaphysics, Epistemology, Ethics, Political Philosophy, Existentialism, Phenomenology, and Analytic Philosophy.
+- Platonism, Ancient Greek Philosophy, Aristotelianism, Neoplatonism, Stoicism, Epicureanism, Skepticism, Cynicism, Epistemology, Ethics, and Analytic Philosophy.
 
-These pages now contain specific origin stories, periodized development, concepts, major works, internal debates, modern relevance, misconceptions, reading paths, and reference links.
+These pages now contain specific origin stories, periodized development, concepts, major works, internal debates, modern relevance, misconceptions, reading paths, and reference links. Metaphysics, Political Philosophy, Existentialism, Phenomenology, and other major branch records still have structured summaries but do not yet count as article-grade coverage under `npm run report:coverage`.
 
 ## Current shallow areas
 
-Many newly added philosopher records are intentionally concise. They are sufficient for search, comparison, branch membership, wall placement, and future expansion, but still need dedicated interpretive work.
+Most philosopher records now have article-grade depth. The remaining shallow philosopher records are concentrated enough to finish in one or two focused passes. Branch and school records are now the larger gap: many are useful structured summaries, but only 11 of 43 currently have article-grade `articleSections`.
 
 High-priority shallow groups include:
 
-- Pre-Socratic pluralists and early natural philosophers.
-- Patristic and mystical Christian philosophy.
-- Jewish medieval philosophy.
-- Later Islamic philosophy, especially Illuminationism and post-Avicennian metaphysics.
-- Indian schools beyond broad Vedanta and Buddhist summaries.
-- Mohism, Legalism, and Neo-Confucian philosophy.
-- Logical empiricism, philosophy of science, and postwar analytic ethics.
-- Decolonial philosophy, philosophy of race, disability philosophy, and global feminist traditions.
+- Remaining philosopher profiles: Fichte, Schelling, Husserl, Heidegger, Sartre, Beauvoir, Camus, Arendt, Rawls, Nozick, Foucault, Derrida, Saadia Gaon, Judah Halevi, Ibn Tufayl, Suhrawardi, Mulla Sadra, Habermas, and Fanon.
+- Branch depth: Metaphysics, Ontology, Virtue Ethics, Deontology, Utilitarianism, Political Philosophy, Logic, Philosophy of Language, Philosophy of Mind, Philosophy of Science, Aesthetics, Existentialism, Phenomenology, Pragmatism, Continental Philosophy, Feminist Philosophy, Philosophy of Religion, Chinese Philosophy, Confucianism, Daoism, Mohism, Legalism, Indian Philosophy, Jainism, Vedanta, Buddhist Philosophy, Buddhist Epistemology, Islamic Philosophy, Medieval Scholasticism, Rationalism, Empiricism, and German Idealism.
+- Portrait/source metadata remains shallow. Most new article profiles still rely on fallback medallions until image rights and attribution can be verified.
 
 ## Recommended future article packs
 
-1. Ancient Greek continuation: Pre-Socratic natural philosophers, pluralists, atomists, and the major Hellenistic schools.
-2. Hellenistic continuation: later Peripatetics, further Cynic figures, and the transmission of Academic skepticism after Carneades.
-3. Late antique continuation: later commentators, successors in the Syrian and Athenian schools, and early Byzantine transformations.
-4. Medieval Christian/Jewish/Islamic continuation: Al-Ghazali, Averroes, Philosophy of Religion, Medieval Scholasticism, Jewish medieval philosophy after Maimonides, and post-Avicennian Islamic traditions.
-5. Early Modern pack: Descartes, Spinoza, Leibniz, Locke, Hume, Rationalism, and Empiricism.
-6. Kant/German Idealism pack: Kant article expansion, Hegel, Schopenhauer, and German Idealism.
-7. Analytic pack: Frege, Russell, Moore, Carnap, Quine, Anscombe, logic, language, mind, and science.
-8. Continental pack: Husserl, Heidegger, Sartre, Beauvoir, Foucault, Derrida, Phenomenology, Existentialism, and Continental Philosophy.
-9. Indian/Buddhist/Chinese pack: Buddha, Nagarjuna, Shankara, Confucius, Laozi, Zhuangzi, and dedicated tradition pages.
-10. Feminist/critical/decolonial pack: Beauvoir, Fanon, Butler, Davis, bell hooks, feminist philosophy, and future race, decolonial, care, and disability branches.
+1. Branch-depth sprint: write article-grade pages for the 32 missing branch records, starting with Philosophy of Religion, Medieval Scholasticism, Rationalism, Empiricism, Political Philosophy, Philosophy of Science, Feminist Philosophy, Existentialism, Phenomenology, and German Idealism.
+2. Remaining philosopher completion sprint: finish Fichte, Schelling, Husserl, Heidegger, Sartre, Beauvoir, Camus, Arendt, Rawls, Nozick, Foucault, Derrida, Habermas, Fanon, Saadia Gaon, Judah Halevi, Ibn Tufayl, Suhrawardi, and Mulla Sadra.
+3. Continental branch-and-profile pack: pair the remaining continental philosophers with branch pages for Phenomenology, Existentialism, Continental Philosophy, and German Idealism.
+4. Jewish/Islamic later philosophy pack: add Saadia Gaon, Judah Halevi, Ibn Tufayl, Suhrawardi, Mulla Sadra, plus branch pages for Islamic Philosophy and Philosophy of Religion.
+5. Analytic/topic branch pack: Logic, Philosophy of Language, Philosophy of Mind, Philosophy of Science, Deontology, Utilitarianism, and Philosophy of Mind should receive article-grade pages now that many major analytic philosophers are covered.
+6. Cross-cultural branch pack: Chinese Philosophy, Confucianism, Daoism, Mohism, Legalism, Indian Philosophy, Jainism, Vedanta, Buddhist Philosophy, and Buddhist Epistemology need dedicated tradition pages that match the depth of their philosopher records.
+7. Political and social philosophy pack: Rawls, Nozick, Arendt, Habermas, Fanon, Political Philosophy, Feminist Philosophy, and future philosophy of race/decolonial/disability branch records.
+8. Image/source metadata pass: add verified image metadata only where public-domain or clearly reusable sources can be confirmed; otherwise keep fallback medallions.
 
 ## Image and source strategy
 

@@ -8,6 +8,7 @@
     "build": "tsc -b && vite build",
     "audit:articles": "node scripts/auditArticleDepth.mjs",
     "audit:accuracy": "node scripts/auditAccuracyMetadata.mjs",
+    "report:coverage": "node scripts/reportContentCoverage.mjs",
     "preview": "vite preview"
   },
   "dependencies": {
