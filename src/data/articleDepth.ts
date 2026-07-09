@@ -1,26 +1,56 @@
 import type {ArticleSection} from '../types/philosophy';
 import {academicSkepticPhilosopherArticles} from './academicSkepticArticles';
+import {analyticContinuationPhilosopherArticles} from './analyticContinuationArticles';
 import {ancientGreekBranchArticles,ancientGreekPhilosopherArticles} from './ancientGreekArticles';
+import {chineseContinuationPhilosopherArticles} from './chineseContinuationArticles';
+import {crossCulturalCorePhilosopherArticles} from './crossCulturalCoreArticles';
+import {earlyModernCorePhilosopherArticles} from './earlyModernCoreArticles';
+import {earlyModernPoliticalPhilosopherArticles} from './earlyModernPoliticalArticles';
 import {earlyStoicSystemPhilosopherArticles} from './earlyStoicSystemArticles';
+import {feministSocialContinuationPhilosopherArticles} from './feministSocialContinuationArticles';
 import {hellenisticFoundationBranchArticles,hellenisticFoundationPhilosopherArticles} from './hellenisticFoundationArticles';
 import {hellenisticBranchArticles,hellenisticPhilosopherArticles} from './hellenisticArticles';
+import {indianBuddhistContinuationPhilosopherArticles} from './indianBuddhistContinuationArticles';
 import {lateAntiqueBridgePhilosopherArticles} from './lateAntiqueBridgeArticles';
 import {lateAntiqueInheritanceBranchArticles,lateAntiqueInheritancePhilosopherArticles} from './lateAntiqueInheritanceArticles';
+import {lateTwentiethEthicsPhilosopherArticles} from './lateTwentiethEthicsArticles';
 import {medievalBridgePhilosopherArticles} from './medievalBridgeArticles';
+import {medievalChristianContinuationPhilosopherArticles} from './medievalChristianContinuationArticles';
+import {medievalIslamicContinuationPhilosopherArticles} from './medievalIslamicContinuationArticles';
+import {postKantianNineteenthPhilosopherArticles} from './postKantianNineteenthArticles';
+import {pragmatismScienceContinuationPhilosopherArticles} from './pragmatismScienceContinuationArticles';
+import {presocraticEarlyPhilosopherArticles} from './presocraticEarlyArticles';
+import {presocraticLaterSophistPhilosopherArticles} from './presocraticLaterSophistArticles';
 import {romanHellenisticBranchArticles,romanHellenisticPhilosopherArticles} from './romanHellenisticArticles';
+import {scholasticContinuationPhilosopherArticles} from './scholasticContinuationArticles';
 
 const section=(id:string,title:string,paragraphs:string[],relatedBranchIds?:string[],relatedPhilosopherIds?:string[],relatedWorkTitles?:string[]):ArticleSection=>({id,title,paragraphs,relatedBranchIds,relatedPhilosopherIds,relatedWorkTitles});
 
 export const philosopherArticles:Record<string,ArticleSection[]>={
   ...academicSkepticPhilosopherArticles,
+  ...analyticContinuationPhilosopherArticles,
   ...ancientGreekPhilosopherArticles,
+  ...chineseContinuationPhilosopherArticles,
+  ...crossCulturalCorePhilosopherArticles,
+  ...earlyModernCorePhilosopherArticles,
+  ...earlyModernPoliticalPhilosopherArticles,
   ...earlyStoicSystemPhilosopherArticles,
+  ...feministSocialContinuationPhilosopherArticles,
   ...hellenisticFoundationPhilosopherArticles,
   ...hellenisticPhilosopherArticles,
+  ...indianBuddhistContinuationPhilosopherArticles,
   ...lateAntiqueBridgePhilosopherArticles,
   ...lateAntiqueInheritancePhilosopherArticles,
+  ...lateTwentiethEthicsPhilosopherArticles,
   ...medievalBridgePhilosopherArticles,
+  ...medievalChristianContinuationPhilosopherArticles,
+  ...medievalIslamicContinuationPhilosopherArticles,
+  ...postKantianNineteenthPhilosopherArticles,
+  ...pragmatismScienceContinuationPhilosopherArticles,
+  ...presocraticEarlyPhilosopherArticles,
+  ...presocraticLaterSophistPhilosopherArticles,
   ...romanHellenisticPhilosopherArticles,
+  ...scholasticContinuationPhilosopherArticles,
   plato:[
     section('overview','A philosophy written as an encounter',[
       'Plato is difficult to summarize because he does not write as a lecturer announcing settled conclusions. He writes dialogues: carefully staged encounters in which speakers pursue a question, discover that their first answers fail, and sometimes end without a final definition. The dramatic form is not decoration. It makes readers experience the difference between possessing a slogan and being able to give an account of what it means. Socrates is usually the central examiner, but the dialogues also let sophists, politicians, poets, mathematicians, and ambitious young Athenians expose the attractions and costs of rival ways of life.',
