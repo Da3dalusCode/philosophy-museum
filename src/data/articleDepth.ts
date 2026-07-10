@@ -18,6 +18,14 @@ import {medievalBridgePhilosopherArticles} from './medievalBridgeArticles';
 import {medievalChristianContinuationPhilosopherArticles} from './medievalChristianContinuationArticles';
 import {medievalIslamicContinuationPhilosopherArticles} from './medievalIslamicContinuationArticles';
 import {earlyModernKnowledgeBranchArticles} from './earlyModernKnowledgeBranchDepth';
+import {deontologyBranchArticles} from './deontologyBranchDepth';
+import {logicBranchArticles} from './logicBranchDepth';
+import {metaphysicsBranchArticles} from './metaphysicsBranchDepth';
+import {ontologyBranchArticles} from './ontologyBranchDepth';
+import {philosophyLanguageBranchArticles} from './philosophyLanguageBranchDepth';
+import {philosophyMindBranchArticles} from './philosophyMindBranchDepth';
+import {utilitarianismBranchArticles} from './utilitarianismBranchDepth';
+import {virtueEthicsBranchArticles} from './virtueEthicsBranchDepth';
 import {modernCoreBranchArticles} from './modernCoreBranchDepth';
 import {postKantianNineteenthPhilosopherArticles} from './postKantianNineteenthArticles';
 import {pragmatismScienceContinuationPhilosopherArticles} from './pragmatismScienceContinuationArticles';
@@ -195,6 +203,14 @@ export const branchArticles:Record<string,ArticleSection[]>={
   ...hellenisticBranchArticles,
   ...lateAntiqueInheritanceBranchArticles,
   ...earlyModernKnowledgeBranchArticles,
+  ...deontologyBranchArticles,
+  ...logicBranchArticles,
+  ...metaphysicsBranchArticles,
+  ...ontologyBranchArticles,
+  ...philosophyLanguageBranchArticles,
+  ...philosophyMindBranchArticles,
+  ...utilitarianismBranchArticles,
+  ...virtueEthicsBranchArticles,
   ...modernCoreBranchArticles,
   ...religionEarlyModernBranchArticles,
   ...romanHellenisticBranchArticles,

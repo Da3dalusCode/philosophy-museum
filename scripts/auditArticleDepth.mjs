@@ -20,7 +20,7 @@ const {branchArticles,philosopherArticles}=await import(moduleUrl);
 
 const requested=process.argv.slice(2);
 const targets=requested.length?requested:['plato','platonism','socrates','aristotle','ancient-greek','epicurus','epictetus','stoicism','epicureanism','zeno','seneca','marcus-aurelius','skepticism','pyrrho','sextus-empiricus','lucretius','cynicism','diogenes','cleanthes','chrysippus','plotinus','aristotelianism','neoplatonism','arcesilaus','carneades','porphyry','iamblichus','proclus','pseudo-dionysius','augustine','boethius','anselm','aquinas','avicenna','maimonides','duns-scotus','ockham','descartes','spinoza','leibniz','locke','hume','confucius','laozi','zhuangzi','buddha','nagarjuna','shankara','hegel','schopenhauer','kierkegaard','marx','mill','al-kindi','al-farabi','al-ghazali','averroes','frege','russell','g-e-moore','carnap','quine','anscombe','machiavelli','bacon','hobbes','berkeley','rousseau','bentham','mencius','xunzi','mozi','han-feizi','zhu-xi','wang-yangming','thales','anaximander','anaximenes','pythagoras','philolaus','parmenides','zeno-elea','heraclitus','empedocles','anaxagoras','leucippus','democritus','protagoras','gorgias','antisthenes','peirce','william-james','dewey','whitehead','popper','kuhn','mahavira','kanada','patanjali','vasubandhu','dignaga','dharmakirti','ramanuja','madhva','origen','gregory-nyssa','eriugena','abelard','meister-eckhart','marsilius-padua','mary-astell','anne-conway','montesquieu','adam-smith','wollstonecraft','martha-nussbaum','judith-butler','angela-davis','bell-hooks','merleau-ponty','levinas','gadamer','iris-murdoch','philippa-foot','judith-thomson','thomas-nagel','derek-parfit'];
-const sprintBranchTargets=['philosophy-of-religion','medieval-scholasticism','islamic-philosophy','rationalism','empiricism','german-idealism','existentialism','phenomenology','political-philosophy','philosophy-of-science'];
+const sprintBranchTargets=['philosophy-of-religion','medieval-scholasticism','islamic-philosophy','rationalism','empiricism','german-idealism','existentialism','phenomenology','political-philosophy','philosophy-of-science','metaphysics','ontology','virtue-ethics','deontology','utilitarianism','logic','philosophy-of-language','philosophy-of-mind'];
 if(!requested.length)targets.push(...sprintBranchTargets);
 const idsFromSpecs=text=>[...text.matchAll(/^\['([^']+)'/gm)].map(match=>match[1]);
 const [branchSource,philosopherSource]=await Promise.all([
@@ -31,9 +31,19 @@ const validBranchIds=new Set(['stoicism',...idsFromSpecs(branchSource)]);
 const validPhilosopherIds=new Set(idsFromSpecs(philosopherSource));
 const {earlyModernKnowledgeBranchDetails}=await import(await moduleUrlFor('earlyModernKnowledgeBranchDepth'));
 const {modernCoreBranchDetails}=await import(await moduleUrlFor('modernCoreBranchDepth'));
-const sprintBranchDetails={...modernCoreBranchDetails,...earlyModernKnowledgeBranchDetails};
+const {deontologyBranchDetails}=await import(await moduleUrlFor('deontologyBranchDepth'));
+const {logicBranchDetails}=await import(await moduleUrlFor('logicBranchDepth'));
+const {metaphysicsBranchDetails}=await import(await moduleUrlFor('metaphysicsBranchDepth'));
+const {ontologyBranchDetails}=await import(await moduleUrlFor('ontologyBranchDepth'));
+const {philosophyLanguageBranchDetails}=await import(await moduleUrlFor('philosophyLanguageBranchDepth'));
+const {philosophyMindBranchDetails}=await import(await moduleUrlFor('philosophyMindBranchDepth'));
+const {utilitarianismBranchDetails}=await import(await moduleUrlFor('utilitarianismBranchDepth'));
+const {virtueEthicsBranchDetails}=await import(await moduleUrlFor('virtueEthicsBranchDepth'));
+const sprintBranchDetails={...modernCoreBranchDetails,...earlyModernKnowledgeBranchDetails,...metaphysicsBranchDetails,...ontologyBranchDetails,...virtueEthicsBranchDetails,...deontologyBranchDetails,...utilitarianismBranchDetails,...logicBranchDetails,...philosophyLanguageBranchDetails,...philosophyMindBranchDetails};
 const validSourceTypes=new Set(['SEP','IEP','Wikipedia','Wikidata','Wikimedia','primary-text','public-domain-text','other']);
 const fail=message=>{console.error(message);process.exitCode=1;};
+for(const id of Object.keys(branchArticles))if(!validBranchIds.has(id))fail(`branchArticles contains unknown branch key ${id}`);
+for(const id of Object.keys(sprintBranchDetails))if(!validBranchIds.has(id))fail(`branch detail overlay targets unknown branch key ${id}`);
 
 const countWords=sections=>sections.flatMap(section=>section.paragraphs).join(' ').match(/\b[\p{L}\p{N}][\p{L}\p{N}’'-]*\b/gu)?.length??0;
 const minimum=1800;
