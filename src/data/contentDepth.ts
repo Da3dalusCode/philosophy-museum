@@ -2,6 +2,14 @@ import type {Branch,Philosopher,ReadingEntry} from '../types/philosophy';
 import {priorityBranchDepth,priorityPhilosopherDepth,priorityPhilosopherDepthModern,priorityPhilosopherMisunderstandings} from './priorityDepth';
 import {branchArticles,philosopherArticles} from './articleDepth';
 import {earlyModernKnowledgeBranchDetails} from './earlyModernKnowledgeBranchDepth';
+import {deontologyBranchDetails} from './deontologyBranchDepth';
+import {logicBranchDetails} from './logicBranchDepth';
+import {metaphysicsBranchDetails} from './metaphysicsBranchDepth';
+import {ontologyBranchDetails} from './ontologyBranchDepth';
+import {philosophyLanguageBranchDetails} from './philosophyLanguageBranchDepth';
+import {philosophyMindBranchDetails} from './philosophyMindBranchDepth';
+import {utilitarianismBranchDetails} from './utilitarianismBranchDepth';
+import {virtueEthicsBranchDetails} from './virtueEthicsBranchDepth';
 import {modernCoreBranchDetails} from './modernCoreBranchDepth';
 
 type PhilosopherNote={problem:string;development:string[];received:string[];legacy:string[];tensions:string[]};
@@ -62,5 +70,5 @@ export function applyBranchDepth(b:Branch):Branch{
   const titles=branchReadings[b.id]??b.suggestedReadingPath;
   const readings=titles.map(entry=>{const[author,...rest]=entry.split(', ');return read(rest.length?author:b.name,rest.length?rest.join(', '):entry,'beginner',rest.length?'primary':'secondary',`A concrete entry point into ${b.name}'s central questions.`)});
   const base={...b,originStory:b.historicalDevelopment[0],historicalDevelopmentDetailed:b.historicalDevelopment,keyConceptsDetailed:b.keyConcepts.map(concept=>({name:concept.name,explanation:concept.deeperExplanation,whyItMatters:concept.plainDefinition})),internalDebates:b.internalTensions??b.coreQuestions.slice(1,4),rivalPositions:[...b.contrastingBranchIds,...b.relatedBranchIds.slice(0,2)],majorWorks:readings.map(item=>({title:item.title,summary:item.whyRead,whyItMatters:`It offers a durable point of entry into ${b.name}.`})),majorFigures:b.majorPhilosopherIds,modernRelevanceDetailed:b.modernExamples,misconceptionsDetailed:b.commonMisunderstandings,beginnerReadingPath:readings.slice(0,3),advancedReadingPath:readings.slice(3).map(item=>({...item,difficulty:'advanced'})),sourceLinks:[],relatedImages:[]};
-  return{...base,...priorityBranchDepth[b.id],...modernCoreBranchDetails[b.id],...earlyModernKnowledgeBranchDetails[b.id],articleSections:branchArticles[b.id]} as Branch;
+  return{...base,...priorityBranchDepth[b.id],...modernCoreBranchDetails[b.id],...earlyModernKnowledgeBranchDetails[b.id],...metaphysicsBranchDetails[b.id],...ontologyBranchDetails[b.id],...virtueEthicsBranchDetails[b.id],...deontologyBranchDetails[b.id],...utilitarianismBranchDetails[b.id],...logicBranchDetails[b.id],...philosophyLanguageBranchDetails[b.id],...philosophyMindBranchDetails[b.id],articleSections:branchArticles[b.id]} as Branch;
 }
