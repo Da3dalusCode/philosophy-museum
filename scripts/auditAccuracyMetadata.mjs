@@ -9,12 +9,14 @@ const [philosophers,branches,timeline,wall,relationships,profile]=await Promise.
   read('src/data/relationships.ts'),
   read('src/components/PhilosopherProfile/PhilosopherProfile.tsx')
 ]);
+const app=await read('src/App.tsx');
 
 const lineWith=(source,needle)=>source.split(/\r?\n/).find(line=>line.includes(needle))??'';
 const tupleLine=(source,id)=>source.split(/\r?\n/).find(line=>line.startsWith(`['${id}',`))??'';
 const checks=[];
 const check=(condition,message)=>checks.push({condition,message});
 
+check(app.includes("useState<ViewId>('history')"),'The root app must default to the Big History view.');
 check(philosophers.includes("camus:{branchMemberships:[{branchId:'existentialism',status:'self-rejected-label'"),'Camus existentialism membership must show self-rejected-label status.');
 check(philosophers.includes("branchId:'german-idealism',status:'precursor'"),'Kant German Idealism membership must be marked as precursor/source, not flat membership.');
 check(tupleLine(branches,'utilitarianism').includes("['bentham','mill']"),'Utilitarianism branch must include Bentham and Mill.');
