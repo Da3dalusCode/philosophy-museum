@@ -13,6 +13,19 @@ import {earlyModernPoliticalPhilosopherArticles} from './earlyModernPoliticalArt
 import {earlyStoicSystemPhilosopherArticles} from './earlyStoicSystemArticles';
 import {feministSocialContinuationPhilosopherArticles} from './feministSocialContinuationArticles';
 import {feministPhilosophyBranchArticles} from './feministPhilosophyBranchDepth';
+import {germanIdealismCompletionPhilosopherArticles} from './germanIdealismCompletionArticles';
+import {phenomenologyCompletionPhilosopherArticles} from './phenomenologyCompletionArticles';
+import {situatedFreedomCompletionPhilosopherArticles} from './situatedFreedomCompletionArticles';
+import {criticalDecolonialCompletionPhilosopherArticles} from './criticalDecolonialCompletionArticles';
+import {genealogyDeconstructionCompletionPhilosopherArticles} from './genealogyDeconstructionCompletionArticles';
+import {modernPoliticalCompletionPhilosopherArticles} from './modernPoliticalCompletionArticles';
+import {nozickCompletionPhilosopherArticles} from './nozickCompletionArticles';
+import {rawlsCompletionPhilosopherArticles} from './rawlsCompletionArticles';
+import {ibnTufaylCompletionPhilosopherArticles} from './ibnTufaylCompletionArticles';
+import {judahHaleviCompletionPhilosopherArticles} from './judahHaleviCompletionArticles';
+import {medievalJewishCompletionPhilosopherArticles} from './medievalJewishCompletionArticles';
+import {mullaSadraCompletionPhilosopherArticles} from './mullaSadraCompletionArticles';
+import {suhrawardiCompletionPhilosopherArticles} from './suhrawardiCompletionArticles';
 import {hellenisticFoundationBranchArticles,hellenisticFoundationPhilosopherArticles} from './hellenisticFoundationArticles';
 import {hellenisticBranchArticles,hellenisticPhilosopherArticles} from './hellenisticArticles';
 import {indianBuddhistContinuationPhilosopherArticles} from './indianBuddhistContinuationArticles';
@@ -56,6 +69,19 @@ export const philosopherArticles:Record<string,ArticleSection[]>={
   ...earlyModernPoliticalPhilosopherArticles,
   ...earlyStoicSystemPhilosopherArticles,
   ...feministSocialContinuationPhilosopherArticles,
+  ...germanIdealismCompletionPhilosopherArticles,
+  ...phenomenologyCompletionPhilosopherArticles,
+  ...situatedFreedomCompletionPhilosopherArticles,
+  ...criticalDecolonialCompletionPhilosopherArticles,
+  ...genealogyDeconstructionCompletionPhilosopherArticles,
+  ...modernPoliticalCompletionPhilosopherArticles,
+  ...nozickCompletionPhilosopherArticles,
+  ...rawlsCompletionPhilosopherArticles,
+  ...ibnTufaylCompletionPhilosopherArticles,
+  ...judahHaleviCompletionPhilosopherArticles,
+  ...medievalJewishCompletionPhilosopherArticles,
+  ...mullaSadraCompletionPhilosopherArticles,
+  ...suhrawardiCompletionPhilosopherArticles,
   ...hellenisticFoundationPhilosopherArticles,
   ...hellenisticPhilosopherArticles,
   ...indianBuddhistContinuationPhilosopherArticles,

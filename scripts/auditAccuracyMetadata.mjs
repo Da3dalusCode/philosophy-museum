@@ -25,6 +25,7 @@ check(tupleLine(branches,'utilitarianism').includes("['bentham','mill']"),'Utili
 check(lineWith(wall,"id:'utilitarianism'").includes("['bentham','mill']"),'Utilitarianism wall band must include Bentham and Mill.');
 check(lineWith(timeline,"event('mill-liberal-utility'").includes("['bentham','mill']"),'Utilitarianism timeline event must link Bentham and Mill.');
 check(tupleLine(branches,'pragmatism').includes("['peirce','william-james','dewey']"),'Pragmatism branch must include Peirce, James, and Dewey.');
+check(tupleLine(philosophers,'habermas').includes(",1929,2026,'Germany'")&&!tupleLine(philosophers,'habermas').includes('null'),'Habermas must show the verified 2026 death year rather than present.');
 check(lineWith(timeline,"event('pragmatism-america'").includes("['peirce','william-james','dewey']"),'Pragmatism timeline event must link Peirce, James, and Dewey.');
 check(tupleLine(branches,'analytic-philosophy').includes("['frege','russell','g-e-moore','wittgenstein'"),'Analytic Philosophy branch must include Frege, Russell, Moore, and Wittgenstein.');
 check(lineWith(timeline,"event('analytic-origin'").includes("['frege','russell','g-e-moore','wittgenstein']"),'Analytic origin event must link Frege, Russell, Moore, and Wittgenstein.');
@@ -34,6 +35,10 @@ check(philosophers.includes("diogenes:{branchMemberships:[{branchId:'cynicism',s
 check(philosophers.includes("patanjali:{lifespan:'fl. uncertain")&&philosophers.includes("not as a literal 400-year lifespan"),'Patanjali must not display as a literal 400-year lifespan.');
 check(philosophers.includes("laozi:{lifespan:'legendary")&&philosophers.includes("dateConfidence:'legendary'"),'Laozi must carry legendary/uncertain date metadata.');
 check(philosophers.includes("'pseudo-dionysius':{lifespan:'pseudonymous")&&philosophers.includes("dateConfidence:'pseudonymous'"),'Pseudo-Dionysius must carry pseudonymous date metadata.');
+check(philosophers.includes("'judah-halevi':{dateDisplay:'c. 1075–1141 CE'")&&philosophers.includes("Halevi’s birth year is approximate"),'Judah Halevi must show approximate chronology and an uncertain final-journey note.');
+check(philosophers.includes("'ibn-tufayl':{dateDisplay:'c. 1105–1185/86 CE'")&&philosophers.includes("died in 1185 or 1186"),'Ibn Tufayl must show approximate birth and disputed death-year metadata.');
+check(philosophers.includes("suhrawardi:{dateDisplay:'c. 1154–late 1191/possibly early 1192 CE'")&&philosophers.includes("charges, procedures, and manner remain disputed"),'Suhrawardi must show cautious death chronology and contested circumstances.');
+check(philosophers.includes("'mulla-sadra':{dateDisplay:'c. 1571/72–1635/36 or 1640/41 CE'")&&philosophers.includes("death is disputed"),'Mulla Sadra must show approximate birth and disputed death chronology.');
 check(philosophers.includes("confucius:{dateDisplay:'traditional 551-479 BCE'")&&philosophers.includes("branchId:'confucianism',status:'founder'")&&philosophers.includes("branchId:'chinese-philosophy',status:'canonical'"),'Confucius must show traditional-date metadata, Confucian founder status, and Chinese Philosophy canonical status.');
 check(philosophers.includes("zhuangzi:{dateDisplay:'c. 369-286 BCE'")&&philosophers.includes("Canonical Daoist philosopher"),'Zhuangzi must show approximate chronology and canonical Daoist status.');
 check(philosophers.includes("laozi:{lifespan:'legendary")&&philosophers.includes("branchId:'daoism',status:'canonical'")&&philosophers.includes("not a secure biographical founder"),'Laozi must be a legendary/attributed Daoist source, not a secure founder claim.');
