@@ -5,12 +5,14 @@ import {analyticContinuationPhilosopherArticles} from './analyticContinuationArt
 import {ancientGreekBranchArticles,ancientGreekPhilosopherArticles} from './ancientGreekArticles';
 import {chineseContinuationPhilosopherArticles} from './chineseContinuationArticles';
 import {chineseConfucianBranchArticles} from './chineseConfucianBranchDepth';
+import {continentalPhilosophyBranchArticles} from './continentalPhilosophyBranchDepth';
 import {crossCulturalCorePhilosopherArticles} from './crossCulturalCoreArticles';
 import {daoMohistLegalistBranchArticles} from './daoMohistLegalistBranchDepth';
 import {earlyModernCorePhilosopherArticles} from './earlyModernCoreArticles';
 import {earlyModernPoliticalPhilosopherArticles} from './earlyModernPoliticalArticles';
 import {earlyStoicSystemPhilosopherArticles} from './earlyStoicSystemArticles';
 import {feministSocialContinuationPhilosopherArticles} from './feministSocialContinuationArticles';
+import {feministPhilosophyBranchArticles} from './feministPhilosophyBranchDepth';
 import {hellenisticFoundationBranchArticles,hellenisticFoundationPhilosopherArticles} from './hellenisticFoundationArticles';
 import {hellenisticBranchArticles,hellenisticPhilosopherArticles} from './hellenisticArticles';
 import {indianBuddhistContinuationPhilosopherArticles} from './indianBuddhistContinuationArticles';
@@ -208,6 +210,7 @@ export const branchArticles:Record<string,ArticleSection[]>={
   ...aestheticsBranchArticles,
   ...ancientGreekBranchArticles,
   ...chineseConfucianBranchArticles,
+  ...continentalPhilosophyBranchArticles,
   ...daoMohistLegalistBranchArticles,
   ...buddhistPhilosophyBranchArticles,
   ...buddhistEpistemologyBranchArticles,
@@ -216,6 +219,7 @@ export const branchArticles:Record<string,ArticleSection[]>={
   ...hellenisticBranchArticles,
   ...lateAntiqueInheritanceBranchArticles,
   ...earlyModernKnowledgeBranchArticles,
+  ...feministPhilosophyBranchArticles,
   ...deontologyBranchArticles,
   ...logicBranchArticles,
   ...metaphysicsBranchArticles,
