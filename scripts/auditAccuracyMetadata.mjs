@@ -10,6 +10,7 @@ const [philosophers,branches,timeline,wall,relationships,profile]=await Promise.
   read('src/components/PhilosopherProfile/PhilosopherProfile.tsx')
 ]);
 const app=await read('src/App.tsx');
+const [chineseConfucianDepth,daoMohistLegalistDepth,indianJainVedantaDepth,buddhistPhilosophyDepth,buddhistEpistemologyDepth]=await Promise.all([read('src/data/chineseConfucianBranchDepth.ts'),read('src/data/daoMohistLegalistBranchDepth.ts'),read('src/data/indianJainVedantaBranchDepth.ts'),read('src/data/buddhistPhilosophyBranchDepth.ts'),read('src/data/buddhistEpistemologyBranchDepth.ts')]);
 
 const lineWith=(source,needle)=>source.split(/\r?\n/).find(line=>line.includes(needle))??'';
 const tupleLine=(source,id)=>source.split(/\r?\n/).find(line=>line.startsWith(`['${id}',`))??'';
@@ -65,6 +66,11 @@ check(relationships.includes("rel('confucianism','chinese-philosophy','sub-branc
 check(relationships.includes("rel('jainism','indian-philosophy','sub-branch-of')")&&relationships.includes("rel('vedanta','indian-philosophy','sub-branch-of')")&&relationships.includes("rel('buddhist-philosophy','indian-philosophy','overlaps-with')"),'Indian/Jain/Vedanta/Buddhist branch split must be represented in relationships.');
 check(relationships.includes("rel('buddhist-epistemology','buddhist-philosophy','sub-branch-of')")&&relationships.includes("rel('buddhist-epistemology','epistemology','overlaps-with')"),'Buddhist Epistemology must be related to both Buddhist Philosophy and Epistemology.');
 check(profile.includes('x.dateDisplay??x.lifespan')&&profile.includes('p.dateNote&&')&&profile.includes("'school-systematizer':'School systematizer'"),'Philosopher Profiles must display date uncertainty and the expanded membership labels when present.');
+check(chineseConfucianDepth.includes('long, internally diverse field')&&chineseConfucianDepth.includes('The umbrella is useful only when it keeps that plurality visible.')&&chineseConfucianDepth.includes('Mencius and Xunzi on moral psychology')&&chineseConfucianDepth.includes('Not obedience, etiquette, or a frozen social order'),'Chinese Philosophy and Confucianism articles must preserve plurality, later development, and internal moral-psychology debates.');
+check(daoMohistLegalistDepth.includes('better approached as non-forcing')&&daoMohistLegalistDepth.includes('not identical with modern utilitarianism')&&daoMohistLegalistDepth.includes('retrospective family of arguments')&&daoMohistLegalistDepth.includes('should not be classified simply as a Legalist'),'Daoist, Mohist, and Legalist articles must preserve the sprint’s core terminology and classification cautions.');
+check(indianJainVedantaDepth.includes('It has no single founder')&&indianJainVedantaDepth.includes('traditional chronology remains historically disputed')&&indianJainVedantaDepth.includes('does not declare all opinions equally true')&&indianJainVedantaDepth.includes('not founders of Vedānta itself'),'Indian, Jain, and Vedānta articles must preserve umbrella, chronology, non-relativism, and commentator safeguards.');
+check(buddhistPhilosophyDepth.includes('chronology remains disputed')&&buddhistPhilosophyDepth.includes('claim that nothing exists')&&buddhistPhilosophyDepth.includes('not reducible to mindfulness'),'Buddhist Philosophy article must preserve chronological plurality and reject mindfulness-only or nihilist reductions.');
+check(buddhistEpistemologyDepth.includes('Long before Dignāga')&&buddhistEpistemologyDepth.includes('apoha')&&buddhistEpistemologyDepth.includes('should not be forced into the European empiricism-rationalism divide'),'Buddhist Epistemology article must remain a later focused development and avoid forced Western categories.');
 
 for(const {condition,message} of checks){
   if(condition){

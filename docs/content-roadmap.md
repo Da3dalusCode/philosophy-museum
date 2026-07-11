@@ -9,7 +9,7 @@ As of Phase 3B, the atlas contains approximately:
 - 28 sustained school bands on the Philosophy Wall.
 - 24 selected landmark works on the Philosophy Wall.
 - Article-grade coverage for 122 of 141 philosopher records, measured by `npm run report:coverage`.
-- Article-grade coverage for 29 of 43 branch and school records, measured by `npm run report:coverage`, making branch depth the main remaining content gap.
+- Article-grade coverage for 39 of 43 branch and school records, measured by `npm run report:coverage`; only Aesthetics, Pragmatism, Continental Philosophy, and Feminist Philosophy remain without article-grade branch pages.
 
 Coverage is strongest for ancient Greek philosophy, Pre-Socratic and Hellenistic schools, early modern European philosophy, medieval Christian/Islamic/scholastic philosophy, Chinese and Indian/Buddhist core traditions, analytic philosophy, pragmatism and philosophy of science, feminist/social philosophy, and late twentieth-century ethics.
 
@@ -34,7 +34,7 @@ The current gold-standard articles pass the default `npm run audit:articles` che
 - Philosophers, cross-cultural: Confucius, Laozi, Zhuangzi, Mencius, Xunzi, Mozi, Han Feizi, Zhu Xi, Wang Yangming, Siddhartha Gautama / the Buddha, Nagarjuna, Mahavira, Kanada, Patanjali, Vasubandhu, Dignaga, Dharmakirti, Adi Shankara, Ramanuja, and Madhva.
 - Philosophers, early modern and Enlightenment: Machiavelli, Francis Bacon, Descartes, Hobbes, Anne Conway, Spinoza, Locke, Berkeley, Leibniz, Hume, Montesquieu, Adam Smith, Rousseau, Mary Astell, Mary Wollstonecraft, Bentham, and John Stuart Mill.
 - Philosophers, nineteenth and twentieth century: Hegel, Schopenhauer, Kierkegaard, Marx, Frege, Bertrand Russell, G. E. Moore, Rudolf Carnap, W. V. O. Quine, Elizabeth Anscombe, Peirce, William James, Dewey, Whitehead, Popper, Kuhn, Merleau-Ponty, Levinas, Gadamer, Iris Murdoch, Philippa Foot, Judith Jarvis Thomson, Thomas Nagel, Derek Parfit, Martha Nussbaum, Judith Butler, Angela Davis, and bell hooks.
-- Branches: Platonism, Ancient Greek Philosophy, Stoicism, Epicureanism, Skepticism, Cynicism, Aristotelianism, Neoplatonism, Epistemology, Ethics, Analytic Philosophy, Philosophy of Religion, Medieval Scholasticism, Islamic Philosophy, Rationalism, Empiricism, German Idealism, Existentialism, Phenomenology, Political Philosophy, Philosophy of Science, Metaphysics, Ontology, Virtue Ethics, Deontology, Utilitarianism, Logic, Philosophy of Language, and Philosophy of Mind.
+- Branches: Platonism, Ancient Greek Philosophy, Stoicism, Epicureanism, Skepticism, Cynicism, Aristotelianism, Neoplatonism, Epistemology, Ethics, Analytic Philosophy, Philosophy of Religion, Medieval Scholasticism, Islamic Philosophy, Rationalism, Empiricism, German Idealism, Existentialism, Phenomenology, Political Philosophy, Philosophy of Science, Metaphysics, Ontology, Virtue Ethics, Deontology, Utilitarianism, Logic, Philosophy of Language, Philosophy of Mind, Chinese Philosophy, Confucianism, Daoism, Mohism, Legalism, Indian Philosophy, Jainism, Vedanta, Buddhist Philosophy, and Buddhist Epistemology.
 
 These records model the target editorial depth: a clear opening orientation, sustained historical and argumentative explanation, interpretive cautions, connections across the atlas, and a practical reading path.
 
@@ -52,7 +52,7 @@ The focused `npm run audit:accuracy` script checks these high-priority consisten
 
 The second accuracy pass extends those rules to ancient and cross-cultural chronology. Chinese, Indian, Buddhist, Jain, Daoist, Confucian, Mohist, Legalist, and Vedanta-related records should not imply modern exact dating where the evidence is traditional, approximate, legendary, or disputed. Broad tradition pages should distinguish canonical figures, critics, commentators, school systematizers, and later reception instead of treating every figure as a simple member of one school. Current locked checks cover Confucius, Laozi, Zhuangzi, Mahavira, Kanada, Patanjali, Shankara, Ramanuja, Dignaga, Dharmakirti, and the broad Chinese/Indian/Buddhist branch figure lists.
 
-The branch content-model pass splits named cross-cultural traditions out of over-broad umbrella records where the app already represents them. Chinese Philosophy remains an umbrella, while Confucianism, Daoism, Mohism, and Legalism are branch records with their own figure lists and relationship edges. Indian Philosophy remains an umbrella, while Jainism, Vedanta, Buddhist Philosophy, and Buddhist Epistemology carry their own branch records. Future content packs should add deeper prose to these branches rather than folding them back into umbrella tradition pages.
+The branch content-model pass splits named cross-cultural traditions out of over-broad umbrella records where the app already represents them. Chinese Philosophy remains an umbrella, while Confucianism, Daoism, Mohism, and Legalism are branch records with their own figure lists and relationship edges. Indian Philosophy remains an umbrella, while Jainism, Vedanta, Buddhist Philosophy, and Buddhist Epistemology carry their own branch records. These ten records now have dedicated article-grade prose and curated detail overlays while preserving the umbrella/subtradition distinctions.
 
 ## Article-format coverage
 
@@ -67,8 +67,10 @@ The branch records authored and rendered in the article-first format are:
 - Philosophy of Religion, Medieval Scholasticism, and Islamic Philosophy
 - Rationalism, Empiricism, German Idealism, Existentialism, Phenomenology, Political Philosophy, and Philosophy of Science
 - Metaphysics, Ontology, Virtue Ethics, Deontology, Utilitarianism, Logic, Philosophy of Language, and Philosophy of Mind
+- Chinese Philosophy, Confucianism, Daoism, Mohism, and Legalism
+- Indian Philosophy, Jainism, Vedanta, Buddhist Philosophy, and Buddhist Epistemology
 
-These records establish the editorial and UI pattern for future article packs: concise overview first, sustained historical and argumentative prose as the main body, and compact readings, sources, concepts, and atlas connections as supporting reference material. Branch coverage remains much thinner than philosopher coverage and should be the next large content frontier.
+These records establish the editorial and UI pattern for future article packs: concise overview first, sustained historical and argumentative prose as the main body, and compact readings, sources, concepts, and atlas connections as supporting reference material. Branch coverage is now 39 of 43, leaving one focused four-branch completion pack.
 
 ## Structured deep pack
 
@@ -80,28 +82,28 @@ These profiles contain authored historical framing, multiple central questions, 
 
 The current audited article-grade branch pack is:
 
-- Platonism, Ancient Greek Philosophy, Aristotelianism, Neoplatonism, Stoicism, Epicureanism, Skepticism, Cynicism, Epistemology, Ethics, Analytic Philosophy, Philosophy of Religion, Medieval Scholasticism, Islamic Philosophy, Rationalism, Empiricism, German Idealism, Existentialism, Phenomenology, Political Philosophy, Philosophy of Science, Metaphysics, Ontology, Virtue Ethics, Deontology, Utilitarianism, Logic, Philosophy of Language, and Philosophy of Mind.
+- Platonism, Ancient Greek Philosophy, Aristotelianism, Neoplatonism, Stoicism, Epicureanism, Skepticism, Cynicism, Epistemology, Ethics, Analytic Philosophy, Philosophy of Religion, Medieval Scholasticism, Islamic Philosophy, Rationalism, Empiricism, German Idealism, Existentialism, Phenomenology, Political Philosophy, Philosophy of Science, Metaphysics, Ontology, Virtue Ethics, Deontology, Utilitarianism, Logic, Philosophy of Language, Philosophy of Mind, Chinese Philosophy, Confucianism, Daoism, Mohism, Legalism, Indian Philosophy, Jainism, Vedanta, Buddhist Philosophy, and Buddhist Epistemology.
 
-These pages now contain specific origin stories, periodized development, concepts, major works, internal debates, modern relevance, misconceptions, reading paths, and reference links. Aesthetics, Pragmatism, Continental Philosophy, Feminist Philosophy, and the remaining Chinese, Indian, and Buddhist tradition records still have structured summaries but do not yet count as article-grade coverage.
+These pages now contain specific origin stories, periodized development, concepts, major works, internal debates, modern relevance, misconceptions, reading paths, and reference links. Aesthetics, Pragmatism, Continental Philosophy, and Feminist Philosophy still have structured summaries but do not yet count as article-grade coverage.
 
 ## Current shallow areas
 
-Most philosopher records now have article-grade depth. The remaining shallow philosopher records are concentrated enough to finish in one or two focused passes. Branch and school records are now the larger gap: many are useful structured summaries, but 29 of 43 currently have article-grade `articleSections`.
+Most philosopher records now have article-grade depth. The remaining shallow philosopher records are concentrated enough to finish in one or two focused passes. Branch coverage has reached 39 of 43 article-grade `articleSections`, leaving four focused branch records.
 
 High-priority shallow groups include:
 
 - Remaining philosopher profiles: Fichte, Schelling, Husserl, Heidegger, Sartre, Beauvoir, Camus, Arendt, Rawls, Nozick, Foucault, Derrida, Saadia Gaon, Judah Halevi, Ibn Tufayl, Suhrawardi, Mulla Sadra, Habermas, and Fanon.
-- Branch depth: Aesthetics, Pragmatism, Continental Philosophy, Feminist Philosophy, Chinese Philosophy, Confucianism, Daoism, Mohism, Legalism, Indian Philosophy, Jainism, Vedanta, Buddhist Philosophy, and Buddhist Epistemology.
+- Branch depth: Aesthetics, Pragmatism, Continental Philosophy, and Feminist Philosophy.
 - Portrait/source metadata remains shallow. Most new article profiles still rely on fallback medallions until image rights and attribution can be verified.
 
 ## Recommended future article packs
 
-1. Branch-depth sprint: write article-grade pages for the 14 missing branch records, starting with Aesthetics, Pragmatism, Continental Philosophy, Feminist Philosophy, and the remaining Chinese, Indian, and Buddhist tradition pages.
+1. Final branch-depth sprint: write article-grade pages for Aesthetics, Pragmatism, Continental Philosophy, and Feminist Philosophy.
 2. Remaining philosopher completion sprint: finish Fichte, Schelling, Husserl, Heidegger, Sartre, Beauvoir, Camus, Arendt, Rawls, Nozick, Foucault, Derrida, Habermas, Fanon, Saadia Gaon, Judah Halevi, Ibn Tufayl, Suhrawardi, and Mulla Sadra.
 3. Continental branch-and-profile pack: pair the remaining continental philosophers with the still-shallow Continental Philosophy branch page.
 4. Jewish/Islamic later philosophy pack: add Saadia Gaon, Judah Halevi, Ibn Tufayl, Suhrawardi, and Mulla Sadra now that Islamic Philosophy and Philosophy of Religion are article-grade.
 5. Analytic/topic follow-through: deepen comparison paths among Logic, Philosophy of Language, Philosophy of Mind, Philosophy of Science, Deontology, and Utilitarianism now that all are article-grade.
-6. Cross-cultural branch pack: Chinese Philosophy, Confucianism, Daoism, Mohism, Legalism, Indian Philosophy, Jainism, Vedanta, Buddhist Philosophy, and Buddhist Epistemology need dedicated tradition pages that match the depth of their philosopher records.
+6. Cross-cultural accuracy follow-through: continue checking terminology, chronology, translation choices, and relationship metadata now that all ten named Chinese, Indian, Jain, Vedanta, and Buddhist branch pages are article-grade.
 7. Political and social philosophy pack: Rawls, Nozick, Arendt, Habermas, Fanon, Feminist Philosophy, and future philosophy of race/decolonial/disability branch records.
 8. Image/source metadata pass: add verified image metadata only where public-domain or clearly reusable sources can be confirmed; otherwise keep fallback medallions.
 
