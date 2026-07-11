@@ -11,6 +11,7 @@ const [philosophers,branches,timeline,wall,relationships,profile]=await Promise.
 ]);
 const app=await read('src/App.tsx');
 const [chineseConfucianDepth,daoMohistLegalistDepth,indianJainVedantaDepth,buddhistPhilosophyDepth,buddhistEpistemologyDepth]=await Promise.all([read('src/data/chineseConfucianBranchDepth.ts'),read('src/data/daoMohistLegalistBranchDepth.ts'),read('src/data/indianJainVedantaBranchDepth.ts'),read('src/data/buddhistPhilosophyBranchDepth.ts'),read('src/data/buddhistEpistemologyBranchDepth.ts')]);
+const [aestheticsDepth,pragmatismDepth,continentalDepth,feministDepth]=await Promise.all([read('src/data/aestheticsBranchDepth.ts'),read('src/data/pragmatismBranchDepth.ts'),read('src/data/continentalPhilosophyBranchDepth.ts'),read('src/data/feministPhilosophyBranchDepth.ts')]);
 
 const lineWith=(source,needle)=>source.split(/\r?\n/).find(line=>line.includes(needle))??'';
 const tupleLine=(source,id)=>source.split(/\r?\n/).find(line=>line.startsWith(`['${id}',`))??'';
@@ -71,6 +72,11 @@ check(daoMohistLegalistDepth.includes('better approached as non-forcing')&&daoMo
 check(indianJainVedantaDepth.includes('It has no single founder')&&indianJainVedantaDepth.includes('traditional chronology remains historically disputed')&&indianJainVedantaDepth.includes('does not declare all opinions equally true')&&indianJainVedantaDepth.includes('not founders of Vedānta itself'),'Indian, Jain, and Vedānta articles must preserve umbrella, chronology, non-relativism, and commentator safeguards.');
 check(buddhistPhilosophyDepth.includes('chronology remains disputed')&&buddhistPhilosophyDepth.includes('claim that nothing exists')&&buddhistPhilosophyDepth.includes('not reducible to mindfulness'),'Buddhist Philosophy article must preserve chronological plurality and reject mindfulness-only or nihilist reductions.');
 check(buddhistEpistemologyDepth.includes('Long before Dignāga')&&buddhistEpistemologyDepth.includes('apoha')&&buddhistEpistemologyDepth.includes('should not be forced into the European empiricism-rationalism divide'),'Buddhist Epistemology article must remain a later focused development and avoid forced Western categories.');
+
+check(aestheticsDepth.includes('Philosophy of art overlaps with aesthetics')&&aestheticsDepth.includes('value is not merely whatever an individual prefers')&&aestheticsDepth.includes('not universalize one historically recent art-category scheme'),'Aesthetics must preserve art/aesthetics overlap, reason-responsive value, and cross-cultural category cautions.');
+check(pragmatismDepth.includes('does not mean “whatever works”')&&pragmatismDepth.includes('non-interchangeable accounts')&&pragmatismDepth.includes('the a priori method'),'Pragmatism must reject expediency, distinguish its major figures, and preserve Peirce’s inquiry terminology.');
+check(continentalDepth.includes('retrospective umbrella')&&continentalDepth.includes('did not use it for themselves')&&continentalDepth.includes('nor merely whatever is not analytic'),'Continental Philosophy must remain a retrospective institutional umbrella rather than one school or a negative analytic label.');
+check(feministDepth.includes('Feminist philosophy is not one doctrine')&&feministDepth.includes('Kimberlé Crenshaw introduced the term in 1989')&&feministDepth.includes('Gender is not the sole axis')&&!lineWith(feministDepth,'majorFigures:').includes("'anscombe'")&&!lineWith(feministDepth,'majorFigures:').includes("'arendt'"),'Feminist Philosophy must preserve plurality, intersectional attribution, multi-axis analysis, and careful representative-figure curation.');
 
 for(const {condition,message} of checks){
   if(condition){
