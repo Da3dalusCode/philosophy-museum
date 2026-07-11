@@ -20,6 +20,8 @@ const {branchArticles,philosopherArticles}=await import(moduleUrl);
 
 const requested=process.argv.slice(2);
 const targets=requested.length?requested:['plato','platonism','socrates','aristotle','ancient-greek','epicurus','epictetus','stoicism','epicureanism','zeno','seneca','marcus-aurelius','skepticism','pyrrho','sextus-empiricus','lucretius','cynicism','diogenes','cleanthes','chrysippus','plotinus','aristotelianism','neoplatonism','arcesilaus','carneades','porphyry','iamblichus','proclus','pseudo-dionysius','augustine','boethius','anselm','aquinas','avicenna','maimonides','duns-scotus','ockham','descartes','spinoza','leibniz','locke','hume','confucius','laozi','zhuangzi','buddha','nagarjuna','shankara','hegel','schopenhauer','kierkegaard','marx','mill','al-kindi','al-farabi','al-ghazali','averroes','frege','russell','g-e-moore','carnap','quine','anscombe','machiavelli','bacon','hobbes','berkeley','rousseau','bentham','mencius','xunzi','mozi','han-feizi','zhu-xi','wang-yangming','thales','anaximander','anaximenes','pythagoras','philolaus','parmenides','zeno-elea','heraclitus','empedocles','anaxagoras','leucippus','democritus','protagoras','gorgias','antisthenes','peirce','william-james','dewey','whitehead','popper','kuhn','mahavira','kanada','patanjali','vasubandhu','dignaga','dharmakirti','ramanuja','madhva','origen','gregory-nyssa','eriugena','abelard','meister-eckhart','marsilius-padua','mary-astell','anne-conway','montesquieu','adam-smith','wollstonecraft','martha-nussbaum','judith-butler','angela-davis','bell-hooks','merleau-ponty','levinas','gadamer','iris-murdoch','philippa-foot','judith-thomson','thomas-nagel','derek-parfit'];
+const completionPhilosopherTargets=new Set(['fichte','schelling','husserl','heidegger','sartre','beauvoir','camus']);
+if(!requested.length)targets.push(...completionPhilosopherTargets);
 const sprintBranchTargets=['philosophy-of-religion','medieval-scholasticism','islamic-philosophy','rationalism','empiricism','german-idealism','existentialism','phenomenology','political-philosophy','philosophy-of-science','metaphysics','ontology','virtue-ethics','deontology','utilitarianism','logic','philosophy-of-language','philosophy-of-mind','aesthetics','pragmatism','continental-philosophy','feminist-philosophy','chinese-philosophy','confucianism','daoism','mohism','legalism','indian-philosophy','jainism','vedanta','buddhist-philosophy','buddhist-epistemology'];
 if(!requested.length)targets.push(...sprintBranchTargets);
 const idsFromSpecs=text=>[...text.matchAll(/^\['([^']+)'/gm)].map(match=>match[1]);
@@ -58,6 +60,7 @@ const countWords=sections=>sections.flatMap(section=>section.paragraphs).join(' 
 const minimum=1800;
 const strictMinimum=2000;
 const strictTargets=new Set(['augustine','boethius','anselm','aquinas','avicenna','maimonides','duns-scotus','ockham','descartes','spinoza','leibniz','locke','hume','al-kindi','al-farabi','al-ghazali','averroes']);
+for(const id of ['heidegger'])strictTargets.add(id);
 
 for(const id of targets){
   const sections=philosopherArticles[id]??branchArticles[id];
@@ -71,7 +74,7 @@ for(const id of targets){
   const status=words>=required?'PASS':'FAIL';
   console.log(`${id}: ${words} article prose words across ${sections.length} sections — ${status} (minimum ${required})`);
   if(words<required)process.exitCode=1;
-  if(sprintBranchTargets.includes(id)){
+  if(sprintBranchTargets.includes(id)||completionPhilosopherTargets.has(id)){
     const seenSectionIds=new Set();
     for(const section of sections){
       if(!section.id||seenSectionIds.has(section.id))fail(`${id}: section IDs must be nonempty and unique (${section.id||'missing'})`);

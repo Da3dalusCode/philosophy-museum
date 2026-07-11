@@ -13,6 +13,9 @@ import {earlyModernPoliticalPhilosopherArticles} from './earlyModernPoliticalArt
 import {earlyStoicSystemPhilosopherArticles} from './earlyStoicSystemArticles';
 import {feministSocialContinuationPhilosopherArticles} from './feministSocialContinuationArticles';
 import {feministPhilosophyBranchArticles} from './feministPhilosophyBranchDepth';
+import {germanIdealismCompletionPhilosopherArticles} from './germanIdealismCompletionArticles';
+import {phenomenologyCompletionPhilosopherArticles} from './phenomenologyCompletionArticles';
+import {situatedFreedomCompletionPhilosopherArticles} from './situatedFreedomCompletionArticles';
 import {hellenisticFoundationBranchArticles,hellenisticFoundationPhilosopherArticles} from './hellenisticFoundationArticles';
 import {hellenisticBranchArticles,hellenisticPhilosopherArticles} from './hellenisticArticles';
 import {indianBuddhistContinuationPhilosopherArticles} from './indianBuddhistContinuationArticles';
@@ -56,6 +59,9 @@ export const philosopherArticles:Record<string,ArticleSection[]>={
   ...earlyModernPoliticalPhilosopherArticles,
   ...earlyStoicSystemPhilosopherArticles,
   ...feministSocialContinuationPhilosopherArticles,
+  ...germanIdealismCompletionPhilosopherArticles,
+  ...phenomenologyCompletionPhilosopherArticles,
+  ...situatedFreedomCompletionPhilosopherArticles,
   ...hellenisticFoundationPhilosopherArticles,
   ...hellenisticPhilosopherArticles,
   ...indianBuddhistContinuationPhilosopherArticles,
