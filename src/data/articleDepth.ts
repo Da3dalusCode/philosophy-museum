@@ -3,7 +3,9 @@ import {academicSkepticPhilosopherArticles} from './academicSkepticArticles';
 import {analyticContinuationPhilosopherArticles} from './analyticContinuationArticles';
 import {ancientGreekBranchArticles,ancientGreekPhilosopherArticles} from './ancientGreekArticles';
 import {chineseContinuationPhilosopherArticles} from './chineseContinuationArticles';
+import {chineseConfucianBranchArticles} from './chineseConfucianBranchDepth';
 import {crossCulturalCorePhilosopherArticles} from './crossCulturalCoreArticles';
+import {daoMohistLegalistBranchArticles} from './daoMohistLegalistBranchDepth';
 import {earlyModernCorePhilosopherArticles} from './earlyModernCoreArticles';
 import {earlyModernPoliticalPhilosopherArticles} from './earlyModernPoliticalArticles';
 import {earlyStoicSystemPhilosopherArticles} from './earlyStoicSystemArticles';
@@ -199,6 +201,8 @@ export const philosopherArticles:Record<string,ArticleSection[]>={
 
 export const branchArticles:Record<string,ArticleSection[]>={
   ...ancientGreekBranchArticles,
+  ...chineseConfucianBranchArticles,
+  ...daoMohistLegalistBranchArticles,
   ...hellenisticFoundationBranchArticles,
   ...hellenisticBranchArticles,
   ...lateAntiqueInheritanceBranchArticles,
