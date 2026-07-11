@@ -119,7 +119,7 @@ export const chineseConfucianBranchDetails:Record<string,Partial<Branch>>={
     ],
     majorWorks:[
       {title:'Analects',approximateYear:-450,summary:'A layered collection of sayings and conversations associated with Confucius and his teaching community.',whyItMatters:'It anchors debates about humaneness, ritual, learning, family, and ethical government.'},
-      {title:'Mozi',approximateYear:-400,summary:'A composite text defending impartial concern, merit, frugality, anti-fatalism, and opposition to aggressive war.',whyItMatters:'It records a major organized rival to Confucian ritual and graded concern.'},
+      {title:'Mozi',summary:'A composite text defending impartial concern, merit, frugality, anti-fatalism, and opposition to aggressive war.',whyItMatters:'It records a major organized rival to Confucian ritual and graded concern.'},
       {title:'Daodejing',approximateYear:-300,summary:'A compact composite text on the Way, non-forcing, reversal, simplicity, and political restraint.',whyItMatters:'Its interpretive history shapes philosophical and religious Daoist thought without reducing either to one author.'},
       {title:'Zhuangzi',approximateYear:-300,summary:'Layered writings using story, humor, paradox, and skill to explore transformation, perspective, language, and living well.',whyItMatters:'It supplies one of the tradition’s deepest critiques of rigid knowledge and forced order.'},
       {title:'Han Feizi',approximateYear:-240,summary:'Essays on standards, administrative technique, positional power, incentives, and the dangers surrounding rule.',whyItMatters:'It crystallizes a major current in Warring States statecraft while drawing critically on other traditions.'}

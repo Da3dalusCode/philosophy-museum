@@ -208,7 +208,7 @@ export const daoMohistLegalistBranchDetails:Record<string,Partial<Branch>>={
       {name:'Anti-fatalism',explanation:'Rejection of beliefs that make effort and reform powerless against fixed outcomes.',whyItMatters:'It grounds responsibility for coordinated action and institutional change.'}
     ],
     majorWorks:[
-      {title:'Mozi',approximateYear:-350,summary:'A layered corpus of ethical and political essays, dialogues, antiwar arguments, defensive writings, and technical canons associated with Mozi and Mohist communities.',whyItMatters:'It documents a broad program joining impartial care, practical benefit, organized reform, and rigorous disputation.'}
+      {title:'Mozi',summary:'A layered corpus of ethical and political essays, dialogues, antiwar arguments, defensive writings, and technical canons associated with Mozi and Mohist communities.',whyItMatters:'It documents a broad program joining impartial care, practical benefit, organized reform, and rigorous disputation.'}
     ],
     internalDebates:['Does impartial concern require equal feeling, equal consideration, reciprocal conduct, or institutionally impartial rules?','Can hierarchical unity coexist with evidence-based criticism and correction from below?','How should material welfare, security, order, family life, and moral concern be weighed when consequences conflict?','What role do Heaven and spirits play in Mohist argument and motivation?','How confidently can damaged and compressed canon passages be reconstructed as theories of logic and science?'],
     rivalPositions:['confucianism','daoism','legalism'],

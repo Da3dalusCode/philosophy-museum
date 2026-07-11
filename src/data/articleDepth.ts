@@ -13,6 +13,9 @@ import {feministSocialContinuationPhilosopherArticles} from './feministSocialCon
 import {hellenisticFoundationBranchArticles,hellenisticFoundationPhilosopherArticles} from './hellenisticFoundationArticles';
 import {hellenisticBranchArticles,hellenisticPhilosopherArticles} from './hellenisticArticles';
 import {indianBuddhistContinuationPhilosopherArticles} from './indianBuddhistContinuationArticles';
+import {buddhistEpistemologyBranchArticles} from './buddhistEpistemologyBranchDepth';
+import {buddhistPhilosophyBranchArticles} from './buddhistPhilosophyBranchDepth';
+import {indianJainVedantaBranchArticles} from './indianJainVedantaBranchDepth';
 import {lateAntiqueBridgePhilosopherArticles} from './lateAntiqueBridgeArticles';
 import {lateAntiqueInheritanceBranchArticles,lateAntiqueInheritancePhilosopherArticles} from './lateAntiqueInheritanceArticles';
 import {lateTwentiethEthicsPhilosopherArticles} from './lateTwentiethEthicsArticles';
@@ -203,6 +206,9 @@ export const branchArticles:Record<string,ArticleSection[]>={
   ...ancientGreekBranchArticles,
   ...chineseConfucianBranchArticles,
   ...daoMohistLegalistBranchArticles,
+  ...buddhistPhilosophyBranchArticles,
+  ...buddhistEpistemologyBranchArticles,
+  ...indianJainVedantaBranchArticles,
   ...hellenisticFoundationBranchArticles,
   ...hellenisticBranchArticles,
   ...lateAntiqueInheritanceBranchArticles,
