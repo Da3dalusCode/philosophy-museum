@@ -22,6 +22,7 @@ const requested=process.argv.slice(2);
 const targets=requested.length?requested:['plato','platonism','socrates','aristotle','ancient-greek','epicurus','epictetus','stoicism','epicureanism','zeno','seneca','marcus-aurelius','skepticism','pyrrho','sextus-empiricus','lucretius','cynicism','diogenes','cleanthes','chrysippus','plotinus','aristotelianism','neoplatonism','arcesilaus','carneades','porphyry','iamblichus','proclus','pseudo-dionysius','augustine','boethius','anselm','aquinas','avicenna','maimonides','duns-scotus','ockham','descartes','spinoza','leibniz','locke','hume','confucius','laozi','zhuangzi','buddha','nagarjuna','shankara','hegel','schopenhauer','kierkegaard','marx','mill','al-kindi','al-farabi','al-ghazali','averroes','frege','russell','g-e-moore','carnap','quine','anscombe','machiavelli','bacon','hobbes','berkeley','rousseau','bentham','mencius','xunzi','mozi','han-feizi','zhu-xi','wang-yangming','thales','anaximander','anaximenes','pythagoras','philolaus','parmenides','zeno-elea','heraclitus','empedocles','anaxagoras','leucippus','democritus','protagoras','gorgias','antisthenes','peirce','william-james','dewey','whitehead','popper','kuhn','mahavira','kanada','patanjali','vasubandhu','dignaga','dharmakirti','ramanuja','madhva','origen','gregory-nyssa','eriugena','abelard','meister-eckhart','marsilius-padua','mary-astell','anne-conway','montesquieu','adam-smith','wollstonecraft','martha-nussbaum','judith-butler','angela-davis','bell-hooks','merleau-ponty','levinas','gadamer','iris-murdoch','philippa-foot','judith-thomson','thomas-nagel','derek-parfit'];
 const completionPhilosopherTargets=new Set(['fichte','schelling','husserl','heidegger','sartre','beauvoir','camus']);
 for(const id of ['arendt','rawls','nozick','foucault','derrida','habermas','fanon'])completionPhilosopherTargets.add(id);
+for(const id of ['saadia-gaon','judah-halevi','ibn-tufayl','suhrawardi','mulla-sadra'])completionPhilosopherTargets.add(id);
 if(!requested.length)targets.push(...completionPhilosopherTargets);
 const sprintBranchTargets=['philosophy-of-religion','medieval-scholasticism','islamic-philosophy','rationalism','empiricism','german-idealism','existentialism','phenomenology','political-philosophy','philosophy-of-science','metaphysics','ontology','virtue-ethics','deontology','utilitarianism','logic','philosophy-of-language','philosophy-of-mind','aesthetics','pragmatism','continental-philosophy','feminist-philosophy','chinese-philosophy','confucianism','daoism','mohism','legalism','indian-philosophy','jainism','vedanta','buddhist-philosophy','buddhist-epistemology'];
 if(!requested.length)targets.push(...sprintBranchTargets);
@@ -51,17 +52,24 @@ const {buddhistEpistemologyBranchDetails}=await import(await moduleUrlFor('buddh
 const {indianJainVedantaBranchDetails}=await import(await moduleUrlFor('indianJainVedantaBranchDepth'));
 const {utilitarianismBranchDetails}=await import(await moduleUrlFor('utilitarianismBranchDepth'));
 const {virtueEthicsBranchDetails}=await import(await moduleUrlFor('virtueEthicsBranchDepth'));
+const {philosopherCompletionDetails}=await import(await moduleUrlFor('philosopherCompletionDepth'));
+const {modernCompletionDetails}=await import(await moduleUrlFor('modernCompletionDepth'));
+const {medievalCompletionDetails}=await import(await moduleUrlFor('medievalCompletionDepth'));
+const completionDetails={...philosopherCompletionDetails,...modernCompletionDetails,...medievalCompletionDetails};
 const sprintBranchDetails={...modernCoreBranchDetails,...earlyModernKnowledgeBranchDetails,...metaphysicsBranchDetails,...ontologyBranchDetails,...virtueEthicsBranchDetails,...deontologyBranchDetails,...utilitarianismBranchDetails,...logicBranchDetails,...philosophyLanguageBranchDetails,...philosophyMindBranchDetails,...aestheticsBranchDetails,...pragmatismBranchDetails,...continentalPhilosophyBranchDetails,...feministPhilosophyBranchDetails,...chineseConfucianBranchDetails,...daoMohistLegalistBranchDetails,...buddhistPhilosophyBranchDetails,...buddhistEpistemologyBranchDetails,...indianJainVedantaBranchDetails};
 const validSourceTypes=new Set(['SEP','IEP','Wikipedia','Wikidata','Wikimedia','primary-text','public-domain-text','other']);
+const validReadingTypes=new Set(['primary','secondary','essay','dialogue','book','lecture','article']);
+const validReadingDifficulties=new Set(['beginner','intermediate','advanced']);
 const fail=message=>{console.error(message);process.exitCode=1;};
 for(const id of Object.keys(branchArticles))if(!validBranchIds.has(id))fail(`branchArticles contains unknown branch key ${id}`);
 for(const id of Object.keys(sprintBranchDetails))if(!validBranchIds.has(id))fail(`branch detail overlay targets unknown branch key ${id}`);
+for(const id of Object.keys(philosopherArticles))if(!validPhilosopherIds.has(id))fail(`philosopherArticles contains unknown philosopher key ${id}`);
 
 const countWords=sections=>sections.flatMap(section=>section.paragraphs).join(' ').match(/\b[\p{L}\p{N}][\p{L}\p{N}’'-]*\b/gu)?.length??0;
 const minimum=1800;
 const strictMinimum=2000;
 const strictTargets=new Set(['augustine','boethius','anselm','aquinas','avicenna','maimonides','duns-scotus','ockham','descartes','spinoza','leibniz','locke','hume','al-kindi','al-farabi','al-ghazali','averroes']);
-for(const id of ['heidegger','arendt','rawls','foucault','derrida','habermas','fanon'])strictTargets.add(id);
+for(const id of ['heidegger','arendt','rawls','foucault','derrida','habermas','fanon','mulla-sadra'])strictTargets.add(id);
 
 for(const id of targets){
   const sections=philosopherArticles[id]??branchArticles[id];
@@ -84,7 +92,7 @@ for(const id of targets){
       for(const branchId of section.relatedBranchIds??[])if(!validBranchIds.has(branchId))fail(`${id}/${section.id}: unknown relatedBranchId ${branchId}`);
       for(const philosopherId of section.relatedPhilosopherIds??[])if(!validPhilosopherIds.has(philosopherId))fail(`${id}/${section.id}: unknown relatedPhilosopherId ${philosopherId}`);
     }
-    const details=sprintBranchDetails[id];
+    const details=sprintBranchDetails[id]??completionDetails[id];
     if(details){
       for(const branchId of details.rivalPositions??[])if(!validBranchIds.has(branchId))fail(`${id}: unknown rivalPositions branch ${branchId}`);
       for(const philosopherId of details.majorFigures??[])if(!validPhilosopherIds.has(philosopherId))fail(`${id}: unknown majorFigures philosopher ${philosopherId}`);
@@ -92,6 +100,10 @@ for(const id of targets){
         if(!link.label?.trim()||!link.url?.trim()||!validSourceTypes.has(link.type))fail(`${id}: sourceLinks require label, URL, and valid type`);
         try{const url=new URL(link.url);if(!['http:','https:'].includes(url.protocol))throw new Error('unsupported protocol');}
         catch{fail(`${id}: invalid source URL ${link.url}`);}
+      }
+      for(const item of [...(details.beginnerReadingPath??[]),...(details.advancedReadingPath??[])]){
+        if(!item.title?.trim()||!item.author?.trim()||!item.whyRead?.trim())fail(`${id}: reading paths require title, author, and whyRead`);
+        if(!validReadingTypes.has(item.type)||!validReadingDifficulties.has(item.difficulty))fail(`${id}: reading paths require valid type and difficulty`);
       }
     }
   }

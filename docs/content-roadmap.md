@@ -8,7 +8,7 @@ As of Phase 3B, the atlas contains approximately:
 - 43 branch and school records.
 - 28 sustained school bands on the Philosophy Wall.
 - 24 selected landmark works on the Philosophy Wall.
-- Article-grade coverage for 122 of 141 philosopher records, measured by `npm run report:coverage`.
+- Article-grade coverage for all 141 philosopher records, measured by `npm run report:coverage`.
 - Article-grade coverage for all 43 branch and school records, measured by `npm run report:coverage`.
 
 Coverage is strongest for ancient Greek philosophy, Pre-Socratic and Hellenistic schools, early modern European philosophy, medieval Christian/Islamic/scholastic philosophy, Chinese and Indian/Buddhist core traditions, analytic philosophy, pragmatism and philosophy of science, feminist/social philosophy, and late twentieth-century ethics.
@@ -71,7 +71,7 @@ The branch records authored and rendered in the article-first format are:
 - Indian Philosophy, Jainism, Vedanta, Buddhist Philosophy, and Buddhist Epistemology
 - Aesthetics, Pragmatism, Continental Philosophy, and Feminist Philosophy
 
-These records establish the editorial and UI pattern for future article packs: concise overview first, sustained historical and argumentative prose as the main body, and compact readings, sources, concepts, and atlas connections as supporting reference material. Branch article coverage is complete at 43 of 43; philosopher article coverage remains incomplete at 122 of 141.
+These records establish the editorial and UI pattern for future depth work: concise overview first, sustained historical and argumentative prose as the main body, and compact readings, sources, concepts, and atlas connections as supporting reference material. Branch article coverage is complete at 43 of 43, and philosopher article coverage is complete at 141 of 141. Every current atlas record now has article-grade `articleSections`.
 
 ## Structured deep pack
 
@@ -79,7 +79,7 @@ The current structured deep philosopher pack is deliberately limited to twelve p
 
 - Plato, Aristotle, Augustine, Aquinas, Descartes, Hume, Kant, Nietzsche, Wittgenstein, Heidegger, Simone de Beauvoir, and Foucault.
 
-These profiles contain authored historical framing, multiple central questions, specifically explained ideas and works, named influence routes, interpretive disputes, staged reading paths, and stable reference links. Plato, Aristotle, Augustine, Aquinas, Descartes, Hume, Kant, Nietzsche, and Wittgenstein now have some form of article-first coverage. Heidegger, Simone de Beauvoir, and Foucault still use the structured exhibit presentation and should be treated as high-priority candidates for article conversion.
+These profiles contain authored historical framing, multiple central questions, specifically explained ideas and works, named influence routes, interpretive disputes, staged reading paths, and stable reference links. Their structured metadata remains available as a supporting layer, and Heidegger, Simone de Beauvoir, and Foucault now also render through article-first coverage without losing that stronger structured material.
 
 The current audited article-grade branch pack is:
 
@@ -87,20 +87,20 @@ The current audited article-grade branch pack is:
 
 These pages now contain specific origin stories, periodized development, concepts, major works, internal debates, modern relevance, misconceptions, reading paths, and reference links. All branch records now count as article-grade coverage.
 
-## Current shallow areas
+## Core article coverage complete
 
-Branch article coverage is complete. The remaining shallow philosopher records are concentrated enough to finish in one or two focused passes.
+Branch article coverage is complete at 43 of 43, and philosopher article coverage is complete at 141 of 141. Missing core article coverage is no longer a roadmap category.
 
-High-priority shallow groups include:
+Remaining editorial priorities include:
 
-- Remaining philosopher profiles: Fichte, Schelling, Husserl, Heidegger, Sartre, Beauvoir, Camus, Arendt, Rawls, Nozick, Foucault, Derrida, Saadia Gaon, Judah Halevi, Ibn Tufayl, Suhrawardi, Mulla Sadra, Habermas, and Fanon.
+- Broader source provenance, primary-text links, and reference review across the full corpus.
 - Portrait/source metadata remains shallow. Most new article profiles still rely on fallback medallions until image rights and attribution can be verified.
 
-## Recommended future article packs
+## Recommended future depth and provenance work
 
-1. Remaining philosopher completion sprint: finish Fichte, Schelling, Husserl, Heidegger, Sartre, Beauvoir, Camus, Arendt, Rawls, Nozick, Foucault, Derrida, Habermas, Fanon, Saadia Gaon, Judah Halevi, Ibn Tufayl, Suhrawardi, and Mulla Sadra.
-2. Continental profile pack: complete the remaining German Idealist, phenomenological, existentialist, critical-theory, and post-structuralist philosopher articles now that the Continental Philosophy branch is article-grade.
-3. Jewish/Islamic later philosophy pack: add Saadia Gaon, Judah Halevi, Ibn Tufayl, Suhrawardi, and Mulla Sadra now that Islamic Philosophy and Philosophy of Religion are article-grade.
+1. Product architecture and interaction follow-through: routing, direct links, state restoration, and broader navigation QA while preserving Big History as the landing view.
+2. Performance and mobile follow-through: bundle splitting, small-screen usability, and dense-visualization testing without replacing the wall-chart model.
+3. Source and imagery provenance: expand stable references and add portraits only when creator, source, and reusable license metadata can be verified together.
 4. Analytic/topic follow-through: deepen comparison paths among Logic, Philosophy of Language, Philosophy of Mind, Philosophy of Science, Deontology, and Utilitarianism now that all are article-grade.
 5. Cross-cultural accuracy follow-through: continue checking terminology, chronology, translation choices, and relationship metadata now that all ten named Chinese, Indian, Jain, Vedanta, and Buddhist branch pages are article-grade.
 6. Image/source metadata pass: add verified image metadata only where public-domain or clearly reusable sources can be confirmed; otherwise keep fallback medallions.
@@ -110,7 +110,7 @@ High-priority shallow groups include:
 - Add routing and direct-link support without changing Big History as the default landing view.
 - Improve small-screen and mobile usability while preserving the wall-chart model.
 - Split the production bundle; the current build remains functional but reports a large-chunk warning.
-- Deepen comparison content and interactions without redesigning Compare Mode in the branch-completion sprint.
+- Deepen comparison content and interactions in a dedicated future pass.
 - Continue source-provenance and image-license verification beyond the current stable reference links.
 - Run broader interactive QA across navigation, drawers, filtering, comparisons, and responsive layouts.
 

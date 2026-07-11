@@ -21,6 +21,11 @@ import {genealogyDeconstructionCompletionPhilosopherArticles} from './genealogyD
 import {modernPoliticalCompletionPhilosopherArticles} from './modernPoliticalCompletionArticles';
 import {nozickCompletionPhilosopherArticles} from './nozickCompletionArticles';
 import {rawlsCompletionPhilosopherArticles} from './rawlsCompletionArticles';
+import {ibnTufaylCompletionPhilosopherArticles} from './ibnTufaylCompletionArticles';
+import {judahHaleviCompletionPhilosopherArticles} from './judahHaleviCompletionArticles';
+import {medievalJewishCompletionPhilosopherArticles} from './medievalJewishCompletionArticles';
+import {mullaSadraCompletionPhilosopherArticles} from './mullaSadraCompletionArticles';
+import {suhrawardiCompletionPhilosopherArticles} from './suhrawardiCompletionArticles';
 import {hellenisticFoundationBranchArticles,hellenisticFoundationPhilosopherArticles} from './hellenisticFoundationArticles';
 import {hellenisticBranchArticles,hellenisticPhilosopherArticles} from './hellenisticArticles';
 import {indianBuddhistContinuationPhilosopherArticles} from './indianBuddhistContinuationArticles';
@@ -72,6 +77,11 @@ export const philosopherArticles:Record<string,ArticleSection[]>={
   ...modernPoliticalCompletionPhilosopherArticles,
   ...nozickCompletionPhilosopherArticles,
   ...rawlsCompletionPhilosopherArticles,
+  ...ibnTufaylCompletionPhilosopherArticles,
+  ...judahHaleviCompletionPhilosopherArticles,
+  ...medievalJewishCompletionPhilosopherArticles,
+  ...mullaSadraCompletionPhilosopherArticles,
+  ...suhrawardiCompletionPhilosopherArticles,
   ...hellenisticFoundationPhilosopherArticles,
   ...hellenisticPhilosopherArticles,
   ...indianBuddhistContinuationPhilosopherArticles,
