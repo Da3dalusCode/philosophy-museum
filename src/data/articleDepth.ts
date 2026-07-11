@@ -3,7 +3,9 @@ import {academicSkepticPhilosopherArticles} from './academicSkepticArticles';
 import {analyticContinuationPhilosopherArticles} from './analyticContinuationArticles';
 import {ancientGreekBranchArticles,ancientGreekPhilosopherArticles} from './ancientGreekArticles';
 import {chineseContinuationPhilosopherArticles} from './chineseContinuationArticles';
+import {chineseConfucianBranchArticles} from './chineseConfucianBranchDepth';
 import {crossCulturalCorePhilosopherArticles} from './crossCulturalCoreArticles';
+import {daoMohistLegalistBranchArticles} from './daoMohistLegalistBranchDepth';
 import {earlyModernCorePhilosopherArticles} from './earlyModernCoreArticles';
 import {earlyModernPoliticalPhilosopherArticles} from './earlyModernPoliticalArticles';
 import {earlyStoicSystemPhilosopherArticles} from './earlyStoicSystemArticles';
@@ -11,6 +13,9 @@ import {feministSocialContinuationPhilosopherArticles} from './feministSocialCon
 import {hellenisticFoundationBranchArticles,hellenisticFoundationPhilosopherArticles} from './hellenisticFoundationArticles';
 import {hellenisticBranchArticles,hellenisticPhilosopherArticles} from './hellenisticArticles';
 import {indianBuddhistContinuationPhilosopherArticles} from './indianBuddhistContinuationArticles';
+import {buddhistEpistemologyBranchArticles} from './buddhistEpistemologyBranchDepth';
+import {buddhistPhilosophyBranchArticles} from './buddhistPhilosophyBranchDepth';
+import {indianJainVedantaBranchArticles} from './indianJainVedantaBranchDepth';
 import {lateAntiqueBridgePhilosopherArticles} from './lateAntiqueBridgeArticles';
 import {lateAntiqueInheritanceBranchArticles,lateAntiqueInheritancePhilosopherArticles} from './lateAntiqueInheritanceArticles';
 import {lateTwentiethEthicsPhilosopherArticles} from './lateTwentiethEthicsArticles';
@@ -199,6 +204,11 @@ export const philosopherArticles:Record<string,ArticleSection[]>={
 
 export const branchArticles:Record<string,ArticleSection[]>={
   ...ancientGreekBranchArticles,
+  ...chineseConfucianBranchArticles,
+  ...daoMohistLegalistBranchArticles,
+  ...buddhistPhilosophyBranchArticles,
+  ...buddhistEpistemologyBranchArticles,
+  ...indianJainVedantaBranchArticles,
   ...hellenisticFoundationBranchArticles,
   ...hellenisticBranchArticles,
   ...lateAntiqueInheritanceBranchArticles,
