@@ -1,4 +1,4 @@
-import {useEffect, useId, useState, type MouseEvent} from 'react';
+import {useEffect, useId, useRef, useState, type MouseEvent} from 'react';
 import {ArrowRight, BookOpen, GitBranch, Users} from 'lucide-react';
 import {branchById} from '../../data/branches';
 import {philosopherById} from '../../data/philosophers';
@@ -25,6 +25,7 @@ export function ArticleToc({label, route, href}: {label: string; route: ArticleR
   const entries = getArticleRouteEntries(route);
   const [open, setOpen] = useState(false);
   const tocId = useId();
+  const toggleRef = useRef<HTMLButtonElement>(null);
   const activeLabel = entries.find((entry) => route.section === entry.id)?.label ?? 'Overview';
   useEffect(() => setOpen(false), [route.kind, route.kind === 'branch' ? route.branchId : route.philosopherId, route.section]);
   const onEntryClick = (event: MouseEvent<HTMLAnchorElement>, sectionId: string, targetId: string) => {
@@ -39,8 +40,13 @@ export function ArticleToc({label, route, href}: {label: string; route: ArticleR
       window.requestAnimationFrame(() => scrollToArticleTarget(targetId));
     }
   };
-  return <div className="article-toc-shell" onKeyDown={(event) => event.key === 'Escape' && setOpen(false)}>
-    <button className="article-toc-toggle" type="button" aria-expanded={open} aria-controls={tocId} onClick={() => setOpen((value) => !value)}>
+  return <div className="article-toc-shell" onKeyDown={(event) => {
+    if (event.key !== 'Escape' || !open) return;
+    event.preventDefault();
+    setOpen(false);
+    toggleRef.current?.focus();
+  }}>
+    <button className="article-toc-toggle" ref={toggleRef} type="button" aria-expanded={open} aria-controls={tocId} onClick={() => setOpen((value) => !value)}>
       <span><small>Contents</small><b>{activeLabel}</b></span><span aria-hidden="true">{open ? '−' : '+'}</span>
     </button>
     <nav className="article-toc" id={tocId} data-expanded={open ? 'true' : 'false'} aria-label={`${label} table of contents`}>

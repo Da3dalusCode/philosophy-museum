@@ -99,7 +99,6 @@ a:focus-visible{outline:2px solid #d99b5b;outline-offset:2px}
 
 /* Coherent responsive foundation: shell, content, compare, and learning routes */
 :root{--app-header-offset:78px;--mobile-gutter:clamp(14px,4vw,28px)}
-html{scroll-padding-top:var(--app-header-offset)}
 body{min-width:0}
 img,svg,canvas{max-width:100%}
 .app-header{padding-left:max(3vw,env(safe-area-inset-left));padding-right:max(3vw,env(safe-area-inset-right));padding-top:env(safe-area-inset-top)}
@@ -123,7 +122,7 @@ main{min-height:calc(100dvh - 120px)}
 .article-toc-shell{max-width:980px;width:100%;margin:16px auto 22px;min-width:0}
 .article-toc-shell .article-toc{margin:0}
 .article-toc-toggle{display:none}
-.article-section,.article-reference{scroll-margin-top:var(--app-header-offset)}
+.article-section,.article-reference,.depth-section,.deep-branch-page section{scroll-margin-top:var(--app-header-offset)}
 .article-prose,.article-connections,.article-connections>div{min-width:0}
 .article-connections a{min-height:40px;gap:10px;font-size:11px}
 .article-connections b{font-size:9px}

@@ -17,8 +17,15 @@ export function Navigation({view, href}: {view?: ViewId; href: RouteHref}) {
   const [open, setOpen] = useState(false);
   const menuId = useId();
   const toggleRef = useRef<HTMLButtonElement>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const openRef = useRef(open);
+  openRef.current = open;
 
-  useEffect(() => subscribeToHashRoute(() => setOpen(false)), []);
+  useEffect(() => subscribeToHashRoute(() => {
+    const shouldRestoreFocus = Boolean(openRef.current && toggleRef.current?.offsetParent);
+    if (shouldRestoreFocus) toggleRef.current?.focus();
+    setOpen(false);
+  }), []);
   useEffect(() => {
     if (!open) return;
     const onKeyDown = (event: KeyboardEvent) => {
@@ -42,7 +49,7 @@ export function Navigation({view, href}: {view?: ViewId; href: RouteHref}) {
         onClick={() => setOpen((value) => !value)}
       >{open ? <X size={19}/> : <Menu size={19}/>}<span>{open ? 'Close menu' : 'Menu'}</span></button>
     </div>
-    <div className="nav-scroll" id={menuId} data-expanded={open ? 'true' : 'false'}>
+    <div className="nav-scroll" ref={menuRef} id={menuId} data-expanded={open ? 'true' : 'false'}>
       {items.map(([id, label, Icon, route]) => <a
         key={id}
         className={view === id ? 'active' : ''}
