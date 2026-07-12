@@ -33,7 +33,6 @@ export function MuseumTouchControls({
     className="museum-touch-controls"
     data-active={enabled ? 'true' : 'false'}
     aria-label="Museum touch controls"
-    style={{pointerEvents: 'auto'}}
   >
     <div
       className="museum-touch-joystick"

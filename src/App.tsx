@@ -90,7 +90,7 @@ export default function App() {
   const handleRouteReady = useCallback((readyRoute: AppRoute, readyRouteKey: string) => {
     if (pendingFocusRouteKeyRef.current !== readyRouteKey) return;
     pendingFocusRouteKeyRef.current = undefined;
-    if (readyRoute.kind === 'museum') return;
+    if (readyRoute.kind === 'museum' && readyRoute.exhibitId) return;
     const frame = window.requestAnimationFrame(() => {
       const articleTarget = readyRoute.kind === 'branch' || readyRoute.kind === 'philosopher'
         ? getArticleSectionTarget(readyRoute)

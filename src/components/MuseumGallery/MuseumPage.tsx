@@ -141,22 +141,51 @@ function Modal({labelledBy, describedBy, onClose, children}: {
   </div>;
 }
 
-function ExhibitRouteLink({route, exhibit, href, push, className = 'btn btn-primary', onActivate, children}: {
+function ExhibitRouteLink({route, exhibit, href, push, className = 'btn btn-primary', onActivate, current, children}: {
   route: MuseumRoute;
   exhibit: MuseumExhibitCatalog;
   href: RouteHref;
   push: RouteNavigator;
   className?: string;
   onActivate?: () => void;
+  current?: boolean;
   children: ReactNode;
 }) {
   const target = {kind: 'museum' as const, hallId: route.hallId, exhibitId: exhibit.id};
-  return <a className={className} href={href(target)} onClick={(event) => {
+  return <a className={className} href={href(target)} aria-current={current ? 'page' : undefined} onClick={(event) => {
     if (!isOrdinaryActivation(event)) return;
     event.preventDefault();
     onActivate?.();
     push(target, {state: historyStateWithMuseumMarker(route.hallId)});
   }}>{children}</a>;
+}
+
+function DirectoryContents({route, href, push, onExhibitActivate, showSummaries = false}: {
+  route: MuseumRoute;
+  href: RouteHref;
+  push: RouteNavigator;
+  onExhibitActivate?: () => void;
+  showSummaries?: boolean;
+}) {
+  const hall = getMuseumHallCatalog(route.hallId)!;
+  return <div className="museum-directory-zones">
+    {hall.zones.map((zone) => <section key={zone.id} aria-labelledby={`museum-zone-${zone.id}`}>
+      <p className="museum-zone-period">{zone.period}</p><h3 id={`museum-zone-${zone.id}`}>{zone.title}</h3><p>{zone.description}</p>
+      <ul>{hall.exhibits.filter((item) => item.zoneId === zone.id).map((item) => {
+        const current = route.exhibitId === item.id;
+        const summary = showSummaries ? getMuseumExhibitContent(item).introduction : item.question;
+        return <li key={item.id} className={current ? 'is-current' : ''}>
+          <div><b>{item.displayName}</b><span>{item.entityKind === 'philosopher' ? 'Philosopher' : 'School / branch'}</span></div>
+          {current && <strong className="museum-current-label">Currently open</strong>}
+          <p>{summary}</p>
+          <div className="museum-directory-actions">
+            <ExhibitRouteLink route={route} exhibit={item} href={href} push={push} onActivate={onExhibitActivate} current={current}>View exhibit</ExhibitRouteLink>
+            <a className="btn" href={href(articleRoute(item))}>Open full article</a>
+          </div>
+        </li>;
+      })}</ul>
+    </section>)}
+  </div>;
 }
 
 function Directory({route, href, push, onClose, onGuidedStart}: {
@@ -166,7 +195,6 @@ function Directory({route, href, push, onClose, onGuidedStart}: {
   onClose: () => void;
   onGuidedStart: () => void;
 }) {
-  const hall = getMuseumHallCatalog(route.hallId)!;
   const titleId = useId();
   const descriptionId = useId();
   return <Modal labelledBy={titleId} describedBy={descriptionId} onClose={onClose}>
@@ -176,19 +204,7 @@ function Directory({route, href, push, onClose, onGuidedStart}: {
     </div>
     <p id={descriptionId}>Every exhibit and full article remains available without entering the 3D hall.</p>
     <button className="btn btn-primary museum-guided-start" type="button" onClick={onGuidedStart}>Start guided directory visit</button>
-    <div className="museum-directory-zones">
-      {hall.zones.map((zone) => <section key={zone.id} aria-labelledby={`museum-zone-${zone.id}`}>
-        <p className="museum-zone-period">{zone.period}</p><h3 id={`museum-zone-${zone.id}`}>{zone.title}</h3><p>{zone.description}</p>
-        <ul>{hall.exhibits.filter((item) => item.zoneId === zone.id).map((item) => <li key={item.id} className={route.exhibitId === item.id ? 'is-current' : ''}>
-          <div><b>{item.displayName}</b><span>{item.entityKind === 'philosopher' ? 'Philosopher' : 'School / branch'}</span></div>
-          <p>{item.question}</p>
-          <div className="museum-directory-actions">
-            <ExhibitRouteLink route={route} exhibit={item} href={href} push={push} onActivate={onClose}>View exhibit</ExhibitRouteLink>
-            <a className="btn" href={href(articleRoute(item))}>Open full article</a>
-          </div>
-        </li>)}</ul>
-      </section>)}
-    </div>
+    <DirectoryContents route={route} href={href} push={push} onExhibitActivate={onClose}/>
   </Modal>;
 }
 
@@ -204,13 +220,12 @@ function Help({onClose}: {onClose: () => void}) {
   </Modal>;
 }
 
-function MuseumFallback({route, href, onRetry}: {route: MuseumRoute; href: RouteHref; onRetry: () => void}) {
-  const hall = getMuseumHallCatalog(route.hallId)!;
-  return <div className="museum-fallback" role="status">
-    <p className="eyebrow">Directory mode</p><h2>The walkable hall is unavailable on this device.</h2>
+function MuseumFallback({route, href, push, onRetry}: {route: MuseumRoute; href: RouteHref; push: RouteNavigator; onRetry: () => void}) {
+  return <div className="museum-fallback" role="region" aria-labelledby="museum-fallback-title">
+    <p className="eyebrow">Directory mode</p><h2 id="museum-fallback-title">The walkable hall is unavailable on this device.</h2>
     <p>You can still visit every exhibit and open every complete Atlas article.</p>
     <div className="museum-fallback-actions"><button className="btn btn-primary" type="button" onClick={onRetry}>Retry 3D hall</button><a className="btn" href={href({kind: 'history'})}>Return to Big History</a></div>
-    <ul>{hall.exhibits.map((item) => <li key={item.id}><b>{item.displayName}</b><span>{item.question}</span><a href={href(articleRoute(item))}>Open full article</a></li>)}</ul>
+    <DirectoryContents route={route} href={href} push={push} showSummaries/>
   </div>;
 }
 
@@ -336,6 +351,14 @@ export function MuseumPage({route, href, push, replace}: {
   const exhibitDescriptionId = useId();
   const nearby = nearbyId ? getMuseumExhibitCatalog(route.hallId, nearbyId) : undefined;
 
+  useEffect(() => {
+    if (!guided || !route.exhibitId) return;
+    const frame = window.requestAnimationFrame(() => {
+      document.getElementById(exhibitTitleId)?.focus({preventScroll: true});
+    });
+    return () => window.cancelAnimationFrame(frame);
+  }, [exhibitTitleId, guided, route.exhibitId]);
+
   return <div className="museum-page">
     <div ref={backgroundRef} data-museum-background>
       <section className="museum-intro" aria-labelledby="museum-title">
@@ -350,7 +373,7 @@ export function MuseumPage({route, href, push, replace}: {
 
       <section className="museum-stage" data-exploring={exploring ? 'true' : 'false'} aria-describedby="museum-controls-description">
         <p className="sr-only" id="museum-controls-description">A first-person gallery. Use the Enter museum button before keyboard, mouse, or touch controls affect the scene.</p>
-        {sceneError ? <MuseumFallback route={route} href={href} onRetry={retryScene}/> : <MuseumSceneBoundary onError={setSceneError} resetKey={sceneEpoch}>
+        {sceneError ? <MuseumFallback route={route} href={href} push={push} onRetry={retryScene}/> : <MuseumSceneBoundary onError={setSceneError} resetKey={sceneEpoch}>
           <Suspense fallback={<div className="museum-scene-loading" role="status">Preparing the walkable hall…</div>}>
             <LazyAncientGreekHallScene
               key={sceneEpoch}
@@ -409,7 +432,7 @@ export function MuseumPage({route, href, push, replace}: {
     {overlay === 'directory' && <Directory route={route} href={href} push={push} onClose={() => setOverlay(null)} onGuidedStart={() => goGuided(0)}/>}
     {overlay === 'help' && <Help onClose={() => setOverlay(null)}/>}
     {exhibit && content && <Modal labelledBy={exhibitTitleId} describedBy={exhibitDescriptionId} onClose={closeExhibit}>
-      <div className="museum-modal-head"><div><p className="eyebrow">{content.entityType}</p><h2 id={exhibitTitleId}>{content.displayName}</h2><span className="museum-date-label">{content.dateLabel}</span></div><button className="museum-icon-button" type="button" onClick={closeExhibit} aria-label={`Close ${content.displayName} exhibit`}><X/></button></div>
+      <div className="museum-modal-head"><div><p className="eyebrow">{content.entityType}</p><h2 id={exhibitTitleId} tabIndex={-1}>{content.displayName}</h2><span className="museum-date-label">{content.dateLabel}</span></div><button className="museum-icon-button" type="button" onClick={closeExhibit} aria-label={`Close ${content.displayName} exhibit`}><X/></button></div>
       <p className="museum-exhibit-question" id={exhibitDescriptionId}>{content.centralQuestion}</p>
       <p>{content.introduction}</p>
       <dl className="museum-label-details" style={{'--museum-accent': content.accent} as CSSProperties}>
