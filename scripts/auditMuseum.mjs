@@ -16,6 +16,8 @@ const result = await build({
     load: (id) => id === resolvedEntry ? `
       export * from '/src/data/museumCatalog.ts';
       export * from '/src/data/museum/ancientGreekHall.ts';
+      export * from '/src/components/MuseumGallery/museumMovement.ts';
+      export * from '/src/components/MuseumGallery/museumSession.ts';
       export {branches} from '/src/data/branches.ts';
       export {philosophers} from '/src/data/philosophers.ts';
     ` : undefined,
@@ -33,7 +35,18 @@ const entry = outputs.find((item) => item.type === 'chunk' && item.isEntry);
 assert(entry, 'Vite did not produce an executable Museum audit entry.');
 const moduleUrl = `data:text/javascript;base64,${Buffer.from(entry.code).toString('base64')}`;
 const museum = await import(moduleUrl);
-const {ANCIENT_GREEK_HALL_LAYOUT: layout, MUSEUM_HALLS, branches, philosophers} = museum;
+const {
+  ANCIENT_GREEK_HALL_LAYOUT: layout,
+  MUSEUM_HALLS,
+  branches,
+  philosophers,
+  circleIntersectsCollider,
+  isValidMuseumPosition,
+  moveWithCollisions,
+  normalizeMoveInput,
+  parseMuseumSession,
+  sanitizeMuseumPose,
+} = museum;
 
 let checks = 0;
 const check = (name, assertion) => {
@@ -135,6 +148,43 @@ check('spawn, reset, and viewpoints are safe for the player footprint', () => {
     assert(insideBounds(point, layout.playerRadius), `${label} is outside the walkable bounds`);
     assert(!allColliders.some((collider) => intersects(point, layout.playerRadius, collider)), `${label} intersects a collider`);
   }
+});
+
+check('core movement and collision functions handle representative boundaries', () => {
+  const diagonal = normalizeMoveInput(1, 1);
+  assert(Math.abs(Math.hypot(diagonal.x, diagonal.z) - 1) < 1e-9);
+  const wall = layout.wallColliders.find(({id}) => id === 'wall-west');
+  assert(wall);
+  assert(circleIntersectsCollider(wall.center, layout.playerRadius, wall));
+  const bounded = moveWithCollisions(
+    layout.spawn,
+    {x: -100, z: 0},
+    layout.playerRadius,
+    layout.bounds,
+    allColliders,
+  );
+  assert(isValidMuseumPosition(bounded, layout.playerRadius, layout.bounds, allColliders));
+  assert(bounded.x >= layout.bounds.minX + layout.playerRadius);
+  const plinth = layout.exhibits.find(({id}) => id === 'plato').collider;
+  const blocked = moveWithCollisions(
+    {x: 4.2, z: 16.5},
+    {x: 4, z: 0},
+    layout.playerRadius,
+    layout.bounds,
+    allColliders,
+  );
+  assert(!circleIntersectsCollider(blocked, layout.playerRadius, plinth));
+});
+
+check('camera session parsing rejects malformed and unsafe values', () => {
+  const valid = JSON.stringify({version: 1, hallId: layout.id, ...layout.spawn});
+  assert(parseMuseumSession(valid, layout));
+  assert.equal(parseMuseumSession('{bad json', layout), undefined);
+  assert.equal(parseMuseumSession(JSON.stringify({version: 1, hallId: 'wrong', ...layout.spawn}), layout), undefined);
+  assert.equal(parseMuseumSession(JSON.stringify({version: 1, hallId: layout.id, x: null, z: 0, yaw: 0, pitch: 0}), layout), undefined);
+  assert.equal(sanitizeMuseumPose({...layout.spawn, x: Number.POSITIVE_INFINITY}, layout), undefined);
+  const insidePlinth = layout.exhibits.find(({id}) => id === 'plato').collider.center;
+  assert.equal(sanitizeMuseumPose({...insidePlinth, yaw: 0, pitch: 0}, layout), undefined);
 });
 
 console.log(`\nMuseum audit passed: ${checks} groups covering ${MUSEUM_HALLS[0].exhibits.length} exhibits, ${MUSEUM_HALLS[0].zones.length} zones, and ${allColliders.length} colliders.`);

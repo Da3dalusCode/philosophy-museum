@@ -447,6 +447,18 @@ check('browser history writes preserve push, replace, and same-hash semantics', 
     state: replaceHarness.state,
     url: '#/branches/stoicism',
   });
+
+  const stateHarness = createHistoryHarness('#/history');
+  const museumState = {museum: {hallId: 'ancient-greek', openedFromHall: true}};
+  assert.equal(
+    writeHashRoute('#/museum/ancient-greek/exhibits/plato', false, stateHarness.target, museumState),
+    true,
+  );
+  assert.deepEqual(stateHarness.calls[0], {
+    method: 'pushState',
+    state: museumState,
+    url: '#/museum/ancient-greek/exhibits/plato',
+  });
 });
 
 check('canonicalization replaces once and remains Strict Mode idempotent', () => {

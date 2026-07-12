@@ -48,7 +48,8 @@ export type AppRoute = NavigableAppRoute | NotFoundRoute;
 export type ComparisonRoute = BranchComparisonRoute | PhilosopherComparisonRoute;
 export type ArticleRoute = BranchRoute | PhilosopherRoute;
 export type RouteHref = (route: NavigableAppRoute) => string;
-export type RouteNavigator = (route: NavigableAppRoute) => void;
+export type RouteNavigationOptions = {replace?: boolean; state?: unknown};
+export type RouteNavigator = (route: NavigableAppRoute, options?: RouteNavigationOptions) => void;
 
 /** Defaults intentionally preserve the pre-router app's initial selections. */
 export const DEFAULT_BRANCH_ID = 'stoicism';
