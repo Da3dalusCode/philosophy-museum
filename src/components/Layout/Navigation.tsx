@@ -1,4 +1,6 @@
-import {BookOpen, Compass, GitCompareArrows, History, Map, Route, Users} from 'lucide-react';
+import {useEffect, useId, useRef, useState} from 'react';
+import {BookOpen, Compass, GitCompareArrows, History, Map, Menu, Route, Users, X} from 'lucide-react';
+import {subscribeToHashRoute} from '../../routing/hashHistory';
 import {DEFAULT_ROUTES, type NavigableAppRoute, type RouteHref} from '../../routing/routes';
 import type {ViewId} from '../../types/philosophy';
 
@@ -12,13 +14,40 @@ const items: [ViewId, string, typeof History, NavigableAppRoute][] = [
 ];
 
 export function Navigation({view, href}: {view?: ViewId; href: RouteHref}) {
-  return <nav aria-label="Primary navigation">
-    <a className="brand" href={href(DEFAULT_ROUTES.history)}><BookOpen size={20}/><span>Philosophy <b>Atlas</b></span></a>
-    <div className="nav-scroll">
+  const [open, setOpen] = useState(false);
+  const menuId = useId();
+  const toggleRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => subscribeToHashRoute(() => setOpen(false)), []);
+  useEffect(() => {
+    if (!open) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key !== 'Escape') return;
+      setOpen(false);
+      toggleRef.current?.focus();
+    };
+    document.addEventListener('keydown', onKeyDown);
+    return () => document.removeEventListener('keydown', onKeyDown);
+  }, [open]);
+
+  return <nav className="primary-nav" aria-label="Primary navigation">
+    <div className="nav-mast">
+      <a className="brand" aria-label="Philosophy Atlas — Big History" href={href(DEFAULT_ROUTES.history)}><BookOpen size={20}/><span>Philosophy <b>Atlas</b></span></a>
+      <button
+        className="mobile-nav-toggle"
+        ref={toggleRef}
+        type="button"
+        aria-expanded={open}
+        aria-controls={menuId}
+        onClick={() => setOpen((value) => !value)}
+      >{open ? <X size={19}/> : <Menu size={19}/>}<span>{open ? 'Close menu' : 'Menu'}</span></button>
+    </div>
+    <div className="nav-scroll" id={menuId} data-expanded={open ? 'true' : 'false'}>
       {items.map(([id, label, Icon, route]) => <a
         key={id}
         className={view === id ? 'active' : ''}
         href={href(route)}
+        aria-label={label}
         aria-current={view === id ? 'page' : undefined}
       ><Icon size={16}/><span>{label}</span></a>)}
     </div>

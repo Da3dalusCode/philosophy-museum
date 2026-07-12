@@ -10,7 +10,7 @@ export function AppShell({view, href, children}: {
   children: ReactNode;
 }) {
   return <div className="shell">
-    <header><Navigation view={view} href={href}/><GlobalSearch href={href}/></header>
+    <header className="app-header"><Navigation view={view} href={href}/><GlobalSearch href={href}/></header>
     <main>{children}</main>
     <footer><span>Philosophy Atlas · A local-first museum of questions</span><span>Explore arguments, not slogans.</span></footer>
   </div>;

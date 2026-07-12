@@ -1,3 +1,4 @@
+import {useEffect, useRef} from 'react';
 import {ArrowLeft, ArrowRight, CheckCircle2, Route} from 'lucide-react';
 import {branchById} from '../../data/branches';
 import {learningPaths} from '../../data/learningPaths';
@@ -9,11 +10,20 @@ import {PhilosopherPortrait} from '../PhilosopherPortrait/PhilosopherPortrait';
 export function LearningPaths({route, href}: {route: LearningPathRoute; href: RouteHref}) {
   const path = learningPaths.find(({id}) => id === route.pathId)!;
   const step = path.steps[route.step - 1];
+  const listRef = useRef<HTMLElement>(null);
+  const activeRef = useRef<HTMLAnchorElement>(null);
+  useEffect(() => {
+    const list = listRef.current;
+    const active = activeRef.current;
+    if (!list || !active) return;
+    list.scrollTo({left: Math.max(0, active.offsetLeft - (list.clientWidth - active.clientWidth) / 2), behavior: 'auto'});
+  }, [route.pathId]);
   return <div className="page compact-content-page paths-page">
     <PageHead eyebrow="Guided routes for beginners" title="Learning Paths" text="Short sequences turn a large atlas into a focused argument you can follow one distinction at a time."/>
     <div className="paths-layout">
-      <aside className="path-list">{learningPaths.map((item) => <a
+      <aside className="path-list" ref={listRef} aria-label="Choose a learning path">{learningPaths.map((item) => <a
         className={`selectable-card ${item.id === route.pathId ? 'active is-selected' : ''}`}
+        ref={item.id === route.pathId ? activeRef : undefined}
         href={href({kind: 'learning-path', pathId: item.id, step: 1})}
         aria-current={item.id === route.pathId ? 'page' : undefined}
         key={item.id}
