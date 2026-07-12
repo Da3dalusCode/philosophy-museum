@@ -1,2 +1,25 @@
-import {Search,X} from 'lucide-react';import {useState} from 'react';import {branches} from '../../data/branches';import {philosophers} from '../../data/philosophers';
-export function GlobalSearch({openBranch,openPhilosopher}:{openBranch:(id:string)=>void;openPhilosopher:(id:string)=>void}){const[q,setQ]=useState('');const results=q.length>1?[...branches.filter(x=>x.name.toLowerCase().includes(q.toLowerCase())).slice(0,5).map(x=>({id:x.id,name:x.name,type:'Branch'})),...philosophers.filter(x=>x.name.toLowerCase().includes(q.toLowerCase())).slice(0,5).map(x=>({id:x.id,name:x.name,type:'Philosopher'}))]:[];return <div className="search-wrap"><Search size={16}/><input value={q} onChange={e=>setQ(e.target.value)} placeholder="Search ideas and thinkers…" aria-label="Global search"/>{q&&<button aria-label="Clear search" onClick={()=>setQ('')}><X size={15}/></button>}{results.length>0&&<div className="search-results">{results.map(r=><button key={r.type+r.id} onClick={()=>{r.type==='Branch'?openBranch(r.id):openPhilosopher(r.id);setQ('')}}><span>{r.name}</span><small>{r.type}</small></button>)}</div>}</div>}
+import {Search, X} from 'lucide-react';
+import {useState} from 'react';
+import {branches} from '../../data/branches';
+import {philosophers} from '../../data/philosophers';
+import type {RouteHref} from '../../routing/routes';
+
+export function GlobalSearch({href}: {href: RouteHref}) {
+  const [q, setQ] = useState('');
+  const results = q.length > 1 ? [
+    ...branches.filter((item) => item.name.toLowerCase().includes(q.toLowerCase())).slice(0, 5).map((item) => ({...item, type: 'Branch' as const})),
+    ...philosophers.filter((item) => item.name.toLowerCase().includes(q.toLowerCase())).slice(0, 5).map((item) => ({...item, type: 'Philosopher' as const})),
+  ] : [];
+  return <div className="search-wrap">
+    <Search size={16}/>
+    <input value={q} onChange={(event) => setQ(event.target.value)} placeholder="Search ideas and thinkers…" aria-label="Global search"/>
+    {q && <button aria-label="Clear search" onClick={() => setQ('')}><X size={15}/></button>}
+    {results.length > 0 && <div className="search-results">{results.map((result) => <a
+      key={`${result.type}-${result.id}`}
+      href={href(result.type === 'Branch'
+        ? {kind: 'branch', branchId: result.id}
+        : {kind: 'philosopher', philosopherId: result.id})}
+      onClick={() => setQ('')}
+    ><span>{result.name}</span><small>{result.type}</small></a>)}</div>}
+  </div>;
+}

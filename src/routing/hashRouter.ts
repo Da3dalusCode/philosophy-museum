@@ -1,6 +1,7 @@
 import {branches} from '../data/branches';
 import {learningPaths} from '../data/learningPaths';
 import {philosophers} from '../data/philosophers';
+import {canonicalizeArticleSection} from './routeMetadata';
 import {
   DEFAULT_ROUTES,
   type AppRoute,
@@ -58,10 +59,18 @@ const decodeSegment = (value: string): string | undefined => {
   }
 };
 
-const parseSection = (query: string): string | undefined => {
-  if (!query) return undefined;
+const parseSection = (query: string): {section?: string; malformed: boolean} => {
+  if (!query) return {malformed: false};
+  try {
+    decodeURIComponent(query.replace(/\+/g, ' '));
+  } catch {
+    return {malformed: true};
+  }
   const section = new URLSearchParams(query).get('section');
-  return section && isValidSection(section) ? section : undefined;
+  return {
+    section: section && isValidSection(section) ? section : undefined,
+    malformed: false,
+  };
 };
 
 const appendSection = (hash: string, section?: string): string =>
@@ -125,6 +134,10 @@ export const parseHashRoute = (hash: string): ParsedHashRoute => {
   const queryIndex = body.indexOf('?');
   const pathPart = queryIndex === -1 ? body : body.slice(0, queryIndex);
   const query = queryIndex === -1 ? '' : body.slice(queryIndex + 1);
+  const parsedSection = parseSection(query);
+  if (parsedSection.malformed) {
+    return fail(hash, 'The route contains malformed percent encoding.');
+  }
 
   if (!pathPart || pathPart === '/') return finalize(DEFAULT_ROUTES.history, hash);
   if (!pathPart.startsWith('/')) return fail(hash, 'Application routes must begin with “#/”.');
@@ -144,7 +157,11 @@ export const parseHashRoute = (hash: string): ParsedHashRoute => {
     if (segments.length === 1) return finalize(DEFAULT_ROUTES.branch, hash);
     if (segments.length !== 2) return fail(hash, 'This branch route has an unexpected shape.');
     if (!isBranchId(second)) return fail(hash, `No branch exists with the id “${second}”.`);
-    return finalize({kind: 'branch', branchId: second, section: parseSection(query)}, hash);
+    return finalize({
+      kind: 'branch',
+      branchId: second,
+      section: canonicalizeArticleSection('branch', second, parsedSection.section),
+    }, hash);
   }
 
   if (head === 'philosophers') {
@@ -156,7 +173,11 @@ export const parseHashRoute = (hash: string): ParsedHashRoute => {
       return fail(hash, `No philosopher exists with the id “${second}”.`);
     }
     return finalize(
-      {kind: 'philosopher', philosopherId: second, section: parseSection(query)},
+      {
+        kind: 'philosopher',
+        philosopherId: second,
+        section: canonicalizeArticleSection('philosopher', second, parsedSection.section),
+      },
       hash,
     );
   }

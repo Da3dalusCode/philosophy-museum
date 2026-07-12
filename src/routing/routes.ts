@@ -37,6 +37,11 @@ export type NavigableAppRoute =
 
 export type AppRoute = NavigableAppRoute | NotFoundRoute;
 
+export type ComparisonRoute = BranchComparisonRoute | PhilosopherComparisonRoute;
+export type ArticleRoute = BranchRoute | PhilosopherRoute;
+export type RouteHref = (route: NavigableAppRoute) => string;
+export type RouteNavigator = (route: NavigableAppRoute) => void;
+
 /** Defaults intentionally preserve the pre-router app's initial selections. */
 export const DEFAULT_BRANCH_ID = 'stoicism';
 export const DEFAULT_PHILOSOPHER_ID = 'epictetus';
@@ -54,8 +59,8 @@ export const DEFAULT_LEARNING_PATH_STEP = 1;
 export const DEFAULT_ROUTES = {
   history: {kind: 'history'},
   map: {kind: 'map'},
-  branch: {kind: 'branch', branchId: DEFAULT_BRANCH_ID},
-  philosopher: {kind: 'philosopher', philosopherId: DEFAULT_PHILOSOPHER_ID},
+  branch: {kind: 'branch', branchId: DEFAULT_BRANCH_ID, section: undefined},
+  philosopher: {kind: 'philosopher', philosopherId: DEFAULT_PHILOSOPHER_ID, section: undefined},
   compare: {
     kind: 'compare-branches',
     ...DEFAULT_BRANCH_COMPARISON,

@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "audit:routing": "node scripts/auditRouting.mjs",
     "audit:articles": "node scripts/auditArticleDepth.mjs",
     "audit:accuracy": "node scripts/auditAccuracyMetadata.mjs",
     "audit:integrity": "node scripts/auditReferentialIntegrity.mjs",

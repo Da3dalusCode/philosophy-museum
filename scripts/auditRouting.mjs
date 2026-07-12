@@ -22,6 +22,7 @@ const buildResult = await build({
         return `
           export * from '/src/routing/hashRouter.ts';
           export * from '/src/routing/routes.ts';
+          export * from '/src/routing/routeMetadata.ts';
           export {branches} from '/src/data/branches.ts';
           export {philosophers} from '/src/data/philosophers.ts';
           export {learningPaths} from '/src/data/learningPaths.ts';
@@ -30,14 +31,15 @@ const buildResult = await build({
     },
   ],
   build: {
-    ssr: virtualEntry,
+    ssr: true,
     write: false,
     minify: false,
     target: 'node18',
     rollupOptions: {
+      input: virtualEntry,
       output: {
         format: 'es',
-        inlineDynamicImports: true,
+        codeSplitting: false,
       },
     },
   },
@@ -58,6 +60,8 @@ const {
   branches,
   philosophers,
   learningPaths,
+  getArticleRouteEntries,
+  getRouteTitle,
   parseHashRoute,
   serializeHashRoute,
 } = routing;
@@ -201,6 +205,7 @@ check('malformed percent encoding is rejected without throwing', () => {
     '#/branches/%',
     '#/philosophers/%E0%A4%A',
     '#/branches/stoicism?section=%ZZ',
+    '#/philosophers/plato?section=%E0%A4',
   ]) {
     expectNotFound(hash, /malformed percent encoding/);
   }
@@ -222,12 +227,48 @@ check('branch and philosopher sections parse and serialize canonically', () => {
   assert.deepEqual(philosopher.route, {
     kind: 'philosopher',
     philosopherId: 'plato',
-    section: 'major-works',
+    section: 'major-works-early-middle',
   });
+  assert.equal(philosopher.canonicalHash, '#/philosophers/plato?section=major-works-early-middle');
+  assert.equal(philosopher.shouldReplace, true);
   assert.equal(
     serializeHashRoute({kind: 'philosopher', philosopherId: 'heidegger', section: 'reading-path'}),
     '#/philosophers/heidegger?section=reading-path',
   );
+});
+
+check('article route metadata uses real targets and conditional extras', () => {
+  const stoicismEntries = getArticleRouteEntries({kind: 'branch', branchId: 'stoicism'});
+  assert(stoicismEntries.some(({id, targetId}) => id === 'overview' && targetId === 'article-overview'));
+  assert(stoicismEntries.some(({id, targetId}) => id === 'branch-reading' && targetId === 'branch-reading'));
+
+  const platoEntries = getArticleRouteEntries({kind: 'philosopher', philosopherId: 'plato'});
+  assert(platoEntries.some(({id, targetId}) => id === 'major-works-early-middle' && targetId === 'article-major-works-early-middle'));
+  assert(!platoEntries.some(({id}) => id === 'major-works'));
+
+  const philosopherWithoutSources = philosophers.find(({sourceLinks}) => !sourceLinks?.length);
+  assert(philosopherWithoutSources);
+  assert(!getArticleRouteEntries({kind: 'philosopher', philosopherId: philosopherWithoutSources.id}).some(({id}) => id === 'profile-sources'));
+});
+
+check('document titles are exhaustive and section-aware', () => {
+  const routes = [
+    DEFAULT_ROUTES.history,
+    DEFAULT_ROUTES.map,
+    DEFAULT_ROUTES.branch,
+    DEFAULT_ROUTES.philosopher,
+    DEFAULT_ROUTES.compare,
+    DEFAULT_ROUTES.comparePhilosophers,
+    DEFAULT_ROUTES.learningPath,
+    {kind: 'not-found', requestedHash: '#/missing', reason: 'Missing'},
+  ];
+  for (const route of routes) assert.match(getRouteTitle(route), / \| Philosophy Atlas$/);
+  assert.equal(getRouteTitle({kind: 'history'}), 'Big History | Philosophy Atlas');
+  assert.equal(
+    getRouteTitle({kind: 'branch', branchId: 'stoicism', section: 'overview'}),
+    'Stoicism — A system for living as a rational and social being | Philosophy Atlas',
+  );
+  assert.equal(getRouteTitle({kind: 'not-found', requestedHash: '#/missing', reason: 'Missing'}), 'Route Not Found | Philosophy Atlas');
 });
 
 check('invalid or irrelevant section queries are safely removed during canonicalization', () => {
