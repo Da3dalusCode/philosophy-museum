@@ -1,10 +1,10 @@
-import type {MouseEvent} from 'react';
+import {useEffect, useId, useRef, useState, type MouseEvent} from 'react';
 import {ArrowRight, BookOpen, GitBranch, Users} from 'lucide-react';
 import {branchById} from '../../data/branches';
 import {philosopherById} from '../../data/philosophers';
 import {getArticleRouteEntries} from '../../routing/routeMetadata';
 import type {ArticleRoute, RouteHref} from '../../routing/routes';
-import {scrollToArticleTarget} from '../../routing/useArticleSection';
+import {focusArticleTarget, scrollToArticleTarget} from '../../routing/useArticleSection';
 import type {ArticleSection} from '../../types/philosophy';
 
 export function ArticleBody({sections, href}: {sections: ArticleSection[]; href: RouteHref}) {
@@ -23,25 +23,43 @@ export function ArticleBody({sections, href}: {sections: ArticleSection[]; href:
 
 export function ArticleToc({label, route, href}: {label: string; route: ArticleRoute; href: RouteHref}) {
   const entries = getArticleRouteEntries(route);
+  const [open, setOpen] = useState(false);
+  const tocId = useId();
+  const toggleRef = useRef<HTMLButtonElement>(null);
+  const activeLabel = entries.find((entry) => route.section === entry.id)?.label ?? 'Overview';
+  useEffect(() => setOpen(false), [route.kind, route.kind === 'branch' ? route.branchId : route.philosopherId, route.section]);
   const onEntryClick = (event: MouseEvent<HTMLAnchorElement>, sectionId: string, targetId: string) => {
-    if (
-      route.section === sectionId
-      && event.button === 0
+    const isUnmodifiedPrimaryActivation = event.button === 0
       && !event.metaKey
       && !event.ctrlKey
       && !event.shiftKey
-      && !event.altKey
-    ) {
-      window.requestAnimationFrame(() => scrollToArticleTarget(targetId));
+      && !event.altKey;
+    if (!isUnmodifiedPrimaryActivation) return;
+    setOpen(false);
+    if (route.section === sectionId) {
+      window.requestAnimationFrame(() => {
+        scrollToArticleTarget(targetId);
+        focusArticleTarget(targetId);
+      });
     }
   };
-  return <nav className="article-toc" aria-label={`${label} table of contents`}>
-    <div><span>Contents</span><b>{label}</b></div>
-    {entries.map((entry) => <a
+  return <div className="article-toc-shell" onKeyDown={(event) => {
+    if (event.key !== 'Escape' || !open) return;
+    event.preventDefault();
+    setOpen(false);
+    toggleRef.current?.focus();
+  }}>
+    <button className="article-toc-toggle" ref={toggleRef} type="button" aria-expanded={open} aria-controls={tocId} onClick={() => setOpen((value) => !value)}>
+      <span><small>Contents</small><b>{activeLabel}</b></span><span aria-hidden="true">{open ? '−' : '+'}</span>
+    </button>
+    <nav className="article-toc" id={tocId} data-expanded={open ? 'true' : 'false'} aria-label={`${label} table of contents`}>
+      <div><span>Contents</span><b>{label}</b></div>
+      {entries.map((entry) => <a
       href={href({...route, section: entry.id})}
       key={entry.id}
       aria-current={route.section === entry.id ? 'location' : undefined}
       onClick={(event) => onEntryClick(event, entry.id, entry.targetId)}
-    ><small>{entry.marker}</small>{entry.label}</a>)}
-  </nav>;
+      ><small>{entry.marker}</small>{entry.label}</a>)}
+    </nav>
+  </div>;
 }

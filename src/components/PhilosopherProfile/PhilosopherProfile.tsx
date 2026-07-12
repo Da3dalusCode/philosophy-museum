@@ -1,4 +1,4 @@
-import {useMemo,useState} from 'react';
+import {useEffect,useMemo,useRef,useState} from 'react';
 import {ArrowRight,BookOpen,Clock3,GitCompareArrows,GitBranch,HelpCircle,Landmark,Link2,Network,Search,Scale,UserRound} from 'lucide-react';
 import {philosophers,philosopherById} from '../../data/philosophers';
 import {branchById} from '../../data/branches';
@@ -11,14 +11,23 @@ import {useArticleSection} from '../../routing/useArticleSection';
 
 export function PhilosopherProfile({route,href}:{route:PhilosopherRoute;href:RouteHref}){
   const[q,setQ]=useState('');
+  const listRef=useRef<HTMLDivElement>(null);
+  const activeRef=useRef<HTMLAnchorElement>(null);
   const list=useMemo(()=>{const needle=q.toLowerCase();return philosophers.filter(p=>`${p.name} ${p.tradition} ${p.mainIdeas.join(' ')}`.toLowerCase().includes(needle))},[q]);
   const p=philosopherById(route.philosopherId)??philosophers[0];
   const displayDate=p.dateDisplay??p.lifespan;
   const comparePartner=p.id===DEFAULT_PHILOSOPHER_COMPARISON.leftId?DEFAULT_PHILOSOPHER_COMPARISON.rightId:DEFAULT_PHILOSOPHER_COMPARISON.leftId;
+  useEffect(()=>setQ(''),[route.philosopherId]);
+  useEffect(()=>{
+    const listElement=listRef.current;const active=activeRef.current;if(!listElement||!active)return;
+    const listRect=listElement.getBoundingClientRect();const activeRect=active.getBoundingClientRect();
+    const centerDelta=(activeRect.top+activeRect.height/2)-(listRect.top+listRect.height/2);
+    listElement.scrollTo({top:listElement.scrollTop+centerDelta,behavior:'auto'});
+  },[route.philosopherId,q]);
   useArticleSection(route);
   const image=p.image;
   return <div className="page philosopher-atlas-page compact-content-page"><PageHead eyebrow="Thinkers in context" title="Philosopher Profiles" text="Biographies, questions, works, and influence routes show how a thinker changed the conversation."/>
-    <div className="profiles-layout"><aside className="profile-list"><label><Search size={15}/><input value={q} onChange={e=>setQ(e.target.value)} placeholder="Find a thinker, tradition, or idea…"/></label><div className="profile-list-scroll">{list.map(x=><a className={`selectable-card ${p.id===x.id?'active is-selected':''}`} key={x.id} href={href({kind:'philosopher',philosopherId:x.id})} aria-current={p.id===x.id?'page':undefined}><PhilosopherPortrait philosopher={x}/><span><b>{x.name}</b><small>{x.dateDisplay??x.lifespan} · {x.tradition}</small></span><ArrowRight size={13}/></a>)}</div></aside>
+    <div className="profiles-layout"><aside className="profile-list"><label><Search size={15}/><input aria-label="Search philosophers" value={q} onChange={e=>setQ(e.target.value)} placeholder="Find a thinker, tradition, or idea…"/></label><div className="profile-list-scroll" ref={listRef}>{list.map(x=><a ref={p.id===x.id?activeRef:undefined} className={`selectable-card ${p.id===x.id?'active is-selected':''}`} key={x.id} href={href({kind:'philosopher',philosopherId:x.id})} aria-current={p.id===x.id?'page':undefined}><PhilosopherPortrait philosopher={x}/><span><b>{x.name}</b><small>{x.dateDisplay??x.lifespan} · {x.tradition}</small></span><ArrowRight size={13}/></a>)}</div></aside>
       <article className={`profile-detail deep-profile ${p.articleSections?'article-page':''}`} style={{'--accent':p.color} as React.CSSProperties}>
         <div className="profile-hero"><PhilosopherPortrait philosopher={p} size="large"/><div><div className="eyebrow">{p.region} · {p.tradition}</div><h1>{p.name}</h1><p>{displayDate}</p>{p.dateConfidence&&<small className="image-credit">Date confidence: {p.dateConfidence}</small>}{image?.url&&<small className="image-credit">{image.credit}{image.license?` · ${image.license}`:''}</small>}</div></div>
         <div className="profile-actions"><a className="btn btn-secondary" href={href({kind:'compare-philosophers',leftId:p.id,rightId:comparePartner})}><GitCompareArrows size={16}/> Add to compare</a>{p.primaryBranchIds[0]&&<a className="btn btn-primary" href={href({kind:'branch',branchId:p.primaryBranchIds[0]})}>Show where they fit <ArrowRight size={16}/></a>}</div>

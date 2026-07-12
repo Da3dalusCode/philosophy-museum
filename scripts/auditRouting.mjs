@@ -346,6 +346,8 @@ check('document titles are exhaustive and section-aware', () => {
 check('invalid or irrelevant section queries are safely removed during canonicalization', () => {
   for (const hash of [
     '#/branches/stoicism?section=not%20valid',
+    '#/branches/stoicism?section=not-a-real-section',
+    '#/philosophers/plato?section=not-a-real-section',
     '#/philosophers/plato?section=',
     '#/branches/stoicism?unrelated=value',
     '#/history?section=overview',

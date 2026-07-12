@@ -1,4 +1,4 @@
-import {useEffect} from 'react';
+import {useEffect, useRef} from 'react';
 import {AppShell} from './components/Layout/AppShell';
 import {BranchExplorer} from './components/BranchExplorer/BranchExplorer';
 import {BigHistoryView} from './components/BigHistory/BigHistoryView';
@@ -11,6 +11,7 @@ import {RouteNotFound} from './routing/RouteNotFound';
 import {serializeHashRoute} from './routing/hashRouter';
 import {getArticleSectionTarget, getRouteTitle} from './routing/routeMetadata';
 import type {AppRoute} from './routing/routes';
+import {focusArticleTarget} from './routing/useArticleSection';
 import {useHashRoute} from './routing/useHashRoute';
 import type {ViewId} from './types/philosophy';
 
@@ -31,6 +32,7 @@ export default function App() {
   const {route, href, push} = useHashRoute();
   const routeKey = serializeHashRoute(route);
   const title = getRouteTitle(route);
+  const previousRouteKeyRef = useRef<string | undefined>(undefined);
 
   useEffect(() => {
     document.title = title;
@@ -40,6 +42,26 @@ export default function App() {
     if ((route.kind === 'branch' || route.kind === 'philosopher') && getArticleSectionTarget(route)) return;
     window.scrollTo({top: 0, behavior: 'auto'});
   }, [routeKey, route.kind, route.kind === 'branch' || route.kind === 'philosopher' ? route.section : undefined]);
+
+  useEffect(() => {
+    const previousRouteKey = previousRouteKeyRef.current;
+    previousRouteKeyRef.current = routeKey;
+    if (previousRouteKey === undefined || previousRouteKey === routeKey) return;
+    const frame = window.requestAnimationFrame(() => {
+      const articleTarget = route.kind === 'branch' || route.kind === 'philosopher'
+        ? getArticleSectionTarget(route)
+        : undefined;
+      if (articleTarget) {
+        focusArticleTarget(articleTarget);
+        return;
+      }
+      const heading = document.querySelector<HTMLElement>('main h1');
+      if (!heading) return;
+      heading.tabIndex = -1;
+      heading.focus({preventScroll: true});
+    });
+    return () => window.cancelAnimationFrame(frame);
+  }, [routeKey, route]);
 
   let content: React.ReactNode;
   switch (route.kind) {

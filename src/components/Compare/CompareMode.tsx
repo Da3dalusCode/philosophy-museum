@@ -39,34 +39,36 @@ export function CompareMode({route, href, onRouteChange}: {
 
   return <div className="page compare-page compact-content-page">
     <PageHead eyebrow="Difference reveals structure" title="Compare ideas without caricature" text="Set two branches or thinkers beside one another to see shared questions, decisive disagreements, and historical responses."/>
-    <div className="preset-row">{presets.map(({label, route: preset}) => <a href={href(preset)} key={label}>{label}</a>)}</div>
+    <div className="preset-rail" aria-label="Comparison presets"><span>Popular comparisons</span><div className="preset-row">{presets.map(({label, route: preset}) => <a href={href(preset)} key={label}>{label}</a>)}</div></div>
     <div className="compare-controls">
-      <div>
+      <div className="compare-kind" aria-label="Comparison type">
         <a className={kind === 'branch' ? 'active' : ''} href={href(DEFAULT_ROUTES.compare)} aria-current={kind === 'branch' ? 'page' : undefined}>Branches</a>
         <a className={kind === 'philosopher' ? 'active' : ''} href={href(DEFAULT_ROUTES.comparePhilosophers)} aria-current={kind === 'philosopher' ? 'page' : undefined}>Philosophers</a>
       </div>
-      <select aria-label="Left comparison participant" value={route.leftId} onChange={(event) => changeParticipant('left', event.target.value)}>
-        {options.map((item) => <option value={item.id} key={item.id} disabled={item.id === route.rightId}>{item.name}</option>)}
-      </select>
+      <label className="compare-participant-picker"><span>First participant</span><select aria-label="First comparison participant" value={route.leftId} onChange={(event) => changeParticipant('left', event.target.value)}>
+          {options.map((item) => <option value={item.id} key={item.id} disabled={item.id === route.rightId}>{item.name}</option>)}
+        </select></label>
       <a className="compare-swap" href={href(reversed)} aria-label="Swap comparison participants"><ArrowLeftRight/></a>
-      <select aria-label="Right comparison participant" value={route.rightId} onChange={(event) => changeParticipant('right', event.target.value)}>
-        {options.map((item) => <option value={item.id} key={item.id} disabled={item.id === route.leftId}>{item.name}</option>)}
-      </select>
+      <label className="compare-participant-picker"><span>Second participant</span><select aria-label="Second comparison participant" value={route.rightId} onChange={(event) => changeParticipant('right', event.target.value)}>
+          {options.map((item) => <option value={item.id} key={item.id} disabled={item.id === route.leftId}>{item.name}</option>)}
+        </select></label>
     </div>
     {left && right && <div className="compare-result">
-      <CompareColumn x={left} href={href}/>
+      <CompareColumn x={left} href={href} position="First participant"/>
       <div className="compare-spine"><span>Shared arena</span><p>{kind === 'branch' ? 'Both offer a vocabulary for an enduring philosophical question, but direct attention toward different evidence, values, or methods.' : 'Both changed the conversation by making a difficult problem clearer—and by provoking productive disagreement.'}</p><span>Main contrast</span><p>{kind === 'branch' && 'contrastingBranchIds' in left && left.contrastingBranchIds.includes(right.id) ? 'These branches directly contrast in the atlas.' : 'The deepest difference becomes visible in what each treats as the starting point.'}</p></div>
-      <CompareColumn x={right} href={href}/>
+      <CompareColumn x={right} href={href} position="Second participant"/>
     </div>}
   </div>;
 }
 
-function CompareColumn({x, href}: {
+function CompareColumn({x, href, position}: {
   x: NonNullable<ReturnType<typeof branchById> | ReturnType<typeof philosopherById>>;
   href: RouteHref;
+  position: string;
 }) {
   const isBranch = 'coreQuestions' in x;
   return <article className="compare-col static-info-card" style={{'--accent': x.color} as React.CSSProperties}>
+    <div className="compare-identity"><span>{position}</span><b>{x.name}</b></div>
     {!isBranch && <PhilosopherPortrait philosopher={x} size="large"/>}
     <div className="eyebrow">{isBranch ? x.category : x.tradition}</div>
     <h2>{x.name}</h2>
