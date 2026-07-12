@@ -126,6 +126,11 @@ function Modal({labelledBy, describedBy, onClose, children}: {
     }
     const first = focusable[0];
     const last = focusable.at(-1)!;
+    if (!focusable.includes(document.activeElement as HTMLElement)) {
+      event.preventDefault();
+      (event.shiftKey ? last : first).focus();
+      return;
+    }
     if (event.shiftKey && document.activeElement === first) {
       event.preventDefault();
       last.focus();
@@ -168,9 +173,10 @@ function DirectoryContents({route, href, push, onExhibitActivate, showSummaries 
   showSummaries?: boolean;
 }) {
   const hall = getMuseumHallCatalog(route.hallId)!;
+  const headingPrefix = useId();
   return <div className="museum-directory-zones">
-    {hall.zones.map((zone) => <section key={zone.id} aria-labelledby={`museum-zone-${zone.id}`}>
-      <p className="museum-zone-period">{zone.period}</p><h3 id={`museum-zone-${zone.id}`}>{zone.title}</h3><p>{zone.description}</p>
+    {hall.zones.map((zone) => <section key={zone.id} aria-labelledby={`${headingPrefix}-${zone.id}`}>
+      <p className="museum-zone-period">{zone.period}</p><h3 id={`${headingPrefix}-${zone.id}`}>{zone.title}</h3><p>{zone.description}</p>
       <ul>{hall.exhibits.filter((item) => item.zoneId === zone.id).map((item) => {
         const current = route.exhibitId === item.id;
         const summary = showSummaries ? getMuseumExhibitContent(item).introduction : item.question;
@@ -222,7 +228,7 @@ function Help({onClose}: {onClose: () => void}) {
 
 function MuseumFallback({route, href, push, onRetry}: {route: MuseumRoute; href: RouteHref; push: RouteNavigator; onRetry: () => void}) {
   return <div className="museum-fallback" role="region" aria-labelledby="museum-fallback-title">
-    <p className="eyebrow">Directory mode</p><h2 id="museum-fallback-title">The walkable hall is unavailable on this device.</h2>
+    <p className="eyebrow">Directory mode</p><h2 id="museum-fallback-title" tabIndex={-1}>The walkable hall is unavailable on this device.</h2>
     <p>You can still visit every exhibit and open every complete Atlas article.</p>
     <div className="museum-fallback-actions"><button className="btn btn-primary" type="button" onClick={onRetry}>Retry 3D hall</button><a className="btn" href={href({kind: 'history'})}>Return to Big History</a></div>
     <DirectoryContents route={route} href={href} push={push} showSummaries/>
@@ -253,6 +259,7 @@ export function MuseumPage({route, href, push, replace}: {
   const [overlay, setOverlay] = useState<Overlay>(null);
   const [guided, setGuided] = useState(false);
   const [sceneError, setSceneError] = useState<unknown>(() => hasWebGL() ? null : new Error('WebGL is unavailable.'));
+  const hadSceneErrorRef = useRef(Boolean(sceneError));
   const [sceneEpoch, setSceneEpoch] = useState(0);
   const reducedMotion = useReducedMotion();
   const modalOpen = Boolean(exhibit || overlay);
@@ -260,6 +267,7 @@ export function MuseumPage({route, href, push, replace}: {
 
   const openExhibit = useCallback((id: MuseumExhibitId) => {
     const target = {kind: 'museum' as const, hallId: route.hallId, exhibitId: id};
+    setGuided(false);
     saveMuseumSession(ANCIENT_GREEK_HALL_LAYOUT, poseRef.current, nearbyRef.current);
     push(target, {state: historyStateWithMuseumMarker(route.hallId)});
   }, [push, route.hallId]);
@@ -331,6 +339,21 @@ export function MuseumPage({route, href, push, replace}: {
       background.removeAttribute('aria-hidden');
     };
   }, [modalOpen]);
+
+  useEffect(() => {
+    const failed = Boolean(sceneError);
+    const shouldFocus = failed && !hadSceneErrorRef.current;
+    hadSceneErrorRef.current = failed;
+    if (!shouldFocus) return;
+    const frame = window.requestAnimationFrame(() => {
+      document.getElementById('museum-fallback-title')?.focus({preventScroll: true});
+    });
+    return () => window.cancelAnimationFrame(frame);
+  }, [sceneError]);
+
+  useEffect(() => {
+    if (!route.exhibitId) setGuided(false);
+  }, [route.exhibitId]);
 
   useEffect(() => {
     if (!exploring) return;

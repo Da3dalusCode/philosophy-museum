@@ -37,15 +37,13 @@ export function MuseumTouchControls({
     <div
       className="museum-touch-joystick"
       {...movementBindings}
-      aria-label="Movement joystick"
-      role="application"
+      aria-hidden="true"
       style={{minWidth: 104, minHeight: 104, touchAction: enabled ? 'none' : 'auto', userSelect: 'none'}}
     ><span aria-hidden="true">Move</span></div>
     <div
       className="museum-touch-look"
       {...lookBindings}
-      aria-label="Drag to look around"
-      role="application"
+      aria-hidden="true"
       style={{minWidth: 104, minHeight: 104, touchAction: enabled ? 'none' : 'auto', userSelect: 'none'}}
     ><span aria-hidden="true">Look</span></div>
     <div className="museum-touch-actions">

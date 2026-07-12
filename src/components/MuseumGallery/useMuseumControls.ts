@@ -172,6 +172,7 @@ export function useMuseumControls(options: UseMuseumControlsOptions): MuseumCont
   useEffect(() => {
     const onPointerLockChange = () => {
       if (canvas && document.pointerLockElement === canvas) {
+        releaseReasonRef.current = false;
         if ((activeRef.current || entryPendingRef.current) && !blockedRef.current) {
           entryPendingRef.current = false;
           setMode('locked');
@@ -179,12 +180,12 @@ export function useMuseumControls(options: UseMuseumControlsOptions): MuseumCont
         else document.exitPointerLock?.();
         return;
       }
-      if (modeRef.current !== 'locked' && modeRef.current !== 'requesting-lock') return;
-      clearInput();
       if (releaseReasonRef.current) {
         releaseReasonRef.current = false;
         return;
       }
+      if (modeRef.current !== 'locked' && modeRef.current !== 'requesting-lock') return;
+      clearInput();
       setMode('paused');
       callbacksRef.current.onPause?.();
     };
@@ -201,7 +202,10 @@ export function useMuseumControls(options: UseMuseumControlsOptions): MuseumCont
   }, [canvas, clearInput, setMode]);
 
   useEffect(() => {
-    if (options.active && !options.blocked) return;
+    if (options.active && !options.blocked) {
+      if (modeRef.current === 'paused') setMode('drag-look');
+      return;
+    }
     entryPendingRef.current = false;
     releaseReasonRef.current = Boolean(canvas && document.pointerLockElement === canvas);
     clearInput();

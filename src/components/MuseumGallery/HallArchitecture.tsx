@@ -1,6 +1,9 @@
 import {useLayoutEffect, useRef} from 'react';
 import {InstancedMesh, Object3D} from 'three';
-import {ANCIENT_GREEK_HALL_LAYOUT} from '../../data/museum/ancientGreekHall';
+import {
+  ANCIENT_GREEK_HALL_COLUMN_POSITIONS,
+  ANCIENT_GREEK_HALL_LAYOUT,
+} from '../../data/museum/ancientGreekHall';
 import {usePlaqueTexture} from './plaqueTextures';
 
 const LIMESTONE = '#cbbb9c';
@@ -9,19 +12,6 @@ const FLOOR = '#665a49';
 const BRONZE = '#805d32';
 const IRON = '#282722';
 
-const columnPositions = [
-  [-8.62, 27], [8.62, 27],
-  [-8.62, 23], [8.62, 23],
-  [-8.62, 18], [8.62, 18],
-  [-8.62, 13], [8.62, 13],
-  [-8.62, 6], [8.62, 6],
-  [-8.62, 1], [8.62, 1],
-  [-8.62, -5], [8.62, -5],
-  [-8.62, -10.5], [8.62, -10.5],
-  [-8.62, -18], [8.62, -18],
-  [-8.62, -24], [8.62, -24],
-] as const;
-
 function InstancedColumns() {
   const shafts = useRef<InstancedMesh>(null);
   const capitals = useRef<InstancedMesh>(null);
@@ -29,7 +19,7 @@ function InstancedColumns() {
 
   useLayoutEffect(() => {
     const transform = new Object3D();
-    columnPositions.forEach(([x, z], index) => {
+    ANCIENT_GREEK_HALL_COLUMN_POSITIONS.forEach(([x, z], index) => {
       transform.position.set(x, 3.25, z);
       transform.updateMatrix();
       shafts.current?.setMatrixAt(index, transform.matrix);
@@ -46,15 +36,15 @@ function InstancedColumns() {
   }, []);
 
   return <group>
-    <instancedMesh ref={shafts} args={[undefined, undefined, columnPositions.length]}>
+    <instancedMesh ref={shafts} args={[undefined, undefined, ANCIENT_GREEK_HALL_COLUMN_POSITIONS.length]}>
       <cylinderGeometry args={[.34, .43, 5.75, 12]}/>
       <meshStandardMaterial color={LIMESTONE} roughness={.9}/>
     </instancedMesh>
-    <instancedMesh ref={bases} args={[undefined, undefined, columnPositions.length]}>
+    <instancedMesh ref={bases} args={[undefined, undefined, ANCIENT_GREEK_HALL_COLUMN_POSITIONS.length]}>
       <cylinderGeometry args={[.63, .72, .48, 12]}/>
       <meshStandardMaterial color={LIMESTONE_DARK} roughness={.92}/>
     </instancedMesh>
-    <instancedMesh ref={capitals} args={[undefined, undefined, columnPositions.length]}>
+    <instancedMesh ref={capitals} args={[undefined, undefined, ANCIENT_GREEK_HALL_COLUMN_POSITIONS.length]}>
       <cylinderGeometry args={[.72, .48, .52, 8]}/>
       <meshStandardMaterial color={LIMESTONE_DARK} roughness={.9}/>
     </instancedMesh>

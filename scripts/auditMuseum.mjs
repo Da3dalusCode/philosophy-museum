@@ -95,9 +95,22 @@ check('exhibit entity references exist and match their declared kinds', () => {
   const philosopherIds = new Set(philosophers.map(({id}) => id));
   const branchIds = new Set(branches.map(({id}) => id));
   for (const exhibit of MUSEUM_HALLS[0].exhibits) {
+    assert.equal(exhibit.id, exhibit.entityId, `${exhibit.id} must keep a stable entity-matching exhibit ID`);
     const targets = exhibit.entityKind === 'philosopher' ? philosopherIds : branchIds;
     assert(targets.has(exhibit.entityId), `${exhibit.id} has an unknown ${exhibit.entityKind} target`);
   }
+});
+
+check('the mandated three-zone collection shape is preserved', () => {
+  const exhibits = MUSEUM_HALLS[0].exhibits;
+  const count = (zoneId, entityKind) => exhibits.filter((item) =>
+    item.zoneId === zoneId && item.entityKind === entityKind).length;
+  assert.equal(count('classical-foundations', 'philosopher'), 3);
+  assert.equal(count('classical-foundations', 'branch'), 0);
+  assert.equal(count('hellenistic-ways', 'branch'), 4);
+  assert.equal(count('hellenistic-ways', 'philosopher'), 0);
+  assert.equal(count('late-antiquity', 'branch'), 1);
+  assert.equal(count('late-antiquity', 'philosopher'), 0);
 });
 
 check('guided order contains every exhibit exactly once', () => {

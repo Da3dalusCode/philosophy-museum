@@ -1,13 +1,4 @@
 export type MuseumHallId = 'ancient-greek';
-export type MuseumExhibitId =
-  | 'socrates'
-  | 'plato'
-  | 'aristotle'
-  | 'cynicism'
-  | 'epicureanism'
-  | 'stoicism'
-  | 'skepticism'
-  | 'neoplatonism';
 export type MuseumZoneId = 'classical-foundations' | 'hellenistic-ways' | 'late-antiquity';
 export type MuseumExhibitKind = 'philosopher' | 'branch';
 
@@ -18,22 +9,13 @@ export type MuseumZoneCatalog = {
   description: string;
 };
 
-export type MuseumExhibitCatalog = {
-  id: MuseumExhibitId;
+type MuseumExhibitCatalogShape = {
+  id: string;
   entityKind: MuseumExhibitKind;
   entityId: string;
   displayName: string;
   zoneId: MuseumZoneId;
   question: string;
-};
-
-export type MuseumHallCatalog = {
-  id: MuseumHallId;
-  title: string;
-  description: string;
-  zones: readonly MuseumZoneCatalog[];
-  exhibits: readonly MuseumExhibitCatalog[];
-  guidedOrder: readonly MuseumExhibitId[];
 };
 
 const zones = [
@@ -66,7 +48,19 @@ const exhibits = [
   {id: 'stoicism', entityKind: 'branch', entityId: 'stoicism', displayName: 'Stoicism', zoneId: 'hellenistic-ways', question: 'What remains in our power when fortune changes?'},
   {id: 'skepticism', entityKind: 'branch', entityId: 'skepticism', displayName: 'Skepticism', zoneId: 'hellenistic-ways', question: 'Can suspending judgment loosen the grip of anxiety?'},
   {id: 'neoplatonism', entityKind: 'branch', entityId: 'neoplatonism', displayName: 'Neoplatonism', zoneId: 'late-antiquity', question: 'How can the many flow from—and return toward—the One?'},
-] as const satisfies readonly MuseumExhibitCatalog[];
+] as const satisfies readonly MuseumExhibitCatalogShape[];
+
+export type MuseumExhibitCatalog = (typeof exhibits)[number];
+export type MuseumExhibitId = MuseumExhibitCatalog['id'];
+
+export type MuseumHallCatalog = {
+  id: MuseumHallId;
+  title: string;
+  description: string;
+  zones: readonly MuseumZoneCatalog[];
+  exhibits: readonly MuseumExhibitCatalog[];
+  guidedOrder: readonly MuseumExhibitId[];
+};
 
 export const MUSEUM_HALLS = [{
   id: 'ancient-greek',

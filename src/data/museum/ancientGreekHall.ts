@@ -37,6 +37,19 @@ export type MuseumHallLayout = {
   guidedOrder: readonly MuseumExhibitId[];
 };
 
+export const ANCIENT_GREEK_HALL_COLUMN_POSITIONS = [
+  [-8.62, 27], [8.62, 27],
+  [-8.62, 23], [8.62, 23],
+  [-8.62, 18], [8.62, 18],
+  [-8.62, 13], [8.62, 13],
+  [-8.62, 6], [8.62, 6],
+  [-8.62, 1], [8.62, 1],
+  [-8.62, -5], [8.62, -5],
+  [-8.62, -10.5], [8.62, -10.5],
+  [-8.62, -18], [8.62, -18],
+  [-8.62, -24], [8.62, -24],
+] as const;
+
 const hall = getMuseumHallCatalog('ancient-greek');
 if (!hall) throw new Error('The ancient Greek Museum catalog is missing.');
 
@@ -44,11 +57,11 @@ const placement: Record<MuseumExhibitId, Omit<MuseumExhibitLayout, 'id' | 'zoneI
   socrates: {position: {x: -6.9, z: 21.5}, rotationY: Math.PI / 2, interactionRadius: 3.4, collider: {id: 'exhibit-socrates', center: {x: -6.9, z: 21.5}, size: {width: 1.6, depth: 1.35}, rotation: 0}, viewpoint: {x: -4.2, z: 21.5, yaw: -Math.PI / 2, pitch: 0}},
   plato: {position: {x: 6.9, z: 16.5}, rotationY: -Math.PI / 2, interactionRadius: 3.4, collider: {id: 'exhibit-plato', center: {x: 6.9, z: 16.5}, size: {width: 1.7, depth: 1.4}, rotation: 0}, viewpoint: {x: 4.2, z: 16.5, yaw: Math.PI / 2, pitch: 0}},
   aristotle: {position: {x: -6.9, z: 11.5}, rotationY: Math.PI / 2, interactionRadius: 3.4, collider: {id: 'exhibit-aristotle', center: {x: -6.9, z: 11.5}, size: {width: 1.7, depth: 1.4}, rotation: 0}, viewpoint: {x: -4.2, z: 11.5, yaw: -Math.PI / 2, pitch: 0}},
-  cynicism: {position: {x: 6.8, z: 5.5}, rotationY: -Math.PI / 2, interactionRadius: 3.4, collider: {id: 'exhibit-cynicism', center: {x: 6.8, z: 5.5}, size: {width: 2.2, depth: 1.5}, rotation: 0}, viewpoint: {x: 4, z: 5.5, yaw: Math.PI / 2, pitch: 0}},
-  epicureanism: {position: {x: -6.8, z: 0}, rotationY: Math.PI / 2, interactionRadius: 3.4, collider: {id: 'exhibit-epicureanism', center: {x: -6.8, z: 0}, size: {width: 2.2, depth: 1.6}, rotation: 0}, viewpoint: {x: -4, z: 0, yaw: -Math.PI / 2, pitch: 0}},
-  stoicism: {position: {x: 6.8, z: -5.5}, rotationY: -Math.PI / 2, interactionRadius: 3.4, collider: {id: 'exhibit-stoicism', center: {x: 6.8, z: -5.5}, size: {width: 2.3, depth: 1.6}, rotation: 0}, viewpoint: {x: 4, z: -5.5, yaw: Math.PI / 2, pitch: 0}},
-  skepticism: {position: {x: -6.8, z: -11}, rotationY: Math.PI / 2, interactionRadius: 3.4, collider: {id: 'exhibit-skepticism', center: {x: -6.8, z: -11}, size: {width: 2.2, depth: 1.6}, rotation: 0}, viewpoint: {x: -4, z: -11, yaw: -Math.PI / 2, pitch: 0}},
-  neoplatonism: {position: {x: 0, z: -26.3}, rotationY: 0, interactionRadius: 4.2, collider: {id: 'exhibit-neoplatonism', center: {x: 0, z: -26.3}, size: {width: 3, depth: 2.2}, rotation: 0}, viewpoint: {x: 0, z: -22.6, yaw: 0, pitch: 0}},
+  cynicism: {position: {x: 6.8, z: 5.5}, rotationY: -Math.PI / 2, interactionRadius: 3.4, collider: {id: 'exhibit-cynicism', center: {x: 6.8, z: 5.5}, size: {width: 1.6, depth: 2.3}, rotation: 0}, viewpoint: {x: 4, z: 5.5, yaw: Math.PI / 2, pitch: 0}},
+  epicureanism: {position: {x: -6.8, z: 0}, rotationY: Math.PI / 2, interactionRadius: 3.4, collider: {id: 'exhibit-epicureanism', center: {x: -6.8, z: 0}, size: {width: 1.7, depth: 2.3}, rotation: 0}, viewpoint: {x: -4, z: 0, yaw: -Math.PI / 2, pitch: 0}},
+  stoicism: {position: {x: 6.8, z: -5.5}, rotationY: -Math.PI / 2, interactionRadius: 3.4, collider: {id: 'exhibit-stoicism', center: {x: 6.8, z: -5.5}, size: {width: 1.7, depth: 2.4}, rotation: 0}, viewpoint: {x: 4, z: -5.5, yaw: Math.PI / 2, pitch: 0}},
+  skepticism: {position: {x: -6.8, z: -11}, rotationY: Math.PI / 2, interactionRadius: 3.4, collider: {id: 'exhibit-skepticism', center: {x: -6.8, z: -11}, size: {width: 1.7, depth: 2.3}, rotation: 0}, viewpoint: {x: -4, z: -11, yaw: -Math.PI / 2, pitch: 0}},
+  neoplatonism: {position: {x: 0, z: -26.3}, rotationY: 0, interactionRadius: 4.2, collider: {id: 'exhibit-neoplatonism', center: {x: 0, z: -26.3}, size: {width: 3.1, depth: 3.1}, rotation: 0}, viewpoint: {x: 0, z: -22.6, yaw: 0, pitch: 0}},
 };
 
 const perimeter: MuseumCollider[] = [
@@ -79,6 +92,12 @@ export const ANCIENT_GREEK_HALL_LAYOUT: MuseumHallLayout = {
   wallColliders: perimeter,
   obstacleColliders: [
     ...exhibitLayouts.map(({collider}) => collider),
+    ...ANCIENT_GREEK_HALL_COLUMN_POSITIONS.map(([x, z], index) => ({
+      id: `column-${index + 1}`,
+      center: {x, z},
+      size: {width: 1.44, depth: 1.44},
+      rotation: 0,
+    })),
     {id: 'directory-kiosk', center: {x: 7.5, z: 27.2}, size: {width: 1.5, depth: 1}, rotation: 0},
   ],
   exhibits: exhibitLayouts,
