@@ -27,10 +27,12 @@ export const writeHashRoute = (
   hash: string,
   replace: boolean,
   target: HashHistoryTarget | undefined = browserTarget(),
+  state?: unknown,
 ): boolean => {
   if (!target || target.location.hash === hash) return false;
-  if (replace) target.history.replaceState(target.history.state, '', hash);
-  else target.history.pushState(target.history.state, '', hash);
+  const nextState = state === undefined ? target.history.state : state;
+  if (replace) target.history.replaceState(nextState, '', hash);
+  else target.history.pushState(nextState, '', hash);
   target.dispatchEvent(new Event(HASH_ROUTE_CHANGE_EVENT));
   return true;
 };

@@ -1,3 +1,5 @@
+import type {MuseumExhibitId, MuseumHallId} from '../data/museumCatalog';
+
 export type ArticleSectionRoute = {section?: string};
 
 export type HistoryRoute = {kind: 'history'};
@@ -20,6 +22,11 @@ export type LearningPathRoute = {
   /** Public route steps are one-based. */
   step: number;
 };
+export type MuseumRoute = {
+  kind: 'museum';
+  hallId: MuseumHallId;
+  exhibitId?: MuseumExhibitId;
+};
 export type NotFoundRoute = {
   kind: 'not-found';
   requestedHash: string;
@@ -33,14 +40,16 @@ export type NavigableAppRoute =
   | PhilosopherRoute
   | BranchComparisonRoute
   | PhilosopherComparisonRoute
-  | LearningPathRoute;
+  | LearningPathRoute
+  | MuseumRoute;
 
 export type AppRoute = NavigableAppRoute | NotFoundRoute;
 
 export type ComparisonRoute = BranchComparisonRoute | PhilosopherComparisonRoute;
 export type ArticleRoute = BranchRoute | PhilosopherRoute;
 export type RouteHref = (route: NavigableAppRoute) => string;
-export type RouteNavigator = (route: NavigableAppRoute) => void;
+export type RouteNavigationOptions = {replace?: boolean; state?: unknown};
+export type RouteNavigator = (route: NavigableAppRoute, options?: RouteNavigationOptions) => void;
 
 /** Defaults intentionally preserve the pre-router app's initial selections. */
 export const DEFAULT_BRANCH_ID = 'stoicism';
@@ -73,6 +82,10 @@ export const DEFAULT_ROUTES = {
     kind: 'learning-path',
     pathId: DEFAULT_LEARNING_PATH_ID,
     step: DEFAULT_LEARNING_PATH_STEP,
+  },
+  museum: {
+    kind: 'museum',
+    hallId: 'ancient-greek',
   },
 } as const satisfies Record<string, NavigableAppRoute>;
 

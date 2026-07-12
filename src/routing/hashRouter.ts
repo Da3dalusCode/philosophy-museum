@@ -1,6 +1,11 @@
 import {branches} from '../data/branches';
 import {learningPaths} from '../data/learningPaths';
 import {philosophers} from '../data/philosophers';
+import {
+  getMuseumHallCatalog,
+  isMuseumExhibitId,
+  isMuseumHallId,
+} from '../data/museumCatalog';
 import {canonicalizeArticleSection} from './routeMetadata';
 import {
   DEFAULT_ROUTES,
@@ -98,6 +103,10 @@ export const serializeHashRoute = (route: AppRoute): string => {
       return `#/compare/philosophers/${encodeURIComponent(route.leftId)}/${encodeURIComponent(route.rightId)}`;
     case 'learning-path':
       return `#/paths/${encodeURIComponent(route.pathId)}/${route.step}`;
+    case 'museum':
+      return route.exhibitId
+        ? `#/museum/${encodeURIComponent(route.hallId)}/exhibits/${encodeURIComponent(route.exhibitId)}`
+        : `#/museum/${encodeURIComponent(route.hallId)}`;
     case 'not-found':
       return requestedHash(route.requestedHash);
   }
@@ -152,6 +161,22 @@ export const parseHashRoute = (hash: string): ParsedHashRoute => {
 
   if (segments.length === 1 && head === 'history') return finalize(DEFAULT_ROUTES.history, hash);
   if (segments.length === 1 && head === 'map') return finalize(DEFAULT_ROUTES.map, hash);
+
+  if (head === 'museum') {
+    if (segments.length === 1) return finalize(DEFAULT_ROUTES.museum, hash);
+    if (!isMuseumHallId(second)) {
+      return fail(hash, `No museum hall exists with the id “${second}”.`);
+    }
+    if (segments.length === 2) return finalize({kind: 'museum', hallId: second}, hash);
+    if (segments.length !== 4 || third !== 'exhibits') {
+      return fail(hash, 'This museum route has an unexpected shape.');
+    }
+    if (!isMuseumExhibitId(second, fourth)) {
+      const hall = getMuseumHallCatalog(second);
+      return fail(hash, `No exhibit exists with the id “${fourth}” in “${hall?.title ?? second}”.`);
+    }
+    return finalize({kind: 'museum', hallId: second, exhibitId: fourth}, hash);
+  }
 
   if (head === 'branches') {
     if (segments.length === 1) return finalize(DEFAULT_ROUTES.branch, hash);

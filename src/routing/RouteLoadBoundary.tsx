@@ -1,5 +1,6 @@
 import {Component, createRef, type ErrorInfo, type ReactNode} from 'react';
 import {routeToHash} from './hashRouter';
+import {isRouteLoadError} from './routeLoadErrors';
 import {DEFAULT_ROUTES} from './routes';
 
 type RouteLoadBoundaryProps = {
@@ -10,16 +11,6 @@ type RouteLoadBoundaryProps = {
 type RouteLoadBoundaryState = {
   error: unknown;
   resetKey: string;
-};
-
-const isChunkLoadError = (error: unknown): boolean => {
-  const name = error instanceof Error ? error.name : '';
-  const message = error instanceof Error ? error.message : String(error);
-  return name === 'ChunkLoadError'
-    || /failed to fetch dynamically imported module/i.test(message)
-    || /error loading dynamically imported module/i.test(message)
-    || /importing a module script failed/i.test(message)
-    || /loading (?:css )?chunk/i.test(message);
 };
 
 export class RouteLoadBoundary extends Component<RouteLoadBoundaryProps, RouteLoadBoundaryState> {
@@ -44,7 +35,7 @@ export class RouteLoadBoundary extends Component<RouteLoadBoundaryProps, RouteLo
   }
 
   componentDidCatch(error: unknown, info: ErrorInfo): void {
-    if (isChunkLoadError(error)) {
+    if (isRouteLoadError(error)) {
       console.error('A route module could not be loaded.', error, info.componentStack);
       this.headingRef.current?.focus();
     }
@@ -52,7 +43,7 @@ export class RouteLoadBoundary extends Component<RouteLoadBoundaryProps, RouteLo
 
   render() {
     if (!this.state.error) return this.props.children;
-    if (!isChunkLoadError(this.state.error)) throw this.state.error;
+    if (!isRouteLoadError(this.state.error)) throw this.state.error;
 
     return <section className="route-load-state route-load-error" role="alert">
       <p className="eyebrow">This gallery needs a fresh copy</p>

@@ -24,6 +24,8 @@ const buildResult = await build({
           export * from '/src/routing/hashHistory.ts';
           export * from '/src/routing/routes.ts';
           export * from '/src/routing/routeMetadata.ts';
+          export * from '/src/routing/routeLoadErrors.ts';
+          export * from '/src/data/museumCatalog.ts';
           export {branches} from '/src/data/branches.ts';
           export {philosophers} from '/src/data/philosophers.ts';
           export {learningPaths} from '/src/data/learningPaths.ts';
@@ -64,9 +66,11 @@ const {
   enableManualScrollRestoration,
   philosophers,
   learningPaths,
+  MUSEUM_HALLS,
   getArticleRouteEntries,
   getArticleSectionTarget,
   getRouteTitle,
+  isRouteLoadError,
   parseHashRoute,
   serializeHashRoute,
   subscribeToHashRoute,
@@ -166,9 +170,28 @@ check('top-level history and map routes parse and serialize', () => {
   expectRoundTrip({kind: 'map'});
 });
 
+check('Museum convenience, hall, and exhibit routes parse and serialize', () => {
+  const convenience = expectKind('#/museum', 'museum');
+  assert.deepEqual(convenience.route, {kind: 'museum', hallId: 'ancient-greek'});
+  assert.equal(convenience.canonicalHash, '#/museum/ancient-greek');
+  assert.equal(convenience.shouldReplace, true);
+  expectRoundTrip({kind: 'museum', hallId: 'ancient-greek'});
+  for (const exhibit of MUSEUM_HALLS[0].exhibits) {
+    expectRoundTrip({kind: 'museum', hallId: 'ancient-greek', exhibitId: exhibit.id});
+  }
+});
+
 check('serializers emit the required literal route families', () => {
   assert.equal(serializeHashRoute({kind: 'history'}), '#/history');
   assert.equal(serializeHashRoute({kind: 'map'}), '#/map');
+  assert.equal(
+    serializeHashRoute({kind: 'museum', hallId: 'ancient-greek'}),
+    '#/museum/ancient-greek',
+  );
+  assert.equal(
+    serializeHashRoute({kind: 'museum', hallId: 'ancient-greek', exhibitId: 'plato'}),
+    '#/museum/ancient-greek/exhibits/plato',
+  );
   assert.equal(
     serializeHashRoute({kind: 'branch', branchId: 'stoicism'}),
     '#/branches/stoicism',
@@ -257,6 +280,15 @@ check('unknown branch, philosopher, and learning-path IDs are rejected', () => {
   expectNotFound('#/paths/__missing_path__/1', /No learning path exists/);
 });
 
+check('unknown and malformed Museum routes remain visible as not-found', () => {
+  expectNotFound('#/museum/unknown-hall', /No museum hall exists/);
+  expectNotFound('#/museum/ancient-greek/exhibits/unknown-exhibit', /No exhibit exists/);
+  expectNotFound('#/museum/ancient-greek/plato', /unexpected shape/);
+  expectNotFound('#/museum/ancient-greek/exhibits/plato/extra', /unexpected shape/);
+  expectNotFound('#/museum/%', /malformed percent encoding/);
+  expectNotFound('#/museum/ancient-greek/exhibits/%E0%A4%A', /malformed percent encoding/);
+});
+
 check('mixed-kind and duplicate comparisons are rejected', () => {
   const branchIds = new Set(branches.map(({id}) => id));
   const philosopherIds = new Set(philosophers.map(({id}) => id));
@@ -332,10 +364,24 @@ check('document titles are exhaustive and section-aware', () => {
     DEFAULT_ROUTES.compare,
     DEFAULT_ROUTES.comparePhilosophers,
     DEFAULT_ROUTES.learningPath,
+    DEFAULT_ROUTES.museum,
+    {kind: 'museum', hallId: 'ancient-greek', exhibitId: 'plato'},
     {kind: 'not-found', requestedHash: '#/missing', reason: 'Missing'},
   ];
   for (const route of routes) assert.match(getRouteTitle(route), / \| Philosophy Atlas$/);
   assert.equal(getRouteTitle({kind: 'history'}), 'Big History | Philosophy Atlas');
+  assert.equal(
+    getRouteTitle({kind: 'museum', hallId: 'ancient-greek'}),
+    'Ancient Greek & Hellenistic Gallery | Philosophy Atlas',
+  );
+  assert.equal(
+    getRouteTitle({kind: 'museum', hallId: 'ancient-greek', exhibitId: 'plato'}),
+    'Plato — Ancient Greek & Hellenistic Gallery | Philosophy Atlas',
+  );
+  assert.equal(
+    getRouteTitle({kind: 'museum', hallId: 'ancient-greek', exhibitId: 'stoicism'}),
+    'Stoicism — Ancient Greek & Hellenistic Gallery | Philosophy Atlas',
+  );
   assert.equal(
     getRouteTitle({kind: 'branch', branchId: 'stoicism', section: 'overview'}),
     'Stoicism — A system for living as a rational and social being | Philosophy Atlas',
@@ -369,6 +415,9 @@ check('canonical hashes remain stable under parse → serialize → parse', () =
     '#/philosophers',
     '#/compare',
     '#/paths',
+    '#/museum',
+    '#/museum/ancient-greek',
+    '#/museum/ancient-greek/exhibits/plato',
     '#/branches/stoicism?section=overview',
     '#/philosophers/plato?section=major-works',
     serializeHashRoute(DEFAULT_ROUTES.compare),
@@ -400,6 +449,27 @@ check('browser history writes preserve push, replace, and same-hash semantics', 
     state: replaceHarness.state,
     url: '#/branches/stoicism',
   });
+
+  const stateHarness = createHistoryHarness('#/history');
+  const museumState = {museum: {hallId: 'ancient-greek', openedFromHall: true}};
+  assert.equal(
+    writeHashRoute('#/museum/ancient-greek/exhibits/plato', false, stateHarness.target, museumState),
+    true,
+  );
+  assert.deepEqual(stateHarness.calls[0], {
+    method: 'pushState',
+    state: museumState,
+    url: '#/museum/ancient-greek/exhibits/plato',
+  });
+});
+
+check('deferred route asset failures include Vite CSS preload errors', () => {
+  for (const error of [
+    new Error('Failed to fetch dynamically imported module: /assets/MuseumPage.js'),
+    new Error('Unable to preload CSS for /assets/MuseumPage.css'),
+    Object.assign(new Error('Loading CSS chunk 4 failed.'), {name: 'ChunkLoadError'}),
+  ]) assert.equal(isRouteLoadError(error), true);
+  assert.equal(isRouteLoadError(new Error('Museum content validation failed.')), false);
 });
 
 check('canonicalization replaces once and remains Strict Mode idempotent', () => {
