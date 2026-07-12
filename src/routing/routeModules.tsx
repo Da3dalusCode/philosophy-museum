@@ -3,7 +3,15 @@ import type {ViewId} from '../types/philosophy';
 
 const once = <T,>(loader: () => Promise<T>): (() => Promise<T>) => {
   let promise: Promise<T> | undefined;
-  return () => promise ??= loader();
+  return () => {
+    if (!promise) {
+      promise = loader().catch((error: unknown) => {
+        promise = undefined;
+        throw error;
+      });
+    }
+    return promise;
+  };
 };
 
 const loadMap = once(() => import('../components/PhilosophyMap/PhilosophyMap'));

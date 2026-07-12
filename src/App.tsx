@@ -1,4 +1,4 @@
-import {Suspense, useCallback, useEffect, useRef} from 'react';
+import {Suspense, useCallback, useEffect, useLayoutEffect, useRef} from 'react';
 import {AppShell} from './components/Layout/AppShell';
 import {BigHistoryView} from './components/BigHistory/BigHistoryView';
 import {IdeaConstellation} from './components/Museum/IdeaConstellation';
@@ -64,7 +64,8 @@ export default function App() {
   const {route, href, push} = useHashRoute();
   const routeKey = serializeHashRoute(route);
   const title = getRouteTitle(route);
-  const previousRouteKeyRef = useRef<string | undefined>(undefined);
+  const requestedRouteKeyRef = useRef(routeKey);
+  const pendingFocusRouteKeyRef = useRef<string | undefined>(undefined);
 
   useEffect(() => {
     document.title = title;
@@ -75,10 +76,15 @@ export default function App() {
     window.scrollTo({top: 0, behavior: 'auto'});
   }, [routeKey, route.kind, route.kind === 'branch' || route.kind === 'philosopher' ? route.section : undefined]);
 
+  useLayoutEffect(() => {
+    if (requestedRouteKeyRef.current === routeKey) return;
+    requestedRouteKeyRef.current = routeKey;
+    pendingFocusRouteKeyRef.current = routeKey;
+  }, [routeKey]);
+
   const handleRouteReady = useCallback((readyRoute: AppRoute, readyRouteKey: string) => {
-    const previousRouteKey = previousRouteKeyRef.current;
-    previousRouteKeyRef.current = readyRouteKey;
-    if (previousRouteKey === undefined || previousRouteKey === readyRouteKey) return;
+    if (pendingFocusRouteKeyRef.current !== readyRouteKey) return;
+    pendingFocusRouteKeyRef.current = undefined;
     const frame = window.requestAnimationFrame(() => {
       const articleTarget = readyRoute.kind === 'branch' || readyRoute.kind === 'philosopher'
         ? getArticleSectionTarget(readyRoute)

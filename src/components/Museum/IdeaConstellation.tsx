@@ -49,7 +49,12 @@ export function IdeaConstellation() {
     const reveal = () => {
       idleHandle = undefined;
       timeoutHandle = undefined;
-      if (!cancelled && !motion.matches) setShouldLoad(true);
+      if (cancelled || motion.matches) return;
+      if (document.hidden) {
+        document.addEventListener('visibilitychange', scheduleWhenVisible, {once: true});
+        return;
+      }
+      setShouldLoad(true);
     };
 
     const scheduleIdle = () => {
