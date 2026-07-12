@@ -13,11 +13,16 @@ const items: [ViewId, string, typeof History, NavigableAppRoute][] = [
   ['paths', 'Learning Paths', Route, DEFAULT_ROUTES.learningPath],
 ];
 
-export function Navigation({view, href}: {view?: ViewId; href: RouteHref}) {
+export function Navigation({view, href, onRouteIntent}: {
+  view?: ViewId;
+  href: RouteHref;
+  onRouteIntent?: (view: ViewId) => void;
+}) {
   const [open, setOpen] = useState(false);
   const menuId = useId();
   const toggleRef = useRef<HTMLButtonElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
+  const preloadTimerRef = useRef<number | undefined>(undefined);
   const openRef = useRef(open);
   openRef.current = open;
 
@@ -57,6 +62,27 @@ export function Navigation({view, href}: {view?: ViewId; href: RouteHref}) {
       window.removeEventListener('resize', reconcileBreakpoint);
     };
   }, []);
+  useEffect(() => () => {
+    if (preloadTimerRef.current !== undefined) window.clearTimeout(preloadTimerRef.current);
+  }, []);
+
+  const cancelScheduledPreload = () => {
+    if (preloadTimerRef.current === undefined) return;
+    window.clearTimeout(preloadTimerRef.current);
+    preloadTimerRef.current = undefined;
+  };
+  const schedulePreload = (id: ViewId, immediate = false) => {
+    cancelScheduledPreload();
+    if (!onRouteIntent) return;
+    if (immediate) {
+      onRouteIntent(id);
+      return;
+    }
+    preloadTimerRef.current = window.setTimeout(() => {
+      preloadTimerRef.current = undefined;
+      onRouteIntent(id);
+    }, 140);
+  };
 
   const closeFromRouteActivation = (
     event: MouseEvent<HTMLAnchorElement>,
@@ -95,6 +121,11 @@ export function Navigation({view, href}: {view?: ViewId; href: RouteHref}) {
         aria-label={label}
         aria-current={view === id ? 'page' : undefined}
         onClick={(event) => closeFromRouteActivation(event, view === id)}
+        onPointerEnter={() => schedulePreload(id)}
+        onPointerLeave={cancelScheduledPreload}
+        onPointerDown={(event) => event.pointerType === 'touch' && schedulePreload(id, true)}
+        onFocus={() => schedulePreload(id)}
+        onBlur={cancelScheduledPreload}
       ><Icon size={16}/><span>{label}</span></a>)}
     </div>
   </nav>;

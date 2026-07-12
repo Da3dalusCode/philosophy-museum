@@ -1,4 +1,4 @@
-import {PageHead} from '../BigHistory/BigHistoryView';
+import {PageHead} from '../Layout/PageHead';
 import {PhilosophyWall} from '../PhilosophyWall/PhilosophyWall';
 import type {RouteHref} from '../../routing/routes';
 

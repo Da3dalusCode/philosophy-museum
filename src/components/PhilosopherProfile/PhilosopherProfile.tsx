@@ -2,7 +2,7 @@ import {useEffect,useMemo,useRef,useState} from 'react';
 import {ArrowRight,BookOpen,Clock3,GitCompareArrows,GitBranch,HelpCircle,Landmark,Link2,Network,Search,Scale,UserRound} from 'lucide-react';
 import {philosophers,philosopherById} from '../../data/philosophers';
 import {branchById} from '../../data/branches';
-import {PageHead} from '../BigHistory/BigHistoryView';
+import {PageHead} from '../Layout/PageHead';
 import {PhilosopherPortrait} from '../PhilosopherPortrait/PhilosopherPortrait';
 import {ArticleBody,ArticleToc} from '../Article/ArticleBody';
 import type {BranchMembershipStatus,Philosopher,ReadingEntry} from '../../types/philosophy';

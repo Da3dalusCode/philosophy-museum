@@ -6,7 +6,7 @@ import {
   type ComparisonRoute,
   type RouteHref,
 } from '../../routing/routes';
-import {PageHead} from '../BigHistory/BigHistoryView';
+import {PageHead} from '../Layout/PageHead';
 import {PhilosopherPortrait} from '../PhilosopherPortrait/PhilosopherPortrait';
 
 const presets: {label: string; route: ComparisonRoute}[] = [

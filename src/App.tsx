@@ -1,16 +1,20 @@
-import {useEffect, useRef} from 'react';
+import {Suspense, useCallback, useEffect, useRef} from 'react';
 import {AppShell} from './components/Layout/AppShell';
-import {BranchExplorer} from './components/BranchExplorer/BranchExplorer';
 import {BigHistoryView} from './components/BigHistory/BigHistoryView';
-import {PhilosophyMap} from './components/PhilosophyMap/PhilosophyMap';
-import {PhilosopherProfile} from './components/PhilosopherProfile/PhilosopherProfile';
-import {CompareMode} from './components/Compare/CompareMode';
-import {LearningPaths} from './components/LearningPaths/LearningPaths';
 import {IdeaConstellation} from './components/Museum/IdeaConstellation';
 import {RouteNotFound} from './routing/RouteNotFound';
+import {RouteLoadBoundary, RouteLoading} from './routing/RouteLoadBoundary';
 import {serializeHashRoute} from './routing/hashRouter';
 import {getArticleSectionTarget, getRouteTitle} from './routing/routeMetadata';
-import type {AppRoute} from './routing/routes';
+import {
+  LazyBranchExplorer,
+  LazyCompareMode,
+  LazyLearningPaths,
+  LazyPhilosopherProfile,
+  LazyPhilosophyMap,
+  preloadRouteView,
+} from './routing/routeModules';
+import type {AppRoute, RouteHref, RouteNavigator} from './routing/routes';
 import {focusArticleTarget} from './routing/useArticleSection';
 import {useHashRoute} from './routing/useHashRoute';
 import type {ViewId} from './types/philosophy';
@@ -28,6 +32,34 @@ const activeViewForRoute = (route: AppRoute): ViewId | undefined => {
   }
 };
 
+function RouteView({route, routeKey, href, push, onReady}: {
+  route: AppRoute;
+  routeKey: string;
+  href: RouteHref;
+  push: RouteNavigator;
+  onReady: (route: AppRoute, routeKey: string) => void | (() => void);
+}) {
+  useEffect(() => onReady(route, routeKey), [onReady, route, routeKey]);
+
+  switch (route.kind) {
+    case 'history':
+      return <BigHistoryView href={href}/>;
+    case 'map':
+      return <LazyPhilosophyMap href={href}/>;
+    case 'branch':
+      return <LazyBranchExplorer route={route} href={href}/>;
+    case 'philosopher':
+      return <LazyPhilosopherProfile route={route} href={href}/>;
+    case 'compare-branches':
+    case 'compare-philosophers':
+      return <LazyCompareMode route={route} href={href} onRouteChange={push}/>;
+    case 'learning-path':
+      return <LazyLearningPaths route={route} href={href}/>;
+    case 'not-found':
+      return <RouteNotFound route={route}/>;
+  }
+}
+
 export default function App() {
   const {route, href, push} = useHashRoute();
   const routeKey = serializeHashRoute(route);
@@ -43,13 +75,13 @@ export default function App() {
     window.scrollTo({top: 0, behavior: 'auto'});
   }, [routeKey, route.kind, route.kind === 'branch' || route.kind === 'philosopher' ? route.section : undefined]);
 
-  useEffect(() => {
+  const handleRouteReady = useCallback((readyRoute: AppRoute, readyRouteKey: string) => {
     const previousRouteKey = previousRouteKeyRef.current;
-    previousRouteKeyRef.current = routeKey;
-    if (previousRouteKey === undefined || previousRouteKey === routeKey) return;
+    previousRouteKeyRef.current = readyRouteKey;
+    if (previousRouteKey === undefined || previousRouteKey === readyRouteKey) return;
     const frame = window.requestAnimationFrame(() => {
-      const articleTarget = route.kind === 'branch' || route.kind === 'philosopher'
-        ? getArticleSectionTarget(route)
+      const articleTarget = readyRoute.kind === 'branch' || readyRoute.kind === 'philosopher'
+        ? getArticleSectionTarget(readyRoute)
         : undefined;
       if (articleTarget) {
         focusArticleTarget(articleTarget);
@@ -61,36 +93,14 @@ export default function App() {
       heading.focus({preventScroll: true});
     });
     return () => window.cancelAnimationFrame(frame);
-  }, [routeKey, route]);
+  }, []);
 
-  let content: React.ReactNode;
-  switch (route.kind) {
-    case 'history':
-      content = <BigHistoryView href={href}/>;
-      break;
-    case 'map':
-      content = <PhilosophyMap href={href}/>;
-      break;
-    case 'branch':
-      content = <BranchExplorer route={route} href={href}/>;
-      break;
-    case 'philosopher':
-      content = <PhilosopherProfile route={route} href={href}/>;
-      break;
-    case 'compare-branches':
-    case 'compare-philosophers':
-      content = <CompareMode route={route} href={href} onRouteChange={push}/>;
-      break;
-    case 'learning-path':
-      content = <LearningPaths route={route} href={href}/>;
-      break;
-    case 'not-found':
-      content = <RouteNotFound route={route}/>;
-      break;
-  }
-
-  return <AppShell view={activeViewForRoute(route)} href={href}>
+  return <AppShell view={activeViewForRoute(route)} href={href} onRouteIntent={preloadRouteView}>
     <IdeaConstellation/>
-    {content}
+    <RouteLoadBoundary resetKey={routeKey}>
+      <Suspense fallback={<RouteLoading/>}>
+        <RouteView route={route} routeKey={routeKey} href={href} push={push} onReady={handleRouteReady}/>
+      </Suspense>
+    </RouteLoadBoundary>
   </AppShell>;
 }
