@@ -46,6 +46,7 @@ const {
   normalizeMoveInput,
   parseMuseumSession,
   sanitizeMuseumPose,
+  setMuseumMovementDisplacement,
 } = museum;
 
 let checks = 0;
@@ -187,6 +188,27 @@ check('core movement and collision functions handle representative boundaries', 
     allColliders,
   );
   assert(!circleIntersectsCollider(blocked, layout.playerRadius, plinth));
+});
+
+check('movement and every recommended viewpoint follow the rendered camera heading', () => {
+  for (const yaw of [0, Math.PI / 4, Math.PI / 2, -Math.PI / 2]) {
+    const heading = setMuseumMovementDisplacement({x: 0, z: 0}, {x: 0, z: 1}, yaw, 1);
+    assert(Math.abs(heading.x + Math.sin(yaw)) < 1e-9);
+    assert(Math.abs(heading.z + Math.cos(yaw)) < 1e-9);
+  }
+  for (const exhibit of layout.exhibits) {
+    const heading = setMuseumMovementDisplacement(
+      {x: 0, z: 0},
+      {x: 0, z: 1},
+      exhibit.viewpoint.yaw,
+      1,
+    );
+    const dx = exhibit.position.x - exhibit.viewpoint.x;
+    const dz = exhibit.position.z - exhibit.viewpoint.z;
+    const distance = Math.hypot(dx, dz);
+    const facingDot = (heading.x * dx + heading.z * dz) / distance;
+    assert(facingDot > .99, `${exhibit.id} viewpoint must face its installation`);
+  }
 });
 
 check('camera session parsing rejects malformed and unsafe values', () => {

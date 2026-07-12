@@ -149,6 +149,7 @@ export function useMuseumControls(options: UseMuseumControlsOptions): MuseumCont
     if (blockedRef.current) return;
     entryPendingRef.current = true;
     clearInput();
+    canvas?.focus({preventScroll: true});
     if (!canvas || typeof canvas.requestPointerLock !== 'function') {
       entryPendingRef.current = false;
       setMode('drag-look');
@@ -203,6 +204,7 @@ export function useMuseumControls(options: UseMuseumControlsOptions): MuseumCont
 
   useEffect(() => {
     if (options.active && !options.blocked) {
+      canvas?.focus({preventScroll: true});
       if (modeRef.current === 'paused') setMode('drag-look');
       return;
     }

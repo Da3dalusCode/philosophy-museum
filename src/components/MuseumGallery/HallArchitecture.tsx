@@ -72,7 +72,7 @@ function WallSign({
       <boxGeometry args={[width + .24, width / 4 + .24, .12]}/>
       <meshStandardMaterial color={BRONZE} metalness={.55} roughness={.42}/>
     </mesh>
-    <mesh>
+    <mesh position={[0, 0, .025]}>
       <planeGeometry args={[width, width / 4]}/>
       <meshBasicMaterial map={texture} toneMapped={false}/>
     </mesh>
@@ -156,7 +156,7 @@ function DirectoryKiosk() {
       <boxGeometry args={[1.58, .15, 1.12]}/>
       <meshStandardMaterial color={BRONZE} metalness={.62} roughness={.4}/>
     </mesh>
-    <mesh position={[0, 1.55, .04]} rotation={[-Math.PI / 2 - .28, 0, 0]}>
+    <mesh position={[0, 1.59, .028]} rotation={[-Math.PI / 2 - .28, 0, 0]}>
       <planeGeometry args={[1.42, .76]}/>
       <meshBasicMaterial map={texture} toneMapped={false}/>
     </mesh>

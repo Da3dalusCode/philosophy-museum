@@ -24,6 +24,7 @@ const buildResult = await build({
           export * from '/src/routing/hashHistory.ts';
           export * from '/src/routing/routes.ts';
           export * from '/src/routing/routeMetadata.ts';
+          export * from '/src/routing/routeLoadErrors.ts';
           export * from '/src/data/museumCatalog.ts';
           export {branches} from '/src/data/branches.ts';
           export {philosophers} from '/src/data/philosophers.ts';
@@ -69,6 +70,7 @@ const {
   getArticleRouteEntries,
   getArticleSectionTarget,
   getRouteTitle,
+  isRouteLoadError,
   parseHashRoute,
   serializeHashRoute,
   subscribeToHashRoute,
@@ -459,6 +461,15 @@ check('browser history writes preserve push, replace, and same-hash semantics', 
     state: museumState,
     url: '#/museum/ancient-greek/exhibits/plato',
   });
+});
+
+check('deferred route asset failures include Vite CSS preload errors', () => {
+  for (const error of [
+    new Error('Failed to fetch dynamically imported module: /assets/MuseumPage.js'),
+    new Error('Unable to preload CSS for /assets/MuseumPage.css'),
+    Object.assign(new Error('Loading CSS chunk 4 failed.'), {name: 'ChunkLoadError'}),
+  ]) assert.equal(isRouteLoadError(error), true);
+  assert.equal(isRouteLoadError(new Error('Museum content validation failed.')), false);
 });
 
 check('canonicalization replaces once and remains Strict Mode idempotent', () => {

@@ -26,6 +26,25 @@ export const normalizeMoveInput = (strafe: number, forward: number): MuseumPoint
   return {x: strafe / length, z: forward / length};
 };
 
+/** Convert local strafe/forward input to the same world heading used by Three's camera. */
+export const setMuseumMovementDisplacement = (
+  target: MuseumPoint,
+  direction: MuseumPoint,
+  yaw: number,
+  distance: number,
+): MuseumPoint => {
+  if (!isFinitePoint(direction) || !Number.isFinite(yaw) || !Number.isFinite(distance)) {
+    target.x = 0;
+    target.z = 0;
+    return target;
+  }
+  const sine = Math.sin(yaw);
+  const cosine = Math.cos(yaw);
+  target.x = (direction.x * cosine - direction.z * sine) * distance;
+  target.z = (-direction.x * sine - direction.z * cosine) * distance;
+  return target;
+};
+
 export const clampFrameDelta = (delta: number, maxDelta = DEFAULT_MAX_DELTA): number => {
   if (!Number.isFinite(delta) || delta <= 0) return 0;
   const safeMaximum = Number.isFinite(maxDelta) && maxDelta > 0 ? maxDelta : DEFAULT_MAX_DELTA;

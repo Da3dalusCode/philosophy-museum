@@ -19,6 +19,7 @@ import {
   nearestInteractable,
   normalizeMoveInput,
   normalizeYaw,
+  setMuseumMovementDisplacement,
 } from './museumMovement';
 import type {MuseumSceneRuntimeProps} from './museumRuntime';
 import {HallArchitecture} from './HallArchitecture';
@@ -115,11 +116,8 @@ function FirstPersonRig({
       const direction = normalizeMoveInput(input.strafe, input.forward);
       const delta = clampFrameDelta(rawDelta, .05);
       const speed = 3.75;
-      const sin = Math.sin(pose.yaw);
-      const cos = Math.cos(pose.yaw);
       const displacement = displacementRef.current;
-      displacement.x = (direction.x * cos + direction.z * sin) * speed * delta;
-      displacement.z = (direction.x * sin - direction.z * cos) * speed * delta;
+      setMuseumMovementDisplacement(displacement, direction, pose.yaw, speed * delta);
       const next = moveWithCollisions(
         pose,
         displacement,

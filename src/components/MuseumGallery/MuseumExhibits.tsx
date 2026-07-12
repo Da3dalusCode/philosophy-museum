@@ -38,7 +38,7 @@ function ExhibitPlaque({
       <boxGeometry args={[far ? 2.3 : 1.72, far ? .7 : .54, .12]}/>
       <meshStandardMaterial color={BRONZE} metalness={.62} roughness={.4}/>
     </mesh>
-    <mesh>
+    <mesh position={[0, 0, .025]}>
       <planeGeometry args={[far ? 2.15 : 1.58, far ? .55 : .4]}/>
       <meshBasicMaterial map={texture} toneMapped={false}/>
     </mesh>
