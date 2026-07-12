@@ -1,6 +1,7 @@
 import {branchById} from '../data/branches';
 import {learningPaths} from '../data/learningPaths';
 import {philosopherById} from '../data/philosophers';
+import {getMuseumExhibitCatalog, getMuseumHallCatalog} from '../data/museumCatalog';
 import type {AppRoute, ArticleRoute} from './routes';
 
 export type ArticleRouteEntry = {
@@ -88,6 +89,16 @@ export const getRouteTitle = (route: AppRoute): string => {
     case 'learning-path': {
       const path = learningPaths.find(({id}) => id === route.pathId);
       title = `${path?.title ?? route.pathId} — Step ${route.step}`;
+      break;
+    }
+    case 'museum': {
+      const hall = getMuseumHallCatalog(route.hallId);
+      const exhibit = route.exhibitId
+        ? getMuseumExhibitCatalog(route.hallId, route.exhibitId)
+        : undefined;
+      title = exhibit
+        ? `${exhibit.displayName} — ${hall?.title ?? route.hallId}`
+        : hall?.title ?? route.hallId;
       break;
     }
     case 'not-found':

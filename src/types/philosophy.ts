@@ -23,4 +23,4 @@ export type RelationshipType='influenced'|'reacts-against'|'overlaps-with'|'sub-
 export type Relationship={id:string;sourceId:string;targetId:string;sourceType:'branch'|'philosopher';targetType:'branch'|'philosopher';relationshipType:RelationshipType};
 export type LearningPathStep={id:string;title:string;explanation:string;branchIds:string[];philosopherIds:string[];conceptIds:string[];checkpointQuestion:string;nextHint:string};
 export type LearningPath={id:string;title:string;beginnerDescription:string;branchIds:string[];philosopherIds:string[];steps:LearningPathStep[]};
-export type ViewId='history'|'branches'|'map'|'philosophers'|'compare'|'paths';
+export type ViewId='history'|'branches'|'map'|'philosophers'|'compare'|'paths'|'museum';

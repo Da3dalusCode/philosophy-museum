@@ -10,6 +10,7 @@ import {
   LazyBranchExplorer,
   LazyCompareMode,
   LazyLearningPaths,
+  LazyMuseumPage,
   LazyPhilosopherProfile,
   LazyPhilosophyMap,
   preloadRouteView,
@@ -28,15 +29,17 @@ const activeViewForRoute = (route: AppRoute): ViewId | undefined => {
     case 'compare-branches':
     case 'compare-philosophers': return 'compare';
     case 'learning-path': return 'paths';
+    case 'museum': return 'museum';
     case 'not-found': return undefined;
   }
 };
 
-function RouteView({route, routeKey, href, push, onReady}: {
+function RouteView({route, routeKey, href, push, replace, onReady}: {
   route: AppRoute;
   routeKey: string;
   href: RouteHref;
   push: RouteNavigator;
+  replace: RouteNavigator;
   onReady: (route: AppRoute, routeKey: string) => void | (() => void);
 }) {
   useEffect(() => onReady(route, routeKey), [onReady, route, routeKey]);
@@ -55,13 +58,15 @@ function RouteView({route, routeKey, href, push, onReady}: {
       return <LazyCompareMode route={route} href={href} onRouteChange={push}/>;
     case 'learning-path':
       return <LazyLearningPaths route={route} href={href}/>;
+    case 'museum':
+      return <LazyMuseumPage route={route} href={href} push={push} replace={replace}/>;
     case 'not-found':
       return <RouteNotFound route={route}/>;
   }
 }
 
 export default function App() {
-  const {route, href, push} = useHashRoute();
+  const {route, href, push, replace} = useHashRoute();
   const routeKey = serializeHashRoute(route);
   const title = getRouteTitle(route);
   const requestedRouteKeyRef = useRef(routeKey);
@@ -85,6 +90,7 @@ export default function App() {
   const handleRouteReady = useCallback((readyRoute: AppRoute, readyRouteKey: string) => {
     if (pendingFocusRouteKeyRef.current !== readyRouteKey) return;
     pendingFocusRouteKeyRef.current = undefined;
+    if (readyRoute.kind === 'museum') return;
     const frame = window.requestAnimationFrame(() => {
       const articleTarget = readyRoute.kind === 'branch' || readyRoute.kind === 'philosopher'
         ? getArticleSectionTarget(readyRoute)
@@ -102,10 +108,10 @@ export default function App() {
   }, []);
 
   return <AppShell view={activeViewForRoute(route)} href={href} onRouteIntent={preloadRouteView}>
-    <IdeaConstellation/>
+    {route.kind !== 'museum' && <IdeaConstellation/>}
     <RouteLoadBoundary resetKey={routeKey}>
       <Suspense fallback={<RouteLoading/>}>
-        <RouteView route={route} routeKey={routeKey} href={href} push={push} onReady={handleRouteReady}/>
+        <RouteView route={route} routeKey={routeKey} href={href} push={push} replace={replace} onReady={handleRouteReady}/>
       </Suspense>
     </RouteLoadBoundary>
   </AppShell>;

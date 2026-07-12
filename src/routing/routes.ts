@@ -1,3 +1,5 @@
+import type {MuseumExhibitId, MuseumHallId} from '../data/museumCatalog';
+
 export type ArticleSectionRoute = {section?: string};
 
 export type HistoryRoute = {kind: 'history'};
@@ -20,6 +22,11 @@ export type LearningPathRoute = {
   /** Public route steps are one-based. */
   step: number;
 };
+export type MuseumRoute = {
+  kind: 'museum';
+  hallId: MuseumHallId;
+  exhibitId?: MuseumExhibitId;
+};
 export type NotFoundRoute = {
   kind: 'not-found';
   requestedHash: string;
@@ -33,7 +40,8 @@ export type NavigableAppRoute =
   | PhilosopherRoute
   | BranchComparisonRoute
   | PhilosopherComparisonRoute
-  | LearningPathRoute;
+  | LearningPathRoute
+  | MuseumRoute;
 
 export type AppRoute = NavigableAppRoute | NotFoundRoute;
 
@@ -73,6 +81,10 @@ export const DEFAULT_ROUTES = {
     kind: 'learning-path',
     pathId: DEFAULT_LEARNING_PATH_ID,
     step: DEFAULT_LEARNING_PATH_STEP,
+  },
+  museum: {
+    kind: 'museum',
+    hallId: 'ancient-greek',
   },
 } as const satisfies Record<string, NavigableAppRoute>;
 

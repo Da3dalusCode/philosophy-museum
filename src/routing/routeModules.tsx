@@ -19,6 +19,7 @@ const loadBranches = once(() => import('../components/BranchExplorer/BranchExplo
 const loadPhilosophers = once(() => import('../components/PhilosopherProfile/PhilosopherProfile'));
 const loadCompare = once(() => import('../components/Compare/CompareMode'));
 const loadPaths = once(() => import('../components/LearningPaths/LearningPaths'));
+const loadMuseum = once(() => import('../components/MuseumGallery/MuseumPage'));
 
 export const LazyPhilosophyMap = lazy(() =>
   loadMap().then(({PhilosophyMap}) => ({default: PhilosophyMap})),
@@ -35,6 +36,9 @@ export const LazyCompareMode = lazy(() =>
 export const LazyLearningPaths = lazy(() =>
   loadPaths().then(({LearningPaths}) => ({default: LearningPaths})),
 );
+export const LazyMuseumPage = lazy(() =>
+  loadMuseum().then(({MuseumPage}) => ({default: MuseumPage})),
+);
 
 const loaders: Partial<Record<ViewId, () => Promise<unknown>>> = {
   map: loadMap,
@@ -42,6 +46,7 @@ const loaders: Partial<Record<ViewId, () => Promise<unknown>>> = {
   philosophers: loadPhilosophers,
   compare: loadCompare,
   paths: loadPaths,
+  museum: loadMuseum,
 };
 
 export const preloadRouteView = (view: ViewId): void => {

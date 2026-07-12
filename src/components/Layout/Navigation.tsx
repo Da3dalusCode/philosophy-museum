@@ -1,11 +1,12 @@
 import {useEffect, useId, useRef, useState, type MouseEvent} from 'react';
-import {BookOpen, Compass, GitCompareArrows, History, Map, Menu, Route, Users, X} from 'lucide-react';
+import {BookOpen, Compass, GitCompareArrows, History, Landmark, Map, Menu, Route, Users, X} from 'lucide-react';
 import {subscribeToHashRoute} from '../../routing/hashHistory';
 import {DEFAULT_ROUTES, type NavigableAppRoute, type RouteHref} from '../../routing/routes';
 import type {ViewId} from '../../types/philosophy';
 
 const items: [ViewId, string, typeof History, NavigableAppRoute][] = [
   ['history', 'Big History', History, DEFAULT_ROUTES.history],
+  ['museum', 'Museum', Landmark, DEFAULT_ROUTES.museum],
   ['branches', 'Branch Explorer', Compass, DEFAULT_ROUTES.branch],
   ['map', 'Philosophy Map', Map, DEFAULT_ROUTES.map],
   ['philosophers', 'Philosophers', Users, DEFAULT_ROUTES.philosopher],
