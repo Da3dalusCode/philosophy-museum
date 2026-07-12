@@ -21,6 +21,7 @@ const buildResult = await build({
         if (id !== resolvedVirtualEntry) return undefined;
         return `
           export * from '/src/routing/hashRouter.ts';
+          export * from '/src/routing/hashHistory.ts';
           export * from '/src/routing/routes.ts';
           export * from '/src/routing/routeMetadata.ts';
           export {branches} from '/src/data/branches.ts';
@@ -56,8 +57,11 @@ const moduleUrl = `data:text/javascript;base64,${Buffer.from(entryChunk.code).to
 const routing = await import(moduleUrl);
 
 const {
+  HASH_ROUTE_CHANGE_EVENT,
   DEFAULT_ROUTES,
+  applyHashCanonicalization,
   branches,
+  enableManualScrollRestoration,
   philosophers,
   learningPaths,
   getArticleRouteEntries,
@@ -65,6 +69,8 @@ const {
   getRouteTitle,
   parseHashRoute,
   serializeHashRoute,
+  subscribeToHashRoute,
+  writeHashRoute,
 } = routing;
 
 let checks = 0;
@@ -108,6 +114,45 @@ const expectCanonicalStability = (inputHash) => {
   assert.equal(second.shouldReplace, false);
 };
 
+const createHistoryHarness = (initialHash = '') => {
+  const calls = [];
+  const listeners = new Map();
+  const location = {hash: initialHash};
+  const state = {audit: 'routing'};
+  const target = {
+    location,
+    history: {
+      state,
+      scrollRestoration: 'auto',
+      pushState(nextState, _title, url) {
+        calls.push({method: 'pushState', state: nextState, url});
+        location.hash = url;
+      },
+      replaceState(nextState, _title, url) {
+        calls.push({method: 'replaceState', state: nextState, url});
+        location.hash = url;
+      },
+    },
+    addEventListener(type, listener) {
+      const handlers = listeners.get(type) ?? new Set();
+      handlers.add(listener);
+      listeners.set(type, handlers);
+    },
+    removeEventListener(type, listener) {
+      listeners.get(type)?.delete(listener);
+    },
+    dispatchEvent(event) {
+      calls.push({method: 'dispatchEvent', type: event.type});
+      for (const listener of listeners.get(event.type) ?? []) listener(event);
+      return true;
+    },
+  };
+  const emit = (type) => {
+    for (const listener of listeners.get(type) ?? []) listener(new Event(type));
+  };
+  return {calls, emit, listeners, state, target};
+};
+
 check('empty and root hashes canonicalize to Big History', () => {
   for (const hash of ['', '#', '#/']) {
     const parsed = expectKind(hash, 'history');
@@ -119,6 +164,31 @@ check('empty and root hashes canonicalize to Big History', () => {
 check('top-level history and map routes parse and serialize', () => {
   expectRoundTrip({kind: 'history'});
   expectRoundTrip({kind: 'map'});
+});
+
+check('serializers emit the required literal route families', () => {
+  assert.equal(serializeHashRoute({kind: 'history'}), '#/history');
+  assert.equal(serializeHashRoute({kind: 'map'}), '#/map');
+  assert.equal(
+    serializeHashRoute({kind: 'branch', branchId: 'stoicism'}),
+    '#/branches/stoicism',
+  );
+  assert.equal(
+    serializeHashRoute({kind: 'philosopher', philosopherId: 'plato'}),
+    '#/philosophers/plato',
+  );
+  assert.equal(
+    serializeHashRoute({kind: 'compare-branches', leftId: 'stoicism', rightId: 'epicureanism'}),
+    '#/compare/branches/stoicism/epicureanism',
+  );
+  assert.equal(
+    serializeHashRoute({kind: 'compare-philosophers', leftId: 'plato', rightId: 'aristotle'}),
+    '#/compare/philosophers/plato/aristotle',
+  );
+  assert.equal(
+    serializeHashRoute({kind: 'learning-path', pathId: 'stoic', step: 2}),
+    '#/paths/stoic/2',
+  );
 });
 
 check('top-level convenience routes resolve to their canonical defaults', () => {
@@ -304,6 +374,82 @@ check('canonical hashes remain stable under parse → serialize → parse', () =
     serializeHashRoute(DEFAULT_ROUTES.learningPath),
   ];
   for (const hash of hashes) expectCanonicalStability(hash);
+});
+
+check('browser history writes preserve push, replace, and same-hash semantics', () => {
+  const pushHarness = createHistoryHarness('#/history');
+  assert.equal(writeHashRoute('#/map', false, pushHarness.target), true);
+  assert.deepEqual(pushHarness.calls[0], {
+    method: 'pushState',
+    state: pushHarness.state,
+    url: '#/map',
+  });
+  assert.deepEqual(pushHarness.calls[1], {
+    method: 'dispatchEvent',
+    type: HASH_ROUTE_CHANGE_EVENT,
+  });
+  assert.equal(writeHashRoute('#/map', false, pushHarness.target), false);
+  assert.equal(pushHarness.calls.length, 2, 'Writing the current hash must be idempotent.');
+
+  const replaceHarness = createHistoryHarness('#/history');
+  assert.equal(writeHashRoute('#/branches/stoicism', true, replaceHarness.target), true);
+  assert.deepEqual(replaceHarness.calls[0], {
+    method: 'replaceState',
+    state: replaceHarness.state,
+    url: '#/branches/stoicism',
+  });
+});
+
+check('canonicalization replaces once and remains Strict Mode idempotent', () => {
+  const harness = createHistoryHarness('');
+  assert.equal(
+    applyHashCanonicalization({canonicalHash: '#/history', shouldReplace: false}, harness.target),
+    false,
+  );
+  assert.equal(harness.calls.length, 0);
+  assert.equal(
+    applyHashCanonicalization({canonicalHash: '#/history', shouldReplace: true}, harness.target),
+    true,
+  );
+  assert.equal(
+    applyHashCanonicalization({canonicalHash: '#/history', shouldReplace: true}, harness.target),
+    false,
+  );
+  assert.equal(harness.calls.filter(({method}) => method === 'replaceState').length, 1);
+  assert.equal(harness.calls.filter(({method}) => method === 'pushState').length, 0);
+});
+
+check('history subscriptions notify for native and programmatic changes, then clean up', () => {
+  const harness = createHistoryHarness('#/history');
+  let notifications = 0;
+  const cleanup = subscribeToHashRoute(() => {
+    notifications += 1;
+  }, harness.target);
+  assert.deepEqual(
+    [...harness.listeners.keys()].sort(),
+    [HASH_ROUTE_CHANGE_EVENT, 'hashchange', 'popstate'].sort(),
+  );
+
+  writeHashRoute('#/map', false, harness.target);
+  assert.equal(notifications, 1, 'Programmatic navigation must notify the external store.');
+  harness.emit('hashchange');
+  harness.emit('popstate');
+  assert.equal(notifications, 3, 'Native hash and history traversal events must notify.');
+
+  cleanup();
+  for (const handlers of harness.listeners.values()) assert.equal(handlers.size, 0);
+  harness.emit(HASH_ROUTE_CHANGE_EVENT);
+  harness.emit('hashchange');
+  harness.emit('popstate');
+  assert.equal(notifications, 3, 'Cleanup must remove every browser listener.');
+});
+
+check('manual scroll restoration delegates route scrolling to the application', () => {
+  const harness = createHistoryHarness('#/history');
+  const cleanup = enableManualScrollRestoration(harness.target);
+  assert.equal(harness.target.history.scrollRestoration, 'manual');
+  cleanup();
+  assert.equal(harness.target.history.scrollRestoration, 'auto');
 });
 
 console.log(`\nRouting audit passed: ${checks} groups covering ${branches.length} branches, ${philosophers.length} philosophers, and ${learningPaths.length} learning paths.`);

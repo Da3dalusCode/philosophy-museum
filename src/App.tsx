@@ -41,16 +41,13 @@ export default function App() {
     window.scrollTo({top: 0, behavior: 'auto'});
   }, [routeKey, route.kind, route.kind === 'branch' || route.kind === 'philosopher' ? route.section : undefined]);
 
-  const openBranch = (branchId: string) => push({kind: 'branch', branchId});
-  const openPhilosopher = (philosopherId: string) => push({kind: 'philosopher', philosopherId});
-
   let content: React.ReactNode;
   switch (route.kind) {
     case 'history':
-      content = <BigHistoryView onBranch={openBranch} onPhilosopher={openPhilosopher}/>;
+      content = <BigHistoryView href={href}/>;
       break;
     case 'map':
-      content = <PhilosophyMap onBranch={openBranch} onPhilosopher={openPhilosopher}/>;
+      content = <PhilosophyMap href={href}/>;
       break;
     case 'branch':
       content = <BranchExplorer route={route} href={href}/>;

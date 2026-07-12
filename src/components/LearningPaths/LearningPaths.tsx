@@ -14,7 +14,7 @@ export function LearningPaths({route, href}: {route: LearningPathRoute; href: Ro
     <div className="paths-layout">
       <aside className="path-list">{learningPaths.map((item) => <a
         className={`selectable-card ${item.id === route.pathId ? 'active is-selected' : ''}`}
-        href={href(item.id === route.pathId ? route : {kind: 'learning-path', pathId: item.id, step: 1})}
+        href={href({kind: 'learning-path', pathId: item.id, step: 1})}
         aria-current={item.id === route.pathId ? 'page' : undefined}
         key={item.id}
       ><Route size={17}/><span><b>{item.title}</b><small>{item.steps.length} steps · {item.beginnerDescription}</small></span><ArrowRight size={13}/></a>)}</aside>

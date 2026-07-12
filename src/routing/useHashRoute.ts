@@ -1,30 +1,17 @@
 import {useCallback, useEffect, useSyncExternalStore} from 'react';
+import {
+  applyHashCanonicalization,
+  enableManualScrollRestoration,
+  subscribeToHashRoute,
+  writeHashRoute,
+} from './hashHistory';
 import {parseHashRoute, serializeHashRoute} from './hashRouter';
 import type {AppRoute, NavigableAppRoute} from './routes';
 
-const routeChangeEvent = 'philosophy-atlas:routechange';
 const serverHash = '#/history';
 
 const currentHash = (): string =>
   typeof window === 'undefined' ? serverHash : window.location.hash;
-
-const subscribe = (onStoreChange: () => void): (() => void) => {
-  window.addEventListener('hashchange', onStoreChange);
-  window.addEventListener('popstate', onStoreChange);
-  window.addEventListener(routeChangeEvent, onStoreChange);
-  return () => {
-    window.removeEventListener('hashchange', onStoreChange);
-    window.removeEventListener('popstate', onStoreChange);
-    window.removeEventListener(routeChangeEvent, onStoreChange);
-  };
-};
-
-const writeHash = (hash: string, replace: boolean): void => {
-  if (typeof window === 'undefined' || window.location.hash === hash) return;
-  const method = replace ? 'replaceState' : 'pushState';
-  window.history[method](window.history.state, '', hash);
-  window.dispatchEvent(new Event(routeChangeEvent));
-};
 
 export type HashNavigationOptions = {replace?: boolean};
 
@@ -38,17 +25,19 @@ export type HashRouteController = {
 
 /** React bridge over the pure parser. Browser location remains the route source of truth. */
 export const useHashRoute = (): HashRouteController => {
-  const hash = useSyncExternalStore(subscribe, currentHash, () => serverHash);
+  const hash = useSyncExternalStore(subscribeToHashRoute, currentHash, () => serverHash);
   const parsed = parseHashRoute(hash);
 
   useEffect(() => {
-    if (parsed.shouldReplace) writeHash(parsed.canonicalHash, true);
+    applyHashCanonicalization(parsed);
   }, [parsed.canonicalHash, parsed.shouldReplace]);
+
+  useEffect(() => enableManualScrollRestoration(), []);
 
   const href = useCallback((route: NavigableAppRoute) => serializeHashRoute(route), []);
   const navigate = useCallback(
     (route: NavigableAppRoute, options: HashNavigationOptions = {}) => {
-      writeHash(serializeHashRoute(route), options.replace === true);
+      writeHashRoute(serializeHashRoute(route), options.replace === true);
     },
     [],
   );
