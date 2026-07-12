@@ -10,6 +10,14 @@ export const scrollToArticleTarget = (targetId: string): void => {
   target.scrollIntoView({block: 'start', behavior: 'auto'});
 };
 
+export const focusArticleTarget = (targetId: string): void => {
+  const target = document.getElementById(targetId);
+  if (!target) return;
+  const focusTarget = target.querySelector<HTMLElement>('h2') ?? target;
+  focusTarget.tabIndex = -1;
+  focusTarget.focus({preventScroll: true});
+};
+
 export const useArticleSection = (route: ArticleRoute): void => {
   useEffect(() => {
     const targetId = getArticleSectionTarget(route);

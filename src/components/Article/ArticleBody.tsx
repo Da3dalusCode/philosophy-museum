@@ -4,7 +4,7 @@ import {branchById} from '../../data/branches';
 import {philosopherById} from '../../data/philosophers';
 import {getArticleRouteEntries} from '../../routing/routeMetadata';
 import type {ArticleRoute, RouteHref} from '../../routing/routes';
-import {scrollToArticleTarget} from '../../routing/useArticleSection';
+import {focusArticleTarget, scrollToArticleTarget} from '../../routing/useArticleSection';
 import type {ArticleSection} from '../../types/philosophy';
 
 export function ArticleBody({sections, href}: {sections: ArticleSection[]; href: RouteHref}) {
@@ -29,15 +29,18 @@ export function ArticleToc({label, route, href}: {label: string; route: ArticleR
   const activeLabel = entries.find((entry) => route.section === entry.id)?.label ?? 'Overview';
   useEffect(() => setOpen(false), [route.kind, route.kind === 'branch' ? route.branchId : route.philosopherId, route.section]);
   const onEntryClick = (event: MouseEvent<HTMLAnchorElement>, sectionId: string, targetId: string) => {
-    if (
-      route.section === sectionId
-      && event.button === 0
+    const isUnmodifiedPrimaryActivation = event.button === 0
       && !event.metaKey
       && !event.ctrlKey
       && !event.shiftKey
-      && !event.altKey
-    ) {
-      window.requestAnimationFrame(() => scrollToArticleTarget(targetId));
+      && !event.altKey;
+    if (!isUnmodifiedPrimaryActivation) return;
+    setOpen(false);
+    if (route.section === sectionId) {
+      window.requestAnimationFrame(() => {
+        scrollToArticleTarget(targetId);
+        focusArticleTarget(targetId);
+      });
     }
   };
   return <div className="article-toc-shell" onKeyDown={(event) => {

@@ -1,4 +1,4 @@
-import {useMemo,useState} from 'react';
+import {useEffect,useMemo,useRef,useState} from 'react';
 import {ArrowRight,BookOpen,Clock3,Compass,Lightbulb,Link2,Network,Quote,Scale,Search,Sparkles,Users} from 'lucide-react';
 import {branches,branchById} from '../../data/branches';
 import {philosopherById} from '../../data/philosophers';
@@ -10,10 +10,19 @@ import {useArticleSection} from '../../routing/useArticleSection';
 
 export function BranchExplorer({route,href}:{route:BranchRoute;href:RouteHref}){
   const[q,setQ]=useState('');
+  const listRef=useRef<HTMLDivElement>(null);
+  const activeRef=useRef<HTMLAnchorElement>(null);
   const branchList=useMemo(()=>{const needle=q.toLowerCase();return branches.filter(branch=>`${branch.name} ${branch.category} ${branch.shortDefinition}`.toLowerCase().includes(needle))},[q]);
   const b=branchById(route.branchId)??branches[0];
+  useEffect(()=>setQ(''),[route.branchId]);
+  useEffect(()=>{
+    const list=listRef.current;const active=activeRef.current;if(!list||!active)return;
+    const listRect=list.getBoundingClientRect();const activeRect=active.getBoundingClientRect();
+    const centerDelta=(activeRect.top+activeRect.height/2)-(listRect.top+listRect.height/2);
+    list.scrollTo({top:list.scrollTop+centerDelta,behavior:'auto'});
+  },[route.branchId,q]);
   useArticleSection(route);
-  return <div className="explorer"><aside className="branch-sidebar"><div className="branch-index-intro"><div className="eyebrow">The branch index</div><h2>Choose a lens</h2><p>Branches are conversations organized around durable questions.</p><label><Search size={14}/><input aria-label="Search branches" value={q} onChange={event=>setQ(event.target.value)} placeholder="Find a branch or question…"/></label></div><div className="branch-list">{branchList.map(x=><a key={x.id} className={`selectable-card ${x.id===b.id?'active is-selected':''}`} href={href({kind:'branch',branchId:x.id})} aria-current={x.id===b.id?'page':undefined}><i style={{background:x.color}}/>{x.name}<small>{x.category}</small></a>)}</div></aside>
+  return <div className="explorer"><aside className="branch-sidebar"><div className="branch-index-intro"><div className="eyebrow">The branch index</div><h2>Choose a lens</h2><p>Branches are conversations organized around durable questions.</p><label><Search size={14}/><input aria-label="Search branches" value={q} onChange={event=>setQ(event.target.value)} placeholder="Find a branch or question…"/></label></div><div className="branch-list" ref={listRef}>{branchList.map(x=><a ref={x.id===b.id?activeRef:undefined} key={x.id} className={`selectable-card ${x.id===b.id?'active is-selected':''}`} href={href({kind:'branch',branchId:x.id})} aria-current={x.id===b.id?'page':undefined}><i style={{background:x.color}}/>{x.name}<small>{x.category}</small></a>)}</div></aside>
     <article className={`branch-page deep-branch-page ${b.articleSections?'article-page':''}`} style={{'--accent':b.color} as React.CSSProperties}>
       <section className="branch-hero"><div><div className="eyebrow"><Compass size={15}/>{b.category} · atlas anchor {b.roughStartYear<0?`c. ${Math.abs(b.roughStartYear)} BCE`:b.roughStartYear}</div><h1>{b.name}</h1><p className="purpose">{b.oneSentencePurpose}</p><div className="hero-actions"><a className="btn btn-primary" href={href({...route,section:b.articleSections?.[0]?.id})}>Begin with the questions <ArrowRight size={16}/></a>{b.contrastingBranchIds[0]&&<a className="btn btn-ghost" href={href({kind:'compare-branches',leftId:b.id,rightId:b.contrastingBranchIds[0]})}><Scale size={16}/> Compare a rival</a>}</div></div><div className="orb"><Sparkles size={34}/><span>{b.category}</span></div></section>
       <section className="lead-card static-info-card"><Quote/><div><span>Origin story</span><h2>{b.coreQuestions[0]}</h2><p>{b.originStory??b.beginnerExplanation}</p></div></section>

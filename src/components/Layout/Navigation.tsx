@@ -1,4 +1,4 @@
-import {useEffect, useId, useRef, useState} from 'react';
+import {useEffect, useId, useRef, useState, type MouseEvent} from 'react';
 import {BookOpen, Compass, GitCompareArrows, History, Map, Menu, Route, Users, X} from 'lucide-react';
 import {subscribeToHashRoute} from '../../routing/hashHistory';
 import {DEFAULT_ROUTES, type NavigableAppRoute, type RouteHref} from '../../routing/routes';
@@ -36,10 +36,48 @@ export function Navigation({view, href}: {view?: ViewId; href: RouteHref}) {
     document.addEventListener('keydown', onKeyDown);
     return () => document.removeEventListener('keydown', onKeyDown);
   }, [open]);
+  useEffect(() => {
+    const mobileQuery = window.matchMedia('(max-width: 760px)');
+    const reconcileBreakpoint = () => {
+      if (!mobileQuery.matches) {
+        setOpen(false);
+        return;
+      }
+      if (!openRef.current && menuRef.current?.contains(document.activeElement)) {
+        toggleRef.current?.focus();
+      }
+    };
+    const resizeObserver = new ResizeObserver(reconcileBreakpoint);
+    resizeObserver.observe(document.documentElement);
+    mobileQuery.addEventListener('change', reconcileBreakpoint);
+    window.addEventListener('resize', reconcileBreakpoint);
+    return () => {
+      resizeObserver.disconnect();
+      mobileQuery.removeEventListener('change', reconcileBreakpoint);
+      window.removeEventListener('resize', reconcileBreakpoint);
+    };
+  }, []);
+
+  const closeFromRouteActivation = (
+    event: MouseEvent<HTMLAnchorElement>,
+    isCurrent: boolean,
+  ) => {
+    if (
+      event.button !== 0
+      || event.metaKey
+      || event.ctrlKey
+      || event.shiftKey
+      || event.altKey
+    ) return;
+    setOpen(false);
+    if (isCurrent && toggleRef.current?.offsetParent) {
+      window.requestAnimationFrame(() => toggleRef.current?.focus());
+    }
+  };
 
   return <nav className="primary-nav" aria-label="Primary navigation">
     <div className="nav-mast">
-      <a className="brand" aria-label="Philosophy Atlas — Big History" href={href(DEFAULT_ROUTES.history)}><BookOpen size={20}/><span>Philosophy <b>Atlas</b></span></a>
+      <a className="brand" aria-label="Philosophy Atlas — Big History" href={href(DEFAULT_ROUTES.history)} onClick={(event) => closeFromRouteActivation(event, view === 'history')}><BookOpen size={20}/><span>Philosophy <b>Atlas</b></span></a>
       <button
         className="mobile-nav-toggle"
         ref={toggleRef}
@@ -56,6 +94,7 @@ export function Navigation({view, href}: {view?: ViewId; href: RouteHref}) {
         href={href(route)}
         aria-label={label}
         aria-current={view === id ? 'page' : undefined}
+        onClick={(event) => closeFromRouteActivation(event, view === id)}
       ><Icon size={16}/><span>{label}</span></a>)}
     </div>
   </nav>;

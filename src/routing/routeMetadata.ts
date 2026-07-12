@@ -103,8 +103,16 @@ export const canonicalizeArticleSection = (
   entityId: string,
   section: string | undefined,
 ): string | undefined => {
-  if (kind === 'philosopher' && entityId === 'plato' && section === 'major-works') {
-    return 'major-works-early-middle';
-  }
-  return section;
+  if (!section) return undefined;
+  const canonicalSection = kind === 'philosopher'
+    && entityId === 'plato'
+    && section === 'major-works'
+    ? 'major-works-early-middle'
+    : section;
+  const route: ArticleRoute = kind === 'branch'
+    ? {kind, branchId: entityId}
+    : {kind, philosopherId: entityId};
+  return getArticleRouteEntries(route).some(({id}) => id === canonicalSection)
+    ? canonicalSection
+    : undefined;
 };

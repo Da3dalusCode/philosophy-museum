@@ -21,9 +21,10 @@ type WallMode='overview'|'schools'|'philosophers'|'influence'|'works';
 type Density='comfortable'|'compact';
 type ItemType='all'|'school'|'philosopher'|'work'|'event';
 type Selected={type:'school'|'philosopher'|'work'|'event';id:string}|null;
-const ZOOM_MIN=.2;
+const ZOOM_MIN=.04;
 const ZOOM_MAX=1.5;
 const ZOOM_STEP=.05;
+const responsiveZoomFor=(width:number)=>width<500?.25:width<900?.5:1;
 
 export const formatWallYear=(year:number,approximate=false)=>`${approximate?'c. ':''}${year<0?`${Math.abs(year)} BCE`:year}`;
 export const wallYearX=(year:number)=>80+((year-YEAR_MIN)/(YEAR_MAX-YEAR_MIN))*(WALL_WIDTH-160);
@@ -46,6 +47,8 @@ export function PhilosophyWall({initialMode='overview',genealogy=false,href}:{in
   const zoomFrameRef=useRef<number|undefined>(undefined);
   const resizeFrameRef=useRef<number|undefined>(undefined);
   const userZoomedRef=useRef(false);
+  const zoomRef=useRef(1);
+  const reducedMotionRef=useRef(false);
   const pointerRef=useRef<{id:number;x:number;y:number;left:number;dragged:boolean}|null>(null);
   const suppressClickRef=useRef(false);
   const rowHeight=density==='compact'?44:78;const eventRailTop=AXIS_HEIGHT+(MAX_ROW+1)*rowHeight;const canvasHeight=eventRailTop+88;
@@ -62,40 +65,62 @@ export function PhilosophyWall({initialMode='overview',genealogy=false,href}:{in
   useEffect(()=>{
     const scroller=scrollRef.current;if(!scroller)return;
     let previousWidth=scroller.clientWidth;
+    const initialZoom=responsiveZoomFor(previousWidth);
+    zoomRef.current=initialZoom;
+    setZoom(initialZoom);
     setContainerWidth(previousWidth);
     const observer=new ResizeObserver(([entry])=>{
       const nextWidth=entry.contentRect.width;if(!nextWidth)return;
-      const logicalCenter=scroller.scrollLeft+previousWidth/2;
+      const logicalCenter=(scroller.scrollLeft+previousWidth/2)/zoomRef.current;
+      const nextZoom=userZoomedRef.current?zoomRef.current:responsiveZoomFor(nextWidth);
       setContainerWidth(nextWidth);
-      if(nextWidth>900)setEngaged(false);
+      if(!window.matchMedia('(max-width: 900px)').matches){pointerRef.current=null;setEngaged(false)}
+      if(nextZoom!==zoomRef.current){zoomRef.current=nextZoom;setZoom(nextZoom)}
       if(resizeFrameRef.current!==undefined)cancelAnimationFrame(resizeFrameRef.current);
-      resizeFrameRef.current=requestAnimationFrame(()=>{scroller.scrollLeft=Math.max(0,logicalCenter-nextWidth/2);previousWidth=nextWidth});
+      resizeFrameRef.current=requestAnimationFrame(()=>{scroller.scrollLeft=Math.max(0,logicalCenter*nextZoom-nextWidth/2);previousWidth=nextWidth});
     });
     observer.observe(scroller);
     return()=>{observer.disconnect();if(resizeFrameRef.current!==undefined)cancelAnimationFrame(resizeFrameRef.current)};
   },[]);
-  useEffect(()=>{if(!containerWidth||userZoomedRef.current)return;setZoom(containerWidth<500?.25:containerWidth<900?.5:1)},[containerWidth]);
+  useEffect(()=>{
+    const mobileQuery=window.matchMedia('(max-width: 900px)');
+    const reconcileEngagement=()=>{if(!mobileQuery.matches){pointerRef.current=null;setEngaged(false)}};
+    reconcileEngagement();
+    mobileQuery.addEventListener('change',reconcileEngagement);
+    window.addEventListener('resize',reconcileEngagement);
+    return()=>{mobileQuery.removeEventListener('change',reconcileEngagement);window.removeEventListener('resize',reconcileEngagement)};
+  },[]);
+  useEffect(()=>{
+    const reducedMotionQuery=window.matchMedia('(prefers-reduced-motion: reduce)');
+    const updateReducedMotion=()=>{reducedMotionRef.current=reducedMotionQuery.matches};
+    updateReducedMotion();
+    reducedMotionQuery.addEventListener('change',updateReducedMotion);
+    return()=>reducedMotionQuery.removeEventListener('change',updateReducedMotion);
+  },[]);
   useEffect(()=>{
     if(!engaged)return;
-    const onKeyDown=(event:KeyboardEvent)=>{if(event.key==='Escape')setEngaged(false)};
+    const onKeyDown=(event:KeyboardEvent)=>{if(event.key==='Escape'&&!selected)setEngaged(false)};
     document.addEventListener('keydown',onKeyDown);
     return()=>document.removeEventListener('keydown',onKeyDown);
-  },[engaged]);
+  },[engaged,selected]);
+  useEffect(()=>{if(!engaged)pointerRef.current=null},[engaged]);
   useEffect(()=>()=>{if(zoomFrameRef.current!==undefined)cancelAnimationFrame(zoomFrameRef.current)},[]);
   const selectedSchoolIds=selected?selectionSchools(selected):[];
   const relatedSchoolIds=new Set(selectedSchoolIds.flatMap(id=>[id,...wallInfluences.filter(line=>line.sourceId===id||line.targetId===id).flatMap(line=>[line.sourceId,line.targetId])]));
   const displayedInfluences=wallInfluences.filter(line=>(mode==='influence'||genealogy||line.curated)&&(schoolId==='all'||line.sourceId===schoolId||line.targetId===schoolId));
   const reset=()=>{setQuery('');setPeriod('all');setSchoolId('all');setItemType('all');setSelected(null)};
-  const goToPeriod=(start:number)=>scrollRef.current?.scrollTo({left:Math.max(0,wallYearX(start)*zoom-100),behavior:'smooth'});
-  const pan=(direction:-1|1)=>scrollRef.current?.scrollBy({left:direction*(scrollRef.current.clientWidth*.78),behavior:'smooth'});
-  const setChartZoom=(next:number)=>{userZoomedRef.current=true;const clamped=Math.min(ZOOM_MAX,Math.max(ZOOM_MIN,Math.round(next*20)/20));const scroller=scrollRef.current;const center=scroller?(scroller.scrollLeft+scroller.clientWidth/2)/zoom:0;setZoom(clamped);if(zoomFrameRef.current!==undefined)cancelAnimationFrame(zoomFrameRef.current);zoomFrameRef.current=requestAnimationFrame(()=>{if(scroller)scroller.scrollLeft=Math.max(0,center*clamped-scroller.clientWidth/2)})};
+  const scrollBehavior=():ScrollBehavior=>reducedMotionRef.current?'auto':'smooth';
+  const goToPeriod=(start:number)=>scrollRef.current?.scrollTo({left:Math.max(0,wallYearX(start)*zoom-100),behavior:scrollBehavior()});
+  const pan=(direction:-1|1)=>scrollRef.current?.scrollBy({left:direction*(scrollRef.current.clientWidth*.78),behavior:scrollBehavior()});
+  const setChartZoom=(next:number)=>{userZoomedRef.current=true;const clamped=Math.min(ZOOM_MAX,Math.max(ZOOM_MIN,Math.round(next*100)/100));const scroller=scrollRef.current;const center=scroller?(scroller.scrollLeft+scroller.clientWidth/2)/zoomRef.current:0;zoomRef.current=clamped;setZoom(clamped);if(zoomFrameRef.current!==undefined)cancelAnimationFrame(zoomFrameRef.current);zoomFrameRef.current=requestAnimationFrame(()=>{if(scroller)scroller.scrollLeft=Math.max(0,center*clamped-scroller.clientWidth/2)})};
   const changeZoom=(direction:-1|1)=>setChartZoom(zoom+direction*ZOOM_STEP);
   const zoomPercent=Math.round(zoom*100);
-  const fitZoom=Math.max(ZOOM_MIN,Math.min(1,Math.floor(((containerWidth||WALL_WIDTH)-16)/WALL_WIDTH*20)/20));
+  const fitZoom=Math.max(ZOOM_MIN,Math.min(1,Math.floor(Math.max(0,(containerWidth||WALL_WIDTH)-16)/WALL_WIDTH*100)/100));
   const toggleEngagement=()=>{if(!engaged&&zoom<1)setChartZoom(1);setEngaged(value=>!value)};
   const onPointerDown=(event:React.PointerEvent<HTMLDivElement>)=>{if(!engaged)return;pointerRef.current={id:event.pointerId,x:event.clientX,y:event.clientY,left:event.currentTarget.scrollLeft,dragged:false};suppressClickRef.current=false};
-  const onPointerMove=(event:React.PointerEvent<HTMLDivElement>)=>{const pointer=pointerRef.current;if(!engaged||!pointer||pointer.id!==event.pointerId)return;const dx=event.clientX-pointer.x;const dy=event.clientY-pointer.y;if(Math.hypot(dx,dy)>7)pointer.dragged=true;if(pointer.dragged&&Math.abs(dx)>Math.abs(dy)){if(!event.currentTarget.hasPointerCapture(event.pointerId))event.currentTarget.setPointerCapture(event.pointerId);event.preventDefault();event.currentTarget.scrollLeft=pointer.left-dx}};
+  const onPointerMove=(event:React.PointerEvent<HTMLDivElement>)=>{const pointer=pointerRef.current;if(!engaged||!pointer||pointer.id!==event.pointerId)return;const dx=event.clientX-pointer.x;const dy=event.clientY-pointer.y;if(!pointer.dragged&&Math.hypot(dx,dy)>7&&Math.abs(dx)>Math.abs(dy))pointer.dragged=true;if(pointer.dragged){if(!event.currentTarget.hasPointerCapture(event.pointerId))event.currentTarget.setPointerCapture(event.pointerId);event.preventDefault();event.currentTarget.scrollLeft=pointer.left-dx}};
   const endPointer=(event:React.PointerEvent<HTMLDivElement>)=>{const pointer=pointerRef.current;if(!pointer||pointer.id!==event.pointerId)return;if(pointer.dragged){suppressClickRef.current=true;window.setTimeout(()=>{suppressClickRef.current=false},0)}if(event.currentTarget.hasPointerCapture(event.pointerId))event.currentTarget.releasePointerCapture(event.pointerId);pointerRef.current=null};
+  const cancelPointer=(event:React.PointerEvent<HTMLDivElement>)=>{if(pointerRef.current?.id===event.pointerId)pointerRef.current=null};
   const onChartClickCapture=(event:React.MouseEvent<HTMLDivElement>)=>{if(!suppressClickRef.current)return;event.preventDefault();event.stopPropagation();suppressClickRef.current=false};
   const empty=visibleSchools.length+visiblePhilosophers.length+visibleWorks.length+visibleEvents.length===0;
   return <section className={`philosophy-wall mode-${mode} density-${density} ${selected?'has-selection':''} ${engaged?'is-engaged':'is-passive'} ${zoom<=.3?'zoom-overview':''}`}>
@@ -108,12 +133,12 @@ export function PhilosophyWall({initialMode='overview',genealogy=false,href}:{in
     <div className="filterbar wall-filterbar" aria-label="Wall filters"><Filter size={16}/><label className="filter-search"><Search size={15}/><input aria-label="Search wall chart" placeholder="Search philosophers, schools, works, or events..." value={query} onChange={event=>setQuery(event.target.value)}/></label><select aria-label="Filter by period" value={period} onChange={event=>setPeriod(event.target.value)}><option value="all">All periods</option>{wallPeriods.map(item=><option key={item.name}>{item.name}</option>)}</select><select aria-label="Filter by school" value={schoolId} onChange={event=>setSchoolId(event.target.value)}><option value="all">All schools</option>{wallSchools.map(item=><option value={item.id} key={item.id}>{item.name}</option>)}</select><select aria-label="Filter by item type" value={itemType} onChange={event=>setItemType(event.target.value as ItemType)}><option value="all">All item types</option><option value="school">School / branch</option><option value="philosopher">Philosopher</option><option value="work">Major work</option><option value="event">Event / debate</option></select><button className="btn btn-ghost" onClick={reset}><RotateCcw size={15}/> Reset</button></div>
     <div className="wall-legend static-info-card"><span className="legend-band">School active period</span><span className="legend-person">Philosopher lifespan</span><span className="legend-work">◆ Major work</span>{Object.entries(relationLabels).map(([kind,label])=><span className="wall-relation-key" key={kind}><i style={{background:relationColors[kind as WallInfluenceKind]}}/>{label}</span>)}</div>
     {empty?<div className="empty-state static-info-card"><XCircle/><h2>No wall-chart items match</h2><p>Broaden the search or reset the period, school, and type filters.</p><button className="btn btn-secondary" onClick={reset}><RotateCcw size={15}/> Reset filters</button></div>:<>
-      <div className="wall-viewport-tools" aria-label="Chart viewport controls"><div className="wall-pan-controls"><button className="btn btn-ghost" onClick={()=>pan(-1)} aria-label="Scroll chart left"><ChevronLeft size={15}/> Earlier</button><span>Drag the scrollbar or pan through time</span><button className="btn btn-ghost" onClick={()=>pan(1)} aria-label="Scroll chart right">Later <ChevronRight size={15}/></button></div><div className="wall-zoom-controls"><span className="zoom-value">Zoom: <b>{zoomPercent}%</b></span><button className="btn btn-ghost" disabled={zoom<=ZOOM_MIN} onClick={()=>changeZoom(-1)} aria-label="Zoom chart out"><Minus size={14}/></button><input aria-label="Chart zoom percentage" type="range" min={ZOOM_MIN*100} max={ZOOM_MAX*100} step={ZOOM_STEP*100} value={zoomPercent} onChange={event=>setChartZoom(Number(event.target.value)/100)}/><button className="btn btn-ghost" disabled={zoom>=ZOOM_MAX} onClick={()=>changeZoom(1)} aria-label="Zoom chart in"><Plus size={14}/></button><div className="zoom-presets" role="group" aria-label="Zoom presets"><button aria-pressed={zoom===fitZoom} onClick={()=>setChartZoom(fitZoom)}>Fit</button><button aria-pressed={zoom===.5} onClick={()=>setChartZoom(.5)}>50%</button><button aria-pressed={zoom===1} onClick={()=>setChartZoom(1)}>100%</button><button aria-pressed={zoom===1.5} onClick={()=>setChartZoom(1.5)}>150%</button></div><button className="btn btn-ghost" disabled={zoom===fitZoom} onClick={()=>setChartZoom(fitZoom)}><RotateCcw size={13}/> Fit chart</button><small>Low zoom shows structure; zoom in to read.</small></div></div>
+      <div className="wall-viewport-tools" aria-label="Chart viewport controls"><div className="wall-pan-controls"><button className="btn btn-ghost" onClick={()=>pan(-1)} aria-label="Scroll chart left"><ChevronLeft size={15}/> Earlier</button><span>Drag the scrollbar or pan through time</span><button className="btn btn-ghost" onClick={()=>pan(1)} aria-label="Scroll chart right">Later <ChevronRight size={15}/></button></div><div className="wall-zoom-controls"><span className="zoom-value">Zoom: <b>{zoomPercent}%</b></span><button className="btn btn-ghost" disabled={zoom<=ZOOM_MIN} onClick={()=>changeZoom(-1)} aria-label="Zoom chart out"><Minus size={14}/></button><input aria-label="Chart zoom percentage" type="range" min={ZOOM_MIN*100} max={ZOOM_MAX*100} step={1} value={zoomPercent} onChange={event=>setChartZoom(Number(event.target.value)/100)}/><button className="btn btn-ghost" disabled={zoom>=ZOOM_MAX} onClick={()=>changeZoom(1)} aria-label="Zoom chart in"><Plus size={14}/></button><div className="zoom-presets" role="group" aria-label="Zoom presets"><button aria-pressed={zoom===fitZoom} onClick={()=>setChartZoom(fitZoom)}>Fit</button><button aria-pressed={zoom===.5} onClick={()=>setChartZoom(.5)}>50%</button><button aria-pressed={zoom===1} onClick={()=>setChartZoom(1)}>100%</button><button aria-pressed={zoom===1.5} onClick={()=>setChartZoom(1.5)}>150%</button></div><button className="btn btn-ghost" disabled={zoom===fitZoom} onClick={()=>setChartZoom(fitZoom)}><RotateCcw size={13}/> Fit chart</button><small>Low zoom shows structure; zoom in to read.</small></div></div>
       <div className="wall-touch-gate" role="group" aria-label="Mobile chart interaction"><div><MoveHorizontal size={18}/><span><b>{engaged?'Timeline exploration is on':'Explore the timeline intentionally'}</b><small>{engaged?'Drag sideways to move through time. Vertical swipes still move the page.':'Page scrolling stays available until you engage the chart.'}</small></span></div><button className="btn btn-primary" type="button" aria-pressed={engaged} onClick={toggleEngagement}>{engaged?<><X size={16}/> Exit exploration</>:<><MoveHorizontal size={16}/> Explore timeline</>}</button></div>
       <p className="sr-only" id="wall-chart-description">A horizontally arranged timeline of philosophical schools, thinkers, works, and historical events. Use the chart controls to fit, zoom, or move earlier and later. On a phone, engage timeline exploration before dragging sideways.</p>
       <div className="wall-chart-shell">
       <div className="wall-side-labels" aria-hidden="true"><div className="wall-side-axis" style={{height:AXIS_HEIGHT*zoom}}><b>Timeline of schools & thinkers</b><small>{density==='compact'?'Compact atlas plate':'Comfortable exhibit view'}</small></div>{Array.from({length:MAX_ROW+1},(_,row)=><div key={row} style={{height:rowHeight*zoom}}><small>{rowLabel(row)}</small></div>)}<div className="wall-event-label" style={{height:88*zoom}}><b>Historical turns</b><small>Debates, transitions, and context</small></div></div>
-      <div className="wall-scroll" ref={scrollRef} tabIndex={0} aria-label="Scrollable Philosophy Wall chart" aria-describedby="wall-chart-description" aria-roledescription="interactive timeline" onPointerDown={onPointerDown} onPointerMove={onPointerMove} onPointerUp={endPointer} onPointerCancel={endPointer} onClickCapture={onChartClickCapture}><div className="wall-zoom-stage" style={{width:WALL_WIDTH*zoom,height:canvasHeight*zoom}}><div className="wall-canvas" style={{width:WALL_WIDTH,height:canvasHeight,transform:`scale(${zoom})`}}>
+      <div className="wall-scroll" ref={scrollRef} tabIndex={0} aria-label="Scrollable Philosophy Wall chart" aria-describedby="wall-chart-description" aria-roledescription="interactive timeline" onPointerDown={onPointerDown} onPointerMove={onPointerMove} onPointerUp={endPointer} onPointerCancel={endPointer} onLostPointerCapture={cancelPointer} onClickCapture={onChartClickCapture}><div className="wall-zoom-stage" style={{width:WALL_WIDTH*zoom,height:canvasHeight*zoom}}><div className="wall-canvas" style={{width:WALL_WIDTH,height:canvasHeight,transform:`scale(${zoom})`}}>
         <div className="wall-axis">{wallPeriods.map(periodItem=><div className="wall-period" key={periodItem.name} style={{left:wallYearX(periodItem.start),width:wallYearX(periodItem.end)-wallYearX(periodItem.start)}}><b>{periodItem.name}</b></div>)}{ticks.map(year=><div className="wall-tick" key={year} style={{left:wallYearX(year)}}><span>{formatWallYear(year)}</span></div>)}</div>
         {Array.from({length:MAX_ROW+1},(_,row)=><div className="wall-row" key={row} style={{top:AXIS_HEIGHT+row*rowHeight,height:rowHeight}}>{ticks.map(year=><i key={year} style={{left:wallYearX(year)}}/>)}</div>)}
         <svg className="wall-influences" width={WALL_WIDTH} height={canvasHeight} aria-hidden="true"><defs>{Object.entries(relationColors).map(([kind,color])=><marker id={`wall-arrow-${kind}`} key={kind} markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 z" fill={color}/></marker>)}</defs>{displayedInfluences.map(line=><InfluenceLine key={line.id} line={line} rowHeight={rowHeight} selectedSchoolIds={selectedSchoolIds}/>)}</svg>
@@ -157,7 +182,7 @@ function WallDrawer({selected,onClose,href,onSelect}:{selected:NonNullable<Selec
     document.addEventListener('keydown',onKeyDown);
     return()=>{document.removeEventListener('keydown',onKeyDown);document.body.style.overflow=originalOverflow;previous?.focus()};
   },[]);
-  useEffect(()=>{if(!drawerRef.current?.contains(document.activeElement))closeRef.current?.focus()},[selected.type,selected.id]);
+  useEffect(()=>{drawerRef.current?.scrollTo({top:0,behavior:'auto'});closeRef.current?.focus()},[selected.type,selected.id]);
   return <><div className="drawer-backdrop" aria-hidden="true" onPointerDown={onClose}/><aside ref={drawerRef} className="detail-drawer wall-drawer" role="dialog" aria-modal="true" aria-label={label} style={{'--accent':accent} as React.CSSProperties}><button ref={closeRef} className="drawer-close btn btn-ghost" onClick={onClose}><X size={18}/> Close</button>
     {school&&<SchoolDrawer school={school} href={href} onSelect={onSelect}/>}
     {philosopher&&<PhilosopherDrawer philosopher={philosopher} href={href} onSelect={onSelect}/>}
