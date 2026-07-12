@@ -299,3 +299,23 @@ main{min-height:calc(100dvh - 120px)}
   .wall-event-pin{min-height:32px}
   .wall-school-band,.wall-philosopher,.wall-work,.wall-event-pin{touch-action:manipulation}
 }
+
+/* Deferred route and decorative-module states */
+.route-load-state{width:min(920px,calc(100% - 2 * var(--mobile-gutter)));min-height:clamp(320px,58vh,620px);margin:0 auto;padding:clamp(36px,7vw,90px);border:1px solid #2b3441;border-radius:14px;background:linear-gradient(145deg,#111823,#0d121b);box-shadow:0 26px 70px #0005}
+.route-loading{display:flex;align-items:center;justify-content:center;gap:18px;color:#d7dce3}
+.route-loading p{margin:5px 0 0;font-size:13px}
+.route-loading-mark{width:34px;height:34px;flex:none;border:2px solid #3b4655;border-top-color:#d99b5b;border-radius:50%;animation:route-load-spin .9s linear infinite}
+.route-load-error{display:flex;align-items:flex-start;justify-content:center;flex-direction:column}
+.route-load-error h2{max-width:700px;margin:8px 0 12px;font-size:clamp(30px,5vw,52px)}
+.route-load-error>p:not(.eyebrow){max-width:650px}
+.route-load-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.route-load-actions .btn{min-height:44px}
+.constellation-static{width:100%;height:100%;background:radial-gradient(circle at 49% 48%,#d99b5b 0 2px,transparent 3px),radial-gradient(circle at 31% 37%,#8da6d9 0 1px,transparent 2px),radial-gradient(circle at 70% 41%,#8da6d9 0 1px,transparent 2px),radial-gradient(circle at 59% 62%,#7187b4 0 1px,transparent 2px);filter:drop-shadow(0 0 18px #8da6d944)}
+@keyframes route-load-spin{to{transform:rotate(360deg)}}
+
+@media(max-width:600px){
+  .route-load-state{width:calc(100% - 2 * var(--mobile-gutter));min-height:52vh;padding:28px 20px}
+  .route-loading{align-items:flex-start;justify-content:center;flex-direction:column}
+  .route-load-actions{display:grid;width:100%;grid-template-columns:1fr}
+  .route-load-actions .btn{width:100%}
+}

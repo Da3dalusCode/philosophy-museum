@@ -4,7 +4,7 @@ import {branchById} from '../../data/branches';
 import {learningPaths} from '../../data/learningPaths';
 import {philosopherById} from '../../data/philosophers';
 import type {LearningPathRoute, RouteHref} from '../../routing/routes';
-import {PageHead} from '../BigHistory/BigHistoryView';
+import {PageHead} from '../Layout/PageHead';
 import {PhilosopherPortrait} from '../PhilosopherPortrait/PhilosopherPortrait';
 
 export function LearningPaths({route, href}: {route: LearningPathRoute; href: RouteHref}) {
