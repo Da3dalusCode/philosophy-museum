@@ -61,6 +61,7 @@ const {
   philosophers,
   learningPaths,
   getArticleRouteEntries,
+  getArticleSectionTarget,
   getRouteTitle,
   parseHashRoute,
   serializeHashRoute,
@@ -241,6 +242,7 @@ check('article route metadata uses real targets and conditional extras', () => {
   const stoicismEntries = getArticleRouteEntries({kind: 'branch', branchId: 'stoicism'});
   assert(stoicismEntries.some(({id, targetId}) => id === 'overview' && targetId === 'article-overview'));
   assert(stoicismEntries.some(({id, targetId}) => id === 'branch-reading' && targetId === 'branch-reading'));
+  assert.equal(getArticleSectionTarget({kind: 'branch', branchId: 'stoicism', section: 'not-a-real-section'}), undefined);
 
   const platoEntries = getArticleRouteEntries({kind: 'philosopher', philosopherId: 'plato'});
   assert(platoEntries.some(({id, targetId}) => id === 'major-works-early-middle' && targetId === 'article-major-works-early-middle'));

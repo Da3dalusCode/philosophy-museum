@@ -9,7 +9,7 @@ import {LearningPaths} from './components/LearningPaths/LearningPaths';
 import {IdeaConstellation} from './components/Museum/IdeaConstellation';
 import {RouteNotFound} from './routing/RouteNotFound';
 import {serializeHashRoute} from './routing/hashRouter';
-import {getRouteTitle} from './routing/routeMetadata';
+import {getArticleSectionTarget, getRouteTitle} from './routing/routeMetadata';
 import type {AppRoute} from './routing/routes';
 import {useHashRoute} from './routing/useHashRoute';
 import type {ViewId} from './types/philosophy';
@@ -37,7 +37,7 @@ export default function App() {
   }, [title]);
 
   useEffect(() => {
-    if ((route.kind === 'branch' || route.kind === 'philosopher') && route.section) return;
+    if ((route.kind === 'branch' || route.kind === 'philosopher') && getArticleSectionTarget(route)) return;
     window.scrollTo({top: 0, behavior: 'auto'});
   }, [routeKey, route.kind, route.kind === 'branch' || route.kind === 'philosopher' ? route.section : undefined]);
 
