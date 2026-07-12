@@ -10,6 +10,7 @@ const [philosophers,branches,timeline,wall,relationships,profile]=await Promise.
   read('src/components/PhilosopherProfile/PhilosopherProfile.tsx')
 ]);
 const app=await read('src/App.tsx');
+const routes=await read('src/routing/routes.ts');
 const [chineseConfucianDepth,daoMohistLegalistDepth,indianJainVedantaDepth,buddhistPhilosophyDepth,buddhistEpistemologyDepth]=await Promise.all([read('src/data/chineseConfucianBranchDepth.ts'),read('src/data/daoMohistLegalistBranchDepth.ts'),read('src/data/indianJainVedantaBranchDepth.ts'),read('src/data/buddhistPhilosophyBranchDepth.ts'),read('src/data/buddhistEpistemologyBranchDepth.ts')]);
 const [aestheticsDepth,pragmatismDepth,continentalDepth,feministDepth]=await Promise.all([read('src/data/aestheticsBranchDepth.ts'),read('src/data/pragmatismBranchDepth.ts'),read('src/data/continentalPhilosophyBranchDepth.ts'),read('src/data/feministPhilosophyBranchDepth.ts')]);
 
@@ -18,7 +19,7 @@ const tupleLine=(source,id)=>source.split(/\r?\n/).find(line=>line.startsWith(`[
 const checks=[];
 const check=(condition,message)=>checks.push({condition,message});
 
-check(app.includes("useState<ViewId>('history')"),'The root app must default to the Big History view.');
+check(app.includes('useHashRoute()')&&routes.includes("history: {kind: 'history'}"),'The root app must default to the Big History view.');
 check(philosophers.includes("camus:{branchMemberships:[{branchId:'existentialism',status:'self-rejected-label'"),'Camus existentialism membership must show self-rejected-label status.');
 check(philosophers.includes("branchId:'german-idealism',status:'precursor'"),'Kant German Idealism membership must be marked as precursor/source, not flat membership.');
 check(tupleLine(branches,'utilitarianism').includes("['bentham','mill']"),'Utilitarianism branch must include Bentham and Mill.');
