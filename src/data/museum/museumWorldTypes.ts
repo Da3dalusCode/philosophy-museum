@@ -24,7 +24,7 @@ export type MuseumWallDefinition = MuseumCollider & {
 };
 
 export type MuseumFurnishingDefinition = MuseumCollider & {
-  kind: 'bench' | 'orientation-plinth';
+  kind: 'bench' | 'orientation-plinth' | 'translation-table' | 'threshold-marker';
   height: number;
 };
 
@@ -193,6 +193,8 @@ export type MuseumHallConnection = {
 export type MuseumHallEntrance = {
   id: string;
   position: MuseumPoint;
+  /** Local-space direction from the seam into this hall. */
+  inwardNormal: MuseumPoint;
   arrivalPose: MuseumPose;
   transitionBounds: {
     center: MuseumPoint;
@@ -201,6 +203,9 @@ export type MuseumHallEntrance = {
 };
 
 export type MuseumHallPrefetch = {
+  /** The small scene-media set that must be ready before a physical crossing. */
+  entrySceneAssetIds: readonly MuseumAssetId[];
+  /** The complete hall scene-media set, warmed after the entry set is ready. */
   sceneAssetIds: readonly MuseumAssetId[];
   adjacentHallIds: readonly MuseumHallId[];
 };
