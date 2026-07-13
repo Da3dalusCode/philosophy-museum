@@ -16,9 +16,13 @@ const result = await build({
     load: (id) => id === resolvedEntry ? `
       export * from '/src/data/museumCatalog.ts';
       export * from '/src/data/museum/ancientGreekHall.ts';
+      export * from '/src/data/museum/museumAssets.ts';
+      export * from '/src/data/museum/museumInterpretations.ts';
       export * from '/src/components/MuseumGallery/museumMovement.ts';
       export * from '/src/components/MuseumGallery/museumRuntime.ts';
       export * from '/src/components/MuseumGallery/museumSession.ts';
+      export * from '/src/components/MuseumGallery/museumVisitState.ts';
+      export * from '/src/components/MuseumGallery/museumWorldTransform.ts';
       export {branches} from '/src/data/branches.ts';
       export {philosophers} from '/src/data/philosophers.ts';
     ` : undefined,
@@ -38,7 +42,10 @@ const moduleUrl = `data:text/javascript;base64,${Buffer.from(entry.code).toStrin
 const museum = await import(moduleUrl);
 const {
   ANCIENT_GREEK_HALL_LAYOUT: layout,
+  ANCIENT_GREEK_HALL_DEFINITION: definition,
+  MUSEUM_ASSETS,
   MUSEUM_HALLS,
+  MUSEUM_INTERPRETATIONS,
   branches,
   philosophers,
   circleIntersectsCollider,
@@ -49,6 +56,13 @@ const {
   sanitizeMuseumPose,
   setMuseumMovementDisplacement,
   hasMuseumBrowserModifier,
+  createMuseumExhibitVisitContext,
+  directMuseumVisitContext,
+  museumHistoryStateWithVisitContext,
+  parseMuseumExhibitVisitContext,
+  resolveMuseumExitPolicy,
+  museumPointToWorld,
+  museumPoseToWorld,
 } = museum;
 
 let checks = 0;
@@ -77,6 +91,19 @@ const intersects = (point, radius, collider) => {
   return Math.hypot(localX - nearestX, localZ - nearestZ) < radius - 1e-7;
 };
 const allColliders = [...layout.wallColliders, ...layout.obstacleColliders];
+const aabbOverlaps = (first, second) => {
+  const separated = Math.abs(first.center.x - second.center.x) >= (first.size.width + second.size.width) / 2
+    || Math.abs(first.center.y - second.center.y) >= (first.size.height + second.size.height) / 2
+    || Math.abs(first.center.z - second.center.z) >= (first.size.depth + second.size.depth) / 2;
+  return !separated;
+};
+const volumeInsideFootprint = (volume, footprint) => (
+  Math.abs(volume.center.x) + volume.size.width / 2 <= footprint.width / 2 + 1e-7
+  && volume.center.y - volume.size.height / 2 >= -1e-7
+  && volume.center.y + volume.size.height / 2 <= footprint.height + 1e-7
+  && Math.abs(volume.center.z) + volume.size.depth / 2 <= footprint.depth / 2 + 1e-7
+);
+const wordCount = (value) => value.trim().split(/\s+/).filter(Boolean).length;
 
 check('one initial Museum hall and the ancient Greek hall exist', () => {
   assert.equal(MUSEUM_HALLS.length, 1);
@@ -222,6 +249,150 @@ check('camera session parsing rejects malformed and unsafe values', () => {
   assert.equal(sanitizeMuseumPose({...layout.spawn, x: Number.POSITIVE_INFINITY}, layout), undefined);
   const insidePlinth = layout.exhibits.find(({id}) => id === 'plato').collider.center;
   assert.equal(sanitizeMuseumPose({...insidePlinth, yaw: 0, pitch: 0}, layout), undefined);
+});
+
+check('the world definition is the single source for the current hall boundary', () => {
+  assert.equal(definition.id, layout.id);
+  assert.equal(definition.layout, layout);
+  assert.deepEqual(definition.worldTransform, {x: 0, z: 0, yaw: 0});
+  assert.deepEqual(definition.entrances.map(({id}) => id), ['south-entry']);
+  assert.deepEqual(definition.entrances[0].arrivalPose, layout.spawn);
+  assert(definition.entrances[0].transitionBounds.size.width > 0);
+  assert(definition.entrances[0].transitionBounds.size.depth > 0);
+  assert.deepEqual(definition.connections, []);
+  assert.deepEqual(definition.prefetch.adjacentHallIds, []);
+  const catalogAssetIds = MUSEUM_HALLS[0].exhibits.flatMap((item) => [item.principalAssetId, ...item.supportingAssetIds]);
+  assert.deepEqual([...definition.prefetch.sceneAssetIds].sort(), [...catalogAssetIds].sort());
+});
+
+check('hall origins transform local scene and camera coordinates consistently', () => {
+  const translated = {...definition, worldTransform: {x: 100, z: -40, yaw: Math.PI / 2}};
+  const point = museumPointToWorld(translated, {x: 2, z: 3});
+  assert(Math.abs(point.x - 103) < 1e-9);
+  assert(Math.abs(point.z + 42) < 1e-9);
+  const pose = museumPoseToWorld(translated, {x: 2, z: 3, yaw: -.25, pitch: .1});
+  assert.deepEqual({x: pose.x, z: pose.z}, point);
+  assert(Math.abs(pose.yaw - (Math.PI / 2 - .25)) < 1e-9);
+  assert.equal(pose.pitch, .1);
+  for (const entrance of definition.entrances) {
+    assert(insideBounds(entrance.arrivalPose, layout.playerRadius), `${entrance.id} arrival is outside the hall`);
+    assert(!allColliders.some((collider) => intersects(entrance.arrivalPose, layout.playerRadius, collider)), `${entrance.id} arrival intersects a collider`);
+  }
+});
+
+check('every installation declares supported physical mounts and contained volumes', () => {
+  const supportedMounts = new Set(['wall-frame', 'recess-frame', 'lectern', 'freestanding-panel']);
+  const assetIds = new Set(MUSEUM_ASSETS.map(({id}) => id));
+  for (const exhibit of layout.exhibits) {
+    const catalog = MUSEUM_HALLS[0].exhibits.find(({id}) => id === exhibit.id);
+    assert(catalog, `${exhibit.id} is absent from the catalog`);
+    const scene = exhibit.scene;
+    const expectedAssets = [catalog.principalAssetId, ...catalog.supportingAssetIds];
+    assert.equal(scene.mediaMounts.length, expectedAssets.length, `${exhibit.id} must mount every catalog asset exactly once`);
+    assert.deepEqual(scene.mediaMounts.map(({assetId}) => assetId).sort(), [...expectedAssets].sort());
+    const anchorIds = new Set(scene.objectBounds.map(({id}) => id));
+    const volumes = [
+      scene.plaque.bounds,
+      scene.plaque.supportBounds,
+      scene.interactionBounds,
+      ...scene.objectBounds,
+      ...scene.mediaMounts.flatMap(({bounds, supportBounds}) => [bounds, supportBounds]),
+    ];
+    assert(unique(volumes.map(({id}) => id)), `${exhibit.id} repeats a scene volume ID`);
+    for (const volume of volumes) {
+      assert(volume.size.width > 0 && volume.size.height > 0 && volume.size.depth > 0, `${volume.id} has invalid dimensions`);
+      assert(volumeInsideFootprint(volume, scene.footprint), `${volume.id} escapes ${exhibit.id}'s declared footprint`);
+    }
+    for (const mount of scene.mediaMounts) {
+      assert(supportedMounts.has(mount.kind), `${mount.id} uses unsupported mount ${mount.kind}`);
+      assert(assetIds.has(mount.assetId), `${mount.id} references a missing asset`);
+      assert(anchorIds.has(mount.anchorId), `${mount.id} has no physical anchor ${mount.anchorId}`);
+      assert(mount.width > 0 && mount.height > 0 && mount.frameDepth > 0 && mount.supportHeight >= 0);
+      const anchor = scene.objectBounds.find(({id}) => id === mount.anchorId);
+      assert(anchor);
+      if (mount.kind === 'wall-frame') {
+        assert(aabbOverlaps(mount.supportBounds, anchor), `${mount.id} brackets do not attach to ${anchor.id}`);
+      } else {
+        const supportBottom = mount.supportBounds.center.y - mount.supportBounds.size.height / 2;
+        const anchorTop = anchor.center.y + anchor.size.height / 2;
+        assert(Math.abs(supportBottom - anchorTop) < 1e-7, `${mount.id} support does not contact ${anchor.id}`);
+      }
+    }
+    const plaqueAnchor = scene.objectBounds.find(({id}) => id === scene.plaque.anchorId);
+    assert(plaqueAnchor || scene.plaque.anchorId === 'gallery-floor', `${scene.plaque.id} has no physical anchor ${scene.plaque.anchorId}`);
+    const plaqueBottom = scene.plaque.supportBounds.center.y - scene.plaque.supportBounds.size.height / 2;
+    const plaqueAnchorTop = plaqueAnchor ? plaqueAnchor.center.y + plaqueAnchor.size.height / 2 : 0;
+    assert(Math.abs(plaqueBottom - plaqueAnchorTop) < 1e-7, `${scene.plaque.id} support does not contact ${scene.plaque.anchorId}`);
+    const occupied = [
+      ...scene.objectBounds,
+      ...scene.mediaMounts.flatMap(({bounds, supportBounds}) => [bounds, supportBounds]),
+    ];
+    for (const plaqueVolume of [scene.plaque.bounds, scene.plaque.supportBounds]) {
+      for (const other of occupied) assert(!aabbOverlaps(plaqueVolume, other), `${plaqueVolume.id} intersects ${other.id}`);
+    }
+    assert.deepEqual(exhibit.collider.center, exhibit.position, `${exhibit.id} collider center drifted from placement`);
+    assert.equal(exhibit.collider.size.width, scene.footprint.width, `${exhibit.id} collider width drifted from footprint`);
+    assert.equal(exhibit.collider.size.depth, scene.footprint.depth, `${exhibit.id} collider depth drifted from footprint`);
+    assert.equal(exhibit.collider.rotation, exhibit.rotationY, `${exhibit.id} collider rotation drifted from placement`);
+  }
+});
+
+check('the entrance corridor is clear and the removed directory kiosk has no collider', () => {
+  assert(!layout.obstacleColliders.some(({id}) => /kiosk|directory/i.test(id)), 'a removed kiosk collider remains');
+  for (const collider of layout.obstacleColliders) {
+    const intrudes = collider.center.z > 24 && Math.abs(collider.center.x) < 2 + collider.size.width / 2;
+    assert(!intrudes, `${collider.id} obstructs the entrance corridor`);
+  }
+});
+
+check('dedicated Museum interpretations cover every exhibit and object', () => {
+  assert.equal(MUSEUM_INTERPRETATIONS.length, MUSEUM_HALLS[0].exhibits.length);
+  assert(unique(MUSEUM_INTERPRETATIONS.map(({id}) => id)));
+  assert.deepEqual(MUSEUM_INTERPRETATIONS.map(({id}) => id).sort(), MUSEUM_HALLS[0].exhibits.map(({id}) => id).sort());
+  for (const record of MUSEUM_INTERPRETATIONS) {
+    const catalog = MUSEUM_HALLS[0].exhibits.find(({id}) => id === record.id);
+    assert(catalog);
+    const count = wordCount(record.lead);
+    assert(count >= 130 && count <= 230, `${record.id} lead has ${count} words; expected 130–230`);
+    assert(record.sections.length >= 3, `${record.id} needs at least three interpretation sections`);
+    assert(record.sources.length >= 3, `${record.id} needs at least three interpretation sources`);
+    assert(unique(record.sources.map(({url}) => url)), `${record.id} repeats an interpretation source`);
+    for (const source of record.sources) {
+      assert(source.label.trim(), `${record.id} has a blank interpretation source label`);
+      const sourceUrl = new URL(source.url);
+      assert.equal(sourceUrl.protocol, 'https:', `${record.id} interpretation sources must use HTTPS`);
+      assert(['academic-reference', 'primary-text', 'collection-record'].includes(source.kind), `${record.id} has an invalid source kind`);
+    }
+    assert(record.keyIdeas.length >= 3 && record.keyWorks.length >= 3, `${record.id} needs substantial idea and work lists`);
+    for (const assetId of [catalog.principalAssetId, ...catalog.supportingAssetIds]) {
+      assert(record.objectInterpretations[assetId]?.trim(), `${record.id} lacks interpretation for ${assetId}`);
+    }
+    assert(MUSEUM_HALLS[0].exhibits.some(({id}) => id === record.relatedExhibitId), `${record.id} has an invalid related exhibit`);
+  }
+});
+
+check('typed exhibit origins produce explicit close and history policies', () => {
+  const expected = {
+    'active-exploration': {navigation: 'back', resumeExploration: true, requestPointerLock: true, restoreDirectory: false},
+    'paused-hall': {navigation: 'back', resumeExploration: false, requestPointerLock: false, restoreDirectory: false},
+    directory: {navigation: 'back', resumeExploration: false, requestPointerLock: false, restoreDirectory: true},
+    guided: {navigation: 'back', resumeExploration: false, requestPointerLock: false, restoreDirectory: false},
+    direct: {navigation: 'replace-hall', resumeExploration: false, requestPointerLock: false, restoreDirectory: false},
+  };
+  for (const [origin, policy] of Object.entries(expected)) {
+    const context = createMuseumExhibitVisitContext(layout.id, origin);
+    assert.deepEqual(parseMuseumExhibitVisitContext({philosophyAtlasMuseum: context}, layout.id), context);
+    assert.deepEqual(resolveMuseumExitPolicy(context, 'gesture'), policy);
+    const historyPolicy = resolveMuseumExitPolicy(context, 'history');
+    assert.equal(historyPolicy.requestPointerLock, false);
+    assert.equal(historyPolicy.resumeExploration, origin === 'active-exploration');
+  }
+  const direct = directMuseumVisitContext(layout.id);
+  const carried = museumHistoryStateWithVisitContext({unrelated: 7}, direct);
+  assert.equal(carried.unrelated, 7);
+  assert.deepEqual(parseMuseumExhibitVisitContext(carried, layout.id), direct);
+  assert.equal(parseMuseumExhibitVisitContext({philosophyAtlasMuseum: {...direct, version: 1}}, layout.id), undefined);
+  assert.equal(parseMuseumExhibitVisitContext(carried, 'not-a-hall'), undefined);
 });
 
 check('Museum controls preserve modified browser shortcuts', () => {
