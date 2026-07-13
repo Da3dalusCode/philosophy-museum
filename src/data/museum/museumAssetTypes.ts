@@ -16,7 +16,23 @@ export type MuseumAssetId =
   | 'skepticism-sextus-riedel'
   | 'skepticism-adversus-mathematicos'
   | 'neoplatonism-plotinus-ostia'
-  | 'neoplatonism-ficino-enneads';
+  | 'neoplatonism-ficino-enneads'
+  | 'augustine-lateran'
+  | 'augustine-city-of-god'
+  | 'boethius-consolation-teaching'
+  | 'boethius-arithmetic'
+  | 'avicenna-canon'
+  | 'avicenna-thevet-portrait'
+  | 'al-ghazali-asas-al-qiyas'
+  | 'al-ghazali-faysal'
+  | 'averroes-de-anima'
+  | 'averroes-lithograph'
+  | 'maimonides-mishnah-autograph'
+  | 'maimonides-mishneh-torah'
+  | 'aquinas-summa'
+  | 'aquinas-triumph'
+  | 'ockham-logica-sketch'
+  | 'ockham-sentences';
 
 export type MuseumAssetRole =
   | 'identity'

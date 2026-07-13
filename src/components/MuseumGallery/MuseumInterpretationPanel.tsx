@@ -3,8 +3,9 @@ import {useEffect, useId, useRef, useState, type CSSProperties, type KeyboardEve
 import {getMuseumAsset, museumAssetUrl} from '../../data/museum/museumAssets';
 import type {MuseumAssetRecord} from '../../data/museum/museumAssetTypes';
 import {museumInterpretationFacts, type MuseumInterpretation} from '../../data/museum/museumInterpretations';
+import type {MuseumExhibitRef} from '../../data/museum/museumWorldTypes';
 import {getMuseumExhibitCatalog, type MuseumExhibitCatalog} from '../../data/museumCatalog';
-import type {MuseumRoute, RouteHref} from '../../routing/routes';
+import type {RouteHref} from '../../routing/routes';
 import type {MuseumExitTrigger} from './museumVisitState';
 
 const focusableSelector = 'a[href],button:not([disabled]),summary,input:not([disabled]),select:not([disabled]),textarea:not([disabled]),[tabindex]:not([tabindex="-1"])';
@@ -49,7 +50,6 @@ function SourceDetails({asset}: {asset: MuseumAssetRecord}) {
 }
 
 export function MuseumInterpretationPanel({
-  route,
   exhibit,
   content,
   href,
@@ -64,7 +64,6 @@ export function MuseumInterpretationPanel({
   onRelated,
   focusReturn,
 }: {
-  route: MuseumRoute;
   exhibit: MuseumExhibitCatalog;
   content: MuseumInterpretation;
   href: RouteHref;
@@ -76,7 +75,7 @@ export function MuseumInterpretationPanel({
   onArticleIntent: () => void;
   onGuidedPrevious: () => void;
   onGuidedNext: () => void;
-  onRelated: (exhibit: MuseumExhibitCatalog, event: MouseEvent<HTMLAnchorElement>) => void;
+  onRelated: (reference: MuseumExhibitRef, exhibit: MuseumExhibitCatalog, event: MouseEvent<HTMLAnchorElement>) => void;
   focusReturn: 'canvas' | 'entry' | 'none';
 }) {
   const panelRef = useRef<HTMLElement>(null);
@@ -84,7 +83,10 @@ export function MuseumInterpretationPanel({
   const descriptionId = useId();
   const principal = getMuseumAsset(exhibit.principalAssetId);
   const supporting = exhibit.supportingAssetIds.map(getMuseumAsset);
-  const related = getMuseumExhibitCatalog(route.hallId, content.relatedExhibitId);
+  const related = content.relatedExhibits.flatMap((reference) => {
+    const relatedExhibit = getMuseumExhibitCatalog(reference.hallId, reference.exhibitId);
+    return relatedExhibit ? [{reference, exhibit: relatedExhibit}] : [];
+  });
   const facts = museumInterpretationFacts(content);
 
   useEffect(() => {
@@ -190,9 +192,12 @@ export function MuseumInterpretationPanel({
           <ul>{content.sources.map((source) => <li key={source.url}><a href={source.url} target="_blank" rel="noreferrer">{source.label} <ExternalLink size={13}/></a><span>{source.kind.replace('-', ' ')}</span></li>)}</ul>
         </details>
 
-        {related && <aside className="museum-related-exhibit">
-          <p>Continue the conversation</p><h3>{related.displayName}</h3><span>{related.question}</span>
-          <a href={href({kind: 'museum', hallId: route.hallId, exhibitId: related.id})} onClick={(event) => onRelated(related, event)}>Visit related exhibit <ArrowRight size={15}/></a>
+        {related.length > 0 && <aside className="museum-related-exhibit">
+          <p>Continue the conversation</p><h3>Related Museum exhibits</h3>
+          <div className="museum-related-exhibit-list">{related.map(({reference, exhibit: relatedExhibit}) => <div key={`${reference.hallId}:${reference.exhibitId}`}>
+            <strong>{relatedExhibit.displayName}</strong><span>{relatedExhibit.question}</span>
+            <a href={href({kind: 'museum', hallId: reference.hallId, exhibitId: relatedExhibit.id})} onClick={(event) => onRelated(reference, relatedExhibit, event)}>Visit related exhibit <ArrowRight size={15}/></a>
+          </div>)}</div>
         </aside>}
       </div>
 
