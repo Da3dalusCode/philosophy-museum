@@ -223,13 +223,13 @@ const sceneDefinitions: Record<MuseumExhibitId, MuseumInstallationSceneDefinitio
       footprint: {width: 3.48, height: 3.64, depth: 2.7},
       mediaMounts: [
         media('skepticism-sextus-panel', 'skepticism-sextus-riedel', 'wall-frame', [-.72, 2.1, -.63], [0, 0, 0], .94, 1.28, backing),
-        media('skepticism-text-lectern', 'skepticism-adversus-mathematicos', 'lectern', [.82, 1.04, .1], [-.38, 0, 0], .58, .86, base),
+        media('skepticism-text-lectern', 'skepticism-adversus-mathematicos', 'lectern', [1.02, 1.04, .1], [-.38, 0, 0], .58, .86, base),
       ],
       plaque: plaque('skepticism-plaque', [-1.14, .45, 1.03], 1.02, .32),
       objectBounds: [
         base,
         backing,
-        volume('skepticism-balance', 'concept-object', {x: 0, y: .78, z: .38}, {width: .96, height: .94, depth: .34}),
+        volume('skepticism-balance', 'concept-object', {x: -.16, y: .78, z: .38}, {width: 1.28, height: .94, depth: .34}),
       ],
       focalTarget: {x: -.08, y: 1.66, z: -.14},
       interactionBounds: volume('skepticism-interaction', 'principal-object', {x: 0, y: 1.56, z: 0}, {width: 3.4, height: 3.12, depth: 2.58}),
@@ -328,9 +328,9 @@ const furnishings: readonly MuseumFurnishingDefinition[] = [
 const tracks: readonly MuseumTrackDefinition[] = [
   {id: 'atrium-track-west', center: {x: -3.7, y: 6.05, z: 35}, size: {width: .08, height: .08, depth: 8.5}},
   {id: 'atrium-track-east', center: {x: 3.7, y: 6.05, z: 35}, size: {width: .08, height: .08, depth: 8.5}},
-  {id: 'classical-track-north', center: {x: 0, y: 5.45, z: 14.7}, size: {width: 20, height: .08, depth: .08}},
+  {id: 'classical-track-north', center: {x: 0, y: 5.45, z: 12.4}, size: {width: 20, height: .08, depth: .08}},
   {id: 'classical-track-south', center: {x: 0, y: 5.45, z: 10.35}, size: {width: 20, height: .08, depth: .08}},
-  {id: 'hellenistic-track-north', center: {x: 0, y: 5.45, z: -5.6}, size: {width: 20, height: .08, depth: .08}},
+  {id: 'hellenistic-track-north', center: {x: 0, y: 5.45, z: -5.8}, size: {width: 20, height: .08, depth: .08}},
   {id: 'hellenistic-track-south', center: {x: 0, y: 5.45, z: -13.4}, size: {width: 20, height: .08, depth: .08}},
   {id: 'late-track', center: {x: 0, y: 5.85, z: -31.2}, size: {width: 14, height: .08, depth: .08}},
 ];
@@ -365,11 +365,11 @@ const installationViewpoint = (
   };
 };
 
-const socratesPosition = {x: -10.68, z: 14.7};
+const socratesPosition = {x: -10.68, z: 12.4};
 const platoPosition = {x: 0, z: 10.35};
-const aristotlePosition = {x: 10.68, z: 14.7};
-const cynicismPosition = {x: 10.2, z: -5.6};
-const epicureanismPosition = {x: -10.2, z: -5.6};
+const aristotlePosition = {x: 10.68, z: 12.4};
+const cynicismPosition = {x: 9.7, z: -5.8};
+const epicureanismPosition = {x: -9.7, z: -5.8};
 const stoicismPosition = {x: -10.55, z: -13.4};
 const skepticismPosition = {x: 10.55, z: -13.4};
 const neoplatonismPosition = {x: 0, z: -33};
@@ -388,7 +388,7 @@ const placement: Record<MuseumExhibitId, Placement> = {
 const guidedWalkLegs: readonly MuseumGuidedWalkLeg[] = [
   {fromExhibitId: 'socrates', toExhibitId: 'plato', waypoints: []},
   {fromExhibitId: 'plato', toExhibitId: 'aristotle', waypoints: []},
-  {fromExhibitId: 'aristotle', toExhibitId: 'cynicism', waypoints: [{x: 3.15, z: 8.7}, {x: 3.15, z: 4.2}, {x: 5.8, z: -2.6}]},
+  {fromExhibitId: 'aristotle', toExhibitId: 'cynicism', waypoints: [{x: 3.15, z: 8.7}, {x: 3.15, z: 4.2}, {x: 5.4, z: -2.8}]},
   {fromExhibitId: 'cynicism', toExhibitId: 'epicureanism', waypoints: []},
   {fromExhibitId: 'epicureanism', toExhibitId: 'stoicism', waypoints: []},
   {fromExhibitId: 'stoicism', toExhibitId: 'skepticism', waypoints: []},
@@ -445,7 +445,7 @@ const localPointToHall = (layout: MuseumExhibitLayout, point: MuseumPoint3): Mus
 const exhibitTrackIds: Record<MuseumExhibitId, string> = {
   socrates: 'classical-track-north',
   plato: 'classical-track-south',
-  aristotle: 'classical-track-south',
+  aristotle: 'classical-track-north',
   cynicism: 'hellenistic-track-north',
   epicureanism: 'hellenistic-track-north',
   stoicism: 'hellenistic-track-south',

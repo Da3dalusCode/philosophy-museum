@@ -204,6 +204,17 @@ const pointToColliderClearance = (point, collider) => {
   const outsideZ = Math.max(Math.abs(localZ) - collider.size.depth / 2, 0);
   return Math.hypot(outsideX, outsideZ);
 };
+const pointToRenderedRectangleClearance = (point, rectangle) => {
+  const cosine = Math.cos(rectangle.rotation);
+  const sine = Math.sin(rectangle.rotation);
+  const dx = point.x - rectangle.center.x;
+  const dz = point.z - rectangle.center.z;
+  const localX = dx * cosine - dz * sine;
+  const localZ = dx * sine + dz * cosine;
+  const outsideX = Math.max(Math.abs(localX) - rectangle.size.width / 2, 0);
+  const outsideZ = Math.max(Math.abs(localZ) - rectangle.size.depth / 2, 0);
+  return Math.hypot(outsideX, outsideZ);
+};
 const rotatedBoxCorners = (center, size, rotation) => {
   const cosine = Math.cos(rotation);
   const sine = Math.sin(rotation);
@@ -291,6 +302,43 @@ const assertWallSightlineClear = (start, target, label) => {
       z: start.z + (target.z - start.z) * fraction,
     };
     assert(!layout.wallColliders.some((wall) => intersects(sample, .02, wall)), `${label} is hidden by a wall near ${JSON.stringify(sample)}`);
+  }
+};
+const assertOtherColliderSightlineClear = (start, target, ignoredExhibitId, label) => {
+  const ignoredColliderId = `exhibit-${ignoredExhibitId}`;
+  const blockers = layout.obstacleColliders.filter(({id}) => id !== ignoredColliderId);
+  const samples = Math.max(2, Math.ceil(segmentLength(start, target) / .15));
+  for (let index = 1; index < samples; index += 1) {
+    const fraction = index / samples;
+    const sample = {
+      x: start.x + (target.x - start.x) * fraction,
+      z: start.z + (target.z - start.z) * fraction,
+    };
+    const blocker = blockers.find((collider) => intersects(sample, .02, collider));
+    assert(!blocker, `${label} is occluded by ${blocker?.id} near ${JSON.stringify(sample)}`);
+  }
+};
+const assertLocalVolumeSightlineClear = (exhibit, start, target, volumes, label) => {
+  const localStart = hallPointToLocal(exhibit, {...start, y: layout.eyeHeight});
+  const localTarget = hallPointToLocal(exhibit, target);
+  const samples = Math.max(2, Math.ceil(Math.hypot(
+    localTarget.x - localStart.x,
+    localTarget.y - localStart.y,
+    localTarget.z - localStart.z,
+  ) / .08));
+  for (let index = 1; index < samples; index += 1) {
+    const fraction = index / samples;
+    const sample = {
+      x: localStart.x + (localTarget.x - localStart.x) * fraction,
+      y: localStart.y + (localTarget.y - localStart.y) * fraction,
+      z: localStart.z + (localTarget.z - localStart.z) * fraction,
+    };
+    const blocker = volumes.find((volume) => (
+      Math.abs(sample.x - volume.center.x) <= volume.size.width / 2
+      && Math.abs(sample.y - volume.center.y) <= volume.size.height / 2
+      && Math.abs(sample.z - volume.center.z) <= volume.size.depth / 2
+    ));
+    assert(!blocker, `${label} is occluded by ${blocker?.id}`);
   }
 };
 
@@ -501,6 +549,7 @@ check('movement follows rendered heading and viewpoints center each authored foc
     assert(Math.abs(focalProjection.x) <= .015, `${exhibit.id} yaw leaves its focal target ${focalProjection.x.toFixed(3)} NDC off center`);
     assert(Math.abs(focalProjection.y) <= .015, `${exhibit.id} pitch leaves its focal target ${focalProjection.y.toFixed(3)} NDC off center`);
     assertWallSightlineClear(exhibit.viewpoint, focalTarget, `${exhibit.id} focal target`);
+    assertOtherColliderSightlineClear(exhibit.viewpoint, focalTarget, exhibit.id, `${exhibit.id} focal target`);
 
     const plaque = exhibit.scene.plaque;
     const plaqueCenter = localPointToHall(exhibit, {
@@ -511,6 +560,18 @@ check('movement follows rendered heading and viewpoints center each authored foc
     const plaqueProjection = projectMuseumPoint(exhibit.viewpoint, plaqueCenter);
     assert(Math.abs(plaqueProjection.x) <= .96 && Math.abs(plaqueProjection.y) <= .96, `${exhibit.id} plaque center falls outside its authored viewpoint`);
     assertWallSightlineClear(exhibit.viewpoint, plaqueCenter, `${exhibit.id} plaque`);
+    assertOtherColliderSightlineClear(exhibit.viewpoint, plaqueCenter, exhibit.id, `${exhibit.id} plaque`);
+    const plaqueScreenBounds = projectedScreenBounds(exhibit.viewpoint, volumeWorldCorners(exhibit, plaque.bounds));
+    assert(plaqueScreenBounds.minX >= -.98 && plaqueScreenBounds.maxX <= .98, `${exhibit.id} plaque is horizontally clipped at its authored viewpoint`);
+    assert(plaqueScreenBounds.minY >= -.98 && plaqueScreenBounds.maxY <= .98, `${exhibit.id} plaque is vertically clipped at its authored viewpoint`);
+    assert(plaqueScreenBounds.widthPixels >= 80 && plaqueScreenBounds.heightPixels >= 28, `${exhibit.id} plaque is too small at its authored viewpoint`);
+    assertLocalVolumeSightlineClear(
+      exhibit,
+      exhibit.viewpoint,
+      plaqueCenter,
+      [...exhibit.scene.objectBounds, ...exhibit.scene.mediaMounts.flatMap(({bounds, supportBounds}) => [bounds, supportBounds])],
+      `${exhibit.id} plaque`,
+    );
 
     const [rotationX, rotationY] = plaque.rotation;
     const plaqueNormal = {
@@ -569,8 +630,8 @@ check('every exhibit room has one safe entry view with its promised focal exhibi
       const focalTarget = localPointToHall(exhibit, exhibit.scene.focalTarget);
       const principalProjection = projectMuseumPoint(entry.pose, principalCenter);
       const focalProjection = projectMuseumPoint(entry.pose, focalTarget);
-      assert(Math.abs(principalProjection.x) <= 1.25 && Math.abs(principalProjection.y) <= 1.02, `${id} principal media center falls too far outside the ${cell.id} entry view (${principalProjection.x.toFixed(3)}, ${principalProjection.y.toFixed(3)} NDC)`);
-      assert(Math.abs(focalProjection.x) <= 1.05 && Math.abs(focalProjection.y) <= 1.02, `${id} focal target falls too far outside the ${cell.id} entry view (${focalProjection.x.toFixed(3)}, ${focalProjection.y.toFixed(3)} NDC)`);
+      assert(Math.abs(principalProjection.x) <= .98 && Math.abs(principalProjection.y) <= .98, `${id} principal media center falls outside the ${cell.id} entry view (${principalProjection.x.toFixed(3)}, ${principalProjection.y.toFixed(3)} NDC)`);
+      assert(Math.abs(focalProjection.x) <= .98 && Math.abs(focalProjection.y) <= .98, `${id} focal target falls outside the ${cell.id} entry view (${focalProjection.x.toFixed(3)}, ${focalProjection.y.toFixed(3)} NDC)`);
 
       const projected = projectedScreenBounds(entry.pose, volumeWorldCorners(exhibit, principalMount.bounds));
       assert(projected.maxX >= -.98 && projected.minX <= .98 && projected.maxY >= -.98 && projected.minY <= .98, `${id} principal media is clipped out of the ${cell.id} entry view`);
@@ -578,9 +639,10 @@ check('every exhibit room has one safe entry view with its promised focal exhibi
       const visibleHeightPixels = Math.max(0, Math.min(1, projected.maxY) - Math.max(-1, projected.minY)) * 540;
       const visibleArea = visibleWidthPixels * visibleHeightPixels;
       const projectedArea = projected.widthPixels * projected.heightPixels;
-      assert(visibleWidthPixels >= 35 && visibleHeightPixels >= 55, `${id} principal media is too small to recognize at the ${cell.id} entry`);
-      assert(visibleArea >= 3_500, `${id} principal media lacks recognizable visible area at the ${cell.id} entry`);
-      assert(visibleArea / projectedArea >= .3, `${id} shows only ${(visibleArea / projectedArea * 100).toFixed(1)}% of its principal media at the ${cell.id} entry`);
+      console.log(`  Entry media ${id}: center ${principalProjection.x.toFixed(3)} NDC; ${visibleWidthPixels.toFixed(1)}×${visibleHeightPixels.toFixed(1)} px; ${(visibleArea / projectedArea * 100).toFixed(1)}% visible`);
+      assert(visibleWidthPixels >= 70 && visibleHeightPixels >= 70, `${id} principal media is too small to recognize at the ${cell.id} entry`);
+      assert(visibleArea >= 7_000, `${id} principal media lacks recognizable visible area at the ${cell.id} entry`);
+      assert(visibleArea / projectedArea >= .6, `${id} shows only ${(visibleArea / projectedArea * 100).toFixed(1)}% of its principal media at the ${cell.id} entry`);
 
       const frontNormal = {x: Math.sin(exhibit.rotationY), z: Math.cos(exhibit.rotationY)};
       const towardEntry = {x: entry.pose.x - principalCenter.x, z: entry.pose.z - principalCenter.z};
@@ -588,6 +650,8 @@ check('every exhibit room has one safe entry view with its promised focal exhibi
       assert(frontFacing >= .3, `${id} turns materially away from the ${cell.id} entry (${frontFacing.toFixed(3)} dot)`);
       assertWallSightlineClear(entry.pose, principalCenter, `${id} principal media from ${cell.id} entry`);
       assertWallSightlineClear(entry.pose, focalTarget, `${id} focal target from ${cell.id} entry`);
+      assertOtherColliderSightlineClear(entry.pose, principalCenter, id, `${id} principal media from ${cell.id} entry`);
+      assertOtherColliderSightlineClear(entry.pose, focalTarget, id, `${id} focal target from ${cell.id} entry`);
     }
   }
 });
@@ -613,6 +677,12 @@ check('the authored primary circulation path is continuous and clear at its decl
   assert(circulation.clearanceRadius >= layout.playerRadius, 'primary circulation must clear at least one player footprint');
   assert(circulation.points.length >= 2, 'primary circulation needs at least one segment');
   assert(circulation.points.every(finitePoint), 'primary circulation contains a non-finite point');
+  assert(segmentLength(circulation.points[0], layout.spawn) <= layout.playerRadius, 'primary circulation must begin at the Museum spawn');
+  const finalGuidedExhibit = layout.exhibits.find(({id}) => id === layout.guidedOrder.at(-1));
+  const finalRoom = layout.spatialCells.find(({id}) => id === finalGuidedExhibit?.spatialCellId);
+  assert(finalRoom?.kind === 'room', 'primary circulation has no final exhibit room');
+  assert(boundsContainPoint(finalRoom.bounds, circulation.points.at(-1), circulation.clearanceRadius), 'primary circulation must reach the final exhibit room');
+  const crossedConnections = new Set();
   let nearestClearance = Number.POSITIVE_INFINITY;
   let nearestCollider;
   let nearestPoint;
@@ -628,6 +698,9 @@ check('the authored primary circulation path is continuous and clear at its decl
       const fraction = sampleIndex / samples;
       const point = {x: start.x + (end.x - start.x) * fraction, z: start.z + (end.z - start.z) * fraction};
       assert(positionInsideSpatialUnion(point, circulation.clearanceRadius, layout.spatialCells), `${circulation.id} loses ${circulation.clearanceRadius.toFixed(2)} clearance near ${JSON.stringify(point)}`);
+      for (const connection of layout.spatialConnections) {
+        if (boundsContainPoint(connection.openingBounds, point)) crossedConnections.add(connection.id);
+      }
       for (const collider of allColliders) {
         const clearance = pointToColliderClearance(point, collider);
         if (clearance < nearestClearance) {
@@ -637,8 +710,13 @@ check('the authored primary circulation path is continuous and clear at its decl
         }
         assert(clearance >= circulation.clearanceRadius - EPSILON, `${circulation.id} leaves ${clearance.toFixed(3)} clearance from ${collider.id} near ${JSON.stringify(point)}`);
       }
+      for (const exhibit of layout.exhibits) {
+        const clearance = pointToRenderedRectangleClearance(point, footprintRectangle(exhibit));
+        assert(clearance >= circulation.clearanceRadius - EPSILON, `${circulation.id} enters the rendered ${exhibit.id} footprint near ${JSON.stringify(point)}`);
+      }
     }
   }
+  assert.deepEqual([...crossedConnections].sort(), layout.spatialConnections.map(({id}) => id).sort(), 'primary circulation must cross every authored room connection');
   assert(Number.isFinite(nearestClearance) && nearestCollider && nearestPoint);
   console.log(`  Primary circulation: ${totalLength.toFixed(3)} units; minimum collider clearance ${nearestClearance.toFixed(3)} from ${nearestCollider.id} near (${nearestPoint.x.toFixed(2)}, ${nearestPoint.z.toFixed(2)})`);
 });
