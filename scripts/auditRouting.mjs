@@ -175,9 +175,11 @@ check('Museum convenience, hall, and exhibit routes parse and serialize', () => 
   assert.deepEqual(convenience.route, {kind: 'museum', hallId: 'ancient-greek'});
   assert.equal(convenience.canonicalHash, '#/museum/ancient-greek');
   assert.equal(convenience.shouldReplace, true);
-  expectRoundTrip({kind: 'museum', hallId: 'ancient-greek'});
-  for (const exhibit of MUSEUM_HALLS[0].exhibits) {
-    expectRoundTrip({kind: 'museum', hallId: 'ancient-greek', exhibitId: exhibit.id});
+  for (const hall of MUSEUM_HALLS) {
+    expectRoundTrip({kind: 'museum', hallId: hall.id});
+    for (const exhibit of hall.exhibits) {
+      expectRoundTrip({kind: 'museum', hallId: hall.id, exhibitId: exhibit.id});
+    }
   }
 });
 
@@ -283,6 +285,8 @@ check('unknown branch, philosopher, and learning-path IDs are rejected', () => {
 check('unknown and malformed Museum routes remain visible as not-found', () => {
   expectNotFound('#/museum/unknown-hall', /No museum hall exists/);
   expectNotFound('#/museum/ancient-greek/exhibits/unknown-exhibit', /No exhibit exists/);
+  expectNotFound('#/museum/medieval-worlds/exhibits/plato', /No exhibit exists/);
+  expectNotFound('#/museum/ancient-greek/exhibits/aquinas', /No exhibit exists/);
   expectNotFound('#/museum/ancient-greek/plato', /unexpected shape/);
   expectNotFound('#/museum/ancient-greek/exhibits/plato/extra', /unexpected shape/);
   expectNotFound('#/museum/%', /malformed percent encoding/);
@@ -383,6 +387,14 @@ check('document titles are exhaustive and section-aware', () => {
     'Stoicism — Ancient Greek & Hellenistic Gallery | Philosophy Atlas',
   );
   assert.equal(
+    getRouteTitle({kind: 'museum', hallId: 'medieval-worlds'}),
+    'Medieval Worlds Gallery | Philosophy Atlas',
+  );
+  assert.equal(
+    getRouteTitle({kind: 'museum', hallId: 'medieval-worlds', exhibitId: 'aquinas'}),
+    'Thomas Aquinas — Medieval Worlds Gallery | Philosophy Atlas',
+  );
+  assert.equal(
     getRouteTitle({kind: 'branch', branchId: 'stoicism', section: 'overview'}),
     'Stoicism — A system for living as a rational and social being | Philosophy Atlas',
   );
@@ -418,6 +430,8 @@ check('canonical hashes remain stable under parse → serialize → parse', () =
     '#/museum',
     '#/museum/ancient-greek',
     '#/museum/ancient-greek/exhibits/plato',
+    '#/museum/medieval-worlds',
+    '#/museum/medieval-worlds/exhibits/aquinas',
     '#/branches/stoicism?section=overview',
     '#/philosophers/plato?section=major-works',
     serializeHashRoute(DEFAULT_ROUTES.compare),
