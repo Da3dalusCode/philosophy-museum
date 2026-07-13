@@ -1,64 +1,76 @@
 import {useThree} from '@react-three/fiber';
 import {useEffect, useState} from 'react';
 import {
-  LinearMipmapLinearFilter,
+  LinearFilter,
   SRGBColorSpace,
   Texture,
   TextureLoader,
 } from 'three';
+import {
+  MUSEUM_FRAME_RAIL_FRONT_Z,
+  MUSEUM_SCENE_IMAGE_PLANE_Z,
+  MUSEUM_SCENE_MEDIA_LOADING_COLOR,
+} from '../../data/museum/museumMediaPolicy';
 import {getMuseumAsset, museumAssetUrl} from '../../data/museum/museumAssets';
 import type {MuseumMediaMountDefinition} from '../../data/museum/museumWorldTypes';
 import {usePlaqueTexture} from './plaqueTextures';
 
-type TextureState = {texture?: Texture; failed: boolean};
+type TextureState =
+  | {status: 'loading'}
+  | {status: 'ready'; texture: Texture}
+  | {status: 'failed'};
 
 const useIsolatedMuseumTexture = (url: string): TextureState => {
   const {gl, invalidate} = useThree();
-  const [state, setState] = useState<TextureState>({failed: false});
+  const [state, setState] = useState<TextureState>({status: 'loading'});
   useEffect(() => {
     let disposed = false;
     let loaded: Texture | undefined;
-    setState({failed: false});
+    setState({status: 'loading'});
     try {
       new TextureLoader().load(
         url,
-        (texture) => {
+        (sourceTexture) => {
           if (disposed) {
-            texture.dispose();
+            sourceTexture.dispose();
             return;
           }
+          const texture = sourceTexture;
           loaded = texture;
           texture.colorSpace = SRGBColorSpace;
           texture.anisotropy = Math.min(4, gl.capabilities.getMaxAnisotropy());
-          texture.minFilter = LinearMipmapLinearFilter;
-          texture.generateMipmaps = true;
+          // Scene variants are deliberately non-power-of-two. Linear filtering without
+          // mipmaps stays complete on WebGL 1 and WebGL 2 instead of sampling as black.
+          texture.minFilter = LinearFilter;
+          texture.magFilter = LinearFilter;
+          texture.generateMipmaps = false;
           texture.needsUpdate = true;
-          setState({texture, failed: false});
-          invalidate();
+          setState({status: 'ready', texture});
         },
         undefined,
         () => {
           if (!disposed) {
-            setState({failed: true});
-            invalidate();
+            setState({status: 'failed'});
           }
         },
       );
     } catch {
-      setState({failed: true});
-      invalidate();
+      setState({status: 'failed'});
     }
     return () => {
       disposed = true;
       loaded?.dispose();
     };
-  }, [gl, invalidate, url]);
+  }, [gl, url]);
+  useEffect(() => {
+    invalidate();
+  }, [invalidate, state]);
   return state;
 };
 
 function MuseumFallbackMaterial({title, subtitle, accent}: {title: string; subtitle: string; accent: string}) {
   const texture = usePlaqueTexture({title, kicker: 'Object image unavailable', subtitle, accent, width: 768, height: 512});
-  return <meshStandardMaterial map={texture} roughness={.74} metalness={0} emissive="#111111" emissiveIntensity={.08}/>;
+  return <meshBasicMaterial map={texture} toneMapped={false}/>;
 }
 
 function MountSupport({mount, bronze}: {mount: MuseumMediaMountDefinition; bronze: string}) {
@@ -98,6 +110,8 @@ export function MuseumSceneMedia({mount, nearby, accent}: {
   const textureState = useIsolatedMuseumTexture(museumAssetUrl(asset.variants.scene));
   const bronze = nearby ? accent : '#675039';
   const rail = .065;
+  const railDepth = .09;
+  const railCenterZ = MUSEUM_FRAME_RAIL_FRONT_Z - railDepth / 2;
   return <group position={mount.position} userData={{mountId: mount.id, mountKind: mount.kind, anchorId: mount.anchorId}}>
     <MountSupport mount={mount} bronze={bronze}/>
     <group rotation={mount.rotation}>
@@ -105,17 +119,17 @@ export function MuseumSceneMedia({mount, nearby, accent}: {
         <boxGeometry args={[mount.width + .18, mount.height + .18, mount.frameDepth]}/>
         <meshStandardMaterial color="#171b1d" roughness={.8} metalness={.12}/>
       </mesh>
-      <mesh position={[0, mount.height / 2 + rail / 2, .01]}><boxGeometry args={[mount.width + .2, rail, .09]}/><meshStandardMaterial color={bronze} metalness={.62} roughness={.4}/></mesh>
-      <mesh position={[0, -mount.height / 2 - rail / 2, .01]}><boxGeometry args={[mount.width + .2, rail, .09]}/><meshStandardMaterial color={bronze} metalness={.62} roughness={.4}/></mesh>
-      <mesh position={[-mount.width / 2 - rail / 2, 0, .01]}><boxGeometry args={[rail, mount.height, .09]}/><meshStandardMaterial color={bronze} metalness={.62} roughness={.4}/></mesh>
-      <mesh position={[mount.width / 2 + rail / 2, 0, .01]}><boxGeometry args={[rail, mount.height, .09]}/><meshStandardMaterial color={bronze} metalness={.62} roughness={.4}/></mesh>
-      <mesh position={[0, 0, .061]}>
+      <mesh position={[0, mount.height / 2 + rail / 2, railCenterZ]}><boxGeometry args={[mount.width + .2, rail, railDepth]}/><meshStandardMaterial color={bronze} metalness={.62} roughness={.4}/></mesh>
+      <mesh position={[0, -mount.height / 2 - rail / 2, railCenterZ]}><boxGeometry args={[mount.width + .2, rail, railDepth]}/><meshStandardMaterial color={bronze} metalness={.62} roughness={.4}/></mesh>
+      <mesh position={[-mount.width / 2 - rail / 2, 0, railCenterZ]}><boxGeometry args={[rail, mount.height, railDepth]}/><meshStandardMaterial color={bronze} metalness={.62} roughness={.4}/></mesh>
+      <mesh position={[mount.width / 2 + rail / 2, 0, railCenterZ]}><boxGeometry args={[rail, mount.height, railDepth]}/><meshStandardMaterial color={bronze} metalness={.62} roughness={.4}/></mesh>
+      <mesh position={[0, 0, MUSEUM_SCENE_IMAGE_PLANE_Z]}>
         <planeGeometry args={[mount.width, mount.height]}/>
-        {textureState.texture
-          ? <meshStandardMaterial map={textureState.texture} roughness={.72} metalness={0} emissive="#0b0b0b" emissiveIntensity={.06}/>
-          : textureState.failed
-            ? <MuseumFallbackMaterial title={asset.title} subtitle={asset.objectDate} accent={accent}/>
-            : <meshStandardMaterial color="#151b1f" roughness={.8}/>
+        {textureState.status === 'ready'
+          ? <meshBasicMaterial key="scene-ready" map={textureState.texture} toneMapped={false}/>
+          : textureState.status === 'failed'
+            ? <MuseumFallbackMaterial key="scene-failed" title={asset.title} subtitle={asset.objectDate} accent={accent}/>
+            : <meshBasicMaterial key="scene-loading" color={MUSEUM_SCENE_MEDIA_LOADING_COLOR} toneMapped={false}/>
         }
       </mesh>
     </group>

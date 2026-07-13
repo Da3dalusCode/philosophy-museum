@@ -48,7 +48,7 @@ export const sanitizeMuseumPose = (
     pitch: clampPitch(value.pitch),
   };
   const colliders = [...layout.wallColliders, ...layout.obstacleColliders];
-  return isValidMuseumPosition(pose, layout.playerRadius, layout.bounds, colliders)
+  return isValidMuseumPosition(pose, layout.playerRadius, layout.bounds, colliders, layout.spatialCells)
     ? pose
     : undefined;
 };

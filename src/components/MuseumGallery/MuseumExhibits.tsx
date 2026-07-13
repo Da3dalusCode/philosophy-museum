@@ -116,10 +116,15 @@ function CynicismInstallation({layout, accent, nearby}: {layout: MuseumExhibitLa
   const base = bound(scene, 'cynicism-plinth');
   const vessel = bound(scene, 'cynicism-pithos');
   const bottomY = vessel.center.y - vessel.size.height / 2;
+  const vesselScale: [number, number, number] = [
+    vessel.size.width / 1.46,
+    vessel.size.height / 1.615,
+    vessel.size.depth / 1.22,
+  ];
   return <group>
     <BoxVolume volume={base}/>
     {scene.mediaMounts.map((mount) => <MuseumSceneMedia key={mount.id} mount={mount} nearby={nearby} accent={accent}/>)}
-    <group position={[vessel.center.x, bottomY, vessel.center.z]}>
+    <group position={[vessel.center.x, bottomY, vessel.center.z]} scale={vesselScale}>
       <mesh><latheGeometry args={[pithosProfile, 28]}/><meshStandardMaterial color={TERRACOTTA} roughness={.9} metalness={.02}/></mesh>
       <mesh position={[0,1.48,0]}><cylinderGeometry args={[.31,.32,.12,28]}/><meshStandardMaterial color="#714634" roughness={.88}/></mesh>
       <mesh position={[0,1.56,0]} rotation={[Math.PI/2,0,0]}><torusGeometry args={[.34,.055,10,32]}/><meshStandardMaterial color="#6b4030" roughness={.86}/></mesh>
@@ -190,14 +195,16 @@ function NeoplatonismInstallation({layout, accent, nearby}: {layout: MuseumExhib
   const base = bound(scene, 'neoplatonism-plinth');
   const wall = bound(scene, 'neoplatonism-end-wall');
   const relief = bound(scene, 'neoplatonism-emanation-relief');
+  const reliefRadius = Math.min(relief.size.width, relief.size.height) / 2;
+  const ringRadii = [reliefRadius * .82, reliefRadius * .56, reliefRadius * .29];
   return <group>
     <mesh position={[base.center.x,base.center.y,base.center.z]} scale={[1,1,base.size.depth/base.size.width]}><cylinderGeometry args={[base.size.width/2,base.size.width/2+.1,base.size.height,32]}/><meshStandardMaterial color={CHARCOAL} roughness={.78}/></mesh>
-    <BoxVolume volume={wall} color="#11171b" metalness={.16} roughness={.75}/>
+    <BoxVolume volume={wall} color="#d2ccc2" metalness={0} roughness={.9}/>
     {scene.mediaMounts.map((mount) => <MuseumSceneMedia key={mount.id} mount={mount} nearby={nearby} accent={accent}/>)}
     <group position={[relief.center.x,relief.center.y,relief.center.z]}>
-      <mesh position={[0,0,-.08]} rotation={[Math.PI/2,0,0]}><cylinderGeometry args={[1.12,1.12,.12,48]}/><meshStandardMaterial color="#171d21" metalness={.2} roughness={.78}/></mesh>
-      {[.94,.65,.34].map((radius,index)=><mesh key={radius} position={[0,0,.02+index*.018]}><torusGeometry args={[radius,.035+index*.006,9,44]}/><meshStandardMaterial color={index===2?LIMESTONE:accent} metalness={.54} roughness={.38}/></mesh>)}
-      <mesh position={[0,0,.07]}><sphereGeometry args={[.14,18,14]}/><meshStandardMaterial color="#ead8b7" roughness={.35}/></mesh>
+      <mesh position={[0,0,-.08]} rotation={[Math.PI/2,0,0]}><cylinderGeometry args={[reliefRadius,reliefRadius,.12,48]}/><meshStandardMaterial color="#171d21" metalness={.2} roughness={.78}/></mesh>
+      {ringRadii.map((radius,index)=><mesh key={radius} position={[0,0,.02+index*.018]}><torusGeometry args={[radius,reliefRadius*(.035+index*.006),9,44]}/><meshStandardMaterial color={index===2?LIMESTONE:accent} metalness={.54} roughness={.38}/></mesh>)}
+      <mesh position={[0,0,.07]}><sphereGeometry args={[reliefRadius*.13,18,14]}/><meshStandardMaterial color="#ead8b7" roughness={.35}/></mesh>
     </group>
   </group>;
 }
@@ -232,7 +239,6 @@ export function MuseumExhibits({definition, nearbyId, onSelectExhibit}: {
         if (event.delta <= 7) onSelectExhibit(layout.id);
       };
       const interaction = layout.scene.interactionBounds;
-      const ringRadius = Math.min(layout.scene.footprint.width, layout.scene.footprint.depth) * .44;
       return <group key={layout.id} position={[layout.position.x,0,layout.position.z]} rotation={[0,layout.rotationY,0]}>
         <ExhibitInstallation layout={layout} accent={accent} nearby={nearby}/>
         <ExhibitPlaque scene={layout.scene} title={catalog.displayName} kind={philosopher?'Philosopher bay':'School & tradition'} accent={accent}/>
@@ -240,10 +246,6 @@ export function MuseumExhibits({definition, nearbyId, onSelectExhibit}: {
           <boxGeometry args={[interaction.size.width,interaction.size.height,interaction.size.depth]}/>
           <meshBasicMaterial transparent opacity={0} depthWrite={false} colorWrite={false}/>
         </mesh>
-        {nearby && <>
-          <pointLight position={[layout.scene.focalTarget.x,layout.scene.focalTarget.y+1.1,layout.scene.focalTarget.z+1]} color={accent} intensity={6} distance={5.5} decay={2}/>
-          <mesh position={[0,.045,0]} rotation={[-Math.PI/2,0,0]}><ringGeometry args={[ringRadius,ringRadius+.07,48]}/><meshBasicMaterial color={accent} transparent opacity={.5} toneMapped={false}/></mesh>
-        </>}
       </group>;
     })}
   </group>;

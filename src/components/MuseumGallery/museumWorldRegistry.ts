@@ -10,6 +10,7 @@ export type MuseumHallContentProps = {
   definition: MuseumHallDefinition;
   nearby?: MuseumExhibitRef;
   onSelectExhibit: (exhibit: MuseumExhibitRef) => void;
+  onSceneGesture: () => void;
 };
 
 export type MuseumHallRegistration = {

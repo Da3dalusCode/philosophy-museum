@@ -19,6 +19,10 @@ export type MuseumCollider = {
   rotation: number;
 };
 
+export type MuseumWallDefinition = MuseumCollider & {
+  height: number;
+};
+
 export type MuseumSceneVolumeRole =
   | 'base'
   | 'principal-object'
@@ -78,6 +82,7 @@ export type MuseumInstallationSceneDefinition = {
 export type MuseumExhibitLayout = {
   id: MuseumExhibitId;
   zoneId: MuseumZoneId;
+  spatialCellId: string;
   position: MuseumPoint;
   rotationY: number;
   interactionRadius: number;
@@ -86,18 +91,68 @@ export type MuseumExhibitLayout = {
   scene: MuseumInstallationSceneDefinition;
 };
 
+export type MuseumSpatialCell = {
+  id: string;
+  kind: 'room' | 'passage';
+  title: string;
+  bounds: MuseumBounds;
+  ceilingHeight: number;
+  exhibitIds: readonly MuseumExhibitId[];
+  lightingGroupId: string;
+};
+
+export type MuseumSpatialConnection = {
+  id: string;
+  fromCellId: string;
+  toCellId: string;
+  openingBounds: MuseumBounds;
+};
+
+export type MuseumTrackDefinition = {
+  id: string;
+  center: MuseumPoint3;
+  size: MuseumSize3;
+};
+
+export type MuseumExhibitLightDefinition = {
+  id: string;
+  exhibitId: MuseumExhibitId;
+  trackId: string;
+  mountPosition: MuseumPoint3;
+  position: MuseumPoint3;
+  target: MuseumPoint3;
+  intensity: number;
+  distance: number;
+  angle: number;
+  penumbra: number;
+};
+
+export type MuseumLightingDefinition = {
+  ambientIntensity: number;
+  hemisphereIntensity: number;
+  directionalIntensity: number;
+  tracks: readonly MuseumTrackDefinition[];
+  exhibitLights: readonly MuseumExhibitLightDefinition[];
+};
+
 export type MuseumHallLayout = {
   id: MuseumHallId;
   title: string;
   eyeHeight: number;
   playerRadius: number;
   bounds: MuseumBounds;
+  floorArea: number;
+  cameraFar: number;
   spawn: MuseumPose;
+  spawnFocalPoint: MuseumPoint;
   reset: MuseumPose;
-  wallColliders: readonly MuseumCollider[];
+  spatialCells: readonly MuseumSpatialCell[];
+  spatialConnections: readonly MuseumSpatialConnection[];
+  wallColliders: readonly MuseumWallDefinition[];
   obstacleColliders: readonly MuseumCollider[];
   exhibits: readonly MuseumExhibitLayout[];
   guidedOrder: readonly MuseumExhibitId[];
+  lighting: MuseumLightingDefinition;
 };
 
 export type MuseumHallConnection = {

@@ -67,6 +67,9 @@ body.museum-immersive .museum-page{position:fixed;z-index:70;inset:0}
   .museum-stage[data-exploring=true] .museum-proximity-card{bottom:max(196px,calc(env(safe-area-inset-bottom) + 188px));max-width:360px}.museum-stage[data-exploring=true] .museum-proximity-card button{display:none}.museum-stage[data-exploring=true] .museum-utility-bar .museum-control-directory,.museum-stage[data-exploring=true] .museum-utility-bar .museum-control-help,.museum-stage[data-exploring=true] .museum-utility-bar .museum-control-reset{display:none}
 }
 
+.museum-entry-row>.museum-entry-status{display:inline-block;color:#f0d6a6;font-size:10px;line-height:1.35;letter-spacing:.08em;text-transform:uppercase;max-width:230px}
+.museum-masthead[data-condensed=true] .museum-entry-row>.museum-entry-status{display:inline-block}
+
 @media(max-width:900px){
   .museum-page{height:calc(100dvh - var(--app-header-offset,116px))}
   .museum-utility-bar{max-width:calc(100% - 360px)}.museum-utility-bar button span{display:none}

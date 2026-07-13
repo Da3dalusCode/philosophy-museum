@@ -3,6 +3,7 @@ import type {
   MuseumCollider,
   MuseumExhibitLayout,
   MuseumPoint,
+  MuseumSpatialCell,
 } from '../../data/museum/museumWorldTypes';
 import type {MuseumExhibitId} from '../../data/museumCatalog';
 
@@ -140,11 +141,38 @@ const clampToBounds = (
   z: clamp(position.z, bounds.minZ + playerRadius, bounds.maxZ - playerRadius),
 });
 
+const pointInsideBounds = (point: MuseumPoint, bounds: MuseumBounds): boolean =>
+  point.x >= bounds.minX - EPSILON
+  && point.x <= bounds.maxX + EPSILON
+  && point.z >= bounds.minZ - EPSILON
+  && point.z <= bounds.maxZ + EPSILON;
+
+/** Require the player's complete circular footprint to remain in the union of authored rooms/passages. */
+export const positionInsideSpatialUnion = (
+  position: MuseumPoint,
+  playerRadius: number,
+  spatialCells: readonly MuseumSpatialCell[],
+): boolean => {
+  if (!spatialCells.length) return true;
+  const sampleCount = 16;
+  for (let index = -1; index < sampleCount; index += 1) {
+    const point = index < 0
+      ? position
+      : {
+          x: position.x + Math.cos(index / sampleCount * Math.PI * 2) * playerRadius,
+          z: position.z + Math.sin(index / sampleCount * Math.PI * 2) * playerRadius,
+        };
+    if (!spatialCells.some((cell) => pointInsideBounds(point, cell.bounds))) return false;
+  }
+  return true;
+};
+
 export const isValidMuseumPosition = (
   position: MuseumPoint,
   playerRadius: number,
   bounds: MuseumBounds,
   colliders: readonly MuseumCollider[],
+  spatialCells: readonly MuseumSpatialCell[] = [],
 ): boolean => {
   if (!isFinitePoint(position) || !Number.isFinite(playerRadius) || playerRadius <= 0) return false;
   if (![bounds.minX, bounds.maxX, bounds.minZ, bounds.maxZ].every(Number.isFinite)) return false;
@@ -157,6 +185,7 @@ export const isValidMuseumPosition = (
     || position.z < bounds.minZ + playerRadius - EPSILON
     || position.z > bounds.maxZ - playerRadius + EPSILON
   ) return false;
+  if (!positionInsideSpatialUnion(position, playerRadius, spatialCells)) return false;
   return !colliders.some((collider) => circleIntersectsCollider(position, playerRadius, collider));
 };
 
@@ -167,6 +196,7 @@ export const moveWithCollisions = (
   playerRadius: number,
   bounds: MuseumBounds,
   colliders: readonly MuseumCollider[],
+  spatialCells: readonly MuseumSpatialCell[] = [],
 ): MuseumPoint => {
   if (
     !isFinitePoint(position)
@@ -195,7 +225,7 @@ export const moveWithCollisions = (
       }
       if (!changed) break;
     }
-    current = isValidMuseumPosition(candidate, playerRadius, bounds, colliders)
+    current = isValidMuseumPosition(candidate, playerRadius, bounds, colliders, spatialCells)
       ? candidate
       : previous;
   }

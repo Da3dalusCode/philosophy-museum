@@ -1,222 +1,197 @@
-import {useLayoutEffect, useRef} from 'react';
-import {InstancedMesh, Object3D} from 'three';
-import {
-  ANCIENT_GREEK_HALL_COLUMN_POSITIONS,
-} from '../../data/museum/ancientGreekHall';
-import type {MuseumHallDefinition} from '../../data/museum/museumWorldTypes';
+import type {ThreeEvent} from '@react-three/fiber';
+import {useMemo} from 'react';
+import {Quaternion, Vector3} from 'three';
+import type {
+  MuseumExhibitLightDefinition,
+  MuseumHallDefinition,
+  MuseumSpatialCell,
+  MuseumTrackDefinition,
+  MuseumWallDefinition,
+} from '../../data/museum/museumWorldTypes';
 import {usePlaqueTexture} from './plaqueTextures';
 
-const LIMESTONE = '#d2c9b6';
-const LIMESTONE_DARK = '#8a8376';
-const FLOOR = '#171b1b';
-const BRONZE = '#80603f';
-const IRON = '#0c1114';
+const WALL = '#eeeae2';
+const WALL_EDGE = '#d9d4ca';
+const CEILING = '#e7e3dc';
+const FLOOR = '#1d1c1a';
+const FLOOR_PASSAGE = '#24221f';
+const BLACK_METAL = '#151617';
+const LUMINOUS = '#fff3dc';
 
-function InstancedColumns() {
-  const shafts = useRef<InstancedMesh>(null);
-  const capitals = useRef<InstancedMesh>(null);
-  const bases = useRef<InstancedMesh>(null);
-
-  useLayoutEffect(() => {
-    const transform = new Object3D();
-    ANCIENT_GREEK_HALL_COLUMN_POSITIONS.forEach(([x, z], index) => {
-      transform.position.set(x, 3.25, z);
-      transform.updateMatrix();
-      shafts.current?.setMatrixAt(index, transform.matrix);
-      transform.position.set(x, .24, z);
-      transform.updateMatrix();
-      bases.current?.setMatrixAt(index, transform.matrix);
-      transform.position.set(x, 6.28, z);
-      transform.updateMatrix();
-      capitals.current?.setMatrixAt(index, transform.matrix);
-    });
-    if (shafts.current) shafts.current.instanceMatrix.needsUpdate = true;
-    if (bases.current) bases.current.instanceMatrix.needsUpdate = true;
-    if (capitals.current) capitals.current.instanceMatrix.needsUpdate = true;
-  }, []);
-
-  return <group>
-    <instancedMesh ref={shafts} args={[undefined, undefined, ANCIENT_GREEK_HALL_COLUMN_POSITIONS.length]}>
-      <cylinderGeometry args={[.34, .43, 5.75, 12]}/>
-      <meshStandardMaterial color={LIMESTONE} roughness={.9}/>
-    </instancedMesh>
-    <instancedMesh ref={bases} args={[undefined, undefined, ANCIENT_GREEK_HALL_COLUMN_POSITIONS.length]}>
-      <cylinderGeometry args={[.63, .72, .48, 12]}/>
-      <meshStandardMaterial color={LIMESTONE_DARK} roughness={.92}/>
-    </instancedMesh>
-    <instancedMesh ref={capitals} args={[undefined, undefined, ANCIENT_GREEK_HALL_COLUMN_POSITIONS.length]}>
-      <cylinderGeometry args={[.72, .48, .52, 8]}/>
-      <meshStandardMaterial color={LIMESTONE_DARK} roughness={.9}/>
-    </instancedMesh>
+function CellShell({cell}: {cell: MuseumSpatialCell}) {
+  const width = cell.bounds.maxX - cell.bounds.minX;
+  const depth = cell.bounds.maxZ - cell.bounds.minZ;
+  const x = (cell.bounds.minX + cell.bounds.maxX) / 2;
+  const z = (cell.bounds.minZ + cell.bounds.maxZ) / 2;
+  const floorColor = cell.kind === 'passage' ? FLOOR_PASSAGE : FLOOR;
+  return <group userData={{spatialCellId: cell.id}}>
+    <mesh position={[x, -.11, z]} receiveShadow>
+      <boxGeometry args={[width, .22, depth]}/>
+      <meshStandardMaterial color={floorColor} roughness={.93} metalness={.015}/>
+    </mesh>
+    <mesh position={[x, cell.ceilingHeight + .09, z]}>
+      <boxGeometry args={[width, .18, depth]}/>
+      <meshStandardMaterial color={CEILING} roughness={.88}/>
+    </mesh>
+    <CeilingLightStrips cell={cell}/>
   </group>;
 }
 
-function WallSign({
+function CeilingLightStrips({cell}: {cell: MuseumSpatialCell}) {
+  const width = cell.bounds.maxX - cell.bounds.minX;
+  const depth = cell.bounds.maxZ - cell.bounds.minZ;
+  const x = (cell.bounds.minX + cell.bounds.maxX) / 2;
+  const z = (cell.bounds.minZ + cell.bounds.maxZ) / 2;
+  const y = cell.ceilingHeight - .015;
+
+  if (cell.kind === 'passage') {
+    const alongZ = depth >= width;
+    return <mesh position={[x, y, z]}>
+      <boxGeometry args={alongZ ? [1.05, .035, Math.max(1.2, depth - .7)] : [Math.max(1.2, width - .7), .035, 1.05]}/>
+      <meshBasicMaterial color={LUMINOUS} toneMapped={false}/>
+    </mesh>;
+  }
+
+  const alongZ = depth >= width;
+  const run = Math.max(3, (alongZ ? depth : width) - 4);
+  const offset = Math.min(5, (alongZ ? width : depth) * .23);
+  return <group>
+    {[-offset, offset].map((lane) => <mesh
+      key={lane}
+      position={alongZ ? [x + lane, y, z] : [x, y, z + lane]}
+    >
+      <boxGeometry args={alongZ ? [.72, .035, run] : [run, .035, .72]}/>
+      <meshBasicMaterial color={LUMINOUS} toneMapped={false}/>
+    </mesh>)}
+  </group>;
+}
+
+function GalleryWall({wall}: {wall: MuseumWallDefinition}) {
+  return <group
+    position={[wall.center.x, wall.height / 2, wall.center.z]}
+    rotation={[0, wall.rotation, 0]}
+    userData={{wallColliderId: wall.id}}
+  >
+    <mesh receiveShadow>
+      <boxGeometry args={[wall.size.width, wall.height, wall.size.depth]}/>
+      <meshStandardMaterial color={WALL} roughness={.94}/>
+    </mesh>
+    <mesh position={[0, -wall.height / 2 + .075, 0]}>
+      <boxGeometry args={[wall.size.width + .015, .15, wall.size.depth + .025]}/>
+      <meshStandardMaterial color={WALL_EDGE} roughness={.84}/>
+    </mesh>
+  </group>;
+}
+
+function LightingTrack({track}: {track: MuseumTrackDefinition}) {
+  return <mesh position={[track.center.x, track.center.y, track.center.z]} userData={{trackId: track.id}}>
+    <boxGeometry args={[track.size.width, track.size.height, track.size.depth]}/>
+    <meshStandardMaterial color={BLACK_METAL} roughness={.3} metalness={.72}/>
+  </mesh>;
+}
+
+function TrackFixture({definition}: {definition: MuseumExhibitLightDefinition}) {
+  const quaternion = useMemo(() => {
+    const direction = new Vector3(
+      definition.target.x - definition.mountPosition.x,
+      definition.target.y - definition.mountPosition.y,
+      definition.target.z - definition.mountPosition.z,
+    ).normalize();
+    return new Quaternion().setFromUnitVectors(new Vector3(0, -1, 0), direction);
+  }, [definition.mountPosition.x, definition.mountPosition.y, definition.mountPosition.z, definition.target.x, definition.target.y, definition.target.z]);
+  return <group
+    position={[definition.mountPosition.x, definition.mountPosition.y, definition.mountPosition.z]}
+    quaternion={quaternion}
+    userData={{trackId: definition.trackId, exhibitId: definition.exhibitId}}
+  >
+    <mesh position={[0, -.08, 0]}>
+      <cylinderGeometry args={[.055, .055, .18, 10]}/>
+      <meshStandardMaterial color={BLACK_METAL} roughness={.28} metalness={.7}/>
+    </mesh>
+    <mesh position={[0, -.23, 0]}>
+      <cylinderGeometry args={[.13, .085, .22, 12]}/>
+      <meshStandardMaterial color={BLACK_METAL} roughness={.3} metalness={.68}/>
+    </mesh>
+    <mesh position={[0, -.35, 0]} rotation={[Math.PI / 2, 0, 0]}>
+      <circleGeometry args={[.075, 16]}/>
+      <meshBasicMaterial color={LUMINOUS} toneMapped={false}/>
+    </mesh>
+  </group>;
+}
+
+function GallerySign({
   title,
   kicker,
   subtitle,
   position,
-  width,
-  accent,
+  rotationY = 0,
+  width = 4.4,
 }: {
   title: string;
   kicker: string;
-  subtitle?: string;
-  position: [number, number, number];
-  width: number;
-  accent: string;
+  subtitle: string;
+  position: readonly [number, number, number];
+  rotationY?: number;
+  width?: number;
 }) {
-  const texture = usePlaqueTexture({title, kicker, subtitle, accent});
-  return <group position={position}>
-    <mesh position={[0, 0, -.05]}>
-      <boxGeometry args={[width + .24, width / 4 + .24, .12]}/>
-      <meshStandardMaterial color={BRONZE} metalness={.55} roughness={.42}/>
+  const texture = usePlaqueTexture({title, kicker, subtitle, accent: '#7b5d3d'});
+  const height = width / 4;
+  return <group position={position} rotation={[0, rotationY, 0]}>
+    <mesh position={[0, 0, -.035]}>
+      <boxGeometry args={[width + .12, height + .12, .07]}/>
+      <meshStandardMaterial color={BLACK_METAL} roughness={.38} metalness={.58}/>
     </mesh>
-    <mesh position={[0, 0, .025]}>
-      <planeGeometry args={[width, width / 4]}/>
+    <mesh position={[0, 0, .01]}>
+      <planeGeometry args={[width, height]}/>
       <meshBasicMaterial map={texture} toneMapped={false}/>
     </mesh>
   </group>;
 }
 
-function ZoneArch({z, title, period, accent}: {
-  z: number;
-  title: string;
-  period: string;
-  accent: string;
+export function HallArchitecture({definition, onSceneGesture}: {
+  definition: MuseumHallDefinition;
+  onSceneGesture: () => void;
 }) {
-  return <group position={[0, 0, z]}>
-    <mesh position={[-6.65, 3.55, 0]}>
-      <boxGeometry args={[5.3, 7.1, .6]}/>
-      <meshStandardMaterial color={LIMESTONE} roughness={.92}/>
-    </mesh>
-    <mesh position={[6.65, 3.55, 0]}>
-      <boxGeometry args={[5.3, 7.1, .6]}/>
-      <meshStandardMaterial color={LIMESTONE} roughness={.92}/>
-    </mesh>
-    <mesh position={[0, 7.15, 0]}>
-      <boxGeometry args={[8, 1.7, .7]}/>
-      <meshStandardMaterial color={LIMESTONE_DARK} roughness={.9}/>
-    </mesh>
-    <WallSign
-      title={title}
-      kicker="Next gallery zone"
-      subtitle={period}
-      position={[0, 6.85, .38]}
-      width={5.6}
-      accent={accent}
-    />
-  </group>;
-}
+  const {layout} = definition;
+  const activateScene = (event: ThreeEvent<MouseEvent>) => {
+    if (event.delta > 7) return;
+    event.stopPropagation();
+    onSceneGesture();
+  };
+  return <group onClick={activateScene}>
+    {layout.spatialCells.map((cell) => <CellShell key={cell.id} cell={cell}/>)}
+    {layout.wallColliders.map((wall) => <GalleryWall key={wall.id} wall={wall}/>)}
+    {layout.lighting.tracks.map((track) => <LightingTrack key={track.id} track={track}/>)}
+    {layout.lighting.exhibitLights.map((light) => <TrackFixture key={light.id} definition={light}/>)}
 
-function Recesses({definition}: {definition: MuseumHallDefinition}) {
-  const sideExhibits = definition.layout.exhibits.filter(({id}) => id !== 'neoplatonism');
-  return <group>
-    {sideExhibits.map(({id, position}) => {
-      const west = position.x < 0;
-      return <group
-        key={id}
-        position={[west ? -9.24 : 9.24, 2.6, position.z]}
-        rotation={[0, west ? Math.PI / 2 : -Math.PI / 2, 0]}
-      >
-        <mesh>
-          <boxGeometry args={[3.7, 4.5, .16]}/>
-          <meshStandardMaterial color={IRON} roughness={.76} metalness={.18}/>
-        </mesh>
-        <mesh position={[0, 2.28, .12]}><boxGeometry args={[4,.14,.09]}/><meshStandardMaterial color={BRONZE} roughness={.4} metalness={.68}/></mesh>
-        <mesh position={[0, -2.28, .12]}><boxGeometry args={[4,.14,.09]}/><meshStandardMaterial color={BRONZE} roughness={.4} metalness={.68}/></mesh>
-        <mesh position={[-1.93, 0, .12]}><boxGeometry args={[.14,4.45,.09]}/><meshStandardMaterial color={BRONZE} roughness={.4} metalness={.68}/></mesh>
-        <mesh position={[1.93, 0, .12]}><boxGeometry args={[.14,4.45,.09]}/><meshStandardMaterial color={BRONZE} roughness={.4} metalness={.68}/></mesh>
-      </group>;
-    })}
-    <mesh position={[0, 3.25, -31.24]}>
-      <boxGeometry args={[7.2, 6.1, .18]}/>
-      <meshStandardMaterial color={IRON} roughness={.75} metalness={.2}/>
-    </mesh>
-    <mesh position={[0, 3.25, -31.08]}>
-      <torusGeometry args={[2.75, .12, 10, 48]}/>
-      <meshStandardMaterial color={BRONZE} metalness={.68} roughness={.36}/>
-    </mesh>
-  </group>;
-}
-
-function TrackLighting() {
-  const stops = [23, 17, 12, 6, 0, -6, -11, -25];
-  return <group>
-    {[-5.4, 5.4].map((x) => <mesh key={x} position={[x, 7.72, 0]}>
-      <boxGeometry args={[.09,.09,58]}/>
-      <meshStandardMaterial color="#171d20" metalness={.78} roughness={.32}/>
-    </mesh>)}
-    {stops.map((z, index) => {
-      const x = index % 2 === 0 ? -5.4 : 5.4;
-      return <group key={z} position={[x,7.48,z]} rotation={[index%2===0?0:-.08,0,index%2===0?-.34:.34]}>
-        <mesh><cylinderGeometry args={[.09,.12,.36,10]}/><meshStandardMaterial color="#252b2d" metalness={.7} roughness={.35}/></mesh>
-        <mesh position={[0,-.22,0]}><cylinderGeometry args={[.16,.11,.18,12]}/><meshStandardMaterial color={BRONZE} metalness={.66} roughness={.4}/></mesh>
-      </group>;
-    })}
-  </group>;
-}
-
-export function HallArchitecture({definition}: {definition: MuseumHallDefinition}) {
-  return <group>
-    <mesh position={[0, -.15, 0]} receiveShadow>
-      <boxGeometry args={[20, .3, 66]}/>
-      <meshStandardMaterial color={FLOOR} roughness={.84} metalness={.04}/>
-    </mesh>
-    <mesh position={[0, .015, 18]} receiveShadow>
-      <boxGeometry args={[18.4, .025, 16]}/>
-      <meshStandardMaterial color="#20282b" roughness={.9}/>
-    </mesh>
-    <mesh position={[0, .018, -2.5]} receiveShadow>
-      <boxGeometry args={[18.4, .03, 21]}/>
-      <meshStandardMaterial color="#242522" roughness={.9}/>
-    </mesh>
-    <mesh position={[0, .021, -22.5]} receiveShadow>
-      <boxGeometry args={[18.4, .035, 15]}/>
-      <meshStandardMaterial color="#211d29" roughness={.9}/>
-    </mesh>
-    <mesh position={[0, .055, -.5]}>
-      <boxGeometry args={[.16, .045, 57]}/>
-      <meshStandardMaterial color={BRONZE} metalness={.72} roughness={.42}/>
-    </mesh>
-    {[24, 16, 8, 0, -8, -16, -24].map((z) => <mesh key={z} position={[0, .08, z]}>
-      <boxGeometry args={[2.2, .06, .09]}/>
-      <meshStandardMaterial color="#8b6843" emissive="#2a1c10" emissiveIntensity={.04} metalness={.62}/>
-    </mesh>)}
-
-    <mesh position={[-9.7, 4, 0]}>
-      <boxGeometry args={[.8, 8, 66]}/>
-      <meshStandardMaterial color="#bcb4a4" roughness={.94}/>
-    </mesh>
-    <mesh position={[9.7, 4, 0]}>
-      <boxGeometry args={[.8, 8, 66]}/>
-      <meshStandardMaterial color="#bcb4a4" roughness={.94}/>
-    </mesh>
-    <mesh position={[0, 4, -31.7]}>
-      <boxGeometry args={[20, 8, .8]}/>
-      <meshStandardMaterial color={LIMESTONE_DARK} roughness={.93}/>
-    </mesh>
-    <mesh position={[0, 4, 31.7]}>
-      <boxGeometry args={[20, 8, .8]}/>
-      <meshStandardMaterial color={LIMESTONE_DARK} roughness={.93}/>
-    </mesh>
-    <mesh position={[0, 8.15, 0]}>
-      <boxGeometry args={[20, .3, 66]}/>
-      <meshStandardMaterial color="#0b1013" roughness={.88} metalness={.08}/>
-    </mesh>
-
-    <InstancedColumns/>
-    <TrackLighting/>
-    <Recesses definition={definition}/>
-    <ZoneArch z={9} title="Hellenistic Ways of Life" period="4th–1st centuries BCE" accent="#bd8a4c"/>
-    <ZoneArch z={-14} title="Late Antiquity" period="3rd–6th centuries CE" accent="#947bc0"/>
-    <WallSign
-      title="Late Antiquity"
-      kicker="Zone 03"
-      subtitle="Unity · Intellect · Soul · Return"
-      position={[0, 6.35, -31.02]}
+    <GallerySign
+      title="Ancient Greek Thought"
+      kicker="Orientation gallery"
+      subtitle="Questions become schools, practices, and inheritances"
+      position={[0, 4.55, 44.78]}
+      rotationY={Math.PI}
       width={5.8}
-      accent="#a786d6"
+    />
+    <GallerySign
+      title="Classical Foundations"
+      kicker="Gallery 01"
+      subtitle="Socrates · Plato · Aristotle"
+      position={[0, 4.15, 21.79]}
+      width={4.7}
+    />
+    <GallerySign
+      title="Hellenistic Ways of Life"
+      kicker="Gallery 02"
+      subtitle="Practice · freedom · judgment · flourishing"
+      position={[16, 4.15, -3.79]}
+      width={5.2}
+    />
+    <GallerySign
+      title="Late Antiquity"
+      kicker="Gallery 03"
+      subtitle="Unity · intellect · soul · return"
+      position={[-13, 4.35, -37.79]}
+      width={4.7}
     />
   </group>;
 }

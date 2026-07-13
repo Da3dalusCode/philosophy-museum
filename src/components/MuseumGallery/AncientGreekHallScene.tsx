@@ -1,23 +1,50 @@
+import {useMemo} from 'react';
+import {Object3D} from 'three';
+import type {MuseumExhibitLightDefinition} from '../../data/museum/museumWorldTypes';
 import type {MuseumHallContentProps} from './museumWorldRegistry';
 import {HallArchitecture} from './HallArchitecture';
 import {MuseumHallSpatialRoot} from './MuseumHallSpatialRoot';
 import {MuseumExhibits} from './MuseumExhibits';
 
-/** Hall-specific atmosphere and geometry; the persistent Canvas and player live in MuseumWorldScene. */
-export function AncientGreekHallContent({definition, nearby, onSelectExhibit}: MuseumHallContentProps) {
+function ExhibitSpotlight({definition}: {definition: MuseumExhibitLightDefinition}) {
+  const target = useMemo(() => {
+    const object = new Object3D();
+    object.position.set(definition.target.x, definition.target.y, definition.target.z);
+    return object;
+  }, [definition.target.x, definition.target.y, definition.target.z]);
+
   return <>
-    <color attach="background" args={['#080c10']}/>
-    <fog attach="fog" args={['#080c10', 23, 73]}/>
-    <hemisphereLight args={['#d9e1de', '#121719', .44]}/>
-    <ambientLight intensity={.1}/>
+    <primitive object={target}/>
+    <spotLight
+      position={[definition.position.x, definition.position.y, definition.position.z]}
+      target={target}
+      color="#fff0dc"
+      intensity={definition.intensity}
+      distance={definition.distance}
+      angle={definition.angle}
+      penumbra={definition.penumbra}
+      decay={2}
+      castShadow={false}
+    />
+  </>;
+}
+
+/** Hall-specific atmosphere and geometry; the persistent Canvas and player live in MuseumWorldScene. */
+export function AncientGreekHallContent({definition, nearby, onSelectExhibit, onSceneGesture}: MuseumHallContentProps) {
+  const {lighting} = definition.layout;
+  return <>
+    <color attach="background" args={['#d8d3ca']}/>
+    <hemisphereLight args={['#fff8e8', '#48433d', lighting.hemisphereIntensity]}/>
+    <ambientLight color="#fff5e5" intensity={lighting.ambientIntensity}/>
     <MuseumHallSpatialRoot definition={definition}>
-      <directionalLight position={[5, 10, 14]} intensity={1.02} color="#f1dfbf" castShadow={false}/>
-      <pointLight position={[0, 5.7, 19]} color="#8eb3d0" intensity={13} distance={18} decay={2}/>
-      <pointLight position={[0, 5.7, -3]} color="#bd795d" intensity={12} distance={20} decay={2}/>
-      <pointLight position={[0, 5.7, -24]} color="#8c79b1" intensity={14} distance={16} decay={2}/>
-      <pointLight position={[-7.4, 4.1, 17]} color="#f0d8b6" intensity={7} distance={7} decay={2}/>
-      <pointLight position={[7.4, 4.1, -5]} color="#ecd0ae" intensity={7} distance={7} decay={2}/>
-      <HallArchitecture definition={definition}/>
+      <directionalLight
+        position={[14, 18, 28]}
+        intensity={lighting.directionalIntensity}
+        color="#fff0dc"
+        castShadow={false}
+      />
+      {lighting.exhibitLights.map((light) => <ExhibitSpotlight key={light.id} definition={light}/>)}
+      <HallArchitecture definition={definition} onSceneGesture={onSceneGesture}/>
       <MuseumExhibits
         definition={definition}
         nearbyId={nearby?.hallId === definition.id ? nearby.exhibitId : undefined}

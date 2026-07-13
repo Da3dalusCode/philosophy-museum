@@ -19,8 +19,44 @@ export type MuseumExitTrigger = 'gesture' | 'history';
 export type MuseumExitPolicy = {
   navigation: 'back' | 'replace-hall';
   resumeExploration: boolean;
-  requestPointerLock: boolean;
   restoreDirectory: boolean;
+};
+
+export type MuseumVisitPhase =
+  | 'unentered'
+  | 'active'
+  | 'focus-suspended'
+  | 'explicitly-paused';
+
+export type MuseumVisitEvent =
+  | 'enter'
+  | 'focus-lost'
+  | 'scene-reactivate'
+  | 'explicit-pause'
+  | 'resume-active-origin'
+  | 'scene-error';
+
+export const museumPhaseHasActiveIntent = (phase: MuseumVisitPhase): boolean =>
+  phase === 'active' || phase === 'focus-suspended';
+
+export const transitionMuseumVisitPhase = (
+  phase: MuseumVisitPhase,
+  event: MuseumVisitEvent,
+): MuseumVisitPhase => {
+  switch (event) {
+    case 'enter':
+      return 'active';
+    case 'focus-lost':
+      return phase === 'active' ? 'focus-suspended' : phase;
+    case 'scene-reactivate':
+      return phase === 'focus-suspended' ? 'active' : phase;
+    case 'explicit-pause':
+      return museumPhaseHasActiveIntent(phase) ? 'explicitly-paused' : phase;
+    case 'resume-active-origin':
+      return 'active';
+    case 'scene-error':
+      return 'explicitly-paused';
+  }
 };
 
 type MuseumHistoryState = {
@@ -76,21 +112,19 @@ export const museumHistoryStateWithVisitContext = (
 
 export const resolveMuseumExitPolicy = (
   context: MuseumExhibitVisitContext,
-  trigger: MuseumExitTrigger,
+  _trigger: MuseumExitTrigger,
 ): MuseumExitPolicy => {
   switch (context.origin) {
     case 'active-exploration':
       return {
         navigation: 'back',
         resumeExploration: true,
-        requestPointerLock: trigger === 'gesture',
         restoreDirectory: false,
       };
     case 'directory':
       return {
         navigation: 'back',
         resumeExploration: false,
-        requestPointerLock: false,
         restoreDirectory: true,
       };
     case 'paused-hall':
@@ -98,14 +132,12 @@ export const resolveMuseumExitPolicy = (
       return {
         navigation: 'back',
         resumeExploration: false,
-        requestPointerLock: false,
         restoreDirectory: false,
       };
     case 'direct':
       return {
         navigation: 'replace-hall',
         resumeExploration: false,
-        requestPointerLock: false,
         restoreDirectory: false,
       };
   }

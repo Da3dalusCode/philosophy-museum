@@ -12,7 +12,7 @@ export type MuseumInputState = {
   lookY: number;
 };
 
-export type MuseumControlMode = 'idle' | 'requesting-lock' | 'locked' | 'drag-look' | 'paused';
+export type MuseumControlMode = 'idle' | 'requesting-lock' | 'locked' | 'drag-look' | 'suspended' | 'paused';
 
 export type MuseumSceneRuntimeProps = {
   definition: MuseumHallDefinition;
@@ -25,6 +25,7 @@ export type MuseumSceneRuntimeProps = {
   onCanvasReady: (canvas: HTMLCanvasElement) => void;
   onNearbyChange: (exhibit: MuseumExhibitRef | undefined) => void;
   onSelectExhibit: (exhibit: MuseumExhibitRef) => void;
+  onSceneGesture: () => void;
   onSceneError: (error: unknown) => void;
 };
 

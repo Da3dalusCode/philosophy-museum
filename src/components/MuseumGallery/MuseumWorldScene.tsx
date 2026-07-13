@@ -122,6 +122,7 @@ function MuseumPlayerRig({
         layout.playerRadius,
         layout.bounds,
         colliders,
+        layout.spatialCells,
       );
       pose.x = next.x;
       pose.z = next.z;
@@ -147,6 +148,7 @@ function MuseumWorldContents({
         definition={props.definition}
         nearby={nearby}
         onSelectExhibit={props.onSelectExhibit}
+        onSceneGesture={props.onSceneGesture}
       />
     </Suspense>
     <MuseumPlayerRig
@@ -212,12 +214,13 @@ export function MuseumWorldScene(props: MuseumSceneRuntimeProps & {registration:
     <WorldSceneErrorBoundary onError={props.onSceneError}>
       <Canvas
         className="museum-scene-canvas"
-        camera={{position: [initialCameraPose.x, layout.eyeHeight, initialCameraPose.z], fov: 68, near: .08, far: 100}}
+        camera={{position: [initialCameraPose.x, layout.eyeHeight, initialCameraPose.z], fov: 68, near: .08, far: layout.cameraFar}}
         dpr={lowPower ? [1, 1.25] : [1, 1.5]}
         frameloop={running ? 'always' : 'demand'}
         gl={{antialias: !lowPower, alpha: false, powerPreference: lowPower ? 'low-power' : 'high-performance'}}
         shadows={false}
         onCreated={onCreated}
+        onPointerMissed={props.onSceneGesture}
       >
         <MuseumWorldContents {...props}/>
       </Canvas>
