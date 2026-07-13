@@ -32,7 +32,9 @@ Every scene image requires a typed physical mount:
 - `lectern` for an inclined reading support;
 - `freestanding-panel` for a floor-supported display.
 
-The Museum audit checks catalog coverage, mount kinds and anchors, bounds containment, plaque and media breathing room, footprint/collider agreement, collision-backed furnishings, entry-view composition, guided-route spacing, entrance clearance, viewpoint safety, room-graph connectivity, floor density, and spatial-union session safety. Arrival and room-entry checks project complete rotated footprints through the authored camera field of view at 1920×1080, rather than accepting an object whose center alone happens to land on screen. Furnishing containment likewise checks every rotated corner.
+The Museum audit checks catalog coverage, mount kinds and anchors, bounds containment, plaque and media breathing room, footprint/collider agreement, collision-backed furnishings, entry-view composition, guided-route pacing, padded doorway approaches, viewpoint safety, room-graph connectivity, floor density, and spatial-union session safety. Room-entry checks project each promised exhibit's visible principal media and focal target through the authored camera field of view, including clipped-area, scale, front-facing, and wall-sightline checks. Furnishing and exhibit-separation checks use the rendered rotated outlines rather than axis-aligned approximations.
+
+`primaryCirculation` records the authored visitor spine and its required clearance radius. The audit samples that path against the walkable spatial union and every runtime collider, reports its nearest obstruction, and keeps the circulation model synchronized with intentional axial detours such as the Classical focal installation.
 
 `guidedWalkLegs` records the legal polyline between each consecutive guided viewpoint. Doorway-crossing legs include player-safe waypoints, and the audit samples every segment against the spatial union, walls, and installation colliders before calculating the walking distance. This keeps compactness claims honest when a direct Euclidean line would cut through a wall or display.
 
