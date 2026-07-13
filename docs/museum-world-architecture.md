@@ -2,7 +2,7 @@
 
 ## Objective
 
-The Museum should grow as one navigable place, not as a collection of unrelated canvases. The current release still contains one hall, but the runtime boundary now supports more halls without remounting the WebGL world or eagerly loading the future museum.
+The Museum grows as one navigable place, not as a collection of unrelated canvases. The Ancient Greek and Hellenistic Gallery and Medieval Worlds Gallery now form the first continuous two-wing world. Crossing their authored threshold keeps the same WebGL canvas, camera rig, visit state, immersive/fullscreen state, and movement input active.
 
 ## Runtime boundary
 
@@ -13,13 +13,17 @@ Each hall is a lazy content module registered in `museumWorldRegistry.ts`. A reg
 - a serializable `MuseumHallDefinition`;
 - a dynamic loader for the hall's render-only content component.
 
-The Ancient Greek module supplies architecture, lighting, atmosphere, and installations. It does not create a canvas, own navigation, or duplicate player controls. Its registered wing is one continuous seven-cell pilot gallery: a furnished orientation atrium, Classical Foundations, Hellenistic Ways, and a Late Antiquity focal chamber are joined by three short thresholds. The 1,592-square-unit plan remains larger and more architecturally developed than the original 1,320-square-unit corridor while concentrating the eight active exhibits instead of expanding into empty rooms.
+Hall modules supply local architecture, active-hall lighting, and installations. They do not create a canvas, own navigation, or duplicate player controls. Ancient remains the approved foundation: its orientation atrium, Classical Foundations, Hellenistic Ways, and Late Antiquity chamber now add only an east side passage beside the Neoplatonism conclusion. Its eight-cell plan is 1,626.4 authored square units. Medieval is a denser six-cell, 1,006.4-square-unit sequence: connection passage, Late Antique Inheritance, translation threshold, Arabic and Islamic Philosophical Worlds, Hebrew/Latin threshold, and Jewish and Latin Scholastic Conversations.
+
+Both loaded halls remain under one `Canvas`. Shared background, hemisphere, and ambient light live in `MuseumWorldScene`; only the active hall enables its directional light and eight exhibit spotlights. The adjacent hall renders its architecture and entrance-visible exhibits, while the remaining installations become active after crossing. This preserves a readable doorway without doubling every spotlight or eagerly creating every scene texture.
 
 ## Coordinates, entrances, and connections
 
 Hall layouts use local `x`/`z` floor coordinates, `y` for height, radians for yaw, and metres as the authoring convention. A hall definition adds a world transform so the shared spatial root and camera apply the same local-to-world rotation and translation while collision/session data remains hall-local. Entrances declare stable IDs, local positions, arrival poses, and transition bounds. Connections declare their local entrance, target hall, and target entrance rather than embedding route strings in scene code.
 
-The current hall is at the world origin, exposes `south-entry`, and deliberately has no hall-to-hall connections. This empty adjacency is a truthful extension seam, not a fabricated second gallery. Inside the hall, `spatialCells` define the precise walkable union and `spatialConnections` define room openings. Floors, visible ceilings, wall colliders, track rails, and exhibit lights all consume the same layout definition instead of maintaining parallel hardcoded plans.
+Ancient is at the world origin. Its `medieval-threshold` at local/world `(18, -28.5)` meets Medieval's `ancient-threshold`; Medieval is translated to that point and rotated `-π/2`, so walking east out of Late Antiquity continues forward along Medieval's local negative-z spine. Collision cells overlap by one movement step for safety, but the rendered floors, ceilings, and side walls end at the shared plane to avoid doubled geometry and z-fighting.
+
+Crossing detection is plane-based, not merely proximity-based. The previous pose must be on the hall-interior side of the entrance plane and the current pose on its outward side, both within the lateral transition bounds. The source local pose is converted to world space and then to target-local space. A declared target arrival pose is used only if that exact mapped pose fails the target collision contract. Automatic crossings use route **replace**, because walking back and forth should not fill browser history with doorway noise; explicit directory and exhibit choices use normal pushes. Back/Forward therefore represents deliberate navigation while the URL always reflects the physically active hall.
 
 ## Collision and installation contracts
 
@@ -44,23 +48,25 @@ Browser routes remain the public deep-link and Back/Forward contract. Scene call
 
 Opening an exhibit from active movement blocks input and preserves both the pose and active intent. Continue exploring, the close button, and backdrop activation use that gesture to request Pointer Lock before route navigation; one typed transition preserves an acquired or pending request through the still-blocked panel teardown. Once the exhibit route is gone, controls settle from the browser's real `document.pointerLockElement`: locked when acquisition succeeded, otherwise active drag-look. Escape and native Back restore active drag-look without assuming gesture-less lock permission, and the next ordinary scene click can request Pointer Lock again. Directory, guided, paused, and direct-link exits remain paused and restore the appropriate surface.
 
-The semantic visit phase is separate from the low-level look mode. Window blur or document hiding moves an active visit to `focus-suspended`, clears held input, and preserves the entered visit. Returning focus alone does not move the camera. A click on ordinary 3D architecture reactivates movement and requests Pointer Lock, while a direct exhibit click opens that exhibit with active origin and HUD controls perform only their named action. Explicit Pause is the only normal control that discards active intent.
+The semantic visit phase is separate from the low-level look mode. Window blur or document hiding moves an active visit to `focus-suspended`, clears held input, and preserves the entered visit. Returning focus alone does not move the camera. The keyboard-operable Resume visit action or a click on ordinary 3D architecture reactivates movement and requests Pointer Lock, while a direct exhibit click opens that exhibit with active origin and HUD controls perform only their named action. Explicit Pause is the only normal control that discards active intent.
 
 ## Session persistence
 
-The existing local session stores the hall-qualified pose and nearest exhibit. The camera object lives inside the persistent canvas, while the pose ref lives in `MuseumPage`; changing an exhibit route therefore does not discard camera state. Future cross-hall travel should atomically save the source pose and write the target hall/entrance pose before the registered content changes. A hall-ID change already restores that hall's local session or its first declared arrival pose while preserving the Canvas.
+Each hall has an independent session key containing its hall-local pose and nearest exhibit. The camera object lives inside the persistent canvas, while the pose ref and active-hall identity live in `MuseumPage`. A physical crossing copies and saves the source pose before transforming the ref, writes the mapped target pose to the target session, changes the active collision definition atomically, and marks the route update as an authored crossing so the hall-route effect does not pause movement. Direct routes and directory travel intentionally pause, restoring that hall's session, an exhibit viewpoint, a room-entry viewpoint, or its declared arrival pose. Periodic persistence is signature-deduplicated, so an entered but stationary visit does not keep rewriting `sessionStorage`.
 
 ## Loading and memory policy
 
-Only the active hall content module is loaded. `prefetch.sceneAssetIds` lists the current hall's local scene media, while `prefetch.adjacentHallIds` reserves intent-based prefetching for real connections. A future doorway may prefetch its target after proximity, idle time, or explicit focus—not on initial Museum import.
+Hall render code stays dynamically imported. On Museum idle, the active definition schedules its declared adjacent hall. Readiness requires the adjacent code chunk; every scene variant mounted in that hall's entrance-visible threshold view is requested and decoded best-effort before the target is marked crossable. Image failure does not trap the visitor because scene media has a documented in-world fallback. After entry readiness, the remaining declared scene variants may warm during another idle slice, except while the document is hidden or the browser reports Save-Data, 2G, or slow-2G conditions. The current hall remains mounted throughout. Direct navigation mounts the selected hall immediately and uses the same small, nonblocking status chip rather than a full-stage loading takeover.
+
+The registry deduplicates code and image promises and removes rejected promise entries so Retry can make a fresh attempt. A per-hall content epoch resets a failed lazy boundary without remounting the `Canvas`; a global scene epoch remains reserved for an actual WebGL/runtime retry. Returning to Ancient uses the reciprocal prefetch and preserves its prior readiness rather than evicting it.
 
 Textures are loaded from committed local WebP scene variants. Each mounted texture is isolated and disposed when its component unmounts. Failed textures get an in-world plaque fallback. Future glTF assets must follow the same rules: local and provenance-tracked, cached per URL, reused by instancing or cloned materials only when necessary, and explicitly disposed when no cache owner remains.
 
-Repeated architecture should use instancing when draw-call measurements justify it. Distant connected halls should use simplified geometry or an occluding portal, then promote to full content near an entrance. Do not render several full halls merely because they are adjacent in the registry.
+Repeated architecture should use instancing when draw-call measurements justify it. For the present two-hall world, inactive content is reduced to architecture plus entrance exhibits and has no exhibit spotlights. Later, nonadjacent halls should be evicted or represented by an occluding/simplified boundary; registration must never mean “render every future hall forever.”
 
 ## Frame and failure policy
 
-The canvas renders continuously only while exploration is active, unblocked, visible, and near the viewport. Otherwise it uses demand rendering. Coarse-pointer and narrow devices use a lower DPR ceiling, no antialiasing request, and a low-power GPU preference. The current hall avoids real-time shadows.
+The canvas uses demand rendering even during an entered visit. Keyboard, pointer, and touch input explicitly request a frame; held movement requests the next frame until input returns to zero. When the document is hidden or the stage leaves the viewport, the loop switches to `never` until it becomes renderable again. Coarse-pointer and narrow devices use a lower DPR ceiling, no antialiasing request, and a low-power GPU preference. The current hall avoids real-time shadows.
 
 WebGL creation, render errors, context loss, asset failure, pointer-lock denial, document visibility, and fullscreen failure all have explicit fallbacks. The directory remains a complete non-WebGL path. A render failure may remount the canvas only through the explicit retry epoch; ordinary route changes must never do so.
 
@@ -87,6 +93,6 @@ Keep the shared runtime small. A hall's code and media should remain lazy. Prefe
 5. Add truthful two-way connection records only when both entrances exist.
 6. Add intent-based adjacent-hall prefetch and a deterministic arrival pose.
 7. Extend audits for connectivity, global transformed bounds, entrance clearance, qualified references, and asset budgets.
-8. Test walking through the connection, Back/Forward, deep links, session restoration, context loss, and the no-WebGL directory.
+8. Test walking through every reciprocal connection, Back/Forward, deep links, session restoration, context loss, and the no-WebGL directory.
 
-The next hall should validate this architecture by connecting to the existing corridor. It should not introduce a parallel runtime or convert the registry into an eager import list.
+The third hall should extend this proven adjacency pattern without introducing a parallel runtime or converting the registry into an eager import list. Only the active hall and genuinely adjacent ready halls should remain resident.
