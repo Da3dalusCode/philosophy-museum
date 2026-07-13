@@ -14,8 +14,8 @@ import {usePlaqueTexture} from './plaqueTextures';
 const WALL = '#eeeae2';
 const WALL_EDGE = '#d9d4ca';
 const CEILING = '#e7e3dc';
-const FLOOR = '#1d1c1a';
-const FLOOR_PASSAGE = '#24221f';
+const FLOOR = '#4e4b45';
+const FLOOR_PASSAGE = '#5b554d';
 const BLACK_METAL = '#151617';
 const LUMINOUS = '#fff3dc';
 

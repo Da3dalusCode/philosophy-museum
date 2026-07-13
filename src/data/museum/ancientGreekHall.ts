@@ -351,11 +351,11 @@ const cynicismPosition = {x: 5.6, z: -3};
 const epicureanismPosition = {x: -5.6, z: -3};
 
 const placement: Record<MuseumExhibitId, Placement> = {
-  socrates: {spatialCellId: 'classical-foundations-room', position: {x: -10.4, z: 18.5}, rotationY: Math.PI / 2, interactionRadius: 3.25, viewpoint: {x: -7.2, z: 18.5, yaw: Math.PI / 2, pitch: 0}},
+  socrates: {spatialCellId: 'classical-foundations-room', position: {x: -10.4, z: 18.5}, rotationY: Math.PI / 2, interactionRadius: 3.55, viewpoint: {x: -6.9, z: 18.5, yaw: Math.PI / 2, pitch: -.07}},
   plato: {spatialCellId: 'classical-foundations-room', position: {x: 0, z: 9.45}, rotationY: 0, interactionRadius: 3.25, viewpoint: {x: 0, z: 12.65, yaw: 0, pitch: 0}},
   aristotle: {spatialCellId: 'classical-foundations-room', position: {x: 10.4, z: 11.2}, rotationY: -Math.PI / 2, interactionRadius: 3.25, viewpoint: {x: 7.2, z: 11.2, yaw: -Math.PI / 2, pitch: 0}},
-  cynicism: {spatialCellId: 'hellenistic-ways-room', position: cynicismPosition, rotationY: cynicismRotation, interactionRadius: 3.35, viewpoint: installationViewpoint(cynicismPosition, cynicismRotation, 3, -.02)},
-  epicureanism: {spatialCellId: 'hellenistic-ways-room', position: epicureanismPosition, rotationY: epicureanismRotation, interactionRadius: 3.35, viewpoint: installationViewpoint(epicureanismPosition, epicureanismRotation, 3, -.02)},
+  cynicism: {spatialCellId: 'hellenistic-ways-room', position: cynicismPosition, rotationY: cynicismRotation, interactionRadius: 3.35, viewpoint: installationViewpoint(cynicismPosition, cynicismRotation, 3.3, -.07)},
+  epicureanism: {spatialCellId: 'hellenistic-ways-room', position: epicureanismPosition, rotationY: epicureanismRotation, interactionRadius: 3.35, viewpoint: installationViewpoint(epicureanismPosition, epicureanismRotation, 3.3, -.07)},
   stoicism: {spatialCellId: 'hellenistic-ways-room', position: {x: -8.5, z: -10.5}, rotationY: Math.PI / 2, interactionRadius: 3.25, viewpoint: {x: -5.4, z: -10.5, yaw: Math.PI / 2, pitch: -.02}},
   skepticism: {spatialCellId: 'hellenistic-ways-room', position: {x: 8.5, z: -15.3}, rotationY: -Math.PI / 2, interactionRadius: 3.35, viewpoint: {x: 5.2, z: -15.3, yaw: -Math.PI / 2, pitch: -.02}},
   neoplatonism: {spatialCellId: 'late-antiquity-room', position: {x: 0, z: -33.5}, rotationY: 0, interactionRadius: 4.35, viewpoint: {x: 0, z: -29.2, yaw: 0, pitch: -.04}},
