@@ -1,3 +1,5 @@
+import type {MuseumAssetId} from './museum/museumAssetTypes';
+
 export type MuseumHallId = 'ancient-greek';
 export type MuseumZoneId = 'classical-foundations' | 'hellenistic-ways' | 'late-antiquity';
 export type MuseumExhibitKind = 'philosopher' | 'branch';
@@ -16,6 +18,8 @@ type MuseumExhibitCatalogShape = {
   displayName: string;
   zoneId: MuseumZoneId;
   question: string;
+  principalAssetId: MuseumAssetId;
+  supportingAssetIds: readonly MuseumAssetId[];
 };
 
 const zones = [
@@ -40,14 +44,14 @@ const zones = [
 ] as const satisfies readonly MuseumZoneCatalog[];
 
 const exhibits = [
-  {id: 'socrates', entityKind: 'philosopher', entityId: 'socrates', displayName: 'Socrates', zoneId: 'classical-foundations', question: 'What does an examined life demand of us?'},
-  {id: 'plato', entityKind: 'philosopher', entityId: 'plato', displayName: 'Plato', zoneId: 'classical-foundations', question: 'What is more real than the appearances around us?'},
-  {id: 'aristotle', entityKind: 'philosopher', entityId: 'aristotle', displayName: 'Aristotle', zoneId: 'classical-foundations', question: 'How do causes, purposes, and habits make a life intelligible?'},
-  {id: 'cynicism', entityKind: 'branch', entityId: 'cynicism', displayName: 'Cynicism', zoneId: 'hellenistic-ways', question: 'How much convention must we shed to live freely?'},
-  {id: 'epicureanism', entityKind: 'branch', entityId: 'epicureanism', displayName: 'Epicureanism', zoneId: 'hellenistic-ways', question: 'Which desires lead to durable tranquility?'},
-  {id: 'stoicism', entityKind: 'branch', entityId: 'stoicism', displayName: 'Stoicism', zoneId: 'hellenistic-ways', question: 'What remains in our power when fortune changes?'},
-  {id: 'skepticism', entityKind: 'branch', entityId: 'skepticism', displayName: 'Skepticism', zoneId: 'hellenistic-ways', question: 'Can suspending judgment loosen the grip of anxiety?'},
-  {id: 'neoplatonism', entityKind: 'branch', entityId: 'neoplatonism', displayName: 'Neoplatonism', zoneId: 'late-antiquity', question: 'How can the many flow from—and return toward—the One?'},
+  {id: 'socrates', entityKind: 'philosopher', entityId: 'socrates', displayName: 'Socrates', zoneId: 'classical-foundations', question: 'What does an examined life demand of us?', principalAssetId: 'socrates-louvre-head', supportingAssetIds: ['socrates-death-of-socrates']},
+  {id: 'plato', entityKind: 'philosopher', entityId: 'plato', displayName: 'Plato', zoneId: 'classical-foundations', question: 'What is more real than the appearances around us?', principalAssetId: 'plato-capitoline-bust', supportingAssetIds: ['plato-school-of-athens']},
+  {id: 'aristotle', entityKind: 'philosopher', entityId: 'aristotle', displayName: 'Aristotle', zoneId: 'classical-foundations', question: 'How do causes, purposes, and habits make a life intelligible?', principalAssetId: 'aristotle-altemps-bust', supportingAssetIds: ['aristotle-athenian-constitution-papyrus']},
+  {id: 'cynicism', entityKind: 'branch', entityId: 'cynicism', displayName: 'Cynicism', zoneId: 'hellenistic-ways', question: 'How much convention must we shed to live freely?', principalAssetId: 'cynicism-diogenes-walters', supportingAssetIds: ['cynicism-alexander-and-diogenes']},
+  {id: 'epicureanism', entityKind: 'branch', entityId: 'epicureanism', displayName: 'Epicureanism', zoneId: 'hellenistic-ways', question: 'Which desires lead to durable tranquility?', principalAssetId: 'epicureanism-double-herm', supportingAssetIds: ['epicureanism-lucretius-manuscript']},
+  {id: 'stoicism', entityKind: 'branch', entityId: 'stoicism', displayName: 'Stoicism', zoneId: 'hellenistic-ways', question: 'What remains in our power when fortune changes?', principalAssetId: 'stoicism-zeno-naples', supportingAssetIds: ['stoicism-marcus-aurelius-bust']},
+  {id: 'skepticism', entityKind: 'branch', entityId: 'skepticism', displayName: 'Skepticism', zoneId: 'hellenistic-ways', question: 'Can suspending judgment loosen the grip of anxiety?', principalAssetId: 'skepticism-sextus-riedel', supportingAssetIds: ['skepticism-adversus-mathematicos']},
+  {id: 'neoplatonism', entityKind: 'branch', entityId: 'neoplatonism', displayName: 'Neoplatonism', zoneId: 'late-antiquity', question: 'How can the many flow from—and return toward—the One?', principalAssetId: 'neoplatonism-plotinus-ostia', supportingAssetIds: ['neoplatonism-ficino-enneads']},
 ] as const satisfies readonly MuseumExhibitCatalogShape[];
 
 export type MuseumExhibitCatalog = (typeof exhibits)[number];

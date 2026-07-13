@@ -8,6 +8,7 @@
     "build": "tsc -b && vite build",
     "audit:routing": "node scripts/auditRouting.mjs",
     "audit:museum": "node scripts/auditMuseum.mjs",
+    "audit:museum-assets": "node scripts/auditMuseumAssets.mjs",
     "audit:articles": "node scripts/auditArticleDepth.mjs",
     "audit:accuracy": "node scripts/auditAccuracyMetadata.mjs",
     "audit:integrity": "node scripts/auditReferentialIntegrity.mjs",
