@@ -125,6 +125,12 @@ export type MuseumGuidedWalkLeg = {
   waypoints: readonly MuseumPoint[];
 };
 
+export type MuseumCirculationPath = {
+  id: string;
+  points: readonly MuseumPoint[];
+  clearanceRadius: number;
+};
+
 export type MuseumTrackDefinition = {
   id: string;
   center: MuseumPoint3;
@@ -171,6 +177,7 @@ export type MuseumHallLayout = {
   furnishings: readonly MuseumFurnishingDefinition[];
   obstacleColliders: readonly MuseumCollider[];
   exhibits: readonly MuseumExhibitLayout[];
+  primaryCirculation: MuseumCirculationPath;
   guidedOrder: readonly MuseumExhibitId[];
   guidedWalkLegs: readonly MuseumGuidedWalkLeg[];
   lighting: MuseumLightingDefinition;

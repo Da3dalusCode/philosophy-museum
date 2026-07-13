@@ -14,7 +14,6 @@ const LIMESTONE = '#d1c8b5';
 const LIMESTONE_DARK = '#8f8777';
 const BRONZE = '#86623d';
 const DARK_BRONZE = '#302820';
-const CHARCOAL = '#12181c';
 const TERRACOTTA = '#81513d';
 
 const zoneAccents: Record<MuseumZoneId, string> = {
@@ -39,6 +38,21 @@ function BoxVolume({volume, color = LIMESTONE_DARK, metalness = 0, roughness = .
     <boxGeometry args={[volume.size.width, volume.size.height, volume.size.depth]}/>
     <meshStandardMaterial color={color} metalness={metalness} roughness={roughness}/>
   </mesh>;
+}
+
+function DisplayBacking({volume, accent}: {volume: MuseumSceneVolume; accent: string}) {
+  const frontZ = volume.center.z + volume.size.depth / 2 + .012;
+  return <group userData={{placementId: volume.id}}>
+    <BoxVolume volume={volume} color="#c8c2b7" roughness={.92}/>
+    <mesh position={[volume.center.x, volume.center.y + volume.size.height / 2 - .055, frontZ]}>
+      <boxGeometry args={[volume.size.width - .08, .07, .035]}/>
+      <meshStandardMaterial color={accent} metalness={.34} roughness={.5}/>
+    </mesh>
+    <mesh position={[volume.center.x - volume.size.width / 2 + .055, volume.center.y, frontZ]}>
+      <boxGeometry args={[.07, volume.size.height - .08, .035]}/>
+      <meshStandardMaterial color={accent} metalness={.34} roughness={.5}/>
+    </mesh>
+  </group>;
 }
 
 function ExhibitPlaque({scene, title, kind, accent}: {
@@ -99,9 +113,11 @@ function PhilosopherSignature({id, accent, volume}: {
 function PhilosopherBay({layout, accent, nearby}: {layout: MuseumExhibitLayout; accent: string; nearby: boolean}) {
   const scene = layout.scene;
   const base = bound(scene, `${layout.id}-plinth`);
+  const backing = bound(scene, `${layout.id}-backing`);
   const concept = bound(scene, `${layout.id}-concept`);
   return <group>
     <BoxVolume volume={base}/>
+    <DisplayBacking volume={backing} accent={accent}/>
     {scene.mediaMounts.map((mount) => <MuseumSceneMedia key={mount.id} mount={mount} nearby={nearby} accent={accent}/>)}
     <PhilosopherSignature id={layout.id as 'socrates' | 'plato' | 'aristotle'} accent={accent} volume={concept}/>
   </group>;
@@ -114,7 +130,9 @@ const pithosProfile = [
 function CynicismInstallation({layout, accent, nearby}: {layout: MuseumExhibitLayout; accent: string; nearby: boolean}) {
   const scene = layout.scene;
   const base = bound(scene, 'cynicism-plinth');
+  const backing = bound(scene, 'cynicism-backing');
   const vessel = bound(scene, 'cynicism-pithos');
+  const lamp = bound(scene, 'cynicism-lamp');
   const bottomY = vessel.center.y - vessel.size.height / 2;
   const vesselScale: [number, number, number] = [
     vessel.size.width / 1.46,
@@ -123,6 +141,7 @@ function CynicismInstallation({layout, accent, nearby}: {layout: MuseumExhibitLa
   ];
   return <group>
     <BoxVolume volume={base}/>
+    <DisplayBacking volume={backing} accent={accent}/>
     {scene.mediaMounts.map((mount) => <MuseumSceneMedia key={mount.id} mount={mount} nearby={nearby} accent={accent}/>)}
     <group position={[vessel.center.x, bottomY, vessel.center.z]} scale={vesselScale}>
       <mesh><latheGeometry args={[pithosProfile, 28]}/><meshStandardMaterial color={TERRACOTTA} roughness={.9} metalness={.02}/></mesh>
@@ -131,7 +150,7 @@ function CynicismInstallation({layout, accent, nearby}: {layout: MuseumExhibitLa
       <mesh position={[0,1.555,0]}><cylinderGeometry args={[.27,.27,.018,28]}/><meshStandardMaterial color="#17100e" roughness={1}/></mesh>
       {[-.53,.53].map((x) => <mesh key={x} position={[x,1.15,0]} rotation={[0,Math.PI/2,0]}><torusGeometry args={[.2,.045,8,24,Math.PI*1.45]}/><meshStandardMaterial color="#714634" roughness={.88}/></mesh>)}
     </group>
-    <group position={[-.78,.58,.56]}>
+    <group position={[lamp.center.x, lamp.center.y - .265, lamp.center.z]}>
       <mesh position={[0,.18,0]}><cylinderGeometry args={[.03,.04,.42,8]}/><meshStandardMaterial color={BRONZE} metalness={.68}/></mesh>
       <mesh position={[.05,.42,0]} rotation={[0,0,-.25]}><coneGeometry args={[.13,.25,12]}/><meshStandardMaterial color="#6b4d2f" roughness={.65}/></mesh>
       <mesh position={[0,-.02,0]}><boxGeometry args={[.42,.07,.3]}/><meshStandardMaterial color={BRONZE} metalness={.6}/></mesh>
@@ -142,9 +161,11 @@ function CynicismInstallation({layout, accent, nearby}: {layout: MuseumExhibitLa
 function EpicureanInstallation({layout, accent, nearby}: {layout: MuseumExhibitLayout; accent: string; nearby: boolean}) {
   const scene = layout.scene;
   const base = bound(scene, 'epicureanism-plinth');
+  const backing = bound(scene, 'epicureanism-backing');
   const caseBounds = bound(scene, 'epicureanism-atom-case');
   return <group>
-    <mesh position={[base.center.x,base.center.y,base.center.z]} scale={[1,1,base.size.depth/base.size.width]}><cylinderGeometry args={[base.size.width/2,base.size.width/2+.08,base.size.height,28]}/><meshStandardMaterial color="#4d5847" roughness={.88}/></mesh>
+    <BoxVolume volume={base} color="#53604f" roughness={.88}/>
+    <DisplayBacking volume={backing} accent={accent}/>
     {scene.mediaMounts.map((mount) => <MuseumSceneMedia key={mount.id} mount={mount} nearby={nearby} accent={accent}/>)}
     <group position={[caseBounds.center.x,caseBounds.center.y,caseBounds.center.z]}>
       <mesh><boxGeometry args={[caseBounds.size.width,caseBounds.size.height,caseBounds.size.depth]}/><meshPhysicalMaterial color="#b8c2b7" transparent opacity={.13} roughness={.18} transmission={.25} thickness={.03}/></mesh>
@@ -158,9 +179,11 @@ function EpicureanInstallation({layout, accent, nearby}: {layout: MuseumExhibitL
 function StoicismInstallation({layout, accent, nearby}: {layout: MuseumExhibitLayout; accent: string; nearby: boolean}) {
   const scene = layout.scene;
   const base = bound(scene, 'stoicism-plinth');
+  const backing = bound(scene, 'stoicism-backing');
   const relief = bound(scene, 'stoicism-control-relief');
   return <group>
-    <BoxVolume volume={base} color={CHARCOAL}/>
+    <BoxVolume volume={base} color="#394449"/>
+    <DisplayBacking volume={backing} accent={accent}/>
     {scene.mediaMounts.map((mount) => <MuseumSceneMedia key={mount.id} mount={mount} nearby={nearby} accent={accent}/>)}
     <group position={[relief.center.x,relief.center.y,relief.center.z]}>
       <mesh position={[0,0,-.06]}><boxGeometry args={[relief.size.width,relief.size.height,.12]}/><meshStandardMaterial color="#232a2c" roughness={.82}/></mesh>
@@ -176,9 +199,11 @@ function StoicismInstallation({layout, accent, nearby}: {layout: MuseumExhibitLa
 function SkepticismInstallation({layout, accent, nearby}: {layout: MuseumExhibitLayout; accent: string; nearby: boolean}) {
   const scene = layout.scene;
   const base = bound(scene, 'skepticism-plinth');
+  const backing = bound(scene, 'skepticism-backing');
   const balance = bound(scene, 'skepticism-balance');
   return <group>
     <BoxVolume volume={base}/>
+    <DisplayBacking volume={backing} accent={accent}/>
     {scene.mediaMounts.map((mount) => <MuseumSceneMedia key={mount.id} mount={mount} nearby={nearby} accent={accent}/>)}
     <group position={[balance.center.x,balance.center.y,balance.center.z]}>
       <mesh position={[0,-.4,0]}><boxGeometry args={[.68,.08,.38]}/><meshStandardMaterial color={DARK_BRONZE} metalness={.65}/></mesh>
@@ -198,8 +223,12 @@ function NeoplatonismInstallation({layout, accent, nearby}: {layout: MuseumExhib
   const reliefRadius = Math.min(relief.size.width, relief.size.height) / 2;
   const ringRadii = [reliefRadius * .82, reliefRadius * .56, reliefRadius * .29];
   return <group>
-    <mesh position={[base.center.x,base.center.y,base.center.z]} scale={[1,1,base.size.depth/base.size.width]}><cylinderGeometry args={[base.size.width/2,base.size.width/2+.1,base.size.height,32]}/><meshStandardMaterial color={CHARCOAL} roughness={.78}/></mesh>
-    <BoxVolume volume={wall} color="#d2ccc2" metalness={0} roughness={.9}/>
+    <BoxVolume volume={base} color="#38343f" roughness={.78}/>
+    <mesh position={[base.center.x, base.center.y + base.size.height / 2 + .025, base.center.z + base.size.depth / 2 - .055]}>
+      <boxGeometry args={[base.size.width - .2, .05, .08]}/>
+      <meshStandardMaterial color={BRONZE} metalness={.58} roughness={.42}/>
+    </mesh>
+    <DisplayBacking volume={wall} accent={accent}/>
     {scene.mediaMounts.map((mount) => <MuseumSceneMedia key={mount.id} mount={mount} nearby={nearby} accent={accent}/>)}
     <group position={[relief.center.x,relief.center.y,relief.center.z]}>
       <mesh position={[0,0,-.08]} rotation={[Math.PI/2,0,0]}><cylinderGeometry args={[reliefRadius,reliefRadius,.12,48]}/><meshStandardMaterial color="#171d21" metalness={.2} roughness={.78}/></mesh>

@@ -4,6 +4,7 @@ import {
 } from '../museumCatalog';
 import type {
   MuseumCollider,
+  MuseumCirculationPath,
   MuseumExhibitLayout,
   MuseumExhibitLightDefinition,
   MuseumFurnishingDefinition,
@@ -132,19 +133,24 @@ const philosopherScene = (
   supportingWidth: number,
   supportingHeight: number,
 ): MuseumInstallationSceneDefinition => {
-  const base = volume(`${id}-plinth`, 'base', {x: 0, y: .14, z: 0}, {width: 2.2, height: .28, depth: 1.02});
-  const backing = volume(`${id}-backing`, 'base', {x: 0, y: 1.85, z: -.6}, {width: 2.65, height: 3.35, depth: .16});
-  const concept = volume(`${id}-concept`, 'concept-object', {x: -.52, y: .55, z: .3}, {width: .56, height: .36, depth: .24});
+  const composition = {
+    socrates: {principalX: -.48, supportX: .76, plaqueX: -1, conceptX: .05},
+    plato: {principalX: -.08, supportX: 1.05, plaqueX: -1, conceptX: -.12},
+    aristotle: {principalX: .48, supportX: -.76, plaqueX: 1, conceptX: -.05},
+  }[id];
+  const base = volume(`${id}-plinth`, 'base', {x: 0, y: .14, z: .08}, {width: 2.85, height: .28, depth: 1.42});
+  const backing = volume(`${id}-backing`, 'base', {x: 0, y: 1.9, z: -.72}, {width: 3.05, height: 3.45, depth: .18});
+  const concept = volume(`${id}-concept`, 'concept-object', {x: composition.conceptX, y: .6, z: .42}, {width: .6, height: .4, depth: .26});
   return {
-    footprint: {width: 2.75, height: 3.55, depth: 2.35},
+    footprint: {width: 3.2, height: 3.7, depth: 2.55},
     mediaMounts: [
-      media(`${id}-principal-frame`, principalAssetId, 'wall-frame', [-.4, 2.05, -.48], [0, 0, 0], 1.16, principalHeight * 1.32, backing),
-      media(`${id}-support-lectern`, supportingAssetId, 'lectern', [.78, .95, .2], [-.34, -.1, 0], supportingWidth, supportingHeight, base),
+      media(`${id}-principal-frame`, principalAssetId, 'wall-frame', [composition.principalX, 2.12, -.59], [0, 0, 0], 1.18, principalHeight * 1.28, backing),
+      media(`${id}-support-lectern`, supportingAssetId, 'lectern', [composition.supportX, 1.02, .17], [-.34, 0, 0], supportingWidth, supportingHeight, base),
     ],
-    plaque: plaque(`${id}-plaque`, [0, .46, .9], 1.22, .34),
+    plaque: plaque(`${id}-plaque`, [composition.plaqueX, .44, 1.01], 1.02, .32),
     objectBounds: [base, backing, concept],
-    focalTarget: {x: -.22, y: 1.72, z: -.18},
-    interactionBounds: volume(`${id}-interaction`, 'principal-object', {x: 0, y: 1.55, z: .05}, {width: 2.7, height: 3.1, depth: 2.2}),
+    focalTarget: {x: composition.principalX * .28, y: 1.78, z: -.18},
+    interactionBounds: volume(`${id}-interaction`, 'principal-object', {x: 0, y: 1.62, z: .04}, {width: 3.12, height: 3.24, depth: 2.42}),
   };
 };
 
@@ -153,99 +159,99 @@ const sceneDefinitions: Record<MuseumExhibitId, MuseumInstallationSceneDefinitio
   plato: philosopherScene('plato', 'plato-capitoline-bust', 'plato-school-of-athens', 1.27, .78, .51),
   aristotle: philosopherScene('aristotle', 'aristotle-altemps-bust', 'aristotle-athenian-constitution-papyrus', 1.15, .86, .26),
   cynicism: (() => {
-    const base = volume('cynicism-plinth', 'base', {x: 0, y: .14, z: -.02}, {width: 2.65, height: .28, depth: 1.35});
-    const backing = volume('cynicism-backing', 'base', {x: 0, y: 1.8, z: -.75}, {width: 2.9, height: 3.2, depth: .16});
+    const base = volume('cynicism-plinth', 'base', {x: 0, y: .14, z: .02}, {width: 3.2, height: .28, depth: 1.5});
+    const backing = volume('cynicism-backing', 'base', {x: 0, y: 1.86, z: -.78}, {width: 3.35, height: 3.38, depth: .18});
     return {
-      footprint: {width: 3.05, height: 3.45, depth: 2.55},
+      footprint: {width: 3.5, height: 3.65, depth: 2.7},
       mediaMounts: [
-        media('cynicism-diogenes-panel', 'cynicism-diogenes-walters', 'wall-frame', [-.78, 2.08, -.63], [0, .03, 0], .92, .68, backing),
-        media('cynicism-alexander-panel', 'cynicism-alexander-and-diogenes', 'wall-frame', [.78, 2.08, -.63], [0, -.03, 0], .92, .65, backing),
+        media('cynicism-diogenes-panel', 'cynicism-diogenes-walters', 'wall-frame', [-.82, 2.18, -.65], [0, 0, 0], 1.04, .77, backing),
+        media('cynicism-alexander-panel', 'cynicism-alexander-and-diogenes', 'wall-frame', [.82, 2.18, -.65], [0, 0, 0], 1.04, .74, backing),
       ],
-      plaque: plaque('cynicism-plaque', [0, .48, 1], 1.18, .34),
+      plaque: plaque('cynicism-plaque', [1.15, .46, 1.02], 1.02, .32),
       objectBounds: [
         base,
         backing,
-        volume('cynicism-pithos', 'principal-object', {x: 0, y: 1.04, z: .08}, {width: 1.22, height: 1.52, depth: 1.08}),
-        volume('cynicism-lamp', 'concept-object', {x: -.66, y: .6, z: .42}, {width: .36, height: .54, depth: .26}),
+        volume('cynicism-pithos', 'principal-object', {x: .08, y: .79, z: .17}, {width: .96, height: 1.14, depth: .86}),
+        volume('cynicism-lamp', 'concept-object', {x: -.92, y: .6, z: .4}, {width: .36, height: .54, depth: .26}),
       ],
-      focalTarget: {x: 0, y: 1.32, z: -.02},
-      interactionBounds: volume('cynicism-interaction', 'principal-object', {x: 0, y: 1.5, z: 0}, {width: 3, height: 3, depth: 2.45}),
+      focalTarget: {x: 0, y: 1.56, z: -.12},
+      interactionBounds: volume('cynicism-interaction', 'principal-object', {x: 0, y: 1.58, z: 0}, {width: 3.42, height: 3.16, depth: 2.58}),
     };
   })(),
   epicureanism: (() => {
-    const base = volume('epicureanism-plinth', 'base', {x: 0, y: .13, z: 0}, {width: 2.2, height: .26, depth: 1.45});
-    const backing = volume('epicureanism-backing', 'base', {x: 0, y: 1.8, z: -.8}, {width: 2.8, height: 3.15, depth: .16});
+    const base = volume('epicureanism-plinth', 'base', {x: 0, y: .13, z: .03}, {width: 3.05, height: .26, depth: 1.5});
+    const backing = volume('epicureanism-backing', 'base', {x: 0, y: 1.86, z: -.78}, {width: 3.3, height: 3.35, depth: .18});
     return {
-      footprint: {width: 3.05, height: 3.4, depth: 2.75},
+      footprint: {width: 3.45, height: 3.62, depth: 2.72},
       mediaMounts: [
-        media('epicureanism-herm-panel', 'epicureanism-double-herm', 'wall-frame', [-.58, 1.98, -.68], [0, .03, 0], .9, 1.2, backing),
-        media('epicureanism-lucretius-lectern', 'epicureanism-lucretius-manuscript', 'lectern', [.65, 1.02, .12], [-.4, -.06, 0], .55, .83, base),
+        media('epicureanism-herm-panel', 'epicureanism-double-herm', 'wall-frame', [-.72, 2.1, -.65], [0, 0, 0], 1, 1.34, backing),
+        media('epicureanism-lucretius-lectern', 'epicureanism-lucretius-manuscript', 'lectern', [.74, 1.03, .14], [-.38, 0, 0], .62, .86, base),
       ],
-      plaque: plaque('epicureanism-plaque', [0, .47, 1.08], 1.2, .34),
+      plaque: plaque('epicureanism-plaque', [-1.12, .45, 1.02], 1.02, .32),
       objectBounds: [
         base,
         backing,
-        volume('epicureanism-atom-case', 'concept-object', {x: 0, y: .62, z: .35}, {width: .82, height: .54, depth: .55}),
+        volume('epicureanism-atom-case', 'concept-object', {x: -.02, y: .64, z: .38}, {width: .82, height: .54, depth: .55}),
       ],
-      focalTarget: {x: -.2, y: 1.42, z: -.12},
-      interactionBounds: volume('epicureanism-interaction', 'principal-object', {x: 0, y: 1.5, z: 0}, {width: 3, height: 3, depth: 2.65}),
+      focalTarget: {x: -.2, y: 1.68, z: -.16},
+      interactionBounds: volume('epicureanism-interaction', 'principal-object', {x: 0, y: 1.56, z: 0}, {width: 3.36, height: 3.12, depth: 2.6}),
     };
   })(),
   stoicism: (() => {
-    const base = volume('stoicism-plinth', 'base', {x: 0, y: .13, z: 0}, {width: 2.25, height: .26, depth: 1.1});
-    const backing = volume('stoicism-backing', 'base', {x: 0, y: 1.78, z: -.66}, {width: 2.58, height: 3.12, depth: .16});
+    const base = volume('stoicism-plinth', 'base', {x: 0, y: .13, z: .03}, {width: 3.05, height: .26, depth: 1.38});
+    const backing = volume('stoicism-backing', 'base', {x: 0, y: 1.86, z: -.74}, {width: 3.28, height: 3.34, depth: .18});
     return {
-      footprint: {width: 2.75, height: 3.4, depth: 2.35},
+      footprint: {width: 3.42, height: 3.62, depth: 2.58},
       mediaMounts: [
-        media('stoicism-zeno-panel', 'stoicism-zeno-naples', 'wall-frame', [-.62, 2.02, -.54], [0, .025, 0], .86, 1.26, backing),
-        media('stoicism-marcus-panel', 'stoicism-marcus-aurelius-bust', 'wall-frame', [.62, 1.94, -.54], [0, -.025, 0], .86, 1.03, backing),
+        media('stoicism-zeno-panel', 'stoicism-zeno-naples', 'wall-frame', [-.72, 2.1, -.61], [0, 0, 0], .9, 1.28, backing),
+        media('stoicism-marcus-panel', 'stoicism-marcus-aurelius-bust', 'wall-frame', [.72, 1.99, -.61], [0, 0, 0], .9, 1.06, backing),
       ],
-      plaque: plaque('stoicism-plaque', [0, .46, .91], 1.18, .34),
+      plaque: plaque('stoicism-plaque', [-1.12, .45, 1], 1.02, .32),
       objectBounds: [
         base,
         backing,
-        volume('stoicism-control-relief', 'concept-object', {x: 0, y: .59, z: .31}, {width: .9, height: .48, depth: .14}),
+        volume('stoicism-control-relief', 'concept-object', {x: .3, y: .62, z: .4}, {width: 1, height: .5, depth: .14}),
       ],
-      focalTarget: {x: 0, y: 1.5, z: -.16},
-      interactionBounds: volume('stoicism-interaction', 'principal-object', {x: 0, y: 1.45, z: 0}, {width: 2.7, height: 2.9, depth: 2.25}),
+      focalTarget: {x: 0, y: 1.7, z: -.14},
+      interactionBounds: volume('stoicism-interaction', 'principal-object', {x: 0, y: 1.56, z: 0}, {width: 3.34, height: 3.12, depth: 2.46}),
     };
   })(),
   skepticism: (() => {
-    const base = volume('skepticism-plinth', 'base', {x: 0, y: .13, z: 0}, {width: 2.25, height: .26, depth: 1.2});
-    const backing = volume('skepticism-backing', 'base', {x: 0, y: 1.8, z: -.7}, {width: 2.7, height: 3.15, depth: .16});
+    const base = volume('skepticism-plinth', 'base', {x: 0, y: .13, z: .03}, {width: 3.12, height: .26, depth: 1.48});
+    const backing = volume('skepticism-backing', 'base', {x: 0, y: 1.86, z: -.76}, {width: 3.34, height: 3.36, depth: .18});
     return {
-      footprint: {width: 2.85, height: 3.4, depth: 2.55},
+      footprint: {width: 3.48, height: 3.64, depth: 2.7},
       mediaMounts: [
-        media('skepticism-sextus-panel', 'skepticism-sextus-riedel', 'wall-frame', [-.58, 2.02, -.58], [0, .025, 0], .9, 1.24, backing),
-        media('skepticism-text-lectern', 'skepticism-adversus-mathematicos', 'lectern', [.65, 1.02, .1], [-.4, -.06, 0], .55, .84, base),
+        media('skepticism-sextus-panel', 'skepticism-sextus-riedel', 'wall-frame', [-.72, 2.1, -.63], [0, 0, 0], .94, 1.28, backing),
+        media('skepticism-text-lectern', 'skepticism-adversus-mathematicos', 'lectern', [.82, 1.04, .1], [-.38, 0, 0], .58, .86, base),
       ],
-      plaque: plaque('skepticism-plaque', [0, .47, .96], 1.18, .34),
+      plaque: plaque('skepticism-plaque', [-1.14, .45, 1.03], 1.02, .32),
       objectBounds: [
         base,
         backing,
-        volume('skepticism-balance', 'concept-object', {x: 0, y: .78, z: .3}, {width: 1.08, height: .94, depth: .34}),
+        volume('skepticism-balance', 'concept-object', {x: 0, y: .78, z: .38}, {width: .96, height: .94, depth: .34}),
       ],
-      focalTarget: {x: -.15, y: 1.45, z: -.12},
-      interactionBounds: volume('skepticism-interaction', 'principal-object', {x: 0, y: 1.45, z: 0}, {width: 2.8, height: 2.9, depth: 2.45}),
+      focalTarget: {x: -.08, y: 1.66, z: -.14},
+      interactionBounds: volume('skepticism-interaction', 'principal-object', {x: 0, y: 1.56, z: 0}, {width: 3.4, height: 3.12, depth: 2.58}),
     };
   })(),
   neoplatonism: (() => {
-    const base = volume('neoplatonism-plinth', 'base', {x: 0, y: .15, z: 0}, {width: 4.1, height: .3, depth: 2.4});
-    const wall = volume('neoplatonism-end-wall', 'base', {x: 0, y: 2, z: -1.22}, {width: 4.65, height: 3.7, depth: .18});
+    const base = volume('neoplatonism-plinth', 'base', {x: 0, y: .15, z: .02}, {width: 5.35, height: .3, depth: 1.9});
+    const wall = volume('neoplatonism-end-wall', 'base', {x: 0, y: 2.05, z: -1.15}, {width: 5.85, height: 3.8, depth: .18});
     return {
-      footprint: {width: 4.8, height: 4.2, depth: 3.8},
+      footprint: {width: 6, height: 4.25, depth: 3.3},
       mediaMounts: [
-        media('neoplatonism-plotinus-frame', 'neoplatonism-plotinus-ostia', 'wall-frame', [-1.58, 2.18, -1.08], [0, 0, 0], 1.05, 1.6, wall),
-        media('neoplatonism-ficino-frame', 'neoplatonism-ficino-enneads', 'wall-frame', [1.58, 2.18, -1.08], [0, 0, 0], 1.05, 1.45, wall),
+        media('neoplatonism-plotinus-frame', 'neoplatonism-plotinus-ostia', 'wall-frame', [-1.85, 2.2, -1.02], [0, 0, 0], 1.08, 1.55, wall),
+        media('neoplatonism-ficino-frame', 'neoplatonism-ficino-enneads', 'wall-frame', [1.85, 2.2, -1.02], [0, 0, 0], 1.08, 1.55, wall),
       ],
-      plaque: plaque('neoplatonism-plaque', [0, .54, 1.55], 1.72, .4),
+      plaque: plaque('neoplatonism-plaque', [2.08, .5, 1.18], 1.25, .36),
       objectBounds: [
         base,
         wall,
-        volume('neoplatonism-emanation-relief', 'concept-object', {x: 0, y: 1.98, z: -1.04}, {width: 1.72, height: 1.72, depth: .2}),
+        volume('neoplatonism-emanation-relief', 'concept-object', {x: 0, y: 2.05, z: -.98}, {width: 1.55, height: 1.55, depth: .2}),
       ],
-      focalTarget: {x: 0, y: 1.98, z: -.94},
-      interactionBounds: volume('neoplatonism-interaction', 'principal-object', {x: 0, y: 1.9, z: -.05}, {width: 4.7, height: 3.8, depth: 3.6}),
+      focalTarget: {x: 0, y: 2.05, z: -.9},
+      interactionBounds: volume('neoplatonism-interaction', 'principal-object', {x: 0, y: 1.95, z: -.02}, {width: 5.9, height: 3.9, depth: 3.15}),
     };
   })(),
 };
@@ -270,8 +276,9 @@ const spatialConnections: readonly MuseumSpatialConnection[] = [
 ];
 
 const entryViews: readonly MuseumRoomEntryView[] = [
-  {spatialCellId: 'classical-foundations-room', pose: {x: 0, z: 24.2, yaw: 0, pitch: 0}, expectedVisibleExhibitIds: ['plato', 'aristotle']},
-  {spatialCellId: 'hellenistic-ways-room', pose: {x: 0, z: 4.4, yaw: 0, pitch: 0}, expectedVisibleExhibitIds: ['cynicism', 'epicureanism']},
+  {spatialCellId: 'classical-foundations-room', pose: {x: 0, z: 24.4, yaw: 0, pitch: -.015}, expectedVisibleExhibitIds: ['socrates', 'plato', 'aristotle']},
+  {spatialCellId: 'hellenistic-ways-room', pose: {x: 0, z: 4.25, yaw: 0, pitch: -.015}, expectedVisibleExhibitIds: ['cynicism', 'epicureanism']},
+  {spatialCellId: 'late-antiquity-room', pose: {x: 0, z: -20.75, yaw: 0, pitch: .015}, expectedVisibleExhibitIds: ['neoplatonism']},
 ];
 
 const wall = (id: string, center: MuseumPoint, width: number, depth: number, height: number): MuseumWallDefinition => ({
@@ -321,11 +328,11 @@ const furnishings: readonly MuseumFurnishingDefinition[] = [
 const tracks: readonly MuseumTrackDefinition[] = [
   {id: 'atrium-track-west', center: {x: -3.7, y: 6.05, z: 35}, size: {width: .08, height: .08, depth: 8.5}},
   {id: 'atrium-track-east', center: {x: 3.7, y: 6.05, z: 35}, size: {width: .08, height: .08, depth: 8.5}},
-  {id: 'classical-track-north', center: {x: 0, y: 5.45, z: 18}, size: {width: 20, height: .08, depth: .08}},
-  {id: 'classical-track-south', center: {x: 0, y: 5.45, z: 11.5}, size: {width: 20, height: .08, depth: .08}},
-  {id: 'hellenistic-track-north', center: {x: 0, y: 5.45, z: -5.2}, size: {width: 20, height: .08, depth: .08}},
-  {id: 'hellenistic-track-south', center: {x: 0, y: 5.45, z: -12.2}, size: {width: 20, height: .08, depth: .08}},
-  {id: 'late-track', center: {x: 0, y: 5.85, z: -30.2}, size: {width: 14, height: .08, depth: .08}},
+  {id: 'classical-track-north', center: {x: 0, y: 5.45, z: 14.7}, size: {width: 20, height: .08, depth: .08}},
+  {id: 'classical-track-south', center: {x: 0, y: 5.45, z: 10.35}, size: {width: 20, height: .08, depth: .08}},
+  {id: 'hellenistic-track-north', center: {x: 0, y: 5.45, z: -5.6}, size: {width: 20, height: .08, depth: .08}},
+  {id: 'hellenistic-track-south', center: {x: 0, y: 5.45, z: -13.4}, size: {width: 20, height: .08, depth: .08}},
+  {id: 'late-track', center: {x: 0, y: 5.85, z: -31.2}, size: {width: 14, height: .08, depth: .08}},
 ];
 
 const hall = getMuseumHallCatalog('ancient-greek');
@@ -333,43 +340,73 @@ if (!hall) throw new Error('The ancient Greek Museum catalog is missing.');
 
 type Placement = Omit<MuseumExhibitLayout, 'id' | 'zoneId' | 'collider' | 'scene'>;
 
-const cynicismRotation = -Math.PI / 4;
-const epicureanismRotation = Math.PI / 4;
-const installationViewpoint = (
+const EYE_HEIGHT = 1.68;
+const installationPointToHall = (
   position: MuseumPoint,
-  yaw: number,
-  distance: number,
-  pitch = 0,
-) => ({
-  x: position.x + Math.sin(yaw) * distance,
-  z: position.z + Math.cos(yaw) * distance,
-  yaw,
-  pitch,
+  rotation: number,
+  point: MuseumPoint,
+): MuseumPoint => ({
+  x: position.x + point.x * Math.cos(rotation) + point.z * Math.sin(rotation),
+  z: position.z - point.x * Math.sin(rotation) + point.z * Math.cos(rotation),
 });
+const installationViewpoint = (
+  id: MuseumExhibitId,
+  position: MuseumPoint,
+  rotation: number,
+  distance: number,
+) => {
+  const focal = sceneDefinitions[id].focalTarget;
+  const target = installationPointToHall(position, rotation, focal);
+  const camera = installationPointToHall(position, rotation, {x: focal.x, z: focal.z + distance});
+  return {
+    ...camera,
+    yaw: rotation,
+    pitch: Math.atan2(focal.y - EYE_HEIGHT, Math.hypot(target.x - camera.x, target.z - camera.z)),
+  };
+};
 
-const cynicismPosition = {x: 5.6, z: -3};
-const epicureanismPosition = {x: -5.6, z: -3};
+const socratesPosition = {x: -10.68, z: 14.7};
+const platoPosition = {x: 0, z: 10.35};
+const aristotlePosition = {x: 10.68, z: 14.7};
+const cynicismPosition = {x: 10.2, z: -5.6};
+const epicureanismPosition = {x: -10.2, z: -5.6};
+const stoicismPosition = {x: -10.55, z: -13.4};
+const skepticismPosition = {x: 10.55, z: -13.4};
+const neoplatonismPosition = {x: 0, z: -33};
 
 const placement: Record<MuseumExhibitId, Placement> = {
-  socrates: {spatialCellId: 'classical-foundations-room', position: {x: -10.4, z: 18.5}, rotationY: Math.PI / 2, interactionRadius: 3.55, viewpoint: {x: -6.9, z: 18.5, yaw: Math.PI / 2, pitch: -.07}},
-  plato: {spatialCellId: 'classical-foundations-room', position: {x: 0, z: 9.45}, rotationY: 0, interactionRadius: 3.25, viewpoint: {x: 0, z: 12.65, yaw: 0, pitch: 0}},
-  aristotle: {spatialCellId: 'classical-foundations-room', position: {x: 10.4, z: 11.2}, rotationY: -Math.PI / 2, interactionRadius: 3.25, viewpoint: {x: 7.2, z: 11.2, yaw: -Math.PI / 2, pitch: 0}},
-  cynicism: {spatialCellId: 'hellenistic-ways-room', position: cynicismPosition, rotationY: cynicismRotation, interactionRadius: 3.35, viewpoint: installationViewpoint(cynicismPosition, cynicismRotation, 3.3, -.07)},
-  epicureanism: {spatialCellId: 'hellenistic-ways-room', position: epicureanismPosition, rotationY: epicureanismRotation, interactionRadius: 3.35, viewpoint: installationViewpoint(epicureanismPosition, epicureanismRotation, 3.3, -.07)},
-  stoicism: {spatialCellId: 'hellenistic-ways-room', position: {x: -8.5, z: -10.5}, rotationY: Math.PI / 2, interactionRadius: 3.25, viewpoint: {x: -5.4, z: -10.5, yaw: Math.PI / 2, pitch: -.02}},
-  skepticism: {spatialCellId: 'hellenistic-ways-room', position: {x: 8.5, z: -15.3}, rotationY: -Math.PI / 2, interactionRadius: 3.35, viewpoint: {x: 5.2, z: -15.3, yaw: -Math.PI / 2, pitch: -.02}},
-  neoplatonism: {spatialCellId: 'late-antiquity-room', position: {x: 0, z: -33.5}, rotationY: 0, interactionRadius: 4.35, viewpoint: {x: 0, z: -29.2, yaw: 0, pitch: -.04}},
+  socrates: {spatialCellId: 'classical-foundations-room', position: socratesPosition, rotationY: Math.PI / 2, interactionRadius: 3.6, viewpoint: installationViewpoint('socrates', socratesPosition, Math.PI / 2, 4.15)},
+  plato: {spatialCellId: 'classical-foundations-room', position: platoPosition, rotationY: 0, interactionRadius: 3.5, viewpoint: installationViewpoint('plato', platoPosition, 0, 4.25)},
+  aristotle: {spatialCellId: 'classical-foundations-room', position: aristotlePosition, rotationY: -Math.PI / 2, interactionRadius: 3.6, viewpoint: installationViewpoint('aristotle', aristotlePosition, -Math.PI / 2, 4.15)},
+  cynicism: {spatialCellId: 'hellenistic-ways-room', position: cynicismPosition, rotationY: -Math.PI / 2, interactionRadius: 3.65, viewpoint: installationViewpoint('cynicism', cynicismPosition, -Math.PI / 2, 4.25)},
+  epicureanism: {spatialCellId: 'hellenistic-ways-room', position: epicureanismPosition, rotationY: Math.PI / 2, interactionRadius: 3.65, viewpoint: installationViewpoint('epicureanism', epicureanismPosition, Math.PI / 2, 4.25)},
+  stoicism: {spatialCellId: 'hellenistic-ways-room', position: stoicismPosition, rotationY: Math.PI / 2, interactionRadius: 3.55, viewpoint: installationViewpoint('stoicism', stoicismPosition, Math.PI / 2, 4.2)},
+  skepticism: {spatialCellId: 'hellenistic-ways-room', position: skepticismPosition, rotationY: -Math.PI / 2, interactionRadius: 3.6, viewpoint: installationViewpoint('skepticism', skepticismPosition, -Math.PI / 2, 4.25)},
+  neoplatonism: {spatialCellId: 'late-antiquity-room', position: neoplatonismPosition, rotationY: 0, interactionRadius: 4.8, viewpoint: installationViewpoint('neoplatonism', neoplatonismPosition, 0, 5.1)},
 };
 
 const guidedWalkLegs: readonly MuseumGuidedWalkLeg[] = [
   {fromExhibitId: 'socrates', toExhibitId: 'plato', waypoints: []},
   {fromExhibitId: 'plato', toExhibitId: 'aristotle', waypoints: []},
-  {fromExhibitId: 'aristotle', toExhibitId: 'cynicism', waypoints: [{x: 3.2, z: 8.7}, {x: 3.2, z: 4.3}]},
+  {fromExhibitId: 'aristotle', toExhibitId: 'cynicism', waypoints: [{x: 3.15, z: 8.7}, {x: 3.15, z: 4.2}, {x: 5.8, z: -2.6}]},
   {fromExhibitId: 'cynicism', toExhibitId: 'epicureanism', waypoints: []},
-  {fromExhibitId: 'epicureanism', toExhibitId: 'stoicism', waypoints: [{x: -2.9, z: -3.1}, {x: -5.49, z: -5.7}]},
+  {fromExhibitId: 'epicureanism', toExhibitId: 'stoicism', waypoints: []},
   {fromExhibitId: 'stoicism', toExhibitId: 'skepticism', waypoints: []},
-  {fromExhibitId: 'skepticism', toExhibitId: 'neoplatonism', waypoints: [{x: 3.3, z: -16.3}, {x: 3.3, z: -20.7}]},
+  {fromExhibitId: 'skepticism', toExhibitId: 'neoplatonism', waypoints: [{x: 3.15, z: -16.15}, {x: 3.15, z: -20.75}, {x: 0, z: -25}]},
 ];
+
+const primaryCirculation: MuseumCirculationPath = {
+  id: 'gallery-spine',
+  clearanceRadius: .62,
+  points: [
+    {x: 0, z: 37.5},
+    {x: 0, z: 16},
+    {x: 3.15, z: 13.35},
+    {x: 3.15, z: 8.65},
+    {x: 0, z: 6.2},
+    {x: 0, z: -29.3},
+  ],
+};
 
 const colliderFromScene = (
   id: MuseumExhibitId,
@@ -445,7 +482,7 @@ const exhibitLights: readonly MuseumExhibitLightDefinition[] = exhibitLayouts.ma
       z: mountPosition.z + beam.z / beamLength * .35,
     },
     target,
-    intensity: 38,
+    intensity: layout.id === 'neoplatonism' ? 36 : 34,
     distance: 13,
     angle: .36,
     penumbra: .72,
@@ -455,7 +492,7 @@ const exhibitLights: readonly MuseumExhibitLightDefinition[] = exhibitLayouts.ma
 export const ANCIENT_GREEK_HALL_LAYOUT: MuseumHallLayout = {
   id: hall.id,
   title: hall.title,
-  eyeHeight: 1.68,
+  eyeHeight: EYE_HEIGHT,
   playerRadius: .38,
   bounds: {minX: -12, maxX: 12, minZ: -36, maxZ: 41},
   floorArea: 1592,
@@ -471,6 +508,7 @@ export const ANCIENT_GREEK_HALL_LAYOUT: MuseumHallLayout = {
   furnishings,
   obstacleColliders: [...exhibitLayouts.map(({collider}) => collider), ...furnishings],
   exhibits: exhibitLayouts,
+  primaryCirculation,
   guidedOrder: hall.guidedOrder,
   guidedWalkLegs,
   lighting: {
