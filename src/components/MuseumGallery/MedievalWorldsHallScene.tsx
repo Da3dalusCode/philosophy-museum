@@ -27,7 +27,7 @@ function MedievalKeyLight({intensity}: {intensity: number}) {
 /** Medieval hall geometry only. The persistent Canvas, player, and global atmosphere are shared. */
 export function MedievalWorldsHallContent({definition, active, nearby, onSelectExhibit, onSceneGesture}: MuseumHallContentProps) {
   return <MuseumHallSpatialRoot definition={definition}>
-    {active && <MedievalKeyLight intensity={definition.layout.lighting.directionalIntensity}/>} 
+    {active && <MedievalKeyLight intensity={definition.layout.lighting.directionalIntensity}/>}
     {active && definition.layout.lighting.exhibitLights.map((light) => <ExhibitSpotlight key={light.id} definition={light}/>)}
     <MedievalHallArchitecture definition={definition} onSceneGesture={onSceneGesture}/>
     <MedievalWorldsExhibits definition={definition} visibleExhibitIds={active ? undefined : ['augustine', 'boethius']} nearbyId={nearby?.hallId === definition.id ? nearby.exhibitId : undefined} onSelectExhibit={(exhibitId) => onSelectExhibit({hallId: definition.id, exhibitId})}/>
