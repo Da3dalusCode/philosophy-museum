@@ -29,7 +29,7 @@ The GitHub Pages workflow builds the Vite app and publishes `dist` when changes 
 ## Views
 
 - **Big History:** Filterable chronological events with connected branches and thinkers.
-- **Museum:** A walkable Ancient Greek & Hellenistic gallery with eight exhibits, an accessible directory, and a guided alternative.
+- **Museum:** One continuous walkable world with Ancient, early-modern, and modern galleries; twenty-four interpreted exhibits; an accessible directory; and guided alternatives.
 - **Branch Explorer:** The primary educational view; Stoicism is the showcase branch.
 - **Philosophy Map:** Clickable relationship constellation and branch inspector.
 - **Philosophers:** Searchable profiles that explain where a thinker fits.
@@ -39,15 +39,16 @@ The GitHub Pages workflow builds the Vite app and publishes `dist` when changes 
 
 ## Museum routes and controls
 
-The Museum is lazy-loaded at `#/museum/ancient-greek`; the convenience route `#/museum` replaces itself with that canonical hall URL. Each installation also has a direct route such as `#/museum/ancient-greek/exhibits/plato` or `#/museum/ancient-greek/exhibits/stoicism`.
+The Museum is lazy-loaded at `#/museum/ancient-greek`; the convenience route `#/museum` replaces itself with that canonical hall URL. Gallery routes also include `#/museum/renaissance-reason-revolution` and `#/museum/modernity-freedom-critique`. Every installation has a direct route, such as `#/museum/ancient-greek/exhibits/plato` or `#/museum/modernity-freedom-critique/exhibits/beauvoir`.
 
 - Choose **Enter museum** before movement or look controls engage.
 - Desktop: W A S D or arrow keys move, the mouse looks around, E or Enter opens a nearby exhibit, R resets, M opens the directory, and Escape pauses or releases Pointer Lock.
 - Touch: use the independent left movement and right look controls, then the contextual Interact button. Pause, Reset, and Directory remain available inside the stage.
-- The DOM directory and guided exhibit controls expose all eight labels and full-article links without requiring free movement or WebGL.
-- Camera position is validated and retained only for the current browser session so article Back/Forward round trips resume in the hall.
+- The DOM directory and guided controls expose all twenty-four labels and full-article links without requiring free movement or WebGL.
+- Camera position is validated and retained independently for each gallery during the current browser session, so article and Back/Forward round trips resume safely.
+- Walking through either physical seam keeps the same canvas, camera rig, movement intent, immersive state, and fullscreen state.
 
-Run the Museum-specific structural, collision, session, and data audit with `npm run audit:museum`.
+Run the structural/runtime audit with `npm run audit:museum` and the forty-eight-object provenance/media audit with `npm run audit:museum-assets`.
 
 ## Data model
 
@@ -64,13 +65,13 @@ Keep explanations beginner-readable, mark date confidence for uncertain ancient 
 
 ## Known limitations
 
-V1 seed data is broad but intentionally concise outside the deepest article set. The map uses a curated subset of branches for readability. Influence fields on many philosopher records are not yet deeply linked. The decorative 3D constellation is not itself a navigation surface. The Museum currently contains one complete hall; it retains camera position only for the current browser session and does not persist long-term progress.
+V1 seed data is broad but intentionally concise outside the deepest article set. The map uses a curated subset of branches for readability. Influence fields on many philosopher records are not yet deeply linked. The decorative 3D constellation is not itself a navigation surface. Museum camera positions persist only for the current browser session; the app does not save long-term visit or reading progress.
 
 ## Phase 2 ideas (not built)
 
 - SEP/IEP/Wikipedia/Wikidata links and enrichment
 - A real citation and source layer
-- Additional walkable museum halls and a shared lobby
+- Additional walkable museum halls extending the active-plus-adjacent world graph
 - Saved reading progress and quiz mode
 - Deeper cross-cultural philosophy coverage
 - Exportable study notes
