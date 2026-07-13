@@ -52,13 +52,14 @@ class SceneErrorBoundary extends Component<{
 function FirstPersonRig({
   active,
   blocked,
+  poseRevision,
   inputRef,
   poseRef,
   onNearbyChange,
   onNearbyVisualChange,
 }: Pick<
   MuseumSceneRuntimeProps,
-  'active' | 'blocked' | 'inputRef' | 'poseRef' | 'onNearbyChange'
+  'active' | 'blocked' | 'poseRevision' | 'inputRef' | 'poseRef' | 'onNearbyChange'
 > & {onNearbyVisualChange: (id: MuseumExhibitId | undefined) => void}) {
   const {camera, invalidate} = useThree();
   const lastNearbyRef = useRef<MuseumExhibitId | undefined>(undefined);
@@ -81,10 +82,11 @@ function FirstPersonRig({
   }, [onNearbyChange, onNearbyVisualChange, poseRef]);
 
   useEffect(() => {
+    void poseRevision;
     applyPose();
     publishNearby();
     invalidate();
-  }, [applyPose, invalidate, publishNearby]);
+  }, [applyPose, invalidate, poseRevision, publishNearby]);
 
   useEffect(() => {
     if (active && !blocked) return;
@@ -143,14 +145,14 @@ function GalleryScene(props: MuseumSceneRuntimeProps & {
 }) {
   const [nearbyId, setNearbyId] = useState<MuseumExhibitId | undefined>();
   return <>
-    <color attach="background" args={['#40372d']}/>
-    <fog attach="fog" args={['#40372d', 26, 76]}/>
-    <hemisphereLight args={['#f4e0bc', '#332b24', .72]}/>
-    <ambientLight intensity={.18}/>
+    <color attach="background" args={['#080c10']}/>
+    <fog attach="fog" args={['#080c10', 23, 73]}/>
+    <hemisphereLight args={['#d9e1de', '#121719', .44]}/>
+    <ambientLight intensity={.1}/>
     <directionalLight
       position={[5, 10, 14]}
-      intensity={1.35}
-      color="#ffe2b2"
+      intensity={1.02}
+      color="#f1dfbf"
       castShadow={false}
       shadow-mapSize-width={1024}
       shadow-mapSize-height={1024}
@@ -161,14 +163,17 @@ function GalleryScene(props: MuseumSceneRuntimeProps & {
       shadow-camera-near={1}
       shadow-camera-far={42}
     />
-    <pointLight position={[0, 5.8, 18]} color="#d8a85c" intensity={18} distance={18} decay={2}/>
-    <pointLight position={[0, 5.8, -3]} color="#c88b50" intensity={15} distance={19} decay={2}/>
-    <pointLight position={[0, 5.8, -24]} color="#9a82c7" intensity={17} distance={16} decay={2}/>
+    <pointLight position={[0, 5.7, 19]} color="#8eb3d0" intensity={13} distance={18} decay={2}/>
+    <pointLight position={[0, 5.7, -3]} color="#bd795d" intensity={12} distance={20} decay={2}/>
+    <pointLight position={[0, 5.7, -24]} color="#8c79b1" intensity={14} distance={16} decay={2}/>
+    <pointLight position={[-7.4, 4.1, 17]} color="#f0d8b6" intensity={7} distance={7} decay={2}/>
+    <pointLight position={[7.4, 4.1, -5]} color="#ecd0ae" intensity={7} distance={7} decay={2}/>
     <HallArchitecture/>
     <MuseumExhibits nearbyId={nearbyId} onSelectExhibit={props.onSelectExhibit}/>
     <FirstPersonRig
       active={props.active}
       blocked={props.blocked}
+      poseRevision={props.poseRevision}
       inputRef={props.inputRef}
       poseRef={props.poseRef}
       onNearbyChange={props.onNearbyChange}

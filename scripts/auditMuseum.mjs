@@ -17,6 +17,7 @@ const result = await build({
       export * from '/src/data/museumCatalog.ts';
       export * from '/src/data/museum/ancientGreekHall.ts';
       export * from '/src/components/MuseumGallery/museumMovement.ts';
+      export * from '/src/components/MuseumGallery/museumRuntime.ts';
       export * from '/src/components/MuseumGallery/museumSession.ts';
       export {branches} from '/src/data/branches.ts';
       export {philosophers} from '/src/data/philosophers.ts';
@@ -47,6 +48,7 @@ const {
   parseMuseumSession,
   sanitizeMuseumPose,
   setMuseumMovementDisplacement,
+  hasMuseumBrowserModifier,
 } = museum;
 
 let checks = 0;
@@ -220,6 +222,13 @@ check('camera session parsing rejects malformed and unsafe values', () => {
   assert.equal(sanitizeMuseumPose({...layout.spawn, x: Number.POSITIVE_INFINITY}, layout), undefined);
   const insidePlinth = layout.exhibits.find(({id}) => id === 'plato').collider.center;
   assert.equal(sanitizeMuseumPose({...insidePlinth, yaw: 0, pitch: 0}, layout), undefined);
+});
+
+check('Museum controls preserve modified browser shortcuts', () => {
+  assert.equal(hasMuseumBrowserModifier({altKey: true, ctrlKey: false, metaKey: false}), true);
+  assert.equal(hasMuseumBrowserModifier({altKey: false, ctrlKey: true, metaKey: false}), true);
+  assert.equal(hasMuseumBrowserModifier({altKey: false, ctrlKey: false, metaKey: true}), true);
+  assert.equal(hasMuseumBrowserModifier({altKey: false, ctrlKey: false, metaKey: false}), false);
 });
 
 console.log(`\nMuseum audit passed: ${checks} groups covering ${MUSEUM_HALLS[0].exhibits.length} exhibits, ${MUSEUM_HALLS[0].zones.length} zones, and ${allColliders.length} colliders.`);

@@ -13,6 +13,7 @@ export type MuseumControlMode = 'idle' | 'requesting-lock' | 'locked' | 'drag-lo
 export type MuseumSceneRuntimeProps = {
   active: boolean;
   blocked: boolean;
+  poseRevision: number;
   reducedMotion: boolean;
   inputRef: MutableRefObject<MuseumInputState>;
   poseRef: MutableRefObject<MuseumPose>;
@@ -28,3 +29,6 @@ export const createMuseumInputState = (): MuseumInputState => ({
   lookX: 0,
   lookY: 0,
 });
+
+export const hasMuseumBrowserModifier = (event: Pick<KeyboardEvent, 'altKey' | 'ctrlKey' | 'metaKey'>): boolean =>
+  event.altKey || event.ctrlKey || event.metaKey;

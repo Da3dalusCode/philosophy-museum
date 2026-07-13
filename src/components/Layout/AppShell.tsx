@@ -10,9 +10,10 @@ export function AppShell({view, href, onRouteIntent, children}: {
   onRouteIntent?: (view: ViewId) => void;
   children: ReactNode;
 }) {
-  return <div className="shell">
+  const museumRoute = view === 'museum';
+  return <div className={museumRoute ? 'shell shell-museum' : 'shell'}>
     <header className="app-header"><Navigation view={view} href={href} onRouteIntent={onRouteIntent}/><GlobalSearch href={href}/></header>
     <main>{children}</main>
-    <footer><span>Philosophy Atlas · A local-first museum of questions</span><span>Explore arguments, not slogans.</span></footer>
+    {!museumRoute && <footer><span>Philosophy Atlas · A local-first museum of questions</span><span>Explore arguments, not slogans.</span></footer>}
   </div>;
 }

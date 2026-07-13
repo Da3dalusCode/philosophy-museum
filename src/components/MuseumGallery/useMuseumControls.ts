@@ -10,6 +10,7 @@ import {
 import type {MuseumExhibitId} from '../../data/museumCatalog';
 import {
   createMuseumInputState,
+  hasMuseumBrowserModifier,
   type MuseumControlMode,
   type MuseumInputState,
 } from './museumRuntime';
@@ -218,6 +219,7 @@ export function useMuseumControls(options: UseMuseumControlsOptions): MuseumCont
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
       if (isEditableTarget(event.target)) return;
+      if (hasMuseumBrowserModifier(event)) return;
       if (movementCodes.has(event.code)) {
         if (!canControl()) return;
         event.preventDefault();

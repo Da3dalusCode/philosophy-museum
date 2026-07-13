@@ -1,4 +1,14 @@
-import {BookOpen, Compass, DoorOpen, Info, Landmark, MapPinned, RotateCcw, X} from 'lucide-react';
+import {
+  DoorOpen,
+  Info,
+  Landmark,
+  MapPinned,
+  Maximize2,
+  Minimize2,
+  RotateCcw,
+  Scan,
+  X,
+} from 'lucide-react';
 import {
   Component,
   lazy,
@@ -10,7 +20,6 @@ import {
   useRef,
   useState,
   type ErrorInfo,
-  type CSSProperties,
   type KeyboardEvent,
   type MouseEvent,
   type ReactNode,
@@ -24,9 +33,11 @@ import {
 } from '../../data/museumCatalog';
 import type {MuseumRoute, NavigableAppRoute, RouteHref, RouteNavigator} from '../../routing/routes';
 import {getMuseumExhibitContent} from './exhibitContent';
+import {MuseumInterpretationPanel} from './MuseumInterpretationPanel';
 import {MuseumTouchControls} from './MuseumTouchControls';
 import {loadMuseumSession, removeMuseumSession, saveMuseumSession} from './museumSession';
-import {useMuseumControls} from './useMuseumControls';
+import {useMuseumControls, type MuseumControls} from './useMuseumControls';
+import {useMuseumExperienceMode} from './useMuseumExperienceMode';
 import './museum.css';
 
 const createLazyAncientGreekHallScene = () => lazy(() => import('./AncientGreekHallScene').then(
@@ -102,41 +113,38 @@ class MuseumSceneBoundary extends Component<{
   render() { return this.state.error ? null : this.props.children; }
 }
 
-function Modal({labelledBy, describedBy, onClose, restoreFocus = true, children}: {
+const focusableSelector = 'a[href],button:not([disabled]),[tabindex]:not([tabindex="-1"])';
+const visibleFocusable = (root: HTMLElement): HTMLElement[] => [...root.querySelectorAll<HTMLElement>(focusableSelector)]
+  .filter((item) => !item.closest('[inert],[aria-hidden="true"],[hidden]') && Boolean(item.offsetWidth || item.offsetHeight || item.getClientRects().length));
+
+function MuseumModal({labelledBy, describedBy, onClose, children}: {
   labelledBy: string;
   describedBy?: string;
   onClose: () => void;
-  restoreFocus?: boolean;
   children: ReactNode;
 }) {
-  const dialogRef = useRef<HTMLDivElement>(null);
+  const dialogRef = useRef<HTMLElement>(null);
   useEffect(() => {
     const previous = document.activeElement instanceof HTMLElement ? document.activeElement : undefined;
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
     dialogRef.current?.focus();
     return () => {
-      document.body.style.overflow = previousOverflow;
-      if (!restoreFocus) return;
       window.requestAnimationFrame(() => {
-        if (previous?.isConnected && !previous.closest('[inert]')) previous.focus({preventScroll: true});
+        if (previous?.isConnected && !previous.closest('[inert],[aria-hidden="true"]')) previous.focus({preventScroll: true});
       });
     };
-  // Focus restoration policy is fixed when a modal opens.
   }, []);
-  const trapFocus = (event: KeyboardEvent<HTMLDivElement>) => {
+  const trapFocus = (event: KeyboardEvent<HTMLElement>) => {
     if (event.key === 'Escape') {
       event.preventDefault();
       event.stopPropagation();
       onClose();
       return;
     }
-    if (event.key !== 'Tab') return;
-    const focusable = [...(dialogRef.current?.querySelectorAll<HTMLElement>('a[href],button:not([disabled]),[tabindex]:not([tabindex="-1"])') ?? [])]
-      .filter((item) => !item.hasAttribute('hidden'));
+    if (event.key !== 'Tab' || !dialogRef.current) return;
+    const focusable = visibleFocusable(dialogRef.current);
     if (!focusable.length) {
       event.preventDefault();
-      dialogRef.current?.focus();
+      dialogRef.current.focus();
       return;
     }
     const first = focusable[0];
@@ -144,9 +152,7 @@ function Modal({labelledBy, describedBy, onClose, restoreFocus = true, children}
     if (!focusable.includes(document.activeElement as HTMLElement)) {
       event.preventDefault();
       (event.shiftKey ? last : first).focus();
-      return;
-    }
-    if (event.shiftKey && document.activeElement === first) {
+    } else if (event.shiftKey && document.activeElement === first) {
       event.preventDefault();
       last.focus();
     } else if (!event.shiftKey && document.activeElement === last) {
@@ -154,10 +160,10 @@ function Modal({labelledBy, describedBy, onClose, restoreFocus = true, children}
       first.focus();
     }
   };
-  return <div className="museum-modal-backdrop" role="presentation" onMouseDown={(event) => {
+  return <div className="museum-overlay-backdrop" role="presentation" onMouseDown={(event) => {
     if (event.target === event.currentTarget) onClose();
   }}>
-    <div className="museum-modal" ref={dialogRef} role="dialog" aria-modal="true" aria-labelledby={labelledBy} aria-describedby={describedBy} tabIndex={-1} onKeyDown={trapFocus}>{children}</div>
+    <section className="museum-overlay-panel" ref={dialogRef} role="dialog" aria-modal="true" aria-labelledby={labelledBy} aria-describedby={describedBy} tabIndex={-1} onKeyDown={trapFocus}>{children}</section>
   </div>;
 }
 
@@ -167,7 +173,7 @@ function ExhibitRouteLink({route, exhibit, href, push, className = 'btn btn-prim
   href: RouteHref;
   push: RouteNavigator;
   className?: string;
-  onActivate?: () => void;
+  onActivate?: (exhibit: MuseumExhibitCatalog) => void;
   current?: boolean;
   children: ReactNode;
 }) {
@@ -175,7 +181,7 @@ function ExhibitRouteLink({route, exhibit, href, push, className = 'btn btn-prim
   return <a className={className} href={href(target)} aria-current={current ? 'page' : undefined} onClick={(event) => {
     if (!isOrdinaryActivation(event)) return;
     event.preventDefault();
-    onActivate?.();
+    onActivate?.(exhibit);
     push(target, {state: historyStateWithMuseumMarker(route.hallId)});
   }}>{children}</a>;
 }
@@ -184,7 +190,7 @@ function DirectoryContents({route, href, push, onExhibitActivate, showSummaries 
   route: MuseumRoute;
   href: RouteHref;
   push: RouteNavigator;
-  onExhibitActivate?: () => void;
+  onExhibitActivate?: (exhibit: MuseumExhibitCatalog) => void;
   showSummaries?: boolean;
 }) {
   const hall = getMuseumHallCatalog(route.hallId)!;
@@ -195,8 +201,8 @@ function DirectoryContents({route, href, push, onExhibitActivate, showSummaries 
       <ul>{hall.exhibits.filter((item) => item.zoneId === zone.id).map((item) => {
         const current = route.exhibitId === item.id;
         const summary = showSummaries ? getMuseumExhibitContent(item).introduction : item.question;
-        return <li key={item.id} className={current ? 'is-current' : ''}>
-          <div><b>{item.displayName}</b><span>{item.entityKind === 'philosopher' ? 'Philosopher' : 'School / branch'}</span></div>
+        return <li key={item.id} className={current ? 'is-current' : ''} data-entity-kind={item.entityKind}>
+          <div><b>{item.displayName}</b><span>{item.entityKind === 'philosopher' ? 'Philosopher' : 'School / tradition'}</span></div>
           {current && <strong className="museum-current-label">Currently open</strong>}
           <p>{summary}</p>
           <div className="museum-directory-actions">
@@ -209,49 +215,64 @@ function DirectoryContents({route, href, push, onExhibitActivate, showSummaries 
   </div>;
 }
 
-function Directory({route, href, push, onClose, onGuidedStart}: {
+function Directory({route, href, push, onClose, onGuidedStart, onExhibitViewpoint}: {
   route: MuseumRoute;
   href: RouteHref;
   push: RouteNavigator;
   onClose: () => void;
   onGuidedStart: () => void;
+  onExhibitViewpoint: (id: MuseumExhibitId) => void;
 }) {
   const titleId = useId();
   const descriptionId = useId();
-  return <Modal labelledBy={titleId} describedBy={descriptionId} onClose={onClose}>
-    <div className="museum-modal-head">
+  return <MuseumModal labelledBy={titleId} describedBy={descriptionId} onClose={onClose}>
+    <div className="museum-overlay-head">
       <div><p className="eyebrow">Museum directory</p><h2 id={titleId}>Eight stops across three eras</h2></div>
       <button className="museum-icon-button" type="button" onClick={onClose} aria-label="Close Museum directory"><X/></button>
     </div>
-    <p id={descriptionId}>Every exhibit and full article remains available without entering the 3D hall.</p>
+    <p id={descriptionId}>Every exhibit, object label, and full article remains available without entering the walkable hall.</p>
     <button className="btn btn-primary museum-guided-start" type="button" onClick={onGuidedStart}>Start guided directory visit</button>
-    <DirectoryContents route={route} href={href} push={push} onExhibitActivate={onClose}/>
-  </Modal>;
+    <DirectoryContents route={route} href={href} push={push} onExhibitActivate={(exhibit) => {
+      onExhibitViewpoint(exhibit.id);
+      onClose();
+    }}/>
+  </MuseumModal>;
 }
 
 function Help({onClose}: {onClose: () => void}) {
   const titleId = useId();
-  return <Modal labelledBy={titleId} onClose={onClose}>
-    <div className="museum-modal-head"><div><p className="eyebrow">Controls & access</p><h2 id={titleId}>Explore at your pace</h2></div><button className="museum-icon-button" type="button" onClick={onClose} aria-label="Close Museum help"><X/></button></div>
+  return <MuseumModal labelledBy={titleId} onClose={onClose}>
+    <div className="museum-overlay-head"><div><p className="eyebrow">Controls & access</p><h2 id={titleId}>Explore at your pace</h2></div><button className="museum-icon-button" type="button" onClick={onClose} aria-label="Close Museum help"><X/></button></div>
     <div className="museum-help-grid">
       <section><h3>Keyboard & mouse</h3><p>Choose Enter museum, then use W A S D or the arrow keys. Look with the mouse. Press E or Enter near an exhibit, R to reset, M for the directory, and Escape to pause.</p></section>
-      <section><h3>Touch</h3><p>Use the left movement control and the separate right look area. A contextual Interact button appears when an exhibit is near.</p></section>
-      <section><h3>Without 3D</h3><p>The directory contains every exhibit label and native link. Guided mode moves directly between safe viewpoints without requiring free movement.</p></section>
+      <section><h3>Immersive viewing</h3><p>Immersive mode hides Atlas chrome. Fullscreen uses the browser’s real Fullscreen API; press F when no panel is open. Native Escape exits browser fullscreen.</p></section>
+      <section><h3>Touch</h3><p>Use the left movement control and separate right look area. A contextual Interact action appears when an exhibit is near.</p></section>
+      <section><h3>Without free movement</h3><p>The directory contains every exhibit and native article link. Guided mode moves between safe viewpoints without requiring manual movement.</p></section>
     </div>
-  </Modal>;
+  </MuseumModal>;
 }
 
-function MuseumFallback({route, href, push, onRetry, onReload}: {
+function MuseumFallback({route, href, push, onRetry, onReload, immersive, fullscreen, onToggleImmersive, onToggleFullscreen}: {
   route: MuseumRoute;
   href: RouteHref;
   push: RouteNavigator;
   onRetry: () => void;
   onReload: () => void;
+  immersive: boolean;
+  fullscreen: boolean;
+  onToggleImmersive: () => void;
+  onToggleFullscreen: () => void;
 }) {
   return <div className="museum-fallback" role="region" aria-labelledby="museum-fallback-title">
     <p className="eyebrow">Directory mode</p><h2 id="museum-fallback-title" tabIndex={-1}>The walkable hall is unavailable on this device.</h2>
-    <p>You can still visit every exhibit and open every complete Atlas article.</p>
-    <div className="museum-fallback-actions"><button className="btn btn-primary" type="button" onClick={onRetry}>Retry 3D hall</button><button className="btn" type="button" onClick={onReload}>Reload atlas</button><a className="btn" href={href({kind: 'history'})}>Return to Big History</a></div>
+    <p>You can still visit every interpreted object and open every complete Atlas article.</p>
+    <div className="museum-fallback-actions">
+      <button className="btn btn-primary" type="button" onClick={onRetry}>Retry 3D hall</button>
+      <button className="btn" type="button" onClick={onReload}>Reload atlas</button>
+      {immersive && <button className="btn" type="button" onClick={onToggleImmersive}>Exit immersive</button>}
+      {fullscreen && <button className="btn" type="button" onClick={onToggleFullscreen}>Exit fullscreen</button>}
+      <a className="btn" href={href({kind: 'history'})}>Return to Big History</a>
+    </div>
     <DirectoryContents route={route} href={href} push={push} showSummaries/>
   </div>;
 }
@@ -265,8 +286,9 @@ export function MuseumPage({route, href, push, replace}: {
   const hall = getMuseumHallCatalog(route.hallId)!;
   const exhibit = route.exhibitId ? getMuseumExhibitCatalog(route.hallId, route.exhibitId) : undefined;
   const content = useMemo(() => exhibit ? getMuseumExhibitContent(exhibit) : undefined, [exhibit]);
+  const experienceRootRef = useRef<HTMLDivElement>(null);
   const backgroundRef = useRef<HTMLDivElement>(null);
-  const stageRef = useRef<HTMLElement>(null);
+  const controlsRef = useRef<MuseumControls | null>(null);
   const poseRef = useRef<MuseumPose>((() => {
     const session = loadMuseumSession(ANCIENT_GREEK_HALL_LAYOUT);
     const marker = getMuseumHistoryMarker();
@@ -279,34 +301,42 @@ export function MuseumPage({route, href, push, replace}: {
     return {...(directViewpoint ?? ANCIENT_GREEK_HALL_LAYOUT.spawn)};
   })());
   const nearbyRef = useRef<MuseumExhibitId | undefined>(undefined);
+  const lastAnnouncedNearbyRef = useRef<MuseumExhibitId | undefined>(undefined);
   const [nearbyId, setNearbyId] = useState<MuseumExhibitId | undefined>();
+  const [announcement, setAnnouncement] = useState('');
   const [exploring, setExploring] = useState(false);
   const [overlay, setOverlay] = useState<Overlay>(null);
   const [guided, setGuided] = useState(false);
   const [sceneError, setSceneError] = useState<unknown>(() => hasWebGL() ? null : new Error('WebGL is unavailable.'));
   const hadSceneErrorRef = useRef(Boolean(sceneError));
+  const previousModalOpenRef = useRef(false);
   const [sceneEpoch, setSceneEpoch] = useState(0);
+  const [poseRevision, setPoseRevision] = useState(0);
   const LazyAncientGreekHallScene = useMemo(createLazyAncientGreekHallScene, [sceneEpoch]);
   const reducedMotion = useReducedMotion();
   const modalOpen = Boolean(exhibit || overlay);
   const blocked = modalOpen || Boolean(sceneError);
+
   const handleSceneError = useCallback((error: unknown) => {
+    controlsRef.current?.pauseExploring();
     setExploring(false);
     setSceneError(error);
   }, []);
 
   const openExhibit = useCallback((id: MuseumExhibitId) => {
-    const target = {kind: 'museum' as const, hallId: route.hallId, exhibitId: id};
+    controlsRef.current?.pauseExploring();
+    setExploring(false);
     setGuided(false);
     saveMuseumSession(ANCIENT_GREEK_HALL_LAYOUT, poseRef.current, nearbyRef.current);
-    push(target, {state: historyStateWithMuseumMarker(route.hallId)});
+    push({kind: 'museum', hallId: route.hallId, exhibitId: id}, {state: historyStateWithMuseumMarker(route.hallId)});
   }, [push, route.hallId]);
 
   const resetPosition = useCallback(() => {
+    controlsRef.current?.pauseExploring();
     removeMuseumSession(route.hallId);
     poseRef.current = {...ANCIENT_GREEK_HALL_LAYOUT.reset};
     setExploring(false);
-    setSceneEpoch((value) => value + 1);
+    setPoseRevision((value) => value + 1);
   }, [route.hallId]);
 
   const controls = useMuseumControls({
@@ -318,14 +348,28 @@ export function MuseumPage({route, href, push, replace}: {
     onOpenDirectory: () => setOverlay('directory'),
     onPause: () => setExploring(false),
   });
+  controlsRef.current = controls;
+
+  const experience = useMuseumExperienceMode({
+    experienceRootRef,
+    shortcutBlocked: blocked,
+  });
+
+  const stageExhibitViewpoint = useCallback((id: MuseumExhibitId) => {
+    const viewpoint = ANCIENT_GREEK_HALL_LAYOUT.exhibits.find((item) => item.id === id)?.viewpoint;
+    if (!viewpoint) return;
+    poseRef.current = {...viewpoint};
+    saveMuseumSession(ANCIENT_GREEK_HALL_LAYOUT, poseRef.current, id);
+    setPoseRevision((value) => value + 1);
+  }, []);
 
   const pauseAndOpen = (next: Exclude<Overlay, null>) => {
     controls.pauseExploring();
+    setExploring(false);
     setOverlay(next);
   };
   const beginExploring = () => {
     if (sceneError) return;
-    stageRef.current?.scrollIntoView({block: 'start'});
     setOverlay(null);
     setExploring(true);
     controls.beginExploring();
@@ -334,7 +378,10 @@ export function MuseumPage({route, href, push, replace}: {
     const marker = getMuseumHistoryMarker();
     setGuided(false);
     if (marker?.hallId === route.hallId && marker.openedFromHall) window.history.back();
-    else replace({kind: 'museum', hallId: route.hallId}, {state: isPlainObject(window.history.state) ? {...window.history.state, philosophyAtlasMuseum: undefined} : undefined});
+    else replace(
+      {kind: 'museum', hallId: route.hallId},
+      {state: isPlainObject(window.history.state) ? {...window.history.state, philosophyAtlasMuseum: undefined} : undefined},
+    );
   };
 
   const goGuided = (index: number, replaceCurrent = false) => {
@@ -342,9 +389,10 @@ export function MuseumPage({route, href, push, replace}: {
     const viewpoint = ANCIENT_GREEK_HALL_LAYOUT.exhibits.find((item) => item.id === id)?.viewpoint;
     if (!id || !viewpoint) return;
     controls.pauseExploring();
+    setExploring(false);
     poseRef.current = {...viewpoint};
     saveMuseumSession(ANCIENT_GREEK_HALL_LAYOUT, poseRef.current, id);
-    setSceneEpoch((value) => value + 1);
+    setPoseRevision((value) => value + 1);
     setGuided(true);
     setOverlay(null);
     const target = {kind: 'museum' as const, hallId: route.hallId, exhibitId: id};
@@ -355,30 +403,58 @@ export function MuseumPage({route, href, push, replace}: {
   const retryScene = () => {
     setSceneError(null);
     setSceneEpoch((value) => value + 1);
+    window.requestAnimationFrame(() => document.getElementById('museum-enter-button')?.focus({preventScroll: true}));
   };
 
   useEffect(() => {
     const background = backgroundRef.current;
+    const appHeader = document.querySelector<HTMLElement>('.shell-museum > .app-header');
     if (!background) return;
     background.inert = modalOpen;
+    if (appHeader) appHeader.inert = modalOpen;
     if (modalOpen) background.setAttribute('aria-hidden', 'true');
     else background.removeAttribute('aria-hidden');
+    if (appHeader) {
+      if (modalOpen) appHeader.setAttribute('aria-hidden', 'true');
+      else appHeader.removeAttribute('aria-hidden');
+    }
     return () => {
       background.inert = false;
       background.removeAttribute('aria-hidden');
+      if (appHeader) {
+        appHeader.inert = false;
+        appHeader.removeAttribute('aria-hidden');
+      }
     };
   }, [modalOpen]);
 
   useEffect(() => {
-    const failed = Boolean(sceneError);
-    const shouldFocus = failed && !hadSceneErrorRef.current;
-    hadSceneErrorRef.current = failed;
-    if (!shouldFocus) return;
+    if (!modalOpen) return;
+    experience.clearError();
+  }, [experience.clearError, modalOpen]);
+
+  useEffect(() => {
+    if (route.exhibitId || modalOpen) return;
     const frame = window.requestAnimationFrame(() => {
-      document.getElementById('museum-fallback-title')?.focus({preventScroll: true});
+      const target = sceneError
+        ? document.getElementById('museum-fallback-title')
+        : document.getElementById('museum-title');
+      target?.focus({preventScroll: true});
     });
     return () => window.cancelAnimationFrame(frame);
-  }, [sceneError]);
+  }, [route.exhibitId, sceneError]);
+
+  useEffect(() => {
+    const failed = Boolean(sceneError);
+    const shouldFocus = failed
+      && !modalOpen
+      && (!hadSceneErrorRef.current || previousModalOpenRef.current);
+    hadSceneErrorRef.current = failed;
+    previousModalOpenRef.current = modalOpen;
+    if (!shouldFocus) return;
+    const frame = window.requestAnimationFrame(() => document.getElementById('museum-fallback-title')?.focus({preventScroll: true}));
+    return () => window.cancelAnimationFrame(frame);
+  }, [modalOpen, sceneError]);
 
   useEffect(() => {
     if (route.exhibitId) setOverlay(null);
@@ -394,7 +470,7 @@ export function MuseumPage({route, href, push, replace}: {
     const viewpoint = ANCIENT_GREEK_HALL_LAYOUT.exhibits.find(({id}) => id === route.exhibitId)?.viewpoint;
     if (!viewpoint) return;
     poseRef.current = {...viewpoint};
-    setSceneEpoch((value) => value + 1);
+    setPoseRevision((value) => value + 1);
   }, [route.exhibitId, route.hallId]);
 
   useEffect(() => {
@@ -404,11 +480,7 @@ export function MuseumPage({route, href, push, replace}: {
 
   useEffect(() => {
     if (!exploring) return;
-    const timer = window.setInterval(() => saveMuseumSession(
-      ANCIENT_GREEK_HALL_LAYOUT,
-      poseRef.current,
-      nearbyRef.current,
-    ), 500);
+    const timer = window.setInterval(() => saveMuseumSession(ANCIENT_GREEK_HALL_LAYOUT, poseRef.current, nearbyRef.current), 500);
     return () => window.clearInterval(timer);
   }, [exploring]);
 
@@ -416,39 +488,47 @@ export function MuseumPage({route, href, push, replace}: {
     saveMuseumSession(ANCIENT_GREEK_HALL_LAYOUT, poseRef.current, nearbyRef.current);
   }, []);
 
-  const exhibitIndex = exhibit ? hall.guidedOrder.indexOf(exhibit.id) : -1;
-  const exhibitTitleId = useId();
-  const exhibitDescriptionId = useId();
   const nearby = nearbyId ? getMuseumExhibitCatalog(route.hallId, nearbyId) : undefined;
-
+  const nearbyContent = useMemo(() => nearby ? getMuseumExhibitContent(nearby) : undefined, [nearby]);
   useEffect(() => {
-    if (!guided || !route.exhibitId) return;
-    const frame = window.requestAnimationFrame(() => {
-      document.getElementById(exhibitTitleId)?.focus({preventScroll: true});
-    });
-    return () => window.cancelAnimationFrame(frame);
-  }, [exhibitTitleId, guided, route.exhibitId]);
+    if (!exploring || !nearby || nearby.id === lastAnnouncedNearbyRef.current) return;
+    const timer = window.setTimeout(() => {
+      if (nearbyRef.current !== nearby.id) return;
+      lastAnnouncedNearbyRef.current = nearby.id;
+      setAnnouncement(`Near ${nearby.displayName}. Press E or Enter to open the exhibit.`);
+    }, reducedMotion ? 0 : 650);
+    return () => window.clearTimeout(timer);
+  }, [exploring, nearby, reducedMotion]);
 
-  return <div className="museum-page">
-    <div ref={backgroundRef} data-museum-background>
-      <section className="museum-intro" aria-labelledby="museum-title">
-        <div><p className="eyebrow"><Landmark size={15}/> Walkable collection · Gallery 01</p><h1 id="museum-title">{hall.title}</h1><p>{hall.description}</p></div>
-        <div className="museum-intro-actions">
-          <button className="btn btn-primary" type="button" onClick={beginExploring} disabled={Boolean(sceneError)}><DoorOpen size={17}/> {exploring ? 'Resume exploring' : 'Enter museum'}</button>
-          <button className="btn" type="button" onClick={() => pauseAndOpen('directory')} aria-expanded={overlay === 'directory'}><MapPinned size={17}/> Directory</button>
-          <button className="btn" type="button" onClick={() => pauseAndOpen('help')} aria-expanded={overlay === 'help'}><Info size={17}/> Controls</button>
-          <button className="btn" type="button" onClick={resetPosition}><RotateCcw size={17}/> Reset</button>
-        </div>
-      </section>
+  const exhibitIndex = exhibit ? hall.guidedOrder.indexOf(exhibit.id) : -1;
 
-      <section ref={stageRef} className="museum-stage" data-exploring={exploring ? 'true' : 'false'} aria-describedby="museum-controls-description">
-        <p className="sr-only" id="museum-controls-description">A first-person gallery. Use the Enter museum button before keyboard, mouse, or touch controls affect the scene.</p>
-        {sceneError ? <MuseumFallback route={route} href={href} push={push} onRetry={retryScene} onReload={() => window.location.reload()}/> : <MuseumSceneBoundary onError={handleSceneError} resetKey={sceneEpoch}>
+  return <div
+    ref={experienceRootRef}
+    className="museum-page"
+    data-immersive={experience.immersive ? 'true' : 'false'}
+    data-fullscreen={experience.fullscreen ? 'true' : 'false'}
+  >
+    <section className="museum-stage" data-exploring={exploring ? 'true' : 'false'} aria-describedby="museum-controls-description">
+      <p className="sr-only" id="museum-controls-description">A first-person gallery. Use Enter museum before keyboard, mouse, or touch controls affect the scene. The complete directory and guided visit are available without free movement.</p>
+
+      <div ref={backgroundRef} className="museum-stage-surface" data-museum-background>
+        {sceneError ? <MuseumFallback
+          route={route}
+          href={href}
+          push={push}
+          onRetry={retryScene}
+          onReload={() => window.location.reload()}
+          immersive={experience.immersive}
+          fullscreen={experience.fullscreen}
+          onToggleImmersive={experience.toggleImmersive}
+          onToggleFullscreen={() => void experience.toggleFullscreen()}
+        /> : <MuseumSceneBoundary onError={handleSceneError} resetKey={sceneEpoch}>
           <Suspense fallback={<div className="museum-scene-loading" role="status">Preparing the walkable hall…</div>}>
             <LazyAncientGreekHallScene
               key={sceneEpoch}
               active={exploring}
               blocked={blocked}
+              poseRevision={poseRevision}
               reducedMotion={reducedMotion}
               inputRef={controls.inputRef}
               poseRef={poseRef}
@@ -472,16 +552,38 @@ export function MuseumPage({route, href, push, replace}: {
           </Suspense>
         </MuseumSceneBoundary>}
 
-        {!sceneError && <div className="museum-hud">
-          <div className="museum-hud-status"><span>{exploring ? controls.mode.replace('-', ' ') : 'Gallery paused'}</span><b>{nearby ? `Near ${nearby.displayName}` : 'Follow the bronze timeline'}</b></div>
-          {nearby && exploring && <button className="museum-interact-prompt" type="button" onClick={() => openExhibit(nearby.id)}>E / Enter · View {nearby.displayName}</button>}
-          <div className="museum-hud-actions">
-            {exploring ? <button type="button" onClick={controls.pauseExploring}>Pause / Exit</button> : <button type="button" onClick={beginExploring}>Enter museum</button>}
-            <button type="button" onClick={() => pauseAndOpen('directory')}>Directory</button>
-            <button type="button" onClick={() => pauseAndOpen('help')}>Help</button>
-            <button type="button" onClick={resetPosition}>Reset</button>
+        <div className="museum-hud">
+          <header className="museum-masthead" data-condensed={exploring ? 'true' : 'false'}>
+            <p className="museum-masthead-kicker"><Landmark size={14}/> Philosophy Atlas Museum <span>Gallery 01</span></p>
+            <h1 id="museum-title" tabIndex={-1}>{hall.title}</h1>
+            <p className="museum-masthead-period">5th century BCE — 6th century CE</p>
+            <p className="museum-masthead-sweep">Classical inquiry <span>→</span> Hellenistic ways of life <span>→</span> late-antique ascent</p>
+            <div className="museum-entry-row">
+              <button id="museum-enter-button" className="museum-enter-button" type="button" onClick={beginExploring} disabled={Boolean(sceneError)}><DoorOpen size={17}/> {exploring ? 'Resume visit' : 'Enter museum'}</button>
+              <span>{exploring ? controls.mode.replace('-', ' ') : 'WASD · arrows · touch'}</span>
+            </div>
+          </header>
+
+          <nav className="museum-utility-bar" aria-label="Museum display and navigation controls">
+            <button className="museum-control-directory" type="button" onClick={() => pauseAndOpen('directory')} aria-expanded={overlay === 'directory'} aria-label="Open Museum directory" title="Directory"><MapPinned size={16}/><span>Directory</span></button>
+            <button className="museum-control-help" type="button" onClick={() => pauseAndOpen('help')} aria-expanded={overlay === 'help'} aria-label="Open Museum controls and access help" title="Controls"><Info size={16}/><span>Controls</span></button>
+            <button className="museum-control-reset" type="button" onClick={resetPosition} aria-label="Reset Museum position" title="Reset position"><RotateCcw size={16}/><span>Reset</span></button>
+            <button className="museum-control-immersive" type="button" onClick={experience.toggleImmersive} aria-pressed={experience.immersive} aria-label={experience.immersive ? 'Exit immersive Museum mode' : 'Enter immersive Museum mode'} title={experience.immersive ? 'Exit immersive' : 'Enter immersive'}><Scan size={16}/><span>{experience.immersive ? 'Exit immersive' : 'Immersive'}</span></button>
+            {experience.fullscreenSupported && <button className="museum-control-fullscreen" type="button" onClick={() => void experience.toggleFullscreen()} aria-pressed={experience.fullscreen} aria-label={experience.fullscreen ? 'Exit browser fullscreen' : 'Enter browser fullscreen'} title={experience.fullscreen ? 'Exit fullscreen' : 'Enter fullscreen'}>{experience.fullscreen ? <Minimize2 size={16}/> : <Maximize2 size={16}/>}<span>{experience.fullscreen ? 'Exit fullscreen' : 'Fullscreen'}</span></button>}
+            {exploring && <button className="museum-pause-button" type="button" onClick={controls.pauseExploring} aria-label="Pause Museum visit">Pause visit</button>}
+          </nav>
+
+          {nearby && nearbyContent && exploring && <aside className="museum-proximity-card" data-zone={nearby.zoneId}>
+            <p><span>{nearby.entityKind === 'philosopher' ? 'Philosopher' : 'School & tradition'}</span><span>{nearbyContent.dateLabel}</span></p>
+            <h2>{nearby.displayName}</h2>
+            <blockquote>{nearby.question}</blockquote>
+            <button type="button" onClick={() => openExhibit(nearby.id)}>E / Enter · Interpret exhibit</button>
+          </aside>}
+
+          <div className="museum-era-rail" aria-label="Gallery chronology">
+            {hall.zones.map((zone, index) => <div key={zone.id} data-zone={zone.id}><span>0{index + 1}</span><strong>{zone.title}</strong><small>{zone.period}</small></div>)}
           </div>
-        </div>}
+        </div>
 
         <MuseumTouchControls
           active={exploring}
@@ -495,31 +597,32 @@ export function MuseumPage({route, href, push, replace}: {
           onReset={resetPosition}
           onDirectory={() => pauseAndOpen('directory')}
         />
-        <div className="museum-live-region sr-only" aria-live="polite">{nearby ? `Near ${nearby.displayName}. Press E or Enter to interact.` : exploring ? 'Exploring the gallery.' : 'Gallery paused.'}</div>
-      </section>
-    </div>
-
-    {!exhibit && overlay === 'directory' && <Directory route={route} href={href} push={push} onClose={() => setOverlay(null)} onGuidedStart={() => goGuided(0)}/>}
-    {!exhibit && overlay === 'help' && <Help onClose={() => setOverlay(null)}/>}
-    {exhibit && content && <Modal labelledBy={exhibitTitleId} describedBy={exhibitDescriptionId} onClose={closeExhibit} restoreFocus={!exploring}>
-      <div className="museum-modal-head"><div><p className="eyebrow">{content.entityType}</p><h2 id={exhibitTitleId} tabIndex={-1}>{content.displayName}</h2><span className="museum-date-label">{content.dateLabel}</span></div><button className="museum-icon-button" type="button" onClick={closeExhibit} aria-label={`Close ${content.displayName} exhibit`}><X/></button></div>
-      <p className="museum-exhibit-question" id={exhibitDescriptionId}>{content.centralQuestion}</p>
-      <p>{content.introduction}</p>
-      <dl className="museum-label-details" style={{'--museum-accent': content.accent} as CSSProperties}>
-        <div><dt>Featured idea</dt><dd>{content.featuredIdea}</dd></div>
-        <div><dt>Why it matters</dt><dd>{content.whyItMatters}</dd></div>
-        <div><dt>Representative reading</dt><dd>{content.representativeWork}</dd></div>
-      </dl>
-      {guided && <div className="museum-guided-controls" aria-label="Guided exhibit navigation">
-        <button type="button" disabled={exhibitIndex <= 0} onClick={() => goGuided(exhibitIndex - 1, true)}>Previous exhibit</button>
-        <span>{exhibitIndex + 1} of {hall.guidedOrder.length}</span>
-        <button type="button" disabled={exhibitIndex >= hall.guidedOrder.length - 1} onClick={() => goGuided(exhibitIndex + 1, true)}>Next exhibit</button>
-        <button type="button" onClick={() => {setGuided(false); closeExhibit();}}>Return to free exploration</button>
-      </div>}
-      <div className="museum-modal-actions">
-        <a className="btn btn-primary" href={href(content.articleRoute)} onClick={() => saveMuseumSession(ANCIENT_GREEK_HALL_LAYOUT, poseRef.current, nearbyRef.current)}>{exhibit.entityKind === 'philosopher' ? 'Open full philosopher profile' : 'Open Branch Explorer'}</a>
-        <button className="btn" type="button" onClick={closeExhibit}>Continue exploring</button>
+        <div className="museum-live-region sr-only" aria-live="polite" aria-atomic="true">{announcement}</div>
       </div>
-    </Modal>}
+
+      {experience.fullscreenError && <div className="museum-status-message" role="status"><span>{experience.fullscreenError}</span><button type="button" onClick={experience.clearError}>Dismiss</button></div>}
+      {!exhibit && overlay === 'directory' && <Directory route={route} href={href} push={push} onClose={() => setOverlay(null)} onGuidedStart={() => goGuided(0)} onExhibitViewpoint={stageExhibitViewpoint}/>}
+      {!exhibit && overlay === 'help' && <Help onClose={() => setOverlay(null)}/>}
+      {exhibit && content && <MuseumInterpretationPanel
+        key={exhibit.id}
+        route={route}
+        exhibit={exhibit}
+        content={content}
+        href={href}
+        guided={guided}
+        exhibitIndex={exhibitIndex}
+        exhibitCount={hall.guidedOrder.length}
+        onClose={closeExhibit}
+        onArticleIntent={() => saveMuseumSession(ANCIENT_GREEK_HALL_LAYOUT, poseRef.current, nearbyRef.current)}
+        onGuidedPrevious={() => goGuided(exhibitIndex - 1, true)}
+        onGuidedNext={() => goGuided(exhibitIndex + 1, true)}
+        onRelated={(related, event) => {
+          if (!isOrdinaryActivation(event)) return;
+          event.preventDefault();
+          stageExhibitViewpoint(related.id);
+          openExhibit(related.id);
+        }}
+      />}
+    </section>
   </div>;
 }

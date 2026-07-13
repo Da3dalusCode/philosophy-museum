@@ -34,6 +34,7 @@ export type MuseumMediaKind =
 
 export type MuseumLikenessStatus =
   | 'not-applicable'
+  | 'ancient-portrait'
   | 'roman-copy'
   | 'later-traditional-representation'
   | 'imagined'
@@ -61,6 +62,8 @@ export type MuseumAssetRecord = {
   objectPageUrl?: string;
   license: string;
   licenseUrl?: string;
+  rightsKind: 'license' | 'rights-status' | 'dedication';
+  derivativeNotice?: string;
   attribution: string;
   variants: {
     scene: MuseumAssetVariant;

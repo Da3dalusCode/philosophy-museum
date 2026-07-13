@@ -122,13 +122,20 @@ check('every committed asset is referenced exactly once and no principal is orph
 
 check('provenance, rights, interpretation, and accessibility fields are complete', () => {
   for (const asset of MUSEUM_ASSETS) {
-    for (const field of ['title', 'creator', 'objectDate', 'institution', 'license', 'attribution', 'alt', 'caption', 'historicalNote', 'likenessStatus']) {
+    for (const field of ['title', 'creator', 'objectDate', 'institution', 'license', 'rightsKind', 'attribution', 'alt', 'caption', 'historicalNote', 'likenessStatus']) {
       assert.equal(typeof asset[field], 'string', `${asset.id}.${field} is required`);
       assert(asset[field].trim(), `${asset.id}.${field} cannot be empty`);
     }
     assert(isHttpUrl(asset.sourcePageUrl), `${asset.id} needs an exact source page URL`);
+    assert(new URL(asset.sourcePageUrl).pathname.startsWith('/wiki/File:'), `${asset.id} sourcePageUrl must be the exact committed media file page`);
     assert(isHttpUrl(asset.licenseUrl), `${asset.id} needs a license URL`);
     if (asset.objectPageUrl) assert(isHttpUrl(asset.objectPageUrl), `${asset.id} object page is invalid`);
+    assert(['license', 'rights-status', 'dedication'].includes(asset.rightsKind), `${asset.id} rights kind is invalid`);
+    if (/^CC BY(?:-|\s)/.test(asset.license)) {
+      assert.equal(asset.rightsKind, 'license', `${asset.id} must identify its CC BY terms as an image license`);
+      assert(/resized.+converted.+WebP/i.test(asset.derivativeNotice ?? ''), `${asset.id} must disclose local derivative modifications`);
+    }
+    if (asset.license.startsWith('Public Domain Mark')) assert.equal(asset.rightsKind, 'rights-status', `${asset.id} must label Public Domain Mark as a rights status`);
     if (asset.focalPoint) {
       assert(asset.focalPoint.x >= 0 && asset.focalPoint.x <= 1, `${asset.id} focal x is invalid`);
       assert(asset.focalPoint.y >= 0 && asset.focalPoint.y <= 1, `${asset.id} focal y is invalid`);

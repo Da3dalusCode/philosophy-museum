@@ -90,7 +90,8 @@ export default function App() {
   const handleRouteReady = useCallback((readyRoute: AppRoute, readyRouteKey: string) => {
     if (pendingFocusRouteKeyRef.current !== readyRouteKey) return;
     pendingFocusRouteKeyRef.current = undefined;
-    if (readyRoute.kind === 'museum' && readyRoute.exhibitId) return;
+    // Museum owns focus for its hall, fallback, and route-synchronized interpretation panel.
+    if (readyRoute.kind === 'museum') return;
     const frame = window.requestAnimationFrame(() => {
       const articleTarget = readyRoute.kind === 'branch' || readyRoute.kind === 'philosopher'
         ? getArticleSectionTarget(readyRoute)

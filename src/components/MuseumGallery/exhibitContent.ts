@@ -15,6 +15,18 @@ export type MuseumExhibitContent = {
   representativeWork: string;
   accent: string;
   articleRoute: NavigableAppRoute;
+  relatedExhibitId: MuseumExhibitId;
+};
+
+const relatedExhibit: Record<MuseumExhibitId, MuseumExhibitId> = {
+  socrates: 'plato',
+  plato: 'aristotle',
+  aristotle: 'epicureanism',
+  cynicism: 'stoicism',
+  epicureanism: 'stoicism',
+  stoicism: 'skepticism',
+  skepticism: 'neoplatonism',
+  neoplatonism: 'plato',
 };
 
 const branchConnective: Partial<Record<MuseumExhibitId, {
@@ -72,6 +84,7 @@ export const getMuseumExhibitContent = (exhibit: MuseumExhibitCatalog): MuseumEx
         ?? philosopher.suggestedFirstReading,
       accent: philosopher.color,
       articleRoute: {kind: 'philosopher', philosopherId: philosopher.id},
+      relatedExhibitId: relatedExhibit[exhibit.id],
     };
   }
 
@@ -96,5 +109,6 @@ export const getMuseumExhibitContent = (exhibit: MuseumExhibitCatalog): MuseumEx
       ?? branch.suggestedReadingPath[0],
     accent: branch.color,
     articleRoute: {kind: 'branch', branchId: branch.id},
+    relatedExhibitId: relatedExhibit[exhibit.id],
   };
 };
