@@ -285,8 +285,11 @@ check('unknown branch, philosopher, and learning-path IDs are rejected', () => {
 check('unknown and malformed Museum routes remain visible as not-found', () => {
   expectNotFound('#/museum/unknown-hall', /No museum hall exists/);
   expectNotFound('#/museum/ancient-greek/exhibits/unknown-exhibit', /No exhibit exists/);
-  expectNotFound('#/museum/medieval-worlds/exhibits/plato', /No exhibit exists/);
+  expectNotFound('#/museum/medieval-worlds', /No museum hall exists/);
+  expectNotFound('#/museum/medieval-worlds/exhibits/plato', /No museum hall exists/);
   expectNotFound('#/museum/ancient-greek/exhibits/aquinas', /No exhibit exists/);
+  expectNotFound('#/museum/renaissance-reason-revolution/exhibits/foucault', /No exhibit exists/);
+  expectNotFound('#/museum/modernity-freedom-critique/exhibits/kant', /No exhibit exists/);
   expectNotFound('#/museum/ancient-greek/plato', /unexpected shape/);
   expectNotFound('#/museum/ancient-greek/exhibits/plato/extra', /unexpected shape/);
   expectNotFound('#/museum/%', /malformed percent encoding/);
@@ -387,12 +390,20 @@ check('document titles are exhaustive and section-aware', () => {
     'Stoicism — Ancient Greek & Hellenistic Gallery | Philosophy Atlas',
   );
   assert.equal(
-    getRouteTitle({kind: 'museum', hallId: 'medieval-worlds'}),
-    'Medieval Worlds Gallery | Philosophy Atlas',
+    getRouteTitle({kind: 'museum', hallId: 'renaissance-reason-revolution'}),
+    'Renaissance, Reason, and Revolution | Philosophy Atlas',
   );
   assert.equal(
-    getRouteTitle({kind: 'museum', hallId: 'medieval-worlds', exhibitId: 'aquinas'}),
-    'Thomas Aquinas — Medieval Worlds Gallery | Philosophy Atlas',
+    getRouteTitle({kind: 'museum', hallId: 'renaissance-reason-revolution', exhibitId: 'kant'}),
+    'Immanuel Kant — Renaissance, Reason, and Revolution | Philosophy Atlas',
+  );
+  assert.equal(
+    getRouteTitle({kind: 'museum', hallId: 'modernity-freedom-critique'}),
+    'Modernity, Freedom, and Critique | Philosophy Atlas',
+  );
+  assert.equal(
+    getRouteTitle({kind: 'museum', hallId: 'modernity-freedom-critique', exhibitId: 'beauvoir'}),
+    'Simone de Beauvoir — Modernity, Freedom, and Critique | Philosophy Atlas',
   );
   assert.equal(
     getRouteTitle({kind: 'branch', branchId: 'stoicism', section: 'overview'}),
@@ -430,8 +441,10 @@ check('canonical hashes remain stable under parse → serialize → parse', () =
     '#/museum',
     '#/museum/ancient-greek',
     '#/museum/ancient-greek/exhibits/plato',
-    '#/museum/medieval-worlds',
-    '#/museum/medieval-worlds/exhibits/aquinas',
+    '#/museum/renaissance-reason-revolution',
+    '#/museum/renaissance-reason-revolution/exhibits/kant',
+    '#/museum/modernity-freedom-critique',
+    '#/museum/modernity-freedom-critique/exhibits/beauvoir',
     '#/branches/stoicism?section=overview',
     '#/philosophers/plato?section=major-works',
     serializeHashRoute(DEFAULT_ROUTES.compare),

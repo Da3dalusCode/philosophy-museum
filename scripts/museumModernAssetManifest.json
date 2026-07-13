@@ -1,0 +1,581 @@
+{
+  "version": 1,
+  "assets": {
+    "machiavelli-santi-di-tito": {
+      "hallFolder": "renaissance-reason-revolution",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Santi_di_Tito_-_Niccolo_Machiavelli%27s_portrait.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Santi_di_Tito_-_Niccolo_Machiavelli%27s_portrait.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Santi_di_Tito_-_Niccolo_Machiavelli%27s_portrait.jpg",
+      "scene": {
+        "width": 577,
+        "height": 640,
+        "bytes": 18180,
+        "sha256": "a3f31de10bbd4b762d623a20cd2349f79ce60838bdf6b76d2e313426684de418"
+      },
+      "panel": {
+        "width": 1058,
+        "height": 1174,
+        "bytes": 85384,
+        "sha256": "db078f13286ec04ce271ebcec92bd5155cc46c48999a5953d25578b9c2afb040"
+      }
+    },
+    "machiavelli-prince-1532": {
+      "hallFolder": "renaissance-reason-revolution",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Machiavelli_Il_principe_1532_title_page.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f6/Machiavelli_Il_principe_1532_title_page.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f6/Machiavelli_Il_principe_1532_title_page.jpg",
+      "scene": {
+        "width": 411,
+        "height": 640,
+        "bytes": 35634,
+        "sha256": "0b5461581e43380e6350f1cc28ce3f0575c77c932b84058d4fa24ce484cf3906"
+      },
+      "panel": {
+        "width": 457,
+        "height": 712,
+        "bytes": 56520,
+        "sha256": "74202cea97e7b4669881a8fafa73a19f889f6b94433d3a493f09cd2ac488200c"
+      }
+    },
+    "descartes-hals-portrait": {
+      "hallFolder": "renaissance-reason-revolution",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Frans_Hals,_Portrait_of_Ren%C3%A9_Descartes.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/12/Frans_Hals%2C_Portrait_of_Ren%C3%A9_Descartes.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Frans_Hals%2C_Portrait_of_Ren%C3%A9_Descartes.jpg/1280px-Frans_Hals%2C_Portrait_of_Ren%C3%A9_Descartes.jpg",
+      "scene": {
+        "width": 471,
+        "height": 640,
+        "bytes": 34630,
+        "sha256": "09d1072522cfd082f39dd4f075cb61b3b478caf408346b294f5b860204e1f1f0"
+      },
+      "panel": {
+        "width": 943,
+        "height": 1280,
+        "bytes": 280786,
+        "sha256": "752afce4d5ab504aa56f7d018085c93906091d8422bfef6fffe5f602f8e5a4d1"
+      }
+    },
+    "descartes-discourse-1637": {
+      "hallFolder": "renaissance-reason-revolution",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Descartes_Discours_de_la_Methode.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Descartes_Discours_de_la_Methode.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Descartes_Discours_de_la_Methode.jpg",
+      "scene": {
+        "width": 429,
+        "height": 584,
+        "bytes": 47586,
+        "sha256": "f262d03f772464156fd509c1fa7169c2b681d2e7c50c29f942e66dad354e8038"
+      },
+      "panel": {
+        "width": 429,
+        "height": 584,
+        "bytes": 62462,
+        "sha256": "05278313d5548a0ae18a3e17c0737b534ffc67079cae064abaf8e6818f2dc323"
+      }
+    },
+    "hobbes-wright-portrait": {
+      "hallFolder": "renaissance-reason-revolution",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Thomas_Hobbes_by_John_Michael_Wright.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Thomas_Hobbes_by_John_Michael_Wright.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Thomas_Hobbes_by_John_Michael_Wright.jpg/1280px-Thomas_Hobbes_by_John_Michael_Wright.jpg",
+      "scene": {
+        "width": 524,
+        "height": 640,
+        "bytes": 7952,
+        "sha256": "4b0d4cff0722150a950884a6978e0598ed484bbc8c8c88a7cb4c0453c738a6cf"
+      },
+      "panel": {
+        "width": 1049,
+        "height": 1280,
+        "bytes": 105128,
+        "sha256": "c3ecf6345cc3e0f4177973c889e176528ca6b6b0e36479dece6c1e0b736dd3d4"
+      }
+    },
+    "hobbes-leviathan-1651": {
+      "hallFolder": "renaissance-reason-revolution",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Leviathan_frontispiece_cropped_British_Library.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Leviathan_frontispiece_cropped_British_Library.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Leviathan_frontispiece_cropped_British_Library.jpg/1280px-Leviathan_frontispiece_cropped_British_Library.jpg",
+      "scene": {
+        "width": 401,
+        "height": 640,
+        "bytes": 105162,
+        "sha256": "739d79e65703f5c7e698935aab738204887c206fe379d34780db865d1003a7e0"
+      },
+      "panel": {
+        "width": 803,
+        "height": 1280,
+        "bytes": 544646,
+        "sha256": "994d700a61a324e14481a5666dc0799a4dbc3ef25e2120fd4e5b8614a5b8e8e0"
+      }
+    },
+    "locke-kneller-portrait": {
+      "hallFolder": "renaissance-reason-revolution",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Godfrey_Kneller_-_Portrait_of_John_Locke_(Hermitage).jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/db/Godfrey_Kneller_-_Portrait_of_John_Locke_%28Hermitage%29.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Godfrey_Kneller_-_Portrait_of_John_Locke_%28Hermitage%29.jpg/1280px-Godfrey_Kneller_-_Portrait_of_John_Locke_%28Hermitage%29.jpg",
+      "scene": {
+        "width": 525,
+        "height": 640,
+        "bytes": 42870,
+        "sha256": "c74e5f172379973b89d8aefb44101d5ac5aa1f7a2bcada74f08238d319b5df63"
+      },
+      "panel": {
+        "width": 1050,
+        "height": 1280,
+        "bytes": 362370,
+        "sha256": "bff088ac09b9578f9d49ebeb0b00a16800e30fbce7942197a63e943750bd85a6"
+      }
+    },
+    "locke-two-treatises-1690": {
+      "hallFolder": "renaissance-reason-revolution",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Title_page_of_John_Locke,_Two_Treatises_of_Government_(London,_1690)_LCCN2002710224.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/bb/Title_page_of_John_Locke%2C_Two_Treatises_of_Government_%28London%2C_1690%29_LCCN2002710224.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/b/bb/Title_page_of_John_Locke%2C_Two_Treatises_of_Government_%28London%2C_1690%29_LCCN2002710224.jpg",
+      "scene": {
+        "width": 464,
+        "height": 640,
+        "bytes": 40900,
+        "sha256": "0c569d73f311570819a86950467bd146162bf94d94fb41b11255524ef1f27892"
+      },
+      "panel": {
+        "width": 927,
+        "height": 1280,
+        "bytes": 123144,
+        "sha256": "3dd7b9e1a08326c9d8deb3e4414d3ea5003a052b05754e911ff2df5f5378f100"
+      }
+    },
+    "spinoza-hab-portrait": {
+      "hallFolder": "renaissance-reason-revolution",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Spinoza.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Spinoza.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Spinoza.jpg/1280px-Spinoza.jpg",
+      "scene": {
+        "width": 551,
+        "height": 640,
+        "bytes": 32460,
+        "sha256": "98ae919cdd1ef64e631a29c52f68e35d2ab8ac2ec6b0adcc0a07bbc16ebb9279"
+      },
+      "panel": {
+        "width": 1102,
+        "height": 1280,
+        "bytes": 231098,
+        "sha256": "170a23514f015037cf0acb4b2bacba09c5ede803b135c6e319b1002c04ba0b1e"
+      }
+    },
+    "spinoza-ethics-1677": {
+      "hallFolder": "renaissance-reason-revolution",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Spinoza_Opera_Posthuma.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Spinoza_Opera_Posthuma.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Spinoza_Opera_Posthuma.jpg",
+      "scene": {
+        "width": 435,
+        "height": 640,
+        "bytes": 17014,
+        "sha256": "56454b47529c57b1cd48c6191f6b12237e4afacd01b6dd915969459b1ab2402a"
+      },
+      "panel": {
+        "width": 870,
+        "height": 1280,
+        "bytes": 44316,
+        "sha256": "25b14e1ecd67fb0b85daccf10501da9567e86883e2c169f33cf66c13cd2bfd13"
+      }
+    },
+    "hume-ramsay-portrait": {
+      "hallFolder": "renaissance-reason-revolution",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:David_Hume.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/21/David_Hume.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/2/21/David_Hume.jpg",
+      "scene": {
+        "width": 528,
+        "height": 640,
+        "bytes": 39550,
+        "sha256": "9d385316b1fe35cb8b68257c57741f8b2636a4dbb042a8cef73831488f9d1af1"
+      },
+      "panel": {
+        "width": 825,
+        "height": 1000,
+        "bytes": 113624,
+        "sha256": "82a7478ed83799154e11100555cc17d4fd28be7cd6d883311f0a3a116c4fdb3c"
+      }
+    },
+    "hume-treatise-1739": {
+      "hallFolder": "renaissance-reason-revolution",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:A_Treatise_of_Human_Nature_by_David_Hume.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/72/A_Treatise_of_Human_Nature_by_David_Hume.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/A_Treatise_of_Human_Nature_by_David_Hume.jpg/960px-A_Treatise_of_Human_Nature_by_David_Hume.jpg",
+      "scene": {
+        "width": 362,
+        "height": 640,
+        "bytes": 25602,
+        "sha256": "ba050fa1aa490e6a57923af4b7d38c4e1f528a87a28f03cf58eb9d3fe314dc20"
+      },
+      "panel": {
+        "width": 725,
+        "height": 1280,
+        "bytes": 206710,
+        "sha256": "d45c8317ed7435b745ef449eab0c7203d3ca423581b8b883198e9ef5fd289116"
+      }
+    },
+    "rousseau-la-tour-portrait": {
+      "hallFolder": "renaissance-reason-revolution",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Maurice_Quentin_de_La_Tour_-_Portrait_de_Jean-Jacques_Rousseau_(1712-1778),_%C3%A9crivain_et_philosophe_-_P210_-_Mus%C3%A9e_Carnavalet.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f2/Maurice_Quentin_de_La_Tour_-_Portrait_de_Jean-Jacques_Rousseau_%281712-1778%29%2C_%C3%A9crivain_et_philosophe_-_P210_-_Mus%C3%A9e_Carnavalet.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Maurice_Quentin_de_La_Tour_-_Portrait_de_Jean-Jacques_Rousseau_%281712-1778%29%2C_%C3%A9crivain_et_philosophe_-_P210_-_Mus%C3%A9e_Carnavalet.jpg/1280px-Maurice_Quentin_de_La_Tour_-_Portrait_de_Jean-Jacques_Rousseau_%281712-1778%29%2C_%C3%A9crivain_et_philosophe_-_P210_-_Mus%C3%A9e_Carnavalet.jpg",
+      "scene": {
+        "width": 488,
+        "height": 640,
+        "bytes": 55196,
+        "sha256": "8543d9465dce34bac07a8ccf1e64d59c80f0014b109425007d926ed3280a53bb"
+      },
+      "panel": {
+        "width": 976,
+        "height": 1280,
+        "bytes": 417258,
+        "sha256": "225d1440693e6a00a51c645407d55555753625cc1b23ef9748a449997d794a27"
+      }
+    },
+    "rousseau-social-contract-1762": {
+      "hallFolder": "renaissance-reason-revolution",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Du_contrat_social_Rousseau_Jean-Jacques.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/50/Du_contrat_social_Rousseau_Jean-Jacques.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/5/50/Du_contrat_social_Rousseau_Jean-Jacques.jpg",
+      "scene": {
+        "width": 409,
+        "height": 640,
+        "bytes": 20302,
+        "sha256": "028db1206371f889ab22539acfdec2a73fe2f34c77d19c945aa2d85042e78154"
+      },
+      "panel": {
+        "width": 817,
+        "height": 1280,
+        "bytes": 106544,
+        "sha256": "17a84dc48ce73ff28d13d3870c0cbc9c824de20fba26ca7af50ff76cb6abd4c3"
+      }
+    },
+    "kant-raab-portrait": {
+      "hallFolder": "renaissance-reason-revolution",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Immanuel_Kant_-_Gemaelde_1.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/79/Immanuel_Kant_-_Gemaelde_1.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/7/79/Immanuel_Kant_-_Gemaelde_1.jpg",
+      "scene": {
+        "width": 490,
+        "height": 640,
+        "bytes": 26376,
+        "sha256": "0265a1347688280905f891ee772ee26faa9395434ce1d3a31839378d322739d4"
+      },
+      "panel": {
+        "width": 981,
+        "height": 1280,
+        "bytes": 109772,
+        "sha256": "586678dfbf469afd1d7940ab2ae2b5a48428bc1ca44e55b5328d246fed22e094"
+      }
+    },
+    "kant-critique-1781": {
+      "hallFolder": "renaissance-reason-revolution",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Kritik_der_reinen_vernunft_erstausgabe.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/07/Kritik_der_reinen_vernunft_erstausgabe.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/0/07/Kritik_der_reinen_vernunft_erstausgabe.jpg",
+      "scene": {
+        "width": 640,
+        "height": 542,
+        "bytes": 45654,
+        "sha256": "768d095619ce98ac8faae329d361bf5aa7a2554d7f751f992ea1991efeec5943"
+      },
+      "panel": {
+        "width": 1048,
+        "height": 887,
+        "bytes": 140620,
+        "sha256": "7ffcf370e55f33ac0bbd37043c9d8e4f553c6374f8f936712d16041683183755"
+      }
+    },
+    "kierkegaard-royal-library-portrait": {
+      "hallFolder": "modernity-freedom-critique",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Kierkegaard.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/Kierkegaard.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/Kierkegaard.jpg",
+      "scene": {
+        "width": 310,
+        "height": 459,
+        "bytes": 10988,
+        "sha256": "cce3a30e35efed5d286c73b12e6cde77a2241a0ce194b1b24b0f263c7e511e45"
+      },
+      "panel": {
+        "width": 310,
+        "height": 459,
+        "bytes": 14686,
+        "sha256": "4fcf13bf24decd9b84d1c723331cc2516989fc416de2dfb983ff090c61bae0fb"
+      }
+    },
+    "kierkegaard-fragments-manuscript": {
+      "hallFolder": "modernity-freedom-critique",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Manuscript_philosophical_fragments.png",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/27/Manuscript_philosophical_fragments.png",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/2/27/Manuscript_philosophical_fragments.png",
+      "scene": {
+        "width": 640,
+        "height": 449,
+        "bytes": 26372,
+        "sha256": "01810fb9f255d10028ece88fe4a89d5627654a12bfde954490ae0fe875b9ba81"
+      },
+      "panel": {
+        "width": 643,
+        "height": 451,
+        "bytes": 37944,
+        "sha256": "37b71093c4f0350d2d65f939c8a6fce24605c168361470507a335b72c6c996f5"
+      }
+    },
+    "marx-mayall-portrait": {
+      "hallFolder": "modernity-freedom-critique",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Karl_Marx_by_John_Jabez_Edwin_Mayall_1875_-_Restored.png",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b3/Karl_Marx_by_John_Jabez_Edwin_Mayall_1875_-_Restored.png",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Karl_Marx_by_John_Jabez_Edwin_Mayall_1875_-_Restored.png/1280px-Karl_Marx_by_John_Jabez_Edwin_Mayall_1875_-_Restored.png",
+      "scene": {
+        "width": 433,
+        "height": 640,
+        "bytes": 16244,
+        "sha256": "71853b680310386bee88b3917139dd6c116044eab6c73076b33e8def85beae59"
+      },
+      "panel": {
+        "width": 865,
+        "height": 1280,
+        "bytes": 64268,
+        "sha256": "2a6dd754025a7ff8726757fbb130c401b5d7415646922f02490ed3b4e5316d4e"
+      }
+    },
+    "marx-capital-1867": {
+      "hallFolder": "modernity-freedom-critique",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Kapital_titel_bd1.png",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b6/Kapital_titel_bd1.png",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Kapital_titel_bd1.png/1280px-Kapital_titel_bd1.png",
+      "scene": {
+        "width": 437,
+        "height": 640,
+        "bytes": 13032,
+        "sha256": "7d02fa859c202eef6879ef2c3cdf7a226de17224ea863aecd97e4679e617d9ed"
+      },
+      "panel": {
+        "width": 874,
+        "height": 1280,
+        "bytes": 37380,
+        "sha256": "e34a7cc845b86d6ea7f9d275cd5e2284b7ff8e6f92934aee6bb1f15ec296df6d"
+      }
+    },
+    "nietzsche-schultze-1882": {
+      "hallFolder": "modernity-freedom-critique",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Nietzsche1882.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/23/Nietzsche1882.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/2/23/Nietzsche1882.jpg",
+      "scene": {
+        "width": 480,
+        "height": 640,
+        "bytes": 40596,
+        "sha256": "ea547fad6772a5bcf3db0bf8e5d3b0bbf56bc2024a2fcd714d1b7e488533586d"
+      },
+      "panel": {
+        "width": 959,
+        "height": 1280,
+        "bytes": 133896,
+        "sha256": "97e97b0f9da8fc03daa35ec5a33de840cc813a5a2047ca02f138fbdf14e3667e"
+      }
+    },
+    "nietzsche-zarathustra-1883": {
+      "hallFolder": "modernity-freedom-critique",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Also_sprach_Zarathustra_(1883).png",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/24/Also_sprach_Zarathustra_%281883%29.png",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/2/24/Also_sprach_Zarathustra_%281883%29.png",
+      "scene": {
+        "width": 297,
+        "height": 437,
+        "bytes": 9998,
+        "sha256": "ce15a33ee66da32f63acb426fd9a0df5b113ddde75dfdcbd86efdc46f2ee847d"
+      },
+      "panel": {
+        "width": 297,
+        "height": 437,
+        "bytes": 11736,
+        "sha256": "860dc30466e6fc737e3c5242df91a779a0a80c09812cdfd10c81c0befd89381f"
+      }
+    },
+    "heidegger-wetterauer-portrait": {
+      "hallFolder": "modernity-freedom-critique",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Martin_Heidegger_for_WP.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/21/Martin_Heidegger_for_WP.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/2/21/Martin_Heidegger_for_WP.jpg",
+      "scene": {
+        "width": 549,
+        "height": 640,
+        "bytes": 49860,
+        "sha256": "a317b821d452cac3d48353084975cf48e07bfb56559b9a75ae534c5469fc3e28"
+      },
+      "panel": {
+        "width": 680,
+        "height": 792,
+        "bytes": 89930,
+        "sha256": "a2984477269b3d877b5bd98fb34d78797cf65626cda2538d415cdd0560f4b533"
+      }
+    },
+    "heidegger-pragher-lecture-1954": {
+      "hallFolder": "modernity-freedom-critique",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Freiburg,_Z%C3%A4hringen-_Jahnhalle,_Prof._Martin_Heidegger_w%C3%A4hrend_eines_Vortrags_-_LABW_-_Staatsarchiv_Freiburg_W_134_Nr._023740b.jpeg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Freiburg%2C_Z%C3%A4hringen-_Jahnhalle%2C_Prof._Martin_Heidegger_w%C3%A4hrend_eines_Vortrags_-_LABW_-_Staatsarchiv_Freiburg_W_134_Nr._023740b.jpeg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Freiburg%2C_Z%C3%A4hringen-_Jahnhalle%2C_Prof._Martin_Heidegger_w%C3%A4hrend_eines_Vortrags_-_LABW_-_Staatsarchiv_Freiburg_W_134_Nr._023740b.jpeg",
+      "scene": {
+        "width": 640,
+        "height": 412,
+        "bytes": 34676,
+        "sha256": "0d9c09a767b0d66bc3047553d6e1529c119994edd09eaf153ca1838602ccacac"
+      },
+      "panel": {
+        "width": 860,
+        "height": 554,
+        "bytes": 115864,
+        "sha256": "c670ef3041cf1d54e1e1bc29eac399b063c304595643b906ca250f57815de1c5"
+      }
+    },
+    "sartre-anefo-1965": {
+      "hallFolder": "modernity-freedom-critique",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Jean_Paul_Sartre_(kop),_Bestanddeelnr_917-9600.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Jean_Paul_Sartre_%28kop%29%2C_Bestanddeelnr_917-9600.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Jean_Paul_Sartre_%28kop%29%2C_Bestanddeelnr_917-9600.jpg/1280px-Jean_Paul_Sartre_%28kop%29%2C_Bestanddeelnr_917-9600.jpg",
+      "scene": {
+        "width": 505,
+        "height": 640,
+        "bytes": 71514,
+        "sha256": "a43f03f6bc1d0c46e773584bb05e43ec4c5e030c5a556a5eb5a6872800e7979e"
+      },
+      "panel": {
+        "width": 1010,
+        "height": 1280,
+        "bytes": 409602,
+        "sha256": "3ead575f07871bcfaea5f7f21c3cd73f880aaad6c5709f7350f28b607598aabb"
+      }
+    },
+    "sartre-beauvoir-balzac": {
+      "hallFolder": "modernity-freedom-critique",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Sartre_and_de_Beauvoir_at_Balzac_Memorial.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Sartre_and_de_Beauvoir_at_Balzac_Memorial.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Sartre_and_de_Beauvoir_at_Balzac_Memorial.jpg/1280px-Sartre_and_de_Beauvoir_at_Balzac_Memorial.jpg",
+      "scene": {
+        "width": 408,
+        "height": 640,
+        "bytes": 41326,
+        "sha256": "d9354c4e1be6071d2a322afbd281f94d9cb77aa4e8fa9a0a569d8363bb876241"
+      },
+      "panel": {
+        "width": 816,
+        "height": 1280,
+        "bytes": 173380,
+        "sha256": "4bc3db6c144eb8d13c943102be1aaaf65a935d0ff4d7e3cb3e5764db48d6ec2d"
+      }
+    },
+    "beauvoir-gpo-1967": {
+      "hallFolder": "modernity-freedom-critique",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Simone_de_Beauvoir_1967_(cropped).jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Simone_de_Beauvoir_1967_%28cropped%29.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Simone_de_Beauvoir_1967_%28cropped%29.jpg",
+      "scene": {
+        "width": 504,
+        "height": 640,
+        "bytes": 37064,
+        "sha256": "70fb6f2be116ba5850a0a782d5bbdf71efac245a025ef069ab717b995acd5d6c"
+      },
+      "panel": {
+        "width": 735,
+        "height": 934,
+        "bytes": 86874,
+        "sha256": "13df3562fadeed296e2cbb56ec1daf21d40e8359d871c40ee7ba1c9a3dff7925"
+      }
+    },
+    "beauvoir-suffrage-poster-1924": {
+      "hallFolder": "modernity-freedom-critique",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Affiche_de_l'Union_fran%C3%A7aise_pour_le_suffrage_des_femmes.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/38/Affiche_de_l%27Union_fran%C3%A7aise_pour_le_suffrage_des_femmes.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Affiche_de_l%27Union_fran%C3%A7aise_pour_le_suffrage_des_femmes.jpg/1280px-Affiche_de_l%27Union_fran%C3%A7aise_pour_le_suffrage_des_femmes.jpg",
+      "scene": {
+        "width": 465,
+        "height": 640,
+        "bytes": 70176,
+        "sha256": "9f19d865ad2e265cae7bf78ab7f72b15656115b3fcba2f7a8c0b6a5e21edb350"
+      },
+      "panel": {
+        "width": 930,
+        "height": 1280,
+        "bytes": 301496,
+        "sha256": "a90466a428c8628df0acf2ea1e7ad481c2b3587c90badb7dfd9419ae7454c66d"
+      }
+    },
+    "camus-loc-1957": {
+      "hallFolder": "modernity-freedom-critique",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Albert_Camus,_gagnant_de_prix_Nobel,_portrait_en_buste,_pos%C3%A9_au_bureau,_faisant_face_%C3%A0_gauche,_cigarette_de_tabagisme.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/08/Albert_Camus%2C_gagnant_de_prix_Nobel%2C_portrait_en_buste%2C_pos%C3%A9_au_bureau%2C_faisant_face_%C3%A0_gauche%2C_cigarette_de_tabagisme.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/0/08/Albert_Camus%2C_gagnant_de_prix_Nobel%2C_portrait_en_buste%2C_pos%C3%A9_au_bureau%2C_faisant_face_%C3%A0_gauche%2C_cigarette_de_tabagisme.jpg",
+      "scene": {
+        "width": 533,
+        "height": 640,
+        "bytes": 49288,
+        "sha256": "e93f7cabfcb2db5cd4a09c23bc8bfdb44ad89228bf6f859a454337bff9360769"
+      },
+      "panel": {
+        "width": 719,
+        "height": 863,
+        "bytes": 106078,
+        "sha256": "8b20c5f3fce752f5848cb662b957a69011e2c65fbce8c2227a6ef1b840ac2804"
+      }
+    },
+    "camus-combat-1943": {
+      "hallFolder": "modernity-freedom-critique",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Journal_Combat_1943.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/df/Journal_Combat_1943.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Journal_Combat_1943.jpg/1280px-Journal_Combat_1943.jpg",
+      "scene": {
+        "width": 428,
+        "height": 640,
+        "bytes": 85718,
+        "sha256": "fa43abc9cf20fd648538bf1d10456b044ba092fd18f80f915ab3474703ca766d"
+      },
+      "panel": {
+        "width": 857,
+        "height": 1280,
+        "bytes": 418460,
+        "sha256": "37562832badabe2176c6cad157c0c91bbb68e3c1be75261a9cd351a64cc7e0cc"
+      }
+    },
+    "foucault-portugal-1968": {
+      "hallFolder": "modernity-freedom-critique",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Michel_Foucault_c._1968.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Michel_Foucault_c._1968.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Michel_Foucault_c._1968.jpg",
+      "scene": {
+        "width": 361,
+        "height": 640,
+        "bytes": 75412,
+        "sha256": "17878ccad1f4c5a151431dd88ffdc585f48f1c3028c332d0dddfe6a41e155b69"
+      },
+      "panel": {
+        "width": 515,
+        "height": 912,
+        "bytes": 167350,
+        "sha256": "c2842314712aacff0cad992b6a35648f4f1102ef9bc3da6ea8d93609fdf6f74b"
+      }
+    },
+    "foucault-panopticon-plan": {
+      "hallFolder": "modernity-freedom-critique",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Panopticon.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/11/Panopticon.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Panopticon.jpg/1280px-Panopticon.jpg",
+      "scene": {
+        "width": 581,
+        "height": 640,
+        "bytes": 69652,
+        "sha256": "2544d4e919d40240161152e42b4f0981e19e81e1e9112efac5c9c5e7cfa9ca59"
+      },
+      "panel": {
+        "width": 1161,
+        "height": 1280,
+        "bytes": 252506,
+        "sha256": "030b11742306f83fe3c7d6a386ef058e4a30de75476b1f2305dd411765aad8f8"
+      }
+    }
+  }
+}

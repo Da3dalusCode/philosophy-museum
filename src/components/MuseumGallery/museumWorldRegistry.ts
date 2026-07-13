@@ -1,6 +1,7 @@
 import type {ComponentType} from 'react';
 import {ANCIENT_GREEK_HALL_DEFINITION} from '../../data/museum/ancientGreekHall';
-import {MEDIEVAL_WORLDS_HALL_DEFINITION} from '../../data/museum/medievalWorldsHall';
+import {MODERNITY_FREEDOM_CRITIQUE_HALL_DEFINITION} from '../../data/museum/modernityFreedomCritiqueHall';
+import {RENAISSANCE_REASON_REVOLUTION_HALL_DEFINITION} from '../../data/museum/renaissanceReasonRevolutionHall';
 import {getMuseumAsset, museumAssetUrl} from '../../data/museum/museumAssets';
 import type {
   MuseumExhibitRef,
@@ -11,6 +12,7 @@ import type {MuseumHallId} from '../../data/museumCatalog';
 export type MuseumHallContentProps = {
   definition: MuseumHallDefinition;
   active: boolean;
+  viewerHallId: MuseumHallId;
   nearby?: MuseumExhibitRef;
   onSelectExhibit: (exhibit: MuseumExhibitRef) => void;
   onSceneGesture: () => void;
@@ -28,10 +30,17 @@ const ancientGreekRegistration: MuseumHallRegistration = {
   })),
 };
 
-const medievalWorldsRegistration: MuseumHallRegistration = {
-  definition: MEDIEVAL_WORLDS_HALL_DEFINITION,
-  loadContent: () => import('./MedievalWorldsHallScene').then(({MedievalWorldsHallContent}) => ({
-    default: MedievalWorldsHallContent,
+const renaissanceReasonRevolutionRegistration: MuseumHallRegistration = {
+  definition: RENAISSANCE_REASON_REVOLUTION_HALL_DEFINITION,
+  loadContent: () => import('./RenaissanceReasonRevolutionHallScene').then(({RenaissanceReasonRevolutionHallContent}) => ({
+    default: RenaissanceReasonRevolutionHallContent,
+  })),
+};
+
+const modernityFreedomCritiqueRegistration: MuseumHallRegistration = {
+  definition: MODERNITY_FREEDOM_CRITIQUE_HALL_DEFINITION,
+  loadContent: () => import('./ModernityFreedomCritiqueHallScene').then(({ModernityFreedomCritiqueHallContent}) => ({
+    default: ModernityFreedomCritiqueHallContent,
   })),
 };
 
@@ -40,7 +49,8 @@ const imagePromises = new Map<string, Promise<void>>();
 
 export const MUSEUM_WORLD_REGISTRY = [
   ancientGreekRegistration,
-  medievalWorldsRegistration,
+  renaissanceReasonRevolutionRegistration,
+  modernityFreedomCritiqueRegistration,
 ] as const satisfies readonly MuseumHallRegistration[];
 
 export const getMuseumHallRegistration = (hallId: MuseumHallId): MuseumHallRegistration | undefined =>
@@ -95,10 +105,10 @@ export const prefetchMuseumHallEntry = async (hallId: MuseumHallId): Promise<voi
   const registration = getMuseumHallRegistration(hallId);
   const content = loadMuseumHallContent(hallId);
   if (!registration || !content) throw new Error(`Museum hall ${hallId} is not registered.`);
-  await content;
   // Scene media has a documented in-world fallback, so a single image must not
   // turn a code-ready doorway into a permanent barrier.
-  await Promise.allSettled(registration.definition.prefetch.entrySceneAssetIds.map(preloadSceneAsset));
+  const entryMedia = Promise.allSettled(registration.definition.prefetch.entrySceneAssetIds.map(preloadSceneAsset));
+  await Promise.all([content, entryMedia]);
 };
 
 /** Continue warming the remaining local scene media without gating the doorway. */

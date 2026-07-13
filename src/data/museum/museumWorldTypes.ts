@@ -21,6 +21,9 @@ export type MuseumCollider = {
 
 export type MuseumWallDefinition = MuseumCollider & {
   height: number;
+  /** Optional visual trim for authored overlaps; collision continues to use center/size. */
+  renderCenter?: MuseumPoint;
+  renderSize?: {width: number; depth: number};
 };
 
 export type MuseumFurnishingDefinition = MuseumCollider & {
@@ -104,6 +107,20 @@ export type MuseumSpatialCell = {
   ceilingHeight: number;
   exhibitIds: readonly MuseumExhibitId[];
   lightingGroupId: string;
+  /** Optional visual trim for a shared hall seam; traversal still uses bounds. */
+  renderBounds?: MuseumBounds;
+};
+
+export type MuseumSignDefinition = {
+  id: string;
+  kind: 'entrance' | 'zone' | 'wayfinding';
+  title: string;
+  kicker: string;
+  subtitle: string;
+  position: MuseumPoint3;
+  rotationY: number;
+  width: number;
+  height: number;
 };
 
 export type MuseumSpatialConnection = {
@@ -181,6 +198,7 @@ export type MuseumHallLayout = {
   guidedOrder: readonly MuseumExhibitId[];
   guidedWalkLegs: readonly MuseumGuidedWalkLeg[];
   lighting: MuseumLightingDefinition;
+  signs?: readonly MuseumSignDefinition[];
 };
 
 export type MuseumHallConnection = {

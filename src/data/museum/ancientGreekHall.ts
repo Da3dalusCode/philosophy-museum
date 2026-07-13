@@ -264,7 +264,7 @@ const spatialCells: readonly MuseumSpatialCell[] = [
   {id: 'hellenistic-ways-room', kind: 'room', title: 'Hellenistic Ways of Life', bounds: {minX: -12, maxX: 12, minZ: -17, maxZ: 5}, ceilingHeight: 5.8, exhibitIds: ['cynicism', 'epicureanism', 'stoicism', 'skepticism'], lightingGroupId: 'hellenistic'},
   {id: 'hellenistic-late-passage', kind: 'passage', title: 'Late Antiquity Threshold', bounds: {minX: -4, maxX: 4, minZ: -20, maxZ: -17}, ceilingHeight: 5, exhibitIds: [], lightingGroupId: 'passage'},
   {id: 'late-antiquity-room', kind: 'room', title: 'Late Antiquity', bounds: {minX: -10, maxX: 10, minZ: -36, maxZ: -20}, ceilingHeight: 6.2, exhibitIds: ['neoplatonism'], lightingGroupId: 'late'},
-  {id: 'medieval-transition-passage', kind: 'passage', title: 'Medieval Worlds Threshold', bounds: {minX: 10, maxX: 18.6, minZ: -30.5, maxZ: -26.5}, ceilingHeight: 5.2, exhibitIds: [], lightingGroupId: 'passage'},
+  {id: 'early-modern-transition-passage', kind: 'passage', title: 'Gallery 02 Threshold', bounds: {minX: 10, maxX: 18.6, minZ: -30.5, maxZ: -26.5}, renderBounds: {minX: 10, maxX: 18, minZ: -30.5, maxZ: -26.5}, ceilingHeight: 5.2, exhibitIds: [], lightingGroupId: 'passage'},
 ];
 
 const spatialConnections: readonly MuseumSpatialConnection[] = [
@@ -274,21 +274,30 @@ const spatialConnections: readonly MuseumSpatialConnection[] = [
   {id: 'passage-to-hellenistic', fromCellId: 'classical-hellenistic-passage', toCellId: 'hellenistic-ways-room', openingBounds: {minX: -4, maxX: 4, minZ: 4.8, maxZ: 5.2}},
   {id: 'hellenistic-to-late', fromCellId: 'hellenistic-ways-room', toCellId: 'hellenistic-late-passage', openingBounds: {minX: -4, maxX: 4, minZ: -17.2, maxZ: -16.8}},
   {id: 'passage-to-late', fromCellId: 'hellenistic-late-passage', toCellId: 'late-antiquity-room', openingBounds: {minX: -4, maxX: 4, minZ: -20.2, maxZ: -19.8}},
-  {id: 'late-to-medieval-threshold', fromCellId: 'late-antiquity-room', toCellId: 'medieval-transition-passage', openingBounds: {minX: 9.8, maxX: 10.2, minZ: -30.5, maxZ: -26.5}},
+  {id: 'late-to-early-modern-threshold', fromCellId: 'late-antiquity-room', toCellId: 'early-modern-transition-passage', openingBounds: {minX: 9.8, maxX: 10.2, minZ: -30.5, maxZ: -26.5}},
 ];
 
 const entryViews: readonly MuseumRoomEntryView[] = [
   {spatialCellId: 'classical-foundations-room', pose: {x: 0, z: 24.4, yaw: 0, pitch: -.015}, expectedVisibleExhibitIds: ['socrates', 'plato', 'aristotle']},
-  {spatialCellId: 'hellenistic-ways-room', pose: {x: 0, z: 4.25, yaw: 0, pitch: -.015}, expectedVisibleExhibitIds: ['cynicism', 'epicureanism']},
+  {spatialCellId: 'hellenistic-ways-room', pose: {x: 0, z: 4.25, yaw: 0, pitch: -.015}, expectedVisibleExhibitIds: ['cynicism', 'epicureanism', 'stoicism', 'skepticism']},
   {spatialCellId: 'late-antiquity-room', pose: {x: 0, z: -20.75, yaw: 0, pitch: .015}, expectedVisibleExhibitIds: ['neoplatonism']},
 ];
 
-const wall = (id: string, center: MuseumPoint, width: number, depth: number, height: number): MuseumWallDefinition => ({
+const wall = (
+  id: string,
+  center: MuseumPoint,
+  width: number,
+  depth: number,
+  height: number,
+  visual?: {center: MuseumPoint; size: {width: number; depth: number}},
+): MuseumWallDefinition => ({
   id,
   center,
   size: {width, depth},
   rotation: 0,
   height,
+  renderCenter: visual?.center,
+  renderSize: visual?.size,
 });
 
 const walls: readonly MuseumWallDefinition[] = [
@@ -321,8 +330,8 @@ const walls: readonly MuseumWallDefinition[] = [
   wall('late-east-north', {x: 10, z: -23.25}, .36, 6.5, 6.2),
   wall('late-east-south', {x: 10, z: -33.25}, .36, 5.5, 6.2),
   wall('late-end', {x: 0, z: -36}, 20.36, .36, 6.2),
-  wall('medieval-passage-north', {x: 14.3, z: -26.5}, 8.6, .36, 5.2),
-  wall('medieval-passage-south', {x: 14.3, z: -30.5}, 8.6, .36, 5.2),
+  wall('early-modern-passage-north', {x: 14.3, z: -26.5}, 8.6, .36, 5.2, {center: {x: 14, z: -26.5}, size: {width: 8, depth: .36}}),
+  wall('early-modern-passage-south', {x: 14.3, z: -30.5}, 8.6, .36, 5.2, {center: {x: 14, z: -30.5}, size: {width: 8, depth: .36}}),
 ];
 
 const furnishings: readonly MuseumFurnishingDefinition[] = [
@@ -333,10 +342,10 @@ const furnishings: readonly MuseumFurnishingDefinition[] = [
 const tracks: readonly MuseumTrackDefinition[] = [
   {id: 'atrium-track-west', center: {x: -3.7, y: 6.05, z: 35}, size: {width: .08, height: .08, depth: 8.5}},
   {id: 'atrium-track-east', center: {x: 3.7, y: 6.05, z: 35}, size: {width: .08, height: .08, depth: 8.5}},
-  {id: 'classical-track-north', center: {x: 0, y: 5.45, z: 12.4}, size: {width: 20, height: .08, depth: .08}},
+  {id: 'classical-track-north', center: {x: 0, y: 5.45, z: 13.3}, size: {width: 18, height: .08, depth: .08}},
   {id: 'classical-track-south', center: {x: 0, y: 5.45, z: 10.35}, size: {width: 20, height: .08, depth: .08}},
-  {id: 'hellenistic-track-north', center: {x: 0, y: 5.45, z: -5.8}, size: {width: 20, height: .08, depth: .08}},
-  {id: 'hellenistic-track-south', center: {x: 0, y: 5.45, z: -13.4}, size: {width: 20, height: .08, depth: .08}},
+  {id: 'hellenistic-track-north', center: {x: 0, y: 5.45, z: -7}, size: {width: 20, height: .08, depth: .08}},
+  {id: 'hellenistic-track-south', center: {x: 0, y: 5.45, z: -13.6}, size: {width: 18, height: .08, depth: .08}},
   {id: 'late-track', center: {x: 0, y: 5.85, z: -31.2}, size: {width: 14, height: .08, depth: .08}},
 ];
 
@@ -370,13 +379,13 @@ const installationViewpoint = (
   };
 };
 
-const socratesPosition = {x: -10.68, z: 12.4};
+const socratesPosition = {x: -8.6, z: 13.3};
 const platoPosition = {x: 0, z: 10.35};
-const aristotlePosition = {x: 10.68, z: 12.4};
-const cynicismPosition = {x: 9.7, z: -5.8};
-const epicureanismPosition = {x: -9.7, z: -5.8};
-const stoicismPosition = {x: -10.55, z: -13.4};
-const skepticismPosition = {x: 10.55, z: -13.4};
+const aristotlePosition = {x: 8.6, z: 13.3};
+const cynicismPosition = {x: 10.35, z: -7};
+const epicureanismPosition = {x: -10.34, z: -7};
+const stoicismPosition = {x: -7.4, z: -15.41};
+const skepticismPosition = {x: 7.4, z: -15.35};
 const neoplatonismPosition = {x: 0, z: -33};
 
 const placement: Record<AncientGreekExhibitId, Placement> = {
@@ -385,8 +394,8 @@ const placement: Record<AncientGreekExhibitId, Placement> = {
   aristotle: {spatialCellId: 'classical-foundations-room', position: aristotlePosition, rotationY: -Math.PI / 2, interactionRadius: 3.6, viewpoint: installationViewpoint('aristotle', aristotlePosition, -Math.PI / 2, 4.15)},
   cynicism: {spatialCellId: 'hellenistic-ways-room', position: cynicismPosition, rotationY: -Math.PI / 2, interactionRadius: 3.65, viewpoint: installationViewpoint('cynicism', cynicismPosition, -Math.PI / 2, 4.25)},
   epicureanism: {spatialCellId: 'hellenistic-ways-room', position: epicureanismPosition, rotationY: Math.PI / 2, interactionRadius: 3.65, viewpoint: installationViewpoint('epicureanism', epicureanismPosition, Math.PI / 2, 4.25)},
-  stoicism: {spatialCellId: 'hellenistic-ways-room', position: stoicismPosition, rotationY: Math.PI / 2, interactionRadius: 3.55, viewpoint: installationViewpoint('stoicism', stoicismPosition, Math.PI / 2, 4.2)},
-  skepticism: {spatialCellId: 'hellenistic-ways-room', position: skepticismPosition, rotationY: -Math.PI / 2, interactionRadius: 3.6, viewpoint: installationViewpoint('skepticism', skepticismPosition, -Math.PI / 2, 4.25)},
+  stoicism: {spatialCellId: 'hellenistic-ways-room', position: stoicismPosition, rotationY: 0, interactionRadius: 3.55, viewpoint: installationViewpoint('stoicism', stoicismPosition, 0, 4.2)},
+  skepticism: {spatialCellId: 'hellenistic-ways-room', position: skepticismPosition, rotationY: 0, interactionRadius: 3.6, viewpoint: installationViewpoint('skepticism', skepticismPosition, 0, 4.25)},
   neoplatonism: {spatialCellId: 'late-antiquity-room', position: neoplatonismPosition, rotationY: 0, interactionRadius: 4.8, viewpoint: installationViewpoint('neoplatonism', neoplatonismPosition, 0, 5.1)},
 };
 
@@ -538,22 +547,22 @@ export const ANCIENT_GREEK_HALL_DEFINITION: MuseumHallDefinition = {
     arrivalPose: {...ANCIENT_GREEK_HALL_LAYOUT.spawn},
     transitionBounds: {center: {x: 0, z: 39.2}, size: {width: 8, depth: 2.4}},
   }, {
-    id: 'medieval-threshold',
+    id: 'early-modern-threshold',
     position: {x: 18, z: -28.5},
     inwardNormal: {x: -1, z: 0},
     arrivalPose: {x: 17.2, z: -28.5, yaw: Math.PI / 2, pitch: 0},
     transitionBounds: {center: {x: 18, z: -28.5}, size: {width: 1.2, depth: 4}},
   }],
   connections: [{
-    id: 'ancient-to-medieval-worlds',
-    targetHallId: 'medieval-worlds',
-    localEntranceId: 'medieval-threshold',
+    id: 'ancient-to-renaissance-reason-revolution',
+    targetHallId: 'renaissance-reason-revolution',
+    localEntranceId: 'early-modern-threshold',
     targetEntranceId: 'ancient-threshold',
   }],
   prefetch: {
     entrySceneAssetIds: ['neoplatonism-plotinus-ostia', 'neoplatonism-ficino-enneads'],
     sceneAssetIds: hall.exhibits.flatMap((exhibit) => [exhibit.principalAssetId, ...exhibit.supportingAssetIds]),
-    adjacentHallIds: ['medieval-worlds'],
+    adjacentHallIds: ['renaissance-reason-revolution'],
   },
   fallbackLabel: 'Ancient Greek and Hellenistic gallery directory',
 };

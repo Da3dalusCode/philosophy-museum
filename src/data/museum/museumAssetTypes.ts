@@ -17,22 +17,38 @@ export type MuseumAssetId =
   | 'skepticism-adversus-mathematicos'
   | 'neoplatonism-plotinus-ostia'
   | 'neoplatonism-ficino-enneads'
-  | 'augustine-lateran'
-  | 'augustine-city-of-god'
-  | 'boethius-consolation-teaching'
-  | 'boethius-arithmetic'
-  | 'avicenna-canon'
-  | 'avicenna-thevet-portrait'
-  | 'al-ghazali-asas-al-qiyas'
-  | 'al-ghazali-faysal'
-  | 'averroes-de-anima'
-  | 'averroes-lithograph'
-  | 'maimonides-mishnah-autograph'
-  | 'maimonides-mishneh-torah'
-  | 'aquinas-summa'
-  | 'aquinas-triumph'
-  | 'ockham-logica-sketch'
-  | 'ockham-sentences';
+  | 'machiavelli-santi-di-tito'
+  | 'machiavelli-prince-1532'
+  | 'descartes-hals-portrait'
+  | 'descartes-discourse-1637'
+  | 'hobbes-wright-portrait'
+  | 'hobbes-leviathan-1651'
+  | 'locke-kneller-portrait'
+  | 'locke-two-treatises-1690'
+  | 'spinoza-hab-portrait'
+  | 'spinoza-ethics-1677'
+  | 'hume-ramsay-portrait'
+  | 'hume-treatise-1739'
+  | 'rousseau-la-tour-portrait'
+  | 'rousseau-social-contract-1762'
+  | 'kant-raab-portrait'
+  | 'kant-critique-1781'
+  | 'kierkegaard-royal-library-portrait'
+  | 'kierkegaard-fragments-manuscript'
+  | 'marx-mayall-portrait'
+  | 'marx-capital-1867'
+  | 'nietzsche-schultze-1882'
+  | 'nietzsche-zarathustra-1883'
+  | 'heidegger-wetterauer-portrait'
+  | 'heidegger-pragher-lecture-1954'
+  | 'sartre-anefo-1965'
+  | 'sartre-beauvoir-balzac'
+  | 'beauvoir-gpo-1967'
+  | 'beauvoir-suffrage-poster-1924'
+  | 'camus-loc-1957'
+  | 'camus-combat-1943'
+  | 'foucault-portugal-1968'
+  | 'foucault-panopticon-plan';
 
 export type MuseumAssetRole =
   | 'identity'
@@ -46,7 +62,11 @@ export type MuseumMediaKind =
   | 'engraving'
   | 'manuscript'
   | 'papyrus'
-  | 'book-page';
+  | 'book-page'
+  | 'photograph'
+  | 'drawing'
+  | 'document'
+  | 'architectural-plan';
 
 export type MuseumLikenessStatus =
   | 'not-applicable'
@@ -55,7 +75,10 @@ export type MuseumLikenessStatus =
   | 'later-traditional-representation'
   | 'imagined'
   | 'attributed'
-  | 'uncertain';
+  | 'uncertain'
+  | 'lifetime-portrait'
+  | 'lifetime-photograph'
+  | 'posthumous-portrait';
 
 export type MuseumAssetVariant = {
   path: string;

@@ -20,12 +20,12 @@ const BLACK_METAL = '#151617';
 const LUMINOUS = '#fff3dc';
 
 function CellShell({cell}: {cell: MuseumSpatialCell}) {
-  const renderMaxX = cell.id === 'medieval-transition-passage' ? 18 : cell.bounds.maxX;
-  const renderCell = renderMaxX === cell.bounds.maxX ? cell : {...cell, bounds: {...cell.bounds, maxX: renderMaxX}};
-  const width = renderMaxX - cell.bounds.minX;
-  const depth = cell.bounds.maxZ - cell.bounds.minZ;
-  const x = (cell.bounds.minX + renderMaxX) / 2;
-  const z = (cell.bounds.minZ + cell.bounds.maxZ) / 2;
+  const bounds = cell.renderBounds ?? cell.bounds;
+  const renderCell = bounds === cell.bounds ? cell : {...cell, bounds};
+  const width = bounds.maxX - bounds.minX;
+  const depth = bounds.maxZ - bounds.minZ;
+  const x = (bounds.minX + bounds.maxX) / 2;
+  const z = (bounds.minZ + bounds.maxZ) / 2;
   const floorColor = cell.kind === 'passage' ? FLOOR_PASSAGE : FLOOR;
   return <group userData={{spatialCellId: cell.id}}>
     <mesh position={[x, -.11, z]} receiveShadow>
@@ -70,9 +70,11 @@ function CeilingLightStrips({cell}: {cell: MuseumSpatialCell}) {
 }
 
 function GalleryWall({wall}: {wall: MuseumWallDefinition}) {
-  const renderWall = wall.id === 'medieval-passage-north' || wall.id === 'medieval-passage-south'
-    ? {...wall, center: {...wall.center, x: 14}, size: {...wall.size, width: 8}}
-    : wall;
+  const renderWall = {
+    ...wall,
+    center: wall.renderCenter ?? wall.center,
+    size: wall.renderSize ?? wall.size,
+  };
   return <group
     position={[renderWall.center.x, renderWall.height / 2, renderWall.center.z]}
     rotation={[0, renderWall.rotation, 0]}
@@ -255,9 +257,9 @@ export function HallArchitecture({definition, onSceneGesture}: {
       width={3.2}
     />
     <GallerySign
-      title="Medieval Worlds"
-      kicker="Continue east · Next wing"
-      subtitle="Inheritance · translation · scholastic conversations"
+      title="Renaissance, Reason, and Revolution"
+      kicker="Continue east · Gallery 02"
+      subtitle="Power · method · rights · experience · critique"
       position={[17.82, 3.55, -28.5]}
       rotationY={-Math.PI / 2}
       width={3.5}

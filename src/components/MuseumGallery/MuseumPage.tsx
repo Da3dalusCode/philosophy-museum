@@ -69,6 +69,19 @@ const createLazyMuseumWorldScene = () => lazy(() => import('./MuseumWorldScene')
 
 type Overlay = 'directory' | 'help' | null;
 
+class MuseumHallResidencyError extends Error {
+  constructor(hallId: MuseumHallId) {
+    super(`Museum hall ${hallId} left the resident world before it finished rendering.`);
+    this.name = 'MuseumHallResidencyError';
+  }
+}
+
+type HallRenderWaiter = {
+  promise: Promise<void>;
+  resolve: () => void;
+  reject: (error: unknown) => void;
+};
+
 const articleRoute = (exhibit: MuseumExhibitCatalog): NavigableAppRoute =>
   exhibit.entityKind === 'philosopher'
     ? {kind: 'philosopher', philosopherId: exhibit.entityId}
@@ -254,7 +267,7 @@ function Directory({route, href, push, returnFocus, onClose, onGuidedStart, onHa
   const selectedHall = getMuseumHallCatalog(selectedHallId)!;
   return <MuseumModal labelledBy={titleId} describedBy={descriptionId} returnFocus={returnFocus} onClose={onClose}>
     <div className="museum-overlay-head">
-      <div><p className="eyebrow">Museum directory</p><h2 id={titleId}>Two connected galleries · sixteen interpreted stops</h2></div>
+      <div><p className="eyebrow">Museum directory</p><h2 id={titleId}>Three connected galleries · twenty-four interpreted stops</h2></div>
       <button className="museum-icon-button" type="button" onClick={onClose} aria-label="Close Museum directory"><X/></button>
     </div>
     <p id={descriptionId}>Choose a gallery, stage a safe room viewpoint, or open any exhibit without relying on free movement.</p>
@@ -370,15 +383,17 @@ export function MuseumPage({route, href, push, replace}: {
   const previousRouteExhibitRef = useRef(route.exhibitId);
   const previousHallIdRef = useRef(route.hallId);
   const pendingHallTransitionRef = useRef<{sourceHallId: MuseumHallId; targetHallId: MuseumHallId} | undefined>(undefined);
+  const preparedHallIdsRef = useRef<Set<MuseumHallId>>(new Set());
+  const renderedHallIdsRef = useRef<Set<MuseumHallId>>(new Set());
   const readyHallIdsRef = useRef<Set<MuseumHallId>>(new Set());
   const failedHallContentIdsRef = useRef<Set<MuseumHallId>>(new Set());
   const retryingHallIdsRef = useRef<Set<MuseumHallId>>(new Set());
   const hallLoadPromiseRef = useRef<Map<MuseumHallId, Promise<void>>>(new Map());
+  const hallRenderWaiterRef = useRef<Map<MuseumHallId, HallRenderWaiter>>(new Map());
   const lastSavedHallSignatureRef = useRef<Map<MuseumHallId, string>>(new Map());
   if (visitContext) lastExhibitContextRef.current = visitContext;
   const [nearbyReference, setNearbyReference] = useState<MuseumExhibitRef | undefined>();
   const nearbyId = nearbyReference?.hallId === activeHallId ? nearbyReference.exhibitId : undefined;
-  const [mountedHallIds, setMountedHallIds] = useState<Set<MuseumHallId>>(() => new Set([route.hallId]));
   const [readyHallIds, setReadyHallIds] = useState<Set<MuseumHallId>>(() => new Set());
   const [hallLoadStatus, setHallLoadStatus] = useState<Partial<Record<MuseumHallId, 'idle' | 'loading' | 'ready' | 'failed'>>>({[route.hallId]: 'idle'});
   const [hallLoadErrors, setHallLoadErrors] = useState<Partial<Record<MuseumHallId, string>>>({});
@@ -419,6 +434,53 @@ export function MuseumPage({route, href, push, replace}: {
     setSceneError(error);
   }, []);
 
+  const waitForHallRender = useCallback((hallId: MuseumHallId): Promise<void> => {
+    if (renderedHallIdsRef.current.has(hallId)) return Promise.resolve();
+    const existing = hallRenderWaiterRef.current.get(hallId);
+    if (existing) return existing.promise;
+    let resolve!: () => void;
+    let reject!: (error: unknown) => void;
+    const promise = new Promise<void>((onResolve, onReject) => {
+      resolve = onResolve;
+      reject = onReject;
+    });
+    hallRenderWaiterRef.current.set(hallId, {promise, resolve, reject});
+    return promise;
+  }, []);
+
+  const warmHallRemainder = useCallback((hallId: MuseumHallId) => {
+    const warm = () => {
+      const connection = (navigator as Navigator & {connection?: {saveData?: boolean; effectiveType?: string}}).connection;
+      if (document.hidden || connection?.saveData || connection?.effectiveType === 'slow-2g' || connection?.effectiveType === '2g') return;
+      void prefetchMuseumHallRemainder(hallId).catch(() => {
+        setAnnouncement(`The ${getMuseumHallCatalog(hallId)?.title ?? 'adjacent gallery'} is open; some object images will use documented fallbacks.`);
+      });
+    };
+    if ('requestIdleCallback' in window) window.requestIdleCallback(warm, {timeout: 2400});
+    else globalThis.setTimeout(warm, 250);
+  }, []);
+
+  const hallIsResident = useCallback((hallId: MuseumHallId) => {
+    const activeDefinition = activeDefinitionRef.current;
+    return activeDefinition.id === hallId || activeDefinition.prefetch.adjacentHallIds.includes(hallId);
+  }, []);
+
+  const markHallCrossable = useCallback((hallId: MuseumHallId) => {
+    if (
+      failedHallContentIdsRef.current.has(hallId)
+      || !preparedHallIdsRef.current.has(hallId)
+      || !renderedHallIdsRef.current.has(hallId)
+      || readyHallIdsRef.current.has(hallId)
+    ) return;
+    readyHallIdsRef.current = new Set(readyHallIdsRef.current).add(hallId);
+    setReadyHallIds(new Set(readyHallIdsRef.current));
+    setHallLoadStatus((current) => ({...current, [hallId]: 'ready'}));
+    if (retryingHallIdsRef.current.delete(hallId)) {
+      setAnnouncement(`${getMuseumHallCatalog(hallId)?.title ?? 'The gallery'} is ready.`);
+    }
+    warmHallRemainder(hallId);
+  }, [warmHallRemainder]);
+
   const ensureHallEntry = useCallback((hallId: MuseumHallId): Promise<void> => {
     if (failedHallContentIdsRef.current.has(hallId)) {
       return Promise.reject(new Error('The gallery renderer must be retried before this hall can reopen.'));
@@ -429,23 +491,21 @@ export function MuseumPage({route, href, push, replace}: {
     setHallLoadStatus((current) => ({...current, [hallId]: 'loading'}));
     setHallLoadErrors((current) => ({...current, [hallId]: undefined}));
     const promise = prefetchMuseumHallEntry(hallId).then(() => {
-      setMountedHallIds((current) => new Set(current).add(hallId));
-      readyHallIdsRef.current = new Set(readyHallIdsRef.current).add(hallId);
-      setReadyHallIds(new Set(readyHallIdsRef.current));
-      setHallLoadStatus((current) => ({...current, [hallId]: 'ready'}));
-      if (retryingHallIdsRef.current.delete(hallId)) {
-        setAnnouncement(`${getMuseumHallCatalog(hallId)?.title ?? 'The gallery'} is ready.`);
+      preparedHallIdsRef.current = new Set(preparedHallIdsRef.current).add(hallId);
+      if (!hallIsResident(hallId)) throw new MuseumHallResidencyError(hallId);
+      return waitForHallRender(hallId);
+    }).then(() => {
+      if (!preparedHallIdsRef.current.has(hallId) || !renderedHallIdsRef.current.has(hallId)) {
+        throw new MuseumHallResidencyError(hallId);
       }
-      const warmRemainder = () => {
-        const connection = (navigator as Navigator & {connection?: {saveData?: boolean; effectiveType?: string}}).connection;
-        if (document.hidden || connection?.saveData || connection?.effectiveType === 'slow-2g' || connection?.effectiveType === '2g') return;
-        void prefetchMuseumHallRemainder(hallId).catch(() => {
-          setAnnouncement(`The ${getMuseumHallCatalog(hallId)?.title ?? 'adjacent gallery'} is open; some object images will use documented fallbacks.`);
-        });
-      };
-      if ('requestIdleCallback' in window) window.requestIdleCallback(warmRemainder, {timeout: 2400});
-      else globalThis.setTimeout(warmRemainder, 250);
+      markHallCrossable(hallId);
     }).catch((error: unknown) => {
+      if (error instanceof MuseumHallResidencyError) {
+        setHallLoadStatus((current) => failedHallContentIdsRef.current.has(hallId)
+          ? current
+          : {...current, [hallId]: 'idle'});
+        throw error;
+      }
       const message = error instanceof Error ? error.message : 'The gallery could not be prepared.';
       const wasRetrying = retryingHallIdsRef.current.delete(hallId);
       setHallLoadStatus((current) => ({...current, [hallId]: 'failed'}));
@@ -457,6 +517,27 @@ export function MuseumPage({route, href, push, replace}: {
     });
     hallLoadPromiseRef.current.set(hallId, promise);
     return promise;
+  }, [hallIsResident, markHallCrossable, waitForHallRender]);
+
+  const handleHallContentReady = useCallback((hallId: MuseumHallId) => {
+    renderedHallIdsRef.current = new Set(renderedHallIdsRef.current).add(hallId);
+    const waiter = hallRenderWaiterRef.current.get(hallId);
+    if (waiter) {
+      hallRenderWaiterRef.current.delete(hallId);
+      waiter.resolve();
+    }
+    markHallCrossable(hallId);
+  }, [markHallCrossable]);
+
+  const handleHallContentUnavailable = useCallback((hallId: MuseumHallId) => {
+    renderedHallIdsRef.current = new Set([...renderedHallIdsRef.current].filter((id) => id !== hallId));
+    readyHallIdsRef.current = new Set([...readyHallIdsRef.current].filter((id) => id !== hallId));
+    setReadyHallIds(new Set(readyHallIdsRef.current));
+    const waiter = hallRenderWaiterRef.current.get(hallId);
+    if (waiter) {
+      hallRenderWaiterRef.current.delete(hallId);
+      waiter.reject(new MuseumHallResidencyError(hallId));
+    }
   }, []);
 
   const retryHallContent = useCallback((hallId: MuseumHallId) => {
@@ -464,6 +545,7 @@ export function MuseumPage({route, href, push, replace}: {
     retryingHallIdsRef.current.add(hallId);
     setAnnouncement(`Retrying ${getMuseumHallCatalog(hallId)?.title ?? 'the gallery'}…`);
     readyHallIdsRef.current = new Set([...readyHallIdsRef.current].filter((id) => id !== hallId));
+    renderedHallIdsRef.current = new Set([...renderedHallIdsRef.current].filter((id) => id !== hallId));
     setReadyHallIds(new Set(readyHallIdsRef.current));
     setHallContentEpochs((current) => ({...current, [hallId]: (current[hallId] ?? 0) + 1}));
     setHallLoadStatus((current) => ({...current, [hallId]: 'idle'}));
@@ -477,6 +559,11 @@ export function MuseumPage({route, href, push, replace}: {
     setReadyHallIds(new Set(readyHallIdsRef.current));
     setHallLoadStatus((current) => ({...current, [hallId]: 'failed'}));
     setHallLoadErrors((current) => ({...current, [hallId]: error instanceof Error ? error.message : 'The gallery content could not be rendered.'}));
+    const waiter = hallRenderWaiterRef.current.get(hallId);
+    if (waiter) {
+      hallRenderWaiterRef.current.delete(hallId);
+      waiter.reject(error);
+    }
     if (hallId === activeHallIdRef.current) {
       controlsRef.current?.pauseExploring();
       setVisitPhase((phase) => transitionMuseumVisitPhase(phase, 'scene-error'));
@@ -535,12 +622,10 @@ export function MuseumPage({route, href, push, replace}: {
     const session = pose ? undefined : loadMuseumSession(targetLayout);
     const targetPose = pose
       ?? (session ? {x: session.x, z: session.z, yaw: session.yaw, pitch: session.pitch} : undefined)
-      ?? targetRegistration.definition.entrances[0]?.arrivalPose
       ?? targetLayout.spawn;
     activeHallIdRef.current = hallId;
     activeDefinitionRef.current = targetRegistration.definition;
     setActiveHallId(hallId);
-    setMountedHallIds((current) => new Set(current).add(hallId));
     poseRef.current = {...targetPose};
     nearbyRef.current = undefined;
     setNearbyReference(undefined);
@@ -595,7 +680,6 @@ export function MuseumPage({route, href, push, replace}: {
     activeHallIdRef.current = connection.targetHallId;
     activeDefinitionRef.current = targetRegistration.definition;
     setActiveHallId(connection.targetHallId);
-    setMountedHallIds((current) => new Set(current).add(connection.targetHallId));
     nearbyRef.current = undefined;
     setNearbyReference(undefined);
     setOverlay(null);
@@ -625,7 +709,6 @@ export function MuseumPage({route, href, push, replace}: {
     activeHallIdRef.current = reference.hallId;
     activeDefinitionRef.current = targetRegistration.definition;
     setActiveHallId(reference.hallId);
-    setMountedHallIds((current) => new Set(current).add(reference.hallId));
     poseRef.current = {...viewpoint};
     nearbyRef.current = reference;
     setNearbyReference(reference);
@@ -813,11 +896,10 @@ export function MuseumPage({route, href, push, replace}: {
       ? {...directViewpoint}
       : session
         ? {x: session.x, z: session.z, yaw: session.yaw, pitch: session.pitch}
-        : {...(targetRegistration.definition.entrances[0]?.arrivalPose ?? targetLayout.spawn)};
+        : {...targetLayout.spawn};
     activeHallIdRef.current = route.hallId;
     activeDefinitionRef.current = targetRegistration.definition;
     setActiveHallId(route.hallId);
-    setMountedHallIds((current) => new Set(current).add(route.hallId));
     nearbyRef.current = undefined;
     setNearbyReference(undefined);
     const crossHallClose = pendingCrossHallCloseRef.current;
@@ -852,23 +934,7 @@ export function MuseumPage({route, href, push, replace}: {
   }, [activeHallId, ensureHallEntry]);
 
   useEffect(() => {
-    let cancelled = false;
-    const warmAdjacent = () => {
-      if (cancelled) return;
-      definition.prefetch.adjacentHallIds.forEach((hallId) => void ensureHallEntry(hallId).catch(() => undefined));
-    };
-    if ('requestIdleCallback' in window) {
-      const handle = window.requestIdleCallback(warmAdjacent, {timeout: 1800});
-      return () => {
-        cancelled = true;
-        window.cancelIdleCallback(handle);
-      };
-    }
-    const timer = globalThis.setTimeout(warmAdjacent, 300);
-    return () => {
-      cancelled = true;
-      window.clearTimeout(timer);
-    };
+    definition.prefetch.adjacentHallIds.forEach((hallId) => void ensureHallEntry(hallId).catch(() => undefined));
   }, [definition.id, definition.prefetch.adjacentHallIds, ensureHallEntry]);
 
   useEffect(() => {
@@ -895,11 +961,12 @@ export function MuseumPage({route, href, push, replace}: {
   }, [activeHallId, exploring, nearby, reducedMotion]);
 
   const exhibitIndex = exhibit ? (hall.guidedOrder as readonly MuseumExhibitId[]).indexOf(exhibit.id) : -1;
-  const sceneRegistrations = MUSEUM_WORLD_REGISTRY.filter(({definition: item}) => mountedHallIds.has(item.id) || item.id === activeHallId);
+  const residentHallIds = new Set<MuseumHallId>([activeHallId, ...definition.prefetch.adjacentHallIds]);
+  const sceneRegistrations = MUSEUM_WORLD_REGISTRY.filter(({definition: item}) => residentHallIds.has(item.id));
   const activeHallLoadFailed = hallLoadStatus[activeHallId] === 'failed';
   const activeHallLoading = hallLoadStatus[activeHallId] === 'idle' || hallLoadStatus[activeHallId] === 'loading';
-  const adjacentFailedHallId = definition.prefetch.adjacentHallIds.find((hallId) => hallLoadStatus[hallId] === 'failed');
-  const adjacentLoadingHallId = definition.prefetch.adjacentHallIds.find((hallId) => hallLoadStatus[hallId] === 'loading');
+  const adjacentFailedHallIds = definition.prefetch.adjacentHallIds.filter((hallId) => hallLoadStatus[hallId] === 'failed');
+  const adjacentLoadingHallIds = definition.prefetch.adjacentHallIds.filter((hallId) => hallLoadStatus[hallId] === 'loading');
 
   return <div
     ref={experienceRootRef}
@@ -955,6 +1022,8 @@ export function MuseumPage({route, href, push, replace}: {
               }}
               onHallTransition={handleHallTransition}
               onHallTransitionBlocked={handleHallTransitionBlocked}
+              onHallContentReady={handleHallContentReady}
+              onHallContentUnavailable={handleHallContentUnavailable}
               onHallContentError={handleHallContentError}
               onSceneGesture={controls.handleSceneGesture}
               onSceneError={handleSceneError}
@@ -1012,8 +1081,11 @@ export function MuseumPage({route, href, push, replace}: {
       {!modalOpen && experience.fullscreenError && <div className="museum-status-message" role="status"><span>{experience.fullscreenError}</span><button type="button" onClick={experience.clearError}>Dismiss</button></div>}
       {!modalOpen && activeHallLoading && !sceneError && <div className="museum-load-chip" role="status">Preparing {hall.title}…</div>}
       {!modalOpen && activeHallLoadFailed && <div className="museum-status-message museum-hall-load-error" role="alert"><span>{hall.title} could not finish loading. {hallLoadErrors[activeHallId]}</span><button type="button" onClick={() => retryHallContent(activeHallId)}>Retry gallery</button></div>}
-      {!modalOpen && !activeHallLoadFailed && adjacentFailedHallId && <div className="museum-status-message museum-adjacent-load-error" role="alert"><span>{getMuseumHallCatalog(adjacentFailedHallId)?.title ?? 'The connected gallery'} could not finish loading.</span><button type="button" onClick={() => retryHallContent(adjacentFailedHallId)}>Retry connection</button></div>}
-      {!modalOpen && !activeHallLoadFailed && !adjacentFailedHallId && adjacentLoadingHallId && <div className="museum-status-message museum-adjacent-load-status" role="status"><span>Preparing the connection to {getMuseumHallCatalog(adjacentLoadingHallId)?.title ?? 'the adjacent gallery'}…</span></div>}
+      {!modalOpen && !activeHallLoadFailed && adjacentFailedHallIds.length > 0 && <div className="museum-status-message museum-adjacent-load-error" role="alert">
+        <span>{adjacentFailedHallIds.length === 1 ? 'A connected gallery could not finish loading.' : `${adjacentFailedHallIds.length} connected galleries could not finish loading.`}</span>
+        {adjacentFailedHallIds.map((hallId) => <button key={hallId} type="button" onClick={() => retryHallContent(hallId)}>Retry {getMuseumHallCatalog(hallId)?.title ?? 'connection'}</button>)}
+      </div>}
+      {!modalOpen && !activeHallLoadFailed && adjacentLoadingHallIds.length > 0 && <div className="museum-status-message museum-adjacent-load-status" role="status"><span>Preparing {adjacentLoadingHallIds.map((hallId) => getMuseumHallCatalog(hallId)?.title ?? 'an adjacent gallery').join(' and ')}…</span></div>}
       {!exhibit && overlay === 'directory' && <Directory
         route={route}
         href={href}

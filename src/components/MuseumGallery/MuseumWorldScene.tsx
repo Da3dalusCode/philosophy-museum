@@ -5,13 +5,14 @@ import {
   Suspense,
   useCallback,
   useEffect,
+  useLayoutEffect,
   useMemo,
   useRef,
   useState,
   type ErrorInfo,
   type ReactNode,
 } from 'react';
-import type {WebGLRenderer} from 'three';
+import {PerspectiveCamera, type WebGLRenderer} from 'three';
 import type {MuseumExhibitRef} from '../../data/museum/museumWorldTypes';
 import type {MuseumHallId} from '../../data/museumCatalog';
 import {
@@ -85,6 +86,15 @@ function MuseumPlayerRig({
       if (inputRef.current.requestFrame === requestFrame) delete inputRef.current.requestFrame;
     };
   }, [inputRef, invalidate]);
+
+  useEffect(() => {
+    if (!(camera instanceof PerspectiveCamera)) return;
+    camera.fov = layout.cameraFov;
+    camera.near = .08;
+    camera.far = layout.cameraFar;
+    camera.updateProjectionMatrix();
+    invalidate();
+  }, [camera, invalidate, layout.cameraFar, layout.cameraFov]);
 
   const applyPose = useCallback(() => {
     const pose = poseRef.current;
@@ -197,16 +207,22 @@ function MuseumPlayerRig({
 function LoadedHall({
   registration,
   active,
+  viewerHallId,
   nearby,
   onSelectExhibit,
   onSceneGesture,
+  onHallContentReady,
+  onHallContentUnavailable,
   onHallContentError,
 }: {
   registration: MuseumHallRegistration;
   active: boolean;
+  viewerHallId: MuseumHallId;
   nearby?: MuseumExhibitRef;
   onSelectExhibit: MuseumSceneRuntimeProps['onSelectExhibit'];
   onSceneGesture: MuseumSceneRuntimeProps['onSceneGesture'];
+  onHallContentReady: MuseumSceneRuntimeProps['onHallContentReady'];
+  onHallContentUnavailable: MuseumSceneRuntimeProps['onHallContentUnavailable'];
   onHallContentError: MuseumSceneRuntimeProps['onHallContentError'];
 }) {
   const HallContent = useMemo(
@@ -218,12 +234,30 @@ function LoadedHall({
       <HallContent
         definition={registration.definition}
         active={active}
+        viewerHallId={viewerHallId}
         nearby={nearby}
         onSelectExhibit={onSelectExhibit}
         onSceneGesture={onSceneGesture}
       />
+      <HallRenderedSignal
+        hallId={registration.definition.id}
+        onReady={onHallContentReady}
+        onUnavailable={onHallContentUnavailable}
+      />
     </Suspense>
   </HallContentErrorBoundary>;
+}
+
+function HallRenderedSignal({hallId, onReady, onUnavailable}: {
+  hallId: MuseumHallId;
+  onReady: MuseumSceneRuntimeProps['onHallContentReady'];
+  onUnavailable: MuseumSceneRuntimeProps['onHallContentUnavailable'];
+}) {
+  useLayoutEffect(() => {
+    onReady(hallId);
+    return () => onUnavailable(hallId);
+  }, [hallId, onReady, onUnavailable]);
+  return null;
 }
 
 function MuseumWorldContents(props: MuseumSceneRuntimeProps) {
@@ -237,9 +271,12 @@ function MuseumWorldContents(props: MuseumSceneRuntimeProps) {
       key={`${registration.definition.id}-${props.hallContentEpochs[registration.definition.id] ?? 0}`}
       registration={registration}
       active={registration.definition.id === props.definition.id}
+      viewerHallId={props.definition.id}
       nearby={nearby}
       onSelectExhibit={props.onSelectExhibit}
       onSceneGesture={props.onSceneGesture}
+      onHallContentReady={props.onHallContentReady}
+      onHallContentUnavailable={props.onHallContentUnavailable}
       onHallContentError={props.onHallContentError}
     />)}
     <MuseumPlayerRig

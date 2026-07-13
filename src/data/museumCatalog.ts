@@ -1,13 +1,21 @@
 import type {MuseumAssetId} from './museum/museumAssetTypes';
 
-export type MuseumHallId = 'ancient-greek' | 'medieval-worlds';
+export type MuseumHallId =
+  | 'ancient-greek'
+  | 'renaissance-reason-revolution'
+  | 'modernity-freedom-critique';
+
 export type MuseumZoneId =
   | 'classical-foundations'
   | 'hellenistic-ways'
   | 'late-antiquity'
-  | 'late-antique-inheritance'
-  | 'arabic-islamic-worlds'
-  | 'jewish-latin-scholastic';
+  | 'power-and-method'
+  | 'sovereignty-rights-nature'
+  | 'experience-freedom-critique'
+  | 'faith-alienation-crisis'
+  | 'existence-freedom-absurd'
+  | 'power-knowledge-institutions';
+
 export type MuseumExhibitKind = 'philosopher' | 'branch';
 
 export type MuseumZoneCatalog = {
@@ -60,41 +68,77 @@ const ancientExhibits = [
   {id: 'neoplatonism', entityKind: 'branch', entityId: 'neoplatonism', displayName: 'Neoplatonism', zoneId: 'late-antiquity', question: 'How can the many flow from—and return toward—the One?', principalAssetId: 'neoplatonism-plotinus-ostia', supportingAssetIds: ['neoplatonism-ficino-enneads']},
 ] as const satisfies readonly MuseumExhibitCatalogShape[];
 
-const medievalZones = [
+const renaissanceReasonRevolutionZones = [
   {
-    id: 'late-antique-inheritance',
-    title: 'Late Antique Inheritance',
-    period: '4th–6th centuries CE',
-    description: 'Roman North Africa and Ostrogothic Italy transform classical philosophy through Christian scripture, grace, logic, providence, and new institutions of reading.',
+    id: 'power-and-method',
+    title: 'Power & Method',
+    period: '16th–17th centuries',
+    description: 'Machiavelli and Descartes unsettle inherited authorities by asking how power actually works and how inquiry can begin again.',
   },
   {
-    id: 'arabic-islamic-worlds',
-    title: 'Arabic & Islamic Philosophical Worlds',
-    period: '10th–12th centuries CE',
-    description: 'Court, medical, legal, theological, and philosophical cultures argue over demonstration, prophecy, causation, and the reach of reason across Arabic-language and Islamicate intellectual networks.',
+    id: 'sovereignty-rights-nature',
+    title: 'Sovereignty, Rights & Nature',
+    period: '17th century',
+    description: 'Hobbes, Locke, and Spinoza construct rival accounts of political order, freedom, mind, nature, and religious authority.',
   },
   {
-    id: 'jewish-latin-scholastic',
-    title: 'Jewish & Latin Scholastic Conversations',
-    period: '12th–14th centuries CE',
-    description: 'Judeo-Arabic, Hebrew, Greek, Arabic, and Latin texts enter legal communities, religious orders, and universities where revelation, universals, law, and explanation are contested.',
+    id: 'experience-freedom-critique',
+    title: 'Experience, Freedom & Critique',
+    period: '18th century',
+    description: 'Hume, Rousseau, and Kant test the limits of reason while recasting morality, society, autonomy, and the knowing subject.',
   },
 ] as const satisfies readonly MuseumZoneCatalog[];
 
-const medievalExhibits = [
-  {id: 'augustine', entityKind: 'philosopher', entityId: 'augustine', displayName: 'Augustine', zoneId: 'late-antique-inheritance', question: 'How do memory, time, will, evil, and grace reshape the inward life?', principalAssetId: 'augustine-lateran', supportingAssetIds: ['augustine-city-of-god']},
-  {id: 'boethius', entityKind: 'philosopher', entityId: 'boethius', displayName: 'Boethius', zoneId: 'late-antique-inheritance', question: 'Can freedom and happiness survive fortune, imprisonment, and providence?', principalAssetId: 'boethius-consolation-teaching', supportingAssetIds: ['boethius-arithmetic']},
-  {id: 'avicenna', entityKind: 'philosopher', entityId: 'avicenna', displayName: 'Ibn Sina / Avicenna', zoneId: 'arabic-islamic-worlds', question: 'What distinguishes what a thing is from the fact that it exists?', principalAssetId: 'avicenna-canon', supportingAssetIds: ['avicenna-thevet-portrait']},
-  {id: 'al-ghazali', entityKind: 'philosopher', entityId: 'al-ghazali', displayName: 'al-Ghazali', zoneId: 'arabic-islamic-worlds', question: 'Where does philosophical demonstration succeed—and where does it overreach?', principalAssetId: 'al-ghazali-asas-al-qiyas', supportingAssetIds: ['al-ghazali-faysal']},
-  {id: 'averroes', entityKind: 'philosopher', entityId: 'averroes', displayName: 'Ibn Rushd / Averroes', zoneId: 'arabic-islamic-worlds', question: 'How can demonstration, law, and scriptural interpretation belong to one intellectual life?', principalAssetId: 'averroes-de-anima', supportingAssetIds: ['averroes-lithograph']},
-  {id: 'maimonides', entityKind: 'philosopher', entityId: 'maimonides', displayName: 'Maimonides', zoneId: 'jewish-latin-scholastic', question: 'How can language about God guide without pretending to comprehend God?', principalAssetId: 'maimonides-mishnah-autograph', supportingAssetIds: ['maimonides-mishneh-torah']},
-  {id: 'aquinas', entityKind: 'philosopher', entityId: 'aquinas', displayName: 'Thomas Aquinas', zoneId: 'jewish-latin-scholastic', question: 'How can created being, natural reason, and revealed theology form a disciplined synthesis?', principalAssetId: 'aquinas-summa', supportingAssetIds: ['aquinas-triumph']},
-  {id: 'ockham', entityKind: 'philosopher', entityId: 'ockham', displayName: 'William of Ockham', zoneId: 'jewish-latin-scholastic', question: 'What explanatory commitments can logic remove without losing the world?', principalAssetId: 'ockham-logica-sketch', supportingAssetIds: ['ockham-sentences']},
+const renaissanceReasonRevolutionExhibits = [
+  {id: 'machiavelli', entityKind: 'philosopher', entityId: 'machiavelli', displayName: 'Niccolò Machiavelli', zoneId: 'power-and-method', question: 'What does political judgment require when ideals and power diverge?', principalAssetId: 'machiavelli-santi-di-tito', supportingAssetIds: ['machiavelli-prince-1532']},
+  {id: 'descartes', entityKind: 'philosopher', entityId: 'descartes', displayName: 'René Descartes', zoneId: 'power-and-method', question: 'What can remain certain after systematic doubt?', principalAssetId: 'descartes-hals-portrait', supportingAssetIds: ['descartes-discourse-1637']},
+  {id: 'hobbes', entityKind: 'philosopher', entityId: 'hobbes', displayName: 'Thomas Hobbes', zoneId: 'sovereignty-rights-nature', question: 'Why would free people authorize a sovereign power?', principalAssetId: 'hobbes-wright-portrait', supportingAssetIds: ['hobbes-leviathan-1651']},
+  {id: 'locke', entityKind: 'philosopher', entityId: 'locke', displayName: 'John Locke', zoneId: 'sovereignty-rights-nature', question: 'When does government protect rights—and when may it be resisted?', principalAssetId: 'locke-kneller-portrait', supportingAssetIds: ['locke-two-treatises-1690']},
+  {id: 'spinoza', entityKind: 'philosopher', entityId: 'spinoza', displayName: 'Baruch Spinoza', zoneId: 'sovereignty-rights-nature', question: 'How might freedom arise within, rather than outside, nature?', principalAssetId: 'spinoza-hab-portrait', supportingAssetIds: ['spinoza-ethics-1677']},
+  {id: 'hume', entityKind: 'philosopher', entityId: 'hume', displayName: 'David Hume', zoneId: 'experience-freedom-critique', question: 'How far can experience justify causation, self, and belief?', principalAssetId: 'hume-ramsay-portrait', supportingAssetIds: ['hume-treatise-1739']},
+  {id: 'rousseau', entityKind: 'philosopher', entityId: 'rousseau', displayName: 'Jean-Jacques Rousseau', zoneId: 'experience-freedom-critique', question: 'Can people obey a law together and still remain free?', principalAssetId: 'rousseau-la-tour-portrait', supportingAssetIds: ['rousseau-social-contract-1762']},
+  {id: 'kant', entityKind: 'philosopher', entityId: 'kant', displayName: 'Immanuel Kant', zoneId: 'experience-freedom-critique', question: 'What makes experience, obligation, and autonomy possible?', principalAssetId: 'kant-raab-portrait', supportingAssetIds: ['kant-critique-1781']},
+] as const satisfies readonly MuseumExhibitCatalogShape[];
+
+const modernityFreedomCritiqueZones = [
+  {
+    id: 'faith-alienation-crisis',
+    title: 'Faith, Alienation & Crisis',
+    period: '19th century',
+    description: 'Kierkegaard and Marx challenge systems that hide lived choice, material conflict, and historical crisis.',
+  },
+  {
+    id: 'existence-freedom-absurd',
+    title: 'Existence, Freedom & the Absurd',
+    period: '20th century',
+    description: 'Nietzsche, Heidegger, Sartre, and Beauvoir examine value creation, situated existence, responsibility, and oppression.',
+  },
+  {
+    id: 'power-knowledge-institutions',
+    title: 'Power, Knowledge & Institutions',
+    period: '20th century',
+    description: 'Camus and Foucault test revolt, discipline, institutional power, and the making of modern subjects.',
+  },
+] as const satisfies readonly MuseumZoneCatalog[];
+
+const modernityFreedomCritiqueExhibits = [
+  {id: 'kierkegaard', entityKind: 'philosopher', entityId: 'kierkegaard', displayName: 'Søren Kierkegaard', zoneId: 'faith-alienation-crisis', question: 'What does it mean to choose when certainty cannot choose for us?', principalAssetId: 'kierkegaard-royal-library-portrait', supportingAssetIds: ['kierkegaard-fragments-manuscript']},
+  {id: 'marx', entityKind: 'philosopher', entityId: 'marx', displayName: 'Karl Marx', zoneId: 'faith-alienation-crisis', question: 'How do material relations shape freedom, labor, and historical change?', principalAssetId: 'marx-mayall-portrait', supportingAssetIds: ['marx-capital-1867']},
+  {id: 'nietzsche', entityKind: 'philosopher', entityId: 'nietzsche', displayName: 'Friedrich Nietzsche', zoneId: 'existence-freedom-absurd', question: 'How are values made, inherited, and overcome?', principalAssetId: 'nietzsche-schultze-1882', supportingAssetIds: ['nietzsche-zarathustra-1883']},
+  {id: 'heidegger', entityKind: 'philosopher', entityId: 'heidegger', displayName: 'Martin Heidegger', zoneId: 'existence-freedom-absurd', question: 'What does our practical involvement disclose about being?', principalAssetId: 'heidegger-wetterauer-portrait', supportingAssetIds: ['heidegger-pragher-lecture-1954']},
+  {id: 'sartre', entityKind: 'philosopher', entityId: 'sartre', displayName: 'Jean-Paul Sartre', zoneId: 'existence-freedom-absurd', question: 'What responsibility follows from freedom without a fixed essence?', principalAssetId: 'sartre-anefo-1965', supportingAssetIds: ['sartre-beauvoir-balzac']},
+  {id: 'beauvoir', entityKind: 'philosopher', entityId: 'beauvoir', displayName: 'Simone de Beauvoir', zoneId: 'existence-freedom-absurd', question: 'How does freedom become possible—or blocked—between situated people?', principalAssetId: 'beauvoir-gpo-1967', supportingAssetIds: ['beauvoir-suffrage-poster-1924']},
+  {id: 'camus', entityKind: 'philosopher', entityId: 'camus', displayName: 'Albert Camus', zoneId: 'power-knowledge-institutions', question: 'How can revolt answer a world that offers no final guarantee?', principalAssetId: 'camus-loc-1957', supportingAssetIds: ['camus-combat-1943']},
+  {id: 'foucault', entityKind: 'philosopher', entityId: 'foucault', displayName: 'Michel Foucault', zoneId: 'power-knowledge-institutions', question: 'How do institutions and knowledge produce the subjects they govern?', principalAssetId: 'foucault-portugal-1968', supportingAssetIds: ['foucault-panopticon-plan']},
 ] as const satisfies readonly MuseumExhibitCatalogShape[];
 
 export type AncientGreekExhibitId = (typeof ancientExhibits)[number]['id'];
-export type MedievalWorldsExhibitId = (typeof medievalExhibits)[number]['id'];
-export type MuseumExhibitCatalog = (typeof ancientExhibits)[number] | (typeof medievalExhibits)[number];
+export type RenaissanceReasonRevolutionExhibitId = (typeof renaissanceReasonRevolutionExhibits)[number]['id'];
+export type ModernityFreedomCritiqueExhibitId = (typeof modernityFreedomCritiqueExhibits)[number]['id'];
+export type MuseumExhibitCatalog =
+  | (typeof ancientExhibits)[number]
+  | (typeof renaissanceReasonRevolutionExhibits)[number]
+  | (typeof modernityFreedomCritiqueExhibits)[number];
 export type MuseumExhibitId = MuseumExhibitCatalog['id'];
 
 export type MuseumHallCatalog = {
@@ -109,32 +153,47 @@ export type MuseumHallCatalog = {
   guidedOrder: readonly MuseumExhibitId[];
 };
 
-export const MUSEUM_HALLS = [{
-  id: 'ancient-greek',
-  title: 'Ancient Greek & Hellenistic Gallery',
-  galleryNumber: 'Gallery 01',
-  period: '5th century BCE–6th century CE',
-  description: 'Walk from the examined life of classical Athens through rival Hellenistic practices and into the metaphysical ascent of late antiquity.',
-  sweep: ['Classical inquiry', 'Hellenistic ways of life', 'Late-antique ascent'],
-  zones: ancientZones,
-  exhibits: ancientExhibits,
-  guidedOrder: ancientExhibits.map(({id}) => id),
-}, {
-  id: 'medieval-worlds',
-  title: 'Medieval Worlds Gallery',
-  galleryNumber: 'Gallery 02',
-  period: '4th–14th centuries CE',
-  description: 'Follow several connected intellectual worlds as manuscripts, translations, courts, religious communities, and universities transform ancient inheritances without erasing disagreement.',
-  sweep: ['Late-antique inheritance', 'Arabic & Islamic worlds', 'Jewish & Latin scholastic thought'],
-  zones: medievalZones,
-  exhibits: medievalExhibits,
-  guidedOrder: medievalExhibits.map(({id}) => id),
-}] as const satisfies readonly MuseumHallCatalog[];
+export const MUSEUM_HALLS = [
+  {
+    id: 'ancient-greek',
+    title: 'Ancient Greek & Hellenistic Gallery',
+    galleryNumber: 'Gallery 01',
+    period: '5th century BCE–6th century CE',
+    description: 'Walk from the examined life of classical Athens through rival Hellenistic practices and into the metaphysical ascent of late antiquity.',
+    sweep: ['Classical inquiry', 'Hellenistic ways of life', 'Late-antique ascent'],
+    zones: ancientZones,
+    exhibits: ancientExhibits,
+    guidedOrder: ancientExhibits.map(({id}) => id),
+  },
+  {
+    id: 'renaissance-reason-revolution',
+    title: 'Renaissance, Reason, and Revolution',
+    galleryNumber: 'Gallery 02',
+    period: '16th–18th centuries',
+    description: 'Follow the remaking of political judgment, scientific method, sovereignty, rights, experience, freedom, and critique across early modern Europe.',
+    sweep: ['Power and method', 'Sovereignty and rights', 'Experience and critique'],
+    zones: renaissanceReasonRevolutionZones,
+    exhibits: renaissanceReasonRevolutionExhibits,
+    guidedOrder: renaissanceReasonRevolutionExhibits.map(({id}) => id),
+  },
+  {
+    id: 'modernity-freedom-critique',
+    title: 'Modernity, Freedom, and Critique',
+    galleryNumber: 'Gallery 03',
+    period: '19th–20th centuries',
+    description: 'Move through crises of faith, labor, value, existence, oppression, absurdity, and the institutional production of modern subjects.',
+    sweep: ['Faith, alienation, and crisis', 'Existence, freedom, and absurdity', 'Power, knowledge, and institutions'],
+    zones: modernityFreedomCritiqueZones,
+    exhibits: modernityFreedomCritiqueExhibits,
+    guidedOrder: modernityFreedomCritiqueExhibits.map(({id}) => id),
+  },
+] as const satisfies readonly MuseumHallCatalog[];
 
 export const DEFAULT_MUSEUM_HALL_ID: MuseumHallId = 'ancient-greek';
 
 export function getMuseumHallCatalog(id: 'ancient-greek'): (typeof MUSEUM_HALLS)[0];
-export function getMuseumHallCatalog(id: 'medieval-worlds'): (typeof MUSEUM_HALLS)[1];
+export function getMuseumHallCatalog(id: 'renaissance-reason-revolution'): (typeof MUSEUM_HALLS)[1];
+export function getMuseumHallCatalog(id: 'modernity-freedom-critique'): (typeof MUSEUM_HALLS)[2];
 export function getMuseumHallCatalog(id: MuseumHallId): (typeof MUSEUM_HALLS)[number];
 export function getMuseumHallCatalog(id: string): MuseumHallCatalog | undefined;
 export function getMuseumHallCatalog(id: string): MuseumHallCatalog | undefined {
