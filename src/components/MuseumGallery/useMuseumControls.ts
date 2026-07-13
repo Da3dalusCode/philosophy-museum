@@ -55,6 +55,8 @@ export type MuseumControls = {
   pointerLockSupported: boolean;
   onCanvasReady: (canvas: HTMLCanvasElement) => void;
   beginExploring: () => void;
+  prepareResumeFromGesture: () => void;
+  resumeWithoutGesture: () => void;
   pauseExploring: () => void;
   clearInput: () => void;
   movementBindings: MuseumPointerBindings;
@@ -95,6 +97,7 @@ export function useMuseumControls(options: UseMuseumControlsOptions): MuseumCont
   const suppressUntilRef = useRef(0);
   const releaseReasonRef = useRef(false);
   const entryPendingRef = useRef(false);
+  const resumePendingRef = useRef(false);
   activeRef.current = options.active;
   blockedRef.current = options.blocked;
   nearbyRef.current = options.nearbyExhibitId;
@@ -139,6 +142,7 @@ export function useMuseumControls(options: UseMuseumControlsOptions): MuseumCont
 
   const pauseExploring = useCallback(() => {
     entryPendingRef.current = false;
+    resumePendingRef.current = false;
     releaseReasonRef.current = Boolean(canvas && document.pointerLockElement === canvas);
     clearInput();
     setMode('paused');
@@ -148,6 +152,7 @@ export function useMuseumControls(options: UseMuseumControlsOptions): MuseumCont
 
   const beginExploring = useCallback(() => {
     if (blockedRef.current) return;
+    resumePendingRef.current = false;
     entryPendingRef.current = true;
     clearInput();
     canvas?.focus({preventScroll: true});
@@ -171,10 +176,41 @@ export function useMuseumControls(options: UseMuseumControlsOptions): MuseumCont
     }
   }, [canvas, clearInput, setMode]);
 
+  const prepareResumeFromGesture = useCallback(() => {
+    resumePendingRef.current = true;
+    entryPendingRef.current = false;
+    releaseReasonRef.current = false;
+    clearInput();
+    setMode('drag-look');
+    if (!canvas || typeof canvas.requestPointerLock !== 'function') return;
+    try {
+      const result = canvas.requestPointerLock() as unknown;
+      if (result && typeof (result as Promise<void>).catch === 'function') {
+        void (result as Promise<void>).catch(() => {
+          if (resumePendingRef.current && modeRef.current !== 'locked') setMode('drag-look');
+        });
+      }
+    } catch {
+      setMode('drag-look');
+    }
+  }, [canvas, clearInput, setMode]);
+
+  const resumeWithoutGesture = useCallback(() => {
+    resumePendingRef.current = true;
+    entryPendingRef.current = false;
+    releaseReasonRef.current = false;
+    clearInput();
+    setMode('drag-look');
+  }, [clearInput, setMode]);
+
   useEffect(() => {
     const onPointerLockChange = () => {
       if (canvas && document.pointerLockElement === canvas) {
         releaseReasonRef.current = false;
+        if (resumePendingRef.current) {
+          setMode('locked');
+          return;
+        }
         if ((activeRef.current || entryPendingRef.current) && !blockedRef.current) {
           entryPendingRef.current = false;
           setMode('locked');
@@ -186,6 +222,10 @@ export function useMuseumControls(options: UseMuseumControlsOptions): MuseumCont
         releaseReasonRef.current = false;
         return;
       }
+      if (resumePendingRef.current) {
+        setMode('drag-look');
+        return;
+      }
       if (modeRef.current !== 'locked' && modeRef.current !== 'requesting-lock') return;
       clearInput();
       setMode('paused');
@@ -193,6 +233,10 @@ export function useMuseumControls(options: UseMuseumControlsOptions): MuseumCont
     };
     const onPointerLockError = () => {
       entryPendingRef.current = false;
+      if (resumePendingRef.current) {
+        setMode('drag-look');
+        return;
+      }
       if (modeRef.current === 'requesting-lock') setMode('drag-look');
     };
     document.addEventListener('pointerlockchange', onPointerLockChange);
@@ -204,6 +248,14 @@ export function useMuseumControls(options: UseMuseumControlsOptions): MuseumCont
   }, [canvas, clearInput, setMode]);
 
   useEffect(() => {
+    if (resumePendingRef.current) {
+      if (options.active && !options.blocked) {
+        resumePendingRef.current = false;
+        canvas?.focus({preventScroll: true});
+        if (!canvas || document.pointerLockElement !== canvas) setMode('drag-look');
+      }
+      return;
+    }
     if (options.active && !options.blocked) {
       canvas?.focus({preventScroll: true});
       if (modeRef.current === 'paused') setMode('drag-look');
@@ -348,6 +400,7 @@ export function useMuseumControls(options: UseMuseumControlsOptions): MuseumCont
 
   useEffect(() => () => {
     entryPendingRef.current = false;
+    resumePendingRef.current = false;
     releaseReasonRef.current = Boolean(canvas && document.pointerLockElement === canvas);
     clearInput();
     if (canvas && document.pointerLockElement === canvas) document.exitPointerLock?.();
@@ -403,6 +456,8 @@ export function useMuseumControls(options: UseMuseumControlsOptions): MuseumCont
     pointerLockSupported: Boolean(canvas?.requestPointerLock),
     onCanvasReady: setCanvas,
     beginExploring,
+    prepareResumeFromGesture,
+    resumeWithoutGesture,
     pauseExploring,
     clearInput,
     movementBindings,

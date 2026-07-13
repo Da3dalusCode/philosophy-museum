@@ -1,7 +1,7 @@
 import type {
   MuseumHallLayout,
   MuseumPose,
-} from '../../data/museum/ancientGreekHall';
+} from '../../data/museum/museumWorldTypes';
 import type {MuseumExhibitId, MuseumHallId} from '../../data/museumCatalog';
 import {clampPitch, isValidMuseumPosition, normalizeYaw} from './museumMovement';
 

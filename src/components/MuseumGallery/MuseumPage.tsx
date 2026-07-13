@@ -24,7 +24,8 @@ import {
   type MouseEvent,
   type ReactNode,
 } from 'react';
-import {ANCIENT_GREEK_HALL_LAYOUT, type MuseumPose} from '../../data/museum/ancientGreekHall';
+import type {MuseumPose} from '../../data/museum/museumWorldTypes';
+import {getMuseumInterpretation} from '../../data/museum/museumInterpretations';
 import {
   getMuseumExhibitCatalog,
   getMuseumHallCatalog,
@@ -32,46 +33,33 @@ import {
   type MuseumExhibitId,
 } from '../../data/museumCatalog';
 import type {MuseumRoute, NavigableAppRoute, RouteHref, RouteNavigator} from '../../routing/routes';
-import {getMuseumExhibitContent} from './exhibitContent';
 import {MuseumInterpretationPanel} from './MuseumInterpretationPanel';
 import {MuseumTouchControls} from './MuseumTouchControls';
 import {loadMuseumSession, removeMuseumSession, saveMuseumSession} from './museumSession';
 import {useMuseumControls, type MuseumControls} from './useMuseumControls';
 import {useMuseumExperienceMode} from './useMuseumExperienceMode';
+import {getMuseumHallRegistration} from './museumWorldRegistry';
+import {
+  createMuseumExhibitVisitContext,
+  directMuseumVisitContext,
+  museumHistoryStateWithVisitContext,
+  parseMuseumExhibitVisitContext,
+  resolveMuseumExitPolicy,
+  type MuseumExhibitOrigin,
+  type MuseumExhibitVisitContext,
+} from './museumVisitState';
 import './museum.css';
 
-const createLazyAncientGreekHallScene = () => lazy(() => import('./AncientGreekHallScene').then(
-  ({AncientGreekHallScene}) => ({default: AncientGreekHallScene}),
+const createLazyMuseumWorldScene = () => lazy(() => import('./MuseumWorldScene').then(
+  ({MuseumWorldScene}) => ({default: MuseumWorldScene}),
 ));
 
 type Overlay = 'directory' | 'help' | null;
-type MuseumHistoryState = {
-  philosophyAtlasMuseum?: {hallId: string; openedFromHall: boolean};
-  [key: string]: unknown;
-};
 
 const articleRoute = (exhibit: MuseumExhibitCatalog): NavigableAppRoute =>
   exhibit.entityKind === 'philosopher'
     ? {kind: 'philosopher', philosopherId: exhibit.entityId}
     : {kind: 'branch', branchId: exhibit.entityId};
-
-const isPlainObject = (value: unknown): value is Record<string, unknown> =>
-  typeof value === 'object' && value !== null && !Array.isArray(value);
-
-const historyStateWithMuseumMarker = (hallId: string, openedFromHall = true): MuseumHistoryState => ({
-  ...(isPlainObject(window.history.state) ? window.history.state : {}),
-  philosophyAtlasMuseum: {hallId, openedFromHall},
-});
-
-const getMuseumHistoryMarker = (): MuseumHistoryState['philosophyAtlasMuseum'] => {
-  if (!isPlainObject(window.history.state)) return undefined;
-  const marker = window.history.state.philosophyAtlasMuseum;
-  return isPlainObject(marker)
-    && typeof marker.hallId === 'string'
-    && typeof marker.openedFromHall === 'boolean'
-    ? {hallId: marker.hallId, openedFromHall: marker.openedFromHall}
-    : undefined;
-};
 
 const isOrdinaryActivation = (event: MouseEvent<HTMLAnchorElement>): boolean =>
   event.button === 0 && !event.metaKey && !event.ctrlKey && !event.shiftKey && !event.altKey;
@@ -167,11 +155,12 @@ function MuseumModal({labelledBy, describedBy, onClose, children}: {
   </div>;
 }
 
-function ExhibitRouteLink({route, exhibit, href, push, className = 'btn btn-primary', onActivate, current, children}: {
+function ExhibitRouteLink({route, exhibit, href, push, origin, className = 'btn btn-primary', onActivate, current, children}: {
   route: MuseumRoute;
   exhibit: MuseumExhibitCatalog;
   href: RouteHref;
   push: RouteNavigator;
+  origin: MuseumExhibitOrigin;
   className?: string;
   onActivate?: (exhibit: MuseumExhibitCatalog) => void;
   current?: boolean;
@@ -182,16 +171,20 @@ function ExhibitRouteLink({route, exhibit, href, push, className = 'btn btn-prim
     if (!isOrdinaryActivation(event)) return;
     event.preventDefault();
     onActivate?.(exhibit);
-    push(target, {state: historyStateWithMuseumMarker(route.hallId)});
+    push(target, {state: museumHistoryStateWithVisitContext(
+      window.history.state,
+      createMuseumExhibitVisitContext(route.hallId, origin),
+    )});
   }}>{children}</a>;
 }
 
-function DirectoryContents({route, href, push, onExhibitActivate, showSummaries = false}: {
+function DirectoryContents({route, href, push, onExhibitActivate, showSummaries = false, exhibitOrigin = 'direct'}: {
   route: MuseumRoute;
   href: RouteHref;
   push: RouteNavigator;
   onExhibitActivate?: (exhibit: MuseumExhibitCatalog) => void;
   showSummaries?: boolean;
+  exhibitOrigin?: MuseumExhibitOrigin;
 }) {
   const hall = getMuseumHallCatalog(route.hallId)!;
   const headingPrefix = useId();
@@ -200,13 +193,13 @@ function DirectoryContents({route, href, push, onExhibitActivate, showSummaries 
       <p className="museum-zone-period">{zone.period}</p><h3 id={`${headingPrefix}-${zone.id}`}>{zone.title}</h3><p>{zone.description}</p>
       <ul>{hall.exhibits.filter((item) => item.zoneId === zone.id).map((item) => {
         const current = route.exhibitId === item.id;
-        const summary = showSummaries ? getMuseumExhibitContent(item).introduction : item.question;
+        const summary = showSummaries ? getMuseumInterpretation(item.id).lead : item.question;
         return <li key={item.id} className={current ? 'is-current' : ''} data-entity-kind={item.entityKind}>
           <div><b>{item.displayName}</b><span>{item.entityKind === 'philosopher' ? 'Philosopher' : 'School / tradition'}</span></div>
           {current && <strong className="museum-current-label">Currently open</strong>}
           <p>{summary}</p>
           <div className="museum-directory-actions">
-            <ExhibitRouteLink route={route} exhibit={item} href={href} push={push} onActivate={onExhibitActivate} current={current}>View exhibit</ExhibitRouteLink>
+            <ExhibitRouteLink route={route} exhibit={item} href={href} push={push} origin={exhibitOrigin} onActivate={onExhibitActivate} current={current}>View exhibit</ExhibitRouteLink>
             <a className="btn" href={href(articleRoute(item))}>Open full article</a>
           </div>
         </li>;
@@ -232,7 +225,7 @@ function Directory({route, href, push, onClose, onGuidedStart, onExhibitViewpoin
     </div>
     <p id={descriptionId}>Every exhibit, object label, and full article remains available without entering the walkable hall.</p>
     <button className="btn btn-primary museum-guided-start" type="button" onClick={onGuidedStart}>Start guided directory visit</button>
-    <DirectoryContents route={route} href={href} push={push} onExhibitActivate={(exhibit) => {
+    <DirectoryContents route={route} href={href} push={push} exhibitOrigin="directory" onExhibitActivate={(exhibit) => {
       onExhibitViewpoint(exhibit.id);
       onClose();
     }}/>
@@ -273,7 +266,7 @@ function MuseumFallback({route, href, push, onRetry, onReload, immersive, fullsc
       {fullscreen && <button className="btn" type="button" onClick={onToggleFullscreen}>Exit fullscreen</button>}
       <a className="btn" href={href({kind: 'history'})}>Return to Big History</a>
     </div>
-    <DirectoryContents route={route} href={href} push={push} showSummaries/>
+    <DirectoryContents route={route} href={href} push={push} showSummaries exhibitOrigin="paused-hall"/>
   </div>;
 }
 
@@ -284,35 +277,47 @@ export function MuseumPage({route, href, push, replace}: {
   replace: RouteNavigator;
 }) {
   const hall = getMuseumHallCatalog(route.hallId)!;
+  const registration = getMuseumHallRegistration(route.hallId);
+  if (!registration) throw new Error(`Museum hall ${route.hallId} is not registered in the persistent world.`);
+  const definition = registration.definition;
+  const layout = definition.layout;
   const exhibit = route.exhibitId ? getMuseumExhibitCatalog(route.hallId, route.exhibitId) : undefined;
-  const content = useMemo(() => exhibit ? getMuseumExhibitContent(exhibit) : undefined, [exhibit]);
+  const content = useMemo(() => exhibit ? getMuseumInterpretation(exhibit.id) : undefined, [exhibit]);
+  const visitContext = route.exhibitId
+    ? parseMuseumExhibitVisitContext(window.history.state, route.hallId) ?? directMuseumVisitContext(route.hallId)
+    : undefined;
+  const guided = visitContext?.origin === 'guided';
   const experienceRootRef = useRef<HTMLDivElement>(null);
   const backgroundRef = useRef<HTMLDivElement>(null);
   const controlsRef = useRef<MuseumControls | null>(null);
   const poseRef = useRef<MuseumPose>((() => {
-    const session = loadMuseumSession(ANCIENT_GREEK_HALL_LAYOUT);
-    const marker = getMuseumHistoryMarker();
-    if (session && (!route.exhibitId || marker?.hallId === route.hallId)) {
+    const session = loadMuseumSession(layout);
+    const marker = parseMuseumExhibitVisitContext(window.history.state, route.hallId);
+    if (session && (!route.exhibitId || marker)) {
       return {x: session.x, z: session.z, yaw: session.yaw, pitch: session.pitch};
     }
     const directViewpoint = route.exhibitId
-      ? ANCIENT_GREEK_HALL_LAYOUT.exhibits.find(({id}) => id === route.exhibitId)?.viewpoint
+      ? layout.exhibits.find(({id}) => id === route.exhibitId)?.viewpoint
       : undefined;
-    return {...(directViewpoint ?? ANCIENT_GREEK_HALL_LAYOUT.spawn)};
+    return {...(directViewpoint ?? layout.spawn)};
   })());
   const nearbyRef = useRef<MuseumExhibitId | undefined>(undefined);
   const lastAnnouncedNearbyRef = useRef<MuseumExhibitId | undefined>(undefined);
+  const lastExhibitContextRef = useRef<MuseumExhibitVisitContext | undefined>(visitContext);
+  const pendingCloseContextRef = useRef<MuseumExhibitVisitContext | undefined>(undefined);
+  const previousRouteExhibitRef = useRef(route.exhibitId);
+  const previousHallIdRef = useRef(route.hallId);
+  if (visitContext) lastExhibitContextRef.current = visitContext;
   const [nearbyId, setNearbyId] = useState<MuseumExhibitId | undefined>();
   const [announcement, setAnnouncement] = useState('');
   const [exploring, setExploring] = useState(false);
   const [overlay, setOverlay] = useState<Overlay>(null);
-  const [guided, setGuided] = useState(false);
   const [sceneError, setSceneError] = useState<unknown>(() => hasWebGL() ? null : new Error('WebGL is unavailable.'));
   const hadSceneErrorRef = useRef(Boolean(sceneError));
   const previousModalOpenRef = useRef(false);
   const [sceneEpoch, setSceneEpoch] = useState(0);
   const [poseRevision, setPoseRevision] = useState(0);
-  const LazyAncientGreekHallScene = useMemo(createLazyAncientGreekHallScene, [sceneEpoch]);
+  const LazyMuseumWorldScene = useMemo(createLazyMuseumWorldScene, [sceneEpoch]);
   const reducedMotion = useReducedMotion();
   const modalOpen = Boolean(exhibit || overlay);
   const blocked = modalOpen || Boolean(sceneError);
@@ -324,20 +329,24 @@ export function MuseumPage({route, href, push, replace}: {
   }, []);
 
   const openExhibit = useCallback((id: MuseumExhibitId) => {
+    const origin: MuseumExhibitOrigin = exploring ? 'active-exploration' : 'paused-hall';
+    const context = createMuseumExhibitVisitContext(route.hallId, origin);
     controlsRef.current?.pauseExploring();
     setExploring(false);
-    setGuided(false);
-    saveMuseumSession(ANCIENT_GREEK_HALL_LAYOUT, poseRef.current, nearbyRef.current);
-    push({kind: 'museum', hallId: route.hallId, exhibitId: id}, {state: historyStateWithMuseumMarker(route.hallId)});
-  }, [push, route.hallId]);
+    saveMuseumSession(layout, poseRef.current, nearbyRef.current);
+    lastExhibitContextRef.current = context;
+    push({kind: 'museum', hallId: route.hallId, exhibitId: id}, {
+      state: museumHistoryStateWithVisitContext(window.history.state, context),
+    });
+  }, [exploring, layout, push, route.hallId]);
 
   const resetPosition = useCallback(() => {
     controlsRef.current?.pauseExploring();
     removeMuseumSession(route.hallId);
-    poseRef.current = {...ANCIENT_GREEK_HALL_LAYOUT.reset};
+    poseRef.current = {...layout.reset};
     setExploring(false);
     setPoseRevision((value) => value + 1);
-  }, [route.hallId]);
+  }, [layout, route.hallId]);
 
   const controls = useMuseumControls({
     active: exploring,
@@ -345,7 +354,11 @@ export function MuseumPage({route, href, push, replace}: {
     nearbyExhibitId: nearbyId,
     onInteract: openExhibit,
     onReset: resetPosition,
-    onOpenDirectory: () => setOverlay('directory'),
+    onOpenDirectory: () => {
+      controlsRef.current?.pauseExploring();
+      setExploring(false);
+      setOverlay('directory');
+    },
     onPause: () => setExploring(false),
   });
   controlsRef.current = controls;
@@ -356,12 +369,12 @@ export function MuseumPage({route, href, push, replace}: {
   });
 
   const stageExhibitViewpoint = useCallback((id: MuseumExhibitId) => {
-    const viewpoint = ANCIENT_GREEK_HALL_LAYOUT.exhibits.find((item) => item.id === id)?.viewpoint;
+    const viewpoint = layout.exhibits.find((item) => item.id === id)?.viewpoint;
     if (!viewpoint) return;
     poseRef.current = {...viewpoint};
-    saveMuseumSession(ANCIENT_GREEK_HALL_LAYOUT, poseRef.current, id);
+    saveMuseumSession(layout, poseRef.current, id);
     setPoseRevision((value) => value + 1);
-  }, []);
+  }, [layout]);
 
   const pauseAndOpen = (next: Exclude<Overlay, null>) => {
     controls.pauseExploring();
@@ -375,28 +388,38 @@ export function MuseumPage({route, href, push, replace}: {
     controls.beginExploring();
   };
   const closeExhibit = () => {
-    const marker = getMuseumHistoryMarker();
-    setGuided(false);
-    if (marker?.hallId === route.hallId && marker.openedFromHall) window.history.back();
+    const context = visitContext ?? directMuseumVisitContext(route.hallId);
+    const policy = resolveMuseumExitPolicy(context, 'gesture');
+    pendingCloseContextRef.current = context;
+    lastExhibitContextRef.current = context;
+    if (policy.resumeExploration) {
+      controls.prepareResumeFromGesture();
+      setExploring(true);
+    } else {
+      controls.pauseExploring();
+      setExploring(false);
+    }
+    if (policy.navigation === 'back') window.history.back();
     else replace(
       {kind: 'museum', hallId: route.hallId},
-      {state: isPlainObject(window.history.state) ? {...window.history.state, philosophyAtlasMuseum: undefined} : undefined},
+      {state: museumHistoryStateWithVisitContext(window.history.state, undefined)},
     );
   };
 
   const goGuided = (index: number, replaceCurrent = false) => {
     const id = hall.guidedOrder[index];
-    const viewpoint = ANCIENT_GREEK_HALL_LAYOUT.exhibits.find((item) => item.id === id)?.viewpoint;
+    const viewpoint = layout.exhibits.find((item) => item.id === id)?.viewpoint;
     if (!id || !viewpoint) return;
     controls.pauseExploring();
     setExploring(false);
     poseRef.current = {...viewpoint};
-    saveMuseumSession(ANCIENT_GREEK_HALL_LAYOUT, poseRef.current, id);
+    saveMuseumSession(layout, poseRef.current, id);
     setPoseRevision((value) => value + 1);
-    setGuided(true);
     setOverlay(null);
     const target = {kind: 'museum' as const, hallId: route.hallId, exhibitId: id};
-    const state = historyStateWithMuseumMarker(route.hallId);
+    const context = createMuseumExhibitVisitContext(route.hallId, 'guided');
+    lastExhibitContextRef.current = context;
+    const state = museumHistoryStateWithVisitContext(window.history.state, context);
     if (replaceCurrent) replace(target, {state}); else push(target, {state});
   };
 
@@ -434,7 +457,7 @@ export function MuseumPage({route, href, push, replace}: {
   }, [experience.clearError, modalOpen]);
 
   useEffect(() => {
-    if (route.exhibitId || modalOpen) return;
+    if (route.exhibitId || modalOpen || exploring || previousRouteExhibitRef.current) return;
     const frame = window.requestAnimationFrame(() => {
       const target = sceneError
         ? document.getElementById('museum-fallback-title')
@@ -442,7 +465,7 @@ export function MuseumPage({route, href, push, replace}: {
       target?.focus({preventScroll: true});
     });
     return () => window.cancelAnimationFrame(frame);
-  }, [route.exhibitId, sceneError]);
+  }, [exploring, modalOpen, route.exhibitId, sceneError]);
 
   useEffect(() => {
     const failed = Boolean(sceneError);
@@ -457,39 +480,69 @@ export function MuseumPage({route, href, push, replace}: {
   }, [modalOpen, sceneError]);
 
   useEffect(() => {
-    if (route.exhibitId) setOverlay(null);
-    else setGuided(false);
-  }, [route.exhibitId]);
-
-  const previousRouteExhibitRef = useRef(route.exhibitId);
-  useEffect(() => {
     const previous = previousRouteExhibitRef.current;
+    if (previous === route.exhibitId) return;
     previousRouteExhibitRef.current = route.exhibitId;
-    if (!route.exhibitId || route.exhibitId === previous) return;
-    if (getMuseumHistoryMarker()?.hallId === route.hallId) return;
-    const viewpoint = ANCIENT_GREEK_HALL_LAYOUT.exhibits.find(({id}) => id === route.exhibitId)?.viewpoint;
-    if (!viewpoint) return;
-    poseRef.current = {...viewpoint};
-    setPoseRevision((value) => value + 1);
+    if (route.exhibitId) {
+      lastExhibitContextRef.current = visitContext ?? directMuseumVisitContext(route.hallId);
+      controls.pauseExploring();
+      setExploring(false);
+      setOverlay(null);
+      return;
+    }
+    if (!previous) return;
+
+    const pending = pendingCloseContextRef.current;
+    const context = pending
+      ?? lastExhibitContextRef.current
+      ?? directMuseumVisitContext(route.hallId);
+    pendingCloseContextRef.current = undefined;
+    const policy = resolveMuseumExitPolicy(context, pending ? 'gesture' : 'history');
+    if (policy.resumeExploration) {
+      if (!policy.requestPointerLock) controls.resumeWithoutGesture();
+      setExploring(true);
+      setOverlay(null);
+    } else {
+      controls.pauseExploring();
+      setExploring(false);
+      setOverlay(policy.restoreDirectory ? 'directory' : null);
+    }
+  }, [controls, route.exhibitId, route.hallId, visitContext]);
+
+  useEffect(() => {
+    if (!route.exhibitId || parseMuseumExhibitVisitContext(window.history.state, route.hallId)) return;
+    const direct = directMuseumVisitContext(route.hallId);
+    lastExhibitContextRef.current = direct;
+    window.history.replaceState(museumHistoryStateWithVisitContext(window.history.state, direct), '');
   }, [route.exhibitId, route.hallId]);
 
   useEffect(() => {
-    if (!route.exhibitId || getMuseumHistoryMarker()?.hallId === route.hallId) return;
-    window.history.replaceState(historyStateWithMuseumMarker(route.hallId, false), '');
-  }, [route.exhibitId, route.hallId]);
+    if (previousHallIdRef.current === route.hallId) return;
+    previousHallIdRef.current = route.hallId;
+    const session = loadMuseumSession(layout);
+    poseRef.current = session
+      ? {x: session.x, z: session.z, yaw: session.yaw, pitch: session.pitch}
+      : {...(definition.entrances[0]?.arrivalPose ?? layout.spawn)};
+    nearbyRef.current = undefined;
+    setNearbyId(undefined);
+    controlsRef.current?.pauseExploring();
+    setExploring(false);
+    setOverlay(null);
+    setPoseRevision((value) => value + 1);
+  }, [definition.entrances, layout, route.hallId]);
 
   useEffect(() => {
     if (!exploring) return;
-    const timer = window.setInterval(() => saveMuseumSession(ANCIENT_GREEK_HALL_LAYOUT, poseRef.current, nearbyRef.current), 500);
+    const timer = window.setInterval(() => saveMuseumSession(layout, poseRef.current, nearbyRef.current), 500);
     return () => window.clearInterval(timer);
-  }, [exploring]);
+  }, [exploring, layout]);
 
   useEffect(() => () => {
-    saveMuseumSession(ANCIENT_GREEK_HALL_LAYOUT, poseRef.current, nearbyRef.current);
-  }, []);
+    saveMuseumSession(layout, poseRef.current, nearbyRef.current);
+  }, [layout]);
 
   const nearby = nearbyId ? getMuseumExhibitCatalog(route.hallId, nearbyId) : undefined;
-  const nearbyContent = useMemo(() => nearby ? getMuseumExhibitContent(nearby) : undefined, [nearby]);
+  const nearbyContent = useMemo(() => nearby ? getMuseumInterpretation(nearby.id) : undefined, [nearby]);
   useEffect(() => {
     if (!exploring || !nearby || nearby.id === lastAnnouncedNearbyRef.current) return;
     const timer = window.setTimeout(() => {
@@ -524,8 +577,10 @@ export function MuseumPage({route, href, push, replace}: {
           onToggleFullscreen={() => void experience.toggleFullscreen()}
         /> : <MuseumSceneBoundary onError={handleSceneError} resetKey={sceneEpoch}>
           <Suspense fallback={<div className="museum-scene-loading" role="status">Preparing the walkable hall…</div>}>
-            <LazyAncientGreekHallScene
+            <LazyMuseumWorldScene
               key={sceneEpoch}
+              registration={registration}
+              definition={definition}
               active={exploring}
               blocked={blocked}
               poseRevision={poseRevision}
@@ -539,13 +594,13 @@ export function MuseumPage({route, href, push, replace}: {
                 canvas.tabIndex = 0;
                 controls.onCanvasReady(canvas);
               }}
-              onNearbyChange={(id) => {
-                const typed = id as MuseumExhibitId | undefined;
+              onNearbyChange={(reference) => {
+                const typed = reference?.hallId === route.hallId ? reference.exhibitId : undefined;
                 nearbyRef.current = typed;
                 setNearbyId(typed);
               }}
-              onSelectExhibit={(id) => {
-                if (!controls.shouldSuppressActivation()) openExhibit(id as MuseumExhibitId);
+              onSelectExhibit={(reference) => {
+                if (reference.hallId === route.hallId && !controls.shouldSuppressActivation()) openExhibit(reference.exhibitId);
               }}
               onSceneError={handleSceneError}
             />
@@ -580,9 +635,6 @@ export function MuseumPage({route, href, push, replace}: {
             <button type="button" onClick={() => openExhibit(nearby.id)}>E / Enter · Interpret exhibit</button>
           </aside>}
 
-          <div className="museum-era-rail" aria-label="Gallery chronology">
-            {hall.zones.map((zone, index) => <div key={zone.id} data-zone={zone.id}><span>0{index + 1}</span><strong>{zone.title}</strong><small>{zone.period}</small></div>)}
-          </div>
         </div>
 
         <MuseumTouchControls
@@ -612,15 +664,28 @@ export function MuseumPage({route, href, push, replace}: {
         guided={guided}
         exhibitIndex={exhibitIndex}
         exhibitCount={hall.guidedOrder.length}
+        continueLabel={visitContext?.origin === 'active-exploration' ? 'Continue exploring' : 'Return to gallery'}
+        focusReturn={visitContext?.origin === 'active-exploration'
+          ? 'canvas'
+          : visitContext?.origin === 'directory'
+            ? 'none'
+            : 'entry'}
         onClose={closeExhibit}
-        onArticleIntent={() => saveMuseumSession(ANCIENT_GREEK_HALL_LAYOUT, poseRef.current, nearbyRef.current)}
+        onArticleIntent={() => saveMuseumSession(layout, poseRef.current, nearbyRef.current)}
         onGuidedPrevious={() => goGuided(exhibitIndex - 1, true)}
         onGuidedNext={() => goGuided(exhibitIndex + 1, true)}
         onRelated={(related, event) => {
           if (!isOrdinaryActivation(event)) return;
           event.preventDefault();
+          const context = visitContext ?? directMuseumVisitContext(route.hallId);
+          controls.pauseExploring();
+          setExploring(false);
           stageExhibitViewpoint(related.id);
-          openExhibit(related.id);
+          lastExhibitContextRef.current = context;
+          replace(
+            {kind: 'museum', hallId: route.hallId, exhibitId: related.id},
+            {state: museumHistoryStateWithVisitContext(window.history.state, context)},
+          );
         }}
       />}
     </section>

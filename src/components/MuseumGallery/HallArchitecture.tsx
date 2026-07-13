@@ -2,8 +2,8 @@ import {useLayoutEffect, useRef} from 'react';
 import {InstancedMesh, Object3D} from 'three';
 import {
   ANCIENT_GREEK_HALL_COLUMN_POSITIONS,
-  ANCIENT_GREEK_HALL_LAYOUT,
 } from '../../data/museum/ancientGreekHall';
+import type {MuseumHallDefinition} from '../../data/museum/museumWorldTypes';
 import {usePlaqueTexture} from './plaqueTextures';
 
 const LIMESTONE = '#d2c9b6';
@@ -109,8 +109,8 @@ function ZoneArch({z, title, period, accent}: {
   </group>;
 }
 
-function Recesses() {
-  const sideExhibits = ANCIENT_GREEK_HALL_LAYOUT.exhibits.filter(({id}) => id !== 'neoplatonism');
+function Recesses({definition}: {definition: MuseumHallDefinition}) {
+  const sideExhibits = definition.layout.exhibits.filter(({id}) => id !== 'neoplatonism');
   return <group>
     {sideExhibits.map(({id, position}) => {
       const west = position.x < 0;
@@ -157,30 +157,7 @@ function TrackLighting() {
   </group>;
 }
 
-function DirectoryKiosk() {
-  const texture = usePlaqueTexture({
-    title: 'Museum Directory',
-    kicker: 'Eight exhibits · Three eras',
-    subtitle: 'Press M or use the directory control',
-    accent: '#d9a45e',
-  });
-  return <group position={[4.15, 0, 24.65]} rotation={[0, -.34, 0]}>
-    <mesh position={[0, .55, 0]}>
-      <boxGeometry args={[1.5, 1.1, 1]}/>
-      <meshStandardMaterial color={LIMESTONE_DARK} roughness={.88}/>
-    </mesh>
-    <mesh position={[0, 1.46, -.08]} rotation={[-.28, 0, 0]}>
-      <boxGeometry args={[1.58, .15, 1.12]}/>
-      <meshStandardMaterial color={BRONZE} metalness={.62} roughness={.4}/>
-    </mesh>
-    <mesh position={[0, 1.59, .028]} rotation={[-Math.PI / 2 - .28, 0, 0]}>
-      <planeGeometry args={[1.42, .76]}/>
-      <meshBasicMaterial map={texture} toneMapped={false}/>
-    </mesh>
-  </group>;
-}
-
-export function HallArchitecture() {
+export function HallArchitecture({definition}: {definition: MuseumHallDefinition}) {
   return <group>
     <mesh position={[0, -.15, 0]} receiveShadow>
       <boxGeometry args={[20, .3, 66]}/>
@@ -230,17 +207,9 @@ export function HallArchitecture() {
 
     <InstancedColumns/>
     <TrackLighting/>
-    <Recesses/>
+    <Recesses definition={definition}/>
     <ZoneArch z={9} title="Hellenistic Ways of Life" period="4th–1st centuries BCE" accent="#bd8a4c"/>
     <ZoneArch z={-14} title="Late Antiquity" period="3rd–6th centuries CE" accent="#947bc0"/>
-    <WallSign
-      title="Ancient Greek & Hellenistic Gallery"
-      kicker="Gallery 01 · Enter the conversation"
-      subtitle="Follow the bronze path from examination to ascent"
-      position={[0, 3.25, 24.65]}
-      width={7.4}
-      accent="#d8a85c"
-    />
     <WallSign
       title="Late Antiquity"
       kicker="Zone 03"
@@ -249,11 +218,5 @@ export function HallArchitecture() {
       width={5.8}
       accent="#a786d6"
     />
-    <DirectoryKiosk/>
-
-    <mesh position={[0, .035, 27.45]} rotation={[-Math.PI / 2, 0, 0]}>
-      <ringGeometry args={[1.05, 1.28, 48]}/>
-      <meshBasicMaterial color="#d4a25c" toneMapped={false}/>
-    </mesh>
   </group>;
 }

@@ -1,5 +1,9 @@
 import type {MutableRefObject} from 'react';
-import type {MuseumPose} from '../../data/museum/ancientGreekHall';
+import type {
+  MuseumExhibitRef,
+  MuseumHallDefinition,
+  MuseumPose,
+} from '../../data/museum/museumWorldTypes';
 
 export type MuseumInputState = {
   forward: number;
@@ -11,6 +15,7 @@ export type MuseumInputState = {
 export type MuseumControlMode = 'idle' | 'requesting-lock' | 'locked' | 'drag-look' | 'paused';
 
 export type MuseumSceneRuntimeProps = {
+  definition: MuseumHallDefinition;
   active: boolean;
   blocked: boolean;
   poseRevision: number;
@@ -18,8 +23,8 @@ export type MuseumSceneRuntimeProps = {
   inputRef: MutableRefObject<MuseumInputState>;
   poseRef: MutableRefObject<MuseumPose>;
   onCanvasReady: (canvas: HTMLCanvasElement) => void;
-  onNearbyChange: (exhibitId: string | undefined) => void;
-  onSelectExhibit: (exhibitId: string) => void;
+  onNearbyChange: (exhibit: MuseumExhibitRef | undefined) => void;
+  onSelectExhibit: (exhibit: MuseumExhibitRef) => void;
   onSceneError: (error: unknown) => void;
 };
 

@@ -3,7 +3,7 @@ import type {
   MuseumCollider,
   MuseumExhibitLayout,
   MuseumPoint,
-} from '../../data/museum/ancientGreekHall';
+} from '../../data/museum/museumWorldTypes';
 import type {MuseumExhibitId} from '../../data/museumCatalog';
 
 const EPSILON = 1e-7;

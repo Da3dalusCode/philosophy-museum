@@ -2,9 +2,9 @@ import {ArrowLeft, ArrowRight, ExternalLink, ImageOff, X} from 'lucide-react';
 import {useEffect, useId, useRef, useState, type CSSProperties, type KeyboardEvent, type MouseEvent} from 'react';
 import {getMuseumAsset, museumAssetUrl} from '../../data/museum/museumAssets';
 import type {MuseumAssetRecord} from '../../data/museum/museumAssetTypes';
+import {museumInterpretationFacts, type MuseumInterpretation} from '../../data/museum/museumInterpretations';
 import {getMuseumExhibitCatalog, type MuseumExhibitCatalog} from '../../data/museumCatalog';
 import type {MuseumRoute, RouteHref} from '../../routing/routes';
-import type {MuseumExhibitContent} from './exhibitContent';
 
 const focusableSelector = 'a[href],button:not([disabled]),summary,input:not([disabled]),select:not([disabled]),textarea:not([disabled]),[tabindex]:not([tabindex="-1"])';
 
@@ -28,7 +28,7 @@ function AssetImage({asset, priority = false}: {asset: MuseumAssetRecord; priori
 
 function SourceDetails({asset}: {asset: MuseumAssetRecord}) {
   return <details className="museum-object-source">
-    <summary>Object, source & rights</summary>
+    <summary>Object record and image rights: “{asset.title}”</summary>
     <dl>
       <div><dt>Object</dt><dd>{asset.title}</dd></div>
       <div><dt>Creator / maker</dt><dd>{asset.creator}</dd></div>
@@ -55,24 +55,28 @@ export function MuseumInterpretationPanel({
   guided,
   exhibitIndex,
   exhibitCount,
+  continueLabel,
   onClose,
   onArticleIntent,
   onGuidedPrevious,
   onGuidedNext,
   onRelated,
+  focusReturn,
 }: {
   route: MuseumRoute;
   exhibit: MuseumExhibitCatalog;
-  content: MuseumExhibitContent;
+  content: MuseumInterpretation;
   href: RouteHref;
   guided: boolean;
   exhibitIndex: number;
   exhibitCount: number;
+  continueLabel: string;
   onClose: () => void;
   onArticleIntent: () => void;
   onGuidedPrevious: () => void;
   onGuidedNext: () => void;
   onRelated: (exhibit: MuseumExhibitCatalog, event: MouseEvent<HTMLAnchorElement>) => void;
+  focusReturn: 'canvas' | 'entry' | 'none';
 }) {
   const panelRef = useRef<HTMLElement>(null);
   const titleId = useId();
@@ -80,22 +84,21 @@ export function MuseumInterpretationPanel({
   const principal = getMuseumAsset(exhibit.principalAssetId);
   const supporting = exhibit.supportingAssetIds.map(getMuseumAsset);
   const related = getMuseumExhibitCatalog(route.hallId, content.relatedExhibitId);
+  const facts = museumInterpretationFacts(content);
 
   useEffect(() => {
-    const previous = document.activeElement instanceof HTMLElement && document.activeElement !== document.body
-      ? document.activeElement
-      : undefined;
     const frame = window.requestAnimationFrame(() => document.getElementById(titleId)?.focus({preventScroll: true}));
     return () => {
       window.cancelAnimationFrame(frame);
+      if (focusReturn === 'none') return;
       window.requestAnimationFrame(() => {
-        const target = previous?.isConnected && !previous.closest('[inert],[aria-hidden="true"]')
-          ? previous
+        const target = focusReturn === 'canvas'
+          ? document.querySelector<HTMLElement>('.museum-scene-canvas')
           : document.getElementById('museum-enter-button');
         target?.focus({preventScroll: true});
       });
     };
-  }, [titleId]);
+  }, [focusReturn, titleId]);
 
   const handleKeyDown = (event: KeyboardEvent<HTMLElement>) => {
     if (event.key === 'Escape') {
@@ -140,32 +143,51 @@ export function MuseumInterpretationPanel({
       onKeyDown={handleKeyDown}
     >
       <header className="museum-panel-header">
-        <div><p className="museum-panel-kicker">{content.entityType} · {content.dateLabel}</p><h2 id={titleId} tabIndex={-1}>{content.displayName}</h2></div>
-        <button className="museum-icon-button" type="button" onClick={onClose} aria-label={`Close ${content.displayName} exhibit`}><X/></button>
+        <div><p className="museum-panel-kicker">{content.entityType} · {content.dateLabel}</p><h2 id={titleId} tabIndex={-1}>{content.name}</h2></div>
+        <button className="museum-icon-button" type="button" onClick={onClose} aria-label={`Close ${content.name} exhibit`}><X/></button>
       </header>
 
       <div className="museum-panel-scroll">
-        <figure className="museum-object-hero">
-          <AssetImage asset={principal} priority/>
-          <figcaption><strong>{principal.caption}</strong><span>{principal.historicalNote}</span></figcaption>
-        </figure>
+        <section className="museum-panel-opening">
+          <figure className="museum-object-hero">
+            <AssetImage asset={principal} priority/>
+            <figcaption><strong>{principal.caption}</strong><span>{content.objectInterpretations[principal.id]}</span></figcaption>
+          </figure>
+          <div className="museum-panel-opening-copy">
+            <p className="museum-exhibit-question" id={descriptionId}>{content.centralQuestion}</p>
+            <p className="museum-panel-lead">{content.lead}</p>
+          </div>
+        </section>
 
-        <p className="museum-exhibit-question" id={descriptionId}>{content.centralQuestion}</p>
-        <p className="museum-panel-introduction">{content.introduction}</p>
-
-        <dl className="museum-interpretive-label">
-          <div><dt>Featured idea</dt><dd>{content.featuredIdea}</dd></div>
-          <div><dt>Why it matters</dt><dd>{content.whyItMatters}</dd></div>
-          <div><dt>Representative reading</dt><dd>{content.representativeWork}</dd></div>
+        <dl className="museum-fact-grid">
+          {facts.map((fact) => <div key={fact.label}><dt>{fact.label}</dt><dd>{fact.value}</dd></div>)}
         </dl>
 
+        <div className="museum-idea-grid">
+          <section><p className="museum-object-role">Key ideas</p><ul>{content.keyIdeas.map((idea) => <li key={idea}>{idea}</li>)}</ul></section>
+          <section><p className="museum-object-role">Works and witnesses</p><ul>{content.keyWorks.map((work) => <li key={work}>{work}</li>)}</ul></section>
+        </div>
+
+        <div className="museum-interpretive-sections">
+          {content.sections.map((section) => <section key={section.heading}>
+            <h3>{section.heading}</h3>
+            {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+            {section.points && <ul>{section.points.map((point) => <li key={point}>{point}</li>)}</ul>}
+          </section>)}
+        </div>
+
         {supporting.map((asset) => <section className="museum-supporting-object" key={asset.id}>
-          <div><p className="museum-object-role">{asset.role.replace('-', ' ')}</p><h3>{asset.title}</h3><p>{asset.caption}</p></div>
+          <div><p className="museum-object-role">{asset.role.replace('-', ' ')}</p><h3>{asset.title}</h3><p>{content.objectInterpretations[asset.id] ?? asset.caption}</p></div>
           <figure><AssetImage asset={asset}/><figcaption>{asset.historicalNote}</figcaption></figure>
           <SourceDetails asset={asset}/>
         </section>)}
 
         <SourceDetails asset={principal}/>
+
+        <details className="museum-interpretation-sources">
+          <summary>Sources for this interpretation</summary>
+          <ul>{content.sources.map((source) => <li key={source.url}><a href={source.url} target="_blank" rel="noreferrer">{source.label} <ExternalLink size={13}/></a><span>{source.kind.replace('-', ' ')}</span></li>)}</ul>
+        </details>
 
         {related && <aside className="museum-related-exhibit">
           <p>Continue the conversation</p><h3>{related.displayName}</h3><span>{related.question}</span>
@@ -181,7 +203,7 @@ export function MuseumInterpretationPanel({
         </div>}
         <div>
           <a className="btn btn-primary" href={href(content.articleRoute)} onClick={onArticleIntent}>{exhibit.entityKind === 'philosopher' ? 'Full philosopher profile' : 'Open Branch Explorer'}</a>
-          <button className="btn" type="button" onClick={onClose}>Continue exploring</button>
+          <button className="btn" type="button" onClick={onClose}>{continueLabel}</button>
         </div>
       </footer>
     </article>
