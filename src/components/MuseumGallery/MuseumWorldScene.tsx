@@ -214,7 +214,7 @@ export function MuseumWorldScene(props: MuseumSceneRuntimeProps & {registration:
     <WorldSceneErrorBoundary onError={props.onSceneError}>
       <Canvas
         className="museum-scene-canvas"
-        camera={{position: [initialCameraPose.x, layout.eyeHeight, initialCameraPose.z], fov: 68, near: .08, far: layout.cameraFar}}
+        camera={{position: [initialCameraPose.x, layout.eyeHeight, initialCameraPose.z], fov: layout.cameraFov, near: .08, far: layout.cameraFar}}
         dpr={lowPower ? [1, 1.25] : [1, 1.5]}
         frameloop={running ? 'always' : 'demand'}
         gl={{antialias: !lowPower, alpha: false, powerPreference: lowPower ? 'low-power' : 'high-performance'}}

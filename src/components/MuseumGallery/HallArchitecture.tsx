@@ -3,6 +3,7 @@ import {useMemo} from 'react';
 import {Quaternion, Vector3} from 'three';
 import type {
   MuseumExhibitLightDefinition,
+  MuseumFurnishingDefinition,
   MuseumHallDefinition,
   MuseumSpatialCell,
   MuseumTrackDefinition,
@@ -148,6 +149,68 @@ function GallerySign({
   </group>;
 }
 
+function GalleryBench({definition}: {definition: MuseumFurnishingDefinition}) {
+  const {width, depth} = definition.size;
+  return <group
+    position={[definition.center.x, 0, definition.center.z]}
+    rotation={[0, definition.rotation, 0]}
+    userData={{furnishingId: definition.id, furnishingKind: definition.kind}}
+  >
+    <mesh position={[0, .4, 0]}>
+      <boxGeometry args={[width, .16, depth]}/>
+      <meshStandardMaterial color="#b6a284" roughness={.78}/>
+    </mesh>
+    {[-width * .32, width * .32].map((x) => <mesh key={x} position={[x, .2, 0]}>
+      <boxGeometry args={[.18, .4, depth * .66]}/>
+      <meshStandardMaterial color={BLACK_METAL} roughness={.38} metalness={.58}/>
+    </mesh>)}
+    <mesh position={[0, .49, 0]}>
+      <boxGeometry args={[width * .88, .025, depth * .72]}/>
+      <meshStandardMaterial color="#d6c5a7" roughness={.66}/>
+    </mesh>
+  </group>;
+}
+
+function OrientationPlinth({definition}: {definition: MuseumFurnishingDefinition}) {
+  const texture = usePlaqueTexture({
+    title: 'Philosophy Atlas',
+    kicker: 'Museum · Gallery 01',
+    subtitle: 'Ancient thought: inquiry, practice, inheritance',
+    accent: '#7b5d3d',
+    width: 1024,
+    height: 280,
+  });
+  const {width, depth} = definition.size;
+  return <group
+    position={[definition.center.x, 0, definition.center.z]}
+    rotation={[0, definition.rotation, 0]}
+    userData={{furnishingId: definition.id, furnishingKind: definition.kind}}
+  >
+    <mesh position={[0, definition.height / 2, 0]}>
+      <boxGeometry args={[width, definition.height, depth]}/>
+      <meshStandardMaterial color="#ded9cf" roughness={.92}/>
+    </mesh>
+    <mesh position={[0, 1.55, depth / 2 + .012]}>
+      <planeGeometry args={[width - .34, .74]}/>
+      <meshBasicMaterial map={texture} toneMapped={false}/>
+    </mesh>
+    <mesh position={[0, .56, depth / 2 + .025]}>
+      <boxGeometry args={[width * .72, .045, .035]}/>
+      <meshStandardMaterial color="#7b5d3d" roughness={.36} metalness={.64}/>
+    </mesh>
+    {[-.72, 0, .72].map((x, index) => <mesh key={x} position={[x, .56, depth / 2 + .055]}>
+      <sphereGeometry args={[index === 1 ? .075 : .055, 12, 9]}/>
+      <meshStandardMaterial color={index === 1 ? '#d4b67a' : BLACK_METAL} roughness={.35} metalness={.58}/>
+    </mesh>)}
+  </group>;
+}
+
+function GalleryFurnishing({definition}: {definition: MuseumFurnishingDefinition}) {
+  return definition.kind === 'bench'
+    ? <GalleryBench definition={definition}/>
+    : <OrientationPlinth definition={definition}/>;
+}
+
 export function HallArchitecture({definition, onSceneGesture}: {
   definition: MuseumHallDefinition;
   onSceneGesture: () => void;
@@ -161,37 +224,30 @@ export function HallArchitecture({definition, onSceneGesture}: {
   return <group onClick={activateScene}>
     {layout.spatialCells.map((cell) => <CellShell key={cell.id} cell={cell}/>)}
     {layout.wallColliders.map((wall) => <GalleryWall key={wall.id} wall={wall}/>)}
+    {layout.furnishings.map((furnishing) => <GalleryFurnishing key={furnishing.id} definition={furnishing}/>)}
     {layout.lighting.tracks.map((track) => <LightingTrack key={track.id} track={track}/>)}
     {layout.lighting.exhibitLights.map((light) => <TrackFixture key={light.id} definition={light}/>)}
 
     <GallerySign
-      title="Ancient Greek Thought"
-      kicker="Orientation gallery"
-      subtitle="Questions become schools, practices, and inheritances"
-      position={[0, 4.55, 44.78]}
-      rotationY={Math.PI}
-      width={5.8}
-    />
-    <GallerySign
       title="Classical Foundations"
       kicker="Gallery 01"
       subtitle="Socrates · Plato · Aristotle"
-      position={[0, 4.15, 21.79]}
-      width={4.7}
+      position={[7.6, 3.95, 26.2]}
+      width={3.4}
     />
     <GallerySign
       title="Hellenistic Ways of Life"
       kicker="Gallery 02"
       subtitle="Practice · freedom · judgment · flourishing"
-      position={[16, 4.15, -3.79]}
-      width={5.2}
+      position={[7.6, 3.95, 5.2]}
+      width={3.6}
     />
     <GallerySign
       title="Late Antiquity"
       kicker="Gallery 03"
       subtitle="Unity · intellect · soul · return"
-      position={[-13, 4.35, -37.79]}
-      width={4.7}
+      position={[-7, 4.05, -19.8]}
+      width={3.2}
     />
   </group>;
 }

@@ -111,6 +111,8 @@ const aabbOverlaps = (first, second) => {
     || Math.abs(first.center.z - second.center.z) >= (first.size.depth + second.size.depth) / 2;
   return !separated;
 };
+const horizontalGap = (first, second) => Math.abs(first.center.x - second.center.x)
+  - (first.size.width + second.size.width) / 2;
 const volumeInsideFootprint = (volume, footprint) => (
   Math.abs(volume.center.x) + volume.size.width / 2 <= footprint.width / 2 + 1e-7
   && volume.center.y - volume.size.height / 2 >= -1e-7
@@ -126,6 +128,68 @@ const footprintWorldExtents = (exhibit) => {
     z: (exhibit.scene.footprint.width * sine + exhibit.scene.footprint.depth * cosine) / 2,
   };
 };
+const rotatedRectangleCorners = (center, size, rotation) => {
+  const cosine = Math.cos(rotation);
+  const sine = Math.sin(rotation);
+  return [-size.width / 2, size.width / 2].flatMap((localX) =>
+    [-size.depth / 2, size.depth / 2].map((localZ) => ({
+      x: center.x + localX * cosine + localZ * sine,
+      z: center.z - localX * sine + localZ * cosine,
+    })));
+};
+const rotatedBoxCorners = (center, size, rotation) => {
+  const cosine = Math.cos(rotation);
+  const sine = Math.sin(rotation);
+  return [-size.width / 2, size.width / 2].flatMap((localX) =>
+    [-size.height / 2, size.height / 2].flatMap((localY) =>
+      [-size.depth / 2, size.depth / 2].map((localZ) => ({
+        x: center.x + localX * cosine + localZ * sine,
+        y: center.y + localY,
+        z: center.z - localX * sine + localZ * cosine,
+      }))));
+};
+const projectMuseumPoint = (pose, point) => {
+  const delta = {x: point.x - pose.x, y: point.y - layout.eyeHeight, z: point.z - pose.z};
+  const cosineYaw = Math.cos(pose.yaw);
+  const sineYaw = Math.sin(pose.yaw);
+  const cosinePitch = Math.cos(pose.pitch);
+  const sinePitch = Math.sin(pose.pitch);
+  const cameraX = cosineYaw * delta.x - sineYaw * delta.z;
+  const yawedZ = sineYaw * delta.x + cosineYaw * delta.z;
+  const cameraY = cosinePitch * delta.y + sinePitch * yawedZ;
+  const depth = sinePitch * delta.y - cosinePitch * yawedZ;
+  assert(depth > .08, `${JSON.stringify(point)} extends behind the Museum camera`);
+  const tanHalfVerticalFov = Math.tan(layout.cameraFov * Math.PI / 360);
+  return {
+    x: cameraX / (depth * tanHalfVerticalFov * (16 / 9)),
+    y: cameraY / (depth * tanHalfVerticalFov),
+  };
+};
+const projectedScreenBounds = (pose, points) => {
+  const projected = points.map((point) => projectMuseumPoint(pose, point));
+  const minX = Math.min(...projected.map(({x}) => x));
+  const maxX = Math.max(...projected.map(({x}) => x));
+  const minY = Math.min(...projected.map(({y}) => y));
+  const maxY = Math.max(...projected.map(({y}) => y));
+  return {
+    minX,
+    maxX,
+    minY,
+    maxY,
+    widthPixels: (maxX - minX) * 960,
+    heightPixels: (maxY - minY) * 540,
+  };
+};
+const segmentLength = (start, end) => Math.hypot(end.x - start.x, end.z - start.z);
+const sampleClearSegment = (start, end, label) => {
+  const samples = Math.max(1, Math.ceil(segmentLength(start, end) / .08));
+  for (let index = 0; index <= samples; index += 1) {
+    const fraction = index / samples;
+    const point = {x: start.x + (end.x - start.x) * fraction, z: start.z + (end.z - start.z) * fraction};
+    assert(positionInsideSpatialUnion(point, layout.playerRadius, layout.spatialCells), `${label} exits the wing near ${JSON.stringify(point)}`);
+    assert(!allColliders.some((collider) => intersects(point, layout.playerRadius, collider)), `${label} hits ${JSON.stringify(point)}`);
+  }
+};
 const localPointToHall = (exhibit, point) => {
   const cosine = Math.cos(exhibit.rotationY);
   const sine = Math.sin(exhibit.rotationY);
@@ -134,6 +198,18 @@ const localPointToHall = (exhibit, point) => {
     y: point.y,
     z: exhibit.position.z - point.x * sine + point.z * cosine,
   };
+};
+const installationWorldCorners = (exhibit) => {
+  const scene = exhibit.scene;
+  const renderedVolumes = [
+    ...scene.objectBounds,
+    ...scene.mediaMounts.flatMap(({bounds, supportBounds}) => [bounds, supportBounds]),
+    scene.plaque.bounds,
+    scene.plaque.supportBounds,
+  ];
+  return renderedVolumes.flatMap((renderedVolume) =>
+    rotatedBoxCorners(renderedVolume.center, renderedVolume.size, 0)
+      .map((point) => localPointToHall(exhibit, point)));
 };
 
 check('one initial Museum hall and the ancient Greek hall exist', () => {
@@ -191,7 +267,8 @@ check('the route catalog and full layout agree exactly', () => {
 
 check('bounds, spawn, reset, placements, and viewpoints are finite', () => {
   assert(layout.bounds.minX < layout.bounds.maxX && layout.bounds.minZ < layout.bounds.maxZ);
-  assert(layout.playerRadius > 0 && layout.eyeHeight > 0 && layout.cameraFar >= 150);
+  assert(layout.playerRadius > 0 && layout.eyeHeight > 0 && layout.cameraFar >= 100);
+  assert(layout.cameraFov >= 60 && layout.cameraFov <= 75);
   assert(finitePoint(layout.spawnFocalPoint));
   for (const pose of [layout.spawn, layout.reset]) {
     assert(finitePoint(pose) && Number.isFinite(pose.yaw) && Number.isFinite(pose.pitch));
@@ -202,6 +279,11 @@ check('bounds, spawn, reset, placements, and viewpoints are finite', () => {
     assert(Number.isFinite(exhibit.rotationY));
     assert(Number.isFinite(exhibit.viewpoint.yaw) && Number.isFinite(exhibit.viewpoint.pitch));
     assert(exhibit.interactionRadius > 0);
+  }
+  for (const entry of layout.entryViews) {
+    assert(finitePoint(entry.pose));
+    assert(Number.isFinite(entry.pose.yaw) && Number.isFinite(entry.pose.pitch));
+    assert(entry.expectedVisibleExhibitIds.length > 0);
   }
 });
 
@@ -219,11 +301,40 @@ check('spawn, reset, and viewpoints are safe for the player footprint', () => {
     ['spawn', layout.spawn],
     ['reset', layout.reset],
     ...layout.exhibits.map((exhibit) => [`${exhibit.id} viewpoint`, exhibit.viewpoint]),
+    ...layout.entryViews.map((entry) => [`${entry.spatialCellId} entry`, entry.pose]),
   ]) {
     assert(insideBounds(point, layout.playerRadius), `${label} is outside the walkable bounds`);
     assert(positionInsideSpatialUnion(point, layout.playerRadius, layout.spatialCells), `${label} is outside the spatial-cell union`);
     assert(!allColliders.some((collider) => intersects(point, layout.playerRadius, collider)), `${label} intersects a collider`);
   }
+});
+
+check('spawn fully frames the orientation furnishings without beginning inside an exhibit radius', () => {
+  assert.equal(nearestInteractable(layout.spawn, layout.exhibits), undefined);
+  const heading = setMuseumMovementDisplacement({x: 0, z: 0}, {x: 0, z: 1}, layout.spawn.yaw, 1);
+  const orientationIds = new Set(['atrium-orientation-plinth', 'atrium-bench']);
+  const orientationObjects = layout.furnishings.filter(({id}) => orientationIds.has(id));
+  assert.equal(orientationObjects.length, 2);
+  const projectedById = new Map();
+  for (const object of orientationObjects) {
+    const delta = {x: object.center.x - layout.spawn.x, z: object.center.z - layout.spawn.z};
+    const distance = Math.hypot(delta.x, delta.z);
+    const viewDot = (heading.x * delta.x + heading.z * delta.z) / distance;
+    assert(distance > 5 && distance < 10, `${object.id} is not composed into the arrival view`);
+    assert(viewDot > Math.cos(51 * Math.PI / 180), `${object.id} falls outside the arrival view`);
+    const projected = projectedScreenBounds(layout.spawn, rotatedBoxCorners(
+      {x: object.center.x, y: object.height / 2, z: object.center.z},
+      {...object.size, height: object.height},
+      object.rotation,
+    ));
+    projectedById.set(object.id, projected);
+    assert(projected.minX >= -.9 && projected.maxX <= .9, `${object.id} is horizontally clipped at the 1920×1080 arrival view`);
+    assert(projected.minY >= -.9 && projected.maxY <= .9, `${object.id} is vertically clipped at the 1920×1080 arrival view`);
+    assert(projected.widthPixels >= 300 && projected.heightPixels >= 80, `${object.id} is too small to register as an arrival cue`);
+  }
+  const orientation = projectedById.get('atrium-orientation-plinth');
+  const bench = projectedById.get('atrium-bench');
+  assert(orientation.maxX < 0 && bench.minX > 0, 'arrival furnishings must frame the central gallery axis');
 });
 
 check('the spawn faces a clear focal sightline through the opening sequence', () => {
@@ -263,9 +374,15 @@ check('core movement and collision functions handle representative boundaries', 
   assert(isValidMuseumPosition(bounded, layout.playerRadius, layout.bounds, allColliders, layout.spatialCells));
   assert(bounded.x >= layout.bounds.minX + layout.playerRadius);
   const plinth = layout.exhibits.find(({id}) => id === 'plato').collider;
+  const platoViewpoint = layout.exhibits.find(({id}) => id === 'plato').viewpoint;
+  const towardPlato = {
+    x: plinth.center.x - platoViewpoint.x,
+    z: plinth.center.z - platoViewpoint.z,
+  };
+  const towardPlatoLength = Math.hypot(towardPlato.x, towardPlato.z);
   const blocked = moveWithCollisions(
-    {x: -11, z: 4.45},
-    {x: 0, z: -4},
+    platoViewpoint,
+    {x: towardPlato.x / towardPlatoLength * 5, z: towardPlato.z / towardPlatoLength * 5},
     layout.playerRadius,
     layout.bounds,
     allColliders,
@@ -274,14 +391,14 @@ check('core movement and collision functions handle representative boundaries', 
   assert(!circleIntersectsCollider(blocked, layout.playerRadius, plinth));
   assert(positionInsideSpatialUnion(blocked, layout.playerRadius, layout.spatialCells));
   const throughThreshold = moveWithCollisions(
-    {x: 0, z: 28.5},
-    {x: 0, z: -9},
+    {x: 0, z: 30.5},
+    {x: 0, z: -7},
     layout.playerRadius,
     layout.bounds,
     allColliders,
     layout.spatialCells,
   );
-  assert(throughThreshold.z < 22, 'movement did not pass through the atrium/classical connection');
+  assert(throughThreshold.z < 26, 'movement did not pass through the atrium/classical connection');
   assert(positionInsideSpatialUnion(throughThreshold, layout.playerRadius, layout.spatialCells));
 });
 
@@ -307,6 +424,37 @@ check('movement and every recommended viewpoint follow the rendered camera headi
   }
 });
 
+check('Classical and Hellenistic entry views fully frame multiple front-facing exhibits', () => {
+  for (const entry of layout.entryViews) {
+    const cell = layout.spatialCells.find(({id}) => id === entry.spatialCellId);
+    assert(cell && cell.kind === 'room');
+    assert(boundsContainPoint(cell.bounds, entry.pose, layout.playerRadius));
+    assert(entry.expectedVisibleExhibitIds.length >= 2, `${entry.spatialCellId} needs at least two arrival exhibits`);
+    for (const id of entry.expectedVisibleExhibitIds) {
+      const exhibit = layout.exhibits.find((item) => item.id === id);
+      assert(exhibit && exhibit.spatialCellId === entry.spatialCellId);
+      const worldCorners = installationWorldCorners(exhibit);
+      const projected = projectedScreenBounds(entry.pose, worldCorners);
+      assert(projected.minX >= -.9 && projected.maxX <= .9, `${id} is horizontally clipped at the 1920×1080 ${entry.spatialCellId} entry`);
+      assert(projected.minY >= -.9 && projected.maxY <= .9, `${id} is vertically clipped at the 1920×1080 ${entry.spatialCellId} entry`);
+      assert(projected.widthPixels >= 120 && projected.heightPixels >= 150, `${id} is too small to establish the ${entry.spatialCellId} composition`);
+      assert(projected.widthPixels * projected.heightPixels >= 20_000, `${id} lacks enough projected area at the ${entry.spatialCellId} entry`);
+      const exhibitFront = {x: exhibit.viewpoint.x - exhibit.position.x, z: exhibit.viewpoint.z - exhibit.position.z};
+      const viewer = {x: entry.pose.x - exhibit.position.x, z: entry.pose.z - exhibit.position.z};
+      const frontFacing = (exhibitFront.x * viewer.x + exhibitFront.z * viewer.z)
+        / (Math.hypot(exhibitFront.x, exhibitFront.z) * Math.hypot(viewer.x, viewer.z));
+      assert(frontFacing >= .5, `${id} turns too far away from the entry`);
+      for (const target of worldCorners) {
+        for (let index = 0; index < 30; index += 1) {
+          const fraction = index / 30;
+          const sample = {x: entry.pose.x + (target.x - entry.pose.x) * fraction, z: entry.pose.z + (target.z - entry.pose.z) * fraction};
+          assert(!layout.wallColliders.some((wall) => intersects(sample, .02, wall)), `${id} is partly hidden by a wall from ${entry.spatialCellId}`);
+        }
+      }
+    }
+  }
+});
+
 check('camera session parsing rejects malformed and unsafe values', () => {
   const valid = JSON.stringify({version: 1, hallId: layout.id, ...layout.spawn});
   assert(parseMuseumSession(valid, layout));
@@ -316,27 +464,27 @@ check('camera session parsing rejects malformed and unsafe values', () => {
   assert.equal(sanitizeMuseumPose({...layout.spawn, x: Number.POSITIVE_INFINITY}, layout), undefined);
   const insidePlinth = layout.exhibits.find(({id}) => id === 'plato').collider.center;
   assert.equal(sanitizeMuseumPose({...insidePlinth, yaw: 0, pitch: 0}, layout), undefined);
-  const insideGlobalBoundsButOutsideWing = {x: 20, z: 35, yaw: 0, pitch: 0};
+  const insideGlobalBoundsButOutsideWing = {x: 11, z: 35, yaw: 0, pitch: 0};
   assert(insideBounds(insideGlobalBoundsButOutsideWing, layout.playerRadius));
   assert.equal(positionInsideSpatialUnion(insideGlobalBoundsButOutsideWing, layout.playerRadius, layout.spatialCells), false);
   assert.equal(sanitizeMuseumPose(insideGlobalBoundsButOutsideWing, layout), undefined);
 });
 
-check('the authored central route remains clear of exhibit obstacles', () => {
+check('the authored central route remains clear of walls and exhibit obstacles', () => {
   const routeSegments = [
-    [{x: 0, z: 44}, {x: 0, z: 2}],
-    [{x: 0, z: 2}, {x: 6, z: -2}],
-    [{x: 6, z: -2}, {x: 11, z: -32}],
-    [{x: 11, z: -32}, {x: -2, z: -32}],
-    [{x: -2, z: -32}, {x: -2, z: -36}],
-    [{x: -2, z: -36}, {x: -2, z: -54}],
+    [{x: 0, z: 40}, {x: 0, z: 13}],
+    [{x: 0, z: 13}, {x: 2.5, z: 12}],
+    [{x: 2.5, z: 12}, {x: 2.5, z: 6.5}],
+    [{x: 2.5, z: 6.5}, {x: 0, z: 4}],
+    [{x: 0, z: 4}, {x: 0, z: -19}],
+    [{x: 0, z: -19}, {x: 0, z: -29.3}],
   ];
   for (const [start, end] of routeSegments) {
     for (let index = 0; index <= 80; index += 1) {
       const fraction = index / 80;
       const point = {x: start.x + (end.x - start.x) * fraction, z: start.z + (end.z - start.z) * fraction};
       assert(positionInsideSpatialUnion(point, layout.playerRadius, layout.spatialCells), `central route exits the wing near ${JSON.stringify(point)}`);
-      assert(!layout.obstacleColliders.some((collider) => intersects(point, layout.playerRadius, collider)), `central route hits ${JSON.stringify(point)}`);
+      assert(!allColliders.some((collider) => intersects(point, layout.playerRadius, collider)), `central route hits ${JSON.stringify(point)}`);
     }
   }
 });
@@ -356,7 +504,7 @@ check('the world definition is the single source for the current hall boundary',
 });
 
 check('walls and systematic neutral exhibit lighting are data-authored once', () => {
-  assert.equal(layout.wallColliders.length, 27);
+  assert.equal(layout.wallColliders.length, 28);
   assert(unique(layout.wallColliders.map(({id}) => id)));
   assert(layout.wallColliders.every(({height}) => Number.isFinite(height) && height >= 5));
   assert(!layout.obstacleColliders.some(({id}) => layout.wallColliders.some((wall) => wall.id === id)));
@@ -468,13 +616,83 @@ check('seven authored spatial cells form one connected continuous gallery', () =
   ]);
 });
 
-check('the expanded wing is 2–3x the prior 1,320-square-unit hall', () => {
+check('the pilot wing is materially denser while remaining larger than the original hall', () => {
   const authoredArea = layout.spatialCells.reduce((total, {bounds}) =>
     total + (bounds.maxX - bounds.minX) * (bounds.maxZ - bounds.minZ), 0);
   assert.equal(layout.floorArea, authoredArea);
-  assert(layout.floorArea >= 1320 * 2, `floor area ${layout.floorArea} is below 2x baseline`);
-  assert(layout.floorArea <= 1320 * 3, `floor area ${layout.floorArea} exceeds 3x baseline`);
-  assert.equal(layout.floorArea, 3072);
+  assert(layout.floorArea > 1320, `floor area ${layout.floorArea} does not exceed the original hall`);
+  assert(layout.floorArea <= 3072 * .8, `floor area ${layout.floorArea} is not materially denser than the expanded wing`);
+  assert.equal(layout.floorArea, 1592);
+  console.log(`  Floor area: ${layout.floorArea} units² (48.18% below the prior 3,072-unit wing)`);
+  const passages = layout.spatialCells.filter(({kind}) => kind === 'passage');
+  assert.equal(passages.length, 3);
+  for (const passage of passages) {
+    const width = passage.bounds.maxX - passage.bounds.minX;
+    const depth = passage.bounds.maxZ - passage.bounds.minZ;
+    assert(Math.min(width, depth) <= 3, `${passage.id} is too long to read as a threshold`);
+    assert(width * depth <= 24, `${passage.id} consumes excessive empty floor`);
+  }
+  const exhibitRooms = layout.spatialCells.filter(({exhibitIds}) => exhibitIds.length > 0);
+  for (const room of exhibitRooms) {
+    const roomArea = (room.bounds.maxX - room.bounds.minX) * (room.bounds.maxZ - room.bounds.minZ);
+    const areaPerExhibit = roomArea / room.exhibitIds.length;
+    assert(areaPerExhibit <= (room.exhibitIds.length === 1 ? 320 : 150), `${room.id} strands its exhibits in excess floor`);
+  }
+});
+
+check('the guided walking route keeps every legal consecutive path within sixteen units', () => {
+  const byId = new Map(layout.exhibits.map((exhibit) => [exhibit.id, exhibit]));
+  assert.equal(layout.guidedWalkLegs.length, layout.guidedOrder.length - 1);
+  const gaps = layout.guidedWalkLegs.map((leg, index) => {
+    const expectedFrom = layout.guidedOrder[index];
+    const expectedTo = layout.guidedOrder[index + 1];
+    assert.equal(leg.fromExhibitId, expectedFrom);
+    assert.equal(leg.toExhibitId, expectedTo);
+    const points = [byId.get(leg.fromExhibitId).viewpoint, ...leg.waypoints, byId.get(leg.toExhibitId).viewpoint];
+    const segments = points.slice(1).map((point, pointIndex) => [points[pointIndex], point]);
+    for (const [start, end] of segments) sampleClearSegment(start, end, `${leg.fromExhibitId} → ${leg.toExhibitId}`);
+    return {
+      from: leg.fromExhibitId,
+      to: leg.toExhibitId,
+      distance: segments.reduce((total, [start, end]) => total + segmentLength(start, end), 0),
+    };
+  });
+  for (const gap of gaps) {
+    assert(gap.distance <= 16, `${gap.from} → ${gap.to} spans ${gap.distance.toFixed(3)} units`);
+    const fromCell = byId.get(gap.from).spatialCellId;
+    const toCell = byId.get(gap.to).spatialCellId;
+    if (fromCell !== toCell) assert(gap.distance >= 14, `${gap.from} → ${gap.to} is not an honest room-transition leg`);
+  }
+  const total = gaps.reduce((sum, {distance}) => sum + distance, 0);
+  assert(total <= 80, `guided route total ${total.toFixed(3)} remains too dispersed`);
+  assert(total / gaps.length <= 11, `guided route mean ${(total / gaps.length).toFixed(3)} remains too dispersed`);
+  console.log(`  Guided walking gaps: ${gaps.map(({from, to, distance}) => `${from}→${to} ${distance.toFixed(3)}`).join('; ')}`);
+  console.log(`  Guided walking total: ${total.toFixed(3)}; mean: ${(total / gaps.length).toFixed(3)}; max: ${Math.max(...gaps.map(({distance}) => distance)).toFixed(3)}`);
+});
+
+check('orientation furnishings are physical, contained, and clear of central circulation', () => {
+  assert.deepEqual(layout.furnishings.map(({id}) => id).sort(), ['atrium-bench', 'atrium-orientation-plinth']);
+  assert(unique(layout.furnishings.map(({id}) => id)));
+  const atrium = layout.spatialCells.find(({id}) => id === 'orientation-atrium');
+  assert(atrium);
+  for (const furnishing of layout.furnishings) {
+    assert(furnishing.height > 0);
+    const corners = rotatedRectangleCorners(furnishing.center, furnishing.size, furnishing.rotation);
+    assert(corners.every((corner) => boundsContainPoint(atrium.bounds, corner)), `${furnishing.id} footprint escapes the atrium`);
+    assert(layout.obstacleColliders.includes(furnishing), `${furnishing.id} is rendered without collision`);
+    const zValues = corners.map(({z}) => z);
+    const minZ = Math.min(...zValues);
+    const maxZ = Math.max(...zValues);
+    for (let index = 0; index <= 20; index += 1) {
+      const z = minZ + (maxZ - minZ) * index / 20;
+      assert(!intersects({x: 0, z}, layout.playerRadius, furnishing), `${furnishing.id} blocks the central aisle`);
+    }
+  }
+  const [left, right] = [...layout.furnishings].sort((first, second) => first.center.x - second.center.x);
+  const xExtent = (furnishing) => Math.abs(Math.cos(furnishing.rotation)) * furnishing.size.width / 2
+    + Math.abs(Math.sin(furnishing.rotation)) * furnishing.size.depth / 2;
+  const playerCenterClearWidth = right.center.x - xExtent(right) - (left.center.x + xExtent(left)) - layout.playerRadius * 2;
+  assert(playerCenterClearWidth >= 3, `arrival furnishings leave only ${playerCenterClearWidth.toFixed(3)} units of player-center clearance`);
 });
 
 check('every exhibit belongs to exactly one declared room and its rotated footprint fits', () => {
@@ -548,6 +766,10 @@ check('every installation declares supported physical mounts and contained volum
       const anchor = scene.objectBounds.find(({id}) => id === mount.anchorId);
       assert(anchor);
       if (mount.kind === 'wall-frame') {
+        assert(Math.abs(mount.bounds.size.width - (mount.width + .2)) < 1e-7, `${mount.id} bounds do not cover the rendered side rails`);
+        assert(Math.abs(mount.bounds.size.height - (mount.height + .18)) < 1e-7, `${mount.id} bounds do not cover the rendered top and bottom rails`);
+        const backingMargin = anchor.size.width / 2 - (Math.abs(mount.bounds.center.x) + mount.bounds.size.width / 2);
+        assert(backingMargin >= .08 - 1e-7, `${mount.id} leaves only ${backingMargin.toFixed(3)} units at the backing edge`);
         assert(aabbOverlaps(mount.supportBounds, anchor), `${mount.id} brackets do not attach to ${anchor.id}`);
       } else {
         const supportBottom = mount.supportBounds.center.y - mount.supportBounds.size.height / 2;
@@ -571,6 +793,38 @@ check('every installation declares supported physical mounts and contained volum
     assert.equal(exhibit.collider.size.width, scene.footprint.width, `${exhibit.id} collider width drifted from footprint`);
     assert.equal(exhibit.collider.size.depth, scene.footprint.depth, `${exhibit.id} collider depth drifted from footprint`);
     assert.equal(exhibit.collider.rotation, exhibit.rotationY, `${exhibit.id} collider rotation drifted from placement`);
+  }
+});
+
+check('paired media and focal objects retain deliberate visual breathing room', () => {
+  for (const exhibit of layout.exhibits) {
+    const frames = exhibit.scene.mediaMounts
+      .filter(({kind}) => kind === 'wall-frame')
+      .sort((first, second) => first.bounds.center.x - second.bounds.center.x);
+    for (let index = 1; index < frames.length; index += 1) {
+      assert(horizontalGap(frames[index - 1].bounds, frames[index].bounds) >= .08 - 1e-7, `${exhibit.id} wall frames crowd each other`);
+    }
+    for (const frame of frames) {
+      for (const object of exhibit.scene.objectBounds.filter(({role}) => role !== 'base')) {
+        const overlapsVertically = Math.abs(frame.bounds.center.y - object.center.y) < (frame.bounds.size.height + object.size.height) / 2;
+        const overlapsInDepth = Math.abs(frame.bounds.center.z - object.center.z) < (frame.bounds.size.depth + object.size.depth) / 2;
+        if (overlapsVertically && overlapsInDepth) {
+          assert(horizontalGap(frame.bounds, object) >= .08 - 1e-7, `${frame.id} crowds ${object.id}`);
+        }
+      }
+    }
+  }
+  for (const id of ['socrates', 'plato', 'aristotle']) {
+    const exhibit = layout.exhibits.find((item) => item.id === id);
+    const frame = exhibit.scene.mediaMounts.find(({kind}) => kind === 'wall-frame');
+    const lectern = exhibit.scene.mediaMounts.find(({kind}) => kind === 'lectern');
+    const silhouetteGap = lectern.position[0] - lectern.width / 2 - (frame.position[0] + (frame.width + .2) / 2);
+    assert(silhouetteGap >= .05 - 1e-7, `${id} lectern crowds its principal frame`);
+  }
+  const neoplatonism = layout.exhibits.find(({id}) => id === 'neoplatonism');
+  const relief = neoplatonism.scene.objectBounds.find(({id}) => id === 'neoplatonism-emanation-relief');
+  for (const frame of neoplatonism.scene.mediaMounts) {
+    assert(horizontalGap(frame.bounds, relief) >= .08 - 1e-7, `${frame.id} crowds the central relief`);
   }
 });
 

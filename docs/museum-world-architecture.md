@@ -13,7 +13,7 @@ Each hall is a lazy content module registered in `museumWorldRegistry.ts`. A reg
 - a serializable `MuseumHallDefinition`;
 - a dynamic loader for the hall's render-only content component.
 
-The Ancient Greek module supplies architecture, lighting, atmosphere, and installations. It does not create a canvas, own navigation, or duplicate player controls. Its registered wing is one continuous seven-cell floor plan: an orientation atrium, Classical Foundations, Hellenistic Ways, and Late Antiquity are joined by three generous passages. This expands the authored floor from 1,320 to 3,072 square units without pretending that a second hall exists.
+The Ancient Greek module supplies architecture, lighting, atmosphere, and installations. It does not create a canvas, own navigation, or duplicate player controls. Its registered wing is one continuous seven-cell pilot gallery: a furnished orientation atrium, Classical Foundations, Hellenistic Ways, and a Late Antiquity focal chamber are joined by three short thresholds. The 1,592-square-unit plan remains larger and more architecturally developed than the original 1,320-square-unit corridor while concentrating the eight active exhibits instead of expanding into empty rooms.
 
 ## Coordinates, entrances, and connections
 
@@ -32,7 +32,9 @@ Every scene image requires a typed physical mount:
 - `lectern` for an inclined reading support;
 - `freestanding-panel` for a floor-supported display.
 
-The Museum audit checks catalog coverage, mount kinds and anchors, bounds containment, plaque separation, footprint/collider agreement, entrance clearance, viewpoint safety, room-graph connectivity, floor-area growth, and spatial-union session safety. New scene types should extend this contract and its audit together.
+The Museum audit checks catalog coverage, mount kinds and anchors, bounds containment, plaque and media breathing room, footprint/collider agreement, collision-backed furnishings, entry-view composition, guided-route spacing, entrance clearance, viewpoint safety, room-graph connectivity, floor density, and spatial-union session safety. Arrival and room-entry checks project complete rotated footprints through the authored camera field of view at 1920×1080, rather than accepting an object whose center alone happens to land on screen. Furnishing containment likewise checks every rotated corner.
+
+`guidedWalkLegs` records the legal polyline between each consecutive guided viewpoint. Doorway-crossing legs include player-safe waypoints, and the audit samples every segment against the spatial union, walls, and installation colliders before calculating the walking distance. This keeps compactness claims honest when a direct Euclidean line would cut through a wall or display.
 
 ## Routes and exhibit identity
 

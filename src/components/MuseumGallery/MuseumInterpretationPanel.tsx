@@ -94,7 +94,7 @@ export function MuseumInterpretationPanel({
       if (focusReturn === 'none') return;
       window.requestAnimationFrame(() => {
         const target = focusReturn === 'canvas'
-          ? document.querySelector<HTMLElement>('.museum-scene-canvas')
+          ? document.querySelector<HTMLCanvasElement>('canvas.museum-scene-canvas')
           : document.getElementById('museum-enter-button');
         target?.focus({preventScroll: true});
       });

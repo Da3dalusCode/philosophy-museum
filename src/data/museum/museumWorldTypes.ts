@@ -23,6 +23,11 @@ export type MuseumWallDefinition = MuseumCollider & {
   height: number;
 };
 
+export type MuseumFurnishingDefinition = MuseumCollider & {
+  kind: 'bench' | 'orientation-plinth';
+  height: number;
+};
+
 export type MuseumSceneVolumeRole =
   | 'base'
   | 'principal-object'
@@ -108,6 +113,18 @@ export type MuseumSpatialConnection = {
   openingBounds: MuseumBounds;
 };
 
+export type MuseumRoomEntryView = {
+  spatialCellId: string;
+  pose: MuseumPose;
+  expectedVisibleExhibitIds: readonly MuseumExhibitId[];
+};
+
+export type MuseumGuidedWalkLeg = {
+  fromExhibitId: MuseumExhibitId;
+  toExhibitId: MuseumExhibitId;
+  waypoints: readonly MuseumPoint[];
+};
+
 export type MuseumTrackDefinition = {
   id: string;
   center: MuseumPoint3;
@@ -142,16 +159,20 @@ export type MuseumHallLayout = {
   playerRadius: number;
   bounds: MuseumBounds;
   floorArea: number;
+  cameraFov: number;
   cameraFar: number;
   spawn: MuseumPose;
   spawnFocalPoint: MuseumPoint;
   reset: MuseumPose;
   spatialCells: readonly MuseumSpatialCell[];
   spatialConnections: readonly MuseumSpatialConnection[];
+  entryViews: readonly MuseumRoomEntryView[];
   wallColliders: readonly MuseumWallDefinition[];
+  furnishings: readonly MuseumFurnishingDefinition[];
   obstacleColliders: readonly MuseumCollider[];
   exhibits: readonly MuseumExhibitLayout[];
   guidedOrder: readonly MuseumExhibitId[];
+  guidedWalkLegs: readonly MuseumGuidedWalkLeg[];
   lighting: MuseumLightingDefinition;
 };
 

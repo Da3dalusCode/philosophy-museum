@@ -610,6 +610,7 @@ export function MuseumPage({route, href, push, replace}: {
               inputRef={controls.inputRef}
               poseRef={poseRef}
               onCanvasReady={(canvas) => {
+                canvas.classList.add('museum-scene-canvas');
                 canvas.setAttribute('role', 'img');
                 canvas.setAttribute('aria-label', 'Walkable Ancient Greek and Hellenistic philosophy gallery');
                 canvas.setAttribute('aria-describedby', 'museum-controls-description');
