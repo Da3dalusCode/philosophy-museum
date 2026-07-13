@@ -6,11 +6,11 @@ import {
 } from '../../data/museum/ancientGreekHall';
 import {usePlaqueTexture} from './plaqueTextures';
 
-const LIMESTONE = '#cbbb9c';
-const LIMESTONE_DARK = '#8c7b61';
-const FLOOR = '#665a49';
-const BRONZE = '#805d32';
-const IRON = '#282722';
+const LIMESTONE = '#d2c9b6';
+const LIMESTONE_DARK = '#8a8376';
+const FLOOR = '#171b1b';
+const BRONZE = '#80603f';
+const IRON = '#0c1114';
 
 function InstancedColumns() {
   const shafts = useRef<InstancedMesh>(null);
@@ -123,10 +123,10 @@ function Recesses() {
           <boxGeometry args={[3.7, 4.5, .16]}/>
           <meshStandardMaterial color={IRON} roughness={.76} metalness={.18}/>
         </mesh>
-        <mesh position={[0, 0, .12]}>
-          <boxGeometry args={[3.95, 4.72, .08]}/>
-          <meshStandardMaterial color={BRONZE} roughness={.45} metalness={.62} wireframe/>
-        </mesh>
+        <mesh position={[0, 2.28, .12]}><boxGeometry args={[4,.14,.09]}/><meshStandardMaterial color={BRONZE} roughness={.4} metalness={.68}/></mesh>
+        <mesh position={[0, -2.28, .12]}><boxGeometry args={[4,.14,.09]}/><meshStandardMaterial color={BRONZE} roughness={.4} metalness={.68}/></mesh>
+        <mesh position={[-1.93, 0, .12]}><boxGeometry args={[.14,4.45,.09]}/><meshStandardMaterial color={BRONZE} roughness={.4} metalness={.68}/></mesh>
+        <mesh position={[1.93, 0, .12]}><boxGeometry args={[.14,4.45,.09]}/><meshStandardMaterial color={BRONZE} roughness={.4} metalness={.68}/></mesh>
       </group>;
     })}
     <mesh position={[0, 3.25, -31.24]}>
@@ -140,6 +140,23 @@ function Recesses() {
   </group>;
 }
 
+function TrackLighting() {
+  const stops = [23, 17, 12, 6, 0, -6, -11, -25];
+  return <group>
+    {[-5.4, 5.4].map((x) => <mesh key={x} position={[x, 7.72, 0]}>
+      <boxGeometry args={[.09,.09,58]}/>
+      <meshStandardMaterial color="#171d20" metalness={.78} roughness={.32}/>
+    </mesh>)}
+    {stops.map((z, index) => {
+      const x = index % 2 === 0 ? -5.4 : 5.4;
+      return <group key={z} position={[x,7.48,z]} rotation={[index%2===0?0:-.08,0,index%2===0?-.34:.34]}>
+        <mesh><cylinderGeometry args={[.09,.12,.36,10]}/><meshStandardMaterial color="#252b2d" metalness={.7} roughness={.35}/></mesh>
+        <mesh position={[0,-.22,0]}><cylinderGeometry args={[.16,.11,.18,12]}/><meshStandardMaterial color={BRONZE} metalness={.66} roughness={.4}/></mesh>
+      </group>;
+    })}
+  </group>;
+}
+
 function DirectoryKiosk() {
   const texture = usePlaqueTexture({
     title: 'Museum Directory',
@@ -147,7 +164,7 @@ function DirectoryKiosk() {
     subtitle: 'Press M or use the directory control',
     accent: '#d9a45e',
   });
-  return <group position={[7.5, 0, 27.2]} rotation={[0, -.28, 0]}>
+  return <group position={[4.15, 0, 24.65]} rotation={[0, -.34, 0]}>
     <mesh position={[0, .55, 0]}>
       <boxGeometry args={[1.5, 1.1, 1]}/>
       <meshStandardMaterial color={LIMESTONE_DARK} roughness={.88}/>
@@ -171,32 +188,32 @@ export function HallArchitecture() {
     </mesh>
     <mesh position={[0, .015, 18]} receiveShadow>
       <boxGeometry args={[18.4, .025, 16]}/>
-      <meshStandardMaterial color="#75644d" roughness={.88}/>
+      <meshStandardMaterial color="#20282b" roughness={.9}/>
     </mesh>
     <mesh position={[0, .018, -2.5]} receiveShadow>
       <boxGeometry args={[18.4, .03, 21]}/>
-      <meshStandardMaterial color="#665f4f" roughness={.88}/>
+      <meshStandardMaterial color="#242522" roughness={.9}/>
     </mesh>
     <mesh position={[0, .021, -22.5]} receiveShadow>
       <boxGeometry args={[18.4, .035, 15]}/>
-      <meshStandardMaterial color="#554e4c" roughness={.88}/>
+      <meshStandardMaterial color="#211d29" roughness={.9}/>
     </mesh>
     <mesh position={[0, .055, -.5]}>
       <boxGeometry args={[.16, .045, 57]}/>
-      <meshStandardMaterial color={BRONZE} metalness={.72} roughness={.32}/>
+      <meshStandardMaterial color={BRONZE} metalness={.72} roughness={.42}/>
     </mesh>
     {[24, 16, 8, 0, -8, -16, -24].map((z) => <mesh key={z} position={[0, .08, z]}>
       <boxGeometry args={[2.2, .06, .09]}/>
-      <meshStandardMaterial color="#b98a4d" emissive="#42270f" emissiveIntensity={.22} metalness={.62}/>
+      <meshStandardMaterial color="#8b6843" emissive="#2a1c10" emissiveIntensity={.04} metalness={.62}/>
     </mesh>)}
 
     <mesh position={[-9.7, 4, 0]}>
       <boxGeometry args={[.8, 8, 66]}/>
-      <meshStandardMaterial color={LIMESTONE} roughness={.94}/>
+      <meshStandardMaterial color="#bcb4a4" roughness={.94}/>
     </mesh>
     <mesh position={[9.7, 4, 0]}>
       <boxGeometry args={[.8, 8, 66]}/>
-      <meshStandardMaterial color={LIMESTONE} roughness={.94}/>
+      <meshStandardMaterial color="#bcb4a4" roughness={.94}/>
     </mesh>
     <mesh position={[0, 4, -31.7]}>
       <boxGeometry args={[20, 8, .8]}/>
@@ -208,10 +225,11 @@ export function HallArchitecture() {
     </mesh>
     <mesh position={[0, 8.15, 0]}>
       <boxGeometry args={[20, .3, 66]}/>
-      <meshStandardMaterial color="#b4a488" roughness={.96}/>
+      <meshStandardMaterial color="#0b1013" roughness={.88} metalness={.08}/>
     </mesh>
 
     <InstancedColumns/>
+    <TrackLighting/>
     <Recesses/>
     <ZoneArch z={9} title="Hellenistic Ways of Life" period="4th–1st centuries BCE" accent="#bd8a4c"/>
     <ZoneArch z={-14} title="Late Antiquity" period="3rd–6th centuries CE" accent="#947bc0"/>
@@ -219,7 +237,7 @@ export function HallArchitecture() {
       title="Ancient Greek & Hellenistic Gallery"
       kicker="Gallery 01 · Enter the conversation"
       subtitle="Follow the bronze path from examination to ascent"
-      position={[0, 5.55, 27.25]}
+      position={[0, 3.25, 24.65]}
       width={7.4}
       accent="#d8a85c"
     />
@@ -233,7 +251,7 @@ export function HallArchitecture() {
     />
     <DirectoryKiosk/>
 
-    <mesh position={[0, .035, 29.65]} rotation={[-Math.PI / 2, 0, 0]}>
+    <mesh position={[0, .035, 27.45]} rotation={[-Math.PI / 2, 0, 0]}>
       <ringGeometry args={[1.05, 1.28, 48]}/>
       <meshBasicMaterial color="#d4a25c" toneMapped={false}/>
     </mesh>

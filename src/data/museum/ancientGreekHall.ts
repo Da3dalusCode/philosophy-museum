@@ -54,14 +54,14 @@ const hall = getMuseumHallCatalog('ancient-greek');
 if (!hall) throw new Error('The ancient Greek Museum catalog is missing.');
 
 const placement: Record<MuseumExhibitId, Omit<MuseumExhibitLayout, 'id' | 'zoneId'>> = {
-  socrates: {position: {x: -6.9, z: 21.5}, rotationY: Math.PI / 2, interactionRadius: 3.4, collider: {id: 'exhibit-socrates', center: {x: -6.9, z: 21.5}, size: {width: 1.6, depth: 1.35}, rotation: 0}, viewpoint: {x: -4.2, z: 21.5, yaw: Math.PI / 2, pitch: 0}},
-  plato: {position: {x: 6.9, z: 16.5}, rotationY: -Math.PI / 2, interactionRadius: 3.4, collider: {id: 'exhibit-plato', center: {x: 6.9, z: 16.5}, size: {width: 1.7, depth: 1.4}, rotation: 0}, viewpoint: {x: 4.2, z: 16.5, yaw: -Math.PI / 2, pitch: 0}},
-  aristotle: {position: {x: -6.9, z: 11.5}, rotationY: Math.PI / 2, interactionRadius: 3.4, collider: {id: 'exhibit-aristotle', center: {x: -6.9, z: 11.5}, size: {width: 1.7, depth: 1.4}, rotation: 0}, viewpoint: {x: -4.2, z: 11.5, yaw: Math.PI / 2, pitch: 0}},
-  cynicism: {position: {x: 6.8, z: 5.5}, rotationY: -Math.PI / 2, interactionRadius: 3.4, collider: {id: 'exhibit-cynicism', center: {x: 6.8, z: 5.5}, size: {width: 1.6, depth: 2.3}, rotation: 0}, viewpoint: {x: 4, z: 5.5, yaw: -Math.PI / 2, pitch: 0}},
-  epicureanism: {position: {x: -6.8, z: 0}, rotationY: Math.PI / 2, interactionRadius: 3.4, collider: {id: 'exhibit-epicureanism', center: {x: -6.8, z: 0}, size: {width: 1.7, depth: 2.3}, rotation: 0}, viewpoint: {x: -4, z: 0, yaw: Math.PI / 2, pitch: 0}},
-  stoicism: {position: {x: 6.8, z: -5.5}, rotationY: -Math.PI / 2, interactionRadius: 3.4, collider: {id: 'exhibit-stoicism', center: {x: 6.8, z: -5.5}, size: {width: 1.7, depth: 2.4}, rotation: 0}, viewpoint: {x: 4, z: -5.5, yaw: -Math.PI / 2, pitch: 0}},
-  skepticism: {position: {x: -6.8, z: -11}, rotationY: Math.PI / 2, interactionRadius: 3.4, collider: {id: 'exhibit-skepticism', center: {x: -6.8, z: -11}, size: {width: 1.7, depth: 2.3}, rotation: 0}, viewpoint: {x: -4, z: -11, yaw: Math.PI / 2, pitch: 0}},
-  neoplatonism: {position: {x: 0, z: -26.3}, rotationY: 0, interactionRadius: 4.2, collider: {id: 'exhibit-neoplatonism', center: {x: 0, z: -26.3}, size: {width: 3.1, depth: 3.1}, rotation: 0}, viewpoint: {x: 0, z: -22.6, yaw: 0, pitch: 0}},
+  socrates: {position: {x: -6.9, z: 21.5}, rotationY: Math.PI / 2, interactionRadius: 3.4, collider: {id: 'exhibit-socrates', center: {x: -6.9, z: 21.5}, size: {width: 1.35, depth: 2}, rotation: 0}, viewpoint: {x: -4.2, z: 21.5, yaw: Math.PI / 2, pitch: 0}},
+  plato: {position: {x: 6.9, z: 16.5}, rotationY: -Math.PI / 2, interactionRadius: 3.4, collider: {id: 'exhibit-plato', center: {x: 6.9, z: 16.5}, size: {width: 1.35, depth: 2}, rotation: 0}, viewpoint: {x: 4.2, z: 16.5, yaw: -Math.PI / 2, pitch: 0}},
+  aristotle: {position: {x: -6.9, z: 11.5}, rotationY: Math.PI / 2, interactionRadius: 3.4, collider: {id: 'exhibit-aristotle', center: {x: -6.9, z: 11.5}, size: {width: 1.35, depth: 2}, rotation: 0}, viewpoint: {x: -4.2, z: 11.5, yaw: Math.PI / 2, pitch: 0}},
+  cynicism: {position: {x: 6.8, z: 5.5}, rotationY: -Math.PI / 2, interactionRadius: 3.4, collider: {id: 'exhibit-cynicism', center: {x: 6.8, z: 5.5}, size: {width: 1.45, depth: 2.6}, rotation: 0}, viewpoint: {x: 4, z: 5.5, yaw: -Math.PI / 2, pitch: 0}},
+  epicureanism: {position: {x: -6.8, z: 0}, rotationY: Math.PI / 2, interactionRadius: 3.4, collider: {id: 'exhibit-epicureanism', center: {x: -6.8, z: 0}, size: {width: 1.45, depth: 2.8}, rotation: 0}, viewpoint: {x: -4, z: 0, yaw: Math.PI / 2, pitch: 0}},
+  stoicism: {position: {x: 6.8, z: -5.5}, rotationY: -Math.PI / 2, interactionRadius: 3.4, collider: {id: 'exhibit-stoicism', center: {x: 6.8, z: -5.5}, size: {width: 1.45, depth: 2.6}, rotation: 0}, viewpoint: {x: 4, z: -5.5, yaw: -Math.PI / 2, pitch: 0}},
+  skepticism: {position: {x: -6.8, z: -11}, rotationY: Math.PI / 2, interactionRadius: 3.4, collider: {id: 'exhibit-skepticism', center: {x: -6.8, z: -11}, size: {width: 1.45, depth: 2.5}, rotation: 0}, viewpoint: {x: -4, z: -11, yaw: Math.PI / 2, pitch: 0}},
+  neoplatonism: {position: {x: 0, z: -26.3}, rotationY: 0, interactionRadius: 4.2, collider: {id: 'exhibit-neoplatonism', center: {x: 0, z: -26.3}, size: {width: 5.5, depth: 5.5}, rotation: 0}, viewpoint: {x: 0, z: -22.6, yaw: 0, pitch: 0}},
 };
 
 const perimeter: MuseumCollider[] = [
