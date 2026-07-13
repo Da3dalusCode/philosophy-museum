@@ -13,13 +13,13 @@ Each hall is a lazy content module registered in `museumWorldRegistry.ts`. A reg
 - a serializable `MuseumHallDefinition`;
 - a dynamic loader for the hall's render-only content component.
 
-The Ancient Greek module supplies architecture, lighting, atmosphere, and installations. It does not create a canvas, own navigation, or duplicate player controls.
+The Ancient Greek module supplies architecture, lighting, atmosphere, and installations. It does not create a canvas, own navigation, or duplicate player controls. Its registered wing is one continuous seven-cell floor plan: an orientation atrium, Classical Foundations, Hellenistic Ways, and Late Antiquity are joined by three generous passages. This expands the authored floor from 1,320 to 3,072 square units without pretending that a second hall exists.
 
 ## Coordinates, entrances, and connections
 
 Hall layouts use local `x`/`z` floor coordinates, `y` for height, radians for yaw, and metres as the authoring convention. A hall definition adds a world transform so the shared spatial root and camera apply the same local-to-world rotation and translation while collision/session data remains hall-local. Entrances declare stable IDs, local positions, arrival poses, and transition bounds. Connections declare their local entrance, target hall, and target entrance rather than embedding route strings in scene code.
 
-The current hall is at the world origin, exposes `south-entry`, and deliberately has no connections. This empty adjacency is a truthful extension seam, not a fabricated second gallery.
+The current hall is at the world origin, exposes `south-entry`, and deliberately has no hall-to-hall connections. This empty adjacency is a truthful extension seam, not a fabricated second gallery. Inside the hall, `spatialCells` define the precise walkable union and `spatialConnections` define room openings. Floors, visible ceilings, wall colliders, track rails, and exhibit lights all consume the same layout definition instead of maintaining parallel hardcoded plans.
 
 ## Collision and installation contracts
 
@@ -32,13 +32,15 @@ Every scene image requires a typed physical mount:
 - `lectern` for an inclined reading support;
 - `freestanding-panel` for a floor-supported display.
 
-The Museum audit checks catalog coverage, mount kinds and anchors, bounds containment, plaque separation, footprint/collider agreement, entrance clearance, and viewpoint safety. New scene types should extend this contract and its audit together.
+The Museum audit checks catalog coverage, mount kinds and anchors, bounds containment, plaque separation, footprint/collider agreement, entrance clearance, viewpoint safety, room-graph connectivity, floor-area growth, and spatial-union session safety. New scene types should extend this contract and its audit together.
 
 ## Routes and exhibit identity
 
 Browser routes remain the public deep-link and Back/Forward contract. Scene callbacks use qualified `{hallId, exhibitId}` references so an exhibit ID is never interpreted outside its hall. Exhibit history state also records a versioned origin: active exploration, paused hall, directory, guided visit, or direct link. Close behavior is a policy derived from that origin rather than a boolean that loses context.
 
-Opening an exhibit from active movement pauses input and preserves the pose. Closing from the panel's user gesture asks for pointer lock when available and always retains drag-look as a fallback. Native Back restores the same active exploration state without making a forbidden, gesture-less lock request. Directory, guided, paused, and direct-link exits remain paused and restore the appropriate surface.
+Opening an exhibit from active movement blocks input and preserves both the pose and active intent. Closing by button, backdrop, Escape, or native Back waits until the interpretation route is gone, then restores focused drag-look; panel closure never requests Pointer Lock while modal content is mounted. Pointer Lock is an optional enhancement that can be requested only from a later scene gesture. Directory, guided, paused, and direct-link exits remain paused and restore the appropriate surface.
+
+The semantic visit phase is separate from the low-level look mode. Window blur or document hiding moves an active visit to `focus-suspended`, clears held input, and preserves the entered visit. Returning focus alone does not move the camera. A click on ordinary 3D architecture reactivates drag-look, while a direct exhibit click opens that exhibit with active origin and HUD controls perform only their named action. Explicit Pause is the only normal control that discards active intent.
 
 ## Session persistence
 

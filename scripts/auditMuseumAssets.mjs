@@ -6,11 +6,14 @@ import {build} from 'vite';
 
 const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const publicRoot = resolve(repoRoot, 'public');
+const sceneMediaSource = readFileSync(resolve(repoRoot, 'src/components/MuseumGallery/MuseumSceneMedia.tsx'), 'utf8');
+const auditBase = '/philosophy-atlas-audit/';
 const virtualEntry = 'virtual:philosophy-atlas-museum-asset-audit';
 const resolvedEntry = `\0${virtualEntry}`;
 const result = await build({
   root: repoRoot,
   configFile: false,
+  base: auditBase,
   logLevel: 'silent',
   plugins: [{
     name: 'museum-asset-audit-entry',
@@ -18,6 +21,7 @@ const result = await build({
     load: (id) => id === resolvedEntry ? `
       export * from '/src/data/museumCatalog.ts';
       export * from '/src/data/museum/museumAssets.ts';
+      export * from '/src/data/museum/museumMediaPolicy.ts';
       export {branches} from '/src/data/branches.ts';
       export {philosophers} from '/src/data/philosophers.ts';
     ` : undefined,
@@ -34,7 +38,19 @@ const outputs = (Array.isArray(result) ? result : [result]).flatMap(({output}) =
 const entry = outputs.find((item) => item.type === 'chunk' && item.isEntry);
 assert(entry, 'Vite did not produce an executable Museum asset audit entry.');
 const moduleUrl = `data:text/javascript;base64,${Buffer.from(entry.code).toString('base64')}`;
-const {MUSEUM_ASSETS, MUSEUM_HALLS, branches, philosophers} = await import(moduleUrl);
+const {
+  MUSEUM_ASSETS,
+  MUSEUM_HALLS,
+  MUSEUM_FRAME_RAIL_FRONT_Z,
+  MUSEUM_SCENE_IMAGE_FACING,
+  MUSEUM_SCENE_IMAGE_FILTERING,
+  MUSEUM_SCENE_IMAGE_PLANE_Z,
+  MUSEUM_SCENE_MEDIA_LOADING_COLOR,
+  MUSEUM_SCENE_MEDIA_MATERIAL_MODE,
+  branches,
+  museumAssetUrl,
+  philosophers,
+} = await import(moduleUrl);
 
 let checks = 0;
 const check = (name, assertion) => {
@@ -164,6 +180,41 @@ check('all runtime variants are local, base-safe, exact-case WebP files', () => 
     }
   }
   assert(unique(paths), 'a local derivative path has conflicting provenance assignments');
+});
+
+check('all 16 scene images resolve beneath a non-root Vite base', () => {
+  assert.equal(MUSEUM_ASSETS.length, 16);
+  const runtimeUrls = MUSEUM_ASSETS.map(({variants}) => museumAssetUrl(variants.scene));
+  assert.equal(runtimeUrls.length, 16);
+  assert(unique(runtimeUrls));
+  for (const [index, runtimeUrl] of runtimeUrls.entries()) {
+    const asset = MUSEUM_ASSETS[index];
+    assert(runtimeUrl.startsWith(`${auditBase}assets/museum/`), `${asset.id} produced non-base-safe URL ${runtimeUrl}`);
+    assert.equal(runtimeUrl, `${auditBase}${asset.variants.scene.path}`);
+    const parsed = new URL(runtimeUrl, 'https://museum-audit.invalid');
+    assert.equal(parsed.origin, 'https://museum-audit.invalid');
+    assert(parsed.pathname.endsWith('.webp'));
+  }
+});
+
+check('scene-media policy keeps images unlit, front-facing, and clear of frame rails', () => {
+  assert.equal(MUSEUM_SCENE_MEDIA_MATERIAL_MODE, 'unlit-srgb');
+  assert.equal(MUSEUM_SCENE_IMAGE_FACING, 'positive-z');
+  assert.equal(MUSEUM_SCENE_IMAGE_FILTERING, 'linear-no-mipmaps-keyed-material');
+  assert.match(MUSEUM_SCENE_MEDIA_LOADING_COLOR, /^#[0-9a-f]{6}$/i);
+  assert.notEqual(MUSEUM_SCENE_MEDIA_LOADING_COLOR.toLowerCase(), '#000000');
+  assert(Number.isFinite(MUSEUM_SCENE_IMAGE_PLANE_Z));
+  assert(Number.isFinite(MUSEUM_FRAME_RAIL_FRONT_Z));
+  assert(MUSEUM_FRAME_RAIL_FRONT_Z > 0, 'frame rails must project toward the positive-z viewer side');
+  assert(MUSEUM_SCENE_IMAGE_PLANE_Z > MUSEUM_FRAME_RAIL_FRONT_Z, 'image plane must sit in front of frame rails');
+  assert(MUSEUM_SCENE_IMAGE_PLANE_Z - MUSEUM_FRAME_RAIL_FRONT_Z >= .005, 'image/frame clearance is too small for stable depth ordering');
+  assert.match(sceneMediaSource, /<meshBasicMaterial key="scene-ready" map=\{textureState\.texture\} toneMapped=\{false\}\/>/, 'ready scene images must use a keyed unlit material');
+  assert.match(sceneMediaSource, /key="scene-loading"/, 'loading and ready materials must not share a shader instance');
+  assert.match(sceneMediaSource, /key="scene-failed"/, 'failed and ready materials must not share a shader instance');
+  assert.match(sceneMediaSource, /texture\.minFilter = LinearFilter;/, 'scene texture filtering must stay WebGL-safe');
+  assert.match(sceneMediaSource, /texture\.generateMipmaps = false;/, 'non-power-of-two scene textures must not force mipmaps');
+  assert.match(sceneMediaSource, /MUSEUM_FRAME_RAIL_FRONT_Z - railDepth \/ 2/, 'rendered rails must consume the audited front-plane contract');
+  assert.doesNotMatch(sceneMediaSource, /<meshStandardMaterial key="scene-ready"/, 'lit ready-image materials recreate the black-image regression');
 });
 
 const totalBytes = MUSEUM_ASSETS.flatMap(({variants}) => Object.values(variants))

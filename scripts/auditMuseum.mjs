@@ -51,6 +51,7 @@ const {
   circleIntersectsCollider,
   isValidMuseumPosition,
   moveWithCollisions,
+  nearestInteractable,
   normalizeMoveInput,
   parseMuseumSession,
   sanitizeMuseumPose,
@@ -61,6 +62,9 @@ const {
   museumHistoryStateWithVisitContext,
   parseMuseumExhibitVisitContext,
   resolveMuseumExitPolicy,
+  museumPhaseHasActiveIntent,
+  positionInsideSpatialUnion,
+  transitionMuseumVisitPhase,
   museumPointToWorld,
   museumPoseToWorld,
 } = museum;
@@ -73,6 +77,10 @@ const check = (name, assertion) => {
 };
 const unique = (values) => new Set(values).size === values.length;
 const finitePoint = (point) => Number.isFinite(point.x) && Number.isFinite(point.z);
+const boundsContainPoint = (bounds, point, radius = 0) => point.x >= bounds.minX + radius - 1e-7
+  && point.x <= bounds.maxX - radius + 1e-7
+  && point.z >= bounds.minZ + radius - 1e-7
+  && point.z <= bounds.maxZ - radius + 1e-7;
 const insideBounds = (point, radius = 0) => point.x >= layout.bounds.minX + radius
   && point.x <= layout.bounds.maxX - radius
   && point.z >= layout.bounds.minZ + radius
@@ -104,6 +112,23 @@ const volumeInsideFootprint = (volume, footprint) => (
   && Math.abs(volume.center.z) + volume.size.depth / 2 <= footprint.depth / 2 + 1e-7
 );
 const wordCount = (value) => value.trim().split(/\s+/).filter(Boolean).length;
+const footprintWorldExtents = (exhibit) => {
+  const cosine = Math.abs(Math.cos(exhibit.rotationY));
+  const sine = Math.abs(Math.sin(exhibit.rotationY));
+  return {
+    x: (exhibit.scene.footprint.width * cosine + exhibit.scene.footprint.depth * sine) / 2,
+    z: (exhibit.scene.footprint.width * sine + exhibit.scene.footprint.depth * cosine) / 2,
+  };
+};
+const localPointToHall = (exhibit, point) => {
+  const cosine = Math.cos(exhibit.rotationY);
+  const sine = Math.sin(exhibit.rotationY);
+  return {
+    x: exhibit.position.x + point.x * cosine + point.z * sine,
+    y: point.y,
+    z: exhibit.position.z - point.x * sine + point.z * cosine,
+  };
+};
 
 check('one initial Museum hall and the ancient Greek hall exist', () => {
   assert.equal(MUSEUM_HALLS.length, 1);
@@ -160,7 +185,8 @@ check('the route catalog and full layout agree exactly', () => {
 
 check('bounds, spawn, reset, placements, and viewpoints are finite', () => {
   assert(layout.bounds.minX < layout.bounds.maxX && layout.bounds.minZ < layout.bounds.maxZ);
-  assert(layout.playerRadius > 0 && layout.eyeHeight > 0);
+  assert(layout.playerRadius > 0 && layout.eyeHeight > 0 && layout.cameraFar >= 150);
+  assert(finitePoint(layout.spawnFocalPoint));
   for (const pose of [layout.spawn, layout.reset]) {
     assert(finitePoint(pose) && Number.isFinite(pose.yaw) && Number.isFinite(pose.pitch));
   }
@@ -189,14 +215,35 @@ check('spawn, reset, and viewpoints are safe for the player footprint', () => {
     ...layout.exhibits.map((exhibit) => [`${exhibit.id} viewpoint`, exhibit.viewpoint]),
   ]) {
     assert(insideBounds(point, layout.playerRadius), `${label} is outside the walkable bounds`);
+    assert(positionInsideSpatialUnion(point, layout.playerRadius, layout.spatialCells), `${label} is outside the spatial-cell union`);
     assert(!allColliders.some((collider) => intersects(point, layout.playerRadius, collider)), `${label} intersects a collider`);
+  }
+});
+
+check('the spawn faces a clear focal sightline through the opening sequence', () => {
+  const heading = setMuseumMovementDisplacement({x: 0, z: 0}, {x: 0, z: 1}, layout.spawn.yaw, 1);
+  const delta = {
+    x: layout.spawnFocalPoint.x - layout.spawn.x,
+    z: layout.spawnFocalPoint.z - layout.spawn.z,
+  };
+  const distance = Math.hypot(delta.x, delta.z);
+  assert(distance > 10, 'spawn focal point is too close to establish the gallery axis');
+  assert((heading.x * delta.x + heading.z * delta.z) / distance > .999);
+  for (let index = 0; index <= 80; index += 1) {
+    const fraction = index / 80;
+    const sample = {
+      x: layout.spawn.x + delta.x * fraction,
+      z: layout.spawn.z + delta.z * fraction,
+    };
+    assert(positionInsideSpatialUnion(sample, 0, layout.spatialCells), `sightline exits the gallery near ${JSON.stringify(sample)}`);
+    assert(!layout.wallColliders.some((collider) => intersects(sample, .04, collider)), `wall blocks spawn sightline near ${JSON.stringify(sample)}`);
   }
 });
 
 check('core movement and collision functions handle representative boundaries', () => {
   const diagonal = normalizeMoveInput(1, 1);
   assert(Math.abs(Math.hypot(diagonal.x, diagonal.z) - 1) < 1e-9);
-  const wall = layout.wallColliders.find(({id}) => id === 'wall-west');
+  const wall = layout.wallColliders.find(({id}) => id === 'atrium-west');
   assert(wall);
   assert(circleIntersectsCollider(wall.center, layout.playerRadius, wall));
   const bounded = moveWithCollisions(
@@ -205,18 +252,31 @@ check('core movement and collision functions handle representative boundaries', 
     layout.playerRadius,
     layout.bounds,
     allColliders,
+    layout.spatialCells,
   );
-  assert(isValidMuseumPosition(bounded, layout.playerRadius, layout.bounds, allColliders));
+  assert(isValidMuseumPosition(bounded, layout.playerRadius, layout.bounds, allColliders, layout.spatialCells));
   assert(bounded.x >= layout.bounds.minX + layout.playerRadius);
   const plinth = layout.exhibits.find(({id}) => id === 'plato').collider;
   const blocked = moveWithCollisions(
-    {x: 4.2, z: 16.5},
-    {x: 4, z: 0},
+    {x: -11, z: 4.45},
+    {x: 0, z: -4},
     layout.playerRadius,
     layout.bounds,
     allColliders,
+    layout.spatialCells,
   );
   assert(!circleIntersectsCollider(blocked, layout.playerRadius, plinth));
+  assert(positionInsideSpatialUnion(blocked, layout.playerRadius, layout.spatialCells));
+  const throughThreshold = moveWithCollisions(
+    {x: 0, z: 28.5},
+    {x: 0, z: -9},
+    layout.playerRadius,
+    layout.bounds,
+    allColliders,
+    layout.spatialCells,
+  );
+  assert(throughThreshold.z < 22, 'movement did not pass through the atrium/classical connection');
+  assert(positionInsideSpatialUnion(throughThreshold, layout.playerRadius, layout.spatialCells));
 });
 
 check('movement and every recommended viewpoint follow the rendered camera heading', () => {
@@ -237,6 +297,7 @@ check('movement and every recommended viewpoint follow the rendered camera headi
     const distance = Math.hypot(dx, dz);
     const facingDot = (heading.x * dx + heading.z * dz) / distance;
     assert(facingDot > .99, `${exhibit.id} viewpoint must face its installation`);
+    assert.equal(nearestInteractable(exhibit.viewpoint, layout.exhibits), exhibit.id, `${exhibit.id} viewpoint must keep its exhibit interactable`);
   }
 });
 
@@ -249,6 +310,29 @@ check('camera session parsing rejects malformed and unsafe values', () => {
   assert.equal(sanitizeMuseumPose({...layout.spawn, x: Number.POSITIVE_INFINITY}, layout), undefined);
   const insidePlinth = layout.exhibits.find(({id}) => id === 'plato').collider.center;
   assert.equal(sanitizeMuseumPose({...insidePlinth, yaw: 0, pitch: 0}, layout), undefined);
+  const insideGlobalBoundsButOutsideWing = {x: 20, z: 35, yaw: 0, pitch: 0};
+  assert(insideBounds(insideGlobalBoundsButOutsideWing, layout.playerRadius));
+  assert.equal(positionInsideSpatialUnion(insideGlobalBoundsButOutsideWing, layout.playerRadius, layout.spatialCells), false);
+  assert.equal(sanitizeMuseumPose(insideGlobalBoundsButOutsideWing, layout), undefined);
+});
+
+check('the authored central route remains clear of exhibit obstacles', () => {
+  const routeSegments = [
+    [{x: 0, z: 44}, {x: 0, z: 2}],
+    [{x: 0, z: 2}, {x: 6, z: -2}],
+    [{x: 6, z: -2}, {x: 11, z: -32}],
+    [{x: 11, z: -32}, {x: -2, z: -32}],
+    [{x: -2, z: -32}, {x: -2, z: -36}],
+    [{x: -2, z: -36}, {x: -2, z: -54}],
+  ];
+  for (const [start, end] of routeSegments) {
+    for (let index = 0; index <= 80; index += 1) {
+      const fraction = index / 80;
+      const point = {x: start.x + (end.x - start.x) * fraction, z: start.z + (end.z - start.z) * fraction};
+      assert(positionInsideSpatialUnion(point, layout.playerRadius, layout.spatialCells), `central route exits the wing near ${JSON.stringify(point)}`);
+      assert(!layout.obstacleColliders.some((collider) => intersects(point, layout.playerRadius, collider)), `central route hits ${JSON.stringify(point)}`);
+    }
+  }
 });
 
 check('the world definition is the single source for the current hall boundary', () => {
@@ -265,6 +349,62 @@ check('the world definition is the single source for the current hall boundary',
   assert.deepEqual([...definition.prefetch.sceneAssetIds].sort(), [...catalogAssetIds].sort());
 });
 
+check('walls and systematic neutral exhibit lighting are data-authored once', () => {
+  assert.equal(layout.wallColliders.length, 27);
+  assert(unique(layout.wallColliders.map(({id}) => id)));
+  assert(layout.wallColliders.every(({height}) => Number.isFinite(height) && height >= 5));
+  assert(!layout.obstacleColliders.some(({id}) => layout.wallColliders.some((wall) => wall.id === id)));
+  assert(layout.lighting.ambientIntensity > 0 && layout.lighting.ambientIntensity < .5);
+  assert(layout.lighting.hemisphereIntensity >= .8);
+  assert(layout.lighting.directionalIntensity >= .7);
+  assert.equal(layout.lighting.tracks.length, 7);
+  assert(unique(layout.lighting.tracks.map(({id}) => id)));
+  const lights = layout.lighting.exhibitLights;
+  assert.equal(lights.length, layout.exhibits.length);
+  assert(unique(lights.map(({id}) => id)));
+  assert(unique(lights.map(({exhibitId}) => exhibitId)));
+  assert.deepEqual(lights.map(({exhibitId}) => exhibitId).sort(), layout.exhibits.map(({id}) => id).sort());
+  for (const light of lights) {
+    const exhibit = layout.exhibits.find(({id}) => id === light.exhibitId);
+    assert(exhibit, `${light.id} references a missing exhibit`);
+    const cell = layout.spatialCells.find(({id}) => id === exhibit.spatialCellId);
+    const track = layout.lighting.tracks.find(({id}) => id === light.trackId);
+    assert(cell, `${light.id} references an exhibit outside a cell`);
+    assert(track, `${light.id} references a missing fixture track`);
+    assert(finitePoint(light.mountPosition) && Number.isFinite(light.mountPosition.y));
+    assert(finitePoint(light.position) && Number.isFinite(light.position.y));
+    assert(finitePoint(light.target) && Number.isFinite(light.target.y));
+    assert.deepEqual(light.target, localPointToHall(exhibit, exhibit.scene.focalTarget));
+    assert(Math.abs(light.mountPosition.y - (track.center.y - .05)) < 1e-9);
+    const runsAlongX = track.size.width > track.size.depth;
+    const crossAxisOffset = runsAlongX
+      ? Math.abs(light.mountPosition.z - track.center.z)
+      : Math.abs(light.mountPosition.x - track.center.x);
+    const alongAxisOffset = runsAlongX
+      ? Math.abs(light.mountPosition.x - track.center.x)
+      : Math.abs(light.mountPosition.z - track.center.z);
+    assert(crossAxisOffset < 1e-9, `${light.id} is not attached to ${track.id}`);
+    assert(alongAxisOffset <= (runsAlongX ? track.size.width : track.size.depth) / 2 + 1e-9, `${light.id} falls beyond ${track.id}`);
+    const beam = {
+      x: light.target.x - light.mountPosition.x,
+      y: light.target.y - light.mountPosition.y,
+      z: light.target.z - light.mountPosition.z,
+    };
+    const beamLength = Math.hypot(beam.x, beam.y, beam.z);
+    const expectedLens = {
+      x: light.mountPosition.x + beam.x / beamLength * .35,
+      y: light.mountPosition.y + beam.y / beamLength * .35,
+      z: light.mountPosition.z + beam.z / beamLength * .35,
+    };
+    assert(Math.hypot(light.position.x - expectedLens.x, light.position.y - expectedLens.y, light.position.z - expectedLens.z) < 1e-9, `${light.id} does not originate at its rendered lens`);
+    assert(boundsContainPoint(cell.bounds, light.position), `${light.id} is outside ${cell.id}`);
+    assert.equal(light.intensity, 38);
+    assert.equal(light.distance, 13);
+    assert(light.angle > .2 && light.angle < .5);
+    assert(light.penumbra >= .7 && light.penumbra <= 1);
+  }
+});
+
 check('hall origins transform local scene and camera coordinates consistently', () => {
   const translated = {...definition, worldTransform: {x: 100, z: -40, yaw: Math.PI / 2}};
   const point = museumPointToWorld(translated, {x: 2, z: 3});
@@ -277,6 +417,97 @@ check('hall origins transform local scene and camera coordinates consistently', 
   for (const entrance of definition.entrances) {
     assert(insideBounds(entrance.arrivalPose, layout.playerRadius), `${entrance.id} arrival is outside the hall`);
     assert(!allColliders.some((collider) => intersects(entrance.arrivalPose, layout.playerRadius, collider)), `${entrance.id} arrival intersects a collider`);
+  }
+});
+
+check('seven authored spatial cells form one connected continuous gallery', () => {
+  assert.equal(layout.spatialCells.length, 7);
+  assert.equal(layout.spatialConnections.length, layout.spatialCells.length - 1);
+  assert(unique(layout.spatialCells.map(({id}) => id)));
+  assert(unique(layout.spatialConnections.map(({id}) => id)));
+  const cellsById = new Map(layout.spatialCells.map((cell) => [cell.id, cell]));
+  const neighbors = new Map(layout.spatialCells.map(({id}) => [id, new Set()]));
+  for (const connection of layout.spatialConnections) {
+    const from = cellsById.get(connection.fromCellId);
+    const to = cellsById.get(connection.toCellId);
+    assert(from && to, `${connection.id} references a missing cell`);
+    assert.notEqual(from.id, to.id, `${connection.id} loops back to one cell`);
+    assert(connection.openingBounds.minX < connection.openingBounds.maxX);
+    assert(connection.openingBounds.minZ < connection.openingBounds.maxZ);
+    const openingCenter = {
+      x: (connection.openingBounds.minX + connection.openingBounds.maxX) / 2,
+      z: (connection.openingBounds.minZ + connection.openingBounds.maxZ) / 2,
+    };
+    const openingTouches = (cell) => openingCenter.x >= cell.bounds.minX - .21
+      && openingCenter.x <= cell.bounds.maxX + .21
+      && openingCenter.z >= cell.bounds.minZ - .21
+      && openingCenter.z <= cell.bounds.maxZ + .21;
+    assert(openingTouches(from) && openingTouches(to), `${connection.id} does not bridge both authored cells`);
+    neighbors.get(from.id).add(to.id);
+    neighbors.get(to.id).add(from.id);
+  }
+  const reached = new Set([layout.spatialCells[0].id]);
+  const queue = [layout.spatialCells[0].id];
+  while (queue.length) {
+    const current = queue.shift();
+    for (const neighbor of neighbors.get(current)) {
+      if (reached.has(neighbor)) continue;
+      reached.add(neighbor);
+      queue.push(neighbor);
+    }
+  }
+  assert.equal(reached.size, layout.spatialCells.length, 'the gallery cell graph is disconnected');
+  assert.deepEqual(layout.spatialCells.map(({kind}) => kind), [
+    'room', 'passage', 'room', 'passage', 'room', 'passage', 'room',
+  ]);
+});
+
+check('the expanded wing is 2–3x the prior 1,320-square-unit hall', () => {
+  const authoredArea = layout.spatialCells.reduce((total, {bounds}) =>
+    total + (bounds.maxX - bounds.minX) * (bounds.maxZ - bounds.minZ), 0);
+  assert.equal(layout.floorArea, authoredArea);
+  assert(layout.floorArea >= 1320 * 2, `floor area ${layout.floorArea} is below 2x baseline`);
+  assert(layout.floorArea <= 1320 * 3, `floor area ${layout.floorArea} exceeds 3x baseline`);
+  assert.equal(layout.floorArea, 3072);
+});
+
+check('every exhibit belongs to exactly one declared room and its rotated footprint fits', () => {
+  const assignedIds = layout.spatialCells.flatMap(({exhibitIds}) => exhibitIds);
+  assert.equal(assignedIds.length, layout.exhibits.length);
+  assert(unique(assignedIds));
+  assert.deepEqual([...assignedIds].sort(), layout.exhibits.map(({id}) => id).sort());
+  for (const exhibit of layout.exhibits) {
+    const containingCells = layout.spatialCells.filter(({bounds}) => boundsContainPoint(bounds, exhibit.position));
+    assert.equal(containingCells.length, 1, `${exhibit.id} must occupy exactly one spatial cell`);
+    const cell = containingCells[0];
+    assert.equal(exhibit.spatialCellId, cell.id, `${exhibit.id} spatialCellId disagrees with its position`);
+    assert(cell.exhibitIds.includes(exhibit.id), `${cell.id} omits ${exhibit.id}`);
+    assert.equal(cell.kind, 'room', `${exhibit.id} cannot be installed in a passage`);
+    const extents = footprintWorldExtents(exhibit);
+    assert(boundsContainPoint(cell.bounds, exhibit.position, 0), `${exhibit.id} center escapes ${cell.id}`);
+    assert(exhibit.position.x - extents.x >= cell.bounds.minX - 1e-7, `${exhibit.id} footprint crosses west edge`);
+    assert(exhibit.position.x + extents.x <= cell.bounds.maxX + 1e-7, `${exhibit.id} footprint crosses east edge`);
+    assert(exhibit.position.z - extents.z >= cell.bounds.minZ - 1e-7, `${exhibit.id} footprint crosses south edge`);
+    assert(exhibit.position.z + extents.z <= cell.bounds.maxZ + 1e-7, `${exhibit.id} footprint crosses north edge`);
+  }
+});
+
+check('exhibit footprints are compacted by 20–35 percent from the reviewed baseline', () => {
+  const baselineAreas = {
+    socrates: 3.25 * 2.82,
+    plato: 3.25 * 2.82,
+    aristotle: 3.25 * 2.82,
+    cynicism: 3.65 * 3.22,
+    epicureanism: 3.45 * 3.52,
+    stoicism: 3.35 * 2.82,
+    skepticism: 3.4 * 3.18,
+    neoplatonism: 5.85 * 4.5,
+  };
+  for (const exhibit of layout.exhibits) {
+    const compactArea = exhibit.scene.footprint.width * exhibit.scene.footprint.depth;
+    const retained = compactArea / baselineAreas[exhibit.id];
+    assert(retained >= .65 - 1e-7, `${exhibit.id} was reduced by more than 35%`);
+    assert(retained <= .8 + 1e-7, `${exhibit.id} was reduced by less than 20%`);
   }
 });
 
@@ -373,18 +604,17 @@ check('dedicated Museum interpretations cover every exhibit and object', () => {
 
 check('typed exhibit origins produce explicit close and history policies', () => {
   const expected = {
-    'active-exploration': {navigation: 'back', resumeExploration: true, requestPointerLock: true, restoreDirectory: false},
-    'paused-hall': {navigation: 'back', resumeExploration: false, requestPointerLock: false, restoreDirectory: false},
-    directory: {navigation: 'back', resumeExploration: false, requestPointerLock: false, restoreDirectory: true},
-    guided: {navigation: 'back', resumeExploration: false, requestPointerLock: false, restoreDirectory: false},
-    direct: {navigation: 'replace-hall', resumeExploration: false, requestPointerLock: false, restoreDirectory: false},
+    'active-exploration': {navigation: 'back', resumeExploration: true, restoreDirectory: false},
+    'paused-hall': {navigation: 'back', resumeExploration: false, restoreDirectory: false},
+    directory: {navigation: 'back', resumeExploration: false, restoreDirectory: true},
+    guided: {navigation: 'back', resumeExploration: false, restoreDirectory: false},
+    direct: {navigation: 'replace-hall', resumeExploration: false, restoreDirectory: false},
   };
   for (const [origin, policy] of Object.entries(expected)) {
     const context = createMuseumExhibitVisitContext(layout.id, origin);
     assert.deepEqual(parseMuseumExhibitVisitContext({philosophyAtlasMuseum: context}, layout.id), context);
     assert.deepEqual(resolveMuseumExitPolicy(context, 'gesture'), policy);
     const historyPolicy = resolveMuseumExitPolicy(context, 'history');
-    assert.equal(historyPolicy.requestPointerLock, false);
     assert.equal(historyPolicy.resumeExploration, origin === 'active-exploration');
   }
   const direct = directMuseumVisitContext(layout.id);
@@ -393,6 +623,28 @@ check('typed exhibit origins produce explicit close and history policies', () =>
   assert.deepEqual(parseMuseumExhibitVisitContext(carried, layout.id), direct);
   assert.equal(parseMuseumExhibitVisitContext({philosophyAtlasMuseum: {...direct, version: 1}}, layout.id), undefined);
   assert.equal(parseMuseumExhibitVisitContext(carried, 'not-a-hall'), undefined);
+});
+
+check('focus suspension and explicit pause follow the visit-phase truth table', () => {
+  const cases = [
+    ['unentered', 'enter', 'active'],
+    ['active', 'focus-lost', 'focus-suspended'],
+    ['focus-suspended', 'focus-lost', 'focus-suspended'],
+    ['focus-suspended', 'scene-reactivate', 'active'],
+    ['active', 'explicit-pause', 'explicitly-paused'],
+    ['focus-suspended', 'explicit-pause', 'explicitly-paused'],
+    ['explicitly-paused', 'scene-reactivate', 'explicitly-paused'],
+    ['explicitly-paused', 'resume-active-origin', 'active'],
+    ['focus-suspended', 'resume-active-origin', 'active'],
+    ['active', 'scene-error', 'explicitly-paused'],
+  ];
+  for (const [phase, event, expected] of cases) {
+    assert.equal(transitionMuseumVisitPhase(phase, event), expected, `${phase} + ${event}`);
+  }
+  assert.equal(museumPhaseHasActiveIntent('unentered'), false);
+  assert.equal(museumPhaseHasActiveIntent('active'), true);
+  assert.equal(museumPhaseHasActiveIntent('focus-suspended'), true);
+  assert.equal(museumPhaseHasActiveIntent('explicitly-paused'), false);
 });
 
 check('Museum controls preserve modified browser shortcuts', () => {
