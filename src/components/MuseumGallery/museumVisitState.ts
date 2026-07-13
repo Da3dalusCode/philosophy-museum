@@ -16,6 +16,10 @@ export type MuseumExhibitVisitContext = {
 };
 
 export type MuseumExitTrigger = 'gesture' | 'history';
+export type MuseumCloseResumeStrategy =
+  | 'request-pointer-lock'
+  | 'resume-drag-look'
+  | 'remain-paused';
 export type MuseumExitPolicy = {
   navigation: 'back' | 'replace-hall';
   resumeExploration: boolean;
@@ -141,4 +145,13 @@ export const resolveMuseumExitPolicy = (
         restoreDirectory: false,
       };
   }
+};
+
+export const resolveMuseumCloseResumeStrategy = (
+  context: MuseumExhibitVisitContext,
+  trigger: MuseumExitTrigger,
+): MuseumCloseResumeStrategy => {
+  const policy = resolveMuseumExitPolicy(context, trigger);
+  if (!policy.resumeExploration) return 'remain-paused';
+  return trigger === 'gesture' ? 'request-pointer-lock' : 'resume-drag-look';
 };

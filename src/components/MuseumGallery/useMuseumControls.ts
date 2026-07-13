@@ -15,6 +15,14 @@ import {
   type MuseumInputState,
 } from './museumRuntime';
 import {normalizeMoveInput} from './museumMovement';
+import {
+  MUSEUM_POINTER_LOCK_SETTLED,
+  museumPointerLockEventFailureRequestId,
+  museumPointerLockSurvivesBlockedOverlay,
+  transitionMuseumPointerLock,
+  type MuseumPointerLockEvent,
+  type MuseumPointerLockTransition,
+} from './museumPointerLockState';
 
 const DRAG_THRESHOLD = 7;
 const JOYSTICK_RADIUS = 52;
@@ -58,7 +66,9 @@ export type MuseumControls = {
   pointerLockSupported: boolean;
   onCanvasReady: (canvas: HTMLCanvasElement) => void;
   beginExploring: () => void;
-  reactivateFromSceneGesture: () => void;
+  handleSceneGesture: () => void;
+  requestOverlayCloseResume: () => void;
+  completeOverlayCloseResume: () => void;
   resumeWithoutGesture: () => void;
   blockInput: () => void;
   pauseExploring: () => void;
@@ -100,8 +110,8 @@ export function useMuseumControls(options: UseMuseumControlsOptions): MuseumCont
   const movePointerRef = useRef<PointerSlot | null>(null);
   const lookPointerRef = useRef<PointerSlot | null>(null);
   const suppressUntilRef = useRef(0);
-  const expectedUnlockRef = useRef(false);
-  const entryPendingRef = useRef(false);
+  const nextPointerLockRequestIdRef = useRef(0);
+  const pointerLockTransitionRef = useRef<MuseumPointerLockTransition>(MUSEUM_POINTER_LOCK_SETTLED);
   activeRef.current = options.active;
   suspendedRef.current = options.suspended;
   blockedRef.current = options.blocked;
@@ -111,6 +121,12 @@ export function useMuseumControls(options: UseMuseumControlsOptions): MuseumCont
   const setMode = useCallback((next: MuseumControlMode) => {
     modeRef.current = next;
     setModeState(next);
+  }, []);
+
+  const advancePointerLock = useCallback((event: MuseumPointerLockEvent) => {
+    const next = transitionMuseumPointerLock(pointerLockTransitionRef.current, event);
+    pointerLockTransitionRef.current = next;
+    return next;
   }, []);
 
   const updateMovement = useCallback(() => {
@@ -145,115 +161,167 @@ export function useMuseumControls(options: UseMuseumControlsOptions): MuseumCont
     && !blockedRef.current
     && (modeRef.current === 'locked' || modeRef.current === 'drag-look'), []);
 
+  const rejectPointerLock = useCallback((requestId: number) => {
+    if (canvas && document.pointerLockElement === canvas) return;
+    const previous = pointerLockTransitionRef.current;
+    const next = advancePointerLock({type: 'lock-rejected', requestId});
+    if (next === previous) return;
+    if (museumPointerLockSurvivesBlockedOverlay(next) && blockedRef.current) {
+      setMode('suspended');
+      return;
+    }
+    if (activeRef.current && !blockedRef.current) setMode('drag-look');
+  }, [advancePointerLock, canvas, setMode]);
+
+  const requestPointerLock = useCallback((source: 'entry' | 'scene' | 'overlay-close') => {
+    const requestId = ++nextPointerLockRequestIdRef.current;
+    advancePointerLock({
+      type: source === 'entry'
+        ? 'begin-entry'
+        : source === 'scene'
+          ? 'begin-scene'
+          : 'begin-overlay-close',
+      requestId,
+    });
+    setMode(source === 'overlay-close' ? 'requesting-lock' : 'drag-look');
+    if (!canvas || typeof canvas.requestPointerLock !== 'function') {
+      rejectPointerLock(requestId);
+      return;
+    }
+    try {
+      const result = canvas.requestPointerLock() as unknown;
+      if (result && typeof (result as Promise<void>).catch === 'function') {
+        advancePointerLock({type: 'use-promise-failure', requestId});
+        void (result as Promise<void>).catch(() => rejectPointerLock(requestId));
+      }
+    } catch {
+      rejectPointerLock(requestId);
+    }
+  }, [advancePointerLock, canvas, rejectPointerLock, setMode]);
+
   const pauseExploring = useCallback(() => {
-    entryPendingRef.current = false;
     activeRef.current = false;
     suspendedRef.current = false;
-    expectedUnlockRef.current = Boolean(canvas && document.pointerLockElement === canvas);
+    advancePointerLock({type: canvas && document.pointerLockElement === canvas ? 'expect-release' : 'cancel'});
     clearInput();
     setMode('paused');
     if (canvas && document.pointerLockElement === canvas) document.exitPointerLock?.();
     callbacksRef.current.onPause?.();
-  }, [canvas, clearInput, setMode]);
+  }, [advancePointerLock, canvas, clearInput, setMode]);
 
   const beginExploring = useCallback(() => {
     if (blockedRef.current) return;
     activeRef.current = true;
     suspendedRef.current = false;
-    entryPendingRef.current = true;
-    expectedUnlockRef.current = false;
     clearInput();
     canvas?.focus({preventScroll: true});
-    if (!canvas || typeof canvas.requestPointerLock !== 'function') {
-      entryPendingRef.current = false;
-      setMode('drag-look');
+    requestPointerLock('entry');
+  }, [canvas, clearInput, requestPointerLock]);
+
+  const handleSceneGesture = useCallback(() => {
+    if (blockedRef.current || (canvas && document.pointerLockElement === canvas)) return;
+    if (suspendedRef.current) {
+      activeRef.current = true;
+      suspendedRef.current = false;
+      clearInput();
+      callbacksRef.current.onReactivate?.();
+      canvas?.focus({preventScroll: true});
+      requestPointerLock('scene');
       return;
     }
-    // Drag-look is immediately complete; Pointer Lock is only a progressive enhancement.
-    setMode('drag-look');
-    try {
-      const result = canvas.requestPointerLock() as unknown;
-      if (result && typeof (result as Promise<void>).catch === 'function') {
-        void (result as Promise<void>).catch(() => {
-          entryPendingRef.current = false;
-          if (activeRef.current && !blockedRef.current) setMode('drag-look');
-        });
-      }
-    } catch {
-      entryPendingRef.current = false;
-      setMode('drag-look');
-    }
-  }, [canvas, clearInput, setMode]);
+    if (!activeRef.current || modeRef.current !== 'drag-look') return;
+    clearInput();
+    canvas?.focus({preventScroll: true});
+    requestPointerLock('scene');
+  }, [canvas, clearInput, requestPointerLock]);
 
-  const reactivateFromSceneGesture = useCallback(() => {
-    if (!suspendedRef.current || blockedRef.current) return;
+  const requestOverlayCloseResume = useCallback(() => {
     activeRef.current = true;
     suspendedRef.current = false;
-    entryPendingRef.current = true;
-    expectedUnlockRef.current = false;
     clearInput();
-    callbacksRef.current.onReactivate?.();
-    canvas?.focus({preventScroll: true});
-    setMode('drag-look');
-    if (!canvas || typeof canvas.requestPointerLock !== 'function') return;
-    try {
-      const result = canvas.requestPointerLock() as unknown;
-      if (result && typeof (result as Promise<void>).catch === 'function') {
-        void (result as Promise<void>).catch(() => {
-          if (activeRef.current && modeRef.current !== 'locked') setMode('drag-look');
-        });
-      }
-    } catch {
-      setMode('drag-look');
+    requestPointerLock('overlay-close');
+  }, [clearInput, requestPointerLock]);
+
+  const completeOverlayCloseResume = useCallback(() => {
+    activeRef.current = true;
+    suspendedRef.current = false;
+    clearInput();
+    const locked = Boolean(canvas && document.pointerLockElement === canvas);
+    advancePointerLock({type: 'complete-overlay-close'});
+    if (document.hidden || !document.hasFocus()) {
+      activeRef.current = false;
+      suspendedRef.current = true;
+      advancePointerLock({type: locked ? 'expect-release' : 'cancel'});
+      setMode('suspended');
+      if (locked) document.exitPointerLock?.();
+      callbacksRef.current.onSuspend?.();
+      return;
     }
-  }, [canvas, clearInput, setMode]);
+    setMode(locked ? 'locked' : 'drag-look');
+    window.requestAnimationFrame(() => canvas?.focus({preventScroll: true}));
+  }, [advancePointerLock, canvas, clearInput, setMode]);
 
   const resumeWithoutGesture = useCallback(() => {
     activeRef.current = true;
     suspendedRef.current = false;
-    entryPendingRef.current = false;
-    expectedUnlockRef.current = false;
+    const locked = Boolean(canvas && document.pointerLockElement === canvas);
+    advancePointerLock({type: locked ? 'expect-release' : 'cancel'});
     clearInput();
+    if (document.hidden || !document.hasFocus()) {
+      activeRef.current = false;
+      suspendedRef.current = true;
+      setMode('suspended');
+      if (locked) document.exitPointerLock?.();
+      callbacksRef.current.onSuspend?.();
+      return;
+    }
+    advancePointerLock({type: 'cancel'});
     setMode('drag-look');
     window.requestAnimationFrame(() => canvas?.focus({preventScroll: true}));
-  }, [canvas, clearInput, setMode]);
+  }, [advancePointerLock, canvas, clearInput, setMode]);
 
   const blockInput = useCallback(() => {
-    entryPendingRef.current = false;
-    expectedUnlockRef.current = Boolean(canvas && document.pointerLockElement === canvas);
+    advancePointerLock({type: canvas && document.pointerLockElement === canvas ? 'expect-release' : 'cancel'});
     clearInput();
     setMode(activeRef.current || suspendedRef.current ? 'suspended' : 'paused');
     if (canvas && document.pointerLockElement === canvas) document.exitPointerLock?.();
-  }, [canvas, clearInput, setMode]);
+  }, [advancePointerLock, canvas, clearInput, setMode]);
 
   const suspendForFocusLoss = useCallback(() => {
     if (!activeRef.current || blockedRef.current) return;
     activeRef.current = false;
     suspendedRef.current = true;
-    entryPendingRef.current = false;
-    expectedUnlockRef.current = Boolean(canvas && document.pointerLockElement === canvas);
+    advancePointerLock({type: canvas && document.pointerLockElement === canvas ? 'expect-release' : 'cancel'});
     clearInput();
     setMode('suspended');
     if (canvas && document.pointerLockElement === canvas) document.exitPointerLock?.();
     callbacksRef.current.onSuspend?.();
-  }, [canvas, clearInput, setMode]);
+  }, [advancePointerLock, canvas, clearInput, setMode]);
 
   useEffect(() => {
     const onPointerLockChange = () => {
       if (canvas && document.pointerLockElement === canvas) {
-        expectedUnlockRef.current = false;
-        if ((activeRef.current || entryPendingRef.current) && !blockedRef.current) {
-          entryPendingRef.current = false;
+        const next = advancePointerLock({type: 'lock-acquired'});
+        if (museumPointerLockSurvivesBlockedOverlay(next)) {
+          setMode('requesting-lock');
+        } else if (activeRef.current && !blockedRef.current) {
           setMode('locked');
         }
         else document.exitPointerLock?.();
         return;
       }
-      if (expectedUnlockRef.current) {
-        expectedUnlockRef.current = false;
+      if (pointerLockTransitionRef.current.kind === 'expected-release') {
+        advancePointerLock({type: 'release-observed'});
+        return;
+      }
+      if (pointerLockTransitionRef.current.kind === 'overlay-close') {
+        advancePointerLock({type: 'release-observed'});
+        if (blockedRef.current) setMode('suspended');
+        else if (activeRef.current) setMode('drag-look');
         return;
       }
       if (modeRef.current !== 'locked' && modeRef.current !== 'requesting-lock') return;
+      advancePointerLock({type: 'release-observed'});
       clearInput();
       if (activeRef.current && !blockedRef.current) {
         if (document.hidden || !document.hasFocus()) suspendForFocusLoss();
@@ -262,8 +330,8 @@ export function useMuseumControls(options: UseMuseumControlsOptions): MuseumCont
       else setMode('paused');
     };
     const onPointerLockError = () => {
-      entryPendingRef.current = false;
-      if (activeRef.current && !blockedRef.current) setMode('drag-look');
+      const requestId = museumPointerLockEventFailureRequestId(pointerLockTransitionRef.current);
+      if (requestId !== undefined) rejectPointerLock(requestId);
     };
     document.addEventListener('pointerlockchange', onPointerLockChange);
     document.addEventListener('pointerlockerror', onPointerLockError);
@@ -271,16 +339,23 @@ export function useMuseumControls(options: UseMuseumControlsOptions): MuseumCont
       document.removeEventListener('pointerlockchange', onPointerLockChange);
       document.removeEventListener('pointerlockerror', onPointerLockError);
     };
-  }, [canvas, clearInput, setMode, suspendForFocusLoss]);
+  }, [advancePointerLock, canvas, clearInput, rejectPointerLock, setMode, suspendForFocusLoss]);
 
   useEffect(() => {
     if (options.blocked) {
+      if (museumPointerLockSurvivesBlockedOverlay(pointerLockTransitionRef.current)) {
+        clearInput();
+        return;
+      }
       blockInput();
       return;
     }
     if (options.suspended) {
+      const locked = Boolean(canvas && document.pointerLockElement === canvas);
+      advancePointerLock({type: locked ? 'expect-release' : 'cancel'});
       clearInput();
       if (modeRef.current !== 'suspended') setMode('suspended');
+      if (locked) document.exitPointerLock?.();
       return;
     }
     if (options.active) {
@@ -289,12 +364,11 @@ export function useMuseumControls(options: UseMuseumControlsOptions): MuseumCont
       }
       return;
     }
-    entryPendingRef.current = false;
-    expectedUnlockRef.current = Boolean(canvas && document.pointerLockElement === canvas);
+    advancePointerLock({type: canvas && document.pointerLockElement === canvas ? 'expect-release' : 'cancel'});
     clearInput();
     if (modeRef.current !== 'idle' && modeRef.current !== 'paused') setMode('idle');
     if (canvas && document.pointerLockElement === canvas) document.exitPointerLock?.();
-  }, [blockInput, canvas, clearInput, options.active, options.blocked, options.suspended, setMode]);
+  }, [advancePointerLock, blockInput, canvas, clearInput, options.active, options.blocked, options.suspended, setMode]);
 
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
@@ -423,11 +497,10 @@ export function useMuseumControls(options: UseMuseumControlsOptions): MuseumCont
   }, [canControl]);
 
   useEffect(() => () => {
-    entryPendingRef.current = false;
-    expectedUnlockRef.current = Boolean(canvas && document.pointerLockElement === canvas);
+    advancePointerLock({type: canvas && document.pointerLockElement === canvas ? 'expect-release' : 'cancel'});
     clearInput();
     if (canvas && document.pointerLockElement === canvas) document.exitPointerLock?.();
-  }, [canvas, clearInput]);
+  }, [advancePointerLock, canvas, clearInput]);
 
   const beginMove = useCallback((event: ReactPointerEvent<HTMLElement>) => {
     if (!canControl() || movePointerRef.current || lookPointerRef.current?.id === event.pointerId) return;
@@ -479,7 +552,9 @@ export function useMuseumControls(options: UseMuseumControlsOptions): MuseumCont
     pointerLockSupported: Boolean(canvas?.requestPointerLock),
     onCanvasReady: setCanvas,
     beginExploring,
-    reactivateFromSceneGesture,
+    handleSceneGesture,
+    requestOverlayCloseResume,
+    completeOverlayCloseResume,
     resumeWithoutGesture,
     blockInput,
     pauseExploring,

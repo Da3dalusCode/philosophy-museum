@@ -5,6 +5,7 @@ import type {MuseumAssetRecord} from '../../data/museum/museumAssetTypes';
 import {museumInterpretationFacts, type MuseumInterpretation} from '../../data/museum/museumInterpretations';
 import {getMuseumExhibitCatalog, type MuseumExhibitCatalog} from '../../data/museumCatalog';
 import type {MuseumRoute, RouteHref} from '../../routing/routes';
+import type {MuseumExitTrigger} from './museumVisitState';
 
 const focusableSelector = 'a[href],button:not([disabled]),summary,input:not([disabled]),select:not([disabled]),textarea:not([disabled]),[tabindex]:not([tabindex="-1"])';
 
@@ -71,7 +72,7 @@ export function MuseumInterpretationPanel({
   exhibitIndex: number;
   exhibitCount: number;
   continueLabel: string;
-  onClose: () => void;
+  onClose: (trigger: MuseumExitTrigger) => void;
   onArticleIntent: () => void;
   onGuidedPrevious: () => void;
   onGuidedNext: () => void;
@@ -104,7 +105,7 @@ export function MuseumInterpretationPanel({
     if (event.key === 'Escape') {
       event.preventDefault();
       event.stopPropagation();
-      onClose();
+      onClose('history');
       return;
     }
     if (event.key !== 'Tab' || !panelRef.current) return;
@@ -129,7 +130,7 @@ export function MuseumInterpretationPanel({
   };
 
   return <div className="museum-interpretation-layer" role="presentation" onMouseDown={(event) => {
-    if (event.target === event.currentTarget) onClose();
+    if (event.target === event.currentTarget) onClose('gesture');
   }}>
     <article
       ref={panelRef}
@@ -144,7 +145,7 @@ export function MuseumInterpretationPanel({
     >
       <header className="museum-panel-header">
         <div><p className="museum-panel-kicker">{content.entityType} · {content.dateLabel}</p><h2 id={titleId} tabIndex={-1}>{content.name}</h2></div>
-        <button className="museum-icon-button" type="button" onClick={onClose} aria-label={`Close ${content.name} exhibit`}><X/></button>
+        <button className="museum-icon-button" type="button" onClick={() => onClose('gesture')} aria-label={`Close ${content.name} exhibit`}><X/></button>
       </header>
 
       <div className="museum-panel-scroll">
@@ -203,7 +204,7 @@ export function MuseumInterpretationPanel({
         </div>}
         <div>
           <a className="btn btn-primary" href={href(content.articleRoute)} onClick={onArticleIntent}>{exhibit.entityKind === 'philosopher' ? 'Full philosopher profile' : 'Open Branch Explorer'}</a>
-          <button className="btn" type="button" onClick={onClose}>{continueLabel}</button>
+          <button className="btn" type="button" onClick={() => onClose('gesture')}>{continueLabel}</button>
         </div>
       </footer>
     </article>

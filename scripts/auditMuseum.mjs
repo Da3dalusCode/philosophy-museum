@@ -19,6 +19,7 @@ const result = await build({
       export * from '/src/data/museum/museumAssets.ts';
       export * from '/src/data/museum/museumInterpretations.ts';
       export * from '/src/components/MuseumGallery/museumMovement.ts';
+      export * from '/src/components/MuseumGallery/museumPointerLockState.ts';
       export * from '/src/components/MuseumGallery/museumRuntime.ts';
       export * from '/src/components/MuseumGallery/museumSession.ts';
       export * from '/src/components/MuseumGallery/museumVisitState.ts';
@@ -62,6 +63,11 @@ const {
   museumHistoryStateWithVisitContext,
   parseMuseumExhibitVisitContext,
   resolveMuseumExitPolicy,
+  resolveMuseumCloseResumeStrategy,
+  MUSEUM_POINTER_LOCK_SETTLED,
+  museumPointerLockEventFailureRequestId,
+  museumPointerLockSurvivesBlockedOverlay,
+  transitionMuseumPointerLock,
   museumPhaseHasActiveIntent,
   positionInsideSpatialUnion,
   transitionMuseumVisitPhase,
@@ -616,6 +622,14 @@ check('typed exhibit origins produce explicit close and history policies', () =>
     assert.deepEqual(resolveMuseumExitPolicy(context, 'gesture'), policy);
     const historyPolicy = resolveMuseumExitPolicy(context, 'history');
     assert.equal(historyPolicy.resumeExploration, origin === 'active-exploration');
+    assert.equal(
+      resolveMuseumCloseResumeStrategy(context, 'gesture'),
+      origin === 'active-exploration' ? 'request-pointer-lock' : 'remain-paused',
+    );
+    assert.equal(
+      resolveMuseumCloseResumeStrategy(context, 'history'),
+      origin === 'active-exploration' ? 'resume-drag-look' : 'remain-paused',
+    );
   }
   const direct = directMuseumVisitContext(layout.id);
   const carried = museumHistoryStateWithVisitContext({unrelated: 7}, direct);
@@ -623,6 +637,50 @@ check('typed exhibit origins produce explicit close and history policies', () =>
   assert.deepEqual(parseMuseumExhibitVisitContext(carried, layout.id), direct);
   assert.equal(parseMuseumExhibitVisitContext({philosophyAtlasMuseum: {...direct, version: 1}}, layout.id), undefined);
   assert.equal(parseMuseumExhibitVisitContext(carried, 'not-a-hall'), undefined);
+});
+
+check('Pointer Lock transitions preserve only an active overlay-close request through teardown', () => {
+  let transition = MUSEUM_POINTER_LOCK_SETTLED;
+  transition = transitionMuseumPointerLock(transition, {type: 'begin-overlay-close', requestId: 1});
+  assert.deepEqual(transition, {kind: 'overlay-close', outcome: 'pending', requestId: 1, failureChannel: 'event'});
+  assert.equal(museumPointerLockSurvivesBlockedOverlay(transition), true);
+
+  transition = transitionMuseumPointerLock(transition, {type: 'lock-acquired'});
+  assert.deepEqual(transition, {kind: 'overlay-close', outcome: 'acquired', requestId: 1, failureChannel: 'event'});
+  assert.equal(museumPointerLockSurvivesBlockedOverlay(transition), true);
+  assert.deepEqual(
+    transitionMuseumPointerLock(transition, {type: 'lock-rejected', requestId: 1}),
+    transition,
+    'a late failure cannot downgrade an acquired overlay lock',
+  );
+  transition = transitionMuseumPointerLock(transition, {type: 'complete-overlay-close'});
+  assert.deepEqual(transition, {kind: 'settled'});
+
+  transition = transitionMuseumPointerLock(MUSEUM_POINTER_LOCK_SETTLED, {type: 'begin-overlay-close', requestId: 2});
+  transition = transitionMuseumPointerLock(transition, {type: 'lock-rejected', requestId: 2});
+  assert.deepEqual(transition, {kind: 'overlay-close', outcome: 'rejected', requestId: 2, failureChannel: 'event'});
+  assert.equal(museumPointerLockSurvivesBlockedOverlay(transition), true);
+  assert.deepEqual(
+    transitionMuseumPointerLock(transition, {type: 'complete-overlay-close'}),
+    {kind: 'settled'},
+  );
+
+  const sceneRequest = transitionMuseumPointerLock(MUSEUM_POINTER_LOCK_SETTLED, {type: 'begin-scene', requestId: 3});
+  assert.deepEqual(sceneRequest, {kind: 'requesting', source: 'scene', requestId: 3, failureChannel: 'event'});
+  assert.equal(museumPointerLockSurvivesBlockedOverlay(sceneRequest), false);
+  assert.equal(museumPointerLockEventFailureRequestId(sceneRequest), 3);
+  const promiseRequest = transitionMuseumPointerLock(sceneRequest, {type: 'use-promise-failure', requestId: 3});
+  assert.equal(museumPointerLockEventFailureRequestId(promiseRequest), undefined);
+  assert.deepEqual(
+    transitionMuseumPointerLock(promiseRequest, {type: 'lock-rejected', requestId: 2}),
+    promiseRequest,
+    'a stale rejection must not settle the current request',
+  );
+  assert.deepEqual(transitionMuseumPointerLock(promiseRequest, {type: 'lock-rejected', requestId: 3}), {kind: 'settled'});
+
+  const expectedRelease = transitionMuseumPointerLock(MUSEUM_POINTER_LOCK_SETTLED, {type: 'expect-release'});
+  assert.deepEqual(expectedRelease, {kind: 'expected-release'});
+  assert.deepEqual(transitionMuseumPointerLock(expectedRelease, {type: 'release-observed'}), {kind: 'settled'});
 });
 
 check('focus suspension and explicit pause follow the visit-phase truth table', () => {

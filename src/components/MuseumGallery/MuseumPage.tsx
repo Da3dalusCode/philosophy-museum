@@ -45,10 +45,12 @@ import {
   museumHistoryStateWithVisitContext,
   museumPhaseHasActiveIntent,
   parseMuseumExhibitVisitContext,
+  resolveMuseumCloseResumeStrategy,
   resolveMuseumExitPolicy,
   transitionMuseumVisitPhase,
   type MuseumExhibitOrigin,
   type MuseumExhibitVisitContext,
+  type MuseumExitTrigger,
   type MuseumVisitPhase,
 } from './museumVisitState';
 import './museum.css';
@@ -307,7 +309,10 @@ export function MuseumPage({route, href, push, replace}: {
   const nearbyRef = useRef<MuseumExhibitId | undefined>(undefined);
   const lastAnnouncedNearbyRef = useRef<MuseumExhibitId | undefined>(undefined);
   const lastExhibitContextRef = useRef<MuseumExhibitVisitContext | undefined>(visitContext);
-  const pendingCloseContextRef = useRef<MuseumExhibitVisitContext | undefined>(undefined);
+  const pendingCloseRef = useRef<{
+    context: MuseumExhibitVisitContext;
+    trigger: MuseumExitTrigger;
+  } | undefined>(undefined);
   const previousRouteExhibitRef = useRef(route.exhibitId);
   const previousHallIdRef = useRef(route.hallId);
   if (visitContext) lastExhibitContextRef.current = visitContext;
@@ -395,11 +400,15 @@ export function MuseumPage({route, href, push, replace}: {
     setVisitPhase((phase) => transitionMuseumVisitPhase(phase, 'enter'));
     controls.beginExploring();
   };
-  const closeExhibit = () => {
+  const closeExhibit = (trigger: MuseumExitTrigger) => {
     const context = visitContext ?? directMuseumVisitContext(route.hallId);
-    const policy = resolveMuseumExitPolicy(context, 'gesture');
-    pendingCloseContextRef.current = context;
+    const policy = resolveMuseumExitPolicy(context, trigger);
+    const resumeStrategy = resolveMuseumCloseResumeStrategy(context, trigger);
+    pendingCloseRef.current = {context, trigger};
     lastExhibitContextRef.current = context;
+    if (resumeStrategy === 'request-pointer-lock') {
+      controls.requestOverlayCloseResume();
+    }
     if (policy.navigation === 'back') window.history.back();
     else replace(
       {kind: 'museum', hallId: route.hallId},
@@ -493,16 +502,19 @@ export function MuseumPage({route, href, push, replace}: {
     }
     if (!previous) return;
 
-    const pending = pendingCloseContextRef.current;
-    const context = pending
+    const pending = pendingCloseRef.current;
+    const context = pending?.context
       ?? lastExhibitContextRef.current
       ?? directMuseumVisitContext(route.hallId);
-    pendingCloseContextRef.current = undefined;
-    const policy = resolveMuseumExitPolicy(context, pending ? 'gesture' : 'history');
+    pendingCloseRef.current = undefined;
+    const trigger = pending?.trigger ?? 'history';
+    const policy = resolveMuseumExitPolicy(context, trigger);
+    const resumeStrategy = resolveMuseumCloseResumeStrategy(context, trigger);
     if (policy.resumeExploration) {
       setVisitPhase((phase) => transitionMuseumVisitPhase(phase, 'resume-active-origin'));
       setOverlay(null);
-      controlsRef.current?.resumeWithoutGesture();
+      if (resumeStrategy === 'request-pointer-lock') controlsRef.current?.completeOverlayCloseResume();
+      else controlsRef.current?.resumeWithoutGesture();
     } else {
       controlsRef.current?.pauseExploring();
       setVisitPhase('explicitly-paused');
@@ -612,7 +624,7 @@ export function MuseumPage({route, href, push, replace}: {
               onSelectExhibit={(reference) => {
                 if (reference.hallId === route.hallId && !controls.shouldSuppressActivation()) openExhibit(reference.exhibitId);
               }}
-              onSceneGesture={controls.reactivateFromSceneGesture}
+              onSceneGesture={controls.handleSceneGesture}
               onSceneError={handleSceneError}
             />
           </Suspense>
