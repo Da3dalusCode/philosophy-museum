@@ -30,23 +30,21 @@ function ExhibitSpotlight({definition}: {definition: MuseumExhibitLightDefinitio
 }
 
 /** Hall-specific atmosphere and geometry; the persistent Canvas and player live in MuseumWorldScene. */
-export function AncientGreekHallContent({definition, nearby, onSelectExhibit, onSceneGesture}: MuseumHallContentProps) {
+export function AncientGreekHallContent({definition, active, nearby, onSelectExhibit, onSceneGesture}: MuseumHallContentProps) {
   const {lighting} = definition.layout;
   return <>
-    <color attach="background" args={['#d8d3ca']}/>
-    <hemisphereLight args={['#fff8e8', '#48433d', lighting.hemisphereIntensity]}/>
-    <ambientLight color="#fff5e5" intensity={lighting.ambientIntensity}/>
     <MuseumHallSpatialRoot definition={definition}>
-      <directionalLight
+      {active && <directionalLight
         position={[14, 18, 28]}
         intensity={lighting.directionalIntensity}
         color="#fff0dc"
         castShadow={false}
-      />
-      {lighting.exhibitLights.map((light) => <ExhibitSpotlight key={light.id} definition={light}/>)}
+      />}
+      {active && lighting.exhibitLights.map((light) => <ExhibitSpotlight key={light.id} definition={light}/>)}
       <HallArchitecture definition={definition} onSceneGesture={onSceneGesture}/>
       <MuseumExhibits
         definition={definition}
+        visibleExhibitIds={active ? undefined : ['neoplatonism']}
         nearbyId={nearby?.hallId === definition.id ? nearby.exhibitId : undefined}
         onSelectExhibit={(exhibitId) => onSelectExhibit({hallId: definition.id, exhibitId})}
       />

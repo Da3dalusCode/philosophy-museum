@@ -20,9 +20,11 @@ const BLACK_METAL = '#151617';
 const LUMINOUS = '#fff3dc';
 
 function CellShell({cell}: {cell: MuseumSpatialCell}) {
-  const width = cell.bounds.maxX - cell.bounds.minX;
+  const renderMaxX = cell.id === 'medieval-transition-passage' ? 18 : cell.bounds.maxX;
+  const renderCell = renderMaxX === cell.bounds.maxX ? cell : {...cell, bounds: {...cell.bounds, maxX: renderMaxX}};
+  const width = renderMaxX - cell.bounds.minX;
   const depth = cell.bounds.maxZ - cell.bounds.minZ;
-  const x = (cell.bounds.minX + cell.bounds.maxX) / 2;
+  const x = (cell.bounds.minX + renderMaxX) / 2;
   const z = (cell.bounds.minZ + cell.bounds.maxZ) / 2;
   const floorColor = cell.kind === 'passage' ? FLOOR_PASSAGE : FLOOR;
   return <group userData={{spatialCellId: cell.id}}>
@@ -34,7 +36,7 @@ function CellShell({cell}: {cell: MuseumSpatialCell}) {
       <boxGeometry args={[width, .18, depth]}/>
       <meshStandardMaterial color={CEILING} roughness={.88}/>
     </mesh>
-    <CeilingLightStrips cell={cell}/>
+    <CeilingLightStrips cell={renderCell}/>
   </group>;
 }
 
@@ -68,17 +70,20 @@ function CeilingLightStrips({cell}: {cell: MuseumSpatialCell}) {
 }
 
 function GalleryWall({wall}: {wall: MuseumWallDefinition}) {
+  const renderWall = wall.id === 'medieval-passage-north' || wall.id === 'medieval-passage-south'
+    ? {...wall, center: {...wall.center, x: 14}, size: {...wall.size, width: 8}}
+    : wall;
   return <group
-    position={[wall.center.x, wall.height / 2, wall.center.z]}
-    rotation={[0, wall.rotation, 0]}
+    position={[renderWall.center.x, renderWall.height / 2, renderWall.center.z]}
+    rotation={[0, renderWall.rotation, 0]}
     userData={{wallColliderId: wall.id}}
   >
     <mesh receiveShadow>
-      <boxGeometry args={[wall.size.width, wall.height, wall.size.depth]}/>
+      <boxGeometry args={[renderWall.size.width, renderWall.height, renderWall.size.depth]}/>
       <meshStandardMaterial color={WALL} roughness={.94}/>
     </mesh>
-    <mesh position={[0, -wall.height / 2 + .075, 0]}>
-      <boxGeometry args={[wall.size.width + .015, .15, wall.size.depth + .025]}/>
+    <mesh position={[0, -renderWall.height / 2 + .075, 0]}>
+      <boxGeometry args={[renderWall.size.width + .015, .15, renderWall.size.depth + .025]}/>
       <meshStandardMaterial color={WALL_EDGE} roughness={.84}/>
     </mesh>
   </group>;
@@ -174,7 +179,7 @@ function GalleryBench({definition}: {definition: MuseumFurnishingDefinition}) {
 function OrientationPlinth({definition}: {definition: MuseumFurnishingDefinition}) {
   const texture = usePlaqueTexture({
     title: 'Philosophy Atlas',
-    kicker: 'Museum · Gallery 01',
+    kicker: 'Museum · Ancient wing',
     subtitle: 'Ancient thought: inquiry, practice, inheritance',
     accent: '#7b5d3d',
     width: 1024,
@@ -230,24 +235,32 @@ export function HallArchitecture({definition, onSceneGesture}: {
 
     <GallerySign
       title="Classical Foundations"
-      kicker="Gallery 01"
+      kicker="Ancient wing · Room I"
       subtitle="Socrates · Plato · Aristotle"
       position={[7.6, 3.95, 26.2]}
       width={3.4}
     />
     <GallerySign
       title="Hellenistic Ways of Life"
-      kicker="Gallery 02"
+      kicker="Ancient wing · Room II"
       subtitle="Practice · freedom · judgment · flourishing"
       position={[7.6, 3.95, 5.2]}
       width={3.6}
     />
     <GallerySign
       title="Late Antiquity"
-      kicker="Gallery 03"
+      kicker="Ancient wing · Room III"
       subtitle="Unity · intellect · soul · return"
       position={[-7, 4.05, -19.8]}
       width={3.2}
+    />
+    <GallerySign
+      title="Medieval Worlds"
+      kicker="Continue east · Next wing"
+      subtitle="Inheritance · translation · scholastic conversations"
+      position={[17.82, 3.55, -28.5]}
+      rotationY={-Math.PI / 2}
+      width={3.5}
     />
   </group>;
 }

@@ -1,21 +1,28 @@
 import type {MutableRefObject} from 'react';
 import type {
   MuseumExhibitRef,
+  MuseumHallConnection,
   MuseumHallDefinition,
   MuseumPose,
 } from '../../data/museum/museumWorldTypes';
+import type {MuseumHallId} from '../../data/museumCatalog';
+import type {MuseumHallRegistration} from './museumWorldRegistry';
 
 export type MuseumInputState = {
   forward: number;
   strafe: number;
   lookX: number;
   lookY: number;
+  requestFrame?: () => void;
 };
 
 export type MuseumControlMode = 'idle' | 'requesting-lock' | 'locked' | 'drag-look' | 'suspended' | 'paused';
 
 export type MuseumSceneRuntimeProps = {
   definition: MuseumHallDefinition;
+  registrations: readonly MuseumHallRegistration[];
+  readyHallIds: readonly MuseumHallId[];
+  hallContentEpochs: Partial<Record<MuseumHallId, number>>;
   active: boolean;
   blocked: boolean;
   poseRevision: number;
@@ -25,6 +32,9 @@ export type MuseumSceneRuntimeProps = {
   onCanvasReady: (canvas: HTMLCanvasElement) => void;
   onNearbyChange: (exhibit: MuseumExhibitRef | undefined) => void;
   onSelectExhibit: (exhibit: MuseumExhibitRef) => void;
+  onHallTransition: (connection: MuseumHallConnection) => void;
+  onHallTransitionBlocked: (connection: MuseumHallConnection) => void;
+  onHallContentError: (hallId: MuseumHallId, error: unknown) => void;
   onSceneGesture: () => void;
   onSceneError: (error: unknown) => void;
 };

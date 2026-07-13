@@ -139,6 +139,7 @@ export function useMuseumControls(options: UseMuseumControlsOptions): MuseumCont
     );
     inputRef.current.strafe = normalized.x;
     inputRef.current.forward = normalized.z;
+    inputRef.current.requestFrame?.();
   }, []);
 
   const clearInput = useCallback(() => {
@@ -148,6 +149,7 @@ export function useMuseumControls(options: UseMuseumControlsOptions): MuseumCont
     inputRef.current.strafe = 0;
     inputRef.current.lookX = 0;
     inputRef.current.lookY = 0;
+    inputRef.current.requestFrame?.();
     const movement = movePointerRef.current;
     const look = lookPointerRef.current;
     if (movement) release(movement.target, movement.id);
@@ -443,6 +445,7 @@ export function useMuseumControls(options: UseMuseumControlsOptions): MuseumCont
     if (!pointer.dragged) return;
     inputRef.current.lookX += deltaX;
     inputRef.current.lookY += deltaY;
+    inputRef.current.requestFrame?.();
   }, [canControl]);
 
   const endLook = useCallback((pointerId: number, releaseCapture: boolean) => {
@@ -491,6 +494,7 @@ export function useMuseumControls(options: UseMuseumControlsOptions): MuseumCont
       if (modeRef.current !== 'locked' || !canControl()) return;
       inputRef.current.lookX += event.movementX;
       inputRef.current.lookY += event.movementY;
+      inputRef.current.requestFrame?.();
     };
     document.addEventListener('mousemove', onMouseMove);
     return () => document.removeEventListener('mousemove', onMouseMove);

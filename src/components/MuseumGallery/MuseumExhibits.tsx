@@ -6,7 +6,7 @@ import type {
   MuseumInstallationSceneDefinition,
   MuseumSceneVolume,
 } from '../../data/museum/museumWorldTypes';
-import {getMuseumHallCatalog, type MuseumExhibitId, type MuseumZoneId} from '../../data/museumCatalog';
+import {getMuseumHallCatalog, type MuseumExhibitId} from '../../data/museumCatalog';
 import {MuseumSceneMedia} from './MuseumSceneMedia';
 import {usePlaqueTexture} from './plaqueTextures';
 
@@ -16,11 +16,11 @@ const BRONZE = '#86623d';
 const DARK_BRONZE = '#302820';
 const TERRACOTTA = '#81513d';
 
-const zoneAccents: Record<MuseumZoneId, string> = {
+const zoneAccents = {
   'classical-foundations': '#567895',
   'hellenistic-ways': '#a66449',
   'late-antiquity': '#766291',
-};
+} as const;
 
 const bound = (scene: MuseumInstallationSceneDefinition, id: string): MuseumSceneVolume => {
   const result = scene.objectBounds.find((item) => item.id === id);
@@ -251,16 +251,17 @@ function ExhibitInstallation({layout, accent, nearby}: {layout: MuseumExhibitLay
   }
 }
 
-export function MuseumExhibits({definition, nearbyId, onSelectExhibit}: {
+export function MuseumExhibits({definition, nearbyId, visibleExhibitIds, onSelectExhibit}: {
   definition: MuseumHallDefinition;
   nearbyId?: MuseumExhibitId;
+  visibleExhibitIds?: readonly MuseumExhibitId[];
   onSelectExhibit: (exhibitId: MuseumExhibitId) => void;
 }) {
   const hall = getMuseumHallCatalog(definition.id)!;
   return <group>
-    {definition.layout.exhibits.map((layout) => {
+    {definition.layout.exhibits.filter((layout) => !visibleExhibitIds || visibleExhibitIds.includes(layout.id)).map((layout) => {
       const catalog = hall.exhibits.find(({id}) => id === layout.id)!;
-      const accent = zoneAccents[layout.zoneId];
+      const accent = zoneAccents[layout.zoneId as keyof typeof zoneAccents] ?? '#7b5d3d';
       const nearby = nearbyId === layout.id;
       const philosopher = catalog.entityKind === 'philosopher';
       const activate = (event: ThreeEvent<MouseEvent>) => {

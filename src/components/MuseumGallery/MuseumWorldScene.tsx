@@ -13,6 +13,7 @@ import {
 } from 'react';
 import type {WebGLRenderer} from 'three';
 import type {MuseumExhibitRef} from '../../data/museum/museumWorldTypes';
+import type {MuseumHallId} from '../../data/museumCatalog';
 import {
   clampFrameDelta,
   clampPitch,
@@ -23,8 +24,9 @@ import {
   setMuseumMovementDisplacement,
 } from './museumMovement';
 import type {MuseumSceneRuntimeProps} from './museumRuntime';
-import type {MuseumHallRegistration} from './museumWorldRegistry';
+import {loadMuseumHallContent, type MuseumHallRegistration} from './museumWorldRegistry';
 import {museumPoseToWorld} from './museumWorldTransform';
+import {museumConnectionAtPose, museumConnectionCrossed} from './museumHallTransitions';
 
 class WorldSceneErrorBoundary extends Component<{
   children: ReactNode;
@@ -33,6 +35,17 @@ class WorldSceneErrorBoundary extends Component<{
   state = {failed: false};
   static getDerivedStateFromError(): {failed: boolean} { return {failed: true}; }
   componentDidCatch(error: unknown, _info: ErrorInfo): void { this.props.onError(error); }
+  render() { return this.state.failed ? null : this.props.children; }
+}
+
+class HallContentErrorBoundary extends Component<{
+  children: ReactNode;
+  hallId: MuseumHallId;
+  onError: MuseumSceneRuntimeProps['onHallContentError'];
+}, {failed: boolean}> {
+  state = {failed: false};
+  static getDerivedStateFromError(): {failed: boolean} { return {failed: true}; }
+  componentDidCatch(error: unknown): void { this.props.onError(this.props.hallId, error); }
   render() { return this.state.failed ? null : this.props.children; }
 }
 
@@ -45,18 +58,33 @@ function MuseumPlayerRig({
   poseRef,
   onNearbyChange,
   onNearbyVisualChange,
+  readyHallIds,
+  onHallTransition,
+  onHallTransitionBlocked,
 }: Pick<
   MuseumSceneRuntimeProps,
   'definition' | 'active' | 'blocked' | 'poseRevision' | 'inputRef' | 'poseRef' | 'onNearbyChange'
+  | 'readyHallIds' | 'onHallTransition' | 'onHallTransitionBlocked'
 > & {onNearbyVisualChange: (exhibit: MuseumExhibitRef | undefined) => void}) {
   const {camera, invalidate} = useThree();
   const lastNearbyRef = useRef<MuseumExhibitRef | undefined>(undefined);
   const displacementRef = useRef({x: 0, z: 0});
+  const transitionLatchRef = useRef<string | undefined>(undefined);
+  const blockedTransitionLatchRef = useRef<string | undefined>(undefined);
   const layout = definition.layout;
+  const readyHallSet = useMemo(() => new Set<MuseumHallId>(readyHallIds), [readyHallIds]);
   const colliders = useMemo(
     () => [...layout.wallColliders, ...layout.obstacleColliders],
     [layout],
   );
+
+  useEffect(() => {
+    const requestFrame = () => invalidate();
+    inputRef.current.requestFrame = requestFrame;
+    return () => {
+      if (inputRef.current.requestFrame === requestFrame) delete inputRef.current.requestFrame;
+    };
+  }, [inputRef, invalidate]);
 
   const applyPose = useCallback(() => {
     const pose = poseRef.current;
@@ -81,6 +109,8 @@ function MuseumPlayerRig({
 
   useEffect(() => {
     void poseRevision;
+    transitionLatchRef.current = undefined;
+    blockedTransitionLatchRef.current = undefined;
     applyPose();
     publishNearby();
     invalidate();
@@ -102,7 +132,9 @@ function MuseumPlayerRig({
     if (!active || blocked) return;
     const input = inputRef.current;
     const pose = poseRef.current;
+    const previousPosition = {x: pose.x, z: pose.z};
     let changed = false;
+    let moved = false;
 
     if (input.lookX || input.lookY) {
       pose.yaw = normalizeYaw(pose.yaw - input.lookX * .00235);
@@ -127,30 +159,89 @@ function MuseumPlayerRig({
       pose.x = next.x;
       pose.z = next.z;
       changed = true;
+      moved = true;
     }
 
     if (!changed) return;
+    const connection = moved
+      ? museumConnectionCrossed(definition, previousPosition, pose)
+      : undefined;
+    if (connection) {
+      if (readyHallSet.has(connection.targetHallId)) {
+        if (transitionLatchRef.current !== connection.id) {
+          transitionLatchRef.current = connection.id;
+          onHallTransition(connection);
+        }
+        return;
+      }
+      // Keep the visitor on the inward side of an unready threshold. Holding
+      // movement can then produce a fresh signed-plane crossing as soon as the
+      // adjacent hall becomes ready, without asking the visitor to backtrack.
+      pose.x = previousPosition.x;
+      pose.z = previousPosition.z;
+      if (blockedTransitionLatchRef.current !== connection.id) {
+        blockedTransitionLatchRef.current = connection.id;
+        onHallTransitionBlocked(connection);
+      }
+    } else if (!museumConnectionAtPose(definition, pose)) {
+      transitionLatchRef.current = undefined;
+      blockedTransitionLatchRef.current = undefined;
+    }
     applyPose();
     publishNearby();
+    if (input.forward || input.strafe || input.lookX || input.lookY) invalidate();
   });
   return null;
 }
 
-function MuseumWorldContents({
+function LoadedHall({
   registration,
-  ...props
-}: MuseumSceneRuntimeProps & {registration: MuseumHallRegistration}) {
-  const [nearby, setNearby] = useState<MuseumExhibitRef | undefined>();
-  const HallContent = useMemo(() => lazy(registration.loadContent), [registration]);
-  return <>
+  active,
+  nearby,
+  onSelectExhibit,
+  onSceneGesture,
+  onHallContentError,
+}: {
+  registration: MuseumHallRegistration;
+  active: boolean;
+  nearby?: MuseumExhibitRef;
+  onSelectExhibit: MuseumSceneRuntimeProps['onSelectExhibit'];
+  onSceneGesture: MuseumSceneRuntimeProps['onSceneGesture'];
+  onHallContentError: MuseumSceneRuntimeProps['onHallContentError'];
+}) {
+  const HallContent = useMemo(
+    () => lazy(() => loadMuseumHallContent(registration.definition.id)!),
+    [registration],
+  );
+  return <HallContentErrorBoundary hallId={registration.definition.id} onError={onHallContentError}>
     <Suspense fallback={null}>
       <HallContent
-        definition={props.definition}
+        definition={registration.definition}
+        active={active}
         nearby={nearby}
-        onSelectExhibit={props.onSelectExhibit}
-        onSceneGesture={props.onSceneGesture}
+        onSelectExhibit={onSelectExhibit}
+        onSceneGesture={onSceneGesture}
       />
     </Suspense>
+  </HallContentErrorBoundary>;
+}
+
+function MuseumWorldContents(props: MuseumSceneRuntimeProps) {
+  const [nearby, setNearby] = useState<MuseumExhibitRef | undefined>();
+  const lighting = props.definition.layout.lighting;
+  return <>
+    <color attach="background" args={['#d8d3ca']}/>
+    <hemisphereLight args={['#fff8e8', '#48433d', lighting.hemisphereIntensity]}/>
+    <ambientLight color="#fff5e5" intensity={lighting.ambientIntensity}/>
+    {props.registrations.map((registration) => <LoadedHall
+      key={`${registration.definition.id}-${props.hallContentEpochs[registration.definition.id] ?? 0}`}
+      registration={registration}
+      active={registration.definition.id === props.definition.id}
+      nearby={nearby}
+      onSelectExhibit={props.onSelectExhibit}
+      onSceneGesture={props.onSceneGesture}
+      onHallContentError={props.onHallContentError}
+    />)}
     <MuseumPlayerRig
       definition={props.definition}
       active={props.active}
@@ -160,12 +251,15 @@ function MuseumWorldContents({
       poseRef={props.poseRef}
       onNearbyChange={props.onNearbyChange}
       onNearbyVisualChange={setNearby}
+      readyHallIds={props.readyHallIds}
+      onHallTransition={props.onHallTransition}
+      onHallTransitionBlocked={props.onHallTransitionBlocked}
     />
   </>;
 }
 
 /** Owns the one Museum Canvas. Exhibit and future hall route changes must not key this component. */
-export function MuseumWorldScene(props: MuseumSceneRuntimeProps & {registration: MuseumHallRegistration}) {
+export function MuseumWorldScene(props: MuseumSceneRuntimeProps) {
   const hostRef = useRef<HTMLDivElement>(null);
   const contextCleanupRef = useRef<(() => void) | undefined>(undefined);
   const [documentVisible, setDocumentVisible] = useState(() => !document.hidden);
@@ -207,7 +301,7 @@ export function MuseumWorldScene(props: MuseumSceneRuntimeProps & {registration:
     catch (error) { props.onSceneError(error); }
   }, [props.onCanvasReady, props.onSceneError]);
 
-  const running = props.active && !props.blocked && documentVisible && inViewport;
+  const renderable = documentVisible && inViewport;
   const layout = props.definition.layout;
   const initialCameraPose = museumPoseToWorld(props.definition, props.poseRef.current);
   return <div ref={hostRef} className="museum-scene-host" style={{position: 'absolute', inset: 0, overflow: 'hidden'}}>
@@ -216,7 +310,7 @@ export function MuseumWorldScene(props: MuseumSceneRuntimeProps & {registration:
         className="museum-scene-canvas"
         camera={{position: [initialCameraPose.x, layout.eyeHeight, initialCameraPose.z], fov: layout.cameraFov, near: .08, far: layout.cameraFar}}
         dpr={lowPower ? [1, 1.25] : [1, 1.5]}
-        frameloop={running ? 'always' : 'demand'}
+        frameloop={renderable ? 'demand' : 'never'}
         gl={{antialias: !lowPower, alpha: false, powerPreference: lowPower ? 'low-power' : 'high-performance'}}
         shadows={false}
         onCreated={onCreated}

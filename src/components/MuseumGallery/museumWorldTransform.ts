@@ -25,3 +25,27 @@ export const museumPoseToWorld = (
   yaw: pose.yaw + definition.worldTransform.yaw,
   pitch: pose.pitch,
 });
+
+export const museumPointFromWorld = (
+  definition: MuseumHallDefinition,
+  point: MuseumPoint,
+): MuseumPoint => {
+  const {x, z, yaw} = definition.worldTransform;
+  const cos = Math.cos(yaw);
+  const sin = Math.sin(yaw);
+  const offsetX = point.x - x;
+  const offsetZ = point.z - z;
+  return {
+    x: offsetX * cos - offsetZ * sin,
+    z: offsetX * sin + offsetZ * cos,
+  };
+};
+
+export const museumPoseFromWorld = (
+  definition: MuseumHallDefinition,
+  pose: MuseumPose,
+): MuseumPose => ({
+  ...museumPointFromWorld(definition, pose),
+  yaw: pose.yaw - definition.worldTransform.yaw,
+  pitch: pose.pitch,
+});
