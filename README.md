@@ -17,11 +17,11 @@ No account, subscription, download, or special software is required. Everything 
 - **Philosophy Map**, showing selected relationships between traditions and thinkers
 - **Compare**, for side-by-side branch and philosopher comparisons
 - **Learning Paths**, with guided routes through major themes and periods
-- **A three-gallery 3D museum** with 24 interpreted exhibits and seamless walking between halls
+- **A six-gallery 3D museum** with 48 interpreted exhibits and seamless walking between halls
 
 ## The walkable museum
 
-The Museum presents philosophy as a physical journey through three connected galleries:
+The Museum presents philosophy as a physical journey through six connected galleries:
 
 1. **Ancient Greek & Hellenistic Gallery**  
    Socrates, Plato, Aristotle, Cynicism, Epicureanism, Stoicism, Skepticism, and Neoplatonism
@@ -31,6 +31,15 @@ The Museum presents philosophy as a physical journey through three connected gal
 
 3. **Modernity, Freedom, and Critique**  
    Kierkegaard, Marx, Nietzsche, Heidegger, Sartre, Beauvoir, Camus, and Foucault
+
+4. **Logic, Language, and Science**
+   Peirce, Frege, Russell, Dewey, Carnap, Popper, Quine, and Kuhn
+
+5. **Ethics, Justice, and Political Life**
+   Bentham, Wollstonecraft, Mill, Arendt, Fanon, Rawls, Nozick, and Habermas
+
+6. **Mind, Consciousness, and the Self**
+   Patañjali, Vasubandhu, William James, Husserl, Merleau-Ponty, Anscombe, Nagel, and Parfit
 
 Each exhibit combines a walkable installation, historical images or documents, a focused interpretation, structured facts, and a link to the full philosopher or branch article.
 
@@ -51,7 +60,7 @@ Philosophy Atlas is intended for curious readers, students, teachers, and anyone
 
 The project is actively being developed.
 
-Current written coverage includes all **141 philosophers** and **43 branches** in the Atlas. The 3D Museum currently covers three major historical galleries and will continue to expand. Museum media includes structured provenance and rights metadata; citation depth across the wider Atlas is still being improved.
+Current written coverage includes all **141 philosophers** and **43 branches** in the Atlas. The 3D Museum contains six continuously connected galleries. Museum media includes structured provenance and rights metadata; citation depth across the wider Atlas is still being improved.
 
 The application is local-first and static. It has no backend, database, login system, runtime API, advertising, or paid service dependency.
 
@@ -116,6 +125,9 @@ Pushing to `main` triggers the GitHub Pages workflow, which installs dependencie
 - `#/museum/ancient-greek`
 - `#/museum/renaissance-reason-revolution`
 - `#/museum/modernity-freedom-critique`
+- `#/museum/logic-language-science`
+- `#/museum/ethics-justice-political-life`
+- `#/museum/mind-consciousness-self`
 - `#/branches`
 - `#/map`
 - `#/philosophers`
@@ -127,6 +139,9 @@ Every Museum exhibit also has a direct route, such as:
 - `#/museum/ancient-greek/exhibits/plato`
 - `#/museum/renaissance-reason-revolution/exhibits/kant`
 - `#/museum/modernity-freedom-critique/exhibits/nietzsche`
+- `#/museum/logic-language-science/exhibits/kuhn`
+- `#/museum/ethics-justice-political-life/exhibits/rawls`
+- `#/museum/mind-consciousness-self/exhibits/thomas-nagel`
 
 ### Data model
 

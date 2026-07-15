@@ -12,6 +12,15 @@ const zoneAccents: Partial<Record<MuseumZoneId, string>> = {
   'faith-alienation-crisis': '#75648d',
   'existence-freedom-absurd': '#a06745',
   'power-knowledge-institutions': '#496d70',
+  'signs-and-structures': '#3f7180',
+  'inquiry-and-testing': '#7b6041',
+  'webs-and-revolutions': '#665783',
+  'utility-equality-liberty': '#907044',
+  'freedom-decolonization-public-life': '#7d535b',
+  'justice-rights-democratic-reason': '#4e6f83',
+  'disciplines-of-mind-and-self': '#727059',
+  'experience-intentionality-embodiment': '#5d7188',
+  'action-consciousness-personhood': '#756080',
 };
 
 function bound(layout: MuseumExhibitLayout, suffix: string): MuseumSceneVolume {
@@ -51,6 +60,30 @@ function ConceptObject({id, volume, accent}: {id: MuseumExhibitId; volume: Museu
     case 'beauvoir': return <ConceptStage volume={volume}>{[-.16, 0, .16].map((x, index) => <mesh key={x} position={[x, 0, index * .04]} rotation={[0, x * .45, 0]}><boxGeometry args={[.28, .42, .035]}/><meshPhysicalMaterial color={index === 1 ? accent : '#d8d7d2'} transparent opacity={.62} roughness={.18}/></mesh>)}</ConceptStage>;
     case 'camus': return <ConceptStage volume={volume}><mesh position={[-.15, -.06, 0]} rotation={[0, 0, -.22]}><boxGeometry args={[.48, .08, .34]}/>{dark}</mesh><mesh position={[.14, .02, 0]}><dodecahedronGeometry args={[.18, 0]}/>{metal}</mesh></ConceptStage>;
     case 'foucault': return <ConceptStage volume={volume}>{[.12, .23, .34].map((radius, index) => <mesh key={radius} rotation={[Math.PI / 2, 0, 0]}><torusGeometry args={[radius, .018, 8, 40]}/>{index === 1 ? metal : dark}</mesh>)}{[0, Math.PI / 2].map((r) => <mesh key={r} rotation={[0, 0, r]}><boxGeometry args={[.03, .62, .03]}/>{metal}</mesh>)}</ConceptStage>;
+    case 'peirce': return <ConceptStage volume={volume}>{[-.22, 0, .22].map((x, index) => <mesh key={x} position={[x, index === 1 ? .11 : -.08, 0]}><sphereGeometry args={[.09, 16, 12]}/>{index === 1 ? metal : dark}</mesh>)}<mesh rotation={[Math.PI / 2, 0, 0]}><torusGeometry args={[.28, .018, 8, 36]}/>{metal}</mesh></ConceptStage>;
+    case 'frege': return <ConceptStage volume={volume}><mesh position={[-.18, 0, 0]}><boxGeometry args={[.08, .48, .08]}/>{dark}</mesh><mesh position={[.07, .18, 0]}><boxGeometry args={[.38, .08, .08]}/>{metal}</mesh><mesh position={[.2, -.07, 0]}><sphereGeometry args={[.1, 16, 12]}/>{metal}</mesh></ConceptStage>;
+    case 'russell': return <ConceptStage volume={volume}>{[-.24, 0, .24].map((x, index) => <mesh key={x} position={[x, index === 1 ? .11 : -.06, 0]}><octahedronGeometry args={[.12, 0]}/>{index === 1 ? metal : dark}</mesh>)}<mesh position={[0, .02, 0]}><boxGeometry args={[.46, .025, .025]}/><meshBasicMaterial color="#ddd7cb"/></mesh></ConceptStage>;
+    case 'dewey': return <ConceptStage volume={volume}>{[-.22, 0, .22].map((x, index) => <mesh key={x} position={[x, -.12 + index * .11, 0]}><boxGeometry args={[.18, .16 + index * .07, .26]}/>{index === 2 ? metal : dark}</mesh>)}</ConceptStage>;
+    case 'carnap': return <ConceptStage volume={volume}>{[-.2, 0, .2].flatMap((x) => [-.14, .14].map((y) => <mesh key={`${x}-${y}`} position={[x, y, 0]}><boxGeometry args={[.1, .1, .1]}/>{x === 0 ? metal : dark}</mesh>))}</ConceptStage>;
+    case 'popper': return <ConceptStage volume={volume}><mesh position={[-.16, -.02, 0]} rotation={[0, 0, Math.PI]}><coneGeometry args={[.16, .42, 12]}/>{dark}</mesh><mesh position={[.2, .06, 0]}><octahedronGeometry args={[.16, 0]}/>{metal}</mesh></ConceptStage>;
+    case 'quine': return <ConceptStage volume={volume}><mesh rotation={[Math.PI / 2, 0, 0]}><torusKnotGeometry args={[.2, .035, 64, 8, 2, 3]}/>{metal}</mesh>{[-.25, .25].map((x) => <mesh key={x} position={[x, 0, 0]}><sphereGeometry args={[.055, 12, 8]}/>{dark}</mesh>)}</ConceptStage>;
+    case 'kuhn': return <ConceptStage volume={volume}>{[-.16, .16].map((x, index) => <mesh key={x} position={[x, index ? .1 : -.08, 0]} rotation={[0, index ? .45 : 0, index ? .18 : 0]}><boxGeometry args={[.3, .3, .3]}/>{index ? metal : dark}</mesh>)}</ConceptStage>;
+    case 'bentham': return <ConceptStage volume={volume}>{[-.24, -.08, .08, .24].map((x, index) => <mesh key={x} position={[x, -.09 + (index % 2) * .08, 0]}><sphereGeometry args={[.09, 14, 10]}/>{index === 3 ? metal : dark}</mesh>)}</ConceptStage>;
+    case 'wollstonecraft': return <ConceptStage volume={volume}>{[-.2, 0, .2].map((x, index) => <mesh key={x} position={[x, 0, 0]}><cylinderGeometry args={[.07, .09, .42, 14]}/>{index === 1 ? metal : dark}</mesh>)}</ConceptStage>;
+    case 'mill': return <ConceptStage volume={volume}><mesh position={[0, -.07, 0]}><cylinderGeometry args={[.055, .08, .38, 14]}/>{dark}</mesh>{[-.2, 0, .2].map((x, index) => <mesh key={x} position={[x, .12 + Math.abs(x) * .2, 0]} rotation={[0, 0, x * 1.4]}><coneGeometry args={[.09, .2, 12]}/>{index === 1 ? metal : dark}</mesh>)}</ConceptStage>;
+    case 'arendt': return <ConceptStage volume={volume}><mesh rotation={[Math.PI / 2, 0, 0]}><torusGeometry args={[.25, .025, 10, 40]}/>{metal}</mesh>{[-.2, 0, .2].map((x) => <mesh key={x} position={[x, 0, 0]}><sphereGeometry args={[.07, 14, 10]}/>{dark}</mesh>)}</ConceptStage>;
+    case 'fanon': return <ConceptStage volume={volume}>{[-.16, .16].map((x) => <mesh key={x} position={[x, 0, 0]} rotation={[0, 0, x < 0 ? -.22 : .22]}><boxGeometry args={[.24, .44, .18]}/>{x < 0 ? dark : metal}</mesh>)}</ConceptStage>;
+    case 'rawls': return <ConceptStage volume={volume}>{[-.2, .2].map((x) => <mesh key={x} position={[x, -.02, 0]}><boxGeometry args={[.12, .42, .2]}/>{dark}</mesh>)}<mesh position={[0, .02, .08]}><boxGeometry args={[.5, .34, .025]}/><meshPhysicalMaterial color={accent} transparent opacity={.35} roughness={.18}/></mesh></ConceptStage>;
+    case 'nozick': return <ConceptStage volume={volume}><mesh><boxGeometry args={[.46, .4, .34]}/><meshStandardMaterial color={accent} wireframe metalness={.45} roughness={.4}/></mesh><mesh><sphereGeometry args={[.12, 16, 12]}/>{dark}</mesh></ConceptStage>;
+    case 'habermas': return <ConceptStage volume={volume}>{[-.21, 0, .21].map((x, index) => <mesh key={x} position={[x, index === 1 ? .09 : -.04, 0]} rotation={[Math.PI / 2, 0, 0]}><torusGeometry args={[.1, .028, 10, 28]}/>{index === 1 ? metal : dark}</mesh>)}</ConceptStage>;
+    case 'patanjali': return <ConceptStage volume={volume}><mesh><cylinderGeometry args={[.045, .045, .48, 16]}/>{dark}</mesh>{[-.14, 0, .14].map((y, index) => <mesh key={y} position={[0, y, 0]} rotation={[Math.PI / 2, 0, 0]}><torusGeometry args={[.13 + index * .035, .025, 10, 32]}/>{index === 1 ? metal : dark}</mesh>)}</ConceptStage>;
+    case 'vasubandhu': return <ConceptStage volume={volume}>{[-.24, -.12, 0, .12, .24].map((x, index) => <mesh key={x} position={[x, -.06 + Math.abs(index - 2) * .045, 0]} rotation={[Math.PI / 2, 0, 0]}><cylinderGeometry args={[.09, .09, .04, 18]}/>{index === 2 ? metal : dark}</mesh>)}</ConceptStage>;
+    case 'william-james': return <ConceptStage volume={volume}>{[-.24, -.08, .08, .24].map((x, index) => <mesh key={x} position={[x, Math.sin(index * 1.5) * .1, 0]}><sphereGeometry args={[.085, 14, 10]}/>{index === 2 ? metal : dark}</mesh>)}<mesh rotation={[0, 0, -.2]}><boxGeometry args={[.54, .02, .02]}/><meshBasicMaterial color="#ddd7cb"/></mesh></ConceptStage>;
+    case 'husserl': return <ConceptStage volume={volume}>{[-.23, .23].map((x) => <mesh key={x} position={[x, 0, 0]}><boxGeometry args={[.06, .46, .08]}/>{dark}</mesh>)}{[-.16, .16].map((y) => <mesh key={y} position={[0, y, 0]}><boxGeometry args={[.4, .05, .08]}/>{metal}</mesh>)}</ConceptStage>;
+    case 'merleau-ponty': return <ConceptStage volume={volume}>{[-.11, .11].map((x, index) => <mesh key={x} position={[x, 0, 0]} rotation={[Math.PI / 2, index ? .45 : -.45, 0]}><torusGeometry args={[.2, .04, 12, 36]}/>{index ? metal : dark}</mesh>)}</ConceptStage>;
+    case 'anscombe': return <ConceptStage volume={volume}><mesh rotation={[0, 0, -Math.PI / 2]}><coneGeometry args={[.1, .34, 12]}/>{metal}</mesh><mesh position={[-.19, 0, 0]} rotation={[0, 0, Math.PI / 2]}><cylinderGeometry args={[.035, .035, .3, 12]}/>{dark}</mesh></ConceptStage>;
+    case 'thomas-nagel': return <ConceptStage volume={volume}><mesh><sphereGeometry args={[.26, 24, 16]}/><meshPhysicalMaterial color={accent} transparent opacity={.28} roughness={.14}/></mesh><mesh><sphereGeometry args={[.1, 16, 12]}/>{dark}</mesh></ConceptStage>;
+    case 'derek-parfit': return <ConceptStage volume={volume}>{[-.23, .23].map((x) => <mesh key={x} position={[x, 0, 0]}><dodecahedronGeometry args={[.14, 0]}/>{x < 0 ? dark : metal}</mesh>)}<mesh><boxGeometry args={[.3, .025, .025]}/><meshBasicMaterial color="#ddd7cb"/></mesh></ConceptStage>;
     default: return <ConceptStage volume={volume}><mesh><boxGeometry args={[.42, .4, .34]}/>{metal}</mesh></ConceptStage>;
   }
 }

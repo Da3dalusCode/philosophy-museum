@@ -72,7 +72,7 @@ const placements: Record<ModernityFreedomCritiqueExhibitId, ContemporaryPlacemen
   sartre: {zoneId: 'existence-freedom-absurd', spatialCellId: 'existence-room', position: {x: -9.35, z: -38.2}, rotationY: Math.PI / 2},
   beauvoir: {zoneId: 'existence-freedom-absurd', spatialCellId: 'existence-room', position: {x: 9.35, z: -38.2}, rotationY: -Math.PI / 2},
   camus: {zoneId: 'power-knowledge-institutions', spatialCellId: 'power-knowledge-room', position: {x: 8.35, z: -54.8}, rotationY: -Math.PI / 2},
-  foucault: {zoneId: 'power-knowledge-institutions', spatialCellId: 'power-knowledge-room', position: {x: 0, z: -59.35}, rotationY: 0},
+  foucault: {zoneId: 'power-knowledge-institutions', spatialCellId: 'power-knowledge-room', position: {x: -8.35, z: -54.8}, rotationY: Math.PI / 2},
 };
 
 const exhibits = createContemporaryExhibitLayouts(scenes, placements, EYE_HEIGHT);
@@ -84,6 +84,7 @@ const spatialCells: readonly MuseumSpatialCell[] = [
   {id: 'existence-room', kind: 'room', title: 'Existence, Freedom, and the Absurd', bounds: {minX: -11, maxX: 11, minZ: -43, maxZ: -21}, ceilingHeight: 6.2, exhibitIds: ['nietzsche', 'heidegger', 'sartre', 'beauvoir'], lightingGroupId: 'existence'},
   {id: 'critique-threshold', kind: 'passage', title: 'Critique Threshold', bounds: {minX: -3.5, maxX: 3.5, minZ: -46, maxZ: -43}, ceilingHeight: 5.1, exhibitIds: [], lightingGroupId: 'threshold'},
   {id: 'power-knowledge-room', kind: 'room', title: 'Power, Knowledge, and Institutions', bounds: {minX: -10, maxX: 10, minZ: -61, maxZ: -46}, ceilingHeight: 6, exhibitIds: ['camus', 'foucault'], lightingGroupId: 'power-knowledge'},
+  {id: 'logic-connection-passage', kind: 'passage', title: 'To Logic, Language, and Science', bounds: {minX: -2, maxX: 2, minZ: -64.6, maxZ: -61}, renderBounds: {minX: -2, maxX: 2, minZ: -64, maxZ: -61}, ceilingHeight: 5.2, exhibitIds: [], lightingGroupId: 'threshold'},
 ];
 
 const spatialConnections: readonly MuseumSpatialConnection[] = [
@@ -92,6 +93,7 @@ const spatialConnections: readonly MuseumSpatialConnection[] = [
   {id: 'threshold-to-existence', fromCellId: 'crisis-threshold', toCellId: 'existence-room', openingBounds: {minX: -3.5, maxX: 3.5, minZ: -21.2, maxZ: -20.8}},
   {id: 'existence-to-critique-threshold', fromCellId: 'existence-room', toCellId: 'critique-threshold', openingBounds: {minX: -3.5, maxX: 3.5, minZ: -43.2, maxZ: -42.8}},
   {id: 'critique-threshold-to-power', fromCellId: 'critique-threshold', toCellId: 'power-knowledge-room', openingBounds: {minX: -3.5, maxX: 3.5, minZ: -46.2, maxZ: -45.8}},
+  {id: 'power-to-logic-passage', fromCellId: 'power-knowledge-room', toCellId: 'logic-connection-passage', openingBounds: {minX: -2, maxX: 2, minZ: -61.2, maxZ: -60.8}},
 ];
 
 const walls: readonly MuseumWallDefinition[] = [
@@ -117,7 +119,10 @@ const walls: readonly MuseumWallDefinition[] = [
   museumWall('power-entry-east', {x: 6.75, z: -46}, 6.5, .36, 6),
   museumWall('power-west', {x: -10, z: -53.5}, .36, 15.36, 6),
   museumWall('power-east', {x: 10, z: -53.5}, .36, 15.36, 6),
-  museumWall('power-end', {x: 0, z: -61}, 20.36, .36, 6),
+  museumWall('power-end-west', {x: -6, z: -61}, 8, .36, 6),
+  museumWall('power-end-east', {x: 6, z: -61}, 8, .36, 6),
+  museumWall('logic-passage-west', {x: -2, z: -62.8}, .36, 3.6, 5.2, {center: {x: -2, z: -62.5}, size: {width: .36, depth: 3}}),
+  museumWall('logic-passage-east', {x: 2, z: -62.8}, .36, 3.6, 5.2, {center: {x: 2, z: -62.5}, size: {width: .36, depth: 3}}),
 ];
 
 const furnishings: readonly MuseumFurnishingDefinition[] = [
@@ -128,8 +133,7 @@ const tracks: readonly MuseumTrackDefinition[] = [
   {id: 'crisis-side-track', center: {x: 0, y: 5.45, z: -12.7}, size: {width: 16, height: .08, depth: .08}},
   {id: 'existence-north-track', center: {x: 0, y: 5.85, z: -30.3}, size: {width: 18, height: .08, depth: .08}},
   {id: 'existence-south-track', center: {x: 0, y: 5.85, z: -38.2}, size: {width: 18, height: .08, depth: .08}},
-  {id: 'camus-side-track', center: {x: 4, y: 5.65, z: -54.8}, size: {width: 12, height: .08, depth: .08}},
-  {id: 'foucault-far-track', center: {x: 0, y: 5.65, z: -57.2}, size: {width: 11, height: .08, depth: .08}},
+  {id: 'power-side-track', center: {x: 0, y: 5.65, z: -54.8}, size: {width: 18, height: .08, depth: .08}},
 ];
 
 const lights = createContemporaryExhibitLights<ModernityFreedomCritiqueExhibitId>(
@@ -142,8 +146,8 @@ const lights = createContemporaryExhibitLights<ModernityFreedomCritiqueExhibitId
     heidegger: 'existence-north-track',
     sartre: 'existence-south-track',
     beauvoir: 'existence-south-track',
-    camus: 'camus-side-track',
-    foucault: 'foucault-far-track',
+    camus: 'power-side-track',
+    foucault: 'power-side-track',
   },
   ['foucault'],
 );
@@ -169,7 +173,8 @@ const primaryCirculation: MuseumCirculationPath = {
   clearanceRadius: .75,
   points: [
     {x: 0, z: -.8}, {x: 0, z: -12}, {x: 0, z: -19.5}, {x: 0, z: -28},
-    {x: 0, z: -34.3}, {x: 0, z: -44.5}, {x: 0, z: -52.5}, {x: 0, z: -55.2},
+    {x: 0, z: -34.3}, {x: 0, z: -44.5}, {x: 0, z: -52.5}, {x: 0, z: -58},
+    {x: 0, z: -63.8},
   ],
 };
 
@@ -177,6 +182,7 @@ const signs: readonly MuseumSignDefinition[] = [
   {id: 'gallery-03-entrance', kind: 'entrance', title: 'Modernity, Freedom, and Critique', kicker: 'Gallery 03 · 19th–20th centuries', subtitle: 'Crisis · existence · responsibility · power', position: {x: 0, y: 4.7, z: -3.76}, rotationY: 0, width: 4.7, height: .52},
   {id: 'existence-zone', kind: 'zone', title: 'Existence, Freedom & the Absurd', kicker: 'Zone II · 19th–20th centuries', subtitle: 'Value · being · bad faith · situated freedom', position: {x: 0, y: 4.62, z: -20.76}, rotationY: 0, width: 4.4, height: .46},
   {id: 'power-zone', kind: 'zone', title: 'Power, Knowledge & Institutions', kicker: 'Zone III · 20th century', subtitle: 'Revolt · discipline · subject formation', position: {x: 0, y: 4.62, z: -45.76}, rotationY: 0, width: 4.3, height: .46},
+  {id: 'gallery-04-wayfinding', kind: 'wayfinding', title: 'Continue to Gallery 04', kicker: 'Logic, Language, and Science', subtitle: 'Proceed through the south threshold', position: {x: 0, y: 4.25, z: -60.76}, rotationY: 0, width: 3.35, height: .42},
 ];
 
 export const MODERNITY_FREEDOM_CRITIQUE_HALL_LAYOUT: MuseumHallLayout = {
@@ -184,8 +190,8 @@ export const MODERNITY_FREEDOM_CRITIQUE_HALL_LAYOUT: MuseumHallLayout = {
   title: hall.title,
   eyeHeight: EYE_HEIGHT,
   playerRadius: .38,
-  bounds: {minX: -11, maxX: 11, minZ: -61, maxZ: .6},
-  floorArea: 1124.4,
+  bounds: {minX: -11, maxX: 11, minZ: -64.6, maxZ: .6},
+  floorArea: 1138.8,
   cameraFov: 68,
   cameraFar: 110,
   spawn: {x: 0, z: -2.2, yaw: 0, pitch: -.02},
@@ -209,26 +215,45 @@ export const MODERNITY_FREEDOM_CRITIQUE_HALL_DEFINITION: MuseumHallDefinition = 
   id: hall.id,
   worldTransform: {x: 67, z: -46.5, yaw: 0},
   layout: MODERNITY_FREEDOM_CRITIQUE_HALL_LAYOUT,
-  entrances: [{
-    id: 'early-modern-threshold',
-    position: {x: 0, z: 0},
-    inwardNormal: {x: 0, z: -1},
-    arrivalPose: {x: 0, z: -.8, yaw: 0, pitch: 0},
-    transitionBounds: {center: {x: 0, z: 0}, size: {width: 4, depth: 1.2}},
-  }],
-  connections: [{
-    id: 'modernity-to-renaissance',
-    targetHallId: 'renaissance-reason-revolution',
-    localEntranceId: 'early-modern-threshold',
-    targetEntranceId: 'modernity-threshold',
-  }],
+  entrances: [
+    {
+      id: 'early-modern-threshold',
+      position: {x: 0, z: 0},
+      inwardNormal: {x: 0, z: -1},
+      arrivalPose: {x: 0, z: -.8, yaw: 0, pitch: 0},
+      transitionBounds: {center: {x: 0, z: 0}, size: {width: 4, depth: 1.2}},
+    },
+    {
+      id: 'logic-threshold',
+      position: {x: 0, z: -64},
+      inwardNormal: {x: 0, z: 1},
+      arrivalPose: {x: 0, z: -63.2, yaw: Math.PI, pitch: 0},
+      transitionBounds: {center: {x: 0, z: -64}, size: {width: 4, depth: 1.2}},
+    },
+  ],
+  connections: [
+    {
+      id: 'modernity-to-renaissance',
+      targetHallId: 'renaissance-reason-revolution',
+      localEntranceId: 'early-modern-threshold',
+      targetEntranceId: 'modernity-threshold',
+    },
+    {
+      id: 'modernity-to-logic',
+      targetHallId: 'logic-language-science',
+      localEntranceId: 'logic-threshold',
+      targetEntranceId: 'modernity-threshold',
+    },
+  ],
   prefetch: {
     entrySceneAssetIds: [
       'kierkegaard-royal-library-portrait', 'kierkegaard-fragments-manuscript',
       'marx-mayall-portrait', 'marx-capital-1867',
+      'camus-loc-1957', 'camus-combat-1943',
+      'foucault-portugal-1968', 'foucault-panopticon-plan',
     ],
     sceneAssetIds: hall.exhibits.flatMap((exhibit) => [exhibit.principalAssetId, ...exhibit.supportingAssetIds]),
-    adjacentHallIds: ['renaissance-reason-revolution'],
+    adjacentHallIds: ['renaissance-reason-revolution', 'logic-language-science'],
   },
   fallbackLabel: 'Modernity, Freedom, and Critique gallery directory',
 };

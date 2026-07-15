@@ -1,5 +1,8 @@
 import type {ComponentType} from 'react';
 import {ANCIENT_GREEK_HALL_DEFINITION} from '../../data/museum/ancientGreekHall';
+import {ETHICS_JUSTICE_POLITICAL_LIFE_HALL_DEFINITION} from '../../data/museum/ethicsJusticePoliticalLifeHall';
+import {LOGIC_LANGUAGE_SCIENCE_HALL_DEFINITION} from '../../data/museum/logicLanguageScienceHall';
+import {MIND_CONSCIOUSNESS_SELF_HALL_DEFINITION} from '../../data/museum/mindConsciousnessSelfHall';
 import {MODERNITY_FREEDOM_CRITIQUE_HALL_DEFINITION} from '../../data/museum/modernityFreedomCritiqueHall';
 import {RENAISSANCE_REASON_REVOLUTION_HALL_DEFINITION} from '../../data/museum/renaissanceReasonRevolutionHall';
 import {getMuseumAsset, museumAssetUrl} from '../../data/museum/museumAssets';
@@ -44,6 +47,27 @@ const modernityFreedomCritiqueRegistration: MuseumHallRegistration = {
   })),
 };
 
+const logicLanguageScienceRegistration: MuseumHallRegistration = {
+  definition: LOGIC_LANGUAGE_SCIENCE_HALL_DEFINITION,
+  loadContent: () => import('./LogicLanguageScienceHallScene').then(({LogicLanguageScienceHallContent}) => ({
+    default: LogicLanguageScienceHallContent,
+  })),
+};
+
+const ethicsJusticePoliticalLifeRegistration: MuseumHallRegistration = {
+  definition: ETHICS_JUSTICE_POLITICAL_LIFE_HALL_DEFINITION,
+  loadContent: () => import('./EthicsJusticePoliticalLifeHallScene').then(({EthicsJusticePoliticalLifeHallContent}) => ({
+    default: EthicsJusticePoliticalLifeHallContent,
+  })),
+};
+
+const mindConsciousnessSelfRegistration: MuseumHallRegistration = {
+  definition: MIND_CONSCIOUSNESS_SELF_HALL_DEFINITION,
+  loadContent: () => import('./MindConsciousnessSelfHallScene').then(({MindConsciousnessSelfHallContent}) => ({
+    default: MindConsciousnessSelfHallContent,
+  })),
+};
+
 const contentPromises = new Map<MuseumHallId, Promise<{default: ComponentType<MuseumHallContentProps>}>>();
 const imagePromises = new Map<string, Promise<void>>();
 
@@ -51,6 +75,9 @@ export const MUSEUM_WORLD_REGISTRY = [
   ancientGreekRegistration,
   renaissanceReasonRevolutionRegistration,
   modernityFreedomCritiqueRegistration,
+  logicLanguageScienceRegistration,
+  ethicsJusticePoliticalLifeRegistration,
+  mindConsciousnessSelfRegistration,
 ] as const satisfies readonly MuseumHallRegistration[];
 
 export const getMuseumHallRegistration = (hallId: MuseumHallId): MuseumHallRegistration | undefined =>

@@ -3,6 +3,7 @@ import type {
   MuseumAssetRecord,
   MuseumAssetVariant,
 } from './museumAssetTypes';
+import {MUSEUM_EXPANSION_ASSETS} from './museumExpansionAssets';
 import {MODERN_MUSEUM_ASSETS} from './modernMuseumAssets';
 
 const assetPath = (slug: string, variant: 'scene' | 'panel', width: number, height: number): MuseumAssetVariant => ({
@@ -178,6 +179,7 @@ const ANCIENT_MUSEUM_ASSETS = [
 export const MUSEUM_ASSETS = [
   ...ANCIENT_MUSEUM_ASSETS,
   ...MODERN_MUSEUM_ASSETS,
+  ...MUSEUM_EXPANSION_ASSETS,
 ] as const satisfies readonly MuseumAssetRecord[];
 
 export const museumAssetById = new Map<MuseumAssetId, MuseumAssetRecord>(

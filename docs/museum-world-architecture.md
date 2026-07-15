@@ -2,21 +2,24 @@
 
 ## Current artifact
 
-The Museum is one walkable three-gallery world:
+The Museum is one walkable six-gallery world:
 
 1. **Ancient Greek & Hellenistic Philosophy** — Classical foundations, Hellenistic ways of life, and Neoplatonism.
 2. **Renaissance, Reason, and Revolution** — power and method; sovereignty, rights, and nature; experience, freedom, and critique.
 3. **Modernity, Freedom, and Critique** — faith, alienation, and crisis; existence, freedom, and the absurd; power, knowledge, and institutions.
+4. **Logic, Language, and Science** — signs and logical structures; experimental inquiry and criticism; webs of belief and scientific revolutions.
+5. **Ethics, Justice, and Political Life** — utility, equality, and liberty; freedom and decolonization; justice, rights, and democratic reason.
+6. **Mind, Consciousness, and the Self** — disciplines of mind and self; experience, intentionality, and embodiment; action, consciousness, and personhood.
 
-Each gallery contains eight installations. The twenty-four stops share one WebGL canvas, camera rig, movement controller, directory, interpretation-panel system, visit state, and fullscreen/immersive state. Routes describe where the visitor is; they do not replace the 3D runtime.
+Each gallery contains eight installations. The forty-eight stops share one WebGL canvas, camera rig, movement controller, directory, interpretation-panel system, visit state, and fullscreen/immersive state. Routes describe where the visitor is; they do not replace the 3D runtime.
 
 ## Persistent runtime boundary
 
 `MuseumWorldScene` is the sole owner of the React Three Fiber `Canvas`. `MuseumPage` owns browser history, overlays, interpretation panels, hall readiness, saved poses, and control state. Hall render modules contribute local architecture, active lighting, and installations; they never create a canvas or duplicate navigation.
 
-`museumWorldRegistry.ts` binds each serializable `MuseumHallDefinition` to a dynamic render-only module. The registry contains exactly the three active galleries. Code and image requests are promise-deduplicated, and failed entries are cleared so Retry starts a genuinely new attempt.
+`museumWorldRegistry.ts` binds each serializable `MuseumHallDefinition` to a dynamic render-only module. The registry contains exactly the six active galleries. Code and image requests are promise-deduplicated, and failed entries are cleared so Retry starts a genuinely new attempt.
 
-Geometry residency is the active gallery plus its declared neighbors. At an endpoint this means two galleries; in Gallery 02 it means all three because it physically joins both endpoints. Leaving an adjacency evicts its render subtree and textures. The canvas and camera remain mounted.
+Geometry residency is the active gallery plus its declared neighbors. At an endpoint this means two galleries; in each interior gallery it means three. Leaving an adjacency evicts its render subtree and textures. The canvas and camera remain mounted.
 
 ## Coordinates and physical seams
 
@@ -24,9 +27,12 @@ Layouts use hall-local `x`/`z` floor coordinates, `y` for height, radians for ya
 
 - Gallery 01 is at world origin. Its east threshold is `(18, -28.5)`.
 - Gallery 02 is translated to `(18, -28.5)` and rotated `-π/2`. Its far west-side threshold at local `(-18, -49)` lands at world `(67, -46.5)`.
-- Gallery 03 begins at world `(67, -46.5)` with zero additional yaw.
+- Gallery 03 begins at world `(67, -46.5)` with zero additional yaw. Its new south threshold lands at `(67, -110.5)`.
+- Gallery 04 begins at `(67, -110.5)` and turns east at local `(18, -49)`, whose world point is `(85, -159.5)`.
+- Gallery 05 begins at `(85, -159.5)` and is rotated `-π/2`. Its south-local threshold at `(0, -64)` lands at `(149, -159.5)`.
+- Gallery 06 begins at `(149, -159.5)`, also rotated `-π/2`, and is the eastern endpoint.
 
-Both links are reciprocal. The source and target seam points coincide in world space and their inward normals oppose each other. Crossing detection is plane-based: the previous pose must be on the interior side, the current pose on the exterior side, and both must fall within the authored lateral opening. The source pose is transformed through world coordinates into the target hall. A target arrival pose is used only when the mapped result fails that hall’s collision contract.
+All five links are reciprocal. The source and target seam points coincide in world space and their inward normals oppose each other. Crossing detection is plane-based: the previous pose must be on the interior side, the current pose on the exterior side, and both must fall within the authored lateral opening. The source pose is transformed through world coordinates into the target hall. A target arrival pose is used only when the mapped result fails that hall’s collision contract.
 
 Physical crossings use route **replace**, preventing doorway motion from flooding browser history. Directory, exhibit, and other deliberate choices use pushes. Direct and directory hall activation restore a safe saved session or the hall’s `layout.spawn`; entrance arrival poses are reserved for actual seam travel.
 
@@ -45,7 +51,7 @@ Every local image has an in-world fallback. The directory remains a complete non
 
 Ancient uses its stone-and-bronze architectural foundation with corrected compositions: Socrates, Plato, and Aristotle form the Classical triad; Cynicism, Epicureanism, Stoicism, and Skepticism form a perimeter U that preserves the central path.
 
-Galleries 02 and 03 share a neutral contemporary grammar: warm mineral walls, pale floors, dark metal, restrained bronze, integrated name strips, framed local media, lecterns, compact concept objects, track lighting, and sparse wall-mounted signage. Each gallery has one entrance identity sign. Zone names sit on walls or threshold fascias; wayfinding is small and physically attached. There are no stacked sign forests, hanging placards, or floor arrows.
+Galleries 02–06 share a neutral contemporary grammar: warm mineral walls, dark charcoal or wood-toned floors, visible pale ceilings, dark metal, restrained bronze or brass, integrated name strips, framed local media, lecterns, compact concept objects, track lighting, and sparse wall-mounted signage. Subtle material accents, room proportions, and the Gallery 04–06 dogleg distinguish the new thematic halls without turning them into unrelated color worlds. Each gallery has one restrained entrance identity sign. Zone names sit on walls or threshold fascias; wayfinding is small and physically attached. There are no stacked sign forests, hanging placards, or floor arrows.
 
 Every installation declares one scene footprint. The collider derives from that footprint and placement. Media, supports, plaques, concept objects, interaction bounds, and focal targets are installation-local. Scene media uses typed mounts (`wall-frame`, `recess-frame`, `lectern`, or `freestanding-panel`) and cannot invent a separate collision model.
 
@@ -61,9 +67,9 @@ Each gallery has an independent, validated session key containing a hall-local p
 
 ## Verification contract
 
-`npm run audit:museum` checks the exact three-hall catalog, eight exhibits and three zones per hall, layout/catalog agreement, safe spawns and viewpoints, Ancient compositions, bidirectional adjacency, transformed seam coincidence and opposing normals, both crossing directions, interpretation depth, two assets per exhibit, qualified sessions/history, Pointer Lock state transitions, rendered readiness, resident adjacency, recovery paths, and exactly one `Canvas`.
+`npm run audit:museum` checks the exact six-hall catalog, eight exhibits and three zones per hall, layout/catalog agreement, safe spawns and viewpoints, Ancient compositions, bidirectional adjacency, five transformed seam pairs with opposing normals, both crossing directions, interpretation depth, two assets per exhibit, qualified sessions/history, Pointer Lock state transitions, rendered readiness, resident adjacency, recovery paths, and exactly one `Canvas`.
 
-`npm run audit:museum-assets` checks all forty-eight typed records, ninety-six local derivatives, exact casing and dimensions, rights and attribution fields, per-exhibit coverage, manifest agreement, SHA-256 locks, and the absence of retired or unregistered Museum media.
+`npm run audit:museum-assets` checks all ninety-six typed records, 192 local derivatives, exact casing and dimensions, rights and attribution fields, per-exhibit coverage, manifest agreement, SHA-256 locks, and the absence of retired or unregistered Museum media.
 
 Before extending the world, run the build and both audits, then test every seam in both directions, direct routes, Back/Forward, the directory, guided viewpoints, saved-session restoration, pointer-lock release/resume, fullscreen continuity, context loss, and the non-WebGL fallback.
 

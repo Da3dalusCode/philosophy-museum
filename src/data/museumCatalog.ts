@@ -3,7 +3,10 @@ import type {MuseumAssetId} from './museum/museumAssetTypes';
 export type MuseumHallId =
   | 'ancient-greek'
   | 'renaissance-reason-revolution'
-  | 'modernity-freedom-critique';
+  | 'modernity-freedom-critique'
+  | 'logic-language-science'
+  | 'ethics-justice-political-life'
+  | 'mind-consciousness-self';
 
 export type MuseumZoneId =
   | 'classical-foundations'
@@ -14,7 +17,16 @@ export type MuseumZoneId =
   | 'experience-freedom-critique'
   | 'faith-alienation-crisis'
   | 'existence-freedom-absurd'
-  | 'power-knowledge-institutions';
+  | 'power-knowledge-institutions'
+  | 'signs-and-structures'
+  | 'inquiry-and-testing'
+  | 'webs-and-revolutions'
+  | 'utility-equality-liberty'
+  | 'freedom-decolonization-public-life'
+  | 'justice-rights-democratic-reason'
+  | 'disciplines-of-mind-and-self'
+  | 'experience-intentionality-embodiment'
+  | 'action-consciousness-personhood';
 
 export type MuseumExhibitKind = 'philosopher' | 'branch';
 
@@ -132,13 +144,115 @@ const modernityFreedomCritiqueExhibits = [
   {id: 'foucault', entityKind: 'philosopher', entityId: 'foucault', displayName: 'Michel Foucault', zoneId: 'power-knowledge-institutions', question: 'How do institutions and knowledge produce the subjects they govern?', principalAssetId: 'foucault-portugal-1968', supportingAssetIds: ['foucault-panopticon-plan']},
 ] as const satisfies readonly MuseumExhibitCatalogShape[];
 
+const logicLanguageScienceZones = [
+  {
+    id: 'signs-and-structures',
+    title: 'Signs & Structures',
+    period: 'Late 19th–early 20th centuries',
+    description: 'Peirce, Frege, and Russell remake logic while asking how signs, propositions, reference, and mathematical structure carry meaning.',
+  },
+  {
+    id: 'inquiry-and-testing',
+    title: 'Inquiry & Testing',
+    period: 'Early–mid 20th century',
+    description: 'Dewey, Carnap, and Popper offer rival pictures of experimental inquiry, logical reconstruction, criticism, and scientific method.',
+  },
+  {
+    id: 'webs-and-revolutions',
+    title: 'Webs & Revolutions',
+    period: 'Mid–late 20th century',
+    description: 'Quine and Kuhn challenge clean boundaries between truths, theories, evidence, communities, and historical scientific change.',
+  },
+] as const satisfies readonly MuseumZoneCatalog[];
+
+const logicLanguageScienceExhibits = [
+  {id: 'peirce', entityKind: 'philosopher', entityId: 'peirce', displayName: 'Charles Sanders Peirce', zoneId: 'signs-and-structures', question: 'How do signs guide fallible inquiry toward habits of action and public correction?', principalAssetId: 'peirce-sarony-portrait', supportingAssetIds: ['peirce-existential-graphs']},
+  {id: 'frege', entityKind: 'philosopher', entityId: 'frege', displayName: 'Gottlob Frege', zoneId: 'signs-and-structures', question: 'How can logical form clarify number, reference, and the difference between sense and object?', principalAssetId: 'frege-portrait', supportingAssetIds: ['frege-begriffsschrift-1879']},
+  {id: 'russell', entityKind: 'philosopher', entityId: 'russell', displayName: 'Bertrand Russell', zoneId: 'signs-and-structures', question: 'Can logical analysis reveal what our sentences commit us to?', principalAssetId: 'russell-portrait-1894', supportingAssetIds: ['russell-on-denoting-1905']},
+  {id: 'dewey', entityKind: 'philosopher', entityId: 'dewey', displayName: 'John Dewey', zoneId: 'inquiry-and-testing', question: 'What if knowing is an experimental practice for transforming uncertain situations?', principalAssetId: 'dewey-portrait-1902', supportingAssetIds: ['dewey-democracy-education-1916']},
+  {id: 'carnap', entityKind: 'philosopher', entityId: 'carnap', displayName: 'Rudolf Carnap', zoneId: 'inquiry-and-testing', question: 'Which disputes can be clarified by choosing and constructing explicit linguistic frameworks?', principalAssetId: 'carnap-portrait', supportingAssetIds: ['carnap-reichenbach-collection']},
+  {id: 'popper', entityKind: 'philosopher', entityId: 'popper', displayName: 'Karl Popper', zoneId: 'inquiry-and-testing', question: 'How can bold theories remain answerable to tests that might refute them?', principalAssetId: 'popper-portrait-1987', supportingAssetIds: ['popper-alien-registration']},
+  {id: 'quine', entityKind: 'philosopher', entityId: 'quine', displayName: 'W. V. O. Quine', zoneId: 'webs-and-revolutions', question: 'What changes when beliefs confront experience as an interconnected web?', principalAssetId: 'quine-portrait', supportingAssetIds: ['quine-qualitative-sphere']},
+  {id: 'kuhn', entityKind: 'philosopher', entityId: 'kuhn', displayName: 'Thomas Kuhn', zoneId: 'webs-and-revolutions', question: 'How do scientific communities move between normal inquiry and revolutionary change?', principalAssetId: 'kuhn-portrait-1977', supportingAssetIds: ['kuhn-structure-1962']},
+] as const satisfies readonly MuseumExhibitCatalogShape[];
+
+const ethicsJusticePoliticalLifeZones = [
+  {
+    id: 'utility-equality-liberty',
+    title: 'Utility, Equality & Liberty',
+    period: 'Late 18th–19th centuries',
+    description: 'Bentham, Wollstonecraft, and Mill turn moral argument toward legal reform, equal education, liberty, and the consequences of institutions.',
+  },
+  {
+    id: 'freedom-decolonization-public-life',
+    title: 'Freedom, Decolonization & Public Life',
+    period: 'Mid-20th century',
+    description: 'Arendt and Fanon confront statelessness, total domination, racialization, colonial violence, political action, and liberation.',
+  },
+  {
+    id: 'justice-rights-democratic-reason',
+    title: 'Justice, Rights & Democratic Reason',
+    period: 'Late 20th–21st centuries',
+    description: 'Rawls, Nozick, and Habermas dispute fair institutions, holdings, public justification, communicative power, and democratic legitimacy.',
+  },
+] as const satisfies readonly MuseumZoneCatalog[];
+
+const ethicsJusticePoliticalLifeExhibits = [
+  {id: 'bentham', entityKind: 'philosopher', entityId: 'bentham', displayName: 'Jeremy Bentham', zoneId: 'utility-equality-liberty', question: 'Can law and policy be judged by the happiness and suffering they produce?', principalAssetId: 'bentham-pickering-portrait', supportingAssetIds: ['bentham-principles-1823']},
+  {id: 'wollstonecraft', entityKind: 'philosopher', entityId: 'wollstonecraft', displayName: 'Mary Wollstonecraft', zoneId: 'utility-equality-liberty', question: 'How can freedom be credible while education and citizenship are organized by gender?', principalAssetId: 'wollstonecraft-opie-portrait', supportingAssetIds: ['wollstonecraft-vindication-1792']},
+  {id: 'mill', entityKind: 'philosopher', entityId: 'mill', displayName: 'John Stuart Mill', zoneId: 'utility-equality-liberty', question: 'Where should social power stop so individuality and experiments in living can flourish?', principalAssetId: 'mill-stereoscopic-portrait', supportingAssetIds: ['mill-on-liberty-1859']},
+  {id: 'arendt', entityKind: 'philosopher', entityId: 'arendt', displayName: 'Hannah Arendt', zoneId: 'freedom-decolonization-public-life', question: 'What forms of public action, judgment, and shared world make political freedom possible?', principalAssetId: 'arendt-portrait-1933', supportingAssetIds: ['arendt-grave-bard']},
+  {id: 'fanon', entityKind: 'philosopher', entityId: 'fanon', displayName: 'Frantz Fanon', zoneId: 'freedom-decolonization-public-life', question: 'How does colonial domination enter bodies, identities, institutions, and struggles for liberation?', principalAssetId: 'fanon-portrait', supportingAssetIds: ['fanon-paris-plaque']},
+  {id: 'rawls', entityKind: 'philosopher', entityId: 'rawls', displayName: 'John Rawls', zoneId: 'justice-rights-democratic-reason', question: 'Which principles would fairly situated citizens choose for their basic institutions?', principalAssetId: 'rawls-portrait', supportingAssetIds: ['rawls-theory-justice-1971']},
+  {id: 'nozick', entityKind: 'philosopher', entityId: 'nozick', displayName: 'Robert Nozick', zoneId: 'justice-rights-democratic-reason', question: 'When do individual rights constrain redistribution and the purposes of the state?', principalAssetId: 'nozick-portrait', supportingAssetIds: ['nozick-anarchy-state-utopia-1974']},
+  {id: 'habermas', entityKind: 'philosopher', entityId: 'habermas', displayName: 'Jürgen Habermas', zoneId: 'justice-rights-democratic-reason', question: 'How can communication and public justification generate legitimate democratic power?', principalAssetId: 'habermas-portrait', supportingAssetIds: ['habermas-lecture-2011']},
+] as const satisfies readonly MuseumExhibitCatalogShape[];
+
+const mindConsciousnessSelfZones = [
+  {
+    id: 'disciplines-of-mind-and-self',
+    title: 'Disciplines of Mind & Self',
+    period: 'Classical South Asia',
+    description: 'Patañjali-associated Yoga and Vasubandhu analyze attention, affliction, cognition, practice, continuity, and the refusal of a simple permanent self.',
+  },
+  {
+    id: 'experience-intentionality-embodiment',
+    title: 'Experience, Intentionality & Embodiment',
+    period: 'Late 19th–mid-20th centuries',
+    description: 'James, Husserl, and Merleau-Ponty begin from lived experience, directed consciousness, habit, perception, and the body’s worldly intelligence.',
+  },
+  {
+    id: 'action-consciousness-personhood',
+    title: 'Action, Consciousness & Personhood',
+    period: 'Mid-20th–21st centuries',
+    description: 'Anscombe, Nagel, and Parfit ask what makes an action intentional, an experience subjective, and a person continuous through time.',
+  },
+] as const satisfies readonly MuseumZoneCatalog[];
+
+const mindConsciousnessSelfExhibits = [
+  {id: 'patanjali', entityKind: 'philosopher', entityId: 'patanjali', displayName: 'Patañjali', zoneId: 'disciplines-of-mind-and-self', question: 'How can disciplined practice transform the fluctuations and afflictions of mind?', principalAssetId: 'patanjali-statue', supportingAssetIds: ['patanjali-yoga-sutra-manuscript']},
+  {id: 'vasubandhu', entityKind: 'philosopher', entityId: 'vasubandhu', displayName: 'Vasubandhu', zoneId: 'disciplines-of-mind-and-self', question: 'How should we analyze experience, cognition, and continuity without positing an independent self?', principalAssetId: 'vasubandhu-statue', supportingAssetIds: ['vasubandhu-abhidharmakosha-manuscript']},
+  {id: 'william-james', entityKind: 'philosopher', entityId: 'william-james', displayName: 'William James', zoneId: 'experience-intentionality-embodiment', question: 'What is consciousness like when followed as a changing, selective stream?', principalAssetId: 'william-james-portrait', supportingAssetIds: ['william-james-principles-1890']},
+  {id: 'husserl', entityKind: 'philosopher', entityId: 'husserl', displayName: 'Edmund Husserl', zoneId: 'experience-intentionality-embodiment', question: 'How can careful description disclose the structures by which consciousness is directed toward a world?', principalAssetId: 'husserl-portrait', supportingAssetIds: ['husserl-goettingen-plaque']},
+  {id: 'merleau-ponty', entityKind: 'philosopher', entityId: 'merleau-ponty', displayName: 'Maurice Merleau-Ponty', zoneId: 'experience-intentionality-embodiment', question: 'How does the lived body open a meaningful world before reflective thought?', principalAssetId: 'merleau-ponty-portrait', supportingAssetIds: ['merleau-ponty-grave']},
+  {id: 'anscombe', entityKind: 'philosopher', entityId: 'anscombe', displayName: 'G. E. M. Anscombe', zoneId: 'action-consciousness-personhood', question: 'What distinguishes an intentional action from an event that merely happens through us?', principalAssetId: 'anscombe-portrait', supportingAssetIds: ['anscombe-philosophical-investigations-1953']},
+  {id: 'thomas-nagel', entityKind: 'philosopher', entityId: 'thomas-nagel', displayName: 'Thomas Nagel', zoneId: 'action-consciousness-personhood', question: 'Why can an objective account leave out what an experience is like for its subject?', principalAssetId: 'thomas-nagel-portrait', supportingAssetIds: ['thomas-nagel-teaching']},
+  {id: 'derek-parfit', entityKind: 'philosopher', entityId: 'derek-parfit', displayName: 'Derek Parfit', zoneId: 'action-consciousness-personhood', question: 'What matters in survival if personal identity is not a further indivisible fact?', principalAssetId: 'derek-parfit-portrait', supportingAssetIds: ['derek-parfit-repugnant-conclusion']},
+] as const satisfies readonly MuseumExhibitCatalogShape[];
+
 export type AncientGreekExhibitId = (typeof ancientExhibits)[number]['id'];
 export type RenaissanceReasonRevolutionExhibitId = (typeof renaissanceReasonRevolutionExhibits)[number]['id'];
 export type ModernityFreedomCritiqueExhibitId = (typeof modernityFreedomCritiqueExhibits)[number]['id'];
+export type LogicLanguageScienceExhibitId = (typeof logicLanguageScienceExhibits)[number]['id'];
+export type EthicsJusticePoliticalLifeExhibitId = (typeof ethicsJusticePoliticalLifeExhibits)[number]['id'];
+export type MindConsciousnessSelfExhibitId = (typeof mindConsciousnessSelfExhibits)[number]['id'];
 export type MuseumExhibitCatalog =
   | (typeof ancientExhibits)[number]
   | (typeof renaissanceReasonRevolutionExhibits)[number]
-  | (typeof modernityFreedomCritiqueExhibits)[number];
+  | (typeof modernityFreedomCritiqueExhibits)[number]
+  | (typeof logicLanguageScienceExhibits)[number]
+  | (typeof ethicsJusticePoliticalLifeExhibits)[number]
+  | (typeof mindConsciousnessSelfExhibits)[number];
 export type MuseumExhibitId = MuseumExhibitCatalog['id'];
 
 export type MuseumHallCatalog = {
@@ -187,6 +301,39 @@ export const MUSEUM_HALLS = [
     exhibits: modernityFreedomCritiqueExhibits,
     guidedOrder: modernityFreedomCritiqueExhibits.map(({id}) => id),
   },
+  {
+    id: 'logic-language-science',
+    title: 'Logic, Language, and Science',
+    galleryNumber: 'Gallery 04',
+    period: '19th–20th centuries',
+    description: 'Trace the remaking of logic, meaning, inquiry, evidence, and scientific change from pragmatist signs and formal systems to webs of belief and paradigms.',
+    sweep: ['Signs and structures', 'Inquiry and testing', 'Webs and revolutions'],
+    zones: logicLanguageScienceZones,
+    exhibits: logicLanguageScienceExhibits,
+    guidedOrder: logicLanguageScienceExhibits.map(({id}) => id),
+  },
+  {
+    id: 'ethics-justice-political-life',
+    title: 'Ethics, Justice, and Political Life',
+    galleryNumber: 'Gallery 05',
+    period: '18th–21st centuries',
+    description: 'Enter disputes over utility, equality, liberty, public action, colonial domination, rights, fair institutions, and the communicative foundations of democracy.',
+    sweep: ['Utility, equality, and liberty', 'Freedom and decolonization', 'Justice and democratic reason'],
+    zones: ethicsJusticePoliticalLifeZones,
+    exhibits: ethicsJusticePoliticalLifeExhibits,
+    guidedOrder: ethicsJusticePoliticalLifeExhibits.map(({id}) => id),
+  },
+  {
+    id: 'mind-consciousness-self',
+    title: 'Mind, Consciousness, and the Self',
+    galleryNumber: 'Gallery 06',
+    period: 'Classical South Asia–21st century',
+    description: 'Compare disciplined and Buddhist analyses of mind with modern accounts of experience, intentionality, embodiment, action, subjectivity, and personal identity.',
+    sweep: ['Disciplines of mind and self', 'Experience and embodiment', 'Action, consciousness, and personhood'],
+    zones: mindConsciousnessSelfZones,
+    exhibits: mindConsciousnessSelfExhibits,
+    guidedOrder: mindConsciousnessSelfExhibits.map(({id}) => id),
+  },
 ] as const satisfies readonly MuseumHallCatalog[];
 
 export const DEFAULT_MUSEUM_HALL_ID: MuseumHallId = 'ancient-greek';
@@ -194,6 +341,9 @@ export const DEFAULT_MUSEUM_HALL_ID: MuseumHallId = 'ancient-greek';
 export function getMuseumHallCatalog(id: 'ancient-greek'): (typeof MUSEUM_HALLS)[0];
 export function getMuseumHallCatalog(id: 'renaissance-reason-revolution'): (typeof MUSEUM_HALLS)[1];
 export function getMuseumHallCatalog(id: 'modernity-freedom-critique'): (typeof MUSEUM_HALLS)[2];
+export function getMuseumHallCatalog(id: 'logic-language-science'): (typeof MUSEUM_HALLS)[3];
+export function getMuseumHallCatalog(id: 'ethics-justice-political-life'): (typeof MUSEUM_HALLS)[4];
+export function getMuseumHallCatalog(id: 'mind-consciousness-self'): (typeof MUSEUM_HALLS)[5];
 export function getMuseumHallCatalog(id: MuseumHallId): (typeof MUSEUM_HALLS)[number];
 export function getMuseumHallCatalog(id: string): MuseumHallCatalog | undefined;
 export function getMuseumHallCatalog(id: string): MuseumHallCatalog | undefined {

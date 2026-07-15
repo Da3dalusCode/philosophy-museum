@@ -267,7 +267,7 @@ function Directory({route, href, push, returnFocus, onClose, onGuidedStart, onHa
   const selectedHall = getMuseumHallCatalog(selectedHallId)!;
   return <MuseumModal labelledBy={titleId} describedBy={descriptionId} returnFocus={returnFocus} onClose={onClose}>
     <div className="museum-overlay-head">
-      <div><p className="eyebrow">Museum directory</p><h2 id={titleId}>Three connected galleries · twenty-four interpreted stops</h2></div>
+      <div><p className="eyebrow">Museum directory</p><h2 id={titleId}>{MUSEUM_HALLS.length} connected galleries · {MUSEUM_HALLS.reduce((total, hall) => total + hall.exhibits.length, 0)} interpreted stops</h2></div>
       <button className="museum-icon-button" type="button" onClick={onClose} aria-label="Close Museum directory"><X/></button>
     </div>
     <p id={descriptionId}>Choose a gallery, stage a safe room viewpoint, or open any exhibit without relying on free movement.</p>
@@ -533,6 +533,9 @@ export function MuseumPage({route, href, push, replace}: {
     renderedHallIdsRef.current = new Set([...renderedHallIdsRef.current].filter((id) => id !== hallId));
     readyHallIdsRef.current = new Set([...readyHallIdsRef.current].filter((id) => id !== hallId));
     setReadyHallIds(new Set(readyHallIdsRef.current));
+    setHallLoadStatus((current) => failedHallContentIdsRef.current.has(hallId)
+      ? current
+      : {...current, [hallId]: 'idle'});
     const waiter = hallRenderWaiterRef.current.get(hallId);
     if (waiter) {
       hallRenderWaiterRef.current.delete(hallId);

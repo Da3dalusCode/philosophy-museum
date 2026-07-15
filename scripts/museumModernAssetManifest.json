@@ -576,6 +576,870 @@
         "bytes": 252506,
         "sha256": "030b11742306f83fe3c7d6a386ef058e4a30de75476b1f2305dd411765aad8f8"
       }
+    },
+    "peirce-sarony-portrait": {
+      "hallFolder": "logic-language-science",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Charles_Sanders_Peirce.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/58/Charles_Sanders_Peirce.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Charles_Sanders_Peirce.jpg/1280px-Charles_Sanders_Peirce.jpg",
+      "scene": {
+        "width": 469,
+        "height": 640,
+        "bytes": 28494,
+        "sha256": "68de2880f952d6dcad7441bd7b9583a77c2abea6927ba2bde2fc96dcd159d872"
+      },
+      "panel": {
+        "width": 937,
+        "height": 1280,
+        "bytes": 254842,
+        "sha256": "85c1c69e3b97289f8cc9952e04457e5d3a7d97bc5fd543bfcf33ef2f895af6c4"
+      }
+    },
+    "peirce-existential-graphs": {
+      "hallFolder": "logic-language-science",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:CS_Peirce_MS_145-_p_20.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/88/CS_Peirce_MS_145-_p_20.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/8/88/CS_Peirce_MS_145-_p_20.jpg",
+      "scene": {
+        "width": 483,
+        "height": 640,
+        "bytes": 46980,
+        "sha256": "94692079352cb03f73e05de9448ec1d1278ca008a2b0272dbb666abe25ce2cd4"
+      },
+      "panel": {
+        "width": 967,
+        "height": 1280,
+        "bytes": 196500,
+        "sha256": "367e814977fcdaeada8edc2625131fef1fc9ad833234845229fd33657a8299f8"
+      }
+    },
+    "frege-portrait": {
+      "hallFolder": "logic-language-science",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Young_frege.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/99/Young_frege.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/9/99/Young_frege.jpg",
+      "scene": {
+        "width": 458,
+        "height": 619,
+        "bytes": 19284,
+        "sha256": "6d1e3bb881562925c4de2f0a00bf7204fee85d0afefb87d256b052b87144aeb9"
+      },
+      "panel": {
+        "width": 458,
+        "height": 619,
+        "bytes": 29572,
+        "sha256": "e56183480b32e99300f48900c0a6ba5360e5eb6df951f10c354c50ba980e5426"
+      }
+    },
+    "frege-begriffsschrift-1879": {
+      "hallFolder": "logic-language-science",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Begriffsschrift.djvu",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Begriffsschrift.djvu",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Begriffsschrift.djvu/page1-1280px-Begriffsschrift.djvu.jpg",
+      "scene": {
+        "width": 401,
+        "height": 640,
+        "bytes": 93290,
+        "sha256": "bbfe8dc828d8954b60b8e3fa0c6ee3f6a44ee3f41ad3fbb396c4c8ed5249445e"
+      },
+      "panel": {
+        "width": 801,
+        "height": 1280,
+        "bytes": 327916,
+        "sha256": "b49f11aedd3120bf02521d698cd45ade48de5683dd89d8ce30a9de7f643b4add"
+      }
+    },
+    "russell-portrait-1894": {
+      "hallFolder": "logic-language-science",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Bertrand_Russell,_1894.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/11/Bertrand_Russell%2C_1894.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Bertrand_Russell%2C_1894.jpg/1280px-Bertrand_Russell%2C_1894.jpg",
+      "scene": {
+        "width": 395,
+        "height": 640,
+        "bytes": 12634,
+        "sha256": "d9af188f5b8861b41a70b790707461f57b9e566a6802408f4e0cea4ae76f56dd"
+      },
+      "panel": {
+        "width": 790,
+        "height": 1280,
+        "bytes": 37488,
+        "sha256": "d930816011b12245c72d1c1d0a79ffb6b1fe8af9f00acfc7fe73ab22d9c434d4"
+      }
+    },
+    "russell-on-denoting-1905": {
+      "hallFolder": "logic-language-science",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:On_Denoting.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/bb/On_Denoting.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/b/bb/On_Denoting.jpg",
+      "scene": {
+        "width": 360,
+        "height": 640,
+        "bytes": 21984,
+        "sha256": "3df3315159c3918f90ba2da2b347e409efd58ff0d1a3b13ca0cb0a4cd60f9809"
+      },
+      "panel": {
+        "width": 720,
+        "height": 1280,
+        "bytes": 97296,
+        "sha256": "b2c10bf27b644a5c4bfc8d4785f670c1a2977b6bde7a736ea008b2842c9cdd2e"
+      }
+    },
+    "dewey-portrait-1902": {
+      "hallFolder": "logic-language-science",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:John_Dewey_in_1902.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/91/John_Dewey_in_1902.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/9/91/John_Dewey_in_1902.jpg",
+      "scene": {
+        "width": 489,
+        "height": 640,
+        "bytes": 54422,
+        "sha256": "0c86b4eff8c54dc56ec3ef1fb2d774c81816954fd3593817a43b9f427c2f0641"
+      },
+      "panel": {
+        "width": 979,
+        "height": 1280,
+        "bytes": 403786,
+        "sha256": "945edd786a13831223cefe9750812e9adc10c83e8097f3041608486b9cd6da31"
+      }
+    },
+    "dewey-democracy-education-1916": {
+      "hallFolder": "logic-language-science",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Democracy_and_Education_title_page.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8c/Democracy_and_Education_title_page.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8c/Democracy_and_Education_title_page.jpg",
+      "scene": {
+        "width": 398,
+        "height": 640,
+        "bytes": 11156,
+        "sha256": "3c97fa5e1fb9308614157268ce8e8e0114010689ebe6b735b0f71c5adeecd55a"
+      },
+      "panel": {
+        "width": 796,
+        "height": 1280,
+        "bytes": 30588,
+        "sha256": "53332ce7d17b30d2247ceed2ef7f4113c36b53ea5d2af8676047219caecb395a"
+      }
+    },
+    "carnap-portrait": {
+      "hallFolder": "logic-language-science",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Rudolf_Carnap_1895.jpeg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/04/Rudolf_Carnap_1895.jpeg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Rudolf_Carnap_1895.jpeg/1280px-Rudolf_Carnap_1895.jpeg",
+      "scene": {
+        "width": 427,
+        "height": 640,
+        "bytes": 14120,
+        "sha256": "5a93c78f7a285572da0d866420a4648f23116c6bdfc47d3a54a078daa8affb78"
+      },
+      "panel": {
+        "width": 853,
+        "height": 1280,
+        "bytes": 97690,
+        "sha256": "0c0be2da4f64b4249c4e2f65b6886d13f3d0fd5974d5ed35c10ebe5e527b6518"
+      }
+    },
+    "carnap-reichenbach-collection": {
+      "hallFolder": "logic-language-science",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Carnap_and_Reichenback_collection.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/43/Carnap_and_Reichenback_collection.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Carnap_and_Reichenback_collection.jpg/1280px-Carnap_and_Reichenback_collection.jpg",
+      "scene": {
+        "width": 368,
+        "height": 640,
+        "bytes": 19284,
+        "sha256": "6e16815e3060fd39fdb4396912b2a8272f235f88d0574b5b0469b6ede8835b8c"
+      },
+      "panel": {
+        "width": 735,
+        "height": 1280,
+        "bytes": 81376,
+        "sha256": "9f5881d3a29a142082ed165bbb7d19a14fd40497031f9e16c315c038aea8044a"
+      }
+    },
+    "popper-portrait-1987": {
+      "hallFolder": "logic-language-science",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Photo_of_Karl_Popper.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/82/Photo_of_Karl_Popper.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/8/82/Photo_of_Karl_Popper.jpg",
+      "scene": {
+        "width": 416,
+        "height": 640,
+        "bytes": 16078,
+        "sha256": "57d98031f9e5275eccfad14e83c6aaefed1d7505306f352defda86411de08dd4"
+      },
+      "panel": {
+        "width": 574,
+        "height": 883,
+        "bytes": 37042,
+        "sha256": "32dfcdff6e965712654328c8966e29f0608ea38a05aafc74315f1e1b7e21dcde"
+      }
+    },
+    "popper-alien-registration": {
+      "hallFolder": "logic-language-science",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Karl_Raimund_Popper-_Alien_Registration_File_(27420130910).jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4f/Karl_Raimund_Popper-_Alien_Registration_File_%2827420130910%29.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Karl_Raimund_Popper-_Alien_Registration_File_%2827420130910%29.jpg/1280px-Karl_Raimund_Popper-_Alien_Registration_File_%2827420130910%29.jpg",
+      "scene": {
+        "width": 640,
+        "height": 335,
+        "bytes": 58094,
+        "sha256": "8e38b143ef28b4f29cd55e79331750a5cc5eb3d175f316493b872a690f9de0be"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 670,
+        "bytes": 281498,
+        "sha256": "47c3bc29e913bf744ac2dabcc0936e59cffc050489938585cf3dddf9139a4bb4"
+      }
+    },
+    "quine-portrait": {
+      "hallFolder": "logic-language-science",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Willard_Van_Orman_Quine_on_Bluenose_II_in_Halifax_NS_harbor_1980.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/cd/Willard_Van_Orman_Quine_on_Bluenose_II_in_Halifax_NS_harbor_1980.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/c/cd/Willard_Van_Orman_Quine_on_Bluenose_II_in_Halifax_NS_harbor_1980.jpg",
+      "scene": {
+        "width": 501,
+        "height": 640,
+        "bytes": 38486,
+        "sha256": "ce3492c709630d7fe4e64e73bd305a48c782b86fb945043e4820392f35942b31"
+      },
+      "panel": {
+        "width": 649,
+        "height": 829,
+        "bytes": 73526,
+        "sha256": "f5848d1cfce8cdffdca138d92c965cf7c03b8d66ad9b37540f6a2779c9501597"
+      }
+    },
+    "quine-qualitative-sphere": {
+      "hallFolder": "logic-language-science",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Quine%27s_qualitative_sphere.pdf",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0b/Quine%27s_qualitative_sphere.pdf",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Quine%27s_qualitative_sphere.pdf/page1-1280px-Quine%27s_qualitative_sphere.pdf.jpg",
+      "scene": {
+        "width": 640,
+        "height": 612,
+        "bytes": 24576,
+        "sha256": "f3e05491991d0604ebe6894d7718abf55d8164e75f9338f058b333d4318d2ad3"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 1223,
+        "bytes": 90420,
+        "sha256": "db749b3a3af052d1c3fcfb2c29dbf6f039cea60b3cfc53b6af3e3b5bcc21742e"
+      }
+    },
+    "kuhn-portrait-1977": {
+      "hallFolder": "logic-language-science",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Thomas_Kuhn_(1977).jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/67/Thomas_Kuhn_%281977%29.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Thomas_Kuhn_%281977%29.jpg/1280px-Thomas_Kuhn_%281977%29.jpg",
+      "scene": {
+        "width": 640,
+        "height": 434,
+        "bytes": 83446,
+        "sha256": "2a2f5963ac4dcde8a0f9a06e374498232f7a70d3a28143f2ef67d6c4e3352c87"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 868,
+        "bytes": 475076,
+        "sha256": "1d0ef08a63be11de103b0ebf5f142b567e63a2645e245c2152d70671fbede1ed"
+      }
+    },
+    "kuhn-structure-1962": {
+      "hallFolder": "logic-language-science",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:The_Structure_of_Scientific_Revolutions_2nd_edition_Thomas_Kuhn.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a4/The_Structure_of_Scientific_Revolutions_2nd_edition_Thomas_Kuhn.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a4/The_Structure_of_Scientific_Revolutions_2nd_edition_Thomas_Kuhn.jpg",
+      "scene": {
+        "width": 480,
+        "height": 640,
+        "bytes": 25614,
+        "sha256": "eba21c7446e73e9c14ae5ce5f92e771e36c03f3d3594ad8260ce90ac2cc30aa5"
+      },
+      "panel": {
+        "width": 867,
+        "height": 1156,
+        "bytes": 83558,
+        "sha256": "28c8ad5b408665d1278ab3d36018a56f979cc1563a8a4217fbcf5ca1cf0edab9"
+      }
+    },
+    "bentham-pickering-portrait": {
+      "hallFolder": "ethics-justice-political-life",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Jeremy_Bentham_by_Henry_William_Pickersgill.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e8/Jeremy_Bentham_by_Henry_William_Pickersgill.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Jeremy_Bentham_by_Henry_William_Pickersgill.jpg/1280px-Jeremy_Bentham_by_Henry_William_Pickersgill.jpg",
+      "scene": {
+        "width": 433,
+        "height": 640,
+        "bytes": 10316,
+        "sha256": "83aab6cb989483281abb346f2b67361d5b99a2f9235310f559ae82b2f9517646"
+      },
+      "panel": {
+        "width": 866,
+        "height": 1280,
+        "bytes": 68908,
+        "sha256": "a9157d7d4d51a2fe185c3b600ea366c9906137dd37114182aa3e2da8b954e389"
+      }
+    },
+    "bentham-principles-1823": {
+      "hallFolder": "ethics-justice-political-life",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:An_introduction_to_the_principles_of_morals_and_legislation_(IA_introductiontopr01bent).pdf",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/50/An_introduction_to_the_principles_of_morals_and_legislation_%28IA_introductiontopr01bent%29.pdf",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/An_introduction_to_the_principles_of_morals_and_legislation_%28IA_introductiontopr01bent%29.pdf/page1-500px-An_introduction_to_the_principles_of_morals_and_legislation_%28IA_introductiontopr01bent%29.pdf.jpg",
+      "scene": {
+        "width": 408,
+        "height": 640,
+        "bytes": 45170,
+        "sha256": "77c87a007c10f8283e7ae00719ba4cee811c5b6424b3169d3291895110d2a168"
+      },
+      "panel": {
+        "width": 500,
+        "height": 785,
+        "bytes": 86774,
+        "sha256": "988d57b96fac74655d776b64348b9472e9f09bf819becd4bc932c6fecbb3b610"
+      }
+    },
+    "wollstonecraft-opie-portrait": {
+      "hallFolder": "ethics-justice-political-life",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Mary_Wollstonecraft_Portrait.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a7/Mary_Wollstonecraft_Portrait.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Mary_Wollstonecraft_Portrait.jpg/1280px-Mary_Wollstonecraft_Portrait.jpg",
+      "scene": {
+        "width": 531,
+        "height": 640,
+        "bytes": 24264,
+        "sha256": "9458e446be6f67e987c4abcaa712330f963f790c128343a6e3f12bfc1075dbc0"
+      },
+      "panel": {
+        "width": 1062,
+        "height": 1280,
+        "bytes": 124258,
+        "sha256": "61c84b7c2682ca32acda35c020c9a6ed6b101f3cdd42e2c94ff78758d884d463"
+      }
+    },
+    "wollstonecraft-vindication-1792": {
+      "hallFolder": "ethics-justice-political-life",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:A_Vindication_of_the_Rights_of_Woman_title_page.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f1/A_Vindication_of_the_Rights_of_Woman_title_page.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/A_Vindication_of_the_Rights_of_Woman_title_page.jpg/1280px-A_Vindication_of_the_Rights_of_Woman_title_page.jpg",
+      "scene": {
+        "width": 343,
+        "height": 640,
+        "bytes": 10520,
+        "sha256": "30ff25d20391e4f5cb16ad6c87ff7fd1a037c3343fc01b8ae4c019734b3e10de"
+      },
+      "panel": {
+        "width": 686,
+        "height": 1280,
+        "bytes": 86098,
+        "sha256": "10dfc8cdab593a377ca9e00d80bab013bc76ba0c251c82ae45f18a6587535179"
+      }
+    },
+    "mill-stereoscopic-portrait": {
+      "hallFolder": "ethics-justice-political-life",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:John_Stuart_Mill_by_London_Stereoscopic_Company,_c1870.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/99/John_Stuart_Mill_by_London_Stereoscopic_Company%2C_c1870.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/9/99/John_Stuart_Mill_by_London_Stereoscopic_Company%2C_c1870.jpg",
+      "scene": {
+        "width": 510,
+        "height": 640,
+        "bytes": 29986,
+        "sha256": "ef9a1d90b689e4c2e4923018833d5b4047a6d8fc337e53745c35c99065e8e86d"
+      },
+      "panel": {
+        "width": 1019,
+        "height": 1280,
+        "bytes": 122900,
+        "sha256": "ca347ebeeec46e3a734fa3a8a639febbbd19a6c5cdd4aff9bee8a62f6fd7f7e3"
+      }
+    },
+    "mill-on-liberty-1859": {
+      "hallFolder": "ethics-justice-political-life",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:On_Liberty_(first_edition_title_page_via_facsimile).jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/72/On_Liberty_%28first_edition_title_page_via_facsimile%29.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/On_Liberty_%28first_edition_title_page_via_facsimile%29.jpg/1280px-On_Liberty_%28first_edition_title_page_via_facsimile%29.jpg",
+      "scene": {
+        "width": 386,
+        "height": 640,
+        "bytes": 7306,
+        "sha256": "3ff96140610d52020a83354c5473c102d1baba7801b7c5289f975b66f585758e"
+      },
+      "panel": {
+        "width": 771,
+        "height": 1280,
+        "bytes": 52790,
+        "sha256": "7e115fe442463e8e62c1f0e57d595e54fbb51bd36ec9023faddd0f14d2da8d83"
+      }
+    },
+    "arendt-portrait-1933": {
+      "hallFolder": "ethics-justice-political-life",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Hannah_Arendt_1933.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b1/Hannah_Arendt_1933.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b1/Hannah_Arendt_1933.jpg",
+      "scene": {
+        "width": 517,
+        "height": 640,
+        "bytes": 22864,
+        "sha256": "63f2ad65f835422a5ef21ddf9e70d21813c1965ebb709f41fd11bb72616f7768"
+      },
+      "panel": {
+        "width": 1035,
+        "height": 1280,
+        "bytes": 85398,
+        "sha256": "a41e54ff8e90de3a1f7d725ab23cbbe331540ab8680cdf45619fc22c5df38f0f"
+      }
+    },
+    "arendt-grave-bard": {
+      "hallFolder": "ethics-justice-political-life",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:HannahArendtGrave-BardCollege.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/44/HannahArendtGrave-BardCollege.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/HannahArendtGrave-BardCollege.jpg/1280px-HannahArendtGrave-BardCollege.jpg",
+      "scene": {
+        "width": 640,
+        "height": 470,
+        "bytes": 93214,
+        "sha256": "e002faf92ad0f2e2237fb8a94f4a3fe1873aa41805783abcfbd59be14b726dd4"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 939,
+        "bytes": 292520,
+        "sha256": "f40e5a3e6a4064fd7ad8aec1fe96d1ea91a9fbc2bbf60d92cf4022992137ebae"
+      }
+    },
+    "fanon-portrait": {
+      "hallFolder": "ethics-justice-political-life",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Photograph_of_Frantz_Fanon_from_Black_Skin_White_Masks_(1967)_dust_jacket.webp",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d0/Photograph_of_Frantz_Fanon_from_Black_Skin_White_Masks_%281967%29_dust_jacket.webp",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Photograph_of_Frantz_Fanon_from_Black_Skin_White_Masks_%281967%29_dust_jacket.webp/1280px-Photograph_of_Frantz_Fanon_from_Black_Skin_White_Masks_%281967%29_dust_jacket.webp.png",
+      "scene": {
+        "width": 461,
+        "height": 640,
+        "bytes": 23808,
+        "sha256": "df0c91f616de929e84583029c549c90bd3e6d5c89b69d4f71e023d78984d346b"
+      },
+      "panel": {
+        "width": 921,
+        "height": 1280,
+        "bytes": 89972,
+        "sha256": "267730e749beb9039399d1ef6b8cd130d509e6b89282c1cc0bcf119e6364dcfd"
+      }
+    },
+    "fanon-paris-plaque": {
+      "hallFolder": "ethics-justice-political-life",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Plaque_Rue_Frantz_Fanon_-_Paris_XX_(FR75)_-_2024-11-23_-_4.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Plaque_Rue_Frantz_Fanon_-_Paris_XX_%28FR75%29_-_2024-11-23_-_4.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Plaque_Rue_Frantz_Fanon_-_Paris_XX_%28FR75%29_-_2024-11-23_-_4.jpg/1280px-Plaque_Rue_Frantz_Fanon_-_Paris_XX_%28FR75%29_-_2024-11-23_-_4.jpg",
+      "scene": {
+        "width": 640,
+        "height": 480,
+        "bytes": 48410,
+        "sha256": "03f35b702eddcdc9bf4b0c16e7bbaf944cb4f22bf3f0c4931200fd9d63ad8c1a"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 960,
+        "bytes": 211928,
+        "sha256": "62b3e747018b84b812b7fe526ea8168b4aa8d053b8f62157df172d48d938f864"
+      }
+    },
+    "rawls-portrait": {
+      "hallFolder": "ethics-justice-political-life",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:John_Rawls_(1971_photo_portrait).jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/dd/John_Rawls_%281971_photo_portrait%29.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/d/dd/John_Rawls_%281971_photo_portrait%29.jpg",
+      "scene": {
+        "width": 457,
+        "height": 640,
+        "bytes": 48908,
+        "sha256": "538e882906d291d34716d9356e8583a86a2ae5c478f4ac5a145d53da7afcd04b"
+      },
+      "panel": {
+        "width": 914,
+        "height": 1280,
+        "bytes": 230162,
+        "sha256": "dcf5b85a2a6e8442d3ad296d82a7174e21378e06ff1446409fd8e3ef9ce2e0bc"
+      }
+    },
+    "rawls-theory-justice-1971": {
+      "hallFolder": "ethics-justice-political-life",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:A_Theory_of_Justice_-_first_American_hardcover_edition.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/28/A_Theory_of_Justice_-_first_American_hardcover_edition.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/2/28/A_Theory_of_Justice_-_first_American_hardcover_edition.jpg",
+      "scene": {
+        "width": 429,
+        "height": 640,
+        "bytes": 18324,
+        "sha256": "3089868520021eef7eb90f36f0568fb8b3e4b58da09d8579890b62b5f255f3df"
+      },
+      "panel": {
+        "width": 478,
+        "height": 713,
+        "bytes": 34258,
+        "sha256": "c17a8f5242dd822c23c17cbdfa3763b20b50278b5714750fcfce30b77c2798ad"
+      }
+    },
+    "nozick-portrait": {
+      "hallFolder": "ethics-justice-political-life",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Robert_Nozick_1977_Libertarian_Review_cover.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b2/Robert_Nozick_1977_Libertarian_Review_cover.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b2/Robert_Nozick_1977_Libertarian_Review_cover.jpg",
+      "scene": {
+        "width": 637,
+        "height": 640,
+        "bytes": 75804,
+        "sha256": "d4a83f34721fa5601abe58f9287903fb360b2cedc958bb20ac146e61cad8fa39"
+      },
+      "panel": {
+        "width": 1268,
+        "height": 1273,
+        "bytes": 270718,
+        "sha256": "ee4cdad4266e4ca7d2624f25eb8a6ce0a3f2614abf2e9984148e927216b42aec"
+      }
+    },
+    "nozick-anarchy-state-utopia-1974": {
+      "hallFolder": "ethics-justice-political-life",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Anarchy,_State,_and_Utopia_(first_edition).JPG",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b7/Anarchy%2C_State%2C_and_Utopia_%28first_edition%29.JPG",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b7/Anarchy%2C_State%2C_and_Utopia_%28first_edition%29.JPG",
+      "scene": {
+        "width": 432,
+        "height": 640,
+        "bytes": 26220,
+        "sha256": "4f00eb70b2005c3defdf1d49407841ecf3ee594f6a397cde7037f8dc16eda664"
+      },
+      "panel": {
+        "width": 644,
+        "height": 954,
+        "bytes": 77378,
+        "sha256": "14717c5d65fa1c8bd4bc9dcaabfcc87b6e87edb7d85cc28b587f661f67862aca"
+      }
+    },
+    "habermas-portrait": {
+      "hallFolder": "ethics-justice-political-life",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:JuergenHabermas.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4d/JuergenHabermas.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/JuergenHabermas.jpg/1280px-JuergenHabermas.jpg",
+      "scene": {
+        "width": 640,
+        "height": 427,
+        "bytes": 25054,
+        "sha256": "ecc33da9ab6af29a6ef79bb85546cd2edfeec198a935d1245cf8ccb7db4866be"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 853,
+        "bytes": 176520,
+        "sha256": "597fa8c029c0870e9ed1360b7f047e78f4b76d6270983a1d1c42b0f0ccb47d47"
+      }
+    },
+    "habermas-lecture-2011": {
+      "hallFolder": "ethics-justice-political-life",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Juergen_Habermas_2011_3-Bildausschnitt.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Juergen_Habermas_2011_3-Bildausschnitt.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Juergen_Habermas_2011_3-Bildausschnitt.jpg/1280px-Juergen_Habermas_2011_3-Bildausschnitt.jpg",
+      "scene": {
+        "width": 640,
+        "height": 618,
+        "bytes": 18110,
+        "sha256": "112162384cdababcd023041f71a438af7981f981165abd410faab0cc82c60394"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 1235,
+        "bytes": 116916,
+        "sha256": "836987a8e4506d5ae7d744ffd9b9bdf4bd02de6c44104f788c5647ca97093bf9"
+      }
+    },
+    "patanjali-statue": {
+      "hallFolder": "mind-consciousness-self",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Patanjali.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/47/Patanjali.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/4/47/Patanjali.jpg",
+      "scene": {
+        "width": 457,
+        "height": 640,
+        "bytes": 41476,
+        "sha256": "714c044ecd144dedb2108ff9934116e1689b7b2967d116a89b51fba739831bfb"
+      },
+      "panel": {
+        "width": 476,
+        "height": 666,
+        "bytes": 52820,
+        "sha256": "22bac35474d3d430f85ed84e49f3f2bd0fe3486b6aaf5b930212cd7c1f4b56d1"
+      }
+    },
+    "patanjali-yoga-sutra-manuscript": {
+      "hallFolder": "mind-consciousness-self",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Patanjali_Yoga_Sutras_manuscript.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c8/Patanjali_Yoga_Sutras_manuscript.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c8/Patanjali_Yoga_Sutras_manuscript.jpg",
+      "scene": {
+        "width": 640,
+        "height": 577,
+        "bytes": 89922,
+        "sha256": "fbc70ec9f3a490dbdba7f1eb739a760844023321f323c48146b030622c4d15bf"
+      },
+      "panel": {
+        "width": 1029,
+        "height": 928,
+        "bytes": 242874,
+        "sha256": "4abc6d51ab30233326971b3a42922ec522989414c5057572f49d782e4b1ce462"
+      }
+    },
+    "vasubandhu-statue": {
+      "hallFolder": "mind-consciousness-self",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Seshin_Vasubandhu_Kofukuji.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/17/Seshin_Vasubandhu_Kofukuji.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/1/17/Seshin_Vasubandhu_Kofukuji.jpg",
+      "scene": {
+        "width": 465,
+        "height": 640,
+        "bytes": 36172,
+        "sha256": "d4ce6c58bbe3bd97fd258e5d0b83d10ce50b11e92d5f557739fe9f5731fa5d3c"
+      },
+      "panel": {
+        "width": 740,
+        "height": 1018,
+        "bytes": 89064,
+        "sha256": "6b058a95833ba17d6a61da5c6492a96d3d8d446abddd34e360ab20a023dc6324"
+      }
+    },
+    "vasubandhu-abhidharmakosha-manuscript": {
+      "hallFolder": "mind-consciousness-self",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Japan,_late_Heian_period_-_Further_Discourses_on_the_Supreme_Truth_(Abidharmakosha-Bhashya)_-_1916.1060_-_Cleveland_Museum_of_Art.tif",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b9/Japan%2C_late_Heian_period_-_Further_Discourses_on_the_Supreme_Truth_%28Abidharmakosha-Bhashya%29_-_1916.1060_-_Cleveland_Museum_of_Art.tif",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Japan%2C_late_Heian_period_-_Further_Discourses_on_the_Supreme_Truth_%28Abidharmakosha-Bhashya%29_-_1916.1060_-_Cleveland_Museum_of_Art.tif/lossy-page1-1280px-Japan%2C_late_Heian_period_-_Further_Discourses_on_the_Supreme_Truth_%28Abidharmakosha-Bhashya%29_-_1916.1060_-_Cleveland_Museum_of_Art.tif.jpg",
+      "scene": {
+        "width": 640,
+        "height": 488,
+        "bytes": 25824,
+        "sha256": "be9fa53b0702953f41becede46df96bf3d5b1eee8bf256a8901a7f63b5616734"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 975,
+        "bytes": 139912,
+        "sha256": "9cdfe7a4b91e44aac3ce2fee8a4a0dd791e45cc752ea88a3ed76f7c568ca273e"
+      }
+    },
+    "william-james-portrait": {
+      "hallFolder": "mind-consciousness-self",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:William_James_b1842c.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9c/William_James_b1842c.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/William_James_b1842c.jpg/1280px-William_James_b1842c.jpg",
+      "scene": {
+        "width": 480,
+        "height": 640,
+        "bytes": 18970,
+        "sha256": "2b0f2700a0e1eb125632a269510e2589420d71291d2f3a850d357f875aa4d275"
+      },
+      "panel": {
+        "width": 960,
+        "height": 1280,
+        "bytes": 144662,
+        "sha256": "10d56364e7af46fb22a8ae6db92b1fee2aec6f43dbb5b3b279f09bb86fc95d81"
+      }
+    },
+    "william-james-principles-1890": {
+      "hallFolder": "mind-consciousness-self",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Principles_of_Psychology_(James)_v1_pi.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fc/Principles_of_Psychology_%28James%29_v1_pi.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fc/Principles_of_Psychology_%28James%29_v1_pi.jpg",
+      "scene": {
+        "width": 391,
+        "height": 640,
+        "bytes": 12234,
+        "sha256": "2bf04e7fe851a90f0fbc6d2dd10c2c9deb7dbb26cd4ad60282dcaa22cdcca247"
+      },
+      "panel": {
+        "width": 782,
+        "height": 1280,
+        "bytes": 43094,
+        "sha256": "d0ff1004f52e1664a32dee0abeb601f34c30fe122665705a0d2d8234d91cc355"
+      }
+    },
+    "husserl-portrait": {
+      "hallFolder": "mind-consciousness-self",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Edmund_Husserl_1910s.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8d/Edmund_Husserl_1910s.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Edmund_Husserl_1910s.jpg/1280px-Edmund_Husserl_1910s.jpg",
+      "scene": {
+        "width": 446,
+        "height": 640,
+        "bytes": 32252,
+        "sha256": "ac0c11f94368b97b95e1f89926d1284f40fa354bb21d314c43cf65d2f1213035"
+      },
+      "panel": {
+        "width": 893,
+        "height": 1280,
+        "bytes": 135238,
+        "sha256": "d449d5d6dbc202328f3cf3dc0f95d622f4bae44b4e6773acff45e0badd0c2cf1"
+      }
+    },
+    "husserl-goettingen-plaque": {
+      "hallFolder": "mind-consciousness-self",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:G%C3%B6ttinger_Gedenktafel,_Husserl,_Edmund,_1,_Hermann-F%C3%B6ge-Weg_7,_Oststadt,_G%C3%B6ttingen,_Landkreis_G%C3%B6ttingen.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0d/G%C3%B6ttinger_Gedenktafel%2C_Husserl%2C_Edmund%2C_1%2C_Hermann-F%C3%B6ge-Weg_7%2C_Oststadt%2C_G%C3%B6ttingen%2C_Landkreis_G%C3%B6ttingen.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/G%C3%B6ttinger_Gedenktafel%2C_Husserl%2C_Edmund%2C_1%2C_Hermann-F%C3%B6ge-Weg_7%2C_Oststadt%2C_G%C3%B6ttingen%2C_Landkreis_G%C3%B6ttingen.jpg/1280px-G%C3%B6ttinger_Gedenktafel%2C_Husserl%2C_Edmund%2C_1%2C_Hermann-F%C3%B6ge-Weg_7%2C_Oststadt%2C_G%C3%B6ttingen%2C_Landkreis_G%C3%B6ttingen.jpg",
+      "scene": {
+        "width": 640,
+        "height": 480,
+        "bytes": 42464,
+        "sha256": "4b6ecffbffec18863eba11a600ba98c0bfb56104c02c25d5440f70c871a2a13a"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 960,
+        "bytes": 224006,
+        "sha256": "5b0d1f9408bc893064eb41a8fb6ec685eb2ab247b52f20838183eb227792e0f9"
+      }
+    },
+    "merleau-ponty-portrait": {
+      "hallFolder": "mind-consciousness-self",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Maurice_Merleau-Ponty.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/98/Maurice_Merleau-Ponty.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/9/98/Maurice_Merleau-Ponty.jpg",
+      "scene": {
+        "width": 454,
+        "height": 640,
+        "bytes": 23888,
+        "sha256": "6be65fb17a970c927cd7d72235a47d3596d2fc610f6636c8e04fad26e77023e5"
+      },
+      "panel": {
+        "width": 463,
+        "height": 652,
+        "bytes": 38422,
+        "sha256": "fb70f34fa2b78ed6e52b995ca9768ca570c82a53561166d97e45d02df9c4b170"
+      }
+    },
+    "merleau-ponty-grave": {
+      "hallFolder": "mind-consciousness-self",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Maurice_Merleau-Ponty_tombe.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Maurice_Merleau-Ponty_tombe.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Maurice_Merleau-Ponty_tombe.jpg/1280px-Maurice_Merleau-Ponty_tombe.jpg",
+      "scene": {
+        "width": 482,
+        "height": 640,
+        "bytes": 75496,
+        "sha256": "d92c91c2ac5aaba2b1ed40c862f2d83cbfaf7aaff3a5cce9ea124fbfa616dcc9"
+      },
+      "panel": {
+        "width": 964,
+        "height": 1280,
+        "bytes": 437302,
+        "sha256": "04ad4a0ce9613c43837dd2b73cc4704d63b400d6b7bc0056a469d5e6d9cbc3ee"
+      }
+    },
+    "anscombe-portrait": {
+      "hallFolder": "mind-consciousness-self",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Elisabeth_Anscombe.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/86/Elisabeth_Anscombe.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Elisabeth_Anscombe.jpg/1280px-Elisabeth_Anscombe.jpg",
+      "scene": {
+        "width": 640,
+        "height": 640,
+        "bytes": 10850,
+        "sha256": "f02d1bd8a5e2728107232d47181e68bbd1275cf64b65462fc634c90e65752036"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 1279,
+        "bytes": 36784,
+        "sha256": "a1b14c6330dcb5602135c139560f420d33408ee1882400b1189e1d431e0dfc12"
+      }
+    },
+    "anscombe-philosophical-investigations-1953": {
+      "hallFolder": "mind-consciousness-self",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Ludwig_Wittgenstein_-_Philosophical_Investigations,_1953.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/92/Ludwig_Wittgenstein_-_Philosophical_Investigations%2C_1953.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/9/92/Ludwig_Wittgenstein_-_Philosophical_Investigations%2C_1953.jpg",
+      "scene": {
+        "width": 423,
+        "height": 640,
+        "bytes": 19354,
+        "sha256": "9e740fae760e555aad1e2d6a2c800f71e7f54be807ab071d8ec1eb142f8d4815"
+      },
+      "panel": {
+        "width": 574,
+        "height": 868,
+        "bytes": 56874,
+        "sha256": "71990ef407b1959ba66737c8cba22eab97d0ed4f7035da4790415cb53c15f5f7"
+      }
+    },
+    "thomas-nagel-portrait": {
+      "hallFolder": "mind-consciousness-self",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Thomas_Nagel.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/22/Thomas_Nagel.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Thomas_Nagel.jpg/1280px-Thomas_Nagel.jpg",
+      "scene": {
+        "width": 640,
+        "height": 495,
+        "bytes": 42884,
+        "sha256": "7d91d35447b0851192d59bcb78f16e1671a2ec412d2acb57898de95ad0439f35"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 989,
+        "bytes": 287182,
+        "sha256": "3a2f6fc427658774a5f599ab00220ebdfd5fca6cd2d134e1c944f3366ca18b20"
+      }
+    },
+    "thomas-nagel-teaching": {
+      "hallFolder": "mind-consciousness-self",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Thomas_Nagel_teaching_Ethics.JPG",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/10/Thomas_Nagel_teaching_Ethics.JPG",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/1/10/Thomas_Nagel_teaching_Ethics.JPG",
+      "scene": {
+        "width": 576,
+        "height": 432,
+        "bytes": 20386,
+        "sha256": "fba7bb2925e975758d4a9b8b1bea9a49dcc685f0f4740e39f683f27f81231393"
+      },
+      "panel": {
+        "width": 576,
+        "height": 432,
+        "bytes": 30110,
+        "sha256": "b01fa2151b40227ce13b406b5ef8c98a8340a1b804d0429c304d1346b58de4d1"
+      }
+    },
+    "derek-parfit-portrait": {
+      "hallFolder": "mind-consciousness-self",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Derek_Parfit_at_Harvard-April_21,_2015-Effective_Altruism.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/25/Derek_Parfit_at_Harvard-April_21%2C_2015-Effective_Altruism.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Derek_Parfit_at_Harvard-April_21%2C_2015-Effective_Altruism.jpg/1280px-Derek_Parfit_at_Harvard-April_21%2C_2015-Effective_Altruism.jpg",
+      "scene": {
+        "width": 640,
+        "height": 427,
+        "bytes": 17482,
+        "sha256": "537cd2a1b067aaace79cd169e13f979f901dcc5c263bc6aed2413f0c9e934b30"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 853,
+        "bytes": 186412,
+        "sha256": "929d88a6f6985306bbe60551d3f23f2c15d160b10bcbaac3930acf18227a077c"
+      }
+    },
+    "derek-parfit-repugnant-conclusion": {
+      "hallFolder": "mind-consciousness-self",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:RepugnantConclusion.svg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f7/RepugnantConclusion.svg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/RepugnantConclusion.svg/1280px-RepugnantConclusion.svg.png",
+      "scene": {
+        "width": 640,
+        "height": 256,
+        "bytes": 2390,
+        "sha256": "fbcf48f901e2af01911c3c65c2e32a06bce7d507b7dd8844bd18a7aecac467b5"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 512,
+        "bytes": 5134,
+        "sha256": "31a230541edf93bba80367223c5e84f07b484dc164726e2322334e9bc88b06bd"
+      }
     }
   }
 }

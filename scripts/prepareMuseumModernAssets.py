@@ -1,4 +1,4 @@
-"""Build and verify local WebP derivatives for Galleries 02 and 03.
+"""Build and verify local WebP derivatives for Galleries 02 through 06.
 
 The manifest locks exact Commons source pages, selected download URLs, output
 dimensions, byte counts, and SHA-256 digests. Network access is only needed when
@@ -22,9 +22,19 @@ from PIL import Image, ImageOps
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST_PATH = ROOT / "scripts" / "museumModernAssetManifest.json"
 OUTPUT_ROOT = ROOT / "public" / "assets" / "museum"
-USER_AGENT = "Philosophy Atlas Museum asset preparation (local educational project)"
-EXPECTED_HALLS = {"renaissance-reason-revolution", "modernity-freedom-critique"}
-EXPECTED_ASSET_COUNT = 32
+USER_AGENT = (
+    "PhilosophyAtlasMuseum/1.0 "
+    "(+https://github.com/Da3dalusCode/philosophy-museum; local educational asset preparation)"
+)
+EXPECTED_HALLS = {
+    "renaissance-reason-revolution",
+    "modernity-freedom-critique",
+    "logic-language-science",
+    "ethics-justice-political-life",
+    "mind-consciousness-self",
+}
+EXPECTED_ASSET_COUNT = 80
+MAX_DERIVATIVE_BYTES = 600_000
 
 
 def sha256(path: Path) -> str:
@@ -74,7 +84,9 @@ def download(url: str, destination: Path) -> None:
         except urllib.error.HTTPError as error:
             if error.code != 429 or attempt == 4:
                 raise
-            time.sleep(6 * (attempt + 1))
+            retry_after = error.headers.get("Retry-After")
+            suggested_delay = int(retry_after) if retry_after and retry_after.isdigit() else 0
+            time.sleep(min(24, max(suggested_delay, 6 * (attempt + 1))))
     raise RuntimeError(f"Unable to download {url}")
 
 
@@ -91,7 +103,19 @@ def rgb_image(source: Path) -> Image.Image:
 def save_variant(image: Image.Image, destination: Path, maximum: int, quality: int) -> dict[str, int | str]:
     derivative = image.copy()
     derivative.thumbnail((maximum, maximum), Image.Resampling.LANCZOS)
-    derivative.save(destination, "WEBP", quality=quality, method=6)
+    # Dense manuscripts and documentary photographs compress very differently.
+    # Try a fixed, deterministic quality ladder so every committed derivative
+    # stays below the repository's 600 KB ceiling without changing its geometry.
+    qualities = tuple(range(quality, 59, -4))
+    for candidate_quality in qualities:
+        derivative.save(destination, "WEBP", quality=candidate_quality, method=6)
+        if destination.stat().st_size <= MAX_DERIVATIVE_BYTES:
+            break
+    else:
+        raise RuntimeError(
+            f"{destination.name} remains larger than {MAX_DERIVATIVE_BYTES} bytes "
+            f"at WebP quality {qualities[-1]}."
+        )
     return {
         "width": derivative.width,
         "height": derivative.height,
@@ -168,7 +192,9 @@ def main() -> None:
 
             candidate_scene.replace(scene_path)
             candidate_panel.replace(panel_path)
-            time.sleep(3)
+            # Commons asks bulk derivative consumers to pace requests. Keeping
+            # this delay explicit also makes curatorial refreshes predictable.
+            time.sleep(4)
 
     if args.refresh_locks:
         MANIFEST_PATH.write_text(json.dumps(refreshed, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")

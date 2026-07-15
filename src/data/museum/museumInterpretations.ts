@@ -4,6 +4,7 @@ import type {MuseumExhibitRef} from './museumWorldTypes';
 import type {NavigableAppRoute} from '../../routing/routes';
 import {EARLY_MODERN_MUSEUM_INTERPRETATIONS} from './renaissanceReasonRevolutionInterpretations';
 import {MODERNITY_MUSEUM_INTERPRETATIONS} from './modernityFreedomCritiqueInterpretations';
+import {MUSEUM_EXPANSION_INTERPRETATIONS} from './museumExpansionInterpretations';
 
 export type MuseumInterpretationSource = {
   label: string;
@@ -316,6 +317,7 @@ export const MUSEUM_INTERPRETATIONS: readonly MuseumInterpretation[] = [
   ...Object.values(ANCIENT_MUSEUM_INTERPRETATIONS),
   ...EARLY_MODERN_MUSEUM_INTERPRETATIONS,
   ...MODERNITY_MUSEUM_INTERPRETATIONS,
+  ...MUSEUM_EXPANSION_INTERPRETATIONS,
 ];
 
 const activeInterpretationById = new Map(MUSEUM_INTERPRETATIONS.map((record) => [record.id, record]));
