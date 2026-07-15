@@ -194,6 +194,12 @@ check('serializers emit the required literal route families', () => {
     serializeHashRoute({kind: 'museum', hallId: 'ancient-greek', exhibitId: 'plato'}),
     '#/museum/ancient-greek/exhibits/plato',
   );
+  assert.equal(serializeHashRoute({kind: 'museum', hallId: 'logic-language-science'}), '#/museum/logic-language-science');
+  assert.equal(serializeHashRoute({kind: 'museum', hallId: 'logic-language-science', exhibitId: 'peirce'}), '#/museum/logic-language-science/exhibits/peirce');
+  assert.equal(serializeHashRoute({kind: 'museum', hallId: 'ethics-justice-political-life'}), '#/museum/ethics-justice-political-life');
+  assert.equal(serializeHashRoute({kind: 'museum', hallId: 'ethics-justice-political-life', exhibitId: 'rawls'}), '#/museum/ethics-justice-political-life/exhibits/rawls');
+  assert.equal(serializeHashRoute({kind: 'museum', hallId: 'mind-consciousness-self'}), '#/museum/mind-consciousness-self');
+  assert.equal(serializeHashRoute({kind: 'museum', hallId: 'mind-consciousness-self', exhibitId: 'thomas-nagel'}), '#/museum/mind-consciousness-self/exhibits/thomas-nagel');
   assert.equal(
     serializeHashRoute({kind: 'branch', branchId: 'stoicism'}),
     '#/branches/stoicism',
@@ -290,6 +296,9 @@ check('unknown and malformed Museum routes remain visible as not-found', () => {
   expectNotFound('#/museum/ancient-greek/exhibits/aquinas', /No exhibit exists/);
   expectNotFound('#/museum/renaissance-reason-revolution/exhibits/foucault', /No exhibit exists/);
   expectNotFound('#/museum/modernity-freedom-critique/exhibits/kant', /No exhibit exists/);
+  expectNotFound('#/museum/logic-language-science/exhibits/rawls', /No exhibit exists/);
+  expectNotFound('#/museum/ethics-justice-political-life/exhibits/quine', /No exhibit exists/);
+  expectNotFound('#/museum/mind-consciousness-self/exhibits/habermas', /No exhibit exists/);
   expectNotFound('#/museum/ancient-greek/plato', /unexpected shape/);
   expectNotFound('#/museum/ancient-greek/exhibits/plato/extra', /unexpected shape/);
   expectNotFound('#/museum/%', /malformed percent encoding/);
@@ -405,6 +414,12 @@ check('document titles are exhaustive and section-aware', () => {
     getRouteTitle({kind: 'museum', hallId: 'modernity-freedom-critique', exhibitId: 'beauvoir'}),
     'Simone de Beauvoir — Modernity, Freedom, and Critique | Philosophy Atlas',
   );
+  assert.equal(getRouteTitle({kind: 'museum', hallId: 'logic-language-science'}), 'Logic, Language, and Science | Philosophy Atlas');
+  assert.equal(getRouteTitle({kind: 'museum', hallId: 'logic-language-science', exhibitId: 'kuhn'}), 'Thomas Kuhn — Logic, Language, and Science | Philosophy Atlas');
+  assert.equal(getRouteTitle({kind: 'museum', hallId: 'ethics-justice-political-life'}), 'Ethics, Justice, and Political Life | Philosophy Atlas');
+  assert.equal(getRouteTitle({kind: 'museum', hallId: 'ethics-justice-political-life', exhibitId: 'wollstonecraft'}), 'Mary Wollstonecraft — Ethics, Justice, and Political Life | Philosophy Atlas');
+  assert.equal(getRouteTitle({kind: 'museum', hallId: 'mind-consciousness-self'}), 'Mind, Consciousness, and the Self | Philosophy Atlas');
+  assert.equal(getRouteTitle({kind: 'museum', hallId: 'mind-consciousness-self', exhibitId: 'derek-parfit'}), 'Derek Parfit — Mind, Consciousness, and the Self | Philosophy Atlas');
   assert.equal(
     getRouteTitle({kind: 'branch', branchId: 'stoicism', section: 'overview'}),
     'Stoicism — A system for living as a rational and social being | Philosophy Atlas',
@@ -445,6 +460,12 @@ check('canonical hashes remain stable under parse → serialize → parse', () =
     '#/museum/renaissance-reason-revolution/exhibits/kant',
     '#/museum/modernity-freedom-critique',
     '#/museum/modernity-freedom-critique/exhibits/beauvoir',
+    '#/museum/logic-language-science',
+    '#/museum/logic-language-science/exhibits/peirce',
+    '#/museum/ethics-justice-political-life',
+    '#/museum/ethics-justice-political-life/exhibits/rawls',
+    '#/museum/mind-consciousness-self',
+    '#/museum/mind-consciousness-self/exhibits/thomas-nagel',
     '#/branches/stoicism?section=overview',
     '#/philosophers/plato?section=major-works',
     serializeHashRoute(DEFAULT_ROUTES.compare),

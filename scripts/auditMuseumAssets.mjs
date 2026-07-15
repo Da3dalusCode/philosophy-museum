@@ -57,6 +57,9 @@ const ACTIVE_HALL_FOLDERS = [
   'ancient-greek',
   'renaissance-reason-revolution',
   'modernity-freedom-critique',
+  'logic-language-science',
+  'ethics-justice-political-life',
+  'mind-consciousness-self',
 ];
 const MODERN_HALL_FOLDERS = ACTIVE_HALL_FOLDERS.slice(1);
 const manifestAssets = modernManifest?.assets ?? {};
@@ -120,11 +123,11 @@ const webpDimensions = (path) => {
   assert.fail(`Unable to determine WebP dimensions for ${path}`);
 };
 
-check('the active three halls expose 48 unique assets, exactly two per exhibit', () => {
+check('the active six halls expose 96 unique assets, exactly two per exhibit', () => {
   assert.deepEqual(MUSEUM_HALLS.map(({id}) => id), ACTIVE_HALL_FOLDERS);
-  assert.equal(MUSEUM_ASSETS.length, 48);
-  assert.equal(assetById.size, 48);
-  assert.equal(referencedIds.length, 48);
+  assert.equal(MUSEUM_ASSETS.length, 96);
+  assert.equal(assetById.size, 96);
+  assert.equal(referencedIds.length, 96);
   assert(unique(referencedIds), 'one curated asset is assigned to multiple exhibit slots');
   assert.deepEqual([...referencedIds].sort(), MUSEUM_ASSETS.map(({id}) => id).sort());
   for (const hall of MUSEUM_HALLS) {
@@ -151,15 +154,15 @@ check('active asset records belong to their exact exhibit and hall folder', () =
   assert(MUSEUM_ASSETS.every(({variants}) => !variants.scene.path.includes('/medieval-worlds/')), 'retired Medieval media remains in the active registry');
 });
 
-check('the modern lock manifest and preparation pipeline describe the exact 32 new assets', () => {
+check('the modern lock manifest and preparation pipeline describe the exact 80 post-Ancient assets', () => {
   assert.equal(modernManifest.version, 1);
-  assert.equal(Object.keys(manifestAssets).length, 32);
+  assert.equal(Object.keys(manifestAssets).length, 80);
   const modernAssets = MUSEUM_ASSETS.filter(({variants}) => MODERN_HALL_FOLDERS.some((folder) => variants.scene.path.startsWith(`assets/museum/${folder}/`)));
-  assert.equal(modernAssets.length, 32);
+  assert.equal(modernAssets.length, 80);
   assert.deepEqual(Object.keys(manifestAssets).sort(), modernAssets.map(({id}) => id).sort());
   assert.match(preparationSource, /MANIFEST_PATH = ROOT \/ "scripts" \/ "museumModernAssetManifest\.json"/);
-  assert.match(preparationSource, /EXPECTED_ASSET_COUNT = 32/);
-  assert.match(preparationSource, /EXPECTED_HALLS = \{"renaissance-reason-revolution", "modernity-freedom-critique"\}/);
+  assert.match(preparationSource, /EXPECTED_ASSET_COUNT = 80/);
+  for (const folder of MODERN_HALL_FOLDERS) assert(preparationSource.includes(`"${folder}"`), `preparation script omits ${folder}`);
   assert.match(preparationSource, /record\["selectedThumbnailUrl"\]/);
   assert.match(preparationSource, /assert_locked\(slug, "scene"/);
   assert.match(preparationSource, /assert_locked\(slug, "panel"/);
@@ -197,6 +200,9 @@ check('the modern lock manifest and preparation pipeline describe the exact 32 n
     }
   }
   assert.deepEqual(Object.fromEntries([...countsByFolder].sort()), {
+    'ethics-justice-political-life': 16,
+    'logic-language-science': 16,
+    'mind-consciousness-self': 16,
     'modernity-freedom-critique': 16,
     'renaissance-reason-revolution': 16,
   });
@@ -204,7 +210,7 @@ check('the modern lock manifest and preparation pipeline describe the exact 32 n
   assert.deepEqual(missingLocks, [], `modern manifest is structurally valid but still needs ${missingLocks.length} derivative locks: ${missingLocks.join(', ')}`);
 });
 
-check('all 64 modern derivatives match their exact dimensions, bytes, and SHA-256 locks', () => {
+check('all 160 post-Ancient derivatives match their exact dimensions, bytes, and SHA-256 locks', () => {
   for (const [id, lock] of Object.entries(manifestAssets)) {
     const asset = assetById.get(id);
     assert(asset, `${id} is locked but not active`);
@@ -221,10 +227,10 @@ check('all 64 modern derivatives match their exact dimensions, bytes, and SHA-25
   }
 });
 
-check('the committed Museum media inventory contains only the 96 registered active derivatives', () => {
+check('the committed Museum media inventory contains only the 192 registered active derivatives', () => {
   const expected = MUSEUM_ASSETS.flatMap(({variants}) => Object.values(variants).map(({path}) => path)).sort();
   const actual = walkFiles(museumMediaRoot).map(toPublicPath).sort();
-  assert.equal(expected.length, 96);
+  assert.equal(expected.length, 192);
   assert.deepEqual(actual, expected, 'public/assets/museum contains missing, retired, or unregistered files');
   assert.deepEqual(readdirSync(museumMediaRoot, {withFileTypes: true}).filter((entry) => entry.isDirectory()).map(({name}) => name).sort(), [...ACTIVE_HALL_FOLDERS].sort());
 });
@@ -287,9 +293,9 @@ check('every runtime variant is local, base-safe, exact-case WebP media', () => 
   assert(unique(paths), 'a local derivative path has conflicting provenance assignments');
 });
 
-check('all 48 scene images resolve beneath a non-root Vite base', () => {
+check('all 96 scene images resolve beneath a non-root Vite base', () => {
   const runtimeUrls = MUSEUM_ASSETS.map(({variants}) => museumAssetUrl(variants.scene));
-  assert.equal(runtimeUrls.length, 48);
+  assert.equal(runtimeUrls.length, 96);
   assert(unique(runtimeUrls));
   for (const [index, runtimeUrl] of runtimeUrls.entries()) {
     const asset = MUSEUM_ASSETS[index];
@@ -317,4 +323,4 @@ const totalBytes = MUSEUM_ASSETS.flatMap(({variants}) => Object.values(variants)
 const modernBytes = MUSEUM_ASSETS.filter(({variants}) => MODERN_HALL_FOLDERS.some((folder) => variants.scene.path.includes(`/${folder}/`)))
   .flatMap(({variants}) => Object.values(variants))
   .reduce((total, variant) => total + statSync(exactCasePath(variant.path)).size, 0);
-console.log(`\nMuseum asset audit passed: ${checks} groups covering 48 assets, 96 local derivatives, and ${(totalBytes / 1024 / 1024).toFixed(2)} MiB of media (${(modernBytes / 1024 / 1024).toFixed(2)} MiB in Galleries 02–03).`);
+console.log(`\nMuseum asset audit passed: ${checks} groups covering 96 assets, 192 local derivatives, and ${(totalBytes / 1024 / 1024).toFixed(2)} MiB of media (${(modernBytes / 1024 / 1024).toFixed(2)} MiB in Galleries 02–06).`);

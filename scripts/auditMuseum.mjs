@@ -24,6 +24,9 @@ const result = await build({
       export * from '/src/data/museum/ancientGreekHall.ts';
       export * from '/src/data/museum/renaissanceReasonRevolutionHall.ts';
       export * from '/src/data/museum/modernityFreedomCritiqueHall.ts';
+      export * from '/src/data/museum/logicLanguageScienceHall.ts';
+      export * from '/src/data/museum/ethicsJusticePoliticalLifeHall.ts';
+      export * from '/src/data/museum/mindConsciousnessSelfHall.ts';
       export * from '/src/data/museum/museumAssets.ts';
       export * from '/src/data/museum/museumInterpretations.ts';
       export * from '/src/components/MuseumGallery/museumMovement.ts';
@@ -53,6 +56,9 @@ const museum = await import(`data:text/javascript;base64,${Buffer.from(entry.cod
 
 const {
   ANCIENT_GREEK_HALL_DEFINITION,
+  ETHICS_JUSTICE_POLITICAL_LIFE_HALL_DEFINITION,
+  LOGIC_LANGUAGE_SCIENCE_HALL_DEFINITION,
+  MIND_CONSCIOUSNESS_SELF_HALL_DEFINITION,
   MODERNITY_FREEDOM_CRITIQUE_HALL_DEFINITION,
   RENAISSANCE_REASON_REVOLUTION_HALL_DEFINITION,
   MUSEUM_ASSETS,
@@ -87,21 +93,33 @@ const HALL_IDS = [
   'ancient-greek',
   'renaissance-reason-revolution',
   'modernity-freedom-critique',
+  'logic-language-science',
+  'ethics-justice-political-life',
+  'mind-consciousness-self',
 ];
 const EXPECTED_EXHIBITS = {
   'ancient-greek': ['socrates', 'plato', 'aristotle', 'cynicism', 'epicureanism', 'stoicism', 'skepticism', 'neoplatonism'],
   'renaissance-reason-revolution': ['machiavelli', 'descartes', 'hobbes', 'locke', 'spinoza', 'hume', 'rousseau', 'kant'],
   'modernity-freedom-critique': ['kierkegaard', 'marx', 'nietzsche', 'heidegger', 'sartre', 'beauvoir', 'camus', 'foucault'],
+  'logic-language-science': ['peirce', 'frege', 'russell', 'dewey', 'carnap', 'popper', 'quine', 'kuhn'],
+  'ethics-justice-political-life': ['bentham', 'wollstonecraft', 'mill', 'arendt', 'fanon', 'rawls', 'nozick', 'habermas'],
+  'mind-consciousness-self': ['patanjali', 'vasubandhu', 'william-james', 'husserl', 'merleau-ponty', 'anscombe', 'thomas-nagel', 'derek-parfit'],
 };
 const EXPECTED_NEIGHBORS = {
   'ancient-greek': ['renaissance-reason-revolution'],
   'renaissance-reason-revolution': ['ancient-greek', 'modernity-freedom-critique'],
-  'modernity-freedom-critique': ['renaissance-reason-revolution'],
+  'modernity-freedom-critique': ['renaissance-reason-revolution', 'logic-language-science'],
+  'logic-language-science': ['modernity-freedom-critique', 'ethics-justice-political-life'],
+  'ethics-justice-political-life': ['logic-language-science', 'mind-consciousness-self'],
+  'mind-consciousness-self': ['ethics-justice-political-life'],
 };
 const definitions = [
   ANCIENT_GREEK_HALL_DEFINITION,
   RENAISSANCE_REASON_REVOLUTION_HALL_DEFINITION,
   MODERNITY_FREEDOM_CRITIQUE_HALL_DEFINITION,
+  LOGIC_LANGUAGE_SCIENCE_HALL_DEFINITION,
+  ETHICS_JUSTICE_POLITICAL_LIFE_HALL_DEFINITION,
+  MIND_CONSCIOUSNESS_SELF_HALL_DEFINITION,
 ];
 const definitionsById = new Map(definitions.map((definition) => [definition.id, definition]));
 const hallsById = new Map(MUSEUM_HALLS.map((hall) => [hall.id, hall]));
@@ -140,12 +158,12 @@ const sampleSegment = (start, end, interval, callback) => {
   return length;
 };
 
-check('the active Museum catalog is exactly the ordered three-hall collection', () => {
+check('the active Museum catalog is exactly the ordered six-hall collection', () => {
   assert.deepEqual(MUSEUM_HALLS.map(({id}) => id), HALL_IDS);
   assert.deepEqual(definitions.map(({id}) => id), HALL_IDS);
   assert(unique(HALL_IDS));
-  assert.equal(hallsById.size, 3);
-  assert.equal(definitionsById.size, 3);
+  assert.equal(hallsById.size, 6);
+  assert.equal(definitionsById.size, 6);
   assert(!hallsById.has('medieval-worlds'), 'the retired Medieval hall must not remain active');
 });
 
@@ -160,8 +178,8 @@ check('each hall has the mandated eight exhibits, three zones, and guided order'
     const zoneIds = new Set(hall.zones.map(({id}) => id));
     for (const exhibit of hall.exhibits) assert(zoneIds.has(exhibit.zoneId), `${hall.id}/${exhibit.id} uses an unknown zone`);
   }
-  assert.equal(activeExhibitRefs.size, 24);
-  assert.equal(activeExhibitIds.size, 24, 'active exhibit IDs must remain globally unique');
+  assert.equal(activeExhibitRefs.size, 48);
+  assert.equal(activeExhibitIds.size, 48, 'active exhibit IDs must remain globally unique');
 });
 
 check('catalog entities resolve to real philosopher or branch records', () => {
@@ -224,6 +242,36 @@ check('each authored layout agrees exactly with its catalog and remains internal
     }
     assert(isValidMuseumPosition(layout.spawn, layout.playerRadius, layout.bounds, allColliders(layout), layout.spatialCells), `${layout.id} spawn is unsafe`);
     assert(isValidMuseumPosition(layout.reset, layout.playerRadius, layout.bounds, allColliders(layout), layout.spatialCells), `${layout.id} reset is unsafe`);
+
+    const expectedFromEntryViews = [];
+    const horizontalHalfFov = Math.atan(Math.tan(layout.cameraFov * Math.PI / 360) * (16 / 9));
+    for (const entryView of layout.entryViews) {
+      const cell = cellById.get(entryView.spatialCellId);
+      assert(cell, `${layout.id} entry view names unknown spatial cell ${entryView.spatialCellId}`);
+      assert(
+        isValidMuseumPosition(entryView.pose, layout.playerRadius, layout.bounds, allColliders(layout), layout.spatialCells),
+        `${layout.id}/${entryView.spatialCellId} entry pose is unsafe`,
+      );
+      assert(
+        entryView.pose.x >= cell.bounds.minX && entryView.pose.x <= cell.bounds.maxX
+          && entryView.pose.z >= cell.bounds.minZ && entryView.pose.z <= cell.bounds.maxZ,
+        `${layout.id}/${entryView.spatialCellId} entry pose sits outside its authored room`,
+      );
+      for (const exhibitId of entryView.expectedVisibleExhibitIds) {
+        const exhibit = layoutExhibitById.get(exhibitId);
+        assert(exhibit, `${layout.id}/${entryView.spatialCellId} entry view names unknown exhibit ${exhibitId}`);
+        assert.equal(exhibit.spatialCellId, entryView.spatialCellId, `${layout.id}/${exhibitId} is not in the entry view's room`);
+        const bearing = Math.atan2(-(exhibit.position.x - entryView.pose.x), -(exhibit.position.z - entryView.pose.z));
+        const angularDelta = Math.atan2(Math.sin(bearing - entryView.pose.yaw), Math.cos(bearing - entryView.pose.yaw));
+        assert(
+          Math.abs(angularDelta) <= horizontalHalfFov,
+          `${layout.id}/${exhibitId} falls outside the 16:9 entry-view frustum (${(Math.abs(angularDelta) * 180 / Math.PI).toFixed(1)}°)`,
+        );
+        expectedFromEntryViews.push(exhibitId);
+      }
+    }
+    assert(unique(expectedFromEntryViews), `${layout.id} repeats an exhibit across room-entry compositions`);
+    assert.deepEqual(expectedFromEntryViews.sort(), layout.exhibits.map(({id}) => id).sort(), `${layout.id} entry views must introduce all eight exhibits`);
   }
 });
 
@@ -321,7 +369,7 @@ check('every bidirectional seam coincides in world space with opposed inward nor
       approx(sourceNormal.x * targetNormal.x + sourceNormal.z * targetNormal.z, -1, `${pairKey} inward-normal dot product`);
     }
   }
-  assert.equal(auditedPairs.size, 2);
+  assert.equal(auditedPairs.size, 5);
 });
 
 check('physical seam crossing and arrival resolution work in both directions', () => {
@@ -349,8 +397,8 @@ check('physical seam crossing and arrival resolution work in both directions', (
   }
 });
 
-check('all 24 dedicated interpretations are active, substantial, linked, and asset-complete', () => {
-  assert.equal(MUSEUM_INTERPRETATIONS.length, 24);
+check('all 48 dedicated interpretations are active, substantial, linked, and asset-complete', () => {
+  assert.equal(MUSEUM_INTERPRETATIONS.length, 48);
   assert(unique(MUSEUM_INTERPRETATIONS.map(({hallId, id}) => `${hallId}/${id}`)));
   for (const interpretation of MUSEUM_INTERPRETATIONS) {
     const ref = `${interpretation.hallId}/${interpretation.id}`;
@@ -375,8 +423,8 @@ check('all 24 dedicated interpretations are active, substantial, linked, and ass
 });
 
 check('the active asset graph contains exactly two unique records per exhibit', () => {
-  assert.equal(MUSEUM_ASSETS.length, 48);
-  assert.equal(assetById.size, 48);
+  assert.equal(MUSEUM_ASSETS.length, 96);
+  assert.equal(assetById.size, 96);
   const referencedIds = [];
   for (const hall of MUSEUM_HALLS) {
     for (const exhibit of hall.exhibits) {
@@ -484,10 +532,13 @@ check('Museum controls leave modified browser shortcuts untouched', () => {
   assert.equal(hasMuseumBrowserModifier({altKey: false, ctrlKey: false, metaKey: false}), false);
 });
 
-check('the world registry is the active three-hall lazy graph with no retired import', () => {
+check('the world registry is the active six-hall lazy graph with no retired import', () => {
   assert.match(registrySource, /import\('\.\/AncientGreekHallScene'\)/);
   assert.match(registrySource, /import\('\.\/RenaissanceReasonRevolutionHallScene'\)/);
   assert.match(registrySource, /import\('\.\/ModernityFreedomCritiqueHallScene'\)/);
+  assert.match(registrySource, /import\('\.\/LogicLanguageScienceHallScene'\)/);
+  assert.match(registrySource, /import\('\.\/EthicsJusticePoliticalLifeHallScene'\)/);
+  assert.match(registrySource, /import\('\.\/MindConsciousnessSelfHallScene'\)/);
   assert.doesNotMatch(registrySource, /medieval/i);
   assert.match(registrySource, /prefetchMuseumHallEntry/);
   assert.match(registrySource, /prefetchMuseumHallRemainder/);
@@ -537,4 +588,4 @@ check('the persistent Museum implementation contains exactly one React Three Fib
   assert(canvasOccurrences[0].endsWith('MuseumWorldScene.tsx'));
 });
 
-console.log(`\nMuseum audit passed: ${checks} groups covering 3 halls, 24 exhibits, 48 assets, and 2 bidirectional physical seams.`);
+console.log(`\nMuseum audit passed: ${checks} groups covering 6 halls, 48 exhibits, 96 assets, and 5 bidirectional physical seams.`);
