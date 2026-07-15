@@ -3,6 +3,7 @@ import type {
   MuseumExhibitRef,
   MuseumHallConnection,
   MuseumHallDefinition,
+  MuseumInteractionTarget,
   MuseumPose,
 } from '../../data/museum/museumWorldTypes';
 import type {MuseumHallId} from '../../data/museumCatalog';
@@ -30,8 +31,9 @@ export type MuseumSceneRuntimeProps = {
   inputRef: MutableRefObject<MuseumInputState>;
   poseRef: MutableRefObject<MuseumPose>;
   onCanvasReady: (canvas: HTMLCanvasElement) => void;
-  onNearbyChange: (exhibit: MuseumExhibitRef | undefined) => void;
+  onNearbyInteractionChange: (target: MuseumInteractionTarget | undefined) => void;
   onSelectExhibit: (exhibit: MuseumExhibitRef) => void;
+  onSelectVisitorMap: () => void;
   onHallTransition: (connection: MuseumHallConnection) => void;
   onHallTransitionBlocked: (connection: MuseumHallConnection) => void;
   onHallContentReady: (hallId: MuseumHallId) => void;

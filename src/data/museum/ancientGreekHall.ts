@@ -2,6 +2,7 @@ import {
   getMuseumHallCatalog,
   type AncientGreekExhibitId,
 } from '../museumCatalog';
+import {MUSEUM_VISITOR_MAP_KIOSK} from './museumVisitorMap';
 import type {
   MuseumCollider,
   MuseumCirculationPath,
@@ -336,7 +337,7 @@ const walls: readonly MuseumWallDefinition[] = [
 
 const furnishings: readonly MuseumFurnishingDefinition[] = [
   {id: 'atrium-orientation-plinth', kind: 'orientation-plinth', center: {x: -3.6, z: 32.2}, size: {width: 3, depth: .65}, rotation: 0, height: 2.2},
-  {id: 'atrium-bench', kind: 'bench', center: {x: 3.6, z: 32.2}, size: {width: 3.1, depth: .85}, rotation: 0, height: .51},
+  MUSEUM_VISITOR_MAP_KIOSK,
 ];
 
 const tracks: readonly MuseumTrackDefinition[] = [
@@ -514,9 +515,9 @@ export const ANCIENT_GREEK_HALL_LAYOUT: MuseumHallLayout = {
   floorArea: 1626.4,
   cameraFov: 68,
   cameraFar: 110,
-  spawn: {x: 0, z: 37.5, yaw: 0, pitch: -.025},
+  spawn: {x: 0, z: 37.5, yaw: -.2, pitch: -.025},
   spawnFocalPoint: {x: 0, z: 10.5},
-  reset: {x: 0, z: 37.5, yaw: 0, pitch: -.025},
+  reset: {x: 0, z: 37.5, yaw: -.2, pitch: -.025},
   spatialCells,
   spatialConnections,
   entryViews,

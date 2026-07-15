@@ -20,12 +20,16 @@ import {
   useRef,
   useState,
   type ErrorInfo,
-  type KeyboardEvent,
   type MouseEvent,
   type ReactNode,
 } from 'react';
 import type {MuseumExhibitRef, MuseumHallConnection, MuseumPose} from '../../data/museum/museumWorldTypes';
 import {getMuseumInterpretation} from '../../data/museum/museumInterpretations';
+import {
+  getMuseumVisitorMapNode,
+  MUSEUM_VISITOR_MAP_KIOSK,
+  resolveMuseumVisitorMapDestination,
+} from '../../data/museum/museumVisitorMap';
 import {
   getMuseumExhibitCatalog,
   getMuseumHallCatalog,
@@ -36,7 +40,9 @@ import {
 } from '../../data/museumCatalog';
 import type {MuseumRoute, NavigableAppRoute, RouteHref, RouteNavigator} from '../../routing/routes';
 import {MuseumInterpretationPanel} from './MuseumInterpretationPanel';
+import {MuseumModal} from './MuseumModal';
 import {MuseumTouchControls} from './MuseumTouchControls';
+import {MuseumVisitorMap} from './MuseumVisitorMap';
 import {loadMuseumSession, removeMuseumSession, saveMuseumSession} from './museumSession';
 import {useMuseumControls, type MuseumControls} from './useMuseumControls';
 import {useMuseumExperienceMode} from './useMuseumExperienceMode';
@@ -67,7 +73,7 @@ const createLazyMuseumWorldScene = () => lazy(() => import('./MuseumWorldScene')
   ({MuseumWorldScene}) => ({default: MuseumWorldScene}),
 ));
 
-type Overlay = 'directory' | 'help' | null;
+type Overlay = 'directory' | 'help' | 'visitor-map' | null;
 
 class MuseumHallResidencyError extends Error {
   constructor(hallId: MuseumHallId) {
@@ -125,72 +131,6 @@ class MuseumSceneBoundary extends Component<{
     this.props.onError(error);
   }
   render() { return this.state.error ? null : this.props.children; }
-}
-
-const focusableSelector = 'a[href],button:not([disabled]),[tabindex]:not([tabindex="-1"])';
-const isVisibleFocusTarget = (item: HTMLElement | null | undefined): item is HTMLElement => Boolean(
-  item
-  && item.isConnected
-  && !item.matches(':disabled')
-  && !item.closest('[inert],[aria-hidden="true"],[hidden]')
-  && (item.offsetWidth || item.offsetHeight || item.getClientRects().length),
-);
-const visibleFocusable = (root: HTMLElement): HTMLElement[] => [...root.querySelectorAll<HTMLElement>(focusableSelector)]
-  .filter(isVisibleFocusTarget);
-
-function MuseumModal({labelledBy, describedBy, returnFocus, onClose, children}: {
-  labelledBy: string;
-  describedBy?: string;
-  returnFocus?: HTMLElement | null;
-  onClose: () => void;
-  children: ReactNode;
-}) {
-  const dialogRef = useRef<HTMLElement>(null);
-  useEffect(() => {
-    const previous = returnFocus
-      ?? (document.activeElement instanceof HTMLElement ? document.activeElement : undefined);
-    dialogRef.current?.focus();
-    return () => {
-      window.requestAnimationFrame(() => {
-        const fallback = document.getElementById('museum-enter-button')
-          ?? document.querySelector<HTMLElement>('.museum-scene-canvas');
-        const target = isVisibleFocusTarget(previous) ? previous : isVisibleFocusTarget(fallback) ? fallback : undefined;
-        target?.focus({preventScroll: true});
-      });
-    };
-  }, []);
-  const trapFocus = (event: KeyboardEvent<HTMLElement>) => {
-    if (event.key === 'Escape') {
-      event.preventDefault();
-      event.stopPropagation();
-      onClose();
-      return;
-    }
-    if (event.key !== 'Tab' || !dialogRef.current) return;
-    const focusable = visibleFocusable(dialogRef.current);
-    if (!focusable.length) {
-      event.preventDefault();
-      dialogRef.current.focus();
-      return;
-    }
-    const first = focusable[0];
-    const last = focusable.at(-1)!;
-    if (!focusable.includes(document.activeElement as HTMLElement)) {
-      event.preventDefault();
-      (event.shiftKey ? last : first).focus();
-    } else if (event.shiftKey && document.activeElement === first) {
-      event.preventDefault();
-      last.focus();
-    } else if (!event.shiftKey && document.activeElement === last) {
-      event.preventDefault();
-      first.focus();
-    }
-  };
-  return <div className="museum-overlay-backdrop" role="presentation" onMouseDown={(event) => {
-    if (event.target === event.currentTarget) onClose();
-  }}>
-    <section className="museum-overlay-panel" ref={dialogRef} role="dialog" aria-modal="true" aria-labelledby={labelledBy} aria-describedby={describedBy} tabIndex={-1} onKeyDown={trapFocus}>{children}</section>
-  </div>;
 }
 
 function ExhibitRouteLink({route, exhibit, href, push, origin, className = 'btn btn-primary', onActivate, current, children}: {
@@ -353,6 +293,8 @@ export function MuseumPage({route, href, push, replace}: {
   const backgroundRef = useRef<HTMLDivElement>(null);
   const sceneCanvasRef = useRef<HTMLCanvasElement | null>(null);
   const overlayOpenerRef = useRef<HTMLElement | null>(null);
+  const overlayReturnFocusPendingRef = useRef(false);
+  const visitorMapResumeRef = useRef(false);
   const controlsRef = useRef<MuseumControls | null>(null);
   const poseRef = useRef<MuseumPose>((() => {
     const session = loadMuseumSession(layout);
@@ -370,6 +312,7 @@ export function MuseumPage({route, href, push, replace}: {
   activeHallIdRef.current = activeHallId;
   activeDefinitionRef.current = definition;
   const nearbyRef = useRef<MuseumExhibitRef | undefined>(undefined);
+  const visitorMapNearbyRef = useRef(false);
   const lastAnnouncedNearbyRef = useRef<MuseumExhibitRef | undefined>(undefined);
   const lastExhibitContextRef = useRef<MuseumExhibitVisitContext | undefined>(visitContext);
   const pendingCloseRef = useRef<{
@@ -393,6 +336,7 @@ export function MuseumPage({route, href, push, replace}: {
   const lastSavedHallSignatureRef = useRef<Map<MuseumHallId, string>>(new Map());
   if (visitContext) lastExhibitContextRef.current = visitContext;
   const [nearbyReference, setNearbyReference] = useState<MuseumExhibitRef | undefined>();
+  const [visitorMapNearby, setVisitorMapNearby] = useState(false);
   const nearbyId = nearbyReference?.hallId === activeHallId ? nearbyReference.exhibitId : undefined;
   const [readyHallIds, setReadyHallIds] = useState<Set<MuseumHallId>>(() => new Set());
   const [hallLoadStatus, setHallLoadStatus] = useState<Partial<Record<MuseumHallId, 'idle' | 'loading' | 'ready' | 'failed'>>>({[route.hallId]: 'idle'});
@@ -401,6 +345,10 @@ export function MuseumPage({route, href, push, replace}: {
   const [announcement, setAnnouncement] = useState('');
   const [visitPhase, setVisitPhase] = useState<MuseumVisitPhase>(route.exhibitId ? 'explicitly-paused' : 'unentered');
   const [overlay, setOverlay] = useState<Overlay>(null);
+  const dismissOverlay = useCallback(() => {
+    overlayReturnFocusPendingRef.current = true;
+    setOverlay(null);
+  }, []);
   const [sceneError, setSceneError] = useState<unknown>(() => hasWebGL() ? null : new Error('WebGL is unavailable.'));
   const hadSceneErrorRef = useRef(Boolean(sceneError));
   const previousModalOpenRef = useRef(false);
@@ -593,14 +541,51 @@ export function MuseumPage({route, href, push, replace}: {
     setPoseRevision((value) => value + 1);
   }, [activeHallId, layout]);
 
+  const openVisitorMap = useCallback(() => {
+    if (activeHallIdRef.current !== MUSEUM_VISITOR_MAP_KIOSK.hallId || !visitorMapNearbyRef.current) {
+      setAnnouncement('The Museum visitor map is beside the Hall I entrance. Move closer to the illuminated kiosk to use it.');
+      return;
+    }
+    overlayOpenerRef.current = document.activeElement instanceof HTMLElement ? document.activeElement : sceneCanvasRef.current;
+    const resumeOnClose = museumPhaseHasActiveIntent(visitPhase);
+    visitorMapResumeRef.current = resumeOnClose;
+    saveCurrentHallSession();
+    if (resumeOnClose) controlsRef.current?.blockInput();
+    else {
+      controlsRef.current?.pauseExploring();
+      setVisitPhase((phase) => transitionMuseumVisitPhase(phase, 'explicit-pause'));
+    }
+    setOverlay('visitor-map');
+  }, [saveCurrentHallSession, visitPhase]);
+
+  const closeVisitorMap = useCallback(() => {
+    const resume = visitorMapResumeRef.current && museumPhaseHasActiveIntent(visitPhase);
+    visitorMapResumeRef.current = false;
+    if (resume) controlsRef.current?.requestOverlayCloseResume();
+    dismissOverlay();
+    if (resume) {
+      window.requestAnimationFrame(() => controlsRef.current?.completeOverlayCloseResume());
+    }
+  }, [dismissOverlay, visitPhase]);
+
+  const interactNearby = useCallback(() => {
+    if (visitorMapNearbyRef.current) {
+      openVisitorMap();
+      return;
+    }
+    const reference = nearbyRef.current;
+    if (reference?.hallId === activeHallIdRef.current) openExhibit(reference.exhibitId);
+  }, [openExhibit, openVisitorMap]);
+
   const controls = useMuseumControls({
     active: exploring,
     suspended: focusSuspended,
     blocked,
-    nearbyExhibitId: nearbyId,
-    onInteract: openExhibit,
+    canInteract: Boolean(nearbyId || visitorMapNearby),
+    onInteract: interactNearby,
     onReset: resetPosition,
     onOpenDirectory: () => {
+      visitorMapResumeRef.current = false;
       overlayOpenerRef.current = document.activeElement instanceof HTMLElement ? document.activeElement : sceneCanvasRef.current;
       controlsRef.current?.pauseExploring();
       setVisitPhase((phase) => transitionMuseumVisitPhase(phase, 'explicit-pause'));
@@ -632,6 +617,8 @@ export function MuseumPage({route, href, push, replace}: {
     poseRef.current = {...targetPose};
     nearbyRef.current = undefined;
     setNearbyReference(undefined);
+    visitorMapNearbyRef.current = false;
+    setVisitorMapNearby(false);
     controlsRef.current?.pauseExploring();
     setVisitPhase('explicitly-paused');
     setOverlay(null);
@@ -645,6 +632,29 @@ export function MuseumPage({route, href, push, replace}: {
       {kind: 'museum', hallId},
       {state: museumHistoryStateWithVisitContext(window.history.state, undefined)},
     );
+  }, [activateHall, push]);
+
+  const visitHallFromVisitorMap = useCallback((hallId: MuseumHallId) => {
+    const sourceHallId = activeHallIdRef.current;
+    const targetRegistration = getMuseumHallRegistration(hallId);
+    const node = getMuseumVisitorMapNode(hallId);
+    const destination = targetRegistration && node
+      ? resolveMuseumVisitorMapDestination(targetRegistration.definition, node)
+      : undefined;
+    if (!targetRegistration || !destination) {
+      setAnnouncement('That Museum gallery does not have a valid visitor-map destination.');
+      return;
+    }
+    visitorMapResumeRef.current = false;
+    activateHall(hallId, destination);
+    saveMuseumSession(targetRegistration.definition.layout, destination);
+    if (hallId !== sourceHallId) {
+      push(
+        {kind: 'museum', hallId},
+        {state: museumHistoryStateWithVisitContext(window.history.state, undefined)},
+      );
+    }
+    setAnnouncement(`Arrived at the safe entrance to ${getMuseumHallCatalog(hallId)?.title ?? 'the selected gallery'}.`);
   }, [activateHall, push]);
 
   const stageZoneViewpoint = useCallback((hallId: MuseumHallId, zoneId: string) => {
@@ -685,6 +695,8 @@ export function MuseumPage({route, href, push, replace}: {
     setActiveHallId(connection.targetHallId);
     nearbyRef.current = undefined;
     setNearbyReference(undefined);
+    visitorMapNearbyRef.current = false;
+    setVisitorMapNearby(false);
     setOverlay(null);
     setAnnouncement(`Entered ${getMuseumHallCatalog(connection.targetHallId)?.title}.`);
     setPoseRevision((value) => value + 1);
@@ -715,11 +727,14 @@ export function MuseumPage({route, href, push, replace}: {
     poseRef.current = {...viewpoint};
     nearbyRef.current = reference;
     setNearbyReference(reference);
+    visitorMapNearbyRef.current = false;
+    setVisitorMapNearby(false);
     saveMuseumSession(targetRegistration.definition.layout, poseRef.current, reference.exhibitId);
     setPoseRevision((value) => value + 1);
   }, [saveCurrentHallSession]);
 
   const pauseAndOpen = (next: Exclude<Overlay, null>) => {
+    visitorMapResumeRef.current = false;
     overlayOpenerRef.current = document.activeElement instanceof HTMLElement ? document.activeElement : sceneCanvasRef.current;
     controls.pauseExploring();
     setVisitPhase((phase) => transitionMuseumVisitPhase(phase, 'explicit-pause'));
@@ -802,6 +817,10 @@ export function MuseumPage({route, href, push, replace}: {
   }, [experience.clearError, modalOpen]);
 
   useEffect(() => {
+    if (!modalOpen && overlayReturnFocusPendingRef.current) {
+      overlayReturnFocusPendingRef.current = false;
+      return;
+    }
     if (route.exhibitId || modalOpen || activeIntent || previousRouteExhibitRef.current) return;
     const frame = window.requestAnimationFrame(() => {
       const target = sceneError
@@ -905,6 +924,8 @@ export function MuseumPage({route, href, push, replace}: {
     setActiveHallId(route.hallId);
     nearbyRef.current = undefined;
     setNearbyReference(undefined);
+    visitorMapNearbyRef.current = false;
+    setVisitorMapNearby(false);
     const crossHallClose = pendingCrossHallCloseRef.current;
     pendingCrossHallCloseRef.current = undefined;
     if (crossHallClose) {
@@ -962,6 +983,13 @@ export function MuseumPage({route, href, push, replace}: {
     }, reducedMotion ? 0 : 650);
     return () => window.clearTimeout(timer);
   }, [activeHallId, exploring, nearby, reducedMotion]);
+  useEffect(() => {
+    if (!exploring || !visitorMapNearby) return;
+    const timer = window.setTimeout(() => {
+      if (visitorMapNearbyRef.current) setAnnouncement('Near the Museum visitor map. Press E or Enter to open it.');
+    }, reducedMotion ? 0 : 350);
+    return () => window.clearTimeout(timer);
+  }, [exploring, reducedMotion, visitorMapNearby]);
 
   const exhibitIndex = exhibit ? (hall.guidedOrder as readonly MuseumExhibitId[]).indexOf(exhibit.id) : -1;
   const residentHallIds = new Set<MuseumHallId>([activeHallId, ...definition.prefetch.adjacentHallIds]);
@@ -1015,13 +1043,23 @@ export function MuseumPage({route, href, push, replace}: {
                 canvas.tabIndex = 0;
                 controls.onCanvasReady(canvas);
               }}
-              onNearbyChange={(reference) => {
-                const typed = reference?.hallId === activeHallIdRef.current ? reference : undefined;
-                nearbyRef.current = typed;
-                setNearbyReference(typed);
+              onNearbyInteractionChange={(target) => {
+                const current = target?.hallId === activeHallIdRef.current ? target : undefined;
+                const exhibitTarget = current?.kind === 'exhibit'
+                  ? {hallId: current.hallId, exhibitId: current.exhibitId}
+                  : undefined;
+                nearbyRef.current = exhibitTarget;
+                setNearbyReference(exhibitTarget);
+                const mapNearby = current?.kind === 'visitor-map';
+                visitorMapNearbyRef.current = mapNearby;
+                setVisitorMapNearby(mapNearby);
               }}
               onSelectExhibit={(reference) => {
                 if (reference.hallId === activeHallIdRef.current && !controls.shouldSuppressActivation()) openExhibit(reference.exhibitId);
+              }}
+              onSelectVisitorMap={() => {
+                if (controls.shouldSuppressActivation()) return;
+                openVisitorMap();
               }}
               onHallTransition={handleHallTransition}
               onHallTransitionBlocked={handleHallTransitionBlocked}
@@ -1057,6 +1095,13 @@ export function MuseumPage({route, href, push, replace}: {
             {exploring && <button className="museum-pause-button" type="button" onClick={controls.pauseExploring} aria-label="Pause Museum visit">Pause visit</button>}
           </nav>
 
+          {visitorMapNearby && exploring && <aside className="museum-proximity-card museum-map-proximity-card" data-zone="visitor-map">
+            <p><span>Visitor orientation</span><span>All registered galleries</span></p>
+            <h2>Museum visitor map</h2>
+            <blockquote>Plan your route through the connected halls and travel to any safe gallery entrance.</blockquote>
+            <button type="button" onClick={openVisitorMap}>E / Enter · Open map</button>
+          </aside>}
+
           {nearby && nearbyContent && exploring && <aside className="museum-proximity-card" data-zone={nearby.zoneId}>
             <p><span>{nearby.entityKind === 'philosopher' ? 'Philosopher' : 'School & tradition'}</span><span>{nearbyContent.dateLabel}</span></p>
             <h2>{nearby.displayName}</h2>
@@ -1069,11 +1114,11 @@ export function MuseumPage({route, href, push, replace}: {
         <MuseumTouchControls
           active={exploring}
           blocked={blocked}
-          canInteract={Boolean(nearby)}
-          nearbyLabel={nearby?.displayName}
+          canInteract={Boolean(nearby || visitorMapNearby)}
+          nearbyLabel={visitorMapNearby ? 'Museum visitor map' : nearby?.displayName}
           movementBindings={controls.movementBindings}
           lookBindings={controls.lookBindings}
-          onInteract={() => nearby && openExhibit(nearby.id)}
+          onInteract={interactNearby}
           onPause={controls.pauseExploring}
           onReset={resetPosition}
           onDirectory={() => pauseAndOpen('directory')}
@@ -1089,18 +1134,24 @@ export function MuseumPage({route, href, push, replace}: {
         {adjacentFailedHallIds.map((hallId) => <button key={hallId} type="button" onClick={() => retryHallContent(hallId)}>Retry {getMuseumHallCatalog(hallId)?.title ?? 'connection'}</button>)}
       </div>}
       {!modalOpen && !activeHallLoadFailed && adjacentLoadingHallIds.length > 0 && <div className="museum-status-message museum-adjacent-load-status" role="status"><span>Preparing {adjacentLoadingHallIds.map((hallId) => getMuseumHallCatalog(hallId)?.title ?? 'an adjacent gallery').join(' and ')}…</span></div>}
+      {!exhibit && overlay === 'visitor-map' && <MuseumVisitorMap
+        currentHallId={activeHallId}
+        returnFocus={overlayOpenerRef.current}
+        onClose={closeVisitorMap}
+        onTravel={visitHallFromVisitorMap}
+      />}
       {!exhibit && overlay === 'directory' && <Directory
         route={route}
         href={href}
         push={push}
         returnFocus={overlayOpenerRef.current}
-        onClose={() => setOverlay(null)}
+        onClose={dismissOverlay}
         onGuidedStart={() => goGuided(0)}
         onHallActivate={visitHallFromDirectory}
         onExhibitViewpoint={stageExhibitViewpoint}
         onZoneViewpoint={stageZoneViewpoint}
       />}
-      {!exhibit && overlay === 'help' && <Help returnFocus={overlayOpenerRef.current} onClose={() => setOverlay(null)}/>}
+      {!exhibit && overlay === 'help' && <Help returnFocus={overlayOpenerRef.current} onClose={dismissOverlay}/>}
       {exhibit && content && <MuseumInterpretationPanel
         key={exhibit.id}
         exhibit={exhibit}

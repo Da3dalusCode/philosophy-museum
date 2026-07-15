@@ -1,11 +1,6 @@
 import type {ComponentType} from 'react';
-import {ANCIENT_GREEK_HALL_DEFINITION} from '../../data/museum/ancientGreekHall';
-import {ETHICS_JUSTICE_POLITICAL_LIFE_HALL_DEFINITION} from '../../data/museum/ethicsJusticePoliticalLifeHall';
-import {LOGIC_LANGUAGE_SCIENCE_HALL_DEFINITION} from '../../data/museum/logicLanguageScienceHall';
-import {MIND_CONSCIOUSNESS_SELF_HALL_DEFINITION} from '../../data/museum/mindConsciousnessSelfHall';
-import {MODERNITY_FREEDOM_CRITIQUE_HALL_DEFINITION} from '../../data/museum/modernityFreedomCritiqueHall';
-import {RENAISSANCE_REASON_REVOLUTION_HALL_DEFINITION} from '../../data/museum/renaissanceReasonRevolutionHall';
 import {getMuseumAsset, museumAssetUrl} from '../../data/museum/museumAssets';
+import {MUSEUM_WORLD_DEFINITIONS} from '../../data/museum/museumWorldDefinitions';
 import type {
   MuseumExhibitRef,
   MuseumHallDefinition,
@@ -17,7 +12,9 @@ export type MuseumHallContentProps = {
   active: boolean;
   viewerHallId: MuseumHallId;
   nearby?: MuseumExhibitRef;
+  visitorMapNearby: boolean;
   onSelectExhibit: (exhibit: MuseumExhibitRef) => void;
+  onSelectVisitorMap: () => void;
   onSceneGesture: () => void;
 };
 
@@ -26,44 +23,23 @@ export type MuseumHallRegistration = {
   loadContent: () => Promise<{default: ComponentType<MuseumHallContentProps>}>;
 };
 
-const ancientGreekRegistration: MuseumHallRegistration = {
-  definition: ANCIENT_GREEK_HALL_DEFINITION,
-  loadContent: () => import('./AncientGreekHallScene').then(({AncientGreekHallContent}) => ({
+const contentLoaders: Record<MuseumHallId, MuseumHallRegistration['loadContent']> = {
+  'ancient-greek': () => import('./AncientGreekHallScene').then(({AncientGreekHallContent}) => ({
     default: AncientGreekHallContent,
   })),
-};
-
-const renaissanceReasonRevolutionRegistration: MuseumHallRegistration = {
-  definition: RENAISSANCE_REASON_REVOLUTION_HALL_DEFINITION,
-  loadContent: () => import('./RenaissanceReasonRevolutionHallScene').then(({RenaissanceReasonRevolutionHallContent}) => ({
+  'renaissance-reason-revolution': () => import('./RenaissanceReasonRevolutionHallScene').then(({RenaissanceReasonRevolutionHallContent}) => ({
     default: RenaissanceReasonRevolutionHallContent,
   })),
-};
-
-const modernityFreedomCritiqueRegistration: MuseumHallRegistration = {
-  definition: MODERNITY_FREEDOM_CRITIQUE_HALL_DEFINITION,
-  loadContent: () => import('./ModernityFreedomCritiqueHallScene').then(({ModernityFreedomCritiqueHallContent}) => ({
+  'modernity-freedom-critique': () => import('./ModernityFreedomCritiqueHallScene').then(({ModernityFreedomCritiqueHallContent}) => ({
     default: ModernityFreedomCritiqueHallContent,
   })),
-};
-
-const logicLanguageScienceRegistration: MuseumHallRegistration = {
-  definition: LOGIC_LANGUAGE_SCIENCE_HALL_DEFINITION,
-  loadContent: () => import('./LogicLanguageScienceHallScene').then(({LogicLanguageScienceHallContent}) => ({
+  'logic-language-science': () => import('./LogicLanguageScienceHallScene').then(({LogicLanguageScienceHallContent}) => ({
     default: LogicLanguageScienceHallContent,
   })),
-};
-
-const ethicsJusticePoliticalLifeRegistration: MuseumHallRegistration = {
-  definition: ETHICS_JUSTICE_POLITICAL_LIFE_HALL_DEFINITION,
-  loadContent: () => import('./EthicsJusticePoliticalLifeHallScene').then(({EthicsJusticePoliticalLifeHallContent}) => ({
+  'ethics-justice-political-life': () => import('./EthicsJusticePoliticalLifeHallScene').then(({EthicsJusticePoliticalLifeHallContent}) => ({
     default: EthicsJusticePoliticalLifeHallContent,
   })),
-};
-
-const mindConsciousnessSelfRegistration: MuseumHallRegistration = {
-  definition: MIND_CONSCIOUSNESS_SELF_HALL_DEFINITION,
-  loadContent: () => import('./MindConsciousnessSelfHallScene').then(({MindConsciousnessSelfHallContent}) => ({
+  'mind-consciousness-self': () => import('./MindConsciousnessSelfHallScene').then(({MindConsciousnessSelfHallContent}) => ({
     default: MindConsciousnessSelfHallContent,
   })),
 };
@@ -71,14 +47,10 @@ const mindConsciousnessSelfRegistration: MuseumHallRegistration = {
 const contentPromises = new Map<MuseumHallId, Promise<{default: ComponentType<MuseumHallContentProps>}>>();
 const imagePromises = new Map<string, Promise<void>>();
 
-export const MUSEUM_WORLD_REGISTRY = [
-  ancientGreekRegistration,
-  renaissanceReasonRevolutionRegistration,
-  modernityFreedomCritiqueRegistration,
-  logicLanguageScienceRegistration,
-  ethicsJusticePoliticalLifeRegistration,
-  mindConsciousnessSelfRegistration,
-] as const satisfies readonly MuseumHallRegistration[];
+export const MUSEUM_WORLD_REGISTRY = MUSEUM_WORLD_DEFINITIONS.map((definition) => ({
+  definition,
+  loadContent: contentLoaders[definition.id],
+})) satisfies readonly MuseumHallRegistration[];
 
 export const getMuseumHallRegistration = (hallId: MuseumHallId): MuseumHallRegistration | undefined =>
   MUSEUM_WORLD_REGISTRY.find(({definition}) => definition.id === hallId);

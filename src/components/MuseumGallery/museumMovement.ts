@@ -82,8 +82,8 @@ export const circleIntersectsCollider = (
   const sine = Math.sin(collider.rotation);
   const offsetX = position.x - collider.center.x;
   const offsetZ = position.z - collider.center.z;
-  const localX = cosine * offsetX + sine * offsetZ;
-  const localZ = -sine * offsetX + cosine * offsetZ;
+  const localX = cosine * offsetX - sine * offsetZ;
+  const localZ = sine * offsetX + cosine * offsetZ;
   const nearestX = clamp(localX, -halfWidth, halfWidth);
   const nearestZ = clamp(localZ, -halfDepth, halfDepth);
   const distanceSquared = (localX - nearestX) ** 2 + (localZ - nearestZ) ** 2;
@@ -104,8 +104,8 @@ export const resolveCircleAgainstCollider = (
   const sine = Math.sin(collider.rotation);
   const offsetX = position.x - collider.center.x;
   const offsetZ = position.z - collider.center.z;
-  let localX = cosine * offsetX + sine * offsetZ;
-  let localZ = -sine * offsetX + cosine * offsetZ;
+  let localX = cosine * offsetX - sine * offsetZ;
+  let localZ = sine * offsetX + cosine * offsetZ;
   const nearestX = clamp(localX, -halfWidth, halfWidth);
   const nearestZ = clamp(localZ, -halfDepth, halfDepth);
   const differenceX = localX - nearestX;
@@ -127,8 +127,8 @@ export const resolveCircleAgainstCollider = (
   }
 
   return {
-    x: collider.center.x + cosine * localX - sine * localZ,
-    z: collider.center.z + sine * localX + cosine * localZ,
+    x: collider.center.x + cosine * localX + sine * localZ,
+    z: collider.center.z - sine * localX + cosine * localZ,
   };
 };
 

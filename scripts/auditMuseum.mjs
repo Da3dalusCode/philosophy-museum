@@ -9,6 +9,11 @@ const galleryRoot = resolve(repoRoot, 'src/components/MuseumGallery');
 const registrySource = readFileSync(resolve(galleryRoot, 'museumWorldRegistry.ts'), 'utf8');
 const museumPageSource = readFileSync(resolve(galleryRoot, 'MuseumPage.tsx'), 'utf8');
 const museumWorldSource = readFileSync(resolve(galleryRoot, 'MuseumWorldScene.tsx'), 'utf8');
+const museumControlsSource = readFileSync(resolve(galleryRoot, 'useMuseumControls.ts'), 'utf8');
+const museumModalSource = readFileSync(resolve(galleryRoot, 'MuseumModal.tsx'), 'utf8');
+const museumVisitorMapSource = readFileSync(resolve(galleryRoot, 'MuseumVisitorMap.tsx'), 'utf8');
+const museumKioskSource = readFileSync(resolve(galleryRoot, 'MuseumVisitorMapKiosk.tsx'), 'utf8');
+const museumCssSource = readFileSync(resolve(galleryRoot, 'museum.css'), 'utf8');
 const virtualEntry = 'virtual:philosophy-atlas-museum-audit';
 const resolvedEntry = `\0${virtualEntry}`;
 
@@ -27,6 +32,9 @@ const result = await build({
       export * from '/src/data/museum/logicLanguageScienceHall.ts';
       export * from '/src/data/museum/ethicsJusticePoliticalLifeHall.ts';
       export * from '/src/data/museum/mindConsciousnessSelfHall.ts';
+      export * from '/src/data/museum/museumVisitorMap.ts';
+      export * from '/src/data/museum/museumVisitorMapProjection.ts';
+      export * from '/src/data/museum/museumWorldDefinitions.ts';
       export * from '/src/data/museum/museumAssets.ts';
       export * from '/src/data/museum/museumInterpretations.ts';
       export * from '/src/components/MuseumGallery/museumMovement.ts';
@@ -64,10 +72,16 @@ const {
   MUSEUM_ASSETS,
   MUSEUM_HALLS,
   MUSEUM_INTERPRETATIONS,
+  MUSEUM_VISITOR_MAP_EDGES,
+  MUSEUM_VISITOR_MAP_KIOSK,
+  MUSEUM_VISITOR_MAP_NODES,
+  MUSEUM_VISITOR_MAP_PROJECTION,
+  MUSEUM_WORLD_DEFINITIONS,
   branches,
   philosophers,
   MUSEUM_POINTER_LOCK_SETTLED,
   createMuseumExhibitVisitContext,
+  circleIntersectsCollider,
   directMuseumVisitContext,
   hasMuseumBrowserModifier,
   isValidMuseumPosition,
@@ -84,9 +98,11 @@ const {
   resolveMuseumCloseResumeStrategy,
   resolveMuseumExitPolicy,
   resolveMuseumHallArrival,
+  resolveMuseumVisitorMapDestination,
   sanitizeMuseumPose,
   transitionMuseumPointerLock,
   transitionMuseumVisitPhase,
+  visitorMapInteractionAtPose,
 } = museum;
 
 const HALL_IDS = [
@@ -113,14 +129,7 @@ const EXPECTED_NEIGHBORS = {
   'ethics-justice-political-life': ['logic-language-science', 'mind-consciousness-self'],
   'mind-consciousness-self': ['ethics-justice-political-life'],
 };
-const definitions = [
-  ANCIENT_GREEK_HALL_DEFINITION,
-  RENAISSANCE_REASON_REVOLUTION_HALL_DEFINITION,
-  MODERNITY_FREEDOM_CRITIQUE_HALL_DEFINITION,
-  LOGIC_LANGUAGE_SCIENCE_HALL_DEFINITION,
-  ETHICS_JUSTICE_POLITICAL_LIFE_HALL_DEFINITION,
-  MIND_CONSCIOUSNESS_SELF_HALL_DEFINITION,
-];
+const definitions = [...MUSEUM_WORLD_DEFINITIONS];
 const definitionsById = new Map(definitions.map((definition) => [definition.id, definition]));
 const hallsById = new Map(MUSEUM_HALLS.map((hall) => [hall.id, hall]));
 const activeExhibitRefs = new Set(MUSEUM_HALLS.flatMap((hall) => hall.exhibits.map((exhibit) => `${hall.id}/${exhibit.id}`)));
@@ -157,6 +166,58 @@ const sampleSegment = (start, end, interval, callback) => {
   }
   return length;
 };
+const colliderCorners = (collider) => {
+  const cosine = Math.cos(collider.rotation);
+  const sine = Math.sin(collider.rotation);
+  return [-1, 1].flatMap((xSign) => [-1, 1].map((zSign) => {
+    const x = xSign * collider.size.width / 2;
+    const z = zSign * collider.size.depth / 2;
+    return {
+      x: collider.center.x + x * cosine + z * sine,
+      z: collider.center.z - x * sine + z * cosine,
+    };
+  }));
+};
+const colliderAxes = (collider) => {
+  const cosine = Math.cos(collider.rotation);
+  const sine = Math.sin(collider.rotation);
+  return [{x: cosine, z: -sine}, {x: sine, z: cosine}];
+};
+const projectionRadius = (collider, axis) => {
+  const [widthAxis, depthAxis] = colliderAxes(collider);
+  return Math.abs(widthAxis.x * axis.x + widthAxis.z * axis.z) * collider.size.width / 2
+    + Math.abs(depthAxis.x * axis.x + depthAxis.z * axis.z) * collider.size.depth / 2;
+};
+const collidersOverlap = (first, second) => {
+  const delta = {x: second.center.x - first.center.x, z: second.center.z - first.center.z};
+  return [...colliderAxes(first), ...colliderAxes(second)].every((axis) => {
+    const separation = Math.abs(delta.x * axis.x + delta.z * axis.z);
+    return separation < projectionRadius(first, axis) + projectionRadius(second, axis) - 1e-6;
+  });
+};
+const localPointToWorld = (collider, point) => {
+  const cosine = Math.cos(collider.rotation);
+  const sine = Math.sin(collider.rotation);
+  return {
+    x: collider.center.x + point.x * cosine + point.z * sine,
+    z: collider.center.z - point.x * sine + point.z * cosine,
+  };
+};
+const wrappedAngularDelta = (angle, yaw) =>
+  Math.atan2(Math.sin(angle - yaw), Math.cos(angle - yaw));
+const bearingFromPose = (pose, point) =>
+  Math.atan2(-(point.x - pose.x), -(point.z - pose.z));
+const assertFinitePose = (pose, message) => {
+  for (const key of ['x', 'z', 'yaw', 'pitch']) assert(Number.isFinite(pose[key]), `${message} has non-finite ${key}`);
+};
+
+check('oriented collision math matches the yaw convention used by rendered Three groups', () => {
+  const collider = {id: 'rotation-contract', center: {x: 2, z: -3}, size: {width: 2, depth: .4}, rotation: .55};
+  const renderedInside = localPointToWorld(collider, {x: .9, z: 0});
+  const renderedOutside = localPointToWorld(collider, {x: 0, z: .5});
+  assert(circleIntersectsCollider(renderedInside, .04, collider), 'a point inside the rendered rotated housing misses its collider');
+  assert(!circleIntersectsCollider(renderedOutside, .04, collider), 'a point outside the rendered rotated housing hits a mirrored collider');
+});
 
 check('the active Museum catalog is exactly the ordered six-hall collection', () => {
   assert.deepEqual(MUSEUM_HALLS.map(({id}) => id), HALL_IDS);
@@ -273,6 +334,131 @@ check('each authored layout agrees exactly with its catalog and remains internal
     assert(unique(expectedFromEntryViews), `${layout.id} repeats an exhibit across room-entry compositions`);
     assert.deepEqual(expectedFromEntryViews.sort(), layout.exhibits.map(({id}) => id).sort(), `${layout.id} entry views must introduce all eight exhibits`);
   }
+});
+
+check('the visitor-map projection covers every registered hall and resolves only safe authored destinations', () => {
+  const nodeIds = MUSEUM_VISITOR_MAP_NODES.map(({hallId}) => hallId);
+  assert(unique(nodeIds), 'visitor-map hall IDs must be unique');
+  assert.deepEqual([...nodeIds].sort(), definitions.map(({id}) => id).sort());
+  assert.deepEqual([...nodeIds].sort(), MUSEUM_HALLS.map(({id}) => id).sort());
+  assert.deepEqual(MUSEUM_VISITOR_MAP_PROJECTION.map(({hall}) => hall.id), definitions.map(({id}) => id));
+  const expectedEdgeKeys = new Set(definitions.flatMap(({id, connections}) =>
+    connections.map(({targetHallId}) => [id, targetHallId].sort().join('::'))));
+  assert.deepEqual(new Set(MUSEUM_VISITOR_MAP_EDGES.map(({key}) => key)), expectedEdgeKeys);
+  assert.equal(MUSEUM_VISITOR_MAP_EDGES.length, expectedEdgeKeys.size, 'visitor-map connections must render exactly once');
+  const positions = [];
+  for (const node of MUSEUM_VISITOR_MAP_NODES) {
+    assert.deepEqual(Object.keys(node).sort(), ['destination', 'hallId', 'mapPosition'], `${node.hallId} duplicates non-map catalog data`);
+    assert(Number.isFinite(node.mapPosition.x) && Number.isFinite(node.mapPosition.y), `${node.hallId} has non-finite map coordinates`);
+    assert(node.mapPosition.x >= 5 && node.mapPosition.x <= 95, `${node.hallId} map x leaves the diagram`);
+    assert(node.mapPosition.y >= 5 && node.mapPosition.y <= 95, `${node.hallId} map y leaves the diagram`);
+    assert(positions.every((position) => Math.hypot(position.x - node.mapPosition.x, position.y - node.mapPosition.y) >= 18), `${node.hallId} overlaps another map node`);
+    positions.push(node.mapPosition);
+    const definition = definitionsById.get(node.hallId);
+    assert(definition, `${node.hallId} has no registered Museum definition`);
+    const destination = resolveMuseumVisitorMapDestination(definition, node);
+    assert(destination, `${node.hallId} visitor-map destination cannot resolve`);
+    assertFinitePose(destination, `${node.hallId} visitor-map destination`);
+    assert(
+      isValidMuseumPosition(destination, definition.layout.playerRadius, definition.layout.bounds, allColliders(definition.layout), definition.layout.spatialCells),
+      `${node.hallId} visitor-map destination is not collision-safe`,
+    );
+    if (node.destination.kind === 'spawn') assert.deepEqual(destination, definition.layout.spawn, `${node.hallId} must use its authored spawn`);
+    else assert(definition.entrances.some(({id}) => id === node.destination.entranceId), `${node.hallId} names an unknown visitor-map entrance`);
+  }
+});
+
+check('the Hall I visitor-map kiosk is visible, approachable, collision-backed, and clear of circulation', () => {
+  const definition = ANCIENT_GREEK_HALL_DEFINITION;
+  const {layout} = definition;
+  const kiosk = MUSEUM_VISITOR_MAP_KIOSK;
+  assert.equal(kiosk.hallId, definition.id);
+  assert.equal(kiosk.kind, 'visitor-map-kiosk');
+  assert(kiosk.center.x > layout.spawn.x, 'the kiosk must sit to the spawn visitor’s right');
+  for (const value of [kiosk.center.x, kiosk.center.z, kiosk.size.width, kiosk.size.depth, kiosk.rotation, kiosk.height, kiosk.interactionRadius]) {
+    assert(Number.isFinite(value), 'the kiosk housing contains non-finite geometry');
+  }
+  assert(kiosk.size.width >= 1.8 && kiosk.size.width <= 3.2);
+  assert(kiosk.size.depth >= .5 && kiosk.size.depth <= 1.3);
+  assert(kiosk.height >= 2 && kiosk.height <= 3);
+  assert(kiosk.interactionRadius >= 2.4 && kiosk.interactionRadius <= 4);
+  for (const value of [kiosk.screen.width, kiosk.screen.height, kiosk.screen.centerY]) {
+    assert(Number.isFinite(value) && value > 0, 'the kiosk screen geometry must be finite and positive');
+  }
+  assert(kiosk.screen.width <= kiosk.size.width - .2, 'the visitor-map screen leaves its horizontal housing');
+  assert(kiosk.screen.centerY - kiosk.screen.height / 2 > .3, 'the visitor-map screen intersects the base');
+  assert(kiosk.screen.centerY + kiosk.screen.height / 2 < kiosk.height, 'the visitor-map screen leaves the housing height');
+  assert(Number.isFinite(kiosk.light.intensity) && kiosk.light.intensity > 0);
+  assert(Number.isFinite(kiosk.light.distance) && kiosk.light.distance > 0);
+  const furnishingMatches = layout.furnishings.filter(({id}) => id === kiosk.id);
+  const colliderMatches = layout.obstacleColliders.filter(({id}) => id === kiosk.id);
+  assert.equal(furnishingMatches.length, 1, 'the kiosk must be an authored furnishing exactly once');
+  assert.equal(colliderMatches.length, 1, 'the kiosk collider must join movement obstacles exactly once');
+  assert.equal(furnishingMatches[0], kiosk, 'the rendered furnishing must use the shared kiosk geometry object');
+  assert.equal(colliderMatches[0], kiosk, 'movement collision must use the shared kiosk geometry object');
+  const atrium = layout.spatialCells.find(({id}) => id === 'orientation-atrium');
+  assert(atrium, 'Hall I needs its Orientation Atrium');
+  const corners = colliderCorners(kiosk);
+  for (const corner of corners) {
+    assert(corner.x > atrium.bounds.minX && corner.x < atrium.bounds.maxX, 'the kiosk footprint leaves the atrium on x');
+    assert(corner.z > atrium.bounds.minZ && corner.z < atrium.bounds.maxZ, 'the kiosk footprint leaves the atrium on z');
+  }
+  assert(distance(layout.spawn, kiosk.center) > kiosk.interactionRadius + 1.5, 'the kiosk must invite approach rather than activate at spawn');
+  assert(distance(kiosk.approachPose, kiosk.center) < kiosk.interactionRadius - .15, 'the authored approach pose must enter interaction range');
+  assertFinitePose(kiosk.approachPose, 'the visitor-map approach pose');
+  assert.equal(visitorMapInteractionAtPose(definition.id, layout.spawn), undefined, 'spawn must not be in kiosk interaction range');
+  assert.deepEqual(visitorMapInteractionAtPose(definition.id, kiosk.approachPose), {kind: 'visitor-map', hallId: definition.id, kioskId: kiosk.id});
+  const behindKiosk = localPointToWorld(kiosk, {x: 0, z: -(kiosk.size.depth / 2 + .5)});
+  assert.equal(visitorMapInteractionAtPose(definition.id, behindKiosk), undefined, 'the one-sided screen activates from behind');
+  assert(
+    isValidMuseumPosition(kiosk.approachPose, layout.playerRadius, layout.bounds, allColliders(layout), layout.spatialCells),
+    'the kiosk approach pose must be collision-free',
+  );
+  assert(!circleIntersectsCollider(kiosk.approachPose, layout.playerRadius, kiosk), 'the kiosk approach pose intersects its housing');
+  const approachBearing = bearingFromPose(kiosk.approachPose, kiosk.center);
+  assert(Math.abs(wrappedAngularDelta(approachBearing, kiosk.approachPose.yaw)) < .08, 'the authored approach pose does not face the screen');
+  for (const collider of allColliders(layout).filter(({id}) => id !== kiosk.id)) {
+    assert(!collidersOverlap(kiosk, collider), `the kiosk housing overlaps collider ${collider.id}`);
+  }
+  sampleSegment(layout.spawn, kiosk.approachPose, .08, (point) => {
+    assert(
+      isValidMuseumPosition(point, layout.playerRadius, layout.bounds, allColliders(layout), layout.spatialCells),
+      `the direct spawn-to-kiosk approach collides near ${JSON.stringify(point)}`,
+    );
+  });
+  sampleSegment(layout.spawn, layout.spawnFocalPoint, .08, (point) => {
+    assert(!circleIntersectsCollider(point, layout.primaryCirculation.clearanceRadius, kiosk), 'the kiosk interrupts the entrance-to-gallery sightline');
+  });
+
+  const screenPlaneZ = .151;
+  const screenWorldPoints = [-kiosk.screen.width / 2, 0, kiosk.screen.width / 2].map((x) =>
+    localPointToWorld(kiosk, {x, z: screenPlaneZ}));
+  for (const aspect of [16 / 9, 9 / 16]) {
+    const horizontalHalfFov = Math.atan(Math.tan(layout.cameraFov * Math.PI / 360) * aspect);
+    for (const point of screenWorldPoints) {
+      const delta = wrappedAngularDelta(bearingFromPose(layout.spawn, point), layout.spawn.yaw);
+      assert(Math.abs(delta) <= horizontalHalfFov, `the visitor-map screen leaves the initial ${aspect > 1 ? '16:9' : '9:16'} frustum at ${(Math.abs(delta) * 180 / Math.PI).toFixed(1)}°`);
+    }
+  }
+  const verticalHalfFov = layout.cameraFov * Math.PI / 360;
+  for (const point of [screenWorldPoints[0], screenWorldPoints.at(-1)]) {
+    const horizontalDistance = distance(layout.spawn, point);
+    for (const y of [kiosk.screen.centerY - kiosk.screen.height / 2, kiosk.screen.centerY + kiosk.screen.height / 2]) {
+      const verticalAngle = Math.atan2(y - layout.eyeHeight, horizontalDistance);
+      assert(Math.abs(verticalAngle - layout.spawn.pitch) <= verticalHalfFov, 'the visitor-map screen leaves the initial vertical frustum');
+    }
+  }
+  const screenCenter = screenWorldPoints[1];
+  const otherColliders = allColliders(layout).filter(({id}) => id !== kiosk.id);
+  sampleSegment(layout.spawn, screenCenter, .08, (point) => {
+    for (const collider of otherColliders) {
+      assert(!circleIntersectsCollider(point, .02, collider), `collider ${collider.id} occludes the kiosk from spawn`);
+    }
+  });
+  const front = {x: Math.sin(kiosk.rotation), z: Math.cos(kiosk.rotation)};
+  const toSpawnLength = distance(kiosk.center, layout.spawn);
+  const toSpawn = {x: (layout.spawn.x - kiosk.center.x) / toSpawnLength, z: (layout.spawn.z - kiosk.center.z) / toSpawnLength};
+  assert(front.x * toSpawn.x + front.z * toSpawn.z > .9, 'the kiosk screen must face the initial visitor');
 });
 
 check('primary circulation and every guided leg remain continuous and collision-free', () => {
@@ -532,7 +718,45 @@ check('Museum controls leave modified browser shortcuts untouched', () => {
   assert.equal(hasMuseumBrowserModifier({altKey: false, ctrlKey: false, metaKey: false}), false);
 });
 
+check('the physical visitor-map source wiring reuses Museum interaction, overlay, directory, and navigation contracts', () => {
+  assert.match(museumWorldSource, /visitorMapInteractionAtPose\(definition\.id, poseRef\.current\)/);
+  assert.match(museumWorldSource, /kind: 'exhibit'/);
+  assert.match(museumKioskSource, /MUSEUM_VISITOR_MAP_KIOSK/);
+  assert.match(museumKioskSource, /MUSEUM_VISITOR_MAP_PROJECTION\.length/);
+  assert.match(museumKioskSource, /MUSEUM_VISITOR_MAP_EDGES\.forEach/);
+  assert.match(museumKioskSource, /hall\.id === MUSEUM_VISITOR_MAP_KIOSK\.hallId/);
+  assert.match(museumKioskSource, /hall\.galleryNumber/);
+  assert.match(museumKioskSource, /kiosk\.height/);
+  assert.match(museumKioskSource, /onClick=\{activate\}/);
+  assert.match(museumKioskSource, /CanvasTexture/);
+  assert.match(museumVisitorMapSource, /MUSEUM_VISITOR_MAP_PROJECTION/);
+  assert.match(museumVisitorMapSource, /MUSEUM_VISITOR_MAP_EDGES\.map/);
+  assert.match(museumVisitorMapSource, /<MuseumModal/);
+  assert.match(museumVisitorMapSource, /aria-current=\{current \? 'location'/);
+  assert.match(museumVisitorMapSource, /onTravel\(selected\.hall\.id\)/);
+  assert.match(museumModalSource, /event\.key === 'Escape'/);
+  assert.match(museumModalSource, /event\.target === event\.currentTarget/);
+  assert.match(museumModalSource, /visibleFocusable/);
+  assert.match(museumModalSource, /target\?\.focus\(\{preventScroll: true\}\)/);
+  assert.match(museumPageSource, /resolveMuseumVisitorMapDestination\(targetRegistration\.definition, node\)/);
+  assert.match(museumPageSource, /activateHall\(hallId, destination\)/);
+  assert.match(museumPageSource, /saveMuseumSession\(targetRegistration\.definition\.layout, destination\)/);
+  assert.match(museumPageSource, /if \(hallId !== sourceHallId\)[\s\S]*push\(/);
+  assert.match(museumPageSource, /visitorMapResumeRef/);
+  assert.match(museumPageSource, /overlayReturnFocusPendingRef/);
+  assert.match(museumPageSource, /onClose=\{dismissOverlay\}/);
+  assert.match(museumPageSource, /requestOverlayCloseResume/);
+  assert.match(museumPageSource, /completeOverlayCloseResume/);
+  assert.match(museumPageSource, /onInteract=\{interactNearby\}/);
+  assert.match(museumControlsSource, /event\.code === 'KeyM'[\s\S]*callbacksRef\.current\.onOpenDirectory\(\)/);
+  assert.match(museumPageSource, /overlay === 'directory'[\s\S]*<Directory/);
+  assert.match(museumPageSource, /MUSEUM_HALLS\.map/);
+  assert.match(museumCssSource, /@media\(max-width:900px\)[\s\S]*?\.museum-visitor-map-layout\{grid-template-columns:1fr\}[\s\S]*?\.museum-visitor-map-node\{[^}]*width:100%/);
+});
+
 check('the world registry is the active six-hall lazy graph with no retired import', () => {
+  assert.match(registrySource, /MUSEUM_WORLD_DEFINITIONS\.map/);
+  assert.match(registrySource, /contentLoaders\[definition\.id\]/);
   assert.match(registrySource, /import\('\.\/AncientGreekHallScene'\)/);
   assert.match(registrySource, /import\('\.\/RenaissanceReasonRevolutionHallScene'\)/);
   assert.match(registrySource, /import\('\.\/ModernityFreedomCritiqueHallScene'\)/);
@@ -588,4 +812,4 @@ check('the persistent Museum implementation contains exactly one React Three Fib
   assert(canvasOccurrences[0].endsWith('MuseumWorldScene.tsx'));
 });
 
-console.log(`\nMuseum audit passed: ${checks} groups covering 6 halls, 48 exhibits, 96 assets, and 5 bidirectional physical seams.`);
+console.log(`\nMuseum audit passed: ${checks} groups covering 6 halls, 48 exhibits, 96 assets, 5 bidirectional physical seams, and the entrance visitor-map kiosk.`);

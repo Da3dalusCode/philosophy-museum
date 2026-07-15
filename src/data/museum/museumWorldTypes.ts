@@ -27,7 +27,7 @@ export type MuseumWallDefinition = MuseumCollider & {
 };
 
 export type MuseumFurnishingDefinition = MuseumCollider & {
-  kind: 'bench' | 'orientation-plinth' | 'translation-table' | 'threshold-marker';
+  kind: 'bench' | 'orientation-plinth' | 'translation-table' | 'threshold-marker' | 'visitor-map-kiosk';
   height: number;
 };
 
@@ -242,3 +242,7 @@ export type MuseumExhibitRef = {
   hallId: MuseumHallId;
   exhibitId: MuseumExhibitId;
 };
+
+export type MuseumInteractionTarget =
+  | ({kind: 'exhibit'} & MuseumExhibitRef)
+  | {kind: 'visitor-map'; hallId: MuseumHallId; kioskId: string};

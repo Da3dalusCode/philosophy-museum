@@ -5,6 +5,7 @@ import type {MuseumHallContentProps} from './museumWorldRegistry';
 import {HallArchitecture} from './HallArchitecture';
 import {MuseumHallSpatialRoot} from './MuseumHallSpatialRoot';
 import {MuseumExhibits} from './MuseumExhibits';
+import {MuseumVisitorMapKiosk} from './MuseumVisitorMapKiosk';
 
 function ExhibitSpotlight({definition}: {definition: MuseumExhibitLightDefinition}) {
   const target = useMemo(() => {
@@ -30,7 +31,15 @@ function ExhibitSpotlight({definition}: {definition: MuseumExhibitLightDefinitio
 }
 
 /** Hall-specific atmosphere and geometry; the persistent Canvas and player live in MuseumWorldScene. */
-export function AncientGreekHallContent({definition, active, nearby, onSelectExhibit, onSceneGesture}: MuseumHallContentProps) {
+export function AncientGreekHallContent({
+  definition,
+  active,
+  nearby,
+  visitorMapNearby,
+  onSelectExhibit,
+  onSelectVisitorMap,
+  onSceneGesture,
+}: MuseumHallContentProps) {
   const {lighting} = definition.layout;
   return <>
     <MuseumHallSpatialRoot definition={definition}>
@@ -42,6 +51,7 @@ export function AncientGreekHallContent({definition, active, nearby, onSelectExh
       />}
       {active && lighting.exhibitLights.map((light) => <ExhibitSpotlight key={light.id} definition={light}/>)}
       <HallArchitecture definition={definition} onSceneGesture={onSceneGesture}/>
+      <MuseumVisitorMapKiosk active={active} nearby={visitorMapNearby} onActivate={onSelectVisitorMap}/>
       <MuseumExhibits
         definition={definition}
         visibleExhibitIds={active ? undefined : ['neoplatonism']}

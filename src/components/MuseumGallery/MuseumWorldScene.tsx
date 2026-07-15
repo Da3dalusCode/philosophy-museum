@@ -13,7 +13,8 @@ import {
   type ReactNode,
 } from 'react';
 import {PerspectiveCamera, type WebGLRenderer} from 'three';
-import type {MuseumExhibitRef} from '../../data/museum/museumWorldTypes';
+import type {MuseumExhibitRef, MuseumInteractionTarget} from '../../data/museum/museumWorldTypes';
+import {visitorMapInteractionAtPose} from '../../data/museum/museumVisitorMap';
 import type {MuseumHallId} from '../../data/museumCatalog';
 import {
   clampFrameDelta,
@@ -57,18 +58,18 @@ function MuseumPlayerRig({
   poseRevision,
   inputRef,
   poseRef,
-  onNearbyChange,
+  onNearbyInteractionChange,
   onNearbyVisualChange,
   readyHallIds,
   onHallTransition,
   onHallTransitionBlocked,
 }: Pick<
   MuseumSceneRuntimeProps,
-  'definition' | 'active' | 'blocked' | 'poseRevision' | 'inputRef' | 'poseRef' | 'onNearbyChange'
+  'definition' | 'active' | 'blocked' | 'poseRevision' | 'inputRef' | 'poseRef' | 'onNearbyInteractionChange'
   | 'readyHallIds' | 'onHallTransition' | 'onHallTransitionBlocked'
-> & {onNearbyVisualChange: (exhibit: MuseumExhibitRef | undefined) => void}) {
+> & {onNearbyVisualChange: (target: MuseumInteractionTarget | undefined) => void}) {
   const {camera, invalidate} = useThree();
-  const lastNearbyRef = useRef<MuseumExhibitRef | undefined>(undefined);
+  const lastNearbyRef = useRef<MuseumInteractionTarget | undefined>(undefined);
   const displacementRef = useRef({x: 0, z: 0});
   const transitionLatchRef = useRef<string | undefined>(undefined);
   const blockedTransitionLatchRef = useRef<string | undefined>(undefined);
@@ -106,16 +107,18 @@ function MuseumPlayerRig({
   }, [camera, definition, layout.eyeHeight, poseRef]);
 
   const publishNearby = useCallback(() => {
-    const exhibitId = nearestInteractable(poseRef.current, layout.exhibits);
-    const next = exhibitId ? {hallId: definition.id, exhibitId} : undefined;
-    if (
-      next?.hallId === lastNearbyRef.current?.hallId
-      && next?.exhibitId === lastNearbyRef.current?.exhibitId
-    ) return;
+    const visitorMap = visitorMapInteractionAtPose(definition.id, poseRef.current);
+    const exhibitId = visitorMap ? undefined : nearestInteractable(poseRef.current, layout.exhibits);
+    const next: MuseumInteractionTarget | undefined = visitorMap
+      ?? (exhibitId ? {kind: 'exhibit', hallId: definition.id, exhibitId} : undefined);
+    const nextKey = next?.kind === 'exhibit' ? `${next.kind}:${next.hallId}:${next.exhibitId}` : next ? `${next.kind}:${next.hallId}:${next.kioskId}` : '';
+    const previous = lastNearbyRef.current;
+    const previousKey = previous?.kind === 'exhibit' ? `${previous.kind}:${previous.hallId}:${previous.exhibitId}` : previous ? `${previous.kind}:${previous.hallId}:${previous.kioskId}` : '';
+    if (nextKey === previousKey) return;
     lastNearbyRef.current = next;
     onNearbyVisualChange(next);
-    onNearbyChange(next);
-  }, [definition.id, layout.exhibits, onNearbyChange, onNearbyVisualChange, poseRef]);
+    onNearbyInteractionChange(next);
+  }, [definition.id, layout.exhibits, onNearbyInteractionChange, onNearbyVisualChange, poseRef]);
 
   useEffect(() => {
     void poseRevision;
@@ -209,7 +212,9 @@ function LoadedHall({
   active,
   viewerHallId,
   nearby,
+  visitorMapNearby,
   onSelectExhibit,
+  onSelectVisitorMap,
   onSceneGesture,
   onHallContentReady,
   onHallContentUnavailable,
@@ -219,7 +224,9 @@ function LoadedHall({
   active: boolean;
   viewerHallId: MuseumHallId;
   nearby?: MuseumExhibitRef;
+  visitorMapNearby: boolean;
   onSelectExhibit: MuseumSceneRuntimeProps['onSelectExhibit'];
+  onSelectVisitorMap: MuseumSceneRuntimeProps['onSelectVisitorMap'];
   onSceneGesture: MuseumSceneRuntimeProps['onSceneGesture'];
   onHallContentReady: MuseumSceneRuntimeProps['onHallContentReady'];
   onHallContentUnavailable: MuseumSceneRuntimeProps['onHallContentUnavailable'];
@@ -236,7 +243,9 @@ function LoadedHall({
         active={active}
         viewerHallId={viewerHallId}
         nearby={nearby}
+        visitorMapNearby={visitorMapNearby}
         onSelectExhibit={onSelectExhibit}
+        onSelectVisitorMap={onSelectVisitorMap}
         onSceneGesture={onSceneGesture}
       />
       <HallRenderedSignal
@@ -261,7 +270,11 @@ function HallRenderedSignal({hallId, onReady, onUnavailable}: {
 }
 
 function MuseumWorldContents(props: MuseumSceneRuntimeProps) {
-  const [nearby, setNearby] = useState<MuseumExhibitRef | undefined>();
+  const [nearbyTarget, setNearbyTarget] = useState<MuseumInteractionTarget | undefined>();
+  const nearby = nearbyTarget?.kind === 'exhibit'
+    ? {hallId: nearbyTarget.hallId, exhibitId: nearbyTarget.exhibitId}
+    : undefined;
+  const visitorMapNearby = nearbyTarget?.kind === 'visitor-map';
   const lighting = props.definition.layout.lighting;
   return <>
     <color attach="background" args={['#d8d3ca']}/>
@@ -273,7 +286,9 @@ function MuseumWorldContents(props: MuseumSceneRuntimeProps) {
       active={registration.definition.id === props.definition.id}
       viewerHallId={props.definition.id}
       nearby={nearby}
+      visitorMapNearby={visitorMapNearby}
       onSelectExhibit={props.onSelectExhibit}
+      onSelectVisitorMap={props.onSelectVisitorMap}
       onSceneGesture={props.onSceneGesture}
       onHallContentReady={props.onHallContentReady}
       onHallContentUnavailable={props.onHallContentUnavailable}
@@ -286,8 +301,8 @@ function MuseumWorldContents(props: MuseumSceneRuntimeProps) {
       poseRevision={props.poseRevision}
       inputRef={props.inputRef}
       poseRef={props.poseRef}
-      onNearbyChange={props.onNearbyChange}
-      onNearbyVisualChange={setNearby}
+      onNearbyInteractionChange={props.onNearbyInteractionChange}
+      onNearbyVisualChange={setNearbyTarget}
       readyHallIds={props.readyHallIds}
       onHallTransition={props.onHallTransition}
       onHallTransitionBlocked={props.onHallTransitionBlocked}

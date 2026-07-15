@@ -57,6 +57,8 @@ Every installation declares one scene footprint. The collider derives from that 
 
 `primaryCirculation` records each visitor spine and clearance radius. `guidedWalkLegs` records legal waypoint polylines between consecutive exhibit viewpoints. Audits sample both against the walkable spatial union, walls, furnishings, and installation colliders.
 
+Hall I also owns the physical entrance visitor-map kiosk. Its one shared definition drives render placement, collision, front-side interaction range, approach pose, and audit geometry. A data-only world-definition manifest drives the active lazy registry and the shared visitor-map projection; the physical screen and accessible DOM map therefore join titles and descriptions from the Museum catalog, derive edges from registered seams, and resolve configured hall IDs to existing safe spawns. It never replaces the complete `M` directory or introduces a second teleport path.
+
 ## Routes, interaction, and session state
 
 Public routes are hall-qualified: `#/museum/<hall-id>` and `#/museum/<hall-id>/exhibits/<exhibit-id>`. Scene callbacks use `{hallId, exhibitId}` references. Interpretation history state records the origin—active exploration, paused hall, directory, guided visit, or direct link—so closing a panel follows an explicit resume policy.

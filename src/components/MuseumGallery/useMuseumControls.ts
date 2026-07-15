@@ -7,7 +7,6 @@ import {
   type PointerEvent as ReactPointerEvent,
   type PointerEventHandler,
 } from 'react';
-import type {MuseumExhibitId} from '../../data/museumCatalog';
 import {
   createMuseumInputState,
   hasMuseumBrowserModifier,
@@ -51,8 +50,8 @@ export type UseMuseumControlsOptions = {
   active: boolean;
   suspended: boolean;
   blocked: boolean;
-  nearbyExhibitId?: MuseumExhibitId;
-  onInteract: (exhibitId: MuseumExhibitId) => void;
+  canInteract: boolean;
+  onInteract: () => void;
   onReset: () => void;
   onOpenDirectory: () => void;
   onPause?: () => void;
@@ -103,7 +102,7 @@ export function useMuseumControls(options: UseMuseumControlsOptions): MuseumCont
   const activeRef = useRef(options.active);
   const suspendedRef = useRef(options.suspended);
   const blockedRef = useRef(options.blocked);
-  const nearbyRef = useRef(options.nearbyExhibitId);
+  const canInteractRef = useRef(options.canInteract);
   const callbacksRef = useRef(options);
   const keysRef = useRef(new Set<string>());
   const touchMoveRef = useRef({strafe: 0, forward: 0});
@@ -115,7 +114,7 @@ export function useMuseumControls(options: UseMuseumControlsOptions): MuseumCont
   activeRef.current = options.active;
   suspendedRef.current = options.suspended;
   blockedRef.current = options.blocked;
-  nearbyRef.current = options.nearbyExhibitId;
+  canInteractRef.current = options.canInteract;
   callbacksRef.current = options;
 
   const setMode = useCallback((next: MuseumControlMode) => {
@@ -389,9 +388,9 @@ export function useMuseumControls(options: UseMuseumControlsOptions): MuseumCont
         return;
       }
       if (!canControl() || event.repeat) return;
-      if ((event.code === 'KeyE' || event.code === 'Enter') && nearbyRef.current) {
+      if ((event.code === 'KeyE' || event.code === 'Enter') && canInteractRef.current) {
         event.preventDefault();
-        callbacksRef.current.onInteract(nearbyRef.current);
+        callbacksRef.current.onInteract();
       } else if (event.code === 'KeyR') {
         event.preventDefault();
         clearInput();

@@ -213,9 +213,9 @@ function OrientationPlinth({definition}: {definition: MuseumFurnishingDefinition
 }
 
 function GalleryFurnishing({definition}: {definition: MuseumFurnishingDefinition}) {
-  return definition.kind === 'bench'
-    ? <GalleryBench definition={definition}/>
-    : <OrientationPlinth definition={definition}/>;
+  if (definition.kind === 'bench') return <GalleryBench definition={definition}/>;
+  if (definition.kind === 'orientation-plinth') return <OrientationPlinth definition={definition}/>;
+  return null;
 }
 
 export function HallArchitecture({definition, onSceneGesture}: {
