@@ -1,0 +1,167 @@
+{
+  "schemaVersion": 1,
+  "manifestVersion": "ring-example-v1",
+  "status": "planning-example-only",
+  "physicalOptionId": "ring-of-wings",
+  "units": "metres",
+  "northYawRadians": 0,
+  "sourceProgram": "./hall-program.json",
+  "coordinateFrames": {
+    "worldPosition": "world x/y/z",
+    "mapFootprint": "world x/z polygon",
+    "safeArrivalPoses": "node-local x/y/z and yaw/pitch"
+  },
+  "levels": [
+    {
+      "id": "L0",
+      "title": "Main level",
+      "elevation": 0
+    }
+  ],
+  "nodes": [
+    {
+      "id": "place:entrance-orientation",
+      "kind": "atrium",
+      "levelId": "L0",
+      "templateId": null,
+      "worldPosition": {"x": 0, "y": 0, "z": 0},
+      "rotationYawRadians": 0,
+      "physicalFootprint": {"width": 36, "depth": 30},
+      "doorwaySlots": ["N0", "S0", "E0", "W0"],
+      "safeArrivalPoses": {
+        "main-entry": {"x": 0, "y": 1.7, "z": 12, "yaw": 0, "pitch": 0},
+        "N0": {"x": 0, "y": 1.7, "z": -12, "yaw": 3.141593, "pitch": 0}
+      },
+      "mapFootprint": [[-18, -15], [18, -15], [18, 15], [-18, 15]],
+      "implementationStatus": "planned"
+    },
+    {
+      "id": "corridor:entrance-forum",
+      "kind": "corridor",
+      "levelId": "L0",
+      "templateId": null,
+      "worldPosition": {"x": 0, "y": 0, "z": -21.5},
+      "rotationYawRadians": 0,
+      "physicalFootprint": {"width": 6, "depth": 13},
+      "doorwaySlots": ["N0", "S0"],
+      "safeArrivalPoses": {
+        "N0": {"x": 0, "y": 1.7, "z": -4.5, "yaw": 3.141593, "pitch": 0},
+        "S0": {"x": 0, "y": 1.7, "z": 4.5, "yaw": 0, "pitch": 0}
+      },
+      "mapFootprint": [[-3, -28], [3, -28], [3, -15], [-3, -15]],
+      "implementationStatus": "planned"
+    },
+    {
+      "id": "place:core-questions-forum",
+      "kind": "hall",
+      "programHallId": "core-questions-forum",
+      "wingId": "wing-core-questions",
+      "templateId": "crossroads-4",
+      "levelId": "L0",
+      "worldPosition": {"x": 0, "y": 0, "z": -42},
+      "rotationYawRadians": 0,
+      "physicalFootprint": {"width": 28, "depth": 28},
+      "doorwaySlots": ["N0", "S0", "E0", "W0", "N1", "S1"],
+      "safeArrivalPoses": {
+        "S0": {"x": 0, "y": 1.7, "z": 11, "yaw": 0, "pitch": 0},
+        "W0": {"x": -11, "y": 1.7, "z": 0, "yaw": -1.570796, "pitch": 0}
+      },
+      "mapFootprint": [[-14, -56], [14, -56], [14, -28], [-14, -28]],
+      "renderDefinitionId": null,
+      "implementationStatus": "planned"
+    },
+    {
+      "id": "corridor:forum-mediterranean",
+      "kind": "corridor",
+      "levelId": "L0",
+      "templateId": null,
+      "worldPosition": {"x": -20, "y": 0, "z": -42},
+      "rotationYawRadians": 0,
+      "physicalFootprint": {"width": 12, "depth": 6},
+      "doorwaySlots": ["E0", "W0"],
+      "safeArrivalPoses": {
+        "E0": {"x": 4, "y": 1.7, "z": 0, "yaw": 1.570796, "pitch": 0},
+        "W0": {"x": -4, "y": 1.7, "z": 0, "yaw": -1.570796, "pitch": 0}
+      },
+      "mapFootprint": [[-26, -45], [-14, -45], [-14, -39], [-26, -39]],
+      "implementationStatus": "planned"
+    },
+    {
+      "id": "place:mediterranean-beginnings-classical",
+      "kind": "hall",
+      "programHallId": "mediterranean-beginnings-classical",
+      "wingId": "wing-mediterranean-antiquity",
+      "templateId": "sequence-3",
+      "levelId": "L0",
+      "worldPosition": {"x": -54, "y": 0, "z": -42},
+      "rotationYawRadians": 1.570796,
+      "physicalFootprint": {"width": 24, "depth": 56},
+      "doorwaySlots": ["N0", "S0", "E1", "W1"],
+      "safeArrivalPoses": {
+        "S0": {"x": 0, "y": 1.7, "z": 25, "yaw": 0, "pitch": 0}
+      },
+      "mapFootprint": [[-82, -54], [-26, -54], [-26, -30], [-82, -30]],
+      "renderDefinitionId": null,
+      "implementationStatus": "planned"
+    }
+  ],
+  "connections": [
+    {
+      "id": "conn:entrance-to-forum-corridor",
+      "a": {"nodeId": "place:entrance-orientation", "slotId": "N0"},
+      "b": {"nodeId": "corridor:entrance-forum", "slotId": "S0"},
+      "kind": "walk",
+      "accessible": true,
+      "implementationStatus": "planned"
+    },
+    {
+      "id": "conn:forum-corridor-to-forum",
+      "a": {"nodeId": "corridor:entrance-forum", "slotId": "N0"},
+      "b": {"nodeId": "place:core-questions-forum", "slotId": "S0"},
+      "kind": "walk",
+      "accessible": true,
+      "implementationStatus": "planned"
+    },
+    {
+      "id": "conn:forum-to-west-corridor",
+      "a": {"nodeId": "place:core-questions-forum", "slotId": "W0"},
+      "b": {"nodeId": "corridor:forum-mediterranean", "slotId": "E0"},
+      "kind": "walk",
+      "accessible": true,
+      "implementationStatus": "planned"
+    },
+    {
+      "id": "conn:west-corridor-to-mediterranean",
+      "a": {"nodeId": "corridor:forum-mediterranean", "slotId": "W0"},
+      "b": {"nodeId": "place:mediterranean-beginnings-classical", "slotId": "S0"},
+      "kind": "walk",
+      "accessible": true,
+      "implementationStatus": "planned"
+    }
+  ],
+  "reservations": [
+    {
+      "id": "reserve:south-asian-01",
+      "reservationType": "insertion",
+      "host": {"nodeId": "place:core-questions-forum", "slotId": "E0"},
+      "targetProgramHallId": "classical-south-asian-worlds",
+      "wingId": "wing-south-asian-worlds",
+      "levelId": "L0",
+      "worldPosition": {"x": 42, "y": 0, "z": -42},
+      "rotationYawRadians": 1.570796,
+      "reservedFootprint": {"width": 24, "depth": 56},
+      "mapFootprint": [[14, -54], [70, -54], [70, -30], [14, -30]],
+      "allowedTemplateIds": ["sequence-3"],
+      "blocked": true,
+      "implementationStatus": "reserved"
+    }
+  ],
+  "derivationRules": {
+    "runtimeConnections": "Generate both local runtime directions from each single physical connection.",
+    "prefetchAdjacency": "Derive from implementationStatus=live walk connections with doorway-specific media budgets.",
+    "collisionAndWalls": "Instantiate from template geometry plus approved hall-specific partitions.",
+    "visitorMap": "Project live level footprints, corridors, doorway slots, and accessible routes; do not author unrelated node percentages.",
+    "destinationPolicy": "Only implementationStatus=live nodes and connections may be walk or fast-travel destinations.",
+    "reservationPolicy": "A blocked host slot is visible but absent from live adjacency, crossing, prefetch, and fast-travel sets."
+  }
+}

@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Two-Level Braided Promenade floor-plan concept</title>
+  <desc id="desc">A conceptual two-level plan with thirteen halls per level, three redundant elevator and stair cores, all four Early Modern halls on Level 0, both East Asian halls on Level 1, and three horizontal reservations per level.</desc>
+  <defs>
+    <style>
+      .bg{fill:#f6f2e8}.level{fill:#fffdf7;stroke:#53636d;stroke-width:2;rx:18}.route{fill:none;stroke:#596a73;stroke-width:14;opacity:.22;stroke-linecap:round}.bridge{fill:none;stroke:#4d6470;stroke-width:4;stroke-dasharray:10 8}.wing{stroke:#26333a;stroke-width:2;rx:12}.label{font:600 18px system-ui,sans-serif;fill:#17242b}.small{font:500 14px system-ui,sans-serif;fill:#26333a}.micro{font:500 12px system-ui,sans-serif;fill:#34464f}.forum{fill:#e8c86f}.ancient{fill:#d9a55d}.south{fill:#a8c77d}.buddhist{fill:#d5b36b}.east{fill:#dc8c74}.medieval{fill:#9fb4cf}.early{fill:#a7c4cf}.nineteenth{fill:#b7a4ce}.modern{fill:#8fb6bc}.social{fill:#d29aae}.core{fill:#26333a}.coreText{font:700 13px system-ui,sans-serif;fill:#fff}.reserve{fill:#f6f2e8;stroke:#6c7b82;stroke-width:2;stroke-dasharray:7 5;rx:10}
+    </style>
+  </defs>
+  <rect class="bg" width="1200" height="760"/>
+  <text class="label" x="42" y="42">Concept B · Two-Level Braided Promenade</text>
+  <text class="small" x="42" y="66">26 halls · 13 ground + 13 upper · 3 redundant lift/stair cores · 6 reserves (3/level) · conceptual / not to scale</text>
+
+  <rect class="level" x="42" y="96" width="1116" height="260"/>
+  <text class="label" x="66" y="126">L0 · historical and cultural worlds</text>
+  <path class="route" d="M112 218H1080"/>
+  <g transform="translate(74 164)"><rect class="wing forum" width="124" height="106"/><text class="small" x="62" y="34" text-anchor="middle">Entrance</text><text class="small" x="62" y="57" text-anchor="middle">+ Forum ★</text><text class="micro" x="62" y="82" text-anchor="middle">1 hall</text></g>
+  <g transform="translate(218 164)"><rect class="wing ancient" width="144" height="106"/><text class="small" x="72" y="34" text-anchor="middle">Mediterranean ★</text><text class="micro" x="72" y="60" text-anchor="middle">3 halls</text></g>
+  <g transform="translate(382 164)"><rect class="wing south" width="114" height="106"/><text class="small" x="57" y="34" text-anchor="middle">South Asian</text><text class="micro" x="57" y="60" text-anchor="middle">1 hall</text></g>
+  <g transform="translate(516 164)"><rect class="wing buddhist" width="114" height="106"/><text class="small" x="57" y="34" text-anchor="middle">Buddhist</text><text class="micro" x="57" y="60" text-anchor="middle">1 hall</text></g>
+  <g transform="translate(650 164)"><rect class="wing medieval" width="150" height="106"/><text class="small" x="75" y="34" text-anchor="middle">Connected Worlds</text><text class="micro" x="75" y="58" text-anchor="middle">medieval + post-classical</text><text class="micro" x="75" y="78" text-anchor="middle">3 halls</text></g>
+  <g transform="translate(820 164)"><rect class="wing early" width="130" height="106"/><text class="small" x="65" y="34" text-anchor="middle">Early Modern I</text><text class="micro" x="65" y="60" text-anchor="middle">2 halls</text></g>
+  <g transform="translate(970 164)"><rect class="wing early" width="130" height="106"/><text class="small" x="65" y="34" text-anchor="middle">Early Modern II ★</text><text class="micro" x="65" y="60" text-anchor="middle">2 halls</text></g>
+  <g transform="translate(80 292)"><rect class="reserve" width="126" height="42"/><text class="micro" x="63" y="26" text-anchor="middle">ground reserve</text></g>
+  <g transform="translate(537 292)"><rect class="reserve" width="126" height="42"/><text class="micro" x="63" y="26" text-anchor="middle">ground reserve</text></g>
+  <g transform="translate(994 292)"><rect class="reserve" width="126" height="42"/><text class="micro" x="63" y="26" text-anchor="middle">ground reserve</text></g>
+
+  <rect class="level" x="42" y="414" width="1116" height="260"/>
+  <text class="label" x="66" y="444">L1 · East Asian continuities, nineteenth-century, modern, and social arguments</text>
+  <path class="route" d="M112 536H1080"/>
+  <g transform="translate(108 482)"><rect class="wing east" width="170" height="106"/><text class="small" x="85" y="34" text-anchor="middle">East Asian</text><text class="micro" x="85" y="60" text-anchor="middle">2 halls</text></g>
+  <g transform="translate(302 482)"><rect class="wing nineteenth" width="188" height="106"/><text class="small" x="94" y="34" text-anchor="middle">Nineteenth Century ★</text><text class="micro" x="94" y="60" text-anchor="middle">3 halls</text></g>
+  <g transform="translate(514 482)"><rect class="wing modern" width="222" height="106"/><text class="small" x="111" y="34" text-anchor="middle">Modern Traditions ★</text><text class="micro" x="111" y="60" text-anchor="middle">4 halls</text></g>
+  <g transform="translate(760 482)"><rect class="wing social" width="246" height="106"/><text class="small" x="123" y="34" text-anchor="middle">Ethics, Politics &amp; Society ★</text><text class="micro" x="123" y="60" text-anchor="middle">4 halls</text></g>
+  <g transform="translate(1030 482)"><rect class="reserve" width="86" height="106"/><text class="micro" x="43" y="44" text-anchor="middle">upper</text><text class="micro" x="43" y="64" text-anchor="middle">reserve</text></g>
+  <g transform="translate(80 610)"><rect class="reserve" width="126" height="42"/><text class="micro" x="63" y="26" text-anchor="middle">upper reserve</text></g>
+  <g transform="translate(537 610)"><rect class="reserve" width="126" height="42"/><text class="micro" x="63" y="26" text-anchor="middle">upper reserve</text></g>
+
+  <g transform="translate(300 336)"><circle class="core" cx="0" cy="39" r="24"/><text class="coreText" x="0" y="44" text-anchor="middle">A</text></g>
+  <g transform="translate(600 336)"><circle class="core" cx="0" cy="39" r="24"/><text class="coreText" x="0" y="44" text-anchor="middle">B</text></g>
+  <g transform="translate(900 336)"><circle class="core" cx="0" cy="39" r="24"/><text class="coreText" x="0" y="44" text-anchor="middle">C</text></g>
+  <path class="bridge" d="M300 270V482M600 270V482M900 270V482"/>
+  <text class="micro" x="320" y="389">lift + stair cores; every route has alternatives</text>
+
+  <text class="micro" x="54" y="710">Step-free routing is a first-class graph, not a fallback. A third level is deferred until elevators, map levels, residency, and emergency return paths are proven.</text>
+</svg>

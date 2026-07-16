@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Pavilion Campus Mesh floor-plan concept</title>
+  <desc id="desc">Ten wing pavilions containing twenty-six halls form local loops around a separate central orientation courtyard, with one numbered outward reservation per pavilion.</desc>
+  <defs>
+    <style>
+      .bg{fill:#f6f2e8}.court{fill:#e8c86f;stroke:#26333a;stroke-width:3}.loop{fill:none;stroke:#55666f;stroke-width:14;opacity:.22}.mesh{fill:none;stroke:#60727a;stroke-width:4;stroke-dasharray:9 7}.wing{stroke:#26333a;stroke-width:2;rx:18}.label{font:600 18px system-ui,sans-serif;fill:#17242b}.small{font:500 14px system-ui,sans-serif;fill:#26333a}.micro{font:500 12px system-ui,sans-serif;fill:#34464f}.forum{fill:#ead187}.ancient{fill:#d9a55d}.south{fill:#a8c77d}.buddhist{fill:#d5b36b}.east{fill:#dc8c74}.medieval{fill:#9fb4cf}.early{fill:#a7c4cf}.nineteenth{fill:#b7a4ce}.modern{fill:#8fb6bc}.social{fill:#d29aae}.reserve{fill:#f6f2e8;stroke:#6c7b82;stroke-width:2;stroke-dasharray:7 5;rx:12}
+    </style>
+  </defs>
+  <rect class="bg" width="1200" height="760"/>
+  <text class="label" x="42" y="42">Concept C · Pavilion Campus Mesh</text>
+  <text class="small" x="42" y="66">10 wing pavilions · 26 halls · 36 walk links · local loops + courtyard mesh · 10 reserves · conceptual / not to scale</text>
+
+  <ellipse class="loop" cx="600" cy="390" rx="390" ry="250"/>
+  <path class="mesh" d="M600 278L600 128M600 502L600 650M488 390H192M712 390H1008M520 310L312 190M680 310L888 190M520 470L312 590M680 470L888 590"/>
+
+  <circle class="court" cx="600" cy="390" r="112"/>
+  <text class="label" x="600" y="375" text-anchor="middle">Entrance &amp; Orientation Court</text>
+  <text class="small" x="600" y="402" text-anchor="middle">routes · directory · highlights · accessible map</text>
+
+  <g transform="translate(500 92)"><rect class="wing ancient" width="200" height="94"/><text class="label" x="100" y="34" text-anchor="middle">Mediterranean ★</text><text class="small" x="100" y="61" text-anchor="middle">3 halls</text></g>
+  <g transform="translate(770 126)"><rect class="wing south" width="166" height="88"/><text class="label" x="83" y="33" text-anchor="middle">South Asian</text><text class="small" x="83" y="59" text-anchor="middle">1 hall</text></g>
+  <g transform="translate(948 260)"><rect class="wing buddhist" width="166" height="88"/><text class="label" x="83" y="33" text-anchor="middle">Buddhist</text><text class="small" x="83" y="59" text-anchor="middle">1 hall</text></g>
+  <g transform="translate(944 444)"><rect class="wing east" width="174" height="92"/><text class="label" x="87" y="33" text-anchor="middle">East Asian</text><text class="small" x="87" y="61" text-anchor="middle">2 halls</text></g>
+  <g transform="translate(752 578)"><rect class="wing medieval" width="196" height="96"/><text class="label" x="98" y="30" text-anchor="middle">Connected Worlds</text><text class="micro" x="98" y="52" text-anchor="middle">medieval + post-classical</text><text class="small" x="98" y="76" text-anchor="middle">3 halls</text></g>
+  <g transform="translate(490 612)"><rect class="wing early" width="220" height="98"/><text class="label" x="110" y="34" text-anchor="middle">Early Modern ★</text><text class="small" x="110" y="62" text-anchor="middle">4 halls</text></g>
+  <g transform="translate(252 578)"><rect class="wing nineteenth" width="196" height="96"/><text class="label" x="98" y="34" text-anchor="middle">Nineteenth ★</text><text class="small" x="98" y="62" text-anchor="middle">3 halls</text></g>
+  <g transform="translate(82 444)"><rect class="wing modern" width="184" height="92"/><text class="label" x="92" y="33" text-anchor="middle">Modern ★</text><text class="small" x="92" y="61" text-anchor="middle">4 halls</text></g>
+  <g transform="translate(86 260)"><rect class="wing social" width="184" height="88"/><text class="label" x="92" y="33" text-anchor="middle">Ethics &amp; Society ★</text><text class="small" x="92" y="59" text-anchor="middle">4 halls</text></g>
+  <g transform="translate(264 126)"><rect class="wing forum" width="166" height="88"/><text class="label" x="83" y="33" text-anchor="middle">Core Questions ★</text><text class="small" x="83" y="59" text-anchor="middle">Forum · 1 hall</text></g>
+
+  <g aria-label="One outward reservation per pavilion">
+    <circle class="reserve" cx="600" cy="82" r="12"/><text class="micro" x="600" y="86" text-anchor="middle">R1</text>
+    <circle class="reserve" cx="960" cy="130" r="12"/><text class="micro" x="960" y="134" text-anchor="middle">R2</text>
+    <circle class="reserve" cx="1140" cy="260" r="12"/><text class="micro" x="1140" y="264" text-anchor="middle">R3</text>
+    <circle class="reserve" cx="1140" cy="490" r="12"/><text class="micro" x="1140" y="494" text-anchor="middle">R4</text>
+    <circle class="reserve" cx="1030" cy="680" r="12"/><text class="micro" x="1030" y="684" text-anchor="middle">R5</text>
+    <circle class="reserve" cx="600" cy="722" r="12"/><text class="micro" x="600" y="726" text-anchor="middle">R6</text>
+    <circle class="reserve" cx="170" cy="680" r="12"/><text class="micro" x="170" y="684" text-anchor="middle">R7</text>
+    <circle class="reserve" cx="60" cy="490" r="12"/><text class="micro" x="60" y="494" text-anchor="middle">R8</text>
+    <circle class="reserve" cx="60" cy="260" r="12"/><text class="micro" x="60" y="264" text-anchor="middle">R9</text>
+    <circle class="reserve" cx="220" cy="130" r="12"/><text class="micro" x="220" y="134" text-anchor="middle">R10</text>
+  </g>
+  <text class="micro" x="42" y="752">R1–R10 are blocked growth points. Distinct scholarship and interpretation give pavilions identity; avoid architectural pastiche and treat courtyard links as routes, not influence claims.</text>
+</svg>

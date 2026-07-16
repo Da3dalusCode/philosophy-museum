@@ -1,0 +1,1517 @@
+{
+  "schemaVersion": 1,
+  "status": "planning-only",
+  "recommendedOptionId": "worlds-with-questions-forum-expanded",
+  "assignmentCounts": {
+    "branches": 43,
+    "philosophers": 141,
+    "totalPrimaryRecords": 184
+  },
+  "optionSummaries": [
+    {
+      "id": "worlds-with-questions-forum-expanded",
+      "title": "Worlds with a Questions Forum — Expanded and Culturally Safeguarded",
+      "organizingPrinciple": "Historical and cultural primary homes with a shared questions forum and explicit secondary lenses",
+      "wingCount": 10,
+      "hallCount": 26,
+      "roomCount": 105,
+      "recordCapacity": 258
+    },
+    {
+      "id": "braided-global-timeline",
+      "title": "Braided Global Timeline",
+      "organizingPrinciple": "Predominantly chronological simultaneous regional strands",
+      "wingCount": 6,
+      "hallCount": 25,
+      "roomCount": 88,
+      "recordCapacity": 228
+    },
+    {
+      "id": "questions-methods-network",
+      "title": "Questions and Methods Network",
+      "organizingPrinciple": "Predominantly thematic wings with separate historical context houses",
+      "wingCount": 7,
+      "hallCount": 25,
+      "roomCount": 86,
+      "recordCapacity": 240
+    }
+  ],
+  "optionWingBreakdowns": {
+    "worlds-with-questions-forum-expanded": [
+      {
+        "id": "wing-core-questions",
+        "title": "Core Questions Forum",
+        "hallCount": 1,
+        "roomCount": 9,
+        "recordCapacity": 25
+      },
+      {
+        "id": "wing-mediterranean-antiquity",
+        "title": "Mediterranean Antiquity",
+        "hallCount": 3,
+        "roomCount": 11,
+        "recordCapacity": 59
+      },
+      {
+        "id": "wing-south-asian-worlds",
+        "title": "South Asian Intellectual Worlds",
+        "hallCount": 1,
+        "roomCount": 5,
+        "recordCapacity": 14
+      },
+      {
+        "id": "wing-buddhist-worlds",
+        "title": "Buddhist Traditions Across Asia",
+        "hallCount": 1,
+        "roomCount": 5,
+        "recordCapacity": 13
+      },
+      {
+        "id": "wing-east-asian-worlds",
+        "title": "Chinese & East Asian Intellectual Worlds",
+        "hallCount": 2,
+        "roomCount": 7,
+        "recordCapacity": 23
+      },
+      {
+        "id": "wing-medieval-connected-worlds",
+        "title": "Connected Medieval & Post-Classical Intellectual Worlds",
+        "hallCount": 3,
+        "roomCount": 11,
+        "recordCapacity": 33
+      },
+      {
+        "id": "wing-early-modern-enlightenment",
+        "title": "Early Modern Europe & Enlightenments",
+        "hallCount": 4,
+        "roomCount": 14,
+        "recordCapacity": 23
+      },
+      {
+        "id": "wing-nineteenth-transformations",
+        "title": "Nineteenth-Century Transformations",
+        "hallCount": 3,
+        "roomCount": 11,
+        "recordCapacity": 15
+      },
+      {
+        "id": "wing-modern-traditions",
+        "title": "Modern Philosophical Traditions",
+        "hallCount": 4,
+        "roomCount": 18,
+        "recordCapacity": 28
+      },
+      {
+        "id": "wing-ethics-politics-society",
+        "title": "Ethics, Politics, and Social Thought",
+        "hallCount": 4,
+        "roomCount": 14,
+        "recordCapacity": 25
+      }
+    ],
+    "braided-global-timeline": [
+      {
+        "id": "timeline-beginnings",
+        "title": "Beginnings",
+        "hallCount": 4,
+        "roomCount": 14,
+        "recordCapacity": 34
+      },
+      {
+        "id": "timeline-classical-late-antique",
+        "title": "Classical and Late Antique",
+        "hallCount": 4,
+        "roomCount": 14,
+        "recordCapacity": 35
+      },
+      {
+        "id": "timeline-medieval",
+        "title": "Medieval and Scholastic Worlds",
+        "hallCount": 5,
+        "roomCount": 18,
+        "recordCapacity": 42
+      },
+      {
+        "id": "timeline-early-modern",
+        "title": "Early Modern and Enlightenment",
+        "hallCount": 4,
+        "roomCount": 14,
+        "recordCapacity": 35
+      },
+      {
+        "id": "timeline-nineteenth",
+        "title": "Nineteenth Century",
+        "hallCount": 3,
+        "roomCount": 11,
+        "recordCapacity": 27
+      },
+      {
+        "id": "timeline-modern-contemporary",
+        "title": "Twentieth Century to Present",
+        "hallCount": 5,
+        "roomCount": 17,
+        "recordCapacity": 55
+      }
+    ],
+    "questions-methods-network": [
+      {
+        "id": "questions-reality-being",
+        "title": "Reality and Being",
+        "hallCount": 3,
+        "roomCount": 10,
+        "recordCapacity": 28
+      },
+      {
+        "id": "questions-knowledge-method",
+        "title": "Knowledge and Method",
+        "hallCount": 3,
+        "roomCount": 11,
+        "recordCapacity": 31
+      },
+      {
+        "id": "questions-mind-logic-language",
+        "title": "Mind, Logic, and Language",
+        "hallCount": 4,
+        "roomCount": 14,
+        "recordCapacity": 38
+      },
+      {
+        "id": "questions-ethics-life",
+        "title": "Ethics and Ways of Life",
+        "hallCount": 3,
+        "roomCount": 10,
+        "recordCapacity": 28
+      },
+      {
+        "id": "questions-power-society",
+        "title": "Power, Justice, and Society",
+        "hallCount": 4,
+        "roomCount": 15,
+        "recordCapacity": 44
+      },
+      {
+        "id": "questions-art-interpretation",
+        "title": "Art, Interpretation, and Value",
+        "hallCount": 2,
+        "roomCount": 7,
+        "recordCapacity": 19
+      },
+      {
+        "id": "questions-context-houses",
+        "title": "Historical Context Houses",
+        "hallCount": 6,
+        "roomCount": 19,
+        "recordCapacity": 52
+      }
+    ]
+  },
+  "tiers": [
+    {
+      "id": "anchor-exhibit",
+      "title": "Anchor exhibit"
+    },
+    {
+      "id": "standard-individual-exhibit",
+      "title": "Standard individual exhibit"
+    },
+    {
+      "id": "supporting-exhibit",
+      "title": "Supporting exhibit"
+    },
+    {
+      "id": "thematic-cluster-participant",
+      "title": "Thematic cluster participant"
+    },
+    {
+      "id": "gallery-archive-or-study-wall-record",
+      "title": "Gallery archive or study-wall record"
+    }
+  ],
+  "templates": [
+    {
+      "id": "standard-rect",
+      "title": "Standard rectangular gallery",
+      "footprintMetres": {
+        "width": 20,
+        "depth": 24
+      },
+      "roomRange": [
+        2,
+        3
+      ],
+      "portalSlots": [
+        "N0",
+        "S0",
+        "E0",
+        "W0"
+      ],
+      "optionalPortalSlots": [
+        "E0",
+        "W0"
+      ],
+      "wallThicknessMetres": 0.36,
+      "ceilingHeightMetres": 5.8,
+      "publicPortal": {
+        "clearWidthMetres": 4,
+        "clearHeightMetres": 3.2,
+        "transitionDepthMetres": 1.2
+      }
+    },
+    {
+      "id": "sequence-3",
+      "title": "Sequential multi-room gallery",
+      "footprintMetres": {
+        "width": 24,
+        "depth": 56
+      },
+      "roomRange": [
+        3,
+        5
+      ],
+      "portalSlots": [
+        "N0",
+        "S0",
+        "E1",
+        "W1"
+      ],
+      "optionalPortalSlots": [
+        "E1",
+        "W1"
+      ],
+      "wallThicknessMetres": 0.36,
+      "ceilingHeightMetres": 5.8,
+      "publicPortal": {
+        "clearWidthMetres": 4,
+        "clearHeightMetres": 3.2,
+        "transitionDepthMetres": 1.2
+      }
+    },
+    {
+      "id": "crossroads-4",
+      "title": "Crossroads or hub gallery",
+      "footprintMetres": {
+        "width": 28,
+        "depth": 28
+      },
+      "roomRange": [
+        4,
+        9
+      ],
+      "portalSlots": [
+        "N0",
+        "S0",
+        "E0",
+        "W0",
+        "N1",
+        "S1"
+      ],
+      "optionalPortalSlots": [
+        "N1",
+        "S1"
+      ],
+      "wallThicknessMetres": 0.36,
+      "ceilingHeightMetres": 6.2,
+      "publicPortal": {
+        "clearWidthMetres": 4,
+        "clearHeightMetres": 3.2,
+        "transitionDepthMetres": 1.2
+      }
+    },
+    {
+      "id": "focal-terminal",
+      "title": "Focal or terminal gallery",
+      "footprintMetres": {
+        "width": 20,
+        "depth": 26
+      },
+      "roomRange": [
+        1,
+        2
+      ],
+      "portalSlots": [
+        "N0",
+        "S0"
+      ],
+      "optionalPortalSlots": [
+        "S0"
+      ],
+      "wallThicknessMetres": 0.36,
+      "ceilingHeightMetres": 6.4,
+      "publicPortal": {
+        "clearWidthMetres": 4,
+        "clearHeightMetres": 3.2,
+        "transitionDepthMetres": 1.2
+      }
+    }
+  ],
+  "sharedPhysicalContract": {
+    "units": "metres",
+    "planningGrid": 1,
+    "primaryCirculationClearWidthTarget": [
+      1.8,
+      2
+    ],
+    "turningPocketDiameter": 1.8,
+    "safeArrivalLanding": {
+      "width": 4,
+      "depth": 4,
+      "poseOffsetFromPortal": 2,
+      "mustFaceFirstLandmark": true
+    },
+    "exhibitBayWidths": {
+      "standard": 3,
+      "anchor": 4.5
+    },
+    "clearViewingFloorTarget": {
+      "width": 0.9,
+      "depth": 1.4
+    },
+    "lightingInterface": [
+      "ambient",
+      "threshold",
+      "perimeter-track",
+      "anchor-track",
+      "accessible-label-light"
+    ],
+    "collisionRule": "Template geometry, wall colliders, doorway openings, lighting anchors, safe arrivals, and map footprints derive from one physical source."
+  },
+  "wings": [
+    {
+      "id": "wing-core-questions",
+      "title": "Core Questions Forum",
+      "hallIds": [
+        "core-questions-forum"
+      ],
+      "roomCount": 9,
+      "recordCapacity": 25
+    },
+    {
+      "id": "wing-mediterranean-antiquity",
+      "title": "Mediterranean Antiquity",
+      "hallIds": [
+        "mediterranean-beginnings-classical",
+        "hellenistic-roman-ways",
+        "late-antiquity-inheritance"
+      ],
+      "roomCount": 11,
+      "recordCapacity": 59
+    },
+    {
+      "id": "wing-south-asian-worlds",
+      "title": "South Asian Intellectual Worlds",
+      "hallIds": [
+        "classical-south-asian-worlds"
+      ],
+      "roomCount": 5,
+      "recordCapacity": 14
+    },
+    {
+      "id": "wing-buddhist-worlds",
+      "title": "Buddhist Traditions Across Asia",
+      "hallIds": [
+        "buddhist-philosophies"
+      ],
+      "roomCount": 5,
+      "recordCapacity": 13
+    },
+    {
+      "id": "wing-east-asian-worlds",
+      "title": "Chinese & East Asian Intellectual Worlds",
+      "hallIds": [
+        "classical-chinese-traditions",
+        "east-asian-continuities"
+      ],
+      "roomCount": 7,
+      "recordCapacity": 23
+    },
+    {
+      "id": "wing-medieval-connected-worlds",
+      "title": "Connected Medieval & Post-Classical Intellectual Worlds",
+      "hallIds": [
+        "islamic-philosophical-worlds",
+        "jewish-philosophy",
+        "latin-christian-scholastic"
+      ],
+      "roomCount": 11,
+      "recordCapacity": 33
+    },
+    {
+      "id": "wing-early-modern-enlightenment",
+      "title": "Early Modern Europe & Enlightenments",
+      "hallIds": [
+        "renaissance-humanism-new-method",
+        "rationalism-mind-nature-system",
+        "empiricism-science-political-order",
+        "enlightenment-revolution-kant"
+      ],
+      "roomCount": 14,
+      "recordCapacity": 23
+    },
+    {
+      "id": "wing-nineteenth-transformations",
+      "title": "Nineteenth-Century Transformations",
+      "hallIds": [
+        "german-idealism-afterlives",
+        "utility-liberty-history-capital",
+        "faith-pessimism-life-value"
+      ],
+      "roomCount": 11,
+      "recordCapacity": 15
+    },
+    {
+      "id": "wing-modern-traditions",
+      "title": "Modern Philosophical Traditions",
+      "hallIds": [
+        "pragmatism-democratic-inquiry",
+        "analytic-traditions",
+        "phenomenology-existence-embodiment",
+        "critique-power-deconstruction"
+      ],
+      "roomCount": 18,
+      "recordCapacity": 28
+    },
+    {
+      "id": "wing-ethics-politics-society",
+      "title": "Ethics, Politics, and Social Thought",
+      "hallIds": [
+        "moral-life-practical-reason",
+        "justice-democratic-reason",
+        "feminist-philosophies",
+        "colonialism-race-liberation"
+      ],
+      "roomCount": 14,
+      "recordCapacity": 25
+    }
+  ],
+  "halls": [
+    {
+      "id": "core-questions-forum",
+      "wingId": "wing-core-questions",
+      "title": "Core Questions Forum",
+      "templateId": "crossroads-4",
+      "roomIds": [
+        "core-reality-being",
+        "core-knowledge",
+        "core-mind-self",
+        "core-logic-language",
+        "core-science",
+        "core-ethics-portal",
+        "core-political-portal",
+        "core-aesthetics",
+        "core-religion"
+      ],
+      "recordCapacity": 25
+    },
+    {
+      "id": "mediterranean-beginnings-classical",
+      "wingId": "wing-mediterranean-antiquity",
+      "title": "Mediterranean Beginnings & Classical Athens",
+      "templateId": "sequence-3",
+      "roomIds": [
+        "med-orientation-nature",
+        "med-being-change-plurality",
+        "med-sophists-socratic",
+        "med-plato-aristotle"
+      ],
+      "recordCapacity": 24
+    },
+    {
+      "id": "hellenistic-roman-ways",
+      "wingId": "wing-mediterranean-antiquity",
+      "title": "Hellenistic & Roman Ways of Life",
+      "templateId": "crossroads-4",
+      "roomIds": [
+        "hell-cynic-way",
+        "hell-epicurean-garden",
+        "hell-stoic-stoa",
+        "hell-skeptical-lineages"
+      ],
+      "recordCapacity": 22
+    },
+    {
+      "id": "late-antiquity-inheritance",
+      "wingId": "wing-mediterranean-antiquity",
+      "title": "Late Antiquity & Neoplatonic Inheritance",
+      "templateId": "sequence-3",
+      "roomIds": [
+        "late-neoplatonic-systems",
+        "late-christian-platonisms",
+        "late-commentary-transmission"
+      ],
+      "recordCapacity": 13
+    },
+    {
+      "id": "classical-south-asian-worlds",
+      "wingId": "wing-south-asian-worlds",
+      "title": "Classical South Asia: Jain, Yoga, and Brahmanical Systems",
+      "templateId": "sequence-3",
+      "roomIds": [
+        "south-orientation-many-schools",
+        "south-jain-worlds",
+        "south-categories-realism",
+        "south-yoga-mind-liberation",
+        "south-vedanta-rival-readings"
+      ],
+      "recordCapacity": 14
+    },
+    {
+      "id": "buddhist-philosophies",
+      "wingId": "wing-buddhist-worlds",
+      "title": "Buddhist Philosophies of Liberation and Knowledge",
+      "templateId": "sequence-3",
+      "roomIds": [
+        "buddhist-many-paths",
+        "buddhist-madhyamaka",
+        "buddhist-abhidharma-yogacara",
+        "buddhist-pramana",
+        "buddhist-transmission-reserve"
+      ],
+      "recordCapacity": 13
+    },
+    {
+      "id": "classical-chinese-traditions",
+      "wingId": "wing-east-asian-worlds",
+      "title": "Warring States & Classical Chinese Traditions",
+      "templateId": "crossroads-4",
+      "roomIds": [
+        "china-many-ways",
+        "china-confucian-cultivation",
+        "china-daoist-way",
+        "china-mohist-fa"
+      ],
+      "recordCapacity": 16
+    },
+    {
+      "id": "east-asian-continuities",
+      "wingId": "wing-east-asian-worlds",
+      "title": "Confucian Renewal & East Asian Continuities",
+      "templateId": "sequence-3",
+      "roomIds": [
+        "east-song-ming-confucian",
+        "east-buddhist-daoist-transmissions",
+        "east-regional-continuities-reserve"
+      ],
+      "recordCapacity": 7
+    },
+    {
+      "id": "islamic-philosophical-worlds",
+      "wingId": "wing-medieval-connected-worlds",
+      "title": "Arabic & Islamic Philosophical Worlds",
+      "templateId": "sequence-3",
+      "roomIds": [
+        "islamic-translation-falsafa",
+        "islamic-avicennan-system",
+        "islamic-kalam-critique",
+        "islamic-andalusian-worlds",
+        "islamic-post-avicennian"
+      ],
+      "recordCapacity": 14
+    },
+    {
+      "id": "jewish-philosophy",
+      "wingId": "wing-medieval-connected-worlds",
+      "title": "Jewish Philosophy in Arabic-Speaking & Mediterranean Worlds",
+      "templateId": "standard-rect",
+      "roomIds": [
+        "jewish-reason-revelation",
+        "jewish-maimonidean-crossroads"
+      ],
+      "recordCapacity": 5
+    },
+    {
+      "id": "latin-christian-scholastic",
+      "wingId": "wing-medieval-connected-worlds",
+      "title": "Latin Christian & Scholastic Traditions",
+      "templateId": "sequence-3",
+      "roomIds": [
+        "latin-transmission-carolingian",
+        "latin-dialectic-early-scholastic",
+        "latin-high-scholastic",
+        "latin-late-debates"
+      ],
+      "recordCapacity": 14
+    },
+    {
+      "id": "renaissance-humanism-new-method",
+      "wingId": "wing-early-modern-enlightenment",
+      "title": "Renaissance, Political Order, and New Science",
+      "templateId": "sequence-3",
+      "roomIds": [
+        "early-statecraft-republic",
+        "early-experiment-method",
+        "early-sovereignty-materialism"
+      ],
+      "recordCapacity": 6
+    },
+    {
+      "id": "rationalism-mind-nature-system",
+      "wingId": "wing-early-modern-enlightenment",
+      "title": "Rationalism: Mind, Nature, and System",
+      "templateId": "sequence-3",
+      "roomIds": [
+        "rationalism-cartesian-foundations",
+        "rationalism-spinoza-conway",
+        "rationalism-leibniz-system"
+      ],
+      "recordCapacity": 7
+    },
+    {
+      "id": "empiricism-science-political-order",
+      "wingId": "wing-early-modern-enlightenment",
+      "title": "Empiricism, Science, and Political Order",
+      "templateId": "sequence-3",
+      "roomIds": [
+        "empiricism-locke-ideas-rights",
+        "empiricism-berkeley-perception",
+        "empiricism-hume-skepticism"
+      ],
+      "recordCapacity": 4
+    },
+    {
+      "id": "enlightenment-revolution-kant",
+      "wingId": "wing-early-modern-enlightenment",
+      "title": "Enlightenment, Revolution, and Kant’s Critical Turn",
+      "templateId": "crossroads-4",
+      "roomIds": [
+        "enlightenment-law-institutions",
+        "enlightenment-society-freedom",
+        "enlightenment-sentiment-commerce",
+        "enlightenment-equality-education",
+        "enlightenment-kant-critical"
+      ],
+      "recordCapacity": 6
+    },
+    {
+      "id": "german-idealism-afterlives",
+      "wingId": "wing-nineteenth-transformations",
+      "title": "German Idealism & Romantic Afterlives",
+      "templateId": "sequence-3",
+      "roomIds": [
+        "german-idealism-orientation",
+        "german-idealism-nature",
+        "german-idealism-hegel",
+        "german-idealism-afterlives-room"
+      ],
+      "recordCapacity": 7
+    },
+    {
+      "id": "utility-liberty-history-capital",
+      "wingId": "wing-nineteenth-transformations",
+      "title": "Utility, Liberty, History, and Capital",
+      "templateId": "sequence-3",
+      "roomIds": [
+        "nineteenth-utilitarian-reform",
+        "nineteenth-liberty-equality",
+        "nineteenth-labor-capital",
+        "nineteenth-social-transformations"
+      ],
+      "recordCapacity": 5
+    },
+    {
+      "id": "faith-pessimism-life-value",
+      "wingId": "wing-nineteenth-transformations",
+      "title": "Faith, Pessimism, Life, and Value",
+      "templateId": "sequence-3",
+      "roomIds": [
+        "nineteenth-will-pessimism",
+        "nineteenth-faith-subjectivity",
+        "nineteenth-genealogy-value"
+      ],
+      "recordCapacity": 3
+    },
+    {
+      "id": "pragmatism-democratic-inquiry",
+      "wingId": "wing-modern-traditions",
+      "title": "Pragmatism, Science, and Democratic Inquiry",
+      "templateId": "sequence-3",
+      "roomIds": [
+        "pragmatism-peirce-inquiry",
+        "pragmatism-james-experience",
+        "pragmatism-dewey-democracy",
+        "pragmatism-continuities-reserve"
+      ],
+      "recordCapacity": 6
+    },
+    {
+      "id": "analytic-traditions",
+      "wingId": "wing-modern-traditions",
+      "title": "Analytic Traditions: Logic, Language, and Analysis",
+      "templateId": "sequence-3",
+      "roomIds": [
+        "analytic-origins-foundations",
+        "analytic-common-sense-metaethics",
+        "analytic-wittgenstein",
+        "analytic-naturalism",
+        "analytic-action-intention"
+      ],
+      "recordCapacity": 7
+    },
+    {
+      "id": "phenomenology-existence-embodiment",
+      "wingId": "wing-modern-traditions",
+      "title": "Phenomenology, Existence, and Embodiment",
+      "templateId": "sequence-3",
+      "roomIds": [
+        "phenomenology-method",
+        "phenomenology-being-embodiment",
+        "existentialism-freedom",
+        "existentialism-situated-absurd",
+        "phenomenology-interpretation-alterity"
+      ],
+      "recordCapacity": 10
+    },
+    {
+      "id": "critique-power-deconstruction",
+      "wingId": "wing-modern-traditions",
+      "title": "Critique, Power, and Deconstruction",
+      "templateId": "crossroads-4",
+      "roomIds": [
+        "continental-orientation",
+        "critique-genealogy-power",
+        "critique-deconstruction",
+        "critique-critical-theory"
+      ],
+      "recordCapacity": 5
+    },
+    {
+      "id": "moral-life-practical-reason",
+      "wingId": "wing-ethics-politics-society",
+      "title": "Moral Life & Practical Reason",
+      "templateId": "crossroads-4",
+      "roomIds": [
+        "moral-ethics-orientation",
+        "moral-character-virtue",
+        "moral-duty-consequence",
+        "moral-rights-persons-futures"
+      ],
+      "recordCapacity": 9
+    },
+    {
+      "id": "justice-democratic-reason",
+      "wingId": "wing-ethics-politics-society",
+      "title": "Political Action, Justice, and Democratic Reason",
+      "templateId": "sequence-3",
+      "roomIds": [
+        "justice-political-orientation",
+        "justice-distribution-rights",
+        "justice-capabilities-democracy"
+      ],
+      "recordCapacity": 6
+    },
+    {
+      "id": "feminist-philosophies",
+      "wingId": "wing-ethics-politics-society",
+      "title": "Feminist Philosophies",
+      "templateId": "crossroads-4",
+      "roomIds": [
+        "feminist-orientation-genealogies",
+        "feminist-early-genealogies",
+        "feminist-situated-freedom",
+        "feminist-gender-norms"
+      ],
+      "recordCapacity": 5
+    },
+    {
+      "id": "colonialism-race-liberation",
+      "wingId": "wing-ethics-politics-society",
+      "title": "Colonialism, Race, and Liberation",
+      "templateId": "sequence-3",
+      "roomIds": [
+        "colonial-embodiment-liberation",
+        "colonial-black-feminism-abolition",
+        "colonial-context-reserve"
+      ],
+      "recordCapacity": 5
+    }
+  ],
+  "rooms": [
+    {
+      "id": "core-reality-being",
+      "hallId": "core-questions-forum",
+      "title": "Reality & Being",
+      "recordCapacity": 4
+    },
+    {
+      "id": "core-knowledge",
+      "hallId": "core-questions-forum",
+      "title": "Knowledge",
+      "recordCapacity": 2
+    },
+    {
+      "id": "core-mind-self",
+      "hallId": "core-questions-forum",
+      "title": "Mind & Self",
+      "recordCapacity": 3
+    },
+    {
+      "id": "core-logic-language",
+      "hallId": "core-questions-forum",
+      "title": "Logic & Language",
+      "recordCapacity": 3
+    },
+    {
+      "id": "core-science",
+      "hallId": "core-questions-forum",
+      "title": "Science",
+      "recordCapacity": 5
+    },
+    {
+      "id": "core-ethics-portal",
+      "hallId": "core-questions-forum",
+      "title": "Ethics portal",
+      "recordCapacity": 2
+    },
+    {
+      "id": "core-political-portal",
+      "hallId": "core-questions-forum",
+      "title": "Political Life portal",
+      "recordCapacity": 2
+    },
+    {
+      "id": "core-aesthetics",
+      "hallId": "core-questions-forum",
+      "title": "Aesthetics",
+      "recordCapacity": 2
+    },
+    {
+      "id": "core-religion",
+      "hallId": "core-questions-forum",
+      "title": "Philosophy of Religion",
+      "recordCapacity": 2
+    },
+    {
+      "id": "med-orientation-nature",
+      "hallId": "mediterranean-beginnings-classical",
+      "title": "Orientation, Ionia, and natural explanation",
+      "recordCapacity": 5
+    },
+    {
+      "id": "med-being-change-plurality",
+      "hallId": "mediterranean-beginnings-classical",
+      "title": "Number, being, change, plurality, and atomism",
+      "recordCapacity": 10
+    },
+    {
+      "id": "med-sophists-socratic",
+      "hallId": "mediterranean-beginnings-classical",
+      "title": "Sophists, civic speech, and Socratic inquiry",
+      "recordCapacity": 4
+    },
+    {
+      "id": "med-plato-aristotle",
+      "hallId": "mediterranean-beginnings-classical",
+      "title": "Plato, Aristotle, Academy, and Lyceum",
+      "recordCapacity": 5
+    },
+    {
+      "id": "hell-cynic-way",
+      "hallId": "hellenistic-roman-ways",
+      "title": "Cynic challenge",
+      "recordCapacity": 4
+    },
+    {
+      "id": "hell-epicurean-garden",
+      "hallId": "hellenistic-roman-ways",
+      "title": "Epicurean Garden and Roman transmission",
+      "recordCapacity": 4
+    },
+    {
+      "id": "hell-stoic-stoa",
+      "hallId": "hellenistic-roman-ways",
+      "title": "Early system and Roman Stoa",
+      "recordCapacity": 8
+    },
+    {
+      "id": "hell-skeptical-lineages",
+      "hallId": "hellenistic-roman-ways",
+      "title": "Academic and Pyrrhonian skeptical lineages",
+      "recordCapacity": 6
+    },
+    {
+      "id": "late-neoplatonic-systems",
+      "hallId": "late-antiquity-inheritance",
+      "title": "Plotinus and later pagan Platonisms",
+      "recordCapacity": 6
+    },
+    {
+      "id": "late-christian-platonisms",
+      "hallId": "late-antiquity-inheritance",
+      "title": "Christian transformations of Platonism",
+      "recordCapacity": 5
+    },
+    {
+      "id": "late-commentary-transmission",
+      "hallId": "late-antiquity-inheritance",
+      "title": "Commentary, translation, and transmission",
+      "recordCapacity": 2
+    },
+    {
+      "id": "south-orientation-many-schools",
+      "hallId": "classical-south-asian-worlds",
+      "title": "Many schools, shared questions, and missing traditions",
+      "recordCapacity": 2
+    },
+    {
+      "id": "south-jain-worlds",
+      "hallId": "classical-south-asian-worlds",
+      "title": "Jain worlds: soul, karma, nonviolence, and knowing",
+      "recordCapacity": 3
+    },
+    {
+      "id": "south-categories-realism",
+      "hallId": "classical-south-asian-worlds",
+      "title": "Categories, atoms, and realist debate",
+      "recordCapacity": 2
+    },
+    {
+      "id": "south-yoga-mind-liberation",
+      "hallId": "classical-south-asian-worlds",
+      "title": "Yoga, mind, discipline, and liberation",
+      "recordCapacity": 2
+    },
+    {
+      "id": "south-vedanta-rival-readings",
+      "hallId": "classical-south-asian-worlds",
+      "title": "Vedānta: rival readings of self, world, and Brahman",
+      "recordCapacity": 5
+    },
+    {
+      "id": "buddhist-many-paths",
+      "hallId": "buddhist-philosophies",
+      "title": "Many Buddhist paths and early discourses",
+      "recordCapacity": 3
+    },
+    {
+      "id": "buddhist-madhyamaka",
+      "hallId": "buddhist-philosophies",
+      "title": "Madhyamaka: emptiness and dependence",
+      "recordCapacity": 2
+    },
+    {
+      "id": "buddhist-abhidharma-yogacara",
+      "hallId": "buddhist-philosophies",
+      "title": "Abhidharma to Yogacara",
+      "recordCapacity": 2
+    },
+    {
+      "id": "buddhist-pramana",
+      "hallId": "buddhist-philosophies",
+      "title": "Pramāṇa, perception, inference, and language",
+      "recordCapacity": 4
+    },
+    {
+      "id": "buddhist-transmission-reserve",
+      "hallId": "buddhist-philosophies",
+      "title": "Translation and transformation across Asia",
+      "recordCapacity": 2
+    },
+    {
+      "id": "china-many-ways",
+      "hallId": "classical-chinese-traditions",
+      "title": "Many ways in early China",
+      "recordCapacity": 2
+    },
+    {
+      "id": "china-confucian-cultivation",
+      "hallId": "classical-chinese-traditions",
+      "title": "Ritual, humaneness, cultivation, and human nature",
+      "recordCapacity": 5
+    },
+    {
+      "id": "china-daoist-way",
+      "hallId": "classical-chinese-traditions",
+      "title": "Daodejing, Zhuangzi, and the Way",
+      "recordCapacity": 4
+    },
+    {
+      "id": "china-mohist-fa",
+      "hallId": "classical-chinese-traditions",
+      "title": "Mohist debate and fa/statecraft currents",
+      "recordCapacity": 5
+    },
+    {
+      "id": "east-song-ming-confucian",
+      "hallId": "east-asian-continuities",
+      "title": "Song-Ming Confucian reconstructions",
+      "recordCapacity": 3
+    },
+    {
+      "id": "east-buddhist-daoist-transmissions",
+      "hallId": "east-asian-continuities",
+      "title": "Buddhist translation, Daoist institutions, and the Three Teachings",
+      "recordCapacity": 2
+    },
+    {
+      "id": "east-regional-continuities-reserve",
+      "hallId": "east-asian-continuities",
+      "title": "Korea, Japan, Vietnam, and modern continuities",
+      "recordCapacity": 2
+    },
+    {
+      "id": "islamic-translation-falsafa",
+      "hallId": "islamic-philosophical-worlds",
+      "title": "Translation-era falsafa and classification of knowledge",
+      "recordCapacity": 4
+    },
+    {
+      "id": "islamic-avicennan-system",
+      "hallId": "islamic-philosophical-worlds",
+      "title": "Avicennian system: being, soul, logic, and science",
+      "recordCapacity": 2
+    },
+    {
+      "id": "islamic-kalam-critique",
+      "hallId": "islamic-philosophical-worlds",
+      "title": "Kalām, critique, and philosophical appropriation",
+      "recordCapacity": 2
+    },
+    {
+      "id": "islamic-andalusian-worlds",
+      "hallId": "islamic-philosophical-worlds",
+      "title": "Al-Andalus: philosophy, law, medicine, and commentary",
+      "recordCapacity": 3
+    },
+    {
+      "id": "islamic-post-avicennian",
+      "hallId": "islamic-philosophical-worlds",
+      "title": "Illumination and post-Avicennian Safavid continuities",
+      "recordCapacity": 3
+    },
+    {
+      "id": "jewish-reason-revelation",
+      "hallId": "jewish-philosophy",
+      "title": "Jewish kalām, poetry, law, reason, and revelation",
+      "recordCapacity": 3
+    },
+    {
+      "id": "jewish-maimonidean-crossroads",
+      "hallId": "jewish-philosophy",
+      "title": "Maimonides: law, negative theology, and Aristotelian argument",
+      "recordCapacity": 2
+    },
+    {
+      "id": "latin-transmission-carolingian",
+      "hallId": "latin-christian-scholastic",
+      "title": "Late-antique transmission and Carolingian reception",
+      "recordCapacity": 3
+    },
+    {
+      "id": "latin-dialectic-early-scholastic",
+      "hallId": "latin-christian-scholastic",
+      "title": "Monastic reason, dialectic, and early scholastic practice",
+      "recordCapacity": 4
+    },
+    {
+      "id": "latin-high-scholastic",
+      "hallId": "latin-christian-scholastic",
+      "title": "High university synthesis and contest",
+      "recordCapacity": 2
+    },
+    {
+      "id": "latin-late-debates",
+      "hallId": "latin-christian-scholastic",
+      "title": "Late scholastic alternatives, mysticism, and political conflict",
+      "recordCapacity": 5
+    },
+    {
+      "id": "early-statecraft-republic",
+      "hallId": "renaissance-humanism-new-method",
+      "title": "Civic power and statecraft",
+      "recordCapacity": 2
+    },
+    {
+      "id": "early-experiment-method",
+      "hallId": "renaissance-humanism-new-method",
+      "title": "Experiment, method, and organized inquiry",
+      "recordCapacity": 2
+    },
+    {
+      "id": "early-sovereignty-materialism",
+      "hallId": "renaissance-humanism-new-method",
+      "title": "Sovereignty, covenant, and materialism",
+      "recordCapacity": 2
+    },
+    {
+      "id": "rationalism-cartesian-foundations",
+      "hallId": "rationalism-mind-nature-system",
+      "title": "Cartesian foundations and dualism",
+      "recordCapacity": 3
+    },
+    {
+      "id": "rationalism-spinoza-conway",
+      "hallId": "rationalism-mind-nature-system",
+      "title": "Substance, vitality, God/Nature, and freedom",
+      "recordCapacity": 3
+    },
+    {
+      "id": "rationalism-leibniz-system",
+      "hallId": "rationalism-mind-nature-system",
+      "title": "Monads, sufficient reason, and possible worlds",
+      "recordCapacity": 1
+    },
+    {
+      "id": "empiricism-locke-ideas-rights",
+      "hallId": "empiricism-science-political-order",
+      "title": "Ideas, experience, identity, and rights",
+      "recordCapacity": 2
+    },
+    {
+      "id": "empiricism-berkeley-perception",
+      "hallId": "empiricism-science-political-order",
+      "title": "Perception and immaterialism",
+      "recordCapacity": 1
+    },
+    {
+      "id": "empiricism-hume-skepticism",
+      "hallId": "empiricism-science-political-order",
+      "title": "Causation, habit, sentiment, and mitigated skepticism",
+      "recordCapacity": 1
+    },
+    {
+      "id": "enlightenment-law-institutions",
+      "hallId": "enlightenment-revolution-kant",
+      "title": "Law and comparative institutions",
+      "recordCapacity": 1
+    },
+    {
+      "id": "enlightenment-society-freedom",
+      "hallId": "enlightenment-revolution-kant",
+      "title": "Inequality, civic freedom, and education",
+      "recordCapacity": 1
+    },
+    {
+      "id": "enlightenment-sentiment-commerce",
+      "hallId": "enlightenment-revolution-kant",
+      "title": "Moral sentiments and commercial society",
+      "recordCapacity": 1
+    },
+    {
+      "id": "enlightenment-equality-education",
+      "hallId": "enlightenment-revolution-kant",
+      "title": "Education, gender, and excluded universalism",
+      "recordCapacity": 2
+    },
+    {
+      "id": "enlightenment-kant-critical",
+      "hallId": "enlightenment-revolution-kant",
+      "title": "Kant: critical philosophy as threshold",
+      "recordCapacity": 1
+    },
+    {
+      "id": "german-idealism-orientation",
+      "hallId": "german-idealism-afterlives",
+      "title": "Post-Kantian self, activity, and freedom",
+      "recordCapacity": 3
+    },
+    {
+      "id": "german-idealism-nature",
+      "hallId": "german-idealism-afterlives",
+      "title": "Nature, identity, art, and freedom",
+      "recordCapacity": 1
+    },
+    {
+      "id": "german-idealism-hegel",
+      "hallId": "german-idealism-afterlives",
+      "title": "History, recognition, social freedom, and system",
+      "recordCapacity": 1
+    },
+    {
+      "id": "german-idealism-afterlives-room",
+      "hallId": "german-idealism-afterlives",
+      "title": "Divergent receptions and later arguments",
+      "recordCapacity": 2
+    },
+    {
+      "id": "nineteenth-utilitarian-reform",
+      "hallId": "utility-liberty-history-capital",
+      "title": "Utility, law, reform, and individuality",
+      "recordCapacity": 2
+    },
+    {
+      "id": "nineteenth-liberty-equality",
+      "hallId": "utility-liberty-history-capital",
+      "title": "Liberty, equality, and experiments in living",
+      "recordCapacity": 1
+    },
+    {
+      "id": "nineteenth-labor-capital",
+      "hallId": "utility-liberty-history-capital",
+      "title": "Labor, capital, class, and historical critique",
+      "recordCapacity": 1
+    },
+    {
+      "id": "nineteenth-social-transformations",
+      "hallId": "utility-liberty-history-capital",
+      "title": "Political economy and social transformations",
+      "recordCapacity": 1
+    },
+    {
+      "id": "nineteenth-will-pessimism",
+      "hallId": "faith-pessimism-life-value",
+      "title": "Will, representation, suffering, and reception",
+      "recordCapacity": 1
+    },
+    {
+      "id": "nineteenth-faith-subjectivity",
+      "hallId": "faith-pessimism-life-value",
+      "title": "Faith, subjectivity, anxiety, and becoming a self",
+      "recordCapacity": 1
+    },
+    {
+      "id": "nineteenth-genealogy-value",
+      "hallId": "faith-pessimism-life-value",
+      "title": "Genealogy, nihilism, life, and value creation",
+      "recordCapacity": 1
+    },
+    {
+      "id": "pragmatism-peirce-inquiry",
+      "hallId": "pragmatism-democratic-inquiry",
+      "title": "Peirce: signs, fallibilism, and public inquiry",
+      "recordCapacity": 2
+    },
+    {
+      "id": "pragmatism-james-experience",
+      "hallId": "pragmatism-democratic-inquiry",
+      "title": "James: experience, belief, and pluralism",
+      "recordCapacity": 1
+    },
+    {
+      "id": "pragmatism-dewey-democracy",
+      "hallId": "pragmatism-democratic-inquiry",
+      "title": "Dewey: inquiry, education, and experimental democracy",
+      "recordCapacity": 1
+    },
+    {
+      "id": "pragmatism-continuities-reserve",
+      "hallId": "pragmatism-democratic-inquiry",
+      "title": "Later pragmatist continuities and omissions",
+      "recordCapacity": 2
+    },
+    {
+      "id": "analytic-origins-foundations",
+      "hallId": "analytic-traditions",
+      "title": "Origins in logic, analysis, and reference",
+      "recordCapacity": 3
+    },
+    {
+      "id": "analytic-common-sense-metaethics",
+      "hallId": "analytic-traditions",
+      "title": "Common sense, realism, and metaethics",
+      "recordCapacity": 1
+    },
+    {
+      "id": "analytic-wittgenstein",
+      "hallId": "analytic-traditions",
+      "title": "Wittgenstein: logical form, use, and therapy",
+      "recordCapacity": 1
+    },
+    {
+      "id": "analytic-naturalism",
+      "hallId": "analytic-traditions",
+      "title": "Holism, naturalism, and ontology",
+      "recordCapacity": 1
+    },
+    {
+      "id": "analytic-action-intention",
+      "hallId": "analytic-traditions",
+      "title": "Action, intention, and ordinary language",
+      "recordCapacity": 1
+    },
+    {
+      "id": "phenomenology-method",
+      "hallId": "phenomenology-existence-embodiment",
+      "title": "Intentionality, reduction, and lifeworld",
+      "recordCapacity": 2
+    },
+    {
+      "id": "phenomenology-being-embodiment",
+      "hallId": "phenomenology-existence-embodiment",
+      "title": "Being-in-the-world, perception, and embodiment",
+      "recordCapacity": 2
+    },
+    {
+      "id": "existentialism-freedom",
+      "hallId": "phenomenology-existence-embodiment",
+      "title": "Existentialism: freedom, facticity, and bad faith",
+      "recordCapacity": 2
+    },
+    {
+      "id": "existentialism-situated-absurd",
+      "hallId": "phenomenology-existence-embodiment",
+      "title": "Situated freedom, ambiguity, the absurd, and revolt",
+      "recordCapacity": 2
+    },
+    {
+      "id": "phenomenology-interpretation-alterity",
+      "hallId": "phenomenology-existence-embodiment",
+      "title": "Interpretation, tradition, alterity, and responsibility",
+      "recordCapacity": 2
+    },
+    {
+      "id": "continental-orientation",
+      "hallId": "critique-power-deconstruction",
+      "title": "Continental philosophy as a retrospective family",
+      "recordCapacity": 2
+    },
+    {
+      "id": "critique-genealogy-power",
+      "hallId": "critique-power-deconstruction",
+      "title": "Archaeology, genealogy, institutions, and subject formation",
+      "recordCapacity": 1
+    },
+    {
+      "id": "critique-deconstruction",
+      "hallId": "critique-power-deconstruction",
+      "title": "Writing, difference, institution, and justice",
+      "recordCapacity": 1
+    },
+    {
+      "id": "critique-critical-theory",
+      "hallId": "critique-power-deconstruction",
+      "title": "Critical Theory, public sphere, and communicative reason",
+      "recordCapacity": 1
+    },
+    {
+      "id": "moral-ethics-orientation",
+      "hallId": "moral-life-practical-reason",
+      "title": "Ethics: reasons, relationships, practices, and ways of living",
+      "recordCapacity": 2
+    },
+    {
+      "id": "moral-character-virtue",
+      "hallId": "moral-life-practical-reason",
+      "title": "Character, flourishing, attention, and virtue revival",
+      "recordCapacity": 3
+    },
+    {
+      "id": "moral-duty-consequence",
+      "hallId": "moral-life-practical-reason",
+      "title": "Duty, respect, consequences, and welfare",
+      "recordCapacity": 2
+    },
+    {
+      "id": "moral-rights-persons-futures",
+      "hallId": "moral-life-practical-reason",
+      "title": "Rights, persons, hard cases, and future generations",
+      "recordCapacity": 2
+    },
+    {
+      "id": "justice-political-orientation",
+      "hallId": "justice-democratic-reason",
+      "title": "Political philosophy, authority, and public action",
+      "recordCapacity": 3
+    },
+    {
+      "id": "justice-distribution-rights",
+      "hallId": "justice-democratic-reason",
+      "title": "Justice, distribution, rights, and the state",
+      "recordCapacity": 2
+    },
+    {
+      "id": "justice-capabilities-democracy",
+      "hallId": "justice-democratic-reason",
+      "title": "Capabilities, dignity, democracy, and public reason",
+      "recordCapacity": 1
+    },
+    {
+      "id": "feminist-orientation-genealogies",
+      "hallId": "feminist-philosophies",
+      "title": "Feminist philosophy and plural genealogies",
+      "recordCapacity": 2
+    },
+    {
+      "id": "feminist-early-genealogies",
+      "hallId": "feminist-philosophies",
+      "title": "Early-modern education, marriage, virtue, and citizenship",
+      "recordCapacity": 1
+    },
+    {
+      "id": "feminist-situated-freedom",
+      "hallId": "feminist-philosophies",
+      "title": "Situated freedom, embodiment, and otherness",
+      "recordCapacity": 1
+    },
+    {
+      "id": "feminist-gender-norms",
+      "hallId": "feminist-philosophies",
+      "title": "Gender, norms, performativity, and social ontology",
+      "recordCapacity": 1
+    },
+    {
+      "id": "colonial-embodiment-liberation",
+      "hallId": "colonialism-race-liberation",
+      "title": "Colonial embodiment, violence, psychiatry, and liberation",
+      "recordCapacity": 1
+    },
+    {
+      "id": "colonial-black-feminism-abolition",
+      "hallId": "colonialism-race-liberation",
+      "title": "Black feminism, abolition, education, culture, and love",
+      "recordCapacity": 2
+    },
+    {
+      "id": "colonial-context-reserve",
+      "hallId": "colonialism-race-liberation",
+      "title": "Anticolonial, postcolonial, Africana, and decolonial continuities",
+      "recordCapacity": 2
+    }
+  ],
+  "prototypeHallMappings": [
+    {
+      "currentHallId": "ancient-greek",
+      "futureHallIds": [
+        "mediterranean-beginnings-classical",
+        "hellenistic-roman-ways",
+        "late-antiquity-inheritance"
+      ]
+    },
+    {
+      "currentHallId": "renaissance-reason-revolution",
+      "futureHallIds": [
+        "renaissance-humanism-new-method",
+        "rationalism-mind-nature-system",
+        "empiricism-science-political-order",
+        "enlightenment-revolution-kant"
+      ]
+    },
+    {
+      "currentHallId": "modernity-freedom-critique",
+      "futureHallIds": [
+        "german-idealism-afterlives",
+        "utility-liberty-history-capital",
+        "faith-pessimism-life-value",
+        "phenomenology-existence-embodiment",
+        "critique-power-deconstruction"
+      ]
+    },
+    {
+      "currentHallId": "logic-language-science",
+      "futureHallIds": [
+        "core-questions-forum",
+        "pragmatism-democratic-inquiry",
+        "analytic-traditions"
+      ]
+    },
+    {
+      "currentHallId": "ethics-justice-political-life",
+      "futureHallIds": [
+        "moral-life-practical-reason",
+        "justice-democratic-reason",
+        "feminist-philosophies",
+        "colonialism-race-liberation"
+      ]
+    },
+    {
+      "currentHallId": "mind-consciousness-self",
+      "futureHallIds": [
+        "core-questions-forum",
+        "classical-south-asian-worlds",
+        "buddhist-philosophies",
+        "pragmatism-democratic-inquiry",
+        "analytic-traditions",
+        "phenomenology-existence-embodiment",
+        "moral-life-practical-reason"
+      ]
+    }
+  ]
+}

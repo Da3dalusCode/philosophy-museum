@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Ring of Wings floor-plan concept</title>
+  <desc id="desc">A conceptual single-level plan with a twenty-five-hall outer loop, a central Core Questions Forum, four Forum spokes, five ring shortcuts, and eight numbered outward reservations.</desc>
+  <defs>
+    <style>
+      .bg{fill:#f6f2e8}.route{fill:none;stroke:#3e4a52;stroke-width:18;stroke-linecap:round;stroke-linejoin:round;opacity:.22}.cross{fill:none;stroke:#53636d;stroke-width:8;stroke-dasharray:12 10;opacity:.5}.shortcut{fill:none;stroke:#7a5968;stroke-width:4;stroke-dasharray:6 7;opacity:.55}.wing{stroke:#26333a;stroke-width:2;rx:14}.label{font:600 18px system-ui,sans-serif;fill:#17242b}.small{font:500 14px system-ui,sans-serif;fill:#26333a}.micro{font:500 12px system-ui,sans-serif;fill:#34464f}.forum{fill:#e8c86f}.ancient{fill:#d9a55d}.south{fill:#a8c77d}.buddhist{fill:#d5b36b}.east{fill:#dc8c74}.medieval{fill:#9fb4cf}.early{fill:#a7c4cf}.nineteenth{fill:#b7a4ce}.modern{fill:#8fb6bc}.social{fill:#d29aae}.reserve{fill:#f6f2e8;stroke:#6c7b82;stroke-width:2;stroke-dasharray:7 5}.door{fill:#26333a}.star{font:700 18px system-ui,sans-serif;fill:#7e4b16}.legend{fill:#fffdf7;stroke:#9aa4a7;stroke-width:1.5;rx:10}
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#3e4a52"/></marker>
+  </defs>
+  <rect class="bg" width="1200" height="760"/>
+  <text class="label" x="42" y="42">Concept A · Ring of Wings · recommended · one level</text>
+  <text class="small" x="42" y="66">25-hall outer loop + central Forum · 4 Forum spokes + 5 shortcuts = 34 links · 8 reserves · conceptual / not to scale</text>
+  <text class="label" x="1136" y="45">N ↑</text>
+
+  <path class="route" d="M250 144H950Q1010 144 1010 204V556Q1010 616 950 616H250Q190 616 190 556V204Q190 144 250 144Z"/>
+  <path class="cross" d="M600 286V144M600 474V616M498 380H190M702 380H1010"/>
+  <path class="shortcut" d="M330 194Q600 242 884 194"/>
+  <path class="shortcut" d="M270 252Q342 380 286 548"/>
+  <path class="shortcut" d="M930 252Q858 380 914 548"/>
+  <path class="shortcut" d="M350 562Q600 520 850 562"/>
+  <path class="shortcut" d="M248 402Q350 498 474 570"/>
+
+  <g transform="translate(482 318)">
+    <rect class="wing forum" width="236" height="124"/>
+    <text class="label" x="118" y="43" text-anchor="middle">Core Questions Forum ★</text>
+    <text class="small" x="118" y="68" text-anchor="middle">1 hall · 9 rooms</text>
+    <text class="micro" x="118" y="94" text-anchor="middle">crossroads / orientation / route choice</text>
+  </g>
+  <g transform="translate(524 478)">
+    <rect class="wing forum" width="152" height="70"/>
+    <text class="label" x="76" y="30" text-anchor="middle">Entrance court</text>
+    <text class="micro" x="76" y="51" text-anchor="middle">directory + route planning</text>
+  </g>
+  <path class="cross" d="M600 478V442"/>
+
+  <g transform="translate(260 106)">
+    <rect class="wing ancient" width="200" height="76"/>
+    <text class="label" x="100" y="30" text-anchor="middle">Mediterranean Antiquity ★</text>
+    <text class="small" x="100" y="54" text-anchor="middle">3 halls · 11 rooms</text>
+  </g>
+  <g transform="translate(480 106)">
+    <rect class="wing south" width="154" height="76"/>
+    <text class="label" x="77" y="30" text-anchor="middle">South Asian</text>
+    <text class="small" x="77" y="54" text-anchor="middle">1 hall · 5 rooms</text>
+  </g>
+  <g transform="translate(654 106)">
+    <rect class="wing buddhist" width="154" height="76"/>
+    <text class="label" x="77" y="30" text-anchor="middle">Buddhist</text>
+    <text class="small" x="77" y="54" text-anchor="middle">1 hall · 5 rooms</text>
+  </g>
+  <g transform="translate(828 106)">
+    <rect class="wing east" width="156" height="76"/>
+    <text class="label" x="78" y="30" text-anchor="middle">East Asian</text>
+    <text class="small" x="78" y="54" text-anchor="middle">2 halls · 7 rooms</text>
+  </g>
+
+  <g transform="translate(930 220)">
+    <rect class="wing medieval" width="154" height="112"/>
+    <text class="label" x="77" y="30" text-anchor="middle">Connected Worlds</text>
+    <text class="small" x="77" y="53" text-anchor="middle">3 halls · 11 rooms</text>
+    <text class="micro" x="77" y="76" text-anchor="middle">medieval + post-classical</text>
+    <text class="micro" x="77" y="96" text-anchor="middle">Islamic · Jewish · Latin</text>
+  </g>
+  <g transform="translate(930 430)">
+    <rect class="wing early" width="154" height="118"/>
+    <text class="label" x="77" y="32" text-anchor="middle">Early Modern ★</text>
+    <text class="small" x="77" y="57" text-anchor="middle">4 halls · 14 rooms</text>
+    <text class="micro" x="77" y="82" text-anchor="middle">method · reason</text>
+    <text class="micro" x="77" y="101" text-anchor="middle">experience · Kant</text>
+  </g>
+
+  <g transform="translate(722 570)">
+    <rect class="wing nineteenth" width="202" height="76"/>
+    <text class="label" x="101" y="30" text-anchor="middle">Nineteenth Century ★</text>
+    <text class="small" x="101" y="54" text-anchor="middle">3 halls · 11 rooms</text>
+  </g>
+  <g transform="translate(474 570)">
+    <rect class="wing modern" width="224" height="76"/>
+    <text class="label" x="112" y="30" text-anchor="middle">Modern Traditions ★</text>
+    <text class="small" x="112" y="54" text-anchor="middle">4 halls · 18 rooms</text>
+  </g>
+  <g transform="translate(218 570)">
+    <rect class="wing social" width="232" height="76"/>
+    <text class="label" x="116" y="30" text-anchor="middle">Ethics, Politics &amp; Society ★</text>
+    <text class="small" x="116" y="54" text-anchor="middle">4 halls · 14 rooms</text>
+  </g>
+
+  <g aria-label="Eight outward reservations, each labeled by its host hall code">
+    <circle class="reserve" cx="360" cy="78" r="14"/><text class="micro" x="360" y="82" text-anchor="middle">R1</text><text class="micro" x="360" y="99" text-anchor="middle">LAI</text>
+    <circle class="reserve" cx="557" cy="78" r="14"/><text class="micro" x="557" y="82" text-anchor="middle">R2</text><text class="micro" x="557" y="99" text-anchor="middle">CSA</text>
+    <circle class="reserve" cx="731" cy="78" r="14"/><text class="micro" x="731" y="82" text-anchor="middle">R3</text><text class="micro" x="731" y="99" text-anchor="middle">BP</text>
+    <circle class="reserve" cx="906" cy="78" r="14"/><text class="micro" x="906" y="82" text-anchor="middle">R4</text><text class="micro" x="906" y="99" text-anchor="middle">EAC</text>
+    <circle class="reserve" cx="1110" cy="245" r="14"/><text class="micro" x="1110" y="249" text-anchor="middle">R5</text><text class="micro" x="1086" y="267" text-anchor="middle">IPW</text>
+    <circle class="reserve" cx="1110" cy="315" r="14"/><text class="micro" x="1110" y="319" text-anchor="middle">R6</text><text class="micro" x="1086" y="337" text-anchor="middle">LCS</text>
+    <circle class="reserve" cx="586" cy="662" r="14"/><text class="micro" x="586" y="666" text-anchor="middle">R7</text><text class="micro" x="615" y="666">PDI</text>
+    <circle class="reserve" cx="334" cy="662" r="14"/><text class="micro" x="334" y="666" text-anchor="middle">R8</text><text class="micro" x="363" y="666">CRL</text>
+  </g>
+
+  <g transform="translate(40 678)">
+    <rect class="legend" width="1120" height="56"/>
+    <text class="small" x="18" y="23">Broad band = 25-hall outer loop</text>
+    <text class="small" x="276" y="23">Heavy dash = 4 Forum spokes</text>
+    <text class="small" x="526" y="23">Fine dash = 5 shortcuts</text>
+    <text class="small" x="748" y="23">R1–R8 + code = blocked host reserves</text>
+    <text class="micro" x="18" y="44">★ = provisional current-shell anchor; exact hall links and reserve hosts are listed in building-options.md. Intellectual relationships are not automatically corridors.</text>
+  </g>
+</svg>
