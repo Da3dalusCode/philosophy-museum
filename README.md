@@ -17,11 +17,11 @@ No account, subscription, download, or special software is required. Everything 
 - **Philosophy Map**, showing selected relationships between traditions and thinkers
 - **Compare**, for side-by-side branch and philosopher comparisons
 - **Learning Paths**, with guided routes through major themes and periods
-- **A six-gallery 3D museum** with 48 interpreted exhibits and seamless walking between halls
+- **A six-gallery 3D museum** with 48 interpreted exhibits inside a compact, walkable Ring of Wings pilot
 
 ## The walkable museum
 
-The Museum presents philosophy as a physical journey through six connected galleries:
+The Museum presents philosophy as a physical journey through six connected galleries arranged as a real closed loop. A central orientation court and five shorter route choices preview the approved Ring of Wings without presenting the future Core Questions Forum or the other twenty planned halls as already built.
 
 1. **Ancient Greek & Hellenistic Gallery**  
    Socrates, Plato, Aristotle, Cynicism, Epicureanism, Stoicism, Skepticism, and Neoplatonism
@@ -43,6 +43,8 @@ The Museum presents philosophy as a physical journey through six connected galle
 
 Each exhibit combines a walkable installation, historical images or documents, a focused interpretation, structured facts, and a link to the full philosopher or branch article.
 
+The physical visitor map is generated from the same building manifest that places walls, corridors, doors, and safe arrivals. It distinguishes the walkable loop and central spokes from six labeled fast-travel actions and from visibly blocked future insertion or expansion portals.
+
 ### Museum controls
 
 - Choose **Enter museum** to begin.
@@ -60,7 +62,7 @@ Philosophy Atlas is intended for curious readers, students, teachers, and anyone
 
 The project is actively being developed.
 
-Current written coverage includes all **141 philosophers** and **43 branches** in the Atlas. The 3D Museum contains six continuously connected galleries. Museum media includes structured provenance and rights metadata; citation depth across the wider Atlas is still being improved.
+Current written coverage includes all **141 philosophers** and **43 branches** in the Atlas. The long-term Museum program is locked at 10 wings, 26 halls, and 105 rooms or zones; the live 3D pilot contains the original six gallery shells and all 48 exhibits in one compact loop. Museum media includes structured provenance and rights metadata; citation depth across the wider Atlas is still being improved.
 
 The application is local-first and static. It has no backend, database, login system, runtime API, advertising, or paid service dependency.
 
@@ -98,6 +100,7 @@ npm run preview
 
 ```bash
 npm run build
+node scripts/validateMuseumMasterplan.mjs
 npm run audit:routing
 npm run audit:museum
 npm run audit:museum-assets
@@ -106,9 +109,10 @@ npm run audit:articles
 npm run audit:accuracy
 npm run report:coverage
 npm run report:bundle
+npm run generate:museum-diagram
 ```
 
-The Museum audits cover hall and exhibit registration, routes, connections, sessions, colliders, viewpoints, guided paths, interpretation coverage, local media, and asset provenance.
+The Museum audits cover the approved masterplan, executable hall-template parity, legacy-adapter deviations, endpoint-owned openings and closures, hall and exhibit registration, public-route stability, loop/spoke reachability, blocked reservations, decoded-texture-budgeted residency, map correspondence, sessions, colliders, viewpoints, guided paths, interpretation coverage, local media, and asset provenance.
 
 ### GitHub Pages deployment
 
@@ -145,7 +149,7 @@ Every Museum exhibit also has a direct route, such as:
 
 ### Data model
 
-Core interfaces live in `src/types/philosophy.ts`. Most local content records live under `src/data`, including branches, philosophers, timeline events, relationships, learning paths, Museum catalogs, interpretations, hall layouts, and asset metadata.
+Core interfaces live in `src/types/philosophy.ts`. Most local content records live under `src/data`, including branches, philosophers, timeline events, relationships, learning paths, Museum catalogs, interpretations, hall layouts, and asset metadata. The Museum’s physical placement and circulation contract lives in `src/data/museum/museumBuildingManifest.json`; its executable canonical hall interfaces and named legacy adapters live in `src/data/museum/museumHallTemplates.ts`.
 
 Stable IDs connect records without a database. Content and runtime integrity are checked by repository audit scripts.
 
@@ -161,9 +165,9 @@ Keep explanations readable, distinguish disputed membership from canonical affil
 
 ## Current limitations and future work
 
-- The walkable Museum covers only part of philosophy's full historical and cross-cultural range.
+- The walkable Museum covers only part of philosophy's full historical and cross-cultural range; the six live shells are a physical pilot, not the final 26-hall intellectual taxonomy.
 - Source and citation depth is stronger in the long-form articles and Museum records than in some older structured summaries.
 - The Philosophy Map intentionally uses a curated subset for readability.
 - Some influence and relationship data could be linked more deeply.
 - Visit position is stored locally, but there are no accounts or long-term reading-progress features.
-- Planned work includes additional galleries, broader cross-cultural Museum coverage, stronger source layers, study tools, saved progress, quizzes, and exportable notes.
+- Planned work includes constructing the approved additional galleries and curated Forum program, broader cross-cultural Museum coverage, stronger source layers, study tools, saved progress, quizzes, and exportable notes. Future portals remain physically blocked until their content and circulation are complete.

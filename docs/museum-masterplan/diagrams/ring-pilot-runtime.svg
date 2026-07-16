@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-48 -145.7 168 187.85" role="img" aria-labelledby="title description">
+  <title id="title">Ring of Wings six-shell physical pilot</title>
+  <desc id="description">Manifest-derived main-level plan showing six live galleries, the entrance, central Forum location, closed outer loop, four spokes, entrance shortcut, active doorways, and twelve blocked future reservations.</desc>
+  <metadata>{&quot;generatedFrom&quot;:&quot;src/data/museum/museumBuildingManifest.json + compiled hall-local footprints&quot;,&quot;manifestVersion&quot;:&quot;ring-pilot-v1&quot;,&quot;level&quot;:&quot;L0&quot;,&quot;livePhysicalNodes&quot;:18,&quot;authoredConnections&quot;:22,&quot;blockedReservations&quot;:12}</metadata>
+  <defs>
+    <pattern id="future-hatch" width="3" height="3" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="3" stroke="#b98c6b" stroke-width=".7"/></pattern>
+    <style>
+      .background{fill:#0d1519}.grid{stroke:#d7c4a3;stroke-opacity:.08;stroke-width:.25}.node{fill:#172126;stroke:#59676d;stroke-width:.7}.node-hall{fill:#263239;stroke:#929a98}.node-court{fill:#353126;stroke:#b89a6d}.node-entrance{fill:#293536;stroke:#91a9a7}.role-outer-loop-link{fill:#18272c}.role-forum-spoke{fill:#233034}.role-shortcut{fill:#332d24}.edge{fill:none;stroke:#b78b55;stroke-width:.65;stroke-linecap:round;stroke-linejoin:round}.edge-forum-spoke{stroke:#a9c0c1;stroke-dasharray:2.5 2}.edge-shortcut{stroke:#d6b37b;stroke-dasharray:.7 2}.door{stroke:#e2e9e4;stroke-width:.65}.main-door{stroke:#f3c881;stroke-width:1.2}.reservation{fill:url(#future-hatch);stroke:#a97b60;stroke-width:.55;stroke-dasharray:1.8 1.2}.reservation-label{fill:#e1b894;font:700 1.65px system-ui,sans-serif;letter-spacing:.08em;text-anchor:middle;dominant-baseline:middle;paint-order:stroke;stroke:#171515;stroke-width:.45}.label{fill:#e7dfd3;font:700 2.5px system-ui,sans-serif;letter-spacing:.04em;text-anchor:middle;paint-order:stroke;stroke:#11171b;stroke-width:.8}.label-detail{fill:#c8d0ce;font-size:1.85px;letter-spacing:0}.label-court,.label-entrance{fill:#e3c89f;font-size:2.15px}.title{fill:#f0d7ad;font:700 2.7px system-ui,sans-serif;letter-spacing:.06em}.caption{fill:#9fa9a8;font:600 1.65px system-ui,sans-serif;letter-spacing:.04em}.entrance-line{stroke:#f1c57e;stroke-width:.8}.entrance-dot{fill:#f1c57e;stroke:#fff1d0;stroke-width:.35}.kiosk{fill:#efc884;stroke:#fff1d0;stroke-width:.4}.marker-label{fill:#efc884;font:700 1.65px system-ui,sans-serif;letter-spacing:.07em;paint-order:stroke;stroke:#11171b;stroke-width:.45}
+    </style>
+    <pattern id="minor-grid" width="8" height="8" patternUnits="userSpaceOnUse"><path class="grid" d="M 8 0 L 0 0 0 8" fill="none"/></pattern>
+  </defs>
+  <rect class="background" x="-48" y="-145.7" width="168" height="187.85"/>
+  <rect fill="url(#minor-grid)" x="-48" y="-145.7" width="168" height="187.85"/>
+  <text class="title" x="-44" y="-141.2">RING OF WINGS · SIX-SHELL PHYSICAL PILOT · L0</text>
+  <g aria-label="Physical footprints"><polygon class="node node-hall role-public-entrance" data-node="hall:ancient-greek" points="10,-10.2 -10,-10.2 -10,1.8 10,1.8"/>
+    <polygon class="node node-hall role-public-entrance" data-node="hall:ancient-greek" points="4,-13.2 -4,-13.2 -4,-10.2 4,-10.2"/>
+    <polygon class="node node-hall role-public-entrance" data-node="hall:ancient-greek" points="12,-31.2 -12,-31.2 -12,-13.2 12,-13.2"/>
+    <polygon class="node node-hall role-public-entrance" data-node="hall:ancient-greek" points="4,-34.2 -4,-34.2 -4,-31.2 4,-31.2"/>
+    <polygon class="node node-hall role-public-entrance" data-node="hall:ancient-greek" points="12,-56.2 -12,-56.2 -12,-34.2 12,-34.2"/>
+    <polygon class="node node-hall role-public-entrance" data-node="hall:ancient-greek" points="4,-59.2 -4,-59.2 -4,-56.2 4,-56.2"/>
+    <polygon class="node node-hall role-public-entrance" data-node="hall:ancient-greek" points="10,-75.2 -10,-75.2 -10,-59.2 10,-59.2"/>
+    <polygon class="node node-hall role-public-entrance" data-node="hall:ancient-greek" points="-10,-69.7 -18,-69.7 -18,-65.7 -10,-65.7"/>
+    <polygon class="node node-hall role-public-entrance" data-node="hall:ancient-greek" points="14,-34.7 4,-34.7 4,-30.7 14,-30.7"/>
+    <polygon class="node node-hall role-outer-shell" data-node="hall:renaissance-reason-revolution" points="-26,-81.7 -30,-81.7 -30,-77.7 -26,-77.7"/>
+    <polygon class="node node-hall role-outer-shell" data-node="hall:renaissance-reason-revolution" points="-18,-95.7 -38,-95.7 -38,-81.7 -18,-81.7"/>
+    <polygon class="node node-hall role-outer-shell" data-node="hall:renaissance-reason-revolution" points="-24.5,-98.7 -31.5,-98.7 -31.5,-95.7 -24.5,-95.7"/>
+    <polygon class="node node-hall role-outer-shell" data-node="hall:renaissance-reason-revolution" points="-16,-114.7 -40,-114.7 -40,-98.7 -16,-98.7"/>
+    <polygon class="node node-hall role-outer-shell" data-node="hall:renaissance-reason-revolution" points="-24.5,-117.7 -31.5,-117.7 -31.5,-114.7 -24.5,-114.7"/>
+    <polygon class="node node-hall role-outer-shell" data-node="hall:renaissance-reason-revolution" points="-16,-133.7 -40,-133.7 -40,-117.7 -16,-117.7"/>
+    <polygon class="node node-hall role-outer-shell" data-node="hall:renaissance-reason-revolution" points="-10,-128.7 -16,-128.7 -16,-124.7 -10,-124.7"/>
+    <polygon class="node node-hall role-outer-shell" data-node="hall:modernity-freedom-critique" points="2,-124.7 2,-128.7 -2,-128.7 -2,-124.7"/>
+    <polygon class="node node-hall role-outer-shell" data-node="hall:modernity-freedom-critique" points="16,-116.7 16,-136.7 2,-136.7 2,-116.7"/>
+    <polygon class="node node-hall role-outer-shell" data-node="hall:modernity-freedom-critique" points="19,-123.2 19,-130.2 16,-130.2 16,-123.2"/>
+    <polygon class="node node-hall role-outer-shell" data-node="hall:modernity-freedom-critique" points="41,-115.7 41,-137.7 19,-137.7 19,-115.7"/>
+    <polygon class="node node-hall role-outer-shell" data-node="hall:modernity-freedom-critique" points="44,-123.2 44,-130.2 41,-130.2 41,-123.2"/>
+    <polygon class="node node-hall role-outer-shell" data-node="hall:modernity-freedom-critique" points="59,-116.7 59,-136.7 44,-136.7 44,-116.7"/>
+    <polygon class="node node-hall role-outer-shell" data-node="hall:modernity-freedom-critique" points="62,-124.7 62,-128.7 59,-128.7 59,-124.7"/>
+    <polygon class="node node-hall role-outer-shell" data-node="hall:modernity-freedom-critique" points="44.5,-112.7 44.5,-123.2 40.5,-123.2 40.5,-112.7"/>
+    <polygon class="node node-hall role-outer-shell" data-node="hall:logic-language-science" points="72,-110.7 76,-110.7 76,-114.7 72,-114.7"/>
+    <polygon class="node node-hall role-outer-shell" data-node="hall:logic-language-science" points="64,-96.7 84,-96.7 84,-110.7 64,-110.7"/>
+    <polygon class="node node-hall role-outer-shell" data-node="hall:logic-language-science" points="70.5,-93.7 77.5,-93.7 77.5,-96.7 70.5,-96.7"/>
+    <polygon class="node node-hall role-outer-shell" data-node="hall:logic-language-science" points="62,-77.7 86,-77.7 86,-93.7 62,-93.7"/>
+    <polygon class="node node-hall role-outer-shell" data-node="hall:logic-language-science" points="70.5,-74.7 77.5,-74.7 77.5,-77.7 70.5,-77.7"/>
+    <polygon class="node node-hall role-outer-shell" data-node="hall:logic-language-science" points="62,-58.7 86,-58.7 86,-74.7 62,-74.7"/>
+    <polygon class="node node-hall role-outer-shell" data-node="hall:logic-language-science" points="86,-63.7 92,-63.7 92,-67.7 86,-67.7"/>
+    <polygon class="node node-hall role-outer-shell" data-node="hall:logic-language-science" points="60,-74.2 70.5,-74.2 70.5,-78.2 60,-78.2"/>
+    <polygon class="node node-hall role-outer-shell" data-node="hall:ethics-justice-political-life" points="99,-52.7 103,-52.7 103,-56.7 99,-56.7"/>
+    <polygon class="node node-hall role-outer-shell" data-node="hall:ethics-justice-political-life" points="90,-33.7 112,-33.7 112,-52.7 90,-52.7"/>
+    <polygon class="node node-hall role-outer-shell" data-node="hall:ethics-justice-political-life" points="97.5,-30.7 104.5,-30.7 104.5,-33.7 97.5,-33.7"/>
+    <polygon class="node node-hall role-outer-shell" data-node="hall:ethics-justice-political-life" points="91,-16.7 111,-16.7 111,-30.7 91,-30.7"/>
+    <polygon class="node node-hall role-outer-shell" data-node="hall:ethics-justice-political-life" points="97.5,-13.7 104.5,-13.7 104.5,-16.7 97.5,-16.7"/>
+    <polygon class="node node-hall role-outer-shell" data-node="hall:ethics-justice-political-life" points="90,4.3 112,4.3 112,-13.7 90,-13.7"/>
+    <polygon class="node node-hall role-outer-shell" data-node="hall:ethics-justice-political-life" points="99,7.3 103,7.3 103,4.3 99,4.3"/>
+    <polygon class="node node-hall role-outer-shell" data-node="hall:mind-consciousness-self" points="82.15,20.15 82.15,24.15 86.15,24.15 86.15,20.15"/>
+    <polygon class="node node-hall role-outer-shell" data-node="hall:mind-consciousness-self" points="68.15,12.15 68.15,32.15 82.15,32.15 82.15,12.15"/>
+    <polygon class="node node-hall role-outer-shell" data-node="hall:mind-consciousness-self" points="65.15,18.65 65.15,25.65 68.15,25.65 68.15,18.65"/>
+    <polygon class="node node-hall role-outer-shell" data-node="hall:mind-consciousness-self" points="49.15,10.15 49.15,34.15 65.15,34.15 65.15,10.15"/>
+    <polygon class="node node-hall role-outer-shell" data-node="hall:mind-consciousness-self" points="46.15,18.65 46.15,25.65 49.15,25.65 49.15,18.65"/>
+    <polygon class="node node-hall role-outer-shell" data-node="hall:mind-consciousness-self" points="30.15,10.15 30.15,34.15 46.15,34.15 46.15,10.15"/>
+    <polygon class="node node-hall role-outer-shell" data-node="hall:mind-consciousness-self" points="45.65,8.15 45.65,18.65 49.65,18.65 49.65,8.15"/>
+    <polygon class="node node-hall role-outer-shell" data-node="hall:mind-consciousness-self" points="22.15,20.15 22.15,24.15 30.15,24.15 30.15,20.15"/>
+    <polygon class="node node-corridor role-outer-loop-link" data-node="corridor:outer-01-ancient-renaissance" points="-28,-65.3 -18,-65.3 -18,-70.1 -28,-70.1"/>
+    <polygon class="node node-corridor role-outer-loop-link" data-node="corridor:outer-01-ancient-renaissance" points="-30.4,-67.7 -25.6,-67.7 -25.6,-77.7 -30.4,-77.7"/>
+    <polygon class="node node-corridor role-outer-loop-link" data-node="corridor:outer-02-renaissance-modernity" points="-10,-124.3 -2,-124.3 -2,-129.1 -10,-129.1"/>
+    <polygon class="node node-corridor role-outer-loop-link" data-node="corridor:outer-03-modernity-logic" points="62,-124.3 74,-124.3 74,-129.1 62,-129.1"/>
+    <polygon class="node node-corridor role-outer-loop-link" data-node="corridor:outer-03-modernity-logic" points="71.6,-114.7 76.4,-114.7 76.4,-126.7 71.6,-126.7"/>
+    <polygon class="node node-corridor role-outer-loop-link" data-node="corridor:outer-04-logic-ethics" points="92,-63.3 101,-63.3 101,-68.1 92,-68.1"/>
+    <polygon class="node node-corridor role-outer-loop-link" data-node="corridor:outer-04-logic-ethics" points="98.6,-56.7 103.4,-56.7 103.4,-65.7 98.6,-65.7"/>
+    <polygon class="node node-corridor role-outer-loop-link" data-node="corridor:outer-05-ethics-mind" points="98.6,22.15 103.4,22.15 103.4,7.3 98.6,7.3"/>
+    <polygon class="node node-corridor role-outer-loop-link" data-node="corridor:outer-05-ethics-mind" points="86.15,24.55 101,24.55 101,19.75 86.15,19.75"/>
+    <polygon class="node node-entrance role-public-entrance" data-node="place:entrance-orientation" points="-8,27 8,27 8,12 -8,12"/>
+    <polygon class="node node-entrance role-public-entrance" data-node="place:entrance-orientation" points="8,24.55 22.15,24.55 22.15,19.75 8,19.75"/>
+    <polygon class="node node-entrance role-public-entrance" data-node="place:entrance-orientation" points="-2.4,12 2.4,12 2.4,0 -2.4,0"/>
+    <polygon class="node node-court role-forum-location" data-node="place:forum-circulation-court" points="28,-43 52,-43 52,-67 28,-67"/>
+    <polygon class="node node-corridor role-forum-spoke" data-node="corridor:spoke-west" points="14,-30.3 20,-30.3 20,-35.1 14,-35.1"/>
+    <polygon class="node node-corridor role-forum-spoke" data-node="corridor:spoke-west" points="17.6,-32.7 22.4,-32.7 22.4,-52 17.6,-52"/>
+    <polygon class="node node-corridor role-forum-spoke" data-node="corridor:spoke-west" points="20,-49.6 28,-49.6 28,-54.4 20,-54.4"/>
+    <polygon class="node node-corridor role-forum-spoke" data-node="corridor:spoke-north" points="40.1,-67 44.9,-67 44.9,-112.7 40.1,-112.7"/>
+    <polygon class="node node-corridor role-forum-spoke" data-node="corridor:spoke-east" points="58,-73.8 60,-73.8 60,-78.6 58,-78.6"/>
+    <polygon class="node node-corridor role-forum-spoke" data-node="corridor:spoke-east" points="55.6,-60 60.4,-60 60.4,-76.2 55.6,-76.2"/>
+    <polygon class="node node-corridor role-forum-spoke" data-node="corridor:spoke-east" points="52,-57.6 58,-57.6 58,-62.4 52,-62.4"/>
+    <polygon class="node node-corridor role-forum-spoke" data-node="corridor:spoke-south" points="45.25,8.15 50.05,8.15 50.05,-43 45.25,-43"/>
+    <polygon class="node node-corridor role-shortcut" data-node="corridor:entrance-forum-shortcut" points="8,18.4 20,18.4 20,13.6 8,13.6"/>
+    <polygon class="node node-corridor role-shortcut" data-node="corridor:entrance-forum-shortcut" points="17.6,16 22.4,16 22.4,-43 17.6,-43"/>
+    <polygon class="node node-corridor role-shortcut" data-node="corridor:entrance-forum-shortcut" points="20,-40.6 32,-40.6 32,-45.4 20,-45.4"/></g>
+  <g aria-label="Walkable connections"><polyline class="edge edge-outer-loop" data-connection="conn:ancient-outer-01" points="-16.4,-67.7 -18,-67.7 -19.8,-67.7"/>
+    <polyline class="edge edge-outer-loop" data-connection="conn:outer-01-renaissance" points="-28,-75.9 -28,-77.7 -28,-79.3"/>
+    <polyline class="edge edge-outer-loop" data-connection="conn:renaissance-outer-02" points="-11.6,-126.7 -10,-126.7 -8.2,-126.7"/>
+    <polyline class="edge edge-outer-loop" data-connection="conn:outer-02-modernity" points="-3.8,-126.7 -2,-126.7 -0.4,-126.7"/>
+    <polyline class="edge edge-outer-loop" data-connection="conn:modernity-outer-03" points="60.4,-126.7 62,-126.7 63.8,-126.7"/>
+    <polyline class="edge edge-outer-loop" data-connection="conn:outer-03-logic" points="74,-116.5 74,-114.7 74,-113.1"/>
+    <polyline class="edge edge-outer-loop" data-connection="conn:logic-outer-04" points="90.4,-65.7 92,-65.7 93.8,-65.7"/>
+    <polyline class="edge edge-outer-loop" data-connection="conn:outer-04-ethics" points="101,-58.5 101,-56.7 101,-55.1"/>
+    <polyline class="edge edge-outer-loop" data-connection="conn:ethics-outer-05" points="101,5.7 101,7.3 101,9.1"/>
+    <polyline class="edge edge-outer-loop" data-connection="conn:outer-05-mind" points="87.95,22.15 86.15,22.15 84.55,22.15"/>
+    <polyline class="edge edge-outer-loop" data-connection="conn:mind-entrance" points="23.75,22.15 22.15,22.15 20.35,22.15"/>
+    <polyline class="edge edge-outer-loop" data-connection="conn:entrance-ancient" points="0,2 0,0 0,-1.7"/>
+    <polyline class="edge edge-forum-spoke" data-connection="conn:ancient-spoke-west" points="12.2,-32.7 14,-32.7 15.8,-32.7"/>
+    <polyline class="edge edge-forum-spoke" data-connection="conn:spoke-west-court" points="26.2,-52 28,-52 30,-52"/>
+    <polyline class="edge edge-forum-spoke" data-connection="conn:modernity-spoke-north" points="42.5,-114.5 42.5,-112.7 42.5,-110.9"/>
+    <polyline class="edge edge-forum-spoke" data-connection="conn:spoke-north-court" points="42.5,-68.8 42.5,-67 42.5,-65"/>
+    <polyline class="edge edge-forum-spoke" data-connection="conn:logic-spoke-east" points="61.8,-76.2 60,-76.2 58.6,-76.8"/>
+    <polyline class="edge edge-forum-spoke" data-connection="conn:spoke-east-court" points="53.8,-60 52,-60 50,-60"/>
+    <polyline class="edge edge-forum-spoke" data-connection="conn:mind-spoke-south" points="47.65,9.95 47.65,8.15 47.65,6.35"/>
+    <polyline class="edge edge-forum-spoke" data-connection="conn:spoke-south-court" points="47.65,-41.2 47.65,-43 47.65,-45"/>
+    <polyline class="edge edge-shortcut" data-connection="conn:entrance-shortcut" points="6.2,16 8,16 9.8,16"/>
+    <polyline class="edge edge-shortcut" data-connection="conn:shortcut-court" points="30,-41.2 30,-43 30,-45"/></g>
+  <g aria-label="Active doorways"><line class="door" x1="4" y1="0" x2="-4" y2="0"/>
+    <line class="door" x1="-18" y1="-65.7" x2="-18" y2="-69.7"/>
+    <line class="door" x1="14" y1="-34.7" x2="14" y2="-30.7"/>
+    <line class="door" x1="-26" y1="-77.7" x2="-30" y2="-77.7"/>
+    <line class="door" x1="-10" y1="-128.7" x2="-10" y2="-124.7"/>
+    <line class="door" x1="-2" y1="-124.7" x2="-2" y2="-128.7"/>
+    <line class="door" x1="62" y1="-128.7" x2="62" y2="-124.7"/>
+    <line class="door" x1="44.5" y1="-112.7" x2="40.5" y2="-112.7"/>
+    <line class="door" x1="72" y1="-114.7" x2="76" y2="-114.7"/>
+    <line class="door" x1="92" y1="-67.7" x2="92" y2="-63.7"/>
+    <line class="door" x1="60" y1="-74.2" x2="60" y2="-78.2"/>
+    <line class="door" x1="99" y1="-56.7" x2="103" y2="-56.7"/>
+    <line class="door" x1="103" y1="7.3" x2="99" y2="7.3"/>
+    <line class="door" x1="86.15" y1="20.15" x2="86.15" y2="24.15"/>
+    <line class="door" x1="22.15" y1="24.15" x2="22.15" y2="20.15"/>
+    <line class="door" x1="45.65" y1="8.15" x2="49.65" y2="8.15"/>
+    <line class="door" x1="-18" y1="-69.7" x2="-18" y2="-65.7"/>
+    <line class="door" x1="-30" y1="-77.7" x2="-26" y2="-77.7"/>
+    <line class="door" x1="-10" y1="-124.7" x2="-10" y2="-128.7"/>
+    <line class="door" x1="-2" y1="-128.7" x2="-2" y2="-124.7"/>
+    <line class="door" x1="62" y1="-124.7" x2="62" y2="-128.7"/>
+    <line class="door" x1="76" y1="-114.7" x2="72" y2="-114.7"/>
+    <line class="door" x1="92" y1="-63.7" x2="92" y2="-67.7"/>
+    <line class="door" x1="103" y1="-56.7" x2="99" y2="-56.7"/>
+    <line class="door" x1="99" y1="7.3" x2="103" y2="7.3"/>
+    <line class="door" x1="86.15" y1="24.15" x2="86.15" y2="20.15"/>
+    <line class="door" x1="22.15" y1="20.15" x2="22.15" y2="24.15"/>
+    <line class="door" x1="-4" y1="0" x2="4" y2="0"/>
+    <line class="door" x1="8" y1="14" x2="8" y2="18"/>
+    <line class="door main-door" x1="3" y1="27" x2="-3" y2="27"/>
+    <line class="door" x1="28" y1="-50" x2="28" y2="-54"/>
+    <line class="door" x1="40.5" y1="-67" x2="44.5" y2="-67"/>
+    <line class="door" x1="52" y1="-62" x2="52" y2="-58"/>
+    <line class="door" x1="49.65" y1="-43" x2="45.65" y2="-43"/>
+    <line class="door" x1="32" y1="-43" x2="28" y2="-43"/>
+    <line class="door" x1="14" y1="-30.7" x2="14" y2="-34.7"/>
+    <line class="door" x1="28" y1="-54" x2="28" y2="-50"/>
+    <line class="door" x1="40.5" y1="-112.7" x2="44.5" y2="-112.7"/>
+    <line class="door" x1="44.5" y1="-67" x2="40.5" y2="-67"/>
+    <line class="door" x1="60" y1="-78.2" x2="60" y2="-74.2"/>
+    <line class="door" x1="52" y1="-58" x2="52" y2="-62"/>
+    <line class="door" x1="49.65" y1="8.15" x2="45.65" y2="8.15"/>
+    <line class="door" x1="45.65" y1="-43" x2="49.65" y2="-43"/>
+    <line class="door" x1="8" y1="18" x2="8" y2="14"/>
+    <line class="door" x1="28" y1="-43" x2="32" y2="-43"/></g>
+  <g aria-label="Blocked future reservations"><g data-reservation="reserve:insert-south-asian"><polygon class="reservation reservation-insertion" points="-34.4,-75.5 -34.4,-69.5 -30.4,-69.5 -30.4,-75.5"/><text class="reservation-label" x="-32.4" y="-72.5">FUTURE</text></g>
+    <g data-reservation="reserve:insert-medieval"><polygon class="reservation reservation-insertion" points="-3,-133.1 -9,-133.1 -9,-129.1 -3,-129.1"/><text class="reservation-label" x="-6" y="-131.1">FUTURE</text></g>
+    <g data-reservation="reserve:insert-analytic"><polygon class="reservation reservation-insertion" points="71,-133.1 65,-133.1 65,-129.1 71,-129.1"/><text class="reservation-label" x="68" y="-131.1">FUTURE</text></g>
+    <g data-reservation="reserve:insert-feminist"><polygon class="reservation reservation-insertion" points="100,-72.1 94,-72.1 94,-68.1 100,-68.1"/><text class="reservation-label" x="97" y="-70.1">FUTURE</text></g>
+    <g data-reservation="reserve:outward-R1"><polygon class="reservation reservation-outward-expansion" points="-14,16 -14,24 -8,24 -8,16"/><text class="reservation-label" x="-11" y="20">R1</text></g>
+    <g data-reservation="reserve:outward-R2"><polygon class="reservation reservation-outward-expansion" points="-26,-59.3 -18,-59.3 -18,-65.3 -26,-65.3"/><text class="reservation-label" x="-22" y="-62.3">R2</text></g>
+    <g data-reservation="reserve:outward-R3"><polygon class="reservation reservation-outward-expansion" points="-10,-118.3 -2,-118.3 -2,-124.3 -10,-124.3"/><text class="reservation-label" x="-6" y="-121.3">R3</text></g>
+    <g data-reservation="reserve:outward-R4"><polygon class="reservation reservation-outward-expansion" points="82.4,-116.7 82.4,-124.7 76.4,-124.7 76.4,-116.7"/><text class="reservation-label" x="79.4" y="-120.7">R4</text></g>
+    <g data-reservation="reserve:outward-R5"><polygon class="reservation reservation-outward-expansion" points="109.4,-57 109.4,-65 103.4,-65 103.4,-57"/><text class="reservation-label" x="106.4" y="-61">R5</text></g>
+    <g data-reservation="reserve:outward-R6"><polygon class="reservation reservation-outward-expansion" points="109.4,21 109.4,13 103.4,13 103.4,21"/><text class="reservation-label" x="106.4" y="17">R6</text></g>
+    <g data-reservation="reserve:outward-R7"><polygon class="reservation reservation-outward-expansion" points="12,30.55 20,30.55 20,24.55 12,24.55"/><text class="reservation-label" x="16" y="27.55">R7</text></g>
+    <g data-reservation="reserve:outward-R8"><polygon class="reservation reservation-outward-expansion" points="89,30.55 97,30.55 97,24.55 89,24.55"/><text class="reservation-label" x="93" y="27.55">R8</text></g></g>
+  <g aria-label="Building labels"><text class="label label-hall" x="0" y="-45.2"><tspan x="0" dy="-.25em">Gallery 01</tspan><tspan class="label-detail" x="0" dy="1.25em">Ancient Greek</tspan></text>
+    <text class="label label-hall" x="-28" y="-106.7"><tspan x="-28" dy="-.25em">Gallery 02</tspan><tspan class="label-detail" x="-28" dy="1.25em">Renaissance</tspan></text>
+    <text class="label label-hall" x="30" y="-126.7"><tspan x="30" dy="-.25em">Gallery 03</tspan><tspan class="label-detail" x="30" dy="1.25em">Modernity</tspan></text>
+    <text class="label label-hall" x="74" y="-85.7"><tspan x="74" dy="-.25em">Gallery 04</tspan><tspan class="label-detail" x="74" dy="1.25em">Logic</tspan></text>
+    <text class="label label-hall" x="101" y="-43.2"><tspan x="101" dy="-.25em">Gallery 05</tspan><tspan class="label-detail" x="101" dy="1.25em">Ethics</tspan></text>
+    <text class="label label-hall" x="57.15" y="22.15"><tspan x="57.15" dy="-.25em">Gallery 06</tspan><tspan class="label-detail" x="57.15" dy="1.25em">Mind</tspan></text>
+    <text class="label label-entrance" x="0" y="19.5"><tspan x="0" dy="-.25em">Entrance and orientation court</tspan></text>
+    <text class="label label-court" x="40" y="-55"><tspan x="40" dy="-.25em">Core Questions Forum location</tspan><tspan class="label-detail" x="40" dy="1.25em">orientation only</tspan></text></g>
+  <g aria-label="Main entrance"><line class="entrance-line" x1="0" y1="27" x2="0" y2="24.6"/><circle class="entrance-dot" cx="0" cy="27" r="1.4"/><text class="marker-label" x="0" y="31.5" text-anchor="middle">MAIN ENTRANCE</text></g>
+  <g aria-label="Visitor map kiosk" transform="translate(-2.27 -7.05)"><rect class="kiosk" x="-1.2" y="-1.2" width="2.4" height="2.4" transform="rotate(45)"/><text class="marker-label" x="2.6" y=".7">MAP KIOSK</text></g>
+  <text class="caption" x="-44" y="39.75">SOLID · OUTER LOOP   DASHED · FORUM SPOKES   DOTTED · ENTRANCE SHORTCUT   HATCHED · BLOCKED FUTURE AREA</text>
+</svg>

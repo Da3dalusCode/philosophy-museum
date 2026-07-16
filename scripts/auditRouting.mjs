@@ -1,9 +1,11 @@
 import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
 import {dirname, resolve} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {build} from 'vite';
 
 const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
+const buildingManifest = JSON.parse(readFileSync(resolve(repoRoot, 'src/data/museum/museumBuildingManifest.json'), 'utf8'));
 const virtualEntry = 'virtual:philosophy-atlas-routing-audit';
 const resolvedVirtualEntry = `\0${virtualEntry}`;
 
@@ -303,6 +305,20 @@ check('unknown and malformed Museum routes remain visible as not-found', () => {
   expectNotFound('#/museum/ancient-greek/exhibits/plato/extra', /unexpected shape/);
   expectNotFound('#/museum/%', /malformed percent encoding/);
   expectNotFound('#/museum/ancient-greek/exhibits/%E0%A4%A', /malformed percent encoding/);
+});
+
+check('physical building and reserved expansion IDs are never accepted as public Museum routes', () => {
+  const publicHallIds = buildingManifest.nodes.filter(({kind, implementationStatus}) => kind === 'hall' && implementationStatus === 'live').map(({publicHallId}) => publicHallId);
+  assert.equal(publicHallIds.length, 6);
+  assert.deepEqual(publicHallIds.sort(), MUSEUM_HALLS.map(({id}) => id).sort());
+  for (const node of buildingManifest.nodes) {
+    expectNotFound(`#/museum/${encodeURIComponent(node.id)}`, /No museum hall exists/);
+  }
+  for (const reservation of buildingManifest.reservations) {
+    expectNotFound(`#/museum/${encodeURIComponent(reservation.id)}`, /No museum hall exists/);
+    if (reservation.expansionPortalId) expectNotFound(`#/museum/${encodeURIComponent(reservation.expansionPortalId)}`, /No museum hall exists/);
+    if (reservation.targetProgramHallId) expectNotFound(`#/museum/${encodeURIComponent(reservation.targetProgramHallId)}`, /No museum hall exists/);
+  }
 });
 
 check('mixed-kind and duplicate comparisons are rejected', () => {
