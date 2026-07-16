@@ -1,5 +1,7 @@
 # Build Week: Museum visitor map
 
+> Historical handoff snapshot for the visitor-map checkpoint at commit `c3eb4a9`. Branch and deployment statements below describe that checkpoint only; current Ring-pilot and production status is governed by `main`, the Ring implementation record, and the GitHub Pages workflow. No Build Week Session ID was recorded.
+
 ## Baseline and branch
 
 - Authoritative baseline: `39007cf1480900e16cd24bdd8ba1820fd4779a41`
@@ -79,4 +81,4 @@ git log -1 --oneline
 9. Press M and confirm the existing complete directory, exhibit links, room viewpoints, and guided visit remain unchanged.
 10. Repeat the map flow in a narrow viewport, immersive mode, and browser fullscreen; check the console and Network panel for errors or first-party 404s.
 
-Nothing in this feature is merged or deployed by this work.
+At the `c3eb4a9` checkpoint, nothing in this visitor-map feature was merged or deployed by that work. This is historical status, not a claim about the later Ring-pilot release.

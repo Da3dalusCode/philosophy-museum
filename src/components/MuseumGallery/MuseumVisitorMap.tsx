@@ -10,9 +10,10 @@ import {
   MUSEUM_VISITOR_MAP_PROJECTION,
   MUSEUM_VISITOR_MAP_RESERVATIONS,
   MUSEUM_VISITOR_MAP_VIEWBOX,
+  projectMuseumVisitorMapPoint,
   type MuseumVisitorMapPoint,
 } from '../../data/museum/museumVisitorMapProjection';
-import type {MuseumPhysicalNodeId} from '../../data/museum/museumWorldTypes';
+import type {MuseumPhysicalNodeId, MuseumPose} from '../../data/museum/museumWorldTypes';
 import {MuseumModal} from './MuseumModal';
 
 const projectionByHallId = new Map(
@@ -23,12 +24,21 @@ const physicalNodeById = new Map(
   MUSEUM_VISITOR_MAP_NODE_PROJECTIONS.map((node) => [node.id, node]),
 );
 
+const forumSpokeHallIds = new Set<MuseumHallId>();
+MUSEUM_VISITOR_MAP_EDGES.filter(({routeRole}) => routeRole === 'forum-spoke').forEach(({fromNodeId, toNodeId}) => {
+  [fromNodeId, toNodeId].forEach((nodeId) => {
+    const hallId = physicalNodeById.get(nodeId)?.publicHallId;
+    if (hallId) forumSpokeHallIds.add(hallId);
+  });
+});
+
 const svgPoints = (points: readonly MuseumVisitorMapPoint[]): string =>
   points.map(({x, y}) => `${x},${y}`).join(' ');
 
-export function MuseumVisitorMap({currentHallId, currentNodeId, returnFocus, onClose, onTravel}: {
+export function MuseumVisitorMap({currentHallId, currentNodeId, currentPose, returnFocus, onClose, onTravel}: {
   currentHallId: MuseumHallId;
   currentNodeId: MuseumPhysicalNodeId;
+  currentPose: Pick<MuseumPose, 'x' | 'z'>;
   returnFocus?: HTMLElement | null;
   onClose: () => void;
   onTravel: (hallId: MuseumHallId) => void;
@@ -37,21 +47,35 @@ export function MuseumVisitorMap({currentHallId, currentNodeId, returnFocus, onC
   const descriptionId = useId();
   const mapTitleId = useId();
   const mapDescriptionId = useId();
+  const routeSummaryId = useId();
   const [selectedHallId, setSelectedHallId] = useState<MuseumHallId>(currentHallId);
   const halls = MUSEUM_VISITOR_MAP_PROJECTION;
   const selected = projectionByHallId.get(selectedHallId) ?? halls[0];
   const currentPhysicalNode = physicalNodeById.get(currentNodeId)
     ?? physicalNodeById.get(projectionByHallId.get(currentHallId)?.node.physicalNodeId ?? '');
+  const currentPhysicalHallId = currentPhysicalNode?.publicHallId;
+  const currentMarkerPoint = projectMuseumVisitorMapPoint(currentNodeId, currentPose)
+    ?? currentPhysicalNode?.labelPoint;
 
   if (!selected) return null;
-  const isCurrentSelection = selected.hall.id === currentHallId;
+  const isCurrentSelection = selected.hall.id === currentPhysicalHallId;
   const viewBox = MUSEUM_VISITOR_MAP_VIEWBOX;
   const entrance = MUSEUM_VISITOR_MAP_ENTRANCE;
+  const loopSummary = halls
+    .map(({hall}) => `${hall.galleryNumber.replace(/^Gallery\s+/u, '')} ${hall.title}`)
+    .join(' ↔ ');
+  const spokeSummary = halls
+    .filter(({hall}) => forumSpokeHallIds.has(hall.id))
+    .map(({hall}) => hall.galleryNumber.replace(/^Gallery\s+/u, ''))
+    .join(', ');
+  const insertionCount = MUSEUM_VISITOR_MAP_RESERVATIONS.filter(({reservationType}) => reservationType === 'insertion').length;
+  const outwardCount = MUSEUM_VISITOR_MAP_RESERVATIONS.filter(({reservationType}) => reservationType === 'outward-expansion').length;
+  const routeSummary = `Walking loop: Entrance ↔ ${loopSummary} ↔ Entrance. Forum spokes connect Galleries ${spokeSummary} to the central orientation court. The entrance–Forum shortcut is also open. The Forum is circulation and orientation only, not an open intellectual hall. ${insertionCount} future insertion bays and ${outwardCount} outward reserves, R1–R8, are blocked and noninteractive.`;
 
   return <MuseumModal labelledBy={titleId} describedBy={descriptionId} returnFocus={returnFocus} onClose={onClose}>
     <div className="museum-overlay-head museum-visitor-map-head">
       <div>
-        <p className="eyebrow"><MapPinned size={14}/> Entrance visitor map</p>
+        <p className="eyebrow"><MapPinned size={14}/> Physical visitor map</p>
         <h2 id={titleId}>Ring of Wings visitor map</h2>
       </div>
       <button className="museum-icon-button" type="button" onClick={onClose} aria-label="Close Museum visitor map"><X/></button>
@@ -59,9 +83,12 @@ export function MuseumVisitorMap({currentHallId, currentNodeId, returnFocus, onC
     <p id={descriptionId} className="museum-visitor-map-lead">
       Read the physical main-level plan, then choose one of the six public galleries for fast travel to its authored safe arrival.
     </p>
+    <p id={routeSummaryId} className="museum-visitor-map-route-summary">{routeSummary}</p>
+    <p className="museum-visitor-map-pan-note">Scroll the plan horizontally to inspect its full detail.</p>
 
     <div className="museum-visitor-map-layout">
-      <section className="museum-visitor-map-plot" aria-label="Ring of Wings main-level plan">
+      <section className="museum-visitor-map-plot" aria-label="Ring of Wings main-level plan" aria-describedby={routeSummaryId}>
+        <div className="museum-visitor-map-scroll" tabIndex={0}>
         <svg
           className="museum-visitor-map-plan"
           viewBox={`${viewBox.minX} ${viewBox.minY} ${viewBox.width} ${viewBox.height}`}
@@ -70,9 +97,7 @@ export function MuseumVisitorMap({currentHallId, currentNodeId, returnFocus, onC
           aria-labelledby={`${mapTitleId} ${mapDescriptionId}`}
         >
           <title id={mapTitleId}>Physical plan of the Ring of Wings pilot</title>
-          <desc id={mapDescriptionId}>
-            Six gallery wings surround a forum court and connect through the outer loop, four forum spokes, and an entrance shortcut. Four future insertion bays and eight blocked outward-expansion portals are shown but are not interactive.
-          </desc>
+          <desc id={mapDescriptionId}>{routeSummary}</desc>
           <defs>
             <pattern id="museum-map-future-hatch" width="3" height="3" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
               <line className="museum-visitor-map-hatch-line" x1="0" y1="0" x2="0" y2="3"/>
@@ -86,7 +111,7 @@ export function MuseumVisitorMap({currentHallId, currentNodeId, returnFocus, onC
               data-kind={node.kind}
               data-role={node.pilotRole}
               data-current-node={node.id === currentPhysicalNode?.id ? 'true' : 'false'}
-              data-current-hall={node.publicHallId === currentHallId ? 'true' : 'false'}
+              data-current-hall={currentPhysicalHallId !== undefined && node.publicHallId === currentPhysicalHallId ? 'true' : 'false'}
               data-selected-hall={node.publicHallId === selected.hall.id ? 'true' : 'false'}
             >
               {node.cells.map((cell) => <polygon key={cell.id} points={svgPoints(cell.points)}/>)}
@@ -162,15 +187,16 @@ export function MuseumVisitorMap({currentHallId, currentNodeId, returnFocus, onC
             <text x="3" y="1">MAP KIOSK</text>
           </g>
 
-          {currentPhysicalNode && <g
+          {currentMarkerPoint && <g
             className="museum-visitor-map-you-are-here"
             aria-hidden="true"
-            transform={`translate(${currentPhysicalNode.labelPoint.x} ${currentPhysicalNode.labelPoint.y})`}
+            transform={`translate(${currentMarkerPoint.x} ${currentMarkerPoint.y})`}
           >
             <circle r="3.2"/><circle r="1.15"/>
             <text x="4.6" y="-3">YOU ARE HERE</text>
           </g>}
         </svg>
+        </div>
 
         <div className="museum-visitor-map-compass" aria-hidden="true"><span>N</span><i/></div>
         <div className="museum-visitor-map-legend" aria-label="Map legend">
@@ -188,7 +214,7 @@ export function MuseumVisitorMap({currentHallId, currentNodeId, returnFocus, onC
         <p className="museum-visitor-map-destination-heading">Six fast-travel galleries</p>
         <div className="museum-visitor-map-destinations" aria-label="Choose a fast-travel gallery">
           {halls.map(({hall}) => {
-            const current = hall.id === currentHallId;
+            const current = hall.id === currentPhysicalHallId;
             const isSelected = hall.id === selected.hall.id;
             return <button
               key={hall.id}

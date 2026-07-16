@@ -1,6 +1,6 @@
 # Ring of Wings six-shell pilot implementation record
 
-Status: implemented on `codex/museum-ring-pilot` for feature-branch review.
+Status: implemented Ring-pilot record. Production status is determined by `main` and the GitHub Pages workflow, not by the presence of a feature branch.
 
 ## What this pilot proves
 
@@ -98,7 +98,7 @@ Four insertion bays preserve likely pilot-to-program expansion points for South 
 
 The content cap is three hall subtrees: active/last hall, the one hall whose doorway is being approached, and at most one recent hall. Court and corridor structure remains resident independently. Preparation begins at 6 m, but crossing remains gated until lazy code/entry media and the committed scene subtree are both ready.
 
-The manifest’s 96 MiB decoded-texture limit is enforced during admission. A deterministic RGBA8 estimate uses every scene WebP’s recorded dimensions, exact generated mip chains, renderer-shared plaque/sign/kiosk dimensions, and the larger of each source or mutually exclusive fallback allocation. Full active halls currently measure 40.43–43.11 MiB; entry-resident halls measure 13.99–32.89 MiB. Every active/approach pair fits. Across all 120 distinct active/approach/recent combinations, the largest admitted plan is 94.53 MiB and 32 combinations drop the optional recent hall. Only an active hall warms remainder media, preventing an approached hall from expanding beyond its entry-resident profile before crossing.
+The manifest’s 96 MiB decoded-texture limit is enforced during admission. A deterministic RGBA8 estimate uses every scene WebP’s recorded dimensions, exact generated mip chains, renderer-shared plaque/sign/kiosk dimensions, and the larger of each source or mutually exclusive fallback allocation. Full active halls currently measure 40.43–43.11 MiB; entry-resident halls measure 22.80–32.92 MiB. Every active/approach pair fits. Across all 120 distinct active/approach/recent combinations, the largest admitted plan is 94.53 MiB and 32 combinations drop the optional recent hall. Only an active hall warms remainder media, preventing an approached hall from expanding beyond its entry-resident profile before crossing.
 
 A failed load withdraws readiness only for its target doorway and exposes the existing Retry UI. Because the pilot has a loop and central alternatives, the visitor can turn around and continue through another live route rather than being trapped at an endpoint.
 
@@ -113,7 +113,7 @@ The compatibility boundary remains unchanged:
 - one persistent Canvas;
 - directory, guided visits, interpretation panels, history behavior, reset, immersive/fullscreen, Pointer Lock, drag-look, touch, focus, and non-WebGL fallback.
 
-Physical-only IDs never become URL values. Fast travel still lands at a validated public-hall spawn. The implementation can be rolled back by reverting this feature branch; there is no backend or stored-data migration.
+Physical-only IDs never become URL values. Fast travel still lands at a validated public-hall spawn. The implementation can be rolled back through a normal revert of the Ring-pilot commits; there is no backend or stored-data migration.
 
 ## Map and diagrams
 

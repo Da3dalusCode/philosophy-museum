@@ -216,6 +216,10 @@ export const RENAISSANCE_REASON_REVOLUTION_HALL_DEFINITION: MuseumHallContentDef
   id: hall.id,
   layout: RENAISSANCE_REASON_REVOLUTION_HALL_LAYOUT,
   prefetch: {
+    entryExhibitIdsByEntrance: {
+      'ancient-threshold': ['machiavelli', 'descartes'],
+      'modernity-threshold': ['hume', 'rousseau', 'kant'],
+    },
     entrySceneAssetIds: [
       'machiavelli-santi-di-tito', 'machiavelli-prince-1532',
       'descartes-hals-portrait', 'descartes-discourse-1637',

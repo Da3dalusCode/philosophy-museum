@@ -297,7 +297,7 @@
       "transform": {"x": 0, "z": 0, "yaw": 0},
       "map": {"label": "Forum spoke · Logic", "status": "orientation-open"},
       "geometry": {"cells": [
-        {"id": "spoke-east-entry", "bounds": {"minX": 58, "maxX": 60, "minZ": 73.8, "maxZ": 78.6}, "ceilingHeight": 5.2},
+        {"id": "spoke-east-entry", "bounds": {"minX": 56, "maxX": 60, "minZ": 73.8, "maxZ": 78.6}, "ceilingHeight": 5.2},
         {"id": "spoke-east-turn", "bounds": {"minX": 55.6, "maxX": 60.4, "minZ": 60, "maxZ": 76.2}, "ceilingHeight": 5.2},
         {"id": "spoke-east-court", "bounds": {"minX": 52, "maxX": 58, "minZ": 57.6, "maxZ": 62.4}, "ceilingHeight": 5.2}
       ]},
@@ -331,7 +331,7 @@
       "geometry": {"cells": [
         {"id": "shortcut-entry", "bounds": {"minX": 8, "maxX": 20, "minZ": -18.4, "maxZ": -13.6}, "ceilingHeight": 5.2},
         {"id": "shortcut-run", "bounds": {"minX": 17.6, "maxX": 22.4, "minZ": -16, "maxZ": 43}, "ceilingHeight": 5.2},
-        {"id": "shortcut-court", "bounds": {"minX": 20, "maxX": 32, "minZ": 40.6, "maxZ": 45.4}, "ceilingHeight": 5.2}
+        {"id": "shortcut-court", "bounds": {"minX": 20, "maxX": 32, "minZ": 39, "maxZ": 45.4}, "ceilingHeight": 5.2}
       ]},
       "doorwaySlots": [
         {"id": "entrance", "position": {"x": 8, "z": -16}, "inwardNormal": {"x": 1, "z": 0}, "clearWidth": 4, "clearHeight": 3.2, "transitionDepth": 1.2, "landingBounds": {"minX": 8, "maxX": 12, "minZ": -18, "maxZ": -14}, "arrivalPose": {"x": 9.8, "z": -16, "yaw": -1.5707963267948966, "pitch": 0}},

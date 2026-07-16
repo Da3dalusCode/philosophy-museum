@@ -2,7 +2,7 @@
 
 ## Approved scope
 
-The live Museum is a compact, single-level physical proof of the approved **Ring of Wings**. It keeps the existing six public gallery shells and all 48 installations, but the building is no longer a six-stop chain. The permanent intellectual plan remains **Worlds with a Questions Forum**: 10 wings, 26 halls, 105 planned rooms or zones, and the existing reserve capacity. The runtime pilot proves the physical system without pretending that the other twenty halls or a curated Core Questions Forum have been built.
+The implemented Museum runtime is a compact, single-level physical proof of the approved **Ring of Wings**. It keeps the existing six public gallery shells and all 48 installations, but the building is no longer a six-stop chain. The permanent intellectual plan remains **Worlds with a Questions Forum**: 10 wings, 26 halls, 105 planned rooms or zones, and the existing reserve capacity. The runtime pilot proves the physical system without pretending that the other twenty halls or a curated Core Questions Forum have been built. Repository branches do not establish production status; `main` and its GitHub Pages workflow are authoritative for deployment.
 
 The six public routes and content rosters remain unchanged:
 
@@ -89,7 +89,7 @@ Circulation geometry is always cheap and resident; it does not consume a hall-co
 
 This is intentionally a small policy, not a speculative streaming platform. The manifest’s **96 MiB decoded-texture budget is now an admission constraint**, not a planning-only number. `museumTextureBudget.ts` derives a conservative allocation from the actual scene-asset dimensions and the canvas-texture dimensions shared with the renderers. It assumes RGBA8 uploads, includes exact mip chains for generated plaques/signs, includes the larger of a source image and its mutually exclusive failure fallback, and distinguishes a full active hall from the entry-visible subset of an approached or recent hall. `museumResidency.ts` always retains the active hall, admits the specific approached hall only when the measured pair fits, and retains a recent hall only when the complete plan remains within both the three-subtree cap and 96 MiB.
 
-The deterministic Museum audit checks every ordered active/approach pair and all 120 distinct active/approach/recent plans. Current evidence is 40.43–43.11 MiB for an active subtree, 13.99–32.89 MiB for an entry-resident subtree, and a 94.53 MiB maximum admitted plan. Thirty-two of the 120 three-hall plans intentionally reject the optional recent hall. All active/approach pairs fit, so readiness-gated crossings remain preparable. The budget governs variable lazy hall-content allocations; always-resident circulation labels are fixed structural overhead rather than candidates for residency eviction.
+The deterministic Museum audit checks every ordered active/approach pair and all 120 distinct active/approach/recent plans. Current evidence is 40.43–43.11 MiB for an active subtree, 22.80–32.92 MiB for an entry-resident subtree, and a 94.53 MiB maximum admitted plan. Thirty-two of the 120 three-hall plans intentionally reject the optional recent hall. All active/approach pairs fit, so readiness-gated crossings remain preparable. The budget governs variable lazy hall-content allocations; always-resident circulation labels are fixed structural overhead rather than candidates for residency eviction.
 
 ## Reservations and growth
 
@@ -121,7 +121,7 @@ The public compatibility boundary is intentionally narrow:
 - hall sessions remain local; and
 - physical-only IDs cannot appear in Museum URLs.
 
-Rollback is correspondingly simple: the feature branch can be abandoned without data migration. Within the feature, circulation placement is isolated in the manifest and compiler; content files need only their added physical openings reverted if the Ring adapter itself is rolled back.
+Rollback is correspondingly simple: revert the Ring-pilot commits through normal Git history; no data migration is required. Circulation placement is isolated in the manifest and compiler, while the content files contain only the physical openings required by their legacy adapters.
 
 ## Verification contract
 

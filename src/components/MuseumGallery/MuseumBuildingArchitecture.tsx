@@ -129,10 +129,38 @@ function ReservationBarrier({reservation}: {reservation: MuseumReservation}) {
 
 function CirculationNode({node}: {node: MuseumRuntimeNodeDefinition}) {
   const forum = node.pilotRole === 'forum-location';
+  const forumCell = forum ? node.layout.spatialCells.find(({id}) => id === 'forum-court') : undefined;
+  const forumNorthEntrance = forum ? node.entrances.find(({id}) => id === 'N0') : undefined;
+  const entranceCell = node.id === MUSEUM_BUILDING_MANIFEST.mainEntrance.nodeId
+    ? node.layout.spatialCells.find(({id}) => id === 'orientation-court')
+    : undefined;
+  const forumSignX = forumCell && forumNorthEntrance
+    ? (forumCell.bounds.minX + forumNorthEntrance.position.x - forumNorthEntrance.transitionBounds.size.width / 2) / 2
+    : undefined;
   return <group position={[node.worldTransform.x, 0, node.worldTransform.z]} rotation={[0, node.worldTransform.yaw, 0]}>
     {node.layout.spatialCells.map((cell) => <StructuralCell key={cell.id} cell={cell} forum={forum}/>)}
     {(node.architectureWalls ?? node.layout.wallColliders).map((wall) => <StructuralWall key={wall.id} wall={wall}/>)}
     {node.layout.furnishings.map((item) => <StructuralBench key={item.id} item={item}/>)}
+    {forumCell && forumSignX !== undefined && <BuildingSign
+      title="Core Questions Forum"
+      kicker="Orientation court · Forum location"
+      subtitle="Four spokes reconnect the Ring · Exhibition program follows in a later phase"
+      position={[forumSignX, 3.6, forumCell.bounds.maxZ - .22]}
+      rotation={Math.PI}
+      width={5.4}
+    />}
+    {entranceCell && <BuildingSign
+      title="Philosophy Atlas Museum"
+      kicker="Entrance and orientation"
+      subtitle="Walk the full Ring in either direction · Central shortcuts are open"
+      position={[
+        (entranceCell.bounds.minX + entranceCell.bounds.maxX) / 2,
+        4.25,
+        entranceCell.bounds.maxZ - .2,
+      ]}
+      rotation={Math.PI}
+      width={5.6}
+    />}
   </group>;
 }
 
@@ -144,22 +172,6 @@ export function MuseumBuildingArchitecture({onSceneGesture}: {onSceneGesture: ()
   };
   return <group onClick={activate} userData={{museumBuilding: MUSEUM_BUILDING_MANIFEST.manifestVersion}}>
     {MUSEUM_CIRCULATION_NODES.map((node) => <CirculationNode key={node.id} node={node}/>)}
-    <BuildingSign
-      title="Core Questions Forum"
-      kicker="Orientation court · Forum location"
-      subtitle="Four spokes reconnect the Ring · Exhibition program follows in a later phase"
-      position={[34.5, 3.6, 66.78]}
-      rotation={Math.PI}
-      width={5.4}
-    />
-    <BuildingSign
-      title="Philosophy Atlas Museum"
-      kicker="Entrance and orientation"
-      subtitle="Walk the full Ring in either direction · Central shortcuts are open"
-      position={[0, 4.25, -12.2]}
-      rotation={Math.PI}
-      width={5.6}
-    />
     {MUSEUM_BUILDING_MANIFEST.reservations.map((reservation) => {
       const host = getMuseumRuntimeNode(reservation.hostNodeId);
       if (!host) return null;

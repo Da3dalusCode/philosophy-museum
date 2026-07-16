@@ -218,6 +218,11 @@ export const MODERNITY_FREEDOM_CRITIQUE_HALL_DEFINITION: MuseumHallContentDefini
   id: hall.id,
   layout: MODERNITY_FREEDOM_CRITIQUE_HALL_LAYOUT,
   prefetch: {
+    entryExhibitIdsByEntrance: {
+      'early-modern-threshold': ['kierkegaard', 'marx'],
+      'logic-threshold': ['camus', 'foucault'],
+      'forum-north-threshold': ['foucault'],
+    },
     entrySceneAssetIds: [
       'kierkegaard-royal-library-portrait', 'kierkegaard-fragments-manuscript',
       'marx-mayall-portrait', 'marx-capital-1867',

@@ -62,7 +62,7 @@ Philosophy Atlas is intended for curious readers, students, teachers, and anyone
 
 The project is actively being developed.
 
-Current written coverage includes all **141 philosophers** and **43 branches** in the Atlas. The long-term Museum program is locked at 10 wings, 26 halls, and 105 rooms or zones; the live 3D pilot contains the original six gallery shells and all 48 exhibits in one compact loop. Museum media includes structured provenance and rights metadata; citation depth across the wider Atlas is still being improved.
+Current written coverage includes all **141 philosophers** and **43 branches** in the Atlas. The long-term Museum program is locked at 10 wings, 26 halls, and 105 rooms or zones; the implemented 3D pilot contains the original six legacy-adapted gallery shells and all 48 exhibits in one compact loop. Museum media includes structured provenance and rights metadata; citation depth across the wider Atlas is still being improved.
 
 The application is local-first and static. It has no backend, database, login system, runtime API, advertising, or paid service dependency.
 
@@ -165,7 +165,7 @@ Keep explanations readable, distinguish disputed membership from canonical affil
 
 ## Current limitations and future work
 
-- The walkable Museum covers only part of philosophy's full historical and cross-cultural range; the six live shells are a physical pilot, not the final 26-hall intellectual taxonomy.
+- The walkable Museum covers only part of philosophy's full historical and cross-cultural range; the six implemented legacy-adapted shells are a physical pilot, not the final 26-hall intellectual taxonomy.
 - Source and citation depth is stronger in the long-form articles and Museum records than in some older structured summaries.
 - The Philosophy Map intentionally uses a curated subset for readability.
 - Some influence and relationship data could be linked more deeply.

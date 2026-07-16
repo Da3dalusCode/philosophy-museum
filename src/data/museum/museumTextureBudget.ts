@@ -70,11 +70,12 @@ export const estimateMuseumHallTextureResidency = (
 ): MuseumHallTextureEstimate => {
   const definition = MUSEUM_WORLD_DEFINITIONS.find(({id}) => id === hallId);
   if (!definition) throw new Error(`Museum texture estimate cannot resolve hall ${hallId}.`);
-  const entryAssetIds = new Set(definition.prefetch.entrySceneAssetIds);
+  const entryExhibitIds = new Set(
+    Object.values(definition.prefetch.entryExhibitIdsByEntrance).flat(),
+  );
   const exhibits = mode === 'active'
     ? definition.layout.exhibits
-    : definition.layout.exhibits.filter(({scene}) =>
-      scene.mediaMounts.some(({assetId}) => entryAssetIds.has(assetId)));
+    : definition.layout.exhibits.filter(({id}) => entryExhibitIds.has(id));
   const sceneAssetIds = [...new Set(exhibits.flatMap(({scene}) =>
     scene.mediaMounts.map(({assetId}) => assetId)))];
   const sceneBytes = sceneAssetIds.reduce((sum, assetId) => sum + sceneAssetBytes(assetId), 0);

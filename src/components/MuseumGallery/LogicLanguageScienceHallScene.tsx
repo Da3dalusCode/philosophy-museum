@@ -4,10 +4,8 @@ import {ContemporaryHallArchitecture} from './ContemporaryHallArchitecture';
 import {ContemporaryHallLighting} from './ContemporaryHallLighting';
 import {ContemporaryMuseumExhibits} from './ContemporaryMuseumExhibits';
 
-export function LogicLanguageScienceHallContent({definition, active, viewerHallId, nearby, onSelectExhibit, onSceneGesture}: MuseumHallContentProps) {
-  const inactiveIds = viewerHallId === 'ethics-justice-political-life'
-    ? ['quine', 'kuhn'] as const
-    : ['peirce', 'frege', 'russell'] as const;
+export function LogicLanguageScienceHallContent({definition, active, entryEntranceId, nearby, onSelectExhibit, onSceneGesture}: MuseumHallContentProps) {
+  const inactiveIds = definition.prefetch.entryExhibitIdsByEntrance[entryEntranceId ?? ''] ?? [];
   return <MuseumHallSpatialRoot definition={definition}>
     {active && <ContemporaryHallLighting lighting={definition.layout.lighting}/>}
     <ContemporaryHallArchitecture definition={definition} onSceneGesture={onSceneGesture}/>

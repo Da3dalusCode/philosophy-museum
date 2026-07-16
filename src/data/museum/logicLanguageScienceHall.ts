@@ -219,6 +219,11 @@ export const LOGIC_LANGUAGE_SCIENCE_HALL_DEFINITION: MuseumHallContentDefinition
   id: hall.id,
   layout: LOGIC_LANGUAGE_SCIENCE_HALL_LAYOUT,
   prefetch: {
+    entryExhibitIdsByEntrance: {
+      'modernity-threshold': ['peirce', 'frege', 'russell'],
+      'ethics-threshold': ['quine', 'kuhn'],
+      'forum-east-threshold': ['quine'],
+    },
     entrySceneAssetIds: [
       'peirce-sarony-portrait', 'peirce-existential-graphs',
       'frege-portrait', 'frege-begriffsschrift-1879',

@@ -150,6 +150,7 @@ const {
   positionInsideSpatialUnion,
   resolveMuseumCloseResumeStrategy,
   resolveMuseumExitPolicy,
+  resolveMuseumHallArrival,
   resolveMuseumHallResidency,
   resolveMuseumHallResidencyPlan,
   resolveMuseumHallShell,
@@ -266,6 +267,85 @@ const contractedLandingCollider = (slot, playerRadius) => {
     size: {width: Math.max(.1, width), depth: Math.max(.1, depth)},
     rotation: 0,
   };
+};
+const auditNavigationConnectivity = (node, points, step = .18) => {
+  const {layout} = node;
+  const colliders = allColliders(layout);
+  const radius = layout.playerRadius;
+  const minimum = {x: layout.bounds.minX + radius, z: layout.bounds.minZ + radius};
+  const maximum = {x: layout.bounds.maxX - radius, z: layout.bounds.maxZ - radius};
+  const columns = Math.floor((maximum.x - minimum.x) / step) + 1;
+  const rows = Math.floor((maximum.z - minimum.z) / step) + 1;
+  const cellCount = columns * rows;
+  assert(columns > 0 && rows > 0, `${node.id} has no navigable grid extent`);
+
+  const state = new Uint8Array(cellCount);
+  const visited = new Uint8Array(cellCount);
+  const pointAt = (index) => ({
+    x: minimum.x + index % columns * step,
+    z: minimum.z + Math.floor(index / columns) * step,
+  });
+  const validAt = (index) => {
+    if (index < 0 || index >= cellCount) return false;
+    if (state[index] === 0) {
+      state[index] = isValidMuseumPosition(pointAt(index), radius, layout.bounds, colliders, layout.spatialCells) ? 2 : 1;
+    }
+    return state[index] === 2;
+  };
+  const nearestGridIndex = ({label, point}) => {
+    assert(
+      isValidMuseumPosition(point, radius, layout.bounds, colliders, layout.spatialCells),
+      `${node.id} ${label} is not collision-safe`,
+    );
+    const column = Math.round((point.x - minimum.x) / step);
+    const row = Math.round((point.z - minimum.z) / step);
+    let nearest;
+    let nearestDistance = Infinity;
+    for (let offsetRow = -3; offsetRow <= 3; offsetRow += 1) {
+      for (let offsetColumn = -3; offsetColumn <= 3; offsetColumn += 1) {
+        const candidateColumn = column + offsetColumn;
+        const candidateRow = row + offsetRow;
+        if (candidateColumn < 0 || candidateColumn >= columns || candidateRow < 0 || candidateRow >= rows) continue;
+        const index = candidateRow * columns + candidateColumn;
+        if (!validAt(index)) continue;
+        const candidate = pointAt(index);
+        const candidateDistance = distance(point, candidate);
+        if (candidateDistance >= nearestDistance) continue;
+        let connected = true;
+        sampleSegment(point, candidate, .05, (sample) => {
+          if (!isValidMuseumPosition(sample, radius, layout.bounds, colliders, layout.spatialCells)) connected = false;
+        });
+        if (connected) {
+          nearest = index;
+          nearestDistance = candidateDistance;
+        }
+      }
+    }
+    assert(nearest !== undefined && nearestDistance <= step * 2, `${node.id} ${label} cannot join the collision grid`);
+    return nearest;
+  };
+
+  const seeds = points.map(nearestGridIndex);
+  const queue = new Int32Array(cellCount);
+  let queueStart = 0;
+  let queueEnd = 0;
+  queue[queueEnd++] = seeds[0];
+  visited[seeds[0]] = 1;
+  while (queueStart < queueEnd) {
+    const index = queue[queueStart++];
+    const column = index % columns;
+    const neighbors = [index - columns, index + columns];
+    if (column > 0) neighbors.push(index - 1);
+    if (column + 1 < columns) neighbors.push(index + 1);
+    for (const neighbor of neighbors) {
+      if (neighbor < 0 || neighbor >= cellCount || visited[neighbor] || !validAt(neighbor)) continue;
+      visited[neighbor] = 1;
+      queue[queueEnd++] = neighbor;
+    }
+  }
+  points.forEach(({label}, index) => {
+    assert(visited[seeds[index]], `${node.id} ${label} is trapped in a separate collision component`);
+  });
 };
 const localPointToWorld = (collider, point) => {
   const cosine = Math.cos(collider.rotation);
@@ -896,7 +976,24 @@ check('hall files own content and bounded prefetch assets, not building adjacenc
   for (const definition of definitions) {
     assert.equal(definition.prefetch.sceneAssetIds.length, 16);
     assert(unique(definition.prefetch.sceneAssetIds));
+    assert(unique(definition.prefetch.entrySceneAssetIds));
     for (const id of definition.prefetch.entrySceneAssetIds) assert(definition.prefetch.sceneAssetIds.includes(id), `${definition.id} entry prefetch includes non-scene asset ${id}`);
+    const liveTargetEntrances = MUSEUM_DIRECTED_CONNECTIONS
+      .filter(({targetNodeId, implementationStatus}) => targetNodeId === definition.physicalNodeId && implementationStatus === 'live')
+      .map(({targetEntranceId}) => targetEntranceId)
+      .sort();
+    const entryExhibitsByEntrance = definition.prefetch.entryExhibitIdsByEntrance;
+    assert.deepEqual(Object.keys(entryExhibitsByEntrance).sort(), liveTargetEntrances, `${definition.id} entry previews do not cover every live target entrance exactly once`);
+    const exhibitsById = new Map(definition.layout.exhibits.map((exhibit) => [exhibit.id, exhibit]));
+    for (const [entranceId, exhibitIds] of Object.entries(entryExhibitsByEntrance)) {
+      assert(exhibitIds.length > 0, `${definition.id}/${entranceId} has an empty entry preview`);
+      assert(unique(exhibitIds), `${definition.id}/${entranceId} repeats an entry exhibit`);
+      for (const exhibitId of exhibitIds) assert(exhibitsById.has(exhibitId), `${definition.id}/${entranceId} references missing exhibit ${exhibitId}`);
+    }
+    const entryExhibitIds = [...new Set(Object.values(entryExhibitsByEntrance).flat())];
+    const renderedEntryAssetIds = [...new Set(entryExhibitIds.flatMap((exhibitId) =>
+      exhibitsById.get(exhibitId).scene.mediaMounts.map(({assetId}) => assetId)))].sort();
+    assert.deepEqual([...definition.prefetch.entrySceneAssetIds].sort(), renderedEntryAssetIds, `${definition.id} entry prefetch media does not exactly match its rendered doorway previews`);
     assert.equal(Object.hasOwn(definition.prefetch, 'adjacentHallIds'), false, `${definition.id} exposes legacy prefetch adjacency`);
     assert.equal(Object.hasOwn(definition, 'connections'), false, `${definition.id} exposes hall-authored connections`);
   }
@@ -982,6 +1079,7 @@ check('the Ring of Wings loop, four spokes, and entrance–Forum shortcut remain
 
 check('every authored doorway seam matches in world space, dimensions, normals, and safe landings', () => {
   const nodeById = new Map(buildingManifest.nodes.map((node) => [node.id, node]));
+  const runtimeNodeById = new Map(MUSEUM_RUNTIME_NODES.map((node) => [node.id, node]));
   const usedSlots = new Set();
   const contract = buildingManifest.physicalContract;
   for (const node of buildingManifest.nodes) {
@@ -994,6 +1092,36 @@ check('every authored doorway seam matches in world space, dimensions, normals, 
       assert(slot.landingBounds.maxX - slot.landingBounds.minX + 1e-6 >= contract.safeLandingWidth, `${ref} landing is too narrow`);
       assert(slot.landingBounds.maxZ - slot.landingBounds.minZ + 1e-6 >= contract.safeLandingDepth, `${ref} landing is too shallow`);
       assert(slot.arrivalPose.x >= slot.landingBounds.minX - 1e-6 && slot.arrivalPose.x <= slot.landingBounds.maxX + 1e-6 && slot.arrivalPose.z >= slot.landingBounds.minZ - 1e-6 && slot.arrivalPose.z <= slot.landingBounds.maxZ + 1e-6, `${ref} arrival leaves its landing`);
+      const runtimeNode = runtimeNodeById.get(node.id);
+      assert(runtimeNode, `${ref} has no runtime node`);
+      const landing = {
+        center: {
+          x: (slot.landingBounds.minX + slot.landingBounds.maxX) / 2,
+          z: (slot.landingBounds.minZ + slot.landingBounds.maxZ) / 2,
+        },
+        size: {
+          width: slot.landingBounds.maxX - slot.landingBounds.minX,
+          depth: slot.landingBounds.maxZ - slot.landingBounds.minZ,
+        },
+      };
+      const horizontalSamples = Math.max(1, Math.ceil(landing.size.width / .2));
+      const verticalSamples = Math.max(1, Math.ceil(landing.size.depth / .2));
+      for (let xIndex = 0; xIndex <= horizontalSamples; xIndex += 1) {
+        for (let zIndex = 0; zIndex <= verticalSamples; zIndex += 1) {
+          const point = {
+            x: landing.center.x - landing.size.width / 2 + landing.size.width * xIndex / horizontalSamples,
+            z: landing.center.z - landing.size.depth / 2 + landing.size.depth * zIndex / verticalSamples,
+          };
+          assert(runtimeNode.layout.spatialCells.some(({bounds}) =>
+            point.x >= bounds.minX - 1e-7 && point.x <= bounds.maxX + 1e-7
+            && point.z >= bounds.minZ - 1e-7 && point.z <= bounds.maxZ + 1e-7),
+          `${ref} landing leaves its authored runtime spatial union near ${JSON.stringify(point)}`);
+        }
+      }
+      assert(
+        isValidMuseumPosition(slot.arrivalPose, runtimeNode.layout.playerRadius, runtimeNode.layout.bounds, allColliders(runtimeNode.layout), runtimeNode.layout.spatialCells),
+        `${ref} arrival is not collision-safe`,
+      );
     }
   }
   for (const connection of buildingManifest.connections) {
@@ -1018,6 +1146,16 @@ check('every authored doorway seam matches in world space, dimensions, normals, 
   }
 });
 
+check('every live doorway, spawn, and reset shares one walkable collision component per physical node', () => {
+  for (const node of MUSEUM_RUNTIME_NODES) {
+    auditNavigationConnectivity(node, [
+      {label: 'spawn', point: node.layout.spawn},
+      {label: 'reset', point: node.layout.reset},
+      ...node.entrances.map((entrance) => ({label: `${entrance.id} arrival`, point: entrance.arrivalPose})),
+    ]);
+  }
+});
+
 check('collision-resolved movement can physically cross all 44 directed seams', () => {
   const runtimeNodeById = new Map(MUSEUM_RUNTIME_NODES.map((node) => [node.id, node]));
   const stepDistance = .1;
@@ -1025,7 +1163,9 @@ check('collision-resolved movement can physically cross all 44 directed seams', 
   assert(stepDistance <= .12);
   for (const connection of MUSEUM_DIRECTED_CONNECTIONS) {
     const source = runtimeNodeById.get(connection.sourceNodeId);
+    const target = runtimeNodeById.get(connection.targetNodeId);
     assert(source, `${connection.id} has no source runtime node`);
+    assert(target, `${connection.id} has no target runtime node`);
     const entrance = source.entrances.find(({id}) => id === connection.localEntranceId);
     assert(entrance, `${connection.id} has no source entrance ${connection.localEntranceId}`);
     const {layout} = source;
@@ -1066,6 +1206,17 @@ check('collision-resolved movement can physically cross all 44 directed seams', 
     assert(
       crossed && signedDistance(current) < 0,
       `${connection.id} could not cross its doorway plane within ${iterationLimit} collision-resolved steps (signed distance ${signedDistance(current).toFixed(3)})`,
+    );
+    const targetArrival = resolveMuseumHallArrival(
+      source,
+      target,
+      connection.targetEntranceId,
+      {...current, yaw: 0, pitch: 0},
+    );
+    assert(targetArrival, `${connection.id} cannot resolve a target arrival`);
+    assert(
+      isValidMuseumPosition(targetArrival, target.layout.playerRadius, target.layout.bounds, allColliders(target.layout), target.layout.spatialCells),
+      `${connection.id} resolves to an invalid target arrival`,
     );
   }
 });
@@ -1315,6 +1466,10 @@ check('the physical visitor-map source wiring reuses Museum interaction, overlay
   assert.match(museumKioskSource, /CanvasTexture/);
   assert.match(museumVisitorMapSource, /MUSEUM_VISITOR_MAP_PROJECTION/);
   assert.match(museumVisitorMapSource, /MUSEUM_VISITOR_MAP_EDGES\.map/);
+  assert.match(museumVisitorMapSource, /projectMuseumVisitorMapPoint\(currentNodeId, currentPose\)/);
+  assert.match(museumVisitorMapSource, /data-current-hall=\{currentPhysicalHallId !== undefined && node\.publicHallId === currentPhysicalHallId/);
+  assert.match(museumVisitorMapSource, /className="museum-visitor-map-scroll" tabIndex=\{0\}/);
+  assert.match(museumVisitorMapSource, /aria-describedby=\{routeSummaryId\}/);
   assert.match(museumVisitorMapSource, /<MuseumModal/);
   assert.match(museumVisitorMapSource, /aria-current=\{current \? 'location'/);
   assert.match(museumVisitorMapSource, /onTravel\(selected\.hall\.id\)/);
@@ -1335,7 +1490,16 @@ check('the physical visitor-map source wiring reuses Museum interaction, overlay
   assert.match(museumControlsSource, /event\.code === 'KeyM'[\s\S]*callbacksRef\.current\.onOpenDirectory\(\)/);
   assert.match(museumPageSource, /overlay === 'directory'[\s\S]*<Directory/);
   assert.match(museumPageSource, /MUSEUM_HALLS\.map/);
+  assert.match(museumPageSource, /className="museum-control-map"[\s\S]*onClick=\{showVisitorMap\}/);
   assert.match(museumCssSource, /@media\(max-width:900px\)\{[\s\S]*?\.museum-visitor-map-layout\{grid-template-columns:1fr\}[\s\S]*?\.museum-visitor-map-destinations\{grid-template-columns:repeat\(2,minmax\(0,1fr\)\)\}/);
+  assert.match(museumCssSource, /@media\(max-width:760px\)\{[\s\S]*?\.museum-visitor-map-scroll\{[^}]*overflow-x:auto/);
+});
+
+check('physical wayfinding signs and decoded-texture remainder warming are runtime-derived', () => {
+  assert.match(museumBuildingArchitectureSource, /forumCell/);
+  assert.match(museumBuildingArchitectureSource, /entranceCell/);
+  assert.doesNotMatch(museumBuildingArchitectureSource, /position=\{\[34\.5\s*,\s*3\.6|position=\{\[-12\.2\s*,\s*3\.6/);
+  assert.match(museumPageSource, /ensureHallEntry\(activeHallId\)[\s\S]*?\.then\(\(\) => warmHallRemainder\(activeHallId\)\)/);
 });
 
 check('the world registry is the active six-hall lazy graph with no retired import', () => {
@@ -1354,6 +1518,7 @@ check('the world registry is the active six-hall lazy graph with no retired impo
 
 check('the persistent runtime enforces manifest-bounded residency, rendered readiness, and failure recovery', () => {
   assert.match(museumWorldSource, /props\.registrations\.map/);
+  assert.match(museumWorldSource, /connectedEntranceByHallId\.get\(registration\.definition\.id\)/);
   assert.match(museumWorldSource, /onNodeTransition\(connection\)/);
   assert.match(museumWorldSource, /getMuseumNodeConnections\(definition\.id\)/);
   assert.match(museumWorldSource, /MUSEUM_BUILDING_MANIFEST\.residencyPolicy\.approachDistance/);

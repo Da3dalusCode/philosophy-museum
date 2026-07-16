@@ -34,6 +34,7 @@ function ExhibitSpotlight({definition}: {definition: MuseumExhibitLightDefinitio
 export function AncientGreekHallContent({
   definition,
   active,
+  entryEntranceId,
   nearby,
   visitorMapNearby,
   onSelectExhibit,
@@ -54,7 +55,9 @@ export function AncientGreekHallContent({
       <MuseumVisitorMapKiosk active={active} nearby={visitorMapNearby} onActivate={onSelectVisitorMap}/>
       <MuseumExhibits
         definition={definition}
-        visibleExhibitIds={active ? undefined : ['neoplatonism']}
+        visibleExhibitIds={active
+          ? undefined
+          : definition.prefetch.entryExhibitIdsByEntrance[entryEntranceId ?? ''] ?? []}
         nearbyId={nearby?.hallId === definition.id ? nearby.exhibitId : undefined}
         onSelectExhibit={(exhibitId) => onSelectExhibit({hallId: definition.id, exhibitId})}
       />

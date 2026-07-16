@@ -8,12 +8,12 @@ The approved implementation phase is deliberately small: rearrange only the six 
 
 ## Why a staged migration is necessary
 
-The current Museum has six halls, 48 exhibits, 18 zones, five reciprocal connections, approximately 7,312 authored square metres, and approximately 390 metres of primary circulation. It also contains several assumptions that are safe for a six-hall chain but unsafe for a 26-hall building:
+At the pre-Ring baseline (`39007cf1480900e16cd24bdd8ba1820fd4779a41`), the Museum had six halls, 48 exhibits, 18 zones, five reciprocal connections, approximately 7,312 authored square metres, and approximately 390 metres of primary circulation. It also contained several assumptions that were safe for a six-hall chain but unsafe for a 26-hall building:
 
 - `MuseumHallId`, lazy loaders, and deterministic audits are closed around exactly six halls.
 - A connection is recorded in both halls, while prefetch adjacency repeats the relationship a third time.
 - Runtime residency mounts the active hall and all adjacent halls. A crossroads with three or four neighbors would multiply scene and texture cost.
-- The visitor map derives graph edges from connections but places nodes with separately authored percentages; it is topologically useful, not a physical floor plan.
+- The visitor map derived graph edges from connections but placed nodes with separately authored percentages; it was topologically useful, not a physical floor plan.
 - There is no authoritative level, elevation, wing, template, footprint, doorway-slot, implementation-status, or reservation schema.
 - Similar contemporary geometry is repeated instead of instantiated from a small template contract.
 
@@ -72,7 +72,7 @@ This phase should be visually neutral. It exists to avoid rebuilding the same fo
 
 ### 4. Make residency scale to hubs
 
-The present active-plus-all-neighbors rule is bounded only because the chain has degree at most two. Before any `crossroads-4` gateway opens, replace it with a budgeted policy: keep the active hall resident; prepare doorway-visible target code and entry media; render only the neighbor needed for a near-threshold crossing; evict by measured memory and recency rather than graph degree. Preserve the existing rule that a crossing is enabled only after code/media preparation and scene commit both succeed.
+The pre-Ring active-plus-all-neighbors rule was bounded only because the chain had degree at most two. The Ring pilot replaces it with the required budgeted policy: keep the active hall resident; prepare doorway-visible target code and entry media; render only the neighbor needed for a near-threshold crossing; and retain a recent hall only when measured memory and the three-subtree cap allow it. A crossing remains enabled only after code/media preparation and scene commit both succeed.
 
 ### 5. Preserve sessions and routes through adapters
 
@@ -85,7 +85,7 @@ The present active-plus-all-neighbors rule is bounded only because the chain has
 
 Do not rearrange a shell until audits prove that the legacy six render identically through the adapter, a single connection declaration produces both directions and the map edge, reserved nodes cannot be entered, map footprints derive from the physical source, hub residency is bounded, and saved poses either migrate safely or fall back predictably.
 
-## Phase 2 — the next build: six-shell physical truth
+## Phase 2 — six-shell physical truth (implemented by the Ring pilot)
 
 This is the approved physical scope for the Ring pilot.
 
@@ -110,7 +110,7 @@ The work is limited to:
 
 Every new legacy-adapter opening—including the loop return and any court spoke or shortcut—must have a distinct manifest slot, wall and collision opening, compatible doorway geometry, and collision-cleared safe landing. Do not repurpose Ancient’s public entrance or an already occupied threshold. Publish each connection only when both endpoints and its intervening corridor are physically crossable.
 
-The work explicitly excludes new hall interiors, new exhibit records, changes to the active 48-exhibit roster, a new entrance hall, curatorial reclassification in production, route removals, a second floor, deployment, and any claim that the final ring is complete.
+The construction scope explicitly excludes new hall interiors, new exhibit records, changes to the active 48-exhibit roster, a new entrance hall, curatorial reclassification in production, route removals, a second floor, and any claim that the final ring is complete. Deployment is a separate release decision made only after the complete Ring-pilot gate passes.
 
 ### Reservation rules
 

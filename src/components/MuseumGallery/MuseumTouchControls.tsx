@@ -10,6 +10,7 @@ export type MuseumTouchControlsProps = {
   onInteract: () => void;
   onPause: () => void;
   onReset: () => void;
+  onMap: () => void;
   onDirectory: () => void;
 };
 
@@ -26,6 +27,7 @@ export function MuseumTouchControls({
   onInteract,
   onPause,
   onReset,
+  onMap,
   onDirectory,
 }: MuseumTouchControlsProps) {
   const enabled = active && !blocked;
@@ -56,6 +58,7 @@ export function MuseumTouchControls({
       >{nearbyLabel ? `Interact: ${nearbyLabel}` : 'Interact'}</button>
       <button type="button" onClick={onPause} disabled={!enabled} style={buttonStyle}>Pause / Exit</button>
       <button type="button" onClick={onReset} disabled={!enabled} style={buttonStyle}>Reset position</button>
+      <button type="button" onClick={onMap} disabled={blocked} style={buttonStyle} aria-label="Open Museum visitor map">Map</button>
       <button type="button" onClick={onDirectory} disabled={blocked} style={buttonStyle}>Directory</button>
     </div>
   </div>;

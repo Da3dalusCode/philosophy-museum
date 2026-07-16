@@ -544,7 +544,16 @@ export const ANCIENT_GREEK_HALL_DEFINITION: MuseumHallContentDefinition = {
   id: hall.id,
   layout: ANCIENT_GREEK_HALL_LAYOUT,
   prefetch: {
-    entrySceneAssetIds: ['neoplatonism-plotinus-ostia', 'neoplatonism-ficino-enneads'],
+    entryExhibitIdsByEntrance: {
+      'south-entry': ['plato'],
+      'early-modern-threshold': ['neoplatonism'],
+      'forum-west-threshold': ['socrates'],
+    },
+    entrySceneAssetIds: [
+      'socrates-louvre-head', 'socrates-death-of-socrates',
+      'plato-capitoline-bust', 'plato-school-of-athens',
+      'neoplatonism-plotinus-ostia', 'neoplatonism-ficino-enneads',
+    ],
     sceneAssetIds: hall.exhibits.flatMap((exhibit) => [exhibit.principalAssetId, ...exhibit.supportingAssetIds]),
   },
   fallbackLabel: 'Ancient Greek and Hellenistic gallery directory',

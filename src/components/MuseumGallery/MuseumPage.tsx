@@ -2,6 +2,7 @@ import {
   DoorOpen,
   Info,
   Landmark,
+  Map as MapIcon,
   MapPinned,
   Maximize2,
   Minimize2,
@@ -455,8 +456,7 @@ export function MuseumPage({route, href, push, replace}: {
     if (retryingHallIdsRef.current.delete(hallId)) {
       setAnnouncement(`${getMuseumHallCatalog(hallId)?.title ?? 'The gallery'} is ready.`);
     }
-    warmHallRemainder(hallId);
-  }, [warmHallRemainder]);
+  }, []);
 
   const ensureHallEntry = useCallback((hallId: MuseumHallId): Promise<void> => {
     if (failedHallContentIdsRef.current.has(hallId)) {
@@ -530,8 +530,10 @@ export function MuseumPage({route, href, push, replace}: {
     setHallContentEpochs((current) => ({...current, [hallId]: (current[hallId] ?? 0) + 1}));
     setHallLoadStatus((current) => ({...current, [hallId]: 'idle'}));
     window.requestAnimationFrame(() => document.getElementById('museum-title')?.focus({preventScroll: true}));
-    void ensureHallEntry(hallId).catch(() => undefined);
-  }, [ensureHallEntry]);
+    void ensureHallEntry(hallId).then(() => {
+      if (activeHallIdRef.current === hallId) warmHallRemainder(hallId);
+    }).catch(() => undefined);
+  }, [ensureHallEntry, warmHallRemainder]);
 
   const handleHallContentError = useCallback((hallId: MuseumHallId, error: unknown) => {
     failedHallContentIdsRef.current.add(hallId);
@@ -570,11 +572,7 @@ export function MuseumPage({route, href, push, replace}: {
     setPoseRevision((value) => value + 1);
   }, [activeNode]);
 
-  const openVisitorMap = useCallback(() => {
-    if (activeHallIdRef.current !== MUSEUM_VISITOR_MAP_KIOSK.hallId || !visitorMapNearbyRef.current) {
-      setAnnouncement('The Museum visitor map is beside the Hall I entrance. Move closer to the illuminated kiosk to use it.');
-      return;
-    }
+  const showVisitorMap = useCallback(() => {
     overlayOpenerRef.current = document.activeElement instanceof HTMLElement ? document.activeElement : sceneCanvasRef.current;
     const resumeOnClose = museumPhaseHasActiveIntent(visitPhase);
     visitorMapResumeRef.current = resumeOnClose;
@@ -586,6 +584,14 @@ export function MuseumPage({route, href, push, replace}: {
     }
     setOverlay('visitor-map');
   }, [saveCurrentHallSession, visitPhase]);
+
+  const openVisitorMap = useCallback(() => {
+    if (activeHallIdRef.current !== MUSEUM_VISITOR_MAP_KIOSK.hallId || !visitorMapNearbyRef.current) {
+      setAnnouncement('The Museum visitor map is beside the Hall I entrance. Move closer to the illuminated kiosk to use it.');
+      return;
+    }
+    showVisitorMap();
+  }, [showVisitorMap]);
 
   const closeVisitorMap = useCallback(() => {
     const resume = visitorMapResumeRef.current && museumPhaseHasActiveIntent(visitPhase);
@@ -897,7 +903,7 @@ export function MuseumPage({route, href, push, replace}: {
       target?.focus({preventScroll: true});
     });
     return () => window.cancelAnimationFrame(frame);
-  }, [activeIntent, modalOpen, route.exhibitId, sceneError]);
+  }, [activeIntent, modalOpen, route.exhibitId, route.hallId, sceneError]);
 
   useEffect(() => {
     const failed = Boolean(sceneError);
@@ -977,7 +983,8 @@ export function MuseumPage({route, href, push, replace}: {
     const targetRegistration = getMuseumHallRegistration(route.hallId);
     const targetNode = getMuseumRuntimeHallNode(route.hallId);
     if (!targetRegistration || !targetNode) return;
-    if (activeHallIdRef.current !== route.hallId) saveCurrentHallSession();
+    const syncsDifferentHall = activeHallIdRef.current !== route.hallId;
+    if (syncsDifferentHall) saveCurrentHallSession();
     const targetLayout = targetRegistration.definition.layout;
     const directViewpoint = route.exhibitId
       ? targetLayout.exhibits.find(({id}) => id === route.exhibitId)?.viewpoint
@@ -1022,13 +1029,18 @@ export function MuseumPage({route, href, push, replace}: {
       setVisitPhase(route.exhibitId ? 'explicitly-paused' : 'unentered');
       setOverlay(null);
     }
+    if (!route.exhibitId && syncsDifferentHall) {
+      setAnnouncement(`Now in ${getMuseumHallCatalog(route.hallId)?.title ?? 'the selected Museum gallery'}.`);
+    }
     setPoseRevision((value) => value + 1);
     void ensureHallEntry(route.hallId).catch(() => undefined);
   }, [ensureHallEntry, route.exhibitId, route.hallId, saveCurrentHallSession]);
 
   useEffect(() => {
-    void ensureHallEntry(activeHallId).catch(() => undefined);
-  }, [activeHallId, ensureHallEntry]);
+    void ensureHallEntry(activeHallId)
+      .then(() => warmHallRemainder(activeHallId))
+      .catch(() => undefined);
+  }, [activeHallId, ensureHallEntry, warmHallRemainder]);
 
   useEffect(() => {
     if (!exploring) return;
@@ -1097,7 +1109,6 @@ export function MuseumPage({route, href, push, replace}: {
               readyHallIds={[...readyHallIds]}
               hallContentEpochs={hallContentEpochs}
               definition={activeNode}
-              viewerHallId={activeHallId}
               active={exploring}
               blocked={blocked}
               poseRevision={poseRevision}
@@ -1159,6 +1170,7 @@ export function MuseumPage({route, href, push, replace}: {
           </header>
 
           <nav className="museum-utility-bar" aria-label="Museum display and navigation controls">
+            <button className="museum-control-map" type="button" onClick={showVisitorMap} aria-expanded={overlay === 'visitor-map'} aria-label="Open Museum visitor map" title="Visitor map"><MapIcon size={16}/><span>Map</span></button>
             <button className="museum-control-directory" type="button" onClick={() => pauseAndOpen('directory')} aria-expanded={overlay === 'directory'} aria-label="Open Museum directory" title="Directory"><MapPinned size={16}/><span>Directory</span></button>
             <button className="museum-control-help" type="button" onClick={() => pauseAndOpen('help')} aria-expanded={overlay === 'help'} aria-label="Open Museum controls and access help" title="Controls"><Info size={16}/><span>Controls</span></button>
             <button className="museum-control-reset" type="button" onClick={resetPosition} aria-label="Reset Museum position" title="Reset position"><RotateCcw size={16}/><span>Reset</span></button>
@@ -1193,6 +1205,7 @@ export function MuseumPage({route, href, push, replace}: {
           onInteract={interactNearby}
           onPause={controls.pauseExploring}
           onReset={resetPosition}
+          onMap={showVisitorMap}
           onDirectory={() => pauseAndOpen('directory')}
         />
         <div className="museum-live-region sr-only" aria-live="polite" aria-atomic="true">{announcement}</div>
@@ -1209,6 +1222,7 @@ export function MuseumPage({route, href, push, replace}: {
       {!exhibit && overlay === 'visitor-map' && <MuseumVisitorMap
         currentHallId={activeHallId}
         currentNodeId={activeNode.id}
+        currentPose={poseRef.current}
         returnFocus={overlayOpenerRef.current}
         onClose={closeVisitorMap}
         onTravel={visitHallFromVisitorMap}

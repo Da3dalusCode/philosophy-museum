@@ -282,7 +282,7 @@ function MuseumPlayerRig({
 function LoadedHall({
   registration,
   active,
-  viewerHallId,
+  entryEntranceId,
   nearby,
   visitorMapNearby,
   onSelectExhibit,
@@ -294,7 +294,7 @@ function LoadedHall({
 }: {
   registration: MuseumHallRegistration;
   active: boolean;
-  viewerHallId: MuseumHallId;
+  entryEntranceId?: string;
   nearby?: MuseumExhibitRef;
   visitorMapNearby: boolean;
   onSelectExhibit: MuseumSceneRuntimeProps['onSelectExhibit'];
@@ -313,7 +313,7 @@ function LoadedHall({
       <HallContent
         definition={registration.definition}
         active={active}
-        viewerHallId={viewerHallId}
+        entryEntranceId={entryEntranceId}
         nearby={nearby}
         visitorMapNearby={visitorMapNearby}
         onSelectExhibit={onSelectExhibit}
@@ -350,6 +350,12 @@ function MuseumWorldContents(props: MuseumSceneRuntimeProps) {
   const activeHallLighting = props.registrations.find(({definition}) => definition.id === props.definition.publicHallId)?.definition.layout.lighting;
   const hemisphereIntensity = activeHallLighting?.hemisphereIntensity ?? .64;
   const ambientIntensity = activeHallLighting?.ambientIntensity ?? .48;
+  const connectedEntranceByHallId = useMemo(() => new Map(
+    getMuseumNodeConnections(props.definition.id).flatMap((connection) => {
+      const hallId = getMuseumConnectionTargetHallId(connection);
+      return hallId ? [[hallId, connection.targetEntranceId] as const] : [];
+    }),
+  ), [props.definition.id]);
   return <>
     <color attach="background" args={['#d8d3ca']}/>
     <hemisphereLight args={['#fff8e8', '#48433d', hemisphereIntensity]}/>
@@ -360,7 +366,7 @@ function MuseumWorldContents(props: MuseumSceneRuntimeProps) {
       key={`${registration.definition.id}-${props.hallContentEpochs[registration.definition.id] ?? 0}`}
       registration={registration}
       active={registration.definition.id === props.definition.publicHallId}
-      viewerHallId={props.viewerHallId}
+      entryEntranceId={connectedEntranceByHallId.get(registration.definition.id)}
       nearby={nearby}
       visitorMapNearby={visitorMapNearby}
       onSelectExhibit={props.onSelectExhibit}

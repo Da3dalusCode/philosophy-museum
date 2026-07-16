@@ -77,13 +77,13 @@
     <polygon class="node node-corridor role-forum-spoke" data-node="corridor:spoke-west" points="17.6,-32.7 22.4,-32.7 22.4,-52 17.6,-52"/>
     <polygon class="node node-corridor role-forum-spoke" data-node="corridor:spoke-west" points="20,-49.6 28,-49.6 28,-54.4 20,-54.4"/>
     <polygon class="node node-corridor role-forum-spoke" data-node="corridor:spoke-north" points="40.1,-67 44.9,-67 44.9,-112.7 40.1,-112.7"/>
-    <polygon class="node node-corridor role-forum-spoke" data-node="corridor:spoke-east" points="58,-73.8 60,-73.8 60,-78.6 58,-78.6"/>
+    <polygon class="node node-corridor role-forum-spoke" data-node="corridor:spoke-east" points="56,-73.8 60,-73.8 60,-78.6 56,-78.6"/>
     <polygon class="node node-corridor role-forum-spoke" data-node="corridor:spoke-east" points="55.6,-60 60.4,-60 60.4,-76.2 55.6,-76.2"/>
     <polygon class="node node-corridor role-forum-spoke" data-node="corridor:spoke-east" points="52,-57.6 58,-57.6 58,-62.4 52,-62.4"/>
     <polygon class="node node-corridor role-forum-spoke" data-node="corridor:spoke-south" points="45.25,8.15 50.05,8.15 50.05,-43 45.25,-43"/>
     <polygon class="node node-corridor role-shortcut" data-node="corridor:entrance-forum-shortcut" points="8,18.4 20,18.4 20,13.6 8,13.6"/>
     <polygon class="node node-corridor role-shortcut" data-node="corridor:entrance-forum-shortcut" points="17.6,16 22.4,16 22.4,-43 17.6,-43"/>
-    <polygon class="node node-corridor role-shortcut" data-node="corridor:entrance-forum-shortcut" points="20,-40.6 32,-40.6 32,-45.4 20,-45.4"/></g>
+    <polygon class="node node-corridor role-shortcut" data-node="corridor:entrance-forum-shortcut" points="20,-39 32,-39 32,-45.4 20,-45.4"/></g>
   <g aria-label="Walkable connections"><polyline class="edge edge-outer-loop" data-connection="conn:ancient-outer-01" points="-16.4,-67.7 -18,-67.7 -19.8,-67.7"/>
     <polyline class="edge edge-outer-loop" data-connection="conn:outer-01-renaissance" points="-28,-75.9 -28,-77.7 -28,-79.3"/>
     <polyline class="edge edge-outer-loop" data-connection="conn:renaissance-outer-02" points="-11.6,-126.7 -10,-126.7 -8.2,-126.7"/>

@@ -215,6 +215,10 @@ export const ETHICS_JUSTICE_POLITICAL_LIFE_HALL_DEFINITION: MuseumHallContentDef
   id: hall.id,
   layout: ETHICS_JUSTICE_POLITICAL_LIFE_HALL_LAYOUT,
   prefetch: {
+    entryExhibitIdsByEntrance: {
+      'logic-threshold': ['bentham', 'wollstonecraft', 'mill'],
+      'mind-threshold': ['rawls', 'nozick', 'habermas'],
+    },
     entrySceneAssetIds: [
       'bentham-pickering-portrait', 'bentham-principles-1823',
       'wollstonecraft-opie-portrait', 'wollstonecraft-vindication-1792',

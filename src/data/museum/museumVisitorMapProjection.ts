@@ -103,6 +103,15 @@ const projectLocalPoint = (
   return {x: worldX, y: -worldZ};
 };
 
+/** Project a frozen local visitor pose through the same runtime transform as the plan geometry. */
+export const projectMuseumVisitorMapPoint = (
+  nodeId: MuseumPhysicalNodeId,
+  point: MuseumPoint,
+): MuseumVisitorMapPoint | undefined => {
+  const node = getMuseumRuntimeNode(nodeId);
+  return node ? projectLocalPoint(point, node.worldTransform) : undefined;
+};
+
 const midpoint = (
   first: MuseumVisitorMapPoint,
   second: MuseumVisitorMapPoint,

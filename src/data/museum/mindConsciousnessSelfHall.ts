@@ -72,7 +72,7 @@ const placements: Record<MindConsciousnessSelfExhibitId, ContemporaryPlacement> 
   'merleau-ponty': {zoneId: 'experience-intentionality-embodiment', spatialCellId: 'experience-embodiment-room', position: {x: -7.2, z: -35.35}, rotationY: 0},
   anscombe: {zoneId: 'action-consciousness-personhood', spatialCellId: 'action-personhood-room', position: {x: 10.35, z: -49.8}, rotationY: -Math.PI / 2},
   'thomas-nagel': {zoneId: 'action-consciousness-personhood', spatialCellId: 'action-personhood-room', position: {x: -10.35, z: -53.2}, rotationY: Math.PI / 2},
-  'derek-parfit': {zoneId: 'action-consciousness-personhood', spatialCellId: 'action-personhood-room', position: {x: 0, z: -54.35}, rotationY: 0},
+  'derek-parfit': {zoneId: 'action-consciousness-personhood', spatialCellId: 'action-personhood-room', position: {x: 4, z: -54.35}, rotationY: 0},
 };
 
 const exhibits = createContemporaryExhibitLayouts(scenes, placements, EYE_HEIGHT);
@@ -179,6 +179,7 @@ const primaryCirculation: MuseumCirculationPath = {
   points: [
     {x: 0, z: -.8}, {x: 0, z: -12}, {x: 0, z: -19.5}, {x: 0, z: -29},
     {x: 0, z: -38.5}, {x: 0, z: -47.5}, {x: 0, z: -51.8},
+    {x: 0, z: -58}, {x: 0, z: -62.4},
   ],
 };
 
@@ -219,9 +220,18 @@ export const MIND_CONSCIOUSNESS_SELF_HALL_DEFINITION: MuseumHallContentDefinitio
   id: hall.id,
   layout: MIND_CONSCIOUSNESS_SELF_HALL_LAYOUT,
   prefetch: {
+    entryExhibitIdsByEntrance: {
+      'ethics-threshold': ['patanjali', 'vasubandhu'],
+      'ring-return-threshold': ['anscombe', 'thomas-nagel', 'derek-parfit'],
+      'forum-south-threshold': ['merleau-ponty'],
+    },
     entrySceneAssetIds: [
       'patanjali-statue', 'patanjali-yoga-sutra-manuscript',
       'vasubandhu-statue', 'vasubandhu-abhidharmakosha-manuscript',
+      'merleau-ponty-portrait', 'merleau-ponty-grave',
+      'anscombe-portrait', 'anscombe-philosophical-investigations-1953',
+      'thomas-nagel-portrait', 'thomas-nagel-teaching',
+      'derek-parfit-portrait', 'derek-parfit-repugnant-conclusion',
     ],
     sceneAssetIds: hall.exhibits.flatMap((exhibit) => [exhibit.principalAssetId, ...exhibit.supportingAssetIds]),
   },

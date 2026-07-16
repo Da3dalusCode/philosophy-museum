@@ -10,7 +10,7 @@ import type {MuseumHallId} from '../../data/museumCatalog';
 export type MuseumHallContentProps = {
   definition: MuseumHallDefinition;
   active: boolean;
-  viewerHallId: MuseumHallId;
+  entryEntranceId?: string;
   nearby?: MuseumExhibitRef;
   visitorMapNearby: boolean;
   onSelectExhibit: (exhibit: MuseumExhibitRef) => void;

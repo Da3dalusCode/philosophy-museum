@@ -4,10 +4,8 @@ import {ContemporaryHallArchitecture} from './ContemporaryHallArchitecture';
 import {ContemporaryHallLighting} from './ContemporaryHallLighting';
 import {ContemporaryMuseumExhibits} from './ContemporaryMuseumExhibits';
 
-export function ModernityFreedomCritiqueHallContent({definition, active, viewerHallId, nearby, onSelectExhibit, onSceneGesture}: MuseumHallContentProps) {
-  const inactiveIds = viewerHallId === 'logic-language-science'
-    ? ['camus', 'foucault'] as const
-    : ['kierkegaard', 'marx'] as const;
+export function ModernityFreedomCritiqueHallContent({definition, active, entryEntranceId, nearby, onSelectExhibit, onSceneGesture}: MuseumHallContentProps) {
+  const inactiveIds = definition.prefetch.entryExhibitIdsByEntrance[entryEntranceId ?? ''] ?? [];
   return <MuseumHallSpatialRoot definition={definition}>
     {active && <ContemporaryHallLighting lighting={definition.layout.lighting}/>}
     <ContemporaryHallArchitecture definition={definition} onSceneGesture={onSceneGesture}/>

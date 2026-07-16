@@ -228,6 +228,8 @@ export type MuseumHallEntrance = {
 };
 
 export type MuseumHallPrefetch = {
+  /** Entrance-keyed exhibit subsets rendered while this hall is approached but inactive. */
+  entryExhibitIdsByEntrance: Readonly<Record<string, readonly MuseumExhibitId[]>>;
   /** The small scene-media set that must be ready before a physical crossing. */
   entrySceneAssetIds: readonly MuseumAssetId[];
   /** The complete hall scene-media set, warmed after the entry set is ready. */

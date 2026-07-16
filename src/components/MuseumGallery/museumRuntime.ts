@@ -21,7 +21,6 @@ export type MuseumControlMode = 'idle' | 'requesting-lock' | 'locked' | 'drag-lo
 
 export type MuseumSceneRuntimeProps = {
   definition: MuseumRuntimeNodeDefinition;
-  viewerHallId: MuseumHallId;
   registrations: readonly MuseumHallRegistration[];
   readyHallIds: readonly MuseumHallId[];
   hallContentEpochs: Partial<Record<MuseumHallId, number>>;
