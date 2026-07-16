@@ -14,8 +14,14 @@ import {
 } from 'react';
 import {PerspectiveCamera, type WebGLRenderer} from 'three';
 import type {MuseumExhibitRef, MuseumInteractionTarget} from '../../data/museum/museumWorldTypes';
+import {
+  getMuseumConnectionTargetHallId,
+  getMuseumNodeConnections,
+  getMuseumRuntimeNode,
+} from '../../data/museum/museumBuildingRuntime';
+import {MUSEUM_BUILDING_MANIFEST} from '../../data/museum/museumBuildingManifest';
 import {visitorMapInteractionAtPose} from '../../data/museum/museumVisitorMap';
-import type {MuseumHallId} from '../../data/museumCatalog';
+import {getMuseumHallCatalog, type MuseumHallId} from '../../data/museumCatalog';
 import {
   clampFrameDelta,
   clampPitch,
@@ -29,6 +35,51 @@ import type {MuseumSceneRuntimeProps} from './museumRuntime';
 import {loadMuseumHallContent, type MuseumHallRegistration} from './museumWorldRegistry';
 import {museumPoseToWorld} from './museumWorldTransform';
 import {museumConnectionAtPose, museumConnectionCrossed} from './museumHallTransitions';
+import {MuseumBuildingArchitecture} from './MuseumBuildingArchitecture';
+import {usePlaqueTexture} from './plaqueTextures';
+
+function DoorReadinessGate({title, entrance}: {
+  title: string;
+  entrance: MuseumSceneRuntimeProps['definition']['entrances'][number];
+}) {
+  const texture = usePlaqueTexture({
+    title: 'Gallery preparing',
+    kicker: title,
+    subtitle: 'Approach this doorway to prepare the gallery · alternate Ring routes remain open',
+    accent: '#8b6b43',
+    width: 1200,
+    height: 320,
+  });
+  const acrossX = Math.abs(entrance.inwardNormal.z) > .5;
+  const clearWidth = acrossX ? entrance.transitionBounds.size.width : entrance.transitionBounds.size.depth;
+  const rotation = acrossX
+    ? (entrance.inwardNormal.z > 0 ? 0 : Math.PI)
+    : (entrance.inwardNormal.x > 0 ? Math.PI / 2 : -Math.PI / 2);
+  return <group position={[entrance.position.x, 0, entrance.position.z]} rotation={[0, rotation, 0]}>
+    <mesh position={[0, 1.56, 0]}>
+      <boxGeometry args={[clearWidth, 3.12, .1]}/>
+      <meshStandardMaterial color="#d8d1c4" roughness={.88}/>
+    </mesh>
+    <mesh position={[0, 1.86, .056]}>
+      <planeGeometry args={[Math.max(2.7, clearWidth - .45), .76]}/>
+      <meshBasicMaterial map={texture} toneMapped={false}/>
+    </mesh>
+  </group>;
+}
+
+function MuseumReadinessGates({definition, readyHallIds}: Pick<MuseumSceneRuntimeProps, 'definition' | 'readyHallIds'>) {
+  const ready = new Set(readyHallIds);
+  const gates = getMuseumNodeConnections(definition.id).flatMap((connection) => {
+    const hallId = getMuseumConnectionTargetHallId(connection);
+    const entrance = definition.entrances.find(({id}) => id === connection.localEntranceId);
+    if (!hallId || ready.has(hallId) || !entrance) return [];
+    return [{id: connection.id, title: getMuseumHallCatalog(hallId)?.title ?? 'Connected gallery', entrance}];
+  });
+  if (!gates.length) return null;
+  return <group position={[definition.worldTransform.x, 0, definition.worldTransform.z]} rotation={[0, definition.worldTransform.yaw, 0]}>
+    {gates.map((gate) => <DoorReadinessGate key={gate.id} title={gate.title} entrance={gate.entrance}/>)}
+  </group>;
+}
 
 class WorldSceneErrorBoundary extends Component<{
   children: ReactNode;
@@ -61,12 +112,13 @@ function MuseumPlayerRig({
   onNearbyInteractionChange,
   onNearbyVisualChange,
   readyHallIds,
-  onHallTransition,
-  onHallTransitionBlocked,
+  onNodeTransition,
+  onNodeTransitionBlocked,
+  onApproachHall,
 }: Pick<
   MuseumSceneRuntimeProps,
   'definition' | 'active' | 'blocked' | 'poseRevision' | 'inputRef' | 'poseRef' | 'onNearbyInteractionChange'
-  | 'readyHallIds' | 'onHallTransition' | 'onHallTransitionBlocked'
+  | 'readyHallIds' | 'onNodeTransition' | 'onNodeTransitionBlocked' | 'onApproachHall'
 > & {onNearbyVisualChange: (target: MuseumInteractionTarget | undefined) => void}) {
   const {camera, invalidate} = useThree();
   const lastNearbyRef = useRef<MuseumInteractionTarget | undefined>(undefined);
@@ -75,6 +127,7 @@ function MuseumPlayerRig({
   const blockedTransitionLatchRef = useRef<string | undefined>(undefined);
   const layout = definition.layout;
   const readyHallSet = useMemo(() => new Set<MuseumHallId>(readyHallIds), [readyHallIds]);
+  const approachedHallRef = useRef<MuseumHallId | undefined>(undefined);
   const colliders = useMemo(
     () => [...layout.wallColliders, ...layout.obstacleColliders],
     [layout],
@@ -107,10 +160,11 @@ function MuseumPlayerRig({
   }, [camera, definition, layout.eyeHeight, poseRef]);
 
   const publishNearby = useCallback(() => {
-    const visitorMap = visitorMapInteractionAtPose(definition.id, poseRef.current);
+    const hallId = definition.publicHallId;
+    const visitorMap = hallId ? visitorMapInteractionAtPose(hallId, poseRef.current) : undefined;
     const exhibitId = visitorMap ? undefined : nearestInteractable(poseRef.current, layout.exhibits);
     const next: MuseumInteractionTarget | undefined = visitorMap
-      ?? (exhibitId ? {kind: 'exhibit', hallId: definition.id, exhibitId} : undefined);
+      ?? (hallId && exhibitId ? {kind: 'exhibit', hallId, exhibitId} : undefined);
     const nextKey = next?.kind === 'exhibit' ? `${next.kind}:${next.hallId}:${next.exhibitId}` : next ? `${next.kind}:${next.hallId}:${next.kioskId}` : '';
     const previous = lastNearbyRef.current;
     const previousKey = previous?.kind === 'exhibit' ? `${previous.kind}:${previous.hallId}:${previous.exhibitId}` : previous ? `${previous.kind}:${previous.hallId}:${previous.kioskId}` : '';
@@ -118,7 +172,7 @@ function MuseumPlayerRig({
     lastNearbyRef.current = next;
     onNearbyVisualChange(next);
     onNearbyInteractionChange(next);
-  }, [definition.id, layout.exhibits, onNearbyInteractionChange, onNearbyVisualChange, poseRef]);
+  }, [definition.publicHallId, layout.exhibits, onNearbyInteractionChange, onNearbyVisualChange, poseRef]);
 
   useEffect(() => {
     void poseRevision;
@@ -176,14 +230,32 @@ function MuseumPlayerRig({
     }
 
     if (!changed) return;
+    let approachedHallId: MuseumHallId | undefined;
+    let approachedDistance = Number.POSITIVE_INFINITY;
+    for (const candidate of getMuseumNodeConnections(definition.id)) {
+      const entrance = definition.entrances.find(({id}) => id === candidate.localEntranceId);
+      const targetHallId = getMuseumConnectionTargetHallId(candidate);
+      if (!entrance || !targetHallId) continue;
+      const distance = Math.hypot(pose.x - entrance.position.x, pose.z - entrance.position.z);
+      if (distance <= MUSEUM_BUILDING_MANIFEST.residencyPolicy.approachDistance && distance < approachedDistance) {
+        approachedDistance = distance;
+        approachedHallId = targetHallId;
+      }
+    }
+    if (approachedHallRef.current !== approachedHallId) {
+      approachedHallRef.current = approachedHallId;
+      onApproachHall(approachedHallId);
+    }
     const connection = moved
       ? museumConnectionCrossed(definition, previousPosition, pose)
       : undefined;
     if (connection) {
-      if (readyHallSet.has(connection.targetHallId)) {
+      const targetNode = getMuseumRuntimeNode(connection.targetNodeId);
+      const targetReady = Boolean(targetNode && (!targetNode.publicHallId || readyHallSet.has(targetNode.publicHallId)));
+      if (targetReady) {
         if (transitionLatchRef.current !== connection.id) {
           transitionLatchRef.current = connection.id;
-          onHallTransition(connection);
+          onNodeTransition(connection);
         }
         return;
       }
@@ -194,7 +266,7 @@ function MuseumPlayerRig({
       pose.z = previousPosition.z;
       if (blockedTransitionLatchRef.current !== connection.id) {
         blockedTransitionLatchRef.current = connection.id;
-        onHallTransitionBlocked(connection);
+        onNodeTransitionBlocked(connection);
       }
     } else if (!museumConnectionAtPose(definition, pose)) {
       transitionLatchRef.current = undefined;
@@ -275,16 +347,20 @@ function MuseumWorldContents(props: MuseumSceneRuntimeProps) {
     ? {hallId: nearbyTarget.hallId, exhibitId: nearbyTarget.exhibitId}
     : undefined;
   const visitorMapNearby = nearbyTarget?.kind === 'visitor-map';
-  const lighting = props.definition.layout.lighting;
+  const activeHallLighting = props.registrations.find(({definition}) => definition.id === props.definition.publicHallId)?.definition.layout.lighting;
+  const hemisphereIntensity = activeHallLighting?.hemisphereIntensity ?? .64;
+  const ambientIntensity = activeHallLighting?.ambientIntensity ?? .48;
   return <>
     <color attach="background" args={['#d8d3ca']}/>
-    <hemisphereLight args={['#fff8e8', '#48433d', lighting.hemisphereIntensity]}/>
-    <ambientLight color="#fff5e5" intensity={lighting.ambientIntensity}/>
+    <hemisphereLight args={['#fff8e8', '#48433d', hemisphereIntensity]}/>
+    <ambientLight color="#fff5e5" intensity={ambientIntensity}/>
+    <MuseumBuildingArchitecture onSceneGesture={props.onSceneGesture}/>
+    <MuseumReadinessGates definition={props.definition} readyHallIds={props.readyHallIds}/>
     {props.registrations.map((registration) => <LoadedHall
       key={`${registration.definition.id}-${props.hallContentEpochs[registration.definition.id] ?? 0}`}
       registration={registration}
-      active={registration.definition.id === props.definition.id}
-      viewerHallId={props.definition.id}
+      active={registration.definition.id === props.definition.publicHallId}
+      viewerHallId={props.viewerHallId}
       nearby={nearby}
       visitorMapNearby={visitorMapNearby}
       onSelectExhibit={props.onSelectExhibit}
@@ -304,8 +380,9 @@ function MuseumWorldContents(props: MuseumSceneRuntimeProps) {
       onNearbyInteractionChange={props.onNearbyInteractionChange}
       onNearbyVisualChange={setNearbyTarget}
       readyHallIds={props.readyHallIds}
-      onHallTransition={props.onHallTransition}
-      onHallTransitionBlocked={props.onHallTransitionBlocked}
+      onNodeTransition={props.onNodeTransition}
+      onNodeTransitionBlocked={props.onNodeTransitionBlocked}
+      onApproachHall={props.onApproachHall}
     />
   </>;
 }

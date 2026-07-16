@@ -14,7 +14,7 @@ import type {
   MuseumCirculationPath,
   MuseumFurnishingDefinition,
   MuseumGuidedWalkLeg,
-  MuseumHallDefinition,
+  MuseumHallContentDefinition,
   MuseumHallLayout,
   MuseumRoomEntryView,
   MuseumSignDefinition,
@@ -182,7 +182,7 @@ const signs: readonly MuseumSignDefinition[] = [
   {id: 'gallery-05-entrance', kind: 'entrance', title: 'Ethics, Justice, and Political Life', kicker: 'Gallery 05 · 18th–21st centuries', subtitle: 'Utility · liberty · decolonization · justice', position: {x: 0, y: 4.7, z: -3.76}, rotationY: 0, width: 5, height: .52},
   {id: 'public-life-zone', kind: 'zone', title: 'Freedom, Decolonization & Public Life', kicker: 'Zone II · 20th century', subtitle: 'Action · liberation · shared worlds', position: {x: 0, y: 4.62, z: -25.76}, rotationY: 0, width: 4.7, height: .46},
   {id: 'justice-zone', kind: 'zone', title: 'Justice, Rights & Democratic Reason', kicker: 'Zone III · 20th–21st centuries', subtitle: 'Fairness · entitlement · deliberation', position: {x: 0, y: 4.62, z: -42.76}, rotationY: 0, width: 4.6, height: .46},
-  {id: 'gallery-06-wayfinding', kind: 'wayfinding', title: 'Continue to Gallery 06', kicker: 'Mind, Consciousness, and the Self', subtitle: 'Proceed through the east threshold', position: {x: 0, y: 4.25, z: -60.76}, rotationY: 0, width: 3.45, height: .42},
+  {id: 'gallery-06-wayfinding', kind: 'wayfinding', title: 'Outer Ring · Gallery 06', kicker: 'Mind, Consciousness, and the Self', subtitle: 'The loop returns to the entrance beyond', position: {x: 0, y: 4.25, z: -60.76}, rotationY: 0, width: 3.55, height: .42},
 ];
 
 export const ETHICS_JUSTICE_POLITICAL_LIFE_HALL_LAYOUT: MuseumHallLayout = {
@@ -211,30 +211,9 @@ export const ETHICS_JUSTICE_POLITICAL_LIFE_HALL_LAYOUT: MuseumHallLayout = {
   signs,
 };
 
-export const ETHICS_JUSTICE_POLITICAL_LIFE_HALL_DEFINITION: MuseumHallDefinition = {
+export const ETHICS_JUSTICE_POLITICAL_LIFE_HALL_DEFINITION: MuseumHallContentDefinition = {
   id: hall.id,
-  worldTransform: {x: 85, z: -159.5, yaw: -Math.PI / 2},
   layout: ETHICS_JUSTICE_POLITICAL_LIFE_HALL_LAYOUT,
-  entrances: [
-    {
-      id: 'logic-threshold',
-      position: {x: 0, z: 0},
-      inwardNormal: {x: 0, z: -1},
-      arrivalPose: {x: 0, z: -.8, yaw: 0, pitch: 0},
-      transitionBounds: {center: {x: 0, z: 0}, size: {width: 4, depth: 1.2}},
-    },
-    {
-      id: 'mind-threshold',
-      position: {x: 0, z: -64},
-      inwardNormal: {x: 0, z: 1},
-      arrivalPose: {x: 0, z: -63.2, yaw: Math.PI, pitch: 0},
-      transitionBounds: {center: {x: 0, z: -64}, size: {width: 4, depth: 1.2}},
-    },
-  ],
-  connections: [
-    {id: 'ethics-to-logic', targetHallId: 'logic-language-science', localEntranceId: 'logic-threshold', targetEntranceId: 'ethics-threshold'},
-    {id: 'ethics-to-mind', targetHallId: 'mind-consciousness-self', localEntranceId: 'mind-threshold', targetEntranceId: 'ethics-threshold'},
-  ],
   prefetch: {
     entrySceneAssetIds: [
       'bentham-pickering-portrait', 'bentham-principles-1823',
@@ -245,7 +224,6 @@ export const ETHICS_JUSTICE_POLITICAL_LIFE_HALL_DEFINITION: MuseumHallDefinition
       'habermas-portrait', 'habermas-lecture-2011',
     ],
     sceneAssetIds: hall.exhibits.flatMap((exhibit) => [exhibit.principalAssetId, ...exhibit.supportingAssetIds]),
-    adjacentHallIds: ['logic-language-science', 'mind-consciousness-self'],
   },
   fallbackLabel: 'Ethics, Justice, and Political Life gallery directory',
 };

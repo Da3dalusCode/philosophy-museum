@@ -14,7 +14,7 @@ import type {
   MuseumCirculationPath,
   MuseumFurnishingDefinition,
   MuseumGuidedWalkLeg,
-  MuseumHallDefinition,
+  MuseumHallContentDefinition,
   MuseumHallLayout,
   MuseumRoomEntryView,
   MuseumSignDefinition,
@@ -183,7 +183,7 @@ const signs: readonly MuseumSignDefinition[] = [
   {id: 'gallery-02-entrance', kind: 'entrance', title: 'Renaissance, Reason, and Revolution', kicker: 'Gallery 02 · 16th–18th centuries', subtitle: 'Power · method · rights · experience · critique', position: {x: 0, y: 4.7, z: -3.76}, rotationY: 0, width: 4.8, height: .52},
   {id: 'sovereignty-zone', kind: 'zone', title: 'Sovereignty, Rights & Nature', kicker: 'Zone II · 17th century', subtitle: 'Order · toleration · freedom · nature', position: {x: 0, y: 4.62, z: -20.76}, rotationY: 0, width: 4.2, height: .46},
   {id: 'critique-zone', kind: 'zone', title: 'Experience, Freedom & Critique', kicker: 'Zone III · 18th century', subtitle: 'Custom · inequality · autonomy', position: {x: 0, y: 4.62, z: -39.76}, rotationY: 0, width: 4.2, height: .46},
-  {id: 'gallery-03-wayfinding', kind: 'wayfinding', title: 'Continue to Gallery 03', kicker: 'Modernity, Freedom, and Critique', subtitle: 'Turn west through the side passage', position: {x: -11.79, y: 3.15, z: -45.1}, rotationY: Math.PI / 2, width: 2.7, height: .42},
+  {id: 'gallery-03-wayfinding', kind: 'wayfinding', title: 'Outer Ring · Gallery 03', kicker: 'Modernity, Freedom, and Critique', subtitle: 'Loop threshold · central spoke ahead', position: {x: -11.79, y: 3.15, z: -45.1}, rotationY: Math.PI / 2, width: 2.9, height: .42},
 ];
 
 export const RENAISSANCE_REASON_REVOLUTION_HALL_LAYOUT: MuseumHallLayout = {
@@ -212,30 +212,9 @@ export const RENAISSANCE_REASON_REVOLUTION_HALL_LAYOUT: MuseumHallLayout = {
   signs,
 };
 
-export const RENAISSANCE_REASON_REVOLUTION_HALL_DEFINITION: MuseumHallDefinition = {
+export const RENAISSANCE_REASON_REVOLUTION_HALL_DEFINITION: MuseumHallContentDefinition = {
   id: hall.id,
-  worldTransform: {x: 18, z: -28.5, yaw: -Math.PI / 2},
   layout: RENAISSANCE_REASON_REVOLUTION_HALL_LAYOUT,
-  entrances: [
-    {
-      id: 'ancient-threshold',
-      position: {x: 0, z: 0},
-      inwardNormal: {x: 0, z: -1},
-      arrivalPose: {x: 0, z: -.8, yaw: 0, pitch: 0},
-      transitionBounds: {center: {x: 0, z: 0}, size: {width: 4, depth: 1.2}},
-    },
-    {
-      id: 'modernity-threshold',
-      position: {x: -18, z: -49},
-      inwardNormal: {x: 1, z: 0},
-      arrivalPose: {x: -17.2, z: -49, yaw: -Math.PI / 2, pitch: 0},
-      transitionBounds: {center: {x: -18, z: -49}, size: {width: 1.2, depth: 4}},
-    },
-  ],
-  connections: [
-    {id: 'renaissance-to-ancient', targetHallId: 'ancient-greek', localEntranceId: 'ancient-threshold', targetEntranceId: 'early-modern-threshold'},
-    {id: 'renaissance-to-modernity', targetHallId: 'modernity-freedom-critique', localEntranceId: 'modernity-threshold', targetEntranceId: 'early-modern-threshold'},
-  ],
   prefetch: {
     entrySceneAssetIds: [
       'machiavelli-santi-di-tito', 'machiavelli-prince-1532',
@@ -245,7 +224,6 @@ export const RENAISSANCE_REASON_REVOLUTION_HALL_DEFINITION: MuseumHallDefinition
       'kant-raab-portrait', 'kant-critique-1781',
     ],
     sceneAssetIds: hall.exhibits.flatMap((exhibit) => [exhibit.principalAssetId, ...exhibit.supportingAssetIds]),
-    adjacentHallIds: ['ancient-greek', 'modernity-freedom-critique'],
   },
   fallbackLabel: 'Renaissance, Reason, and Revolution gallery directory',
 };

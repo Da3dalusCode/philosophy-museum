@@ -11,6 +11,8 @@ import type {
   MuseumTrackDefinition,
   MuseumWallDefinition,
 } from '../../data/museum/museumWorldTypes';
+import {MUSEUM_TEXTURE_SPECS} from '../../data/museum/museumTexturePolicy';
+import {MuseumTemplateInterfaces} from './MuseumTemplateInterfaces';
 import {usePlaqueTexture} from './plaqueTextures';
 
 const WALL = '#eeeae2';
@@ -62,11 +64,12 @@ function CeilingLightStrips({cell}: {cell: MuseumSpatialCell}) {
 }
 
 function GalleryWall({wall}: {wall: MuseumWallDefinition}) {
+  const bottom = wall.bottom ?? 0;
   const center = wall.renderCenter ?? wall.center;
   const size = wall.renderSize ?? wall.size;
-  return <group position={[center.x, wall.height / 2, center.z]} rotation={[0, wall.rotation, 0]} userData={{wallColliderId: wall.id}}>
+  return <group position={[center.x, bottom + wall.height / 2, center.z]} rotation={[0, wall.rotation, 0]} userData={{wallColliderId: wall.id, openingId: wall.openingId}}>
     <mesh receiveShadow><boxGeometry args={[size.width, wall.height, size.depth]}/><meshStandardMaterial color={WALL} roughness={.95}/></mesh>
-    <mesh position={[0, -wall.height / 2 + .075, 0]}><boxGeometry args={[size.width + .015, .15, size.depth + .025]}/><meshStandardMaterial color={WALL_EDGE} roughness={.86}/></mesh>
+    {bottom === 0 && <mesh position={[0, -wall.height / 2 + .075, 0]}><boxGeometry args={[size.width + .015, .15, size.depth + .025]}/><meshStandardMaterial color={WALL_EDGE} roughness={.86}/></mesh>}
   </group>;
 }
 
@@ -125,8 +128,8 @@ function PhysicalSign({definition}: {definition: MuseumSignDefinition}) {
     kicker: definition.kicker,
     subtitle: definition.subtitle,
     accent,
-    width: 1400,
-    height: Math.round(1400 * definition.height / definition.width),
+    width: MUSEUM_TEXTURE_SPECS.contemporarySignWidth,
+    height: Math.round(MUSEUM_TEXTURE_SPECS.contemporarySignWidth * definition.height / definition.width),
   });
   return <group
     position={[definition.position.x, definition.position.y, definition.position.z]}
@@ -148,7 +151,8 @@ export function ContemporaryHallArchitecture({definition, onSceneGesture}: {defi
   return <group onClick={activate}>
     {layout.spatialCells.map((cell) => <CellShell key={cell.id} cell={cell}/>)}
     {layout.spatialConnections.map((connection) => <ThresholdFascia key={connection.id} connection={connection} cells={layout.spatialCells}/>)}
-    {layout.wallColliders.map((wall) => <GalleryWall key={wall.id} wall={wall}/>)}
+    {definition.architectureWalls.map((wall) => <GalleryWall key={wall.id} wall={wall}/>)}
+    <MuseumTemplateInterfaces definition={definition}/>
     {layout.furnishings.filter(({kind}) => kind === 'bench').map((item) => <Bench key={item.id} definition={item}/>)}
     {layout.lighting.tracks.map((track) => <Track key={track.id} track={track}/>)}
     {layout.lighting.exhibitLights.map((light) => <Fixture key={light.id} definition={light}/>)}

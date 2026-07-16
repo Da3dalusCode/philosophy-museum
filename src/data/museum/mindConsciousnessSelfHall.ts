@@ -14,7 +14,7 @@ import type {
   MuseumCirculationPath,
   MuseumFurnishingDefinition,
   MuseumGuidedWalkLeg,
-  MuseumHallDefinition,
+  MuseumHallContentDefinition,
   MuseumHallLayout,
   MuseumRoomEntryView,
   MuseumSignDefinition,
@@ -84,6 +84,8 @@ const spatialCells: readonly MuseumSpatialCell[] = [
   {id: 'experience-embodiment-room', kind: 'room', title: 'Experience, Intentionality, and Embodiment', bounds: {minX: -12, maxX: 12, minZ: -37, maxZ: -21}, ceilingHeight: 6, exhibitIds: ['william-james', 'husserl', 'merleau-ponty'], lightingGroupId: 'experience'},
   {id: 'personhood-threshold', kind: 'passage', title: 'Personhood Threshold', bounds: {minX: -3.5, maxX: 3.5, minZ: -40, maxZ: -37}, ceilingHeight: 5.1, exhibitIds: [], lightingGroupId: 'threshold'},
   {id: 'action-personhood-room', kind: 'room', title: 'Action, Consciousness, and Personhood', bounds: {minX: -12, maxX: 12, minZ: -56, maxZ: -40}, ceilingHeight: 6.2, exhibitIds: ['anscombe', 'thomas-nagel', 'derek-parfit'], lightingGroupId: 'personhood'},
+  {id: 'forum-south-threshold', kind: 'passage', title: 'Forum South Threshold', bounds: {minX: -14.6, maxX: -3.5, minZ: -40.5, maxZ: -36.5}, renderBounds: {minX: -14, maxX: -3.5, minZ: -40.5, maxZ: -36.5}, ceilingHeight: 5.2, exhibitIds: [], lightingGroupId: 'threshold'},
+  {id: 'ring-return-threshold', kind: 'passage', title: 'Ring Return Threshold', bounds: {minX: -2, maxX: 2, minZ: -64.6, maxZ: -56}, renderBounds: {minX: -2, maxX: 2, minZ: -64, maxZ: -56}, ceilingHeight: 5.2, exhibitIds: [], lightingGroupId: 'threshold'},
 ];
 
 const spatialConnections: readonly MuseumSpatialConnection[] = [
@@ -92,6 +94,8 @@ const spatialConnections: readonly MuseumSpatialConnection[] = [
   {id: 'experience-threshold-to-room', fromCellId: 'experience-threshold', toCellId: 'experience-embodiment-room', openingBounds: {minX: -3.5, maxX: 3.5, minZ: -21.2, maxZ: -20.8}},
   {id: 'experience-to-personhood-threshold', fromCellId: 'experience-embodiment-room', toCellId: 'personhood-threshold', openingBounds: {minX: -3.5, maxX: 3.5, minZ: -37.2, maxZ: -36.8}},
   {id: 'personhood-threshold-to-action', fromCellId: 'personhood-threshold', toCellId: 'action-personhood-room', openingBounds: {minX: -3.5, maxX: 3.5, minZ: -40.2, maxZ: -39.8}},
+  {id: 'personhood-threshold-to-forum-south', fromCellId: 'personhood-threshold', toCellId: 'forum-south-threshold', openingBounds: {minX: -3.7, maxX: -3.3, minZ: -40.5, maxZ: -36.5}},
+  {id: 'action-to-ring-return-threshold', fromCellId: 'action-personhood-room', toCellId: 'ring-return-threshold', openingBounds: {minX: -2, maxX: 2, minZ: -56.2, maxZ: -55.8}},
 ];
 
 const walls: readonly MuseumWallDefinition[] = [
@@ -111,13 +115,17 @@ const walls: readonly MuseumWallDefinition[] = [
   museumWall('experience-east', {x: 12, z: -29}, .36, 16.36, 6),
   museumWall('experience-exit-west', {x: -7.75, z: -37}, 8.5, .36, 6),
   museumWall('experience-exit-east', {x: 7.75, z: -37}, 8.5, .36, 6),
-  museumWall('personhood-threshold-west', {x: -3.5, z: -38.5}, .36, 3.36, 5.1),
   museumWall('personhood-threshold-east', {x: 3.5, z: -38.5}, .36, 3.36, 5.1),
   museumWall('action-entry-west', {x: -7.75, z: -40}, 8.5, .36, 6.2),
   museumWall('action-entry-east', {x: 7.75, z: -40}, 8.5, .36, 6.2),
   museumWall('action-west', {x: -12, z: -48}, .36, 16.36, 6.2),
   museumWall('action-east', {x: 12, z: -48}, .36, 16.36, 6.2),
-  museumWall('action-end', {x: 0, z: -56}, 24.36, .36, 6.2),
+  museumWall('action-end-west', {x: -7, z: -56}, 10, .36, 6.2),
+  museumWall('action-end-east', {x: 7, z: -56}, 10, .36, 6.2),
+  museumWall('forum-south-threshold-north', {x: -9.05, z: -36.5}, 11.1, .36, 5.2, {center: {x: -8.75, z: -36.5}, size: {width: 10.5, depth: .36}}),
+  museumWall('forum-south-threshold-south', {x: -9.05, z: -40.5}, 11.1, .36, 5.2, {center: {x: -8.75, z: -40.5}, size: {width: 10.5, depth: .36}}),
+  museumWall('ring-return-threshold-west', {x: -2, z: -60.3}, .36, 8.6, 5.2, {center: {x: -2, z: -60}, size: {width: .36, depth: 8}}),
+  museumWall('ring-return-threshold-east', {x: 2, z: -60.3}, .36, 8.6, 5.2, {center: {x: 2, z: -60}, size: {width: .36, depth: 8}}),
 ];
 
 const furnishings: readonly MuseumFurnishingDefinition[] = [
@@ -178,7 +186,7 @@ const signs: readonly MuseumSignDefinition[] = [
   {id: 'gallery-06-entrance', kind: 'entrance', title: 'Mind, Consciousness, and the Self', kicker: 'Gallery 06 · ancient–contemporary', subtitle: 'Discipline · experience · embodiment · personhood', position: {x: 0, y: 4.7, z: -3.76}, rotationY: 0, width: 4.9, height: .52},
   {id: 'experience-zone', kind: 'zone', title: 'Experience, Intentionality & Embodiment', kicker: 'Zone II · 19th–20th centuries', subtitle: 'Stream · aboutness · lived perception', position: {x: 0, y: 4.62, z: -20.76}, rotationY: 0, width: 4.8, height: .46},
   {id: 'personhood-zone', kind: 'zone', title: 'Action, Consciousness & Personhood', kicker: 'Zone III · 20th–21st centuries', subtitle: 'Intention · subjectivity · identity', position: {x: 0, y: 4.62, z: -39.76}, rotationY: 0, width: 4.6, height: .46},
-  {id: 'museum-journey-end', kind: 'wayfinding', title: 'Museum Journey Complete', kicker: 'Six galleries · forty-eight encounters', subtitle: 'Use the directory to revisit any hall', position: {x: 0, y: 4.25, z: -55.76}, rotationY: 0, width: 3.5, height: .42},
+  {id: 'ring-return-wayfinding', kind: 'wayfinding', title: 'Return to the Entrance', kicker: 'The Ring of Wings continues', subtitle: 'Orientation court · Gallery 01 · central shortcut', position: {x: 0, y: 4.25, z: -55.76}, rotationY: 0, width: 3.65, height: .42},
 ];
 
 export const MIND_CONSCIOUSNESS_SELF_HALL_LAYOUT: MuseumHallLayout = {
@@ -186,8 +194,8 @@ export const MIND_CONSCIOUSNESS_SELF_HALL_LAYOUT: MuseumHallLayout = {
   title: hall.title,
   eyeHeight: EYE_HEIGHT,
   playerRadius: .38,
-  bounds: {minX: -12, maxX: 12, minZ: -56, maxZ: .6},
-  floorArea: 1108.4,
+  bounds: {minX: -14.6, maxX: 12, minZ: -64.6, maxZ: .6},
+  floorArea: 1187.2,
   cameraFov: 68,
   cameraFar: 110,
   spawn: {x: 0, z: -2.2, yaw: 0, pitch: -.02},
@@ -207,29 +215,15 @@ export const MIND_CONSCIOUSNESS_SELF_HALL_LAYOUT: MuseumHallLayout = {
   signs,
 };
 
-export const MIND_CONSCIOUSNESS_SELF_HALL_DEFINITION: MuseumHallDefinition = {
+export const MIND_CONSCIOUSNESS_SELF_HALL_DEFINITION: MuseumHallContentDefinition = {
   id: hall.id,
-  worldTransform: {x: 149, z: -159.5, yaw: -Math.PI / 2},
   layout: MIND_CONSCIOUSNESS_SELF_HALL_LAYOUT,
-  entrances: [
-    {
-      id: 'ethics-threshold',
-      position: {x: 0, z: 0},
-      inwardNormal: {x: 0, z: -1},
-      arrivalPose: {x: 0, z: -.8, yaw: 0, pitch: 0},
-      transitionBounds: {center: {x: 0, z: 0}, size: {width: 4, depth: 1.2}},
-    },
-  ],
-  connections: [
-    {id: 'mind-to-ethics', targetHallId: 'ethics-justice-political-life', localEntranceId: 'ethics-threshold', targetEntranceId: 'mind-threshold'},
-  ],
   prefetch: {
     entrySceneAssetIds: [
       'patanjali-statue', 'patanjali-yoga-sutra-manuscript',
       'vasubandhu-statue', 'vasubandhu-abhidharmakosha-manuscript',
     ],
     sceneAssetIds: hall.exhibits.flatMap((exhibit) => [exhibit.principalAssetId, ...exhibit.supportingAssetIds]),
-    adjacentHallIds: ['ethics-justice-political-life'],
   },
   fallbackLabel: 'Mind, Consciousness, and the Self gallery directory',
 };

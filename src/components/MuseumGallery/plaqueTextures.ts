@@ -4,6 +4,7 @@ import {
   LinearMipmapLinearFilter,
   SRGBColorSpace,
 } from 'three';
+import {MUSEUM_TEXTURE_SPECS} from '../../data/museum/museumTexturePolicy';
 
 export type PlaqueTextureOptions = {
   title: string;
@@ -35,8 +36,8 @@ export const createPlaqueTexture = ({
   kicker,
   subtitle,
   accent = '#b88b4a',
-  width = 1024,
-  height = 256,
+  width = MUSEUM_TEXTURE_SPECS.plaque.width,
+  height = MUSEUM_TEXTURE_SPECS.plaque.height,
 }: PlaqueTextureOptions): CanvasTexture => {
   const canvas = document.createElement('canvas');
   canvas.width = width;

@@ -1,10 +1,10 @@
 import type {MutableRefObject} from 'react';
 import type {
   MuseumExhibitRef,
-  MuseumHallConnection,
-  MuseumHallDefinition,
+  MuseumDirectedConnection,
   MuseumInteractionTarget,
   MuseumPose,
+  MuseumRuntimeNodeDefinition,
 } from '../../data/museum/museumWorldTypes';
 import type {MuseumHallId} from '../../data/museumCatalog';
 import type {MuseumHallRegistration} from './museumWorldRegistry';
@@ -20,7 +20,8 @@ export type MuseumInputState = {
 export type MuseumControlMode = 'idle' | 'requesting-lock' | 'locked' | 'drag-look' | 'suspended' | 'paused';
 
 export type MuseumSceneRuntimeProps = {
-  definition: MuseumHallDefinition;
+  definition: MuseumRuntimeNodeDefinition;
+  viewerHallId: MuseumHallId;
   registrations: readonly MuseumHallRegistration[];
   readyHallIds: readonly MuseumHallId[];
   hallContentEpochs: Partial<Record<MuseumHallId, number>>;
@@ -34,8 +35,9 @@ export type MuseumSceneRuntimeProps = {
   onNearbyInteractionChange: (target: MuseumInteractionTarget | undefined) => void;
   onSelectExhibit: (exhibit: MuseumExhibitRef) => void;
   onSelectVisitorMap: () => void;
-  onHallTransition: (connection: MuseumHallConnection) => void;
-  onHallTransitionBlocked: (connection: MuseumHallConnection) => void;
+  onNodeTransition: (connection: MuseumDirectedConnection) => void;
+  onNodeTransitionBlocked: (connection: MuseumDirectedConnection) => void;
+  onApproachHall: (hallId: MuseumHallId | undefined) => void;
   onHallContentReady: (hallId: MuseumHallId) => void;
   onHallContentUnavailable: (hallId: MuseumHallId) => void;
   onHallContentError: (hallId: MuseumHallId, error: unknown) => void;

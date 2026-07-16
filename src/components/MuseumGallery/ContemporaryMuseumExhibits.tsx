@@ -2,6 +2,7 @@ import type {ThreeEvent} from '@react-three/fiber';
 import type {ReactNode} from 'react';
 import type {MuseumExhibitLayout, MuseumHallDefinition, MuseumSceneVolume} from '../../data/museum/museumWorldTypes';
 import {getMuseumHallCatalog, type MuseumExhibitId, type MuseumZoneId} from '../../data/museumCatalog';
+import {MUSEUM_TEXTURE_SPECS} from '../../data/museum/museumTexturePolicy';
 import {MuseumSceneMedia} from './MuseumSceneMedia';
 import {usePlaqueTexture} from './plaqueTextures';
 
@@ -103,7 +104,14 @@ function Plaque({layout, title, accent}: {layout: MuseumExhibitLayout; title: st
 
 function NameStrip({layout, title, accent}: {layout: MuseumExhibitLayout; title: string; accent: string}) {
   const backing = bound(layout, 'backing');
-  const texture = usePlaqueTexture({title, kicker: 'Philosophy Atlas', subtitle: 'Select for the full interpretation', accent, width: 1200, height: 190});
+  const texture = usePlaqueTexture({
+    title,
+    kicker: 'Philosophy Atlas',
+    subtitle: 'Select for the full interpretation',
+    accent,
+    width: MUSEUM_TEXTURE_SPECS.contemporaryNameStrip.width,
+    height: MUSEUM_TEXTURE_SPECS.contemporaryNameStrip.height,
+  });
   return <group position={[0, backing.center.y + backing.size.height / 2 - .24, backing.center.z + backing.size.depth / 2 + .012]}>
     <mesh position={[0, 0, -.025]}><boxGeometry args={[backing.size.width - .1, .4, .05]}/><meshStandardMaterial color="#242627" roughness={.54}/></mesh>
     <mesh position={[0, 0, .004]}><planeGeometry args={[backing.size.width - .18, .34]}/><meshBasicMaterial map={texture} toneMapped={false}/></mesh>

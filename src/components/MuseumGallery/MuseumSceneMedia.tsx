@@ -12,6 +12,7 @@ import {
   MUSEUM_SCENE_MEDIA_LOADING_COLOR,
 } from '../../data/museum/museumMediaPolicy';
 import {getMuseumAsset, museumAssetUrl} from '../../data/museum/museumAssets';
+import {MUSEUM_TEXTURE_SPECS} from '../../data/museum/museumTexturePolicy';
 import type {MuseumMediaMountDefinition} from '../../data/museum/museumWorldTypes';
 import {usePlaqueTexture} from './plaqueTextures';
 
@@ -69,7 +70,14 @@ const useIsolatedMuseumTexture = (url: string): TextureState => {
 };
 
 function MuseumFallbackMaterial({title, subtitle, accent}: {title: string; subtitle: string; accent: string}) {
-  const texture = usePlaqueTexture({title, kicker: 'Object image unavailable', subtitle, accent, width: 768, height: 512});
+  const texture = usePlaqueTexture({
+    title,
+    kicker: 'Object image unavailable',
+    subtitle,
+    accent,
+    width: MUSEUM_TEXTURE_SPECS.sceneFallback.width,
+    height: MUSEUM_TEXTURE_SPECS.sceneFallback.height,
+  });
   return <meshBasicMaterial map={texture} toneMapped={false}/>;
 }
 

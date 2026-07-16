@@ -9,6 +9,8 @@ import type {
   MuseumTrackDefinition,
   MuseumWallDefinition,
 } from '../../data/museum/museumWorldTypes';
+import {MUSEUM_TEXTURE_SPECS} from '../../data/museum/museumTexturePolicy';
+import {MuseumTemplateInterfaces} from './MuseumTemplateInterfaces';
 import {usePlaqueTexture} from './plaqueTextures';
 
 const WALL = '#eeeae2';
@@ -70,24 +72,25 @@ function CeilingLightStrips({cell}: {cell: MuseumSpatialCell}) {
 }
 
 function GalleryWall({wall}: {wall: MuseumWallDefinition}) {
+  const bottom = wall.bottom ?? 0;
   const renderWall = {
     ...wall,
     center: wall.renderCenter ?? wall.center,
     size: wall.renderSize ?? wall.size,
   };
   return <group
-    position={[renderWall.center.x, renderWall.height / 2, renderWall.center.z]}
+    position={[renderWall.center.x, bottom + renderWall.height / 2, renderWall.center.z]}
     rotation={[0, renderWall.rotation, 0]}
-    userData={{wallColliderId: wall.id}}
+    userData={{wallColliderId: wall.id, openingId: wall.openingId}}
   >
     <mesh receiveShadow>
       <boxGeometry args={[renderWall.size.width, renderWall.height, renderWall.size.depth]}/>
       <meshStandardMaterial color={WALL} roughness={.94}/>
     </mesh>
-    <mesh position={[0, -renderWall.height / 2 + .075, 0]}>
+    {bottom === 0 && <mesh position={[0, -renderWall.height / 2 + .075, 0]}>
       <boxGeometry args={[renderWall.size.width + .015, .15, renderWall.size.depth + .025]}/>
       <meshStandardMaterial color={WALL_EDGE} roughness={.84}/>
-    </mesh>
+    </mesh>}
   </group>;
 }
 
@@ -184,8 +187,8 @@ function OrientationPlinth({definition}: {definition: MuseumFurnishingDefinition
     kicker: 'Museum · Ancient wing',
     subtitle: 'Ancient thought: inquiry, practice, inheritance',
     accent: '#7b5d3d',
-    width: 1024,
-    height: 280,
+    width: MUSEUM_TEXTURE_SPECS.ancientOrientationPlinth.width,
+    height: MUSEUM_TEXTURE_SPECS.ancientOrientationPlinth.height,
   });
   const {width, depth} = definition.size;
   return <group
@@ -230,7 +233,8 @@ export function HallArchitecture({definition, onSceneGesture}: {
   };
   return <group onClick={activateScene}>
     {layout.spatialCells.map((cell) => <CellShell key={cell.id} cell={cell}/>)}
-    {layout.wallColliders.map((wall) => <GalleryWall key={wall.id} wall={wall}/>)}
+    {definition.architectureWalls.map((wall) => <GalleryWall key={wall.id} wall={wall}/>)}
+    <MuseumTemplateInterfaces definition={definition}/>
     {layout.furnishings.map((furnishing) => <GalleryFurnishing key={furnishing.id} definition={furnishing}/>)}
     {layout.lighting.tracks.map((track) => <LightingTrack key={track.id} track={track}/>)}
     {layout.lighting.exhibitLights.map((light) => <TrackFixture key={light.id} definition={light}/>)}
@@ -257,9 +261,9 @@ export function HallArchitecture({definition, onSceneGesture}: {
       width={3.2}
     />
     <GallerySign
-      title="Renaissance, Reason, and Revolution"
-      kicker="Continue east · Gallery 02"
-      subtitle="Power · method · rights · experience · critique"
+      title="Outer Ring · Gallery 02"
+      kicker="Renaissance, Reason, and Revolution"
+      subtitle="The loop continues · Forum spoke available in this gallery"
       position={[17.82, 3.55, -28.5]}
       rotationY={-Math.PI / 2}
       width={3.5}

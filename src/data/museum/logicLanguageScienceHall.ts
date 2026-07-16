@@ -14,7 +14,7 @@ import type {
   MuseumCirculationPath,
   MuseumFurnishingDefinition,
   MuseumGuidedWalkLeg,
-  MuseumHallDefinition,
+  MuseumHallContentDefinition,
   MuseumHallLayout,
   MuseumRoomEntryView,
   MuseumSignDefinition,
@@ -85,6 +85,7 @@ const spatialCells: readonly MuseumSpatialCell[] = [
   {id: 'revolutions-threshold', kind: 'passage', title: 'Revolutions Threshold', bounds: {minX: -3.5, maxX: 3.5, minZ: -40, maxZ: -37}, ceilingHeight: 5.1, exhibitIds: [], lightingGroupId: 'threshold'},
   {id: 'webs-revolutions-room', kind: 'room', title: 'Webs and Revolutions', bounds: {minX: -12, maxX: 12, minZ: -56, maxZ: -40}, ceilingHeight: 6.2, exhibitIds: ['quine', 'kuhn'], lightingGroupId: 'revolutions'},
   {id: 'ethics-connection-passage', kind: 'passage', title: 'To Ethics, Justice, and Political Life', bounds: {minX: 12, maxX: 18.6, minZ: -51, maxZ: -47}, renderBounds: {minX: 12, maxX: 18, minZ: -51, maxZ: -47}, ceilingHeight: 5.2, exhibitIds: [], lightingGroupId: 'threshold'},
+  {id: 'forum-east-threshold', kind: 'passage', title: 'Forum East Threshold', bounds: {minX: -14.6, maxX: -3.5, minZ: -40.5, maxZ: -36.5}, renderBounds: {minX: -14, maxX: -3.5, minZ: -40.5, maxZ: -36.5}, ceilingHeight: 5.2, exhibitIds: [], lightingGroupId: 'threshold'},
 ];
 
 const spatialConnections: readonly MuseumSpatialConnection[] = [
@@ -94,6 +95,7 @@ const spatialConnections: readonly MuseumSpatialConnection[] = [
   {id: 'inquiry-to-revolutions-threshold', fromCellId: 'inquiry-testing-room', toCellId: 'revolutions-threshold', openingBounds: {minX: -3.5, maxX: 3.5, minZ: -37.2, maxZ: -36.8}},
   {id: 'revolutions-threshold-to-webs', fromCellId: 'revolutions-threshold', toCellId: 'webs-revolutions-room', openingBounds: {minX: -3.5, maxX: 3.5, minZ: -40.2, maxZ: -39.8}},
   {id: 'webs-to-ethics-passage', fromCellId: 'webs-revolutions-room', toCellId: 'ethics-connection-passage', openingBounds: {minX: 11.8, maxX: 12.2, minZ: -51, maxZ: -47}},
+  {id: 'revolutions-threshold-to-forum-east', fromCellId: 'revolutions-threshold', toCellId: 'forum-east-threshold', openingBounds: {minX: -3.7, maxX: -3.3, minZ: -40.5, maxZ: -36.5}},
 ];
 
 const walls: readonly MuseumWallDefinition[] = [
@@ -113,7 +115,6 @@ const walls: readonly MuseumWallDefinition[] = [
   museumWall('inquiry-east', {x: 12, z: -29}, .36, 16.36, 6),
   museumWall('inquiry-exit-west', {x: -7.75, z: -37}, 8.5, .36, 6),
   museumWall('inquiry-exit-east', {x: 7.75, z: -37}, 8.5, .36, 6),
-  museumWall('revolutions-threshold-west', {x: -3.5, z: -38.5}, .36, 3.36, 5.1),
   museumWall('revolutions-threshold-east', {x: 3.5, z: -38.5}, .36, 3.36, 5.1),
   museumWall('webs-entry-west', {x: -7.75, z: -40}, 8.5, .36, 6.2),
   museumWall('webs-entry-east', {x: 7.75, z: -40}, 8.5, .36, 6.2),
@@ -123,6 +124,8 @@ const walls: readonly MuseumWallDefinition[] = [
   museumWall('webs-end', {x: 0, z: -56}, 24.36, .36, 6.2),
   museumWall('ethics-passage-north', {x: 15.3, z: -47}, 6.6, .36, 5.2, {center: {x: 15, z: -47}, size: {width: 6, depth: .36}}),
   museumWall('ethics-passage-south', {x: 15.3, z: -51}, 6.6, .36, 5.2, {center: {x: 15, z: -51}, size: {width: 6, depth: .36}}),
+  museumWall('forum-east-threshold-north', {x: -9.05, z: -36.5}, 11.1, .36, 5.2, {center: {x: -8.75, z: -36.5}, size: {width: 10.5, depth: .36}}),
+  museumWall('forum-east-threshold-south', {x: -9.05, z: -40.5}, 11.1, .36, 5.2, {center: {x: -8.75, z: -40.5}, size: {width: 10.5, depth: .36}}),
 ];
 
 const furnishings: readonly MuseumFurnishingDefinition[] = [
@@ -183,7 +186,7 @@ const signs: readonly MuseumSignDefinition[] = [
   {id: 'gallery-04-entrance', kind: 'entrance', title: 'Logic, Language, and Science', kicker: 'Gallery 04 · 19th–20th centuries', subtitle: 'Signs · logic · inquiry · evidence · revolution', position: {x: 0, y: 4.7, z: -3.76}, rotationY: 0, width: 4.8, height: .52},
   {id: 'inquiry-zone', kind: 'zone', title: 'Inquiry & Testing', kicker: 'Zone II · early–mid 20th century', subtitle: 'Experiment · reconstruction · criticism', position: {x: 0, y: 4.62, z: -20.76}, rotationY: 0, width: 4.2, height: .46},
   {id: 'webs-zone', kind: 'zone', title: 'Webs & Revolutions', kicker: 'Zone III · mid–late 20th century', subtitle: 'Holism · paradigms · scientific change', position: {x: 0, y: 4.62, z: -39.76}, rotationY: 0, width: 4.2, height: .46},
-  {id: 'gallery-05-wayfinding', kind: 'wayfinding', title: 'Continue to Gallery 05', kicker: 'Ethics, Justice, and Political Life', subtitle: 'Turn east through the side passage', position: {x: 11.79, y: 3.15, z: -45.1}, rotationY: -Math.PI / 2, width: 2.9, height: .42},
+  {id: 'gallery-05-wayfinding', kind: 'wayfinding', title: 'Outer Ring · Gallery 05', kicker: 'Ethics, Justice, and Political Life', subtitle: 'Loop threshold · Forum spoke in Zone III', position: {x: 11.79, y: 3.15, z: -45.1}, rotationY: -Math.PI / 2, width: 3.05, height: .42},
 ];
 
 export const LOGIC_LANGUAGE_SCIENCE_HALL_LAYOUT: MuseumHallLayout = {
@@ -191,8 +194,8 @@ export const LOGIC_LANGUAGE_SCIENCE_HALL_LAYOUT: MuseumHallLayout = {
   title: hall.title,
   eyeHeight: EYE_HEIGHT,
   playerRadius: .38,
-  bounds: {minX: -12, maxX: 18.6, minZ: -56, maxZ: .6},
-  floorArea: 1134.8,
+  bounds: {minX: -14.6, maxX: 18.6, minZ: -56, maxZ: .6},
+  floorArea: 1179.2,
   cameraFov: 68,
   cameraFar: 110,
   spawn: {x: 0, z: -2.2, yaw: 0, pitch: -.02},
@@ -212,30 +215,9 @@ export const LOGIC_LANGUAGE_SCIENCE_HALL_LAYOUT: MuseumHallLayout = {
   signs,
 };
 
-export const LOGIC_LANGUAGE_SCIENCE_HALL_DEFINITION: MuseumHallDefinition = {
+export const LOGIC_LANGUAGE_SCIENCE_HALL_DEFINITION: MuseumHallContentDefinition = {
   id: hall.id,
-  worldTransform: {x: 67, z: -110.5, yaw: 0},
   layout: LOGIC_LANGUAGE_SCIENCE_HALL_LAYOUT,
-  entrances: [
-    {
-      id: 'modernity-threshold',
-      position: {x: 0, z: 0},
-      inwardNormal: {x: 0, z: -1},
-      arrivalPose: {x: 0, z: -.8, yaw: 0, pitch: 0},
-      transitionBounds: {center: {x: 0, z: 0}, size: {width: 4, depth: 1.2}},
-    },
-    {
-      id: 'ethics-threshold',
-      position: {x: 18, z: -49},
-      inwardNormal: {x: -1, z: 0},
-      arrivalPose: {x: 17.2, z: -49, yaw: Math.PI / 2, pitch: 0},
-      transitionBounds: {center: {x: 18, z: -49}, size: {width: 1.2, depth: 4}},
-    },
-  ],
-  connections: [
-    {id: 'logic-to-modernity', targetHallId: 'modernity-freedom-critique', localEntranceId: 'modernity-threshold', targetEntranceId: 'logic-threshold'},
-    {id: 'logic-to-ethics', targetHallId: 'ethics-justice-political-life', localEntranceId: 'ethics-threshold', targetEntranceId: 'logic-threshold'},
-  ],
   prefetch: {
     entrySceneAssetIds: [
       'peirce-sarony-portrait', 'peirce-existential-graphs',
@@ -245,7 +227,6 @@ export const LOGIC_LANGUAGE_SCIENCE_HALL_DEFINITION: MuseumHallDefinition = {
       'kuhn-portrait-1977', 'kuhn-structure-1962',
     ],
     sceneAssetIds: hall.exhibits.flatMap((exhibit) => [exhibit.principalAssetId, ...exhibit.supportingAssetIds]),
-    adjacentHallIds: ['modernity-freedom-critique', 'ethics-justice-political-life'],
   },
   fallbackLabel: 'Logic, Language, and Science gallery directory',
 };

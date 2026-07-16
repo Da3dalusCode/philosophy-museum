@@ -1,11 +1,9 @@
-import type {
-  MuseumHallDefinition,
-  MuseumPoint,
-  MuseumPose,
-} from '../../data/museum/museumWorldTypes';
+import type {MuseumPoint, MuseumPose, MuseumWorldTransform} from '../../data/museum/museumWorldTypes';
+
+type MuseumPlacedDefinition = {worldTransform: MuseumWorldTransform};
 
 export const museumPointToWorld = (
-  definition: MuseumHallDefinition,
+  definition: MuseumPlacedDefinition,
   point: MuseumPoint,
 ): MuseumPoint => {
   const {x, z, yaw} = definition.worldTransform;
@@ -18,7 +16,7 @@ export const museumPointToWorld = (
 };
 
 export const museumPoseToWorld = (
-  definition: MuseumHallDefinition,
+  definition: MuseumPlacedDefinition,
   pose: MuseumPose,
 ): MuseumPose => ({
   ...museumPointToWorld(definition, pose),
@@ -27,7 +25,7 @@ export const museumPoseToWorld = (
 });
 
 export const museumPointFromWorld = (
-  definition: MuseumHallDefinition,
+  definition: MuseumPlacedDefinition,
   point: MuseumPoint,
 ): MuseumPoint => {
   const {x, z, yaw} = definition.worldTransform;
@@ -42,7 +40,7 @@ export const museumPointFromWorld = (
 };
 
 export const museumPoseFromWorld = (
-  definition: MuseumHallDefinition,
+  definition: MuseumPlacedDefinition,
   pose: MuseumPose,
 ): MuseumPose => ({
   ...museumPointFromWorld(definition, pose),

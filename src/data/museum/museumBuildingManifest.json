@@ -1,0 +1,383 @@
+{
+  "schemaVersion": 1,
+  "manifestVersion": "ring-pilot-v1",
+  "status": "approved-live-pilot",
+  "physicalOptionId": "ring-of-wings",
+  "units": "metres",
+  "level": {"id": "L0", "title": "Main level", "elevation": 0},
+  "physicalContract": {
+    "wallThickness": 0.36,
+    "doorClearWidth": 4,
+    "doorClearHeight": 3.2,
+    "transitionDepth": 1.2,
+    "safeLandingWidth": 4,
+    "safeLandingDepth": 4,
+    "defaultCeilingHeight": 5.2,
+    "stepFree": true
+  },
+  "residencyPolicy": {
+    "maxResidentHallContents": 3,
+    "recentHallCount": 1,
+    "approachDistance": 6,
+    "decodedTextureBudgetMiB": 96
+  },
+  "mainEntrance": {"nodeId": "place:entrance-orientation", "slotId": "main-entry"},
+  "forumLocationNodeId": "place:forum-circulation-court",
+  "kiosk": {"publicHallId": "ancient-greek", "kioskId": "entrance-visitor-map-kiosk"},
+  "nodes": [
+    {
+      "id": "hall:ancient-greek",
+      "kind": "hall",
+      "publicHallId": "ancient-greek",
+      "pilotRole": "public-entrance",
+      "templateId": "crossroads-4",
+      "geometryAdapterId": "legacy-ancient-atrium-sequence",
+      "implementationStatus": "live",
+      "levelId": "L0",
+      "transform": {"x": 0, "z": 39.2, "yaw": 3.141592653589793},
+      "map": {"label": "Gallery 01 · Ancient Greek and Hellenistic", "status": "open"},
+      "doorwaySlots": [
+        {"id": "south-entry", "position": {"x": 0, "z": 39.2}, "inwardNormal": {"x": 0, "z": -1}, "clearWidth": 8, "clearHeight": 3.2, "transitionDepth": 2.4, "landingBounds": {"minX": -2, "maxX": 2, "minZ": 35.2, "maxZ": 39.2}, "arrivalPose": {"x": 0, "z": 37.5, "yaw": -0.2, "pitch": -0.025}},
+        {"id": "early-modern-threshold", "position": {"x": 18, "z": -28.5}, "inwardNormal": {"x": -1, "z": 0}, "clearWidth": 4, "clearHeight": 3.2, "transitionDepth": 1.2, "landingBounds": {"minX": 14, "maxX": 18, "minZ": -30.5, "maxZ": -26.5}, "arrivalPose": {"x": 16.4, "z": -28.5, "yaw": 1.5707963267948966, "pitch": 0}},
+        {"id": "forum-west-threshold", "position": {"x": -14, "z": 6.5}, "inwardNormal": {"x": 1, "z": 0}, "clearWidth": 4, "clearHeight": 3.2, "transitionDepth": 1.2, "landingBounds": {"minX": -14, "maxX": -10, "minZ": 4.5, "maxZ": 8.5}, "arrivalPose": {"x": -12.2, "z": 6.5, "yaw": -1.5707963267948966, "pitch": 0}}
+      ]
+    },
+    {
+      "id": "hall:renaissance-reason-revolution",
+      "kind": "hall",
+      "publicHallId": "renaissance-reason-revolution",
+      "pilotRole": "outer-shell",
+      "templateId": "sequence-3",
+      "geometryAdapterId": "legacy-sequence-west-return",
+      "implementationStatus": "live",
+      "levelId": "L0",
+      "transform": {"x": -28, "z": 77.7, "yaw": 3.141592653589793},
+      "map": {"label": "Gallery 02 · Renaissance, Reason, and Revolution", "status": "open"},
+      "doorwaySlots": [
+        {"id": "ancient-threshold", "position": {"x": 0, "z": 0}, "inwardNormal": {"x": 0, "z": -1}, "clearWidth": 4, "clearHeight": 3.2, "transitionDepth": 1.2, "landingBounds": {"minX": -2, "maxX": 2, "minZ": -4, "maxZ": 0}, "arrivalPose": {"x": 0, "z": -1.6, "yaw": 0, "pitch": 0}},
+        {"id": "modernity-threshold", "position": {"x": -18, "z": -49}, "inwardNormal": {"x": 1, "z": 0}, "clearWidth": 4, "clearHeight": 3.2, "transitionDepth": 1.2, "landingBounds": {"minX": -18, "maxX": -14, "minZ": -51, "maxZ": -47}, "arrivalPose": {"x": -16.4, "z": -49, "yaw": -1.5707963267948966, "pitch": 0}}
+      ]
+    },
+    {
+      "id": "hall:modernity-freedom-critique",
+      "kind": "hall",
+      "publicHallId": "modernity-freedom-critique",
+      "pilotRole": "outer-shell",
+      "templateId": "crossroads-4",
+      "geometryAdapterId": "legacy-sequence-forum-branch",
+      "implementationStatus": "live",
+      "levelId": "L0",
+      "transform": {"x": -2, "z": 126.7, "yaw": -1.5707963267948966},
+      "map": {"label": "Gallery 03 · Modernity, Freedom, and Critique", "status": "open"},
+      "doorwaySlots": [
+        {"id": "early-modern-threshold", "position": {"x": 0, "z": 0}, "inwardNormal": {"x": 0, "z": -1}, "clearWidth": 4, "clearHeight": 3.2, "transitionDepth": 1.2, "landingBounds": {"minX": -2, "maxX": 2, "minZ": -4, "maxZ": 0}, "arrivalPose": {"x": 0, "z": -1.6, "yaw": 0, "pitch": 0}},
+        {"id": "logic-threshold", "position": {"x": 0, "z": -64}, "inwardNormal": {"x": 0, "z": 1}, "clearWidth": 4, "clearHeight": 3.2, "transitionDepth": 1.2, "landingBounds": {"minX": -2, "maxX": 2, "minZ": -64, "maxZ": -60}, "arrivalPose": {"x": 0, "z": -62.4, "yaw": 3.141592653589793, "pitch": 0}},
+        {"id": "forum-north-threshold", "position": {"x": -14, "z": -44.5}, "inwardNormal": {"x": 1, "z": 0}, "clearWidth": 4, "clearHeight": 3.2, "transitionDepth": 1.2, "landingBounds": {"minX": -14, "maxX": -10, "minZ": -46.5, "maxZ": -42.5}, "arrivalPose": {"x": -12.2, "z": -44.5, "yaw": -1.5707963267948966, "pitch": 0}}
+      ]
+    },
+    {
+      "id": "hall:logic-language-science",
+      "kind": "hall",
+      "publicHallId": "logic-language-science",
+      "pilotRole": "outer-shell",
+      "templateId": "crossroads-4",
+      "geometryAdapterId": "legacy-sequence-forum-branch",
+      "implementationStatus": "live",
+      "levelId": "L0",
+      "transform": {"x": 74, "z": 114.7, "yaw": 0},
+      "map": {"label": "Gallery 04 · Logic, Language, and Science", "status": "open"},
+      "doorwaySlots": [
+        {"id": "modernity-threshold", "position": {"x": 0, "z": 0}, "inwardNormal": {"x": 0, "z": -1}, "clearWidth": 4, "clearHeight": 3.2, "transitionDepth": 1.2, "landingBounds": {"minX": -2, "maxX": 2, "minZ": -4, "maxZ": 0}, "arrivalPose": {"x": 0, "z": -1.6, "yaw": 0, "pitch": 0}},
+        {"id": "ethics-threshold", "position": {"x": 18, "z": -49}, "inwardNormal": {"x": -1, "z": 0}, "clearWidth": 4, "clearHeight": 3.2, "transitionDepth": 1.2, "landingBounds": {"minX": 14, "maxX": 18, "minZ": -51, "maxZ": -47}, "arrivalPose": {"x": 16.4, "z": -49, "yaw": 1.5707963267948966, "pitch": 0}},
+        {"id": "forum-east-threshold", "position": {"x": -14, "z": -38.5}, "inwardNormal": {"x": 1, "z": 0}, "clearWidth": 4, "clearHeight": 3.2, "transitionDepth": 1.2, "landingBounds": {"minX": -14, "maxX": -10, "minZ": -40.5, "maxZ": -36.5}, "arrivalPose": {"x": -12.2, "z": -38.5, "yaw": -1.5707963267948966, "pitch": 0}}
+      ]
+    },
+    {
+      "id": "hall:ethics-justice-political-life",
+      "kind": "hall",
+      "publicHallId": "ethics-justice-political-life",
+      "pilotRole": "outer-shell",
+      "templateId": "standard-rect",
+      "geometryAdapterId": "legacy-sequence-straight",
+      "implementationStatus": "live",
+      "levelId": "L0",
+      "transform": {"x": 101, "z": 56.7, "yaw": 0},
+      "map": {"label": "Gallery 05 · Ethics, Justice, and Political Life", "status": "open"},
+      "doorwaySlots": [
+        {"id": "logic-threshold", "position": {"x": 0, "z": 0}, "inwardNormal": {"x": 0, "z": -1}, "clearWidth": 4, "clearHeight": 3.2, "transitionDepth": 1.2, "landingBounds": {"minX": -2, "maxX": 2, "minZ": -4, "maxZ": 0}, "arrivalPose": {"x": 0, "z": -1.6, "yaw": 0, "pitch": 0}},
+        {"id": "mind-threshold", "position": {"x": 0, "z": -64}, "inwardNormal": {"x": 0, "z": 1}, "clearWidth": 4, "clearHeight": 3.2, "transitionDepth": 1.2, "landingBounds": {"minX": -2, "maxX": 2, "minZ": -64, "maxZ": -60}, "arrivalPose": {"x": 0, "z": -62.4, "yaw": 3.141592653589793, "pitch": 0}}
+      ]
+    },
+    {
+      "id": "hall:mind-consciousness-self",
+      "kind": "hall",
+      "publicHallId": "mind-consciousness-self",
+      "pilotRole": "outer-shell",
+      "templateId": "crossroads-4",
+      "geometryAdapterId": "legacy-sequence-return-and-forum-branch",
+      "implementationStatus": "live",
+      "levelId": "L0",
+      "transform": {"x": 86.15, "z": -22.15, "yaw": 1.5707963267948966},
+      "map": {"label": "Gallery 06 · Mind, Consciousness, and the Self", "status": "open"},
+      "doorwaySlots": [
+        {"id": "ethics-threshold", "position": {"x": 0, "z": 0}, "inwardNormal": {"x": 0, "z": -1}, "clearWidth": 4, "clearHeight": 3.2, "transitionDepth": 1.2, "landingBounds": {"minX": -2, "maxX": 2, "minZ": -4, "maxZ": 0}, "arrivalPose": {"x": 0, "z": -1.6, "yaw": 0, "pitch": 0}},
+        {"id": "ring-return-threshold", "position": {"x": 0, "z": -64}, "inwardNormal": {"x": 0, "z": 1}, "clearWidth": 4, "clearHeight": 3.2, "transitionDepth": 1.2, "landingBounds": {"minX": -2, "maxX": 2, "minZ": -64, "maxZ": -60}, "arrivalPose": {"x": 0, "z": -62.4, "yaw": 3.141592653589793, "pitch": 0}},
+        {"id": "forum-south-threshold", "position": {"x": -14, "z": -38.5}, "inwardNormal": {"x": 1, "z": 0}, "clearWidth": 4, "clearHeight": 3.2, "transitionDepth": 1.2, "landingBounds": {"minX": -14, "maxX": -10, "minZ": -40.5, "maxZ": -36.5}, "arrivalPose": {"x": -12.2, "z": -38.5, "yaw": -1.5707963267948966, "pitch": 0}}
+      ]
+    },
+
+    {
+      "id": "corridor:outer-01-ancient-renaissance",
+      "kind": "corridor",
+      "pilotRole": "outer-loop-link",
+      "implementationStatus": "live",
+      "levelId": "L0",
+      "transform": {"x": 0, "z": 0, "yaw": 0},
+      "map": {"label": "Outer loop · Galleries 01–02", "status": "orientation-open"},
+      "geometry": {"cells": [
+        {"id": "outer-01-horizontal", "bounds": {"minX": -28, "maxX": -18, "minZ": 65.3, "maxZ": 70.1}, "ceilingHeight": 5.2},
+        {"id": "outer-01-vertical", "bounds": {"minX": -30.4, "maxX": -25.6, "minZ": 67.7, "maxZ": 77.7}, "ceilingHeight": 5.2}
+      ]},
+      "doorwaySlots": [
+        {"id": "ancient", "position": {"x": -18, "z": 67.7}, "inwardNormal": {"x": -1, "z": 0}, "clearWidth": 4, "clearHeight": 3.2, "transitionDepth": 1.2, "landingBounds": {"minX": -22, "maxX": -18, "minZ": 65.7, "maxZ": 69.7}, "arrivalPose": {"x": -19.8, "z": 67.7, "yaw": 1.5707963267948966, "pitch": 0}},
+        {"id": "renaissance", "position": {"x": -28, "z": 77.7}, "inwardNormal": {"x": 0, "z": -1}, "clearWidth": 4, "clearHeight": 3.2, "transitionDepth": 1.2, "landingBounds": {"minX": -30, "maxX": -26, "minZ": 73.7, "maxZ": 77.7}, "arrivalPose": {"x": -28, "z": 75.9, "yaw": 0, "pitch": 0}}
+      ]
+    },
+    {
+      "id": "corridor:outer-02-renaissance-modernity",
+      "kind": "corridor",
+      "pilotRole": "outer-loop-link",
+      "implementationStatus": "live",
+      "levelId": "L0",
+      "transform": {"x": 0, "z": 0, "yaw": 0},
+      "map": {"label": "Outer loop · Galleries 02–03", "status": "orientation-open"},
+      "geometry": {"cells": [{"id": "outer-02-run", "bounds": {"minX": -10, "maxX": -2, "minZ": 124.3, "maxZ": 129.1}, "ceilingHeight": 5.2}]},
+      "doorwaySlots": [
+        {"id": "renaissance", "position": {"x": -10, "z": 126.7}, "inwardNormal": {"x": 1, "z": 0}, "clearWidth": 4, "clearHeight": 3.2, "transitionDepth": 1.2, "landingBounds": {"minX": -10, "maxX": -6, "minZ": 124.7, "maxZ": 128.7}, "arrivalPose": {"x": -8.2, "z": 126.7, "yaw": -1.5707963267948966, "pitch": 0}},
+        {"id": "modernity", "position": {"x": -2, "z": 126.7}, "inwardNormal": {"x": -1, "z": 0}, "clearWidth": 4, "clearHeight": 3.2, "transitionDepth": 1.2, "landingBounds": {"minX": -6, "maxX": -2, "minZ": 124.7, "maxZ": 128.7}, "arrivalPose": {"x": -3.8, "z": 126.7, "yaw": 1.5707963267948966, "pitch": 0}}
+      ]
+    },
+    {
+      "id": "corridor:outer-03-modernity-logic",
+      "kind": "corridor",
+      "pilotRole": "outer-loop-link",
+      "implementationStatus": "live",
+      "levelId": "L0",
+      "transform": {"x": 0, "z": 0, "yaw": 0},
+      "map": {"label": "Outer loop · Galleries 03–04", "status": "orientation-open"},
+      "geometry": {"cells": [
+        {"id": "outer-03-horizontal", "bounds": {"minX": 62, "maxX": 74, "minZ": 124.3, "maxZ": 129.1}, "ceilingHeight": 5.2},
+        {"id": "outer-03-vertical", "bounds": {"minX": 71.6, "maxX": 76.4, "minZ": 114.7, "maxZ": 126.7}, "ceilingHeight": 5.2}
+      ]},
+      "doorwaySlots": [
+        {"id": "modernity", "position": {"x": 62, "z": 126.7}, "inwardNormal": {"x": 1, "z": 0}, "clearWidth": 4, "clearHeight": 3.2, "transitionDepth": 1.2, "landingBounds": {"minX": 62, "maxX": 66, "minZ": 124.7, "maxZ": 128.7}, "arrivalPose": {"x": 63.8, "z": 126.7, "yaw": -1.5707963267948966, "pitch": 0}},
+        {"id": "logic", "position": {"x": 74, "z": 114.7}, "inwardNormal": {"x": 0, "z": 1}, "clearWidth": 4, "clearHeight": 3.2, "transitionDepth": 1.2, "landingBounds": {"minX": 72, "maxX": 76, "minZ": 114.7, "maxZ": 118.7}, "arrivalPose": {"x": 74, "z": 116.5, "yaw": 3.141592653589793, "pitch": 0}}
+      ]
+    },
+    {
+      "id": "corridor:outer-04-logic-ethics",
+      "kind": "corridor",
+      "pilotRole": "outer-loop-link",
+      "implementationStatus": "live",
+      "levelId": "L0",
+      "transform": {"x": 0, "z": 0, "yaw": 0},
+      "map": {"label": "Outer loop · Galleries 04–05", "status": "orientation-open"},
+      "geometry": {"cells": [
+        {"id": "outer-04-horizontal", "bounds": {"minX": 92, "maxX": 101, "minZ": 63.3, "maxZ": 68.1}, "ceilingHeight": 5.2},
+        {"id": "outer-04-vertical", "bounds": {"minX": 98.6, "maxX": 103.4, "minZ": 56.7, "maxZ": 65.7}, "ceilingHeight": 5.2}
+      ]},
+      "doorwaySlots": [
+        {"id": "logic", "position": {"x": 92, "z": 65.7}, "inwardNormal": {"x": 1, "z": 0}, "clearWidth": 4, "clearHeight": 3.2, "transitionDepth": 1.2, "landingBounds": {"minX": 92, "maxX": 96, "minZ": 63.7, "maxZ": 67.7}, "arrivalPose": {"x": 93.8, "z": 65.7, "yaw": -1.5707963267948966, "pitch": 0}},
+        {"id": "ethics", "position": {"x": 101, "z": 56.7}, "inwardNormal": {"x": 0, "z": 1}, "clearWidth": 4, "clearHeight": 3.2, "transitionDepth": 1.2, "landingBounds": {"minX": 99, "maxX": 103, "minZ": 56.7, "maxZ": 60.7}, "arrivalPose": {"x": 101, "z": 58.5, "yaw": 3.141592653589793, "pitch": 0}}
+      ]
+    },
+    {
+      "id": "corridor:outer-05-ethics-mind",
+      "kind": "corridor",
+      "pilotRole": "outer-loop-link",
+      "implementationStatus": "live",
+      "levelId": "L0",
+      "transform": {"x": 0, "z": 0, "yaw": 0},
+      "map": {"label": "Outer loop · Galleries 05–06", "status": "orientation-open"},
+      "geometry": {"cells": [
+        {"id": "outer-05-vertical", "bounds": {"minX": 98.6, "maxX": 103.4, "minZ": -22.15, "maxZ": -7.3}, "ceilingHeight": 5.2},
+        {"id": "outer-05-horizontal", "bounds": {"minX": 86.15, "maxX": 101, "minZ": -24.55, "maxZ": -19.75}, "ceilingHeight": 5.2}
+      ]},
+      "doorwaySlots": [
+        {"id": "ethics", "position": {"x": 101, "z": -7.3}, "inwardNormal": {"x": 0, "z": -1}, "clearWidth": 4, "clearHeight": 3.2, "transitionDepth": 1.2, "landingBounds": {"minX": 99, "maxX": 103, "minZ": -11.3, "maxZ": -7.3}, "arrivalPose": {"x": 101, "z": -9.1, "yaw": 0, "pitch": 0}},
+        {"id": "mind", "position": {"x": 86.15, "z": -22.15}, "inwardNormal": {"x": 1, "z": 0}, "clearWidth": 4, "clearHeight": 3.2, "transitionDepth": 1.2, "landingBounds": {"minX": 86.15, "maxX": 90.15, "minZ": -24.15, "maxZ": -20.15}, "arrivalPose": {"x": 87.95, "z": -22.15, "yaw": -1.5707963267948966, "pitch": 0}}
+      ]
+    },
+    {
+      "id": "place:entrance-orientation",
+      "kind": "entrance",
+      "pilotRole": "public-entrance",
+      "templateId": "crossroads-4",
+      "implementationStatus": "live",
+      "levelId": "L0",
+      "transform": {"x": 0, "z": 0, "yaw": 0},
+      "map": {"label": "Entrance and orientation court", "status": "orientation-open"},
+      "geometry": {
+        "cells": [
+          {"id": "orientation-court", "kind": "room", "bounds": {"minX": -8, "maxX": 8, "minZ": -27, "maxZ": -12}, "ceilingHeight": 6.2},
+          {"id": "mind-return", "bounds": {"minX": 8, "maxX": 22.15, "minZ": -24.55, "maxZ": -19.75}, "ceilingHeight": 5.2},
+          {"id": "ancient-entry", "bounds": {"minX": -2.4, "maxX": 2.4, "minZ": -12, "maxZ": 0}, "ceilingHeight": 5.2}
+        ],
+        "furnishings": [{"id": "orientation-court-bench", "kind": "bench", "center": {"x": -3.5, "z": -19}, "size": {"width": 3, "depth": 0.72}, "rotation": 0, "height": 0.5}]
+      },
+      "doorwaySlots": [
+        {"id": "mind", "position": {"x": 22.15, "z": -22.15}, "inwardNormal": {"x": -1, "z": 0}, "clearWidth": 4, "clearHeight": 3.2, "transitionDepth": 1.2, "landingBounds": {"minX": 18.15, "maxX": 22.15, "minZ": -24.15, "maxZ": -20.15}, "arrivalPose": {"x": 20.35, "z": -22.15, "yaw": 1.5707963267948966, "pitch": 0}},
+        {"id": "ancient", "position": {"x": 0, "z": 0}, "inwardNormal": {"x": 0, "z": -1}, "clearWidth": 8, "clearHeight": 3.2, "transitionDepth": 2.4, "landingBounds": {"minX": -2, "maxX": 2, "minZ": -4, "maxZ": 0}, "arrivalPose": {"x": 0, "z": -2, "yaw": 0, "pitch": 0}},
+        {"id": "shortcut", "position": {"x": 8, "z": -16}, "inwardNormal": {"x": -1, "z": 0}, "clearWidth": 4, "clearHeight": 3.2, "transitionDepth": 1.2, "landingBounds": {"minX": 4, "maxX": 8, "minZ": -18, "maxZ": -14}, "arrivalPose": {"x": 6.2, "z": -16, "yaw": 1.5707963267948966, "pitch": 0}},
+        {"id": "main-entry", "position": {"x": 0, "z": -27}, "inwardNormal": {"x": 0, "z": 1}, "clearWidth": 6, "clearHeight": 3.4, "transitionDepth": 1.2, "landingBounds": {"minX": -2, "maxX": 2, "minZ": -27, "maxZ": -23}, "arrivalPose": {"x": 0, "z": -24.8, "yaw": 3.141592653589793, "pitch": 0}}
+      ]
+    },
+    {
+      "id": "place:forum-circulation-court",
+      "kind": "court",
+      "pilotRole": "forum-location",
+      "templateId": "crossroads-4",
+      "implementationStatus": "live",
+      "levelId": "L0",
+      "transform": {"x": 0, "z": 0, "yaw": 0},
+      "map": {"label": "Core Questions Forum location · orientation only", "status": "orientation-open"},
+      "geometry": {
+        "cells": [{"id": "forum-court", "kind": "room", "bounds": {"minX": 28, "maxX": 52, "minZ": 43, "maxZ": 67}, "ceilingHeight": 6.2}],
+        "furnishings": [
+          {"id": "forum-bench-west", "kind": "bench", "center": {"x": 35, "z": 55}, "size": {"width": 3, "depth": 0.72}, "rotation": 1.5707963267948966, "height": 0.5},
+          {"id": "forum-bench-east", "kind": "bench", "center": {"x": 45, "z": 55}, "size": {"width": 3, "depth": 0.72}, "rotation": 1.5707963267948966, "height": 0.5}
+        ]
+      },
+      "doorwaySlots": [
+        {"id": "W0", "position": {"x": 28, "z": 52}, "inwardNormal": {"x": 1, "z": 0}, "clearWidth": 4, "clearHeight": 3.2, "transitionDepth": 1.2, "landingBounds": {"minX": 28, "maxX": 32, "minZ": 50, "maxZ": 54}, "arrivalPose": {"x": 30, "z": 52, "yaw": -1.5707963267948966, "pitch": 0}},
+        {"id": "N0", "position": {"x": 42.5, "z": 67}, "inwardNormal": {"x": 0, "z": -1}, "clearWidth": 4, "clearHeight": 3.2, "transitionDepth": 1.2, "landingBounds": {"minX": 40.5, "maxX": 44.5, "minZ": 63, "maxZ": 67}, "arrivalPose": {"x": 42.5, "z": 65, "yaw": 0, "pitch": 0}},
+        {"id": "E0", "position": {"x": 52, "z": 60}, "inwardNormal": {"x": -1, "z": 0}, "clearWidth": 4, "clearHeight": 3.2, "transitionDepth": 1.2, "landingBounds": {"minX": 48, "maxX": 52, "minZ": 58, "maxZ": 62}, "arrivalPose": {"x": 50, "z": 60, "yaw": 1.5707963267948966, "pitch": 0}},
+        {"id": "S0", "position": {"x": 47.65, "z": 43}, "inwardNormal": {"x": 0, "z": 1}, "clearWidth": 4, "clearHeight": 3.2, "transitionDepth": 1.2, "landingBounds": {"minX": 45.65, "maxX": 49.65, "minZ": 43, "maxZ": 47}, "arrivalPose": {"x": 47.65, "z": 45, "yaw": 3.141592653589793, "pitch": 0}},
+        {"id": "S1", "position": {"x": 30, "z": 43}, "inwardNormal": {"x": 0, "z": 1}, "clearWidth": 4, "clearHeight": 3.2, "transitionDepth": 1.2, "landingBounds": {"minX": 28, "maxX": 32, "minZ": 43, "maxZ": 47}, "arrivalPose": {"x": 30, "z": 45, "yaw": 3.141592653589793, "pitch": 0}}
+      ]
+    },
+    {
+      "id": "corridor:spoke-west",
+      "kind": "corridor",
+      "pilotRole": "forum-spoke",
+      "implementationStatus": "live",
+      "levelId": "L0",
+      "transform": {"x": 0, "z": 0, "yaw": 0},
+      "map": {"label": "Forum spoke · Ancient", "status": "orientation-open"},
+      "geometry": {"cells": [
+        {"id": "spoke-west-entry", "bounds": {"minX": 14, "maxX": 20, "minZ": 30.3, "maxZ": 35.1}, "ceilingHeight": 5.2},
+        {"id": "spoke-west-turn", "bounds": {"minX": 17.6, "maxX": 22.4, "minZ": 32.7, "maxZ": 52}, "ceilingHeight": 5.2},
+        {"id": "spoke-west-court", "bounds": {"minX": 20, "maxX": 28, "minZ": 49.6, "maxZ": 54.4}, "ceilingHeight": 5.2}
+      ]},
+      "doorwaySlots": [
+        {"id": "ancient", "position": {"x": 14, "z": 32.7}, "inwardNormal": {"x": 1, "z": 0}, "clearWidth": 4, "clearHeight": 3.2, "transitionDepth": 1.2, "landingBounds": {"minX": 14, "maxX": 18, "minZ": 30.7, "maxZ": 34.7}, "arrivalPose": {"x": 15.8, "z": 32.7, "yaw": -1.5707963267948966, "pitch": 0}},
+        {"id": "court", "position": {"x": 28, "z": 52}, "inwardNormal": {"x": -1, "z": 0}, "clearWidth": 4, "clearHeight": 3.2, "transitionDepth": 1.2, "landingBounds": {"minX": 24, "maxX": 28, "minZ": 50, "maxZ": 54}, "arrivalPose": {"x": 26.2, "z": 52, "yaw": 1.5707963267948966, "pitch": 0}}
+      ]
+    },
+    {
+      "id": "corridor:spoke-north",
+      "kind": "corridor",
+      "pilotRole": "forum-spoke",
+      "implementationStatus": "live",
+      "levelId": "L0",
+      "transform": {"x": 0, "z": 0, "yaw": 0},
+      "map": {"label": "Forum spoke · Modernity", "status": "orientation-open"},
+      "geometry": {"cells": [{"id": "spoke-north-run", "bounds": {"minX": 40.1, "maxX": 44.9, "minZ": 67, "maxZ": 112.7}, "ceilingHeight": 5.2}]},
+      "doorwaySlots": [
+        {"id": "modernity", "position": {"x": 42.5, "z": 112.7}, "inwardNormal": {"x": 0, "z": -1}, "clearWidth": 4, "clearHeight": 3.2, "transitionDepth": 1.2, "landingBounds": {"minX": 40.5, "maxX": 44.5, "minZ": 108.7, "maxZ": 112.7}, "arrivalPose": {"x": 42.5, "z": 110.9, "yaw": 0, "pitch": 0}},
+        {"id": "court", "position": {"x": 42.5, "z": 67}, "inwardNormal": {"x": 0, "z": 1}, "clearWidth": 4, "clearHeight": 3.2, "transitionDepth": 1.2, "landingBounds": {"minX": 40.5, "maxX": 44.5, "minZ": 67, "maxZ": 71}, "arrivalPose": {"x": 42.5, "z": 68.8, "yaw": 3.141592653589793, "pitch": 0}}
+      ]
+    },
+    {
+      "id": "corridor:spoke-east",
+      "kind": "corridor",
+      "pilotRole": "forum-spoke",
+      "implementationStatus": "live",
+      "levelId": "L0",
+      "transform": {"x": 0, "z": 0, "yaw": 0},
+      "map": {"label": "Forum spoke · Logic", "status": "orientation-open"},
+      "geometry": {"cells": [
+        {"id": "spoke-east-entry", "bounds": {"minX": 58, "maxX": 60, "minZ": 73.8, "maxZ": 78.6}, "ceilingHeight": 5.2},
+        {"id": "spoke-east-turn", "bounds": {"minX": 55.6, "maxX": 60.4, "minZ": 60, "maxZ": 76.2}, "ceilingHeight": 5.2},
+        {"id": "spoke-east-court", "bounds": {"minX": 52, "maxX": 58, "minZ": 57.6, "maxZ": 62.4}, "ceilingHeight": 5.2}
+      ]},
+      "doorwaySlots": [
+        {"id": "logic", "position": {"x": 60, "z": 76.2}, "inwardNormal": {"x": -1, "z": 0}, "clearWidth": 4, "clearHeight": 3.2, "transitionDepth": 1.2, "landingBounds": {"minX": 56, "maxX": 60, "minZ": 74.2, "maxZ": 78.2}, "arrivalPose": {"x": 58.6, "z": 76.8, "yaw": 1.5707963267948966, "pitch": 0}},
+        {"id": "court", "position": {"x": 52, "z": 60}, "inwardNormal": {"x": 1, "z": 0}, "clearWidth": 4, "clearHeight": 3.2, "transitionDepth": 1.2, "landingBounds": {"minX": 52, "maxX": 56, "minZ": 58, "maxZ": 62}, "arrivalPose": {"x": 53.8, "z": 60, "yaw": -1.5707963267948966, "pitch": 0}}
+      ]
+    },
+    {
+      "id": "corridor:spoke-south",
+      "kind": "corridor",
+      "pilotRole": "forum-spoke",
+      "implementationStatus": "live",
+      "levelId": "L0",
+      "transform": {"x": 0, "z": 0, "yaw": 0},
+      "map": {"label": "Forum spoke · Mind and self", "status": "orientation-open"},
+      "geometry": {"cells": [{"id": "spoke-south-run", "bounds": {"minX": 45.25, "maxX": 50.05, "minZ": -8.15, "maxZ": 43}, "ceilingHeight": 5.2}]},
+      "doorwaySlots": [
+        {"id": "mind", "position": {"x": 47.65, "z": -8.15}, "inwardNormal": {"x": 0, "z": 1}, "clearWidth": 4, "clearHeight": 3.2, "transitionDepth": 1.2, "landingBounds": {"minX": 45.65, "maxX": 49.65, "minZ": -8.15, "maxZ": -4.15}, "arrivalPose": {"x": 47.65, "z": -6.35, "yaw": 3.141592653589793, "pitch": 0}},
+        {"id": "court", "position": {"x": 47.65, "z": 43}, "inwardNormal": {"x": 0, "z": -1}, "clearWidth": 4, "clearHeight": 3.2, "transitionDepth": 1.2, "landingBounds": {"minX": 45.65, "maxX": 49.65, "minZ": 39, "maxZ": 43}, "arrivalPose": {"x": 47.65, "z": 41.2, "yaw": 0, "pitch": 0}}
+      ]
+    },
+    {
+      "id": "corridor:entrance-forum-shortcut",
+      "kind": "corridor",
+      "pilotRole": "shortcut",
+      "implementationStatus": "live",
+      "levelId": "L0",
+      "transform": {"x": 0, "z": 0, "yaw": 0},
+      "map": {"label": "Entrance–Forum shortcut", "status": "orientation-open"},
+      "geometry": {"cells": [
+        {"id": "shortcut-entry", "bounds": {"minX": 8, "maxX": 20, "minZ": -18.4, "maxZ": -13.6}, "ceilingHeight": 5.2},
+        {"id": "shortcut-run", "bounds": {"minX": 17.6, "maxX": 22.4, "minZ": -16, "maxZ": 43}, "ceilingHeight": 5.2},
+        {"id": "shortcut-court", "bounds": {"minX": 20, "maxX": 32, "minZ": 40.6, "maxZ": 45.4}, "ceilingHeight": 5.2}
+      ]},
+      "doorwaySlots": [
+        {"id": "entrance", "position": {"x": 8, "z": -16}, "inwardNormal": {"x": 1, "z": 0}, "clearWidth": 4, "clearHeight": 3.2, "transitionDepth": 1.2, "landingBounds": {"minX": 8, "maxX": 12, "minZ": -18, "maxZ": -14}, "arrivalPose": {"x": 9.8, "z": -16, "yaw": -1.5707963267948966, "pitch": 0}},
+        {"id": "court", "position": {"x": 30, "z": 43}, "inwardNormal": {"x": 0, "z": -1}, "clearWidth": 4, "clearHeight": 3.2, "transitionDepth": 1.2, "landingBounds": {"minX": 28, "maxX": 32, "minZ": 39, "maxZ": 43}, "arrivalPose": {"x": 30, "z": 41.2, "yaw": 0, "pitch": 0}}
+      ]
+    }
+  ],
+  "connections": [
+    {"id": "conn:ancient-outer-01", "a": {"nodeId": "hall:ancient-greek", "slotId": "early-modern-threshold"}, "b": {"nodeId": "corridor:outer-01-ancient-renaissance", "slotId": "ancient"}, "routeRole": "outer-loop", "accessible": true, "implementationStatus": "live"},
+    {"id": "conn:outer-01-renaissance", "a": {"nodeId": "corridor:outer-01-ancient-renaissance", "slotId": "renaissance"}, "b": {"nodeId": "hall:renaissance-reason-revolution", "slotId": "ancient-threshold"}, "routeRole": "outer-loop", "accessible": true, "implementationStatus": "live"},
+    {"id": "conn:renaissance-outer-02", "a": {"nodeId": "hall:renaissance-reason-revolution", "slotId": "modernity-threshold"}, "b": {"nodeId": "corridor:outer-02-renaissance-modernity", "slotId": "renaissance"}, "routeRole": "outer-loop", "accessible": true, "implementationStatus": "live"},
+    {"id": "conn:outer-02-modernity", "a": {"nodeId": "corridor:outer-02-renaissance-modernity", "slotId": "modernity"}, "b": {"nodeId": "hall:modernity-freedom-critique", "slotId": "early-modern-threshold"}, "routeRole": "outer-loop", "accessible": true, "implementationStatus": "live"},
+    {"id": "conn:modernity-outer-03", "a": {"nodeId": "hall:modernity-freedom-critique", "slotId": "logic-threshold"}, "b": {"nodeId": "corridor:outer-03-modernity-logic", "slotId": "modernity"}, "routeRole": "outer-loop", "accessible": true, "implementationStatus": "live"},
+    {"id": "conn:outer-03-logic", "a": {"nodeId": "corridor:outer-03-modernity-logic", "slotId": "logic"}, "b": {"nodeId": "hall:logic-language-science", "slotId": "modernity-threshold"}, "routeRole": "outer-loop", "accessible": true, "implementationStatus": "live"},
+    {"id": "conn:logic-outer-04", "a": {"nodeId": "hall:logic-language-science", "slotId": "ethics-threshold"}, "b": {"nodeId": "corridor:outer-04-logic-ethics", "slotId": "logic"}, "routeRole": "outer-loop", "accessible": true, "implementationStatus": "live"},
+    {"id": "conn:outer-04-ethics", "a": {"nodeId": "corridor:outer-04-logic-ethics", "slotId": "ethics"}, "b": {"nodeId": "hall:ethics-justice-political-life", "slotId": "logic-threshold"}, "routeRole": "outer-loop", "accessible": true, "implementationStatus": "live"},
+    {"id": "conn:ethics-outer-05", "a": {"nodeId": "hall:ethics-justice-political-life", "slotId": "mind-threshold"}, "b": {"nodeId": "corridor:outer-05-ethics-mind", "slotId": "ethics"}, "routeRole": "outer-loop", "accessible": true, "implementationStatus": "live"},
+    {"id": "conn:outer-05-mind", "a": {"nodeId": "corridor:outer-05-ethics-mind", "slotId": "mind"}, "b": {"nodeId": "hall:mind-consciousness-self", "slotId": "ethics-threshold"}, "routeRole": "outer-loop", "accessible": true, "implementationStatus": "live"},
+    {"id": "conn:mind-entrance", "a": {"nodeId": "hall:mind-consciousness-self", "slotId": "ring-return-threshold"}, "b": {"nodeId": "place:entrance-orientation", "slotId": "mind"}, "routeRole": "outer-loop", "accessible": true, "implementationStatus": "live"},
+    {"id": "conn:entrance-ancient", "a": {"nodeId": "place:entrance-orientation", "slotId": "ancient"}, "b": {"nodeId": "hall:ancient-greek", "slotId": "south-entry"}, "routeRole": "outer-loop", "accessible": true, "implementationStatus": "live"},
+
+    {"id": "conn:ancient-spoke-west", "a": {"nodeId": "hall:ancient-greek", "slotId": "forum-west-threshold"}, "b": {"nodeId": "corridor:spoke-west", "slotId": "ancient"}, "routeRole": "forum-spoke", "accessible": true, "implementationStatus": "live"},
+    {"id": "conn:spoke-west-court", "a": {"nodeId": "corridor:spoke-west", "slotId": "court"}, "b": {"nodeId": "place:forum-circulation-court", "slotId": "W0"}, "routeRole": "forum-spoke", "accessible": true, "implementationStatus": "live"},
+    {"id": "conn:modernity-spoke-north", "a": {"nodeId": "hall:modernity-freedom-critique", "slotId": "forum-north-threshold"}, "b": {"nodeId": "corridor:spoke-north", "slotId": "modernity"}, "routeRole": "forum-spoke", "accessible": true, "implementationStatus": "live"},
+    {"id": "conn:spoke-north-court", "a": {"nodeId": "corridor:spoke-north", "slotId": "court"}, "b": {"nodeId": "place:forum-circulation-court", "slotId": "N0"}, "routeRole": "forum-spoke", "accessible": true, "implementationStatus": "live"},
+    {"id": "conn:logic-spoke-east", "a": {"nodeId": "hall:logic-language-science", "slotId": "forum-east-threshold"}, "b": {"nodeId": "corridor:spoke-east", "slotId": "logic"}, "routeRole": "forum-spoke", "accessible": true, "implementationStatus": "live"},
+    {"id": "conn:spoke-east-court", "a": {"nodeId": "corridor:spoke-east", "slotId": "court"}, "b": {"nodeId": "place:forum-circulation-court", "slotId": "E0"}, "routeRole": "forum-spoke", "accessible": true, "implementationStatus": "live"},
+    {"id": "conn:mind-spoke-south", "a": {"nodeId": "hall:mind-consciousness-self", "slotId": "forum-south-threshold"}, "b": {"nodeId": "corridor:spoke-south", "slotId": "mind"}, "routeRole": "forum-spoke", "accessible": true, "implementationStatus": "live"},
+    {"id": "conn:spoke-south-court", "a": {"nodeId": "corridor:spoke-south", "slotId": "court"}, "b": {"nodeId": "place:forum-circulation-court", "slotId": "S0"}, "routeRole": "forum-spoke", "accessible": true, "implementationStatus": "live"},
+
+    {"id": "conn:entrance-shortcut", "a": {"nodeId": "place:entrance-orientation", "slotId": "shortcut"}, "b": {"nodeId": "corridor:entrance-forum-shortcut", "slotId": "entrance"}, "routeRole": "shortcut", "accessible": true, "implementationStatus": "live"},
+    {"id": "conn:shortcut-court", "a": {"nodeId": "corridor:entrance-forum-shortcut", "slotId": "court"}, "b": {"nodeId": "place:forum-circulation-court", "slotId": "S1"}, "routeRole": "shortcut", "accessible": true, "implementationStatus": "live"}
+  ],
+  "reservations": [
+    {"id": "reserve:insert-south-asian", "reservationType": "insertion", "hostNodeId": "corridor:outer-01-ancient-renaissance", "targetProgramHallId": "classical-south-asian-worlds", "label": "Future gallery — not yet open", "center": {"x": -32.4, "z": 72.5}, "size": {"width": 6, "depth": 4}, "barrierCenter": {"x": -30.4, "z": 72.5}, "barrierWidth": 4, "rotation": 1.5707963267948966, "blocked": true, "implementationStatus": "reserved"},
+    {"id": "reserve:insert-medieval", "reservationType": "insertion", "hostNodeId": "corridor:outer-02-renaissance-modernity", "targetProgramHallId": "islamic-philosophical-worlds", "label": "Future gallery — not yet open", "center": {"x": -6, "z": 131.1}, "size": {"width": 6, "depth": 4}, "barrierCenter": {"x": -6, "z": 129.1}, "barrierWidth": 4, "rotation": 3.141592653589793, "blocked": true, "implementationStatus": "reserved"},
+    {"id": "reserve:insert-analytic", "reservationType": "insertion", "hostNodeId": "corridor:outer-03-modernity-logic", "targetProgramHallId": "analytic-traditions", "label": "Future gallery — not yet open", "center": {"x": 68, "z": 131.1}, "size": {"width": 6, "depth": 4}, "barrierCenter": {"x": 68, "z": 129.1}, "barrierWidth": 4, "rotation": 3.141592653589793, "blocked": true, "implementationStatus": "reserved"},
+    {"id": "reserve:insert-feminist", "reservationType": "insertion", "hostNodeId": "corridor:outer-04-logic-ethics", "targetProgramHallId": "feminist-philosophies", "label": "Future gallery — not yet open", "center": {"x": 97, "z": 70.1}, "size": {"width": 6, "depth": 4}, "barrierCenter": {"x": 97, "z": 68.1}, "barrierWidth": 4, "rotation": 3.141592653589793, "blocked": true, "implementationStatus": "reserved"},
+
+    {"id": "reserve:outward-R1", "reservationType": "outward-expansion", "hostNodeId": "place:entrance-orientation", "expansionPortalId": "R1", "label": "Future gallery — not yet open", "center": {"x": -11, "z": -20}, "size": {"width": 8, "depth": 6}, "barrierCenter": {"x": -8, "z": -20}, "barrierWidth": 6, "rotation": 1.5707963267948966, "blocked": true, "implementationStatus": "reserved"},
+    {"id": "reserve:outward-R2", "reservationType": "outward-expansion", "hostNodeId": "corridor:outer-01-ancient-renaissance", "expansionPortalId": "R2", "label": "Future gallery — not yet open", "center": {"x": -22, "z": 62.3}, "size": {"width": 8, "depth": 6}, "barrierCenter": {"x": -22, "z": 65.3}, "barrierWidth": 6, "rotation": 0, "blocked": true, "implementationStatus": "reserved"},
+    {"id": "reserve:outward-R3", "reservationType": "outward-expansion", "hostNodeId": "corridor:outer-02-renaissance-modernity", "expansionPortalId": "R3", "label": "Future gallery — not yet open", "center": {"x": -6, "z": 121.3}, "size": {"width": 8, "depth": 6}, "barrierCenter": {"x": -6, "z": 124.3}, "barrierWidth": 6, "rotation": 0, "blocked": true, "implementationStatus": "reserved"},
+    {"id": "reserve:outward-R4", "reservationType": "outward-expansion", "hostNodeId": "corridor:outer-03-modernity-logic", "expansionPortalId": "R4", "label": "Future gallery — not yet open", "center": {"x": 79.4, "z": 120.7}, "size": {"width": 8, "depth": 6}, "barrierCenter": {"x": 76.4, "z": 120.7}, "barrierWidth": 6, "rotation": -1.5707963267948966, "blocked": true, "implementationStatus": "reserved"},
+    {"id": "reserve:outward-R5", "reservationType": "outward-expansion", "hostNodeId": "corridor:outer-04-logic-ethics", "expansionPortalId": "R5", "label": "Future gallery — not yet open", "center": {"x": 106.4, "z": 61}, "size": {"width": 8, "depth": 6}, "barrierCenter": {"x": 103.4, "z": 61}, "barrierWidth": 6, "rotation": -1.5707963267948966, "blocked": true, "implementationStatus": "reserved"},
+    {"id": "reserve:outward-R6", "reservationType": "outward-expansion", "hostNodeId": "corridor:outer-05-ethics-mind", "expansionPortalId": "R6", "label": "Future gallery — not yet open", "center": {"x": 106.4, "z": -17}, "size": {"width": 8, "depth": 6}, "barrierCenter": {"x": 103.4, "z": -17}, "barrierWidth": 6, "rotation": -1.5707963267948966, "blocked": true, "implementationStatus": "reserved"},
+    {"id": "reserve:outward-R7", "reservationType": "outward-expansion", "hostNodeId": "place:entrance-orientation", "expansionPortalId": "R7", "label": "Future gallery — not yet open", "center": {"x": 16, "z": -27.55}, "size": {"width": 8, "depth": 6}, "barrierCenter": {"x": 16, "z": -24.55}, "barrierWidth": 6, "rotation": 0, "blocked": true, "implementationStatus": "reserved"},
+    {"id": "reserve:outward-R8", "reservationType": "outward-expansion", "hostNodeId": "corridor:outer-05-ethics-mind", "expansionPortalId": "R8", "label": "Future gallery — not yet open", "center": {"x": 93, "z": -27.55}, "size": {"width": 8, "depth": 6}, "barrierCenter": {"x": 93, "z": -24.55}, "barrierWidth": 6, "rotation": 0, "blocked": true, "implementationStatus": "reserved"}
+  ]
+}

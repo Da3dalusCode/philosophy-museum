@@ -2,7 +2,7 @@ import {
   getMuseumHallCatalog,
   type AncientGreekExhibitId,
 } from '../museumCatalog';
-import {MUSEUM_VISITOR_MAP_KIOSK} from './museumVisitorMap';
+import {MUSEUM_VISITOR_MAP_KIOSK} from './museumVisitorMapKioskDefinition';
 import type {
   MuseumCollider,
   MuseumCirculationPath,
@@ -10,7 +10,7 @@ import type {
   MuseumExhibitLightDefinition,
   MuseumFurnishingDefinition,
   MuseumGuidedWalkLeg,
-  MuseumHallDefinition,
+  MuseumHallContentDefinition,
   MuseumHallLayout,
   MuseumInstallationSceneDefinition,
   MuseumMediaMountDefinition,
@@ -266,6 +266,7 @@ const spatialCells: readonly MuseumSpatialCell[] = [
   {id: 'hellenistic-late-passage', kind: 'passage', title: 'Late Antiquity Threshold', bounds: {minX: -4, maxX: 4, minZ: -20, maxZ: -17}, ceilingHeight: 5, exhibitIds: [], lightingGroupId: 'passage'},
   {id: 'late-antiquity-room', kind: 'room', title: 'Late Antiquity', bounds: {minX: -10, maxX: 10, minZ: -36, maxZ: -20}, ceilingHeight: 6.2, exhibitIds: ['neoplatonism'], lightingGroupId: 'late'},
   {id: 'early-modern-transition-passage', kind: 'passage', title: 'Gallery 02 Threshold', bounds: {minX: 10, maxX: 18.6, minZ: -30.5, maxZ: -26.5}, renderBounds: {minX: 10, maxX: 18, minZ: -30.5, maxZ: -26.5}, ceilingHeight: 5.2, exhibitIds: [], lightingGroupId: 'passage'},
+  {id: 'forum-west-threshold', kind: 'passage', title: 'Forum West Threshold', bounds: {minX: -14.6, maxX: -4, minZ: 4.5, maxZ: 8.5}, renderBounds: {minX: -14, maxX: -4, minZ: 4.5, maxZ: 8.5}, ceilingHeight: 5.2, exhibitIds: [], lightingGroupId: 'passage'},
 ];
 
 const spatialConnections: readonly MuseumSpatialConnection[] = [
@@ -276,6 +277,7 @@ const spatialConnections: readonly MuseumSpatialConnection[] = [
   {id: 'hellenistic-to-late', fromCellId: 'hellenistic-ways-room', toCellId: 'hellenistic-late-passage', openingBounds: {minX: -4, maxX: 4, minZ: -17.2, maxZ: -16.8}},
   {id: 'passage-to-late', fromCellId: 'hellenistic-late-passage', toCellId: 'late-antiquity-room', openingBounds: {minX: -4, maxX: 4, minZ: -20.2, maxZ: -19.8}},
   {id: 'late-to-early-modern-threshold', fromCellId: 'late-antiquity-room', toCellId: 'early-modern-transition-passage', openingBounds: {minX: 9.8, maxX: 10.2, minZ: -30.5, maxZ: -26.5}},
+  {id: 'classical-threshold-to-forum-west', fromCellId: 'classical-hellenistic-passage', toCellId: 'forum-west-threshold', openingBounds: {minX: -4.2, maxX: -3.8, minZ: 4.5, maxZ: 8.5}},
 ];
 
 const entryViews: readonly MuseumRoomEntryView[] = [
@@ -315,7 +317,6 @@ const walls: readonly MuseumWallDefinition[] = [
   wall('classical-east', {x: 12, z: 17}, .36, 18.36, 5.8),
   wall('classical-exit-left', {x: -8, z: 8}, 8.18, .36, 5.8),
   wall('classical-exit-right', {x: 8, z: 8}, 8.18, .36, 5.8),
-  wall('classical-passage-west', {x: -4, z: 6.5}, .36, 3.18, 5),
   wall('classical-passage-east', {x: 4, z: 6.5}, .36, 3.18, 5),
   wall('hellenistic-entry-left', {x: -8, z: 5}, 8.18, .36, 5.8),
   wall('hellenistic-entry-right', {x: 8, z: 5}, 8.18, .36, 5.8),
@@ -333,6 +334,8 @@ const walls: readonly MuseumWallDefinition[] = [
   wall('late-end', {x: 0, z: -36}, 20.36, .36, 6.2),
   wall('early-modern-passage-north', {x: 14.3, z: -26.5}, 8.6, .36, 5.2, {center: {x: 14, z: -26.5}, size: {width: 8, depth: .36}}),
   wall('early-modern-passage-south', {x: 14.3, z: -30.5}, 8.6, .36, 5.2, {center: {x: 14, z: -30.5}, size: {width: 8, depth: .36}}),
+  wall('forum-west-threshold-north', {x: -9.3, z: 8.5}, 10.6, .36, 5.2, {center: {x: -9, z: 8.5}, size: {width: 10, depth: .36}}),
+  wall('forum-west-threshold-south', {x: -9.3, z: 4.5}, 10.6, .36, 5.2, {center: {x: -9, z: 4.5}, size: {width: 10, depth: .36}}),
 ];
 
 const furnishings: readonly MuseumFurnishingDefinition[] = [
@@ -511,8 +514,8 @@ export const ANCIENT_GREEK_HALL_LAYOUT: MuseumHallLayout = {
   title: hall.title,
   eyeHeight: EYE_HEIGHT,
   playerRadius: .38,
-  bounds: {minX: -12, maxX: 18.6, minZ: -36, maxZ: 41},
-  floorArea: 1626.4,
+  bounds: {minX: -14.6, maxX: 18.6, minZ: -36, maxZ: 41},
+  floorArea: 1668.8,
   cameraFov: 68,
   cameraFar: 110,
   spawn: {x: 0, z: 37.5, yaw: -.2, pitch: -.025},
@@ -537,33 +540,12 @@ export const ANCIENT_GREEK_HALL_LAYOUT: MuseumHallLayout = {
   },
 };
 
-export const ANCIENT_GREEK_HALL_DEFINITION: MuseumHallDefinition = {
+export const ANCIENT_GREEK_HALL_DEFINITION: MuseumHallContentDefinition = {
   id: hall.id,
-  worldTransform: {x: 0, z: 0, yaw: 0},
   layout: ANCIENT_GREEK_HALL_LAYOUT,
-  entrances: [{
-    id: 'south-entry',
-    position: {x: 0, z: 39.2},
-    inwardNormal: {x: 0, z: -1},
-    arrivalPose: {...ANCIENT_GREEK_HALL_LAYOUT.spawn},
-    transitionBounds: {center: {x: 0, z: 39.2}, size: {width: 8, depth: 2.4}},
-  }, {
-    id: 'early-modern-threshold',
-    position: {x: 18, z: -28.5},
-    inwardNormal: {x: -1, z: 0},
-    arrivalPose: {x: 17.2, z: -28.5, yaw: Math.PI / 2, pitch: 0},
-    transitionBounds: {center: {x: 18, z: -28.5}, size: {width: 1.2, depth: 4}},
-  }],
-  connections: [{
-    id: 'ancient-to-renaissance-reason-revolution',
-    targetHallId: 'renaissance-reason-revolution',
-    localEntranceId: 'early-modern-threshold',
-    targetEntranceId: 'ancient-threshold',
-  }],
   prefetch: {
     entrySceneAssetIds: ['neoplatonism-plotinus-ostia', 'neoplatonism-ficino-enneads'],
     sceneAssetIds: hall.exhibits.flatMap((exhibit) => [exhibit.principalAssetId, ...exhibit.supportingAssetIds]),
-    adjacentHallIds: ['renaissance-reason-revolution'],
   },
   fallbackLabel: 'Ancient Greek and Hellenistic gallery directory',
 };

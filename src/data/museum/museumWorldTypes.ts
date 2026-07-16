@@ -1,4 +1,5 @@
 import type {MuseumAssetId} from './museumAssetTypes';
+import type {MuseumResolvedHallTemplate} from './museumHallTemplates';
 import type {
   MuseumExhibitId,
   MuseumHallId,
@@ -21,6 +22,10 @@ export type MuseumCollider = {
 
 export type MuseumWallDefinition = MuseumCollider & {
   height: number;
+  /** Render-only vertical offset. Omitted for floor-standing collision walls. */
+  bottom?: number;
+  /** Doorway or reservation whose clear-height opening this lintel closes above. */
+  openingId?: string;
   /** Optional visual trim for authored overlaps; collision continues to use center/size. */
   renderCenter?: MuseumPoint;
   renderSize?: {width: number; depth: number};
@@ -203,7 +208,9 @@ export type MuseumHallLayout = {
 
 export type MuseumHallConnection = {
   id: string;
-  targetHallId: MuseumHallId;
+  connectionId: string;
+  sourceNodeId: MuseumPhysicalNodeId;
+  targetNodeId: MuseumPhysicalNodeId;
   localEntranceId: string;
   targetEntranceId: string;
 };
@@ -225,17 +232,118 @@ export type MuseumHallPrefetch = {
   entrySceneAssetIds: readonly MuseumAssetId[];
   /** The complete hall scene-media set, warmed after the entry set is ready. */
   sceneAssetIds: readonly MuseumAssetId[];
-  adjacentHallIds: readonly MuseumHallId[];
 };
 
-export type MuseumHallDefinition = {
+export type MuseumHallContentDefinition = {
   id: MuseumHallId;
-  worldTransform: MuseumWorldTransform;
   layout: MuseumHallLayout;
-  entrances: readonly MuseumHallEntrance[];
-  connections: readonly MuseumHallConnection[];
   prefetch: MuseumHallPrefetch;
   fallbackLabel: string;
+};
+
+export type MuseumHallDefinition = MuseumHallContentDefinition & {
+  physicalNodeId: MuseumPhysicalNodeId;
+  worldTransform: MuseumWorldTransform;
+  /** Compiler-owned shell: collision walls plus render-only portal lintels. */
+  architectureWalls: readonly MuseumWallDefinition[];
+  /** Canonical interface contract resolved through the node's geometry adapter. */
+  resolvedTemplate: MuseumResolvedHallTemplate;
+  entrances: readonly MuseumHallEntrance[];
+};
+
+export type MuseumPhysicalNodeId = string;
+export type MuseumPhysicalNodeKind = 'hall' | 'court' | 'corridor' | 'entrance';
+export type MuseumImplementationStatus = 'live' | 'planned' | 'retired';
+export type MuseumPilotRole =
+  | 'public-entrance'
+  | 'outer-shell'
+  | 'forum-location'
+  | 'outer-loop-link'
+  | 'forum-spoke'
+  | 'shortcut';
+
+export type MuseumDoorwaySlot = {
+  id: string;
+  position: MuseumPoint;
+  /** Local-space direction from the seam into this physical node. */
+  inwardNormal: MuseumPoint;
+  clearWidth: number;
+  clearHeight: number;
+  transitionDepth: number;
+  landingBounds: MuseumBounds;
+  arrivalPose: MuseumPose;
+};
+
+export type MuseumNavigationLayout = {
+  id: string;
+  title: string;
+  eyeHeight: number;
+  playerRadius: number;
+  bounds: MuseumBounds;
+  cameraFov: number;
+  cameraFar: number;
+  spawn: MuseumPose;
+  reset: MuseumPose;
+  spatialCells: readonly MuseumSpatialCell[];
+  spatialConnections: readonly MuseumSpatialConnection[];
+  wallColliders: readonly MuseumWallDefinition[];
+  furnishings: readonly MuseumFurnishingDefinition[];
+  obstacleColliders: readonly MuseumCollider[];
+  exhibits: readonly MuseumExhibitLayout[];
+  signs?: readonly MuseumSignDefinition[];
+};
+
+export type MuseumRuntimeNodeDefinition = {
+  id: MuseumPhysicalNodeId;
+  kind: MuseumPhysicalNodeKind;
+  publicHallId?: MuseumHallId;
+  pilotRole: MuseumPilotRole;
+  templateId?: 'standard-rect' | 'sequence-3' | 'crossroads-4' | 'focal-terminal';
+  geometryAdapterId?: string;
+  implementationStatus: MuseumImplementationStatus;
+  levelId: 'L0';
+  worldTransform: MuseumWorldTransform;
+  layout: MuseumNavigationLayout;
+  /** Full-height wall segments plus render-only lintels for public architecture. */
+  architectureWalls?: readonly MuseumWallDefinition[];
+  /** Present on public hall nodes compiled through a hall-template contract. */
+  resolvedTemplate?: MuseumResolvedHallTemplate;
+  entrances: readonly MuseumHallEntrance[];
+  mapLabel: string;
+  mapStatus: 'open' | 'orientation-open' | 'future';
+};
+
+export type MuseumDirectedConnection = MuseumHallConnection & {
+  routeRole: MuseumPhysicalConnection['routeRole'];
+  accessible: boolean;
+  implementationStatus: MuseumPhysicalConnection['implementationStatus'];
+};
+
+export type MuseumPhysicalConnection = {
+  id: string;
+  a: {nodeId: MuseumPhysicalNodeId; slotId: string};
+  b: {nodeId: MuseumPhysicalNodeId; slotId: string};
+  routeRole: 'outer-loop' | 'forum-spoke' | 'shortcut';
+  accessible: boolean;
+  implementationStatus: 'live' | 'blocked' | 'planned';
+};
+
+export type MuseumReservation = {
+  id: string;
+  reservationType: 'insertion' | 'outward-expansion';
+  hostNodeId: MuseumPhysicalNodeId;
+  label: 'Future gallery — not yet open';
+  /** Reserved future footprint, kept outside the live circulation envelope. */
+  center: MuseumPoint;
+  size: {width: number; depth: number};
+  /** Physical wall-line center and clear blocking width for the closed portal. */
+  barrierCenter: MuseumPoint;
+  barrierWidth: number;
+  rotation: number;
+  blocked: true;
+  implementationStatus: 'reserved';
+  targetProgramHallId?: string;
+  expansionPortalId?: string;
 };
 
 export type MuseumExhibitRef = {

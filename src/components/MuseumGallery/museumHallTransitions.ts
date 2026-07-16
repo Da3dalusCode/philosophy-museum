@@ -1,10 +1,11 @@
 import type {
-  MuseumHallConnection,
-  MuseumHallDefinition,
+  MuseumDirectedConnection,
   MuseumHallEntrance,
   MuseumPoint,
   MuseumPose,
+  MuseumRuntimeNodeDefinition,
 } from '../../data/museum/museumWorldTypes';
+import {getMuseumNodeConnections} from '../../data/museum/museumBuildingRuntime';
 import {isValidMuseumPosition} from './museumMovement';
 import {museumPoseFromWorld, museumPoseToWorld} from './museumWorldTransform';
 
@@ -15,18 +16,18 @@ const insideTransition = (point: MuseumPoint, entrance: MuseumHallEntrance): boo
 };
 
 export const museumConnectionAtPose = (
-  definition: MuseumHallDefinition,
+  definition: MuseumRuntimeNodeDefinition,
   pose: MuseumPose,
-): MuseumHallConnection | undefined => definition.connections.find((connection) => {
+): MuseumDirectedConnection | undefined => getMuseumNodeConnections(definition.id).find((connection) => {
   const entrance = definition.entrances.find(({id}) => id === connection.localEntranceId);
   return Boolean(entrance && insideTransition(pose, entrance));
 });
 
 export const museumConnectionCrossed = (
-  definition: MuseumHallDefinition,
+  definition: MuseumRuntimeNodeDefinition,
   previous: MuseumPoint,
   current: MuseumPoint,
-): MuseumHallConnection | undefined => definition.connections.find((connection) => {
+): MuseumDirectedConnection | undefined => getMuseumNodeConnections(definition.id).find((connection) => {
   const entrance = definition.entrances.find(({id}) => id === connection.localEntranceId);
   if (!entrance || !insideTransition(current, entrance)) return false;
   const previousOffset = {x: previous.x - entrance.position.x, z: previous.z - entrance.position.z};
@@ -42,8 +43,8 @@ export const museumConnectionCrossed = (
  * or collision metadata disagree.
  */
 export const resolveMuseumHallArrival = (
-  source: MuseumHallDefinition,
-  target: MuseumHallDefinition,
+  source: MuseumRuntimeNodeDefinition,
+  target: MuseumRuntimeNodeDefinition,
   targetEntranceId: string,
   sourcePose: MuseumPose,
 ): MuseumPose | undefined => {

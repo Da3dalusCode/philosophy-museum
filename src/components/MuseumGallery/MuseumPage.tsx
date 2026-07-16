@@ -23,7 +23,12 @@ import {
   type MouseEvent,
   type ReactNode,
 } from 'react';
-import type {MuseumExhibitRef, MuseumHallConnection, MuseumPose} from '../../data/museum/museumWorldTypes';
+import type {MuseumDirectedConnection, MuseumExhibitRef, MuseumPose} from '../../data/museum/museumWorldTypes';
+import {
+  getMuseumConnectionTargetHallId,
+  getMuseumRuntimeHallNode,
+  getMuseumRuntimeNode,
+} from '../../data/museum/museumBuildingRuntime';
 import {getMuseumInterpretation} from '../../data/museum/museumInterpretations';
 import {
   getMuseumVisitorMapNode,
@@ -47,6 +52,7 @@ import {loadMuseumSession, removeMuseumSession, saveMuseumSession} from './museu
 import {useMuseumControls, type MuseumControls} from './useMuseumControls';
 import {useMuseumExperienceMode} from './useMuseumExperienceMode';
 import {resolveMuseumHallArrival} from './museumHallTransitions';
+import {resolveMuseumHallResidency} from './museumResidency';
 import {
   getMuseumHallRegistration,
   MUSEUM_WORLD_REGISTRY,
@@ -278,6 +284,9 @@ export function MuseumPage({route, href, push, replace}: {
   replace: RouteNavigator;
 }) {
   const [activeHallId, setActiveHallId] = useState<MuseumHallId>(route.hallId);
+  const [activeNodeId, setActiveNodeId] = useState(() => getMuseumRuntimeHallNode(route.hallId)?.id ?? '');
+  const activeNode = getMuseumRuntimeNode(activeNodeId);
+  if (!activeNode) throw new Error(`Museum physical node ${activeNodeId || route.hallId} is not registered in the building manifest.`);
   const registration = getMuseumHallRegistration(activeHallId);
   if (!registration) throw new Error(`Museum hall ${route.hallId} is not registered in the persistent world.`);
   const hall = getMuseumHallCatalog(activeHallId)!;
@@ -285,6 +294,7 @@ export function MuseumPage({route, href, push, replace}: {
   const layout = definition.layout;
   const exhibit = route.hallId === activeHallId && route.exhibitId ? getMuseumExhibitCatalog(activeHallId, route.exhibitId) : undefined;
   const content = useMemo(() => exhibit ? getMuseumInterpretation({hallId: activeHallId, exhibitId: exhibit.id}) : undefined, [activeHallId, exhibit]);
+  const sceneLocationLabel = activeNode.publicHallId ? hall.title : activeNode.mapLabel;
   const visitContext = route.hallId === activeHallId && route.exhibitId
     ? parseMuseumExhibitVisitContext(window.history.state, route.hallId) ?? directMuseumVisitContext(route.hallId)
     : undefined;
@@ -308,8 +318,12 @@ export function MuseumPage({route, href, push, replace}: {
     return {...(directViewpoint ?? layout.spawn)};
   })());
   const activeHallIdRef = useRef<MuseumHallId>(activeHallId);
+  const activeNodeIdRef = useRef(activeNode.id);
+  const activeNodeRef = useRef(activeNode);
   const activeDefinitionRef = useRef(definition);
   activeHallIdRef.current = activeHallId;
+  activeNodeIdRef.current = activeNode.id;
+  activeNodeRef.current = activeNode;
   activeDefinitionRef.current = definition;
   const nearbyRef = useRef<MuseumExhibitRef | undefined>(undefined);
   const visitorMapNearbyRef = useRef(false);
@@ -342,6 +356,15 @@ export function MuseumPage({route, href, push, replace}: {
   const [hallLoadStatus, setHallLoadStatus] = useState<Partial<Record<MuseumHallId, 'idle' | 'loading' | 'ready' | 'failed'>>>({[route.hallId]: 'idle'});
   const [hallLoadErrors, setHallLoadErrors] = useState<Partial<Record<MuseumHallId, string>>>({});
   const [hallContentEpochs, setHallContentEpochs] = useState<Partial<Record<MuseumHallId, number>>>({});
+  const [approachedHallId, setApproachedHallId] = useState<MuseumHallId | undefined>();
+  const [recentHallId, setRecentHallId] = useState<MuseumHallId | undefined>();
+  const residentHallIds = useMemo(() => new Set(resolveMuseumHallResidency({
+    activeHallId,
+    approachedHallId,
+    recentHallId,
+  })), [activeHallId, approachedHallId, recentHallId]);
+  const residentHallIdsRef = useRef(residentHallIds);
+  residentHallIdsRef.current = residentHallIds;
   const [announcement, setAnnouncement] = useState('');
   const [visitPhase, setVisitPhase] = useState<MuseumVisitPhase>(route.exhibitId ? 'explicitly-paused' : 'unentered');
   const [overlay, setOverlay] = useState<Overlay>(null);
@@ -364,6 +387,7 @@ export function MuseumPage({route, href, push, replace}: {
 
   const saveCurrentHallSession = useCallback(() => {
     const currentDefinition = activeDefinitionRef.current;
+    if (activeNodeRef.current.publicHallId !== currentDefinition.id) return;
     const currentNearby = nearbyRef.current;
     const pose = poseRef.current;
     const nearbyId = currentNearby?.hallId === currentDefinition.id ? currentNearby.exhibitId : undefined;
@@ -399,7 +423,13 @@ export function MuseumPage({route, href, push, replace}: {
   const warmHallRemainder = useCallback((hallId: MuseumHallId) => {
     const warm = () => {
       const connection = (navigator as Navigator & {connection?: {saveData?: boolean; effectiveType?: string}}).connection;
-      if (document.hidden || connection?.saveData || connection?.effectiveType === 'slow-2g' || connection?.effectiveType === '2g') return;
+      if (
+        activeHallIdRef.current !== hallId
+        || document.hidden
+        || connection?.saveData
+        || connection?.effectiveType === 'slow-2g'
+        || connection?.effectiveType === '2g'
+      ) return;
       void prefetchMuseumHallRemainder(hallId).catch(() => {
         setAnnouncement(`The ${getMuseumHallCatalog(hallId)?.title ?? 'adjacent gallery'} is open; some object images will use documented fallbacks.`);
       });
@@ -409,8 +439,7 @@ export function MuseumPage({route, href, push, replace}: {
   }, []);
 
   const hallIsResident = useCallback((hallId: MuseumHallId) => {
-    const activeDefinition = activeDefinitionRef.current;
-    return activeDefinition.id === hallId || activeDefinition.prefetch.adjacentHallIds.includes(hallId);
+    return residentHallIdsRef.current.has(hallId);
   }, []);
 
   const markHallCrossable = useCallback((hallId: MuseumHallId) => {
@@ -535,11 +564,11 @@ export function MuseumPage({route, href, push, replace}: {
 
   const resetPosition = useCallback(() => {
     controlsRef.current?.pauseExploring();
-    removeMuseumSession(activeHallId);
-    poseRef.current = {...layout.reset};
+    if (activeNode.publicHallId) removeMuseumSession(activeNode.publicHallId);
+    poseRef.current = {...activeNode.layout.reset};
     setVisitPhase((phase) => transitionMuseumVisitPhase(phase, 'explicit-pause'));
     setPoseRevision((value) => value + 1);
-  }, [activeHallId, layout]);
+  }, [activeNode]);
 
   const openVisitorMap = useCallback(() => {
     if (activeHallIdRef.current !== MUSEUM_VISITOR_MAP_KIOSK.hallId || !visitorMapNearbyRef.current) {
@@ -604,7 +633,8 @@ export function MuseumPage({route, href, push, replace}: {
 
   const activateHall = useCallback((hallId: MuseumHallId, pose?: MuseumPose) => {
     const targetRegistration = getMuseumHallRegistration(hallId);
-    if (!targetRegistration) return;
+    const targetNode = getMuseumRuntimeHallNode(hallId);
+    if (!targetRegistration || !targetNode) return;
     if (hallId !== activeHallIdRef.current) saveCurrentHallSession();
     const targetLayout = targetRegistration.definition.layout;
     const session = pose ? undefined : loadMuseumSession(targetLayout);
@@ -612,8 +642,12 @@ export function MuseumPage({route, href, push, replace}: {
       ?? (session ? {x: session.x, z: session.z, yaw: session.yaw, pitch: session.pitch} : undefined)
       ?? targetLayout.spawn;
     activeHallIdRef.current = hallId;
+    activeNodeIdRef.current = targetNode.id;
+    activeNodeRef.current = targetNode;
     activeDefinitionRef.current = targetRegistration.definition;
     setActiveHallId(hallId);
+    setActiveNodeId(targetNode.id);
+    setApproachedHallId(undefined);
     poseRef.current = {...targetPose};
     nearbyRef.current = undefined;
     setNearbyReference(undefined);
@@ -672,58 +706,92 @@ export function MuseumPage({route, href, push, replace}: {
     );
   }, [activateHall, push]);
 
-  const handleHallTransition = useCallback((connection: MuseumHallConnection) => {
-    const source = activeDefinitionRef.current;
-    const targetRegistration = getMuseumHallRegistration(connection.targetHallId);
-    if (!targetRegistration) {
-      setAnnouncement('The connected gallery is not registered in this Museum build.');
+  const handleNodeTransition = useCallback((connection: MuseumDirectedConnection) => {
+    const source = activeNodeRef.current;
+    const targetNode = getMuseumRuntimeNode(connection.targetNodeId);
+    if (!targetNode) {
+      setAnnouncement('The connected building node is not registered in this Museum build.');
       return;
     }
     const sourcePose = {...poseRef.current};
-    const arrival = resolveMuseumHallArrival(source, targetRegistration.definition, connection.targetEntranceId, sourcePose);
+    const arrival = resolveMuseumHallArrival(source, targetNode, connection.targetEntranceId, sourcePose);
     if (!arrival) {
-      setAnnouncement('The connected gallery entrance could not be resolved.');
+      setAnnouncement('The connected doorway could not be resolved.');
       return;
     }
     const sourceNearby = nearbyRef.current;
-    saveMuseumSession(source.layout, sourcePose, sourceNearby?.hallId === source.id ? sourceNearby.exhibitId : undefined);
+    if (source.publicHallId) {
+      const sourceHall = getMuseumHallRegistration(source.publicHallId)?.definition;
+      if (sourceHall) saveMuseumSession(sourceHall.layout, sourcePose, sourceNearby?.hallId === source.publicHallId ? sourceNearby.exhibitId : undefined);
+    }
     poseRef.current = arrival;
-    saveMuseumSession(targetRegistration.definition.layout, arrival);
-    pendingHallTransitionRef.current = {sourceHallId: source.id, targetHallId: connection.targetHallId};
-    activeHallIdRef.current = connection.targetHallId;
-    activeDefinitionRef.current = targetRegistration.definition;
-    setActiveHallId(connection.targetHallId);
+    activeNodeIdRef.current = targetNode.id;
+    activeNodeRef.current = targetNode;
+    setActiveNodeId(targetNode.id);
+    setApproachedHallId(undefined);
     nearbyRef.current = undefined;
     setNearbyReference(undefined);
     visitorMapNearbyRef.current = false;
     setVisitorMapNearby(false);
     setOverlay(null);
-    setAnnouncement(`Entered ${getMuseumHallCatalog(connection.targetHallId)?.title}.`);
+    if (targetNode.publicHallId) {
+      const targetHallId = targetNode.publicHallId;
+      const targetRegistration = getMuseumHallRegistration(targetHallId);
+      if (!targetRegistration) return;
+      const previousHallId = activeHallIdRef.current;
+      saveMuseumSession(targetRegistration.definition.layout, arrival);
+      if (previousHallId !== targetHallId) setRecentHallId(previousHallId);
+      pendingHallTransitionRef.current = {sourceHallId: previousHallId, targetHallId};
+      activeHallIdRef.current = targetHallId;
+      activeDefinitionRef.current = targetRegistration.definition;
+      setActiveHallId(targetHallId);
+      setAnnouncement(`Entered ${getMuseumHallCatalog(targetHallId)?.title}.`);
+      if (previousHallId !== targetHallId) replace(
+        {kind: 'museum', hallId: targetHallId},
+        {state: museumHistoryStateWithVisitContext(window.history.state, undefined)},
+      );
+    } else {
+      setAnnouncement(`Entered ${targetNode.mapLabel}.`);
+    }
     setPoseRevision((value) => value + 1);
-    replace(
-      {kind: 'museum', hallId: connection.targetHallId},
-      {state: museumHistoryStateWithVisitContext(window.history.state, undefined)},
-    );
   }, [replace]);
 
-  const handleHallTransitionBlocked = useCallback((connection: MuseumHallConnection) => {
-    const target = getMuseumHallCatalog(connection.targetHallId);
-    const status = hallLoadStatus[connection.targetHallId];
+  const handleNodeTransitionBlocked = useCallback((connection: MuseumDirectedConnection) => {
+    const targetHallId = getMuseumConnectionTargetHallId(connection);
+    if (!targetHallId) return;
+    const target = getMuseumHallCatalog(targetHallId);
+    const status = hallLoadStatus[targetHallId];
     setAnnouncement(status === 'failed'
       ? `${target?.title ?? 'The connected gallery'} could not be prepared. Use the visible Retry control.`
       : `Preparing ${target?.title ?? 'the connected gallery'} before you cross…`);
-    void ensureHallEntry(connection.targetHallId).catch(() => undefined);
+    void ensureHallEntry(targetHallId).catch(() => undefined);
   }, [ensureHallEntry, hallLoadStatus]);
+
+  const handleApproachHall = useCallback((hallId: MuseumHallId | undefined) => {
+    setApproachedHallId(hallId);
+    if (!hallId) return;
+    residentHallIdsRef.current = new Set(resolveMuseumHallResidency({
+      activeHallId: activeHallIdRef.current,
+      approachedHallId: hallId,
+      recentHallId,
+    }));
+    void ensureHallEntry(hallId).catch(() => undefined);
+  }, [ensureHallEntry, recentHallId]);
 
   const stageExhibitViewpoint = useCallback((reference: MuseumExhibitRef) => {
     const targetRegistration = getMuseumHallRegistration(reference.hallId);
+    const targetNode = getMuseumRuntimeHallNode(reference.hallId);
     const viewpoint = targetRegistration?.definition.layout.exhibits.find((item) => item.id === reference.exhibitId)?.viewpoint;
     if (!viewpoint) return;
     if (reference.hallId !== activeHallIdRef.current) saveCurrentHallSession();
-    if (!targetRegistration) return;
+    if (!targetRegistration || !targetNode) return;
     activeHallIdRef.current = reference.hallId;
+    activeNodeIdRef.current = targetNode.id;
+    activeNodeRef.current = targetNode;
     activeDefinitionRef.current = targetRegistration.definition;
     setActiveHallId(reference.hallId);
+    setActiveNodeId(targetNode.id);
+    setApproachedHallId(undefined);
     poseRef.current = {...viewpoint};
     nearbyRef.current = reference;
     setNearbyReference(reference);
@@ -786,8 +854,8 @@ export function MuseumPage({route, href, push, replace}: {
   };
 
   useEffect(() => {
-    sceneCanvasRef.current?.setAttribute('aria-label', `Walkable ${hall.title}, connected to the Philosophy Atlas Museum`);
-  }, [hall.title]);
+    sceneCanvasRef.current?.setAttribute('aria-label', `Walkable ${sceneLocationLabel}, connected to the Philosophy Atlas Museum`);
+  }, [sceneLocationLabel]);
 
   useEffect(() => {
     const background = backgroundRef.current;
@@ -907,7 +975,8 @@ export function MuseumPage({route, href, push, replace}: {
     }
     pendingHallTransitionRef.current = undefined;
     const targetRegistration = getMuseumHallRegistration(route.hallId);
-    if (!targetRegistration) return;
+    const targetNode = getMuseumRuntimeHallNode(route.hallId);
+    if (!targetRegistration || !targetNode) return;
     if (activeHallIdRef.current !== route.hallId) saveCurrentHallSession();
     const targetLayout = targetRegistration.definition.layout;
     const directViewpoint = route.exhibitId
@@ -920,8 +989,12 @@ export function MuseumPage({route, href, push, replace}: {
         ? {x: session.x, z: session.z, yaw: session.yaw, pitch: session.pitch}
         : {...targetLayout.spawn};
     activeHallIdRef.current = route.hallId;
+    activeNodeIdRef.current = targetNode.id;
+    activeNodeRef.current = targetNode;
     activeDefinitionRef.current = targetRegistration.definition;
     setActiveHallId(route.hallId);
+    setActiveNodeId(targetNode.id);
+    setApproachedHallId(undefined);
     nearbyRef.current = undefined;
     setNearbyReference(undefined);
     visitorMapNearbyRef.current = false;
@@ -958,10 +1031,6 @@ export function MuseumPage({route, href, push, replace}: {
   }, [activeHallId, ensureHallEntry]);
 
   useEffect(() => {
-    definition.prefetch.adjacentHallIds.forEach((hallId) => void ensureHallEntry(hallId).catch(() => undefined));
-  }, [definition.id, definition.prefetch.adjacentHallIds, ensureHallEntry]);
-
-  useEffect(() => {
     if (!exploring) return;
     const timer = window.setInterval(saveCurrentHallSession, 500);
     return () => window.clearInterval(timer);
@@ -992,12 +1061,12 @@ export function MuseumPage({route, href, push, replace}: {
   }, [exploring, reducedMotion, visitorMapNearby]);
 
   const exhibitIndex = exhibit ? (hall.guidedOrder as readonly MuseumExhibitId[]).indexOf(exhibit.id) : -1;
-  const residentHallIds = new Set<MuseumHallId>([activeHallId, ...definition.prefetch.adjacentHallIds]);
   const sceneRegistrations = MUSEUM_WORLD_REGISTRY.filter(({definition: item}) => residentHallIds.has(item.id));
   const activeHallLoadFailed = hallLoadStatus[activeHallId] === 'failed';
   const activeHallLoading = hallLoadStatus[activeHallId] === 'idle' || hallLoadStatus[activeHallId] === 'loading';
-  const adjacentFailedHallIds = definition.prefetch.adjacentHallIds.filter((hallId) => hallLoadStatus[hallId] === 'failed');
-  const adjacentLoadingHallIds = definition.prefetch.adjacentHallIds.filter((hallId) => hallLoadStatus[hallId] === 'loading');
+  const approachedHallIds = approachedHallId ? [approachedHallId] : [];
+  const adjacentFailedHallIds = approachedHallIds.filter((hallId) => hallLoadStatus[hallId] === 'failed');
+  const adjacentLoadingHallIds = approachedHallIds.filter((hallId) => hallLoadStatus[hallId] === 'loading');
 
   return <div
     ref={experienceRootRef}
@@ -1027,7 +1096,8 @@ export function MuseumPage({route, href, push, replace}: {
               registrations={sceneRegistrations}
               readyHallIds={[...readyHallIds]}
               hallContentEpochs={hallContentEpochs}
-              definition={definition}
+              definition={activeNode}
+              viewerHallId={activeHallId}
               active={exploring}
               blocked={blocked}
               poseRevision={poseRevision}
@@ -1038,7 +1108,7 @@ export function MuseumPage({route, href, push, replace}: {
                 sceneCanvasRef.current = canvas;
                 canvas.classList.add('museum-scene-canvas');
                 canvas.setAttribute('role', 'img');
-                canvas.setAttribute('aria-label', `Walkable ${hall.title}, connected to the Philosophy Atlas Museum`);
+                canvas.setAttribute('aria-label', `Walkable ${sceneLocationLabel}, connected to the Philosophy Atlas Museum`);
                 canvas.setAttribute('aria-describedby', 'museum-controls-description');
                 canvas.tabIndex = 0;
                 controls.onCanvasReady(canvas);
@@ -1061,8 +1131,9 @@ export function MuseumPage({route, href, push, replace}: {
                 if (controls.shouldSuppressActivation()) return;
                 openVisitorMap();
               }}
-              onHallTransition={handleHallTransition}
-              onHallTransitionBlocked={handleHallTransitionBlocked}
+              onNodeTransition={handleNodeTransition}
+              onNodeTransitionBlocked={handleNodeTransitionBlocked}
+              onApproachHall={handleApproachHall}
               onHallContentReady={handleHallContentReady}
               onHallContentUnavailable={handleHallContentUnavailable}
               onHallContentError={handleHallContentError}
@@ -1077,6 +1148,7 @@ export function MuseumPage({route, href, push, replace}: {
             <p className="museum-masthead-kicker"><Landmark size={14}/> Philosophy Atlas Museum <span>{hall.galleryNumber}</span></p>
             <h1 id="museum-title" tabIndex={-1}>{hall.title}</h1>
             <p className="museum-masthead-period">{hall.period}</p>
+            {!activeNode.publicHallId && <p className="museum-masthead-location">Current location · {activeNode.mapLabel}</p>}
             <p className="museum-masthead-sweep">{hall.sweep.map((item, index) => <span key={item}>{index > 0 && <i aria-hidden="true">→</i>}{item}</span>)}</p>
             <div className="museum-entry-row">
               {focusSuspended
@@ -1136,6 +1208,7 @@ export function MuseumPage({route, href, push, replace}: {
       {!modalOpen && !activeHallLoadFailed && adjacentLoadingHallIds.length > 0 && <div className="museum-status-message museum-adjacent-load-status" role="status"><span>Preparing {adjacentLoadingHallIds.map((hallId) => getMuseumHallCatalog(hallId)?.title ?? 'an adjacent gallery').join(' and ')}…</span></div>}
       {!exhibit && overlay === 'visitor-map' && <MuseumVisitorMap
         currentHallId={activeHallId}
+        currentNodeId={activeNode.id}
         returnFocus={overlayOpenerRef.current}
         onClose={closeVisitorMap}
         onTravel={visitHallFromVisitorMap}
