@@ -1,10 +1,10 @@
-# Recommended Museum program
+# Approved Museum program
 
-## Recommendation at a glance
+## Approved program at a glance
 
-Adopt **Worlds with a Questions Forum — Expanded and Culturally Safeguarded** as the long-term intellectual program. It combines one comparative Core Questions Forum with nine historically or culturally situated wings. The Forum helps visitors ask across traditions; it does not claim that modern academic branches are the source, destination, or universal vocabulary of every tradition.
+**Worlds with a Questions Forum — Expanded and Culturally Safeguarded** is the approved long-term intellectual program, locked for the Ring pilot. It combines one comparative Core Questions Forum with nine historically or culturally situated wings. The Forum helps visitors ask across traditions; it does not claim that modern academic branches are the source, destination, or universal vocabulary of every tradition.
 
-This is a planning program, not a change to the live Museum. Its authoritative machine-readable sources are [hall-program.json](./hall-program.json), [branch-assignments.csv](./branch-assignments.csv), and [philosopher-assignments.csv](./philosopher-assignments.csv).
+This is the approved planning program, not the current six-shell exhibit roster. Its authoritative machine-readable intellectual sources are [hall-program.json](./hall-program.json), [branch-assignments.csv](./branch-assignments.csv), and [philosopher-assignments.csv](./philosopher-assignments.csv). The physical Ring pilot changes circulation while preserving all 48 live exhibits.
 
 | Program measure | Exact total |
 | --- | ---: |
@@ -75,8 +75,8 @@ The table below reconciles the 184 current primary assignments with the 258-slot
 | Connected Medieval & Post-Classical Intellectual Worlds | 3 | 11 | 33 | 2 | 20 | 22 | 11 |
 | Early Modern Europe & Enlightenments | 4 | 14 | 23 | 2 | 16 | 18 | 5 |
 | Nineteenth-Century Transformations | 3 | 11 | 15 | 1 | 9 | 10 | 5 |
-| Modern Philosophical Traditions | 4 | 18 | 28 | 5 | 20 | 25 | 3 |
-| Ethics, Politics, and Social Thought | 4 | 14 | 25 | 6 | 12 | 18 | 7 |
+| Modern Philosophical Traditions | 4 | 18 | 28 | 5 | 19 | 24 | 4 |
+| Ethics, Politics, and Social Thought | 4 | 14 | 25 | 6 | 13 | 19 | 6 |
 | **Total** | **26** | **105** | **258** | **43** | **141** | **184** | **74** |
 
 ## Wing and hall program
@@ -247,7 +247,7 @@ Rooms: Will, representation, suffering, and reception (1); Faith, subjectivity, 
 
 ### 9. Modern Philosophical Traditions
 
-**Program (`wing-modern-traditions`):** 4 halls, 18 rooms, capacity 28; 25 current assignments, 3 reserve slots.
+**Program (`wing-modern-traditions`):** 4 halls, 18 rooms, capacity 28; 24 current assignments, 4 reserve slots.
 
 This is the tightest wing. It gives pragmatist, analytic, phenomenological/existential, and critical/deconstructive traditions internal room sequences rather than flattening them into “modern philosophy.” Family labels remain historical claims to be explained: Continental Philosophy is explicitly a retrospective orientation term, while Existentialism distinguishes members, precursors, influences, and people who rejected the label.
 
@@ -265,7 +265,7 @@ Rooms: Origins in logic, analysis, and reference (3); Common sense, realism, and
 
 #### Phenomenology, Existence, and Embodiment
 
-`phenomenology-existence-embodiment` · sequential template · 5 rooms · capacity 10 · 10 assigned · no reserve
+`phenomenology-existence-embodiment` · sequential template · 5 rooms · capacity 10 · 9 assigned · 1 reserve
 
 Rooms: Intentionality, reduction, and lifeworld (2); Being-in-the-world, perception, and embodiment (2); Existentialism: freedom, facticity, and bad faith (2); Situated freedom, ambiguity, the absurd, and revolt (2); Interpretation, tradition, alterity, and responsibility (2).
 
@@ -277,9 +277,9 @@ Rooms: Continental philosophy as a retrospective family (2); Archaeology, geneal
 
 ### 10. Ethics, Politics, and Social Thought
 
-**Program (`wing-ethics-politics-society`):** 4 halls, 14 rooms, capacity 25; 18 current assignments, 7 reserve slots.
+**Program (`wing-ethics-politics-society`):** 4 halls, 14 rooms, capacity 25; 19 current assignments, 6 reserve slots.
 
-This wing gives practical and social questions enough space not to become appendices to intellectual history. Its four halls distinguish moral reasoning, political authority and justice, feminist genealogies, and colonialism/race/liberation while connecting them heavily. Historical primaries such as Aristotle, Kant, Mill, Beauvoir, and Foucault can have major secondary presences here without being physically duplicated.
+This wing gives practical and social questions enough space not to become appendices to intellectual history. Its four halls distinguish moral reasoning, political authority and justice, feminist genealogies, and colonialism/race/liberation while connecting them heavily. Beauvoir’s approved primary is in Feminist Philosophies; historical primaries such as Aristotle, Kant, Mill, and Foucault can have major secondary presences elsewhere in the wing without being physically duplicated.
 
 #### Moral Life & Practical Reason
 
@@ -295,7 +295,7 @@ Rooms: Political philosophy, authority, and public action (3); Justice, distribu
 
 #### Feminist Philosophies
 
-`feminist-philosophies` · crossroads template · 4 rooms · capacity 5 · 2 assigned · 3 reserve
+`feminist-philosophies` · crossroads template · 4 rooms · capacity 5 · 3 assigned · 2 reserve
 
 Rooms: Feminist philosophy and plural genealogies (2); Early-modern education, marriage, virtue, and citizenship (1); Situated freedom, embodiment, and otherness (1); Gender, norms, performativity, and social ontology (1).
 
@@ -316,7 +316,7 @@ These examples show the primary/secondary rule in practice. They are not the com
 | Wittgenstein | Analytic Traditions | Forum; Moral Life | One analytic home covers early logical and later use-oriented phases; logic, language, mind, and ethics are lenses |
 | Buddhist Epistemology | Buddhist Philosophies | Core Questions Forum | A modern umbrella for pramāṇa lineages; cultural-historical primary, Knowledge/Logic comparison secondary |
 | Islamic Philosophy | Arabic & Islamic Philosophical Worlds | Forum; Jewish Philosophy; Latin Christian Scholasticism | A distinct intellectual-world primary avoids reducing it to medieval transmission into Europe |
-| Simone de Beauvoir | Phenomenology, Existence, and Embodiment | Feminist Philosophies | Existential/phenomenological primary with an anchor-strength feminist secondary; feminist primary remains a defensible alternative |
+| Simone de Beauvoir | Feminist Philosophies | Phenomenology, Existence, and Embodiment | Feminist primary recognizes her independent reorganization of freedom, embodiment, oppression, and becoming; PEE retains an anchor-strength existential and phenomenological secondary |
 | Albert Camus | Phenomenology, Existence, and Embodiment | Justice and Democratic Reason; Colonialism, Race, and Liberation | Placed beside existentialism while clearly marked as rejecting the label; absurdity and revolt lead the account, while the colonial route stages his Algerian/French settler position and a critical Fanon counterpoint |
 | Michel Foucault | Critique, Power, and Deconstruction | Colonialism/Race/Liberation; Feminist Philosophies; Justice | Genealogy and subject formation organize the primary; political and social receptions stay substantial |
 | Elizabeth Anscombe | Analytic Traditions | Forum; Moral Life | Contribution-first Action/Intention primary; ethics and virtue revival remain major secondary readings |
@@ -334,12 +334,12 @@ The program is culturally safeguarded only if these are treated as implementatio
 6. **Arabic/Islamic, Jewish, and Latin Christian halls are connected equals.** Islamic philosophy is not a relay station from Greece to Europe, Jewish philosophy is not a sidebar to either neighbor, and scholasticism is identified as a practice and institutional culture rather than a synonym for all medieval thought. Mulla Sadra's post-Avicennian room must visibly say “Safavid continuities” so a seventeenth-century thinker is not absorbed into a generic medieval period.
 7. **Chronological uncertainty is visible.** The Buddha receives an approximate historical frame; Mahāvīra is not called the inventor of Jain teaching; Kaṇāda and Patañjali are presented through attribution/floruit uncertainty rather than false exact lifetimes.
 8. **Retrospective families and rejected labels stay qualified.** Continental philosophy, existentialism, decolonial continuities, and other broad program terms are not silently treated as self-identified schools.
-9. **Feminist and anticolonial routes are not late add-ons.** The feminist genealogy begins before 1792 because the current collection includes Mary Astell; Beauvoir's, Foucault's, and other secondary presences remain prominent; Fanon's primary is anticolonial/Fanonian without asserting membership in every later coloniality school.
+9. **Feminist and anticolonial routes are not late add-ons.** The feminist genealogy begins before 1792 because the current collection includes Mary Astell; Beauvoir’s Feminist Philosophies primary and anchor-strength PEE secondary are both prominent; Foucault’s and other secondary presences remain substantial; Fanon’s primary is anticolonial/Fanonian without asserting membership in every later coloniality school.
 10. **The current dataset is a scope boundary, not a canon.** Empty reserve rooms name omissions openly instead of making the present inventory look complete.
 
 ## Reserved contexts, collection gaps, and capacity pressure
 
-The 74-slot reserve consists of 22 slots in 13 rooms with no current primary assignment and 52 open slots within partly assigned rooms. “No primary assignment” does not mean an empty gallery: portals, timelines, secondary appearances, maps, and context installations may occupy it before the Atlas gains new primary records.
+The 74-slot reserve consists of 21 slots in 12 rooms with no current primary assignment and 53 open slots within partly assigned rooms. “No primary assignment” does not mean an empty gallery: portals, timelines, secondary appearances, maps, and context installations may occupy it before the Atlas gains new primary records.
 
 | Wing | Room with no current primary assignment | Capacity |
 | --- | --- | ---: |
@@ -354,17 +354,16 @@ The 74-slot reserve consists of 22 slots in 13 rooms with no current primary ass
 | Nineteenth-Century Transformations | Political economy and social transformations | 1 |
 | Modern Philosophical Traditions | Later pragmatist continuities and omissions | 2 |
 | Ethics, Politics, and Social Thought | Early-modern education, marriage, virtue, and citizenship | 1 |
-| Ethics, Politics, and Social Thought | Situated freedom, embodiment, and otherness | 1 |
 | Ethics, Politics, and Social Thought | Anticolonial, postcolonial, Africana, and decolonial continuities | 2 |
-| **Total** | **13 rooms** | **22** |
+| **Total** | **12 rooms** | **21** |
 
 Named reserve contexts should guide research without predetermining new records. The present Atlas remains especially thin in South Asian schools beyond the current Jain, Yoga, category/realist, and Vedānta materials; Buddhist transmission beyond its present classical Indian-centered roster; Korean, Japanese, Vietnamese, and modern East Asian continuities; early-modern and later Jewish philosophy; later pragmatisms; feminist genealogies between the early-modern and contemporary anchors; and broader anticolonial, postcolonial, Africana, Indigenous, Latin American, and decolonial histories. These are not interchangeable “global” gaps. Each requires its own specialist review, sources, and—where necessary—new hall capacity.
 
-Five halls are already at their planned record capacity: Empiricism, Enlightenment, Faith/Pessimism/Life/Value, Analytic Traditions, and Phenomenology/Existence/Embodiment. A new record in one of those narratives should trigger a local capacity review, not automatic demotion of an existing exhibit or misuse of an unrelated reserve room. The Modern Philosophical Traditions wing has only three reserve slots overall and is the clearest early expansion pressure.
+Four halls are already at their planned primary-record capacity: Empiricism, Enlightenment, Faith/Pessimism/Life/Value, and Analytic Traditions. A new record in one of those narratives should trigger a local capacity review, not automatic demotion of an existing exhibit or misuse of an unrelated reserve room. Phenomenology/Existence/Embodiment now has one unassigned primary-record slot, but Beauvoir’s required anchor-strength secondary creates real presentation pressure there. Modern Philosophical Traditions has four reserve slots overall and remains the clearest early expansion pressure at 24 of 28 assigned slots (85.7%).
 
-## Approval conditions
+## Locked program conditions
 
-This program is ready to guide later physical design if review confirms all of the following:
+This approved program governs the Ring pilot under all of the following conditions:
 
 - one primary assignment for each of the 43 branch IDs and 141 philosopher IDs;
 - capacity is treated as record-planning capacity rather than visitor or architectural occupancy;
@@ -373,4 +372,4 @@ This program is ready to guide later physical design if review confirms all of t
 - reserve contexts remain visibly provisional until supported by researched Atlas records;
 - a full hall can expand rather than forcing future material into a misleading category.
 
-Approval of the program does not approve 3D geometry or a migration. It establishes what the eventual Museum must be capable of housing and the intellectual rules the physical plan must preserve.
+The program establishes what the eventual Museum must be capable of housing and the intellectual rules the approved Ring geometry and staged migration must preserve. It does not claim that the other twenty planned halls or the curated Core Questions Forum are already built.

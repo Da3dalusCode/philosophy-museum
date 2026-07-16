@@ -2,11 +2,11 @@
 
 ## Purpose and scope
 
-These rules govern the recommended program in [`hall-program.json`](./hall-program.json) and the primary assignments in [`branch-assignments.csv`](./branch-assignments.csv) and [`philosopher-assignments.csv`](./philosopher-assignments.csv). They apply to all 43 current branch records and all 141 current philosopher records.
+These rules govern the approved program in [`hall-program.json`](./hall-program.json) and the primary assignments in [`branch-assignments.csv`](./branch-assignments.csv) and [`philosopher-assignments.csv`](./philosopher-assignments.csv). They apply to all 43 current branch records and all 141 current philosopher records and are locked for the Ring pilot.
 
 The basic rule is simple: **a primary physical home is a navigation decision, not a claim that one hall owns the person or idea**. Every record receives exactly one primary wing, hall, and room so visitors can find it and the building can be planned. Secondary appearances then make real intellectual overlap visible without cloning the primary exhibit.
 
-The recommended program uses ten wings, twenty-six halls, and 105 rooms or zones. The larger structure is intentionally hybrid:
+The approved program uses ten wings, twenty-six halls, and 105 rooms or zones. The larger structure is intentionally hybrid:
 
 - historically situated schools, traditions, and most philosophers receive cultural-historical homes;
 - broad questions and modern academic fields receive thematic homes;
@@ -25,7 +25,7 @@ When plausible homes compete, reviewers apply the following tests in order:
 5. **Visitor legibility.** If the first four tests remain tied, choose the home that makes the surrounding story easiest to understand.
 6. **Capacity.** Room size is a final tie-breaker only. It must never override a defensible historical classification.
 
-The result is not a mechanical “birthplace rule.” A philosopher may receive a thematic primary home when a field-defining contribution provides the clearest account of the mature work. Whitehead is therefore primary in Reality & Being, Thomas Nagel in Mind & Self, and Carnap, Popper, and Kuhn in Science. These are explicit contribution-first exceptions, not a general license to detach non-European thinkers from their traditions.
+The result is not a mechanical “birthplace rule.” A philosopher may receive a thematic primary home when a field-defining contribution provides the clearest account of the mature work. Whitehead is therefore primary in Reality & Being, Thomas Nagel in Mind & Self, and Carnap, Popper, and Kuhn in Science. Beauvoir’s approved Feminist Philosophies primary is another explicit contribution-first adjudication: it treats her feminist philosophy as an independent reorganization of freedom, embodiment, oppression, and becoming while retaining her existential and phenomenological formation as an anchor-strength secondary. These are bounded exceptions, not a general license to detach non-European thinkers from their traditions.
 
 ## Historical placement and thematic placement
 
@@ -146,7 +146,7 @@ A secondary appearance must:
 
 The assignment CSVs list hall-level route candidates only. Before implementation, each candidate must be promoted into a typed secondary-association record with a room-level destination, relation type, and one-sentence rationale. Until then, a semicolon-delimited hall ID means “review this route,” never “assert influence.” This matters especially for synchronized comparisons, contested receptions, and cross-cultural transmission.
 
-An “anchor-strength secondary” is an allowed exception in scale, not in identity. Beauvoir’s Feminist Philosophies installation may be substantial enough to anchor that room’s argument, but it focuses on *The Second Sex*, situated freedom, embodiment, and feminist reception while pointing to her complete primary exhibit in Phenomenology, Existence, and Embodiment. Wollstonecraft receives the same kind of historically specific feminist secondary while her primary biography remains in the Enlightenment hall.
+An “anchor-strength secondary” is an allowed exception in scale, not in identity. Beauvoir’s Phenomenology, Existence, and Embodiment installation is substantial enough to anchor an account of ambiguity, situation, existential ethics, phenomenological method, and postwar debate while pointing to her complete primary exhibit in Feminist Philosophies. It must not present her as an application of Sartre. Wollstonecraft receives a historically specific feminist secondary while her primary biography remains in the Enlightenment hall.
 
 ## Cross-cultural transmission and connected worlds
 
@@ -194,11 +194,11 @@ The current recently deceased set includes Jürgen Habermas; his dates and legac
 
 Specialists agreed on the context-first rule but identified two recurring tensions.
 
-First, historical reviewers favored the setting in which a body of work formed, while thematic reviewers sometimes favored the field in which it is now most influential. The resolution is historical primary plus focused thematic secondary unless the mature contribution clearly reorganizes a modern field and no historical movement is more explanatory. Aristotle, Patañjali, Dignāga, Dharmakīrti, Kant, Beauvoir, and Foucault follow the historical rule; Whitehead, Nagel, Parfit, Carnap, Popper, and Kuhn illustrate carefully stated contribution-first decisions.
+First, historical reviewers favored the setting in which a body of work formed, while thematic reviewers sometimes favored the field in which it is now most influential. The resolution is historical primary plus focused thematic secondary unless the mature contribution clearly reorganizes a modern field and the thematic home gives the more responsible account of the work. Aristotle, Patañjali, Dignāga, Dharmakīrti, Kant, and Foucault follow the historical rule; Beauvoir, Whitehead, Nagel, Parfit, Carnap, Popper, and Kuhn illustrate carefully stated contribution-first decisions.
 
 Second, cultural specialists demanded independent intellectual settings, while visitor-experience reviewers favored visible connections. The resolution is **distinct halls inside connected wings, joined by thresholds rather than merged taxonomies**. That produces separate Islamic, Jewish, and Latin halls; separate South Asian and Buddhist wings; and separate Classical Chinese and East Asian continuity halls.
 
-Two person-level disagreements remained especially close. The continental reviewer favored Beauvoir’s phenomenological-existential formation; the feminist/social-thought reviewer favored Feminist Philosophies. The analytic reviewer favored Anscombe’s action and intention work; the ethics reviewer favored the virtue revival. The final assignments use historical/contribution continuity for the primary homes and substantial secondary installations for the alternative readings. These are documented judgment calls, not claims that the losing interpretation was wrong.
+Two person-level disagreements were especially close. The continental reviewer favored Beauvoir’s phenomenological-existential formation; the feminist/social-thought reviewer favored Feminist Philosophies. The approved decision gives Beauvoir a Feminist Philosophies primary and an anchor-strength phenomenological/existential secondary so her formation remains legible without subordinating her independent philosophy. The analytic reviewer favored Anscombe’s action and intention work; the ethics reviewer favored the virtue revival, producing an Analytic primary with a substantial moral-philosophy secondary. These are documented adjudications, not claims that the alternative interpretation was unintelligible.
 
 ## Editorial and validation checklist
 

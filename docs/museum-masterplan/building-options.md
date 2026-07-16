@@ -1,14 +1,14 @@
-# Physical building options
+# Physical building decision record
 
-## Recommendation and scope
+## Approved direction and scope
 
-Adopt the **single-level Ring of Wings** as the physical basis for the recommended **Worlds with a Questions Forum** program: 10 wings, 26 halls, 105 rooms, and 258 record-capacity slots. The ring gives every wing a legible address, gives visitors more than one way home, and can absorb the current six shells without first introducing lifts or a dispersed campus.
+The **single-level Ring of Wings** is the approved physical basis for the locked **Worlds with a Questions Forum** program: 10 wings, 26 halls, 105 rooms, and 258 record-capacity slots. The ring gives every wing a legible address, gives visitors more than one way home, and can absorb the current six shells without first introducing lifts or a dispersed campus. The Braided Promenade and Pavilion Campus remain archival comparison studies, not active alternatives for the Ring pilot.
 
-This is a planning document, not a geometry specification. None of the plans below changes the live Museum. Coordinates in [building-manifest.example.json](./building-manifest.example.json) are illustrative schema examples, not approved construction coordinates.
+This document locks the long-term physical direction but is not itself the runtime geometry specification. The Ring pilot’s authoritative runtime building manifest owns the implemented six-shell placement and connections. Coordinates in [building-manifest.example.json](./building-manifest.example.json) remain an illustrative planning fixture, not construction coordinates or runtime truth.
 
 The present six-gallery world is a successful prototype but the wrong growth model. It has six halls, eight exhibits and three zones per hall, five hall-to-hall links, approximately 7,312 authored square metres, and approximately 390 metres of primary circulation. Its only public route is a chain. Extending that chain to 26 halls would increase walking and loading costs while making orientation progressively worse. The current visitor map correctly derives edges from registered connections, but its node percentages are a separately authored topological diagram rather than a projection of physical footprints.
 
-All three concepts below therefore preserve the good runtime contracts—one persistent canvas, hall-local coordinates, collision-backed thresholds, and safe arrival poses—while replacing the chain with loops, short returns, and reserved expansion points.
+The design review required every studied concept to preserve the good runtime contracts—one persistent canvas, hall-local coordinates, collision-backed thresholds, and safe arrival poses—while replacing the chain with loops, short returns, and reserved expansion points. The Ring is the approved result.
 
 ## The 26-hall kit of parts
 
@@ -31,7 +31,7 @@ In the link counts below, one **link** is one undirected, public hall-to-hall wa
 
 The SVGs are **conceptual floor-plan diagrams, not scaled construction drawings**. Blocks show wing placement and circulation logic rather than each template-sized hall. The 26 nominal hall footprints total approximately 30,160 m² before corridors, atria, structure, services, and external landscape; compactness and walking claims therefore remain comparative until a scaled site plan is approved.
 
-## Common template and interface standard
+## Approved template and interface standard
 
 Templates may be rotated or mirrored on a one-metre planning grid. Rotation changes placement, never the meaning of a local doorway slot. Hall-specific partitions may refine a template, but walls, openings, collision, light anchors, safe arrival landings, and map footprints must still resolve from the same physical source.
 
@@ -40,9 +40,9 @@ Templates may be rotated or mirrored on a one-metre planning grid. Rotation chan
 | `standard-rect` | 20 × 24 m | 2–3 | `N0`, `S0`, optional `E0`, optional `W0` | 5.8 m |
 | `sequence-3` | 24 × 56 m | 3–5 | `N0`, `S0`, optional `E1`, optional `W1` | 5.8 m |
 | `crossroads-4` | 28 × 28 m | 4–9 | `N0`, `S0`, `E0`, `W0`, optional `N1`, optional `S1` | 6.2 m |
-| `focal-terminal` | 20 × 26 m | 1–2 | `N0`, optional `S0` | 6.4 m |
+| `focal-terminal` — rare special case | 20 × 26 m | 1–2 | `N0`, optional `S0` | 6.4 m |
 
-The focal template is part of the long-term kit even though the current 26-hall program does not require it. It is appropriate for a later terminal work, memorial, or tightly bounded special exhibition; it must not become a pretext for giving a tradition only a decorative cul-de-sac. The sequence template's paired side slots are distinct mid-sequence thresholds: neither is presumed open, and each requires its own sightline, landing, and room-partition review before activation.
+The three normal active templates are `standard-rect`, `sequence-3`, and `crossroads-4`. The focal template is retained only as a rare special-case contract; the current 26-hall program does not use it. It is appropriate for a later terminal work, memorial, or tightly bounded special exhibition and must not become a pretext for giving a tradition only a decorative cul-de-sac. The sequence template's paired side slots are distinct mid-sequence thresholds: neither is presumed open, and each requires its own sightline, landing, and room-partition review before activation.
 
 The declared slot counts have been checked against each concept's maximum demand. In the Ring, `LAI`, `CSA`, `BP`, `EAC`, and `IPW` use three live links plus one blocked reserve; in the Pavilion mesh, `MBC` and `RHN` reach four live links, while `CSA` uses three live links plus a reserve. Those cases consume all four `sequence-3` slots but do not exceed them. A concept may not count a live edge or reserve unless a distinct compatible slot remains at both affected nodes.
 
@@ -57,15 +57,15 @@ Shared dimensions and contracts:
 - Door slots, exhibit slots, colliders, entrance views, and lighting anchors use hall-local coordinates. The physical manifest supplies the world transform and level.
 - A reserved slot has a visible blocked threshold and a named reservation, but no runtime connection, no fast-travel destination, and no implication that a hall is already open.
 
-## Option comparison
+## Archived option comparison
 
 | Concept | Levels | Active links | Degree pattern | Expansion provision | Migration fit |
 | --- | ---: | ---: | --- | --- | --- |
-| **Ring of Wings — recommended** | 1 | 34 | 12 halls degree 2; 12 degree 3; `CQ` and `MLPR` degree 4; average 2.62 | eight outward reserved portals | strongest; the six shells can form a truthful pilot loop |
+| **Ring of Wings — approved** | 1 | 34 | 12 halls degree 2; 12 degree 3; `CQ` and `MLPR` degree 4; average 2.62 | eight outward reserved portals | selected; the six shells can form a truthful pilot loop |
 | **Braided Promenade** | 2, 13 halls each | 33 | most halls 2; core-linked gateways 3–4; average 2.54 | six horizontal reserves plus a safeguarded upper-level strategy | weakest near-term; vertical infrastructure is required before the plan is truthful |
 | **Pavilion Campus Mesh** | 1 dispersed level | 36 | most halls 2–3; gateways no more than 4; average 2.77 | an outward slot at every pavilion, with several initially reserved | good incremental construction, but long walks and a more complex graph |
 
-## Option A — Single-level Ring of Wings (recommended)
+## Approved plan — Single-level Ring of Wings
 
 ### Floor-plan idea
 
@@ -132,7 +132,7 @@ The entire public program is step-free on one level. The ring offers two directi
 
 ### How the current six halls fit
 
-The six shells can first become a compact pilot ring in their existing intellectual order: `Ancient → Renaissance → Modernity → Logic → Ethics → Mind → Ancient`. The Mind shell acts as a provisional Forum-side anchor; it does not yet occupy the final central `CQ` position. Ancient remains the temporary public entrance because it already contains the map kiosk. The shells retain their IDs, routes, zones, and 48-exhibit roster during this step. New truthful corridors close the loop, and blocked reserved portals mark where the global, post-classical, and eventual split halls will attach. [migration-plan.md](./migration-plan.md) defines the exhibit-level disposition and makes clear that this pilot is not the final six-hall taxonomy.
+The six shells form a compact pilot ring in their existing intellectual order: `Ancient → Renaissance → Modernity → Logic → Ethics → Mind → Ancient`. A central orientation and circulation court represents the future Forum location without presenting unfinished `CQ` content as open. Ancient remains the temporary public entrance because it already contains the map kiosk. The shells retain their IDs, routes, zones, and 48-exhibit roster during this step. Truthful corridors close the walking loop, proportionate court spokes or shortcuts prove multiple routes, and blocked reservations mark where missing planned halls and later outward growth can attach. [migration-plan.md](./migration-plan.md) defines the exhibit-level disposition and makes clear that this pilot is not the final six-hall taxonomy.
 
 ### Advantages
 
@@ -149,11 +149,11 @@ The six shells can first become a compact pilot ring in their existing intellect
 - `CQ` could appear to own every question. Its four-spoke limit and labels must describe comparison and routing, while primary authority remains in the cultural-historical halls.
 - Ring construction needs enough central clearance that crosscuts do not become visual or collision clutter. Link approval must include sightline and safe-arrival review.
 
-## Option B — Two-level Braided Promenade
+## Archived comparison — Two-level Braided Promenade
 
 ### Floor-plan idea
 
-This concept compresses the building into two equal loops of 13 halls. Three distributed lift-and-stair cores braid the loops together at meaningful thresholds. Level 0 holds the entrance, the Core Forum, Mediterranean, South Asian, Buddhist, Connected Medieval & Post-Classical, and Early Modern wings. Level 1 holds East Asian Continuities, Nineteenth-Century Transformations, Modern Traditions, and Ethics, Politics, and Social Thought. This physical **Braided Promenade** is independent of the intellectual **Braided Global Timeline** option; either taxonomy could in principle use another approved building concept.
+This concept compresses the building into two equal loops of 13 halls. Three distributed lift-and-stair cores braid the loops together at meaningful thresholds. Level 0 holds the entrance, the Core Forum, Mediterranean, South Asian, Buddhist, Connected Medieval & Post-Classical, and Early Modern wings. Level 1 holds East Asian Continuities, Nineteenth-Century Transformations, Modern Traditions, and Ethics, Politics, and Social Thought. This physical **Braided Promenade** is independent of the intellectual **Braided Global Timeline** study; the archival comparison does not reopen either approved Ring-pilot decision.
 
 [Open the detailed Braided Promenade diagram](./diagrams/braided-promenade.svg).
 
@@ -190,7 +190,7 @@ This is accessible only if all three lift routes are live, equivalent, and redun
 
 ### How the current six halls fit
 
-A two-level prototype would place Ancient, Renaissance, and Mind/Core on Level 0 and Modernity, Logic, and Ethics on Level 1, with all three cores required from day one. That is a poor fit for the requested next phase: the six shells cannot truthfully demonstrate this concept without building vertical infrastructure and rewriting more runtime assumptions at once. This is the strongest compact alternative if a future site constraint makes one level impossible, not the preferred migration target.
+A two-level prototype would place Ancient, Renaissance, and Mind/Core on Level 0 and Modernity, Logic, and Ethics on Level 1, with all three cores required from day one. The six shells cannot truthfully demonstrate this concept without building vertical infrastructure and rewriting more runtime assumptions at once. This remains an archival account of the compact tradeoff, not an active migration target for the locked Ring pilot.
 
 ### Advantages
 
@@ -206,7 +206,7 @@ A two-level prototype would place Ancient, Renaissance, and Mind/Core on Level 0
 - Visitors may read floors as a hierarchy or chronology even when labels deny it.
 - The present active-plus-all-adjacent loading rule becomes especially wasteful at three-dimensional gateways and must be replaced before construction.
 
-## Option C — Pavilion Campus Mesh
+## Archived comparison — Pavilion Campus Mesh
 
 ### Floor-plan idea
 
@@ -275,7 +275,7 @@ The long-term architecture should have four authoritative layers and one derived
 | --- | --- | --- | --- |
 | 1. Philosophical content assignment | entity ID, primary wing/hall/room, tier, rationale, secondary associations | world coordinates, doorways, render components | `philosopher-assignments.csv`, `branch-assignments.csv` |
 | 2. Hall program | wing/hall/room IDs, titles, capacity, intended template | final transform, runtime readiness, hand-drawn map percentages | `hall-program.json` |
-| 3. Physical building manifest | level, world position, rotation, footprint, template, doorway slots, one undirected connection record, safe arrivals, map polygon, status, reservations | exhibit scholarship or React loaders | future approved manifest; schema illustrated by `building-manifest.example.json` |
+| 3. Physical building manifest | level, world position, rotation, footprint, template, doorway slots, one undirected connection record, safe arrivals, map polygon, status, reservations | exhibit scholarship or React loaders | authoritative Ring-pilot runtime manifest; schema history illustrated by `building-manifest.example.json` |
 | 4. Resolved hall definitions | instantiated walls, openings, colliders, light anchors, local partitions, runtime loader binding | independent connection truth or separate map geometry | generated/validated runtime definitions |
 | 5. Visitor-map projection | derived floor footprints, open doors, corridors, accessible walking graph, current location, open/reserved status | independently authored node percentages or invented edges | generated selector/projection from layers 2–4 |
 
@@ -291,9 +291,9 @@ Rendered definitions remain hall-local. A template resolver combines template ge
 - **Residency:** which prepared scenes and media remain mounted around the active hall under a measured memory budget.
 - **Insertion reservation:** a blocked location for one of the approved 26 halls. **Expansion reservation:** a blocked growth point beyond the approved program.
 
-## Decision gates before geometry work
+## Locked implementation checks
 
-Approve a physical option only after reviewers can answer yes to all of the following:
+The Ring implementation must continue to answer yes to all of the following:
 
 1. Do all 26 stable hall IDs appear exactly once in the plan?
 2. Does every active link terminate at compatible doorway slots with a 4 × 4 m safe landing?
@@ -305,4 +305,4 @@ Approve a physical option only after reviewers can answer yes to all of the foll
 8. Can the current six-shell pilot be reverted or advanced without changing its exhibit roster or public route IDs prematurely?
 9. Has later technical design validated slope, egress, reach ranges, assisted-listening/nonvisual map equivalence, seating, and emergency return behavior rather than treating this concept review as code approval?
 
-On those tests, the Ring of Wings is the most legible, accessible, and migration-safe option. The Braided Promenade and Pavilion Campus remain serious alternatives if future footprint or expansion constraints outweigh the ring's advantages.
+On those checks, the Ring of Wings remains the approved, accessible, and migration-safe direction. The Braided Promenade and Pavilion Campus are retained only as archival records of the earlier comparison and do not reopen the decision during this phase.

@@ -2,9 +2,9 @@
 
 ## Status and governing decision
 
-This plan authorizes **no implementation**. It describes the safest order after the intellectual program and a physical option are approved. The recommended target is the single-level Ring of Wings in [building-options.md](./building-options.md), supporting the 10-wing, 26-hall Worlds with a Questions Forum program.
+This plan records the approved implementation sequence. **Worlds with a Questions Forum** and the single-level **Ring of Wings** in [building-options.md](./building-options.md) are locked for the Ring pilot, supporting the long-term 10-wing, 26-hall, 105-room program. Approval covers the six-shell physical pilot, not construction of the other twenty planned halls.
 
-The next implementation phase is deliberately small: rearrange only the six existing shells, make their walls and corridors physically truthful, close them into a pilot loop, and construct blocked, named portal reservations. Do not add a seventh hall, change the 48-exhibit roster, rename public routes, or pretend that a reserved destination is open.
+The approved implementation phase is deliberately small: rearrange only the six existing shells, make their walls and corridors physically truthful, close them into a pilot loop around a central orientation court, add proportionate spokes or shortcuts, and construct blocked, named portal reservations. Do not add a seventh intellectual hall, change the 48-exhibit roster, rename public routes, or pretend that the future Forum or a reserved destination is curated and open.
 
 ## Why a staged migration is necessary
 
@@ -35,15 +35,15 @@ Every implementation phase must preserve these rules:
 
 | Phase | Outcome | Museum content change |
 | --- | --- | --- |
-| 0. Review and approval | approve taxonomy, Ring concept, stable IDs, successor-shell assumptions, and disposition table | none; this planning package is Phase 0 |
-| 1. Infrastructure and compatibility adapters | introduce a shared physical source without changing the visible six-hall experience | none |
-| 2. Six-shell physical truth | arrange the existing six shells as a compact pilot ring with real corridors and named reserved portals | none; all 48 exhibits and 18 zones remain exactly where they are |
+| 0. Review and approval | taxonomy, Ring concept, stable IDs, successor-shell assumptions, and disposition table approved | complete; no content change |
+| 1. Infrastructure and compatibility adapters | introduce the authoritative runtime building manifest and compatibility adapters | part of the approved Ring-pilot implementation; no roster change |
+| 2. Six-shell physical truth | arrange the existing six shells as a compact pilot ring with real corridors, central orientation court, shortcuts or spokes, and named reserved portals | approved Ring-pilot scope; all 48 exhibits and 18 zones remain exactly where they are |
 | 3. Global-worlds demonstration | open `CSA`, `BP`, `CCT`, and `IPW` as the first four new halls | only approved primary moves whose targets are live; secondary links replace, rather than duplicate, full anchors |
 | 4. Connected-world completion | open `JPH`, `LCS`, and `EAC`; complete their transmission routes | target-specific moves and new assigned records |
 | 5. Composite-shell separation | split the remaining Mediterranean, early-modern, nineteenth-century, modern, and ethics/social programs; finalize `CQ` and the entrance role | staged exhibit moves according to the table below |
 | 6. Capacity-led expansion | use outward reservations or, only if necessary, evaluate another level | only after formal content and physical triggers are met |
 
-The numbers describe order, not releases. A phase may be split into reviewable increments, but a later phase must not be pulled forward to avoid completing infrastructure or truthfulness gates.
+The numbers describe order, not releases. The Ring pilot may implement Phases 1 and 2 together where the shared manifest is necessary to make the physical layout truthful, but later intellectual-hall construction must not be pulled forward to avoid infrastructure or truthfulness gates.
 
 ## Phase 1 — infrastructure and adapters first
 
@@ -59,7 +59,7 @@ This phase should be visually neutral. It exists to avoid rebuilding the same fo
 
 ### 2. Resolve templates without erasing hall character
 
-- Implement the four standard shells—`standard-rect`, `sequence-3`, `crossroads-4`, and `focal-terminal`—behind the existing hall-local coordinate contract.
+- Implement the three normal active templates—`standard-rect`, `sequence-3`, and `crossroads-4`—behind the existing hall-local coordinate contract. Retain `focal-terminal` only as a rare special-case contract; the current 26-hall program does not use it.
 - Derive base walls, active doorway openings, colliders, threshold lights, safe landings, and map footprints from template plus placement.
 - Permit reviewed hall-local partitions and installations. The template compiler standardizes interfaces, not scholarship or visual identity.
 
@@ -87,7 +87,7 @@ Do not rearrange a shell until audits prove that the legacy six render identical
 
 ## Phase 2 — the next build: six-shell physical truth
 
-This is the only physical scope recommended for the next implementation request.
+This is the approved physical scope for the Ring pilot.
 
 ### Pilot arrangement
 
@@ -95,20 +95,20 @@ Place the current shells in one compact, step-free loop:
 
 `Ancient → Renaissance → Modernity → Logic → Ethics → Mind → Ancient`.
 
-This retains the prototype's five familiar adjacencies and adds one truthful return connection from Mind to Ancient. Ancient remains the temporary public entrance because the working visitor-map kiosk is already there. Mind marks the provisional Core-Forum side of the loop. This is a migration diagram, not a claim that the six composite titles are the final taxonomy.
+This retains the prototype’s intellectual order while replacing the chain with a truthful closed walking loop. Ancient remains the temporary public entrance because the working visitor-map kiosk is already there. A central orientation and circulation court marks the future Forum location without claiming that Core Questions content is open. Proportionate live spokes or shortcuts provide additional useful routes through the six-shell pilot. This is a migration diagram, not a claim that the six composite titles are the final taxonomy.
 
 The work is limited to:
 
 - new world transforms for the six existing shells;
 - collision-backed corridors and walls joining compatible doorway slots;
 - safe 4 × 4 m landing zones and 1.8–2 m primary clear routes;
-- the sixth live connection that closes the loop;
+- the live return connection that closes the loop plus the manifest-defined court spokes or shortcuts needed to prove non-chain circulation;
 - blocked, named **insertion reservations** for the missing planned halls and wing sleeves;
 - separate outward **expansion reservations** for growth beyond the approved 26-hall program;
-- a visitor-map projection of the six real footprints, six real links, corridor routes, entrance, and visibly blocked reservations;
+- a visitor-map projection of the six real hall footprints, central court, every real corridor and active doorway, entrance, kiosk where useful, live walking routes, and visibly blocked reservations;
 - deterministic seam, collision, route, accessibility, residency, session, and map audits.
 
-Closing the pilot loop requires two deliberately new legacy-adapter openings: one new side portal in Mind and one new side portal in Ancient, joined by the return corridor. Do not repurpose Ancient’s public south entrance or either hall’s existing used threshold. The implementation design must name those adapter slots, prove their wall/collision openings and safe landings, and publish the new connection only when both endpoints are physically crossable.
+Every new legacy-adapter opening—including the loop return and any court spoke or shortcut—must have a distinct manifest slot, wall and collision opening, compatible doorway geometry, and collision-cleared safe landing. Do not repurpose Ancient’s public entrance or an already occupied threshold. Publish each connection only when both endpoints and its intervening corridor are physically crossable.
 
 The work explicitly excludes new hall interiors, new exhibit records, changes to the active 48-exhibit roster, a new entrance hall, curatorial reclassification in production, route removals, a second floor, deployment, and any claim that the final ring is complete.
 
@@ -116,11 +116,11 @@ The work explicitly excludes new hall interiors, new exhibit records, changes to
 
 Insertion reservations are keyed to stable future hall or wing IDs and occupy tested footprints. They indicate where the Mediterranean split, global-worlds arc, connected-medieval halls, early-modern split, nineteenth/modern split, ethics/social split, and eventual permanent Core/entrance can join. One blocked doorway may lead to a reserved connector sleeve that later branches; it must not imply that several unseen halls already share one room.
 
-Public treatment is literal: “Future wing — not yet open.” The barrier has collision. The map uses a dashed or muted footprint with no walking edge and no travel action. Opening a portal is an atomic release of target geometry, connection, readiness, map status, route, and safe arrival.
+Public treatment is literal: “Future gallery — not yet open.” The barrier has collision. The map uses a dashed or muted footprint with no walking edge and no travel action. Opening a portal is an atomic release of target geometry, connection, readiness, map status, route, and safe arrival.
 
 ### Pilot acceptance walk
 
-A reviewer must be able to enter Ancient, walk the entire loop in either direction, return without fast travel, open the map from the physical kiosk, and see the route just walked. Closing any optional shortcut must not strand a hall. Every reservation must be visibly blocked in-world and noninteractive on the map. The directory may still travel to approved safe spawns, but its fast-travel action is labeled separately from the walking diagram.
+A reviewer must be able to enter Ancient, walk the entire loop in either direction, return without fast travel, use every live court spoke or shortcut, open the map from the physical kiosk, and see the routes just walked. Closing any optional shortcut must not strand a hall. Every reservation must be visibly blocked in-world and noninteractive on the map. The directory may still travel to approved safe spawns, but its fast-travel action is labeled separately from the walking diagram.
 
 ## Current 48-exhibit disposition
 
@@ -177,7 +177,7 @@ Successor: `RHN`. Counts: 2 remain temporarily, 6 move primary later, 0 become s
 
 ### Modernity, Freedom, and Critique shell
 
-Successor: `PEE`. Counts: 4 remain temporarily, 2 move primary later, 2 become secondary later.
+Successor: `PEE`. Counts: 3 remain temporarily, 2 move primary later, 3 become secondary later.
 
 | Current exhibit (stable entity ID) | Final primary hall | Disposition |
 | --- | --- | --- |
@@ -186,7 +186,7 @@ Successor: `PEE`. Counts: 4 remain temporarily, 2 move primary later, 2 become s
 | Friedrich Nietzsche (`nietzsche`) | `FPLV` | **Become secondary later** in `PEE` |
 | Martin Heidegger (`heidegger`) | `PEE` | **Remain temporarily** |
 | Jean-Paul Sartre (`sartre`) | `PEE` | **Remain temporarily** |
-| Simone de Beauvoir (`beauvoir`) | `PEE` | **Remain temporarily** |
+| Simone de Beauvoir (`beauvoir`) | `FP` | **Become secondary later** in `PEE` |
 | Albert Camus (`camus`) | `PEE` | **Remain temporarily** |
 | Michel Foucault (`foucault`) | `CPD` | **Move primary later** |
 
@@ -239,9 +239,9 @@ Successor: `CQ`. Counts: 1 remains temporarily, 2 move primary later, 5 become s
 
 | Category | Count |
 | --- | ---: |
-| Remain temporarily | **16** |
+| Remain temporarily | **15** |
 | Move primary later | **18** |
-| Become secondary later | **14** |
+| Become secondary later | **15** |
 | **Total current exhibits** | **48** |
 
 The table is derived from the current roster, the final primary assignments, each record's approved secondary hall IDs, and the six provisional successor identities. If reviewers change a successor identity, regenerate this table from those same rules rather than hand-adjusting favored exhibits.
@@ -301,7 +301,7 @@ The eventual visitor map is a projection, not a second floor-plan database.
 - In a loop there is no terminal “journey complete” state. Guided routes may end; the building does not.
 - Treat manifest/map disagreement as a release blocker. A new connection appears only when its walls, colliders, threshold, crossing logic, readiness, and both safe arrivals are live.
 
-During the six-shell pilot, the map should remain a five-edge chain until the sixth corridor is physically crossable. In the release that opens the return corridor, it becomes a six-edge loop. The map must not preview that edge earlier merely because the final masterplan expects it.
+During construction, the map must show only connections that are physically crossable. The Ring-pilot release must project the completed six-shell loop, central court, and every live spoke or shortcut from the authoritative building manifest; it must not preview an unfinished edge merely because the masterplan expects it.
 
 ## Construction and expansion triggers
 
@@ -310,15 +310,15 @@ During the six-shell pilot, the map should remain a five-edge chain until the si
 | Open a reserved portal | target hall is content-complete; compatible doorway and corridor are built; both arrival poses are collision-safe; walking and fallback routes pass; residency/readiness pass; map and route status publish atomically |
 | Move a current primary exhibit | its assigned primary hall is live and reviewed; the destination presentation is at least equivalent in depth and accessibility; any remaining source treatment is explicitly secondary |
 | Convert a prototype shell to its successor title | all eight source exhibits have approved live dispositions and no saved route or guided walk depends on the composite title without an alias |
-| Commission a local wing-capacity review | assigned or approved projected records consume more than 85% of reviewed wing capacity, or a compressed tradition cannot be interpreted responsibly in reserve space; Modern Traditions triggers this review immediately at 89.3% |
+| Commission a local wing-capacity review | assigned or approved projected records consume more than 85% of reviewed wing capacity, or a compressed tradition cannot be interpreted responsibly in reserve space; Modern Traditions triggers this review immediately at 85.7% |
 | Add a hall inside an existing wing | the capacity review demonstrates a stable independent room program that cannot be handled by responsible tiering, rotation, or existing reserve space, and an accessible reserved connection is approved |
 | Add a new wing | the content has a distinct cultural-historical or methodological setting spanning a stable multi-hall program, and placing it under an existing wing would be materially misleading |
 | Use an outward Ring reservation | the new program has stable IDs, at least two defensible connections, an accessible return route, and no existing planned reserve can absorb it without displacing primary records |
 | Consider another floor | all suitable single-level outward reservations are allocated, a new program of at least three halls still lacks a defensible ground-level location, and three redundant lift/stair cores plus level-aware maps, collision, sessions, and fallback routes can be delivered together |
 
-The 26-hall recommended program has 258 record-capacity slots for 184 current primary records, so a second floor is not justified by the present Atlas inventory. Capacity is a curatorial planning measure, not visitor occupancy; thresholds must be reassessed if presentation tiers or room programs change.
+The approved 26-hall program has 258 record-capacity slots for 184 current primary records, so a second floor is not justified by the present Atlas inventory. Capacity is a curatorial planning measure, not visitor occupancy; thresholds must be reassessed if presentation tiers or room programs change.
 
-Modern Philosophical Traditions is already at 25 of 28 slots (89.3%), so approval should immediately commission a local capacity review and protect the outward reservation at `PDI`. That review does not automatically authorize a fifth hall: it must first test tier changes, room interpretation, and whether an approved new roster has a coherent independent program.
+Modern Philosophical Traditions is at 24 of 28 primary-record slots (85.7%), so the approved program commissions a local capacity review and protects the outward reservation at `PDI`. PEE’s nominal open primary slot is also expected to carry Beauvoir’s anchor-strength secondary. The review does not automatically authorize a fifth hall: it must first test tier changes, room interpretation, and whether an approved new roster has a coherent independent program.
 
 ## Verification at every release
 
@@ -336,4 +336,4 @@ If browser automation is blocked by the Windows process sandbox, record that lim
 
 ## Stop condition for this masterplan
 
-Stop now for user review. The next request should choose or revise the taxonomy, Ring topology, successor-shell assumptions, and the 48-exhibit disposition table. Only then should a separate implementation task begin with Phase 1 adapters and the six-shell truth phase. No current coordinates, connections, rosters, routes, or visitor-map UI are changed by this document.
+The taxonomy, Ring topology, successor-shell assumptions, Beauvoir reassignment, and 48-exhibit disposition table are locked for the Ring pilot. Stop the pilot only when the shared physical source, truthful six-shell loop and court routes, bounded residency, blocked reservations, physical visitor map, compatibility behavior, and required audits are complete. Later construction of the other twenty planned halls remains outside this phase.

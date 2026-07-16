@@ -11,7 +11,7 @@ Specialist review exposed a recurring disagreement between two good instincts:
 - **context-first reviewers** wanted a thinker to remain among the texts, institutions, languages, and debates that formed the work;
 - **contribution-first reviewers** wanted the thinker near the field in which the work is now most useful to visitors.
 
-The final program normally gives the primary home to historical formation and uses secondary appearances for later fields. It departs from that rule only where a mature, field-defining contribution gives a substantially clearer visitor narrative. The cases below show both the tradeoff and the resolution.
+The approved program normally gives the primary home to historical formation and uses secondary appearances for later fields. It departs from that rule only where a mature, field-defining contribution gives a substantially clearer and more responsible visitor narrative. Beauvoir’s Feminist Philosophies primary is the principal approved exception; the cases below show both the tradeoff and the locked resolution.
 
 ## Decision summary
 
@@ -20,7 +20,7 @@ The final program normally gives the primary home to historical formation and us
 | Aristotle | `mediterranean-beginnings-classical` / `med-plato-aristotle` | Core Questions, Ethics, Politics, Logic, or a medieval reception hall |
 | Kant | `enlightenment-revolution-kant` / `enlightenment-kant-critical` | German Idealism, Epistemology, Ethics, or Aesthetics |
 | Wittgenstein | `analytic-traditions` / `analytic-wittgenstein` | Logic & Language, Mind, or separate early/late exhibits |
-| Simone de Beauvoir | `phenomenology-existence-embodiment` / `existentialism-situated-absurd` | Feminist Philosophies primary |
+| Simone de Beauvoir | `feminist-philosophies` / `feminist-situated-freedom` | `phenomenology-existence-embodiment` / `existentialism-situated-absurd` primary |
 | Elizabeth Anscombe | `analytic-traditions` / `analytic-action-intention` | Moral Life / virtue revival primary |
 | Albert Camus | `phenomenology-existence-embodiment` / `existentialism-situated-absurd` | A new Absurdism branch, Political Thought, or unqualified Existentialism |
 | Michel Foucault | `critique-power-deconstruction` / `critique-genealogy-power` | Political Thought, social theory, Feminist Philosophies, or Colonialism |
@@ -68,15 +68,15 @@ These later installations must discuss the receiving thinkers and institutions r
 
 **Resolution.** The analytic reviewer’s longitudinal solution prevailed: one installation stages logical form, the transition in method, use, and philosophical therapy while acknowledging scholarly arguments for both rupture and continuity. A single Language primary was rejected because it would understate logic and the conception of philosophy; a Mind primary was too narrow. [SEP’s Wittgenstein entry](https://plato.stanford.edu/entries/wittgenstein/) explicitly treats his central but contested place in analytic philosophy and the debated relation among phases of his work.
 
-### Simone de Beauvoir — the closest unresolved balance
+### Simone de Beauvoir — feminist primary, existential and phenomenological secondary
 
 **The disagreement.** The continental specialist favored Phenomenology/Existence because Beauvoir’s ethics of ambiguity, account of situation, and philosophical method developed inside postwar French existential and phenomenological debates. The feminist and social-thought specialist argued that making Feminist Philosophies secondary risks repeating a canon in which *The Second Sex* is treated as an application of somebody else’s system, and that Beauvoir’s enduring feminist contribution is at least as defining.
 
-**Final assignment.** Beauvoir is an `anchor-exhibit` in `wing-modern-traditions` → `phenomenology-existence-embodiment` → `existentialism-situated-absurd`.
+**Final assignment.** Beauvoir is an `anchor-exhibit` in `wing-ethics-politics-society` → `feminist-philosophies` → `feminist-situated-freedom`.
 
-**Secondary program.** `feminist-philosophies` receives an **anchor-strength secondary**, not a small route label. It concentrates on embodied situation, otherness, becoming, oppression, and the feminist arguments and receptions of *The Second Sex*. It links to the full primary biography but must be capable of carrying a central room narrative in its own right.
+**Secondary program.** `phenomenology-existence-embodiment` receives an **anchor-strength secondary**, not a small route label. It concentrates on ambiguity, situation, existential ethics, phenomenological method, embodiment, and Beauvoir’s place in postwar French debate. It links to the full Feminist Philosophies primary and must present Beauvoir as an original philosopher rather than as Sartre’s follower.
 
-**Resolution.** Historical formation broke the tie, subject to three safeguards: Beauvoir must be presented as an original philosopher rather than Sartre’s derivative; her feminism must be integral to the primary interpretation; and the feminist secondary must be substantial. The opposite assignment—Feminist primary with existential secondary—remains defensible and should be reconsidered if the feminist hall expands materially. [SEP’s Beauvoir entry](https://plato.stanford.edu/entries/beauvoir/) documents her original contributions across phenomenology, existentialism, ethics, feminist philosophy, and political thought. This remains the masterplan’s most important person-level judgment call.
+**Resolution.** The approved decision gives priority to Beauvoir’s independent reorganization of feminist philosophy. Making Feminist Philosophies primary prevents *The Second Sex* from being framed as a thematic application of somebody else’s system, while the anchor-strength PEE secondary preserves the existential and phenomenological formation that made her account of situated freedom possible. Three safeguards are locked with the decision: Beauvoir is never presented as Sartre’s derivative; existential ethics and phenomenological method remain integral to the full interpretation; and the PEE secondary must be substantial. [SEP’s Beauvoir entry](https://plato.stanford.edu/entries/beauvoir/) documents her original contributions across phenomenology, existentialism, ethics, feminist philosophy, and political thought.
 
 ### Elizabeth Anscombe — action and intention, with ethics as a major secondary
 
@@ -190,7 +190,7 @@ The interpretive text and factual life-date fields should be reviewed when the s
 
 The masterplan resolves enough to build a coherent program, but it should not pretend every judgment is permanent.
 
-1. **Beauvoir’s primary home** remains the closest call. Reopen it if the Feminist Philosophies hall gains more capacity or if secondary exhibits cannot carry anchor-scale interpretation.
+1. **Beauvoir’s primary home is locked in Feminist Philosophies.** If the PEE secondary cannot carry anchor-scale interpretation, expand or redesign that secondary rather than silently reverting the approved primary assignment.
 2. **The Mohist/fa shared room** is acceptable only with distinct bays and explicit disagreement. Split it when either branch gains several records or when a visitor test shows conflation.
 3. **The Connected Medieval & Post-Classical wing title** now makes Mulla Sadra’s continuation visible, but a larger post-Avicennian roster should still trigger a new hall within the same intellectual-world sequence.
 4. **Jewish Philosophy currently lacks a branch record.** Keep the hall and current philosopher homes; add a branch only through a future Atlas content decision, never as a planning convenience.

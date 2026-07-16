@@ -1,10 +1,12 @@
-# Museum taxonomy options
+# Museum taxonomy decision record
+
+**Decision status:** Worlds with a Questions Forum is approved and locked for the Ring pilot. The Braided Global Timeline and Questions and Methods Network are retained below as archival comparison studies, not active alternatives for this phase.
 
 ## What these options are deciding
 
 The same collection can tell very different stories depending on what a visitor encounters first. A chronological museum makes sequence primary; a questions museum makes comparison primary; a cultural-historical museum makes situated intellectual traditions primary. This document treats those as genuinely different programs rather than as different labels on the same corridor.
 
-All three options can house the Atlas's present inventory of 43 branch/tradition records and 141 philosopher records. A **record-capacity slot** is a planning allowance for one assigned Atlas record at some presentation tier. It is not a fire-code occupancy, a visitor count, or a promise that every record receives a room-sized installation. The recommended option is the only option developed into stable wing, hall, and room IDs and a complete record-by-record assignment in the companion CSV files.
+All three studies can house the Atlas's present inventory of 43 branch/tradition records and 141 philosopher records. A **record-capacity slot** is a planning allowance for one assigned Atlas record at some presentation tier. It is not a fire-code occupancy, a visitor count, or a promise that every record receives a room-sized installation. The approved option is the only one developed into stable wing, hall, and room IDs and a complete record-by-record assignment in the companion CSV files.
 
 | Option | Primary organizing principle | Wings | Halls | Rooms / zones | Record capacity | Reserve above 184 current records |
 | --- | --- | ---: | ---: | ---: | ---: | ---: |
@@ -14,9 +16,9 @@ All three options can house the Atlas's present inventory of 43 branch/tradition
 
 The totals above are fixed program totals. The hall rosters below show how each option earns them.
 
-## Option 1 — Worlds with a Questions Forum
+## Approved program — Worlds with a Questions Forum
 
-**Recommendation: adopt this option.** It gives a thinker or tradition one historically and culturally defensible primary home, while allowing visitors to follow shared questions without pretending that those questions developed in a single universal sequence. It uses a Core Questions Forum as an orienting and comparative space, not as the origin or owner of every tradition.
+**Approved and locked for the Ring pilot.** It gives a thinker or tradition one historically and culturally defensible primary home, while allowing visitors to follow shared questions without pretending that those questions developed in a single universal sequence. It uses a Core Questions Forum as an orienting and comparative space, not as the origin or owner of every tradition.
 
 ### Program roster
 
@@ -48,7 +50,7 @@ This makes Aristotle ancient in his primary placement while allowing major appea
 - It preserves cultural and institutional settings for South Asian, Buddhist, Chinese/East Asian, Arabic/Islamic, Jewish, Latin Christian, and Mediterranean materials.
 - It gives branch-first visitors an immediate entry through the Forum and tradition-first visitors a clear historical route.
 - Its 74-slot reserve is the largest of the three options, including named rooms for transmission, regional continuity, and currently missing contexts.
-- The current primary assignments can guide implementation without reclassifying all 184 records; secondary route candidates still require typed room-level interpretation before they go live.
+- The complete primary assignments guide implementation with one approved person-level change—Beauvoir’s Feminist Philosophies primary—while preserving exact-once coverage of all 184 records; secondary route candidates still require typed room-level interpretation before they go live.
 
 ### Weaknesses and risks
 
@@ -59,13 +61,13 @@ This makes Aristotle ancient in his primary placement while allowing major appea
 
 ### Navigation implications
 
-The recommended visitor sequence begins in the Core Questions Forum, where nine portals explain the museum's question vocabulary and point outward. From there, visitors may take a broadly historical sweep, enter a cultural-historical wing, or follow a highlighted question route across several wings. Wing-level loops should return to a recognizable crossroads rather than force a complete linear traversal. Color denotes wing, while separate visual grammars denote period, transmission, disagreement, and secondary association.
+The approved visitor sequence begins in the Core Questions Forum, where nine portals explain the museum's question vocabulary and point outward. From there, visitors may take a broadly historical sweep, enter a cultural-historical wing, or follow a highlighted question route across several wings. Wing-level loops should return to a recognizable crossroads rather than force a complete linear traversal. Color denotes wing, while separate visual grammars denote period, transmission, disagreement, and secondary association.
 
 ### Expansion implications
 
 Expansion can happen in three ways without changing the classification contract: fill a reserved record slot; activate a named reserve/context room; or add a hall at a wing's reserved connection point. A new tradition that cannot be presented responsibly in an existing setting should receive a new cultural-historical hall or wing rather than being forced into a generic “global” room. The 74-slot reserve is uneven by design: it protects identified gaps, but full halls still trigger local expansion instead of demotion of current records.
 
-## Option 2 — Braided Global Timeline
+## Archived comparison — Braided Global Timeline
 
 This option makes historical simultaneity the visitor's first experience. Six era wings form a chronological promenade. Within each era, regional strands run alongside one another and meet at translation, travel, institutional, or political “braid points.” The design must avoid presenting Europe as the main line with other regions as side rooms.
 
@@ -94,7 +96,7 @@ Primary placement follows the period of formation or decisive contribution. Long
 - A left-to-right historical sweep is easy for first-time visitors to grasp.
 - Simultaneous strands can reveal that major debates were occurring in several regions at once.
 - Translation and institutional change become architectural events rather than footnotes.
-- It uses four fewer wings, one fewer hall, and 17 fewer rooms than the recommendation, offering a more compact building program.
+- It uses four fewer wings, one fewer hall, and 17 fewer rooms than the approved program, offering a more compact archival comparison.
 
 ### Weaknesses and risks
 
@@ -112,7 +114,7 @@ A dated main promenade supplies orientation, but no regional strand should becom
 
 Each era can grow outward through additional regional bays, and the twentieth-century/present wing needs the most generous terminal expansion point. The weakness is rebalancing: adding a major historical tradition may require changes in several era wings, not one appendable hall. The chronological endpoint also moves continuously, so the last wing risks becoming an undifferentiated contemporary catch-all.
 
-## Option 3 — Questions and Methods Network
+## Archived comparison — Questions and Methods Network
 
 This option organizes the museum around problems and practices: what exists, how we know, what mind and language do, how to live, how power should be arranged, and how meaning and value are interpreted. Six thematic wings meet a seventh group of Historical Context Houses. It is the most comparative and classroom-friendly option, but also the option with the greatest risk of removing ideas from the traditions that give them meaning.
 
@@ -160,20 +162,20 @@ The plan behaves as a network rather than a sequence. A central index should off
 
 Adding a contemporary subfield is straightforward if it fits an existing question wing. Adding an underrepresented historical tradition is harder: it may require a new Context House plus secondary placements across several thematic halls. The model therefore scales cheaply in topics but expensively in cultural-historical responsibility.
 
-## Why Option 1 is recommended
+## Why Worlds with a Questions Forum is approved
 
-The recommended hybrid gives the museum a defensible answer to the hardest classification question: **a primary home means where a record can be interpreted most responsibly, not every place where it matters**. Historical and cultural setting governs the primary home when detaching a record would distort it; the Forum and secondary routes make comparison possible without cloning or flattening. It is the only option whose built-in safeguard is structural rather than dependent entirely on labels.
+The approved hybrid gives the museum a defensible answer to the hardest classification question: **a primary home means where a record can be interpreted most responsibly, not every place where it matters**. Historical and cultural setting normally governs the primary home when detaching a record would distort it; carefully adjudicated field-defining contributions, including Beauvoir’s independent feminist philosophy, may warrant a thematic primary with a substantial historical-methodological secondary. The Forum and secondary routes make comparison possible without cloning or flattening. This is the only studied program whose built-in safeguard is structural rather than dependent entirely on labels.
 
-The recommendation is not that every future record must fit one of the ten current wings. Approval should include an explicit expansion rule: when a new body of material requires a context the current plan cannot provide, add that context. Do not use the Forum, “global,” “medieval,” or “contemporary” as overflow bins.
+The approved decision does not require every future record to fit one of the ten current wings. Its locked expansion rule is: when a new body of material requires a context the current plan cannot provide, add that context. Do not use the Forum, “global,” “medieval,” or “contemporary” as overflow bins.
 
-### Decision tests for review
+### Locked decision checks
 
-Before approving the program, a reviewer should be able to answer yes to the following:
+Implementation must continue to answer yes to the following:
 
 1. Can a first-time visitor understand time, place, tradition, and major questions without opening a detail panel?
 2. Can a specialist see why each record has its primary home and distinguish primary placement from later reception?
 3. Do South Asian, Buddhist, Chinese/East Asian, Arabic/Islamic, Jewish, and Latin Christian materials retain internal histories rather than serving as bridges to modern Europe?
-4. Can a visitor find Aristotle through ethics, Buddhist epistemology through knowledge, or Beauvoir through feminist philosophy without encountering a duplicate or contradictory exhibit?
+4. Can a visitor find Aristotle through ethics, Buddhist epistemology through knowledge, or Beauvoir through phenomenology and existential thought without encountering a duplicate or contradictory exhibit?
 5. Can a future collection expansion add a missing intellectual setting instead of forcing it into the nearest existing label?
 
-On those tests, Worlds with a Questions Forum offers the best balance of accuracy, intelligibility, complete current coverage, and long-term physical growth.
+On those checks, Worlds with a Questions Forum remains the locked balance of accuracy, intelligibility, complete current coverage, and long-term physical growth for the Ring pilot.
