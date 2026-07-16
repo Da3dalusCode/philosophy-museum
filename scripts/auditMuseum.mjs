@@ -1525,6 +1525,9 @@ check('the persistent runtime enforces manifest-bounded residency, rendered read
   assert.match(museumWorldSource, /pose\.x = previousPosition\.x;[\s\S]*pose\.z = previousPosition\.z;/);
   assert.match(museumWorldSource, /frameloop=\{renderable \? 'demand' : 'never'\}/);
   assert.doesNotMatch(museumWorldSource, /frameloop=\{[^}]*'always'/);
+  assert.match(museumWorldSource, /transitionTargetRef\.current[\s\S]*transitionTargetId !== definition\.id\) return;/);
+  assert.match(museumWorldSource, /transitionTargetRef\.current = connection\.targetNodeId;[\s\S]*if \(!onNodeTransition\(connection\)\)/);
+  assert.match(museumWorldSource, /if \(!onNodeTransition\(connection\)\) \{\s*transitionTargetRef\.current = undefined;\s*transitionLatchRef\.current = undefined;\s*pose\.x = previousPosition\.x;\s*pose\.z = previousPosition\.z;\s*applyPose\(\);\s*publishNearby\(\);\s*if \(input\.forward \|\| input\.strafe \|\| input\.lookX \|\| input\.lookY\) invalidate\(\);\s*\}/);
   assert.match(museumWorldSource, /inputRef\.current\.requestFrame = requestFrame/);
   assert.match(museumWorldSource, /onHallContentReady/);
   assert.match(museumPageSource, /preparedHallIdsRef/);
@@ -1538,6 +1541,7 @@ check('the persistent runtime enforces manifest-bounded residency, rendered read
   assert.match(museumPageSource, /onZoneViewpoint/);
   assert.match(museumPageSource, /replace\(\s*\{kind: 'museum', hallId: targetHallId\}/);
   assert.match(museumPageSource, /retryHallContent/);
+  assert.match(museumPageSource, /isRouteLoadError\(hallLoadErrors\[hallId\]\)[\s\S]*saveCurrentHallSession\(\);[\s\S]*window\.location\.reload\(\);/);
   assert.match(museumPageSource, /key=\{sceneEpoch\}/);
   assert.doesNotMatch(museumPageSource, /key=\{(?:activeHallId|route\.hallId)\}/);
   assert.match(museumPageSource, /pendingHallTransitionRef/);

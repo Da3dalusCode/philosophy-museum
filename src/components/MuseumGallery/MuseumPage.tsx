@@ -45,6 +45,7 @@ import {
   type MuseumHallId,
 } from '../../data/museumCatalog';
 import type {MuseumRoute, NavigableAppRoute, RouteHref, RouteNavigator} from '../../routing/routes';
+import {isRouteLoadError} from '../../routing/routeLoadErrors';
 import {MuseumInterpretationPanel} from './MuseumInterpretationPanel';
 import {MuseumModal} from './MuseumModal';
 import {MuseumTouchControls} from './MuseumTouchControls';
@@ -521,6 +522,11 @@ export function MuseumPage({route, href, push, replace}: {
   }, []);
 
   const retryHallContent = useCallback((hallId: MuseumHallId) => {
+    if (isRouteLoadError(hallLoadErrors[hallId])) {
+      saveCurrentHallSession();
+      window.location.reload();
+      return;
+    }
     failedHallContentIdsRef.current.delete(hallId);
     retryingHallIdsRef.current.add(hallId);
     setAnnouncement(`Retrying ${getMuseumHallCatalog(hallId)?.title ?? 'the gallery'}…`);
@@ -533,7 +539,7 @@ export function MuseumPage({route, href, push, replace}: {
     void ensureHallEntry(hallId).then(() => {
       if (activeHallIdRef.current === hallId) warmHallRemainder(hallId);
     }).catch(() => undefined);
-  }, [ensureHallEntry, warmHallRemainder]);
+  }, [ensureHallEntry, hallLoadErrors, saveCurrentHallSession, warmHallRemainder]);
 
   const handleHallContentError = useCallback((hallId: MuseumHallId, error: unknown) => {
     failedHallContentIdsRef.current.add(hallId);
@@ -717,13 +723,20 @@ export function MuseumPage({route, href, push, replace}: {
     const targetNode = getMuseumRuntimeNode(connection.targetNodeId);
     if (!targetNode) {
       setAnnouncement('The connected building node is not registered in this Museum build.');
-      return;
+      return false;
     }
     const sourcePose = {...poseRef.current};
     const arrival = resolveMuseumHallArrival(source, targetNode, connection.targetEntranceId, sourcePose);
     if (!arrival) {
       setAnnouncement('The connected doorway could not be resolved.');
-      return;
+      return false;
+    }
+    const targetRegistration = targetNode.publicHallId
+      ? getMuseumHallRegistration(targetNode.publicHallId)
+      : undefined;
+    if (targetNode.publicHallId && !targetRegistration) {
+      setAnnouncement('The connected gallery is not registered in this Museum build.');
+      return false;
     }
     const sourceNearby = nearbyRef.current;
     if (source.publicHallId) {
@@ -740,10 +753,8 @@ export function MuseumPage({route, href, push, replace}: {
     visitorMapNearbyRef.current = false;
     setVisitorMapNearby(false);
     setOverlay(null);
-    if (targetNode.publicHallId) {
+    if (targetNode.publicHallId && targetRegistration) {
       const targetHallId = targetNode.publicHallId;
-      const targetRegistration = getMuseumHallRegistration(targetHallId);
-      if (!targetRegistration) return;
       const previousHallId = activeHallIdRef.current;
       saveMuseumSession(targetRegistration.definition.layout, arrival);
       if (previousHallId !== targetHallId) setRecentHallId(previousHallId);
@@ -760,6 +771,7 @@ export function MuseumPage({route, href, push, replace}: {
       setAnnouncement(`Entered ${targetNode.mapLabel}.`);
     }
     setPoseRevision((value) => value + 1);
+    return true;
   }, [replace]);
 
   const handleNodeTransitionBlocked = useCallback((connection: MuseumDirectedConnection) => {

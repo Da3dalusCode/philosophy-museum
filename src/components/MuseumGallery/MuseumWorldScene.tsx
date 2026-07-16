@@ -124,6 +124,7 @@ function MuseumPlayerRig({
   const lastNearbyRef = useRef<MuseumInteractionTarget | undefined>(undefined);
   const displacementRef = useRef({x: 0, z: 0});
   const transitionLatchRef = useRef<string | undefined>(undefined);
+  const transitionTargetRef = useRef<string | undefined>(undefined);
   const blockedTransitionLatchRef = useRef<string | undefined>(undefined);
   const layout = definition.layout;
   const readyHallSet = useMemo(() => new Set<MuseumHallId>(readyHallIds), [readyHallIds]);
@@ -197,6 +198,13 @@ function MuseumPlayerRig({
 
   useFrame((_state, rawDelta) => {
     if (!active || blocked) return;
+    // The target node is committed after the crossing frame returns. Do not
+    // let the source rig reinterpret its resolved arrival as source-local data.
+    const transitionTargetId = transitionTargetRef.current;
+    if (transitionTargetId) {
+      if (transitionTargetId !== definition.id) return;
+      transitionTargetRef.current = undefined;
+    }
     const input = inputRef.current;
     const pose = poseRef.current;
     const previousPosition = {x: pose.x, z: pose.z};
@@ -255,7 +263,16 @@ function MuseumPlayerRig({
       if (targetReady) {
         if (transitionLatchRef.current !== connection.id) {
           transitionLatchRef.current = connection.id;
-          onNodeTransition(connection);
+          transitionTargetRef.current = connection.targetNodeId;
+          if (!onNodeTransition(connection)) {
+            transitionTargetRef.current = undefined;
+            transitionLatchRef.current = undefined;
+            pose.x = previousPosition.x;
+            pose.z = previousPosition.z;
+            applyPose();
+            publishNearby();
+            if (input.forward || input.strafe || input.lookX || input.lookY) invalidate();
+          }
         }
         return;
       }
