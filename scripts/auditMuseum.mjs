@@ -1999,6 +1999,9 @@ check('the physical visitor-map source wiring reuses Museum interaction, overlay
   assert.match(museumPageSource, /requestOverlayCloseResume/);
   assert.match(museumPageSource, /completeOverlayCloseResume/);
   assert.match(museumPageSource, /resumeWithoutGesture/);
+  assert.match(museumPageSource, /setAnnouncement\(`Opened \$\{getMuseumExhibitCatalog\(route\.hallId, route\.exhibitId\)\?\.displayName/);
+  assert.match(museumPageSource, /setAnnouncement\(`Returned to \$\{returningHallTitle\}\. Continue exploring\.\`\)/);
+  assert.match(museumPageSource, /Returned to \$\{returningHallTitle\}\. Resume the visit when ready\./);
   assert.match(museumPageSource, /onInteract=\{interactNearby\}/);
   assert.match(museumControlsSource, /event\.code === 'KeyM'[\s\S]*callbacksRef\.current\.onOpenDirectory\(\)/);
   assert.match(museumPageSource, /overlay === 'directory'[\s\S]*<Directory/);

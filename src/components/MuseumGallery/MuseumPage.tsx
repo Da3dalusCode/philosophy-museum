@@ -1027,6 +1027,7 @@ export function MuseumPage({route, href, push, replace}: {
       controlsRef.current?.blockInput();
       if (lastExhibitContextRef.current.origin !== 'active-exploration') setVisitPhase('explicitly-paused');
       setOverlay(null);
+      setAnnouncement(`Opened ${getMuseumExhibitCatalog(route.hallId, route.exhibitId)?.displayName ?? 'Museum exhibit'} in ${getMuseumHallCatalog(route.hallId)?.title ?? 'the selected gallery'}.`);
       return;
     }
     if (!previous) return;
@@ -1043,15 +1044,20 @@ export function MuseumPage({route, href, push, replace}: {
     }
     const policy = resolveMuseumExitPolicy(context, trigger);
     const resumeStrategy = resolveMuseumCloseResumeStrategy(context, trigger);
+    const returningHallTitle = getMuseumHallCatalog(route.hallId)?.title ?? 'the selected gallery';
     if (policy.resumeExploration) {
       setVisitPhase((phase) => transitionMuseumVisitPhase(phase, 'resume-active-origin'));
       setOverlay(null);
       if (resumeStrategy === 'request-pointer-lock') controlsRef.current?.completeOverlayCloseResume();
       else controlsRef.current?.resumeWithoutGesture();
+      setAnnouncement(`Returned to ${returningHallTitle}. Continue exploring.`);
     } else {
       controlsRef.current?.pauseExploring();
       setVisitPhase('explicitly-paused');
       setOverlay(policy.restoreDirectory ? 'directory' : null);
+      setAnnouncement(policy.restoreDirectory
+        ? `Returned to the Museum directory from ${returningHallTitle}.`
+        : `Returned to ${returningHallTitle}. Resume the visit when ready.`);
       if (!policy.restoreDirectory) {
         const frame = window.requestAnimationFrame(() => {
           const target = sceneError
