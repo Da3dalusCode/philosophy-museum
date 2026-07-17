@@ -1,6 +1,7 @@
 import type {MuseumHallId} from '../../data/museumCatalog';
 
 export const MUSEUM_VISIT_CONTEXT_VERSION = 2 as const;
+export const MUSEUM_HALL_TRAVEL_CONTEXT_VERSION = 1 as const;
 
 export type MuseumExhibitOrigin =
   | 'active-exploration'
@@ -13,6 +14,17 @@ export type MuseumExhibitVisitContext = {
   version: typeof MUSEUM_VISIT_CONTEXT_VERSION;
   hallId: MuseumHallId;
   origin: MuseumExhibitOrigin;
+};
+
+/**
+ * A history entry created by an explicit in-Museum hall travel action.
+ * Untagged hall URLs remain deliberately unentered; tagged Back/Forward
+ * entries resume the visit in drag-look without trying to seize Pointer Lock.
+ */
+export type MuseumHallTravelContext = {
+  version: typeof MUSEUM_HALL_TRAVEL_CONTEXT_VERSION;
+  hallId: MuseumHallId;
+  resumeExploration: true;
 };
 
 export type MuseumExitTrigger = 'gesture' | 'history';
@@ -65,6 +77,7 @@ export const transitionMuseumVisitPhase = (
 
 type MuseumHistoryState = {
   philosophyAtlasMuseum?: MuseumExhibitVisitContext;
+  philosophyAtlasMuseumTravel?: MuseumHallTravelContext;
   [key: string]: unknown;
 };
 
@@ -106,12 +119,40 @@ export const parseMuseumExhibitVisitContext = (
 export const directMuseumVisitContext = (hallId: MuseumHallId): MuseumExhibitVisitContext =>
   createMuseumExhibitVisitContext(hallId, 'direct');
 
+export const createMuseumHallTravelContext = (hallId: MuseumHallId): MuseumHallTravelContext => ({
+  version: MUSEUM_HALL_TRAVEL_CONTEXT_VERSION,
+  hallId,
+  resumeExploration: true,
+});
+
+export const parseMuseumHallTravelContext = (
+  state: unknown,
+  expectedHallId: MuseumHallId,
+): MuseumHallTravelContext | undefined => {
+  if (!isRecord(state) || !isRecord(state.philosophyAtlasMuseumTravel)) return undefined;
+  const value = state.philosophyAtlasMuseumTravel;
+  if (
+    value.version !== MUSEUM_HALL_TRAVEL_CONTEXT_VERSION
+    || value.hallId !== expectedHallId
+    || value.resumeExploration !== true
+  ) return undefined;
+  return value as MuseumHallTravelContext;
+};
+
 export const museumHistoryStateWithVisitContext = (
   currentState: unknown,
   context: MuseumExhibitVisitContext | undefined,
 ): MuseumHistoryState => ({
   ...(isRecord(currentState) ? currentState : {}),
   philosophyAtlasMuseum: context,
+});
+
+export const museumHistoryStateWithHallTravelContext = (
+  currentState: unknown,
+  context: MuseumHallTravelContext | undefined,
+): MuseumHistoryState => ({
+  ...(isRecord(currentState) ? currentState : {}),
+  philosophyAtlasMuseumTravel: context,
 });
 
 export const resolveMuseumExitPolicy = (

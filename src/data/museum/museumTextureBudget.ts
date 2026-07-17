@@ -5,9 +5,11 @@ import {
   bytesToMiB,
   decodedTextureBytes,
   MUSEUM_TEXTURE_SPECS,
+  museumTextureDimensionsForPlane,
   type MuseumDecodedTextureSpec,
 } from './museumTexturePolicy';
 import {MUSEUM_WORLD_DEFINITIONS} from './museumWorldDefinitions';
+import type {MuseumExhibitLayout} from './museumWorldTypes';
 
 export type MuseumHallTextureMode = 'active' | 'entry-resident';
 
@@ -36,27 +38,55 @@ const sceneAssetBytes = (assetId: Parameters<typeof getMuseumAsset>[0]): number 
   return Math.max(sourceBytes, decodedTextureBytes(MUSEUM_TEXTURE_SPECS.sceneFallback));
 };
 
-const generatedSpecsForExhibit = (hallId: MuseumHallId): readonly MuseumDecodedTextureSpec[] =>
-  hallId === 'ancient-greek'
-    ? [MUSEUM_TEXTURE_SPECS.plaque]
-    : [MUSEUM_TEXTURE_SPECS.plaque, MUSEUM_TEXTURE_SPECS.contemporaryNameStrip];
+const generatedSpecsForExhibit = (
+  hallId: MuseumHallId,
+  exhibit: MuseumExhibitLayout,
+): readonly MuseumDecodedTextureSpec[] => {
+  const plaque = museumTextureDimensionsForPlane(
+    exhibit.scene.plaque.width,
+    exhibit.scene.plaque.height,
+    MUSEUM_TEXTURE_SPECS.plaque,
+  );
+  if (hallId === 'ancient-greek') return [plaque];
+  const backing = exhibit.scene.objectBounds.find(({id}) => id.endsWith('-backing'));
+  if (!backing) throw new Error(`Museum texture estimate cannot resolve the name-strip backing for ${exhibit.id}.`);
+  return [
+    plaque,
+    museumTextureDimensionsForPlane(
+      backing.size.width - .18,
+      .34,
+      MUSEUM_TEXTURE_SPECS.contemporaryNameStrip,
+    ),
+  ];
+};
 
 const generatedHallSpecs = (hallId: MuseumHallId): readonly MuseumDecodedTextureSpec[] => {
   const definition = MUSEUM_WORLD_DEFINITIONS.find(({id}) => id === hallId);
   if (!definition) throw new Error(`Museum texture estimate cannot resolve hall ${hallId}.`);
-  if (hallId === 'ancient-greek') return [
-    ...Array.from(
-      {length: MUSEUM_TEXTURE_SPECS.ancientGallerySignCount},
-      () => MUSEUM_TEXTURE_SPECS.plaque,
-    ),
-    MUSEUM_TEXTURE_SPECS.ancientOrientationPlinth,
-    MUSEUM_TEXTURE_SPECS.visitorMapKiosk,
-  ];
-  return (definition.layout.signs ?? []).map((sign) => ({
-    width: MUSEUM_TEXTURE_SPECS.contemporarySignWidth,
-    height: Math.round(MUSEUM_TEXTURE_SPECS.contemporarySignWidth * sign.height / sign.width),
-    mipmaps: true,
-  }));
+  if (hallId === 'ancient-greek') {
+    const orientation = definition.layout.furnishings.find(({kind}) => kind === 'orientation-plinth');
+    if (!orientation) throw new Error('Museum texture estimate cannot resolve the Ancient orientation plinth.');
+    return [
+      ...Array.from(
+        {length: MUSEUM_TEXTURE_SPECS.ancientGallerySignCount},
+        () => MUSEUM_TEXTURE_SPECS.plaque,
+      ),
+      museumTextureDimensionsForPlane(
+        orientation.size.width - .34,
+        .74,
+        MUSEUM_TEXTURE_SPECS.ancientOrientationPlinth,
+      ),
+      MUSEUM_TEXTURE_SPECS.visitorMapKiosk,
+    ];
+  }
+  return (definition.layout.signs ?? []).map((sign) => {
+    const reference = {
+      width: MUSEUM_TEXTURE_SPECS.contemporarySignWidth,
+      height: Math.round(MUSEUM_TEXTURE_SPECS.contemporarySignWidth * sign.height / sign.width),
+      mipmaps: true,
+    };
+    return museumTextureDimensionsForPlane(sign.width, sign.height, reference);
+  });
 };
 
 /**
@@ -81,7 +111,7 @@ export const estimateMuseumHallTextureResidency = (
   const sceneBytes = sceneAssetIds.reduce((sum, assetId) => sum + sceneAssetBytes(assetId), 0);
   const generatedBytes = sumSpecs([
     ...generatedHallSpecs(hallId),
-    ...exhibits.flatMap(() => generatedSpecsForExhibit(hallId)),
+    ...exhibits.flatMap((exhibit) => generatedSpecsForExhibit(hallId, exhibit)),
   ]);
   const totalBytes = sceneBytes + generatedBytes;
   return {

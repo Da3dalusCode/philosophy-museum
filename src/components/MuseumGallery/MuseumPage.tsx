@@ -50,6 +50,7 @@ import {MuseumInterpretationPanel} from './MuseumInterpretationPanel';
 import {MuseumModal} from './MuseumModal';
 import {MuseumTouchControls} from './MuseumTouchControls';
 import {MuseumVisitorMap} from './MuseumVisitorMap';
+import type {MuseumWalkingPace} from './museumMovement';
 import {loadMuseumSession, removeMuseumSession, saveMuseumSession} from './museumSession';
 import {useMuseumControls, type MuseumControls} from './useMuseumControls';
 import {useMuseumExperienceMode} from './useMuseumExperienceMode';
@@ -62,10 +63,13 @@ import {
   prefetchMuseumHallRemainder,
 } from './museumWorldRegistry';
 import {
+  createMuseumHallTravelContext,
   createMuseumExhibitVisitContext,
   directMuseumVisitContext,
+  museumHistoryStateWithHallTravelContext,
   museumHistoryStateWithVisitContext,
   museumPhaseHasActiveIntent,
+  parseMuseumHallTravelContext,
   parseMuseumExhibitVisitContext,
   resolveMuseumCloseResumeStrategy,
   resolveMuseumExitPolicy,
@@ -238,15 +242,26 @@ function Directory({route, href, push, returnFocus, onClose, onGuidedStart, onHa
   </MuseumModal>;
 }
 
-function Help({returnFocus, onClose}: {returnFocus?: HTMLElement | null; onClose: () => void}) {
+function Help({returnFocus, onClose, walkingPace, onWalkingPaceChange}: {
+  returnFocus?: HTMLElement | null;
+  onClose: () => void;
+  walkingPace: MuseumWalkingPace;
+  onWalkingPaceChange: (pace: MuseumWalkingPace) => void;
+}) {
   const titleId = useId();
   return <MuseumModal labelledBy={titleId} returnFocus={returnFocus} onClose={onClose}>
     <div className="museum-overlay-head"><div><p className="eyebrow">Controls & access</p><h2 id={titleId}>Explore at your pace</h2></div><button className="museum-icon-button" type="button" onClick={onClose} aria-label="Close Museum help"><X/></button></div>
     <div className="museum-help-grid">
-      <section><h3>Keyboard & mouse</h3><p>Choose Enter museum, then use W A S D or the arrow keys. Look with the mouse. Press E or Enter near an exhibit, R to reset, and M for the directory. Escape releases mouse capture; in drag-look it pauses. Pause visit always pauses explicitly.</p></section>
+      <section><h3>Keyboard & mouse</h3><p>Choose Enter museum, then use W A S D or the arrow keys. Hold Shift while moving for a temporary faster pace. Look with the mouse. Press E or Enter near an exhibit, R to reset, and M for the directory. Escape releases mouse capture; in drag-look it pauses. Pause visit always pauses explicitly.</p></section>
       <section><h3>Immersive viewing</h3><p>Immersive mode hides Atlas chrome. Fullscreen uses the browser’s real Fullscreen API; press F when no panel is open. Native Escape exits browser fullscreen.</p></section>
-      <section><h3>Touch</h3><p>Use the left movement control and separate right look area. A contextual Interact action appears when an exhibit is near.</p></section>
+      <section><h3>Touch</h3><p>Use the left movement control and separate right look area. The Speed button switches between Standard and Fast. A contextual Interact action appears when an exhibit is near.</p></section>
       <section><h3>Without free movement</h3><p>The directory contains every exhibit and native article link. Guided mode moves between safe viewpoints without requiring manual movement.</p></section>
+      <fieldset className="museum-walking-pace">
+        <legend>Preferred walking speed</legend>
+        <label><input type="radio" name="museum-walking-pace" value="standard" checked={walkingPace === 'standard'} onChange={() => onWalkingPaceChange('standard')}/> Standard</label>
+        <label><input type="radio" name="museum-walking-pace" value="fast" checked={walkingPace === 'fast'} onChange={() => onWalkingPaceChange('fast')}/> Fast</label>
+        <p>Fast is useful for long corridors and remains bounded by the same collision checks. Shift temporarily uses Fast on desktop.</p>
+      </fieldset>
     </div>
   </MuseumModal>;
 }
@@ -307,6 +322,7 @@ export function MuseumPage({route, href, push, replace}: {
   const overlayOpenerRef = useRef<HTMLElement | null>(null);
   const overlayReturnFocusPendingRef = useRef(false);
   const visitorMapResumeRef = useRef(false);
+  const travelResumeModeRef = useRef<'locked' | 'drag-look'>('drag-look');
   const controlsRef = useRef<MuseumControls | null>(null);
   const poseRef = useRef<MuseumPose>((() => {
     const session = loadMuseumSession(layout);
@@ -342,6 +358,7 @@ export function MuseumPage({route, href, push, replace}: {
   const previousRouteExhibitRef = useRef(route.exhibitId);
   const previousHallIdRef = useRef(route.hallId);
   const pendingHallTransitionRef = useRef<{sourceHallId: MuseumHallId; targetHallId: MuseumHallId} | undefined>(undefined);
+  const pendingHallTravelRef = useRef<{sourceHallId: MuseumHallId; targetHallId: MuseumHallId} | undefined>(undefined);
   const preparedHallIdsRef = useRef<Set<MuseumHallId>>(new Set());
   const renderedHallIdsRef = useRef<Set<MuseumHallId>>(new Set());
   const readyHallIdsRef = useRef<Set<MuseumHallId>>(new Set());
@@ -368,7 +385,13 @@ export function MuseumPage({route, href, push, replace}: {
   const residentHallIdsRef = useRef(residentHallIds);
   residentHallIdsRef.current = residentHallIds;
   const [announcement, setAnnouncement] = useState('');
-  const [visitPhase, setVisitPhase] = useState<MuseumVisitPhase>(route.exhibitId ? 'explicitly-paused' : 'unentered');
+  const [visitPhase, setVisitPhase] = useState<MuseumVisitPhase>(() => (
+    route.exhibitId
+      ? 'explicitly-paused'
+      : parseMuseumHallTravelContext(window.history.state, route.hallId)
+        ? 'active'
+        : 'unentered'
+  ));
   const [overlay, setOverlay] = useState<Overlay>(null);
   const dismissOverlay = useCallback(() => {
     overlayReturnFocusPendingRef.current = true;
@@ -382,7 +405,9 @@ export function MuseumPage({route, href, push, replace}: {
   const LazyMuseumWorldScene = useMemo(createLazyMuseumWorldScene, [sceneEpoch]);
   const reducedMotion = useReducedMotion();
   const modalOpen = Boolean(exhibit || overlay);
-  const blocked = modalOpen || Boolean(sceneError);
+  const activeHallLoadFailed = hallLoadStatus[activeHallId] === 'failed';
+  const activeHallLoading = hallLoadStatus[activeHallId] === 'idle' || hallLoadStatus[activeHallId] === 'loading';
+  const blocked = modalOpen || Boolean(sceneError) || activeHallLoading;
   const exploring = visitPhase === 'active';
   const focusSuspended = visitPhase === 'focus-suspended';
   const activeIntent = museumPhaseHasActiveIntent(visitPhase);
@@ -454,9 +479,8 @@ export function MuseumPage({route, href, push, replace}: {
     readyHallIdsRef.current = new Set(readyHallIdsRef.current).add(hallId);
     setReadyHallIds(new Set(readyHallIdsRef.current));
     setHallLoadStatus((current) => ({...current, [hallId]: 'ready'}));
-    if (retryingHallIdsRef.current.delete(hallId)) {
-      setAnnouncement(`${getMuseumHallCatalog(hallId)?.title ?? 'The gallery'} is ready.`);
-    }
+    const retried = retryingHallIdsRef.current.delete(hallId);
+    setAnnouncement(`${getMuseumHallCatalog(hallId)?.title ?? 'The gallery'} is ready${retried ? ' after retry' : ''}.`);
   }, []);
 
   const ensureHallEntry = useCallback((hallId: MuseumHallId): Promise<void> => {
@@ -582,6 +606,7 @@ export function MuseumPage({route, href, push, replace}: {
     overlayOpenerRef.current = document.activeElement instanceof HTMLElement ? document.activeElement : sceneCanvasRef.current;
     const resumeOnClose = museumPhaseHasActiveIntent(visitPhase);
     visitorMapResumeRef.current = resumeOnClose;
+    travelResumeModeRef.current = resumeOnClose && controlsRef.current?.mode === 'locked' ? 'locked' : 'drag-look';
     saveCurrentHallSession();
     if (resumeOnClose) controlsRef.current?.blockInput();
     else {
@@ -602,10 +627,14 @@ export function MuseumPage({route, href, push, replace}: {
   const closeVisitorMap = useCallback(() => {
     const resume = visitorMapResumeRef.current && museumPhaseHasActiveIntent(visitPhase);
     visitorMapResumeRef.current = false;
-    if (resume) controlsRef.current?.requestOverlayCloseResume();
+    const resumeLocked = resume && travelResumeModeRef.current === 'locked';
+    if (resumeLocked) controlsRef.current?.requestOverlayCloseResume();
     dismissOverlay();
     if (resume) {
-      window.requestAnimationFrame(() => controlsRef.current?.completeOverlayCloseResume());
+      window.requestAnimationFrame(() => {
+        if (resumeLocked) controlsRef.current?.completeOverlayCloseResume();
+        else controlsRef.current?.resumeWithoutGesture();
+      });
     }
   }, [dismissOverlay, visitPhase]);
 
@@ -627,6 +656,7 @@ export function MuseumPage({route, href, push, replace}: {
     onReset: resetPosition,
     onOpenDirectory: () => {
       visitorMapResumeRef.current = false;
+      travelResumeModeRef.current = controlsRef.current?.mode === 'locked' ? 'locked' : 'drag-look';
       overlayOpenerRef.current = document.activeElement instanceof HTMLElement ? document.activeElement : sceneCanvasRef.current;
       controlsRef.current?.pauseExploring();
       setVisitPhase((phase) => transitionMuseumVisitPhase(phase, 'explicit-pause'));
@@ -643,11 +673,16 @@ export function MuseumPage({route, href, push, replace}: {
     shortcutBlocked: blocked,
   });
 
-  const activateHall = useCallback((hallId: MuseumHallId, pose?: MuseumPose) => {
+  const activateHall = useCallback((
+    hallId: MuseumHallId,
+    pose?: MuseumPose,
+    activation: 'paused' | 'resumable' = 'paused',
+  ): boolean => {
     const targetRegistration = getMuseumHallRegistration(hallId);
     const targetNode = getMuseumRuntimeHallNode(hallId);
-    if (!targetRegistration || !targetNode) return;
-    if (hallId !== activeHallIdRef.current) saveCurrentHallSession();
+    if (!targetRegistration || !targetNode) return false;
+    const sourceHallId = activeHallIdRef.current;
+    if (hallId !== sourceHallId) saveCurrentHallSession();
     const targetLayout = targetRegistration.definition.layout;
     const session = pose ? undefined : loadMuseumSession(targetLayout);
     const targetPose = pose
@@ -660,28 +695,89 @@ export function MuseumPage({route, href, push, replace}: {
     setActiveHallId(hallId);
     setActiveNodeId(targetNode.id);
     setApproachedHallId(undefined);
+    if (hallId !== sourceHallId) setRecentHallId(sourceHallId);
+    residentHallIdsRef.current = new Set(resolveMuseumHallResidency({
+      activeHallId: hallId,
+      recentHallId: hallId === sourceHallId ? recentHallId : sourceHallId,
+    }));
     poseRef.current = {...targetPose};
     nearbyRef.current = undefined;
     setNearbyReference(undefined);
     visitorMapNearbyRef.current = false;
     setVisitorMapNearby(false);
-    controlsRef.current?.pauseExploring();
-    setVisitPhase('explicitly-paused');
+    if (activation === 'paused') {
+      controlsRef.current?.pauseExploring();
+      setVisitPhase('explicitly-paused');
+    } else {
+      setVisitPhase((phase) => transitionMuseumVisitPhase(phase, 'resume-active-origin'));
+    }
     setOverlay(null);
     setPoseRevision((value) => value + 1);
     void ensureHallEntry(hallId).catch(() => undefined);
-  }, [ensureHallEntry, saveCurrentHallSession]);
+    return true;
+  }, [ensureHallEntry, recentHallId, saveCurrentHallSession]);
+
+  const resumeTravelWhenReady = useCallback((hallId: MuseumHallId, resumeLocked: boolean) => {
+    void ensureHallEntry(hallId).then(() => {
+      if (activeHallIdRef.current !== hallId || !readyHallIdsRef.current.has(hallId)) return;
+      setVisitPhase((phase) => transitionMuseumVisitPhase(phase, 'resume-active-origin'));
+      window.requestAnimationFrame(() => window.requestAnimationFrame(() => {
+        if (activeHallIdRef.current !== hallId) return;
+        if (resumeLocked) controlsRef.current?.completeOverlayCloseResume();
+        else controlsRef.current?.resumeWithoutGesture();
+      }));
+    }).catch(() => {
+      if (activeHallIdRef.current !== hallId) return;
+      controlsRef.current?.pauseExploring();
+      setVisitPhase('explicitly-paused');
+      setAnnouncement(`${getMuseumHallCatalog(hallId)?.title ?? 'The selected gallery'} could not be prepared. Retry is available.`);
+      window.requestAnimationFrame(() => {
+        document.querySelector<HTMLElement>('.museum-hall-load-error button')?.focus({preventScroll: true});
+      });
+    });
+  }, [ensureHallEntry]);
+
+  const travelToHall = useCallback((hallId: MuseumHallId, destination: MuseumPose): boolean => {
+    const sourceHallId = activeHallIdRef.current;
+    const sourceHistoryState = museumHistoryStateWithHallTravelContext(
+      museumHistoryStateWithVisitContext(window.history.state, undefined),
+      createMuseumHallTravelContext(sourceHallId),
+    );
+    window.history.replaceState(sourceHistoryState, '');
+    const targetHistoryState = museumHistoryStateWithHallTravelContext(
+      sourceHistoryState,
+      createMuseumHallTravelContext(hallId),
+    );
+    const resumeLocked = travelResumeModeRef.current === 'locked';
+    visitorMapResumeRef.current = false;
+    overlayOpenerRef.current = sceneCanvasRef.current;
+    if (resumeLocked) controlsRef.current?.requestOverlayCloseResume();
+    if (!activateHall(hallId, destination, 'resumable')) return false;
+    saveMuseumSession(getMuseumHallRegistration(hallId)!.definition.layout, destination);
+    if (hallId !== sourceHallId) {
+      pendingHallTravelRef.current = {sourceHallId, targetHallId: hallId};
+      push({kind: 'museum', hallId}, {state: targetHistoryState});
+    } else {
+      window.history.replaceState(targetHistoryState, '');
+    }
+    resumeTravelWhenReady(hallId, resumeLocked);
+    return true;
+  }, [activateHall, push, resumeTravelWhenReady]);
 
   const visitHallFromDirectory = useCallback((hallId: MuseumHallId) => {
-    activateHall(hallId);
-    push(
-      {kind: 'museum', hallId},
-      {state: museumHistoryStateWithVisitContext(window.history.state, undefined)},
-    );
-  }, [activateHall, push]);
+    const targetRegistration = getMuseumHallRegistration(hallId);
+    const node = getMuseumVisitorMapNode(hallId);
+    const destination = targetRegistration && node
+      ? resolveMuseumVisitorMapDestination(targetRegistration.definition, node)
+      : undefined;
+    if (!destination || !travelToHall(hallId, destination)) {
+      setAnnouncement('That Museum gallery does not have a valid safe arrival.');
+      return;
+    }
+    setAnnouncement(`Arrived at ${getMuseumHallCatalog(hallId)?.title ?? 'the selected gallery'}. Continue exploring.`);
+  }, [travelToHall]);
 
   const visitHallFromVisitorMap = useCallback((hallId: MuseumHallId) => {
-    const sourceHallId = activeHallIdRef.current;
     const targetRegistration = getMuseumHallRegistration(hallId);
     const node = getMuseumVisitorMapNode(hallId);
     const destination = targetRegistration && node
@@ -691,17 +787,9 @@ export function MuseumPage({route, href, push, replace}: {
       setAnnouncement('That Museum gallery does not have a valid visitor-map destination.');
       return;
     }
-    visitorMapResumeRef.current = false;
-    activateHall(hallId, destination);
-    saveMuseumSession(targetRegistration.definition.layout, destination);
-    if (hallId !== sourceHallId) {
-      push(
-        {kind: 'museum', hallId},
-        {state: museumHistoryStateWithVisitContext(window.history.state, undefined)},
-      );
-    }
-    setAnnouncement(`Arrived at the safe entrance to ${getMuseumHallCatalog(hallId)?.title ?? 'the selected gallery'}.`);
-  }, [activateHall, push]);
+    if (!travelToHall(hallId, destination)) return;
+    setAnnouncement(`Arrived at the safe entrance to ${getMuseumHallCatalog(hallId)?.title ?? 'the selected gallery'}. Continue exploring.`);
+  }, [travelToHall]);
 
   const stageZoneViewpoint = useCallback((hallId: MuseumHallId, zoneId: string) => {
     const targetRegistration = getMuseumHallRegistration(hallId);
@@ -821,6 +909,7 @@ export function MuseumPage({route, href, push, replace}: {
 
   const pauseAndOpen = (next: Exclude<Overlay, null>) => {
     visitorMapResumeRef.current = false;
+    travelResumeModeRef.current = controls.mode === 'locked' ? 'locked' : 'drag-look';
     overlayOpenerRef.current = document.activeElement instanceof HTMLElement ? document.activeElement : sceneCanvasRef.current;
     controls.pauseExploring();
     setVisitPhase((phase) => transitionMuseumVisitPhase(phase, 'explicit-pause'));
@@ -907,7 +996,7 @@ export function MuseumPage({route, href, push, replace}: {
       overlayReturnFocusPendingRef.current = false;
       return;
     }
-    if (route.exhibitId || modalOpen || activeIntent || previousRouteExhibitRef.current) return;
+    if (route.exhibitId || modalOpen || activeIntent || activeHallLoadFailed || previousRouteExhibitRef.current) return;
     const frame = window.requestAnimationFrame(() => {
       const target = sceneError
         ? document.getElementById('museum-fallback-title')
@@ -915,7 +1004,7 @@ export function MuseumPage({route, href, push, replace}: {
       target?.focus({preventScroll: true});
     });
     return () => window.cancelAnimationFrame(frame);
-  }, [activeIntent, modalOpen, route.exhibitId, route.hallId, sceneError]);
+  }, [activeHallLoadFailed, activeIntent, modalOpen, route.exhibitId, route.hallId, sceneError]);
 
   useEffect(() => {
     const failed = Boolean(sceneError);
@@ -986,6 +1075,16 @@ export function MuseumPage({route, href, push, replace}: {
     if (previousHallIdRef.current === route.hallId) return;
     const previousRouteHallId = previousHallIdRef.current;
     previousHallIdRef.current = route.hallId;
+    const pendingTravel = pendingHallTravelRef.current;
+    if (
+      pendingTravel?.sourceHallId === previousRouteHallId
+      && pendingTravel.targetHallId === route.hallId
+      && activeHallIdRef.current === route.hallId
+    ) {
+      pendingHallTravelRef.current = undefined;
+      return;
+    }
+    pendingHallTravelRef.current = undefined;
     const pending = pendingHallTransitionRef.current;
     if (pending?.sourceHallId === previousRouteHallId && pending.targetHallId === route.hallId && activeHallIdRef.current === route.hallId) {
       pendingHallTransitionRef.current = undefined;
@@ -1013,12 +1112,20 @@ export function MuseumPage({route, href, push, replace}: {
     activeDefinitionRef.current = targetRegistration.definition;
     setActiveHallId(route.hallId);
     setActiveNodeId(targetNode.id);
+    if (syncsDifferentHall) setRecentHallId(previousRouteHallId);
+    residentHallIdsRef.current = new Set(resolveMuseumHallResidency({
+      activeHallId: route.hallId,
+      recentHallId: syncsDifferentHall ? previousRouteHallId : recentHallId,
+    }));
     setApproachedHallId(undefined);
     nearbyRef.current = undefined;
     setNearbyReference(undefined);
     visitorMapNearbyRef.current = false;
     setVisitorMapNearby(false);
     const crossHallClose = pendingCrossHallCloseRef.current;
+    const hallTravelContext = !route.exhibitId
+      ? parseMuseumHallTravelContext(window.history.state, route.hallId)
+      : undefined;
     pendingCrossHallCloseRef.current = undefined;
     if (crossHallClose) {
       const policy = resolveMuseumExitPolicy(crossHallClose.context, crossHallClose.trigger);
@@ -1036,6 +1143,9 @@ export function MuseumPage({route, href, push, replace}: {
           window.requestAnimationFrame(() => document.getElementById('museum-enter-button')?.focus({preventScroll: true}));
         }
       }
+    } else if (hallTravelContext) {
+      setVisitPhase((phase) => transitionMuseumVisitPhase(phase, 'resume-active-origin'));
+      setOverlay(null);
     } else {
       controlsRef.current?.pauseExploring();
       setVisitPhase(route.exhibitId ? 'explicitly-paused' : 'unentered');
@@ -1045,14 +1155,31 @@ export function MuseumPage({route, href, push, replace}: {
       setAnnouncement(`Now in ${getMuseumHallCatalog(route.hallId)?.title ?? 'the selected Museum gallery'}.`);
     }
     setPoseRevision((value) => value + 1);
-    void ensureHallEntry(route.hallId).catch(() => undefined);
-  }, [ensureHallEntry, route.exhibitId, route.hallId, saveCurrentHallSession]);
+    void ensureHallEntry(route.hallId).then(() => {
+      if (!hallTravelContext || activeHallIdRef.current !== route.hallId) return;
+      setVisitPhase((phase) => transitionMuseumVisitPhase(phase, 'resume-active-origin'));
+      controlsRef.current?.resumeWithoutGesture();
+      setAnnouncement(`Returned to ${getMuseumHallCatalog(route.hallId)?.title ?? 'the selected gallery'}. Continue exploring.`);
+    }).catch(() => {
+      if (!hallTravelContext || activeHallIdRef.current !== route.hallId) return;
+      controlsRef.current?.pauseExploring();
+      setVisitPhase('explicitly-paused');
+      setAnnouncement(`${getMuseumHallCatalog(route.hallId)?.title ?? 'The selected gallery'} could not be prepared. Retry is available.`);
+    });
+  }, [ensureHallEntry, recentHallId, route.exhibitId, route.hallId, saveCurrentHallSession]);
 
   useEffect(() => {
     void ensureHallEntry(activeHallId)
-      .then(() => warmHallRemainder(activeHallId))
+      .then(() => {
+        warmHallRemainder(activeHallId);
+        if (
+          !route.exhibitId
+          && route.hallId === activeHallId
+          && parseMuseumHallTravelContext(window.history.state, activeHallId)
+        ) controlsRef.current?.resumeWithoutGesture();
+      })
       .catch(() => undefined);
-  }, [activeHallId, ensureHallEntry, warmHallRemainder]);
+  }, [activeHallId, ensureHallEntry, route.exhibitId, route.hallId, warmHallRemainder]);
 
   useEffect(() => {
     if (!exploring) return;
@@ -1086,8 +1213,6 @@ export function MuseumPage({route, href, push, replace}: {
 
   const exhibitIndex = exhibit ? (hall.guidedOrder as readonly MuseumExhibitId[]).indexOf(exhibit.id) : -1;
   const sceneRegistrations = MUSEUM_WORLD_REGISTRY.filter(({definition: item}) => residentHallIds.has(item.id));
-  const activeHallLoadFailed = hallLoadStatus[activeHallId] === 'failed';
-  const activeHallLoading = hallLoadStatus[activeHallId] === 'idle' || hallLoadStatus[activeHallId] === 'loading';
   const approachedHallIds = approachedHallId ? [approachedHallId] : [];
   const adjacentFailedHallIds = approachedHallIds.filter((hallId) => hallLoadStatus[hallId] === 'failed');
   const adjacentLoadingHallIds = approachedHallIds.filter((hallId) => hallLoadStatus[hallId] === 'loading');
@@ -1119,6 +1244,7 @@ export function MuseumPage({route, href, push, replace}: {
               key={sceneEpoch}
               registrations={sceneRegistrations}
               readyHallIds={[...readyHallIds]}
+              hallLoadStatus={hallLoadStatus}
               hallContentEpochs={hallContentEpochs}
               definition={activeNode}
               active={exploring}
@@ -1214,6 +1340,8 @@ export function MuseumPage({route, href, push, replace}: {
           nearbyLabel={visitorMapNearby ? 'Museum visitor map' : nearby?.displayName}
           movementBindings={controls.movementBindings}
           lookBindings={controls.lookBindings}
+          walkingPace={controls.walkingPace}
+          onWalkingPaceChange={controls.setWalkingPace}
           onInteract={interactNearby}
           onPause={controls.pauseExploring}
           onReset={resetPosition}
@@ -1250,7 +1378,12 @@ export function MuseumPage({route, href, push, replace}: {
         onExhibitViewpoint={stageExhibitViewpoint}
         onZoneViewpoint={stageZoneViewpoint}
       />}
-      {!exhibit && overlay === 'help' && <Help returnFocus={overlayOpenerRef.current} onClose={dismissOverlay}/>}
+      {!exhibit && overlay === 'help' && <Help
+        returnFocus={overlayOpenerRef.current}
+        onClose={dismissOverlay}
+        walkingPace={controls.walkingPace}
+        onWalkingPaceChange={controls.setWalkingPace}
+      />}
       {exhibit && content && <MuseumInterpretationPanel
         key={exhibit.id}
         exhibit={exhibit}

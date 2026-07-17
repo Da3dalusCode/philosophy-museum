@@ -9,7 +9,10 @@ import type {
   MuseumTrackDefinition,
   MuseumWallDefinition,
 } from '../../data/museum/museumWorldTypes';
-import {MUSEUM_TEXTURE_SPECS} from '../../data/museum/museumTexturePolicy';
+import {
+  MUSEUM_TEXTURE_SPECS,
+  museumTextureDimensionsForPlane,
+} from '../../data/museum/museumTexturePolicy';
 import {MuseumTemplateInterfaces} from './MuseumTemplateInterfaces';
 import {usePlaqueTexture} from './plaqueTextures';
 
@@ -145,8 +148,16 @@ function GallerySign({
   rotationY?: number;
   width?: number;
 }) {
-  const texture = usePlaqueTexture({title, kicker, subtitle, accent: '#7b5d3d'});
   const height = width / 4;
+  const textureSize = museumTextureDimensionsForPlane(width, height, MUSEUM_TEXTURE_SPECS.plaque);
+  const texture = usePlaqueTexture({
+    title,
+    kicker,
+    subtitle,
+    accent: '#7b5d3d',
+    width: textureSize.width,
+    height: textureSize.height,
+  });
   return <group position={position} rotation={[0, rotationY, 0]}>
     <mesh position={[0, 0, -.035]}>
       <boxGeometry args={[width + .12, height + .12, .07]}/>
@@ -182,15 +193,22 @@ function GalleryBench({definition}: {definition: MuseumFurnishingDefinition}) {
 }
 
 function OrientationPlinth({definition}: {definition: MuseumFurnishingDefinition}) {
+  const {width, depth} = definition.size;
+  const labelWidth = width - .34;
+  const labelHeight = .74;
+  const textureSize = museumTextureDimensionsForPlane(
+    labelWidth,
+    labelHeight,
+    MUSEUM_TEXTURE_SPECS.ancientOrientationPlinth,
+  );
   const texture = usePlaqueTexture({
     title: 'Philosophy Atlas',
     kicker: 'Museum · Ancient wing',
     subtitle: 'Ancient thought: inquiry, practice, inheritance',
     accent: '#7b5d3d',
-    width: MUSEUM_TEXTURE_SPECS.ancientOrientationPlinth.width,
-    height: MUSEUM_TEXTURE_SPECS.ancientOrientationPlinth.height,
+    width: textureSize.width,
+    height: textureSize.height,
   });
-  const {width, depth} = definition.size;
   return <group
     position={[definition.center.x, 0, definition.center.z]}
     rotation={[0, definition.rotation, 0]}
@@ -201,7 +219,7 @@ function OrientationPlinth({definition}: {definition: MuseumFurnishingDefinition
       <meshStandardMaterial color="#ded9cf" roughness={.92}/>
     </mesh>
     <mesh position={[0, 1.55, depth / 2 + .012]}>
-      <planeGeometry args={[width - .34, .74]}/>
+      <planeGeometry args={[labelWidth, labelHeight]}/>
       <meshBasicMaterial map={texture} toneMapped={false}/>
     </mesh>
     <mesh position={[0, .56, depth / 2 + .025]}>
@@ -239,34 +257,14 @@ export function HallArchitecture({definition, onSceneGesture}: {
     {layout.lighting.tracks.map((track) => <LightingTrack key={track.id} track={track}/>)}
     {layout.lighting.exhibitLights.map((light) => <TrackFixture key={light.id} definition={light}/>)}
 
-    <GallerySign
-      title="Classical Foundations"
-      kicker="Ancient wing · Room I"
-      subtitle="Socrates · Plato · Aristotle"
-      position={[7.6, 3.95, 26.2]}
-      width={3.4}
-    />
-    <GallerySign
-      title="Hellenistic Ways of Life"
-      kicker="Ancient wing · Room II"
-      subtitle="Practice · freedom · judgment · flourishing"
-      position={[7.6, 3.95, 5.2]}
-      width={3.6}
-    />
-    <GallerySign
-      title="Late Antiquity"
-      kicker="Ancient wing · Room III"
-      subtitle="Unity · intellect · soul · return"
-      position={[-7, 4.05, -19.8]}
-      width={3.2}
-    />
-    <GallerySign
-      title="Outer Ring · Gallery 02"
-      kicker="Renaissance, Reason, and Revolution"
-      subtitle="The loop continues · Forum spoke available in this gallery"
-      position={[17.82, 3.55, -28.5]}
-      rotationY={-Math.PI / 2}
-      width={3.5}
-    />
+    {layout.signs?.map((sign) => <GallerySign
+      key={sign.id}
+      title={sign.title}
+      kicker={sign.kicker}
+      subtitle={sign.subtitle}
+      position={[sign.position.x, sign.position.y, sign.position.z]}
+      rotationY={sign.rotationY}
+      width={sign.width}
+    />)}
   </group>;
 }

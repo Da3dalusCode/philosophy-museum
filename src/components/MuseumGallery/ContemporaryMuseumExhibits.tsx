@@ -2,7 +2,10 @@ import type {ThreeEvent} from '@react-three/fiber';
 import type {ReactNode} from 'react';
 import type {MuseumExhibitLayout, MuseumHallDefinition, MuseumSceneVolume} from '../../data/museum/museumWorldTypes';
 import {getMuseumHallCatalog, type MuseumExhibitId, type MuseumZoneId} from '../../data/museumCatalog';
-import {MUSEUM_TEXTURE_SPECS} from '../../data/museum/museumTexturePolicy';
+import {
+  MUSEUM_TEXTURE_SPECS,
+  museumTextureDimensionsForPlane,
+} from '../../data/museum/museumTexturePolicy';
 import {MuseumSceneMedia} from './MuseumSceneMedia';
 import {usePlaqueTexture} from './plaqueTextures';
 
@@ -91,7 +94,19 @@ function ConceptObject({id, volume, accent}: {id: MuseumExhibitId; volume: Museu
 
 function Plaque({layout, title, accent}: {layout: MuseumExhibitLayout; title: string; accent: string}) {
   const plaque = layout.scene.plaque;
-  const texture = usePlaqueTexture({title, kicker: 'Philosopher · object · argument', subtitle: 'Approach or select for interpretation', accent});
+  const textureSize = museumTextureDimensionsForPlane(
+    plaque.width,
+    plaque.height,
+    MUSEUM_TEXTURE_SPECS.plaque,
+  );
+  const texture = usePlaqueTexture({
+    title,
+    kicker: 'Philosopher · object · argument',
+    subtitle: 'Approach or select for interpretation',
+    accent,
+    width: textureSize.width,
+    height: textureSize.height,
+  });
   return <group position={plaque.position}>
     <mesh position={[0, -plaque.height / 2 - plaque.supportHeight / 2, -.04]}><boxGeometry args={[.07, plaque.supportHeight, .07]}/><meshStandardMaterial color="#242627" metalness={.56} roughness={.4}/></mesh>
     <mesh position={[0, -plaque.height / 2 - plaque.supportHeight, .01]}><boxGeometry args={[.62, .07, .38]}/><meshStandardMaterial color="#242627" metalness={.52} roughness={.44}/></mesh>
@@ -104,17 +119,28 @@ function Plaque({layout, title, accent}: {layout: MuseumExhibitLayout; title: st
 
 function NameStrip({layout, title, accent}: {layout: MuseumExhibitLayout; title: string; accent: string}) {
   const backing = bound(layout, 'backing');
+  const planeWidth = backing.size.width - .18;
+  const planeHeight = .34;
+  const textureSize = museumTextureDimensionsForPlane(
+    planeWidth,
+    planeHeight,
+    {
+      width: MUSEUM_TEXTURE_SPECS.contemporaryNameStrip.width,
+      height: MUSEUM_TEXTURE_SPECS.contemporaryNameStrip.height,
+      mipmaps: MUSEUM_TEXTURE_SPECS.contemporaryNameStrip.mipmaps,
+    },
+  );
   const texture = usePlaqueTexture({
     title,
     kicker: 'Philosophy Atlas',
     subtitle: 'Select for the full interpretation',
     accent,
-    width: MUSEUM_TEXTURE_SPECS.contemporaryNameStrip.width,
-    height: MUSEUM_TEXTURE_SPECS.contemporaryNameStrip.height,
+    width: textureSize.width,
+    height: textureSize.height,
   });
   return <group position={[0, backing.center.y + backing.size.height / 2 - .24, backing.center.z + backing.size.depth / 2 + .012]}>
     <mesh position={[0, 0, -.025]}><boxGeometry args={[backing.size.width - .1, .4, .05]}/><meshStandardMaterial color="#242627" roughness={.54}/></mesh>
-    <mesh position={[0, 0, .004]}><planeGeometry args={[backing.size.width - .18, .34]}/><meshBasicMaterial map={texture} toneMapped={false}/></mesh>
+    <mesh position={[0, 0, .004]}><planeGeometry args={[planeWidth, planeHeight]}/><meshBasicMaterial map={texture} toneMapped={false}/></mesh>
   </group>;
 }
 

@@ -21,6 +21,7 @@ import type {
   MuseumRoomEntryView,
   MuseumSceneVolume,
   MuseumSceneVolumeRole,
+  MuseumSignDefinition,
   MuseumSize3,
   MuseumSpatialCell,
   MuseumSpatialConnection,
@@ -509,6 +510,53 @@ const exhibitLights: readonly MuseumExhibitLightDefinition[] = exhibitLayouts.ma
   };
 });
 
+const signs: readonly MuseumSignDefinition[] = [
+  {
+    id: 'classical-foundations-sign',
+    kind: 'zone',
+    title: 'Classical Foundations',
+    kicker: 'Ancient wing · Room I',
+    subtitle: 'Socrates · Plato · Aristotle',
+    position: {x: 7.6, y: 3.95, z: 26.2},
+    rotationY: 0,
+    width: 3.4,
+    height: 3.4 / 4,
+  },
+  {
+    id: 'hellenistic-ways-sign',
+    kind: 'zone',
+    title: 'Hellenistic Ways of Life',
+    kicker: 'Ancient wing · Room II',
+    subtitle: 'Practice · freedom · judgment · flourishing',
+    position: {x: 7.6, y: 3.95, z: 5.2},
+    rotationY: 0,
+    width: 3.6,
+    height: 3.6 / 4,
+  },
+  {
+    id: 'late-antiquity-sign',
+    kind: 'zone',
+    title: 'Late Antiquity',
+    kicker: 'Ancient wing · Room III',
+    subtitle: 'Unity · intellect · soul · return',
+    position: {x: -7, y: 4.05, z: -19.8},
+    rotationY: 0,
+    width: 3.2,
+    height: 3.2 / 4,
+  },
+  {
+    id: 'gallery-02-wayfinding-sign',
+    kind: 'wayfinding',
+    title: 'Outer Ring · Gallery 02',
+    kicker: 'Renaissance, Reason, and Revolution',
+    subtitle: 'The loop continues · Forum spoke available in this gallery',
+    position: {x: 17.82, y: 3.8, z: -28.5},
+    rotationY: -Math.PI / 2,
+    width: 3.5,
+    height: 3.5 / 4,
+  },
+];
+
 export const ANCIENT_GREEK_HALL_LAYOUT: MuseumHallLayout = {
   id: hall.id,
   title: hall.title,
@@ -538,6 +586,7 @@ export const ANCIENT_GREEK_HALL_LAYOUT: MuseumHallLayout = {
     tracks,
     exhibitLights,
   },
+  signs,
 };
 
 export const ANCIENT_GREEK_HALL_DEFINITION: MuseumHallContentDefinition = {

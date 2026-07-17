@@ -32,9 +32,28 @@ export function MuseumModal({labelledBy, describedBy, returnFocus, onClose, chil
     return () => {
       window.requestAnimationFrame(() => {
         window.requestAnimationFrame(() => {
+          const activeTarget = document.activeElement instanceof HTMLElement
+            ? document.activeElement
+            : undefined;
+          // A travel failure deliberately moves focus to its visible Retry
+          // action before this delayed cleanup runs. Preserve that newer,
+          // connected target instead of restoring the stale modal opener.
+          if (activeTarget !== document.body && isVisibleFocusTarget(activeTarget)) return;
+          // Resumed exploration owns focus after an overlay closes. Resolve
+          // this at cleanup time so an explicit travel action cannot be
+          // overridden by the opener captured when the modal first mounted.
+          const exploringCanvas = document.querySelector<HTMLElement>(
+            '.museum-page[data-exploring="true"] .museum-scene-canvas',
+          );
           const fallback = document.getElementById('museum-enter-button')
             ?? document.querySelector<HTMLElement>('.museum-scene-canvas');
-          const target = isVisibleFocusTarget(previous) ? previous : isVisibleFocusTarget(fallback) ? fallback : undefined;
+          const target = isVisibleFocusTarget(exploringCanvas)
+            ? exploringCanvas
+            : isVisibleFocusTarget(previous)
+              ? previous
+              : isVisibleFocusTarget(fallback)
+                ? fallback
+                : undefined;
           target?.focus({preventScroll: true});
         });
       });

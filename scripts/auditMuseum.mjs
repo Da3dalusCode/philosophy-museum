@@ -11,6 +11,7 @@ const museumPageSource = readFileSync(resolve(galleryRoot, 'MuseumPage.tsx'), 'u
 const museumWorldSource = readFileSync(resolve(galleryRoot, 'MuseumWorldScene.tsx'), 'utf8');
 const museumBuildingArchitectureSource = readFileSync(resolve(galleryRoot, 'MuseumBuildingArchitecture.tsx'), 'utf8');
 const museumControlsSource = readFileSync(resolve(galleryRoot, 'useMuseumControls.ts'), 'utf8');
+const museumTouchControlsSource = readFileSync(resolve(galleryRoot, 'MuseumTouchControls.tsx'), 'utf8');
 const museumModalSource = readFileSync(resolve(galleryRoot, 'MuseumModal.tsx'), 'utf8');
 const museumVisitorMapSource = readFileSync(resolve(galleryRoot, 'MuseumVisitorMap.tsx'), 'utf8');
 const museumKioskSource = readFileSync(resolve(galleryRoot, 'MuseumVisitorMapKiosk.tsx'), 'utf8');
@@ -48,6 +49,7 @@ const result = await build({
   root: repoRoot,
   configFile: false,
   logLevel: 'silent',
+  ssr: {noExternal: ['react', 'three']},
   plugins: [{
     name: 'museum-audit-entry',
     resolveId: (id) => id === virtualEntry ? resolvedEntry : undefined,
@@ -69,6 +71,7 @@ const result = await build({
       export * from '/src/data/museum/museumTexturePolicy.ts';
       export * from '/src/data/museum/museumInterpretations.ts';
       export * from '/src/components/MuseumGallery/museumMovement.ts';
+      export * from '/src/components/MuseumGallery/plaqueTextures.ts';
       export * from '/src/components/MuseumGallery/museumPointerLockState.ts';
       export * from '/src/components/MuseumGallery/museumRuntime.ts';
       export * from '/src/components/MuseumGallery/museumResidency.ts';
@@ -131,20 +134,35 @@ const {
   branches,
   philosophers,
   MUSEUM_POINTER_LOCK_SETTLED,
+  MUSEUM_READINESS_GATE_CONFIG,
+  MUSEUM_READINESS_PRESENTATIONS,
+  MUSEUM_FAST_WALK_SPEED,
+  MUSEUM_STANDARD_WALK_SPEED,
+  createMuseumHallTravelContext,
   createMuseumExhibitVisitContext,
+  createMuseumInputState,
   cutMuseumWallsForDoorway,
   circleIntersectsCollider,
   directMuseumVisitContext,
   estimateMuseumHallTextureResidency,
   getMuseumReservationBarrierBody,
+  getMuseumConnectionTargetHallId,
+  getMuseumNodeConnections,
   hasMuseumBrowserModifier,
   isValidMuseumPosition,
   museumHistoryStateWithVisitContext,
+  museumHistoryStateWithHallTravelContext,
   museumConnectionCrossed,
   museumPhaseHasActiveIntent,
   museumPointerLockEventFailureRequestId,
   museumPointerLockSurvivesBlockedOverlay,
   moveWithCollisions,
+  museumTextureDimensionsForPlane,
+  layoutPlaqueText,
+  plaqueSupportedSubtitleLines,
+  plaqueSupportedTitleLines,
+  plaqueTextLayoutFitsSafeRect,
+  parseMuseumHallTravelContext,
   parseMuseumExhibitVisitContext,
   parseMuseumSession,
   positionInsideSpatialUnion,
@@ -153,6 +171,9 @@ const {
   resolveMuseumHallArrival,
   resolveMuseumHallResidency,
   resolveMuseumHallResidencyPlan,
+  resolveMuseumReadinessGateGeometry,
+  resolveMuseumReadinessGateStatus,
+  resolveMuseumWalkingSpeed,
   resolveMuseumHallShell,
   resolveMuseumVisitorMapDestination,
   sanitizeMuseumPose,
@@ -194,6 +215,64 @@ const unique = (values) => new Set(values).size === values.length;
 const wordCount = (value) => value.trim().split(/\s+/).filter(Boolean).length;
 const distance = (first, second) => Math.hypot(first.x - second.x, first.z - second.z);
 const approx = (actual, expected, message, epsilon = 1e-6) => assert(Math.abs(actual - expected) <= epsilon, `${message}: expected ${expected}, got ${actual}`);
+const createDeterministicTextContext = () => {
+  let font = '400 16px system-ui';
+  return {
+    textAlign: 'left',
+    textBaseline: 'alphabetic',
+    get font() { return font; },
+    set font(value) { font = value; },
+    measureText(text) {
+      const size = Number.parseFloat(font.match(/([0-9.]+)px/u)?.[1] ?? '16');
+      const width = [...text].reduce((sum, character) => sum + (
+        /[MW@%&]/u.test(character) ? size * .82
+          : /[ilI1.,'’]/u.test(character) ? size * .3
+            : character === ' ' ? size * .32
+              : size * .56
+      ), 0);
+      return {
+        width,
+        actualBoundingBoxLeft: 0,
+        actualBoundingBoxRight: width,
+        actualBoundingBoxAscent: size * .78,
+        actualBoundingBoxDescent: size * .22,
+      };
+    },
+  };
+};
+const assertPlaqueSurface = ({label, planeWidth, planeHeight, reference, title, kicker, subtitle}) => {
+  const dimensions = museumTextureDimensionsForPlane(planeWidth, planeHeight, reference);
+  const planeAspect = planeWidth / planeHeight;
+  const textureAspect = dimensions.width / dimensions.height;
+  assert(
+    Math.abs(textureAspect - planeAspect) <= planeAspect / Math.min(dimensions.width, dimensions.height) + 1e-6,
+    `${label} texture aspect ${textureAspect} does not match plane ${planeAspect}`,
+  );
+  assert(
+    dimensions.width * dimensions.height <= reference.width * reference.height,
+    `${label} exceeds its decoded base-pixel budget`,
+  );
+  const layout = layoutPlaqueText(createDeterministicTextContext(), {
+    title,
+    kicker,
+    subtitle,
+    width: dimensions.width,
+    height: dimensions.height,
+  });
+  assert(layout.fitsSafeRect, `${label} text leaves its safe rectangle`);
+  assert(plaqueTextLayoutFitsSafeRect(layout), `${label} glyph bounds leave its safe rectangle`);
+  assert(layout.lineCounts.kicker >= 1, `${label} drops its kicker`);
+  assert(layout.lineCounts.title >= 1, `${label} drops its title`);
+  if (subtitle) assert(layout.lineCounts.subtitle >= 1, `${label} drops its subtitle`);
+  assert(layout.lineCounts.kicker <= 1, `${label} kicker exceeds one line`);
+  assert(layout.lineCounts.title <= plaqueSupportedTitleLines(dimensions.width, dimensions.height), `${label} title exceeds its supported layout`);
+  assert(layout.lineCounts.subtitle <= plaqueSupportedSubtitleLines(dimensions.width, dimensions.height), `${label} subtitle exceeds its supported layout`);
+  assert(layout.lines.every(({text}) => text.trim().length > 0), `${label} emits an empty text line`);
+  const truncatedLines = layout.lines.filter(({ellipsized}) => ellipsized);
+  assert(!truncatedLines.length, `${label} truncates authored text (${truncatedLines.map(({role, text}) => `${role}: ${text}`).join('; ')})`);
+  assert(layout.lines.every(({fontSize}) => fontSize >= 10), `${label} text falls below the readable floor`);
+  return {dimensions, layout};
+};
 const rotateDirectionToWorld = (placed, direction) => {
   const cosine = Math.cos(placed.transform.yaw);
   const sine = Math.sin(placed.transform.yaw);
@@ -246,6 +325,95 @@ const collidersOverlap = (first, second) => {
     const separation = Math.abs(delta.x * axis.x + delta.z * axis.z);
     return separation < projectionRadius(first, axis) + projectionRadius(second, axis) - 1e-6;
   });
+};
+const assertPhysicalSignPlacement = (definition, sign) => {
+  const frameHeight = sign.height + .1;
+  const frameBottom = sign.position.y - frameHeight / 2;
+  const frameTop = sign.position.y + frameHeight / 2;
+  const nearbyCells = definition.layout.spatialCells.filter(({bounds}) =>
+    sign.position.x >= bounds.minX - .5
+    && sign.position.x <= bounds.maxX + .5
+    && sign.position.z >= bounds.minZ - .5
+    && sign.position.z <= bounds.maxZ + .5);
+  assert(nearbyCells.length > 0, `${definition.id}/${sign.id} is not mounted within an authored cell`);
+  assert(frameBottom >= definition.layout.eyeHeight + .45, `${definition.id}/${sign.id} hangs in the ordinary eye line`);
+  assert(
+    frameTop <= Math.min(...nearbyCells.map(({ceilingHeight}) => ceilingHeight)) - .04,
+    `${definition.id}/${sign.id} lacks local ceiling clearance`,
+  );
+
+  const depthAxis = colliderAxes({rotation: sign.rotationY})[1];
+  const frameCollider = {
+    id: `sign:${sign.id}`,
+    center: {
+      x: sign.position.x - depthAxis.x * .04,
+      z: sign.position.z - depthAxis.z * .04,
+    },
+    size: {width: sign.width + .1, depth: .07},
+    rotation: sign.rotationY,
+  };
+  let validParallelMounts = 0;
+  const parallelMountPlaneWalls = [];
+  for (const wall of definition.architectureWalls) {
+    const wallBottom = wall.bottom ?? 0;
+    const wallTop = wallBottom + wall.height;
+    if (frameTop <= wallBottom || frameBottom >= wallTop) continue;
+    const delta = {
+      x: wall.center.x - frameCollider.center.x,
+      z: wall.center.z - frameCollider.center.z,
+    };
+    const separation = Math.abs(delta.x * depthAxis.x + delta.z * depthAxis.z);
+    const penetration = projectionRadius(frameCollider, depthAxis) + projectionRadius(wall, depthAxis) - separation;
+    const signWidthAxis = colliderAxes(frameCollider)[0];
+    const [wallWidthAxis, wallDepthAxis] = colliderAxes(wall);
+    const wallLongAxis = wall.size.width >= wall.size.depth ? wallWidthAxis : wallDepthAxis;
+    const parallelMount = Math.abs(signWidthAxis.x * wallLongAxis.x + signWidthAxis.z * wallLongAxis.z) > .9;
+    if (parallelMount && penetration >= -.08) {
+      parallelMountPlaneWalls.push({
+        tangentCenter: delta.x * signWidthAxis.x + delta.z * signWidthAxis.z,
+        tangentRadius: projectionRadius(wall, signWidthAxis),
+      });
+    }
+    if (!collidersOverlap(frameCollider, wall)) continue;
+    if (parallelMount) {
+      assert(penetration <= .16, `${definition.id}/${sign.id} is buried ${penetration.toFixed(3)}m into ${wall.id}`);
+      validParallelMounts += 1;
+    } else {
+      const tangentSeparation = Math.abs(delta.x * signWidthAxis.x + delta.z * signWidthAxis.z);
+      const tangentPenetration = projectionRadius(frameCollider, signWidthAxis) + projectionRadius(wall, signWidthAxis) - tangentSeparation;
+      assert(penetration <= .3 && tangentPenetration <= .55, `${definition.id}/${sign.id} intrudes into the corner of ${wall.id}`);
+    }
+  }
+  const frameHalfWidth = frameCollider.size.width / 2;
+  const maximumJambGap = Math.max(.5, sign.width * .4);
+  const hasLeftJamb = parallelMountPlaneWalls.some(({tangentCenter, tangentRadius}) => {
+    const gap = -frameHalfWidth - (tangentCenter + tangentRadius);
+    return tangentCenter < 0 && gap >= -.05 && gap <= maximumJambGap;
+  });
+  const hasRightJamb = parallelMountPlaneWalls.some(({tangentCenter, tangentRadius}) => {
+    const gap = tangentCenter - tangentRadius - frameHalfWidth;
+    return tangentCenter > 0 && gap >= -.05 && gap <= maximumJambGap;
+  });
+  assert(
+    validParallelMounts > 0 || (hasLeftJamb && hasRightJamb),
+    `${definition.id}/${sign.id} has neither a parallel host surface nor a bounded pair of co-planar mounting jambs`,
+  );
+
+  const front = {x: Math.sin(sign.rotationY), z: Math.cos(sign.rotationY)};
+  const ordinaryViewpoints = [
+    definition.layout.spawn,
+    definition.layout.reset,
+    ...definition.layout.entryViews.map(({pose}) => pose),
+    ...definition.layout.primaryCirculation.points,
+  ];
+  assert(ordinaryViewpoints.some((viewpoint) => {
+    const offset = {x: viewpoint.x - sign.position.x, z: viewpoint.z - sign.position.z};
+    const horizontalDistance = Math.hypot(offset.x, offset.z);
+    if (horizontalDistance < .8 || horizontalDistance > 48) return false;
+    const facesViewpoint = (front.x * offset.x + front.z * offset.z) / horizontalDistance > .08;
+    const verticalAngle = Math.abs(Math.atan2(sign.position.y - definition.layout.eyeHeight, horizontalDistance));
+    return facesViewpoint && verticalAngle <= 55 * Math.PI / 180;
+  }), `${definition.id}/${sign.id} has no authored ordinary front-side sightline`);
 };
 const doorwayOpeningCollider = (slot, playerRadius = 0) => ({
   id: `audit-opening:${slot.id}`,
@@ -1262,7 +1430,9 @@ check('bounded residency and blocked future reservations remain manifest-owned',
 check('decoded hall-texture residency is measured and enforced within the 96 MiB manifest budget', () => {
   assert.equal(MUSEUM_DECODED_TEXTURE_BUDGET_MIB, buildingManifest.residencyPolicy.decodedTextureBudgetMiB);
   assert.equal(MUSEUM_DECODED_TEXTURE_BUDGET_BYTES, 96 * 1024 * 1024);
-  assert.equal([...ancientArchitectureSource.matchAll(/<GallerySign\b/g)].length, MUSEUM_TEXTURE_SPECS.ancientGallerySignCount);
+  assert.equal(ANCIENT_GREEK_HALL_DEFINITION.layout.signs?.length, MUSEUM_TEXTURE_SPECS.ancientGallerySignCount);
+  assert.match(ancientArchitectureSource, /layout\.signs\?\.map/);
+  assert.match(contemporaryArchitectureSource, /layout\.signs\?\.map\(\(sign\) => <PhysicalSign/);
   assert.match(plaqueTextureSource, /MUSEUM_TEXTURE_SPECS\.plaque\.width/);
   assert.match(plaqueTextureSource, /generateMipmaps = true/);
   assert.match(museumSceneMediaSource, /MUSEUM_TEXTURE_SPECS\.sceneFallback\.width/);
@@ -1313,6 +1483,269 @@ check('decoded hall-texture residency is measured and enforced within the 96 MiB
     return `${Math.min(...values).toFixed(2)}–${Math.max(...values).toFixed(2)} MiB`;
   };
   console.log(`  texture evidence: active ${range(activeEstimates)}; entry-resident ${range(entryEstimates)}; ${auditedPlans} three-hall plans; ${budgetSkips} optional recent halls rejected; peak admitted ${(peakBytes / 1024 / 1024).toFixed(2)} MiB`);
+});
+
+check('every generated physical sign class keeps measured text inside a plane-matched safe rectangle', () => {
+  let exhibitPlaques = 0;
+  let nameStrips = 0;
+  let fallbackLabels = 0;
+  let authoredHallSigns = 0;
+
+  for (const definition of definitions) {
+    const hall = hallsById.get(definition.id);
+    assert(hall, `${definition.id} has no catalog hall for sign audit`);
+    const exhibitById = new Map(hall.exhibits.map((exhibit) => [exhibit.id, exhibit]));
+    for (const layout of definition.layout.exhibits) {
+      const exhibit = exhibitById.get(layout.id);
+      assert(exhibit, `${definition.id}/${layout.id} has no sign title`);
+      assertPlaqueSurface({
+        label: `${definition.id}/${layout.id} primary plaque`,
+        planeWidth: layout.scene.plaque.width,
+        planeHeight: layout.scene.plaque.height,
+        reference: MUSEUM_TEXTURE_SPECS.plaque,
+        title: exhibit.displayName,
+        kicker: definition.id === 'ancient-greek'
+          ? (exhibit.entityKind === 'philosopher' ? 'Philosopher bay' : 'School & tradition')
+          : 'Philosopher · object · argument',
+        subtitle: definition.id === 'ancient-greek'
+          ? (exhibit.entityKind === 'philosopher'
+              ? 'Documented likeness · text · question'
+              : 'Tradition · practice · text · transmission')
+          : 'Approach or select for interpretation',
+      });
+      const plaque = layout.scene.plaque;
+      assert(plaque.bounds.size.width >= plaque.width, `${definition.id}/${layout.id} plaque frame is narrower than its plane`);
+      assert(plaque.bounds.size.height >= plaque.height, `${definition.id}/${layout.id} plaque frame is shorter than its plane`);
+      assert(Math.abs(plaque.position[0]) + plaque.width / 2 <= layout.scene.footprint.width / 2 + .02, `${definition.id}/${layout.id} plaque leaves its installation footprint`);
+      assert(plaque.position[1] + plaque.height / 2 <= layout.scene.footprint.height + .02, `${definition.id}/${layout.id} plaque exceeds its installation height`);
+      assert(Math.abs(plaque.position[2]) <= layout.scene.footprint.depth / 2 + .02, `${definition.id}/${layout.id} plaque leaves its installation depth`);
+      exhibitPlaques += 1;
+
+      if (definition.id !== 'ancient-greek') {
+        const backing = layout.scene.objectBounds.find(({id}) => id.endsWith('-backing'));
+        assert(backing, `${definition.id}/${layout.id} lacks its name-strip backing`);
+        assertPlaqueSurface({
+          label: `${definition.id}/${layout.id} name strip`,
+          planeWidth: backing.size.width - .18,
+          planeHeight: .34,
+          reference: MUSEUM_TEXTURE_SPECS.contemporaryNameStrip,
+          title: exhibit.displayName,
+          kicker: 'Philosophy Atlas',
+          subtitle: 'Select for the full interpretation',
+        });
+        assert(backing.size.height >= .34, `${definition.id}/${layout.id} name strip exceeds its backing`);
+        nameStrips += 1;
+      }
+
+      for (const mount of layout.scene.mediaMounts) {
+        const asset = assetById.get(mount.assetId);
+        assert(asset, `${definition.id}/${layout.id}/${mount.id} lacks fallback asset metadata`);
+        assertPlaqueSurface({
+          label: `${definition.id}/${layout.id}/${mount.id} fallback label`,
+          planeWidth: mount.width,
+          planeHeight: mount.height,
+          reference: MUSEUM_TEXTURE_SPECS.sceneFallback,
+          title: asset.title,
+          kicker: 'Object image unavailable',
+          subtitle: asset.objectDate,
+        });
+        assert(mount.bounds.size.width >= mount.width, `${definition.id}/${layout.id}/${mount.id} fallback plane exceeds its frame width`);
+        assert(mount.bounds.size.height >= mount.height, `${definition.id}/${layout.id}/${mount.id} fallback plane exceeds its frame height`);
+        fallbackLabels += 1;
+      }
+    }
+
+    for (const sign of definition.layout.signs ?? []) {
+      const reference = {
+        width: MUSEUM_TEXTURE_SPECS.contemporarySignWidth,
+        height: Math.round(MUSEUM_TEXTURE_SPECS.contemporarySignWidth * sign.height / sign.width),
+        mipmaps: true,
+      };
+      assertPlaqueSurface({
+        label: `${definition.id}/${sign.id}`,
+        planeWidth: sign.width,
+        planeHeight: sign.height,
+        reference,
+        title: sign.title,
+        kicker: sign.kicker,
+        subtitle: sign.subtitle,
+      });
+      assertPhysicalSignPlacement(definition, sign);
+      authoredHallSigns += 1;
+    }
+  }
+
+  const orientationPlinth = ANCIENT_GREEK_HALL_DEFINITION.layout.furnishings.find(({kind}) => kind === 'orientation-plinth');
+  assert(orientationPlinth, 'Ancient orientation plinth is missing');
+  assertPlaqueSurface({
+    label: 'Ancient orientation plinth',
+    planeWidth: orientationPlinth.size.width - .34,
+    planeHeight: .74,
+    reference: MUSEUM_TEXTURE_SPECS.ancientOrientationPlinth,
+    title: 'Philosophy Atlas',
+    kicker: 'Museum · Ancient wing',
+    subtitle: 'Ancient thought: inquiry, practice, inheritance',
+  });
+
+  const kioskSpec = MUSEUM_TEXTURE_SPECS.visitorMapKiosk;
+  const kioskPlaneAspect = MUSEUM_VISITOR_MAP_KIOSK.screen.width / MUSEUM_VISITOR_MAP_KIOSK.screen.height;
+  const kioskTextureAspect = kioskSpec.width / kioskSpec.height;
+  assert(
+    Math.abs(kioskTextureAspect - kioskPlaneAspect) <= kioskPlaneAspect / Math.min(kioskSpec.width, kioskSpec.height),
+    'visitor-map kiosk texture aspect does not match its physical screen',
+  );
+  const kioskContext = createDeterministicTextContext();
+  const kioskTextRuns = [
+    {text: 'PHILOSOPHY ATLAS · RING OF WINGS', x: 62, size: 25, right: 1140},
+    {text: 'Main-level plan', x: 62, size: 58, right: 1140},
+    {text: 'Live Ring pilot · 6 of 26 planned public halls open', x: 64, size: 21, right: 1140},
+    ...MUSEUM_VISITOR_MAP_PROJECTION.map(({hall}) => ({text: hall.title, x: 832, size: 16, right: 1140})),
+    {text: '4 planned gallery connections', x: 852, size: 14, right: 1140},
+    {text: '8 reserved outward expansion portals', x: 852, size: 14, right: 1140},
+    {text: 'Remaining planned halls appear as constructed', x: 790, size: 12, right: 1140},
+    {text: 'E / ENTER · TAP TO OPEN', x: 62, size: 20, right: 1140},
+  ];
+  for (const run of kioskTextRuns) {
+    kioskContext.font = `700 ${run.size}px system-ui, sans-serif`;
+    assert(run.x + kioskContext.measureText(run.text).width <= run.right, `visitor-map kiosk clips “${run.text}”`);
+  }
+  assert.match(museumKioskSource, /canvas\.width = MUSEUM_TEXTURE_SPECS\.visitorMapKiosk\.width/);
+  assert.match(museumKioskSource, /canvas\.height = MUSEUM_TEXTURE_SPECS\.visitorMapKiosk\.height/);
+
+  const entranceNode = MUSEUM_RUNTIME_NODES.find(({id}) => id === buildingManifest.mainEntrance.nodeId);
+  const entranceCell = entranceNode?.layout.spatialCells.find(({id}) => id.endsWith(':orientation-court'));
+  const forumNode = MUSEUM_RUNTIME_NODES.find(({pilotRole}) => pilotRole === 'forum-location');
+  const forumCell = forumNode?.layout.spatialCells.find(({id}) => id.endsWith(':forum-court'));
+  assert(entranceNode && entranceCell && forumNode && forumCell, 'building sign host cells are missing');
+  assert.match(museumBuildingArchitectureSource, /id\.endsWith\(':orientation-court'\)/);
+  assert.match(museumBuildingArchitectureSource, /id\.endsWith\(':forum-court'\)/);
+  const buildingSignCalls = [...museumBuildingArchitectureSource.matchAll(/<BuildingSign\b[\s\S]*?\/>/g)]
+    .map(({0: source}) => source);
+  assert.equal(buildingSignCalls.length, 2, 'the circulation renderer must mount exactly two building signs');
+  const forumSignCall = buildingSignCalls.find((source) => source.includes('title="Core Questions Forum"'));
+  const entranceSignCall = buildingSignCalls.find((source) => source.includes('title="Philosophy Atlas Museum"'));
+  assert(forumSignCall && entranceSignCall, 'the Forum and entrance building signs must both be rendered');
+  assert.match(forumSignCall, /kicker="Orientation court · Forum location"/);
+  assert.match(forumSignCall, /subtitle="Four spokes reconnect the Ring · Exhibition program follows in a later phase"/);
+  assert.match(forumSignCall, /position=\{\[forumSignX,\s*3\.6,\s*forumCell\.bounds\.maxZ - \.22\]\}/);
+  assert.match(forumSignCall, /rotation=\{Math\.PI\}[\s\S]*width=\{5\.4\}/);
+  assert.match(entranceSignCall, /kicker="Entrance and orientation"/);
+  assert.match(entranceSignCall, /subtitle="Walk the full Ring in either direction · Central shortcuts are open"/);
+  assert.match(entranceSignCall, /\(entranceCell\.bounds\.minX \+ entranceCell\.bounds\.maxX\) \/ 2,[\s\S]*?4\.25,[\s\S]*?entranceCell\.bounds\.maxZ - \.2/);
+  assert.match(entranceSignCall, /rotation=\{Math\.PI\}[\s\S]*width=\{5\.6\}/);
+  [
+    {label: 'Museum entrance sign', width: 5.6, centerY: 4.25, ceilingHeight: entranceCell.ceilingHeight, eyeHeight: entranceNode.layout.eyeHeight, title: 'Philosophy Atlas Museum', kicker: 'Entrance and orientation', subtitle: 'Walk the full Ring in either direction · Central shortcuts are open'},
+    {label: 'Forum sign', width: 5.4, centerY: 3.6, ceilingHeight: forumCell.ceilingHeight, eyeHeight: forumNode.layout.eyeHeight, title: 'Core Questions Forum', kicker: 'Orientation court · Forum location', subtitle: 'Four spokes reconnect the Ring · Exhibition program follows in a later phase'},
+  ].forEach((sign) => {
+    assertPlaqueSurface({
+      ...sign,
+      planeWidth: sign.width,
+      planeHeight: sign.width * .27,
+      reference: MUSEUM_TEXTURE_SPECS.buildingSign,
+    });
+    const frameHeight = sign.width * .27 + .12;
+    assert(sign.centerY - frameHeight / 2 >= sign.eyeHeight + .45, `${sign.label} hangs in the ordinary eye line`);
+    assert(sign.centerY + frameHeight / 2 <= sign.ceilingHeight - .04, `${sign.label} lacks ceiling clearance`);
+  });
+
+  for (const reservation of buildingManifest.reservations) {
+    const body = getMuseumReservationBarrierBody(reservation);
+    const labelWidth = body.size.width * .9;
+    const labelHeight = body.size.width * .245;
+    assertPlaqueSurface({
+      label: `reservation ${reservation.id}`,
+      planeWidth: labelWidth,
+      planeHeight: labelHeight,
+      reference: MUSEUM_TEXTURE_SPECS.reservationSign,
+      title: reservation.label,
+      kicker: reservation.expansionPortalId ? `Reserved outward portal · ${reservation.expansionPortalId}` : 'Reserved insertion bay',
+      subtitle: 'The pilot route continues through the open Ring of Wings.',
+    });
+    assert(labelWidth <= body.size.width - .1, `reservation ${reservation.id} label exceeds its barrier`);
+    const labelBottom = body.height + .18 - labelHeight / 2;
+    const labelTop = body.height + .18 + labelHeight / 2;
+    assert(labelBottom >= body.height * .5, `reservation ${reservation.id} label hangs below its barrier face`);
+    assert(labelTop <= body.height + 1, `reservation ${reservation.id} label exceeds its mounting envelope`);
+  }
+  assert.match(museumBuildingArchitectureSource, /MUSEUM_BUILDING_MANIFEST\.reservations\.map\(\(reservation\) =>/);
+  assert.match(museumBuildingArchitectureSource, /<ReservationBarrier reservation=\{reservation\}\/>/);
+  assert.match(museumBuildingArchitectureSource, /const labelWidth = body\.size\.width \* \.9;/);
+  assert.match(museumBuildingArchitectureSource, /const labelHeight = body\.size\.width \* \.245;/);
+  assert.match(museumBuildingArchitectureSource, /position=\{\[0, body\.height \+ \.18, body\.size\.depth \/ 2 \+ \.02\]\}/);
+  assert.match(museumBuildingArchitectureSource, /body\.size\.depth \/ 2 \+ \.02/);
+
+  for (const status of [undefined, 'idle', 'loading', 'ready', 'failed']) {
+    const expected = status === 'loading' || status === 'failed' ? status : 'idle';
+    assert.equal(resolveMuseumReadinessGateStatus(status, false), expected, `readiness status ${status ?? 'unset'} does not render truthfully`);
+    assert.equal(resolveMuseumReadinessGateStatus(status, true), undefined, `ready status ${status ?? 'unset'} leaves a gate mounted`);
+  }
+
+  let readinessSites = 0;
+  for (const node of MUSEUM_RUNTIME_NODES) {
+    for (const connection of getMuseumNodeConnections(node.id)) {
+      const targetHallId = getMuseumConnectionTargetHallId(connection);
+      if (!targetHallId) continue;
+      const entrance = node.entrances.find(({id}) => id === connection.localEntranceId);
+      const targetTitle = hallsById.get(targetHallId)?.title;
+      assert(entrance && targetTitle, `${node.id}/${connection.localEntranceId} has no readiness target`);
+      const geometry = resolveMuseumReadinessGateGeometry(entrance);
+      for (const state of Object.values(MUSEUM_READINESS_PRESENTATIONS)) assertPlaqueSurface({
+        label: `${node.id}/${entrance.id} readiness ${state.title}`,
+        planeWidth: geometry.plaqueWidth,
+        planeHeight: geometry.plaqueHeight,
+        reference: MUSEUM_TEXTURE_SPECS.readinessSign,
+        title: state.title,
+        kicker: targetTitle,
+        subtitle: state.subtitle,
+      });
+      const doorway = buildingManifest.nodes
+        .find(({id}) => id === node.id)?.doorwaySlots
+        .find(({id}) => id === entrance.id);
+      assert(doorway, `${node.id}/${entrance.id} has no authored readiness opening`);
+      assert(geometry.thresholdWidth < geometry.clearWidth, `${node.id}/${entrance.id} threshold line exceeds its opening`);
+      assert(MUSEUM_READINESS_GATE_CONFIG.threshold.height <= .05, `${node.id}/${entrance.id} threshold treatment is no longer low profile`);
+      assert(Math.abs(geometry.plaqueX) + geometry.plaqueWidth / 2 <= geometry.clearWidth / 2 - .02, `${node.id}/${entrance.id} readiness plaque intersects a doorway edge`);
+      assert(
+        MUSEUM_READINESS_GATE_CONFIG.plaque.centerY
+          + (geometry.plaqueHeight + MUSEUM_READINESS_GATE_CONFIG.plaque.backingPadding) / 2
+          <= doorway.clearHeight - .2,
+        `${node.id}/${entrance.id} readiness plaque intrudes into its lintel`,
+      );
+      assert(
+        geometry.stanchionOffset + MUSEUM_READINESS_GATE_CONFIG.stanchion.markerRadius
+          <= geometry.clearWidth / 2 - .02,
+        `${node.id}/${entrance.id} readiness stanchion intersects a doorway edge`,
+      );
+      const plaqueOcclusionRatio = geometry.plaqueWidth
+        * (geometry.plaqueHeight + MUSEUM_READINESS_GATE_CONFIG.plaque.backingPadding)
+        / (geometry.clearWidth * doorway.clearHeight);
+      assert(plaqueOcclusionRatio <= .12, `${node.id}/${entrance.id} readiness plaque occludes too much of its doorway`);
+      readinessSites += 1;
+    }
+  }
+
+  assert.match(museumWorldSource, /const geometry = resolveMuseumReadinessGateGeometry\(entrance\);/);
+  assert.match(museumWorldSource, /resolveMuseumReadinessGateStatus\(hallLoadStatus\[hallId\], ready\.has\(hallId\)\)/);
+  assert.match(museumWorldSource, /if \(!status\) return \[\];/);
+  assert.match(museumWorldSource, /<DoorReadinessGate key=\{gate\.id\}[\s\S]*status=\{gate\.status\}/);
+  assert.match(museumWorldSource, /<MuseumReadinessGates definition=\{props\.definition\} readyHallIds=\{props\.readyHallIds\} hallLoadStatus=\{props\.hallLoadStatus\}\/>/);
+  assert.match(museumWorldSource, /boxGeometry args=\{\[geometry\.thresholdWidth, MUSEUM_READINESS_GATE_CONFIG\.threshold\.height, MUSEUM_READINESS_GATE_CONFIG\.threshold\.depth\]\}/);
+  assert.match(museumWorldSource, /planeGeometry args=\{\[geometry\.plaqueWidth, geometry\.plaqueHeight\]\}/);
+  const readinessGateSource = museumWorldSource.match(/function DoorReadinessGate\b[\s\S]*?(?=function MuseumReadinessGates\b)/)?.[0];
+  assert(readinessGateSource, 'the readiness gate renderer is missing');
+  assert.equal([...readinessGateSource.matchAll(/<boxGeometry\b/g)].length, 2, 'readiness gate must remain a threshold line plus a small plaque backing');
+
+  assert.equal(exhibitPlaques, 48);
+  assert.equal(nameStrips, 40);
+  assert.equal(fallbackLabels, 96);
+  assert.equal(authoredHallSigns, 24);
+  assert.equal(buildingManifest.reservations.length, 12);
+  assert.equal(readinessSites, 16);
+  const ancientOuterRingSign = ANCIENT_GREEK_HALL_DEFINITION.layout.signs.find(({id}) => id === 'gallery-02-wayfinding-sign');
+  assert(ancientOuterRingSign, 'Ancient Gallery 02 wayfinding sign is missing');
+  assert.deepEqual(ancientOuterRingSign.position, {x: 17.82, y: 3.8, z: -28.5});
+  const ancientDoorFrameBottom = ancientOuterRingSign.position.y - (ancientOuterRingSign.height + .12) / 2;
+  assert(ancientDoorFrameBottom >= 3.3, 'Ancient Gallery 02 sign does not preserve 0.1m above the 3.2m clear opening');
 });
 
 check('all 48 dedicated interpretations are active, substantial, linked, and asset-complete', () => {
@@ -1401,6 +1834,32 @@ check('typed exhibit origins preserve explicit close, history, and resume polici
   assert.equal(parseMuseumExhibitVisitContext(carried, 'not-a-hall'), undefined);
 });
 
+check('explicit hall travel history resumes exploration while direct hall loads remain unentered', () => {
+  const exhibitContext = createMuseumExhibitVisitContext('ancient-greek', 'paused-hall');
+  const travelContext = createMuseumHallTravelContext('ancient-greek');
+  const state = museumHistoryStateWithHallTravelContext(
+    museumHistoryStateWithVisitContext({unrelated: 11}, exhibitContext),
+    travelContext,
+  );
+  assert.equal(state.unrelated, 11);
+  assert.deepEqual(parseMuseumExhibitVisitContext(state, 'ancient-greek'), exhibitContext);
+  assert.deepEqual(parseMuseumHallTravelContext(state, 'ancient-greek'), travelContext);
+  assert.equal(parseMuseumHallTravelContext(state, 'renaissance-reason-revolution'), undefined);
+  assert.equal(parseMuseumHallTravelContext({philosophyAtlasMuseumTravel: {...travelContext, version: 0}}, 'ancient-greek'), undefined);
+  assert.equal(parseMuseumHallTravelContext({philosophyAtlasMuseumTravel: {...travelContext, resumeExploration: false}}, 'ancient-greek'), undefined);
+  assert.equal(parseMuseumHallTravelContext({}, 'ancient-greek'), undefined, 'an untagged direct URL must remain unentered');
+  assert.equal(transitionMuseumVisitPhase('unentered', 'resume-active-origin'), 'active');
+  assert.match(museumPageSource, /const travelToHall = useCallback/);
+  assert.match(museumPageSource, /createMuseumHallTravelContext\(sourceHallId\)/);
+  assert.match(museumPageSource, /createMuseumHallTravelContext\(hallId\)/);
+  assert.match(museumPageSource, /pendingHallTravelRef/);
+  assert.match(museumPageSource, /parseMuseumHallTravelContext\(window\.history\.state, route\.hallId\)/);
+  assert.match(museumPageSource, /resumeTravelWhenReady\(hallId, resumeLocked\)/);
+  assert.match(museumPageSource, /controlsRef\.current\?\.resumeWithoutGesture\(\)/);
+  assert.match(museumModalSource, /museum-page\[data-exploring="true"\][\s\S]*museum-scene-canvas/);
+  assert.match(museumModalSource, /activeTarget !== document\.body && isVisibleFocusTarget\(activeTarget\)/);
+});
+
 check('Pointer Lock transitions preserve only a live overlay-close request through teardown', () => {
   let transition = MUSEUM_POINTER_LOCK_SETTLED;
   transition = transitionMuseumPointerLock(transition, {type: 'begin-overlay-close', requestId: 1});
@@ -1450,6 +1909,59 @@ check('Museum controls leave modified browser shortcuts untouched', () => {
   assert.equal(hasMuseumBrowserModifier({altKey: false, ctrlKey: false, metaKey: false}), false);
 });
 
+check('Standard, Fast, Shift, Controls, and touch share one bounded collision-safe pace', () => {
+  assert.equal(MUSEUM_STANDARD_WALK_SPEED, 3.75);
+  assert.equal(MUSEUM_FAST_WALK_SPEED, 6);
+  assert.equal(resolveMuseumWalkingSpeed('standard'), MUSEUM_STANDARD_WALK_SPEED);
+  assert.equal(resolveMuseumWalkingSpeed('standard', true), MUSEUM_FAST_WALK_SPEED);
+  assert.equal(resolveMuseumWalkingSpeed('fast'), MUSEUM_FAST_WALK_SPEED);
+  assert.equal(resolveMuseumWalkingSpeed('fast', true), MUSEUM_FAST_WALK_SPEED, 'Shift must not stack on Fast');
+  assert.equal(createMuseumInputState().walkingSpeed, MUSEUM_STANDARD_WALK_SPEED);
+
+  const playerRadius = .32;
+  const bounds = {minX: -5, maxX: 5, minZ: -5, maxZ: 5};
+  const spatialCells = [{id: 'speed-audit', bounds, ceilingHeight: 4, lightingGroupId: 'audit'}];
+  for (const [id, collider] of [
+    ['wall', {id: 'wall', center: {x: 0, z: 0}, size: {width: 8, depth: .05}, rotation: 0}],
+    ['exhibit', {id: 'exhibit', center: {x: 0, z: 0}, size: {width: .7, depth: .7}, rotation: 0}],
+    ['future barrier', {id: 'future', center: {x: 0, z: 0}, size: {width: 4, depth: .08}, rotation: 0}],
+  ]) {
+    const next = moveWithCollisions(
+      {x: 0, z: -1},
+      {x: 0, z: MUSEUM_FAST_WALK_SPEED * .05 * 8},
+      playerRadius,
+      bounds,
+      [collider],
+      spatialCells,
+    );
+    assert(!circleIntersectsCollider(next, playerRadius, collider), `Fast movement tunneled into ${id}`);
+    assert(next.z <= -playerRadius, `Fast movement tunneled through ${id}`);
+  }
+
+  const maximumFastFrame = MUSEUM_FAST_WALK_SPEED * .05;
+  for (const node of MUSEUM_RUNTIME_NODES) {
+    for (const entrance of node.entrances) {
+      const thresholdDepth = Math.abs(entrance.inwardNormal.x) > .5
+        ? entrance.transitionBounds.size.width
+        : entrance.transitionBounds.size.depth;
+      assert(maximumFastFrame < thresholdDepth, `${node.id}/${entrance.id} can be skipped in one Fast frame`);
+    }
+  }
+  assert.match(museumControlsSource, /ShiftLeft/);
+  assert.match(museumControlsSource, /ShiftRight/);
+  assert.match(museumControlsSource, /resolveMuseumWalkingSpeed/);
+  assert.match(museumPageSource, /Preferred walking speed/);
+  assert.match(museumPageSource, /walkingPace=\{controls\.walkingPace\}/);
+  assert.match(museumTouchControlsSource, /className="museum-touch-actions"[\s\S]*className="museum-touch-speed"/);
+  assert.match(museumTouchControlsSource, /aria-pressed=\{walkingPace === 'fast'\}/);
+  assert.match(museumTouchControlsSource, /aria-label=\{nearbyLabel \? `Interact with \$\{nearbyLabel\}`/);
+  assert.match(museumTouchControlsSource, /aria-label="Open Museum directory">Guide/);
+  assert.match(museumCssSource, /@media\(any-pointer:coarse\) and \(max-width:760px\)\{[\s\S]*?\.museum-touch-actions\{flex-wrap:nowrap;gap:3px\}/);
+  assert(6 * 44 + 5 * 3 <= 320 - 15 - 20, 'six touch actions do not fit a 320px viewport with a classic scrollbar');
+  assert.match(museumPageSource, /const blocked = modalOpen \|\| Boolean\(sceneError\) \|\| activeHallLoading/);
+  assert.match(museumCssSource, /\.museum-load-chip\{[^}]*pointer-events:none/);
+});
+
 check('the physical visitor-map source wiring reuses Museum interaction, overlay, directory, and navigation contracts', () => {
   assert.match(museumWorldSource, /const hallId = definition\.publicHallId;[\s\S]*hallId \? visitorMapInteractionAtPose\(hallId, poseRef\.current\) : undefined/);
   assert.match(museumWorldSource, /kind: 'exhibit'/);
@@ -1478,14 +1990,15 @@ check('the physical visitor-map source wiring reuses Museum interaction, overlay
   assert.match(museumModalSource, /visibleFocusable/);
   assert.match(museumModalSource, /target\?\.focus\(\{preventScroll: true\}\)/);
   assert.match(museumPageSource, /resolveMuseumVisitorMapDestination\(targetRegistration\.definition, node\)/);
-  assert.match(museumPageSource, /activateHall\(hallId, destination\)/);
-  assert.match(museumPageSource, /saveMuseumSession\(targetRegistration\.definition\.layout, destination\)/);
+  assert.match(museumPageSource, /travelToHall\(hallId, destination\)/);
+  assert.match(museumPageSource, /saveMuseumSession\(getMuseumHallRegistration\(hallId\)!\.definition\.layout, destination\)/);
   assert.match(museumPageSource, /if \(hallId !== sourceHallId\)[\s\S]*push\(/);
   assert.match(museumPageSource, /visitorMapResumeRef/);
   assert.match(museumPageSource, /overlayReturnFocusPendingRef/);
   assert.match(museumPageSource, /onClose=\{dismissOverlay\}/);
   assert.match(museumPageSource, /requestOverlayCloseResume/);
   assert.match(museumPageSource, /completeOverlayCloseResume/);
+  assert.match(museumPageSource, /resumeWithoutGesture/);
   assert.match(museumPageSource, /onInteract=\{interactNearby\}/);
   assert.match(museumControlsSource, /event\.code === 'KeyM'[\s\S]*callbacksRef\.current\.onOpenDirectory\(\)/);
   assert.match(museumPageSource, /overlay === 'directory'[\s\S]*<Directory/);
@@ -1493,13 +2006,19 @@ check('the physical visitor-map source wiring reuses Museum interaction, overlay
   assert.match(museumPageSource, /className="museum-control-map"[\s\S]*onClick=\{showVisitorMap\}/);
   assert.match(museumCssSource, /@media\(max-width:900px\)\{[\s\S]*?\.museum-visitor-map-layout\{grid-template-columns:1fr\}[\s\S]*?\.museum-visitor-map-destinations\{grid-template-columns:repeat\(2,minmax\(0,1fr\)\)\}/);
   assert.match(museumCssSource, /@media\(max-width:760px\)\{[\s\S]*?\.museum-visitor-map-scroll\{[^}]*overflow-x:auto/);
+  assert.match(museumVisitorMapSource, /Six of 26 planned public halls are open/);
+  assert.match(museumVisitorMapSource, /constructed, walkable geometry only/);
+  assert.match(museumVisitorMapSource, /planned gallery connections/);
+  assert.match(museumVisitorMapSource, /reserved outward expansion portals/);
+  assert.equal(MUSEUM_VISITOR_MAP_RESERVATIONS.filter(({reservationType}) => reservationType === 'insertion').length, 4);
+  assert.equal(MUSEUM_VISITOR_MAP_RESERVATIONS.filter(({reservationType}) => reservationType === 'outward-expansion').length, 8);
 });
 
 check('physical wayfinding signs and decoded-texture remainder warming are runtime-derived', () => {
   assert.match(museumBuildingArchitectureSource, /forumCell/);
   assert.match(museumBuildingArchitectureSource, /entranceCell/);
   assert.doesNotMatch(museumBuildingArchitectureSource, /position=\{\[34\.5\s*,\s*3\.6|position=\{\[-12\.2\s*,\s*3\.6/);
-  assert.match(museumPageSource, /ensureHallEntry\(activeHallId\)[\s\S]*?\.then\(\(\) => warmHallRemainder\(activeHallId\)\)/);
+  assert.match(museumPageSource, /ensureHallEntry\(activeHallId\)[\s\S]*?\.then\(\(\) => \{[\s\S]*?warmHallRemainder\(activeHallId\);/);
 });
 
 check('the world registry is the active six-hall lazy graph with no retired import', () => {
@@ -1523,6 +2042,14 @@ check('the persistent runtime enforces manifest-bounded residency, rendered read
   assert.match(museumWorldSource, /getMuseumNodeConnections\(definition\.id\)/);
   assert.match(museumWorldSource, /MUSEUM_BUILDING_MANIFEST\.residencyPolicy\.approachDistance/);
   assert.match(museumWorldSource, /pose\.x = previousPosition\.x;[\s\S]*pose\.z = previousPosition\.z;/);
+  assert.match(museumWorldSource, /nonOccluding: true/);
+  assert.match(museumWorldSource, /readinessThreshold: true/);
+  assert.match(museumWorldSource, /MUSEUM_READINESS_PRESENTATIONS\[status\]/);
+  assert.equal(MUSEUM_READINESS_PRESENTATIONS.failed.title, 'Preparation failed');
+  assert.match(MUSEUM_READINESS_PRESENTATIONS.failed.subtitle, /Use Retry on screen/);
+  assert.doesNotMatch(museumWorldSource, /boxGeometry args=\{\[clearWidth,\s*3\.12/);
+  assert.match(museumPageSource, /museum-hall-load-error" role="alert"[\s\S]*Retry gallery/);
+  assert.match(museumPageSource, /route\.exhibitId \|\| modalOpen \|\| activeIntent \|\| activeHallLoadFailed/);
   assert.match(museumWorldSource, /frameloop=\{renderable \? 'demand' : 'never'\}/);
   assert.doesNotMatch(museumWorldSource, /frameloop=\{[^}]*'always'/);
   assert.match(museumWorldSource, /transitionTargetRef\.current[\s\S]*transitionTargetId !== definition\.id\) return;/);

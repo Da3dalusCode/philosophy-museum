@@ -12,6 +12,10 @@ import type {
   MuseumSpatialCell,
   MuseumWallDefinition,
 } from '../../data/museum/museumWorldTypes';
+import {
+  MUSEUM_TEXTURE_SPECS,
+  museumTextureDimensionsForPlane,
+} from '../../data/museum/museumTexturePolicy';
 import {usePlaqueTexture} from './plaqueTextures';
 
 const WALL = '#e9e4da';
@@ -99,22 +103,42 @@ function BuildingSign({title, kicker, subtitle, position, rotation = 0, width = 
   rotation?: number;
   width?: number;
 }) {
-  const texture = usePlaqueTexture({title, kicker, subtitle, accent: BRONZE, width: 1200, height: 320});
+  const height = width * .27;
+  const textureSize = museumTextureDimensionsForPlane(
+    width,
+    height,
+    MUSEUM_TEXTURE_SPECS.buildingSign,
+  );
+  const texture = usePlaqueTexture({
+    title,
+    kicker,
+    subtitle,
+    accent: BRONZE,
+    width: textureSize.width,
+    height: textureSize.height,
+  });
   return <group position={position} rotation={[0, rotation, 0]}>
-    <mesh position={[0, 0, -.035]}><boxGeometry args={[width + .12, width * .27 + .12, .07]}/><meshStandardMaterial color={METAL} roughness={.4} metalness={.5}/></mesh>
-    <mesh position={[0, 0, .005]}><planeGeometry args={[width, width * .27]}/><meshBasicMaterial map={texture} toneMapped={false}/></mesh>
+    <mesh position={[0, 0, -.035]}><boxGeometry args={[width + .12, height + .12, .07]}/><meshStandardMaterial color={METAL} roughness={.4} metalness={.5}/></mesh>
+    <mesh position={[0, 0, .005]}><planeGeometry args={[width, height]}/><meshBasicMaterial map={texture} toneMapped={false}/></mesh>
   </group>;
 }
 
 function ReservationBarrier({reservation}: {reservation: MuseumReservation}) {
   const body = getMuseumReservationBarrierBody(reservation);
+  const labelWidth = body.size.width * .9;
+  const labelHeight = body.size.width * .245;
+  const textureSize = museumTextureDimensionsForPlane(
+    labelWidth,
+    labelHeight,
+    MUSEUM_TEXTURE_SPECS.reservationSign,
+  );
   const texture = usePlaqueTexture({
     title: reservation.label,
     kicker: reservation.expansionPortalId ? `Reserved outward portal · ${reservation.expansionPortalId}` : 'Reserved insertion bay',
     subtitle: 'The pilot route continues through the open Ring of Wings.',
     accent: '#a56d45',
-    width: 1400,
-    height: 380,
+    width: textureSize.width,
+    height: textureSize.height,
   });
   return <group
     position={[body.center.x, 0, body.center.z]}
@@ -122,17 +146,17 @@ function ReservationBarrier({reservation}: {reservation: MuseumReservation}) {
     userData={{reservationId: reservation.id, blocked: true, label: reservation.label}}
   >
     <mesh position={[0, body.height / 2, 0]}><boxGeometry args={[body.size.width, body.height, body.size.depth]}/><meshStandardMaterial color="#2b2926" roughness={.68}/></mesh>
-    <mesh position={[0, body.height + .18, body.size.depth / 2 + .02]}><planeGeometry args={[body.size.width * .9, body.size.width * .245]}/><meshBasicMaterial map={texture} toneMapped={false}/></mesh>
+    <mesh position={[0, body.height + .18, body.size.depth / 2 + .02]}><planeGeometry args={[labelWidth, labelHeight]}/><meshBasicMaterial map={texture} toneMapped={false}/></mesh>
     {[-body.size.width * .42, body.size.width * .42].map((x) => <mesh key={x} position={[x, .72, 0]}><cylinderGeometry args={[.055, .075, 1.45, 10]}/><meshStandardMaterial color={BRONZE} metalness={.55} roughness={.4}/></mesh>)}
   </group>;
 }
 
 function CirculationNode({node}: {node: MuseumRuntimeNodeDefinition}) {
   const forum = node.pilotRole === 'forum-location';
-  const forumCell = forum ? node.layout.spatialCells.find(({id}) => id === 'forum-court') : undefined;
+  const forumCell = forum ? node.layout.spatialCells.find(({id}) => id.endsWith(':forum-court')) : undefined;
   const forumNorthEntrance = forum ? node.entrances.find(({id}) => id === 'N0') : undefined;
   const entranceCell = node.id === MUSEUM_BUILDING_MANIFEST.mainEntrance.nodeId
-    ? node.layout.spatialCells.find(({id}) => id === 'orientation-court')
+    ? node.layout.spatialCells.find(({id}) => id.endsWith(':orientation-court'))
     : undefined;
   const forumSignX = forumCell && forumNorthEntrance
     ? (forumCell.bounds.minX + forumNorthEntrance.position.x - forumNorthEntrance.transitionBounds.size.width / 2) / 2

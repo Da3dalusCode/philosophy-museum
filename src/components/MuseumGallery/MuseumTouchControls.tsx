@@ -1,10 +1,12 @@
 import type {MuseumPointerBindings} from './useMuseumControls';
+import type {MuseumWalkingPace} from './museumMovement';
 
 export type MuseumTouchControlsProps = {
   active: boolean;
   blocked: boolean;
   canInteract: boolean;
   nearbyLabel?: string;
+  walkingPace: MuseumWalkingPace;
   movementBindings: MuseumPointerBindings;
   lookBindings: MuseumPointerBindings;
   onInteract: () => void;
@@ -12,6 +14,7 @@ export type MuseumTouchControlsProps = {
   onReset: () => void;
   onMap: () => void;
   onDirectory: () => void;
+  onWalkingPaceChange: (pace: MuseumWalkingPace) => void;
 };
 
 const buttonStyle = {minWidth: 44, minHeight: 44} as const;
@@ -22,6 +25,7 @@ export function MuseumTouchControls({
   blocked,
   canInteract,
   nearbyLabel,
+  walkingPace,
   movementBindings,
   lookBindings,
   onInteract,
@@ -29,6 +33,7 @@ export function MuseumTouchControls({
   onReset,
   onMap,
   onDirectory,
+  onWalkingPaceChange,
 }: MuseumTouchControlsProps) {
   const enabled = active && !blocked;
   return <div
@@ -50,16 +55,26 @@ export function MuseumTouchControls({
     ><span aria-hidden="true">Look</span></div>
     <div className="museum-touch-actions">
       <button
+        className="museum-touch-speed"
+        type="button"
+        disabled={!enabled}
+        aria-pressed={walkingPace === 'fast'}
+        aria-label={`Walking speed is ${walkingPace}. Switch to ${walkingPace === 'fast' ? 'standard' : 'fast'} speed`}
+        onClick={() => onWalkingPaceChange(walkingPace === 'fast' ? 'standard' : 'fast')}
+        style={buttonStyle}
+      >{walkingPace === 'fast' ? 'Fast' : 'Std'}</button>
+      <button
         className="museum-touch-interact"
         type="button"
         disabled={!enabled || !canInteract}
+        aria-label={nearbyLabel ? `Interact with ${nearbyLabel}` : 'Interact with a nearby Museum stop'}
         onClick={onInteract}
         style={buttonStyle}
-      >{nearbyLabel ? `Interact: ${nearbyLabel}` : 'Interact'}</button>
-      <button type="button" onClick={onPause} disabled={!enabled} style={buttonStyle}>Pause / Exit</button>
-      <button type="button" onClick={onReset} disabled={!enabled} style={buttonStyle}>Reset position</button>
+      >Interact</button>
+      <button type="button" onClick={onPause} disabled={!enabled} style={buttonStyle} aria-label="Pause or exit the Museum visit">Pause</button>
+      <button type="button" onClick={onReset} disabled={!enabled} style={buttonStyle} aria-label="Reset Museum position">Reset</button>
       <button type="button" onClick={onMap} disabled={blocked} style={buttonStyle} aria-label="Open Museum visitor map">Map</button>
-      <button type="button" onClick={onDirectory} disabled={blocked} style={buttonStyle}>Directory</button>
+      <button type="button" onClick={onDirectory} disabled={blocked} style={buttonStyle} aria-label="Open Museum directory">Guide</button>
     </div>
   </div>;
 }

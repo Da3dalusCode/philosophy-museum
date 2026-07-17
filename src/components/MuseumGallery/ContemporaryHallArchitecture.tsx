@@ -11,7 +11,10 @@ import type {
   MuseumTrackDefinition,
   MuseumWallDefinition,
 } from '../../data/museum/museumWorldTypes';
-import {MUSEUM_TEXTURE_SPECS} from '../../data/museum/museumTexturePolicy';
+import {
+  MUSEUM_TEXTURE_SPECS,
+  museumTextureDimensionsForPlane,
+} from '../../data/museum/museumTexturePolicy';
 import {MuseumTemplateInterfaces} from './MuseumTemplateInterfaces';
 import {usePlaqueTexture} from './plaqueTextures';
 
@@ -123,13 +126,21 @@ function Bench({definition}: {definition: MuseumFurnishingDefinition}) {
 
 function PhysicalSign({definition}: {definition: MuseumSignDefinition}) {
   const accent = definition.kind === 'entrance' ? '#7b5d3d' : definition.kind === 'wayfinding' ? '#486d70' : BRONZE;
+  const referenceHeight = Math.round(
+    MUSEUM_TEXTURE_SPECS.contemporarySignWidth * definition.height / definition.width,
+  );
+  const textureSize = museumTextureDimensionsForPlane(
+    definition.width,
+    definition.height,
+    {width: MUSEUM_TEXTURE_SPECS.contemporarySignWidth, height: referenceHeight, mipmaps: true},
+  );
   const texture = usePlaqueTexture({
     title: definition.title,
     kicker: definition.kicker,
     subtitle: definition.subtitle,
     accent,
-    width: MUSEUM_TEXTURE_SPECS.contemporarySignWidth,
-    height: Math.round(MUSEUM_TEXTURE_SPECS.contemporarySignWidth * definition.height / definition.width),
+    width: textureSize.width,
+    height: textureSize.height,
   });
   return <group
     position={[definition.position.x, definition.position.y, definition.position.z]}

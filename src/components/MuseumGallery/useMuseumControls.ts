@@ -13,7 +13,11 @@ import {
   type MuseumControlMode,
   type MuseumInputState,
 } from './museumRuntime';
-import {normalizeMoveInput} from './museumMovement';
+import {
+  normalizeMoveInput,
+  resolveMuseumWalkingSpeed,
+  type MuseumWalkingPace,
+} from './museumMovement';
 import {
   MUSEUM_POINTER_LOCK_SETTLED,
   museumPointerLockEventFailureRequestId,
@@ -27,6 +31,7 @@ const DRAG_THRESHOLD = 7;
 const JOYSTICK_RADIUS = 52;
 const JOYSTICK_DEAD_ZONE = .12;
 const movementCodes = new Set(['KeyW', 'KeyA', 'KeyS', 'KeyD', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight']);
+const temporaryFastCodes = new Set(['ShiftLeft', 'ShiftRight']);
 
 type PointerSlot = {
   id: number;
@@ -62,6 +67,7 @@ export type UseMuseumControlsOptions = {
 export type MuseumControls = {
   inputRef: MutableRefObject<MuseumInputState>;
   mode: MuseumControlMode;
+  walkingPace: MuseumWalkingPace;
   pointerLockSupported: boolean;
   onCanvasReady: (canvas: HTMLCanvasElement) => void;
   beginExploring: () => void;
@@ -72,6 +78,7 @@ export type MuseumControls = {
   blockInput: () => void;
   pauseExploring: () => void;
   clearInput: () => void;
+  setWalkingPace: (pace: MuseumWalkingPace) => void;
   movementBindings: MuseumPointerBindings;
   lookBindings: MuseumPointerBindings;
   shouldSuppressActivation: () => boolean;
@@ -97,8 +104,10 @@ const isEditableTarget = (target: EventTarget | null): boolean =>
 export function useMuseumControls(options: UseMuseumControlsOptions): MuseumControls {
   const inputRef = useRef<MuseumInputState>(createMuseumInputState());
   const [mode, setModeState] = useState<MuseumControlMode>('idle');
+  const [walkingPace, setWalkingPaceState] = useState<MuseumWalkingPace>('standard');
   const [canvas, setCanvas] = useState<HTMLCanvasElement | null>(null);
   const modeRef = useRef(mode);
+  const walkingPaceRef = useRef(walkingPace);
   const activeRef = useRef(options.active);
   const suspendedRef = useRef(options.suspended);
   const blockedRef = useRef(options.blocked);
@@ -111,6 +120,7 @@ export function useMuseumControls(options: UseMuseumControlsOptions): MuseumCont
   const suppressUntilRef = useRef(0);
   const nextPointerLockRequestIdRef = useRef(0);
   const pointerLockTransitionRef = useRef<MuseumPointerLockTransition>(MUSEUM_POINTER_LOCK_SETTLED);
+  walkingPaceRef.current = walkingPace;
   activeRef.current = options.active;
   suspendedRef.current = options.suspended;
   blockedRef.current = options.blocked;
@@ -138,14 +148,25 @@ export function useMuseumControls(options: UseMuseumControlsOptions): MuseumCont
     );
     inputRef.current.strafe = normalized.x;
     inputRef.current.forward = normalized.z;
+    inputRef.current.walkingSpeed = resolveMuseumWalkingSpeed(
+      walkingPaceRef.current,
+      keys.has('ShiftLeft') || keys.has('ShiftRight'),
+    );
     inputRef.current.requestFrame?.();
   }, []);
+
+  const setWalkingPace = useCallback((pace: MuseumWalkingPace) => {
+    walkingPaceRef.current = pace;
+    setWalkingPaceState(pace);
+    updateMovement();
+  }, [updateMovement]);
 
   const clearInput = useCallback(() => {
     keysRef.current.clear();
     touchMoveRef.current = {strafe: 0, forward: 0};
     inputRef.current.forward = 0;
     inputRef.current.strafe = 0;
+    inputRef.current.walkingSpeed = resolveMuseumWalkingSpeed(walkingPaceRef.current);
     inputRef.current.lookX = 0;
     inputRef.current.lookY = 0;
     inputRef.current.requestFrame?.();
@@ -375,6 +396,13 @@ export function useMuseumControls(options: UseMuseumControlsOptions): MuseumCont
     const onKeyDown = (event: KeyboardEvent) => {
       if (isEditableTarget(event.target)) return;
       if (hasMuseumBrowserModifier(event)) return;
+      if (temporaryFastCodes.has(event.code)) {
+        if (!canControl()) return;
+        event.preventDefault();
+        keysRef.current.add(event.code);
+        updateMovement();
+        return;
+      }
       if (movementCodes.has(event.code)) {
         if (!canControl()) return;
         event.preventDefault();
@@ -402,7 +430,7 @@ export function useMuseumControls(options: UseMuseumControlsOptions): MuseumCont
       }
     };
     const onKeyUp = (event: KeyboardEvent) => {
-      if (!movementCodes.has(event.code)) return;
+      if (!movementCodes.has(event.code) && !temporaryFastCodes.has(event.code)) return;
       keysRef.current.delete(event.code);
       updateMovement();
     };
@@ -552,6 +580,7 @@ export function useMuseumControls(options: UseMuseumControlsOptions): MuseumCont
   return {
     inputRef,
     mode,
+    walkingPace,
     pointerLockSupported: Boolean(canvas?.requestPointerLock),
     onCanvasReady: setCanvas,
     beginExploring,
@@ -562,6 +591,7 @@ export function useMuseumControls(options: UseMuseumControlsOptions): MuseumCont
     blockInput,
     pauseExploring,
     clearInput,
+    setWalkingPace,
     movementBindings,
     lookBindings,
     shouldSuppressActivation: () => performance.now() < suppressUntilRef.current,

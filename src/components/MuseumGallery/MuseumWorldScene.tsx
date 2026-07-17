@@ -21,63 +21,105 @@ import {
 } from '../../data/museum/museumBuildingRuntime';
 import {MUSEUM_BUILDING_MANIFEST} from '../../data/museum/museumBuildingManifest';
 import {visitorMapInteractionAtPose} from '../../data/museum/museumVisitorMap';
+import {MUSEUM_TEXTURE_SPECS} from '../../data/museum/museumTexturePolicy';
 import {getMuseumHallCatalog, type MuseumHallId} from '../../data/museumCatalog';
 import {
   clampFrameDelta,
   clampPitch,
+  MUSEUM_FAST_WALK_SPEED,
+  MUSEUM_STANDARD_WALK_SPEED,
   moveWithCollisions,
   nearestInteractable,
   normalizeMoveInput,
   normalizeYaw,
   setMuseumMovementDisplacement,
 } from './museumMovement';
-import type {MuseumSceneRuntimeProps} from './museumRuntime';
+import {
+  MUSEUM_READINESS_GATE_CONFIG,
+  MUSEUM_READINESS_PRESENTATIONS,
+  resolveMuseumReadinessGateGeometry,
+  resolveMuseumReadinessGateStatus,
+  type MuseumHallLoadStatus,
+  type MuseumSceneRuntimeProps,
+} from './museumRuntime';
 import {loadMuseumHallContent, type MuseumHallRegistration} from './museumWorldRegistry';
 import {museumPoseToWorld} from './museumWorldTransform';
 import {museumConnectionAtPose, museumConnectionCrossed} from './museumHallTransitions';
 import {MuseumBuildingArchitecture} from './MuseumBuildingArchitecture';
 import {usePlaqueTexture} from './plaqueTextures';
 
-function DoorReadinessGate({title, entrance}: {
+function DoorReadinessGate({title, entrance, status}: {
   title: string;
   entrance: MuseumSceneRuntimeProps['definition']['entrances'][number];
+  status: Exclude<MuseumHallLoadStatus, 'ready'>;
 }) {
+  const presentation = MUSEUM_READINESS_PRESENTATIONS[status];
+  const geometry = resolveMuseumReadinessGateGeometry(entrance);
   const texture = usePlaqueTexture({
-    title: 'Gallery preparing',
+    title: presentation.title,
     kicker: title,
-    subtitle: 'Approach this doorway to prepare the gallery · alternate Ring routes remain open',
-    accent: '#8b6b43',
-    width: 1200,
-    height: 320,
+    subtitle: presentation.subtitle,
+    accent: presentation.accent,
+    width: MUSEUM_TEXTURE_SPECS.readinessSign.width,
+    height: MUSEUM_TEXTURE_SPECS.readinessSign.height,
   });
-  const acrossX = Math.abs(entrance.inwardNormal.z) > .5;
-  const clearWidth = acrossX ? entrance.transitionBounds.size.width : entrance.transitionBounds.size.depth;
-  const rotation = acrossX
-    ? (entrance.inwardNormal.z > 0 ? 0 : Math.PI)
-    : (entrance.inwardNormal.x > 0 ? Math.PI / 2 : -Math.PI / 2);
-  return <group position={[entrance.position.x, 0, entrance.position.z]} rotation={[0, rotation, 0]}>
-    <mesh position={[0, 1.56, 0]}>
-      <boxGeometry args={[clearWidth, 3.12, .1]}/>
-      <meshStandardMaterial color="#d8d1c4" roughness={.88}/>
+  return <group
+    position={[entrance.position.x, 0, entrance.position.z]}
+    rotation={[0, geometry.rotation, 0]}
+    userData={{museumReadinessGate: true, status, nonOccluding: true}}
+  >
+    <mesh position={[0, MUSEUM_READINESS_GATE_CONFIG.threshold.centerY, MUSEUM_READINESS_GATE_CONFIG.threshold.centerZ]} userData={{readinessThreshold: true}}>
+      <boxGeometry args={[geometry.thresholdWidth, MUSEUM_READINESS_GATE_CONFIG.threshold.height, MUSEUM_READINESS_GATE_CONFIG.threshold.depth]}/>
+      <meshBasicMaterial color={presentation.accent} toneMapped={false}/>
     </mesh>
-    <mesh position={[0, 1.86, .056]}>
-      <planeGeometry args={[Math.max(2.7, clearWidth - .45), .76]}/>
+    {[-geometry.stanchionOffset, geometry.stanchionOffset].map((x) => <group key={x} position={[x, 0, MUSEUM_READINESS_GATE_CONFIG.stanchion.centerZ]}>
+      <mesh position={[0, MUSEUM_READINESS_GATE_CONFIG.stanchion.postCenterY, 0]}>
+        <cylinderGeometry args={[
+          MUSEUM_READINESS_GATE_CONFIG.stanchion.postTopRadius,
+          MUSEUM_READINESS_GATE_CONFIG.stanchion.postBottomRadius,
+          MUSEUM_READINESS_GATE_CONFIG.stanchion.postHeight,
+          12,
+        ]}/>
+        <meshStandardMaterial color="#272827" metalness={.72} roughness={.34}/>
+      </mesh>
+      <mesh position={[0, MUSEUM_READINESS_GATE_CONFIG.stanchion.markerCenterY, 0]}>
+        <sphereGeometry args={[MUSEUM_READINESS_GATE_CONFIG.stanchion.markerRadius, 12, 8]}/>
+        <meshBasicMaterial color={presentation.accent} toneMapped={false}/>
+      </mesh>
+    </group>)}
+    <mesh position={[geometry.plaqueX, MUSEUM_READINESS_GATE_CONFIG.plaque.centerY, MUSEUM_READINESS_GATE_CONFIG.plaque.backingCenterZ]}>
+      <boxGeometry args={[
+        geometry.plaqueWidth + MUSEUM_READINESS_GATE_CONFIG.plaque.backingPadding,
+        geometry.plaqueHeight + MUSEUM_READINESS_GATE_CONFIG.plaque.backingPadding,
+        MUSEUM_READINESS_GATE_CONFIG.plaque.backingDepth,
+      ]}/>
+      <meshStandardMaterial color="#202120" roughness={.42} metalness={.5}/>
+    </mesh>
+    <mesh position={[geometry.plaqueX, MUSEUM_READINESS_GATE_CONFIG.plaque.centerY, MUSEUM_READINESS_GATE_CONFIG.plaque.planeCenterZ]}>
+      <planeGeometry args={[geometry.plaqueWidth, geometry.plaqueHeight]}/>
       <meshBasicMaterial map={texture} toneMapped={false}/>
     </mesh>
   </group>;
 }
 
-function MuseumReadinessGates({definition, readyHallIds}: Pick<MuseumSceneRuntimeProps, 'definition' | 'readyHallIds'>) {
+function MuseumReadinessGates({definition, readyHallIds, hallLoadStatus}: Pick<MuseumSceneRuntimeProps, 'definition' | 'readyHallIds' | 'hallLoadStatus'>) {
   const ready = new Set(readyHallIds);
   const gates = getMuseumNodeConnections(definition.id).flatMap((connection) => {
     const hallId = getMuseumConnectionTargetHallId(connection);
     const entrance = definition.entrances.find(({id}) => id === connection.localEntranceId);
-    if (!hallId || ready.has(hallId) || !entrance) return [];
-    return [{id: connection.id, title: getMuseumHallCatalog(hallId)?.title ?? 'Connected gallery', entrance}];
+    if (!hallId || !entrance) return [];
+    const status = resolveMuseumReadinessGateStatus(hallLoadStatus[hallId], ready.has(hallId));
+    if (!status) return [];
+    return [{
+      id: connection.id,
+      title: getMuseumHallCatalog(hallId)?.title ?? 'Connected gallery',
+      entrance,
+      status,
+    }];
   });
   if (!gates.length) return null;
   return <group position={[definition.worldTransform.x, 0, definition.worldTransform.z]} rotation={[0, definition.worldTransform.yaw, 0]}>
-    {gates.map((gate) => <DoorReadinessGate key={gate.id} title={gate.title} entrance={gate.entrance}/>)}
+    {gates.map((gate) => <DoorReadinessGate key={gate.id} title={gate.title} entrance={gate.entrance} status={gate.status}/>)}
   </group>;
 }
 
@@ -222,7 +264,10 @@ function MuseumPlayerRig({
     if (input.forward || input.strafe) {
       const direction = normalizeMoveInput(input.strafe, input.forward);
       const displacement = displacementRef.current;
-      setMuseumMovementDisplacement(displacement, direction, pose.yaw, 3.75 * clampFrameDelta(rawDelta, .05));
+      const walkingSpeed = Number.isFinite(input.walkingSpeed)
+        ? Math.min(MUSEUM_FAST_WALK_SPEED, Math.max(0, input.walkingSpeed))
+        : MUSEUM_STANDARD_WALK_SPEED;
+      setMuseumMovementDisplacement(displacement, direction, pose.yaw, walkingSpeed * clampFrameDelta(rawDelta, .05));
       const next = moveWithCollisions(
         pose,
         displacement,
@@ -378,7 +423,7 @@ function MuseumWorldContents(props: MuseumSceneRuntimeProps) {
     <hemisphereLight args={['#fff8e8', '#48433d', hemisphereIntensity]}/>
     <ambientLight color="#fff5e5" intensity={ambientIntensity}/>
     <MuseumBuildingArchitecture onSceneGesture={props.onSceneGesture}/>
-    <MuseumReadinessGates definition={props.definition} readyHallIds={props.readyHallIds}/>
+    <MuseumReadinessGates definition={props.definition} readyHallIds={props.readyHallIds} hallLoadStatus={props.hallLoadStatus}/>
     {props.registrations.map((registration) => <LoadedHall
       key={`${registration.definition.id}-${props.hallContentEpochs[registration.definition.id] ?? 0}`}
       registration={registration}

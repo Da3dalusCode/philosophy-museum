@@ -6,6 +6,10 @@ import type {
   MuseumInstallationSceneDefinition,
   MuseumSceneVolume,
 } from '../../data/museum/museumWorldTypes';
+import {
+  MUSEUM_TEXTURE_SPECS,
+  museumTextureDimensionsForPlane,
+} from '../../data/museum/museumTexturePolicy';
 import {getMuseumHallCatalog, type MuseumExhibitId} from '../../data/museumCatalog';
 import {MuseumSceneMedia} from './MuseumSceneMedia';
 import {usePlaqueTexture} from './plaqueTextures';
@@ -62,6 +66,11 @@ function ExhibitPlaque({scene, title, kind, accent}: {
   accent: string;
 }) {
   const definition = scene.plaque;
+  const textureSize = museumTextureDimensionsForPlane(
+    definition.width,
+    definition.height,
+    MUSEUM_TEXTURE_SPECS.plaque,
+  );
   const texture = usePlaqueTexture({
     title,
     kicker: kind,
@@ -69,6 +78,8 @@ function ExhibitPlaque({scene, title, kind, accent}: {
       ? 'Documented likeness · text · question'
       : 'Tradition · practice · text · transmission',
     accent,
+    width: textureSize.width,
+    height: textureSize.height,
   });
   const postY = -definition.height / 2 - definition.supportHeight / 2;
   const footY = -definition.height / 2 - definition.supportHeight;

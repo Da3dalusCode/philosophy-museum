@@ -12,7 +12,10 @@ import {
   MUSEUM_SCENE_MEDIA_LOADING_COLOR,
 } from '../../data/museum/museumMediaPolicy';
 import {getMuseumAsset, museumAssetUrl} from '../../data/museum/museumAssets';
-import {MUSEUM_TEXTURE_SPECS} from '../../data/museum/museumTexturePolicy';
+import {
+  MUSEUM_TEXTURE_SPECS,
+  museumTextureDimensionsForPlane,
+} from '../../data/museum/museumTexturePolicy';
 import type {MuseumMediaMountDefinition} from '../../data/museum/museumWorldTypes';
 import {usePlaqueTexture} from './plaqueTextures';
 
@@ -69,14 +72,29 @@ const useIsolatedMuseumTexture = (url: string): TextureState => {
   return state;
 };
 
-function MuseumFallbackMaterial({title, subtitle, accent}: {title: string; subtitle: string; accent: string}) {
+function MuseumFallbackMaterial({title, subtitle, accent, planeWidth, planeHeight}: {
+  title: string;
+  subtitle: string;
+  accent: string;
+  planeWidth: number;
+  planeHeight: number;
+}) {
+  const textureSize = museumTextureDimensionsForPlane(
+    planeWidth,
+    planeHeight,
+    {
+      width: MUSEUM_TEXTURE_SPECS.sceneFallback.width,
+      height: MUSEUM_TEXTURE_SPECS.sceneFallback.height,
+      mipmaps: MUSEUM_TEXTURE_SPECS.sceneFallback.mipmaps,
+    },
+  );
   const texture = usePlaqueTexture({
     title,
     kicker: 'Object image unavailable',
     subtitle,
     accent,
-    width: MUSEUM_TEXTURE_SPECS.sceneFallback.width,
-    height: MUSEUM_TEXTURE_SPECS.sceneFallback.height,
+    width: textureSize.width,
+    height: textureSize.height,
   });
   return <meshBasicMaterial map={texture} toneMapped={false}/>;
 }
@@ -136,7 +154,14 @@ export function MuseumSceneMedia({mount, nearby, accent}: {
         {textureState.status === 'ready'
           ? <meshBasicMaterial key="scene-ready" map={textureState.texture} toneMapped={false}/>
           : textureState.status === 'failed'
-            ? <MuseumFallbackMaterial key="scene-failed" title={asset.title} subtitle={asset.objectDate} accent={accent}/>
+            ? <MuseumFallbackMaterial
+              key="scene-failed"
+              title={asset.title}
+              subtitle={asset.objectDate}
+              accent={accent}
+              planeWidth={mount.width}
+              planeHeight={mount.height}
+            />
             : <meshBasicMaterial key="scene-loading" color={MUSEUM_SCENE_MEDIA_LOADING_COLOR} toneMapped={false}/>
         }
       </mesh>

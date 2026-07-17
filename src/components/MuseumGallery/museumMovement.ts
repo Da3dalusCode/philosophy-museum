@@ -13,6 +13,19 @@ const MAX_SUBSTEP_DISTANCE = .12;
 const MAX_RESOLUTION_PASSES = 4;
 const MAX_PITCH = Math.PI / 2 - .08;
 
+export type MuseumWalkingPace = 'standard' | 'fast';
+
+export const MUSEUM_STANDARD_WALK_SPEED = 3.75;
+export const MUSEUM_FAST_WALK_SPEED = 6;
+
+/** Resolve one bounded walking speed; temporary fast movement never stacks. */
+export const resolveMuseumWalkingSpeed = (
+  pace: MuseumWalkingPace,
+  temporaryFast = false,
+): number => pace === 'fast' || temporaryFast
+  ? MUSEUM_FAST_WALK_SPEED
+  : MUSEUM_STANDARD_WALK_SPEED;
+
 const clamp = (value: number, minimum: number, maximum: number): number =>
   Math.min(maximum, Math.max(minimum, value));
 

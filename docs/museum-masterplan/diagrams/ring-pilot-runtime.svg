@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="-48 -145.7 168 187.85" role="img" aria-labelledby="title description">
-  <title id="title">Ring of Wings six-shell physical pilot</title>
-  <desc id="description">Manifest-derived main-level plan showing six live galleries, the entrance, central Forum location, closed outer loop, four spokes, entrance shortcut, active doorways, and twelve blocked future reservations.</desc>
-  <metadata>{&quot;generatedFrom&quot;:&quot;src/data/museum/museumBuildingManifest.json + compiled hall-local footprints&quot;,&quot;manifestVersion&quot;:&quot;ring-pilot-v1&quot;,&quot;level&quot;:&quot;L0&quot;,&quot;livePhysicalNodes&quot;:18,&quot;authoredConnections&quot;:22,&quot;blockedReservations&quot;:12}</metadata>
+  <title id="title">Ring of Wings live physical pilot: 6 of 26 planned public halls open</title>
+  <desc id="description">Manifest-derived main-level plan showing constructed geometry only: 6 of 26 planned public halls are open, with the entrance, central Forum location, closed outer loop, four spokes, entrance shortcut, active doorways, 4 planned gallery connections, and 8 reserved outward expansion portals, R1–R8. Remaining planned halls will appear as they are physically constructed.</desc>
+  <metadata>{&quot;generatedFrom&quot;:&quot;src/data/museum/museumBuildingManifest.json + compiled hall-local footprints&quot;,&quot;manifestVersion&quot;:&quot;ring-pilot-v1&quot;,&quot;level&quot;:&quot;L0&quot;,&quot;livePhysicalNodes&quot;:18,&quot;authoredConnections&quot;:22,&quot;blockedReservations&quot;:12,&quot;openPublicHalls&quot;:6,&quot;plannedPublicHalls&quot;:26,&quot;plannedGalleryConnections&quot;:4,&quot;reservedOutwardExpansionPortals&quot;:8}</metadata>
   <defs>
     <pattern id="future-hatch" width="3" height="3" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="3" stroke="#b98c6b" stroke-width=".7"/></pattern>
     <style>
@@ -12,7 +12,7 @@
   </defs>
   <rect class="background" x="-48" y="-145.7" width="168" height="187.85"/>
   <rect fill="url(#minor-grid)" x="-48" y="-145.7" width="168" height="187.85"/>
-  <text class="title" x="-44" y="-141.2">RING OF WINGS · SIX-SHELL PHYSICAL PILOT · L0</text>
+  <text class="title" x="-44" y="-141.2">RING OF WINGS · LIVE PILOT · 6 OF 26 PLANNED PUBLIC HALLS OPEN · L0</text>
   <g aria-label="Physical footprints"><polygon class="node node-hall role-public-entrance" data-node="hall:ancient-greek" points="10,-10.2 -10,-10.2 -10,1.8 10,1.8"/>
     <polygon class="node node-hall role-public-entrance" data-node="hall:ancient-greek" points="4,-13.2 -4,-13.2 -4,-10.2 4,-10.2"/>
     <polygon class="node node-hall role-public-entrance" data-node="hall:ancient-greek" points="12,-31.2 -12,-31.2 -12,-13.2 12,-13.2"/>
@@ -151,10 +151,10 @@
     <line class="door" x1="45.65" y1="-43" x2="49.65" y2="-43"/>
     <line class="door" x1="8" y1="18" x2="8" y2="14"/>
     <line class="door" x1="28" y1="-43" x2="32" y2="-43"/></g>
-  <g aria-label="Blocked future reservations"><g data-reservation="reserve:insert-south-asian"><polygon class="reservation reservation-insertion" points="-34.4,-75.5 -34.4,-69.5 -30.4,-69.5 -30.4,-75.5"/><text class="reservation-label" x="-32.4" y="-72.5">FUTURE</text></g>
-    <g data-reservation="reserve:insert-medieval"><polygon class="reservation reservation-insertion" points="-3,-133.1 -9,-133.1 -9,-129.1 -3,-129.1"/><text class="reservation-label" x="-6" y="-131.1">FUTURE</text></g>
-    <g data-reservation="reserve:insert-analytic"><polygon class="reservation reservation-insertion" points="71,-133.1 65,-133.1 65,-129.1 71,-129.1"/><text class="reservation-label" x="68" y="-131.1">FUTURE</text></g>
-    <g data-reservation="reserve:insert-feminist"><polygon class="reservation reservation-insertion" points="100,-72.1 94,-72.1 94,-68.1 100,-68.1"/><text class="reservation-label" x="97" y="-70.1">FUTURE</text></g>
+  <g aria-label="4 planned gallery connections and 8 reserved outward expansion portals"><g data-reservation="reserve:insert-south-asian"><polygon class="reservation reservation-insertion" points="-34.4,-75.5 -34.4,-69.5 -30.4,-69.5 -30.4,-75.5"/><text class="reservation-label" x="-32.4" y="-72.5">PLAN</text></g>
+    <g data-reservation="reserve:insert-medieval"><polygon class="reservation reservation-insertion" points="-3,-133.1 -9,-133.1 -9,-129.1 -3,-129.1"/><text class="reservation-label" x="-6" y="-131.1">PLAN</text></g>
+    <g data-reservation="reserve:insert-analytic"><polygon class="reservation reservation-insertion" points="71,-133.1 65,-133.1 65,-129.1 71,-129.1"/><text class="reservation-label" x="68" y="-131.1">PLAN</text></g>
+    <g data-reservation="reserve:insert-feminist"><polygon class="reservation reservation-insertion" points="100,-72.1 94,-72.1 94,-68.1 100,-68.1"/><text class="reservation-label" x="97" y="-70.1">PLAN</text></g>
     <g data-reservation="reserve:outward-R1"><polygon class="reservation reservation-outward-expansion" points="-14,16 -14,24 -8,24 -8,16"/><text class="reservation-label" x="-11" y="20">R1</text></g>
     <g data-reservation="reserve:outward-R2"><polygon class="reservation reservation-outward-expansion" points="-26,-59.3 -18,-59.3 -18,-65.3 -26,-65.3"/><text class="reservation-label" x="-22" y="-62.3">R2</text></g>
     <g data-reservation="reserve:outward-R3"><polygon class="reservation reservation-outward-expansion" points="-10,-118.3 -2,-118.3 -2,-124.3 -10,-124.3"/><text class="reservation-label" x="-6" y="-121.3">R3</text></g>
@@ -173,5 +173,6 @@
     <text class="label label-court" x="40" y="-55"><tspan x="40" dy="-.25em">Core Questions Forum location</tspan><tspan class="label-detail" x="40" dy="1.25em">orientation only</tspan></text></g>
   <g aria-label="Main entrance"><line class="entrance-line" x1="0" y1="27" x2="0" y2="24.6"/><circle class="entrance-dot" cx="0" cy="27" r="1.4"/><text class="marker-label" x="0" y="31.5" text-anchor="middle">MAIN ENTRANCE</text></g>
   <g aria-label="Visitor map kiosk" transform="translate(-2.27 -7.05)"><rect class="kiosk" x="-1.2" y="-1.2" width="2.4" height="2.4" transform="rotate(45)"/><text class="marker-label" x="2.6" y=".7">MAP KIOSK</text></g>
-  <text class="caption" x="-44" y="39.75">SOLID · OUTER LOOP   DASHED · FORUM SPOKES   DOTTED · ENTRANCE SHORTCUT   HATCHED · BLOCKED FUTURE AREA</text>
+  <text class="caption" x="-44" y="37.25">SOLID · OUTER LOOP   DASHED · FORUM SPOKES   DOTTED · ENTRANCE SHORTCUT</text>
+  <text class="caption" x="-44" y="39.75">PLAN · 4 PLANNED GALLERY CONNECTIONS   R1–R8 · 8 RESERVED OUTWARD EXPANSION PORTALS</text>
 </svg>

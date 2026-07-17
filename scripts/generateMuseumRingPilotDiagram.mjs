@@ -36,6 +36,9 @@ try {
     MUSEUM_VISITOR_MAP_RESERVATIONS: reservations,
     MUSEUM_VISITOR_MAP_VIEWBOX: viewBox,
   } = projection;
+  const plannedPublicHallCount = 26;
+  const plannedGalleryConnections = reservations.filter(({reservationType}) => reservationType === 'insertion');
+  const reservedOutwardExpansionPortals = reservations.filter(({reservationType}) => reservationType === 'outward-expansion');
 
   const hallById = new Map(publicHalls.map(({hall}) => [hall.id, hall]));
   const nodePolygons = nodes.flatMap((node) => node.cells.map((cell) =>
@@ -49,7 +52,7 @@ try {
   ).join('\n    ');
   const reservationShapes = reservations.map((reservation) => {
     const shortLabel = reservation.reservationType === 'insertion'
-      ? 'FUTURE'
+      ? 'PLAN'
       : reservation.expansionPortalId;
     return `<g data-reservation="${escapeXml(reservation.id)}"><polygon class="reservation reservation-${escapeXml(reservation.reservationType)}" points="${points(reservation.points)}"/><text class="reservation-label" x="${format(reservation.labelPoint.x)}" y="${format(reservation.labelPoint.y)}">${escapeXml(shortLabel)}</text></g>`;
   }).join('\n    ');
@@ -68,13 +71,17 @@ try {
     livePhysicalNodes: nodes.length,
     authoredConnections: MUSEUM_BUILDING_MANIFEST.connections.length,
     blockedReservations: reservations.length,
+    openPublicHalls: publicHalls.length,
+    plannedPublicHalls: plannedPublicHallCount,
+    plannedGalleryConnections: plannedGalleryConnections.length,
+    reservedOutwardExpansionPortals: reservedOutwardExpansionPortals.length,
   }));
   const titleY = format(viewBox.minY + 4.5);
   const legendY = format(viewBox.minY + viewBox.height - 2.4);
   const svg = `<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="${format(viewBox.minX)} ${format(viewBox.minY)} ${format(viewBox.width)} ${format(viewBox.height)}" role="img" aria-labelledby="title description">
-  <title id="title">Ring of Wings six-shell physical pilot</title>
-  <desc id="description">Manifest-derived main-level plan showing six live galleries, the entrance, central Forum location, closed outer loop, four spokes, entrance shortcut, active doorways, and twelve blocked future reservations.</desc>
+  <title id="title">Ring of Wings live physical pilot: ${publicHalls.length} of ${plannedPublicHallCount} planned public halls open</title>
+  <desc id="description">Manifest-derived main-level plan showing constructed geometry only: ${publicHalls.length} of ${plannedPublicHallCount} planned public halls are open, with the entrance, central Forum location, closed outer loop, four spokes, entrance shortcut, active doorways, ${plannedGalleryConnections.length} planned gallery connections, and ${reservedOutwardExpansionPortals.length} reserved outward expansion portals, R1–R8. Remaining planned halls will appear as they are physically constructed.</desc>
   <metadata>${metadata}</metadata>
   <defs>
     <pattern id="future-hatch" width="3" height="3" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="3" stroke="#b98c6b" stroke-width=".7"/></pattern>
@@ -85,15 +92,16 @@ try {
   </defs>
   <rect class="background" x="${format(viewBox.minX)}" y="${format(viewBox.minY)}" width="${format(viewBox.width)}" height="${format(viewBox.height)}"/>
   <rect fill="url(#minor-grid)" x="${format(viewBox.minX)}" y="${format(viewBox.minY)}" width="${format(viewBox.width)}" height="${format(viewBox.height)}"/>
-  <text class="title" x="${format(viewBox.minX + 4)}" y="${titleY}">RING OF WINGS · SIX-SHELL PHYSICAL PILOT · L0</text>
+  <text class="title" x="${format(viewBox.minX + 4)}" y="${titleY}">RING OF WINGS · LIVE PILOT · ${publicHalls.length} OF ${plannedPublicHallCount} PLANNED PUBLIC HALLS OPEN · L0</text>
   <g aria-label="Physical footprints">${nodePolygons}</g>
   <g aria-label="Walkable connections">${walkingEdges}</g>
   <g aria-label="Active doorways">${doorwayLines}</g>
-  <g aria-label="Blocked future reservations">${reservationShapes}</g>
+  <g aria-label="${plannedGalleryConnections.length} planned gallery connections and ${reservedOutwardExpansionPortals.length} reserved outward expansion portals">${reservationShapes}</g>
   <g aria-label="Building labels">${labels}</g>
   <g aria-label="Main entrance"><line class="entrance-line" x1="${format(entrance.position.x)}" y1="${format(entrance.position.y)}" x2="${format(entrance.inwardPoint.x)}" y2="${format(entrance.inwardPoint.y)}"/><circle class="entrance-dot" cx="${format(entrance.position.x)}" cy="${format(entrance.position.y)}" r="1.4"/><text class="marker-label" x="${format(entrance.position.x)}" y="${format(entrance.position.y + 4.5)}" text-anchor="middle">MAIN ENTRANCE</text></g>
   <g aria-label="Visitor map kiosk" transform="translate(${format(kiosk.point.x)} ${format(kiosk.point.y)})"><rect class="kiosk" x="-1.2" y="-1.2" width="2.4" height="2.4" transform="rotate(45)"/><text class="marker-label" x="2.6" y=".7">MAP KIOSK</text></g>
-  <text class="caption" x="${format(viewBox.minX + 4)}" y="${legendY}">SOLID · OUTER LOOP   DASHED · FORUM SPOKES   DOTTED · ENTRANCE SHORTCUT   HATCHED · BLOCKED FUTURE AREA</text>
+  <text class="caption" x="${format(viewBox.minX + 4)}" y="${format(legendY - 2.5)}">SOLID · OUTER LOOP   DASHED · FORUM SPOKES   DOTTED · ENTRANCE SHORTCUT</text>
+  <text class="caption" x="${format(viewBox.minX + 4)}" y="${legendY}">PLAN · ${plannedGalleryConnections.length} PLANNED GALLERY CONNECTIONS   R1–R8 · ${reservedOutwardExpansionPortals.length} RESERVED OUTWARD EXPANSION PORTALS</text>
 </svg>
 `;
 

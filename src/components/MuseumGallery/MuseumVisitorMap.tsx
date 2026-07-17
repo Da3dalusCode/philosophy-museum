@@ -70,24 +70,24 @@ export function MuseumVisitorMap({currentHallId, currentNodeId, currentPose, ret
     .join(', ');
   const insertionCount = MUSEUM_VISITOR_MAP_RESERVATIONS.filter(({reservationType}) => reservationType === 'insertion').length;
   const outwardCount = MUSEUM_VISITOR_MAP_RESERVATIONS.filter(({reservationType}) => reservationType === 'outward-expansion').length;
-  const routeSummary = `Walking loop: Entrance ↔ ${loopSummary} ↔ Entrance. Forum spokes connect Galleries ${spokeSummary} to the central orientation court. The entrance–Forum shortcut is also open. The Forum is circulation and orientation only, not an open intellectual hall. ${insertionCount} future insertion bays and ${outwardCount} outward reserves, R1–R8, are blocked and noninteractive.`;
+  const routeSummary = `Live Ring pilot scope: ${halls.length} of 26 planned public halls are open. This plan shows constructed, walkable geometry only; the remaining planned halls will appear as they are physically constructed. Walking loop: Entrance ↔ ${loopSummary} ↔ Entrance. Forum spokes connect Galleries ${spokeSummary} to the central orientation court. The entrance–Forum shortcut is also open. The Forum is circulation and orientation only, not an open intellectual hall. ${insertionCount} planned gallery connections and ${outwardCount} reserved outward expansion portals, R1–R8, are blocked and noninteractive.`;
 
   return <MuseumModal labelledBy={titleId} describedBy={descriptionId} returnFocus={returnFocus} onClose={onClose}>
     <div className="museum-overlay-head museum-visitor-map-head">
       <div>
         <p className="eyebrow"><MapPinned size={14}/> Physical visitor map</p>
-        <h2 id={titleId}>Ring of Wings visitor map</h2>
+        <h2 id={titleId}>Ring of Wings live-pilot visitor map</h2>
       </div>
       <button className="museum-icon-button" type="button" onClick={onClose} aria-label="Close Museum visitor map"><X/></button>
     </div>
     <p id={descriptionId} className="museum-visitor-map-lead">
-      Read the physical main-level plan, then choose one of the six public galleries for fast travel to its authored safe arrival.
+      Six of 26 planned public halls are open in the live Ring pilot. Read the built main-level footprint, then choose an open gallery for fast travel to its authored safe arrival.
     </p>
     <p id={routeSummaryId} className="museum-visitor-map-route-summary">{routeSummary}</p>
     <p className="museum-visitor-map-pan-note">Scroll the plan horizontally to inspect its full detail.</p>
 
     <div className="museum-visitor-map-layout">
-      <section className="museum-visitor-map-plot" aria-label="Ring of Wings main-level plan" aria-describedby={routeSummaryId}>
+      <section className="museum-visitor-map-plot" aria-label="Live Ring pilot main-level plan" aria-describedby={routeSummaryId}>
         <div className="museum-visitor-map-scroll" tabIndex={0}>
         <svg
           className="museum-visitor-map-plan"
@@ -96,7 +96,7 @@ export function MuseumVisitorMap({currentHallId, currentNodeId, currentPose, ret
           role="img"
           aria-labelledby={`${mapTitleId} ${mapDescriptionId}`}
         >
-          <title id={mapTitleId}>Physical plan of the Ring of Wings pilot</title>
+          <title id={mapTitleId}>Physical plan of the live Ring pilot</title>
           <desc id={mapDescriptionId}>{routeSummary}</desc>
           <defs>
             <pattern id="museum-map-future-hatch" width="3" height="3" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
@@ -148,7 +148,7 @@ export function MuseumVisitorMap({currentHallId, currentNodeId, currentPose, ret
                 y={reservation.labelPoint.y + (reservation.reservationType === 'insertion' ? -2.4 : 2.4)}
                 textAnchor="middle"
               >
-                {reservation.reservationType === 'insertion' ? 'FUTURE' : reservation.expansionPortalId}
+                {reservation.reservationType === 'insertion' ? 'PLAN' : reservation.expansionPortalId}
               </text>
             </g>)}
           </g>
@@ -200,18 +200,19 @@ export function MuseumVisitorMap({currentHallId, currentNodeId, currentPose, ret
 
         <div className="museum-visitor-map-compass" aria-hidden="true"><span>N</span><i/></div>
         <div className="museum-visitor-map-legend" aria-label="Map legend">
-          <span><i data-legend="gallery"/>01–06 fast-travel galleries</span>
+          <span><i data-legend="gallery"/>01–06 open fast-travel galleries</span>
           <span><i data-legend="outer-loop"/>Outer loop</span>
           <span><i data-legend="forum-spoke"/>Forum spokes</span>
           <span><i data-legend="shortcut"/>Entrance shortcut</span>
           <span><i data-legend="current"/>Current physical location</span>
-          <span><i data-legend="future"/>Future gallery — not yet open</span>
+          <span><i data-legend="planned"/>PLAN · 4 planned gallery connections</span>
+          <span><i data-legend="reserve"/>R1–R8 · 8 reserved outward expansion portals</span>
         </div>
       </section>
 
       <aside className="museum-visitor-map-detail" aria-live="polite">
         <strong className="museum-visitor-map-current"><LocateFixed size={14}/> Physical location: {currentPhysicalNode?.label ?? 'Public gallery'}</strong>
-        <p className="museum-visitor-map-destination-heading">Six fast-travel galleries</p>
+        <p className="museum-visitor-map-destination-heading">Six open fast-travel galleries</p>
         <div className="museum-visitor-map-destinations" aria-label="Choose a fast-travel gallery">
           {halls.map(({hall}) => {
             const current = hall.id === currentPhysicalHallId;
@@ -244,7 +245,7 @@ export function MuseumVisitorMap({currentHallId, currentNodeId, currentPose, ret
         <button className="btn btn-primary museum-visitor-map-travel" type="button" onClick={() => onTravel(selected.hall.id)}>
           <Navigation size={16}/>Fast travel to {selected.hall.galleryNumber}{isCurrentSelection ? ' entrance' : ''}
         </button>
-        <small>Fast travel uses the registered hall’s authored safe spawn. Walking routes remain available through every live doorway shown on the plan.</small>
+        <small>Fast travel uses the registered hall’s authored safe spawn. Walking routes remain available through every live doorway shown; no unbuilt route geometry is displayed.</small>
       </aside>
     </div>
 
