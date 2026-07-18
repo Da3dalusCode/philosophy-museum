@@ -60,7 +60,7 @@ const useVisitorMapScreenTexture = (): CanvasTexture => {
     context.fillText('Main-level plan', 62, 132);
     context.fillStyle = '#b8b2a8';
     context.font = '500 21px system-ui, sans-serif';
-    context.fillText('Permanent construction stage · 6 of 26 planned public halls open', 64, 168);
+    context.fillText('Six open galleries · walking routes and fast travel', 64, 168);
 
     const mapArea = {x: 48, y: 194, width: 700, height: 646};
     const viewBox = MUSEUM_VISITOR_MAP_VIEWBOX;
@@ -145,7 +145,7 @@ const useVisitorMapScreenTexture = (): CanvasTexture => {
       context.textAlign = 'center';
       context.textBaseline = 'middle';
       context.fillText(
-        reservation.reservationType === 'insertion' ? 'PLAN' : reservation.expansionPortalId ?? 'PORTAL',
+        'FUTURE',
         label.x,
         label.y,
       );
@@ -258,8 +258,8 @@ const useVisitorMapScreenTexture = (): CanvasTexture => {
     context.setLineDash([]);
     context.fillStyle = '#d1a987';
     context.font = '700 10px system-ui, sans-serif';
-    context.fillText('PLAN', keyX + 7, 797);
-    context.fillText('R1–R8', keyX + 5, 823);
+    context.fillText('FUTURE', keyX + 3, 797);
+    context.fillText('FUTURE', keyX + 3, 823);
     context.fillStyle = '#b8c0bf';
     context.font = '600 14px system-ui, sans-serif';
     const insertionCount = MUSEUM_VISITOR_MAP_RESERVATIONS.filter(
@@ -268,13 +268,13 @@ const useVisitorMapScreenTexture = (): CanvasTexture => {
     const outwardCount = MUSEUM_VISITOR_MAP_RESERVATIONS.filter(
       ({reservationType}) => reservationType === 'outward-expansion',
     ).length;
-    context.fillText(`${insertionCount} planned gallery connections`, keyX + 62, 799);
-    context.fillText(`${outwardCount} reserved outward expansion portals`, keyX + 62, 825);
+    context.fillText(`${insertionCount} future gallery doorways`, keyX + 62, 799);
+    context.fillText(`${outwardCount} future wing doorways`, keyX + 62, 825);
 
     context.fillStyle = '#899493';
     context.font = '600 12px system-ui, sans-serif';
-    context.fillText('Built footprint only', keyX, 852);
-    context.fillText('Remaining planned halls appear as constructed', keyX, 870);
+    context.fillText('Main-level public routes', keyX, 852);
+    context.fillText('Future gallery doors are shown as closed', keyX, 870);
 
     context.fillStyle = '#aeb5b5';
     context.font = '600 20px system-ui, sans-serif';

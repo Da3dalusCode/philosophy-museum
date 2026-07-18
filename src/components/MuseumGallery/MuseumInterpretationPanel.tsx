@@ -157,7 +157,6 @@ export function MuseumInterpretationPanel({
             <figcaption><strong>{principal.caption}</strong><span>{content.objectInterpretations[principal.id] ?? principal.historicalNote}</span></figcaption>
           </figure>}
           <div className="museum-panel-opening-copy">
-            {content.tier && <p className="museum-presentation-tier">{content.tier.replaceAll('-', ' ')}</p>}
             <p className="museum-exhibit-question" id={descriptionId}>{content.centralQuestion}</p>
             <p className="museum-panel-lead">{content.lead}</p>
           </div>

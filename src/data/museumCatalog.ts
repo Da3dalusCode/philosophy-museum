@@ -431,7 +431,7 @@ export const MUSEUM_HALLS = MUSEUM_CANONICAL_PROGRAM.map((hall, index) => {
       id: room.id,
       title: room.title,
       period: hall.period,
-      description: `${room.title}. Program capacity: ${room.recordCapacity} primary records.`,
+      description: 'Explore this room’s linked thinkers, traditions, questions, and historical connections.',
       comparativeLenses: 'comparativeLenses' in room ? room.comparativeLenses : [],
     })),
     exhibits,

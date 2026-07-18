@@ -9,6 +9,12 @@ import {
   type MuseumPresentationTier,
 } from './museumCanonicalProgram';
 import {getMuseumManifestHallNode} from './museumBuildingManifest';
+import {
+  MEDITERRANEAN_EXHIBIT_CURATION,
+  MEDITERRANEAN_GALLERY_ID,
+  MEDITERRANEAN_ORIENTATION_DISPLAY,
+  MEDITERRANEAN_ROOM_SIGN_COPY,
+} from './mediterraneanGalleryCuration';
 import {MUSEUM_VISITOR_MAP_KIOSK} from './museumVisitorMapKioskDefinition';
 import type {
   MuseumBounds,
@@ -270,6 +276,12 @@ const guidedWaypointsWithinRoom = (
 
 type PlacementCandidate = MuseumPoint & {rotationY: number};
 
+const MEDITERRANEAN_AUTHORED_PLACEMENTS = Object.fromEntries(
+  Object.entries(MEDITERRANEAN_EXHIBIT_CURATION).map(([id, curation]) => [id, {
+    ...curation.authored,
+  }]),
+) as Readonly<Record<string, PlacementCandidate>>;
+
 const wallCandidates = (bounds: MuseumBounds): readonly PlacementCandidate[] => {
   const width = bounds.maxX - bounds.minX;
   const depth = bounds.maxZ - bounds.minZ;
@@ -453,6 +465,7 @@ const placeRoomExhibits = (
   bounds: MuseumBounds,
   exclusions: readonly MuseumBounds[],
   centerFallback = false,
+  authoredPlacements?: Readonly<Record<string, PlacementCandidate>>,
 ): MuseumExhibitLayout[] => {
   const accepted: MuseumExhibitLayout[] = [];
   const candidates = [...wallCandidates(bounds)];
@@ -507,6 +520,17 @@ const placeRoomExhibits = (
       : undefined;
   };
 
+  if (authoredPlacements) {
+    for (const record of room.exhibits) {
+      const candidate = authoredPlacements[record.id];
+      if (!candidate) throw new Error(`Gallery 01 has no authored placement for ${record.id}.`);
+      const proposed = resolveCandidate(record, candidate, accepted);
+      if (!proposed) throw new Error(`Gallery 01 authored placement for ${record.id} violates its room, route, or neighboring installation.`);
+      accepted.push(proposed);
+    }
+    return accepted;
+  }
+
   if (centerFallback) {
     const search = (
       recordIndex: number,
@@ -559,12 +583,30 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
   const node = getMuseumManifestHallNode(hall.id);
   if (!node) throw new Error(`Canonical hall ${hall.id} has no physical manifest node.`);
   const doorwayExclusions = node.doorwaySlots.map(({landingBounds}) => landingBounds);
+  const furnishings = hall.id === MUSEUM_VISITOR_MAP_KIOSK.hallId
+    ? [
+        MUSEUM_VISITOR_MAP_KIOSK,
+        ...(hall.id === MEDITERRANEAN_GALLERY_ID ? [MEDITERRANEAN_ORIENTATION_DISPLAY] : []),
+      ]
+    : [];
+  const furnishingExclusions = furnishings.map((item) => colliderBounds(
+    item.center,
+    item.rotation,
+    item.size.width,
+    item.size.depth,
+  ));
   const exhibits = orderedRooms.flatMap((room) => {
     const bounds = roomBounds.get(room.id)!;
     const connectionExclusions = spatialConnections
       .filter(({fromCellId, toCellId}) => fromCellId === room.id || toCellId === room.id)
       .map(({openingBounds}) => openingBounds);
-    return placeRoomExhibits(room, bounds, [...doorwayExclusions, ...connectionExclusions], isForum);
+    return placeRoomExhibits(
+      room,
+      bounds,
+      [...doorwayExclusions, ...connectionExclusions, ...furnishingExclusions],
+      isForum,
+      hall.id === MEDITERRANEAN_GALLERY_ID ? MEDITERRANEAN_AUTHORED_PLACEMENTS : undefined,
+    );
   });
   const cells: MuseumSpatialCell[] = orderedRooms.map((room) => ({
     id: room.id,
@@ -601,7 +643,6 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
     ...outerWalls(width, depth, ceiling, hall.id),
     ...(isForum ? forumPartitionWalls(hall.id) : sequencePartitionWalls(orderedRooms, roomBounds, hall.id)),
   ];
-  const furnishings = hall.id === MUSEUM_VISITOR_MAP_KIOSK.hallId ? [MUSEUM_VISITOR_MAP_KIOSK] : [];
   const obstacleColliders = [...exhibits.map(({collider}) => collider), ...furnishings];
   const guidedWalkLegs = exhibits.slice(0, -1).map((layout, index) => {
     const target = exhibits[index + 1];
@@ -620,8 +661,11 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
         ];
     return {fromExhibitId: layout.id, toExhibitId: target.id, waypoints};
   });
-  const spawn = node.doorwaySlots.find(({id}) => id === 'N0')?.arrivalPose ?? node.doorwaySlots[0].arrivalPose;
-  const signs = [
+  const defaultSpawn = node.doorwaySlots.find(({id}) => id === 'N0')?.arrivalPose ?? node.doorwaySlots[0].arrivalPose;
+  const spawn = hall.id === MEDITERRANEAN_GALLERY_ID
+    ? {...defaultSpawn, yaw: 2.65, pitch: -.015}
+    : defaultSpawn;
+  const standardSigns = [
     {
       id: `${hall.id}:entrance-sign`,
       kind: 'entrance' as const,
@@ -640,7 +684,7 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
         kind: 'zone' as const,
         title: room.title,
         kicker: 'Room',
-        subtitle: `${room.exhibits.length} primary installation${room.exhibits.length === 1 ? '' : 's'}`,
+        subtitle: 'Questions, objects, and arguments in historical context',
         position: {x: bounds.maxX - .22, y: 2.2, z: (bounds.minZ + bounds.maxZ) / 2},
         rotationY: -Math.PI / 2,
         width: Math.min(3.6, Math.max(2.4, bounds.maxZ - bounds.minZ - 1)),
@@ -664,6 +708,41 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
       return [roomSign, ...comparativeLensSigns];
     }),
   ];
+  const signs = hall.id === MEDITERRANEAN_GALLERY_ID
+    ? [
+        {
+          id: `${hall.id}:entrance-sign`,
+          kind: 'entrance' as const,
+          title: 'Gallery 01 · Mediterranean Beginnings',
+          kicker: 'One beginning among many',
+          subtitle: 'Begin with Miletus · Socrates, Plato, and Aristotle are ahead',
+          position: {x: 0, y: 4.35, z: -18.2},
+          rotationY: Math.PI,
+          width: 5.6,
+          height: 1.15,
+        },
+        ...orderedRooms.map((room, index) => {
+          const copy = MEDITERRANEAN_ROOM_SIGN_COPY[room.id as keyof typeof MEDITERRANEAN_ROOM_SIGN_COPY];
+          if (!copy) throw new Error(`Gallery 01 has no visitor-facing room copy for ${room.id}.`);
+          const bounds = roomBounds.get(room.id)!;
+          return {
+            id: `${room.id}:room-sign`,
+            kind: 'zone' as const,
+            title: copy.title,
+            kicker: copy.kicker,
+            subtitle: copy.subtitle,
+            position: {
+              x: index === 0 ? 6 : -6,
+              y: 2.25,
+              z: index === 0 ? bounds.maxZ + .22 : bounds.minZ + .22,
+            },
+            rotationY: Math.PI,
+            width: 4.45,
+            height: .98,
+          };
+        }),
+      ]
+    : standardSigns;
   const guidedOrder = orderedRooms.flatMap((room) => room.exhibits.map(({id}) => id as MuseumExhibitId));
   const entryExhibitIdsByEntrance = Object.fromEntries(node.doorwaySlots.map((slot) => {
     const nearestRoom = cells.reduce((nearest, cell) => {
@@ -696,7 +775,9 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
       cameraFov: 66,
       cameraFar: 260,
       spawn,
-      spawnFocalPoint: {x: 0, z: 0},
+      spawnFocalPoint: hall.id === MEDITERRANEAN_GALLERY_ID
+        ? {...MUSEUM_VISITOR_MAP_KIOSK.center}
+        : {x: 0, z: 0},
       reset: spawn,
       spatialCells: cells,
       spatialConnections,

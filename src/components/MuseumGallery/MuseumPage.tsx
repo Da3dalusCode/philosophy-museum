@@ -195,7 +195,7 @@ function DirectoryContents({route, hallId = route.hallId, href, push, onExhibitA
         const current = route.hallId === hallId && route.exhibitId === item.id;
         const summary = showSummaries ? getMuseumInterpretation({hallId, exhibitId: item.id}).lead : item.question;
         return <li key={item.id} className={current ? 'is-current' : ''} data-entity-kind={item.entityKind}>
-          <div><b>{item.displayName}</b><span>{item.entityKind === 'philosopher' ? 'Philosopher' : 'School / tradition'}{'tier' in item ? ` · ${item.tier.replaceAll('-', ' ')}` : ''}</span></div>
+          <div><b>{item.displayName}</b><span>{item.entityKind === 'philosopher' ? 'Philosopher' : 'School / tradition'}</span></div>
           {current && <strong className="museum-current-label">Currently open</strong>}
           <p>{summary}</p>
           <div className="museum-directory-actions">

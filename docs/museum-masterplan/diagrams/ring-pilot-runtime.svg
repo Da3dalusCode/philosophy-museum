@@ -20,7 +20,9 @@
     <polygon class="node node-hall role-outer-hall" data-node="hall:justice-democratic-reason" points="113,-56 89,-56 89,0 113,0"/>
     <polygon class="node node-hall role-forum-hall" data-node="place:core-questions-forum" points="26,-41 54,-41 54,-69 26,-69"/>
     <polygon class="node node-corridor role-outer-loop-link" data-node="corridor:outer-01-mediterranean-renaissance" points="-2.4,-56 2.4,-56 2.4,-60 -2.4,-60"/>
-    <polygon class="node node-corridor role-outer-loop-link" data-node="corridor:outer-01-mediterranean-renaissance" points="-28,-55.6 0,-55.6 0,-60.4 -28,-60.4"/>
+    <polygon class="node node-corridor role-outer-loop-link" data-node="corridor:outer-01-mediterranean-renaissance" points="-12,-56 -2.4,-56 -2.4,-60 -12,-60"/>
+    <polygon class="node node-corridor role-outer-loop-link" data-node="corridor:outer-01-mediterranean-renaissance" points="-16,-54 -12,-54 -12,-60 -16,-60"/>
+    <polygon class="node node-corridor role-outer-loop-link" data-node="corridor:outer-01-mediterranean-renaissance" points="-25.6,-54 -16,-54 -16,-58 -25.6,-58"/>
     <polygon class="node node-corridor role-outer-loop-link" data-node="corridor:outer-01-mediterranean-renaissance" points="-30.4,-54 -25.6,-54 -25.6,-58 -30.4,-58"/>
     <polygon class="node node-corridor role-outer-loop-link" data-node="corridor:outer-02-renaissance-phenomenology" points="-30.4,-114 -25.6,-114 -25.6,-126 -30.4,-126"/>
     <polygon class="node node-corridor role-outer-loop-link" data-node="corridor:outer-02-renaissance-phenomenology" points="-28,-123.6 12,-123.6 12,-128.4 -28,-128.4"/>
@@ -114,11 +116,11 @@
     <line class="door" x1="45" y1="-41" x2="49" y2="-41"/>
     <line class="door" x1="8" y1="18" x2="8" y2="14"/>
     <line class="door" x1="38" y1="-41" x2="42" y2="-41"/></g>
-  <g aria-label="3 planned gallery connections and 8 reserved outward expansion portals"><g data-reservation="reserve:insert-south-asian"><polygon class="reservation reservation-insertion" points="-17,-61.4 -11,-61.4 -11,-65.4 -17,-65.4"/><text class="reservation-label" x="-14" y="-63.4">PLAN</text></g>
+  <g aria-label="3 planned gallery connections and 8 reserved outward expansion portals"><g data-reservation="reserve:insert-south-asian"><polygon class="reservation reservation-insertion" points="-17,-61 -11,-61 -11,-65 -17,-65"/><text class="reservation-label" x="-14" y="-63">PLAN</text></g>
     <g data-reservation="reserve:insert-islamic"><polygon class="reservation reservation-insertion" points="-35.4,-123 -35.4,-117 -31.4,-117 -31.4,-123"/><text class="reservation-label" x="-33.4" y="-120">PLAN</text></g>
     <g data-reservation="reserve:insert-feminist"><polygon class="reservation reservation-insertion" points="92,-61.4 98,-61.4 98,-65.4 92,-65.4"/><text class="reservation-label" x="95" y="-63.4">PLAN</text></g>
     <g data-reservation="reserve:outward-R1"><polygon class="reservation reservation-outward-expansion" points="-14,16 -14,24 -8,24 -8,16"/><text class="reservation-label" x="-11" y="20">R1</text></g>
-    <g data-reservation="reserve:outward-R2"><polygon class="reservation reservation-outward-expansion" points="-24,-49.6 -16,-49.6 -16,-55.6 -24,-55.6"/><text class="reservation-label" x="-20" y="-52.6">R2</text></g>
+    <g data-reservation="reserve:outward-R2"><polygon class="reservation reservation-outward-expansion" points="-24,-48 -16,-48 -16,-54 -24,-54"/><text class="reservation-label" x="-20" y="-51">R2</text></g>
     <g data-reservation="reserve:outward-R3"><polygon class="reservation reservation-outward-expansion" points="-9,-128.4 -1,-128.4 -1,-134.4 -9,-134.4"/><text class="reservation-label" x="-5" y="-131.4">R3</text></g>
     <g data-reservation="reserve:outward-R4"><polygon class="reservation reservation-outward-expansion" points="74,-128.4 82,-128.4 82,-134.4 74,-134.4"/><text class="reservation-label" x="78" y="-131.4">R4</text></g>
     <g data-reservation="reserve:outward-R5"><polygon class="reservation reservation-outward-expansion" points="79.6,-67 79.6,-59 85.6,-59 85.6,-67"/><text class="reservation-label" x="82.6" y="-63">R5</text></g>
@@ -133,7 +135,7 @@
     <text class="label label-hall" x="40" y="-55"><tspan x="40" dy="-.25em">Forum</tspan><tspan class="label-detail" x="40" dy="1.25em">Core Questions Forum</tspan></text>
     <text class="label label-entrance" x="0" y="19.5"><tspan x="0" dy="-.25em">Entrance and orientation court</tspan></text></g>
   <g aria-label="Main entrance"><line class="entrance-line" x1="0" y1="27" x2="0" y2="24.6"/><circle class="entrance-dot" cx="0" cy="27" r="1.4"/><text class="marker-label" x="0" y="31.5" text-anchor="middle">MAIN ENTRANCE</text></g>
-  <g aria-label="Visitor map kiosk" transform="translate(5.4 -5)"><rect class="kiosk" x="-1.2" y="-1.2" width="2.4" height="2.4" transform="rotate(45)"/><text class="marker-label" x="2.6" y=".7">MAP KIOSK</text></g>
+  <g aria-label="Visitor map kiosk" transform="translate(-3.6 -6.6)"><rect class="kiosk" x="-1.2" y="-1.2" width="2.4" height="2.4" transform="rotate(45)"/><text class="marker-label" x="2.6" y=".7">MAP KIOSK</text></g>
   <text class="caption" x="-44" y="33.5">SOLID · OUTER LOOP   DASHED · FORUM SPOKES   DOTTED · ENTRANCE SHORTCUT</text>
   <text class="caption" x="-44" y="36">PLAN · 3 PLANNED GALLERY CONNECTIONS   R1–R8 · 8 RESERVED OUTWARD EXPANSION PORTALS</text>
 </svg>

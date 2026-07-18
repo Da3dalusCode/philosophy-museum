@@ -134,8 +134,8 @@ function ReservationBarrier({reservation}: {reservation: MuseumReservation}) {
   );
   const texture = usePlaqueTexture({
     title: reservation.label,
-    kicker: reservation.expansionPortalId ? `Reserved outward portal · ${reservation.expansionPortalId}` : 'Reserved insertion bay',
-    subtitle: 'The permanent route continues through the open Ring of Wings.',
+    kicker: 'This doorway is closed',
+    subtitle: 'Continue along the open Museum route.',
     accent: '#a56d45',
     width: textureSize.width,
     height: textureSize.height,

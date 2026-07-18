@@ -55,28 +55,28 @@ export function MuseumVisitorMap({currentHallId, currentNodeId, currentPose, ret
   const entrance = MUSEUM_VISITOR_MAP_ENTRANCE;
   const insertionCount = MUSEUM_VISITOR_MAP_RESERVATIONS.filter(({reservationType}) => reservationType === 'insertion').length;
   const outwardCount = MUSEUM_VISITOR_MAP_RESERVATIONS.filter(({reservationType}) => reservationType === 'outward-expansion').length;
-  const blockedSummary = [
-    insertionCount ? `${insertionCount} planned insertion connection${insertionCount === 1 ? '' : 's'}` : undefined,
-    `${outwardCount} reserved outward expansion portals`,
+  const futureDoorwaySummary = [
+    insertionCount ? `${insertionCount} future gallery doorway${insertionCount === 1 ? '' : 's'}` : undefined,
+    `${outwardCount} future wing doorway${outwardCount === 1 ? '' : 's'}`,
   ].filter(Boolean).join(' and ');
-  const routeSummary = `Permanent construction stage: ${halls.length} of 26 planned public halls are open. This plan derives from constructed, walkable geometry only; later halls will appear only when built. The five historical halls form a continuous outer loop through the entrance and south return sleeve. Real spokes connect that loop to the central Core Questions Forum, and the entrance–Forum shortcut is open. The Forum is a comparison and routing hub that sends visitors outward, not the Museum’s supreme authority or final destination. ${blockedSummary} are closed and noninteractive. Fast travel uses each hall’s registered safe arrival.`;
+  const routeSummary = `This main-level plan shows ${halls.length} open galleries and every walkable public route. Five historical galleries form a continuous outer loop through the entrance and south return passage. Open spokes connect that loop to the central Core Questions Forum, and the entrance–Forum shortcut is available. The Forum is a comparison and routing hub that sends visitors outward, not the Museum’s supreme authority or final destination. ${futureDoorwaySummary} remain closed and noninteractive. Fast travel returns visitors to a safe gallery entrance.`;
 
   return <MuseumModal labelledBy={titleId} describedBy={descriptionId} returnFocus={returnFocus} onClose={onClose}>
     <div className="museum-overlay-head museum-visitor-map-head">
       <div>
         <p className="eyebrow"><MapPinned size={14}/> Physical visitor map</p>
-        <h2 id={titleId}>Ring of Wings permanent-hall visitor map</h2>
+        <h2 id={titleId}>Ring of Wings visitor map</h2>
       </div>
       <button className="museum-icon-button" type="button" onClick={onClose} aria-label="Close Museum visitor map"><X/></button>
     </div>
     <p id={descriptionId} className="museum-visitor-map-lead">
-      Six permanent halls are open in this compact construction stage: five around the outer loop and the Core Questions Forum at the center. Choose any open hall for fast travel to its authored safe arrival.
+      Six galleries are open: five around the outer loop and the Core Questions Forum at the center. Choose any gallery for fast travel to its entrance.
     </p>
     <p id={routeSummaryId} className="museum-visitor-map-route-summary">{routeSummary}</p>
     <p className="museum-visitor-map-pan-note">Scroll the plan horizontally to inspect its full detail.</p>
 
     <div className="museum-visitor-map-layout">
-      <section className="museum-visitor-map-plot" aria-label="Permanent-hall construction-stage main-level plan" aria-describedby={routeSummaryId}>
+      <section className="museum-visitor-map-plot" aria-label="Main-level visitor plan" aria-describedby={routeSummaryId}>
         <div className="museum-visitor-map-scroll" tabIndex={0}>
         <svg
           className="museum-visitor-map-plan"
@@ -85,7 +85,7 @@ export function MuseumVisitorMap({currentHallId, currentNodeId, currentPose, ret
           role="img"
           aria-labelledby={`${mapTitleId} ${mapDescriptionId}`}
         >
-          <title id={mapTitleId}>Physical plan of the six permanent open halls</title>
+          <title id={mapTitleId}>Physical plan of the six open galleries</title>
           <desc id={mapDescriptionId}>{routeSummary}</desc>
           <defs>
             <pattern id="museum-map-future-hatch" width="3" height="3" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
@@ -137,7 +137,7 @@ export function MuseumVisitorMap({currentHallId, currentNodeId, currentPose, ret
                 y={reservation.labelPoint.y + (reservation.reservationType === 'insertion' ? -2.4 : 2.4)}
                 textAnchor="middle"
               >
-                {reservation.reservationType === 'insertion' ? 'PLAN' : reservation.expansionPortalId}
+                FUTURE
               </text>
             </g>)}
           </g>
@@ -189,19 +189,19 @@ export function MuseumVisitorMap({currentHallId, currentNodeId, currentPose, ret
 
         <div className="museum-visitor-map-compass" aria-hidden="true"><span>N</span><i/></div>
         <div className="museum-visitor-map-legend" aria-label="Map legend">
-          <span><i data-legend="gallery"/>Six open permanent fast-travel halls</span>
+          <span><i data-legend="gallery"/>Six open fast-travel galleries</span>
           <span><i data-legend="outer-loop"/>Outer loop</span>
           <span><i data-legend="forum-spoke"/>Forum spokes</span>
           <span><i data-legend="shortcut"/>Entrance shortcut</span>
           <span><i data-legend="current"/>Current physical location</span>
-          {insertionCount > 0 && <span><i data-legend="planned"/>PLAN · {insertionCount} blocked insertion connection{insertionCount === 1 ? '' : 's'}</span>}
-          <span><i data-legend="reserve"/>R1–R8 · {outwardCount} reserved outward expansion portals</span>
+          {insertionCount > 0 && <span><i data-legend="planned"/>Future gallery doors · {insertionCount} closed</span>}
+          <span><i data-legend="reserve"/>Future wing doors · {outwardCount} closed</span>
         </div>
       </section>
 
       <aside className="museum-visitor-map-detail" aria-live="polite">
         <strong className="museum-visitor-map-current"><LocateFixed size={14}/> Physical location: {currentPhysicalNode?.label ?? 'Public gallery'}</strong>
-        <p className="museum-visitor-map-destination-heading">Six open permanent halls</p>
+        <p className="museum-visitor-map-destination-heading">Six open galleries</p>
         <div className="museum-visitor-map-destinations" aria-label="Choose a fast-travel gallery">
           {halls.map(({hall}) => {
             const current = hall.id === currentPhysicalHallId;
@@ -234,7 +234,7 @@ export function MuseumVisitorMap({currentHallId, currentNodeId, currentPose, ret
         <button className="btn btn-primary museum-visitor-map-travel" type="button" onClick={() => onTravel(selected.hall.id)}>
           <Navigation size={16}/>Fast travel to {selected.hall.galleryNumber}{isCurrentSelection ? ' entrance' : ''}
         </button>
-        <small>Fast travel uses the registered hall’s authored safe spawn. Walking routes remain available through every live doorway shown; no unbuilt route geometry is displayed.</small>
+        <small>Fast travel returns you to the selected gallery entrance. Every open gallery also remains reachable through the walking routes shown.</small>
       </aside>
     </div>
 

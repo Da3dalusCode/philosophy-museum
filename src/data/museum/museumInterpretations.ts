@@ -755,14 +755,14 @@ const philosopherInterpretation = (
     centralQuestion: location.exhibit.question,
     lead: substantialSections
       ? paragraph([
-          `In “${location.room.title},” this ${location.exhibit.tier.replaceAll('-', ' ')} asks ${location.exhibit.question}`,
+          `In “${location.room.title},” ${record.name} asks ${location.exhibit.question}`,
           record.shortBio ?? record.contributionSummary,
           `The curatorial problem is not to compress ${record.name} into a doctrine label, but to distinguish what the surviving record supports, what later interpreters supplied, and which philosophical question remains live when the historical vocabulary is no longer ours.`,
           `The installation follows the evidence through ${record.historicalContext}, reconstructs the argument without pretending that later reports are neutral transcripts, and carries the visitor into the strongest criticisms and afterlives.`,
           `Its article-derived sequence moves from setting to argument, evidence, disagreement, and a reading route; neighboring Museum installations are offered as comparisons, never as automatic proof of influence, agreement, or school membership.`,
         ])
       : paragraph([
-          `Installed in “${location.room.title},” this ${location.exhibit.tier.replaceAll('-', ' ')} treats ${record.name} as one historically situated voice rather than a final authority.`,
+          `Installed in “${location.room.title},” this exhibit treats ${record.name} as one historically situated voice rather than a final authority.`,
           record.shortBio,
           record.extendedBio?.[0],
           record.contributionSummary,
@@ -842,14 +842,14 @@ const branchInterpretation = (
     centralQuestion: location.exhibit.question,
     lead: substantialSections
       ? paragraph([
-          `In “${location.room.title},” this ${location.exhibit.tier.replaceAll('-', ' ')} asks ${location.exhibit.question}`,
+          `In “${location.room.title},” ${record.name} asks ${location.exhibit.question}`,
           record.beginnerExplanation,
           `The curatorial problem is not to turn ${record.name} into a timeless list of positions, but to show how its questions change across institutions, genres, languages, communities, and rival standards of evidence.`,
           `The installation treats ${record.name} as a historically changing field of arguments and practices, preserves differences among religious and nonreligious traditions, and uses the Forum routes for comparison without claiming one center or one linear origin.`,
           `Its article-derived sequence moves from historical framing to concepts, texts, internal disagreement, criticism, and a reading route; every neighboring room remains a specific comparison rather than evidence that distinct traditions teach the same doctrine.`,
         ])
       : paragraph([
-          `Installed in “${location.room.title},” this ${location.exhibit.tier.replaceAll('-', ' ')} uses ${record.name} as an orientation and routing device, not as a claim that philosophy has one center or one linear origin.`,
+          `Installed in “${location.room.title},” this exhibit uses ${record.name} as an orientation and routing device, not as a claim that philosophy has one center or one linear origin.`,
           record.beginnerExplanation,
           record.originStory,
           record.oneSentencePurpose,

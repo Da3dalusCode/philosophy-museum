@@ -109,14 +109,11 @@ const generatedSpecsForExhibit = (
   const interpretationHeight = exhibit.scene.mediaMounts.length > 0
     ? .42
     : Math.min(1.55, backing.size.height - .48);
-  return [
-    plaque,
-    museumTextureDimensionsForPlane(
-      interpretationWidth,
-      interpretationHeight,
-      MUSEUM_TEXTURE_SPECS.contemporaryNameStrip,
-    ),
-  ];
+  return [museumTextureDimensionsForPlane(
+    interpretationWidth,
+    interpretationHeight,
+    MUSEUM_TEXTURE_SPECS.contemporaryNameStrip,
+  )];
 };
 
 const generatedHallSpecs = (hallId: MuseumHallId): readonly MuseumDecodedTextureSpec[] => {
@@ -147,7 +144,7 @@ const generatedHallSpecs = (hallId: MuseumHallId): readonly MuseumDecodedTexture
     return museumTextureDimensionsForPlane(sign.width, sign.height, reference);
   });
   return hallId === MUSEUM_BUILDING_MANIFEST.kiosk.publicHallId
-    ? [...signs, MUSEUM_TEXTURE_SPECS.visitorMapKiosk]
+    ? [...signs, MUSEUM_TEXTURE_SPECS.visitorMapKiosk, MUSEUM_TEXTURE_SPECS.mediterraneanOrientation]
     : signs;
 };
 

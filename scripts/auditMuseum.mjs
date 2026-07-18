@@ -16,6 +16,7 @@ const museumWorldSource = source('src/components/MuseumGallery/MuseumWorldScene.
 const architectureSource = source('src/components/MuseumGallery/ContemporaryHallArchitecture.tsx');
 const canonicalSceneSource = source('src/components/MuseumGallery/CanonicalMuseumHallScene.tsx');
 const canonicalExhibitsSource = source('src/components/MuseumGallery/CanonicalMuseumExhibits.tsx');
+const interpretationPanelSource = source('src/components/MuseumGallery/MuseumInterpretationPanel.tsx');
 const visitorMapSource = source('src/components/MuseumGallery/MuseumVisitorMap.tsx');
 const compatibilitySource = source('src/components/MuseumGallery/MuseumCompatibilityPage.tsx');
 const museumCssSource = source('src/components/MuseumGallery/museum.css');
@@ -34,6 +35,7 @@ const result = await build({
       export * from '/src/data/museum/museumBuildingManifest.ts';
       export * from '/src/data/museum/museumBuildingRuntime.ts';
       export * from '/src/data/museum/museumHallTemplates.ts';
+      export * from '/src/data/museum/mediterraneanGalleryCuration.ts';
       export * from '/src/data/museum/museumVisitorMap.ts';
       export * from '/src/data/museum/museumVisitorMapProjection.ts';
       export * from '/src/data/museum/museumAssets.ts';
@@ -78,6 +80,10 @@ const {
   MUSEUM_INTERPRETATIONS,
   MUSEUM_LEGACY_GEOMETRY_ADAPTERS,
   MUSEUM_LIVE_PROGRAM_TOTALS,
+  MEDITERRANEAN_EXHIBIT_CURATION,
+  MEDITERRANEAN_GALLERY_ID,
+  MEDITERRANEAN_ORIENTATION_DISPLAY,
+  MEDITERRANEAN_ROOM_SIGN_COPY,
   MUSEUM_PLANNED_HALL_TITLES,
   MUSEUM_PERSISTENT_TEXTURE_ESTIMATE,
   MUSEUM_READINESS_PRESENTATIONS,
@@ -264,6 +270,80 @@ check('the public catalog is exactly the canonical six-hall, 29-room, 59-exhibit
   }
   assert.equal(philosophers.length, 142);
   assert.equal(branches.length, 43);
+});
+
+check('Gallery 01 has bounded authored curation, visitor-facing orientation, and a clear first connector', () => {
+  const hall = hallById.get(MEDITERRANEAN_GALLERY_ID);
+  const definition = definitionById.get(MEDITERRANEAN_GALLERY_ID);
+  const program = MUSEUM_CANONICAL_PROGRAM.find(({id}) => id === MEDITERRANEAN_GALLERY_ID);
+  assert(hall && definition && program);
+
+  const curationEntries = Object.entries(MEDITERRANEAN_EXHIBIT_CURATION);
+  assert.equal(curationEntries.length, 20, 'Gallery 01 must retain exactly 20 authored curation entries');
+  assert.deepEqual(sorted(curationEntries.map(([id]) => id)), sorted(hall.exhibits.map(({id}) => id)), 'Gallery 01 curation ids differ from its public exhibits');
+  assert.deepEqual(sorted(Object.keys(MEDITERRANEAN_ROOM_SIGN_COPY)), sorted(program.rooms.map(({id}) => id)), 'Gallery 01 visitor sign copy differs from its four rooms');
+  for (const [id, curation] of curationEntries) {
+    assert([curation.authored.x, curation.authored.z, curation.authored.rotationY].every(Number.isFinite), `${id} has an invalid authored placement`);
+    assert(curation.publicKicker.trim().length >= 12, `${id} lacks visitor-facing context`);
+    assert(curation.groupLabel.trim().length >= 8 && curation.visualKind.trim(), `${id} lacks an interpretive visual grouping`);
+  }
+
+  const kiosk = definition.layout.furnishings.find(({id}) => id === MUSEUM_VISITOR_MAP_KIOSK.id);
+  const orientation = definition.layout.furnishings.find(({id}) => id === MEDITERRANEAN_ORIENTATION_DISPLAY.id);
+  assert.deepEqual(kiosk, MUSEUM_VISITOR_MAP_KIOSK, 'Gallery 01 map kiosk is absent or stale');
+  assert.deepEqual(orientation, MEDITERRANEAN_ORIENTATION_DISPLAY, 'Gallery 01 orientation display is absent or stale');
+  assert(definition.layout.obstacleColliders.some(({id}) => id === kiosk.id), 'Gallery 01 map kiosk is absent from collision');
+  assert(definition.layout.obstacleColliders.some(({id}) => id === orientation.id), 'Gallery 01 orientation display is absent from collision');
+  assert(validPose(definition, MUSEUM_VISITOR_MAP_KIOSK.approachPose), 'Gallery 01 map approach is unsafe');
+  assert.deepEqual(definition.layout.spawnFocalPoint, MUSEUM_VISITOR_MAP_KIOSK.center, 'Gallery 01 spawn does not focus the visitor map');
+  const focalDistance = distance(definition.layout.spawn, definition.layout.spawnFocalPoint);
+  const spawnForward = {x: -Math.sin(definition.layout.spawn.yaw), z: -Math.cos(definition.layout.spawn.yaw)};
+  const focalDirection = {
+    x: (definition.layout.spawnFocalPoint.x - definition.layout.spawn.x) / focalDistance,
+    z: (definition.layout.spawnFocalPoint.z - definition.layout.spawn.z) / focalDistance,
+  };
+  assert(spawnForward.x * focalDirection.x + spawnForward.z * focalDirection.z > .95, 'Gallery 01 spawn does not face its map focal point');
+
+  const forbiddenPublicLabels = /anchor[-\s]+exhibit|standard[-\s]+individual[-\s]+exhibit|supporting[-\s]+exhibit|thematic[-\s]+cluster[-\s]+participant|gallery[-\s]+archive[-\s]+or[-\s]+study[-\s]+wall[-\s]+record|(?:anchor|standard)[-\s]+bay|(?:supporting|cluster)[-\s]+panel|archive[-\s]+label|presentation\s+tier|gallery\s+installation/i;
+  assert.doesNotMatch(canonicalExhibitsSource, /kicker:\s*[^\n]*(?:presentationTier|treatment)/u, 'Public exhibit name strips expose internal tier or treatment fields');
+  assert.doesNotMatch(museumPageSource, /item\.tier\.replaceAll/u, 'The public directory exposes internal exhibit tiers');
+  assert.doesNotMatch(interpretationPanelSource, /content\.tier\.replaceAll/u, 'The interpretation panel exposes internal exhibit tiers');
+  for (const interpretation of MUSEUM_INTERPRETATIONS) assert.doesNotMatch(interpretation.lead, forbiddenPublicLabels, `${interpretation.hallId}/${interpretation.id} lead exposes internal presentation language`);
+  assert.match(canonicalSceneSource, /<MediterraneanGalleryCuration\/>/u, 'Gallery 01 does not render its authored orientation display');
+  assert.equal(definition.layout.signs.length, 5, 'Gallery 01 must retain one entrance and four room signs');
+  for (const sign of definition.layout.signs) {
+    assert.doesNotMatch(`${sign.kicker} ${sign.title} ${sign.subtitle}`, forbiddenPublicLabels, `${sign.id} exposes internal presentation language`);
+    const front = {x: Math.sin(sign.rotationY), z: Math.cos(sign.rotationY)};
+    const approach = {x: sign.position.x, z: sign.position.z - 2};
+    assert(front.x * (approach.x - sign.position.x) + front.z * (approach.z - sign.position.z) > 0, `${sign.id} does not face the forward visitor approach`);
+  }
+
+  const connector = runtimeNodeById.get('corridor:outer-01-mediterranean-renaissance');
+  assert(connector, 'The Galleries 01–02 connector is missing');
+  const connectorCellIds = ['outer-01-gallery-entry', 'outer-01-east-run', 'outer-01-central-link', 'outer-01-west-run', 'outer-01-turn'];
+  assert.deepEqual(connector.layout.spatialCells.map(({id}) => id), connectorCellIds.map((id) => `${connector.id}:${id}`), 'The Galleries 01–02 connector cell sequence drifted');
+  const cellsShareEdge = (first, second) => {
+    const xOverlap = Math.min(first.maxX, second.maxX) - Math.max(first.minX, second.minX);
+    const zOverlap = Math.min(first.maxZ, second.maxZ) - Math.max(first.minZ, second.minZ);
+    return (Math.abs(first.maxX - second.minX) < .001 || Math.abs(second.maxX - first.minX) < .001) && zOverlap > 0
+      || (Math.abs(first.maxZ - second.minZ) < .001 || Math.abs(second.maxZ - first.minZ) < .001) && xOverlap > 0;
+  };
+  for (let index = 1; index < connector.layout.spatialCells.length; index += 1) {
+    assert(cellsShareEdge(connector.layout.spatialCells[index - 1].bounds, connector.layout.spatialCells[index].bounds), `${connectorCellIds[index - 1]} does not meet ${connectorCellIds[index]}`);
+  }
+  for (let first = 0; first < connector.layout.spatialCells.length; first += 1) {
+    for (let second = first + 1; second < connector.layout.spatialCells.length; second += 1) {
+      const a = connector.layout.spatialCells[first].bounds;
+      const b = connector.layout.spatialCells[second].bounds;
+      const overlapWidth = Math.min(a.maxX, b.maxX) - Math.max(a.minX, b.minX);
+      const overlapDepth = Math.min(a.maxZ, b.maxZ) - Math.max(a.minZ, b.minZ);
+      assert(overlapWidth <= 0 || overlapDepth <= 0, `${connectorCellIds[first]} overlaps ${connectorCellIds[second]}`);
+    }
+  }
+  sampleSegment({x: 0, z: 58}, {x: -28, z: 56}, .05, (point) => {
+    assert(positionInsideSpatialUnion(point, connector.layout.playerRadius, connector.layout.spatialCells), `The Galleries 01–02 seam path leaves the connector near ${JSON.stringify(point)}`);
+    assert(isValidMuseumPosition(point, connector.layout.playerRadius, connector.layout.bounds, allColliders(connector.layout), connector.layout.spatialCells), `The Galleries 01–02 seam path collides near ${JSON.stringify(point)}`);
+  });
 });
 
 check('all nine Forum rooms carry rigorous comparative lenses into the directory and compiled wayfinding', () => {
@@ -867,8 +947,9 @@ check('the React implementation uses one persistent Canvas, one shared canonical
   assert.match(canonicalExhibitsSource, /usePlaqueTexture/);
   assert.match(architectureSource, /museumTextureDimensionsForPlane/);
   assert.match(architectureSource, /<mesh position=\{\[0, 0, \.002\]\}><planeGeometry/);
-  assert.match(visitorMapSource, /Permanent construction stage/);
-  assert.match(visitorMapSource, /Fast travel uses the registered hall/);
+  assert.match(visitorMapSource, /This main-level plan shows/);
+  assert.match(visitorMapSource, /Fast travel returns you to the selected gallery entrance/);
+  assert.doesNotMatch(visitorMapSource, /Permanent construction stage|registered hall’s authored safe spawn/);
   assert.match(visitorMapSource, /MUSEUM_VISITOR_MAP_RESERVATIONS/);
   assert.match(compatibilitySource, /is not currently installed/);
   assert.match(compatibilitySource, /underlying Atlas record, article, relationships, media, and source data have not been deleted/);

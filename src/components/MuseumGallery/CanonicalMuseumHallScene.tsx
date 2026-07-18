@@ -3,6 +3,7 @@ import type {MuseumHallContentProps} from './museumWorldRegistry';
 import {CanonicalMuseumExhibits} from './CanonicalMuseumExhibits';
 import {ContemporaryHallArchitecture} from './ContemporaryHallArchitecture';
 import {ContemporaryHallLighting} from './ContemporaryHallLighting';
+import {MediterraneanGalleryCuration} from './MediterraneanGalleryCuration';
 import {MuseumHallSpatialRoot} from './MuseumHallSpatialRoot';
 import {MuseumVisitorMapKiosk} from './MuseumVisitorMapKiosk';
 
@@ -28,6 +29,7 @@ export function CanonicalMuseumHallContent({
       nearbyId={nearby?.hallId === definition.id ? nearby.exhibitId : undefined}
       onSelectExhibit={(exhibitId) => onSelectExhibit({hallId: definition.id, exhibitId})}
     />
+    {definition.id === 'mediterranean-beginnings-classical' && <MediterraneanGalleryCuration/>}
     {ownsKiosk && (
       <MuseumVisitorMapKiosk active={active} nearby={visitorMapNearby} onActivate={onSelectVisitorMap}/>
     )}
