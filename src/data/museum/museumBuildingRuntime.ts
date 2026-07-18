@@ -89,13 +89,48 @@ const otherCellCrossesEdge = (
 const slotCutsEdge = (
   edge: CellEdge,
   slot: MuseumManifestDoorwaySlot,
-): [number, number] | undefined => {
+): {interval: [number, number]; renderLintel: boolean} | undefined => {
   const epsilon = .01;
-  if (edge.axis === 'x' && Math.abs(slot.position.z - edge.coordinate) <= epsilon) {
-    return [slot.position.x - slot.clearWidth / 2, slot.position.x + slot.clearWidth / 2];
+  const seamReach = slot.transitionDepth / 2 + epsilon;
+  if (
+    edge.axis === 'x'
+    && Math.abs(slot.inwardNormal.z) > .5
+    && Math.abs(slot.position.z - edge.coordinate) <= seamReach
+  ) {
+    return {
+      interval: [slot.position.x - slot.clearWidth / 2, slot.position.x + slot.clearWidth / 2],
+      renderLintel: Math.abs(slot.position.z - edge.coordinate) <= epsilon,
+    };
   }
-  if (edge.axis === 'z' && Math.abs(slot.position.x - edge.coordinate) <= epsilon) {
-    return [slot.position.z - slot.clearWidth / 2, slot.position.z + slot.clearWidth / 2];
+  if (
+    edge.axis === 'z'
+    && Math.abs(slot.inwardNormal.z) > .5
+    && Math.abs(slot.position.x - edge.coordinate) <= slot.clearWidth / 2 + epsilon
+  ) {
+    return {
+      interval: [slot.position.z - seamReach, slot.position.z + seamReach],
+      renderLintel: false,
+    };
+  }
+  if (
+    edge.axis === 'z'
+    && Math.abs(slot.inwardNormal.x) > .5
+    && Math.abs(slot.position.x - edge.coordinate) <= seamReach
+  ) {
+    return {
+      interval: [slot.position.z - slot.clearWidth / 2, slot.position.z + slot.clearWidth / 2],
+      renderLintel: Math.abs(slot.position.x - edge.coordinate) <= epsilon,
+    };
+  }
+  if (
+    edge.axis === 'x'
+    && Math.abs(slot.inwardNormal.x) > .5
+    && Math.abs(slot.position.z - edge.coordinate) <= slot.clearWidth / 2 + epsilon
+  ) {
+    return {
+      interval: [slot.position.x - seamReach, slot.position.x + seamReach],
+      renderLintel: false,
+    };
   }
   return undefined;
 };
@@ -125,6 +160,7 @@ type WallOpening = {
   id: string;
   interval: [number, number];
   clearHeight: number;
+  renderLintel: boolean;
 };
 
 type CirculationWallSet = {
@@ -171,7 +207,12 @@ const createCirculationWalls = (node: MuseumManifestNode): CirculationWallSet =>
       const openings: WallOpening[] = [];
       for (const slot of node.doorwaySlots) {
         const cut = slotCutsEdge(edge, slot);
-        if (cut) openings.push({id: `${node.id}:${slot.id}`, interval: cut, clearHeight: slot.clearHeight});
+        if (cut) openings.push({
+          id: `${node.id}:${slot.id}`,
+          interval: cut.interval,
+          clearHeight: slot.clearHeight,
+          renderLintel: cut.renderLintel,
+        });
       }
       for (const reservation of reservations) {
         const cut = reservationCutsEdge(edge, reservation);
@@ -179,6 +220,7 @@ const createCirculationWalls = (node: MuseumManifestNode): CirculationWallSet =>
           id: reservation.id,
           interval: cut,
           clearHeight: MUSEUM_BUILDING_MANIFEST.physicalContract.doorClearHeight,
+          renderLintel: true,
         });
       }
       let wallIntervals = [...exposedIntervals];
@@ -195,6 +237,7 @@ const createCirculationWalls = (node: MuseumManifestNode): CirculationWallSet =>
         architecture.push(wall);
       }
       for (const opening of openings) {
+        if (!opening.renderLintel) continue;
         for (const [exposedStart, exposedEnd] of exposedIntervals) {
           const start = Math.max(opening.interval[0], exposedStart);
           const end = Math.min(opening.interval[1], exposedEnd);

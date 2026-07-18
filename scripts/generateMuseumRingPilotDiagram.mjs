@@ -1,10 +1,11 @@
-import {mkdir, writeFile} from 'node:fs/promises';
+import {mkdir, readFile, writeFile} from 'node:fs/promises';
 import {dirname, resolve} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {createServer} from 'vite';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const outputPath = resolve(root, 'docs/museum-masterplan/diagrams/ring-pilot-runtime.svg');
+const checkOnly = process.argv.includes('--check');
 
 const escapeXml = (value) => String(value)
   .replaceAll('&', '&amp;')
@@ -18,6 +19,7 @@ const points = (items) => items.map(({x, y}) => `${format(x)},${format(y)}`).joi
 
 const server = await createServer({
   root,
+  configFile: false,
   appType: 'custom',
   logLevel: 'silent',
   server: {middlewareMode: true},
@@ -105,9 +107,18 @@ try {
 </svg>
 `;
 
-  await mkdir(dirname(outputPath), {recursive: true});
-  await writeFile(outputPath, svg, 'utf8');
-  console.log(`Generated ${outputPath}`);
+  if (checkOnly) {
+    const committed = await readFile(outputPath, 'utf8');
+    const normalizeLines = (value) => value.replaceAll('\r\n', '\n');
+    if (normalizeLines(committed) !== normalizeLines(svg)) {
+      throw new Error(`Generated Museum diagram differs from ${outputPath}. Run npm run generate:museum-diagram and review the result.`);
+    }
+    console.log(`Verified ${outputPath} is deterministic and current.`);
+  } else {
+    await mkdir(dirname(outputPath), {recursive: true});
+    await writeFile(outputPath, svg, 'utf8');
+    console.log(`Generated ${outputPath}`);
+  }
 } finally {
   await server.close();
 }

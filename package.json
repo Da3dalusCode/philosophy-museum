@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "validate:museum-masterplan": "node scripts/validateMuseumMasterplan.mjs",
     "audit:routing": "node scripts/auditRouting.mjs",
     "audit:museum": "node scripts/auditMuseum.mjs",
     "audit:museum-assets": "node scripts/auditMuseumAssets.mjs",
@@ -15,6 +16,7 @@
     "report:coverage": "node scripts/reportContentCoverage.mjs",
     "report:bundle": "node scripts/reportBundle.mjs",
     "generate:museum-diagram": "node scripts/generateMuseumRingPilotDiagram.mjs",
+    "check:museum-diagram": "node scripts/generateMuseumRingPilotDiagram.mjs --check",
     "preview": "vite preview"
   },
   "dependencies": {

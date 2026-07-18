@@ -1,10 +1,10 @@
 # Philosophy Atlas Museum masterplan
 
-**Status:** approved long-term program and physical direction. The Ring infrastructure is complete, and the first permanent collection phase converts the six temporary shells to five permanent outer-loop halls plus the central Core Questions Forum without pretending that all 26 final halls are open.
+**Status:** approved long-term program and physical direction. The canonical-six implementation converts the six temporary shells to five permanent outer-loop halls plus the central Core Questions Forum without pretending that all 26 final halls are open. Deployment status is determined by `main`, not by this feature branch.
 
 ## Decision in one page
 
-**Worlds with a Questions Forum — Expanded and Culturally Safeguarded** is the approved intellectual program, and the single-level **Ring of Wings** is the approved physical direction. These choices are locked for the Ring pilot.
+**Worlds with a Questions Forum — Expanded and Culturally Safeguarded** is the approved intellectual program, and the single-level **Ring of Wings** is the approved physical direction. These choices are locked for the staged Ring implementation.
 
 The approved program gives historically and culturally situated traditions their own primary homes, then lets a central questions forum and explicit secondary associations reveal shared problems. It contains:
 
@@ -62,8 +62,8 @@ The complete assignments are reviewable as spreadsheets:
 The machine-readable planning contract is split deliberately:
 
 - [Hall program](./hall-program.json) defines intellectual wings, halls, rooms, capacities, tiers, and reusable templates.
-- [Building manifest example](./building-manifest.example.json) remains a planning fixture demonstrating physical placement, doorway slots, arrival poses, connections, map polygons, implementation status, and reservations; it is not the authoritative Ring-pilot runtime manifest.
-- Rendered hall definitions remain a third layer; the eventual visitor map should project the live physical manifest instead of maintaining a separate conceptual layout.
+- [Building manifest example](./building-manifest.example.json) remains a planning fixture demonstrating physical placement, doorway slots, arrival poses, connections, map polygons, implementation status, and reservations; it is not the authoritative runtime manifest.
+- Rendered hall definitions remain a third layer; the current visitor map projects the live physical manifest instead of maintaining a separate conceptual layout.
 
 CSV secondary hall IDs are reviewed route candidates. Before implementation, each must receive a room-level destination, a typed relation, and a one-sentence scholarly rationale; bare adjacency must never be rendered as influence or membership.
 
@@ -73,7 +73,7 @@ The three directly reviewable, conceptual (not-to-scale) floor-plan diagrams rec
 - [Braided Promenade](./diagrams/braided-promenade.svg) — archived compact two-level comparison.
 - [Pavilion Campus](./diagrams/pavilion-campus.svg) — archived campus comparison.
 
-## Approved decisions locked for the Ring pilot
+## Approved decisions locked for the Ring program
 
 The package records, but does not hide, several consequential approved choices:
 
@@ -93,7 +93,7 @@ See [Difficult placements](./difficult-placements.md) for the complete reasoning
 
 ## Approved permanent-six phase
 
-The hybrid taxonomy, disputed primary homes, and Ring layout remain approved. The completed infrastructure phase supplied real walls and corridors, a centralized runtime building manifest, accessible safe arrivals, a compact loop and spokes, and blocked insertion and outward-expansion reservations. The current phase replaces the six temporary public programs with `mediterranean-beginnings-classical`, `renaissance-humanism-new-method`, `phenomenology-existence-embodiment`, `analytic-traditions`, `justice-democratic-reason`, and the permanent central `core-questions-forum`.
+The hybrid taxonomy, disputed primary homes, and Ring layout remain approved. The completed infrastructure phase supplied real walls and corridors, a centralized runtime building manifest, accessible safe arrivals, a compact loop and spokes, and blocked insertion and outward-expansion reservations. The canonical-six implementation replaces the six temporary public programs with `mediterranean-beginnings-classical`, `renaissance-humanism-new-method`, `phenomenology-existence-embodiment`, `analytic-traditions`, `justice-democratic-reason`, and the permanent central `core-questions-forum`.
 
 The five historical/methodological successors remain on the compact outer loop; the Forum occupies the central court. The former outer Mind shell is retired as a public gallery and used only for truthful circulation, construction, or reservation geometry. The canonical six install their 59 exact primary assignments by tier rather than preserving the former 48-installation quota. Displaced exhibit routes remain aliases or explanatory handoffs to intact Atlas content and planned primary halls.
 
@@ -106,7 +106,7 @@ node scripts/validateMuseumMasterplan.mjs
 npm run build
 ```
 
-The validator compares the CSVs with the current TypeScript data and checks exact-once primary coverage, applied uncertainty-date metadata, stable IDs, all wing/hall/room/tier references, unique secondary hall references, template ranges/slots, program totals, capacities, and the planning-manifest example’s nodes, poses, connections, footprints, status, and blocked reservations. Runtime Ring-pilot geometry and behavior require the separate Museum audits in addition to this planning validation and the normal application build.
+The validator compares the CSVs with the current TypeScript data and checks exact-once primary coverage, applied uncertainty-date metadata, stable IDs, all wing/hall/room/tier references, unique secondary hall references, template ranges/slots, program totals, capacities, and the planning-manifest example’s nodes, poses, connections, footprints, status, and blocked reservations. Runtime canonical-six geometry and behavior require the separate Museum audits in addition to this planning validation and the normal application build.
 
 ## Research and accessibility anchors
 
@@ -116,4 +116,4 @@ The template contract treats accessibility as geometry, not decoration. Detailed
 
 ## Scope boundary
 
-This directory remains the long-term intellectual and physical planning contract: documentation, CSV/JSON planning data, conceptual SVGs, and its planning validator. Ring-pilot runtime geometry, connections, residency, and visitor-map projection are implemented and audited in the Museum source layer. The planning reassignment does **not** add, remove, rename, or relocate any of the 48 live pilot exhibits.
+This directory remains the long-term planning contract. Its CSV and JSON data assign all 185 Atlas records—142 philosophers and 43 branches—exactly once. The canonical-six runtime installs the 59 records whose approved primary homes are among the six permanent halls, in 29 rooms and at their approved presentation tiers. The former 48-installation roster is retained only as a Phase 2 migration record. Displaced legacy URLs use aliases or explanatory handoffs to intact Atlas articles and their planned Museum homes. Runtime geometry, connections, residency, and visitor-map projection are implemented and audited in the Museum source layer.

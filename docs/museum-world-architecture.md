@@ -1,10 +1,12 @@
-# Museum Ring-pilot runtime architecture
+# Historical Museum Ring-pilot runtime architecture record
 
-## Approved scope
+> This document records the completed Phase 2 six-shell pilot. Its temporary hall identities, 48-exhibit roster, legacy adapters, orientation-only Forum court, and measured residency figures are historical evidence, not the live canonical-six contract. The canonical-six implementation uses five permanent `sequence-3` outer halls plus the central `crossroads-4` Core Questions Forum, with 29 rooms and 59 primary exhibits. Current runtime truth lives in `src/data/museum/museumBuildingManifest.json`, `src/data/museum/museumCanonicalProgram.ts`, and the executable Museum audits. Production status remains governed by `main`.
 
-The implemented Museum runtime is a compact, single-level physical proof of the approved **Ring of Wings**. It keeps the existing six public gallery shells and all 48 installations, but the building is no longer a six-stop chain. The permanent intellectual plan remains **Worlds with a Questions Forum**: 10 wings, 26 halls, 105 planned rooms or zones, and the existing reserve capacity. The runtime pilot proves the physical system without pretending that the other twenty halls or a curated Core Questions Forum have been built. Repository branches do not establish production status; `main` and its GitHub Pages workflow are authoritative for deployment.
+## Phase 2 approved scope
 
-The six public routes and content rosters remain unchanged:
+At this checkpoint, the implemented Museum runtime was a compact, single-level physical proof of the approved **Ring of Wings**. It kept the existing six public gallery shells and all 48 installations, but the building was no longer a six-stop chain. The permanent intellectual plan remained **Worlds with a Questions Forum**: 10 wings, 26 halls, 105 planned rooms or zones, and the existing reserve capacity. The runtime pilot proved the physical system without pretending that the other twenty halls or a curated Core Questions Forum had been built. Repository branches did not establish production status; `main` and its GitHub Pages workflow remained authoritative for deployment.
+
+The six temporary public routes and content rosters remained unchanged at that checkpoint:
 
 1. Ancient Greek and Hellenistic Philosophy
 2. Renaissance, Reason, and Revolution
@@ -13,7 +15,7 @@ The six public routes and content rosters remain unchanged:
 5. Ethics, Justice, and Political Life
 6. Mind, Consciousness, and the Self
 
-Ancient remains the temporary public entrance because it contains the visitor-map kiosk. The central court is labeled as the **Core Questions Forum location — orientation only**; it is circulation space, not an open intellectual hall.
+Ancient remained the temporary public entrance because it contained the visitor-map kiosk. The central court was labeled as the **Core Questions Forum location — orientation only**; it was circulation space, not an open intellectual hall.
 
 ## Three separate data layers
 
@@ -123,9 +125,9 @@ The public compatibility boundary is intentionally narrow:
 
 Rollback is correspondingly simple: revert the Ring-pilot commits through normal Git history; no data migration is required. Circulation placement is isolated in the manifest and compiler, while the content files contain only the physical openings required by their legacy adapters.
 
-## Verification contract
+## Phase 2 verification contract
 
-`node scripts/validateMuseumMasterplan.mjs` checks the locked program and Beauvoir placement. `npm run audit:museum` also compares the executable registry to the approved planning templates, resolves every legacy adapter, toggles a synthetic endpoint to prove deterministic opening/closure behavior, checks active pedestrian bands and landings against wall and obstacle colliders, verifies render-only lintels and threshold anchors, and confirms that the visitor map consumes resolved map cells. Loop/spoke reachability, reservations, bounded residency, one Canvas, and the unchanged six-hall/48-exhibit content contract remain covered. The routing, asset, integrity, article, and accuracy audits remain independent release gates.
+At this checkpoint, `node scripts/validateMuseumMasterplan.mjs` checked the locked program and Beauvoir placement. `npm run audit:museum` compared the executable registry to the approved planning templates, resolved the legacy adapters, toggled a synthetic endpoint to test opening and closure behavior, checked pedestrian bands and landings against colliders, verified lintels and threshold anchors, and confirmed that the visitor map consumed resolved map cells. Loop and spoke reachability, reservations, bounded residency, one Canvas, and the temporary six-hall/48-exhibit contract were Phase 2 release gates. The current canonical-six release gate is defined by the repository's present validation and audit scripts, not by this historical list.
 
 Before extending the building, run the production build and every audit, then inspect the full loop in both directions, all five central route choices, every blocked barrier, the desktop and narrow maps, safe fast travel to all six halls, directory/guided/session/history behavior, controls and focus, representative media in all six halls, and the non-WebGL/failure fallbacks.
 

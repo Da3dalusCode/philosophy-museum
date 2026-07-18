@@ -148,6 +148,7 @@ const EXPECTED_GLOBAL_TIERS = {
 
 const program = readJson('docs/museum-masterplan/hall-program.json');
 const buildingManifest = readJson('src/data/museum/museumBuildingManifest.json');
+const planningManifest = readJson('docs/museum-masterplan/building-manifest.example.json');
 const philosopherAssignments = parseCsv('philosopher-assignments.csv');
 const branchAssignments = parseCsv('branch-assignments.csv');
 const allAssignments = [
@@ -195,6 +196,7 @@ check(same(program.assignmentCounts, {branches: 43, philosophers: 142, totalPrim
 const normalTemplateIds = ['standard-rect', 'sequence-3', 'crossroads-4'];
 check(normalTemplateIds.every((id) => templateById.has(id)), 'The approved normal template set is incomplete');
 check(templateById.has('focal-terminal'), 'The approved focal-terminal template is missing');
+check(program.halls.every(({templateId}) => normalTemplateIds.includes(templateId)), 'The rare focal-terminal template must not be assigned as a normal hall');
 for (const template of program.templates) {
   check(unique(template.portalSlots), `Template ${template.id} contains duplicate portal slots`);
   check(unique(template.optionalPortalSlots ?? []), `Template ${template.id} contains duplicate optional portal slots`);
@@ -223,8 +225,12 @@ for (const hall of program.halls) {
   const template = templateById.get(hall.templateId);
   check(Boolean(template && hall.roomIds.length >= template.roomRange[0] && hall.roomIds.length <= template.roomRange[1]), `Hall ${hall.id} room count is outside ${hall.templateId}'s range`);
 }
-for (const room of program.rooms) check(hallById.has(room.hallId), `Room ${room.id} references unknown hall ${room.hallId}`);
+for (const room of program.rooms) {
+  check(hallById.has(room.hallId), `Room ${room.id} references unknown hall ${room.hallId}`);
+  check(Number.isInteger(room.recordCapacity) && room.recordCapacity >= 1, `Room ${room.id} has invalid capacity ${room.recordCapacity}`);
+}
 
+const roomOccupancy = new Map(program.rooms.map((room) => [room.id, 0]));
 for (const row of allAssignments) {
   const label = `${row.entityKind} ${row.id}`;
   const hall = hallById.get(row.primary_hall_id);
@@ -240,16 +246,59 @@ for (const row of allAssignments) {
   check(unique(secondaryHallIds), `${label}: duplicate secondary hall`);
   check(!secondaryHallIds.includes(row.primary_hall_id), `${label}: primary hall is duplicated as a secondary route`);
   for (const hallId of secondaryHallIds) check(hallById.has(hallId), `${label}: unknown secondary hall ${hallId}`);
+  if (!secondaryHallIds.length) check(!/\bsecondar(?:y|ies)\b|\blinks?\b/i.test(row.rationale), `${label}: rationale claims a secondary/link but secondary_hall_ids is blank`);
+  if (secondaryHallIds.length) check(!/\bno (?:additional )?hall route\b|\bno secondar(?:y|ies)\b/i.test(row.rationale), `${label}: rationale denies a route but secondary_hall_ids is populated`);
+  if (room) roomOccupancy.set(room.id, (roomOccupancy.get(room.id) ?? 0) + 1);
 }
+for (const room of program.rooms) check((roomOccupancy.get(room.id) ?? 0) <= room.recordCapacity, `Room ${room.id} occupancy ${roomOccupancy.get(room.id)} exceeds capacity ${room.recordCapacity}`);
 for (const philosopher of philosophers) {
   const assignment = assignmentById.get(philosopher.id);
   check(
     typeof assignment?.source_date_context === 'string' && assignment.source_date_context.trim().length >= 3,
     `Philosopher ${philosopher.id}: source_date_context is missing`,
   );
+  if (typeof philosopher.dateDisplay === 'string') check(
+    assignment?.source_date_context === philosopher.dateDisplay,
+    `Philosopher ${philosopher.id}: source_date_context ${JSON.stringify(assignment?.source_date_context)} differs from applied dateDisplay ${JSON.stringify(philosopher.dateDisplay)}`,
+  );
 }
 const globalTierCounts = Object.fromEntries(MUSEUM_PRESENTATION_TIERS.map((tier) => [tier, allAssignments.filter((row) => row.tier === tier).length]));
 check(same(globalTierCounts, EXPECTED_GLOBAL_TIERS), `Global assignment tier counts changed: ${JSON.stringify(globalTierCounts)}`);
+
+const beauvoir = assignmentById.get('beauvoir');
+check(Boolean(beauvoir), 'Approved Beauvoir assignment is missing');
+check(beauvoir?.primary_wing_id === 'wing-ethics-politics-society', `Beauvoir primary wing changed to ${beauvoir?.primary_wing_id}`);
+check(beauvoir?.primary_hall_id === 'feminist-philosophies', `Beauvoir primary hall changed to ${beauvoir?.primary_hall_id}`);
+check(beauvoir?.primary_room_id === 'feminist-situated-freedom', `Beauvoir primary room changed to ${beauvoir?.primary_room_id}`);
+check(beauvoir?.tier === 'anchor-exhibit', `Beauvoir expected anchor-exhibit, found ${beauvoir?.tier}`);
+check(splitIds(beauvoir?.secondary_hall_ids).includes('phenomenology-existence-embodiment'), 'Beauvoir must retain Phenomenology, Existence, and Embodiment as a secondary route');
+check(/anchor-strength/i.test(`${beauvoir?.rationale ?? ''} ${beauvoir?.controversy_note ?? ''}`), 'Beauvoir anchor-strength rationale is missing');
+
+const recommendedOption = program.optionSummaries.find(({id}) => id === program.recommendedOptionId);
+check(Boolean(recommendedOption), `Recommended option ${program.recommendedOptionId} is missing`);
+const approvedCapacity = program.rooms.reduce((sum, room) => sum + room.recordCapacity, 0);
+check(recommendedOption?.wingCount === program.wings.length, 'Recommended option wing total does not match the approved program');
+check(recommendedOption?.hallCount === program.halls.length, 'Recommended option hall total does not match the approved program');
+check(recommendedOption?.roomCount === program.rooms.length, 'Recommended option room total does not match the approved program');
+check(recommendedOption?.recordCapacity === approvedCapacity, 'Recommended option capacity does not match the approved program');
+check(approvedCapacity === 258, `Approved program capacity changed from 258 to ${approvedCapacity}`);
+for (const option of program.optionSummaries) {
+  const breakdown = program.optionWingBreakdowns[option.id];
+  check(Array.isArray(breakdown), `Option ${option.id} has no wing breakdown`);
+  if (!Array.isArray(breakdown)) continue;
+  check(unique(breakdown.map(({id}) => id)), `Option ${option.id} repeats a wing breakdown id`);
+  const totals = breakdown.reduce((sum, wing) => ({
+    wings: sum.wings + 1,
+    halls: sum.halls + wing.hallCount,
+    rooms: sum.rooms + wing.roomCount,
+    capacity: sum.capacity + wing.recordCapacity,
+  }), {wings: 0, halls: 0, rooms: 0, capacity: 0});
+  check(option.wingCount === totals.wings, `Option ${option.id} wing total does not reconcile`);
+  check(option.hallCount === totals.halls, `Option ${option.id} hall total does not reconcile`);
+  check(option.roomCount === totals.rooms, `Option ${option.id} room total does not reconcile`);
+  check(option.recordCapacity === totals.capacity, `Option ${option.id} capacity does not reconcile`);
+  check(option.recordCapacity >= philosophers.length + branches.length, `Option ${option.id} cannot hold every primary record`);
+}
 
 const krishnamurti = philosopherById.get('jiddu-krishnamurti');
 const krishnamurtiAssignment = assignmentById.get('jiddu-krishnamurti');
@@ -335,6 +384,112 @@ for (const record of compatibility) {
     check(Boolean(record.liveExhibitRef), `Live compatibility record ${record.exhibitId} has no destination`);
     check(record.liveExhibitRef?.hallId === record.plannedHallId, `Live compatibility record ${record.exhibitId} destination differs from its planned hall`);
   } else check(!record.liveExhibitRef, `Displaced compatibility record ${record.exhibitId} must not claim a live destination`);
+}
+
+check(Boolean(planningManifest.manifestVersion), 'Planning manifest example is missing manifestVersion');
+check(Boolean(planningManifest.physicalOptionId), 'Planning manifest example is missing physicalOptionId');
+check(Boolean(planningManifest.coordinateFrames?.safeArrivalPoses), 'Planning manifest example does not declare its safe-arrival coordinate frame');
+const planningLevelIds = new Set(planningManifest.levels.map(({id}) => id));
+const planningNodeIds = new Set(planningManifest.nodes.map(({id}) => id));
+const planningConnectionIds = new Set(planningManifest.connections.map(({id}) => id));
+const planningReservationIds = new Set(planningManifest.reservations.map(({id}) => id));
+check(planningLevelIds.size === planningManifest.levels.length, 'Planning manifest example contains duplicate level IDs');
+check(planningNodeIds.size === planningManifest.nodes.length, 'Planning manifest example contains duplicate node IDs');
+check(planningConnectionIds.size === planningManifest.connections.length, 'Planning manifest example contains duplicate connection IDs');
+check(planningReservationIds.size === planningManifest.reservations.length, 'Planning manifest example contains duplicate reservation IDs');
+const planningNodeById = new Map(planningManifest.nodes.map((node) => [node.id, node]));
+const usedPlanningSlots = new Set();
+const polygonBounds = (polygon) => ({
+  minX: Math.min(...polygon.map(([x]) => x)),
+  maxX: Math.max(...polygon.map(([x]) => x)),
+  minZ: Math.min(...polygon.map(([, z]) => z)),
+  maxZ: Math.max(...polygon.map(([, z]) => z)),
+});
+const close = (first, second) => Math.abs(first - second) <= .001;
+for (const node of planningManifest.nodes) {
+  check(planningLevelIds.has(node.levelId), `Planning manifest node ${node.id} references unknown level ${node.levelId}`);
+  check(['planned', 'live', 'retired'].includes(node.implementationStatus), `Planning manifest node ${node.id} has invalid status ${node.implementationStatus}`);
+  check(unique(node.doorwaySlots), `Planning manifest node ${node.id} repeats a doorway slot`);
+  check(Array.isArray(node.mapFootprint) && node.mapFootprint.length >= 4, `Planning manifest node ${node.id} has an invalid map footprint`);
+  check(node.mapFootprint?.every((point) => Array.isArray(point) && point.length === 2 && point.every(Number.isFinite)), `Planning manifest node ${node.id} has non-finite map coordinates`);
+  check(Number.isFinite(node.physicalFootprint?.width) && node.physicalFootprint.width > 0, `Planning manifest node ${node.id} has invalid physical width`);
+  check(Number.isFinite(node.physicalFootprint?.depth) && node.physicalFootprint.depth > 0, `Planning manifest node ${node.id} has invalid physical depth`);
+  if (node.kind === 'hall') {
+    check(hallById.has(node.programHallId), `Planning manifest node ${node.id} references unknown program hall ${node.programHallId}`);
+    check(wingById.has(node.wingId), `Planning manifest node ${node.id} references unknown wing ${node.wingId}`);
+  }
+  if (node.templateId) {
+    const template = templateById.get(node.templateId);
+    check(Boolean(template), `Planning manifest node ${node.id} references unknown template ${node.templateId}`);
+    for (const slot of node.doorwaySlots) check(template?.portalSlots.includes(slot), `Planning manifest node ${node.id}/${slot} is not declared by ${node.templateId}`);
+    const physicalDimensions = [node.physicalFootprint.width, node.physicalFootprint.depth].sort((a, b) => a - b);
+    const templateDimensions = [template?.footprintMetres.width, template?.footprintMetres.depth].sort((a, b) => a - b);
+    check(close(physicalDimensions[0], templateDimensions[0]) && close(physicalDimensions[1], templateDimensions[1]), `Planning manifest node ${node.id} footprint differs from ${node.templateId}`);
+  }
+  if (Array.isArray(node.mapFootprint) && node.mapFootprint.length >= 4) {
+    const bounds = polygonBounds(node.mapFootprint);
+    const mapDimensions = [bounds.maxX - bounds.minX, bounds.maxZ - bounds.minZ].sort((a, b) => a - b);
+    const physicalDimensions = [node.physicalFootprint.width, node.physicalFootprint.depth].sort((a, b) => a - b);
+    check(close(mapDimensions[0], physicalDimensions[0]) && close(mapDimensions[1], physicalDimensions[1]), `Planning manifest node ${node.id} map and physical footprints differ`);
+  }
+}
+for (const connection of planningManifest.connections) {
+  check(['planned', 'live', 'blocked'].includes(connection.implementationStatus), `Planning connection ${connection.id} has invalid status ${connection.implementationStatus}`);
+  check(typeof connection.accessible === 'boolean', `Planning connection ${connection.id} accessibility is not boolean`);
+  for (const endpoint of [connection.a, connection.b]) {
+    const node = planningNodeById.get(endpoint.nodeId);
+    check(Boolean(node), `Planning connection ${connection.id} references unknown node ${endpoint.nodeId}`);
+    check(Boolean(node?.doorwaySlots.includes(endpoint.slotId)), `Planning connection ${connection.id} references missing slot ${endpoint.nodeId}/${endpoint.slotId}`);
+    check(Boolean(node?.safeArrivalPoses?.[endpoint.slotId]), `Planning connection ${connection.id} has no safe arrival for ${endpoint.nodeId}/${endpoint.slotId}`);
+    const key = `${endpoint.nodeId}:${endpoint.slotId}`;
+    check(!usedPlanningSlots.has(key), `Planning connection ${connection.id} reuses doorway ${key}`);
+    usedPlanningSlots.add(key);
+  }
+  const first = planningNodeById.get(connection.a.nodeId);
+  const second = planningNodeById.get(connection.b.nodeId);
+  if (first && second) {
+    check(first.levelId === second.levelId, `Planning connection ${connection.id} crosses levels without a vertical connector`);
+    const a = polygonBounds(first.mapFootprint);
+    const b = polygonBounds(second.mapFootprint);
+    const xGap = Math.max(0, a.minX - b.maxX, b.minX - a.maxX);
+    const zGap = Math.max(0, a.minZ - b.maxZ, b.minZ - a.maxZ);
+    check(xGap <= .001 && zGap <= .001, `Planning connection ${connection.id} has an unmodelled physical gap`);
+    if (connection.implementationStatus === 'live') check(first.implementationStatus === 'live' && second.implementationStatus === 'live', `Planning connection ${connection.id} has a non-live endpoint`);
+  }
+}
+for (const reservation of planningManifest.reservations) {
+  const host = planningNodeById.get(reservation.host?.nodeId);
+  const targetHall = hallById.get(reservation.targetProgramHallId);
+  check(Boolean(host), `Planning reservation ${reservation.id} references unknown host ${reservation.host?.nodeId}`);
+  check(Boolean(host?.doorwaySlots.includes(reservation.host?.slotId)), `Planning reservation ${reservation.id} references missing host slot ${reservation.host?.slotId}`);
+  check(!usedPlanningSlots.has(`${reservation.host?.nodeId}:${reservation.host?.slotId}`), `Planning reservation ${reservation.id} reuses a connected slot`);
+  check(reservation.blocked === true && reservation.implementationStatus === 'reserved', `Planning reservation ${reservation.id} must remain blocked and reserved`);
+  check(['insertion', 'expansion'].includes(reservation.reservationType), `Planning reservation ${reservation.id} has invalid type ${reservation.reservationType}`);
+  check(planningLevelIds.has(reservation.levelId), `Planning reservation ${reservation.id} references unknown level ${reservation.levelId}`);
+  check(wingById.has(reservation.wingId), `Planning reservation ${reservation.id} references unknown wing ${reservation.wingId}`);
+  check(Boolean(targetHall), `Planning reservation ${reservation.id} references unknown target hall ${reservation.targetProgramHallId}`);
+  for (const templateId of reservation.allowedTemplateIds ?? []) check(templateById.has(templateId), `Planning reservation ${reservation.id} references unknown template ${templateId}`);
+  check(host?.levelId === reservation.levelId, `Planning reservation ${reservation.id} and its host are on different levels`);
+  check(targetHall?.wingId === reservation.wingId, `Planning reservation ${reservation.id} target hall and wing disagree`);
+  check(Boolean(targetHall && reservation.allowedTemplateIds?.includes(targetHall.templateId)), `Planning reservation ${reservation.id} omits target template ${targetHall?.templateId}`);
+  check(Array.isArray(reservation.mapFootprint) && reservation.mapFootprint.length >= 4, `Planning reservation ${reservation.id} has an invalid map footprint`);
+  if (host && Array.isArray(reservation.mapFootprint) && reservation.mapFootprint.length >= 4) {
+    const hostBounds = polygonBounds(host.mapFootprint);
+    const reserveBounds = polygonBounds(reservation.mapFootprint);
+    const xGap = Math.max(0, hostBounds.minX - reserveBounds.maxX, reserveBounds.minX - hostBounds.maxX);
+    const zGap = Math.max(0, hostBounds.minZ - reserveBounds.maxZ, reserveBounds.minZ - hostBounds.maxZ);
+    check(xGap <= .001 && zGap <= .001, `Planning reservation ${reservation.id} does not touch its host`);
+    const mapDimensions = [reserveBounds.maxX - reserveBounds.minX, reserveBounds.maxZ - reserveBounds.minZ].sort((a, b) => a - b);
+    const reservedDimensions = [reservation.reservedFootprint?.width, reservation.reservedFootprint?.depth].sort((a, b) => a - b);
+    check(close(mapDimensions[0], reservedDimensions[0]) && close(mapDimensions[1], reservedDimensions[1]), `Planning reservation ${reservation.id} map and reserved footprints differ`);
+    for (const node of planningManifest.nodes) {
+      if (node.id === host.id || node.levelId !== reservation.levelId) continue;
+      const nodeBounds = polygonBounds(node.mapFootprint);
+      const overlapX = Math.min(reserveBounds.maxX, nodeBounds.maxX) - Math.max(reserveBounds.minX, nodeBounds.minX);
+      const overlapZ = Math.min(reserveBounds.maxZ, nodeBounds.maxZ) - Math.max(reserveBounds.minZ, nodeBounds.minZ);
+      check(overlapX <= .001 || overlapZ <= .001, `Planning reservation ${reservation.id} overlaps ${node.id}`);
+    }
+  }
 }
 
 check(buildingManifest.schemaVersion === 1, `Building manifest: expected schemaVersion 1, found ${buildingManifest.schemaVersion}`);

@@ -88,14 +88,20 @@ const preloadSceneAsset = (assetId: Parameters<typeof getMuseumAsset>[0]): Promi
   return promise;
 };
 
-/** Load the adjacent code and only the entrance-visible media required for a safe crossing. */
-export const prefetchMuseumHallEntry = async (hallId: MuseumPublicHallId): Promise<void> => {
+/** Load adjacent code and only the media visible from the specifically approached entrance. */
+export const prefetchMuseumHallEntry = async (
+  hallId: MuseumPublicHallId,
+  entranceId?: string,
+): Promise<void> => {
   const registration = getMuseumHallRegistration(hallId);
   const content = loadMuseumHallContent(hallId);
   if (!registration || !content) throw new Error(`Museum hall ${hallId} is not registered.`);
   // Scene media has a documented in-world fallback, so a single image must not
   // turn a code-ready doorway into a permanent barrier.
-  const entryMedia = Promise.allSettled(registration.definition.prefetch.entrySceneAssetIds.map(preloadSceneAsset));
+  const assetIds = entranceId === undefined
+    ? registration.definition.prefetch.entrySceneAssetIds
+    : registration.definition.prefetch.entrySceneAssetIdsByEntrance?.[entranceId] ?? [];
+  const entryMedia = Promise.allSettled(assetIds.map(preloadSceneAsset));
   await Promise.all([content, entryMedia]);
 };
 

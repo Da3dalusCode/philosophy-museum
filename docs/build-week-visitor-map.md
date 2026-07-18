@@ -1,6 +1,6 @@
 # Build Week: Museum visitor map
 
-> Historical handoff snapshot for the visitor-map checkpoint at commit `c3eb4a9`. Branch and deployment statements below describe that checkpoint only; current Ring-pilot and production status is governed by `main`, the Ring implementation record, and the GitHub Pages workflow. No Build Week Session ID was recorded.
+> Historical handoff snapshot for the visitor-map checkpoint at commit `c3eb4a9`. Counts, hall names, branch statements, and deployment statements below describe that checkpoint only. Current feature-state documentation begins in [`museum-masterplan/README.md`](./museum-masterplan/README.md); production status is governed by `main` and the GitHub Pages workflow. No Build Week Session ID was recorded.
 
 ## Baseline and branch
 

@@ -24,11 +24,66 @@ export type MuseumHallTextureEstimate = {
   totalMiB: number;
 };
 
+export type MuseumPersistentTextureEstimate = {
+  buildingSignBytes: number;
+  reservationSignBytes: number;
+  readinessGateBytes: number;
+  maximumSimultaneousReadinessGates: number;
+  totalBytes: number;
+  totalMiB: number;
+};
+
 const textureBudgetBytes =
   MUSEUM_BUILDING_MANIFEST.residencyPolicy.decodedTextureBudgetMiB * 1024 * 1024;
 
 const sumSpecs = (specs: readonly MuseumDecodedTextureSpec[]): number =>
   specs.reduce((sum, spec) => sum + decodedTextureBytes(spec), 0);
+
+const publicHallNodeIds = new Set(
+  MUSEUM_BUILDING_MANIFEST.nodes
+    .filter(({publicHallId}) => Boolean(publicHallId))
+    .map(({id}) => id),
+);
+
+/**
+ * Conservatively reserve every always-mounted building label and the largest
+ * number of hall gates that one runtime node can show at once.
+ */
+const persistentTextureEstimate = (): MuseumPersistentTextureEstimate => {
+  const buildingSignBytes = decodedTextureBytes(museumTextureDimensionsForPlane(
+    5.6,
+    5.6 * .27,
+    MUSEUM_TEXTURE_SPECS.buildingSign,
+  ));
+  const reservationSignBytes = MUSEUM_BUILDING_MANIFEST.reservations.reduce((sum, reservation) =>
+    sum + decodedTextureBytes(museumTextureDimensionsForPlane(
+      reservation.barrierWidth * .9,
+      reservation.barrierWidth * .245,
+      MUSEUM_TEXTURE_SPECS.reservationSign,
+    )), 0);
+  const hallConnectionsByNode = new Map<string, number>();
+  for (const connection of MUSEUM_BUILDING_MANIFEST.connections.filter(({implementationStatus}) => implementationStatus === 'live')) {
+    if (publicHallNodeIds.has(connection.b.nodeId)) {
+      hallConnectionsByNode.set(connection.a.nodeId, (hallConnectionsByNode.get(connection.a.nodeId) ?? 0) + 1);
+    }
+    if (publicHallNodeIds.has(connection.a.nodeId)) {
+      hallConnectionsByNode.set(connection.b.nodeId, (hallConnectionsByNode.get(connection.b.nodeId) ?? 0) + 1);
+    }
+  }
+  const maximumSimultaneousReadinessGates = Math.max(1, ...hallConnectionsByNode.values());
+  const readinessGateBytes = decodedTextureBytes(MUSEUM_TEXTURE_SPECS.readinessSign);
+  const totalBytes = buildingSignBytes
+    + reservationSignBytes
+    + readinessGateBytes * maximumSimultaneousReadinessGates;
+  return {
+    buildingSignBytes,
+    reservationSignBytes,
+    readinessGateBytes,
+    maximumSimultaneousReadinessGates,
+    totalBytes,
+    totalMiB: bytesToMiB(totalBytes),
+  };
+};
 
 const sceneAssetBytes = (assetId: Parameters<typeof getMuseumAsset>[0]): number => {
   const scene = getMuseumAsset(assetId).variants.scene;
@@ -104,12 +159,15 @@ const generatedHallSpecs = (hallId: MuseumHallId): readonly MuseumDecodedTexture
 export const estimateMuseumHallTextureResidency = (
   hallId: MuseumHallId,
   mode: MuseumHallTextureMode,
+  entryEntranceId?: string | null,
 ): MuseumHallTextureEstimate => {
   const definition = MUSEUM_WORLD_DEFINITIONS.find(({id}) => id === hallId);
   if (!definition) throw new Error(`Museum texture estimate cannot resolve hall ${hallId}.`);
-  const entryExhibitIds = new Set(
-    Object.values(definition.prefetch.entryExhibitIdsByEntrance).flat(),
-  );
+  const entryExhibitIds = new Set(entryEntranceId === null
+    ? []
+    : entryEntranceId === undefined
+      ? Object.values(definition.prefetch.entryExhibitIdsByEntrance).flat()
+      : definition.prefetch.entryExhibitIdsByEntrance[entryEntranceId] ?? []);
   const exhibits = mode === 'active'
     ? definition.layout.exhibits
     : definition.layout.exhibits.filter(({id}) => entryExhibitIds.has(id));
@@ -132,6 +190,8 @@ export const estimateMuseumHallTextureResidency = (
     totalMiB: bytesToMiB(totalBytes),
   };
 };
+
+export const MUSEUM_PERSISTENT_TEXTURE_ESTIMATE = persistentTextureEstimate();
 
 export const MUSEUM_DECODED_TEXTURE_BUDGET_BYTES = textureBudgetBytes;
 export const MUSEUM_DECODED_TEXTURE_BUDGET_MIB =

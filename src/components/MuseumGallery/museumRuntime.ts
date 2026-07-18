@@ -24,6 +24,26 @@ export type MuseumControlMode = 'idle' | 'requesting-lock' | 'locked' | 'drag-lo
 
 export type MuseumHallLoadStatus = 'idle' | 'loading' | 'ready' | 'failed';
 
+export type MuseumHallApproach = {
+  hallId: MuseumPublicHallId;
+  entranceId: string;
+};
+
+const MUSEUM_HALL_READINESS_SEPARATOR = '::museum-entry::';
+
+export const museumHallEntryReadinessKey = (
+  hallId: MuseumPublicHallId,
+  entranceId?: string,
+): string => `${hallId}${MUSEUM_HALL_READINESS_SEPARATOR}${entranceId ?? 'active'}`;
+
+export const museumHallResidentRenderKey = (hallId: MuseumPublicHallId): string =>
+  `${hallId}${MUSEUM_HALL_READINESS_SEPARATOR}resident`;
+
+export const museumHallReadinessKeyBelongsTo = (
+  key: string,
+  hallId: MuseumPublicHallId,
+): boolean => key.startsWith(`${hallId}${MUSEUM_HALL_READINESS_SEPARATOR}`);
+
 export const MUSEUM_READINESS_PRESENTATIONS = {
   idle: {
     title: 'Gallery ahead',
@@ -137,8 +157,8 @@ export const resolveMuseumReadinessGateStatus = (
 export type MuseumSceneRuntimeProps = {
   definition: MuseumRuntimeNodeDefinition;
   registrations: readonly MuseumHallRegistration[];
-  readyHallIds: readonly MuseumPublicHallId[];
-  hallLoadStatus: Partial<Record<MuseumPublicHallId, MuseumHallLoadStatus>>;
+  readyHallEntryKeys: readonly string[];
+  hallEntryLoadStatus: Readonly<Partial<Record<string, MuseumHallLoadStatus>>>;
   hallContentEpochs: Partial<Record<MuseumPublicHallId, number>>;
   active: boolean;
   blocked: boolean;
@@ -152,9 +172,9 @@ export type MuseumSceneRuntimeProps = {
   onSelectVisitorMap: () => void;
   onNodeTransition: (connection: MuseumDirectedConnection) => boolean;
   onNodeTransitionBlocked: (connection: MuseumDirectedConnection) => void;
-  onApproachHall: (hallId: MuseumPublicHallId | undefined) => void;
-  onHallContentReady: (hallId: MuseumPublicHallId) => void;
-  onHallContentUnavailable: (hallId: MuseumPublicHallId) => void;
+  onApproachHall: (approach: MuseumHallApproach | undefined) => void;
+  onHallContentReady: (hallId: MuseumPublicHallId, readinessKey: string) => void;
+  onHallContentUnavailable: (hallId: MuseumPublicHallId, readinessKey: string) => void;
   onHallContentError: (hallId: MuseumPublicHallId, error: unknown) => void;
   onSceneGesture: () => void;
   onSceneError: (error: unknown) => void;

@@ -259,6 +259,55 @@ const unionBounds = (bounds: readonly MuseumBounds[]): MuseumBounds => ({
   maxZ: Math.max(...bounds.map(({maxZ}) => maxZ)),
 });
 
+/**
+ * Keep the authored canonical footprint unchanged for rendering and mapping,
+ * while giving the collision/navigation union enough overlap to cross an
+ * active doorway plane. Circulation nodes use the same seam-overlap contract.
+ */
+const extendNavigationThroughActivePortals = (
+  node: MuseumManifestNode,
+  layout: MuseumHallLayout,
+  activeSlotIds: ReadonlySet<string>,
+): MuseumHallLayout => {
+  const epsilon = .02;
+  const activeSlots = node.doorwaySlots.filter(({id}) => activeSlotIds.has(id));
+  const spatialCells = layout.spatialCells.map((cell) => {
+    const renderBounds = cell.renderBounds ?? cell.bounds;
+    const bounds = {...cell.bounds};
+    for (const slot of activeSlots) {
+      const seamOverlap = Math.max(.6, slot.transitionDepth / 2);
+      const withinX = slot.position.x >= renderBounds.minX - epsilon
+        && slot.position.x <= renderBounds.maxX + epsilon;
+      const withinZ = slot.position.z >= renderBounds.minZ - epsilon
+        && slot.position.z <= renderBounds.maxZ + epsilon;
+      if (withinZ && close(slot.position.x, renderBounds.minX, epsilon) && slot.inwardNormal.x > .5) {
+        bounds.minX = Math.min(bounds.minX, renderBounds.minX - seamOverlap);
+      }
+      if (withinZ && close(slot.position.x, renderBounds.maxX, epsilon) && slot.inwardNormal.x < -.5) {
+        bounds.maxX = Math.max(bounds.maxX, renderBounds.maxX + seamOverlap);
+      }
+      if (withinX && close(slot.position.z, renderBounds.minZ, epsilon) && slot.inwardNormal.z > .5) {
+        bounds.minZ = Math.min(bounds.minZ, renderBounds.minZ - seamOverlap);
+      }
+      if (withinX && close(slot.position.z, renderBounds.maxZ, epsilon) && slot.inwardNormal.z < -.5) {
+        bounds.maxZ = Math.max(bounds.maxZ, renderBounds.maxZ + seamOverlap);
+      }
+    }
+    const expanded = bounds.minX !== cell.bounds.minX
+      || bounds.maxX !== cell.bounds.maxX
+      || bounds.minZ !== cell.bounds.minZ
+      || bounds.maxZ !== cell.bounds.maxZ;
+    return expanded
+      ? {...cell, bounds, renderBounds: cell.renderBounds ?? cell.bounds}
+      : cell;
+  });
+  return {
+    ...layout,
+    bounds: unionBounds(spatialCells.map(({bounds}) => bounds)),
+    spatialCells,
+  };
+};
+
 const slotTouchesCellEdge = (slot: MuseumManifestDoorwaySlot, layout: MuseumHallLayout): boolean =>
   layout.spatialCells.some((cell) => {
     const bounds = cell.renderBounds ?? cell.bounds;
@@ -572,11 +621,19 @@ export const resolveMuseumHallShell = (
   activeSlotIds: ReadonlySet<string>,
 ): MuseumResolvedHallShell => {
   const resolvedTemplate = resolveTemplate(node, layout, activeSlotIds);
+  const navigationLayout = extendNavigationThroughActivePortals(node, layout, activeSlotIds);
   let collisionWalls: readonly MuseumWallDefinition[] = layout.wallColliders;
   for (const slot of node.doorwaySlots) {
     collisionWalls = activeSlotIds.has(slot.id)
       ? subtractLandingFromWalls(cutMuseumWallsForDoorway(collisionWalls, slot), slot)
-      : [...collisionWalls, portalWall(`${node.id}:${slot.id}:inactive-closure`, slot, ceilingAtSlot(slot, layout, resolvedTemplate.canonicalCeilingHeight))];
+      : [
+          ...cutMuseumWallsForDoorway(collisionWalls, slot),
+          portalWall(
+            `${node.id}:${slot.id}:inactive-closure`,
+            slot,
+            ceilingAtSlot(slot, layout, resolvedTemplate.canonicalCeilingHeight),
+          ),
+        ];
   }
   const lintels = node.doorwaySlots.flatMap((slot) => {
     if (!activeSlotIds.has(slot.id)) return [];
@@ -590,7 +647,7 @@ export const resolveMuseumHallShell = (
     )];
   });
   return {
-    layout: {...layout, wallColliders: collisionWalls},
+    layout: {...navigationLayout, wallColliders: collisionWalls},
     architectureWalls: [...collisionWalls, ...lintels],
     resolvedTemplate,
   };

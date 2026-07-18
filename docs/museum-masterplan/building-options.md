@@ -1,12 +1,14 @@
 # Physical building decision record
 
+> The long-term Ring decision in this document remains current. Sections that discuss the six temporary shells record the completed Phase 2 pilot and are superseded by the canonical-six cutover: five permanent outer-loop halls plus the central Core Questions Forum. Current runtime geometry comes from `src/data/museum/museumBuildingManifest.json`, not from this option study.
+
 ## Approved direction and scope
 
-The **single-level Ring of Wings** is the approved physical basis for the locked **Worlds with a Questions Forum** program: 10 wings, 26 halls, 105 rooms, and 258 record-capacity slots. The ring gives every wing a legible address, gives visitors more than one way home, and can absorb the current six shells without first introducing lifts or a dispersed campus. The Braided Promenade and Pavilion Campus remain archival comparison studies, not active alternatives for the Ring pilot.
+The **single-level Ring of Wings** is the approved physical basis for the locked **Worlds with a Questions Forum** program: 10 wings, 26 halls, 105 rooms, and 258 record-capacity slots. The ring gives every wing a legible address, gives visitors more than one way home, and allowed the Phase 2 temporary shells to be absorbed without first introducing lifts or a dispersed campus. The Braided Promenade and Pavilion Campus remain archival comparison studies, not active alternatives.
 
-This document locks the long-term physical direction but is not itself the runtime geometry specification. The Ring pilot’s authoritative runtime building manifest owns the implemented six-shell placement and connections. Coordinates in [building-manifest.example.json](./building-manifest.example.json) remain an illustrative planning fixture, not construction coordinates or runtime truth.
+This document locks the long-term physical direction but is not itself the runtime geometry specification. The authoritative runtime building manifest owns the implemented canonical-six placement and connections. Coordinates in [building-manifest.example.json](./building-manifest.example.json) remain an illustrative planning fixture, not construction coordinates or runtime truth.
 
-At the pre-Ring baseline (`39007cf1480900e16cd24bdd8ba1820fd4779a41`), the six-gallery world was a successful prototype but the wrong growth model. It had six halls, eight exhibits and three zones per hall, five hall-to-hall links, approximately 7,312 authored square metres, and approximately 390 metres of primary circulation. Its only public route was a chain. Extending that chain to 26 halls would have increased walking and loading costs while making orientation progressively worse. Its visitor map derived edges from registered connections, but its node percentages were a separately authored topological diagram rather than a projection of physical footprints. The Ring pilot replaces those baseline physical and map assumptions without changing the six public content routes.
+At the pre-Ring baseline (`39007cf1480900e16cd24bdd8ba1820fd4779a41`), the six-gallery world was a successful prototype but the wrong growth model. It had six halls, eight exhibits and three zones per hall, five hall-to-hall links, approximately 7,312 authored square metres, and approximately 390 metres of primary circulation. Its only public route was a chain. Extending that chain to 26 halls would have increased walking and loading costs while making orientation progressively worse. Its visitor map derived edges from registered connections, but its node percentages were a separately authored topological diagram rather than a projection of physical footprints. The Phase 2 Ring pilot replaced those baseline physical and map assumptions without changing the temporary public content routes; the later canonical-six cutover replaced the temporary identities and rosters.
 
 The design review required every studied concept to preserve the good runtime contracts—one persistent canvas, hall-local coordinates, collision-backed thresholds, and safe arrival poses—while replacing the chain with loops, short returns, and reserved expansion points. The Ring is the approved result.
 
@@ -130,9 +132,9 @@ An expansion may extend outward and rejoin the ring at a second reservation; sin
 
 The entire public program is step-free on one level. The ring offers two directions from almost every hall, while crosscuts reduce long returns. Every wing uses a redundant identity of **plain-language name + stable symbol + color**; color is never the only cue. Threshold signs distinguish “historical transmission,” “comparison,” and “opposition” so proximity is not mistaken for influence. Seating and 1.8 m turning pockets occur at gateways and crosscuts. An accessible route audit must prove that every open doorway, map, exhibit bay, and return route is reachable without fast travel.
 
-### How the current six halls fit
+### How the Phase 2 six shells fit
 
-The six shells form a compact pilot ring in their existing intellectual order: `Ancient → Renaissance → Modernity → Logic → Ethics → Mind → Ancient`. A central orientation and circulation court represents the future Forum location without presenting unfinished `CQ` content as open. Ancient remains the temporary public entrance because it already contains the map kiosk. The shells retain their IDs, routes, zones, and 48-exhibit roster during this step. Truthful corridors close the walking loop, proportionate court spokes or shortcuts prove multiple routes, and blocked reservations mark where missing planned halls and later outward growth can attach. [migration-plan.md](./migration-plan.md) defines the exhibit-level disposition and makes clear that this pilot is not the final six-hall taxonomy.
+The six shells formed a compact pilot ring in their existing intellectual order: `Ancient → Renaissance → Modernity → Logic → Ethics → Mind → Ancient`. A central orientation and circulation court represented the future Forum location without presenting unfinished `CQ` content as open. Ancient remained the temporary public entrance because it already contained the map kiosk. The shells retained their IDs, routes, zones, and 48-exhibit roster during that step. Truthful corridors closed the walking loop, proportionate court spokes or shortcuts proved multiple routes, and blocked reservations marked where missing planned halls and later outward growth could attach. [migration-plan.md](./migration-plan.md) records the exhibit-level disposition and the later canonical-six cutover.
 
 ### Advantages
 
@@ -188,7 +190,7 @@ Six horizontal reservations—three per level—allow modest wing growth. Struct
 
 This is accessible only if all three lift routes are live, equivalent, and redundant. Every map must state the current level in text and shape as well as color. Vertical connections use a consistent landmark visible from both arrival poses. “Up” must never substitute for a period label: East Asian continuities are on Level 1 for spatial balance, not because East Asian philosophy is historically later than all Level 0 content.
 
-### How the current six halls fit
+### How the Phase 2 six shells would have fit
 
 A two-level prototype would place Ancient, Renaissance, and Mind/Core on Level 0 and Modernity, Logic, and Ethics on Level 1, with all three cores required from day one. The six shells cannot truthfully demonstrate this concept without building vertical infrastructure and rewriting more runtime assumptions at once. This remains an archival account of the compact tradeoff, not an active migration target for the locked Ring pilot.
 
@@ -249,9 +251,9 @@ Every pavilion reserves at least one outward slot and footprint. A new pavilion 
 
 All public routes remain on one level, but distances are longer than in the ring. Each pavilion uses a visible roofline/threshold silhouette in addition to wing text, symbol, and color. Maps appear at the entrance and at every pavilion gateway. Courtyard names provide stable “district” addresses. Benches and fast-travel points are placed by route-distance audit, not visual symmetry.
 
-### How the current six halls fit
+### How the Phase 2 six shells would have fit
 
-Each current shell can become a provisional pavilion: Ancient, Renaissance, Modernity, Logic, Ethics, and Mind/Core. Covered links can be built independently, and the four absent cultural-historical districts can occupy reserved sites. The fit is operationally simple but intellectually temporary: every current shell is composite, and several installations must later move between pavilions. The first migration would also need a mesh-aware residency strategy rather than the current active-plus-all-neighbors rule.
+Each then-current shell could have become a provisional pavilion: Ancient, Renaissance, Modernity, Logic, Ethics, and Mind/Core. Covered links could have been built independently, and the four absent cultural-historical districts could have occupied reserved sites. The fit was operationally simple but intellectually temporary: every shell was composite, and several installations would later have moved between pavilions. The first migration would also have needed a mesh-aware residency strategy rather than the former active-plus-all-neighbors rule.
 
 ### Advantages
 
@@ -302,7 +304,7 @@ The Ring implementation must continue to answer yes to all of the following:
 5. Do maps derive footprints, doors, corridors, levels, status, and routes from the same manifest used by collision and transitions?
 6. Are reserved portals physically named, blocked, non-travelable, and absent from the open-hall count?
 7. Can the runtime load a gateway without mounting every adjacent hall simultaneously?
-8. Can the current six-shell pilot be reverted or advanced without changing its exhibit roster or public route IDs prematurely?
+8. Could the Phase 2 six-shell pilot be reverted or advanced without changing its exhibit roster or public route IDs prematurely?
 9. Has later technical design validated slope, egress, reach ranges, assisted-listening/nonvisual map equivalence, seating, and emergency return behavior rather than treating this concept review as code approval?
 
 On those checks, the Ring of Wings remains the approved, accessible, and migration-safe direction. The Braided Promenade and Pavilion Campus are retained only as archival records of the earlier comparison and do not reopen the decision during this phase.

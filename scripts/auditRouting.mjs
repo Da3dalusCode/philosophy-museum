@@ -83,6 +83,15 @@ const {
   writeHashRoute,
 } = routing;
 
+const EXPECTED_LEGACY_EXHIBIT_ROSTER = {
+  'ancient-greek': ['aristotle', 'cynicism', 'epicureanism', 'neoplatonism', 'plato', 'skepticism', 'socrates', 'stoicism'],
+  'renaissance-reason-revolution': ['descartes', 'hobbes', 'hume', 'kant', 'locke', 'machiavelli', 'rousseau', 'spinoza'],
+  'modernity-freedom-critique': ['beauvoir', 'camus', 'foucault', 'heidegger', 'kierkegaard', 'marx', 'nietzsche', 'sartre'],
+  'logic-language-science': ['carnap', 'dewey', 'frege', 'kuhn', 'peirce', 'popper', 'quine', 'russell'],
+  'ethics-justice-political-life': ['arendt', 'bentham', 'fanon', 'habermas', 'mill', 'nozick', 'rawls', 'wollstonecraft'],
+  'mind-consciousness-self': ['anscombe', 'derek-parfit', 'husserl', 'merleau-ponty', 'patanjali', 'thomas-nagel', 'vasubandhu', 'william-james'],
+};
+
 let checks = 0;
 const check = (name, assertion) => {
   assertion();
@@ -245,6 +254,17 @@ check('retired hall and exhibit routes preserve exact aliases or truthful compat
   });
   assert.equal(MUSEUM_LIVE_LEGACY_EXHIBIT_COMPATIBILITY.length, 21);
   assert.equal(MUSEUM_LEGACY_EXHIBIT_COMPATIBILITY.length, 27);
+  const compatibility = [...MUSEUM_LIVE_LEGACY_EXHIBIT_COMPATIBILITY, ...MUSEUM_LEGACY_EXHIBIT_COMPATIBILITY];
+  assert.equal(compatibility.length, 48);
+  assert.equal(new Set(compatibility.map(({formerHallId, exhibitId}) => `${formerHallId}/${exhibitId}`)).size, 48);
+  assert.deepEqual([...new Set(compatibility.map(({formerHallId}) => formerHallId))].sort(), Object.keys(EXPECTED_LEGACY_EXHIBIT_ROSTER).sort());
+  for (const [formerHallId, expectedExhibitIds] of Object.entries(EXPECTED_LEGACY_EXHIBIT_ROSTER)) {
+    assert.deepEqual(
+      compatibility.filter((record) => record.formerHallId === formerHallId).map(({exhibitId}) => exhibitId).sort(),
+      expectedExhibitIds,
+      `${formerHallId} legacy exhibit roster differs from the production six-by-eight oracle`,
+    );
+  }
 
   for (const [formerHallId, successorHallId] of Object.entries(MUSEUM_HALL_ROUTE_ALIASES)) {
     const parsed = expectKind(`#/museum/${formerHallId}`, 'museum');

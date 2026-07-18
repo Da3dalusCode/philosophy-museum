@@ -41,14 +41,25 @@ export const sanitizeMuseumPose = (
   if (!isRecord(value)) return undefined;
   if (!finiteNumber(value.x) || !finiteNumber(value.z)) return undefined;
   if (!finiteNumber(value.yaw) || !finiteNumber(value.pitch)) return undefined;
+  const authoredSpatialCells = layout.spatialCells.map((cell) => cell.renderBounds
+    ? {...cell, bounds: cell.renderBounds}
+    : cell);
+  const authoredBounds = authoredSpatialCells.length
+    ? {
+        minX: Math.min(...authoredSpatialCells.map(({bounds}) => bounds.minX)),
+        maxX: Math.max(...authoredSpatialCells.map(({bounds}) => bounds.maxX)),
+        minZ: Math.min(...authoredSpatialCells.map(({bounds}) => bounds.minZ)),
+        maxZ: Math.max(...authoredSpatialCells.map(({bounds}) => bounds.maxZ)),
+      }
+    : layout.bounds;
   const pose: MuseumPose = {
-    x: Math.min(layout.bounds.maxX - layout.playerRadius, Math.max(layout.bounds.minX + layout.playerRadius, value.x)),
-    z: Math.min(layout.bounds.maxZ - layout.playerRadius, Math.max(layout.bounds.minZ + layout.playerRadius, value.z)),
+    x: Math.min(authoredBounds.maxX - layout.playerRadius, Math.max(authoredBounds.minX + layout.playerRadius, value.x)),
+    z: Math.min(authoredBounds.maxZ - layout.playerRadius, Math.max(authoredBounds.minZ + layout.playerRadius, value.z)),
     yaw: normalizeYaw(value.yaw),
     pitch: clampPitch(value.pitch),
   };
   const colliders = [...layout.wallColliders, ...layout.obstacleColliders];
-  return isValidMuseumPosition(pose, layout.playerRadius, layout.bounds, colliders, layout.spatialCells)
+  return isValidMuseumPosition(pose, layout.playerRadius, authoredBounds, colliders, authoredSpatialCells)
     ? pose
     : undefined;
 };

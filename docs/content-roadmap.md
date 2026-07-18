@@ -2,13 +2,13 @@
 
 ## Current coverage
 
-As of Phase 3B, the atlas contains approximately:
+The atlas currently contains:
 
-- 141 philosopher records.
+- 142 philosopher records.
 - 43 branch and school records.
 - 28 sustained school bands on the Philosophy Wall.
 - 24 selected landmark works on the Philosophy Wall.
-- Article-grade coverage for all 141 philosopher records, measured by `npm run report:coverage`.
+- Article-grade coverage for all 142 philosopher records, measured by `npm run report:coverage`.
 - Article-grade coverage for all 43 branch and school records, measured by `npm run report:coverage`.
 
 Coverage is strongest for ancient Greek philosophy, Pre-Socratic and Hellenistic schools, early modern European philosophy, medieval Christian/Islamic/scholastic philosophy, Chinese and Indian/Buddhist core traditions, analytic philosophy, pragmatism and philosophy of science, feminist/social philosophy, and late twentieth-century ethics.
@@ -33,7 +33,7 @@ The current gold-standard articles pass the default `npm run audit:articles` che
 - Philosophers, late antique and medieval: Plotinus, Porphyry, Iamblichus, Proclus, Pseudo-Dionysius, Origen, Gregory of Nyssa, Augustine, Boethius, John Scotus Eriugena, Anselm, Peter Abelard, Thomas Aquinas, Ibn Sina / Avicenna, Maimonides, Al-Kindi, Al-Farabi, Al-Ghazali, Averroes, Duns Scotus, William of Ockham, Meister Eckhart, and Marsilius of Padua.
 - Philosophers, cross-cultural: Confucius, Laozi, Zhuangzi, Mencius, Xunzi, Mozi, Han Feizi, Zhu Xi, Wang Yangming, Siddhartha Gautama / the Buddha, Nagarjuna, Mahavira, Kanada, Patanjali, Vasubandhu, Dignaga, Dharmakirti, Adi Shankara, Ramanuja, and Madhva.
 - Philosophers, early modern and Enlightenment: Machiavelli, Francis Bacon, Descartes, Hobbes, Anne Conway, Spinoza, Locke, Berkeley, Leibniz, Hume, Montesquieu, Adam Smith, Rousseau, Mary Astell, Mary Wollstonecraft, Bentham, and John Stuart Mill.
-- Philosophers, nineteenth and twentieth century: Hegel, Schopenhauer, Kierkegaard, Marx, Frege, Bertrand Russell, G. E. Moore, Rudolf Carnap, W. V. O. Quine, Elizabeth Anscombe, Peirce, William James, Dewey, Whitehead, Popper, Kuhn, Merleau-Ponty, Levinas, Gadamer, Iris Murdoch, Philippa Foot, Judith Jarvis Thomson, Thomas Nagel, Derek Parfit, Martha Nussbaum, Judith Butler, Angela Davis, and bell hooks.
+- Philosophers, nineteenth and twentieth century: Hegel, Schopenhauer, Kierkegaard, Marx, Frege, Bertrand Russell, G. E. Moore, Rudolf Carnap, W. V. O. Quine, Elizabeth Anscombe, Peirce, William James, Dewey, Whitehead, Jiddu Krishnamurti, Popper, Kuhn, Merleau-Ponty, Levinas, Gadamer, Iris Murdoch, Philippa Foot, Judith Jarvis Thomson, Thomas Nagel, Derek Parfit, Martha Nussbaum, Judith Butler, Angela Davis, and bell hooks.
 - Branches: Platonism, Ancient Greek Philosophy, Stoicism, Epicureanism, Skepticism, Cynicism, Aristotelianism, Neoplatonism, Epistemology, Ethics, Analytic Philosophy, Philosophy of Religion, Medieval Scholasticism, Islamic Philosophy, Rationalism, Empiricism, German Idealism, Existentialism, Phenomenology, Political Philosophy, Philosophy of Science, Metaphysics, Ontology, Virtue Ethics, Deontology, Utilitarianism, Logic, Philosophy of Language, Philosophy of Mind, Chinese Philosophy, Confucianism, Daoism, Mohism, Legalism, Indian Philosophy, Jainism, Vedanta, Buddhist Philosophy, Buddhist Epistemology, Aesthetics, Pragmatism, Continental Philosophy, and Feminist Philosophy.
 
 These records model the target editorial depth: a clear opening orientation, sustained historical and argumentative explanation, interpretive cautions, connections across the atlas, and a practical reading path.
@@ -71,15 +71,15 @@ The branch records authored and rendered in the article-first format are:
 - Indian Philosophy, Jainism, Vedanta, Buddhist Philosophy, and Buddhist Epistemology
 - Aesthetics, Pragmatism, Continental Philosophy, and Feminist Philosophy
 
-These records establish the editorial and UI pattern for future depth work: concise overview first, sustained historical and argumentative prose as the main body, and compact readings, sources, concepts, and atlas connections as supporting reference material. Branch article coverage is complete at 43 of 43, and philosopher article coverage is complete at 141 of 141. Every current atlas record now has article-grade `articleSections`.
+These records establish the editorial and UI pattern for future depth work: concise overview first, sustained historical and argumentative prose as the main body, and compact readings, sources, concepts, and atlas connections as supporting reference material. Branch article coverage is complete at 43 of 43, and philosopher article coverage is complete at 142 of 142. Every current atlas record now has article-grade `articleSections`.
 
 ## Structured deep pack
 
-The current structured deep philosopher pack is deliberately limited to twelve profiles:
+The original structured deep philosopher pack contains twelve profiles:
 
 - Plato, Aristotle, Augustine, Aquinas, Descartes, Hume, Kant, Nietzsche, Wittgenstein, Heidegger, Simone de Beauvoir, and Foucault.
 
-These profiles contain authored historical framing, multiple central questions, specifically explained ideas and works, named influence routes, interpretive disputes, staged reading paths, and stable reference links. Their structured metadata remains available as a supporting layer, and Heidegger, Simone de Beauvoir, and Foucault now also render through article-first coverage without losing that stronger structured material.
+These profiles contain authored historical framing, multiple central questions, specifically explained ideas and works, named influence routes, interpretive disputes, staged reading paths, and stable reference links. Their structured metadata remains available as a supporting layer, and Heidegger, Simone de Beauvoir, and Foucault now also render through article-first coverage without losing that stronger structured material. Jiddu Krishnamurti has since received the same depth of authored structured treatment, with additional care around chronology, Theosophical formation, school membership, sources, and image provenance.
 
 The current audited article-grade branch pack is:
 
@@ -89,7 +89,7 @@ These pages now contain specific origin stories, periodized development, concept
 
 ## Core article coverage complete
 
-Branch article coverage is complete at 43 of 43, and philosopher article coverage is complete at 141 of 141. Missing core article coverage is no longer a roadmap category.
+Branch article coverage is complete at 43 of 43, and philosopher article coverage is complete at 142 of 142. Missing core article coverage is no longer a roadmap category.
 
 Remaining editorial priorities include:
 
@@ -107,7 +107,7 @@ Remaining editorial priorities include:
 
 ## Remaining product work
 
-- Add routing and direct-link support without changing Big History as the default landing view.
+- Continue routing, direct-link, browser-history, and state-restoration QA without changing Big History as the default landing view.
 - Improve small-screen and mobile usability while preserving the wall-chart model.
 - Split the production bundle; the current build remains functional but reports a large-chunk warning.
 - Deepen comparison content and interactions in a dedicated future pass.

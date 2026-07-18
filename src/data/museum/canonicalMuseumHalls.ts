@@ -200,6 +200,74 @@ const viewpointFitsRoom = (point: MuseumPoint, bounds: MuseumBounds): boolean =>
   && point.z >= bounds.minZ + VIEWPOINT_CLEARANCE_RADIUS
   && point.z <= bounds.maxZ - VIEWPOINT_CLEARANCE_RADIUS;
 
+const guidedSegmentIsClear = (
+  from: MuseumPoint,
+  to: MuseumPoint,
+  bounds: MuseumBounds,
+  colliders: readonly MuseumCollider[],
+): boolean => {
+  const distance = Math.hypot(to.x - from.x, to.z - from.z);
+  const sampleCount = Math.max(1, Math.ceil(distance / .05));
+  for (let index = 0; index <= sampleCount; index += 1) {
+    const ratio = index / sampleCount;
+    const point = {
+      x: from.x + (to.x - from.x) * ratio,
+      z: from.z + (to.z - from.z) * ratio,
+    };
+    if (!viewpointFitsRoom(point, bounds)) return false;
+    if (colliders.some((collider) => circleIntersectsBounds(
+      point,
+      VIEWPOINT_CLEARANCE_RADIUS,
+      colliderBounds(collider.center, collider.rotation, collider.size.width, collider.size.depth),
+    ))) return false;
+  }
+  return true;
+};
+
+const compactRoute = (points: readonly MuseumPoint[]): readonly MuseumPoint[] =>
+  points.filter((point, index) => index === 0
+    || Math.hypot(point.x - points[index - 1].x, point.z - points[index - 1].z) > .001);
+
+const guidedRouteLength = (points: readonly MuseumPoint[]): number => points.slice(1)
+  .reduce((sum, point, index) => sum + Math.hypot(
+    point.x - points[index].x,
+    point.z - points[index].z,
+  ), 0);
+
+const guidedRouteIsClear = (
+  points: readonly MuseumPoint[],
+  bounds: MuseumBounds,
+  colliders: readonly MuseumCollider[],
+): boolean => points.slice(1).every((point, index) =>
+  guidedSegmentIsClear(points[index], point, bounds, colliders));
+
+/** Find a short, deterministic aisle route instead of letting a tour cut through an installation. */
+const guidedWaypointsWithinRoom = (
+  from: MuseumPoint,
+  to: MuseumPoint,
+  bounds: MuseumBounds,
+  colliders: readonly MuseumCollider[],
+): readonly MuseumPoint[] => {
+  const candidates: MuseumPoint[][] = [
+    [from, to],
+    [from, {x: from.x, z: to.z}, to],
+    [from, {x: to.x, z: from.z}, to],
+    [from, {x: 0, z: from.z}, {x: 0, z: to.z}, to],
+  ];
+  for (let z = bounds.minZ + 1; z <= bounds.maxZ - 1; z += 1) {
+    candidates.push([from, {x: from.x, z}, {x: to.x, z}, to]);
+  }
+  for (let x = bounds.minX + 1; x <= bounds.maxX - 1; x += 1) {
+    candidates.push([from, {x, z: from.z}, {x, z: to.z}, to]);
+  }
+  const clear = candidates
+    .map((candidate) => compactRoute(candidate))
+    .filter((candidate) => guidedRouteIsClear(candidate, bounds, colliders))
+    .sort((first, second) => guidedRouteLength(first) - guidedRouteLength(second));
+  if (!clear.length) throw new Error(`No collision-free guided route exists between ${JSON.stringify(from)} and ${JSON.stringify(to)}.`);
+  return clear[0];
+};
+
 type PlacementCandidate = MuseumPoint & {rotationY: number};
 
 const wallCandidates = (bounds: MuseumBounds): readonly PlacementCandidate[] => {
@@ -534,6 +602,24 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
     ...(isForum ? forumPartitionWalls(hall.id) : sequencePartitionWalls(orderedRooms, roomBounds, hall.id)),
   ];
   const furnishings = hall.id === MUSEUM_VISITOR_MAP_KIOSK.hallId ? [MUSEUM_VISITOR_MAP_KIOSK] : [];
+  const obstacleColliders = [...exhibits.map(({collider}) => collider), ...furnishings];
+  const guidedWalkLegs = exhibits.slice(0, -1).map((layout, index) => {
+    const target = exhibits[index + 1];
+    const waypoints = layout.spatialCellId === target.spatialCellId
+      ? guidedWaypointsWithinRoom(
+          layout.viewpoint,
+          target.viewpoint,
+          roomBounds.get(layout.spatialCellId)!,
+          [...wallColliders, ...obstacleColliders],
+        )
+      : [
+          layout.viewpoint,
+          {x: 0, z: layout.viewpoint.z},
+          {x: 0, z: target.viewpoint.z},
+          target.viewpoint,
+        ];
+    return {fromExhibitId: layout.id, toExhibitId: target.id, waypoints};
+  });
   const spawn = node.doorwaySlots.find(({id}) => id === 'N0')?.arrivalPose ?? node.doorwaySlots[0].arrivalPose;
   const signs = [
     {
@@ -587,13 +673,19 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
     }, undefined as {cell: MuseumSpatialCell; distance: number} | undefined)!.cell;
     return [slot.id, nearestRoom.exhibitIds.slice(0, 2)] as const;
   }));
+  const entrySceneAssetIdsByEntrance = Object.fromEntries(Object.entries(entryExhibitIdsByEntrance).map(([entranceId, entryIds]) => {
+    const ids = new Set(entryIds);
+    return [entranceId, [...new Set(exhibits
+      .filter(({id}) => ids.has(id))
+      .flatMap(({scene}) => scene.mediaMounts.map(({assetId}) => assetId)))]];
+  }));
   const entryExhibitIds = new Set(Object.values(entryExhibitIdsByEntrance).flat());
   const allSceneAssetIds = [...new Set(exhibits.flatMap(({scene}) => scene.mediaMounts.map(({assetId}) => assetId)))];
   const entrySceneAssetIds = [...new Set(exhibits.filter(({id}) => entryExhibitIds.has(id)).flatMap(({scene}) => scene.mediaMounts.map(({assetId}) => assetId)))];
   return {
     id: hall.id,
     fallbackLabel: hall.title,
-    prefetch: {entryExhibitIdsByEntrance, entrySceneAssetIds, sceneAssetIds: allSceneAssetIds},
+    prefetch: {entryExhibitIdsByEntrance, entrySceneAssetIdsByEntrance, entrySceneAssetIds, sceneAssetIds: allSceneAssetIds},
     layout: {
       id: hall.id,
       title: hall.title,
@@ -615,7 +707,7 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
       })),
       wallColliders,
       furnishings,
-      obstacleColliders: [...exhibits.map(({collider}) => collider), ...furnishings],
+      obstacleColliders,
       exhibits,
       primaryCirculation: {
         id: `${hall.id}:primary-circulation`,
@@ -625,11 +717,7 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
         clearanceRadius: 1.25,
       },
       guidedOrder,
-      guidedWalkLegs: exhibits.slice(0, -1).map((layout, index) => ({
-        fromExhibitId: layout.id,
-        toExhibitId: exhibits[index + 1].id,
-        waypoints: [layout.viewpoint, {x: 0, z: layout.viewpoint.z}, {x: 0, z: exhibits[index + 1].viewpoint.z}, exhibits[index + 1].viewpoint],
-      })),
+      guidedWalkLegs,
       lighting: {
         ambientIntensity: isForum ? .5 : .46,
         hemisphereIntensity: isForum ? .68 : .62,

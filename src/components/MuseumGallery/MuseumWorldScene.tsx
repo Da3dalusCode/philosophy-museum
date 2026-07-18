@@ -35,6 +35,8 @@ import {
   setMuseumMovementDisplacement,
 } from './museumMovement';
 import {
+  museumHallEntryReadinessKey,
+  museumHallResidentRenderKey,
   MUSEUM_READINESS_GATE_CONFIG,
   MUSEUM_READINESS_PRESENTATIONS,
   resolveMuseumReadinessGateGeometry,
@@ -102,13 +104,17 @@ function DoorReadinessGate({title, entrance, status}: {
   </group>;
 }
 
-function MuseumReadinessGates({definition, readyHallIds, hallLoadStatus}: Pick<MuseumSceneRuntimeProps, 'definition' | 'readyHallIds' | 'hallLoadStatus'>) {
-  const ready = new Set(readyHallIds);
+function MuseumReadinessGates({definition, readyHallEntryKeys, hallEntryLoadStatus}: Pick<MuseumSceneRuntimeProps, 'definition' | 'readyHallEntryKeys' | 'hallEntryLoadStatus'>) {
+  const ready = new Set(readyHallEntryKeys);
   const gates = getMuseumNodeConnections(definition.id).flatMap((connection) => {
     const hallId = getMuseumConnectionTargetHallId(connection);
     const entrance = definition.entrances.find(({id}) => id === connection.localEntranceId);
     if (!hallId || !entrance) return [];
-    const status = resolveMuseumReadinessGateStatus(hallLoadStatus[hallId], ready.has(hallId));
+    const readinessKey = museumHallEntryReadinessKey(hallId, connection.targetEntranceId);
+    const status = resolveMuseumReadinessGateStatus(
+      hallEntryLoadStatus[readinessKey],
+      ready.has(readinessKey),
+    );
     if (!status) return [];
     return [{
       id: connection.id,
@@ -153,14 +159,14 @@ function MuseumPlayerRig({
   poseRef,
   onNearbyInteractionChange,
   onNearbyVisualChange,
-  readyHallIds,
+  readyHallEntryKeys,
   onNodeTransition,
   onNodeTransitionBlocked,
   onApproachHall,
 }: Pick<
   MuseumSceneRuntimeProps,
   'definition' | 'active' | 'blocked' | 'poseRevision' | 'inputRef' | 'poseRef' | 'onNearbyInteractionChange'
-  | 'readyHallIds' | 'onNodeTransition' | 'onNodeTransitionBlocked' | 'onApproachHall'
+  | 'readyHallEntryKeys' | 'onNodeTransition' | 'onNodeTransitionBlocked' | 'onApproachHall'
 > & {onNearbyVisualChange: (target: MuseumInteractionTarget | undefined) => void}) {
   const {camera, invalidate} = useThree();
   const lastNearbyRef = useRef<MuseumInteractionTarget | undefined>(undefined);
@@ -169,8 +175,8 @@ function MuseumPlayerRig({
   const transitionTargetRef = useRef<string | undefined>(undefined);
   const blockedTransitionLatchRef = useRef<string | undefined>(undefined);
   const layout = definition.layout;
-  const readyHallSet = useMemo(() => new Set<MuseumPublicHallId>(readyHallIds), [readyHallIds]);
-  const approachedHallRef = useRef<MuseumPublicHallId | undefined>(undefined);
+  const readyHallEntrySet = useMemo(() => new Set(readyHallEntryKeys), [readyHallEntryKeys]);
+  const approachedHallRef = useRef<string | undefined>(undefined);
   const colliders = useMemo(
     () => [...layout.wallColliders, ...layout.obstacleColliders],
     [layout],
@@ -283,7 +289,7 @@ function MuseumPlayerRig({
     }
 
     if (!changed) return;
-    let approachedHallId: MuseumPublicHallId | undefined;
+    let approachedHall: {hallId: MuseumPublicHallId; entranceId: string} | undefined;
     let approachedDistance = Number.POSITIVE_INFINITY;
     for (const candidate of getMuseumNodeConnections(definition.id)) {
       const entrance = definition.entrances.find(({id}) => id === candidate.localEntranceId);
@@ -292,19 +298,28 @@ function MuseumPlayerRig({
       const distance = Math.hypot(pose.x - entrance.position.x, pose.z - entrance.position.z);
       if (distance <= MUSEUM_BUILDING_MANIFEST.residencyPolicy.approachDistance && distance < approachedDistance) {
         approachedDistance = distance;
-        approachedHallId = targetHallId;
+        approachedHall = {hallId: targetHallId, entranceId: candidate.targetEntranceId};
       }
     }
-    if (approachedHallRef.current !== approachedHallId) {
-      approachedHallRef.current = approachedHallId;
-      onApproachHall(approachedHallId);
+    const approachedKey = approachedHall
+      ? museumHallEntryReadinessKey(approachedHall.hallId, approachedHall.entranceId)
+      : undefined;
+    if (approachedHallRef.current !== approachedKey) {
+      approachedHallRef.current = approachedKey;
+      onApproachHall(approachedHall);
     }
     const connection = moved
       ? museumConnectionCrossed(definition, previousPosition, pose)
       : undefined;
     if (connection) {
       const targetNode = getMuseumRuntimeNode(connection.targetNodeId);
-      const targetReady = Boolean(targetNode && (!targetNode.publicHallId || readyHallSet.has(targetNode.publicHallId)));
+      const targetReady = Boolean(targetNode && (
+        !targetNode.publicHallId
+        || readyHallEntrySet.has(museumHallEntryReadinessKey(
+          targetNode.publicHallId,
+          connection.targetEntranceId,
+        ))
+      ));
       if (targetReady) {
         if (transitionLatchRef.current !== connection.id) {
           transitionLatchRef.current = connection.id;
@@ -370,6 +385,11 @@ function LoadedHall({
     () => lazy(() => loadMuseumHallContent(registration.definition.id)!),
     [registration],
   );
+  const readinessKey = active
+    ? museumHallEntryReadinessKey(registration.definition.id)
+    : entryEntranceId
+      ? museumHallEntryReadinessKey(registration.definition.id, entryEntranceId)
+      : museumHallResidentRenderKey(registration.definition.id);
   return <HallContentErrorBoundary hallId={registration.definition.id} onError={onHallContentError}>
     <Suspense fallback={null}>
       <HallContent
@@ -384,6 +404,7 @@ function LoadedHall({
       />
       <HallRenderedSignal
         hallId={registration.definition.id}
+        readinessKey={readinessKey}
         onReady={onHallContentReady}
         onUnavailable={onHallContentUnavailable}
       />
@@ -391,15 +412,16 @@ function LoadedHall({
   </HallContentErrorBoundary>;
 }
 
-function HallRenderedSignal({hallId, onReady, onUnavailable}: {
+function HallRenderedSignal({hallId, readinessKey, onReady, onUnavailable}: {
   hallId: MuseumPublicHallId;
+  readinessKey: string;
   onReady: MuseumSceneRuntimeProps['onHallContentReady'];
   onUnavailable: MuseumSceneRuntimeProps['onHallContentUnavailable'];
 }) {
   useLayoutEffect(() => {
-    onReady(hallId);
-    return () => onUnavailable(hallId);
-  }, [hallId, onReady, onUnavailable]);
+    onReady(hallId, readinessKey);
+    return () => onUnavailable(hallId, readinessKey);
+  }, [hallId, onReady, onUnavailable, readinessKey]);
   return null;
 }
 
@@ -423,7 +445,11 @@ function MuseumWorldContents(props: MuseumSceneRuntimeProps) {
     <hemisphereLight args={['#fff8e8', '#48433d', hemisphereIntensity]}/>
     <ambientLight color="#fff5e5" intensity={ambientIntensity}/>
     <MuseumBuildingArchitecture onSceneGesture={props.onSceneGesture}/>
-    <MuseumReadinessGates definition={props.definition} readyHallIds={props.readyHallIds} hallLoadStatus={props.hallLoadStatus}/>
+    <MuseumReadinessGates
+      definition={props.definition}
+      readyHallEntryKeys={props.readyHallEntryKeys}
+      hallEntryLoadStatus={props.hallEntryLoadStatus}
+    />
     {props.registrations.map((registration) => <LoadedHall
       key={`${registration.definition.id}-${props.hallContentEpochs[registration.definition.id] ?? 0}`}
       registration={registration}
@@ -447,7 +473,7 @@ function MuseumWorldContents(props: MuseumSceneRuntimeProps) {
       poseRef={props.poseRef}
       onNearbyInteractionChange={props.onNearbyInteractionChange}
       onNearbyVisualChange={setNearbyTarget}
-      readyHallIds={props.readyHallIds}
+      readyHallEntryKeys={props.readyHallEntryKeys}
       onNodeTransition={props.onNodeTransition}
       onNodeTransitionBlocked={props.onNodeTransitionBlocked}
       onApproachHall={props.onApproachHall}

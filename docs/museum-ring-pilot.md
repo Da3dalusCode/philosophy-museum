@@ -1,6 +1,8 @@
 # Ring of Wings six-shell pilot implementation record
 
-Status: implemented Ring-pilot record. Production status is determined by `main` and the GitHub Pages workflow, not by the presence of a feature branch.
+> Historical Phase 2 implementation record. The canonical-six phase supersedes the temporary names, 48-exhibit roster, legacy adapters, and orientation-only Forum described below. Current feature-state documentation begins in [`museum-masterplan/README.md`](./museum-masterplan/README.md); production status is determined by `main` and the GitHub Pages workflow.
+
+Status: completed and retained as migration evidence.
 
 ## What this pilot proves
 

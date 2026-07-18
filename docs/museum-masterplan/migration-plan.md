@@ -2,9 +2,9 @@
 
 ## Status and governing decision
 
-This plan records the approved implementation sequence. **Worlds with a Questions Forum** and the single-level **Ring of Wings** in [building-options.md](./building-options.md) remain locked, supporting the long-term 10-wing, 26-hall, 105-room program. The Ring infrastructure phase is complete. The owner has explicitly overridden the earlier order that placed a global-worlds demonstration before conversion of the six prototype shells.
+This plan records the approved implementation sequence. **Worlds with a Questions Forum** and the single-level **Ring of Wings** in [building-options.md](./building-options.md) remain locked, supporting the long-term 10-wing, 26-hall, 105-room program. The Ring infrastructure phase is complete, and the canonical-six cutover is implemented on this feature branch. Production status is still determined by `main`. The owner explicitly overrode the earlier order that placed a global-worlds demonstration before conversion of the six prototype shells.
 
-The current approved phase converts the temporary shells to six permanent successor programs: `mediterranean-beginnings-classical`, `renaissance-humanism-new-method`, `phenomenology-existence-embodiment`, `analytic-traditions`, `justice-democratic-reason`, and `core-questions-forum`. The first five occupy the compact outer loop. The Forum occupies the existing central court, not the former outer Mind-shell position. The former Mind area becomes truthful circulation, return connection, construction sleeve, or reserved space as required by the physical manifest.
+The current canonical phase replaces the temporary shells with six permanent successor programs: `mediterranean-beginnings-classical`, `renaissance-humanism-new-method`, `phenomenology-existence-embodiment`, `analytic-traditions`, `justice-democratic-reason`, and `core-questions-forum`. The first five occupy the compact outer loop. The Forum occupies the central court, not the former outer Mind-shell position. The former Mind area is used only for truthful circulation, return connection, construction sleeve, or reserved space as required by the physical manifest.
 
 ## Why a staged migration is necessary
 
@@ -43,7 +43,7 @@ Every implementation phase must preserve these rules:
 | 5. Connected-world completion | open `JPH`, `LCS`, and `EAC`; complete their transmission routes | target-specific moves and new assigned records |
 | 6. Remaining program and capacity-led expansion | construct the remaining approved halls, then use outward reservations or evaluate another level only if formal triggers are met | staged moves and additions under the same exact-once and compatibility rules |
 
-The numbers describe order, not releases. Phases 1 and 2 established the shared manifest and truthful compact Ring. Phase 3 is the owner-approved canonical-six cutover. No later intellectual-hall construction may be pulled forward to avoid content, accessibility, route-compatibility, or physical-truth gates.
+The numbers describe order, not releases. Phases 1 and 2 established the shared manifest and truthful compact Ring. Phase 3 is the owner-approved canonical-six cutover implemented on this branch. No later intellectual-hall construction may be pulled forward to avoid content, accessibility, route-compatibility, or physical-truth gates.
 
 ## Phase 1 — infrastructure and adapters first
 
@@ -91,7 +91,7 @@ This is the approved physical scope for the Ring pilot.
 
 ### Pilot arrangement
 
-Place the current shells in one compact, step-free loop:
+The Phase 2 implementation placed the temporary shells in one compact, step-free loop:
 
 `Ancient → Renaissance → Modernity → Logic → Ethics → Mind → Ancient`.
 
@@ -110,7 +110,7 @@ The work is limited to:
 
 Every new legacy-adapter opening—including the loop return and any court spoke or shortcut—must have a distinct manifest slot, wall and collision opening, compatible doorway geometry, and collision-cleared safe landing. Do not repurpose Ancient’s public entrance or an already occupied threshold. Publish each connection only when both endpoints and its intervening corridor are physically crossable.
 
-The construction scope explicitly excludes new hall interiors, new exhibit records, changes to the active 48-exhibit roster, a new entrance hall, curatorial reclassification in production, route removals, a second floor, and any claim that the final ring is complete. Deployment is a separate release decision made only after the complete Ring-pilot gate passes.
+The Phase 2 construction scope explicitly excluded new hall interiors, new exhibit records, changes to the then-active 48-exhibit roster, a new entrance hall, curatorial reclassification in production, route removals, a second floor, and any claim that the final ring was complete. Deployment remained a separate release decision made only after the complete Ring-pilot gate passed.
 
 ### Reservation rules
 
@@ -122,7 +122,7 @@ Public treatment is literal: “Future gallery — not yet open.” The barrier 
 
 A reviewer must be able to enter Ancient, walk the entire loop in either direction, return without fast travel, use every live court spoke or shortcut, open the map from the physical kiosk, and see the routes just walked. Closing any optional shortcut must not strand a hall. Every reservation must be visibly blocked in-world and noninteractive on the map. The directory may still travel to approved safe spawns, but its fast-travel action is labeled separately from the walking diagram.
 
-## Current 48-exhibit disposition
+## Historical Phase 2 48-exhibit disposition
 
 All 48 installations **remain unchanged during Phase 2**, regardless of the long-term category below. The categories become actionable only when a target hall is built and approved.
 
@@ -242,11 +242,11 @@ Successor: `CQ`. Counts: 1 remains temporarily, 2 move primary later, 5 become s
 | Remain temporarily | **15** |
 | Move primary later | **18** |
 | Become secondary later | **15** |
-| **Total current exhibits** | **48** |
+| **Total Phase 2 exhibits** | **48** |
 
-The table is derived from the current roster, the final primary assignments, each record's approved secondary hall IDs, and the six provisional successor identities. If reviewers change a successor identity, regenerate this table from those same rules rather than hand-adjusting favored exhibits.
+The table was derived from the Phase 2 roster, the final primary assignments, each record's approved secondary hall IDs, and the six provisional successor identities. If reviewers change a successor identity, regenerate this table from those same rules rather than hand-adjusting favored exhibits.
 
-## Phase 3 — canonical-six permanent cutover (current phase)
+## Phase 3 — canonical-six permanent cutover (implemented on this feature branch)
 
 Convert the compact construction-stage Ring to these six permanent programs:
 
@@ -297,7 +297,7 @@ Complete the approved Mediterranean, early-modern, nineteenth-century, modern, e
 
 ## Visitor-map truthfulness through every phase
 
-The eventual visitor map is a projection, not a second floor-plan database.
+The visitor map is a projection, not a second floor-plan database.
 
 - Project each live node's physical polygon, level, rotation, public doorway slots, corridor geometry, entrance, and current-location pose from the building manifest.
 - Find walking routes over live, accessible connection records. Do not draw a straight line across a wall because two hall centers are close.
@@ -307,7 +307,7 @@ The eventual visitor map is a projection, not a second floor-plan database.
 - In a loop there is no terminal “journey complete” state. Guided routes may end; the building does not.
 - Treat manifest/map disagreement as a release blocker. A new connection appears only when its walls, colliders, threshold, crossing logic, readiness, and both safe arrivals are live.
 
-During construction, the map must show only connections that are physically crossable. The Ring-pilot release must project the completed six-shell loop, central court, and every live spoke or shortcut from the authoritative building manifest; it must not preview an unfinished edge merely because the masterplan expects it.
+During construction, the map must show only connections that are physically crossable. The canonical-six map projects the completed outer loop, central Forum, and every live spoke from the authoritative building manifest; it must not preview an unfinished edge merely because the masterplan expects it.
 
 ## Construction and expansion triggers
 

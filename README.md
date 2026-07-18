@@ -11,37 +11,37 @@ No account, subscription, download, or special software is required. Everything 
 ## What is inside
 
 - **43 philosophical branches and traditions**, from ancient schools to modern movements
-- **141 philosopher profiles** with historical context, major works, central ideas, and related thinkers
+- **142 philosopher profiles** with historical context, major works, central ideas, and related thinkers
 - **Big History**, a filterable timeline connecting events, branches, and philosophers
 - **Branch Explorer**, with long-form introductions, key concepts, debates, readings, and source links
 - **Philosophy Map**, showing selected relationships between traditions and thinkers
 - **Compare**, for side-by-side branch and philosopher comparisons
 - **Learning Paths**, with guided routes through major themes and periods
-- **A six-gallery 3D museum** with 48 interpreted exhibits inside a compact, walkable Ring of Wings pilot
+- **A six-hall 3D museum** with 59 interpreted primary exhibits inside a compact, walkable Ring of Wings
 
 ## The walkable museum
 
-The Museum presents philosophy as a physical journey through six connected galleries arranged as a real closed loop. A central orientation court and five shorter route choices preview the approved Ring of Wings without presenting the future Core Questions Forum or the other twenty planned halls as already built.
+The Museum presents philosophy as a physical journey through five permanent outer-loop halls and the central Core Questions Forum. The six live halls form a truthful, continuously walkable subset of the approved 26-hall Ring of Wings; eleven blocked thresholds mark staged insertion and outward-expansion points without presenting the other twenty planned halls as open.
 
-1. **Ancient Greek & Hellenistic Gallery**  
-   Socrates, Plato, Aristotle, Cynicism, Epicureanism, Stoicism, Skepticism, and Neoplatonism
+1. **Mediterranean Beginnings & Classical Athens**
+   Ionian natural explanation, disputes over being and change, civic argument, Socrates, Plato, Aristotle, Platonism, and Aristotelianism
 
-2. **Renaissance, Reason, and Revolution**  
-   Machiavelli, Descartes, Hobbes, Locke, Spinoza, Hume, Rousseau, and Kant
+2. **Renaissance, Political Order, and New Science**
+   Machiavelli, Francis Bacon, and Hobbes across statecraft, experimental method, sovereignty, and materialism
 
-3. **Modernity, Freedom, and Critique**  
-   Kierkegaard, Marx, Nietzsche, Heidegger, Sartre, Beauvoir, Camus, and Foucault
+3. **Phenomenology, Existence, and Embodiment**
+   Husserl, Heidegger, Merleau-Ponty, Sartre, Camus, Levinas, Gadamer, and the Phenomenology and Existentialism traditions
 
-4. **Logic, Language, and Science**
-   Peirce, Frege, Russell, Dewey, Carnap, Popper, Quine, and Kuhn
+4. **Analytic Traditions: Logic, Language, and Analysis**
+   Frege, Russell, G. E. Moore, Wittgenstein, Quine, Anscombe, and Analytic Philosophy
 
-5. **Ethics, Justice, and Political Life**
-   Bentham, Wollstonecraft, Mill, Arendt, Fanon, Rawls, Nozick, and Habermas
+5. **Political Action, Justice, and Democratic Reason**
+   Political Philosophy, Arendt, Rawls, Nozick, and Martha Nussbaum
 
-6. **Mind, Consciousness, and the Self**
-   Patañjali, Vasubandhu, William James, Husserl, Merleau-Ponty, Anscombe, Nagel, and Parfit
+6. **Core Questions Forum**
+   Comparative rooms for reality, knowledge, mind and self, logic and language, science, aesthetics, religion, and outward routes to historically situated traditions; Jiddu Krishnamurti appears in Mind & Self
 
-Each exhibit combines a walkable installation, historical images or documents, a focused interpretation, structured facts, and a link to the full philosopher or branch article.
+Every exhibit has a walkable installation, focused interpretation, structured facts, and a link to the full philosopher or branch article. The live roster uses 47 local, provenance-backed media placements where reliable reusable images or documents are available; media is not required merely to fill a quota.
 
 The physical visitor map is generated from the same building manifest that places walls, corridors, doors, and safe arrivals. It distinguishes the walkable loop and central spokes from six labeled fast-travel actions and from visibly blocked future insertion or expansion portals.
 
@@ -62,7 +62,7 @@ Philosophy Atlas is intended for curious readers, students, teachers, and anyone
 
 The project is actively being developed.
 
-Current written coverage includes all **141 philosophers** and **43 branches** in the Atlas. The long-term Museum program is locked at 10 wings, 26 halls, and 105 rooms or zones; the implemented 3D pilot contains the original six legacy-adapted gallery shells and all 48 exhibits in one compact loop. Museum media includes structured provenance and rights metadata; citation depth across the wider Atlas is still being improved.
+Current written coverage includes all **142 philosophers** and **43 branches** in the Atlas. The long-term Museum program is locked at 10 wings, 26 halls, and 105 rooms or zones. The implemented canonical-six phase opens five permanent outer-loop halls plus the central Core Questions Forum, with 29 rooms, 59 primary exhibits, and 19 reserve slots. Retired Museum URLs resolve through aliases or explanatory handoffs, and displaced records remain available in the Atlas. Museum media includes structured provenance and rights metadata; citation depth across the wider Atlas is still being improved.
 
 The application is local-first and static. It has no backend, database, login system, runtime API, advertising, or paid service dependency.
 
@@ -112,7 +112,7 @@ npm run report:bundle
 npm run generate:museum-diagram
 ```
 
-The Museum audits cover the approved masterplan, executable hall-template parity, legacy-adapter deviations, endpoint-owned openings and closures, hall and exhibit registration, public-route stability, loop/spoke reachability, blocked reservations, decoded-texture-budgeted residency, map correspondence, sessions, colliders, viewpoints, guided paths, interpretation coverage, local media, and asset provenance.
+The Museum audits cover the approved masterplan, canonical hall-template contracts, endpoint-owned openings and closures, hall and exhibit registration, public and compatibility routes, loop and spoke reachability, blocked reservations, decoded-texture-budgeted residency, map correspondence, sessions, movement and colliders, viewpoints, guided paths, interpretation coverage, local media, and asset provenance.
 
 ### GitHub Pages deployment
 
@@ -126,12 +126,12 @@ Pushing to `main` triggers the GitHub Pages workflow, which installs dependencie
 
 - `#/history`
 - `#/museum`
-- `#/museum/ancient-greek`
-- `#/museum/renaissance-reason-revolution`
-- `#/museum/modernity-freedom-critique`
-- `#/museum/logic-language-science`
-- `#/museum/ethics-justice-political-life`
-- `#/museum/mind-consciousness-self`
+- `#/museum/mediterranean-beginnings-classical`
+- `#/museum/renaissance-humanism-new-method`
+- `#/museum/phenomenology-existence-embodiment`
+- `#/museum/analytic-traditions`
+- `#/museum/justice-democratic-reason`
+- `#/museum/core-questions-forum`
 - `#/branches`
 - `#/map`
 - `#/philosophers`
@@ -140,16 +140,16 @@ Pushing to `main` triggers the GitHub Pages workflow, which installs dependencie
 
 Every Museum exhibit also has a direct route, such as:
 
-- `#/museum/ancient-greek/exhibits/plato`
-- `#/museum/renaissance-reason-revolution/exhibits/kant`
-- `#/museum/modernity-freedom-critique/exhibits/nietzsche`
-- `#/museum/logic-language-science/exhibits/kuhn`
-- `#/museum/ethics-justice-political-life/exhibits/rawls`
-- `#/museum/mind-consciousness-self/exhibits/thomas-nagel`
+- `#/museum/mediterranean-beginnings-classical/exhibits/plato`
+- `#/museum/renaissance-humanism-new-method/exhibits/bacon`
+- `#/museum/phenomenology-existence-embodiment/exhibits/sartre`
+- `#/museum/analytic-traditions/exhibits/wittgenstein`
+- `#/museum/justice-democratic-reason/exhibits/rawls`
+- `#/museum/core-questions-forum/exhibits/jiddu-krishnamurti`
 
 ### Data model
 
-Core interfaces live in `src/types/philosophy.ts`. Most local content records live under `src/data`, including branches, philosophers, timeline events, relationships, learning paths, Museum catalogs, interpretations, hall layouts, and asset metadata. The Museum’s physical placement and circulation contract lives in `src/data/museum/museumBuildingManifest.json`; its executable canonical hall interfaces and named legacy adapters live in `src/data/museum/museumHallTemplates.ts`.
+Core interfaces live in `src/types/philosophy.ts`. Most local content records live under `src/data`, including branches, philosophers, timeline events, relationships, learning paths, Museum catalogs, interpretations, hall layouts, and asset metadata. The Museum’s physical placement and circulation contract lives in `src/data/museum/museumBuildingManifest.json`; its executable canonical hall-template contracts live in `src/data/museum/museumHallTemplates.ts`.
 
 Stable IDs connect records without a database. Content and runtime integrity are checked by repository audit scripts.
 
@@ -165,9 +165,9 @@ Keep explanations readable, distinguish disputed membership from canonical affil
 
 ## Current limitations and future work
 
-- The walkable Museum covers only part of philosophy's full historical and cross-cultural range; the six implemented legacy-adapted shells are a physical pilot, not the final 26-hall intellectual taxonomy.
+- The walkable Museum covers only part of philosophy's full historical and cross-cultural range; the six permanent halls are the first implemented subset of the final 26-hall intellectual program.
 - Source and citation depth is stronger in the long-form articles and Museum records than in some older structured summaries.
 - The Philosophy Map intentionally uses a curated subset for readability.
 - Some influence and relationship data could be linked more deeply.
 - Visit position is stored locally, but there are no accounts or long-term reading-progress features.
-- Planned work includes constructing the approved additional galleries and curated Forum program, broader cross-cultural Museum coverage, stronger source layers, study tools, saved progress, quizzes, and exportable notes. Future portals remain physically blocked until their content and circulation are complete.
+- Planned work includes constructing the other twenty approved halls, broader cross-cultural Museum coverage, stronger source layers, study tools, saved progress, quizzes, and exportable notes. Future portals remain physically blocked until their content and circulation are complete.

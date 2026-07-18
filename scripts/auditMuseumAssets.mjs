@@ -191,8 +191,29 @@ check('all asset records carry complete provenance, rights, interpretation, and 
     assert(allowedKinds.has(asset.mediaKind), `${asset.id} has unsupported media kind ${asset.mediaKind}`);
     assert(allowedRights.has(asset.rightsKind), `${asset.id} has unsupported rights kind ${asset.rightsKind}`);
     assert(isHttpUrl(asset.sourcePageUrl), `${asset.id} sourcePageUrl is not an HTTP(S) source page`);
-    if (asset.objectPageUrl) assert(isHttpUrl(asset.objectPageUrl), `${asset.id} objectPageUrl is invalid`);
-    if (asset.licenseUrl) assert(isHttpUrl(asset.licenseUrl), `${asset.id} licenseUrl is invalid`);
+    const sourcePage = new URL(asset.sourcePageUrl);
+    assert.equal(sourcePage.protocol, 'https:', `${asset.id} source page must use HTTPS`);
+    assert.equal(sourcePage.hostname, 'commons.wikimedia.org', `${asset.id} source page must use Wikimedia Commons`);
+    assert(sourcePage.pathname.startsWith('/wiki/File:'), `${asset.id} sourcePageUrl must be an exact Commons file page`);
+    assert(isHttpUrl(asset.licenseUrl), `${asset.id} needs a license or rights-status URL`);
+    assert.equal(new URL(asset.licenseUrl).protocol, 'https:', `${asset.id} licenseUrl must use HTTPS`);
+    if (asset.objectPageUrl) {
+      assert(isHttpUrl(asset.objectPageUrl), `${asset.id} objectPageUrl is invalid`);
+      assert.equal(new URL(asset.objectPageUrl).protocol, 'https:', `${asset.id} objectPageUrl must use HTTPS`);
+    }
+    if (/^CC BY(?:-|\s)/.test(asset.license)) {
+      assert.equal(asset.rightsKind, 'license', `${asset.id} must classify CC BY terms as a license`);
+      assert.equal(new URL(asset.licenseUrl).hostname, 'creativecommons.org', `${asset.id} CC license URL must use Creative Commons`);
+      assert(/resized.+converted.+WebP/i.test(asset.derivativeNotice ?? ''), `${asset.id} must disclose derivative modifications`);
+    }
+    if (asset.license.startsWith('Public Domain Mark')) {
+      assert.equal(asset.rightsKind, 'rights-status', `${asset.id} must classify Public Domain Mark as rights status`);
+      assert(new URL(asset.licenseUrl).pathname.startsWith('/publicdomain/mark/'), `${asset.id} has the wrong Public Domain Mark URL`);
+    }
+    if (asset.license.startsWith('CC0')) {
+      assert.equal(asset.rightsKind, 'dedication', `${asset.id} must classify CC0 as a dedication`);
+      assert(new URL(asset.licenseUrl).pathname.startsWith('/publicdomain/zero/'), `${asset.id} has the wrong CC0 URL`);
+    }
     assert(asset.alt.trim().length >= 24, `${asset.id} alt text is too shallow`);
     assert(asset.caption.trim().length >= 16, `${asset.id} caption is too shallow`);
     assert(asset.historicalNote.trim().length >= 40, `${asset.id} needs an interpretive caveat`);
@@ -213,7 +234,9 @@ check('every registered variant is exact-case local WebP media with locked dimen
       assert.equal(statSync(path).isFile(), true, `${variant.path} is not a file`);
       assert(statSync(path).size > 0 && statSync(path).size <= 600_000, `${variant.path} violates the derivative byte ceiling`);
       assert.deepEqual(webpDimensions(path), {width: variant.width, height: variant.height}, `${variant.path} dimensions differ from metadata`);
-      assert(variant.width > 0 && variant.height > 0, `${variant.path} has invalid dimensions`);
+      assert(Number.isSafeInteger(variant.width) && variant.width > 0, `${variant.path} has an invalid width`);
+      assert(Number.isSafeInteger(variant.height) && variant.height > 0, `${variant.path} has an invalid height`);
+      assert(Math.min(variant.width, variant.height) >= 180, `${variant.path} is too small for a Museum derivative`);
       if (variantName === 'scene') assert(Math.max(variant.width, variant.height) <= 640, `${variant.path} exceeds the scene bound`);
       if (variantName === 'panel') assert(Math.max(variant.width, variant.height) <= 1280, `${variant.path} exceeds the panel bound`);
     }
@@ -234,20 +257,40 @@ check('the 85-file-source preparation manifest locks every post-Ancient asset un
   assert.match(preparationSource, /assert_locked\(slug, "panel"/);
   assert.match(preparationSource, /"sha256": sha256\(path\)/);
 
+  const countsByFolder = new Map();
   for (const asset of managedAssets) {
     const lock = manifestAssets[asset.id];
     assert(lock, `${asset.id} has no preparation lock`);
     assert(MANAGED_HALL_FOLDERS.includes(lock.hallFolder), `${asset.id} has invalid hallFolder ${lock.hallFolder}`);
+    countsByFolder.set(lock.hallFolder, (countsByFolder.get(lock.hallFolder) ?? 0) + 1);
     assert.equal(lock.sourcePageUrl, asset.sourcePageUrl, `${asset.id} lock source page differs from provenance`);
     for (const field of ['sourcePageUrl', 'sourceImageUrl', 'selectedThumbnailUrl']) assert(lock[field]?.startsWith('https://'), `${asset.id}.${field} must be locked HTTPS`);
+    assert.equal(new URL(lock.sourcePageUrl).hostname, 'commons.wikimedia.org', `${asset.id} lock source page must use Commons`);
+    assert.equal(new URL(lock.sourceImageUrl).hostname, 'upload.wikimedia.org', `${asset.id} lock source image must use Wikimedia upload`);
+    assert.equal(new URL(lock.selectedThumbnailUrl).hostname, 'upload.wikimedia.org', `${asset.id} lock thumbnail must use Wikimedia upload`);
     for (const variantName of ['scene', 'panel']) {
       const variant = asset.variants[variantName];
       const expected = lock[variantName];
       assert(expected, `${asset.id}.${variantName} lock is missing`);
+      assert(Number.isSafeInteger(expected.width) && expected.width > 0, `${asset.id}.${variantName}.width is invalid`);
+      assert(Number.isSafeInteger(expected.height) && expected.height > 0, `${asset.id}.${variantName}.height is invalid`);
+      assert(Number.isSafeInteger(expected.bytes) && expected.bytes > 0, `${asset.id}.${variantName}.bytes is invalid`);
+      assert.match(expected.sha256 ?? '', /^[0-9a-f]{64}$/, `${asset.id}.${variantName}.sha256 is invalid`);
+      assert.equal(variant.path, `assets/museum/${lock.hallFolder}/${asset.id}-${variantName}.webp`, `${asset.id}.${variantName} path differs from its folder lock`);
       assert.equal(expected.width, variant.width, `${asset.id}.${variantName} lock width differs from runtime metadata`);
       assert.equal(expected.height, variant.height, `${asset.id}.${variantName} lock height differs from runtime metadata`);
     }
   }
+  assert.deepEqual(Object.fromEntries([...countsByFolder].sort()), {
+    'core-questions-forum': 3,
+    'ethics-justice-political-life': 16,
+    'justice-democratic-reason': 1,
+    'logic-language-science': 16,
+    'mind-consciousness-self': 16,
+    'modernity-freedom-critique': 16,
+    'renaissance-humanism-new-method': 1,
+    'renaissance-reason-revolution': 16,
+  }, 'preparation lock folder inventory changed');
 });
 
 check('all 170 managed derivatives match exact dimensions, bytes, and SHA-256 locks', () => {
@@ -287,11 +330,13 @@ check('scene-media policy keeps local images unlit, front-facing, and clear of f
   assert.equal(MUSEUM_SCENE_IMAGE_FILTERING, 'linear-no-mipmaps-keyed-material');
   assert.equal(MUSEUM_SCENE_MEDIA_LOADING_COLOR, '#8b857a');
   assert(MUSEUM_SCENE_IMAGE_PLANE_Z > MUSEUM_FRAME_RAIL_FRONT_Z, 'image plane must sit in front of its frame rails');
+  assert(MUSEUM_SCENE_IMAGE_PLANE_Z - MUSEUM_FRAME_RAIL_FRONT_Z >= .005, 'image plane lacks a stable anti-z-fighting gap');
   assert.match(sceneMediaSource, /<meshBasicMaterial key="scene-ready" map=\{textureState\.texture\} toneMapped=\{false\}\/>/);
   assert.match(sceneMediaSource, /texture\.minFilter = LinearFilter;/);
   assert.match(sceneMediaSource, /texture\.generateMipmaps = false;/);
   assert.match(sceneMediaSource, /texture\.colorSpace = SRGBColorSpace;/);
   assert.match(sceneMediaSource, /museumAssetUrl\(asset\.variants\.scene\)/);
+  assert.doesNotMatch(sceneMediaSource, /<meshStandardMaterial key="scene-ready"/);
   assert.doesNotMatch(sceneMediaSource, /sourcePageUrl|objectPageUrl|selectedThumbnailUrl/);
 });
 

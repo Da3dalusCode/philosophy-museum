@@ -11,9 +11,9 @@ export const MUSEUM_TEXTURE_SPECS = {
   ancientOrientationPlinth: {width: 1024, height: 280, mipmaps: true},
   visitorMapKiosk: {width: 1200, height: 918, mipmaps: true},
   sceneFallback: {width: 512, height: 341, mipmaps: true},
-  buildingSign: {width: 1200, height: 320, mipmaps: true},
-  reservationSign: {width: 1400, height: 380, mipmaps: true},
-  readinessSign: {width: 1200, height: 320, mipmaps: true},
+  buildingSign: {width: 600, height: 160, mipmaps: true},
+  reservationSign: {width: 700, height: 190, mipmaps: true},
+  readinessSign: {width: 600, height: 160, mipmaps: true},
   contemporarySignWidth: 900,
   ancientGallerySignCount: 4,
 } as const;

@@ -58,6 +58,12 @@ import {useMuseumExperienceMode} from './useMuseumExperienceMode';
 import {resolveMuseumHallArrival} from './museumHallTransitions';
 import {resolveMuseumHallResidency} from './museumResidency';
 import {
+  museumHallEntryReadinessKey,
+  museumHallReadinessKeyBelongsTo,
+  type MuseumHallApproach,
+  type MuseumHallLoadStatus,
+} from './museumRuntime';
+import {
   getMuseumHallRegistration,
   MUSEUM_WORLD_REGISTRY,
   prefetchMuseumHallEntry,
@@ -369,29 +375,35 @@ export function MuseumPage({route, href, push, replace}: {
   const previousHallIdRef = useRef(route.hallId);
   const pendingHallTransitionRef = useRef<{sourceHallId: MuseumHallId; targetHallId: MuseumHallId} | undefined>(undefined);
   const pendingHallTravelRef = useRef<{sourceHallId: MuseumHallId; targetHallId: MuseumHallId} | undefined>(undefined);
-  const preparedHallIdsRef = useRef<Set<MuseumHallId>>(new Set());
-  const renderedHallIdsRef = useRef<Set<MuseumHallId>>(new Set());
+  const preparedHallEntryKeysRef = useRef<Set<string>>(new Set());
+  const renderedHallEntryKeysRef = useRef<Set<string>>(new Set());
+  const readyHallEntryKeysRef = useRef<Set<string>>(new Set());
   const readyHallIdsRef = useRef<Set<MuseumHallId>>(new Set());
   const failedHallContentIdsRef = useRef<Set<MuseumHallId>>(new Set());
   const retryingHallIdsRef = useRef<Set<MuseumHallId>>(new Set());
-  const hallLoadPromiseRef = useRef<Map<MuseumHallId, Promise<void>>>(new Map());
-  const hallRenderWaiterRef = useRef<Map<MuseumHallId, HallRenderWaiter>>(new Map());
+  const hallLoadPromiseRef = useRef<Map<string, Promise<void>>>(new Map());
+  const hallRenderWaiterRef = useRef<Map<string, HallRenderWaiter>>(new Map());
+  const latestEntranceByHallRef = useRef<Map<MuseumHallId, string>>(new Map());
   const lastSavedHallSignatureRef = useRef<Map<MuseumHallId, string>>(new Map());
   if (visitContext) lastExhibitContextRef.current = visitContext;
   const [nearbyReference, setNearbyReference] = useState<MuseumExhibitRef | undefined>();
   const [visitorMapNearby, setVisitorMapNearby] = useState(false);
   const nearbyId = nearbyReference?.hallId === activeHallId ? nearbyReference.exhibitId : undefined;
   const [readyHallIds, setReadyHallIds] = useState<Set<MuseumHallId>>(() => new Set());
-  const [hallLoadStatus, setHallLoadStatus] = useState<Partial<Record<MuseumHallId, 'idle' | 'loading' | 'ready' | 'failed'>>>({[route.hallId]: 'idle'});
+  const [readyHallEntryKeys, setReadyHallEntryKeys] = useState<Set<string>>(() => new Set());
+  const [hallLoadStatus, setHallLoadStatus] = useState<Partial<Record<MuseumHallId, MuseumHallLoadStatus>>>({[route.hallId]: 'idle'});
+  const [hallEntryLoadStatus, setHallEntryLoadStatus] = useState<Partial<Record<string, MuseumHallLoadStatus>>>({});
   const [hallLoadErrors, setHallLoadErrors] = useState<Partial<Record<MuseumHallId, string>>>({});
   const [hallContentEpochs, setHallContentEpochs] = useState<Partial<Record<MuseumHallId, number>>>({});
-  const [approachedHallId, setApproachedHallId] = useState<MuseumHallId | undefined>();
+  const [approachedHall, setApproachedHall] = useState<MuseumHallApproach | undefined>();
+  const approachedHallId = approachedHall?.hallId;
   const [recentHallId, setRecentHallId] = useState<MuseumHallId | undefined>();
   const residentHallIds = useMemo(() => new Set(resolveMuseumHallResidency({
     activeHallId,
     approachedHallId,
+    approachedEntranceId: approachedHall?.entranceId,
     recentHallId,
-  })), [activeHallId, approachedHallId, recentHallId]);
+  })), [activeHallId, approachedHall?.entranceId, approachedHallId, recentHallId]);
   const residentHallIdsRef = useRef(residentHallIds);
   residentHallIdsRef.current = residentHallIds;
   const [announcement, setAnnouncement] = useState('');
@@ -443,9 +455,9 @@ export function MuseumPage({route, href, push, replace}: {
     setSceneError(error);
   }, []);
 
-  const waitForHallRender = useCallback((hallId: MuseumHallId): Promise<void> => {
-    if (renderedHallIdsRef.current.has(hallId)) return Promise.resolve();
-    const existing = hallRenderWaiterRef.current.get(hallId);
+  const waitForHallRender = useCallback((hallId: MuseumHallId, readinessKey: string): Promise<void> => {
+    if (renderedHallEntryKeysRef.current.has(readinessKey)) return Promise.resolve();
+    const existing = hallRenderWaiterRef.current.get(readinessKey);
     if (existing) return existing.promise;
     let resolve!: () => void;
     let reject!: (error: unknown) => void;
@@ -453,7 +465,7 @@ export function MuseumPage({route, href, push, replace}: {
       resolve = onResolve;
       reject = onReject;
     });
-    hallRenderWaiterRef.current.set(hallId, {promise, resolve, reject});
+    hallRenderWaiterRef.current.set(readinessKey, {promise, resolve, reject});
     return promise;
   }, []);
 
@@ -479,78 +491,87 @@ export function MuseumPage({route, href, push, replace}: {
     return residentHallIdsRef.current.has(hallId);
   }, []);
 
-  const markHallCrossable = useCallback((hallId: MuseumHallId) => {
+  const markHallCrossable = useCallback((hallId: MuseumHallId, readinessKey: string) => {
     if (
       failedHallContentIdsRef.current.has(hallId)
-      || !preparedHallIdsRef.current.has(hallId)
-      || !renderedHallIdsRef.current.has(hallId)
-      || readyHallIdsRef.current.has(hallId)
+      || !preparedHallEntryKeysRef.current.has(readinessKey)
+      || !renderedHallEntryKeysRef.current.has(readinessKey)
+      || readyHallEntryKeysRef.current.has(readinessKey)
     ) return;
+    readyHallEntryKeysRef.current = new Set(readyHallEntryKeysRef.current).add(readinessKey);
+    setReadyHallEntryKeys(new Set(readyHallEntryKeysRef.current));
     readyHallIdsRef.current = new Set(readyHallIdsRef.current).add(hallId);
     setReadyHallIds(new Set(readyHallIdsRef.current));
+    setHallEntryLoadStatus((current) => ({...current, [readinessKey]: 'ready'}));
     setHallLoadStatus((current) => ({...current, [hallId]: 'ready'}));
     const retried = retryingHallIdsRef.current.delete(hallId);
     setAnnouncement(`${getMuseumHallCatalog(hallId)?.title ?? 'The gallery'} is ready${retried ? ' after retry' : ''}.`);
   }, []);
 
-  const ensureHallEntry = useCallback((hallId: MuseumHallId): Promise<void> => {
+  const ensureHallEntry = useCallback((hallId: MuseumHallId, entranceId?: string): Promise<void> => {
+    const readinessKey = museumHallEntryReadinessKey(hallId, entranceId);
+    if (entranceId) latestEntranceByHallRef.current.set(hallId, entranceId);
     if (failedHallContentIdsRef.current.has(hallId)) {
       return Promise.reject(new Error('The gallery renderer must be retried before this hall can reopen.'));
     }
-    if (readyHallIdsRef.current.has(hallId)) return Promise.resolve();
-    const pending = hallLoadPromiseRef.current.get(hallId);
+    if (readyHallEntryKeysRef.current.has(readinessKey)) return Promise.resolve();
+    const pending = hallLoadPromiseRef.current.get(readinessKey);
     if (pending) return pending;
-    setHallLoadStatus((current) => ({...current, [hallId]: 'loading'}));
-    setHallLoadErrors((current) => ({...current, [hallId]: undefined}));
-    const promise = prefetchMuseumHallEntry(hallId).then(() => {
-      preparedHallIdsRef.current = new Set(preparedHallIdsRef.current).add(hallId);
+    const updateHallStatus = entranceId === undefined || hallId !== activeHallIdRef.current;
+    setHallEntryLoadStatus((current) => ({...current, [readinessKey]: 'loading'}));
+    if (updateHallStatus) {
+      setHallLoadStatus((current) => ({...current, [hallId]: 'loading'}));
+      setHallLoadErrors((current) => ({...current, [hallId]: undefined}));
+    }
+    const promise = prefetchMuseumHallEntry(hallId, entranceId).then(() => {
+      preparedHallEntryKeysRef.current = new Set(preparedHallEntryKeysRef.current).add(readinessKey);
       if (!hallIsResident(hallId)) throw new MuseumHallResidencyError(hallId);
-      return waitForHallRender(hallId);
+      return waitForHallRender(hallId, readinessKey);
     }).then(() => {
-      if (!preparedHallIdsRef.current.has(hallId) || !renderedHallIdsRef.current.has(hallId)) {
+      if (!preparedHallEntryKeysRef.current.has(readinessKey) || !renderedHallEntryKeysRef.current.has(readinessKey)) {
         throw new MuseumHallResidencyError(hallId);
       }
-      markHallCrossable(hallId);
+      markHallCrossable(hallId, readinessKey);
     }).catch((error: unknown) => {
       if (error instanceof MuseumHallResidencyError) {
-        setHallLoadStatus((current) => failedHallContentIdsRef.current.has(hallId)
+        setHallEntryLoadStatus((current) => ({...current, [readinessKey]: 'idle'}));
+        if (updateHallStatus) setHallLoadStatus((current) => failedHallContentIdsRef.current.has(hallId)
           ? current
           : {...current, [hallId]: 'idle'});
         throw error;
       }
       const message = error instanceof Error ? error.message : 'The gallery could not be prepared.';
       const wasRetrying = retryingHallIdsRef.current.delete(hallId);
-      setHallLoadStatus((current) => ({...current, [hallId]: 'failed'}));
+      setHallEntryLoadStatus((current) => ({...current, [readinessKey]: 'failed'}));
+      if (updateHallStatus) setHallLoadStatus((current) => ({...current, [hallId]: 'failed'}));
       setHallLoadErrors((current) => ({...current, [hallId]: message}));
       if (wasRetrying) setAnnouncement(`${getMuseumHallCatalog(hallId)?.title ?? 'The gallery'} retry failed.`);
       throw error;
     }).finally(() => {
-      hallLoadPromiseRef.current.delete(hallId);
+      hallLoadPromiseRef.current.delete(readinessKey);
     });
-    hallLoadPromiseRef.current.set(hallId, promise);
+    hallLoadPromiseRef.current.set(readinessKey, promise);
     return promise;
   }, [hallIsResident, markHallCrossable, waitForHallRender]);
 
-  const handleHallContentReady = useCallback((hallId: MuseumHallId) => {
-    renderedHallIdsRef.current = new Set(renderedHallIdsRef.current).add(hallId);
-    const waiter = hallRenderWaiterRef.current.get(hallId);
+  const handleHallContentReady = useCallback((hallId: MuseumHallId, readinessKey: string) => {
+    renderedHallEntryKeysRef.current = new Set(renderedHallEntryKeysRef.current).add(readinessKey);
+    const waiter = hallRenderWaiterRef.current.get(readinessKey);
     if (waiter) {
-      hallRenderWaiterRef.current.delete(hallId);
+      hallRenderWaiterRef.current.delete(readinessKey);
       waiter.resolve();
     }
-    markHallCrossable(hallId);
+    markHallCrossable(hallId, readinessKey);
   }, [markHallCrossable]);
 
-  const handleHallContentUnavailable = useCallback((hallId: MuseumHallId) => {
-    renderedHallIdsRef.current = new Set([...renderedHallIdsRef.current].filter((id) => id !== hallId));
-    readyHallIdsRef.current = new Set([...readyHallIdsRef.current].filter((id) => id !== hallId));
-    setReadyHallIds(new Set(readyHallIdsRef.current));
-    setHallLoadStatus((current) => failedHallContentIdsRef.current.has(hallId)
-      ? current
-      : {...current, [hallId]: 'idle'});
-    const waiter = hallRenderWaiterRef.current.get(hallId);
+  const handleHallContentUnavailable = useCallback((hallId: MuseumHallId, readinessKey: string) => {
+    renderedHallEntryKeysRef.current = new Set([...renderedHallEntryKeysRef.current].filter((key) => key !== readinessKey));
+    readyHallEntryKeysRef.current = new Set([...readyHallEntryKeysRef.current].filter((key) => key !== readinessKey));
+    setReadyHallEntryKeys(new Set(readyHallEntryKeysRef.current));
+    setHallEntryLoadStatus((current) => ({...current, [readinessKey]: 'idle'}));
+    const waiter = hallRenderWaiterRef.current.get(readinessKey);
     if (waiter) {
-      hallRenderWaiterRef.current.delete(hallId);
+      hallRenderWaiterRef.current.delete(readinessKey);
       waiter.reject(new MuseumHallResidencyError(hallId));
     }
   }, []);
@@ -564,32 +585,57 @@ export function MuseumPage({route, href, push, replace}: {
     failedHallContentIdsRef.current.delete(hallId);
     retryingHallIdsRef.current.add(hallId);
     setAnnouncement(`Retrying ${getMuseumHallCatalog(hallId)?.title ?? 'the gallery'}…`);
+    const entranceId = activeNodeRef.current.publicHallId === hallId
+      ? undefined
+      : latestEntranceByHallRef.current.get(hallId);
+    const readinessKey = museumHallEntryReadinessKey(hallId, entranceId);
+    preparedHallEntryKeysRef.current = new Set([...preparedHallEntryKeysRef.current].filter((key) => !museumHallReadinessKeyBelongsTo(key, hallId)));
+    renderedHallEntryKeysRef.current = new Set([...renderedHallEntryKeysRef.current].filter((key) => !museumHallReadinessKeyBelongsTo(key, hallId)));
+    readyHallEntryKeysRef.current = new Set([...readyHallEntryKeysRef.current].filter((key) => !museumHallReadinessKeyBelongsTo(key, hallId)));
     readyHallIdsRef.current = new Set([...readyHallIdsRef.current].filter((id) => id !== hallId));
-    renderedHallIdsRef.current = new Set([...renderedHallIdsRef.current].filter((id) => id !== hallId));
+    setReadyHallEntryKeys(new Set(readyHallEntryKeysRef.current));
     setReadyHallIds(new Set(readyHallIdsRef.current));
     setHallContentEpochs((current) => ({...current, [hallId]: (current[hallId] ?? 0) + 1}));
     setHallLoadStatus((current) => ({...current, [hallId]: 'idle'}));
     window.requestAnimationFrame(() => document.getElementById('museum-title')?.focus({preventScroll: true}));
-    void ensureHallEntry(hallId).then(() => {
+    setHallEntryLoadStatus((current) => ({...current, [readinessKey]: 'idle'}));
+    void ensureHallEntry(hallId, entranceId).then(() => {
       if (activeHallIdRef.current === hallId) warmHallRemainder(hallId);
     }).catch(() => undefined);
   }, [ensureHallEntry, hallLoadErrors, saveCurrentHallSession, warmHallRemainder]);
 
   const handleHallContentError = useCallback((hallId: MuseumHallId, error: unknown) => {
     failedHallContentIdsRef.current.add(hallId);
+    readyHallEntryKeysRef.current = new Set([...readyHallEntryKeysRef.current].filter((key) => !museumHallReadinessKeyBelongsTo(key, hallId)));
+    renderedHallEntryKeysRef.current = new Set([...renderedHallEntryKeysRef.current].filter((key) => !museumHallReadinessKeyBelongsTo(key, hallId)));
     readyHallIdsRef.current = new Set([...readyHallIdsRef.current].filter((id) => id !== hallId));
+    setReadyHallEntryKeys(new Set(readyHallEntryKeysRef.current));
     setReadyHallIds(new Set(readyHallIdsRef.current));
     setHallLoadStatus((current) => ({...current, [hallId]: 'failed'}));
     setHallLoadErrors((current) => ({...current, [hallId]: error instanceof Error ? error.message : 'The gallery content could not be rendered.'}));
-    const waiter = hallRenderWaiterRef.current.get(hallId);
-    if (waiter) {
-      hallRenderWaiterRef.current.delete(hallId);
+    for (const [readinessKey, waiter] of hallRenderWaiterRef.current) {
+      if (!museumHallReadinessKeyBelongsTo(readinessKey, hallId)) continue;
+      hallRenderWaiterRef.current.delete(readinessKey);
       waiter.reject(error);
     }
     if (hallId === activeHallIdRef.current) {
       controlsRef.current?.pauseExploring();
       setVisitPhase((phase) => transitionMuseumVisitPhase(phase, 'scene-error'));
     }
+  }, []);
+
+  const promotePreparedEntranceToActive = useCallback((hallId: MuseumHallId, entranceId: string) => {
+    const entryKey = museumHallEntryReadinessKey(hallId, entranceId);
+    if (!readyHallEntryKeysRef.current.has(entryKey)) return;
+    const activeKey = museumHallEntryReadinessKey(hallId);
+    preparedHallEntryKeysRef.current = new Set(preparedHallEntryKeysRef.current).add(activeKey);
+    renderedHallEntryKeysRef.current = new Set(renderedHallEntryKeysRef.current).add(activeKey);
+    readyHallEntryKeysRef.current = new Set(readyHallEntryKeysRef.current).add(activeKey);
+    readyHallIdsRef.current = new Set(readyHallIdsRef.current).add(hallId);
+    setReadyHallEntryKeys(new Set(readyHallEntryKeysRef.current));
+    setReadyHallIds(new Set(readyHallIdsRef.current));
+    setHallEntryLoadStatus((current) => ({...current, [activeKey]: 'ready'}));
+    setHallLoadStatus((current) => ({...current, [hallId]: 'ready'}));
   }, []);
 
   const openExhibit = useCallback((id: MuseumExhibitId) => {
@@ -704,7 +750,7 @@ export function MuseumPage({route, href, push, replace}: {
     activeDefinitionRef.current = targetRegistration.definition;
     setActiveHallId(hallId);
     setActiveNodeId(targetNode.id);
-    setApproachedHallId(undefined);
+    setApproachedHall(undefined);
     if (hallId !== sourceHallId) setRecentHallId(sourceHallId);
     residentHallIdsRef.current = new Set(resolveMuseumHallResidency({
       activeHallId: hallId,
@@ -839,13 +885,17 @@ export function MuseumPage({route, href, push, replace}: {
     const sourceNearby = nearbyRef.current;
     if (source.publicHallId) {
       const sourceHall = getMuseumHallRegistration(source.publicHallId)?.definition;
-      if (sourceHall) saveMuseumSession(sourceHall.layout, sourcePose, sourceNearby?.hallId === source.publicHallId ? sourceNearby.exhibitId : undefined);
+      const sourceEntrance = source.entrances.find(({id}) => id === connection.localEntranceId);
+      const safeSourcePose = sourceEntrance
+        ? {...sourceEntrance.arrivalPose, yaw: sourcePose.yaw, pitch: sourcePose.pitch}
+        : sourcePose;
+      if (sourceHall) saveMuseumSession(sourceHall.layout, safeSourcePose, sourceNearby?.hallId === source.publicHallId ? sourceNearby.exhibitId : undefined);
     }
     poseRef.current = arrival;
     activeNodeIdRef.current = targetNode.id;
     activeNodeRef.current = targetNode;
     setActiveNodeId(targetNode.id);
-    setApproachedHallId(undefined);
+    setApproachedHall(undefined);
     nearbyRef.current = undefined;
     setNearbyReference(undefined);
     visitorMapNearbyRef.current = false;
@@ -854,6 +904,7 @@ export function MuseumPage({route, href, push, replace}: {
     if (targetNode.publicHallId && targetRegistration) {
       const targetHallId = targetNode.publicHallId;
       const previousHallId = activeHallIdRef.current;
+      promotePreparedEntranceToActive(targetHallId, connection.targetEntranceId);
       saveMuseumSession(targetRegistration.definition.layout, arrival);
       if (previousHallId !== targetHallId) setRecentHallId(previousHallId);
       pendingHallTransitionRef.current = {sourceHallId: previousHallId, targetHallId};
@@ -870,28 +921,31 @@ export function MuseumPage({route, href, push, replace}: {
     }
     setPoseRevision((value) => value + 1);
     return true;
-  }, [replace]);
+  }, [promotePreparedEntranceToActive, replace]);
 
   const handleNodeTransitionBlocked = useCallback((connection: MuseumDirectedConnection) => {
     const targetHallId = getMuseumConnectionTargetHallId(connection);
     if (!targetHallId) return;
     const target = getMuseumHallCatalog(targetHallId);
-    const status = hallLoadStatus[targetHallId];
+    const readinessKey = museumHallEntryReadinessKey(targetHallId, connection.targetEntranceId);
+    const status = hallEntryLoadStatus[readinessKey];
     setAnnouncement(status === 'failed'
       ? `${target?.title ?? 'The connected gallery'} could not be prepared. Use the visible Retry control.`
       : `Preparing ${target?.title ?? 'the connected gallery'} before you cross…`);
-    void ensureHallEntry(targetHallId).catch(() => undefined);
-  }, [ensureHallEntry, hallLoadStatus]);
+    void ensureHallEntry(targetHallId, connection.targetEntranceId).catch(() => undefined);
+  }, [ensureHallEntry, hallEntryLoadStatus]);
 
-  const handleApproachHall = useCallback((hallId: MuseumHallId | undefined) => {
-    setApproachedHallId(hallId);
-    if (!hallId) return;
+  const handleApproachHall = useCallback((approach: MuseumHallApproach | undefined) => {
+    setApproachedHall(approach);
+    if (!approach) return;
+    const {hallId, entranceId} = approach;
     residentHallIdsRef.current = new Set(resolveMuseumHallResidency({
       activeHallId: activeHallIdRef.current,
       approachedHallId: hallId,
+      approachedEntranceId: entranceId,
       recentHallId,
     }));
-    void ensureHallEntry(hallId).catch(() => undefined);
+    void ensureHallEntry(hallId, entranceId).catch(() => undefined);
   }, [ensureHallEntry, recentHallId]);
 
   const stageExhibitViewpoint = useCallback((reference: MuseumExhibitRef) => {
@@ -907,7 +961,7 @@ export function MuseumPage({route, href, push, replace}: {
     activeDefinitionRef.current = targetRegistration.definition;
     setActiveHallId(reference.hallId);
     setActiveNodeId(targetNode.id);
-    setApproachedHallId(undefined);
+    setApproachedHall(undefined);
     poseRef.current = {...viewpoint};
     nearbyRef.current = reference;
     setNearbyReference(reference);
@@ -1133,7 +1187,7 @@ export function MuseumPage({route, href, push, replace}: {
       activeHallId: route.hallId,
       recentHallId: syncsDifferentHall ? previousRouteHallId : recentHallId,
     }));
-    setApproachedHallId(undefined);
+    setApproachedHall(undefined);
     nearbyRef.current = undefined;
     setNearbyReference(undefined);
     visitorMapNearbyRef.current = false;
@@ -1230,8 +1284,13 @@ export function MuseumPage({route, href, push, replace}: {
   const exhibitIndex = exhibit ? (hall.guidedOrder as readonly MuseumExhibitId[]).indexOf(exhibit.id) : -1;
   const sceneRegistrations = MUSEUM_WORLD_REGISTRY.filter(({definition: item}) => residentHallIds.has(item.id));
   const approachedHallIds = approachedHallId ? [approachedHallId] : [];
-  const adjacentFailedHallIds = approachedHallIds.filter((hallId) => hallLoadStatus[hallId] === 'failed');
-  const adjacentLoadingHallIds = approachedHallIds.filter((hallId) => hallLoadStatus[hallId] === 'loading');
+  const approachedReadinessKey = approachedHall
+    ? museumHallEntryReadinessKey(approachedHall.hallId, approachedHall.entranceId)
+    : undefined;
+  const adjacentFailedHallIds = approachedHallIds.filter(() =>
+    approachedReadinessKey && hallEntryLoadStatus[approachedReadinessKey] === 'failed');
+  const adjacentLoadingHallIds = approachedHallIds.filter(() =>
+    approachedReadinessKey && hallEntryLoadStatus[approachedReadinessKey] === 'loading');
 
   return <div
     ref={experienceRootRef}
@@ -1259,8 +1318,8 @@ export function MuseumPage({route, href, push, replace}: {
             <LazyMuseumWorldScene
               key={sceneEpoch}
               registrations={sceneRegistrations}
-              readyHallIds={[...readyHallIds]}
-              hallLoadStatus={hallLoadStatus}
+              readyHallEntryKeys={[...readyHallEntryKeys]}
+              hallEntryLoadStatus={hallEntryLoadStatus}
               hallContentEpochs={hallContentEpochs}
               definition={activeNode}
               active={exploring}

@@ -1,6 +1,8 @@
 # Museum asset provenance
 
-The six active galleries contain forty-eight interpreted exhibits and ninety-six curated source objects. Every object has a local scene WebP and a larger interpretation-panel WebP, producing 192 committed derivatives. Typed records in `src/data/museum/museumAssets.ts`, `src/data/museum/modernMuseumAssets.ts`, and `src/data/museum/museumExpansionAssets.ts` preserve titles, creators, object dates, institutions, exact source pages, rights terms, attribution, transformation notices, dimensions, alt text, captions, focal points, and likeness cautions.
+The preserved Museum registry contains **101 provenance records** and **202 committed local WebP derivatives**, with a scene and panel variant for each registered source object. The canonical six contain **59 primary exhibits** and currently reference **47 local media placements**; media is optional, not a two-object-per-exhibit requirement. The preparation manifest locks 85 post-Ancient records and their 170 derivatives by dimensions, bytes, and SHA-256, while 16 Ancient records retain reviewed typed metadata.
+
+Typed records are assembled in `src/data/museum/museumAssets.ts` from the Ancient records in that file and the preserved modern, expansion, canonical-six, and Krishnamurti sets in `modernMuseumAssets.ts`, `museumExpansionAssets.ts`, `canonicalMuseumAssets.ts`, and `krishnamurtiMuseumAssets.ts`. They preserve titles, creators, object dates, institutions, exact source pages, rights terms, attribution, transformation notices, dimensions, alt text, captions, focal points, and likeness cautions.
 
 Human review establishes provenance and interpretive suitability. The deterministic audit verifies committed records and files without pretending to re-verify remote collection metadata.
 
@@ -9,11 +11,25 @@ Human review establishes provenance and interpretive suitability. The determinis
 - Runtime media is local and Vite-base-aware; the Museum never hotlinks source images.
 - Scene derivatives have a maximum dimension of 640 px. Panel derivatives have a maximum dimension of 1280 px and load with the selected exhibit.
 - Portraits are labeled as lifetime, posthumous, attributed, copied, imagined, or uncertain. A face never substitutes for historical evidence.
-- Each philosopher pairs an identity or contextual anchor with a primary text, manuscript, document, or other material witness where practical.
+- Where practical, a philosopher exhibit pairs an identity or contextual anchor with a primary text, manuscript, document, or other material witness.
 - Public-domain and CC0 sources are preferred. CC BY and CC BY-SA sources remain acceptable when creator, license, attribution, and derivative notice are explicit.
-- Downloaded originals are not committed. Exact Commons file pages and selected download URLs are locked in the preparation manifest.
+- Downloaded originals are not committed. Exact source pages, selected download URLs, derivative dimensions, byte counts, and hashes for the post-Ancient corpus are locked in the preparation manifest.
 
-## Gallery 01 · Ancient Greek & Hellenistic Philosophy
+## Current canonical-six use
+
+The live roster reuses reviewed legacy media when the same philosopher remains in one of the six permanent halls. It also adds five provenance records needed by the canonical program:
+
+| Live exhibit | Registered source object | Rights / caveat |
+| --- | --- | --- |
+| Francis Bacon | Paul van Somer I, *Portrait of Francis Bacon*, 1617 | Public-domain painting and reproduction; the collection attribution supersedes an older Pourbus attribution. |
+| Alfred North Whitehead | 1923 portrait published in *Splendour of the Heavens* | Photographer unknown; public domain in the United States, with status elsewhere requiring separate jurisdictional review. |
+| Martha Nussbaum | Sally Ryan, University of Chicago Law School portrait, 2010 | CC BY-SA 3.0, with creator and derivative attribution retained. |
+| Jiddu Krishnamurti | 1920s Bain News Service lifetime photograph | Library of Congress Bain Collection; no known copyright restrictions. The 1920s date follows the reviewed Commons record because the Library of Congress caption card records no date. |
+| Jiddu Krishnamurti with Annie Besant | Agence Rol photograph aboard the *Pacific*, March 1927 | Bibliothèque nationale de France, Rol 118226 / EI-13 (1421); public domain in France and the United States. It documents Theosophical formation, not mature allegiance. |
+
+The tables below preserve the 96-object Phase 2 registry. They remain useful provenance records even when a former installation is no longer a live primary exhibit.
+
+## Preserved Phase 2 registry · Gallery 01 · Ancient Greek & Hellenistic Philosophy
 
 | Exhibit | Principal anchor | Supporting object | Essential caveat |
 | --- | --- | --- | --- |
@@ -26,7 +42,7 @@ Human review establishes provenance and interpretive suitability. The determinis
 | Skepticism | Riedel’s imagined Sextus engraving | 1569 *Adversus mathematicos* | No authenticated portrait of Sextus survives. |
 | Neoplatonism | Ostia head conventionally identified as Plotinus | Ficino-annotated *Enneads* | The head is uncertain; the manuscript is Renaissance, not ancient. |
 
-## Gallery 02 · Renaissance, Reason, and Revolution
+## Preserved Phase 2 registry · Gallery 02 · Renaissance, Reason, and Revolution
 
 | Philosopher | Principal anchor | Supporting object | Rights / caveat |
 | --- | --- | --- | --- |
@@ -39,7 +55,7 @@ Human review establishes provenance and interpretive suitability. The determinis
 | Rousseau | Maurice Quentin de La Tour lifetime portrait | 1762 *Du contrat social* | Public domain. |
 | Kant | Johann Gottlieb Becker lifetime portrait | 1781 *Critique* first-edition title page | Portrait public domain; title-page photograph CC BY-SA 3.0. |
 
-## Gallery 03 · Modernity, Freedom, and Critique
+## Preserved Phase 2 registry · Gallery 03 · Modernity, Freedom, and Critique
 
 | Philosopher | Principal anchor | Supporting object | Rights / caveat |
 | --- | --- | --- | --- |
@@ -52,7 +68,7 @@ Human review establishes provenance and interpretive suitability. The determinis
 | Camus | UPI 1957 press portrait | 1943 *Combat* issue | U.S./anonymous-work public-domain determinations; *Combat* was collective and Camus rejected the existentialist label. |
 | Foucault | 1968 *Diário de Lisboa* photograph | Bentham’s Panopticon plan | Portuguese/public-domain determinations; Foucault treats the Panopticon as a disciplinary diagram, not universal literal architecture. |
 
-## Gallery 04 · Logic, Language, and Science
+## Preserved Phase 2 registry · Gallery 04 · Logic, Language, and Science
 
 | Philosopher | Principal anchor | Supporting object | Rights / caveat |
 | --- | --- | --- | --- |
@@ -65,7 +81,7 @@ Human review establishes provenance and interpretive suitability. The determinis
 | Quine | 1980 Bluenose II photograph | Later qualitative-sphere diagram | CC BY 4.0 and CC BY-SA 3.0; the diagram is a 2014 interpretation of Quine, not his own drawing. |
 | Kuhn | 1977 Princeton blackboard photograph | 1970 second-edition *Structure* cover | Commons public-domain determinations; the text-only cover does not place the copyrighted book text in the public domain. |
 
-## Gallery 05 · Ethics, Justice, and Political Life
+## Preserved Phase 2 registry · Gallery 05 · Ethics, Justice, and Political Life
 
 | Philosopher | Principal anchor | Supporting object | Rights / caveat |
 | --- | --- | --- | --- |
@@ -78,7 +94,7 @@ Human review establishes provenance and interpretive suitability. The determinis
 | Nozick | 1977 *Libertarian Review* portrait | *Anarchy, State, and Utopia* cover | Commons U.S.-notice and text-logo determinations; the cover file’s edition metadata is inconsistent, so no exact edition claim is made. |
 | Habermas | Wolfram Huke 2008 discussion photograph | Nikolas Becker 2011 lecture photograph | Both CC BY-SA 3.0; the second records an EU-crisis lecture, not *The Structural Transformation* itself. |
 
-## Gallery 06 · Mind, Consciousness, and the Self
+## Preserved Phase 2 registry · Gallery 06 · Mind, Consciousness, and the Self
 
 | Philosopher | Principal anchor | Supporting object | Rights / caveat |
 | --- | --- | --- | --- |
@@ -93,7 +109,7 @@ Human review establishes provenance and interpretive suitability. The determinis
 
 ## Modern asset lock pipeline
 
-`scripts/prepareMuseumModernAssets.py` reads `scripts/museumModernAssetManifest.json`. The manifest fixes every Gallery 02–06 asset ID, hall folder, exact Commons file page, original-image URL, selected thumbnail URL, derivative dimensions, byte counts, and SHA-256 digests.
+`scripts/prepareMuseumModernAssets.py` reads `scripts/museumModernAssetManifest.json`. The manifest fixes all 85 post-Ancient asset IDs—including the five canonical-six additions—along with their hall folders, exact source pages, original-image URLs, selected download URLs, derivative dimensions, byte counts, and SHA-256 digests.
 
 The script downloads to a temporary workspace, applies EXIF orientation, resizes without upscaling, writes optimized WebP candidates, and validates both cached and generated files against the lock. `--refresh-locks` is an explicit curatorial operation; ordinary runs verify without silently rewriting the corpus. Ancient derivatives retain their existing reviewed typed records.
 
@@ -106,4 +122,4 @@ The script downloads to a temporary workspace, applies EXIF orientation, resizes
 - Earlier CC BY / CC BY-SA terms used by the Ancient gallery
 - Commons public-domain templates for anonymous European works, Portugal, and U.S. press material
 
-Run `npm run audit:museum-assets` to verify exact two-object coverage per exhibit, hall ownership, local path safety and case, WebP dimensions, rights-kind and license-URL consistency, derivative notices, attribution, alt text, likeness classification, manifest/typed-record agreement, all modern byte and SHA-256 locks, and the absence of retired or orphaned files. The audit performs no network requests.
+Run `npm run audit:museum-assets` to verify that every optional media-reference field across the 59 live exhibits resolves when present, the registry contains 101 records and 202 derivatives, and the post-Ancient lock contains 85 records and 170 derivatives. The audit also checks local path safety and case, WebP dimensions, rights-kind and license-URL consistency, derivative notices, attribution, alt text, likeness classification, manifest-to-typed-record agreement, byte and SHA-256 locks, runtime hotlink prevention, and unexpected missing or orphaned files. The audit performs no network requests and does not impose a two-object-per-exhibit quota.
