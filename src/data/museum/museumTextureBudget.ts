@@ -2,6 +2,12 @@ import type {MuseumHallId} from '../museumCatalog';
 import {MUSEUM_BUILDING_MANIFEST} from './museumBuildingManifest';
 import {getMuseumAsset} from './museumAssets';
 import {
+  MEDITERRANEAN_EXHIBIT_CURATION,
+  MEDITERRANEAN_GALLERY_ID,
+  type MediterraneanExhibitCuration,
+  type MediterraneanExhibitId,
+} from './mediterraneanGalleryCuration';
+import {
   bytesToMiB,
   decodedTextureBytes,
   MUSEUM_TEXTURE_SPECS,
@@ -105,15 +111,21 @@ const generatedSpecsForExhibit = (
   if (hallId === 'ancient-greek') return [plaque];
   const backing = exhibit.scene.objectBounds.find(({id}) => id.endsWith('-backing'));
   if (!backing) throw new Error(`Museum texture estimate cannot resolve the name-strip backing for ${exhibit.id}.`);
+  const mediterraneanCuration = hallId === MEDITERRANEAN_GALLERY_ID
+    ? MEDITERRANEAN_EXHIBIT_CURATION[exhibit.id as MediterraneanExhibitId] as MediterraneanExhibitCuration
+    : undefined;
+  const generatedMedia = mediterraneanCuration?.generatedMedia;
   const interpretationWidth = backing.size.width - .16;
-  const interpretationHeight = exhibit.scene.mediaMounts.length > 0
+  const interpretationHeight = exhibit.scene.mediaMounts.length > 0 || generatedMedia
     ? .42
     : Math.min(1.55, backing.size.height - .48);
-  return [museumTextureDimensionsForPlane(
+  const specs = [museumTextureDimensionsForPlane(
     interpretationWidth,
     interpretationHeight,
     MUSEUM_TEXTURE_SPECS.contemporaryNameStrip,
   )];
+  if (generatedMedia) specs.push(MUSEUM_TEXTURE_SPECS.mediterraneanExhibitMedia);
+  return specs;
 };
 
 const generatedHallSpecs = (hallId: MuseumHallId): readonly MuseumDecodedTextureSpec[] => {

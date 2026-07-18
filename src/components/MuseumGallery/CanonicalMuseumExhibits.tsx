@@ -8,7 +8,7 @@ import {
 } from '../../data/museum/mediterraneanGalleryCuration';
 import {getMuseumHallCatalog, type MuseumExhibitId} from '../../data/museumCatalog';
 import {MUSEUM_TEXTURE_SPECS, museumTextureDimensionsForPlane} from '../../data/museum/museumTexturePolicy';
-import {MediterraneanExhibitObject} from './MediterraneanExhibitObject';
+import {MediterraneanExhibitMedia} from './MediterraneanExhibitMedia';
 import {MuseumSceneMedia} from './MuseumSceneMedia';
 import {usePlaqueTexture} from './plaqueTextures';
 
@@ -21,15 +21,16 @@ function Box({volume, color}: {volume: MuseumSceneVolume; color: string}) {
   </mesh>;
 }
 
-function InterpretationFace({layout, title, question, kicker, accent}: {
+function InterpretationFace({layout, title, question, kicker, accent, hasCuratedMedia}: {
   layout: MuseumExhibitLayout;
   title: string;
   question: string;
   kicker: string;
   accent: string;
+  hasCuratedMedia: boolean;
 }) {
   const backing = layout.scene.objectBounds.find(({id}) => id.endsWith('-backing'))!;
-  const hasMedia = layout.scene.mediaMounts.length > 0;
+  const hasMedia = layout.scene.mediaMounts.length > 0 || hasCuratedMedia;
   const width = backing.size.width - .16;
   const height = hasMedia ? .42 : Math.min(1.55, backing.size.height - .48);
   const centerY = hasMedia
@@ -67,6 +68,7 @@ function Installation({layout, title, question, kicker, accent, nearby, curation
   const backing = layout.scene.objectBounds.find(({id}) => id.endsWith('-backing'))!;
   const motif = layout.scene.objectBounds.find(({id}) => id.endsWith('-concept'))!;
   const interaction = layout.scene.interactionBounds;
+  const generatedMedia = curation?.generatedMedia;
   const backingColor = curation
     ? layout.presentationTier === 'archive'
       ? '#b9ad98'
@@ -76,13 +78,27 @@ function Installation({layout, title, question, kicker, accent, nearby, curation
           ? '#e2ddd2'
           : '#d8d4cb'
     : '#d9d5cd';
+  const mediaWidth = backing.size.width - .32;
+  const mediaHeight = Math.max(1.18, backing.size.height - 1.02);
   return <group>
     <Box volume={plinth} color="#6e6b65"/>
     <Box volume={backing} color={backingColor}/>
     {curation
-      ? <group position={[motif.center.x, motif.center.y - motif.size.height / 2, motif.center.z]}>
-        <MediterraneanExhibitObject kind={curation.visualKind} exhibitId={layout.id} nearby={nearby}/>
-      </group>
+      ? generatedMedia && layout.scene.mediaMounts.length === 0 && <group position={[
+          backing.center.x,
+          backing.center.y - backing.size.height / 2 + .22,
+          backing.center.z + backing.size.depth / 2 + .018,
+        ]}>
+          <MediterraneanExhibitMedia
+            kind={curation.visualKind}
+            exhibitId={layout.id}
+            title={generatedMedia.title}
+            caption={generatedMedia.caption}
+            width={mediaWidth}
+            height={mediaHeight}
+            nearby={nearby}
+          />
+        </group>
       : <Box volume={motif} color={nearby ? accent : '#4a4d4e'}/>}
     {curation && <>
       <mesh position={[backing.center.x - backing.size.width / 2 + .055, backing.center.y, backing.center.z + backing.size.depth / 2 + .02]}>
@@ -90,7 +106,14 @@ function Installation({layout, title, question, kicker, accent, nearby, curation
         <meshStandardMaterial color={accent} emissive={accent} emissiveIntensity={nearby ? .34 : .1} roughness={.35}/>
       </mesh>
     </>}
-    <InterpretationFace layout={layout} title={title} question={question} kicker={kicker} accent={accent}/>
+    <InterpretationFace
+      layout={layout}
+      title={title}
+      question={question}
+      kicker={kicker}
+      accent={accent}
+      hasCuratedMedia={Boolean(generatedMedia)}
+    />
     {layout.scene.mediaMounts.map((mount) => <MuseumSceneMedia key={mount.id} mount={mount} nearby={nearby} accent={accent}/>)}
     <mesh position={[interaction.center.x, interaction.center.y, interaction.center.z]} userData={{interactionFor: layout.id}}>
       <boxGeometry args={[interaction.size.width, interaction.size.height, interaction.size.depth]}/>
@@ -99,7 +122,7 @@ function Installation({layout, title, question, kicker, accent, nearby, curation
   </group>;
 }
 
-/** Text-first installations remain complete when an approved local image is unavailable. */
+/** Every curated installation presents provenance-backed imagery or an authored physical media panel. */
 export function CanonicalMuseumExhibits({definition, nearbyId, visibleExhibitIds, onSelectExhibit}: {
   definition: MuseumHallDefinition;
   nearbyId?: MuseumExhibitId;

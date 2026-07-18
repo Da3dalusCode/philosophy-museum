@@ -338,6 +338,10 @@ export function MuseumVisitorMapKiosk({active, nearby, onActivate}: {
       <planeGeometry args={[kiosk.screen.width, kiosk.screen.height]}/>
       <meshBasicMaterial map={screen} toneMapped={false}/>
     </mesh>
+    <mesh position={[0, kiosk.screen.centerY, -.151]} rotation={[0, Math.PI, 0]}>
+      <planeGeometry args={[kiosk.screen.width, kiosk.screen.height]}/>
+      <meshBasicMaterial map={screen} toneMapped={false}/>
+    </mesh>
     <mesh position={[0, kiosk.height - .18, .17]}>
       <boxGeometry args={[kiosk.screen.width + .08, .055, .055]}/>
       <meshBasicMaterial color={nearby ? '#ffe0ad' : '#d0a36a'} toneMapped={false}/>

@@ -189,6 +189,10 @@ export function MediterraneanGalleryCuration() {
         <planeGeometry args={[display.size.width, panelHeight]}/>
         <meshBasicMaterial map={texture} toneMapped={false}/>
       </mesh>
+      <mesh position={[0, 1.72, -.18]} rotation={[0, Math.PI, 0]}>
+        <planeGeometry args={[display.size.width, panelHeight]}/>
+        <meshBasicMaterial map={texture} toneMapped={false}/>
+      </mesh>
       <mesh position={[0, .18, 0]}>
         <boxGeometry args={[display.size.width * .82, .22, display.size.depth]}/>
         <meshStandardMaterial color="#615849" roughness={.78}/>
@@ -198,14 +202,5 @@ export function MediterraneanGalleryCuration() {
         <meshStandardMaterial color={BRONZE} roughness={.42} metalness={.64}/>
       </mesh>)}
     </group>
-    {[[-.9, -19.05], [-.45, -17.95], [0, -16.85]].map(([x, z], index) => <mesh
-      key={`gallery-01-route-${index}`}
-      position={[x, .012, z]}
-      rotation={[0, -.39, 0]}
-      userData={{circulationGuide: 'gallery-01-orientation'}}
-    >
-      <boxGeometry args={[.08, .018, .72]}/>
-      <meshStandardMaterial color={BRONZE} roughness={.44} metalness={.5}/>
-    </mesh>)}
   </group>;
 }

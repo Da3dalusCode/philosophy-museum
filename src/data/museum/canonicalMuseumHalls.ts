@@ -736,7 +736,9 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
               y: 2.25,
               z: index === 0 ? bounds.maxZ + .22 : bounds.minZ + .22,
             },
-            rotationY: Math.PI,
+            // Room 01 and Room 02 share a threshold: Room 01 addresses the
+            // returning route while Rooms 02–04 address the authored route.
+            rotationY: index === 0 ? 0 : Math.PI,
             width: 4.45,
             height: .98,
           };

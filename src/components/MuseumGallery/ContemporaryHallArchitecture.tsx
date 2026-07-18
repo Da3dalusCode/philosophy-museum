@@ -26,6 +26,7 @@ const FLOOR_PASSAGE = '#5b554d';
 const BLACK_METAL = '#151617';
 const BRONZE = '#8b6b43';
 const LUMINOUS = '#fff3dc';
+const SIGN_REAR = '#d8d2c7';
 
 function CellShell({cell}: {cell: MuseumSpatialCell}) {
   const bounds = cell.renderBounds ?? cell.bounds;
@@ -149,6 +150,14 @@ function PhysicalSign({definition}: {definition: MuseumSignDefinition}) {
   >
     <mesh position={[0, 0, -.04]}><boxGeometry args={[definition.width + .1, definition.height + .1, .07]}/><meshStandardMaterial color={BLACK_METAL} roughness={.52} metalness={.42}/></mesh>
     <mesh position={[0, 0, .002]}><planeGeometry args={[definition.width, definition.height]}/><meshBasicMaterial map={texture} toneMapped={false}/></mesh>
+    <mesh position={[0, 0, -.077]} rotation={[0, Math.PI, 0]}>
+      <planeGeometry args={[definition.width, definition.height]}/>
+      <meshStandardMaterial color={SIGN_REAR} roughness={.88} metalness={.02}/>
+    </mesh>
+    <mesh position={[0, -definition.height * .36, -.079]} rotation={[0, Math.PI, 0]}>
+      <planeGeometry args={[definition.width * .72, .026]}/>
+      <meshStandardMaterial color={accent} roughness={.42} metalness={.38}/>
+    </mesh>
   </group>;
 }
 

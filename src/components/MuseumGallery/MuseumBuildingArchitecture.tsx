@@ -25,6 +25,16 @@ const FLOOR_FORUM = '#605744';
 const CEILING = '#e7e2d8';
 const METAL = '#18191a';
 const BRONZE = '#8b6b43';
+const SIGN_REAR = '#d8d2c7';
+const GALLERY_WALL = '#eeeae2';
+const GALLERY_WALL_EDGE = '#d9d4ca';
+const OUTER_01_NODE_ID = 'corridor:outer-01-mediterranean-renaissance';
+const OUTER_01_COPLANAR_ARCHITECTURE_IDS = new Set([
+  `${OUTER_01_NODE_ID}:lintel:3`,
+  `${OUTER_01_NODE_ID}:lintel:19`,
+  `${OUTER_01_NODE_ID}:wall:10`,
+  `${OUTER_01_NODE_ID}:wall:11`,
+]);
 
 function StructuralCell({cell, forum}: {cell: MuseumSpatialCell; forum: boolean}) {
   const renderBounds = cell.renderBounds ?? cell.bounds;
@@ -70,8 +80,10 @@ function StructuralCell({cell, forum}: {cell: MuseumSpatialCell; forum: boolean}
   </group>;
 }
 
-function StructuralWall({wall}: {wall: MuseumWallDefinition}) {
+function StructuralWall({wall, galleryFinish = false}: {wall: MuseumWallDefinition; galleryFinish?: boolean}) {
   const bottom = wall.bottom ?? 0;
+  const wallColor = galleryFinish ? GALLERY_WALL : WALL;
+  const edgeColor = galleryFinish ? GALLERY_WALL_EDGE : WALL_EDGE;
   return <group
     position={[wall.center.x, bottom + wall.height / 2, wall.center.z]}
     rotation={[0, wall.rotation, 0]}
@@ -79,11 +91,11 @@ function StructuralWall({wall}: {wall: MuseumWallDefinition}) {
   >
     <mesh receiveShadow>
       <boxGeometry args={[wall.size.width, wall.height, wall.size.depth]}/>
-      <meshStandardMaterial color={WALL} roughness={.95}/>
+      <meshStandardMaterial color={wallColor} roughness={.95}/>
     </mesh>
     {bottom === 0 && <mesh position={[0, -wall.height / 2 + .07, 0]}>
       <boxGeometry args={[wall.size.width + .02, .14, wall.size.depth + .02]}/>
-      <meshStandardMaterial color={WALL_EDGE} roughness={.86}/>
+      <meshStandardMaterial color={edgeColor} roughness={.86}/>
     </mesh>}
   </group>;
 }
@@ -120,6 +132,14 @@ function BuildingSign({title, kicker, subtitle, position, rotation = 0, width = 
   return <group position={position} rotation={[0, rotation, 0]}>
     <mesh position={[0, 0, -.035]}><boxGeometry args={[width + .12, height + .12, .07]}/><meshStandardMaterial color={METAL} roughness={.4} metalness={.5}/></mesh>
     <mesh position={[0, 0, .005]}><planeGeometry args={[width, height]}/><meshBasicMaterial map={texture} toneMapped={false}/></mesh>
+    <mesh position={[0, 0, -.072]} rotation={[0, Math.PI, 0]}>
+      <planeGeometry args={[width, height]}/>
+      <meshStandardMaterial color={SIGN_REAR} roughness={.88} metalness={.02}/>
+    </mesh>
+    <mesh position={[0, -height * .36, -.074]} rotation={[0, Math.PI, 0]}>
+      <planeGeometry args={[width * .72, .026]}/>
+      <meshStandardMaterial color={BRONZE} roughness={.42} metalness={.38}/>
+    </mesh>
   </group>;
 }
 
@@ -145,20 +165,24 @@ function ReservationBarrier({reservation}: {reservation: MuseumReservation}) {
     rotation={[0, body.rotation, 0]}
     userData={{reservationId: reservation.id, blocked: true, label: reservation.label}}
   >
-    <mesh position={[0, body.height / 2, 0]}><boxGeometry args={[body.size.width, body.height, body.size.depth]}/><meshStandardMaterial color="#2b2926" roughness={.68}/></mesh>
+    <mesh position={[0, body.height / 2, 0]}><boxGeometry args={[body.size.width, body.height, body.size.depth]}/><meshStandardMaterial color="#ddd7cc" roughness={.84} metalness={.02}/></mesh>
     <mesh position={[0, body.height + .18, body.size.depth / 2 + .02]}><planeGeometry args={[labelWidth, labelHeight]}/><meshBasicMaterial map={texture} toneMapped={false}/></mesh>
+    <mesh position={[0, body.height + .18, -body.size.depth / 2 - .02]} rotation={[0, Math.PI, 0]}><planeGeometry args={[labelWidth, labelHeight]}/><meshBasicMaterial map={texture} toneMapped={false}/></mesh>
     {[-body.size.width * .42, body.size.width * .42].map((x) => <mesh key={x} position={[x, .72, 0]}><cylinderGeometry args={[.055, .075, 1.45, 10]}/><meshStandardMaterial color={BRONZE} metalness={.55} roughness={.4}/></mesh>)}
   </group>;
 }
 
 function CirculationNode({node}: {node: MuseumRuntimeNodeDefinition}) {
   const forum = false;
+  const outer01 = node.id === OUTER_01_NODE_ID;
+  const architectureWalls = (node.architectureWalls ?? node.layout.wallColliders)
+    .filter(({id}) => !outer01 || !OUTER_01_COPLANAR_ARCHITECTURE_IDS.has(id));
   const entranceCell = node.id === MUSEUM_BUILDING_MANIFEST.mainEntrance.nodeId
     ? node.layout.spatialCells.find(({id}) => id.endsWith(':orientation-court'))
     : undefined;
   return <group position={[node.worldTransform.x, 0, node.worldTransform.z]} rotation={[0, node.worldTransform.yaw, 0]}>
     {node.layout.spatialCells.map((cell) => <StructuralCell key={cell.id} cell={cell} forum={forum}/>)}
-    {(node.architectureWalls ?? node.layout.wallColliders).map((wall) => <StructuralWall key={wall.id} wall={wall}/>)}
+    {architectureWalls.map((wall) => <StructuralWall key={wall.id} wall={wall} galleryFinish={outer01}/>)}
     {node.layout.furnishings.map((item) => <StructuralBench key={item.id} item={item}/>)}
     {entranceCell && <BuildingSign
       title="Philosophy Atlas Museum"

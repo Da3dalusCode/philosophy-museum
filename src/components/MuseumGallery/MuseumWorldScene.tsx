@@ -431,7 +431,10 @@ function MuseumWorldContents(props: MuseumSceneRuntimeProps) {
     ? {hallId: nearbyTarget.hallId, exhibitId: nearbyTarget.exhibitId}
     : undefined;
   const visitorMapNearby = nearbyTarget?.kind === 'visitor-map';
-  const activeHallLighting = props.registrations.find(({definition}) => definition.id === props.definition.publicHallId)?.definition.layout.lighting;
+  // The public hall remains the lighting/content owner while the visitor is in
+  // its connector. This prevents a hall from unloading or changing shade at
+  // the physical seam before the next hall is actually entered.
+  const activeHallLighting = props.registrations.find(({definition}) => definition.id === props.activeHallId)?.definition.layout.lighting;
   const hemisphereIntensity = activeHallLighting?.hemisphereIntensity ?? .64;
   const ambientIntensity = activeHallLighting?.ambientIntensity ?? .48;
   const connectedEntranceByHallId = useMemo(() => new Map(
@@ -453,7 +456,7 @@ function MuseumWorldContents(props: MuseumSceneRuntimeProps) {
     {props.registrations.map((registration) => <LoadedHall
       key={`${registration.definition.id}-${props.hallContentEpochs[registration.definition.id] ?? 0}`}
       registration={registration}
-      active={registration.definition.id === props.definition.publicHallId}
+      active={registration.definition.id === props.activeHallId}
       entryEntranceId={connectedEntranceByHallId.get(registration.definition.id)}
       nearby={nearby}
       visitorMapNearby={visitorMapNearby}

@@ -16,6 +16,7 @@ const museumWorldSource = source('src/components/MuseumGallery/MuseumWorldScene.
 const architectureSource = source('src/components/MuseumGallery/ContemporaryHallArchitecture.tsx');
 const canonicalSceneSource = source('src/components/MuseumGallery/CanonicalMuseumHallScene.tsx');
 const canonicalExhibitsSource = source('src/components/MuseumGallery/CanonicalMuseumExhibits.tsx');
+const mediterraneanMediaSource = source('src/components/MuseumGallery/MediterraneanExhibitMedia.tsx');
 const interpretationPanelSource = source('src/components/MuseumGallery/MuseumInterpretationPanel.tsx');
 const visitorMapSource = source('src/components/MuseumGallery/MuseumVisitorMap.tsx');
 const compatibilitySource = source('src/components/MuseumGallery/MuseumCompatibilityPage.tsx');
@@ -279,14 +280,27 @@ check('Gallery 01 has bounded authored curation, visitor-facing orientation, and
   assert(hall && definition && program);
 
   const curationEntries = Object.entries(MEDITERRANEAN_EXHIBIT_CURATION);
+  const exhibitLayoutById = new Map(definition.layout.exhibits.map((layout) => [layout.id, layout]));
   assert.equal(curationEntries.length, 20, 'Gallery 01 must retain exactly 20 authored curation entries');
   assert.deepEqual(sorted(curationEntries.map(([id]) => id)), sorted(hall.exhibits.map(({id}) => id)), 'Gallery 01 curation ids differ from its public exhibits');
   assert.deepEqual(sorted(Object.keys(MEDITERRANEAN_ROOM_SIGN_COPY)), sorted(program.rooms.map(({id}) => id)), 'Gallery 01 visitor sign copy differs from its four rooms');
   for (const [id, curation] of curationEntries) {
+    const layout = exhibitLayoutById.get(id);
+    assert(layout, `${id} has no physical Gallery 01 exhibit layout`);
     assert([curation.authored.x, curation.authored.z, curation.authored.rotationY].every(Number.isFinite), `${id} has an invalid authored placement`);
     assert(curation.publicKicker.trim().length >= 12, `${id} lacks visitor-facing context`);
     assert(curation.groupLabel.trim().length >= 8 && curation.visualKind.trim(), `${id} lacks an interpretive visual grouping`);
+    const hasProvenanceMedia = layout.scene.mediaMounts.length > 0;
+    const hasGeneratedMedia = Boolean(curation.generatedMedia?.title.trim() && curation.generatedMedia?.caption.trim());
+    assert(hasProvenanceMedia || hasGeneratedMedia, `${id} has no visible physical image or authored media panel`);
+    if (hasProvenanceMedia) assert(!hasGeneratedMedia, `${id} should be composed around its provenance-backed imagery instead of a duplicate generated panel`);
+    if (hasGeneratedMedia) {
+      assert(curation.generatedMedia.title.trim().length >= 12, `${id} generated media has no meaningful title`);
+      assert(curation.generatedMedia.caption.trim().length >= 48, `${id} generated media lacks explanatory context`);
+    }
   }
+  assert.equal(definition.layout.exhibits.filter(({scene}) => scene.mediaMounts.length > 0).length, 3, 'Gallery 01 provenance-backed scene-media count changed');
+  assert.equal(curationEntries.filter(([, curation]) => curation.generatedMedia).length, 17, 'Gallery 01 generated-media coverage changed');
 
   const kiosk = definition.layout.furnishings.find(({id}) => id === MUSEUM_VISITOR_MAP_KIOSK.id);
   const orientation = definition.layout.furnishings.find(({id}) => id === MEDITERRANEAN_ORIENTATION_DISPLAY.id);
@@ -310,11 +324,18 @@ check('Gallery 01 has bounded authored curation, visitor-facing orientation, and
   assert.doesNotMatch(interpretationPanelSource, /content\.tier\.replaceAll/u, 'The interpretation panel exposes internal exhibit tiers');
   for (const interpretation of MUSEUM_INTERPRETATIONS) assert.doesNotMatch(interpretation.lead, forbiddenPublicLabels, `${interpretation.hallId}/${interpretation.id} lead exposes internal presentation language`);
   assert.match(canonicalSceneSource, /<MediterraneanGalleryCuration\/>/u, 'Gallery 01 does not render its authored orientation display');
+  assert.match(canonicalExhibitsSource, /<MediterraneanExhibitMedia/u, 'Gallery 01 generated media is not mounted on its physical exhibits');
+  assert.match(canonicalExhibitsSource, /layout\.scene\.mediaMounts\.length === 0/u, 'Gallery 01 generated media does not yield to provenance-backed scene imagery');
+  assert.doesNotMatch(canonicalExhibitsSource, /MediterraneanExhibitObject/u, 'Gallery 01 still renders the generic object template');
+  assert.doesNotMatch(mediterraneanMediaSource, /torus(?:Knot)?Geometry|sphereGeometry/u, 'Gallery 01 media reintroduces unsupported floating sculpture geometry');
   assert.equal(definition.layout.signs.length, 5, 'Gallery 01 must retain one entrance and four room signs');
   for (const sign of definition.layout.signs) {
     assert.doesNotMatch(`${sign.kicker} ${sign.title} ${sign.subtitle}`, forbiddenPublicLabels, `${sign.id} exposes internal presentation language`);
     const front = {x: Math.sin(sign.rotationY), z: Math.cos(sign.rotationY)};
-    const approach = {x: sign.position.x, z: sign.position.z - 2};
+    const approach = {
+      x: sign.position.x,
+      z: sign.position.z + (sign.id === 'med-orientation-nature:room-sign' ? 2 : -2),
+    };
     assert(front.x * (approach.x - sign.position.x) + front.z * (approach.z - sign.position.z) > 0, `${sign.id} does not face the forward visitor approach`);
   }
 
@@ -943,7 +964,7 @@ check('the React implementation uses one persistent Canvas, one shared canonical
   }
   assert.match(canonicalSceneSource, /CanonicalMuseumExhibits/);
   assert.match(canonicalSceneSource, /ContemporaryHallArchitecture/);
-  assert.match(canonicalExhibitsSource, /Text-first installations remain complete/);
+  assert.match(canonicalExhibitsSource, /provenance-backed imagery or an authored physical media panel/);
   assert.match(canonicalExhibitsSource, /usePlaqueTexture/);
   assert.match(architectureSource, /museumTextureDimensionsForPlane/);
   assert.match(architectureSource, /<mesh position=\{\[0, 0, \.002\]\}><planeGeometry/);

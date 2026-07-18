@@ -48,6 +48,10 @@ export type MediterraneanExhibitCuration = {
   publicKicker: string;
   visualKind: MediterraneanVisualKind;
   groupLabel: string;
+  generatedMedia?: {
+    title: string;
+    caption: string;
+  };
 };
 
 /** Authored Gallery 01 placement and public interpretation, independent of runtime tier names. */
@@ -57,90 +61,150 @@ export const MEDITERRANEAN_EXHIBIT_CURATION = {
     publicKicker: 'Orientation · Aegean and Mediterranean worlds',
     visualKind: 'portrait',
     groupLabel: 'One beginning among many',
+    generatedMedia: {
+      title: 'Connected places, different arguments',
+      caption: 'Miletus, Elea, Croton, and Athens were linked by travel and debate—one history of philosophy, not its only beginning.',
+    },
   },
   thales: {
-    authored: {x: -10.85, z: -17.4, rotationY: Math.PI / 2},
+    authored: {x: -10.85, z: -23.4, rotationY: Math.PI / 2},
     publicKicker: 'Miletus · late 7th–6th century BCE',
     visualKind: 'water',
     groupLabel: 'Milesian natural explanation',
+    generatedMedia: {
+      title: 'Could nature explain nature?',
+      caption: 'Thales proposed water as a natural principle: an early attempt to explain a changing world through nature itself.',
+    },
   },
   anaximander: {
     authored: {x: 10.85, z: -17.4, rotationY: -Math.PI / 2},
     publicKicker: 'Miletus · early–mid 6th century BCE',
     visualKind: 'boundless',
     groupLabel: 'Milesian natural explanation',
+    generatedMedia: {
+      title: 'What if no familiar substance is enough?',
+      caption: 'Anaximander proposed an indefinite source from which ordered opposites and worlds emerge.',
+    },
   },
   anaximenes: {
-    authored: {x: -10.85, z: -23.4, rotationY: Math.PI / 2},
+    authored: {x: -10.85, z: -17.4, rotationY: Math.PI / 2},
     publicKicker: 'Miletus · mid-6th century BCE; dates uncertain',
     visualKind: 'air',
     groupLabel: 'Milesian natural explanation',
+    generatedMedia: {
+      title: 'How could air become many things?',
+      caption: 'Anaximenes used compression and rarefaction to picture qualitative difference as a natural material process.',
+    },
   },
   pythagoras: {
     authored: {x: -10.85, z: -11, rotationY: Math.PI / 2},
     publicKicker: 'Samos and Croton · c. 570–c. 495 BCE',
     visualKind: 'number',
     groupLabel: 'Pythagorean order and practice',
+    generatedMedia: {
+      title: 'Number, ratio, and a way of life',
+      caption: 'Simple ratios connect musical intervals with a disciplined account of cosmic and communal order.',
+    },
   },
   philolaus: {
     authored: {x: -10.85, z: -7.6, rotationY: Math.PI / 2},
     publicKicker: 'Greek world · late 5th century BCE; dates uncertain',
     visualKind: 'harmony',
     groupLabel: 'Pythagorean order and practice',
+    generatedMedia: {
+      title: 'Limit + unlimited → harmony',
+      caption: 'Philolaus described intelligible order through the fitting together of limiting and unlimited factors.',
+    },
   },
   parmenides: {
     authored: {x: 10.85, z: -11, rotationY: -Math.PI / 2},
     publicKicker: 'Elea · early 5th century BCE; chronology debated',
     visualKind: 'being',
     groupLabel: 'The Eleatic challenge',
+    generatedMedia: {
+      title: 'What can thought consistently say is?',
+      caption: 'Parmenides argues that being cannot arise from what-is-not, pressing hard against ordinary accounts of change.',
+    },
   },
   'zeno-elea': {
     authored: {x: 10.85, z: -7.5, rotationY: -Math.PI / 2},
     publicKicker: 'Elea · c. 490–c. 430 BCE',
     visualKind: 'paradox',
     groupLabel: 'The Eleatic challenge',
+    generatedMedia: {
+      title: 'A journey divided without end',
+      caption: 'Each remaining distance can be divided again: the paradox tests how motion, infinity, and reasoning fit together.',
+    },
   },
   leucippus: {
-    authored: {x: -10.85, z: -4.1, rotationY: Math.PI / 2},
+    authored: {x: 6, z: -6, rotationY: -Math.PI / 2},
     publicKicker: 'Greek world · 5th century BCE; biography uncertain',
     visualKind: 'atoms-archive',
     groupLabel: 'Atomists: bodies and void',
+    generatedMedia: {
+      title: 'Bodies moving in void',
+      caption: 'Sparse evidence links Leucippus to the proposal that indivisible bodies move through empty space.',
+    },
   },
   democritus: {
     authored: {x: -6, z: -1.15, rotationY: Math.PI},
     publicKicker: 'Abdera · c. 460–c. 370 BCE',
     visualKind: 'atoms',
     groupLabel: 'Atomists: bodies and void',
+    generatedMedia: {
+      title: 'Atoms, void, and rearrangement',
+      caption: 'Different arrangements of bodies could explain change without generation from nothing.',
+    },
   },
   heraclitus: {
     authored: {x: 10.85, z: -4, rotationY: -Math.PI / 2},
     publicKicker: 'Ephesus · fl. c. 500 BCE; dates uncertain',
     visualKind: 'change',
     groupLabel: 'Rival accounts of change and order',
+    generatedMedia: {
+      title: 'Change within an intelligible order',
+      caption: 'Conflict and transformation belong to a logos—not merely to the later slogan that everything flows.',
+    },
   },
   empedocles: {
     authored: {x: 6, z: -1.15, rotationY: Math.PI},
     publicKicker: 'Acragas, Sicily · c. 494–c. 434 BCE',
     visualKind: 'elements',
     groupLabel: 'Rival accounts of change and order',
+    generatedMedia: {
+      title: 'Four roots, two forces',
+      caption: 'Earth, air, fire, and water mix and separate under the opposing forces called Love and Strife.',
+    },
   },
   anaxagoras: {
-    authored: {x: 6, z: -6, rotationY: -Math.PI / 2},
+    authored: {x: -10.85, z: -4.1, rotationY: Math.PI / 2},
     publicKicker: 'Ionia and Athens · c. 500–c. 428 BCE',
     visualKind: 'ordering-mind',
     groupLabel: 'Rival accounts of change and order',
+    generatedMedia: {
+      title: 'Mixture ordered by mind',
+      caption: 'Everything begins mixed; nous—mind—initiates rotation and ordered differentiation without creating matter.',
+    },
   },
   protagoras: {
     authored: {x: -10.85, z: 4.2, rotationY: Math.PI / 2},
     publicKicker: 'Abdera and Athens · c. 490–c. 420 BCE',
     visualKind: 'civic-speech',
     groupLabel: 'Speech, education, and civic judgment',
+    generatedMedia: {
+      title: 'Human measure in civic judgment',
+      caption: 'Education and argument shape how citizens judge changing situations in the city.',
+    },
   },
   gorgias: {
     authored: {x: 10.85, z: 5.1, rotationY: -Math.PI / 2},
     publicKicker: 'Leontini and Athens · c. 485–c. 380 BCE',
     visualKind: 'civic-speech',
     groupLabel: 'Speech, education, and civic judgment',
+    generatedMedia: {
+      title: 'What can speech make happen?',
+      caption: 'Rhetoric can move an audience even when truth, knowledge, and persuasion come apart.',
+    },
   },
   socrates: {
     authored: {x: 6, z: 12.85, rotationY: Math.PI},
@@ -153,6 +217,10 @@ export const MEDITERRANEAN_EXHIBIT_CURATION = {
     publicKicker: 'The Academy, Athens · from the 4th century BCE',
     visualKind: 'academy',
     groupLabel: 'Plato and the Academy',
+    generatedMedia: {
+      title: 'Dialogue, Academy, and afterlives',
+      caption: 'A changing lineage formed around Plato’s dialogues, teaching, and repeated reinterpretation.',
+    },
   },
   plato: {
     authored: {x: -10.85, z: 24, rotationY: Math.PI / 2},
@@ -165,6 +233,10 @@ export const MEDITERRANEAN_EXHIBIT_CURATION = {
     publicKicker: 'The Lyceum, Athens · founded c. 335 BCE',
     visualKind: 'lyceum',
     groupLabel: 'Aristotle and the Lyceum',
+    generatedMedia: {
+      title: 'Inquiry by kinds and causes',
+      caption: 'Aristotle’s methods became resources in many later languages, institutions, and intellectual worlds.',
+    },
   },
   aristotle: {
     authored: {x: 10.85, z: 24, rotationY: -Math.PI / 2},
@@ -198,9 +270,9 @@ export type MediterraneanRoomSignCopy = {
 
 export const MEDITERRANEAN_ROOM_SIGN_COPY = {
   'med-orientation-nature': {
-    title: 'Ionia and natural explanation',
-    kicker: 'Room 01 · Miletus',
-    subtitle: 'Water · the boundless · air — one beginning among many',
+    title: 'Explaining nature through nature',
+    kicker: 'Room 01 · Thales, Anaximander, Anaximenes',
+    subtitle: 'What is the world made of, and can natural processes explain its changes?',
   },
   'med-being-change-plurality': {
     title: 'Being, change, and plural beginnings',

@@ -1317,6 +1317,7 @@ export function MuseumPage({route, href, push, replace}: {
           <Suspense fallback={<div className="museum-load-chip" role="status">Preparing the walkable Museum…</div>}>
             <LazyMuseumWorldScene
               key={sceneEpoch}
+              activeHallId={activeHallId}
               registrations={sceneRegistrations}
               readyHallEntryKeys={[...readyHallEntryKeys]}
               hallEntryLoadStatus={hallEntryLoadStatus}

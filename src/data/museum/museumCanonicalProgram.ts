@@ -186,9 +186,9 @@ export const MUSEUM_CANONICAL_PROGRAM = [
         recordCapacity: 5,
         exhibits: [
           exhibit({id: 'ancient-greek', entityKind: 'branch', entityId: 'ancient-greek', displayName: 'Ancient Greek Philosophy', tier: 'supporting-exhibit', question: 'How should this particular Mediterranean history be situated without treating it as philosophy’s universal beginning?', secondaryHallIds: ['core-questions-forum', 'moral-life-practical-reason', 'hellenistic-roman-ways', 'late-antiquity-inheritance']}),
-          exhibit({id: 'thales', entityKind: 'philosopher', entityId: 'thales', displayName: 'Thales', tier: 'standard-individual-exhibit', question: 'What changes when natural events are explained through nature itself?', secondaryHallIds: ['core-questions-forum']}),
-          exhibit({id: 'anaximander', entityKind: 'philosopher', entityId: 'anaximander', displayName: 'Anaximander', tier: 'standard-individual-exhibit', question: 'Can the ordered world emerge from an indefinite origin?', secondaryHallIds: ['core-questions-forum']}),
-          exhibit({id: 'anaximenes', entityKind: 'philosopher', entityId: 'anaximenes', displayName: 'Anaximenes', tier: 'supporting-exhibit', question: 'Can qualitative difference arise through material processes of change?', secondaryHallIds: ['core-questions-forum']}),
+          exhibit({id: 'thales', entityKind: 'philosopher', entityId: 'thales', displayName: 'Thales', tier: 'standard-individual-exhibit', question: 'Could the changing world be explained through nature itself?', secondaryHallIds: ['core-questions-forum']}),
+          exhibit({id: 'anaximander', entityKind: 'philosopher', entityId: 'anaximander', displayName: 'Anaximander', tier: 'standard-individual-exhibit', question: 'If no familiar substance is enough, could the world arise from an indefinite source?', secondaryHallIds: ['core-questions-forum']}),
+          exhibit({id: 'anaximenes', entityKind: 'philosopher', entityId: 'anaximenes', displayName: 'Anaximenes', tier: 'supporting-exhibit', question: 'How could air become many different kinds of thing?', secondaryHallIds: ['core-questions-forum']}),
         ],
       },
       {

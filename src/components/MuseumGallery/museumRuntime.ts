@@ -7,7 +7,7 @@ import type {
   MuseumRuntimeNodeDefinition,
 } from '../../data/museum/museumWorldTypes';
 import {MUSEUM_TEXTURE_SPECS} from '../../data/museum/museumTexturePolicy';
-import type {MuseumPublicHallId} from '../../data/museumCatalog';
+import type {MuseumHallId, MuseumPublicHallId} from '../../data/museumCatalog';
 import type {MuseumHallRegistration} from './museumWorldRegistry';
 import {resolveMuseumWalkingSpeed} from './museumMovement';
 
@@ -156,6 +156,7 @@ export const resolveMuseumReadinessGateStatus = (
 
 export type MuseumSceneRuntimeProps = {
   definition: MuseumRuntimeNodeDefinition;
+  activeHallId: MuseumHallId;
   registrations: readonly MuseumHallRegistration[];
   readyHallEntryKeys: readonly string[];
   hallEntryLoadStatus: Readonly<Partial<Record<string, MuseumHallLoadStatus>>>;
