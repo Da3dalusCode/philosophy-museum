@@ -1,7 +1,11 @@
 import {branchById} from '../data/branches';
 import {learningPaths} from '../data/learningPaths';
 import {philosopherById} from '../data/philosophers';
-import {getMuseumExhibitCatalog, getMuseumHallCatalog} from '../data/museumCatalog';
+import {
+  getMuseumExhibitCatalog,
+  getMuseumHallCatalog,
+  getMuseumLegacyExhibitCompatibility,
+} from '../data/museumCatalog';
 import type {AppRoute, ArticleRoute} from './routes';
 
 export type ArticleRouteEntry = {
@@ -99,6 +103,13 @@ export const getRouteTitle = (route: AppRoute): string => {
       title = exhibit
         ? `${exhibit.displayName} — ${hall?.title ?? route.hallId}`
         : hall?.title ?? route.hallId;
+      break;
+    }
+    case 'museum-compatibility': {
+      const compatibility = getMuseumLegacyExhibitCompatibility(route.formerHallId, route.exhibitId);
+      title = compatibility
+        ? `${compatibility.displayName} — Museum installation status`
+        : 'Museum installation status';
       break;
     }
     case 'not-found':

@@ -65,10 +65,14 @@ const {
   DEFAULT_ROUTES,
   applyHashCanonicalization,
   branches,
+  DEFAULT_MUSEUM_HALL_ID,
   enableManualScrollRestoration,
   philosophers,
   learningPaths,
+  MUSEUM_HALL_ROUTE_ALIASES,
   MUSEUM_HALLS,
+  MUSEUM_LEGACY_EXHIBIT_COMPATIBILITY,
+  MUSEUM_LIVE_LEGACY_EXHIBIT_COMPATIBILITY,
   getArticleRouteEntries,
   getArticleSectionTarget,
   getRouteTitle,
@@ -174,34 +178,40 @@ check('top-level history and map routes parse and serialize', () => {
 
 check('Museum convenience, hall, and exhibit routes parse and serialize', () => {
   const convenience = expectKind('#/museum', 'museum');
-  assert.deepEqual(convenience.route, {kind: 'museum', hallId: 'ancient-greek'});
-  assert.equal(convenience.canonicalHash, '#/museum/ancient-greek');
+  assert.equal(DEFAULT_MUSEUM_HALL_ID, 'mediterranean-beginnings-classical');
+  assert.deepEqual(convenience.route, {kind: 'museum', hallId: DEFAULT_MUSEUM_HALL_ID});
+  assert.equal(convenience.canonicalHash, '#/museum/mediterranean-beginnings-classical');
   assert.equal(convenience.shouldReplace, true);
+  let exhibitCount = 0;
   for (const hall of MUSEUM_HALLS) {
     expectRoundTrip({kind: 'museum', hallId: hall.id});
     for (const exhibit of hall.exhibits) {
       expectRoundTrip({kind: 'museum', hallId: hall.id, exhibitId: exhibit.id});
+      exhibitCount += 1;
     }
   }
+  assert.equal(MUSEUM_HALLS.length, 6);
+  assert.equal(exhibitCount, 59);
 });
 
 check('serializers emit the required literal route families', () => {
   assert.equal(serializeHashRoute({kind: 'history'}), '#/history');
   assert.equal(serializeHashRoute({kind: 'map'}), '#/map');
   assert.equal(
-    serializeHashRoute({kind: 'museum', hallId: 'ancient-greek'}),
-    '#/museum/ancient-greek',
+    serializeHashRoute({kind: 'museum', hallId: 'mediterranean-beginnings-classical'}),
+    '#/museum/mediterranean-beginnings-classical',
   );
   assert.equal(
-    serializeHashRoute({kind: 'museum', hallId: 'ancient-greek', exhibitId: 'plato'}),
-    '#/museum/ancient-greek/exhibits/plato',
+    serializeHashRoute({kind: 'museum', hallId: 'mediterranean-beginnings-classical', exhibitId: 'plato'}),
+    '#/museum/mediterranean-beginnings-classical/exhibits/plato',
   );
-  assert.equal(serializeHashRoute({kind: 'museum', hallId: 'logic-language-science'}), '#/museum/logic-language-science');
-  assert.equal(serializeHashRoute({kind: 'museum', hallId: 'logic-language-science', exhibitId: 'peirce'}), '#/museum/logic-language-science/exhibits/peirce');
-  assert.equal(serializeHashRoute({kind: 'museum', hallId: 'ethics-justice-political-life'}), '#/museum/ethics-justice-political-life');
-  assert.equal(serializeHashRoute({kind: 'museum', hallId: 'ethics-justice-political-life', exhibitId: 'rawls'}), '#/museum/ethics-justice-political-life/exhibits/rawls');
-  assert.equal(serializeHashRoute({kind: 'museum', hallId: 'mind-consciousness-self'}), '#/museum/mind-consciousness-self');
-  assert.equal(serializeHashRoute({kind: 'museum', hallId: 'mind-consciousness-self', exhibitId: 'thomas-nagel'}), '#/museum/mind-consciousness-self/exhibits/thomas-nagel');
+  assert.equal(serializeHashRoute({kind: 'museum', hallId: 'analytic-traditions'}), '#/museum/analytic-traditions');
+  assert.equal(serializeHashRoute({kind: 'museum', hallId: 'analytic-traditions', exhibitId: 'frege'}), '#/museum/analytic-traditions/exhibits/frege');
+  assert.equal(serializeHashRoute({kind: 'museum', hallId: 'justice-democratic-reason'}), '#/museum/justice-democratic-reason');
+  assert.equal(serializeHashRoute({kind: 'museum', hallId: 'justice-democratic-reason', exhibitId: 'rawls'}), '#/museum/justice-democratic-reason/exhibits/rawls');
+  assert.equal(serializeHashRoute({kind: 'museum', hallId: 'core-questions-forum'}), '#/museum/core-questions-forum');
+  assert.equal(serializeHashRoute({kind: 'museum', hallId: 'core-questions-forum', exhibitId: 'jiddu-krishnamurti'}), '#/museum/core-questions-forum/exhibits/jiddu-krishnamurti');
+  assert.equal(serializeHashRoute({kind: 'museum-compatibility', formerHallId: 'renaissance-reason-revolution', exhibitId: 'kant'}), '#/museum/renaissance-reason-revolution/exhibits/kant');
   assert.equal(
     serializeHashRoute({kind: 'branch', branchId: 'stoicism'}),
     '#/branches/stoicism',
@@ -222,6 +232,45 @@ check('serializers emit the required literal route families', () => {
     serializeHashRoute({kind: 'learning-path', pathId: 'stoic', step: 2}),
     '#/paths/stoic/2',
   );
+});
+
+check('retired hall and exhibit routes preserve exact aliases or truthful compatibility handoffs', () => {
+  assert.deepEqual(MUSEUM_HALL_ROUTE_ALIASES, {
+    'ancient-greek': 'mediterranean-beginnings-classical',
+    'renaissance-reason-revolution': 'renaissance-humanism-new-method',
+    'modernity-freedom-critique': 'phenomenology-existence-embodiment',
+    'logic-language-science': 'analytic-traditions',
+    'ethics-justice-political-life': 'justice-democratic-reason',
+    'mind-consciousness-self': 'core-questions-forum',
+  });
+  assert.equal(MUSEUM_LIVE_LEGACY_EXHIBIT_COMPATIBILITY.length, 21);
+  assert.equal(MUSEUM_LEGACY_EXHIBIT_COMPATIBILITY.length, 27);
+
+  for (const [formerHallId, successorHallId] of Object.entries(MUSEUM_HALL_ROUTE_ALIASES)) {
+    const parsed = expectKind(`#/museum/${formerHallId}`, 'museum');
+    assert.deepEqual(parsed.route, {kind: 'museum', hallId: successorHallId});
+    assert.equal(parsed.canonicalHash, `#/museum/${successorHallId}`);
+    assert.equal(parsed.shouldReplace, true);
+  }
+  for (const record of MUSEUM_LIVE_LEGACY_EXHIBIT_COMPATIBILITY) {
+    const hash = `#/museum/${record.formerHallId}/exhibits/${record.exhibitId}`;
+    const parsed = expectKind(hash, 'museum');
+    assert.deepEqual(parsed.route, {
+      kind: 'museum',
+      hallId: record.liveExhibitRef.hallId,
+      exhibitId: record.liveExhibitRef.exhibitId,
+    });
+    assert.equal(parsed.canonicalHash, serializeHashRoute(parsed.route));
+    assert.equal(parsed.shouldReplace, true);
+  }
+  for (const record of MUSEUM_LEGACY_EXHIBIT_COMPATIBILITY) {
+    const hash = `#/museum/${record.formerHallId}/exhibits/${record.exhibitId}`;
+    const parsed = expectKind(hash, 'museum-compatibility');
+    assert.deepEqual(parsed.route, {kind: 'museum-compatibility', formerHallId: record.formerHallId, exhibitId: record.exhibitId});
+    assert.equal(parsed.canonicalHash, hash);
+    assert.equal(parsed.shouldReplace, false);
+    assert.equal(serializeHashRoute(parsed.route), hash);
+  }
 });
 
 check('top-level convenience routes resolve to their canonical defaults', () => {
@@ -292,15 +341,15 @@ check('unknown branch, philosopher, and learning-path IDs are rejected', () => {
 
 check('unknown and malformed Museum routes remain visible as not-found', () => {
   expectNotFound('#/museum/unknown-hall', /No museum hall exists/);
-  expectNotFound('#/museum/ancient-greek/exhibits/unknown-exhibit', /No exhibit exists/);
+  expectNotFound('#/museum/ancient-greek/exhibits/unknown-exhibit', /No former exhibit exists/);
   expectNotFound('#/museum/medieval-worlds', /No museum hall exists/);
   expectNotFound('#/museum/medieval-worlds/exhibits/plato', /No museum hall exists/);
-  expectNotFound('#/museum/ancient-greek/exhibits/aquinas', /No exhibit exists/);
-  expectNotFound('#/museum/renaissance-reason-revolution/exhibits/foucault', /No exhibit exists/);
-  expectNotFound('#/museum/modernity-freedom-critique/exhibits/kant', /No exhibit exists/);
-  expectNotFound('#/museum/logic-language-science/exhibits/rawls', /No exhibit exists/);
-  expectNotFound('#/museum/ethics-justice-political-life/exhibits/quine', /No exhibit exists/);
-  expectNotFound('#/museum/mind-consciousness-self/exhibits/habermas', /No exhibit exists/);
+  expectNotFound('#/museum/ancient-greek/exhibits/aquinas', /No former exhibit exists/);
+  expectNotFound('#/museum/renaissance-reason-revolution/exhibits/foucault', /No former exhibit exists/);
+  expectNotFound('#/museum/modernity-freedom-critique/exhibits/kant', /No former exhibit exists/);
+  expectNotFound('#/museum/logic-language-science/exhibits/rawls', /No former exhibit exists/);
+  expectNotFound('#/museum/ethics-justice-political-life/exhibits/quine', /No former exhibit exists/);
+  expectNotFound('#/museum/mind-consciousness-self/exhibits/habermas', /No former exhibit exists/);
   expectNotFound('#/museum/ancient-greek/plato', /unexpected shape/);
   expectNotFound('#/museum/ancient-greek/exhibits/plato/extra', /unexpected shape/);
   expectNotFound('#/museum/%', /malformed percent encoding/);
@@ -397,45 +446,45 @@ check('document titles are exhaustive and section-aware', () => {
     DEFAULT_ROUTES.comparePhilosophers,
     DEFAULT_ROUTES.learningPath,
     DEFAULT_ROUTES.museum,
-    {kind: 'museum', hallId: 'ancient-greek', exhibitId: 'plato'},
+    {kind: 'museum', hallId: 'mediterranean-beginnings-classical', exhibitId: 'plato'},
+    {kind: 'museum-compatibility', formerHallId: 'renaissance-reason-revolution', exhibitId: 'kant'},
     {kind: 'not-found', requestedHash: '#/missing', reason: 'Missing'},
   ];
   for (const route of routes) assert.match(getRouteTitle(route), / \| Philosophy Atlas$/);
   assert.equal(getRouteTitle({kind: 'history'}), 'Big History | Philosophy Atlas');
   assert.equal(
-    getRouteTitle({kind: 'museum', hallId: 'ancient-greek'}),
-    'Ancient Greek & Hellenistic Gallery | Philosophy Atlas',
+    getRouteTitle({kind: 'museum', hallId: 'mediterranean-beginnings-classical'}),
+    'Mediterranean Beginnings & Classical Athens | Philosophy Atlas',
   );
   assert.equal(
-    getRouteTitle({kind: 'museum', hallId: 'ancient-greek', exhibitId: 'plato'}),
-    'Plato — Ancient Greek & Hellenistic Gallery | Philosophy Atlas',
+    getRouteTitle({kind: 'museum', hallId: 'mediterranean-beginnings-classical', exhibitId: 'plato'}),
+    'Plato — Mediterranean Beginnings & Classical Athens | Philosophy Atlas',
   );
   assert.equal(
-    getRouteTitle({kind: 'museum', hallId: 'ancient-greek', exhibitId: 'stoicism'}),
-    'Stoicism — Ancient Greek & Hellenistic Gallery | Philosophy Atlas',
+    getRouteTitle({kind: 'museum', hallId: 'core-questions-forum', exhibitId: 'jiddu-krishnamurti'}),
+    'Jiddu Krishnamurti — Core Questions Forum | Philosophy Atlas',
   );
   assert.equal(
-    getRouteTitle({kind: 'museum', hallId: 'renaissance-reason-revolution'}),
-    'Renaissance, Reason, and Revolution | Philosophy Atlas',
+    getRouteTitle({kind: 'museum', hallId: 'renaissance-humanism-new-method'}),
+    'Renaissance, Political Order, and New Science | Philosophy Atlas',
   );
   assert.equal(
-    getRouteTitle({kind: 'museum', hallId: 'renaissance-reason-revolution', exhibitId: 'kant'}),
-    'Immanuel Kant — Renaissance, Reason, and Revolution | Philosophy Atlas',
+    getRouteTitle({kind: 'museum-compatibility', formerHallId: 'renaissance-reason-revolution', exhibitId: 'kant'}),
+    'Immanuel Kant — Museum installation status | Philosophy Atlas',
   );
   assert.equal(
-    getRouteTitle({kind: 'museum', hallId: 'modernity-freedom-critique'}),
-    'Modernity, Freedom, and Critique | Philosophy Atlas',
+    getRouteTitle({kind: 'museum', hallId: 'phenomenology-existence-embodiment'}),
+    'Phenomenology, Existence, and Embodiment | Philosophy Atlas',
   );
   assert.equal(
-    getRouteTitle({kind: 'museum', hallId: 'modernity-freedom-critique', exhibitId: 'beauvoir'}),
-    'Simone de Beauvoir — Modernity, Freedom, and Critique | Philosophy Atlas',
+    getRouteTitle({kind: 'museum', hallId: 'phenomenology-existence-embodiment', exhibitId: 'sartre'}),
+    'Jean-Paul Sartre — Phenomenology, Existence, and Embodiment | Philosophy Atlas',
   );
-  assert.equal(getRouteTitle({kind: 'museum', hallId: 'logic-language-science'}), 'Logic, Language, and Science | Philosophy Atlas');
-  assert.equal(getRouteTitle({kind: 'museum', hallId: 'logic-language-science', exhibitId: 'kuhn'}), 'Thomas Kuhn — Logic, Language, and Science | Philosophy Atlas');
-  assert.equal(getRouteTitle({kind: 'museum', hallId: 'ethics-justice-political-life'}), 'Ethics, Justice, and Political Life | Philosophy Atlas');
-  assert.equal(getRouteTitle({kind: 'museum', hallId: 'ethics-justice-political-life', exhibitId: 'wollstonecraft'}), 'Mary Wollstonecraft — Ethics, Justice, and Political Life | Philosophy Atlas');
-  assert.equal(getRouteTitle({kind: 'museum', hallId: 'mind-consciousness-self'}), 'Mind, Consciousness, and the Self | Philosophy Atlas');
-  assert.equal(getRouteTitle({kind: 'museum', hallId: 'mind-consciousness-self', exhibitId: 'derek-parfit'}), 'Derek Parfit — Mind, Consciousness, and the Self | Philosophy Atlas');
+  assert.equal(getRouteTitle({kind: 'museum', hallId: 'analytic-traditions'}), 'Analytic Traditions: Logic, Language, and Analysis | Philosophy Atlas');
+  assert.equal(getRouteTitle({kind: 'museum', hallId: 'analytic-traditions', exhibitId: 'wittgenstein'}), 'Wittgenstein — Analytic Traditions: Logic, Language, and Analysis | Philosophy Atlas');
+  assert.equal(getRouteTitle({kind: 'museum', hallId: 'justice-democratic-reason'}), 'Political Action, Justice, and Democratic Reason | Philosophy Atlas');
+  assert.equal(getRouteTitle({kind: 'museum', hallId: 'justice-democratic-reason', exhibitId: 'rawls'}), 'John Rawls — Political Action, Justice, and Democratic Reason | Philosophy Atlas');
+  assert.equal(getRouteTitle({kind: 'museum', hallId: 'core-questions-forum'}), 'Core Questions Forum | Philosophy Atlas');
   assert.equal(
     getRouteTitle({kind: 'branch', branchId: 'stoicism', section: 'overview'}),
     'Stoicism — A system for living as a rational and social being | Philosophy Atlas',
@@ -470,18 +519,19 @@ check('canonical hashes remain stable under parse → serialize → parse', () =
     '#/compare',
     '#/paths',
     '#/museum',
-    '#/museum/ancient-greek',
-    '#/museum/ancient-greek/exhibits/plato',
-    '#/museum/renaissance-reason-revolution',
+    '#/museum/mediterranean-beginnings-classical',
+    '#/museum/mediterranean-beginnings-classical/exhibits/plato',
+    '#/museum/renaissance-humanism-new-method',
     '#/museum/renaissance-reason-revolution/exhibits/kant',
-    '#/museum/modernity-freedom-critique',
+    '#/museum/phenomenology-existence-embodiment',
     '#/museum/modernity-freedom-critique/exhibits/beauvoir',
-    '#/museum/logic-language-science',
+    '#/museum/analytic-traditions',
     '#/museum/logic-language-science/exhibits/peirce',
-    '#/museum/ethics-justice-political-life',
+    '#/museum/justice-democratic-reason',
     '#/museum/ethics-justice-political-life/exhibits/rawls',
-    '#/museum/mind-consciousness-self',
+    '#/museum/core-questions-forum',
     '#/museum/mind-consciousness-self/exhibits/thomas-nagel',
+    '#/museum/core-questions-forum/exhibits/jiddu-krishnamurti',
     '#/branches/stoicism?section=overview',
     '#/philosophers/plato?section=major-works',
     serializeHashRoute(DEFAULT_ROUTES.compare),
@@ -515,15 +565,15 @@ check('browser history writes preserve push, replace, and same-hash semantics', 
   });
 
   const stateHarness = createHistoryHarness('#/history');
-  const museumState = {museum: {hallId: 'ancient-greek', openedFromHall: true}};
+  const museumState = {museum: {hallId: 'mediterranean-beginnings-classical', openedFromHall: true}};
   assert.equal(
-    writeHashRoute('#/museum/ancient-greek/exhibits/plato', false, stateHarness.target, museumState),
+    writeHashRoute('#/museum/mediterranean-beginnings-classical/exhibits/plato', false, stateHarness.target, museumState),
     true,
   );
   assert.deepEqual(stateHarness.calls[0], {
     method: 'pushState',
     state: museumState,
-    url: '#/museum/ancient-greek/exhibits/plato',
+    url: '#/museum/mediterranean-beginnings-classical/exhibits/plato',
   });
 });
 

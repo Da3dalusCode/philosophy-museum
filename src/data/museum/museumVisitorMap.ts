@@ -1,4 +1,4 @@
-import type {MuseumHallId} from '../museumCatalog';
+import type {MuseumPublicHallId as MuseumHallId} from '../museumCatalog';
 import {MUSEUM_BUILDING_MANIFEST} from './museumBuildingManifest';
 import {MUSEUM_WORLD_DEFINITIONS} from './museumBuildingRuntime';
 import type {

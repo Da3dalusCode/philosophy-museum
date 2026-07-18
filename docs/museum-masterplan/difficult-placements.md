@@ -156,6 +156,14 @@ The `islamic-philosophy` branch is an anchor in the first hall. The `medieval-sc
 
 **Resolution.** Intellectual continuity overrides the global era bin. The primary follows post-Avicennian, Illuminationist, Shiʿi, mystical, and Safavid debates; the Rationalism secondary is a bounded seventeenth-century comparison, not a claim that Mulla Sadra was a European rationalist. The renamed wing now signals “medieval and post-classical” continuity, but the gateway must still explain the mismatch between global era labels and this intellectual sequence. If the Islamic roster expands, a separate Post-Avicennian and Early Modern Islamic hall is the preferred expansion—not relocation into the European wing. [SEP’s Mulla Sadra entry](https://plato.stanford.edu/entries/mulla-sadra/) documents this synthesis and its later Islamic legacy; [SEP on Arabic and Islamic philosophy of religion](https://plato.stanford.edu/entries/arabic-islamic-religion/) explicitly extends its historical survey to this seventeenth-century continuation.
 
+### Jiddu Krishnamurti — South Asian formation without inherited-school membership
+
+**The disagreement.** Krishnamurti was born in South India, formed inside the international Theosophical movement at Adyar, and often compared with Yoga, Buddhist, or Vedānta discussions of mind and liberation. A South Asian primary would preserve biography but could falsely turn comparison into membership. A Philosophy of Religion primary could overstate affiliation to the organized authorities and paths he rejected. A modern Mind primary risks detaching him from colonial and Theosophical history unless the secondary route is unusually explicit.
+
+**Final assignment.** Krishnamurti is a `standard-individual-exhibit` in `wing-core-questions` → `core-questions-forum` → `core-mind-self`. He has a strong secondary route to `classical-south-asian-worlds` and a room-level comparison with the Forum’s Philosophy of Religion anchor.
+
+**Resolution.** The mature contribution to conditioning, thought, psychological time, fear, attention, relationship, and the observer–observed problem makes Mind & Self the clearest primary visitor narrative. Labels identify him as an independent spiritual philosopher and educator, not a member of Yoga, Vedānta, Buddhism, Jainism, or another inherited school. The South Asian route carries Madanapalle, Adyar, colonial history, Theosophical formation, and cross-cultural comparisons. The Philosophy of Religion comparison concerns his criticism of guru authority, organized allegiance, ritual dependence, and fixed paths; it is criticism and comparison, not affiliation. The [1929 dissolution speech](https://kfoundation.org/dissolution-speech/) is the primary institutional break, while Christine V. Williams’s independent biography supplies caution about chronology and later retrospective claims.
+
 ## Additional reviewer adjudications
 
 The following cases were not in the prompt’s examples, but specialist review found them important enough to record.
@@ -173,7 +181,7 @@ The following cases were not in the prompt’s examples, but specialist review f
 | Kierkegaard, Nietzsche, and Existentialism | Kierkegaard is a precursor and Nietzsche an influence, each primary in `faith-pessimism-life-value`; neither is silently made a member of the later movement. |
 | Mary Astell and Mary Wollstonecraft | Historical primary homes in `enlightenment-equality-education` preserve their early-modern/Enlightenment arguments. Feminist Philosophies receives substantial secondaries; Wollstonecraft’s is anchor-strength. [SEP: Wollstonecraft](https://plato.stanford.edu/entries/wollstonecraft/). |
 | Whitehead | Contribution-first exception: primary in Core Reality & Being for process metaphysics, not automatically in Analytic Traditions because of institutional proximity. |
-| William James, Quine, Nagel, and Parfit | James is primary in Pragmatism, Quine in Analytic Traditions, Nagel in Mind & Self, and Parfit in Moral Life. These choices follow the clearest mature contribution; secondary routes preserve mind, ethics, and method overlaps. |
+| William James, Quine, Nagel, Krishnamurti, and Parfit | James is primary in Pragmatism, Quine in Analytic Traditions, Nagel and Krishnamurti in Mind & Self, and Parfit in Moral Life. These choices follow the clearest mature contribution; Krishnamurti’s South Asian route remains biographical/comparative rather than inherited-school membership. |
 | Carnap, Popper, and Kuhn | Primary in the Forum’s Science room; Carnap also receives an Analytic secondary. Their joint placement is about competing accounts of science, not a claim that all three belonged to one school. |
 | Habermas | Critical Theory primary in `critique-critical-theory`; democratic legitimacy and public reason receive a major `justice-democratic-reason` secondary. |
 | Fanon | Primary in `colonial-embodiment-liberation`. “Decolonial” is a broad program route, not retrospective membership in a later coloniality school; phenomenological, critical, and justice secondaries remain visible. |
@@ -197,4 +205,4 @@ The masterplan resolves enough to build a coherent program, but it should not pr
 5. **Buddhist transmission beyond India and Chinese traditions beyond China** have reserved continuity zones but sparse current records. Expansion should deepen those worlds rather than move current figures into generic thematic halls.
 6. **Living-thinker tiers** are provisional and should be re-reviewed rather than inherited automatically by future versions of the Atlas.
 
-These are controlled review points. None changes the present accounting: every one of the 43 branch IDs and 141 philosopher IDs still has exactly one primary physical home.
+These are controlled review points. None changes the present accounting: every one of the 43 branch IDs and 142 philosopher IDs still has exactly one primary physical home.

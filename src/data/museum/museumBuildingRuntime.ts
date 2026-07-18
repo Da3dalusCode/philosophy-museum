@@ -1,9 +1,7 @@
-import {ANCIENT_GREEK_HALL_DEFINITION} from './ancientGreekHall';
-import {ETHICS_JUSTICE_POLITICAL_LIFE_HALL_DEFINITION} from './ethicsJusticePoliticalLifeHall';
-import {LOGIC_LANGUAGE_SCIENCE_HALL_DEFINITION} from './logicLanguageScienceHall';
-import {MIND_CONSCIOUSNESS_SELF_HALL_DEFINITION} from './mindConsciousnessSelfHall';
-import {MODERNITY_FREEDOM_CRITIQUE_HALL_DEFINITION} from './modernityFreedomCritiqueHall';
-import {RENAISSANCE_REASON_REVOLUTION_HALL_DEFINITION} from './renaissanceReasonRevolutionHall';
+import {
+  CANONICAL_MUSEUM_HALL_DEFINITIONS,
+  type MuseumCanonicalHallContentDefinition,
+} from './canonicalMuseumHalls';
 import {
   MUSEUM_BUILDING_MANIFEST,
   type MuseumManifestDoorwaySlot,
@@ -14,7 +12,6 @@ import {resolveMuseumHallShell} from './museumHallTemplates';
 import type {
   MuseumBounds,
   MuseumDirectedConnection,
-  MuseumHallContentDefinition,
   MuseumHallDefinition,
   MuseumHallEntrance,
   MuseumNavigationLayout,
@@ -24,16 +21,9 @@ import type {
   MuseumSpatialCell,
   MuseumWallDefinition,
 } from './museumWorldTypes';
-import type {MuseumHallId} from '../museumCatalog';
+import type {MuseumPublicHallId} from '../museumCatalog';
 
-const hallContents = [
-  ANCIENT_GREEK_HALL_DEFINITION,
-  RENAISSANCE_REASON_REVOLUTION_HALL_DEFINITION,
-  MODERNITY_FREEDOM_CRITIQUE_HALL_DEFINITION,
-  LOGIC_LANGUAGE_SCIENCE_HALL_DEFINITION,
-  ETHICS_JUSTICE_POLITICAL_LIFE_HALL_DEFINITION,
-  MIND_CONSCIOUSNESS_SELF_HALL_DEFINITION,
-] as const satisfies readonly MuseumHallContentDefinition[];
+const hallContents: readonly MuseumCanonicalHallContentDefinition[] = CANONICAL_MUSEUM_HALL_DEFINITIONS;
 
 const toEntrance = (slot: MuseumManifestDoorwaySlot): MuseumHallEntrance => ({
   id: slot.id,
@@ -394,10 +384,10 @@ export const MUSEUM_DIRECTED_CONNECTIONS = directedConnections;
 export const getMuseumRuntimeNode = (nodeId: MuseumPhysicalNodeId): MuseumRuntimeNodeDefinition | undefined =>
   MUSEUM_RUNTIME_NODES.find(({id}) => id === nodeId);
 
-export const getMuseumRuntimeHallNode = (hallId: MuseumHallId): MuseumRuntimeNodeDefinition | undefined =>
+export const getMuseumRuntimeHallNode = (hallId: MuseumPublicHallId): MuseumRuntimeNodeDefinition | undefined =>
   MUSEUM_RUNTIME_NODES.find(({publicHallId}) => publicHallId === hallId);
 
-export const getMuseumHallDefinition = (hallId: MuseumHallId): MuseumHallDefinition | undefined =>
+export const getMuseumHallDefinition = (hallId: MuseumPublicHallId): MuseumHallDefinition | undefined =>
   MUSEUM_WORLD_DEFINITIONS.find(({id}) => id === hallId);
 
 export const getMuseumNodeConnections = (nodeId: MuseumPhysicalNodeId): readonly MuseumDirectedConnection[] =>
@@ -405,4 +395,4 @@ export const getMuseumNodeConnections = (nodeId: MuseumPhysicalNodeId): readonly
 
 export const getMuseumConnectionTargetHallId = (
   connection: Pick<MuseumDirectedConnection, 'targetNodeId'>,
-): MuseumHallId | undefined => getMuseumRuntimeNode(connection.targetNodeId)?.publicHallId;
+): MuseumPublicHallId | undefined => getMuseumRuntimeNode(connection.targetNodeId)?.publicHallId;

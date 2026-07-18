@@ -1,4 +1,4 @@
-import {getMuseumHallCatalog, type MuseumHallCatalog, type MuseumHallId} from '../museumCatalog';
+import {getMuseumHallCatalog, type MuseumCanonicalHallCatalog, type MuseumPublicHallId as MuseumHallId} from '../museumCatalog';
 import {MUSEUM_BUILDING_MANIFEST} from './museumBuildingManifest';
 import {
   getMuseumRuntimeHallNode,
@@ -27,7 +27,7 @@ import type {
 export type MuseumVisitorMapPoint = {x: number; y: number};
 
 export type MuseumVisitorMapProjectionNode = {
-  hall: MuseumHallCatalog;
+  hall: MuseumCanonicalHallCatalog;
   node: MuseumVisitorMapNode;
   physicalNode: MuseumRuntimeNodeDefinition;
 };
@@ -236,9 +236,26 @@ export const MUSEUM_VISITOR_MAP_EDGES: readonly MuseumVisitorMapProjectionEdge[]
   });
 })();
 
-/** Every authored doorway, projected with its true clear width and inward side. */
+const liveDoorwayKeys = new Set<string>([
+  `${MUSEUM_BUILDING_MANIFEST.mainEntrance.nodeId}:${MUSEUM_BUILDING_MANIFEST.mainEntrance.slotId}`,
+  ...MUSEUM_DIRECTED_CONNECTIONS
+    .filter(({accessible, implementationStatus}) => accessible && implementationStatus === 'live')
+    .flatMap((connection) => [
+      `${connection.sourceNodeId}:${connection.localEntranceId}`,
+      `${connection.targetNodeId}:${connection.targetEntranceId}`,
+    ]),
+]);
+
+/**
+ * Every constructed, walkable doorway, projected with its true clear width and
+ * inward side. Dormant template slots are solid closures and deliberately do
+ * not appear as doors; blocked future interfaces are represented separately by
+ * MUSEUM_VISITOR_MAP_RESERVATIONS.
+ */
 export const MUSEUM_VISITOR_MAP_DOORWAYS: readonly MuseumVisitorMapDoorwayProjection[] =
-  MUSEUM_BUILDING_MANIFEST.nodes.flatMap((node) => node.doorwaySlots.map((slot) => {
+  MUSEUM_BUILDING_MANIFEST.nodes.flatMap((node) => node.doorwaySlots
+    .filter((slot) => liveDoorwayKeys.has(`${node.id}:${slot.id}`))
+    .map((slot) => {
     const tangent = {x: -slot.inwardNormal.z, z: slot.inwardNormal.x};
     const start = projectLocalPoint({
       x: slot.position.x - tangent.x * slot.clearWidth / 2,
@@ -262,7 +279,7 @@ export const MUSEUM_VISITOR_MAP_DOORWAYS: readonly MuseumVisitorMapDoorwayProjec
       isMainEntrance: node.id === MUSEUM_BUILDING_MANIFEST.mainEntrance.nodeId
         && slot.id === MUSEUM_BUILDING_MANIFEST.mainEntrance.slotId,
     };
-  }));
+    }));
 
 export const MUSEUM_VISITOR_MAP_ENTRANCE: MuseumVisitorMapDoorwayProjection = (() => {
   const entrance = MUSEUM_VISITOR_MAP_DOORWAYS.find(({isMainEntrance}) => isMainEntrance);
@@ -270,7 +287,7 @@ export const MUSEUM_VISITOR_MAP_ENTRANCE: MuseumVisitorMapDoorwayProjection = ((
   return entrance;
 })();
 
-/** Four insertion bays and eight blocked outward portals from the approved manifest. */
+/** Three insertion bays and eight blocked outward portals from the approved manifest. */
 export const MUSEUM_VISITOR_MAP_RESERVATIONS: readonly MuseumVisitorMapReservationProjection[] =
   MUSEUM_BUILDING_MANIFEST.reservations.map((reservation) => {
     const host = getMuseumRuntimeNode(reservation.hostNodeId);

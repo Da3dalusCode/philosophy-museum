@@ -2,8 +2,16 @@ import {Search, X} from 'lucide-react';
 import {useEffect, useId, useRef, useState} from 'react';
 import {branches} from '../../data/branches';
 import {philosophers} from '../../data/philosophers';
+import {MUSEUM_HALLS} from '../../data/museumCatalog';
 import {subscribeToHashRoute} from '../../routing/hashHistory';
-import type {RouteHref} from '../../routing/routes';
+import type {NavigableAppRoute, RouteHref} from '../../routing/routes';
+
+type SearchResult = {
+  id: string;
+  label: string;
+  type: 'Branch' | 'Philosopher' | 'Museum hall' | 'Museum exhibit';
+  route: NavigableAppRoute;
+};
 
 export function GlobalSearch({href}: {href: RouteHref}) {
   const [q, setQ] = useState('');
@@ -11,9 +19,41 @@ export function GlobalSearch({href}: {href: RouteHref}) {
   const wrapRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const resultsId = useId();
-  const results = q.length > 1 ? [
-    ...branches.filter((item) => item.name.toLowerCase().includes(q.toLowerCase())).slice(0, 5).map((item) => ({...item, type: 'Branch' as const})),
-    ...philosophers.filter((item) => item.name.toLowerCase().includes(q.toLowerCase())).slice(0, 5).map((item) => ({...item, type: 'Philosopher' as const})),
+  const query = q.trim().toLocaleLowerCase();
+  const matches = (parts: readonly (string | readonly string[])[]): boolean => parts.flat().join(' ').toLocaleLowerCase().includes(query);
+  const matchingLensEntityIds = new Set<string>(MUSEUM_HALLS.flatMap((hall) => hall.zones.flatMap((zone) =>
+    zone.comparativeLenses
+      .filter((lens) => matches([lens.displayName, lens.culturalSetting, lens.rationale, hall.title, zone.title]))
+      .map(({entityId}) => entityId),
+  )));
+  const results: readonly SearchResult[] = query.length > 1 ? [
+    ...branches.filter((item) => matches([item.name, item.shortDefinition, item.coreQuestions, item.keyConcepts.map(({name}) => name)])).slice(0, 4).map((item) => ({
+      id: item.id,
+      label: item.name,
+      type: 'Branch' as const,
+      route: {kind: 'branch' as const, branchId: item.id},
+    })),
+    ...philosophers.filter((item) => matchingLensEntityIds.has(item.id) || matches([item.name, item.mainIdeas, item.keyWorks, item.tradition])).slice(0, 4).map((item) => ({
+      id: item.id,
+      label: item.name,
+      type: 'Philosopher' as const,
+      route: {kind: 'philosopher' as const, philosopherId: item.id},
+    })),
+    ...MUSEUM_HALLS.filter((hall) => matches([hall.title, hall.period, hall.description, hall.sweep])).slice(0, 3).map((hall) => ({
+      id: hall.id,
+      label: hall.title,
+      type: 'Museum hall' as const,
+      route: {kind: 'museum' as const, hallId: hall.id},
+    })),
+    ...MUSEUM_HALLS.flatMap((hall) => hall.exhibits.map((exhibit) => ({hall, exhibit})))
+      .filter(({hall, exhibit}) => matches([exhibit.displayName, exhibit.question, hall.title, hall.zones.find(({id}) => id === exhibit.zoneId)?.title ?? '']))
+      .slice(0, 5)
+      .map(({hall, exhibit}) => ({
+        id: `${hall.id}:${exhibit.id}`,
+        label: exhibit.displayName,
+        type: 'Museum exhibit' as const,
+        route: {kind: 'museum' as const, hallId: hall.id, exhibitId: exhibit.id},
+      })),
   ] : [];
   useEffect(() => subscribeToHashRoute(() => {
     setQ('');
@@ -38,14 +78,12 @@ export function GlobalSearch({href}: {href: RouteHref}) {
     }
   }}>
     <Search size={16}/>
-    <input ref={inputRef} value={q} onFocus={() => results.length > 0 && setOpen(true)} onChange={(event) => {setQ(event.target.value);setOpen(true)}} placeholder="Search ideas and thinkers…" aria-label="Global search" aria-expanded={open && results.length > 0} aria-controls={resultsId}/>
+    <input ref={inputRef} value={q} onFocus={() => results.length > 0 && setOpen(true)} onChange={(event) => {setQ(event.target.value);setOpen(true)}} placeholder="Search ideas, thinkers, and Museum…" aria-label="Global search" aria-expanded={open && results.length > 0} aria-controls={resultsId}/>
     {q && <button type="button" aria-label="Clear search" onClick={() => clear(true)}><X size={15}/></button>}
     {open && results.length > 0 && <div className="search-results" id={resultsId} aria-label="Search results">{results.map((result) => <a
       key={`${result.type}-${result.id}`}
-      href={href(result.type === 'Branch'
-        ? {kind: 'branch', branchId: result.id}
-        : {kind: 'philosopher', philosopherId: result.id})}
+      href={href(result.route)}
       onClick={() => clear(false)}
-    ><span>{result.name}</span><small>{result.type}</small></a>)}</div>}
+    ><span>{result.label}</span><small>{result.type}</small></a>)}</div>}
   </div>;
 }

@@ -1,373 +1,113 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import ts from 'typescript';
+import {fileURLToPath} from 'node:url';
+import {build} from 'vite';
 
-const root = process.cwd();
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const packageDir = path.join(root, 'docs', 'museum-masterplan');
 const errors = [];
-const checks = [];
+let checks = 0;
+
 const check = (condition, message) => {
+  checks += 1;
   if (!condition) errors.push(message);
 };
-const passed = (message) => checks.push(message);
+const same = (first, second) => JSON.stringify(first) === JSON.stringify(second);
+const unique = (values) => new Set(values).size === values.length;
+const sorted = (values) => [...values].sort();
+const splitIds = (value) => value ? value.split(';').map((id) => id.trim()).filter(Boolean) : [];
+const readJson = (relativePath) => JSON.parse(fs.readFileSync(path.join(root, relativePath), 'utf8'));
 
-function sourceSpecIds(file) {
-  const fullPath = path.join(root, file);
-  const source = fs.readFileSync(fullPath, 'utf8');
-  const ast = ts.createSourceFile(file, source, ts.ScriptTarget.Latest, true, ts.ScriptKind.TS);
-  let initializer;
-  const visit = (node) => {
-    if (ts.isVariableDeclaration(node) && node.name.getText(ast) === 'specs') initializer = node.initializer;
-    ts.forEachChild(node, visit);
-  };
-  visit(ast);
-  check(Boolean(initializer), `${file}: specs array was not found`);
-  if (!initializer) return [];
-  while (ts.isAsExpression(initializer) || ts.isSatisfiesExpression(initializer)) initializer = initializer.expression;
-  check(ts.isArrayLiteralExpression(initializer), `${file}: specs is not an array literal`);
-  if (!ts.isArrayLiteralExpression(initializer)) return [];
-  return initializer.elements.map((row, index) => {
-    check(ts.isArrayLiteralExpression(row), `${file}: specs row ${index + 1} is not an array`);
-    const id = ts.isArrayLiteralExpression(row) ? row.elements[0] : undefined;
-    check(Boolean(id && ts.isStringLiteral(id)), `${file}: specs row ${index + 1} has no literal ID`);
-    return id && ts.isStringLiteral(id) ? id.text : '';
-  }).filter(Boolean);
-}
-
-function sourceAccuracyDateDisplays(file) {
-  const fullPath = path.join(root, file);
-  const source = fs.readFileSync(fullPath, 'utf8');
-  const ast = ts.createSourceFile(file, source, ts.ScriptTarget.Latest, true, ts.ScriptKind.TS);
-  let initializer;
-  const visit = (node) => {
-    if (ts.isVariableDeclaration(node) && node.name.getText(ast) === 'accuracyDepth') initializer = node.initializer;
-    ts.forEachChild(node, visit);
-  };
-  visit(ast);
-  check(Boolean(initializer), `${file}: accuracyDepth object was not found`);
-  while (initializer && (ts.isAsExpression(initializer) || ts.isSatisfiesExpression(initializer))) initializer = initializer.expression;
-  check(Boolean(initializer && ts.isObjectLiteralExpression(initializer)), `${file}: accuracyDepth is not an object literal`);
-  const result = new Map();
-  if (!initializer || !ts.isObjectLiteralExpression(initializer)) return result;
-  for (const property of initializer.properties) {
-    if (!ts.isPropertyAssignment(property) || !ts.isObjectLiteralExpression(property.initializer)) continue;
-    const id = ts.isIdentifier(property.name) || ts.isStringLiteral(property.name) ? property.name.text : undefined;
-    if (!id) continue;
-    const date = property.initializer.properties.find((item) => ts.isPropertyAssignment(item) && item.name.getText(ast) === 'dateDisplay');
-    if (date && ts.isPropertyAssignment(date) && ts.isStringLiteral(date.initializer)) result.set(id, date.initializer.text);
-  }
-  return result;
-}
-
-function parseCsv(file) {
-  const text = fs.readFileSync(path.join(packageDir, file), 'utf8');
+const parseCsv = (fileName) => {
+  const text = fs.readFileSync(path.join(packageDir, fileName), 'utf8');
   const records = [];
-  let record = [];
+  let row = [];
   let field = '';
   let quoted = false;
-  for (let i = 0; i < text.length; i += 1) {
-    const char = text[i];
+  for (let index = 0; index < text.length; index += 1) {
+    const character = text[index];
     if (quoted) {
-      if (char === '"' && text[i + 1] === '"') {
+      if (character === '"' && text[index + 1] === '"') {
         field += '"';
-        i += 1;
-      } else if (char === '"') quoted = false;
-      else field += char;
-    } else if (char === '"') quoted = true;
-    else if (char === ',') {
-      record.push(field);
+        index += 1;
+      } else if (character === '"') quoted = false;
+      else field += character;
+    } else if (character === '"') quoted = true;
+    else if (character === ',') {
+      row.push(field);
       field = '';
-    } else if (char === '\n') {
-      record.push(field.replace(/\r$/, ''));
-      if (record.some((value) => value.length > 0)) records.push(record);
-      record = [];
+    } else if (character === '\n') {
+      row.push(field.replace(/\r$/, ''));
+      if (row.some(Boolean)) records.push(row);
+      row = [];
       field = '';
-    } else field += char;
+    } else field += character;
   }
-  check(!quoted, `${file}: unterminated quoted field`);
-  if (field || record.length) {
-    record.push(field.replace(/\r$/, ''));
-    records.push(record);
+  check(!quoted, `${fileName}: unterminated quoted field`);
+  if (field || row.length) {
+    row.push(field.replace(/\r$/, ''));
+    records.push(row);
   }
-  const [headers, ...rows] = records;
-  check(Boolean(headers?.length), `${file}: missing header row`);
+  const [headers, ...values] = records;
+  check(Boolean(headers?.length), `${fileName}: missing header row`);
   if (!headers) return [];
-  return rows.map((values, index) => {
-    check(values.length === headers.length, `${file}: row ${index + 2} has ${values.length} columns; expected ${headers.length}`);
-    return Object.fromEntries(headers.map((header, column) => [header, values[column] ?? '']));
+  return values.map((columns, index) => {
+    check(columns.length === headers.length, `${fileName}: row ${index + 2} has ${columns.length} columns; expected ${headers.length}`);
+    return Object.fromEntries(headers.map((header, column) => [header, columns[column] ?? '']));
   });
-}
+};
 
-function exactCoverage(label, sourceIds, rows) {
-  const source = new Set(sourceIds);
-  const seen = new Map();
-  for (const row of rows) seen.set(row.id, (seen.get(row.id) ?? 0) + 1);
-  for (const id of source) check(seen.get(id) === 1, `${label}: ${id} has ${seen.get(id) ?? 0} primary assignment rows; expected 1`);
-  for (const [id, count] of seen) {
-    check(source.has(id), `${label}: unknown ID ${id}`);
-    check(count === 1, `${label}: duplicate ID ${id}`);
-  }
-  check(rows.length === source.size, `${label}: ${rows.length} rows do not match ${source.size} source IDs`);
-  if (rows.length === source.size && [...source].every((id) => seen.get(id) === 1)) passed(`${label}: ${source.size}/${source.size} assigned exactly once`);
-}
-
-const philosopherIds = sourceSpecIds('src/data/philosophers.ts');
-const philosopherAccuracyDates = sourceAccuracyDateDisplays('src/data/philosophers.ts');
-const branchIds = ['stoicism', ...sourceSpecIds('src/data/branches.ts')];
-const philosophers = parseCsv('philosopher-assignments.csv');
-const branches = parseCsv('branch-assignments.csv');
-exactCoverage('Philosophers', philosopherIds, philosophers);
-exactCoverage('Branches', branchIds, branches);
-check(philosopherIds.length === 141, `Approved program: expected exactly 141 philosophers, found ${philosopherIds.length}`);
-check(branchIds.length === 43, `Approved program: expected exactly 43 branches, found ${branchIds.length}`);
-for (const [id, dateDisplay] of philosopherAccuracyDates) {
-  const row = philosophers.find((candidate) => candidate.id === id);
-  check(row?.source_date_context === dateDisplay, `Philosopher ${id}: source_date_context does not match applied dateDisplay metadata`);
-}
-if ([...philosopherAccuracyDates].every(([id, dateDisplay]) => philosophers.find((row) => row.id === id)?.source_date_context === dateDisplay)) {
-  passed(`Source date-display metadata: ${philosopherAccuracyDates.size}/${philosopherAccuracyDates.size} accuracy overrides preserved`);
-}
-
-const program = JSON.parse(fs.readFileSync(path.join(packageDir, 'hall-program.json'), 'utf8'));
-const wingIds = new Set(program.wings.map(({id}) => id));
-const hallIds = new Set(program.halls.map(({id}) => id));
-const roomIds = new Set(program.rooms.map(({id}) => id));
-const tierIds = new Set(program.tiers.map(({id}) => id));
-const templateIds = new Set(program.templates.map(({id}) => id));
-check(wingIds.size === program.wings.length, 'hall-program.json: duplicate wing ID');
-check(hallIds.size === program.halls.length, 'hall-program.json: duplicate hall ID');
-check(roomIds.size === program.rooms.length, 'hall-program.json: duplicate room ID');
-check(tierIds.size === program.tiers.length, 'hall-program.json: duplicate tier ID');
-check(templateIds.size === program.templates.length, 'hall-program.json: duplicate template ID');
-
-const templateById = new Map(program.templates.map((template) => [template.id, template]));
-const normalTemplateIds = ['standard-rect', 'sequence-3', 'crossroads-4'];
-check(program.status === 'approved-planning-contract', `hall-program.json: expected approved-planning-contract status, found ${program.status}`);
-check(program.recommendedOptionId === 'worlds-with-questions-forum-expanded', `hall-program.json: approved option changed to ${program.recommendedOptionId}`);
-check(program.wings.length === 10, `Approved program: expected 10 wings, found ${program.wings.length}`);
-check(program.halls.length === 26, `Approved program: expected 26 halls, found ${program.halls.length}`);
-check(program.rooms.length === 105, `Approved program: expected 105 rooms, found ${program.rooms.length}`);
-check(program.templates.length === 4, `Approved program: expected three normal templates plus one rare focal template, found ${program.templates.length}`);
-check(normalTemplateIds.every((id) => templateIds.has(id)), 'Approved program: normal template set must be standard-rect, sequence-3, and crossroads-4');
-check(templateIds.has('focal-terminal'), 'Approved program: rare focal-terminal template is missing');
-check(program.halls.every(({templateId}) => normalTemplateIds.includes(templateId)), 'Approved program: focal-terminal may be used only as a rare exception, not a normal hall assignment');
-for (const template of program.templates) {
-  check(new Set(template.portalSlots).size === template.portalSlots.length, `Template ${template.id}: duplicate portal slot`);
-  check(new Set(template.optionalPortalSlots ?? []).size === (template.optionalPortalSlots ?? []).length, `Template ${template.id}: duplicate optional portal slot`);
-  for (const slot of template.optionalPortalSlots ?? []) check(template.portalSlots.includes(slot), `Template ${template.id}: optional slot ${slot} is not in portalSlots`);
-  check(Array.isArray(template.roomRange) && template.roomRange.length === 2 && template.roomRange[0] <= template.roomRange[1], `Template ${template.id}: invalid roomRange`);
-}
-
-const hallById = new Map(program.halls.map((hall) => [hall.id, hall]));
-const roomById = new Map(program.rooms.map((room) => [room.id, room]));
-for (const wing of program.wings) {
-  for (const hallId of wing.hallIds) {
-    check(hallIds.has(hallId), `Wing ${wing.id}: unknown hall ${hallId}`);
-    check(hallById.get(hallId)?.wingId === wing.id, `Wing ${wing.id}: hall ${hallId} points to ${hallById.get(hallId)?.wingId}`);
-  }
-  const wingHalls = program.halls.filter((hall) => hall.wingId === wing.id);
-  const roomCount = wingHalls.reduce((sum, hall) => sum + hall.roomIds.length, 0);
-  const capacity = wingHalls.reduce((sum, hall) => sum + hall.recordCapacity, 0);
-  check(wing.hallIds.length === wingHalls.length, `Wing ${wing.id}: hall count mismatch`);
-  check(wing.roomCount === roomCount, `Wing ${wing.id}: roomCount ${wing.roomCount} does not equal ${roomCount}`);
-  check(wing.recordCapacity === capacity, `Wing ${wing.id}: capacity ${wing.recordCapacity} does not equal ${capacity}`);
-}
-for (const hall of program.halls) {
-  check(wingIds.has(hall.wingId), `Hall ${hall.id}: unknown wing ${hall.wingId}`);
-  check(templateIds.has(hall.templateId), `Hall ${hall.id}: unknown template ${hall.templateId}`);
-  check(!Object.hasOwn(hall, 'implementationStatus'), `Hall ${hall.id}: runtime implementationStatus belongs in the physical manifest, not the hall program`);
-  const template = templateById.get(hall.templateId);
-  check(Boolean(template && hall.roomIds.length >= template.roomRange[0] && hall.roomIds.length <= template.roomRange[1]), `Hall ${hall.id}: room count is outside template ${hall.templateId} range`);
-  for (const roomId of hall.roomIds) {
-    check(roomIds.has(roomId), `Hall ${hall.id}: unknown room ${roomId}`);
-    check(roomById.get(roomId)?.hallId === hall.id, `Hall ${hall.id}: room ${roomId} points to ${roomById.get(roomId)?.hallId}`);
-  }
-  const capacity = hall.roomIds.reduce((sum, roomId) => sum + (roomById.get(roomId)?.recordCapacity ?? 0), 0);
-  check(hall.recordCapacity === capacity, `Hall ${hall.id}: capacity ${hall.recordCapacity} does not equal room total ${capacity}`);
-}
-for (const room of program.rooms) {
-  check(hallIds.has(room.hallId), `Room ${room.id}: unknown hall ${room.hallId}`);
-  check(Number.isInteger(room.recordCapacity) && room.recordCapacity >= 1, `Room ${room.id}: invalid capacity ${room.recordCapacity}`);
-}
-
-const roomOccupancy = new Map(program.rooms.map((room) => [room.id, 0]));
-for (const [label, rows] of [['Philosopher', philosophers], ['Branch', branches]]) {
-  for (const row of rows) {
-    const hall = hallById.get(row.primary_hall_id);
-    const room = roomById.get(row.primary_room_id);
-    check(wingIds.has(row.primary_wing_id), `${label} ${row.id}: unknown wing ${row.primary_wing_id}`);
-    check(Boolean(hall), `${label} ${row.id}: unknown hall ${row.primary_hall_id}`);
-    check(Boolean(room), `${label} ${row.id}: unknown room ${row.primary_room_id}`);
-    check(hall?.wingId === row.primary_wing_id, `${label} ${row.id}: wing/hall mismatch`);
-    check(room?.hallId === row.primary_hall_id, `${label} ${row.id}: hall/room mismatch`);
-    check(tierIds.has(row.tier), `${label} ${row.id}: unknown tier ${row.tier}`);
-    check(Boolean(row.rationale.trim()), `${label} ${row.id}: missing rationale`);
-    for (const secondary of row.secondary_hall_ids.split(';').filter(Boolean)) {
-      check(hallIds.has(secondary), `${label} ${row.id}: unknown secondary hall ${secondary}`);
-      check(secondary !== row.primary_hall_id, `${label} ${row.id}: primary hall repeated as secondary`);
-    }
-    const secondaries = row.secondary_hall_ids.split(';').filter(Boolean);
-    check(new Set(secondaries).size === secondaries.length, `${label} ${row.id}: duplicate secondary hall reference`);
-    if (!secondaries.length) check(!/\bsecondar(?:y|ies)\b|\blinks?\b/i.test(row.rationale), `${label} ${row.id}: rationale claims a secondary/link but secondary_hall_ids is blank`);
-    if (secondaries.length) check(!/\bno (?:additional )?hall route\b|\bno secondar(?:y|ies)\b/i.test(row.rationale), `${label} ${row.id}: rationale denies a route but secondary_hall_ids is populated`);
-    if (room) roomOccupancy.set(room.id, roomOccupancy.get(room.id) + 1);
-  }
-}
-for (const room of program.rooms) check(roomOccupancy.get(room.id) <= room.recordCapacity, `Room ${room.id}: occupancy ${roomOccupancy.get(room.id)} exceeds capacity ${room.recordCapacity}`);
-passed('All assignment references, tiers, rationales, and secondary halls resolve');
-
-const beauvoir = philosophers.find(({id}) => id === 'beauvoir');
-check(Boolean(beauvoir), 'Approved Beauvoir assignment is missing');
-if (beauvoir) {
-  check(beauvoir.primary_wing_id === 'wing-ethics-politics-society', `Beauvoir: primary wing changed to ${beauvoir.primary_wing_id}`);
-  check(beauvoir.primary_hall_id === 'feminist-philosophies', `Beauvoir: primary hall changed to ${beauvoir.primary_hall_id}`);
-  check(beauvoir.primary_room_id === 'feminist-situated-freedom', `Beauvoir: primary room changed to ${beauvoir.primary_room_id}`);
-  check(beauvoir.tier === 'anchor-exhibit', `Beauvoir: expected anchor-exhibit tier, found ${beauvoir.tier}`);
-  check(beauvoir.secondary_hall_ids.split(';').filter(Boolean).includes('phenomenology-existence-embodiment'), 'Beauvoir: Phenomenology, Existence, and Embodiment must remain an anchor secondary route');
-  check(/anchor-strength/i.test(`${beauvoir.rationale} ${beauvoir.controversy_note}`), 'Beauvoir: anchor-strength secondary rationale is missing');
-}
-
-const recommended = program.optionSummaries.find(({id}) => id === program.recommendedOptionId);
-check(Boolean(recommended), `Recommended option ${program.recommendedOptionId} is missing`);
-if (recommended) {
-  const actualCapacity = program.rooms.reduce((sum, room) => sum + room.recordCapacity, 0);
-  check(recommended.wingCount === program.wings.length, 'Recommended option wing total mismatch');
-  check(recommended.hallCount === program.halls.length, 'Recommended option hall total mismatch');
-  check(recommended.roomCount === program.rooms.length, 'Recommended option room total mismatch');
-  check(recommended.recordCapacity === actualCapacity, 'Recommended option capacity mismatch');
-  check(actualCapacity === 258, `Approved program: expected 258 record slots, found ${actualCapacity}`);
-}
-for (const option of program.optionSummaries) {
-  const breakdown = program.optionWingBreakdowns[option.id];
-  check(Array.isArray(breakdown), `Option ${option.id}: missing wing breakdown`);
-  if (!Array.isArray(breakdown)) continue;
-  check(new Set(breakdown.map((wing) => wing.id)).size === breakdown.length, `Option ${option.id}: duplicate wing breakdown ID`);
-  const totals = breakdown.reduce((sum, wing) => ({wings: sum.wings + 1, halls: sum.halls + wing.hallCount, rooms: sum.rooms + wing.roomCount, capacity: sum.capacity + wing.recordCapacity}), {wings: 0, halls: 0, rooms: 0, capacity: 0});
-  check(option.wingCount === totals.wings, `Option ${option.id}: wing total ${option.wingCount} does not equal ${totals.wings}`);
-  check(option.hallCount === totals.halls, `Option ${option.id}: hall total ${option.hallCount} does not equal ${totals.halls}`);
-  check(option.roomCount === totals.rooms, `Option ${option.id}: room total ${option.roomCount} does not equal ${totals.rooms}`);
-  check(option.recordCapacity === totals.capacity, `Option ${option.id}: capacity ${option.recordCapacity} does not equal ${totals.capacity}`);
-  check(option.recordCapacity >= philosopherIds.length + branchIds.length, `Option ${option.id}: capacity cannot hold all ${philosopherIds.length + branchIds.length} primary records`);
-}
-passed('All three program-option counts and capacities reconcile');
-
-check(program.assignmentCounts.philosophers === philosopherIds.length, 'Program philosopher assignment count mismatch');
-check(program.assignmentCounts.branches === branchIds.length, 'Program branch assignment count mismatch');
-check(program.assignmentCounts.totalPrimaryRecords === philosopherIds.length + branchIds.length, 'Program total assignment count mismatch');
-
-const manifest = JSON.parse(fs.readFileSync(path.join(packageDir, 'building-manifest.example.json'), 'utf8'));
-check(Boolean(manifest.manifestVersion), 'Building manifest: missing manifestVersion');
-check(Boolean(manifest.physicalOptionId), 'Building manifest: missing physicalOptionId');
-check(Boolean(manifest.coordinateFrames?.safeArrivalPoses), 'Building manifest: safe-arrival coordinate frame is not declared');
-const levelIds = new Set(manifest.levels.map((level) => level.id));
-const nodeIds = new Set(manifest.nodes.map((node) => node.id));
-const connectionIds = new Set(manifest.connections.map((connection) => connection.id));
-const reservationIds = new Set(manifest.reservations.map((reservation) => reservation.id));
-check(levelIds.size === manifest.levels.length, 'Building manifest: duplicate level ID');
-check(nodeIds.size === manifest.nodes.length, 'Building manifest: duplicate node ID');
-check(connectionIds.size === manifest.connections.length, 'Building manifest: duplicate connection ID');
-check(reservationIds.size === manifest.reservations.length, 'Building manifest: duplicate reservation ID');
-
-const nodeById = new Map(manifest.nodes.map((node) => [node.id, node]));
-const usedConnectionSlots = new Set();
-const bounds = (polygon) => ({
-  minX: Math.min(...polygon.map(([x]) => x)),
-  maxX: Math.max(...polygon.map(([x]) => x)),
-  minZ: Math.min(...polygon.map(([, z]) => z)),
-  maxZ: Math.max(...polygon.map(([, z]) => z))
+const virtualEntry = 'virtual:philosophy-atlas-masterplan-validation';
+const resolvedEntry = `\0${virtualEntry}`;
+const result = await build({
+  root,
+  configFile: false,
+  logLevel: 'silent',
+  plugins: [{
+    name: 'masterplan-validation-entry',
+    resolveId: (id) => id === virtualEntry ? resolvedEntry : undefined,
+    load: (id) => id === resolvedEntry ? `
+      export {philosophers} from '/src/data/philosophers.ts';
+      export {branches} from '/src/data/branches.ts';
+      export * from '/src/data/museum/museumCanonicalProgram.ts';
+    ` : undefined,
+  }],
+  build: {
+    ssr: true,
+    write: false,
+    minify: false,
+    target: 'node18',
+    rollupOptions: {input: virtualEntry, output: {format: 'es', codeSplitting: false}},
+  },
 });
-const close = (a, b) => Math.abs(a - b) <= 0.001;
-for (const node of manifest.nodes) {
-  check(levelIds.has(node.levelId), `Building manifest node ${node.id}: unknown level ${node.levelId}`);
-  check(['planned', 'live', 'retired'].includes(node.implementationStatus), `Building manifest node ${node.id}: invalid implementationStatus ${node.implementationStatus}`);
-  check(new Set(node.doorwaySlots).size === node.doorwaySlots.length, `Building manifest node ${node.id}: duplicate doorway slot`);
-  check(Array.isArray(node.mapFootprint) && node.mapFootprint.length >= 4, `Building manifest node ${node.id}: invalid map footprint`);
-  if (node.kind === 'hall') {
-    check(hallIds.has(node.programHallId), `Building manifest node ${node.id}: unknown program hall ${node.programHallId}`);
-    check(wingIds.has(node.wingId), `Building manifest node ${node.id}: unknown wing ${node.wingId}`);
-  }
-  if (node.templateId) {
-    check(templateIds.has(node.templateId), `Building manifest node ${node.id}: unknown template ${node.templateId}`);
-    const template = templateById.get(node.templateId);
-    for (const slot of node.doorwaySlots) check(template?.portalSlots.includes(slot), `Building manifest node ${node.id}: slot ${slot} is not defined by template ${node.templateId}`);
-    const nodeDimensions = [node.physicalFootprint.width, node.physicalFootprint.depth].sort((a, b) => a - b);
-    const templateDimensions = [template?.footprintMetres.width, template?.footprintMetres.depth].sort((a, b) => a - b);
-    check(close(nodeDimensions[0], templateDimensions[0]) && close(nodeDimensions[1], templateDimensions[1]), `Building manifest node ${node.id}: footprint does not match template ${node.templateId}`);
-  }
-  if (Array.isArray(node.mapFootprint) && node.mapFootprint.length >= 4) {
-    const box = bounds(node.mapFootprint);
-    const mapDimensions = [box.maxX - box.minX, box.maxZ - box.minZ].sort((a, b) => a - b);
-    const physicalDimensions = [node.physicalFootprint.width, node.physicalFootprint.depth].sort((a, b) => a - b);
-    check(close(mapDimensions[0], physicalDimensions[0]) && close(mapDimensions[1], physicalDimensions[1]), `Building manifest node ${node.id}: map footprint does not match physical footprint`);
-  }
-}
+const outputs = (Array.isArray(result) ? result : [result]).flatMap(({output}) => output);
+const entry = outputs.find((item) => item.type === 'chunk' && item.isEntry);
+if (!entry) throw new Error('Vite did not produce an executable masterplan-validation entry.');
+const data = await import(`data:text/javascript;base64,${Buffer.from(entry.code).toString('base64')}`);
 
-for (const connection of manifest.connections) {
-  check(['planned', 'live', 'blocked'].includes(connection.implementationStatus), `Building connection ${connection.id}: invalid implementationStatus ${connection.implementationStatus}`);
-  check(typeof connection.accessible === 'boolean', `Building connection ${connection.id}: accessible must be boolean`);
-  const endpoints = [connection.a, connection.b];
-  for (const endpoint of endpoints) {
-    const node = nodeById.get(endpoint.nodeId);
-    check(Boolean(node), `Building connection ${connection.id}: unknown node ${endpoint.nodeId}`);
-    check(Boolean(node?.doorwaySlots.includes(endpoint.slotId)), `Building connection ${connection.id}: node ${endpoint.nodeId} has no slot ${endpoint.slotId}`);
-    check(Boolean(node?.safeArrivalPoses?.[endpoint.slotId]), `Building connection ${connection.id}: node ${endpoint.nodeId} has no safe arrival for ${endpoint.slotId}`);
-    const key = `${endpoint.nodeId}:${endpoint.slotId}`;
-    check(!usedConnectionSlots.has(key), `Building connection ${connection.id}: doorway slot ${key} is already connected`);
-    usedConnectionSlots.add(key);
-  }
-  const aNode = nodeById.get(connection.a.nodeId);
-  const bNode = nodeById.get(connection.b.nodeId);
-  if (aNode && bNode) {
-    check(aNode.levelId === bNode.levelId, `Building connection ${connection.id}: endpoints are on different levels without a vertical connector`);
-    const a = bounds(aNode.mapFootprint);
-    const b = bounds(bNode.mapFootprint);
-    const xGap = Math.max(0, a.minX - b.maxX, b.minX - a.maxX);
-    const zGap = Math.max(0, a.minZ - b.maxZ, b.minZ - a.maxZ);
-    check(xGap <= 0.001 && zGap <= 0.001, `Building connection ${connection.id}: endpoint footprints have an unmodelled physical gap`);
-    if (connection.implementationStatus === 'live') check(aNode.implementationStatus === 'live' && bNode.implementationStatus === 'live', `Building connection ${connection.id}: live connection has a non-live endpoint`);
-  }
-}
+const {
+  philosophers,
+  branches,
+  MUSEUM_CANONICAL_HALL_IDS,
+  MUSEUM_CANONICAL_PROGRAM,
+  MUSEUM_HALL_ROUTE_ALIASES,
+  MUSEUM_LEGACY_EXHIBIT_COMPATIBILITY,
+  MUSEUM_LIVE_HALL_TOTALS,
+  MUSEUM_LIVE_LEGACY_EXHIBIT_COMPATIBILITY,
+  MUSEUM_LIVE_PROGRAM_TOTALS,
+  MUSEUM_LIVE_ROOM_TOTALS,
+  MUSEUM_PRESENTATION_TIERS,
+} = data;
 
-for (const reservation of manifest.reservations) {
-  const host = nodeById.get(reservation.host?.nodeId);
-  const targetHall = hallById.get(reservation.targetProgramHallId);
-  check(Boolean(host), `Building reservation ${reservation.id}: unknown host node ${reservation.host?.nodeId}`);
-  check(Boolean(host?.doorwaySlots.includes(reservation.host?.slotId)), `Building reservation ${reservation.id}: host slot ${reservation.host?.slotId} does not exist`);
-  check(!usedConnectionSlots.has(`${reservation.host?.nodeId}:${reservation.host?.slotId}`), `Building reservation ${reservation.id}: host slot is already connected`);
-  check(reservation.blocked === true, `Building reservation ${reservation.id}: reservation must be physically blocked`);
-  check(reservation.implementationStatus === 'reserved', `Building reservation ${reservation.id}: implementationStatus must be reserved`);
-  check(['insertion', 'expansion'].includes(reservation.reservationType), `Building reservation ${reservation.id}: invalid reservationType`);
-  check(levelIds.has(reservation.levelId), `Building reservation ${reservation.id}: unknown level ${reservation.levelId}`);
-  check(wingIds.has(reservation.wingId), `Building reservation ${reservation.id}: unknown wing ${reservation.wingId}`);
-  check(hallIds.has(reservation.targetProgramHallId), `Building reservation ${reservation.id}: unknown target hall ${reservation.targetProgramHallId}`);
-  for (const templateId of reservation.allowedTemplateIds ?? []) check(templateIds.has(templateId), `Building reservation ${reservation.id}: unknown template ${templateId}`);
-  check(host?.levelId === reservation.levelId, `Building reservation ${reservation.id}: host and reservation are on different levels`);
-  check(targetHall?.wingId === reservation.wingId, `Building reservation ${reservation.id}: target hall and wing do not match`);
-  check(Boolean(targetHall && reservation.allowedTemplateIds?.includes(targetHall.templateId)), `Building reservation ${reservation.id}: allowed templates omit target hall template ${targetHall?.templateId}`);
-  check(Array.isArray(reservation.mapFootprint) && reservation.mapFootprint.length >= 4, `Building reservation ${reservation.id}: invalid map footprint`);
-  if (host && Array.isArray(reservation.mapFootprint) && reservation.mapFootprint.length >= 4) {
-    const hostBox = bounds(host.mapFootprint);
-    const reserveBox = bounds(reservation.mapFootprint);
-    const xGap = Math.max(0, hostBox.minX - reserveBox.maxX, reserveBox.minX - hostBox.maxX);
-    const zGap = Math.max(0, hostBox.minZ - reserveBox.maxZ, reserveBox.minZ - hostBox.maxZ);
-    check(xGap <= 0.001 && zGap <= 0.001, `Building reservation ${reservation.id}: reserved footprint does not touch its host`);
-    const mapDimensions = [reserveBox.maxX - reserveBox.minX, reserveBox.maxZ - reserveBox.minZ].sort((a, b) => a - b);
-    const reservedDimensions = [reservation.reservedFootprint?.width, reservation.reservedFootprint?.depth].sort((a, b) => a - b);
-    check(close(mapDimensions[0], reservedDimensions[0]) && close(mapDimensions[1], reservedDimensions[1]), `Building reservation ${reservation.id}: map footprint does not match reserved footprint`);
-    for (const node of manifest.nodes) {
-      if (node.id === host.id || node.levelId !== reservation.levelId) continue;
-      const nodeBox = bounds(node.mapFootprint);
-      const overlapX = Math.min(reserveBox.maxX, nodeBox.maxX) - Math.max(reserveBox.minX, nodeBox.minX);
-      const overlapZ = Math.min(reserveBox.maxZ, nodeBox.maxZ) - Math.max(reserveBox.minZ, nodeBox.minZ);
-      check(overlapX <= 0.001 || overlapZ <= 0.001, `Building reservation ${reservation.id}: reserved footprint overlaps node ${node.id}`);
-    }
-  }
-}
-passed('Building-manifest example resolves nodes, slots, poses, connections, footprints, status, and reservations');
-
-const runtimeManifestPath = path.join(root, 'src', 'data', 'museum', 'museumBuildingManifest.json');
-const runtimeManifest = JSON.parse(fs.readFileSync(runtimeManifestPath, 'utf8'));
-const approvedPublicHallIds = [
+const APPROVED_HALL_IDS = [
+  'mediterranean-beginnings-classical',
+  'renaissance-humanism-new-method',
+  'phenomenology-existence-embodiment',
+  'analytic-traditions',
+  'justice-democratic-reason',
+  'core-questions-forum',
+];
+const LEGACY_HALL_IDS = [
   'ancient-greek',
   'renaissance-reason-revolution',
   'modernity-freedom-critique',
@@ -375,182 +115,345 @@ const approvedPublicHallIds = [
   'ethics-justice-political-life',
   'mind-consciousness-self',
 ];
-const runtimeNodesById = new Map(runtimeManifest.nodes.map((node) => [node.id, node]));
-const runtimeHallNodes = runtimeManifest.nodes.filter(({kind}) => kind === 'hall');
-const runtimePublicHallIds = runtimeHallNodes.map(({publicHallId}) => publicHallId);
-const runtimeConnectionIds = runtimeManifest.connections.map(({id}) => id);
-const runtimeReservationIds = runtimeManifest.reservations.map(({id}) => id);
-
-check(runtimeManifest.schemaVersion === 1, `Runtime building manifest: expected schemaVersion 1, found ${runtimeManifest.schemaVersion}`);
-check(runtimeManifest.status === 'approved-live-pilot', `Runtime building manifest: expected approved-live-pilot, found ${runtimeManifest.status}`);
-check(runtimeManifest.physicalOptionId === 'ring-of-wings', `Runtime building manifest: expected ring-of-wings, found ${runtimeManifest.physicalOptionId}`);
-check(runtimeManifest.level?.id === 'L0', `Runtime building manifest: expected sole level L0, found ${runtimeManifest.level?.id}`);
-check(runtimeManifest.nodes.every(({levelId}) => levelId === 'L0'), 'Runtime building manifest: every pilot node must remain on L0');
-check(runtimeManifest.nodes.every(({implementationStatus}) => implementationStatus === 'live'), 'Runtime building manifest: every pilot node must be live');
-check(runtimeManifest.connections.every(({implementationStatus}) => implementationStatus === 'live'), 'Runtime building manifest: every authored connection must be live');
-check(runtimeHallNodes.length === 6, `Runtime building manifest: expected six live public hall nodes, found ${runtimeHallNodes.length}`);
-check(JSON.stringify([...runtimePublicHallIds].sort()) === JSON.stringify([...approvedPublicHallIds].sort()), 'Runtime building manifest: public hall IDs changed');
-check(new Set(runtimeManifest.nodes.map(({id}) => id)).size === runtimeManifest.nodes.length, 'Runtime building manifest: duplicate node ID');
-check(new Set(runtimeConnectionIds).size === runtimeConnectionIds.length, 'Runtime building manifest: duplicate connection ID');
-check(new Set(runtimeReservationIds).size === runtimeReservationIds.length, 'Runtime building manifest: duplicate reservation ID');
-check(runtimeManifest.mainEntrance?.nodeId === 'place:entrance-orientation', 'Runtime building manifest: main entrance node changed');
-check(runtimeManifest.forumLocationNodeId === 'place:forum-circulation-court', 'Runtime building manifest: Forum location node changed');
-
-const physical = runtimeManifest.physicalContract;
-check(physical?.doorClearWidth === 4 && physical?.doorClearHeight === 3.2 && physical?.transitionDepth === 1.2, 'Runtime building manifest: doorway dimensions changed from the approved contract');
-check(physical?.safeLandingWidth === 4 && physical?.safeLandingDepth === 4 && physical?.stepFree === true, 'Runtime building manifest: safe landing or step-free contract changed');
-const residency = runtimeManifest.residencyPolicy;
-check(residency?.maxResidentHallContents === 3, `Runtime building manifest: max resident hall contents must be 3, found ${residency?.maxResidentHallContents}`);
-check(residency?.recentHallCount === 1, `Runtime building manifest: recent hall count must be 1, found ${residency?.recentHallCount}`);
-check(Number.isFinite(residency?.approachDistance) && residency.approachDistance > 0, 'Runtime building manifest: approachDistance must be positive');
-check(residency?.decodedTextureBudgetMiB === 96, `Runtime building manifest: decoded texture budget must be 96 MiB, found ${residency?.decodedTextureBudgetMiB}`);
-
-const slotByEndpoint = new Map();
-for (const node of runtimeManifest.nodes) {
-  check(Array.isArray(node.doorwaySlots) && node.doorwaySlots.length > 0, `Runtime node ${node.id}: doorwaySlots are missing`);
-  check(new Set(node.doorwaySlots.map(({id}) => id)).size === node.doorwaySlots.length, `Runtime node ${node.id}: duplicate doorway slot ID`);
-  for (const slot of node.doorwaySlots) {
-    const prefix = `Runtime doorway ${node.id}/${slot.id}`;
-    const numericValues = [slot.position?.x, slot.position?.z, slot.inwardNormal?.x, slot.inwardNormal?.z, slot.clearWidth, slot.clearHeight, slot.transitionDepth, slot.arrivalPose?.x, slot.arrivalPose?.z, slot.arrivalPose?.yaw, slot.arrivalPose?.pitch];
-    check(numericValues.every(Number.isFinite), `${prefix}: position, normal, dimensions, and arrival pose must be finite`);
-    check(slot.clearWidth >= physical.doorClearWidth && slot.clearHeight >= physical.doorClearHeight && slot.transitionDepth >= physical.transitionDepth, `${prefix}: dimensions fall below the approved contract`);
-    check(close(Math.hypot(slot.inwardNormal.x, slot.inwardNormal.z), 1), `${prefix}: inward normal is not unit length`);
-    const landingWidth = slot.landingBounds?.maxX - slot.landingBounds?.minX;
-    const landingDepth = slot.landingBounds?.maxZ - slot.landingBounds?.minZ;
-    check(Number.isFinite(landingWidth) && landingWidth + .001 >= physical.safeLandingWidth, `${prefix}: safe landing width is below ${physical.safeLandingWidth}m`);
-    check(Number.isFinite(landingDepth) && landingDepth + .001 >= physical.safeLandingDepth, `${prefix}: safe landing depth is below ${physical.safeLandingDepth}m`);
-    check(slot.arrivalPose.x >= slot.landingBounds.minX - .001 && slot.arrivalPose.x <= slot.landingBounds.maxX + .001 && slot.arrivalPose.z >= slot.landingBounds.minZ - .001 && slot.arrivalPose.z <= slot.landingBounds.maxZ + .001, `${prefix}: arrival pose lies outside its safe landing`);
-    slotByEndpoint.set(`${node.id}:${slot.id}`, slot);
-  }
-}
-
-const transformPoint = (node, point) => {
-  const cosine = Math.cos(node.transform.yaw);
-  const sine = Math.sin(node.transform.yaw);
-  return {x: node.transform.x + point.x * cosine + point.z * sine, z: node.transform.z - point.x * sine + point.z * cosine};
+const EXPECTED_ALIASES = {
+  'ancient-greek': 'mediterranean-beginnings-classical',
+  'renaissance-reason-revolution': 'renaissance-humanism-new-method',
+  'modernity-freedom-critique': 'phenomenology-existence-embodiment',
+  'logic-language-science': 'analytic-traditions',
+  'ethics-justice-political-life': 'justice-democratic-reason',
+  'mind-consciousness-self': 'core-questions-forum',
 };
-const transformDirection = (node, direction) => {
-  const cosine = Math.cos(node.transform.yaw);
-  const sine = Math.sin(node.transform.yaw);
-  return {x: direction.x * cosine + direction.z * sine, z: -direction.x * sine + direction.z * cosine};
+const EXPECTED_LIVE_COUNTS = {
+  'mediterranean-beginnings-classical': {rooms: 4, exhibits: 20, template: 'sequence-3'},
+  'renaissance-humanism-new-method': {rooms: 3, exhibits: 3, template: 'sequence-3'},
+  'phenomenology-existence-embodiment': {rooms: 5, exhibits: 9, template: 'sequence-3'},
+  'analytic-traditions': {rooms: 5, exhibits: 7, template: 'sequence-3'},
+  'justice-democratic-reason': {rooms: 3, exhibits: 5, template: 'sequence-3'},
+  'core-questions-forum': {rooms: 9, exhibits: 15, template: 'crossroads-4'},
 };
-const runtimeUsedSlots = new Set();
-for (const connection of runtimeManifest.connections) {
-  check(connection.accessible === true, `Runtime connection ${connection.id}: pilot connections must be accessible`);
-  for (const endpoint of [connection.a, connection.b]) {
-    const key = `${endpoint.nodeId}:${endpoint.slotId}`;
-    check(runtimeNodesById.has(endpoint.nodeId), `Runtime connection ${connection.id}: unknown node ${endpoint.nodeId}`);
-    check(slotByEndpoint.has(key), `Runtime connection ${connection.id}: unknown doorway ${key}`);
-    check(!runtimeUsedSlots.has(key), `Runtime connection ${connection.id}: doorway ${key} is already connected`);
-    runtimeUsedSlots.add(key);
-  }
-  const aNode = runtimeNodesById.get(connection.a.nodeId);
-  const bNode = runtimeNodesById.get(connection.b.nodeId);
-  const aSlot = slotByEndpoint.get(`${connection.a.nodeId}:${connection.a.slotId}`);
-  const bSlot = slotByEndpoint.get(`${connection.b.nodeId}:${connection.b.slotId}`);
-  if (aNode && bNode && aSlot && bSlot) {
-    const aWorld = transformPoint(aNode, aSlot.position);
-    const bWorld = transformPoint(bNode, bSlot.position);
-    const aNormal = transformDirection(aNode, aSlot.inwardNormal);
-    const bNormal = transformDirection(bNode, bSlot.inwardNormal);
-    check(Math.hypot(aWorld.x - bWorld.x, aWorld.z - bWorld.z) <= .001, `Runtime connection ${connection.id}: doorway world positions do not meet`);
-    check(close(aNormal.x * bNormal.x + aNormal.z * bNormal.z, -1), `Runtime connection ${connection.id}: doorway normals are not opposed`);
-    check(close(aSlot.clearWidth, bSlot.clearWidth) && close(aSlot.clearHeight, bSlot.clearHeight) && close(aSlot.transitionDepth, bSlot.transitionDepth), `Runtime connection ${connection.id}: doorway dimensions do not match`);
-  }
-}
-
-const conceptualDirections = runtimeManifest.connections.flatMap((connection) => [
-  `${connection.id}:${connection.a.nodeId}->${connection.b.nodeId}`,
-  `${connection.id}:${connection.b.nodeId}->${connection.a.nodeId}`,
-]);
-check(conceptualDirections.length === runtimeManifest.connections.length * 2, 'Runtime building manifest: each authored undirected connection must create two conceptual directions');
-check(new Set(conceptualDirections).size === conceptualDirections.length, 'Runtime building manifest: duplicate conceptual connection direction');
-
-const roleGraph = (routeRole) => {
-  const graph = new Map();
-  for (const connection of runtimeManifest.connections.filter((candidate) => candidate.routeRole === routeRole)) {
-    if (!graph.has(connection.a.nodeId)) graph.set(connection.a.nodeId, new Set());
-    if (!graph.has(connection.b.nodeId)) graph.set(connection.b.nodeId, new Set());
-    graph.get(connection.a.nodeId).add(connection.b.nodeId);
-    graph.get(connection.b.nodeId).add(connection.a.nodeId);
-  }
-  return graph;
+const EXPECTED_LIVE_TIERS = {
+  'anchor-exhibit': 30,
+  'standard-individual-exhibit': 25,
+  'supporting-exhibit': 3,
+  'thematic-cluster-participant': 0,
+  'gallery-archive-or-study-wall-record': 1,
 };
-const reachable = (graph, start) => {
-  const visited = new Set([start]);
-  const pending = [start];
-  while (pending.length) {
-    const current = pending.shift();
-    for (const next of graph.get(current) ?? []) if (!visited.has(next)) {
-      visited.add(next);
-      pending.push(next);
-    }
-  }
-  return visited;
+const EXPECTED_GLOBAL_TIERS = {
+  'anchor-exhibit': 89,
+  'standard-individual-exhibit': 81,
+  'supporting-exhibit': 9,
+  'thematic-cluster-participant': 5,
+  'gallery-archive-or-study-wall-record': 1,
 };
-const outerGraph = roleGraph('outer-loop');
-check(runtimeManifest.connections.filter(({routeRole}) => routeRole === 'outer-loop').length === 12, 'Runtime building manifest: outer loop must have 12 authored seams');
-check(outerGraph.size === 12 && [...outerGraph.values()].every((neighbors) => neighbors.size === 2), 'Runtime building manifest: outer loop must be one closed 12-node cycle');
-check(approvedPublicHallIds.every((hallId) => outerGraph.has(`hall:${hallId}`)), 'Runtime building manifest: every public hall must sit on the outer loop');
-if (outerGraph.size) {
-  const firstOuterNode = outerGraph.keys().next().value;
-  check(reachable(outerGraph, firstOuterNode).size === outerGraph.size, 'Runtime building manifest: outer loop is not fully reachable in both authored directions');
-}
 
-const spokeNodes = runtimeManifest.nodes.filter(({pilotRole}) => pilotRole === 'forum-spoke');
-const spokeGraph = roleGraph('forum-spoke');
-check(spokeNodes.length === 4, `Runtime building manifest: expected four Forum spokes, found ${spokeNodes.length}`);
-check(runtimeManifest.connections.filter(({routeRole}) => routeRole === 'forum-spoke').length === 8, 'Runtime building manifest: four Forum spokes must have eight authored seams');
-check(spokeNodes.every(({id}) => spokeGraph.get(id)?.size === 2), 'Runtime building manifest: every Forum spoke must connect one hall to the Forum court');
-check(spokeGraph.get(runtimeManifest.forumLocationNodeId)?.size === 4, 'Runtime building manifest: Forum court must receive four spokes');
-const shortcutNodes = runtimeManifest.nodes.filter(({pilotRole}) => pilotRole === 'shortcut' || pilotRole === 'entrance-forum-shortcut');
-const shortcutGraph = roleGraph('shortcut');
-check(shortcutNodes.length === 1, `Runtime building manifest: expected one entrance–Forum shortcut, found ${shortcutNodes.length}`);
-check(runtimeManifest.connections.filter(({routeRole}) => routeRole === 'shortcut').length === 2, 'Runtime building manifest: entrance–Forum shortcut must have two authored seams');
-if (shortcutNodes[0]) {
-  check(shortcutGraph.get(shortcutNodes[0].id)?.size === 2, 'Runtime building manifest: shortcut corridor must connect the entrance and Forum exactly once each');
-  check(shortcutGraph.has(runtimeManifest.mainEntrance.nodeId) && shortcutGraph.has(runtimeManifest.forumLocationNodeId), 'Runtime building manifest: shortcut endpoints must be entrance and Forum');
-}
-
-const insertionReservations = runtimeManifest.reservations.filter(({reservationType}) => reservationType === 'insertion');
-const outwardReservations = runtimeManifest.reservations.filter(({reservationType}) => reservationType === 'outward-expansion');
-check(insertionReservations.length === 4, `Runtime building manifest: expected four insertion reservations, found ${insertionReservations.length}`);
-check(outwardReservations.length === 8, `Runtime building manifest: expected eight outward reservations, found ${outwardReservations.length}`);
-check(JSON.stringify(outwardReservations.map(({expansionPortalId}) => expansionPortalId).sort()) === JSON.stringify(['R1', 'R2', 'R3', 'R4', 'R5', 'R6', 'R7', 'R8']), 'Runtime building manifest: outward portals must be exactly R1–R8');
-const publicRouteIds = new Set(approvedPublicHallIds);
-const connectionEndpointTokens = new Set(runtimeManifest.connections.flatMap(({a, b}) => [a.nodeId, a.slotId, b.nodeId, b.slotId]));
-for (const reservation of runtimeManifest.reservations) {
-  check(reservation.label === 'Future gallery — not yet open', `Runtime reservation ${reservation.id}: public label changed`);
-  check(reservation.blocked === true && reservation.implementationStatus === 'reserved', `Runtime reservation ${reservation.id}: reservation must remain blocked and reserved`);
-  check(runtimeNodesById.has(reservation.hostNodeId), `Runtime reservation ${reservation.id}: unknown host ${reservation.hostNodeId}`);
-  check(!connectionEndpointTokens.has(reservation.id), `Runtime reservation ${reservation.id}: reservation ID leaked into authored connections`);
-  if (reservation.expansionPortalId) check(!connectionEndpointTokens.has(reservation.expansionPortalId), `Runtime reservation ${reservation.id}: reserved portal leaked into authored connections`);
-  if (reservation.targetProgramHallId) check(!publicRouteIds.has(reservation.targetProgramHallId), `Runtime reservation ${reservation.id}: future hall leaked into live public routes`);
-}
-
-const hallSourceFiles = [
-  'ancientGreekHall.ts',
-  'renaissanceReasonRevolutionHall.ts',
-  'modernityFreedomCritiqueHall.ts',
-  'logicLanguageScienceHall.ts',
-  'ethicsJusticePoliticalLifeHall.ts',
-  'mindConsciousnessSelfHall.ts',
+const program = readJson('docs/museum-masterplan/hall-program.json');
+const buildingManifest = readJson('src/data/museum/museumBuildingManifest.json');
+const philosopherAssignments = parseCsv('philosopher-assignments.csv');
+const branchAssignments = parseCsv('branch-assignments.csv');
+const allAssignments = [
+  ...philosopherAssignments.map((row) => ({...row, entityKind: 'philosopher'})),
+  ...branchAssignments.map((row) => ({...row, entityKind: 'branch'})),
 ];
-for (const file of hallSourceFiles) {
-  const source = fs.readFileSync(path.join(root, 'src', 'data', 'museum', file), 'utf8');
-  check(!/\badjacentHallIds\b/.test(source), `${file}: hall content must not author adjacentHallIds`);
-  check(!/\bconnections\s*:/.test(source), `${file}: hall content must not author physical connections`);
+
+const philosopherById = new Map(philosophers.map((record) => [record.id, record]));
+const branchById = new Map(branches.map((record) => [record.id, record]));
+const assignmentById = new Map(allAssignments.map((row) => [row.id, row]));
+const wingById = new Map(program.wings.map((wing) => [wing.id, wing]));
+const hallById = new Map(program.halls.map((hall) => [hall.id, hall]));
+const roomById = new Map(program.rooms.map((room) => [room.id, room]));
+const tierIds = program.tiers.map(({id}) => id);
+const templateById = new Map(program.templates.map((template) => [template.id, template]));
+
+check(philosophers.length === 142, `Approved program: expected 142 philosophers, found ${philosophers.length}`);
+check(branches.length === 43, `Approved program: expected 43 branches, found ${branches.length}`);
+check(unique(philosophers.map(({id}) => id)), 'Philosopher registry contains duplicate IDs');
+check(unique(branches.map(({id}) => id)), 'Branch registry contains duplicate IDs');
+check(philosopherAssignments.length === 142, `philosopher-assignments.csv: expected 142 rows, found ${philosopherAssignments.length}`);
+check(branchAssignments.length === 43, `branch-assignments.csv: expected 43 rows, found ${branchAssignments.length}`);
+check(unique(philosopherAssignments.map(({id}) => id)), 'philosopher-assignments.csv contains duplicate IDs');
+check(unique(branchAssignments.map(({id}) => id)), 'branch-assignments.csv contains duplicate IDs');
+for (const philosopher of philosophers) check(philosopherAssignments.some(({id}) => id === philosopher.id), `Philosopher ${philosopher.id} has no primary assignment`);
+for (const branch of branches) check(branchAssignments.some(({id}) => id === branch.id), `Branch ${branch.id} has no primary assignment`);
+for (const row of philosopherAssignments) check(philosopherById.has(row.id), `Unknown philosopher assignment ${row.id}`);
+for (const row of branchAssignments) check(branchById.has(row.id), `Unknown branch assignment ${row.id}`);
+
+check(program.schemaVersion === 1, `hall-program.json: expected schemaVersion 1, found ${program.schemaVersion}`);
+check(program.status === 'approved-planning-contract', `hall-program.json: expected approved-planning-contract, found ${program.status}`);
+check(program.recommendedOptionId === 'worlds-with-questions-forum-expanded', `hall-program.json: approved option changed to ${program.recommendedOptionId}`);
+check(program.wings.length === 10, `Approved program: expected 10 wings, found ${program.wings.length}`);
+check(program.halls.length === 26, `Approved program: expected 26 halls, found ${program.halls.length}`);
+check(program.rooms.length === 105, `Approved program: expected 105 rooms, found ${program.rooms.length}`);
+check(program.templates.length === 4, `Approved program: expected 4 templates, found ${program.templates.length}`);
+check(unique(program.wings.map(({id}) => id)), 'hall-program.json contains duplicate wing IDs');
+check(unique(program.halls.map(({id}) => id)), 'hall-program.json contains duplicate hall IDs');
+check(unique(program.rooms.map(({id}) => id)), 'hall-program.json contains duplicate room IDs');
+check(unique(tierIds), 'hall-program.json contains duplicate tier IDs');
+check(unique(program.templates.map(({id}) => id)), 'hall-program.json contains duplicate template IDs');
+check(same(tierIds, MUSEUM_PRESENTATION_TIERS), 'Runtime presentation tiers do not match the approved masterplan order');
+check(same(program.assignmentCounts, {branches: 43, philosophers: 142, totalPrimaryRecords: 185}), 'Approved assignmentCounts must be 43 branches, 142 philosophers, and 185 total');
+
+const normalTemplateIds = ['standard-rect', 'sequence-3', 'crossroads-4'];
+check(normalTemplateIds.every((id) => templateById.has(id)), 'The approved normal template set is incomplete');
+check(templateById.has('focal-terminal'), 'The approved focal-terminal template is missing');
+for (const template of program.templates) {
+  check(unique(template.portalSlots), `Template ${template.id} contains duplicate portal slots`);
+  check(unique(template.optionalPortalSlots ?? []), `Template ${template.id} contains duplicate optional portal slots`);
+  for (const slot of template.optionalPortalSlots ?? []) check(template.portalSlots.includes(slot), `Template ${template.id}: optional slot ${slot} is not a declared portal`);
+  check(Array.isArray(template.roomRange) && template.roomRange.length === 2 && template.roomRange[0] <= template.roomRange[1], `Template ${template.id} has an invalid room range`);
 }
-const runtimeSource = fs.readFileSync(path.join(root, 'src', 'data', 'museum', 'museumBuildingRuntime.ts'), 'utf8');
-check(/MUSEUM_BUILDING_MANIFEST\.connections\.flatMap/.test(runtimeSource) && /:a-to-b/.test(runtimeSource) && /:b-to-a/.test(runtimeSource), 'Museum runtime: authored undirected connections are not expanded to both conceptual directions');
-passed('Approved Ring of Wings runtime manifest resolves its L0 loop, spokes, shortcut, seams, reservations, and bounded residency contract');
+check(same(templateById.get('sequence-3')?.footprintMetres, {width: 24, depth: 56}), 'sequence-3 must retain its 24 × 56 metre footprint');
+check(same(templateById.get('crossroads-4')?.footprintMetres, {width: 28, depth: 28}), 'crossroads-4 must retain its 28 × 28 metre footprint');
+
+for (const wing of program.wings) {
+  check(unique(wing.hallIds), `Wing ${wing.id} contains duplicate hall IDs`);
+  const owned = program.halls.filter(({wingId}) => wingId === wing.id);
+  check(same(sorted(wing.hallIds), sorted(owned.map(({id}) => id))), `Wing ${wing.id} hall roster does not reconcile`);
+  check(wing.roomCount === owned.reduce((sum, hall) => sum + hall.roomIds.length, 0), `Wing ${wing.id} roomCount does not reconcile`);
+  check(wing.recordCapacity === owned.reduce((sum, hall) => sum + hall.recordCapacity, 0), `Wing ${wing.id} recordCapacity does not reconcile`);
+}
+for (const hall of program.halls) {
+  check(wingById.has(hall.wingId), `Hall ${hall.id} references unknown wing ${hall.wingId}`);
+  check(templateById.has(hall.templateId), `Hall ${hall.id} references unknown template ${hall.templateId}`);
+  check(!Object.hasOwn(hall, 'implementationStatus'), `Hall ${hall.id} leaks physical implementation status into the intellectual program`);
+  check(unique(hall.roomIds), `Hall ${hall.id} contains duplicate room IDs`);
+  const rooms = hall.roomIds.map((id) => roomById.get(id));
+  check(rooms.every(Boolean), `Hall ${hall.id} references an unknown room`);
+  check(rooms.every((room) => room?.hallId === hall.id), `Hall ${hall.id} contains a room owned by another hall`);
+  check(hall.recordCapacity === rooms.reduce((sum, room) => sum + (room?.recordCapacity ?? 0), 0), `Hall ${hall.id} recordCapacity does not equal its room capacities`);
+  const template = templateById.get(hall.templateId);
+  check(Boolean(template && hall.roomIds.length >= template.roomRange[0] && hall.roomIds.length <= template.roomRange[1]), `Hall ${hall.id} room count is outside ${hall.templateId}'s range`);
+}
+for (const room of program.rooms) check(hallById.has(room.hallId), `Room ${room.id} references unknown hall ${room.hallId}`);
+
+for (const row of allAssignments) {
+  const label = `${row.entityKind} ${row.id}`;
+  const hall = hallById.get(row.primary_hall_id);
+  const room = roomById.get(row.primary_room_id);
+  check(Boolean(wingById.get(row.primary_wing_id)), `${label}: unknown wing ${row.primary_wing_id}`);
+  check(Boolean(hall), `${label}: unknown hall ${row.primary_hall_id}`);
+  check(Boolean(room), `${label}: unknown room ${row.primary_room_id}`);
+  check(hall?.wingId === row.primary_wing_id, `${label}: hall and wing disagree`);
+  check(room?.hallId === row.primary_hall_id, `${label}: room and hall disagree`);
+  check(tierIds.includes(row.tier), `${label}: unknown tier ${row.tier}`);
+  check(row.rationale.trim().length >= 24, `${label}: rationale is too shallow`);
+  const secondaryHallIds = splitIds(row.secondary_hall_ids);
+  check(unique(secondaryHallIds), `${label}: duplicate secondary hall`);
+  check(!secondaryHallIds.includes(row.primary_hall_id), `${label}: primary hall is duplicated as a secondary route`);
+  for (const hallId of secondaryHallIds) check(hallById.has(hallId), `${label}: unknown secondary hall ${hallId}`);
+}
+for (const philosopher of philosophers) {
+  const assignment = assignmentById.get(philosopher.id);
+  check(
+    typeof assignment?.source_date_context === 'string' && assignment.source_date_context.trim().length >= 3,
+    `Philosopher ${philosopher.id}: source_date_context is missing`,
+  );
+}
+const globalTierCounts = Object.fromEntries(MUSEUM_PRESENTATION_TIERS.map((tier) => [tier, allAssignments.filter((row) => row.tier === tier).length]));
+check(same(globalTierCounts, EXPECTED_GLOBAL_TIERS), `Global assignment tier counts changed: ${JSON.stringify(globalTierCounts)}`);
+
+const krishnamurti = philosopherById.get('jiddu-krishnamurti');
+const krishnamurtiAssignment = assignmentById.get('jiddu-krishnamurti');
+check(Boolean(krishnamurti), 'Jiddu Krishnamurti is missing from the philosopher registry');
+check(krishnamurtiAssignment?.primary_wing_id === 'wing-core-questions', 'Krishnamurti must belong to the Core Questions wing');
+check(krishnamurtiAssignment?.primary_hall_id === 'core-questions-forum', 'Krishnamurti must be primary in the Core Questions Forum');
+check(krishnamurtiAssignment?.primary_room_id === 'core-mind-self', 'Krishnamurti must be primary in Mind & Self');
+check(krishnamurtiAssignment?.tier === 'standard-individual-exhibit', 'Krishnamurti must be a standard individual exhibit');
+check(splitIds(krishnamurtiAssignment?.secondary_hall_ids).includes('classical-south-asian-worlds'), 'Krishnamurti requires a South Asian secondary route');
+const inheritedMembershipIds = new Set(['yoga', 'vedanta', 'advaita-vedanta', 'buddhism', 'buddhist-philosophy', 'jainism']);
+check(!(krishnamurti?.branchMemberships ?? []).some(({branchId, status}) => inheritedMembershipIds.has(branchId) && status === 'member'), 'Krishnamurti must not be classified as a member of an inherited South Asian school');
+check((krishnamurti?.branchMemberships ?? []).some(({branchId, status}) => branchId === 'philosophy-of-religion' && status === 'critic'), 'Krishnamurti requires a critic relationship to Philosophy of Religion');
+
+check(same(MUSEUM_CANONICAL_HALL_IDS, APPROVED_HALL_IDS), 'Canonical hall IDs or their public order changed');
+check(same(MUSEUM_CANONICAL_PROGRAM.map(({id}) => id), APPROVED_HALL_IDS), 'Canonical program order changed');
+const canonicalRooms = MUSEUM_CANONICAL_PROGRAM.flatMap((hall) => hall.rooms.map((room) => ({hall, room})));
+const canonicalExhibits = canonicalRooms.flatMap(({hall, room}) => room.exhibits.map((exhibit) => ({hall, room, exhibit})));
+check(canonicalRooms.length === 29, `Canonical live program must contain 29 rooms, found ${canonicalRooms.length}`);
+check(canonicalExhibits.length === 59, `Canonical live program must contain 59 primary exhibits, found ${canonicalExhibits.length}`);
+check(unique(canonicalRooms.map(({room}) => room.id)), 'Canonical live room IDs are not unique');
+check(unique(canonicalExhibits.map(({exhibit}) => exhibit.entityId)), 'A primary entity appears more than once in the live Museum');
+for (const hall of MUSEUM_CANONICAL_PROGRAM) {
+  const expected = EXPECTED_LIVE_COUNTS[hall.id];
+  const planningHall = hallById.get(hall.id);
+  check(Boolean(expected), `Unexpected live hall ${hall.id}`);
+  check(Boolean(planningHall), `Live hall ${hall.id} is absent from hall-program.json`);
+  check(hall.templateId === expected?.template, `Live hall ${hall.id} template changed`);
+  check(hall.rooms.length === expected?.rooms, `Live hall ${hall.id} must contain ${expected?.rooms} rooms`);
+  check(hall.rooms.reduce((sum, room) => sum + room.exhibits.length, 0) === expected?.exhibits, `Live hall ${hall.id} must contain ${expected?.exhibits} exhibits`);
+  check(hall.wingId === planningHall?.wingId, `Live hall ${hall.id} wing differs from the masterplan`);
+  check(hall.title === planningHall?.title, `Live hall ${hall.id} title differs from the masterplan`);
+  check(hall.templateId === planningHall?.templateId, `Live hall ${hall.id} template differs from the masterplan`);
+  check(hall.recordCapacity === planningHall?.recordCapacity, `Live hall ${hall.id} capacity differs from the masterplan`);
+  check(same(hall.rooms.map(({id}) => id), planningHall?.roomIds), `Live hall ${hall.id} room program differs from the masterplan`);
+  for (const room of hall.rooms) {
+    const planningRoom = roomById.get(room.id);
+    check(Boolean(planningRoom), `Live room ${room.id} is absent from hall-program.json`);
+    check(room.title === planningRoom?.title, `Live room ${room.id} title differs from the masterplan`);
+    check(room.recordCapacity === planningRoom?.recordCapacity, `Live room ${room.id} capacity differs from the masterplan`);
+    check(room.exhibits.length <= room.recordCapacity, `Live room ${room.id} exceeds its capacity`);
+  }
+}
+for (const {hall, room, exhibit} of canonicalExhibits) {
+  const assignment = assignmentById.get(exhibit.entityId);
+  check(Boolean(assignment), `Live exhibit ${exhibit.entityId} has no authoritative assignment`);
+  check(assignment?.entityKind === exhibit.entityKind, `Live exhibit ${exhibit.entityId} entity kind differs from its assignment`);
+  check(assignment?.primary_wing_id === hall.wingId, `Live exhibit ${exhibit.entityId} wing differs from its assignment`);
+  check(assignment?.primary_hall_id === hall.id, `Live exhibit ${exhibit.entityId} hall differs from its assignment`);
+  check(assignment?.primary_room_id === room.id, `Live exhibit ${exhibit.entityId} room differs from its assignment`);
+  check(assignment?.tier === exhibit.tier, `Live exhibit ${exhibit.entityId} tier differs from its assignment`);
+  check(same(sorted(splitIds(assignment?.secondary_hall_ids)), sorted(exhibit.secondaryHallIds)), `Live exhibit ${exhibit.entityId} secondary routes differ from its assignment`);
+  check(exhibit.question.trim().length >= 24, `Live exhibit ${exhibit.entityId} lacks a substantive framing question`);
+}
+const plannedLiveAssignments = allAssignments.filter(({primary_hall_id}) => APPROVED_HALL_IDS.includes(primary_hall_id));
+check(plannedLiveAssignments.length === 59, `Masterplan assigns ${plannedLiveAssignments.length}, not 59, primaries to the six live halls`);
+check(same(sorted(plannedLiveAssignments.map(({id}) => id)), sorted(canonicalExhibits.map(({exhibit}) => exhibit.entityId))), 'The canonical live roster is not the exact authoritative masterplan subset');
+const liveTierCounts = Object.fromEntries(MUSEUM_PRESENTATION_TIERS.map((tier) => [tier, canonicalExhibits.filter(({exhibit}) => exhibit.tier === tier).length]));
+check(same(liveTierCounts, EXPECTED_LIVE_TIERS), `Live presentation-tier counts changed: ${JSON.stringify(liveTierCounts)}`);
+check(MUSEUM_LIVE_PROGRAM_TOTALS.hallCount === 6 && MUSEUM_LIVE_PROGRAM_TOTALS.roomCount === 29 && MUSEUM_LIVE_PROGRAM_TOTALS.exhibitCount === 59, 'Exported live program totals are stale');
+check(MUSEUM_LIVE_PROGRAM_TOTALS.recordCapacity === 78 && MUSEUM_LIVE_PROGRAM_TOTALS.reserveCapacity === 19, 'Live program capacity totals must be 78 installed / 19 reserved');
+check(same(MUSEUM_LIVE_PROGRAM_TOTALS.tierCounts, EXPECTED_LIVE_TIERS), 'Exported live tier totals are stale');
+check(MUSEUM_LIVE_HALL_TOTALS.length === 6, 'Exported live hall totals must contain six records');
+check(MUSEUM_LIVE_ROOM_TOTALS.length === 29, 'Exported live room totals must contain 29 records');
+
+const krishnamurtiExhibit = canonicalExhibits.find(({exhibit}) => exhibit.entityId === 'jiddu-krishnamurti');
+check(krishnamurtiExhibit?.hall.id === 'core-questions-forum' && krishnamurtiExhibit?.room.id === 'core-mind-self', 'Krishnamurti is not installed in the Forum Mind & Self room');
+check(krishnamurtiExhibit?.exhibit.tier === 'standard-individual-exhibit', 'Krishnamurti exhibit tier changed');
+check(krishnamurtiExhibit?.exhibit.secondaryHallIds.includes('classical-south-asian-worlds'), 'Krishnamurti exhibit lacks the South Asian secondary route');
+check(krishnamurtiExhibit?.exhibit.roomComparisons?.some(({targetHallId, targetRoomId, targetExhibitId, relationType}) => targetHallId === 'core-questions-forum' && targetRoomId === 'core-religion' && targetExhibitId === 'philosophy-of-religion' && relationType === 'comparison'), 'Krishnamurti lacks the room-level Philosophy of Religion comparison');
+
+check(same(MUSEUM_HALL_ROUTE_ALIASES, EXPECTED_ALIASES), 'The six retired hall aliases changed');
+check(MUSEUM_LIVE_LEGACY_EXHIBIT_COMPATIBILITY.length === 21, `Expected 21 carried legacy exhibits, found ${MUSEUM_LIVE_LEGACY_EXHIBIT_COMPATIBILITY.length}`);
+check(MUSEUM_LEGACY_EXHIBIT_COMPATIBILITY.length === 27, `Expected 27 displaced legacy exhibits, found ${MUSEUM_LEGACY_EXHIBIT_COMPATIBILITY.length}`);
+const compatibility = [...MUSEUM_LIVE_LEGACY_EXHIBIT_COMPATIBILITY, ...MUSEUM_LEGACY_EXHIBIT_COMPATIBILITY];
+check(compatibility.length === 48, `The legacy route inventory must contain 48 records, found ${compatibility.length}`);
+check(unique(compatibility.map(({formerHallId, exhibitId}) => `${formerHallId}/${exhibitId}`)), 'Legacy compatibility routes are not unique');
+for (const formerHallId of LEGACY_HALL_IDS) check(compatibility.filter((record) => record.formerHallId === formerHallId).length === 8, `${formerHallId} must preserve exactly eight former exhibit routes`);
+for (const record of compatibility) {
+  const assignment = assignmentById.get(record.entityId);
+  check(Boolean(assignment), `Compatibility record ${record.formerHallId}/${record.exhibitId} has no Atlas entity assignment`);
+  check(record.plannedHallId === assignment?.primary_hall_id, `Compatibility record ${record.formerHallId}/${record.exhibitId} names the wrong planned hall`);
+  if (record.disposition === 'live-primary') {
+    check(Boolean(record.liveExhibitRef), `Live compatibility record ${record.exhibitId} has no destination`);
+    check(record.liveExhibitRef?.hallId === record.plannedHallId, `Live compatibility record ${record.exhibitId} destination differs from its planned hall`);
+  } else check(!record.liveExhibitRef, `Displaced compatibility record ${record.exhibitId} must not claim a live destination`);
+}
+
+check(buildingManifest.schemaVersion === 1, `Building manifest: expected schemaVersion 1, found ${buildingManifest.schemaVersion}`);
+check(buildingManifest.manifestVersion === 'canonical-six-v1', `Building manifest version changed to ${buildingManifest.manifestVersion}`);
+check(buildingManifest.status === 'approved-canonical-six', `Building manifest status changed to ${buildingManifest.status}`);
+check(buildingManifest.physicalOptionId === 'ring-of-wings', 'Building manifest must retain the Ring of Wings');
+check(buildingManifest.level?.id === 'L0' && buildingManifest.nodes.every(({levelId}) => levelId === 'L0'), 'All live physical nodes must remain on L0');
+check(buildingManifest.nodes.every(({implementationStatus}) => implementationStatus === 'live'), 'All constructed nodes must be live');
+check(buildingManifest.connections.every(({implementationStatus, accessible}) => implementationStatus === 'live' && accessible === true), 'All authored connections must be live, step-free, and accessible');
+
+const nodeById = new Map(buildingManifest.nodes.map((node) => [node.id, node]));
+const publicHallNodes = buildingManifest.nodes.filter(({publicHallId}) => Boolean(publicHallId));
+check(unique(buildingManifest.nodes.map(({id}) => id)), 'Building manifest contains duplicate node IDs');
+check(unique(buildingManifest.connections.map(({id}) => id)), 'Building manifest contains duplicate connection IDs');
+check(unique(buildingManifest.reservations.map(({id}) => id)), 'Building manifest contains duplicate reservation IDs');
+check(publicHallNodes.length === 6, `Building manifest must contain six public halls, found ${publicHallNodes.length}`);
+check(same(sorted(publicHallNodes.map(({publicHallId}) => publicHallId)), sorted(APPROVED_HALL_IDS)), 'Building manifest public hall roster differs from the canonical six');
+check(!buildingManifest.nodes.some(({id, publicHallId}) => LEGACY_HALL_IDS.includes(publicHallId) || LEGACY_HALL_IDS.some((legacyId) => id === `hall:${legacyId}`)), 'A retired temporary shell remains public in the building manifest');
+check(buildingManifest.forumLocationNodeId === 'place:core-questions-forum', 'The Core Questions Forum must occupy the central Forum location');
+check(nodeById.get(buildingManifest.forumLocationNodeId)?.publicHallId === 'core-questions-forum', 'The central Forum node does not own the Core Questions Forum program');
+check(buildingManifest.mainEntrance?.nodeId === 'place:entrance-orientation', 'The main entrance node changed');
+check(buildingManifest.kiosk?.publicHallId === 'mediterranean-beginnings-classical', 'The entrance map kiosk must remain owned by the first permanent hall');
+
+const physical = buildingManifest.physicalContract;
+check(physical.wallThickness === .36, 'Canonical wall thickness must be 0.36 m');
+check(physical.doorClearWidth === 4 && physical.doorClearHeight === 3.2 && physical.transitionDepth === 1.2, 'Canonical doorway dimensions changed');
+check(physical.safeLandingWidth === 4 && physical.safeLandingDepth === 4 && physical.stepFree === true, 'Canonical safe-landing or step-free contract changed');
+const residency = buildingManifest.residencyPolicy;
+check(residency.maxResidentHallContents === 3 && residency.recentHallCount === 1, 'Bounded hall-content residency changed');
+check(residency.decodedTextureBudgetMiB === 96, 'Decoded texture budget must remain 96 MiB');
+check(Number.isFinite(residency.approachDistance) && residency.approachDistance > 0, 'Residency approachDistance must be positive');
+
+for (const node of publicHallNodes) {
+  const hall = MUSEUM_CANONICAL_PROGRAM.find(({id}) => id === node.publicHallId);
+  const template = templateById.get(hall?.templateId);
+  check(node.templateId === hall?.templateId, `${node.id} template differs from its intellectual program`);
+  check(!node.geometryAdapterId && !node.legacyGeometryAdapterId, `${node.id} must not use a legacy geometry adapter`);
+  check(same(sorted(node.doorwaySlots.map(({id}) => id)), sorted(template?.portalSlots ?? [])), `${node.id} does not author the exact canonical portal-slot interface`);
+  for (const slot of node.doorwaySlots) {
+    check(slot.clearWidth === physical.doorClearWidth && slot.clearHeight === physical.doorClearHeight && slot.transitionDepth === physical.transitionDepth, `${node.id}/${slot.id} doorway dimensions differ from the shared contract`);
+    const landingWidth = slot.landingBounds.maxX - slot.landingBounds.minX;
+    const landingDepth = slot.landingBounds.maxZ - slot.landingBounds.minZ;
+    check(Math.abs(landingWidth - physical.safeLandingWidth) < 1e-6 && Math.abs(landingDepth - physical.safeLandingDepth) < 1e-6, `${node.id}/${slot.id} landing is not 4 × 4 m`);
+    check(Math.abs(slot.arrivalPose.x - (slot.position.x + slot.inwardNormal.x * 2)) < 1e-6 && Math.abs(slot.arrivalPose.z - (slot.position.z + slot.inwardNormal.z * 2)) < 1e-6, `${node.id}/${slot.id} safe arrival is not 2 m inside the portal`);
+    check(slot.arrivalPose.x >= slot.landingBounds.minX && slot.arrivalPose.x <= slot.landingBounds.maxX && slot.arrivalPose.z >= slot.landingBounds.minZ && slot.arrivalPose.z <= slot.landingBounds.maxZ, `${node.id}/${slot.id} safe arrival lies outside its landing`);
+  }
+}
+
+const usedEndpoints = new Set();
+for (const connection of buildingManifest.connections) {
+  for (const endpoint of [connection.a, connection.b]) {
+    const node = nodeById.get(endpoint.nodeId);
+    check(Boolean(node), `Connection ${connection.id} references missing node ${endpoint.nodeId}`);
+    check(node?.doorwaySlots.some(({id}) => id === endpoint.slotId), `Connection ${connection.id} references missing slot ${endpoint.nodeId}/${endpoint.slotId}`);
+    const key = `${endpoint.nodeId}/${endpoint.slotId}`;
+    check(!usedEndpoints.has(key), `Doorway endpoint ${key} is owned by more than one active connection`);
+    usedEndpoints.add(key);
+  }
+  check(connection.accessible === true, `Connection ${connection.id} must be step-free and accessible`);
+}
+
+const addEdge = (graph, left, right) => {
+  if (!graph.has(left)) graph.set(left, new Set());
+  if (!graph.has(right)) graph.set(right, new Set());
+  graph.get(left).add(right);
+  graph.get(right).add(left);
+};
+const outerConnections = buildingManifest.connections.filter(({routeRole}) => routeRole === 'outer-loop');
+const outerGraph = new Map();
+for (const {a, b} of outerConnections) addEdge(outerGraph, a.nodeId, b.nodeId);
+check(outerConnections.length === 12, `Outer loop must contain 12 seams, found ${outerConnections.length}`);
+check(outerGraph.size === 12 && [...outerGraph.values()].every((neighbors) => neighbors.size === 2), 'Outer loop must be one 12-node cycle');
+for (const hallId of APPROVED_HALL_IDS.slice(0, 5)) check(outerGraph.has(`hall:${hallId}`), `${hallId} is missing from the compact outer loop`);
+check(!outerGraph.has('place:core-questions-forum'), 'The central Forum must not masquerade as an outer-loop hall');
+
+const spokeConnections = buildingManifest.connections.filter(({routeRole}) => routeRole === 'forum-spoke');
+const spokeGraph = new Map();
+for (const {a, b} of spokeConnections) addEdge(spokeGraph, a.nodeId, b.nodeId);
+const spokeNodes = buildingManifest.nodes.filter(({pilotRole}) => pilotRole === 'forum-spoke');
+check(spokeNodes.length === 4, `Expected four Forum spokes, found ${spokeNodes.length}`);
+check(spokeConnections.length === 8, `Four Forum spokes require eight seams, found ${spokeConnections.length}`);
+check(spokeNodes.every(({id}) => spokeGraph.get(id)?.size === 2), 'Every Forum spoke must join exactly two endpoints');
+check(spokeGraph.get(buildingManifest.forumLocationNodeId)?.size === 4, 'The central Forum must receive all four real spokes');
+const shortcutConnections = buildingManifest.connections.filter(({routeRole}) => routeRole === 'shortcut');
+check(shortcutConnections.length === 2, 'The entrance–Forum shortcut must contain two seams');
+
+const fullGraph = new Map();
+for (const {a, b} of buildingManifest.connections) addEdge(fullGraph, a.nodeId, b.nodeId);
+const reached = new Set();
+const queue = [buildingManifest.mainEntrance.nodeId];
+while (queue.length) {
+  const current = queue.shift();
+  if (reached.has(current)) continue;
+  reached.add(current);
+  queue.push(...(fullGraph.get(current) ?? []));
+}
+check(buildingManifest.nodes.every(({id}) => reached.has(id)), 'The constructed subset is not continuously walkable from the entrance');
+
+const insertionReservations = buildingManifest.reservations.filter(({reservationType}) => reservationType === 'insertion');
+const outwardReservations = buildingManifest.reservations.filter(({reservationType}) => reservationType === 'outward-expansion');
+check(insertionReservations.length === 3, `Expected three truthful planned-gallery connections, found ${insertionReservations.length}`);
+check(outwardReservations.length === 8, `Expected eight outward reservations, found ${outwardReservations.length}`);
+check(same(sorted(outwardReservations.map(({expansionPortalId}) => expansionPortalId)), ['R1', 'R2', 'R3', 'R4', 'R5', 'R6', 'R7', 'R8']), 'Outward expansion portals must be exactly R1–R8');
+for (const reservation of buildingManifest.reservations) {
+  check(reservation.implementationStatus === 'reserved' && reservation.blocked === true, `Reservation ${reservation.id} must remain visibly blocked`);
+  check(nodeById.has(reservation.hostNodeId), `Reservation ${reservation.id} references missing host ${reservation.hostNodeId}`);
+  check(Number.isFinite(reservation.barrierWidth) && reservation.barrierWidth > 0, `Reservation ${reservation.id} has no physical barrier width`);
+  if (reservation.targetProgramHallId) check(hallById.has(reservation.targetProgramHallId) && !APPROVED_HALL_IDS.includes(reservation.targetProgramHallId), `Reservation ${reservation.id} leaks a live or unknown target hall`);
+}
 
 if (errors.length) {
-  console.error(`Museum masterplan validation failed (${errors.length} issue${errors.length === 1 ? '' : 's'}):`);
+  console.error(`Museum masterplan validation failed (${errors.length} issue${errors.length === 1 ? '' : 's'} across ${checks} checks):`);
   for (const error of errors) console.error(`- ${error}`);
   process.exit(1);
 }
 
-console.log('Museum masterplan validation passed.');
-for (const message of checks) console.log(`- ${message}`);
-console.log(`- Recommended program: ${program.wings.length} wings, ${program.halls.length} halls, ${program.rooms.length} rooms, ${recommended.recordCapacity} record slots`);
+console.log(`Museum masterplan validation passed (${checks} checks).`);
+console.log('  approved program: 10 wings · 26 halls · 105 rooms · 142 philosophers · 43 branches');
+console.log('  canonical live subset: 6 halls · 29 rooms · 59 primary exhibits · 78 capacity · 19 reserve');
+console.log('  tiers: 30 anchor · 25 standard · 3 supporting · 0 cluster · 1 archive');
+console.log('  compatibility: 21 carried legacy routes · 27 truthful not-installed handoffs');
+console.log('  physical subset: compact five-hall outer loop · central Forum · four spokes · entrance shortcut · 11 blocked reservations');

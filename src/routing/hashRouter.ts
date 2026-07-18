@@ -3,8 +3,11 @@ import {learningPaths} from '../data/learningPaths';
 import {philosophers} from '../data/philosophers';
 import {
   getMuseumHallCatalog,
+  getMuseumLegacyExhibitCompatibility,
   isMuseumExhibitId,
   isMuseumHallId,
+  MUSEUM_HALL_ROUTE_ALIASES,
+  type MuseumExhibitId,
 } from '../data/museumCatalog';
 import {canonicalizeArticleSection} from './routeMetadata';
 import {
@@ -107,6 +110,8 @@ export const serializeHashRoute = (route: AppRoute): string => {
       return route.exhibitId
         ? `#/museum/${encodeURIComponent(route.hallId)}/exhibits/${encodeURIComponent(route.exhibitId)}`
         : `#/museum/${encodeURIComponent(route.hallId)}`;
+    case 'museum-compatibility':
+      return `#/museum/${encodeURIComponent(route.formerHallId)}/exhibits/${encodeURIComponent(route.exhibitId)}`;
     case 'not-found':
       return requestedHash(route.requestedHash);
   }
@@ -164,6 +169,30 @@ export const parseHashRoute = (hash: string): ParsedHashRoute => {
 
   if (head === 'museum') {
     if (segments.length === 1) return finalize(DEFAULT_ROUTES.museum, hash);
+    const successorHallId = MUSEUM_HALL_ROUTE_ALIASES[second as keyof typeof MUSEUM_HALL_ROUTE_ALIASES];
+    if (successorHallId) {
+      if (segments.length === 2) return finalize({kind: 'museum', hallId: successorHallId}, hash);
+      if (segments.length !== 4 || third !== 'exhibits') {
+        return fail(hash, 'This museum route has an unexpected shape.');
+      }
+      const compatibility = getMuseumLegacyExhibitCompatibility(second, fourth);
+      if (!compatibility) {
+        return fail(hash, `No former exhibit exists with the id “${fourth}” in “${second}”.`);
+      }
+      if (compatibility.liveExhibitRef) {
+        return finalize({
+          kind: 'museum',
+          hallId: compatibility.liveExhibitRef.hallId,
+          exhibitId: compatibility.liveExhibitRef.exhibitId as MuseumExhibitId,
+        }, hash);
+      }
+      const route = {kind: 'museum-compatibility', formerHallId: second, exhibitId: fourth} as const;
+      return {
+        route,
+        canonicalHash: serializeHashRoute(route),
+        shouldReplace: false,
+      };
+    }
     if (!isMuseumHallId(second)) {
       return fail(hash, `No museum hall exists with the id “${second}”.`);
     }

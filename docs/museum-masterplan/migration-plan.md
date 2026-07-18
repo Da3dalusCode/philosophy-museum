@@ -2,9 +2,9 @@
 
 ## Status and governing decision
 
-This plan records the approved implementation sequence. **Worlds with a Questions Forum** and the single-level **Ring of Wings** in [building-options.md](./building-options.md) are locked for the Ring pilot, supporting the long-term 10-wing, 26-hall, 105-room program. Approval covers the six-shell physical pilot, not construction of the other twenty planned halls.
+This plan records the approved implementation sequence. **Worlds with a Questions Forum** and the single-level **Ring of Wings** in [building-options.md](./building-options.md) remain locked, supporting the long-term 10-wing, 26-hall, 105-room program. The Ring infrastructure phase is complete. The owner has explicitly overridden the earlier order that placed a global-worlds demonstration before conversion of the six prototype shells.
 
-The approved implementation phase is deliberately small: rearrange only the six existing shells, make their walls and corridors physically truthful, close them into a pilot loop around a central orientation court, add proportionate spokes or shortcuts, and construct blocked, named portal reservations. Do not add a seventh intellectual hall, change the 48-exhibit roster, rename public routes, or pretend that the future Forum or a reserved destination is curated and open.
+The current approved phase converts the temporary shells to six permanent successor programs: `mediterranean-beginnings-classical`, `renaissance-humanism-new-method`, `phenomenology-existence-embodiment`, `analytic-traditions`, `justice-democratic-reason`, and `core-questions-forum`. The first five occupy the compact outer loop. The Forum occupies the existing central court, not the former outer Mind-shell position. The former Mind area becomes truthful circulation, return connection, construction sleeve, or reserved space as required by the physical manifest.
 
 ## Why a staged migration is necessary
 
@@ -26,7 +26,7 @@ Every implementation phase must preserve these rules:
 1. **The map never leads construction.** It may show only geometry, doors, corridors, levels, and status present in the approved physical manifest. A blocked reservation is labeled “future” and is neither an edge nor a destination.
 2. **One connection has one source record.** Runtime directions, prefetch adjacency, collision openings, and map edges derive from that record.
 3. **A philosophical record has one primary home.** A secondary appearance is a cross-reference, study-wall record, or deliberately reduced interpretation—not a duplicate anchor claiming a second primary home.
-4. **Current public identity remains stable through the pilot.** The six current hall IDs, exhibit-qualified routes, catalog records, saved-session keys, zones, and 48-exhibit roster remain valid.
+4. **Compatibility survives the permanent cutover.** Former hall and exhibit-qualified routes remain aliases or explanatory handoffs, while the public directory, map, sessions, search, and guided routes use the six permanent IDs and live roster.
 5. **Construction and curatorial cutover are separate.** A target hall can be built and tested before an installation moves; an installation moves only after its target hall, route, interpretation, collision, and map state are live together.
 6. **Accessibility is physical.** Fast travel does not excuse a blocked walking route, an unsafe landing, a color-only sign, or an inaccessible map.
 7. **No stage requires all 26 halls.** Each opened subset must be an honest, usable building with truthful blocked thresholds for later work.
@@ -37,13 +37,13 @@ Every implementation phase must preserve these rules:
 | --- | --- | --- |
 | 0. Review and approval | taxonomy, Ring concept, stable IDs, successor-shell assumptions, and disposition table approved | complete; no content change |
 | 1. Infrastructure and compatibility adapters | introduce the authoritative runtime building manifest and compatibility adapters | part of the approved Ring-pilot implementation; no roster change |
-| 2. Six-shell physical truth | arrange the existing six shells as a compact pilot ring with real corridors, central orientation court, shortcuts or spokes, and named reserved portals | approved Ring-pilot scope; all 48 exhibits and 18 zones remain exactly where they are |
-| 3. Global-worlds demonstration | open `CSA`, `BP`, `CCT`, and `IPW` as the first four new halls | only approved primary moves whose targets are live; secondary links replace, rather than duplicate, full anchors |
-| 4. Connected-world completion | open `JPH`, `LCS`, and `EAC`; complete their transmission routes | target-specific moves and new assigned records |
-| 5. Composite-shell separation | split the remaining Mediterranean, early-modern, nineteenth-century, modern, and ethics/social programs; finalize `CQ` and the entrance role | staged exhibit moves according to the table below |
-| 6. Capacity-led expansion | use outward reservations or, only if necessary, evaluate another level | only after formal content and physical triggers are met |
+| 2. Six-shell physical truth | arrange the six temporary shells as a compact pilot ring with real corridors, central orientation court, shortcuts or spokes, and named reserved portals | completed Ring-infrastructure scope; the former 48 exhibits and 18 zones remained unchanged during this phase |
+| 3. Canonical-six permanent cutover | replace the six temporary programs with five permanent outer-loop halls and the permanent central Core Questions Forum | install every primary assignment in the six final rosters by approved tier; preserve aliases for displaced records; add Krishnamurti as philosopher 142 |
+| 4. Global-worlds demonstration | open `CSA`, `BP`, `CCT`, and `IPW` as the next four halls | only approved primary moves whose targets are live; secondary links replace, rather than duplicate, full anchors |
+| 5. Connected-world completion | open `JPH`, `LCS`, and `EAC`; complete their transmission routes | target-specific moves and new assigned records |
+| 6. Remaining program and capacity-led expansion | construct the remaining approved halls, then use outward reservations or evaluate another level only if formal triggers are met | staged moves and additions under the same exact-once and compatibility rules |
 
-The numbers describe order, not releases. The Ring pilot may implement Phases 1 and 2 together where the shared manifest is necessary to make the physical layout truthful, but later intellectual-hall construction must not be pulled forward to avoid infrastructure or truthfulness gates.
+The numbers describe order, not releases. Phases 1 and 2 established the shared manifest and truthful compact Ring. Phase 3 is the owner-approved canonical-six cutover. No later intellectual-hall construction may be pulled forward to avoid content, accessibility, route-compatibility, or physical-truth gates.
 
 ## Phase 1 — infrastructure and adapters first
 
@@ -95,7 +95,7 @@ Place the current shells in one compact, step-free loop:
 
 `Ancient → Renaissance → Modernity → Logic → Ethics → Mind → Ancient`.
 
-This retains the prototype’s intellectual order while replacing the chain with a truthful closed walking loop. Ancient remains the temporary public entrance because the working visitor-map kiosk is already there. A central orientation and circulation court marks the future Forum location without claiming that Core Questions content is open. Proportionate live spokes or shortcuts provide additional useful routes through the six-shell pilot. This is a migration diagram, not a claim that the six composite titles are the final taxonomy.
+During Phase 2 this retained the prototype’s intellectual order while replacing the chain with a truthful closed walking loop. Ancient remained the temporary public entrance because the working visitor-map kiosk was already there, and the central orientation court marked the then-future Forum location. Phase 3 supersedes those temporary public identities: the court becomes the permanent Forum, the five permanent outer halls replace the other shells, and the physical manifest alone determines the surviving entrance, loop, spokes, and return geometry.
 
 The work is limited to:
 
@@ -246,48 +246,54 @@ Successor: `CQ`. Counts: 1 remains temporarily, 2 move primary later, 5 become s
 
 The table is derived from the current roster, the final primary assignments, each record's approved secondary hall IDs, and the six provisional successor identities. If reviewers change a successor identity, regenerate this table from those same rules rather than hand-adjusting favored exhibits.
 
-## Phase 3 — strongest new public demonstration
+## Phase 3 — canonical-six permanent cutover (current phase)
 
-Build these four halls first, as four distinct settings rather than one catch-all “non-Western” district:
+Convert the compact construction-stage Ring to these six permanent programs:
+
+1. `MBC` — Mediterranean Beginnings & Classical Athens, in a canonical four-room sequential hall on the outer loop.
+2. `RHN` — Renaissance, Political Order, and New Science, in a canonical three-room sequential hall on the outer loop.
+3. `PEE` — Phenomenology, Existence, and Embodiment, in a canonical five-room sequential hall on the outer loop.
+4. `AT` — Analytic Traditions, in a canonical five-room sequential hall on the outer loop.
+5. `JDR` — Political Action, Justice, and Democratic Reason, in a canonical three-room sequential hall on the outer loop.
+6. `CQ` — Core Questions Forum, in a canonical nine-room crossroads hall at the central Forum location.
+
+The first five retain a compact, continuously walkable outer loop. The permanent Forum moves into the central court and connects through real spokes. The former outer Mind-shell is retired as a public gallery node and becomes only the truthful circulation, return, construction, or reservation geometry declared by the physical manifest. No public map, directory, or travel action may continue to present it as an open gallery.
+
+Populate the six halls from the authoritative assignment manifests, not from the former eight-exhibit rosters. Before the Krishnamurti addition, their final rosters contained 58 primary records; the new `jiddu-krishnamurti` standard exhibit in `CQ` → Mind & Self brings the live canonical-six roster to 59. The six-hall tier balance is 30 anchors, 25 standard individual exhibits, 3 supporting exhibits, no thematic-cluster participants, and 1 gallery archive or study-wall record. Every named record remains legible and substantive at its assigned scale.
+
+The former 48 installations are source material, not a quota. A record whose final primary home is one of the six successor halls moves to its approved room and tier. A record whose primary home is not yet live leaves the full 3D roster while retaining its Atlas article, relationships, media, sources, and an alias or compatibility handoff that identifies the planned primary hall. Any reduced secondary treatment must say why the record matters in that room and must not imply a duplicate primary installation.
+
+Krishnamurti is primary exactly once in `wing-core-questions` → `core-questions-forum` → `core-mind-self` as a `standard-individual-exhibit`. His secondary route to `classical-south-asian-worlds` is biographical and cross-cultural, not inherited-school membership. His room-level Philosophy of Religion comparison concerns authority, allegiance, and fixed paths; it is not affiliation. The Forum must send visitors outward rather than presenting itself as the building's supreme authority.
+
+Open no successor as an empty shell. Each requires every assigned room, tier-appropriate primary treatment, complete interpretation, accessible walking and fast-travel arrival, route alias behavior, map footprint, directory/search presence, and a validated connection. The public roster, map, directory, guided routes, saved-session fallback, and direct routes change atomically.
+
+## Phase 4 — global-worlds demonstration (next)
+
+Build four distinct settings rather than one catch-all “non-Western” district:
 
 1. `CSA` — Classical South Asia: Jain, Yoga, and Brahmanical Systems.
 2. `BP` — Buddhist Philosophies of Liberation and Knowledge.
 3. `CCT` — Warring States & Classical Chinese Traditions.
 4. `IPW` — Arabic & Islamic Philosophical Worlds.
 
-This quartet does the most to demonstrate that the new plan corrects the prototype's narrow historical coverage. It also tests the reusable sequence and crossroads templates, cultural-historical orientation rooms, transmission thresholds, reserve rooms, cross-wing routes, hub loading, and a map that grows from six to ten real halls.
+This quartet remains the strongest next demonstration that the long-term plan corrects the prototype's narrow historical coverage. It tests cultural-historical orientation rooms, transmission thresholds, cross-wing routes, hub loading, and a map that grows from six to ten permanent halls. Patañjali and Vasubandhu may receive live canonical primaries only when `CSA` and `BP` are complete; their current Forum references remain explicitly secondary.
 
-Open no hall merely as an empty shell. Each requires its assigned rooms, primary records, interpretation, complete accessible route, safe arrival, local fallback, map footprint, and at least one truthful connection. Patañjali and Vasubandhu may change from full Mind-hall anchors to secondary Core links only when `CSA` and `BP` are live and their new primary presentations have passed review.
+## Phase 5 — connected-world completion
 
-## Phase 4 — complete connected worlds before splitting the prototypes
+Add `JPH` (Jewish Philosophy) and `LCS` (Latin Christian & Scholastic Traditions), completing the connected-medieval triad around `IPW`. Add `EAC` (East Asian Continuities) to complete the planned East Asian wing and make Buddhist translation and regional continuities visible.
 
-Add `JPH` (Jewish Philosophy) and `LCS` (Latin Christian & Scholastic Traditions) next, completing the connected-medieval triad around `IPW`. Add `EAC` (East Asian Continuities) to complete the planned East Asian wing and make Buddhist translation and regional continuities visible.
+These halls open with their connecting thresholds, not as isolated terminals. `IPW–JPH–LCS`, the East Asian wing link `CCT–EAC`, and the Buddhist/East Asian transmission shortcut `BP–EAC` must distinguish translation, commentary, institutional reception, and comparative juxtaposition. The future `LAI–IPW` threshold remains visibly blocked until `LAI` is built; proximity must not imply a simple one-way inheritance story.
 
-These halls should open with their connecting thresholds, not as isolated terminals. `IPW–JPH–LCS`, the East Asian wing link `CCT–EAC`, and the Buddhist/East Asian transmission shortcut `BP–EAC` go live in Phase 4 and must distinguish translation, commentary, institutional reception, and comparative juxtaposition. The future `LAI–IPW` threshold remains a visibly blocked reservation until `LAI` is built in Phase 5; the map must not expose that edge early. Proximity must not imply a simple one-way inheritance story.
+## Phase 6 — remaining program and capacity-led expansion
 
-At the end of Phase 4, the six adapted prototype shells plus seven new halls provide 13 live physical nodes. The building has demonstrated both template families, multi-wing navigation, truthful reservations, and hub-aware loading before the large composite European halls are split.
-
-## Phase 5 — split composite shells last
-
-Convert the six prototypes into their direct successors and add the 13 still-missing program halls:
-
-- Mediterranean: add `HRW` and `LAI` around successor `MBC`.
-- Early Modern: add `RMNS`, `ESPO`, and `ERK` around successor `RHN`.
-- Nineteenth Century: add `GIA`, `ULHC`, and `FPLV`.
-- Modern Traditions: add `PDI` and `CPD` around successors `AT` and `PEE`.
-- Ethics, Politics, and Social Thought: add `MLPR`, `FP`, and `CRL` around successor `JDR`.
-- Core: complete the provisional Mind-to-`CQ` conversion, then move the public entrance/orientation role only after the permanent Forum, kiosk/map, saved-session migration, and accessible return routes are ready.
-
-Use the same cutover for every group:
+Complete the approved Mediterranean, early-modern, nineteenth-century, modern, ethics/social, and entrance programs around the six permanent foundations. Use the same cutover contract for each addition:
 
 1. Build and validate the target behind a blocked reservation.
-2. Publish its content and safe routes without removing the source installation.
+2. Publish its content and safe routes without removing a source installation prematurely.
 3. Move the canonical primary presentation in one release.
-4. Where approved, replace the source station with a visibly secondary link or study-wall record.
+4. Where approved, replace a source station with a visibly secondary link or study-wall record.
 5. Update route labels, guided walks, visit state, and map status atomically.
-6. Retire the composite shell title only after every one of its eight current exhibits has a live primary destination or reviewed successor placement.
-
-This order avoids repeatedly remodeling the six most mature halls while the manifest, templates, map, and new cultural-historical settings are still being proven.
+6. Open the threshold only after content, interpretation, collision, accessibility, readiness, and safe-arrival gates all pass.
 
 ## Visitor-map truthfulness through every phase
 
@@ -309,14 +315,14 @@ During construction, the map must show only connections that are physically cros
 | --- | --- |
 | Open a reserved portal | target hall is content-complete; compatible doorway and corridor are built; both arrival poses are collision-safe; walking and fallback routes pass; residency/readiness pass; map and route status publish atomically |
 | Move a current primary exhibit | its assigned primary hall is live and reviewed; the destination presentation is at least equivalent in depth and accessibility; any remaining source treatment is explicitly secondary |
-| Convert a prototype shell to its successor title | all eight source exhibits have approved live dispositions and no saved route or guided walk depends on the composite title without an alias |
+| Convert a prototype shell to its successor title | every source exhibit has an approved live primary, explicitly secondary treatment, or compatibility handoff; no saved route or guided walk depends on the composite title without an alias |
 | Commission a local wing-capacity review | assigned or approved projected records consume more than 85% of reviewed wing capacity, or a compressed tradition cannot be interpreted responsibly in reserve space; Modern Traditions triggers this review immediately at 85.7% |
 | Add a hall inside an existing wing | the capacity review demonstrates a stable independent room program that cannot be handled by responsible tiering, rotation, or existing reserve space, and an accessible reserved connection is approved |
 | Add a new wing | the content has a distinct cultural-historical or methodological setting spanning a stable multi-hall program, and placing it under an existing wing would be materially misleading |
 | Use an outward Ring reservation | the new program has stable IDs, at least two defensible connections, an accessible return route, and no existing planned reserve can absorb it without displacing primary records |
 | Consider another floor | all suitable single-level outward reservations are allocated, a new program of at least three halls still lacks a defensible ground-level location, and three redundant lift/stair cores plus level-aware maps, collision, sessions, and fallback routes can be delivered together |
 
-The approved 26-hall program has 258 record-capacity slots for 184 current primary records, so a second floor is not justified by the present Atlas inventory. Capacity is a curatorial planning measure, not visitor occupancy; thresholds must be reassessed if presentation tiers or room programs change.
+The approved 26-hall program has 258 record-capacity slots for 185 current primary records, so a second floor is not justified by the present Atlas inventory. Capacity is a curatorial planning measure, not visitor occupancy; thresholds must be reassessed if presentation tiers or room programs change.
 
 Modern Philosophical Traditions is at 24 of 28 primary-record slots (85.7%), so the approved program commissions a local capacity review and protects the outward reservation at `PDI`. PEE’s nominal open primary slot is also expected to carry Beauvoir’s anchor-strength secondary. The review does not automatically authorize a fifth hall: it must first test tier changes, room interpretation, and whether an approved new roster has a coherent independent program.
 
@@ -336,4 +342,4 @@ If browser automation is blocked by the Windows process sandbox, record that lim
 
 ## Stop condition for this masterplan
 
-The taxonomy, Ring topology, successor-shell assumptions, Beauvoir reassignment, and 48-exhibit disposition table are locked for the Ring pilot. Stop the pilot only when the shared physical source, truthful six-shell loop and court routes, bounded residency, blocked reservations, physical visitor map, compatibility behavior, and required audits are complete. Later construction of the other twenty planned halls remains outside this phase.
+The taxonomy, Ring topology, permanent successor programs, exact-once assignments, and compatibility rules are locked. The historical 48-exhibit disposition table remains a migration record, not the live-roster target. Stop the canonical-six phase only when the shared physical source, five-hall outer loop, central Forum and spokes, 59-record tiered roster, bounded residency, blocked reservations, physical visitor map, route handoffs, and required audits are complete. Later construction of the remaining twenty planned halls remains outside this phase.

@@ -1440,6 +1440,96 @@
         "bytes": 5134,
         "sha256": "31a230541edf93bba80367223c5e84f07b484dc164726e2322334e9bc88b06bd"
       }
+    },
+    "jiddu-krishnamurti-bain-portrait": {
+      "hallFolder": "core-questions-forum",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Jiddu_Krishnamurti_01.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d0/Jiddu_Krishnamurti_01.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Jiddu_Krishnamurti_01.jpg/1280px-Jiddu_Krishnamurti_01.jpg",
+      "scene": {
+        "width": 470,
+        "height": 640,
+        "bytes": 32904,
+        "sha256": "10c7591e264eb69941e454edefce4d32ae117985d4c58abbfa2b33f12aa151e2"
+      },
+      "panel": {
+        "width": 940,
+        "height": 1280,
+        "bytes": 264634,
+        "sha256": "a65b692d938dd865f258d40d0df3a4af506977e1c07f9dbe5d1099eb963e7c96"
+      }
+    },
+    "jiddu-krishnamurti-besant-1927": {
+      "hallFolder": "core-questions-forum",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Annie_Bessant_et_Krishnamurti_(Pacific)_-_btv1b53177929b.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4d/Annie_Bessant_et_Krishnamurti_%28Pacific%29_-_btv1b53177929b.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Annie_Bessant_et_Krishnamurti_%28Pacific%29_-_btv1b53177929b.jpg/1280px-Annie_Bessant_et_Krishnamurti_%28Pacific%29_-_btv1b53177929b.jpg",
+      "scene": {
+        "width": 465,
+        "height": 640,
+        "bytes": 28078,
+        "sha256": "7b066b7fb5681b17495e934bd755bc086993f93a51aaa818ff97b2b6c8e686fd"
+      },
+      "panel": {
+        "width": 930,
+        "height": 1280,
+        "bytes": 118328,
+        "sha256": "650395d2fa38a9aaefeb0b101836aa00005aa07250519bbc012e0e3eaabfd4bb"
+      }
+    },
+    "francis-bacon-portrait-1617": {
+      "hallFolder": "renaissance-humanism-new-method",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Portrait_of_Francis_Bacon_(cropped).jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/15/Portrait_of_Francis_Bacon_%28cropped%29.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/1/15/Portrait_of_Francis_Bacon_%28cropped%29.jpg",
+      "scene": {
+        "width": 487,
+        "height": 640,
+        "bytes": 48740,
+        "sha256": "afc6c7a8f70f384edc0fa605ecb8fdf14744b4b42c140e1774578403490d4496"
+      },
+      "panel": {
+        "width": 738,
+        "height": 969,
+        "bytes": 151616,
+        "sha256": "a9820ccf8225e83b41f03b03d0a99834a1627f3ce46d4c581a1877199c0d9d00"
+      }
+    },
+    "alfred-north-whitehead-portrait-1923": {
+      "hallFolder": "core-questions-forum",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:ANWhitehead.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c8/ANWhitehead.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c8/ANWhitehead.jpg",
+      "scene": {
+        "width": 390,
+        "height": 522,
+        "bytes": 41162,
+        "sha256": "ca610eee452d44621836391094d0fd4890ce8aed767755c196bc0356f25a798a"
+      },
+      "panel": {
+        "width": 390,
+        "height": 522,
+        "bytes": 55722,
+        "sha256": "246babeda026928fd67221d04cab70e1f5619480e2331f71a6b61687f07d2bed"
+      }
+    },
+    "martha-nussbaum-portrait-2010": {
+      "hallFolder": "justice-democratic-reason",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Martha_Nussbaum_2010.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Martha_Nussbaum_2010.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Martha_Nussbaum_2010.jpg/1280px-Martha_Nussbaum_2010.jpg",
+      "scene": {
+        "width": 354,
+        "height": 640,
+        "bytes": 28672,
+        "sha256": "1a02cdf2afcae6ea4030753e9552cec01b588c93b5b2dd0f45207afc7168c790"
+      },
+      "panel": {
+        "width": 707,
+        "height": 1280,
+        "bytes": 104660,
+        "sha256": "c1cc0e70b7db4b268728ec50cd61a1586b1ebb105eb798bb080259ec3bcf06d3"
+      }
     }
   }
 }

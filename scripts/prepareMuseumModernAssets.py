@@ -1,4 +1,4 @@
-"""Build and verify local WebP derivatives for Galleries 02 through 06.
+"""Build and verify locked local WebP derivatives for the modern and canonical Museum collection.
 
 The manifest locks exact Commons source pages, selected download URLs, output
 dimensions, byte counts, and SHA-256 digests. Network access is only needed when
@@ -14,6 +14,7 @@ import tempfile
 import time
 import urllib.error
 import urllib.request
+from contextlib import ExitStack
 from pathlib import Path
 
 from PIL import Image, ImageOps
@@ -32,8 +33,11 @@ EXPECTED_HALLS = {
     "logic-language-science",
     "ethics-justice-political-life",
     "mind-consciousness-self",
+    "core-questions-forum",
+    "renaissance-humanism-new-method",
+    "justice-democratic-reason",
 }
-EXPECTED_ASSET_COUNT = 80
+EXPECTED_ASSET_COUNT = 85
 MAX_DERIVATIVE_BYTES = 600_000
 
 
@@ -154,8 +158,8 @@ def main() -> None:
     assets = load_manifest(args.refresh_locks)
     refreshed = json.loads(MANIFEST_PATH.read_text(encoding="utf-8"))
 
-    with tempfile.TemporaryDirectory(prefix="philosophy-atlas-modern-assets-") as temporary_directory:
-        temporary = Path(temporary_directory)
+    with ExitStack() as stack:
+        temporary: Path | None = None
         for index, (slug, record) in enumerate(assets.items(), start=1):
             folder = OUTPUT_ROOT / str(record["hallFolder"])
             folder.mkdir(parents=True, exist_ok=True)
@@ -174,6 +178,10 @@ def main() -> None:
                 print(f"[{index:02d}/{len(assets)}] {slug} (verified)", flush=True)
                 continue
 
+            if temporary is None:
+                temporary = Path(
+                    stack.enter_context(tempfile.TemporaryDirectory(prefix="philosophy-atlas-modern-assets-"))
+                )
             source = temporary / f"{index:02d}-{slug}"
             candidate_scene = temporary / f"{slug}-scene.webp"
             candidate_panel = temporary / f"{slug}-panel.webp"

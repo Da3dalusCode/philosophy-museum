@@ -2,9 +2,23 @@ import type {MuseumAssetId} from './museumAssetTypes';
 import type {AncientGreekExhibitId, MuseumExhibitId, MuseumHallId} from '../museumCatalog';
 import type {MuseumExhibitRef} from './museumWorldTypes';
 import type {NavigableAppRoute} from '../../routing/routes';
+import {philosophers} from '../philosophers';
+import {branches} from '../branches';
+import {
+  MUSEUM_CANONICAL_PROGRAM,
+  MUSEUM_PLANNED_HALL_TITLES,
+  getMuseumPrimaryExhibitRef,
+  type MuseumCanonicalExhibit,
+  type MuseumCanonicalHall,
+  type MuseumCanonicalRoom,
+  type MuseumPresentationTier,
+} from './museumCanonicalProgram';
+import {museumAssetById} from './museumAssets';
+import type {ArticleSection, Branch, Philosopher, ReadingEntry, SourceLink} from '../../types/philosophy';
 import {EARLY_MODERN_MUSEUM_INTERPRETATIONS} from './renaissanceReasonRevolutionInterpretations';
 import {MODERNITY_MUSEUM_INTERPRETATIONS} from './modernityFreedomCritiqueInterpretations';
 import {MUSEUM_EXPANSION_INTERPRETATIONS} from './museumExpansionInterpretations';
+import {KRISHNAMURTI_MUSEUM_INTERPRETATIONS} from './krishnamurtiMuseumInterpretations';
 
 export type MuseumInterpretationSource = {
   label: string;
@@ -16,6 +30,14 @@ export type MuseumInterpretationSection = {
   heading: string;
   paragraphs: readonly string[];
   points?: readonly string[];
+};
+
+export type MuseumInterpretiveConnection = {
+  kind: 'live-comparison' | 'secondary-route' | 'room-comparison';
+  label: string;
+  relationship: string;
+  status: 'open' | 'planned';
+  route?: NavigableAppRoute;
 };
 
 type MuseumInterpretationBase = {
@@ -31,8 +53,11 @@ type MuseumInterpretationBase = {
   sections: readonly MuseumInterpretationSection[];
   objectInterpretations: Readonly<Partial<Record<MuseumAssetId, string>>>;
   sources: readonly MuseumInterpretationSource[];
-  relatedExhibits: readonly MuseumExhibitRef[];
+  relatedExhibits: readonly {hallId: MuseumHallId; exhibitId: MuseumExhibitId}[];
   articleRoute: NavigableAppRoute;
+  roomId?: string;
+  tier?: MuseumPresentationTier;
+  connections?: readonly MuseumInterpretiveConnection[];
 };
 
 export type MuseumPhilosopherInterpretation = MuseumInterpretationBase & {
@@ -313,18 +338,591 @@ const ANCIENT_MUSEUM_INTERPRETATIONS = {
   },
 } as const satisfies Record<AncientGreekExhibitId, MuseumInterpretation>;
 
-export const MUSEUM_INTERPRETATIONS: readonly MuseumInterpretation[] = [
+const LEGACY_MUSEUM_INTERPRETATIONS: readonly MuseumInterpretation[] = [
   ...Object.values(ANCIENT_MUSEUM_INTERPRETATIONS),
   ...EARLY_MODERN_MUSEUM_INTERPRETATIONS,
   ...MODERNITY_MUSEUM_INTERPRETATIONS,
   ...MUSEUM_EXPANSION_INTERPRETATIONS,
+  ...KRISHNAMURTI_MUSEUM_INTERPRETATIONS,
 ];
 
-const activeInterpretationById = new Map(MUSEUM_INTERPRETATIONS.map((record) => [record.id, record]));
+type CanonicalProgramLocation = {
+  hall: MuseumCanonicalHall;
+  room: MuseumCanonicalRoom;
+  exhibit: MuseumCanonicalExhibit;
+};
+
+const canonicalProgram: readonly MuseumCanonicalHall[] = MUSEUM_CANONICAL_PROGRAM;
+const canonicalLocations: readonly CanonicalProgramLocation[] = canonicalProgram.flatMap((hall) =>
+  hall.rooms.flatMap((room) => room.exhibits.map((exhibit) => ({hall, room, exhibit}))),
+);
+const legacyInterpretationByEntityId = new Map<string, MuseumInterpretation>(LEGACY_MUSEUM_INTERPRETATIONS.map((record) => [record.id, record]));
+const philosopherById = new Map(philosophers.map((record) => [record.id, record]));
+const branchById = new Map(branches.map((record) => [record.id, record]));
+const liveHallIds = new Set(MUSEUM_CANONICAL_PROGRAM.map(({id}) => id));
+
+const sourceKind = (source: SourceLink): MuseumInterpretationSource['kind'] => {
+  if (source.type === 'primary-text' || source.type === 'public-domain-text') return 'primary-text';
+  if (/museum|library|archive|wikimedia|wikidata/i.test(`${source.label} ${source.url}`)) return 'collection-record';
+  return 'academic-reference';
+};
+
+const academicSource = (label: string, url: string): MuseumInterpretationSource => ({label, url, kind: 'academic-reference'});
+const primarySource = (label: string, url: string): MuseumInterpretationSource => ({label, url, kind: 'primary-text'});
+
+/**
+ * Direct references for canonical records whose Atlas profiles do not yet carry
+ * linked bibliography metadata. These are article, text, or institutional pages,
+ * never a search-results page. The interpretive copy below remains original Atlas
+ * writing; these links give visitors a route to the evidence and scholarship.
+ */
+const CANONICAL_DIRECT_INTERPRETATION_SOURCES: Readonly<Record<string, readonly MuseumInterpretationSource[]>> = {
+  'ancient-greek': [
+    academicSource('Stanford Encyclopedia of Philosophy — Presocratic Philosophy', 'https://plato.stanford.edu/entries/presocratics/'),
+    academicSource('Internet Encyclopedia of Philosophy — Presocratics', 'https://iep.utm.edu/presocra/'),
+  ],
+  thales: [
+    academicSource('Stanford Encyclopedia of Philosophy — Presocratic Philosophy', 'https://plato.stanford.edu/entries/presocratics/'),
+    academicSource('Internet Encyclopedia of Philosophy — Thales of Miletus', 'https://iep.utm.edu/thales/'),
+    primarySource('Aristotle, Metaphysics I.3 — ancient report on Thales', 'https://www.perseus.tufts.edu/hopper/text?doc=Aristot.%20Met.%201.3'),
+  ],
+  anaximander: [
+    academicSource('Stanford Encyclopedia of Philosophy — Presocratic Philosophy', 'https://plato.stanford.edu/entries/presocratics/'),
+    academicSource('Internet Encyclopedia of Philosophy — Anaximander', 'https://iep.utm.edu/anaximander/'),
+    primarySource('Aristotle, Physics III.4 — ancient report on the unlimited', 'https://classics.mit.edu/Aristotle/physics.3.iii.html#202'),
+  ],
+  anaximenes: [
+    academicSource('Stanford Encyclopedia of Philosophy — Presocratic Philosophy', 'https://plato.stanford.edu/entries/presocratics/'),
+    academicSource('Internet Encyclopedia of Philosophy — Presocratics', 'https://iep.utm.edu/presocra/'),
+    primarySource('Aristotle, Metaphysics I.3 — the Milesian material principles', 'https://www.perseus.tufts.edu/hopper/text?doc=Aristot.%20Met.%201.3'),
+  ],
+  pythagoras: [
+    academicSource('Stanford Encyclopedia of Philosophy — Pythagoras', 'https://plato.stanford.edu/entries/pythagoras/'),
+    academicSource('Internet Encyclopedia of Philosophy — Presocratics: Pythagoras and Pythagoreanism', 'https://iep.utm.edu/presocra/'),
+    primarySource('Diogenes Laertius, Lives VIII.1 — Pythagoras', 'https://scaife-reader.perseus.tufts.edu/reader/urn:cts:greekLit:tlg0004.tlg001.perseus-eng2:8.1.1/'),
+  ],
+  philolaus: [
+    academicSource('Stanford Encyclopedia of Philosophy — Philolaus', 'https://plato.stanford.edu/entries/philolaus/'),
+    academicSource('Stanford Encyclopedia of Philosophy — Pythagoras', 'https://plato.stanford.edu/entries/pythagoras/'),
+    academicSource('Internet Encyclopedia of Philosophy — Presocratics', 'https://iep.utm.edu/presocra/'),
+  ],
+  parmenides: [
+    academicSource('Stanford Encyclopedia of Philosophy — Parmenides', 'https://plato.stanford.edu/entries/parmenides/'),
+    academicSource('Internet Encyclopedia of Philosophy — Parmenides', 'https://iep.utm.edu/parmenid/'),
+    primarySource('Plato, Parmenides 127a–128e — ancient dramatic testimony', 'https://scaife-reader.perseus.tufts.edu/reader/urn:cts:greekLit:tlg0059.tlg009.perseus-eng2:127/'),
+  ],
+  'zeno-elea': [
+    academicSource("Stanford Encyclopedia of Philosophy — Zeno's Paradoxes", 'https://plato.stanford.edu/entries/paradox-zeno/'),
+    academicSource("Internet Encyclopedia of Philosophy — Zeno's Paradoxes", 'https://iep.utm.edu/zenos-paradoxes/'),
+    primarySource("Aristotle, Physics VI.9 — reports of Zeno's motion arguments", 'https://classics.mit.edu/Aristotle/physics.6.vi.html#752'),
+  ],
+  leucippus: [
+    academicSource('Stanford Encyclopedia of Philosophy — Ancient Atomism', 'https://plato.stanford.edu/entries/atomism-ancient/'),
+    academicSource('Internet Encyclopedia of Philosophy — Presocratics: the Atomists', 'https://iep.utm.edu/presocra/'),
+    primarySource('Aristotle, On Generation and Corruption I.8 — the atomist account', 'https://www.perseus.tufts.edu/hopper/text?doc=Aristot.%20Gen.%20Corr.%201.8'),
+  ],
+  democritus: [
+    academicSource('Stanford Encyclopedia of Philosophy — Democritus', 'https://plato.stanford.edu/entries/democritus/'),
+    academicSource('Stanford Encyclopedia of Philosophy — Ancient Atomism', 'https://plato.stanford.edu/entries/atomism-ancient/'),
+    academicSource('Internet Encyclopedia of Philosophy — Presocratics: the Atomists', 'https://iep.utm.edu/presocra/'),
+  ],
+  heraclitus: [
+    academicSource('Stanford Encyclopedia of Philosophy — Heraclitus', 'https://plato.stanford.edu/entries/heraclitus/'),
+    academicSource('Internet Encyclopedia of Philosophy — Heraclitus', 'https://iep.utm.edu/heraclit/'),
+    primarySource("Plato, Cratylus 402a — ancient reception of Heraclitus's river image", 'https://www.perseus.tufts.edu/hopper/text?doc=Plat.%20Crat.%20402a'),
+  ],
+  empedocles: [
+    academicSource('Stanford Encyclopedia of Philosophy — Empedocles', 'https://plato.stanford.edu/entries/empedocles/'),
+    academicSource('Internet Encyclopedia of Philosophy — Presocratics: Empedocles', 'https://iep.utm.edu/presocra/'),
+    primarySource('Aristotle, Metaphysics I.4 — ancient report on four roots and motion', 'https://www.perseus.tufts.edu/hopper/text?doc=Aristot.%20Met.%201.4'),
+  ],
+  anaxagoras: [
+    academicSource('Stanford Encyclopedia of Philosophy — Anaxagoras', 'https://plato.stanford.edu/entries/anaxagoras/'),
+    academicSource('Internet Encyclopedia of Philosophy — Anaxagoras', 'https://iep.utm.edu/anaxagoras/'),
+    primarySource('Aristotle, Metaphysics I.3 — ancient report on mind and mixture', 'https://www.perseus.tufts.edu/hopper/text?doc=Aristot.%20Met.%201.3'),
+  ],
+  protagoras: [
+    academicSource('Stanford Encyclopedia of Philosophy — Protagoras', 'https://plato.stanford.edu/entries/protagoras/'),
+    academicSource('Internet Encyclopedia of Philosophy — Protagoras', 'https://iep.utm.edu/protagor/'),
+    primarySource('Plato, Protagoras — dramatic evidence and reception', 'https://www.perseus.tufts.edu/hopper/text?doc=Plat.%20Prot.%20309a'),
+  ],
+  gorgias: [
+    academicSource('Stanford Encyclopedia of Philosophy — The Sophists', 'https://plato.stanford.edu/entries/sophists/'),
+    academicSource('Internet Encyclopedia of Philosophy — Gorgias', 'https://iep.utm.edu/gorgias/'),
+    primarySource('Plato, Gorgias — ancient argument about rhetoric', 'https://www.perseus.tufts.edu/hopper/text?doc=Plat.%20Gorg.%20447a'),
+  ],
+  platonism: [
+    academicSource('Stanford Encyclopedia of Philosophy — Platonism in Metaphysics', 'https://plato.stanford.edu/entries/platonism/'),
+    academicSource('Internet Encyclopedia of Philosophy — Plato', 'https://iep.utm.edu/plato/'),
+    primarySource('Plato, Republic VI — the Good and intelligible order', 'https://www.perseus.tufts.edu/hopper/text?doc=Plat.%20Rep.%206.508a'),
+  ],
+  aristotelianism: [
+    academicSource('Stanford Encyclopedia of Philosophy — Aristotle', 'https://plato.stanford.edu/entries/aristotle/'),
+    academicSource('Internet Encyclopedia of Philosophy — Aristotle', 'https://iep.utm.edu/aristotle/'),
+    primarySource('Aristotle, Metaphysics I — inquiry into causes and predecessors', 'https://www.perseus.tufts.edu/hopper/text?doc=Aristot.%20Met.%201.1'),
+  ],
+  bacon: [
+    academicSource('Stanford Encyclopedia of Philosophy — Francis Bacon', 'https://plato.stanford.edu/entries/francis-bacon/'),
+    academicSource('Internet Encyclopedia of Philosophy — Francis Bacon', 'https://iep.utm.edu/francis-bacon/'),
+    primarySource('Francis Bacon, Novum Organum — public-domain text', 'https://en.wikisource.org/wiki/Novum_Organum'),
+  ],
+  phenomenology: [
+    academicSource('Stanford Encyclopedia of Philosophy — Phenomenology', 'https://plato.stanford.edu/entries/phenomenology/'),
+    academicSource('Stanford Encyclopedia of Philosophy — Edmund Husserl', 'https://plato.stanford.edu/entries/husserl/'),
+    academicSource('Stanford Encyclopedia of Philosophy — Intentionality', 'https://plato.stanford.edu/entries/intentionality/'),
+  ],
+  existentialism: [
+    academicSource('Stanford Encyclopedia of Philosophy — Existentialism', 'https://plato.stanford.edu/entries/existentialism/'),
+    academicSource('Internet Encyclopedia of Philosophy — Existentialism', 'https://iep.utm.edu/existentialism/'),
+    academicSource('Stanford Encyclopedia of Philosophy — Jean-Paul Sartre', 'https://plato.stanford.edu/entries/sartre/'),
+  ],
+  levinas: [
+    academicSource('Stanford Encyclopedia of Philosophy — Emmanuel Levinas', 'https://plato.stanford.edu/entries/levinas/'),
+    academicSource('Routledge Encyclopedia of Philosophy — Emmanuel Levinas', 'https://www.rep.routledge.com/articles/biographical/levinas-emmanuel-1906-95/v-1'),
+    academicSource('BnF Data — Emmanuel Levinas authority record', 'https://data.bnf.fr/en/ark:/12148/cb119128222'),
+  ],
+  gadamer: [
+    academicSource('Stanford Encyclopedia of Philosophy — Hans-Georg Gadamer', 'https://plato.stanford.edu/entries/gadamer/'),
+    academicSource('Internet Encyclopedia of Philosophy — Hans-Georg Gadamer', 'https://iep.utm.edu/gadamer/'),
+    academicSource('Stanford Encyclopedia of Philosophy — Hermeneutics', 'https://plato.stanford.edu/entries/hermeneutics/'),
+  ],
+  'analytic-philosophy': [
+    academicSource('Stanford Encyclopedia of Philosophy — Analysis', 'https://plato.stanford.edu/entries/analysis/'),
+    academicSource('Stanford Encyclopedia of Philosophy — Logical Empiricism', 'https://plato.stanford.edu/entries/logical-empiricism/'),
+    academicSource('Internet Encyclopedia of Philosophy — Analytic Philosophy', 'https://iep.utm.edu/analytic-philosophy/'),
+  ],
+  'g-e-moore': [
+    academicSource('Stanford Encyclopedia of Philosophy — George Edward Moore', 'https://plato.stanford.edu/entries/moore/'),
+    academicSource('Internet Encyclopedia of Philosophy — George Edward Moore', 'https://iep.utm.edu/moore/'),
+    primarySource('G. E. Moore, Principia Ethica — public-domain text', 'https://en.wikisource.org/wiki/Principia_Ethica'),
+  ],
+  wittgenstein: [
+    academicSource('Stanford Encyclopedia of Philosophy — Ludwig Wittgenstein', 'https://plato.stanford.edu/entries/wittgenstein/'),
+    academicSource('Stanford Encyclopedia of Philosophy — Private Language', 'https://plato.stanford.edu/entries/private-language/'),
+    academicSource('Stanford Encyclopedia of Philosophy — Rule-Following and Intentionality', 'https://plato.stanford.edu/entries/rule-following/'),
+  ],
+  'political-philosophy': [
+    academicSource('Internet Encyclopedia of Philosophy — Political Philosophy', 'https://iep.utm.edu/polphil/'),
+    academicSource('Stanford Encyclopedia of Philosophy — Political Authority', 'https://plato.stanford.edu/entries/authority/'),
+    primarySource('Plato, Republic I — justice and political power', 'https://www.perseus.tufts.edu/hopper/text?doc=Plat.%20Rep.%201.327a'),
+  ],
+  'martha-nussbaum': [
+    academicSource('Stanford Encyclopedia of Philosophy — The Capability Approach', 'https://plato.stanford.edu/entries/capability-approach/'),
+    academicSource("Internet Encyclopedia of Philosophy — Sen's Capability Approach", 'https://iep.utm.edu/sen-cap/'),
+    academicSource('University of Chicago Law School — Martha C. Nussbaum', 'https://www.law.uchicago.edu/faculty/nussbaum'),
+  ],
+  whitehead: [
+    academicSource('Stanford Encyclopedia of Philosophy — Alfred North Whitehead', 'https://plato.stanford.edu/entries/whitehead/'),
+    academicSource('Internet Encyclopedia of Philosophy — Alfred North Whitehead', 'https://iep.utm.edu/whitehead/'),
+    primarySource('Alfred North Whitehead, The Concept of Nature — 1920 first-edition scan', 'https://archive.org/details/cu31924012068593'),
+  ],
+  epistemology: [
+    academicSource('Stanford Encyclopedia of Philosophy — Epistemology', 'https://plato.stanford.edu/entries/epistemology/'),
+    academicSource('Stanford Encyclopedia of Philosophy — Skepticism', 'https://plato.stanford.edu/entries/skepticism/'),
+    primarySource('Plato, Theaetetus 201c — knowledge and true judgment', 'https://www.perseus.tufts.edu/hopper/text?doc=Plat.%20Theaet.%20201c'),
+  ],
+  'philosophy-of-science': [
+    academicSource('Stanford Encyclopedia of Philosophy — Scientific Method', 'https://plato.stanford.edu/entries/scientific-method/'),
+  ],
+  'philosophy-of-religion': [
+    academicSource('Stanford Encyclopedia of Philosophy — Philosophy of Religion', 'https://plato.stanford.edu/entries/philosophy-religion/'),
+    academicSource('Internet Encyclopedia of Philosophy — Philosophy of Religion', 'https://iep.utm.edu/religion/'),
+    primarySource('David Hume, Dialogues Concerning Natural Religion — Project Gutenberg', 'https://www.gutenberg.org/ebooks/4583'),
+  ],
+};
+
+const interpretationSources = (
+  entityId: string,
+  sourceLinks: readonly SourceLink[] = [],
+  readings: readonly ReadingEntry[] = [],
+): readonly MuseumInterpretationSource[] => {
+  const sources: MuseumInterpretationSource[] = [
+    ...(CANONICAL_DIRECT_INTERPRETATION_SOURCES[entityId] ?? []),
+    ...sourceLinks.map((source) => ({
+      label: source.label,
+      url: source.url,
+      kind: sourceKind(source),
+    })),
+  ];
+  for (const reading of readings) {
+    const url = reading.publicDomainUrl ?? reading.sourceUrl;
+    if (url) sources.push({label: `${reading.author} — ${reading.title}`, url, kind: 'primary-text'});
+  }
+  return [...new Map(sources.map((source) => [source.url, source])).values()].slice(0, 6);
+};
+
+const assetInterpretations = (location: CanonicalProgramLocation): Readonly<Partial<Record<MuseumAssetId, string>>> => {
+  const ids = [location.exhibit.principalAssetId, ...(location.exhibit.supportingAssetIds ?? [])]
+    .filter((id): id is MuseumAssetId => Boolean(id && museumAssetById.has(id as MuseumAssetId)));
+  return Object.fromEntries(ids.map((id) => {
+    const asset = museumAssetById.get(id)!;
+    const ownershipNote = asset.entityId === location.exhibit.entityId
+      ? asset.historicalNote
+      : `${asset.historicalNote} This object supplies room context; it is not a likeness, work, or evidence of influence for ${location.exhibit.displayName}.`;
+    return [id, ownershipNote];
+  })) as Readonly<Partial<Record<MuseumAssetId, string>>>;
+};
+
+const liveRefFor = (entityId: string): MuseumExhibitRef | undefined => {
+  const ref = getMuseumPrimaryExhibitRef(entityId);
+  return ref ? {hallId: ref.hallId, exhibitId: ref.exhibitId as MuseumExhibitId} : undefined;
+};
+
+const relatedEntityIds = (location: CanonicalProgramLocation): readonly string[] => {
+  const record = location.exhibit.entityKind === 'philosopher'
+    ? philosopherById.get(location.exhibit.entityId)
+    : branchById.get(location.exhibit.entityId);
+  if (!record) return [];
+  if (location.exhibit.entityKind === 'philosopher') {
+    const philosopher = record as Philosopher;
+    return [...philosopher.primaryBranchIds, ...philosopher.secondaryBranchIds];
+  }
+  return (record as Branch).majorPhilosopherIds;
+};
+
+const relatedRefs = (location: CanonicalProgramLocation, legacy?: MuseumInterpretation): readonly MuseumExhibitRef[] => {
+  const candidates = [
+    ...(legacy?.relatedExhibits.map(({exhibitId}) => exhibitId) ?? []),
+    ...relatedEntityIds(location),
+    ...(location.exhibit.entityId === 'jiddu-krishnamurti' ? ['thomas-nagel', 'philosophy-of-religion'] : []),
+  ];
+  const refs = candidates.flatMap((entityId) => {
+    const ref = liveRefFor(entityId);
+    return ref && ref.exhibitId !== location.exhibit.id ? [ref] : [];
+  });
+  return [...new Map(refs.map((ref) => [`${ref.hallId}:${ref.exhibitId}`, ref])).values()].slice(0, 5);
+};
+
+const interpretiveConnections = (
+  location: CanonicalProgramLocation,
+  related: readonly MuseumExhibitRef[],
+): readonly MuseumInterpretiveConnection[] => {
+  const liveComparisons = related.flatMap((reference) => {
+    const target = canonicalLocations.find(({hall, exhibit}) => hall.id === reference.hallId && exhibit.id === reference.exhibitId);
+    if (!target) return [];
+    const krishnamurtiNagel = location.exhibit.entityId === 'jiddu-krishnamurti' && target.exhibit.entityId === 'thomas-nagel';
+    return [{
+      kind: 'live-comparison' as const,
+      label: target.exhibit.displayName,
+      relationship: krishnamurtiNagel
+        ? 'Compare two distinct analyses of consciousness and standpoint. This is a curatorial comparison, not a claim of influence, membership, or agreement.'
+        : 'A live curatorial comparison selected to clarify a shared question or disagreement; adjacency does not assert influence or school membership.',
+      status: 'open' as const,
+      route: {kind: 'museum' as const, hallId: target.hall.id, exhibitId: target.exhibit.id as MuseumExhibitId},
+    }];
+  });
+  const secondaryRoutes = location.exhibit.secondaryHallIds.map((hallId) => ({
+    kind: 'secondary-route' as const,
+    label: MUSEUM_PLANNED_HALL_TITLES[hallId],
+    relationship: 'A secondary interpretive route, not a duplicate primary installation or an assertion of school membership.',
+    status: liveHallIds.has(hallId as MuseumCanonicalHall['id']) ? 'open' as const : 'planned' as const,
+    route: liveHallIds.has(hallId as MuseumCanonicalHall['id'])
+      ? {kind: 'museum' as const, hallId: hallId as MuseumCanonicalHall['id']}
+      : undefined,
+  }));
+  const roomComparisons = (location.exhibit.roomComparisons ?? []).map((comparison) => ({
+    kind: 'room-comparison' as const,
+    label: canonicalProgram.flatMap(({rooms}) => rooms).find(({id}) => id === comparison.targetRoomId)?.title ?? comparison.targetRoomId,
+    relationship: comparison.rationale,
+    status: 'open' as const,
+    route: {kind: 'museum' as const, hallId: comparison.targetHallId},
+  }));
+  return [...liveComparisons, ...roomComparisons, ...secondaryRoutes];
+};
+
+const paragraph = (parts: readonly (string | undefined)[]): string => parts.filter(Boolean).join(' ');
+
+const MUSEUM_DEEP_ARTICLE_ENTITY_IDS = new Set([
+  'thales',
+  'anaximander',
+  'anaximenes',
+  'pythagoras',
+  'philolaus',
+  'parmenides',
+  'zeno-elea',
+  'democritus',
+  'heraclitus',
+  'empedocles',
+  'anaxagoras',
+  'protagoras',
+  'gorgias',
+  'bacon',
+  'levinas',
+  'gadamer',
+  'g-e-moore',
+  'martha-nussbaum',
+  'whitehead',
+  'philosophy-of-religion',
+]);
+
+const articleSectionText = ({id, title}: ArticleSection): string => `${id} ${title}`.toLocaleLowerCase();
+
+const selectArticleSection = (
+  articleSections: readonly ArticleSection[],
+  usedIds: Set<string>,
+  pattern: RegExp,
+  fallbackIndex: number,
+): ArticleSection => {
+  const match = articleSections.find((section) => !usedIds.has(section.id) && pattern.test(articleSectionText(section)))
+    ?? articleSections.find((section, index) => index >= fallbackIndex && !usedIds.has(section.id))
+    ?? articleSections.find((section) => !usedIds.has(section.id))
+    ?? articleSections[0];
+  usedIds.add(match.id);
+  return match;
+};
+
+/**
+ * Recompose the long-form Atlas article into a Museum reading sequence. Keeping
+ * the article's historically specific paragraphs avoids the repeated short-bio /
+ * contribution-summary pattern that is useful in cards but too shallow in a
+ * permanent installation. The selected article sections remain available in full
+ * from the linked profile.
+ */
+const substantialMuseumSections = (
+  entityId: string,
+  articleSections: readonly ArticleSection[] | undefined,
+): readonly MuseumInterpretationSection[] | undefined => {
+  if (!MUSEUM_DEEP_ARTICLE_ENTITY_IDS.has(entityId)) return undefined;
+  if (!articleSections || articleSections.length < 4) {
+    throw new Error(`Canonical Museum record ${entityId} requires a substantial Atlas article.`);
+  }
+
+  const usedIds = new Set<string>();
+  const opening = selectArticleSection(articleSections, usedIds, /overview|orientation|introduction/, 0);
+  const setting = selectArticleSection(articleSections, usedIds, /histor|setting|life|context|miletus|athens|career/, 1);
+  const argument = selectArticleSection(
+    articleSections,
+    usedIds,
+    /water|apeiron|number|being|paradox|atom|logos|flux|roots|mixture|measure|speech|idol|induction|face|other|horizon|prejudice|good|capabilit|process|key-concepts|divinity|faith|evil|experience|language/,
+    3,
+  );
+  const evidence = selectArticleSection(articleSections, usedIds, /source|work|text|method|writing|transmission|fragment|dialogue/, 2);
+  const debate = selectArticleSection(articleSections, usedIds, /critic|debate|tension|misunderstand|influence|legacy|reception|modern-relevance|why-it-matters/, articleSections.length - 3);
+  const reading = selectArticleSection(articleSections, usedIds, /reading/, articleSections.length - 1);
+
+  return [
+    {
+      heading: `Historical frame — ${opening.title}`,
+      paragraphs: [...opening.paragraphs.slice(0, 1), ...setting.paragraphs.slice(0, 1)],
+    },
+    {
+      heading: `Argument in focus — ${argument.title}`,
+      paragraphs: argument.paragraphs.slice(0, 2),
+    },
+    {
+      heading: `Evidence and method — ${evidence.title}`,
+      paragraphs: evidence.paragraphs.slice(0, 2),
+    },
+    {
+      heading: `Debate and onward route — ${debate.title}`,
+      paragraphs: [...debate.paragraphs.slice(0, 2), ...reading.paragraphs.slice(0, 1)],
+    },
+  ];
+};
+
+const philosopherInterpretation = (
+  location: CanonicalProgramLocation,
+  record: Philosopher,
+  related: readonly MuseumExhibitRef[],
+): MuseumPhilosopherInterpretation => {
+  const detailedIdeas = record.majorIdeasDetailed ?? [];
+  const detailedIdeaNames = new Set(detailedIdeas.map(({name}) => name.toLocaleLowerCase()));
+  const ideas = [
+    ...detailedIdeas,
+    ...record.mainIdeas
+      .filter((name) => !detailedIdeaNames.has(name.toLocaleLowerCase()))
+      .map((name) => ({name, explanation: record.contributionSummary, whyItMatters: record.beginnerExplanation})),
+  ];
+  const works = record.keyWorksDetailed?.length
+    ? record.keyWorksDetailed
+    : record.keyWorks.map((title) => ({title, summary: `A principal source associated with ${record.name}.`, whyItMatters: record.contributionSummary}));
+  const tensions = record.controversiesOrInterpretiveTensions ?? [];
+  const misunderstandings = record.commonMisunderstandings ?? [];
+  const readings = [...(record.beginnerReadingPath ?? []), ...(record.advancedReadingPath ?? [])];
+  const substantialSections = substantialMuseumSections(record.id, record.articleSections);
+  const chronologyUncertain = record.dateConfidence === 'low'
+    || record.dateConfidence === 'legendary'
+    || record.dateConfidence === 'pseudonymous';
+  return {
+    hallId: location.hall.id,
+    roomId: location.room.id,
+    tier: location.exhibit.tier,
+    id: location.exhibit.id as MuseumExhibitId,
+    kind: 'philosopher',
+    name: record.name,
+    dateLabel: record.dateDisplay ?? record.lifespan,
+    entityType: `${record.tradition} philosopher`,
+    centralQuestion: location.exhibit.question,
+    lead: substantialSections
+      ? paragraph([
+          `In “${location.room.title},” this ${location.exhibit.tier.replaceAll('-', ' ')} asks ${location.exhibit.question}`,
+          record.shortBio ?? record.contributionSummary,
+          `The curatorial problem is not to compress ${record.name} into a doctrine label, but to distinguish what the surviving record supports, what later interpreters supplied, and which philosophical question remains live when the historical vocabulary is no longer ours.`,
+          `The installation follows the evidence through ${record.historicalContext}, reconstructs the argument without pretending that later reports are neutral transcripts, and carries the visitor into the strongest criticisms and afterlives.`,
+          `Its article-derived sequence moves from setting to argument, evidence, disagreement, and a reading route; neighboring Museum installations are offered as comparisons, never as automatic proof of influence, agreement, or school membership.`,
+        ])
+      : paragraph([
+          `Installed in “${location.room.title},” this ${location.exhibit.tier.replaceAll('-', ' ')} treats ${record.name} as one historically situated voice rather than a final authority.`,
+          record.shortBio,
+          record.extendedBio?.[0],
+          record.contributionSummary,
+          record.beginnerExplanation,
+          `The interpretation keeps the pressures of ${record.historicalContext} in view while directing visitors toward arguments, surviving evidence, criticism, and routes beyond this room.`,
+        ]),
+    biography: {
+      born: chronologyUncertain
+        ? `Chronology: ${record.dateDisplay ?? record.lifespan}`
+        : record.lifeEvents?.find(({label}) => label === 'Born')?.description ?? `${record.birthYear < 0 ? Math.abs(record.birthYear) + ' BCE' : record.birthYear}`,
+      died: chronologyUncertain || record.deathYear === null
+        ? undefined
+        : record.lifeEvents?.find(({label}) => label === 'Died')?.description ?? `${record.deathYear < 0 ? Math.abs(record.deathYear) + ' BCE' : record.deathYear}`,
+      associatedPlaces: [record.region],
+      era: record.historicalContext,
+      affiliations: record.schoolMemberships?.length ? record.schoolMemberships : [record.tradition],
+      influencedBy: record.influencesReceived?.length ? record.influencesReceived : record.influencedByIds,
+      studentsOrFollowers: record.influenceOnLaterThought?.length ? record.influenceOnLaterThought : record.influencedIds,
+      sourceSituation: paragraph([record.dateNote, ...tensions.slice(0, 2)]) || 'The exhibit distinguishes surviving evidence, later reception, and disputed interpretation.',
+      knownFor: ideas.map(({name}) => name).slice(0, 6),
+    },
+    keyIdeas: ideas.map(({name, explanation}) => `${name}: ${explanation}`).slice(0, 6),
+    keyWorks: works.map(({title}) => title).slice(0, 7),
+    sections: substantialSections ?? [
+      {
+        heading: 'Historical and cultural setting',
+        paragraphs: [paragraph([record.lifeStory, record.extendedBio?.[1], record.historicalContext])],
+      },
+      {
+        heading: 'Problems and arguments',
+        paragraphs: ideas.slice(0, 4).map(({name, explanation, whyItMatters}) => `${name}. ${explanation} ${whyItMatters}`),
+      },
+      {
+        heading: 'Works, evidence, and transmission',
+        paragraphs: works.slice(0, 4).map(({title, summary, whyItMatters}) => `${title}. ${summary} ${whyItMatters}`),
+      },
+      {
+        heading: 'Influence, criticism, and interpretive cautions',
+        paragraphs: [paragraph([
+          record.influenceOnLaterThought?.length ? `Later routes include ${record.influenceOnLaterThought.join('; ')}.` : undefined,
+          tensions.length ? `Contested questions include ${tensions.join(' ')}` : undefined,
+          misunderstandings.length ? `The display also guards against these shortcuts: ${misunderstandings.join(' ')}` : undefined,
+          'Museum proximity is curatorial: it does not by itself establish influence, agreement, or membership.',
+        ])],
+      },
+    ],
+    objectInterpretations: assetInterpretations(location),
+    sources: interpretationSources(record.id, record.sourceLinks, readings),
+    relatedExhibits: related,
+    connections: interpretiveConnections(location, related),
+    articleRoute: {kind: 'philosopher', philosopherId: record.id},
+  };
+};
+
+const branchInterpretation = (
+  location: CanonicalProgramLocation,
+  record: Branch,
+  related: readonly MuseumExhibitRef[],
+): MuseumTraditionInterpretation => {
+  const ideas = record.keyConceptsDetailed?.length
+    ? record.keyConceptsDetailed
+    : record.keyConcepts.map(({name, deeperExplanation, plainDefinition}) => ({name, explanation: deeperExplanation, whyItMatters: plainDefinition}));
+  const works = record.majorWorks ?? [];
+  const readings = [...(record.beginnerReadingPath ?? []), ...(record.advancedReadingPath ?? [])];
+  const development = record.historicalDevelopmentDetailed ?? record.historicalDevelopment;
+  const tensions = record.internalDebates ?? record.internalTensions ?? [];
+  const substantialSections = substantialMuseumSections(record.id, record.articleSections);
+  return {
+    hallId: location.hall.id,
+    roomId: location.room.id,
+    tier: location.exhibit.tier,
+    id: location.exhibit.id as MuseumExhibitId,
+    kind: 'tradition',
+    name: record.name,
+    dateLabel: record.originPeriod,
+    entityType: `${record.category} philosophical field or tradition`,
+    centralQuestion: location.exhibit.question,
+    lead: substantialSections
+      ? paragraph([
+          `In “${location.room.title},” this ${location.exhibit.tier.replaceAll('-', ' ')} asks ${location.exhibit.question}`,
+          record.beginnerExplanation,
+          `The curatorial problem is not to turn ${record.name} into a timeless list of positions, but to show how its questions change across institutions, genres, languages, communities, and rival standards of evidence.`,
+          `The installation treats ${record.name} as a historically changing field of arguments and practices, preserves differences among religious and nonreligious traditions, and uses the Forum routes for comparison without claiming one center or one linear origin.`,
+          `Its article-derived sequence moves from historical framing to concepts, texts, internal disagreement, criticism, and a reading route; every neighboring room remains a specific comparison rather than evidence that distinct traditions teach the same doctrine.`,
+        ])
+      : paragraph([
+          `Installed in “${location.room.title},” this ${location.exhibit.tier.replaceAll('-', ' ')} uses ${record.name} as an orientation and routing device, not as a claim that philosophy has one center or one linear origin.`,
+          record.beginnerExplanation,
+          record.originStory,
+          record.oneSentencePurpose,
+          record.whyItMatters,
+          `Its primary history remains specific, while the Forum and secondary routes invite comparison without collapsing distinct cultures, periods, or vocabularies.`,
+        ]),
+    tradition: {
+      origin: record.originStory ?? record.historicalDevelopment[0],
+      place: record.category,
+      historicalPeriod: record.originPeriod,
+      earlyFigures: record.majorFigures?.slice(0, 3) ?? record.majorPhilosopherIds.slice(0, 3),
+      majorRepresentatives: record.majorFigures?.length ? record.majorFigures : record.majorPhilosopherIds,
+      characteristicPractices: record.keyConcepts.slice(0, 5).map(({name}) => name),
+      centralDoctrines: record.coreQuestions,
+      sourceTraditions: readings.slice(0, 5).map(({title}) => title),
+      principalRivals: record.rivalPositions?.length ? record.rivalPositions : record.contrastingBranchIds,
+      laterInfluence: record.relatedBranchIds,
+      commonMisconception: (record.misconceptionsDetailed ?? record.commonMisunderstandings)[0] ?? `${record.name} is not one timeless doctrine.`,
+      transmission: paragraph(development.slice(-2)),
+    },
+    keyIdeas: ideas.map(({name, explanation}) => `${name}: ${explanation}`).slice(0, 6),
+    keyWorks: (works.length ? works.map(({title}) => title) : readings.map(({title}) => title)).slice(0, 7),
+    sections: substantialSections ?? [
+      {heading: 'Origin and historical development', paragraphs: development.slice(0, 4)},
+      {heading: 'Problems, concepts, and methods', paragraphs: ideas.slice(0, 4).map(({name, explanation, whyItMatters}) => `${name}. ${explanation} ${whyItMatters}`)},
+      {heading: 'Texts, figures, and transmission', paragraphs: [paragraph([
+        record.majorPhilosopherIds.length ? `Major figures in this Atlas include ${record.majorPhilosopherIds.join(', ')}.` : undefined,
+        readings.length ? `The reading route begins with ${readings.slice(0, 4).map(({title}) => title).join('; ')}.` : undefined,
+        record.historicalDevelopment.at(-1),
+      ])]},
+      {heading: 'Disagreement and interpretive cautions', paragraphs: [paragraph([
+        tensions.length ? `Internal disagreements include ${tensions.join(' ')}` : undefined,
+        record.commonMisunderstandings.length ? `Common misunderstandings include ${record.commonMisunderstandings.join(' ')}` : undefined,
+        'Related rooms are comparisons and routes, not claims that distinct traditions are versions of one doctrine.',
+      ])]},
+    ],
+    objectInterpretations: assetInterpretations(location),
+    sources: interpretationSources(record.id, record.sourceLinks, readings),
+    relatedExhibits: related,
+    connections: interpretiveConnections(location, related),
+    articleRoute: {kind: 'branch', branchId: record.id},
+  };
+};
+
+const canonicalInterpretation = (location: CanonicalProgramLocation): MuseumInterpretation => {
+  const legacy = legacyInterpretationByEntityId.get(location.exhibit.entityId);
+  const related = relatedRefs(location, legacy);
+  if (legacy) return {
+    ...legacy,
+    hallId: location.hall.id,
+    id: location.exhibit.id as MuseumExhibitId,
+    roomId: location.room.id,
+    tier: location.exhibit.tier,
+    relatedExhibits: related,
+    connections: interpretiveConnections(location, related),
+  };
+  if (location.exhibit.entityKind === 'philosopher') {
+    const record = philosopherById.get(location.exhibit.entityId);
+    if (!record) throw new Error(`Canonical Museum philosopher ${location.exhibit.entityId} is missing.`);
+    return philosopherInterpretation(location, record, related);
+  }
+  const record = branchById.get(location.exhibit.entityId);
+  if (!record) throw new Error(`Canonical Museum branch ${location.exhibit.entityId} is missing.`);
+  return branchInterpretation(location, record, related);
+};
+
+export const MUSEUM_INTERPRETATIONS: readonly MuseumInterpretation[] = canonicalLocations.map(canonicalInterpretation);
+
+const activeInterpretationById = new Map(MUSEUM_INTERPRETATIONS.map((record) => [`${record.hallId}:${record.id}`, record]));
 
 export const getMuseumInterpretation = ({hallId, exhibitId}: MuseumExhibitRef): MuseumInterpretation => {
-  const record = activeInterpretationById.get(exhibitId);
-  if (!record || record.hallId !== hallId) throw new Error(`Museum interpretation ${hallId}/${exhibitId} is missing.`);
+  const record = activeInterpretationById.get(`${hallId}:${exhibitId}`);
+  if (!record) throw new Error(`Museum interpretation ${hallId}/${exhibitId} is missing.`);
   return record;
 };
 
@@ -335,7 +933,7 @@ export const museumInterpretationFacts = (record: MuseumInterpretation): MuseumF
     const biography = record.biography;
     return [
       record.originalName ? {label: 'Original name', value: record.originalName} : undefined,
-      biography.born ? {label: 'Born', value: biography.born} : undefined,
+      biography.born ? {label: biography.born.startsWith('Chronology:') ? 'Chronology' : 'Born', value: biography.born.replace(/^Chronology:\s*/, '')} : undefined,
       biography.died ? {label: 'Died', value: biography.died} : undefined,
       {label: 'Associated places', value: biography.associatedPlaces.join(' · ')},
       {label: 'Era', value: biography.era},

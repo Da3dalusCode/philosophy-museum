@@ -1,6 +1,6 @@
 import {LocateFixed, MapPinned, Navigation, X} from 'lucide-react';
 import {useId, useState} from 'react';
-import type {MuseumHallId} from '../../data/museumCatalog';
+import type {MuseumPublicHallId as MuseumHallId} from '../../data/museumCatalog';
 import {
   MUSEUM_VISITOR_MAP_DOORWAYS,
   MUSEUM_VISITOR_MAP_EDGES,
@@ -23,14 +23,6 @@ const projectionByHallId = new Map(
 const physicalNodeById = new Map(
   MUSEUM_VISITOR_MAP_NODE_PROJECTIONS.map((node) => [node.id, node]),
 );
-
-const forumSpokeHallIds = new Set<MuseumHallId>();
-MUSEUM_VISITOR_MAP_EDGES.filter(({routeRole}) => routeRole === 'forum-spoke').forEach(({fromNodeId, toNodeId}) => {
-  [fromNodeId, toNodeId].forEach((nodeId) => {
-    const hallId = physicalNodeById.get(nodeId)?.publicHallId;
-    if (hallId) forumSpokeHallIds.add(hallId);
-  });
-});
 
 const svgPoints = (points: readonly MuseumVisitorMapPoint[]): string =>
   points.map(({x, y}) => `${x},${y}`).join(' ');
@@ -61,33 +53,30 @@ export function MuseumVisitorMap({currentHallId, currentNodeId, currentPose, ret
   const isCurrentSelection = selected.hall.id === currentPhysicalHallId;
   const viewBox = MUSEUM_VISITOR_MAP_VIEWBOX;
   const entrance = MUSEUM_VISITOR_MAP_ENTRANCE;
-  const loopSummary = halls
-    .map(({hall}) => `${hall.galleryNumber.replace(/^Gallery\s+/u, '')} ${hall.title}`)
-    .join(' ↔ ');
-  const spokeSummary = halls
-    .filter(({hall}) => forumSpokeHallIds.has(hall.id))
-    .map(({hall}) => hall.galleryNumber.replace(/^Gallery\s+/u, ''))
-    .join(', ');
   const insertionCount = MUSEUM_VISITOR_MAP_RESERVATIONS.filter(({reservationType}) => reservationType === 'insertion').length;
   const outwardCount = MUSEUM_VISITOR_MAP_RESERVATIONS.filter(({reservationType}) => reservationType === 'outward-expansion').length;
-  const routeSummary = `Live Ring pilot scope: ${halls.length} of 26 planned public halls are open. This plan shows constructed, walkable geometry only; the remaining planned halls will appear as they are physically constructed. Walking loop: Entrance ↔ ${loopSummary} ↔ Entrance. Forum spokes connect Galleries ${spokeSummary} to the central orientation court. The entrance–Forum shortcut is also open. The Forum is circulation and orientation only, not an open intellectual hall. ${insertionCount} planned gallery connections and ${outwardCount} reserved outward expansion portals, R1–R8, are blocked and noninteractive.`;
+  const blockedSummary = [
+    insertionCount ? `${insertionCount} planned insertion connection${insertionCount === 1 ? '' : 's'}` : undefined,
+    `${outwardCount} reserved outward expansion portals`,
+  ].filter(Boolean).join(' and ');
+  const routeSummary = `Permanent construction stage: ${halls.length} of 26 planned public halls are open. This plan derives from constructed, walkable geometry only; later halls will appear only when built. The five historical halls form a continuous outer loop through the entrance and south return sleeve. Real spokes connect that loop to the central Core Questions Forum, and the entrance–Forum shortcut is open. The Forum is a comparison and routing hub that sends visitors outward, not the Museum’s supreme authority or final destination. ${blockedSummary} are closed and noninteractive. Fast travel uses each hall’s registered safe arrival.`;
 
   return <MuseumModal labelledBy={titleId} describedBy={descriptionId} returnFocus={returnFocus} onClose={onClose}>
     <div className="museum-overlay-head museum-visitor-map-head">
       <div>
         <p className="eyebrow"><MapPinned size={14}/> Physical visitor map</p>
-        <h2 id={titleId}>Ring of Wings live-pilot visitor map</h2>
+        <h2 id={titleId}>Ring of Wings permanent-hall visitor map</h2>
       </div>
       <button className="museum-icon-button" type="button" onClick={onClose} aria-label="Close Museum visitor map"><X/></button>
     </div>
     <p id={descriptionId} className="museum-visitor-map-lead">
-      Six of 26 planned public halls are open in the live Ring pilot. Read the built main-level footprint, then choose an open gallery for fast travel to its authored safe arrival.
+      Six permanent halls are open in this compact construction stage: five around the outer loop and the Core Questions Forum at the center. Choose any open hall for fast travel to its authored safe arrival.
     </p>
     <p id={routeSummaryId} className="museum-visitor-map-route-summary">{routeSummary}</p>
     <p className="museum-visitor-map-pan-note">Scroll the plan horizontally to inspect its full detail.</p>
 
     <div className="museum-visitor-map-layout">
-      <section className="museum-visitor-map-plot" aria-label="Live Ring pilot main-level plan" aria-describedby={routeSummaryId}>
+      <section className="museum-visitor-map-plot" aria-label="Permanent-hall construction-stage main-level plan" aria-describedby={routeSummaryId}>
         <div className="museum-visitor-map-scroll" tabIndex={0}>
         <svg
           className="museum-visitor-map-plan"
@@ -96,7 +85,7 @@ export function MuseumVisitorMap({currentHallId, currentNodeId, currentPose, ret
           role="img"
           aria-labelledby={`${mapTitleId} ${mapDescriptionId}`}
         >
-          <title id={mapTitleId}>Physical plan of the live Ring pilot</title>
+          <title id={mapTitleId}>Physical plan of the six permanent open halls</title>
           <desc id={mapDescriptionId}>{routeSummary}</desc>
           <defs>
             <pattern id="museum-map-future-hatch" width="3" height="3" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
@@ -200,19 +189,19 @@ export function MuseumVisitorMap({currentHallId, currentNodeId, currentPose, ret
 
         <div className="museum-visitor-map-compass" aria-hidden="true"><span>N</span><i/></div>
         <div className="museum-visitor-map-legend" aria-label="Map legend">
-          <span><i data-legend="gallery"/>01–06 open fast-travel galleries</span>
+          <span><i data-legend="gallery"/>Six open permanent fast-travel halls</span>
           <span><i data-legend="outer-loop"/>Outer loop</span>
           <span><i data-legend="forum-spoke"/>Forum spokes</span>
           <span><i data-legend="shortcut"/>Entrance shortcut</span>
           <span><i data-legend="current"/>Current physical location</span>
-          <span><i data-legend="planned"/>PLAN · 4 planned gallery connections</span>
-          <span><i data-legend="reserve"/>R1–R8 · 8 reserved outward expansion portals</span>
+          {insertionCount > 0 && <span><i data-legend="planned"/>PLAN · {insertionCount} blocked insertion connection{insertionCount === 1 ? '' : 's'}</span>}
+          <span><i data-legend="reserve"/>R1–R8 · {outwardCount} reserved outward expansion portals</span>
         </div>
       </section>
 
       <aside className="museum-visitor-map-detail" aria-live="polite">
         <strong className="museum-visitor-map-current"><LocateFixed size={14}/> Physical location: {currentPhysicalNode?.label ?? 'Public gallery'}</strong>
-        <p className="museum-visitor-map-destination-heading">Six open fast-travel galleries</p>
+        <p className="museum-visitor-map-destination-heading">Six open permanent halls</p>
         <div className="museum-visitor-map-destinations" aria-label="Choose a fast-travel gallery">
           {halls.map(({hall}) => {
             const current = hall.id === currentPhysicalHallId;

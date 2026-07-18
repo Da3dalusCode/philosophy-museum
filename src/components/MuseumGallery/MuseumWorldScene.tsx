@@ -22,7 +22,7 @@ import {
 import {MUSEUM_BUILDING_MANIFEST} from '../../data/museum/museumBuildingManifest';
 import {visitorMapInteractionAtPose} from '../../data/museum/museumVisitorMap';
 import {MUSEUM_TEXTURE_SPECS} from '../../data/museum/museumTexturePolicy';
-import {getMuseumHallCatalog, type MuseumHallId} from '../../data/museumCatalog';
+import {getMuseumHallCatalog, type MuseumPublicHallId} from '../../data/museumCatalog';
 import {
   clampFrameDelta,
   clampPitch,
@@ -135,7 +135,7 @@ class WorldSceneErrorBoundary extends Component<{
 
 class HallContentErrorBoundary extends Component<{
   children: ReactNode;
-  hallId: MuseumHallId;
+  hallId: MuseumPublicHallId;
   onError: MuseumSceneRuntimeProps['onHallContentError'];
 }, {failed: boolean}> {
   state = {failed: false};
@@ -169,8 +169,8 @@ function MuseumPlayerRig({
   const transitionTargetRef = useRef<string | undefined>(undefined);
   const blockedTransitionLatchRef = useRef<string | undefined>(undefined);
   const layout = definition.layout;
-  const readyHallSet = useMemo(() => new Set<MuseumHallId>(readyHallIds), [readyHallIds]);
-  const approachedHallRef = useRef<MuseumHallId | undefined>(undefined);
+  const readyHallSet = useMemo(() => new Set<MuseumPublicHallId>(readyHallIds), [readyHallIds]);
+  const approachedHallRef = useRef<MuseumPublicHallId | undefined>(undefined);
   const colliders = useMemo(
     () => [...layout.wallColliders, ...layout.obstacleColliders],
     [layout],
@@ -283,7 +283,7 @@ function MuseumPlayerRig({
     }
 
     if (!changed) return;
-    let approachedHallId: MuseumHallId | undefined;
+    let approachedHallId: MuseumPublicHallId | undefined;
     let approachedDistance = Number.POSITIVE_INFINITY;
     for (const candidate of getMuseumNodeConnections(definition.id)) {
       const entrance = definition.entrances.find(({id}) => id === candidate.localEntranceId);
@@ -392,7 +392,7 @@ function LoadedHall({
 }
 
 function HallRenderedSignal({hallId, onReady, onUnavailable}: {
-  hallId: MuseumHallId;
+  hallId: MuseumPublicHallId;
   onReady: MuseumSceneRuntimeProps['onHallContentReady'];
   onUnavailable: MuseumSceneRuntimeProps['onHallContentUnavailable'];
 }) {

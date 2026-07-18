@@ -46,7 +46,7 @@ export const resolveMuseumHallResidencyPlan = ({
   // The current hall is never evicted. Audits guarantee that one active hall
   // plus every live approached target fits; recently used content is optional.
   add(activeHallId, 'active', true);
-  add(approachedHallId, 'entry-resident', false);
+  add(approachedHallId, 'entry-resident', true);
   if (MUSEUM_BUILDING_MANIFEST.residencyPolicy.recentHallCount > 0) {
     add(recentHallId, 'entry-resident', false);
   }

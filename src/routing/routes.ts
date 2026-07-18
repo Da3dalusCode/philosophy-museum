@@ -1,4 +1,4 @@
-import type {MuseumExhibitId, MuseumHallId} from '../data/museumCatalog';
+import type {MuseumExhibitId, MuseumPublicHallId} from '../data/museumCatalog';
 
 export type ArticleSectionRoute = {section?: string};
 
@@ -24,8 +24,13 @@ export type LearningPathRoute = {
 };
 export type MuseumRoute = {
   kind: 'museum';
-  hallId: MuseumHallId;
+  hallId: MuseumPublicHallId;
   exhibitId?: MuseumExhibitId;
+};
+export type MuseumCompatibilityRoute = {
+  kind: 'museum-compatibility';
+  formerHallId: string;
+  exhibitId: string;
 };
 export type NotFoundRoute = {
   kind: 'not-found';
@@ -43,7 +48,7 @@ export type NavigableAppRoute =
   | LearningPathRoute
   | MuseumRoute;
 
-export type AppRoute = NavigableAppRoute | NotFoundRoute;
+export type AppRoute = NavigableAppRoute | MuseumCompatibilityRoute | NotFoundRoute;
 
 export type ComparisonRoute = BranchComparisonRoute | PhilosopherComparisonRoute;
 export type ArticleRoute = BranchRoute | PhilosopherRoute;
@@ -85,7 +90,7 @@ export const DEFAULT_ROUTES = {
   },
   museum: {
     kind: 'museum',
-    hallId: 'ancient-greek',
+    hallId: 'mediterranean-beginnings-classical',
   },
 } as const satisfies Record<string, NavigableAppRoute>;
 

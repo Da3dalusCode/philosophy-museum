@@ -2,7 +2,7 @@
 
 ## Purpose and scope
 
-These rules govern the approved program in [`hall-program.json`](./hall-program.json) and the primary assignments in [`branch-assignments.csv`](./branch-assignments.csv) and [`philosopher-assignments.csv`](./philosopher-assignments.csv). They apply to all 43 current branch records and all 141 current philosopher records and are locked for the Ring pilot.
+These rules govern the approved program in [`hall-program.json`](./hall-program.json) and the primary assignments in [`branch-assignments.csv`](./branch-assignments.csv) and [`philosopher-assignments.csv`](./philosopher-assignments.csv). They apply to all 43 current branch records and all 142 current philosopher records.
 
 The basic rule is simple: **a primary physical home is a navigation decision, not a claim that one hall owns the person or idea**. Every record receives exactly one primary wing, hall, and room so visitors can find it and the building can be planned. Secondary appearances then make real intellectual overlap visible without cloning the primary exhibit.
 
@@ -25,7 +25,7 @@ When plausible homes compete, reviewers apply the following tests in order:
 5. **Visitor legibility.** If the first four tests remain tied, choose the home that makes the surrounding story easiest to understand.
 6. **Capacity.** Room size is a final tie-breaker only. It must never override a defensible historical classification.
 
-The result is not a mechanical “birthplace rule.” A philosopher may receive a thematic primary home when a field-defining contribution provides the clearest account of the mature work. Whitehead is therefore primary in Reality & Being, Thomas Nagel in Mind & Self, and Carnap, Popper, and Kuhn in Science. Beauvoir’s approved Feminist Philosophies primary is another explicit contribution-first adjudication: it treats her feminist philosophy as an independent reorganization of freedom, embodiment, oppression, and becoming while retaining her existential and phenomenological formation as an anchor-strength secondary. These are bounded exceptions, not a general license to detach non-European thinkers from their traditions.
+The result is not a mechanical “birthplace rule.” A philosopher may receive a thematic primary home when a field-defining contribution provides the clearest account of the mature work. Whitehead is therefore primary in Reality & Being, Thomas Nagel and Jiddu Krishnamurti in Mind & Self, and Carnap, Popper, and Kuhn in Science. Krishnamurti’s placement is explicitly comparative: his South Asian route preserves biography and intellectual context, while his rejection of inherited spiritual allegiance prevents classification as Yoga, Vedānta, Buddhist, or another school member. Beauvoir’s approved Feminist Philosophies primary is another explicit contribution-first adjudication: it treats her feminist philosophy as an independent reorganization of freedom, embodiment, oppression, and becoming while retaining her existential and phenomenological formation as an anchor-strength secondary. These are bounded exceptions, not a general license to detach non-European thinkers from their traditions.
 
 ## Historical placement and thematic placement
 

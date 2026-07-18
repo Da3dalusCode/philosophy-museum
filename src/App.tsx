@@ -2,6 +2,7 @@ import {Suspense, useCallback, useEffect, useLayoutEffect, useRef} from 'react';
 import {AppShell} from './components/Layout/AppShell';
 import {BigHistoryView} from './components/BigHistory/BigHistoryView';
 import {IdeaConstellation} from './components/Museum/IdeaConstellation';
+import {MuseumCompatibilityPage} from './components/MuseumGallery/MuseumCompatibilityPage';
 import {RouteNotFound} from './routing/RouteNotFound';
 import {RouteLoadBoundary, RouteLoading} from './routing/RouteLoadBoundary';
 import {serializeHashRoute} from './routing/hashRouter';
@@ -30,6 +31,7 @@ const activeViewForRoute = (route: AppRoute): ViewId | undefined => {
     case 'compare-philosophers': return 'compare';
     case 'learning-path': return 'paths';
     case 'museum': return 'museum';
+    case 'museum-compatibility': return 'museum';
     case 'not-found': return undefined;
   }
 };
@@ -60,6 +62,8 @@ function RouteView({route, routeKey, href, push, replace, onReady}: {
       return <LazyLearningPaths route={route} href={href}/>;
     case 'museum':
       return <LazyMuseumPage route={route} href={href} push={push} replace={replace}/>;
+    case 'museum-compatibility':
+      return <MuseumCompatibilityPage route={route} href={href}/>;
     case 'not-found':
       return <RouteNotFound route={route}/>;
   }
@@ -109,7 +113,7 @@ export default function App() {
   }, []);
 
   return <AppShell view={activeViewForRoute(route)} href={href} onRouteIntent={preloadRouteView}>
-    {route.kind !== 'museum' && <IdeaConstellation/>}
+    {route.kind !== 'museum' && route.kind !== 'museum-compatibility' && <IdeaConstellation/>}
     <RouteLoadBoundary resetKey={routeKey}>
       <Suspense fallback={<RouteLoading/>}>
         <RouteView route={route} routeKey={routeKey} href={href} push={push} replace={replace} onReady={handleRouteReady}/>

@@ -60,7 +60,7 @@ const useVisitorMapScreenTexture = (): CanvasTexture => {
     context.fillText('Main-level plan', 62, 132);
     context.fillStyle = '#b8b2a8';
     context.font = '500 21px system-ui, sans-serif';
-    context.fillText('Live Ring pilot · 6 of 26 planned public halls open', 64, 168);
+    context.fillText('Permanent construction stage · 6 of 26 planned public halls open', 64, 168);
 
     const mapArea = {x: 48, y: 194, width: 700, height: 646};
     const viewBox = MUSEUM_VISITOR_MAP_VIEWBOX;
@@ -262,8 +262,14 @@ const useVisitorMapScreenTexture = (): CanvasTexture => {
     context.fillText('R1–R8', keyX + 5, 823);
     context.fillStyle = '#b8c0bf';
     context.font = '600 14px system-ui, sans-serif';
-    context.fillText('4 planned gallery connections', keyX + 62, 799);
-    context.fillText('8 reserved outward expansion portals', keyX + 62, 825);
+    const insertionCount = MUSEUM_VISITOR_MAP_RESERVATIONS.filter(
+      ({reservationType}) => reservationType === 'insertion',
+    ).length;
+    const outwardCount = MUSEUM_VISITOR_MAP_RESERVATIONS.filter(
+      ({reservationType}) => reservationType === 'outward-expansion',
+    ).length;
+    context.fillText(`${insertionCount} planned gallery connections`, keyX + 62, 799);
+    context.fillText(`${outwardCount} reserved outward expansion portals`, keyX + 62, 825);
 
     context.fillStyle = '#899493';
     context.font = '600 12px system-ui, sans-serif';

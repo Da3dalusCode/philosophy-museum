@@ -1,14 +1,58 @@
 import type {MuseumAssetId} from './museum/museumAssetTypes';
+import {
+  MUSEUM_CANONICAL_PROGRAM,
+  MUSEUM_HALL_ROUTE_ALIASES,
+  type MuseumCanonicalEntityKind,
+  type MuseumCanonicalExhibit,
+  type MuseumCanonicalHallId,
+  type MuseumCanonicalRoomLens,
+  type MuseumCanonicalRoomId,
+  type MuseumLegacyHallId,
+  type MuseumPresentationTier,
+} from './museum/museumCanonicalProgram';
 
-export type MuseumHallId =
-  | 'ancient-greek'
-  | 'renaissance-reason-revolution'
-  | 'modernity-freedom-critique'
-  | 'logic-language-science'
-  | 'ethics-justice-political-life'
-  | 'mind-consciousness-self';
+export {
+  MUSEUM_CANONICAL_HALL_IDS,
+  MUSEUM_CANONICAL_PROGRAM,
+  MUSEUM_CANONICAL_ROOM_IDS,
+  MUSEUM_HALL_ROUTE_ALIASES,
+  MUSEUM_LEGACY_EXHIBIT_COMPATIBILITY,
+  MUSEUM_LEGACY_HALL_IDS,
+  MUSEUM_LIVE_LEGACY_EXHIBIT_COMPATIBILITY,
+  MUSEUM_LIVE_HALL_TOTALS,
+  MUSEUM_LIVE_PROGRAM_TOTALS,
+  MUSEUM_LIVE_ROOM_TOTALS,
+  MUSEUM_PLANNED_HALL_TITLES,
+  MUSEUM_PRESENTATION_TIERS,
+  getMuseumLegacyExhibitCompatibility,
+  getMuseumPrimaryExhibitRef,
+} from './museum/museumCanonicalProgram';
+export type {
+  MuseumCanonicalExhibit,
+  MuseumCanonicalHall,
+  MuseumCanonicalHallId,
+  MuseumCanonicalRoom,
+  MuseumCanonicalRoomLens,
+  MuseumCanonicalRoomId,
+  MuseumCanonicalRoomComparison,
+  MuseumLegacyHallId,
+  MuseumLegacyExhibitCompatibility,
+  MuseumLegacyExhibitDisposition,
+  MuseumPlannedHallId,
+  MuseumPresentationTier,
+  MuseumPrimaryExhibitRef,
+} from './museum/museumCanonicalProgram';
 
-export type MuseumZoneId =
+export type MuseumPublicHallId = MuseumCanonicalHallId;
+export type LegacyMuseumHallId = MuseumLegacyHallId;
+
+/**
+ * Compatibility union used by legacy scene modules while they are retired from the
+ * public registry. Use MuseumPublicHallId for all new runtime and routing code.
+ */
+export type MuseumHallId = MuseumPublicHallId | LegacyMuseumHallId;
+
+export type LegacyMuseumZoneId =
   | 'classical-foundations'
   | 'hellenistic-ways'
   | 'late-antiquity'
@@ -28,13 +72,16 @@ export type MuseumZoneId =
   | 'experience-intentionality-embodiment'
   | 'action-consciousness-personhood';
 
-export type MuseumExhibitKind = 'philosopher' | 'branch';
+export type MuseumZoneId = LegacyMuseumZoneId | MuseumCanonicalRoomId;
+export type MuseumRoomId = MuseumCanonicalRoomId;
+export type MuseumExhibitKind = MuseumCanonicalEntityKind;
 
 export type MuseumZoneCatalog = {
   id: MuseumZoneId;
   title: string;
   period: string;
   description: string;
+  comparativeLenses?: readonly MuseumCanonicalRoomLens[];
 };
 
 type MuseumExhibitCatalogShape = {
@@ -246,14 +293,32 @@ export type ModernityFreedomCritiqueExhibitId = (typeof modernityFreedomCritique
 export type LogicLanguageScienceExhibitId = (typeof logicLanguageScienceExhibits)[number]['id'];
 export type EthicsJusticePoliticalLifeExhibitId = (typeof ethicsJusticePoliticalLifeExhibits)[number]['id'];
 export type MindConsciousnessSelfExhibitId = (typeof mindConsciousnessSelfExhibits)[number]['id'];
-export type MuseumExhibitCatalog =
+type LegacyMuseumExhibitCatalog =
   | (typeof ancientExhibits)[number]
   | (typeof renaissanceReasonRevolutionExhibits)[number]
   | (typeof modernityFreedomCritiqueExhibits)[number]
   | (typeof logicLanguageScienceExhibits)[number]
   | (typeof ethicsJusticePoliticalLifeExhibits)[number]
   | (typeof mindConsciousnessSelfExhibits)[number];
-export type MuseumExhibitId = MuseumExhibitCatalog['id'];
+
+type MuseumCanonicalProgramExhibit =
+  (typeof MUSEUM_CANONICAL_PROGRAM)[number]['rooms'][number]['exhibits'][number];
+export type MuseumCanonicalExhibitId = MuseumCanonicalProgramExhibit['id'];
+
+export type MuseumCanonicalExhibitCatalog = Omit<
+  MuseumCanonicalExhibit,
+  'id' | 'principalAssetId' | 'supportingAssetIds'
+> & {
+  id: MuseumCanonicalExhibitId;
+  roomId: MuseumCanonicalRoomId;
+  zoneId: MuseumCanonicalRoomId;
+  tier: MuseumPresentationTier;
+  principalAssetId?: MuseumAssetId;
+  supportingAssetIds: readonly MuseumAssetId[];
+};
+
+export type MuseumExhibitCatalog = LegacyMuseumExhibitCatalog | MuseumCanonicalExhibitCatalog;
+export type MuseumExhibitId = LegacyMuseumExhibitCatalog['id'] | MuseumCanonicalExhibitId;
 
 export type MuseumHallCatalog = {
   id: MuseumHallId;
@@ -265,9 +330,13 @@ export type MuseumHallCatalog = {
   zones: readonly MuseumZoneCatalog[];
   exhibits: readonly MuseumExhibitCatalog[];
   guidedOrder: readonly MuseumExhibitId[];
+  wingId?: string;
+  templateId?: string;
+  recordCapacity?: number;
+  roomIds?: readonly MuseumCanonicalRoomId[];
 };
 
-export const MUSEUM_HALLS = [
+const LEGACY_MUSEUM_HALLS = [
   {
     id: 'ancient-greek',
     title: 'Ancient Greek & Hellenistic Gallery',
@@ -336,22 +405,73 @@ export const MUSEUM_HALLS = [
   },
 ] as const satisfies readonly MuseumHallCatalog[];
 
-export const DEFAULT_MUSEUM_HALL_ID: MuseumHallId = 'ancient-greek';
+const toCanonicalCatalogExhibit = (
+  record: MuseumCanonicalProgramExhibit,
+  roomId: MuseumCanonicalRoomId,
+): MuseumCanonicalExhibitCatalog => ({
+  ...record,
+  roomId,
+  zoneId: roomId,
+  principalAssetId: ('principalAssetId' in record ? record.principalAssetId : undefined) as MuseumAssetId | undefined,
+  supportingAssetIds: (record.supportingAssetIds ?? []) as readonly MuseumAssetId[],
+});
 
-export function getMuseumHallCatalog(id: 'ancient-greek'): (typeof MUSEUM_HALLS)[0];
-export function getMuseumHallCatalog(id: 'renaissance-reason-revolution'): (typeof MUSEUM_HALLS)[1];
-export function getMuseumHallCatalog(id: 'modernity-freedom-critique'): (typeof MUSEUM_HALLS)[2];
-export function getMuseumHallCatalog(id: 'logic-language-science'): (typeof MUSEUM_HALLS)[3];
-export function getMuseumHallCatalog(id: 'ethics-justice-political-life'): (typeof MUSEUM_HALLS)[4];
-export function getMuseumHallCatalog(id: 'mind-consciousness-self'): (typeof MUSEUM_HALLS)[5];
-export function getMuseumHallCatalog(id: MuseumHallId): (typeof MUSEUM_HALLS)[number];
+export const MUSEUM_HALLS = MUSEUM_CANONICAL_PROGRAM.map((hall, index) => {
+  const exhibits = hall.rooms.flatMap((room) => room.exhibits.map((record) =>
+    toCanonicalCatalogExhibit(record, room.id),
+  ));
+  return {
+    id: hall.id,
+    title: hall.title,
+    galleryNumber: hall.id === 'core-questions-forum' ? 'Forum' : `Gallery ${String(index + 1).padStart(2, '0')}`,
+    period: hall.period,
+    description: hall.description,
+    sweep: hall.rooms.map(({title}) => title),
+    zones: hall.rooms.map((room) => ({
+      id: room.id,
+      title: room.title,
+      period: hall.period,
+      description: `${room.title}. Program capacity: ${room.recordCapacity} primary records.`,
+      comparativeLenses: 'comparativeLenses' in room ? room.comparativeLenses : [],
+    })),
+    exhibits,
+    guidedOrder: exhibits.map(({id}) => id),
+    wingId: hall.wingId,
+    templateId: hall.templateId,
+    recordCapacity: hall.recordCapacity,
+    roomIds: hall.rooms.map(({id}) => id),
+  };
+}) satisfies readonly MuseumHallCatalog[];
+
+export type MuseumCanonicalHallCatalog = (typeof MUSEUM_HALLS)[number];
+
+export const DEFAULT_MUSEUM_HALL_ID: MuseumPublicHallId = 'mediterranean-beginnings-classical';
+
+export function getMuseumHallCatalog(id: 'ancient-greek'): (typeof LEGACY_MUSEUM_HALLS)[0];
+export function getMuseumHallCatalog(id: 'renaissance-reason-revolution'): (typeof LEGACY_MUSEUM_HALLS)[1];
+export function getMuseumHallCatalog(id: 'modernity-freedom-critique'): (typeof LEGACY_MUSEUM_HALLS)[2];
+export function getMuseumHallCatalog(id: 'logic-language-science'): (typeof LEGACY_MUSEUM_HALLS)[3];
+export function getMuseumHallCatalog(id: 'ethics-justice-political-life'): (typeof LEGACY_MUSEUM_HALLS)[4];
+export function getMuseumHallCatalog(id: 'mind-consciousness-self'): (typeof LEGACY_MUSEUM_HALLS)[5];
+export function getMuseumHallCatalog(id: MuseumPublicHallId): MuseumCanonicalHallCatalog;
+export function getMuseumHallCatalog(id: MuseumHallId): MuseumHallCatalog | undefined;
 export function getMuseumHallCatalog(id: string): MuseumHallCatalog | undefined;
 export function getMuseumHallCatalog(id: string): MuseumHallCatalog | undefined {
-  return MUSEUM_HALLS.find((hall) => hall.id === id);
+  return MUSEUM_HALLS.find((hall) => hall.id === id)
+    ?? LEGACY_MUSEUM_HALLS.find((hall) => hall.id === id);
 }
 
-export const isMuseumHallId = (id: string | undefined): id is MuseumHallId =>
-  Boolean(id && getMuseumHallCatalog(id));
+/** Public route guard: retired prototype IDs deliberately return false. */
+export const isMuseumHallId = (id: string | undefined): id is MuseumPublicHallId =>
+  Boolean(id && MUSEUM_HALLS.some((hall) => hall.id === id));
+
+export const resolveMuseumHallRouteAlias = (
+  id: string | undefined,
+): MuseumPublicHallId | undefined => {
+  if (!id) return undefined;
+  if (isMuseumHallId(id)) return id;
+  return MUSEUM_HALL_ROUTE_ALIASES[id as LegacyMuseumHallId];
+};
 
 export const getMuseumExhibitCatalog = (
   hallId: string,

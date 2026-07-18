@@ -50,11 +50,15 @@ const generatedSpecsForExhibit = (
   if (hallId === 'ancient-greek') return [plaque];
   const backing = exhibit.scene.objectBounds.find(({id}) => id.endsWith('-backing'));
   if (!backing) throw new Error(`Museum texture estimate cannot resolve the name-strip backing for ${exhibit.id}.`);
+  const interpretationWidth = backing.size.width - .16;
+  const interpretationHeight = exhibit.scene.mediaMounts.length > 0
+    ? .42
+    : Math.min(1.55, backing.size.height - .48);
   return [
     plaque,
     museumTextureDimensionsForPlane(
-      backing.size.width - .18,
-      .34,
+      interpretationWidth,
+      interpretationHeight,
       MUSEUM_TEXTURE_SPECS.contemporaryNameStrip,
     ),
   ];
@@ -79,7 +83,7 @@ const generatedHallSpecs = (hallId: MuseumHallId): readonly MuseumDecodedTexture
       MUSEUM_TEXTURE_SPECS.visitorMapKiosk,
     ];
   }
-  return (definition.layout.signs ?? []).map((sign) => {
+  const signs = (definition.layout.signs ?? []).map((sign) => {
     const reference = {
       width: MUSEUM_TEXTURE_SPECS.contemporarySignWidth,
       height: Math.round(MUSEUM_TEXTURE_SPECS.contemporarySignWidth * sign.height / sign.width),
@@ -87,6 +91,9 @@ const generatedHallSpecs = (hallId: MuseumHallId): readonly MuseumDecodedTexture
     };
     return museumTextureDimensionsForPlane(sign.width, sign.height, reference);
   });
+  return hallId === MUSEUM_BUILDING_MANIFEST.kiosk.publicHallId
+    ? [...signs, MUSEUM_TEXTURE_SPECS.visitorMapKiosk]
+    : signs;
 };
 
 /**

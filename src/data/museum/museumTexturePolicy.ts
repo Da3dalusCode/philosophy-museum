@@ -6,15 +6,15 @@ export type MuseumDecodedTextureSpec = {
 
 /** Dimensions shared by renderers and the deterministic residency model. */
 export const MUSEUM_TEXTURE_SPECS = {
-  plaque: {width: 1024, height: 256, mipmaps: true},
-  contemporaryNameStrip: {width: 1200, height: 190, mipmaps: true},
+  plaque: {width: 768, height: 192, mipmaps: true},
+  contemporaryNameStrip: {width: 960, height: 180, mipmaps: true},
   ancientOrientationPlinth: {width: 1024, height: 280, mipmaps: true},
   visitorMapKiosk: {width: 1200, height: 918, mipmaps: true},
   sceneFallback: {width: 512, height: 341, mipmaps: true},
   buildingSign: {width: 1200, height: 320, mipmaps: true},
   reservationSign: {width: 1400, height: 380, mipmaps: true},
   readinessSign: {width: 1200, height: 320, mipmaps: true},
-  contemporarySignWidth: 1400,
+  contemporarySignWidth: 900,
   ancientGallerySignCount: 4,
 } as const;
 

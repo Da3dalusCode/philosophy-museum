@@ -5,7 +5,8 @@ import type {
   MuseumExhibitRef,
   MuseumHallDefinition,
 } from '../../data/museum/museumWorldTypes';
-import type {MuseumHallId} from '../../data/museumCatalog';
+import {MUSEUM_CANONICAL_HALL_IDS} from '../../data/museum/museumCanonicalProgram';
+import type {MuseumPublicHallId} from '../../data/museumCatalog';
 
 export type MuseumHallContentProps = {
   definition: MuseumHallDefinition;
@@ -23,40 +24,28 @@ export type MuseumHallRegistration = {
   loadContent: () => Promise<{default: ComponentType<MuseumHallContentProps>}>;
 };
 
-const contentLoaders: Record<MuseumHallId, MuseumHallRegistration['loadContent']> = {
-  'ancient-greek': () => import('./AncientGreekHallScene').then(({AncientGreekHallContent}) => ({
-    default: AncientGreekHallContent,
-  })),
-  'renaissance-reason-revolution': () => import('./RenaissanceReasonRevolutionHallScene').then(({RenaissanceReasonRevolutionHallContent}) => ({
-    default: RenaissanceReasonRevolutionHallContent,
-  })),
-  'modernity-freedom-critique': () => import('./ModernityFreedomCritiqueHallScene').then(({ModernityFreedomCritiqueHallContent}) => ({
-    default: ModernityFreedomCritiqueHallContent,
-  })),
-  'logic-language-science': () => import('./LogicLanguageScienceHallScene').then(({LogicLanguageScienceHallContent}) => ({
-    default: LogicLanguageScienceHallContent,
-  })),
-  'ethics-justice-political-life': () => import('./EthicsJusticePoliticalLifeHallScene').then(({EthicsJusticePoliticalLifeHallContent}) => ({
-    default: EthicsJusticePoliticalLifeHallContent,
-  })),
-  'mind-consciousness-self': () => import('./MindConsciousnessSelfHallScene').then(({MindConsciousnessSelfHallContent}) => ({
-    default: MindConsciousnessSelfHallContent,
-  })),
-};
+const canonicalContentLoader: MuseumHallRegistration['loadContent'] = () =>
+  import('./CanonicalMuseumHallScene').then(({CanonicalMuseumHallContent}) => ({
+    default: CanonicalMuseumHallContent,
+  }));
 
-const contentPromises = new Map<MuseumHallId, Promise<{default: ComponentType<MuseumHallContentProps>}>>();
+const contentLoaders = Object.fromEntries(
+  MUSEUM_CANONICAL_HALL_IDS.map((hallId) => [hallId, canonicalContentLoader]),
+) as Record<MuseumPublicHallId, MuseumHallRegistration['loadContent']>;
+
+const contentPromises = new Map<MuseumPublicHallId, Promise<{default: ComponentType<MuseumHallContentProps>}>>();
 const imagePromises = new Map<string, Promise<void>>();
 
 export const MUSEUM_WORLD_REGISTRY = MUSEUM_WORLD_DEFINITIONS.map((definition) => ({
   definition,
-  loadContent: contentLoaders[definition.id],
+  loadContent: contentLoaders[definition.id as MuseumPublicHallId],
 })) satisfies readonly MuseumHallRegistration[];
 
-export const getMuseumHallRegistration = (hallId: MuseumHallId): MuseumHallRegistration | undefined =>
+export const getMuseumHallRegistration = (hallId: MuseumPublicHallId): MuseumHallRegistration | undefined =>
   MUSEUM_WORLD_REGISTRY.find(({definition}) => definition.id === hallId);
 
 export const loadMuseumHallContent = (
-  hallId: MuseumHallId,
+  hallId: MuseumPublicHallId,
 ): Promise<{default: ComponentType<MuseumHallContentProps>}> | undefined => {
   const registration = getMuseumHallRegistration(hallId);
   if (!registration) return undefined;
@@ -100,7 +89,7 @@ const preloadSceneAsset = (assetId: Parameters<typeof getMuseumAsset>[0]): Promi
 };
 
 /** Load the adjacent code and only the entrance-visible media required for a safe crossing. */
-export const prefetchMuseumHallEntry = async (hallId: MuseumHallId): Promise<void> => {
+export const prefetchMuseumHallEntry = async (hallId: MuseumPublicHallId): Promise<void> => {
   const registration = getMuseumHallRegistration(hallId);
   const content = loadMuseumHallContent(hallId);
   if (!registration || !content) throw new Error(`Museum hall ${hallId} is not registered.`);
@@ -111,7 +100,7 @@ export const prefetchMuseumHallEntry = async (hallId: MuseumHallId): Promise<voi
 };
 
 /** Continue warming the remaining local scene media without gating the doorway. */
-export const prefetchMuseumHallRemainder = async (hallId: MuseumHallId): Promise<void> => {
+export const prefetchMuseumHallRemainder = async (hallId: MuseumPublicHallId): Promise<void> => {
   const registration = getMuseumHallRegistration(hallId);
   if (!registration) throw new Error(`Museum hall ${hallId} is not registered.`);
   await Promise.all(registration.definition.prefetch.sceneAssetIds.map(preloadSceneAsset));

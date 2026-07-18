@@ -6,13 +6,13 @@
 
 The same collection can tell very different stories depending on what a visitor encounters first. A chronological museum makes sequence primary; a questions museum makes comparison primary; a cultural-historical museum makes situated intellectual traditions primary. This document treats those as genuinely different programs rather than as different labels on the same corridor.
 
-All three studies can house the Atlas's present inventory of 43 branch/tradition records and 141 philosopher records. A **record-capacity slot** is a planning allowance for one assigned Atlas record at some presentation tier. It is not a fire-code occupancy, a visitor count, or a promise that every record receives a room-sized installation. The approved option is the only one developed into stable wing, hall, and room IDs and a complete record-by-record assignment in the companion CSV files.
+All three studies can house the Atlas's present inventory of 43 branch/tradition records and 142 philosopher records. A **record-capacity slot** is a planning allowance for one assigned Atlas record at some presentation tier. It is not a fire-code occupancy, a visitor count, or a promise that every record receives a room-sized installation. The approved option is the only one developed into stable wing, hall, and room IDs and a complete record-by-record assignment in the companion CSV files.
 
-| Option | Primary organizing principle | Wings | Halls | Rooms / zones | Record capacity | Reserve above 184 current records |
+| Option | Primary organizing principle | Wings | Halls | Rooms / zones | Record capacity | Reserve above 185 current records |
 | --- | --- | ---: | ---: | ---: | ---: | ---: |
-| **Worlds with a Questions Forum — Expanded and Culturally Safeguarded** | Cultural-historical primary homes, joined by a shared questions forum and explicit secondary lenses | **10** | **26** | **105** | **258** | **74** |
-| **Braided Global Timeline** | Chronological eras containing simultaneous regional strands | **6** | **25** | **88** | **228** | **44** |
-| **Questions and Methods Network** | Thematic comparison wings, supported by separate historical context houses | **7** | **25** | **86** | **240** | **56** |
+| **Worlds with a Questions Forum — Expanded and Culturally Safeguarded** | Cultural-historical primary homes, joined by a shared questions forum and explicit secondary lenses | **10** | **26** | **105** | **258** | **73** |
+| **Braided Global Timeline** | Chronological eras containing simultaneous regional strands | **6** | **25** | **88** | **228** | **43** |
+| **Questions and Methods Network** | Thematic comparison wings, supported by separate historical context houses | **7** | **25** | **86** | **240** | **55** |
 
 The totals above are fixed program totals. The hall rosters below show how each option earns them.
 
@@ -49,8 +49,8 @@ This makes Aristotle ancient in his primary placement while allowing major appea
 - It follows the stated priority order: accuracy and defensible grouping come before architectural neatness.
 - It preserves cultural and institutional settings for South Asian, Buddhist, Chinese/East Asian, Arabic/Islamic, Jewish, Latin Christian, and Mediterranean materials.
 - It gives branch-first visitors an immediate entry through the Forum and tradition-first visitors a clear historical route.
-- Its 74-slot reserve is the largest of the three options, including named rooms for transmission, regional continuity, and currently missing contexts.
-- The complete primary assignments guide implementation with one approved person-level change—Beauvoir’s Feminist Philosophies primary—while preserving exact-once coverage of all 184 records; secondary route candidates still require typed room-level interpretation before they go live.
+- Its 73-slot reserve is the largest of the three options, including named rooms for transmission, regional continuity, and currently missing contexts.
+- The complete primary assignments guide implementation with approved person-level adjudications including Beauvoir’s Feminist Philosophies primary and Krishnamurti’s independent Mind & Self placement, while preserving exact-once coverage of all 185 records; secondary route candidates still require typed room-level interpretation before they go live.
 
 ### Weaknesses and risks
 
@@ -65,7 +65,7 @@ The approved visitor sequence begins in the Core Questions Forum, where nine por
 
 ### Expansion implications
 
-Expansion can happen in three ways without changing the classification contract: fill a reserved record slot; activate a named reserve/context room; or add a hall at a wing's reserved connection point. A new tradition that cannot be presented responsibly in an existing setting should receive a new cultural-historical hall or wing rather than being forced into a generic “global” room. The 74-slot reserve is uneven by design: it protects identified gaps, but full halls still trigger local expansion instead of demotion of current records.
+Expansion can happen in three ways without changing the classification contract: fill a reserved record slot; activate a named reserve/context room; or add a hall at a wing's reserved connection point. A new tradition that cannot be presented responsibly in an existing setting should receive a new cultural-historical hall or wing rather than being forced into a generic “global” room. The 73-slot reserve is uneven by design: it protects identified gaps, but full halls still trigger local expansion instead of demotion of current records.
 
 ## Archived comparison — Braided Global Timeline
 

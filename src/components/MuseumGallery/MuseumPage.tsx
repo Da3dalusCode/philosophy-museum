@@ -40,9 +40,10 @@ import {
   getMuseumExhibitCatalog,
   getMuseumHallCatalog,
   MUSEUM_HALLS,
+  MUSEUM_PLANNED_HALL_TITLES,
   type MuseumExhibitCatalog,
   type MuseumExhibitId,
-  type MuseumHallId,
+  type MuseumPublicHallId as MuseumHallId,
 } from '../../data/museumCatalog';
 import type {MuseumRoute, NavigableAppRoute, RouteHref, RouteNavigator} from '../../routing/routes';
 import {isRouteLoadError} from '../../routing/routeLoadErrors';
@@ -188,7 +189,7 @@ function DirectoryContents({route, hallId = route.hallId, href, push, onExhibitA
         const current = route.hallId === hallId && route.exhibitId === item.id;
         const summary = showSummaries ? getMuseumInterpretation({hallId, exhibitId: item.id}).lead : item.question;
         return <li key={item.id} className={current ? 'is-current' : ''} data-entity-kind={item.entityKind}>
-          <div><b>{item.displayName}</b><span>{item.entityKind === 'philosopher' ? 'Philosopher' : 'School / tradition'}</span></div>
+          <div><b>{item.displayName}</b><span>{item.entityKind === 'philosopher' ? 'Philosopher' : 'School / tradition'}{'tier' in item ? ` · ${item.tier.replaceAll('-', ' ')}` : ''}</span></div>
           {current && <strong className="museum-current-label">Currently open</strong>}
           <p>{summary}</p>
           <div className="museum-directory-actions">
@@ -197,6 +198,15 @@ function DirectoryContents({route, hallId = route.hallId, href, push, onExhibitA
           </div>
         </li>;
       })}</ul>
+      {zone.comparativeLenses && zone.comparativeLenses.length > 0 && <aside className="museum-comparative-lenses" aria-label={`${zone.title} comparative lenses`}>
+        <div><p className="eyebrow">Named historical and cultural lenses</p><p>Comparison only: each thinker remains primary in the intellectual world named below.</p></div>
+        <ul>{zone.comparativeLenses.map((lens) => <li key={lens.id}>
+          <div><b>{lens.displayName}</b><span>{lens.culturalSetting}</span></div>
+          <p>{lens.rationale}</p>
+          <p className="museum-comparative-lens-route">Primary route: {MUSEUM_PLANNED_HALL_TITLES[lens.primaryHallId]}</p>
+          <a className="btn" href={href({kind: 'philosopher', philosopherId: lens.entityId})}>Open Atlas article</a>
+        </li>)}</ul>
+      </aside>}
       {onZoneActivate && <button className="btn museum-zone-view-button" type="button" onClick={() => onZoneActivate(hallId, zone.id)}>View this room entrance</button>}
     </section>)}
   </div>;
@@ -795,7 +805,7 @@ export function MuseumPage({route, href, push, replace}: {
     const targetRegistration = getMuseumHallRegistration(hallId);
     const targetHall = getMuseumHallCatalog(hallId);
     if (!targetRegistration || !targetHall) return;
-    const exhibitIds = new Set(targetHall.exhibits.filter((item) => item.zoneId === zoneId).map(({id}) => id));
+    const exhibitIds = new Set<string>(targetHall.exhibits.filter((item) => item.zoneId === zoneId).map(({id}) => id));
     const view = targetRegistration.definition.layout.entryViews.find((item) => item.expectedVisibleExhibitIds.some((id) => exhibitIds.has(id)));
     if (!view) return;
     activateHall(hallId, view.pose);

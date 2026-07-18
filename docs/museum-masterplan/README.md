@@ -1,6 +1,6 @@
 # Philosophy Atlas Museum masterplan
 
-**Status:** approved long-term program and physical direction, locked for the Ring pilot. The planning assignments in this directory remain separate from the six live exhibit rosters; the pilot implements physical circulation without pretending that all 26 final halls are open.
+**Status:** approved long-term program and physical direction. The Ring infrastructure is complete, and the first permanent collection phase converts the six temporary shells to five permanent outer-loop halls plus the central Core Questions Forum without pretending that all 26 final halls are open.
 
 ## Decision in one page
 
@@ -14,7 +14,7 @@ The approved program gives historically and culturally situated traditions their
 | Braided Global Timeline | 6 | 25 | 88 | 228 | Parallel regional histories along a common chronology |
 | Questions and Methods Network | 7 | 25 | 86 | 240 | Thematic questions supported by historical context houses |
 
-“Record capacity” is a planning allowance for philosopher and branch records, not a promise of 258 full-size installations. The current Atlas contributes 184 primary records: **43 branches and 141 philosophers**. Every one has exactly one stable-ID primary assignment, a room or zone, a presentation tier, and a rationale. Secondary hall appearances are interpretive links, not duplicate primary exhibits.
+“Record capacity” is a planning allowance for philosopher and branch records, not a promise of 258 full-size installations. The current Atlas contributes 185 primary records: **43 branches and 142 philosophers**. Every one has exactly one stable-ID primary assignment, a room or zone, a presentation tier, and a rationale. Secondary hall appearances are interpretive links, not duplicate primary exhibits.
 
 ## Why this is the approved direction
 
@@ -23,7 +23,7 @@ The hybrid program best satisfies the project’s priority order:
 1. It does not reduce Islamic, Jewish, South Asian, Buddhist, Chinese, or East Asian philosophies to sidebars in a European chronology.
 2. It preserves historical development: visitors can still follow ancient, medieval, early-modern, nineteenth-century, and modern sequences.
 3. It handles philosophers important to several fields without duplicating them. Aristotle, Kant, Wittgenstein, Foucault, and others receive one physical home and strong secondary interpretation elsewhere.
-4. Its 74-record capacity margin supports new Atlas content and rotation without forcing an immediate new wing.
+4. Its 73-record capacity margin supports new Atlas content and rotation without forcing an immediate new wing.
 5. A small set of reusable gallery templates can realize the program gradually.
 
 The Ring of Wings is approved because its central forum gives visitors a legible point of return, most halls can have two useful connections, and eight priority halls have named outward expansion points. The Braided Promenade and Pavilion Campus remain archived comparison studies, not active alternatives for this phase.
@@ -52,11 +52,11 @@ Start with these documents, in order:
 3. [Approved program](./recommended-program.md) — all 10 wings, 26 halls, and 105 rooms or zones.
 4. [Difficult placements](./difficult-placements.md) — disputed cases and the judgment calls made.
 5. [Building options](./building-options.md) — three physical concepts, templates, circulation, accessibility, and expansion.
-6. [Migration plan](./migration-plan.md) — how the six-hall prototype can become a truthful pilot without building the whole museum.
+6. [Migration plan](./migration-plan.md) — how the completed Ring pilot converts to six permanent programs and expands without building the whole museum at once.
 
 The complete assignments are reviewable as spreadsheets:
 
-- [Philosopher assignments](./philosopher-assignments.csv) — 141 current philosopher IDs.
+- [Philosopher assignments](./philosopher-assignments.csv) — 142 current philosopher IDs.
 - [Branch assignments](./branch-assignments.csv) — 43 current branch IDs.
 
 The machine-readable planning contract is split deliberately:
@@ -87,14 +87,15 @@ The package records, but does not hide, several consequential approved choices:
 - Beauvoir’s primary home is Feminist Philosophies, with an anchor-strength secondary presence in Phenomenology, Existence, and Embodiment that preserves her existential and phenomenological formation without treating her as derivative of Sartre.
 - Mary Astell and Mary Wollstonecraft retain Enlightenment primary homes and anchor-strength feminist secondary interpretation.
 - G. E. M. Anscombe is primary in Analytic Traditions through action and intention, with major secondary treatment in moral philosophy.
+- Jiddu Krishnamurti is primary in the Forum’s Mind & Self room as an independent standard exhibit, with a strong South Asian secondary route and Philosophy of Religion comparison that do not claim Yoga, Vedānta, Buddhist, or other inherited-school membership.
 
 See [Difficult placements](./difficult-placements.md) for the complete reasoning and unresolved interpretive risks.
 
-## Approved Ring-pilot phase
+## Approved permanent-six phase
 
-The hybrid taxonomy, disputed primary homes, and Ring layout are approved for this phase. The pilot rearranges **only the current six hall shells** into a truthful physical proof: real walls and corridors, a centralized runtime building manifest, accessible safe arrivals, a central orientation court, multiple walking routes, and blocked insertion and outward-expansion reservations. It does not construct the other twenty planned halls or present the future Forum as curated and open.
+The hybrid taxonomy, disputed primary homes, and Ring layout remain approved. The completed infrastructure phase supplied real walls and corridors, a centralized runtime building manifest, accessible safe arrivals, a compact loop and spokes, and blocked insertion and outward-expansion reservations. The current phase replaces the six temporary public programs with `mediterranean-beginnings-classical`, `renaissance-humanism-new-method`, `phenomenology-existence-embodiment`, `analytic-traditions`, `justice-democratic-reason`, and the permanent central `core-questions-forum`.
 
-The migration plan treats the current six halls as technical assets, not immutable intellectual categories. All 48 current exhibits remain unchanged during the immediate truth phase; later dispositions are documented record by record as temporary retention, primary relocation, or secondary interpretation.
+The five historical/methodological successors remain on the compact outer loop; the Forum occupies the central court. The former outer Mind shell is retired as a public gallery and used only for truthful circulation, construction, or reservation geometry. The canonical six install their 59 exact primary assignments by tier rather than preserving the former 48-installation quota. Displaced exhibit routes remain aliases or explanatory handoffs to intact Atlas content and planned primary halls.
 
 ## Deterministic validation
 

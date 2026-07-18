@@ -7,7 +7,7 @@ import type {
   MuseumRuntimeNodeDefinition,
 } from '../../data/museum/museumWorldTypes';
 import {MUSEUM_TEXTURE_SPECS} from '../../data/museum/museumTexturePolicy';
-import type {MuseumHallId} from '../../data/museumCatalog';
+import type {MuseumPublicHallId} from '../../data/museumCatalog';
 import type {MuseumHallRegistration} from './museumWorldRegistry';
 import {resolveMuseumWalkingSpeed} from './museumMovement';
 
@@ -137,9 +137,9 @@ export const resolveMuseumReadinessGateStatus = (
 export type MuseumSceneRuntimeProps = {
   definition: MuseumRuntimeNodeDefinition;
   registrations: readonly MuseumHallRegistration[];
-  readyHallIds: readonly MuseumHallId[];
-  hallLoadStatus: Partial<Record<MuseumHallId, MuseumHallLoadStatus>>;
-  hallContentEpochs: Partial<Record<MuseumHallId, number>>;
+  readyHallIds: readonly MuseumPublicHallId[];
+  hallLoadStatus: Partial<Record<MuseumPublicHallId, MuseumHallLoadStatus>>;
+  hallContentEpochs: Partial<Record<MuseumPublicHallId, number>>;
   active: boolean;
   blocked: boolean;
   poseRevision: number;
@@ -152,10 +152,10 @@ export type MuseumSceneRuntimeProps = {
   onSelectVisitorMap: () => void;
   onNodeTransition: (connection: MuseumDirectedConnection) => boolean;
   onNodeTransitionBlocked: (connection: MuseumDirectedConnection) => void;
-  onApproachHall: (hallId: MuseumHallId | undefined) => void;
-  onHallContentReady: (hallId: MuseumHallId) => void;
-  onHallContentUnavailable: (hallId: MuseumHallId) => void;
-  onHallContentError: (hallId: MuseumHallId, error: unknown) => void;
+  onApproachHall: (hallId: MuseumPublicHallId | undefined) => void;
+  onHallContentReady: (hallId: MuseumPublicHallId) => void;
+  onHallContentUnavailable: (hallId: MuseumPublicHallId) => void;
+  onHallContentError: (hallId: MuseumPublicHallId, error: unknown) => void;
   onSceneGesture: () => void;
   onSceneError: (error: unknown) => void;
 };

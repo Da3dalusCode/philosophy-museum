@@ -4,7 +4,7 @@
 
 **Worlds with a Questions Forum — Expanded and Culturally Safeguarded** is the approved long-term intellectual program, locked for the Ring pilot. It combines one comparative Core Questions Forum with nine historically or culturally situated wings. The Forum helps visitors ask across traditions; it does not claim that modern academic branches are the source, destination, or universal vocabulary of every tradition.
 
-This is the approved planning program, not the current six-shell exhibit roster. Its authoritative machine-readable intellectual sources are [hall-program.json](./hall-program.json), [branch-assignments.csv](./branch-assignments.csv), and [philosopher-assignments.csv](./philosopher-assignments.csv). The physical Ring pilot changes circulation while preserving all 48 live exhibits.
+This is the approved planning program and the authority for the first permanent collection cutover. Its machine-readable intellectual sources are [hall-program.json](./hall-program.json), [branch-assignments.csv](./branch-assignments.csv), and [philosopher-assignments.csv](./philosopher-assignments.csv). The owner-approved implementation order converts the six prototype shells directly to their six permanent successors; it follows final primary assignments and presentation tiers rather than preserving the former 48-exhibit roster.
 
 | Program measure | Exact total |
 | --- | ---: |
@@ -13,9 +13,9 @@ This is the approved planning program, not the current six-shell exhibit roster.
 | Rooms / zones | **105** |
 | Planned record capacity | **258** |
 | Current branch/tradition primary assignments | **43** |
-| Current philosopher primary assignments | **141** |
-| Total current primary assignments | **184** |
-| Unallocated record capacity | **74** |
+| Current philosopher primary assignments | **142** |
+| Total current primary assignments | **185** |
+| Unallocated record capacity | **73** |
 
 Here, **record capacity** means the number of Atlas records a room is planned to interpret at the appropriate presentation tier. It is not visitor occupancy, floor area, or the number of freestanding objects. A shared cluster may use less physical area than an anchor exhibit even though both records count toward assignment coverage.
 
@@ -33,16 +33,16 @@ Placements for living and recently deceased thinkers remain curatorial judgments
 
 ### Presentation tiers
 
-Tier expresses exhibit treatment, not philosophical worth. It prevents “complete coverage” from becoming 184 equally large monuments.
+Tier expresses exhibit treatment, not philosophical worth. It prevents “complete coverage” from becoming 185 equally large monuments.
 
 | Tier | Branches | Philosophers | Total | Intended physical treatment |
 | --- | ---: | ---: | ---: | --- |
 | Anchor exhibit | 37 | 52 | **89** | A major interpretive installation for a field, tradition, system, or thinker central to the room's argument |
-| Standard individual exhibit | 0 | 80 | **80** | A self-contained philosopher exhibit with context, contribution, works, and relationships |
+| Standard individual exhibit | 0 | 81 | **81** | A self-contained philosopher exhibit with context, contribution, works, and relationships |
 | Supporting exhibit | 4 | 5 | **9** | A compact but named exhibit that supports orientation, lineage, or transition |
 | Thematic cluster participant | 2 | 3 | **5** | A clearly identified record within a shared installation where separation would misstate the evidence or overstate certainty |
 | Gallery archive or study-wall record | 0 | 1 | **1** | A visible, searchable record with a defensible home but without a full installation at current depth |
-| **Total** | **43** | **141** | **184** | Complete current inventory |
+| **Total** | **43** | **142** | **185** | Complete current inventory |
 
 The lower-footprint assignments are deliberate and reviewable. The four supporting umbrella branches are Ancient Greek Philosophy, Indian Philosophy, Chinese Philosophy, and Continental Philosophy. The five thematic-cluster participants are Legalism, Buddhist Epistemology, Laozi, Pseudo-Dionysius, and Patañjali. Leucippus is the sole study-wall record. These assignments can be promoted later if source depth grows; their present tier never erases their primary home.
 
@@ -50,7 +50,7 @@ Tier balance is an operational review, not only a disclaimer. The final scholars
 
 ### Secondary associations
 
-Of the 184 records, 161 have at least one secondary hall association, producing 296 resolved **hall-route candidates**. Twenty-three have no secondary hall because a forced link would add noise rather than insight. A secondary association may produce:
+Of the 185 records, 162 have at least one secondary hall association, producing 297 resolved **hall-route candidates**. Twenty-three have no secondary hall because a forced link would add noise rather than insight. A secondary association may produce:
 
 - a linked comparison or reception panel;
 - a “continue this question” wayfinding route;
@@ -63,11 +63,11 @@ The semicolon-separated CSV fields establish destination coverage, not final int
 
 ## Coverage and reserve by wing
 
-The table below reconciles the 184 current primary assignments with the 258-slot program. “Reserve” is capacity not currently occupied by a primary assignment; it may still support orientation and secondary interpretation before new records are added.
+The table below reconciles the 185 current primary assignments with the 258-slot program. “Reserve” is capacity not currently occupied by a primary assignment; it may still support orientation and secondary interpretation before new records are added.
 
 | Wing | Halls | Rooms | Capacity | Current branches | Current philosophers | Current total | Reserve |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| Core Questions Forum | 1 | 9 | 25 | 9 | 5 | 14 | 11 |
+| Core Questions Forum | 1 | 9 | 25 | 9 | 6 | 15 | 10 |
 | Mediterranean Antiquity | 3 | 11 | 59 | 8 | 39 | 47 | 12 |
 | South Asian Intellectual Worlds | 1 | 5 | 14 | 3 | 6 | 9 | 5 |
 | Buddhist Traditions Across Asia | 1 | 5 | 13 | 2 | 5 | 7 | 6 |
@@ -77,7 +77,7 @@ The table below reconciles the 184 current primary assignments with the 258-slot
 | Nineteenth-Century Transformations | 3 | 11 | 15 | 1 | 9 | 10 | 5 |
 | Modern Philosophical Traditions | 4 | 18 | 28 | 5 | 19 | 24 | 4 |
 | Ethics, Politics, and Social Thought | 4 | 14 | 25 | 6 | 13 | 19 | 6 |
-| **Total** | **26** | **105** | **258** | **43** | **141** | **184** | **74** |
+| **Total** | **26** | **105** | **258** | **43** | **142** | **185** | **73** |
 
 ## Wing and hall program
 
@@ -85,15 +85,15 @@ Room lists below follow the intended interpretive sequence. The number in parent
 
 ### 1. Core Questions Forum
 
-**Program (`wing-core-questions`):** 1 hall, 9 rooms, capacity 25; 14 current assignments, 11 reserve slots.
+**Program (`wing-core-questions`):** 1 hall, 9 rooms, capacity 25; 15 current assignments, 10 reserve slots.
 
-This is the shared orientation and comparison hub. Its branch anchors provide a vocabulary for finding questions throughout the building, while its philosopher exhibits—Whitehead, Nagel, Carnap, Popper, and Kuhn—show that modern fields also have histories and disagreements. Ethics and Political Life are portals to full halls in another wing, not substitutes for them.
+This is the shared orientation and comparison hub. Its branch anchors provide a vocabulary for finding questions throughout the building, while its philosopher exhibits—Whitehead, Nagel, Krishnamurti, Carnap, Popper, and Kuhn—show that modern fields also have histories and disagreements. Krishnamurti’s Mind & Self placement is comparative: his South Asian secondary route and Philosophy of Religion comparison are explicit, and neither is an inherited-school membership. Ethics and Political Life are portals to full halls in another wing, not substitutes for them.
 
-Because those five primary philosophers are modern Western men, the first impression must not be their roster alone. Every Forum room must stage at least two named historical or cultural lenses, including at least one outside modern European/North American traditions where scholarship supports it; the Forum as a whole must visibly route to every cultural-historical wing. Aristotle, Patañjali, Kaṇāda, Nāgārjuna, Dignāga, Dharmakīrti, Confucian and Daoist materials, and Islamic and Jewish thinkers are required named presences, not optional map links.
+The Forum roster remains weighted toward modern European and North American field formation even after adding an Indian-born independent thinker, so its first impression must not be the primary roster alone. Every Forum room must stage at least two named historical or cultural lenses, including at least one outside modern European/North American traditions where scholarship supports it; the Forum as a whole must visibly route to every cultural-historical wing. Aristotle, Patañjali, Kaṇāda, Nāgārjuna, Dignāga, Dharmakīrti, Confucian and Daoist materials, and Islamic and Jewish thinkers are required named presences, not optional map links.
 
 #### Core Questions Forum
 
-`core-questions-forum` · crossroads template · 9 rooms · capacity 25 · 14 assigned · 11 reserve
+`core-questions-forum` · crossroads template · 9 rooms · capacity 25 · 15 assigned · 10 reserve
 
 Rooms: Reality & Being (4); Knowledge (2); Mind & Self (3); Logic & Language (3); Science (5); Ethics portal (2); Political Life portal (2); Aesthetics (2); Philosophy of Religion (2).
 
@@ -339,7 +339,7 @@ The program is culturally safeguarded only if these are treated as implementatio
 
 ## Reserved contexts, collection gaps, and capacity pressure
 
-The 74-slot reserve consists of 21 slots in 12 rooms with no current primary assignment and 53 open slots within partly assigned rooms. “No primary assignment” does not mean an empty gallery: portals, timelines, secondary appearances, maps, and context installations may occupy it before the Atlas gains new primary records.
+The 73-slot reserve consists of 21 slots in 12 rooms with no current primary assignment and 52 open slots within partly assigned rooms. “No primary assignment” does not mean an empty gallery: portals, timelines, secondary appearances, maps, and context installations may occupy it before the Atlas gains new primary records.
 
 | Wing | Room with no current primary assignment | Capacity |
 | --- | --- | ---: |
@@ -365,11 +365,11 @@ Four halls are already at their planned primary-record capacity: Empiricism, Enl
 
 This approved program governs the Ring pilot under all of the following conditions:
 
-- one primary assignment for each of the 43 branch IDs and 141 philosopher IDs;
+- one primary assignment for each of the 43 branch IDs and 142 philosopher IDs;
 - capacity is treated as record-planning capacity rather than visitor or architectural occupancy;
 - secondary associations remain links and interpretive appearances, not duplicate homes;
 - cultural safeguards are carried into labels, thresholds, sightlines, and map routes;
 - reserve contexts remain visibly provisional until supported by researched Atlas records;
 - a full hall can expand rather than forcing future material into a misleading category.
 
-The program establishes what the eventual Museum must be capable of housing and the intellectual rules the approved Ring geometry and staged migration must preserve. It does not claim that the other twenty planned halls or the curated Core Questions Forum are already built.
+The program establishes what the eventual Museum must be capable of housing and the intellectual rules the approved Ring geometry and staged migration must preserve. The first permanent cutover opens the Core Questions Forum and five other permanent halls; it does not claim that the remaining twenty planned halls are already built.

@@ -21,6 +21,7 @@ import {genealogyDeconstructionCompletionPhilosopherArticles} from './genealogyD
 import {modernPoliticalCompletionPhilosopherArticles} from './modernPoliticalCompletionArticles';
 import {nozickCompletionPhilosopherArticles} from './nozickCompletionArticles';
 import {rawlsCompletionPhilosopherArticles} from './rawlsCompletionArticles';
+import {krishnamurtiCompletionPhilosopherArticles} from './krishnamurtiCompletionArticles';
 import {ibnTufaylCompletionPhilosopherArticles} from './ibnTufaylCompletionArticles';
 import {judahHaleviCompletionPhilosopherArticles} from './judahHaleviCompletionArticles';
 import {medievalJewishCompletionPhilosopherArticles} from './medievalJewishCompletionArticles';
@@ -77,6 +78,7 @@ export const philosopherArticles:Record<string,ArticleSection[]>={
   ...modernPoliticalCompletionPhilosopherArticles,
   ...nozickCompletionPhilosopherArticles,
   ...rawlsCompletionPhilosopherArticles,
+  ...krishnamurtiCompletionPhilosopherArticles,
   ...ibnTufaylCompletionPhilosopherArticles,
   ...judahHaleviCompletionPhilosopherArticles,
   ...medievalJewishCompletionPhilosopherArticles,

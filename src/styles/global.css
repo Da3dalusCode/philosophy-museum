@@ -319,3 +319,11 @@ main{min-height:calc(100dvh - 120px)}
   .route-load-actions{display:grid;width:100%;grid-template-columns:1fr}
   .route-load-actions .btn{width:100%}
 }
+
+/* Retired Museum routes remain useful collection handoffs. */
+.museum-compatibility-page{max-width:58rem}
+.museum-compatibility-page .lead{max-width:70ch}
+.museum-compatibility-status{display:grid;grid-template-columns:auto minmax(0,1fr);gap:1rem;align-items:start;margin:2rem 0;padding:1.25rem;border:1px solid color-mix(in srgb,var(--accent) 34%,var(--border));background:color-mix(in srgb,var(--panel) 92%,transparent)}
+.museum-compatibility-status>svg{margin-top:.2rem;color:var(--accent)}
+.museum-compatibility-status h2{margin:.2rem 0 .45rem}
+.museum-compatibility-status p:last-child{margin-bottom:0}

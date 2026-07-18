@@ -4,7 +4,7 @@ import {getMuseumAsset, museumAssetUrl} from '../../data/museum/museumAssets';
 import type {MuseumAssetRecord} from '../../data/museum/museumAssetTypes';
 import {museumInterpretationFacts, type MuseumInterpretation} from '../../data/museum/museumInterpretations';
 import type {MuseumExhibitRef} from '../../data/museum/museumWorldTypes';
-import {getMuseumExhibitCatalog, type MuseumExhibitCatalog} from '../../data/museumCatalog';
+import {getMuseumExhibitCatalog, type MuseumExhibitCatalog, type MuseumPublicHallId} from '../../data/museumCatalog';
 import type {RouteHref} from '../../routing/routes';
 import type {MuseumExitTrigger} from './museumVisitState';
 
@@ -81,8 +81,8 @@ export function MuseumInterpretationPanel({
   const panelRef = useRef<HTMLElement>(null);
   const titleId = useId();
   const descriptionId = useId();
-  const principal = getMuseumAsset(exhibit.principalAssetId);
-  const supporting = exhibit.supportingAssetIds.map(getMuseumAsset);
+  const principal = exhibit.principalAssetId ? getMuseumAsset(exhibit.principalAssetId) : undefined;
+  const supporting = (exhibit.supportingAssetIds ?? []).map(getMuseumAsset);
   const related = content.relatedExhibits.flatMap((reference) => {
     const relatedExhibit = getMuseumExhibitCatalog(reference.hallId, reference.exhibitId);
     return relatedExhibit ? [{reference, exhibit: relatedExhibit}] : [];
@@ -151,12 +151,13 @@ export function MuseumInterpretationPanel({
       </header>
 
       <div className="museum-panel-scroll">
-        <section className="museum-panel-opening">
-          <figure className="museum-object-hero">
+        <section className="museum-panel-opening" data-has-object={principal ? 'true' : 'false'}>
+          {principal && <figure className="museum-object-hero">
             <AssetImage asset={principal} priority/>
-            <figcaption><strong>{principal.caption}</strong><span>{content.objectInterpretations[principal.id]}</span></figcaption>
-          </figure>
+            <figcaption><strong>{principal.caption}</strong><span>{content.objectInterpretations[principal.id] ?? principal.historicalNote}</span></figcaption>
+          </figure>}
           <div className="museum-panel-opening-copy">
+            {content.tier && <p className="museum-presentation-tier">{content.tier.replaceAll('-', ' ')}</p>}
             <p className="museum-exhibit-question" id={descriptionId}>{content.centralQuestion}</p>
             <p className="museum-panel-lead">{content.lead}</p>
           </div>
@@ -185,7 +186,17 @@ export function MuseumInterpretationPanel({
           <SourceDetails asset={asset}/>
         </section>)}
 
-        <SourceDetails asset={principal}/>
+        {principal && <SourceDetails asset={principal}/>}
+
+        {content.connections && content.connections.length > 0 && <aside className="museum-interpretive-connections">
+          <p className="museum-object-role">Curatorial routes</p>
+          <h3>Compare without collapsing</h3>
+          <div>{content.connections.map((connection, index) => <article key={`${connection.kind}:${connection.label}:${index}`}>
+            <div><strong>{connection.label}</strong><span>{connection.status === 'open' ? 'Open now' : 'Planned wing'}</span></div>
+            <p>{connection.relationship}</p>
+            {connection.route && <a href={href(connection.route)}>Follow this route <ArrowRight size={15}/></a>}
+          </article>)}</div>
+        </aside>}
 
         <details className="museum-interpretation-sources">
           <summary>Sources for this interpretation</summary>
@@ -196,7 +207,7 @@ export function MuseumInterpretationPanel({
           <p>Continue the conversation</p><h3>Related Museum exhibits</h3>
           <div className="museum-related-exhibit-list">{related.map(({reference, exhibit: relatedExhibit}) => <div key={`${reference.hallId}:${reference.exhibitId}`}>
             <strong>{relatedExhibit.displayName}</strong><span>{relatedExhibit.question}</span>
-            <a href={href({kind: 'museum', hallId: reference.hallId, exhibitId: relatedExhibit.id})} onClick={(event) => onRelated(reference, relatedExhibit, event)}>Visit related exhibit <ArrowRight size={15}/></a>
+            <a href={href({kind: 'museum', hallId: reference.hallId as MuseumPublicHallId, exhibitId: relatedExhibit.id})} onClick={(event) => onRelated(reference as MuseumExhibitRef, relatedExhibit, event)}>Visit related exhibit <ArrowRight size={15}/></a>
           </div>)}</div>
         </aside>}
       </div>

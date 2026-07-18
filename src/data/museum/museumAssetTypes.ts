@@ -96,7 +96,12 @@ export type MuseumAssetId =
   | 'thomas-nagel-portrait'
   | 'thomas-nagel-teaching'
   | 'derek-parfit-portrait'
-  | 'derek-parfit-repugnant-conclusion';
+  | 'derek-parfit-repugnant-conclusion'
+  | 'jiddu-krishnamurti-bain-portrait'
+  | 'jiddu-krishnamurti-besant-1927'
+  | 'francis-bacon-portrait-1617'
+  | 'alfred-north-whitehead-portrait-1923'
+  | 'martha-nussbaum-portrait-2010';
 
 export type MuseumAssetRole =
   | 'identity'

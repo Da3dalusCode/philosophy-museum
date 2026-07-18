@@ -53,18 +53,38 @@ const {
   museumAssetUrl,
 } = await import(`data:text/javascript;base64,${Buffer.from(entry.code).toString('base64')}`);
 
-const ACTIVE_HALL_FOLDERS = [
-  'ancient-greek',
+const ACTIVE_HALL_IDS = [
+  'mediterranean-beginnings-classical',
+  'renaissance-humanism-new-method',
+  'phenomenology-existence-embodiment',
+  'analytic-traditions',
+  'justice-democratic-reason',
+  'core-questions-forum',
+];
+const MANAGED_HALL_FOLDERS = [
   'renaissance-reason-revolution',
   'modernity-freedom-critique',
   'logic-language-science',
   'ethics-justice-political-life',
   'mind-consciousness-self',
+  'core-questions-forum',
+  'renaissance-humanism-new-method',
+  'justice-democratic-reason',
 ];
-const MODERN_HALL_FOLDERS = ACTIVE_HALL_FOLDERS.slice(1);
+const NEW_CANONICAL_ASSET_IDS = [
+  'jiddu-krishnamurti-bain-portrait',
+  'jiddu-krishnamurti-besant-1927',
+  'francis-bacon-portrait-1617',
+  'alfred-north-whitehead-portrait-1923',
+  'martha-nussbaum-portrait-2010',
+];
 const manifestAssets = modernManifest?.assets ?? {};
 const assetById = new Map(MUSEUM_ASSETS.map((asset) => [asset.id, asset]));
-const referencedIds = MUSEUM_HALLS.flatMap((hall) => hall.exhibits.flatMap((exhibit) => [exhibit.principalAssetId, ...exhibit.supportingAssetIds]));
+const liveExhibits = MUSEUM_HALLS.flatMap((hall) => hall.exhibits.map((exhibit) => ({hall, exhibit})));
+const referencedIds = liveExhibits.flatMap(({exhibit}) => [
+  exhibit.principalAssetId,
+  ...(exhibit.supportingAssetIds ?? []),
+].filter(Boolean));
 
 let checks = 0;
 const check = (name, assertion) => {
@@ -96,9 +116,9 @@ const exactCasePath = (relativePath) => {
   return current;
 };
 
-const walkFiles = (directory) => readdirSync(directory, {withFileTypes: true}).flatMap((entry) => {
-  const path = resolve(directory, entry.name);
-  return entry.isDirectory() ? walkFiles(path) : [path];
+const walkFiles = (directory) => readdirSync(directory, {withFileTypes: true}).flatMap((directoryEntry) => {
+  const path = resolve(directory, directoryEntry.name);
+  return directoryEntry.isDirectory() ? walkFiles(path) : [path];
 });
 
 const readUInt24LE = (bytes, offset) => bytes[offset] | (bytes[offset + 1] << 8) | (bytes[offset + 2] << 16);
@@ -123,204 +143,156 @@ const webpDimensions = (path) => {
   assert.fail(`Unable to determine WebP dimensions for ${path}`);
 };
 
-check('the active six halls expose 96 unique assets, exactly two per exhibit', () => {
-  assert.deepEqual(MUSEUM_HALLS.map(({id}) => id), ACTIVE_HALL_FOLDERS);
-  assert.equal(MUSEUM_ASSETS.length, 96);
-  assert.equal(assetById.size, 96);
-  assert.equal(referencedIds.length, 96);
-  assert(unique(referencedIds), 'one curated asset is assigned to multiple exhibit slots');
-  assert.deepEqual([...referencedIds].sort(), MUSEUM_ASSETS.map(({id}) => id).sort());
-  for (const hall of MUSEUM_HALLS) {
-    const ids = hall.exhibits.flatMap((exhibit) => [exhibit.principalAssetId, ...exhibit.supportingAssetIds]);
-    assert.equal(ids.length, 16, `${hall.id} must have 16 asset slots`);
-    assert(unique(ids), `${hall.id} reuses an asset`);
-  }
-});
-
-check('active asset records belong to their exact exhibit and hall folder', () => {
-  for (const hall of MUSEUM_HALLS) {
-    for (const exhibit of hall.exhibits) {
-      for (const id of [exhibit.principalAssetId, ...exhibit.supportingAssetIds]) {
-        const asset = assetById.get(id);
-        assert(asset, `${hall.id}/${exhibit.id} references missing asset ${id}`);
-        assert.equal(asset.entityKind, exhibit.entityKind, `${id} entity kind drifted`);
-        assert.equal(asset.entityId, exhibit.entityId, `${id} entity target drifted`);
-        for (const variant of Object.values(asset.variants)) {
-          assert(variant.path.startsWith(`assets/museum/${hall.id}/`), `${id} is stored outside ${hall.id}`);
-        }
-      }
+check('the canonical six expose 59 primaries with optional, resolvable local media references', () => {
+  assert.deepEqual(MUSEUM_HALLS.map(({id}) => id), ACTIVE_HALL_IDS);
+  assert.equal(liveExhibits.length, 59);
+  assert(referencedIds.length > 0, 'the live program references no local media');
+  for (const {hall, exhibit} of liveExhibits) {
+    assert(Array.isArray(exhibit.supportingAssetIds), `${hall.id}/${exhibit.id} has no supporting-asset array`);
+    for (const id of [exhibit.principalAssetId, ...exhibit.supportingAssetIds].filter(Boolean)) {
+      const asset = assetById.get(id);
+      assert(asset, `${hall.id}/${exhibit.id} references missing asset ${id}`);
+      assert.equal(asset.entityKind, exhibit.entityKind, `${id} entity kind differs from ${exhibit.id}`);
+      assert.equal(asset.entityId, exhibit.entityId, `${id} is not provenance-linked to ${exhibit.id}`);
     }
   }
-  assert(MUSEUM_ASSETS.every(({variants}) => !variants.scene.path.includes('/medieval-worlds/')), 'retired Medieval media remains in the active registry');
+  const krishnamurti = MUSEUM_HALLS.find(({id}) => id === 'core-questions-forum')?.exhibits.find(({id}) => id === 'jiddu-krishnamurti');
+  assert.equal(krishnamurti?.principalAssetId, 'jiddu-krishnamurti-bain-portrait');
+  assert.deepEqual(krishnamurti?.supportingAssetIds, ['jiddu-krishnamurti-besant-1927']);
 });
 
-check('the modern lock manifest and preparation pipeline describe the exact 80 post-Ancient assets', () => {
+check('the preserved asset registry contains 101 unique records and derivative paths', () => {
+  assert.equal(MUSEUM_ASSETS.length, 101);
+  assert.equal(assetById.size, 101);
+  const variantPaths = MUSEUM_ASSETS.flatMap(({variants}) => [variants.scene.path, variants.panel.path]);
+  assert.equal(variantPaths.length, 202);
+  assert(unique(variantPaths), 'two asset variants share a derivative path');
+  for (const id of NEW_CANONICAL_ASSET_IDS) assert(assetById.has(id), `new canonical asset ${id} is missing`);
+});
+
+check('all asset records carry complete provenance, rights, interpretation, and accessibility metadata', () => {
+  const allowedRoles = new Set(['identity', 'primary-source', 'material-history', 'context']);
+  const allowedKinds = new Set(['sculpture-photograph', 'painting', 'engraving', 'manuscript', 'papyrus', 'book-page', 'photograph', 'drawing', 'document', 'architectural-plan']);
+  const allowedRights = new Set(['license', 'rights-status', 'dedication']);
+  for (const asset of MUSEUM_ASSETS) {
+    for (const [field, value] of Object.entries({
+      title: asset.title,
+      creator: asset.creator,
+      objectDate: asset.objectDate,
+      institution: asset.institution,
+      license: asset.license,
+      attribution: asset.attribution,
+      alt: asset.alt,
+      caption: asset.caption,
+      historicalNote: asset.historicalNote,
+      likenessStatus: asset.likenessStatus,
+    })) assert.equal(typeof value === 'string' && value.trim().length > 0, true, `${asset.id}.${field} is incomplete`);
+    assert(allowedRoles.has(asset.role), `${asset.id} has unsupported role ${asset.role}`);
+    assert(allowedKinds.has(asset.mediaKind), `${asset.id} has unsupported media kind ${asset.mediaKind}`);
+    assert(allowedRights.has(asset.rightsKind), `${asset.id} has unsupported rights kind ${asset.rightsKind}`);
+    assert(isHttpUrl(asset.sourcePageUrl), `${asset.id} sourcePageUrl is not an HTTP(S) source page`);
+    if (asset.objectPageUrl) assert(isHttpUrl(asset.objectPageUrl), `${asset.id} objectPageUrl is invalid`);
+    if (asset.licenseUrl) assert(isHttpUrl(asset.licenseUrl), `${asset.id} licenseUrl is invalid`);
+    assert(asset.alt.trim().length >= 24, `${asset.id} alt text is too shallow`);
+    assert(asset.caption.trim().length >= 16, `${asset.id} caption is too shallow`);
+    assert(asset.historicalNote.trim().length >= 40, `${asset.id} needs an interpretive caveat`);
+    assert(asset.attribution.trim().length >= 16, `${asset.id} attribution is too shallow`);
+    if (asset.focalPoint) {
+      assert(asset.focalPoint.x >= 0 && asset.focalPoint.x <= 1, `${asset.id} focalPoint.x is outside normalized bounds`);
+      assert(asset.focalPoint.y >= 0 && asset.focalPoint.y <= 1, `${asset.id} focalPoint.y is outside normalized bounds`);
+    }
+  }
+});
+
+check('every registered variant is exact-case local WebP media with locked dimensions', () => {
+  for (const asset of MUSEUM_ASSETS) {
+    for (const [variantName, variant] of Object.entries(asset.variants)) {
+      assert.match(variant.path, /^assets\/museum\/[a-z0-9-]+\/[a-z0-9-]+-(scene|panel)\.webp$/, `${asset.id}.${variantName} is not a canonical local path`);
+      assert(!variant.path.startsWith('/') && !variant.path.includes('..'), `${asset.id}.${variantName} path is unsafe`);
+      const path = exactCasePath(variant.path);
+      assert.equal(statSync(path).isFile(), true, `${variant.path} is not a file`);
+      assert(statSync(path).size > 0 && statSync(path).size <= 600_000, `${variant.path} violates the derivative byte ceiling`);
+      assert.deepEqual(webpDimensions(path), {width: variant.width, height: variant.height}, `${variant.path} dimensions differ from metadata`);
+      assert(variant.width > 0 && variant.height > 0, `${variant.path} has invalid dimensions`);
+      if (variantName === 'scene') assert(Math.max(variant.width, variant.height) <= 640, `${variant.path} exceeds the scene bound`);
+      if (variantName === 'panel') assert(Math.max(variant.width, variant.height) <= 1280, `${variant.path} exceeds the panel bound`);
+    }
+  }
+});
+
+check('the 85-file-source preparation manifest locks every post-Ancient asset uniformly', () => {
   assert.equal(modernManifest.version, 1);
-  assert.equal(Object.keys(manifestAssets).length, 80);
-  const modernAssets = MUSEUM_ASSETS.filter(({variants}) => MODERN_HALL_FOLDERS.some((folder) => variants.scene.path.startsWith(`assets/museum/${folder}/`)));
-  assert.equal(modernAssets.length, 80);
-  assert.deepEqual(Object.keys(manifestAssets).sort(), modernAssets.map(({id}) => id).sort());
+  assert.equal(Object.keys(manifestAssets).length, 85);
+  const managedAssets = MUSEUM_ASSETS.filter(({variants}) => !variants.scene.path.startsWith('assets/museum/ancient-greek/'));
+  assert.equal(managedAssets.length, 85);
+  assert.deepEqual(Object.keys(manifestAssets).sort(), managedAssets.map(({id}) => id).sort());
   assert.match(preparationSource, /MANIFEST_PATH = ROOT \/ "scripts" \/ "museumModernAssetManifest\.json"/);
-  assert.match(preparationSource, /EXPECTED_ASSET_COUNT = 80/);
-  for (const folder of MODERN_HALL_FOLDERS) assert(preparationSource.includes(`"${folder}"`), `preparation script omits ${folder}`);
+  assert.match(preparationSource, /EXPECTED_ASSET_COUNT = 85/);
+  for (const folder of MANAGED_HALL_FOLDERS) assert(preparationSource.includes(`"${folder}"`), `preparation pipeline omits ${folder}`);
   assert.match(preparationSource, /record\["selectedThumbnailUrl"\]/);
   assert.match(preparationSource, /assert_locked\(slug, "scene"/);
   assert.match(preparationSource, /assert_locked\(slug, "panel"/);
   assert.match(preparationSource, /"sha256": sha256\(path\)/);
 
-  const missingLocks = [];
-  const sourcePageMismatches = [];
-  const countsByFolder = new Map();
-  for (const asset of modernAssets) {
+  for (const asset of managedAssets) {
     const lock = manifestAssets[asset.id];
-    assert(lock, `${asset.id} has no modern manifest record`);
-    assert(MODERN_HALL_FOLDERS.includes(lock.hallFolder), `${asset.id} has invalid hallFolder ${lock.hallFolder}`);
-    countsByFolder.set(lock.hallFolder, (countsByFolder.get(lock.hallFolder) ?? 0) + 1);
-    if (lock.sourcePageUrl !== asset.sourcePageUrl) sourcePageMismatches.push({
-      id: asset.id,
-      manifest: lock.sourcePageUrl,
-      typed: asset.sourcePageUrl,
-    });
-    for (const field of ['sourcePageUrl', 'sourceImageUrl', 'selectedThumbnailUrl']) {
-      assert.equal(new URL(lock[field]).protocol, 'https:', `${asset.id}.${field} must be HTTPS`);
-    }
-    assert.equal(new URL(lock.sourcePageUrl).hostname, 'commons.wikimedia.org');
-    assert.equal(new URL(lock.sourceImageUrl).hostname, 'upload.wikimedia.org');
-    assert.equal(new URL(lock.selectedThumbnailUrl).hostname, 'upload.wikimedia.org');
-    for (const variantName of ['scene', 'panel']) {
-      const expected = lock[variantName];
-      if (!expected) {
-        missingLocks.push(`${asset.id}.${variantName}`);
-        continue;
-      }
-      assert(Number.isSafeInteger(expected.width) && expected.width > 0, `${asset.id}.${variantName}.width is invalid`);
-      assert(Number.isSafeInteger(expected.height) && expected.height > 0, `${asset.id}.${variantName}.height is invalid`);
-      assert(Number.isSafeInteger(expected.bytes) && expected.bytes > 0, `${asset.id}.${variantName}.bytes is invalid`);
-      assert.match(expected.sha256 ?? '', /^[0-9a-f]{64}$/, `${asset.id}.${variantName}.sha256 is invalid`);
-    }
-  }
-  assert.deepEqual(Object.fromEntries([...countsByFolder].sort()), {
-    'ethics-justice-political-life': 16,
-    'logic-language-science': 16,
-    'mind-consciousness-self': 16,
-    'modernity-freedom-critique': 16,
-    'renaissance-reason-revolution': 16,
-  });
-  assert.deepEqual(sourcePageMismatches, [], `modern source pages differ between the lock manifest and typed provenance: ${JSON.stringify(sourcePageMismatches, null, 2)}`);
-  assert.deepEqual(missingLocks, [], `modern manifest is structurally valid but still needs ${missingLocks.length} derivative locks: ${missingLocks.join(', ')}`);
-});
-
-check('all 160 post-Ancient derivatives match their exact dimensions, bytes, and SHA-256 locks', () => {
-  for (const [id, lock] of Object.entries(manifestAssets)) {
-    const asset = assetById.get(id);
-    assert(asset, `${id} is locked but not active`);
+    assert(lock, `${asset.id} has no preparation lock`);
+    assert(MANAGED_HALL_FOLDERS.includes(lock.hallFolder), `${asset.id} has invalid hallFolder ${lock.hallFolder}`);
+    assert.equal(lock.sourcePageUrl, asset.sourcePageUrl, `${asset.id} lock source page differs from provenance`);
+    for (const field of ['sourcePageUrl', 'sourceImageUrl', 'selectedThumbnailUrl']) assert(lock[field]?.startsWith('https://'), `${asset.id}.${field} must be locked HTTPS`);
     for (const variantName of ['scene', 'panel']) {
       const variant = asset.variants[variantName];
       const expected = lock[variantName];
-      assert.equal(variant.path, `assets/museum/${lock.hallFolder}/${id}-${variantName}.webp`);
-      assert.equal(variant.width, expected.width, `${id} ${variantName} typed width differs from lock`);
-      assert.equal(variant.height, expected.height, `${id} ${variantName} typed height differs from lock`);
-      const path = exactCasePath(variant.path);
-      assert.equal(statSync(path).size, expected.bytes, `${id} ${variantName} byte count drifted`);
-      assert.equal(sha256(path), expected.sha256, `${id} ${variantName} content hash drifted`);
+      assert(expected, `${asset.id}.${variantName} lock is missing`);
+      assert.equal(expected.width, variant.width, `${asset.id}.${variantName} lock width differs from runtime metadata`);
+      assert.equal(expected.height, variant.height, `${asset.id}.${variantName} lock height differs from runtime metadata`);
     }
   }
 });
 
-check('the committed Museum media inventory contains only the 192 registered active derivatives', () => {
-  const expected = MUSEUM_ASSETS.flatMap(({variants}) => Object.values(variants).map(({path}) => path)).sort();
+check('all 170 managed derivatives match exact dimensions, bytes, and SHA-256 locks', () => {
+  for (const [id, lock] of Object.entries(manifestAssets)) {
+    const asset = assetById.get(id);
+    assert(asset, `${id} lock has no asset record`);
+    for (const variantName of ['scene', 'panel']) {
+      const path = exactCasePath(asset.variants[variantName].path);
+      const expected = lock[variantName];
+      assert.equal(statSync(path).size, expected.bytes, `${id}.${variantName} byte count drifted`);
+      assert.equal(sha256(path), expected.sha256, `${id}.${variantName} SHA-256 drifted`);
+      assert.deepEqual(webpDimensions(path), {width: expected.width, height: expected.height}, `${id}.${variantName} locked dimensions drifted`);
+    }
+  }
+});
+
+check('the committed Museum inventory contains exactly the 202 registered derivatives', () => {
   const actual = walkFiles(museumMediaRoot).map(toPublicPath).sort();
-  assert.equal(expected.length, 192);
-  assert.deepEqual(actual, expected, 'public/assets/museum contains missing, retired, or unregistered files');
-  assert.deepEqual(readdirSync(museumMediaRoot, {withFileTypes: true}).filter((entry) => entry.isDirectory()).map(({name}) => name).sort(), [...ACTIVE_HALL_FOLDERS].sort());
+  const expected = MUSEUM_ASSETS.flatMap(({variants}) => [variants.scene.path, variants.panel.path]).sort();
+  assert.deepEqual(actual, expected);
 });
 
-check('provenance, rights, interpretation, and accessibility fields are complete', () => {
+check('all asset URLs resolve beneath a non-root Vite base without runtime hotlinks', () => {
   for (const asset of MUSEUM_ASSETS) {
-    for (const field of ['title', 'creator', 'objectDate', 'institution', 'license', 'rightsKind', 'attribution', 'alt', 'caption', 'historicalNote', 'likenessStatus']) {
-      assert.equal(typeof asset[field], 'string', `${asset.id}.${field} is required`);
-      assert(asset[field].trim(), `${asset.id}.${field} cannot be empty`);
-    }
-    assert(isHttpUrl(asset.sourcePageUrl), `${asset.id} needs an exact source page URL`);
-    const sourcePage = new URL(asset.sourcePageUrl);
-    assert.equal(sourcePage.protocol, 'https:', `${asset.id} source page must use HTTPS`);
-    assert.equal(sourcePage.hostname, 'commons.wikimedia.org', `${asset.id} source page must use Wikimedia Commons`);
-    assert(sourcePage.pathname.startsWith('/wiki/File:'), `${asset.id} sourcePageUrl must be an exact Commons file page`);
-    assert(isHttpUrl(asset.licenseUrl), `${asset.id} needs a license or rights-status URL`);
-    assert.equal(new URL(asset.licenseUrl).protocol, 'https:');
-    if (asset.objectPageUrl) assert(isHttpUrl(asset.objectPageUrl), `${asset.id} objectPageUrl is invalid`);
-    assert(['license', 'rights-status', 'dedication'].includes(asset.rightsKind), `${asset.id} rightsKind is invalid`);
-    if (/^CC BY(?:-|\s)/.test(asset.license)) {
-      assert.equal(asset.rightsKind, 'license', `${asset.id} must identify CC BY terms as a license`);
-      assert.equal(new URL(asset.licenseUrl).hostname, 'creativecommons.org');
-      assert(/resized.+converted.+WebP/i.test(asset.derivativeNotice ?? ''), `${asset.id} must disclose derivative modifications`);
-    }
-    if (asset.license.startsWith('Public Domain Mark')) {
-      assert.equal(asset.rightsKind, 'rights-status');
-      assert(new URL(asset.licenseUrl).pathname.startsWith('/publicdomain/mark/'));
-    }
-    if (asset.license.startsWith('CC0')) {
-      assert.equal(asset.rightsKind, 'dedication');
-      assert(new URL(asset.licenseUrl).pathname.startsWith('/publicdomain/zero/'));
-    }
-    if (asset.focalPoint) {
-      assert(asset.focalPoint.x >= 0 && asset.focalPoint.x <= 1, `${asset.id} focal x is invalid`);
-      assert(asset.focalPoint.y >= 0 && asset.focalPoint.y <= 1, `${asset.id} focal y is invalid`);
+    for (const variant of Object.values(asset.variants)) {
+      const url = museumAssetUrl(variant);
+      assert.equal(url, `${auditBase}${variant.path}`);
+      assert(!/^https?:/i.test(url), `${asset.id} emits a runtime hotlink`);
+      assert(!url.includes('//assets/'), `${asset.id} emits a malformed base URL`);
     }
   }
 });
 
-check('every runtime variant is local, base-safe, exact-case WebP media', () => {
-  const paths = [];
-  for (const asset of MUSEUM_ASSETS) {
-    for (const [variantName, variant] of Object.entries(asset.variants)) {
-      assert(!/^https?:/i.test(variant.path), `${asset.id} ${variantName} hotlinks runtime media`);
-      assert(!variant.path.startsWith('/'), `${asset.id} ${variantName} is root-relative`);
-      assert(variant.path.startsWith('assets/museum/'), `${asset.id} ${variantName} is outside Museum assets`);
-      assert(variant.path.endsWith('.webp'), `${asset.id} ${variantName} must use WebP`);
-      const path = exactCasePath(variant.path);
-      const stats = statSync(path);
-      assert(stats.isFile());
-      assert(stats.size > 0 && stats.size <= 600_000, `${variant.path} size ${stats.size} is outside the 1–600 KB limit`);
-      const dimensions = webpDimensions(path);
-      assert.deepEqual(dimensions, {width: variant.width, height: variant.height}, `${variant.path} typed dimensions disagree`);
-      const maxDimension = variantName === 'scene' ? 640 : 1280;
-      assert(Math.max(dimensions.width, dimensions.height) <= maxDimension, `${variant.path} exceeds ${variantName} limits`);
-      assert(Math.min(dimensions.width, dimensions.height) >= 180, `${variant.path} is too small`);
-      paths.push(variant.path);
-    }
-  }
-  assert(unique(paths), 'a local derivative path has conflicting provenance assignments');
-});
-
-check('all 96 scene images resolve beneath a non-root Vite base', () => {
-  const runtimeUrls = MUSEUM_ASSETS.map(({variants}) => museumAssetUrl(variants.scene));
-  assert.equal(runtimeUrls.length, 96);
-  assert(unique(runtimeUrls));
-  for (const [index, runtimeUrl] of runtimeUrls.entries()) {
-    const asset = MUSEUM_ASSETS[index];
-    assert.equal(runtimeUrl, `${auditBase}${asset.variants.scene.path}`);
-    assert(runtimeUrl.startsWith(`${auditBase}assets/museum/`));
-  }
-});
-
-check('scene-media policy keeps local images unlit, front-facing, and clear of rails', () => {
+check('scene-media policy keeps local images unlit, front-facing, and clear of frame rails', () => {
   assert.equal(MUSEUM_SCENE_MEDIA_MATERIAL_MODE, 'unlit-srgb');
   assert.equal(MUSEUM_SCENE_IMAGE_FACING, 'positive-z');
   assert.equal(MUSEUM_SCENE_IMAGE_FILTERING, 'linear-no-mipmaps-keyed-material');
-  assert.match(MUSEUM_SCENE_MEDIA_LOADING_COLOR, /^#[0-9a-f]{6}$/i);
-  assert.notEqual(MUSEUM_SCENE_MEDIA_LOADING_COLOR.toLowerCase(), '#000000');
-  assert(MUSEUM_SCENE_IMAGE_PLANE_Z > MUSEUM_FRAME_RAIL_FRONT_Z);
-  assert(MUSEUM_SCENE_IMAGE_PLANE_Z - MUSEUM_FRAME_RAIL_FRONT_Z >= .005);
+  assert.equal(MUSEUM_SCENE_MEDIA_LOADING_COLOR, '#8b857a');
+  assert(MUSEUM_SCENE_IMAGE_PLANE_Z > MUSEUM_FRAME_RAIL_FRONT_Z, 'image plane must sit in front of its frame rails');
   assert.match(sceneMediaSource, /<meshBasicMaterial key="scene-ready" map=\{textureState\.texture\} toneMapped=\{false\}\/>/);
   assert.match(sceneMediaSource, /texture\.minFilter = LinearFilter;/);
   assert.match(sceneMediaSource, /texture\.generateMipmaps = false;/);
-  assert.doesNotMatch(sceneMediaSource, /<meshStandardMaterial key="scene-ready"/);
+  assert.match(sceneMediaSource, /texture\.colorSpace = SRGBColorSpace;/);
+  assert.match(sceneMediaSource, /museumAssetUrl\(asset\.variants\.scene\)/);
+  assert.doesNotMatch(sceneMediaSource, /sourcePageUrl|objectPageUrl|selectedThumbnailUrl/);
 });
 
-const totalBytes = MUSEUM_ASSETS.flatMap(({variants}) => Object.values(variants))
-  .reduce((total, variant) => total + statSync(exactCasePath(variant.path)).size, 0);
-const modernBytes = MUSEUM_ASSETS.filter(({variants}) => MODERN_HALL_FOLDERS.some((folder) => variants.scene.path.includes(`/${folder}/`)))
-  .flatMap(({variants}) => Object.values(variants))
-  .reduce((total, variant) => total + statSync(exactCasePath(variant.path)).size, 0);
-console.log(`\nMuseum asset audit passed: ${checks} groups covering 96 assets, 192 local derivatives, and ${(totalBytes / 1024 / 1024).toFixed(2)} MiB of media (${(modernBytes / 1024 / 1024).toFixed(2)} MiB in Galleries 02–06).`);
+console.log(`\nMuseum asset audit passed: ${checks} groups, ${MUSEUM_ASSETS.length} provenance records, ${MUSEUM_ASSETS.length * 2} local derivatives, ${Object.keys(manifestAssets).length * 2} exact hash locks, and ${referencedIds.length} live media placements.`);

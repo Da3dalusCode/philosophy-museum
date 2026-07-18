@@ -97,9 +97,12 @@ export type MuseumResolvedHallTemplate = {
   exhibitSlotPolicy: MuseumHallTemplateContract['exhibitSlotPolicy'];
   exhibitSlots: readonly {
     exhibitId: string;
+    tier: 'anchor' | 'standard' | 'supporting' | 'cluster' | 'archive';
+    treatment: 'anchor-bay' | 'standard-bay' | 'supporting-panel' | 'cluster-panel' | 'archive-label';
     bayWidth: number;
-    bayClass: 'anchor-capable' | 'standard' | 'legacy-below-standard';
+    bayClass: 'anchor-capable' | 'standard' | 'compact' | 'legacy-below-standard';
     viewingClearance: 'meets-target' | 'legacy-below-target';
+    tierConformance: 'meets-tier' | 'below-tier';
   }[];
   deviations: readonly string[];
 };
@@ -240,10 +243,12 @@ const templateSlotForManifestSlot = (
   template: MuseumHallTemplateContract,
   slot: MuseumManifestDoorwaySlot,
 ): MuseumTemplatePortalSlot => {
+  const selected = template.portalSlots.find(({id}) => id === slot.id);
+  if (!selected) throw new Error(`Template ${template.id} has no portal slot named ${slot.id}.`);
   const edge = edgeForNormal(slot.inwardNormal);
-  const candidates = template.portalSlots.filter((candidate) => candidate.edge === edge);
-  const selected = candidates.find(({optional}) => !optional) ?? candidates[0];
-  if (!selected) throw new Error(`Template ${template.id} has no ${edge} portal for manifest slot ${slot.id}.`);
+  if (selected.edge !== edge) {
+    throw new Error(`Manifest slot ${slot.id} faces ${edge}, not canonical ${selected.edge}.`);
+  }
   return selected;
 };
 
@@ -398,15 +403,26 @@ const resolveTemplate = (
   if (adapter && adapter.templateId !== template.id) {
     throw new Error(`Museum adapter ${adapter.id} targets ${adapter.templateId}, not ${template.id}.`);
   }
-  const mapCells = layout.spatialCells.map((cell) => ({id: cell.id, bounds: {...(cell.renderBounds ?? cell.bounds)}}));
-  const bounds = unionBounds(mapCells.map(({bounds: cellBounds}) => cellBounds));
+  const authoredMapCells = layout.spatialCells.map((cell) => ({id: cell.id, bounds: {...(cell.renderBounds ?? cell.bounds)}}));
+  const bounds = unionBounds(authoredMapCells.map(({bounds: cellBounds}) => cellBounds));
   const width = bounds.maxX - bounds.minX;
   const depth = bounds.maxZ - bounds.minZ;
-  const footprintExact = (close(width, template.footprintMetres.width) && close(depth, template.footprintMetres.depth))
-    || (close(width, template.footprintMetres.depth) && close(depth, template.footprintMetres.width));
+  const footprintExact = close(width, template.footprintMetres.width)
+    && close(depth, template.footprintMetres.depth)
+    && close(bounds.minX, -template.footprintMetres.width / 2)
+    && close(bounds.maxX, template.footprintMetres.width / 2)
+    && close(bounds.minZ, -template.footprintMetres.depth / 2)
+    && close(bounds.maxZ, template.footprintMetres.depth / 2);
   const roomCells = layout.spatialCells.filter(({kind}) => kind === 'room');
+  if (!roomCells.length) throw new Error(`Museum hall ${node.id} has no canonical room cells.`);
   const roomCeilings = roomCells.map(({ceilingHeight}) => ceilingHeight);
   const roomCeilingRange = [Math.min(...roomCeilings), Math.max(...roomCeilings)] as const;
+  const manifestSlotIds = new Set(node.doorwaySlots.map(({id}) => id));
+  for (const required of template.portalSlots.filter(({optional}) => !optional)) {
+    if (!manifestSlotIds.has(required.id)) {
+      throw new Error(`Museum hall ${node.id} omits required template portal ${required.id}.`);
+    }
+  }
   const portals = node.doorwaySlots.map((slot): MuseumResolvedTemplatePortal => {
     const templateSlot = templateSlotForManifestSlot(template, slot);
     if (
@@ -417,6 +433,22 @@ const resolveTemplate = (
     const exact = close(slot.clearWidth, template.publicPortal.clearWidthMetres)
       && close(slot.clearHeight, template.publicPortal.clearHeightMetres)
       && close(slot.transitionDepth, template.publicPortal.transitionDepthMetres);
+    const landingWidth = slot.landingBounds.maxX - slot.landingBounds.minX;
+    const landingDepth = slot.landingBounds.maxZ - slot.landingBounds.minZ;
+    const arrivalOffset = Math.hypot(
+      slot.arrivalPose.x - slot.position.x,
+      slot.arrivalPose.z - slot.position.z,
+    );
+    const interfaceExact = close(slot.position.x, templateSlot.position.x)
+      && close(slot.position.z, templateSlot.position.z)
+      && close(slot.inwardNormal.x, templateSlot.inwardNormal.x)
+      && close(slot.inwardNormal.z, templateSlot.inwardNormal.z)
+      && close(landingWidth, template.safeArrivalLanding.width)
+      && close(landingDepth, template.safeArrivalLanding.depth)
+      && close(arrivalOffset, template.safeArrivalLanding.poseOffsetFromPortal);
+    if (!adapter && (!exact || !interfaceExact)) {
+      throw new Error(`Canonical museum slot ${node.id}/${slot.id} deviates from template ${template.id}.`);
+    }
     const shellCeilingHeight = ceilingAtSlot(slot, layout, template.ceilingHeightMetres);
     return {
       manifestSlotId: slot.id,
@@ -438,6 +470,8 @@ const resolveTemplate = (
   });
   const deviations = [...(adapter?.declaredDeviations ?? [])];
   if (!footprintExact) deviations.push(`Resolved footprint ${width.toFixed(1)} × ${depth.toFixed(1)} m differs from canonical ${template.footprintMetres.width} × ${template.footprintMetres.depth} m.`);
+  if (roomCells.length < template.roomRange[0] || roomCells.length > template.roomRange[1]) deviations.push(`Resolved room count ${roomCells.length} falls outside canonical range ${template.roomRange[0]}–${template.roomRange[1]}.`);
+  if (!close(layout.floorArea, template.footprintMetres.width * template.footprintMetres.depth)) deviations.push(`Resolved floor area ${layout.floorArea.toFixed(1)} m² differs from canonical ${template.footprintMetres.width * template.footprintMetres.depth} m².`);
   if (!roomCeilings.every((height) => close(height, template.ceilingHeightMetres))) deviations.push(`Resolved room ceilings ${roomCeilingRange[0].toFixed(1)}–${roomCeilingRange[1].toFixed(1)} m differ from the canonical ${template.ceilingHeightMetres.toFixed(1)} m interface.`);
   for (const portalInterface of portals.filter(({dimensionConformance}) => dimensionConformance === 'expanded-adapter')) {
     deviations.push(`Portal ${portalInterface.manifestSlotId} expands the canonical 4.0 × 3.2 m interface.`);
@@ -447,6 +481,54 @@ const resolveTemplate = (
     ...(layout.signs ?? []).map(({id}) => id),
     ...layout.exhibits.map(({scene}) => scene.plaque.id),
   ];
+  const exhibitSlots = layout.exhibits.map((exhibit) => {
+    const tier = exhibit.presentationTier;
+    const treatment = exhibit.treatment;
+    if (!tier || !treatment) {
+      if (!adapter) throw new Error(`Canonical exhibit ${exhibit.id} has no presentation tier or treatment.`);
+    }
+    const resolvedTier = tier ?? 'standard';
+    const resolvedTreatment = treatment ?? 'standard-bay';
+    const bayWidth = exhibit.bayWidth ?? exhibit.scene.footprint.width;
+    const minimumWidth = resolvedTier === 'anchor'
+      ? template.exhibitSlotPolicy.anchorBayWidth
+      : resolvedTier === 'standard'
+        ? template.exhibitSlotPolicy.standardBayWidth
+        : resolvedTier === 'cluster'
+          ? 3
+          : resolvedTier === 'supporting'
+            ? 2.4
+            : 1.8;
+    const viewingClearance = exhibit.scene.interactionBounds.size.width >= template.exhibitSlotPolicy.clearViewingFloor.width
+      && exhibit.scene.interactionBounds.size.depth >= template.exhibitSlotPolicy.clearViewingFloor.depth
+      ? 'meets-target' as const
+      : 'legacy-below-target' as const;
+    const tierConformance = bayWidth + .001 >= minimumWidth ? 'meets-tier' as const : 'below-tier' as const;
+    if (!adapter && (viewingClearance !== 'meets-target' || tierConformance !== 'meets-tier')) {
+      throw new Error(`Canonical exhibit ${exhibit.id} does not meet its ${resolvedTier} bay and viewing-clearance contract.`);
+    }
+    return {
+      exhibitId: exhibit.id,
+      tier: resolvedTier,
+      treatment: resolvedTreatment,
+      bayWidth,
+      bayClass: bayWidth >= template.exhibitSlotPolicy.anchorBayWidth
+        ? 'anchor-capable' as const
+        : bayWidth >= template.exhibitSlotPolicy.standardBayWidth
+          ? 'standard' as const
+          : exhibit.scene.footprint.width >= 1.8
+            ? 'compact' as const
+            : 'legacy-below-standard' as const,
+      viewingClearance,
+      tierConformance,
+    };
+  });
+  if (!adapter && deviations.length) {
+    throw new Error(`Canonical museum hall ${node.id} failed template ${template.id}: ${deviations.join(' ')}`);
+  }
+  const mapCells = adapter
+    ? authoredMapCells
+    : [{id: `${layout.id}:canonical-footprint`, bounds: {...bounds}}];
   return {
     templateId: template.id,
     templateTitle: template.title,
@@ -469,19 +551,7 @@ const resolveTemplate = (
     },
     collisionPolicy: template.collisionPolicy,
     exhibitSlotPolicy: template.exhibitSlotPolicy,
-    exhibitSlots: layout.exhibits.map((exhibit) => ({
-      exhibitId: exhibit.id,
-      bayWidth: exhibit.scene.footprint.width,
-      bayClass: exhibit.scene.footprint.width >= template.exhibitSlotPolicy.anchorBayWidth
-        ? 'anchor-capable'
-        : exhibit.scene.footprint.width >= template.exhibitSlotPolicy.standardBayWidth
-          ? 'standard'
-          : 'legacy-below-standard',
-      viewingClearance: exhibit.scene.interactionBounds.size.width >= template.exhibitSlotPolicy.clearViewingFloor.width
-        && exhibit.scene.interactionBounds.size.depth >= template.exhibitSlotPolicy.clearViewingFloor.depth
-        ? 'meets-target'
-        : 'legacy-below-target',
-    })),
+    exhibitSlots,
     deviations,
   };
 };

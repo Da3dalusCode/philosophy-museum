@@ -3,6 +3,7 @@ import type {MuseumResolvedHallTemplate} from './museumHallTemplates';
 import type {
   MuseumExhibitId,
   MuseumHallId,
+  MuseumPublicHallId,
   MuseumZoneId,
 } from '../museumCatalog';
 
@@ -92,6 +93,21 @@ export type MuseumInstallationSceneDefinition = {
   interactionBounds: MuseumSceneVolume;
 };
 
+/** Curatorial importance is independent from whether an installation has local media. */
+export type MuseumInstallationTier =
+  | 'anchor'
+  | 'standard'
+  | 'supporting'
+  | 'cluster'
+  | 'archive';
+
+export type MuseumInstallationTreatment =
+  | 'anchor-bay'
+  | 'standard-bay'
+  | 'supporting-panel'
+  | 'cluster-panel'
+  | 'archive-label';
+
 export type MuseumExhibitLayout = {
   id: MuseumExhibitId;
   zoneId: MuseumZoneId;
@@ -99,6 +115,10 @@ export type MuseumExhibitLayout = {
   position: MuseumPoint;
   rotationY: number;
   interactionRadius: number;
+  /** Curatorially reserved wall/run width; may exceed a compact object's collider. */
+  bayWidth?: number;
+  presentationTier?: MuseumInstallationTier;
+  treatment?: MuseumInstallationTreatment;
   collider: MuseumCollider;
   viewpoint: MuseumPose;
   scene: MuseumInstallationSceneDefinition;
@@ -243,7 +263,8 @@ export type MuseumHallContentDefinition = {
   fallbackLabel: string;
 };
 
-export type MuseumHallDefinition = MuseumHallContentDefinition & {
+export type MuseumHallDefinition = Omit<MuseumHallContentDefinition, 'id'> & {
+  id: MuseumPublicHallId;
   physicalNodeId: MuseumPhysicalNodeId;
   worldTransform: MuseumWorldTransform;
   /** Compiler-owned shell: collision walls plus render-only portal lintels. */
@@ -258,8 +279,9 @@ export type MuseumPhysicalNodeKind = 'hall' | 'court' | 'corridor' | 'entrance';
 export type MuseumImplementationStatus = 'live' | 'planned' | 'retired';
 export type MuseumPilotRole =
   | 'public-entrance'
-  | 'outer-shell'
-  | 'forum-location'
+  | 'outer-hall'
+  | 'forum-hall'
+  | 'south-return-sleeve'
   | 'outer-loop-link'
   | 'forum-spoke'
   | 'shortcut';
@@ -298,7 +320,7 @@ export type MuseumNavigationLayout = {
 export type MuseumRuntimeNodeDefinition = {
   id: MuseumPhysicalNodeId;
   kind: MuseumPhysicalNodeKind;
-  publicHallId?: MuseumHallId;
+  publicHallId?: MuseumPublicHallId;
   pilotRole: MuseumPilotRole;
   templateId?: 'standard-rect' | 'sequence-3' | 'crossroads-4' | 'focal-terminal';
   geometryAdapterId?: string;
@@ -349,10 +371,10 @@ export type MuseumReservation = {
 };
 
 export type MuseumExhibitRef = {
-  hallId: MuseumHallId;
+  hallId: MuseumPublicHallId;
   exhibitId: MuseumExhibitId;
 };
 
 export type MuseumInteractionTarget =
   | ({kind: 'exhibit'} & MuseumExhibitRef)
-  | {kind: 'visitor-map'; hallId: MuseumHallId; kioskId: string};
+  | {kind: 'visitor-map'; hallId: MuseumPublicHallId; kioskId: string};
