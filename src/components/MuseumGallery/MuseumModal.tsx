@@ -17,19 +17,26 @@ const visibleFocusable = (root: HTMLElement): HTMLElement[] => [...root.querySel
   .filter(isVisibleFocusTarget);
 
 /** Shared accessible overlay shell for Museum directory, help, and visitor map. */
-export function MuseumModal({labelledBy, describedBy, returnFocus, onClose, children}: {
+export function MuseumModal({labelledBy, describedBy, panelClassName, returnFocus, onClose, children}: {
   labelledBy: string;
   describedBy?: string;
+  panelClassName?: string;
   returnFocus?: HTMLElement | null;
   onClose: () => void;
   children: ReactNode;
 }) {
   const dialogRef = useRef<HTMLElement>(null);
   useEffect(() => {
+    const previousHtmlOverflow = document.documentElement.style.overflow;
+    const previousBodyOverflow = document.body.style.overflow;
+    document.documentElement.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden';
     const previous = returnFocus
       ?? (document.activeElement instanceof HTMLElement ? document.activeElement : undefined);
     dialogRef.current?.focus();
     return () => {
+      document.documentElement.style.overflow = previousHtmlOverflow;
+      document.body.style.overflow = previousBodyOverflow;
       window.requestAnimationFrame(() => {
         window.requestAnimationFrame(() => {
           const activeTarget = document.activeElement instanceof HTMLElement
@@ -92,7 +99,7 @@ export function MuseumModal({labelledBy, describedBy, returnFocus, onClose, chil
     if (event.target === event.currentTarget) onClose();
   }}>
     <section
-      className="museum-overlay-panel"
+      className={['museum-overlay-panel', panelClassName].filter(Boolean).join(' ')}
       ref={dialogRef}
       role="dialog"
       aria-modal="true"

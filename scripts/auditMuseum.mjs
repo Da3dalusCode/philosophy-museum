@@ -13,6 +13,8 @@ const source = (file) => readFileSync(resolve(repoRoot, file), 'utf8');
 const registrySource = source('src/components/MuseumGallery/museumWorldRegistry.ts');
 const museumPageSource = source('src/components/MuseumGallery/MuseumPage.tsx');
 const museumWorldSource = source('src/components/MuseumGallery/MuseumWorldScene.tsx');
+const museumControlsSource = source('src/components/MuseumGallery/useMuseumControls.ts');
+const museumModalSource = source('src/components/MuseumGallery/MuseumModal.tsx');
 const architectureSource = source('src/components/MuseumGallery/ContemporaryHallArchitecture.tsx');
 const canonicalSceneSource = source('src/components/MuseumGallery/CanonicalMuseumHallScene.tsx');
 const canonicalExhibitsSource = source('src/components/MuseumGallery/CanonicalMuseumExhibits.tsx');
@@ -101,6 +103,7 @@ const {
   MUSEUM_VISITOR_MAP_RESERVATIONS,
   MUSEUM_VISITOR_MAP_VIEWBOX,
   MUSEUM_WORLD_DEFINITIONS,
+  advanceMuseumPhysicalFrame,
   branches,
   philosophers,
   circleIntersectsCollider,
@@ -112,14 +115,15 @@ const {
   hasMuseumBrowserModifier,
   isValidMuseumPosition,
   moveWithCollisions,
-  museumConnectionCrossed,
   museumPointToWorld,
+  museumPoseToWorld,
   parseMuseumExhibitVisitContext,
   parseMuseumHallTravelContext,
   parseMuseumSession,
   positionInsideSpatialUnion,
-  resolveMuseumHallArrival,
+  resolveMuseumHallRenderedReadinessKeys,
   resolveMuseumHallResidencyPlan,
+  resolveMuseumOrientationReset,
   resolveMuseumReadinessGateGeometry,
   resolveMuseumReadinessGateStatus,
   resolveMuseumVisitorMapDestination,
@@ -181,6 +185,7 @@ const residencyAdmissionFailures = [];
 const interpretationQualityFailures = [];
 
 let checks = 0;
+let physicalMovementTrajectories = 0;
 const check = (name, assertion) => {
   assertion();
   checks += 1;
@@ -649,48 +654,107 @@ check('runtime seams are bidirectional, world-aligned, step-free, and crossable'
     assert(validPose(target, targetEntrance.arrivalPose), `${connection.id} target landing is unsafe`);
   }
 
-  const stepDistance = .1;
-  const iterationLimit = 80;
-  for (const connection of MUSEUM_DIRECTED_CONNECTIONS) {
+  const runPhysicalCrossing = (connection, walkingSpeed, retainedTargetActive) => {
+    physicalMovementTrajectories += 1;
     const source = runtimeNodeById.get(connection.sourceNodeId);
     const target = runtimeNodeById.get(connection.targetNodeId);
     assert(source && target, `${connection.id} references a missing runtime node`);
     const entrance = source.entrances.find(({id}) => id === connection.localEntranceId);
     assert(entrance, `${connection.id} has no source entrance ${connection.localEntranceId}`);
-    const colliders = allColliders(source.layout);
     assert(validPose(source, entrance.arrivalPose), `${connection.id} starts from an invalid source arrival`);
-    const signedDistance = (point) =>
-      (point.x - entrance.position.x) * entrance.inwardNormal.x
-      + (point.z - entrance.position.z) * entrance.inwardNormal.z;
-    let current = {x: entrance.arrivalPose.x, z: entrance.arrivalPose.z};
-    assert(signedDistance(current) >= 0, `${connection.id} arrival starts beyond its doorway plane`);
-    let crossed = false;
-    for (let iteration = 0; iteration < iterationLimit; iteration += 1) {
-      const previous = current;
-      current = moveWithCollisions(
-        previous,
-        {x: -entrance.inwardNormal.x * stepDistance, z: -entrance.inwardNormal.z * stepDistance},
-        source.layout.playerRadius,
-        source.layout.bounds,
-        colliders,
-        source.layout.spatialCells,
+    const portalWorld = museumPointToWorld(source, entrance.position);
+    const inwardWorld = worldNormal(source, entrance.inwardNormal);
+    const signedWorldDistance = (worldPose) =>
+      (worldPose.x - portalWorld.x) * inwardWorld.x
+      + (worldPose.z - portalWorld.z) * inwardWorld.z;
+    const renderedTargetKeys = target.publicHallId
+      ? resolveMuseumHallRenderedReadinessKeys(
+          target.publicHallId,
+          retainedTargetActive,
+          connection.targetEntranceId,
+        )
+      : [];
+    const requiredTargetKey = target.publicHallId
+      ? `${target.publicHallId}::museum-entry::${connection.targetEntranceId}`
+      : undefined;
+    if (requiredTargetKey) assert(
+      renderedTargetKeys.includes(requiredTargetKey),
+      `${connection.id} retained active hall never publishes connector-facing readiness ${requiredTargetKey}`,
+    );
+    const readyHallEntryKeys = new Set(renderedTargetKeys);
+    let currentNode = source;
+    let currentPose = {
+      ...entrance.arrivalPose,
+      yaw: Math.atan2(entrance.inwardNormal.x, entrance.inwardNormal.z),
+      pitch: 0,
+    };
+    let currentWorld = museumPoseToWorld(currentNode, currentPose);
+    assert(signedWorldDistance(currentWorld) > 0, `${connection.id} authored arrival is not inside its source portal`);
+    const areaSequence = [source.id];
+    let portalCrossings = 0;
+    let transitionCount = 0;
+    let targetProgress = 0;
+    const frameLimit = 360;
+
+    for (let frame = 0; frame < frameLimit && targetProgress < 3; frame += 1) {
+      const previousWorld = currentWorld;
+      const previousSigned = signedWorldDistance(previousWorld);
+      const result = advanceMuseumPhysicalFrame({
+        definition: currentNode,
+        pose: currentPose,
+        input: {forward: 1, strafe: 0, walkingSpeed},
+        rawDelta: 1 / 60,
+        readyHallEntryKeys,
+      });
+      assert.notEqual(result.kind, 'blocked', `${connection.id} blocked during held production movement (${result.reason ?? 'unknown'})`);
+      const frameNode = currentNode;
+      const framePose = result.pose;
+      assert(validPose(frameNode, framePose), `${connection.id} produced an invalid ${frameNode.id} pose`);
+      const crossingWorld = museumPoseToWorld(frameNode, framePose);
+      const crossingSigned = signedWorldDistance(crossingWorld);
+      const frameProgress = -(
+        (crossingWorld.x - previousWorld.x) * inwardWorld.x
+        + (crossingWorld.z - previousWorld.z) * inwardWorld.z
       );
-      const detected = museumConnectionCrossed(source, previous, current);
-      if (detected) {
-        assert.equal(detected.id, connection.id, `${connection.id} movement triggered ${detected.id}`);
-        crossed = true;
+      assert(frameProgress > 1e-6, `${connection.id} stalled or reversed while forward input remained held`);
+      if (frameNode.id === source.id && previousSigned >= 0 && crossingSigned < 0) portalCrossings += 1;
+
+      if (result.kind === 'transition') {
+        transitionCount += 1;
+        assert.equal(result.transition.connection.id, connection.id, `${connection.id} triggered ${result.transition.connection.id}`);
+        assert.equal(result.transition.targetNode.id, target.id, `${connection.id} entered ${result.transition.targetNode.id}`);
+        const arrivalWorld = museumPoseToWorld(result.transition.targetNode, result.transition.arrival);
+        assert(
+          distance(crossingWorld, arrivalWorld) <= 1e-5,
+          `${connection.id} transition fell back or teleported ${distance(crossingWorld, arrivalWorld).toFixed(3)} m`,
+        );
+        currentNode = result.transition.targetNode;
+        currentPose = result.transition.arrival;
+        assert(validPose(currentNode, currentPose), `${connection.id} committed an invalid target pose`);
+        areaSequence.push(currentNode.id);
+        currentWorld = arrivalWorld;
+      } else {
+        currentPose = result.pose;
+        currentWorld = crossingWorld;
       }
-      if (signedDistance(current) < 0) {
-        assert(crossed, `${connection.id} passed its doorway plane without a transition`);
-        break;
-      }
+      if (currentNode.id === target.id) targetProgress = Math.max(0, -signedWorldDistance(currentWorld));
     }
-    if (!crossed || signedDistance(current) >= 0) {
-      seamCrossingFailures.push(`${connection.id} cannot cross its doorway plane after collision resolution (signed distance ${signedDistance(current).toFixed(3)})`);
-      continue;
+
+    assert.deepEqual(areaSequence, [source.id, target.id], `${connection.id} area sequence drifted`);
+    assert.equal(transitionCount, 1, `${connection.id} did not commit exactly one transition`);
+    assert.equal(portalCrossings, 1, `${connection.id} did not cross exactly one portal plane`);
+    assert(targetProgress >= 3, `${connection.id} stopped ${targetProgress.toFixed(2)} m beyond the seam`);
+  };
+
+  for (const connection of MUSEUM_DIRECTED_CONNECTIONS) {
+    runPhysicalCrossing(connection, MUSEUM_STANDARD_WALK_SPEED, false);
+    runPhysicalCrossing(connection, MUSEUM_FAST_WALK_SPEED, false);
+    const source = runtimeNodeById.get(connection.sourceNodeId);
+    const target = runtimeNodeById.get(connection.targetNodeId);
+    if (target?.publicHallId && !source?.publicHallId) {
+      runPhysicalCrossing(connection, MUSEUM_STANDARD_WALK_SPEED, true);
+      runPhysicalCrossing(connection, MUSEUM_FAST_WALK_SPEED, true);
     }
-    const arrival = resolveMuseumHallArrival(source, target, connection.targetEntranceId, {...current, yaw: 0, pitch: 0});
-    assert(arrival && validPose(target, arrival), `${connection.id} cannot resolve a safe target arrival`);
   }
 });
 
@@ -900,6 +964,45 @@ check('sessions, walking pace, readiness, and travel contexts remain safe and ha
   assert.equal(resolveMuseumReadinessGateStatus('failed', false), 'failed');
   assert.equal(resolveMuseumReadinessGateStatus('ready', true), undefined);
   assert.deepEqual(Object.keys(MUSEUM_READINESS_PRESENTATIONS), ['idle', 'loading', 'failed']);
+  const orientationDefinition = definitionById.get(MUSEUM_VISITOR_MAP_KIOSK.hallId);
+  const orientationNode = MUSEUM_RUNTIME_NODES.find(({publicHallId}) => publicHallId === MUSEUM_VISITOR_MAP_KIOSK.hallId);
+  assert(orientationDefinition && orientationNode, 'The authored Museum orientation destination is missing');
+  assert.deepEqual(orientationDefinition.layout.reset, orientationDefinition.layout.spawn, 'Fresh arrival and Reset use different orientation poses');
+  assert(validPose(orientationDefinition, orientationDefinition.layout.reset), 'The authored Museum orientation pose is unsafe');
+  const resetScenarios = [
+    ['ordinary hall', 'justice-democratic-reason'],
+    ['connector with a retained hall', 'renaissance-humanism-new-method'],
+    ['after fast travel', 'analytic-traditions'],
+  ];
+  for (const [scenario, sourceHallId] of resetScenarios) {
+    const reset = resolveMuseumOrientationReset({
+      sourceHallId,
+      targetHallId: MUSEUM_VISITOR_MAP_KIOSK.hallId,
+      targetNodeId: orientationNode.id,
+      targetPose: orientationDefinition.layout.reset,
+    });
+    assert.equal(reset.activeHallId, MUSEUM_VISITOR_MAP_KIOSK.hallId, `${scenario} Reset chose the wrong hall`);
+    assert.equal(reset.activeNodeId, orientationNode.id, `${scenario} Reset chose the wrong physical node`);
+    assert.deepEqual(reset.pose, orientationDefinition.layout.reset, `${scenario} Reset changed the authored pose`);
+    assert(reset.clearedHallIds.includes(sourceHallId), `${scenario} Reset did not clear its saved source position`);
+    assert(reset.clearedHallIds.includes(MUSEUM_VISITOR_MAP_KIOSK.hallId), `${scenario} Reset did not clear the orientation position`);
+  }
+  const identitySign = orientationDefinition.layout.signs.find(({kind}) => kind === 'entrance');
+  assert(identitySign, 'Gallery 01 has no entrance identity sign');
+  assert.equal(identitySign.title, 'Philosophy Atlas Museum');
+  assert.match(identitySign.kicker, /Gallery 01 · Mediterranean Beginnings/u);
+  const spawnForward = {
+    x: -Math.sin(orientationDefinition.layout.spawn.yaw),
+    z: -Math.cos(orientationDefinition.layout.spawn.yaw),
+  };
+  const visibleFromSpawn = (point) => {
+    const offset = {x: point.x - orientationDefinition.layout.spawn.x, z: point.z - orientationDefinition.layout.spawn.z};
+    const length = Math.hypot(offset.x, offset.z);
+    return length > 0 && (offset.x * spawnForward.x + offset.z * spawnForward.z) / length
+      >= Math.cos(orientationDefinition.layout.cameraFov / 2 * Math.PI / 180);
+  };
+  assert(visibleFromSpawn(MUSEUM_VISITOR_MAP_KIOSK.center), 'Fresh arrival does not face the physical visitor map');
+  assert(visibleFromSpawn(identitySign.position), 'Fresh arrival does not include the Museum/Gallery 01 identity sign');
   for (const definition of definitions) {
     const raw = JSON.stringify({version: 1, hallId: definition.id, ...definition.layout.spawn, lastNearbyExhibit: definition.layout.exhibits[0]?.id});
     assert(parseMuseumSession(raw, definition.layout), `${definition.id} valid session was rejected`);
@@ -978,6 +1081,19 @@ check('the React implementation uses one persistent Canvas, one shared canonical
   assert.match(museumPageSource, /retryHallContent/);
   assert.match(museumPageSource, /Retry gallery/);
   assert.match(museumPageSource, /MUSEUM_WORLD_REGISTRY\.filter/);
+  assert.match(museumPageSource, /onOpenVisitorMap: showVisitorMap/);
+  assert.match(museumPageSource, /<span>MAP \(M\)<\/span>/);
+  assert.match(museumPageSource, /resolveMuseumOrientationReset/);
+  assert.match(museumPageSource, /reset\.clearedHallIds\.forEach/);
+  assert.match(museumControlsSource, /event\.code === 'KeyM'[\s\S]{0,180}onOpenVisitorMap/);
+  assert.doesNotMatch(museumControlsSource, /event\.code === 'KeyD'/, 'D must remain movement-only');
+  assert.doesNotMatch(museumControlsSource, /onOpenDirectory/, 'The keyboard controls still expose a Directory shortcut');
+  assert.match(visitorMapSource, /panelClassName="museum-visitor-map-panel"/);
+  assert.match(visitorMapSource, /museum-visitor-map-action/);
+  assert.match(museumModalSource, /document\.documentElement\.style\.overflow = 'hidden'/);
+  assert.match(museumModalSource, /document\.body\.style\.overflow = 'hidden'/);
+  assert.match(museumCssSource, /\.museum-visitor-map-panel\{[^}]*height:100%[^}]*overflow:hidden/);
+  assert.match(museumCssSource, /@media\(min-width:901px\) and \(max-height:820px\)/);
   assert.match(museumCssSource, /museum-visitor-map-reservations/);
 });
 
@@ -987,4 +1103,4 @@ assert.deepEqual(seamCrossingFailures, [], `collision-resolved seam failures:\n$
 assert.deepEqual(residencyAdmissionFailures, [], `approached-hall residency failures:\n${[...new Set(residencyAdmissionFailures)].join('\n')}`);
 assert.deepEqual(interpretationQualityFailures, [], `interpretation quality failures:\n${interpretationQualityFailures.join('\n')}`);
 
-console.log(`\nMuseum audit passed: ${checks} groups covering ${definitions.length} canonical halls, 29 rooms, 59 exhibits, ${MUSEUM_DIRECTED_CONNECTIONS.length} directed crossings across ${MUSEUM_BUILDING_MANIFEST.connections.length} physical seams, ${MUSEUM_INTERPRETATIONS.length} interpretations, and 96 MiB bounded residency.`);
+console.log(`\nMuseum audit passed: ${checks} groups covering ${definitions.length} canonical halls, 29 rooms, 59 exhibits, ${physicalMovementTrajectories} production-frame crossing trajectories over ${MUSEUM_DIRECTED_CONNECTIONS.length} directed crossings and ${MUSEUM_BUILDING_MANIFEST.connections.length} physical seams, ${MUSEUM_INTERPRETATIONS.length} interpretations, and 96 MiB bounded residency.`);

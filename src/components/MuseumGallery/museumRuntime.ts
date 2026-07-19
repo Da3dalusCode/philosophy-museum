@@ -3,6 +3,7 @@ import type {
   MuseumExhibitRef,
   MuseumDirectedConnection,
   MuseumInteractionTarget,
+  MuseumPhysicalNodeId,
   MuseumPose,
   MuseumRuntimeNodeDefinition,
 } from '../../data/museum/museumWorldTypes';
@@ -38,6 +39,20 @@ export const museumHallEntryReadinessKey = (
 
 export const museumHallResidentRenderKey = (hallId: MuseumPublicHallId): string =>
   `${hallId}${MUSEUM_HALL_READINESS_SEPARATOR}resident`;
+
+/** Readiness signals emitted by one mounted hall-content subtree. */
+export const resolveMuseumHallRenderedReadinessKeys = (
+  hallId: MuseumPublicHallId,
+  active: boolean,
+  entryEntranceId?: string,
+): readonly string[] => {
+  const keys = active
+    ? [museumHallEntryReadinessKey(hallId)]
+    : [];
+  if (entryEntranceId) keys.push(museumHallEntryReadinessKey(hallId, entryEntranceId));
+  if (!keys.length) keys.push(museumHallResidentRenderKey(hallId));
+  return keys;
+};
 
 export const museumHallReadinessKeyBelongsTo = (
   key: string,
@@ -154,6 +169,31 @@ export const resolveMuseumReadinessGateStatus = (
   return status === 'loading' || status === 'failed' ? status : 'idle';
 };
 
+/** One deterministic authored destination shared by every Reset origin. */
+export const resolveMuseumOrientationReset = ({
+  sourceHallId,
+  targetHallId,
+  targetNodeId,
+  targetPose,
+}: {
+  sourceHallId: MuseumPublicHallId;
+  targetHallId: MuseumPublicHallId;
+  targetNodeId: MuseumPhysicalNodeId;
+  targetPose: MuseumPose;
+}) => ({
+  activeHallId: targetHallId,
+  activeNodeId: targetNodeId,
+  pose: {...targetPose},
+  clearedHallIds: [...new Set<MuseumPublicHallId>([sourceHallId, targetHallId])],
+});
+
+export type MuseumNodeTransition = {
+  connection: MuseumDirectedConnection;
+  targetNode: MuseumRuntimeNodeDefinition;
+  crossingPose: MuseumPose;
+  arrival: MuseumPose;
+};
+
 export type MuseumSceneRuntimeProps = {
   definition: MuseumRuntimeNodeDefinition;
   activeHallId: MuseumHallId;
@@ -171,7 +211,7 @@ export type MuseumSceneRuntimeProps = {
   onNearbyInteractionChange: (target: MuseumInteractionTarget | undefined) => void;
   onSelectExhibit: (exhibit: MuseumExhibitRef) => void;
   onSelectVisitorMap: () => void;
-  onNodeTransition: (connection: MuseumDirectedConnection) => boolean;
+  onNodeTransition: (transition: MuseumNodeTransition) => boolean;
   onNodeTransitionBlocked: (connection: MuseumDirectedConnection) => void;
   onApproachHall: (approach: MuseumHallApproach | undefined) => void;
   onHallContentReady: (hallId: MuseumPublicHallId, readinessKey: string) => void;

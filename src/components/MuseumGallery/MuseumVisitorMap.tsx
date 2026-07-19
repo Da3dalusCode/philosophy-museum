@@ -61,7 +61,7 @@ export function MuseumVisitorMap({currentHallId, currentNodeId, currentPose, ret
   ].filter(Boolean).join(' and ');
   const routeSummary = `This main-level plan shows ${halls.length} open galleries and every walkable public route. Five historical galleries form a continuous outer loop through the entrance and south return passage. Open spokes connect that loop to the central Core Questions Forum, and the entrance–Forum shortcut is available. The Forum is a comparison and routing hub that sends visitors outward, not the Museum’s supreme authority or final destination. ${futureDoorwaySummary} remain closed and noninteractive. Fast travel returns visitors to a safe gallery entrance.`;
 
-  return <MuseumModal labelledBy={titleId} describedBy={descriptionId} returnFocus={returnFocus} onClose={onClose}>
+  return <MuseumModal panelClassName="museum-visitor-map-panel" labelledBy={titleId} describedBy={descriptionId} returnFocus={returnFocus} onClose={onClose}>
     <div className="museum-overlay-head museum-visitor-map-head">
       <div>
         <p className="eyebrow"><MapPinned size={14}/> Physical visitor map</p>
@@ -231,13 +231,15 @@ export function MuseumVisitorMap({currentHallId, currentNodeId, currentPose, ret
             {selected.hall.sweep.map((item) => <li key={item}>{item}</li>)}
           </ol>
         </div>
-        <button className="btn btn-primary museum-visitor-map-travel" type="button" onClick={() => onTravel(selected.hall.id)}>
-          <Navigation size={16}/>Fast travel to {selected.hall.galleryNumber}{isCurrentSelection ? ' entrance' : ''}
-        </button>
-        <small>Fast travel returns you to the selected gallery entrance. Every open gallery also remains reachable through the walking routes shown.</small>
+        <div className="museum-visitor-map-action">
+          <button className="btn btn-primary museum-visitor-map-travel" type="button" onClick={() => onTravel(selected.hall.id)}>
+            <Navigation size={16}/>Fast travel to {selected.hall.galleryNumber}{isCurrentSelection ? ' entrance' : ''}
+          </button>
+          <small>Fast travel returns you to the selected gallery entrance. Every open gallery also remains reachable through the walking routes shown.</small>
+        </div>
       </aside>
     </div>
 
-    <p className="museum-visitor-map-access-note"><kbd>M</kbd> still opens the complete Museum directory, including every exhibit and room viewpoint.</p>
+    <p className="museum-visitor-map-access-note"><kbd>M</kbd> opens this visitor map globally while you walk. The complete exhibit Directory remains available from the toolbar.</p>
   </MuseumModal>;
 }

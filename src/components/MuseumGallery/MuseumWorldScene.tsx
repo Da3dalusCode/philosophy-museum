@@ -24,21 +24,15 @@ import {visitorMapInteractionAtPose} from '../../data/museum/museumVisitorMap';
 import {MUSEUM_TEXTURE_SPECS} from '../../data/museum/museumTexturePolicy';
 import {getMuseumHallCatalog, type MuseumPublicHallId} from '../../data/museumCatalog';
 import {
-  clampFrameDelta,
   clampPitch,
-  MUSEUM_FAST_WALK_SPEED,
-  MUSEUM_STANDARD_WALK_SPEED,
-  moveWithCollisions,
   nearestInteractable,
-  normalizeMoveInput,
   normalizeYaw,
-  setMuseumMovementDisplacement,
 } from './museumMovement';
 import {
   museumHallEntryReadinessKey,
-  museumHallResidentRenderKey,
   MUSEUM_READINESS_GATE_CONFIG,
   MUSEUM_READINESS_PRESENTATIONS,
+  resolveMuseumHallRenderedReadinessKeys,
   resolveMuseumReadinessGateGeometry,
   resolveMuseumReadinessGateStatus,
   type MuseumHallLoadStatus,
@@ -46,7 +40,7 @@ import {
 } from './museumRuntime';
 import {loadMuseumHallContent, type MuseumHallRegistration} from './museumWorldRegistry';
 import {museumPoseToWorld} from './museumWorldTransform';
-import {museumConnectionAtPose, museumConnectionCrossed} from './museumHallTransitions';
+import {advanceMuseumPhysicalFrame, museumConnectionAtPose} from './museumHallTransitions';
 import {MuseumBuildingArchitecture} from './MuseumBuildingArchitecture';
 import {usePlaqueTexture} from './plaqueTextures';
 
@@ -170,17 +164,12 @@ function MuseumPlayerRig({
 > & {onNearbyVisualChange: (target: MuseumInteractionTarget | undefined) => void}) {
   const {camera, invalidate} = useThree();
   const lastNearbyRef = useRef<MuseumInteractionTarget | undefined>(undefined);
-  const displacementRef = useRef({x: 0, z: 0});
   const transitionLatchRef = useRef<string | undefined>(undefined);
   const transitionTargetRef = useRef<string | undefined>(undefined);
   const blockedTransitionLatchRef = useRef<string | undefined>(undefined);
   const layout = definition.layout;
   const readyHallEntrySet = useMemo(() => new Set(readyHallEntryKeys), [readyHallEntryKeys]);
   const approachedHallRef = useRef<string | undefined>(undefined);
-  const colliders = useMemo(
-    () => [...layout.wallColliders, ...layout.obstacleColliders],
-    [layout],
-  );
 
   useEffect(() => {
     const requestFrame = () => invalidate();
@@ -255,9 +244,8 @@ function MuseumPlayerRig({
     }
     const input = inputRef.current;
     const pose = poseRef.current;
-    const previousPosition = {x: pose.x, z: pose.z};
     let changed = false;
-    let moved = false;
+    let physicalFrame: ReturnType<typeof advanceMuseumPhysicalFrame> | undefined;
 
     if (input.lookX || input.lookY) {
       pose.yaw = normalizeYaw(pose.yaw - input.lookX * .00235);
@@ -268,24 +256,16 @@ function MuseumPlayerRig({
     }
 
     if (input.forward || input.strafe) {
-      const direction = normalizeMoveInput(input.strafe, input.forward);
-      const displacement = displacementRef.current;
-      const walkingSpeed = Number.isFinite(input.walkingSpeed)
-        ? Math.min(MUSEUM_FAST_WALK_SPEED, Math.max(0, input.walkingSpeed))
-        : MUSEUM_STANDARD_WALK_SPEED;
-      setMuseumMovementDisplacement(displacement, direction, pose.yaw, walkingSpeed * clampFrameDelta(rawDelta, .05));
-      const next = moveWithCollisions(
+      physicalFrame = advanceMuseumPhysicalFrame({
+        definition,
         pose,
-        displacement,
-        layout.playerRadius,
-        layout.bounds,
-        colliders,
-        layout.spatialCells,
-      );
-      pose.x = next.x;
-      pose.z = next.z;
+        input,
+        rawDelta,
+        readyHallEntryKeys: readyHallEntrySet,
+      });
+      pose.x = physicalFrame.pose.x;
+      pose.z = physicalFrame.pose.z;
       changed = true;
-      moved = true;
     }
 
     if (!changed) return;
@@ -308,39 +288,28 @@ function MuseumPlayerRig({
       approachedHallRef.current = approachedKey;
       onApproachHall(approachedHall);
     }
-    const connection = moved
-      ? museumConnectionCrossed(definition, previousPosition, pose)
-      : undefined;
-    if (connection) {
-      const targetNode = getMuseumRuntimeNode(connection.targetNodeId);
-      const targetReady = Boolean(targetNode && (
-        !targetNode.publicHallId
-        || readyHallEntrySet.has(museumHallEntryReadinessKey(
-          targetNode.publicHallId,
-          connection.targetEntranceId,
-        ))
-      ));
-      if (targetReady) {
-        if (transitionLatchRef.current !== connection.id) {
-          transitionLatchRef.current = connection.id;
-          transitionTargetRef.current = connection.targetNodeId;
-          if (!onNodeTransition(connection)) {
-            transitionTargetRef.current = undefined;
-            transitionLatchRef.current = undefined;
-            pose.x = previousPosition.x;
-            pose.z = previousPosition.z;
-            applyPose();
-            publishNearby();
-            if (input.forward || input.strafe || input.lookX || input.lookY) invalidate();
-          }
+    if (physicalFrame?.kind === 'transition') {
+      const {connection} = physicalFrame.transition;
+      if (transitionLatchRef.current !== connection.id) {
+        transitionLatchRef.current = connection.id;
+        transitionTargetRef.current = connection.targetNodeId;
+        if (!onNodeTransition(physicalFrame.transition)) {
+          transitionTargetRef.current = undefined;
+          transitionLatchRef.current = undefined;
+          pose.x = physicalFrame.previousPose.x;
+          pose.z = physicalFrame.previousPose.z;
+          applyPose();
+          publishNearby();
+          if (input.forward || input.strafe || input.lookX || input.lookY) invalidate();
         }
-        return;
       }
+      return;
+    }
+    if (physicalFrame?.kind === 'blocked') {
+      const {connection} = physicalFrame;
       // Keep the visitor on the inward side of an unready threshold. Holding
       // movement can then produce a fresh signed-plane crossing as soon as the
       // adjacent hall becomes ready, without asking the visitor to backtrack.
-      pose.x = previousPosition.x;
-      pose.z = previousPosition.z;
       if (blockedTransitionLatchRef.current !== connection.id) {
         blockedTransitionLatchRef.current = connection.id;
         onNodeTransitionBlocked(connection);
@@ -385,11 +354,11 @@ function LoadedHall({
     () => lazy(() => loadMuseumHallContent(registration.definition.id)!),
     [registration],
   );
-  const readinessKey = active
-    ? museumHallEntryReadinessKey(registration.definition.id)
-    : entryEntranceId
-      ? museumHallEntryReadinessKey(registration.definition.id, entryEntranceId)
-      : museumHallResidentRenderKey(registration.definition.id);
+  const readinessKeys = resolveMuseumHallRenderedReadinessKeys(
+    registration.definition.id,
+    active,
+    entryEntranceId,
+  );
   return <HallContentErrorBoundary hallId={registration.definition.id} onError={onHallContentError}>
     <Suspense fallback={null}>
       <HallContent
@@ -402,12 +371,13 @@ function LoadedHall({
         onSelectVisitorMap={onSelectVisitorMap}
         onSceneGesture={onSceneGesture}
       />
-      <HallRenderedSignal
+      {readinessKeys.map((readinessKey) => <HallRenderedSignal
+        key={readinessKey}
         hallId={registration.definition.id}
         readinessKey={readinessKey}
         onReady={onHallContentReady}
         onUnavailable={onHallContentUnavailable}
-      />
+      />)}
     </Suspense>
   </HallContentErrorBoundary>;
 }

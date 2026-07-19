@@ -58,7 +58,7 @@ export type UseMuseumControlsOptions = {
   canInteract: boolean;
   onInteract: () => void;
   onReset: () => void;
-  onOpenDirectory: () => void;
+  onOpenVisitorMap: () => void;
   onPause?: () => void;
   onSuspend?: () => void;
   onReactivate?: () => void;
@@ -426,7 +426,7 @@ export function useMuseumControls(options: UseMuseumControlsOptions): MuseumCont
       } else if (event.code === 'KeyM') {
         event.preventDefault();
         clearInput();
-        callbacksRef.current.onOpenDirectory();
+        callbacksRef.current.onOpenVisitorMap();
       }
     };
     const onKeyUp = (event: KeyboardEvent) => {

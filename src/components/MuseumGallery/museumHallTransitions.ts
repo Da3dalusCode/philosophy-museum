@@ -6,7 +6,21 @@ import type {
   MuseumRuntimeNodeDefinition,
 } from '../../data/museum/museumWorldTypes';
 import {getMuseumNodeConnections} from '../../data/museum/museumBuildingRuntime';
-import {isValidMuseumPosition} from './museumMovement';
+import {getMuseumRuntimeNode} from '../../data/museum/museumBuildingRuntime';
+import {
+  clampFrameDelta,
+  isValidMuseumPosition,
+  MUSEUM_FAST_WALK_SPEED,
+  MUSEUM_STANDARD_WALK_SPEED,
+  moveWithCollisions,
+  normalizeMoveInput,
+  setMuseumMovementDisplacement,
+} from './museumMovement';
+import {
+  museumHallEntryReadinessKey,
+  type MuseumInputState,
+  type MuseumNodeTransition,
+} from './museumRuntime';
 import {museumPoseFromWorld, museumPoseToWorld} from './museumWorldTransform';
 
 const insideTransition = (point: MuseumPoint, entrance: MuseumHallEntrance): boolean => {
@@ -56,4 +70,90 @@ export const resolveMuseumHallArrival = (
   return isValidMuseumPosition(mapped, layout.playerRadius, layout.bounds, colliders, layout.spatialCells)
     ? mapped
     : {...entrance.arrivalPose, yaw: mapped.yaw, pitch: mapped.pitch};
+};
+
+export type MuseumPhysicalFrameResult = {
+  kind: 'moved';
+  previousPose: MuseumPose;
+  pose: MuseumPose;
+} | {
+  kind: 'blocked';
+  previousPose: MuseumPose;
+  pose: MuseumPose;
+  connection: MuseumDirectedConnection;
+  reason: 'unready' | 'invalid-target';
+} | {
+  kind: 'transition';
+  previousPose: MuseumPose;
+  pose: MuseumPose;
+  transition: MuseumNodeTransition;
+};
+
+/**
+ * Advance one held-movement frame through the production collision, portal,
+ * readiness, and arrival path. React owns only the resulting state commit.
+ */
+export const advanceMuseumPhysicalFrame = ({
+  definition,
+  pose,
+  input,
+  rawDelta,
+  readyHallEntryKeys,
+}: {
+  definition: MuseumRuntimeNodeDefinition;
+  pose: MuseumPose;
+  input: Pick<MuseumInputState, 'forward' | 'strafe' | 'walkingSpeed'>;
+  rawDelta: number;
+  readyHallEntryKeys: ReadonlySet<string>;
+}): MuseumPhysicalFrameResult => {
+  const previousPose = {...pose};
+  const direction = normalizeMoveInput(input.strafe, input.forward);
+  const walkingSpeed = Number.isFinite(input.walkingSpeed)
+    ? Math.min(MUSEUM_FAST_WALK_SPEED, Math.max(0, input.walkingSpeed))
+    : MUSEUM_STANDARD_WALK_SPEED;
+  const displacement = setMuseumMovementDisplacement(
+    {x: 0, z: 0},
+    direction,
+    pose.yaw,
+    walkingSpeed * clampFrameDelta(rawDelta, .05),
+  );
+  const layout = definition.layout;
+  const moved = moveWithCollisions(
+    pose,
+    displacement,
+    layout.playerRadius,
+    layout.bounds,
+    [...layout.wallColliders, ...layout.obstacleColliders],
+    layout.spatialCells,
+  );
+  const crossingPose = {...pose, x: moved.x, z: moved.z};
+  const connection = museumConnectionCrossed(definition, previousPose, crossingPose);
+  if (!connection) return {kind: 'moved', previousPose, pose: crossingPose};
+
+  const targetNode = getMuseumRuntimeNode(connection.targetNodeId);
+  if (!targetNode) {
+    return {kind: 'blocked', previousPose, pose: previousPose, connection, reason: 'invalid-target'};
+  }
+  const targetReady = !targetNode.publicHallId || readyHallEntryKeys.has(museumHallEntryReadinessKey(
+    targetNode.publicHallId,
+    connection.targetEntranceId,
+  ));
+  if (!targetReady) {
+    return {kind: 'blocked', previousPose, pose: previousPose, connection, reason: 'unready'};
+  }
+  const arrival = resolveMuseumHallArrival(
+    definition,
+    targetNode,
+    connection.targetEntranceId,
+    crossingPose,
+  );
+  if (!arrival) {
+    return {kind: 'blocked', previousPose, pose: previousPose, connection, reason: 'invalid-target'};
+  }
+  return {
+    kind: 'transition',
+    previousPose,
+    pose: crossingPose,
+    transition: {connection, targetNode, crossingPose, arrival},
+  };
 };

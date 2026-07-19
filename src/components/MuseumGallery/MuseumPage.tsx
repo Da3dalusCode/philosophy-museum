@@ -55,13 +55,14 @@ import type {MuseumWalkingPace} from './museumMovement';
 import {loadMuseumSession, removeMuseumSession, saveMuseumSession} from './museumSession';
 import {useMuseumControls, type MuseumControls} from './useMuseumControls';
 import {useMuseumExperienceMode} from './useMuseumExperienceMode';
-import {resolveMuseumHallArrival} from './museumHallTransitions';
 import {resolveMuseumHallResidency} from './museumResidency';
 import {
   museumHallEntryReadinessKey,
   museumHallReadinessKeyBelongsTo,
+  resolveMuseumOrientationReset,
   type MuseumHallApproach,
   type MuseumHallLoadStatus,
+  type MuseumNodeTransition,
 } from './museumRuntime';
 import {
   getMuseumHallRegistration,
@@ -268,7 +269,7 @@ function Help({returnFocus, onClose, walkingPace, onWalkingPaceChange}: {
   return <MuseumModal labelledBy={titleId} returnFocus={returnFocus} onClose={onClose}>
     <div className="museum-overlay-head"><div><p className="eyebrow">Controls & access</p><h2 id={titleId}>Explore at your pace</h2></div><button className="museum-icon-button" type="button" onClick={onClose} aria-label="Close Museum help"><X/></button></div>
     <div className="museum-help-grid">
-      <section><h3>Keyboard & mouse</h3><p>Choose Enter museum, then use W A S D or the arrow keys. Hold Shift while moving for a temporary faster pace. Look with the mouse. Press E or Enter near an exhibit, R to reset, and M for the directory. Escape releases mouse capture; in drag-look it pauses. Pause visit always pauses explicitly.</p></section>
+      <section><h3>Keyboard & mouse</h3><p>Choose Enter museum, then use W A S D or the arrow keys. Hold Shift while moving for a temporary faster pace. Look with the mouse. Press E or Enter near an exhibit, R to reset, and M for the visitor map. Escape releases mouse capture; in drag-look it pauses. The Directory remains click-only because D is a movement key.</p></section>
       <section><h3>Immersive viewing</h3><p>Immersive mode hides Atlas chrome. Fullscreen uses the browser’s real Fullscreen API; press F when no panel is open. Native Escape exits browser fullscreen.</p></section>
       <section><h3>Touch</h3><p>Use the left movement control and separate right look area. The Speed button switches between Standard and Fast. A contextual Interact action appears when an exhibit is near.</p></section>
       <section><h3>Without free movement</h3><p>The directory contains every exhibit and native article link. Guided mode moves between safe viewpoints without requiring manual movement.</p></section>
@@ -651,12 +652,61 @@ export function MuseumPage({route, href, push, replace}: {
   }, [push, saveCurrentHallSession, visitPhase]);
 
   const resetPosition = useCallback(() => {
+    const targetHallId = MUSEUM_VISITOR_MAP_KIOSK.hallId;
+    const targetRegistration = getMuseumHallRegistration(targetHallId);
+    const targetNode = getMuseumRuntimeHallNode(targetHallId);
+    if (!targetRegistration || !targetNode) {
+      setAnnouncement('The authored Museum orientation point is unavailable.');
+      return;
+    }
+    const sourceHallId = activeHallIdRef.current;
+    const reset = resolveMuseumOrientationReset({
+      sourceHallId,
+      targetHallId,
+      targetNodeId: targetNode.id,
+      targetPose: targetRegistration.definition.layout.reset,
+    });
     controlsRef.current?.pauseExploring();
-    if (activeNode.publicHallId) removeMuseumSession(activeNode.publicHallId);
-    poseRef.current = {...activeNode.layout.reset};
-    setVisitPhase((phase) => transitionMuseumVisitPhase(phase, 'explicit-pause'));
+    activeHallIdRef.current = reset.activeHallId;
+    activeNodeIdRef.current = reset.activeNodeId;
+    activeNodeRef.current = targetNode;
+    activeDefinitionRef.current = targetRegistration.definition;
+    reset.clearedHallIds.forEach((hallId) => {
+      removeMuseumSession(hallId);
+      lastSavedHallSignatureRef.current.delete(hallId);
+    });
+    pendingHallTravelRef.current = undefined;
+    pendingCrossHallCloseRef.current = undefined;
+    const routeChangesHall = route.hallId !== targetHallId;
+    pendingHallTransitionRef.current = routeChangesHall
+      ? {sourceHallId: route.hallId, targetHallId}
+      : undefined;
+    setActiveHallId(reset.activeHallId);
+    setActiveNodeId(reset.activeNodeId);
+    setApproachedHall(undefined);
+    setRecentHallId(undefined);
+    residentHallIdsRef.current = new Set(resolveMuseumHallResidency({activeHallId: targetHallId}));
+    poseRef.current = reset.pose;
+    nearbyRef.current = undefined;
+    setNearbyReference(undefined);
+    visitorMapNearbyRef.current = false;
+    setVisitorMapNearby(false);
+    visitorMapResumeRef.current = false;
+    setOverlay(null);
+    setVisitPhase('explicitly-paused');
+    setAnnouncement('Position reset beside the visitor map and Gallery 01 entrance.');
     setPoseRevision((value) => value + 1);
-  }, [activeNode]);
+    const resetHistoryState = museumHistoryStateWithHallTravelContext(
+      museumHistoryStateWithVisitContext(window.history.state, undefined),
+      undefined,
+    );
+    if (routeChangesHall || route.exhibitId) {
+      replace({kind: 'museum', hallId: targetHallId}, {state: resetHistoryState});
+    } else {
+      window.history.replaceState(resetHistoryState, '');
+    }
+    void ensureHallEntry(targetHallId).catch(() => undefined);
+  }, [ensureHallEntry, replace, route.exhibitId, route.hallId]);
 
   const showVisitorMap = useCallback(() => {
     overlayOpenerRef.current = document.activeElement instanceof HTMLElement ? document.activeElement : sceneCanvasRef.current;
@@ -710,14 +760,7 @@ export function MuseumPage({route, href, push, replace}: {
     canInteract: Boolean(nearbyId || visitorMapNearby),
     onInteract: interactNearby,
     onReset: resetPosition,
-    onOpenDirectory: () => {
-      visitorMapResumeRef.current = false;
-      travelResumeModeRef.current = controlsRef.current?.mode === 'locked' ? 'locked' : 'drag-look';
-      overlayOpenerRef.current = document.activeElement instanceof HTMLElement ? document.activeElement : sceneCanvasRef.current;
-      controlsRef.current?.pauseExploring();
-      setVisitPhase((phase) => transitionMuseumVisitPhase(phase, 'explicit-pause'));
-      setOverlay('directory');
-    },
+    onOpenVisitorMap: showVisitorMap,
     onPause: () => setVisitPhase((phase) => transitionMuseumVisitPhase(phase, 'explicit-pause')),
     onSuspend: () => setVisitPhase((phase) => transitionMuseumVisitPhase(phase, 'focus-lost')),
     onReactivate: () => setVisitPhase((phase) => transitionMuseumVisitPhase(phase, 'scene-reactivate')),
@@ -862,17 +905,11 @@ export function MuseumPage({route, href, push, replace}: {
     );
   }, [activateHall, push]);
 
-  const handleNodeTransition = useCallback((connection: MuseumDirectedConnection) => {
+  const handleNodeTransition = useCallback((transition: MuseumNodeTransition) => {
+    const {arrival, connection, crossingPose: sourcePose, targetNode} = transition;
     const source = activeNodeRef.current;
-    const targetNode = getMuseumRuntimeNode(connection.targetNodeId);
-    if (!targetNode) {
-      setAnnouncement('The connected building node is not registered in this Museum build.');
-      return false;
-    }
-    const sourcePose = {...poseRef.current};
-    const arrival = resolveMuseumHallArrival(source, targetNode, connection.targetEntranceId, sourcePose);
-    if (!arrival) {
-      setAnnouncement('The connected doorway could not be resolved.');
+    if (source.id !== connection.sourceNodeId || targetNode.id !== connection.targetNodeId) {
+      setAnnouncement('The connected doorway changed before the crossing could finish.');
       return false;
     }
     const targetRegistration = targetNode.publicHallId
@@ -1384,7 +1421,7 @@ export function MuseumPage({route, href, push, replace}: {
           </header>
 
           <nav className="museum-utility-bar" aria-label="Museum display and navigation controls">
-            <button className="museum-control-map" type="button" onClick={showVisitorMap} aria-expanded={overlay === 'visitor-map'} aria-label="Open Museum visitor map" title="Visitor map"><MapIcon size={16}/><span>Map</span></button>
+            <button className="museum-control-map" type="button" onClick={showVisitorMap} aria-expanded={overlay === 'visitor-map'} aria-label="Open Museum visitor map" title="Visitor map (M)"><MapIcon size={16}/><span>MAP (M)</span></button>
             <button className="museum-control-directory" type="button" onClick={() => pauseAndOpen('directory')} aria-expanded={overlay === 'directory'} aria-label="Open Museum directory" title="Directory"><MapPinned size={16}/><span>Directory</span></button>
             <button className="museum-control-help" type="button" onClick={() => pauseAndOpen('help')} aria-expanded={overlay === 'help'} aria-label="Open Museum controls and access help" title="Controls"><Info size={16}/><span>Controls</span></button>
             <button className="museum-control-reset" type="button" onClick={resetPosition} aria-label="Reset Museum position" title="Reset position"><RotateCcw size={16}/><span>Reset</span></button>

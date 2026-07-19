@@ -713,8 +713,8 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
         {
           id: `${hall.id}:entrance-sign`,
           kind: 'entrance' as const,
-          title: 'Gallery 01 · Mediterranean Beginnings',
-          kicker: 'One beginning among many',
+          title: 'Philosophy Atlas Museum',
+          kicker: 'Gallery 01 · Mediterranean Beginnings',
           subtitle: 'Begin with Miletus · Socrates, Plato, and Aristotle are ahead',
           position: {x: 0, y: 4.35, z: -18.2},
           rotationY: Math.PI,
