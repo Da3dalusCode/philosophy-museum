@@ -71,8 +71,8 @@ function MediterraneanFinishedBack({backing, groupLabel, accent}: {
   );
   const texture = usePlaqueTexture({
     title: groupLabel,
-    kicker: 'Gallery 01',
-    subtitle: 'Center route · Socrates, Plato, Aristotle ahead',
+    kicker: 'Gallery 01 · paired inquiry',
+    subtitle: 'Turn around for the question and source image.',
     accent: MEDITERRANEAN_PALETTE.aegean,
     width: textureSize.width,
     height: textureSize.height,
@@ -83,13 +83,13 @@ function MediterraneanFinishedBack({backing, groupLabel, accent}: {
     backing.center.y,
     backing.center.z - backing.size.depth / 2 - .012,
   ]} rotation={[0, Math.PI, 0]}>
-    <mesh>
-      <planeGeometry args={[backing.size.width, backing.size.height]}/>
-      <meshStandardMaterial color={accent} roughness={.86}/>
-    </mesh>
     <mesh position={[0, 0, .012]}>
       <planeGeometry args={[width, height]}/>
       <meshBasicMaterial map={texture} toneMapped={false}/>
+    </mesh>
+    <mesh position={[0, -height / 2 - .1, .01]}>
+      <boxGeometry args={[width * .78, .035, .018]}/>
+      <meshStandardMaterial color={accent} roughness={.48} metalness={.18}/>
     </mesh>
   </group>;
 }
@@ -109,12 +109,12 @@ function Installation({layout, title, question, kicker, accent, nearby, curation
   const interaction = layout.scene.interactionBounds;
   const backingColor = curation
     ? layout.presentationTier === 'archive'
-      ? '#cfb995'
+      ? '#d7d3ca'
       : layout.presentationTier === 'supporting'
-        ? '#e4d4bc'
+        ? '#dfdcd4'
         : layout.presentationTier === 'anchor'
-          ? '#eee2cf'
-          : '#dfceb2'
+          ? '#eeeae2'
+          : '#e6e2da'
     : '#d9d5cd';
   return <group>
     <Box volume={plinth} color={curation ? MEDITERRANEAN_PALETTE.limestone : '#6e6b65'}/>

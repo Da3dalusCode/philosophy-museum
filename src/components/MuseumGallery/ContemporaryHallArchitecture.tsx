@@ -32,7 +32,7 @@ const BRONZE = '#8b6b43';
 const LUMINOUS = '#fff3dc';
 const SIGN_REAR = '#d8d2c7';
 
-function CellShell({cell, mediterranean}: {cell: MuseumSpatialCell; mediterranean: boolean}) {
+function CellShell({cell}: {cell: MuseumSpatialCell}) {
   const bounds = cell.renderBounds ?? cell.bounds;
   const width = bounds.maxX - bounds.minX;
   const depth = bounds.maxZ - bounds.minZ;
@@ -43,14 +43,14 @@ function CellShell({cell, mediterranean}: {cell: MuseumSpatialCell; mediterranea
     <mesh position={[x, -.11, z]} receiveShadow>
       <boxGeometry args={[width, .22, depth]}/>
       <meshStandardMaterial
-        color={mediterranean ? (cell.kind === 'passage' ? '#756b5e' : '#81776a') : cell.kind === 'passage' ? FLOOR_PASSAGE : FLOOR}
+        color={cell.kind === 'passage' ? FLOOR_PASSAGE : FLOOR}
         roughness={.94}
         metalness={.012}
       />
     </mesh>
     <mesh position={[x, cell.ceilingHeight + .09, z]}>
       <boxGeometry args={[width, .18, depth]}/>
-      <meshStandardMaterial color={mediterranean ? '#efe4d3' : CEILING} roughness={.9}/>
+      <meshStandardMaterial color={CEILING} roughness={.9}/>
     </mesh>
     <CeilingLightStrips cell={renderCell}/>
   </group>;
@@ -75,13 +75,13 @@ function CeilingLightStrips({cell}: {cell: MuseumSpatialCell}) {
   </mesh>)}</group>;
 }
 
-function GalleryWall({wall, mediterranean}: {wall: MuseumWallDefinition; mediterranean: boolean}) {
+function GalleryWall({wall}: {wall: MuseumWallDefinition}) {
   const bottom = wall.bottom ?? 0;
   const center = wall.renderCenter ?? wall.center;
   const size = wall.renderSize ?? wall.size;
   return <group position={[center.x, bottom + wall.height / 2, center.z]} rotation={[0, wall.rotation, 0]} userData={{wallColliderId: wall.id, openingId: wall.openingId}}>
-    <mesh receiveShadow><boxGeometry args={[size.width, wall.height, size.depth]}/><meshStandardMaterial color={mediterranean ? MEDITERRANEAN_PALETTE.plaster : WALL} roughness={.95}/></mesh>
-    {bottom === 0 && <mesh position={[0, -wall.height / 2 + .075, 0]}><boxGeometry args={[size.width + .015, .15, size.depth + .025]}/><meshStandardMaterial color={mediterranean ? MEDITERRANEAN_PALETTE.limestone : WALL_EDGE} roughness={.86}/></mesh>}
+    <mesh receiveShadow><boxGeometry args={[size.width, wall.height, size.depth]}/><meshStandardMaterial color={WALL} roughness={.95}/></mesh>
+    {bottom === 0 && <mesh position={[0, -wall.height / 2 + .075, 0]}><boxGeometry args={[size.width + .015, .15, size.depth + .025]}/><meshStandardMaterial color={WALL_EDGE} roughness={.86}/></mesh>}
   </group>;
 }
 
@@ -133,33 +133,6 @@ function Bench({definition, mediterranean}: {definition: MuseumFurnishingDefinit
   </group>;
 }
 
-function MediterraneanSignRear({definition, accent}: {definition: MuseumSignDefinition; accent: string}) {
-  const referenceWidth = 600;
-  const referenceHeight = Math.round(
-    referenceWidth * definition.height / definition.width,
-  );
-  const textureSize = museumTextureDimensionsForPlane(
-    definition.width,
-    definition.height,
-    {width: referenceWidth, height: referenceHeight, mipmaps: true},
-  );
-  const texture = usePlaqueTexture({
-    title: definition.kind === 'entrance' ? 'Return to the Museum Ring' : 'Continue through Gallery 01',
-    kicker: definition.kind === 'entrance' ? 'Gallery 01 · Mediterranean Beginnings' : definition.kicker,
-    subtitle: definition.kind === 'entrance'
-      ? 'Directory and gallery crossings remain in the entry hall'
-      : 'Center route · Socrates → Plato → Aristotle',
-    accent,
-    width: textureSize.width,
-    height: textureSize.height,
-    theme: 'mediterranean',
-  });
-  return <mesh position={[0, 0, -.077]} rotation={[0, Math.PI, 0]}>
-    <planeGeometry args={[definition.width, definition.height]}/>
-    <meshBasicMaterial map={texture} toneMapped={false}/>
-  </mesh>;
-}
-
 function PhysicalSign({definition, mediterranean}: {definition: MuseumSignDefinition; mediterranean: boolean}) {
   const accent = mediterranean
     ? definition.kind === 'entrance' ? MEDITERRANEAN_PALETTE.terracotta : definition.kind === 'wayfinding' ? MEDITERRANEAN_PALETTE.aegean : MEDITERRANEAN_PALETTE.ochre
@@ -187,20 +160,18 @@ function PhysicalSign({definition, mediterranean}: {definition: MuseumSignDefini
     rotation={[0, definition.rotationY, 0]}
     userData={{museumSignId: definition.id, museumSignKind: definition.kind}}
   >
-    <mesh position={[0, 0, -.04]}><boxGeometry args={[definition.width + .1, definition.height + .1, .07]}/><meshStandardMaterial color={mediterranean ? MEDITERRANEAN_PALETTE.bronze : BLACK_METAL} roughness={.52} metalness={.42}/></mesh>
+    <mesh position={[0, 0, -.04]}><boxGeometry args={[definition.width + .1, definition.height + .1, .07]}/><meshStandardMaterial color={mediterranean ? SIGN_REAR : BLACK_METAL} roughness={mediterranean ? .86 : .52} metalness={mediterranean ? .02 : .42}/></mesh>
     <mesh position={[0, 0, .002]}><planeGeometry args={[definition.width, definition.height]}/><meshBasicMaterial map={texture} toneMapped={false}/></mesh>
-    {mediterranean
-      ? <MediterraneanSignRear definition={definition} accent={accent}/>
-      : <>
-          <mesh position={[0, 0, -.077]} rotation={[0, Math.PI, 0]}>
-            <planeGeometry args={[definition.width, definition.height]}/>
-            <meshStandardMaterial color={SIGN_REAR} roughness={.88} metalness={.02}/>
-          </mesh>
-          <mesh position={[0, -definition.height * .36, -.079]} rotation={[0, Math.PI, 0]}>
-            <planeGeometry args={[definition.width * .72, .026]}/>
-            <meshStandardMaterial color={accent} roughness={.42} metalness={.38}/>
-          </mesh>
-        </>}
+    {!mediterranean && <>
+      <mesh position={[0, 0, -.077]} rotation={[0, Math.PI, 0]}>
+        <planeGeometry args={[definition.width, definition.height]}/>
+        <meshStandardMaterial color={SIGN_REAR} roughness={.88} metalness={.02}/>
+      </mesh>
+      <mesh position={[0, -definition.height * .36, -.079]} rotation={[0, Math.PI, 0]}>
+        <planeGeometry args={[definition.width * .72, .026]}/>
+        <meshStandardMaterial color={accent} roughness={.42} metalness={.38}/>
+      </mesh>
+    </>}
   </group>;
 }
 
@@ -213,9 +184,9 @@ export function ContemporaryHallArchitecture({definition, onSceneGesture}: {defi
     onSceneGesture();
   };
   return <group onClick={activate}>
-    {layout.spatialCells.map((cell) => <CellShell key={cell.id} cell={cell} mediterranean={mediterranean}/>)}
+    {layout.spatialCells.map((cell) => <CellShell key={cell.id} cell={cell}/>)}
     {layout.spatialConnections.map((connection) => <ThresholdFascia key={connection.id} connection={connection} cells={layout.spatialCells}/>)}
-    {definition.architectureWalls.map((wall) => <GalleryWall key={wall.id} wall={wall} mediterranean={mediterranean}/>)}
+    {definition.architectureWalls.map((wall) => <GalleryWall key={wall.id} wall={wall}/>)}
     <MuseumTemplateInterfaces definition={definition}/>
     {layout.furnishings.filter(({kind}) => kind === 'bench').map((item) => <Bench key={item.id} definition={item} mediterranean={mediterranean}/>)}
     {layout.lighting.tracks.map((track) => <Track key={track.id} track={track}/>)}

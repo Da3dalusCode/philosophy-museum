@@ -18,21 +18,21 @@
         "sha256": "efbd5945342a472ae2e7de6ba86bed92426d0035139096ffbb95f725d2b8fa33"
       }
     },
-    "thales-miletus-theatre": {
-      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Miletus_-_Ancient_Greek_theatre_01.jpg",
-      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Miletus_-_Ancient_Greek_theatre_01.jpg",
-      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Miletus_-_Ancient_Greek_theatre_01.jpg/1280px-Miletus_-_Ancient_Greek_theatre_01.jpg",
+    "thales-promptuarii-portrait": {
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Thales_of_Miletus.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f2/Thales_of_Miletus.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f2/Thales_of_Miletus.jpg",
       "scene": {
-        "width": 640,
-        "height": 197,
-        "bytes": 37474,
-        "sha256": "1c49fea0fb2923a162716d829c2a34f3daeb29f7a7809c24a393b6d0860d5dbc"
+        "width": 422,
+        "height": 415,
+        "bytes": 51270,
+        "sha256": "ae95923f8d65b771c1964ddec4af791dadbb14bede5561d41909ddbdf984fe85"
       },
       "panel": {
-        "width": 1280,
-        "height": 393,
-        "bytes": 191734,
-        "sha256": "539a4234ee00f19b4ed298c5305cbc5b4fd778ecd09f54dc8f9d8c7e8e21ba88"
+        "width": 422,
+        "height": 415,
+        "bytes": 62400,
+        "sha256": "65e2782e95e668d37d5f25b0084533b48a2a752309c0109a99750d5c77f6b960"
       }
     },
     "anaximander-world-map": {
@@ -52,21 +52,21 @@
         "sha256": "d354cb8a351c14529adcd7341a746d4b497f283c5aae949c9925bf4039d35ced"
       }
     },
-    "anaximenes-miletus-site": {
-      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Miletus_archaeological_site_(1).jpg",
-      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Miletus_archaeological_site_%281%29.jpg",
-      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Miletus_archaeological_site_%281%29.jpg/1280px-Miletus_archaeological_site_%281%29.jpg",
+    "anaximenes-bnf-portrait": {
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Recueil._Portraits_d%27Anaximenes_-_btv1b8531100s.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/06/Recueil._Portraits_d%27Anaximenes_-_btv1b8531100s.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Recueil._Portraits_d%27Anaximenes_-_btv1b8531100s.jpg/1280px-Recueil._Portraits_d%27Anaximenes_-_btv1b8531100s.jpg",
       "scene": {
-        "width": 640,
-        "height": 429,
-        "bytes": 37174,
-        "sha256": "4902dbaf5bdb65db402f2ff5bd5bb99fae6eebe928fc65f5e0ca1c91a1eee269"
+        "width": 440,
+        "height": 640,
+        "bytes": 77782,
+        "sha256": "2bfa08e9e60ccb6683d37eeb696e45a3d9aa63ee2fca8ccf4397d5e3a945beda"
       },
       "panel": {
-        "width": 1280,
-        "height": 857,
-        "bytes": 278152,
-        "sha256": "63237f36f184c6f07995cf90dfbda07519fe7a902923af773a99732c082113bf"
+        "width": 880,
+        "height": 1280,
+        "bytes": 441942,
+        "sha256": "b3b6df213be0226f9c72ebcedad0efad7faa3fb2a6f016f6f588505fff811e5f"
       }
     },
     "pythagoras-ratios-raphael": {
@@ -86,208 +86,208 @@
         "sha256": "400aee1f1cce02193df7a38d91f6f6b18267bbc9c1e8e50218c98ad2eaab2b06"
       }
     },
-    "philolaus-lyre-lekythos": {
-      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Red_figure_lekythos,_470_BC,_Tithonos,_lyre,_AM_Syracuse,_121432.jpg",
-      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/aa/Red_figure_lekythos%2C_470_BC%2C_Tithonos%2C_lyre%2C_AM_Syracuse%2C_121432.jpg",
-      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Red_figure_lekythos%2C_470_BC%2C_Tithonos%2C_lyre%2C_AM_Syracuse%2C_121432.jpg/1280px-Red_figure_lekythos%2C_470_BC%2C_Tithonos%2C_lyre%2C_AM_Syracuse%2C_121432.jpg",
+    "philolaus-musical-pipes": {
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Pythagoras_and_Philolaus.png",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e8/Pythagoras_and_Philolaus.png",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e8/Pythagoras_and_Philolaus.png",
       "scene": {
-        "width": 427,
+        "width": 400,
+        "height": 490,
+        "bytes": 45200,
+        "sha256": "132576efe0f7b055beadf5742aab990e0cd0fe86d71ddf5f782fd01b194a7ce0"
+      },
+      "panel": {
+        "width": 400,
+        "height": 490,
+        "bytes": 50616,
+        "sha256": "4266019364e0262338e226b81c3a44bd21e581d6cfd3791c21fe3411f96dd690"
+      }
+    },
+    "parmenides-raphael-traditional": {
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Sanzio_01_Parmenides.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/20/Sanzio_01_Parmenides.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/2/20/Sanzio_01_Parmenides.jpg",
+      "scene": {
+        "width": 268,
         "height": 640,
-        "bytes": 34078,
-        "sha256": "90811e3b5d8370efe1ed4a725c7605d054f9377ce1e083ec531e1109efe58d64"
+        "bytes": 29578,
+        "sha256": "3a1480ab64fb3c80e75117b85246780afaca05a528bb851950dc8c03c5c62634"
       },
       "panel": {
-        "width": 853,
-        "height": 1280,
-        "bytes": 133596,
-        "sha256": "a80bfa70634ee626869f5ec5fa9c04315a8c9c41efeafe8aecc7e06e0f92d421"
+        "width": 476,
+        "height": 1137,
+        "bytes": 101594,
+        "sha256": "84148a52aaf2d36f18d306aad70f4d8a82ac09697c4548d1bbcef04d2abc7372"
       }
     },
-    "parmenides-porta-rosa": {
-      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Velia_-_Porta_Rosa.jpg",
-      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b0/Velia_-_Porta_Rosa.jpg",
-      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Velia_-_Porta_Rosa.jpg/1280px-Velia_-_Porta_Rosa.jpg",
+    "zeno-elea-rijksmuseum-print": {
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Portret_van_Zeno_van_Elea,_RP-P-OB-17.264.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/18/Portret_van_Zeno_van_Elea%2C_RP-P-OB-17.264.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Portret_van_Zeno_van_Elea%2C_RP-P-OB-17.264.jpg/1280px-Portret_van_Zeno_van_Elea%2C_RP-P-OB-17.264.jpg",
       "scene": {
-        "width": 359,
+        "width": 460,
         "height": 640,
-        "bytes": 33700,
-        "sha256": "4f9db2f51ff332019fe887b33bfe90c1b59baafe2327476a398084999edf57a1"
+        "bytes": 35568,
+        "sha256": "3b34a1c33dc3f0d296fa261d0d2b440e1999a5485928061c4542f7ea2be93294"
       },
       "panel": {
-        "width": 719,
+        "width": 920,
         "height": 1280,
-        "bytes": 194480,
-        "sha256": "91fb81280ba59164e2958621d0fb89faa43081c0bacf2b4a918ee1090b06a85a"
+        "bytes": 364984,
+        "sha256": "dafe8bd6af4b80c9bd546b7a9b1250d8dd674ba04e2a7ef856effddd5279dc3a"
       }
     },
-    "zeno-velia-theatre": {
-      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Velia_Teatro_P1170100.JPG",
-      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Velia_Teatro_P1170100.JPG",
-      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Velia_Teatro_P1170100.JPG/1280px-Velia_Teatro_P1170100.JPG",
+    "leucippus-giordano": {
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Pinacoteca_Querini_Stampalia_-_Leucippus_-_Luca_Giordano.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Pinacoteca_Querini_Stampalia_-_Leucippus_-_Luca_Giordano.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Pinacoteca_Querini_Stampalia_-_Leucippus_-_Luca_Giordano.jpg/1280px-Pinacoteca_Querini_Stampalia_-_Leucippus_-_Luca_Giordano.jpg",
       "scene": {
-        "width": 640,
-        "height": 480,
-        "bytes": 58704,
-        "sha256": "f15baf0d0c414c4a2a875df30c9f5b5451e462d5bec50f28a879885e3d6d83d0"
-      },
-      "panel": {
-        "width": 1280,
-        "height": 960,
-        "bytes": 306622,
-        "sha256": "bac1a4d64e1be0e088c228afef87e170b573d6795362f61480783f3258b2e6e3"
-      }
-    },
-    "leucippus-lucretius-manuscript": {
-      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Lucretius,_De_rerum_natura.jpg",
-      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Lucretius%2C_De_rerum_natura.jpg",
-      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Lucretius%2C_De_rerum_natura.jpg",
-      "scene": {
-        "width": 423,
+        "width": 515,
         "height": 640,
-        "bytes": 70346,
-        "sha256": "53d5bb441dc84b0460ee3b45fe0ea208b34fd6cb86831ad0e4a64ca343146525"
+        "bytes": 43160,
+        "sha256": "4eb715a42283d292248a2ba35ba993b10367fb37182d5f86cc71d699da9d7157"
       },
       "panel": {
-        "width": 846,
+        "width": 1030,
         "height": 1280,
-        "bytes": 276052,
-        "sha256": "62eeb65d5a81b1954a63155bc44f544f6bf1023aed48a5e1784fbb6ddeb36558"
+        "bytes": 342974,
+        "sha256": "7aad13a981add1391475638fcc84785659ace713002139d0498892b8afca7d3a"
       }
     },
-    "democritus-abdera-site": {
-      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:20110914_Archeological_Site_of_Abdera_Xanthi_Thrace_Greece_Panorama_02.jpg",
-      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2d/20110914_Archeological_Site_of_Abdera_Xanthi_Thrace_Greece_Panorama_02.jpg",
-      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/20110914_Archeological_Site_of_Abdera_Xanthi_Thrace_Greece_Panorama_02.jpg/1280px-20110914_Archeological_Site_of_Abdera_Xanthi_Thrace_Greece_Panorama_02.jpg",
+    "democritus-velazquez": {
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Dem%C3%B3crito,_by_Diego_Vel%C3%A1zquez.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Dem%C3%B3crito%2C_by_Diego_Vel%C3%A1zquez.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Dem%C3%B3crito%2C_by_Diego_Vel%C3%A1zquez.jpg",
       "scene": {
-        "width": 640,
-        "height": 206,
-        "bytes": 41136,
-        "sha256": "9a5fbf079cade2d2a6b489220c996cdfa17289a983e61257a02b7596cde44ca5"
-      },
-      "panel": {
-        "width": 1280,
-        "height": 412,
-        "bytes": 220286,
-        "sha256": "74ecce59a63971b41acd3afccb51badccc6f5768880f52097972b275f9f8e2c9"
-      }
-    },
-    "heraclitus-ephesus-artemision": {
-      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Ruins_of_the_Temple_of_Artemis_at_Ephesus,_Selcuk,_Turkiye_(53520188237).jpg",
-      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/99/Ruins_of_the_Temple_of_Artemis_at_Ephesus%2C_Selcuk%2C_Turkiye_%2853520188237%29.jpg",
-      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Ruins_of_the_Temple_of_Artemis_at_Ephesus%2C_Selcuk%2C_Turkiye_%2853520188237%29.jpg/1280px-Ruins_of_the_Temple_of_Artemis_at_Ephesus%2C_Selcuk%2C_Turkiye_%2853520188237%29.jpg",
-      "scene": {
-        "width": 480,
+        "width": 499,
         "height": 640,
-        "bytes": 76266,
-        "sha256": "96c8a33f0ddfbb142cfa899ebbb94fe3bffbf26a98bfc2a428e24144851417bd"
+        "bytes": 35208,
+        "sha256": "7a487c75912308ee15b609a0154569f19f5443bfa876052a570b3f8e7360219d"
       },
       "panel": {
-        "width": 960,
+        "width": 936,
+        "height": 1200,
+        "bytes": 135392,
+        "sha256": "dea2805cfb85ad856245809e4b321449b4fa144889eba2969e70214291a5ddb8"
+      }
+    },
+    "heraclitus-va-bust": {
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Bust_of_Heraclitus_-_Victoria_and_Albert_Museum.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/07/Bust_of_Heraclitus_-_Victoria_and_Albert_Museum.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Bust_of_Heraclitus_-_Victoria_and_Albert_Museum.jpg/1280px-Bust_of_Heraclitus_-_Victoria_and_Albert_Museum.jpg",
+      "scene": {
+        "width": 640,
+        "height": 486,
+        "bytes": 53268,
+        "sha256": "bd6e4d726d76dee767e7813efba47f83c0dab58d2b637f6c319eba10cc26bac5"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 972,
+        "bytes": 236908,
+        "sha256": "4da22c60f4d48d5ab3414c4a1c5ee32fa573edebc700a4006b49ae06ac1a35b7"
+      }
+    },
+    "empedocles-met-print": {
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Empedocles,_standing_frontally_with_his_head_turned_in_three-quarter_view,_directs_his_gaze_toward_a_flame_(the_crater_of_Mount_Aetna%3F)_emerging_from_a_horizontal_ground_line,_a_walking_stick_leans_toward_the_right_margin_MET_DP829676.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Empedocles%2C_standing_frontally_with_his_head_turned_in_three-quarter_view%2C_directs_his_gaze_toward_a_flame_%28the_crater_of_Mount_Aetna%3F%29_emerging_from_a_horizontal_ground_line%2C_a_walking_stick_leans_toward_the_right_margin_MET_DP829676.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Empedocles%2C_standing_frontally_with_his_head_turned_in_three-quarter_view%2C_directs_his_gaze_toward_a_flame_%28the_crater_of_Mount_Aetna%3F%29_emerging_from_a_horizontal_ground_line%2C_a_walking_stick_leans_toward_the_right_margin_MET_DP829676.jpg/1280px-thumbnail.jpg",
+      "scene": {
+        "width": 409,
+        "height": 640,
+        "bytes": 56678,
+        "sha256": "9d5187196b6ae306780056e326954b591d0bcb7d5ae2b6903209c131162fc785"
+      },
+      "panel": {
+        "width": 818,
         "height": 1280,
-        "bytes": 451572,
-        "sha256": "6f5c40327b6f9a80e99a02f3dd89aa00e77065b282816eaa4c17443cb3f45f06"
+        "bytes": 405286,
+        "sha256": "f31e9b226efb890209637e25f6a7828b07bd3416280538691f80c24d28d44534"
       }
     },
-    "empedocles-akragas-temple": {
-      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Temple_of_Concordia,_Agrigento_BW_2012-10-07_13-09-13.jpg",
-      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Temple_of_Concordia%2C_Agrigento_BW_2012-10-07_13-09-13.jpg",
-      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Temple_of_Concordia%2C_Agrigento_BW_2012-10-07_13-09-13.jpg/1280px-Temple_of_Concordia%2C_Agrigento_BW_2012-10-07_13-09-13.jpg",
+    "anaxagoras-ribera": {
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Jose_de_Ribera_-_Anaxagoras.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/83/Jose_de_Ribera_-_Anaxagoras.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/8/83/Jose_de_Ribera_-_Anaxagoras.jpg",
       "scene": {
-        "width": 640,
-        "height": 433,
-        "bytes": 50294,
-        "sha256": "34b206d03420f6f331e011af384e73185caee7339aa1bc338b0dadda3d3e36c5"
+        "width": 494,
+        "height": 640,
+        "bytes": 31034,
+        "sha256": "c5dc64f8bee431d7c423addd01cbd7782a8d68eb0e81c7296720f206dd4f67ca"
       },
       "panel": {
-        "width": 1280,
-        "height": 866,
-        "bytes": 275916,
-        "sha256": "4db2b7b3fb2f41d4e6cbb73bf486ea33d2d3c73ac2ffebd1d2f25bd9986764e6"
+        "width": 700,
+        "height": 906,
+        "bytes": 85942,
+        "sha256": "a103fa9c940d6bccb750661323a1f47efd176d0ae87cd0ae7d2978c412c7da67"
       }
     },
-    "anaxagoras-klazomenai-sarcophagus": {
-      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Klazomenian_sarcophagus_-_Albertinum_Group_-_battle_scenes_-_chariot_race_-_horsemen_-_animals_-_London_BM_1896-0615-1_-_05.jpg",
-      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/78/Klazomenian_sarcophagus_-_Albertinum_Group_-_battle_scenes_-_chariot_race_-_horsemen_-_animals_-_London_BM_1896-0615-1_-_05.jpg",
-      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Klazomenian_sarcophagus_-_Albertinum_Group_-_battle_scenes_-_chariot_race_-_horsemen_-_animals_-_London_BM_1896-0615-1_-_05.jpg/1280px-Klazomenian_sarcophagus_-_Albertinum_Group_-_battle_scenes_-_chariot_race_-_horsemen_-_animals_-_London_BM_1896-0615-1_-_05.jpg",
+    "protagoras-ribera": {
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Ribera_-_Protagoras,_1637.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Ribera_-_Protagoras%2C_1637.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Ribera_-_Protagoras%2C_1637.jpg",
       "scene": {
-        "width": 640,
-        "height": 427,
-        "bytes": 88054,
-        "sha256": "6a86d6647e36f151fd0a7a911f6c836f0cf499989091fc29a54bf31776b8d911"
+        "width": 504,
+        "height": 640,
+        "bytes": 10390,
+        "sha256": "cdb90d927989d869ed65ccbe0e4294a585e5214b4f8d76ffb3cceadb79488172"
       },
       "panel": {
-        "width": 1280,
-        "height": 853,
-        "bytes": 390428,
-        "sha256": "3e0b333a40319da1d2d688a06a0d5c2400c5d5db825ccec63e3eead25a8612b6"
+        "width": 787,
+        "height": 1000,
+        "bytes": 44142,
+        "sha256": "ad819f7af453ebceb42899f00baf4d943ee3a12e7bd1d4c7202208d13619010a"
       }
     },
-    "protagoras-pnyx": {
-      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:The_Pnyx_plateau_on_23_September_2018.jpg",
-      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/da/The_Pnyx_plateau_on_23_September_2018.jpg",
-      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/The_Pnyx_plateau_on_23_September_2018.jpg/1280px-The_Pnyx_plateau_on_23_September_2018.jpg",
+    "gorgias-ortolani": {
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Gorgia_di_Leontini.png",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Gorgia_di_Leontini.png",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Gorgia_di_Leontini.png",
       "scene": {
-        "width": 640,
-        "height": 427,
-        "bytes": 52978,
-        "sha256": "c0d0419ce5ad39546806c423369c230d45278db8fc9cfefb2a82f392a55441bf"
+        "width": 524,
+        "height": 640,
+        "bytes": 100734,
+        "sha256": "b325904a4cc1fe0d224c4867d473c3d3589d0d982a9356fda2b8728c7a7a26ed"
       },
       "panel": {
-        "width": 1280,
-        "height": 853,
-        "bytes": 299286,
-        "sha256": "e581d4beb21bfbde7e1a19adb778e44679f1c39dcc4c58a525a458934e2554ec"
+        "width": 777,
+        "height": 949,
+        "bytes": 219904,
+        "sha256": "afebabb10ae4d1dbcc00bdaf5fb157316e617a4cdbbc3e32783ac05d98742294"
       }
     },
-    "gorgias-leontinoi-tetradrachm": {
-      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Silver_tetradrachm,_Leontinoi,_450-440_BC.jpg",
-      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Silver_tetradrachm%2C_Leontinoi%2C_450-440_BC.jpg",
-      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Silver_tetradrachm%2C_Leontinoi%2C_450-440_BC.jpg",
+    "platonism-academy-mosaic": {
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:MANNapoli_124545_plato%27s_academy_mosaic.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/50/MANNapoli_124545_plato%27s_academy_mosaic.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/MANNapoli_124545_plato%27s_academy_mosaic.jpg/1280px-MANNapoli_124545_plato%27s_academy_mosaic.jpg",
       "scene": {
-        "width": 640,
-        "height": 310,
-        "bytes": 49670,
-        "sha256": "0952dd529114c75fa76af3721e0ac0e9a3c70abf29f6cfad02bdaedb9637fc80"
+        "width": 627,
+        "height": 640,
+        "bytes": 146054,
+        "sha256": "4d9eb2bf0156d9cd40b7f6bee40e3207456625b2303619d94ee56b0d8bdebcfb"
       },
       "panel": {
-        "width": 800,
-        "height": 388,
-        "bytes": 96510,
-        "sha256": "e3945588d82413f28201fbf8c1347990bdc21c1ed9b2dca85844ac85520b708c"
+        "width": 1255,
+        "height": 1280,
+        "bytes": 555772,
+        "sha256": "5c0d53cf6d0ae524cb19bbcf0dbd86abb71543e1d17d391ccb5bf49095a7e6ce"
       }
     },
-    "platonism-academy-site": {
-      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Athens_Plato_Academy_Archaeological_Site_2.jpg",
-      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/20/Athens_Plato_Academy_Archaeological_Site_2.jpg",
-      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Athens_Plato_Academy_Archaeological_Site_2.jpg/1280px-Athens_Plato_Academy_Archaeological_Site_2.jpg",
+    "aristotelianism-walters-teaching": {
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Yadkar_al-Katib_-_Aristotle_Teaching_his_Students_-_Walters_W607268B_-_Full_Page.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a1/Yadkar_al-Katib_-_Aristotle_Teaching_his_Students_-_Walters_W607268B_-_Full_Page.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a1/Yadkar_al-Katib_-_Aristotle_Teaching_his_Students_-_Walters_W607268B_-_Full_Page.jpg",
       "scene": {
-        "width": 640,
-        "height": 478,
-        "bytes": 80764,
-        "sha256": "0d39a620e58812c08990dc3a407b5d694d280122c541a7848238293f5d660373"
+        "width": 373,
+        "height": 640,
+        "bytes": 51036,
+        "sha256": "1e0408ce60224936c340ef65166ff5a7bc1f3630c1f3e914baff54e39ee51674"
       },
       "panel": {
-        "width": 1280,
-        "height": 955,
-        "bytes": 438450,
-        "sha256": "a99839b3871fbf0defdcf49516a4bb3d3afed035fc6dd0e3a3fb876fef08569e"
-      }
-    },
-    "aristotelianism-lyceum-site": {
-      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Remains_of_the_Lyceum_of_Aristotle_on_25_September_2018.jpg",
-      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/66/Remains_of_the_Lyceum_of_Aristotle_on_25_September_2018.jpg",
-      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Remains_of_the_Lyceum_of_Aristotle_on_25_September_2018.jpg/1280px-Remains_of_the_Lyceum_of_Aristotle_on_25_September_2018.jpg",
-      "scene": {
-        "width": 640,
-        "height": 427,
-        "bytes": 50438,
-        "sha256": "29a5ee2a077022a882431cbd70b2ec699f525fa48ed55b1dbdb2e926d9f934fc"
-      },
-      "panel": {
-        "width": 1280,
-        "height": 853,
-        "bytes": 295122,
-        "sha256": "503f2f70a4d97f8a0e09d795464bfded18f13552f006f675bc7ca146f3ae95c7"
+        "width": 746,
+        "height": 1280,
+        "bytes": 227784,
+        "sha256": "fbc1202b04ac12be71b62e00910f0120d65f3a12861caa4ff2ed3587d8c6f9a7"
       }
     }
   }

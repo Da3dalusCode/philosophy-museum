@@ -264,8 +264,8 @@ check('the public catalog is exactly the canonical six-hall, 29-room, 59-exhibit
   assert.equal(MUSEUM_HALLS.reduce((sum, hall) => sum + hall.zones.length, 0), 29);
   assert.equal(MUSEUM_HALLS.reduce((sum, hall) => sum + hall.exhibits.length, 0), 59);
   assert.deepEqual(MUSEUM_LIVE_PROGRAM_TOTALS.tierCounts, {
-    'anchor-exhibit': 30,
-    'standard-individual-exhibit': 25,
+    'anchor-exhibit': 32,
+    'standard-individual-exhibit': 23,
     'supporting-exhibit': 3,
     'thematic-cluster-participant': 0,
     'gallery-archive-or-study-wall-record': 1,
@@ -340,8 +340,14 @@ check('Gallery 01 has bounded authored curation, visitor-facing orientation, and
   assert.match(mediterraneanCurationSource, /createFrontTexture/u, 'Gallery 01 opening installation has no front-side story');
   assert.match(mediterraneanCurationSource, /createBackTexture/u, 'Gallery 01 opening installation duplicates its front on the back');
   assert.equal([...mediterraneanCurationSource.matchAll(/<MuseumSceneMedia\b/gu)].length, 2, 'Gallery 01 opening installation must retain two local source-image mounts');
-  assert.match(architectureSource, /MediterraneanSignRear/u, 'Gallery 01 sign backs are not visitor-facing wayfinding');
+  assert.doesNotMatch(
+    architectureSource,
+    /MediterraneanSignRear|Continue through Gallery 01|Return to the Museum Ring/u,
+    'Gallery 01 sign backs regressed to full-wall route slogans',
+  );
   assert.equal(definition.layout.signs.length, 5, 'Gallery 01 must retain one entrance and four room signs');
+  const entranceSign = definition.layout.signs.find(({kind}) => kind === 'entrance');
+  assert(entranceSign && entranceSign.width === 3.4 && entranceSign.height === .7, 'Gallery 01 entrance sign returned to its oversized treatment');
   const gallery01NaturalApproachZ = [-27.2, -13.2, .8, 14.8];
   for (const [index, view] of definition.layout.entryViews.entries()) {
     const cell = definition.layout.spatialCells.find(({id}) => id === view.spatialCellId);
@@ -1006,8 +1012,9 @@ check('sessions, walking pace, readiness, and travel contexts remain safe and ha
   }
   const identitySign = orientationDefinition.layout.signs.find(({kind}) => kind === 'entrance');
   assert(identitySign, 'Gallery 01 has no entrance identity sign');
-  assert.equal(identitySign.title, 'Philosophy Atlas Museum');
-  assert.match(identitySign.kicker, /Gallery 01 · Mediterranean Beginnings/u);
+  assert.equal(identitySign.title, 'Gallery 01');
+  assert.equal(identitySign.kicker, 'Mediterranean Beginnings');
+  assert.match(identitySign.subtitle, /Miletus → Athens/u);
   const spawnForward = {
     x: -Math.sin(orientationDefinition.layout.spawn.yaw),
     z: -Math.cos(orientationDefinition.layout.spawn.yaw),

@@ -9,6 +9,9 @@ import type {MuseumAssetId} from '../../data/museum/museumAssetTypes';
 import type {MuseumMediaMountDefinition, MuseumSceneVolume} from '../../data/museum/museumWorldTypes';
 import {MuseumSceneMedia} from './MuseumSceneMedia';
 
+const ORIENTATION_DESIGN_WIDTH = 1024;
+const ORIENTATION_DESIGN_HEIGHT = 512;
+
 const drawWrapped = (
   context: CanvasRenderingContext2D,
   text: string,
@@ -38,16 +41,25 @@ const canvasTexture = (name: string, draw: (context: CanvasRenderingContext2D) =
   canvas.height = MUSEUM_TEXTURE_SPECS.mediterraneanOrientation.height;
   const context = canvas.getContext('2d');
   if (!context) throw new Error(`Unable to create the Gallery 01 ${name} display.`);
-  const gradient = context.createLinearGradient(0, 0, canvas.width, canvas.height);
+  context.scale(
+    canvas.width / ORIENTATION_DESIGN_WIDTH,
+    canvas.height / ORIENTATION_DESIGN_HEIGHT,
+  );
+  const gradient = context.createLinearGradient(
+    0,
+    0,
+    ORIENTATION_DESIGN_WIDTH,
+    ORIENTATION_DESIGN_HEIGHT,
+  );
   gradient.addColorStop(0, '#f5ecdc');
   gradient.addColorStop(.62, '#e9dcc5');
   gradient.addColorStop(1, '#d8c29e');
   context.fillStyle = gradient;
-  context.fillRect(0, 0, canvas.width, canvas.height);
+  context.fillRect(0, 0, ORIENTATION_DESIGN_WIDTH, ORIENTATION_DESIGN_HEIGHT);
   context.fillStyle = MEDITERRANEAN_PALETTE.terracotta;
-  context.fillRect(0, 0, 18, canvas.height);
+  context.fillRect(0, 0, 18, ORIENTATION_DESIGN_HEIGHT);
   context.fillStyle = MEDITERRANEAN_PALETTE.aegean;
-  context.fillRect(18, 0, 7, canvas.height);
+  context.fillRect(18, 0, 7, ORIENTATION_DESIGN_HEIGHT);
   draw(context);
   const texture = new CanvasTexture(canvas);
   texture.colorSpace = SRGBColorSpace;
@@ -65,9 +77,9 @@ const createFrontTexture = (): CanvasTexture => canvasTexture('front', (context)
   context.fillText('GALLERY 01 · THE OPENING MOVE', 52, 44);
 
   context.fillStyle = MEDITERRANEAN_PALETTE.ink;
-  context.font = '700 47px Georgia, serif';
+  context.font = '700 44px Georgia, serif';
   context.letterSpacing = '0px';
-  context.fillText('Could nature explain nature?', 52, 102);
+  drawWrapped(context, 'Could nature explain nature?', 52, 102, 515, 48);
 
   context.fillStyle = '#544d43';
   context.font = '500 19px system-ui, sans-serif';
@@ -75,7 +87,7 @@ const createFrontTexture = (): CanvasTexture => canvasTexture('front', (context)
     context,
     'Before the familiar names, begin with a new kind of move: ask whether a changing world can be explained from within nature itself.',
     54,
-    142,
+    174,
     515,
     25,
   );
@@ -83,14 +95,14 @@ const createFrontTexture = (): CanvasTexture => canvasTexture('front', (context)
   context.fillStyle = MEDITERRANEAN_PALETTE.aegean;
   context.font = '700 14px system-ui, sans-serif';
   context.letterSpacing = '1px';
-  context.fillText('THREE THINGS TO WATCH FOR', 54, 237);
+  context.fillText('THREE THINGS TO WATCH FOR', 54, 255);
   const moves = [
     ['01', 'A natural starting point'],
     ['02', 'A process that explains change'],
     ['03', 'Answers tested against other answers'],
   ];
   moves.forEach(([number, label], index) => {
-    const y = 278 + index * 48;
+    const y = 294 + index * 46;
     context.fillStyle = index === 1 ? MEDITERRANEAN_PALETTE.ochre : MEDITERRANEAN_PALETTE.terracotta;
     context.font = '700 22px Georgia, serif';
     context.fillText(number, 54, y);
@@ -102,12 +114,12 @@ const createFrontTexture = (): CanvasTexture => canvasTexture('front', (context)
   context.fillStyle = MEDITERRANEAN_PALETTE.aegean;
   context.font = '700 13px system-ui, sans-serif';
   context.letterSpacing = '1px';
-  context.fillText('MILETUS · A REAL, LAYERED PLACE', 625, 64);
+  context.fillText('THALES · A LATER IMAGINED FACE', 625, 64);
   context.fillStyle = '#5d554a';
   context.font = '500 14px system-ui, sans-serif';
   drawWrapped(
     context,
-    'The surviving city is later and incomplete. It gives the questions a place without pretending to illustrate the ideas.',
+    'A sixteenth-century print gives Thales a conventional face. It is reception history, not a surviving likeness.',
     626,
     92,
     330,
@@ -115,14 +127,14 @@ const createFrontTexture = (): CanvasTexture => canvasTexture('front', (context)
   );
 
   context.fillStyle = '#c46c48';
-  context.fillRect(42, 428, 940, 58);
+  context.fillRect(42, 442, 940, 50);
   context.fillStyle = '#fff7ea';
   context.font = '700 13px system-ui, sans-serif';
   context.letterSpacing = '1px';
-  context.fillText('THREE CHANGING ANSWERS', 62, 451);
-  context.font = '600 21px Georgia, serif';
+  context.fillText('THREE CHANGING ANSWERS', 62, 462);
+  context.font = '600 19px Georgia, serif';
   context.letterSpacing = '0px';
-  context.fillText('Thales  →  Anaximander  →  Anaximenes', 62, 477);
+  context.fillText('Thales  →  Anaximander  →  Anaximenes', 62, 484);
 });
 
 const createBackTexture = (): CanvasTexture => canvasTexture('back', (context) => {
@@ -214,11 +226,11 @@ const orientationMount = (
 
 const FRONT_MEDIA = orientationMount(
   'mediterranean-orientation-miletus',
-  'thales-miletus-theatre',
-  [1.34, 1.5, .14],
+  'thales-promptuarii-portrait',
+  [1.58, 1.5, .14],
   [0, 0, 0],
-  2.38,
-  .73,
+  1.5,
+  1.5,
 );
 
 const BACK_MEDIA = orientationMount(

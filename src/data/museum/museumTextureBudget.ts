@@ -173,7 +173,7 @@ const generatedHallSpecs = (hallId: MuseumHallId): readonly MuseumDecodedTexture
 };
 
 const MEDITERRANEAN_ORIENTATION_ASSET_IDS = [
-  'thales-miletus-theatre',
+  'thales-promptuarii-portrait',
   'ancient-greek-colonization-map',
 ] as const;
 

@@ -2,6 +2,7 @@ import type {ThreeEvent} from '@react-three/fiber';
 import {MUSEUM_BUILDING_MANIFEST} from '../../data/museum/museumBuildingManifest';
 import {
   MUSEUM_CIRCULATION_NODES,
+  MUSEUM_RUNTIME_NODES,
   getMuseumReservationBarrierBody,
   getMuseumRuntimeNode,
 } from '../../data/museum/museumBuildingRuntime';
@@ -29,12 +30,72 @@ const SIGN_REAR = '#d8d2c7';
 const GALLERY_WALL = '#eeeae2';
 const GALLERY_WALL_EDGE = '#d9d4ca';
 const OUTER_01_NODE_ID = 'corridor:outer-01-mediterranean-renaissance';
-const OUTER_01_COPLANAR_ARCHITECTURE_IDS = new Set([
-  `${OUTER_01_NODE_ID}:lintel:3`,
-  `${OUTER_01_NODE_ID}:lintel:19`,
-  `${OUTER_01_NODE_ID}:wall:10`,
-  `${OUTER_01_NODE_ID}:wall:11`,
-]);
+
+type WorldWallPlane = {
+  axis: 'x' | 'z';
+  coordinate: number;
+  start: number;
+  end: number;
+  bottom: number;
+  top: number;
+};
+
+const worldWallPlane = (
+  node: MuseumRuntimeNodeDefinition,
+  wall: MuseumWallDefinition,
+): WorldWallPlane => {
+  const yaw = node.worldTransform.yaw;
+  const cosine = Math.cos(yaw);
+  const sine = Math.sin(yaw);
+  const centerX = node.worldTransform.x + cosine * wall.center.x + sine * wall.center.z;
+  const centerZ = node.worldTransform.z - sine * wall.center.x + cosine * wall.center.z;
+  const directionX = Math.cos(wall.rotation + yaw);
+  const directionZ = -Math.sin(wall.rotation + yaw);
+  const halfRun = wall.size.width / 2;
+  const firstX = centerX - directionX * halfRun;
+  const secondX = centerX + directionX * halfRun;
+  const firstZ = centerZ - directionZ * halfRun;
+  const secondZ = centerZ + directionZ * halfRun;
+  const bottom = wall.bottom ?? 0;
+  return Math.abs(directionX) >= Math.abs(directionZ)
+    ? {
+        axis: 'x',
+        coordinate: centerZ,
+        start: Math.min(firstX, secondX),
+        end: Math.max(firstX, secondX),
+        bottom,
+        top: bottom + wall.height,
+      }
+    : {
+        axis: 'z',
+        coordinate: centerX,
+        start: Math.min(firstZ, secondZ),
+        end: Math.max(firstZ, secondZ),
+        bottom,
+        top: bottom + wall.height,
+      };
+};
+
+const sameWallPlane = (first: WorldWallPlane, second: WorldWallPlane): boolean => {
+  const epsilon = .012;
+  return first.axis === second.axis
+    && Math.abs(first.coordinate - second.coordinate) <= epsilon
+    && Math.abs(first.start - second.start) <= epsilon
+    && Math.abs(first.end - second.end) <= epsilon
+    && Math.abs(first.bottom - second.bottom) <= epsilon
+    && Math.abs(first.top - second.top) <= epsilon;
+};
+
+const isHallOwnedSeamSurface = (
+  node: MuseumRuntimeNodeDefinition,
+  wall: MuseumWallDefinition,
+): boolean => {
+  const candidate = worldWallPlane(node, wall);
+  return MUSEUM_RUNTIME_NODES
+    .filter(({kind}) => kind === 'hall')
+    .some((hall) => (hall.architectureWalls ?? hall.layout.wallColliders)
+      .some((hallWall) => sameWallPlane(candidate, worldWallPlane(hall, hallWall))));
+};
 
 function StructuralCell({cell, forum}: {cell: MuseumSpatialCell; forum: boolean}) {
   const renderBounds = cell.renderBounds ?? cell.bounds;
@@ -176,7 +237,9 @@ function CirculationNode({node}: {node: MuseumRuntimeNodeDefinition}) {
   const forum = false;
   const outer01 = node.id === OUTER_01_NODE_ID;
   const architectureWalls = (node.architectureWalls ?? node.layout.wallColliders)
-    .filter(({id}) => !outer01 || !OUTER_01_COPLANAR_ARCHITECTURE_IDS.has(id));
+    // Hall shells own exact seam matches. Rendering the connector copy in the
+    // same plane causes depth fighting while leaving collision geometry intact.
+    .filter((wall) => !outer01 || !isHallOwnedSeamSurface(node, wall));
   const entranceCell = node.id === MUSEUM_BUILDING_MANIFEST.mainEntrance.nodeId
     ? node.layout.spatialCells.find(({id}) => id.endsWith(':orientation-court'))
     : undefined;

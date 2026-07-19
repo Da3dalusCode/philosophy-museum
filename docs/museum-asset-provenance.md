@@ -27,29 +27,29 @@ The live roster reuses reviewed legacy media when the same philosopher remains i
 | Jiddu Krishnamurti | 1920s Bain News Service lifetime photograph | Library of Congress Bain Collection; no known copyright restrictions. The 1920s date follows the reviewed Commons record because the Library of Congress caption card records no date. |
 | Jiddu Krishnamurti with Annie Besant | Agence Rol photograph aboard the *Pacific*, March 1927 | Bibliothèque nationale de France, Rol 118226 / EI-13 (1421); public domain in France and the United States. It documents Theosophical formation, not mature allegiance. |
 
-## Gallery 01 · second visual-curation source set
+## Gallery 01 · corrected visual-curation source set
 
-The Gallery 01 pass adds one reviewed, provenance-backed object or place image for each formerly diagram-only exhibit. These sources are contextual anchors, not claims that a site literally illustrates an argument or that a later image is an authenticated likeness.
+Gallery 01 gives every exhibit a reviewed, provenance-backed image. The corrected set favors visually legible works with real interpretive value while labeling later portraits and reception scenes honestly; none is presented as an authenticated ancient likeness.
 
 | Exhibit | Local source object | Essential caveat |
 | --- | --- | --- |
 | Ancient Greek Philosophy | Modern map of Archaic Greek settlement networks | A schematic geographic orientation, not an ancient map or fixed cultural border. |
-| Thales | Theatre at Miletus | The surviving theatre has later phases and gives place context, not evidence for Thales. |
+| Thales | 1553 portrait from Rouillé’s *Promptuarii Iconum Insigniorum* | A Renaissance conventional portrait, produced roughly two millennia after Thales. |
 | Anaximander | Modern reconstruction of the lost world map | Hypothetical reconstruction assembled from later reports, not Anaximander’s drawing. |
-| Anaximenes | Archaeological landscape of Miletus | Layered remains later than Anaximenes; no illustration of air, compression, or rarefaction. |
+| Anaximenes | Later conventional portrait in the Bibliothèque nationale de France | No authenticated likeness survives; the print records later reception. |
 | Pythagoras | Raphael’s Pythagoras with ratio tablet | Renaissance reception art and an imagined figure, not a portrait or classroom record. |
-| Philolaus | Fifth-century BCE red-figure lekythos with lyre | Near-contemporary musical material culture, not Philolaus’s property or cosmology. |
-| Parmenides | Porta Rosa at Elea–Velia | The surviving gate is later than Parmenides and supplies place context only. |
-| Zeno of Elea | Theatre precinct at Elea–Velia | A layered civic site, not evidence for a performance or staging of the paradoxes. |
-| Leucippus | 1483 manuscript of Lucretius, *De rerum natura* | Much later transmission of ancient atomism; no Leucippus text securely survives. |
-| Democritus | Archaeological site of Abdera | Geographic and civic context, not a picture of atoms or void. |
-| Heraclitus | Artemision ruins at Ephesus | Reconstructed and later layers; context for Ephesus, not evidence about Heraclitus’s book. |
-| Empedocles | Fifth-century BCE Temple of Concordia at Akragas | Near-contemporary civic context; the conventional temple name is modern. |
-| Anaxagoras | Klazomenian painted sarcophagus | Material from his home region, not his property, portrait, or an image of ordering mind. |
-| Protagoras | Pnyx assembly place in Athens | Civic-speech context, not documentation of a particular Protagoras speech. |
-| Gorgias | Silver tetradrachm of Leontinoi | A city object from his lifetime; Apollo, not Gorgias, appears on the coin. |
-| Platonism | Archaeological site of Plato’s Academy | Layered remains, not a reconstruction of Plato’s school or a fixed image of Platonism. |
-| Aristotelianism | Excavated Lyceum site in Athens | Principally palaestra remains, not a reconstruction of Aristotle’s teaching spaces. |
+| Philolaus | 1492 woodcut of Pythagoras and Philolaus with musical pipes | A Renaissance reception scene, not an ancient experiment or likeness. |
+| Parmenides | Figure traditionally identified in Raphael’s *School of Athens* | The identification is conventional and disputed; the figure is imagined. |
+| Zeno of Elea | Bernard Picart’s 1699 portrait print | A much later conventional portrait, not an authenticated likeness. |
+| Leucippus | Luca Giordano’s 1652–1653 painting | Baroque reception portraiture, not evidence for Leucippus’s appearance. |
+| Democritus | Velázquez’s *Democritus* | A Baroque interpretation of the “laughing philosopher” tradition. |
+| Heraclitus | Eighteenth-century Venetian bust in the V&A | A later traditional representation, not an ancient portrait. |
+| Empedocles | René Boyvin’s sixteenth-century Etna print | Visualizes a legendary death story rather than a documented event. |
+| Anaxagoras | Jusepe de Ribera’s 1636 painting | A Baroque imagined philosopher portrait. |
+| Protagoras | Jusepe de Ribera’s 1637 painting | A Baroque imagined philosopher portrait, not a likeness made from life. |
+| Gorgias | 1818 illustration from *Biografia degli Uomini Illustri della Sicilia* | Records later Sicilian commemoration, not Gorgias’s appearance. |
+| Platonism | Roman mosaic conventionally called Plato’s Academy | A later reception image with a conventional identification, not a literal view of the Academy. |
+| Aristotelianism | Persian manuscript image of Aristotle teaching | A long afterlife of Aristotle in Persianate visual culture, not his historical classroom. |
 
 The tables below preserve the 96-object Phase 2 registry. They remain useful provenance records even when a former installation is no longer a live primary exhibit.
 

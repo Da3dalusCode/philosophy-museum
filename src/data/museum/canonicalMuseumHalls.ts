@@ -741,13 +741,13 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
         {
           id: `${hall.id}:entrance-sign`,
           kind: 'entrance' as const,
-          title: 'Philosophy Atlas Museum',
-          kicker: 'Gallery 01 · Mediterranean Beginnings',
-          subtitle: 'Begin with Miletus · Socrates, Plato, and Aristotle are ahead',
+          title: 'Gallery 01',
+          kicker: 'Mediterranean Beginnings',
+          subtitle: 'Miletus → Athens · c. 600–300 BCE',
           position: {x: 0, y: 4.35, z: -18.2},
           rotationY: Math.PI,
-          width: 5.6,
-          height: 1.15,
+          width: 3.4,
+          height: .7,
         },
         ...orderedRooms.map((room, index) => {
           const copy = MEDITERRANEAN_ROOM_SIGN_COPY[room.id as keyof typeof MEDITERRANEAN_ROOM_SIGN_COPY];
@@ -760,15 +760,18 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
             kicker: copy.kicker,
             subtitle: copy.subtitle,
             position: {
-              x: index === 0 ? 6 : -6,
+              x: room.id === 'med-sophists-socratic' ? 0 : index === 0 ? 6 : -6,
               y: 2.25,
-              z: index === 0 ? bounds.maxZ + .22 : bounds.minZ + .22,
+              z: room.id === 'med-sophists-socratic'
+                ? bounds.maxZ - .22
+                : index === 0 ? bounds.maxZ + .22 : bounds.minZ + .22,
             },
-            // Room 01 and Room 02 share a threshold: Room 01 addresses the
-            // returning route while Rooms 02–04 address the authored route.
-            rotationY: index === 0 ? 0 : Math.PI,
-            width: 4.45,
-            height: .98,
+            // Room 03 uses its far wall so the small three-installation room
+            // reads as a composed destination. The other signs face the
+            // authored chronological route at their thresholds.
+            rotationY: room.id === 'med-sophists-socratic' ? Math.PI : index === 0 ? 0 : Math.PI,
+            width: room.id === 'med-sophists-socratic' ? 4.3 : 3.9,
+            height: .88,
           };
         }),
       ]
