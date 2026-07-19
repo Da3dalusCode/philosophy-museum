@@ -13,6 +13,7 @@ export type PlaqueTextureOptions = {
   accent?: string;
   width?: number;
   height?: number;
+  theme?: 'dark' | 'mediterranean';
 };
 
 export type PlaqueSafeRect = {
@@ -228,6 +229,7 @@ export const layoutPlaqueText = (
     accent = '#b88b4a',
     width = MUSEUM_TEXTURE_SPECS.plaque.width,
     height = MUSEUM_TEXTURE_SPECS.plaque.height,
+    theme = 'dark',
   }: PlaqueTextureOptions,
 ): PlaqueTextLayout => {
   context.textAlign = 'left';
@@ -257,7 +259,7 @@ export const layoutPlaqueText = (
       role: 'title',
       weight: 600,
       family: 'Georgia, serif',
-      color: '#f3ead8',
+      color: theme === 'mediterranean' ? '#17313a' : '#f3ead8',
       startingSize: Math.min(68, Math.max(28, height * .255)),
       minimumSize: Math.min(24, Math.max(19, height * .15)),
       maxLines: plaqueSupportedTitleLines(width, height),
@@ -266,7 +268,7 @@ export const layoutPlaqueText = (
       role: 'subtitle',
       weight: 400,
       family: 'system-ui, sans-serif',
-      color: '#c7bda9',
+      color: theme === 'mediterranean' ? '#5e5549' : '#c7bda9',
       startingSize: Math.min(27, Math.max(14, height * .1)),
       minimumSize: Math.min(13, Math.max(10, height * .075)),
       maxLines: plaqueSupportedSubtitleLines(width, height),
@@ -344,6 +346,7 @@ export const createPlaqueTexture = ({
   accent = '#b88b4a',
   width = MUSEUM_TEXTURE_SPECS.plaque.width,
   height = MUSEUM_TEXTURE_SPECS.plaque.height,
+  theme = 'dark',
 }: PlaqueTextureOptions): CanvasTexture => {
   const canvas = document.createElement('canvas');
   canvas.width = width;
@@ -352,22 +355,22 @@ export const createPlaqueTexture = ({
   if (!context) throw new Error(`Unable to create the local plaque for ${title}.`);
 
   const gradient = context.createLinearGradient(0, 0, width, height);
-  gradient.addColorStop(0, '#171713');
-  gradient.addColorStop(1, '#29251d');
+  gradient.addColorStop(0, theme === 'mediterranean' ? '#f4ead9' : '#171713');
+  gradient.addColorStop(1, theme === 'mediterranean' ? '#d9c7aa' : '#29251d');
   context.fillStyle = gradient;
   context.fillRect(0, 0, width, height);
 
   const shortEdge = Math.min(width, height);
   const outerInset = Math.max(5, Math.round(shortEdge * .04));
   const innerInset = Math.max(10, Math.round(shortEdge * .09));
-  context.strokeStyle = '#8a7656';
+  context.strokeStyle = theme === 'mediterranean' ? '#a95339' : '#8a7656';
   context.lineWidth = Math.max(2, Math.round(shortEdge * .025));
   context.strokeRect(outerInset, outerInset, width - outerInset * 2, height - outerInset * 2);
   context.strokeStyle = accent;
   context.lineWidth = Math.max(1, Math.round(shortEdge * .011));
   context.strokeRect(innerInset, innerInset, width - innerInset * 2, height - innerInset * 2);
 
-  const layout = layoutPlaqueText(context, {title, kicker, subtitle, accent, width, height});
+  const layout = layoutPlaqueText(context, {title, kicker, subtitle, accent, width, height, theme});
   for (const line of layout.lines) {
     context.fillStyle = line.color;
     context.font = line.font;
@@ -388,10 +391,10 @@ export const createPlaqueTexture = ({
 };
 
 export const usePlaqueTexture = (options: PlaqueTextureOptions): CanvasTexture => {
-  const {title, kicker, subtitle, accent, width, height} = options;
+  const {title, kicker, subtitle, accent, width, height, theme} = options;
   const texture = useMemo(
-    () => createPlaqueTexture({title, kicker, subtitle, accent, width, height}),
-    [accent, height, kicker, subtitle, title, width],
+    () => createPlaqueTexture({title, kicker, subtitle, accent, width, height, theme}),
+    [accent, height, kicker, subtitle, theme, title, width],
   );
   useEffect(() => () => texture.dispose(), [texture]);
   return texture;

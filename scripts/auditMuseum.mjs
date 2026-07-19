@@ -19,6 +19,7 @@ const architectureSource = source('src/components/MuseumGallery/ContemporaryHall
 const canonicalSceneSource = source('src/components/MuseumGallery/CanonicalMuseumHallScene.tsx');
 const canonicalExhibitsSource = source('src/components/MuseumGallery/CanonicalMuseumExhibits.tsx');
 const mediterraneanMediaSource = source('src/components/MuseumGallery/MediterraneanExhibitMedia.tsx');
+const mediterraneanCurationSource = source('src/components/MuseumGallery/MediterraneanGalleryCuration.tsx');
 const interpretationPanelSource = source('src/components/MuseumGallery/MuseumInterpretationPanel.tsx');
 const visitorMapSource = source('src/components/MuseumGallery/MuseumVisitorMap.tsx');
 const compatibilitySource = source('src/components/MuseumGallery/MuseumCompatibilityPage.tsx');
@@ -68,7 +69,13 @@ const result = await build({
 const outputs = (Array.isArray(result) ? result : [result]).flatMap(({output}) => output);
 const entry = outputs.find((item) => item.type === 'chunk' && item.isEntry);
 assert(entry, 'Vite did not produce an executable canonical Museum audit entry.');
-const museum = await import(`data:text/javascript;base64,${Buffer.from(entry.code).toString('base64')}`);
+let museum;
+try {
+  museum = await import(`data:text/javascript;base64,${Buffer.from(entry.code).toString('base64')}`);
+} catch (error) {
+  console.error(`Museum audit module initialization failed: ${error instanceof Error ? error.message : String(error)}`);
+  process.exit(1);
+}
 
 const {
   MUSEUM_ASSETS,
@@ -295,17 +302,13 @@ check('Gallery 01 has bounded authored curation, visitor-facing orientation, and
     assert([curation.authored.x, curation.authored.z, curation.authored.rotationY].every(Number.isFinite), `${id} has an invalid authored placement`);
     assert(curation.publicKicker.trim().length >= 12, `${id} lacks visitor-facing context`);
     assert(curation.groupLabel.trim().length >= 8 && curation.visualKind.trim(), `${id} lacks an interpretive visual grouping`);
-    const hasProvenanceMedia = layout.scene.mediaMounts.length > 0;
-    const hasGeneratedMedia = Boolean(curation.generatedMedia?.title.trim() && curation.generatedMedia?.caption.trim());
-    assert(hasProvenanceMedia || hasGeneratedMedia, `${id} has no visible physical image or authored media panel`);
-    if (hasProvenanceMedia) assert(!hasGeneratedMedia, `${id} should be composed around its provenance-backed imagery instead of a duplicate generated panel`);
-    if (hasGeneratedMedia) {
-      assert(curation.generatedMedia.title.trim().length >= 12, `${id} generated media has no meaningful title`);
-      assert(curation.generatedMedia.caption.trim().length >= 48, `${id} generated media lacks explanatory context`);
-    }
+    assert(layout.scene.mediaMounts.length > 0, `${id} has no provenance-backed physical image`);
+    assert(!('generatedMedia' in curation), `${id} still substitutes a generated diagram for sourced media`);
   }
-  assert.equal(definition.layout.exhibits.filter(({scene}) => scene.mediaMounts.length > 0).length, 3, 'Gallery 01 provenance-backed scene-media count changed');
-  assert.equal(curationEntries.filter(([, curation]) => curation.generatedMedia).length, 17, 'Gallery 01 generated-media coverage changed');
+  assert.equal(definition.layout.exhibits.filter(({scene}) => scene.mediaMounts.length > 0).length, 20, 'Every Gallery 01 exhibit must retain provenance-backed scene media');
+  assert.equal(definition.layout.exhibits.reduce((sum, {scene}) => sum + scene.mediaMounts.length, 0), 23, 'Gallery 01 media-placement count changed');
+  assert.equal(curationEntries.filter(([, curation]) => curation.frontTitle).length, 4, 'Gallery 01 question-first hierarchy changed');
+  assert.deepEqual(MEDITERRANEAN_EXHIBIT_CURATION.anaxagoras.authored, {x: -5.8, z: -1.15, rotationY: Math.PI}, 'Anaxagoras returned to the crowded side-wall sightline');
 
   const kiosk = definition.layout.furnishings.find(({id}) => id === MUSEUM_VISITOR_MAP_KIOSK.id);
   const orientation = definition.layout.furnishings.find(({id}) => id === MEDITERRANEAN_ORIENTATION_DISPLAY.id);
@@ -329,11 +332,24 @@ check('Gallery 01 has bounded authored curation, visitor-facing orientation, and
   assert.doesNotMatch(interpretationPanelSource, /content\.tier\.replaceAll/u, 'The interpretation panel exposes internal exhibit tiers');
   for (const interpretation of MUSEUM_INTERPRETATIONS) assert.doesNotMatch(interpretation.lead, forbiddenPublicLabels, `${interpretation.hallId}/${interpretation.id} lead exposes internal presentation language`);
   assert.match(canonicalSceneSource, /<MediterraneanGalleryCuration\/>/u, 'Gallery 01 does not render its authored orientation display');
-  assert.match(canonicalExhibitsSource, /<MediterraneanExhibitMedia/u, 'Gallery 01 generated media is not mounted on its physical exhibits');
-  assert.match(canonicalExhibitsSource, /layout\.scene\.mediaMounts\.length === 0/u, 'Gallery 01 generated media does not yield to provenance-backed scene imagery');
+  assert.doesNotMatch(canonicalExhibitsSource, /MediterraneanExhibitMedia/u, 'Gallery 01 still renders diagram substitutes');
+  assert.match(canonicalExhibitsSource, /<MediterraneanFinishedBack/u, 'Gallery 01 exhibit backs are unfinished');
+  assert.match(canonicalExhibitsSource, /theme:\s*'mediterranean'/u, 'Gallery 01 interpretation faces do not opt into their curatorial palette');
   assert.doesNotMatch(canonicalExhibitsSource, /MediterraneanExhibitObject/u, 'Gallery 01 still renders the generic object template');
   assert.doesNotMatch(mediterraneanMediaSource, /torus(?:Knot)?Geometry|sphereGeometry/u, 'Gallery 01 media reintroduces unsupported floating sculpture geometry');
+  assert.match(mediterraneanCurationSource, /createFrontTexture/u, 'Gallery 01 opening installation has no front-side story');
+  assert.match(mediterraneanCurationSource, /createBackTexture/u, 'Gallery 01 opening installation duplicates its front on the back');
+  assert.equal([...mediterraneanCurationSource.matchAll(/<MuseumSceneMedia\b/gu)].length, 2, 'Gallery 01 opening installation must retain two local source-image mounts');
+  assert.match(architectureSource, /MediterraneanSignRear/u, 'Gallery 01 sign backs are not visitor-facing wayfinding');
   assert.equal(definition.layout.signs.length, 5, 'Gallery 01 must retain one entrance and four room signs');
+  const gallery01NaturalApproachZ = [-27.2, -13.2, .8, 14.8];
+  for (const [index, view] of definition.layout.entryViews.entries()) {
+    const cell = definition.layout.spatialCells.find(({id}) => id === view.spatialCellId);
+    assert(cell, `Gallery 01 entry view ${view.spatialCellId} has no room`);
+    assert(Math.abs(view.pose.x) < .001, `${view.spatialCellId} no longer stages the central chronological route`);
+    assert(Math.abs(view.pose.z - gallery01NaturalApproachZ[index]) < .001, `${view.spatialCellId} no longer stages its natural threshold approach`);
+    assert(Math.abs(view.pose.yaw - Math.PI) < .001, `${view.spatialCellId} no longer faces along the authored Gallery 01 route`);
+  }
   for (const sign of definition.layout.signs) {
     assert.doesNotMatch(`${sign.kicker} ${sign.title} ${sign.subtitle}`, forbiddenPublicLabels, `${sign.id} exposes internal presentation language`);
     const front = {x: Math.sin(sign.rotationY), z: Math.cos(sign.rotationY)};
@@ -834,6 +850,7 @@ check('decoded texture residency admits every active and approached hall under 9
   for (const hallId of HALL_IDS) {
     const active = estimateMuseumHallTextureResidency(hallId, 'active');
     const entry = estimateMuseumHallTextureResidency(hallId, 'entry-resident');
+    console.log(`  ${hallId}: active ${active.totalMiB.toFixed(2)} MiB · entry ${entry.totalMiB.toFixed(2)} MiB`);
     assert(active.totalBytes > 0, `${hallId} has no active texture residency`);
     if (active.totalBytes > MUSEUM_DECODED_TEXTURE_BUDGET_BYTES) residencyAdmissionFailures.push(`${hallId} active textures use ${active.totalMiB.toFixed(2)} MiB and exceed 96 MiB`);
     assert(entry.totalBytes > 0 && entry.totalBytes <= active.totalBytes, `${hallId} entry textures are unbounded`);
@@ -1067,7 +1084,7 @@ check('the React implementation uses one persistent Canvas, one shared canonical
   }
   assert.match(canonicalSceneSource, /CanonicalMuseumExhibits/);
   assert.match(canonicalSceneSource, /ContemporaryHallArchitecture/);
-  assert.match(canonicalExhibitsSource, /provenance-backed imagery or an authored physical media panel/);
+  assert.match(canonicalExhibitsSource, /Every Gallery 01 installation presents provenance-backed imagery/);
   assert.match(canonicalExhibitsSource, /usePlaqueTexture/);
   assert.match(architectureSource, /museumTextureDimensionsForPlane/);
   assert.match(architectureSource, /<mesh position=\{\[0, 0, \.002\]\}><planeGeometry/);

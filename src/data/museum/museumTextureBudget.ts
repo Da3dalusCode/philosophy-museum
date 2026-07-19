@@ -2,10 +2,7 @@ import type {MuseumHallId} from '../museumCatalog';
 import {MUSEUM_BUILDING_MANIFEST} from './museumBuildingManifest';
 import {getMuseumAsset} from './museumAssets';
 import {
-  MEDITERRANEAN_EXHIBIT_CURATION,
   MEDITERRANEAN_GALLERY_ID,
-  type MediterraneanExhibitCuration,
-  type MediterraneanExhibitId,
 } from './mediterraneanGalleryCuration';
 import {
   bytesToMiB,
@@ -111,20 +108,26 @@ const generatedSpecsForExhibit = (
   if (hallId === 'ancient-greek') return [plaque];
   const backing = exhibit.scene.objectBounds.find(({id}) => id.endsWith('-backing'));
   if (!backing) throw new Error(`Museum texture estimate cannot resolve the name-strip backing for ${exhibit.id}.`);
-  const mediterraneanCuration = hallId === MEDITERRANEAN_GALLERY_ID
-    ? MEDITERRANEAN_EXHIBIT_CURATION[exhibit.id as MediterraneanExhibitId] as MediterraneanExhibitCuration
-    : undefined;
-  const generatedMedia = mediterraneanCuration?.generatedMedia;
   const interpretationWidth = backing.size.width - .16;
-  const interpretationHeight = exhibit.scene.mediaMounts.length > 0 || generatedMedia
+  const interpretationHeight = hallId === MEDITERRANEAN_GALLERY_ID
+    ? .7
+    : exhibit.scene.mediaMounts.length > 0
     ? .42
     : Math.min(1.55, backing.size.height - .48);
   const specs = [museumTextureDimensionsForPlane(
     interpretationWidth,
     interpretationHeight,
-    MUSEUM_TEXTURE_SPECS.contemporaryNameStrip,
+    hallId === MEDITERRANEAN_GALLERY_ID
+      ? MUSEUM_TEXTURE_SPECS.mediterraneanNameStrip
+      : MUSEUM_TEXTURE_SPECS.contemporaryNameStrip,
   )];
-  if (generatedMedia) specs.push(MUSEUM_TEXTURE_SPECS.mediterraneanExhibitMedia);
+  if (hallId === MEDITERRANEAN_GALLERY_ID) {
+    specs.push(museumTextureDimensionsForPlane(
+      Math.min(backing.size.width - .34, 2.25),
+      .64,
+      MUSEUM_TEXTURE_SPECS.mediterraneanBackLabel,
+    ));
+  }
   return specs;
 };
 
@@ -147,18 +150,32 @@ const generatedHallSpecs = (hallId: MuseumHallId): readonly MuseumDecodedTexture
       MUSEUM_TEXTURE_SPECS.visitorMapKiosk,
     ];
   }
-  const signs = (definition.layout.signs ?? []).map((sign) => {
+  const signs = (definition.layout.signs ?? []).flatMap((sign) => {
+    const referenceWidth = hallId === MEDITERRANEAN_GALLERY_ID
+      ? 600
+      : MUSEUM_TEXTURE_SPECS.contemporarySignWidth;
     const reference = {
-      width: MUSEUM_TEXTURE_SPECS.contemporarySignWidth,
-      height: Math.round(MUSEUM_TEXTURE_SPECS.contemporarySignWidth * sign.height / sign.width),
+      width: referenceWidth,
+      height: Math.round(referenceWidth * sign.height / sign.width),
       mipmaps: true,
     };
-    return museumTextureDimensionsForPlane(sign.width, sign.height, reference);
+    const spec = museumTextureDimensionsForPlane(sign.width, sign.height, reference);
+    return hallId === MEDITERRANEAN_GALLERY_ID ? [spec, spec] : [spec];
   });
   return hallId === MUSEUM_BUILDING_MANIFEST.kiosk.publicHallId
-    ? [...signs, MUSEUM_TEXTURE_SPECS.visitorMapKiosk, MUSEUM_TEXTURE_SPECS.mediterraneanOrientation]
+    ? [
+        ...signs,
+        MUSEUM_TEXTURE_SPECS.visitorMapKiosk,
+        MUSEUM_TEXTURE_SPECS.mediterraneanOrientation,
+        MUSEUM_TEXTURE_SPECS.mediterraneanOrientation,
+      ]
     : signs;
 };
+
+const MEDITERRANEAN_ORIENTATION_ASSET_IDS = [
+  'thales-miletus-theatre',
+  'ancient-greek-colonization-map',
+] as const;
 
 /**
  * Conservative GPU allocation for one lazy hall subtree. Entry-resident mode
@@ -182,7 +199,13 @@ export const estimateMuseumHallTextureResidency = (
     : definition.layout.exhibits.filter(({id}) => entryExhibitIds.has(id));
   const sceneAssetIds = [...new Set(exhibits.flatMap(({scene}) =>
     scene.mediaMounts.map(({assetId}) => assetId)))];
-  const sceneBytes = sceneAssetIds.reduce((sum, assetId) => sum + sceneAssetBytes(assetId), 0);
+  const orientationAssetIds = hallId === MEDITERRANEAN_GALLERY_ID
+    ? MEDITERRANEAN_ORIENTATION_ASSET_IDS
+    : [];
+  // Orientation media uses isolated textures and therefore remains an extra
+  // allocation even when the same source also appears in an exhibit.
+  const sceneBytes = sceneAssetIds.reduce((sum, assetId) => sum + sceneAssetBytes(assetId), 0)
+    + orientationAssetIds.reduce((sum, assetId) => sum + sceneAssetBytes(assetId), 0);
   const generatedBytes = sumSpecs([
     ...generatedHallSpecs(hallId),
     ...exhibits.flatMap((exhibit) => generatedSpecsForExhibit(hallId, exhibit)),
@@ -192,7 +215,7 @@ export const estimateMuseumHallTextureResidency = (
     hallId,
     mode,
     exhibitCount: exhibits.length,
-    sceneAssetCount: sceneAssetIds.length,
+    sceneAssetCount: sceneAssetIds.length + orientationAssetIds.length,
     sceneBytes,
     generatedBytes,
     totalBytes,

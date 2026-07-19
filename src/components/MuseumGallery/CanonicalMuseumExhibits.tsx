@@ -3,12 +3,13 @@ import type {MuseumExhibitLayout, MuseumHallDefinition, MuseumSceneVolume} from 
 import {
   MEDITERRANEAN_EXHIBIT_CURATION,
   MEDITERRANEAN_GALLERY_ID,
+  MEDITERRANEAN_PALETTE,
+  MEDITERRANEAN_ROOM_ACCENTS,
   type MediterraneanExhibitCuration,
   type MediterraneanExhibitId,
 } from '../../data/museum/mediterraneanGalleryCuration';
 import {getMuseumHallCatalog, type MuseumExhibitId} from '../../data/museumCatalog';
 import {MUSEUM_TEXTURE_SPECS, museumTextureDimensionsForPlane} from '../../data/museum/museumTexturePolicy';
-import {MediterraneanExhibitMedia} from './MediterraneanExhibitMedia';
 import {MuseumSceneMedia} from './MuseumSceneMedia';
 import {usePlaqueTexture} from './plaqueTextures';
 
@@ -21,25 +22,25 @@ function Box({volume, color}: {volume: MuseumSceneVolume; color: string}) {
   </mesh>;
 }
 
-function InterpretationFace({layout, title, question, kicker, accent, hasCuratedMedia}: {
+function InterpretationFace({layout, title, question, kicker, accent, mediterranean}: {
   layout: MuseumExhibitLayout;
   title: string;
   question: string;
   kicker: string;
   accent: string;
-  hasCuratedMedia: boolean;
+  mediterranean: boolean;
 }) {
   const backing = layout.scene.objectBounds.find(({id}) => id.endsWith('-backing'))!;
-  const hasMedia = layout.scene.mediaMounts.length > 0 || hasCuratedMedia;
+  const hasMedia = layout.scene.mediaMounts.length > 0;
   const width = backing.size.width - .16;
-  const height = hasMedia ? .42 : Math.min(1.55, backing.size.height - .48);
+  const height = mediterranean ? .7 : hasMedia ? .42 : Math.min(1.55, backing.size.height - .48);
   const centerY = hasMedia
     ? backing.center.y + backing.size.height / 2 - .28
     : backing.center.y;
   const textureSize = museumTextureDimensionsForPlane(
     width,
     height,
-    MUSEUM_TEXTURE_SPECS.contemporaryNameStrip,
+    mediterranean ? MUSEUM_TEXTURE_SPECS.mediterraneanNameStrip : MUSEUM_TEXTURE_SPECS.contemporaryNameStrip,
   );
   const texture = usePlaqueTexture({
     title,
@@ -48,10 +49,48 @@ function InterpretationFace({layout, title, question, kicker, accent, hasCurated
     accent,
     width: textureSize.width,
     height: textureSize.height,
+    theme: mediterranean ? 'mediterranean' : 'dark',
   });
   return <group position={[0, centerY, backing.center.z + backing.size.depth / 2 + .012]}>
-    <mesh position={[0, 0, -.035]}><boxGeometry args={[width + .12, height + .1, .07]}/><meshStandardMaterial color="#202324" roughness={.55}/></mesh>
+    <mesh position={[0, 0, -.035]}><boxGeometry args={[width + .12, height + .1, .07]}/><meshStandardMaterial color={mediterranean ? accent : '#202324'} roughness={.62}/></mesh>
     <mesh position={[0, 0, .005]}><planeGeometry args={[width, height]}/><meshBasicMaterial map={texture} toneMapped={false}/></mesh>
+  </group>;
+}
+
+function MediterraneanFinishedBack({backing, groupLabel, accent}: {
+  backing: MuseumSceneVolume;
+  groupLabel: string;
+  accent: string;
+}) {
+  const width = Math.min(backing.size.width - .34, 2.25);
+  const height = .64;
+  const textureSize = museumTextureDimensionsForPlane(
+    width,
+    height,
+    MUSEUM_TEXTURE_SPECS.mediterraneanBackLabel,
+  );
+  const texture = usePlaqueTexture({
+    title: groupLabel,
+    kicker: 'Gallery 01',
+    subtitle: 'Center route · Socrates, Plato, Aristotle ahead',
+    accent: MEDITERRANEAN_PALETTE.aegean,
+    width: textureSize.width,
+    height: textureSize.height,
+    theme: 'mediterranean',
+  });
+  return <group position={[
+    backing.center.x,
+    backing.center.y,
+    backing.center.z - backing.size.depth / 2 - .012,
+  ]} rotation={[0, Math.PI, 0]}>
+    <mesh>
+      <planeGeometry args={[backing.size.width, backing.size.height]}/>
+      <meshStandardMaterial color={accent} roughness={.86}/>
+    </mesh>
+    <mesh position={[0, 0, .012]}>
+      <planeGeometry args={[width, height]}/>
+      <meshBasicMaterial map={texture} toneMapped={false}/>
+    </mesh>
   </group>;
 }
 
@@ -68,51 +107,28 @@ function Installation({layout, title, question, kicker, accent, nearby, curation
   const backing = layout.scene.objectBounds.find(({id}) => id.endsWith('-backing'))!;
   const motif = layout.scene.objectBounds.find(({id}) => id.endsWith('-concept'))!;
   const interaction = layout.scene.interactionBounds;
-  const generatedMedia = curation?.generatedMedia;
   const backingColor = curation
     ? layout.presentationTier === 'archive'
-      ? '#b9ad98'
+      ? '#cfb995'
       : layout.presentationTier === 'supporting'
-        ? '#d0cbc1'
+        ? '#e4d4bc'
         : layout.presentationTier === 'anchor'
-          ? '#e2ddd2'
-          : '#d8d4cb'
+          ? '#eee2cf'
+          : '#dfceb2'
     : '#d9d5cd';
-  const mediaWidth = backing.size.width - .32;
-  const mediaHeight = Math.max(1.18, backing.size.height - 1.02);
   return <group>
-    <Box volume={plinth} color="#6e6b65"/>
+    <Box volume={plinth} color={curation ? MEDITERRANEAN_PALETTE.limestone : '#6e6b65'}/>
     <Box volume={backing} color={backingColor}/>
     {curation
-      ? generatedMedia && layout.scene.mediaMounts.length === 0 && <group position={[
-          backing.center.x,
-          backing.center.y - backing.size.height / 2 + .22,
-          backing.center.z + backing.size.depth / 2 + .018,
-        ]}>
-          <MediterraneanExhibitMedia
-            kind={curation.visualKind}
-            exhibitId={layout.id}
-            title={generatedMedia.title}
-            caption={generatedMedia.caption}
-            width={mediaWidth}
-            height={mediaHeight}
-            nearby={nearby}
-          />
-        </group>
+      ? <MediterraneanFinishedBack backing={backing} groupLabel={curation.groupLabel} accent={accent}/>
       : <Box volume={motif} color={nearby ? accent : '#4a4d4e'}/>}
-    {curation && <>
-      <mesh position={[backing.center.x - backing.size.width / 2 + .055, backing.center.y, backing.center.z + backing.size.depth / 2 + .02]}>
-        <boxGeometry args={[.035, backing.size.height - .16, .035]}/>
-        <meshStandardMaterial color={accent} emissive={accent} emissiveIntensity={nearby ? .34 : .1} roughness={.35}/>
-      </mesh>
-    </>}
     <InterpretationFace
       layout={layout}
       title={title}
       question={question}
       kicker={kicker}
       accent={accent}
-      hasCuratedMedia={Boolean(generatedMedia)}
+      mediterranean={Boolean(curation)}
     />
     {layout.scene.mediaMounts.map((mount) => <MuseumSceneMedia key={mount.id} mount={mount} nearby={nearby} accent={accent}/>)}
     <mesh position={[interaction.center.x, interaction.center.y, interaction.center.z]} userData={{interactionFor: layout.id}}>
@@ -122,7 +138,7 @@ function Installation({layout, title, question, kicker, accent, nearby, curation
   </group>;
 }
 
-/** Every curated installation presents provenance-backed imagery or an authored physical media panel. */
+/** Every Gallery 01 installation presents provenance-backed imagery in a physically supported frame. */
 export function CanonicalMuseumExhibits({definition, nearbyId, visibleExhibitIds, onSelectExhibit}: {
   definition: MuseumHallDefinition;
   nearbyId?: MuseumExhibitId;
@@ -137,14 +153,20 @@ export function CanonicalMuseumExhibits({definition, nearbyId, visibleExhibitIds
       const catalog = hall.exhibits.find(({id}) => id === layout.id);
       if (!catalog) return null;
       const roomIndex = hall.zones.findIndex(({id}) => id === layout.zoneId);
-      const accent = ACCENTS[Math.max(0, roomIndex) % ACCENTS.length];
-      const curation = definition.id === MEDITERRANEAN_GALLERY_ID
+      const curation: MediterraneanExhibitCuration | undefined = definition.id === MEDITERRANEAN_GALLERY_ID
         ? MEDITERRANEAN_EXHIBIT_CURATION[layout.id as MediterraneanExhibitId]
         : undefined;
-      const kicker = curation?.publicKicker
+      const accent = curation
+        ? MEDITERRANEAN_ROOM_ACCENTS[Math.max(0, roomIndex) % MEDITERRANEAN_ROOM_ACCENTS.length]
+        : ACCENTS[Math.max(0, roomIndex) % ACCENTS.length];
+      const title = curation?.frontTitle ?? catalog.displayName;
+      const kicker = curation?.frontTitle
+        ? `${catalog.displayName} · ${curation.publicKicker}`
+        : curation?.publicKicker
         ?? (catalog.entityKind === 'philosopher'
           ? 'Philosopher · question and historical context'
           : 'School and interpretive tradition');
+      const question = curation?.frontTitle ? curation.groupLabel : catalog.question;
       const activate = (event: ThreeEvent<MouseEvent>) => {
         event.stopPropagation();
         if (event.delta <= 7) onSelectExhibit(layout.id);
@@ -152,8 +174,8 @@ export function CanonicalMuseumExhibits({definition, nearbyId, visibleExhibitIds
       return <group key={layout.id} position={[layout.position.x, 0, layout.position.z]} rotation={[0, layout.rotationY, 0]} onClick={activate}>
         <Installation
           layout={layout}
-          title={catalog.displayName}
-          question={catalog.question}
+          title={title}
+          question={question}
           kicker={kicker}
           accent={accent}
           nearby={nearbyId === layout.id}

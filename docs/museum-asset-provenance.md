@@ -1,6 +1,6 @@
 # Museum asset provenance
 
-The preserved Museum registry contains **101 provenance records** and **202 committed local WebP derivatives**, with a scene and panel variant for each registered source object. The canonical six contain **59 primary exhibits** and currently reference **47 local media placements**; media is optional, not a two-object-per-exhibit requirement. The preparation manifest locks 85 post-Ancient records and their 170 derivatives by dimensions, bytes, and SHA-256, while 16 Ancient records retain reviewed typed metadata.
+The preserved Museum registry contains **118 provenance records** and **236 committed local WebP derivatives**, with a scene and panel variant for each registered source object. The canonical six contain **59 primary exhibits** and currently reference **64 local media placements**; media is optional across the program, while Gallery 01 intentionally gives all 20 exhibits at least one sourced image. The modern preparation manifest locks 85 post-Ancient records and 170 derivatives; the Gallery 01 Mediterranean manifest locks 17 additional records and 34 derivatives. Sixteen earlier Ancient records retain reviewed typed metadata.
 
 Typed records are assembled in `src/data/museum/museumAssets.ts` from the Ancient records in that file and the preserved modern, expansion, canonical-six, and Krishnamurti sets in `modernMuseumAssets.ts`, `museumExpansionAssets.ts`, `canonicalMuseumAssets.ts`, and `krishnamurtiMuseumAssets.ts`. They preserve titles, creators, object dates, institutions, exact source pages, rights terms, attribution, transformation notices, dimensions, alt text, captions, focal points, and likeness cautions.
 
@@ -26,6 +26,30 @@ The live roster reuses reviewed legacy media when the same philosopher remains i
 | Martha Nussbaum | Sally Ryan, University of Chicago Law School portrait, 2010 | CC BY-SA 3.0, with creator and derivative attribution retained. |
 | Jiddu Krishnamurti | 1920s Bain News Service lifetime photograph | Library of Congress Bain Collection; no known copyright restrictions. The 1920s date follows the reviewed Commons record because the Library of Congress caption card records no date. |
 | Jiddu Krishnamurti with Annie Besant | Agence Rol photograph aboard the *Pacific*, March 1927 | Bibliothèque nationale de France, Rol 118226 / EI-13 (1421); public domain in France and the United States. It documents Theosophical formation, not mature allegiance. |
+
+## Gallery 01 · second visual-curation source set
+
+The Gallery 01 pass adds one reviewed, provenance-backed object or place image for each formerly diagram-only exhibit. These sources are contextual anchors, not claims that a site literally illustrates an argument or that a later image is an authenticated likeness.
+
+| Exhibit | Local source object | Essential caveat |
+| --- | --- | --- |
+| Ancient Greek Philosophy | Modern map of Archaic Greek settlement networks | A schematic geographic orientation, not an ancient map or fixed cultural border. |
+| Thales | Theatre at Miletus | The surviving theatre has later phases and gives place context, not evidence for Thales. |
+| Anaximander | Modern reconstruction of the lost world map | Hypothetical reconstruction assembled from later reports, not Anaximander’s drawing. |
+| Anaximenes | Archaeological landscape of Miletus | Layered remains later than Anaximenes; no illustration of air, compression, or rarefaction. |
+| Pythagoras | Raphael’s Pythagoras with ratio tablet | Renaissance reception art and an imagined figure, not a portrait or classroom record. |
+| Philolaus | Fifth-century BCE red-figure lekythos with lyre | Near-contemporary musical material culture, not Philolaus’s property or cosmology. |
+| Parmenides | Porta Rosa at Elea–Velia | The surviving gate is later than Parmenides and supplies place context only. |
+| Zeno of Elea | Theatre precinct at Elea–Velia | A layered civic site, not evidence for a performance or staging of the paradoxes. |
+| Leucippus | 1483 manuscript of Lucretius, *De rerum natura* | Much later transmission of ancient atomism; no Leucippus text securely survives. |
+| Democritus | Archaeological site of Abdera | Geographic and civic context, not a picture of atoms or void. |
+| Heraclitus | Artemision ruins at Ephesus | Reconstructed and later layers; context for Ephesus, not evidence about Heraclitus’s book. |
+| Empedocles | Fifth-century BCE Temple of Concordia at Akragas | Near-contemporary civic context; the conventional temple name is modern. |
+| Anaxagoras | Klazomenian painted sarcophagus | Material from his home region, not his property, portrait, or an image of ordering mind. |
+| Protagoras | Pnyx assembly place in Athens | Civic-speech context, not documentation of a particular Protagoras speech. |
+| Gorgias | Silver tetradrachm of Leontinoi | A city object from his lifetime; Apollo, not Gorgias, appears on the coin. |
+| Platonism | Archaeological site of Plato’s Academy | Layered remains, not a reconstruction of Plato’s school or a fixed image of Platonism. |
+| Aristotelianism | Excavated Lyceum site in Athens | Principally palaestra remains, not a reconstruction of Aristotle’s teaching spaces. |
 
 The tables below preserve the 96-object Phase 2 registry. They remain useful provenance records even when a former installation is no longer a live primary exhibit.
 
@@ -111,6 +135,8 @@ The tables below preserve the 96-object Phase 2 registry. They remain useful pro
 
 `scripts/prepareMuseumModernAssets.py` reads `scripts/museumModernAssetManifest.json`. The manifest fixes all 85 post-Ancient asset IDs—including the five canonical-six additions—along with their hall folders, exact source pages, original-image URLs, selected download URLs, derivative dimensions, byte counts, and SHA-256 digests.
 
+`scripts/prepareMuseumMediterraneanAssets.py` reads `scripts/museumMediterraneanAssetManifest.json` and applies the same local-only, size-bounded, hashed workflow to the 17 new Gallery 01 sources. This separate lock keeps the bounded curatorial pass auditable without changing the preserved 85-record modern corpus.
+
 The script downloads to a temporary workspace, applies EXIF orientation, resizes without upscaling, writes optimized WebP candidates, and validates both cached and generated files against the lock. `--refresh-locks` is an explicit curatorial operation; ordinary runs verify without silently rewriting the corpus. Ancient derivatives retain their existing reviewed typed records.
 
 ## Rights categories represented
@@ -122,4 +148,4 @@ The script downloads to a temporary workspace, applies EXIF orientation, resizes
 - Earlier CC BY / CC BY-SA terms used by the Ancient gallery
 - Commons public-domain templates for anonymous European works, Portugal, and U.S. press material
 
-Run `npm run audit:museum-assets` to verify that every optional media-reference field across the 59 live exhibits resolves when present, the registry contains 101 records and 202 derivatives, and the post-Ancient lock contains 85 records and 170 derivatives. The audit also checks local path safety and case, WebP dimensions, rights-kind and license-URL consistency, derivative notices, attribution, alt text, likeness classification, manifest-to-typed-record agreement, byte and SHA-256 locks, runtime hotlink prevention, and unexpected missing or orphaned files. The audit performs no network requests and does not impose a two-object-per-exhibit quota.
+Run `npm run audit:museum-assets` to verify that every optional media-reference field across the 59 live exhibits resolves when present, the registry contains 118 records and 236 derivatives, the post-Ancient lock contains 85 records and 170 derivatives, and the Gallery 01 lock contains 17 records and 34 derivatives. The audit also checks local path safety and case, WebP dimensions, rights-kind and license-URL consistency, derivative notices, attribution, alt text, likeness classification, manifest-to-typed-record agreement, byte and SHA-256 locks, runtime hotlink prevention, and unexpected missing or orphaned files. The audit performs no network requests and does not impose a two-object-per-exhibit quota outside Gallery 01.

@@ -86,11 +86,29 @@ const mediaMount = (
   backing: MuseumSceneVolume,
   sceneWidth: number,
   sceneHeight: number,
+  totalCount: number,
+  preserveMediterraneanAspect: boolean,
 ): MuseumMediaMountDefinition => {
-  const countWidth = index === 0 ? Math.min(1.45, sceneWidth * .42) : Math.min(1.08, sceneWidth * .32);
-  const height = index === 0 ? Math.min(1.72, sceneHeight * .48) : Math.min(1.28, sceneHeight * .38);
-  const x = index === 0 ? -sceneWidth * .18 : sceneWidth * .27;
-  const y = Math.max(1.35, sceneHeight * .58);
+  const source = museumAssetById.get(assetId)?.variants.scene;
+  const sourceAspect = source ? source.width / source.height : 1;
+  const maximumWidth = totalCount === 1
+    ? sceneWidth - .48
+    : Math.max(.8, (sceneWidth - .7) / 2);
+  const maximumHeight = Math.max(.9, sceneHeight - 1.16);
+  let countWidth = index === 0 ? Math.min(1.45, sceneWidth * .42) : Math.min(1.08, sceneWidth * .32);
+  let height = index === 0 ? Math.min(1.72, sceneHeight * .48) : Math.min(1.28, sceneHeight * .38);
+  let x = index === 0 ? -sceneWidth * .18 : sceneWidth * .27;
+  let y = Math.max(1.35, sceneHeight * .58);
+  if (preserveMediterraneanAspect) {
+    countWidth = maximumWidth;
+    height = countWidth / sourceAspect;
+    if (height > maximumHeight) {
+      height = maximumHeight;
+      countWidth = height * sourceAspect;
+    }
+    x = totalCount === 1 ? 0 : index === 0 ? -sceneWidth * .23 : sceneWidth * .23;
+    y = (.3 + sceneHeight - .86) / 2;
+  }
   const id = `${exhibitId}-media-${index + 1}`;
   return {
     id,
@@ -143,11 +161,21 @@ const createScene = (
     optionalAsset(record.principalAssetId),
     optionalAsset(record.supportingAssetIds?.[0]),
   ].filter((assetId): assetId is MuseumAssetId => Boolean(assetId));
+  const preserveMediterraneanAspect = Object.hasOwn(MEDITERRANEAN_EXHIBIT_CURATION, record.id);
   const plaqueWidth = Math.min(1.22, physicalContract.objectWidth - .28);
   const plaqueId = `${record.id}-plaque`;
   return {
     footprint: {width: physicalContract.objectWidth, height: physicalContract.objectHeight + .16, depth: physicalContract.objectDepth},
-    mediaMounts: mediaAssets.map((assetId, index) => mediaMount(record.id, assetId, index, backing, physicalContract.objectWidth, physicalContract.objectHeight)),
+    mediaMounts: mediaAssets.map((assetId, index) => mediaMount(
+      record.id,
+      assetId,
+      index,
+      backing,
+      physicalContract.objectWidth,
+      physicalContract.objectHeight,
+      mediaAssets.length,
+      preserveMediterraneanAspect,
+    )),
     plaque: {
       id: plaqueId,
       position: [0, .48, physicalContract.objectDepth / 2 - .18],
@@ -785,7 +813,13 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
       spatialConnections,
       entryViews: cells.map((cell) => ({
         spatialCellId: cell.id,
-        pose: {x: Math.max(cell.bounds.minX + 2.8, Math.min(cell.bounds.maxX - 2.8, 0)), z: (cell.bounds.minZ + cell.bounds.maxZ) / 2, yaw: Math.PI, pitch: 0},
+        // Gallery 01 is read as a chronological promenade. Stage its directory
+        // views just inside each threshold so the visitor sees the room unfold
+        // in the same direction as the authored route. Other halls retain the
+        // established room-centre viewpoint.
+        pose: hall.id === MEDITERRANEAN_GALLERY_ID
+          ? {x: 0, z: cell.bounds.minZ + .8, yaw: Math.PI, pitch: -.01}
+          : {x: Math.max(cell.bounds.minX + 2.8, Math.min(cell.bounds.maxX - 2.8, 0)), z: (cell.bounds.minZ + cell.bounds.maxZ) / 2, yaw: Math.PI, pitch: 0},
         expectedVisibleExhibitIds: cell.exhibitIds,
       })),
       wallColliders,

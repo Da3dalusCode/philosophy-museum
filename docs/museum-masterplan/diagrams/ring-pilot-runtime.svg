@@ -116,7 +116,7 @@
     <line class="door" x1="45" y1="-41" x2="49" y2="-41"/>
     <line class="door" x1="8" y1="18" x2="8" y2="14"/>
     <line class="door" x1="38" y1="-41" x2="42" y2="-41"/></g>
-  <g aria-label="3 planned gallery connections and 8 reserved outward expansion portals"><g data-reservation="reserve:insert-south-asian"><polygon class="reservation reservation-insertion" points="-17,-61 -11,-61 -11,-65 -17,-65"/><text class="reservation-label" x="-14" y="-63">PLAN</text></g>
+  <g aria-label="3 planned gallery connections and 8 reserved outward expansion portals"><g data-reservation="reserve:insert-south-asian"><polygon class="reservation reservation-insertion" points="-11,-65 -17,-65 -17,-61 -11,-61"/><text class="reservation-label" x="-14" y="-63">PLAN</text></g>
     <g data-reservation="reserve:insert-islamic"><polygon class="reservation reservation-insertion" points="-35.4,-123 -35.4,-117 -31.4,-117 -31.4,-123"/><text class="reservation-label" x="-33.4" y="-120">PLAN</text></g>
     <g data-reservation="reserve:insert-feminist"><polygon class="reservation reservation-insertion" points="92,-61.4 98,-61.4 98,-65.4 92,-65.4"/><text class="reservation-label" x="95" y="-63.4">PLAN</text></g>
     <g data-reservation="reserve:outward-R1"><polygon class="reservation reservation-outward-expansion" points="-14,16 -14,24 -8,24 -8,16"/><text class="reservation-label" x="-11" y="20">R1</text></g>

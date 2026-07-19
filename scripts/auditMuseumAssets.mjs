@@ -11,6 +11,8 @@ const museumMediaRoot = resolve(publicRoot, 'assets/museum');
 const sceneMediaSource = readFileSync(resolve(repoRoot, 'src/components/MuseumGallery/MuseumSceneMedia.tsx'), 'utf8');
 const preparationSource = readFileSync(resolve(repoRoot, 'scripts/prepareMuseumModernAssets.py'), 'utf8');
 const modernManifest = JSON.parse(readFileSync(resolve(repoRoot, 'scripts/museumModernAssetManifest.json'), 'utf8'));
+const mediterraneanPreparationSource = readFileSync(resolve(repoRoot, 'scripts/prepareMuseumMediterraneanAssets.py'), 'utf8');
+const mediterraneanManifest = JSON.parse(readFileSync(resolve(repoRoot, 'scripts/museumMediterraneanAssetManifest.json'), 'utf8'));
 const auditBase = '/philosophy-atlas-audit/';
 const virtualEntry = 'virtual:philosophy-atlas-museum-asset-audit';
 const resolvedEntry = `\0${virtualEntry}`;
@@ -78,7 +80,27 @@ const NEW_CANONICAL_ASSET_IDS = [
   'alfred-north-whitehead-portrait-1923',
   'martha-nussbaum-portrait-2010',
 ];
+const MEDITERRANEAN_ASSET_IDS = [
+  'ancient-greek-colonization-map',
+  'thales-miletus-theatre',
+  'anaximander-world-map',
+  'anaximenes-miletus-site',
+  'pythagoras-ratios-raphael',
+  'philolaus-lyre-lekythos',
+  'parmenides-porta-rosa',
+  'zeno-velia-theatre',
+  'leucippus-lucretius-manuscript',
+  'democritus-abdera-site',
+  'heraclitus-ephesus-artemision',
+  'empedocles-akragas-temple',
+  'anaxagoras-klazomenai-sarcophagus',
+  'protagoras-pnyx',
+  'gorgias-leontinoi-tetradrachm',
+  'platonism-academy-site',
+  'aristotelianism-lyceum-site',
+];
 const manifestAssets = modernManifest?.assets ?? {};
+const mediterraneanManifestAssets = mediterraneanManifest?.assets ?? {};
 const assetById = new Map(MUSEUM_ASSETS.map((asset) => [asset.id, asset]));
 const liveExhibits = MUSEUM_HALLS.flatMap((hall) => hall.exhibits.map((exhibit) => ({hall, exhibit})));
 const referencedIds = liveExhibits.flatMap(({exhibit}) => [
@@ -161,13 +183,14 @@ check('the canonical six expose 59 primaries with optional, resolvable local med
   assert.deepEqual(krishnamurti?.supportingAssetIds, ['jiddu-krishnamurti-besant-1927']);
 });
 
-check('the preserved asset registry contains 101 unique records and derivative paths', () => {
-  assert.equal(MUSEUM_ASSETS.length, 101);
-  assert.equal(assetById.size, 101);
+check('the preserved asset registry contains 118 unique records and derivative paths', () => {
+  assert.equal(MUSEUM_ASSETS.length, 118);
+  assert.equal(assetById.size, 118);
   const variantPaths = MUSEUM_ASSETS.flatMap(({variants}) => [variants.scene.path, variants.panel.path]);
-  assert.equal(variantPaths.length, 202);
+  assert.equal(variantPaths.length, 236);
   assert(unique(variantPaths), 'two asset variants share a derivative path');
   for (const id of NEW_CANONICAL_ASSET_IDS) assert(assetById.has(id), `new canonical asset ${id} is missing`);
+  for (const id of MEDITERRANEAN_ASSET_IDS) assert(assetById.has(id), `Gallery 01 asset ${id} is missing`);
 });
 
 check('all asset records carry complete provenance, rights, interpretation, and accessibility metadata', () => {
@@ -307,7 +330,37 @@ check('all 170 managed derivatives match exact dimensions, bytes, and SHA-256 lo
   }
 });
 
-check('the committed Museum inventory contains exactly the 202 registered derivatives', () => {
+check('the 17-source Gallery 01 lock reproduces all newly curated Mediterranean media', () => {
+  assert.equal(mediterraneanManifest.version, 1);
+  assert.equal(Object.keys(mediterraneanManifestAssets).length, 17);
+  assert.deepEqual(Object.keys(mediterraneanManifestAssets).sort(), [...MEDITERRANEAN_ASSET_IDS].sort());
+  assert.match(mediterraneanPreparationSource, /museumMediterraneanAssetManifest\.json/);
+  assert.match(mediterraneanPreparationSource, /EXPECTED_ASSET_COUNT = 17/);
+  assert.match(mediterraneanPreparationSource, /Resampling\.LANCZOS/);
+  assert.match(mediterraneanPreparationSource, /"sha256": sha256\(destination\)/);
+  for (const id of MEDITERRANEAN_ASSET_IDS) {
+    const lock = mediterraneanManifestAssets[id];
+    const asset = assetById.get(id);
+    assert(asset && lock, `${id} is absent from its runtime record or source lock`);
+    assert.equal(lock.sourcePageUrl, asset.sourcePageUrl, `${id} lock source page differs from provenance`);
+    assert.equal(new URL(lock.sourcePageUrl).hostname, 'commons.wikimedia.org', `${id} source lock must use Commons`);
+    assert.equal(new URL(lock.sourceImageUrl).hostname, 'upload.wikimedia.org', `${id} original lock must use Wikimedia upload`);
+    assert.equal(new URL(lock.selectedThumbnailUrl).hostname, 'upload.wikimedia.org', `${id} derivative source must use Wikimedia upload`);
+    for (const variantName of ['scene', 'panel']) {
+      const variant = asset.variants[variantName];
+      const expected = lock[variantName];
+      const path = exactCasePath(variant.path);
+      assert(expected, `${id}.${variantName} lock is missing`);
+      assert.equal(variant.path, `assets/museum/ancient-greek/${id}-${variantName}.webp`);
+      assert.equal(variant.width, expected.width, `${id}.${variantName} width differs from its lock`);
+      assert.equal(variant.height, expected.height, `${id}.${variantName} height differs from its lock`);
+      assert.equal(statSync(path).size, expected.bytes, `${id}.${variantName} byte count drifted`);
+      assert.equal(sha256(path), expected.sha256, `${id}.${variantName} SHA-256 drifted`);
+    }
+  }
+});
+
+check('the committed Museum inventory contains exactly the 236 registered derivatives', () => {
   const actual = walkFiles(museumMediaRoot).map(toPublicPath).sort();
   const expected = MUSEUM_ASSETS.flatMap(({variants}) => [variants.scene.path, variants.panel.path]).sort();
   assert.deepEqual(actual, expected);
@@ -340,4 +393,4 @@ check('scene-media policy keeps local images unlit, front-facing, and clear of f
   assert.doesNotMatch(sceneMediaSource, /sourcePageUrl|objectPageUrl|selectedThumbnailUrl/);
 });
 
-console.log(`\nMuseum asset audit passed: ${checks} groups, ${MUSEUM_ASSETS.length} provenance records, ${MUSEUM_ASSETS.length * 2} local derivatives, ${Object.keys(manifestAssets).length * 2} exact hash locks, and ${referencedIds.length} live media placements.`);
+console.log(`\nMuseum asset audit passed: ${checks} groups, ${MUSEUM_ASSETS.length} provenance records, ${MUSEUM_ASSETS.length * 2} local derivatives, ${Object.keys(manifestAssets).length * 2 + Object.keys(mediterraneanManifestAssets).length * 2} exact hash locks, and ${referencedIds.length} live media placements.`);

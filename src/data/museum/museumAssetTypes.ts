@@ -1,6 +1,23 @@
 import type {MuseumExhibitKind} from '../museumCatalog';
 
 export type MuseumAssetId =
+  | 'ancient-greek-colonization-map'
+  | 'thales-miletus-theatre'
+  | 'anaximander-world-map'
+  | 'anaximenes-miletus-site'
+  | 'pythagoras-ratios-raphael'
+  | 'philolaus-lyre-lekythos'
+  | 'parmenides-porta-rosa'
+  | 'zeno-velia-theatre'
+  | 'leucippus-lucretius-manuscript'
+  | 'democritus-abdera-site'
+  | 'heraclitus-ephesus-artemision'
+  | 'empedocles-akragas-temple'
+  | 'anaxagoras-klazomenai-sarcophagus'
+  | 'protagoras-pnyx'
+  | 'gorgias-leontinoi-tetradrachm'
+  | 'platonism-academy-site'
+  | 'aristotelianism-lyceum-site'
   | 'socrates-louvre-head'
   | 'socrates-death-of-socrates'
   | 'plato-capitoline-bust'
