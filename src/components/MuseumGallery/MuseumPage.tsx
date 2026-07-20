@@ -1258,7 +1258,7 @@ export function MuseumPage({route, href, push, replace}: {
 
   useEffect(() => {
     if (!supplementalExhibitId) return;
-    if (activeHallId === 'mediterranean-beginnings-classical' && !route.exhibitId) return;
+    if (!route.exhibitId && findMuseumSupplementalExhibit(activeHallId, supplementalExhibitId)) return;
     supplementalResumeRef.current = undefined;
     setSupplementalExhibitId(undefined);
   }, [activeHallId, route.exhibitId, supplementalExhibitId]);
