@@ -9,6 +9,8 @@ import {MUSEUM_TEXTURE_SPECS, museumTextureDimensionsForPlane} from '../../data/
 import {MuseumSceneMedia} from './MuseumSceneMedia';
 import {usePlaqueTexture} from './plaqueTextures';
 
+const GALLERY_FRAME_BRONZE = '#675039';
+
 function ExhibitLabel({layout}: {layout: MuseumSupplementalExhibitLayout}) {
   const record = getPlatoSupplementalExhibit(layout.id);
   const textureSize = museumTextureDimensionsForPlane(
@@ -37,25 +39,20 @@ function ExhibitLabel({layout}: {layout: MuseumSupplementalExhibitLayout}) {
   </group>;
 }
 
-function CaveArchitecture({nearby}: {nearby: boolean}) {
-  const warm = nearby ? '#e1a64a' : MEDITERRANEAN_PALETTE.ochre;
+function CaveArchitecture() {
   return <group>
     <mesh position={[0, 2.28, -.58]}>
       <boxGeometry args={[4.72, 4.5, .2]}/>
-      <meshStandardMaterial color="#252a29" roughness={.96}/>
+      <meshStandardMaterial color={MEDITERRANEAN_PALETTE.ink} roughness={.92}/>
     </mesh>
     {[-2.18, 2.18].map((x) => <mesh key={x} position={[x, 2.18, -.32]}>
       <boxGeometry args={[.28, 3.82, .42]}/>
-      <meshStandardMaterial color={x < 0 ? MEDITERRANEAN_PALETTE.limestone : '#6b5946'} roughness={.86}/>
+      <meshStandardMaterial color={MEDITERRANEAN_PALETTE.ink} roughness={.82}/>
     </mesh>)}
     <mesh position={[0, 3.56, -.31]}>
       <boxGeometry args={[4.62, .18, .43]}/>
-      <meshStandardMaterial color={warm} roughness={.56} metalness={.16}/>
+      <meshStandardMaterial color={MEDITERRANEAN_PALETTE.ink} roughness={.82}/>
     </mesh>
-    {[0, 1, 2, 3].map((index) => <mesh key={index} position={[-1.55 + index * 1.03, .1 + index * .015, .08 + index * .055]}>
-      <boxGeometry args={[.76, .08 + index * .03, .52]}/>
-      <meshStandardMaterial color={['#3b3831', '#69533b', '#9a6638', warm][index]} roughness={.74}/>
-    </mesh>)}
   </group>;
 }
 
@@ -63,7 +60,7 @@ function RepublicArchitecture() {
   return <group>
     <mesh position={[0, 2.28, -.58]}>
       <boxGeometry args={[4.72, 4.5, .2]}/>
-      <meshStandardMaterial color="#242726" roughness={.96}/>
+      <meshStandardMaterial color={MEDITERRANEAN_PALETTE.plaster} roughness={.92}/>
     </mesh>
   </group>;
 }
@@ -78,13 +75,13 @@ function SupplementalInstallation({layout, nearby}: {
     museumStatus: 'supplemental-work',
   }}>
     {layout.installationKind === 'cave-ascent'
-      ? <CaveArchitecture nearby={nearby}/>
+      ? <CaveArchitecture/>
       : <RepublicArchitecture/>}
-    <MuseumSceneMedia mount={layout.mediaMount} nearby={nearby} accent={layout.accent}/>
+    <MuseumSceneMedia mount={layout.mediaMount} nearby={nearby} accent={GALLERY_FRAME_BRONZE}/>
     <ExhibitLabel layout={layout}/>
     <mesh position={[0, .1, -.06]}>
       <boxGeometry args={[layout.footprint.width, .2, layout.footprint.depth]}/>
-      <meshStandardMaterial color={MEDITERRANEAN_PALETTE.bronze} roughness={.7} metalness={.1}/>
+      <meshStandardMaterial color={MEDITERRANEAN_PALETTE.limestone} roughness={.9} metalness={.03}/>
     </mesh>
     <mesh position={[0, layout.footprint.height / 2, 0]} userData={{interactionForSupplemental: layout.id}}>
       <boxGeometry args={[layout.footprint.width, layout.footprint.height, layout.footprint.depth]}/>
