@@ -12,6 +12,12 @@ import type {
   MuseumWallDefinition,
 } from '../../data/museum/museumWorldTypes';
 import {
+  MUSEUM_CANONICAL_CEILING_MATERIAL,
+  MUSEUM_CANONICAL_WALL_EDGE_MATERIAL,
+  resolveMuseumWallMaterial,
+  type MuseumWallMaterialSpec,
+} from '../../data/museum/museumArchitectureMaterials';
+import {
   MEDITERRANEAN_GALLERY_ID,
   MEDITERRANEAN_PALETTE,
 } from '../../data/museum/mediterraneanGalleryCuration';
@@ -26,9 +32,6 @@ import {
 import {MuseumTemplateInterfaces} from './MuseumTemplateInterfaces';
 import {usePlaqueTexture} from './plaqueTextures';
 
-const WALL = '#eeeae2';
-const WALL_EDGE = '#d9d4ca';
-const CEILING = '#e7e3dc';
 const FLOOR = '#4e4b45';
 const FLOOR_PASSAGE = '#5b554d';
 const BLACK_METAL = '#151617';
@@ -54,7 +57,7 @@ function CellShell({cell, renaissance}: {cell: MuseumSpatialCell; renaissance: b
     </mesh>
     <mesh position={[x, cell.ceilingHeight + .09, z]}>
       <boxGeometry args={[width, .18, depth]}/>
-      <meshStandardMaterial color={renaissance ? RENAISSANCE_PALETTE.plaster : CEILING} roughness={.9}/>
+      <meshStandardMaterial {...MUSEUM_CANONICAL_CEILING_MATERIAL}/>
     </mesh>
     <CeilingLightStrips cell={renderCell}/>
   </group>;
@@ -79,17 +82,17 @@ function CeilingLightStrips({cell}: {cell: MuseumSpatialCell}) {
   </mesh>)}</group>;
 }
 
-function GalleryWall({wall, renaissance}: {wall: MuseumWallDefinition; renaissance: boolean}) {
+function GalleryWall({wall, wallMaterial}: {wall: MuseumWallDefinition; wallMaterial: MuseumWallMaterialSpec}) {
   const bottom = wall.bottom ?? 0;
   const center = wall.renderCenter ?? wall.center;
   const size = wall.renderSize ?? wall.size;
   return <group position={[center.x, bottom + wall.height / 2, center.z]} rotation={[0, wall.rotation, 0]} userData={{wallColliderId: wall.id, openingId: wall.openingId}}>
-    <mesh receiveShadow><boxGeometry args={[size.width, wall.height, size.depth]}/><meshStandardMaterial color={renaissance ? RENAISSANCE_PALETTE.plaster : WALL} roughness={.95}/></mesh>
-    {bottom === 0 && <mesh position={[0, -wall.height / 2 + .075, 0]}><boxGeometry args={[size.width + .015, .15, size.depth + .025]}/><meshStandardMaterial color={renaissance ? RENAISSANCE_PALETTE.walnut : WALL_EDGE} roughness={.86}/></mesh>}
+    <mesh receiveShadow><boxGeometry args={[size.width, wall.height, size.depth]}/><meshStandardMaterial {...wallMaterial}/></mesh>
+    {bottom === 0 && <mesh position={[0, -wall.height / 2 + .075, 0]}><boxGeometry args={[size.width + .015, .15, size.depth + .025]}/><meshStandardMaterial {...MUSEUM_CANONICAL_WALL_EDGE_MATERIAL}/></mesh>}
   </group>;
 }
 
-function ThresholdFascia({connection, cells, renaissance}: {connection: MuseumSpatialConnection; cells: readonly MuseumSpatialCell[]; renaissance: boolean}) {
+function ThresholdFascia({connection, cells, wallMaterial}: {connection: MuseumSpatialConnection; cells: readonly MuseumSpatialCell[]; wallMaterial: MuseumWallMaterialSpec}) {
   const from = cells.find(({id}) => id === connection.fromCellId);
   const to = cells.find(({id}) => id === connection.toCellId);
   if (!from || !to) return null;
@@ -103,7 +106,7 @@ function ThresholdFascia({connection, cells, renaissance}: {connection: MuseumSp
   const depth = Math.max(.42, openingBounds.maxZ - openingBounds.minZ);
   return <mesh position={[x, (lower + upper) / 2, z]} userData={{thresholdFasciaId: connection.id}}>
     <boxGeometry args={[width, upper - lower + .08, depth]}/>
-    <meshStandardMaterial color={renaissance ? RENAISSANCE_PALETTE.plaster : WALL} roughness={.95}/>
+    <meshStandardMaterial {...wallMaterial}/>
   </mesh>;
 }
 
@@ -188,6 +191,7 @@ export function ContemporaryHallArchitecture({definition, onSceneGesture}: {defi
   const {layout} = definition;
   const mediterranean = definition.id === MEDITERRANEAN_GALLERY_ID;
   const renaissance = definition.id === RENAISSANCE_GALLERY_ID;
+  const wallMaterial = resolveMuseumWallMaterial(definition.id);
   const activate = (event: ThreeEvent<MouseEvent>) => {
     if (event.delta > 7) return;
     event.stopPropagation();
@@ -195,8 +199,8 @@ export function ContemporaryHallArchitecture({definition, onSceneGesture}: {defi
   };
   return <group onClick={activate}>
     {layout.spatialCells.map((cell) => <CellShell key={cell.id} cell={cell} renaissance={renaissance}/>)}
-    {layout.spatialConnections.map((connection) => <ThresholdFascia key={connection.id} connection={connection} cells={layout.spatialCells} renaissance={renaissance}/>)}
-    {definition.architectureWalls.map((wall) => <GalleryWall key={wall.id} wall={wall} renaissance={renaissance}/>)}
+    {layout.spatialConnections.map((connection) => <ThresholdFascia key={connection.id} connection={connection} cells={layout.spatialCells} wallMaterial={wallMaterial}/>)}
+    {definition.architectureWalls.map((wall) => <GalleryWall key={wall.id} wall={wall} wallMaterial={wallMaterial}/>)}
     <MuseumTemplateInterfaces definition={definition}/>
     {layout.furnishings.filter(({kind}) => kind === 'bench').map((item) => <Bench key={item.id} definition={item} mediterranean={mediterranean}/>)}
     {layout.lighting.tracks.map((track) => <Track key={track.id} track={track}/>)}

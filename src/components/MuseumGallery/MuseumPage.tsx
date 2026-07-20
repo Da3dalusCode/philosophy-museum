@@ -1100,6 +1100,18 @@ export function MuseumPage({route, href, push, replace}: {
     setVisitPhase((phase) => transitionMuseumVisitPhase(phase, 'enter'));
     controls.beginExploring();
   };
+  const resumeVisitOffered = visitPhase !== 'unentered'
+    && controls.mode !== 'locked'
+    && !sceneError
+    && !activeHallLoading
+    && !activeHallLoadFailed;
+  const resumeVisit = () => {
+    if (focusSuspended || exploring) {
+      controls.handleSceneGesture();
+      return;
+    }
+    beginExploring();
+  };
   const closeExhibit = (trigger: MuseumExitTrigger) => {
     const context = visitContext ?? directMuseumVisitContext(activeHallId);
     const policy = resolveMuseumExitPolicy(context, trigger);
@@ -1536,9 +1548,24 @@ export function MuseumPage({route, href, push, replace}: {
             {!activeNode.publicHallId && <p className="museum-masthead-location">Current location · {activeNode.mapLabel}</p>}
             <p className="museum-masthead-sweep">{hall.sweep.map((item, index) => <span key={item}>{index > 0 && <i aria-hidden="true">→</i>}{item}</span>)}</p>
             <div className="museum-entry-row">
-              {focusSuspended
-                ? <button id="museum-enter-button" className="museum-enter-button" type="button" onClick={controls.handleSceneGesture}><DoorOpen size={17}/> Resume visit</button>
-                : <button id="museum-enter-button" className="museum-enter-button" type="button" onClick={beginExploring} disabled={Boolean(sceneError) || activeHallLoading || activeHallLoadFailed}><DoorOpen size={17}/> {activeHallLoadFailed ? 'Gallery unavailable' : activeHallLoading ? 'Preparing gallery' : exploring ? 'Visit active' : visitPhase === 'explicitly-paused' ? 'Resume visit' : 'Enter museum'}</button>}
+              <button
+                id="museum-enter-button"
+                className={`museum-enter-button${resumeVisitOffered ? ' is-resume' : ''}`}
+                type="button"
+                onClick={resumeVisitOffered ? resumeVisit : beginExploring}
+                disabled={Boolean(sceneError) || activeHallLoading || activeHallLoadFailed}
+              >
+                <DoorOpen size={17}/>
+                {activeHallLoadFailed
+                  ? 'Gallery unavailable'
+                  : activeHallLoading
+                    ? 'Preparing gallery'
+                    : resumeVisitOffered
+                      ? 'Resume visit'
+                      : exploring
+                        ? 'Visit active'
+                        : 'Enter museum'}
+              </button>
               <span>{activeIntent ? controls.mode.replace('-', ' ') : 'WASD · arrows · touch'}</span>
             </div>
           </header>

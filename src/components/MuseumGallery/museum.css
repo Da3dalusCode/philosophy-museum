@@ -19,6 +19,8 @@ body.museum-immersive .museum-page{position:fixed;z-index:70;inset:0}
 .museum-entry-row{display:flex;align-items:center;gap:12px;margin-top:13px}.museum-entry-row>span{color:#8f989f;font-size:9px;text-transform:uppercase;letter-spacing:.1em}
 .museum-enter-button{display:inline-flex;min-height:44px;pointer-events:auto;align-items:center;justify-content:center;gap:8px;border:1px solid #c69a66;background:#a67843e8;padding:9px 15px;color:#fff8ec;font-weight:700;box-shadow:inset 0 0 0 1px #f4d6a52b,0 9px 26px #0007}
 .museum-enter-button:hover{background:#b8874f}.museum-enter-button:disabled{cursor:not-allowed;opacity:.45}
+.museum-enter-button.is-resume{border-color:#f0c17d;background:#ad7941;outline:1px solid #f0c17d8c;outline-offset:2px;box-shadow:inset 0 0 0 1px #ffe3b450,0 0 0 2px #d89e5633,0 8px 28px #0008;animation:museum-resume-pulse 2.4s ease-in-out infinite}
+@keyframes museum-resume-pulse{0%,100%{outline-color:#f0c17d70;box-shadow:inset 0 0 0 1px #ffe3b43d,0 0 0 2px #d89e5629,0 8px 28px #0008}50%{outline-color:#ffe0a6d9;box-shadow:inset 0 0 0 1px #ffe8c480,0 0 0 4px #efb66b52,0 8px 32px #d28b3552}}
 .museum-masthead[data-condensed=true]{width:min(330px,calc(100% - 36px));padding:10px 14px}.museum-masthead[data-condensed=true] h1{font-size:23px;margin-block:4px}.museum-masthead[data-condensed=true] .museum-masthead-period,.museum-masthead[data-condensed=true] .museum-masthead-sweep{display:none}.museum-masthead[data-condensed=true] .museum-entry-row{margin-top:6px}.museum-masthead[data-condensed=true] .museum-enter-button{min-height:44px;padding:6px 11px;font-size:12px}
 
 .museum-utility-bar{position:absolute;top:max(16px,env(safe-area-inset-top));right:max(18px,env(safe-area-inset-right));display:flex;height:auto;pointer-events:auto;flex:none;align-items:stretch;justify-content:flex-end;gap:5px;max-width:calc(100% - 390px)}
@@ -165,4 +167,4 @@ body.museum-immersive .museum-page{position:fixed;z-index:70;inset:0}
   .museum-stage[data-exploring=true] .museum-proximity-card{right:max(108px,calc(env(safe-area-inset-right) + 100px));bottom:max(8px,env(safe-area-inset-bottom));left:max(108px,calc(env(safe-area-inset-left) + 100px));width:auto;max-width:none}
 }
 
-@media(prefers-reduced-motion:reduce){.museum-masthead,.museum-proximity-card{transition:none;animation:none}}
+@media(prefers-reduced-motion:reduce){.museum-masthead,.museum-proximity-card,.museum-enter-button.is-resume{transition:none;animation:none}.museum-enter-button.is-resume{outline:2px solid #ffe0a6;outline-offset:2px;box-shadow:inset 0 0 0 1px #ffe8c480,0 0 0 3px #efb66b4d,0 8px 28px #0008}}

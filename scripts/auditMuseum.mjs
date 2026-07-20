@@ -16,6 +16,7 @@ const museumWorldSource = source('src/components/MuseumGallery/MuseumWorldScene.
 const museumControlsSource = source('src/components/MuseumGallery/useMuseumControls.ts');
 const museumModalSource = source('src/components/MuseumGallery/MuseumModal.tsx');
 const architectureSource = source('src/components/MuseumGallery/ContemporaryHallArchitecture.tsx');
+const buildingArchitectureSource = source('src/components/MuseumGallery/MuseumBuildingArchitecture.tsx');
 const canonicalSceneSource = source('src/components/MuseumGallery/CanonicalMuseumHallScene.tsx');
 const canonicalExhibitsSource = source('src/components/MuseumGallery/CanonicalMuseumExhibits.tsx');
 const mediterraneanMediaSource = source('src/components/MuseumGallery/MediterraneanExhibitMedia.tsx');
@@ -42,6 +43,7 @@ const result = await build({
       export * from '/src/data/museum/museumBuildingManifest.ts';
       export * from '/src/data/museum/museumBuildingRuntime.ts';
       export * from '/src/data/museum/museumHallTemplates.ts';
+      export * from '/src/data/museum/museumArchitectureMaterials.ts';
       export * from '/src/data/museum/mediterraneanGalleryCuration.ts';
       export * from '/src/data/museum/museumVisitorMap.ts';
       export * from '/src/data/museum/museumVisitorMapProjection.ts';
@@ -84,6 +86,7 @@ try {
 const {
   MUSEUM_ASSETS,
   MUSEUM_BUILDING_MANIFEST,
+  MUSEUM_CANONICAL_WALL_MATERIAL,
   MUSEUM_CANONICAL_PROGRAM,
   MUSEUM_DECODED_TEXTURE_BUDGET_BYTES,
   MUSEUM_DECODED_TEXTURE_BUDGET_MIB,
@@ -99,6 +102,7 @@ const {
   MEDITERRANEAN_ORIENTATION_DISPLAY,
   MEDITERRANEAN_ROOM_SIGN_COPY,
   MUSEUM_PLANNED_HALL_TITLES,
+  MUSEUM_OWNER_APPROVED_WALL_MATERIAL_EXCEPTIONS,
   MUSEUM_PERSISTENT_TEXTURE_ESTIMATE,
   MUSEUM_READINESS_PRESENTATIONS,
   MUSEUM_RUNTIME_NODES,
@@ -136,6 +140,7 @@ const {
   positionInsideSpatialUnion,
   resolveMuseumHallRenderedReadinessKeys,
   resolveMuseumHallResidencyPlan,
+  resolveMuseumWallMaterial,
   resolveMuseumOrientationReset,
   resolveMuseumReadinessGateGeometry,
   resolveMuseumReadinessGateStatus,
@@ -264,6 +269,33 @@ const worldNormal = (definition, normal) => ({
   x: normal.x * Math.cos(definition.worldTransform.yaw) + normal.z * Math.sin(definition.worldTransform.yaw),
   z: -normal.x * Math.sin(definition.worldTransform.yaw) + normal.z * Math.cos(definition.worldTransform.yaw),
 });
+const wallPlane = (node, wall) => {
+  const {x, z, yaw} = node.worldTransform;
+  const cosine = Math.cos(yaw);
+  const sine = Math.sin(yaw);
+  const centerX = x + cosine * wall.center.x + sine * wall.center.z;
+  const centerZ = z - sine * wall.center.x + cosine * wall.center.z;
+  const directionX = Math.cos(wall.rotation + yaw);
+  const directionZ = -Math.sin(wall.rotation + yaw);
+  const halfRun = wall.size.width / 2;
+  const firstX = centerX - directionX * halfRun;
+  const secondX = centerX + directionX * halfRun;
+  const firstZ = centerZ - directionZ * halfRun;
+  const secondZ = centerZ + directionZ * halfRun;
+  const bottom = wall.bottom ?? 0;
+  return Math.abs(directionX) >= Math.abs(directionZ)
+    ? {axis: 'x', coordinate: centerZ, start: Math.min(firstX, secondX), end: Math.max(firstX, secondX), bottom, top: bottom + wall.height}
+    : {axis: 'z', coordinate: centerX, start: Math.min(firstZ, secondZ), end: Math.max(firstZ, secondZ), bottom, top: bottom + wall.height};
+};
+const wallPlaneFullyCovers = (covering, candidate) => {
+  const epsilon = .012;
+  return covering.axis === candidate.axis
+    && Math.abs(covering.coordinate - candidate.coordinate) <= epsilon
+    && covering.start <= candidate.start + epsilon
+    && covering.end >= candidate.end - epsilon
+    && covering.bottom <= candidate.bottom + epsilon
+    && covering.top >= candidate.top - epsilon;
+};
 
 check('the public catalog is exactly the canonical six-hall, 29-room, 61-exhibit program', () => {
   assert.deepEqual(MUSEUM_HALLS.map(({id}) => id), HALL_IDS);
@@ -289,6 +321,31 @@ check('the public catalog is exactly the canonical six-hall, 29-room, 61-exhibit
   }
   assert.equal(philosophers.length, 144);
   assert.equal(branches.length, 43);
+});
+
+check('current halls and the Gallery 01–02 connector use the canonical wall material without coplanar render surfaces', () => {
+  const currentExceptions = HALL_IDS.filter((hallId) => Object.hasOwn(MUSEUM_OWNER_APPROVED_WALL_MATERIAL_EXCEPTIONS, hallId));
+  assert.deepEqual(currentExceptions, [], 'A current hall has an unapproved architectural wall exception');
+  for (const hallId of HALL_IDS) {
+    assert.deepEqual(resolveMuseumWallMaterial(hallId), MUSEUM_CANONICAL_WALL_MATERIAL, `${hallId} does not resolve the Gallery 01 wall standard`);
+  }
+  assert.match(architectureSource, /resolveMuseumWallMaterial\(definition\.id\)/, 'Canonical hall walls bypass the shared material resolver');
+  assert.doesNotMatch(architectureSource, /RENAISSANCE_PALETTE\.plaster/, 'Gallery 02 still overrides the architectural wall color');
+  assert.match(buildingArchitectureSource, /resolveMuseumWallMaterial\(\)/, 'Museum connectors bypass the shared wall standard');
+
+  const connector = runtimeNodeById.get('corridor:outer-01-mediterranean-renaissance');
+  const hallNodes = MUSEUM_RUNTIME_NODES.filter(({kind}) => kind === 'hall');
+  assert(connector?.architectureWalls, 'The Gallery 01–02 connector has no rendered architecture');
+  const coveredByHall = (wall) => {
+    const candidate = wallPlane(connector, wall);
+    return hallNodes.some((hallNode) => (hallNode.architectureWalls ?? hallNode.layout.wallColliders)
+      .some((hallWall) => wallPlaneFullyCovers(wallPlane(hallNode, hallWall), candidate)));
+  };
+  assert(connector.architectureWalls.every((wall) => !coveredByHall(wall)), 'The Gallery 01–02 connector still renders a hall-covered wall plane');
+  const renderedWallIds = new Set(connector.architectureWalls.map(({id}) => id));
+  const collisionOnlySeamWalls = connector.layout.wallColliders.filter(({id}) => !renderedWallIds.has(id));
+  assert(collisionOnlySeamWalls.length > 0, 'The Gallery 01–02 seam removed no duplicate rendered surfaces');
+  assert(collisionOnlySeamWalls.every(coveredByHall), 'The connector removed a rendered wall that is not fully covered by a hall shell');
 });
 
 check('Gallery 01 has bounded authored curation, visitor-facing orientation, and a clear first connector', () => {

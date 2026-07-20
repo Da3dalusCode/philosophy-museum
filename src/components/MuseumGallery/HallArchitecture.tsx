@@ -10,15 +10,18 @@ import type {
   MuseumWallDefinition,
 } from '../../data/museum/museumWorldTypes';
 import {
+  MUSEUM_CANONICAL_CEILING_MATERIAL,
+  MUSEUM_CANONICAL_WALL_EDGE_MATERIAL,
+  resolveMuseumWallMaterial,
+  type MuseumWallMaterialSpec,
+} from '../../data/museum/museumArchitectureMaterials';
+import {
   MUSEUM_TEXTURE_SPECS,
   museumTextureDimensionsForPlane,
 } from '../../data/museum/museumTexturePolicy';
 import {MuseumTemplateInterfaces} from './MuseumTemplateInterfaces';
 import {usePlaqueTexture} from './plaqueTextures';
 
-const WALL = '#eeeae2';
-const WALL_EDGE = '#d9d4ca';
-const CEILING = '#e7e3dc';
 const FLOOR = '#4e4b45';
 const FLOOR_PASSAGE = '#5b554d';
 const BLACK_METAL = '#151617';
@@ -39,7 +42,7 @@ function CellShell({cell}: {cell: MuseumSpatialCell}) {
     </mesh>
     <mesh position={[x, cell.ceilingHeight + .09, z]}>
       <boxGeometry args={[width, .18, depth]}/>
-      <meshStandardMaterial color={CEILING} roughness={.88}/>
+      <meshStandardMaterial {...MUSEUM_CANONICAL_CEILING_MATERIAL}/>
     </mesh>
     <CeilingLightStrips cell={renderCell}/>
   </group>;
@@ -74,7 +77,7 @@ function CeilingLightStrips({cell}: {cell: MuseumSpatialCell}) {
   </group>;
 }
 
-function GalleryWall({wall}: {wall: MuseumWallDefinition}) {
+function GalleryWall({wall, wallMaterial}: {wall: MuseumWallDefinition; wallMaterial: MuseumWallMaterialSpec}) {
   const bottom = wall.bottom ?? 0;
   const renderWall = {
     ...wall,
@@ -88,11 +91,11 @@ function GalleryWall({wall}: {wall: MuseumWallDefinition}) {
   >
     <mesh receiveShadow>
       <boxGeometry args={[renderWall.size.width, renderWall.height, renderWall.size.depth]}/>
-      <meshStandardMaterial color={WALL} roughness={.94}/>
+      <meshStandardMaterial {...wallMaterial}/>
     </mesh>
     {bottom === 0 && <mesh position={[0, -renderWall.height / 2 + .075, 0]}>
       <boxGeometry args={[renderWall.size.width + .015, .15, renderWall.size.depth + .025]}/>
-      <meshStandardMaterial color={WALL_EDGE} roughness={.84}/>
+      <meshStandardMaterial {...MUSEUM_CANONICAL_WALL_EDGE_MATERIAL}/>
     </mesh>}
   </group>;
 }
@@ -244,6 +247,7 @@ export function HallArchitecture({definition, onSceneGesture}: {
   onSceneGesture: () => void;
 }) {
   const {layout} = definition;
+  const wallMaterial = resolveMuseumWallMaterial(definition.id);
   const activateScene = (event: ThreeEvent<MouseEvent>) => {
     if (event.delta > 7) return;
     event.stopPropagation();
@@ -251,7 +255,7 @@ export function HallArchitecture({definition, onSceneGesture}: {
   };
   return <group onClick={activateScene}>
     {layout.spatialCells.map((cell) => <CellShell key={cell.id} cell={cell}/>)}
-    {definition.architectureWalls.map((wall) => <GalleryWall key={wall.id} wall={wall}/>)}
+    {definition.architectureWalls.map((wall) => <GalleryWall key={wall.id} wall={wall} wallMaterial={wallMaterial}/>)}
     <MuseumTemplateInterfaces definition={definition}/>
     {layout.furnishings.map((furnishing) => <GalleryFurnishing key={furnishing.id} definition={furnishing}/>)}
     {layout.lighting.tracks.map((track) => <LightingTrack key={track.id} track={track}/>)}

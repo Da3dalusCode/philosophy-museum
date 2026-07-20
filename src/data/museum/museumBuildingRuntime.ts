@@ -367,11 +367,82 @@ const hallDefinitions: readonly MuseumHallDefinition[] = hallContents.map((conte
   };
 });
 
+type WorldWallPlane = {
+  axis: 'x' | 'z';
+  coordinate: number;
+  start: number;
+  end: number;
+  bottom: number;
+  top: number;
+};
+
+const worldWallPlane = (
+  transform: {x: number; z: number; yaw: number},
+  wall: MuseumWallDefinition,
+): WorldWallPlane => {
+  const cosine = Math.cos(transform.yaw);
+  const sine = Math.sin(transform.yaw);
+  const centerX = transform.x + cosine * wall.center.x + sine * wall.center.z;
+  const centerZ = transform.z - sine * wall.center.x + cosine * wall.center.z;
+  const directionX = Math.cos(wall.rotation + transform.yaw);
+  const directionZ = -Math.sin(wall.rotation + transform.yaw);
+  const halfRun = wall.size.width / 2;
+  const firstX = centerX - directionX * halfRun;
+  const secondX = centerX + directionX * halfRun;
+  const firstZ = centerZ - directionZ * halfRun;
+  const secondZ = centerZ + directionZ * halfRun;
+  const bottom = wall.bottom ?? 0;
+  return Math.abs(directionX) >= Math.abs(directionZ)
+    ? {
+        axis: 'x',
+        coordinate: centerZ,
+        start: Math.min(firstX, secondX),
+        end: Math.max(firstX, secondX),
+        bottom,
+        top: bottom + wall.height,
+      }
+    : {
+        axis: 'z',
+        coordinate: centerX,
+        start: Math.min(firstZ, secondZ),
+        end: Math.max(firstZ, secondZ),
+        bottom,
+        top: bottom + wall.height,
+      };
+};
+
+const planeFullyCovers = (covering: WorldWallPlane, candidate: WorldWallPlane): boolean => {
+  const epsilon = .012;
+  return covering.axis === candidate.axis
+    && Math.abs(covering.coordinate - candidate.coordinate) <= epsilon
+    && covering.start <= candidate.start + epsilon
+    && covering.end >= candidate.end - epsilon
+    && covering.bottom <= candidate.bottom + epsilon
+    && covering.top >= candidate.top - epsilon;
+};
+
+/**
+ * Collision keeps the complete doorway seam, but rendering has one owner.
+ * Short circulation-wall and lintel fragments that sit inside a hall's wall
+ * plane are removed instead of being drawn coplanar with the hall shell.
+ */
+const removeHallCoveredCirculationSurfaces = (
+  node: MuseumManifestNode,
+  walls: readonly MuseumWallDefinition[],
+): readonly MuseumWallDefinition[] => walls.filter((wall) => {
+  const candidate = worldWallPlane(node.transform, wall);
+  return !hallDefinitions.some((hall) => (hall.architectureWalls ?? hall.layout.wallColliders)
+    .some((hallWall) => planeFullyCovers(worldWallPlane(hall.worldTransform, hallWall), candidate)));
+});
+
 const runtimeNodes: readonly MuseumRuntimeNodeDefinition[] = MUSEUM_BUILDING_MANIFEST.nodes.map((node) => {
   const hall = node.publicHallId
     ? hallDefinitions.find(({id}) => id === node.publicHallId)
     : undefined;
   const circulationWalls = hall ? undefined : createCirculationWalls(node);
+  const circulationArchitectureWalls = circulationWalls
+    ? removeHallCoveredCirculationSurfaces(node, circulationWalls.architecture)
+    : undefined;
   return {
     id: node.id,
     kind: node.kind,
@@ -385,8 +456,8 @@ const runtimeNodes: readonly MuseumRuntimeNodeDefinition[] = MUSEUM_BUILDING_MAN
     layout: hall?.layout ?? createNavigationLayout(node, circulationWalls?.colliders ?? []),
     ...(hall
       ? {architectureWalls: hall.architectureWalls, resolvedTemplate: hall.resolvedTemplate}
-      : circulationWalls
-        ? {architectureWalls: circulationWalls.architecture}
+      : circulationArchitectureWalls
+        ? {architectureWalls: circulationArchitectureWalls}
         : {}),
     entrances: node.doorwaySlots.map(toEntrance),
     mapLabel: node.map.label,

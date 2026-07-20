@@ -2,7 +2,6 @@ import type {ThreeEvent} from '@react-three/fiber';
 import {MUSEUM_BUILDING_MANIFEST} from '../../data/museum/museumBuildingManifest';
 import {
   MUSEUM_CIRCULATION_NODES,
-  MUSEUM_RUNTIME_NODES,
   getMuseumReservationBarrierBody,
   getMuseumRuntimeNode,
 } from '../../data/museum/museumBuildingRuntime';
@@ -14,88 +13,21 @@ import type {
   MuseumWallDefinition,
 } from '../../data/museum/museumWorldTypes';
 import {
+  MUSEUM_CANONICAL_CEILING_MATERIAL,
+  MUSEUM_CANONICAL_WALL_EDGE_MATERIAL,
+  resolveMuseumWallMaterial,
+} from '../../data/museum/museumArchitectureMaterials';
+import {
   MUSEUM_TEXTURE_SPECS,
   museumTextureDimensionsForPlane,
 } from '../../data/museum/museumTexturePolicy';
 import {usePlaqueTexture} from './plaqueTextures';
 
-const WALL = '#e9e4da';
-const WALL_EDGE = '#cfc8bc';
 const FLOOR = '#514e48';
 const FLOOR_FORUM = '#605744';
-const CEILING = '#e7e2d8';
 const METAL = '#18191a';
 const BRONZE = '#8b6b43';
 const SIGN_REAR = '#d8d2c7';
-const GALLERY_WALL = '#eeeae2';
-const GALLERY_WALL_EDGE = '#d9d4ca';
-const OUTER_01_NODE_ID = 'corridor:outer-01-mediterranean-renaissance';
-
-type WorldWallPlane = {
-  axis: 'x' | 'z';
-  coordinate: number;
-  start: number;
-  end: number;
-  bottom: number;
-  top: number;
-};
-
-const worldWallPlane = (
-  node: MuseumRuntimeNodeDefinition,
-  wall: MuseumWallDefinition,
-): WorldWallPlane => {
-  const yaw = node.worldTransform.yaw;
-  const cosine = Math.cos(yaw);
-  const sine = Math.sin(yaw);
-  const centerX = node.worldTransform.x + cosine * wall.center.x + sine * wall.center.z;
-  const centerZ = node.worldTransform.z - sine * wall.center.x + cosine * wall.center.z;
-  const directionX = Math.cos(wall.rotation + yaw);
-  const directionZ = -Math.sin(wall.rotation + yaw);
-  const halfRun = wall.size.width / 2;
-  const firstX = centerX - directionX * halfRun;
-  const secondX = centerX + directionX * halfRun;
-  const firstZ = centerZ - directionZ * halfRun;
-  const secondZ = centerZ + directionZ * halfRun;
-  const bottom = wall.bottom ?? 0;
-  return Math.abs(directionX) >= Math.abs(directionZ)
-    ? {
-        axis: 'x',
-        coordinate: centerZ,
-        start: Math.min(firstX, secondX),
-        end: Math.max(firstX, secondX),
-        bottom,
-        top: bottom + wall.height,
-      }
-    : {
-        axis: 'z',
-        coordinate: centerX,
-        start: Math.min(firstZ, secondZ),
-        end: Math.max(firstZ, secondZ),
-        bottom,
-        top: bottom + wall.height,
-      };
-};
-
-const sameWallPlane = (first: WorldWallPlane, second: WorldWallPlane): boolean => {
-  const epsilon = .012;
-  return first.axis === second.axis
-    && Math.abs(first.coordinate - second.coordinate) <= epsilon
-    && Math.abs(first.start - second.start) <= epsilon
-    && Math.abs(first.end - second.end) <= epsilon
-    && Math.abs(first.bottom - second.bottom) <= epsilon
-    && Math.abs(first.top - second.top) <= epsilon;
-};
-
-const isHallOwnedSeamSurface = (
-  node: MuseumRuntimeNodeDefinition,
-  wall: MuseumWallDefinition,
-): boolean => {
-  const candidate = worldWallPlane(node, wall);
-  return MUSEUM_RUNTIME_NODES
-    .filter(({kind}) => kind === 'hall')
-    .some((hall) => (hall.architectureWalls ?? hall.layout.wallColliders)
-      .some((hallWall) => sameWallPlane(candidate, worldWallPlane(hall, hallWall))));
-};
 
 function StructuralCell({cell, forum}: {cell: MuseumSpatialCell; forum: boolean}) {
   const renderBounds = cell.renderBounds ?? cell.bounds;
@@ -120,7 +52,7 @@ function StructuralCell({cell, forum}: {cell: MuseumSpatialCell; forum: boolean}
     </mesh>
     <mesh position={[x, cell.ceilingHeight + .08, z]}>
       <boxGeometry args={[width, .16, depth]}/>
-      <meshStandardMaterial color={CEILING} roughness={.9}/>
+      <meshStandardMaterial {...MUSEUM_CANONICAL_CEILING_MATERIAL}/>
     </mesh>
     {guideCenters.map((center) => <mesh
       key={`ceiling-guide-${center}`}
@@ -141,10 +73,9 @@ function StructuralCell({cell, forum}: {cell: MuseumSpatialCell; forum: boolean}
   </group>;
 }
 
-function StructuralWall({wall, galleryFinish = false}: {wall: MuseumWallDefinition; galleryFinish?: boolean}) {
+function StructuralWall({wall}: {wall: MuseumWallDefinition}) {
   const bottom = wall.bottom ?? 0;
-  const wallColor = galleryFinish ? GALLERY_WALL : WALL;
-  const edgeColor = galleryFinish ? GALLERY_WALL_EDGE : WALL_EDGE;
+  const wallMaterial = resolveMuseumWallMaterial();
   return <group
     position={[wall.center.x, bottom + wall.height / 2, wall.center.z]}
     rotation={[0, wall.rotation, 0]}
@@ -152,11 +83,11 @@ function StructuralWall({wall, galleryFinish = false}: {wall: MuseumWallDefiniti
   >
     <mesh receiveShadow>
       <boxGeometry args={[wall.size.width, wall.height, wall.size.depth]}/>
-      <meshStandardMaterial color={wallColor} roughness={.95}/>
+      <meshStandardMaterial {...wallMaterial}/>
     </mesh>
     {bottom === 0 && <mesh position={[0, -wall.height / 2 + .07, 0]}>
       <boxGeometry args={[wall.size.width + .02, .14, wall.size.depth + .02]}/>
-      <meshStandardMaterial color={edgeColor} roughness={.86}/>
+      <meshStandardMaterial {...MUSEUM_CANONICAL_WALL_EDGE_MATERIAL}/>
     </mesh>}
   </group>;
 }
@@ -235,17 +166,13 @@ function ReservationBarrier({reservation}: {reservation: MuseumReservation}) {
 
 function CirculationNode({node}: {node: MuseumRuntimeNodeDefinition}) {
   const forum = false;
-  const outer01 = node.id === OUTER_01_NODE_ID;
-  const architectureWalls = (node.architectureWalls ?? node.layout.wallColliders)
-    // Hall shells own exact seam matches. Rendering the connector copy in the
-    // same plane causes depth fighting while leaving collision geometry intact.
-    .filter((wall) => !outer01 || !isHallOwnedSeamSurface(node, wall));
+  const architectureWalls = node.architectureWalls ?? node.layout.wallColliders;
   const entranceCell = node.id === MUSEUM_BUILDING_MANIFEST.mainEntrance.nodeId
     ? node.layout.spatialCells.find(({id}) => id.endsWith(':orientation-court'))
     : undefined;
   return <group position={[node.worldTransform.x, 0, node.worldTransform.z]} rotation={[0, node.worldTransform.yaw, 0]}>
     {node.layout.spatialCells.map((cell) => <StructuralCell key={cell.id} cell={cell} forum={forum}/>)}
-    {architectureWalls.map((wall) => <StructuralWall key={wall.id} wall={wall} galleryFinish={outer01}/>)}
+    {architectureWalls.map((wall) => <StructuralWall key={wall.id} wall={wall}/>)}
     {node.layout.furnishings.map((item) => <StructuralBench key={item.id} item={item}/>)}
     {entranceCell && <BuildingSign
       title="Philosophy Atlas Museum"
