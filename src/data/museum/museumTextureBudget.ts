@@ -160,21 +160,19 @@ const generatedHallSpecs = (hallId: MuseumHallId): readonly MuseumDecodedTexture
       mipmaps: true,
     };
     const spec = museumTextureDimensionsForPlane(sign.width, sign.height, reference);
-    return hallId === MEDITERRANEAN_GALLERY_ID ? [spec, spec] : [spec];
+    return [spec];
   });
   return hallId === MUSEUM_BUILDING_MANIFEST.kiosk.publicHallId
     ? [
         ...signs,
         MUSEUM_TEXTURE_SPECS.visitorMapKiosk,
         MUSEUM_TEXTURE_SPECS.mediterraneanOrientation,
-        MUSEUM_TEXTURE_SPECS.mediterraneanOrientation,
       ]
     : signs;
 };
 
 const MEDITERRANEAN_ORIENTATION_ASSET_IDS = [
-  'thales-promptuarii-portrait',
-  'ancient-greek-colonization-map',
+  'plato-school-of-athens',
 ] as const;
 
 /**

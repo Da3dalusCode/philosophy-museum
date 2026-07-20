@@ -134,7 +134,10 @@ function Bench({definition, mediterranean}: {definition: MuseumFurnishingDefinit
 }
 
 function PhysicalSign({definition, mediterranean}: {definition: MuseumSignDefinition; mediterranean: boolean}) {
-  const accent = mediterranean
+  const museumIdentity = mediterranean && definition.kind === 'entrance';
+  const accent = museumIdentity
+    ? '#b88b4a'
+    : mediterranean
     ? definition.kind === 'entrance' ? MEDITERRANEAN_PALETTE.terracotta : definition.kind === 'wayfinding' ? MEDITERRANEAN_PALETTE.aegean : MEDITERRANEAN_PALETTE.ochre
     : definition.kind === 'entrance' ? '#7b5d3d' : definition.kind === 'wayfinding' ? '#486d70' : BRONZE;
   const referenceWidth = mediterranean ? 600 : MUSEUM_TEXTURE_SPECS.contemporarySignWidth;
@@ -153,14 +156,14 @@ function PhysicalSign({definition, mediterranean}: {definition: MuseumSignDefini
     accent,
     width: textureSize.width,
     height: textureSize.height,
-    theme: mediterranean ? 'mediterranean' : 'dark',
+    theme: mediterranean && !museumIdentity ? 'mediterranean' : 'dark',
   });
   return <group
     position={[definition.position.x, definition.position.y, definition.position.z]}
     rotation={[0, definition.rotationY, 0]}
     userData={{museumSignId: definition.id, museumSignKind: definition.kind}}
   >
-    <mesh position={[0, 0, -.04]}><boxGeometry args={[definition.width + .1, definition.height + .1, .07]}/><meshStandardMaterial color={mediterranean ? SIGN_REAR : BLACK_METAL} roughness={mediterranean ? .86 : .52} metalness={mediterranean ? .02 : .42}/></mesh>
+    <mesh position={[0, 0, -.04]}><boxGeometry args={[definition.width + .1, definition.height + .1, .07]}/><meshStandardMaterial color={mediterranean && !museumIdentity ? SIGN_REAR : BLACK_METAL} roughness={mediterranean && !museumIdentity ? .86 : .52} metalness={mediterranean && !museumIdentity ? .02 : .42}/></mesh>
     <mesh position={[0, 0, .002]}><planeGeometry args={[definition.width, definition.height]}/><meshBasicMaterial map={texture} toneMapped={false}/></mesh>
     {!mediterranean && <>
       <mesh position={[0, 0, -.077]} rotation={[0, Math.PI, 0]}>

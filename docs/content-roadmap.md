@@ -4,11 +4,11 @@
 
 The atlas currently contains:
 
-- 142 philosopher records.
+- 144 philosopher records.
 - 43 branch and school records.
 - 28 sustained school bands on the Philosophy Wall.
 - 24 selected landmark works on the Philosophy Wall.
-- Article-grade coverage for all 142 philosopher records, measured by `npm run report:coverage`.
+- Article-grade coverage for all 144 philosopher records, measured by `npm run report:coverage`.
 - Article-grade coverage for all 43 branch and school records, measured by `npm run report:coverage`.
 
 Coverage is strongest for ancient Greek philosophy, Pre-Socratic and Hellenistic schools, early modern European philosophy, medieval Christian/Islamic/scholastic philosophy, Chinese and Indian/Buddhist core traditions, analytic philosophy, pragmatism and philosophy of science, feminist/social philosophy, and late twentieth-century ethics.
@@ -71,7 +71,7 @@ The branch records authored and rendered in the article-first format are:
 - Indian Philosophy, Jainism, Vedanta, Buddhist Philosophy, and Buddhist Epistemology
 - Aesthetics, Pragmatism, Continental Philosophy, and Feminist Philosophy
 
-These records establish the editorial and UI pattern for future depth work: concise overview first, sustained historical and argumentative prose as the main body, and compact readings, sources, concepts, and atlas connections as supporting reference material. Branch article coverage is complete at 43 of 43, and philosopher article coverage is complete at 142 of 142. Every current atlas record now has article-grade `articleSections`.
+These records establish the editorial and UI pattern for future depth work: concise overview first, sustained historical and argumentative prose as the main body, and compact readings, sources, concepts, and atlas connections as supporting reference material. Branch article coverage is complete at 43 of 43, and philosopher article coverage is complete at 144 of 144. Every current atlas record now has article-grade `articleSections`.
 
 ## Structured deep pack
 
@@ -89,7 +89,7 @@ These pages now contain specific origin stories, periodized development, concept
 
 ## Core article coverage complete
 
-Branch article coverage is complete at 43 of 43, and philosopher article coverage is complete at 142 of 142. Missing core article coverage is no longer a roadmap category.
+Branch article coverage is complete at 43 of 43, and philosopher article coverage is complete at 144 of 144. Missing core article coverage is no longer a roadmap category.
 
 Remaining editorial priorities include:
 

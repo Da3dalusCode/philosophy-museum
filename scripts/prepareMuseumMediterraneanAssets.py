@@ -27,7 +27,7 @@ USER_AGENT = (
     "PhilosophyAtlasMuseum/1.0 "
     "(+https://github.com/Da3dalusCode/philosophy-museum; local educational asset preparation)"
 )
-EXPECTED_ASSET_COUNT = 17
+EXPECTED_ASSET_COUNT = 19
 MAX_DERIVATIVE_BYTES = 600_000
 
 
@@ -129,14 +129,29 @@ def main() -> None:
         action="store_true",
         help="Intentionally rebuild derivatives and replace hashes after source review.",
     )
+    parser.add_argument(
+        "--only",
+        action="append",
+        default=[],
+        metavar="ASSET_ID",
+        help="Limit preparation or lock refresh to a named Gallery 01 asset; repeat for multiple assets.",
+    )
     args = parser.parse_args()
     assets = load_manifest(args.refresh_locks)
+    selected = set(args.only)
+    unknown = selected.difference(assets)
+    if unknown:
+        raise RuntimeError(f"Unknown Gallery 01 asset selection: {', '.join(sorted(unknown))}")
     refreshed = json.loads(MANIFEST_PATH.read_text(encoding="utf-8"))
     OUTPUT_ROOT.mkdir(parents=True, exist_ok=True)
+    processed = 0
 
     with ExitStack() as stack:
         temporary: Path | None = None
         for index, (slug, record) in enumerate(assets.items(), start=1):
+            if selected and slug not in selected:
+                continue
+            processed += 1
             scene_path = OUTPUT_ROOT / f"{slug}-scene.webp"
             panel_path = OUTPUT_ROOT / f"{slug}-panel.webp"
 
@@ -174,9 +189,9 @@ def main() -> None:
 
     if args.refresh_locks:
         MANIFEST_PATH.write_text(json.dumps(refreshed, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-        print(f"Refreshed {EXPECTED_ASSET_COUNT * 2} Gallery 01 derivative locks in {MANIFEST_PATH.name}.")
+        print(f"Refreshed {processed * 2} Gallery 01 derivative locks in {MANIFEST_PATH.name}.")
     else:
-        print(f"Verified {EXPECTED_ASSET_COUNT * 2} locked Gallery 01 derivatives.")
+        print(f"Verified {processed * 2} locked Gallery 01 derivatives.")
 
 
 if __name__ == "__main__":

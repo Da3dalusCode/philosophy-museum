@@ -124,7 +124,7 @@ const EXPECTED_ALIASES = {
   'mind-consciousness-self': 'core-questions-forum',
 };
 const EXPECTED_LIVE_COUNTS = {
-  'mediterranean-beginnings-classical': {rooms: 4, exhibits: 20, template: 'sequence-3'},
+  'mediterranean-beginnings-classical': {rooms: 4, exhibits: 22, template: 'sequence-3'},
   'renaissance-humanism-new-method': {rooms: 3, exhibits: 3, template: 'sequence-3'},
   'phenomenology-existence-embodiment': {rooms: 5, exhibits: 9, template: 'sequence-3'},
   'analytic-traditions': {rooms: 5, exhibits: 7, template: 'sequence-3'},
@@ -132,14 +132,14 @@ const EXPECTED_LIVE_COUNTS = {
   'core-questions-forum': {rooms: 9, exhibits: 15, template: 'crossroads-4'},
 };
 const EXPECTED_LIVE_TIERS = {
-  'anchor-exhibit': 30,
+  'anchor-exhibit': 32,
   'standard-individual-exhibit': 25,
   'supporting-exhibit': 3,
   'thematic-cluster-participant': 0,
   'gallery-archive-or-study-wall-record': 1,
 };
 const EXPECTED_GLOBAL_TIERS = {
-  'anchor-exhibit': 89,
+  'anchor-exhibit': 91,
   'standard-individual-exhibit': 81,
   'supporting-exhibit': 9,
   'thematic-cluster-participant': 5,
@@ -165,11 +165,11 @@ const roomById = new Map(program.rooms.map((room) => [room.id, room]));
 const tierIds = program.tiers.map(({id}) => id);
 const templateById = new Map(program.templates.map((template) => [template.id, template]));
 
-check(philosophers.length === 142, `Approved program: expected 142 philosophers, found ${philosophers.length}`);
+check(philosophers.length === 144, `Approved program: expected 144 philosophers, found ${philosophers.length}`);
 check(branches.length === 43, `Approved program: expected 43 branches, found ${branches.length}`);
 check(unique(philosophers.map(({id}) => id)), 'Philosopher registry contains duplicate IDs');
 check(unique(branches.map(({id}) => id)), 'Branch registry contains duplicate IDs');
-check(philosopherAssignments.length === 142, `philosopher-assignments.csv: expected 142 rows, found ${philosopherAssignments.length}`);
+check(philosopherAssignments.length === 144, `philosopher-assignments.csv: expected 144 rows, found ${philosopherAssignments.length}`);
 check(branchAssignments.length === 43, `branch-assignments.csv: expected 43 rows, found ${branchAssignments.length}`);
 check(unique(philosopherAssignments.map(({id}) => id)), 'philosopher-assignments.csv contains duplicate IDs');
 check(unique(branchAssignments.map(({id}) => id)), 'branch-assignments.csv contains duplicate IDs');
@@ -191,7 +191,7 @@ check(unique(program.rooms.map(({id}) => id)), 'hall-program.json contains dupli
 check(unique(tierIds), 'hall-program.json contains duplicate tier IDs');
 check(unique(program.templates.map(({id}) => id)), 'hall-program.json contains duplicate template IDs');
 check(same(tierIds, MUSEUM_PRESENTATION_TIERS), 'Runtime presentation tiers do not match the approved masterplan order');
-check(same(program.assignmentCounts, {branches: 43, philosophers: 142, totalPrimaryRecords: 185}), 'Approved assignmentCounts must be 43 branches, 142 philosophers, and 185 total');
+check(same(program.assignmentCounts, {branches: 43, philosophers: 144, totalPrimaryRecords: 187}), 'Approved assignmentCounts must be 43 branches, 144 philosophers, and 187 total');
 
 const normalTemplateIds = ['standard-rect', 'sequence-3', 'crossroads-4'];
 check(normalTemplateIds.every((id) => templateById.has(id)), 'The approved normal template set is incomplete');
@@ -281,7 +281,7 @@ check(recommendedOption?.wingCount === program.wings.length, 'Recommended option
 check(recommendedOption?.hallCount === program.halls.length, 'Recommended option hall total does not match the approved program');
 check(recommendedOption?.roomCount === program.rooms.length, 'Recommended option room total does not match the approved program');
 check(recommendedOption?.recordCapacity === approvedCapacity, 'Recommended option capacity does not match the approved program');
-check(approvedCapacity === 258, `Approved program capacity changed from 258 to ${approvedCapacity}`);
+check(approvedCapacity === 260, `Approved program capacity changed from 260 to ${approvedCapacity}`);
 for (const option of program.optionSummaries) {
   const breakdown = program.optionWingBreakdowns[option.id];
   check(Array.isArray(breakdown), `Option ${option.id} has no wing breakdown`);
@@ -317,7 +317,7 @@ check(same(MUSEUM_CANONICAL_PROGRAM.map(({id}) => id), APPROVED_HALL_IDS), 'Cano
 const canonicalRooms = MUSEUM_CANONICAL_PROGRAM.flatMap((hall) => hall.rooms.map((room) => ({hall, room})));
 const canonicalExhibits = canonicalRooms.flatMap(({hall, room}) => room.exhibits.map((exhibit) => ({hall, room, exhibit})));
 check(canonicalRooms.length === 29, `Canonical live program must contain 29 rooms, found ${canonicalRooms.length}`);
-check(canonicalExhibits.length === 59, `Canonical live program must contain 59 primary exhibits, found ${canonicalExhibits.length}`);
+check(canonicalExhibits.length === 61, `Canonical live program must contain 61 primary exhibits, found ${canonicalExhibits.length}`);
 check(unique(canonicalRooms.map(({room}) => room.id)), 'Canonical live room IDs are not unique');
 check(unique(canonicalExhibits.map(({exhibit}) => exhibit.entityId)), 'A primary entity appears more than once in the live Museum');
 for (const hall of MUSEUM_CANONICAL_PROGRAM) {
@@ -353,12 +353,12 @@ for (const {hall, room, exhibit} of canonicalExhibits) {
   check(exhibit.question.trim().length >= 24, `Live exhibit ${exhibit.entityId} lacks a substantive framing question`);
 }
 const plannedLiveAssignments = allAssignments.filter(({primary_hall_id}) => APPROVED_HALL_IDS.includes(primary_hall_id));
-check(plannedLiveAssignments.length === 59, `Masterplan assigns ${plannedLiveAssignments.length}, not 59, primaries to the six live halls`);
+check(plannedLiveAssignments.length === 61, `Masterplan assigns ${plannedLiveAssignments.length}, not 61, primaries to the six live halls`);
 check(same(sorted(plannedLiveAssignments.map(({id}) => id)), sorted(canonicalExhibits.map(({exhibit}) => exhibit.entityId))), 'The canonical live roster is not the exact authoritative masterplan subset');
 const liveTierCounts = Object.fromEntries(MUSEUM_PRESENTATION_TIERS.map((tier) => [tier, canonicalExhibits.filter(({exhibit}) => exhibit.tier === tier).length]));
 check(same(liveTierCounts, EXPECTED_LIVE_TIERS), `Live presentation-tier counts changed: ${JSON.stringify(liveTierCounts)}`);
-check(MUSEUM_LIVE_PROGRAM_TOTALS.hallCount === 6 && MUSEUM_LIVE_PROGRAM_TOTALS.roomCount === 29 && MUSEUM_LIVE_PROGRAM_TOTALS.exhibitCount === 59, 'Exported live program totals are stale');
-check(MUSEUM_LIVE_PROGRAM_TOTALS.recordCapacity === 78 && MUSEUM_LIVE_PROGRAM_TOTALS.reserveCapacity === 19, 'Live program capacity totals must be 78 installed / 19 reserved');
+check(MUSEUM_LIVE_PROGRAM_TOTALS.hallCount === 6 && MUSEUM_LIVE_PROGRAM_TOTALS.roomCount === 29 && MUSEUM_LIVE_PROGRAM_TOTALS.exhibitCount === 61, 'Exported live program totals are stale');
+check(MUSEUM_LIVE_PROGRAM_TOTALS.recordCapacity === 80 && MUSEUM_LIVE_PROGRAM_TOTALS.reserveCapacity === 19, 'Live program capacity totals must be 80 installed / 19 reserved');
 check(same(MUSEUM_LIVE_PROGRAM_TOTALS.tierCounts, EXPECTED_LIVE_TIERS), 'Exported live tier totals are stale');
 check(MUSEUM_LIVE_HALL_TOTALS.length === 6, 'Exported live hall totals must contain six records');
 check(MUSEUM_LIVE_ROOM_TOTALS.length === 29, 'Exported live room totals must contain 29 records');
@@ -607,8 +607,8 @@ if (errors.length) {
 }
 
 console.log(`Museum masterplan validation passed (${checks} checks).`);
-console.log('  approved program: 10 wings · 26 halls · 105 rooms · 142 philosophers · 43 branches');
-console.log('  canonical live subset: 6 halls · 29 rooms · 59 primary exhibits · 78 capacity · 19 reserve');
-console.log('  tiers: 30 anchor · 25 standard · 3 supporting · 0 cluster · 1 archive');
+console.log('  approved program: 10 wings · 26 halls · 105 rooms · 144 philosophers · 43 branches');
+console.log('  canonical live subset: 6 halls · 29 rooms · 61 primary exhibits · 80 capacity · 19 reserve');
+console.log('  tiers: 32 anchor · 25 standard · 3 supporting · 0 cluster · 1 archive');
 console.log('  compatibility: 21 carried legacy routes · 27 truthful not-installed handoffs');
 console.log('  physical subset: compact five-hall outer loop · central Forum · four spokes · entrance shortcut · 11 blocked reservations');

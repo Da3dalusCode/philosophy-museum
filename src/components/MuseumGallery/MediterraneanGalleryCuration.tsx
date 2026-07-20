@@ -8,6 +8,7 @@ import {MUSEUM_TEXTURE_SPECS} from '../../data/museum/museumTexturePolicy';
 import type {MuseumAssetId} from '../../data/museum/museumAssetTypes';
 import type {MuseumMediaMountDefinition, MuseumSceneVolume} from '../../data/museum/museumWorldTypes';
 import {MuseumSceneMedia} from './MuseumSceneMedia';
+import {VISITOR_MAP_FRAME_MATERIAL} from './MuseumVisitorMapKiosk';
 
 const ORIENTATION_DESIGN_WIDTH = 1024;
 const ORIENTATION_DESIGN_HEIGHT = 512;
@@ -74,126 +75,26 @@ const createFrontTexture = (): CanvasTexture => canvasTexture('front', (context)
   context.fillStyle = MEDITERRANEAN_PALETTE.terracotta;
   context.font = '700 17px system-ui, sans-serif';
   context.letterSpacing = '2px';
-  context.fillText('GALLERY 01 · THE OPENING MOVE', 52, 44);
+  context.fillText('GALLERY 01 · THE JOURNEY', 52, 52);
 
   context.fillStyle = MEDITERRANEAN_PALETTE.ink;
   context.font = '700 44px Georgia, serif';
   context.letterSpacing = '0px';
-  drawWrapped(context, 'Could nature explain nature?', 52, 102, 515, 48);
+  drawWrapped(context, 'From Nature to the Examined Life', 52, 116, 475, 52);
 
   context.fillStyle = '#544d43';
-  context.font = '500 19px system-ui, sans-serif';
+  context.font = '500 20px system-ui, sans-serif';
   drawWrapped(
     context,
-    'Before the familiar names, begin with a new kind of move: ask whether a changing world can be explained from within nature itself.',
+    'Begin with attempts to explain the cosmos through nature. Continue through argument and civic speech to Socrates, Plato, and Aristotle.',
     54,
-    174,
-    515,
-    25,
+    238,
+    470,
+    29,
   );
 
   context.fillStyle = MEDITERRANEAN_PALETTE.aegean;
-  context.font = '700 14px system-ui, sans-serif';
-  context.letterSpacing = '1px';
-  context.fillText('THREE THINGS TO WATCH FOR', 54, 255);
-  const moves = [
-    ['01', 'A natural starting point'],
-    ['02', 'A process that explains change'],
-    ['03', 'Answers tested against other answers'],
-  ];
-  moves.forEach(([number, label], index) => {
-    const y = 294 + index * 46;
-    context.fillStyle = index === 1 ? MEDITERRANEAN_PALETTE.ochre : MEDITERRANEAN_PALETTE.terracotta;
-    context.font = '700 22px Georgia, serif';
-    context.fillText(number, 54, y);
-    context.fillStyle = MEDITERRANEAN_PALETTE.ink;
-    context.font = '600 17px system-ui, sans-serif';
-    context.fillText(label, 104, y);
-  });
-
-  context.fillStyle = MEDITERRANEAN_PALETTE.aegean;
-  context.font = '700 13px system-ui, sans-serif';
-  context.letterSpacing = '1px';
-  context.fillText('THALES · A LATER IMAGINED FACE', 625, 64);
-  context.fillStyle = '#5d554a';
-  context.font = '500 14px system-ui, sans-serif';
-  drawWrapped(
-    context,
-    'A sixteenth-century print gives Thales a conventional face. It is reception history, not a surviving likeness.',
-    626,
-    92,
-    330,
-    19,
-  );
-
-  context.fillStyle = '#c46c48';
-  context.fillRect(42, 442, 940, 50);
-  context.fillStyle = '#fff7ea';
-  context.font = '700 13px system-ui, sans-serif';
-  context.letterSpacing = '1px';
-  context.fillText('THREE CHANGING ANSWERS', 62, 462);
-  context.font = '600 19px Georgia, serif';
-  context.letterSpacing = '0px';
-  context.fillText('Thales  →  Anaximander  →  Anaximenes', 62, 484);
-});
-
-const createBackTexture = (): CanvasTexture => canvasTexture('back', (context) => {
-  context.fillStyle = MEDITERRANEAN_PALETTE.aegean;
-  context.font = '700 17px system-ui, sans-serif';
-  context.letterSpacing = '2px';
-  context.fillText('FOLLOW THE ARGUMENT', 52, 44);
-  context.fillStyle = MEDITERRANEAN_PALETTE.ink;
-  context.font = '700 42px Georgia, serif';
-  context.letterSpacing = '0px';
-  context.fillText('From Miletus toward Athens', 52, 96);
-  context.fillStyle = '#544d43';
-  context.font = '500 18px system-ui, sans-serif';
-  drawWrapped(
-    context,
-    'The route moves through connected cities and rival answers. It is one Mediterranean history of philosophy—not philosophy’s universal beginning.',
-    54,
-    136,
-    505,
-    24,
-  );
-
-  const route = [
-    ['01', 'Nature through nature'],
-    ['02', 'Being · motion · atoms · elements · mind'],
-    ['03', 'Speech and the examined life'],
-    ['04', 'Academy and Lyceum'],
-  ];
-  route.forEach(([number, label], index) => {
-    const y = 252 + index * 47;
-    context.fillStyle = index < 2 ? MEDITERRANEAN_PALETTE.terracotta : MEDITERRANEAN_PALETTE.ochre;
-    context.font = '700 20px Georgia, serif';
-    context.fillText(number, 54, y);
-    context.fillStyle = MEDITERRANEAN_PALETTE.ink;
-    context.font = '600 16px system-ui, sans-serif';
-    context.fillText(label, 103, y);
-  });
-
-  context.fillStyle = MEDITERRANEAN_PALETTE.terracotta;
-  context.font = '700 13px system-ui, sans-serif';
-  context.letterSpacing = '1px';
-  context.fillText('MEDITERRANEAN NETWORKS · MODERN MAP', 626, 64);
-  context.fillStyle = '#5d554a';
-  context.font = '500 14px system-ui, sans-serif';
-  drawWrapped(
-    context,
-    'Use the map for orientation, not as a picture of fixed borders or a single cultural world.',
-    626,
-    92,
-    330,
-    19,
-  );
-
-  context.fillStyle = MEDITERRANEAN_PALETTE.aegean;
-  context.fillRect(42, 444, 940, 42);
-  context.fillStyle = '#fff7ea';
-  context.font = '700 22px Georgia, serif';
-  context.letterSpacing = '0px';
-  context.fillText('Socrates  →  Plato  →  Aristotle are ahead', 62, 473);
+  context.fillRect(52, 430, 455, 5);
 });
 
 const volume = (
@@ -225,49 +126,44 @@ const orientationMount = (
 });
 
 const FRONT_MEDIA = orientationMount(
-  'mediterranean-orientation-miletus',
-  'thales-promptuarii-portrait',
-  [1.58, 1.5, .14],
+  'mediterranean-orientation-gallery',
+  'plato-school-of-athens',
+  [1.52, 1.55, .14],
   [0, 0, 0],
-  1.5,
-  1.5,
+  2.46,
+  1.61,
 );
 
-const BACK_MEDIA = orientationMount(
-  'mediterranean-orientation-map',
-  'ancient-greek-colonization-map',
-  [1.34, 1.5, -.24],
-  [0, Math.PI, 0],
-  2.38,
-  1.35,
-);
-
-/** A double-sided opening installation: question first, route second, real places on both faces. */
+/** A gallery-wide opening orientation with a finished structural reverse. */
 export function MediterraneanGalleryCuration() {
   const frontTexture = useMemo(createFrontTexture, []);
-  const backTexture = useMemo(createBackTexture, []);
   useEffect(() => () => {
     frontTexture.dispose();
-    backTexture.dispose();
-  }, [backTexture, frontTexture]);
+  }, [frontTexture]);
   const display = MEDITERRANEAN_ORIENTATION_DISPLAY;
   const panelHeight = 2.8;
   return <group userData={{galleryCuration: 'mediterranean-orientation-v2'}}>
     <group position={[display.center.x, 0, display.center.z]} rotation={[0, display.rotation, 0]}>
-      <mesh position={[0, 1.72, -.05]}>
-        <boxGeometry args={[display.size.width + .18, panelHeight + .18, .2]}/>
-        <meshStandardMaterial color={MEDITERRANEAN_PALETTE.limestone} roughness={.84}/>
+      <mesh position={[0, 1.72, -.07]}>
+        <boxGeometry args={[display.size.width + .18, panelHeight + .18, .24]}/>
+        {[0, 1, 2, 3, 5].map((materialIndex) => (
+          <meshStandardMaterial
+            key={materialIndex}
+            attach={`material-${materialIndex}`}
+            {...VISITOR_MAP_FRAME_MATERIAL}
+          />
+        ))}
+        <meshStandardMaterial
+          attach="material-4"
+          color={MEDITERRANEAN_PALETTE.limestone}
+          roughness={.84}
+        />
       </mesh>
       <mesh position={[0, 1.72, .06]}>
         <planeGeometry args={[display.size.width, panelHeight]}/>
         <meshBasicMaterial map={frontTexture} toneMapped={false}/>
       </mesh>
-      <mesh position={[0, 1.72, -.16]} rotation={[0, Math.PI, 0]}>
-        <planeGeometry args={[display.size.width, panelHeight]}/>
-        <meshBasicMaterial map={backTexture} toneMapped={false}/>
-      </mesh>
       <MuseumSceneMedia mount={FRONT_MEDIA} nearby={false} accent={MEDITERRANEAN_PALETTE.terracotta}/>
-      <MuseumSceneMedia mount={BACK_MEDIA} nearby={false} accent={MEDITERRANEAN_PALETTE.aegean}/>
       <mesh position={[0, .18, 0]}>
         <boxGeometry args={[display.size.width * .86, .24, display.size.depth]}/>
         <meshStandardMaterial color={MEDITERRANEAN_PALETTE.bronze} roughness={.7} metalness={.12}/>

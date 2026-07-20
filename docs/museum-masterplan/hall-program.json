@@ -4,8 +4,8 @@
   "recommendedOptionId": "worlds-with-questions-forum-expanded",
   "assignmentCounts": {
     "branches": 43,
-    "philosophers": 142,
-    "totalPrimaryRecords": 185
+    "philosophers": 144,
+    "totalPrimaryRecords": 187
   },
   "optionSummaries": [
     {
@@ -15,7 +15,7 @@
       "wingCount": 10,
       "hallCount": 26,
       "roomCount": 105,
-      "recordCapacity": 258
+      "recordCapacity": 260
     },
     {
       "id": "braided-global-timeline",
@@ -50,7 +50,7 @@
         "title": "Mediterranean Antiquity",
         "hallCount": 3,
         "roomCount": 11,
-        "recordCapacity": 59
+        "recordCapacity": 61
       },
       {
         "id": "wing-south-asian-worlds",
@@ -394,7 +394,7 @@
         "late-antiquity-inheritance"
       ],
       "roomCount": 11,
-      "recordCapacity": 59
+      "recordCapacity": 61
     },
     {
       "id": "wing-south-asian-worlds",
@@ -513,7 +513,7 @@
         "med-sophists-socratic",
         "med-plato-aristotle"
       ],
-      "recordCapacity": 24
+      "recordCapacity": 26
     },
     {
       "id": "hellenistic-roman-ways",
@@ -895,7 +895,7 @@
       "id": "med-sophists-socratic",
       "hallId": "mediterranean-beginnings-classical",
       "title": "Sophists, civic speech, and Socratic inquiry",
-      "recordCapacity": 4
+      "recordCapacity": 6
     },
     {
       "id": "med-plato-aristotle",

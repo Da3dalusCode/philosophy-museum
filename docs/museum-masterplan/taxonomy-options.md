@@ -6,13 +6,13 @@
 
 The same collection can tell very different stories depending on what a visitor encounters first. A chronological museum makes sequence primary; a questions museum makes comparison primary; a cultural-historical museum makes situated intellectual traditions primary. This document treats those as genuinely different programs rather than as different labels on the same corridor.
 
-All three studies can house the Atlas's present inventory of 43 branch/tradition records and 142 philosopher records. A **record-capacity slot** is a planning allowance for one assigned Atlas record at some presentation tier. It is not a fire-code occupancy, a visitor count, or a promise that every record receives a room-sized installation. The approved option is the only one developed into stable wing, hall, and room IDs and a complete record-by-record assignment in the companion CSV files.
+All three studies can house the Atlas's present inventory of 43 branch/tradition records and 144 philosopher records. A **record-capacity slot** is a planning allowance for one assigned Atlas record at some presentation tier. It is not a fire-code occupancy, a visitor count, or a promise that every record receives a room-sized installation. The approved option is the only one developed into stable wing, hall, and room IDs and a complete record-by-record assignment in the companion CSV files.
 
-| Option | Primary organizing principle | Wings | Halls | Rooms / zones | Record capacity | Reserve above 185 current records |
+| Option | Primary organizing principle | Wings | Halls | Rooms / zones | Record capacity | Reserve above 187 current records |
 | --- | --- | ---: | ---: | ---: | ---: | ---: |
-| **Worlds with a Questions Forum — Expanded and Culturally Safeguarded** | Cultural-historical primary homes, joined by a shared questions forum and explicit secondary lenses | **10** | **26** | **105** | **258** | **73** |
-| **Braided Global Timeline** | Chronological eras containing simultaneous regional strands | **6** | **25** | **88** | **228** | **43** |
-| **Questions and Methods Network** | Thematic comparison wings, supported by separate historical context houses | **7** | **25** | **86** | **240** | **55** |
+| **Worlds with a Questions Forum — Expanded and Culturally Safeguarded** | Cultural-historical primary homes, joined by a shared questions forum and explicit secondary lenses | **10** | **26** | **105** | **260** | **73** |
+| **Braided Global Timeline** | Chronological eras containing simultaneous regional strands | **6** | **25** | **88** | **228** | **41** |
+| **Questions and Methods Network** | Thematic comparison wings, supported by separate historical context houses | **7** | **25** | **86** | **240** | **53** |
 
 The totals above are fixed program totals. The hall rosters below show how each option earns them.
 
@@ -25,7 +25,7 @@ The totals above are fixed program totals. The hall rosters below show how each 
 | Wing | Halls | Rooms | Record capacity |
 | --- | --- | ---: | ---: |
 | Core Questions Forum | Core Questions Forum | 9 | 25 |
-| Mediterranean Antiquity | Mediterranean Beginnings & Classical Athens; Hellenistic & Roman Ways of Life; Late Antiquity & Neoplatonic Inheritance | 11 | 59 |
+| Mediterranean Antiquity | Mediterranean Beginnings & Classical Athens; Hellenistic & Roman Ways of Life; Late Antiquity & Neoplatonic Inheritance | 11 | 61 |
 | South Asian Intellectual Worlds | Classical South Asia: Jain, Yoga, and Brahmanical Systems | 5 | 14 |
 | Buddhist Traditions Across Asia | Buddhist Philosophies of Liberation and Knowledge | 5 | 13 |
 | Chinese & East Asian Intellectual Worlds | Warring States & Classical Chinese Traditions; Confucian Renewal & East Asian Continuities | 7 | 23 |
@@ -34,7 +34,7 @@ The totals above are fixed program totals. The hall rosters below show how each 
 | Nineteenth-Century Transformations | German Idealism & Romantic Afterlives; Utility, Liberty, History, and Capital; Faith, Pessimism, Life, and Value | 11 | 15 |
 | Modern Philosophical Traditions | Pragmatism, Science, and Democratic Inquiry; Analytic Traditions: Logic, Language, and Analysis; Phenomenology, Existence, and Embodiment; Critique, Power, and Deconstruction | 18 | 28 |
 | Ethics, Politics, and Social Thought | Moral Life & Practical Reason; Political Action, Justice, and Democratic Reason; Feminist Philosophies; Colonialism, Race, and Liberation | 14 | 25 |
-| **Total** | **26 halls** | **105** | **258** |
+| **Total** | **26 halls** | **105** | **260** |
 
 The 105-room program mixes orientation rooms, lineage rooms, debate rooms, thinker-centered rooms, transmission rooms, thematic portals, and explicit reserve/context rooms. The complete room names and capacities are in [recommended-program.md](./recommended-program.md); machine-readable IDs and capacities are in [hall-program.json](./hall-program.json).
 
@@ -50,7 +50,7 @@ This makes Aristotle ancient in his primary placement while allowing major appea
 - It preserves cultural and institutional settings for South Asian, Buddhist, Chinese/East Asian, Arabic/Islamic, Jewish, Latin Christian, and Mediterranean materials.
 - It gives branch-first visitors an immediate entry through the Forum and tradition-first visitors a clear historical route.
 - Its 73-slot reserve is the largest of the three options, including named rooms for transmission, regional continuity, and currently missing contexts.
-- The complete primary assignments guide implementation with approved person-level adjudications including Beauvoir’s Feminist Philosophies primary and Krishnamurti’s independent Mind & Self placement, while preserving exact-once coverage of all 185 records; secondary route candidates still require typed room-level interpretation before they go live.
+- The complete primary assignments guide implementation with approved person-level adjudications including Beauvoir’s Feminist Philosophies primary, Krishnamurti’s independent Mind & Self placement, and Prodicus and Hippias in the Gallery 01 Sophists room, while preserving exact-once coverage of all 187 records; secondary route candidates still require typed room-level interpretation before they go live.
 
 ### Weaknesses and risks
 

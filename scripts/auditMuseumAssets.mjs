@@ -95,6 +95,8 @@ const MEDITERRANEAN_ASSET_IDS = [
   'empedocles-met-print',
   'anaxagoras-ribera',
   'protagoras-ribera',
+  'prodicus-choice-of-hercules',
+  'hippias-greek-strigil',
   'gorgias-ortolani',
   'platonism-academy-mosaic',
   'aristotelianism-walters-teaching',
@@ -165,9 +167,9 @@ const webpDimensions = (path) => {
   assert.fail(`Unable to determine WebP dimensions for ${path}`);
 };
 
-check('the canonical six expose 59 primaries with optional, resolvable local media references', () => {
+check('the canonical six expose 61 primaries with optional, resolvable local media references', () => {
   assert.deepEqual(MUSEUM_HALLS.map(({id}) => id), ACTIVE_HALL_IDS);
-  assert.equal(liveExhibits.length, 59);
+  assert.equal(liveExhibits.length, 61);
   assert(referencedIds.length > 0, 'the live program references no local media');
   for (const {hall, exhibit} of liveExhibits) {
     assert(Array.isArray(exhibit.supportingAssetIds), `${hall.id}/${exhibit.id} has no supporting-asset array`);
@@ -183,11 +185,11 @@ check('the canonical six expose 59 primaries with optional, resolvable local med
   assert.deepEqual(krishnamurti?.supportingAssetIds, ['jiddu-krishnamurti-besant-1927']);
 });
 
-check('the preserved asset registry contains 118 unique records and derivative paths', () => {
-  assert.equal(MUSEUM_ASSETS.length, 118);
-  assert.equal(assetById.size, 118);
+check('the preserved asset registry contains 120 unique records and derivative paths', () => {
+  assert.equal(MUSEUM_ASSETS.length, 120);
+  assert.equal(assetById.size, 120);
   const variantPaths = MUSEUM_ASSETS.flatMap(({variants}) => [variants.scene.path, variants.panel.path]);
-  assert.equal(variantPaths.length, 236);
+  assert.equal(variantPaths.length, 240);
   assert(unique(variantPaths), 'two asset variants share a derivative path');
   for (const id of NEW_CANONICAL_ASSET_IDS) assert(assetById.has(id), `new canonical asset ${id} is missing`);
   for (const id of MEDITERRANEAN_ASSET_IDS) assert(assetById.has(id), `Gallery 01 asset ${id} is missing`);
@@ -330,12 +332,12 @@ check('all 170 managed derivatives match exact dimensions, bytes, and SHA-256 lo
   }
 });
 
-check('the 17-source Gallery 01 lock reproduces all newly curated Mediterranean media', () => {
+check('the 19-source Gallery 01 lock reproduces all curated Mediterranean media', () => {
   assert.equal(mediterraneanManifest.version, 1);
-  assert.equal(Object.keys(mediterraneanManifestAssets).length, 17);
+  assert.equal(Object.keys(mediterraneanManifestAssets).length, 19);
   assert.deepEqual(Object.keys(mediterraneanManifestAssets).sort(), [...MEDITERRANEAN_ASSET_IDS].sort());
   assert.match(mediterraneanPreparationSource, /museumMediterraneanAssetManifest\.json/);
-  assert.match(mediterraneanPreparationSource, /EXPECTED_ASSET_COUNT = 17/);
+  assert.match(mediterraneanPreparationSource, /EXPECTED_ASSET_COUNT = 19/);
   assert.match(mediterraneanPreparationSource, /Resampling\.LANCZOS/);
   assert.match(mediterraneanPreparationSource, /"sha256": sha256\(destination\)/);
   for (const id of MEDITERRANEAN_ASSET_IDS) {
@@ -360,7 +362,7 @@ check('the 17-source Gallery 01 lock reproduces all newly curated Mediterranean 
   }
 });
 
-check('the committed Museum inventory contains exactly the 236 registered derivatives', () => {
+check('the committed Museum inventory contains exactly the 240 registered derivatives', () => {
   const actual = walkFiles(museumMediaRoot).map(toPublicPath).sort();
   const expected = MUSEUM_ASSETS.flatMap(({variants}) => [variants.scene.path, variants.panel.path]).sort();
   assert.deepEqual(actual, expected);

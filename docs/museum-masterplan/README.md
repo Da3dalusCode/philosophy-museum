@@ -10,11 +10,11 @@ The approved program gives historically and culturally situated traditions their
 
 | Program | Wings | Halls | Rooms / zones | Record capacity | Organizing idea |
 |---|---:|---:|---:|---:|---|
-| **Worlds with a Questions Forum — approved** | **10** | **26** | **105** | **258** | Historical-cultural primary homes plus thematic cross-links |
+| **Worlds with a Questions Forum — approved** | **10** | **26** | **105** | **260** | Historical-cultural primary homes plus thematic cross-links |
 | Braided Global Timeline | 6 | 25 | 88 | 228 | Parallel regional histories along a common chronology |
 | Questions and Methods Network | 7 | 25 | 86 | 240 | Thematic questions supported by historical context houses |
 
-“Record capacity” is a planning allowance for philosopher and branch records, not a promise of 258 full-size installations. The current Atlas contributes 185 primary records: **43 branches and 142 philosophers**. Every one has exactly one stable-ID primary assignment, a room or zone, a presentation tier, and a rationale. Secondary hall appearances are interpretive links, not duplicate primary exhibits.
+“Record capacity” is a planning allowance for philosopher and branch records, not a promise of 260 full-size installations. The current Atlas contributes 187 primary records: **43 branches and 144 philosophers**. Every one has exactly one stable-ID primary assignment, a room or zone, a presentation tier, and a rationale. Secondary hall appearances are interpretive links, not duplicate primary exhibits.
 
 ## Why this is the approved direction
 
@@ -56,7 +56,7 @@ Start with these documents, in order:
 
 The complete assignments are reviewable as spreadsheets:
 
-- [Philosopher assignments](./philosopher-assignments.csv) — 142 current philosopher IDs.
+- [Philosopher assignments](./philosopher-assignments.csv) — 144 current philosopher IDs.
 - [Branch assignments](./branch-assignments.csv) — 43 current branch IDs.
 
 The machine-readable planning contract is split deliberately:
@@ -95,7 +95,7 @@ See [Difficult placements](./difficult-placements.md) for the complete reasoning
 
 The hybrid taxonomy, disputed primary homes, and Ring layout remain approved. The completed infrastructure phase supplied real walls and corridors, a centralized runtime building manifest, accessible safe arrivals, a compact loop and spokes, and blocked insertion and outward-expansion reservations. The canonical-six implementation replaces the six temporary public programs with `mediterranean-beginnings-classical`, `renaissance-humanism-new-method`, `phenomenology-existence-embodiment`, `analytic-traditions`, `justice-democratic-reason`, and the permanent central `core-questions-forum`.
 
-The five historical/methodological successors remain on the compact outer loop; the Forum occupies the central court. The former outer Mind shell is retired as a public gallery and used only for truthful circulation, construction, or reservation geometry. The canonical six install their 59 exact primary assignments by tier rather than preserving the former 48-installation quota. Displaced exhibit routes remain aliases or explanatory handoffs to intact Atlas content and planned primary halls.
+The five historical/methodological successors remain on the compact outer loop; the Forum occupies the central court. The former outer Mind shell is retired as a public gallery and used only for truthful circulation, construction, or reservation geometry. The canonical six install their 61 exact primary assignments by tier rather than preserving the former 48-installation quota. Displaced exhibit routes remain aliases or explanatory handoffs to intact Atlas content and planned primary halls.
 
 ## Deterministic validation
 
@@ -116,4 +116,4 @@ The template contract treats accessibility as geometry, not decoration. Detailed
 
 ## Scope boundary
 
-This directory remains the long-term planning contract. Its CSV and JSON data assign all 185 Atlas records—142 philosophers and 43 branches—exactly once. The canonical-six runtime installs the 59 records whose approved primary homes are among the six permanent halls, in 29 rooms and at their approved presentation tiers. The former 48-installation roster is retained only as a Phase 2 migration record. Displaced legacy URLs use aliases or explanatory handoffs to intact Atlas articles and their planned Museum homes. Runtime geometry, connections, residency, and visitor-map projection are implemented and audited in the Museum source layer.
+This directory remains the long-term planning contract. Its CSV and JSON data assign all 187 Atlas records—144 philosophers and 43 branches—exactly once. The canonical-six runtime installs the 61 records whose approved primary homes are among the six permanent halls, in 29 rooms and at their approved presentation tiers. The former 48-installation roster is retained only as a Phase 2 migration record. Displaced legacy URLs use aliases or explanatory handoffs to intact Atlas articles and their planned Museum homes. Runtime geometry, connections, residency, and visitor-map projection are implemented and audited in the Museum source layer.

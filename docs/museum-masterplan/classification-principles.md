@@ -2,7 +2,7 @@
 
 ## Purpose and scope
 
-These rules govern the approved program in [`hall-program.json`](./hall-program.json) and the primary assignments in [`branch-assignments.csv`](./branch-assignments.csv) and [`philosopher-assignments.csv`](./philosopher-assignments.csv). They apply to all 43 current branch records and all 142 current philosopher records.
+These rules govern the approved program in [`hall-program.json`](./hall-program.json) and the primary assignments in [`branch-assignments.csv`](./branch-assignments.csv) and [`philosopher-assignments.csv`](./philosopher-assignments.csv). They apply to all 43 current branch records and all 144 current philosopher records.
 
 The basic rule is simple: **a primary physical home is a navigation decision, not a claim that one hall owns the person or idea**. Every record receives exactly one primary wing, hall, and room so visitors can find it and the building can be planned. Secondary appearances then make real intellectual overlap visible without cloning the primary exhibit.
 

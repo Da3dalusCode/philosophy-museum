@@ -4,6 +4,38 @@ const reading=(author:string,title:string,difficulty:ReadingEntry['difficulty'],
 const sep=(label:string,slug:string):SourceLink=>({label:`Stanford Encyclopedia: ${label}`,url:`https://plato.stanford.edu/entries/${slug}/`,type:'SEP'});
 
 export const philosopherCompletionDetails:Record<string,Partial<Philosopher>>={
+  prodicus:{
+    beginnerReadingPath:[
+      reading('Xenophon','Memorabilia 2.1.21–34','beginner','Read the surviving outline of the Choice of Heracles while noting Xenophon’s explicit warning that he is not preserving Prodicus word for word.','dialogue'),
+      reading('Plato','Protagoras 337a–341e','intermediate','See Prodicus staged as a specialist in verbal distinctions inside Plato’s philosophically comic drama.','dialogue'),
+      reading('Robert Mayhew','Prodicus the Sophist: Texts, Translations, and Commentary','intermediate','Use the collected evidence to separate later testimony, reconstruction, and responsible interpretation.','book')
+    ],
+    advancedReadingPath:[
+      reading('Richard Bett','Prodicus on the Choice of Heracles, Language, and Religion','advanced','Study how the ethical allegory, linguistic method, and contested reports about religion can be interpreted together.','essay'),
+      reading('David Sansone','Xenophon and Prodicus’s Choice of Heracles','advanced','Enter the scholarly dispute over how much Prodicean material survives in Xenophon’s adaptation.','article')
+    ],
+    sourceLinks:[
+      {label:'Internet Encyclopedia of Philosophy: The Sophists',url:'https://iep.utm.edu/sophists/',type:'IEP'},
+      {label:'Xenophon, Memorabilia 2.1 — Choice of Heracles',url:'https://www.perseus.tufts.edu/hopper/text?doc=Xen.+Mem.+2.1&fromdoc=Perseus%3Atext%3A1999.01.0208',type:'primary-text'},
+      {label:'Plato, Protagoras 337a',url:'https://www.perseus.tufts.edu/hopper/text?doc=Plat.+Prot.+337a',type:'primary-text'}
+    ]
+  },
+  'hippias-of-elis':{
+    beginnerReadingPath:[
+      reading('Plato','Hippias Minor 363c–368e','beginner','Meet the Olympic self-presentation and handmade equipment while treating Plato’s comic staging as a partisan witness.','dialogue'),
+      reading('Plato','Protagoras 337c–d','beginner','Read the compact nature-and-convention speech that makes political borders answerable to a broader human kinship.','dialogue'),
+      reading('Xenophon','Memorabilia 4.4','intermediate','Compare Xenophon’s later discussion of unwritten laws with Plato’s different literary portrait.','dialogue')
+    ],
+    advancedReadingPath:[
+      reading('Plato or a disputed Platonic author','Hippias Major','advanced','Study education, beauty, fees, and diplomatic self-presentation while keeping the dialogue’s authorship question visible.','dialogue'),
+      reading('Philostratus','Lives of the Sophists 1.11','advanced','Assess a much later synthesis of Hippias’s polymathy and public reputation against earlier evidence.','primary')
+    ],
+    sourceLinks:[
+      sep('The Sophists','sophists'),
+      {label:'Plato, Hippias Minor — Scaife/Perseus',url:'https://scaife.perseus.org/library/urn:cts:greekLit:tlg0059.tlg026.perseus-eng2/',type:'primary-text'},
+      {label:'Xenophon, Memorabilia 4.4',url:'https://www.perseus.tufts.edu/hopper/text?doc=Xen.+Mem.+4.4',type:'primary-text'}
+    ]
+  },
   fichte:{
     beginnerReadingPath:[
       reading('Johann Gottlieb Fichte','The Vocation of Man','beginner','Enter Fichte through a literary presentation of doubt, knowledge, freedom, and practical faith.'),

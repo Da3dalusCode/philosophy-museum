@@ -17,7 +17,13 @@ import {
   type MuseumVisitorMapPoint,
 } from '../../data/museum/museumVisitorMapProjection';
 
-const BLACK_METAL = '#151719';
+export const VISITOR_MAP_FRAME_MATERIAL = {
+  color: '#151719',
+  roughness: .32,
+  metalness: .62,
+} as const;
+
+const BLACK_METAL = VISITOR_MAP_FRAME_MATERIAL.color;
 const LIMESTONE = '#d8d2c7';
 const BRONZE = '#9b744a';
 
@@ -327,9 +333,7 @@ export function MuseumVisitorMapKiosk({active, nearby, onActivate}: {
     <mesh position={[0, kiosk.screen.centerY, 0]}>
       <boxGeometry args={[kiosk.size.width - .12, kiosk.screen.height + .22, .28]}/>
       <meshStandardMaterial
-        color={BLACK_METAL}
-        roughness={.32}
-        metalness={.62}
+        {...VISITOR_MAP_FRAME_MATERIAL}
         emissive={nearby ? '#52391f' : '#050505'}
         emissiveIntensity={nearby ? .42 : .08}
       />

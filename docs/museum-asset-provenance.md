@@ -1,6 +1,6 @@
 # Museum asset provenance
 
-The preserved Museum registry contains **118 provenance records** and **236 committed local WebP derivatives**, with a scene and panel variant for each registered source object. The canonical six contain **59 primary exhibits** and currently reference **64 local media placements**; media is optional across the program, while Gallery 01 intentionally gives all 20 exhibits at least one sourced image. The modern preparation manifest locks 85 post-Ancient records and 170 derivatives; the Gallery 01 Mediterranean manifest locks 17 additional records and 34 derivatives. Sixteen earlier Ancient records retain reviewed typed metadata.
+The preserved Museum registry contains **120 provenance records** and **240 committed local WebP derivatives**, with a scene and panel variant for each registered source object. The canonical six contain **61 primary exhibits** and currently reference **66 local media placements**; media is optional across the program, while Gallery 01 intentionally gives all 22 exhibits at least one sourced image. The modern preparation manifest locks 85 post-Ancient records and 170 derivatives; the Gallery 01 Mediterranean manifest locks 19 additional records and 38 derivatives. Sixteen earlier Ancient records retain reviewed typed metadata.
 
 Typed records are assembled in `src/data/museum/museumAssets.ts` from the Ancient records in that file and the preserved modern, expansion, canonical-six, and Krishnamurti sets in `modernMuseumAssets.ts`, `museumExpansionAssets.ts`, `canonicalMuseumAssets.ts`, and `krishnamurtiMuseumAssets.ts`. They preserve titles, creators, object dates, institutions, exact source pages, rights terms, attribution, transformation notices, dimensions, alt text, captions, focal points, and likeness cautions.
 
@@ -47,6 +47,8 @@ Gallery 01 gives every exhibit a reviewed, provenance-backed image. The correcte
 | Empedocles | René Boyvin’s sixteenth-century Etna print | Visualizes a legendary death story rather than a documented event. |
 | Anaxagoras | Jusepe de Ribera’s 1636 painting | A Baroque imagined philosopher portrait. |
 | Protagoras | Jusepe de Ribera’s 1637 painting | A Baroque imagined philosopher portrait, not a likeness made from life. |
+| Prodicus of Ceos | Thomas Sully’s 1819 *Choice of Hercules* | Later reception of the ethical allegory attributed to Prodicus, not an ancient scene or likeness. |
+| Hippias of Elis | Greek bronze strigil, 5th–4th century BCE | A contemporary example of an object class named in Plato’s Olympia account, not Hippias’s own property. |
 | Gorgias | 1818 illustration from *Biografia degli Uomini Illustri della Sicilia* | Records later Sicilian commemoration, not Gorgias’s appearance. |
 | Platonism | Roman mosaic conventionally called Plato’s Academy | A later reception image with a conventional identification, not a literal view of the Academy. |
 | Aristotelianism | Persian manuscript image of Aristotle teaching | A long afterlife of Aristotle in Persianate visual culture, not his historical classroom. |
@@ -135,7 +137,7 @@ The tables below preserve the 96-object Phase 2 registry. They remain useful pro
 
 `scripts/prepareMuseumModernAssets.py` reads `scripts/museumModernAssetManifest.json`. The manifest fixes all 85 post-Ancient asset IDs—including the five canonical-six additions—along with their hall folders, exact source pages, original-image URLs, selected download URLs, derivative dimensions, byte counts, and SHA-256 digests.
 
-`scripts/prepareMuseumMediterraneanAssets.py` reads `scripts/museumMediterraneanAssetManifest.json` and applies the same local-only, size-bounded, hashed workflow to the 17 new Gallery 01 sources. This separate lock keeps the bounded curatorial pass auditable without changing the preserved 85-record modern corpus.
+`scripts/prepareMuseumMediterraneanAssets.py` reads `scripts/museumMediterraneanAssetManifest.json` and applies the same local-only, size-bounded, hashed workflow to the 19 new Gallery 01 sources. This separate lock keeps the bounded curatorial pass auditable without changing the preserved 85-record modern corpus.
 
 The script downloads to a temporary workspace, applies EXIF orientation, resizes without upscaling, writes optimized WebP candidates, and validates both cached and generated files against the lock. `--refresh-locks` is an explicit curatorial operation; ordinary runs verify without silently rewriting the corpus. Ancient derivatives retain their existing reviewed typed records.
 
@@ -148,4 +150,4 @@ The script downloads to a temporary workspace, applies EXIF orientation, resizes
 - Earlier CC BY / CC BY-SA terms used by the Ancient gallery
 - Commons public-domain templates for anonymous European works, Portugal, and U.S. press material
 
-Run `npm run audit:museum-assets` to verify that every optional media-reference field across the 59 live exhibits resolves when present, the registry contains 118 records and 236 derivatives, the post-Ancient lock contains 85 records and 170 derivatives, and the Gallery 01 lock contains 17 records and 34 derivatives. The audit also checks local path safety and case, WebP dimensions, rights-kind and license-URL consistency, derivative notices, attribution, alt text, likeness classification, manifest-to-typed-record agreement, byte and SHA-256 locks, runtime hotlink prevention, and unexpected missing or orphaned files. The audit performs no network requests and does not impose a two-object-per-exhibit quota outside Gallery 01.
+Run `npm run audit:museum-assets` to verify that every optional media-reference field across the 61 live exhibits resolves when present, the registry contains 120 records and 240 derivatives, the post-Ancient lock contains 85 records and 170 derivatives, and the Gallery 01 lock contains 19 records and 38 derivatives. The audit also checks local path safety and case, WebP dimensions, rights-kind and license-URL consistency, derivative notices, attribution, alt text, likeness classification, manifest-to-typed-record agreement, byte and SHA-256 locks, runtime hotlink prevention, and unexpected missing or orphaned files. The audit performs no network requests and does not impose a two-object-per-exhibit quota outside Gallery 01.

@@ -35,6 +35,8 @@ export type MediterraneanExhibitId =
   | 'empedocles'
   | 'anaxagoras'
   | 'protagoras'
+  | 'prodicus'
+  | 'hippias-of-elis'
   | 'gorgias'
   | 'socrates'
   | 'platonism'
@@ -159,6 +161,20 @@ export const MEDITERRANEAN_EXHIBIT_CURATION = {
     publicKicker: 'Abdera and Athens · c. 490–c. 420 BCE',
     visualKind: 'civic-speech',
     groupLabel: 'Speech, education, and civic judgment',
+  },
+  prodicus: {
+    authored: {x: -6.3, z: 1.15, rotationY: 0},
+    publicKicker: 'Ceos and Athens · late 5th century BCE; dates uncertain',
+    visualKind: 'civic-speech',
+    groupLabel: 'Sophists: language, education, and civic performance',
+    frontTitle: 'Can careful words guide a life?',
+  },
+  'hippias-of-elis': {
+    authored: {x: -9.4, z: 12.85, rotationY: Math.PI},
+    publicKicker: 'Elis and Olympia · c. 460–after 399 BCE; dates uncertain',
+    visualKind: 'civic-speech',
+    groupLabel: 'Sophists: language, education, and civic performance',
+    frontTitle: 'Can learning make a person self-sufficient?',
   },
   gorgias: {
     authored: {x: 10.85, z: 5.1, rotationY: -Math.PI / 2},

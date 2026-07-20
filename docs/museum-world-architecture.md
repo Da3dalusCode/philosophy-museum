@@ -1,6 +1,6 @@
 # Historical Museum Ring-pilot runtime architecture record
 
-> This document records the completed Phase 2 six-shell pilot. Its temporary hall identities, 48-exhibit roster, legacy adapters, orientation-only Forum court, and measured residency figures are historical evidence, not the live canonical-six contract. The canonical-six implementation uses five permanent `sequence-3` outer halls plus the central `crossroads-4` Core Questions Forum, with 29 rooms and 59 primary exhibits. Current runtime truth lives in `src/data/museum/museumBuildingManifest.json`, `src/data/museum/museumCanonicalProgram.ts`, and the executable Museum audits. Production status remains governed by `main`.
+> This document records the completed Phase 2 six-shell pilot. Its temporary hall identities, 48-exhibit roster, legacy adapters, orientation-only Forum court, and measured residency figures are historical evidence, not the live canonical-six contract. The canonical-six implementation uses five permanent `sequence-3` outer halls plus the central `crossroads-4` Core Questions Forum, with 29 rooms and 61 primary exhibits. Current runtime truth lives in `src/data/museum/museumBuildingManifest.json`, `src/data/museum/museumCanonicalProgram.ts`, and the executable Museum audits. Production status remains governed by `main`.
 
 ## Phase 2 approved scope
 

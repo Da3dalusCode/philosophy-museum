@@ -155,7 +155,7 @@ const LEGACY_HALL_IDS = [
   'mind-consciousness-self',
 ];
 const EXPECTED_COUNTS = {
-  'mediterranean-beginnings-classical': {rooms: 4, exhibits: 20, template: 'sequence-3'},
+  'mediterranean-beginnings-classical': {rooms: 4, exhibits: 22, template: 'sequence-3'},
   'renaissance-humanism-new-method': {rooms: 3, exhibits: 3, template: 'sequence-3'},
   'phenomenology-existence-embodiment': {rooms: 5, exhibits: 9, template: 'sequence-3'},
   'analytic-traditions': {rooms: 5, exhibits: 7, template: 'sequence-3'},
@@ -259,18 +259,18 @@ const worldNormal = (definition, normal) => ({
   z: -normal.x * Math.sin(definition.worldTransform.yaw) + normal.z * Math.cos(definition.worldTransform.yaw),
 });
 
-check('the public catalog is exactly the canonical six-hall, 29-room, 59-exhibit program', () => {
+check('the public catalog is exactly the canonical six-hall, 29-room, 61-exhibit program', () => {
   assert.deepEqual(MUSEUM_HALLS.map(({id}) => id), HALL_IDS);
   assert.equal(MUSEUM_HALLS.reduce((sum, hall) => sum + hall.zones.length, 0), 29);
-  assert.equal(MUSEUM_HALLS.reduce((sum, hall) => sum + hall.exhibits.length, 0), 59);
+  assert.equal(MUSEUM_HALLS.reduce((sum, hall) => sum + hall.exhibits.length, 0), 61);
   assert.deepEqual(MUSEUM_LIVE_PROGRAM_TOTALS.tierCounts, {
     'anchor-exhibit': 32,
-    'standard-individual-exhibit': 23,
+    'standard-individual-exhibit': 25,
     'supporting-exhibit': 3,
     'thematic-cluster-participant': 0,
     'gallery-archive-or-study-wall-record': 1,
   });
-  assert.equal(MUSEUM_LIVE_PROGRAM_TOTALS.recordCapacity, 78);
+  assert.equal(MUSEUM_LIVE_PROGRAM_TOTALS.recordCapacity, 80);
   assert.equal(MUSEUM_LIVE_PROGRAM_TOTALS.reserveCapacity, 19);
   for (const hall of MUSEUM_HALLS) {
     const expected = EXPECTED_COUNTS[hall.id];
@@ -281,7 +281,7 @@ check('the public catalog is exactly the canonical six-hall, 29-room, 59-exhibit
     assert.deepEqual(hall.guidedOrder, hall.exhibits.map(({id}) => id), `${hall.id} guided order is stale`);
     assert.equal(runtimeNode?.mapLabel, EXPECTED_MAP_LABELS[hall.id], `${hall.id} map label drifted from its canonical title`);
   }
-  assert.equal(philosophers.length, 142);
+  assert.equal(philosophers.length, 144);
   assert.equal(branches.length, 43);
 });
 
@@ -293,7 +293,7 @@ check('Gallery 01 has bounded authored curation, visitor-facing orientation, and
 
   const curationEntries = Object.entries(MEDITERRANEAN_EXHIBIT_CURATION);
   const exhibitLayoutById = new Map(definition.layout.exhibits.map((layout) => [layout.id, layout]));
-  assert.equal(curationEntries.length, 20, 'Gallery 01 must retain exactly 20 authored curation entries');
+  assert.equal(curationEntries.length, 22, 'Gallery 01 must retain exactly 22 authored curation entries');
   assert.deepEqual(sorted(curationEntries.map(([id]) => id)), sorted(hall.exhibits.map(({id}) => id)), 'Gallery 01 curation ids differ from its public exhibits');
   assert.deepEqual(sorted(Object.keys(MEDITERRANEAN_ROOM_SIGN_COPY)), sorted(program.rooms.map(({id}) => id)), 'Gallery 01 visitor sign copy differs from its four rooms');
   for (const [id, curation] of curationEntries) {
@@ -305,9 +305,9 @@ check('Gallery 01 has bounded authored curation, visitor-facing orientation, and
     assert(layout.scene.mediaMounts.length > 0, `${id} has no provenance-backed physical image`);
     assert(!('generatedMedia' in curation), `${id} still substitutes a generated diagram for sourced media`);
   }
-  assert.equal(definition.layout.exhibits.filter(({scene}) => scene.mediaMounts.length > 0).length, 20, 'Every Gallery 01 exhibit must retain provenance-backed scene media');
-  assert.equal(definition.layout.exhibits.reduce((sum, {scene}) => sum + scene.mediaMounts.length, 0), 23, 'Gallery 01 media-placement count changed');
-  assert.equal(curationEntries.filter(([, curation]) => curation.frontTitle).length, 4, 'Gallery 01 question-first hierarchy changed');
+  assert.equal(definition.layout.exhibits.filter(({scene}) => scene.mediaMounts.length > 0).length, 22, 'Every Gallery 01 exhibit must retain provenance-backed scene media');
+  assert.equal(definition.layout.exhibits.reduce((sum, {scene}) => sum + scene.mediaMounts.length, 0), 25, 'Gallery 01 media-placement count changed');
+  assert.equal(curationEntries.filter(([, curation]) => curation.frontTitle).length, 6, 'Gallery 01 question-first hierarchy changed');
   assert.deepEqual(MEDITERRANEAN_EXHIBIT_CURATION.anaxagoras.authored, {x: -5.8, z: -1.15, rotationY: Math.PI}, 'Anaxagoras returned to the crowded side-wall sightline');
 
   const kiosk = definition.layout.furnishings.find(({id}) => id === MUSEUM_VISITOR_MAP_KIOSK.id);
@@ -338,16 +338,19 @@ check('Gallery 01 has bounded authored curation, visitor-facing orientation, and
   assert.doesNotMatch(canonicalExhibitsSource, /MediterraneanExhibitObject/u, 'Gallery 01 still renders the generic object template');
   assert.doesNotMatch(mediterraneanMediaSource, /torus(?:Knot)?Geometry|sphereGeometry/u, 'Gallery 01 media reintroduces unsupported floating sculpture geometry');
   assert.match(mediterraneanCurationSource, /createFrontTexture/u, 'Gallery 01 opening installation has no front-side story');
-  assert.match(mediterraneanCurationSource, /createBackTexture/u, 'Gallery 01 opening installation duplicates its front on the back');
-  assert.equal([...mediterraneanCurationSource.matchAll(/<MuseumSceneMedia\b/gu)].length, 2, 'Gallery 01 opening installation must retain two local source-image mounts');
+  assert.doesNotMatch(mediterraneanCurationSource, /createBackTexture/u, 'Gallery 01 opening installation restored unwanted reverse-side content');
+  assert.equal([...mediterraneanCurationSource.matchAll(/<MuseumSceneMedia\b/gu)].length, 1, 'Gallery 01 opening installation must retain one local gallery-level image mount');
   assert.doesNotMatch(
     architectureSource,
     /MediterraneanSignRear|Continue through Gallery 01|Return to the Museum Ring/u,
     'Gallery 01 sign backs regressed to full-wall route slogans',
   );
-  assert.equal(definition.layout.signs.length, 5, 'Gallery 01 must retain one entrance and four room signs');
+  assert.equal(definition.layout.signs.length, 4, 'Gallery 01 must retain its entrance sign and the three approved physical room signs');
   const entranceSign = definition.layout.signs.find(({kind}) => kind === 'entrance');
   assert(entranceSign && entranceSign.width === 3.4 && entranceSign.height === .7, 'Gallery 01 entrance sign returned to its oversized treatment');
+  assert(!definition.layout.signs.some(({id}) => id === 'med-sophists-socratic:room-sign'), 'The removed Room 03 physical sign returned');
+  assert.equal(definition.layout.signs.find(({id}) => id === 'med-being-change-plurality:room-sign')?.position.z, -14.22, 'Room 02 sign is not mounted on its Room 01 approach face');
+  assert.equal(definition.layout.signs.find(({id}) => id === 'med-plato-aristotle:room-sign')?.position.z, 13.78, 'Room 04 sign is not mounted on its Room 03 approach face');
   const gallery01NaturalApproachZ = [-27.2, -13.2, .8, 14.8];
   for (const [index, view] of definition.layout.entryViews.entries()) {
     const cell = definition.layout.spatialCells.find(({id}) => id === view.spatialCellId);
@@ -520,7 +523,8 @@ check('all six runtime halls are canonical, data-driven, and internally aligned'
     assert.equal(definition.layout.lighting.tracks.length, hall.zones.length);
     assert.equal(definition.layout.lighting.exhibitLights.length, hall.exhibits.length);
     const comparativeLensCount = hall.zones.reduce((sum, zone) => sum + (zone.comparativeLenses?.length ?? 0), 0);
-    assert.equal(definition.layout.signs.length, hall.zones.length + 1 + comparativeLensCount);
+    const removedPhysicalRoomSigns = definition.id === MEDITERRANEAN_GALLERY_ID ? 1 : 0;
+    assert.equal(definition.layout.signs.length, hall.zones.length + 1 + comparativeLensCount - removedPhysicalRoomSigns);
     assert(validPose(definition, definition.layout.spawn), `${definition.id} spawn is unsafe`);
     assert(validPose(definition, definition.layout.reset), `${definition.id} reset is unsafe`);
     const expectedWidth = expected.template === 'crossroads-4' ? 28 : 24;
@@ -539,7 +543,7 @@ check('all six runtime halls are canonical, data-driven, and internally aligned'
     assert.deepEqual(definition.resolvedTemplate.lightingInterface.roles, ['ambient', 'threshold', 'perimeter-track', 'anchor-track', 'accessible-label-light']);
     assert.equal(definition.resolvedTemplate.lightingInterface.perimeterTrackIds.length, expected.rooms);
     assert.equal(definition.resolvedTemplate.lightingInterface.anchorTrackIds.length > 0, true);
-    assert.equal(definition.resolvedTemplate.lightingInterface.accessibleLabelAnchorIds.length, hall.zones.length + hall.exhibits.length + 1 + comparativeLensCount);
+    assert.equal(definition.resolvedTemplate.lightingInterface.accessibleLabelAnchorIds.length, hall.zones.length + hall.exhibits.length + 1 + comparativeLensCount - removedPhysicalRoomSigns);
     assert(unique(definition.layout.exhibits.map(({id}) => id)), `${definition.id} duplicates exhibit layouts`);
     assert(unique(definition.layout.wallColliders.map(({id}) => id)), `${definition.id} duplicates wall colliders`);
     for (const layout of definition.layout.exhibits) {
@@ -892,9 +896,9 @@ check('decoded texture residency admits every active and approached hall under 9
   console.log(`  texture residency peak: ${(peak / 1024 / 1024).toFixed(2)} MiB / 96 MiB`);
 });
 
-check('all 59 live exhibits have substantial, sourced, route-aware interpretation', () => {
-  assert.equal(MUSEUM_INTERPRETATIONS.length, 59);
-  assert.equal(new Set(MUSEUM_INTERPRETATIONS.map(({hallId, id}) => `${hallId}/${id}`)).size, 59);
+check('all 61 live exhibits have substantial, sourced, route-aware interpretation', () => {
+  assert.equal(MUSEUM_INTERPRETATIONS.length, 61);
+  assert.equal(new Set(MUSEUM_INTERPRETATIONS.map(({hallId, id}) => `${hallId}/${id}`)).size, 61);
   assert.deepEqual(sorted(MUSEUM_INTERPRETATIONS.map(({hallId, id}) => `${hallId}/${id}`)), sorted(activeRefs));
   for (const interpretation of MUSEUM_INTERPRETATIONS) {
     const hall = hallById.get(interpretation.hallId);
@@ -1012,9 +1016,9 @@ check('sessions, walking pace, readiness, and travel contexts remain safe and ha
   }
   const identitySign = orientationDefinition.layout.signs.find(({kind}) => kind === 'entrance');
   assert(identitySign, 'Gallery 01 has no entrance identity sign');
-  assert.equal(identitySign.title, 'Gallery 01');
-  assert.equal(identitySign.kicker, 'Mediterranean Beginnings');
-  assert.match(identitySign.subtitle, /Miletus → Athens/u);
+  assert.equal(identitySign.title, 'PHILOSOPHY ATLAS MUSEUM');
+  assert.equal(identitySign.kicker, '');
+  assert.equal(identitySign.subtitle, 'Gallery 01 · Mediterranean Beginnings & Classical Athens');
   const spawnForward = {
     x: -Math.sin(orientationDefinition.layout.spawn.yaw),
     z: -Math.cos(orientationDefinition.layout.spawn.yaw),
@@ -1127,4 +1131,4 @@ assert.deepEqual(seamCrossingFailures, [], `collision-resolved seam failures:\n$
 assert.deepEqual(residencyAdmissionFailures, [], `approached-hall residency failures:\n${[...new Set(residencyAdmissionFailures)].join('\n')}`);
 assert.deepEqual(interpretationQualityFailures, [], `interpretation quality failures:\n${interpretationQualityFailures.join('\n')}`);
 
-console.log(`\nMuseum audit passed: ${checks} groups covering ${definitions.length} canonical halls, 29 rooms, 59 exhibits, ${physicalMovementTrajectories} production-frame crossing trajectories over ${MUSEUM_DIRECTED_CONNECTIONS.length} directed crossings and ${MUSEUM_BUILDING_MANIFEST.connections.length} physical seams, ${MUSEUM_INTERPRETATIONS.length} interpretations, and 96 MiB bounded residency.`);
+console.log(`\nMuseum audit passed: ${checks} groups covering ${definitions.length} canonical halls, 29 rooms, 61 exhibits, ${physicalMovementTrajectories} production-frame crossing trajectories over ${MUSEUM_DIRECTED_CONNECTIONS.length} directed crossings and ${MUSEUM_BUILDING_MANIFEST.connections.length} physical seams, ${MUSEUM_INTERPRETATIONS.length} interpretations, and 96 MiB bounded residency.`);

@@ -741,39 +741,36 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
         {
           id: `${hall.id}:entrance-sign`,
           kind: 'entrance' as const,
-          title: 'Gallery 01',
-          kicker: 'Mediterranean Beginnings',
-          subtitle: 'Miletus → Athens · c. 600–300 BCE',
+          title: 'PHILOSOPHY ATLAS MUSEUM',
+          kicker: '',
+          subtitle: 'Gallery 01 · Mediterranean Beginnings & Classical Athens',
           position: {x: 0, y: 4.35, z: -18.2},
           rotationY: Math.PI,
           width: 3.4,
           height: .7,
         },
-        ...orderedRooms.map((room, index) => {
-          const copy = MEDITERRANEAN_ROOM_SIGN_COPY[room.id as keyof typeof MEDITERRANEAN_ROOM_SIGN_COPY];
-          if (!copy) throw new Error(`Gallery 01 has no visitor-facing room copy for ${room.id}.`);
-          const bounds = roomBounds.get(room.id)!;
-          return {
-            id: `${room.id}:room-sign`,
-            kind: 'zone' as const,
-            title: copy.title,
-            kicker: copy.kicker,
-            subtitle: copy.subtitle,
-            position: {
-              x: room.id === 'med-sophists-socratic' ? 0 : index === 0 ? 6 : -6,
-              y: 2.25,
-              z: room.id === 'med-sophists-socratic'
-                ? bounds.maxZ - .22
-                : index === 0 ? bounds.maxZ + .22 : bounds.minZ + .22,
-            },
-            // Room 03 uses its far wall so the small three-installation room
-            // reads as a composed destination. The other signs face the
-            // authored chronological route at their thresholds.
-            rotationY: room.id === 'med-sophists-socratic' ? Math.PI : index === 0 ? 0 : Math.PI,
-            width: room.id === 'med-sophists-socratic' ? 4.3 : 3.9,
-            height: .88,
-          };
-        }),
+        ...orderedRooms
+          .filter(({id}) => id !== 'med-sophists-socratic')
+          .map((room, index) => {
+            const copy = MEDITERRANEAN_ROOM_SIGN_COPY[room.id as keyof typeof MEDITERRANEAN_ROOM_SIGN_COPY];
+            if (!copy) throw new Error(`Gallery 01 has no visitor-facing room copy for ${room.id}.`);
+            const bounds = roomBounds.get(room.id)!;
+            return {
+              id: `${room.id}:room-sign`,
+              kind: 'zone' as const,
+              title: copy.title,
+              kicker: copy.kicker,
+              subtitle: copy.subtitle,
+              position: {
+                x: index === 0 ? 6 : -6,
+                y: 2.25,
+                z: index === 0 ? bounds.maxZ + .22 : bounds.minZ - .22,
+              },
+              rotationY: index === 0 ? 0 : Math.PI,
+              width: 3.9,
+              height: .88,
+            };
+          }),
       ]
     : standardSigns;
   const guidedOrder = orderedRooms.flatMap((room) => room.exhibits.map(({id}) => id as MuseumExhibitId));

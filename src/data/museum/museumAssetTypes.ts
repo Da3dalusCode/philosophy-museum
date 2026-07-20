@@ -15,6 +15,8 @@ export type MuseumAssetId =
   | 'empedocles-met-print'
   | 'anaxagoras-ribera'
   | 'protagoras-ribera'
+  | 'prodicus-choice-of-hercules'
+  | 'hippias-greek-strigil'
   | 'gorgias-ortolani'
   | 'platonism-academy-mosaic'
   | 'aristotelianism-walters-teaching'

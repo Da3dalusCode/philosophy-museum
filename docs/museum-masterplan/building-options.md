@@ -4,7 +4,7 @@
 
 ## Approved direction and scope
 
-The **single-level Ring of Wings** is the approved physical basis for the locked **Worlds with a Questions Forum** program: 10 wings, 26 halls, 105 rooms, and 258 record-capacity slots. The ring gives every wing a legible address, gives visitors more than one way home, and allowed the Phase 2 temporary shells to be absorbed without first introducing lifts or a dispersed campus. The Braided Promenade and Pavilion Campus remain archival comparison studies, not active alternatives.
+The **single-level Ring of Wings** is the approved physical basis for the locked **Worlds with a Questions Forum** program: 10 wings, 26 halls, 105 rooms, and 260 record-capacity slots. The ring gives every wing a legible address, gives visitors more than one way home, and allowed the Phase 2 temporary shells to be absorbed without first introducing lifts or a dispersed campus. The Braided Promenade and Pavilion Campus remain archival comparison studies, not active alternatives.
 
 This document locks the long-term physical direction but is not itself the runtime geometry specification. The authoritative runtime building manifest owns the implemented canonical-six placement and connections. Coordinates in [building-manifest.example.json](./building-manifest.example.json) remain an illustrative planning fixture, not construction coordinates or runtime truth.
 

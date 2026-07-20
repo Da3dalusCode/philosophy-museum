@@ -178,7 +178,7 @@ export const MUSEUM_CANONICAL_PROGRAM = [
     templateId: 'sequence-3',
     period: 'Late 7th–4th centuries BCE',
     description: 'Trace Ionian natural explanation, disputes over being and change, civic argument, and the institutional worlds of Socrates, Plato, and Aristotle.',
-    recordCapacity: 24,
+    recordCapacity: 26,
     rooms: [
       {
         id: 'med-orientation-nature',
@@ -210,9 +210,11 @@ export const MUSEUM_CANONICAL_PROGRAM = [
       {
         id: 'med-sophists-socratic',
         title: 'Sophists, civic speech, and Socratic inquiry',
-        recordCapacity: 4,
+        recordCapacity: 6,
         exhibits: [
           exhibit({id: 'protagoras', entityKind: 'philosopher', entityId: 'protagoras', displayName: 'Protagoras', tier: 'anchor-exhibit', question: 'How do judgment, education, and civic argument depend on human measure?', secondaryHallIds: ['core-questions-forum'], principalAssetId: 'protagoras-ribera'}),
+          exhibit({id: 'prodicus', entityKind: 'philosopher', entityId: 'prodicus', displayName: 'Prodicus of Ceos', tier: 'standard-individual-exhibit', question: 'Can careful distinctions in language help a person choose how to live?', secondaryHallIds: ['core-questions-forum'], principalAssetId: 'prodicus-choice-of-hercules'}),
+          exhibit({id: 'hippias-of-elis', entityKind: 'philosopher', entityId: 'hippias-of-elis', displayName: 'Hippias of Elis', tier: 'standard-individual-exhibit', question: 'Can broad learning and practical skill make a person self-sufficient?', secondaryHallIds: ['core-questions-forum'], principalAssetId: 'hippias-greek-strigil'}),
           exhibit({id: 'gorgias', entityKind: 'philosopher', entityId: 'gorgias', displayName: 'Gorgias', tier: 'anchor-exhibit', question: 'What can speech accomplish when truth and persuasion come apart?', secondaryHallIds: ['core-questions-forum'], principalAssetId: 'gorgias-ortolani'}),
           exhibit({id: 'socrates', entityKind: 'philosopher', entityId: 'socrates', displayName: 'Socrates', tier: 'anchor-exhibit', question: 'What does an examined life demand of us?', secondaryHallIds: ['moral-life-practical-reason'], formerHallId: 'ancient-greek', principalAssetId: 'socrates-louvre-head', supportingAssetIds: ['socrates-death-of-socrates']}),
         ],

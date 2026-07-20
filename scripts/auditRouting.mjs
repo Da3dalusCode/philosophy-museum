@@ -200,7 +200,7 @@ check('Museum convenience, hall, and exhibit routes parse and serialize', () => 
     }
   }
   assert.equal(MUSEUM_HALLS.length, 6);
-  assert.equal(exhibitCount, 59);
+  assert.equal(exhibitCount, 61);
 });
 
 check('serializers emit the required literal route families', () => {

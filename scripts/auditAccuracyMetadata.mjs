@@ -33,6 +33,8 @@ check(lineWith(timeline,"event('analytic-origin'").includes("['frege','russell',
 check(tupleLine(branches,'cynicism').includes("['antisthenes','diogenes']"),'Cynicism branch must include Antisthenes and Diogenes.');
 check(philosophers.includes("antisthenes:{branchMemberships:[{branchId:'cynicism',status:'precursor'"),'Antisthenes must be marked as Cynic precursor/possible early founder.');
 check(philosophers.includes("diogenes:{branchMemberships:[{branchId:'cynicism',status:'central'"),'Diogenes must be marked as central/paradigmatic Cynic.');
+check(philosophers.includes("prodicus:{lifespan:'fl. late 5th century BCE; dates uncertain'")&&philosophers.includes("Prodicus is securely a late-fifth-century sophist")&&philosophers.includes("branchId:'philosophy-of-language',status:'major'"),'Prodicus must carry uncertain chronology and a defensible language-focused membership.');
+check(philosophers.includes("'hippias-of-elis':{lifespan:'c. 460–after 399 BCE; dates uncertain'")&&philosophers.includes("exact birth and death years are unknown")&&philosophers.includes("branchId:'epistemology',status:'associated'"),'Hippias of Elis must carry uncertain chronology and a cautious knowledge-focused association.');
 check(philosophers.includes("patanjali:{lifespan:'fl. uncertain")&&philosophers.includes("not as a literal 400-year lifespan"),'Patanjali must not display as a literal 400-year lifespan.');
 check(philosophers.includes("laozi:{lifespan:'legendary")&&philosophers.includes("dateConfidence:'legendary'"),'Laozi must carry legendary/uncertain date metadata.');
 check(philosophers.includes("'pseudo-dionysius':{lifespan:'pseudonymous")&&philosophers.includes("dateConfidence:'pseudonymous'"),'Pseudo-Dionysius must carry pseudonymous date metadata.');

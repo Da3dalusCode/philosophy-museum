@@ -239,6 +239,40 @@
         "sha256": "ad819f7af453ebceb42899f00baf4d943ee3a12e7bd1d4c7202208d13619010a"
       }
     },
+    "prodicus-choice-of-hercules": {
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Thomas_Sully_-_Choice_of_Hercules_-_PP304_-_Princeton_University_Art_Museum.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/ba/Thomas_Sully_-_Choice_of_Hercules_-_PP304_-_Princeton_University_Art_Museum.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Thomas_Sully_-_Choice_of_Hercules_-_PP304_-_Princeton_University_Art_Museum.jpg/1280px-Thomas_Sully_-_Choice_of_Hercules_-_PP304_-_Princeton_University_Art_Museum.jpg",
+      "scene": {
+        "width": 640,
+        "height": 444,
+        "bytes": 50214,
+        "sha256": "ef427aa4f5ce764ee83ee35de4e8036aa6c6b3fb137d3e5b0a221d1f3e09649e"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 887,
+        "bytes": 335294,
+        "sha256": "7eb43abce29a1679126940c79447081b3416ce14776c4327523f296f62ee6e94"
+      }
+    },
+    "hippias-greek-strigil": {
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Bronze_strigil_(scraper)_MET_DP20519.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/65/Bronze_strigil_%28scraper%29_MET_DP20519.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Bronze_strigil_%28scraper%29_MET_DP20519.jpg/1280px-Bronze_strigil_%28scraper%29_MET_DP20519.jpg",
+      "scene": {
+        "width": 640,
+        "height": 500,
+        "bytes": 8964,
+        "sha256": "462dfc09c84e552f302bf10de778baea4bfd5e60ee6a56caa2cab4adc4c0e423"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 1000,
+        "bytes": 52618,
+        "sha256": "45606d8c6b23941ff5ef0f411408a1975de568de0bc0feb6404b6f1aaac5f681"
+      }
+    },
     "gorgias-ortolani": {
       "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Gorgia_di_Leontini.png",
       "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Gorgia_di_Leontini.png",

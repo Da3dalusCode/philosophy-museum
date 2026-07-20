@@ -645,6 +645,8 @@ const MUSEUM_DEEP_ARTICLE_ENTITY_IDS = new Set([
   'empedocles',
   'anaxagoras',
   'protagoras',
+  'prodicus',
+  'hippias-of-elis',
   'gorgias',
   'bacon',
   'levinas',

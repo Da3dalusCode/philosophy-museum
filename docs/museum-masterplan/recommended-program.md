@@ -11,10 +11,10 @@ This is the approved planning program and the authority for the first permanent 
 | Wings | **10** |
 | Halls | **26** |
 | Rooms / zones | **105** |
-| Planned record capacity | **258** |
+| Planned record capacity | **260** |
 | Current branch/tradition primary assignments | **43** |
-| Current philosopher primary assignments | **142** |
-| Total current primary assignments | **185** |
+| Current philosopher primary assignments | **144** |
+| Total current primary assignments | **187** |
 | Unallocated record capacity | **73** |
 
 Here, **record capacity** means the number of Atlas records a room is planned to interpret at the appropriate presentation tier. It is not visitor occupancy, floor area, or the number of freestanding objects. A shared cluster may use less physical area than an anchor exhibit even though both records count toward assignment coverage.
@@ -33,16 +33,16 @@ Placements for living and recently deceased thinkers remain curatorial judgments
 
 ### Presentation tiers
 
-Tier expresses exhibit treatment, not philosophical worth. It prevents “complete coverage” from becoming 185 equally large monuments.
+Tier expresses exhibit treatment, not philosophical worth. It prevents “complete coverage” from becoming 187 equally large monuments.
 
 | Tier | Branches | Philosophers | Total | Intended physical treatment |
 | --- | ---: | ---: | ---: | --- |
-| Anchor exhibit | 37 | 52 | **89** | A major interpretive installation for a field, tradition, system, or thinker central to the room's argument |
+| Anchor exhibit | 37 | 54 | **91** | A major interpretive installation for a field, tradition, system, or thinker central to the room's argument |
 | Standard individual exhibit | 0 | 81 | **81** | A self-contained philosopher exhibit with context, contribution, works, and relationships |
 | Supporting exhibit | 4 | 5 | **9** | A compact but named exhibit that supports orientation, lineage, or transition |
 | Thematic cluster participant | 2 | 3 | **5** | A clearly identified record within a shared installation where separation would misstate the evidence or overstate certainty |
 | Gallery archive or study-wall record | 0 | 1 | **1** | A visible, searchable record with a defensible home but without a full installation at current depth |
-| **Total** | **43** | **142** | **185** | Complete current inventory |
+| **Total** | **43** | **144** | **187** | Complete current inventory |
 
 The lower-footprint assignments are deliberate and reviewable. The four supporting umbrella branches are Ancient Greek Philosophy, Indian Philosophy, Chinese Philosophy, and Continental Philosophy. The five thematic-cluster participants are Legalism, Buddhist Epistemology, Laozi, Pseudo-Dionysius, and Patañjali. Leucippus is the sole study-wall record. These assignments can be promoted later if source depth grows; their present tier never erases their primary home.
 
@@ -50,7 +50,7 @@ Tier balance is an operational review, not only a disclaimer. The final scholars
 
 ### Secondary associations
 
-Of the 185 records, 162 have at least one secondary hall association, producing 297 resolved **hall-route candidates**. Twenty-three have no secondary hall because a forced link would add noise rather than insight. A secondary association may produce:
+Of the 187 records, 164 have at least one secondary hall association, producing 299 resolved **hall-route candidates**. Twenty-three have no secondary hall because a forced link would add noise rather than insight. A secondary association may produce:
 
 - a linked comparison or reception panel;
 - a “continue this question” wayfinding route;
@@ -63,12 +63,12 @@ The semicolon-separated CSV fields establish destination coverage, not final int
 
 ## Coverage and reserve by wing
 
-The table below reconciles the 185 current primary assignments with the 258-slot program. “Reserve” is capacity not currently occupied by a primary assignment; it may still support orientation and secondary interpretation before new records are added.
+The table below reconciles the 187 current primary assignments with the 260-slot program. “Reserve” is capacity not currently occupied by a primary assignment; it may still support orientation and secondary interpretation before new records are added.
 
 | Wing | Halls | Rooms | Capacity | Current branches | Current philosophers | Current total | Reserve |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Core Questions Forum | 1 | 9 | 25 | 9 | 6 | 15 | 10 |
-| Mediterranean Antiquity | 3 | 11 | 59 | 8 | 39 | 47 | 12 |
+| Mediterranean Antiquity | 3 | 11 | 61 | 8 | 41 | 49 | 12 |
 | South Asian Intellectual Worlds | 1 | 5 | 14 | 3 | 6 | 9 | 5 |
 | Buddhist Traditions Across Asia | 1 | 5 | 13 | 2 | 5 | 7 | 6 |
 | Chinese & East Asian Intellectual Worlds | 2 | 7 | 23 | 5 | 9 | 14 | 9 |
@@ -77,7 +77,7 @@ The table below reconciles the 185 current primary assignments with the 258-slot
 | Nineteenth-Century Transformations | 3 | 11 | 15 | 1 | 9 | 10 | 5 |
 | Modern Philosophical Traditions | 4 | 18 | 28 | 5 | 19 | 24 | 4 |
 | Ethics, Politics, and Social Thought | 4 | 14 | 25 | 6 | 13 | 19 | 6 |
-| **Total** | **26** | **105** | **258** | **43** | **142** | **185** | **73** |
+| **Total** | **26** | **105** | **260** | **43** | **144** | **187** | **73** |
 
 ## Wing and hall program
 
@@ -99,15 +99,15 @@ Rooms: Reality & Being (4); Knowledge (2); Mind & Self (3); Logic & Language (3)
 
 ### 2. Mediterranean Antiquity
 
-**Program (`wing-mediterranean-antiquity`):** 3 halls, 11 rooms, capacity 59; 47 current assignments, 12 reserve slots.
+**Program (`wing-mediterranean-antiquity`):** 3 halls, 11 rooms, capacity 61; 49 current assignments, 12 reserve slots.
 
 The wing separates archaic/classical formations, Hellenistic and Roman ways of life, and late-antique transformations. It does not present Greece as the universal beginning of philosophy. Instead, it gives this particular Mediterranean history enough internal sequence to distinguish schools, institutions, genres, and later receptions.
 
 #### Mediterranean Beginnings & Classical Athens
 
-`mediterranean-beginnings-classical` · sequential template · 4 rooms · capacity 24 · 20 assigned · 4 reserve
+`mediterranean-beginnings-classical` · sequential template · 4 rooms · capacity 26 · 22 assigned · 4 reserve
 
-Rooms: Orientation, Ionia, and natural explanation (5); Number, being, change, plurality, and atomism (10); Sophists, civic speech, and Socratic inquiry (4); Plato, Aristotle, Academy, and Lyceum (5).
+Rooms: Orientation, Ionia, and natural explanation (5); Number, being, change, plurality, and atomism (10); Sophists, civic speech, and Socratic inquiry (6); Plato, Aristotle, Academy, and Lyceum (5).
 
 #### Hellenistic & Roman Ways of Life
 
@@ -365,7 +365,7 @@ Four halls are already at their planned primary-record capacity: Empiricism, Enl
 
 This approved program governs the Ring pilot under all of the following conditions:
 
-- one primary assignment for each of the 43 branch IDs and 142 philosopher IDs;
+- one primary assignment for each of the 43 branch IDs and 144 philosopher IDs;
 - capacity is treated as record-planning capacity rather than visitor or architectural occupancy;
 - secondary associations remain links and interpretive appearances, not duplicate homes;
 - cultural safeguards are carried into labels, thresholds, sightlines, and map routes;
