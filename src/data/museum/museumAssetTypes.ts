@@ -122,6 +122,11 @@ export type MuseumAssetId =
   | 'jiddu-krishnamurti-bain-portrait'
   | 'jiddu-krishnamurti-besant-1927'
   | 'francis-bacon-portrait-1617'
+  | 'bacon-great-instauration-1620'
+  | 'galileo-moon-sketches-1610'
+  | 'galileo-telescopes-museo'
+  | 'hobbes-de-cive-1642'
+  | 'english-civil-war-pamphlet-1642'
   | 'alfred-north-whitehead-portrait-1923'
   | 'martha-nussbaum-portrait-2010';
 

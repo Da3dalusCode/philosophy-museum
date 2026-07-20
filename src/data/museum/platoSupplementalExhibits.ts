@@ -19,7 +19,17 @@ export type MuseumSupplementalInterpretationSection = {
   points?: readonly string[];
 };
 
-export type PlatoSupplementalExhibit = {
+export type MuseumSupplementalExhibitPresentation = {
+  panelKicker: string;
+  proximityKicker: string;
+  factRows: readonly {label: string; value: string}[];
+  articleActionLabel: string;
+  entityKind: 'philosopher' | 'branch';
+  keyIdeasLabel?: string;
+  cautionsLabel?: string;
+};
+
+export type MuseumSupplementalExhibit = {
   id: MuseumSupplementalExhibitId;
   displayName: string;
   shortTitle: string;
@@ -35,7 +45,11 @@ export type PlatoSupplementalExhibit = {
   assetId: MuseumAssetId;
   panelAssetId: MuseumAssetId;
   articleRoute: NavigableAppRoute;
+  /** Gallery-specific copy; omitted here so Gallery 01 retains its exact output. */
+  presentation?: MuseumSupplementalExhibitPresentation;
 };
+
+export type PlatoSupplementalExhibit = MuseumSupplementalExhibit;
 
 const volume = (
   id: string,
@@ -208,7 +222,13 @@ export const PLATO_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
   },
 ] as const satisfies readonly MuseumSupplementalExhibitLayout[];
 
-const supplementalById = new Map(PLATO_SUPPLEMENTAL_EXHIBITS.map((record) => [record.id, record]));
+const supplementalById = new Map<MuseumSupplementalExhibitId, MuseumSupplementalExhibit>(
+  PLATO_SUPPLEMENTAL_EXHIBITS.map((record) => [record.id, record]),
+);
+
+export const findPlatoSupplementalExhibit = (
+  id: MuseumSupplementalExhibitId,
+): PlatoSupplementalExhibit | undefined => supplementalById.get(id);
 
 export const getPlatoSupplementalExhibit = (
   id: MuseumSupplementalExhibitId,

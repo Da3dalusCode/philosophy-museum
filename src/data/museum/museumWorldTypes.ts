@@ -111,11 +111,23 @@ export type MuseumInstallationTreatment =
 /** Stable ids for interpreted work exhibits that do not consume a primary assignment. */
 export type MuseumSupplementalExhibitId =
   | 'plato-cave-book-vii'
-  | 'plato-republic';
+  | 'plato-republic'
+  | 'renaissance-school-of-athens'
+  | 'machiavelli-prince'
+  | 'ficino-enneads'
+  | 'bacon-great-instauration'
+  | 'galileo-moon'
+  | 'galileo-telescopes'
+  | 'hobbes-leviathan'
+  | 'hobbes-de-cive'
+  | 'english-civil-war';
 
 export type MuseumSupplementalInstallationKind =
   | 'cave-ascent'
-  | 'republic-altarpiece';
+  | 'republic-altarpiece'
+  | 'renaissance-work'
+  | 'renaissance-context'
+  | 'renaissance-observation';
 
 export type MuseumSupplementalExhibitLayout = {
   id: MuseumSupplementalExhibitId;

@@ -37,7 +37,8 @@ import {
   getMuseumRuntimeNode,
 } from '../../data/museum/museumBuildingRuntime';
 import {getMuseumInterpretation} from '../../data/museum/museumInterpretations';
-import {getPlatoSupplementalExhibit} from '../../data/museum/platoSupplementalExhibits';
+import {findPlatoSupplementalExhibit} from '../../data/museum/platoSupplementalExhibits';
+import {findRenaissanceSupplementalExhibit} from '../../data/museum/renaissanceSupplementalExhibits';
 import {
   getMuseumVisitorMapNode,
   MUSEUM_VISITOR_MAP_KIOSK,
@@ -64,6 +65,7 @@ import {loadMuseumSession, removeMuseumSession, saveMuseumSession} from './museu
 import {useMuseumControls, type MuseumControls} from './useMuseumControls';
 import {useMuseumExperienceMode} from './useMuseumExperienceMode';
 import {resolveMuseumHallResidency} from './museumResidency';
+
 import {
   museumHallEntryReadinessKey,
   museumHallReadinessKeyBelongsTo,
@@ -96,6 +98,15 @@ import {
   type MuseumVisitPhase,
 } from './museumVisitState';
 import './museum.css';
+
+const findMuseumSupplementalExhibit = (
+  hallId: MuseumHallId,
+  id: MuseumSupplementalExhibitId,
+) => hallId === 'mediterranean-beginnings-classical'
+  ? findPlatoSupplementalExhibit(id)
+  : hallId === 'renaissance-humanism-new-method'
+    ? findRenaissanceSupplementalExhibit(id)
+    : undefined;
 
 const createLazyMuseumWorldScene = () => lazy(() => import('./MuseumWorldScene').then(
   ({MuseumWorldScene}) => ({default: MuseumWorldScene}),
@@ -338,7 +349,7 @@ export function MuseumPage({route, href, push, replace}: {
   const content = useMemo(() => exhibit ? getMuseumInterpretation({hallId: activeHallId, exhibitId: exhibit.id}) : undefined, [activeHallId, exhibit]);
   const [supplementalExhibitId, setSupplementalExhibitId] = useState<MuseumSupplementalExhibitId | undefined>();
   const supplementalExhibit = supplementalExhibitId
-    ? getPlatoSupplementalExhibit(supplementalExhibitId)
+    ? findMuseumSupplementalExhibit(activeHallId, supplementalExhibitId)
     : undefined;
   const sceneLocationLabel = activeNode.publicHallId ? hall.title : activeNode.mapLabel;
   const visitContext = route.hallId === activeHallId && route.exhibitId
@@ -673,8 +684,8 @@ export function MuseumPage({route, href, push, replace}: {
   }, [push, saveCurrentHallSession, visitPhase]);
 
   const openSupplementalExhibit = useCallback((id: MuseumSupplementalExhibitId) => {
-    if (activeHallIdRef.current !== 'mediterranean-beginnings-classical') return;
-    const record = getPlatoSupplementalExhibit(id);
+    const record = findMuseumSupplementalExhibit(activeHallIdRef.current, id);
+    if (!record) return;
     const resume = museumPhaseHasActiveIntent(visitPhase);
     supplementalResumeRef.current = {
       resume,
@@ -684,7 +695,7 @@ export function MuseumPage({route, href, push, replace}: {
     controlsRef.current?.blockInput();
     setOverlay(null);
     setSupplementalExhibitId(id);
-    setAnnouncement(`Opened ${record.displayName}, a supplemental Plato work exhibit.`);
+    setAnnouncement(`Opened ${record.displayName}, ${record.presentation ? 'a Gallery 02 interpreted exhibit' : 'a supplemental Plato work exhibit'}.`);
   }, [saveCurrentHallSession, visitPhase]);
 
   const closeSupplementalExhibit = useCallback(() => {
@@ -1377,7 +1388,7 @@ export function MuseumPage({route, href, push, replace}: {
   const nearby = nearbyId ? getMuseumExhibitCatalog(activeHallId, nearbyId) : undefined;
   const nearbyContent = useMemo(() => nearby ? getMuseumInterpretation({hallId: activeHallId, exhibitId: nearby.id}) : undefined, [activeHallId, nearby]);
   const nearbySupplemental = nearbySupplementalId
-    ? getPlatoSupplementalExhibit(nearbySupplementalId)
+    ? findMuseumSupplementalExhibit(activeHallId, nearbySupplementalId)
     : undefined;
   useEffect(() => {
     const reference = nearby ? {hallId: activeHallId, exhibitId: nearby.id} : undefined;
@@ -1556,11 +1567,11 @@ export function MuseumPage({route, href, push, replace}: {
             <button type="button" onClick={() => openExhibit(nearby.id)}>E / Enter · Interpret exhibit</button>
           </aside>}
 
-          {nearbySupplemental && exploring && <aside className="museum-proximity-card" data-zone="med-plato-aristotle" data-supplemental-id={nearbySupplemental.id}>
-            <p><span>Supplemental Plato work</span><span>{nearbySupplemental.dateLabel}</span></p>
+          {nearbySupplemental && exploring && <aside className="museum-proximity-card" data-zone={activeHallId === 'mediterranean-beginnings-classical' ? 'med-plato-aristotle' : activeHallId} data-supplemental-id={nearbySupplemental.id}>
+            <p><span>{nearbySupplemental.presentation?.proximityKicker ?? 'Supplemental Plato work'}</span><span>{nearbySupplemental.dateLabel}</span></p>
             <h2>{nearbySupplemental.displayName}</h2>
             <blockquote>{nearbySupplemental.question}</blockquote>
-            <button type="button" onClick={() => openSupplementalExhibit(nearbySupplemental.id)}>E / Enter · Explore work</button>
+            <button type="button" onClick={() => openSupplementalExhibit(nearbySupplemental.id)}>E / Enter · {nearbySupplemental.presentation ? 'Explore exhibit' : 'Explore work'}</button>
           </aside>}
 
         </div>

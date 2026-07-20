@@ -30,6 +30,7 @@ const result = await build({
       export * from '/src/data/museum/museumAssets.ts';
       export * from '/src/data/museum/museumMediaPolicy.ts';
       export * from '/src/data/museum/platoSupplementalExhibits.ts';
+      export * from '/src/data/museum/renaissanceSupplementalExhibits.ts';
     ` : undefined,
   }],
   build: {
@@ -54,6 +55,7 @@ const {
   MUSEUM_SCENE_MEDIA_LOADING_COLOR,
   MUSEUM_SCENE_MEDIA_MATERIAL_MODE,
   PLATO_SUPPLEMENTAL_EXHIBITS,
+  RENAISSANCE_SUPPLEMENTAL_EXHIBITS,
   museumAssetUrl,
 } = await import(`data:text/javascript;base64,${Buffer.from(entry.code).toString('base64')}`);
 
@@ -102,7 +104,8 @@ const MEDITERRANEAN_ASSET_IDS = [
   'gorgias-ortolani',
   'platonism-academy-mosaic',
   'aristotelianism-walters-teaching',
-  'plato-cave-saenredam-1604',
+  'plato-cave-interpretive-illustration',
+  'plato-republic-justice-ideal-city',
   'plato-republic-parisinus-1807',
 ];
 const manifestAssets = modernManifest?.assets ?? {};
@@ -113,7 +116,9 @@ const canonicalReferencedIds = liveExhibits.flatMap(({exhibit}) => [
   exhibit.principalAssetId,
   ...(exhibit.supportingAssetIds ?? []),
 ].filter(Boolean));
-const supplementalReferencedIds = PLATO_SUPPLEMENTAL_EXHIBITS.map(({assetId}) => assetId);
+const platoSupplementalReferencedIds = PLATO_SUPPLEMENTAL_EXHIBITS.map(({assetId}) => assetId);
+const renaissanceSupplementalReferencedIds = RENAISSANCE_SUPPLEMENTAL_EXHIBITS.map(({assetId}) => assetId);
+const supplementalReferencedIds = [...platoSupplementalReferencedIds, ...renaissanceSupplementalReferencedIds];
 const referencedIds = [...canonicalReferencedIds, ...supplementalReferencedIds];
 
 let checks = 0;
@@ -194,7 +199,7 @@ check('the canonical six expose 61 primaries with optional, resolvable local med
 check('the two Plato work exhibits stay supplemental while resolving distinct local media', () => {
   assert.equal(PLATO_SUPPLEMENTAL_EXHIBITS.length, 2);
   assert.deepEqual(PLATO_SUPPLEMENTAL_EXHIBITS.map(({id}) => id).sort(), ['plato-cave-book-vii', 'plato-republic']);
-  assert.deepEqual(supplementalReferencedIds.sort(), ['plato-cave-saenredam-1604', 'plato-republic-parisinus-1807']);
+  assert.deepEqual(platoSupplementalReferencedIds.sort(), ['plato-cave-interpretive-illustration', 'plato-republic-justice-ideal-city']);
   for (const exhibit of PLATO_SUPPLEMENTAL_EXHIBITS) {
     const asset = assetById.get(exhibit.assetId);
     assert(asset, `${exhibit.id} references missing asset ${exhibit.assetId}`);
@@ -203,11 +208,20 @@ check('the two Plato work exhibits stay supplemental while resolving distinct lo
   }
 });
 
-check('the preserved asset registry contains 122 unique records and derivative paths', () => {
-  assert.equal(MUSEUM_ASSETS.length, 122);
-  assert.equal(assetById.size, 122);
+check('Gallery 02 work, discovery, and context exhibits resolve nine distinct live media records', () => {
+  assert.equal(RENAISSANCE_SUPPLEMENTAL_EXHIBITS.length, 9);
+  assert.equal(new Set(renaissanceSupplementalReferencedIds).size, 9);
+  for (const exhibit of RENAISSANCE_SUPPLEMENTAL_EXHIBITS) {
+    assert(assetById.has(exhibit.assetId), `${exhibit.id} references missing asset ${exhibit.assetId}`);
+    assert(assetById.has(exhibit.panelAssetId), `${exhibit.id} panel references missing asset ${exhibit.panelAssetId}`);
+  }
+});
+
+check('the preserved asset registry contains 128 unique records and derivative paths', () => {
+  assert.equal(MUSEUM_ASSETS.length, 128);
+  assert.equal(assetById.size, 128);
   const variantPaths = MUSEUM_ASSETS.flatMap(({variants}) => [variants.scene.path, variants.panel.path]);
-  assert.equal(variantPaths.length, 244);
+  assert.equal(variantPaths.length, 256);
   assert(unique(variantPaths), 'two asset variants share a derivative path');
   for (const id of NEW_CANONICAL_ASSET_IDS) assert(assetById.has(id), `new canonical asset ${id} is missing`);
   for (const id of MEDITERRANEAN_ASSET_IDS) assert(assetById.has(id), `Gallery 01 asset ${id} is missing`);
@@ -236,10 +250,22 @@ check('all asset records carry complete provenance, rights, interpretation, and 
     assert(isHttpUrl(asset.sourcePageUrl), `${asset.id} sourcePageUrl is not an HTTP(S) source page`);
     const sourcePage = new URL(asset.sourcePageUrl);
     assert.equal(sourcePage.protocol, 'https:', `${asset.id} source page must use HTTPS`);
-    assert.equal(sourcePage.hostname, 'commons.wikimedia.org', `${asset.id} source page must use Wikimedia Commons`);
-    assert(sourcePage.pathname.startsWith('/wiki/File:'), `${asset.id} sourcePageUrl must be an exact Commons file page`);
-    assert(isHttpUrl(asset.licenseUrl), `${asset.id} needs a license or rights-status URL`);
-    assert.equal(new URL(asset.licenseUrl).protocol, 'https:', `${asset.id} licenseUrl must use HTTPS`);
+    if (asset.id === 'plato-cave-interpretive-illustration') {
+      assert.equal(sourcePage.hostname, 'github.com');
+      assert.equal(asset.license, 'Original Philosophy Atlas Museum interpretive illustration');
+    } else if (asset.id === 'plato-republic-justice-ideal-city') {
+      assert.equal(sourcePage.hostname, 'www.nga.gov');
+      assert.equal(asset.objectPageUrl, 'https://art.thewalters.org/object/37.677/');
+    } else {
+      assert.equal(sourcePage.hostname, 'commons.wikimedia.org', `${asset.id} source page must use Wikimedia Commons`);
+      assert(sourcePage.pathname.startsWith('/wiki/File:'), `${asset.id} sourcePageUrl must be an exact Commons file page`);
+    }
+    if (asset.licenseUrl) {
+      assert(isHttpUrl(asset.licenseUrl), `${asset.id} license or rights-status URL is invalid`);
+      assert.equal(new URL(asset.licenseUrl).protocol, 'https:', `${asset.id} licenseUrl must use HTTPS`);
+    } else {
+      assert(['plato-cave-interpretive-illustration', 'plato-republic-justice-ideal-city'].includes(asset.id), `${asset.id} needs a license or rights-status URL`);
+    }
     if (asset.objectPageUrl) {
       assert(isHttpUrl(asset.objectPageUrl), `${asset.id} objectPageUrl is invalid`);
       assert.equal(new URL(asset.objectPageUrl).protocol, 'https:', `${asset.id} objectPageUrl must use HTTPS`);
@@ -286,14 +312,14 @@ check('every registered variant is exact-case local WebP media with locked dimen
   }
 });
 
-check('the 85-file-source preparation manifest locks every post-Ancient asset uniformly', () => {
+check('the 90-file-source preparation manifest locks every post-Ancient asset uniformly', () => {
   assert.equal(modernManifest.version, 1);
-  assert.equal(Object.keys(manifestAssets).length, 85);
+  assert.equal(Object.keys(manifestAssets).length, 90);
   const managedAssets = MUSEUM_ASSETS.filter(({variants}) => !variants.scene.path.startsWith('assets/museum/ancient-greek/'));
-  assert.equal(managedAssets.length, 85);
+  assert.equal(managedAssets.length, 90);
   assert.deepEqual(Object.keys(manifestAssets).sort(), managedAssets.map(({id}) => id).sort());
   assert.match(preparationSource, /MANIFEST_PATH = ROOT \/ "scripts" \/ "museumModernAssetManifest\.json"/);
-  assert.match(preparationSource, /EXPECTED_ASSET_COUNT = 85/);
+  assert.match(preparationSource, /EXPECTED_ASSET_COUNT = 90/);
   for (const folder of MANAGED_HALL_FOLDERS) assert(preparationSource.includes(`"${folder}"`), `preparation pipeline omits ${folder}`);
   assert.match(preparationSource, /record\["selectedThumbnailUrl"\]/);
   assert.match(preparationSource, /assert_locked\(slug, "scene"/);
@@ -331,12 +357,12 @@ check('the 85-file-source preparation manifest locks every post-Ancient asset un
     'logic-language-science': 16,
     'mind-consciousness-self': 16,
     'modernity-freedom-critique': 16,
-    'renaissance-humanism-new-method': 1,
+    'renaissance-humanism-new-method': 6,
     'renaissance-reason-revolution': 16,
   }, 'preparation lock folder inventory changed');
 });
 
-check('all 170 managed derivatives match exact dimensions, bytes, and SHA-256 locks', () => {
+check('all 180 managed derivatives match exact dimensions, bytes, and SHA-256 locks', () => {
   for (const [id, lock] of Object.entries(manifestAssets)) {
     const asset = assetById.get(id);
     assert(asset, `${id} lock has no asset record`);
@@ -350,12 +376,12 @@ check('all 170 managed derivatives match exact dimensions, bytes, and SHA-256 lo
   }
 });
 
-check('the 21-source Gallery 01 lock reproduces all curated Mediterranean media', () => {
+check('the 22-source Gallery 01 lock reproduces all curated Mediterranean media', () => {
   assert.equal(mediterraneanManifest.version, 1);
-  assert.equal(Object.keys(mediterraneanManifestAssets).length, 21);
+  assert.equal(Object.keys(mediterraneanManifestAssets).length, 22);
   assert.deepEqual(Object.keys(mediterraneanManifestAssets).sort(), [...MEDITERRANEAN_ASSET_IDS].sort());
   assert.match(mediterraneanPreparationSource, /museumMediterraneanAssetManifest\.json/);
-  assert.match(mediterraneanPreparationSource, /EXPECTED_ASSET_COUNT = 21/);
+  assert.match(mediterraneanPreparationSource, /EXPECTED_ASSET_COUNT = 22/);
   assert.match(mediterraneanPreparationSource, /Resampling\.LANCZOS/);
   assert.match(mediterraneanPreparationSource, /"sha256": sha256\(destination\)/);
   for (const id of MEDITERRANEAN_ASSET_IDS) {
@@ -363,10 +389,24 @@ check('the 21-source Gallery 01 lock reproduces all curated Mediterranean media'
     const asset = assetById.get(id);
     assert(asset && lock, `${id} is absent from its runtime record or source lock`);
     assert.equal(lock.sourcePageUrl, asset.sourcePageUrl, `${id} lock source page differs from provenance`);
-    assert.equal(new URL(lock.sourcePageUrl).hostname, 'commons.wikimedia.org', `${id} source lock must use Commons`);
-    assert.equal(new URL(lock.sourceImageUrl).hostname, 'upload.wikimedia.org', `${id} original lock must use Wikimedia upload`);
-    assert.equal(new URL(lock.selectedThumbnailUrl).hostname, 'upload.wikimedia.org', `${id} derivative source must use Wikimedia upload`);
-    if (id === 'plato-cave-saenredam-1604' || id === 'plato-republic-parisinus-1807') {
+    if (lock.sourceKind === 'owner-approved-original-illustration') {
+      assert.equal(id, 'plato-cave-interpretive-illustration');
+      assert.equal(new URL(lock.sourcePageUrl).hostname, 'github.com');
+      assert.equal(new URL(lock.sourceImageUrl).hostname, 'github.com');
+      assert.equal(new URL(lock.selectedThumbnailUrl).hostname, 'github.com');
+      assert.equal(lock.sceneMaximum, 450, `${id} must retain its tighter scene cap`);
+    } else if (lock.sourceKind === 'curated-two-object-composite') {
+      assert.equal(id, 'plato-republic-justice-ideal-city');
+      assert.equal(new URL(lock.sourcePageUrl).hostname, 'www.nga.gov');
+      assert.equal(new URL(lock.sourceImageUrl).hostname, 'api.nga.gov');
+      assert.equal(new URL(lock.companionPageUrl).hostname, 'art.thewalters.org');
+      assert.equal(new URL(lock.companionImageUrl).hostname, 'art.thewalters.org');
+    } else {
+      assert.equal(new URL(lock.sourcePageUrl).hostname, 'commons.wikimedia.org', `${id} source lock must use Commons`);
+      assert.equal(new URL(lock.sourceImageUrl).hostname, 'upload.wikimedia.org', `${id} original lock must use Wikimedia upload`);
+      assert.equal(new URL(lock.selectedThumbnailUrl).hostname, 'upload.wikimedia.org', `${id} derivative source must use Wikimedia upload`);
+    }
+    if (id === 'plato-republic-justice-ideal-city' || id === 'plato-republic-parisinus-1807') {
       assert.equal(lock.sceneMaximum, 480, `${id} must retain its tighter scene cap`);
     }
     for (const variantName of ['scene', 'panel']) {
@@ -383,7 +423,7 @@ check('the 21-source Gallery 01 lock reproduces all curated Mediterranean media'
   }
 });
 
-check('the committed Museum inventory contains exactly the 244 registered derivatives', () => {
+check('the committed Museum inventory contains exactly the 256 registered derivatives', () => {
   const actual = walkFiles(museumMediaRoot).map(toPublicPath).sort();
   const expected = MUSEUM_ASSETS.flatMap(({variants}) => [variants.scene.path, variants.panel.path]).sort();
   assert.deepEqual(actual, expected);

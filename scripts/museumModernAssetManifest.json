@@ -1495,6 +1495,96 @@
         "sha256": "a9820ccf8225e83b41f03b03d0a99834a1627f3ce46d4c581a1877199c0d9d00"
       }
     },
+    "bacon-great-instauration-1620": {
+      "hallFolder": "renaissance-humanism-new-method",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Bacon_Great_Instauration_frontispiece.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Bacon_Great_Instauration_frontispiece.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Bacon_Great_Instauration_frontispiece.jpg",
+      "scene": {
+        "width": 422,
+        "height": 640,
+        "bytes": 92074,
+        "sha256": "11d3d7dc0bf01bd8eb36042f7915f2a8493855911801c67ed1be5167801bbbc8"
+      },
+      "panel": {
+        "width": 660,
+        "height": 1000,
+        "bytes": 247290,
+        "sha256": "e95a37d11f91650817aac0c501365b85a6e4f7367771225f38f6f75c41d7f9f1"
+      }
+    },
+    "galileo-moon-sketches-1610": {
+      "hallFolder": "renaissance-humanism-new-method",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Galileo%27s_sketches_of_the_moon.png",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Galileo%27s_sketches_of_the_moon.png",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Galileo%27s_sketches_of_the_moon.png/960px-Galileo%27s_sketches_of_the_moon.png",
+      "scene": {
+        "width": 462,
+        "height": 640,
+        "bytes": 67694,
+        "sha256": "172ae1ad25c19424b5f09f3f168ee1d61a4dc48808e29ad99ca78443996b24a1"
+      },
+      "panel": {
+        "width": 923,
+        "height": 1280,
+        "bytes": 327412,
+        "sha256": "298df1f8b3b1362f460dd4622d7792f78368b263262719a4bfcf63f960d7265a"
+      }
+    },
+    "galileo-telescopes-museo": {
+      "hallFolder": "renaissance-humanism-new-method",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Galilei_telescopes%2C_Museo_Galileo%2C_Florence%2C_Inv._242%2C_2428%2C_224088.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/36/Galilei_telescopes%2C_Museo_Galileo%2C_Florence%2C_Inv._242%2C_2428%2C_224088.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Galilei_telescopes%2C_Museo_Galileo%2C_Florence%2C_Inv._242%2C_2428%2C_224088.jpg/1280px-Galilei_telescopes%2C_Museo_Galileo%2C_Florence%2C_Inv._242%2C_2428%2C_224088.jpg",
+      "scene": {
+        "width": 640,
+        "height": 426,
+        "bytes": 25266,
+        "sha256": "9ceab5f41bd11647e740c79cb37535f6ae0580f88d78de370042b3979d354083"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 852,
+        "bytes": 166826,
+        "sha256": "bfed5ea1f1a26ea027a9461496293456c9c51eb61e5bc223b30007d77cd9922b"
+      }
+    },
+    "hobbes-de-cive-1642": {
+      "hallFolder": "renaissance-humanism-new-method",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Houghton_EC65_H6525_642e_-_Hobbes,_1642.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Houghton_EC65_H6525_642e_-_Hobbes%2C_1642.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Houghton_EC65_H6525_642e_-_Hobbes%2C_1642.jpg/960px-Houghton_EC65_H6525_642e_-_Hobbes%2C_1642.jpg",
+      "scene": {
+        "width": 512,
+        "height": 640,
+        "bytes": 111920,
+        "sha256": "6e6c775134c9dfaa5ca5c4abd6be45b20be4deb0bd17c41943664718806213d5"
+      },
+      "panel": {
+        "width": 960,
+        "height": 1199,
+        "bytes": 533192,
+        "sha256": "0cdc9ad3295cdf74e23fe75d197213576b708194ab9fec665ce1ca67ed1c1235"
+      }
+    },
+    "english-civil-war-pamphlet-1642": {
+      "hallFolder": "renaissance-humanism-new-method",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:English_Civil_War_parliamentary_pamphlet,_1642.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/08/English_Civil_War_parliamentary_pamphlet%2C_1642.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/English_Civil_War_parliamentary_pamphlet%2C_1642.jpg/960px-English_Civil_War_parliamentary_pamphlet%2C_1642.jpg",
+      "scene": {
+        "width": 426,
+        "height": 640,
+        "bytes": 93948,
+        "sha256": "0bebf6e7928ec0b2ccad389e4e2fcfec62099fee7bc5f73cf00a961e5f4af78b"
+      },
+      "panel": {
+        "width": 853,
+        "height": 1280,
+        "bytes": 409382,
+        "sha256": "548fc3649b582e42abb3aa3e2bcbfe3282b20da3d841669f379032a41f25e367"
+      }
+    },
     "alfred-north-whitehead-portrait-1923": {
       "hallFolder": "core-questions-forum",
       "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:ANWhitehead.jpg",

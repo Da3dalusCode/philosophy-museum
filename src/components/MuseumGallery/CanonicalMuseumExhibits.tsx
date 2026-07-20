@@ -9,6 +9,14 @@ import {
   type MediterraneanExhibitId,
 } from '../../data/museum/mediterraneanGalleryCuration';
 import {getMuseumHallCatalog, type MuseumExhibitId} from '../../data/museumCatalog';
+import {
+  RENAISSANCE_EXHIBIT_CURATION,
+  RENAISSANCE_GALLERY_ID,
+  RENAISSANCE_PALETTE,
+  RENAISSANCE_ROOM_ACCENTS,
+  type RenaissanceExhibitCuration,
+  type RenaissancePrimaryExhibitId,
+} from '../../data/museum/renaissanceGalleryCuration';
 import {MUSEUM_TEXTURE_SPECS, museumTextureDimensionsForPlane} from '../../data/museum/museumTexturePolicy';
 import {MuseumSceneMedia} from './MuseumSceneMedia';
 import {usePlaqueTexture} from './plaqueTextures';
@@ -22,13 +30,14 @@ function Box({volume, color}: {volume: MuseumSceneVolume; color: string}) {
   </mesh>;
 }
 
-function InterpretationFace({layout, title, question, kicker, accent, mediterranean}: {
+function InterpretationFace({layout, title, question, kicker, accent, mediterranean, renaissance}: {
   layout: MuseumExhibitLayout;
   title: string;
   question: string;
   kicker: string;
   accent: string;
   mediterranean: boolean;
+  renaissance: boolean;
 }) {
   const backing = layout.scene.objectBounds.find(({id}) => id.endsWith('-backing'))!;
   const hasMedia = layout.scene.mediaMounts.length > 0;
@@ -52,7 +61,7 @@ function InterpretationFace({layout, title, question, kicker, accent, mediterran
     theme: mediterranean ? 'mediterranean' : 'dark',
   });
   return <group position={[0, centerY, backing.center.z + backing.size.depth / 2 + .012]}>
-    <mesh position={[0, 0, -.035]}><boxGeometry args={[width + .12, height + .1, .07]}/><meshStandardMaterial color={mediterranean ? accent : '#202324'} roughness={.62}/></mesh>
+    <mesh position={[0, 0, -.035]}><boxGeometry args={[width + .12, height + .1, .07]}/><meshStandardMaterial color={mediterranean ? accent : renaissance ? RENAISSANCE_PALETTE.walnutEdge : '#202324'} roughness={.62}/></mesh>
     <mesh position={[0, 0, .005]}><planeGeometry args={[width, height]}/><meshBasicMaterial map={texture} toneMapped={false}/></mesh>
   </group>;
 }
@@ -94,7 +103,29 @@ function MediterraneanFinishedBack({backing, groupLabel, accent}: {
   </group>;
 }
 
-function Installation({layout, title, question, kicker, accent, nearby, curation}: {
+function RenaissanceFinishedBack({backing, accent}: {
+  backing: MuseumSceneVolume;
+  accent: string;
+}) {
+  const width = backing.size.width - .28;
+  const height = backing.size.height - .28;
+  return <group position={[
+    backing.center.x,
+    backing.center.y,
+    backing.center.z - backing.size.depth / 2 - .014,
+  ]} rotation={[0, Math.PI, 0]}>
+    <mesh>
+      <planeGeometry args={[width, height]}/>
+      <meshStandardMaterial color={RENAISSANCE_PALETTE.walnutEdge} roughness={.9} metalness={.02}/>
+    </mesh>
+    <mesh position={[0, -height * .34, .008]}>
+      <boxGeometry args={[width * .7, .04, .025]}/>
+      <meshStandardMaterial color={accent} roughness={.48} metalness={.32}/>
+    </mesh>
+  </group>;
+}
+
+function Installation({layout, title, question, kicker, accent, nearby, curation, renaissanceCuration}: {
   layout: MuseumExhibitLayout;
   title: string;
   question: string;
@@ -102,6 +133,7 @@ function Installation({layout, title, question, kicker, accent, nearby, curation
   accent: string;
   nearby: boolean;
   curation?: MediterraneanExhibitCuration;
+  renaissanceCuration?: RenaissanceExhibitCuration;
 }) {
   const plinth = layout.scene.objectBounds.find(({id}) => id.endsWith('-plinth'))!;
   const backing = layout.scene.objectBounds.find(({id}) => id.endsWith('-backing'))!;
@@ -115,13 +147,17 @@ function Installation({layout, title, question, kicker, accent, nearby, curation
         : layout.presentationTier === 'anchor'
           ? '#eeeae2'
           : '#e6e2da'
-    : '#d9d5cd';
+    : renaissanceCuration
+      ? RENAISSANCE_PALETTE.paper
+      : '#d9d5cd';
   return <group>
-    <Box volume={plinth} color={curation ? MEDITERRANEAN_PALETTE.limestone : '#6e6b65'}/>
+    <Box volume={plinth} color={curation ? MEDITERRANEAN_PALETTE.limestone : renaissanceCuration ? RENAISSANCE_PALETTE.walnut : '#6e6b65'}/>
     <Box volume={backing} color={backingColor}/>
     {curation
       ? <MediterraneanFinishedBack backing={backing} groupLabel={curation.groupLabel} accent={accent}/>
-      : <Box volume={motif} color={nearby ? accent : '#4a4d4e'}/>}
+      : renaissanceCuration
+        ? <RenaissanceFinishedBack backing={backing} accent={accent}/>
+        : <Box volume={motif} color={nearby ? accent : '#4a4d4e'}/>}
     <InterpretationFace
       layout={layout}
       title={title}
@@ -129,6 +165,7 @@ function Installation({layout, title, question, kicker, accent, nearby, curation
       kicker={kicker}
       accent={accent}
       mediterranean={Boolean(curation)}
+      renaissance={Boolean(renaissanceCuration)}
     />
     {layout.scene.mediaMounts.map((mount) => <MuseumSceneMedia key={mount.id} mount={mount} nearby={nearby} accent={accent}/>)}
     <mesh position={[interaction.center.x, interaction.center.y, interaction.center.z]} userData={{interactionFor: layout.id}}>
@@ -156,13 +193,19 @@ export function CanonicalMuseumExhibits({definition, nearbyId, visibleExhibitIds
       const curation: MediterraneanExhibitCuration | undefined = definition.id === MEDITERRANEAN_GALLERY_ID
         ? MEDITERRANEAN_EXHIBIT_CURATION[layout.id as MediterraneanExhibitId]
         : undefined;
+      const renaissanceCuration: RenaissanceExhibitCuration | undefined = definition.id === RENAISSANCE_GALLERY_ID
+        ? RENAISSANCE_EXHIBIT_CURATION[layout.id as RenaissancePrimaryExhibitId]
+        : undefined;
       const accent = curation
         ? MEDITERRANEAN_ROOM_ACCENTS[Math.max(0, roomIndex) % MEDITERRANEAN_ROOM_ACCENTS.length]
+        : renaissanceCuration
+          ? RENAISSANCE_ROOM_ACCENTS[Math.max(0, roomIndex) % RENAISSANCE_ROOM_ACCENTS.length]
         : ACCENTS[Math.max(0, roomIndex) % ACCENTS.length];
       const title = curation?.frontTitle ?? catalog.displayName;
       const kicker = curation?.frontTitle
         ? `${catalog.displayName} · ${curation.publicKicker}`
         : curation?.publicKicker
+        ?? renaissanceCuration?.publicKicker
         ?? (catalog.entityKind === 'philosopher'
           ? 'Philosopher · question and historical context'
           : 'School and interpretive tradition');
@@ -180,6 +223,7 @@ export function CanonicalMuseumExhibits({definition, nearbyId, visibleExhibitIds
           accent={accent}
           nearby={nearbyId === layout.id}
           curation={curation}
+          renaissanceCuration={renaissanceCuration}
         />
       </group>;
     })}

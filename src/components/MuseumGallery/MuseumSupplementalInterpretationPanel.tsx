@@ -1,7 +1,7 @@
 import {ExternalLink, X} from 'lucide-react';
 import {useEffect, useId, useRef, type KeyboardEvent} from 'react';
 import {getMuseumAsset} from '../../data/museum/museumAssets';
-import type {PlatoSupplementalExhibit} from '../../data/museum/platoSupplementalExhibits';
+import type {MuseumSupplementalExhibit} from '../../data/museum/platoSupplementalExhibits';
 import type {RouteHref} from '../../routing/routes';
 import {MuseumAssetImage, MuseumSourceDetails} from './MuseumInterpretationPanel';
 
@@ -16,7 +16,7 @@ export function MuseumSupplementalInterpretationPanel({
   onClose,
   onArticleIntent,
 }: {
-  exhibit: PlatoSupplementalExhibit;
+  exhibit: MuseumSupplementalExhibit;
   href: RouteHref;
   onClose: () => void;
   onArticleIntent: () => void;
@@ -25,6 +25,18 @@ export function MuseumSupplementalInterpretationPanel({
   const titleId = useId();
   const descriptionId = useId();
   const asset = getMuseumAsset(exhibit.panelAssetId);
+  const presentation = exhibit.presentation ?? {
+    panelKicker: 'Supplemental Plato work exhibit',
+    proximityKicker: 'Supplemental Plato work',
+    factRows: [
+      {label: 'Author', value: 'Plato'},
+      {label: 'Work', value: exhibit.workLabel},
+      {label: 'Museum status', value: 'Supplemental work-and-idea installation; not a new primary assignment'},
+      {label: 'Primary route', value: 'Plato’s full Atlas profile'},
+    ],
+    articleActionLabel: 'Open Plato’s full Atlas article',
+    entityKind: 'philosopher' as const,
+  };
 
   useEffect(() => {
     const frame = window.requestAnimationFrame(() => document.getElementById(titleId)?.focus({preventScroll: true}));
@@ -70,13 +82,13 @@ export function MuseumSupplementalInterpretationPanel({
       aria-labelledby={titleId}
       aria-describedby={descriptionId}
       tabIndex={-1}
-      data-entity-kind="philosopher"
+      data-entity-kind={presentation.entityKind}
       data-supplemental-id={exhibit.id}
       onKeyDown={handleKeyDown}
     >
       <header className="museum-panel-header">
         <div>
-          <p className="museum-panel-kicker">Supplemental Plato work exhibit · {exhibit.dateLabel}</p>
+          <p className="museum-panel-kicker">{presentation.panelKicker} · {exhibit.dateLabel}</p>
           <h2 id={titleId} tabIndex={-1}>{exhibit.displayName}</h2>
         </div>
         <button className="museum-icon-button" type="button" onClick={onClose} aria-label={`Close ${exhibit.displayName} exhibit`}><X/></button>
@@ -95,15 +107,12 @@ export function MuseumSupplementalInterpretationPanel({
         </section>
 
         <dl className="museum-fact-grid">
-          <div><dt>Author</dt><dd>Plato</dd></div>
-          <div><dt>Work</dt><dd>{exhibit.workLabel}</dd></div>
-          <div><dt>Museum status</dt><dd>Supplemental work-and-idea installation; not a new primary assignment</dd></div>
-          <div><dt>Primary route</dt><dd>Plato’s full Atlas profile</dd></div>
+          {presentation.factRows.map(({label, value}) => <div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}
         </dl>
 
         <div className="museum-idea-grid">
-          <section><p className="museum-object-role">Argument map</p><ul>{exhibit.keyIdeas.map((idea) => <li key={idea}>{idea}</li>)}</ul></section>
-          <section><p className="museum-object-role">Historical cautions</p><ul>{exhibit.cautions.map((caution) => <li key={caution}>{caution}</li>)}</ul></section>
+          <section><p className="museum-object-role">{presentation.keyIdeasLabel ?? 'Argument map'}</p><ul>{exhibit.keyIdeas.map((idea) => <li key={idea}>{idea}</li>)}</ul></section>
+          <section><p className="museum-object-role">{presentation.cautionsLabel ?? 'Historical cautions'}</p><ul>{exhibit.cautions.map((caution) => <li key={caution}>{caution}</li>)}</ul></section>
         </div>
 
         <div className="museum-interpretive-sections">
@@ -127,7 +136,7 @@ export function MuseumSupplementalInterpretationPanel({
 
       <footer className="museum-panel-actions">
         <div>
-          <a className="btn btn-primary" href={href(exhibit.articleRoute)} onClick={onArticleIntent}>Open Plato’s full Atlas article</a>
+          <a className="btn btn-primary" href={href(exhibit.articleRoute)} onClick={onArticleIntent}>{presentation.articleActionLabel}</a>
           <button className="btn" type="button" onClick={onClose}>Return to the room</button>
         </div>
       </footer>

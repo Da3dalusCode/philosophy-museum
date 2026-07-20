@@ -242,13 +242,13 @@ export const MUSEUM_CANONICAL_PROGRAM = [
     recordCapacity: 6,
     rooms: [
       {id: 'early-statecraft-republic', title: 'Civic power and statecraft', recordCapacity: 2, exhibits: [
-        exhibit({id: 'machiavelli', entityKind: 'philosopher', entityId: 'machiavelli', displayName: 'Machiavelli', tier: 'anchor-exhibit', question: 'What does political judgment require when ideals and power diverge?', secondaryHallIds: ['justice-democratic-reason'], formerHallId: 'renaissance-reason-revolution', principalAssetId: 'machiavelli-santi-di-tito', supportingAssetIds: ['machiavelli-prince-1532']}),
+        exhibit({id: 'machiavelli', entityKind: 'philosopher', entityId: 'machiavelli', displayName: 'Machiavelli', tier: 'anchor-exhibit', question: 'What does political judgment require when ideals and power diverge?', secondaryHallIds: ['justice-democratic-reason'], formerHallId: 'renaissance-reason-revolution', principalAssetId: 'machiavelli-santi-di-tito'}),
       ]},
       {id: 'early-experiment-method', title: 'Experiment, method, and organized inquiry', recordCapacity: 2, exhibits: [
-        exhibit({id: 'bacon', entityKind: 'philosopher', entityId: 'bacon', displayName: 'Francis Bacon', tier: 'standard-individual-exhibit', question: 'How should organized observation and experiment reform inquiry?', secondaryHallIds: ['core-questions-forum', 'empiricism-science-political-order'], principalAssetId: 'francis-bacon-portrait-1617'}),
+        exhibit({id: 'bacon', entityKind: 'philosopher', entityId: 'bacon', displayName: 'Francis Bacon', tier: 'anchor-exhibit', question: 'How should organized observation and experiment reform inquiry?', secondaryHallIds: ['core-questions-forum', 'empiricism-science-political-order'], principalAssetId: 'francis-bacon-portrait-1617'}),
       ]},
       {id: 'early-sovereignty-materialism', title: 'Sovereignty, covenant, and materialism', recordCapacity: 2, exhibits: [
-        exhibit({id: 'hobbes', entityKind: 'philosopher', entityId: 'hobbes', displayName: 'Hobbes', tier: 'standard-individual-exhibit', question: 'Why would free people authorize a sovereign power?', secondaryHallIds: ['justice-democratic-reason'], formerHallId: 'renaissance-reason-revolution', principalAssetId: 'hobbes-wright-portrait', supportingAssetIds: ['hobbes-leviathan-1651']}),
+        exhibit({id: 'hobbes', entityKind: 'philosopher', entityId: 'hobbes', displayName: 'Hobbes', tier: 'anchor-exhibit', question: 'Why would free people authorize a sovereign power?', secondaryHallIds: ['justice-democratic-reason'], formerHallId: 'renaissance-reason-revolution', principalAssetId: 'hobbes-wright-portrait'}),
       ]},
     ],
   },

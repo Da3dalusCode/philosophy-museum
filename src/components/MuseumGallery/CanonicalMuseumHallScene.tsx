@@ -7,6 +7,7 @@ import {MediterraneanGalleryCuration} from './MediterraneanGalleryCuration';
 import {MuseumHallSpatialRoot} from './MuseumHallSpatialRoot';
 import {MuseumVisitorMapKiosk} from './MuseumVisitorMapKiosk';
 import {PlatoSupplementalExhibits} from './PlatoSupplementalExhibits';
+import {RenaissanceSupplementalExhibits} from './RenaissanceSupplementalExhibits';
 
 /** Shared lazy subtree for every canonical hall; the definition supplies all differences. */
 export function CanonicalMuseumHallContent({
@@ -22,6 +23,7 @@ export function CanonicalMuseumHallContent({
   onSceneGesture,
 }: MuseumHallContentProps) {
   const entryIds = definition.prefetch.entryExhibitIdsByEntrance[entryEntranceId ?? ''] ?? [];
+  const entryAssetIds = new Set(definition.prefetch.entrySceneAssetIdsByEntrance?.[entryEntranceId ?? ''] ?? []);
   const ownsKiosk = definition.id === MUSEUM_BUILDING_MANIFEST.kiosk.publicHallId;
   return <MuseumHallSpatialRoot definition={definition}>
     {active && <ContemporaryHallLighting lighting={definition.layout.lighting}/>}
@@ -41,6 +43,15 @@ export function CanonicalMuseumHallContent({
         onSelect={(supplementalExhibitId) => onSelectSupplementalExhibit({hallId: definition.id, supplementalExhibitId})}
       />}
     {definition.id === 'mediterranean-beginnings-classical' && <MediterraneanGalleryCuration/>}
+    {definition.id === 'renaissance-humanism-new-method'
+      && definition.layout.supplementalExhibits
+      && <RenaissanceSupplementalExhibits
+        layouts={active
+          ? definition.layout.supplementalExhibits
+          : definition.layout.supplementalExhibits.filter(({assetId}) => entryAssetIds.has(assetId))}
+        nearbyId={nearbySupplemental?.hallId === definition.id ? nearbySupplemental.supplementalExhibitId : undefined}
+        onSelect={(supplementalExhibitId) => onSelectSupplementalExhibit({hallId: definition.id, supplementalExhibitId})}
+      />}
     {ownsKiosk && (
       <MuseumVisitorMapKiosk active={active} nearby={visitorMapNearby} onActivate={onSelectVisitorMap}/>
     )}

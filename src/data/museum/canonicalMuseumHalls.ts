@@ -16,6 +16,12 @@ import {
   MEDITERRANEAN_ROOM_SIGN_COPY,
 } from './mediterraneanGalleryCuration';
 import {PLATO_SUPPLEMENTAL_EXHIBIT_LAYOUTS} from './platoSupplementalExhibits';
+import {
+  RENAISSANCE_EXHIBIT_CURATION,
+  RENAISSANCE_GALLERY_ID,
+  RENAISSANCE_ROOM_SIGN_COPY,
+} from './renaissanceGalleryCuration';
+import {RENAISSANCE_SUPPLEMENTAL_EXHIBIT_LAYOUTS} from './renaissanceSupplementalExhibits';
 import {MUSEUM_VISITOR_MAP_KIOSK} from './museumVisitorMapKioskDefinition';
 import type {
   MuseumBounds,
@@ -162,7 +168,8 @@ const createScene = (
     optionalAsset(record.principalAssetId),
     optionalAsset(record.supportingAssetIds?.[0]),
   ].filter((assetId): assetId is MuseumAssetId => Boolean(assetId));
-  const preserveMediterraneanAspect = Object.hasOwn(MEDITERRANEAN_EXHIBIT_CURATION, record.id);
+  const preserveCuratedAspect = Object.hasOwn(MEDITERRANEAN_EXHIBIT_CURATION, record.id)
+    || Object.hasOwn(RENAISSANCE_EXHIBIT_CURATION, record.id);
   const plaqueWidth = Math.min(1.22, physicalContract.objectWidth - .28);
   const plaqueId = `${record.id}-plaque`;
   return {
@@ -175,7 +182,7 @@ const createScene = (
       physicalContract.objectWidth,
       physicalContract.objectHeight,
       mediaAssets.length,
-      preserveMediterraneanAspect,
+      preserveCuratedAspect,
     )),
     plaque: {
       id: plaqueId,
@@ -307,6 +314,12 @@ type PlacementCandidate = MuseumPoint & {rotationY: number};
 
 const MEDITERRANEAN_AUTHORED_PLACEMENTS = Object.fromEntries(
   Object.entries(MEDITERRANEAN_EXHIBIT_CURATION).map(([id, curation]) => [id, {
+    ...curation.authored,
+  }]),
+) as Readonly<Record<string, PlacementCandidate>>;
+
+const RENAISSANCE_AUTHORED_PLACEMENTS = Object.fromEntries(
+  Object.entries(RENAISSANCE_EXHIBIT_CURATION).map(([id, curation]) => [id, {
     ...curation.authored,
   }]),
 ) as Readonly<Record<string, PlacementCandidate>>;
@@ -552,9 +565,9 @@ const placeRoomExhibits = (
   if (authoredPlacements) {
     for (const record of room.exhibits) {
       const candidate = authoredPlacements[record.id];
-      if (!candidate) throw new Error(`Gallery 01 has no authored placement for ${record.id}.`);
+      if (!candidate) throw new Error(`Canonical authored gallery has no placement for ${record.id}.`);
       const proposed = resolveCandidate(record, candidate, accepted);
-      if (!proposed) throw new Error(`Gallery 01 authored placement for ${record.id} violates its room, route, or neighboring installation.`);
+      if (!proposed) throw new Error(`Canonical authored placement for ${record.id} violates its room, route, or neighboring installation.`);
       accepted.push(proposed);
     }
     return accepted;
@@ -634,12 +647,18 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
       bounds,
       [...doorwayExclusions, ...connectionExclusions, ...furnishingExclusions],
       isForum,
-      hall.id === MEDITERRANEAN_GALLERY_ID ? MEDITERRANEAN_AUTHORED_PLACEMENTS : undefined,
+      hall.id === MEDITERRANEAN_GALLERY_ID
+        ? MEDITERRANEAN_AUTHORED_PLACEMENTS
+        : hall.id === RENAISSANCE_GALLERY_ID
+          ? RENAISSANCE_AUTHORED_PLACEMENTS
+          : undefined,
     );
   });
   const supplementalExhibits = hall.id === MEDITERRANEAN_GALLERY_ID
     ? PLATO_SUPPLEMENTAL_EXHIBIT_LAYOUTS
-    : [];
+    : hall.id === RENAISSANCE_GALLERY_ID
+      ? RENAISSANCE_SUPPLEMENTAL_EXHIBIT_LAYOUTS
+      : [];
   const cells: MuseumSpatialCell[] = orderedRooms.map((room) => ({
     id: room.id,
     kind: 'room',
@@ -675,6 +694,34 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
     ...outerWalls(width, depth, ceiling, hall.id),
     ...(isForum ? forumPartitionWalls(hall.id) : sequencePartitionWalls(orderedRooms, roomBounds, hall.id)),
   ];
+  if (hall.id === RENAISSANCE_GALLERY_ID) {
+    const acceptedSupplementalBounds: MuseumBounds[] = [];
+    for (const layout of supplementalExhibits) {
+      const cellBounds = roomBounds.get(layout.spatialCellId);
+      if (!cellBounds) throw new Error(`Gallery 02 supplemental exhibit ${layout.id} has no room.`);
+      const footprint = colliderBounds(
+        layout.position,
+        layout.rotationY,
+        layout.collider.size.width,
+        layout.collider.size.depth,
+      );
+      const inside = footprint.minX >= cellBounds.minX + .08
+        && footprint.maxX <= cellBounds.maxX - .08
+        && footprint.minZ >= cellBounds.minZ + .08
+        && footprint.maxZ <= cellBounds.maxZ - .08;
+      const primaryBounds = exhibits
+        .filter(({spatialCellId}) => spatialCellId === layout.spatialCellId)
+        .map((item) => colliderBounds(item.position, item.rotationY, item.collider.size.width, item.collider.size.depth));
+      if (
+        !inside
+        || !viewpointFitsRoom(layout.viewpoint, cellBounds)
+        || doorwayExclusions.some((exclusion) => overlaps(footprint, exclusion, .28))
+        || primaryBounds.some((bounds) => overlaps(footprint, bounds, .32))
+        || acceptedSupplementalBounds.some((bounds) => overlaps(footprint, bounds, .32))
+      ) throw new Error(`Gallery 02 supplemental placement ${layout.id} violates its room, doorway, or neighboring installation.`);
+      acceptedSupplementalBounds.push(footprint);
+    }
+  }
   const obstacleColliders = [
     ...exhibits.map(({collider}) => collider),
     ...supplementalExhibits.map(({collider}) => collider),
@@ -780,7 +827,24 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
             };
           }),
       ]
-    : standardSigns;
+    : hall.id === RENAISSANCE_GALLERY_ID
+      ? orderedRooms.map((room) => {
+          const copy = RENAISSANCE_ROOM_SIGN_COPY[room.id as keyof typeof RENAISSANCE_ROOM_SIGN_COPY];
+          if (!copy) throw new Error(`Gallery 02 has no visitor-facing orientation copy for ${room.id}.`);
+          const bounds = roomBounds.get(room.id)!;
+          return {
+            id: `${room.id}:room-sign`,
+            kind: room.id === 'early-statecraft-republic' ? 'entrance' as const : 'zone' as const,
+            title: copy.title,
+            kicker: copy.kicker,
+            subtitle: copy.subtitle,
+            position: {x: 6.5, y: 2.3, z: bounds.maxZ - .22},
+            rotationY: Math.PI,
+            width: room.id === 'early-statecraft-republic' ? 5.2 : 4.8,
+            height: room.id === 'early-statecraft-republic' ? 1.22 : 1.02,
+          };
+        })
+      : standardSigns;
   const guidedOrder = orderedRooms.flatMap((room) => room.exhibits.map(({id}) => id as MuseumExhibitId));
   const entryRoomIdByEntrance = new Map<string, string>();
   const entryExhibitIdsByEntrance = Object.fromEntries(node.doorwaySlots.map((slot) => {
@@ -825,7 +889,9 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
       spawn,
       spawnFocalPoint: hall.id === MEDITERRANEAN_GALLERY_ID
         ? {...MUSEUM_VISITOR_MAP_KIOSK.center}
-        : {x: 0, z: 0},
+        : hall.id === RENAISSANCE_GALLERY_ID
+          ? {...RENAISSANCE_EXHIBIT_CURATION.machiavelli.authored}
+          : {x: 0, z: 0},
       reset: spawn,
       spatialCells: cells,
       spatialConnections,
@@ -835,7 +901,7 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
         // views just inside each threshold so the visitor sees the room unfold
         // in the same direction as the authored route. Other halls retain the
         // established room-centre viewpoint.
-        pose: hall.id === MEDITERRANEAN_GALLERY_ID
+        pose: hall.id === MEDITERRANEAN_GALLERY_ID || hall.id === RENAISSANCE_GALLERY_ID
           ? {x: 0, z: cell.bounds.minZ + .8, yaw: Math.PI, pitch: -.01}
           : {x: Math.max(cell.bounds.minX + 2.8, Math.min(cell.bounds.maxX - 2.8, 0)), z: (cell.bounds.minZ + cell.bounds.maxZ) / 2, yaw: Math.PI, pitch: 0},
         expectedVisibleExhibitIds: cell.exhibitIds,

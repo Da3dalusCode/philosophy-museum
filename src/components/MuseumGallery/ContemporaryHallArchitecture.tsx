@@ -16,6 +16,10 @@ import {
   MEDITERRANEAN_PALETTE,
 } from '../../data/museum/mediterraneanGalleryCuration';
 import {
+  RENAISSANCE_GALLERY_ID,
+  RENAISSANCE_PALETTE,
+} from '../../data/museum/renaissanceGalleryCuration';
+import {
   MUSEUM_TEXTURE_SPECS,
   museumTextureDimensionsForPlane,
 } from '../../data/museum/museumTexturePolicy';
@@ -32,7 +36,7 @@ const BRONZE = '#8b6b43';
 const LUMINOUS = '#fff3dc';
 const SIGN_REAR = '#d8d2c7';
 
-function CellShell({cell}: {cell: MuseumSpatialCell}) {
+function CellShell({cell, renaissance}: {cell: MuseumSpatialCell; renaissance: boolean}) {
   const bounds = cell.renderBounds ?? cell.bounds;
   const width = bounds.maxX - bounds.minX;
   const depth = bounds.maxZ - bounds.minZ;
@@ -43,14 +47,14 @@ function CellShell({cell}: {cell: MuseumSpatialCell}) {
     <mesh position={[x, -.11, z]} receiveShadow>
       <boxGeometry args={[width, .22, depth]}/>
       <meshStandardMaterial
-        color={cell.kind === 'passage' ? FLOOR_PASSAGE : FLOOR}
+        color={cell.kind === 'passage' ? FLOOR_PASSAGE : renaissance ? '#443a33' : FLOOR}
         roughness={.94}
         metalness={.012}
       />
     </mesh>
     <mesh position={[x, cell.ceilingHeight + .09, z]}>
       <boxGeometry args={[width, .18, depth]}/>
-      <meshStandardMaterial color={CEILING} roughness={.9}/>
+      <meshStandardMaterial color={renaissance ? RENAISSANCE_PALETTE.plaster : CEILING} roughness={.9}/>
     </mesh>
     <CeilingLightStrips cell={renderCell}/>
   </group>;
@@ -75,17 +79,17 @@ function CeilingLightStrips({cell}: {cell: MuseumSpatialCell}) {
   </mesh>)}</group>;
 }
 
-function GalleryWall({wall}: {wall: MuseumWallDefinition}) {
+function GalleryWall({wall, renaissance}: {wall: MuseumWallDefinition; renaissance: boolean}) {
   const bottom = wall.bottom ?? 0;
   const center = wall.renderCenter ?? wall.center;
   const size = wall.renderSize ?? wall.size;
   return <group position={[center.x, bottom + wall.height / 2, center.z]} rotation={[0, wall.rotation, 0]} userData={{wallColliderId: wall.id, openingId: wall.openingId}}>
-    <mesh receiveShadow><boxGeometry args={[size.width, wall.height, size.depth]}/><meshStandardMaterial color={WALL} roughness={.95}/></mesh>
-    {bottom === 0 && <mesh position={[0, -wall.height / 2 + .075, 0]}><boxGeometry args={[size.width + .015, .15, size.depth + .025]}/><meshStandardMaterial color={WALL_EDGE} roughness={.86}/></mesh>}
+    <mesh receiveShadow><boxGeometry args={[size.width, wall.height, size.depth]}/><meshStandardMaterial color={renaissance ? RENAISSANCE_PALETTE.plaster : WALL} roughness={.95}/></mesh>
+    {bottom === 0 && <mesh position={[0, -wall.height / 2 + .075, 0]}><boxGeometry args={[size.width + .015, .15, size.depth + .025]}/><meshStandardMaterial color={renaissance ? RENAISSANCE_PALETTE.walnut : WALL_EDGE} roughness={.86}/></mesh>}
   </group>;
 }
 
-function ThresholdFascia({connection, cells}: {connection: MuseumSpatialConnection; cells: readonly MuseumSpatialCell[]}) {
+function ThresholdFascia({connection, cells, renaissance}: {connection: MuseumSpatialConnection; cells: readonly MuseumSpatialCell[]; renaissance: boolean}) {
   const from = cells.find(({id}) => id === connection.fromCellId);
   const to = cells.find(({id}) => id === connection.toCellId);
   if (!from || !to) return null;
@@ -99,7 +103,7 @@ function ThresholdFascia({connection, cells}: {connection: MuseumSpatialConnecti
   const depth = Math.max(.42, openingBounds.maxZ - openingBounds.minZ);
   return <mesh position={[x, (lower + upper) / 2, z]} userData={{thresholdFasciaId: connection.id}}>
     <boxGeometry args={[width, upper - lower + .08, depth]}/>
-    <meshStandardMaterial color={WALL} roughness={.95}/>
+    <meshStandardMaterial color={renaissance ? RENAISSANCE_PALETTE.plaster : WALL} roughness={.95}/>
   </mesh>;
 }
 
@@ -133,13 +137,15 @@ function Bench({definition, mediterranean}: {definition: MuseumFurnishingDefinit
   </group>;
 }
 
-function PhysicalSign({definition, mediterranean}: {definition: MuseumSignDefinition; mediterranean: boolean}) {
+function PhysicalSign({definition, mediterranean, renaissance}: {definition: MuseumSignDefinition; mediterranean: boolean; renaissance: boolean}) {
   const museumIdentity = mediterranean && definition.kind === 'entrance';
   const accent = museumIdentity
     ? '#b88b4a'
     : mediterranean
     ? definition.kind === 'entrance' ? MEDITERRANEAN_PALETTE.terracotta : definition.kind === 'wayfinding' ? MEDITERRANEAN_PALETTE.aegean : MEDITERRANEAN_PALETTE.ochre
-    : definition.kind === 'entrance' ? '#7b5d3d' : definition.kind === 'wayfinding' ? '#486d70' : BRONZE;
+    : renaissance
+      ? definition.kind === 'entrance' ? RENAISSANCE_PALETTE.agedBrass : definition.kind === 'wayfinding' ? RENAISSANCE_PALETTE.inkBlue : RENAISSANCE_PALETTE.oxblood
+      : definition.kind === 'entrance' ? '#7b5d3d' : definition.kind === 'wayfinding' ? '#486d70' : BRONZE;
   const referenceWidth = mediterranean ? 600 : MUSEUM_TEXTURE_SPECS.contemporarySignWidth;
   const referenceHeight = Math.round(
     referenceWidth * definition.height / definition.width,
@@ -168,7 +174,7 @@ function PhysicalSign({definition, mediterranean}: {definition: MuseumSignDefini
     {!mediterranean && <>
       <mesh position={[0, 0, -.077]} rotation={[0, Math.PI, 0]}>
         <planeGeometry args={[definition.width, definition.height]}/>
-        <meshStandardMaterial color={SIGN_REAR} roughness={.88} metalness={.02}/>
+        <meshStandardMaterial color={renaissance ? RENAISSANCE_PALETTE.walnutEdge : SIGN_REAR} roughness={.88} metalness={.02}/>
       </mesh>
       <mesh position={[0, -definition.height * .36, -.079]} rotation={[0, Math.PI, 0]}>
         <planeGeometry args={[definition.width * .72, .026]}/>
@@ -181,19 +187,20 @@ function PhysicalSign({definition, mediterranean}: {definition: MuseumSignDefini
 export function ContemporaryHallArchitecture({definition, onSceneGesture}: {definition: MuseumHallDefinition; onSceneGesture: () => void}) {
   const {layout} = definition;
   const mediterranean = definition.id === MEDITERRANEAN_GALLERY_ID;
+  const renaissance = definition.id === RENAISSANCE_GALLERY_ID;
   const activate = (event: ThreeEvent<MouseEvent>) => {
     if (event.delta > 7) return;
     event.stopPropagation();
     onSceneGesture();
   };
   return <group onClick={activate}>
-    {layout.spatialCells.map((cell) => <CellShell key={cell.id} cell={cell}/>)}
-    {layout.spatialConnections.map((connection) => <ThresholdFascia key={connection.id} connection={connection} cells={layout.spatialCells}/>)}
-    {definition.architectureWalls.map((wall) => <GalleryWall key={wall.id} wall={wall}/>)}
+    {layout.spatialCells.map((cell) => <CellShell key={cell.id} cell={cell} renaissance={renaissance}/>)}
+    {layout.spatialConnections.map((connection) => <ThresholdFascia key={connection.id} connection={connection} cells={layout.spatialCells} renaissance={renaissance}/>)}
+    {definition.architectureWalls.map((wall) => <GalleryWall key={wall.id} wall={wall} renaissance={renaissance}/>)}
     <MuseumTemplateInterfaces definition={definition}/>
     {layout.furnishings.filter(({kind}) => kind === 'bench').map((item) => <Bench key={item.id} definition={item} mediterranean={mediterranean}/>)}
     {layout.lighting.tracks.map((track) => <Track key={track.id} track={track}/>)}
     {layout.lighting.exhibitLights.map((light) => <Fixture key={light.id} definition={light}/>)}
-    {layout.signs?.map((sign) => <PhysicalSign key={sign.id} definition={sign} mediterranean={mediterranean}/>)}
+    {layout.signs?.map((sign) => <PhysicalSign key={sign.id} definition={sign} mediterranean={mediterranean} renaissance={renaissance}/>)}
   </group>;
 }

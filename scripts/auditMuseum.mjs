@@ -270,8 +270,8 @@ check('the public catalog is exactly the canonical six-hall, 29-room, 61-exhibit
   assert.equal(MUSEUM_HALLS.reduce((sum, hall) => sum + hall.zones.length, 0), 29);
   assert.equal(MUSEUM_HALLS.reduce((sum, hall) => sum + hall.exhibits.length, 0), 61);
   assert.deepEqual(MUSEUM_LIVE_PROGRAM_TOTALS.tierCounts, {
-    'anchor-exhibit': 32,
-    'standard-individual-exhibit': 25,
+    'anchor-exhibit': 34,
+    'standard-individual-exhibit': 23,
     'supporting-exhibit': 3,
     'thematic-cluster-participant': 0,
     'gallery-archive-or-study-wall-record': 1,
@@ -596,7 +596,7 @@ check('all six runtime halls are canonical, data-driven, and internally aligned'
     assert.equal(definition.layout.lighting.tracks.length, hall.zones.length);
     assert.equal(definition.layout.lighting.exhibitLights.length, hall.exhibits.length);
     const comparativeLensCount = hall.zones.reduce((sum, zone) => sum + (zone.comparativeLenses?.length ?? 0), 0);
-    const removedPhysicalRoomSigns = definition.id === MEDITERRANEAN_GALLERY_ID ? 1 : 0;
+    const removedPhysicalRoomSigns = definition.id === MEDITERRANEAN_GALLERY_ID || definition.id === 'renaissance-humanism-new-method' ? 1 : 0;
     assert.equal(definition.layout.signs.length, hall.zones.length + 1 + comparativeLensCount - removedPhysicalRoomSigns);
     assert(validPose(definition, definition.layout.spawn), `${definition.id} spawn is unsafe`);
     assert(validPose(definition, definition.layout.reset), `${definition.id} reset is unsafe`);
