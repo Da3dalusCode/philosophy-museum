@@ -29,6 +29,7 @@ const result = await build({
       export * from '/src/data/museumCatalog.ts';
       export * from '/src/data/museum/museumAssets.ts';
       export * from '/src/data/museum/museumMediaPolicy.ts';
+      export * from '/src/data/museum/platoSupplementalExhibits.ts';
     ` : undefined,
   }],
   build: {
@@ -52,6 +53,7 @@ const {
   MUSEUM_SCENE_IMAGE_PLANE_Z,
   MUSEUM_SCENE_MEDIA_LOADING_COLOR,
   MUSEUM_SCENE_MEDIA_MATERIAL_MODE,
+  PLATO_SUPPLEMENTAL_EXHIBITS,
   museumAssetUrl,
 } = await import(`data:text/javascript;base64,${Buffer.from(entry.code).toString('base64')}`);
 
@@ -100,15 +102,19 @@ const MEDITERRANEAN_ASSET_IDS = [
   'gorgias-ortolani',
   'platonism-academy-mosaic',
   'aristotelianism-walters-teaching',
+  'plato-cave-saenredam-1604',
+  'plato-republic-parisinus-1807',
 ];
 const manifestAssets = modernManifest?.assets ?? {};
 const mediterraneanManifestAssets = mediterraneanManifest?.assets ?? {};
 const assetById = new Map(MUSEUM_ASSETS.map((asset) => [asset.id, asset]));
 const liveExhibits = MUSEUM_HALLS.flatMap((hall) => hall.exhibits.map((exhibit) => ({hall, exhibit})));
-const referencedIds = liveExhibits.flatMap(({exhibit}) => [
+const canonicalReferencedIds = liveExhibits.flatMap(({exhibit}) => [
   exhibit.principalAssetId,
   ...(exhibit.supportingAssetIds ?? []),
 ].filter(Boolean));
+const supplementalReferencedIds = PLATO_SUPPLEMENTAL_EXHIBITS.map(({assetId}) => assetId);
+const referencedIds = [...canonicalReferencedIds, ...supplementalReferencedIds];
 
 let checks = 0;
 const check = (name, assertion) => {
@@ -170,7 +176,7 @@ const webpDimensions = (path) => {
 check('the canonical six expose 61 primaries with optional, resolvable local media references', () => {
   assert.deepEqual(MUSEUM_HALLS.map(({id}) => id), ACTIVE_HALL_IDS);
   assert.equal(liveExhibits.length, 61);
-  assert(referencedIds.length > 0, 'the live program references no local media');
+  assert(canonicalReferencedIds.length > 0, 'the live primary program references no local media');
   for (const {hall, exhibit} of liveExhibits) {
     assert(Array.isArray(exhibit.supportingAssetIds), `${hall.id}/${exhibit.id} has no supporting-asset array`);
     for (const id of [exhibit.principalAssetId, ...exhibit.supportingAssetIds].filter(Boolean)) {
@@ -185,11 +191,23 @@ check('the canonical six expose 61 primaries with optional, resolvable local med
   assert.deepEqual(krishnamurti?.supportingAssetIds, ['jiddu-krishnamurti-besant-1927']);
 });
 
-check('the preserved asset registry contains 120 unique records and derivative paths', () => {
-  assert.equal(MUSEUM_ASSETS.length, 120);
-  assert.equal(assetById.size, 120);
+check('the two Plato work exhibits stay supplemental while resolving distinct local media', () => {
+  assert.equal(PLATO_SUPPLEMENTAL_EXHIBITS.length, 2);
+  assert.deepEqual(PLATO_SUPPLEMENTAL_EXHIBITS.map(({id}) => id).sort(), ['plato-cave-book-vii', 'plato-republic']);
+  assert.deepEqual(supplementalReferencedIds.sort(), ['plato-cave-saenredam-1604', 'plato-republic-parisinus-1807']);
+  for (const exhibit of PLATO_SUPPLEMENTAL_EXHIBITS) {
+    const asset = assetById.get(exhibit.assetId);
+    assert(asset, `${exhibit.id} references missing asset ${exhibit.assetId}`);
+    assert.equal(asset.entityKind, 'philosopher', `${exhibit.assetId} must remain attached to Plato`);
+    assert.equal(asset.entityId, 'plato', `${exhibit.assetId} must remain attached to Plato`);
+  }
+});
+
+check('the preserved asset registry contains 122 unique records and derivative paths', () => {
+  assert.equal(MUSEUM_ASSETS.length, 122);
+  assert.equal(assetById.size, 122);
   const variantPaths = MUSEUM_ASSETS.flatMap(({variants}) => [variants.scene.path, variants.panel.path]);
-  assert.equal(variantPaths.length, 240);
+  assert.equal(variantPaths.length, 244);
   assert(unique(variantPaths), 'two asset variants share a derivative path');
   for (const id of NEW_CANONICAL_ASSET_IDS) assert(assetById.has(id), `new canonical asset ${id} is missing`);
   for (const id of MEDITERRANEAN_ASSET_IDS) assert(assetById.has(id), `Gallery 01 asset ${id} is missing`);
@@ -332,12 +350,12 @@ check('all 170 managed derivatives match exact dimensions, bytes, and SHA-256 lo
   }
 });
 
-check('the 19-source Gallery 01 lock reproduces all curated Mediterranean media', () => {
+check('the 21-source Gallery 01 lock reproduces all curated Mediterranean media', () => {
   assert.equal(mediterraneanManifest.version, 1);
-  assert.equal(Object.keys(mediterraneanManifestAssets).length, 19);
+  assert.equal(Object.keys(mediterraneanManifestAssets).length, 21);
   assert.deepEqual(Object.keys(mediterraneanManifestAssets).sort(), [...MEDITERRANEAN_ASSET_IDS].sort());
   assert.match(mediterraneanPreparationSource, /museumMediterraneanAssetManifest\.json/);
-  assert.match(mediterraneanPreparationSource, /EXPECTED_ASSET_COUNT = 19/);
+  assert.match(mediterraneanPreparationSource, /EXPECTED_ASSET_COUNT = 21/);
   assert.match(mediterraneanPreparationSource, /Resampling\.LANCZOS/);
   assert.match(mediterraneanPreparationSource, /"sha256": sha256\(destination\)/);
   for (const id of MEDITERRANEAN_ASSET_IDS) {
@@ -348,6 +366,9 @@ check('the 19-source Gallery 01 lock reproduces all curated Mediterranean media'
     assert.equal(new URL(lock.sourcePageUrl).hostname, 'commons.wikimedia.org', `${id} source lock must use Commons`);
     assert.equal(new URL(lock.sourceImageUrl).hostname, 'upload.wikimedia.org', `${id} original lock must use Wikimedia upload`);
     assert.equal(new URL(lock.selectedThumbnailUrl).hostname, 'upload.wikimedia.org', `${id} derivative source must use Wikimedia upload`);
+    if (id === 'plato-cave-saenredam-1604' || id === 'plato-republic-parisinus-1807') {
+      assert.equal(lock.sceneMaximum, 480, `${id} must retain its tighter scene cap`);
+    }
     for (const variantName of ['scene', 'panel']) {
       const variant = asset.variants[variantName];
       const expected = lock[variantName];
@@ -362,7 +383,7 @@ check('the 19-source Gallery 01 lock reproduces all curated Mediterranean media'
   }
 });
 
-check('the committed Museum inventory contains exactly the 240 registered derivatives', () => {
+check('the committed Museum inventory contains exactly the 244 registered derivatives', () => {
   const actual = walkFiles(museumMediaRoot).map(toPublicPath).sort();
   const expected = MUSEUM_ASSETS.flatMap(({variants}) => [variants.scene.path, variants.panel.path]).sort();
   assert.deepEqual(actual, expected);

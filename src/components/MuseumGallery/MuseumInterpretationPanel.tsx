@@ -13,7 +13,7 @@ const focusableSelector = 'a[href],button:not([disabled]),summary,input:not([dis
 const visibleFocusable = (root: HTMLElement): HTMLElement[] => [...root.querySelectorAll<HTMLElement>(focusableSelector)]
   .filter((item) => !item.closest('[inert],[aria-hidden="true"],[hidden]') && Boolean(item.offsetWidth || item.offsetHeight || item.getClientRects().length));
 
-function AssetImage({asset, priority = false}: {asset: MuseumAssetRecord; priority?: boolean}) {
+export function MuseumAssetImage({asset, priority = false}: {asset: MuseumAssetRecord; priority?: boolean}) {
   const [failed, setFailed] = useState(false);
   if (failed) return <div className="museum-asset-fallback" role="img" aria-label={`${asset.title} image unavailable`}><ImageOff aria-hidden="true"/><span>Object image unavailable</span></div>;
   return <img
@@ -28,7 +28,7 @@ function AssetImage({asset, priority = false}: {asset: MuseumAssetRecord; priori
   />;
 }
 
-function SourceDetails({asset}: {asset: MuseumAssetRecord}) {
+export function MuseumSourceDetails({asset}: {asset: MuseumAssetRecord}) {
   return <details className="museum-object-source">
     <summary>Object record and image rights: “{asset.title}”</summary>
     <dl>
@@ -153,7 +153,7 @@ export function MuseumInterpretationPanel({
       <div className="museum-panel-scroll">
         <section className="museum-panel-opening" data-has-object={principal ? 'true' : 'false'}>
           {principal && <figure className="museum-object-hero">
-            <AssetImage asset={principal} priority/>
+            <MuseumAssetImage asset={principal} priority/>
             <figcaption><strong>{principal.caption}</strong><span>{content.objectInterpretations[principal.id] ?? principal.historicalNote}</span></figcaption>
           </figure>}
           <div className="museum-panel-opening-copy">
@@ -181,11 +181,11 @@ export function MuseumInterpretationPanel({
 
         {supporting.map((asset) => <section className="museum-supporting-object" key={asset.id}>
           <div><p className="museum-object-role">{asset.role.replace('-', ' ')}</p><h3>{asset.title}</h3><p>{content.objectInterpretations[asset.id] ?? asset.caption}</p></div>
-          <figure><AssetImage asset={asset}/><figcaption>{asset.historicalNote}</figcaption></figure>
-          <SourceDetails asset={asset}/>
+          <figure><MuseumAssetImage asset={asset}/><figcaption>{asset.historicalNote}</figcaption></figure>
+          <MuseumSourceDetails asset={asset}/>
         </section>)}
 
-        {principal && <SourceDetails asset={principal}/>}
+        {principal && <MuseumSourceDetails asset={principal}/>}
 
         {content.connections && content.connections.length > 0 && <aside className="museum-interpretive-connections">
           <p className="museum-object-role">Curatorial routes</p>

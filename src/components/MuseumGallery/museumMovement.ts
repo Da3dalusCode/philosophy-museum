@@ -246,12 +246,12 @@ export const moveWithCollisions = (
   return current;
 };
 
-export const nearestInteractable = (
+export const nearestInteractableItem = <T extends Pick<MuseumExhibitLayout, 'position' | 'interactionRadius'>>(
   position: MuseumPoint,
-  exhibits: readonly MuseumExhibitLayout[],
-): MuseumExhibitId | undefined => {
+  exhibits: readonly T[],
+): T | undefined => {
   if (!isFinitePoint(position)) return undefined;
-  let nearest: MuseumExhibitLayout | undefined;
+  let nearest: T | undefined;
   let nearestDistance = Number.POSITIVE_INFINITY;
   for (const exhibit of exhibits) {
     if (!Number.isFinite(exhibit.interactionRadius) || exhibit.interactionRadius <= 0) continue;
@@ -261,5 +261,10 @@ export const nearestInteractable = (
       nearestDistance = distance;
     }
   }
-  return nearest?.id;
+  return nearest;
 };
+
+export const nearestInteractable = (
+  position: MuseumPoint,
+  exhibits: readonly MuseumExhibitLayout[],
+): MuseumExhibitId | undefined => nearestInteractableItem(position, exhibits)?.id;

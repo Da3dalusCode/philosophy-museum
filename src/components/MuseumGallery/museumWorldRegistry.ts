@@ -4,6 +4,7 @@ import {MUSEUM_WORLD_DEFINITIONS} from '../../data/museum/museumWorldDefinitions
 import type {
   MuseumExhibitRef,
   MuseumHallDefinition,
+  MuseumSupplementalExhibitRef,
 } from '../../data/museum/museumWorldTypes';
 import {MUSEUM_CANONICAL_HALL_IDS} from '../../data/museum/museumCanonicalProgram';
 import type {MuseumPublicHallId} from '../../data/museumCatalog';
@@ -13,8 +14,10 @@ export type MuseumHallContentProps = {
   active: boolean;
   entryEntranceId?: string;
   nearby?: MuseumExhibitRef;
+  nearbySupplemental?: MuseumSupplementalExhibitRef;
   visitorMapNearby: boolean;
   onSelectExhibit: (exhibit: MuseumExhibitRef) => void;
+  onSelectSupplementalExhibit: (exhibit: MuseumSupplementalExhibitRef) => void;
   onSelectVisitorMap: () => void;
   onSceneGesture: () => void;
 };

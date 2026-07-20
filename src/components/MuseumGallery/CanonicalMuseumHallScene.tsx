@@ -6,6 +6,7 @@ import {ContemporaryHallLighting} from './ContemporaryHallLighting';
 import {MediterraneanGalleryCuration} from './MediterraneanGalleryCuration';
 import {MuseumHallSpatialRoot} from './MuseumHallSpatialRoot';
 import {MuseumVisitorMapKiosk} from './MuseumVisitorMapKiosk';
+import {PlatoSupplementalExhibits} from './PlatoSupplementalExhibits';
 
 /** Shared lazy subtree for every canonical hall; the definition supplies all differences. */
 export function CanonicalMuseumHallContent({
@@ -13,8 +14,10 @@ export function CanonicalMuseumHallContent({
   active,
   entryEntranceId,
   nearby,
+  nearbySupplemental,
   visitorMapNearby,
   onSelectExhibit,
+  onSelectSupplementalExhibit,
   onSelectVisitorMap,
   onSceneGesture,
 }: MuseumHallContentProps) {
@@ -29,6 +32,14 @@ export function CanonicalMuseumHallContent({
       nearbyId={nearby?.hallId === definition.id ? nearby.exhibitId : undefined}
       onSelectExhibit={(exhibitId) => onSelectExhibit({hallId: definition.id, exhibitId})}
     />
+    {definition.id === 'mediterranean-beginnings-classical'
+      && (active || entryEntranceId === 'S0')
+      && definition.layout.supplementalExhibits
+      && <PlatoSupplementalExhibits
+        layouts={definition.layout.supplementalExhibits}
+        nearbyId={nearbySupplemental?.hallId === definition.id ? nearbySupplemental.supplementalExhibitId : undefined}
+        onSelect={(supplementalExhibitId) => onSelectSupplementalExhibit({hallId: definition.id, supplementalExhibitId})}
+      />}
     {definition.id === 'mediterranean-beginnings-classical' && <MediterraneanGalleryCuration/>}
     {ownsKiosk && (
       <MuseumVisitorMapKiosk active={active} nearby={visitorMapNearby} onActivate={onSelectVisitorMap}/>

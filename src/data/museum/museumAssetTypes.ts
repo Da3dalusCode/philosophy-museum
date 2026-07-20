@@ -24,6 +24,8 @@ export type MuseumAssetId =
   | 'socrates-death-of-socrates'
   | 'plato-capitoline-bust'
   | 'plato-school-of-athens'
+  | 'plato-cave-saenredam-1604'
+  | 'plato-republic-parisinus-1807'
   | 'aristotle-altemps-bust'
   | 'aristotle-athenian-constitution-papyrus'
   | 'cynicism-diogenes-walters'

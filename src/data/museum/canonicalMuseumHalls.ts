@@ -15,6 +15,7 @@ import {
   MEDITERRANEAN_ORIENTATION_DISPLAY,
   MEDITERRANEAN_ROOM_SIGN_COPY,
 } from './mediterraneanGalleryCuration';
+import {PLATO_SUPPLEMENTAL_EXHIBIT_LAYOUTS} from './platoSupplementalExhibits';
 import {MUSEUM_VISITOR_MAP_KIOSK} from './museumVisitorMapKioskDefinition';
 import type {
   MuseumBounds,
@@ -636,6 +637,9 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
       hall.id === MEDITERRANEAN_GALLERY_ID ? MEDITERRANEAN_AUTHORED_PLACEMENTS : undefined,
     );
   });
+  const supplementalExhibits = hall.id === MEDITERRANEAN_GALLERY_ID
+    ? PLATO_SUPPLEMENTAL_EXHIBIT_LAYOUTS
+    : [];
   const cells: MuseumSpatialCell[] = orderedRooms.map((room) => ({
     id: room.id,
     kind: 'room',
@@ -671,7 +675,11 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
     ...outerWalls(width, depth, ceiling, hall.id),
     ...(isForum ? forumPartitionWalls(hall.id) : sequencePartitionWalls(orderedRooms, roomBounds, hall.id)),
   ];
-  const obstacleColliders = [...exhibits.map(({collider}) => collider), ...furnishings];
+  const obstacleColliders = [
+    ...exhibits.map(({collider}) => collider),
+    ...supplementalExhibits.map(({collider}) => collider),
+    ...furnishings,
+  ];
   const guidedWalkLegs = exhibits.slice(0, -1).map((layout, index) => {
     const target = exhibits[index + 1];
     const waypoints = layout.spatialCellId === target.spatialCellId
@@ -774,23 +782,33 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
       ]
     : standardSigns;
   const guidedOrder = orderedRooms.flatMap((room) => room.exhibits.map(({id}) => id as MuseumExhibitId));
+  const entryRoomIdByEntrance = new Map<string, string>();
   const entryExhibitIdsByEntrance = Object.fromEntries(node.doorwaySlots.map((slot) => {
     const nearestRoom = cells.reduce((nearest, cell) => {
       const center = {x: (cell.bounds.minX + cell.bounds.maxX) / 2, z: (cell.bounds.minZ + cell.bounds.maxZ) / 2};
       const distance = Math.hypot(center.x - slot.position.x, center.z - slot.position.z);
       return !nearest || distance < nearest.distance ? {cell, distance} : nearest;
     }, undefined as {cell: MuseumSpatialCell; distance: number} | undefined)!.cell;
+    entryRoomIdByEntrance.set(slot.id, nearestRoom.id);
     return [slot.id, nearestRoom.exhibitIds.slice(0, 2)] as const;
   }));
   const entrySceneAssetIdsByEntrance = Object.fromEntries(Object.entries(entryExhibitIdsByEntrance).map(([entranceId, entryIds]) => {
     const ids = new Set(entryIds);
-    return [entranceId, [...new Set(exhibits
-      .filter(({id}) => ids.has(id))
-      .flatMap(({scene}) => scene.mediaMounts.map(({assetId}) => assetId)))]];
+    const roomId = entryRoomIdByEntrance.get(entranceId);
+    return [entranceId, [...new Set([
+      ...exhibits
+        .filter(({id}) => ids.has(id))
+        .flatMap(({scene}) => scene.mediaMounts.map(({assetId}) => assetId)),
+      ...supplementalExhibits
+        .filter(({spatialCellId}) => spatialCellId === roomId)
+        .map(({assetId}) => assetId),
+    ])]];
   }));
-  const entryExhibitIds = new Set(Object.values(entryExhibitIdsByEntrance).flat());
-  const allSceneAssetIds = [...new Set(exhibits.flatMap(({scene}) => scene.mediaMounts.map(({assetId}) => assetId)))];
-  const entrySceneAssetIds = [...new Set(exhibits.filter(({id}) => entryExhibitIds.has(id)).flatMap(({scene}) => scene.mediaMounts.map(({assetId}) => assetId)))];
+  const allSceneAssetIds = [...new Set([
+    ...exhibits.flatMap(({scene}) => scene.mediaMounts.map(({assetId}) => assetId)),
+    ...supplementalExhibits.map(({assetId}) => assetId),
+  ])];
+  const entrySceneAssetIds = [...new Set(Object.values(entrySceneAssetIdsByEntrance).flat())];
   return {
     id: hall.id,
     fallbackLabel: hall.title,
@@ -826,6 +844,7 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
       furnishings,
       obstacleColliders,
       exhibits,
+      ...(supplementalExhibits.length ? {supplementalExhibits} : {}),
       primaryCirculation: {
         id: `${hall.id}:primary-circulation`,
         points: isForum

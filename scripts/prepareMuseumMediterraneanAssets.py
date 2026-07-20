@@ -27,7 +27,7 @@ USER_AGENT = (
     "PhilosophyAtlasMuseum/1.0 "
     "(+https://github.com/Da3dalusCode/philosophy-museum; local educational asset preparation)"
 )
-EXPECTED_ASSET_COUNT = 19
+EXPECTED_ASSET_COUNT = 21
 MAX_DERIVATIVE_BYTES = 600_000
 
 
@@ -169,8 +169,8 @@ def main() -> None:
             print(f"[{index:02d}/{len(assets)}] {slug}", flush=True)
             download(str(record["selectedThumbnailUrl"]), source)
             image = rgb_image(source)
-            scene_lock = save_variant(image, candidate_scene, 640, 82)
-            panel_lock = save_variant(image, candidate_panel, 1280, 88)
+            scene_lock = save_variant(image, candidate_scene, int(record.get("sceneMaximum", 640)), 82)
+            panel_lock = save_variant(image, candidate_panel, int(record.get("panelMaximum", 1280)), 88)
 
             if args.refresh_locks:
                 refreshed["assets"][slug]["scene"] = scene_lock

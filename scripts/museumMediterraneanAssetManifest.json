@@ -323,6 +323,44 @@
         "bytes": 227784,
         "sha256": "fbc1202b04ac12be71b62e00910f0120d65f3a12861caa4ff2ed3587d8c6f9a7"
       }
+    },
+    "plato-cave-saenredam-1604": {
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Jan_Pietersz_Saenredam_after_Cornelis_Cornelisz_van_Haarlem,_Plato%27s_Cave,_1604,_NGA_62542.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/85/Jan_Pietersz_Saenredam_after_Cornelis_Cornelisz_van_Haarlem%2C_Plato%27s_Cave%2C_1604%2C_NGA_62542.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Jan_Pietersz_Saenredam_after_Cornelis_Cornelisz_van_Haarlem%2C_Plato%27s_Cave%2C_1604%2C_NGA_62542.jpg/960px-Jan_Pietersz_Saenredam_after_Cornelis_Cornelisz_van_Haarlem%2C_Plato%27s_Cave%2C_1604%2C_NGA_62542.jpg",
+      "sceneMaximum": 480,
+      "panelMaximum": 960,
+      "scene": {
+        "width": 480,
+        "height": 360,
+        "bytes": 49300,
+        "sha256": "0fd29db0f03964071ef60ffe635280278e6ca1b29c65486ea63b18c0f83957a0"
+      },
+      "panel": {
+        "width": 960,
+        "height": 720,
+        "bytes": 296878,
+        "sha256": "73caaa7bbbae70c712f265a5840258202c58228ce9ebcec99c5756b62339646b"
+      }
+    },
+    "plato-republic-parisinus-1807": {
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Politeia_beginning._Codex_Parisinus_graecus_1807.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Politeia_beginning._Codex_Parisinus_graecus_1807.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Politeia_beginning._Codex_Parisinus_graecus_1807.jpg",
+      "sceneMaximum": 480,
+      "panelMaximum": 960,
+      "scene": {
+        "width": 331,
+        "height": 480,
+        "bytes": 49382,
+        "sha256": "eb89d55b8ebbb2d234802da8496807149ff6345f1ff0bc841ec3ef2077b48481"
+      },
+      "panel": {
+        "width": 663,
+        "height": 960,
+        "bytes": 266600,
+        "sha256": "b09a2791902e0cfc8ad38566878ca29af95871d91f599207367f82f6f4bc12da"
+      }
     }
   }
 }

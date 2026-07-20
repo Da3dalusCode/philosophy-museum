@@ -108,6 +108,37 @@ export type MuseumInstallationTreatment =
   | 'cluster-panel'
   | 'archive-label';
 
+/** Stable ids for interpreted work exhibits that do not consume a primary assignment. */
+export type MuseumSupplementalExhibitId =
+  | 'plato-cave-book-vii'
+  | 'plato-republic';
+
+export type MuseumSupplementalInstallationKind =
+  | 'cave-ascent'
+  | 'republic-manuscript';
+
+export type MuseumSupplementalExhibitLayout = {
+  id: MuseumSupplementalExhibitId;
+  parentExhibitId: MuseumExhibitId;
+  zoneId: MuseumZoneId;
+  spatialCellId: string;
+  position: MuseumPoint;
+  rotationY: number;
+  interactionRadius: number;
+  collider: MuseumCollider;
+  viewpoint: MuseumPose;
+  assetId: MuseumAssetId;
+  mediaMount: MuseumMediaMountDefinition;
+  label: {
+    position: readonly [number, number, number];
+    width: number;
+    height: number;
+  };
+  footprint: MuseumSize3;
+  installationKind: MuseumSupplementalInstallationKind;
+  accent: string;
+};
+
 export type MuseumExhibitLayout = {
   id: MuseumExhibitId;
   zoneId: MuseumZoneId;
@@ -219,6 +250,8 @@ export type MuseumHallLayout = {
   furnishings: readonly MuseumFurnishingDefinition[];
   obstacleColliders: readonly MuseumCollider[];
   exhibits: readonly MuseumExhibitLayout[];
+  /** Interpreted work/idea installations kept separate from canonical primaries. */
+  supplementalExhibits?: readonly MuseumSupplementalExhibitLayout[];
   primaryCirculation: MuseumCirculationPath;
   guidedOrder: readonly MuseumExhibitId[];
   guidedWalkLegs: readonly MuseumGuidedWalkLeg[];
@@ -316,6 +349,7 @@ export type MuseumNavigationLayout = {
   furnishings: readonly MuseumFurnishingDefinition[];
   obstacleColliders: readonly MuseumCollider[];
   exhibits: readonly MuseumExhibitLayout[];
+  supplementalExhibits?: readonly MuseumSupplementalExhibitLayout[];
   signs?: readonly MuseumSignDefinition[];
 };
 
@@ -377,6 +411,12 @@ export type MuseumExhibitRef = {
   exhibitId: MuseumExhibitId;
 };
 
+export type MuseumSupplementalExhibitRef = {
+  hallId: MuseumPublicHallId;
+  supplementalExhibitId: MuseumSupplementalExhibitId;
+};
+
 export type MuseumInteractionTarget =
   | ({kind: 'exhibit'} & MuseumExhibitRef)
+  | ({kind: 'supplemental-exhibit'} & MuseumSupplementalExhibitRef)
   | {kind: 'visitor-map'; hallId: MuseumPublicHallId; kioskId: string};

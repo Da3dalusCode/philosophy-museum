@@ -6,6 +6,7 @@ import type {
   MuseumPhysicalNodeId,
   MuseumPose,
   MuseumRuntimeNodeDefinition,
+  MuseumSupplementalExhibitRef,
 } from '../../data/museum/museumWorldTypes';
 import {MUSEUM_TEXTURE_SPECS} from '../../data/museum/museumTexturePolicy';
 import type {MuseumHallId, MuseumPublicHallId} from '../../data/museumCatalog';
@@ -210,6 +211,7 @@ export type MuseumSceneRuntimeProps = {
   onCanvasReady: (canvas: HTMLCanvasElement) => void;
   onNearbyInteractionChange: (target: MuseumInteractionTarget | undefined) => void;
   onSelectExhibit: (exhibit: MuseumExhibitRef) => void;
+  onSelectSupplementalExhibit: (exhibit: MuseumSupplementalExhibitRef) => void;
   onSelectVisitorMap: () => void;
   onNodeTransition: (transition: MuseumNodeTransition) => boolean;
   onNodeTransitionBlocked: (connection: MuseumDirectedConnection) => void;

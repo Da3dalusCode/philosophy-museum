@@ -13,7 +13,11 @@ import {
   type ReactNode,
 } from 'react';
 import {PerspectiveCamera, type WebGLRenderer} from 'three';
-import type {MuseumExhibitRef, MuseumInteractionTarget} from '../../data/museum/museumWorldTypes';
+import type {
+  MuseumExhibitRef,
+  MuseumInteractionTarget,
+  MuseumSupplementalExhibitRef,
+} from '../../data/museum/museumWorldTypes';
 import {
   getMuseumConnectionTargetHallId,
   getMuseumNodeConnections,
@@ -25,7 +29,7 @@ import {MUSEUM_TEXTURE_SPECS} from '../../data/museum/museumTexturePolicy';
 import {getMuseumHallCatalog, type MuseumPublicHallId} from '../../data/museumCatalog';
 import {
   clampPitch,
-  nearestInteractable,
+  nearestInteractableItem,
   normalizeYaw,
 } from './museumMovement';
 import {
@@ -144,6 +148,13 @@ class HallContentErrorBoundary extends Component<{
   render() { return this.state.failed ? null : this.props.children; }
 }
 
+const interactionTargetKey = (target: MuseumInteractionTarget | undefined): string => {
+  if (!target) return '';
+  if (target.kind === 'exhibit') return `${target.kind}:${target.hallId}:${target.exhibitId}`;
+  if (target.kind === 'supplemental-exhibit') return `${target.kind}:${target.hallId}:${target.supplementalExhibitId}`;
+  return `${target.kind}:${target.hallId}:${target.kioskId}`;
+};
+
 function MuseumPlayerRig({
   definition,
   active,
@@ -200,12 +211,23 @@ function MuseumPlayerRig({
   const publishNearby = useCallback(() => {
     const hallId = definition.publicHallId;
     const visitorMap = hallId ? visitorMapInteractionAtPose(hallId, poseRef.current) : undefined;
-    const exhibitId = visitorMap ? undefined : nearestInteractable(poseRef.current, layout.exhibits);
+    const primary = visitorMap ? undefined : nearestInteractableItem(poseRef.current, layout.exhibits);
+    const supplemental = visitorMap ? undefined : nearestInteractableItem(poseRef.current, layout.supplementalExhibits ?? []);
+    const primaryDistance = primary
+      ? Math.hypot(poseRef.current.x - primary.position.x, poseRef.current.z - primary.position.z)
+      : Number.POSITIVE_INFINITY;
+    const supplementalDistance = supplemental
+      ? Math.hypot(poseRef.current.x - supplemental.position.x, poseRef.current.z - supplemental.position.z)
+      : Number.POSITIVE_INFINITY;
     const next: MuseumInteractionTarget | undefined = visitorMap
-      ?? (hallId && exhibitId ? {kind: 'exhibit', hallId, exhibitId} : undefined);
-    const nextKey = next?.kind === 'exhibit' ? `${next.kind}:${next.hallId}:${next.exhibitId}` : next ? `${next.kind}:${next.hallId}:${next.kioskId}` : '';
+      ?? (hallId && supplemental && supplementalDistance < primaryDistance
+        ? {kind: 'supplemental-exhibit', hallId, supplementalExhibitId: supplemental.id}
+        : hallId && primary
+          ? {kind: 'exhibit', hallId, exhibitId: primary.id}
+          : undefined);
+    const nextKey = interactionTargetKey(next);
     const previous = lastNearbyRef.current;
-    const previousKey = previous?.kind === 'exhibit' ? `${previous.kind}:${previous.hallId}:${previous.exhibitId}` : previous ? `${previous.kind}:${previous.hallId}:${previous.kioskId}` : '';
+    const previousKey = interactionTargetKey(previous);
     if (nextKey === previousKey) return;
     lastNearbyRef.current = next;
     onNearbyVisualChange(next);
@@ -330,8 +352,10 @@ function LoadedHall({
   active,
   entryEntranceId,
   nearby,
+  nearbySupplemental,
   visitorMapNearby,
   onSelectExhibit,
+  onSelectSupplementalExhibit,
   onSelectVisitorMap,
   onSceneGesture,
   onHallContentReady,
@@ -342,8 +366,10 @@ function LoadedHall({
   active: boolean;
   entryEntranceId?: string;
   nearby?: MuseumExhibitRef;
+  nearbySupplemental?: MuseumSupplementalExhibitRef;
   visitorMapNearby: boolean;
   onSelectExhibit: MuseumSceneRuntimeProps['onSelectExhibit'];
+  onSelectSupplementalExhibit: MuseumSceneRuntimeProps['onSelectSupplementalExhibit'];
   onSelectVisitorMap: MuseumSceneRuntimeProps['onSelectVisitorMap'];
   onSceneGesture: MuseumSceneRuntimeProps['onSceneGesture'];
   onHallContentReady: MuseumSceneRuntimeProps['onHallContentReady'];
@@ -366,8 +392,10 @@ function LoadedHall({
         active={active}
         entryEntranceId={entryEntranceId}
         nearby={nearby}
+        nearbySupplemental={nearbySupplemental}
         visitorMapNearby={visitorMapNearby}
         onSelectExhibit={onSelectExhibit}
+        onSelectSupplementalExhibit={onSelectSupplementalExhibit}
         onSelectVisitorMap={onSelectVisitorMap}
         onSceneGesture={onSceneGesture}
       />
@@ -400,6 +428,9 @@ function MuseumWorldContents(props: MuseumSceneRuntimeProps) {
   const nearby = nearbyTarget?.kind === 'exhibit'
     ? {hallId: nearbyTarget.hallId, exhibitId: nearbyTarget.exhibitId}
     : undefined;
+  const nearbySupplemental = nearbyTarget?.kind === 'supplemental-exhibit'
+    ? {hallId: nearbyTarget.hallId, supplementalExhibitId: nearbyTarget.supplementalExhibitId}
+    : undefined;
   const visitorMapNearby = nearbyTarget?.kind === 'visitor-map';
   // The public hall remains the lighting/content owner while the visitor is in
   // its connector. This prevents a hall from unloading or changing shade at
@@ -429,8 +460,10 @@ function MuseumWorldContents(props: MuseumSceneRuntimeProps) {
       active={registration.definition.id === props.activeHallId}
       entryEntranceId={connectedEntranceByHallId.get(registration.definition.id)}
       nearby={nearby}
+      nearbySupplemental={nearbySupplemental}
       visitorMapNearby={visitorMapNearby}
       onSelectExhibit={props.onSelectExhibit}
+      onSelectSupplementalExhibit={props.onSelectSupplementalExhibit}
       onSelectVisitorMap={props.onSelectVisitorMap}
       onSceneGesture={props.onSceneGesture}
       onHallContentReady={props.onHallContentReady}

@@ -24,13 +24,20 @@ import {
   type MouseEvent,
   type ReactNode,
 } from 'react';
-import type {MuseumDirectedConnection, MuseumExhibitRef, MuseumPose} from '../../data/museum/museumWorldTypes';
+import type {
+  MuseumDirectedConnection,
+  MuseumExhibitRef,
+  MuseumPose,
+  MuseumSupplementalExhibitId,
+  MuseumSupplementalExhibitRef,
+} from '../../data/museum/museumWorldTypes';
 import {
   getMuseumConnectionTargetHallId,
   getMuseumRuntimeHallNode,
   getMuseumRuntimeNode,
 } from '../../data/museum/museumBuildingRuntime';
 import {getMuseumInterpretation} from '../../data/museum/museumInterpretations';
+import {getPlatoSupplementalExhibit} from '../../data/museum/platoSupplementalExhibits';
 import {
   getMuseumVisitorMapNode,
   MUSEUM_VISITOR_MAP_KIOSK,
@@ -48,6 +55,7 @@ import {
 import type {MuseumRoute, NavigableAppRoute, RouteHref, RouteNavigator} from '../../routing/routes';
 import {isRouteLoadError} from '../../routing/routeLoadErrors';
 import {MuseumInterpretationPanel} from './MuseumInterpretationPanel';
+import {MuseumSupplementalInterpretationPanel} from './MuseumSupplementalInterpretationPanel';
 import {MuseumModal} from './MuseumModal';
 import {MuseumTouchControls} from './MuseumTouchControls';
 import {MuseumVisitorMap} from './MuseumVisitorMap';
@@ -328,6 +336,10 @@ export function MuseumPage({route, href, push, replace}: {
   const layout = definition.layout;
   const exhibit = route.hallId === activeHallId && route.exhibitId ? getMuseumExhibitCatalog(activeHallId, route.exhibitId) : undefined;
   const content = useMemo(() => exhibit ? getMuseumInterpretation({hallId: activeHallId, exhibitId: exhibit.id}) : undefined, [activeHallId, exhibit]);
+  const [supplementalExhibitId, setSupplementalExhibitId] = useState<MuseumSupplementalExhibitId | undefined>();
+  const supplementalExhibit = supplementalExhibitId
+    ? getPlatoSupplementalExhibit(supplementalExhibitId)
+    : undefined;
   const sceneLocationLabel = activeNode.publicHallId ? hall.title : activeNode.mapLabel;
   const visitContext = route.hallId === activeHallId && route.exhibitId
     ? parseMuseumExhibitVisitContext(window.history.state, route.hallId) ?? directMuseumVisitContext(route.hallId)
@@ -361,8 +373,11 @@ export function MuseumPage({route, href, push, replace}: {
   activeNodeRef.current = activeNode;
   activeDefinitionRef.current = definition;
   const nearbyRef = useRef<MuseumExhibitRef | undefined>(undefined);
+  const nearbySupplementalRef = useRef<MuseumSupplementalExhibitRef | undefined>(undefined);
   const visitorMapNearbyRef = useRef(false);
   const lastAnnouncedNearbyRef = useRef<MuseumExhibitRef | undefined>(undefined);
+  const lastAnnouncedSupplementalRef = useRef<MuseumSupplementalExhibitRef | undefined>(undefined);
+  const supplementalResumeRef = useRef<{resume: boolean; locked: boolean} | undefined>(undefined);
   const lastExhibitContextRef = useRef<MuseumExhibitVisitContext | undefined>(visitContext);
   const pendingCloseRef = useRef<{
     context: MuseumExhibitVisitContext;
@@ -388,8 +403,12 @@ export function MuseumPage({route, href, push, replace}: {
   const lastSavedHallSignatureRef = useRef<Map<MuseumHallId, string>>(new Map());
   if (visitContext) lastExhibitContextRef.current = visitContext;
   const [nearbyReference, setNearbyReference] = useState<MuseumExhibitRef | undefined>();
+  const [nearbySupplementalReference, setNearbySupplementalReference] = useState<MuseumSupplementalExhibitRef | undefined>();
   const [visitorMapNearby, setVisitorMapNearby] = useState(false);
   const nearbyId = nearbyReference?.hallId === activeHallId ? nearbyReference.exhibitId : undefined;
+  const nearbySupplementalId = nearbySupplementalReference?.hallId === activeHallId
+    ? nearbySupplementalReference.supplementalExhibitId
+    : undefined;
   const [readyHallIds, setReadyHallIds] = useState<Set<MuseumHallId>>(() => new Set());
   const [readyHallEntryKeys, setReadyHallEntryKeys] = useState<Set<string>>(() => new Set());
   const [hallLoadStatus, setHallLoadStatus] = useState<Partial<Record<MuseumHallId, MuseumHallLoadStatus>>>({[route.hallId]: 'idle'});
@@ -427,7 +446,7 @@ export function MuseumPage({route, href, push, replace}: {
   const [poseRevision, setPoseRevision] = useState(0);
   const LazyMuseumWorldScene = useMemo(createLazyMuseumWorldScene, [sceneEpoch]);
   const reducedMotion = useReducedMotion();
-  const modalOpen = Boolean(exhibit || overlay);
+  const modalOpen = Boolean(exhibit || supplementalExhibit || overlay);
   const activeHallLoadFailed = hallLoadStatus[activeHallId] === 'failed';
   const activeHallLoading = hallLoadStatus[activeHallId] === 'idle' || hallLoadStatus[activeHallId] === 'loading';
   const blocked = modalOpen || Boolean(sceneError) || activeHallLoading;
@@ -645,11 +664,44 @@ export function MuseumPage({route, href, push, replace}: {
     const context = createMuseumExhibitVisitContext(currentDefinition.id, origin);
     controlsRef.current?.blockInput();
     saveCurrentHallSession();
+    setSupplementalExhibitId(undefined);
+    supplementalResumeRef.current = undefined;
     lastExhibitContextRef.current = context;
     push({kind: 'museum', hallId: currentDefinition.id, exhibitId: id}, {
       state: museumHistoryStateWithVisitContext(window.history.state, context),
     });
   }, [push, saveCurrentHallSession, visitPhase]);
+
+  const openSupplementalExhibit = useCallback((id: MuseumSupplementalExhibitId) => {
+    if (activeHallIdRef.current !== 'mediterranean-beginnings-classical') return;
+    const record = getPlatoSupplementalExhibit(id);
+    const resume = museumPhaseHasActiveIntent(visitPhase);
+    supplementalResumeRef.current = {
+      resume,
+      locked: resume && controlsRef.current?.mode === 'locked',
+    };
+    saveCurrentHallSession();
+    controlsRef.current?.blockInput();
+    setOverlay(null);
+    setSupplementalExhibitId(id);
+    setAnnouncement(`Opened ${record.displayName}, a supplemental Plato work exhibit.`);
+  }, [saveCurrentHallSession, visitPhase]);
+
+  const closeSupplementalExhibit = useCallback(() => {
+    const resume = supplementalResumeRef.current;
+    supplementalResumeRef.current = undefined;
+    if (resume?.resume && resume.locked) controlsRef.current?.requestOverlayCloseResume();
+    setSupplementalExhibitId(undefined);
+    if (resume?.resume) {
+      window.requestAnimationFrame(() => {
+        if (resume.locked) controlsRef.current?.completeOverlayCloseResume();
+        else controlsRef.current?.resumeWithoutGesture();
+      });
+      setAnnouncement(`Returned to ${getMuseumHallCatalog(activeHallIdRef.current)?.title ?? 'the gallery'}. Continue exploring.`);
+      return;
+    }
+    window.requestAnimationFrame(() => document.getElementById('museum-enter-button')?.focus({preventScroll: true}));
+  }, []);
 
   const resetPosition = useCallback(() => {
     const targetHallId = MUSEUM_VISITOR_MAP_KIOSK.hallId;
@@ -689,9 +741,13 @@ export function MuseumPage({route, href, push, replace}: {
     poseRef.current = reset.pose;
     nearbyRef.current = undefined;
     setNearbyReference(undefined);
+    nearbySupplementalRef.current = undefined;
+    setNearbySupplementalReference(undefined);
     visitorMapNearbyRef.current = false;
     setVisitorMapNearby(false);
     visitorMapResumeRef.current = false;
+    supplementalResumeRef.current = undefined;
+    setSupplementalExhibitId(undefined);
     setOverlay(null);
     setVisitPhase('explicitly-paused');
     setAnnouncement('Position reset beside the visitor map and Gallery 01 entrance.');
@@ -749,15 +805,20 @@ export function MuseumPage({route, href, push, replace}: {
       openVisitorMap();
       return;
     }
+    const supplementalReference = nearbySupplementalRef.current;
+    if (supplementalReference?.hallId === activeHallIdRef.current) {
+      openSupplementalExhibit(supplementalReference.supplementalExhibitId);
+      return;
+    }
     const reference = nearbyRef.current;
     if (reference?.hallId === activeHallIdRef.current) openExhibit(reference.exhibitId);
-  }, [openExhibit, openVisitorMap]);
+  }, [openExhibit, openSupplementalExhibit, openVisitorMap]);
 
   const controls = useMuseumControls({
     active: exploring,
     suspended: focusSuspended,
     blocked,
-    canInteract: Boolean(nearbyId || visitorMapNearby),
+    canInteract: Boolean(nearbyId || nearbySupplementalId || visitorMapNearby),
     onInteract: interactNearby,
     onReset: resetPosition,
     onOpenVisitorMap: showVisitorMap,
@@ -802,6 +863,8 @@ export function MuseumPage({route, href, push, replace}: {
     poseRef.current = {...targetPose};
     nearbyRef.current = undefined;
     setNearbyReference(undefined);
+    nearbySupplementalRef.current = undefined;
+    setNearbySupplementalReference(undefined);
     visitorMapNearbyRef.current = false;
     setVisitorMapNearby(false);
     if (activation === 'paused') {
@@ -935,6 +998,8 @@ export function MuseumPage({route, href, push, replace}: {
     setApproachedHall(undefined);
     nearbyRef.current = undefined;
     setNearbyReference(undefined);
+    nearbySupplementalRef.current = undefined;
+    setNearbySupplementalReference(undefined);
     visitorMapNearbyRef.current = false;
     setVisitorMapNearby(false);
     setOverlay(null);
@@ -1002,6 +1067,8 @@ export function MuseumPage({route, href, push, replace}: {
     poseRef.current = {...viewpoint};
     nearbyRef.current = reference;
     setNearbyReference(reference);
+    nearbySupplementalRef.current = undefined;
+    setNearbySupplementalReference(undefined);
     visitorMapNearbyRef.current = false;
     setVisitorMapNearby(false);
     saveMuseumSession(targetRegistration.definition.layout, poseRef.current, reference.exhibitId);
@@ -1179,6 +1246,13 @@ export function MuseumPage({route, href, push, replace}: {
   }, [route.exhibitId, route.hallId]);
 
   useEffect(() => {
+    if (!supplementalExhibitId) return;
+    if (activeHallId === 'mediterranean-beginnings-classical' && !route.exhibitId) return;
+    supplementalResumeRef.current = undefined;
+    setSupplementalExhibitId(undefined);
+  }, [activeHallId, route.exhibitId, supplementalExhibitId]);
+
+  useEffect(() => {
     if (previousHallIdRef.current === route.hallId) return;
     const previousRouteHallId = previousHallIdRef.current;
     previousHallIdRef.current = route.hallId;
@@ -1227,6 +1301,8 @@ export function MuseumPage({route, href, push, replace}: {
     setApproachedHall(undefined);
     nearbyRef.current = undefined;
     setNearbyReference(undefined);
+    nearbySupplementalRef.current = undefined;
+    setNearbySupplementalReference(undefined);
     visitorMapNearbyRef.current = false;
     setVisitorMapNearby(false);
     const crossHallClose = pendingCrossHallCloseRef.current;
@@ -1300,6 +1376,9 @@ export function MuseumPage({route, href, push, replace}: {
 
   const nearby = nearbyId ? getMuseumExhibitCatalog(activeHallId, nearbyId) : undefined;
   const nearbyContent = useMemo(() => nearby ? getMuseumInterpretation({hallId: activeHallId, exhibitId: nearby.id}) : undefined, [activeHallId, nearby]);
+  const nearbySupplemental = nearbySupplementalId
+    ? getPlatoSupplementalExhibit(nearbySupplementalId)
+    : undefined;
   useEffect(() => {
     const reference = nearby ? {hallId: activeHallId, exhibitId: nearby.id} : undefined;
     if (!exploring || !nearby || (lastAnnouncedNearbyRef.current?.hallId === reference?.hallId && lastAnnouncedNearbyRef.current?.exhibitId === reference?.exhibitId)) return;
@@ -1310,6 +1389,28 @@ export function MuseumPage({route, href, push, replace}: {
     }, reducedMotion ? 0 : 650);
     return () => window.clearTimeout(timer);
   }, [activeHallId, exploring, nearby, reducedMotion]);
+  useEffect(() => {
+    const reference = nearbySupplemental
+      ? {hallId: activeHallId, supplementalExhibitId: nearbySupplemental.id}
+      : undefined;
+    if (
+      !exploring
+      || !nearbySupplemental
+      || (
+        lastAnnouncedSupplementalRef.current?.hallId === reference?.hallId
+        && lastAnnouncedSupplementalRef.current?.supplementalExhibitId === reference?.supplementalExhibitId
+      )
+    ) return;
+    const timer = window.setTimeout(() => {
+      if (
+        nearbySupplementalRef.current?.hallId !== activeHallId
+        || nearbySupplementalRef.current.supplementalExhibitId !== nearbySupplemental.id
+      ) return;
+      lastAnnouncedSupplementalRef.current = reference;
+      setAnnouncement(`Near ${nearbySupplemental.displayName}. Press E or Enter to open the supplemental exhibit.`);
+    }, reducedMotion ? 0 : 650);
+    return () => window.clearTimeout(timer);
+  }, [activeHallId, exploring, nearbySupplemental, reducedMotion]);
   useEffect(() => {
     if (!exploring || !visitorMapNearby) return;
     const timer = window.setTimeout(() => {
@@ -1382,12 +1483,23 @@ export function MuseumPage({route, href, push, replace}: {
                   : undefined;
                 nearbyRef.current = exhibitTarget;
                 setNearbyReference(exhibitTarget);
+                const supplementalTarget = current?.kind === 'supplemental-exhibit'
+                  ? {hallId: current.hallId, supplementalExhibitId: current.supplementalExhibitId}
+                  : undefined;
+                nearbySupplementalRef.current = supplementalTarget;
+                setNearbySupplementalReference(supplementalTarget);
                 const mapNearby = current?.kind === 'visitor-map';
                 visitorMapNearbyRef.current = mapNearby;
                 setVisitorMapNearby(mapNearby);
               }}
               onSelectExhibit={(reference) => {
                 if (reference.hallId === activeHallIdRef.current && !controls.shouldSuppressActivation()) openExhibit(reference.exhibitId);
+              }}
+              onSelectSupplementalExhibit={(reference) => {
+                if (
+                  reference.hallId === activeHallIdRef.current
+                  && !controls.shouldSuppressActivation()
+                ) openSupplementalExhibit(reference.supplementalExhibitId);
               }}
               onSelectVisitorMap={() => {
                 if (controls.shouldSuppressActivation()) return;
@@ -1444,13 +1556,20 @@ export function MuseumPage({route, href, push, replace}: {
             <button type="button" onClick={() => openExhibit(nearby.id)}>E / Enter · Interpret exhibit</button>
           </aside>}
 
+          {nearbySupplemental && exploring && <aside className="museum-proximity-card" data-zone="med-plato-aristotle" data-supplemental-id={nearbySupplemental.id}>
+            <p><span>Supplemental Plato work</span><span>{nearbySupplemental.dateLabel}</span></p>
+            <h2>{nearbySupplemental.displayName}</h2>
+            <blockquote>{nearbySupplemental.question}</blockquote>
+            <button type="button" onClick={() => openSupplementalExhibit(nearbySupplemental.id)}>E / Enter · Explore work</button>
+          </aside>}
+
         </div>
 
         <MuseumTouchControls
           active={exploring}
           blocked={blocked}
-          canInteract={Boolean(nearby || visitorMapNearby)}
-          nearbyLabel={visitorMapNearby ? 'Museum visitor map' : nearby?.displayName}
+          canInteract={Boolean(nearby || nearbySupplemental || visitorMapNearby)}
+          nearbyLabel={visitorMapNearby ? 'Museum visitor map' : nearbySupplemental?.displayName ?? nearby?.displayName}
           movementBindings={controls.movementBindings}
           lookBindings={controls.lookBindings}
           walkingPace={controls.walkingPace}
@@ -1472,7 +1591,7 @@ export function MuseumPage({route, href, push, replace}: {
         {adjacentFailedHallIds.map((hallId) => <button key={hallId} type="button" onClick={() => retryHallContent(hallId)}>Retry {getMuseumHallCatalog(hallId)?.title ?? 'connection'}</button>)}
       </div>}
       {!modalOpen && !activeHallLoadFailed && adjacentLoadingHallIds.length > 0 && <div className="museum-status-message museum-adjacent-load-status" role="status"><span>Preparing {adjacentLoadingHallIds.map((hallId) => getMuseumHallCatalog(hallId)?.title ?? 'an adjacent gallery').join(' and ')}…</span></div>}
-      {!exhibit && overlay === 'visitor-map' && <MuseumVisitorMap
+      {!exhibit && !supplementalExhibit && overlay === 'visitor-map' && <MuseumVisitorMap
         currentHallId={activeHallId}
         currentNodeId={activeNode.id}
         currentPose={poseRef.current}
@@ -1480,7 +1599,7 @@ export function MuseumPage({route, href, push, replace}: {
         onClose={closeVisitorMap}
         onTravel={visitHallFromVisitorMap}
       />}
-      {!exhibit && overlay === 'directory' && <Directory
+      {!exhibit && !supplementalExhibit && overlay === 'directory' && <Directory
         route={route}
         href={href}
         push={push}
@@ -1491,7 +1610,7 @@ export function MuseumPage({route, href, push, replace}: {
         onExhibitViewpoint={stageExhibitViewpoint}
         onZoneViewpoint={stageZoneViewpoint}
       />}
-      {!exhibit && overlay === 'help' && <Help
+      {!exhibit && !supplementalExhibit && overlay === 'help' && <Help
         returnFocus={overlayOpenerRef.current}
         onClose={dismissOverlay}
         walkingPace={controls.walkingPace}
@@ -1523,6 +1642,13 @@ export function MuseumPage({route, href, push, replace}: {
             {state: museumHistoryStateWithVisitContext(window.history.state, context)},
           );
         }}
+      />}
+      {supplementalExhibit && <MuseumSupplementalInterpretationPanel
+        key={supplementalExhibit.id}
+        exhibit={supplementalExhibit}
+        href={href}
+        onClose={closeSupplementalExhibit}
+        onArticleIntent={saveCurrentHallSession}
       />}
     </section>
   </div>;

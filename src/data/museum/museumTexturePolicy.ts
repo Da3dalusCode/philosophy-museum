@@ -14,6 +14,7 @@ export const MUSEUM_TEXTURE_SPECS = {
   mediterraneanOrientation: {width: 704, height: 352, mipmaps: true},
   mediterraneanExhibitMedia: {width: 384, height: 256, mipmaps: true},
   mediterraneanBackLabel: {width: 280, height: 84, mipmaps: true},
+  platoSupplementalLabel: {width: 320, height: 160, mipmaps: true},
   sceneFallback: {width: 512, height: 341, mipmaps: true},
   buildingSign: {width: 600, height: 160, mipmaps: true},
   reservationSign: {width: 700, height: 190, mipmaps: true},

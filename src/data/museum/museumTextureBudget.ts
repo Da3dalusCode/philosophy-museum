@@ -171,6 +171,17 @@ const generatedHallSpecs = (hallId: MuseumHallId): readonly MuseumDecodedTexture
     : signs;
 };
 
+const generatedSupplementalSpecs = (
+  definition: (typeof MUSEUM_WORLD_DEFINITIONS)[number],
+  renderedAssetIds: ReadonlySet<string>,
+): readonly MuseumDecodedTextureSpec[] => (definition.layout.supplementalExhibits ?? [])
+  .filter(({assetId}) => renderedAssetIds.has(assetId))
+  .map(({label}) => museumTextureDimensionsForPlane(
+    label.width,
+    label.height,
+    MUSEUM_TEXTURE_SPECS.platoSupplementalLabel,
+  ));
+
 const MEDITERRANEAN_ORIENTATION_ASSET_IDS = [
   'plato-school-of-athens',
 ] as const;
@@ -192,11 +203,23 @@ export const estimateMuseumHallTextureResidency = (
     : entryEntranceId === undefined
       ? Object.values(definition.prefetch.entryExhibitIdsByEntrance).flat()
       : definition.prefetch.entryExhibitIdsByEntrance[entryEntranceId] ?? []);
+  const entrySceneAssetIds = new Set(entryEntranceId === null
+    ? []
+    : entryEntranceId === undefined
+      ? definition.prefetch.entrySceneAssetIds
+      : definition.prefetch.entrySceneAssetIdsByEntrance?.[entryEntranceId] ?? []);
   const exhibits = mode === 'active'
     ? definition.layout.exhibits
     : definition.layout.exhibits.filter(({id}) => entryExhibitIds.has(id));
-  const sceneAssetIds = [...new Set(exhibits.flatMap(({scene}) =>
-    scene.mediaMounts.map(({assetId}) => assetId)))];
+  const supplementalAssetIds = mode === 'active'
+    ? (definition.layout.supplementalExhibits ?? []).map(({assetId}) => assetId)
+    : (definition.layout.supplementalExhibits ?? [])
+        .filter(({assetId}) => entrySceneAssetIds.has(assetId))
+        .map(({assetId}) => assetId);
+  const sceneAssetIds = [...new Set([
+    ...exhibits.flatMap(({scene}) => scene.mediaMounts.map(({assetId}) => assetId)),
+    ...supplementalAssetIds,
+  ])];
   const orientationAssetIds = hallId === MEDITERRANEAN_GALLERY_ID
     ? MEDITERRANEAN_ORIENTATION_ASSET_IDS
     : [];
@@ -207,6 +230,7 @@ export const estimateMuseumHallTextureResidency = (
   const generatedBytes = sumSpecs([
     ...generatedHallSpecs(hallId),
     ...exhibits.flatMap((exhibit) => generatedSpecsForExhibit(hallId, exhibit)),
+    ...generatedSupplementalSpecs(definition, new Set(supplementalAssetIds)),
   ]);
   const totalBytes = sceneBytes + generatedBytes;
   return {
