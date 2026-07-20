@@ -24,7 +24,7 @@ export function MuseumSupplementalInterpretationPanel({
   const panelRef = useRef<HTMLElement>(null);
   const titleId = useId();
   const descriptionId = useId();
-  const asset = getMuseumAsset(exhibit.assetId);
+  const asset = getMuseumAsset(exhibit.panelAssetId);
 
   useEffect(() => {
     const frame = window.requestAnimationFrame(() => document.getElementById(titleId)?.focus({preventScroll: true}));

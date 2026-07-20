@@ -115,7 +115,7 @@ export type MuseumSupplementalExhibitId =
 
 export type MuseumSupplementalInstallationKind =
   | 'cave-ascent'
-  | 'republic-manuscript';
+  | 'republic-altarpiece';
 
 export type MuseumSupplementalExhibitLayout = {
   id: MuseumSupplementalExhibitId;

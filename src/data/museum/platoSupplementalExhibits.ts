@@ -33,6 +33,7 @@ export type PlatoSupplementalExhibit = {
   sections: readonly MuseumSupplementalInterpretationSection[];
   sources: readonly MuseumSupplementalInterpretationSource[];
   assetId: MuseumAssetId;
+  panelAssetId: MuseumAssetId;
   articleRoute: NavigableAppRoute;
 };
 
@@ -74,12 +75,12 @@ const REPUBLIC_ID = 'plato-republic' as const;
 export const PLATO_SUPPLEMENTAL_EXHIBITS = [
   {
     id: CAVE_ID,
-    displayName: 'Plato’s Allegory of the Cave',
-    shortTitle: 'Allegory of the Cave',
-    workLabel: 'Plato · Republic, Book VII',
+    displayName: 'The Allegory of the Cave',
+    shortTitle: 'The Allegory of the Cave',
+    workLabel: 'PLATO · REPUBLIC, BOOK VII',
     dateLabel: 'Republic, Book VII · composition date uncertain, often placed c. 380 BCE',
     question: 'What if everything familiar were only shadows?',
-    frontSubtitle: 'Shadows → release → painful turning → ascent → return',
+    frontSubtitle: 'Shadows, awakening, and the world beyond appearances',
     lead: 'The Cave is an image of education, intellectual reorientation, and civic responsibility. Prisoners mistake a constrained field of shadows and echoes for the whole of reality; release first hurts, clearer sight comes gradually, and the person who ascends is required to return. Plato is not merely saying that ordinary reality is an illusion.',
     keyIdeas: [
       'The prisoners’ certainty grows inside a restricted situation they have never been able to test.',
@@ -90,7 +91,7 @@ export const PLATO_SUPPLEMENTAL_EXHIBITS = [
     ],
     cautions: [
       'This is one argument-image inside the Republic, not a free-standing doctrine that “everything is fake.”',
-      'The 1604 engraving is a much later European interpretation, not evidence for an ancient cave or an eyewitness scene.',
+      'The exhibit image is a contemporary Philosophy Atlas Museum interpretive illustration, not an ancient image or historical witness.',
       'Plato connects education to rule by philosophers; that hierarchical political conclusion remains contestable.',
     ],
     sections: [
@@ -111,19 +112,19 @@ export const PLATO_SUPPLEMENTAL_EXHIBITS = [
       {label: 'Plato, Republic VII, 514a–520e (Perseus)', url: 'https://www.perseus.tufts.edu/hopper/text?doc=plat.+rep.+7.514a', kind: 'primary-text'},
       {label: 'Plato, Republic 518c: education as turning the soul (Perseus)', url: 'https://www.perseus.tufts.edu/hopper/text?doc=Plat.+Rep.+518C', kind: 'primary-text'},
       {label: 'Internet Encyclopedia of Philosophy: Plato’s Republic', url: 'https://iep.utm.edu/republic/', kind: 'academic-reference'},
-      {label: 'National Gallery of Art: Plato’s Cave', url: 'https://www.nga.gov/artworks/62542-platos-cave', kind: 'collection-record'},
     ],
-    assetId: 'plato-cave-saenredam-1604',
+    assetId: 'plato-cave-interpretive-illustration',
+    panelAssetId: 'plato-cave-interpretive-illustration',
     articleRoute: {kind: 'philosopher', philosopherId: 'plato'},
   },
   {
     id: REPUBLIC_ID,
     displayName: 'Plato’s Republic',
-    shortTitle: 'The Republic',
-    workLabel: 'Plato · Politeia (Republic)',
+    shortTitle: 'Plato’s Republic',
+    workLabel: 'PLATO · POLITEIA (REPUBLIC)',
     dateLabel: 'Composition date uncertain, often placed in Plato’s middle period, perhaps c. 380 BCE',
     question: 'What would a just city—and a just person—require?',
-    frontSubtitle: 'Justice in city and soul · education · regimes · criticism',
+    frontSubtitle: 'Justice in the soul and the city',
     lead: 'The Republic asks why anyone should be just when injustice can look profitable. Socrates builds a city “in speech” so that justice can be examined at a larger scale, then turns back to the person. The work is a serious political provocation and an ethical inquiry—not a simple municipal blueprint to copy.',
     keyIdeas: [
       'The city–soul analogy uses political order as a model for asking what makes a person internally just.',
@@ -161,8 +162,11 @@ export const PLATO_SUPPLEMENTAL_EXHIBITS = [
       {label: 'Plato, Republic IV, 441a–b: city and soul (Perseus)', url: 'https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.01.0168:book=4:page=441', kind: 'primary-text'},
       {label: 'Stanford Encyclopedia of Philosophy: Plato’s Ethics and Politics in the Republic', url: 'https://plato.stanford.edu/entries/plato-ethics-politics/', kind: 'academic-reference'},
       {label: 'Internet Encyclopedia of Philosophy: Plato’s Republic', url: 'https://iep.utm.edu/republic/', kind: 'academic-reference'},
+      {label: 'National Gallery of Art: Justice by Marcantonio Raimondi after Raphael', url: 'https://www.nga.gov/artworks/10139-justice', kind: 'collection-record'},
+      {label: 'Walters Art Museum: The Ideal City', url: 'https://art.thewalters.org/object/37.677/', kind: 'collection-record'},
     ],
-    assetId: 'plato-republic-parisinus-1807',
+    assetId: 'plato-republic-justice-ideal-city',
+    panelAssetId: 'plato-republic-parisinus-1807',
     articleRoute: {kind: 'philosopher', philosopherId: 'plato'},
   },
 ] as const satisfies readonly PlatoSupplementalExhibit[];
@@ -178,11 +182,11 @@ export const PLATO_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     interactionRadius: 3.5,
     collider: {id: `supplemental:${REPUBLIC_ID}`, center: {x: -6.45, z: 15.12}, size: {width: 4.75, depth: 1.08}, rotation: 0},
     viewpoint: {x: -6.45, z: 18.28, yaw: 0, pitch: -.08},
-    assetId: 'plato-republic-parisinus-1807',
-    mediaMount: mediaMount(REPUBLIC_ID, 'plato-republic-parisinus-1807', 2.02, 2.92, 2.02),
+    assetId: 'plato-republic-justice-ideal-city',
+    mediaMount: mediaMount(REPUBLIC_ID, 'plato-republic-justice-ideal-city', 2.55, 3.4, 1.82),
     label: {position: [0, 4.03, -.31], width: 4.18, height: .84},
     footprint: {width: 4.75, height: 4.55, depth: 1.08},
-    installationKind: 'republic-manuscript',
+    installationKind: 'republic-altarpiece',
     accent: '#2f6f78',
   },
   {
@@ -195,8 +199,8 @@ export const PLATO_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     interactionRadius: 3.55,
     collider: {id: `supplemental:${CAVE_ID}`, center: {x: -6.45, z: 26.88}, size: {width: 4.75, depth: 1.08}, rotation: Math.PI},
     viewpoint: {x: -6.45, z: 23.72, yaw: Math.PI, pitch: -.08},
-    assetId: 'plato-cave-saenredam-1604',
-    mediaMount: mediaMount(CAVE_ID, 'plato-cave-saenredam-1604', 3.82, 2.86, 2.03),
+    assetId: 'plato-cave-interpretive-illustration',
+    mediaMount: mediaMount(CAVE_ID, 'plato-cave-interpretive-illustration', 2.72, 3.4, 1.82),
     label: {position: [0, 4.03, -.31], width: 4.18, height: .84},
     footprint: {width: 4.75, height: 4.55, depth: 1.08},
     installationKind: 'cave-ascent',

@@ -324,23 +324,46 @@
         "sha256": "fbc1202b04ac12be71b62e00910f0120d65f3a12861caa4ff2ed3587d8c6f9a7"
       }
     },
-    "plato-cave-saenredam-1604": {
-      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Jan_Pietersz_Saenredam_after_Cornelis_Cornelisz_van_Haarlem,_Plato%27s_Cave,_1604,_NGA_62542.jpg",
-      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/85/Jan_Pietersz_Saenredam_after_Cornelis_Cornelisz_van_Haarlem%2C_Plato%27s_Cave%2C_1604%2C_NGA_62542.jpg",
-      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Jan_Pietersz_Saenredam_after_Cornelis_Cornelisz_van_Haarlem%2C_Plato%27s_Cave%2C_1604%2C_NGA_62542.jpg/960px-Jan_Pietersz_Saenredam_after_Cornelis_Cornelisz_van_Haarlem%2C_Plato%27s_Cave%2C_1604%2C_NGA_62542.jpg",
+    "plato-cave-interpretive-illustration": {
+      "sourceKind": "owner-approved-original-illustration",
+      "sourcePageUrl": "https://github.com/Da3dalusCode/philosophy-museum/blob/main/public/assets/museum/ancient-greek/plato-cave-interpretive-illustration-panel.webp",
+      "sourceImageUrl": "https://github.com/Da3dalusCode/philosophy-museum/raw/main/public/assets/museum/ancient-greek/plato-cave-interpretive-illustration-panel.webp",
+      "selectedThumbnailUrl": "https://github.com/Da3dalusCode/philosophy-museum/raw/main/public/assets/museum/ancient-greek/plato-cave-interpretive-illustration-panel.webp",
+      "sceneMaximum": 450,
+      "panelMaximum": 900,
+      "scene": {
+        "width": 360,
+        "height": 450,
+        "bytes": 45728,
+        "sha256": "ae00750c5a0f6b220ab80c0b006706d6d1e5aa5476ca7cc2a7c8a9ad68e49109"
+      },
+      "panel": {
+        "width": 720,
+        "height": 900,
+        "bytes": 245220,
+        "sha256": "bea6207e3d8cd730b5fb33c0d05eb3aa285e8e72c7764cd96294baed07f19e77"
+      }
+    },
+    "plato-republic-justice-ideal-city": {
+      "sourceKind": "curated-two-object-composite",
+      "sourcePageUrl": "https://www.nga.gov/artworks/10139-justice",
+      "sourceImageUrl": "https://api.nga.gov/iiif/3466c0a8-1dfb-42ad-89bb-2f4635bb22f2/full/full/0/default.jpg",
+      "companionPageUrl": "https://art.thewalters.org/object/37.677/",
+      "companionImageUrl": "https://art.thewalters.org/images/art/PS4_37.677_Fnt_PF_DD_AT26_64470.jpg",
+      "selectedThumbnailUrl": "https://api.nga.gov/iiif/3466c0a8-1dfb-42ad-89bb-2f4635bb22f2/full/full/0/default.jpg",
       "sceneMaximum": 480,
       "panelMaximum": 960,
       "scene": {
-        "width": 480,
-        "height": 360,
-        "bytes": 49300,
-        "sha256": "0fd29db0f03964071ef60ffe635280278e6ca1b29c65486ea63b18c0f83957a0"
+        "width": 360,
+        "height": 480,
+        "bytes": 19506,
+        "sha256": "ef04757825767843cfbdd5876fdc2871ad29a5288dcc03bf87a01f4b7ed20c3c"
       },
       "panel": {
-        "width": 960,
-        "height": 720,
-        "bytes": 296878,
-        "sha256": "73caaa7bbbae70c712f265a5840258202c58228ce9ebcec99c5756b62339646b"
+        "width": 720,
+        "height": 960,
+        "bytes": 76272,
+        "sha256": "43eb4dac35ee996a24a12adf886d331d205fa1b0ee9426ee35e6579c5cea302f"
       }
     },
     "plato-republic-parisinus-1807": {
