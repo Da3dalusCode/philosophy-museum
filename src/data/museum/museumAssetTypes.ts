@@ -127,6 +127,13 @@ export type MuseumAssetId =
   | 'galileo-telescopes-museo'
   | 'hobbes-de-cive-1642'
   | 'english-civil-war-pamphlet-1642'
+  | 'ficino-nga-medal-1499'
+  | 'galileo-sustermans-portrait-1636'
+  | 'renaissance-texts-in-transit-ptolemy-1482'
+  | 'machiavelli-discourses-1540'
+  | 'bacon-novum-organum-1645'
+  | 'putney-agreement-people-1648'
+  | 'hobbes-notes-motion-chatsworth'
   | 'alfred-north-whitehead-portrait-1923'
   | 'martha-nussbaum-portrait-2010';
 

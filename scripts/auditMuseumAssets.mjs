@@ -81,6 +81,8 @@ const NEW_CANONICAL_ASSET_IDS = [
   'jiddu-krishnamurti-bain-portrait',
   'jiddu-krishnamurti-besant-1927',
   'francis-bacon-portrait-1617',
+  'ficino-nga-medal-1499',
+  'galileo-sustermans-portrait-1636',
   'alfred-north-whitehead-portrait-1923',
   'martha-nussbaum-portrait-2010',
 ];
@@ -178,9 +180,9 @@ const webpDimensions = (path) => {
   assert.fail(`Unable to determine WebP dimensions for ${path}`);
 };
 
-check('the canonical six expose 61 primaries with optional, resolvable local media references', () => {
+check('the canonical six expose 63 primaries with optional, resolvable local media references', () => {
   assert.deepEqual(MUSEUM_HALLS.map(({id}) => id), ACTIVE_HALL_IDS);
-  assert.equal(liveExhibits.length, 61);
+  assert.equal(liveExhibits.length, 63);
   assert(canonicalReferencedIds.length > 0, 'the live primary program references no local media');
   for (const {hall, exhibit} of liveExhibits) {
     assert(Array.isArray(exhibit.supportingAssetIds), `${hall.id}/${exhibit.id} has no supporting-asset array`);
@@ -208,20 +210,20 @@ check('the two Plato work exhibits stay supplemental while resolving distinct lo
   }
 });
 
-check('Gallery 02 work, discovery, and context exhibits resolve nine distinct live media records', () => {
-  assert.equal(RENAISSANCE_SUPPLEMENTAL_EXHIBITS.length, 9);
-  assert.equal(new Set(renaissanceSupplementalReferencedIds).size, 9);
+check('Gallery 02 work, discovery, and context exhibits resolve thirteen distinct live media records', () => {
+  assert.equal(RENAISSANCE_SUPPLEMENTAL_EXHIBITS.length, 13);
+  assert.equal(new Set(renaissanceSupplementalReferencedIds).size, 13);
   for (const exhibit of RENAISSANCE_SUPPLEMENTAL_EXHIBITS) {
     assert(assetById.has(exhibit.assetId), `${exhibit.id} references missing asset ${exhibit.assetId}`);
     assert(assetById.has(exhibit.panelAssetId), `${exhibit.id} panel references missing asset ${exhibit.panelAssetId}`);
   }
 });
 
-check('the preserved asset registry contains 128 unique records and derivative paths', () => {
-  assert.equal(MUSEUM_ASSETS.length, 128);
-  assert.equal(assetById.size, 128);
+check('the preserved asset registry contains 135 unique records and derivative paths', () => {
+  assert.equal(MUSEUM_ASSETS.length, 135);
+  assert.equal(assetById.size, 135);
   const variantPaths = MUSEUM_ASSETS.flatMap(({variants}) => [variants.scene.path, variants.panel.path]);
-  assert.equal(variantPaths.length, 256);
+  assert.equal(variantPaths.length, 270);
   assert(unique(variantPaths), 'two asset variants share a derivative path');
   for (const id of NEW_CANONICAL_ASSET_IDS) assert(assetById.has(id), `new canonical asset ${id} is missing`);
   for (const id of MEDITERRANEAN_ASSET_IDS) assert(assetById.has(id), `Gallery 01 asset ${id} is missing`);
@@ -312,14 +314,14 @@ check('every registered variant is exact-case local WebP media with locked dimen
   }
 });
 
-check('the 90-file-source preparation manifest locks every post-Ancient asset uniformly', () => {
+check('the 97-file-source preparation manifest locks every post-Ancient asset uniformly', () => {
   assert.equal(modernManifest.version, 1);
-  assert.equal(Object.keys(manifestAssets).length, 90);
+  assert.equal(Object.keys(manifestAssets).length, 97);
   const managedAssets = MUSEUM_ASSETS.filter(({variants}) => !variants.scene.path.startsWith('assets/museum/ancient-greek/'));
-  assert.equal(managedAssets.length, 90);
+  assert.equal(managedAssets.length, 97);
   assert.deepEqual(Object.keys(manifestAssets).sort(), managedAssets.map(({id}) => id).sort());
   assert.match(preparationSource, /MANIFEST_PATH = ROOT \/ "scripts" \/ "museumModernAssetManifest\.json"/);
-  assert.match(preparationSource, /EXPECTED_ASSET_COUNT = 90/);
+  assert.match(preparationSource, /EXPECTED_ASSET_COUNT = 97/);
   for (const folder of MANAGED_HALL_FOLDERS) assert(preparationSource.includes(`"${folder}"`), `preparation pipeline omits ${folder}`);
   assert.match(preparationSource, /record\["selectedThumbnailUrl"\]/);
   assert.match(preparationSource, /assert_locked\(slug, "scene"/);
@@ -357,12 +359,12 @@ check('the 90-file-source preparation manifest locks every post-Ancient asset un
     'logic-language-science': 16,
     'mind-consciousness-self': 16,
     'modernity-freedom-critique': 16,
-    'renaissance-humanism-new-method': 6,
+    'renaissance-humanism-new-method': 13,
     'renaissance-reason-revolution': 16,
   }, 'preparation lock folder inventory changed');
 });
 
-check('all 180 managed derivatives match exact dimensions, bytes, and SHA-256 locks', () => {
+check('all 194 managed derivatives match exact dimensions, bytes, and SHA-256 locks', () => {
   for (const [id, lock] of Object.entries(manifestAssets)) {
     const asset = assetById.get(id);
     assert(asset, `${id} lock has no asset record`);
@@ -423,7 +425,7 @@ check('the 22-source Gallery 01 lock reproduces all curated Mediterranean media'
   }
 });
 
-check('the committed Museum inventory contains exactly the 256 registered derivatives', () => {
+check('the committed Museum inventory contains exactly the 270 registered derivatives', () => {
   const actual = walkFiles(museumMediaRoot).map(toPublicPath).sort();
   const expected = MUSEUM_ASSETS.flatMap(({variants}) => [variants.scene.path, variants.panel.path]).sort();
   assert.deepEqual(actual, expected);

@@ -84,7 +84,7 @@ const REPUBLIC_ID = 'plato-republic' as const;
 
 /**
  * These are work-and-idea exhibits associated with Plato. They are deliberately
- * outside the canonical program so the Museum retains 61 truthful primaries.
+ * outside the canonical program so the Museum retains 63 truthful primaries.
  */
 export const PLATO_SUPPLEMENTAL_EXHIBITS = [
   {

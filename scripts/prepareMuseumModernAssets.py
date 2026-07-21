@@ -37,7 +37,7 @@ EXPECTED_HALLS = {
     "renaissance-humanism-new-method",
     "justice-democratic-reason",
 }
-EXPECTED_ASSET_COUNT = 90
+EXPECTED_ASSET_COUNT = 97
 MAX_DERIVATIVE_BYTES = 600_000
 
 

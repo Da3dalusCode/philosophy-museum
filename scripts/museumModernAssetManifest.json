@@ -1585,6 +1585,132 @@
         "sha256": "548fc3649b582e42abb3aa3e2bcbfe3282b20da3d841669f379032a41f25e367"
       }
     },
+    "ficino-nga-medal-1499": {
+      "hallFolder": "renaissance-humanism-new-method",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Style_of_Niccol%C3%B2_Fiorentino,_Marsilio_Ficino,_1433-1499,_Florentine_Humanist_(obverse),_c._1499,_NGA_44811.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/85/Style_of_Niccol%C3%B2_Fiorentino%2C_Marsilio_Ficino%2C_1433-1499%2C_Florentine_Humanist_%28obverse%29%2C_c._1499%2C_NGA_44811.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Style_of_Niccol%C3%B2_Fiorentino%2C_Marsilio_Ficino%2C_1433-1499%2C_Florentine_Humanist_%28obverse%29%2C_c._1499%2C_NGA_44811.jpg/1280px-Style_of_Niccol%C3%B2_Fiorentino%2C_Marsilio_Ficino%2C_1433-1499%2C_Florentine_Humanist_%28obverse%29%2C_c._1499%2C_NGA_44811.jpg",
+      "scene": {
+        "width": 640,
+        "height": 640,
+        "bytes": 66252,
+        "sha256": "81b50a473c7b52075bbc1b3a601b63a40cb779a475a3d7f012d4a38b6499f681"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 1280,
+        "bytes": 384984,
+        "sha256": "3645e0221c48b1712aaf46051489c5c728453aee7ef2a2a966a308a36e48de0b"
+      }
+    },
+    "galileo-sustermans-portrait-1636": {
+      "hallFolder": "renaissance-humanism-new-method",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Justus_Sustermans_-_Portrait_of_Galileo_Galilei,_1636.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d4/Justus_Sustermans_-_Portrait_of_Galileo_Galilei%2C_1636.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Justus_Sustermans_-_Portrait_of_Galileo_Galilei%2C_1636.jpg/1280px-Justus_Sustermans_-_Portrait_of_Galileo_Galilei%2C_1636.jpg",
+      "scene": {
+        "width": 504,
+        "height": 640,
+        "bytes": 54894,
+        "sha256": "77774c1bda265cc5ec48619555b89f0bd0fc50c54bf1d5f6963942e537ac236b"
+      },
+      "panel": {
+        "width": 1008,
+        "height": 1280,
+        "bytes": 410950,
+        "sha256": "420fb26fa57062f8d30238e523266ab95c39d4965bea95fe42e41c643d0fb0be"
+      }
+    },
+    "renaissance-texts-in-transit-ptolemy-1482": {
+      "hallFolder": "renaissance-humanism-new-method",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:World_of_Ptolemy_as_shown_by_Johannes_de_Armsshein_-_Ulm_1482.png",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5f/World_of_Ptolemy_as_shown_by_Johannes_de_Armsshein_-_Ulm_1482.png",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5f/World_of_Ptolemy_as_shown_by_Johannes_de_Armsshein_-_Ulm_1482.png",
+      "scene": {
+        "width": 640,
+        "height": 465,
+        "bytes": 116850,
+        "sha256": "5f040eca63b0bcfd4d4b98126a25a8a5c03f3862fdb18e7d0f8ce6d18351f08b"
+      },
+      "panel": {
+        "width": 1168,
+        "height": 849,
+        "bytes": 491390,
+        "sha256": "87f7a71431f8d323d9432e7fa762b67ad171ea0d05a2191f6a45caaa4f4ba923"
+      }
+    },
+    "machiavelli-discourses-1540": {
+      "hallFolder": "renaissance-humanism-new-method",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Discorsi_di_Nicolo_Machiavelli,_firentino,_sopra_la_prima_deca_di_Tito_Livio.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/61/Discorsi_di_Nicolo_Machiavelli%2C_firentino%2C_sopra_la_prima_deca_di_Tito_Livio.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Discorsi_di_Nicolo_Machiavelli%2C_firentino%2C_sopra_la_prima_deca_di_Tito_Livio.jpg/1280px-Discorsi_di_Nicolo_Machiavelli%2C_firentino%2C_sopra_la_prima_deca_di_Tito_Livio.jpg",
+      "scene": {
+        "width": 373,
+        "height": 640,
+        "bytes": 36132,
+        "sha256": "fa07d330d586cf11f6417c350615f2ac959e12fbb62d45aee2cf1858432aad33"
+      },
+      "panel": {
+        "width": 745,
+        "height": 1280,
+        "bytes": 149394,
+        "sha256": "57b67403d3e79373b6e848c376d82722c650a17923e7d35785f0b4a82ab56732"
+      }
+    },
+    "bacon-novum-organum-1645": {
+      "hallFolder": "renaissance-humanism-new-method",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Houghton_EC.B1328.620ib_-_Novum_organum_scientiarum.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/85/Houghton_EC.B1328.620ib_-_Novum_organum_scientiarum.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Houghton_EC.B1328.620ib_-_Novum_organum_scientiarum.jpg/1280px-Houghton_EC.B1328.620ib_-_Novum_organum_scientiarum.jpg",
+      "scene": {
+        "width": 371,
+        "height": 640,
+        "bytes": 84828,
+        "sha256": "c1bba5502e9582bbe96655afd15b7b5b23ee5697d0576e6fc3f07ed4fe9e1003"
+      },
+      "panel": {
+        "width": 743,
+        "height": 1280,
+        "bytes": 457772,
+        "sha256": "77347d113b62c34f5a28a7e2b1130802a202e0101708720a487639f5d33be3ed"
+      }
+    },
+    "putney-agreement-people-1648": {
+      "hallFolder": "renaissance-humanism-new-method",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Agreement_of_the_people_(1648_edition)_(IA_agreement1648).djvu",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/95/Agreement_of_the_people_%281648_edition%29_%28IA_agreement1648%29.djvu",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Agreement_of_the_people_%281648_edition%29_%28IA_agreement1648%29.djvu/page1-960px-Agreement_of_the_people_%281648_edition%29_%28IA_agreement1648%29.djvu.jpg",
+      "scene": {
+        "width": 483,
+        "height": 640,
+        "bytes": 65300,
+        "sha256": "862ccad71a95b4b988f36ecdce0dedd54f5ab5ff662a8809efb548da1f3bd7ce"
+      },
+      "panel": {
+        "width": 960,
+        "height": 1271,
+        "bytes": 241114,
+        "sha256": "79de1c871b835db34a95e67efb401a7b7fe912377d33d5a7e000a55769bccbac"
+      }
+    },
+    "hobbes-notes-motion-chatsworth": {
+      "hallFolder": "renaissance-humanism-new-method",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Notes_on_Galileo%27s_theory_of_motion,_by_Thomas_Hobbes,_1600s_-_Oak_Room,_Chatsworth_House_-_Derbyshire,_England_-_DSC03056.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Notes_on_Galileo%27s_theory_of_motion%2C_by_Thomas_Hobbes%2C_1600s_-_Oak_Room%2C_Chatsworth_House_-_Derbyshire%2C_England_-_DSC03056.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Notes_on_Galileo%27s_theory_of_motion%2C_by_Thomas_Hobbes%2C_1600s_-_Oak_Room%2C_Chatsworth_House_-_Derbyshire%2C_England_-_DSC03056.jpg/1280px-Notes_on_Galileo%27s_theory_of_motion%2C_by_Thomas_Hobbes%2C_1600s_-_Oak_Room%2C_Chatsworth_House_-_Derbyshire%2C_England_-_DSC03056.jpg",
+      "scene": {
+        "width": 640,
+        "height": 322,
+        "bytes": 54092,
+        "sha256": "5eb8945d6db8a25f8baa8c77fda9d68fc7b0b9ab482204ae2ae9037ec9c72735"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 643,
+        "bytes": 230406,
+        "sha256": "55db4fec5053823450d4ca98ef2e592cc03a6dd91a395f62f7fbf6754c859c9c"
+      }
+    },
     "alfred-north-whitehead-portrait-1923": {
       "hallFolder": "core-questions-forum",
       "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:ANWhitehead.jpg",

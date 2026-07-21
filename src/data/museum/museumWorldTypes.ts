@@ -112,15 +112,19 @@ export type MuseumInstallationTreatment =
 export type MuseumSupplementalExhibitId =
   | 'plato-cave-book-vii'
   | 'plato-republic'
-  | 'renaissance-school-of-athens'
+  | 'renaissance-texts-in-transit'
   | 'machiavelli-prince'
+  | 'machiavelli-discourses'
   | 'ficino-enneads'
   | 'bacon-great-instauration'
+  | 'bacon-novum-organum'
   | 'galileo-moon'
   | 'galileo-telescopes'
+  | 'putney-debates'
   | 'hobbes-leviathan'
   | 'hobbes-de-cive'
-  | 'english-civil-war';
+  | 'english-civil-war'
+  | 'hobbes-materialism-motion';
 
 export type MuseumSupplementalInstallationKind =
   | 'cave-ascent'

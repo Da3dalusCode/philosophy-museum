@@ -838,10 +838,10 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
             title: copy.title,
             kicker: copy.kicker,
             subtitle: copy.subtitle,
-            position: {x: 6.5, y: 2.3, z: bounds.maxZ - .22},
+            position: {x: 0, y: 4.55, z: bounds.maxZ - .22},
             rotationY: Math.PI,
             width: room.id === 'early-statecraft-republic' ? 5.2 : 4.8,
-            height: room.id === 'early-statecraft-republic' ? 1.22 : 1.02,
+            height: .82,
           };
         })
       : standardSigns;

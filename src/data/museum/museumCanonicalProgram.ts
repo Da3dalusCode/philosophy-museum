@@ -243,12 +243,14 @@ export const MUSEUM_CANONICAL_PROGRAM = [
     rooms: [
       {id: 'early-statecraft-republic', title: 'Civic power and statecraft', recordCapacity: 2, exhibits: [
         exhibit({id: 'machiavelli', entityKind: 'philosopher', entityId: 'machiavelli', displayName: 'Machiavelli', tier: 'anchor-exhibit', question: 'What does political judgment require when ideals and power diverge?', secondaryHallIds: ['justice-democratic-reason'], formerHallId: 'renaissance-reason-revolution', principalAssetId: 'machiavelli-santi-di-tito'}),
+        exhibit({id: 'ficino', entityKind: 'philosopher', entityId: 'ficino', displayName: 'Marsilio Ficino and the Work of Recovery', tier: 'anchor-exhibit', question: 'How does translation become a philosophical act that changes what a culture can think?', secondaryHallIds: ['late-antiquity-inheritance', 'latin-christian-scholastic'], principalAssetId: 'ficino-nga-medal-1499'}),
       ]},
       {id: 'early-experiment-method', title: 'Experiment, method, and organized inquiry', recordCapacity: 2, exhibits: [
         exhibit({id: 'bacon', entityKind: 'philosopher', entityId: 'bacon', displayName: 'Francis Bacon', tier: 'anchor-exhibit', question: 'How should organized observation and experiment reform inquiry?', secondaryHallIds: ['core-questions-forum', 'empiricism-science-political-order'], principalAssetId: 'francis-bacon-portrait-1617'}),
+        exhibit({id: 'galileo', entityKind: 'philosopher', entityId: 'galileo', displayName: 'Galileo: Instruments, Evidence, and Authority', tier: 'anchor-exhibit', question: 'How can instrument-mediated observations earn authority when the instrument itself is disputed?', secondaryHallIds: ['core-questions-forum', 'empiricism-science-political-order'], principalAssetId: 'galileo-sustermans-portrait-1636'}),
       ]},
       {id: 'early-sovereignty-materialism', title: 'Sovereignty, covenant, and materialism', recordCapacity: 2, exhibits: [
-        exhibit({id: 'hobbes', entityKind: 'philosopher', entityId: 'hobbes', displayName: 'Hobbes', tier: 'anchor-exhibit', question: 'Why would free people authorize a sovereign power?', secondaryHallIds: ['justice-democratic-reason'], formerHallId: 'renaissance-reason-revolution', principalAssetId: 'hobbes-wright-portrait'}),
+        exhibit({id: 'hobbes', entityKind: 'philosopher', entityId: 'hobbes', displayName: 'Thomas Hobbes', tier: 'anchor-exhibit', question: 'Why would free people authorize a sovereign power?', secondaryHallIds: ['justice-democratic-reason'], formerHallId: 'renaissance-reason-revolution', principalAssetId: 'hobbes-wright-portrait'}),
       ]},
     ],
   },

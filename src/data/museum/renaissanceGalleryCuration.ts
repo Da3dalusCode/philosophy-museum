@@ -19,7 +19,7 @@ export const RENAISSANCE_ROOM_ACCENTS = [
   RENAISSANCE_PALETTE.agedBrass,
 ] as const;
 
-export type RenaissancePrimaryExhibitId = 'machiavelli' | 'bacon' | 'hobbes';
+export type RenaissancePrimaryExhibitId = 'machiavelli' | 'ficino' | 'bacon' | 'galileo' | 'hobbes';
 
 export type RenaissanceExhibitCuration = {
   authored: {x: number; z: number; rotationY: number};
@@ -28,8 +28,8 @@ export type RenaissanceExhibitCuration = {
 };
 
 /**
- * The principal philosopher in each full room occupies the left pier of the
- * forward wall. The opposite pier carries visitor-facing orientation copy.
+ * Paired philosopher anchors occupy the forward wall where a room has two.
+ * Orientation copy sits above the central threshold, leaving both bays clear.
  */
 export const RENAISSANCE_EXHIBIT_CURATION = {
   machiavelli: {
@@ -37,10 +37,20 @@ export const RENAISSANCE_EXHIBIT_CURATION = {
     publicKicker: 'Florence · 1469–1527',
     groupLabel: 'Civic power, contingency, and political judgment',
   },
+  ficino: {
+    authored: {x: 6.5, z: -10.48, rotationY: Math.PI},
+    publicKicker: 'Florence · 1433–1499',
+    groupLabel: 'Translation, commentary, and Renaissance Platonism',
+  },
   bacon: {
     authored: {x: -6.5, z: 8.18, rotationY: Math.PI},
     publicKicker: 'England · 1561–1626',
     groupLabel: 'Observation, experiment, and organized inquiry',
+  },
+  galileo: {
+    authored: {x: 6.5, z: 8.18, rotationY: Math.PI},
+    publicKicker: 'Italy · 1564–1642',
+    groupLabel: 'Instruments, evidence, and contested authority',
   },
   hobbes: {
     authored: {x: -6.5, z: 26.85, rotationY: Math.PI},
@@ -63,7 +73,7 @@ export const RENAISSANCE_ROOM_SIGN_COPY = {
   'early-experiment-method': {
     title: 'Experiment, Method, and Organized Inquiry',
     kicker: 'OBSERVATION · INSTRUMENTS · COLLECTIVE REFORM',
-    subtitle: 'Francis Bacon → Galileo’s moon → the telescope',
+    subtitle: 'Francis Bacon → Galileo → instrument-mediated evidence',
   },
   'early-sovereignty-materialism': {
     title: 'Sovereignty, Covenant, and Civil War',

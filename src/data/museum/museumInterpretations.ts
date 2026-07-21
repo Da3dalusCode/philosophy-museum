@@ -466,6 +466,16 @@ const CANONICAL_DIRECT_INTERPRETATION_SOURCES: Readonly<Record<string, readonly 
     academicSource('Internet Encyclopedia of Philosophy — Francis Bacon', 'https://iep.utm.edu/francis-bacon/'),
     primarySource('Francis Bacon, Novum Organum — public-domain text', 'https://en.wikisource.org/wiki/Novum_Organum'),
   ],
+  ficino: [
+    academicSource('Stanford Encyclopedia of Philosophy — Marsilio Ficino', 'https://plato.stanford.edu/entries/ficino/'),
+    academicSource('Internet Encyclopedia of Philosophy — Marsilio Ficino', 'https://iep.utm.edu/ficino/'),
+    {label: 'National Gallery of Art — Marsilio Ficino medal', url: 'https://purl.org/nga/collection/artobject/44811', kind: 'collection-record'},
+  ],
+  galileo: [
+    academicSource('Stanford Encyclopedia of Philosophy — Galileo Galilei', 'https://plato.stanford.edu/entries/galileo/'),
+    primarySource('Smithsonian Libraries — Sidereus Nuncius', 'https://library.si.edu/digital-library/book/sidereusnuncius00gali'),
+    {label: 'Museo Galileo — Galileo Galilei', url: 'https://catalogue.museogalileo.it/biography/GalileoGalilei.html', kind: 'collection-record'},
+  ],
   phenomenology: [
     academicSource('Stanford Encyclopedia of Philosophy — Phenomenology', 'https://plato.stanford.edu/entries/phenomenology/'),
     academicSource('Stanford Encyclopedia of Philosophy — Edmund Husserl', 'https://plato.stanford.edu/entries/husserl/'),
