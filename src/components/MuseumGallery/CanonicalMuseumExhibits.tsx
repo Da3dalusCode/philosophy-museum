@@ -1,6 +1,10 @@
 import type {ThreeEvent} from '@react-three/fiber';
 import type {MuseumExhibitLayout, MuseumHallDefinition, MuseumSceneVolume} from '../../data/museum/museumWorldTypes';
 import {
+  MUSEUM_CANONICAL_EXHIBIT_BACKING_MATERIAL,
+  MUSEUM_CANONICAL_EXHIBIT_PLINTH_MATERIAL,
+} from '../../data/museum/museumArchitectureMaterials';
+import {
   MEDITERRANEAN_EXHIBIT_CURATION,
   MEDITERRANEAN_GALLERY_ID,
   MEDITERRANEAN_PALETTE,
@@ -23,10 +27,19 @@ import {usePlaqueTexture} from './plaqueTextures';
 
 const ACCENTS = ['#8d6947', '#4f7480', '#755f88', '#897241', '#546f67', '#825861', '#556f8a', '#8b654b', '#657153'];
 
-function Box({volume, color}: {volume: MuseumSceneVolume; color: string}) {
+function Box({volume, color, roughness = .9, metalness}: {
+  volume: MuseumSceneVolume;
+  color: string;
+  roughness?: number;
+  metalness?: number;
+}) {
   return <mesh position={[volume.center.x, volume.center.y, volume.center.z]}>
     <boxGeometry args={[volume.size.width, volume.size.height, volume.size.depth]}/>
-    <meshStandardMaterial color={color} roughness={.9} metalness={volume.role === 'concept-object' ? .34 : .03}/>
+    <meshStandardMaterial
+      color={color}
+      roughness={roughness}
+      metalness={metalness ?? (volume.role === 'concept-object' ? .34 : .03)}
+    />
   </mesh>;
 }
 
@@ -116,7 +129,7 @@ function RenaissanceFinishedBack({backing, accent}: {
   ]} rotation={[0, Math.PI, 0]}>
     <mesh>
       <planeGeometry args={[width, height]}/>
-      <meshStandardMaterial color={RENAISSANCE_PALETTE.walnutEdge} roughness={.9} metalness={.02}/>
+      <meshStandardMaterial {...MUSEUM_CANONICAL_EXHIBIT_BACKING_MATERIAL}/>
     </mesh>
     <mesh position={[0, -height * .34, .008]}>
       <boxGeometry args={[width * .7, .04, .025]}/>
@@ -139,20 +152,21 @@ function Installation({layout, title, question, kicker, accent, nearby, curation
   const backing = layout.scene.objectBounds.find(({id}) => id.endsWith('-backing'))!;
   const motif = layout.scene.objectBounds.find(({id}) => id.endsWith('-concept'))!;
   const interaction = layout.scene.interactionBounds;
-  const backingColor = curation
-    ? layout.presentationTier === 'archive'
-      ? '#d7d3ca'
-      : layout.presentationTier === 'supporting'
-        ? '#dfdcd4'
-        : layout.presentationTier === 'anchor'
-          ? '#eeeae2'
-          : '#e6e2da'
-    : renaissanceCuration
-      ? RENAISSANCE_PALETTE.paper
-      : '#d9d5cd';
+  const canonicalConstruction = Boolean(curation || renaissanceCuration);
+  const backingColor = '#d9d5cd';
   return <group>
-    <Box volume={plinth} color={curation ? MEDITERRANEAN_PALETTE.limestone : renaissanceCuration ? RENAISSANCE_PALETTE.walnut : '#6e6b65'}/>
-    <Box volume={backing} color={backingColor}/>
+    <Box
+      volume={plinth}
+      {...(canonicalConstruction
+        ? MUSEUM_CANONICAL_EXHIBIT_PLINTH_MATERIAL
+        : {color: '#6e6b65'})}
+    />
+    <Box
+      volume={backing}
+      {...(canonicalConstruction
+        ? MUSEUM_CANONICAL_EXHIBIT_BACKING_MATERIAL
+        : {color: backingColor})}
+    />
     {curation
       ? <MediterraneanFinishedBack backing={backing} groupLabel={curation.groupLabel} accent={accent}/>
       : renaissanceCuration

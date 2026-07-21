@@ -3,8 +3,16 @@ import type {
   MuseumSupplementalExhibitId,
   MuseumSupplementalExhibitLayout,
 } from '../../data/museum/museumWorldTypes';
-import {getPlatoSupplementalExhibit} from '../../data/museum/platoSupplementalExhibits';
+import {
+  getPlatoSupplementalExhibit,
+  PLATO_SUPPLEMENTAL_BACKING_WIDTH,
+} from '../../data/museum/platoSupplementalExhibits';
 import {MEDITERRANEAN_PALETTE} from '../../data/museum/mediterraneanGalleryCuration';
+import {
+  MUSEUM_CANONICAL_EXHIBIT_BACKING_MATERIAL,
+  MUSEUM_CANONICAL_EXHIBIT_PLINTH_GEOMETRY,
+  MUSEUM_CANONICAL_EXHIBIT_PLINTH_MATERIAL,
+} from '../../data/museum/museumArchitectureMaterials';
 import {MUSEUM_TEXTURE_SPECS, museumTextureDimensionsForPlane} from '../../data/museum/museumTexturePolicy';
 import {MuseumSceneMedia} from './MuseumSceneMedia';
 import {usePlaqueTexture} from './plaqueTextures';
@@ -42,7 +50,7 @@ function ExhibitLabel({layout}: {layout: MuseumSupplementalExhibitLayout}) {
 function CaveArchitecture() {
   return <group>
     <mesh position={[0, 2.28, -.58]}>
-      <boxGeometry args={[4.72, 4.5, .2]}/>
+      <boxGeometry args={[PLATO_SUPPLEMENTAL_BACKING_WIDTH, 4.5, .2]}/>
       <meshStandardMaterial color={MEDITERRANEAN_PALETTE.ink} roughness={.92}/>
     </mesh>
     {[-2.18, 2.18].map((x) => <mesh key={x} position={[x, 2.18, -.32]}>
@@ -59,8 +67,8 @@ function CaveArchitecture() {
 function RepublicArchitecture() {
   return <group>
     <mesh position={[0, 2.28, -.58]}>
-      <boxGeometry args={[4.72, 4.5, .2]}/>
-      <meshStandardMaterial color={MEDITERRANEAN_PALETTE.plaster} roughness={.92}/>
+      <boxGeometry args={[PLATO_SUPPLEMENTAL_BACKING_WIDTH, 4.5, .2]}/>
+      <meshStandardMaterial {...MUSEUM_CANONICAL_EXHIBIT_BACKING_MATERIAL}/>
     </mesh>
   </group>;
 }
@@ -69,6 +77,8 @@ function SupplementalInstallation({layout, nearby}: {
   layout: MuseumSupplementalExhibitLayout;
   nearby: boolean;
 }) {
+  const plinth = MUSEUM_CANONICAL_EXHIBIT_PLINTH_GEOMETRY;
+  const structuralRearZ = -.58 - .2 / 2;
   return <group userData={{
     supplementalExhibitId: layout.id,
     parentExhibitId: layout.parentExhibitId,
@@ -79,9 +89,13 @@ function SupplementalInstallation({layout, nearby}: {
       : <RepublicArchitecture/>}
     <MuseumSceneMedia mount={layout.mediaMount} nearby={nearby} accent={GALLERY_FRAME_BRONZE}/>
     <ExhibitLabel layout={layout}/>
-    <mesh position={[0, .1, -.06]}>
-      <boxGeometry args={[layout.footprint.width, .2, layout.footprint.depth]}/>
-      <meshStandardMaterial color={MEDITERRANEAN_PALETTE.limestone} roughness={.9} metalness={.03}/>
+    <mesh position={[0, plinth.height / 2, structuralRearZ + plinth.largeDepth / 2]}>
+      <boxGeometry args={[
+        PLATO_SUPPLEMENTAL_BACKING_WIDTH + plinth.sideOverhang * 2,
+        plinth.height,
+        plinth.largeDepth,
+      ]}/>
+      <meshStandardMaterial {...MUSEUM_CANONICAL_EXHIBIT_PLINTH_MATERIAL}/>
     </mesh>
     <mesh position={[0, layout.footprint.height / 2, 0]} userData={{interactionForSupplemental: layout.id}}>
       <boxGeometry args={[layout.footprint.width, layout.footprint.height, layout.footprint.depth]}/>

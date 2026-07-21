@@ -26,6 +26,27 @@ export const MUSEUM_CANONICAL_CEILING_MATERIAL = Object.freeze({
   metalness: 0,
 }) satisfies MuseumWallMaterialSpec;
 
+/** Shared structural finish for exposed exhibit backing panels in Galleries 01–02. */
+export const MUSEUM_CANONICAL_EXHIBIT_BACKING_MATERIAL = Object.freeze({
+  color: '#d8d1c3',
+  roughness: .92,
+  metalness: 0,
+}) satisfies MuseumWallMaterialSpec;
+
+/** The pale-stone finish established by the Plato and Platonism bases. */
+export const MUSEUM_CANONICAL_EXHIBIT_PLINTH_MATERIAL = Object.freeze({
+  color: '#d7c6aa',
+  roughness: .9,
+  metalness: .03,
+}) satisfies MuseumWallMaterialSpec;
+
+export const MUSEUM_CANONICAL_EXHIBIT_PLINTH_GEOMETRY = Object.freeze({
+  height: .16,
+  depth: .62,
+  largeDepth: .75,
+  sideOverhang: .15,
+});
+
 export type MuseumOwnerApprovedWallMaterialException = Readonly<{
   approvalReference: string;
   rationale: string;

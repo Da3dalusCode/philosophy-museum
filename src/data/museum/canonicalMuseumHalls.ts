@@ -9,6 +9,7 @@ import {
   type MuseumPresentationTier,
 } from './museumCanonicalProgram';
 import {getMuseumManifestHallNode} from './museumBuildingManifest';
+import {MUSEUM_CANONICAL_EXHIBIT_PLINTH_GEOMETRY} from './museumArchitectureMaterials';
 import {
   MEDITERRANEAN_EXHIBIT_CURATION,
   MEDITERRANEAN_GALLERY_ID,
@@ -136,6 +137,7 @@ const mediaMount = (
 const createScene = (
   record: MuseumCanonicalExhibit,
   compactForumInstallation = false,
+  canonicalExhibitConstruction = false,
 ): MuseumInstallationSceneDefinition => {
   const contract = TIER_CONTRACTS[record.tier];
   const physicalContract = compactForumInstallation
@@ -152,11 +154,23 @@ const createScene = (
     {x: 0, y: physicalContract.objectHeight / 2, z: -.76},
     {width: physicalContract.objectWidth, height: physicalContract.objectHeight, depth: .16},
   );
+  const plinthHeight = canonicalExhibitConstruction
+    ? MUSEUM_CANONICAL_EXHIBIT_PLINTH_GEOMETRY.height
+    : .2;
+  const plinthDepth = canonicalExhibitConstruction
+    ? MUSEUM_CANONICAL_EXHIBIT_PLINTH_GEOMETRY.depth
+    : Math.max(.72, physicalContract.objectDepth * .55);
+  const plinthWidth = canonicalExhibitConstruction
+    ? physicalContract.objectWidth + MUSEUM_CANONICAL_EXHIBIT_PLINTH_GEOMETRY.sideOverhang * 2
+    : Math.max(1.2, physicalContract.objectWidth * .82);
+  const plinthCenterZ = canonicalExhibitConstruction
+    ? backing.center.z - backing.size.depth / 2 + plinthDepth / 2
+    : -.05;
   const plinth = volume(
     `${record.id}-plinth`,
     'base',
-    {x: 0, y: .1, z: -.05},
-    {width: Math.max(1.2, physicalContract.objectWidth * .82), height: .2, depth: Math.max(.72, physicalContract.objectDepth * .55)},
+    {x: 0, y: plinthHeight / 2, z: plinthCenterZ},
+    {width: plinthWidth, height: plinthHeight, depth: plinthDepth},
   );
   const motif = volume(
     `${record.id}-concept`,
@@ -173,7 +187,11 @@ const createScene = (
   const plaqueWidth = Math.min(1.22, physicalContract.objectWidth - .28);
   const plaqueId = `${record.id}-plaque`;
   return {
-    footprint: {width: physicalContract.objectWidth, height: physicalContract.objectHeight + .16, depth: physicalContract.objectDepth},
+    footprint: {
+      width: physicalContract.objectWidth,
+      height: physicalContract.objectHeight + .16,
+      depth: physicalContract.objectDepth,
+    },
     mediaMounts: mediaAssets.map((assetId, index) => mediaMount(
       record.id,
       assetId,
@@ -350,8 +368,9 @@ const createExhibitLayout = (
   roomId: string,
   candidate: PlacementCandidate,
   compactForumInstallation = false,
+  canonicalExhibitConstruction = false,
 ): MuseumExhibitLayout => {
-  const scene = createScene(record, compactForumInstallation);
+  const scene = createScene(record, compactForumInstallation, canonicalExhibitConstruction);
   const contract = TIER_CONTRACTS[record.tier];
   const target = {
     x: candidate.x + scene.focalTarget.x * Math.cos(candidate.rotationY) + scene.focalTarget.z * Math.sin(candidate.rotationY),
@@ -508,6 +527,7 @@ const placeRoomExhibits = (
   exclusions: readonly MuseumBounds[],
   centerFallback = false,
   authoredPlacements?: Readonly<Record<string, PlacementCandidate>>,
+  canonicalExhibitConstruction = false,
 ): MuseumExhibitLayout[] => {
   const accepted: MuseumExhibitLayout[] = [];
   const candidates = [...wallCandidates(bounds)];
@@ -538,9 +558,9 @@ const placeRoomExhibits = (
     candidate: PlacementCandidate,
     placed: readonly MuseumExhibitLayout[],
   ): MuseumExhibitLayout | undefined => {
-    const scene = createScene(record, centerFallback);
+    const scene = createScene(record, centerFallback, canonicalExhibitConstruction);
     const footprint = colliderBounds(candidate, candidate.rotationY, scene.footprint.width, scene.footprint.depth);
-    const proposed = createExhibitLayout(record, room.id, candidate, centerFallback);
+    const proposed = createExhibitLayout(record, room.id, candidate, centerFallback, canonicalExhibitConstruction);
     const inside = footprint.minX >= bounds.minX + .08 && footprint.maxX <= bounds.maxX - .08
       && footprint.minZ >= bounds.minZ + .08 && footprint.maxZ <= bounds.maxZ - .08;
     const blocked = placed.some((layout) => {
@@ -652,6 +672,7 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
         : hall.id === RENAISSANCE_GALLERY_ID
           ? RENAISSANCE_AUTHORED_PLACEMENTS
           : undefined,
+      hall.id === MEDITERRANEAN_GALLERY_ID || hall.id === RENAISSANCE_GALLERY_ID,
     );
   });
   const supplementalExhibits = hall.id === MEDITERRANEAN_GALLERY_ID

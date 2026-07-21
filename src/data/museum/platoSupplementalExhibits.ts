@@ -81,6 +81,7 @@ const mediaMount = (
 
 const CAVE_ID = 'plato-cave-book-vii' as const;
 const REPUBLIC_ID = 'plato-republic' as const;
+export const PLATO_SUPPLEMENTAL_BACKING_WIDTH = 4.72;
 
 /**
  * These are work-and-idea exhibits associated with Plato. They are deliberately
