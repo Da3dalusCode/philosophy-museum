@@ -42,16 +42,13 @@ function ExhibitLabel({layout}: {layout: MuseumSupplementalExhibitLayout}) {
   </group>;
 }
 
-/** Shared neutral structure with the authored paper inset and walnut trim retained. */
+/** Canonical structural field with the narrow authored walnut trim retained. */
 function FinishedBacking({layout}: {layout: MuseumSupplementalExhibitLayout}) {
-  const paper = layout.installationKind === 'renaissance-observation'
-    ? '#c7c3b7'
-    : RENAISSANCE_PALETTE.paper;
   const width = layout.label.width + .38;
   const height = layout.footprint.height - .12;
   const centerY = height / 2 + .04;
-  const insetWidth = width - .24;
-  const insetHeight = height - .24;
+  const fieldWidth = width - .24;
+  const fieldHeight = height - .24;
   const trim = .07;
   const plinth = MUSEUM_CANONICAL_EXHIBIT_PLINTH_GEOMETRY;
   const structuralRearZ = -.58 - .24 / 2;
@@ -61,14 +58,14 @@ function FinishedBacking({layout}: {layout: MuseumSupplementalExhibitLayout}) {
       <meshStandardMaterial {...MUSEUM_CANONICAL_EXHIBIT_BACKING_MATERIAL}/>
     </mesh>
     <mesh position={[0, centerY, -.445]}>
-      <boxGeometry args={[insetWidth, insetHeight, .055]}/>
-      <meshStandardMaterial color={paper} roughness={.95} metalness={0}/>
+      <boxGeometry args={[fieldWidth, fieldHeight, .055]}/>
+      <meshStandardMaterial {...MUSEUM_CANONICAL_EXHIBIT_BACKING_MATERIAL}/>
     </mesh>
     {[
-      {id: 'top', position: [0, centerY + insetHeight / 2 + trim / 2, -.405], size: [insetWidth + trim * 2, trim, .05]},
-      {id: 'bottom', position: [0, centerY - insetHeight / 2 - trim / 2, -.405], size: [insetWidth + trim * 2, trim, .05]},
-      {id: 'left', position: [-insetWidth / 2 - trim / 2, centerY, -.405], size: [trim, insetHeight, .05]},
-      {id: 'right', position: [insetWidth / 2 + trim / 2, centerY, -.405], size: [trim, insetHeight, .05]},
+      {id: 'top', position: [0, centerY + fieldHeight / 2 + trim / 2, -.405], size: [fieldWidth + trim * 2, trim, .05]},
+      {id: 'bottom', position: [0, centerY - fieldHeight / 2 - trim / 2, -.405], size: [fieldWidth + trim * 2, trim, .05]},
+      {id: 'left', position: [-fieldWidth / 2 - trim / 2, centerY, -.405], size: [trim, fieldHeight, .05]},
+      {id: 'right', position: [fieldWidth / 2 + trim / 2, centerY, -.405], size: [trim, fieldHeight, .05]},
     ].map(({id, position, size}) => <mesh key={id} position={position as [number, number, number]}>
       <boxGeometry args={size as [number, number, number]}/>
       <meshStandardMaterial color={RENAISSANCE_PALETTE.walnut} roughness={.82} metalness={.02}/>

@@ -51,7 +51,7 @@ function CaveArchitecture() {
   return <group>
     <mesh position={[0, 2.28, -.58]}>
       <boxGeometry args={[PLATO_SUPPLEMENTAL_BACKING_WIDTH, 4.5, .2]}/>
-      <meshStandardMaterial color={MEDITERRANEAN_PALETTE.ink} roughness={.92}/>
+      <meshStandardMaterial {...MUSEUM_CANONICAL_EXHIBIT_BACKING_MATERIAL}/>
     </mesh>
     {[-2.18, 2.18].map((x) => <mesh key={x} position={[x, 2.18, -.32]}>
       <boxGeometry args={[.28, 3.82, .42]}/>
