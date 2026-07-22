@@ -3,7 +3,7 @@ import type {MuseumExhibitLayout, MuseumHallDefinition, MuseumSceneVolume} from 
 import {
   MUSEUM_CANONICAL_EXHIBIT_BACKING_MATERIAL,
   MUSEUM_CANONICAL_EXHIBIT_PLINTH_MATERIAL,
-  MUSEUM_GALLERY_02_EXHIBIT_SURFACE_COLOR,
+  MUSEUM_GALLERY_02_EXHIBIT_SURFACE_MATERIAL,
 } from '../../data/museum/museumArchitectureMaterials';
 import {
   MEDITERRANEAN_EXHIBIT_CURATION,
@@ -38,7 +38,7 @@ function Box({volume, color, roughness = .9, metalness, gallery02Surface = false
   return <mesh position={[volume.center.x, volume.center.y, volume.center.z]}>
     <boxGeometry args={[volume.size.width, volume.size.height, volume.size.depth]}/>
     {gallery02Surface
-      ? <meshBasicMaterial color={MUSEUM_GALLERY_02_EXHIBIT_SURFACE_COLOR} toneMapped={false}/>
+      ? <meshStandardMaterial {...MUSEUM_GALLERY_02_EXHIBIT_SURFACE_MATERIAL}/>
       : <meshStandardMaterial
         color={color}
         roughness={roughness}
@@ -133,7 +133,7 @@ function RenaissanceFinishedBack({backing, accent}: {
   ]} rotation={[0, Math.PI, 0]}>
     <mesh>
       <planeGeometry args={[width, height]}/>
-      <meshBasicMaterial color={MUSEUM_GALLERY_02_EXHIBIT_SURFACE_COLOR} toneMapped={false}/>
+      <meshStandardMaterial {...MUSEUM_GALLERY_02_EXHIBIT_SURFACE_MATERIAL}/>
     </mesh>
     <mesh position={[0, -height * .34, .008]}>
       <boxGeometry args={[width * .7, .04, .025]}/>
@@ -165,7 +165,7 @@ function Installation({layout, title, question, kicker, accent, nearby, curation
         ? MUSEUM_CANONICAL_EXHIBIT_PLINTH_MATERIAL
         : {color: '#6e6b65'})}
       {...(renaissanceCuration
-        ? {color: MUSEUM_GALLERY_02_EXHIBIT_SURFACE_COLOR, gallery02Surface: true}
+        ? {color: MUSEUM_GALLERY_02_EXHIBIT_SURFACE_MATERIAL.color, gallery02Surface: true}
         : {})}
     />
     <Box
@@ -174,7 +174,7 @@ function Installation({layout, title, question, kicker, accent, nearby, curation
         ? MUSEUM_CANONICAL_EXHIBIT_BACKING_MATERIAL
         : {color: backingColor})}
       {...(renaissanceCuration
-        ? {color: MUSEUM_GALLERY_02_EXHIBIT_SURFACE_COLOR, gallery02Surface: true}
+        ? {color: MUSEUM_GALLERY_02_EXHIBIT_SURFACE_MATERIAL.color, gallery02Surface: true}
         : {})}
     />
     {curation

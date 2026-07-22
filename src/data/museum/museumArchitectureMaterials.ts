@@ -48,10 +48,16 @@ export const MUSEUM_CANONICAL_EXHIBIT_PLINTH_GEOMETRY = Object.freeze({
 });
 
 /**
- * Gallery 02's neutral millwork must hold one stable rendered value under
- * every authored wall orientation; frames and objects retain their own PBR.
+ * Gallery 02's shared structural millwork. A restrained neutral self-fill
+ * offsets the warmer side-wall lighting while preserving normal-based depth.
  */
-export const MUSEUM_GALLERY_02_EXHIBIT_SURFACE_COLOR = '#dedbd4';
+export const MUSEUM_GALLERY_02_EXHIBIT_SURFACE_MATERIAL = Object.freeze({
+  color: '#a5a095',
+  roughness: .92,
+  metalness: 0,
+  emissive: '#c9c9c6',
+  emissiveIntensity: .26,
+});
 
 export type MuseumOwnerApprovedWallMaterialException = Readonly<{
   approvalReference: string;

@@ -3,7 +3,7 @@ import {getRenaissanceSupplementalExhibit} from '../../data/museum/renaissanceSu
 import {RENAISSANCE_PALETTE} from '../../data/museum/renaissanceGalleryCuration';
 import {
   MUSEUM_CANONICAL_EXHIBIT_PLINTH_GEOMETRY,
-  MUSEUM_GALLERY_02_EXHIBIT_SURFACE_COLOR,
+  MUSEUM_GALLERY_02_EXHIBIT_SURFACE_MATERIAL,
 } from '../../data/museum/museumArchitectureMaterials';
 import {MUSEUM_TEXTURE_SPECS, museumTextureDimensionsForPlane} from '../../data/museum/museumTexturePolicy';
 import type {
@@ -54,11 +54,11 @@ function FinishedBacking({layout}: {layout: MuseumSupplementalExhibitLayout}) {
   return <group>
     <mesh position={[0, centerY, -.58]}>
       <boxGeometry args={[width, height, .24]}/>
-      <meshBasicMaterial color={MUSEUM_GALLERY_02_EXHIBIT_SURFACE_COLOR} toneMapped={false}/>
+      <meshStandardMaterial {...MUSEUM_GALLERY_02_EXHIBIT_SURFACE_MATERIAL}/>
     </mesh>
     <mesh position={[0, centerY, -.445]}>
       <boxGeometry args={[fieldWidth, fieldHeight, .055]}/>
-      <meshBasicMaterial color={MUSEUM_GALLERY_02_EXHIBIT_SURFACE_COLOR} toneMapped={false}/>
+      <meshStandardMaterial {...MUSEUM_GALLERY_02_EXHIBIT_SURFACE_MATERIAL}/>
     </mesh>
     {[
       {id: 'top', position: [0, centerY + fieldHeight / 2 + trim / 2, -.405], size: [fieldWidth + trim * 2, trim, .05]},
@@ -71,11 +71,11 @@ function FinishedBacking({layout}: {layout: MuseumSupplementalExhibitLayout}) {
     </mesh>)}
     <mesh position={[0, centerY, -.705]} rotation={[0, Math.PI, 0]}>
       <planeGeometry args={[width - .28, height - .28]}/>
-      <meshBasicMaterial color={MUSEUM_GALLERY_02_EXHIBIT_SURFACE_COLOR} toneMapped={false}/>
+      <meshStandardMaterial {...MUSEUM_GALLERY_02_EXHIBIT_SURFACE_MATERIAL}/>
     </mesh>
     <mesh position={[0, plinth.height / 2, structuralRearZ + plinth.largeDepth / 2]}>
       <boxGeometry args={[width + plinth.sideOverhang * 2, plinth.height, plinth.largeDepth]}/>
-      <meshBasicMaterial color={MUSEUM_GALLERY_02_EXHIBIT_SURFACE_COLOR} toneMapped={false}/>
+      <meshStandardMaterial {...MUSEUM_GALLERY_02_EXHIBIT_SURFACE_MATERIAL}/>
     </mesh>
     <mesh position={[0, plinth.height + .0275, -.115]}>
       <boxGeometry args={[width * .72, .055, .04]}/>
