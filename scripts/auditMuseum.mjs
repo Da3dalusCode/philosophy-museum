@@ -651,7 +651,15 @@ check('all six runtime halls are canonical, data-driven, and internally aligned'
     assert.equal(definition.layout.guidedWalkLegs.length, Math.max(0, hall.exhibits.length - 1));
     assert.equal(definition.layout.entryViews.length, hall.zones.length);
     assert.equal(definition.layout.lighting.tracks.length, hall.zones.length);
-    assert.equal(definition.layout.lighting.exhibitLights.length, hall.exhibits.length);
+    const litSupplementalExhibits = definition.id === 'renaissance-humanism-new-method'
+      ? definition.layout.supplementalExhibits ?? []
+      : [];
+    assert.equal(definition.layout.lighting.exhibitLights.length, hall.exhibits.length + litSupplementalExhibits.length);
+    assert.deepEqual(
+      sorted(definition.layout.lighting.exhibitLights.map(({exhibitId}) => exhibitId)),
+      sorted([...hall.exhibits.map(({id}) => id), ...litSupplementalExhibits.map(({id}) => id)]),
+      `${definition.id} display lights do not cover the intended exhibits`,
+    );
     const comparativeLensCount = hall.zones.reduce((sum, zone) => sum + (zone.comparativeLenses?.length ?? 0), 0);
     const removedPhysicalRoomSigns = definition.id === MEDITERRANEAN_GALLERY_ID || definition.id === 'renaissance-humanism-new-method' ? 1 : 0;
     assert.equal(definition.layout.signs.length, hall.zones.length + 1 + comparativeLensCount - removedPhysicalRoomSigns);

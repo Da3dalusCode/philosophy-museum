@@ -694,23 +694,46 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
     center: {x: (cell.bounds.minX + cell.bounds.maxX) / 2, y: ceiling - .24, z: (cell.bounds.minZ + cell.bounds.maxZ) / 2},
     size: {width: Math.max(2, cell.bounds.maxX - cell.bounds.minX - 1.2), height: .07, depth: .08},
   }));
-  const exhibitLights = exhibits.map((layout) => {
-    const target = {x: layout.position.x, y: Math.min(1.72, layout.scene.focalTarget.y), z: layout.position.z};
-    const track = tracks.find(({id}) => id === `track:${layout.spatialCellId}`)!;
-    const mountPosition = {x: Math.max(track.center.x - track.size.width / 2, Math.min(track.center.x + track.size.width / 2, target.x)), y: ceiling - .28, z: track.center.z};
-    return {
-      id: `light:${layout.id}`,
-      exhibitId: layout.id,
-      trackId: track.id,
-      mountPosition,
-      position: {...mountPosition, y: mountPosition.y - .32},
-      target,
-      intensity: layout.presentationTier === 'anchor' ? 38 : 31,
-      distance: 10,
-      angle: .4,
-      penumbra: .72,
-    };
-  });
+  const exhibitLights = [
+    ...exhibits.map((layout) => {
+      const target = {x: layout.position.x, y: Math.min(1.72, layout.scene.focalTarget.y), z: layout.position.z};
+      const track = tracks.find(({id}) => id === `track:${layout.spatialCellId}`)!;
+      const mountPosition = {x: Math.max(track.center.x - track.size.width / 2, Math.min(track.center.x + track.size.width / 2, target.x)), y: ceiling - .28, z: track.center.z};
+      return {
+        id: `light:${layout.id}`,
+        exhibitId: layout.id,
+        trackId: track.id,
+        mountPosition,
+        position: {...mountPosition, y: mountPosition.y - .32},
+        target,
+        intensity: layout.presentationTier === 'anchor' ? 38 : 31,
+        distance: 10,
+        angle: .4,
+        penumbra: .72,
+      };
+    }),
+    ...(hall.id === RENAISSANCE_GALLERY_ID ? supplementalExhibits.map((layout) => {
+      const target = {x: layout.position.x, y: 1.72, z: layout.position.z};
+      const track = tracks.find(({id}) => id === `track:${layout.spatialCellId}`)!;
+      // Gallery 02's supplemental bays occupy the side walls. Offset each head
+      // inward so its beam reaches the panel face instead of grazing along it.
+      const inwardX = target.x + Math.sin(layout.rotationY) * 5.4;
+      const spacedX = inwardX + (target.z - track.center.z) * .28;
+      const mountPosition = {x: Math.max(track.center.x - track.size.width / 2, Math.min(track.center.x + track.size.width / 2, spacedX)), y: ceiling - .28, z: track.center.z};
+      return {
+        id: `light:${layout.id}`,
+        exhibitId: layout.id,
+        trackId: track.id,
+        mountPosition,
+        position: {...mountPosition, y: mountPosition.y - .32},
+        target,
+        intensity: 31,
+        distance: 10,
+        angle: .4,
+        penumbra: .72,
+      };
+    }) : []),
+  ];
   const wallColliders = [
     ...outerWalls(width, depth, ceiling, hall.id),
     ...(isForum ? forumPartitionWalls(hall.id) : sequencePartitionWalls(orderedRooms, roomBounds, hall.id)),
