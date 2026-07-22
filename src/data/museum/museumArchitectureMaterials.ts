@@ -48,15 +48,25 @@ export const MUSEUM_CANONICAL_EXHIBIT_PLINTH_GEOMETRY = Object.freeze({
 });
 
 /**
- * Gallery 02's shared structural millwork. A restrained neutral self-fill
- * offsets the warmer side-wall lighting while preserving normal-based depth.
+ * Gallery 02 uses the same two structural finishes for every primary and
+ * supplemental installation. Their restrained self-fill keeps side-wall and
+ * front-wall faces in the same light-neutral family without flattening the
+ * normal-based shading that gives the millwork its depth.
  */
-export const MUSEUM_GALLERY_02_EXHIBIT_SURFACE_MATERIAL = Object.freeze({
-  color: '#a5a095',
+export const MUSEUM_GALLERY_02_EXHIBIT_BACKING_MATERIAL = Object.freeze({
+  color: '#706b60',
   roughness: .92,
   metalness: 0,
-  emissive: '#c9c9c6',
-  emissiveIntensity: .26,
+  emissive: '#d3c0a7',
+  emissiveIntensity: .235,
+});
+
+export const MUSEUM_GALLERY_02_EXHIBIT_PLINTH_MATERIAL = Object.freeze({
+  color: '#6a6961',
+  roughness: .9,
+  metalness: .03,
+  emissive: '#d7c5ad',
+  emissiveIntensity: .225,
 });
 
 export type MuseumOwnerApprovedWallMaterialException = Readonly<{

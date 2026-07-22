@@ -3,7 +3,8 @@ import type {MuseumExhibitLayout, MuseumHallDefinition, MuseumSceneVolume} from 
 import {
   MUSEUM_CANONICAL_EXHIBIT_BACKING_MATERIAL,
   MUSEUM_CANONICAL_EXHIBIT_PLINTH_MATERIAL,
-  MUSEUM_GALLERY_02_EXHIBIT_SURFACE_MATERIAL,
+  MUSEUM_GALLERY_02_EXHIBIT_BACKING_MATERIAL,
+  MUSEUM_GALLERY_02_EXHIBIT_PLINTH_MATERIAL,
 } from '../../data/museum/museumArchitectureMaterials';
 import {
   MEDITERRANEAN_EXHIBIT_CURATION,
@@ -28,7 +29,15 @@ import {usePlaqueTexture} from './plaqueTextures';
 
 const ACCENTS = ['#8d6947', '#4f7480', '#755f88', '#897241', '#546f67', '#825861', '#556f8a', '#8b654b', '#657153'];
 
-function Box({volume, color, roughness = .9, metalness, gallery02Surface = false}: {
+function Gallery02SurfaceMaterial({kind}: {
+  kind: 'backing' | 'plinth';
+}) {
+  return <meshStandardMaterial {...(kind === 'backing'
+    ? MUSEUM_GALLERY_02_EXHIBIT_BACKING_MATERIAL
+    : MUSEUM_GALLERY_02_EXHIBIT_PLINTH_MATERIAL)}/>;
+}
+
+function Box({volume, color, roughness = .9, metalness, gallery02Surface}: {
   volume: MuseumSceneVolume;
   color: string;
   roughness?: number;
@@ -38,7 +47,7 @@ function Box({volume, color, roughness = .9, metalness, gallery02Surface = false
   return <mesh position={[volume.center.x, volume.center.y, volume.center.z]}>
     <boxGeometry args={[volume.size.width, volume.size.height, volume.size.depth]}/>
     {gallery02Surface
-      ? <meshStandardMaterial {...MUSEUM_GALLERY_02_EXHIBIT_SURFACE_MATERIAL}/>
+      ? <Gallery02SurfaceMaterial kind={volume.id.endsWith('-plinth') ? 'plinth' : 'backing'}/>
       : <meshStandardMaterial
         color={color}
         roughness={roughness}
@@ -133,7 +142,7 @@ function RenaissanceFinishedBack({backing, accent}: {
   ]} rotation={[0, Math.PI, 0]}>
     <mesh>
       <planeGeometry args={[width, height]}/>
-      <meshStandardMaterial {...MUSEUM_GALLERY_02_EXHIBIT_SURFACE_MATERIAL}/>
+      <Gallery02SurfaceMaterial kind="backing"/>
     </mesh>
     <mesh position={[0, -height * .34, .008]}>
       <boxGeometry args={[width * .7, .04, .025]}/>
@@ -164,18 +173,14 @@ function Installation({layout, title, question, kicker, accent, nearby, curation
       {...(canonicalConstruction
         ? MUSEUM_CANONICAL_EXHIBIT_PLINTH_MATERIAL
         : {color: '#6e6b65'})}
-      {...(renaissanceCuration
-        ? {color: MUSEUM_GALLERY_02_EXHIBIT_SURFACE_MATERIAL.color, gallery02Surface: true}
-        : {})}
+      gallery02Surface={Boolean(renaissanceCuration)}
     />
     <Box
       volume={backing}
       {...(canonicalConstruction
         ? MUSEUM_CANONICAL_EXHIBIT_BACKING_MATERIAL
         : {color: backingColor})}
-      {...(renaissanceCuration
-        ? {color: MUSEUM_GALLERY_02_EXHIBIT_SURFACE_MATERIAL.color, gallery02Surface: true}
-        : {})}
+      gallery02Surface={Boolean(renaissanceCuration)}
     />
     {curation
       ? <MediterraneanFinishedBack backing={backing} groupLabel={curation.groupLabel} accent={accent}/>
