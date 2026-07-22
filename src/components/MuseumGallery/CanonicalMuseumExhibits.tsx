@@ -3,6 +3,7 @@ import type {MuseumExhibitLayout, MuseumHallDefinition, MuseumSceneVolume} from 
 import {
   MUSEUM_CANONICAL_EXHIBIT_BACKING_MATERIAL,
   MUSEUM_CANONICAL_EXHIBIT_PLINTH_MATERIAL,
+  MUSEUM_GALLERY_02_EXHIBIT_SURFACE_COLOR,
 } from '../../data/museum/museumArchitectureMaterials';
 import {
   MEDITERRANEAN_EXHIBIT_CURATION,
@@ -27,19 +28,22 @@ import {usePlaqueTexture} from './plaqueTextures';
 
 const ACCENTS = ['#8d6947', '#4f7480', '#755f88', '#897241', '#546f67', '#825861', '#556f8a', '#8b654b', '#657153'];
 
-function Box({volume, color, roughness = .9, metalness}: {
+function Box({volume, color, roughness = .9, metalness, gallery02Surface = false}: {
   volume: MuseumSceneVolume;
   color: string;
   roughness?: number;
   metalness?: number;
+  gallery02Surface?: boolean;
 }) {
   return <mesh position={[volume.center.x, volume.center.y, volume.center.z]}>
     <boxGeometry args={[volume.size.width, volume.size.height, volume.size.depth]}/>
-    <meshStandardMaterial
-      color={color}
-      roughness={roughness}
-      metalness={metalness ?? (volume.role === 'concept-object' ? .34 : .03)}
-    />
+    {gallery02Surface
+      ? <meshBasicMaterial color={MUSEUM_GALLERY_02_EXHIBIT_SURFACE_COLOR} toneMapped={false}/>
+      : <meshStandardMaterial
+        color={color}
+        roughness={roughness}
+        metalness={metalness ?? (volume.role === 'concept-object' ? .34 : .03)}
+      />}
   </mesh>;
 }
 
@@ -129,7 +133,7 @@ function RenaissanceFinishedBack({backing, accent}: {
   ]} rotation={[0, Math.PI, 0]}>
     <mesh>
       <planeGeometry args={[width, height]}/>
-      <meshStandardMaterial {...MUSEUM_CANONICAL_EXHIBIT_BACKING_MATERIAL}/>
+      <meshBasicMaterial color={MUSEUM_GALLERY_02_EXHIBIT_SURFACE_COLOR} toneMapped={false}/>
     </mesh>
     <mesh position={[0, -height * .34, .008]}>
       <boxGeometry args={[width * .7, .04, .025]}/>
@@ -160,12 +164,18 @@ function Installation({layout, title, question, kicker, accent, nearby, curation
       {...(canonicalConstruction
         ? MUSEUM_CANONICAL_EXHIBIT_PLINTH_MATERIAL
         : {color: '#6e6b65'})}
+      {...(renaissanceCuration
+        ? {color: MUSEUM_GALLERY_02_EXHIBIT_SURFACE_COLOR, gallery02Surface: true}
+        : {})}
     />
     <Box
       volume={backing}
       {...(canonicalConstruction
         ? MUSEUM_CANONICAL_EXHIBIT_BACKING_MATERIAL
         : {color: backingColor})}
+      {...(renaissanceCuration
+        ? {color: MUSEUM_GALLERY_02_EXHIBIT_SURFACE_COLOR, gallery02Surface: true}
+        : {})}
     />
     {curation
       ? <MediterraneanFinishedBack backing={backing} groupLabel={curation.groupLabel} accent={accent}/>

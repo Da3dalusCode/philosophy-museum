@@ -47,6 +47,12 @@ export const MUSEUM_CANONICAL_EXHIBIT_PLINTH_GEOMETRY = Object.freeze({
   sideOverhang: .15,
 });
 
+/**
+ * Gallery 02's neutral millwork must hold one stable rendered value under
+ * every authored wall orientation; frames and objects retain their own PBR.
+ */
+export const MUSEUM_GALLERY_02_EXHIBIT_SURFACE_COLOR = '#dedbd4';
+
 export type MuseumOwnerApprovedWallMaterialException = Readonly<{
   approvalReference: string;
   rationale: string;

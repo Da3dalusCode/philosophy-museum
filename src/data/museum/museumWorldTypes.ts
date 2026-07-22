@@ -228,7 +228,7 @@ export type MuseumTrackDefinition = {
 
 export type MuseumExhibitLightDefinition = {
   id: string;
-  exhibitId: MuseumExhibitId | MuseumSupplementalExhibitId;
+  exhibitId: MuseumExhibitId;
   trackId: string;
   mountPosition: MuseumPoint3;
   position: MuseumPoint3;

@@ -2,9 +2,8 @@ import type {ThreeEvent} from '@react-three/fiber';
 import {getRenaissanceSupplementalExhibit} from '../../data/museum/renaissanceSupplementalExhibits';
 import {RENAISSANCE_PALETTE} from '../../data/museum/renaissanceGalleryCuration';
 import {
-  MUSEUM_CANONICAL_EXHIBIT_BACKING_MATERIAL,
   MUSEUM_CANONICAL_EXHIBIT_PLINTH_GEOMETRY,
-  MUSEUM_CANONICAL_EXHIBIT_PLINTH_MATERIAL,
+  MUSEUM_GALLERY_02_EXHIBIT_SURFACE_COLOR,
 } from '../../data/museum/museumArchitectureMaterials';
 import {MUSEUM_TEXTURE_SPECS, museumTextureDimensionsForPlane} from '../../data/museum/museumTexturePolicy';
 import type {
@@ -55,11 +54,11 @@ function FinishedBacking({layout}: {layout: MuseumSupplementalExhibitLayout}) {
   return <group>
     <mesh position={[0, centerY, -.58]}>
       <boxGeometry args={[width, height, .24]}/>
-      <meshStandardMaterial {...MUSEUM_CANONICAL_EXHIBIT_BACKING_MATERIAL}/>
+      <meshBasicMaterial color={MUSEUM_GALLERY_02_EXHIBIT_SURFACE_COLOR} toneMapped={false}/>
     </mesh>
     <mesh position={[0, centerY, -.445]}>
       <boxGeometry args={[fieldWidth, fieldHeight, .055]}/>
-      <meshStandardMaterial {...MUSEUM_CANONICAL_EXHIBIT_BACKING_MATERIAL}/>
+      <meshBasicMaterial color={MUSEUM_GALLERY_02_EXHIBIT_SURFACE_COLOR} toneMapped={false}/>
     </mesh>
     {[
       {id: 'top', position: [0, centerY + fieldHeight / 2 + trim / 2, -.405], size: [fieldWidth + trim * 2, trim, .05]},
@@ -72,11 +71,11 @@ function FinishedBacking({layout}: {layout: MuseumSupplementalExhibitLayout}) {
     </mesh>)}
     <mesh position={[0, centerY, -.705]} rotation={[0, Math.PI, 0]}>
       <planeGeometry args={[width - .28, height - .28]}/>
-      <meshStandardMaterial {...MUSEUM_CANONICAL_EXHIBIT_BACKING_MATERIAL}/>
+      <meshBasicMaterial color={MUSEUM_GALLERY_02_EXHIBIT_SURFACE_COLOR} toneMapped={false}/>
     </mesh>
     <mesh position={[0, plinth.height / 2, structuralRearZ + plinth.largeDepth / 2]}>
       <boxGeometry args={[width + plinth.sideOverhang * 2, plinth.height, plinth.largeDepth]}/>
-      <meshStandardMaterial {...MUSEUM_CANONICAL_EXHIBIT_PLINTH_MATERIAL}/>
+      <meshBasicMaterial color={MUSEUM_GALLERY_02_EXHIBIT_SURFACE_COLOR} toneMapped={false}/>
     </mesh>
     <mesh position={[0, plinth.height + .0275, -.115]}>
       <boxGeometry args={[width * .72, .055, .04]}/>
