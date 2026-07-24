@@ -721,9 +721,11 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
   const node = getMuseumManifestHallNode(hall.id);
   if (!node) throw new Error(`Canonical hall ${hall.id} has no physical manifest node.`);
   const doorwayExclusions = node.doorwaySlots
-    // Gallery 04's W1 reservation is a closed expansion seam, so it remains a
-    // usable museum wall until a future wing is actually connected there.
-    .filter(({id}) => hall.id !== ANALYTIC_GALLERY_ID || id !== 'W1')
+    // Closed, unconnected side slots remain usable museum walls. Gallery 03's
+    // live forum doorway is W1, so its intact E1 wall can carry Sartre; Gallery
+    // 04 likewise retains its closed W1 seam until a future wing connects.
+    .filter(({id}) => !(hall.id === PHENOMENOLOGY_GALLERY_ID && id === 'E1'))
+    .filter(({id}) => !(hall.id === ANALYTIC_GALLERY_ID && id === 'W1'))
     .map(({landingBounds}) => landingBounds);
   const furnishings = hall.id === MUSEUM_VISITOR_MAP_KIOSK.hallId
     ? [

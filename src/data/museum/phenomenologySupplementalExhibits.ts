@@ -451,6 +451,55 @@ export const PHENOMENOLOGY_SUPPLEMENTAL_EXHIBITS = [
     ], 'Open Sartre’s full Atlas article'),
   },
   {
+    id: 'sartre-existentialism-humanism',
+    displayName: 'Sartre: Existentialism Is a Humanism',
+    shortTitle: 'Sartre: Existentialism & Humanism',
+    workLabel: 'SARTRE · L’EXISTENTIALISME EST UN HUMANISME',
+    dateLabel: 'Public lecture, 29 October 1945; published 1946',
+    question: 'If existence precedes essence, why does choosing make us responsible rather than morally weightless?',
+    frontSubtitle: 'Existence, choice, responsibility, anguish, and public defense',
+    lead: 'Existentialism Is a Humanism grew from Sartre’s 1945 public defense of existentialism against charges of despair, passivity, subjectivism, and moral disorder. “Existence precedes essence” means that human beings are not born with a complete purpose that settles how they must live. People become through situated choices, while never choosing the historical world, body, dependence, or consequences from which they act. Sartre argues that choosing presents a picture of what one takes a human life to be, so freedom carries responsibility rather than erasing it. The 1924 student portrait identifies Sartre decades before the lecture; it does not illustrate the argument.',
+    keyIdeas: [
+      'Existence precedes essence rejects a fixed human purpose that determines every life in advance.',
+      'Choice occurs within a situation and creates commitments whose consequences cannot be treated as weightless.',
+      'Anguish names awareness of responsibility; abandonment names the absence of a guaranteed moral blueprint.',
+      'The lecture presents an accessible public defense, not a complete summary of Sartre’s mature philosophy.',
+    ],
+    cautions: [
+      'Sartre does not claim that every option is materially available or that oppression is merely an attitude.',
+      'The lecture is a polemical simplification and should be read beside Being and Nothingness and Sartre’s later ethical and political work.',
+      'Beauvoir develops an independent account of situated freedom, ambiguity, oppression, and reciprocity.',
+    ],
+    sections: [
+      {
+        heading: 'Recognition: no finished blueprint',
+        paragraphs: ['A tool can be designed for a prior function. Sartre denies that a human being arrives with an equivalent specification that determines every project and value. A life acquires shape through action within conditions that were never chosen from scratch.'],
+      },
+      {
+        heading: 'Orientation: responsibility without omnipotence',
+        paragraphs: ['Freedom is not magical control over circumstances. It concerns taking up possibilities, refusing excuses that turn a person into a fixed thing, and accepting that choices affect others and help make a shared world.'],
+      },
+      {
+        heading: 'Depth: why the short lecture is not the last word',
+        paragraphs: ['The lecture sharpened existentialism for a large audience, but its compressed moral language generated objections and later revisions. Beauvoir, Fanon, and Sartre’s later work make social constraint, reciprocity, colonialism, and collective action harder to treat as background.'],
+      },
+    ],
+    sources: [
+      {label: 'Stanford Encyclopedia of Philosophy — Jean-Paul Sartre', url: 'https://plato.stanford.edu/entries/sartre/', kind: 'academic-reference'},
+      {label: 'Internet Encyclopedia of Philosophy — Sartre', url: 'https://iep.utm.edu/sartre-ex/', kind: 'academic-reference'},
+      {label: 'Wikimedia Commons — Jean-Paul Sartre, c. 1924', url: 'https://commons.wikimedia.org/wiki/File:Jean-Paul_Sartre_1924.jpg', kind: 'collection-record'},
+    ],
+    assetId: 'sartre-ens-portrait-1924',
+    panelAssetId: 'sartre-ens-portrait-1924',
+    articleRoute: {kind: 'philosopher', philosopherId: 'sartre'},
+    presentation: presentation('Gallery 03 work exhibit', 'Existentialist public defense', [
+      {label: 'Author', value: 'Jean-Paul Sartre'},
+      {label: 'Work', value: 'Existentialism Is a Humanism'},
+      {label: 'Lecture / publication', value: '1945 / 1946'},
+      {label: 'Atlas route', value: 'Sartre’s full profile'},
+    ], 'Open Sartre’s full Atlas article'),
+  },
+  {
     id: 'beauvoir-ethics-ambiguity',
     displayName: 'Beauvoir: The Ethics of Ambiguity',
     shortTitle: 'Beauvoir: Ambiguity',
@@ -1096,6 +1145,7 @@ export const PHENOMENOLOGY_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
   layout({id: 'merleau-phenomenology-perception', parentExhibitId: 'merleau-ponty', zoneId: 'phenomenology-being-embodiment', position: {x: 5.55, z: -6.22}, rotationY: Math.PI, assetId: 'merleau-perception-interpretive', mediaWidth: 2.1, mediaHeight: 3.2, installationKind: 'phenomenology-work', accent: PHENOMENOLOGY_PALETTE.flesh}),
   layout({id: 'existentialism-facticity-freedom', parentExhibitId: 'existentialism', zoneId: 'existentialism-freedom', position: {x: -5.55, z: 4.98}, rotationY: Math.PI, assetId: 'existentialism-situated-freedom-interpretive', mediaWidth: 2.55, mediaHeight: 3.19, installationKind: 'phenomenology-concept', accent: PHENOMENOLOGY_PALETTE.ambiguity}),
   layout({id: 'sartre-bad-faith', parentExhibitId: 'sartre', zoneId: 'existentialism-freedom', position: {x: 5.55, z: 4.98}, rotationY: Math.PI, assetId: 'sartre-bad-faith-look-interpretive', mediaWidth: 2.55, mediaHeight: 3.19, installationKind: 'phenomenology-work', accent: PHENOMENOLOGY_PALETTE.flesh}),
+  layout({id: 'sartre-existentialism-humanism', parentExhibitId: 'sartre', zoneId: 'existentialism-freedom', position: {x: 5.55, z: -4.98}, rotationY: 0, assetId: 'sartre-ens-portrait-1924', mediaWidth: 2.78, mediaHeight: 3.18, installationKind: 'phenomenology-work', accent: PHENOMENOLOGY_PALETTE.flesh}),
   layout({id: 'beauvoir-ethics-ambiguity', parentExhibitId: 'camus', zoneId: 'existentialism-situated-absurd', position: {x: 5.55, z: 16.18}, rotationY: Math.PI, assetId: 'beauvoir-gpo-1967', mediaWidth: 2.42, mediaHeight: 3.22, installationKind: 'phenomenology-context', accent: PHENOMENOLOGY_PALETTE.ambiguity}),
   layout({id: 'camus-absurd-revolt', parentExhibitId: 'camus', zoneId: 'existentialism-situated-absurd', position: {x: -5.55, z: 16.18}, rotationY: Math.PI, assetId: 'camus-absurd-sisyphus-stuck', mediaWidth: 2.75, mediaHeight: 3.18, installationKind: 'phenomenology-work', accent: PHENOMENOLOGY_PALETTE.horizon}),
   layout({id: 'levinas-ethics-before-ontology', parentExhibitId: 'levinas', zoneId: 'phenomenology-interpretation-alterity', position: {x: -5.55, z: 27.38}, rotationY: Math.PI, assetId: 'levinas-totality-infinity-2002', mediaWidth: 2.1, mediaHeight: 3.18, installationKind: 'phenomenology-concept', accent: PHENOMENOLOGY_PALETTE.alterity}),

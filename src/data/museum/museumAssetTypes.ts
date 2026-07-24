@@ -65,6 +65,8 @@ export type MuseumAssetId =
   | 'heidegger-pragher-lecture-1954'
   | 'sartre-anefo-1965'
   | 'sartre-beauvoir-balzac'
+  | 'sartre-ens-portrait-1924'
+  | 'existentialism-munch-karl-johan'
   | 'beauvoir-gpo-1967'
   | 'beauvoir-suffrage-poster-1924'
   | 'camus-loc-1957'

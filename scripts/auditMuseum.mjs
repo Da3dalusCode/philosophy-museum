@@ -542,8 +542,8 @@ check('Plato’s Cave and Republic form a substantial supplemental U without cha
   assert.match(supplementalPanelSource, /event\.key === 'Escape'/u, 'The supplemental panel lacks its keyboard close path');
 });
 
-check('all fifty-six supplemental exhibits share route, directory, search, guided, and fallback contracts', () => {
-  assert.equal(MUSEUM_SUPPLEMENTAL_EXHIBITS.length, 56);
+check('all fifty-seven supplemental exhibits share route, directory, search, guided, and fallback contracts', () => {
+  assert.equal(MUSEUM_SUPPLEMENTAL_EXHIBITS.length, 57);
   assert.equal(
     new Set(MUSEUM_SUPPLEMENTAL_EXHIBITS.map(({exhibit}) => exhibit.id)).size,
     MUSEUM_SUPPLEMENTAL_EXHIBITS.length,
@@ -596,8 +596,8 @@ check('Gallery 03 gives every unobstructed half-room wall one substantial exhibi
   assert(hall && definition);
   const supplemental = MUSEUM_SUPPLEMENTAL_EXHIBITS.filter((entry) => entry.hallId === hallId);
   assert.equal(hall.exhibits.length, 9, 'Gallery 03 primary catalog changed');
-  assert.equal(supplemental.length, 19, 'Gallery 03 must have nineteen bounded supplemental stops');
-  assert.equal(definition.layout.supplementalExhibits?.length, 19, 'Gallery 03 scene layout is missing supplemental stops');
+  assert.equal(supplemental.length, 20, 'Gallery 03 must have twenty bounded supplemental stops');
+  assert.equal(definition.layout.supplementalExhibits?.length, 20, 'Gallery 03 scene layout is missing supplemental stops');
 
   const expectedPrimaryCounts = new Map([
     ['phenomenology-method', 2],
@@ -609,14 +609,14 @@ check('Gallery 03 gives every unobstructed half-room wall one substantial exhibi
   const expectedSupplementalCounts = new Map([
     ['phenomenology-method', 4],
     ['phenomenology-being-embodiment', 4],
-    ['existentialism-freedom', 2],
+    ['existentialism-freedom', 3],
     ['existentialism-situated-absurd', 5],
     ['phenomenology-interpretation-alterity', 4],
   ]);
   const expectedWallSlots = new Map([
     ['phenomenology-method', ['north-west', 'outer-west', 'south-west', 'north-east', 'outer-east', 'south-east']],
     ['phenomenology-being-embodiment', ['north-west', 'outer-west', 'south-west', 'north-east', 'outer-east', 'south-east']],
-    ['existentialism-freedom', ['north-west', 'south-west', 'north-east', 'south-east']],
+    ['existentialism-freedom', ['north-west', 'south-west', 'north-east', 'outer-east', 'south-east']],
     ['existentialism-situated-absurd', ['north-west', 'outer-west', 'south-west', 'north-east', 'outer-east', 'south-east']],
     ['phenomenology-interpretation-alterity', ['north-west', 'outer-west', 'south-west', 'north-east', 'outer-east', 'south-east']],
   ]);
@@ -653,6 +653,16 @@ check('Gallery 03 gives every unobstructed half-room wall one substantial exhibi
       `${zone.id} leaves a usable wall face blank or occupies a portal wall`,
     );
   }
+
+  const existentialism = definition.layout.exhibits.find(({id}) => id === 'existentialism');
+  const sartre = definition.layout.exhibits.find(({id}) => id === 'sartre');
+  const sartreHumanism = supplemental.find(({exhibit}) => exhibit.id === 'sartre-existentialism-humanism');
+  assert(existentialism && sartre && sartreHumanism, 'The Existentialism/Sartre room hierarchy is incomplete');
+  assert.deepEqual(existentialism.position, {x: -6, z: -4.45}, 'Existentialism moved despite the doorway exception');
+  assert.equal(wallSlotFor(existentialism), 'north-west', 'Existentialism no longer uses its doorway-exception wall');
+  assert.equal(wallSlotFor(sartre), 'outer-east', 'Sartre is not on the intact primary wall');
+  assert.equal(wallSlotFor(sartreHumanism.layout), 'north-east', 'Sartre’s former wall lacks its secondary exhibit');
+  assert.match(sartreHumanism.exhibit.displayName, /^Sartre:/, 'The new secondary does not clearly belong to Sartre');
 
   const beauvoir = supplemental.find(({exhibit}) => exhibit.id === 'beauvoir-ethics-ambiguity');
   assert(beauvoir, 'Gallery 03 lost Beauvoir’s anchor-strength secondary');

@@ -1822,6 +1822,42 @@
         "sha256": "14a8507e678277b4100b63fc2daa7d19e3ed1d06bf0c143032b8b4924d254ed6"
       }
     },
+    "existentialism-munch-karl-johan": {
+      "hallFolder": "phenomenology-existence-embodiment",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Edvard_Munch_-_Evening_on_Karl_Johan_Street_(1892).jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/da/Edvard_Munch_-_Evening_on_Karl_Johan_Street_%281892%29.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Edvard_Munch_-_Evening_on_Karl_Johan_Street_%281892%29.jpg/1280px-Edvard_Munch_-_Evening_on_Karl_Johan_Street_%281892%29.jpg",
+      "scene": {
+        "width": 640,
+        "height": 445,
+        "bytes": 47950,
+        "sha256": "bd8f1cedd6488ec3d0d97b102af2abfd9c5e8d88a8a5b818c3f3f316c564a678"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 889,
+        "bytes": 354184,
+        "sha256": "e0f9c84bac2491cfa934c4e0fd07cf6ddcd75962f3d36be6fd512636ba667586"
+      }
+    },
+    "sartre-ens-portrait-1924": {
+      "hallFolder": "phenomenology-existence-embodiment",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Jean-Paul_Sartre_1924.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/57/Jean-Paul_Sartre_1924.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/5/57/Jean-Paul_Sartre_1924.jpg",
+      "scene": {
+        "width": 450,
+        "height": 513,
+        "bytes": 17764,
+        "sha256": "03582af2950859cfed88eceba82ae40aebda52ba8f6d55abd335e871671d9824"
+      },
+      "panel": {
+        "width": 450,
+        "height": 513,
+        "bytes": 25492,
+        "sha256": "df52f11a1acbc5b0bb3f4148865d9799db0d51cf740e26282828dc55df6908b9"
+      }
+    },
     "existentialism-situated-freedom-interpretive": {
       "hallFolder": "phenomenology-existence-embodiment",
       "sourceKind": "owner-approved-original-illustration",

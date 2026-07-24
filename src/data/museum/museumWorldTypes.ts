@@ -131,6 +131,7 @@ export type MuseumSupplementalExhibitId =
   | 'merleau-phenomenology-perception'
   | 'existentialism-facticity-freedom'
   | 'sartre-bad-faith'
+  | 'sartre-existentialism-humanism'
   | 'beauvoir-ethics-ambiguity'
   | 'camus-absurd-revolt'
   | 'levinas-ethics-before-ontology'
