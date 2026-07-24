@@ -13,9 +13,9 @@ This is the approved planning program and the authority for the first permanent 
 | Rooms / zones | **105** |
 | Planned record capacity | **260** |
 | Current branch/tradition primary assignments | **43** |
-| Current philosopher primary assignments | **144** |
-| Total current primary assignments | **187** |
-| Unallocated record capacity | **73** |
+| Current philosopher primary assignments | **146** |
+| Total current primary assignments | **189** |
+| Unallocated record capacity | **71** |
 
 Here, **record capacity** means the number of Atlas records a room is planned to interpret at the appropriate presentation tier. It is not visitor occupancy, floor area, or the number of freestanding objects. A shared cluster may use less physical area than an anchor exhibit even though both records count toward assignment coverage.
 
@@ -33,16 +33,16 @@ Placements for living and recently deceased thinkers remain curatorial judgments
 
 ### Presentation tiers
 
-Tier expresses exhibit treatment, not philosophical worth. It prevents “complete coverage” from becoming 187 equally large monuments.
+Tier expresses exhibit treatment, not philosophical worth. It prevents “complete coverage” from becoming 189 equally large monuments.
 
 | Tier | Branches | Philosophers | Total | Intended physical treatment |
 | --- | ---: | ---: | ---: | --- |
-| Anchor exhibit | 37 | 54 | **91** | A major interpretive installation for a field, tradition, system, or thinker central to the room's argument |
-| Standard individual exhibit | 0 | 81 | **81** | A self-contained philosopher exhibit with context, contribution, works, and relationships |
+| Anchor exhibit | 37 | 58 | **95** | A major interpretive installation for a field, tradition, system, or thinker central to the room's argument |
+| Standard individual exhibit | 0 | 79 | **79** | A self-contained philosopher exhibit with context, contribution, works, and relationships |
 | Supporting exhibit | 4 | 5 | **9** | A compact but named exhibit that supports orientation, lineage, or transition |
 | Thematic cluster participant | 2 | 3 | **5** | A clearly identified record within a shared installation where separation would misstate the evidence or overstate certainty |
 | Gallery archive or study-wall record | 0 | 1 | **1** | A visible, searchable record with a defensible home but without a full installation at current depth |
-| **Total** | **43** | **144** | **187** | Complete current inventory |
+| **Total** | **43** | **146** | **189** | Complete current inventory |
 
 The lower-footprint assignments are deliberate and reviewable. The four supporting umbrella branches are Ancient Greek Philosophy, Indian Philosophy, Chinese Philosophy, and Continental Philosophy. The five thematic-cluster participants are Legalism, Buddhist Epistemology, Laozi, Pseudo-Dionysius, and Patañjali. Leucippus is the sole study-wall record. These assignments can be promoted later if source depth grows; their present tier never erases their primary home.
 
@@ -50,7 +50,7 @@ Tier balance is an operational review, not only a disclaimer. The final scholars
 
 ### Secondary associations
 
-Of the 187 records, 164 have at least one secondary hall association, producing 299 resolved **hall-route candidates**. Twenty-three have no secondary hall because a forced link would add noise rather than insight. A secondary association may produce:
+Of the 189 records, 166 have at least one secondary hall association, producing 303 resolved **hall-route candidates**. Twenty-three have no secondary hall because a forced link would add noise rather than insight. A secondary association may produce:
 
 - a linked comparison or reception panel;
 - a “continue this question” wayfinding route;
@@ -63,7 +63,7 @@ The semicolon-separated CSV fields establish destination coverage, not final int
 
 ## Coverage and reserve by wing
 
-The table below reconciles the 187 current primary assignments with the 260-slot program. “Reserve” is capacity not currently occupied by a primary assignment; it may still support orientation and secondary interpretation before new records are added.
+The table below reconciles the 189 current primary assignments with the 260-slot program. “Reserve” is capacity not currently occupied by a primary assignment; it may still support orientation and secondary interpretation before new records are added.
 
 | Wing | Halls | Rooms | Capacity | Current branches | Current philosophers | Current total | Reserve |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -73,11 +73,11 @@ The table below reconciles the 187 current primary assignments with the 260-slot
 | Buddhist Traditions Across Asia | 1 | 5 | 13 | 2 | 5 | 7 | 6 |
 | Chinese & East Asian Intellectual Worlds | 2 | 7 | 23 | 5 | 9 | 14 | 9 |
 | Connected Medieval & Post-Classical Intellectual Worlds | 3 | 11 | 33 | 2 | 20 | 22 | 11 |
-| Early Modern Europe & Enlightenments | 4 | 14 | 23 | 2 | 16 | 18 | 5 |
+| Early Modern Europe & Enlightenments | 4 | 14 | 23 | 2 | 18 | 20 | 3 |
 | Nineteenth-Century Transformations | 3 | 11 | 15 | 1 | 9 | 10 | 5 |
 | Modern Philosophical Traditions | 4 | 18 | 28 | 5 | 19 | 24 | 4 |
 | Ethics, Politics, and Social Thought | 4 | 14 | 25 | 6 | 13 | 19 | 6 |
-| **Total** | **26** | **105** | **260** | **43** | **144** | **187** | **73** |
+| **Total** | **26** | **105** | **260** | **43** | **146** | **189** | **71** |
 
 ## Wing and hall program
 
@@ -193,13 +193,13 @@ Rooms: Late-antique transmission and Carolingian reception (3); Monastic reason,
 
 ### 7. Early Modern Europe & Enlightenments
 
-**Program (`wing-early-modern-enlightenment`):** 4 halls, 14 rooms, capacity 23; 18 current assignments, 5 reserve slots.
+**Program (`wing-early-modern-enlightenment`):** 4 halls, 14 rooms, capacity 23; 20 current assignments, 3 reserve slots.
 
 Four halls replace a single “reason and revolution” story with distinguishable routes through political order and new inquiry, rationalist systems, empiricist arguments, and plural Enlightenment conflicts. The final hall presents Kant as a late-Enlightenment threshold, with German Idealism as a successor route rather than an anachronistic primary membership.
 
 #### Renaissance, Political Order, and New Science
 
-`renaissance-humanism-new-method` · sequential template · 3 rooms · capacity 6 · 3 assigned · 3 reserve
+`renaissance-humanism-new-method` · sequential template · 3 rooms · capacity 6 · 5 assigned · 1 reserve
 
 Rooms: Civic power and statecraft (2); Experiment, method, and organized inquiry (2); Sovereignty, covenant, and materialism (2).
 
@@ -339,7 +339,7 @@ The program is culturally safeguarded only if these are treated as implementatio
 
 ## Reserved contexts, collection gaps, and capacity pressure
 
-The 73-slot reserve consists of 21 slots in 12 rooms with no current primary assignment and 52 open slots within partly assigned rooms. “No primary assignment” does not mean an empty gallery: portals, timelines, secondary appearances, maps, and context installations may occupy it before the Atlas gains new primary records.
+The 71-slot reserve consists of 21 slots in 12 rooms with no current primary assignment and 50 open slots within partly assigned rooms. “No primary assignment” does not mean an empty gallery: portals, timelines, secondary appearances, maps, and context installations may occupy it before the Atlas gains new primary records.
 
 | Wing | Room with no current primary assignment | Capacity |
 | --- | --- | ---: |
@@ -365,7 +365,7 @@ Four halls are already at their planned primary-record capacity: Empiricism, Enl
 
 This approved program governs the Ring pilot under all of the following conditions:
 
-- one primary assignment for each of the 43 branch IDs and 144 philosopher IDs;
+- one primary assignment for each of the 43 branch IDs and 146 philosopher IDs;
 - capacity is treated as record-planning capacity rather than visitor or architectural occupancy;
 - secondary associations remain links and interpretive appearances, not duplicate homes;
 - cultural safeguards are carried into labels, thresholds, sightlines, and map routes;

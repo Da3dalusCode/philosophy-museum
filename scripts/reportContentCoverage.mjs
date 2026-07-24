@@ -63,7 +63,7 @@ const printGroup = (title, ids) => {
   for (const id of ids) console.log(`  ${id}`);
 };
 
-assert.equal(philosopherIds.length, 144, 'The approved Atlas must contain exactly 144 philosopher records.');
+assert.equal(philosopherIds.length, 146, 'The approved Atlas must contain exactly 146 philosopher records.');
 assert.equal(new Set(philosopherIds).size, philosopherIds.length, 'Philosopher IDs must be unique.');
 assert.equal(branchIds.length, 43, 'The approved Atlas must contain exactly 43 branch records.');
 assert.equal(new Set(branchIds).size, branchIds.length, 'Branch IDs must be unique.');
@@ -82,4 +82,4 @@ printGroup('Philosophers missing articleSections', missingPhilosophers);
 printGroup('Branches missing articleSections', missingBranches);
 printGroup('Orphan philosopher articles', orphanPhilosopherArticles);
 printGroup('Orphan branch articles', orphanBranchArticles);
-console.log('\nCoverage contract passed: 144 philosophers and 43 branches, including Prodicus, Hippias of Elis, and Jiddu Krishnamurti, are covered exactly once.');
+console.log('\nCoverage contract passed: 146 philosophers and 43 branches, including Marsilio Ficino, Galileo Galilei, Prodicus, Hippias of Elis, and Jiddu Krishnamurti, are covered exactly once.');

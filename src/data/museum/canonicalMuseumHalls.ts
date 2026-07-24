@@ -23,6 +23,11 @@ import {
   RENAISSANCE_ROOM_SIGN_COPY,
 } from './renaissanceGalleryCuration';
 import {RENAISSANCE_SUPPLEMENTAL_EXHIBIT_LAYOUTS} from './renaissanceSupplementalExhibits';
+import {
+  PHENOMENOLOGY_GALLERY_ID,
+  PHENOMENOLOGY_ROOM_SIGN_COPY,
+  PHENOMENOLOGY_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
+} from './phenomenologySupplementalExhibits';
 import {MUSEUM_VISITOR_MAP_KIOSK} from './museumVisitorMapKioskDefinition';
 import type {
   MuseumBounds,
@@ -679,7 +684,9 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
     ? PLATO_SUPPLEMENTAL_EXHIBIT_LAYOUTS
     : hall.id === RENAISSANCE_GALLERY_ID
       ? RENAISSANCE_SUPPLEMENTAL_EXHIBIT_LAYOUTS
-      : [];
+      : hall.id === PHENOMENOLOGY_GALLERY_ID
+        ? PHENOMENOLOGY_SUPPLEMENTAL_EXHIBIT_LAYOUTS
+        : [];
   const cells: MuseumSpatialCell[] = orderedRooms.map((room) => ({
     id: room.id,
     kind: 'room',
@@ -715,11 +722,11 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
     ...outerWalls(width, depth, ceiling, hall.id),
     ...(isForum ? forumPartitionWalls(hall.id) : sequencePartitionWalls(orderedRooms, roomBounds, hall.id)),
   ];
-  if (hall.id === RENAISSANCE_GALLERY_ID) {
-    const acceptedSupplementalBounds: MuseumBounds[] = [];
+  if (hall.id === RENAISSANCE_GALLERY_ID || hall.id === PHENOMENOLOGY_GALLERY_ID) {
+    const acceptedSupplementalBounds: {spatialCellId: string; bounds: MuseumBounds}[] = [];
     for (const layout of supplementalExhibits) {
       const cellBounds = roomBounds.get(layout.spatialCellId);
-      if (!cellBounds) throw new Error(`Gallery 02 supplemental exhibit ${layout.id} has no room.`);
+      if (!cellBounds) throw new Error(`${hall.title} supplemental exhibit ${layout.id} has no room.`);
       const footprint = colliderBounds(
         layout.position,
         layout.rotationY,
@@ -732,15 +739,25 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
         && footprint.maxZ <= cellBounds.maxZ - .08;
       const primaryBounds = exhibits
         .filter(({spatialCellId}) => spatialCellId === layout.spatialCellId)
-        .map((item) => colliderBounds(item.position, item.rotationY, item.collider.size.width, item.collider.size.depth));
-      if (
-        !inside
-        || !viewpointFitsRoom(layout.viewpoint, cellBounds)
-        || doorwayExclusions.some((exclusion) => overlaps(footprint, exclusion, .28))
-        || primaryBounds.some((bounds) => overlaps(footprint, bounds, .32))
-        || acceptedSupplementalBounds.some((bounds) => overlaps(footprint, bounds, .32))
-      ) throw new Error(`Gallery 02 supplemental placement ${layout.id} violates its room, doorway, or neighboring installation.`);
-      acceptedSupplementalBounds.push(footprint);
+        .map((item) => ({
+          id: item.id,
+          bounds: colliderBounds(item.position, item.rotationY, item.collider.size.width, item.collider.size.depth),
+        }));
+      const primaryOverlap = primaryBounds.find(({bounds}) => overlaps(footprint, bounds, .32));
+      const violations = [
+        ...(!inside ? ['room bounds'] : []),
+        ...(!viewpointFitsRoom(layout.viewpoint, cellBounds) ? ['viewpoint'] : []),
+        ...(doorwayExclusions.some((exclusion) => overlaps(footprint, exclusion, .28)) ? ['doorway'] : []),
+        ...(primaryOverlap ? [`primary exhibit ${primaryOverlap.id}`] : []),
+        ...(acceptedSupplementalBounds.some(
+          (accepted) => accepted.spatialCellId === layout.spatialCellId
+            && overlaps(footprint, accepted.bounds, .32),
+        ) ? ['supplemental exhibit'] : []),
+      ];
+      if (violations.length) throw new Error(
+        `${hall.title} supplemental placement ${layout.id} violates: ${violations.join(', ')}.`,
+      );
+      acceptedSupplementalBounds.push({spatialCellId: layout.spatialCellId, bounds: footprint});
     }
   }
   const obstacleColliders = [
@@ -865,6 +882,23 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
             height: .82,
           };
         })
+      : hall.id === PHENOMENOLOGY_GALLERY_ID
+        ? orderedRooms.map((room) => {
+            const copy = PHENOMENOLOGY_ROOM_SIGN_COPY[room.id as keyof typeof PHENOMENOLOGY_ROOM_SIGN_COPY];
+            if (!copy) throw new Error(`Gallery 03 has no visitor-facing orientation copy for ${room.id}.`);
+            const bounds = roomBounds.get(room.id)!;
+            return {
+              id: `${room.id}:room-sign`,
+              kind: room.id === 'phenomenology-method' ? 'entrance' as const : 'zone' as const,
+              title: copy.title,
+              kicker: copy.kicker,
+              subtitle: copy.subtitle,
+              position: {x: 0, y: 4.55, z: bounds.maxZ - .22},
+              rotationY: Math.PI,
+              width: room.id === 'phenomenology-method' ? 5.2 : 4.8,
+              height: .82,
+            };
+          })
       : standardSigns;
   const guidedOrder = orderedRooms.flatMap((room) => room.exhibits.map(({id}) => id as MuseumExhibitId));
   const entryRoomIdByEntrance = new Map<string, string>();

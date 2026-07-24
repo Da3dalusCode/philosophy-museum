@@ -2,6 +2,7 @@ import {Search, X} from 'lucide-react';
 import {useEffect, useId, useRef, useState} from 'react';
 import {branches} from '../../data/branches';
 import {philosophers} from '../../data/philosophers';
+import {MUSEUM_SUPPLEMENTAL_EXHIBITS} from '../../data/museum/museumSupplementalExhibits';
 import {MUSEUM_HALLS} from '../../data/museumCatalog';
 import {subscribeToHashRoute} from '../../routing/hashHistory';
 import type {NavigableAppRoute, RouteHref} from '../../routing/routes';
@@ -26,6 +27,36 @@ export function GlobalSearch({href}: {href: RouteHref}) {
       .filter((lens) => matches([lens.displayName, lens.culturalSetting, lens.rationale, hall.title, zone.title]))
       .map(({entityId}) => entityId),
   )));
+  const museumExhibitCandidates = [
+    ...MUSEUM_HALLS.flatMap((hall) => hall.exhibits.map((exhibit) => ({
+      id: `${hall.id}:${exhibit.id}`,
+      label: exhibit.displayName,
+      searchParts: [
+        exhibit.displayName,
+        exhibit.question,
+        hall.title,
+        hall.zones.find(({id}) => id === exhibit.zoneId)?.title ?? '',
+      ],
+      route: {kind: 'museum' as const, hallId: hall.id, exhibitId: exhibit.id},
+    }))),
+    ...MUSEUM_SUPPLEMENTAL_EXHIBITS.map(({hallId, exhibit, layout}) => {
+      const hall = MUSEUM_HALLS.find(({id}) => id === hallId)!;
+      return {
+        id: `${hallId}:${exhibit.id}`,
+        label: exhibit.displayName,
+        searchParts: [
+          exhibit.displayName,
+          exhibit.workLabel,
+          exhibit.question,
+          exhibit.frontSubtitle,
+          exhibit.keyIdeas,
+          hall.title,
+          hall.zones.find(({id}) => id === layout.zoneId)?.title ?? '',
+        ],
+        route: {kind: 'museum' as const, hallId, exhibitId: exhibit.id},
+      };
+    }),
+  ];
   const results: readonly SearchResult[] = query.length > 1 ? [
     ...branches.filter((item) => matches([item.name, item.shortDefinition, item.coreQuestions, item.keyConcepts.map(({name}) => name)])).slice(0, 4).map((item) => ({
       id: item.id,
@@ -45,14 +76,14 @@ export function GlobalSearch({href}: {href: RouteHref}) {
       type: 'Museum hall' as const,
       route: {kind: 'museum' as const, hallId: hall.id},
     })),
-    ...MUSEUM_HALLS.flatMap((hall) => hall.exhibits.map((exhibit) => ({hall, exhibit})))
-      .filter(({hall, exhibit}) => matches([exhibit.displayName, exhibit.question, hall.title, hall.zones.find(({id}) => id === exhibit.zoneId)?.title ?? '']))
+    ...museumExhibitCandidates
+      .filter(({searchParts}) => matches(searchParts))
       .slice(0, 5)
-      .map(({hall, exhibit}) => ({
-        id: `${hall.id}:${exhibit.id}`,
-        label: exhibit.displayName,
+      .map(({id, label, route}) => ({
+        id,
+        label,
         type: 'Museum exhibit' as const,
-        route: {kind: 'museum' as const, hallId: hall.id, exhibitId: exhibit.id},
+        route,
       })),
   ] : [];
   useEffect(() => subscribeToHashRoute(() => {

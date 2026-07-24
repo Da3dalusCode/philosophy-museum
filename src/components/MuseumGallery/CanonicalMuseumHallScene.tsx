@@ -6,6 +6,7 @@ import {ContemporaryHallLighting} from './ContemporaryHallLighting';
 import {MediterraneanGalleryCuration} from './MediterraneanGalleryCuration';
 import {MuseumHallSpatialRoot} from './MuseumHallSpatialRoot';
 import {MuseumVisitorMapKiosk} from './MuseumVisitorMapKiosk';
+import {PhenomenologySupplementalExhibits} from './PhenomenologySupplementalExhibits';
 import {PlatoSupplementalExhibits} from './PlatoSupplementalExhibits';
 import {RenaissanceSupplementalExhibits} from './RenaissanceSupplementalExhibits';
 
@@ -46,6 +47,15 @@ export function CanonicalMuseumHallContent({
     {definition.id === 'renaissance-humanism-new-method'
       && definition.layout.supplementalExhibits
       && <RenaissanceSupplementalExhibits
+        layouts={active
+          ? definition.layout.supplementalExhibits
+          : definition.layout.supplementalExhibits.filter(({assetId}) => entryAssetIds.has(assetId))}
+        nearbyId={nearbySupplemental?.hallId === definition.id ? nearbySupplemental.supplementalExhibitId : undefined}
+        onSelect={(supplementalExhibitId) => onSelectSupplementalExhibit({hallId: definition.id, supplementalExhibitId})}
+      />}
+    {definition.id === 'phenomenology-existence-embodiment'
+      && definition.layout.supplementalExhibits
+      && <PhenomenologySupplementalExhibits
         layouts={active
           ? definition.layout.supplementalExhibits
           : definition.layout.supplementalExhibits.filter(({assetId}) => entryAssetIds.has(assetId))}

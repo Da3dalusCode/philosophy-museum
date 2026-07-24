@@ -205,4 +205,4 @@ The masterplan resolves enough to build a coherent program, but it should not pr
 5. **Buddhist transmission beyond India and Chinese traditions beyond China** have reserved continuity zones but sparse current records. Expansion should deepen those worlds rather than move current figures into generic thematic halls.
 6. **Living-thinker tiers** are provisional and should be re-reviewed rather than inherited automatically by future versions of the Atlas.
 
-These are controlled review points. None changes the present accounting: every one of the 43 branch IDs and 144 philosopher IDs still has exactly one primary physical home.
+These are controlled review points. None changes the present accounting: every one of the 43 branch IDs and 146 philosopher IDs still has exactly one primary physical home.

@@ -124,14 +124,27 @@ export type MuseumSupplementalExhibitId =
   | 'hobbes-leviathan'
   | 'hobbes-de-cive'
   | 'english-civil-war'
-  | 'hobbes-materialism-motion';
+  | 'hobbes-materialism-motion'
+  | 'phenomenology-intentionality'
+  | 'husserl-crisis-lifeworld'
+  | 'heidegger-being-time'
+  | 'merleau-phenomenology-perception'
+  | 'existentialism-facticity-freedom'
+  | 'sartre-bad-faith'
+  | 'beauvoir-ethics-ambiguity'
+  | 'camus-absurd-revolt'
+  | 'levinas-ethics-before-ontology'
+  | 'gadamer-truth-method';
 
 export type MuseumSupplementalInstallationKind =
   | 'cave-ascent'
   | 'republic-altarpiece'
   | 'renaissance-work'
   | 'renaissance-context'
-  | 'renaissance-observation';
+  | 'renaissance-observation'
+  | 'phenomenology-work'
+  | 'phenomenology-context'
+  | 'phenomenology-concept';
 
 export type MuseumSupplementalExhibitLayout = {
   id: MuseumSupplementalExhibitId;

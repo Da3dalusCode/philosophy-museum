@@ -9,6 +9,7 @@ import {
   MUSEUM_HALL_ROUTE_ALIASES,
   type MuseumExhibitId,
 } from '../data/museumCatalog';
+import {isMuseumSupplementalExhibitId} from '../data/museum/museumSupplementalExhibits';
 import {canonicalizeArticleSection} from './routeMetadata';
 import {
   DEFAULT_ROUTES,
@@ -200,7 +201,7 @@ export const parseHashRoute = (hash: string): ParsedHashRoute => {
     if (segments.length !== 4 || third !== 'exhibits') {
       return fail(hash, 'This museum route has an unexpected shape.');
     }
-    if (!isMuseumExhibitId(second, fourth)) {
+    if (!isMuseumExhibitId(second, fourth) && !isMuseumSupplementalExhibitId(second, fourth)) {
       const hall = getMuseumHallCatalog(second);
       return fail(hash, `No exhibit exists with the id “${fourth}” in “${hall?.title ?? second}”.`);
     }

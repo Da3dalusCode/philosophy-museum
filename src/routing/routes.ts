@@ -1,4 +1,5 @@
 import type {MuseumExhibitId, MuseumPublicHallId} from '../data/museumCatalog';
+import type {MuseumSupplementalExhibitId} from '../data/museum/museumWorldTypes';
 
 export type ArticleSectionRoute = {section?: string};
 
@@ -22,10 +23,11 @@ export type LearningPathRoute = {
   /** Public route steps are one-based. */
   step: number;
 };
+export type MuseumRouteExhibitId = MuseumExhibitId | MuseumSupplementalExhibitId;
 export type MuseumRoute = {
   kind: 'museum';
   hallId: MuseumPublicHallId;
-  exhibitId?: MuseumExhibitId;
+  exhibitId?: MuseumRouteExhibitId;
 };
 export type MuseumCompatibilityRoute = {
   kind: 'museum-compatibility';

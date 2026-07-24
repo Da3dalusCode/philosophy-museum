@@ -6,6 +6,7 @@ import {
   getMuseumHallCatalog,
   getMuseumLegacyExhibitCompatibility,
 } from '../data/museumCatalog';
+import {findMuseumSupplementalExhibit} from '../data/museum/museumSupplementalExhibits';
 import type {AppRoute, ArticleRoute} from './routes';
 
 export type ArticleRouteEntry = {
@@ -100,8 +101,11 @@ export const getRouteTitle = (route: AppRoute): string => {
       const exhibit = route.exhibitId
         ? getMuseumExhibitCatalog(route.hallId, route.exhibitId)
         : undefined;
-      title = exhibit
-        ? `${exhibit.displayName} — ${hall?.title ?? route.hallId}`
+      const supplemental = route.exhibitId
+        ? findMuseumSupplementalExhibit(route.hallId, route.exhibitId)
+        : undefined;
+      title = exhibit || supplemental
+        ? `${exhibit?.displayName ?? supplemental?.displayName} — ${hall?.title ?? route.hallId}`
         : hall?.title ?? route.hallId;
       break;
     }

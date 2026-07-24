@@ -28,6 +28,7 @@ const buildResult = await build({
           export * from '/src/routing/routeMetadata.ts';
           export * from '/src/routing/routeLoadErrors.ts';
           export * from '/src/data/museumCatalog.ts';
+          export * from '/src/data/museum/museumSupplementalExhibits.ts';
           export {branches} from '/src/data/branches.ts';
           export {philosophers} from '/src/data/philosophers.ts';
           export {learningPaths} from '/src/data/learningPaths.ts';
@@ -71,6 +72,7 @@ const {
   learningPaths,
   MUSEUM_HALL_ROUTE_ALIASES,
   MUSEUM_HALLS,
+  MUSEUM_SUPPLEMENTAL_EXHIBITS,
   MUSEUM_LEGACY_EXHIBIT_COMPATIBILITY,
   MUSEUM_LIVE_LEGACY_EXHIBIT_COMPATIBILITY,
   getArticleRouteEntries,
@@ -200,7 +202,11 @@ check('Museum convenience, hall, and exhibit routes parse and serialize', () => 
     }
   }
   assert.equal(MUSEUM_HALLS.length, 6);
-  assert.equal(exhibitCount, 61);
+  assert.equal(exhibitCount, 63);
+  assert.equal(MUSEUM_SUPPLEMENTAL_EXHIBITS.length, 25);
+  for (const {hallId, exhibit} of MUSEUM_SUPPLEMENTAL_EXHIBITS) {
+    expectRoundTrip({kind: 'museum', hallId, exhibitId: exhibit.id});
+  }
 });
 
 check('serializers emit the required literal route families', () => {
@@ -213,6 +219,14 @@ check('serializers emit the required literal route families', () => {
   assert.equal(
     serializeHashRoute({kind: 'museum', hallId: 'mediterranean-beginnings-classical', exhibitId: 'plato'}),
     '#/museum/mediterranean-beginnings-classical/exhibits/plato',
+  );
+  assert.equal(
+    serializeHashRoute({kind: 'museum', hallId: 'renaissance-humanism-new-method', exhibitId: 'galileo-moon'}),
+    '#/museum/renaissance-humanism-new-method/exhibits/galileo-moon',
+  );
+  assert.equal(
+    serializeHashRoute({kind: 'museum', hallId: 'phenomenology-existence-embodiment', exhibitId: 'beauvoir-ethics-ambiguity'}),
+    '#/museum/phenomenology-existence-embodiment/exhibits/beauvoir-ethics-ambiguity',
   );
   assert.equal(serializeHashRoute({kind: 'museum', hallId: 'analytic-traditions'}), '#/museum/analytic-traditions');
   assert.equal(serializeHashRoute({kind: 'museum', hallId: 'analytic-traditions', exhibitId: 'frege'}), '#/museum/analytic-traditions/exhibits/frege');
@@ -361,6 +375,7 @@ check('unknown branch, philosopher, and learning-path IDs are rejected', () => {
 
 check('unknown and malformed Museum routes remain visible as not-found', () => {
   expectNotFound('#/museum/unknown-hall', /No museum hall exists/);
+  expectNotFound('#/museum/mediterranean-beginnings-classical/exhibits/galileo-moon', /No exhibit exists/);
   expectNotFound('#/museum/ancient-greek/exhibits/unknown-exhibit', /No former exhibit exists/);
   expectNotFound('#/museum/medieval-worlds', /No museum hall exists/);
   expectNotFound('#/museum/medieval-worlds/exhibits/plato', /No museum hall exists/);
@@ -467,6 +482,7 @@ check('document titles are exhaustive and section-aware', () => {
     DEFAULT_ROUTES.learningPath,
     DEFAULT_ROUTES.museum,
     {kind: 'museum', hallId: 'mediterranean-beginnings-classical', exhibitId: 'plato'},
+    {kind: 'museum', hallId: 'renaissance-humanism-new-method', exhibitId: 'galileo-moon'},
     {kind: 'museum-compatibility', formerHallId: 'renaissance-reason-revolution', exhibitId: 'kant'},
     {kind: 'not-found', requestedHash: '#/missing', reason: 'Missing'},
   ];
@@ -487,6 +503,10 @@ check('document titles are exhaustive and section-aware', () => {
   assert.equal(
     getRouteTitle({kind: 'museum', hallId: 'renaissance-humanism-new-method'}),
     'Renaissance, Political Order, and New Science | Philosophy Atlas',
+  );
+  assert.equal(
+    getRouteTitle({kind: 'museum', hallId: 'renaissance-humanism-new-method', exhibitId: 'galileo-moon'}),
+    'Galileo’s Moon — Renaissance, Political Order, and New Science | Philosophy Atlas',
   );
   assert.equal(
     getRouteTitle({kind: 'museum-compatibility', formerHallId: 'renaissance-reason-revolution', exhibitId: 'kant'}),

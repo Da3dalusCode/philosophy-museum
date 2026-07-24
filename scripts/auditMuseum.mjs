@@ -23,8 +23,12 @@ const mediterraneanMediaSource = source('src/components/MuseumGallery/Mediterran
 const mediterraneanCurationSource = source('src/components/MuseumGallery/MediterraneanGalleryCuration.tsx');
 const platoSupplementalDataSource = source('src/data/museum/platoSupplementalExhibits.ts');
 const platoSupplementalSceneSource = source('src/components/MuseumGallery/PlatoSupplementalExhibits.tsx');
+const phenomenologySupplementalDataSource = source('src/data/museum/phenomenologySupplementalExhibits.ts');
+const phenomenologySupplementalSceneSource = source('src/components/MuseumGallery/PhenomenologySupplementalExhibits.tsx');
 const supplementalPanelSource = source('src/components/MuseumGallery/MuseumSupplementalInterpretationPanel.tsx');
 const interpretationPanelSource = source('src/components/MuseumGallery/MuseumInterpretationPanel.tsx');
+const globalSearchSource = source('src/components/Search/GlobalSearch.tsx');
+const hashRouterSource = source('src/routing/hashRouter.ts');
 const visitorMapSource = source('src/components/MuseumGallery/MuseumVisitorMap.tsx');
 const compatibilitySource = source('src/components/MuseumGallery/MuseumCompatibilityPage.tsx');
 const museumCssSource = source('src/components/MuseumGallery/museum.css');
@@ -52,6 +56,7 @@ const result = await build({
       export * from '/src/data/museum/museumTexturePolicy.ts';
       export * from '/src/data/museum/museumInterpretations.ts';
       export * from '/src/data/museum/platoSupplementalExhibits.ts';
+      export * from '/src/data/museum/museumSupplementalExhibits.ts';
       export * from '/src/components/MuseumGallery/museumMovement.ts';
       export * from '/src/components/MuseumGallery/museumResidency.ts';
       export * from '/src/components/MuseumGallery/museumSession.ts';
@@ -107,6 +112,7 @@ const {
   MUSEUM_READINESS_PRESENTATIONS,
   MUSEUM_RUNTIME_NODES,
   MUSEUM_STANDARD_WALK_SPEED,
+  MUSEUM_SUPPLEMENTAL_EXHIBITS,
   MUSEUM_VISITOR_MAP_DOORWAYS,
   MUSEUM_VISITOR_MAP_EDGES,
   MUSEUM_VISITOR_MAP_ENTRANCE,
@@ -130,6 +136,7 @@ const {
   createMuseumInputState,
   estimateMuseumHallTextureResidency,
   hasMuseumBrowserModifier,
+  getMuseumGuidedStops,
   isValidMuseumPosition,
   moveWithCollisions,
   museumPointToWorld,
@@ -527,6 +534,111 @@ check('Plato’s Cave and Republic form a substantial supplemental U without cha
   assert.match(supplementalPanelSource, /event\.key === 'Escape'/u, 'The supplemental panel lacks its keyboard close path');
 });
 
+check('all twenty-five supplemental exhibits share route, directory, search, guided, and fallback contracts', () => {
+  assert.equal(MUSEUM_SUPPLEMENTAL_EXHIBITS.length, 25);
+  assert.equal(
+    new Set(MUSEUM_SUPPLEMENTAL_EXHIBITS.map(({exhibit}) => exhibit.id)).size,
+    MUSEUM_SUPPLEMENTAL_EXHIBITS.length,
+    'Supplemental exhibit ids must remain globally unique',
+  );
+
+  for (const {hallId, exhibit, layout} of MUSEUM_SUPPLEMENTAL_EXHIBITS) {
+    const hall = hallById.get(hallId);
+    const definition = definitionById.get(hallId);
+    assert(hall && definition, `${exhibit.id} points to an unknown live hall`);
+    assert(hall.exhibits.some(({id}) => id === layout.parentExhibitId), `${exhibit.id} has no primary parent`);
+    assert(hall.zones.some(({id}) => id === layout.zoneId), `${exhibit.id} has no live room`);
+    assert(definition.layout.supplementalExhibits?.some(({id}) => id === exhibit.id), `${exhibit.id} is absent from its hall layout`);
+    assert(!hall.exhibits.some(({id}) => id === exhibit.id), `${exhibit.id} collides with a primary exhibit id`);
+    assert(exhibit.keyIdeas.length >= 3, `${exhibit.id} lacks a usable idea map`);
+    assert(exhibit.cautions.length >= 2, `${exhibit.id} lacks interpretive cautions`);
+    assert(exhibit.sections.length >= 3, `${exhibit.id} interpretation is too shallow`);
+    assert(exhibit.sources.length >= 2, `${exhibit.id} lacks a useful source layer`);
+    assert(
+      wordCount(`${exhibit.lead} ${exhibit.sections.flatMap(({paragraphs}) => paragraphs).join(' ')}`) >= 120,
+      `${exhibit.id} interpretation is too brief`,
+    );
+  }
+
+  for (const hall of MUSEUM_HALLS) {
+    const supplemental = MUSEUM_SUPPLEMENTAL_EXHIBITS.filter(({hallId}) => hallId === hall.id);
+    const guided = getMuseumGuidedStops(hall.id, hall.guidedOrder);
+    assert.equal(guided.length, hall.guidedOrder.length + supplemental.length, `${hall.id} guided stop count is stale`);
+    for (const {exhibit, layout} of supplemental) {
+      const primaryIndex = guided.findIndex(({kind, exhibitId}) =>
+        kind === 'primary' && exhibitId === layout.parentExhibitId);
+      const supplementalIndex = guided.findIndex(({kind, exhibitId}) =>
+        kind === 'supplemental' && exhibitId === exhibit.id);
+      assert(primaryIndex >= 0 && supplementalIndex > primaryIndex, `${exhibit.id} is not guided after its parent`);
+    }
+  }
+
+  assert.match(hashRouterSource, /isMuseumSupplementalExhibitId/u, 'Supplemental ids are not accepted by the Museum route guard');
+  assert.match(museumPageSource, /getMuseumSupplementalExhibitsForHall/u, 'The directory/fallback does not enumerate supplemental exhibits');
+  assert.match(museumPageSource, /getMuseumGuidedStops/u, 'Guided mode does not include supplemental exhibits');
+  assert.match(globalSearchSource, /MUSEUM_SUPPLEMENTAL_EXHIBITS/u, 'Global search does not index supplemental exhibits');
+  assert.match(supplementalPanelSource, /onClose\('history'\)/u, 'Supplemental Escape behavior does not use history-aware closing');
+  assert.match(supplementalPanelSource, /museum-guided-controls/u, 'Supplemental panels lack guided navigation');
+});
+
+check('Gallery 03 preserves nine primaries and adds two substantial interpreted stops to every room', () => {
+  const hallId = 'phenomenology-existence-embodiment';
+  const hall = hallById.get(hallId);
+  const definition = definitionById.get(hallId);
+  assert(hall && definition);
+  const supplemental = MUSEUM_SUPPLEMENTAL_EXHIBITS.filter((entry) => entry.hallId === hallId);
+  assert.equal(hall.exhibits.length, 9, 'Gallery 03 primary catalog changed');
+  assert.equal(supplemental.length, 10, 'Gallery 03 must have ten bounded supplemental stops');
+  assert.equal(definition.layout.supplementalExhibits?.length, 10, 'Gallery 03 scene layout is missing supplemental stops');
+
+  const expectedPrimaryCounts = new Map([
+    ['phenomenology-method', 2],
+    ['phenomenology-being-embodiment', 2],
+    ['existentialism-freedom', 2],
+    ['existentialism-situated-absurd', 1],
+    ['phenomenology-interpretation-alterity', 2],
+  ]);
+  for (const zone of hall.zones) {
+    const primaryCount = hall.exhibits.filter(({zoneId}) => zoneId === zone.id).length;
+    const supplementalCount = supplemental.filter(({layout}) => layout.zoneId === zone.id).length;
+    assert.equal(primaryCount, expectedPrimaryCounts.get(zone.id), `${zone.id} primary count changed`);
+    assert.equal(supplementalCount, 2, `${zone.id} needs exactly two supplemental interpretations`);
+    assert.equal(
+      primaryCount + supplementalCount,
+      (expectedPrimaryCounts.get(zone.id) ?? 0) + 2,
+      `${zone.id} interpreted-stop count is stale`,
+    );
+  }
+
+  const beauvoir = supplemental.find(({exhibit}) => exhibit.id === 'beauvoir-ethics-ambiguity');
+  assert(beauvoir, 'Gallery 03 lost Beauvoir’s anchor-strength secondary');
+  assert.equal(beauvoir.layout.zoneId, 'existentialism-situated-absurd');
+  assert.deepEqual(beauvoir.exhibit.articleRoute, {kind: 'philosopher', philosopherId: 'beauvoir'});
+  assert.match(beauvoir.exhibit.presentation?.panelKicker ?? '', /anchor secondary/i);
+  assert.match(beauvoir.exhibit.presentation?.factRows.map(({value}) => value).join(' ') ?? '', /Feminist Philosophies remains primary/i);
+  assert.match(beauvoir.exhibit.lead, /not as an appendix to Sartre/i);
+
+  for (const {exhibit, layout} of supplemental) {
+    assert(assetById.has(exhibit.assetId), `${exhibit.id} uses missing scene asset ${exhibit.assetId}`);
+    assert(assetById.has(exhibit.panelAssetId), `${exhibit.id} uses missing panel asset ${exhibit.panelAssetId}`);
+    assert.equal(layout.assetId, exhibit.assetId, `${exhibit.id} scene and interpretation assets diverge`);
+    assert.equal(layout.mediaMount.assetId, layout.assetId, `${exhibit.id} prefetch and media assets diverge`);
+    assert(definition.layout.obstacleColliders.some(({id}) => id === layout.collider.id), `${exhibit.id} is absent from collision`);
+    assert(validPose(definition, layout.viewpoint), `${exhibit.id} has an unsafe viewing pose`);
+    assert(layout.footprint.width >= 4.3 && layout.footprint.height >= 4.4, `${exhibit.id} is visually slight`);
+    assert(layout.mediaMount.width >= 2.1 && layout.mediaMount.height >= 2.2, `${exhibit.id} media is too small to read`);
+  }
+
+  const levinas = supplemental.find(({exhibit}) => exhibit.id === 'levinas-ethics-before-ontology')?.exhibit;
+  const gadamer = supplemental.find(({exhibit}) => exhibit.id === 'gadamer-truth-method')?.exhibit;
+  assert.match(`${levinas?.lead} ${levinas?.cautions.join(' ')}`, /lineage material|not Levinas/i);
+  assert.match(`${gadamer?.lead} ${gadamer?.cautions.join(' ')}`, /shows Heidegger|depicts Heidegger|not Gadamer/i);
+  assert.match(canonicalSceneSource, /<PhenomenologySupplementalExhibits/u, 'Gallery 03 does not mount its shared supplemental collection');
+  assert.match(phenomenologySupplementalSceneSource, /onClick=\{activate\}/u, 'Gallery 03 supplemental installations lack mouse activation');
+  assert.match(phenomenologySupplementalSceneSource, /interactionForSupplemental/u, 'Gallery 03 supplemental installations lack stable interaction identity');
+  assert.match(phenomenologySupplementalDataSource, /Room 01 · Attend[\s\S]*Room 05 · Answer/u, 'Gallery 03 room sequence copy is incomplete');
+});
+
 check('all nine Forum rooms carry rigorous comparative lenses into the directory and compiled wayfinding', () => {
   const forumProgram = MUSEUM_CANONICAL_PROGRAM.find(({id}) => id === 'core-questions-forum');
   const forumDirectory = hallById.get('core-questions-forum');
@@ -653,7 +765,11 @@ check('all six runtime halls are canonical, data-driven, and internally aligned'
     assert.equal(definition.layout.lighting.tracks.length, hall.zones.length);
     assert.equal(definition.layout.lighting.exhibitLights.length, hall.exhibits.length);
     const comparativeLensCount = hall.zones.reduce((sum, zone) => sum + (zone.comparativeLenses?.length ?? 0), 0);
-    const removedPhysicalRoomSigns = definition.id === MEDITERRANEAN_GALLERY_ID || definition.id === 'renaissance-humanism-new-method' ? 1 : 0;
+    const removedPhysicalRoomSigns = [
+      MEDITERRANEAN_GALLERY_ID,
+      'renaissance-humanism-new-method',
+      'phenomenology-existence-embodiment',
+    ].includes(definition.id) ? 1 : 0;
     assert.equal(definition.layout.signs.length, hall.zones.length + 1 + comparativeLensCount - removedPhysicalRoomSigns);
     assert(validPose(definition, definition.layout.spawn), `${definition.id} spawn is unsafe`);
     assert(validPose(definition, definition.layout.reset), `${definition.id} reset is unsafe`);

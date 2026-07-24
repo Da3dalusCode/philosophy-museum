@@ -1,9 +1,10 @@
-import {ExternalLink, X} from 'lucide-react';
+import {ArrowLeft, ArrowRight, ExternalLink, X} from 'lucide-react';
 import {useEffect, useId, useRef, type KeyboardEvent} from 'react';
 import {getMuseumAsset} from '../../data/museum/museumAssets';
 import type {MuseumSupplementalExhibit} from '../../data/museum/platoSupplementalExhibits';
 import type {RouteHref} from '../../routing/routes';
 import {MuseumAssetImage, MuseumSourceDetails} from './MuseumInterpretationPanel';
+import type {MuseumExitTrigger} from './museumVisitState';
 
 const focusableSelector = 'a[href],button:not([disabled]),summary,[tabindex]:not([tabindex="-1"])';
 
@@ -13,13 +14,25 @@ const visibleFocusable = (root: HTMLElement): HTMLElement[] => [...root.querySel
 export function MuseumSupplementalInterpretationPanel({
   exhibit,
   href,
+  guided,
+  exhibitIndex,
+  exhibitCount,
+  continueLabel,
   onClose,
   onArticleIntent,
+  onGuidedPrevious,
+  onGuidedNext,
 }: {
   exhibit: MuseumSupplementalExhibit;
   href: RouteHref;
-  onClose: () => void;
+  guided: boolean;
+  exhibitIndex: number;
+  exhibitCount: number;
+  continueLabel: string;
+  onClose: (trigger: MuseumExitTrigger) => void;
   onArticleIntent: () => void;
+  onGuidedPrevious: () => void;
+  onGuidedNext: () => void;
 }) {
   const panelRef = useRef<HTMLElement>(null);
   const titleId = useId();
@@ -47,7 +60,7 @@ export function MuseumSupplementalInterpretationPanel({
     if (event.key === 'Escape') {
       event.preventDefault();
       event.stopPropagation();
-      onClose();
+      onClose('history');
       return;
     }
     if (event.key !== 'Tab' || !panelRef.current) return;
@@ -72,7 +85,7 @@ export function MuseumSupplementalInterpretationPanel({
   };
 
   return <div className="museum-interpretation-layer" role="presentation" onMouseDown={(event) => {
-    if (event.target === event.currentTarget) onClose();
+    if (event.target === event.currentTarget) onClose('gesture');
   }}>
     <article
       ref={panelRef}
@@ -91,7 +104,7 @@ export function MuseumSupplementalInterpretationPanel({
           <p className="museum-panel-kicker">{presentation.panelKicker} · {exhibit.dateLabel}</p>
           <h2 id={titleId} tabIndex={-1}>{exhibit.displayName}</h2>
         </div>
-        <button className="museum-icon-button" type="button" onClick={onClose} aria-label={`Close ${exhibit.displayName} exhibit`}><X/></button>
+        <button className="museum-icon-button" type="button" onClick={() => onClose('gesture')} aria-label={`Close ${exhibit.displayName} exhibit`}><X/></button>
       </header>
 
       <div className="museum-panel-scroll">
@@ -135,9 +148,14 @@ export function MuseumSupplementalInterpretationPanel({
       </div>
 
       <footer className="museum-panel-actions">
+        {guided && <div className="museum-guided-controls" aria-label="Guided exhibit navigation">
+          <button type="button" disabled={exhibitIndex <= 0} onClick={onGuidedPrevious}><ArrowLeft size={15}/> Previous</button>
+          <span>{exhibitIndex + 1} / {exhibitCount}</span>
+          <button type="button" disabled={exhibitIndex >= exhibitCount - 1} onClick={onGuidedNext}>Next <ArrowRight size={15}/></button>
+        </div>}
         <div>
           <a className="btn btn-primary" href={href(exhibit.articleRoute)} onClick={onArticleIntent}>{presentation.articleActionLabel}</a>
-          <button className="btn" type="button" onClick={onClose}>Return to the room</button>
+          <button className="btn" type="button" onClick={() => onClose('gesture')}>{continueLabel}</button>
         </div>
       </footer>
     </article>

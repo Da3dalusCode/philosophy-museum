@@ -11,13 +11,13 @@ No account, subscription, download, or special software is required. Everything 
 ## What is inside
 
 - **43 philosophical branches and traditions**, from ancient schools to modern movements
-- **144 philosopher profiles** with historical context, major works, central ideas, and related thinkers
+- **146 philosopher profiles** with historical context, major works, central ideas, and related thinkers
 - **Big History**, a filterable timeline connecting events, branches, and philosophers
 - **Branch Explorer**, with long-form introductions, key concepts, debates, readings, and source links
 - **Philosophy Map**, showing selected relationships between traditions and thinkers
 - **Compare**, for side-by-side branch and philosopher comparisons
 - **Learning Paths**, with guided routes through major themes and periods
-- **A six-hall 3D museum** with 61 interpreted primary exhibits inside a compact, walkable Ring of Wings
+- **A six-hall 3D museum** with 63 primary exhibits and 15 interpreted work/context stops inside a compact, walkable Ring of Wings
 
 ## The walkable museum
 
@@ -27,7 +27,7 @@ The Museum presents philosophy as a physical journey through five permanent oute
    Ionian natural explanation, disputes over being and change, civic argument, Socrates, Plato, Aristotle, Platonism, and Aristotelianism
 
 2. **Renaissance, Political Order, and New Science**
-   Machiavelli, Francis Bacon, and Hobbes across statecraft, experimental method, sovereignty, and materialism
+   Machiavelli, Marsilio Ficino, Francis Bacon, Galileo Galilei, and Hobbes across recovery, statecraft, experimental method, sovereignty, and materialism
 
 3. **Phenomenology, Existence, and Embodiment**
    Husserl, Heidegger, Merleau-Ponty, Sartre, Camus, Levinas, Gadamer, and the Phenomenology and Existentialism traditions
@@ -41,7 +41,7 @@ The Museum presents philosophy as a physical journey through five permanent oute
 6. **Core Questions Forum**
    Comparative rooms for reality, knowledge, mind and self, logic and language, science, aesthetics, religion, and outward routes to historically situated traditions; Jiddu Krishnamurti appears in Mind & Self
 
-Every exhibit has a walkable installation, focused interpretation, structured facts, and a link to the full philosopher or branch article. The live roster uses 66 local, provenance-backed media placements where reliable reusable images or documents are available; media is not required merely to fill a quota.
+Every exhibit has a walkable installation, focused interpretation, structured facts, and a link to the full philosopher or branch article. The live roster uses 81 local, provenance-backed media placements where reliable reusable images or documents are available; media is not required merely to fill a quota.
 
 The physical visitor map is generated from the same building manifest that places walls, corridors, doors, and safe arrivals. It distinguishes the walkable loop and central spokes from six labeled fast-travel actions and from visibly blocked future insertion or expansion portals.
 
@@ -51,7 +51,7 @@ The physical visitor map is generated from the same building manifest that place
 - Use **W A S D** or the arrow keys to move.
 - Move the mouse to look around when Pointer Lock is available; click and drag is the fallback.
 - Press **E** or **Enter** near an exhibit to open it.
-- Press **M** for the directory, **R** to reset, and **Escape** to pause.
+- Press **M** for the visitor map, **R** to reset, and **Escape** to pause. The Directory has its own visible control.
 - Touch controls, guided visits, fullscreen, immersive mode, and a complete non-WebGL directory are also available.
 
 ## Who this is for
@@ -62,7 +62,7 @@ Philosophy Atlas is intended for curious readers, students, teachers, and anyone
 
 The project is actively being developed.
 
-Current written coverage includes all **144 philosophers** and **43 branches** in the Atlas. The long-term Museum program is locked at 10 wings, 26 halls, and 105 rooms or zones. The implemented canonical-six phase opens five permanent outer-loop halls plus the central Core Questions Forum, with 29 rooms, 61 primary exhibits, and 19 reserve slots. Retired Museum URLs resolve through aliases or explanatory handoffs, and displaced records remain available in the Atlas. Museum media includes structured provenance and rights metadata; citation depth across the wider Atlas is still being improved.
+Current written coverage includes all **146 philosophers** and **43 branches** in the Atlas. The long-term Museum program is locked at 10 wings, 26 halls, and 105 rooms or zones. The implemented canonical-six phase opens five permanent outer-loop halls plus the central Core Questions Forum, with 29 rooms, 63 primary exhibits, and 17 reserve slots. Retired Museum URLs resolve through aliases or explanatory handoffs, and displaced records remain available in the Atlas. Museum media includes structured provenance and rights metadata; citation depth across the wider Atlas is still being improved.
 
 The application is local-first and static. It has no backend, database, login system, runtime API, advertising, or paid service dependency.
 

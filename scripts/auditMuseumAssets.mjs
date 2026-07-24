@@ -31,6 +31,7 @@ const result = await build({
       export * from '/src/data/museum/museumMediaPolicy.ts';
       export * from '/src/data/museum/platoSupplementalExhibits.ts';
       export * from '/src/data/museum/renaissanceSupplementalExhibits.ts';
+      export * from '/src/data/museum/phenomenologySupplementalExhibits.ts';
     ` : undefined,
   }],
   build: {
@@ -55,6 +56,7 @@ const {
   MUSEUM_SCENE_MEDIA_LOADING_COLOR,
   MUSEUM_SCENE_MEDIA_MATERIAL_MODE,
   PLATO_SUPPLEMENTAL_EXHIBITS,
+  PHENOMENOLOGY_SUPPLEMENTAL_EXHIBITS,
   RENAISSANCE_SUPPLEMENTAL_EXHIBITS,
   museumAssetUrl,
 } = await import(`data:text/javascript;base64,${Buffer.from(entry.code).toString('base64')}`);
@@ -120,7 +122,12 @@ const canonicalReferencedIds = liveExhibits.flatMap(({exhibit}) => [
 ].filter(Boolean));
 const platoSupplementalReferencedIds = PLATO_SUPPLEMENTAL_EXHIBITS.map(({assetId}) => assetId);
 const renaissanceSupplementalReferencedIds = RENAISSANCE_SUPPLEMENTAL_EXHIBITS.map(({assetId}) => assetId);
-const supplementalReferencedIds = [...platoSupplementalReferencedIds, ...renaissanceSupplementalReferencedIds];
+const phenomenologySupplementalReferencedIds = PHENOMENOLOGY_SUPPLEMENTAL_EXHIBITS.map(({assetId}) => assetId);
+const supplementalReferencedIds = [
+  ...platoSupplementalReferencedIds,
+  ...renaissanceSupplementalReferencedIds,
+  ...phenomenologySupplementalReferencedIds,
+];
 const referencedIds = [...canonicalReferencedIds, ...supplementalReferencedIds];
 
 let checks = 0;
@@ -217,6 +224,19 @@ check('Gallery 02 work, discovery, and context exhibits resolve thirteen distinc
     assert(assetById.has(exhibit.assetId), `${exhibit.id} references missing asset ${exhibit.assetId}`);
     assert(assetById.has(exhibit.panelAssetId), `${exhibit.id} panel references missing asset ${exhibit.panelAssetId}`);
   }
+});
+
+check('Gallery 03 resolves ten interpreted stops through nine honest local media records', () => {
+  assert.equal(PHENOMENOLOGY_SUPPLEMENTAL_EXHIBITS.length, 10);
+  assert.equal(new Set(phenomenologySupplementalReferencedIds).size, 9);
+  for (const exhibit of PHENOMENOLOGY_SUPPLEMENTAL_EXHIBITS) {
+    assert(assetById.has(exhibit.assetId), `${exhibit.id} references missing asset ${exhibit.assetId}`);
+    assert(assetById.has(exhibit.panelAssetId), `${exhibit.id} panel references missing asset ${exhibit.panelAssetId}`);
+  }
+  const levinas = PHENOMENOLOGY_SUPPLEMENTAL_EXHIBITS.find(({id}) => id === 'levinas-ethics-before-ontology');
+  const gadamer = PHENOMENOLOGY_SUPPLEMENTAL_EXHIBITS.find(({id}) => id === 'gadamer-truth-method');
+  assert.match(`${levinas?.lead} ${levinas?.cautions.join(' ')}`, /not a Levinas portrait|not Levinas/i);
+  assert.match(`${gadamer?.lead} ${gadamer?.cautions.join(' ')}`, /not Gadamer/i);
 });
 
 check('the preserved asset registry contains 135 unique records and derivative paths', () => {
