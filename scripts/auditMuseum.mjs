@@ -768,6 +768,38 @@ check('Gallery 04 fills twenty-nine usable wall faces with resolved, philosopher
   }
 });
 
+check('Gallery 04 onward never renders a primary philosopher smaller than its peers', () => {
+  const completedGalleryIds = Object.entries(EXPECTED_MAP_LABELS)
+    .filter(([, label]) => {
+      const match = /^Gallery (\d+)/u.exec(label);
+      return match && Number(match[1]) >= 4;
+    })
+    .map(([hallId]) => hallId);
+
+  for (const hallId of completedGalleryIds) {
+    const program = MUSEUM_CANONICAL_PROGRAM.find(({id}) => id === hallId);
+    const definition = definitionById.get(hallId);
+    assert(program && definition, `${hallId} lacks a compiled gallery definition`);
+    const philosopherIds = new Set(program.rooms.flatMap(({exhibits}) => exhibits
+      .filter(({entityKind}) => entityKind === 'philosopher')
+      .map(({id}) => id)));
+    const primaryLayouts = definition.layout.exhibits;
+    const largestWidth = Math.max(...primaryLayouts.map(({scene}) => scene.footprint.width));
+    const largestHeight = Math.max(...primaryLayouts.map(({scene}) => scene.footprint.height));
+
+    for (const layout of primaryLayouts.filter(({id}) => philosopherIds.has(id))) {
+      assert(
+        layout.scene.footprint.width >= largestWidth - .001,
+        `${hallId}/${layout.id} is narrower than another primary exhibit`,
+      );
+      assert(
+        layout.scene.footprint.height >= largestHeight - .001,
+        `${hallId}/${layout.id} is shorter than another primary exhibit`,
+      );
+    }
+  }
+});
+
 check('all nine Forum rooms carry rigorous comparative lenses into the directory and compiled wayfinding', () => {
   const forumProgram = MUSEUM_CANONICAL_PROGRAM.find(({id}) => id === 'core-questions-forum');
   const forumDirectory = hallById.get('core-questions-forum');

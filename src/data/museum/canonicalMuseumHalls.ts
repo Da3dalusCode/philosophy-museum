@@ -86,6 +86,33 @@ const TIER_CONTRACTS: Readonly<Record<MuseumPresentationTier, TierContract>> = {
   'gallery-archive-or-study-wall-record': {tier: 'archive', treatment: 'archive-label', bayWidth: 1.9, objectWidth: 1.75, objectDepth: 1.45, objectHeight: 2.35},
 };
 
+const uniformScaleStartIndex = MUSEUM_CANONICAL_PROGRAM.findIndex(({id}) => id === ANALYTIC_GALLERY_ID);
+if (uniformScaleStartIndex < 0) throw new Error('The uniform philosopher exhibit scale has no Gallery 04 starting point.');
+
+// From Gallery 04 onward, curatorial tier may vary but a primary philosopher
+// never receives less physical wall presence than the gallery's anchor size.
+const UNIFORM_SCALE_PHILOSOPHER_IDS = new Set<string>(
+  MUSEUM_CANONICAL_PROGRAM
+    .slice(uniformScaleStartIndex)
+    .filter(({templateId}) => templateId === 'sequence-3')
+    .flatMap(({rooms}) => rooms.flatMap(({exhibits}) => exhibits
+      .filter(({entityKind}) => entityKind === 'philosopher')
+      .map(({id}) => id))),
+);
+
+const tierContractFor = (record: MuseumCanonicalExhibit): TierContract => {
+  const contract = TIER_CONTRACTS[record.tier];
+  if (!UNIFORM_SCALE_PHILOSOPHER_IDS.has(record.id)) return contract;
+  const anchor = TIER_CONTRACTS['anchor-exhibit'];
+  return {
+    ...contract,
+    bayWidth: Math.max(contract.bayWidth, anchor.bayWidth),
+    objectWidth: Math.max(contract.objectWidth, anchor.objectWidth),
+    objectDepth: Math.max(contract.objectDepth, anchor.objectDepth),
+    objectHeight: Math.max(contract.objectHeight, anchor.objectHeight),
+  };
+};
+
 const volume = (
   id: string,
   role: MuseumSceneVolumeRole,
@@ -151,7 +178,7 @@ const createScene = (
   compactForumInstallation = false,
   canonicalExhibitConstruction = false,
 ): MuseumInstallationSceneDefinition => {
-  const contract = TIER_CONTRACTS[record.tier];
+  const contract = tierContractFor(record);
   const physicalContract = compactForumInstallation
     ? {
         ...contract,
@@ -384,7 +411,7 @@ const createExhibitLayout = (
   canonicalExhibitConstruction = false,
 ): MuseumExhibitLayout => {
   const scene = createScene(record, compactForumInstallation, canonicalExhibitConstruction);
-  const contract = TIER_CONTRACTS[record.tier];
+  const contract = tierContractFor(record);
   const target = {
     x: candidate.x + scene.focalTarget.x * Math.cos(candidate.rotationY) + scene.focalTarget.z * Math.sin(candidate.rotationY),
     z: candidate.z - scene.focalTarget.x * Math.sin(candidate.rotationY) + scene.focalTarget.z * Math.cos(candidate.rotationY),
