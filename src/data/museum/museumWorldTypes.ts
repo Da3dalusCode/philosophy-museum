@@ -143,7 +143,29 @@ export type MuseumSupplementalExhibitId =
   | 'camus-plague-solidarity'
   | 'fanon-colonial-experience'
   | 'levinas-saying-said'
-  | 'gadamer-art-play-truth';
+  | 'gadamer-art-play-truth'
+  | 'frege-sense-reference'
+  | 'russell-whitehead-principia'
+  | 'russell-logical-types'
+  | 'moore-principia-ethica'
+  | 'moore-open-question'
+  | 'moore-common-sense'
+  | 'moore-external-world'
+  | 'moore-cambridge-practice'
+  | 'wittgenstein-tractatus'
+  | 'wittgenstein-truth-tables'
+  | 'wittgenstein-investigations'
+  | 'wittgenstein-language-games'
+  | 'quine-two-dogmas'
+  | 'quine-ontology'
+  | 'quine-word-object'
+  | 'quine-naturalized-epistemology'
+  | 'carnap-tolerance'
+  | 'anscombe-intention-why'
+  | 'anscombe-practical-knowledge'
+  | 'anscombe-modern-moral-philosophy'
+  | 'anscombe-truman-degree'
+  | 'anscombe-causality';
 
 export type MuseumSupplementalInstallationKind =
   | 'cave-ascent'
@@ -153,7 +175,10 @@ export type MuseumSupplementalInstallationKind =
   | 'renaissance-observation'
   | 'phenomenology-work'
   | 'phenomenology-context'
-  | 'phenomenology-concept';
+  | 'phenomenology-concept'
+  | 'analytic-work'
+  | 'analytic-context'
+  | 'analytic-concept';
 
 export type MuseumSupplementalExhibitLayout = {
   id: MuseumSupplementalExhibitId;

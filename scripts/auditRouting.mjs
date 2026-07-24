@@ -203,7 +203,7 @@ check('Museum convenience, hall, and exhibit routes parse and serialize', () => 
   }
   assert.equal(MUSEUM_HALLS.length, 6);
   assert.equal(exhibitCount, 63);
-  assert.equal(MUSEUM_SUPPLEMENTAL_EXHIBITS.length, 34);
+  assert.equal(MUSEUM_SUPPLEMENTAL_EXHIBITS.length, 56);
   for (const {hallId, exhibit} of MUSEUM_SUPPLEMENTAL_EXHIBITS) {
     expectRoundTrip({kind: 'museum', hallId, exhibitId: exhibit.id});
   }
@@ -230,6 +230,10 @@ check('serializers emit the required literal route families', () => {
   );
   assert.equal(serializeHashRoute({kind: 'museum', hallId: 'analytic-traditions'}), '#/museum/analytic-traditions');
   assert.equal(serializeHashRoute({kind: 'museum', hallId: 'analytic-traditions', exhibitId: 'frege'}), '#/museum/analytic-traditions/exhibits/frege');
+  assert.equal(
+    serializeHashRoute({kind: 'museum', hallId: 'analytic-traditions', exhibitId: 'wittgenstein-language-games'}),
+    '#/museum/analytic-traditions/exhibits/wittgenstein-language-games',
+  );
   assert.equal(serializeHashRoute({kind: 'museum', hallId: 'justice-democratic-reason'}), '#/museum/justice-democratic-reason');
   assert.equal(serializeHashRoute({kind: 'museum', hallId: 'justice-democratic-reason', exhibitId: 'rawls'}), '#/museum/justice-democratic-reason/exhibits/rawls');
   assert.equal(serializeHashRoute({kind: 'museum', hallId: 'core-questions-forum'}), '#/museum/core-questions-forum');
@@ -522,6 +526,10 @@ check('document titles are exhaustive and section-aware', () => {
   );
   assert.equal(getRouteTitle({kind: 'museum', hallId: 'analytic-traditions'}), 'Analytic Traditions: Logic, Language, and Analysis | Philosophy Atlas');
   assert.equal(getRouteTitle({kind: 'museum', hallId: 'analytic-traditions', exhibitId: 'wittgenstein'}), 'Wittgenstein — Analytic Traditions: Logic, Language, and Analysis | Philosophy Atlas');
+  assert.equal(
+    getRouteTitle({kind: 'museum', hallId: 'analytic-traditions', exhibitId: 'wittgenstein-language-games'}),
+    'Wittgenstein: Language-Games and Rule-Following — Analytic Traditions: Logic, Language, and Analysis | Philosophy Atlas',
+  );
   assert.equal(getRouteTitle({kind: 'museum', hallId: 'justice-democratic-reason'}), 'Political Action, Justice, and Democratic Reason | Philosophy Atlas');
   assert.equal(getRouteTitle({kind: 'museum', hallId: 'justice-democratic-reason', exhibitId: 'rawls'}), 'John Rawls — Political Action, Justice, and Democratic Reason | Philosophy Atlas');
   assert.equal(getRouteTitle({kind: 'museum', hallId: 'core-questions-forum'}), 'Core Questions Forum | Philosophy Atlas');

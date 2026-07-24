@@ -29,6 +29,12 @@ import {
   PHENOMENOLOGY_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
 } from './phenomenologySupplementalExhibits';
 import {PHENOMENOLOGY_PRIMARY_PLACEMENTS} from './phenomenologyGalleryCuration';
+import {
+  ANALYTIC_GALLERY_ID,
+  ANALYTIC_ROOM_SIGN_COPY,
+  ANALYTIC_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
+} from './analyticSupplementalExhibits';
+import {ANALYTIC_PRIMARY_PLACEMENTS} from './analyticGalleryCuration';
 import {MUSEUM_VISITOR_MAP_KIOSK} from './museumVisitorMapKioskDefinition';
 import type {
   MuseumBounds,
@@ -189,7 +195,8 @@ const createScene = (
     optionalAsset(record.supportingAssetIds?.[0]),
   ].filter((assetId): assetId is MuseumAssetId => Boolean(assetId));
   const preserveCuratedAspect = Object.hasOwn(MEDITERRANEAN_EXHIBIT_CURATION, record.id)
-    || Object.hasOwn(RENAISSANCE_EXHIBIT_CURATION, record.id);
+    || Object.hasOwn(RENAISSANCE_EXHIBIT_CURATION, record.id)
+    || Object.hasOwn(ANALYTIC_PRIMARY_PLACEMENTS, record.id);
   const plaqueWidth = Math.min(1.22, physicalContract.objectWidth - .28);
   const plaqueId = `${record.id}-plaque`;
   return {
@@ -650,7 +657,11 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
     : sequenceConnections(orderedRooms, roomBounds);
   const node = getMuseumManifestHallNode(hall.id);
   if (!node) throw new Error(`Canonical hall ${hall.id} has no physical manifest node.`);
-  const doorwayExclusions = node.doorwaySlots.map(({landingBounds}) => landingBounds);
+  const doorwayExclusions = node.doorwaySlots
+    // Gallery 04's W1 reservation is a closed expansion seam, so it remains a
+    // usable museum wall until a future wing is actually connected there.
+    .filter(({id}) => hall.id !== ANALYTIC_GALLERY_ID || id !== 'W1')
+    .map(({landingBounds}) => landingBounds);
   const furnishings = hall.id === MUSEUM_VISITOR_MAP_KIOSK.hallId
     ? [
         MUSEUM_VISITOR_MAP_KIOSK,
@@ -679,6 +690,8 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
           ? RENAISSANCE_AUTHORED_PLACEMENTS
           : hall.id === PHENOMENOLOGY_GALLERY_ID
             ? PHENOMENOLOGY_PRIMARY_PLACEMENTS
+            : hall.id === ANALYTIC_GALLERY_ID
+              ? ANALYTIC_PRIMARY_PLACEMENTS
             : undefined,
       hall.id === MEDITERRANEAN_GALLERY_ID || hall.id === RENAISSANCE_GALLERY_ID,
     );
@@ -689,6 +702,8 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
       ? RENAISSANCE_SUPPLEMENTAL_EXHIBIT_LAYOUTS
       : hall.id === PHENOMENOLOGY_GALLERY_ID
         ? PHENOMENOLOGY_SUPPLEMENTAL_EXHIBIT_LAYOUTS
+        : hall.id === ANALYTIC_GALLERY_ID
+          ? ANALYTIC_SUPPLEMENTAL_EXHIBIT_LAYOUTS
         : [];
   const cells: MuseumSpatialCell[] = orderedRooms.map((room) => ({
     id: room.id,
@@ -725,7 +740,11 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
     ...outerWalls(width, depth, ceiling, hall.id),
     ...(isForum ? forumPartitionWalls(hall.id) : sequencePartitionWalls(orderedRooms, roomBounds, hall.id)),
   ];
-  if (hall.id === RENAISSANCE_GALLERY_ID || hall.id === PHENOMENOLOGY_GALLERY_ID) {
+  if (
+    hall.id === RENAISSANCE_GALLERY_ID
+    || hall.id === PHENOMENOLOGY_GALLERY_ID
+    || hall.id === ANALYTIC_GALLERY_ID
+  ) {
     const acceptedSupplementalBounds: {spatialCellId: string; bounds: MuseumBounds}[] = [];
     for (const layout of supplementalExhibits) {
       const cellBounds = roomBounds.get(layout.spatialCellId);
@@ -902,6 +921,23 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
               height: .82,
             };
           })
+        : hall.id === ANALYTIC_GALLERY_ID
+          ? orderedRooms.map((room) => {
+              const copy = ANALYTIC_ROOM_SIGN_COPY[room.id as keyof typeof ANALYTIC_ROOM_SIGN_COPY];
+              if (!copy) throw new Error(`Gallery 04 has no visitor-facing orientation copy for ${room.id}.`);
+              const bounds = roomBounds.get(room.id)!;
+              return {
+                id: `${room.id}:room-sign`,
+                kind: room.id === 'analytic-origins-foundations' ? 'entrance' as const : 'zone' as const,
+                title: copy.title,
+                kicker: copy.kicker,
+                subtitle: copy.subtitle,
+                position: {x: 0, y: 4.55, z: bounds.maxZ - .22},
+                rotationY: Math.PI,
+                width: room.id === 'analytic-origins-foundations' ? 5.2 : 4.8,
+                height: .82,
+              };
+            })
       : standardSigns;
   const guidedOrder = orderedRooms.flatMap((room) => room.exhibits.map(({id}) => id as MuseumExhibitId));
   const entryRoomIdByEntrance = new Map<string, string>();

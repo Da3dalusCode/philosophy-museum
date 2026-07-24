@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import {readFileSync, readdirSync} from 'node:fs';
+import {existsSync, readFileSync, readdirSync} from 'node:fs';
 import {dirname, extname, resolve} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {build} from 'vite';
@@ -25,6 +25,11 @@ const platoSupplementalDataSource = source('src/data/museum/platoSupplementalExh
 const platoSupplementalSceneSource = source('src/components/MuseumGallery/PlatoSupplementalExhibits.tsx');
 const phenomenologySupplementalDataSource = source('src/data/museum/phenomenologySupplementalExhibits.ts');
 const phenomenologySupplementalSceneSource = source('src/components/MuseumGallery/PhenomenologySupplementalExhibits.tsx');
+const analyticSupplementalDataSource = source('src/data/museum/analyticSupplementalExhibits.ts');
+const analyticSupplementalScenePath = 'src/components/MuseumGallery/AnalyticSupplementalExhibits.tsx';
+const analyticSupplementalSceneSource = existsSync(resolve(repoRoot, analyticSupplementalScenePath))
+  ? source(analyticSupplementalScenePath)
+  : undefined;
 const supplementalPanelSource = source('src/components/MuseumGallery/MuseumSupplementalInterpretationPanel.tsx');
 const interpretationPanelSource = source('src/components/MuseumGallery/MuseumInterpretationPanel.tsx');
 const globalSearchSource = source('src/components/Search/GlobalSearch.tsx');
@@ -56,6 +61,7 @@ const result = await build({
       export * from '/src/data/museum/museumTexturePolicy.ts';
       export * from '/src/data/museum/museumInterpretations.ts';
       export * from '/src/data/museum/platoSupplementalExhibits.ts';
+      export * from '/src/data/museum/analyticSupplementalExhibits.ts';
       export * from '/src/data/museum/museumSupplementalExhibits.ts';
       export * from '/src/components/MuseumGallery/museumMovement.ts';
       export * from '/src/components/MuseumGallery/museumResidency.ts';
@@ -89,6 +95,8 @@ try {
 }
 
 const {
+  ANALYTIC_SUPPLEMENTAL_EXHIBITS,
+  ANALYTIC_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
   MUSEUM_ASSETS,
   MUSEUM_BUILDING_MANIFEST,
   MUSEUM_CANONICAL_WALL_MATERIAL,
@@ -534,8 +542,8 @@ check('Plato’s Cave and Republic form a substantial supplemental U without cha
   assert.match(supplementalPanelSource, /event\.key === 'Escape'/u, 'The supplemental panel lacks its keyboard close path');
 });
 
-check('all thirty-four supplemental exhibits share route, directory, search, guided, and fallback contracts', () => {
-  assert.equal(MUSEUM_SUPPLEMENTAL_EXHIBITS.length, 34);
+check('all fifty-six supplemental exhibits share route, directory, search, guided, and fallback contracts', () => {
+  assert.equal(MUSEUM_SUPPLEMENTAL_EXHIBITS.length, 56);
   assert.equal(
     new Set(MUSEUM_SUPPLEMENTAL_EXHIBITS.map(({exhibit}) => exhibit.id)).size,
     MUSEUM_SUPPLEMENTAL_EXHIBITS.length,
@@ -677,6 +685,89 @@ check('Gallery 03 gives every unobstructed half-room wall one substantial exhibi
   assert.match(phenomenologySupplementalDataSource, /Room 01 · Attend[\s\S]*Room 05 · Answer/u, 'Gallery 03 room sequence copy is incomplete');
 });
 
+check('Gallery 04 fills twenty-nine usable wall faces with resolved, philosopher-led installations', () => {
+  const hallId = 'analytic-traditions';
+  const hall = hallById.get(hallId);
+  const definition = definitionById.get(hallId);
+  assert(hall && definition);
+  const supplemental = MUSEUM_SUPPLEMENTAL_EXHIBITS.filter((entry) => entry.hallId === hallId);
+  assert.equal(hall.exhibits.length, 7, 'Gallery 04 primary catalog changed');
+  assert.equal(ANALYTIC_SUPPLEMENTAL_EXHIBITS.length, 22, 'Gallery 04 must define twenty-two supplemental exhibits');
+  assert.equal(ANALYTIC_SUPPLEMENTAL_EXHIBIT_LAYOUTS.length, 22, 'Gallery 04 must define twenty-two supplemental layouts');
+  assert.equal(supplemental.length, 22, 'Gallery 04 supplemental registry is stale');
+  assert.equal(definition.layout.supplementalExhibits?.length, 22, 'Gallery 04 scene layout is missing supplemental stops');
+
+  const exhibitIds = sorted(ANALYTIC_SUPPLEMENTAL_EXHIBITS.map(({id}) => id));
+  const layoutIds = sorted(ANALYTIC_SUPPLEMENTAL_EXHIBIT_LAYOUTS.map(({id}) => id));
+  assert.deepEqual(layoutIds, exhibitIds, 'Gallery 04 exhibit and layout ids diverge');
+  assert.deepEqual(
+    sorted(supplemental.map(({exhibit}) => exhibit.id)),
+    exhibitIds,
+    'Gallery 04 central registry does not resolve every supplemental layout',
+  );
+
+  const philosopherPrefix = new Map([
+    ['frege', 'Frege'],
+    ['russell', 'Russell'],
+    ['moore', 'Moore'],
+    ['wittgenstein', 'Wittgenstein'],
+    ['quine', 'Quine'],
+    ['carnap', 'Carnap'],
+    ['anscombe', 'Anscombe'],
+  ]);
+  for (const exhibit of ANALYTIC_SUPPLEMENTAL_EXHIBITS) {
+    const prefix = philosopherPrefix.get(exhibit.id.split('-')[0]);
+    assert(prefix, `${exhibit.id} has no named-philosopher title contract`);
+    assert(
+      exhibit.displayName.startsWith(`${prefix}:`) || exhibit.displayName.startsWith(`${prefix} and `),
+      `${exhibit.id} title must begin with ${prefix}`,
+    );
+  }
+
+  const expectedWallSlots = new Map([
+    ['analytic-origins-foundations', ['north-west', 'outer-west', 'south-west', 'north-east', 'outer-east', 'south-east']],
+    ['analytic-common-sense-metaethics', ['north-west', 'outer-west', 'south-west', 'north-east', 'outer-east', 'south-east']],
+    ['analytic-wittgenstein', ['north-west', 'outer-west', 'south-west', 'north-east', 'south-east']],
+    ['analytic-naturalism', ['north-west', 'outer-west', 'south-west', 'north-east', 'outer-east', 'south-east']],
+    ['analytic-action-intention', ['north-west', 'outer-west', 'south-west', 'north-east', 'outer-east', 'south-east']],
+  ]);
+  const wallSlotFor = (layout) => {
+    const side = layout.position.x < 0 ? 'west' : 'east';
+    const sine = Math.sin(layout.rotationY);
+    if (Math.abs(sine) > .5) return sine > 0 ? 'outer-west' : 'outer-east';
+    return `${Math.cos(layout.rotationY) > 0 ? 'north' : 'south'}-${side}`;
+  };
+  let installationCount = 0;
+  for (const zone of hall.zones) {
+    const roomLayouts = [
+      ...definition.layout.exhibits.filter(({spatialCellId}) => spatialCellId === zone.id),
+      ...supplemental.filter(({layout}) => layout.zoneId === zone.id).map(({layout}) => layout),
+    ];
+    installationCount += roomLayouts.length;
+    const occupiedSlots = roomLayouts.map(wallSlotFor);
+    assert.equal(new Set(occupiedSlots).size, roomLayouts.length, `${zone.id} repeats a wall face`);
+    assert.deepEqual(
+      sorted(occupiedSlots),
+      sorted(expectedWallSlots.get(zone.id) ?? []),
+      `${zone.id} does not match its usable wall faces`,
+    );
+  }
+  assert.equal(installationCount, 29, 'Gallery 04 must fill exactly twenty-nine usable wall faces');
+
+  for (const {exhibit, layout} of supplemental) {
+    assert.equal(layout.assetId, exhibit.assetId, `${exhibit.id} scene and interpretation assets diverge`);
+    assert.equal(layout.mediaMount.assetId, layout.assetId, `${exhibit.id} prefetch and media assets diverge`);
+    assert(definition.layout.obstacleColliders.some(({id}) => id === layout.collider.id), `${exhibit.id} is absent from collision`);
+    assert(validPose(definition, layout.viewpoint), `${exhibit.id} has an unsafe viewing pose`);
+  }
+  assert.match(analyticSupplementalDataSource, /Room 01 · Formalize[\s\S]*Room 05 · Act/u, 'Gallery 04 room sequence copy is incomplete');
+  if (analyticSupplementalSceneSource) {
+    assert.match(canonicalSceneSource, /<AnalyticSupplementalExhibits/u, 'Gallery 04 supplemental renderer exists but is not mounted');
+    assert.match(analyticSupplementalSceneSource, /onClick=\{activate\}/u, 'Gallery 04 supplemental installations lack mouse activation');
+    assert.match(analyticSupplementalSceneSource, /interactionForSupplemental/u, 'Gallery 04 supplemental installations lack stable interaction identity');
+  }
+});
+
 check('all nine Forum rooms carry rigorous comparative lenses into the directory and compiled wayfinding', () => {
   const forumProgram = MUSEUM_CANONICAL_PROGRAM.find(({id}) => id === 'core-questions-forum');
   const forumDirectory = hallById.get('core-questions-forum');
@@ -807,6 +898,7 @@ check('all six runtime halls are canonical, data-driven, and internally aligned'
       MEDITERRANEAN_GALLERY_ID,
       'renaissance-humanism-new-method',
       'phenomenology-existence-embodiment',
+      'analytic-traditions',
     ].includes(definition.id) ? 1 : 0;
     assert.equal(definition.layout.signs.length, hall.zones.length + 1 + comparativeLensCount - removedPhysicalRoomSigns);
     assert(validPose(definition, definition.layout.spawn), `${definition.id} spawn is unsafe`);

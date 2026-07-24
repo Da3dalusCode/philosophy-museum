@@ -608,6 +608,7 @@ export const MUSEUM_EXPANSION_INTERPRETATIONS = [
     ],
     objectInterpretations: {
       'anscombe-portrait': 'The portrait identifies a philosopher whose direct style and public commitments became part of her reputation. A composed likeness cannot substitute for the first-person grammar and practical situations analyzed in her work.',
+      'anscombe-portrait-interpretive': 'This charcoal-and-sepia portrait is explicitly a contemporary interpretation derived from an earlier posthumous drawing, not a documentary photograph. It identifies Anscombe while leaving her arguments to the surrounding actions, objects, and texts.',
       'anscombe-philosophical-investigations-1953': 'The 1953 English Philosophical Investigations is Wittgenstein’s posthumous work in Anscombe’s influential translation. It documents her role as translator and executor, not authorship of the philosophical text displayed.',
     },
     sources: [

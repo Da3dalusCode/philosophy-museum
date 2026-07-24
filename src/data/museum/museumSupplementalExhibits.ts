@@ -15,6 +15,10 @@ import {
   PHENOMENOLOGY_SUPPLEMENTAL_EXHIBITS,
   PHENOMENOLOGY_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
 } from './phenomenologySupplementalExhibits';
+import {
+  ANALYTIC_SUPPLEMENTAL_EXHIBITS,
+  ANALYTIC_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
+} from './analyticSupplementalExhibits';
 import type {
   MuseumSupplementalExhibitId,
   MuseumSupplementalExhibitLayout,
@@ -51,6 +55,11 @@ const COLLECTIONS = [
     hallId: 'phenomenology-existence-embodiment',
     exhibits: PHENOMENOLOGY_SUPPLEMENTAL_EXHIBITS,
     layouts: PHENOMENOLOGY_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
+  },
+  {
+    hallId: 'analytic-traditions',
+    exhibits: ANALYTIC_SUPPLEMENTAL_EXHIBITS,
+    layouts: ANALYTIC_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
   },
 ] as const satisfies readonly MuseumSupplementalCollection[];
 

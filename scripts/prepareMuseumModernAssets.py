@@ -37,8 +37,9 @@ EXPECTED_HALLS = {
     "renaissance-humanism-new-method",
     "justice-democratic-reason",
     "phenomenology-existence-embodiment",
+    "analytic-traditions",
 }
-EXPECTED_ASSET_COUNT = 118
+EXPECTED_ASSET_COUNT = 143
 MAX_DERIVATIVE_BYTES = 600_000
 
 

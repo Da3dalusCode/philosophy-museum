@@ -1,0 +1,1053 @@
+import type {MuseumZoneId} from '../museumCatalog';
+import type {MuseumAssetId} from './museumAssetTypes';
+import type {MuseumSupplementalExhibit} from './platoSupplementalExhibits';
+import type {
+  MuseumMediaMountDefinition,
+  MuseumPoint,
+  MuseumSceneVolume,
+  MuseumSupplementalExhibitId,
+  MuseumSupplementalExhibitLayout,
+  MuseumSupplementalInstallationKind,
+} from './museumWorldTypes';
+
+export const ANALYTIC_GALLERY_ID = 'analytic-traditions' as const;
+
+export const ANALYTIC_PALETTE = Object.freeze({
+  ink: '#20272d',
+  prussian: '#315169',
+  copper: '#a66f45',
+  vermilion: '#9e4b3f',
+  paper: '#e9e0d1',
+});
+
+export const ANALYTIC_ROOM_SIGN_COPY = {
+  'analytic-origins-foundations': {
+    kicker: 'Room 01 · Formalize',
+    title: 'Logic, reference, and analytic foundations',
+    subtitle: 'New symbolic tools recast what a proposition, number, and name can do.',
+  },
+  'analytic-common-sense-metaethics': {
+    kicker: 'Room 02 · Distinguish',
+    title: 'Common sense, analysis, and the good',
+    subtitle: 'Clarify a question without mistaking clarification for an easy answer.',
+  },
+  'analytic-wittgenstein': {
+    kicker: 'Room 03 · Reorient',
+    title: 'From logical form to language in use',
+    subtitle: 'The limits of representation give way to practices, rules, and forms of life.',
+  },
+  'analytic-naturalism': {
+    kicker: 'Room 04 · Revise',
+    title: 'Science, ontology, and the web of belief',
+    subtitle: 'Inquiry repairs its commitments from within, under pressure from experience.',
+  },
+  'analytic-action-intention': {
+    kicker: 'Room 05 · Act',
+    title: 'Intention, action, and moral description',
+    subtitle: 'What an agent is doing depends on reasons, knowledge, and how an act is described.',
+  },
+} as const;
+
+const volume = (
+  id: string,
+  center: MuseumSceneVolume['center'],
+  size: MuseumSceneVolume['size'],
+): MuseumSceneVolume => ({id, role: 'media', center, size});
+
+const mediaMount = (
+  id: MuseumSupplementalExhibitId,
+  assetId: MuseumAssetId,
+  width: number,
+  height: number,
+): MuseumMediaMountDefinition => {
+  const y = 2.14;
+  return {
+    id: `${id}-hero-media`,
+    assetId,
+    kind: 'wall-frame',
+    position: [0, y, -.39],
+    rotation: [0, 0, 0],
+    width,
+    height,
+    frameDepth: .1,
+    supportHeight: 0,
+    anchorId: `${id}-backing`,
+    bounds: volume(`${id}-media-bounds`, {x: 0, y, z: -.39}, {width: width + .18, height: height + .18, depth: .2}),
+    supportBounds: volume(`${id}-media-support`, {x: 0, y, z: -.55}, {width: width * .74, height: height * .74, depth: .18}),
+  };
+};
+
+const cameraFor = (position: MuseumPoint, rotationY: number, distance = 2.92): MuseumPoint => ({
+  x: position.x + Math.sin(rotationY) * distance,
+  z: position.z + Math.cos(rotationY) * distance,
+});
+
+const layout = ({
+  id,
+  parentExhibitId,
+  zoneId,
+  position,
+  rotationY,
+  assetId,
+  mediaWidth,
+  mediaHeight,
+  installationKind,
+  accent,
+  width = 4.35,
+}: {
+  id: MuseumSupplementalExhibitId;
+  parentExhibitId: 'frege' | 'russell' | 'g-e-moore' | 'wittgenstein' | 'quine' | 'anscombe';
+  zoneId: MuseumZoneId;
+  position: MuseumPoint;
+  rotationY: number;
+  assetId: MuseumAssetId;
+  mediaWidth: number;
+  mediaHeight: number;
+  installationKind: MuseumSupplementalInstallationKind;
+  accent: string;
+  width?: number;
+}): MuseumSupplementalExhibitLayout => ({
+  id,
+  parentExhibitId,
+  zoneId,
+  spatialCellId: zoneId,
+  position,
+  rotationY,
+  interactionRadius: 3.65,
+  collider: {
+    id: `supplemental:${id}`,
+    center: position,
+    size: {width, depth: 1.05},
+    rotation: rotationY,
+  },
+  viewpoint: {...cameraFor(position, rotationY), yaw: rotationY, pitch: -.055},
+  assetId,
+  mediaMount: mediaMount(id, assetId, mediaWidth, mediaHeight),
+  label: {position: [0, 4.04, -.3], width: width - .36, height: .72},
+  footprint: {width, height: 4.44, depth: 1.05},
+  installationKind,
+  accent,
+});
+
+const presentation = (
+  panelKicker: string,
+  proximityKicker: string,
+  factRows: readonly {label: string; value: string}[],
+  articleActionLabel: string,
+) => ({
+  panelKicker,
+  proximityKicker,
+  factRows,
+  articleActionLabel,
+  entityKind: 'philosopher' as const,
+  keyIdeasLabel: 'Argument map',
+  cautionsLabel: 'Keep in view',
+});
+
+type AnalyticExhibitInput = Omit<MuseumSupplementalExhibit, 'presentation'> & {
+  presentation: ReturnType<typeof presentation>;
+};
+
+const analyticExhibit = <T extends AnalyticExhibitInput>(record: T): T => record;
+
+export const ANALYTIC_SUPPLEMENTAL_EXHIBITS = [
+  analyticExhibit({
+    id: 'frege-sense-reference',
+    displayName: 'Frege: Sense and Reference',
+    shortTitle: 'Frege: Sense and Reference',
+    workLabel: 'FREGE · ÜBER SINN UND BEDEUTUNG',
+    dateLabel: 'Published 1892',
+    question: 'How can two names designate the same object yet contribute different knowledge?',
+    frontSubtitle: 'Names, modes of presentation, reference, and informative identity',
+    lead: 'Frege distinguishes a sign’s reference from its sense, the way the reference is presented. “Morning Star” and “Evening Star” refer to Venus, but learning their identity can still be informative because the expressions offer different cognitive routes. This distinction helps explain identity statements, indirect discourse, and why linguistic meaning cannot be reduced to simply pointing at things. The displayed periodical scan is the publication witness for Frege’s essay; it is not a visual diagram of the argument, and the Gothic type should be read as historical context rather than decorative proof.',
+    keyIdeas: [
+      'Reference is what an expression designates; sense is its mode of presentation.',
+      'Different senses can lead to one reference and make an identity claim informative.',
+      'In reported speech, expressions may refer to their customary senses rather than ordinary objects.',
+    ],
+    cautions: [
+      'Sense is not merely a private mental image or personal association.',
+      'The distinction does not settle every later theory of names, descriptions, or propositional attitude.',
+      'The scan is a primary publication object, not a complete map of Frege’s semantics.',
+    ],
+    sections: [
+      {heading: 'The puzzle of identity', paragraphs: ['If meaning were only reference, “a = a” and “a = b” would communicate the same thing whenever both names picked out one object. Frege uses their different cognitive value to motivate another dimension of meaning.']},
+      {heading: 'A public route to an object', paragraphs: ['A sense can be shared, disputed, translated, and used in reasoning. It presents an object without becoming either that object or an inaccessible episode inside one speaker’s mind.']},
+      {heading: 'Why the distinction travels', paragraphs: ['The proposal shaped analytic work on descriptions, propositions, belief reports, translation, and intensional contexts. Later philosophers contest its details while retaining the pressure of Frege’s original puzzle.']},
+    ],
+    sources: [
+      {label: 'Frege, “On Sense and Reference” (Wikisource)', url: 'https://en.wikisource.org/wiki/On_Sense_and_Reference', kind: 'primary-text'},
+      {label: 'Stanford Encyclopedia of Philosophy — Gottlob Frege', url: 'https://plato.stanford.edu/entries/frege/', kind: 'academic-reference'},
+      {label: 'Internet Encyclopedia of Philosophy — Gottlob Frege', url: 'https://iep.utm.edu/frege/', kind: 'academic-reference'},
+    ],
+    assetId: 'frege-sense-reference-1892',
+    panelAssetId: 'frege-sense-reference-1892',
+    articleRoute: {kind: 'philosopher', philosopherId: 'frege'},
+    presentation: presentation('Gallery 04 work exhibit', 'Sense and reference', [
+      {label: 'Philosopher', value: 'Gottlob Frege'},
+      {label: 'Work', value: 'Über Sinn und Bedeutung'},
+      {label: 'Visual', value: '1892 publication scan'},
+      {label: 'Atlas route', value: 'Frege’s full profile'},
+    ], 'Open Frege’s full Atlas article'),
+  }),
+  analyticExhibit({
+    id: 'russell-whitehead-principia',
+    displayName: 'Russell and Whitehead: Principia Mathematica',
+    shortTitle: 'Russell and Whitehead: Principia',
+    workLabel: 'RUSSELL & WHITEHEAD · PRINCIPIA MATHEMATICA',
+    dateLabel: 'Three volumes published 1910–1913',
+    question: 'How far can mathematics be reconstructed from an explicit logical system?',
+    frontSubtitle: 'Logicism, formal derivation, definitions, and the architecture of proof',
+    lead: 'Bertrand Russell and Alfred North Whitehead’s Principia Mathematica attempts a systematic derivation of large parts of mathematics from logical principles and carefully staged definitions. Its forbidding notation records a philosophical ambition: expose inferential structure, prevent hidden assumptions, and answer the paradoxes that damaged earlier foundational projects. The displayed volume scan is a historical artifact of that program, not a claim that one page makes the whole proof transparent. Whitehead’s coauthorship is essential; treating Principia as Russell’s book alone erases both its title and its intellectual production.',
+    keyIdeas: [
+      'Logicism sought to show arithmetic and related mathematics as grounded in logic.',
+      'Formal notation makes rules and dependencies inspectable rather than relying on intuitive transitions.',
+      'The ramified theory of types was designed to block viciously self-referential constructions.',
+    ],
+    cautions: [
+      'Principia did not become the final or uncontested foundation of mathematics.',
+      'Its notation and type theory differ from most contemporary textbook systems.',
+      'The scanned volume is documentary evidence, not a self-explanatory picture of logicism.',
+    ],
+    sections: [
+      {heading: 'A proof-engineering project', paragraphs: ['Definitions, primitive propositions, and rules are arranged so later results can be traced to an explicit base. The scale of the work makes foundations visible as construction rather than philosophical slogan.']},
+      {heading: 'Paradox changes the architecture', paragraphs: ['Russell’s paradox showed that unrestricted collection principles generate contradiction. Principia responds by controlling what expressions can meaningfully apply to what, though that control carries technical and philosophical costs.']},
+      {heading: 'A productive unfinished ambition', paragraphs: ['Gödel and later foundational work transformed the landscape, but Principia’s demand for formal precision helped shape logic, computer science, proof theory, and philosophy of mathematics.']},
+    ],
+    sources: [
+      {label: 'Principia Mathematica, Volume I (Internet Archive)', url: 'https://archive.org/details/principiamathema01whit', kind: 'primary-text'},
+      {label: 'Stanford Encyclopedia of Philosophy — Principia Mathematica', url: 'https://plato.stanford.edu/entries/principia-mathematica/', kind: 'academic-reference'},
+      {label: 'Stanford Encyclopedia of Philosophy — Logicism', url: 'https://plato.stanford.edu/entries/logicism/', kind: 'academic-reference'},
+    ],
+    assetId: 'russell-whitehead-principia-1910',
+    panelAssetId: 'russell-whitehead-principia-1910',
+    articleRoute: {kind: 'philosopher', philosopherId: 'russell'},
+    presentation: presentation('Gallery 04 work exhibit', 'Foundations in formal dress', [
+      {label: 'Authors', value: 'Bertrand Russell and Alfred North Whitehead'},
+      {label: 'Work', value: 'Principia Mathematica'},
+      {label: 'Visual', value: '1910 first-volume scan'},
+      {label: 'Atlas route', value: 'Russell’s full profile'},
+    ], 'Open Russell’s full Atlas article'),
+  }),
+  analyticExhibit({
+    id: 'russell-logical-types',
+    displayName: 'Russell: Logical Types and the Paradoxes',
+    shortTitle: 'Russell: Logical Types',
+    workLabel: 'RUSSELL · TYPES, PARADOX, AND FORMAL REPAIR',
+    dateLabel: 'Developed from 1903; ramified in Principia Mathematica',
+    question: 'Can a logical language prevent expressions from turning destructively upon themselves?',
+    frontSubtitle: 'Self-reference, hierarchy, vicious circles, and formal restriction',
+    lead: 'Russell’s paradox arises when a supposedly legitimate collection is defined as containing every set that is not a member of itself. Asking whether that collection contains itself produces contradiction. Type theory responds by stratifying expressions and excluding certain forms of self-application. The famous Principia proposition reproduced here is a genuine fragment of the formal system, but it does not by itself depict the paradox or type hierarchy. It functions as a material sample of the exacting notation created to make allowable steps visible and illicit formations harder to state.',
+    keyIdeas: [
+      'Unrestricted self-application can generate contradiction in naive theories of collections.',
+      'A type hierarchy restricts which entities or functions can apply at a given logical level.',
+      'Formal discipline can solve a problem while raising new questions about expressive power and justification.',
+    ],
+    cautions: [
+      'Russell’s paradox is not simply the informal “barber paradox,” though the latter is a teaching analogy.',
+      'There are multiple later type theories; they should not be identified wholesale with Principia’s system.',
+      'The formula image is authentic but visually contextual rather than a diagram of the paradox.',
+    ],
+    sections: [
+      {heading: 'The contradiction', paragraphs: ['Suppose there is a set of all and only the sets that are not members of themselves. If it is a member of itself, it fails its defining condition; if it is not, it satisfies that condition.']},
+      {heading: 'Restriction as diagnosis', paragraphs: ['Russell interprets the trouble through vicious circularity: a totality cannot safely contain something defined by quantifying over that very totality. Types enforce a hierarchy intended to block that move.']},
+      {heading: 'The cost of safety', paragraphs: ['Stronger restrictions may complicate ordinary mathematics and require additional principles. The exhibit therefore presents type theory as an influential engineering response, not a frictionless final answer.']},
+    ],
+    sources: [
+      {label: 'Stanford Encyclopedia of Philosophy — Russell’s Paradox', url: 'https://plato.stanford.edu/entries/russell-paradox/', kind: 'academic-reference'},
+      {label: 'Stanford Encyclopedia of Philosophy — Type Theory', url: 'https://plato.stanford.edu/entries/type-theory/', kind: 'academic-reference'},
+      {label: 'Principia Mathematica, Volume I (Internet Archive)', url: 'https://archive.org/details/principiamathema01whit', kind: 'primary-text'},
+    ],
+    assetId: 'russell-principia-54-43',
+    panelAssetId: 'russell-principia-54-43',
+    articleRoute: {kind: 'philosopher', philosopherId: 'russell'},
+    presentation: presentation('Gallery 04 concept exhibit', 'Paradox and logical repair', [
+      {label: 'Philosopher', value: 'Bertrand Russell'},
+      {label: 'Problem', value: 'Self-reference and unrestricted collections'},
+      {label: 'Visual', value: 'Formula from Principia Mathematica'},
+      {label: 'Atlas route', value: 'Russell’s full profile'},
+    ], 'Open Russell’s full Atlas article'),
+  }),
+  analyticExhibit({
+    id: 'moore-principia-ethica',
+    displayName: 'Moore: Principia Ethica',
+    shortTitle: 'Moore: Principia Ethica',
+    workLabel: 'MOORE · PRINCIPIA ETHICA',
+    dateLabel: 'Published 1903',
+    question: 'Can “good” be analyzed as a natural or metaphysical property without changing the question?',
+    frontSubtitle: 'Goodness, analysis, intrinsic value, and the naturalistic fallacy',
+    lead: 'G. E. Moore’s Principia Ethica helped redirect twentieth-century metaethics by arguing that goodness is simple and cannot be definitionally reduced to pleasure, desire, evolutionary fitness, or another property. Moore’s “naturalistic fallacy” is a specific charge about defining good, not the broad slogan that facts never matter to ethics. The title page displayed here is a reliable publication object and makes authorship unmistakable, but it does not visualize the argument. Its spare typography suits a work whose influence came from separating questions that earlier moral theories often ran together.',
+    keyIdeas: [
+      'Moore treats goodness as a simple, non-natural property resistant to reductive definition.',
+      'Questions about what is good differ from questions about which actions produce the most good.',
+      'The isolation method asks what would be valuable if considered apart from further consequences.',
+    ],
+    cautions: [
+      'The naturalistic fallacy is not simply the claim that every appeal to nature is morally wrong.',
+      'Moore’s non-naturalism and intuitionism remain controversial, not default results of analysis.',
+      'The title page documents the work but supplies no independent evidence for its conclusions.',
+    ],
+    sections: [
+      {heading: 'Separating two projects', paragraphs: ['Moore distinguishes analyzing the meaning of “good” from identifying the things that are good and determining how action should realize value. This separation helped create metaethics as a recognizable field.']},
+      {heading: 'Intrinsic value', paragraphs: ['Friendship, beauty, knowledge, and complex wholes become central examples in Moore’s account. A whole may have a value not calculable by simply adding the independent values of its parts.']},
+      {heading: 'Influence and resistance', paragraphs: ['The book shaped Bloomsbury, intuitionism, and analytic ethics, while later naturalists, expressivists, and constructivists rejected its metaphysics or reinterpreted its arguments.']},
+    ],
+    sources: [
+      {label: 'G. E. Moore, Principia Ethica (Project Gutenberg)', url: 'https://www.gutenberg.org/ebooks/53430', kind: 'primary-text'},
+      {label: 'Stanford Encyclopedia of Philosophy — G. E. Moore', url: 'https://plato.stanford.edu/entries/moore/', kind: 'academic-reference'},
+      {label: 'Internet Encyclopedia of Philosophy — G. E. Moore', url: 'https://iep.utm.edu/moore/', kind: 'academic-reference'},
+    ],
+    assetId: 'moore-principia-ethica-1903',
+    panelAssetId: 'moore-principia-ethica-1903',
+    articleRoute: {kind: 'philosopher', philosopherId: 'g-e-moore'},
+    presentation: presentation('Gallery 04 work exhibit', 'The autonomy of ethics', [
+      {label: 'Philosopher', value: 'G. E. Moore'},
+      {label: 'Work', value: 'Principia Ethica'},
+      {label: 'Visual', value: '1903 title page'},
+      {label: 'Atlas route', value: 'Moore’s full profile'},
+    ], 'Open Moore’s full Atlas article'),
+  }),
+  analyticExhibit({
+    id: 'moore-open-question',
+    displayName: 'Moore: The Open Question Argument',
+    shortTitle: 'Moore: Open Question',
+    workLabel: 'MOORE · METAETHICAL ARGUMENT',
+    dateLabel: 'Formulated in Principia Ethica, 1903',
+    question: 'If good means pleasure, why can a competent speaker still sensibly ask whether pleasure is good?',
+    frontSubtitle: 'Definition, conceptual openness, reduction, and moral inquiry',
+    lead: 'Moore argues that for any proposed definition of good in other terms, it remains a meaningful and nontrivial question whether the proposed property really is good. If “good” simply meant “desired,” asking whether everything desired is good would collapse into a closed verbal repetition; Moore thinks it does not. The exhibit’s split aperture and unresolved connection are a contemporary generated interpretation of this structure. They are not Moore’s diagram, and they do not establish that every reductive ethical theory fails. The image stages the persistence of a question after an attempted identification.',
+    keyIdeas: [
+      'A genuine definition should make the corresponding identity question cognitively closed.',
+      'Moral competence appears compatible with continuing to question proposed naturalistic reductions.',
+      'The argument targets meaning and analysis before it targets particular first-order moral conclusions.',
+    ],
+    cautions: [
+      'Later philosophers dispute whether semantic openness proves a distinct non-natural property.',
+      'The argument should not be reduced to the slogan that facts and values never interact.',
+      'The generated image is an interpretive concept study with no historical authority.',
+    ],
+    sections: [
+      {heading: 'Testing a definition', paragraphs: ['Replace “desired” with pleasant, evolutionarily successful, approved, or any other candidate. Moore asks whether the resulting moral question still makes intelligible room for doubt rather than becoming merely confused.']},
+      {heading: 'What follows—and what may not', paragraphs: ['The test pressures simple analytic definitions. Critics argue that informative identities can remain open before discovery, or that moral terms can refer naturally without sharing a transparent synonym.']},
+      {heading: 'A durable methodological lesson', paragraphs: ['Even where Moore’s conclusion is rejected, the argument forces a theory to explain the relation among moral language, natural properties, judgment, and motivation instead of sliding between them.']},
+    ],
+    sources: [
+      {label: 'G. E. Moore, Principia Ethica (Project Gutenberg)', url: 'https://www.gutenberg.org/ebooks/53430', kind: 'primary-text'},
+      {label: 'Stanford Encyclopedia of Philosophy — Moral Non-Naturalism', url: 'https://plato.stanford.edu/entries/moral-non-naturalism/', kind: 'academic-reference'},
+      {label: 'Internet Encyclopedia of Philosophy — Metaethics', url: 'https://iep.utm.edu/metaethi/', kind: 'academic-reference'},
+    ],
+    assetId: 'moore-open-question-interpretive',
+    panelAssetId: 'moore-open-question-interpretive',
+    articleRoute: {kind: 'philosopher', philosopherId: 'g-e-moore'},
+    presentation: presentation('Gallery 04 argument exhibit', 'An analysis remains open', [
+      {label: 'Philosopher', value: 'G. E. Moore'},
+      {label: 'Argument', value: 'The open question argument'},
+      {label: 'Visual', value: 'Original interpretive concept study'},
+      {label: 'Atlas route', value: 'Moore’s full profile'},
+    ], 'Open Moore’s full Atlas article'),
+  }),
+  analyticExhibit({
+    id: 'moore-common-sense',
+    displayName: 'Moore: A Defence of Common Sense',
+    shortTitle: 'Moore: Common Sense',
+    workLabel: 'MOORE · A DEFENCE OF COMMON SENSE',
+    dateLabel: 'Published 1925',
+    question: 'Should a philosophical theory be trusted when it entails that ordinary knowledge is impossible?',
+    frontSubtitle: 'Everyday certainty, philosophical revision, and the burden of proof',
+    lead: 'Moore lists propositions he claims to know—he has a body, has lived on Earth, and has encountered other people—and argues that philosophical premises implying their falsity are less certain than these ordinary judgments. His method does not declare common belief infallible. It shifts the burden: a skeptical or idealist argument must be more credible than the knowledge it proposes to overturn. The Earth image is a modern contextual emblem for Moore’s ordinary claim that he has long existed on this planet; it is not connected to the essay and should not be mistaken for historical evidence.',
+    keyIdeas: [
+      'Some ordinary propositions can be more certain than abstract premises used to deny them.',
+      'Philosophical argument must account for the credibility of everyday knowledge, not erase it by stipulation.',
+      'Common sense names a starting body of judgments open to correction, not majority opinion as authority.',
+    ],
+    cautions: [
+      'Moore does not provide a complete theory of knowledge merely by insisting that he knows.',
+      'Common sense has carried prejudice and error, so its claims still require criticism and evidence.',
+      'The Earth image is a contextual metaphor, not an illustration selected by Moore.',
+    ],
+    sections: [
+      {heading: 'Reversing the skeptical inference', paragraphs: ['Where a skeptic argues from philosophical premises to “you do not know this,” Moore treats the ordinary knowledge claim as a reason to doubt at least one premise. The disagreement concerns comparative credibility.']},
+      {heading: 'A method of philosophical accounting', paragraphs: ['Any theory that radically revises ordinary belief owes an explanation of why its specialized premises deserve priority and how the apparent knowledge arose. Analysis cannot simply announce that the appearance counts for nothing.']},
+      {heading: 'Common sense without complacency', paragraphs: ['Moore’s stance can discipline extravagant theories while leaving room for science, history, and moral criticism to correct settled belief. Its force is local and argumentative, not a veto on revision.']},
+    ],
+    sources: [
+      {label: 'G. E. Moore, “A Defence of Common Sense” (Internet Archive)', url: 'https://archive.org/details/in.ernet.dli.2015.187088', kind: 'primary-text'},
+      {label: 'Stanford Encyclopedia of Philosophy — G. E. Moore', url: 'https://plato.stanford.edu/entries/moore/', kind: 'academic-reference'},
+      {label: 'Internet Encyclopedia of Philosophy — Epistemic Basing Relation', url: 'https://iep.utm.edu/epistemic-basing-relation/', kind: 'academic-reference'},
+    ],
+    assetId: 'moore-common-sense-earth',
+    panelAssetId: 'moore-common-sense-earth',
+    articleRoute: {kind: 'philosopher', philosopherId: 'g-e-moore'},
+    presentation: presentation('Gallery 04 context exhibit', 'Ordinary certainty', [
+      {label: 'Philosopher', value: 'G. E. Moore'},
+      {label: 'Essay', value: 'A Defence of Common Sense'},
+      {label: 'Visual', value: 'Contemporary Earth image; contextual emblem'},
+      {label: 'Atlas route', value: 'Moore’s full profile'},
+    ], 'Open Moore’s full Atlas article'),
+  }),
+  analyticExhibit({
+    id: 'moore-external-world',
+    displayName: 'Moore: “Here Is One Hand”',
+    shortTitle: 'Moore: Here Is One Hand',
+    workLabel: 'MOORE · PROOF OF AN EXTERNAL WORLD',
+    dateLabel: 'Delivered 1939',
+    question: 'Can an ordinary perceptual claim count as a proof against skepticism about external objects?',
+    frontSubtitle: 'Hands, proof, knowledge, and the skeptical demand',
+    lead: 'Moore raises one hand and then another: here is one hand; here is another; therefore at least two external objects exist. He presents the argument as rigorous if its premises differ from the conclusion, are known, and entail that conclusion. The dispute is not over validity but whether Moore may claim to know the premises without first answering the skeptic’s challenge. Albrecht Dürer’s Study of Hands is a much earlier artwork chosen to give the ordinary object visual presence. It has no connection to Moore, his lecture, or its historical staging.',
+    keyIdeas: [
+      'A proof can be valid even when it does not persuade someone who challenges its premises.',
+      'Moore claims greater certainty for ordinary perceptual knowledge than for skeptical reasoning against it.',
+      'The case exposes a dispute about what must be shown before a knowledge claim is legitimate.',
+    ],
+    cautions: [
+      'Moore did not use Dürer’s drawing, and the image does not document the lecture.',
+      'The argument does not identify which skeptical assumption is mistaken or explain perceptual warrant fully.',
+      'Calling the proof question-begging can mark the disagreement but does not by itself resolve it.',
+    ],
+    sections: [
+      {heading: 'The proof’s simple form', paragraphs: ['If Moore knows that a hand exists before him, then something external exists. The conclusion follows cleanly; philosophical pressure concentrates on the asserted knowledge in the premise.']},
+      {heading: 'Proof versus refutation', paragraphs: ['Moore distinguishes possessing a proof from being able to prove every premise demanded by an opponent. A skeptic may require independent grounds, while Moore doubts that such a requirement is universally reasonable.']},
+      {heading: 'Why the hand remains useful', paragraphs: ['The example makes abstract skepticism answer an ordinary case. It asks whether philosophy clarifies the standards of knowledge or silently replaces them with a requirement no everyday claim could meet.']},
+    ],
+    sources: [
+      {label: 'G. E. Moore, “Proof of an External World” (Internet Archive)', url: 'https://archive.org/details/in.ernet.dli.2015.187088', kind: 'primary-text'},
+      {label: 'Stanford Encyclopedia of Philosophy — Skepticism', url: 'https://plato.stanford.edu/entries/skepticism/', kind: 'academic-reference'},
+      {label: 'Stanford Encyclopedia of Philosophy — G. E. Moore', url: 'https://plato.stanford.edu/entries/moore/', kind: 'academic-reference'},
+    ],
+    assetId: 'moore-external-world-hands',
+    panelAssetId: 'moore-external-world-hands',
+    articleRoute: {kind: 'philosopher', philosopherId: 'g-e-moore'},
+    presentation: presentation('Gallery 04 argument exhibit', 'A hand against skepticism', [
+      {label: 'Philosopher', value: 'G. E. Moore'},
+      {label: 'Lecture', value: 'Proof of an External World'},
+      {label: 'Visual', value: 'Dürer hand study; contextual artwork'},
+      {label: 'Atlas route', value: 'Moore’s full profile'},
+    ], 'Open Moore’s full Atlas article'),
+  }),
+  analyticExhibit({
+    id: 'moore-cambridge-practice',
+    displayName: 'Moore: Argument at the Cambridge Moral Sciences Club',
+    shortTitle: 'Moore: Cambridge Argument',
+    workLabel: 'MOORE · CAMBRIDGE PHILOSOPHICAL PRACTICE',
+    dateLabel: 'Club photograph, c. 1913',
+    question: 'How did close objection, public discussion, and intellectual friendship shape early analytic philosophy?',
+    frontSubtitle: 'Seminar culture, candor, disagreement, and the social life of analysis',
+    lead: 'The Cambridge Moral Sciences Club was a working institution where papers were read, objections pressed, and philosophical positions refined in company. Moore’s seriousness about clarity and intellectual honesty influenced Russell, Wittgenstein, and the Bloomsbury circle, but analytic philosophy did not emerge from solitary texts alone. The group photograph documents members of the club around 1913 and includes Moore and Russell. It does not capture a specific argument or prove that discussion was inclusive, equal, or disinterested. Institutional access reflected the exclusions and privileges of Cambridge in its period.',
+    keyIdeas: [
+      'Analysis developed through oral criticism and recurring institutions as well as published arguments.',
+      'Disagreement can be cooperative when interlocutors expose assumptions and permit revision.',
+      'A philosophical style travels through teaching, friendship, clubs, reviews, and editorial practices.',
+    ],
+    cautions: [
+      'The photograph does not document one identifiable philosophical exchange.',
+      'Cambridge institutions were structured by class, gender, imperial, and educational exclusions.',
+      'A shared method did not produce agreement among Moore, Russell, and Wittgenstein.',
+    ],
+    sections: [
+      {heading: 'Philosophy as a public practice', paragraphs: ['A paper read aloud faces interruption, requests for examples, and immediate counterargument. These pressures reward distinctions that can survive contact with other speakers rather than only appearing secure on the page.']},
+      {heading: 'Moore’s intellectual presence', paragraphs: ['Contemporaries often emphasized Moore’s candor and persistent questioning. His influence involved a model of seriousness about what one actually had reason to believe, even when colleagues rejected his conclusions.']},
+      {heading: 'Reading the institution critically', paragraphs: ['The club made sustained inquiry possible for its members while access to Cambridge remained highly unequal. The social history of philosophy must record both collaborative achievement and boundaries around participation.']},
+    ],
+    sources: [
+      {label: 'Cambridge University Library — Moral Sciences Club records', url: 'https://archivesearch.lib.cam.ac.uk/repositories/2/resources/7700', kind: 'collection-record'},
+      {label: 'Stanford Encyclopedia of Philosophy — G. E. Moore', url: 'https://plato.stanford.edu/entries/moore/', kind: 'academic-reference'},
+      {label: 'Internet Encyclopedia of Philosophy — Bertrand Russell', url: 'https://iep.utm.edu/russell/', kind: 'academic-reference'},
+    ],
+    assetId: 'moore-moral-sciences-club-1913',
+    panelAssetId: 'moore-moral-sciences-club-1913',
+    articleRoute: {kind: 'philosopher', philosopherId: 'g-e-moore'},
+    presentation: presentation('Gallery 04 context exhibit', 'Analysis in company', [
+      {label: 'Philosopher', value: 'G. E. Moore'},
+      {label: 'Institution', value: 'Cambridge Moral Sciences Club'},
+      {label: 'Visual', value: 'Club group photograph, c. 1913'},
+      {label: 'Atlas route', value: 'Moore’s full profile'},
+    ], 'Open Moore’s full Atlas article'),
+  }),
+  analyticExhibit({
+    id: 'wittgenstein-tractatus',
+    displayName: 'Wittgenstein: Tractatus Logico-Philosophicus',
+    shortTitle: 'Wittgenstein: Tractatus',
+    workLabel: 'WITTGENSTEIN · TRACTATUS LOGICO-PHILOSOPHICUS',
+    dateLabel: 'German publication 1921; English edition 1922',
+    question: 'What must language and world share for a proposition to represent a possible fact?',
+    frontSubtitle: 'Logical form, pictures, facts, limits, and what cannot be said',
+    lead: 'The early Wittgenstein’s Tractatus presents the world as the totality of facts, not merely things, and propositions as pictures of possible states of affairs. A meaningful proposition represents by sharing logical form with what it depicts, though that form cannot itself be represented in another proposition. The book’s numbered architecture moves from world and representation toward ethics, aesthetics, and silence. The displayed 1922 title page is a reliable publication artifact rather than a visual summary. It also records the historical translation through which English-language readers first encountered the work.',
+    keyIdeas: [
+      'A proposition represents a possible arrangement by sharing logical form with it.',
+      'Logical propositions show the scaffolding of language rather than describing additional facts.',
+      'The work draws a boundary around meaningful factual discourse and treats value differently.',
+    ],
+    cautions: [
+      'The book is not simply a positivist ban on religion, ethics, art, or lived importance.',
+      'Wittgenstein later criticized major features of this early picture of language.',
+      'The title page documents an edition; it does not diagram logical form.',
+    ],
+    sections: [
+      {heading: 'World as facts', paragraphs: ['Objects enter combinations, and facts are the obtaining states of affairs. Propositions can represent possibilities because their elements are arranged in a structure that can agree or fail to agree with reality.']},
+      {heading: 'Showing and saying', paragraphs: ['Some features that make representation possible cannot be stated as one more fact. Wittgenstein says they are shown in meaningful use, a distinction that drives the work beyond a simple theory of sentences.']},
+      {heading: 'The ladder and its limits', paragraphs: ['The closing remarks compare the propositions to a ladder discarded after ascent. Interpreters dispute whether this retracts doctrine, performs therapy, or marks the ethical point of the book.']},
+    ],
+    sources: [
+      {label: 'Wittgenstein, Tractatus Logico-Philosophicus (Project Gutenberg)', url: 'https://www.gutenberg.org/ebooks/5740', kind: 'primary-text'},
+      {label: 'Stanford Encyclopedia of Philosophy — Ludwig Wittgenstein', url: 'https://plato.stanford.edu/entries/wittgenstein/', kind: 'academic-reference'},
+      {label: 'Internet Encyclopedia of Philosophy — Ludwig Wittgenstein', url: 'https://iep.utm.edu/wittgenstein/', kind: 'academic-reference'},
+    ],
+    assetId: 'wittgenstein-tractatus-1922',
+    panelAssetId: 'wittgenstein-tractatus-1922',
+    articleRoute: {kind: 'philosopher', philosopherId: 'wittgenstein'},
+    presentation: presentation('Gallery 04 work exhibit', 'The limits of representation', [
+      {label: 'Philosopher', value: 'Ludwig Wittgenstein'},
+      {label: 'Work', value: 'Tractatus Logico-Philosophicus'},
+      {label: 'Visual', value: '1922 English-edition title page'},
+      {label: 'Atlas route', value: 'Wittgenstein’s full profile'},
+    ], 'Open Wittgenstein’s full Atlas article'),
+  }),
+  analyticExhibit({
+    id: 'wittgenstein-truth-tables',
+    displayName: 'Wittgenstein: Truth Tables and Logical Space',
+    shortTitle: 'Wittgenstein: Truth Tables',
+    workLabel: 'WITTGENSTEIN · TRACTATUS · TRUTH-FUNCTIONS',
+    dateLabel: 'Truth-table method presented in the Tractatus, 1921',
+    question: 'Can the logical behavior of a complex proposition be displayed across all truth possibilities?',
+    frontSubtitle: 'Elementary propositions, combinations, tautology, and contradiction',
+    lead: 'The Tractatus treats propositions as truth-functions of elementary propositions and uses tabular arrangements to display how truth values vary across possible combinations. Tautologies come out true under every assignment and contradictions under none; neither describes a contingent feature of the world. The modern schema shown here accurately demonstrates the general truth-table technique but is not a manuscript page or diagram authored by Wittgenstein. It should be used to inspect logical possibilities, not as evidence that ordinary language always arrives already separated into elementary propositions.',
+    keyIdeas: [
+      'A truth table surveys the outcomes of a connective across possible truth-value assignments.',
+      'Tautologies and contradictions mark limiting cases rather than contingent descriptions.',
+      'Logical relations become visible through systematic variation instead of intuition alone.',
+    ],
+    cautions: [
+      'The displayed teaching diagram is modern and not an artifact from Wittgenstein’s hand.',
+      'Truth tables do not by themselves analyze meaning, reference, context, or speech acts.',
+      'The Tractatus assumption of independent elementary propositions remains interpretively difficult.',
+    ],
+    sections: [
+      {heading: 'A finite survey', paragraphs: ['For a small number of component propositions, every combination of truth and falsity can be listed. The result shows exactly when a conjunction, disjunction, conditional, or negation is true.']},
+      {heading: 'Logic without extra facts', paragraphs: ['A tautology leaves every possibility open; a contradiction allows none. Wittgenstein uses this to argue that logical propositions articulate the form of representation rather than report special logical objects.']},
+      {heading: 'From display to critique', paragraphs: ['The table’s clarity is real but domain-limited. Later analytic philosophy adds quantification, modality, relevance, many-valued systems, and pragmatic context where a simple table no longer completes the task.']},
+    ],
+    sources: [
+      {label: 'Wittgenstein, Tractatus Logico-Philosophicus (Project Gutenberg)', url: 'https://www.gutenberg.org/ebooks/5740', kind: 'primary-text'},
+      {label: 'Stanford Encyclopedia of Philosophy — Truth Tables', url: 'https://plato.stanford.edu/entries/truth-values/', kind: 'academic-reference'},
+      {label: 'Stanford Encyclopedia of Philosophy — Ludwig Wittgenstein', url: 'https://plato.stanford.edu/entries/wittgenstein/', kind: 'academic-reference'},
+    ],
+    assetId: 'wittgenstein-truth-table-schema',
+    panelAssetId: 'wittgenstein-truth-table-schema',
+    articleRoute: {kind: 'philosopher', philosopherId: 'wittgenstein'},
+    presentation: presentation('Gallery 04 logic exhibit', 'Possibilities in a table', [
+      {label: 'Philosopher', value: 'Ludwig Wittgenstein'},
+      {label: 'Method', value: 'Truth-functional tabulation'},
+      {label: 'Visual', value: 'Modern public-domain teaching schema'},
+      {label: 'Atlas route', value: 'Wittgenstein’s full profile'},
+    ], 'Open Wittgenstein’s full Atlas article'),
+  }),
+  analyticExhibit({
+    id: 'wittgenstein-investigations',
+    displayName: 'Wittgenstein: Philosophical Investigations',
+    shortTitle: 'Wittgenstein: Investigations',
+    workLabel: 'WITTGENSTEIN · PHILOSOPHICAL INVESTIGATIONS',
+    dateLabel: 'Published posthumously in 1953',
+    question: 'What if philosophical confusion arises because language is forced into one misleading picture?',
+    frontSubtitle: 'Use, grammar, reminders, cases, and philosophical therapy',
+    lead: 'Philosophical Investigations replaces the search for one essence of language with comparisons among varied uses: requesting, calculating, joking, promising, reporting, praying, and more. Meaning is often illuminated by use within a practice, not by locating a hidden object attached to every word. Wittgenstein’s remarks offer examples and reminders intended to loosen philosophical pictures rather than establish a new total system. The displayed first-edition cover is a publication artifact. Its presence beside Anscombe’s primary exhibit also matters because she translated the work, served as a literary executor, and helped secure its English reception.',
+    keyIdeas: [
+      'Words operate within diverse language-games rather than one universal representational function.',
+      'Grammar concerns the rules and contrasts that organize meaningful use.',
+      'Philosophical therapy returns puzzling words from metaphysical abstraction to ordinary employment.',
+    ],
+    cautions: [
+      '“Meaning is use” is an orientation, not the claim that dictionaries, reference, or truth never matter.',
+      'Ordinary use can be contested, changing, specialized, and entangled with power.',
+      'The cover does not illustrate the arguments, and the book was assembled and published posthumously.',
+    ],
+    sections: [
+      {heading: 'Against a single picture', paragraphs: ['The opening critique of Augustine challenges the idea that every word names an object and every sentence combines names. Wittgenstein multiplies examples to show how little one template explains.']},
+      {heading: 'Description before theory', paragraphs: ['Rather than inventing ideal conditions, the method compares actual and imagined cases. A philosophical problem can dissolve when overlooked differences in use become visible.']},
+      {heading: 'An unfinished book', paragraphs: ['Editors prepared the posthumous text from Wittgenstein’s materials, and its dialogical remarks resist a simple sequence of theses. Reading requires tracking examples, voices, and changes of direction.']},
+    ],
+    sources: [
+      {label: 'Stanford Encyclopedia of Philosophy — Ludwig Wittgenstein', url: 'https://plato.stanford.edu/entries/wittgenstein/', kind: 'academic-reference'},
+      {label: 'Internet Encyclopedia of Philosophy — Ludwig Wittgenstein', url: 'https://iep.utm.edu/wittgenstein/', kind: 'academic-reference'},
+      {label: 'Wittgenstein Archives at the University of Bergen', url: 'https://www.wittgensteinsource.org/', kind: 'collection-record'},
+    ],
+    assetId: 'anscombe-philosophical-investigations-1953',
+    panelAssetId: 'anscombe-philosophical-investigations-1953',
+    articleRoute: {kind: 'philosopher', philosopherId: 'wittgenstein'},
+    presentation: presentation('Gallery 04 work exhibit', 'Language brought back to use', [
+      {label: 'Philosopher', value: 'Ludwig Wittgenstein'},
+      {label: 'Work', value: 'Philosophical Investigations'},
+      {label: 'Translation', value: 'G. E. M. Anscombe'},
+      {label: 'Atlas route', value: 'Wittgenstein’s full profile'},
+    ], 'Open Wittgenstein’s full Atlas article'),
+  }),
+  analyticExhibit({
+    id: 'wittgenstein-language-games',
+    displayName: 'Wittgenstein: Language-Games and Rule-Following',
+    shortTitle: 'Wittgenstein: Language-Games',
+    workLabel: 'WITTGENSTEIN · USE, RULES, AND FORMS OF LIFE',
+    dateLabel: 'Developed in Philosophical Investigations, 1953',
+    question: 'What makes an action count as following a rule rather than merely matching one interpretation?',
+    frontSubtitle: 'Practice, training, agreement, normativity, and forms of life',
+    lead: 'Wittgenstein uses “language-game” to direct attention to words woven into activities, training, tools, expectations, and forms of life. A rule does not carry every future application inside itself as a hidden rail. Its normative force appears through publicly learnable practices in which some moves count as correct, mistaken, revised, or disputed. The generated museum image combines tools, game pieces, and coordinated action to evoke that plurality. It is a contemporary interpretation, contains no historical scene, and should not make language-games look frivolous or sealed off from one another.',
+    keyIdeas: [
+      'Understanding a rule is manifested in competent participation, not an infinite chain of interpretations.',
+      'Language-games join speech to activities, objects, roles, and standards of response.',
+      'Agreement in practice supplies a background for correction without requiring unanimity on every claim.',
+    ],
+    cautions: [
+      'A language-game is not simply a game with words or a private set of rules anyone can invent.',
+      'Appeal to practice does not make every established convention justified or immune from criticism.',
+      'The generated artwork is interpretive and is not based on an image by Wittgenstein.',
+    ],
+    sections: [
+      {heading: 'Learning how to go on', paragraphs: ['Training with examples establishes a pattern of response. At some point reasons end in practiced competence, but this is not blind mechanism: participants can explain, correct, extend, and contest applications.']},
+      {heading: 'The rule-following pressure', paragraphs: ['Any finite history fits indefinitely many abstract continuations. Wittgenstein questions the picture in which an interpretation alone determines the next step independently of shared standards and use.']},
+      {heading: 'Practice and criticism', paragraphs: ['Forms of life make judgment possible, yet practices can conflict and change. The point is to locate normativity in lived coordination, not to sanctify whatever a community happens to do.']},
+    ],
+    sources: [
+      {label: 'Stanford Encyclopedia of Philosophy — Rule-Following and Intentionality', url: 'https://plato.stanford.edu/entries/rule-following/', kind: 'academic-reference'},
+      {label: 'Stanford Encyclopedia of Philosophy — Ludwig Wittgenstein', url: 'https://plato.stanford.edu/entries/wittgenstein/', kind: 'academic-reference'},
+      {label: 'Internet Encyclopedia of Philosophy — Ludwig Wittgenstein', url: 'https://iep.utm.edu/wittgenstein/', kind: 'academic-reference'},
+    ],
+    assetId: 'wittgenstein-language-games-interpretive',
+    panelAssetId: 'wittgenstein-language-games-interpretive',
+    articleRoute: {kind: 'philosopher', philosopherId: 'wittgenstein'},
+    presentation: presentation('Gallery 04 concept exhibit', 'Rules in practice', [
+      {label: 'Philosopher', value: 'Ludwig Wittgenstein'},
+      {label: 'Concepts', value: 'Language-games and rule-following'},
+      {label: 'Visual', value: 'Original interpretive concept study'},
+      {label: 'Atlas route', value: 'Wittgenstein’s full profile'},
+    ], 'Open Wittgenstein’s full Atlas article'),
+  }),
+  analyticExhibit({
+    id: 'quine-two-dogmas',
+    displayName: 'Quine: Two Dogmas and the Web of Belief',
+    shortTitle: 'Quine: Two Dogmas',
+    workLabel: 'QUINE · TWO DOGMAS OF EMPIRICISM',
+    dateLabel: 'Published 1951; revised thereafter',
+    question: 'Can individual statements be divided cleanly into truths by meaning and truths tested by experience?',
+    frontSubtitle: 'Holism, analyticity, confirmation, and revisable commitments',
+    lead: 'Quine challenges two commitments he associates with logical empiricism: a principled analytic–synthetic boundary and reduction of each meaningful statement to a unique range of confirming experiences. Inquiry confronts experience as an interconnected body of belief, with adjustments possible at many points. Even logic can be described as revisable in principle, though revision costs differ sharply. The generated web image is a contemporary metaphor for this holism. It is not Quine’s diagram and must not suggest that evidence is powerless, that every belief is equally central, or that revision is arbitrary.',
+    keyIdeas: [
+      'Statements face experience as parts of a wider theory rather than in complete isolation.',
+      'Recalcitrant evidence permits multiple repairs, constrained by simplicity, conservatism, and explanatory success.',
+      'The analytic–synthetic distinction requires an account not circularly dependent on synonymy or necessity.',
+    ],
+    cautions: [
+      'Holism does not imply that any belief can be saved costlessly from any evidence.',
+      'Quine’s historical representation of empiricism and analyticity remains contested.',
+      'The generated web is interpretive, not a historical artifact or exact model.',
+    ],
+    sections: [
+      {heading: 'Pressure on analyticity', paragraphs: ['Appeals to definition, synonymy, or semantic rules appear to Quine to presuppose the very boundary they are meant to explain. His challenge is explanatory, not merely terminological.']},
+      {heading: 'The field of inquiry', paragraphs: ['Observations place pressure near the edges, while central principles connect wide regions of theory. Revision balances empirical fit against the disruption caused throughout the system.']},
+      {heading: 'A continuing dispute', paragraphs: ['Later philosophers defend forms of a priori knowledge, conceptual truth, and semantic structure. The essay matters because each defense must now explain the boundary with greater precision.']},
+    ],
+    sources: [
+      {label: 'Quine, “Two Dogmas of Empiricism” (University of Alberta)', url: 'https://sites.ualberta.ca/~francisp/NewPhil448/QuineTwoDogmas1951.pdf', kind: 'primary-text'},
+      {label: 'Stanford Encyclopedia of Philosophy — Willard Van Orman Quine', url: 'https://plato.stanford.edu/entries/quine/', kind: 'academic-reference'},
+      {label: 'Internet Encyclopedia of Philosophy — Quine', url: 'https://iep.utm.edu/quine/', kind: 'academic-reference'},
+    ],
+    assetId: 'quine-web-belief-interpretive',
+    panelAssetId: 'quine-web-belief-interpretive',
+    articleRoute: {kind: 'philosopher', philosopherId: 'quine'},
+    presentation: presentation('Gallery 04 concept exhibit', 'A revisable web', [
+      {label: 'Philosopher', value: 'W. V. Quine'},
+      {label: 'Essay', value: 'Two Dogmas of Empiricism'},
+      {label: 'Visual', value: 'Original interpretive concept study'},
+      {label: 'Atlas route', value: 'Quine’s full profile'},
+    ], 'Open Quine’s full Atlas article'),
+  }),
+  analyticExhibit({
+    id: 'quine-ontology',
+    displayName: 'Quine: Ontological Commitment',
+    shortTitle: 'Quine: Ontological Commitment',
+    workLabel: 'QUINE · ON WHAT THERE IS',
+    dateLabel: 'Essay published 1948',
+    question: 'What entities must exist for our best regimented theories to be true?',
+    frontSubtitle: 'Quantification, variables, regimentation, and theoretical commitment',
+    lead: 'Quine’s celebrated criterion says that to be is to be the value of a bound variable. Ordinary language is first regimented into a logical form, then its quantifiers reveal what entities the theory requires. This approach does not discover ontology through grammar alone: choices about translation, theory, and explanatory virtue remain philosophical work. The Porphyrian tree is a historical classification diagram selected as a counterpoint to Quine’s logical regimentation. It neither illustrates his criterion nor represents his own ontology; its branching categories show an older way of ordering being.',
+    keyIdeas: [
+      'Ontological commitment is assessed through the quantified structure of a theory.',
+      'Regimentation can expose hidden commitments and compare alternative formulations.',
+      'Ontology is pursued alongside decisions about the best overall scientific theory.',
+    ],
+    cautions: [
+      'The criterion does not automatically determine the uniquely correct logical paraphrase.',
+      'Ordinary nouns need not each name a distinct entity in a preferred ontology.',
+      'The Porphyrian tree is contextual contrast, not Quinean evidence or authorship.',
+    ],
+    sections: [
+      {heading: 'From words to variables', paragraphs: ['A sentence may appear to mention properties, fictional beings, or abstract objects. Logical paraphrase asks which quantifiers and values are actually needed once the claim is stated clearly.']},
+      {heading: 'Commitment and choice', paragraphs: ['Competing theories may carry different ontologies. Quine evaluates them through empirical adequacy, simplicity, strength, and continuity with science rather than by direct metaphysical inspection.']},
+      {heading: 'Why the method is not neutral', paragraphs: ['Regimentation can clarify, but it may also privilege one notation or erase useful distinctions. Later metaphysics debates whether quantification captures every kind of commitment.']},
+    ],
+    sources: [
+      {label: 'Quine, “On What There Is” (University of Southern California)', url: 'https://www.uvm.edu/~lderosse/courses/metaph/OnWhatThereIs.pdf', kind: 'primary-text'},
+      {label: 'Stanford Encyclopedia of Philosophy — Ontological Commitment', url: 'https://plato.stanford.edu/entries/ontological-commitment/', kind: 'academic-reference'},
+      {label: 'Stanford Encyclopedia of Philosophy — Willard Van Orman Quine', url: 'https://plato.stanford.edu/entries/quine/', kind: 'academic-reference'},
+    ],
+    assetId: 'quine-porphyrian-tree',
+    panelAssetId: 'quine-porphyrian-tree',
+    articleRoute: {kind: 'philosopher', philosopherId: 'quine'},
+    presentation: presentation('Gallery 04 method exhibit', 'What a theory says exists', [
+      {label: 'Philosopher', value: 'W. V. Quine'},
+      {label: 'Essay', value: 'On What There Is'},
+      {label: 'Visual', value: 'Historical Porphyrian tree; contextual contrast'},
+      {label: 'Atlas route', value: 'Quine’s full profile'},
+    ], 'Open Quine’s full Atlas article'),
+  }),
+  analyticExhibit({
+    id: 'quine-word-object',
+    displayName: 'Quine: Word and Object',
+    shortTitle: 'Quine: Word and Object',
+    workLabel: 'QUINE · WORD AND OBJECT',
+    dateLabel: 'Published 1960',
+    question: 'Could all observable linguistic behavior determine one uniquely correct translation?',
+    frontSubtitle: 'Radical translation, stimulus meaning, indeterminacy, and reference',
+    lead: 'In Quine’s radical-translation scenario, a field linguist tries to interpret an unfamiliar utterance such as “gavagai” from public behavior and circumstances. Evidence may support translation as “rabbit,” “undetached rabbit part,” or another systematically related scheme without selecting one unique reference. The young hare image supplies a vivid possible stimulus but is not the creature from Quine’s imagined scene, which is not a historical expedition. The exhibit separates the visible animal from the philosophical question of how reference is fixed within an entire translation manual.',
+    keyIdeas: [
+      'Behavioral evidence constrains translation without necessarily determining one uniquely correct manual.',
+      'Reference can vary across systematically equivalent schemes while observable predictions remain stable.',
+      'Translation depends on a network of sentences and practices rather than isolated word-object pairing.',
+    ],
+    cautions: [
+      '“Gavagai” is a philosophical thought experiment, not a documented Indigenous language encounter.',
+      'Indeterminacy is stronger and more systematic than ordinary ambiguity or imperfect translation.',
+      'The hare photograph is contextual and does not identify a uniquely correct translation.',
+    ],
+    sections: [
+      {heading: 'Radical translation', paragraphs: ['The linguist begins without a bilingual dictionary and correlates assent, dissent, utterance, and observable circumstances. Quine asks what evidence could fix meaning under those severe conditions.']},
+      {heading: 'Inscrutability of reference', paragraphs: ['Alternative schemes can preserve sentence-level agreement while assigning terms to rabbits, temporal stages, or parts. Reference is coordinated within a theory rather than read directly from a pointing act.']},
+      {heading: 'The ethical edge of the example', paragraphs: ['The imagined setup abstracts away history, trust, and power. Real translation involves speakers with institutions and purposes, not merely behavioral data available to an outside investigator.']},
+    ],
+    sources: [
+      {label: 'Stanford Encyclopedia of Philosophy — Indeterminacy of Translation', url: 'https://plato.stanford.edu/entries/indeterminacy-translation/', kind: 'academic-reference'},
+      {label: 'Stanford Encyclopedia of Philosophy — Willard Van Orman Quine', url: 'https://plato.stanford.edu/entries/quine/', kind: 'academic-reference'},
+      {label: 'Internet Encyclopedia of Philosophy — Quine', url: 'https://iep.utm.edu/quine/', kind: 'academic-reference'},
+    ],
+    assetId: 'quine-young-hare',
+    panelAssetId: 'quine-young-hare',
+    articleRoute: {kind: 'philosopher', philosopherId: 'quine'},
+    presentation: presentation('Gallery 04 thought-experiment exhibit', 'Translation underdetermined', [
+      {label: 'Philosopher', value: 'W. V. Quine'},
+      {label: 'Work', value: 'Word and Object'},
+      {label: 'Visual', value: 'Young hare; contextual stimulus image'},
+      {label: 'Atlas route', value: 'Quine’s full profile'},
+    ], 'Open Quine’s full Atlas article'),
+  }),
+  analyticExhibit({
+    id: 'quine-naturalized-epistemology',
+    displayName: 'Quine: Naturalized Epistemology',
+    shortTitle: 'Quine: Naturalized Epistemology',
+    workLabel: 'QUINE · EPISTEMOLOGY NATURALIZED',
+    dateLabel: 'Essay published 1969',
+    question: 'What becomes of epistemology when knowing is studied as a natural process within science?',
+    frontSubtitle: 'Evidence, psychology, science from within, and normative pressure',
+    lead: 'Quine proposes that epistemology be pursued as a chapter of empirical psychology: study how limited sensory input leads human subjects to a richly articulated theory of the world. The proposal rejects a dream of justifying science from a standpoint prior to science. It does not simply declare that normative questions vanish, and later naturalists develop different relations between description and justification. The historical laboratory image provides context for experimental psychology as a practice. It is not Quine’s laboratory, does not depict his essay, and cannot settle the philosophical status of norms.',
+    keyIdeas: [
+      'Inquiry begins within an inherited scientific worldview rather than outside all assumptions.',
+      'Empirical study can illuminate the relation between sensory input and theoretical output.',
+      'Naturalism challenges first philosophy while leaving debate about epistemic normativity open.',
+    ],
+    cautions: [
+      'Naturalized epistemology is not identical with reducing reasons to neural causes.',
+      'A descriptive psychology alone may not answer which beliefs are justified or responsibly formed.',
+      'The laboratory photograph is historical context, not evidence of Quine conducting an experiment.',
+    ],
+    sections: [
+      {heading: 'No external tribunal', paragraphs: ['Quine denies that philosophy can validate science using foundations wholly independent of scientific knowledge. Methodological revision happens inside the same fallible enterprise it evaluates.']},
+      {heading: 'Input and theory', paragraphs: ['The naturalized project studies how sparse stimulation supports prediction, language, and a world-picture. The dramatic gap makes learning and theory construction empirical research questions.']},
+      {heading: 'The normative return', paragraphs: ['Critics argue that replacing justification with causal explanation abandons epistemology. Naturalists respond by integrating aims such as truth, reliability, and effective prediction into an empirically informed account.']},
+    ],
+    sources: [
+      {label: 'Stanford Encyclopedia of Philosophy — Naturalism in Epistemology', url: 'https://plato.stanford.edu/entries/epistemology-naturalized/', kind: 'academic-reference'},
+      {label: 'Stanford Encyclopedia of Philosophy — Willard Van Orman Quine', url: 'https://plato.stanford.edu/entries/quine/', kind: 'academic-reference'},
+      {label: 'Internet Encyclopedia of Philosophy — Naturalism', url: 'https://iep.utm.edu/naturali/', kind: 'academic-reference'},
+    ],
+    assetId: 'quine-experimental-psychology-lab',
+    panelAssetId: 'quine-experimental-psychology-lab',
+    articleRoute: {kind: 'philosopher', philosopherId: 'quine'},
+    presentation: presentation('Gallery 04 context exhibit', 'Knowledge studied from within', [
+      {label: 'Philosopher', value: 'W. V. Quine'},
+      {label: 'Essay', value: 'Epistemology Naturalized'},
+      {label: 'Visual', value: 'Historical psychology laboratory; contextual'},
+      {label: 'Atlas route', value: 'Quine’s full profile'},
+    ], 'Open Quine’s full Atlas article'),
+  }),
+  analyticExhibit({
+    id: 'carnap-tolerance',
+    displayName: 'Carnap: The Principle of Tolerance',
+    shortTitle: 'Carnap: Tolerance',
+    workLabel: 'CARNAP · LOGICAL SYNTAX AND FRAMEWORKS',
+    dateLabel: 'Principle formulated in The Logical Syntax of Language, 1934',
+    question: 'Must inquiry discover one uniquely correct logical language before it can begin?',
+    frontSubtitle: 'Frameworks, formal choice, explication, and pragmatic comparison',
+    lead: 'Rudolf Carnap’s principle of tolerance permits the construction and investigation of different linguistic frameworks rather than treating one logic as mandatory in advance. Frameworks can be compared by clarity, fruitfulness, simplicity, and suitability for a task. This is disciplined pluralism, not permission to ignore consistency or evidence. The collage of logical positivists situates Carnap within a larger movement of debate, migration, and collaboration, although it is a later composite rather than a historical group portrait. It should not imply that all pictured thinkers shared one doctrine or that Ayer, Schlick, Neurath, and Carnap were interchangeable.',
+    keyIdeas: [
+      'Formal frameworks may be chosen and engineered for purposes rather than discovered as the sole language of reality.',
+      'Internal questions are answered using the rules of a framework; framework choice invites pragmatic assessment.',
+      'Explication replaces an imprecise concept with a clearer one suited to systematic inquiry.',
+    ],
+    cautions: [
+      'Tolerance does not make contradictions acceptable or evidence optional.',
+      'Carnap’s internal–external distinction and treatment of ontology remain contested.',
+      'The collage is a modern composite and not a single historical event.',
+    ],
+    sections: [
+      {heading: 'A proposal, not a decree', paragraphs: ['Carnap urges philosophers to specify rules and explore their consequences instead of legislating one vocabulary as uniquely meaningful. Formal freedom is paired with transparent construction.']},
+      {heading: 'Choosing a framework', paragraphs: ['A framework can be more or less useful for explanation, calculation, communication, or unification. Such comparisons are practical and rational without pretending that all questions are settled by syntax alone.']},
+      {heading: 'Carnap and Quine', paragraphs: ['Quine challenges sharp boundaries between framework choice and factual belief. Their disagreement becomes a central route through analyticity, ontology, naturalism, and conceptual engineering.']},
+    ],
+    sources: [
+      {label: 'Stanford Encyclopedia of Philosophy — Rudolf Carnap', url: 'https://plato.stanford.edu/entries/carnap/', kind: 'academic-reference'},
+      {label: 'Internet Encyclopedia of Philosophy — Rudolf Carnap', url: 'https://iep.utm.edu/carnap/', kind: 'academic-reference'},
+      {label: 'Carnap, “Empiricism, Semantics, and Ontology”', url: 'https://www.phil.cmu.edu/projects/carnap/editorial/latex_pdf/1956-ESO.pdf', kind: 'primary-text'},
+    ],
+    assetId: 'carnap-logical-positivists-collage',
+    panelAssetId: 'carnap-logical-positivists-collage',
+    articleRoute: {kind: 'philosopher', philosopherId: 'carnap'},
+    presentation: presentation('Gallery 04 context exhibit', 'Plural frameworks', [
+      {label: 'Philosopher', value: 'Rudolf Carnap'},
+      {label: 'Principle', value: 'Tolerance in logical construction'},
+      {label: 'Visual', value: 'Modern collage of logical positivists'},
+      {label: 'Atlas route', value: 'Carnap’s full profile'},
+    ], 'Open Carnap’s full Atlas article'),
+  }),
+  analyticExhibit({
+    id: 'anscombe-intention-why',
+    displayName: 'Anscombe: Intention and the Question “Why?”',
+    shortTitle: 'Anscombe: Intention and Why',
+    workLabel: 'ANSCOMBE · INTENTION',
+    dateLabel: 'Published 1957',
+    question: 'When is the question “Why?” asking for an agent’s reason rather than a cause or prediction?',
+    frontSubtitle: 'Intentional action, reasons, descriptions, and practical knowledge',
+    lead: 'G. E. M. Anscombe investigates intention through the special application of “Why?” to actions. An answer can give the reason under a description known by the agent: someone moves an arm, pumps water, replenishes a cistern, and poisons inhabitants under descriptions that may differ in what is intended or known. The generated museum image layers a hand, pump, water, and branching action descriptions to evoke that structure. It is a contemporary interpretation, contains no portrait or historical scene, and cannot replace Anscombe’s careful sequence of cases.',
+    keyIdeas: [
+      'One bodily movement can fall under several descriptions with different intentional status.',
+      'Reasons for action are not merely inner events that causally precede movement.',
+      'The relevant “Why?” can be refused, answered, or shown not to apply in distinctive ways.',
+    ],
+    cautions: [
+      'Anscombe does not claim agents are infallible about everything they do.',
+      'The pump example is a philosophical construction, not a documented event.',
+      'The generated image is interpretive and does not encode the full argument.',
+    ],
+    sections: [
+      {heading: 'Action under a description', paragraphs: ['A person may intentionally operate a pump while not intentionally poisoning anyone if the further consequence is unknown. Intentionality attaches to what is done under particular descriptions.']},
+      {heading: 'The role of reasons', paragraphs: ['An agent’s answer places the action in a practical order—an end pursued through means—not merely a sequence of efficient causes observed from outside.']},
+      {heading: 'A new philosophy of action', paragraphs: ['The book renewed study of agency, practical reasoning, knowledge in action, and the relation between bodily movement and meaningful deed. Later theories extend and contest its framework.']},
+    ],
+    sources: [
+      {label: 'Stanford Encyclopedia of Philosophy — Action', url: 'https://plato.stanford.edu/entries/action/', kind: 'academic-reference'},
+      {label: 'Stanford Encyclopedia of Philosophy — Intention', url: 'https://plato.stanford.edu/entries/intention/', kind: 'academic-reference'},
+      {label: 'Internet Encyclopedia of Philosophy — Philosophy of Action', url: 'https://iep.utm.edu/action/', kind: 'academic-reference'},
+    ],
+    assetId: 'anscombe-intention-interpretive',
+    panelAssetId: 'anscombe-intention-interpretive',
+    articleRoute: {kind: 'philosopher', philosopherId: 'anscombe'},
+    presentation: presentation('Gallery 04 concept exhibit', 'The reason-seeking question', [
+      {label: 'Philosopher', value: 'G. E. M. Anscombe'},
+      {label: 'Work', value: 'Intention'},
+      {label: 'Visual', value: 'Original interpretive action study'},
+      {label: 'Atlas route', value: 'Anscombe’s full profile'},
+    ], 'Open Anscombe’s full Atlas article'),
+  }),
+  analyticExhibit({
+    id: 'anscombe-practical-knowledge',
+    displayName: 'Anscombe: Practical Knowledge in Action',
+    shortTitle: 'Anscombe: Practical Knowledge',
+    workLabel: 'ANSCOMBE · KNOWING WITHOUT OBSERVATION',
+    dateLabel: 'Developed in Intention, 1957',
+    question: 'How can an agent know what they are intentionally doing without discovering it as a spectator?',
+    frontSubtitle: 'Practical direction, bodily action, error, and knowledge without observation',
+    lead: 'Anscombe calls an agent’s knowledge of intentional action practical rather than observational: in acting, the agent’s knowledge helps constitute and direct what is happening. Someone operating a water pump need not infer the act from watching their limbs, though failure, ignorance, or interruption remain possible. The archival hand-pump image supplies a concrete mechanism for thinking through her example. It is not Anscombe’s pump, does not document her writing, and should not make practical knowledge look like automatic bodily certainty. The philosophical issue concerns the form of knowledge expressed in action.',
+    keyIdeas: [
+      'Practical knowledge is exercised in directing action, not copied from a prior observed fact.',
+      'An intentional action can be known under one description while its consequences remain unknown.',
+      'Error and failure do not convert every practical judgment into an observational hypothesis.',
+    ],
+    cautions: [
+      'Knowledge without observation is not omniscience about bodily state or consequences.',
+      'Later philosophers disagree about whether practical knowledge is constitutive, causal, or fallible.',
+      'The pump image is contextual machinery and has no historical link to Anscombe.',
+    ],
+    sections: [
+      {heading: 'Not a spectator’s report', paragraphs: ['When asked what they are doing, an agent often answers from the plan or reason guiding the performance. Looking to see may help, but it is not always the source of the answer.']},
+      {heading: 'Direction and world', paragraphs: ['Practical knowledge aims to make the world fit the intention through action. Obstacles can defeat the attempt, so the account must hold guidance and worldly success apart.']},
+      {heading: 'A disputed inheritance', paragraphs: ['Contemporary action theory asks how practical knowledge relates to skill, motor control, reasons, intention, and responsibility. Anscombe’s formulation keeps these questions connected.']},
+    ],
+    sources: [
+      {label: 'Stanford Encyclopedia of Philosophy — Intention', url: 'https://plato.stanford.edu/entries/intention/', kind: 'academic-reference'},
+      {label: 'Stanford Encyclopedia of Philosophy — Action', url: 'https://plato.stanford.edu/entries/action/', kind: 'academic-reference'},
+      {label: 'Internet Encyclopedia of Philosophy — Philosophy of Action', url: 'https://iep.utm.edu/action/', kind: 'academic-reference'},
+    ],
+    assetId: 'anscombe-hand-water-pump',
+    panelAssetId: 'anscombe-hand-water-pump',
+    articleRoute: {kind: 'philosopher', philosopherId: 'anscombe'},
+    presentation: presentation('Gallery 04 context exhibit', 'Knowing in doing', [
+      {label: 'Philosopher', value: 'G. E. M. Anscombe'},
+      {label: 'Concept', value: 'Practical knowledge'},
+      {label: 'Visual', value: 'Historical hand pump; contextual object'},
+      {label: 'Atlas route', value: 'Anscombe’s full profile'},
+    ], 'Open Anscombe’s full Atlas article'),
+  }),
+  analyticExhibit({
+    id: 'anscombe-modern-moral-philosophy',
+    displayName: 'Anscombe: Modern Moral Philosophy',
+    shortTitle: 'Anscombe: Modern Moral Philosophy',
+    workLabel: 'ANSCOMBE · MODERN MORAL PHILOSOPHY',
+    dateLabel: 'Published 1958',
+    question: 'Can concepts of moral obligation remain intact after their original law-like framework is abandoned?',
+    frontSubtitle: 'Obligation, virtue, action description, consequences, and moral psychology',
+    lead: 'Anscombe’s essay argues that modern moral philosophy should pause its use of a law-like “moral ought” until it develops an adequate philosophy of psychology. She attacks consequentialism, insists that some actions are excluded regardless of expected benefit, and calls for renewed attention to intention, justice, and virtue. The seven-virtues image is a historical allegory selected as contextual contrast. It is not Anscombe’s illustration and should not imply that her project simply restores one medieval list. Her essay is polemical, influential, and contested in both history and conclusion.',
+    keyIdeas: [
+      'Ethical theory depends on a clear account of action, intention, pleasure, desire, and practical reasoning.',
+      'Anscombe challenges theories that permit any act when aggregate consequences appear favorable.',
+      'The essay helped renew Anglophone interest in virtue while differing from many later virtue ethics.',
+    ],
+    cautions: [
+      'Anscombe’s genealogy of obligation and characterization of modern philosophers are disputed.',
+      'Rejecting consequentialism does not by itself yield a complete moral theory.',
+      'The virtues artwork is contextual and neither authored nor selected by Anscombe.',
+    ],
+    sections: [
+      {heading: 'A moratorium on moral theory', paragraphs: ['Anscombe thinks ethical verdicts outrun the available account of human action. Philosophy must first clarify intention, character, and practical concepts used in judgment.']},
+      {heading: 'Against calculative permission', paragraphs: ['The essay targets views on which no kind of action is absolutely ruled out. Anscombe argues that descriptions such as murder and injustice cannot be replaced by outcome arithmetic.']},
+      {heading: 'A complicated legacy', paragraphs: ['The article energized virtue ethics and action theory while drawing criticism for its history, theology, and absolutes. Its durable demand is conceptual seriousness about what an agent does.']},
+    ],
+    sources: [
+      {label: 'Anscombe, “Modern Moral Philosophy” (University of Pittsburgh)', url: 'https://sites.pitt.edu/~mthompso/readings/mmp.pdf', kind: 'primary-text'},
+      {label: 'Stanford Encyclopedia of Philosophy — Virtue Ethics', url: 'https://plato.stanford.edu/entries/ethics-virtue/', kind: 'academic-reference'},
+      {label: 'Internet Encyclopedia of Philosophy — G. E. M. Anscombe', url: 'https://iep.utm.edu/anscombe/', kind: 'academic-reference'},
+    ],
+    assetId: 'anscombe-seven-virtues',
+    panelAssetId: 'anscombe-seven-virtues',
+    articleRoute: {kind: 'philosopher', philosopherId: 'anscombe'},
+    presentation: presentation('Gallery 04 work exhibit', 'Ethics after moral law', [
+      {label: 'Philosopher', value: 'G. E. M. Anscombe'},
+      {label: 'Essay', value: 'Modern Moral Philosophy'},
+      {label: 'Visual', value: 'Historical virtues allegory; contextual'},
+      {label: 'Atlas route', value: 'Anscombe’s full profile'},
+    ], 'Open Anscombe’s full Atlas article'),
+  }),
+  analyticExhibit({
+    id: 'anscombe-truman-degree',
+    displayName: 'Anscombe: Truman, Protest, and Moral Absolutes',
+    shortTitle: 'Anscombe: Truman Protest',
+    workLabel: 'ANSCOMBE · MR TRUMAN’S DEGREE',
+    dateLabel: 'Oxford protest and pamphlet, 1956',
+    question: 'Can deliberately killing noncombatants become permissible because leaders expect a better outcome?',
+    frontSubtitle: 'Civilian immunity, intention, public dissent, and institutional honor',
+    lead: 'Anscombe opposed Oxford’s award of an honorary degree to former U.S. president Harry S. Truman because of his responsibility for the atomic bombings of Hiroshima and Nagasaki. Her pamphlet argues that deliberately choosing the deaths of innocent people cannot be justified by calculations of benefit. The official portrait shown here depicts Truman, the public figure Anscombe opposed; it is not an image of Anscombe, Oxford’s ceremony, the bombing, or its victims. The contextual choice avoids turning mass suffering into spectacle while keeping the target of her protest explicit.',
+    keyIdeas: [
+      'Anscombe distinguishes intending civilian deaths from merely foreseeing harmful side effects.',
+      'Institutional honors can become occasions for philosophical and political dissent.',
+      'Her protest joins action description to an absolute prohibition on intentionally killing the innocent.',
+    ],
+    cautions: [
+      'The Truman portrait is contextual and does not depict Anscombe or the contested ceremony.',
+      'Historians and philosophers dispute intentions, alternatives, military claims, and the double-effect framework.',
+      'Discussion should not abstract away Japanese civilian victims or the destruction of Hiroshima and Nagasaki.',
+    ],
+    sections: [
+      {heading: 'A minority protest', paragraphs: ['Anscombe publicly challenged her university’s decision and forced the moral description of wartime leadership into view. She treated honor as a judgment rather than neutral ceremony.']},
+      {heading: 'Intention under pressure', paragraphs: ['The case tests whether policymakers may describe civilian deaths as collateral when those deaths figure centrally in the chosen means. Anscombe rejects outcome alone as a sufficient defense.']},
+      {heading: 'Remembering without spectacle', paragraphs: ['A museum can examine the argument while refusing sensational images of death. The portrait identifies the officeholder and leaves testimony, history, and victim-centered sources necessary beyond the exhibit.']},
+    ],
+    sources: [
+      {label: 'Anscombe, “Mr Truman’s Degree” (University of Oxford text)', url: 'https://www.oxfordscholarlyeditions.com/display/10.1093/actrade/9780199592327.book.1/actrade-9780199592327-div1-10', kind: 'primary-text'},
+      {label: 'Stanford Encyclopedia of Philosophy — Doctrine of Double Effect', url: 'https://plato.stanford.edu/entries/double-effect/', kind: 'academic-reference'},
+      {label: 'Internet Encyclopedia of Philosophy — G. E. M. Anscombe', url: 'https://iep.utm.edu/anscombe/', kind: 'academic-reference'},
+    ],
+    assetId: 'anscombe-truman-portrait',
+    panelAssetId: 'anscombe-truman-portrait',
+    articleRoute: {kind: 'philosopher', philosopherId: 'anscombe'},
+    presentation: presentation('Gallery 04 controversy exhibit', 'Protest and moral description', [
+      {label: 'Philosopher', value: 'G. E. M. Anscombe'},
+      {label: 'Pamphlet', value: 'Mr Truman’s Degree'},
+      {label: 'Visual', value: 'Official Truman portrait; contextual subject'},
+      {label: 'Atlas route', value: 'Anscombe’s full profile'},
+    ], 'Open Anscombe’s full Atlas article'),
+  }),
+  analyticExhibit({
+    id: 'anscombe-causality',
+    displayName: 'Anscombe: Causality and Determination',
+    shortTitle: 'Anscombe: Causality',
+    workLabel: 'ANSCOMBE · CAUSALITY AND DETERMINATION',
+    dateLabel: 'Inaugural lecture delivered 1971',
+    question: 'Does causation always require a universal law or deterministic necessity?',
+    frontSubtitle: 'Observable causal concepts, necessity, indeterminism, and singular cases',
+    lead: 'Anscombe argues against treating causation as inherently deterministic or as nothing more than subsumption under exceptionless laws. Ordinary causal concepts—pushing, scraping, carrying, crushing, burning—can identify causal relations in particular cases without first deriving them from universal regularities. Indeterministic processes can still be causal. Newton’s cradle is a familiar demonstration selected to focus attention on transmission and contact, but it is not Anscombe’s example and its orderly motion can misleadingly suggest the very deterministic picture she challenges.',
+    keyIdeas: [
+      'Causation and determinism are distinct concepts; causal relations need not guarantee outcomes.',
+      'Singular causal knowledge may rely on perceivable processes rather than inferred universal laws.',
+      'A richer causal vocabulary begins with verbs of production, prevention, contact, and change.',
+    ],
+    cautions: [
+      'Newton’s cradle is a simplified contextual demonstration, not a diagram of Anscombe’s thesis.',
+      'Rejecting universal-law analyses does not eliminate statistical modeling or scientific explanation.',
+      'The lecture opens a program rather than furnishing a complete theory of every causal relation.',
+    ],
+    sections: [
+      {heading: 'Against automatic necessity', paragraphs: ['A cause may raise a chance, initiate a process, or operate amid interference without necessitating its effect. Anscombe separates this claim from skepticism that causes exist.']},
+      {heading: 'Causal verbs first', paragraphs: ['Instead of beginning with an abstract relation C causes E, she attends to the many ways things affect one another. Those verbs carry structure that a bare regularity can hide.']},
+      {heading: 'From action to science', paragraphs: ['The account connects agency, intervention, probability, and explanation. It anticipates later interest in causal mechanisms while resisting the idea that one formal template exhausts causality.']},
+    ],
+    sources: [
+      {label: 'Anscombe, “Causality and Determination” (University of Pittsburgh)', url: 'https://sites.pitt.edu/~mthompso/readings/anscombe.pdf', kind: 'primary-text'},
+      {label: 'Stanford Encyclopedia of Philosophy — Probabilistic Causation', url: 'https://plato.stanford.edu/entries/causation-probabilistic/', kind: 'academic-reference'},
+      {label: 'Stanford Encyclopedia of Philosophy — Causal Processes', url: 'https://plato.stanford.edu/entries/causation-process/', kind: 'academic-reference'},
+    ],
+    assetId: 'anscombe-newtons-cradle',
+    panelAssetId: 'anscombe-newtons-cradle',
+    articleRoute: {kind: 'philosopher', philosopherId: 'anscombe'},
+    presentation: presentation('Gallery 04 concept exhibit', 'Causes without determinism', [
+      {label: 'Philosopher', value: 'G. E. M. Anscombe'},
+      {label: 'Lecture', value: 'Causality and Determination'},
+      {label: 'Visual', value: 'Newton’s cradle; limited contextual demonstration'},
+      {label: 'Atlas route', value: 'Anscombe’s full profile'},
+    ], 'Open Anscombe’s full Atlas article'),
+  }),
+] as const satisfies readonly MuseumSupplementalExhibit[];
+
+export const ANALYTIC_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
+  layout({id: 'frege-sense-reference', parentExhibitId: 'frege', zoneId: 'analytic-origins-foundations', position: {x: -5.55, z: -17.42}, rotationY: Math.PI, assetId: 'frege-sense-reference-1892', mediaWidth: 1.72, mediaHeight: 3.2, installationKind: 'analytic-work', accent: ANALYTIC_PALETTE.prussian}),
+  layout({id: 'russell-whitehead-principia', parentExhibitId: 'russell', zoneId: 'analytic-origins-foundations', position: {x: 5.55, z: -27.38}, rotationY: 0, assetId: 'russell-whitehead-principia-1910', mediaWidth: 1.9, mediaHeight: 3.2, installationKind: 'analytic-work', accent: ANALYTIC_PALETTE.ink}),
+  layout({id: 'russell-logical-types', parentExhibitId: 'russell', zoneId: 'analytic-origins-foundations', position: {x: 5.55, z: -17.42}, rotationY: Math.PI, assetId: 'russell-principia-54-43', mediaWidth: 3.46, mediaHeight: 1.44, installationKind: 'analytic-concept', accent: ANALYTIC_PALETTE.copper}),
+  layout({id: 'moore-principia-ethica', parentExhibitId: 'g-e-moore', zoneId: 'analytic-common-sense-metaethics', position: {x: -5.55, z: -16.18}, rotationY: 0, assetId: 'moore-principia-ethica-1903', mediaWidth: 1.96, mediaHeight: 3.2, installationKind: 'analytic-work', accent: ANALYTIC_PALETTE.ink}),
+  layout({id: 'moore-open-question', parentExhibitId: 'g-e-moore', zoneId: 'analytic-common-sense-metaethics', position: {x: -5.55, z: -6.22}, rotationY: Math.PI, assetId: 'moore-open-question-interpretive', mediaWidth: 2.05, mediaHeight: 3.2, installationKind: 'analytic-concept', accent: ANALYTIC_PALETTE.vermilion}),
+  layout({id: 'moore-common-sense', parentExhibitId: 'g-e-moore', zoneId: 'analytic-common-sense-metaethics', position: {x: 5.55, z: -16.18}, rotationY: 0, assetId: 'moore-common-sense-earth', mediaWidth: 3.15, mediaHeight: 3.15, installationKind: 'analytic-context', accent: ANALYTIC_PALETTE.prussian}),
+  layout({id: 'moore-external-world', parentExhibitId: 'g-e-moore', zoneId: 'analytic-common-sense-metaethics', position: {x: 10.85, z: -11.2}, rotationY: -Math.PI / 2, assetId: 'moore-external-world-hands', mediaWidth: 2.78, mediaHeight: 3.2, installationKind: 'analytic-context', accent: ANALYTIC_PALETTE.copper}),
+  layout({id: 'moore-cambridge-practice', parentExhibitId: 'g-e-moore', zoneId: 'analytic-common-sense-metaethics', position: {x: 5.55, z: -6.22}, rotationY: Math.PI, assetId: 'moore-moral-sciences-club-1913', mediaWidth: 3.45, mediaHeight: 2.26, installationKind: 'analytic-context', accent: ANALYTIC_PALETTE.ink}),
+  layout({id: 'wittgenstein-tractatus', parentExhibitId: 'wittgenstein', zoneId: 'analytic-wittgenstein', position: {x: -10.85, z: 0}, rotationY: Math.PI / 2, assetId: 'wittgenstein-tractatus-1922', mediaWidth: 2.2, mediaHeight: 3.2, installationKind: 'analytic-work', accent: ANALYTIC_PALETTE.prussian, width: 4}),
+  layout({id: 'wittgenstein-truth-tables', parentExhibitId: 'wittgenstein', zoneId: 'analytic-wittgenstein', position: {x: -5.55, z: 4.98}, rotationY: Math.PI, assetId: 'wittgenstein-truth-table-schema', mediaWidth: 3.45, mediaHeight: 1.36, installationKind: 'analytic-concept', accent: ANALYTIC_PALETTE.copper}),
+  layout({id: 'wittgenstein-investigations', parentExhibitId: 'wittgenstein', zoneId: 'analytic-wittgenstein', position: {x: 5.55, z: -4.98}, rotationY: 0, assetId: 'anscombe-philosophical-investigations-1953', mediaWidth: 2.14, mediaHeight: 3.2, installationKind: 'analytic-work', accent: ANALYTIC_PALETTE.ink}),
+  layout({id: 'wittgenstein-language-games', parentExhibitId: 'wittgenstein', zoneId: 'analytic-wittgenstein', position: {x: 5.55, z: 4.98}, rotationY: Math.PI, assetId: 'wittgenstein-language-games-interpretive', mediaWidth: 2.05, mediaHeight: 3.2, installationKind: 'analytic-concept', accent: ANALYTIC_PALETTE.vermilion}),
+  layout({id: 'quine-two-dogmas', parentExhibitId: 'quine', zoneId: 'analytic-naturalism', position: {x: -5.55, z: 6.22}, rotationY: 0, assetId: 'quine-web-belief-interpretive', mediaWidth: 1.92, mediaHeight: 3.2, installationKind: 'analytic-concept', accent: ANALYTIC_PALETTE.prussian}),
+  layout({id: 'quine-ontology', parentExhibitId: 'quine', zoneId: 'analytic-naturalism', position: {x: -5.55, z: 16.18}, rotationY: Math.PI, assetId: 'quine-porphyrian-tree', mediaWidth: 2.42, mediaHeight: 3.2, installationKind: 'analytic-context', accent: ANALYTIC_PALETTE.copper}),
+  layout({id: 'quine-word-object', parentExhibitId: 'quine', zoneId: 'analytic-naturalism', position: {x: 5.55, z: 6.22}, rotationY: 0, assetId: 'quine-young-hare', mediaWidth: 2.9, mediaHeight: 3.2, installationKind: 'analytic-context', accent: ANALYTIC_PALETTE.paper}),
+  layout({id: 'quine-naturalized-epistemology', parentExhibitId: 'quine', zoneId: 'analytic-naturalism', position: {x: 10.85, z: 11.2}, rotationY: -Math.PI / 2, assetId: 'quine-experimental-psychology-lab', mediaWidth: 3.4, mediaHeight: 2.45, installationKind: 'analytic-context', accent: ANALYTIC_PALETTE.ink}),
+  layout({id: 'carnap-tolerance', parentExhibitId: 'quine', zoneId: 'analytic-naturalism', position: {x: 5.55, z: 16.18}, rotationY: Math.PI, assetId: 'carnap-logical-positivists-collage', mediaWidth: 3.15, mediaHeight: 3.15, installationKind: 'analytic-context', accent: ANALYTIC_PALETTE.vermilion}),
+  layout({id: 'anscombe-intention-why', parentExhibitId: 'anscombe', zoneId: 'analytic-action-intention', position: {x: -5.55, z: 17.42}, rotationY: 0, assetId: 'anscombe-intention-interpretive', mediaWidth: 2.05, mediaHeight: 3.2, installationKind: 'analytic-concept', accent: ANALYTIC_PALETTE.vermilion}),
+  layout({id: 'anscombe-practical-knowledge', parentExhibitId: 'anscombe', zoneId: 'analytic-action-intention', position: {x: -5.55, z: 27.38}, rotationY: Math.PI, assetId: 'anscombe-hand-water-pump', mediaWidth: 3.28, mediaHeight: 2.55, installationKind: 'analytic-context', accent: ANALYTIC_PALETTE.copper}),
+  layout({id: 'anscombe-modern-moral-philosophy', parentExhibitId: 'anscombe', zoneId: 'analytic-action-intention', position: {x: 5.55, z: 17.42}, rotationY: 0, assetId: 'anscombe-seven-virtues', mediaWidth: 3.45, mediaHeight: .98, installationKind: 'analytic-work', accent: ANALYTIC_PALETTE.prussian}),
+  layout({id: 'anscombe-truman-degree', parentExhibitId: 'anscombe', zoneId: 'analytic-action-intention', position: {x: 10.85, z: 22.4}, rotationY: -Math.PI / 2, assetId: 'anscombe-truman-portrait', mediaWidth: 3.4, mediaHeight: 2.73, installationKind: 'analytic-context', accent: ANALYTIC_PALETTE.ink}),
+  layout({id: 'anscombe-causality', parentExhibitId: 'anscombe', zoneId: 'analytic-action-intention', position: {x: 5.55, z: 27.38}, rotationY: Math.PI, assetId: 'anscombe-newtons-cradle', mediaWidth: 3.4, mediaHeight: 3.03, installationKind: 'analytic-concept', accent: ANALYTIC_PALETTE.copper}),
+] as const satisfies readonly MuseumSupplementalExhibitLayout[];
+
+const supplementalById = new Map<MuseumSupplementalExhibitId, MuseumSupplementalExhibit>(
+  ANALYTIC_SUPPLEMENTAL_EXHIBITS.map((record) => [record.id, record]),
+);
+
+export const findAnalyticSupplementalExhibit = (
+  id: MuseumSupplementalExhibitId,
+): MuseumSupplementalExhibit | undefined => supplementalById.get(id);
+
+export const getAnalyticSupplementalExhibit = (
+  id: MuseumSupplementalExhibitId,
+): MuseumSupplementalExhibit => {
+  const record = findAnalyticSupplementalExhibit(id);
+  if (!record) throw new Error(`Gallery 04 supplemental exhibit ${id} is missing.`);
+  return record;
+};

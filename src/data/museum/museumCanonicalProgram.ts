@@ -294,21 +294,21 @@ export const MUSEUM_CANONICAL_PROGRAM = [
     recordCapacity: 7,
     rooms: [
       {id: 'analytic-origins-foundations', title: 'Origins in logic, analysis, and reference', recordCapacity: 3, exhibits: [
-        exhibit({id: 'analytic-philosophy', entityKind: 'branch', entityId: 'analytic-philosophy', displayName: 'Analytic Philosophy', tier: 'anchor-exhibit', question: 'How did logic and analysis become a diverse modern philosophical family?', secondaryHallIds: ['core-questions-forum', 'critique-power-deconstruction']}),
+        exhibit({id: 'analytic-philosophy', entityKind: 'branch', entityId: 'analytic-philosophy', displayName: 'Analytic Philosophy', tier: 'anchor-exhibit', question: 'How did logic and analysis become a diverse modern philosophical family?', secondaryHallIds: ['core-questions-forum', 'critique-power-deconstruction'], principalAssetId: 'analytic-founders-collage'}),
         exhibit({id: 'russell', entityKind: 'philosopher', entityId: 'russell', displayName: 'Bertrand Russell', tier: 'standard-individual-exhibit', question: 'Can logical analysis reveal what our sentences commit us to?', secondaryHallIds: ['core-questions-forum'], formerHallId: 'logic-language-science', principalAssetId: 'russell-portrait-1894', supportingAssetIds: ['russell-on-denoting-1905']}),
         exhibit({id: 'frege', entityKind: 'philosopher', entityId: 'frege', displayName: 'Gottlob Frege', tier: 'anchor-exhibit', question: 'How can logical form clarify number, reference, and the difference between sense and object?', secondaryHallIds: ['core-questions-forum'], formerHallId: 'logic-language-science', principalAssetId: 'frege-portrait', supportingAssetIds: ['frege-begriffsschrift-1879']}),
       ]},
       {id: 'analytic-common-sense-metaethics', title: 'Common sense, realism, and metaethics', recordCapacity: 1, exhibits: [
-        exhibit({id: 'g-e-moore', entityKind: 'philosopher', entityId: 'g-e-moore', displayName: 'G. E. Moore', tier: 'standard-individual-exhibit', question: 'Can analysis defend common sense and resist reducing goodness to a natural property?', secondaryHallIds: ['moral-life-practical-reason']}),
+        exhibit({id: 'g-e-moore', entityKind: 'philosopher', entityId: 'g-e-moore', displayName: 'G. E. Moore', tier: 'standard-individual-exhibit', question: 'Can analysis defend common sense and resist reducing goodness to a natural property?', secondaryHallIds: ['moral-life-practical-reason'], principalAssetId: 'moore-portrait-1914'}),
       ]},
       {id: 'analytic-wittgenstein', title: 'Wittgenstein: logical form, use, and therapy', recordCapacity: 1, exhibits: [
-        exhibit({id: 'wittgenstein', entityKind: 'philosopher', entityId: 'wittgenstein', displayName: 'Wittgenstein', tier: 'anchor-exhibit', question: 'How do logical form and later language-games change the work of philosophy?', secondaryHallIds: ['core-questions-forum', 'moral-life-practical-reason']}),
+        exhibit({id: 'wittgenstein', entityKind: 'philosopher', entityId: 'wittgenstein', displayName: 'Wittgenstein', tier: 'anchor-exhibit', question: 'How do logical form and later language-games change the work of philosophy?', secondaryHallIds: ['core-questions-forum', 'moral-life-practical-reason'], principalAssetId: 'wittgenstein-naehr-1930'}),
       ]},
       {id: 'analytic-naturalism', title: 'Holism, naturalism, and ontology', recordCapacity: 1, exhibits: [
         exhibit({id: 'quine', entityKind: 'philosopher', entityId: 'quine', displayName: 'W. V. O. Quine', tier: 'standard-individual-exhibit', question: 'What changes when beliefs confront experience as an interconnected web?', secondaryHallIds: ['core-questions-forum'], formerHallId: 'logic-language-science', principalAssetId: 'quine-portrait', supportingAssetIds: ['quine-qualitative-sphere']}),
       ]},
       {id: 'analytic-action-intention', title: 'Action, intention, and ordinary language', recordCapacity: 1, exhibits: [
-        exhibit({id: 'anscombe', entityKind: 'philosopher', entityId: 'anscombe', displayName: 'Elizabeth Anscombe', tier: 'standard-individual-exhibit', question: 'What distinguishes an intentional action from an event that merely happens through us?', secondaryHallIds: ['core-questions-forum', 'moral-life-practical-reason'], formerHallId: 'mind-consciousness-self', principalAssetId: 'anscombe-portrait', supportingAssetIds: ['anscombe-philosophical-investigations-1953']}),
+        exhibit({id: 'anscombe', entityKind: 'philosopher', entityId: 'anscombe', displayName: 'Elizabeth Anscombe', tier: 'standard-individual-exhibit', question: 'What distinguishes an intentional action from an event that merely happens through us?', secondaryHallIds: ['core-questions-forum', 'moral-life-practical-reason'], formerHallId: 'mind-consciousness-self', principalAssetId: 'anscombe-portrait-interpretive'}),
       ]},
     ],
   },

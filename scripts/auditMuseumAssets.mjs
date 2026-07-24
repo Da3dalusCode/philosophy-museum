@@ -32,6 +32,7 @@ const result = await build({
       export * from '/src/data/museum/platoSupplementalExhibits.ts';
       export * from '/src/data/museum/renaissanceSupplementalExhibits.ts';
       export * from '/src/data/museum/phenomenologySupplementalExhibits.ts';
+      export * from '/src/data/museum/analyticSupplementalExhibits.ts';
     ` : undefined,
   }],
   build: {
@@ -47,6 +48,7 @@ const outputs = (Array.isArray(result) ? result : [result]).flatMap(({output}) =
 const entry = outputs.find((item) => item.type === 'chunk' && item.isEntry);
 assert(entry, 'Vite did not produce an executable Museum asset audit entry.');
 const {
+  ANALYTIC_SUPPLEMENTAL_EXHIBITS,
   MUSEUM_ASSETS,
   MUSEUM_HALLS,
   MUSEUM_FRAME_RAIL_FRONT_Z,
@@ -70,6 +72,7 @@ const ACTIVE_HALL_IDS = [
   'core-questions-forum',
 ];
 const MANAGED_HALL_FOLDERS = [
+  'analytic-traditions',
   'renaissance-reason-revolution',
   'modernity-freedom-critique',
   'logic-language-science',
@@ -88,6 +91,10 @@ const NEW_CANONICAL_ASSET_IDS = [
   'galileo-sustermans-portrait-1636',
   'alfred-north-whitehead-portrait-1923',
   'martha-nussbaum-portrait-2010',
+  'analytic-founders-collage',
+  'moore-portrait-1914',
+  'wittgenstein-naehr-1930',
+  'anscombe-portrait-interpretive',
 ];
 const ORIGINAL_INTERPRETIVE_ASSET_IDS = new Set([
   'plato-cave-interpretive-illustration',
@@ -96,6 +103,11 @@ const ORIGINAL_INTERPRETIVE_ASSET_IDS = new Set([
   'merleau-perception-interpretive',
   'existentialism-situated-freedom-interpretive',
   'sartre-bad-faith-look-interpretive',
+  'moore-open-question-interpretive',
+  'wittgenstein-language-games-interpretive',
+  'quine-web-belief-interpretive',
+  'anscombe-intention-interpretive',
+  'anscombe-portrait-interpretive',
 ]);
 const MEDITERRANEAN_ASSET_IDS = [
   'ancient-greek-colonization-map',
@@ -132,10 +144,12 @@ const canonicalReferencedIds = liveExhibits.flatMap(({exhibit}) => [
 const platoSupplementalReferencedIds = PLATO_SUPPLEMENTAL_EXHIBITS.map(({assetId}) => assetId);
 const renaissanceSupplementalReferencedIds = RENAISSANCE_SUPPLEMENTAL_EXHIBITS.map(({assetId}) => assetId);
 const phenomenologySupplementalReferencedIds = PHENOMENOLOGY_SUPPLEMENTAL_EXHIBITS.map(({assetId}) => assetId);
+const analyticSupplementalReferencedIds = ANALYTIC_SUPPLEMENTAL_EXHIBITS.map(({assetId}) => assetId);
 const supplementalReferencedIds = [
   ...platoSupplementalReferencedIds,
   ...renaissanceSupplementalReferencedIds,
   ...phenomenologySupplementalReferencedIds,
+  ...analyticSupplementalReferencedIds,
 ];
 const referencedIds = [...canonicalReferencedIds, ...supplementalReferencedIds];
 
@@ -280,11 +294,31 @@ check('Gallery 03 resolves every interpreted stop through unique, relevant local
   }
 });
 
-check('the preserved asset registry contains 156 unique records and derivative paths', () => {
-  assert.equal(MUSEUM_ASSETS.length, 156);
-  assert.equal(assetById.size, 156);
+check('Gallery 04 resolves every wall image through a unique local asset id', () => {
+  assert.equal(ANALYTIC_SUPPLEMENTAL_EXHIBITS.length, 22);
+  assert.equal(analyticSupplementalReferencedIds.length, 22);
+  assert.equal(new Set(analyticSupplementalReferencedIds).size, 22, 'Gallery 04 repeats a supplemental image asset');
+  for (const exhibit of ANALYTIC_SUPPLEMENTAL_EXHIBITS) {
+    assert(assetById.has(exhibit.assetId), `${exhibit.id} references missing asset ${exhibit.assetId}`);
+    assert(assetById.has(exhibit.panelAssetId), `${exhibit.id} panel references missing asset ${exhibit.panelAssetId}`);
+  }
+  const hall = MUSEUM_HALLS.find(({id}) => id === 'analytic-traditions');
+  assert(hall, 'Gallery 04 is absent from the canonical program');
+  const primaryReferencedIds = hall.exhibits.flatMap(({principalAssetId, supportingAssetIds}) => [
+    principalAssetId,
+    ...supportingAssetIds,
+  ].filter(Boolean));
+  assert.equal(primaryReferencedIds.length, 10, 'Gallery 04 primary media count changed');
+  const galleryReferencedIds = [...primaryReferencedIds, ...analyticSupplementalReferencedIds];
+  assert.equal(galleryReferencedIds.length, 32, 'Gallery 04 wall-image count changed');
+  assert.equal(new Set(galleryReferencedIds).size, 32, 'Gallery 04 repeats an image asset across primary or supplemental installations');
+});
+
+check('the preserved asset registry contains 181 unique records and derivative paths', () => {
+  assert.equal(MUSEUM_ASSETS.length, 181);
+  assert.equal(assetById.size, 181);
   const variantPaths = MUSEUM_ASSETS.flatMap(({variants}) => [variants.scene.path, variants.panel.path]);
-  assert.equal(variantPaths.length, 312);
+  assert.equal(variantPaths.length, 362);
   assert(unique(variantPaths), 'two asset variants share a derivative path');
   for (const id of NEW_CANONICAL_ASSET_IDS) assert(assetById.has(id), `new canonical asset ${id} is missing`);
   for (const id of MEDITERRANEAN_ASSET_IDS) assert(assetById.has(id), `Gallery 01 asset ${id} is missing`);
@@ -315,7 +349,12 @@ check('all asset records carry complete provenance, rights, interpretation, and 
     assert.equal(sourcePage.protocol, 'https:', `${asset.id} source page must use HTTPS`);
     if (ORIGINAL_INTERPRETIVE_ASSET_IDS.has(asset.id)) {
       assert.equal(sourcePage.hostname, 'github.com');
-      assert.equal(asset.license, 'Original Philosophy Atlas Museum interpretive illustration');
+      if (asset.id === 'anscombe-portrait-interpretive') {
+        assert.equal(asset.license, 'CC BY-SA 3.0');
+        assert.equal(asset.objectPageUrl, 'https://commons.wikimedia.org/wiki/File:Elisabeth_Anscombe.jpg');
+      } else {
+        assert.equal(asset.license, 'Original Philosophy Atlas Museum interpretive illustration');
+      }
     } else if (asset.id === 'plato-republic-justice-ideal-city') {
       assert.equal(sourcePage.hostname, 'www.nga.gov');
       assert.equal(asset.objectPageUrl, 'https://art.thewalters.org/object/37.677/');
@@ -375,14 +414,14 @@ check('every registered variant is exact-case local WebP media with locked dimen
   }
 });
 
-check('the 118-file-source preparation manifest locks every post-Ancient asset uniformly', () => {
+check('the 143-file-source preparation manifest locks every post-Ancient asset uniformly', () => {
   assert.equal(modernManifest.version, 1);
-  assert.equal(Object.keys(manifestAssets).length, 118);
+  assert.equal(Object.keys(manifestAssets).length, 143);
   const managedAssets = MUSEUM_ASSETS.filter(({variants}) => !variants.scene.path.startsWith('assets/museum/ancient-greek/'));
-  assert.equal(managedAssets.length, 118);
+  assert.equal(managedAssets.length, 143);
   assert.deepEqual(Object.keys(manifestAssets).sort(), managedAssets.map(({id}) => id).sort());
   assert.match(preparationSource, /MANIFEST_PATH = ROOT \/ "scripts" \/ "museumModernAssetManifest\.json"/);
-  assert.match(preparationSource, /EXPECTED_ASSET_COUNT = 118/);
+  assert.match(preparationSource, /EXPECTED_ASSET_COUNT = 143/);
   for (const folder of MANAGED_HALL_FOLDERS) assert(preparationSource.includes(`"${folder}"`), `preparation pipeline omits ${folder}`);
   assert.match(preparationSource, /record\["selectedThumbnailUrl"\]/);
   assert.match(preparationSource, /assert_locked\(slug, "scene"/);
@@ -421,6 +460,7 @@ check('the 118-file-source preparation manifest locks every post-Ancient asset u
     }
   }
   assert.deepEqual(Object.fromEntries([...countsByFolder].sort()), {
+    'analytic-traditions': 25,
     'core-questions-forum': 3,
     'ethics-justice-political-life': 16,
     'justice-democratic-reason': 1,
@@ -433,7 +473,7 @@ check('the 118-file-source preparation manifest locks every post-Ancient asset u
   }, 'preparation lock folder inventory changed');
 });
 
-check('all 236 managed derivatives match exact dimensions, bytes, and SHA-256 locks', () => {
+check('all 286 managed derivatives match exact dimensions, bytes, and SHA-256 locks', () => {
   for (const [id, lock] of Object.entries(manifestAssets)) {
     const asset = assetById.get(id);
     assert(asset, `${id} lock has no asset record`);
@@ -494,7 +534,7 @@ check('the 22-source Gallery 01 lock reproduces all curated Mediterranean media'
   }
 });
 
-check('the committed Museum inventory contains exactly the 312 registered derivatives', () => {
+check('the committed Museum inventory contains exactly the 362 registered derivatives', () => {
   const actual = walkFiles(museumMediaRoot).map(toPublicPath).sort();
   const expected = MUSEUM_ASSETS.flatMap(({variants}) => [variants.scene.path, variants.panel.path]).sort();
   assert.deepEqual(actual, expected);

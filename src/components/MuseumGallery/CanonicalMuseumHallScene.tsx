@@ -1,5 +1,6 @@
 import {MUSEUM_BUILDING_MANIFEST} from '../../data/museum/museumBuildingManifest';
 import type {MuseumHallContentProps} from './museumWorldRegistry';
+import {AnalyticSupplementalExhibits} from './AnalyticSupplementalExhibits';
 import {CanonicalMuseumExhibits} from './CanonicalMuseumExhibits';
 import {ContemporaryHallArchitecture} from './ContemporaryHallArchitecture';
 import {ContemporaryHallLighting} from './ContemporaryHallLighting';
@@ -56,6 +57,15 @@ export function CanonicalMuseumHallContent({
     {definition.id === 'phenomenology-existence-embodiment'
       && definition.layout.supplementalExhibits
       && <PhenomenologySupplementalExhibits
+        layouts={active
+          ? definition.layout.supplementalExhibits
+          : definition.layout.supplementalExhibits.filter(({assetId}) => entryAssetIds.has(assetId))}
+        nearbyId={nearbySupplemental?.hallId === definition.id ? nearbySupplemental.supplementalExhibitId : undefined}
+        onSelect={(supplementalExhibitId) => onSelectSupplementalExhibit({hallId: definition.id, supplementalExhibitId})}
+      />}
+    {definition.id === 'analytic-traditions'
+      && definition.layout.supplementalExhibits
+      && <AnalyticSupplementalExhibits
         layouts={active
           ? definition.layout.supplementalExhibits
           : definition.layout.supplementalExhibits.filter(({assetId}) => entryAssetIds.has(assetId))}

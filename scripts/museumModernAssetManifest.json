@@ -2129,6 +2129,461 @@
         "bytes": 296574,
         "sha256": "2922c74d492c24234686637c0d0efebb5faa22bad5d451d55884b4129f4eafcb"
       }
+    },
+    "analytic-founders-collage": {
+      "hallFolder": "analytic-traditions",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:The_founders_of_analytic_philosophy.png",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/The_founders_of_analytic_philosophy.png",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/The_founders_of_analytic_philosophy.png",
+      "scene": {
+        "width": 462,
+        "height": 599,
+        "bytes": 26544,
+        "sha256": "cd5b0c04193f6d11a9088eb40eb8141b8dd136a4d2c6abbd1ed99e9c798f22ef"
+      },
+      "panel": {
+        "width": 462,
+        "height": 599,
+        "bytes": 36744,
+        "sha256": "56786a8a459fb2bb9124799621b0b168d05772b7164132188d8e130069ee88f0"
+      }
+    },
+    "moore-portrait-1914": {
+      "hallFolder": "analytic-traditions",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:1914_George_Edward_Moore_(cropped).jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b9/1914_George_Edward_Moore_%28cropped%29.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b9/1914_George_Edward_Moore_%28cropped%29.jpg",
+      "scene": {
+        "width": 258,
+        "height": 339,
+        "bytes": 8776,
+        "sha256": "7f7741f2c3a4d639d4ba774c3f9516b2f70e00da3970ca4f488c54bce36f1ca3"
+      },
+      "panel": {
+        "width": 258,
+        "height": 339,
+        "bytes": 12410,
+        "sha256": "1b515a10b22ae835da60fcafc9dd0445d25a92c902e176aa1e1286b9e44a02b0"
+      }
+    },
+    "wittgenstein-naehr-1930": {
+      "hallFolder": "analytic-traditions",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Ludwig_Wittgenstein.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Ludwig_Wittgenstein.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Ludwig_Wittgenstein.jpg/1280px-Ludwig_Wittgenstein.jpg",
+      "scene": {
+        "width": 438,
+        "height": 640,
+        "bytes": 38582,
+        "sha256": "56dcdda8896fb758f46d6fb8bb19dd1c898dd96992730649516ef689657344dc"
+      },
+      "panel": {
+        "width": 876,
+        "height": 1280,
+        "bytes": 187186,
+        "sha256": "445c767786b9ea63e9e9804624cd3cab8b0c9aa6688e4e42d2b4d562ab5b7867"
+      }
+    },
+    "frege-sense-reference-1892": {
+      "hallFolder": "analytic-traditions",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:%C3%9Cber_Sinn_und_Bedeutung.djvu",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c8/%C3%9Cber_Sinn_und_Bedeutung.djvu",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/%C3%9Cber_Sinn_und_Bedeutung.djvu/page1-1280px-%C3%9Cber_Sinn_und_Bedeutung.djvu.jpg",
+      "scene": {
+        "width": 344,
+        "height": 640,
+        "bytes": 54386,
+        "sha256": "16a6df1926181970564d9a26743712af65e43c8fea47e0118d22739e011afe82"
+      },
+      "panel": {
+        "width": 687,
+        "height": 1280,
+        "bytes": 169240,
+        "sha256": "8fff503e1c7dc44995f5eeeb3afd0e8bf60afc73304ccc94c142b3c29d0b45c3"
+      }
+    },
+    "russell-whitehead-principia-1910": {
+      "hallFolder": "analytic-traditions",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Russell,_Whitehead_-_Principia_Mathematica,_vol._I,_1910.djvu",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/57/Russell%2C_Whitehead_-_Principia_Mathematica%2C_vol._I%2C_1910.djvu",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Russell%2C_Whitehead_-_Principia_Mathematica%2C_vol._I%2C_1910.djvu/page9-1280px-Russell%2C_Whitehead_-_Principia_Mathematica%2C_vol._I%2C_1910.djvu.jpg",
+      "scene": {
+        "width": 380,
+        "height": 640,
+        "bytes": 8720,
+        "sha256": "2236574c898ff19e9d6271414108e3e618ba20b0599a7187102d7af4ef4c379d"
+      },
+      "panel": {
+        "width": 759,
+        "height": 1280,
+        "bytes": 24930,
+        "sha256": "cfd96a042dd98794377e842a0662258ec0f073662ce5d61c0f48edb6112b0cd6"
+      }
+    },
+    "russell-principia-54-43": {
+      "hallFolder": "analytic-traditions",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Principia_Mathematica_54-43.png",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Principia_Mathematica_54-43.png",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Principia_Mathematica_54-43.png",
+      "scene": {
+        "width": 640,
+        "height": 266,
+        "bytes": 16998,
+        "sha256": "64390c20fffaf2e5b2e15081021671319da81c32c735c0058a718775d9ac11e8"
+      },
+      "panel": {
+        "width": 800,
+        "height": 333,
+        "bytes": 25734,
+        "sha256": "b8cc4b44841b890243db55d3d0447c164e1dfb024088a9f38b11dc13246ee2c2"
+      }
+    },
+    "moore-principia-ethica-1903": {
+      "hallFolder": "analytic-traditions",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Principia_Ethica_title_page.png",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/bc/Principia_Ethica_title_page.png",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/b/bc/Principia_Ethica_title_page.png",
+      "scene": {
+        "width": 392,
+        "height": 640,
+        "bytes": 6842,
+        "sha256": "751e2eda0c5738e81df4dfc8b9da273d913c0482aa653e5021c306bac1909a45"
+      },
+      "panel": {
+        "width": 773,
+        "height": 1262,
+        "bytes": 20898,
+        "sha256": "44e250b86e74986686c036c842cf34700fdde8bae180735633807bd57821db83"
+      }
+    },
+    "moore-open-question-interpretive": {
+      "hallFolder": "analytic-traditions",
+      "sourceKind": "owner-approved-original-illustration",
+      "sourcePageUrl": "https://github.com/Da3dalusCode/philosophy-museum/blob/main/public/assets/museum/analytic-traditions/moore-open-question-interpretive-panel.webp",
+      "sourceImageUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/main/public/assets/museum/analytic-traditions/moore-open-question-interpretive-panel.webp",
+      "selectedThumbnailUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/main/public/assets/museum/analytic-traditions/moore-open-question-interpretive-panel.webp",
+      "scene": {
+        "width": 409,
+        "height": 640,
+        "bytes": 21448,
+        "sha256": "342c3b19e1b6e4a6a0bd46ce7a1a116b7d7f1c16512dd4c1020a4fc9691b0874"
+      },
+      "panel": {
+        "width": 819,
+        "height": 1280,
+        "bytes": 110604,
+        "sha256": "c71599f3aacb7c38393eac0f97d48ecdc8a6c882fac2c3b302c355a897e04312"
+      }
+    },
+    "moore-common-sense-earth": {
+      "hallFolder": "analytic-traditions",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Earth_Western_Hemisphere.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Earth_Western_Hemisphere.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Earth_Western_Hemisphere.jpg/1280px-Earth_Western_Hemisphere.jpg",
+      "scene": {
+        "width": 640,
+        "height": 640,
+        "bytes": 74362,
+        "sha256": "0262e5391da0f6403f4fecb123b4cf4f9c16a9001788510f34b09764995d8aba"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 1280,
+        "bytes": 359236,
+        "sha256": "cd1bd1c84b72db7f1684af36dd43525c5d787f7eb2f326cfedfef3286f06b5da"
+      }
+    },
+    "moore-external-world-hands": {
+      "hallFolder": "analytic-traditions",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:D%C3%BCrer,_Albrecht_-_Study_of_Hands_-_1506.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0e/D%C3%BCrer%2C_Albrecht_-_Study_of_Hands_-_1506.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0e/D%C3%BCrer%2C_Albrecht_-_Study_of_Hands_-_1506.jpg",
+      "scene": {
+        "width": 557,
+        "height": 640,
+        "bytes": 75716,
+        "sha256": "37ec4f4052784d6f9ac3f901dc6b578eaf4e5076ce67037f0a90fcf577cc306d"
+      },
+      "panel": {
+        "width": 750,
+        "height": 862,
+        "bytes": 134882,
+        "sha256": "e68a7b1f7e775326a98c834f96f72bf2a34f056508a1716040bb158edee1d622"
+      }
+    },
+    "moore-moral-sciences-club-1913": {
+      "hallFolder": "analytic-traditions",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:14._Members_of_the_Moral_Science_Club,_Cambridge,_c._1913.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e5/14._Members_of_the_Moral_Science_Club%2C_Cambridge%2C_c._1913.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e5/14._Members_of_the_Moral_Science_Club%2C_Cambridge%2C_c._1913.jpg",
+      "scene": {
+        "width": 410,
+        "height": 269,
+        "bytes": 26912,
+        "sha256": "db6230137f13a53974244c65bc3c8912db5c78b2a5fb8c537f8596ef2634d54c"
+      },
+      "panel": {
+        "width": 410,
+        "height": 269,
+        "bytes": 33022,
+        "sha256": "a612de4b6f0f3ed0960c7245afe422199e501dd846c56b9af5ad59fd222a44ee"
+      }
+    },
+    "wittgenstein-tractatus-1922": {
+      "hallFolder": "analytic-traditions",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Tractatus_title_page_1922_Harcourt.png",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Tractatus_title_page_1922_Harcourt.png",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Tractatus_title_page_1922_Harcourt.png",
+      "scene": {
+        "width": 442,
+        "height": 640,
+        "bytes": 10756,
+        "sha256": "8a341fe357e93baffc49d228633b841f996d00398d0b13f3e54cf54f70293b55"
+      },
+      "panel": {
+        "width": 835,
+        "height": 1208,
+        "bytes": 28946,
+        "sha256": "3a3be9050062fc1c254f59ac3d59ca066f86497dd8896aad3b39f48305222508"
+      }
+    },
+    "wittgenstein-truth-table-schema": {
+      "hallFolder": "analytic-traditions",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Schema_tavole_di_verit%C3%A0.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Schema_tavole_di_verit%C3%A0.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Schema_tavole_di_verit%C3%A0.jpg",
+      "scene": {
+        "width": 639,
+        "height": 252,
+        "bytes": 4788,
+        "sha256": "99b4c883df4e637dc298f261bec68104d97dca2c957ae23b05c8e0d8ff3785d2"
+      },
+      "panel": {
+        "width": 639,
+        "height": 252,
+        "bytes": 5258,
+        "sha256": "6720afb4fd7dd5dac5bb7cef2b5ebfc5ecb1ba0579b24b5e9df8c57ce1162679"
+      }
+    },
+    "wittgenstein-language-games-interpretive": {
+      "hallFolder": "analytic-traditions",
+      "sourceKind": "owner-approved-original-illustration",
+      "sourcePageUrl": "https://github.com/Da3dalusCode/philosophy-museum/blob/main/public/assets/museum/analytic-traditions/wittgenstein-language-games-interpretive-panel.webp",
+      "sourceImageUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/main/public/assets/museum/analytic-traditions/wittgenstein-language-games-interpretive-panel.webp",
+      "selectedThumbnailUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/main/public/assets/museum/analytic-traditions/wittgenstein-language-games-interpretive-panel.webp",
+      "scene": {
+        "width": 409,
+        "height": 640,
+        "bytes": 42168,
+        "sha256": "e811f62075489922a63745c56037147f6903df6e9c42b6aebc1c4686a6b53f7a"
+      },
+      "panel": {
+        "width": 819,
+        "height": 1280,
+        "bytes": 195606,
+        "sha256": "d6bd2573cd8e344d4afccd2661f13ab8fd808f3b83327795ba12795790d21fa5"
+      }
+    },
+    "quine-web-belief-interpretive": {
+      "hallFolder": "analytic-traditions",
+      "sourceKind": "owner-approved-original-illustration",
+      "sourcePageUrl": "https://github.com/Da3dalusCode/philosophy-museum/blob/main/public/assets/museum/analytic-traditions/quine-web-belief-interpretive-panel.webp",
+      "sourceImageUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/main/public/assets/museum/analytic-traditions/quine-web-belief-interpretive-panel.webp",
+      "selectedThumbnailUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/main/public/assets/museum/analytic-traditions/quine-web-belief-interpretive-panel.webp",
+      "scene": {
+        "width": 384,
+        "height": 640,
+        "bytes": 38868,
+        "sha256": "a00c101dccdc76061b7546b2ff6905f1b77c2c5260fef7e3f2f6b692fe2d49bd"
+      },
+      "panel": {
+        "width": 768,
+        "height": 1280,
+        "bytes": 194100,
+        "sha256": "406e46c62bb820096fe6732bd3e3d7a2aaac91d7852fcbf3dc98070983c89240"
+      }
+    },
+    "quine-porphyrian-tree": {
+      "hallFolder": "analytic-traditions",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Arbor_porphyrii_(from_Purchotius%27_Institutiones_philosophicae_I,_1730).png",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Arbor_porphyrii_%28from_Purchotius%27_Institutiones_philosophicae_I%2C_1730%29.png",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Arbor_porphyrii_%28from_Purchotius%27_Institutiones_philosophicae_I%2C_1730%29.png/1280px-Arbor_porphyrii_%28from_Purchotius%27_Institutiones_philosophicae_I%2C_1730%29.png",
+      "scene": {
+        "width": 483,
+        "height": 640,
+        "bytes": 52182,
+        "sha256": "7c0e5199b4de73edc87244a58594370ab4bf7d25322df6be62a62ed8a933ce9a"
+      },
+      "panel": {
+        "width": 967,
+        "height": 1280,
+        "bytes": 133670,
+        "sha256": "b8a25b088a990f0af249d746937b577c745e7487fe21e457e5abe0d6f67db978"
+      }
+    },
+    "quine-young-hare": {
+      "hallFolder": "analytic-traditions",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Albrecht_D%C3%BCrer_-_Hare,_1502_-_Google_Art_Project.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/44/Albrecht_D%C3%BCrer_-_Hare%2C_1502_-_Google_Art_Project.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Albrecht_D%C3%BCrer_-_Hare%2C_1502_-_Google_Art_Project.jpg/1280px-Albrecht_D%C3%BCrer_-_Hare%2C_1502_-_Google_Art_Project.jpg",
+      "scene": {
+        "width": 579,
+        "height": 640,
+        "bytes": 62206,
+        "sha256": "ba373bcab2911f6573992270eff477c50a9ea2c028004e18f0dca05d488eb4de"
+      },
+      "panel": {
+        "width": 1159,
+        "height": 1280,
+        "bytes": 401760,
+        "sha256": "52744900d69ab5fb9cc4d779c8045e561046806ec55a8511365808d02ed287f8"
+      }
+    },
+    "quine-experimental-psychology-lab": {
+      "hallFolder": "analytic-traditions",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:PSM_V49_D474_Laboratory_of_experimental_psychology.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2c/PSM_V49_D474_Laboratory_of_experimental_psychology.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/PSM_V49_D474_Laboratory_of_experimental_psychology.jpg/1280px-PSM_V49_D474_Laboratory_of_experimental_psychology.jpg",
+      "scene": {
+        "width": 640,
+        "height": 462,
+        "bytes": 95042,
+        "sha256": "433dba931eb7d7088b58ca1f11c9f46ab8e5fc5f95b477821c3ec091fef05717"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 924,
+        "bytes": 448176,
+        "sha256": "8325cfb1dc4f160718d1d1dfff5c6ca3dd7ec916f4d33fb57e4470e72f80fe8e"
+      }
+    },
+    "carnap-logical-positivists-collage": {
+      "hallFolder": "analytic-traditions",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Logical_positivists_collage_free.png",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Logical_positivists_collage_free.png",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Logical_positivists_collage_free.png",
+      "scene": {
+        "width": 640,
+        "height": 640,
+        "bytes": 53396,
+        "sha256": "d50c57114599964b3ea54d2779a60c59b5eda0ccafa23fa8f827f530b248338c"
+      },
+      "panel": {
+        "width": 1199,
+        "height": 1199,
+        "bytes": 207768,
+        "sha256": "ddcb2c6a3f4a49d6856b047f25f7a2ed9dfbf36f06c589841d1438bed7129510"
+      }
+    },
+    "anscombe-portrait-interpretive": {
+      "hallFolder": "analytic-traditions",
+      "sourceKind": "owner-approved-original-illustration",
+      "sourcePageUrl": "https://github.com/Da3dalusCode/philosophy-museum/blob/main/public/assets/museum/analytic-traditions/anscombe-portrait-interpretive-panel.webp",
+      "sourceImageUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/main/public/assets/museum/analytic-traditions/anscombe-portrait-interpretive-panel.webp",
+      "selectedThumbnailUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/main/public/assets/museum/analytic-traditions/anscombe-portrait-interpretive-panel.webp",
+      "scene": {
+        "width": 409,
+        "height": 640,
+        "bytes": 71890,
+        "sha256": "e2a4805b3e5af2e1e2e7e85e8a585f28751256043d9e6edcecbfb7e57c548945"
+      },
+      "panel": {
+        "width": 819,
+        "height": 1280,
+        "bytes": 385456,
+        "sha256": "6b4d03b54046ea7b49775aebac9bd5dc07decc5b009efeb28ef315b20f83a9fb"
+      }
+    },
+    "anscombe-intention-interpretive": {
+      "hallFolder": "analytic-traditions",
+      "sourceKind": "owner-approved-original-illustration",
+      "sourcePageUrl": "https://github.com/Da3dalusCode/philosophy-museum/blob/main/public/assets/museum/analytic-traditions/anscombe-intention-interpretive-panel.webp",
+      "sourceImageUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/main/public/assets/museum/analytic-traditions/anscombe-intention-interpretive-panel.webp",
+      "selectedThumbnailUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/main/public/assets/museum/analytic-traditions/anscombe-intention-interpretive-panel.webp",
+      "scene": {
+        "width": 409,
+        "height": 640,
+        "bytes": 47602,
+        "sha256": "7af9b7bf0ee264f3f433619fc9de62dd823b778b276c6e6f689a7218c09978a4"
+      },
+      "panel": {
+        "width": 819,
+        "height": 1280,
+        "bytes": 253392,
+        "sha256": "c7c2863ef296b53339b2780c27591ffcd3c59b2f306ed86a432bc78d69783b64"
+      }
+    },
+    "anscombe-hand-water-pump": {
+      "hallFolder": "analytic-traditions",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Hand_Water_Pump_--_1898_(50702797343).jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f4/Hand_Water_Pump_--_1898_%2850702797343%29.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f4/Hand_Water_Pump_--_1898_%2850702797343%29.jpg",
+      "scene": {
+        "width": 640,
+        "height": 497,
+        "bytes": 105212,
+        "sha256": "363d503cbbcb2c20ecf79001d724ccd6370fe0e0f1c3748a50a1f83aec9c059a"
+      },
+      "panel": {
+        "width": 677,
+        "height": 526,
+        "bytes": 144188,
+        "sha256": "536fb250514b36b35e9773f0417f08b0bf43d82e4c9c69093fabda75cd3fd2a2"
+      }
+    },
+    "anscombe-seven-virtues": {
+      "hallFolder": "analytic-traditions",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Seven_Virtues.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e3/Seven_Virtues.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e3/Seven_Virtues.jpg",
+      "scene": {
+        "width": 640,
+        "height": 182,
+        "bytes": 35442,
+        "sha256": "19a4cddd75f95946a3040b78c47de4e3d99fde512a16fb25bae9214dd5e74d5c"
+      },
+      "panel": {
+        "width": 800,
+        "height": 227,
+        "bytes": 68068,
+        "sha256": "3f369fc3cfb3f52b17b6746cf45607fb1acfb11d0fc60147238c435c9f6c4d01"
+      }
+    },
+    "anscombe-truman-portrait": {
+      "hallFolder": "analytic-traditions",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Portrait_of_Harry_S._Truman.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/60/Portrait_of_Harry_S._Truman.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/6/60/Portrait_of_Harry_S._Truman.jpg",
+      "scene": {
+        "width": 550,
+        "height": 441,
+        "bytes": 27430,
+        "sha256": "b1799bdb05139489b1d36aca79937013ffc2b86adebbe17043458f26faccd512"
+      },
+      "panel": {
+        "width": 550,
+        "height": 441,
+        "bytes": 36716,
+        "sha256": "12063548c3375e9203bf3f604ef5e64fb1b07325921a17fe299f6f575a3eff32"
+      }
+    },
+    "anscombe-newtons-cradle": {
+      "hallFolder": "analytic-traditions",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Newtons_Cradle.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/37/Newtons_Cradle.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Newtons_Cradle.jpg/1280px-Newtons_Cradle.jpg",
+      "scene": {
+        "width": 640,
+        "height": 570,
+        "bytes": 24634,
+        "sha256": "4e1feddf88188ca96fcc880d98001bc0da3e7cf7f27e21fe8b373a612615bda3"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 1140,
+        "bytes": 230976,
+        "sha256": "d8736eebe355634b9e4be55d3a10abc60b2a83cfac4de16e150a3132ba3c9450"
+      }
     }
   }
 }
