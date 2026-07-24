@@ -1746,6 +1746,389 @@
         "bytes": 104660,
         "sha256": "c1cc0e70b7db4b268728ec50cd61a1586b1ebb105eb798bb080259ec3bcf06d3"
       }
+    },
+    "phenomenology-intentionality-interpretive": {
+      "hallFolder": "phenomenology-existence-embodiment",
+      "sourceKind": "owner-approved-original-illustration",
+      "sourcePageUrl": "https://github.com/Da3dalusCode/philosophy-museum/blob/main/public/assets/museum/phenomenology-existence-embodiment/phenomenology-intentionality-interpretive-panel.webp",
+      "sourceImageUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/main/public/assets/museum/phenomenology-existence-embodiment/phenomenology-intentionality-interpretive-panel.webp",
+      "selectedThumbnailUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/main/public/assets/museum/phenomenology-existence-embodiment/phenomenology-intentionality-interpretive-panel.webp",
+      "scene": {
+        "width": 512,
+        "height": 640,
+        "bytes": 54044,
+        "sha256": "4f6942db64054c98c74de53ae7f0819977361c3d9a7640e8545f430806f3f436"
+      },
+      "panel": {
+        "width": 1024,
+        "height": 1280,
+        "bytes": 346822,
+        "sha256": "2fa93cbdd41f1a10fc7e10c3b7dfa90aa4e4959b672d8bd8337fde9c04d253d0"
+      }
+    },
+    "husserl-lifeworld-atget-pavers": {
+      "hallFolder": "phenomenology-existence-embodiment",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Eug%C3%A8ne_Atget,_Street_Paver,_1899%E2%80%931900_-_Metropolitan_Museum_of_Art.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/27/Eug%C3%A8ne_Atget%2C_Street_Paver%2C_1899%E2%80%931900_-_Metropolitan_Museum_of_Art.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Eug%C3%A8ne_Atget%2C_Street_Paver%2C_1899%E2%80%931900_-_Metropolitan_Museum_of_Art.jpg/1280px-Eug%C3%A8ne_Atget%2C_Street_Paver%2C_1899%E2%80%931900_-_Metropolitan_Museum_of_Art.jpg",
+      "scene": {
+        "width": 475,
+        "height": 640,
+        "bytes": 46404,
+        "sha256": "577aa8d07f9ad00180e483badc456d7a12a29925031f66af738aefa34ea92630"
+      },
+      "panel": {
+        "width": 950,
+        "height": 1280,
+        "bytes": 267170,
+        "sha256": "1afda35d52d12f38d77864c95a91d67b90064c1445918c58ef8448ec558cda34"
+      }
+    },
+    "heidegger-being-time-interpretive": {
+      "hallFolder": "phenomenology-existence-embodiment",
+      "sourceKind": "owner-approved-original-illustration",
+      "sourcePageUrl": "https://github.com/Da3dalusCode/philosophy-museum/blob/main/public/assets/museum/phenomenology-existence-embodiment/heidegger-being-time-interpretive-panel.webp",
+      "sourceImageUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/main/public/assets/museum/phenomenology-existence-embodiment/heidegger-being-time-interpretive-panel.webp",
+      "selectedThumbnailUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/main/public/assets/museum/phenomenology-existence-embodiment/heidegger-being-time-interpretive-panel.webp",
+      "scene": {
+        "width": 409,
+        "height": 640,
+        "bytes": 52232,
+        "sha256": "45d2a562bcef403e0412464b41b9552e14a52f6c774ce5cb476fd18d12e5b2dc"
+      },
+      "panel": {
+        "width": 819,
+        "height": 1280,
+        "bytes": 296188,
+        "sha256": "c4bbe7715704273a41dc04683d195e2a510e1e54b61bec4080a7eb77603a0cf5"
+      }
+    },
+    "merleau-perception-interpretive": {
+      "hallFolder": "phenomenology-existence-embodiment",
+      "sourceKind": "owner-approved-original-illustration",
+      "sourcePageUrl": "https://github.com/Da3dalusCode/philosophy-museum/blob/main/public/assets/museum/phenomenology-existence-embodiment/merleau-perception-interpretive-panel.webp",
+      "sourceImageUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/main/public/assets/museum/phenomenology-existence-embodiment/merleau-perception-interpretive-panel.webp",
+      "selectedThumbnailUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/main/public/assets/museum/phenomenology-existence-embodiment/merleau-perception-interpretive-panel.webp",
+      "scene": {
+        "width": 384,
+        "height": 640,
+        "bytes": 46012,
+        "sha256": "18214c879feecf4afaab1dd6a22923ecab14d8e137ad6dff05d0e123a8fca4c1"
+      },
+      "panel": {
+        "width": 768,
+        "height": 1280,
+        "bytes": 285888,
+        "sha256": "14a8507e678277b4100b63fc2daa7d19e3ed1d06bf0c143032b8b4924d254ed6"
+      }
+    },
+    "existentialism-situated-freedom-interpretive": {
+      "hallFolder": "phenomenology-existence-embodiment",
+      "sourceKind": "owner-approved-original-illustration",
+      "sourcePageUrl": "https://github.com/Da3dalusCode/philosophy-museum/blob/main/public/assets/museum/phenomenology-existence-embodiment/existentialism-situated-freedom-interpretive-panel.webp",
+      "sourceImageUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/main/public/assets/museum/phenomenology-existence-embodiment/existentialism-situated-freedom-interpretive-panel.webp",
+      "selectedThumbnailUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/main/public/assets/museum/phenomenology-existence-embodiment/existentialism-situated-freedom-interpretive-panel.webp",
+      "scene": {
+        "width": 512,
+        "height": 640,
+        "bytes": 80468,
+        "sha256": "351610925f4c0a43cf2fb4023f6ff7f2579cd6295a795e97bdf5b5169db3c371"
+      },
+      "panel": {
+        "width": 1024,
+        "height": 1280,
+        "bytes": 451886,
+        "sha256": "bf6b7f553634f2fe9ab5fa552a3e695d777e92b225b8a92e3e63b6ef26435209"
+      }
+    },
+    "sartre-bad-faith-look-interpretive": {
+      "hallFolder": "phenomenology-existence-embodiment",
+      "sourceKind": "owner-approved-original-illustration",
+      "sourcePageUrl": "https://github.com/Da3dalusCode/philosophy-museum/blob/main/public/assets/museum/phenomenology-existence-embodiment/sartre-bad-faith-look-interpretive-panel.webp",
+      "sourceImageUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/main/public/assets/museum/phenomenology-existence-embodiment/sartre-bad-faith-look-interpretive-panel.webp",
+      "selectedThumbnailUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/main/public/assets/museum/phenomenology-existence-embodiment/sartre-bad-faith-look-interpretive-panel.webp",
+      "scene": {
+        "width": 512,
+        "height": 640,
+        "bytes": 40674,
+        "sha256": "513b65eca6d2df06324806dc72b67a943612ab026a641efcb422e187edfedc5f"
+      },
+      "panel": {
+        "width": 1024,
+        "height": 1280,
+        "bytes": 279040,
+        "sha256": "3603d7a28c695f12d3ffdb27b096cbe3314582019dd5fa53d9f29ac51a9edd54"
+      }
+    },
+    "husserl-grossmann-seated-1920s": {
+      "hallFolder": "phenomenology-existence-embodiment",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Zwei_sitzende_M%C3%A4nner_(rechts_Edmund_Husserl)_-_Rudolf_Gro%C3%9Fmann_-_NK_2019_018_M_f_Neue_Kunst_Freiburg.png",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Zwei_sitzende_M%C3%A4nner_%28rechts_Edmund_Husserl%29_-_Rudolf_Gro%C3%9Fmann_-_NK_2019_018_M_f_Neue_Kunst_Freiburg.png",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Zwei_sitzende_M%C3%A4nner_%28rechts_Edmund_Husserl%29_-_Rudolf_Gro%C3%9Fmann_-_NK_2019_018_M_f_Neue_Kunst_Freiburg.png/1280px-Zwei_sitzende_M%C3%A4nner_%28rechts_Edmund_Husserl%29_-_Rudolf_Gro%C3%9Fmann_-_NK_2019_018_M_f_Neue_Kunst_Freiburg.png",
+      "scene": {
+        "width": 464,
+        "height": 640,
+        "bytes": 26780,
+        "sha256": "caa3bb4ba3482bc3384bf82108c2e2b476e81d1a882f6d8aabcb96ec2895f96e"
+      },
+      "panel": {
+        "width": 929,
+        "height": 1280,
+        "bytes": 109398,
+        "sha256": "1af96d3eed78989ae91f364f288c9de8df44d8fe9eafe8d054a9b86655c73760"
+      }
+    },
+    "heidegger-pragher-portrait-1960": {
+      "hallFolder": "phenomenology-existence-embodiment",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Heidegger_2_(1960).jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/64/Heidegger_2_%281960%29.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/6/64/Heidegger_2_%281960%29.jpg",
+      "scene": {
+        "width": 356,
+        "height": 502,
+        "bytes": 11898,
+        "sha256": "8fccea69d52cb976bbb1adc4ae623f45717a8a3dd693f5537a048bb96116b951"
+      },
+      "panel": {
+        "width": 356,
+        "height": 502,
+        "bytes": 16290,
+        "sha256": "166e1022e438cc1cec7844a802616d07fa46a8462ae03fdc55976930ee36d825"
+      }
+    },
+    "merleau-marey-motion-study": {
+      "hallFolder": "phenomenology-existence-embodiment",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Homme_en_combinaison_de_chronophotographie.pdf",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/28/Homme_en_combinaison_de_chronophotographie.pdf",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Homme_en_combinaison_de_chronophotographie.pdf/page1-1280px-Homme_en_combinaison_de_chronophotographie.pdf.jpg",
+      "scene": {
+        "width": 377,
+        "height": 640,
+        "bytes": 52838,
+        "sha256": "c00b113c16647b19d2729eedba119dcf6ee817c9b8edf9bdb74dea4bbb7d8524"
+      },
+      "panel": {
+        "width": 754,
+        "height": 1280,
+        "bytes": 185564,
+        "sha256": "d7a0eed9de29e7b309c225c5e4cb4d15821234ee448275f54337543a91a1baa8"
+      }
+    },
+    "levinas-ettinger-portrait-1991": {
+      "hallFolder": "phenomenology-existence-embodiment",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Emmanuel_Levinas.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/71/Emmanuel_Levinas.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/7/71/Emmanuel_Levinas.jpg",
+      "scene": {
+        "width": 446,
+        "height": 640,
+        "bytes": 30118,
+        "sha256": "f2a5ac21bfca0f9b732edce010d9ce2b035343fc5442cf11cc2383983eebd7b5"
+      },
+      "panel": {
+        "width": 892,
+        "height": 1280,
+        "bytes": 174698,
+        "sha256": "1758d937eb2abcaa2696ef18399a97ee5693648e8344e866ec40ebcb5fc4f3f9"
+      }
+    },
+    "gadamer-ruuskanen-portrait-2000": {
+      "hallFolder": "phenomenology-existence-embodiment",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Hans-Georg_Gadamer.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9f/Hans-Georg_Gadamer.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9f/Hans-Georg_Gadamer.jpg",
+      "scene": {
+        "width": 495,
+        "height": 640,
+        "bytes": 55546,
+        "sha256": "c381d67d3ac7c247b6df8289dc96c95a5cfa678923663c7a55e7d1f3db5db611"
+      },
+      "panel": {
+        "width": 990,
+        "height": 1280,
+        "bytes": 272024,
+        "sha256": "d076ef52e2eb97d3eea60d5e94283da014c8573e66e79d067c4f99d58ce6bffb"
+      }
+    },
+    "husserl-epoche-portrait-1900": {
+      "hallFolder": "phenomenology-existence-embodiment",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Edmund_Husserl_1900.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Edmund_Husserl_1900.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Edmund_Husserl_1900.jpg",
+      "scene": {
+        "width": 419,
+        "height": 550,
+        "bytes": 12680,
+        "sha256": "af07ce9e2d2c3dda284e236ddd7f1c6069f89b2142075fbd3ecb154f371af7bf"
+      },
+      "panel": {
+        "width": 419,
+        "height": 550,
+        "bytes": 18234,
+        "sha256": "a439880ac3bbcf42621009be6fda5f75380f78bde4a419579adefedd8695353c"
+      }
+    },
+    "husserl-time-beethoven-op101": {
+      "hallFolder": "phenomenology-existence-embodiment",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Beethoven_opus_101_manuscript.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Beethoven_opus_101_manuscript.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Beethoven_opus_101_manuscript.jpg",
+      "scene": {
+        "width": 413,
+        "height": 640,
+        "bytes": 44590,
+        "sha256": "bbf3531b03ccd07fb3a3f4df7608f5fb3a7f9f86dd34d26a404d799a52611797"
+      },
+      "panel": {
+        "width": 826,
+        "height": 1280,
+        "bytes": 246268,
+        "sha256": "6e170f567baf5a40dae3805b204d0f596f0a817a4696524f9cc9c78543412221"
+      }
+    },
+    "heidegger-being-with-crowd-1923": {
+      "hallFolder": "phenomenology-existence-embodiment",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Street_scene,_crowd_walking_LCCN2016892098.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d4/Street_scene%2C_crowd_walking_LCCN2016892098.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Street_scene%2C_crowd_walking_LCCN2016892098.jpg/1280px-Street_scene%2C_crowd_walking_LCCN2016892098.jpg",
+      "scene": {
+        "width": 640,
+        "height": 496,
+        "bytes": 82908,
+        "sha256": "70aa95334886be3855c91e58dd3911c782a582c381b632ece21e3bb130980a73"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 991,
+        "bytes": 320436,
+        "sha256": "ca98d65b78230f26fd559264362a357ebc5ec5f5768c05cc2486175c53f5c2fb"
+      }
+    },
+    "merleau-flesh-rodin-cathedral": {
+      "hallFolder": "phenomenology-existence-embodiment",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:The_Cathedral_Rodin_Museum_Philadelphia(04)_(15542151779).jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/06/The_Cathedral_Rodin_Museum_Philadelphia%2804%29_%2815542151779%29.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/The_Cathedral_Rodin_Museum_Philadelphia%2804%29_%2815542151779%29.jpg/1280px-The_Cathedral_Rodin_Museum_Philadelphia%2804%29_%2815542151779%29.jpg",
+      "scene": {
+        "width": 505,
+        "height": 640,
+        "bytes": 24988,
+        "sha256": "6eb5c584153332678b817e288239128560a292e50361515236f756205b078f88"
+      },
+      "panel": {
+        "width": 1011,
+        "height": 1280,
+        "bytes": 122220,
+        "sha256": "1cd97669bfa647863293edd4547fcc6eaa267f6ad2acff9e0e326d8bfc24afdc"
+      }
+    },
+    "camus-absurd-sisyphus-stuck": {
+      "hallFolder": "phenomenology-existence-embodiment",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Sisyphus_by_von_Stuck.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Sisyphus_by_von_Stuck.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Sisyphus_by_von_Stuck.jpg/1280px-Sisyphus_by_von_Stuck.jpg",
+      "scene": {
+        "width": 554,
+        "height": 640,
+        "bytes": 64940,
+        "sha256": "f0fa36f1e0786ca78d3221ecea64c4710c6403b3280b6b9abdff8224359333de"
+      },
+      "panel": {
+        "width": 1108,
+        "height": 1280,
+        "bytes": 514854,
+        "sha256": "901852a3b68a9ca0add62a841ec54fca0a31de81e58de134a1f04b6c571abfd3"
+      }
+    },
+    "camus-plague-oran-port-1943": {
+      "hallFolder": "phenomenology-existence-embodiment",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Oran-port-1943.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/19/Oran-port-1943.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Oran-port-1943.jpg/1280px-Oran-port-1943.jpg",
+      "scene": {
+        "width": 640,
+        "height": 347,
+        "bytes": 48058,
+        "sha256": "fc6d666706ae3dfb3fd58b274fc866a1d492d3894acb6afe696e211165c01b0b"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 694,
+        "bytes": 145162,
+        "sha256": "9c61456a88c1b8da669373f9838eb96f18bfd2a24072acb681ae47393ecc87ec"
+      }
+    },
+    "levinas-totality-infinity-2002": {
+      "hallFolder": "phenomenology-existence-embodiment",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Emmanuel_Levinas,_Totalit%C3%A4t_und_Unendlichkeit_2002.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Emmanuel_Levinas%2C_Totalit%C3%A4t_und_Unendlichkeit_2002.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Emmanuel_Levinas%2C_Totalit%C3%A4t_und_Unendlichkeit_2002.jpg",
+      "scene": {
+        "width": 416,
+        "height": 640,
+        "bytes": 10830,
+        "sha256": "fffaec30b4f7ec99e8a935f8f04c6b13190a9a1474a114e782872873f671d408"
+      },
+      "panel": {
+        "width": 650,
+        "height": 1000,
+        "bytes": 21376,
+        "sha256": "e79474dee166091fae7f15d897b8a0d542283786b12c2d8ff60fefd4213c9419"
+      }
+    },
+    "levinas-signature-1983": {
+      "hallFolder": "phenomenology-existence-embodiment",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Levinas_Signatur_1983.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Levinas_Signatur_1983.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Levinas_Signatur_1983.jpg/1280px-Levinas_Signatur_1983.jpg",
+      "scene": {
+        "width": 637,
+        "height": 640,
+        "bytes": 20206,
+        "sha256": "8ff156e23d7569a2905c97bb76c58a5929dbe5378c9594bfe273783b3c48f886"
+      },
+      "panel": {
+        "width": 1273,
+        "height": 1280,
+        "bytes": 62930,
+        "sha256": "36a361c335ede06cfc3e193c28f7a2281416badda6ff08a55e44a75c2bb61f3d"
+      }
+    },
+    "gadamer-letter-pawliszyn": {
+      "hallFolder": "phenomenology-existence-embodiment",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:List_od_Hansa-Georga_Gadamera_do_Aleksandry_Pawliszyn.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/76/List_od_Hansa-Georga_Gadamera_do_Aleksandry_Pawliszyn.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/List_od_Hansa-Georga_Gadamera_do_Aleksandry_Pawliszyn.jpg/1280px-List_od_Hansa-Georga_Gadamera_do_Aleksandry_Pawliszyn.jpg",
+      "scene": {
+        "width": 447,
+        "height": 640,
+        "bytes": 25380,
+        "sha256": "6a4d91b61770e785cb706d91a01c5b2f5d4377a1958b2ac8332f8a719bf3b79d"
+      },
+      "panel": {
+        "width": 894,
+        "height": 1280,
+        "bytes": 81138,
+        "sha256": "e8aeaf29758b42cf133064180eb06f52bc16b8924f53b0bccfd3c317b6453b3c"
+      }
+    },
+    "gadamer-lepanto-conversation": {
+      "hallFolder": "phenomenology-existence-embodiment",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Wassili_Lepanto_(links)_und_Hans-Georg_Gadamer_im_Gespr%C3%A4ch_-_DC260-mh15922.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/71/Wassili_Lepanto_%28links%29_und_Hans-Georg_Gadamer_im_Gespr%C3%A4ch_-_DC260-mh15922.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Wassili_Lepanto_%28links%29_und_Hans-Georg_Gadamer_im_Gespr%C3%A4ch_-_DC260-mh15922.jpg/1280px-Wassili_Lepanto_%28links%29_und_Hans-Georg_Gadamer_im_Gespr%C3%A4ch_-_DC260-mh15922.jpg",
+      "scene": {
+        "width": 640,
+        "height": 323,
+        "bytes": 58764,
+        "sha256": "9912765d2daa727c3b2eeec4493c51158b963d34156e167dfc06b6f41c26c2a6"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 646,
+        "bytes": 296574,
+        "sha256": "2922c74d492c24234686637c0d0efebb5faa22bad5d451d55884b4129f4eafcb"
+      }
     }
   }
 }

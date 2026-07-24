@@ -106,13 +106,13 @@ export const MODERNITY_MUSEUM_INTERPRETATIONS = [
       {heading: 'National Socialism and interpretation', paragraphs: ['The rectorship, party membership, exclusions, silences, and Black Notebooks make political judgment unavoidable. Scholars disagree about conceptual entanglement, but responsible presentation must state the record directly and resist converting difficulty into exoneration.']},
     ],
     objectInterpretations: {
-      'heidegger-wetterauer-portrait': 'Herbert Wetterauer’s 2010 brush drawing is freely based on a photograph by Fritz Eschen. It is a licensed later representation, not a lifetime portrait or neutral evidence about Heidegger’s character.',
+      'heidegger-pragher-portrait-1960': 'Willy Pragher’s 1960 photograph is a documented lifetime image of Heidegger. It establishes historical presence without making appearance evidence for the philosophy or softening the political record.',
       'heidegger-pragher-lecture-1954': 'Pragher’s 1954 image of Heidegger lecturing in Freiburg documents his return to a public intellectual role after postwar teaching restrictions. It records reception and institutional presence, not agreement with the lecture’s claims.',
     },
     sources: [
       {label: 'Stanford Encyclopedia of Philosophy — Martin Heidegger', url: 'https://plato.stanford.edu/entries/heidegger/', kind: 'academic-reference'},
       {label: 'Internet Encyclopedia of Philosophy — Martin Heidegger', url: 'https://iep.utm.edu/heidegge/', kind: 'academic-reference'},
-      {label: 'Wikimedia Commons — Martin Heidegger portrait', url: 'https://commons.wikimedia.org/wiki/File:Martin_Heidegger_for_WP.jpg', kind: 'collection-record'},
+      {label: 'Wikimedia Commons — Martin Heidegger, 1960', url: 'https://commons.wikimedia.org/wiki/File:Heidegger_2_(1960).jpg', kind: 'collection-record'},
       {label: 'State Archives Freiburg image on Wikimedia Commons', url: 'https://commons.wikimedia.org/wiki/File:Freiburg,_Z%C3%A4hringen-_Jahnhalle,_Prof._Martin_Heidegger_w%C3%A4hrend_eines_Vortrags_-_LABW_-_Staatsarchiv_Freiburg_W_134_Nr._023740b.jpeg', kind: 'collection-record'},
     ],
     relatedExhibits: [{hallId: 'modernity-freedom-critique', exhibitId: 'kierkegaard'}, {hallId: 'modernity-freedom-critique', exhibitId: 'nietzsche'}, {hallId: 'modernity-freedom-critique', exhibitId: 'sartre'}, {hallId: 'modernity-freedom-critique', exhibitId: 'foucault'}], articleRoute: {kind: 'philosopher', philosopherId: 'heidegger'},

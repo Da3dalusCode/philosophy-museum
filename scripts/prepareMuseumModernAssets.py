@@ -36,8 +36,9 @@ EXPECTED_HALLS = {
     "core-questions-forum",
     "renaissance-humanism-new-method",
     "justice-democratic-reason",
+    "phenomenology-existence-embodiment",
 }
-EXPECTED_ASSET_COUNT = 97
+EXPECTED_ASSET_COUNT = 118
 MAX_DERIVATIVE_BYTES = 600_000
 
 

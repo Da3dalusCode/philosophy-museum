@@ -78,6 +78,7 @@ const MANAGED_HALL_FOLDERS = [
   'core-questions-forum',
   'renaissance-humanism-new-method',
   'justice-democratic-reason',
+  'phenomenology-existence-embodiment',
 ];
 const NEW_CANONICAL_ASSET_IDS = [
   'jiddu-krishnamurti-bain-portrait',
@@ -88,6 +89,14 @@ const NEW_CANONICAL_ASSET_IDS = [
   'alfred-north-whitehead-portrait-1923',
   'martha-nussbaum-portrait-2010',
 ];
+const ORIGINAL_INTERPRETIVE_ASSET_IDS = new Set([
+  'plato-cave-interpretive-illustration',
+  'phenomenology-intentionality-interpretive',
+  'heidegger-being-time-interpretive',
+  'merleau-perception-interpretive',
+  'existentialism-situated-freedom-interpretive',
+  'sartre-bad-faith-look-interpretive',
+]);
 const MEDITERRANEAN_ASSET_IDS = [
   'ancient-greek-colonization-map',
   'thales-promptuarii-portrait',
@@ -226,24 +235,56 @@ check('Gallery 02 work, discovery, and context exhibits resolve thirteen distinc
   }
 });
 
-check('Gallery 03 resolves nineteen interpreted stops through thirteen honest local media records', () => {
+check('Gallery 03 resolves every interpreted stop through unique, relevant local media', () => {
   assert.equal(PHENOMENOLOGY_SUPPLEMENTAL_EXHIBITS.length, 19);
-  assert.equal(new Set(phenomenologySupplementalReferencedIds).size, 13);
+  assert.equal(new Set(phenomenologySupplementalReferencedIds).size, 19);
   for (const exhibit of PHENOMENOLOGY_SUPPLEMENTAL_EXHIBITS) {
     assert(assetById.has(exhibit.assetId), `${exhibit.id} references missing asset ${exhibit.assetId}`);
     assert(assetById.has(exhibit.panelAssetId), `${exhibit.id} panel references missing asset ${exhibit.panelAssetId}`);
+    assert.equal(exhibit.assetId, exhibit.panelAssetId, `${exhibit.id} uses mismatched scene and panel media`);
   }
-  const levinas = PHENOMENOLOGY_SUPPLEMENTAL_EXHIBITS.find(({id}) => id === 'levinas-ethics-before-ontology');
-  const gadamer = PHENOMENOLOGY_SUPPLEMENTAL_EXHIBITS.find(({id}) => id === 'gadamer-truth-method');
-  assert.match(`${levinas?.lead} ${levinas?.cautions.join(' ')}`, /not a Levinas portrait|not Levinas/i);
-  assert.match(`${gadamer?.lead} ${gadamer?.cautions.join(' ')}`, /not Gadamer/i);
+  const hall = MUSEUM_HALLS.find(({id}) => id === 'phenomenology-existence-embodiment');
+  assert(hall, 'Gallery 03 is absent from the canonical program');
+  const primaryReferencedIds = hall.exhibits.flatMap(({principalAssetId, supportingAssetIds}) => [
+    principalAssetId,
+    ...supportingAssetIds,
+  ].filter(Boolean));
+  assert.equal(primaryReferencedIds.length, 12);
+  const galleryReferencedIds = [...primaryReferencedIds, ...phenomenologySupplementalReferencedIds];
+  assert.equal(galleryReferencedIds.length, 31);
+  assert.equal(new Set(galleryReferencedIds).size, 31, 'Gallery 03 repeats an image across primary or supplemental exhibits');
+  assert.equal(new Set(galleryReferencedIds.map((id) => assetById.get(id).sourcePageUrl)).size, 31, 'Gallery 03 repeats an underlying source image');
+  assert.equal(new Set(galleryReferencedIds.map((id) => sha256(exactCasePath(assetById.get(id).variants.panel.path)))).size, 31, 'Gallery 03 repeats identical panel bytes');
+  assert(!galleryReferencedIds.some((id) => /grave|plaque/.test(id)), 'Gallery 03 still routes through a grave or plaque image');
+  const requiredTitlePrefixes = new Map([
+    ['phenomenology-intentionality', 'Husserl:'],
+    ['heidegger-being-time', 'Heidegger:'],
+    ['merleau-phenomenology-perception', 'Merleau-Ponty:'],
+    ['sartre-bad-faith', 'Sartre:'],
+    ['camus-absurd-revolt', 'Camus:'],
+    ['levinas-ethics-before-ontology', 'Levinas:'],
+    ['gadamer-truth-method', 'Gadamer:'],
+    ['husserl-epoche-reduction', 'Husserl:'],
+    ['husserl-time-consciousness', 'Husserl:'],
+    ['heidegger-being-with', 'Heidegger:'],
+    ['merleau-flesh-reversibility', 'Merleau-Ponty:'],
+    ['beauvoir-second-sex', 'Beauvoir:'],
+    ['camus-plague-solidarity', 'Camus:'],
+    ['fanon-colonial-experience', 'Fanon:'],
+    ['levinas-saying-said', 'Levinas:'],
+    ['gadamer-art-play-truth', 'Gadamer:'],
+  ]);
+  for (const [id, prefix] of requiredTitlePrefixes) {
+    const exhibit = PHENOMENOLOGY_SUPPLEMENTAL_EXHIBITS.find((candidate) => candidate.id === id);
+    assert(exhibit?.displayName.startsWith(prefix), `${id} does not clearly name its philosopher`);
+  }
 });
 
-check('the preserved asset registry contains 135 unique records and derivative paths', () => {
-  assert.equal(MUSEUM_ASSETS.length, 135);
-  assert.equal(assetById.size, 135);
+check('the preserved asset registry contains 156 unique records and derivative paths', () => {
+  assert.equal(MUSEUM_ASSETS.length, 156);
+  assert.equal(assetById.size, 156);
   const variantPaths = MUSEUM_ASSETS.flatMap(({variants}) => [variants.scene.path, variants.panel.path]);
-  assert.equal(variantPaths.length, 270);
+  assert.equal(variantPaths.length, 312);
   assert(unique(variantPaths), 'two asset variants share a derivative path');
   for (const id of NEW_CANONICAL_ASSET_IDS) assert(assetById.has(id), `new canonical asset ${id} is missing`);
   for (const id of MEDITERRANEAN_ASSET_IDS) assert(assetById.has(id), `Gallery 01 asset ${id} is missing`);
@@ -272,7 +313,7 @@ check('all asset records carry complete provenance, rights, interpretation, and 
     assert(isHttpUrl(asset.sourcePageUrl), `${asset.id} sourcePageUrl is not an HTTP(S) source page`);
     const sourcePage = new URL(asset.sourcePageUrl);
     assert.equal(sourcePage.protocol, 'https:', `${asset.id} source page must use HTTPS`);
-    if (asset.id === 'plato-cave-interpretive-illustration') {
+    if (ORIGINAL_INTERPRETIVE_ASSET_IDS.has(asset.id)) {
       assert.equal(sourcePage.hostname, 'github.com');
       assert.equal(asset.license, 'Original Philosophy Atlas Museum interpretive illustration');
     } else if (asset.id === 'plato-republic-justice-ideal-city') {
@@ -286,7 +327,7 @@ check('all asset records carry complete provenance, rights, interpretation, and 
       assert(isHttpUrl(asset.licenseUrl), `${asset.id} license or rights-status URL is invalid`);
       assert.equal(new URL(asset.licenseUrl).protocol, 'https:', `${asset.id} licenseUrl must use HTTPS`);
     } else {
-      assert(['plato-cave-interpretive-illustration', 'plato-republic-justice-ideal-city'].includes(asset.id), `${asset.id} needs a license or rights-status URL`);
+      assert(ORIGINAL_INTERPRETIVE_ASSET_IDS.has(asset.id) || asset.id === 'plato-republic-justice-ideal-city', `${asset.id} needs a license or rights-status URL`);
     }
     if (asset.objectPageUrl) {
       assert(isHttpUrl(asset.objectPageUrl), `${asset.id} objectPageUrl is invalid`);
@@ -334,14 +375,14 @@ check('every registered variant is exact-case local WebP media with locked dimen
   }
 });
 
-check('the 97-file-source preparation manifest locks every post-Ancient asset uniformly', () => {
+check('the 118-file-source preparation manifest locks every post-Ancient asset uniformly', () => {
   assert.equal(modernManifest.version, 1);
-  assert.equal(Object.keys(manifestAssets).length, 97);
+  assert.equal(Object.keys(manifestAssets).length, 118);
   const managedAssets = MUSEUM_ASSETS.filter(({variants}) => !variants.scene.path.startsWith('assets/museum/ancient-greek/'));
-  assert.equal(managedAssets.length, 97);
+  assert.equal(managedAssets.length, 118);
   assert.deepEqual(Object.keys(manifestAssets).sort(), managedAssets.map(({id}) => id).sort());
   assert.match(preparationSource, /MANIFEST_PATH = ROOT \/ "scripts" \/ "museumModernAssetManifest\.json"/);
-  assert.match(preparationSource, /EXPECTED_ASSET_COUNT = 97/);
+  assert.match(preparationSource, /EXPECTED_ASSET_COUNT = 118/);
   for (const folder of MANAGED_HALL_FOLDERS) assert(preparationSource.includes(`"${folder}"`), `preparation pipeline omits ${folder}`);
   assert.match(preparationSource, /record\["selectedThumbnailUrl"\]/);
   assert.match(preparationSource, /assert_locked\(slug, "scene"/);
@@ -356,9 +397,16 @@ check('the 97-file-source preparation manifest locks every post-Ancient asset un
     countsByFolder.set(lock.hallFolder, (countsByFolder.get(lock.hallFolder) ?? 0) + 1);
     assert.equal(lock.sourcePageUrl, asset.sourcePageUrl, `${asset.id} lock source page differs from provenance`);
     for (const field of ['sourcePageUrl', 'sourceImageUrl', 'selectedThumbnailUrl']) assert(lock[field]?.startsWith('https://'), `${asset.id}.${field} must be locked HTTPS`);
-    assert.equal(new URL(lock.sourcePageUrl).hostname, 'commons.wikimedia.org', `${asset.id} lock source page must use Commons`);
-    assert.equal(new URL(lock.sourceImageUrl).hostname, 'upload.wikimedia.org', `${asset.id} lock source image must use Wikimedia upload`);
-    assert.equal(new URL(lock.selectedThumbnailUrl).hostname, 'upload.wikimedia.org', `${asset.id} lock thumbnail must use Wikimedia upload`);
+    if (lock.sourceKind === 'owner-approved-original-illustration') {
+      assert.match(asset.id, /-interpretive$/, `${asset.id} marks a non-interpretive asset as an original illustration`);
+      assert.equal(new URL(lock.sourcePageUrl).hostname, 'github.com', `${asset.id} original source page must use GitHub`);
+      assert.equal(new URL(lock.sourceImageUrl).hostname, 'raw.githubusercontent.com', `${asset.id} original source image must use the repository`);
+      assert.equal(new URL(lock.selectedThumbnailUrl).hostname, 'raw.githubusercontent.com', `${asset.id} original thumbnail must use the repository`);
+    } else {
+      assert.equal(new URL(lock.sourcePageUrl).hostname, 'commons.wikimedia.org', `${asset.id} lock source page must use Commons`);
+      assert.equal(new URL(lock.sourceImageUrl).hostname, 'upload.wikimedia.org', `${asset.id} lock source image must use Wikimedia upload`);
+      assert.equal(new URL(lock.selectedThumbnailUrl).hostname, 'upload.wikimedia.org', `${asset.id} lock thumbnail must use Wikimedia upload`);
+    }
     for (const variantName of ['scene', 'panel']) {
       const variant = asset.variants[variantName];
       const expected = lock[variantName];
@@ -379,12 +427,13 @@ check('the 97-file-source preparation manifest locks every post-Ancient asset un
     'logic-language-science': 16,
     'mind-consciousness-self': 16,
     'modernity-freedom-critique': 16,
+    'phenomenology-existence-embodiment': 21,
     'renaissance-humanism-new-method': 13,
     'renaissance-reason-revolution': 16,
   }, 'preparation lock folder inventory changed');
 });
 
-check('all 194 managed derivatives match exact dimensions, bytes, and SHA-256 locks', () => {
+check('all 236 managed derivatives match exact dimensions, bytes, and SHA-256 locks', () => {
   for (const [id, lock] of Object.entries(manifestAssets)) {
     const asset = assetById.get(id);
     assert(asset, `${id} lock has no asset record`);
@@ -445,7 +494,7 @@ check('the 22-source Gallery 01 lock reproduces all curated Mediterranean media'
   }
 });
 
-check('the committed Museum inventory contains exactly the 270 registered derivatives', () => {
+check('the committed Museum inventory contains exactly the 312 registered derivatives', () => {
   const actual = walkFiles(museumMediaRoot).map(toPublicPath).sort();
   const expected = MUSEUM_ASSETS.flatMap(({variants}) => [variants.scene.path, variants.panel.path]).sort();
   assert.deepEqual(actual, expected);

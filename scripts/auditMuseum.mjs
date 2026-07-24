@@ -667,8 +667,10 @@ check('Gallery 03 gives every unobstructed half-room wall one substantial exhibi
 
   const levinas = supplemental.find(({exhibit}) => exhibit.id === 'levinas-ethics-before-ontology')?.exhibit;
   const gadamer = supplemental.find(({exhibit}) => exhibit.id === 'gadamer-truth-method')?.exhibit;
-  assert.match(`${levinas?.lead} ${levinas?.cautions.join(' ')}`, /lineage material|not Levinas/i);
-  assert.match(`${gadamer?.lead} ${gadamer?.cautions.join(' ')}`, /shows Heidegger|depicts Heidegger|not Gadamer/i);
+  assert.equal(levinas?.assetId, 'levinas-totality-infinity-2002');
+  assert.match(`${levinas?.lead} ${levinas?.cautions.join(' ')}`, /German study edition|1961 French first edition/i);
+  assert.equal(gadamer?.assetId, 'gadamer-letter-pawliszyn');
+  assert.match(`${gadamer?.lead} ${gadamer?.cautions.join(' ')}`, /signed 1989 letter|scholarly correspondence/i);
   assert.match(canonicalSceneSource, /<PhenomenologySupplementalExhibits/u, 'Gallery 03 does not mount its shared supplemental collection');
   assert.match(phenomenologySupplementalSceneSource, /onClick=\{activate\}/u, 'Gallery 03 supplemental installations lack mouse activation');
   assert.match(phenomenologySupplementalSceneSource, /interactionForSupplemental/u, 'Gallery 03 supplemental installations lack stable interaction identity');

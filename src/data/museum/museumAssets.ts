@@ -8,6 +8,7 @@ import {MODERN_MUSEUM_ASSETS} from './modernMuseumAssets';
 import {KRISHNAMURTI_MUSEUM_ASSETS} from './krishnamurtiMuseumAssets';
 import {CANONICAL_MUSEUM_ASSETS} from './canonicalMuseumAssets';
 import {RENAISSANCE_GALLERY_ASSETS} from './renaissanceGalleryAssets';
+import {PHENOMENOLOGY_GALLERY_ASSETS} from './phenomenologyGalleryAssets';
 
 const assetPath = (slug: string, variant: 'scene' | 'panel', width: number, height: number): MuseumAssetVariant => ({
   path: `assets/museum/ancient-greek/${slug}-${variant}.webp`,
@@ -406,6 +407,7 @@ export const MUSEUM_ASSETS = [
   ...KRISHNAMURTI_MUSEUM_ASSETS,
   ...CANONICAL_MUSEUM_ASSETS,
   ...RENAISSANCE_GALLERY_ASSETS,
+  ...PHENOMENOLOGY_GALLERY_ASSETS,
 ] as const satisfies readonly MuseumAssetRecord[];
 
 export const museumAssetById = new Map<MuseumAssetId, MuseumAssetRecord>(
