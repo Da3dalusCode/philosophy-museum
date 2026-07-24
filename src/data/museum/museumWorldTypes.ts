@@ -134,7 +134,16 @@ export type MuseumSupplementalExhibitId =
   | 'beauvoir-ethics-ambiguity'
   | 'camus-absurd-revolt'
   | 'levinas-ethics-before-ontology'
-  | 'gadamer-truth-method';
+  | 'gadamer-truth-method'
+  | 'husserl-epoche-reduction'
+  | 'husserl-time-consciousness'
+  | 'heidegger-being-with'
+  | 'merleau-flesh-reversibility'
+  | 'beauvoir-second-sex'
+  | 'camus-plague-solidarity'
+  | 'fanon-colonial-experience'
+  | 'levinas-saying-said'
+  | 'gadamer-art-play-truth';
 
 export type MuseumSupplementalInstallationKind =
   | 'cave-ascent'

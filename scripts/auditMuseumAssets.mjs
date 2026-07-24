@@ -226,9 +226,9 @@ check('Gallery 02 work, discovery, and context exhibits resolve thirteen distinc
   }
 });
 
-check('Gallery 03 resolves ten interpreted stops through nine honest local media records', () => {
-  assert.equal(PHENOMENOLOGY_SUPPLEMENTAL_EXHIBITS.length, 10);
-  assert.equal(new Set(phenomenologySupplementalReferencedIds).size, 9);
+check('Gallery 03 resolves nineteen interpreted stops through thirteen honest local media records', () => {
+  assert.equal(PHENOMENOLOGY_SUPPLEMENTAL_EXHIBITS.length, 19);
+  assert.equal(new Set(phenomenologySupplementalReferencedIds).size, 13);
   for (const exhibit of PHENOMENOLOGY_SUPPLEMENTAL_EXHIBITS) {
     assert(assetById.has(exhibit.assetId), `${exhibit.id} references missing asset ${exhibit.assetId}`);
     assert(assetById.has(exhibit.panelAssetId), `${exhibit.id} panel references missing asset ${exhibit.panelAssetId}`);

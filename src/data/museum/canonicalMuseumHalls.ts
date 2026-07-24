@@ -28,6 +28,7 @@ import {
   PHENOMENOLOGY_ROOM_SIGN_COPY,
   PHENOMENOLOGY_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
 } from './phenomenologySupplementalExhibits';
+import {PHENOMENOLOGY_PRIMARY_PLACEMENTS} from './phenomenologyGalleryCuration';
 import {MUSEUM_VISITOR_MAP_KIOSK} from './museumVisitorMapKioskDefinition';
 import type {
   MuseumBounds,
@@ -676,7 +677,9 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
         ? MEDITERRANEAN_AUTHORED_PLACEMENTS
         : hall.id === RENAISSANCE_GALLERY_ID
           ? RENAISSANCE_AUTHORED_PLACEMENTS
-          : undefined,
+          : hall.id === PHENOMENOLOGY_GALLERY_ID
+            ? PHENOMENOLOGY_PRIMARY_PLACEMENTS
+            : undefined,
       hall.id === MEDITERRANEAN_GALLERY_ID || hall.id === RENAISSANCE_GALLERY_ID,
     );
   });

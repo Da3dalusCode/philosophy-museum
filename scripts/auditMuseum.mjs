@@ -534,8 +534,8 @@ check('Plato’s Cave and Republic form a substantial supplemental U without cha
   assert.match(supplementalPanelSource, /event\.key === 'Escape'/u, 'The supplemental panel lacks its keyboard close path');
 });
 
-check('all twenty-five supplemental exhibits share route, directory, search, guided, and fallback contracts', () => {
-  assert.equal(MUSEUM_SUPPLEMENTAL_EXHIBITS.length, 25);
+check('all thirty-four supplemental exhibits share route, directory, search, guided, and fallback contracts', () => {
+  assert.equal(MUSEUM_SUPPLEMENTAL_EXHIBITS.length, 34);
   assert.equal(
     new Set(MUSEUM_SUPPLEMENTAL_EXHIBITS.map(({exhibit}) => exhibit.id)).size,
     MUSEUM_SUPPLEMENTAL_EXHIBITS.length,
@@ -581,15 +581,15 @@ check('all twenty-five supplemental exhibits share route, directory, search, gui
   assert.match(supplementalPanelSource, /museum-guided-controls/u, 'Supplemental panels lack guided navigation');
 });
 
-check('Gallery 03 preserves nine primaries and adds two substantial interpreted stops to every room', () => {
+check('Gallery 03 gives every unobstructed half-room wall one substantial exhibit', () => {
   const hallId = 'phenomenology-existence-embodiment';
   const hall = hallById.get(hallId);
   const definition = definitionById.get(hallId);
   assert(hall && definition);
   const supplemental = MUSEUM_SUPPLEMENTAL_EXHIBITS.filter((entry) => entry.hallId === hallId);
   assert.equal(hall.exhibits.length, 9, 'Gallery 03 primary catalog changed');
-  assert.equal(supplemental.length, 10, 'Gallery 03 must have ten bounded supplemental stops');
-  assert.equal(definition.layout.supplementalExhibits?.length, 10, 'Gallery 03 scene layout is missing supplemental stops');
+  assert.equal(supplemental.length, 19, 'Gallery 03 must have nineteen bounded supplemental stops');
+  assert.equal(definition.layout.supplementalExhibits?.length, 19, 'Gallery 03 scene layout is missing supplemental stops');
 
   const expectedPrimaryCounts = new Map([
     ['phenomenology-method', 2],
@@ -598,15 +598,51 @@ check('Gallery 03 preserves nine primaries and adds two substantial interpreted 
     ['existentialism-situated-absurd', 1],
     ['phenomenology-interpretation-alterity', 2],
   ]);
+  const expectedSupplementalCounts = new Map([
+    ['phenomenology-method', 4],
+    ['phenomenology-being-embodiment', 4],
+    ['existentialism-freedom', 2],
+    ['existentialism-situated-absurd', 5],
+    ['phenomenology-interpretation-alterity', 4],
+  ]);
+  const expectedWallSlots = new Map([
+    ['phenomenology-method', ['north-west', 'outer-west', 'south-west', 'north-east', 'outer-east', 'south-east']],
+    ['phenomenology-being-embodiment', ['north-west', 'outer-west', 'south-west', 'north-east', 'outer-east', 'south-east']],
+    ['existentialism-freedom', ['north-west', 'south-west', 'north-east', 'south-east']],
+    ['existentialism-situated-absurd', ['north-west', 'outer-west', 'south-west', 'north-east', 'outer-east', 'south-east']],
+    ['phenomenology-interpretation-alterity', ['north-west', 'outer-west', 'south-west', 'north-east', 'outer-east', 'south-east']],
+  ]);
+  const wallSlotFor = (layout) => {
+    const side = layout.position.x < 0 ? 'west' : 'east';
+    const sine = Math.sin(layout.rotationY);
+    if (Math.abs(sine) > .5) return sine > 0 ? 'outer-west' : 'outer-east';
+    return `${Math.cos(layout.rotationY) > 0 ? 'north' : 'south'}-${side}`;
+  };
   for (const zone of hall.zones) {
     const primaryCount = hall.exhibits.filter(({zoneId}) => zoneId === zone.id).length;
-    const supplementalCount = supplemental.filter(({layout}) => layout.zoneId === zone.id).length;
+    const roomSupplemental = supplemental.filter(({layout}) => layout.zoneId === zone.id);
+    const supplementalCount = roomSupplemental.length;
     assert.equal(primaryCount, expectedPrimaryCounts.get(zone.id), `${zone.id} primary count changed`);
-    assert.equal(supplementalCount, 2, `${zone.id} needs exactly two supplemental interpretations`);
+    assert.equal(supplementalCount, expectedSupplementalCounts.get(zone.id), `${zone.id} supplemental count is stale`);
     assert.equal(
       primaryCount + supplementalCount,
-      (expectedPrimaryCounts.get(zone.id) ?? 0) + 2,
+      expectedWallSlots.get(zone.id)?.length,
       `${zone.id} interpreted-stop count is stale`,
+    );
+    const roomLayouts = [
+      ...definition.layout.exhibits.filter(({spatialCellId}) => spatialCellId === zone.id),
+      ...roomSupplemental.map(({layout}) => layout),
+    ];
+    const occupiedSlots = roomLayouts.map(wallSlotFor);
+    assert.equal(
+      new Set(occupiedSlots).size,
+      roomLayouts.length,
+      `${zone.id} places more than one exhibit on a wall face`,
+    );
+    assert.deepEqual(
+      [...new Set(occupiedSlots)].sort(),
+      [...(expectedWallSlots.get(zone.id) ?? [])].sort(),
+      `${zone.id} leaves a usable wall face blank or occupies a portal wall`,
     );
   }
 
