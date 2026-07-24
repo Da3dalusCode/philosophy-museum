@@ -56,7 +56,7 @@ function Box({volume, color, roughness = .9, metalness, gallery02Surface}: {
   </mesh>;
 }
 
-function InterpretationFace({layout, title, question, kicker, accent, mediterranean, renaissance}: {
+function InterpretationFace({layout, title, question, kicker, accent, mediterranean, renaissance, primaryEmphasis}: {
   layout: MuseumExhibitLayout;
   title: string;
   question: string;
@@ -64,18 +64,29 @@ function InterpretationFace({layout, title, question, kicker, accent, mediterran
   accent: string;
   mediterranean: boolean;
   renaissance: boolean;
+  primaryEmphasis: boolean;
 }) {
   const backing = layout.scene.objectBounds.find(({id}) => id.endsWith('-backing'))!;
   const hasMedia = layout.scene.mediaMounts.length > 0;
   const width = backing.size.width - .16;
-  const height = mediterranean ? .7 : hasMedia ? .42 : Math.min(1.55, backing.size.height - .48);
+  const height = mediterranean
+    ? .7
+    : hasMedia
+      ? primaryEmphasis ? .72 : .42
+      : primaryEmphasis
+        ? backing.size.height - .16
+        : Math.min(1.55, backing.size.height - .48);
   const centerY = hasMedia
     ? backing.center.y + backing.size.height / 2 - .28
     : backing.center.y;
   const textureSize = museumTextureDimensionsForPlane(
     width,
     height,
-    mediterranean ? MUSEUM_TEXTURE_SPECS.mediterraneanNameStrip : MUSEUM_TEXTURE_SPECS.contemporaryNameStrip,
+    mediterranean
+      ? MUSEUM_TEXTURE_SPECS.mediterraneanNameStrip
+      : primaryEmphasis && hasMedia
+        ? MUSEUM_TEXTURE_SPECS.platoSupplementalLabel
+        : MUSEUM_TEXTURE_SPECS.contemporaryNameStrip,
   );
   const texture = usePlaqueTexture({
     title,
@@ -151,7 +162,7 @@ function RenaissanceFinishedBack({backing, accent}: {
   </group>;
 }
 
-function Installation({layout, title, question, kicker, accent, nearby, curation, renaissanceCuration}: {
+function Installation({layout, title, question, kicker, accent, nearby, curation, renaissanceCuration, primaryEmphasis}: {
   layout: MuseumExhibitLayout;
   title: string;
   question: string;
@@ -160,12 +171,13 @@ function Installation({layout, title, question, kicker, accent, nearby, curation
   nearby: boolean;
   curation?: MediterraneanExhibitCuration;
   renaissanceCuration?: RenaissanceExhibitCuration;
+  primaryEmphasis: boolean;
 }) {
   const plinth = layout.scene.objectBounds.find(({id}) => id.endsWith('-plinth'))!;
   const backing = layout.scene.objectBounds.find(({id}) => id.endsWith('-backing'))!;
   const motif = layout.scene.objectBounds.find(({id}) => id.endsWith('-concept'))!;
   const interaction = layout.scene.interactionBounds;
-  const canonicalConstruction = Boolean(curation || renaissanceCuration);
+  const canonicalConstruction = Boolean(curation || renaissanceCuration || primaryEmphasis);
   const backingColor = '#d9d5cd';
   return <group>
     <Box
@@ -195,6 +207,7 @@ function Installation({layout, title, question, kicker, accent, nearby, curation
       accent={accent}
       mediterranean={Boolean(curation)}
       renaissance={Boolean(renaissanceCuration)}
+      primaryEmphasis={primaryEmphasis}
     />
     {layout.scene.mediaMounts.map((mount) => <MuseumSceneMedia key={mount.id} mount={mount} nearby={nearby} accent={accent}/>)}
     <mesh position={[interaction.center.x, interaction.center.y, interaction.center.z]} userData={{interactionFor: layout.id}}>
@@ -213,6 +226,15 @@ export function CanonicalMuseumExhibits({definition, nearbyId, visibleExhibitIds
 }) {
   const hall = getMuseumHallCatalog(definition.id);
   if (!hall) return null;
+  const supplementalLayouts = definition.layout.supplementalExhibits ?? [];
+  const largestSupplementalWidth = Math.max(0, ...supplementalLayouts.map(({footprint}) => footprint.width));
+  const largestSupplementalHeight = Math.max(0, ...supplementalLayouts.map(({footprint}) => footprint.height));
+  const primaryEmphasis = definition.id !== MEDITERRANEAN_GALLERY_ID
+    && definition.id !== RENAISSANCE_GALLERY_ID
+    && supplementalLayouts.length > 0
+    && definition.layout.exhibits.every(({scene}) =>
+      scene.footprint.width >= largestSupplementalWidth - .001
+      && scene.footprint.height >= largestSupplementalHeight - .001);
   return <group>{definition.layout.exhibits
     .filter(({id}) => !visibleExhibitIds || visibleExhibitIds.includes(id))
     .map((layout) => {
@@ -253,6 +275,7 @@ export function CanonicalMuseumExhibits({definition, nearbyId, visibleExhibitIds
           nearby={nearbyId === layout.id}
           curation={curation}
           renaissanceCuration={renaissanceCuration}
+          primaryEmphasis={primaryEmphasis}
         />
       </group>;
     })}

@@ -52,6 +52,7 @@ import type {
   MuseumSize3,
   MuseumSpatialCell,
   MuseumSpatialConnection,
+  MuseumSupplementalExhibitLayout,
   MuseumTrackDefinition,
   MuseumWallDefinition,
 } from './museumWorldTypes';
@@ -86,30 +87,55 @@ const TIER_CONTRACTS: Readonly<Record<MuseumPresentationTier, TierContract>> = {
   'gallery-archive-or-study-wall-record': {tier: 'archive', treatment: 'archive-label', bayWidth: 1.9, objectWidth: 1.75, objectDepth: 1.45, objectHeight: 2.35},
 };
 
-const uniformScaleStartIndex = MUSEUM_CANONICAL_PROGRAM.findIndex(({id}) => id === ANALYTIC_GALLERY_ID);
-if (uniformScaleStartIndex < 0) throw new Error('The uniform philosopher exhibit scale has no Gallery 04 starting point.');
+type PrimaryInstallationScaleFloor = Readonly<{
+  bayWidth: number;
+  objectWidth: number;
+  objectHeight: number;
+  footprintHeight: number;
+}>;
 
-// From Gallery 04 onward, curatorial tier may vary but a primary philosopher
-// never receives less physical wall presence than the gallery's anchor size.
-const UNIFORM_SCALE_PHILOSOPHER_IDS = new Set<string>(
-  MUSEUM_CANONICAL_PROGRAM
-    .slice(uniformScaleStartIndex)
-    .filter(({templateId}) => templateId === 'sequence-3')
-    .flatMap(({rooms}) => rooms.flatMap(({exhibits}) => exhibits
-      .filter(({entityKind}) => entityKind === 'philosopher')
-      .map(({id}) => id))),
-);
+const fullScalePrimaryStartIndex = MUSEUM_CANONICAL_PROGRAM.findIndex(({id}) => id === PHENOMENOLOGY_GALLERY_ID);
+if (fullScalePrimaryStartIndex < 0) throw new Error('The full-scale primary exhibit policy has no Gallery 03 starting point.');
 
-const tierContractFor = (record: MuseumCanonicalExhibit): TierContract => {
+const supplementalLayoutsForHall = (hallId: MuseumPublicHallId): readonly MuseumSupplementalExhibitLayout[] =>
+  hallId === MEDITERRANEAN_GALLERY_ID
+    ? PLATO_SUPPLEMENTAL_EXHIBIT_LAYOUTS
+    : hallId === RENAISSANCE_GALLERY_ID
+      ? RENAISSANCE_SUPPLEMENTAL_EXHIBIT_LAYOUTS
+      : hallId === PHENOMENOLOGY_GALLERY_ID
+        ? PHENOMENOLOGY_SUPPLEMENTAL_EXHIBIT_LAYOUTS
+        : hallId === ANALYTIC_GALLERY_ID
+          ? ANALYTIC_SUPPLEMENTAL_EXHIBIT_LAYOUTS
+          : [];
+
+const primaryScaleFloorForHall = (
+  hall: MuseumCanonicalHall,
+  supplementalLayouts: readonly MuseumSupplementalExhibitLayout[],
+): PrimaryInstallationScaleFloor | undefined => {
+  const galleryIndex = MUSEUM_CANONICAL_PROGRAM.findIndex(({id}) => id === hall.id);
+  if (galleryIndex < fullScalePrimaryStartIndex || !supplementalLayouts.length) return undefined;
+  const objectWidth = Math.max(...supplementalLayouts.map(({footprint}) => footprint.width));
+  const footprintHeight = Math.max(...supplementalLayouts.map(({footprint}) => footprint.height));
+  return {
+    bayWidth: objectWidth,
+    objectWidth,
+    // Supplemental backing millwork is inset .12 m from its interaction footprint.
+    objectHeight: footprintHeight - .12,
+    footprintHeight,
+  };
+};
+
+const tierContractFor = (
+  record: MuseumCanonicalExhibit,
+  primaryScaleFloor?: PrimaryInstallationScaleFloor,
+): TierContract => {
   const contract = TIER_CONTRACTS[record.tier];
-  if (!UNIFORM_SCALE_PHILOSOPHER_IDS.has(record.id)) return contract;
-  const anchor = TIER_CONTRACTS['anchor-exhibit'];
+  if (!primaryScaleFloor) return contract;
   return {
     ...contract,
-    bayWidth: Math.max(contract.bayWidth, anchor.bayWidth),
-    objectWidth: Math.max(contract.objectWidth, anchor.objectWidth),
-    objectDepth: Math.max(contract.objectDepth, anchor.objectDepth),
-    objectHeight: Math.max(contract.objectHeight, anchor.objectHeight),
+    bayWidth: Math.max(contract.bayWidth, primaryScaleFloor.bayWidth),
+    objectWidth: Math.max(contract.objectWidth, primaryScaleFloor.objectWidth),
+    objectHeight: Math.max(contract.objectHeight, primaryScaleFloor.objectHeight),
   };
 };
 
@@ -177,8 +203,9 @@ const createScene = (
   record: MuseumCanonicalExhibit,
   compactForumInstallation = false,
   canonicalExhibitConstruction = false,
+  primaryScaleFloor?: PrimaryInstallationScaleFloor,
 ): MuseumInstallationSceneDefinition => {
-  const contract = tierContractFor(record);
+  const contract = tierContractFor(record, primaryScaleFloor);
   const physicalContract = compactForumInstallation
     ? {
         ...contract,
@@ -223,13 +250,13 @@ const createScene = (
   ].filter((assetId): assetId is MuseumAssetId => Boolean(assetId));
   const preserveCuratedAspect = Object.hasOwn(MEDITERRANEAN_EXHIBIT_CURATION, record.id)
     || Object.hasOwn(RENAISSANCE_EXHIBIT_CURATION, record.id)
-    || Object.hasOwn(ANALYTIC_PRIMARY_PLACEMENTS, record.id);
+    || Boolean(primaryScaleFloor);
   const plaqueWidth = Math.min(1.22, physicalContract.objectWidth - .28);
   const plaqueId = `${record.id}-plaque`;
   return {
     footprint: {
       width: physicalContract.objectWidth,
-      height: physicalContract.objectHeight + .16,
+      height: primaryScaleFloor?.footprintHeight ?? physicalContract.objectHeight + .16,
       depth: physicalContract.objectDepth,
     },
     mediaMounts: mediaAssets.map((assetId, index) => mediaMount(
@@ -409,16 +436,17 @@ const createExhibitLayout = (
   candidate: PlacementCandidate,
   compactForumInstallation = false,
   canonicalExhibitConstruction = false,
+  primaryScaleFloor?: PrimaryInstallationScaleFloor,
 ): MuseumExhibitLayout => {
-  const scene = createScene(record, compactForumInstallation, canonicalExhibitConstruction);
-  const contract = tierContractFor(record);
+  const scene = createScene(record, compactForumInstallation, canonicalExhibitConstruction, primaryScaleFloor);
+  const contract = tierContractFor(record, primaryScaleFloor);
   const target = {
     x: candidate.x + scene.focalTarget.x * Math.cos(candidate.rotationY) + scene.focalTarget.z * Math.sin(candidate.rotationY),
     z: candidate.z - scene.focalTarget.x * Math.sin(candidate.rotationY) + scene.focalTarget.z * Math.cos(candidate.rotationY),
   };
   // Compact canonical rooms keep the whole visitor circle clear of neighboring
   // bays while remaining inside each installation's interaction radius.
-  const viewpointDistance = contract.tier === 'anchor' ? 2.85 : 2.65;
+  const viewpointDistance = primaryScaleFloor ? 4.4 : contract.tier === 'anchor' ? 2.85 : 2.65;
   const camera = {
     x: candidate.x + (scene.focalTarget.x * Math.cos(candidate.rotationY) + (scene.focalTarget.z + viewpointDistance) * Math.sin(candidate.rotationY)),
     z: candidate.z + (-scene.focalTarget.x * Math.sin(candidate.rotationY) + (scene.focalTarget.z + viewpointDistance) * Math.cos(candidate.rotationY)),
@@ -435,7 +463,7 @@ const createExhibitLayout = (
     spatialCellId: roomId,
     position: {x: candidate.x, z: candidate.z},
     rotationY: candidate.rotationY,
-    interactionRadius: contract.tier === 'anchor' ? 4 : 3.45,
+    interactionRadius: primaryScaleFloor ? 5.15 : contract.tier === 'anchor' ? 4 : 3.45,
     bayWidth: contract.bayWidth,
     presentationTier: contract.tier,
     treatment: contract.treatment,
@@ -568,6 +596,7 @@ const placeRoomExhibits = (
   centerFallback = false,
   authoredPlacements?: Readonly<Record<string, PlacementCandidate>>,
   canonicalExhibitConstruction = false,
+  primaryScaleFloor?: PrimaryInstallationScaleFloor,
 ): MuseumExhibitLayout[] => {
   const accepted: MuseumExhibitLayout[] = [];
   const candidates = [...wallCandidates(bounds)];
@@ -598,9 +627,16 @@ const placeRoomExhibits = (
     candidate: PlacementCandidate,
     placed: readonly MuseumExhibitLayout[],
   ): MuseumExhibitLayout | undefined => {
-    const scene = createScene(record, centerFallback, canonicalExhibitConstruction);
+    const scene = createScene(record, centerFallback, canonicalExhibitConstruction, primaryScaleFloor);
     const footprint = colliderBounds(candidate, candidate.rotationY, scene.footprint.width, scene.footprint.depth);
-    const proposed = createExhibitLayout(record, room.id, candidate, centerFallback, canonicalExhibitConstruction);
+    const proposed = createExhibitLayout(
+      record,
+      room.id,
+      candidate,
+      centerFallback,
+      canonicalExhibitConstruction,
+      primaryScaleFloor,
+    );
     const inside = footprint.minX >= bounds.minX + .08 && footprint.maxX <= bounds.maxX - .08
       && footprint.minZ >= bounds.minZ + .08 && footprint.maxZ <= bounds.maxZ - .08;
     const blocked = placed.some((layout) => {
@@ -701,6 +737,8 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
     item.size.width,
     item.size.depth,
   ));
+  const supplementalExhibits = supplementalLayoutsForHall(hall.id);
+  const primaryScaleFloor = primaryScaleFloorForHall(hall, supplementalExhibits);
   const exhibits = orderedRooms.flatMap((room) => {
     const bounds = roomBounds.get(room.id)!;
     const connectionExclusions = spatialConnections
@@ -720,18 +758,12 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
             : hall.id === ANALYTIC_GALLERY_ID
               ? ANALYTIC_PRIMARY_PLACEMENTS
             : undefined,
-      hall.id === MEDITERRANEAN_GALLERY_ID || hall.id === RENAISSANCE_GALLERY_ID,
+      hall.id === MEDITERRANEAN_GALLERY_ID
+        || hall.id === RENAISSANCE_GALLERY_ID
+        || Boolean(primaryScaleFloor),
+      primaryScaleFloor,
     );
   });
-  const supplementalExhibits = hall.id === MEDITERRANEAN_GALLERY_ID
-    ? PLATO_SUPPLEMENTAL_EXHIBIT_LAYOUTS
-    : hall.id === RENAISSANCE_GALLERY_ID
-      ? RENAISSANCE_SUPPLEMENTAL_EXHIBIT_LAYOUTS
-      : hall.id === PHENOMENOLOGY_GALLERY_ID
-        ? PHENOMENOLOGY_SUPPLEMENTAL_EXHIBIT_LAYOUTS
-        : hall.id === ANALYTIC_GALLERY_ID
-          ? ANALYTIC_SUPPLEMENTAL_EXHIBIT_LAYOUTS
-        : [];
   const cells: MuseumSpatialCell[] = orderedRooms.map((room) => ({
     id: room.id,
     kind: 'room',

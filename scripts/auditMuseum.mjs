@@ -768,36 +768,64 @@ check('Gallery 04 fills twenty-nine usable wall faces with resolved, philosopher
   }
 });
 
-check('Gallery 04 onward never renders a primary philosopher smaller than its peers', () => {
-  const completedGalleryIds = Object.entries(EXPECTED_MAP_LABELS)
+check('Gallery 03 onward makes every primary at least as large as its biggest secondary installation', () => {
+  const candidateGalleryIds = Object.entries(EXPECTED_MAP_LABELS)
     .filter(([, label]) => {
       const match = /^Gallery (\d+)/u.exec(label);
-      return match && Number(match[1]) >= 4;
+      return match && Number(match[1]) >= 3;
     })
     .map(([hallId]) => hallId);
+  const enforcedGalleryIds = [];
 
-  for (const hallId of completedGalleryIds) {
-    const program = MUSEUM_CANONICAL_PROGRAM.find(({id}) => id === hallId);
+  for (const hallId of candidateGalleryIds) {
     const definition = definitionById.get(hallId);
-    assert(program && definition, `${hallId} lacks a compiled gallery definition`);
-    const philosopherIds = new Set(program.rooms.flatMap(({exhibits}) => exhibits
-      .filter(({entityKind}) => entityKind === 'philosopher')
-      .map(({id}) => id)));
-    const primaryLayouts = definition.layout.exhibits;
-    const largestWidth = Math.max(...primaryLayouts.map(({scene}) => scene.footprint.width));
-    const largestHeight = Math.max(...primaryLayouts.map(({scene}) => scene.footprint.height));
+    assert(definition, `${hallId} lacks a compiled gallery definition`);
+    const supplementalLayouts = definition.layout.supplementalExhibits ?? [];
+    if (!supplementalLayouts.length) continue;
+    enforcedGalleryIds.push(hallId);
+    const largestWidth = Math.max(...supplementalLayouts.map(({footprint}) => footprint.width));
+    const largestHeight = Math.max(...supplementalLayouts.map(({footprint}) => footprint.height));
 
-    for (const layout of primaryLayouts.filter(({id}) => philosopherIds.has(id))) {
+    for (const layout of definition.layout.exhibits) {
+      const backing = layout.scene.objectBounds.find(({id}) => id.endsWith('-backing'));
+      const plinth = layout.scene.objectBounds.find(({id}) => id.endsWith('-plinth'));
+      assert(backing && plinth, `${hallId}/${layout.id} lacks primary backing or plinth geometry`);
       assert(
         layout.scene.footprint.width >= largestWidth - .001,
-        `${hallId}/${layout.id} is narrower than another primary exhibit`,
+        `${hallId}/${layout.id} is narrower than the gallery's biggest secondary exhibit`,
       );
       assert(
         layout.scene.footprint.height >= largestHeight - .001,
-        `${hallId}/${layout.id} is shorter than another primary exhibit`,
+        `${hallId}/${layout.id} is shorter than the gallery's biggest secondary exhibit`,
+      );
+      assert(
+        backing.size.width >= largestWidth - .001,
+        `${hallId}/${layout.id} backing is narrower than the biggest secondary backing`,
+      );
+      assert(
+        backing.size.height >= largestHeight - .121,
+        `${hallId}/${layout.id} backing is shorter than the biggest secondary backing`,
+      );
+      assert(
+        plinth.size.width >= largestWidth + .299,
+        `${hallId}/${layout.id} plinth gives the primary less presence than a secondary installation`,
       );
     }
   }
+
+  assert.deepEqual(
+    sorted(enforcedGalleryIds),
+    sorted(['phenomenology-existence-embodiment', 'analytic-traditions']),
+    'Only fully built Galleries 03 and 04 should currently enforce the completed-gallery hierarchy',
+  );
+  assert(
+    canonicalExhibitsSource.includes('primaryEmphasis ? .72 : .42'),
+    'Full-scale primary exhibits must retain secondary-scale name strips',
+  );
+  assert(
+    canonicalExhibitsSource.includes('? backing.size.height - .16'),
+    'Full-scale philosophy exhibits without media must fill their gallery-scale backing',
+  );
 });
 
 check('all nine Forum rooms carry rigorous comparative lenses into the directory and compiled wayfinding', () => {
