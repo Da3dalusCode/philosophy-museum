@@ -85,7 +85,7 @@ export const PLATO_SUPPLEMENTAL_BACKING_WIDTH = 4.72;
 
 /**
  * These are work-and-idea exhibits associated with Plato. They are deliberately
- * outside the canonical program so the Museum retains 72 truthful primaries.
+ * outside the canonical program so the Museum retains a truthful primary roster.
  */
 export const PLATO_SUPPLEMENTAL_EXHIBITS = [
   {

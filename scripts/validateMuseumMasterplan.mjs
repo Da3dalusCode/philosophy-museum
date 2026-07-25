@@ -107,6 +107,7 @@ const APPROVED_HALL_IDS = [
   'justice-democratic-reason',
   'core-questions-forum',
   'classical-south-asian-worlds',
+  'buddhist-philosophies',
 ];
 const LEGACY_HALL_IDS = [
   'ancient-greek',
@@ -132,12 +133,13 @@ const EXPECTED_LIVE_COUNTS = {
   'justice-democratic-reason': {rooms: 3, exhibits: 5, template: 'sequence-3'},
   'core-questions-forum': {rooms: 9, exhibits: 15, template: 'crossroads-4'},
   'classical-south-asian-worlds': {rooms: 5, exhibits: 9, template: 'sequence-3'},
+  'buddhist-philosophies': {rooms: 5, exhibits: 7, template: 'sequence-3'},
 };
 const EXPECTED_LIVE_TIERS = {
-  'anchor-exhibit': 40,
-  'standard-individual-exhibit': 26,
+  'anchor-exhibit': 44,
+  'standard-individual-exhibit': 28,
   'supporting-exhibit': 4,
-  'thematic-cluster-participant': 1,
+  'thematic-cluster-participant': 2,
   'gallery-archive-or-study-wall-record': 1,
 };
 const EXPECTED_GLOBAL_TIERS = {
@@ -318,8 +320,8 @@ check(same(MUSEUM_CANONICAL_HALL_IDS, APPROVED_HALL_IDS), 'Canonical hall IDs or
 check(same(MUSEUM_CANONICAL_PROGRAM.map(({id}) => id), APPROVED_HALL_IDS), 'Canonical program order changed');
 const canonicalRooms = MUSEUM_CANONICAL_PROGRAM.flatMap((hall) => hall.rooms.map((room) => ({hall, room})));
 const canonicalExhibits = canonicalRooms.flatMap(({hall, room}) => room.exhibits.map((exhibit) => ({hall, room, exhibit})));
-check(canonicalRooms.length === 34, `Canonical live program must contain 34 rooms, found ${canonicalRooms.length}`);
-check(canonicalExhibits.length === 72, `Canonical live program must contain 72 primary exhibits, found ${canonicalExhibits.length}`);
+check(canonicalRooms.length === 39, `Canonical live program must contain 39 rooms, found ${canonicalRooms.length}`);
+check(canonicalExhibits.length === 79, `Canonical live program must contain 79 primary exhibits, found ${canonicalExhibits.length}`);
 check(unique(canonicalRooms.map(({room}) => room.id)), 'Canonical live room IDs are not unique');
 check(unique(canonicalExhibits.map(({exhibit}) => exhibit.entityId)), 'A primary entity appears more than once in the live Museum');
 for (const hall of MUSEUM_CANONICAL_PROGRAM) {
@@ -355,15 +357,15 @@ for (const {hall, room, exhibit} of canonicalExhibits) {
   check(exhibit.question.trim().length >= 24, `Live exhibit ${exhibit.entityId} lacks a substantive framing question`);
 }
 const plannedLiveAssignments = allAssignments.filter(({primary_hall_id}) => APPROVED_HALL_IDS.includes(primary_hall_id));
-check(plannedLiveAssignments.length === 72, `Masterplan assigns ${plannedLiveAssignments.length}, not 72, primaries to the seven live halls`);
+check(plannedLiveAssignments.length === 79, `Masterplan assigns ${plannedLiveAssignments.length}, not 79, primaries to the eight live halls`);
 check(same(sorted(plannedLiveAssignments.map(({id}) => id)), sorted(canonicalExhibits.map(({exhibit}) => exhibit.entityId))), 'The canonical live roster is not the exact authoritative masterplan subset');
 const liveTierCounts = Object.fromEntries(MUSEUM_PRESENTATION_TIERS.map((tier) => [tier, canonicalExhibits.filter(({exhibit}) => exhibit.tier === tier).length]));
 check(same(liveTierCounts, EXPECTED_LIVE_TIERS), `Live presentation-tier counts changed: ${JSON.stringify(liveTierCounts)}`);
-check(MUSEUM_LIVE_PROGRAM_TOTALS.hallCount === 7 && MUSEUM_LIVE_PROGRAM_TOTALS.roomCount === 34 && MUSEUM_LIVE_PROGRAM_TOTALS.exhibitCount === 72, 'Exported live program totals are stale');
-check(MUSEUM_LIVE_PROGRAM_TOTALS.recordCapacity === 94 && MUSEUM_LIVE_PROGRAM_TOTALS.reserveCapacity === 22, 'Live program capacity totals must be 94 installed / 22 reserved');
+check(MUSEUM_LIVE_PROGRAM_TOTALS.hallCount === 8 && MUSEUM_LIVE_PROGRAM_TOTALS.roomCount === 39 && MUSEUM_LIVE_PROGRAM_TOTALS.exhibitCount === 79, 'Exported live program totals are stale');
+check(MUSEUM_LIVE_PROGRAM_TOTALS.recordCapacity === 107 && MUSEUM_LIVE_PROGRAM_TOTALS.reserveCapacity === 28, 'Live program capacity totals must be 107 installed / 28 reserved');
 check(same(MUSEUM_LIVE_PROGRAM_TOTALS.tierCounts, EXPECTED_LIVE_TIERS), 'Exported live tier totals are stale');
-check(MUSEUM_LIVE_HALL_TOTALS.length === 7, 'Exported live hall totals must contain seven records');
-check(MUSEUM_LIVE_ROOM_TOTALS.length === 34, 'Exported live room totals must contain 34 records');
+check(MUSEUM_LIVE_HALL_TOTALS.length === 8, 'Exported live hall totals must contain eight records');
+check(MUSEUM_LIVE_ROOM_TOTALS.length === 39, 'Exported live room totals must contain 39 records');
 
 const krishnamurtiExhibit = canonicalExhibits.find(({exhibit}) => exhibit.entityId === 'jiddu-krishnamurti');
 check(krishnamurtiExhibit?.hall.id === 'core-questions-forum' && krishnamurtiExhibit?.room.id === 'core-mind-self', 'Krishnamurti is not installed in the Forum Mind & Self room');
@@ -372,8 +374,8 @@ check(krishnamurtiExhibit?.exhibit.secondaryHallIds.includes('classical-south-as
 check(krishnamurtiExhibit?.exhibit.roomComparisons?.some(({targetHallId, targetRoomId, targetExhibitId, relationType}) => targetHallId === 'core-questions-forum' && targetRoomId === 'core-religion' && targetExhibitId === 'philosophy-of-religion' && relationType === 'comparison'), 'Krishnamurti lacks the room-level Philosophy of Religion comparison');
 
 check(same(MUSEUM_HALL_ROUTE_ALIASES, EXPECTED_ALIASES), 'The six retired hall aliases changed');
-check(MUSEUM_LIVE_LEGACY_EXHIBIT_COMPATIBILITY.length === 22, `Expected 22 carried legacy exhibits, found ${MUSEUM_LIVE_LEGACY_EXHIBIT_COMPATIBILITY.length}`);
-check(MUSEUM_LEGACY_EXHIBIT_COMPATIBILITY.length === 26, `Expected 26 displaced legacy exhibits, found ${MUSEUM_LEGACY_EXHIBIT_COMPATIBILITY.length}`);
+check(MUSEUM_LIVE_LEGACY_EXHIBIT_COMPATIBILITY.length === 23, `Expected 23 carried legacy exhibits, found ${MUSEUM_LIVE_LEGACY_EXHIBIT_COMPATIBILITY.length}`);
+check(MUSEUM_LEGACY_EXHIBIT_COMPATIBILITY.length === 25, `Expected 25 displaced legacy exhibits, found ${MUSEUM_LEGACY_EXHIBIT_COMPATIBILITY.length}`);
 const compatibility = [...MUSEUM_LIVE_LEGACY_EXHIBIT_COMPATIBILITY, ...MUSEUM_LEGACY_EXHIBIT_COMPATIBILITY];
 check(compatibility.length === 48, `The legacy route inventory must contain 48 records, found ${compatibility.length}`);
 check(unique(compatibility.map(({formerHallId, exhibitId}) => `${formerHallId}/${exhibitId}`)), 'Legacy compatibility routes are not unique');
@@ -495,8 +497,8 @@ for (const reservation of planningManifest.reservations) {
 }
 
 check(buildingManifest.schemaVersion === 1, `Building manifest: expected schemaVersion 1, found ${buildingManifest.schemaVersion}`);
-check(buildingManifest.manifestVersion === 'canonical-seven-v1', `Building manifest version changed to ${buildingManifest.manifestVersion}`);
-check(buildingManifest.status === 'approved-canonical-seven', `Building manifest status changed to ${buildingManifest.status}`);
+check(buildingManifest.manifestVersion === 'canonical-eight-v1', `Building manifest version changed to ${buildingManifest.manifestVersion}`);
+check(buildingManifest.status === 'approved-canonical-eight', `Building manifest status changed to ${buildingManifest.status}`);
 check(buildingManifest.physicalOptionId === 'ring-of-wings', 'Building manifest must retain the Ring of Wings');
 check(buildingManifest.level?.id === 'L0' && buildingManifest.nodes.every(({levelId}) => levelId === 'L0'), 'All live physical nodes must remain on L0');
 check(buildingManifest.nodes.every(({implementationStatus}) => implementationStatus === 'live'), 'All constructed nodes must be live');
@@ -507,8 +509,8 @@ const publicHallNodes = buildingManifest.nodes.filter(({publicHallId}) => Boolea
 check(unique(buildingManifest.nodes.map(({id}) => id)), 'Building manifest contains duplicate node IDs');
 check(unique(buildingManifest.connections.map(({id}) => id)), 'Building manifest contains duplicate connection IDs');
 check(unique(buildingManifest.reservations.map(({id}) => id)), 'Building manifest contains duplicate reservation IDs');
-check(publicHallNodes.length === 7, `Building manifest must contain seven public halls, found ${publicHallNodes.length}`);
-check(same(sorted(publicHallNodes.map(({publicHallId}) => publicHallId)), sorted(APPROVED_HALL_IDS)), 'Building manifest public hall roster differs from the canonical seven');
+check(publicHallNodes.length === 8, `Building manifest must contain eight public halls, found ${publicHallNodes.length}`);
+check(same(sorted(publicHallNodes.map(({publicHallId}) => publicHallId)), sorted(APPROVED_HALL_IDS)), 'Building manifest public hall roster differs from the canonical eight');
 check(!buildingManifest.nodes.some(({id, publicHallId}) => LEGACY_HALL_IDS.includes(publicHallId) || LEGACY_HALL_IDS.some((legacyId) => id === `hall:${legacyId}`)), 'A retired temporary shell remains public in the building manifest');
 check(buildingManifest.forumLocationNodeId === 'place:core-questions-forum', 'The Core Questions Forum must occupy the central Forum location');
 check(nodeById.get(buildingManifest.forumLocationNodeId)?.publicHallId === 'core-questions-forum', 'The central Forum node does not own the Core Questions Forum program');
@@ -578,8 +580,9 @@ check(spokeGraph.get(buildingManifest.forumLocationNodeId)?.size === 4, 'The cen
 const shortcutConnections = buildingManifest.connections.filter(({routeRole}) => routeRole === 'shortcut');
 check(shortcutConnections.length === 2, 'The entrance–Forum shortcut must contain two seams');
 const galleryBranchConnections = buildingManifest.connections.filter(({routeRole}) => routeRole === 'gallery-branch');
-check(galleryBranchConnections.length === 1, 'Gallery 07 must retain one truthful branch connection from the outer loop');
-check(galleryBranchConnections[0]?.b.nodeId === 'hall:classical-south-asian-worlds', 'The gallery branch must terminate at Gallery 07');
+check(galleryBranchConnections.length === 2, 'The Galleries 07–08 branch must retain two truthful seams');
+check(galleryBranchConnections.some(({a, b}) => a.nodeId === 'corridor:outer-01-mediterranean-renaissance' && b.nodeId === 'hall:classical-south-asian-worlds'), 'The outer loop must branch to Gallery 07');
+check(galleryBranchConnections.some(({a, b}) => a.nodeId === 'hall:classical-south-asian-worlds' && b.nodeId === 'hall:buddhist-philosophies'), 'Gallery 07 must continue directly to Gallery 08');
 
 const fullGraph = new Map();
 for (const {a, b} of buildingManifest.connections) addEdge(fullGraph, a.nodeId, b.nodeId);
@@ -613,7 +616,7 @@ if (errors.length) {
 
 console.log(`Museum masterplan validation passed (${checks} checks).`);
 console.log('  approved program: 10 wings · 26 halls · 105 rooms · 146 philosophers · 43 branches');
-console.log('  canonical live subset: 7 halls · 34 rooms · 72 primary exhibits · 94 capacity · 22 reserve');
-console.log('  tiers: 40 anchor · 26 standard · 4 supporting · 1 cluster · 1 archive');
-console.log('  compatibility: 22 carried legacy routes · 26 truthful not-installed handoffs');
-console.log('  physical subset: compact five-hall outer loop · Gallery 07 branch · central Forum · four spokes · entrance shortcut · 10 blocked reservations');
+console.log('  canonical live subset: 8 halls · 39 rooms · 79 primary exhibits · 107 capacity · 28 reserve');
+console.log('  tiers: 44 anchor · 28 standard · 4 supporting · 2 cluster · 1 archive');
+console.log('  compatibility: 23 carried legacy routes · 25 truthful not-installed handoffs');
+console.log('  physical subset: compact five-hall outer loop · Galleries 07–08 branch · central Forum · four spokes · entrance shortcut · 10 blocked reservations');

@@ -23,6 +23,7 @@ export const MUSEUM_CANONICAL_HALL_IDS = [
   'justice-democratic-reason',
   'core-questions-forum',
   'classical-south-asian-worlds',
+  'buddhist-philosophies',
 ] as const;
 
 export type MuseumCanonicalHallId = (typeof MUSEUM_CANONICAL_HALL_IDS)[number];
@@ -104,6 +105,11 @@ export const MUSEUM_CANONICAL_ROOM_IDS = [
   'south-categories-realism',
   'south-yoga-mind-liberation',
   'south-vedanta-rival-readings',
+  'buddhist-many-paths',
+  'buddhist-madhyamaka',
+  'buddhist-abhidharma-yogacara',
+  'buddhist-pramana',
+  'buddhist-transmission-reserve',
 ] as const;
 
 export type MuseumCanonicalRoomId = (typeof MUSEUM_CANONICAL_ROOM_IDS)[number];
@@ -114,7 +120,8 @@ export type MuseumCanonicalWingId =
   | 'wing-early-modern-enlightenment'
   | 'wing-modern-traditions'
   | 'wing-ethics-politics-society'
-  | 'wing-south-asian-worlds';
+  | 'wing-south-asian-worlds'
+  | 'wing-buddhist-worlds';
 export type MuseumCanonicalEntityKind = 'philosopher' | 'branch';
 
 export type MuseumCanonicalRoomComparison = {
@@ -442,6 +449,33 @@ export const MUSEUM_CANONICAL_PROGRAM = [
       ]},
     ],
   },
+  {
+    id: 'buddhist-philosophies',
+    wingId: 'wing-buddhist-worlds',
+    title: 'Buddhist Philosophies of Liberation and Knowledge',
+    templateId: 'sequence-3',
+    period: 'c. 5th century BCE–8th century CE, with later transmission',
+    description: 'Follow Buddhist philosophy from early teachings on suffering and no-self through Madhyamaka, Abhidharma, Yogācāra, and the pramāṇa traditions, while keeping later translation and material transmission visible.',
+    recordCapacity: 13,
+    rooms: [
+      {id: 'buddhist-many-paths', title: 'Many Buddhist paths and early discourses', recordCapacity: 3, exhibits: [
+        exhibit({id: 'buddhist-philosophy', entityKind: 'branch', entityId: 'buddhist-philosophy', displayName: 'Buddhist Philosophy: Many Paths of Liberation', tier: 'anchor-exhibit', question: 'How do suffering, impermanence, no-self, ethical discipline, meditation, and insight fit together across diverse Buddhist traditions?', secondaryHallIds: ['classical-south-asian-worlds', 'core-questions-forum', 'hellenistic-roman-ways', 'moral-life-practical-reason', 'east-asian-continuities'], principalAssetId: 'buddhist-wheel-life-dazu'}),
+        exhibit({id: 'buddha', entityKind: 'philosopher', entityId: 'buddha', displayName: 'The Buddha and the Early Discourses', tier: 'anchor-exhibit', question: 'How can suffering cease through a path of ethical, meditative, and cognitive transformation?', secondaryHallIds: ['classical-south-asian-worlds'], principalAssetId: 'buddha-gandhara-meditating'}),
+      ]},
+      {id: 'buddhist-madhyamaka', title: 'Madhyamaka: emptiness and dependence', recordCapacity: 2, exhibits: [
+        exhibit({id: 'nagarjuna', entityKind: 'philosopher', entityId: 'nagarjuna', displayName: 'Nāgārjuna and the Madhyamaka Tradition', tier: 'anchor-exhibit', question: 'What follows if things arise dependently and therefore lack an independent essence?', secondaryHallIds: ['core-questions-forum'], principalAssetId: 'nagarjuna-sichuan-thangka'}),
+      ]},
+      {id: 'buddhist-abhidharma-yogacara', title: 'Abhidharma to Yogacara', recordCapacity: 2, exhibits: [
+        exhibit({id: 'vasubandhu', entityKind: 'philosopher', entityId: 'vasubandhu', displayName: 'Vasubandhu: Abhidharma and Yogācāra Debates', tier: 'standard-individual-exhibit', question: 'How should experience, cognition, continuity, and the apparent self be analyzed?', secondaryHallIds: ['core-questions-forum'], formerHallId: 'mind-consciousness-self', principalAssetId: 'vasubandhu-statue'}),
+      ]},
+      {id: 'buddhist-pramana', title: 'Pramāṇa, perception, inference, and language', recordCapacity: 4, exhibits: [
+        exhibit({id: 'buddhist-epistemology', entityKind: 'branch', entityId: 'buddhist-epistemology', displayName: 'Buddhist Epistemology: Perception and Inference', tier: 'thematic-cluster-participant', question: 'What makes cognition reliable, and how do perception, inference, and language differ?', secondaryHallIds: ['core-questions-forum'], principalAssetId: 'buddhist-monastic-debate'}),
+        exhibit({id: 'dignaga', entityKind: 'philosopher', entityId: 'dignaga', displayName: 'Dignāga: Foundations of Buddhist Logic', tier: 'anchor-exhibit', question: 'How can perception and inference become a disciplined account of reliable cognition?', secondaryHallIds: ['core-questions-forum'], principalAssetId: 'dignaga-teaching-logic-relief'}),
+        exhibit({id: 'dharmakirti', entityKind: 'philosopher', entityId: 'dharmakirti', displayName: 'Dharmakīrti: Reliable Cognition and Proof', tier: 'standard-individual-exhibit', question: 'How do cognition, inference, language, and practical success bear on knowledge?', secondaryHallIds: ['core-questions-forum'], principalAssetId: 'dharmakirti-cleveland-silver'}),
+      ]},
+      {id: 'buddhist-transmission-reserve', title: 'Translation and transformation across Asia', recordCapacity: 2, exhibits: []},
+    ],
+  },
 ] as const satisfies readonly MuseumCanonicalHall[];
 
 export const MUSEUM_HALL_ROUTE_ALIASES = {
@@ -518,7 +552,6 @@ export const MUSEUM_LEGACY_EXHIBIT_COMPATIBILITY = [
   displaced('ethics-justice-political-life', 'philosopher', 'mill', 'John Stuart Mill', 'utility-liberty-history-capital', 'become-secondary-later'),
   displaced('ethics-justice-political-life', 'philosopher', 'fanon', 'Frantz Fanon', 'colonialism-race-liberation', 'become-secondary-later'),
   displaced('ethics-justice-political-life', 'philosopher', 'habermas', 'Jürgen Habermas', 'critique-power-deconstruction', 'become-secondary-later'),
-  displaced('mind-consciousness-self', 'philosopher', 'vasubandhu', 'Vasubandhu', 'buddhist-philosophies', 'become-secondary-later'),
   displaced('mind-consciousness-self', 'philosopher', 'william-james', 'William James', 'pragmatism-democratic-inquiry', 'become-secondary-later'),
   displaced('mind-consciousness-self', 'philosopher', 'derek-parfit', 'Derek Parfit', 'moral-life-practical-reason', 'become-secondary-later'),
 ] as const satisfies readonly MuseumLegacyExhibitCompatibility[];

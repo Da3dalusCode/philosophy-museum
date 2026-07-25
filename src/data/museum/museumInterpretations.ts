@@ -551,6 +551,26 @@ const CANONICAL_DIRECT_INTERPRETATION_SOURCES: Readonly<Record<string, readonly 
     academicSource('Stanford Encyclopedia of Philosophy — God and Other Ultimates', 'https://plato.stanford.edu/entries/god-ultimates/'),
     academicSource('Stanford Encyclopedia of Philosophy — Concepts of God', 'https://plato.stanford.edu/entries/concepts-god/'),
   ],
+  buddha: [
+    academicSource('Stanford Encyclopedia of Philosophy — Buddha', 'https://plato.stanford.edu/entries/buddha/'),
+    academicSource('Internet Encyclopedia of Philosophy — Buddha', 'https://iep.utm.edu/buddha/'),
+    primarySource('SuttaCentral — Early Buddhist discourses and parallels', 'https://suttacentral.net/discourses-guide-sujato'),
+  ],
+  nagarjuna: [
+    academicSource('Stanford Encyclopedia of Philosophy — Nāgārjuna', 'https://plato.stanford.edu/entries/nagarjuna/'),
+    academicSource('Internet Encyclopedia of Philosophy — Nāgārjuna', 'https://iep.utm.edu/nagarjun/'),
+    academicSource('Internet Encyclopedia of Philosophy — Madhyamaka Buddhist Philosophy', 'https://iep.utm.edu/madhyamaka-buddhist-philosophy/'),
+  ],
+  dignaga: [
+    academicSource('Stanford Encyclopedia of Philosophy — Epistemology in Classical Indian Philosophy', 'https://plato.stanford.edu/entries/epistemology-india/'),
+    academicSource('Stanford Encyclopedia of Philosophy — Logic in Classical Indian Philosophy', 'https://plato.stanford.edu/entries/logic-india/'),
+    academicSource('Stanford Encyclopedia of Philosophy — Mind in Indian Buddhist Philosophy', 'https://plato.stanford.edu/entries/mind-indian-buddhism/'),
+  ],
+  dharmakirti: [
+    academicSource('Stanford Encyclopedia of Philosophy — Dharmakīrti', 'https://plato.stanford.edu/entries/dharmakiirti/'),
+    academicSource('Stanford Encyclopedia of Philosophy — Epistemology in Classical Indian Philosophy', 'https://plato.stanford.edu/entries/epistemology-india/'),
+    academicSource('Stanford Encyclopedia of Philosophy — Logic in Classical Indian Philosophy', 'https://plato.stanford.edu/entries/logic-india/'),
+  ],
   epistemology: [
     academicSource('Stanford Encyclopedia of Philosophy — Epistemology', 'https://plato.stanford.edu/entries/epistemology/'),
     academicSource('Stanford Encyclopedia of Philosophy — Skepticism', 'https://plato.stanford.edu/entries/skepticism/'),
@@ -718,6 +738,10 @@ const MUSEUM_DEEP_ARTICLE_ENTITY_IDS = new Set([
   'martha-nussbaum',
   'whitehead',
   'philosophy-of-religion',
+  'buddha',
+  'nagarjuna',
+  'dignaga',
+  'dharmakirti',
 ]);
 
 const articleSectionText = ({id, title}: ArticleSection): string => `${id} ${title}`.toLocaleLowerCase();

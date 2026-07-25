@@ -3279,6 +3279,240 @@
         "bytes": 184122,
         "sha256": "d3bd1cfaba1c1bc139df8b46393bae3ba2107eec7cb450e48efe307e3b93b349"
       }
+    },
+    "buddhist-wheel-life-dazu": {
+      "hallFolder": "buddhist-philosophies",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Buddhist_Wheel_of_Life.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Buddhist_Wheel_of_Life.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Buddhist_Wheel_of_Life.jpg?width=1280",
+      "scene": {
+        "width": 640,
+        "height": 480,
+        "bytes": 109192,
+        "sha256": "d7256b739aedaa179312e84cb89fb1c54305e084246c6e0086d55db93cc0181f"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 960,
+        "bytes": 537712,
+        "sha256": "0248cb49601ea9f2156693bc6b876c783564920c6c0427868f19126911a4250a"
+      }
+    },
+    "buddha-gandhara-meditating": {
+      "hallFolder": "buddhist-philosophies",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Meditating_Buddha_Statue_from_Gandhara.JPG",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Meditating_Buddha_Statue_from_Gandhara.JPG",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Meditating_Buddha_Statue_from_Gandhara.JPG?width=1280",
+      "scene": {
+        "width": 421,
+        "height": 640,
+        "bytes": 26272,
+        "sha256": "0722a71c1cced228f7931c9133ba5f91c1ea43de8642bb82f25357e9e5090626"
+      },
+      "panel": {
+        "width": 843,
+        "height": 1280,
+        "bytes": 140528,
+        "sha256": "9fc6d340c5e3eb5e281d45da87c657b67a9099e96489cf59cc1c28dc94120916"
+      }
+    },
+    "nagarjuna-sichuan-thangka": {
+      "hallFolder": "buddhist-philosophies",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Nagarjuna,_Tibet,_1644-1911_AD_-_Sichuan_Provincial_Museum_-_Chengdu,_China_-_DSC04486.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Nagarjuna,_Tibet,_1644-1911_AD_-_Sichuan_Provincial_Museum_-_Chengdu,_China_-_DSC04486.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Nagarjuna,_Tibet,_1644-1911_AD_-_Sichuan_Provincial_Museum_-_Chengdu,_China_-_DSC04486.jpg?width=1280",
+      "scene": {
+        "width": 467,
+        "height": 640,
+        "bytes": 71522,
+        "sha256": "e03f69757db6e7fc3998cbfde620047244404c1cb089668827387290d0ca18cf"
+      },
+      "panel": {
+        "width": 935,
+        "height": 1280,
+        "bytes": 299412,
+        "sha256": "2313450f0c8b8783cd8a985a16bce766b67c2960bef087f2e807c83434122fa1"
+      }
+    },
+    "buddhist-monastic-debate": {
+      "hallFolder": "buddhist-philosophies",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Tibetan_buddhist_monk_during_monastic_debate_making_hand_gesture_at_Sera_Monastery,_Lhasa,_Tibet_on_3_August_2008_(cropped).jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Tibetan_buddhist_monk_during_monastic_debate_making_hand_gesture_at_Sera_Monastery,_Lhasa,_Tibet_on_3_August_2008_(cropped).jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Tibetan_buddhist_monk_during_monastic_debate_making_hand_gesture_at_Sera_Monastery,_Lhasa,_Tibet_on_3_August_2008_(cropped).jpg?width=1280",
+      "scene": {
+        "width": 640,
+        "height": 577,
+        "bytes": 32248,
+        "sha256": "48e5f5c433727f66b664186744b6dc450db793ab283e8a33be8c8291a17949f0"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 1154,
+        "bytes": 182846,
+        "sha256": "55f8fd8cecca8a74032bfb08f58e934328cfec50607d5fba28124510354e89c1"
+      }
+    },
+    "dignaga-teaching-logic-relief": {
+      "hallFolder": "buddhist-philosophies",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:218_Dignaga_Teaching_Buddhist_Logic.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/218_Dignaga_Teaching_Buddhist_Logic.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/218_Dignaga_Teaching_Buddhist_Logic.jpg?width=1280",
+      "scene": {
+        "width": 640,
+        "height": 451,
+        "bytes": 16960,
+        "sha256": "8806e2432bae536a45b80f652c2503c1ef83dfa119aa6254ffabc4f0d809ffdf"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 902,
+        "bytes": 131258,
+        "sha256": "c560748842ae7238e39ed8b9b3e57b7b145a66c7a02e5a5645988f695f14f209"
+      }
+    },
+    "dharmakirti-cleveland-silver": {
+      "hallFolder": "buddhist-philosophies",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Tibet,_c._15th-16th_century_-_Portrait_of_Dharmakirti_-_2010.474_-_Cleveland_Museum_of_Art.tif",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Tibet,_c._15th-16th_century_-_Portrait_of_Dharmakirti_-_2010.474_-_Cleveland_Museum_of_Art.tif",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Tibet,_c._15th-16th_century_-_Portrait_of_Dharmakirti_-_2010.474_-_Cleveland_Museum_of_Art.tif?width=1280",
+      "scene": {
+        "width": 562,
+        "height": 640,
+        "bytes": 24090,
+        "sha256": "de6105a7b2469693153894dd322f931f0f002465aa1d0ccdc64c2562e6ad14e5"
+      },
+      "panel": {
+        "width": 1125,
+        "height": 1280,
+        "bytes": 118058,
+        "sha256": "6b2bbad2de667a6f3b09f904d45fad62a75fc739611324a83cce79f8e4102718"
+      }
+    },
+    "buddhist-gandhara-birchbark": {
+      "hallFolder": "buddhist-philosophies",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Fragmentary_Buddhist_text_-_Gandhara_birchbark_scrolls_(1st_C),_part_31_-_BL_Or._14915.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Fragmentary_Buddhist_text_-_Gandhara_birchbark_scrolls_(1st_C),_part_31_-_BL_Or._14915.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Fragmentary_Buddhist_text_-_Gandhara_birchbark_scrolls_(1st_C),_part_31_-_BL_Or._14915.jpg?width=1280",
+      "scene": {
+        "width": 640,
+        "height": 427,
+        "bytes": 61920,
+        "sha256": "cf519e161d3e51f9e08e03f4d542c3f1550a7ad3e855fee6110677d4cefd23b1"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 853,
+        "bytes": 332654,
+        "sha256": "5f829926e1b2f2edfa45111f7c1706f58af2ebf91fbbf9ef9de42bff973febe7"
+      }
+    },
+    "buddhist-prajnaparamita-walters": {
+      "hallFolder": "buddhist-philosophies",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Tibetan_-_Buddha_Shakyamuni_and_Prajnaparamita_-_Walters_W8561_(2).jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Tibetan_-_Buddha_Shakyamuni_and_Prajnaparamita_-_Walters_W8561_(2).jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Tibetan_-_Buddha_Shakyamuni_and_Prajnaparamita_-_Walters_W8561_(2).jpg?width=1280",
+      "scene": {
+        "width": 640,
+        "height": 209,
+        "bytes": 43968,
+        "sha256": "c1ed3dda4d8a15ce743d3bf1696333febcc8b042639b66419778627ae4fc50e9"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 417,
+        "bytes": 235748,
+        "sha256": "99c05d285c88e3a88ac4d4aee79390349a74047a8a1ab054dbde444bb7578053"
+      }
+    },
+    "buddhist-dependent-arising-wheel": {
+      "hallFolder": "buddhist-philosophies",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Bhavachakra_Samsara,_Buddhist_Wheel_of_Life,_Dhamma_Nagajjuna,_Nagarjuna_Sagar_Telangana,_India.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Bhavachakra_Samsara,_Buddhist_Wheel_of_Life,_Dhamma_Nagajjuna,_Nagarjuna_Sagar_Telangana,_India.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Bhavachakra_Samsara,_Buddhist_Wheel_of_Life,_Dhamma_Nagajjuna,_Nagarjuna_Sagar_Telangana,_India.jpg?width=1280",
+      "scene": {
+        "width": 543,
+        "height": 640,
+        "bytes": 97246,
+        "sha256": "975ab0112d7fdf89c58bd5ac07727d000f9b64556befa1bd21db7ddebe50092a"
+      },
+      "panel": {
+        "width": 1085,
+        "height": 1280,
+        "bytes": 463364,
+        "sha256": "fc9528d3a5b017be52be982f52c4f85cf001c998150c2547033119abd07f9275"
+      }
+    },
+    "vasubandhu-mere-ideation": {
+      "hallFolder": "buddhist-philosophies",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:The_Completion_of_Mere_Ideation_WDL11843.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/The_Completion_of_Mere_Ideation_WDL11843.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/The_Completion_of_Mere_Ideation_WDL11843.jpg?width=1280",
+      "scene": {
+        "width": 640,
+        "height": 180,
+        "bytes": 18036,
+        "sha256": "2817b95e65e14fb44cf338b28e2c991952f5ba0996a7b50b6146d4a4cf69c242"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 299,
+        "bytes": 103964,
+        "sha256": "c3ce39c6628a8f827c7912d4c116019269c677042d0442684740699e15afd445"
+      }
+    },
+    "buddhist-xuanzang-statue": {
+      "hallFolder": "buddhist-philosophies",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Xuanzang.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Xuanzang.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Xuanzang.jpg?width=1280",
+      "scene": {
+        "width": 427,
+        "height": 640,
+        "bytes": 51488,
+        "sha256": "db559d90a4e6e28de3f413db4cec41ccc350cd1b7c53916db461da5b56238fa3"
+      },
+      "panel": {
+        "width": 853,
+        "height": 1280,
+        "bytes": 207204,
+        "sha256": "a642a667420a5737757e5ed4c4aa25975e35a998fc72c47e7f05707fbf291925"
+      }
+    },
+    "buddhist-tibetan-pecha": {
+      "hallFolder": "buddhist-philosophies",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Tibetan_-_Cover_of_a_Buddhist_Manuscript_-_Walters_W896_-_Top_(cropped).jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Tibetan_-_Cover_of_a_Buddhist_Manuscript_-_Walters_W896_-_Top_(cropped).jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Tibetan_-_Cover_of_a_Buddhist_Manuscript_-_Walters_W896_-_Top_(cropped).jpg?width=1280",
+      "scene": {
+        "width": 640,
+        "height": 193,
+        "bytes": 41460,
+        "sha256": "6c046627ed1730d839c246ae2ea83d1bcb33c482af7257d5d60680f03f764de7"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 385,
+        "bytes": 158172,
+        "sha256": "87abd4dcb9afdaaef44b689dba57c2332b4cbde878e2ba2db0b7b227e79d5fe4"
+      }
+    },
+    "buddhist-diamond-sutra-868": {
+      "hallFolder": "buddhist-philosophies",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Diamond_Sutra_of_868_AD_-_The_Diamond_Sutra_(868),_frontispiece_and_text_-_BL_Or._8210-P.2.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Diamond_Sutra_of_868_AD_-_The_Diamond_Sutra_(868),_frontispiece_and_text_-_BL_Or._8210-P.2.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Diamond_Sutra_of_868_AD_-_The_Diamond_Sutra_(868),_frontispiece_and_text_-_BL_Or._8210-P.2.jpg?width=1280",
+      "scene": {
+        "width": 640,
+        "height": 385,
+        "bytes": 93458,
+        "sha256": "c61f4894bb1da8ccf9ed521fab72dd924359116bf235e8edbdd37ec5e6f884e2"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 770,
+        "bytes": 493372,
+        "sha256": "a85318b12386669195001a1d6323776dfc422f950c8f08f18d26dca2a1864b4c"
+      }
     }
   }
 }

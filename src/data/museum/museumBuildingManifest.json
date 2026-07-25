@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "manifestVersion": "canonical-seven-v1",
-  "status": "approved-canonical-seven",
+  "manifestVersion": "canonical-eight-v1",
+  "status": "approved-canonical-eight",
   "physicalOptionId": "ring-of-wings",
   "units": "metres",
   "level": {"id": "L0", "title": "Main level", "elevation": 0},
@@ -147,6 +147,23 @@
       ]
     },
     {
+      "id": "hall:buddhist-philosophies",
+      "kind": "hall",
+      "publicHallId": "buddhist-philosophies",
+      "pilotRole": "outer-hall",
+      "templateId": "sequence-3",
+      "implementationStatus": "live",
+      "levelId": "L0",
+      "transform": {"x": -42, "z": -28, "yaw": 3.141592653589793},
+      "map": {"label": "Gallery 08 · Buddhist Philosophies of Liberation and Knowledge", "status": "open"},
+      "doorwaySlots": [
+        {"id":"N0","position":{"x":0,"z":-28},"inwardNormal":{"x":0,"z":1},"clearWidth":4,"clearHeight":3.2,"transitionDepth":1.2,"landingBounds":{"minX":-2,"maxX":2,"minZ":-28,"maxZ":-24},"arrivalPose":{"x":0,"z":-26,"yaw":3.141592653589793,"pitch":0}},
+        {"id":"S0","position":{"x":0,"z":28},"inwardNormal":{"x":0,"z":-1},"clearWidth":4,"clearHeight":3.2,"transitionDepth":1.2,"landingBounds":{"minX":-2,"maxX":2,"minZ":24,"maxZ":28},"arrivalPose":{"x":0,"z":26,"yaw":0,"pitch":0}},
+        {"id":"E1","position":{"x":12,"z":0},"inwardNormal":{"x":-1,"z":0},"clearWidth":4,"clearHeight":3.2,"transitionDepth":1.2,"landingBounds":{"minX":8,"maxX":12,"minZ":-2,"maxZ":2},"arrivalPose":{"x":10,"z":0,"yaw":1.5707963267948966,"pitch":0}},
+        {"id":"W1","position":{"x":-12,"z":0},"inwardNormal":{"x":1,"z":0},"clearWidth":4,"clearHeight":3.2,"transitionDepth":1.2,"landingBounds":{"minX":-12,"maxX":-8,"minZ":-2,"maxZ":2},"arrivalPose":{"x":-10,"z":0,"yaw":-1.5707963267948966,"pitch":0}}
+      ]
+    },
+    {
       "id":"corridor:outer-01-mediterranean-renaissance","kind":"corridor","pilotRole":"outer-loop-link","implementationStatus":"live","levelId":"L0","transform":{"x":0,"z":0,"yaw":0},"map":{"label":"Outer loop · Galleries 01–02","status":"orientation-open"},
       "geometry":{"cells":[{"id":"outer-01-gallery-entry","bounds":{"minX":-2.4,"maxX":2.4,"minZ":56,"maxZ":60},"ceilingHeight":5.2},{"id":"outer-01-east-run","bounds":{"minX":-12,"maxX":-2.4,"minZ":56,"maxZ":60},"ceilingHeight":5.2},{"id":"outer-01-central-link","bounds":{"minX":-16,"maxX":-12,"minZ":54,"maxZ":60},"ceilingHeight":5.2},{"id":"outer-01-west-run","bounds":{"minX":-25.6,"maxX":-16,"minZ":54,"maxZ":58},"ceilingHeight":5.2},{"id":"outer-01-turn","bounds":{"minX":-30.4,"maxX":-25.6,"minZ":54,"maxZ":58},"ceilingHeight":5.2},{"id":"outer-01-south-asian-branch","bounds":{"minX":-40,"maxX":-30.4,"minZ":56,"maxZ":60},"ceilingHeight":5.2},{"id":"outer-01-south-asian-landing","bounds":{"minX":-44,"maxX":-40,"minZ":56,"maxZ":60},"ceilingHeight":5.2}]},
       "doorwaySlots":[{"id":"mediterranean","position":{"x":0,"z":56},"inwardNormal":{"x":0,"z":1},"clearWidth":4,"clearHeight":3.2,"transitionDepth":1.2,"landingBounds":{"minX":-2,"maxX":2,"minZ":56,"maxZ":60},"arrivalPose":{"x":0,"z":58,"yaw":3.141592653589793,"pitch":0}},{"id":"renaissance","position":{"x":-28,"z":58},"inwardNormal":{"x":0,"z":-1},"clearWidth":4,"clearHeight":3.2,"transitionDepth":1.2,"landingBounds":{"minX":-30,"maxX":-26,"minZ":54,"maxZ":58},"arrivalPose":{"x":-28,"z":56,"yaw":0,"pitch":0}},{"id":"south-asian","position":{"x":-42,"z":56},"inwardNormal":{"x":0,"z":1},"clearWidth":4,"clearHeight":3.2,"transitionDepth":1.2,"landingBounds":{"minX":-44,"maxX":-40,"minZ":54,"maxZ":58},"arrivalPose":{"x":-42,"z":58,"yaw":3.141592653589793,"pitch":0}}]
@@ -212,6 +229,7 @@
     {"id":"conn:mediterranean-outer-01","a":{"nodeId":"hall:mediterranean-beginnings-classical","slotId":"S0"},"b":{"nodeId":"corridor:outer-01-mediterranean-renaissance","slotId":"mediterranean"},"routeRole":"outer-loop","accessible":true,"implementationStatus":"live"},
     {"id":"conn:outer-01-renaissance","a":{"nodeId":"corridor:outer-01-mediterranean-renaissance","slotId":"renaissance"},"b":{"nodeId":"hall:renaissance-humanism-new-method","slotId":"N0"},"routeRole":"outer-loop","accessible":true,"implementationStatus":"live"},
     {"id":"conn:outer-01-south-asian","a":{"nodeId":"corridor:outer-01-mediterranean-renaissance","slotId":"south-asian"},"b":{"nodeId":"hall:classical-south-asian-worlds","slotId":"N0"},"routeRole":"gallery-branch","accessible":true,"implementationStatus":"live"},
+    {"id":"conn:south-asian-buddhist","a":{"nodeId":"hall:classical-south-asian-worlds","slotId":"S0"},"b":{"nodeId":"hall:buddhist-philosophies","slotId":"N0"},"routeRole":"gallery-branch","accessible":true,"implementationStatus":"live"},
     {"id":"conn:renaissance-outer-02","a":{"nodeId":"hall:renaissance-humanism-new-method","slotId":"S0"},"b":{"nodeId":"corridor:outer-02-renaissance-phenomenology","slotId":"renaissance"},"routeRole":"outer-loop","accessible":true,"implementationStatus":"live"},
     {"id":"conn:outer-02-phenomenology","a":{"nodeId":"corridor:outer-02-renaissance-phenomenology","slotId":"phenomenology"},"b":{"nodeId":"hall:phenomenology-existence-embodiment","slotId":"S0"},"routeRole":"outer-loop","accessible":true,"implementationStatus":"live"},
     {"id":"conn:phenomenology-outer-03","a":{"nodeId":"hall:phenomenology-existence-embodiment","slotId":"N0"},"b":{"nodeId":"corridor:outer-03-phenomenology-analytic","slotId":"phenomenology"},"routeRole":"outer-loop","accessible":true,"implementationStatus":"live"},

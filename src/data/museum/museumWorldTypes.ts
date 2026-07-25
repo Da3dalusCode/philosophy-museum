@@ -188,7 +188,15 @@ export type MuseumSupplementalExhibitId =
   | 'patanjali-yogasutra-manuscript'
   | 'patanjali-samkhya-yoga-pramana'
   | 'shankara-aitareya-bhasya'
-  | 'madhva-udupi-matha';
+  | 'madhva-udupi-matha'
+  | 'buddhist-early-discourse-scrolls'
+  | 'nagarjuna-prajnaparamita-witness'
+  | 'nagarjuna-dependent-arising'
+  | 'vasubandhu-abhidharmakosa'
+  | 'vasubandhu-mere-ideation'
+  | 'buddhist-xuanzang-translation'
+  | 'buddhist-tibetan-pecha'
+  | 'buddhist-diamond-sutra';
 
 export type MuseumSupplementalInstallationKind =
   | 'cave-ascent'
@@ -207,7 +215,10 @@ export type MuseumSupplementalInstallationKind =
   | 'justice-concept'
   | 'south-asian-work'
   | 'south-asian-context'
-  | 'south-asian-concept';
+  | 'south-asian-concept'
+  | 'buddhist-work'
+  | 'buddhist-context'
+  | 'buddhist-concept';
 
 export type MuseumSupplementalExhibitLayout = {
   id: MuseumSupplementalExhibitId;

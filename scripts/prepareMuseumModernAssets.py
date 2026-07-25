@@ -39,8 +39,9 @@ EXPECTED_HALLS = {
     "phenomenology-existence-embodiment",
     "analytic-traditions",
     "classical-south-asian-worlds",
+    "buddhist-philosophies",
 }
-EXPECTED_ASSET_COUNT = 181
+EXPECTED_ASSET_COUNT = 194
 MAX_DERIVATIVE_BYTES = 600_000
 MIN_MUSEUM_SHORT_EDGE = 180
 

@@ -32,7 +32,6 @@ const physicalNodeById = new Map(
 
 const openProgramHallIds = new Set<MuseumPlannedHallId>(MUSEUM_CANONICAL_HALL_IDS);
 const nextProgramHallIds = new Set<MuseumPlannedHallId>([
-  'buddhist-philosophies',
   'classical-chinese-traditions',
   'islamic-philosophical-worlds',
 ]);
@@ -81,7 +80,7 @@ export function MuseumVisitorMap({currentHallId, currentNodeId, currentPose, ret
   const insertionCount = MUSEUM_VISITOR_MAP_RESERVATIONS.filter(({reservationType}) => reservationType === 'insertion').length;
   const outwardCount = MUSEUM_VISITOR_MAP_RESERVATIONS.filter(({reservationType}) => reservationType === 'outward-expansion').length;
   const futureCount = plannedProgram.length - halls.length;
-  const routeSummary = `The live main-level plan shows ${halls.length} open galleries and every walkable public route. Galleries 01 through 05 form the current outer loop, Gallery 06 is the central Core Questions Forum, and Gallery 07 branches from the Galleries 01–02 connector. Closed construction thresholds are shown separately from the approved 26-gallery collection program. Fast travel returns visitors to a safe gallery entrance.`;
+  const routeSummary = `The live main-level plan shows ${halls.length} open galleries and every walkable public route. Galleries 01 through 05 form the current outer loop, Gallery 06 is the central Core Questions Forum, Gallery 07 branches from the Galleries 01–02 connector, and Gallery 08 continues from Gallery 07. Closed construction thresholds are shown separately from the approved 26-gallery collection program. Fast travel returns visitors to a safe gallery entrance.`;
 
   return <MuseumModal panelClassName="museum-visitor-map-panel" labelledBy={titleId} describedBy={descriptionId} returnFocus={returnFocus} onClose={onClose}>
     <div className="museum-overlay-head museum-visitor-map-head">
@@ -104,7 +103,7 @@ export function MuseumVisitorMap({currentHallId, currentNodeId, currentPose, ret
         <div className="museum-visitor-map-program" aria-label={`Approved collection program: ${halls.length} open galleries and ${futureCount} planned galleries`}>
           <div>
             <strong>26-gallery collection plan</strong>
-            <span><b>{halls.length} open</b> · 3 next · {plannedProgram.length - halls.length - nextProgramHallIds.size} later</span>
+            <span><b>{halls.length} open</b> · {nextProgramHallIds.size} next · {plannedProgram.length - halls.length - nextProgramHallIds.size} later</span>
           </div>
           <div className="museum-visitor-map-program-rail" aria-hidden="true">
             {plannedProgram.map(([hallId, title]) => <i
@@ -123,7 +122,7 @@ export function MuseumVisitorMap({currentHallId, currentNodeId, currentPose, ret
             role="img"
             aria-labelledby={`${mapTitleId} ${mapDescriptionId}`}
           >
-            <title id={mapTitleId}>Live physical plan of the seven open galleries</title>
+            <title id={mapTitleId}>Live physical plan of the {halls.length} open galleries</title>
             <desc id={mapDescriptionId}>{routeSummary}</desc>
             <defs>
               <pattern id="museum-map-future-hatch" width="3" height="3" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">

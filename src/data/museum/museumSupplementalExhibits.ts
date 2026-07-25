@@ -27,6 +27,10 @@ import {
   CLASSICAL_SOUTH_ASIAN_SUPPLEMENTAL_EXHIBITS,
   CLASSICAL_SOUTH_ASIAN_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
 } from './classicalSouthAsianSupplementalExhibits';
+import {
+  BUDDHIST_SUPPLEMENTAL_EXHIBITS,
+  BUDDHIST_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
+} from './buddhistSupplementalExhibits';
 import type {
   MuseumSupplementalExhibitId,
   MuseumSupplementalExhibitLayout,
@@ -78,6 +82,11 @@ const COLLECTIONS = [
     hallId: 'classical-south-asian-worlds',
     exhibits: CLASSICAL_SOUTH_ASIAN_SUPPLEMENTAL_EXHIBITS,
     layouts: CLASSICAL_SOUTH_ASIAN_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
+  },
+  {
+    hallId: 'buddhist-philosophies',
+    exhibits: BUDDHIST_SUPPLEMENTAL_EXHIBITS,
+    layouts: BUDDHIST_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
   },
 ] as const satisfies readonly MuseumSupplementalCollection[];
 

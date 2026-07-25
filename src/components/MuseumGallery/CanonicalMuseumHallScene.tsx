@@ -1,6 +1,7 @@
 import {MUSEUM_BUILDING_MANIFEST} from '../../data/museum/museumBuildingManifest';
 import type {MuseumHallContentProps} from './museumWorldRegistry';
 import {AnalyticSupplementalExhibits} from './AnalyticSupplementalExhibits';
+import {BuddhistSupplementalExhibits} from './BuddhistSupplementalExhibits';
 import {CanonicalMuseumExhibits} from './CanonicalMuseumExhibits';
 import {ContemporaryHallArchitecture} from './ContemporaryHallArchitecture';
 import {ContemporaryHallLighting} from './ContemporaryHallLighting';
@@ -86,6 +87,15 @@ export function CanonicalMuseumHallContent({
     {definition.id === 'classical-south-asian-worlds'
       && definition.layout.supplementalExhibits
       && <ClassicalSouthAsianSupplementalExhibits
+        layouts={active
+          ? definition.layout.supplementalExhibits
+          : definition.layout.supplementalExhibits.filter(({assetId}) => entryAssetIds.has(assetId))}
+        nearbyId={nearbySupplemental?.hallId === definition.id ? nearbySupplemental.supplementalExhibitId : undefined}
+        onSelect={(supplementalExhibitId) => onSelectSupplementalExhibit({hallId: definition.id, supplementalExhibitId})}
+      />}
+    {definition.id === 'buddhist-philosophies'
+      && definition.layout.supplementalExhibits
+      && <BuddhistSupplementalExhibits
         layouts={active
           ? definition.layout.supplementalExhibits
           : definition.layout.supplementalExhibits.filter(({assetId}) => entryAssetIds.has(assetId))}

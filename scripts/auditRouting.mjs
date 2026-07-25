@@ -201,9 +201,9 @@ check('Museum convenience, hall, and exhibit routes parse and serialize', () => 
       exhibitCount += 1;
     }
   }
-  assert.equal(MUSEUM_HALLS.length, 7);
-  assert.equal(exhibitCount, 72);
-  assert.equal(MUSEUM_SUPPLEMENTAL_EXHIBITS.length, 79);
+  assert.equal(MUSEUM_HALLS.length, 8);
+  assert.equal(exhibitCount, 79);
+  assert.equal(MUSEUM_SUPPLEMENTAL_EXHIBITS.length, 87);
   for (const {hallId, exhibit} of MUSEUM_SUPPLEMENTAL_EXHIBITS) {
     expectRoundTrip({kind: 'museum', hallId, exhibitId: exhibit.id});
   }
@@ -274,8 +274,8 @@ check('retired hall and exhibit routes preserve exact aliases or truthful compat
     'ethics-justice-political-life': 'justice-democratic-reason',
     'mind-consciousness-self': 'core-questions-forum',
   });
-  assert.equal(MUSEUM_LIVE_LEGACY_EXHIBIT_COMPATIBILITY.length, 22);
-  assert.equal(MUSEUM_LEGACY_EXHIBIT_COMPATIBILITY.length, 26);
+  assert.equal(MUSEUM_LIVE_LEGACY_EXHIBIT_COMPATIBILITY.length, 23);
+  assert.equal(MUSEUM_LEGACY_EXHIBIT_COMPATIBILITY.length, 25);
   const compatibility = [...MUSEUM_LIVE_LEGACY_EXHIBIT_COMPATIBILITY, ...MUSEUM_LEGACY_EXHIBIT_COMPATIBILITY];
   assert.equal(compatibility.length, 48);
   assert.equal(new Set(compatibility.map(({formerHallId, exhibitId}) => `${formerHallId}/${exhibitId}`)).size, 48);
@@ -401,7 +401,7 @@ check('unknown and malformed Museum routes remain visible as not-found', () => {
 
 check('physical building and reserved expansion IDs are never accepted as public Museum routes', () => {
   const publicHallIds = buildingManifest.nodes.filter(({kind, implementationStatus}) => kind === 'hall' && implementationStatus === 'live').map(({publicHallId}) => publicHallId);
-  assert.equal(publicHallIds.length, 7);
+  assert.equal(publicHallIds.length, 8);
   assert.deepEqual(publicHallIds.sort(), MUSEUM_HALLS.map(({id}) => id).sort());
   for (const node of buildingManifest.nodes) {
     expectNotFound(`#/museum/${encodeURIComponent(node.id)}`, /No museum hall exists/);

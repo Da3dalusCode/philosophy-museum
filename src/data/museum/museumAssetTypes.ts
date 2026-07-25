@@ -219,7 +219,20 @@ export type MuseumAssetId =
   | 'vaiseshika-two-pramana'
   | 'samkhya-yoga-three-pramana'
   | 'shankara-aitareya-bhasya-1593'
-  | 'madhva-udupi-krishna-matha';
+  | 'madhva-udupi-krishna-matha'
+  | 'buddhist-wheel-life-dazu'
+  | 'buddha-gandhara-meditating'
+  | 'nagarjuna-sichuan-thangka'
+  | 'buddhist-monastic-debate'
+  | 'dignaga-teaching-logic-relief'
+  | 'dharmakirti-cleveland-silver'
+  | 'buddhist-gandhara-birchbark'
+  | 'buddhist-prajnaparamita-walters'
+  | 'buddhist-dependent-arising-wheel'
+  | 'vasubandhu-mere-ideation'
+  | 'buddhist-xuanzang-statue'
+  | 'buddhist-tibetan-pecha'
+  | 'buddhist-diamond-sutra-868';
 
 export type MuseumAssetRole =
   | 'identity'
