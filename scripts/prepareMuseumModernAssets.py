@@ -39,7 +39,7 @@ EXPECTED_HALLS = {
     "phenomenology-existence-embodiment",
     "analytic-traditions",
 }
-EXPECTED_ASSET_COUNT = 156
+EXPECTED_ASSET_COUNT = 165
 MAX_DERIVATIVE_BYTES = 600_000
 
 

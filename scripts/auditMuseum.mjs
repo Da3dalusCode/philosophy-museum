@@ -995,12 +995,50 @@ check('Gallery 03 onward makes every primary at least as large as its biggest se
   );
 });
 
-check('all nine Forum rooms carry rigorous comparative lenses into the directory and compiled wayfinding', () => {
+check('Gallery 06 keeps full-scale image-led primaries above rigorous comparative wayfinding', () => {
   const forumProgram = MUSEUM_CANONICAL_PROGRAM.find(({id}) => id === 'core-questions-forum');
   const forumDirectory = hallById.get('core-questions-forum');
   const forumDefinition = definitionById.get('core-questions-forum');
   assert(forumProgram && forumDirectory && forumDefinition);
   assert.equal(forumProgram.rooms.length, 9);
+  assert.equal(forumDefinition.layout.exhibits.length, 15);
+  const largestPrimaryWidth = Math.max(...forumDefinition.layout.exhibits.map(({scene}) => scene.footprint.width));
+  const largestPrimaryHeight = Math.max(...forumDefinition.layout.exhibits.map(({scene}) => scene.footprint.height));
+  for (const layout of forumDefinition.layout.exhibits) {
+    const backing = layout.scene.objectBounds.find(({id}) => id.endsWith('-backing'));
+    assert(backing, `${layout.id} lacks its full-scale primary backing`);
+    assert.equal(layout.scene.footprint.width, largestPrimaryWidth, `${layout.id} is narrower than another Forum primary`);
+    assert.equal(layout.scene.footprint.height, largestPrimaryHeight, `${layout.id} is shorter than another Forum primary`);
+    assert.equal(backing.size.width, largestPrimaryWidth, `${layout.id} backing is narrower than another Forum primary`);
+    assert.equal(backing.size.height, 3.55, `${layout.id} backing lost the Gallery 03–05 primary height`);
+    assert(layout.scene.mediaMounts.length >= 1, `${layout.id} lacks an image-led installation`);
+  }
+  assert.equal(largestPrimaryWidth, 3.8, 'Gallery 06 primary width drifted from the established anchor standard');
+  assert.equal(largestPrimaryHeight, 3.71, 'Gallery 06 primary height drifted from the established anchor standard');
+
+  const expectedFieldAssets = new Map([
+    ['metaphysics', 'metaphysics-reality-layers-interpretive'],
+    ['ontology', 'ontology-being-process-interpretive'],
+    ['epistemology', 'epistemology-evidence-lens-interpretive'],
+    ['philosophy-of-mind', 'philosophy-mind-subjective-objective-interpretive'],
+    ['logic', 'logic-hamilton-euler-diagrams-1874'],
+    ['philosophy-of-language', 'language-rosetta-stone-1922'],
+    ['philosophy-of-science', 'science-air-pump-wright-1768'],
+    ['aesthetics', 'aesthetics-hokusai-great-wave'],
+    ['philosophy-of-religion', 'philosophy-religion-plural-inquiry-interpretive'],
+  ]);
+  const forumPrimaries = forumProgram.rooms.flatMap(({exhibits}) => exhibits);
+  assert.equal(new Set(forumPrimaries.map(({principalAssetId}) => principalAssetId)).size, 15, 'Gallery 06 repeats a principal image');
+  for (const [exhibitId, assetId] of expectedFieldAssets) {
+    const exhibit = forumPrimaries.find(({id}) => id === exhibitId);
+    assert.equal(exhibit?.principalAssetId, assetId, `${exhibitId} lost its dedicated field visual`);
+    assert(assetById.has(assetId), `${exhibitId} uses missing asset ${assetId}`);
+  }
+  assert(!forumPrimaries.some(({principalAssetId}) => /grave|plaque/.test(principalAssetId ?? '')), 'Gallery 06 restored a grave or plaque primary image');
+  assert(
+    canonicalExhibitsSource.includes("definition.id === 'core-questions-forum'"),
+    'Gallery 06 must retain the full-scale primary renderer instead of the compact legacy treatment',
+  );
 
   const plannedHallIds = new Set(Object.keys(MUSEUM_PLANNED_HALL_TITLES));
   const culturallyOutwardHallIds = new Set([
@@ -1052,7 +1090,13 @@ check('all nine Forum rooms carry rigorous comparative lenses into the directory
   for (const entityId of requiredEntities) assert(lensEntityIds.includes(entityId), `Forum comparative lenses omit required entity ${entityId}`);
   const islamicThinkers = new Set(['al-farabi', 'al-ghazali', 'avicenna', 'averroes', 'mulla-sadra', 'suhrawardi']);
   assert(lensEntityIds.some((entityId) => islamicThinkers.has(entityId)), 'Forum comparative lenses require at least one named Islamic thinker');
-  assert.equal(forumDefinition.layout.signs.filter(({kind}) => kind === 'wayfinding').length, lensIds.length, 'Forum wayfinding-sign count must equal its comparative-lens count');
+  const wayfindingSigns = forumDefinition.layout.signs.filter(({kind}) => kind === 'wayfinding');
+  assert.equal(wayfindingSigns.length, lensIds.length, 'Forum wayfinding-sign count must equal its comparative-lens count');
+  assert(wayfindingSigns.every(({width, height, position}) => width === 2.4 && height === .56 && position.y >= 3.88), 'Forum comparative routes must remain a slim, high wayfinding band');
+  assert(Math.max(...wayfindingSigns.map(({width}) => width)) < largestPrimaryWidth, 'A Forum route sign is wider than a primary installation');
+  const roomSigns = forumDefinition.layout.signs.filter(({id}) => id.endsWith(':room-sign'));
+  assert.equal(roomSigns.length, 9);
+  assert(roomSigns.every(({width, height, position}) => width === 2.45 && height === .62 && position.y === 5.25), 'Forum room labels must remain compact and above the exhibits');
 });
 
 check('the executable template registry retains the approved canonical contracts', () => {

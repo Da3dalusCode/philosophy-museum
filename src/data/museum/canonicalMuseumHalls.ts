@@ -73,6 +73,7 @@ const SEQUENCE_DEPTH = 56;
 const SEQUENCE_CEILING = 5.8;
 const FORUM_SIZE = 28;
 const FORUM_CEILING = 6.2;
+const CORE_QUESTIONS_FORUM_ID = 'core-questions-forum' as const;
 const WALL = .36;
 const EYE_HEIGHT = 1.7;
 
@@ -120,6 +121,14 @@ const primaryScaleFloorForHall = (
   hall: MuseumCanonicalHall,
   supplementalLayouts: readonly MuseumSupplementalExhibitLayout[],
 ): PrimaryInstallationScaleFloor | undefined => {
+  if (hall.id === CORE_QUESTIONS_FORUM_ID) {
+    return {
+      bayWidth: TIER_CONTRACTS['anchor-exhibit'].bayWidth,
+      objectWidth: TIER_CONTRACTS['anchor-exhibit'].objectWidth,
+      objectHeight: TIER_CONTRACTS['anchor-exhibit'].objectHeight,
+      footprintHeight: TIER_CONTRACTS['anchor-exhibit'].objectHeight + .16,
+    };
+  }
   const galleryIndex = MUSEUM_CANONICAL_PROGRAM.findIndex(({id}) => id === hall.id);
   if (galleryIndex < fullScalePrimaryStartIndex || !supplementalLayouts.length) return undefined;
   const objectWidth = Math.max(...supplementalLayouts.map(({footprint}) => footprint.width));
@@ -217,9 +226,13 @@ const createScene = (
   const physicalContract = compactForumInstallation
     ? {
         ...contract,
-        objectWidth: Math.min(contract.objectWidth, contract.tier === 'anchor' ? 3 : 2.55),
+        objectWidth: primaryScaleFloor
+          ? contract.objectWidth
+          : Math.min(contract.objectWidth, contract.tier === 'anchor' ? 3 : 2.55),
         objectDepth: Math.min(contract.objectDepth, contract.tier === 'anchor' ? 1.45 : 1.4),
-        objectHeight: Math.min(contract.objectHeight, contract.tier === 'anchor' ? 3.15 : 2.85),
+        objectHeight: primaryScaleFloor
+          ? contract.objectHeight
+          : Math.min(contract.objectHeight, contract.tier === 'anchor' ? 3.15 : 2.85),
       }
     : contract;
   const backing = volume(
@@ -454,7 +467,9 @@ const createExhibitLayout = (
   };
   // Compact canonical rooms keep the whole visitor circle clear of neighboring
   // bays while remaining inside each installation's interaction radius.
-  const viewpointDistance = primaryScaleFloor ? 4.4 : contract.tier === 'anchor' ? 2.85 : 2.65;
+  const viewpointDistance = compactForumInstallation
+    ? primaryScaleFloor ? 3.05 : contract.tier === 'anchor' ? 2.85 : 2.65
+    : primaryScaleFloor ? 4.4 : contract.tier === 'anchor' ? 2.85 : 2.65;
   const camera = {
     x: candidate.x + (scene.focalTarget.x * Math.cos(candidate.rotationY) + (scene.focalTarget.z + viewpointDistance) * Math.sin(candidate.rotationY)),
     z: candidate.z + (-scene.focalTarget.x * Math.sin(candidate.rotationY) + (scene.focalTarget.z + viewpointDistance) * Math.cos(candidate.rotationY)),
@@ -553,6 +568,69 @@ const forumConnections = (roomBounds: ReadonlyMap<string, MuseumBounds>): Museum
   return result;
 };
 
+const forumGuidedWaypoints = (
+  from: MuseumPoint,
+  to: MuseumPoint,
+  fromCellId: string,
+  toCellId: string,
+  roomBounds: ReadonlyMap<string, MuseumBounds>,
+  colliders: readonly MuseumCollider[],
+): readonly MuseumPoint[] => {
+  const fromBounds = roomBounds.get(fromCellId)!;
+  const toBounds = roomBounds.get(toCellId)!;
+  const center = (bounds: MuseumBounds): MuseumPoint => ({
+    x: (bounds.minX + bounds.maxX) / 2,
+    z: (bounds.minZ + bounds.maxZ) / 2,
+  });
+  const fromCenter = center(fromBounds);
+  const toCenter = center(toBounds);
+  const startLeg = guidedWaypointsWithinRoom(from, fromCenter, fromBounds, colliders);
+  const endLeg = guidedWaypointsWithinRoom(toCenter, to, toBounds, colliders);
+  const fromIndex = FORUM_ROOM_ORDER.indexOf(fromCellId as (typeof FORUM_ROOM_ORDER)[number]);
+  const toIndex = FORUM_ROOM_ORDER.indexOf(toCellId as (typeof FORUM_ROOM_ORDER)[number]);
+  if (fromIndex < 0 || toIndex < 0) throw new Error(`Unknown Forum guided cells ${fromCellId} -> ${toCellId}.`);
+  const startRow = Math.floor(fromIndex / 3);
+  const startColumn = fromIndex % 3;
+  const targetRow = Math.floor(toIndex / 3);
+  const targetColumn = toIndex % 3;
+  const middle = (horizontalFirst: boolean): MuseumPoint[] => {
+    let row = startRow;
+    let column = startColumn;
+    const points: MuseumPoint[] = [fromCenter];
+    const moveColumn = () => {
+      while (column !== targetColumn) {
+        column += Math.sign(targetColumn - column);
+        points.push(center(roomBounds.get(FORUM_ROOM_ORDER[row * 3 + column])!));
+      }
+    };
+    const moveRow = () => {
+      while (row !== targetRow) {
+        row += Math.sign(targetRow - row);
+        points.push(center(roomBounds.get(FORUM_ROOM_ORDER[row * 3 + column])!));
+      }
+    };
+    if (horizontalFirst) {
+      moveColumn();
+      moveRow();
+    } else {
+      moveRow();
+      moveColumn();
+    }
+    return points;
+  };
+  const hallBounds = {minX: -FORUM_SIZE / 2, maxX: FORUM_SIZE / 2, minZ: -FORUM_SIZE / 2, maxZ: FORUM_SIZE / 2};
+  const candidates = [middle(true), middle(false)].map((throughCenters) => compactRoute([
+    ...startLeg,
+    ...throughCenters.slice(1),
+    ...endLeg.slice(1),
+  ]));
+  const clear = candidates
+    .filter((candidate) => guidedRouteIsClear(candidate, hallBounds, colliders))
+    .sort((first, second) => guidedRouteLength(first) - guidedRouteLength(second));
+  if (!clear.length) throw new Error(`No collision-free Forum route exists between ${fromCellId} and ${toCellId}.`);
+  return clear[0];
+};
+
 const outerWalls = (width: number, depth: number, height: number, prefix: string): MuseumWallDefinition[] => [
   {id: `${prefix}:north-wall`, center: {x: 0, z: -depth / 2}, size: {width, depth: WALL}, rotation: 0, height},
   {id: `${prefix}:south-wall`, center: {x: 0, z: depth / 2}, size: {width, depth: WALL}, rotation: 0, height},
@@ -623,10 +701,10 @@ const placeRoomExhibits = (
     const halfWidth = (bounds.maxX - bounds.minX) / 2;
     const halfDepth = (bounds.maxZ - bounds.minZ) / 2;
     candidates.unshift(
-      {x: centerX - halfWidth * .6, z: centerZ - halfDepth * .7, rotationY: 0},
-      {x: centerX + halfWidth * .6, z: centerZ - halfDepth * .7, rotationY: 0},
-      {x: centerX - halfWidth * .6, z: centerZ + halfDepth * .7, rotationY: Math.PI},
-      {x: centerX + halfWidth * .6, z: centerZ + halfDepth * .7, rotationY: Math.PI},
+      {x: centerX - halfWidth * .56, z: centerZ - halfDepth * .7, rotationY: 0},
+      {x: centerX + halfWidth * .56, z: centerZ - halfDepth * .7, rotationY: 0},
+      {x: centerX - halfWidth * .56, z: centerZ + halfDepth * .7, rotationY: Math.PI},
+      {x: centerX + halfWidth * .56, z: centerZ + halfDepth * .7, rotationY: Math.PI},
     );
     candidates.push(...freestanding);
   }
@@ -862,7 +940,16 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
   ];
   const guidedWalkLegs = exhibits.slice(0, -1).map((layout, index) => {
     const target = exhibits[index + 1];
-    const waypoints = layout.spatialCellId === target.spatialCellId
+    const waypoints = isForum && layout.spatialCellId !== target.spatialCellId
+      ? forumGuidedWaypoints(
+          layout.viewpoint,
+          target.viewpoint,
+          layout.spatialCellId,
+          target.spatialCellId,
+          roomBounds,
+          [...wallColliders, ...obstacleColliders],
+        )
+      : layout.spatialCellId === target.spatialCellId
       ? guidedWaypointsWithinRoom(
           layout.viewpoint,
           target.viewpoint,
@@ -901,10 +988,10 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
         title: room.title,
         kicker: 'Room',
         subtitle: 'Questions, objects, and arguments in historical context',
-        position: {x: bounds.maxX - .22, y: 2.2, z: (bounds.minZ + bounds.maxZ) / 2},
+        position: {x: bounds.maxX - .22, y: isForum ? 5.25 : 2.2, z: (bounds.minZ + bounds.maxZ) / 2},
         rotationY: -Math.PI / 2,
-        width: Math.min(3.6, Math.max(2.4, bounds.maxZ - bounds.minZ - 1)),
-        height: .88,
+        width: isForum ? 2.45 : Math.min(3.6, Math.max(2.4, bounds.maxZ - bounds.minZ - 1)),
+        height: isForum ? .62 : .88,
       };
       const comparativeLensSigns = (room.comparativeLenses ?? []).map((lens, index) => ({
         id: `${room.id}:lens:${lens.id}`,
@@ -914,12 +1001,12 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
         subtitle: `${lens.culturalSetting} → ${MUSEUM_PLANNED_HALL_TITLES[lens.primaryHallId]}`,
         position: {
           x: bounds.minX + .22,
-          y: 1.25 + index * 1.18,
+          y: isForum ? 5.25 - index * .68 : 1.25 + index * 1.18,
           z: (bounds.minZ + bounds.maxZ) / 2,
         },
         rotationY: Math.PI / 2,
-        width: Math.min(4.15, Math.max(2.8, bounds.maxZ - bounds.minZ - .8)),
-        height: .76,
+        width: isForum ? 2.4 : Math.min(4.15, Math.max(2.8, bounds.maxZ - bounds.minZ - .8)),
+        height: isForum ? .56 : .76,
       }));
       return [roomSign, ...comparativeLensSigns];
     }),
@@ -1079,17 +1166,24 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
       reset: spawn,
       spatialCells: cells,
       spatialConnections,
-      entryViews: cells.map((cell) => ({
-        spatialCellId: cell.id,
-        // Gallery 01 is read as a chronological promenade. Stage its directory
-        // views just inside each threshold so the visitor sees the room unfold
-        // in the same direction as the authored route. Other halls retain the
-        // established room-centre viewpoint.
-        pose: hall.id === MEDITERRANEAN_GALLERY_ID || hall.id === RENAISSANCE_GALLERY_ID
-          ? {x: 0, z: cell.bounds.minZ + .8, yaw: Math.PI, pitch: -.01}
-          : {x: Math.max(cell.bounds.minX + 2.8, Math.min(cell.bounds.maxX - 2.8, 0)), z: (cell.bounds.minZ + cell.bounds.maxZ) / 2, yaw: Math.PI, pitch: 0},
-        expectedVisibleExhibitIds: cell.exhibitIds,
-      })),
+      entryViews: cells.map((cell) => {
+        const firstPrimary = isForum
+          ? exhibits.find(({spatialCellId}) => spatialCellId === cell.id)
+          : undefined;
+        return {
+          spatialCellId: cell.id,
+          // Gallery 01 is read as a chronological promenade. Stage its directory
+          // views just inside each threshold so the visitor sees the room unfold
+          // in the same direction as the authored route. Forum views prioritize
+          // the first primary installation so partitions never become the room's
+          // accidental focal point.
+          pose: firstPrimary?.viewpoint
+            ?? (hall.id === MEDITERRANEAN_GALLERY_ID || hall.id === RENAISSANCE_GALLERY_ID
+              ? {x: 0, z: cell.bounds.minZ + .8, yaw: Math.PI, pitch: -.01}
+              : {x: Math.max(cell.bounds.minX + 2.8, Math.min(cell.bounds.maxX - 2.8, 0)), z: (cell.bounds.minZ + cell.bounds.maxZ) / 2, yaw: Math.PI, pitch: 0}),
+          expectedVisibleExhibitIds: cell.exhibitIds,
+        };
+      }),
       wallColliders,
       furnishings,
       obstacleColliders,
@@ -1098,7 +1192,7 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
       primaryCirculation: {
         id: `${hall.id}:primary-circulation`,
         points: isForum
-          ? [{x: 0, z: -12}, {x: 0, z: -3.2}, {x: 0, z: 3.2}, {x: 0, z: 12}]
+          ? [{x: .6, z: -12}, {x: .6, z: -3.2}, {x: .6, z: 3.2}, {x: .6, z: 12}]
           : [{x: 0, z: -26}, {x: 0, z: 0}, {x: 0, z: 26}],
         clearanceRadius: 1.25,
       },

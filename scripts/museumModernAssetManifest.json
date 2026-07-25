@@ -2823,6 +2823,173 @@
         "bytes": 457236,
         "sha256": "3c42079c7420a49f7a3ac5a36da782e7c09b80c7245448dd23ab5dcf5cf9609c"
       }
+    },
+    "metaphysics-reality-layers-interpretive": {
+      "hallFolder": "core-questions-forum",
+      "sourceKind": "owner-approved-original-illustration",
+      "sourcePageUrl": "https://github.com/Da3dalusCode/philosophy-museum/blob/main/public/assets/museum/core-questions-forum/metaphysics-reality-layers-interpretive-panel.webp",
+      "sourceImageUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/main/public/assets/museum/core-questions-forum/metaphysics-reality-layers-interpretive-panel.webp",
+      "selectedThumbnailUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/main/public/assets/museum/core-questions-forum/metaphysics-reality-layers-interpretive-panel.webp",
+      "scene": {
+        "width": 320,
+        "height": 480,
+        "bytes": 19670,
+        "sha256": "7767858619a00750a469b9a8445527da80935ea76ad6ed5716099946fe7f76cb"
+      },
+      "panel": {
+        "width": 853,
+        "height": 1280,
+        "bytes": 243624,
+        "sha256": "0aba6ae7732d91331dc4226364a4ec9c5e0e11633bc9d8c33be993640651760f"
+      }
+    },
+    "ontology-being-process-interpretive": {
+      "hallFolder": "core-questions-forum",
+      "sourceKind": "owner-approved-original-illustration",
+      "sourcePageUrl": "https://github.com/Da3dalusCode/philosophy-museum/blob/main/public/assets/museum/core-questions-forum/ontology-being-process-interpretive-panel.webp",
+      "sourceImageUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/main/public/assets/museum/core-questions-forum/ontology-being-process-interpretive-panel.webp",
+      "selectedThumbnailUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/main/public/assets/museum/core-questions-forum/ontology-being-process-interpretive-panel.webp",
+      "scene": {
+        "width": 320,
+        "height": 480,
+        "bytes": 20306,
+        "sha256": "d5ca289c562beda71c97d32dd16c37386a7e761ff345f9c0bb761d96ba488d31"
+      },
+      "panel": {
+        "width": 853,
+        "height": 1280,
+        "bytes": 269056,
+        "sha256": "b95cb6b8eec3ddda428396f01f0ba5d1471bdc507256ccd9e882a92d54d7ad3b"
+      }
+    },
+    "epistemology-evidence-lens-interpretive": {
+      "hallFolder": "core-questions-forum",
+      "sourceKind": "owner-approved-original-illustration",
+      "sourcePageUrl": "https://github.com/Da3dalusCode/philosophy-museum/blob/main/public/assets/museum/core-questions-forum/epistemology-evidence-lens-interpretive-panel.webp",
+      "sourceImageUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/main/public/assets/museum/core-questions-forum/epistemology-evidence-lens-interpretive-panel.webp",
+      "selectedThumbnailUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/main/public/assets/museum/core-questions-forum/epistemology-evidence-lens-interpretive-panel.webp",
+      "scene": {
+        "width": 320,
+        "height": 480,
+        "bytes": 25100,
+        "sha256": "3ffa9a2d61c4926328b6aaf0a2ba69af79606a1d25d444e8f050a6eb92c4e47e"
+      },
+      "panel": {
+        "width": 853,
+        "height": 1280,
+        "bytes": 262060,
+        "sha256": "ca6f855a4c290d736d2a96dbcff3d2237b6becfadc4e8bd4c7f0ec895ba62d35"
+      }
+    },
+    "philosophy-mind-subjective-objective-interpretive": {
+      "hallFolder": "core-questions-forum",
+      "sourceKind": "owner-approved-original-illustration",
+      "sourcePageUrl": "https://github.com/Da3dalusCode/philosophy-museum/blob/main/public/assets/museum/core-questions-forum/philosophy-mind-subjective-objective-interpretive-panel.webp",
+      "sourceImageUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/main/public/assets/museum/core-questions-forum/philosophy-mind-subjective-objective-interpretive-panel.webp",
+      "selectedThumbnailUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/main/public/assets/museum/core-questions-forum/philosophy-mind-subjective-objective-interpretive-panel.webp",
+      "scene": {
+        "width": 320,
+        "height": 480,
+        "bytes": 37982,
+        "sha256": "df5774ac65f2b45e8f6db19e603ba96659262562570aaa0e5349a0505f4a74a9"
+      },
+      "panel": {
+        "width": 853,
+        "height": 1280,
+        "bytes": 346092,
+        "sha256": "cc7bff2c10feb37aedebf613fd7e54e7a1e0dbdb89591e5a11ebcb75fd58de30"
+      }
+    },
+    "logic-hamilton-euler-diagrams-1874": {
+      "hallFolder": "core-questions-forum",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Hamilton_Lectures_on_Logic_1874_Euler_Diagrams.png",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/aa/Hamilton_Lectures_on_Logic_1874_Euler_Diagrams.png",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Hamilton_Lectures_on_Logic_1874_Euler_Diagrams.png/1280px-Hamilton_Lectures_on_Logic_1874_Euler_Diagrams.png",
+      "scene": {
+        "width": 418,
+        "height": 480,
+        "bytes": 29662,
+        "sha256": "c9b621f75c8e190ee454ef809e9923bd6803f268f8e26ea4e2e07d79e5c9150f"
+      },
+      "panel": {
+        "width": 1116,
+        "height": 1280,
+        "bytes": 109406,
+        "sha256": "b0133cabafc034ad137029df2b530e4aa5af2ff13aec88d4b2397a736a3b09e7"
+      }
+    },
+    "language-rosetta-stone-1922": {
+      "hallFolder": "core-questions-forum",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:The_Rosetta_Stone.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/33/The_Rosetta_Stone.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/The_Rosetta_Stone.jpg/1280px-The_Rosetta_Stone.jpg",
+      "scene": {
+        "width": 393,
+        "height": 480,
+        "bytes": 71700,
+        "sha256": "862a3cb1b0a81377eb03112e980b829717cee2906451073780b49bee1c0ac450"
+      },
+      "panel": {
+        "width": 1048,
+        "height": 1280,
+        "bytes": 597702,
+        "sha256": "a0fa1c9e874154c6dcea78fb06758412f362c9016f5a27fb8ce9c5d10ee3b849"
+      }
+    },
+    "science-air-pump-wright-1768": {
+      "hallFolder": "core-questions-forum",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:An_Experiment_on_a_Bird_in_an_Air_Pump_by_Joseph_Wright_of_Derby,_1768.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/22/An_Experiment_on_a_Bird_in_an_Air_Pump_by_Joseph_Wright_of_Derby%2C_1768.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/An_Experiment_on_a_Bird_in_an_Air_Pump_by_Joseph_Wright_of_Derby%2C_1768.jpg/1280px-An_Experiment_on_a_Bird_in_an_Air_Pump_by_Joseph_Wright_of_Derby%2C_1768.jpg",
+      "scene": {
+        "width": 480,
+        "height": 360,
+        "bytes": 17500,
+        "sha256": "7de9f9d3e2fc7869fb9e112c88dff73aef6a2dac2c398677b29ca9343cf3ce6a"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 959,
+        "bytes": 157816,
+        "sha256": "aba2938ec62034d553124718cf9ba4095c68d8ad27c69157092f8cecf2055e7c"
+      }
+    },
+    "aesthetics-hokusai-great-wave": {
+      "hallFolder": "core-questions-forum",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:The_Great_Wave_off_Kanagawa.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0a/The_Great_Wave_off_Kanagawa.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/The_Great_Wave_off_Kanagawa.jpg/1280px-The_Great_Wave_off_Kanagawa.jpg",
+      "scene": {
+        "width": 480,
+        "height": 331,
+        "bytes": 44364,
+        "sha256": "445e0bb75de41340c0670c9cf06e78d275905fdb86f4dd79b18b4dfa47da52a1"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 883,
+        "bytes": 406082,
+        "sha256": "1a260039276fc7d7604248621d3522c64c22a023d66ff94f7db42cda2a0b6bab"
+      }
+    },
+    "philosophy-religion-plural-inquiry-interpretive": {
+      "hallFolder": "core-questions-forum",
+      "sourceKind": "owner-approved-original-illustration",
+      "sourcePageUrl": "https://github.com/Da3dalusCode/philosophy-museum/blob/main/public/assets/museum/core-questions-forum/philosophy-religion-plural-inquiry-interpretive-panel.webp",
+      "sourceImageUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/main/public/assets/museum/core-questions-forum/philosophy-religion-plural-inquiry-interpretive-panel.webp",
+      "selectedThumbnailUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/main/public/assets/museum/core-questions-forum/philosophy-religion-plural-inquiry-interpretive-panel.webp",
+      "scene": {
+        "width": 320,
+        "height": 480,
+        "bytes": 27492,
+        "sha256": "e48031b02ea3dd40b13656578cd101771ede8dc45ef58550eacf1293debe9622"
+      },
+      "panel": {
+        "width": 853,
+        "height": 1280,
+        "bytes": 262302,
+        "sha256": "e78896f403896248cadd6cb4f69e21f462dce74cb83420a25159652b907c7e86"
+      }
     }
   }
 }

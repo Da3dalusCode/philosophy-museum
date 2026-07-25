@@ -108,6 +108,15 @@ const NEW_CANONICAL_ASSET_IDS = [
   'ada-signing-1990',
   'amartya-sen-pmo-2005',
   'glarus-landsgemeinde-2009',
+  'metaphysics-reality-layers-interpretive',
+  'ontology-being-process-interpretive',
+  'epistemology-evidence-lens-interpretive',
+  'philosophy-mind-subjective-objective-interpretive',
+  'logic-hamilton-euler-diagrams-1874',
+  'language-rosetta-stone-1922',
+  'science-air-pump-wright-1768',
+  'aesthetics-hokusai-great-wave',
+  'philosophy-religion-plural-inquiry-interpretive',
 ];
 const ORIGINAL_INTERPRETIVE_ASSET_IDS = new Set([
   'plato-cave-interpretive-illustration',
@@ -126,7 +135,23 @@ const ORIGINAL_INTERPRETIVE_ASSET_IDS = new Set([
   'rawls-original-position-interpretive',
   'nozick-entitlement-interpretive',
   'nussbaum-capabilities-interpretive',
+  'metaphysics-reality-layers-interpretive',
+  'ontology-being-process-interpretive',
+  'epistemology-evidence-lens-interpretive',
+  'philosophy-mind-subjective-objective-interpretive',
+  'philosophy-religion-plural-inquiry-interpretive',
 ]);
+const FORUM_FIELD_ASSET_IDS = [
+  'metaphysics-reality-layers-interpretive',
+  'ontology-being-process-interpretive',
+  'epistemology-evidence-lens-interpretive',
+  'philosophy-mind-subjective-objective-interpretive',
+  'logic-hamilton-euler-diagrams-1874',
+  'language-rosetta-stone-1922',
+  'science-air-pump-wright-1768',
+  'aesthetics-hokusai-great-wave',
+  'philosophy-religion-plural-inquiry-interpretive',
+];
 const MEDITERRANEAN_ASSET_IDS = [
   'ancient-greek-colonization-map',
   'thales-promptuarii-portrait',
@@ -369,11 +394,42 @@ check('Gallery 05 resolves eighteen unique, relevant, attributed wall images', (
   assert(!galleryReferencedIds.some((id) => /grave|plaque/.test(id)), 'Gallery 05 still routes through a grave or plaque image');
 });
 
-check('the preserved asset registry contains 194 unique records and derivative paths', () => {
-  assert.equal(MUSEUM_ASSETS.length, 194);
-  assert.equal(assetById.size, 194);
+check('Gallery 06 gives every primary a unique relevant image and every field anchor a dedicated visual', () => {
+  const hall = MUSEUM_HALLS.find(({id}) => id === 'core-questions-forum');
+  assert(hall, 'Gallery 06 is absent from the canonical program');
+  assert.equal(hall.exhibits.length, 15);
+  const principalIds = hall.exhibits.map(({principalAssetId}) => principalAssetId).filter(Boolean);
+  assert.equal(principalIds.length, 15, 'Every Gallery 06 primary must have a principal image');
+  assert.equal(new Set(principalIds).size, 15, 'Gallery 06 repeats a principal image');
+  assert.deepEqual(
+    hall.exhibits.filter(({entityKind}) => entityKind === 'branch').map(({principalAssetId}) => principalAssetId),
+    FORUM_FIELD_ASSET_IDS,
+    'Gallery 06 field anchors drifted from their dedicated visual program',
+  );
+  for (const id of principalIds) {
+    const asset = assetById.get(id);
+    assert(asset, `Gallery 06 references missing asset ${id}`);
+    assert(asset.attribution.trim().length >= 16, `${id} lacks useful attribution`);
+    assert(asset.historicalNote.trim().length >= 40, `${id} lacks an interpretive caveat`);
+  }
+  assert.equal(
+    new Set(principalIds.map((id) => assetById.get(id).sourcePageUrl)).size,
+    15,
+    'Gallery 06 repeats an exact source image page',
+  );
+  assert.equal(
+    new Set(principalIds.map((id) => sha256(exactCasePath(assetById.get(id).variants.panel.path)))).size,
+    15,
+    'Gallery 06 repeats identical principal panel bytes',
+  );
+  assert(!principalIds.some((id) => /grave|plaque/.test(id)), 'Gallery 06 routes a primary through a grave or plaque image');
+});
+
+check('the preserved asset registry contains 203 unique records and derivative paths', () => {
+  assert.equal(MUSEUM_ASSETS.length, 203);
+  assert.equal(assetById.size, 203);
   const variantPaths = MUSEUM_ASSETS.flatMap(({variants}) => [variants.scene.path, variants.panel.path]);
-  assert.equal(variantPaths.length, 388);
+  assert.equal(variantPaths.length, 406);
   assert(unique(variantPaths), 'two asset variants share a derivative path');
   for (const id of NEW_CANONICAL_ASSET_IDS) assert(assetById.has(id), `new canonical asset ${id} is missing`);
   for (const id of MEDITERRANEAN_ASSET_IDS) assert(assetById.has(id), `Gallery 01 asset ${id} is missing`);
@@ -469,14 +525,14 @@ check('every registered variant is exact-case local WebP media with locked dimen
   }
 });
 
-check('the 156-file-source preparation manifest locks every post-Ancient asset uniformly', () => {
+check('the 165-file-source preparation manifest locks every post-Ancient asset uniformly', () => {
   assert.equal(modernManifest.version, 1);
-  assert.equal(Object.keys(manifestAssets).length, 156);
+  assert.equal(Object.keys(manifestAssets).length, 165);
   const managedAssets = MUSEUM_ASSETS.filter(({variants}) => !variants.scene.path.startsWith('assets/museum/ancient-greek/'));
-  assert.equal(managedAssets.length, 156);
+  assert.equal(managedAssets.length, 165);
   assert.deepEqual(Object.keys(manifestAssets).sort(), managedAssets.map(({id}) => id).sort());
   assert.match(preparationSource, /MANIFEST_PATH = ROOT \/ "scripts" \/ "museumModernAssetManifest\.json"/);
-  assert.match(preparationSource, /EXPECTED_ASSET_COUNT = 156/);
+  assert.match(preparationSource, /EXPECTED_ASSET_COUNT = 165/);
   for (const folder of MANAGED_HALL_FOLDERS) assert(preparationSource.includes(`"${folder}"`), `preparation pipeline omits ${folder}`);
   assert.match(preparationSource, /record\["selectedThumbnailUrl"\]/);
   assert.match(preparationSource, /assert_locked\(slug, "scene"/);
@@ -516,7 +572,7 @@ check('the 156-file-source preparation manifest locks every post-Ancient asset u
   }
   assert.deepEqual(Object.fromEntries([...countsByFolder].sort()), {
     'analytic-traditions': 25,
-    'core-questions-forum': 3,
+    'core-questions-forum': 12,
     'ethics-justice-political-life': 16,
     'justice-democratic-reason': 12,
     'logic-language-science': 16,
@@ -528,7 +584,7 @@ check('the 156-file-source preparation manifest locks every post-Ancient asset u
   }, 'preparation lock folder inventory changed');
 });
 
-check('all 312 managed derivatives match exact dimensions, bytes, and SHA-256 locks', () => {
+check('all 330 managed derivatives match exact dimensions, bytes, and SHA-256 locks', () => {
   for (const [id, lock] of Object.entries(manifestAssets)) {
     const asset = assetById.get(id);
     assert(asset, `${id} lock has no asset record`);
@@ -589,7 +645,7 @@ check('the 22-source Gallery 01 lock reproduces all curated Mediterranean media'
   }
 });
 
-check('the committed Museum inventory contains exactly the 388 registered derivatives', () => {
+check('the committed Museum inventory contains exactly the 406 registered derivatives', () => {
   const actual = walkFiles(museumMediaRoot).map(toPublicPath).sort();
   const expected = MUSEUM_ASSETS.flatMap(({variants}) => [variants.scene.path, variants.panel.path]).sort();
   assert.deepEqual(actual, expected);

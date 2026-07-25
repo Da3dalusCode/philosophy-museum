@@ -229,12 +229,15 @@ export function CanonicalMuseumExhibits({definition, nearbyId, visibleExhibitIds
   const supplementalLayouts = definition.layout.supplementalExhibits ?? [];
   const largestSupplementalWidth = Math.max(0, ...supplementalLayouts.map(({footprint}) => footprint.width));
   const largestSupplementalHeight = Math.max(0, ...supplementalLayouts.map(({footprint}) => footprint.height));
-  const primaryEmphasis = definition.id !== MEDITERRANEAN_GALLERY_ID
-    && definition.id !== RENAISSANCE_GALLERY_ID
-    && supplementalLayouts.length > 0
-    && definition.layout.exhibits.every(({scene}) =>
-      scene.footprint.width >= largestSupplementalWidth - .001
-      && scene.footprint.height >= largestSupplementalHeight - .001);
+  const primaryEmphasis = definition.id === 'core-questions-forum'
+    || (
+      definition.id !== MEDITERRANEAN_GALLERY_ID
+      && definition.id !== RENAISSANCE_GALLERY_ID
+      && supplementalLayouts.length > 0
+      && definition.layout.exhibits.every(({scene}) =>
+        scene.footprint.width >= largestSupplementalWidth - .001
+        && scene.footprint.height >= largestSupplementalHeight - .001)
+    );
   return <group>{definition.layout.exhibits
     .filter(({id}) => !visibleExhibitIds || visibleExhibitIds.includes(id))
     .map((layout) => {

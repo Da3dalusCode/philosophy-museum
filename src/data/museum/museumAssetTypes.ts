@@ -194,7 +194,16 @@ export type MuseumAssetId =
   | 'nussbaum-capabilities-interpretive'
   | 'ada-signing-1990'
   | 'amartya-sen-pmo-2005'
-  | 'glarus-landsgemeinde-2009';
+  | 'glarus-landsgemeinde-2009'
+  | 'metaphysics-reality-layers-interpretive'
+  | 'ontology-being-process-interpretive'
+  | 'epistemology-evidence-lens-interpretive'
+  | 'philosophy-mind-subjective-objective-interpretive'
+  | 'logic-hamilton-euler-diagrams-1874'
+  | 'language-rosetta-stone-1922'
+  | 'science-air-pump-wright-1768'
+  | 'aesthetics-hokusai-great-wave'
+  | 'philosophy-religion-plural-inquiry-interpretive';
 
 export type MuseumAssetRole =
   | 'identity'
