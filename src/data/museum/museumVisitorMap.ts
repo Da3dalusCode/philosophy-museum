@@ -24,7 +24,7 @@ export type MuseumVisitorMapNode = {
   destination: MuseumVisitorMapDestination;
 };
 
-/** The six public fast-travel destinations, derived from the live building registry. */
+/** The public fast-travel destinations, derived from the live building registry. */
 export const MUSEUM_VISITOR_MAP_NODES = MUSEUM_WORLD_DEFINITIONS.map(({id, physicalNodeId}) => ({
   hallId: id,
   physicalNodeId,

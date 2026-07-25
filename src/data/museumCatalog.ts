@@ -423,7 +423,7 @@ export const MUSEUM_HALLS = MUSEUM_CANONICAL_PROGRAM.map((hall, index) => {
   return {
     id: hall.id,
     title: hall.title,
-    galleryNumber: hall.id === 'core-questions-forum' ? 'Forum' : `Gallery ${String(index + 1).padStart(2, '0')}`,
+    galleryNumber: `Gallery ${String(index + 1).padStart(2, '0')}`,
     period: hall.period,
     description: hall.description,
     sweep: hall.rooms.map(({title}) => title),

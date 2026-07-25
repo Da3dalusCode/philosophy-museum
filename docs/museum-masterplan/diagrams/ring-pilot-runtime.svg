@@ -137,7 +137,7 @@
     <text class="label label-hall" x="40" y="-126"><tspan x="40" dy="-.25em">Gallery 03</tspan><tspan class="label-detail" x="40" dy="1.25em">Phenomenology</tspan></text>
     <text class="label label-hall" x="88" y="-94"><tspan x="88" dy="-.25em">Gallery 04</tspan><tspan class="label-detail" x="88" dy="1.25em">Analytic Traditions: Logic</tspan></text>
     <text class="label label-hall" x="101" y="-28"><tspan x="101" dy="-.25em">Gallery 05</tspan><tspan class="label-detail" x="101" dy="1.25em">Political Action</tspan></text>
-    <text class="label label-hall" x="40" y="-55"><tspan x="40" dy="-.25em">Forum</tspan><tspan class="label-detail" x="40" dy="1.25em">Core Questions Forum</tspan></text>
+    <text class="label label-hall" x="40" y="-55"><tspan x="40" dy="-.25em">Gallery 06</tspan><tspan class="label-detail" x="40" dy="1.25em">Core Questions Forum</tspan></text>
     <text class="label label-hall" x="-42" y="-28"><tspan x="-42" dy="-.25em">Gallery 07</tspan><tspan class="label-detail" x="-42" dy="1.25em">Classical South Asia: Jain</tspan></text>
     <text class="label label-entrance" x="0" y="19.5"><tspan x="0" dy="-.25em">Entrance and orientation court</tspan></text></g>
   <g aria-label="Main entrance"><line class="entrance-line" x1="0" y1="27" x2="0" y2="24.6"/><circle class="entrance-dot" cx="0" cy="27" r="1.4"/><text class="marker-label" x="0" y="31.5" text-anchor="middle">MAIN ENTRANCE</text></g>

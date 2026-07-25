@@ -112,6 +112,19 @@ export const projectMuseumVisitorMapPoint = (
   return node ? projectLocalPoint(point, node.worldTransform) : undefined;
 };
 
+/**
+ * Converts a node-local camera yaw into the clockwise SVG rotation of a
+ * north-up marker whose unrotated point faces the top of the map.
+ */
+export const projectMuseumVisitorMapHeading = (
+  nodeId: MuseumPhysicalNodeId,
+  yaw: number,
+): number | undefined => {
+  const node = getMuseumRuntimeNode(nodeId);
+  if (!node || !Number.isFinite(yaw)) return undefined;
+  return (yaw + node.worldTransform.yaw + Math.PI) * 180 / Math.PI;
+};
+
 const midpoint = (
   first: MuseumVisitorMapPoint,
   second: MuseumVisitorMapPoint,

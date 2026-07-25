@@ -210,7 +210,7 @@ const EXPECTED_MAP_LABELS = {
   'phenomenology-existence-embodiment': 'Gallery 03 · Phenomenology, Existence, and Embodiment',
   'analytic-traditions': 'Gallery 04 · Analytic Traditions: Logic, Language, and Analysis',
   'justice-democratic-reason': 'Gallery 05 · Political Action, Justice, and Democratic Reason',
-  'core-questions-forum': 'Forum · Core Questions Forum',
+  'core-questions-forum': 'Gallery 06 · Core Questions Forum',
   'classical-south-asian-worlds': 'Gallery 07 · Classical South Asia: Jain, Yoga, and Brahmanical Systems',
 };
 const TIER_RUNTIME = {
@@ -1764,8 +1764,10 @@ check('the React implementation uses one persistent Canvas, one shared canonical
   assert.match(canonicalExhibitsSource, /usePlaqueTexture/);
   assert.match(architectureSource, /museumTextureDimensionsForPlane/);
   assert.match(architectureSource, /<mesh position=\{\[0, 0, \.002\]\}><planeGeometry/);
-  assert.match(visitorMapSource, /This main-level plan shows/);
-  assert.match(visitorMapSource, /Fast travel returns you to the selected gallery entrance/);
+  assert.match(visitorMapSource, /The live main-level plan shows/);
+  assert.match(visitorMapSource, /26-gallery collection plan/);
+  assert.match(visitorMapSource, /projectMuseumVisitorMapHeading/);
+  assert.match(visitorMapSource, /Returns you to the gallery entrance/);
   assert.doesNotMatch(visitorMapSource, /Permanent construction stage|registered hall’s authored safe spawn/);
   assert.match(visitorMapSource, /MUSEUM_VISITOR_MAP_RESERVATIONS/);
   assert.match(compatibilitySource, /is not currently installed/);

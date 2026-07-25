@@ -66,7 +66,7 @@ const useVisitorMapScreenTexture = (): CanvasTexture => {
     context.fillText('Main-level plan', 62, 132);
     context.fillStyle = '#b8b2a8';
     context.font = '500 21px system-ui, sans-serif';
-    context.fillText('Six open galleries · walking routes and fast travel', 64, 168);
+    context.fillText('Seven open galleries · walking routes and fast travel', 64, 168);
 
     const mapArea = {x: 48, y: 194, width: 700, height: 646};
     const viewBox = MUSEUM_VISITOR_MAP_VIEWBOX;
