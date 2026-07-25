@@ -526,6 +526,31 @@ const CANONICAL_DIRECT_INTERPRETATION_SOURCES: Readonly<Record<string, readonly 
     academicSource('Internet Encyclopedia of Philosophy — Alfred North Whitehead', 'https://iep.utm.edu/whitehead/'),
     primarySource('Alfred North Whitehead, The Concept of Nature — 1920 first-edition scan', 'https://archive.org/details/cu31924012068593'),
   ],
+  mahavira: [
+    academicSource('Stanford Encyclopedia of Philosophy — Jaina Philosophy', 'https://plato.stanford.edu/entries/jaina-philosophy/'),
+    academicSource('Internet Encyclopedia of Philosophy — Jain Philosophy', 'https://iep.utm.edu/jain/'),
+    academicSource('Stanford Encyclopedia of Philosophy — Personhood in Classical Indian Philosophy', 'https://plato.stanford.edu/entries/personhood-india/'),
+  ],
+  kanada: [
+    academicSource('Internet Encyclopedia of Philosophy — Substance', 'https://iep.utm.edu/substance/'),
+    academicSource('Stanford Encyclopedia of Philosophy — Dualism', 'https://plato.stanford.edu/entries/dualism/'),
+    academicSource('Internet Encyclopedia of Philosophy — Hindu Philosophy', 'https://iep.utm.edu/hindu-ph/'),
+  ],
+  shankara: [
+    academicSource('Stanford Encyclopedia of Philosophy — Śaṅkara', 'https://plato.stanford.edu/entries/shankara/'),
+    academicSource('Internet Encyclopedia of Philosophy — Advaita Vedānta', 'https://iep.utm.edu/advaita-vedanta/'),
+    academicSource('Stanford Encyclopedia of Philosophy — God and Other Ultimates', 'https://plato.stanford.edu/entries/god-ultimates/'),
+  ],
+  ramanuja: [
+    academicSource('Internet Encyclopedia of Philosophy — Rāmānuja', 'https://iep.utm.edu/ramanuja/'),
+    academicSource('Stanford Encyclopedia of Philosophy — God and Other Ultimates', 'https://plato.stanford.edu/entries/god-ultimates/'),
+    academicSource('Stanford Encyclopedia of Philosophy — Concepts of God', 'https://plato.stanford.edu/entries/concepts-god/'),
+  ],
+  madhva: [
+    academicSource('Internet Encyclopedia of Philosophy — Madhva', 'https://iep.utm.edu/madhva/'),
+    academicSource('Stanford Encyclopedia of Philosophy — God and Other Ultimates', 'https://plato.stanford.edu/entries/god-ultimates/'),
+    academicSource('Stanford Encyclopedia of Philosophy — Concepts of God', 'https://plato.stanford.edu/entries/concepts-god/'),
+  ],
   epistemology: [
     academicSource('Stanford Encyclopedia of Philosophy — Epistemology', 'https://plato.stanford.edu/entries/epistemology/'),
     academicSource('Stanford Encyclopedia of Philosophy — Skepticism', 'https://plato.stanford.edu/entries/skepticism/'),
@@ -539,6 +564,32 @@ const CANONICAL_DIRECT_INTERPRETATION_SOURCES: Readonly<Record<string, readonly 
     academicSource('Internet Encyclopedia of Philosophy — Philosophy of Religion', 'https://iep.utm.edu/religion/'),
     primarySource('David Hume, Dialogues Concerning Natural Religion — Project Gutenberg', 'https://www.gutenberg.org/ebooks/4583'),
   ],
+};
+
+const GALLERY_07_PHILOSOPHER_ENRICHMENT: Readonly<Record<string, {
+  readonly lead: string;
+  readonly historicalFrame: string;
+}>> = {
+  mahavira: {
+    lead: 'The display separates Mahāvīra’s role as the twenty-fourth Jina of the present Jain cosmic cycle from a modern founder story. It follows how nonviolence, restraint, karma understood as a form of bondage, and the liberation of living selves belong to a demanding path of practice as well as to arguments about reality and knowledge.',
+    historicalFrame: 'Jain traditions preserve Mahāvīra through layered canonical, commentarial, ritual, and narrative transmission. The traditional 599–527 BCE chronology remains disputed, so the gallery treats the dates as orientation rather than documentary precision and does not collapse later doctrines of many-sidedness into a single lifetime utterance.',
+  },
+  kanada: {
+    lead: 'Kaṇāda is the traditional authority associated with the Vaiśeṣika Sūtra, but neither a secure biography nor a simple one-author origin story survives. The installation therefore leads with the system’s work: classifying substances, qualities, motions, universals, particularity, and inherence while asking how composite things and observable change can arise from enduring categories and imperceptible atoms.',
+    historicalFrame: 'Vaiśeṣika changed through commentary and increasing exchange with Nyāya, so its categories cannot be frozen at one date or reduced to a modern physics analogy. “Atomism” names a historically specific metaphysical account whose atoms, dyads, causation, and epistemic setting must be read within Sanskrit scholastic debate.',
+  },
+  shankara: {
+    lead: 'Śaṅkara’s Advaita joins a radical claim about nonduality to disciplined interpretation of the Upaniṣads, Bhagavad Gītā, and Brahma Sūtra. The exhibit distinguishes brahman as foundational reality, ātman as pure consciousness, and liberating knowledge from the careless slogan that the everyday world is simply nonexistent. Teaching, language, and inquiry remain necessary even when their goal exceeds ordinary subject-object knowledge.',
+    historicalFrame: 'Secure biographical evidence is thin, conventional dates remain debated, and later conquest biographies cannot be read as contemporary reports. The strongest historical footing lies in works judged authentic and in the commentarial arguments through which Śaṅkara’s Advaita was received, criticized, and internally developed.',
+  },
+  ramanuja: {
+    lead: 'Rāmānuja’s Viśiṣṭādvaita interprets nonduality as a qualified whole rather than the erasure of plurality. Individual selves and the world are real, distinct, and wholly dependent on Brahman, often explained through the relation of body to soul. Devotion is not decorative emotion here: it is bound to knowledge, practice, divine grace, and a sustained critique of rival Vedānta readings.',
+    historicalFrame: 'The Śrī Bhāṣya and Vedārthasaṅgraha anchor the philosophical case, while later biography and community memory illuminate a South Indian Śrī Vaiṣṇava setting without functioning as neutral documentation. The display keeps Sanskrit commentary, Tamil devotional inheritance, temple practice, and scholastic disagreement visible as related but nonidentical sources.',
+  },
+  madhva: {
+    lead: 'Madhva’s Dvaita rejects any final identity between individual self and Brahman. God, souls, and matter are real, and dependence does not cancel difference; it makes divine sovereignty and devotional relation intelligible. The exhibit treats his “five differences” as a structured metaphysical position and places it beside Advaita and Viśiṣṭādvaita as an argument among Vedānta interpreters, not a linear progression.',
+    historicalFrame: 'Madhva’s commentaries, independent treatises, later school literature, and institutional memory at Udupi belong to different evidentiary layers. Conventional dates orient the visitor, while claims about miraculous biography or a single unchanged Dvaita doctrine require the same source caution applied to other long-lived commentarial traditions.',
+  },
 };
 
 const interpretationSources = (
@@ -754,6 +805,7 @@ const philosopherInterpretation = (
   const misunderstandings = record.commonMisunderstandings ?? [];
   const readings = [...(record.beginnerReadingPath ?? []), ...(record.advancedReadingPath ?? [])];
   const substantialSections = substantialMuseumSections(record.id, record.articleSections);
+  const gallery07Enrichment = GALLERY_07_PHILOSOPHER_ENRICHMENT[record.id];
   const chronologyUncertain = record.dateConfidence === 'low'
     || record.dateConfidence === 'legendary'
     || record.dateConfidence === 'pseudonymous';
@@ -782,6 +834,7 @@ const philosopherInterpretation = (
           record.contributionSummary,
           record.beginnerExplanation,
           `The interpretation keeps the pressures of ${record.historicalContext} in view while directing visitors toward arguments, surviving evidence, criticism, and routes beyond this room.`,
+          gallery07Enrichment?.lead,
         ]),
     biography: {
       born: chronologyUncertain
@@ -803,7 +856,10 @@ const philosopherInterpretation = (
     sections: substantialSections ?? [
       {
         heading: 'Historical and cultural setting',
-        paragraphs: [paragraph([record.lifeStory, record.extendedBio?.[1], record.historicalContext])],
+        paragraphs: [
+          paragraph([record.lifeStory, record.extendedBio?.[1], record.historicalContext]),
+          ...(gallery07Enrichment ? [gallery07Enrichment.historicalFrame] : []),
+        ],
       },
       {
         heading: 'Problems and arguments',

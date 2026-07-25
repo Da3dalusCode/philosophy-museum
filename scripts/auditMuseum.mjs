@@ -32,6 +32,8 @@ const analyticSupplementalSceneSource = existsSync(resolve(repoRoot, analyticSup
   : undefined;
 const justiceSupplementalDataSource = source('src/data/museum/justiceSupplementalExhibits.ts');
 const justiceSupplementalSceneSource = source('src/components/MuseumGallery/JusticeSupplementalExhibits.tsx');
+const classicalSouthAsianSupplementalDataSource = source('src/data/museum/classicalSouthAsianSupplementalExhibits.ts');
+const classicalSouthAsianSupplementalSceneSource = source('src/components/MuseumGallery/ClassicalSouthAsianSupplementalExhibits.tsx');
 const supplementalPanelSource = source('src/components/MuseumGallery/MuseumSupplementalInterpretationPanel.tsx');
 const interpretationPanelSource = source('src/components/MuseumGallery/MuseumInterpretationPanel.tsx');
 const globalSearchSource = source('src/components/Search/GlobalSearch.tsx');
@@ -66,6 +68,7 @@ const result = await build({
       export * from '/src/data/museum/analyticSupplementalExhibits.ts';
       export * from '/src/data/museum/justiceGalleryCuration.ts';
       export * from '/src/data/museum/justiceSupplementalExhibits.ts';
+      export * from '/src/data/museum/classicalSouthAsianSupplementalExhibits.ts';
       export * from '/src/data/museum/museumSupplementalExhibits.ts';
       export * from '/src/components/MuseumGallery/museumMovement.ts';
       export * from '/src/components/MuseumGallery/museumResidency.ts';
@@ -101,6 +104,8 @@ try {
 const {
   ANALYTIC_SUPPLEMENTAL_EXHIBITS,
   ANALYTIC_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
+  CLASSICAL_SOUTH_ASIAN_SUPPLEMENTAL_EXHIBITS,
+  CLASSICAL_SOUTH_ASIAN_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
   MUSEUM_ASSETS,
   MUSEUM_BUILDING_MANIFEST,
   MUSEUM_CANONICAL_WALL_MATERIAL,
@@ -180,6 +185,7 @@ const HALL_IDS = [
   'analytic-traditions',
   'justice-democratic-reason',
   'core-questions-forum',
+  'classical-south-asian-worlds',
 ];
 const LEGACY_HALL_IDS = [
   'ancient-greek',
@@ -196,6 +202,7 @@ const EXPECTED_COUNTS = {
   'analytic-traditions': {rooms: 5, exhibits: 7, template: 'sequence-3'},
   'justice-democratic-reason': {rooms: 3, exhibits: 5, template: 'sequence-3'},
   'core-questions-forum': {rooms: 9, exhibits: 15, template: 'crossroads-4'},
+  'classical-south-asian-worlds': {rooms: 5, exhibits: 9, template: 'sequence-3'},
 };
 const EXPECTED_MAP_LABELS = {
   'mediterranean-beginnings-classical': 'Gallery 01 · Mediterranean Beginnings & Classical Athens',
@@ -204,6 +211,7 @@ const EXPECTED_MAP_LABELS = {
   'analytic-traditions': 'Gallery 04 · Analytic Traditions: Logic, Language, and Analysis',
   'justice-democratic-reason': 'Gallery 05 · Political Action, Justice, and Democratic Reason',
   'core-questions-forum': 'Forum · Core Questions Forum',
+  'classical-south-asian-worlds': 'Gallery 07 · Classical South Asia: Jain, Yoga, and Brahmanical Systems',
 };
 const TIER_RUNTIME = {
   'anchor-exhibit': {tier: 'anchor', treatment: 'anchor-bay'},
@@ -321,19 +329,19 @@ const wallPlaneFullyCovers = (covering, candidate) => {
     && covering.top >= candidate.top - epsilon;
 };
 
-check('the public catalog is exactly the canonical six-hall, 29-room, 63-exhibit program', () => {
+check('the public catalog is exactly the canonical seven-hall, 34-room, 72-exhibit program', () => {
   assert.deepEqual(MUSEUM_HALLS.map(({id}) => id), HALL_IDS);
-  assert.equal(MUSEUM_HALLS.reduce((sum, hall) => sum + hall.zones.length, 0), 29);
-  assert.equal(MUSEUM_HALLS.reduce((sum, hall) => sum + hall.exhibits.length, 0), 63);
+  assert.equal(MUSEUM_HALLS.reduce((sum, hall) => sum + hall.zones.length, 0), 34);
+  assert.equal(MUSEUM_HALLS.reduce((sum, hall) => sum + hall.exhibits.length, 0), 72);
   assert.deepEqual(MUSEUM_LIVE_PROGRAM_TOTALS.tierCounts, {
-    'anchor-exhibit': 36,
-    'standard-individual-exhibit': 23,
-    'supporting-exhibit': 3,
-    'thematic-cluster-participant': 0,
+    'anchor-exhibit': 40,
+    'standard-individual-exhibit': 26,
+    'supporting-exhibit': 4,
+    'thematic-cluster-participant': 1,
     'gallery-archive-or-study-wall-record': 1,
   });
-  assert.equal(MUSEUM_LIVE_PROGRAM_TOTALS.recordCapacity, 80);
-  assert.equal(MUSEUM_LIVE_PROGRAM_TOTALS.reserveCapacity, 17);
+  assert.equal(MUSEUM_LIVE_PROGRAM_TOTALS.recordCapacity, 94);
+  assert.equal(MUSEUM_LIVE_PROGRAM_TOTALS.reserveCapacity, 22);
   for (const hall of MUSEUM_HALLS) {
     const expected = EXPECTED_COUNTS[hall.id];
     const runtimeNode = MUSEUM_RUNTIME_NODES.find(({publicHallId}) => publicHallId === hall.id);
@@ -458,7 +466,7 @@ check('Gallery 01 has bounded authored curation, visitor-facing orientation, and
 
   const connector = runtimeNodeById.get('corridor:outer-01-mediterranean-renaissance');
   assert(connector, 'The Galleries 01–02 connector is missing');
-  const connectorCellIds = ['outer-01-gallery-entry', 'outer-01-east-run', 'outer-01-central-link', 'outer-01-west-run', 'outer-01-turn'];
+  const connectorCellIds = ['outer-01-gallery-entry', 'outer-01-east-run', 'outer-01-central-link', 'outer-01-west-run', 'outer-01-turn', 'outer-01-south-asian-branch', 'outer-01-south-asian-landing'];
   assert.deepEqual(connector.layout.spatialCells.map(({id}) => id), connectorCellIds.map((id) => `${connector.id}:${id}`), 'The Galleries 01–02 connector cell sequence drifted');
   const cellsShareEdge = (first, second) => {
     const xOverlap = Math.min(first.maxX, second.maxX) - Math.max(first.minX, second.minX);
@@ -484,7 +492,7 @@ check('Gallery 01 has bounded authored curation, visitor-facing orientation, and
   });
 });
 
-check('Plato’s Cave and Republic form a substantial supplemental U without changing the 63-primary program', () => {
+check('Plato’s Cave and Republic form a substantial supplemental U without entering the 72-primary program', () => {
   const definition = definitionById.get(MEDITERRANEAN_GALLERY_ID);
   const hall = hallById.get(MEDITERRANEAN_GALLERY_ID);
   assert(definition && hall);
@@ -497,7 +505,7 @@ check('Plato’s Cave and Republic form a substantial supplemental U without cha
   assert.equal(new Set(supplemental.map(({assetId}) => assetId)).size, 2, 'The Plato works need distinct media');
   assert(!hall.exhibits.some(({id}) => stableIds.includes(id)), 'A supplemental Plato work entered the public primary catalog');
   assert(!definition.layout.guidedOrder.some((id) => stableIds.includes(id)), 'A supplemental Plato work entered the canonical guided order');
-  assert(!MUSEUM_INTERPRETATIONS.some(({id}) => stableIds.includes(id)), 'A supplemental Plato work entered the 63-primary interpretation registry');
+  assert(!MUSEUM_INTERPRETATIONS.some(({id}) => stableIds.includes(id)), 'A supplemental Plato work entered the 72-primary interpretation registry');
 
   assert.deepEqual(MEDITERRANEAN_EXHIBIT_CURATION.platonism.authored, {x: -10.85, z: 18, rotationY: Math.PI / 2}, 'The principal Platonism wall moved');
   assert.deepEqual(MEDITERRANEAN_EXHIBIT_CURATION.plato.authored, {x: -10.85, z: 24, rotationY: Math.PI / 2}, 'The principal Plato wall moved');
@@ -540,7 +548,7 @@ check('Plato’s Cave and Republic form a substantial supplemental U without cha
   }
   assert.match(PLATO_SUPPLEMENTAL_EXHIBITS.find(({id}) => id === 'plato-cave-book-vii').lead, /not merely saying that ordinary reality is an illusion/i);
   assert.match(PLATO_SUPPLEMENTAL_EXHIBITS.find(({id}) => id === 'plato-republic').cautions.join(' '), /hierarchy|censorship|concentrated power|coercive/i);
-  assert.match(platoSupplementalDataSource, /outside the canonical program so the Museum retains 63 truthful primaries/u);
+  assert.match(platoSupplementalDataSource, /outside the canonical program so the Museum retains 72 truthful primaries/u);
   assert.match(canonicalSceneSource, /<PlatoSupplementalExhibits/u, 'Gallery 01 does not mount the two work exhibits');
   assert.match(platoSupplementalSceneSource, /onClick=\{activate\}/u, 'The supplemental installations lack normal mouse activation');
   assert.match(platoSupplementalSceneSource, /interactionForSupplemental/u, 'The supplemental installations lack stable interaction identity');
@@ -551,8 +559,8 @@ check('Plato’s Cave and Republic form a substantial supplemental U without cha
   assert.match(supplementalPanelSource, /event\.key === 'Escape'/u, 'The supplemental panel lacks its keyboard close path');
 });
 
-check('all seventy supplemental exhibits share route, directory, search, guided, and fallback contracts', () => {
-  assert.equal(MUSEUM_SUPPLEMENTAL_EXHIBITS.length, 70);
+check('all seventy-nine supplemental exhibits share route, directory, search, guided, and fallback contracts', () => {
+  assert.equal(MUSEUM_SUPPLEMENTAL_EXHIBITS.length, 79);
   assert.equal(
     new Set(MUSEUM_SUPPLEMENTAL_EXHIBITS.map(({exhibit}) => exhibit.id)).size,
     MUSEUM_SUPPLEMENTAL_EXHIBITS.length,
@@ -982,8 +990,13 @@ check('Gallery 03 onward makes every primary at least as large as its biggest se
 
   assert.deepEqual(
     sorted(enforcedGalleryIds),
-    sorted(['phenomenology-existence-embodiment', 'analytic-traditions', 'justice-democratic-reason']),
-    'Only fully built Galleries 03, 04, and 05 should currently enforce the completed-gallery hierarchy',
+    sorted([
+      'phenomenology-existence-embodiment',
+      'analytic-traditions',
+      'justice-democratic-reason',
+      'classical-south-asian-worlds',
+    ]),
+    'Fully built Galleries 03–05 and 07 should enforce the completed-gallery hierarchy',
   );
   assert(
     canonicalExhibitsSource.includes('primaryEmphasis ? .72 : .42'),
@@ -1141,9 +1154,9 @@ check('the executable template registry retains the approved canonical contracts
   assert(MUSEUM_LEGACY_GEOMETRY_ADAPTERS.length > 0, 'retained prototype data should remain explicitly classified, not silently erased');
 });
 
-check('all six runtime halls are canonical, data-driven, and internally aligned', () => {
+check('all seven runtime halls are canonical, data-driven, and internally aligned', () => {
   assert.deepEqual(definitions.map(({id}) => id), HALL_IDS);
-  assert.equal(new Set(definitions.map(({physicalNodeId}) => physicalNodeId)).size, 6);
+  assert.equal(new Set(definitions.map(({physicalNodeId}) => physicalNodeId)).size, 7);
   for (const definition of definitions) {
     const hall = hallById.get(definition.id);
     const node = MUSEUM_BUILDING_MANIFEST.nodes.find(({publicHallId}) => publicHallId === definition.id);
@@ -1171,6 +1184,7 @@ check('all six runtime halls are canonical, data-driven, and internally aligned'
       'phenomenology-existence-embodiment',
       'analytic-traditions',
       JUSTICE_GALLERY_ID,
+      'classical-south-asian-worlds',
     ].includes(definition.id) ? 1 : 0;
     assert.equal(definition.layout.signs.length, hall.zones.length + 1 + comparativeLensCount - removedPhysicalRoomSigns);
     assert(validPose(definition, definition.layout.spawn), `${definition.id} spawn is unsafe`);
@@ -1440,8 +1454,8 @@ check('the physical visitor map is a truthful projection of live geometry and sa
   assert.deepEqual(MUSEUM_VISITOR_MAP_NODES.map(({hallId}) => hallId), HALL_IDS);
   assert.equal(MUSEUM_VISITOR_MAP_NODE_PROJECTIONS.length, MUSEUM_RUNTIME_NODES.length);
   assert.equal(MUSEUM_VISITOR_MAP_EDGES.length, MUSEUM_BUILDING_MANIFEST.connections.length);
-  assert.equal(MUSEUM_VISITOR_MAP_RESERVATIONS.length, 11);
-  assert.equal(MUSEUM_VISITOR_MAP_RESERVATIONS.filter(({reservationType}) => reservationType === 'insertion').length, 3);
+  assert.equal(MUSEUM_VISITOR_MAP_RESERVATIONS.length, 10);
+  assert.equal(MUSEUM_VISITOR_MAP_RESERVATIONS.filter(({reservationType}) => reservationType === 'insertion').length, 2);
   assert.equal(MUSEUM_VISITOR_MAP_RESERVATIONS.filter(({reservationType}) => reservationType === 'outward-expansion').length, 8);
   assert(MUSEUM_VISITOR_MAP_RESERVATIONS.every(({targetProgramHallId}) => !targetProgramHallId || !HALL_IDS.includes(targetProgramHallId)));
   assert(MUSEUM_VISITOR_MAP_VIEWBOX.width > 0 && MUSEUM_VISITOR_MAP_VIEWBOX.height > 0);
@@ -1475,7 +1489,7 @@ check('the physical visitor map is a truthful projection of live geometry and sa
 check('decoded texture residency admits every active and approached hall under 96 MiB', () => {
   assert.equal(MUSEUM_DECODED_TEXTURE_BUDGET_MIB, 96);
   assert.equal(MUSEUM_DECODED_TEXTURE_BUDGET_BYTES, 96 * 1024 * 1024);
-  assert.equal(buildingManifest.reservations.length, 11, 'persistent reservation-label count changed');
+  assert.equal(buildingManifest.reservations.length, 10, 'persistent reservation-label count changed');
   const expectedBuildingSignBytes = independentDecodedTextureBytes(independentTextureDimensionsForPlane(
     5.6,
     5.6 * .27,
@@ -1495,7 +1509,7 @@ check('decoded texture residency admits every active and approached hall under 9
     if (publicNodeIds.has(connection.a.nodeId)) gateCounts.set(connection.b.nodeId, (gateCounts.get(connection.b.nodeId) ?? 0) + 1);
   }
   const expectedMaximumReadinessGates = Math.max(1, ...gateCounts.values());
-  assert.equal(expectedMaximumReadinessGates, 2, 'the independent physical-node gate count changed');
+  assert.equal(expectedMaximumReadinessGates, 3, 'the independent physical-node gate count changed');
   const expectedPersistentBytes = expectedBuildingSignBytes
     + expectedReservationSignBytes
     + expectedReadinessGateBytes * expectedMaximumReadinessGates;
@@ -1547,9 +1561,9 @@ check('decoded texture residency admits every active and approached hall under 9
   console.log(`  texture residency peak: ${(peak / 1024 / 1024).toFixed(2)} MiB / 96 MiB`);
 });
 
-check('all 63 live exhibits have substantial, sourced, route-aware interpretation', () => {
-  assert.equal(MUSEUM_INTERPRETATIONS.length, 63);
-  assert.equal(new Set(MUSEUM_INTERPRETATIONS.map(({hallId, id}) => `${hallId}/${id}`)).size, 63);
+check('all 72 live exhibits have substantial, sourced, route-aware interpretation', () => {
+  assert.equal(MUSEUM_INTERPRETATIONS.length, 72);
+  assert.equal(new Set(MUSEUM_INTERPRETATIONS.map(({hallId, id}) => `${hallId}/${id}`)).size, 72);
   assert.deepEqual(sorted(MUSEUM_INTERPRETATIONS.map(({hallId, id}) => `${hallId}/${id}`)), sorted(activeRefs));
   for (const interpretation of MUSEUM_INTERPRETATIONS) {
     const hall = hallById.get(interpretation.hallId);
@@ -1590,7 +1604,7 @@ check('all 63 live exhibits have substantial, sourced, route-aware interpretatio
   assert.equal(krishnamurti.roomId, 'core-mind-self');
   assert.equal(krishnamurti.tier, 'standard-individual-exhibit');
   assert(krishnamurti.connections.some(({kind, label}) => kind === 'room-comparison' && /Religion/i.test(label)));
-  assert(krishnamurti.connections.some(({kind, status, label}) => kind === 'secondary-route' && status === 'planned' && /South Asia/i.test(label)));
+  assert(krishnamurti.connections.some(({kind, status, label}) => kind === 'secondary-route' && status === 'open' && /South Asia/i.test(label)));
   assert(krishnamurti.connections.some(({kind, label, relationship}) => kind === 'live-comparison' && /Nagel/i.test(label) && /not a claim of influence/i.test(relationship)));
   assert.deepEqual(Object.keys(krishnamurti.objectInterpretations).sort(), ['jiddu-krishnamurti-bain-portrait', 'jiddu-krishnamurti-besant-1927']);
 });
@@ -1782,4 +1796,4 @@ assert.deepEqual(seamCrossingFailures, [], `collision-resolved seam failures:\n$
 assert.deepEqual(residencyAdmissionFailures, [], `approached-hall residency failures:\n${[...new Set(residencyAdmissionFailures)].join('\n')}`);
 assert.deepEqual(interpretationQualityFailures, [], `interpretation quality failures:\n${interpretationQualityFailures.join('\n')}`);
 
-console.log(`\nMuseum audit passed: ${checks} groups covering ${definitions.length} canonical halls, 29 rooms, 63 exhibits, ${physicalMovementTrajectories} production-frame crossing trajectories over ${MUSEUM_DIRECTED_CONNECTIONS.length} directed crossings and ${MUSEUM_BUILDING_MANIFEST.connections.length} physical seams, ${MUSEUM_INTERPRETATIONS.length} interpretations, and 96 MiB bounded residency.`);
+console.log(`\nMuseum audit passed: ${checks} groups covering ${definitions.length} canonical halls, 34 rooms, 72 exhibits, ${physicalMovementTrajectories} production-frame crossing trajectories over ${MUSEUM_DIRECTED_CONNECTIONS.length} directed crossings and ${MUSEUM_BUILDING_MANIFEST.connections.length} physical seams, ${MUSEUM_INTERPRETATIONS.length} interpretations, and 96 MiB bounded residency.`);

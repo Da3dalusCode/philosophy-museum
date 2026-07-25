@@ -203,7 +203,23 @@ export type MuseumAssetId =
   | 'language-rosetta-stone-1922'
   | 'science-air-pump-wright-1768'
   | 'aesthetics-hokusai-great-wave'
-  | 'philosophy-religion-plural-inquiry-interpretive';
+  | 'philosophy-religion-plural-inquiry-interpretive'
+  | 'south-many-schools-interpretive'
+  | 'jain-lokapurusha-cosmology'
+  | 'mahavira-chandigarh-bust'
+  | 'kanada-vaisesika-sutra-1793'
+  | 'vedanta-telugu-manuscript'
+  | 'shankara-ravi-varma'
+  | 'ramanuja-statue-cc0'
+  | 'madhva-pajaka-vigraha'
+  | 'south-sarva-darsana-1908'
+  | 'south-upanishad-sama-veda-manuscript'
+  | 'mahavira-kalpasutra-birth'
+  | 'kanada-atomic-theory-illustration'
+  | 'vaiseshika-two-pramana'
+  | 'samkhya-yoga-three-pramana'
+  | 'shankara-aitareya-bhasya-1593'
+  | 'madhva-udupi-krishna-matha';
 
 export type MuseumAssetRole =
   | 'identity'

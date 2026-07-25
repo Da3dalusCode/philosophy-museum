@@ -23,6 +23,10 @@ import {
   JUSTICE_SUPPLEMENTAL_EXHIBITS,
   JUSTICE_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
 } from './justiceSupplementalExhibits';
+import {
+  CLASSICAL_SOUTH_ASIAN_SUPPLEMENTAL_EXHIBITS,
+  CLASSICAL_SOUTH_ASIAN_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
+} from './classicalSouthAsianSupplementalExhibits';
 import type {
   MuseumSupplementalExhibitId,
   MuseumSupplementalExhibitLayout,
@@ -69,6 +73,11 @@ const COLLECTIONS = [
     hallId: 'justice-democratic-reason',
     exhibits: JUSTICE_SUPPLEMENTAL_EXHIBITS,
     layouts: JUSTICE_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
+  },
+  {
+    hallId: 'classical-south-asian-worlds',
+    exhibits: CLASSICAL_SOUTH_ASIAN_SUPPLEMENTAL_EXHIBITS,
+    layouts: CLASSICAL_SOUTH_ASIAN_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
   },
 ] as const satisfies readonly MuseumSupplementalCollection[];
 

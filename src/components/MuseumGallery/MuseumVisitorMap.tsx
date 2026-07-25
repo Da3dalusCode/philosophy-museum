@@ -59,7 +59,7 @@ export function MuseumVisitorMap({currentHallId, currentNodeId, currentPose, ret
     insertionCount ? `${insertionCount} future gallery doorway${insertionCount === 1 ? '' : 's'}` : undefined,
     `${outwardCount} future wing doorway${outwardCount === 1 ? '' : 's'}`,
   ].filter(Boolean).join(' and ');
-  const routeSummary = `This main-level plan shows ${halls.length} open galleries and every walkable public route. Five historical galleries form a continuous outer loop through the entrance and south return passage. Open spokes connect that loop to the central Core Questions Forum, and the entrance–Forum shortcut is available. The Forum is a comparison and routing hub that sends visitors outward, not the Museum’s supreme authority or final destination. ${futureDoorwaySummary} remain closed and noninteractive. Fast travel returns visitors to a safe gallery entrance.`;
+  const routeSummary = `This main-level plan shows ${halls.length} open galleries and every walkable public route. Five historical galleries form a continuous outer loop through the entrance and south return passage; Gallery 07 branches from the Galleries 01–02 connector. Open spokes connect the loop to the central Core Questions Forum, and the entrance–Forum shortcut is available. The Forum is a comparison and routing hub that sends visitors outward, not the Museum’s supreme authority or final destination. ${futureDoorwaySummary} remain closed and noninteractive. Fast travel returns visitors to a safe gallery entrance.`;
 
   return <MuseumModal panelClassName="museum-visitor-map-panel" labelledBy={titleId} describedBy={descriptionId} returnFocus={returnFocus} onClose={onClose}>
     <div className="museum-overlay-head museum-visitor-map-head">

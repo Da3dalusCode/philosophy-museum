@@ -1,5 +1,5 @@
 /**
- * The approved live intellectual program for the first six permanent Museum halls.
+ * The approved live intellectual program for the permanent Museum halls.
  *
  * This module deliberately contains curatorial/program data only. Physical transforms,
  * authored geometry, interpretations, and media provenance live in their own contracts.
@@ -22,6 +22,7 @@ export const MUSEUM_CANONICAL_HALL_IDS = [
   'analytic-traditions',
   'justice-democratic-reason',
   'core-questions-forum',
+  'classical-south-asian-worlds',
 ] as const;
 
 export type MuseumCanonicalHallId = (typeof MUSEUM_CANONICAL_HALL_IDS)[number];
@@ -98,6 +99,11 @@ export const MUSEUM_CANONICAL_ROOM_IDS = [
   'core-political-portal',
   'core-aesthetics',
   'core-religion',
+  'south-orientation-many-schools',
+  'south-jain-worlds',
+  'south-categories-realism',
+  'south-yoga-mind-liberation',
+  'south-vedanta-rival-readings',
 ] as const;
 
 export type MuseumCanonicalRoomId = (typeof MUSEUM_CANONICAL_ROOM_IDS)[number];
@@ -107,7 +113,8 @@ export type MuseumCanonicalWingId =
   | 'wing-mediterranean-antiquity'
   | 'wing-early-modern-enlightenment'
   | 'wing-modern-traditions'
-  | 'wing-ethics-politics-society';
+  | 'wing-ethics-politics-society'
+  | 'wing-south-asian-worlds';
 export type MuseumCanonicalEntityKind = 'philosopher' | 'branch';
 
 export type MuseumCanonicalRoomComparison = {
@@ -405,6 +412,36 @@ export const MUSEUM_CANONICAL_PROGRAM = [
       ]},
     ],
   },
+  {
+    id: 'classical-south-asian-worlds',
+    wingId: 'wing-south-asian-worlds',
+    title: 'Classical South Asia: Jain, Yoga, and Brahmanical Systems',
+    templateId: 'sequence-3',
+    period: 'c. 6th century BCE–14th century CE',
+    description: 'Enter a plural field of Jain, Vaiśeṣika, Yoga, and Vedānta arguments about reality, mind, knowledge, discipline, and liberation without treating one system as the voice of all South Asian philosophy.',
+    recordCapacity: 14,
+    rooms: [
+      {id: 'south-orientation-many-schools', title: 'Many schools, shared questions, and missing traditions', recordCapacity: 2, exhibits: [
+        exhibit({id: 'indian-philosophy', entityKind: 'branch', entityId: 'indian-philosophy', displayName: 'Indian Philosophy: Many Schools, Contested Canons', tier: 'supporting-exhibit', question: 'How can a gallery orient visitors across many South Asian traditions without pretending to contain them all?', secondaryHallIds: ['buddhist-philosophies', 'core-questions-forum'], principalAssetId: 'south-many-schools-interpretive'}),
+      ]},
+      {id: 'south-jain-worlds', title: 'Jain worlds: soul, karma, nonviolence, and knowing', recordCapacity: 3, exhibits: [
+        exhibit({id: 'jainism', entityKind: 'branch', entityId: 'jainism', displayName: 'Jain Philosophy', tier: 'anchor-exhibit', question: 'How do living souls become bound by karma, and how can disciplined nonviolence lead toward liberation?', secondaryHallIds: ['buddhist-philosophies', 'moral-life-practical-reason'], principalAssetId: 'jain-lokapurusha-cosmology'}),
+        exhibit({id: 'mahavira', entityKind: 'philosopher', entityId: 'mahavira', displayName: 'Mahāvīra and the Jina Lineage', tier: 'anchor-exhibit', question: 'How did Mahāvīra reform and transmit a path whose lineage Jain traditions place before him?', secondaryHallIds: ['moral-life-practical-reason'], principalAssetId: 'mahavira-chandigarh-bust'}),
+      ]},
+      {id: 'south-categories-realism', title: 'Categories, atoms, and realist debate', recordCapacity: 2, exhibits: [
+        exhibit({id: 'kanada', entityKind: 'philosopher', entityId: 'kanada', displayName: 'Kaṇāda and the Vaiśeṣika Tradition', tier: 'standard-individual-exhibit', question: 'Can categories of substance, quality, motion, and relation explain a world composed from enduring atoms?', secondaryHallIds: ['core-questions-forum'], principalAssetId: 'kanada-vaisesika-sutra-1793'}),
+      ]},
+      {id: 'south-yoga-mind-liberation', title: 'Yoga, mind, discipline, and liberation', recordCapacity: 2, exhibits: [
+        exhibit({id: 'patanjali', entityKind: 'philosopher', entityId: 'patanjali', displayName: 'Patañjali and the Yoga Sūtra Tradition', tier: 'thematic-cluster-participant', question: 'How can disciplined practice still the fluctuations of mind and loosen the causes of suffering?', secondaryHallIds: ['core-questions-forum'], formerHallId: 'mind-consciousness-self', principalAssetId: 'patanjali-statue'}),
+      ]},
+      {id: 'south-vedanta-rival-readings', title: 'Vedānta: rival readings of self, world, and Brahman', recordCapacity: 5, exhibits: [
+        exhibit({id: 'vedanta', entityKind: 'branch', entityId: 'vedanta', displayName: 'Vedānta: Rival Interpretations', tier: 'anchor-exhibit', question: 'How should Upaniṣadic claims about self, world, and Brahman be interpreted—and why do Vedānta schools disagree?', secondaryHallIds: ['buddhist-philosophies', 'core-questions-forum'], principalAssetId: 'vedanta-telugu-manuscript'}),
+        exhibit({id: 'shankara', entityKind: 'philosopher', entityId: 'shankara', displayName: 'Śaṅkara and Advaita Vedānta', tier: 'anchor-exhibit', question: 'How can nondual Brahman be the deepest reality while ordinary plurality remains experientially powerful?', secondaryHallIds: ['core-questions-forum'], principalAssetId: 'shankara-ravi-varma'}),
+        exhibit({id: 'ramanuja', entityKind: 'philosopher', entityId: 'ramanuja', displayName: 'Rāmānuja and Viśiṣṭādvaita', tier: 'standard-individual-exhibit', question: 'How can selves and the world be real modes of a unified Brahman rather than mere appearance?', secondaryHallIds: ['core-questions-forum'], principalAssetId: 'ramanuja-statue-cc0'}),
+        exhibit({id: 'madhva', entityKind: 'philosopher', entityId: 'madhva', displayName: 'Madhva and Dvaita Vedānta', tier: 'standard-individual-exhibit', question: 'What follows if God, individual selves, and matter are irreducibly distinct?', secondaryHallIds: ['core-questions-forum'], principalAssetId: 'madhva-pajaka-vigraha'}),
+      ]},
+    ],
+  },
 ] as const satisfies readonly MuseumCanonicalHall[];
 
 export const MUSEUM_HALL_ROUTE_ALIASES = {
@@ -481,7 +518,6 @@ export const MUSEUM_LEGACY_EXHIBIT_COMPATIBILITY = [
   displaced('ethics-justice-political-life', 'philosopher', 'mill', 'John Stuart Mill', 'utility-liberty-history-capital', 'become-secondary-later'),
   displaced('ethics-justice-political-life', 'philosopher', 'fanon', 'Frantz Fanon', 'colonialism-race-liberation', 'become-secondary-later'),
   displaced('ethics-justice-political-life', 'philosopher', 'habermas', 'Jürgen Habermas', 'critique-power-deconstruction', 'become-secondary-later'),
-  displaced('mind-consciousness-self', 'philosopher', 'patanjali', 'Patañjali', 'classical-south-asian-worlds', 'become-secondary-later'),
   displaced('mind-consciousness-self', 'philosopher', 'vasubandhu', 'Vasubandhu', 'buddhist-philosophies', 'become-secondary-later'),
   displaced('mind-consciousness-self', 'philosopher', 'william-james', 'William James', 'pragmatism-democratic-inquiry', 'become-secondary-later'),
   displaced('mind-consciousness-self', 'philosopher', 'derek-parfit', 'Derek Parfit', 'moral-life-practical-reason', 'become-secondary-later'),

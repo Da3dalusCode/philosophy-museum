@@ -38,9 +38,11 @@ EXPECTED_HALLS = {
     "justice-democratic-reason",
     "phenomenology-existence-embodiment",
     "analytic-traditions",
+    "classical-south-asian-worlds",
 }
-EXPECTED_ASSET_COUNT = 165
+EXPECTED_ASSET_COUNT = 181
 MAX_DERIVATIVE_BYTES = 600_000
+MIN_MUSEUM_SHORT_EDGE = 180
 
 
 def sha256(path: Path) -> str:
@@ -106,9 +108,22 @@ def rgb_image(source: Path) -> Image.Image:
         return image.convert("RGB")
 
 
-def save_variant(image: Image.Image, destination: Path, maximum: int, quality: int) -> dict[str, int | str]:
+def save_variant(
+    image: Image.Image,
+    destination: Path,
+    maximum: int,
+    quality: int,
+    minimum_short_edge: int = 0,
+) -> dict[str, int | str]:
     derivative = image.copy()
     derivative.thumbnail((maximum, maximum), Image.Resampling.LANCZOS)
+    if minimum_short_edge and min(derivative.size) < minimum_short_edge:
+        width = max(derivative.width, minimum_short_edge)
+        height = max(derivative.height, minimum_short_edge)
+        edge_color = derivative.resize((1, 1), Image.Resampling.BOX).getpixel((0, 0))
+        padded = Image.new("RGB", (width, height), edge_color)
+        padded.paste(derivative, ((width - derivative.width) // 2, (height - derivative.height) // 2))
+        derivative = padded
     # Dense manuscripts and documentary photographs compress very differently.
     # Try a fixed, deterministic quality ladder so every committed derivative
     # stays below the repository's 600 KB ceiling without changing its geometry.
@@ -190,7 +205,7 @@ def main() -> None:
             print(f"[{index:02d}/{len(assets)}] {slug}", flush=True)
             download(str(record["selectedThumbnailUrl"]), source)
             image = rgb_image(source)
-            scene_lock = save_variant(image, candidate_scene, 640, 82)
+            scene_lock = save_variant(image, candidate_scene, 640, 82, MIN_MUSEUM_SHORT_EDGE)
             panel_lock = save_variant(image, candidate_panel, 1280, 88)
 
             if args.refresh_locks:

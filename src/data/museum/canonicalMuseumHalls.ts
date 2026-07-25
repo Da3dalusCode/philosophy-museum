@@ -41,6 +41,12 @@ import {
   JUSTICE_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
 } from './justiceSupplementalExhibits';
 import {JUSTICE_PRIMARY_PLACEMENTS} from './justiceGalleryCuration';
+import {
+  CLASSICAL_SOUTH_ASIAN_GALLERY_ID,
+  CLASSICAL_SOUTH_ASIAN_ROOM_SIGN_COPY,
+  CLASSICAL_SOUTH_ASIAN_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
+} from './classicalSouthAsianSupplementalExhibits';
+import {CLASSICAL_SOUTH_ASIAN_PRIMARY_PLACEMENTS} from './classicalSouthAsianGalleryCuration';
 import {MUSEUM_VISITOR_MAP_KIOSK} from './museumVisitorMapKioskDefinition';
 import type {
   MuseumBounds,
@@ -115,7 +121,9 @@ const supplementalLayoutsForHall = (hallId: MuseumPublicHallId): readonly Museum
           ? ANALYTIC_SUPPLEMENTAL_EXHIBIT_LAYOUTS
           : hallId === JUSTICE_GALLERY_ID
             ? JUSTICE_SUPPLEMENTAL_EXHIBIT_LAYOUTS
-          : [];
+            : hallId === CLASSICAL_SOUTH_ASIAN_GALLERY_ID
+              ? CLASSICAL_SOUTH_ASIAN_SUPPLEMENTAL_EXHIBIT_LAYOUTS
+              : [];
 
 const primaryScaleFloorForHall = (
   hall: MuseumCanonicalHall,
@@ -813,6 +821,7 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
     .filter(({id}) => !(hall.id === PHENOMENOLOGY_GALLERY_ID && id === 'E1'))
     .filter(({id}) => !(hall.id === ANALYTIC_GALLERY_ID && id === 'W1'))
     .filter(({id}) => !(hall.id === JUSTICE_GALLERY_ID && (id === 'E1' || id === 'W1')))
+    .filter(({id}) => !(hall.id === CLASSICAL_SOUTH_ASIAN_GALLERY_ID && (id === 'S0' || id === 'E1' || id === 'W1')))
     .map(({landingBounds}) => landingBounds);
   const furnishings = hall.id === MUSEUM_VISITOR_MAP_KIOSK.hallId
     ? [
@@ -848,6 +857,8 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
               ? ANALYTIC_PRIMARY_PLACEMENTS
               : hall.id === JUSTICE_GALLERY_ID
                 ? JUSTICE_PRIMARY_PLACEMENTS
+                : hall.id === CLASSICAL_SOUTH_ASIAN_GALLERY_ID
+                  ? CLASSICAL_SOUTH_ASIAN_PRIMARY_PLACEMENTS
             : undefined,
       hall.id === MEDITERRANEAN_GALLERY_ID
         || hall.id === RENAISSANCE_GALLERY_ID
@@ -895,6 +906,7 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
     || hall.id === PHENOMENOLOGY_GALLERY_ID
     || hall.id === ANALYTIC_GALLERY_ID
     || hall.id === JUSTICE_GALLERY_ID
+    || hall.id === CLASSICAL_SOUTH_ASIAN_GALLERY_ID
   ) {
     const acceptedSupplementalBounds: {spatialCellId: string; bounds: MuseumBounds}[] = [];
     for (const layout of supplementalExhibits) {
@@ -1115,7 +1127,26 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
                   height: .82,
                 };
               })
-      : standardSigns;
+            : hall.id === CLASSICAL_SOUTH_ASIAN_GALLERY_ID
+              ? orderedRooms.map((room) => {
+                  const copy = CLASSICAL_SOUTH_ASIAN_ROOM_SIGN_COPY[
+                    room.id as keyof typeof CLASSICAL_SOUTH_ASIAN_ROOM_SIGN_COPY
+                  ];
+                  if (!copy) throw new Error(`Gallery 07 has no visitor-facing orientation copy for ${room.id}.`);
+                  const bounds = roomBounds.get(room.id)!;
+                  return {
+                    id: `${room.id}:room-sign`,
+                    kind: room.id === 'south-orientation-many-schools' ? 'entrance' as const : 'zone' as const,
+                    title: copy.title,
+                    kicker: copy.kicker,
+                    subtitle: copy.subtitle,
+                    position: {x: 0, y: 4.55, z: bounds.maxZ - .22},
+                    rotationY: Math.PI,
+                    width: room.id === 'south-orientation-many-schools' ? 5.2 : 4.8,
+                    height: .82,
+                  };
+                })
+              : standardSigns;
   const guidedOrder = orderedRooms.flatMap((room) => room.exhibits.map(({id}) => id as MuseumExhibitId));
   const entryRoomIdByEntrance = new Map<string, string>();
   const entryExhibitIdsByEntrance = Object.fromEntries(node.doorwaySlots.map((slot) => {
@@ -1167,9 +1198,9 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
       spatialCells: cells,
       spatialConnections,
       entryViews: cells.map((cell) => {
-        const firstPrimary = isForum
-          ? exhibits.find(({spatialCellId}) => spatialCellId === cell.id)
-          : undefined;
+          const firstPrimary = isForum || hall.id === CLASSICAL_SOUTH_ASIAN_GALLERY_ID
+            ? exhibits.find(({spatialCellId}) => spatialCellId === cell.id)
+            : undefined;
         return {
           spatialCellId: cell.id,
           // Gallery 01 is read as a chronological promenade. Stage its directory
@@ -1210,6 +1241,6 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
   };
 };
 
-/** One data-driven authoring pipeline for the six permanent, canonical halls. */
+/** One data-driven authoring pipeline for every permanent, canonical hall. */
 export const CANONICAL_MUSEUM_HALL_DEFINITIONS: readonly MuseumCanonicalHallContentDefinition[] =
   MUSEUM_CANONICAL_PROGRAM.map(createCanonicalHall);

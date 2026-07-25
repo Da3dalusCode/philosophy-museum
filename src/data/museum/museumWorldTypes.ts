@@ -179,7 +179,16 @@ export type MuseumSupplementalExhibitId =
   | 'nussbaum-frontiers-justice'
   | 'amartya-sen-capability-development'
   | 'habermas-public-sphere'
-  | 'democratic-deliberation-assembly';
+  | 'democratic-deliberation-assembly'
+  | 'south-sarva-darsana-compendium'
+  | 'south-upanishad-manuscript-world'
+  | 'mahavira-kalpasutra-transmission'
+  | 'kanada-atomism-dyads'
+  | 'vaiseshika-pramana'
+  | 'patanjali-yogasutra-manuscript'
+  | 'patanjali-samkhya-yoga-pramana'
+  | 'shankara-aitareya-bhasya'
+  | 'madhva-udupi-matha';
 
 export type MuseumSupplementalInstallationKind =
   | 'cave-ascent'
@@ -195,7 +204,10 @@ export type MuseumSupplementalInstallationKind =
   | 'analytic-concept'
   | 'justice-work'
   | 'justice-context'
-  | 'justice-concept';
+  | 'justice-concept'
+  | 'south-asian-work'
+  | 'south-asian-context'
+  | 'south-asian-concept';
 
 export type MuseumSupplementalExhibitLayout = {
   id: MuseumSupplementalExhibitId;
@@ -463,7 +475,7 @@ export type MuseumPhysicalConnection = {
   id: string;
   a: {nodeId: MuseumPhysicalNodeId; slotId: string};
   b: {nodeId: MuseumPhysicalNodeId; slotId: string};
-  routeRole: 'outer-loop' | 'forum-spoke' | 'shortcut';
+  routeRole: 'outer-loop' | 'forum-spoke' | 'shortcut' | 'gallery-branch';
   accessible: boolean;
   implementationStatus: 'live' | 'blocked' | 'planned';
 };

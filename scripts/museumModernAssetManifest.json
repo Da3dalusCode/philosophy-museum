@@ -2990,6 +2990,295 @@
         "bytes": 262302,
         "sha256": "e78896f403896248cadd6cb4f69e21f462dce74cb83420a25159652b907c7e86"
       }
+    },
+    "south-many-schools-interpretive": {
+      "hallFolder": "classical-south-asian-worlds",
+      "sourceKind": "owner-approved-original-illustration",
+      "sourcePageUrl": "https://github.com/Da3dalusCode/philosophy-museum/blob/main/public/assets/museum/classical-south-asian-worlds/south-many-schools-interpretive-panel.webp",
+      "sourceImageUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/main/public/assets/museum/classical-south-asian-worlds/south-many-schools-interpretive-panel.webp",
+      "selectedThumbnailUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/main/public/assets/museum/classical-south-asian-worlds/south-many-schools-interpretive-panel.webp",
+      "scene": {
+        "width": 427,
+        "height": 640,
+        "bytes": 32412,
+        "sha256": "f57414c087f5b023c9984bd81ebbf4745185a503b6017b2d7b96b9333469cac5"
+      },
+      "panel": {
+        "width": 853,
+        "height": 1280,
+        "bytes": 183608,
+        "sha256": "4bebd26ddfeac152c35c7d2f83b61c33a54420e03c8ce8c3689c5832d216a5e5"
+      }
+    },
+    "jain-lokapurusha-cosmology": {
+      "hallFolder": "classical-south-asian-worlds",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Lokapurusha_Cosmic_man.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Lokapurusha_Cosmic_man.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Lokapurusha_Cosmic_man.jpg?width=1280",
+      "scene": {
+        "width": 284,
+        "height": 640,
+        "bytes": 61458,
+        "sha256": "b4fb33846a93867908e626dad9138629bbb086030635eb2bcced87202a5bac97"
+      },
+      "panel": {
+        "width": 569,
+        "height": 1280,
+        "bytes": 253882,
+        "sha256": "b143414436cd7bb97c8fe2a2a370d7e5e8a894bf43d83b4d539090fbd248b23f"
+      }
+    },
+    "mahavira-chandigarh-bust": {
+      "hallFolder": "classical-south-asian-worlds",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Bust_of_Mahavira.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Bust_of_Mahavira.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Bust_of_Mahavira.jpg?width=1280",
+      "scene": {
+        "width": 427,
+        "height": 640,
+        "bytes": 24136,
+        "sha256": "fd71d72b9229ee87ec9cac8ba9bf9d97c243b8a539ab6874d9a9ee140023ea64"
+      },
+      "panel": {
+        "width": 853,
+        "height": 1280,
+        "bytes": 122816,
+        "sha256": "e31c33218e037e825320150f6b7219161adce04646a6d2916f8b561fb04f9fc0"
+      }
+    },
+    "kanada-vaisesika-sutra-1793": {
+      "hallFolder": "classical-south-asian-worlds",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:%E0%A4%B5%E0%A5%88%E0%A4%B6%E0%A5%87%E0%A4%B7%E0%A4%BF%E0%A4%95%E0%A4%B8%E0%A5%82%E0%A4%A4%E0%A5%8D%E0%A4%B0_of_%E0%A4%95%E0%A4%A3%E0%A4%BE%E0%A4%A6._(IA_dli.granth.17191).pdf",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/94/%E0%A4%B5%E0%A5%88%E0%A4%B6%E0%A5%87%E0%A4%B7%E0%A4%BF%E0%A4%95%E0%A4%B8%E0%A5%82%E0%A4%A4%E0%A5%8D%E0%A4%B0_of_%E0%A4%95%E0%A4%A3%E0%A4%BE%E0%A4%A6._%28IA_dli.granth.17191%29.pdf",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/%E0%A4%B5%E0%A5%88%E0%A4%B6%E0%A5%87%E0%A4%B7%E0%A4%BF%E0%A4%95%E0%A4%B8%E0%A5%82%E0%A4%A4%E0%A5%8D%E0%A4%B0_of_%E0%A4%95%E0%A4%A3%E0%A4%BE%E0%A4%A6._%28IA_dli.granth.17191%29.pdf/page1-960px-%E0%A4%B5%E0%A5%88%E0%A4%B7%E0%A4%BF%E0%A4%95%E0%A4%B8%E0%A5%82%E0%A4%A4%E0%A5%8D%E0%A4%B0_of_%E0%A4%95%E0%A4%A3%E0%A4%BE%E0%A4%A6._%28IA_dli.granth.17191%29.pdf.jpg",
+      "scene": {
+        "width": 640,
+        "height": 546,
+        "bytes": 92318,
+        "sha256": "a7ba093b654df0b696b8b86e46f62a0ace574a2d040126e7ea3654e59a190c74"
+      },
+      "panel": {
+        "width": 960,
+        "height": 819,
+        "bytes": 201604,
+        "sha256": "2c3075397812f206ef6808fa4f5dff05f3bff111640edfdf93af93e5e4b0ebc4"
+      }
+    },
+    "vedanta-telugu-manuscript": {
+      "hallFolder": "classical-south-asian-worlds",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:18th-century_Vedanta_manuscript,_Sanskrit,_Telugu_script,_Andhra_Pradesh.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/18th-century_Vedanta_manuscript,_Sanskrit,_Telugu_script,_Andhra_Pradesh.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/18th-century_Vedanta_manuscript,_Sanskrit,_Telugu_script,_Andhra_Pradesh.jpg?width=1280",
+      "scene": {
+        "width": 640,
+        "height": 180,
+        "bytes": 54460,
+        "sha256": "c564a99ff6278037cfedb008452e9c9cece1554cac07c2fd3de8825d6e8d0c61"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 354,
+        "bytes": 244944,
+        "sha256": "f92e0120fbd93740f19467f381aa6c8fea46296b21db830f9fb049ec3e7c3f87"
+      }
+    },
+    "shankara-ravi-varma": {
+      "hallFolder": "classical-south-asian-worlds",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Adi_shankaracharya.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Adi_shankaracharya.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Adi_shankaracharya.jpg?width=1280",
+      "scene": {
+        "width": 454,
+        "height": 640,
+        "bytes": 77174,
+        "sha256": "f045ef68f94226211b78a13b450594a52dd60f30356c9c927389d625f46be835"
+      },
+      "panel": {
+        "width": 907,
+        "height": 1280,
+        "bytes": 452272,
+        "sha256": "efaebdfe955c0c7dfccb1ddddab85a2b906606235ec4c3ad3472c5056c9c14e7"
+      }
+    },
+    "ramanuja-statue-cc0": {
+      "hallFolder": "classical-south-asian-worlds",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Ramanuja.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ramanuja.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ramanuja.jpg?width=1280",
+      "scene": {
+        "width": 613,
+        "height": 640,
+        "bytes": 23410,
+        "sha256": "1fedf7259297a24651349246e10d57231380efcc4eded57376133de89c9c7147"
+      },
+      "panel": {
+        "width": 716,
+        "height": 747,
+        "bytes": 52800,
+        "sha256": "c258de6ec3c715e989d630ae13d89289923cfede5c6d53150011036f72844126"
+      }
+    },
+    "madhva-pajaka-vigraha": {
+      "hallFolder": "classical-south-asian-worlds",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Shri_Madhvacharya_Vigraha,_Pajaka,_Udupi.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Shri_Madhvacharya_Vigraha,_Pajaka,_Udupi.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Shri_Madhvacharya_Vigraha,_Pajaka,_Udupi.jpg?width=1280",
+      "scene": {
+        "width": 497,
+        "height": 533,
+        "bytes": 81328,
+        "sha256": "ce7ab8a517af27e03c4a0f9cce6a2fdd297ccb2b79d64e6aa29b43fbbe8f7669"
+      },
+      "panel": {
+        "width": 497,
+        "height": 533,
+        "bytes": 98226,
+        "sha256": "b6cbd2df28797aad2ecf88b06c738d2adcdf20fbd1d9eacb3bafd95de3a3b6b0"
+      }
+    },
+    "south-sarva-darsana-1908": {
+      "hallFolder": "classical-south-asian-worlds",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:The_Sarva-darsana-samgraha;_or,_Review_of_the_different_systems_of_Hindu_philosophy_(IA_sarvadarsanasamg00madhrich).pdf",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/The_Sarva-darsana-samgraha;_or,_Review_of_the_different_systems_of_Hindu_philosophy_(IA_sarvadarsanasamg00madhrich).pdf",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/The_Sarva-darsana-samgraha;_or,_Review_of_the_different_systems_of_Hindu_philosophy_(IA_sarvadarsanasamg00madhrich).pdf?width=1280&page=1",
+      "scene": {
+        "width": 419,
+        "height": 640,
+        "bytes": 5986,
+        "sha256": "e61ee2966d90d42c04c6212bc4130a5cb0f22263c0bb874a9153e26eb70899fd"
+      },
+      "panel": {
+        "width": 500,
+        "height": 763,
+        "bytes": 11522,
+        "sha256": "1572323e76029615416da8e236ccc92d4b4810cbcb724b690a1b1139b85e0500"
+      }
+    },
+    "south-upanishad-sama-veda-manuscript": {
+      "hallFolder": "classical-south-asian-worlds",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:An_Upanishad_embedded_in_Sama_Veda,_Sanskrit_manuscript_in_Thrissur_Hindu_monastery,_Malayalam_script_-_1.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/An_Upanishad_embedded_in_Sama_Veda,_Sanskrit_manuscript_in_Thrissur_Hindu_monastery,_Malayalam_script_-_1.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/An_Upanishad_embedded_in_Sama_Veda,_Sanskrit_manuscript_in_Thrissur_Hindu_monastery,_Malayalam_script_-_1.jpg?width=1280",
+      "scene": {
+        "width": 640,
+        "height": 180,
+        "bytes": 26498,
+        "sha256": "6f9302f6d1a0f935658d7f5f3de8d8dd00b5e2ffc602f46a4826acaa026e7f94"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 303,
+        "bytes": 155254,
+        "sha256": "b51103379c6e300cffcd6b27a255c055d4a95f7f0661cb479688c96bdfeb898e"
+      }
+    },
+    "mahavira-kalpasutra-birth": {
+      "hallFolder": "classical-south-asian-worlds",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Jain,_Western_India,_Gujarat,_early_16th_century_-_Page_from_a_Kalpa-sutra-_The_Birth_of_Mahavira_-_1925.1340_-_Cleveland_Museum_of_Art.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Jain,_Western_India,_Gujarat,_early_16th_century_-_Page_from_a_Kalpa-sutra-_The_Birth_of_Mahavira_-_1925.1340_-_Cleveland_Museum_of_Art.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Jain,_Western_India,_Gujarat,_early_16th_century_-_Page_from_a_Kalpa-sutra-_The_Birth_of_Mahavira_-_1925.1340_-_Cleveland_Museum_of_Art.jpg?width=1280",
+      "scene": {
+        "width": 502,
+        "height": 640,
+        "bytes": 124904,
+        "sha256": "b766f08b7602c180a5a8423e2c62e9fb97d04df0779b2b52ee57f6789b980f7f"
+      },
+      "panel": {
+        "width": 1004,
+        "height": 1280,
+        "bytes": 539516,
+        "sha256": "8f72a7b6b34f742de444613f4523b46c4ef0e415cd7730c4e672e10ce2467cb5"
+      }
+    },
+    "kanada-atomic-theory-illustration": {
+      "hallFolder": "classical-south-asian-worlds",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Illustration_of_the_atomic_theory_of_Acharya_Kanada_showing_Param%C4%81%E1%B9%87u,_Dvya%E1%B9%87uka,_and_Trya%E1%B9%87uka_concepts_from_the_Vaisheshika_philosophy..jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Illustration_of_the_atomic_theory_of_Acharya_Kanada_showing_Param%C4%81%E1%B9%87u,_Dvya%E1%B9%87uka,_and_Trya%E1%B9%87uka_concepts_from_the_Vaisheshika_philosophy..jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Illustration_of_the_atomic_theory_of_Acharya_Kanada_showing_Param%C4%81%E1%B9%87u,_Dvya%E1%B9%87uka,_and_Trya%E1%B9%87uka_concepts_from_the_Vaisheshika_philosophy..jpg?width=1280",
+      "scene": {
+        "width": 640,
+        "height": 375,
+        "bytes": 65110,
+        "sha256": "b89d93529cee5b477c92e057fedc6846ff8fec04873f867e573f76c3dd3e1713"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 749,
+        "bytes": 298636,
+        "sha256": "6ff4cc90b0f56d3227c918f387f761a23d046de092ee5e181abafddc562bdcff"
+      }
+    },
+    "vaiseshika-two-pramana": {
+      "hallFolder": "classical-south-asian-worlds",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:2_Pramana_Epistemology_Vaisheshika_Hindu_school.svg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/2_Pramana_Epistemology_Vaisheshika_Hindu_school.svg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/2_Pramana_Epistemology_Vaisheshika_Hindu_school.svg?width=1280",
+      "scene": {
+        "width": 401,
+        "height": 640,
+        "bytes": 14618,
+        "sha256": "8bd940e6b16965e320ad0a3ca8790979fe40de1e028be59916393bb59eb910ac"
+      },
+      "panel": {
+        "width": 802,
+        "height": 1280,
+        "bytes": 37782,
+        "sha256": "f64c6d99a81462cfd6797278510943a6e9cfe9ef538b2026468e2f5711c92408"
+      }
+    },
+    "samkhya-yoga-three-pramana": {
+      "hallFolder": "classical-south-asian-worlds",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:3_Pramana_Epistemology_Samkhya_Yoga_Hindu_schools.svg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/3_Pramana_Epistemology_Samkhya_Yoga_Hindu_schools.svg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/3_Pramana_Epistemology_Samkhya_Yoga_Hindu_schools.svg?width=1280",
+      "scene": {
+        "width": 401,
+        "height": 640,
+        "bytes": 18102,
+        "sha256": "72868741979a11627b4aa3f1b994014c0308abac168adb579efdad818b1fbe7d"
+      },
+      "panel": {
+        "width": 802,
+        "height": 1280,
+        "bytes": 47758,
+        "sha256": "85a90dd2c1c692ff1bac135b805eed5b939faeb95fba2d6bd5e78f73ad34b30e"
+      }
+    },
+    "shankara-aitareya-bhasya-1593": {
+      "hallFolder": "classical-south-asian-worlds",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:1593_CE,_Adi_Shankara_bhasya_Aitareya_Upanishad,_Varanasi_Jain_temple_bhandara,_Sanskrit,_Devanagari,_MS_Add.2092.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/1593_CE,_Adi_Shankara_bhasya_Aitareya_Upanishad,_Varanasi_Jain_temple_bhandara,_Sanskrit,_Devanagari,_MS_Add.2092.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/1593_CE,_Adi_Shankara_bhasya_Aitareya_Upanishad,_Varanasi_Jain_temple_bhandara,_Sanskrit,_Devanagari,_MS_Add.2092.jpg?width=1280",
+      "scene": {
+        "width": 640,
+        "height": 258,
+        "bytes": 64656,
+        "sha256": "04959dd2991e37f9c95bae40a292dceeff1f21817d7ef7060273acbd26dd6bfe"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 516,
+        "bytes": 281446,
+        "sha256": "ec1857e82c7ff194a7212f60e7875036a9538a17666eb59b97088df76191005d"
+      }
+    },
+    "madhva-udupi-krishna-matha": {
+      "hallFolder": "classical-south-asian-worlds",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Madhvacharya_Krishna_Matha_Udupi_Karnataka.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Madhvacharya_Krishna_Matha_Udupi_Karnataka.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Madhvacharya_Krishna_Matha_Udupi_Karnataka.jpg?width=1280",
+      "scene": {
+        "width": 640,
+        "height": 480,
+        "bytes": 42504,
+        "sha256": "f7019e0e48019d5ecd826418577a69c5f9e506ce1f9c4fabed6e45a3b84c9786"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 960,
+        "bytes": 184122,
+        "sha256": "d3bd1cfaba1c1bc139df8b46393bae3ba2107eec7cb450e48efe307e3b93b349"
+      }
     }
   }
 }
