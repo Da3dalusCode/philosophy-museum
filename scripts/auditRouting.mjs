@@ -203,7 +203,7 @@ check('Museum convenience, hall, and exhibit routes parse and serialize', () => 
   }
   assert.equal(MUSEUM_HALLS.length, 6);
   assert.equal(exhibitCount, 63);
-  assert.equal(MUSEUM_SUPPLEMENTAL_EXHIBITS.length, 57);
+  assert.equal(MUSEUM_SUPPLEMENTAL_EXHIBITS.length, 70);
   for (const {hallId, exhibit} of MUSEUM_SUPPLEMENTAL_EXHIBITS) {
     expectRoundTrip({kind: 'museum', hallId, exhibitId: exhibit.id});
   }
@@ -236,6 +236,10 @@ check('serializers emit the required literal route families', () => {
   );
   assert.equal(serializeHashRoute({kind: 'museum', hallId: 'justice-democratic-reason'}), '#/museum/justice-democratic-reason');
   assert.equal(serializeHashRoute({kind: 'museum', hallId: 'justice-democratic-reason', exhibitId: 'rawls'}), '#/museum/justice-democratic-reason/exhibits/rawls');
+  assert.equal(
+    serializeHashRoute({kind: 'museum', hallId: 'justice-democratic-reason', exhibitId: 'rawls-original-position'}),
+    '#/museum/justice-democratic-reason/exhibits/rawls-original-position',
+  );
   assert.equal(serializeHashRoute({kind: 'museum', hallId: 'core-questions-forum'}), '#/museum/core-questions-forum');
   assert.equal(serializeHashRoute({kind: 'museum', hallId: 'core-questions-forum', exhibitId: 'jiddu-krishnamurti'}), '#/museum/core-questions-forum/exhibits/jiddu-krishnamurti');
   assert.equal(serializeHashRoute({kind: 'museum-compatibility', formerHallId: 'renaissance-reason-revolution', exhibitId: 'kant'}), '#/museum/renaissance-reason-revolution/exhibits/kant');
@@ -532,6 +536,10 @@ check('document titles are exhaustive and section-aware', () => {
   );
   assert.equal(getRouteTitle({kind: 'museum', hallId: 'justice-democratic-reason'}), 'Political Action, Justice, and Democratic Reason | Philosophy Atlas');
   assert.equal(getRouteTitle({kind: 'museum', hallId: 'justice-democratic-reason', exhibitId: 'rawls'}), 'John Rawls — Political Action, Justice, and Democratic Reason | Philosophy Atlas');
+  assert.equal(
+    getRouteTitle({kind: 'museum', hallId: 'justice-democratic-reason', exhibitId: 'rawls-original-position'}),
+    'Rawls: The Original Position — Political Action, Justice, and Democratic Reason | Philosophy Atlas',
+  );
   assert.equal(getRouteTitle({kind: 'museum', hallId: 'core-questions-forum'}), 'Core Questions Forum | Philosophy Atlas');
   assert.equal(
     getRouteTitle({kind: 'branch', branchId: 'stoicism', section: 'overview'}),

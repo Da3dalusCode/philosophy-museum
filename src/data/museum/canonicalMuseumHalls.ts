@@ -35,6 +35,12 @@ import {
   ANALYTIC_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
 } from './analyticSupplementalExhibits';
 import {ANALYTIC_PRIMARY_PLACEMENTS} from './analyticGalleryCuration';
+import {
+  JUSTICE_GALLERY_ID,
+  JUSTICE_ROOM_SIGN_COPY,
+  JUSTICE_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
+} from './justiceSupplementalExhibits';
+import {JUSTICE_PRIMARY_PLACEMENTS} from './justiceGalleryCuration';
 import {MUSEUM_VISITOR_MAP_KIOSK} from './museumVisitorMapKioskDefinition';
 import type {
   MuseumBounds,
@@ -106,6 +112,8 @@ const supplementalLayoutsForHall = (hallId: MuseumPublicHallId): readonly Museum
         ? PHENOMENOLOGY_SUPPLEMENTAL_EXHIBIT_LAYOUTS
         : hallId === ANALYTIC_GALLERY_ID
           ? ANALYTIC_SUPPLEMENTAL_EXHIBIT_LAYOUTS
+          : hallId === JUSTICE_GALLERY_ID
+            ? JUSTICE_SUPPLEMENTAL_EXHIBIT_LAYOUTS
           : [];
 
 const primaryScaleFloorForHall = (
@@ -726,6 +734,7 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
     // 04 likewise retains its closed W1 seam until a future wing connects.
     .filter(({id}) => !(hall.id === PHENOMENOLOGY_GALLERY_ID && id === 'E1'))
     .filter(({id}) => !(hall.id === ANALYTIC_GALLERY_ID && id === 'W1'))
+    .filter(({id}) => !(hall.id === JUSTICE_GALLERY_ID && (id === 'E1' || id === 'W1')))
     .map(({landingBounds}) => landingBounds);
   const furnishings = hall.id === MUSEUM_VISITOR_MAP_KIOSK.hallId
     ? [
@@ -759,6 +768,8 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
             ? PHENOMENOLOGY_PRIMARY_PLACEMENTS
             : hall.id === ANALYTIC_GALLERY_ID
               ? ANALYTIC_PRIMARY_PLACEMENTS
+              : hall.id === JUSTICE_GALLERY_ID
+                ? JUSTICE_PRIMARY_PLACEMENTS
             : undefined,
       hall.id === MEDITERRANEAN_GALLERY_ID
         || hall.id === RENAISSANCE_GALLERY_ID
@@ -805,6 +816,7 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
     hall.id === RENAISSANCE_GALLERY_ID
     || hall.id === PHENOMENOLOGY_GALLERY_ID
     || hall.id === ANALYTIC_GALLERY_ID
+    || hall.id === JUSTICE_GALLERY_ID
   ) {
     const acceptedSupplementalBounds: {spatialCellId: string; bounds: MuseumBounds}[] = [];
     for (const layout of supplementalExhibits) {
@@ -999,6 +1011,23 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
                 height: .82,
               };
             })
+          : hall.id === JUSTICE_GALLERY_ID
+            ? orderedRooms.map((room) => {
+                const copy = JUSTICE_ROOM_SIGN_COPY[room.id as keyof typeof JUSTICE_ROOM_SIGN_COPY];
+                if (!copy) throw new Error(`Gallery 05 has no visitor-facing orientation copy for ${room.id}.`);
+                const bounds = roomBounds.get(room.id)!;
+                return {
+                  id: `${room.id}:room-sign`,
+                  kind: room.id === 'justice-political-orientation' ? 'entrance' as const : 'zone' as const,
+                  title: copy.title,
+                  kicker: copy.kicker,
+                  subtitle: copy.subtitle,
+                  position: {x: 0, y: 4.55, z: bounds.maxZ - .22},
+                  rotationY: Math.PI,
+                  width: room.id === 'justice-political-orientation' ? 5.2 : 4.8,
+                  height: .82,
+                };
+              })
       : standardSigns;
   const guidedOrder = orderedRooms.flatMap((room) => room.exhibits.map(({id}) => id as MuseumExhibitId));
   const entryRoomIdByEntrance = new Map<string, string>();

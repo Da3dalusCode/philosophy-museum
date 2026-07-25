@@ -183,7 +183,18 @@ export type MuseumAssetId =
   | 'anscombe-hand-water-pump'
   | 'anscombe-seven-virtues'
   | 'anscombe-truman-portrait'
-  | 'anscombe-newtons-cradle';
+  | 'anscombe-newtons-cradle'
+  | 'political-philosophy-good-government'
+  | 'political-authority-interpretive'
+  | 'march-washington-leaders-1963'
+  | 'arendt-human-condition-interpretive'
+  | 'eichmann-trial-1961'
+  | 'rawls-original-position-interpretive'
+  | 'nozick-entitlement-interpretive'
+  | 'nussbaum-capabilities-interpretive'
+  | 'ada-signing-1990'
+  | 'amartya-sen-pmo-2005'
+  | 'glarus-landsgemeinde-2009';
 
 export type MuseumAssetRole =
   | 'identity'

@@ -30,6 +30,8 @@ const analyticSupplementalScenePath = 'src/components/MuseumGallery/AnalyticSupp
 const analyticSupplementalSceneSource = existsSync(resolve(repoRoot, analyticSupplementalScenePath))
   ? source(analyticSupplementalScenePath)
   : undefined;
+const justiceSupplementalDataSource = source('src/data/museum/justiceSupplementalExhibits.ts');
+const justiceSupplementalSceneSource = source('src/components/MuseumGallery/JusticeSupplementalExhibits.tsx');
 const supplementalPanelSource = source('src/components/MuseumGallery/MuseumSupplementalInterpretationPanel.tsx');
 const interpretationPanelSource = source('src/components/MuseumGallery/MuseumInterpretationPanel.tsx');
 const globalSearchSource = source('src/components/Search/GlobalSearch.tsx');
@@ -62,6 +64,8 @@ const result = await build({
       export * from '/src/data/museum/museumInterpretations.ts';
       export * from '/src/data/museum/platoSupplementalExhibits.ts';
       export * from '/src/data/museum/analyticSupplementalExhibits.ts';
+      export * from '/src/data/museum/justiceGalleryCuration.ts';
+      export * from '/src/data/museum/justiceSupplementalExhibits.ts';
       export * from '/src/data/museum/museumSupplementalExhibits.ts';
       export * from '/src/components/MuseumGallery/museumMovement.ts';
       export * from '/src/components/MuseumGallery/museumResidency.ts';
@@ -108,6 +112,11 @@ const {
   MUSEUM_HALLS,
   MUSEUM_HALL_TEMPLATE_REGISTRY,
   MUSEUM_INTERPRETATIONS,
+  JUSTICE_GALLERY_ID,
+  JUSTICE_PRIMARY_PLACEMENTS,
+  JUSTICE_ROOM_SIGN_COPY,
+  JUSTICE_SUPPLEMENTAL_EXHIBITS,
+  JUSTICE_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
   MUSEUM_LEGACY_GEOMETRY_ADAPTERS,
   MUSEUM_LIVE_PROGRAM_TOTALS,
   MEDITERRANEAN_EXHIBIT_CURATION,
@@ -542,8 +551,8 @@ check('Plato’s Cave and Republic form a substantial supplemental U without cha
   assert.match(supplementalPanelSource, /event\.key === 'Escape'/u, 'The supplemental panel lacks its keyboard close path');
 });
 
-check('all fifty-seven supplemental exhibits share route, directory, search, guided, and fallback contracts', () => {
-  assert.equal(MUSEUM_SUPPLEMENTAL_EXHIBITS.length, 57);
+check('all seventy supplemental exhibits share route, directory, search, guided, and fallback contracts', () => {
+  assert.equal(MUSEUM_SUPPLEMENTAL_EXHIBITS.length, 70);
   assert.equal(
     new Set(MUSEUM_SUPPLEMENTAL_EXHIBITS.map(({exhibit}) => exhibit.id)).size,
     MUSEUM_SUPPLEMENTAL_EXHIBITS.length,
@@ -778,6 +787,154 @@ check('Gallery 04 fills twenty-nine usable wall faces with resolved, philosopher
   }
 });
 
+check('Gallery 05 fills its exact eighteen-wall civic sequence with clear hierarchy, deep content, and a dedicated renderer', () => {
+  const hall = hallById.get(JUSTICE_GALLERY_ID);
+  const definition = definitionById.get(JUSTICE_GALLERY_ID);
+  const program = MUSEUM_CANONICAL_PROGRAM.find(({id}) => id === JUSTICE_GALLERY_ID);
+  assert(hall && definition && program);
+
+  const expectedPrimaryPlacements = {
+    'political-philosophy': {x: -10.85, z: -18.667, rotationY: Math.PI / 2},
+    arendt: {x: 10.85, z: -18.667, rotationY: -Math.PI / 2},
+    rawls: {x: -10.85, z: 0, rotationY: Math.PI / 2},
+    nozick: {x: 10.85, z: 0, rotationY: -Math.PI / 2},
+    'martha-nussbaum': {x: -10.85, z: 18.667, rotationY: Math.PI / 2},
+  };
+  const expectedPrimaryAssets = {
+    'political-philosophy': 'political-philosophy-good-government',
+    arendt: 'arendt-portrait-1933',
+    rawls: 'rawls-portrait',
+    nozick: 'nozick-portrait',
+    'martha-nussbaum': 'martha-nussbaum-portrait-2010',
+  };
+  const expectedSupplemental = [
+    {id: 'political-authority-legitimacy', title: 'Political Philosophy: Authority and Legitimacy', parentId: 'political-philosophy', roomId: 'justice-political-orientation', wallSlot: 'north-west', assetId: 'political-authority-interpretive', articleRoute: {kind: 'branch', branchId: 'political-philosophy'}},
+    {id: 'public-action-civil-disobedience', title: 'Political Philosophy: Public Action and Civil Disobedience', parentId: 'political-philosophy', roomId: 'justice-political-orientation', wallSlot: 'south-west', assetId: 'march-washington-leaders-1963', articleRoute: {kind: 'branch', branchId: 'political-philosophy'}},
+    {id: 'arendt-human-condition', title: 'Arendt: The Human Condition', parentId: 'arendt', roomId: 'justice-political-orientation', wallSlot: 'north-east', assetId: 'arendt-human-condition-interpretive', articleRoute: {kind: 'philosopher', philosopherId: 'arendt'}},
+    {id: 'arendt-eichmann-judgment', title: 'Arendt: Eichmann, Judgment, and Responsibility', parentId: 'arendt', roomId: 'justice-political-orientation', wallSlot: 'south-east', assetId: 'eichmann-trial-1961', articleRoute: {kind: 'philosopher', philosopherId: 'arendt'}},
+    {id: 'rawls-theory-of-justice', title: 'Rawls: A Theory of Justice', parentId: 'rawls', roomId: 'justice-distribution-rights', wallSlot: 'north-west', assetId: 'rawls-theory-justice-1971', articleRoute: {kind: 'philosopher', philosopherId: 'rawls'}},
+    {id: 'rawls-original-position', title: 'Rawls: The Original Position', parentId: 'rawls', roomId: 'justice-distribution-rights', wallSlot: 'south-west', assetId: 'rawls-original-position-interpretive', articleRoute: {kind: 'philosopher', philosopherId: 'rawls'}},
+    {id: 'nozick-anarchy-state-utopia', title: 'Nozick: Anarchy, State, and Utopia', parentId: 'nozick', roomId: 'justice-distribution-rights', wallSlot: 'north-east', assetId: 'nozick-anarchy-state-utopia-1974', articleRoute: {kind: 'philosopher', philosopherId: 'nozick'}},
+    {id: 'nozick-entitlement-rectification', title: 'Nozick: Entitlement and Rectification', parentId: 'nozick', roomId: 'justice-distribution-rights', wallSlot: 'south-east', assetId: 'nozick-entitlement-interpretive', articleRoute: {kind: 'philosopher', philosopherId: 'nozick'}},
+    {id: 'nussbaum-capabilities-approach', title: 'Nussbaum: The Capabilities Approach', parentId: 'martha-nussbaum', roomId: 'justice-capabilities-democracy', wallSlot: 'north-west', assetId: 'nussbaum-capabilities-interpretive', articleRoute: {kind: 'philosopher', philosopherId: 'martha-nussbaum'}},
+    {id: 'nussbaum-frontiers-justice', title: 'Nussbaum: Frontiers of Justice', parentId: 'martha-nussbaum', roomId: 'justice-capabilities-democracy', wallSlot: 'south-west', assetId: 'ada-signing-1990', articleRoute: {kind: 'philosopher', philosopherId: 'martha-nussbaum'}},
+    {id: 'amartya-sen-capability-development', title: 'Amartya Sen: Capability and Development', parentId: 'martha-nussbaum', roomId: 'justice-capabilities-democracy', wallSlot: 'north-east', assetId: 'amartya-sen-pmo-2005', articleRoute: {kind: 'branch', branchId: 'political-philosophy'}},
+    {id: 'habermas-public-sphere', title: 'Habermas: The Public Sphere', parentId: 'martha-nussbaum', roomId: 'justice-capabilities-democracy', wallSlot: 'south-east', assetId: 'habermas-portrait', articleRoute: {kind: 'philosopher', philosopherId: 'habermas'}},
+    {id: 'democratic-deliberation-assembly', title: 'Democratic Deliberation: Assembly and Public Reason', parentId: 'martha-nussbaum', roomId: 'justice-capabilities-democracy', wallSlot: 'outer-east', assetId: 'glarus-landsgemeinde-2009', articleRoute: {kind: 'branch', branchId: 'political-philosophy'}},
+  ];
+  const expectedPrimaryIdsByRoom = new Map([
+    ['justice-political-orientation', ['political-philosophy', 'arendt']],
+    ['justice-distribution-rights', ['rawls', 'nozick']],
+    ['justice-capabilities-democracy', ['martha-nussbaum']],
+  ]);
+  const allWallSlots = ['north-west', 'outer-west', 'south-west', 'north-east', 'outer-east', 'south-east'];
+  const wallSlotFor = (layout) => {
+    const side = layout.position.x < 0 ? 'west' : 'east';
+    const sine = Math.sin(layout.rotationY);
+    if (Math.abs(sine) > .5) return sine > 0 ? 'outer-west' : 'outer-east';
+    return `${Math.cos(layout.rotationY) > 0 ? 'north' : 'south'}-${side}`;
+  };
+
+  assert.equal(hall.exhibits.length, 5, 'Gallery 05 primary catalog changed');
+  assert.equal(JUSTICE_SUPPLEMENTAL_EXHIBITS.length, 13, 'Gallery 05 must define thirteen supplemental exhibits');
+  assert.equal(JUSTICE_SUPPLEMENTAL_EXHIBIT_LAYOUTS.length, 13, 'Gallery 05 must define thirteen supplemental layouts');
+  assert.equal(definition.layout.supplementalExhibits?.length, 13, 'Gallery 05 scene layout is missing supplemental stops');
+  assert.deepEqual(definition.layout.supplementalExhibits, JUSTICE_SUPPLEMENTAL_EXHIBIT_LAYOUTS, 'Gallery 05 compiled layouts differ from their authored source');
+  assert.deepEqual(JUSTICE_PRIMARY_PLACEMENTS, expectedPrimaryPlacements, 'Gallery 05 primary hierarchy moved from its five intact outer walls');
+  assert.deepEqual(
+    sorted(Object.keys(JUSTICE_ROOM_SIGN_COPY)),
+    sorted(program.rooms.map(({id}) => id)),
+    'Gallery 05 room-sign copy differs from its three-room sequence',
+  );
+  assert.deepEqual(
+    JUSTICE_SUPPLEMENTAL_EXHIBITS.map(({id}) => id),
+    expectedSupplemental.map(({id}) => id),
+    'Gallery 05 supplemental content roster or sequence changed',
+  );
+  assert.deepEqual(
+    JUSTICE_SUPPLEMENTAL_EXHIBIT_LAYOUTS.map(({id}) => id),
+    expectedSupplemental.map(({id}) => id),
+    'Gallery 05 supplemental layout roster or sequence changed',
+  );
+
+  const primaryLayoutById = new Map(definition.layout.exhibits.map((layout) => [layout.id, layout]));
+  for (const [id, authored] of Object.entries(expectedPrimaryPlacements)) {
+    const layout = primaryLayoutById.get(id);
+    const exhibit = hall.exhibits.find((candidate) => candidate.id === id);
+    assert(layout && exhibit, `Gallery 05 primary ${id} is missing`);
+    assert.deepEqual(
+      {x: layout.position.x, z: layout.position.z, rotationY: layout.rotationY},
+      authored,
+      `${id} moved from its authored primary wall`,
+    );
+    assert.equal(exhibit.principalAssetId, expectedPrimaryAssets[id], `${id} primary media changed`);
+    assert.deepEqual(exhibit.supportingAssetIds ?? [], [], `${id} duplicates work or memorial media on its primary`);
+  }
+  assert(!JSON.stringify(hall.exhibits).includes('arendt-grave-bard'), 'Gallery 05 restored the Arendt grave image');
+
+  const supplementalRegistry = MUSEUM_SUPPLEMENTAL_EXHIBITS.filter(({hallId}) => hallId === JUSTICE_GALLERY_ID);
+  assert.equal(supplementalRegistry.length, 13, 'Gallery 05 central supplemental registry is stale');
+  const supplementalById = new Map(supplementalRegistry.map((entry) => [entry.exhibit.id, entry]));
+  for (const expected of expectedSupplemental) {
+    const entry = supplementalById.get(expected.id);
+    assert(entry, `Gallery 05 supplemental ${expected.id} is missing from the central registry`);
+    assert.equal(entry.exhibit.displayName, expected.title, `${expected.id} title changed`);
+    assert.equal(entry.layout.parentExhibitId, expected.parentId, `${expected.id} lost its primary hierarchy`);
+    assert.equal(entry.layout.zoneId, expected.roomId, `${expected.id} moved to the wrong room`);
+    assert.equal(entry.layout.spatialCellId, expected.roomId, `${expected.id} moved to the wrong spatial cell`);
+    assert.equal(wallSlotFor(entry.layout), expected.wallSlot, `${expected.id} moved to the wrong wall face`);
+    assert.equal(entry.exhibit.assetId, expected.assetId, `${expected.id} scene media changed`);
+    assert.equal(entry.exhibit.panelAssetId, expected.assetId, `${expected.id} panel media diverges from its scene evidence`);
+    assert.equal(entry.layout.assetId, expected.assetId, `${expected.id} layout media diverges from its interpretation`);
+    assert.equal(entry.layout.mediaMount.assetId, expected.assetId, `${expected.id} prefetch media diverges from its scene`);
+    assert.deepEqual(entry.exhibit.articleRoute, expected.articleRoute, `${expected.id} Atlas route changed`);
+    assert(assetById.has(expected.assetId), `${expected.id} uses missing asset ${expected.assetId}`);
+    assert(entry.exhibit.keyIdeas.length >= 3, `${expected.id} lacks a three-part argument map`);
+    assert(entry.exhibit.cautions.length >= 2, `${expected.id} lacks interpretive cautions`);
+    assert(entry.exhibit.sections.length >= 3, `${expected.id} interpretation is too shallow`);
+    assert(entry.exhibit.sources.length >= 3, `${expected.id} lacks a rigorous source layer`);
+    assert(
+      wordCount(`${entry.exhibit.lead} ${entry.exhibit.sections.flatMap(({paragraphs}) => paragraphs).join(' ')}`) >= 180,
+      `${expected.id} interpretation is too brief for Gallery 05`,
+    );
+    assert.equal(entry.exhibit.presentation?.factRows.length, 4, `${expected.id} visitor panel lacks its four-part evidence summary`);
+    assert(definition.layout.obstacleColliders.some(({id}) => id === entry.layout.collider.id), `${expected.id} is absent from collision`);
+    assert(validPose(definition, entry.layout.viewpoint), `${expected.id} has an unsafe viewing pose`);
+  }
+
+  let installationCount = 0;
+  for (const room of hall.zones) {
+    const primaryIds = hall.exhibits.filter(({zoneId}) => zoneId === room.id).map(({id}) => id);
+    assert.deepEqual(primaryIds, expectedPrimaryIdsByRoom.get(room.id), `${room.id} primary hierarchy changed`);
+    const roomLayouts = [
+      ...definition.layout.exhibits.filter(({spatialCellId}) => spatialCellId === room.id),
+      ...supplementalRegistry.filter(({layout}) => layout.zoneId === room.id).map(({layout}) => layout),
+    ];
+    installationCount += roomLayouts.length;
+    const occupiedSlots = roomLayouts.map(wallSlotFor);
+    assert.equal(roomLayouts.length, 6, `${room.id} must retain one installation on each usable half-room wall`);
+    assert.equal(new Set(occupiedSlots).size, 6, `${room.id} repeats a wall face`);
+    assert.deepEqual(sorted(occupiedSlots), sorted(allWallSlots), `${room.id} no longer fills all six wall faces`);
+  }
+  assert.equal(installationCount, 18, 'Gallery 05 must fill exactly eighteen usable wall faces');
+
+  for (const room of program.rooms) {
+    const copy = JUSTICE_ROOM_SIGN_COPY[room.id];
+    const sign = definition.layout.signs.find(({id}) => id === `${room.id}:room-sign`);
+    assert(copy && sign, `${room.id} lacks its visitor-facing orientation sign`);
+    assert.equal(sign.kicker, copy.kicker);
+    assert.equal(sign.title, copy.title);
+    assert.equal(sign.subtitle, copy.subtitle);
+  }
+  assert.match(justiceSupplementalDataSource, /Room 01 · Authorize and contest[\s\S]*Room 03 · Enable and deliberate/u, 'Gallery 05 room sequence copy is incomplete');
+  assert.equal([...canonicalSceneSource.matchAll(/<JusticeSupplementalExhibits\b/gu)].length, 1, 'Gallery 05 must mount its dedicated supplemental renderer exactly once');
+  assert.match(justiceSupplementalSceneSource, /onClick=\{activate\}/u, 'Gallery 05 supplemental installations lack mouse activation');
+  assert.match(justiceSupplementalSceneSource, /interactionForSupplemental/u, 'Gallery 05 supplemental installations lack stable interaction identity');
+  assert.match(justiceSupplementalSceneSource, /getJusticeSupplementalExhibit/u, 'Gallery 05 renderer does not resolve authored visitor content');
+  assert.match(justiceSupplementalSceneSource, /MuseumSceneMedia/u, 'Gallery 05 renderer does not mount its provenance-backed media');
+  assert.match(justiceSupplementalSceneSource, /MUSEUM_CANONICAL_EXHIBIT_BACKING_MATERIAL/u, 'Gallery 05 renderer bypasses the canonical primary/secondary hierarchy material');
+});
+
 check('Gallery 03 onward makes every primary at least as large as its biggest secondary installation', () => {
   const candidateGalleryIds = Object.entries(EXPECTED_MAP_LABELS)
     .filter(([, label]) => {
@@ -825,8 +982,8 @@ check('Gallery 03 onward makes every primary at least as large as its biggest se
 
   assert.deepEqual(
     sorted(enforcedGalleryIds),
-    sorted(['phenomenology-existence-embodiment', 'analytic-traditions']),
-    'Only fully built Galleries 03 and 04 should currently enforce the completed-gallery hierarchy',
+    sorted(['phenomenology-existence-embodiment', 'analytic-traditions', 'justice-democratic-reason']),
+    'Only fully built Galleries 03, 04, and 05 should currently enforce the completed-gallery hierarchy',
   );
   assert(
     canonicalExhibitsSource.includes('primaryEmphasis ? .72 : .42'),
@@ -969,6 +1126,7 @@ check('all six runtime halls are canonical, data-driven, and internally aligned'
       'renaissance-humanism-new-method',
       'phenomenology-existence-embodiment',
       'analytic-traditions',
+      JUSTICE_GALLERY_ID,
     ].includes(definition.id) ? 1 : 0;
     assert.equal(definition.layout.signs.length, hall.zones.length + 1 + comparativeLensCount - removedPhysicalRoomSigns);
     assert(validPose(definition, definition.layout.spawn), `${definition.id} spawn is unsafe`);

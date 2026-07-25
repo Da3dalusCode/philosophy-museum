@@ -19,6 +19,10 @@ import {
   ANALYTIC_SUPPLEMENTAL_EXHIBITS,
   ANALYTIC_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
 } from './analyticSupplementalExhibits';
+import {
+  JUSTICE_SUPPLEMENTAL_EXHIBITS,
+  JUSTICE_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
+} from './justiceSupplementalExhibits';
 import type {
   MuseumSupplementalExhibitId,
   MuseumSupplementalExhibitLayout,
@@ -60,6 +64,11 @@ const COLLECTIONS = [
     hallId: 'analytic-traditions',
     exhibits: ANALYTIC_SUPPLEMENTAL_EXHIBITS,
     layouts: ANALYTIC_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
+  },
+  {
+    hallId: 'justice-democratic-reason',
+    exhibits: JUSTICE_SUPPLEMENTAL_EXHIBITS,
+    layouts: JUSTICE_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
   },
 ] as const satisfies readonly MuseumSupplementalCollection[];
 

@@ -2620,6 +2620,209 @@
         "bytes": 230976,
         "sha256": "d8736eebe355634b9e4be55d3a10abc60b2a83cfac4de16e150a3132ba3c9450"
       }
+    },
+    "political-philosophy-good-government": {
+      "hallFolder": "justice-democratic-reason",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Ambrogio_Lorenzetti_-_Allegory_of_Good_Government_-_Google_Art_Project.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/cd/Ambrogio_Lorenzetti_-_Allegory_of_Good_Government_-_Google_Art_Project.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Ambrogio_Lorenzetti_-_Allegory_of_Good_Government_-_Google_Art_Project.jpg/1280px-Ambrogio_Lorenzetti_-_Allegory_of_Good_Government_-_Google_Art_Project.jpg",
+      "scene": {
+        "width": 640,
+        "height": 346,
+        "bytes": 60164,
+        "sha256": "80b12cc32ba007376c18b279f6843b30bac99e14f3c9f604f4ad7a360f141870"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 692,
+        "bytes": 311210,
+        "sha256": "c51dd015741475872863c34419c45ee65ed140c80f6c25b66a67998c07ea1f2f"
+      }
+    },
+    "political-authority-interpretive": {
+      "hallFolder": "justice-democratic-reason",
+      "sourceKind": "owner-approved-original-illustration",
+      "sourcePageUrl": "https://github.com/Da3dalusCode/philosophy-museum/blob/main/public/assets/museum/justice-democratic-reason/political-authority-interpretive-panel.webp",
+      "sourceImageUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/main/public/assets/museum/justice-democratic-reason/political-authority-interpretive-panel.webp",
+      "selectedThumbnailUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/main/public/assets/museum/justice-democratic-reason/political-authority-interpretive-panel.webp",
+      "scene": {
+        "width": 427,
+        "height": 640,
+        "bytes": 30822,
+        "sha256": "da66721d96c3c7cbb872417d2ed4e282abdc373c37142c2f38c3c141bfc67872"
+      },
+      "panel": {
+        "width": 853,
+        "height": 1280,
+        "bytes": 179156,
+        "sha256": "bcfcdf5c967cb11fb683168a8b867f3086edc6fef6939f910f93eb3987371cd7"
+      }
+    },
+    "march-washington-leaders-1963": {
+      "hallFolder": "justice-democratic-reason",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Civil_Rights_March_on_Washington,_D.C._(Leaders_of_the_march.)_-_NARA_-_542000.tif",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Civil_Rights_March_on_Washington%2C_D.C._%28Leaders_of_the_march.%29_-_NARA_-_542000.tif",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Civil_Rights_March_on_Washington%2C_D.C._%28Leaders_of_the_march.%29_-_NARA_-_542000.tif/lossy-page1-1280px-Civil_Rights_March_on_Washington%2C_D.C._%28Leaders_of_the_march.%29_-_NARA_-_542000.tif.jpg",
+      "scene": {
+        "width": 640,
+        "height": 510,
+        "bytes": 65142,
+        "sha256": "26683168addd2c6590b537c087e375db1c2c2db75271f96c2fdaa980fa54ef13"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 1020,
+        "bytes": 272516,
+        "sha256": "8ffc27482fbde0b4e26975476b99851ee5bbe2ed655d99594fe1ed8c48af537e"
+      }
+    },
+    "arendt-human-condition-interpretive": {
+      "hallFolder": "justice-democratic-reason",
+      "sourceKind": "owner-approved-original-illustration",
+      "sourcePageUrl": "https://github.com/Da3dalusCode/philosophy-museum/blob/main/public/assets/museum/justice-democratic-reason/arendt-human-condition-interpretive-panel.webp",
+      "sourceImageUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/main/public/assets/museum/justice-democratic-reason/arendt-human-condition-interpretive-panel.webp",
+      "selectedThumbnailUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/main/public/assets/museum/justice-democratic-reason/arendt-human-condition-interpretive-panel.webp",
+      "scene": {
+        "width": 427,
+        "height": 640,
+        "bytes": 46046,
+        "sha256": "e6be28bf4e89c520404edb6f2f86909b2a3943ced77b453297a1e2f2edd906ce"
+      },
+      "panel": {
+        "width": 853,
+        "height": 1280,
+        "bytes": 277620,
+        "sha256": "912e8226f9a6ebd88f7fd2be9bdfcf8e8532361fd711feb304994ebfdf14981b"
+      }
+    },
+    "eichmann-trial-1961": {
+      "hallFolder": "justice-democratic-reason",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Adolf_Eichmann_at_Trial1961.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Adolf_Eichmann_at_Trial1961.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Adolf_Eichmann_at_Trial1961.jpg/960px-Adolf_Eichmann_at_Trial1961.jpg",
+      "scene": {
+        "width": 480,
+        "height": 640,
+        "bytes": 56532,
+        "sha256": "a730bac5f8d73a8216948e845fbaa2a01d564f562000c43c05e23eed3171b676"
+      },
+      "panel": {
+        "width": 960,
+        "height": 1280,
+        "bytes": 463396,
+        "sha256": "f8326703a64aa7c760fa206dcffc949346db8ab6304162edfc0e6422c987880b"
+      }
+    },
+    "rawls-original-position-interpretive": {
+      "hallFolder": "justice-democratic-reason",
+      "sourceKind": "owner-approved-original-illustration",
+      "sourcePageUrl": "https://github.com/Da3dalusCode/philosophy-museum/blob/main/public/assets/museum/justice-democratic-reason/rawls-original-position-interpretive-panel.webp",
+      "sourceImageUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/main/public/assets/museum/justice-democratic-reason/rawls-original-position-interpretive-panel.webp",
+      "selectedThumbnailUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/main/public/assets/museum/justice-democratic-reason/rawls-original-position-interpretive-panel.webp",
+      "scene": {
+        "width": 427,
+        "height": 640,
+        "bytes": 32420,
+        "sha256": "a0c6f32858db5fe2af0e4b998b9c6cf5c0316eb0da4e42b323a82c440c544e49"
+      },
+      "panel": {
+        "width": 853,
+        "height": 1280,
+        "bytes": 198104,
+        "sha256": "a65f18de1a1abfe24389a5ec1eb5b2f1d4186601ea0e82019ec53c6ab01f23dc"
+      }
+    },
+    "nozick-entitlement-interpretive": {
+      "hallFolder": "justice-democratic-reason",
+      "sourceKind": "owner-approved-original-illustration",
+      "sourcePageUrl": "https://github.com/Da3dalusCode/philosophy-museum/blob/main/public/assets/museum/justice-democratic-reason/nozick-entitlement-interpretive-panel.webp",
+      "sourceImageUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/main/public/assets/museum/justice-democratic-reason/nozick-entitlement-interpretive-panel.webp",
+      "selectedThumbnailUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/main/public/assets/museum/justice-democratic-reason/nozick-entitlement-interpretive-panel.webp",
+      "scene": {
+        "width": 427,
+        "height": 640,
+        "bytes": 28952,
+        "sha256": "be2733c76d5dfb08c518ddaa90a1e4623576e138d65453a51bb58f4988aa831a"
+      },
+      "panel": {
+        "width": 853,
+        "height": 1280,
+        "bytes": 160864,
+        "sha256": "e7f184b7412162213cd0601babacf9366f490b18df0e2dfc9b8b8b4df2886c03"
+      }
+    },
+    "nussbaum-capabilities-interpretive": {
+      "hallFolder": "justice-democratic-reason",
+      "sourceKind": "owner-approved-original-illustration",
+      "sourcePageUrl": "https://github.com/Da3dalusCode/philosophy-museum/blob/main/public/assets/museum/justice-democratic-reason/nussbaum-capabilities-interpretive-panel.webp",
+      "sourceImageUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/main/public/assets/museum/justice-democratic-reason/nussbaum-capabilities-interpretive-panel.webp",
+      "selectedThumbnailUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/main/public/assets/museum/justice-democratic-reason/nussbaum-capabilities-interpretive-panel.webp",
+      "scene": {
+        "width": 427,
+        "height": 640,
+        "bytes": 42506,
+        "sha256": "d4a2f149c1bd34ac976be7326b7c33f8d0d9de9f409259d91b7b1dc96450e101"
+      },
+      "panel": {
+        "width": 853,
+        "height": 1280,
+        "bytes": 261034,
+        "sha256": "03f20730c0363ba73615e3b4725c2764df02e19baa8d0fe7c40110c0baad3771"
+      }
+    },
+    "ada-signing-1990": {
+      "hallFolder": "justice-democratic-reason",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Bush_signs_in_ADA_of_1990.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f6/Bush_signs_in_ADA_of_1990.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Bush_signs_in_ADA_of_1990.jpg/1280px-Bush_signs_in_ADA_of_1990.jpg",
+      "scene": {
+        "width": 640,
+        "height": 433,
+        "bytes": 37338,
+        "sha256": "61d2964e50e97c12cc3e4132ea96218fb86ab2ca7e42459e49c1ca8ef6995d9f"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 865,
+        "bytes": 190892,
+        "sha256": "f1568ef6efa3016db6355f920c3ff186e771986d0214f963e3402dc0dc9e7ceb"
+      }
+    },
+    "amartya-sen-pmo-2005": {
+      "hallFolder": "justice-democratic-reason",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:A_portrait_of_the_Nobel_Laureate_and_well_known_Economist_Dr._Amartya_Sen_taken_during_the_release_of_his_book_%27The_Argumentative_Indian_-_Writings_on_Indian_History,_Culture_and_Identity%27,_in_New_Delhi_on_August_1,_2005.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2c/A_portrait_of_the_Nobel_Laureate_and_well_known_Economist_Dr._Amartya_Sen_taken_during_the_release_of_his_book_%27The_Argumentative_Indian_-_Writings_on_Indian_History%2C_Culture_and_Identity%27%2C_in_New_Delhi_on_August_1%2C_2005.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/A_portrait_of_the_Nobel_Laureate_and_well_known_Economist_Dr._Amartya_Sen_taken_during_the_release_of_his_book_%27The_Argumentative_Indian_-_Writings_on_Indian_History%2C_Culture_and_Identity%27%2C_in_New_Delhi_on_August_1%2C_2005.jpg/960px-thumbnail.jpg",
+      "scene": {
+        "width": 424,
+        "height": 640,
+        "bytes": 36080,
+        "sha256": "b13b5082c26797712dafc683afdd0433f7921f76ed9700558400676287e6a378"
+      },
+      "panel": {
+        "width": 848,
+        "height": 1280,
+        "bytes": 240136,
+        "sha256": "8d54191c5c0230cb646468317dbdbc5a64785e48d2a0ab9a6b12f35f4ac395a5"
+      }
+    },
+    "glarus-landsgemeinde-2009": {
+      "hallFolder": "justice-democratic-reason",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Landsgemeinde_Glarus,_2009.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7d/Landsgemeinde_Glarus%2C_2009.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Landsgemeinde_Glarus%2C_2009.jpg/1280px-Landsgemeinde_Glarus%2C_2009.jpg",
+      "scene": {
+        "width": 640,
+        "height": 426,
+        "bytes": 99556,
+        "sha256": "1c149a7ec83e18b894679174d0b643bceb46249e3e5ac0ad7376453ab8aeacd4"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 851,
+        "bytes": 457236,
+        "sha256": "3c42079c7420a49f7a3ac5a36da782e7c09b80c7245448dd23ab5dcf5cf9609c"
+      }
     }
   }
 }

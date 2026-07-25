@@ -166,7 +166,20 @@ export type MuseumSupplementalExhibitId =
   | 'anscombe-practical-knowledge'
   | 'anscombe-modern-moral-philosophy'
   | 'anscombe-truman-degree'
-  | 'anscombe-causality';
+  | 'anscombe-causality'
+  | 'political-authority-legitimacy'
+  | 'public-action-civil-disobedience'
+  | 'arendt-human-condition'
+  | 'arendt-eichmann-judgment'
+  | 'rawls-theory-of-justice'
+  | 'rawls-original-position'
+  | 'nozick-anarchy-state-utopia'
+  | 'nozick-entitlement-rectification'
+  | 'nussbaum-capabilities-approach'
+  | 'nussbaum-frontiers-justice'
+  | 'amartya-sen-capability-development'
+  | 'habermas-public-sphere'
+  | 'democratic-deliberation-assembly';
 
 export type MuseumSupplementalInstallationKind =
   | 'cave-ascent'
@@ -179,7 +192,10 @@ export type MuseumSupplementalInstallationKind =
   | 'phenomenology-concept'
   | 'analytic-work'
   | 'analytic-context'
-  | 'analytic-concept';
+  | 'analytic-concept'
+  | 'justice-work'
+  | 'justice-context'
+  | 'justice-concept';
 
 export type MuseumSupplementalExhibitLayout = {
   id: MuseumSupplementalExhibitId;
