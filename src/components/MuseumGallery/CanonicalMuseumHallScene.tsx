@@ -7,6 +7,7 @@ import {ContemporaryHallArchitecture} from './ContemporaryHallArchitecture';
 import {ContemporaryHallLighting} from './ContemporaryHallLighting';
 import {JusticeSupplementalExhibits} from './JusticeSupplementalExhibits';
 import {ClassicalSouthAsianSupplementalExhibits} from './ClassicalSouthAsianSupplementalExhibits';
+import {CoreQuestionsForumSupplementalExhibits} from './CoreQuestionsForumSupplementalExhibits';
 import {MediterraneanGalleryCuration} from './MediterraneanGalleryCuration';
 import {MuseumHallSpatialRoot} from './MuseumHallSpatialRoot';
 import {MuseumVisitorMapKiosk} from './MuseumVisitorMapKiosk';
@@ -48,6 +49,15 @@ export function CanonicalMuseumHallContent({
         onSelect={(supplementalExhibitId) => onSelectSupplementalExhibit({hallId: definition.id, supplementalExhibitId})}
       />}
     {definition.id === 'mediterranean-beginnings-classical' && <MediterraneanGalleryCuration/>}
+    {definition.id === 'core-questions-forum'
+      && definition.layout.supplementalExhibits
+      && <CoreQuestionsForumSupplementalExhibits
+        layouts={active
+          ? definition.layout.supplementalExhibits
+          : definition.layout.supplementalExhibits.filter(({assetId}) => entryAssetIds.has(assetId))}
+        nearbyId={nearbySupplemental?.hallId === definition.id ? nearbySupplemental.supplementalExhibitId : undefined}
+        onSelect={(supplementalExhibitId) => onSelectSupplementalExhibit({hallId: definition.id, supplementalExhibitId})}
+      />}
     {definition.id === 'renaissance-humanism-new-method'
       && definition.layout.supplementalExhibits
       && <RenaissanceSupplementalExhibits

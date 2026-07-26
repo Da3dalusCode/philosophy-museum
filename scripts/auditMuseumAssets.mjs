@@ -513,11 +513,11 @@ check('Gallery 08 fills thirty wall installations with unique, attributed media'
   }
 });
 
-check('the preserved asset registry contains 259 unique records and derivative paths', () => {
-  assert.equal(MUSEUM_ASSETS.length, 259);
-  assert.equal(assetById.size, 259);
+check('the preserved asset registry contains 269 unique records and derivative paths', () => {
+  assert.equal(MUSEUM_ASSETS.length, 269);
+  assert.equal(assetById.size, 269);
   const variantPaths = MUSEUM_ASSETS.flatMap(({variants}) => [variants.scene.path, variants.panel.path]);
-  assert.equal(variantPaths.length, 518);
+  assert.equal(variantPaths.length, 538);
   assert(unique(variantPaths), 'two asset variants share a derivative path');
   for (const id of NEW_CANONICAL_ASSET_IDS) assert(assetById.has(id), `new canonical asset ${id} is missing`);
   for (const id of MEDITERRANEAN_ASSET_IDS) assert(assetById.has(id), `Gallery 01 asset ${id} is missing`);
@@ -613,14 +613,14 @@ check('every registered variant is exact-case local WebP media with locked dimen
   }
 });
 
-check('the 221-file-source preparation manifest locks every post-Ancient asset uniformly', () => {
+check('the 231-file-source preparation manifest locks every post-Ancient asset uniformly', () => {
   assert.equal(modernManifest.version, 1);
-  assert.equal(Object.keys(manifestAssets).length, 221);
+  assert.equal(Object.keys(manifestAssets).length, 231);
   const managedAssets = MUSEUM_ASSETS.filter(({variants}) => !variants.scene.path.startsWith('assets/museum/ancient-greek/'));
-  assert.equal(managedAssets.length, 221);
+  assert.equal(managedAssets.length, 231);
   assert.deepEqual(Object.keys(manifestAssets).sort(), managedAssets.map(({id}) => id).sort());
   assert.match(preparationSource, /MANIFEST_PATH = ROOT \/ "scripts" \/ "museumModernAssetManifest\.json"/);
-  assert.match(preparationSource, /EXPECTED_ASSET_COUNT = 221/);
+  assert.match(preparationSource, /EXPECTED_ASSET_COUNT = 231/);
   for (const folder of MANAGED_HALL_FOLDERS) assert(preparationSource.includes(`"${folder}"`), `preparation pipeline omits ${folder}`);
   assert.match(preparationSource, /record\["selectedThumbnailUrl"\]/);
   assert.match(preparationSource, /assert_locked\(slug, "scene"/);
@@ -642,7 +642,7 @@ check('the 221-file-source preparation manifest locks every post-Ancient asset u
       assert.equal(new URL(lock.selectedThumbnailUrl).hostname, 'raw.githubusercontent.com', `${asset.id} original thumbnail must use the repository`);
     } else {
       assert.equal(new URL(lock.sourcePageUrl).hostname, 'commons.wikimedia.org', `${asset.id} lock source page must use Commons`);
-      const allowedMediaHosts = ['classical-south-asian-worlds', 'buddhist-philosophies'].includes(lock.hallFolder)
+      const allowedMediaHosts = ['classical-south-asian-worlds', 'buddhist-philosophies', 'core-questions-forum'].includes(lock.hallFolder)
         ? ['commons.wikimedia.org', 'upload.wikimedia.org']
         : ['upload.wikimedia.org'];
       assert(allowedMediaHosts.includes(new URL(lock.sourceImageUrl).hostname), `${asset.id} lock source image must use Wikimedia`);
@@ -665,7 +665,7 @@ check('the 221-file-source preparation manifest locks every post-Ancient asset u
     'analytic-traditions': 25,
     'buddhist-philosophies': 28,
     'classical-south-asian-worlds': 28,
-    'core-questions-forum': 12,
+    'core-questions-forum': 22,
     'ethics-justice-political-life': 16,
     'justice-democratic-reason': 12,
     'logic-language-science': 16,
@@ -677,7 +677,7 @@ check('the 221-file-source preparation manifest locks every post-Ancient asset u
   }, 'preparation lock folder inventory changed');
 });
 
-check('all 442 managed derivatives match exact dimensions, bytes, and SHA-256 locks', () => {
+check('all 462 managed derivatives match exact dimensions, bytes, and SHA-256 locks', () => {
   for (const [id, lock] of Object.entries(manifestAssets)) {
     const asset = assetById.get(id);
     assert(asset, `${id} lock has no asset record`);

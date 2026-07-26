@@ -3999,6 +3999,186 @@
         "bytes": 516016,
         "sha256": "2b18eff4b352fb509a91d48d5c7ba1438dee0551ece33447d0ecb66a43a63a5c"
       }
+    },
+    "forum-mulla-sadra-miscellany": {
+      "hallFolder": "core-questions-forum",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Molla_Sadra%E2%80%99s_Miscellany_WDL10609.pdf",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Molla_Sadra%E2%80%99s_Miscellany_WDL10609.pdf",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Molla_Sadra%E2%80%99s_Miscellany_WDL10609.pdf?page=1&width=1280",
+      "scene": {
+        "width": 380,
+        "height": 640,
+        "bytes": 30592,
+        "sha256": "4964fab2fe8ec3424ee7f9e3d8a072536649a1e41aee3c9c91ceef09c2d53620"
+      },
+      "panel": {
+        "width": 760,
+        "height": 1280,
+        "bytes": 124470,
+        "sha256": "c66915c8c2f10154cc266c80a20e408bbc37303a687d2e81e3635f6bdeeb223c"
+      }
+    },
+    "forum-dignaga-commemorative-portrait": {
+      "hallFolder": "core-questions-forum",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Portrait_of_Dignagacharyudu.JPG",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Portrait_of_Dignagacharyudu.JPG",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Portrait_of_Dignagacharyudu.JPG?width=1280",
+      "scene": {
+        "width": 480,
+        "height": 640,
+        "bytes": 55762,
+        "sha256": "80540d901f3ae799e8818f8d27f943b3d892d33bbc41e6fe481cb38100050a40"
+      },
+      "panel": {
+        "width": 960,
+        "height": 1280,
+        "bytes": 206474,
+        "sha256": "e459ede88b755a42858d634838ecd74d55b55fc84daed13cf287b14b64c940cf"
+      }
+    },
+    "forum-mozi-conventional-portrait": {
+      "hallFolder": "core-questions-forum",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:%D0%A4%D0%B8%D0%BB%D0%BE%D1%81%D0%BE%D1%84_%D0%9C%D0%BE-%D0%A6%D0%B7%D1%8B.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/%D0%A4%D0%B8%D0%BB%D0%BE%D1%81%D0%BE%D1%84_%D0%9C%D0%BE-%D0%A6%D0%B7%D1%8B.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/%D0%A4%D0%B8%D0%BB%D0%BE%D1%81%D0%BE%D1%84_%D0%9C%D0%BE-%D0%A6%D0%B7%D1%8B.jpg?width=1280",
+      "scene": {
+        "width": 640,
+        "height": 640,
+        "bytes": 53466,
+        "sha256": "37966efd053c5c0966f73c642ac45e5edd1104c3545ac0b0b54bedb95a819ae4"
+      },
+      "panel": {
+        "width": 1080,
+        "height": 1080,
+        "bytes": 142264,
+        "sha256": "e2c83643d1dfbc310579db8b1f29c86430bb249ce6a14c26c1e759df701aa02e"
+      }
+    },
+    "forum-avicenna-canon-1597": {
+      "hallFolder": "core-questions-forum",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Avicenna_canon_1597.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Avicenna_canon_1597.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Avicenna_canon_1597.jpg?width=1280",
+      "scene": {
+        "width": 451,
+        "height": 640,
+        "bytes": 75752,
+        "sha256": "3c36bb000ecf953e9d1c90d7ebaa2ddeea5adebc1f5eef693246410b39dec850"
+      },
+      "panel": {
+        "width": 902,
+        "height": 1280,
+        "bytes": 278618,
+        "sha256": "4772f2fb0c6305022a7d98c13e4a99eec716aa7e1b431fd849f34800359399e6"
+      }
+    },
+    "forum-confucius-tilting-vessel": {
+      "hallFolder": "core-questions-forum",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Confucius_qiqi.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Confucius_qiqi.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Confucius_qiqi.jpg?width=1280",
+      "scene": {
+        "width": 378,
+        "height": 640,
+        "bytes": 30876,
+        "sha256": "1407eb0a25a2ab5999a817395d7d467c14c19266be306e2a35c34e9bd76fcc4e"
+      },
+      "panel": {
+        "width": 600,
+        "height": 1016,
+        "bytes": 111408,
+        "sha256": "ecb4a9a4e0cd8a80511b174f910f498573e3e4f1a81e0419b4737db7be09c8dc"
+      }
+    },
+    "forum-mencius-three-moves": {
+      "hallFolder": "core-questions-forum",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:San_Qian_Ze_Li,_Illustrations_of_Mencius.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/San_Qian_Ze_Li%2C_Illustrations_of_Mencius.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/San_Qian_Ze_Li%2C_Illustrations_of_Mencius.jpg?width=1280",
+      "scene": {
+        "width": 405,
+        "height": 640,
+        "bytes": 71130,
+        "sha256": "0bb65bba1ec099083fe7adb478f73cffc639a926021454ed099761dcaa525760"
+      },
+      "panel": {
+        "width": 809,
+        "height": 1280,
+        "bytes": 213018,
+        "sha256": "719c55b62290d6cd79c2a75f6e8ff0e211317abf2ac22118ffb4f0c17edaef68"
+      }
+    },
+    "forum-al-farabi-round-city": {
+      "hallFolder": "core-questions-forum",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Round_City_in_the_Time_of_Mansur_(Le_Strange).png",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Round_City_in_the_Time_of_Mansur_%28Le_Strange%29.png",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Round_City_in_the_Time_of_Mansur_%28Le_Strange%29.png?width=1280",
+      "scene": {
+        "width": 640,
+        "height": 437,
+        "bytes": 59636,
+        "sha256": "4ad7fc138f9e7b33b3bef134ad3eb1649acc7f4ede0ad4dae3d7feaaa595b4b7"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 873,
+        "bytes": 180824,
+        "sha256": "db71ecdab65e8216ff66af7b416d198608c962eb1d95bce7b7e8ff7c982725f0"
+      }
+    },
+    "forum-maimonides-mishneh-torah": {
+      "hallFolder": "core-questions-forum",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Mishneh_Torah_(Books_7_to_14)_by_Maimonides_-_Google_Art_Project.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Mishneh_Torah_%28Books_7_to_14%29_by_Maimonides_-_Google_Art_Project.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Mishneh_Torah_%28Books_7_to_14%29_by_Maimonides_-_Google_Art_Project.jpg?width=1280",
+      "scene": {
+        "width": 640,
+        "height": 393,
+        "bytes": 72814,
+        "sha256": "7220c0f638740a2ba8f0d77efe1c0238fc93ec6b0d3c9b57f6185d00e5b34ade"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 785,
+        "bytes": 398110,
+        "sha256": "3ac4f7c5b2943bde958382469dd8f9a8aeb76bd1356ffd82b796a4aec437a4a3"
+      }
+    },
+    "forum-confucian-marquis-yi-bells": {
+      "hallFolder": "core-questions-forum",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Two_Tone_Set-bells_of_Marquis_Yi_of_Zeng_(10166271244).jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Two_Tone_Set-bells_of_Marquis_Yi_of_Zeng_%2810166271244%29.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Two_Tone_Set-bells_of_Marquis_Yi_of_Zeng_%2810166271244%29.jpg?width=1280",
+      "scene": {
+        "width": 640,
+        "height": 427,
+        "bytes": 59472,
+        "sha256": "065ee50a17d86c22ed14561ae0d631a0522a69e1615b4462b193bb752c70fef1"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 853,
+        "bytes": 302496,
+        "sha256": "62484812e936f0a76f0ffc92e26d998fa191cd607005d36b73606c5045e45478"
+      }
+    },
+    "forum-al-ghazali-faysal-manuscript": {
+      "hallFolder": "core-questions-forum",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Faysal_manuscript.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Faysal_manuscript.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Faysal_manuscript.jpg?width=1280",
+      "scene": {
+        "width": 640,
+        "height": 442,
+        "bytes": 68570,
+        "sha256": "cfb9fd713c29220892841a74bb99a509fb4f41f19285e99e6b7870ecadc842ef"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 884,
+        "bytes": 363056,
+        "sha256": "ca41721be9cc9df0b51646ae2b31f1b4985fb943e44279bde7f6ad4fa20e10b2"
+      }
     }
   }
 }

@@ -223,7 +223,17 @@ export type MuseumSupplementalExhibitId =
   | 'dharmakirti-pramanavarttika-reception'
   | 'kumarajiva-madhyamaka-translation'
   | 'tripitaka-koreana-printing-canon'
-  | 'pali-kammavaca-southeast-asia';
+  | 'pali-kammavaca-southeast-asia'
+  | 'forum-mulla-sadra-existence'
+  | 'forum-dignaga-pramana'
+  | 'forum-mozi-standards'
+  | 'forum-avicenna-demonstration'
+  | 'forum-confucius-cultivation'
+  | 'forum-mencius-humane-rule'
+  | 'forum-al-farabi-virtuous-city'
+  | 'forum-maimonides-law'
+  | 'forum-confucian-music'
+  | 'forum-al-ghazali-causation';
 
 export type MuseumSupplementalInstallationKind =
   | 'cave-ascent'
@@ -245,11 +255,14 @@ export type MuseumSupplementalInstallationKind =
   | 'south-asian-concept'
   | 'buddhist-work'
   | 'buddhist-context'
-  | 'buddhist-concept';
+  | 'buddhist-concept'
+  | 'forum-comparative-lens';
 
 export type MuseumSupplementalExhibitLayout = {
   id: MuseumSupplementalExhibitId;
   parentExhibitId: MuseumExhibitId;
+  /** Optional tour anchor when the exhibit's conceptual parent lives in another hall. */
+  guidedAfterExhibitId?: MuseumExhibitId;
   zoneId: MuseumZoneId;
   spatialCellId: string;
   position: MuseumPoint;

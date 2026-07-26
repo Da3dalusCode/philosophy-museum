@@ -39,7 +39,11 @@ const BRONZE = '#8b6b43';
 const LUMINOUS = '#fff3dc';
 const SIGN_REAR = '#d8d2c7';
 
-function CellShell({cell, renaissance}: {cell: MuseumSpatialCell; renaissance: boolean}) {
+function CellShell({cell, renaissance, forum}: {
+  cell: MuseumSpatialCell;
+  renaissance: boolean;
+  forum: boolean;
+}) {
   const bounds = cell.renderBounds ?? cell.bounds;
   const width = bounds.maxX - bounds.minX;
   const depth = bounds.maxZ - bounds.minZ;
@@ -50,7 +54,13 @@ function CellShell({cell, renaissance}: {cell: MuseumSpatialCell; renaissance: b
     <mesh position={[x, -.11, z]} receiveShadow>
       <boxGeometry args={[width, .22, depth]}/>
       <meshStandardMaterial
-        color={cell.kind === 'passage' ? FLOOR_PASSAGE : renaissance ? '#443a33' : FLOOR}
+        color={cell.kind === 'passage'
+          ? FLOOR_PASSAGE
+          : forum
+            ? '#3f3b34'
+            : renaissance
+              ? '#443a33'
+              : FLOOR}
         roughness={.94}
         metalness={.012}
       />
@@ -191,6 +201,7 @@ export function ContemporaryHallArchitecture({definition, onSceneGesture}: {defi
   const {layout} = definition;
   const mediterranean = definition.id === MEDITERRANEAN_GALLERY_ID;
   const renaissance = definition.id === RENAISSANCE_GALLERY_ID;
+  const forum = definition.id === 'core-questions-forum';
   const wallMaterial = resolveMuseumWallMaterial(definition.id);
   const activate = (event: ThreeEvent<MouseEvent>) => {
     if (event.delta > 7) return;
@@ -198,7 +209,12 @@ export function ContemporaryHallArchitecture({definition, onSceneGesture}: {defi
     onSceneGesture();
   };
   return <group onClick={activate}>
-    {layout.spatialCells.map((cell) => <CellShell key={cell.id} cell={cell} renaissance={renaissance}/>)}
+    {layout.spatialCells.map((cell) => <CellShell key={cell.id} cell={cell} renaissance={renaissance} forum={forum}/>)}
+    {forum && <group userData={{forumCirculationCross: true}}>
+      <mesh position={[0, .012, 0]}><boxGeometry args={[27.2, .014, .055]}/><meshStandardMaterial color={BRONZE} roughness={.5} metalness={.38}/></mesh>
+      <mesh position={[0, .013, 0]}><boxGeometry args={[.055, .015, 27.2]}/><meshStandardMaterial color={BRONZE} roughness={.5} metalness={.38}/></mesh>
+      <mesh position={[0, .016, 0]} rotation={[-Math.PI / 2, 0, 0]}><ringGeometry args={[.55, .64, 48]}/><meshStandardMaterial color={BRONZE} roughness={.45} metalness={.42}/></mesh>
+    </group>}
     {layout.spatialConnections.map((connection) => <ThresholdFascia key={connection.id} connection={connection} cells={layout.spatialCells} wallMaterial={wallMaterial}/>)}
     {definition.architectureWalls.map((wall) => <GalleryWall key={wall.id} wall={wall} wallMaterial={wallMaterial}/>)}
     <MuseumTemplateInterfaces definition={definition}/>

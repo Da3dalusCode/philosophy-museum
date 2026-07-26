@@ -53,6 +53,17 @@ import {
   BUDDHIST_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
 } from './buddhistSupplementalExhibits';
 import {BUDDHIST_PRIMARY_PLACEMENTS} from './buddhistGalleryCuration';
+import {
+  CORE_QUESTIONS_FORUM_GALLERY_ID,
+  CORE_QUESTIONS_FORUM_PRIMARY_CIRCULATION,
+  CORE_QUESTIONS_FORUM_PRIMARY_PLACEMENTS,
+  CORE_QUESTIONS_FORUM_ROOM_ENTRY_POSES,
+  coreQuestionsForumInteriorWalls,
+  coreQuestionsForumSigns,
+} from './coreQuestionsForumCuration';
+import {
+  CORE_QUESTIONS_FORUM_SUPPLEMENTAL_LAYOUTS,
+} from './coreQuestionsForumSupplementalExhibits';
 import {MUSEUM_VISITOR_MAP_KIOSK} from './museumVisitorMapKioskDefinition';
 import type {
   MuseumBounds,
@@ -85,7 +96,7 @@ const SEQUENCE_DEPTH = 56;
 const SEQUENCE_CEILING = 5.8;
 const FORUM_SIZE = 28;
 const FORUM_CEILING = 6.2;
-const CORE_QUESTIONS_FORUM_ID = 'core-questions-forum' as const;
+const CORE_QUESTIONS_FORUM_ID = CORE_QUESTIONS_FORUM_GALLERY_ID;
 const WALL = .36;
 const EYE_HEIGHT = 1.7;
 
@@ -117,7 +128,9 @@ const fullScalePrimaryStartIndex = MUSEUM_CANONICAL_PROGRAM.findIndex(({id}) => 
 if (fullScalePrimaryStartIndex < 0) throw new Error('The full-scale primary exhibit policy has no Gallery 03 starting point.');
 
 const supplementalLayoutsForHall = (hallId: MuseumPublicHallId): readonly MuseumSupplementalExhibitLayout[] =>
-  hallId === MEDITERRANEAN_GALLERY_ID
+  hallId === CORE_QUESTIONS_FORUM_ID
+    ? CORE_QUESTIONS_FORUM_SUPPLEMENTAL_LAYOUTS
+    : hallId === MEDITERRANEAN_GALLERY_ID
     ? PLATO_SUPPLEMENTAL_EXHIBIT_LAYOUTS
     : hallId === RENAISSANCE_GALLERY_ID
       ? RENAISSANCE_SUPPLEMENTAL_EXHIBIT_LAYOUTS
@@ -418,11 +431,44 @@ const guidedWaypointsWithinRoom = (
     [from, {x: to.x, z: from.z}, to],
     [from, {x: 0, z: from.z}, {x: 0, z: to.z}, to],
   ];
+  const roomCenter = {
+    x: (bounds.minX + bounds.maxX) / 2,
+    z: (bounds.minZ + bounds.maxZ) / 2,
+  };
   for (let z = bounds.minZ + 1; z <= bounds.maxZ - 1; z += 1) {
     candidates.push([from, {x: from.x, z}, {x: to.x, z}, to]);
   }
   for (let x = bounds.minX + 1; x <= bounds.maxX - 1; x += 1) {
     candidates.push([from, {x, z: from.z}, {x, z: to.z}, to]);
+  }
+  // Crossroads rooms sometimes need one move into an aisle before turning
+  // around a display baffle. Pairing interior x/z lanes covers that simple
+  // museum-walk shape without introducing a general pathfinding subsystem.
+  for (let x = bounds.minX + 1; x <= bounds.maxX - 1; x += .75) {
+    for (let z = bounds.minZ + 1; z <= bounds.maxZ - 1; z += .75) {
+      candidates.push([
+        from,
+        {x, z: from.z},
+        {x, z},
+        {x: to.x, z},
+        to,
+      ]);
+      candidates.push([
+        from,
+        {x: from.x, z},
+        {x, z},
+        {x, z: to.z},
+        to,
+      ]);
+      candidates.push([
+        from,
+        {x: from.x, z: roomCenter.z},
+        {x, z: roomCenter.z},
+        {x, z},
+        {x: to.x, z},
+        to,
+      ]);
+    }
   }
   const clear = candidates
     .map((candidate) => compactRoute(candidate))
@@ -564,6 +610,8 @@ const sequenceConnections = (rooms: readonly MuseumCanonicalRoom[], roomBounds: 
 
 const forumConnections = (roomBounds: ReadonlyMap<string, MuseumBounds>): MuseumSpatialConnection[] => {
   const result: MuseumSpatialConnection[] = [];
+  const cellSize = FORUM_SIZE / 3;
+  const boundaryInset = .3;
   for (let row = 0; row < 3; row += 1) {
     for (let column = 0; column < 3; column += 1) {
       const index = row * 3 + column;
@@ -571,15 +619,44 @@ const forumConnections = (roomBounds: ReadonlyMap<string, MuseumBounds>): Museum
       const bounds = roomBounds.get(id)!;
       if (column < 2) {
         const target = FORUM_ROOM_ORDER[index + 1];
-        const centerZ = (bounds.minZ + bounds.maxZ) / 2;
-        result.push({id: `threshold:${id}:${target}`, fromCellId: id, toCellId: target, openingBounds: {minX: bounds.maxX - .3, maxX: bounds.maxX + .3, minZ: centerZ - 2, maxZ: centerZ + 2}});
+        const opening = row === 1
+          ? {minZ: bounds.minZ + .35, maxZ: bounds.maxZ - .35}
+          : row === 0
+            ? {minZ: bounds.maxZ - 4, maxZ: bounds.maxZ}
+            : {minZ: bounds.minZ, maxZ: bounds.minZ + 4};
+        result.push({
+          id: `threshold:${id}:${target}`,
+          fromCellId: id,
+          toCellId: target,
+          openingBounds: {
+            minX: bounds.maxX - boundaryInset,
+            maxX: bounds.maxX + boundaryInset,
+            ...opening,
+          },
+        });
       }
       if (row < 2) {
         const target = FORUM_ROOM_ORDER[index + 3];
-        const centerX = (bounds.minX + bounds.maxX) / 2;
-        result.push({id: `threshold:${id}:${target}`, fromCellId: id, toCellId: target, openingBounds: {minX: centerX - 2, maxX: centerX + 2, minZ: bounds.maxZ - .3, maxZ: bounds.maxZ + .3}});
+        const opening = column === 1
+          ? {minX: bounds.minX + .35, maxX: bounds.maxX - .35}
+          : column === 0
+            ? {minX: bounds.maxX - 4, maxX: bounds.maxX}
+            : {minX: bounds.minX, maxX: bounds.minX + 4};
+        result.push({
+          id: `threshold:${id}:${target}`,
+          fromCellId: id,
+          toCellId: target,
+          openingBounds: {
+            ...opening,
+            minZ: bounds.maxZ - boundaryInset,
+            maxZ: bounds.maxZ + boundaryInset,
+          },
+        });
       }
     }
+  }
+  if (result.length !== 12 || cellSize <= 0) {
+    throw new Error('Core Questions Forum must retain all twelve room-to-room connections.');
   }
   return result;
 };
@@ -590,18 +667,13 @@ const forumGuidedWaypoints = (
   fromCellId: string,
   toCellId: string,
   roomBounds: ReadonlyMap<string, MuseumBounds>,
+  spatialConnections: readonly MuseumSpatialConnection[],
   colliders: readonly MuseumCollider[],
 ): readonly MuseumPoint[] => {
-  const fromBounds = roomBounds.get(fromCellId)!;
-  const toBounds = roomBounds.get(toCellId)!;
   const center = (bounds: MuseumBounds): MuseumPoint => ({
     x: (bounds.minX + bounds.maxX) / 2,
     z: (bounds.minZ + bounds.maxZ) / 2,
   });
-  const fromCenter = center(fromBounds);
-  const toCenter = center(toBounds);
-  const startLeg = guidedWaypointsWithinRoom(from, fromCenter, fromBounds, colliders);
-  const endLeg = guidedWaypointsWithinRoom(toCenter, to, toBounds, colliders);
   const fromIndex = FORUM_ROOM_ORDER.indexOf(fromCellId as (typeof FORUM_ROOM_ORDER)[number]);
   const toIndex = FORUM_ROOM_ORDER.indexOf(toCellId as (typeof FORUM_ROOM_ORDER)[number]);
   if (fromIndex < 0 || toIndex < 0) throw new Error(`Unknown Forum guided cells ${fromCellId} -> ${toCellId}.`);
@@ -609,20 +681,20 @@ const forumGuidedWaypoints = (
   const startColumn = fromIndex % 3;
   const targetRow = Math.floor(toIndex / 3);
   const targetColumn = toIndex % 3;
-  const middle = (horizontalFirst: boolean): MuseumPoint[] => {
+  const cellPath = (horizontalFirst: boolean): string[] => {
     let row = startRow;
     let column = startColumn;
-    const points: MuseumPoint[] = [fromCenter];
+    const cells: string[] = [FORUM_ROOM_ORDER[row * 3 + column]];
     const moveColumn = () => {
       while (column !== targetColumn) {
         column += Math.sign(targetColumn - column);
-        points.push(center(roomBounds.get(FORUM_ROOM_ORDER[row * 3 + column])!));
+        cells.push(FORUM_ROOM_ORDER[row * 3 + column]);
       }
     };
     const moveRow = () => {
       while (row !== targetRow) {
         row += Math.sign(targetRow - row);
-        points.push(center(roomBounds.get(FORUM_ROOM_ORDER[row * 3 + column])!));
+        cells.push(FORUM_ROOM_ORDER[row * 3 + column]);
       }
     };
     if (horizontalFirst) {
@@ -632,14 +704,62 @@ const forumGuidedWaypoints = (
       moveRow();
       moveColumn();
     }
-    return points;
+    return cells;
+  };
+  const routeThroughCells = (
+    cells: readonly string[],
+    openingBias: -1 | 0 | 1,
+  ): readonly MuseumPoint[] => {
+    const result: MuseumPoint[] = [from];
+    let current = from;
+    for (let index = 0; index < cells.length - 1; index += 1) {
+      const currentCellId = cells[index];
+      const nextCellId = cells[index + 1];
+      const currentBounds = roomBounds.get(currentCellId)!;
+      const nextBounds = roomBounds.get(nextCellId)!;
+      const connection = spatialConnections.find(({fromCellId: first, toCellId: second}) =>
+        (first === currentCellId && second === nextCellId)
+        || (first === nextCellId && second === currentCellId));
+      if (!connection) throw new Error(`Forum route has no opening between ${currentCellId} and ${nextCellId}.`);
+      const openingCenter = center(connection.openingBounds);
+      const openingWidth = connection.openingBounds.maxX - connection.openingBounds.minX;
+      const openingDepth = connection.openingBounds.maxZ - connection.openingBounds.minZ;
+      if (openingBias && openingWidth > openingDepth) {
+        openingCenter.x = openingBias < 0
+          ? connection.openingBounds.minX + .65
+          : connection.openingBounds.maxX - .65;
+      } else if (openingBias && openingDepth > openingWidth) {
+        openingCenter.z = openingBias < 0
+          ? connection.openingBounds.minZ + .65
+          : connection.openingBounds.maxZ - .65;
+      }
+      const currentCenter = center(currentBounds);
+      const nextCenter = center(nextBounds);
+      const horizontal = Math.abs(nextCenter.x - currentCenter.x) > Math.abs(nextCenter.z - currentCenter.z);
+      const direction = horizontal
+        ? Math.sign(nextCenter.x - currentCenter.x)
+        : Math.sign(nextCenter.z - currentCenter.z);
+      const before = horizontal
+        ? {x: openingCenter.x - direction * .55, z: openingCenter.z}
+        : {x: openingCenter.x, z: openingCenter.z - direction * .55};
+      const after = horizontal
+        ? {x: openingCenter.x + direction * .55, z: openingCenter.z}
+        : {x: openingCenter.x, z: openingCenter.z + direction * .55};
+      result.push(...guidedWaypointsWithinRoom(current, before, currentBounds, colliders).slice(1), after);
+      current = after;
+    }
+    result.push(...guidedWaypointsWithinRoom(current, to, roomBounds.get(toCellId)!, colliders).slice(1));
+    return compactRoute(result);
   };
   const hallBounds = {minX: -FORUM_SIZE / 2, maxX: FORUM_SIZE / 2, minZ: -FORUM_SIZE / 2, maxZ: FORUM_SIZE / 2};
-  const candidates = [middle(true), middle(false)].map((throughCenters) => compactRoute([
-    ...startLeg,
-    ...throughCenters.slice(1),
-    ...endLeg.slice(1),
-  ]));
+  const candidates: readonly MuseumPoint[][] = [true, false].flatMap((horizontalFirst) =>
+    ([-1, 0, 1] as const).flatMap((openingBias) => {
+      try {
+        return [[...routeThroughCells(cellPath(horizontalFirst), openingBias)]];
+      } catch {
+        return [];
+      }
+    }));
   const clear = candidates
     .filter((candidate) => guidedRouteIsClear(candidate, hallBounds, colliders))
     .sort((first, second) => guidedRouteLength(first) - guidedRouteLength(second));
@@ -664,31 +784,7 @@ const sequencePartitionWalls = (rooms: readonly MuseumCanonicalRoom[], roomBound
   });
 
 const forumPartitionWalls = (prefix: string): MuseumWallDefinition[] => {
-  const cellSize = FORUM_SIZE / 3;
-  const walls: MuseumWallDefinition[] = [];
-  for (const x of [-FORUM_SIZE / 6, FORUM_SIZE / 6]) {
-    for (let row = 0; row < 3; row += 1) {
-      const minZ = -FORUM_SIZE / 2 + row * cellSize;
-      const midZ = minZ + cellSize / 2;
-      const segment = (cellSize - 4) / 2;
-      walls.push(
-        {id: `${prefix}:vertical-${x}-${row}-a`, center: {x, z: minZ + segment / 2}, size: {width: WALL, depth: segment}, rotation: 0, height: FORUM_CEILING},
-        {id: `${prefix}:vertical-${x}-${row}-b`, center: {x, z: midZ + 2 + segment / 2}, size: {width: WALL, depth: segment}, rotation: 0, height: FORUM_CEILING},
-      );
-    }
-  }
-  for (const z of [-FORUM_SIZE / 6, FORUM_SIZE / 6]) {
-    for (let column = 0; column < 3; column += 1) {
-      const minX = -FORUM_SIZE / 2 + column * cellSize;
-      const midX = minX + cellSize / 2;
-      const segment = (cellSize - 4) / 2;
-      walls.push(
-        {id: `${prefix}:horizontal-${z}-${column}-a`, center: {x: minX + segment / 2, z}, size: {width: segment, depth: WALL}, rotation: 0, height: FORUM_CEILING},
-        {id: `${prefix}:horizontal-${z}-${column}-b`, center: {x: midX + 2 + segment / 2, z}, size: {width: segment, depth: WALL}, rotation: 0, height: FORUM_CEILING},
-      );
-    }
-  }
-  return walls;
+  return [...coreQuestionsForumInteriorWalls(prefix)];
 };
 
 const placeRoomExhibits = (
@@ -848,15 +944,22 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
   const primaryScaleFloor = primaryScaleFloorForHall(hall, supplementalExhibits);
   const exhibits = orderedRooms.flatMap((room) => {
     const bounds = roomBounds.get(room.id)!;
-    const connectionExclusions = spatialConnections
-      .filter(({fromCellId, toCellId}) => fromCellId === room.id || toCellId === room.id)
-      .map(({openingBounds}) => openingBounds);
+    // Forum installations are authored against the actual offset walls and
+    // baffles. Treating every broad semantic cell seam as a doorway exclusion
+    // would reject valid wall-backed bays inside the intentionally open cross.
+    const connectionExclusions = isForum
+      ? []
+      : spatialConnections
+        .filter(({fromCellId, toCellId}) => fromCellId === room.id || toCellId === room.id)
+        .map(({openingBounds}) => openingBounds);
     return placeRoomExhibits(
       room,
       bounds,
       [...doorwayExclusions, ...connectionExclusions, ...furnishingExclusions],
       isForum,
-      hall.id === MEDITERRANEAN_GALLERY_ID
+      hall.id === CORE_QUESTIONS_FORUM_ID
+        ? CORE_QUESTIONS_FORUM_PRIMARY_PLACEMENTS
+        : hall.id === MEDITERRANEAN_GALLERY_ID
         ? MEDITERRANEAN_AUTHORED_PLACEMENTS
         : hall.id === RENAISSANCE_GALLERY_ID
           ? RENAISSANCE_AUTHORED_PLACEMENTS
@@ -913,7 +1016,8 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
     ...(isForum ? forumPartitionWalls(hall.id) : sequencePartitionWalls(orderedRooms, roomBounds, hall.id)),
   ];
   if (
-    hall.id === RENAISSANCE_GALLERY_ID
+    hall.id === CORE_QUESTIONS_FORUM_ID
+    || hall.id === RENAISSANCE_GALLERY_ID
     || hall.id === PHENOMENOLOGY_GALLERY_ID
     || hall.id === ANALYTIC_GALLERY_ID
     || hall.id === JUSTICE_GALLERY_ID
@@ -971,6 +1075,7 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
           layout.spatialCellId,
           target.spatialCellId,
           roomBounds,
+          spatialConnections,
           [...wallColliders, ...obstacleColliders],
         )
       : layout.spatialCellId === target.spatialCellId
@@ -1177,7 +1282,9 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
                       height: .82,
                     };
                   })
-              : standardSigns;
+              : hall.id === CORE_QUESTIONS_FORUM_ID
+                ? coreQuestionsForumSigns()
+                : standardSigns;
   const guidedOrder = orderedRooms.flatMap((room) => room.exhibits.map(({id}) => id as MuseumExhibitId));
   const entryRoomIdByEntrance = new Map<string, string>();
   const entryExhibitIdsByEntrance = Object.fromEntries(node.doorwaySlots.map((slot) => {
@@ -1229,11 +1336,14 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
       spatialCells: cells,
       spatialConnections,
       entryViews: cells.map((cell) => {
-          const firstPrimary = isForum
-            || hall.id === CLASSICAL_SOUTH_ASIAN_GALLERY_ID
-            || hall.id === BUDDHIST_GALLERY_ID
-            ? exhibits.find(({spatialCellId}) => spatialCellId === cell.id)
-            : undefined;
+        const firstPrimary = isForum
+          || hall.id === CLASSICAL_SOUTH_ASIAN_GALLERY_ID
+          || hall.id === BUDDHIST_GALLERY_ID
+          ? exhibits.find(({spatialCellId}) => spatialCellId === cell.id)
+          : undefined;
+        const forumEntryPose = isForum
+          ? CORE_QUESTIONS_FORUM_ROOM_ENTRY_POSES[cell.id]
+          : undefined;
         return {
           spatialCellId: cell.id,
           // Gallery 01 is read as a chronological promenade. Stage its directory
@@ -1241,7 +1351,8 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
           // in the same direction as the authored route. Forum views prioritize
           // the first primary installation so partitions never become the room's
           // accidental focal point.
-          pose: firstPrimary?.viewpoint
+          pose: forumEntryPose
+            ?? firstPrimary?.viewpoint
             ?? (hall.id === MEDITERRANEAN_GALLERY_ID || hall.id === RENAISSANCE_GALLERY_ID
               ? {x: 0, z: cell.bounds.minZ + .8, yaw: Math.PI, pitch: -.01}
               : {x: Math.max(cell.bounds.minX + 2.8, Math.min(cell.bounds.maxX - 2.8, 0)), z: (cell.bounds.minZ + cell.bounds.maxZ) / 2, yaw: Math.PI, pitch: 0}),
@@ -1256,11 +1367,11 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
       primaryCirculation: {
         id: `${hall.id}:primary-circulation`,
         points: isForum
-          ? [{x: .6, z: -12}, {x: .6, z: -3.2}, {x: .6, z: 3.2}, {x: .6, z: 12}]
+          ? CORE_QUESTIONS_FORUM_PRIMARY_CIRCULATION
           : hall.id === BUDDHIST_GALLERY_ID
             ? [{x: 0, z: -26}, {x: 0, z: 0}, {x: 0, z: 24.4}]
             : [{x: 0, z: -26}, {x: 0, z: 0}, {x: 0, z: 26}],
-        clearanceRadius: 1.25,
+        clearanceRadius: isForum ? .62 : 1.25,
       },
       guidedOrder,
       guidedWalkLegs,

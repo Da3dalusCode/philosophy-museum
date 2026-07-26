@@ -37,6 +37,8 @@ const classicalSouthAsianSupplementalDataSource = source('src/data/museum/classi
 const classicalSouthAsianSupplementalSceneSource = source('src/components/MuseumGallery/ClassicalSouthAsianSupplementalExhibits.tsx');
 const buddhistSupplementalDataSource = source('src/data/museum/buddhistSupplementalExhibits.ts');
 const buddhistSupplementalSceneSource = source('src/components/MuseumGallery/BuddhistSupplementalExhibits.tsx');
+const forumSupplementalDataSource = source('src/data/museum/coreQuestionsForumSupplementalExhibits.ts');
+const forumSupplementalSceneSource = source('src/components/MuseumGallery/CoreQuestionsForumSupplementalExhibits.tsx');
 const supplementalPanelSource = source('src/components/MuseumGallery/MuseumSupplementalInterpretationPanel.tsx');
 const interpretationPanelSource = source('src/components/MuseumGallery/MuseumInterpretationPanel.tsx');
 const globalSearchSource = source('src/components/Search/GlobalSearch.tsx');
@@ -75,6 +77,8 @@ const result = await build({
       export * from '/src/data/museum/classicalSouthAsianSupplementalExhibits.ts';
       export * from '/src/data/museum/buddhistGalleryCuration.ts';
       export * from '/src/data/museum/buddhistSupplementalExhibits.ts';
+      export * from '/src/data/museum/coreQuestionsForumCuration.ts';
+      export * from '/src/data/museum/coreQuestionsForumSupplementalExhibits.ts';
       export * from '/src/data/museum/museumSupplementalExhibits.ts';
       export * from '/src/components/MuseumGallery/museumMovement.ts';
       export * from '/src/components/MuseumGallery/museumResidency.ts';
@@ -119,6 +123,10 @@ const {
   CLASSICAL_SOUTH_ASIAN_PRIMARY_PLACEMENTS,
   CLASSICAL_SOUTH_ASIAN_SUPPLEMENTAL_EXHIBITS,
   CLASSICAL_SOUTH_ASIAN_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
+  CORE_QUESTIONS_FORUM_PHYSICAL_LENS_IDS,
+  CORE_QUESTIONS_FORUM_PRIMARY_PLACEMENTS,
+  CORE_QUESTIONS_FORUM_SUPPLEMENTAL_EXHIBITS,
+  CORE_QUESTIONS_FORUM_SUPPLEMENTAL_LAYOUTS,
   MUSEUM_ASSETS,
   MUSEUM_BUILDING_MANIFEST,
   MUSEUM_CANONICAL_WALL_MATERIAL,
@@ -589,8 +597,8 @@ check('Plato’s Cave and Republic form a substantial supplemental U without ent
   assert.match(supplementalPanelSource, /event\.key === 'Escape'/u, 'The supplemental panel lacks its keyboard close path');
 });
 
-check('all one hundred fourteen supplemental exhibits share route, directory, search, guided, and fallback contracts', () => {
-  assert.equal(MUSEUM_SUPPLEMENTAL_EXHIBITS.length, 114);
+check('all one hundred twenty-four supplemental exhibits share route, directory, search, guided, and fallback contracts', () => {
+  assert.equal(MUSEUM_SUPPLEMENTAL_EXHIBITS.length, 124);
   assert.equal(
     new Set(MUSEUM_SUPPLEMENTAL_EXHIBITS.map(({exhibit}) => exhibit.id)).size,
     MUSEUM_SUPPLEMENTAL_EXHIBITS.length,
@@ -601,16 +609,25 @@ check('all one hundred fourteen supplemental exhibits share route, directory, se
     const hall = hallById.get(hallId);
     const definition = definitionById.get(hallId);
     assert(hall && definition, `${exhibit.id} points to an unknown live hall`);
-    assert(hall.exhibits.some(({id}) => id === layout.parentExhibitId), `${exhibit.id} has no primary parent`);
+    const localParent = hall.exhibits.some(({id}) => id === layout.parentExhibitId);
+    assert(
+      localParent || (
+        hallId === 'core-questions-forum'
+        && layout.guidedAfterExhibitId
+        && hall.exhibits.some(({id}) => id === layout.guidedAfterExhibitId)
+      ),
+      `${exhibit.id} has no local parent or Forum tour anchor`,
+    );
     assert(hall.zones.some(({id}) => id === layout.zoneId), `${exhibit.id} has no live room`);
     assert(definition.layout.supplementalExhibits?.some(({id}) => id === exhibit.id), `${exhibit.id} is absent from its hall layout`);
     assert(!hall.exhibits.some(({id}) => id === exhibit.id), `${exhibit.id} collides with a primary exhibit id`);
     assert(exhibit.keyIdeas.length >= 3, `${exhibit.id} lacks a usable idea map`);
     assert(exhibit.cautions.length >= 2, `${exhibit.id} lacks interpretive cautions`);
-    assert(exhibit.sections.length >= 3, `${exhibit.id} interpretation is too shallow`);
+    const compactComparativeLens = hallId === 'core-questions-forum';
+    assert(exhibit.sections.length >= (compactComparativeLens ? 2 : 3), `${exhibit.id} interpretation is too shallow`);
     assert(exhibit.sources.length >= 2, `${exhibit.id} lacks a useful source layer`);
     assert(
-      wordCount(`${exhibit.lead} ${exhibit.sections.flatMap(({paragraphs}) => paragraphs).join(' ')}`) >= 120,
+      wordCount(`${exhibit.lead} ${exhibit.sections.flatMap(({paragraphs}) => paragraphs).join(' ')}`) >= (compactComparativeLens ? 80 : 120),
       `${exhibit.id} interpretation is too brief`,
     );
   }
@@ -620,11 +637,12 @@ check('all one hundred fourteen supplemental exhibits share route, directory, se
     const guided = getMuseumGuidedStops(hall.id, hall.guidedOrder);
     assert.equal(guided.length, hall.guidedOrder.length + supplemental.length, `${hall.id} guided stop count is stale`);
     for (const {exhibit, layout} of supplemental) {
+      const guidedAnchorId = layout.guidedAfterExhibitId ?? layout.parentExhibitId;
       const primaryIndex = guided.findIndex(({kind, exhibitId}) =>
-        kind === 'primary' && exhibitId === layout.parentExhibitId);
+        kind === 'primary' && exhibitId === guidedAnchorId);
       const supplementalIndex = guided.findIndex(({kind, exhibitId}) =>
         kind === 'supplemental' && exhibitId === exhibit.id);
-      assert(primaryIndex >= 0 && supplementalIndex > primaryIndex, `${exhibit.id} is not guided after its parent`);
+      assert(primaryIndex >= 0 && supplementalIndex > primaryIndex, `${exhibit.id} is not guided after its tour anchor`);
     }
   }
 
@@ -1024,10 +1042,11 @@ check('Gallery 03 onward makes every primary at least as large as its biggest se
       'phenomenology-existence-embodiment',
       'analytic-traditions',
       'justice-democratic-reason',
+      'core-questions-forum',
       'classical-south-asian-worlds',
       'buddhist-philosophies',
     ]),
-    'Fully built Galleries 03–05 and 07–08 should enforce the completed-gallery hierarchy',
+    'Fully built Galleries 03–08 should enforce the completed-gallery hierarchy',
   );
   assert(
     canonicalExhibitsSource.includes('primaryEmphasis ? .72 : .42'),
@@ -1201,15 +1220,37 @@ check('Gallery 08 preserves primary hierarchy and fills all thirty half-room wal
   assert.equal(connection?.accessible, true);
 });
 
-check('Gallery 06 keeps full-scale image-led primaries above rigorous comparative wayfinding', () => {
+check('Gallery 06 is an open, wall-supported 25-exhibit Forum with full-scale primaries', () => {
   const forumProgram = MUSEUM_CANONICAL_PROGRAM.find(({id}) => id === 'core-questions-forum');
   const forumDirectory = hallById.get('core-questions-forum');
   const forumDefinition = definitionById.get('core-questions-forum');
   assert(forumProgram && forumDirectory && forumDefinition);
   assert.equal(forumProgram.rooms.length, 9);
+  assert.equal(forumProgram.recordCapacity, 25);
   assert.equal(forumDefinition.layout.exhibits.length, 15);
+  assert.equal(forumDefinition.layout.supplementalExhibits?.length, 10);
+  assert.equal(CORE_QUESTIONS_FORUM_SUPPLEMENTAL_EXHIBITS.length, 10);
+  assert.equal(CORE_QUESTIONS_FORUM_SUPPLEMENTAL_LAYOUTS.length, 10);
+  assert.equal(
+    forumDefinition.layout.exhibits.length + (forumDefinition.layout.supplementalExhibits?.length ?? 0),
+    forumProgram.recordCapacity,
+    'Gallery 06 no longer fills its approved 25-installation capacity',
+  );
+
+  for (const room of forumProgram.rooms) {
+    const supplementalCount = CORE_QUESTIONS_FORUM_SUPPLEMENTAL_LAYOUTS
+      .filter(({spatialCellId}) => spatialCellId === room.id).length;
+    assert.equal(
+      room.exhibits.length + supplementalCount,
+      room.recordCapacity,
+      `${room.id} does not fill its approved Forum capacity`,
+    );
+  }
+
   const largestPrimaryWidth = Math.max(...forumDefinition.layout.exhibits.map(({scene}) => scene.footprint.width));
   const largestPrimaryHeight = Math.max(...forumDefinition.layout.exhibits.map(({scene}) => scene.footprint.height));
+  const largestSupplementalWidth = Math.max(...CORE_QUESTIONS_FORUM_SUPPLEMENTAL_LAYOUTS.map(({footprint}) => footprint.width));
+  const largestSupplementalHeight = Math.max(...CORE_QUESTIONS_FORUM_SUPPLEMENTAL_LAYOUTS.map(({footprint}) => footprint.height));
   for (const layout of forumDefinition.layout.exhibits) {
     const backing = layout.scene.objectBounds.find(({id}) => id.endsWith('-backing'));
     assert(backing, `${layout.id} lacks its full-scale primary backing`);
@@ -1221,6 +1262,8 @@ check('Gallery 06 keeps full-scale image-led primaries above rigorous comparativ
   }
   assert.equal(largestPrimaryWidth, 3.8, 'Gallery 06 primary width drifted from the established anchor standard');
   assert.equal(largestPrimaryHeight, 3.71, 'Gallery 06 primary height drifted from the established anchor standard');
+  assert(largestPrimaryWidth > largestSupplementalWidth, 'A Forum supplemental is as wide as a primary');
+  assert(largestPrimaryHeight > largestSupplementalHeight, 'A Forum supplemental is as tall as a primary');
 
   const expectedFieldAssets = new Map([
     ['metaphysics', 'metaphysics-reality-layers-interpretive'],
@@ -1234,17 +1277,96 @@ check('Gallery 06 keeps full-scale image-led primaries above rigorous comparativ
     ['philosophy-of-religion', 'philosophy-religion-plural-inquiry-interpretive'],
   ]);
   const forumPrimaries = forumProgram.rooms.flatMap(({exhibits}) => exhibits);
-  assert.equal(new Set(forumPrimaries.map(({principalAssetId}) => principalAssetId)).size, 15, 'Gallery 06 repeats a principal image');
+  const forumImageIds = [
+    ...forumPrimaries.map(({principalAssetId}) => principalAssetId),
+    ...CORE_QUESTIONS_FORUM_SUPPLEMENTAL_LAYOUTS.map(({assetId}) => assetId),
+  ];
+  assert.equal(forumImageIds.length, 25);
+  assert.equal(new Set(forumImageIds).size, 25, 'Gallery 06 repeats a wall image');
   for (const [exhibitId, assetId] of expectedFieldAssets) {
     const exhibit = forumPrimaries.find(({id}) => id === exhibitId);
     assert.equal(exhibit?.principalAssetId, assetId, `${exhibitId} lost its dedicated field visual`);
     assert(assetById.has(assetId), `${exhibitId} uses missing asset ${assetId}`);
   }
-  assert(!forumPrimaries.some(({principalAssetId}) => /grave|plaque/.test(principalAssetId ?? '')), 'Gallery 06 restored a grave or plaque primary image');
+  assert(!forumImageIds.some((assetId) => /grave|plaque/.test(assetId ?? '')), 'Gallery 06 restored a grave or plaque image');
+  for (const layout of CORE_QUESTIONS_FORUM_SUPPLEMENTAL_LAYOUTS) {
+    const asset = assetById.get(layout.assetId);
+    assert(asset, `${layout.id} uses missing asset ${layout.assetId}`);
+    assert(asset.sourcePageUrl?.startsWith('https://'), `${layout.id} lacks a real source page`);
+    assert(asset.attribution?.trim().length >= 24, `${layout.id} lacks practical attribution`);
+  }
+  assert.deepEqual(
+    sorted(CORE_QUESTIONS_FORUM_SUPPLEMENTAL_LAYOUTS.map(({id}) => id)),
+    sorted(CORE_QUESTIONS_FORUM_PHYSICAL_LENS_IDS),
+    'Gallery 06 physical comparative-lens roster drifted',
+  );
   assert(
     canonicalExhibitsSource.includes("definition.id === 'core-questions-forum'"),
     'Gallery 06 must retain the full-scale primary renderer instead of the compact legacy treatment',
   );
+  assert.match(canonicalSceneSource, /<CoreQuestionsForumSupplementalExhibits/u, 'Gallery 06 does not mount its physical comparative lenses');
+  assert.match(forumSupplementalSceneSource, /interactionForSupplemental/u, 'Gallery 06 comparative lenses lack stable interaction identity');
+  assert.match(forumSupplementalSceneSource, /MuseumSceneMedia/u, 'Gallery 06 comparative lenses lack provenance-backed media');
+  assert.match(forumSupplementalDataSource, /guidedAfterExhibitId/u, 'Gallery 06 empty portal rooms lost their guided-tour anchors');
+
+  const axisAlignedBounds = ({center, size, rotation = 0}) => {
+    const quarterTurn = Math.abs(Math.sin(rotation)) > .5;
+    const width = quarterTurn ? size.depth : size.width;
+    const depth = quarterTurn ? size.width : size.depth;
+    return {
+      minX: center.x - width / 2,
+      maxX: center.x + width / 2,
+      minZ: center.z - depth / 2,
+      maxZ: center.z + depth / 2,
+    };
+  };
+  const wallSupportsInstallation = (installation, wall) => {
+    const wallBounds = axisAlignedBounds(wall);
+    const back = {
+      x: -Math.sin(installation.rotationY),
+      z: -Math.cos(installation.rotationY),
+    };
+    const widthRunsAlongX = Math.abs(Math.cos(installation.rotationY)) > .5;
+    const wallRun = widthRunsAlongX
+      ? wallBounds.maxX - wallBounds.minX
+      : wallBounds.maxZ - wallBounds.minZ;
+    if (wallRun < installation.footprint.width - .06) return false;
+    for (let distanceBehind = .35; distanceBehind <= 1.6; distanceBehind += .05) {
+      const point = {
+        x: installation.position.x + back.x * distanceBehind,
+        z: installation.position.z + back.z * distanceBehind,
+      };
+      if (
+        point.x >= wallBounds.minX - .04
+        && point.x <= wallBounds.maxX + .04
+        && point.z >= wallBounds.minZ - .04
+        && point.z <= wallBounds.maxZ + .04
+      ) return true;
+    }
+    return false;
+  };
+  const physicalInstallations = [
+    ...forumDefinition.layout.exhibits.map((layout) => ({
+      id: layout.id,
+      position: layout.position,
+      rotationY: layout.rotationY,
+      footprint: layout.scene.footprint,
+    })),
+    ...CORE_QUESTIONS_FORUM_SUPPLEMENTAL_LAYOUTS,
+  ];
+  for (const installation of physicalInstallations) {
+    assert(
+      forumDefinition.layout.wallColliders.some((wall) => wallSupportsInstallation(installation, wall)),
+      `${installation.id} is not backed by an exhibit-sized Forum wall`,
+    );
+  }
+  assert.deepEqual(
+    sorted(Object.keys(CORE_QUESTIONS_FORUM_PRIMARY_PLACEMENTS)),
+    sorted(forumDefinition.layout.exhibits.map(({id}) => id)),
+    'Gallery 06 primary authored-placement roster drifted',
+  );
+  assert.equal(forumDefinition.layout.spatialConnections.length, 12, 'Gallery 06 lost a room-to-room opening');
+  assert.equal(forumDefinition.layout.primaryCirculation.points.length, 7, 'Gallery 06 lost one arm of its four-way circulation cross');
 
   const plannedHallIds = new Set(Object.keys(MUSEUM_PLANNED_HALL_TITLES));
   const culturallyOutwardHallIds = new Set([
@@ -1281,11 +1403,6 @@ check('Gallery 06 keeps full-scale image-led primaries above rigorous comparativ
       assert(lens.rationale.trim().length >= 48, `${room.id}/${lens.id} lacks a substantive routing rationale`);
       assert(!primaryExhibitIds.has(lens.id), `${room.id}/${lens.id} was incorrectly counted as a primary exhibit`);
       assert(!forumPrimaryEntityIds.has(lens.entityId), `${room.id}/${lens.id} duplicates a Forum primary assignment`);
-      const sign = forumDefinition.layout.signs.find(({id}) => id === `${room.id}:lens:${lens.id}`);
-      assert(sign, `${room.id}/${lens.id} lacks a compiled wayfinding sign`);
-      assert.equal(sign.kind, 'wayfinding');
-      assert.equal(sign.title, lens.displayName);
-      assert(sign.subtitle.includes(MUSEUM_PLANNED_HALL_TITLES[lens.primaryHallId]), `${room.id}/${lens.id} sign omits its planned primary hall`);
       lensIds.push(lens.id);
       lensEntityIds.push(lens.entityId);
     }
@@ -1297,12 +1414,15 @@ check('Gallery 06 keeps full-scale image-led primaries above rigorous comparativ
   const islamicThinkers = new Set(['al-farabi', 'al-ghazali', 'avicenna', 'averroes', 'mulla-sadra', 'suhrawardi']);
   assert(lensEntityIds.some((entityId) => islamicThinkers.has(entityId)), 'Forum comparative lenses require at least one named Islamic thinker');
   const wayfindingSigns = forumDefinition.layout.signs.filter(({kind}) => kind === 'wayfinding');
-  assert.equal(wayfindingSigns.length, lensIds.length, 'Forum wayfinding-sign count must equal its comparative-lens count');
-  assert(wayfindingSigns.every(({width, height, position}) => width === 2.4 && height === .56 && position.y >= 3.88), 'Forum comparative routes must remain a slim, high wayfinding band');
-  assert(Math.max(...wayfindingSigns.map(({width}) => width)) < largestPrimaryWidth, 'A Forum route sign is wider than a primary installation');
-  const roomSigns = forumDefinition.layout.signs.filter(({id}) => id.endsWith(':room-sign'));
+  assert.equal(wayfindingSigns.length, 0, 'Gallery 06 restored floating comparative-lens signs in place of exhibits');
+  const roomSigns = forumDefinition.layout.signs.filter(({kind}) => kind === 'zone');
   assert.equal(roomSigns.length, 9);
-  assert(roomSigns.every(({width, height, position}) => width === 2.45 && height === .62 && position.y === 5.25), 'Forum room labels must remain compact and above the exhibits');
+  const ethicsPortalSign = roomSigns.find(({title}) => title === 'Ethics');
+  const compactRoomSigns = roomSigns.filter(({title}) => title !== 'Ethics');
+  assert(compactRoomSigns.every(({width, height, position}) => width <= 3.65 && height === .68 && position.y < 5), 'Forum field-room labels must remain compact and wall-backed');
+  assert(ethicsPortalSign?.width === 5.6 && ethicsPortalSign.height === 1.08 && ethicsPortalSign.position.y === 3.45, 'The Ethics portal must retain its prominent wall-backed orientation panel');
+  assert.equal(forumDefinition.layout.signs.filter(({kind}) => kind === 'entrance').length, 1);
+  assert.match(exhibitWallStandardSource, /Core Questions Forum exception/u, 'The Gallery 06 wall standard is not recorded for future work');
 });
 
 check('the executable template registry retains the approved canonical contracts', () => {
@@ -1380,7 +1500,10 @@ check('all eight runtime halls are canonical, data-driven, and internally aligne
       'classical-south-asian-worlds',
       'buddhist-philosophies',
     ].includes(definition.id) ? 1 : 0;
-    assert.equal(definition.layout.signs.length, hall.zones.length + 1 + comparativeLensCount - removedPhysicalRoomSigns);
+    const expectedPhysicalSignCount = definition.id === 'core-questions-forum'
+      ? 10
+      : hall.zones.length + 1 + comparativeLensCount - removedPhysicalRoomSigns;
+    assert.equal(definition.layout.signs.length, expectedPhysicalSignCount);
     assert(validPose(definition, definition.layout.spawn), `${definition.id} spawn is unsafe`);
     assert(validPose(definition, definition.layout.reset), `${definition.id} reset is unsafe`);
     const expectedWidth = expected.template === 'crossroads-4' ? 28 : 24;
@@ -1399,7 +1522,10 @@ check('all eight runtime halls are canonical, data-driven, and internally aligne
     assert.deepEqual(definition.resolvedTemplate.lightingInterface.roles, ['ambient', 'threshold', 'perimeter-track', 'anchor-track', 'accessible-label-light']);
     assert.equal(definition.resolvedTemplate.lightingInterface.perimeterTrackIds.length, expected.rooms);
     assert.equal(definition.resolvedTemplate.lightingInterface.anchorTrackIds.length > 0, true);
-    assert.equal(definition.resolvedTemplate.lightingInterface.accessibleLabelAnchorIds.length, hall.zones.length + hall.exhibits.length + 1 + comparativeLensCount - removedPhysicalRoomSigns);
+    assert.equal(
+      definition.resolvedTemplate.lightingInterface.accessibleLabelAnchorIds.length,
+      definition.layout.signs.length + hall.exhibits.length,
+    );
     assert(unique(definition.layout.exhibits.map(({id}) => id)), `${definition.id} duplicates exhibit layouts`);
     assert(unique(definition.layout.wallColliders.map(({id}) => id)), `${definition.id} duplicates wall colliders`);
     for (const layout of definition.layout.exhibits) {

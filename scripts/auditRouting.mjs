@@ -203,7 +203,7 @@ check('Museum convenience, hall, and exhibit routes parse and serialize', () => 
   }
   assert.equal(MUSEUM_HALLS.length, 8);
   assert.equal(exhibitCount, 79);
-  assert.equal(MUSEUM_SUPPLEMENTAL_EXHIBITS.length, 114);
+  assert.equal(MUSEUM_SUPPLEMENTAL_EXHIBITS.length, 124);
   for (const {hallId, exhibit} of MUSEUM_SUPPLEMENTAL_EXHIBITS) {
     expectRoundTrip({kind: 'museum', hallId, exhibitId: exhibit.id});
   }

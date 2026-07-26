@@ -27,3 +27,13 @@ Only an actual live side portal or fixed architectural obstruction removes a wal
 - Titles for work exhibits must clearly identify the philosopher or tradition they belong to.
 - Before release, inspect both half-rooms in every changed room from visitor eye level. Confirm all three walls are filled, the primary reads first, no installation is cramped or clipped, and movement remains clear.
 - The Museum audit must encode the expected wall-slot set so a future build cannot silently regress to three exhibits per full room.
+
+## Core Questions Forum exception
+
+Gallery 06 is a crossroads, not a sequential two-half-room gallery. Its approved program is the governing count: **15 full-scale primaries plus 10 physical comparative lenses, for 25 installations across nine question rooms**.
+
+- Preserve the 28 × 28 metre shell, all live portals, and an open four-way circulation cross.
+- Author every placement against an actual outer wall, offset partition, or display baffle. A backing wall must be at least as wide as the installation it supports; signs cannot float in openings.
+- Primaries retain the full 3.8 metre Gallery 03–05 scale and must be larger than every comparative lens.
+- Rooms with no canonical primary still receive their planned physical lenses; directory-only routes do not count as wall exhibits.
+- Prefer a small number of offset, exhibit-sized walls over a regular cubicle grid. Verify all approaches and guided routes after any interior change.

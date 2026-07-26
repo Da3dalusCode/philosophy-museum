@@ -41,7 +41,7 @@ EXPECTED_HALLS = {
     "classical-south-asian-worlds",
     "buddhist-philosophies",
 }
-EXPECTED_ASSET_COUNT = 221
+EXPECTED_ASSET_COUNT = 231
 MAX_DERIVATIVE_BYTES = 600_000
 MIN_MUSEUM_SHORT_EDGE = 180
 

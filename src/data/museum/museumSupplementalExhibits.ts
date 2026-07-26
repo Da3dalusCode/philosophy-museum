@@ -31,6 +31,10 @@ import {
   BUDDHIST_SUPPLEMENTAL_EXHIBITS,
   BUDDHIST_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
 } from './buddhistSupplementalExhibits';
+import {
+  CORE_QUESTIONS_FORUM_SUPPLEMENTAL_EXHIBITS,
+  CORE_QUESTIONS_FORUM_SUPPLEMENTAL_LAYOUTS,
+} from './coreQuestionsForumSupplementalExhibits';
 import type {
   MuseumSupplementalExhibitId,
   MuseumSupplementalExhibitLayout,
@@ -53,6 +57,11 @@ export type MuseumGuidedStop =
   | {kind: 'supplemental'; exhibitId: MuseumSupplementalExhibitId};
 
 const COLLECTIONS = [
+  {
+    hallId: 'core-questions-forum',
+    exhibits: CORE_QUESTIONS_FORUM_SUPPLEMENTAL_EXHIBITS,
+    layouts: CORE_QUESTIONS_FORUM_SUPPLEMENTAL_LAYOUTS,
+  },
   {
     hallId: 'mediterranean-beginnings-classical',
     exhibits: PLATO_SUPPLEMENTAL_EXHIBITS,
@@ -132,7 +141,7 @@ export const getMuseumGuidedStops = (
   return primaryOrder.flatMap((exhibitId) => [
     {kind: 'primary' as const, exhibitId},
     ...supplemental
-      .filter(({layout}) => layout.parentExhibitId === exhibitId)
+      .filter(({layout}) => (layout.guidedAfterExhibitId ?? layout.parentExhibitId) === exhibitId)
       .map(({exhibit}) => ({kind: 'supplemental' as const, exhibitId: exhibit.id})),
   ]);
 };
