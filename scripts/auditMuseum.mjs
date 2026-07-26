@@ -10,6 +10,7 @@ const museumDataRoot = resolve(repoRoot, 'src/data/museum');
 const buildingManifest = JSON.parse(readFileSync(resolve(museumDataRoot, 'museumBuildingManifest.json'), 'utf8'));
 const masterplanProgram = JSON.parse(readFileSync(resolve(repoRoot, 'docs/museum-masterplan/hall-program.json'), 'utf8'));
 const source = (file) => readFileSync(resolve(repoRoot, file), 'utf8');
+const exhibitWallStandardSource = source('docs/museum-masterplan/exhibit-wall-standard.md');
 const registrySource = source('src/components/MuseumGallery/museumWorldRegistry.ts');
 const museumPageSource = source('src/components/MuseumGallery/MuseumPage.tsx');
 const museumWorldSource = source('src/components/MuseumGallery/MuseumWorldScene.tsx');
@@ -70,6 +71,7 @@ const result = await build({
       export * from '/src/data/museum/analyticSupplementalExhibits.ts';
       export * from '/src/data/museum/justiceGalleryCuration.ts';
       export * from '/src/data/museum/justiceSupplementalExhibits.ts';
+      export * from '/src/data/museum/classicalSouthAsianGalleryCuration.ts';
       export * from '/src/data/museum/classicalSouthAsianSupplementalExhibits.ts';
       export * from '/src/data/museum/buddhistGalleryCuration.ts';
       export * from '/src/data/museum/buddhistSupplementalExhibits.ts';
@@ -113,6 +115,8 @@ const {
   BUDDHIST_ROOM_SIGN_COPY,
   BUDDHIST_SUPPLEMENTAL_EXHIBITS,
   BUDDHIST_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
+  CLASSICAL_SOUTH_ASIAN_GALLERY_ID,
+  CLASSICAL_SOUTH_ASIAN_PRIMARY_PLACEMENTS,
   CLASSICAL_SOUTH_ASIAN_SUPPLEMENTAL_EXHIBITS,
   CLASSICAL_SOUTH_ASIAN_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
   MUSEUM_ASSETS,
@@ -255,6 +259,20 @@ const check = (name, assertion) => {
 };
 const unique = (values) => new Set(values).size === values.length;
 const sorted = (values) => [...values].sort();
+const sequenceWallSlotFor = (layout) => {
+  const side = layout.position.x < 0 ? 'west' : 'east';
+  const sine = Math.sin(layout.rotationY);
+  if (Math.abs(sine) > .5) return sine > 0 ? 'outer-west' : 'outer-east';
+  return `${Math.cos(layout.rotationY) > 0 ? 'north' : 'south'}-${side}`;
+};
+const SIX_SEQUENCE_ROOM_WALL_SLOTS = [
+  'north-west',
+  'outer-west',
+  'south-west',
+  'north-east',
+  'outer-east',
+  'south-east',
+];
 const wordCount = (value) => value.trim().split(/\s+/).filter(Boolean).length;
 const distance = (first, second) => Math.hypot(first.x - second.x, first.z - second.z);
 const approx = (actual, expected, message, epsilon = 1e-5) => assert(Math.abs(actual - expected) <= epsilon, `${message}: expected ${expected}, got ${actual}`);
@@ -571,8 +589,8 @@ check('Plato’s Cave and Republic form a substantial supplemental U without ent
   assert.match(supplementalPanelSource, /event\.key === 'Escape'/u, 'The supplemental panel lacks its keyboard close path');
 });
 
-check('all eighty-seven supplemental exhibits share route, directory, search, guided, and fallback contracts', () => {
-  assert.equal(MUSEUM_SUPPLEMENTAL_EXHIBITS.length, 87);
+check('all one hundred fourteen supplemental exhibits share route, directory, search, guided, and fallback contracts', () => {
+  assert.equal(MUSEUM_SUPPLEMENTAL_EXHIBITS.length, 114);
   assert.equal(
     new Set(MUSEUM_SUPPLEMENTAL_EXHIBITS.map(({exhibit}) => exhibit.id)).size,
     MUSEUM_SUPPLEMENTAL_EXHIBITS.length,
@@ -1021,14 +1039,93 @@ check('Gallery 03 onward makes every primary at least as large as its biggest se
   );
 });
 
-check('Gallery 08 preserves primary hierarchy and fills all fifteen usable room walls', () => {
+check('the permanent exhibit-wall standard distinguishes two half-rooms from one sequence room', () => {
+  assert.match(exhibitWallStandardSource, /two half-rooms/u);
+  assert.match(exhibitWallStandardSource, /normal full room has \*\*six installations\*\*, not three/u);
+  assert.match(exhibitWallStandardSource, /outer wall of each half-room is its primary wall/u);
+  assert.match(exhibitWallStandardSource, /actual live side portal or fixed architectural obstruction/u);
+  assert.match(exhibitWallStandardSource, /inspect both half-rooms in every changed room/u);
+});
+
+check('Gallery 07 preserves primary hierarchy and fills all thirty half-room wall faces', () => {
+  const hall = hallById.get(CLASSICAL_SOUTH_ASIAN_GALLERY_ID);
+  const program = MUSEUM_CANONICAL_PROGRAM.find(({id}) => id === CLASSICAL_SOUTH_ASIAN_GALLERY_ID);
+  const definition = definitionById.get(CLASSICAL_SOUTH_ASIAN_GALLERY_ID);
+  assert(hall && program && definition);
+  assert.equal(program.rooms.length, 5);
+  assert.equal(hall.exhibits.length, 9);
+  assert.equal(CLASSICAL_SOUTH_ASIAN_SUPPLEMENTAL_EXHIBITS.length, 21);
+  assert.deepEqual(
+    definition.layout.supplementalExhibits,
+    CLASSICAL_SOUTH_ASIAN_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
+  );
+
+  const primaryByRoom = new Map(program.rooms.map((room) => [
+    room.id,
+    definition.layout.exhibits.filter(({spatialCellId}) => spatialCellId === room.id),
+  ]));
+  const supplementalByRoom = new Map(program.rooms.map((room) => [
+    room.id,
+    CLASSICAL_SOUTH_ASIAN_SUPPLEMENTAL_EXHIBIT_LAYOUTS
+      .filter(({spatialCellId}) => spatialCellId === room.id),
+  ]));
+  for (const room of program.rooms) {
+    const installations = [
+      ...(primaryByRoom.get(room.id) ?? []),
+      ...(supplementalByRoom.get(room.id) ?? []),
+    ];
+    assert.equal(installations.length, 6, `${room.id} must fill both three-wall half-rooms`);
+    assert.deepEqual(
+      sorted(installations.map(sequenceWallSlotFor)),
+      sorted(SIX_SEQUENCE_ROOM_WALL_SLOTS),
+      `${room.id} leaves a half-room wall blank or doubles a wall face`,
+    );
+    assert(
+      (primaryByRoom.get(room.id) ?? []).some((layout) =>
+        ['outer-west', 'outer-east'].includes(sequenceWallSlotFor(layout))),
+      `${room.id} has no primary on a prominent outer wall`,
+    );
+  }
+
+  for (const [id, authored] of Object.entries(CLASSICAL_SOUTH_ASIAN_PRIMARY_PLACEMENTS)) {
+    const layout = definition.layout.exhibits.find((candidate) => candidate.id === id);
+    assert(layout, `${id} is missing from Gallery 07`);
+    assert.deepEqual(
+      {x: layout.position.x, z: layout.position.z, rotationY: layout.rotationY},
+      authored,
+      `${id} drifted from its authored hierarchy wall`,
+    );
+  }
+  const vedantaRoomPrimaries = primaryByRoom.get('south-vedanta-rival-readings') ?? [];
+  assert.deepEqual(
+    sorted(vedantaRoomPrimaries
+      .filter((layout) => ['outer-west', 'outer-east'].includes(sequenceWallSlotFor(layout)))
+      .map(({id}) => id)),
+    ['shankara', 'vedanta'],
+    'Vedānta and Śaṅkara must own the two most prominent walls in the final room',
+  );
+
+  const imageIds = [
+    ...program.rooms.flatMap(({exhibits}) =>
+      exhibits.map(({principalAssetId}) => principalAssetId).filter(Boolean)),
+    ...CLASSICAL_SOUTH_ASIAN_SUPPLEMENTAL_EXHIBIT_LAYOUTS.map(({assetId}) => assetId),
+  ];
+  assert.equal(imageIds.length, 30);
+  assert.equal(new Set(imageIds).size, 30, 'Gallery 07 repeats a wall image');
+  assert.match(canonicalSceneSource, /<ClassicalSouthAsianSupplementalExhibits/u, 'Gallery 07 does not mount its supplemental renderer');
+  assert.match(classicalSouthAsianSupplementalSceneSource, /onClick=\{activate\}/u, 'Gallery 07 supplemental installations lack mouse activation');
+  assert.match(classicalSouthAsianSupplementalSceneSource, /interactionForSupplemental/u, 'Gallery 07 supplemental installations lack stable interaction identity');
+  assert.match(classicalSouthAsianSupplementalSceneSource, /MuseumSceneMedia/u, 'Gallery 07 supplemental installations lack provenance-backed media');
+});
+
+check('Gallery 08 preserves primary hierarchy and fills all thirty half-room wall faces', () => {
   const hall = hallById.get(BUDDHIST_GALLERY_ID);
   const program = MUSEUM_CANONICAL_PROGRAM.find(({id}) => id === BUDDHIST_GALLERY_ID);
   const definition = definitionById.get(BUDDHIST_GALLERY_ID);
   assert(hall && program && definition);
   assert.equal(program.rooms.length, 5);
   assert.equal(hall.exhibits.length, 7);
-  assert.equal(BUDDHIST_SUPPLEMENTAL_EXHIBITS.length, 8);
+  assert.equal(BUDDHIST_SUPPLEMENTAL_EXHIBITS.length, 23);
   assert.deepEqual(definition.layout.supplementalExhibits, BUDDHIST_SUPPLEMENTAL_EXHIBIT_LAYOUTS);
   assert.deepEqual(
     sorted(Object.keys(BUDDHIST_ROOM_SIGN_COPY)),
@@ -1049,11 +1146,11 @@ check('Gallery 08 preserves primary hierarchy and fills all fifteen usable room 
       ...(primaryByRoom.get(room.id) ?? []),
       ...(supplementalByRoom.get(room.id) ?? []),
     ];
-    assert.equal(installations.length, 3, `${room.id} must fill exactly three usable walls`);
-    assert.equal(
-      new Set(installations.map(({rotationY}) => Math.round(rotationY * 1000))).size,
-      3,
-      `${room.id} repeats a wall orientation instead of using the forward, left, and right walls`,
+    assert.equal(installations.length, 6, `${room.id} must fill both three-wall half-rooms`);
+    assert.deepEqual(
+      sorted(installations.map(sequenceWallSlotFor)),
+      sorted(SIX_SEQUENCE_ROOM_WALL_SLOTS),
+      `${room.id} leaves a half-room wall blank or doubles a wall face`,
     );
   }
 
@@ -1070,20 +1167,27 @@ check('Gallery 08 preserves primary hierarchy and fills all fifteen usable room 
     assert((primaryByRoom.get(roomId) ?? []).length > 0, `${roomId} lost its primary focal installation`);
   }
   assert(
-    (primaryByRoom.get('buddhist-many-paths') ?? []).some(({id}) => id === 'buddhist-philosophy'),
-    'The gallery-wide Buddhist Philosophy anchor is not on the first room’s primary wall',
+    (primaryByRoom.get('buddhist-many-paths') ?? []).every((layout) =>
+      ['outer-west', 'outer-east'].includes(sequenceWallSlotFor(layout))),
+    'Buddhist Philosophy and the Buddha must own the first room’s two primary walls',
   );
   assert(
     (primaryByRoom.get('buddhist-pramana') ?? []).length === 3,
-    'The pramāṇa room must keep all three primary exhibits on its three usable walls',
+    'The pramāṇa room must keep all three primary exhibits',
+  );
+  assert.equal(
+    (primaryByRoom.get('buddhist-pramana') ?? [])
+      .filter((layout) => ['outer-west', 'outer-east'].includes(sequenceWallSlotFor(layout))).length,
+    2,
+    'The pramāṇa room must reserve both outer walls for primaries',
   );
 
   const imageIds = [
     ...program.rooms.flatMap(({exhibits}) => exhibits.map(({principalAssetId}) => principalAssetId).filter(Boolean)),
     ...BUDDHIST_SUPPLEMENTAL_EXHIBIT_LAYOUTS.map(({assetId}) => assetId),
   ];
-  assert.equal(imageIds.length, 15);
-  assert.equal(new Set(imageIds).size, 15, 'Gallery 08 repeats a wall image');
+  assert.equal(imageIds.length, 30);
+  assert.equal(new Set(imageIds).size, 30, 'Gallery 08 repeats a wall image');
   assert.match(canonicalSceneSource, /<BuddhistSupplementalExhibits/u, 'Gallery 08 does not mount its supplemental renderer');
   assert.match(buddhistSupplementalSceneSource, /onClick=\{activate\}/u, 'Gallery 08 supplemental installations lack mouse activation');
   assert.match(buddhistSupplementalSceneSource, /interactionForSupplemental/u, 'Gallery 08 supplemental installations lack stable interaction identity');

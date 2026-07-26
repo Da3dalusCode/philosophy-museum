@@ -467,9 +467,9 @@ check('Gallery 06 gives every primary a unique relevant image and every field an
   assert(!principalIds.some((id) => /grave|plaque/.test(id)), 'Gallery 06 routes a primary through a grave or plaque image');
 });
 
-check('Gallery 07 fills eighteen wall installations with unique, attributed media', () => {
-  assert.equal(CLASSICAL_SOUTH_ASIAN_SUPPLEMENTAL_EXHIBITS.length, 9);
-  assert.equal(new Set(classicalSouthAsianSupplementalReferencedIds).size, 9, 'Gallery 07 repeats a supplemental image asset');
+check('Gallery 07 fills thirty wall installations with unique, attributed media', () => {
+  assert.equal(CLASSICAL_SOUTH_ASIAN_SUPPLEMENTAL_EXHIBITS.length, 21);
+  assert.equal(new Set(classicalSouthAsianSupplementalReferencedIds).size, 21, 'Gallery 07 repeats a supplemental image asset');
   const hall = MUSEUM_HALLS.find(({id}) => id === 'classical-south-asian-worlds');
   assert(hall, 'Gallery 07 is absent from the canonical program');
   assert.equal(hall.exhibits.length, 9, 'Gallery 07 primary roster changed');
@@ -479,10 +479,10 @@ check('Gallery 07 fills eighteen wall installations with unique, attributed medi
   ].filter(Boolean));
   assert.equal(primaryReferencedIds.length, 9, 'Every Gallery 07 primary must have one focused visual');
   const galleryReferencedIds = [...primaryReferencedIds, ...classicalSouthAsianSupplementalReferencedIds];
-  assert.equal(galleryReferencedIds.length, 18, 'Gallery 07 wall-image count changed');
-  assert.equal(new Set(galleryReferencedIds).size, 18, 'Gallery 07 repeats an image asset');
-  assert.equal(new Set(galleryReferencedIds.map((id) => assetById.get(id).sourcePageUrl)).size, 18, 'Gallery 07 repeats a source page');
-  assert.equal(new Set(galleryReferencedIds.map((id) => sha256(exactCasePath(assetById.get(id).variants.panel.path)))).size, 18, 'Gallery 07 repeats identical panel bytes');
+  assert.equal(galleryReferencedIds.length, 30, 'Gallery 07 wall-image count changed');
+  assert.equal(new Set(galleryReferencedIds).size, 30, 'Gallery 07 repeats an image asset');
+  assert.equal(new Set(galleryReferencedIds.map((id) => assetById.get(id).sourcePageUrl)).size, 30, 'Gallery 07 repeats a source page');
+  assert.equal(new Set(galleryReferencedIds.map((id) => sha256(exactCasePath(assetById.get(id).variants.panel.path)))).size, 30, 'Gallery 07 repeats identical panel bytes');
   assert(!galleryReferencedIds.some((id) => /grave|plaque/.test(id)), 'Gallery 07 routes through a grave or plaque image');
   for (const exhibit of CLASSICAL_SOUTH_ASIAN_SUPPLEMENTAL_EXHIBITS) {
     assert(assetById.has(exhibit.assetId), `${exhibit.id} references missing asset ${exhibit.assetId}`);
@@ -490,9 +490,9 @@ check('Gallery 07 fills eighteen wall installations with unique, attributed medi
   }
 });
 
-check('Gallery 08 fills fifteen wall installations with unique, attributed media', () => {
-  assert.equal(BUDDHIST_SUPPLEMENTAL_EXHIBITS.length, 8);
-  assert.equal(new Set(buddhistSupplementalReferencedIds).size, 8, 'Gallery 08 repeats a supplemental image asset');
+check('Gallery 08 fills thirty wall installations with unique, attributed media', () => {
+  assert.equal(BUDDHIST_SUPPLEMENTAL_EXHIBITS.length, 23);
+  assert.equal(new Set(buddhistSupplementalReferencedIds).size, 23, 'Gallery 08 repeats a supplemental image asset');
   const hall = MUSEUM_HALLS.find(({id}) => id === 'buddhist-philosophies');
   assert(hall, 'Gallery 08 is absent from the canonical program');
   assert.equal(hall.exhibits.length, 7, 'Gallery 08 primary roster changed');
@@ -502,10 +502,10 @@ check('Gallery 08 fills fifteen wall installations with unique, attributed media
   ].filter(Boolean));
   assert.equal(primaryReferencedIds.length, 7, 'Every Gallery 08 primary must have one focused visual');
   const galleryReferencedIds = [...primaryReferencedIds, ...buddhistSupplementalReferencedIds];
-  assert.equal(galleryReferencedIds.length, 15, 'Gallery 08 wall-image count changed');
-  assert.equal(new Set(galleryReferencedIds).size, 15, 'Gallery 08 repeats an image asset');
-  assert.equal(new Set(galleryReferencedIds.map((id) => assetById.get(id).sourcePageUrl)).size, 15, 'Gallery 08 repeats a source page');
-  assert.equal(new Set(galleryReferencedIds.map((id) => sha256(exactCasePath(assetById.get(id).variants.panel.path)))).size, 15, 'Gallery 08 repeats identical panel bytes');
+  assert.equal(galleryReferencedIds.length, 30, 'Gallery 08 wall-image count changed');
+  assert.equal(new Set(galleryReferencedIds).size, 30, 'Gallery 08 repeats an image asset');
+  assert.equal(new Set(galleryReferencedIds.map((id) => assetById.get(id).sourcePageUrl)).size, 30, 'Gallery 08 repeats a source page');
+  assert.equal(new Set(galleryReferencedIds.map((id) => sha256(exactCasePath(assetById.get(id).variants.panel.path)))).size, 30, 'Gallery 08 repeats identical panel bytes');
   assert(!galleryReferencedIds.some((id) => /grave|plaque/.test(id)), 'Gallery 08 routes through a grave or plaque image');
   for (const exhibit of BUDDHIST_SUPPLEMENTAL_EXHIBITS) {
     assert(assetById.has(exhibit.assetId), `${exhibit.id} references missing asset ${exhibit.assetId}`);
@@ -513,11 +513,11 @@ check('Gallery 08 fills fifteen wall installations with unique, attributed media
   }
 });
 
-check('the preserved asset registry contains 232 unique records and derivative paths', () => {
-  assert.equal(MUSEUM_ASSETS.length, 232);
-  assert.equal(assetById.size, 232);
+check('the preserved asset registry contains 259 unique records and derivative paths', () => {
+  assert.equal(MUSEUM_ASSETS.length, 259);
+  assert.equal(assetById.size, 259);
   const variantPaths = MUSEUM_ASSETS.flatMap(({variants}) => [variants.scene.path, variants.panel.path]);
-  assert.equal(variantPaths.length, 464);
+  assert.equal(variantPaths.length, 518);
   assert(unique(variantPaths), 'two asset variants share a derivative path');
   for (const id of NEW_CANONICAL_ASSET_IDS) assert(assetById.has(id), `new canonical asset ${id} is missing`);
   for (const id of MEDITERRANEAN_ASSET_IDS) assert(assetById.has(id), `Gallery 01 asset ${id} is missing`);
@@ -613,14 +613,14 @@ check('every registered variant is exact-case local WebP media with locked dimen
   }
 });
 
-check('the 194-file-source preparation manifest locks every post-Ancient asset uniformly', () => {
+check('the 221-file-source preparation manifest locks every post-Ancient asset uniformly', () => {
   assert.equal(modernManifest.version, 1);
-  assert.equal(Object.keys(manifestAssets).length, 194);
+  assert.equal(Object.keys(manifestAssets).length, 221);
   const managedAssets = MUSEUM_ASSETS.filter(({variants}) => !variants.scene.path.startsWith('assets/museum/ancient-greek/'));
-  assert.equal(managedAssets.length, 194);
+  assert.equal(managedAssets.length, 221);
   assert.deepEqual(Object.keys(manifestAssets).sort(), managedAssets.map(({id}) => id).sort());
   assert.match(preparationSource, /MANIFEST_PATH = ROOT \/ "scripts" \/ "museumModernAssetManifest\.json"/);
-  assert.match(preparationSource, /EXPECTED_ASSET_COUNT = 194/);
+  assert.match(preparationSource, /EXPECTED_ASSET_COUNT = 221/);
   for (const folder of MANAGED_HALL_FOLDERS) assert(preparationSource.includes(`"${folder}"`), `preparation pipeline omits ${folder}`);
   assert.match(preparationSource, /record\["selectedThumbnailUrl"\]/);
   assert.match(preparationSource, /assert_locked\(slug, "scene"/);
@@ -663,8 +663,8 @@ check('the 194-file-source preparation manifest locks every post-Ancient asset u
   }
   assert.deepEqual(Object.fromEntries([...countsByFolder].sort()), {
     'analytic-traditions': 25,
-    'buddhist-philosophies': 13,
-    'classical-south-asian-worlds': 16,
+    'buddhist-philosophies': 28,
+    'classical-south-asian-worlds': 28,
     'core-questions-forum': 12,
     'ethics-justice-political-life': 16,
     'justice-democratic-reason': 12,
@@ -677,7 +677,7 @@ check('the 194-file-source preparation manifest locks every post-Ancient asset u
   }, 'preparation lock folder inventory changed');
 });
 
-check('all 388 managed derivatives match exact dimensions, bytes, and SHA-256 locks', () => {
+check('all 442 managed derivatives match exact dimensions, bytes, and SHA-256 locks', () => {
   for (const [id, lock] of Object.entries(manifestAssets)) {
     const asset = assetById.get(id);
     assert(asset, `${id} lock has no asset record`);
@@ -738,7 +738,7 @@ check('the 22-source Gallery 01 lock reproduces all curated Mediterranean media'
   }
 });
 
-check('the committed Museum inventory contains exactly the 464 registered derivatives', () => {
+check('the committed Museum inventory contains exactly the 518 registered derivatives', () => {
   const actual = walkFiles(museumMediaRoot).map(toPublicPath).sort();
   const expected = MUSEUM_ASSETS.flatMap(({variants}) => [variants.scene.path, variants.panel.path]).sort();
   assert.deepEqual(actual, expected);

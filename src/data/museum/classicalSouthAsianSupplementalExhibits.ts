@@ -9,6 +9,7 @@ import type {
   MuseumSupplementalExhibitLayout,
   MuseumSupplementalInstallationKind,
 } from './museumWorldTypes';
+import {CLASSICAL_SOUTH_ASIAN_WALL_FILL_EXHIBITS} from './classicalSouthAsianWallFillExhibits';
 
 export const CLASSICAL_SOUTH_ASIAN_GALLERY_ID = 'classical-south-asian-worlds' as const;
 
@@ -96,7 +97,7 @@ const layout = ({
   accent,
 }: {
   id: MuseumSupplementalExhibitId;
-  parentExhibitId: 'indian-philosophy' | 'mahavira' | 'kanada' | 'patanjali' | 'shankara' | 'madhva';
+  parentExhibitId: 'indian-philosophy' | 'jainism' | 'mahavira' | 'kanada' | 'patanjali' | 'shankara' | 'madhva';
   zoneId: MuseumZoneId;
   position: MuseumPoint;
   rotationY: number;
@@ -397,16 +398,31 @@ const exhibits = [
   },
 ] as const satisfies readonly MuseumSupplementalExhibit[];
 
-export const CLASSICAL_SOUTH_ASIAN_SUPPLEMENTAL_EXHIBITS = exhibits;
+export const CLASSICAL_SOUTH_ASIAN_SUPPLEMENTAL_EXHIBITS = [
+  ...exhibits,
+  ...CLASSICAL_SOUTH_ASIAN_WALL_FILL_EXHIBITS,
+] as const satisfies readonly MuseumSupplementalExhibit[];
 
 export const CLASSICAL_SOUTH_ASIAN_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
-  layout({id: 'south-sarva-darsana-compendium', parentExhibitId: 'indian-philosophy', zoneId: 'south-orientation-many-schools', position: {x: -10.85, z: -22.4}, rotationY: Math.PI / 2, assetId: 'south-sarva-darsana-1908', mediaWidth: 2.16, mediaHeight: 3.28, installationKind: 'south-asian-context', accent: CLASSICAL_SOUTH_ASIAN_PALETTE.saffron}),
-  layout({id: 'south-upanishad-manuscript-world', parentExhibitId: 'indian-philosophy', zoneId: 'south-orientation-many-schools', position: {x: 10.85, z: -22.4}, rotationY: -Math.PI / 2, assetId: 'south-upanishad-sama-veda-manuscript', mediaWidth: 3.58, mediaHeight: .85, installationKind: 'south-asian-context', accent: CLASSICAL_SOUTH_ASIAN_PALETTE.verdigris}),
-  layout({id: 'mahavira-kalpasutra-transmission', parentExhibitId: 'mahavira', zoneId: 'south-jain-worlds', position: {x: 10.85, z: -11.2}, rotationY: -Math.PI / 2, assetId: 'mahavira-kalpasutra-birth', mediaWidth: 2.46, mediaHeight: 3.14, installationKind: 'south-asian-work', accent: CLASSICAL_SOUTH_ASIAN_PALETTE.madder}),
-  layout({id: 'kanada-atomism-dyads', parentExhibitId: 'kanada', zoneId: 'south-categories-realism', position: {x: -10.85, z: 0}, rotationY: Math.PI / 2, assetId: 'kanada-atomic-theory-illustration', mediaWidth: 3.42, mediaHeight: 2, installationKind: 'south-asian-concept', accent: CLASSICAL_SOUTH_ASIAN_PALETTE.saffron}),
+  layout({id: 'south-sarva-darsana-compendium', parentExhibitId: 'indian-philosophy', zoneId: 'south-orientation-many-schools', position: {x: 10.85, z: -22.4}, rotationY: -Math.PI / 2, assetId: 'south-sarva-darsana-1908', mediaWidth: 2.16, mediaHeight: 3.28, installationKind: 'south-asian-context', accent: CLASSICAL_SOUTH_ASIAN_PALETTE.saffron}),
+  layout({id: 'south-upanishad-manuscript-world', parentExhibitId: 'indian-philosophy', zoneId: 'south-orientation-many-schools', position: {x: -5.55, z: -17.92}, rotationY: Math.PI, assetId: 'south-upanishad-sama-veda-manuscript', mediaWidth: 3.58, mediaHeight: .85, installationKind: 'south-asian-context', accent: CLASSICAL_SOUTH_ASIAN_PALETTE.verdigris}),
+  layout({id: 'south-ibadat-khana-plurality', parentExhibitId: 'indian-philosophy', zoneId: 'south-orientation-many-schools', position: {x: -5.55, z: -27.38}, rotationY: 0, assetId: 'south-ibadat-khana-debate', mediaWidth: 1.82, mediaHeight: 3.3, installationKind: 'south-asian-context', accent: CLASSICAL_SOUTH_ASIAN_PALETTE.madder}),
+  layout({id: 'south-nalanda-learning-network', parentExhibitId: 'indian-philosophy', zoneId: 'south-orientation-many-schools', position: {x: 5.55, z: -27.38}, rotationY: 0, assetId: 'south-nalanda-learning-courtyard', mediaWidth: 3.48, mediaHeight: 2.61, installationKind: 'south-asian-context', accent: CLASSICAL_SOUTH_ASIAN_PALETTE.verdigris}),
+  layout({id: 'south-ashoka-public-dhamma', parentExhibitId: 'indian-philosophy', zoneId: 'south-orientation-many-schools', position: {x: 5.55, z: -17.92}, rotationY: Math.PI, assetId: 'south-ashoka-lion-capital', mediaWidth: 1.85, mediaHeight: 3.3, installationKind: 'south-asian-context', accent: CLASSICAL_SOUTH_ASIAN_PALETTE.saffron}),
+  layout({id: 'mahavira-kalpasutra-transmission', parentExhibitId: 'mahavira', zoneId: 'south-jain-worlds', position: {x: -5.55, z: -6.72}, rotationY: Math.PI, assetId: 'mahavira-kalpasutra-birth', mediaWidth: 2.46, mediaHeight: 3.14, installationKind: 'south-asian-work', accent: CLASSICAL_SOUTH_ASIAN_PALETTE.madder}),
+  layout({id: 'jain-jambudvipa-moral-geography', parentExhibitId: 'jainism', zoneId: 'south-jain-worlds', position: {x: -5.55, z: -15.68}, rotationY: 0, assetId: 'jain-jambudvipa-cosmological-map', mediaWidth: 3.48, mediaHeight: 3.24, installationKind: 'south-asian-concept', accent: CLASSICAL_SOUTH_ASIAN_PALETTE.saffron}),
+  layout({id: 'jain-samavasarana-open-assembly', parentExhibitId: 'jainism', zoneId: 'south-jain-worlds', position: {x: 5.55, z: -15.68}, rotationY: 0, assetId: 'jain-samavasarana-peaceful-assembly', mediaWidth: 3.25, mediaHeight: 3.3, installationKind: 'south-asian-concept', accent: CLASSICAL_SOUTH_ASIAN_PALETTE.verdigris}),
+  layout({id: 'jain-tirthankara-stillness', parentExhibitId: 'jainism', zoneId: 'south-jain-worlds', position: {x: 5.55, z: -6.72}, rotationY: Math.PI, assetId: 'jain-tirthankara-mathura-red-sandstone', mediaWidth: 2.2, mediaHeight: 3.3, installationKind: 'south-asian-context', accent: CLASSICAL_SOUTH_ASIAN_PALETTE.indigo}),
+  layout({id: 'kanada-atomism-dyads', parentExhibitId: 'kanada', zoneId: 'south-categories-realism', position: {x: -5.55, z: 4.48}, rotationY: Math.PI, assetId: 'kanada-atomic-theory-illustration', mediaWidth: 3.42, mediaHeight: 2, installationKind: 'south-asian-concept', accent: CLASSICAL_SOUTH_ASIAN_PALETTE.saffron}),
   layout({id: 'vaiseshika-pramana', parentExhibitId: 'kanada', zoneId: 'south-categories-realism', position: {x: 10.85, z: 0}, rotationY: -Math.PI / 2, assetId: 'vaiseshika-two-pramana', mediaWidth: 1.92, mediaHeight: 3.06, installationKind: 'south-asian-concept', accent: CLASSICAL_SOUTH_ASIAN_PALETTE.indigo}),
-  layout({id: 'patanjali-yogasutra-manuscript', parentExhibitId: 'patanjali', zoneId: 'south-yoga-mind-liberation', position: {x: -10.85, z: 11.2}, rotationY: Math.PI / 2, assetId: 'patanjali-yoga-sutra-manuscript', mediaWidth: 3.2, mediaHeight: 2.88, installationKind: 'south-asian-work', accent: CLASSICAL_SOUTH_ASIAN_PALETTE.verdigris}),
+  layout({id: 'nyaya-argument-before-authority', parentExhibitId: 'kanada', zoneId: 'south-categories-realism', position: {x: -5.55, z: -4.48}, rotationY: 0, assetId: 'nyaya-two-scholars-quarreling', mediaWidth: 1.99, mediaHeight: 3.3, installationKind: 'south-asian-context', accent: CLASSICAL_SOUTH_ASIAN_PALETTE.madder}),
+  layout({id: 'nyaya-spitzer-philosophy-fragments', parentExhibitId: 'kanada', zoneId: 'south-categories-realism', position: {x: 5.55, z: -4.48}, rotationY: 0, assetId: 'nyaya-spitzer-philosophical-fragments', mediaWidth: 3.52, mediaHeight: 1.98, installationKind: 'south-asian-work', accent: CLASSICAL_SOUTH_ASIAN_PALETTE.verdigris}),
+  layout({id: 'nyaya-smoke-fire-inference', parentExhibitId: 'kanada', zoneId: 'south-categories-realism', position: {x: 5.55, z: 4.48}, rotationY: Math.PI, assetId: 'nyaya-smoke-fire-inference', mediaWidth: 3.48, mediaHeight: 2.74, installationKind: 'south-asian-concept', accent: CLASSICAL_SOUTH_ASIAN_PALETTE.saffron}),
+  layout({id: 'patanjali-yogasutra-manuscript', parentExhibitId: 'patanjali', zoneId: 'south-yoga-mind-liberation', position: {x: -5.55, z: 15.68}, rotationY: Math.PI, assetId: 'patanjali-yoga-sutra-manuscript', mediaWidth: 3.2, mediaHeight: 2.88, installationKind: 'south-asian-work', accent: CLASSICAL_SOUTH_ASIAN_PALETTE.verdigris}),
   layout({id: 'patanjali-samkhya-yoga-pramana', parentExhibitId: 'patanjali', zoneId: 'south-yoga-mind-liberation', position: {x: 10.85, z: 11.2}, rotationY: -Math.PI / 2, assetId: 'samkhya-yoga-three-pramana', mediaWidth: 1.92, mediaHeight: 3.06, installationKind: 'south-asian-concept', accent: CLASSICAL_SOUTH_ASIAN_PALETTE.indigo}),
+  layout({id: 'yoga-six-yogis-banyan', parentExhibitId: 'patanjali', zoneId: 'south-yoga-mind-liberation', position: {x: -5.55, z: 6.72}, rotationY: 0, assetId: 'yoga-six-yogis-banyan', mediaWidth: 2.37, mediaHeight: 3.3, installationKind: 'south-asian-context', accent: CLASSICAL_SOUTH_ASIAN_PALETTE.saffron}),
+  layout({id: 'yoga-posture-inner-heat', parentExhibitId: 'patanjali', zoneId: 'south-yoga-mind-liberation', position: {x: 5.55, z: 6.72}, rotationY: 0, assetId: 'yoga-ascetic-shaiva-deity', mediaWidth: 2.18, mediaHeight: 3.3, installationKind: 'south-asian-context', accent: CLASSICAL_SOUTH_ASIAN_PALETTE.madder}),
+  layout({id: 'yoga-asavari-ascetic-princess', parentExhibitId: 'patanjali', zoneId: 'south-yoga-mind-liberation', position: {x: 5.55, z: 15.68}, rotationY: Math.PI, assetId: 'yoga-asavari-ascetic-princess', mediaWidth: 2.35, mediaHeight: 3.3, installationKind: 'south-asian-context', accent: CLASSICAL_SOUTH_ASIAN_PALETTE.verdigris}),
   layout({id: 'shankara-aitareya-bhasya', parentExhibitId: 'shankara', zoneId: 'south-vedanta-rival-readings', position: {x: -5.55, z: 27.38}, rotationY: Math.PI, assetId: 'shankara-aitareya-bhasya-1593', mediaWidth: 3.44, mediaHeight: 1.39, installationKind: 'south-asian-work', accent: CLASSICAL_SOUTH_ASIAN_PALETTE.saffron}),
   layout({id: 'madhva-udupi-matha', parentExhibitId: 'madhva', zoneId: 'south-vedanta-rival-readings', position: {x: 5.55, z: 27.38}, rotationY: Math.PI, assetId: 'madhva-udupi-krishna-matha', mediaWidth: 3.2, mediaHeight: 2.4, installationKind: 'south-asian-context', accent: CLASSICAL_SOUTH_ASIAN_PALETTE.madder}),
 ] as const satisfies readonly MuseumSupplementalExhibitLayout[];

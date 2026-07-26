@@ -9,6 +9,7 @@ import type {
   MuseumSupplementalExhibitLayout,
   MuseumSupplementalInstallationKind,
 } from './museumWorldTypes';
+import {BUDDHIST_WALL_FILL_EXHIBITS} from './buddhistWallFillExhibits';
 
 export const BUDDHIST_GALLERY_ID = 'buddhist-philosophies' as const;
 
@@ -67,7 +68,14 @@ const layout = ({
   id, parentExhibitId, zoneId, position, rotationY, assetId, mediaWidth, mediaHeight, installationKind, accent,
 }: {
   id: MuseumSupplementalExhibitId;
-  parentExhibitId: 'buddhist-philosophy' | 'nagarjuna' | 'vasubandhu';
+  parentExhibitId:
+    | 'buddhist-philosophy'
+    | 'buddha'
+    | 'nagarjuna'
+    | 'vasubandhu'
+    | 'buddhist-epistemology'
+    | 'dignaga'
+    | 'dharmakirti';
   zoneId: MuseumZoneId;
   position: MuseumPoint;
   rotationY: number;
@@ -306,16 +314,34 @@ const exhibits = [
   },
 ] as const satisfies readonly MuseumSupplementalExhibit[];
 
-export const BUDDHIST_SUPPLEMENTAL_EXHIBITS = exhibits;
+export const BUDDHIST_SUPPLEMENTAL_EXHIBITS = [
+  ...exhibits,
+  ...BUDDHIST_WALL_FILL_EXHIBITS,
+] as const satisfies readonly MuseumSupplementalExhibit[];
 export const BUDDHIST_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
-  layout({id: 'buddhist-early-discourse-scrolls', parentExhibitId: 'buddhist-philosophy', zoneId: 'buddhist-many-paths', position: {x: 10.85, z: -22.4}, rotationY: -Math.PI / 2, assetId: 'buddhist-gandhara-birchbark', mediaWidth: 3.48, mediaHeight: 2.32, installationKind: 'buddhist-work', accent: BUDDHIST_PALETTE.saffron}),
-  layout({id: 'nagarjuna-prajnaparamita-witness', parentExhibitId: 'nagarjuna', zoneId: 'buddhist-madhyamaka', position: {x: -10.85, z: -11.2}, rotationY: Math.PI / 2, assetId: 'buddhist-prajnaparamita-walters', mediaWidth: 3.58, mediaHeight: 1.17, installationKind: 'buddhist-work', accent: BUDDHIST_PALETTE.lapis}),
-  layout({id: 'nagarjuna-dependent-arising', parentExhibitId: 'nagarjuna', zoneId: 'buddhist-madhyamaka', position: {x: 10.85, z: -11.2}, rotationY: -Math.PI / 2, assetId: 'buddhist-dependent-arising-wheel', mediaWidth: 2.78, mediaHeight: 3.28, installationKind: 'buddhist-concept', accent: BUDDHIST_PALETTE.lotus}),
-  layout({id: 'vasubandhu-abhidharmakosa', parentExhibitId: 'vasubandhu', zoneId: 'buddhist-abhidharma-yogacara', position: {x: -10.85, z: 0}, rotationY: Math.PI / 2, assetId: 'vasubandhu-abhidharmakosha-manuscript', mediaWidth: 3.42, mediaHeight: 2.61, installationKind: 'buddhist-work', accent: BUDDHIST_PALETTE.saffron}),
+  layout({id: 'buddhist-early-discourse-scrolls', parentExhibitId: 'buddhist-philosophy', zoneId: 'buddhist-many-paths', position: {x: -5.55, z: -17.92}, rotationY: Math.PI, assetId: 'buddhist-gandhara-birchbark', mediaWidth: 3.48, mediaHeight: 2.32, installationKind: 'buddhist-work', accent: BUDDHIST_PALETTE.saffron}),
+  layout({id: 'buddhist-first-sermon-four-truths', parentExhibitId: 'buddha', zoneId: 'buddhist-many-paths', position: {x: -5.55, z: -27.38}, rotationY: 0, assetId: 'buddhist-first-sermon-gandhara', mediaWidth: 3.48, mediaHeight: 2.32, installationKind: 'buddhist-context', accent: BUDDHIST_PALETTE.lotus}),
+  layout({id: 'ashoka-dhamma-public-ethics', parentExhibitId: 'buddhist-philosophy', zoneId: 'buddhist-many-paths', position: {x: 5.55, z: -27.38}, rotationY: 0, assetId: 'buddhist-ashoka-lion-capital', mediaWidth: 2.48, mediaHeight: 3.28, installationKind: 'buddhist-context', accent: BUDDHIST_PALETTE.saffron}),
+  layout({id: 'early-buddhist-stupa-community', parentExhibitId: 'buddhist-philosophy', zoneId: 'buddhist-many-paths', position: {x: 5.55, z: -17.92}, rotationY: Math.PI, assetId: 'buddhist-sanchi-great-stupa', mediaWidth: 3.48, mediaHeight: 2.32, installationKind: 'buddhist-context', accent: BUDDHIST_PALETTE.jade}),
+  layout({id: 'nagarjuna-prajnaparamita-witness', parentExhibitId: 'nagarjuna', zoneId: 'buddhist-madhyamaka', position: {x: 10.85, z: -11.2}, rotationY: -Math.PI / 2, assetId: 'buddhist-prajnaparamita-walters', mediaWidth: 3.58, mediaHeight: 1.17, installationKind: 'buddhist-work', accent: BUDDHIST_PALETTE.lapis}),
+  layout({id: 'nagarjuna-dependent-arising', parentExhibitId: 'nagarjuna', zoneId: 'buddhist-madhyamaka', position: {x: -5.55, z: -6.72}, rotationY: Math.PI, assetId: 'buddhist-dependent-arising-wheel', mediaWidth: 2.78, mediaHeight: 3.28, installationKind: 'buddhist-concept', accent: BUDDHIST_PALETTE.lotus}),
+  layout({id: 'nagarjuna-root-verses-middle-way', parentExhibitId: 'nagarjuna', zoneId: 'buddhist-madhyamaka', position: {x: -5.55, z: -15.68}, rotationY: 0, assetId: 'nagarjuna-composes-madhyamaka-relief', mediaWidth: 3.48, mediaHeight: 2.55, installationKind: 'buddhist-work', accent: BUDDHIST_PALETTE.lotus}),
+  layout({id: 'madhyamaka-lineage-aryadeva', parentExhibitId: 'nagarjuna', zoneId: 'buddhist-madhyamaka', position: {x: 5.55, z: -15.68}, rotationY: 0, assetId: 'nagarjuna-aryadeva-rubin-painting', mediaWidth: 2.29, mediaHeight: 3.3, installationKind: 'buddhist-context', accent: BUDDHIST_PALETTE.saffron}),
+  layout({id: 'prajnaparamita-wisdom-embodied', parentExhibitId: 'nagarjuna', zoneId: 'buddhist-madhyamaka', position: {x: 5.55, z: -6.72}, rotationY: Math.PI, assetId: 'buddhist-prajnaparamita-pala-bronze', mediaWidth: 2.48, mediaHeight: 3.3, installationKind: 'buddhist-context', accent: BUDDHIST_PALETTE.lapis}),
+  layout({id: 'vasubandhu-abhidharmakosa', parentExhibitId: 'vasubandhu', zoneId: 'buddhist-abhidharma-yogacara', position: {x: -5.55, z: 4.48}, rotationY: Math.PI, assetId: 'vasubandhu-abhidharmakosha-manuscript', mediaWidth: 3.42, mediaHeight: 2.61, installationKind: 'buddhist-work', accent: BUDDHIST_PALETTE.saffron}),
   layout({id: 'vasubandhu-mere-ideation', parentExhibitId: 'vasubandhu', zoneId: 'buddhist-abhidharma-yogacara', position: {x: 10.85, z: 0}, rotationY: -Math.PI / 2, assetId: 'vasubandhu-mere-ideation', mediaWidth: 3.58, mediaHeight: 1, installationKind: 'buddhist-work', accent: BUDDHIST_PALETTE.jade}),
-  layout({id: 'buddhist-xuanzang-translation', parentExhibitId: 'buddhist-philosophy', zoneId: 'buddhist-transmission-reserve', position: {x: -10.85, z: 19.6}, rotationY: Math.PI / 2, assetId: 'buddhist-xuanzang-statue', mediaWidth: 2.22, mediaHeight: 3.33, installationKind: 'buddhist-context', accent: BUDDHIST_PALETTE.saffron}),
-  layout({id: 'buddhist-tibetan-pecha', parentExhibitId: 'buddhist-philosophy', zoneId: 'buddhist-transmission-reserve', position: {x: 10.85, z: 19.6}, rotationY: -Math.PI / 2, assetId: 'buddhist-tibetan-pecha', mediaWidth: 3.58, mediaHeight: 1.08, installationKind: 'buddhist-context', accent: BUDDHIST_PALETTE.lapis}),
-  layout({id: 'buddhist-diamond-sutra', parentExhibitId: 'buddhist-philosophy', zoneId: 'buddhist-transmission-reserve', position: {x: 0, z: 27.38}, rotationY: Math.PI, assetId: 'buddhist-diamond-sutra-868', mediaWidth: 3.32, mediaHeight: 2, installationKind: 'buddhist-context', accent: BUDDHIST_PALETTE.lotus}),
+  layout({id: 'asanga-vasubandhu-yogacara-lineage', parentExhibitId: 'vasubandhu', zoneId: 'buddhist-abhidharma-yogacara', position: {x: -5.55, z: -4.48}, rotationY: 0, assetId: 'buddhist-asanga-vasubandhu-relief', mediaWidth: 3.48, mediaHeight: 2.6, installationKind: 'buddhist-context', accent: BUDDHIST_PALETTE.lotus}),
+  layout({id: 'abhidharma-cosmology-mount-meru', parentExhibitId: 'vasubandhu', zoneId: 'buddhist-abhidharma-yogacara', position: {x: 5.55, z: -4.48}, rotationY: 0, assetId: 'buddhist-mount-meru-met-tapestry', mediaWidth: 3.41, mediaHeight: 3.3, installationKind: 'buddhist-concept', accent: BUDDHIST_PALETTE.lapis}),
+  layout({id: 'asanga-yogacara-transmission', parentExhibitId: 'vasubandhu', zoneId: 'buddhist-abhidharma-yogacara', position: {x: 5.55, z: 4.48}, rotationY: Math.PI, assetId: 'buddhist-asanga-kofukuji-statue', mediaWidth: 2.39, mediaHeight: 3.3, installationKind: 'buddhist-context', accent: BUDDHIST_PALETTE.saffron}),
+  layout({id: 'buddhist-pramana-two-sources', parentExhibitId: 'buddhist-epistemology', zoneId: 'buddhist-pramana', position: {x: 5.55, z: 6.72}, rotationY: 0, assetId: 'buddhist-pramana-perception-inference-diagram', mediaWidth: 2.07, mediaHeight: 3.3, installationKind: 'buddhist-concept', accent: BUDDHIST_PALETTE.lapis}),
+  layout({id: 'nalanda-scholastic-institution', parentExhibitId: 'dignaga', zoneId: 'buddhist-pramana', position: {x: -5.55, z: 15.68}, rotationY: Math.PI, assetId: 'buddhist-nalanda-scholastic-ruins', mediaWidth: 3.48, mediaHeight: 2.61, installationKind: 'buddhist-context', accent: BUDDHIST_PALETTE.saffron}),
+  layout({id: 'dharmakirti-pramanavarttika-reception', parentExhibitId: 'dharmakirti', zoneId: 'buddhist-pramana', position: {x: 5.55, z: 15.68}, rotationY: Math.PI, assetId: 'dharmakirti-tibetan-woodblock-portrait', mediaWidth: 3.18, mediaHeight: 3.3, installationKind: 'buddhist-work', accent: BUDDHIST_PALETTE.lotus}),
+  layout({id: 'buddhist-xuanzang-translation', parentExhibitId: 'buddhist-philosophy', zoneId: 'buddhist-transmission-reserve', position: {x: -10.85, z: 22.4}, rotationY: Math.PI / 2, assetId: 'buddhist-xuanzang-statue', mediaWidth: 2.22, mediaHeight: 3.33, installationKind: 'buddhist-context', accent: BUDDHIST_PALETTE.saffron}),
+  layout({id: 'buddhist-tibetan-pecha', parentExhibitId: 'buddhist-philosophy', zoneId: 'buddhist-transmission-reserve', position: {x: 10.85, z: 22.4}, rotationY: -Math.PI / 2, assetId: 'buddhist-tibetan-pecha', mediaWidth: 3.58, mediaHeight: 1.08, installationKind: 'buddhist-context', accent: BUDDHIST_PALETTE.lapis}),
+  layout({id: 'buddhist-diamond-sutra', parentExhibitId: 'buddhist-philosophy', zoneId: 'buddhist-transmission-reserve', position: {x: -5.55, z: 27.38}, rotationY: Math.PI, assetId: 'buddhist-diamond-sutra-868', mediaWidth: 3.32, mediaHeight: 2, installationKind: 'buddhist-context', accent: BUDDHIST_PALETTE.lotus}),
+  layout({id: 'kumarajiva-madhyamaka-translation', parentExhibitId: 'buddhist-philosophy', zoneId: 'buddhist-transmission-reserve', position: {x: -5.55, z: 17.92}, rotationY: 0, assetId: 'buddhist-kumarajiva-translation-relief', mediaWidth: 3.48, mediaHeight: 2.55, installationKind: 'buddhist-context', accent: BUDDHIST_PALETTE.lotus}),
+  layout({id: 'tripitaka-koreana-printing-canon', parentExhibitId: 'buddhist-philosophy', zoneId: 'buddhist-transmission-reserve', position: {x: 5.55, z: 17.92}, rotationY: 0, assetId: 'buddhist-tripitaka-koreana-blocks', mediaWidth: 3.48, mediaHeight: 2.98, installationKind: 'buddhist-context', accent: BUDDHIST_PALETTE.saffron}),
+  layout({id: 'pali-kammavaca-southeast-asia', parentExhibitId: 'buddhist-philosophy', zoneId: 'buddhist-transmission-reserve', position: {x: 5.55, z: 27.38}, rotationY: Math.PI, assetId: 'buddhist-burmese-kammavaca', mediaWidth: 3.42, mediaHeight: 3.3, installationKind: 'buddhist-context', accent: BUDDHIST_PALETTE.jade}),
 ] as const satisfies readonly MuseumSupplementalExhibitLayout[];
 
 export const getBuddhistSupplementalExhibit = (id: MuseumSupplementalExhibitId): MuseumSupplementalExhibit => {

@@ -47,12 +47,13 @@ Independent final audits then checked scholarship/cultural balance, exact data c
 
 Start with these documents, in order:
 
-1. [Classification principles](./classification-principles.md) — the rules behind primary and secondary placement.
-2. [Taxonomy options](./taxonomy-options.md) — three different intellectual organizations and their tradeoffs.
-3. [Approved program](./recommended-program.md) — all 10 wings, 26 halls, and 105 rooms or zones.
-4. [Difficult placements](./difficult-placements.md) — disputed cases and the judgment calls made.
-5. [Building options](./building-options.md) — three physical concepts, templates, circulation, accessibility, and expansion.
-6. [Migration plan](./migration-plan.md) — how the completed Ring pilot converts to six permanent programs and expands without building the whole museum at once.
+1. [Exhibit-wall standard](./exhibit-wall-standard.md) — the six-face room rule, primary-wall hierarchy, imagery, and visual-review gate for every gallery build.
+2. [Classification principles](./classification-principles.md) — the rules behind primary and secondary placement.
+3. [Taxonomy options](./taxonomy-options.md) — three different intellectual organizations and their tradeoffs.
+4. [Approved program](./recommended-program.md) — all 10 wings, 26 halls, and 105 rooms or zones.
+5. [Difficult placements](./difficult-placements.md) — disputed cases and the judgment calls made.
+6. [Building options](./building-options.md) — three physical concepts, templates, circulation, accessibility, and expansion.
+7. [Migration plan](./migration-plan.md) — how the completed Ring pilot converts to six permanent programs and expands without building the whole museum at once.
 
 The complete assignments are reviewable as spreadsheets:
 
