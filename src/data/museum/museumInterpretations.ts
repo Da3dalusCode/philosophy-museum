@@ -369,6 +369,7 @@ const sourceKind = (source: SourceLink): MuseumInterpretationSource['kind'] => {
 
 const academicSource = (label: string, url: string): MuseumInterpretationSource => ({label, url, kind: 'academic-reference'});
 const primarySource = (label: string, url: string): MuseumInterpretationSource => ({label, url, kind: 'primary-text'});
+const collectionSource = (label: string, url: string): MuseumInterpretationSource => ({label, url, kind: 'collection-record'});
 
 /**
  * Direct references for canonical records whose Atlas profiles do not yet carry
@@ -377,6 +378,31 @@ const primarySource = (label: string, url: string): MuseumInterpretationSource =
  * writing; these links give visitors a route to the evidence and scholarship.
  */
 const CANONICAL_DIRECT_INTERPRETATION_SOURCES: Readonly<Record<string, readonly MuseumInterpretationSource[]>> = {
+  'zhu-xi': [
+    academicSource('Stanford Encyclopedia of Philosophy — Zhu Xi', 'https://plato.stanford.edu/entries/zhu-xi/'),
+    academicSource('Internet Encyclopedia of Philosophy — Zhu Xi (Chu Hsi)', 'https://iep.utm.edu/zhu-xi-chu-hsi-chinese-philosopher/'),
+    collectionSource('Library of Congress — The Four Books with Collected Commentaries', 'https://www.loc.gov/item/2021666313/'),
+  ],
+  'wang-yangming': [
+    academicSource('Stanford Encyclopedia of Philosophy — Wang Yangming', 'https://plato.stanford.edu/entries/wang-yangming/'),
+    academicSource('Internet Encyclopedia of Philosophy — Wang Yangming (Wang Shou-Jen)', 'https://iep.utm.edu/wangyang/'),
+    collectionSource('Princeton University Art Museum — Letters to Zheng Bangrui with portrait of Wang Shouren', 'https://artmuseum.princeton.edu/art/collections/objects/32340'),
+  ],
+  'saadia-gaon': [
+    academicSource('Stanford Encyclopedia of Philosophy — Saadya (Saadiah)', 'https://plato.stanford.edu/entries/saadya/'),
+    primarySource("Internet Archive — Saadia's Kitāb al-Amānāt wa'l-Iʿtiqādāt", 'https://archive.org/details/kitbalamnt00saaduoft'),
+    collectionSource('OPenn / British Library — Saadia’s Judeo-Arabic Targum of Ecclesiastes', 'https://openn.library.upenn.edu/Data/0047/html/or_9908.html'),
+  ],
+  'judah-halevi': [
+    academicSource('Stanford Encyclopedia of Philosophy — Judah Halevi', 'https://plato.stanford.edu/entries/halevi/'),
+    primarySource("Internet Archive — Judah Halevi's Kitab al Khazari", 'https://archive.org/details/judahhalleviskit00judauoft'),
+    collectionSource('OPenn — Judeo-Arabic witness to Judah Halevi’s Mi Kamokhah', 'https://openn.library.upenn.edu/Data/0002/html/h282.html'),
+  ],
+  maimonides: [
+    academicSource('Stanford Encyclopedia of Philosophy — Maimonides', 'https://plato.stanford.edu/entries/maimonides/'),
+    academicSource('Stanford Encyclopedia of Philosophy — The Influence of Islamic Thought on Maimonides', 'https://plato.stanford.edu/entries/maimonides-islamic/'),
+    collectionSource('Library of Congress — The Guide to the Perplexed manuscript', 'https://www.loc.gov/item/2021667527/'),
+  ],
   'ancient-greek': [
     academicSource('Stanford Encyclopedia of Philosophy — Presocratic Philosophy', 'https://plato.stanford.edu/entries/presocratics/'),
     academicSource('Internet Encyclopedia of Philosophy — Presocratics', 'https://iep.utm.edu/presocra/'),
@@ -883,6 +909,11 @@ const MUSEUM_DEEP_ARTICLE_ENTITY_IDS = new Set([
   'nagarjuna',
   'dignaga',
   'dharmakirti',
+  'zhu-xi',
+  'wang-yangming',
+  'saadia-gaon',
+  'judah-halevi',
+  'maimonides',
 ]);
 
 const articleSectionText = ({id, title}: ArticleSection): string => `${id} ${title}`.toLocaleLowerCase();

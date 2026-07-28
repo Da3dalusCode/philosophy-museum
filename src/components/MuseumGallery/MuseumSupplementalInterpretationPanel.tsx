@@ -154,7 +154,7 @@ export function MuseumSupplementalInterpretationPanel({
           <button type="button" disabled={exhibitIndex >= exhibitCount - 1} onClick={onGuidedNext}>Next <ArrowRight size={15}/></button>
         </div>}
         <div>
-          <a className="btn btn-primary" href={href(exhibit.articleRoute)} onClick={onArticleIntent}>{presentation.articleActionLabel}</a>
+          {exhibit.articleRoute && <a className="btn btn-primary" href={href(exhibit.articleRoute)} onClick={onArticleIntent}>{presentation.articleActionLabel}</a>}
           <button className="btn" type="button" onClick={() => onClose('gesture')}>{continueLabel}</button>
         </div>
       </footer>

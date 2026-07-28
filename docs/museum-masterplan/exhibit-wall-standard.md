@@ -47,6 +47,23 @@ Gallery 09 is also a `crossroads-4` hall, but it is not the Forum and must never
 - Canonical schools and philosophers own the prominent walls. All twelve primaries use the same full-scale floor and can never be smaller than a contextual exhibit.
 - Adjacency communicates debate, not school membership: Mohism remains distinct from the retrospective grouping called “Legalism,” and Laozi is presented as an attributed textual persona rather than a secure conventional biography.
 
+## Gallery 11–12 authored wall contracts
+
+Gallery 11, **Confucian Renewal & East Asian Continuities**, uses the normal sequence-room rule with no physical exceptions: **six installations in each of three rooms, 18 total**.
+
+- `east-song-ming-confucian`: six — equal full-scale Zhu Xi and Wang Yangming outer-wall primaries, plus four smaller work, academy, practice, and debate installations.
+- `east-buddhist-daoist-transmissions`: six — two full-scale contextual outer-wall anchors and four transmission, reception, ritual, and Three Teachings installations. These are interaction histories; Gallery 08–09 retain their canonical primaries.
+- `east-regional-continuities-reserve`: six — named Korean, Japanese, Vietnamese, and modern continuities, including full-scale contextual anchors where no canonical Atlas record exists.
+
+The live north/south thresholds do not remove a return wall. The Buddhist/East Asian transmission route reaches the south threshold without consuming a side exhibit wall, so no exception is claimed.
+
+Gallery 12, **Jewish Philosophy in Arabic-Speaking & Mediterranean Worlds**, also has no physical exceptions: **six installations in each of two rooms, 12 total**.
+
+- `jewish-reason-revelation`: six — equal full-scale Saadia Gaon and Judah Halevi outer-wall primaries, with four smaller work and Judeo-Arabic context installations.
+- `jewish-maimonidean-crossroads`: six — Maimonides as the anchor primary, four work/reception/threshold installations, and one full-scale but explicitly contextual later-continuity anchor.
+
+The Gallery 10 connection uses the north threshold. The future Latin Christian/Scholastic threshold is visibly closed at the south threshold, which remains architectural rather than a reason to leave either partition wall blank.
+
 ## Release checklist for every new hall
 
 Before a hall can be called finished:

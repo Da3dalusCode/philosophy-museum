@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "manifestVersion": "canonical-ten-v1",
-  "status": "approved-canonical-ten",
+  "manifestVersion": "canonical-twelve-v1",
+  "status": "approved-canonical-twelve",
   "physicalOptionId": "ring-of-wings",
   "units": "metres",
   "level": {"id": "L0", "title": "Main level", "elevation": 0},
@@ -171,7 +171,7 @@
       "templateId": "crossroads-4",
       "implementationStatus": "live",
       "levelId": "L0",
-      "transform": {"x": -42, "z": -70, "yaw": 3.141592653589793},
+      "transform": {"x": -42, "z": -75, "yaw": 3.141592653589793},
       "map": {"label": "Gallery 09 · Warring States & Classical Chinese Traditions", "status": "open"},
       "doorwaySlots": [
         {"id":"N0","position":{"x":0,"z":-14},"inwardNormal":{"x":0,"z":1},"clearWidth":4,"clearHeight":3.2,"transitionDepth":1.2,"landingBounds":{"minX":-2,"maxX":2,"minZ":-14,"maxZ":-10},"arrivalPose":{"x":0,"z":-12,"yaw":3.141592653589793,"pitch":0}},
@@ -197,6 +197,55 @@
         {"id":"S0","position":{"x":0,"z":28},"inwardNormal":{"x":0,"z":-1},"clearWidth":4,"clearHeight":3.2,"transitionDepth":1.2,"landingBounds":{"minX":-2,"maxX":2,"minZ":24,"maxZ":28},"arrivalPose":{"x":0,"z":26,"yaw":0,"pitch":0}},
         {"id":"E1","position":{"x":12,"z":0},"inwardNormal":{"x":-1,"z":0},"clearWidth":4,"clearHeight":3.2,"transitionDepth":1.2,"landingBounds":{"minX":8,"maxX":12,"minZ":-2,"maxZ":2},"arrivalPose":{"x":10,"z":0,"yaw":1.5707963267948966,"pitch":0}},
         {"id":"W1","position":{"x":-12,"z":0},"inwardNormal":{"x":1,"z":0},"clearWidth":4,"clearHeight":3.2,"transitionDepth":1.2,"landingBounds":{"minX":-12,"maxX":-8,"minZ":-2,"maxZ":2},"arrivalPose":{"x":-10,"z":0,"yaw":-1.5707963267948966,"pitch":0}}
+      ]
+    },
+    {
+      "id": "hall:east-asian-continuities",
+      "kind": "hall",
+      "publicHallId": "east-asian-continuities",
+      "pilotRole": "outer-hall",
+      "templateId": "sequence-3",
+      "implementationStatus": "live",
+      "levelId": "L0",
+      "transform": {"x": -42, "z": -117, "yaw": 3.141592653589793},
+      "map": {"label": "Gallery 11 · Confucian Renewal & East Asian Continuities", "status": "open"},
+      "doorwaySlots": [
+        {"id":"N0","position":{"x":0,"z":-28},"inwardNormal":{"x":0,"z":1},"clearWidth":4,"clearHeight":3.2,"transitionDepth":1.2,"landingBounds":{"minX":-2,"maxX":2,"minZ":-28,"maxZ":-24},"arrivalPose":{"x":0,"z":-26,"yaw":3.141592653589793,"pitch":0}},
+        {"id":"S0","position":{"x":0,"z":28},"inwardNormal":{"x":0,"z":-1},"clearWidth":4,"clearHeight":3.2,"transitionDepth":1.2,"landingBounds":{"minX":-2,"maxX":2,"minZ":24,"maxZ":28},"arrivalPose":{"x":0,"z":26,"yaw":0,"pitch":0}},
+        {"id":"E1","position":{"x":12,"z":0},"inwardNormal":{"x":-1,"z":0},"clearWidth":4,"clearHeight":3.2,"transitionDepth":1.2,"landingBounds":{"minX":8,"maxX":12,"minZ":-2,"maxZ":2},"arrivalPose":{"x":10,"z":0,"yaw":1.5707963267948966,"pitch":0}},
+        {"id":"W1","position":{"x":-12,"z":0},"inwardNormal":{"x":1,"z":0},"clearWidth":4,"clearHeight":3.2,"transitionDepth":1.2,"landingBounds":{"minX":-12,"maxX":-8,"minZ":-2,"maxZ":2},"arrivalPose":{"x":-10,"z":0,"yaw":-1.5707963267948966,"pitch":0}}
+      ]
+    },
+    {
+      "id": "hall:jewish-philosophy",
+      "kind": "hall",
+      "publicHallId": "jewish-philosophy",
+      "pilotRole": "outer-hall",
+      "templateId": "standard-rect",
+      "implementationStatus": "live",
+      "levelId": "L0",
+      "transform": {"x": -109, "z": 120, "yaw": -1.5707963267948966},
+      "map": {"label": "Gallery 12 · Jewish Philosophy in Arabic-Speaking & Mediterranean Worlds", "status": "open"},
+      "doorwaySlots": [
+        {"id":"N0","position":{"x":0,"z":-12},"inwardNormal":{"x":0,"z":1},"clearWidth":4,"clearHeight":3.2,"transitionDepth":1.2,"landingBounds":{"minX":-2,"maxX":2,"minZ":-12,"maxZ":-8},"arrivalPose":{"x":0,"z":-10,"yaw":3.141592653589793,"pitch":0}},
+        {"id":"S0","position":{"x":0,"z":12},"inwardNormal":{"x":0,"z":-1},"clearWidth":4,"clearHeight":3.2,"transitionDepth":1.2,"landingBounds":{"minX":-2,"maxX":2,"minZ":8,"maxZ":12},"arrivalPose":{"x":0,"z":10,"yaw":0,"pitch":0}},
+        {"id":"E0","position":{"x":10,"z":0},"inwardNormal":{"x":-1,"z":0},"clearWidth":4,"clearHeight":3.2,"transitionDepth":1.2,"landingBounds":{"minX":6,"maxX":10,"minZ":-2,"maxZ":2},"arrivalPose":{"x":8,"z":0,"yaw":1.5707963267948966,"pitch":0}},
+        {"id":"W0","position":{"x":-10,"z":0},"inwardNormal":{"x":1,"z":0},"clearWidth":4,"clearHeight":3.2,"transitionDepth":1.2,"landingBounds":{"minX":-10,"maxX":-6,"minZ":-2,"maxZ":2},"arrivalPose":{"x":-8,"z":0,"yaw":-1.5707963267948966,"pitch":0}}
+      ]
+    },
+    {
+      "id":"corridor:east-asian-transmission","kind":"corridor","pilotRole":"shortcut","implementationStatus":"live","levelId":"L0","transform":{"x":0,"z":0,"yaw":0},"map":{"label":"Buddhist–East Asian transmission route","status":"orientation-open"},
+      "geometry":{"cells":[
+        {"id":"buddhist-chinese-junction","bounds":{"minX":-44.4,"maxX":-39.6,"minZ":-61,"maxZ":-56},"ceilingHeight":5.2},
+        {"id":"west-turn","bounds":{"minX":-61.5,"maxX":-39.6,"minZ":-60.8,"maxZ":-56.2},"ceilingHeight":5.2},
+        {"id":"west-transmission-run","bounds":{"minX":-61.5,"maxX":-56.7,"minZ":-147.4,"maxZ":-56.2},"ceilingHeight":5.2},
+        {"id":"east-asian-south-run","bounds":{"minX":-61.5,"maxX":-39.6,"minZ":-149.8,"maxZ":-145.2},"ceilingHeight":5.2},
+        {"id":"east-asian-landing","bounds":{"minX":-44.4,"maxX":-39.6,"minZ":-149.8,"maxZ":-145},"ceilingHeight":5.2}
+      ]},
+      "doorwaySlots":[
+        {"id":"buddhist","position":{"x":-42,"z":-56},"inwardNormal":{"x":0,"z":-1},"clearWidth":4,"clearHeight":3.2,"transitionDepth":1.2,"landingBounds":{"minX":-44,"maxX":-40,"minZ":-60,"maxZ":-56},"arrivalPose":{"x":-42,"z":-58,"yaw":0,"pitch":0}},
+        {"id":"classical-chinese","position":{"x":-42,"z":-61},"inwardNormal":{"x":0,"z":1},"clearWidth":4,"clearHeight":3.2,"transitionDepth":1.2,"landingBounds":{"minX":-44,"maxX":-40,"minZ":-61,"maxZ":-57},"arrivalPose":{"x":-42,"z":-59,"yaw":3.141592653589793,"pitch":0}},
+        {"id":"east-asian","position":{"x":-42,"z":-145},"inwardNormal":{"x":0,"z":-1},"clearWidth":4,"clearHeight":3.2,"transitionDepth":1.2,"landingBounds":{"minX":-44,"maxX":-40,"minZ":-149,"maxZ":-145},"arrivalPose":{"x":-42,"z":-147,"yaw":0,"pitch":0}}
       ]
     },
     {
@@ -271,11 +320,15 @@
     {"id":"conn:outer-01-renaissance","a":{"nodeId":"corridor:outer-01-mediterranean-renaissance","slotId":"renaissance"},"b":{"nodeId":"hall:renaissance-humanism-new-method","slotId":"N0"},"routeRole":"outer-loop","accessible":true,"implementationStatus":"live"},
     {"id":"conn:outer-01-south-asian","a":{"nodeId":"corridor:outer-01-mediterranean-renaissance","slotId":"south-asian"},"b":{"nodeId":"hall:classical-south-asian-worlds","slotId":"N0"},"routeRole":"gallery-branch","accessible":true,"implementationStatus":"live"},
     {"id":"conn:south-asian-buddhist","a":{"nodeId":"hall:classical-south-asian-worlds","slotId":"S0"},"b":{"nodeId":"hall:buddhist-philosophies","slotId":"N0"},"routeRole":"gallery-branch","accessible":true,"implementationStatus":"live"},
-    {"id":"conn:buddhist-classical-chinese","a":{"nodeId":"hall:buddhist-philosophies","slotId":"S0"},"b":{"nodeId":"hall:classical-chinese-traditions","slotId":"N0"},"routeRole":"gallery-branch","accessible":true,"implementationStatus":"live"},
+    {"id":"conn:buddhist-east-asian-junction","a":{"nodeId":"hall:buddhist-philosophies","slotId":"S0"},"b":{"nodeId":"corridor:east-asian-transmission","slotId":"buddhist"},"routeRole":"gallery-branch","accessible":true,"implementationStatus":"live"},
+    {"id":"conn:east-asian-junction-classical-chinese","a":{"nodeId":"corridor:east-asian-transmission","slotId":"classical-chinese"},"b":{"nodeId":"hall:classical-chinese-traditions","slotId":"N0"},"routeRole":"gallery-branch","accessible":true,"implementationStatus":"live"},
+    {"id":"conn:classical-chinese-east-asian","a":{"nodeId":"hall:classical-chinese-traditions","slotId":"S0"},"b":{"nodeId":"hall:east-asian-continuities","slotId":"N0"},"routeRole":"gallery-branch","accessible":true,"implementationStatus":"live"},
+    {"id":"conn:transmission-east-asian","a":{"nodeId":"corridor:east-asian-transmission","slotId":"east-asian"},"b":{"nodeId":"hall:east-asian-continuities","slotId":"S0"},"routeRole":"shortcut","accessible":true,"implementationStatus":"live"},
     {"id":"conn:renaissance-outer-02","a":{"nodeId":"hall:renaissance-humanism-new-method","slotId":"S0"},"b":{"nodeId":"corridor:outer-02-renaissance-phenomenology","slotId":"renaissance"},"routeRole":"outer-loop","accessible":true,"implementationStatus":"live"},
     {"id":"conn:outer-02-phenomenology","a":{"nodeId":"corridor:outer-02-renaissance-phenomenology","slotId":"phenomenology"},"b":{"nodeId":"hall:phenomenology-existence-embodiment","slotId":"S0"},"routeRole":"outer-loop","accessible":true,"implementationStatus":"live"},
     {"id":"conn:outer-02-islamic-branch","a":{"nodeId":"corridor:outer-02-renaissance-phenomenology","slotId":"islamic-branch"},"b":{"nodeId":"corridor:branch-islamic","slotId":"outer-02"},"routeRole":"gallery-branch","accessible":true,"implementationStatus":"live"},
     {"id":"conn:islamic-branch-gallery","a":{"nodeId":"corridor:branch-islamic","slotId":"islamic"},"b":{"nodeId":"hall:islamic-philosophical-worlds","slotId":"N0"},"routeRole":"gallery-branch","accessible":true,"implementationStatus":"live"},
+    {"id":"conn:islamic-jewish","a":{"nodeId":"hall:islamic-philosophical-worlds","slotId":"S0"},"b":{"nodeId":"hall:jewish-philosophy","slotId":"N0"},"routeRole":"gallery-branch","accessible":true,"implementationStatus":"live"},
     {"id":"conn:phenomenology-outer-03","a":{"nodeId":"hall:phenomenology-existence-embodiment","slotId":"N0"},"b":{"nodeId":"corridor:outer-03-phenomenology-analytic","slotId":"phenomenology"},"routeRole":"outer-loop","accessible":true,"implementationStatus":"live"},
     {"id":"conn:outer-03-analytic","a":{"nodeId":"corridor:outer-03-phenomenology-analytic","slotId":"analytic"},"b":{"nodeId":"hall:analytic-traditions","slotId":"N0"},"routeRole":"outer-loop","accessible":true,"implementationStatus":"live"},
     {"id":"conn:analytic-outer-04","a":{"nodeId":"hall:analytic-traditions","slotId":"S0"},"b":{"nodeId":"corridor:outer-04-analytic-justice","slotId":"analytic"},"routeRole":"outer-loop","accessible":true,"implementationStatus":"live"},
@@ -296,6 +349,7 @@
   ],
   "reservations": [
     {"id":"reserve:insert-feminist","reservationType":"insertion","hostNodeId":"corridor:outer-04-analytic-justice","targetProgramHallId":"feminist-philosophies","label":"Future gallery — not yet open","center":{"x":95,"z":63.4},"size":{"width":6,"depth":4},"barrierCenter":{"x":95,"z":60.4},"barrierWidth":4,"rotation":0,"blocked":true,"implementationStatus":"reserved"},
+    {"id":"reserve:insert-latin-christian","reservationType":"insertion","hostNodeId":"hall:jewish-philosophy","targetProgramHallId":"latin-christian-scholastic","label":"Future Gallery 13 · Latin Christian & Scholastic Traditions — not yet open","center":{"x":0,"z":16},"size":{"width":8,"depth":6},"barrierCenter":{"x":0,"z":11.76},"barrierWidth":6,"rotation":0,"blocked":true,"implementationStatus":"reserved"},
     {"id":"reserve:outward-R1","reservationType":"outward-expansion","hostNodeId":"place:entrance-orientation","expansionPortalId":"R1","label":"Future gallery — not yet open","center":{"x":-11,"z":-20},"size":{"width":8,"depth":6},"barrierCenter":{"x":-8,"z":-20},"barrierWidth":6,"rotation":1.5707963267948966,"blocked":true,"implementationStatus":"reserved"},
     {"id":"reserve:outward-R2","reservationType":"outward-expansion","hostNodeId":"corridor:outer-01-mediterranean-renaissance","expansionPortalId":"R2","label":"Future gallery — not yet open","center":{"x":-20,"z":51},"size":{"width":8,"depth":6},"barrierCenter":{"x":-20,"z":54},"barrierWidth":6,"rotation":0,"blocked":true,"implementationStatus":"reserved"},
     {"id":"reserve:outward-R3","reservationType":"outward-expansion","hostNodeId":"corridor:outer-02-renaissance-phenomenology","expansionPortalId":"R3","label":"Future gallery — not yet open","center":{"x":-5,"z":131.4},"size":{"width":8,"depth":6},"barrierCenter":{"x":-5,"z":128.4},"barrierWidth":6,"rotation":0,"blocked":true,"implementationStatus":"reserved"},

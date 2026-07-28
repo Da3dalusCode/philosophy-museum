@@ -26,6 +26,8 @@ export const MUSEUM_CANONICAL_HALL_IDS = [
   'buddhist-philosophies',
   'classical-chinese-traditions',
   'islamic-philosophical-worlds',
+  'east-asian-continuities',
+  'jewish-philosophy',
 ] as const;
 
 export type MuseumCanonicalHallId = (typeof MUSEUM_CANONICAL_HALL_IDS)[number];
@@ -121,10 +123,15 @@ export const MUSEUM_CANONICAL_ROOM_IDS = [
   'islamic-kalam-critique',
   'islamic-andalusian-worlds',
   'islamic-post-avicennian',
+  'east-song-ming-confucian',
+  'east-buddhist-daoist-transmissions',
+  'east-regional-continuities-reserve',
+  'jewish-reason-revelation',
+  'jewish-maimonidean-crossroads',
 ] as const;
 
 export type MuseumCanonicalRoomId = (typeof MUSEUM_CANONICAL_ROOM_IDS)[number];
-export type MuseumCanonicalTemplateId = 'sequence-3' | 'crossroads-4';
+export type MuseumCanonicalTemplateId = 'standard-rect' | 'sequence-3' | 'crossroads-4';
 export type MuseumCanonicalWingId =
   | 'wing-core-questions'
   | 'wing-mediterranean-antiquity'
@@ -547,6 +554,41 @@ export const MUSEUM_CANONICAL_PROGRAM = [
       {id: 'islamic-post-avicennian', title: 'Illumination and post-Avicennian Safavid continuities', recordCapacity: 3, exhibits: [
         exhibit({id: 'suhrawardi', entityKind: 'philosopher', entityId: 'suhrawardi', displayName: 'Suhrawardi: The Philosophy of Illumination', tier: 'standard-individual-exhibit', question: 'How can presence, light, and visionary knowledge redirect Avicennian philosophical questions?', secondaryHallIds: ['core-questions-forum'], principalAssetId: 'suhrawardi-later-portrait'}),
         exhibit({id: 'mulla-sadra', entityKind: 'philosopher', entityId: 'mulla-sadra', displayName: 'Mulla Sadra: Existence and Substantial Motion in Safavid Iran', tier: 'standard-individual-exhibit', question: 'What changes if existence is primary and substances themselves unfold through motion?', secondaryHallIds: ['core-questions-forum', 'rationalism-mind-nature-system'], principalAssetId: 'mulla-sadra-modern-statue'}),
+      ]},
+    ],
+  },
+  {
+    id: 'east-asian-continuities',
+    wingId: 'wing-east-asian-worlds',
+    title: 'Confucian Renewal & East Asian Continuities',
+    templateId: 'sequence-3',
+    period: '6th–21st centuries',
+    description: 'Follow Song–Ming Confucian reconstruction, the contested coexistence of Buddhist, Daoist, and Confucian institutions, and specific Korean, Japanese, Vietnamese, and modern continuities without treating East Asia as a single derivative tradition.',
+    recordCapacity: 7,
+    rooms: [
+      {id: 'east-song-ming-confucian', title: 'Song-Ming Confucian reconstructions', recordCapacity: 3, exhibits: [
+        exhibit({id: 'zhu-xi', entityKind: 'philosopher', entityId: 'zhu-xi', displayName: 'Zhu Xi: Pattern, Material Force, and the Architecture of Learning', tier: 'anchor-exhibit', question: 'How can study, investigation, ritual, and self-cultivation disclose an intelligible moral order?', secondaryHallIds: ['classical-chinese-traditions', 'core-questions-forum'], principalAssetId: 'zhu-xi-traditional-portrait'}),
+        exhibit({id: 'wang-yangming', entityKind: 'philosopher', entityId: 'wang-yangming', displayName: 'Wang Yangming: Innate Knowing and the Unity of Knowledge and Action', tier: 'standard-individual-exhibit', question: 'What changes when moral knowledge is understood as already active within responsible judgment?', secondaryHallIds: ['classical-chinese-traditions', 'moral-life-practical-reason'], principalAssetId: 'wang-yangming-traditional-portrait'}),
+      ]},
+      {id: 'east-buddhist-daoist-transmissions', title: 'Buddhist translation, Daoist institutions, and the Three Teachings', recordCapacity: 2, exhibits: []},
+      {id: 'east-regional-continuities-reserve', title: 'Korea, Japan, Vietnam, and modern continuities', recordCapacity: 2, exhibits: []},
+    ],
+  },
+  {
+    id: 'jewish-philosophy',
+    wingId: 'wing-medieval-connected-worlds',
+    title: 'Jewish Philosophy in Arabic-Speaking & Mediterranean Worlds',
+    templateId: 'standard-rect',
+    period: '9th century–modern continuities',
+    description: 'Explore Jewish kalām, poetry, law, revelation, Judeo-Arabic intellectual culture, Maimonidean argument, translation, and later debate as a distinct Jewish intellectual history connected to—without being absorbed into—its Islamic, Arabic-speaking, and Mediterranean settings.',
+    recordCapacity: 5,
+    rooms: [
+      {id: 'jewish-reason-revelation', title: 'Jewish kalām, poetry, law, reason, and revelation', recordCapacity: 3, exhibits: [
+        exhibit({id: 'saadia-gaon', entityKind: 'philosopher', entityId: 'saadia-gaon', displayName: 'Saadia Gaon: Reason, Revelation, and Jewish Kalām', tier: 'standard-individual-exhibit', question: 'How can reasoned inquiry, transmitted revelation, law, language, and communal responsibility belong to one Jewish intellectual project?', secondaryHallIds: ['core-questions-forum'], principalAssetId: 'saadia-baqashah-geniza'}),
+        exhibit({id: 'judah-halevi', entityKind: 'philosopher', entityId: 'judah-halevi', displayName: 'Judah Halevi: Poetry, Philosophy, and Covenant', tier: 'standard-individual-exhibit', question: 'What can poetry, embodied practice, transmitted history, and revelation show that demonstration alone cannot?', secondaryHallIds: ['core-questions-forum'], principalAssetId: 'judah-halevi-letter-geniza'}),
+      ]},
+      {id: 'jewish-maimonidean-crossroads', title: 'Maimonides: law, negative theology, and Aristotelian argument', recordCapacity: 2, exhibits: [
+        exhibit({id: 'maimonides', entityKind: 'philosopher', entityId: 'maimonides', displayName: 'Maimonides: Law, Negative Theology, and Aristotelian Argument', tier: 'anchor-exhibit', question: 'How can law, disciplined interpretation, philosophical demonstration, and limits on divine language guide a perplexed reader?', secondaryHallIds: ['core-questions-forum', 'islamic-philosophical-worlds', 'latin-christian-scholastic'], principalAssetId: 'maimonides-mishnah-autograph'}),
       ]},
     ],
   },

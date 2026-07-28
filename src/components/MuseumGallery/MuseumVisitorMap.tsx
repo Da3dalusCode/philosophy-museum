@@ -32,8 +32,6 @@ const physicalNodeById = new Map(
 
 const openProgramHallIds = new Set<MuseumPlannedHallId>(MUSEUM_CANONICAL_HALL_IDS);
 const nextProgramHallIds = new Set<MuseumPlannedHallId>([
-  'east-asian-continuities',
-  'jewish-philosophy',
   'latin-christian-scholastic',
 ]);
 const plannedProgramEntries = Object.entries(MUSEUM_PLANNED_HALL_TITLES) as [
@@ -81,7 +79,7 @@ export function MuseumVisitorMap({currentHallId, currentNodeId, currentPose, ret
   const insertionCount = MUSEUM_VISITOR_MAP_RESERVATIONS.filter(({reservationType}) => reservationType === 'insertion').length;
   const outwardCount = MUSEUM_VISITOR_MAP_RESERVATIONS.filter(({reservationType}) => reservationType === 'outward-expansion').length;
   const futureCount = plannedProgram.length - halls.length;
-  const routeSummary = `The live main-level plan shows ${halls.length} open galleries and every walkable public route. Galleries 01 through 05 form the current outer loop, Gallery 06 is the central Core Questions Forum, Galleries 07 through 09 form the southward world-philosophies branch, and Gallery 10 opens from the Galleries 02–03 connector. Closed construction thresholds are shown separately from the approved 26-gallery collection program. Fast travel returns visitors to a safe gallery entrance.`;
+  const routeSummary = `The live main-level plan shows ${halls.length} open galleries and every walkable public route. Galleries 01 through 05 form the current outer loop and Gallery 06 is the central Core Questions Forum. Galleries 07 through 11 form the South, Buddhist, Chinese, and East Asian branch with a separate Buddhist–East Asian transmission route. Galleries 10 and 12 form the Arabic-speaking and Mediterranean connected-worlds branch. The future Gallery 13 Latin Christian threshold remains visibly closed. Fast travel returns visitors to a safe gallery entrance.`;
 
   return <MuseumModal panelClassName="museum-visitor-map-panel" labelledBy={titleId} describedBy={descriptionId} returnFocus={returnFocus} onClose={onClose}>
     <div className="museum-overlay-head museum-visitor-map-head">

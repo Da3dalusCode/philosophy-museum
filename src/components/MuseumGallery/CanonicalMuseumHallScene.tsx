@@ -9,7 +9,9 @@ import {ContemporaryHallLighting} from './ContemporaryHallLighting';
 import {JusticeSupplementalExhibits} from './JusticeSupplementalExhibits';
 import {ClassicalSouthAsianSupplementalExhibits} from './ClassicalSouthAsianSupplementalExhibits';
 import {CoreQuestionsForumSupplementalExhibits} from './CoreQuestionsForumSupplementalExhibits';
+import {EastAsianSupplementalExhibits} from './EastAsianSupplementalExhibits';
 import {IslamicSupplementalExhibits} from './IslamicSupplementalExhibits';
+import {JewishSupplementalExhibits} from './JewishSupplementalExhibits';
 import {MediterraneanGalleryCuration} from './MediterraneanGalleryCuration';
 import {MuseumHallSpatialRoot} from './MuseumHallSpatialRoot';
 import {MuseumVisitorMapKiosk} from './MuseumVisitorMapKiosk';
@@ -126,6 +128,24 @@ export function CanonicalMuseumHallContent({
     {definition.id === 'islamic-philosophical-worlds'
       && definition.layout.supplementalExhibits
       && <IslamicSupplementalExhibits
+        layouts={active
+          ? definition.layout.supplementalExhibits
+          : definition.layout.supplementalExhibits.filter(({assetId}) => entryAssetIds.has(assetId))}
+        nearbyId={nearbySupplemental?.hallId === definition.id ? nearbySupplemental.supplementalExhibitId : undefined}
+        onSelect={(supplementalExhibitId) => onSelectSupplementalExhibit({hallId: definition.id, supplementalExhibitId})}
+      />}
+    {definition.id === 'east-asian-continuities'
+      && definition.layout.supplementalExhibits
+      && <EastAsianSupplementalExhibits
+        layouts={active
+          ? definition.layout.supplementalExhibits
+          : definition.layout.supplementalExhibits.filter(({assetId}) => entryAssetIds.has(assetId))}
+        nearbyId={nearbySupplemental?.hallId === definition.id ? nearbySupplemental.supplementalExhibitId : undefined}
+        onSelect={(supplementalExhibitId) => onSelectSupplementalExhibit({hallId: definition.id, supplementalExhibitId})}
+      />}
+    {definition.id === 'jewish-philosophy'
+      && definition.layout.supplementalExhibits
+      && <JewishSupplementalExhibits
         layouts={active
           ? definition.layout.supplementalExhibits
           : definition.layout.supplementalExhibits.filter(({assetId}) => entryAssetIds.has(assetId))}

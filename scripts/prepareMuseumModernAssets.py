@@ -42,8 +42,10 @@ EXPECTED_HALLS = {
     "buddhist-philosophies",
     "classical-chinese-traditions",
     "islamic-philosophical-worlds",
+    "east-asian-continuities",
+    "jewish-philosophy",
 }
-EXPECTED_ASSET_COUNT = 285
+EXPECTED_ASSET_COUNT = 315
 MAX_DERIVATIVE_BYTES = 600_000
 MIN_MUSEUM_SHORT_EDGE = 180
 
@@ -220,6 +222,11 @@ def main() -> None:
             print(f"[{index:02d}/{len(assets)}] {slug}", flush=True)
             download(str(record["selectedThumbnailUrl"]), source)
             image = rgb_image(source)
+            rotation_degrees = record.get("rotationDegrees", 0)
+            if rotation_degrees:
+                if rotation_degrees not in {90, 180, 270}:
+                    raise RuntimeError(f"{slug}.rotationDegrees must be 90, 180, or 270.")
+                image = image.rotate(-int(rotation_degrees), expand=True)
             scene_lock = save_variant(image, candidate_scene, 640, 82, MIN_MUSEUM_SHORT_EDGE)
             panel_lock = save_variant(image, candidate_panel, 1280, 88)
 

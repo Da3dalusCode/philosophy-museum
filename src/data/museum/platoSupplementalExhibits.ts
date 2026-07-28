@@ -44,7 +44,8 @@ export type MuseumSupplementalExhibit = {
   sources: readonly MuseumSupplementalInterpretationSource[];
   assetId: MuseumAssetId;
   panelAssetId: MuseumAssetId;
-  articleRoute: NavigableAppRoute;
+  /** Omitted when the Atlas has no truthful canonical article for this context. */
+  articleRoute?: NavigableAppRoute;
   /** Gallery-specific copy; omitted here so Gallery 01 retains its exact output. */
   presentation?: MuseumSupplementalExhibitPresentation;
 };

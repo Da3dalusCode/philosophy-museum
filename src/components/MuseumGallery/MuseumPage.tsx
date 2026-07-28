@@ -277,7 +277,7 @@ function DirectoryContents({route, hallId = route.hallId, href, push, onExhibitA
               onActivate={onSupplementalActivate}
               current={current}
             >View exhibit</SupplementalExhibitRouteLink>
-            <a className="btn" href={href(item.articleRoute)}>Open full article</a>
+            {item.articleRoute && <a className="btn" href={href(item.articleRoute)}>Open full article</a>}
           </div>
         </li>;
       })}</ul>

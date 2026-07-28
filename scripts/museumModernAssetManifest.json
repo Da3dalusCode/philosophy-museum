@@ -5151,6 +5151,547 @@
         "bytes": 425272,
         "sha256": "9df1343f7e1d0388b7041d7261efcc0291ac9510c89768b7e8e559f07b963f54"
       }
+    },
+    "zhu-xi-traditional-portrait": {
+      "hallFolder": "east-asian-continuities",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Portraits_of_Famous_Men_-_Zhu_Xi.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Portraits_of_Famous_Men_-_Zhu_Xi.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Portraits_of_Famous_Men_-_Zhu_Xi.jpg?width=1280",
+      "scene": {
+        "width": 440,
+        "height": 640,
+        "bytes": 30222,
+        "sha256": "a88f9b38d89f20e00fca1786ca5ac438ef7d5ae8ecd0f4745df68e47ffdf0f55"
+      },
+      "panel": {
+        "width": 879,
+        "height": 1280,
+        "bytes": 344284,
+        "sha256": "7a9d922457ba681d5f092a3eeb5cad0cf824f405c1138480aae77f1793428693"
+      }
+    },
+    "wang-yangming-traditional-portrait": {
+      "hallFolder": "east-asian-continuities",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:%E7%8E%8B%E5%AE%88%E4%BB%81.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/%E7%8E%8B%E5%AE%88%E4%BB%81.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/%E7%8E%8B%E5%AE%88%E4%BB%81.jpg?width=1280",
+      "scene": {
+        "width": 534,
+        "height": 640,
+        "bytes": 44804,
+        "sha256": "4c380364781f5017298e70cbdb38b8e07322425702784a296b445b3dba818d5b"
+      },
+      "panel": {
+        "width": 698,
+        "height": 836,
+        "bytes": 91700,
+        "sha256": "0aaea90dafc393b223f9dfffd15a5e6069baa2b3da9947785788f42b7421a302"
+      }
+    },
+    "zhu-xi-four-books-edition": {
+      "hallFolder": "east-asian-continuities",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:The_Four_Books,_with_a_Collection_of_Comments.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/The_Four_Books,_with_a_Collection_of_Comments.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/The_Four_Books,_with_a_Collection_of_Comments.jpg?width=1280",
+      "scene": {
+        "width": 640,
+        "height": 587,
+        "bytes": 88920,
+        "sha256": "207f623096a7beb6d84361d426ed273cac1477e9770d495f1b5b1bc846310fb3"
+      },
+      "panel": {
+        "width": 981,
+        "height": 900,
+        "bytes": 230530,
+        "sha256": "c33fcc9ecaa0a3d6869bb89215ebf3ad208a32a0e6b3ab0209cbdbcf1695b18f"
+      }
+    },
+    "white-deer-grotto-academy": {
+      "hallFolder": "east-asian-continuities",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:White_Deer_Grotto_Academy.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/White_Deer_Grotto_Academy.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/White_Deer_Grotto_Academy.jpg?width=1280",
+      "scene": {
+        "width": 640,
+        "height": 480,
+        "bytes": 88632,
+        "sha256": "be23e55a03d8b05e155b0cc7f724b0f4f9fa16ce9998871c9bdb57a0d1bea9d1"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 960,
+        "bytes": 444218,
+        "sha256": "979674fbb6350981b5d8331f9ac502b454acc5e2e29ce113492bd3157e58c57b"
+      }
+    },
+    "wang-yangming-letters-zheng": {
+      "hallFolder": "east-asian-continuities",
+      "sourcePageUrl": "https://artmuseum.princeton.edu/art/collections/objects/32340",
+      "sourceImageUrl": "https://media.artmuseum.princeton.edu/iiif/3/collection/PUAMSTU2016_38492/full/max/0/default.jpg",
+      "selectedThumbnailUrl": "https://media.artmuseum.princeton.edu/iiif/3/collection/PUAMSTU2016_38492/full/1280,/0/default.jpg",
+      "scene": {
+        "width": 640,
+        "height": 333,
+        "bytes": 13624,
+        "sha256": "ab767045dab4ec9549648aa36c01b1e3ef30c2ed9fc102342fd30c595f42bf41"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 666,
+        "bytes": 87488,
+        "sha256": "110c88de6e1085e00bf8a8468f5cbcd501585004f7a914b611da18b91d7048a7"
+      }
+    },
+    "zhou-dunyi-taijitu-reconstruction": {
+      "hallFolder": "east-asian-continuities",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Zhou_Dunyi_Taijitu_English.png",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Zhou_Dunyi_Taijitu_English.png",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Zhou_Dunyi_Taijitu_English.png?width=1280",
+      "scene": {
+        "width": 235,
+        "height": 640,
+        "bytes": 16454,
+        "sha256": "8bfd7f081920dc2df1bafd5b3a3d6b527b5b9e69c348db4793fbd85da0e19c78"
+      },
+      "panel": {
+        "width": 470,
+        "height": 1280,
+        "bytes": 50636,
+        "sha256": "856949a7d8d84ec462b54f69f68111f72b94527fee634394571c584ce4e385c4"
+      }
+    },
+    "east-xuanzang-japanese-reception": {
+      "hallFolder": "east-asian-continuities",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Portrait_of_Xuanzang_(Genj%C5%8D)_with_Attendant_MET_DP-15580-007.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Portrait_of_Xuanzang_(Genj%C5%8D)_with_Attendant_MET_DP-15580-007.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Portrait_of_Xuanzang_(Genj%C5%8D)_with_Attendant_MET_DP-15580-007.jpg?width=1280",
+      "scene": {
+        "width": 395,
+        "height": 640,
+        "bytes": 17354,
+        "sha256": "59217ea913bf3960b825be67d6e24e3a1dda2dd5e53ad2703f416e551441fff2"
+      },
+      "panel": {
+        "width": 790,
+        "height": 1280,
+        "bytes": 146482,
+        "sha256": "f27adf6ee0f25c83678058310571349974a8b417bfb459b76eec36263d4ac268"
+      }
+    },
+    "east-daoist-ritual-robe": {
+      "hallFolder": "east-asian-continuities",
+      "sourcePageUrl": "https://www.metmuseum.org/art/collection/search/69669",
+      "sourceImageUrl": "https://collectionapi.metmuseum.org/api/collection/v1/iiif/69669/2467731/main-image",
+      "selectedThumbnailUrl": "https://collectionapi.metmuseum.org/api/collection/v1/iiif/69669/2467731/main-image",
+      "scene": {
+        "width": 640,
+        "height": 481,
+        "bytes": 75172,
+        "sha256": "a0dbdc2f9bd8bed7b5017344cd46c62668dc63c30bc1b2a816913eb65748e793"
+      },
+      "panel": {
+        "width": 1200,
+        "height": 901,
+        "bytes": 317998,
+        "sha256": "2c0230e3a6ba098b29806dc4de0d90985ce49775b391dc15305d210ca1afd4ea"
+      }
+    },
+    "east-hwaeom-avatamsaka-cover": {
+      "hallFolder": "east-asian-continuities",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Korean_sutra_covers_-_Avatamsaka_sutra_(c.1400)_-_BL_Or._7377.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Korean_sutra_covers_-_Avatamsaka_sutra_(c.1400)_-_BL_Or._7377.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Korean_sutra_covers_-_Avatamsaka_sutra_(c.1400)_-_BL_Or._7377.jpg?width=1280",
+      "scene": {
+        "width": 442,
+        "height": 640,
+        "bytes": 103080,
+        "sha256": "d405d00e8e0c98fe64481eb5ac556439ab6b9d007a3143deff158ea5b02ec6a1"
+      },
+      "panel": {
+        "width": 883,
+        "height": 1280,
+        "bytes": 491298,
+        "sha256": "f9416ce824cbb8ca4b210cff61f6b72e31e032efecf686ea808a1fe454eaab44"
+      }
+    },
+    "east-huineng-japanese-reception": {
+      "hallFolder": "east-asian-continuities",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Unkoku_T%C5%8Deki_%E9%9B%B2%E8%B0%B7%E7%AD%89%E7%9B%8A_-_Huineng,_the_Sixth_Patriarch_of_Zen,_with_Geese_and_Myna_-_2021.398.14a%E2%80%93c_-_Metropolitan_Museum_of_Art.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Unkoku_T%C5%8Deki_%E9%9B%B2%E8%B0%B7%E7%AD%89%E7%9B%8A_-_Huineng,_the_Sixth_Patriarch_of_Zen,_with_Geese_and_Myna_-_2021.398.14a%E2%80%93c_-_Metropolitan_Museum_of_Art.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Unkoku_T%C5%8Deki_%E9%9B%B2%E8%B0%B7%E7%AD%89%E7%9B%8A_-_Huineng,_the_Sixth_Patriarch_of_Zen,_with_Geese_and_Myna_-_2021.398.14a%E2%80%93c_-_Metropolitan_Museum_of_Art.jpg?width=1280",
+      "scene": {
+        "width": 640,
+        "height": 407,
+        "bytes": 24444,
+        "sha256": "76f09070e3cb0cbc4ef19f413f4f3eb1cba50b49f21ab6783a9b2cc6b1260043"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 813,
+        "bytes": 152594,
+        "sha256": "72f101c9bc3348c295e9a17cf91add476f944ba187da9a17c7a378302ffdd930"
+      }
+    },
+    "east-three-teachings-painting": {
+      "hallFolder": "east-asian-continuities",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:%E4%B8%80%E5%9C%98%E5%92%8C%E6%B0%A3.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/%E4%B8%80%E5%9C%98%E5%92%8C%E6%B0%A3.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/%E4%B8%80%E5%9C%98%E5%92%8C%E6%B0%A3.jpg?width=1280",
+      "scene": {
+        "width": 370,
+        "height": 640,
+        "bytes": 52810,
+        "sha256": "7e8f8b8c2c8e03db3e80efae46631c229e271c9a49243360f8f5ce3b7ce77b4a"
+      },
+      "panel": {
+        "width": 739,
+        "height": 1280,
+        "bytes": 254634,
+        "sha256": "845a8569d62ef405ab5c4bf515e06637bbc50179071332cdeb4683bd1717744e"
+      }
+    },
+    "east-water-land-star-deities": {
+      "hallFolder": "east-asian-continuities",
+      "sourcePageUrl": "https://www.metmuseum.org/art/collection/search/44698",
+      "sourceImageUrl": "https://collectionapi.metmuseum.org/api/collection/v1/iiif/44698/1298649/main-image",
+      "selectedThumbnailUrl": "https://collectionapi.metmuseum.org/api/collection/v1/iiif/44698/1298649/main-image",
+      "scene": {
+        "width": 422,
+        "height": 640,
+        "bytes": 27146,
+        "sha256": "8290bd9169ef25eaddd28b2ce24789d6f3bbbc0f2bef07d4ad06e4ba18e55842"
+      },
+      "panel": {
+        "width": 792,
+        "height": 1200,
+        "bytes": 132122,
+        "sha256": "1915e74787a307bd2aa62dfb1d71ff534efcfd184fb2de866018781f33968e2d"
+      }
+    },
+    "dosan-seowon-academy": {
+      "hallFolder": "east-asian-continuities",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Korea-Andong-Dosan_Seowon-Jeongyodang-01.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Korea-Andong-Dosan_Seowon-Jeongyodang-01.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Korea-Andong-Dosan_Seowon-Jeongyodang-01.jpg?width=1280",
+      "scene": {
+        "width": 640,
+        "height": 480,
+        "bytes": 68716,
+        "sha256": "c166d2bffecb3fc757f62351eeb94c666ceb7ae2c33ac6a5211061abc1d39e40"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 960,
+        "bytes": 344488,
+        "sha256": "61577f7b1bc41d7a3021bf88ed8e7e01d3f3bd9328b18e8df4ff54b982267cb2"
+      }
+    },
+    "yi-i-ojukheon": {
+      "hallFolder": "east-asian-continuities",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Dogilrobot_ojukheon.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Dogilrobot_ojukheon.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Dogilrobot_ojukheon.jpg?width=1280",
+      "scene": {
+        "width": 640,
+        "height": 361,
+        "bytes": 61780,
+        "sha256": "104d51f789489116b1d094ed6c5f56448fd14330fe2f2ebe2b10d5d6be98bfc7"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 721,
+        "bytes": 320868,
+        "sha256": "c04fc329ee4281d82fbd5a4a004ccd4d0142f4c2c02e6a9fd70e650b096257a8"
+      }
+    },
+    "hayashi-yushima-seido": {
+      "hallFolder": "east-asian-continuities",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Yushima_Seido_002.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Yushima_Seido_002.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Yushima_Seido_002.jpg?width=1280",
+      "scene": {
+        "width": 640,
+        "height": 425,
+        "bytes": 39232,
+        "sha256": "ad95e71f254923869d7d06afca04b90fda639b2153a03a893fddb56fc214f97f"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 850,
+        "bytes": 200012,
+        "sha256": "efe3ba3620e2dffd6d16cf285994e2d3ed7505b850acdf30ac0061eaec7e7323"
+      }
+    },
+    "ito-jinsai-portrait": {
+      "hallFolder": "east-asian-continuities",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:%E4%BC%8A%E8%97%A4%E4%BB%81%E6%96%8E%E5%83%8F.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/%E4%BC%8A%E8%97%A4%E4%BB%81%E6%96%8E%E5%83%8F.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/%E4%BC%8A%E8%97%A4%E4%BB%81%E6%96%8E%E5%83%8F.jpg?width=1280",
+      "scene": {
+        "width": 570,
+        "height": 640,
+        "bytes": 20522,
+        "sha256": "68581d9cc6a2ae59db7b60a1544d656c29c5d6b1d253c7942074e974e64dd7fd"
+      },
+      "panel": {
+        "width": 1140,
+        "height": 1280,
+        "bytes": 148966,
+        "sha256": "1a1050c8bd32c95571d9a872997612b753a133d60af313d9f46006b3eb30e675"
+      }
+    },
+    "le-quy-don-van-dai": {
+      "hallFolder": "east-asian-continuities",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:V%C3%A2n_%C4%91%C3%A0i_lo%E1%BA%A1i_ng%E1%BB%AF_(q.01)-0996-01-001.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/V%C3%A2n_%C4%91%C3%A0i_lo%E1%BA%A1i_ng%E1%BB%AF_(q.01)-0996-01-001.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/V%C3%A2n_%C4%91%C3%A0i_lo%E1%BA%A1i_ng%E1%BB%AF_(q.01)-0996-01-001.jpg?width=1280",
+      "scene": {
+        "width": 640,
+        "height": 533,
+        "bytes": 92342,
+        "sha256": "eb4ae410650b1f51a069aa9feff109f3c5c95cb76368603874554f3c68bf3551"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 1066,
+        "bytes": 533804,
+        "sha256": "14985414c3515e6cfb04d522c997673417215bed2cd35b2e263135435b43e41e"
+      }
+    },
+    "kang-youwei-1905": {
+      "hallFolder": "east-asian-continuities",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Portrait_of_Kang_Youwei.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Portrait_of_Kang_Youwei.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Portrait_of_Kang_Youwei.jpg?width=1280",
+      "scene": {
+        "width": 429,
+        "height": 640,
+        "bytes": 32534,
+        "sha256": "f69c8cb272e02fe47c92e5e2c68f4c01d7be351331a44cd5607c86c133a71ad9"
+      },
+      "panel": {
+        "width": 857,
+        "height": 1280,
+        "bytes": 167108,
+        "sha256": "00f02239ac0963e8afc37e0d1a58ec4345e5ccb3bc6276f6971b5a3ed6c4d08f"
+      }
+    },
+    "saadia-baqashah-geniza": {
+      "hallFolder": "jewish-philosophy",
+      "sourcePageUrl": "https://openn.library.upenn.edu/Data/0002/html/h221.html",
+      "sourceImageUrl": "https://openn.library.upenn.edu/Data/0002/h221/data/web/4589_0000_web.jpg",
+      "selectedThumbnailUrl": "https://openn.library.upenn.edu/Data/0002/h221/data/web/4589_0000_web.jpg",
+      "scene": {
+        "width": 485,
+        "height": 640,
+        "bytes": 54330,
+        "sha256": "046988425aceac45464cf8e5469510dc86248c2cf55a8888f942b860afe54b87"
+      },
+      "panel": {
+        "width": 971,
+        "height": 1280,
+        "bytes": 306978,
+        "sha256": "c87d1698d4f4420d5d271c6c16fcead809a6b53614ba0eaabfe08b190918b77b"
+      }
+    },
+    "saadia-beliefs-landauer": {
+      "hallFolder": "jewish-philosophy",
+      "sourcePageUrl": "https://archive.org/details/kitbalamnt00saaduoft",
+      "sourceImageUrl": "https://archive.org/download/kitbalamnt00saaduoft/kitbalamnt00saaduoft.pdf",
+      "selectedThumbnailUrl": "https://archive.org/download/kitbalamnt00saaduoft/page/n6.jpg",
+      "scene": {
+        "width": 386,
+        "height": 640,
+        "bytes": 13460,
+        "sha256": "39d98158aec3f9ddf2cd780efe5f9a85d8637074cce95f6875ca432925dfbd5d"
+      },
+      "panel": {
+        "width": 772,
+        "height": 1280,
+        "bytes": 55496,
+        "sha256": "adb7d27ad098935c6feb6e1860151f3313158ee19985f1ced59f922ac8713245"
+      }
+    },
+    "cairo-geniza-legal-document": {
+      "hallFolder": "jewish-philosophy",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Fragment_of_the_Cairo_Genizah_-_Legal_document.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Fragment_of_the_Cairo_Genizah_-_Legal_document.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Fragment_of_the_Cairo_Genizah_-_Legal_document.jpg?width=1280",
+      "scene": {
+        "width": 480,
+        "height": 640,
+        "bytes": 79498,
+        "sha256": "a2d7bf7b4a2d515a111afe6e1a82b6520dafd825336b84bb06d8a4c4ae579442"
+      },
+      "panel": {
+        "width": 959,
+        "height": 1280,
+        "bytes": 312938,
+        "sha256": "7f8d6bae0e8ed9624422513b066b89b8938b4fc04b490fa45e7a9c7f6d474b4b"
+      }
+    },
+    "judah-halevi-letter-geniza": {
+      "hallFolder": "jewish-philosophy",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Letter_(T-S_8J18.5).jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Letter_%28T-S_8J18.5%29.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Letter_%28T-S_8J18.5%29.jpg?width=1280",
+      "scene": {
+        "width": 640,
+        "height": 630,
+        "bytes": 96228,
+        "sha256": "d86269d2e314c8b46a2b04ef95c133be2f736b45a7c9104b8455a468cc11a933"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 1259,
+        "bytes": 563506,
+        "sha256": "891796e07f37822aece03718de6b3077c030275c97013906a813e747f590694a"
+      }
+    },
+    "judah-halevi-kuzari-1796": {
+      "hallFolder": "jewish-philosophy",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Sefer_ha-Kuzari_(23855).pdf",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sefer_ha-Kuzari_%2823855%29.pdf?page=1",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sefer_ha-Kuzari_%2823855%29.pdf?page=1&width=1280",
+      "scene": {
+        "width": 507,
+        "height": 640,
+        "bytes": 57782,
+        "sha256": "f5b795647ad13af53e9d2b5229e765c9dec48f3e270d2b38605f72f548d5831a"
+      },
+      "panel": {
+        "width": 960,
+        "height": 1211,
+        "bytes": 179342,
+        "sha256": "ca8d9af2b083c618e7f0012eabc1c307e9e645bee7e8e8624e6841316beec63c"
+      }
+    },
+    "judah-halevi-divan-geniza": {
+      "hallFolder": "jewish-philosophy",
+      "sourcePageUrl": "https://openn.library.upenn.edu/Data/0002/html/h314.html",
+      "sourceImageUrl": "https://openn.library.upenn.edu/Data/0002/h314/data/web/4681_0000_web.jpg",
+      "selectedThumbnailUrl": "https://openn.library.upenn.edu/Data/0002/h314/data/web/4681_0000_web.jpg",
+      "scene": {
+        "width": 468,
+        "height": 640,
+        "bytes": 65910,
+        "sha256": "06c426c85d4ee205102bfd2a2ee20c383a44e52e91f13c3659a521b0f7a1b24d"
+      },
+      "panel": {
+        "width": 936,
+        "height": 1280,
+        "bytes": 299774,
+        "sha256": "3fa331254737bb5008bd930c2eb8429f23c9648a64112f011cc83da5ba2b0246"
+      }
+    },
+    "maimonides-mishnah-autograph": {
+      "hallFolder": "jewish-philosophy",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Maimonides_Commentary_on_the_Mishnah.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Maimonides_Commentary_on_the_Mishnah.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Maimonides_Commentary_on_the_Mishnah.jpg?width=1280",
+      "scene": {
+        "width": 473,
+        "height": 640,
+        "bytes": 39318,
+        "sha256": "33cd244fbce61ee3bd014f441ed6a9d8e6c833680bee9017fbd406cadbacd8d4"
+      },
+      "panel": {
+        "width": 946,
+        "height": 1280,
+        "bytes": 200204,
+        "sha256": "1d24a9b15a1e47305c1bd60d511191a5322c416144700ddd776ee283aa71d7d7"
+      }
+    },
+    "maimonides-mishneh-torah": {
+      "hallFolder": "jewish-philosophy",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Mishneh_Torah_WDL3962.pdf",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Mishneh_Torah_WDL3962.pdf",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Mishneh_Torah_WDL3962.pdf/page9-1280px-Mishneh_Torah_WDL3962.pdf.jpg",
+      "rotationDegrees": 90,
+      "scene": {
+        "width": 640,
+        "height": 500,
+        "bytes": 61208,
+        "sha256": "2b1d5c4d0ba54df2c0e50d7d781bc02dfa9957345e4515302b8609ad9793e8dc"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 1000,
+        "bytes": 236616,
+        "sha256": "e6fe96a4dacadad528f2f63689e01459c613892878c4476631ea57d7ae4c0f9c"
+      }
+    },
+    "maimonides-guide-negative-theology": {
+      "hallFolder": "jewish-philosophy",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:14c_ed_of_the_Guide_for_the_Perplexed_by_Maimonides.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/14c_ed_of_the_Guide_for_the_Perplexed_by_Maimonides.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/14c_ed_of_the_Guide_for_the_Perplexed_by_Maimonides.jpg?width=1280",
+      "scene": {
+        "width": 455,
+        "height": 640,
+        "bytes": 72294,
+        "sha256": "e95d561d2d00bec5d90a1d9e1e8181bf9dbc4326199655316b1c4a951de47e28"
+      },
+      "panel": {
+        "width": 910,
+        "height": 1280,
+        "bytes": 321244,
+        "sha256": "02aee6c95155dd0bae3e0195c4bf8228c25c8a74baac7804c26ef69c3159cc05"
+      }
+    },
+    "maimonides-guide-arabic": {
+      "hallFolder": "jewish-philosophy",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:The_Guide_to_the_Perplexed_WDL3963.pdf",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/The_Guide_to_the_Perplexed_WDL3963.pdf?page=1",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/The_Guide_to_the_Perplexed_WDL3963.pdf?page=1&width=1280",
+      "scene": {
+        "width": 432,
+        "height": 640,
+        "bytes": 59838,
+        "sha256": "1917db8e692da369895397a16a0f13819040942961372432c56ba62321aee561"
+      },
+      "panel": {
+        "width": 500,
+        "height": 741,
+        "bytes": 99972,
+        "sha256": "d568ef8bf90cd0b34f96936d7211382b991445703bc162f046792a69ca57e206"
+      }
+    },
+    "moses-mendelssohn-rijksmuseum": {
+      "hallFolder": "jewish-philosophy",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Portret_van_Moses_Mendelssohn,_RP-P-1907-2896.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Portret_van_Moses_Mendelssohn%2C_RP-P-1907-2896.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Portret_van_Moses_Mendelssohn%2C_RP-P-1907-2896.jpg?width=1280",
+      "scene": {
+        "width": 460,
+        "height": 640,
+        "bytes": 20614,
+        "sha256": "4c876a7b665410148d95611e2b1b64961843a4d7e006a7f3002ebb5e3fed6ed7"
+      },
+      "panel": {
+        "width": 919,
+        "height": 1280,
+        "bytes": 224930,
+        "sha256": "f9449f851aefeda5b2165d22bcd3bbd0fa0d5bddc5e843ff0c541c0739891df0"
+      }
+    },
+    "spinoza-tractatus-1670": {
+      "hallFolder": "jewish-philosophy",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Benedictus_de_Spinoza_-_Tractatus_theologico-politicus_continens_dissertationes_aliquot,_Hamburg,_Henricus_K%C3%BCnrath,_1670.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Benedictus_de_Spinoza_-_Tractatus_theologico-politicus_continens_dissertationes_aliquot%2C_Hamburg%2C_Henricus_K%C3%BCnrath%2C_1670.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Benedictus_de_Spinoza_-_Tractatus_theologico-politicus_continens_dissertationes_aliquot%2C_Hamburg%2C_Henricus_K%C3%BCnrath%2C_1670.jpg?width=1280",
+      "scene": {
+        "width": 503,
+        "height": 640,
+        "bytes": 62062,
+        "sha256": "9e2f4c1978a7a07dbb71d4fdeaae6e168034ac5357bbc3472df908bf20eb7d14"
+      },
+      "panel": {
+        "width": 1006,
+        "height": 1280,
+        "bytes": 426762,
+        "sha256": "f929307af58dd48e0c7da745b59522fae710ab457e76f14779aa5771fbd3eb9b"
+      }
     }
   }
 }

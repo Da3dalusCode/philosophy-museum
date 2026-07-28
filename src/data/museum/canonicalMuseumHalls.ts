@@ -8,7 +8,8 @@ import {
   type MuseumCanonicalRoom,
   type MuseumPresentationTier,
 } from './museumCanonicalProgram';
-import {getMuseumManifestHallNode} from './museumBuildingManifest';
+import {getMuseumHallTemplate} from './museumHallTemplates';
+import {getMuseumManifestHallNode, MUSEUM_BUILDING_MANIFEST} from './museumBuildingManifest';
 import {MUSEUM_CANONICAL_EXHIBIT_PLINTH_GEOMETRY} from './museumArchitectureMaterials';
 import {
   MEDITERRANEAN_EXHIBIT_CURATION,
@@ -78,6 +79,24 @@ import {
   ISLAMIC_PRIMARY_PLACEMENTS,
   ISLAMIC_ROOM_ENTRY_POSES,
 } from './islamicGalleryCuration';
+import {
+  EAST_ASIAN_GALLERY_ID,
+  EAST_ASIAN_ROOM_SIGN_COPY,
+  EAST_ASIAN_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
+} from './eastAsianSupplementalExhibits';
+import {
+  EAST_ASIAN_PRIMARY_PLACEMENTS,
+  EAST_ASIAN_ROOM_ENTRY_POSES,
+} from './eastAsianGalleryCuration';
+import {
+  JEWISH_GALLERY_ID,
+  JEWISH_ROOM_SIGN_COPY,
+  JEWISH_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
+} from './jewishSupplementalExhibits';
+import {
+  JEWISH_PRIMARY_PLACEMENTS,
+  JEWISH_ROOM_ENTRY_POSES,
+} from './jewishGalleryCuration';
 import {
   CORE_QUESTIONS_FORUM_GALLERY_ID,
   CORE_QUESTIONS_FORUM_PRIMARY_CIRCULATION,
@@ -173,6 +192,10 @@ const supplementalLayoutsForHall = (hallId: MuseumPublicHallId): readonly Museum
                   ? CLASSICAL_CHINESE_SUPPLEMENTAL_EXHIBIT_LAYOUTS
                 : hallId === ISLAMIC_GALLERY_ID
                   ? ISLAMIC_SUPPLEMENTAL_EXHIBIT_LAYOUTS
+                : hallId === EAST_ASIAN_GALLERY_ID
+                  ? EAST_ASIAN_SUPPLEMENTAL_EXHIBIT_LAYOUTS
+                : hallId === JEWISH_GALLERY_ID
+                  ? JEWISH_SUPPLEMENTAL_EXHIBIT_LAYOUTS
               : [];
 
 const primaryScaleFloorForHall = (
@@ -603,13 +626,17 @@ const createExhibitLayout = (
   };
 };
 
-const roomBoundsForSequence = (rooms: readonly MuseumCanonicalRoom[]): ReadonlyMap<string, MuseumBounds> => {
-  const roomDepth = SEQUENCE_DEPTH / rooms.length;
+const roomBoundsForSequence = (
+  rooms: readonly MuseumCanonicalRoom[],
+  width = SEQUENCE_WIDTH,
+  depth = SEQUENCE_DEPTH,
+): ReadonlyMap<string, MuseumBounds> => {
+  const roomDepth = depth / rooms.length;
   return new Map(rooms.map((room, index) => [room.id, {
-    minX: -SEQUENCE_WIDTH / 2,
-    maxX: SEQUENCE_WIDTH / 2,
-    minZ: -SEQUENCE_DEPTH / 2 + index * roomDepth,
-    maxZ: -SEQUENCE_DEPTH / 2 + (index + 1) * roomDepth,
+    minX: -width / 2,
+    maxX: width / 2,
+    minZ: -depth / 2 + index * roomDepth,
+    maxZ: -depth / 2 + (index + 1) * roomDepth,
   }]));
 };
 
@@ -872,12 +899,21 @@ const outerWalls = (width: number, depth: number, height: number, prefix: string
   {id: `${prefix}:east-wall`, center: {x: width / 2, z: 0}, size: {width: WALL, depth}, rotation: 0, height},
 ];
 
-const sequencePartitionWalls = (rooms: readonly MuseumCanonicalRoom[], roomBounds: ReadonlyMap<string, MuseumBounds>, prefix: string): MuseumWallDefinition[] =>
+const sequencePartitionWalls = (
+  rooms: readonly MuseumCanonicalRoom[],
+  roomBounds: ReadonlyMap<string, MuseumBounds>,
+  prefix: string,
+  width = SEQUENCE_WIDTH,
+  ceiling = SEQUENCE_CEILING,
+): MuseumWallDefinition[] =>
   rooms.slice(0, -1).flatMap((room, index) => {
     const z = roomBounds.get(room.id)!.maxZ;
+    const openingWidth = 4;
+    const segmentWidth = (width - openingWidth) / 2;
+    const segmentCenter = openingWidth / 2 + segmentWidth / 2;
     return [
-      {id: `${prefix}:partition-${index + 1}-west`, center: {x: -7, z}, size: {width: 10, depth: WALL}, rotation: 0, height: SEQUENCE_CEILING},
-      {id: `${prefix}:partition-${index + 1}-east`, center: {x: 7, z}, size: {width: 10, depth: WALL}, rotation: 0, height: SEQUENCE_CEILING},
+      {id: `${prefix}:partition-${index + 1}-west`, center: {x: -segmentCenter, z}, size: {width: segmentWidth, depth: WALL}, rotation: 0, height: ceiling},
+      {id: `${prefix}:partition-${index + 1}-east`, center: {x: segmentCenter, z}, size: {width: segmentWidth, depth: WALL}, rotation: 0, height: ceiling},
     ];
   });
 
@@ -1006,18 +1042,19 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
   const isCoreForum = hall.id === CORE_QUESTIONS_FORUM_ID;
   const isClassicalChineseCrossroads = hall.id === CLASSICAL_CHINESE_GALLERY_ID;
   const isCrossroads = isCoreForum || isClassicalChineseCrossroads;
+  const template = getMuseumHallTemplate(hall.templateId);
   const ceiling = isClassicalChineseCrossroads
     ? CLASSICAL_CHINESE_HALL_DIMENSIONS.ceilingHeight
-    : isCoreForum ? FORUM_CEILING : SEQUENCE_CEILING;
+    : isCoreForum ? FORUM_CEILING : template.ceilingHeightMetres;
   const width = isClassicalChineseCrossroads
     ? CLASSICAL_CHINESE_HALL_DIMENSIONS.width
-    : isCoreForum ? FORUM_SIZE : SEQUENCE_WIDTH;
+    : isCoreForum ? FORUM_SIZE : template.footprintMetres.width;
   const depth = isClassicalChineseCrossroads
     ? CLASSICAL_CHINESE_HALL_DIMENSIONS.depth
-    : isCoreForum ? FORUM_SIZE : SEQUENCE_DEPTH;
+    : isCoreForum ? FORUM_SIZE : template.footprintMetres.depth;
   const roomBounds = isClassicalChineseCrossroads
     ? new Map(Object.entries(CLASSICAL_CHINESE_ROOM_BOUNDS))
-    : isCoreForum ? roomBoundsForForum(hall.rooms) : roomBoundsForSequence(hall.rooms);
+    : isCoreForum ? roomBoundsForForum(hall.rooms) : roomBoundsForSequence(hall.rooms, width, depth);
   const orderedRooms = isClassicalChineseCrossroads
     ? CLASSICAL_CHINESE_ROOM_ORDER.map((id) => hall.rooms.find((room) => room.id === id)!)
     : isCoreForum
@@ -1030,17 +1067,16 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
       : sequenceConnections(orderedRooms, roomBounds);
   const node = getMuseumManifestHallNode(hall.id);
   if (!node) throw new Error(`Canonical hall ${hall.id} has no physical manifest node.`);
+  const liveEndpointKeys = new Set(
+    MUSEUM_BUILDING_MANIFEST.connections
+      .filter(({implementationStatus}) => implementationStatus === 'live')
+      .flatMap(({a, b}) => [`${a.nodeId}/${a.slotId}`, `${b.nodeId}/${b.slotId}`]),
+  );
   const doorwayExclusions = node.doorwaySlots
-    // Closed, unconnected side slots remain usable museum walls. Gallery 03's
-    // live forum doorway is W1, so its intact E1 wall can carry Sartre; Gallery
-    // 04 likewise retains its closed W1 seam until a future wing connects.
-    .filter(({id}) => !(hall.id === PHENOMENOLOGY_GALLERY_ID && id === 'E1'))
-    .filter(({id}) => !(hall.id === ANALYTIC_GALLERY_ID && id === 'W1'))
-    .filter(({id}) => !(hall.id === JUSTICE_GALLERY_ID && (id === 'E1' || id === 'W1')))
-    .filter(({id}) => !(hall.id === CLASSICAL_SOUTH_ASIAN_GALLERY_ID && (id === 'E1' || id === 'W1')))
-    .filter(({id}) => !(hall.id === BUDDHIST_GALLERY_ID && (id === 'E1' || id === 'W1')))
-    .filter(({id}) => !(hall.id === CLASSICAL_CHINESE_GALLERY_ID && id !== 'N0'))
-    .filter(({id}) => !(hall.id === ISLAMIC_GALLERY_ID && id !== 'N0'))
+    // A doorway removes usable wall space only when the manifest gives that
+    // exact endpoint a live physical connection. Reserved and inactive slots
+    // remain full-height exhibit walls.
+    .filter(({id}) => liveEndpointKeys.has(`${node.id}/${id}`))
     .map(({landingBounds}) => landingBounds);
   const furnishings = hall.id === MUSEUM_VISITOR_MAP_KIOSK.hallId
     ? [
@@ -1099,6 +1135,10 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
                     ? BUDDHIST_PRIMARY_PLACEMENTS
                     : hall.id === ISLAMIC_GALLERY_ID
                       ? ISLAMIC_PRIMARY_PLACEMENTS
+                    : hall.id === EAST_ASIAN_GALLERY_ID
+                      ? EAST_ASIAN_PRIMARY_PLACEMENTS
+                    : hall.id === JEWISH_GALLERY_ID
+                      ? JEWISH_PRIMARY_PLACEMENTS
             : undefined,
       hall.id === MEDITERRANEAN_GALLERY_ID
         || hall.id === RENAISSANCE_GALLERY_ID
@@ -1143,7 +1183,7 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
       ? classicalChineseInteriorWalls()
       : isCoreForum
         ? forumPartitionWalls(hall.id)
-        : sequencePartitionWalls(orderedRooms, roomBounds, hall.id)),
+        : sequencePartitionWalls(orderedRooms, roomBounds, hall.id, width, ceiling)),
   ];
   if (
     hall.id === CORE_QUESTIONS_FORUM_ID
@@ -1155,6 +1195,8 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
     || hall.id === BUDDHIST_GALLERY_ID
     || hall.id === CLASSICAL_CHINESE_GALLERY_ID
     || hall.id === ISLAMIC_GALLERY_ID
+    || hall.id === 'east-asian-continuities'
+    || hall.id === 'jewish-philosophy'
   ) {
     const acceptedSupplementalBounds: {spatialCellId: string; bounds: MuseumBounds}[] = [];
     for (const layout of supplementalExhibits) {
@@ -1468,6 +1510,44 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
                         height: .82,
                       };
                     })
+                  : hall.id === EAST_ASIAN_GALLERY_ID
+                    ? orderedRooms.map((room) => {
+                        const copy = EAST_ASIAN_ROOM_SIGN_COPY[
+                          room.id as keyof typeof EAST_ASIAN_ROOM_SIGN_COPY
+                        ];
+                        if (!copy) throw new Error(`Gallery 11 has no visitor-facing orientation copy for ${room.id}.`);
+                        const bounds = roomBounds.get(room.id)!;
+                        return {
+                          id: `${room.id}:room-sign`,
+                          kind: room.id === 'east-song-ming-confucian' ? 'entrance' as const : 'zone' as const,
+                          title: copy.title,
+                          kicker: copy.kicker,
+                          subtitle: copy.subtitle,
+                          position: {x: 0, y: 4.55, z: bounds.maxZ - .22},
+                          rotationY: Math.PI,
+                          width: room.id === 'east-song-ming-confucian' ? 5.2 : 4.8,
+                          height: .82,
+                        };
+                      })
+                    : hall.id === JEWISH_GALLERY_ID
+                      ? orderedRooms.map((room) => {
+                          const copy = JEWISH_ROOM_SIGN_COPY[
+                            room.id as keyof typeof JEWISH_ROOM_SIGN_COPY
+                          ];
+                          if (!copy) throw new Error(`Gallery 12 has no visitor-facing orientation copy for ${room.id}.`);
+                          const bounds = roomBounds.get(room.id)!;
+                          return {
+                            id: `${room.id}:room-sign`,
+                            kind: room.id === 'jewish-reason-revelation' ? 'entrance' as const : 'zone' as const,
+                            title: copy.title,
+                            kicker: copy.kicker,
+                            subtitle: copy.subtitle,
+                            position: {x: 0, y: 4.55, z: bounds.maxZ - .22},
+                            rotationY: Math.PI,
+                            width: room.id === 'jewish-reason-revelation' ? 5.2 : 4.8,
+                            height: .82,
+                          };
+                        })
               : hall.id === CORE_QUESTIONS_FORUM_ID
                 ? coreQuestionsForumSigns()
                 : standardSigns;
@@ -1526,6 +1606,8 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
           || hall.id === CLASSICAL_SOUTH_ASIAN_GALLERY_ID
           || hall.id === BUDDHIST_GALLERY_ID
           || hall.id === ISLAMIC_GALLERY_ID
+          || hall.id === EAST_ASIAN_GALLERY_ID
+          || hall.id === JEWISH_GALLERY_ID
           ? exhibits.find(({spatialCellId}) => spatialCellId === cell.id)
           : undefined;
         const authoredEntryPose = isClassicalChineseCrossroads
@@ -1535,6 +1617,14 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
           : hall.id === ISLAMIC_GALLERY_ID
             ? ISLAMIC_ROOM_ENTRY_POSES[
                 cell.id as keyof typeof ISLAMIC_ROOM_ENTRY_POSES
+              ]
+          : hall.id === EAST_ASIAN_GALLERY_ID
+            ? EAST_ASIAN_ROOM_ENTRY_POSES[
+                cell.id as keyof typeof EAST_ASIAN_ROOM_ENTRY_POSES
+              ]
+          : hall.id === JEWISH_GALLERY_ID
+            ? JEWISH_ROOM_ENTRY_POSES[
+                cell.id as keyof typeof JEWISH_ROOM_ENTRY_POSES
               ]
           : isCoreForum
             ? CORE_QUESTIONS_FORUM_ROOM_ENTRY_POSES[cell.id]
@@ -1569,7 +1659,7 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
               ? CORE_QUESTIONS_FORUM_PRIMARY_CIRCULATION
               : hall.id === BUDDHIST_GALLERY_ID
                 ? [{x: 0, z: -26}, {x: 0, z: 0}, {x: 0, z: 24.4}]
-                : [{x: 0, z: -26}, {x: 0, z: 0}, {x: 0, z: 26}],
+                : [{x: 0, z: -depth / 2 + 2}, {x: 0, z: 0}, {x: 0, z: depth / 2 - 2}],
             clearanceRadius: isCoreForum ? .62 : 1.25,
           },
       guidedOrder,

@@ -233,7 +233,32 @@ export type MuseumSupplementalExhibitId =
   | 'forum-al-farabi-virtuous-city'
   | 'forum-maimonides-law'
   | 'forum-confucian-music'
-  | 'forum-al-ghazali-causation';
+  | 'forum-al-ghazali-causation'
+  | 'eac-zhu-four-books'
+  | 'eac-zhu-white-deer'
+  | 'eac-wang-letters'
+  | 'eac-taijitu-heartmind'
+  | 'eac-hwaeom-avatamsaka'
+  | 'eac-xuanzang-translation'
+  | 'eac-huineng-zen-reception'
+  | 'eac-three-teachings'
+  | 'eac-daoist-institutions'
+  | 'eac-water-land-stars'
+  | 'eac-yi-i-ojukheon'
+  | 'eac-korea-four-seven'
+  | 'eac-japan-ancient-learning'
+  | 'eac-japan-hayashi'
+  | 'eac-vietnam-le-quy-don'
+  | 'eac-modern-confucianism'
+  | 'saadia-beliefs-opinions'
+  | 'judeo-arabic-geniza-law'
+  | 'judah-halevi-kuzari'
+  | 'judah-halevi-divan'
+  | 'maimonides-mishneh-torah'
+  | 'maimonides-guide-negative-theology'
+  | 'maimonides-guide-translation-reception'
+  | 'jewish-philosophy-after-maimonides'
+  | 'spinoza-formation-rupture-threshold';
 
 export type MuseumSupplementalInstallationKind =
   | 'cave-ascent'
@@ -256,6 +281,12 @@ export type MuseumSupplementalInstallationKind =
   | 'buddhist-work'
   | 'buddhist-context'
   | 'buddhist-concept'
+  | 'east-asian-work'
+  | 'east-asian-context'
+  | 'east-asian-concept'
+  | 'jewish-work'
+  | 'jewish-context'
+  | 'jewish-concept'
   | 'forum-comparative-lens';
 
 export type MuseumSupplementalExhibitLayout = {

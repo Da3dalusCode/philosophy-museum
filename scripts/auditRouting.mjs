@@ -201,9 +201,10 @@ check('Museum convenience, hall, and exhibit routes parse and serialize', () => 
       exhibitCount += 1;
     }
   }
-  assert.equal(MUSEUM_HALLS.length, 10);
-  assert.equal(exhibitCount, 100);
-  assert.equal(MUSEUM_SUPPLEMENTAL_EXHIBITS.length, 157);
+  assert.equal(MUSEUM_HALLS.length, 12);
+  assert.equal(exhibitCount, 105);
+  assert.equal(MUSEUM_SUPPLEMENTAL_EXHIBITS.length, 182);
+  assert.equal(exhibitCount + MUSEUM_SUPPLEMENTAL_EXHIBITS.length, 287, 'The Museum directory must expose 287 interpreted stops');
   for (const {hallId, exhibit} of MUSEUM_SUPPLEMENTAL_EXHIBITS) {
     expectRoundTrip({kind: 'museum', hallId, exhibitId: exhibit.id});
   }
@@ -242,6 +243,30 @@ check('serializers emit the required literal route families', () => {
   );
   assert.equal(serializeHashRoute({kind: 'museum', hallId: 'core-questions-forum'}), '#/museum/core-questions-forum');
   assert.equal(serializeHashRoute({kind: 'museum', hallId: 'core-questions-forum', exhibitId: 'jiddu-krishnamurti'}), '#/museum/core-questions-forum/exhibits/jiddu-krishnamurti');
+  assert.equal(
+    serializeHashRoute({kind: 'museum', hallId: 'east-asian-continuities'}),
+    '#/museum/east-asian-continuities',
+  );
+  assert.equal(
+    serializeHashRoute({kind: 'museum', hallId: 'east-asian-continuities', exhibitId: 'zhu-xi'}),
+    '#/museum/east-asian-continuities/exhibits/zhu-xi',
+  );
+  assert.equal(
+    serializeHashRoute({kind: 'museum', hallId: 'east-asian-continuities', exhibitId: 'eac-korea-four-seven'}),
+    '#/museum/east-asian-continuities/exhibits/eac-korea-four-seven',
+  );
+  assert.equal(
+    serializeHashRoute({kind: 'museum', hallId: 'jewish-philosophy'}),
+    '#/museum/jewish-philosophy',
+  );
+  assert.equal(
+    serializeHashRoute({kind: 'museum', hallId: 'jewish-philosophy', exhibitId: 'maimonides'}),
+    '#/museum/jewish-philosophy/exhibits/maimonides',
+  );
+  assert.equal(
+    serializeHashRoute({kind: 'museum', hallId: 'jewish-philosophy', exhibitId: 'spinoza-formation-rupture-threshold'}),
+    '#/museum/jewish-philosophy/exhibits/spinoza-formation-rupture-threshold',
+  );
   assert.equal(serializeHashRoute({kind: 'museum-compatibility', formerHallId: 'renaissance-reason-revolution', exhibitId: 'kant'}), '#/museum/renaissance-reason-revolution/exhibits/kant');
   assert.equal(
     serializeHashRoute({kind: 'branch', branchId: 'stoicism'}),
@@ -401,8 +426,13 @@ check('unknown and malformed Museum routes remain visible as not-found', () => {
 
 check('physical building and reserved expansion IDs are never accepted as public Museum routes', () => {
   const publicHallIds = buildingManifest.nodes.filter(({kind, implementationStatus}) => kind === 'hall' && implementationStatus === 'live').map(({publicHallId}) => publicHallId);
-  assert.equal(publicHallIds.length, 10);
+  assert.equal(buildingManifest.manifestVersion, 'canonical-twelve-v1');
+  assert.equal(buildingManifest.status, 'approved-canonical-twelve');
+  assert.equal(publicHallIds.length, 12);
   assert.deepEqual(publicHallIds.sort(), MUSEUM_HALLS.map(({id}) => id).sort());
+  assert.equal(buildingManifest.reservations.length, 10);
+  assert.equal(buildingManifest.reservations.filter(({reservationType}) => reservationType === 'insertion').length, 2);
+  assert.equal(buildingManifest.reservations.filter(({reservationType}) => reservationType === 'outward-expansion').length, 8);
   for (const node of buildingManifest.nodes) {
     expectNotFound(`#/museum/${encodeURIComponent(node.id)}`, /No museum hall exists/);
   }
@@ -491,6 +521,8 @@ check('document titles are exhaustive and section-aware', () => {
     DEFAULT_ROUTES.museum,
     {kind: 'museum', hallId: 'mediterranean-beginnings-classical', exhibitId: 'plato'},
     {kind: 'museum', hallId: 'renaissance-humanism-new-method', exhibitId: 'galileo-moon'},
+    {kind: 'museum', hallId: 'east-asian-continuities', exhibitId: 'eac-zhu-four-books'},
+    {kind: 'museum', hallId: 'jewish-philosophy', exhibitId: 'spinoza-formation-rupture-threshold'},
     {kind: 'museum-compatibility', formerHallId: 'renaissance-reason-revolution', exhibitId: 'kant'},
     {kind: 'not-found', requestedHash: '#/missing', reason: 'Missing'},
   ];
@@ -541,6 +573,22 @@ check('document titles are exhaustive and section-aware', () => {
     'Rawls: The Original Position — Political Action, Justice, and Democratic Reason | Philosophy Atlas',
   );
   assert.equal(getRouteTitle({kind: 'museum', hallId: 'core-questions-forum'}), 'Core Questions Forum | Philosophy Atlas');
+  assert.equal(
+    getRouteTitle({kind: 'museum', hallId: 'east-asian-continuities'}),
+    'Confucian Renewal & East Asian Continuities | Philosophy Atlas',
+  );
+  assert.equal(
+    getRouteTitle({kind: 'museum', hallId: 'east-asian-continuities', exhibitId: 'eac-zhu-four-books'}),
+    'Zhu Xi’s Four Books with Collected Commentaries — Confucian Renewal & East Asian Continuities | Philosophy Atlas',
+  );
+  assert.equal(
+    getRouteTitle({kind: 'museum', hallId: 'jewish-philosophy'}),
+    'Jewish Philosophy in Arabic-Speaking & Mediterranean Worlds | Philosophy Atlas',
+  );
+  assert.equal(
+    getRouteTitle({kind: 'museum', hallId: 'jewish-philosophy', exhibitId: 'spinoza-formation-rupture-threshold'}),
+    'Spinoza’s Theological-Political Treatise: Formation and Rupture — Jewish Philosophy in Arabic-Speaking & Mediterranean Worlds | Philosophy Atlas',
+  );
   assert.equal(
     getRouteTitle({kind: 'branch', branchId: 'stoicism', section: 'overview'}),
     'Stoicism — A system for living as a rational and social being | Philosophy Atlas',
