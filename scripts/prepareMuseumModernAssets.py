@@ -40,8 +40,10 @@ EXPECTED_HALLS = {
     "analytic-traditions",
     "classical-south-asian-worlds",
     "buddhist-philosophies",
+    "classical-chinese-traditions",
+    "islamic-philosophical-worlds",
 }
-EXPECTED_ASSET_COUNT = 231
+EXPECTED_ASSET_COUNT = 285
 MAX_DERIVATIVE_BYTES = 600_000
 MIN_MUSEUM_SHORT_EDGE = 180
 
@@ -172,13 +174,25 @@ def main() -> None:
         action="store_true",
         help="Intentionally rebuild all derivatives and replace manifest hashes after source review.",
     )
+    parser.add_argument(
+        "--hall-folder",
+        action="append",
+        choices=sorted(EXPECTED_HALLS),
+        help="Limit a lock refresh or verification pass to one or more hall folders.",
+    )
     args = parser.parse_args()
     assets = load_manifest(args.refresh_locks)
     refreshed = json.loads(MANIFEST_PATH.read_text(encoding="utf-8"))
+    selected_halls = set(args.hall_folder or EXPECTED_HALLS)
+    selected_asset_count = sum(
+        1 for record in assets.values() if record["hallFolder"] in selected_halls
+    )
 
     with ExitStack() as stack:
         temporary: Path | None = None
         for index, (slug, record) in enumerate(assets.items(), start=1):
+            if record["hallFolder"] not in selected_halls:
+                continue
             folder = OUTPUT_ROOT / str(record["hallFolder"])
             folder.mkdir(parents=True, exist_ok=True)
             scene_path = folder / f"{slug}-scene.webp"
@@ -223,10 +237,15 @@ def main() -> None:
             time.sleep(4)
 
     if args.refresh_locks:
-        MANIFEST_PATH.write_text(json.dumps(refreshed, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-        print(f"Refreshed {EXPECTED_ASSET_COUNT * 2} derivative locks in {MANIFEST_PATH.name}.")
+        refreshed_manifest_path = MANIFEST_PATH.with_suffix(".json.tmp")
+        refreshed_manifest_path.write_text(
+            json.dumps(refreshed, indent=2, ensure_ascii=False) + "\n",
+            encoding="utf-8",
+        )
+        refreshed_manifest_path.replace(MANIFEST_PATH)
+        print(f"Refreshed {selected_asset_count * 2} derivative locks in {MANIFEST_PATH.name}.")
     else:
-        print(f"Verified {EXPECTED_ASSET_COUNT * 2} locked modern Museum derivatives.")
+        print(f"Verified {selected_asset_count * 2} locked modern Museum derivatives.")
 
 
 if __name__ == "__main__":

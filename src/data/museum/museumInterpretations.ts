@@ -571,6 +571,81 @@ const CANONICAL_DIRECT_INTERPRETATION_SOURCES: Readonly<Record<string, readonly 
     academicSource('Stanford Encyclopedia of Philosophy — Epistemology in Classical Indian Philosophy', 'https://plato.stanford.edu/entries/epistemology-india/'),
     academicSource('Stanford Encyclopedia of Philosophy — Logic in Classical Indian Philosophy', 'https://plato.stanford.edu/entries/logic-india/'),
   ],
+  confucius: [
+    academicSource('Stanford Encyclopedia of Philosophy — Confucius', 'https://plato.stanford.edu/entries/confucius/'),
+    academicSource('Internet Encyclopedia of Philosophy — Confucius', 'https://iep.utm.edu/confucius/'),
+    primarySource('Chinese Text Project — Analects', 'https://ctext.org/analects'),
+  ],
+  mencius: [
+    academicSource('Stanford Encyclopedia of Philosophy — Mencius', 'https://plato.stanford.edu/entries/mencius/'),
+    academicSource('Internet Encyclopedia of Philosophy — Mencius', 'https://iep.utm.edu/mencius/'),
+    primarySource('Chinese Text Project — Mengzi', 'https://ctext.org/mengzi'),
+  ],
+  xunzi: [
+    academicSource('Stanford Encyclopedia of Philosophy — Xunzi', 'https://plato.stanford.edu/entries/xunzi/'),
+    academicSource('Internet Encyclopedia of Philosophy — Xunzi', 'https://iep.utm.edu/xunzi/'),
+    primarySource('Chinese Text Project — Xunzi', 'https://ctext.org/xunzi'),
+  ],
+  laozi: [
+    academicSource('Stanford Encyclopedia of Philosophy — Laozi', 'https://plato.stanford.edu/entries/laozi/'),
+    academicSource('Internet Encyclopedia of Philosophy — Laozi', 'https://iep.utm.edu/laozi/'),
+    primarySource('Chinese Text Project — Dao De Jing', 'https://ctext.org/dao-de-jing'),
+  ],
+  zhuangzi: [
+    academicSource('Stanford Encyclopedia of Philosophy — Zhuangzi', 'https://plato.stanford.edu/entries/zhuangzi/'),
+    academicSource('Internet Encyclopedia of Philosophy — Zhuangzi', 'https://iep.utm.edu/zhuangzi-chuang-tzu-chinese-philosopher/'),
+    primarySource('Chinese Text Project — Zhuangzi', 'https://ctext.org/zhuangzi'),
+  ],
+  mozi: [
+    academicSource('Stanford Encyclopedia of Philosophy — Mohism', 'https://plato.stanford.edu/entries/mohism/'),
+    academicSource('Internet Encyclopedia of Philosophy — Mozi', 'https://iep.utm.edu/mozi/'),
+    primarySource('Chinese Text Project — Mozi', 'https://ctext.org/mozi'),
+  ],
+  'han-feizi': [
+    academicSource('Stanford Encyclopedia of Philosophy — Legalism in Chinese Philosophy', 'https://plato.stanford.edu/entries/chinese-legalism/'),
+    academicSource('Internet Encyclopedia of Philosophy — Chinese Philosophy', 'https://iep.utm.edu/chinese-philosophy-overview-of-history/'),
+    primarySource('Chinese Text Project — Hanfeizi', 'https://ctext.org/hanfeizi'),
+  ],
+  'al-kindi': [
+    academicSource('Stanford Encyclopedia of Philosophy — Al-Kindi', 'https://plato.stanford.edu/entries/al-kindi/'),
+    academicSource('Stanford Encyclopedia of Philosophy — Greek Sources in Arabic and Islamic Philosophy', 'https://plato.stanford.edu/entries/arabic-islamic-greek/'),
+    {label: 'Wikimedia Commons — Al-Kindi cryptanalysis manuscript', url: 'https://commons.wikimedia.org/wiki/File:Al-kindi_cryptographic_1.jpg', kind: 'collection-record'},
+  ],
+  'al-farabi': [
+    academicSource('Stanford Encyclopedia of Philosophy — Al-Farabi', 'https://plato.stanford.edu/entries/al-farabi/'),
+    academicSource("Stanford Encyclopedia of Philosophy — Al-Farabi's Psychology and Epistemology", 'https://plato.stanford.edu/entries/al-farabi-psych/'),
+    {label: 'Bodleian Libraries — Al-Farabi manuscript witness', url: 'https://commons.wikimedia.org/wiki/File:Bodlein_Library_MS._Arab.d.84_roll332_frame1.jpg', kind: 'collection-record'},
+  ],
+  avicenna: [
+    academicSource('Stanford Encyclopedia of Philosophy — Ibn Sina', 'https://plato.stanford.edu/entries/ibn-sina/'),
+    academicSource("Stanford Encyclopedia of Philosophy — Ibn Sina's Metaphysics", 'https://plato.stanford.edu/entries/ibn-sina-metaphysics/'),
+    {label: "McGill Library — Avicenna, Ḥikmat al-'Alā'ī manuscript", url: "https://commons.wikimedia.org/wiki/File:%E1%B8%A4ikmat_al-%27Al%C4%81%27%C4%AB_(IA_McGillLibrary-rbsc_bw_asadullah_bwlw7-16937).pdf", kind: 'collection-record'},
+  ],
+  'al-ghazali': [
+    academicSource('Stanford Encyclopedia of Philosophy — Al-Ghazali', 'https://plato.stanford.edu/entries/al-ghazali/'),
+    academicSource('The Al-Ghazali Website — Texts and scholarship', 'https://www.ghazali.org/'),
+    {label: 'World Digital Library — The Incoherence of the Philosophers', url: 'https://commons.wikimedia.org/wiki/File:The_Incoherence_of_Philosophers_WDL7456.pdf', kind: 'collection-record'},
+  ],
+  averroes: [
+    academicSource('Stanford Encyclopedia of Philosophy — Ibn Rushd', 'https://plato.stanford.edu/entries/ibn-rushd/'),
+    academicSource('Internet Encyclopedia of Philosophy — Ibn Rushd', 'https://iep.utm.edu/ibn-rushd-averroes/'),
+    primarySource('Project Gutenberg — Averroes, The Philosophy and Theology', 'https://www.gutenberg.org/ebooks/65708'),
+  ],
+  'ibn-tufayl': [
+    academicSource('Routledge Encyclopedia of Philosophy — Ibn Tufayl', 'https://www.rep.routledge.com/articles/biographical/ibn-tufayl-abu-bakr-muhammad-before-1110-85/v-1'),
+    primarySource('Project Gutenberg — The Improvement of Human Reason', 'https://www.gutenberg.org/ebooks/16831'),
+    academicSource('University of Chicago Press — Ibn Tufayl, Hayy Ibn Yaqzan', 'https://press.uchicago.edu/ucp/books/book/chicago/I/bo25938805.html'),
+  ],
+  suhrawardi: [
+    academicSource('Stanford Encyclopedia of Philosophy — Suhrawardi', 'https://plato.stanford.edu/entries/suhrawardi/'),
+    academicSource('University of Chicago Press — The Philosophy of Illumination', 'https://press.uchicago.edu/ucp/books/book/distributed/P/bo3641907.html'),
+    {label: 'Wikimedia Commons — Suhrawardi, Philosophy of Illumination manuscript', url: 'https://commons.wikimedia.org/wiki/File:Shihab_al-Din_Abu_al-Futuh_Ahmad_bin_Habbash_(Ya%27ish)_bin_Amirak_al-Suhrawardi_al-Maqtuli_(d._1191-92)%3B_Hikmat_al-Ishraq,_copied_by_Shams_bin_Jamal_al-Hatani,_post-Seljuq_Iran,_dated_Tuesday_13_October_1220.jpg', kind: 'collection-record'},
+  ],
+  'mulla-sadra': [
+    academicSource('Stanford Encyclopedia of Philosophy — Mulla Sadra', 'https://plato.stanford.edu/entries/mulla-sadra/'),
+    academicSource('Internet Encyclopedia of Philosophy — Mulla Sadra', 'https://iep.utm.edu/sadra/'),
+    {label: "World Digital Library — Mulla Sadra's Miscellany", url: 'https://commons.wikimedia.org/wiki/File:Molla_Sadra%E2%80%99s_Miscellany_WDL10609.pdf', kind: 'collection-record'},
+  ],
   epistemology: [
     academicSource('Stanford Encyclopedia of Philosophy — Epistemology', 'https://plato.stanford.edu/entries/epistemology/'),
     academicSource('Stanford Encyclopedia of Philosophy — Skepticism', 'https://plato.stanford.edu/entries/skepticism/'),
@@ -609,6 +684,72 @@ const GALLERY_07_PHILOSOPHER_ENRICHMENT: Readonly<Record<string, {
   madhva: {
     lead: 'Madhva’s Dvaita rejects any final identity between individual self and Brahman. God, souls, and matter are real, and dependence does not cancel difference; it makes divine sovereignty and devotional relation intelligible. The exhibit treats his “five differences” as a structured metaphysical position and places it beside Advaita and Viśiṣṭādvaita as an argument among Vedānta interpreters, not a linear progression.',
     historicalFrame: 'Madhva’s commentaries, independent treatises, later school literature, and institutional memory at Udupi belong to different evidentiary layers. Conventional dates orient the visitor, while claims about miraculous biography or a single unchanged Dvaita doctrine require the same source caution applied to other long-lived commentarial traditions.',
+  },
+};
+
+const GALLERY_09_10_PHILOSOPHER_ENRICHMENT: Readonly<Record<string, {
+  readonly lead: string;
+  readonly historicalFrame: string;
+}>> = {
+  confucius: {
+    lead: 'Confucius makes ethical cultivation a lived discipline of learning, ritual, music, humane attention, and responsible example. His questions are practical: how can a person refine judgment, honor relationships without empty performance, and help political authority become worthy of trust rather than merely powerful?',
+    historicalFrame: 'Conventionally dated 551–479 BCE, Confucius is known through sources compiled and reshaped after his death, especially the layered Analects. Later courts, commentators, ritual institutions, and modern interpreters made him many things; the gallery distinguishes those receptions from what the earliest evidence can securely support.',
+  },
+  mencius: {
+    lead: 'Mencius argues that human beings possess incipient moral responses—compassion, shame, respect, and judgment—that can grow through reflection, practice, and supportive institutions. His humane politics asks rulers to protect livelihoods and cultivate conditions in which those beginnings can develop rather than be damaged.',
+    historicalFrame: 'Active during the fourth century BCE, Mencius appears in a text assembled by followers close to his teaching community, though its formation remains historically complex. His later elevation within the Four Books made one Confucian answer to human nature extraordinarily influential without eliminating ancient rivals.',
+  },
+  xunzi: {
+    lead: 'Xunzi treats ethical character as an achievement, not an untouched natural possession. Desire needs neither denial nor blind release: education, ritual, music, deliberate practice, and clear naming can redirect it, creating forms of cooperation and judgment that spontaneous impulse alone will not sustain.',
+    historicalFrame: 'Xunzi worked in the late Warring States period and engaged Confucian, Mohist, Daoist, and names-and-standards debates with unusual systematic range. The received Xunzi is a composite textual collection; later orthodoxy often favored Mencius, even while Xunzi’s influence on education, ritual, language, and statecraft persisted.',
+  },
+  laozi: {
+    lead: 'The Laozi tradition asks how action changes when force, display, and rigid control loosen their grip. Through compressed paradoxes about the Way, naming, desire, and non-forcing, the Daodejing invites forms of rule and self-cultivation that work with conditions rather than continually overpowering them.',
+    historicalFrame: 'Laozi is best presented as an attributed textual persona, not a securely documented single author with a recoverable biography. Excavated manuscripts show that Laozi-related materials circulated in differing selections and sequences; later biography, deification, commentary, and art created further layers the exhibit identifies explicitly.',
+  },
+  zhuangzi: {
+    lead: 'Zhuangzi uses stories, jokes, reversals, and impossible creatures to unsettle confidence in fixed perspectives. His philosophy does not abolish distinctions; it asks how language, training, circumstance, and transformation shape them, and how responsive skill can replace anxious efforts to command a changing world.',
+    historicalFrame: 'Zhuang Zhou probably lived in the late fourth century BCE, but the received Zhuangzi contains multiple strata beyond the Inner Chapters most closely associated with him. Guo Xiang’s later edition, commentaries, paintings, and religious reception profoundly shaped the text’s surviving form and public image.',
+  },
+  mozi: {
+    lead: 'Mozi joins ethical argument to public consequences: impartial concern, opposition to aggressive war, merit in office, frugality, and standards that others can test. The movement bearing his name also treated reasoning as organized practice, linking philosophy with debate, administration, and defensive expertise.',
+    historicalFrame: 'Mozi was active in the early Warring States period, but the Mozi anthology preserves materials from successive Mohist communities rather than one authorial hand. Its repeated core essays, later canons, and siege chapters reveal internal development; claims about Mozi’s biography remain much less secure.',
+  },
+  'han-feizi': {
+    lead: 'Han Feizi analyzes government from the standpoint of institutional vulnerability. Public standards, administrative techniques, incentives, information control, and positional authority should make rule less dependent on a sovereign’s personal virtue. The result is a penetrating but deeply coercive account of order, trust, and political power.',
+    historicalFrame: 'Han Fei lived near the end of the Warring States period and wrote for rulers confronting annexation, bureaucracy, and court intrigue. “Legalism” is a later umbrella for diverse thinkers, not his declared school; the Han Feizi anthology also includes textual layers whose exact authorship varies.',
+  },
+  'al-kindi': {
+    lead: 'Al-Kindi treats philosophy as a disciplined search for truth wherever it appears. Working amid Baghdad’s translation movement, he joins metaphysics, mathematics, medicine, optics, music, and cryptanalysis, showing that Arabic falsafa began as creative synthesis rather than simple preservation of Greek learning.',
+    historicalFrame: 'Born into the Arab Kinda tribe and active under Abbasid patronage, al-Kindi coordinated with translators who moved Greek works through Syriac into Arabic. Many treatises survive only fragmentarily, so later manuscripts reveal both his extraordinary range and the losses shaping his modern reputation.',
+  },
+  'al-farabi': {
+    lead: 'Al-Farabi asks how logic orders thought, how sciences relate, and how political communities cultivate human perfection. His accounts of intellect, language, music, metaphysics, and the virtuous city transform Aristotelian materials into a systematic program for knowledge and collective life.',
+    historicalFrame: 'Active across Central Asian, Baghdad, and Syrian intellectual worlds, al-Farabi wrote within an Arabic scholarly culture already transformed by translation and commentary. Later Islamic, Jewish, and Latin readers called him the Second Master, but surviving manuscripts often postdate him by centuries.',
+  },
+  avicenna: {
+    lead: 'Avicenna builds a philosophy whose parts reinforce one another: logic trains demonstration, psychology explains cognition, natural philosophy studies embodied powers, and metaphysics distinguishes essence, existence, possibility, and necessity. His system became a starting point for centuries of Islamic, Jewish, and Latin debate.',
+    historicalFrame: 'Born near Bukhara and active at several Persian courts, Avicenna combined scholarship with medical and administrative service. He composed works in changing political conditions, often from memory or while traveling; later Arabic, Persian, Hebrew, and Latin copies multiplied his intellectual afterlives.',
+  },
+  'al-ghazali': {
+    lead: 'Al-Ghazali’s importance lies in critique through mastery. He explains the philosophers, tests specific demonstrations, adopts logical tools, and redirects learning toward ethical and spiritual transformation. His work complicates every easy story in which religious thought simply defeats, rejects, or ends philosophy.',
+    historicalFrame: 'Educated in the Seljuk-era madrasa world, al-Ghazali taught at Baghdad’s Nizamiyya before a personal and vocational crisis reshaped his life. Theology, jurisprudence, philosophy, and Sufi practice meet across his writings, whose autobiographical passages remain carefully constructed rather than a transparent diary.',
+  },
+  averroes: {
+    lead: 'Averroes joins jurisprudence, medicine, natural philosophy, and exacting commentary. He defends demonstrative inquiry while asking how philosophical interpretation can remain responsible to revealed law. His readings of Aristotle transformed Hebrew and Latin traditions, though his Islamic project cannot be reduced to those afterlives.',
+    historicalFrame: 'Born into a Cordoban family of jurists, Averroes served as judge and physician under Almohad patronage. Court commissions supported his commentaries, while political reversal brought temporary exile. Arabic reception continued unevenly as Hebrew and Latin translations generated new controversies over intellect, religion, and science.',
+  },
+  'ibn-tufayl': {
+    lead: 'In Hayy ibn Yaqzan, Ibn Tufayl turns philosophical development into narrative experiment. A person raised without society studies nature, discovers ordered causes, and pursues contemplative knowledge; contact with civilization then tests whether demonstrative insight, symbolic religion, and public life can be reconciled.',
+    historicalFrame: 'Ibn Tufayl was an Andalusian physician, philosopher, court official, and patron whose biography survives less fully than his famous tale. Working under the Almohads, he helped introduce Averroes at court. Hayy later traveled through Hebrew, Latin, and European vernacular translations.',
+  },
+  suhrawardi: {
+    lead: 'Suhrawardi reworks Avicennian philosophy through a language of light, manifestation, and knowledge by presence. Demonstration remains necessary, yet discursive proof must be joined to trained perception and direct awareness. His illuminationism opens a powerful post-Avicennian alternative rather than abandoning rational inquiry.',
+    historicalFrame: 'Born in northwestern Iran, Suhrawardi studied and traveled through several learned centers before entering the court at Aleppo. He was executed while still young under circumstances and charges that remain disputed. Early annotated manuscripts show his work becoming a living commentary tradition almost immediately.',
+  },
+  'mulla-sadra': {
+    lead: 'Mulla Sadra makes existence, not fixed essence, the dynamic center of metaphysics. Through gradation of being, substantial motion, and the unity of knower and known, he synthesizes Avicennian argument, Suhrawardian illumination, mystical interpretation, theology, and scriptural exegesis without erasing their tensions.',
+    historicalFrame: 'Formed in Safavid Shiraz, Qazvin, and Isfahan, Mulla Sadra studied with leading philosophers and jurists before a remembered period of withdrawal at Kahak. His chronology remains disputed. Later teaching traditions in Iran and South Asia made Sadrian philosophy central to post-Avicennian intellectual life.',
   },
 };
 
@@ -829,7 +970,8 @@ const philosopherInterpretation = (
   const misunderstandings = record.commonMisunderstandings ?? [];
   const readings = [...(record.beginnerReadingPath ?? []), ...(record.advancedReadingPath ?? [])];
   const substantialSections = substantialMuseumSections(record.id, record.articleSections);
-  const gallery07Enrichment = GALLERY_07_PHILOSOPHER_ENRICHMENT[record.id];
+  const philosopherEnrichment = GALLERY_07_PHILOSOPHER_ENRICHMENT[record.id]
+    ?? GALLERY_09_10_PHILOSOPHER_ENRICHMENT[record.id];
   const chronologyUncertain = record.dateConfidence === 'low'
     || record.dateConfidence === 'legendary'
     || record.dateConfidence === 'pseudonymous';
@@ -858,7 +1000,7 @@ const philosopherInterpretation = (
           record.contributionSummary,
           record.beginnerExplanation,
           `The interpretation keeps the pressures of ${record.historicalContext} in view while directing visitors toward arguments, surviving evidence, criticism, and routes beyond this room.`,
-          gallery07Enrichment?.lead,
+          philosopherEnrichment?.lead,
         ]),
     biography: {
       born: chronologyUncertain
@@ -882,7 +1024,7 @@ const philosopherInterpretation = (
         heading: 'Historical and cultural setting',
         paragraphs: [
           paragraph([record.lifeStory, record.extendedBio?.[1], record.historicalContext]),
-          ...(gallery07Enrichment ? [gallery07Enrichment.historicalFrame] : []),
+          ...(philosopherEnrichment ? [philosopherEnrichment.historicalFrame] : []),
         ],
       },
       {

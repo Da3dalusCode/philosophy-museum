@@ -24,6 +24,8 @@ export const MUSEUM_CANONICAL_HALL_IDS = [
   'core-questions-forum',
   'classical-south-asian-worlds',
   'buddhist-philosophies',
+  'classical-chinese-traditions',
+  'islamic-philosophical-worlds',
 ] as const;
 
 export type MuseumCanonicalHallId = (typeof MUSEUM_CANONICAL_HALL_IDS)[number];
@@ -110,6 +112,15 @@ export const MUSEUM_CANONICAL_ROOM_IDS = [
   'buddhist-abhidharma-yogacara',
   'buddhist-pramana',
   'buddhist-transmission-reserve',
+  'china-many-ways',
+  'china-confucian-cultivation',
+  'china-daoist-way',
+  'china-mohist-fa',
+  'islamic-translation-falsafa',
+  'islamic-avicennan-system',
+  'islamic-kalam-critique',
+  'islamic-andalusian-worlds',
+  'islamic-post-avicennian',
 ] as const;
 
 export type MuseumCanonicalRoomId = (typeof MUSEUM_CANONICAL_ROOM_IDS)[number];
@@ -121,7 +132,9 @@ export type MuseumCanonicalWingId =
   | 'wing-modern-traditions'
   | 'wing-ethics-politics-society'
   | 'wing-south-asian-worlds'
-  | 'wing-buddhist-worlds';
+  | 'wing-buddhist-worlds'
+  | 'wing-east-asian-worlds'
+  | 'wing-medieval-connected-worlds';
 export type MuseumCanonicalEntityKind = 'philosopher' | 'branch';
 
 export type MuseumCanonicalRoomComparison = {
@@ -474,6 +487,67 @@ export const MUSEUM_CANONICAL_PROGRAM = [
         exhibit({id: 'dharmakirti', entityKind: 'philosopher', entityId: 'dharmakirti', displayName: 'Dharmakīrti: Reliable Cognition and Proof', tier: 'standard-individual-exhibit', question: 'How do cognition, inference, language, and practical success bear on knowledge?', secondaryHallIds: ['core-questions-forum'], principalAssetId: 'dharmakirti-cleveland-silver'}),
       ]},
       {id: 'buddhist-transmission-reserve', title: 'Translation and transformation across Asia', recordCapacity: 2, exhibits: []},
+    ],
+  },
+  {
+    id: 'classical-chinese-traditions',
+    wingId: 'wing-east-asian-worlds',
+    title: 'Warring States & Classical Chinese Traditions',
+    templateId: 'crossroads-4',
+    period: '5th–3rd centuries BCE, with later transmission',
+    description: 'Enter a contested Warring States field of ritual cultivation, argument over names and standards, Daoist transformation, Mohist ethics, and statecraft without turning adjacent debates into one school or treating later labels as timeless.',
+    recordCapacity: 16,
+    rooms: [
+      {id: 'china-many-ways', title: 'Many ways in early China', recordCapacity: 2, exhibits: [
+        exhibit({id: 'chinese-philosophy', entityKind: 'branch', entityId: 'chinese-philosophy', displayName: 'Classical Chinese Philosophy: Many Ways, Rival Standards', tier: 'supporting-exhibit', question: 'How did argument, teaching, ritual, warfare, and political change generate rival ways of ordering life and government?', secondaryHallIds: ['justice-democratic-reason', 'moral-life-practical-reason', 'east-asian-continuities'], principalAssetId: 'china-warring-states-bronze-vessel'}),
+      ]},
+      {id: 'china-confucian-cultivation', title: 'Ritual, humaneness, cultivation, and human nature', recordCapacity: 5, exhibits: [
+        exhibit({id: 'confucianism', entityKind: 'branch', entityId: 'confucianism', displayName: 'Confucian Traditions: Ritual, Learning, and Cultivation', tier: 'anchor-exhibit', question: 'How can ritual, music, learning, and relationships cultivate humane persons and legitimate political order?', secondaryHallIds: ['justice-democratic-reason', 'moral-life-practical-reason', 'east-asian-continuities'], principalAssetId: 'china-confucian-apricot-altar'}),
+        exhibit({id: 'confucius', entityKind: 'philosopher', entityId: 'confucius', displayName: 'Confucius and the Analects Tradition', tier: 'anchor-exhibit', question: 'How can ritual practice, learning, and humane attention transform persons and communities?', secondaryHallIds: ['moral-life-practical-reason'], principalAssetId: 'china-confucius-yuan-portrait'}),
+        exhibit({id: 'mencius', entityKind: 'philosopher', entityId: 'mencius', displayName: 'Mencius: Moral Sprouts and Humane Government', tier: 'standard-individual-exhibit', question: 'What capacities for goodness require cultivation, and what does government owe the people?', secondaryHallIds: ['moral-life-practical-reason'], principalAssetId: 'china-mencius-yuan-portrait'}),
+        exhibit({id: 'xunzi', entityKind: 'philosopher', entityId: 'xunzi', displayName: 'Xunzi: Deliberate Effort, Ritual, and Human Nature', tier: 'standard-individual-exhibit', question: 'How can deliberate learning and ritual reshape unruly dispositions into ethical and political order?', secondaryHallIds: ['moral-life-practical-reason'], principalAssetId: 'china-xunzi-qing-portrait'}),
+      ]},
+      {id: 'china-daoist-way', title: 'Daodejing, Zhuangzi, and the Way', recordCapacity: 4, exhibits: [
+        exhibit({id: 'daoism', entityKind: 'branch', entityId: 'daoism', displayName: 'Daoist Traditions: Way, Transformation, and Skilled Living', tier: 'anchor-exhibit', question: 'How do texts associated with Daoist traditions unsettle fixed distinctions, coercive action, and rigid accounts of the good life?', secondaryHallIds: ['core-questions-forum', 'moral-life-practical-reason', 'east-asian-continuities'], principalAssetId: 'china-daoist-immortals-weiqi'}),
+        exhibit({id: 'laozi', entityKind: 'philosopher', entityId: 'laozi', displayName: 'Laozi and the Daodejing Textual Persona', tier: 'thematic-cluster-participant', question: 'How should a layered text and uncertain authorial persona guide reflection on the Way, noncoercive action, and political order?', secondaryHallIds: ['core-questions-forum'], principalAssetId: 'china-laozi-daodejing-handscroll'}),
+        exhibit({id: 'zhuangzi', entityKind: 'philosopher', entityId: 'zhuangzi', displayName: 'Zhuangzi: Perspective, Skill, and Transformation', tier: 'anchor-exhibit', question: 'What changes when language, identity, knowledge, and death are viewed through shifting perspectives?', secondaryHallIds: ['core-questions-forum'], principalAssetId: 'china-zhuangzi-hua-zuli-1326'}),
+      ]},
+      {id: 'china-mohist-fa', title: 'Mohist debate and fa/statecraft currents', recordCapacity: 5, exhibits: [
+        exhibit({id: 'mohism', entityKind: 'branch', entityId: 'mohism', displayName: 'Mohism: Impartial Concern, Standards, and Argument', tier: 'anchor-exhibit', question: 'How can public standards test claims, guide action, oppose aggressive war, and promote inclusive concern?', secondaryHallIds: ['justice-democratic-reason', 'moral-life-practical-reason'], principalAssetId: 'china-mohist-crossbow-trigger'}),
+        exhibit({id: 'legalism', entityKind: 'branch', entityId: 'legalism', displayName: 'Fa, Standards, and Statecraft—Later Grouped as “Legalism”', tier: 'thematic-cluster-participant', question: 'How did distinct arguments about law, administrative technique, authority, and power become retrospectively grouped under one label?', secondaryHallIds: ['justice-democratic-reason'], principalAssetId: 'china-qin-iron-weight'}),
+        exhibit({id: 'mozi', entityKind: 'philosopher', entityId: 'mozi', displayName: 'Mozi and the Mohist Community', tier: 'standard-individual-exhibit', question: 'Why should benefit, practical standards, inclusive care, and opposition to aggression guide ethical and political judgment?', secondaryHallIds: ['moral-life-practical-reason'], principalAssetId: 'china-mozi-lost-article-slips'}),
+        exhibit({id: 'han-feizi', entityKind: 'philosopher', entityId: 'han-feizi', displayName: 'Han Feizi: Fa, Administrative Technique, and Authority', tier: 'standard-individual-exhibit', question: 'How can institutions and publicly knowable standards constrain unreliable motives while strengthening rule?', secondaryHallIds: ['justice-democratic-reason'], principalAssetId: 'china-han-fei-modern-statue'}),
+      ]},
+    ],
+  },
+  {
+    id: 'islamic-philosophical-worlds',
+    wingId: 'wing-medieval-connected-worlds',
+    title: 'Arabic & Islamic Philosophical Worlds',
+    templateId: 'sequence-3',
+    period: '9th–17th centuries',
+    description: 'Follow the reconstruction of Greek learning in Arabic, the development and critique of falsafa, Andalusian arguments, illuminationist philosophy, and post-Avicennian continuities without reducing this multilingual field to a conduit toward Latin Europe.',
+    recordCapacity: 14,
+    rooms: [
+      {id: 'islamic-translation-falsafa', title: 'Translation-era falsafa and classification of knowledge', recordCapacity: 4, exhibits: [
+        exhibit({id: 'islamic-philosophy', entityKind: 'branch', entityId: 'islamic-philosophy', displayName: 'Arabic & Islamic Philosophy: Many Languages, Arguments, and Communities', tier: 'anchor-exhibit', question: 'How did translation, commentary, theology, science, and political life generate new philosophical arguments in Arabic and other languages?', secondaryHallIds: ['core-questions-forum', 'jewish-philosophy', 'latin-christian-scholastic'], principalAssetId: 'islamic-scholarly-lecture-maqamat'}),
+        exhibit({id: 'al-kindi', entityKind: 'philosopher', entityId: 'al-kindi', displayName: 'Al-Kindi: Philosophy in an Arabic Intellectual World', tier: 'standard-individual-exhibit', question: 'How can inherited sciences be translated, tested, and redirected toward new questions?', secondaryHallIds: [], principalAssetId: 'al-kindi-cryptanalysis-manuscript'}),
+        exhibit({id: 'al-farabi', entityKind: 'philosopher', entityId: 'al-farabi', displayName: 'Al-Farabi: Demonstration, Classification, and the Virtuous City', tier: 'standard-individual-exhibit', question: 'How do logic, metaphysics, and political philosophy fit within an ordered account of knowledge and human flourishing?', secondaryHallIds: ['justice-democratic-reason'], principalAssetId: 'al-farabi-metaphysics-bodleian'}),
+      ]},
+      {id: 'islamic-avicennan-system', title: 'Avicennian system: being, soul, logic, and science', recordCapacity: 2, exhibits: [
+        exhibit({id: 'avicenna', entityKind: 'philosopher', entityId: 'avicenna', displayName: 'Avicenna: An Avicennian System of Knowledge', tier: 'anchor-exhibit', question: 'How can essence and existence, necessity and possibility, soul and body, and demonstration form one philosophical system?', secondaryHallIds: ['core-questions-forum', 'jewish-philosophy', 'latin-christian-scholastic'], principalAssetId: 'avicenna-pharmacy-wellcome'}),
+      ]},
+      {id: 'islamic-kalam-critique', title: 'Kalām, critique, and philosophical appropriation', recordCapacity: 2, exhibits: [
+        exhibit({id: 'al-ghazali', entityKind: 'philosopher', entityId: 'al-ghazali', displayName: 'Al-Ghazali: Understanding Philosophy Before Critique', tier: 'anchor-exhibit', question: 'How can philosophical methods be appropriated while selected metaphysical conclusions are challenged?', secondaryHallIds: ['core-questions-forum'], principalAssetId: 'al-ghazali-gibran-1917'}),
+      ]},
+      {id: 'islamic-andalusian-worlds', title: 'Al-Andalus: philosophy, law, medicine, and commentary', recordCapacity: 3, exhibits: [
+        exhibit({id: 'averroes', entityKind: 'philosopher', entityId: 'averroes', displayName: 'Averroes (Ibn Rushd): Demonstration and Interpretation', tier: 'anchor-exhibit', question: 'How should demonstrative philosophy, law, scripture, medicine, and Aristotle’s texts be interpreted together?', secondaryHallIds: ['jewish-philosophy', 'latin-christian-scholastic'], principalAssetId: 'averroes-wellcome-portrait'}),
+        exhibit({id: 'ibn-tufayl', entityKind: 'philosopher', entityId: 'ibn-tufayl', displayName: 'Ibn Tufayl: Hayy ibn Yaqzan and the Education of Reason', tier: 'standard-individual-exhibit', question: 'What might an isolated human discover through experience, reflection, and disciplined transformation?', secondaryHallIds: [], principalAssetId: 'ibn-tufayl-hayy-1929'}),
+      ]},
+      {id: 'islamic-post-avicennian', title: 'Illumination and post-Avicennian Safavid continuities', recordCapacity: 3, exhibits: [
+        exhibit({id: 'suhrawardi', entityKind: 'philosopher', entityId: 'suhrawardi', displayName: 'Suhrawardi: The Philosophy of Illumination', tier: 'standard-individual-exhibit', question: 'How can presence, light, and visionary knowledge redirect Avicennian philosophical questions?', secondaryHallIds: ['core-questions-forum'], principalAssetId: 'suhrawardi-later-portrait'}),
+        exhibit({id: 'mulla-sadra', entityKind: 'philosopher', entityId: 'mulla-sadra', displayName: 'Mulla Sadra: Existence and Substantial Motion in Safavid Iran', tier: 'standard-individual-exhibit', question: 'What changes if existence is primary and substances themselves unfold through motion?', secondaryHallIds: ['core-questions-forum', 'rationalism-mind-nature-system'], principalAssetId: 'mulla-sadra-modern-statue'}),
+      ]},
     ],
   },
 ] as const satisfies readonly MuseumCanonicalHall[];

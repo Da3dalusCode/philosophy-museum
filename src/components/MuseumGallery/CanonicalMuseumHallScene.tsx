@@ -2,12 +2,14 @@ import {MUSEUM_BUILDING_MANIFEST} from '../../data/museum/museumBuildingManifest
 import type {MuseumHallContentProps} from './museumWorldRegistry';
 import {AnalyticSupplementalExhibits} from './AnalyticSupplementalExhibits';
 import {BuddhistSupplementalExhibits} from './BuddhistSupplementalExhibits';
+import {ClassicalChineseSupplementalExhibits} from './ClassicalChineseSupplementalExhibits';
 import {CanonicalMuseumExhibits} from './CanonicalMuseumExhibits';
 import {ContemporaryHallArchitecture} from './ContemporaryHallArchitecture';
 import {ContemporaryHallLighting} from './ContemporaryHallLighting';
 import {JusticeSupplementalExhibits} from './JusticeSupplementalExhibits';
 import {ClassicalSouthAsianSupplementalExhibits} from './ClassicalSouthAsianSupplementalExhibits';
 import {CoreQuestionsForumSupplementalExhibits} from './CoreQuestionsForumSupplementalExhibits';
+import {IslamicSupplementalExhibits} from './IslamicSupplementalExhibits';
 import {MediterraneanGalleryCuration} from './MediterraneanGalleryCuration';
 import {MuseumHallSpatialRoot} from './MuseumHallSpatialRoot';
 import {MuseumVisitorMapKiosk} from './MuseumVisitorMapKiosk';
@@ -106,6 +108,24 @@ export function CanonicalMuseumHallContent({
     {definition.id === 'buddhist-philosophies'
       && definition.layout.supplementalExhibits
       && <BuddhistSupplementalExhibits
+        layouts={active
+          ? definition.layout.supplementalExhibits
+          : definition.layout.supplementalExhibits.filter(({assetId}) => entryAssetIds.has(assetId))}
+        nearbyId={nearbySupplemental?.hallId === definition.id ? nearbySupplemental.supplementalExhibitId : undefined}
+        onSelect={(supplementalExhibitId) => onSelectSupplementalExhibit({hallId: definition.id, supplementalExhibitId})}
+      />}
+    {definition.id === 'classical-chinese-traditions'
+      && definition.layout.supplementalExhibits
+      && <ClassicalChineseSupplementalExhibits
+        layouts={active
+          ? definition.layout.supplementalExhibits
+          : definition.layout.supplementalExhibits.filter(({assetId}) => entryAssetIds.has(assetId))}
+        nearbyId={nearbySupplemental?.hallId === definition.id ? nearbySupplemental.supplementalExhibitId : undefined}
+        onSelect={(supplementalExhibitId) => onSelectSupplementalExhibit({hallId: definition.id, supplementalExhibitId})}
+      />}
+    {definition.id === 'islamic-philosophical-worlds'
+      && definition.layout.supplementalExhibits
+      && <IslamicSupplementalExhibits
         layouts={active
           ? definition.layout.supplementalExhibits
           : definition.layout.supplementalExhibits.filter(({assetId}) => entryAssetIds.has(assetId))}

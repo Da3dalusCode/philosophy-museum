@@ -201,9 +201,9 @@ check('Museum convenience, hall, and exhibit routes parse and serialize', () => 
       exhibitCount += 1;
     }
   }
-  assert.equal(MUSEUM_HALLS.length, 8);
-  assert.equal(exhibitCount, 79);
-  assert.equal(MUSEUM_SUPPLEMENTAL_EXHIBITS.length, 124);
+  assert.equal(MUSEUM_HALLS.length, 10);
+  assert.equal(exhibitCount, 100);
+  assert.equal(MUSEUM_SUPPLEMENTAL_EXHIBITS.length, 157);
   for (const {hallId, exhibit} of MUSEUM_SUPPLEMENTAL_EXHIBITS) {
     expectRoundTrip({kind: 'museum', hallId, exhibitId: exhibit.id});
   }
@@ -401,7 +401,7 @@ check('unknown and malformed Museum routes remain visible as not-found', () => {
 
 check('physical building and reserved expansion IDs are never accepted as public Museum routes', () => {
   const publicHallIds = buildingManifest.nodes.filter(({kind, implementationStatus}) => kind === 'hall' && implementationStatus === 'live').map(({publicHallId}) => publicHallId);
-  assert.equal(publicHallIds.length, 8);
+  assert.equal(publicHallIds.length, 10);
   assert.deepEqual(publicHallIds.sort(), MUSEUM_HALLS.map(({id}) => id).sort());
   for (const node of buildingManifest.nodes) {
     expectNotFound(`#/museum/${encodeURIComponent(node.id)}`, /No museum hall exists/);

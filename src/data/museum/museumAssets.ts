@@ -14,6 +14,8 @@ import {JUSTICE_DEMOCRATIC_REASON_GALLERY_ASSETS} from './justiceDemocraticReaso
 import {CORE_QUESTIONS_FORUM_ASSETS} from './coreQuestionsForumAssets';
 import {CLASSICAL_SOUTH_ASIAN_GALLERY_ASSETS} from './classicalSouthAsianGalleryAssets';
 import {BUDDHIST_GALLERY_ASSETS} from './buddhistGalleryAssets';
+import {CLASSICAL_CHINESE_GALLERY_ASSETS} from './classicalChineseGalleryAssets';
+import {ISLAMIC_GALLERY_ASSETS} from './islamicGalleryAssets';
 
 const assetPath = (slug: string, variant: 'scene' | 'panel', width: number, height: number): MuseumAssetVariant => ({
   path: `assets/museum/ancient-greek/${slug}-${variant}.webp`,
@@ -418,6 +420,8 @@ export const MUSEUM_ASSETS = [
   ...CORE_QUESTIONS_FORUM_ASSETS,
   ...CLASSICAL_SOUTH_ASIAN_GALLERY_ASSETS,
   ...BUDDHIST_GALLERY_ASSETS,
+  ...CLASSICAL_CHINESE_GALLERY_ASSETS,
+  ...ISLAMIC_GALLERY_ASSETS,
 ] as const satisfies readonly MuseumAssetRecord[];
 
 export const museumAssetById = new Map<MuseumAssetId, MuseumAssetRecord>(

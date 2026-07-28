@@ -219,31 +219,35 @@ const useVisitorMapScreenTexture = (): CanvasTexture => {
     context.font = '700 17px system-ui, sans-serif';
     context.fillText('OPEN FAST-TRAVEL GALLERIES', keyX, 224);
     MUSEUM_VISITOR_MAP_PROJECTION.forEach(({hall}, index) => {
-      const y = 265 + index * 62;
+      const column = index % 2;
+      const row = Math.floor(index / 2);
+      const x = keyX + column * 178;
+      const y = 262 + row * 58;
+      const compactTitle = hall.title.split(/:|,|\s+&\s+/u)[0];
       context.fillStyle = hall.id === MUSEUM_VISITOR_MAP_KIOSK.hallId ? '#f2c681' : '#d7d2c9';
-      context.font = '700 18px system-ui, sans-serif';
-      context.fillText(hall.galleryNumber.replace(/^Gallery\s+/u, ''), keyX, y);
+      context.font = '700 16px system-ui, sans-serif';
+      context.fillText(hall.galleryNumber.replace(/^Gallery\s+/u, ''), x, y);
       context.fillStyle = '#e7dfd3';
-      context.font = '600 16px system-ui, sans-serif';
-      context.fillText(hall.title, keyX + 42, y);
+      context.font = '600 13px system-ui, sans-serif';
+      context.fillText(compactTitle, x + 31, y);
       context.strokeStyle = '#3f4c51';
       context.lineWidth = 1;
       context.beginPath();
-      context.moveTo(keyX, y + 17);
-      context.lineTo(1140, y + 17);
+      context.moveTo(x, y + 17);
+      context.lineTo(x + 168, y + 17);
       context.stroke();
     });
 
     context.fillStyle = '#d4a76f';
     context.font = '700 15px system-ui, sans-serif';
-    context.fillText('ROUTE KEY', keyX, 661);
+    context.fillText('ROUTE KEY', keyX, 584);
     const routeLegend = [
       {label: 'Outer loop', dash: [] as number[], color: '#b78b55'},
       {label: 'Forum spokes', dash: [8, 6], color: '#a9c0c1'},
       {label: 'Entrance shortcut', dash: [2, 7], color: '#d6b37b'},
     ];
     routeLegend.forEach(({label, dash, color}, index) => {
-      const y = 696 + index * 35;
+      const y = 619 + index * 35;
       context.beginPath();
       context.moveTo(keyX, y);
       context.lineTo(keyX + 48, y);
@@ -259,13 +263,13 @@ const useVisitorMapScreenTexture = (): CanvasTexture => {
 
     context.setLineDash([6, 5]);
     context.strokeStyle = '#a77b5f';
-    context.strokeRect(keyX, 784, 48, 18);
-    context.strokeRect(keyX, 810, 48, 18);
+    context.strokeRect(keyX, 752, 48, 18);
+    context.strokeRect(keyX, 778, 48, 18);
     context.setLineDash([]);
     context.fillStyle = '#d1a987';
     context.font = '700 10px system-ui, sans-serif';
-    context.fillText('FUTURE', keyX + 3, 797);
-    context.fillText('FUTURE', keyX + 3, 823);
+    context.fillText('FUTURE', keyX + 3, 765);
+    context.fillText('FUTURE', keyX + 3, 791);
     context.fillStyle = '#b8c0bf';
     context.font = '600 14px system-ui, sans-serif';
     const insertionCount = MUSEUM_VISITOR_MAP_RESERVATIONS.filter(
@@ -274,13 +278,13 @@ const useVisitorMapScreenTexture = (): CanvasTexture => {
     const outwardCount = MUSEUM_VISITOR_MAP_RESERVATIONS.filter(
       ({reservationType}) => reservationType === 'outward-expansion',
     ).length;
-    context.fillText(`${insertionCount} future gallery doorways`, keyX + 62, 799);
-    context.fillText(`${outwardCount} future wing doorways`, keyX + 62, 825);
+    context.fillText(`${insertionCount} future gallery doorways`, keyX + 62, 767);
+    context.fillText(`${outwardCount} future wing doorways`, keyX + 62, 793);
 
     context.fillStyle = '#899493';
     context.font = '600 12px system-ui, sans-serif';
-    context.fillText('Main-level public routes', keyX, 852);
-    context.fillText('Future gallery doors are shown as closed', keyX, 870);
+    context.fillText('Main-level public routes', keyX, 830);
+    context.fillText('Future gallery doors are shown as closed', keyX, 848);
 
     context.fillStyle = '#aeb5b5';
     context.font = '600 20px system-ui, sans-serif';

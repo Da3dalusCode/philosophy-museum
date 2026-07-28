@@ -4179,6 +4179,978 @@
         "bytes": 363056,
         "sha256": "ca41721be9cc9df0b51646ae2b31f1b4985fb943e44279bde7f6ad4fa20e10b2"
       }
+    },
+    "china-warring-states-bronze-vessel": {
+      "hallFolder": "classical-chinese-traditions",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Warring_States_Bronze_Vessel_(9830858254).jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Warring_States_Bronze_Vessel_(9830858254).jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Warring_States_Bronze_Vessel_(9830858254).jpg?width=1280",
+      "scene": {
+        "width": 640,
+        "height": 427,
+        "bytes": 39154,
+        "sha256": "25a1efecf76ec709507c836ca7f77705fe30bad77390c8de3d5292398ff4ffdc"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 853,
+        "bytes": 172676,
+        "sha256": "e0a64f12632e572baefd8276f81cc3f1da2f3db73b391ef5206580fe722b338f"
+      }
+    },
+    "china-warring-states-map-260-bce": {
+      "hallFolder": "classical-chinese-traditions",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:EN-WarringStatesAll260BCE.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/EN-WarringStatesAll260BCE.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/EN-WarringStatesAll260BCE.jpg?width=1280",
+      "scene": {
+        "width": 640,
+        "height": 589,
+        "bytes": 51004,
+        "sha256": "b3b1685693ef5c1c1a82b2874801e23bc8939699a4344595d8afb52538e90f60"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 1178,
+        "bytes": 164106,
+        "sha256": "dcf6095a25700f56a57be7f1de28ed66233b7d6d690f5cdc9ffc69cbaa9a0dc6"
+      }
+    },
+    "china-warring-states-bamboo-slips": {
+      "hallFolder": "classical-chinese-traditions",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Warring_States_Bamboo_Slips_(10185849733).jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Warring_States_Bamboo_Slips_(10185849733).jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Warring_States_Bamboo_Slips_(10185849733).jpg?width=1280",
+      "scene": {
+        "width": 640,
+        "height": 427,
+        "bytes": 11888,
+        "sha256": "0d6b5edd072eb08c24c53d16c1a094aed6adbd7c05b1ab2de3239abfde608329"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 853,
+        "bytes": 109622,
+        "sha256": "4c8044eb5ac856d9bf6d99b9304de4def988ff8267f7ec5d20799e527d53780c"
+      }
+    },
+    "china-making-bamboo-slips": {
+      "hallFolder": "classical-chinese-traditions",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:The_Making_of_Bamboo_Slips_and_Writing_(10160906513).jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/The_Making_of_Bamboo_Slips_and_Writing_(10160906513).jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/The_Making_of_Bamboo_Slips_and_Writing_(10160906513).jpg?width=1280",
+      "scene": {
+        "width": 427,
+        "height": 640,
+        "bytes": 29032,
+        "sha256": "88e3f86eef09405fe508b9ef73f35a3a33af66b09030fc839596597fe91a9d06"
+      },
+      "panel": {
+        "width": 853,
+        "height": 1280,
+        "bytes": 261516,
+        "sha256": "84526a27fd49a737358bc8062c6f0450905f7b4f1c13ecdbf324e8da21e192b8"
+      }
+    },
+    "china-gongsun-long-yuan-portrait": {
+      "hallFolder": "classical-chinese-traditions",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:%E8%87%B3%E8%81%96%E5%85%88%E8%B3%A2%E5%8D%8A%E8%BA%AB%E5%83%8F_%E5%86%8A-039-%E5%85%AC%E5%AD%AB%E9%BE%8D.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/%E8%87%B3%E8%81%96%E5%85%88%E8%B3%A2%E5%8D%8A%E8%BA%AB%E5%83%8F_%E5%86%8A-039-%E5%85%AC%E5%AD%AB%E9%BE%8D.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/%E8%87%B3%E8%81%96%E5%85%88%E8%B3%A2%E5%8D%8A%E8%BA%AB%E5%83%8F_%E5%86%8A-039-%E5%85%AC%E5%AD%AB%E9%BE%8D.jpg?width=1280",
+      "scene": {
+        "width": 455,
+        "height": 640,
+        "bytes": 27178,
+        "sha256": "e4b03cd1f4217e43dd6f4a6c872a01983399684635ce79874eaef300fad6163e"
+      },
+      "panel": {
+        "width": 910,
+        "height": 1280,
+        "bytes": 346102,
+        "sha256": "05e6b3dc2e2a8ae593042c71222975683e09dcd75849c43b1be313dcbfe93680"
+      }
+    },
+    "china-sunzi-art-of-war-slips": {
+      "hallFolder": "classical-chinese-traditions",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Inscribed_bamboo-slips_of_Art_of_War.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Inscribed_bamboo-slips_of_Art_of_War.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Inscribed_bamboo-slips_of_Art_of_War.jpg?width=1280",
+      "scene": {
+        "width": 640,
+        "height": 427,
+        "bytes": 19476,
+        "sha256": "6f57204b7a7ea075bd23b76d8afe39fabef9ac35158358130465747af84036ff"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 853,
+        "bytes": 141596,
+        "sha256": "dd8f3870d3239c41677e443be730bb990cf34ac64a69242771419e4f9266f867"
+      }
+    },
+    "china-confucian-apricot-altar": {
+      "hallFolder": "classical-chinese-traditions",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Confucius_and_His_Disciples_Yanzi_and_Huizi_at_the_Apricot_Altar_(Confucius).jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Confucius_and_His_Disciples_Yanzi_and_Huizi_at_the_Apricot_Altar_(Confucius).jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Confucius_and_His_Disciples_Yanzi_and_Huizi_at_the_Apricot_Altar_(Confucius).jpg?width=1280",
+      "scene": {
+        "width": 440,
+        "height": 640,
+        "bytes": 64106,
+        "sha256": "7991680abc82587718320487602ef78f90e56373edaea33e1eabc7ab1e27fad7"
+      },
+      "panel": {
+        "width": 880,
+        "height": 1280,
+        "bytes": 288908,
+        "sha256": "d95196cb5f2b84c49003db5a0356543570a89b14ed66389395e99739e729bf9d"
+      }
+    },
+    "china-confucius-yuan-portrait": {
+      "hallFolder": "classical-chinese-traditions",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Half_Portraits_of_the_Great_Sage_and_Virtuous_Men_of_Old_-_Confucius.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Half_Portraits_of_the_Great_Sage_and_Virtuous_Men_of_Old_-_Confucius.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Half_Portraits_of_the_Great_Sage_and_Virtuous_Men_of_Old_-_Confucius.jpg?width=1280",
+      "scene": {
+        "width": 473,
+        "height": 640,
+        "bytes": 26282,
+        "sha256": "9a6f4d2bbdece690d173dab6649a2aa0502baae74c0ef58637c91829564898e7"
+      },
+      "panel": {
+        "width": 945,
+        "height": 1280,
+        "bytes": 261196,
+        "sha256": "e659045d41faae72586ec6dffa914a178366c203b73dc66b9b9acf3365567064"
+      }
+    },
+    "china-mencius-yuan-portrait": {
+      "hallFolder": "classical-chinese-traditions",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Half_Portraits_of_the_Great_Sage_and_Virtuous_Men_of_Old_-_Meng_Ke_(%E5%AD%9F%E8%BB%BB).jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Half_Portraits_of_the_Great_Sage_and_Virtuous_Men_of_Old_-_Meng_Ke_(%E5%AD%9F%E8%BB%BB).jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Half_Portraits_of_the_Great_Sage_and_Virtuous_Men_of_Old_-_Meng_Ke_(%E5%AD%9F%E8%BB%BB).jpg?width=1280",
+      "scene": {
+        "width": 473,
+        "height": 640,
+        "bytes": 21996,
+        "sha256": "82b375e5ad28e6d5f02e6ffcc9baa8e63d7e5960f97c2c8547eee575da1107cf"
+      },
+      "panel": {
+        "width": 945,
+        "height": 1280,
+        "bytes": 253122,
+        "sha256": "24c2f96922c96735bc09b2c377064f67e35f4de4f6ab9b475c805cdefef4450f"
+      }
+    },
+    "china-xunzi-qing-portrait": {
+      "hallFolder": "classical-chinese-traditions",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:%E6%88%98%E5%9B%BD%E6%97%B6%E6%A5%9A%E5%85%B0%E9%99%B5%E4%BB%A4%E8%8D%80%E5%86%B5.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/%E6%88%98%E5%9B%BD%E6%97%B6%E6%A5%9A%E5%85%B0%E9%99%B5%E4%BB%A4%E8%8D%80%E5%86%B5.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/%E6%88%98%E5%9B%BD%E6%97%B6%E6%A5%9A%E5%85%B0%E9%99%B5%E4%BB%A4%E8%8D%80%E5%86%B5.jpg?width=1280",
+      "scene": {
+        "width": 464,
+        "height": 640,
+        "bytes": 25264,
+        "sha256": "7878367f96880f52cf235333741486565a0447c49555ed51ef272992b9738c3c"
+      },
+      "panel": {
+        "width": 776,
+        "height": 1070,
+        "bytes": 75522,
+        "sha256": "54fa48ed3ee997b5769e16db90a961a9cf2886c46dc85aaeb34e4be8e1d5660f"
+      }
+    },
+    "china-analects-stockholm": {
+      "hallFolder": "classical-chinese-traditions",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Analects.JPG",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Analects.JPG",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Analects.JPG?width=1280",
+      "scene": {
+        "width": 640,
+        "height": 427,
+        "bytes": 33330,
+        "sha256": "4e48d6f050cff833af7cb2643cb2e083fd62784682178e83fd11594845267889"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 853,
+        "bytes": 164090,
+        "sha256": "fe54f8a91af55b686a036a72a691fb0db9fed44224b4b84b875acdec0d5c5138"
+      }
+    },
+    "china-eastern-zhou-stone-chimes": {
+      "hallFolder": "classical-chinese-traditions",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Eastern_Zhou_Stone_Musical_Chimes_(Bianqing).jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Eastern_Zhou_Stone_Musical_Chimes_(Bianqing).jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Eastern_Zhou_Stone_Musical_Chimes_(Bianqing).jpg?width=1280",
+      "scene": {
+        "width": 640,
+        "height": 427,
+        "bytes": 26700,
+        "sha256": "6fe08844176cc1a89cb107fdcea824fd88d736e0ebc3bc67ba22d103926c725e"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 853,
+        "bytes": 164204,
+        "sha256": "7606369b4c90e2c573afe8f93efdbfe0059a1df37c1985e77025b0bc76ed827f"
+      }
+    },
+    "china-daoist-immortals-weiqi": {
+      "hallFolder": "classical-chinese-traditions",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Dai_Jin_-_Landscape_with_Daoist_Immortals_Playing_Weiqi_-_1998.148_-_Art_Institute_of_Chicago.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Dai_Jin_-_Landscape_with_Daoist_Immortals_Playing_Weiqi_-_1998.148_-_Art_Institute_of_Chicago.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Dai_Jin_-_Landscape_with_Daoist_Immortals_Playing_Weiqi_-_1998.148_-_Art_Institute_of_Chicago.jpg?width=1280",
+      "scene": {
+        "width": 371,
+        "height": 640,
+        "bytes": 41054,
+        "sha256": "893b6327711fd5481ea4a53aeace49f6ccf919cbcb629a2f733816d83a04512b"
+      },
+      "panel": {
+        "width": 743,
+        "height": 1280,
+        "bytes": 281338,
+        "sha256": "01c9bff2e28a02944e1ccd3681bf4e2ecc2ca91174f59120ad529393fa9bb023"
+      }
+    },
+    "china-laozi-daodejing-handscroll": {
+      "hallFolder": "classical-chinese-traditions",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Laozi_Delivering_the_Daodejing.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Laozi_Delivering_the_Daodejing.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Laozi_Delivering_the_Daodejing.jpg?width=1280",
+      "scene": {
+        "width": 640,
+        "height": 368,
+        "bytes": 36646,
+        "sha256": "a03261632b101ca633200d5b0ad256a67d54911b444229b577147d3afe91d001"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 736,
+        "bytes": 278354,
+        "sha256": "53c5c0c6aa44b05df4e35e410d0e21376b178f9174dfb03f076747d8f6f88af8"
+      }
+    },
+    "china-zhuangzi-hua-zuli-1326": {
+      "hallFolder": "classical-chinese-traditions",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Hui_Zuli_%E8%8F%AF%E7%A5%96%E7%AB%8B%E2%80%94Zhuang_Zhou_%E8%8E%8A%E5%AD%90_(1326).jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Hui_Zuli_%E8%8F%AF%E7%A5%96%E7%AB%8B%E2%80%94Zhuang_Zhou_%E8%8E%8A%E5%AD%90_(1326).jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Hui_Zuli_%E8%8F%AF%E7%A5%96%E7%AB%8B%E2%80%94Zhuang_Zhou_%E8%8E%8A%E5%AD%90_(1326).jpg?width=1280",
+      "scene": {
+        "width": 445,
+        "height": 640,
+        "bytes": 31668,
+        "sha256": "d375c172738b72daf99d5452a3b95e0dc934fbb3e46da77f8b31cd5936eb4feb"
+      },
+      "panel": {
+        "width": 834,
+        "height": 1200,
+        "bytes": 139104,
+        "sha256": "86af15feaac870e12c435d3c0163beec342996ccbbceb09fc530ac4385b8a0e6"
+      }
+    },
+    "china-guodian-daoist-bamboo-slips": {
+      "hallFolder": "classical-chinese-traditions",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Warring_States_or_Han_Bamboo_Slips_of_Daoist_Text_(9974128735).jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Warring_States_or_Han_Bamboo_Slips_of_Daoist_Text_(9974128735).jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Warring_States_or_Han_Bamboo_Slips_of_Daoist_Text_(9974128735).jpg?width=1280",
+      "scene": {
+        "width": 427,
+        "height": 640,
+        "bytes": 16368,
+        "sha256": "2d3d19735206ab87194ca2a7fbb1efb5bf5c8a025d3ef5bd44df432d315d43fa"
+      },
+      "panel": {
+        "width": 853,
+        "height": 1280,
+        "bytes": 81932,
+        "sha256": "d4be6d10485a9b062247e18b7ccf4a3e21f8781f80e9c89e696fc443f00bcc37"
+      }
+    },
+    "china-zhuangzi-butterfly-dream": {
+      "hallFolder": "classical-chinese-traditions",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Dschuang-Dsi-Schmetterlingstraum-Zhuangzi-Butterfly-Dream.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Dschuang-Dsi-Schmetterlingstraum-Zhuangzi-Butterfly-Dream.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Dschuang-Dsi-Schmetterlingstraum-Zhuangzi-Butterfly-Dream.jpg?width=1280",
+      "scene": {
+        "width": 631,
+        "height": 640,
+        "bytes": 61222,
+        "sha256": "acedd20cce8fd8ac57d45280a9f7c04f5a07a26acc4150ec9ed0e2dda5e8419b"
+      },
+      "panel": {
+        "width": 1262,
+        "height": 1280,
+        "bytes": 486856,
+        "sha256": "135661b1ccf4acb65bfdba90420ba2bc62ec8ec0e945adc5c0cb4d50724a5d6b"
+      }
+    },
+    "china-zhuangzi-cook-ding": {
+      "hallFolder": "classical-chinese-traditions",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Cook_Ding_is_cutting_up_an_ox_-_A_Han_dynasty_illustration_to_the_Zhuang_Zi.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Cook_Ding_is_cutting_up_an_ox_-_A_Han_dynasty_illustration_to_the_Zhuang_Zi.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Cook_Ding_is_cutting_up_an_ox_-_A_Han_dynasty_illustration_to_the_Zhuang_Zi.jpg?width=1280",
+      "scene": {
+        "width": 636,
+        "height": 518,
+        "bytes": 64866,
+        "sha256": "871150ce765946afbc2f8ff21ebc468d0e45f3992b1541c6cf113b75dbc9f003"
+      },
+      "panel": {
+        "width": 636,
+        "height": 518,
+        "bytes": 78108,
+        "sha256": "46f4da49f79f8e48038a3631000b3359962641f9bd333046269d27fe4953726c"
+      }
+    },
+    "china-mohist-crossbow-trigger": {
+      "hallFolder": "classical-chinese-traditions",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Warring_States_Bronze_Crossbow_Trigger_Mechanism.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Warring_States_Bronze_Crossbow_Trigger_Mechanism.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Warring_States_Bronze_Crossbow_Trigger_Mechanism.jpg?width=1280",
+      "scene": {
+        "width": 640,
+        "height": 427,
+        "bytes": 57236,
+        "sha256": "4e2c78134594564283d126b69bec09814057e20797edb9a8de2ed5273d6bfc5c"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 853,
+        "bytes": 215416,
+        "sha256": "2c2b03e772044f27ed0f93e1ee7163fd89d704d18bb2e30f80e65b8d05b5f2b6"
+      }
+    },
+    "china-qin-iron-weight": {
+      "hallFolder": "classical-chinese-traditions",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Qin_Weight_Iron.JPG",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Qin_Weight_Iron.JPG",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Qin_Weight_Iron.JPG?width=1280",
+      "scene": {
+        "width": 640,
+        "height": 359,
+        "bytes": 23370,
+        "sha256": "30c5594e382d525aef7ca61adaa0b8881205a17300222e84dde0c5ce50d8c10f"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 718,
+        "bytes": 116824,
+        "sha256": "4b8422d1e94524902a0a1c0715ee13b7d716439daeb75158fee6cf5b7a4a3e59"
+      }
+    },
+    "china-mozi-lost-article-slips": {
+      "hallFolder": "classical-chinese-traditions",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Bamboo_slips_-_Mozi_(Yipian_or_the_Lost_article),_Western_Han_dynasty,_Hunan_Museum.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Bamboo_slips_-_Mozi_(Yipian_or_the_Lost_article),_Western_Han_dynasty,_Hunan_Museum.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Bamboo_slips_-_Mozi_(Yipian_or_the_Lost_article),_Western_Han_dynasty,_Hunan_Museum.jpg?width=1280",
+      "scene": {
+        "width": 640,
+        "height": 480,
+        "bytes": 26536,
+        "sha256": "7556b74b4b976b382b4973b42279712128b823fe8952ffa6c7fb0661941d9be6"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 960,
+        "bytes": 269360,
+        "sha256": "13170fdc88522fa40c19487e8cb2dee27ab04d8977b5b6b170c530a54ed08811"
+      }
+    },
+    "china-han-fei-modern-statue": {
+      "hallFolder": "classical-chinese-traditions",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Statue_Of_Han_Fei.png",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Statue_Of_Han_Fei.png",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Statue_Of_Han_Fei.png?width=1280",
+      "scene": {
+        "width": 427,
+        "height": 640,
+        "bytes": 20566,
+        "sha256": "d7bd198c40f19eac018e517da155c804cd0347bfa0f2809de7c7d721c56f7d76"
+      },
+      "panel": {
+        "width": 854,
+        "height": 1280,
+        "bytes": 64586,
+        "sha256": "a17be229036d3afee8946f17dcb14868639a058e9086065220d89559d5885770"
+      }
+    },
+    "china-mozi-volume-seven-page": {
+      "hallFolder": "classical-chinese-traditions",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Mozi.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Mozi.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Mozi.jpg?width=1280",
+      "scene": {
+        "width": 268,
+        "height": 355,
+        "bytes": 26652,
+        "sha256": "0f9456baabb565051e7805e9211587883f38b10021b4fabf28b158fdabb10ab6"
+      },
+      "panel": {
+        "width": 268,
+        "height": 355,
+        "bytes": 32710,
+        "sha256": "b714dfb598f84685cea2be3d0ba7ef20e488cde5b34552a5c7720bdddddf0e8a"
+      }
+    },
+    "china-mozi-jiche-catapult": {
+      "hallFolder": "classical-chinese-traditions",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Jiche_Catapult.PNG",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Jiche_Catapult.PNG",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Jiche_Catapult.PNG?width=1280",
+      "scene": {
+        "width": 640,
+        "height": 549,
+        "bytes": 11400,
+        "sha256": "9ded017576bcb83894a40a938dd09391c929d6b6993f34ee042df543fc21dfa3"
+      },
+      "panel": {
+        "width": 979,
+        "height": 840,
+        "bytes": 21794,
+        "sha256": "ac9ef2dc6696a6c5422c155f36cfbf7674672df3b1b3715377bb1865695070ad"
+      }
+    },
+    "islamic-scholarly-lecture-maqamat": {
+      "hallFolder": "islamic-philosophical-worlds",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:The_Maqamat_al-Hariri.png",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/The_Maqamat_al-Hariri.png",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/The_Maqamat_al-Hariri.png?width=1280",
+      "scene": {
+        "width": 633,
+        "height": 640,
+        "bytes": 66848,
+        "sha256": "f8d20ede8e484d560231713a9d491ab23d9cdefe6027345033ff9b61980181f3"
+      },
+      "panel": {
+        "width": 757,
+        "height": 765,
+        "bytes": 113468,
+        "sha256": "80a16189f5ad4c1dba2f46e9613fd892b11ed4798da31c3a71bbcfbf7c32949d"
+      }
+    },
+    "al-kindi-cryptanalysis-manuscript": {
+      "hallFolder": "islamic-philosophical-worlds",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Al-kindi_cryptographic_1.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Al-kindi_cryptographic_1.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Al-kindi_cryptographic_1.jpg?width=1280",
+      "scene": {
+        "width": 432,
+        "height": 640,
+        "bytes": 74132,
+        "sha256": "ba87245ebfcd8f487cbfb66e4d95bbfe99744514372f7a9bf237cbc07a92527e"
+      },
+      "panel": {
+        "width": 864,
+        "height": 1280,
+        "bytes": 229622,
+        "sha256": "662111d6fae6f3635e666077f3d7a2ebdd37347f9d549714b4a7d03a775e61ab"
+      }
+    },
+    "al-farabi-metaphysics-bodleian": {
+      "hallFolder": "islamic-philosophical-worlds",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Bodlein_Library_MS._Arab.d.84_roll332_frame1.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Bodlein_Library_MS._Arab.d.84_roll332_frame1.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Bodlein_Library_MS._Arab.d.84_roll332_frame1.jpg?width=1280",
+      "scene": {
+        "width": 640,
+        "height": 631,
+        "bytes": 99610,
+        "sha256": "4fa20b6def7e96f102ab65f3f330e6e3a08b1181ce451770e8dc5a2299aa1c1d"
+      },
+      "panel": {
+        "width": 1002,
+        "height": 988,
+        "bytes": 313838,
+        "sha256": "f178fafab9fdc86c975684247fe1fe13ed418d44dc76f16a7649005b70fe6334"
+      }
+    },
+    "hunayn-articella-manuscript": {
+      "hallFolder": "islamic-philosophical-worlds",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Hunayn_-_Articella.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Hunayn_-_Articella.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Hunayn_-_Articella.jpg?width=1280",
+      "scene": {
+        "width": 449,
+        "height": 640,
+        "bytes": 63134,
+        "sha256": "ee89b36d139209e40dc6f54cf58f9d890fadaaf1c409bf88af53acaa4446dfd2"
+      },
+      "panel": {
+        "width": 898,
+        "height": 1280,
+        "bytes": 232514,
+        "sha256": "a145eb73990c84a554b42e205e7462bb43fec23797439de28fb09ca8df152e9c"
+      }
+    },
+    "islamic-arabic-aristotle": {
+      "hallFolder": "islamic-philosophical-worlds",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Arabic_aristotle.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Arabic_aristotle.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Arabic_aristotle.jpg?width=1280",
+      "scene": {
+        "width": 436,
+        "height": 640,
+        "bytes": 62440,
+        "sha256": "b9c2e3c02074bd40a560b33df025a0c5606b611c2e81a771f099b5fce48e53d6"
+      },
+      "panel": {
+        "width": 871,
+        "height": 1280,
+        "bytes": 298498,
+        "sha256": "5ca125d6089baab93076b83bf05473cd5f7cebd90fb104148386cd251d454639"
+      }
+    },
+    "ishaq-euclid-arabic-opening": {
+      "hallFolder": "islamic-philosophical-worlds",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Illustrated_Opening._Arabic_Translation_of_Euclid%27s_Elementa_(CBL_Ar_3035,_ff.105b-106a).jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Illustrated_Opening._Arabic_Translation_of_Euclid%27s_Elementa_(CBL_Ar_3035,_ff.105b-106a).jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Illustrated_Opening._Arabic_Translation_of_Euclid%27s_Elementa_(CBL_Ar_3035,_ff.105b-106a).jpg?width=1280",
+      "scene": {
+        "width": 640,
+        "height": 447,
+        "bytes": 79698,
+        "sha256": "42b8a22c379d51b07506fc0401e56d42334eca25fe83504c4071fb7e9519c8a7"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 893,
+        "bytes": 373450,
+        "sha256": "d4edfd14797c40807642802a2671cf990f7dcd8a20d85e5739e30f823e296514"
+      }
+    },
+    "avicenna-pharmacy-wellcome": {
+      "hallFolder": "islamic-philosophical-worlds",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Avicenna_Expounding_Pharmacy_to_his_Pupils_Wellcome_M0008013.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Avicenna_Expounding_Pharmacy_to_his_Pupils_Wellcome_M0008013.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Avicenna_Expounding_Pharmacy_to_his_Pupils_Wellcome_M0008013.jpg?width=1280",
+      "scene": {
+        "width": 467,
+        "height": 640,
+        "bytes": 102432,
+        "sha256": "3d42aa6e6cef56e92485f8888269671645ad4a92333855e133f64642992efb3d"
+      },
+      "panel": {
+        "width": 934,
+        "height": 1280,
+        "bytes": 529744,
+        "sha256": "d9870c493a5ce1d60271bad06e5f8ed43d89a16d1304c2d97e421f384e7c4eec"
+      }
+    },
+    "avicenna-hikmat-al-alai": {
+      "hallFolder": "islamic-philosophical-worlds",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:%E1%B8%A4ikmat_al-%27Al%C4%81%27%C4%AB_(IA_McGillLibrary-rbsc_bw_asadullah_bwlw7-16937).pdf",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/%E1%B8%A4ikmat_al-%27Al%C4%81%27%C4%AB_(IA_McGillLibrary-rbsc_bw_asadullah_bwlw7-16937).pdf?page=1",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/%E1%B8%A4ikmat_al-%27Al%C4%81%27%C4%AB_(IA_McGillLibrary-rbsc_bw_asadullah_bwlw7-16937).pdf?page=1&width=1280",
+      "scene": {
+        "width": 425,
+        "height": 640,
+        "bytes": 21750,
+        "sha256": "822c7a3627edb8ffca9d7dcf80dd71bb56e210c73e82ab301c2ddd8b5c662fcd"
+      },
+      "panel": {
+        "width": 850,
+        "height": 1280,
+        "bytes": 165804,
+        "sha256": "c9d763cc9af26797e5265bd1b828eb80245576574dc731d793c54ba36eb1e31a"
+      }
+    },
+    "avicenna-later-miniature": {
+      "hallFolder": "islamic-philosophical-worlds",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Avicenna-miniatur.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Avicenna-miniatur.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Avicenna-miniatur.jpg?width=1280",
+      "scene": {
+        "width": 410,
+        "height": 640,
+        "bytes": 49486,
+        "sha256": "46a46cb60003c45d3b6bb54a9a9322acdb286fc5dd35d13ea009aa8f84d48ba6"
+      },
+      "panel": {
+        "width": 801,
+        "height": 1249,
+        "bytes": 149080,
+        "sha256": "bf2c9b9a1aa2032dedcd5c34dd4c68e04db6f3e709dd3dbed9009d0f9531c69f"
+      }
+    },
+    "avicenna-pointers-tusi-commentary": {
+      "hallFolder": "islamic-philosophical-worlds",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:%E1%B8%A4all_mushkil%C4%81t_al-Ish%C4%81r%C4%81t_wa-al-tanb%C4%ABh%C4%81t_(IA_McGillLibrary-rbsc_islam-ms-isl-0029-18293).pdf",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/%E1%B8%A4all_mushkil%C4%81t_al-Ish%C4%81r%C4%81t_wa-al-tanb%C4%ABh%C4%81t_(IA_McGillLibrary-rbsc_islam-ms-isl-0029-18293).pdf?page=1",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/%E1%B8%A4all_mushkil%C4%81t_al-Ish%C4%81r%C4%81t_wa-al-tanb%C4%ABh%C4%81t_(IA_McGillLibrary-rbsc_islam-ms-isl-0029-18293).pdf?page=1&width=1280",
+      "scene": {
+        "width": 362,
+        "height": 640,
+        "bytes": 35986,
+        "sha256": "3bfbbcd44321522681aa81c1b64d3cff581781b99058c60858b7204c65367628"
+      },
+      "panel": {
+        "width": 500,
+        "height": 883,
+        "bytes": 88356,
+        "sha256": "88fdcb7768d087e91e26d87f40a7b4d1545822568719ca21d76a19fe54dbd4a7"
+      }
+    },
+    "avicenna-medicines-heart": {
+      "hallFolder": "islamic-philosophical-worlds",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Ibn_Sina_(Avicenna),_Rules_about_medicines_of_the_heart._Wellcome_L0016607.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ibn_Sina_(Avicenna),_Rules_about_medicines_of_the_heart._Wellcome_L0016607.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ibn_Sina_(Avicenna),_Rules_about_medicines_of_the_heart._Wellcome_L0016607.jpg?width=1280",
+      "scene": {
+        "width": 640,
+        "height": 542,
+        "bytes": 123032,
+        "sha256": "e3b75c797727d273bcd689e7978e0a31e9c77d003b066dbac05edba638642372"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 1083,
+        "bytes": 570240,
+        "sha256": "b13df8fe124d25d17a708e189c299e4816ab776a870443f7af016b21f2650402"
+      }
+    },
+    "avicenna-hebrew-canon": {
+      "hallFolder": "islamic-philosophical-worlds",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Avicenna_Canon_Bodleian_Library_9v.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Avicenna_Canon_Bodleian_Library_9v.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Avicenna_Canon_Bodleian_Library_9v.jpg?width=1280",
+      "scene": {
+        "width": 506,
+        "height": 640,
+        "bytes": 67764,
+        "sha256": "c04550dd69f928b40263260845225dce0027f5089e29153ff3a226b1f112f4df"
+      },
+      "panel": {
+        "width": 739,
+        "height": 934,
+        "bytes": 207510,
+        "sha256": "bfda79735efe544b8ba9adacffce194a41903a48e4ff4376308cc068e40481a8"
+      }
+    },
+    "al-ghazali-gibran-1917": {
+      "hallFolder": "islamic-philosophical-worlds",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Al-Ghazali_by_Khalil_Gibran.png",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Al-Ghazali_by_Khalil_Gibran.png",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Al-Ghazali_by_Khalil_Gibran.png?width=1280",
+      "scene": {
+        "width": 486,
+        "height": 583,
+        "bytes": 79522,
+        "sha256": "ac93e912cb3a07c1d0e135de446cacfb84577a8c3cae46bb67831e05253ca2fc"
+      },
+      "panel": {
+        "width": 486,
+        "height": 583,
+        "bytes": 99656,
+        "sha256": "bcc7732407678abc6cebc1e59d3a426d4cffb6796361fc4dcd6a4f1f06cbb090"
+      }
+    },
+    "al-ghazali-incoherence-wdl": {
+      "hallFolder": "islamic-philosophical-worlds",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:The_Incoherence_of_Philosophers_WDL7456.pdf",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/The_Incoherence_of_Philosophers_WDL7456.pdf?page=1",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/The_Incoherence_of_Philosophers_WDL7456.pdf?page=1&width=1280",
+      "scene": {
+        "width": 396,
+        "height": 640,
+        "bytes": 17374,
+        "sha256": "a968952f53a7eeea853f1e593e82597388f4da6266d08a05c393ed2200a8f8af"
+      },
+      "panel": {
+        "width": 791,
+        "height": 1280,
+        "bytes": 50756,
+        "sha256": "314e92b92fa2c97343109ae44544d3a6962b4a144cf75265a5998f794d20739f"
+      }
+    },
+    "al-ghazali-maqasid-1913": {
+      "hallFolder": "islamic-philosophical-worlds",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Maqasid_al-falasifah.JPG",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Maqasid_al-falasifah.JPG",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Maqasid_al-falasifah.JPG?width=1280",
+      "scene": {
+        "width": 515,
+        "height": 640,
+        "bytes": 37774,
+        "sha256": "7fcbf3e46f2d98624b212fcca774e201e18a88d5ed38dc6e50231ea1893a9903"
+      },
+      "panel": {
+        "width": 773,
+        "height": 961,
+        "bytes": 80898,
+        "sha256": "df5175480752e5f9e44f6dcc7dbd4d7432e6bab849ed5a76ca86d17729fa97e4"
+      }
+    },
+    "al-ghazali-ihya-manuscript": {
+      "hallFolder": "islamic-philosophical-worlds",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Al-Ihya.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Al-Ihya.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Al-Ihya.jpg?width=1280",
+      "scene": {
+        "width": 430,
+        "height": 640,
+        "bytes": 85472,
+        "sha256": "f52005e7549436a80a9f4323158fdd1a8f33b609512041a13eea905a3a2b9386"
+      },
+      "panel": {
+        "width": 860,
+        "height": 1280,
+        "bytes": 312376,
+        "sha256": "607cf7c68764fb397e7512d68b56925c71bc990ad3c3b1ca28906c8fce87f681"
+      }
+    },
+    "al-ghazali-munqidh-last-page": {
+      "hallFolder": "islamic-philosophical-worlds",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Munqidh_min_al-dalal_(last_page).jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Munqidh_min_al-dalal_(last_page).jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Munqidh_min_al-dalal_(last_page).jpg?width=1280",
+      "scene": {
+        "width": 402,
+        "height": 640,
+        "bytes": 29242,
+        "sha256": "657b326a76c2e804e2dde645ae267ecec50c93fe446737f128a5ff4deac0b754"
+      },
+      "panel": {
+        "width": 805,
+        "height": 1280,
+        "bytes": 92296,
+        "sha256": "36caf9a94d2626b7fa8f16f3715f77225ec7ccad06442df65662a5c8ea0d401c"
+      }
+    },
+    "al-ghazali-asas-qiyas": {
+      "hallFolder": "islamic-philosophical-worlds",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Asas_alqiyas_manuscript.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Asas_alqiyas_manuscript.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Asas_alqiyas_manuscript.jpg?width=1280",
+      "scene": {
+        "width": 384,
+        "height": 640,
+        "bytes": 64250,
+        "sha256": "f05bd372d5611efc1d51f463f2cd22c47b66871ed9ce8ab56f3867bc5b521a2b"
+      },
+      "panel": {
+        "width": 495,
+        "height": 824,
+        "bytes": 101170,
+        "sha256": "9e94380f25b8031434fd3ccaf31264c432be664ba3b700aad37af9f58dffbe99"
+      }
+    },
+    "averroes-wellcome-portrait": {
+      "hallFolder": "islamic-philosophical-worlds",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Portrait_of_Averroes_Wellcome_M0004111.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Portrait_of_Averroes_Wellcome_M0004111.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Portrait_of_Averroes_Wellcome_M0004111.jpg?width=1280",
+      "scene": {
+        "width": 477,
+        "height": 640,
+        "bytes": 66018,
+        "sha256": "5c2336dfca513199974b7af08f246702187638fce52cb01142141a1c66ee92b4"
+      },
+      "panel": {
+        "width": 955,
+        "height": 1280,
+        "bytes": 251578,
+        "sha256": "247ab766f5c8aecfca0edf666d852d47a3d23047f5cc6471cd51070fe408d63c"
+      }
+    },
+    "ibn-tufayl-hayy-1929": {
+      "hallFolder": "islamic-philosophical-worlds",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:The_History_of_Hayy_Ibn_Yaqzan_(page_13_crop).jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/The_History_of_Hayy_Ibn_Yaqzan_(page_13_crop).jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/The_History_of_Hayy_Ibn_Yaqzan_(page_13_crop).jpg?width=1280",
+      "scene": {
+        "width": 405,
+        "height": 640,
+        "bytes": 28032,
+        "sha256": "a096a33736e112d43e6d5a11cda5d366016818452cfd5999cfca806c40441493"
+      },
+      "panel": {
+        "width": 810,
+        "height": 1280,
+        "bytes": 119314,
+        "sha256": "eb71aec65cec09139e865848302bdfb75d5152fbbac31b2232e511b75c290d07"
+      }
+    },
+    "averroes-posterior-analytics-wdl": {
+      "hallFolder": "islamic-philosophical-worlds",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:A_Clear_Explanation_of_Averroes%E2%80%99_Introduction_to_the_Commentary_on_Aristotle%E2%80%99s_%E2%80%9CAnalytica_Posterior%E2%80%9D_WDL10684.pdf",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/A_Clear_Explanation_of_Averroes%E2%80%99_Introduction_to_the_Commentary_on_Aristotle%E2%80%99s_%E2%80%9CAnalytica_Posterior%E2%80%9D_WDL10684.pdf?page=1",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/A_Clear_Explanation_of_Averroes%E2%80%99_Introduction_to_the_Commentary_on_Aristotle%E2%80%99s_%E2%80%9CAnalytica_Posterior%E2%80%9D_WDL10684.pdf?page=1&width=1280",
+      "scene": {
+        "width": 455,
+        "height": 640,
+        "bytes": 33724,
+        "sha256": "668c1a6eb09796861af2b700dc70c52e26c9f762d7af079fd8a07b08b1120e6a"
+      },
+      "panel": {
+        "width": 911,
+        "height": 1280,
+        "bytes": 214374,
+        "sha256": "79604ef6eeffc6599be135323c6782c9528ebfb3d8e9017fc1cd6f7dbc2c2bfb"
+      }
+    },
+    "averroes-de-anima-bnf": {
+      "hallFolder": "islamic-philosophical-worlds",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Bnf_lat16151_f22.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Bnf_lat16151_f22.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Bnf_lat16151_f22.jpg?width=1280",
+      "scene": {
+        "width": 519,
+        "height": 600,
+        "bytes": 69868,
+        "sha256": "dd8b46088685756353caac9180ff06b9c3da87f342e329624c2222fb4f948c67"
+      },
+      "panel": {
+        "width": 519,
+        "height": 600,
+        "bytes": 82544,
+        "sha256": "0668d7e381bd3814222593b6723e5678078f597bc99382bddf78e5f118c6377e"
+      }
+    },
+    "averroes-colliget": {
+      "hallFolder": "islamic-philosophical-worlds",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Colliget_(IA_4022010.med.yale.edu).pdf",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Colliget_(IA_4022010.med.yale.edu).pdf?page=1",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Colliget_(IA_4022010.med.yale.edu).pdf?page=1&width=1280",
+      "scene": {
+        "width": 438,
+        "height": 640,
+        "bytes": 18808,
+        "sha256": "a353a99a7acf5bf64c73b006e7a475508761b58c0756a5e464411609f9477a81"
+      },
+      "panel": {
+        "width": 500,
+        "height": 730,
+        "bytes": 33562,
+        "sha256": "380fbaff3f772a4f122d6071317745dc1d1a9af5b53b4c3658600b29415d9eb1"
+      }
+    },
+    "andalusian-astrolabe-1029": {
+      "hallFolder": "islamic-philosophical-worlds",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Andalusian_astrolabe_420_AH.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Andalusian_astrolabe_420_AH.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Andalusian_astrolabe_420_AH.jpg?width=1280",
+      "scene": {
+        "width": 640,
+        "height": 536,
+        "bytes": 51524,
+        "sha256": "15589b825c6bac2cfa49bba9064339c224ef08234e0538ee0208e45919485203"
+      },
+      "panel": {
+        "width": 1200,
+        "height": 1005,
+        "bytes": 235336,
+        "sha256": "ba160a85014e0c2bf1e75a53a46aca27546d187159a072c7f321389a76234d7b"
+      }
+    },
+    "suhrawardi-later-portrait": {
+      "hallFolder": "islamic-philosophical-worlds",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Shahab_al-Din_Suhrawardi.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Shahab_al-Din_Suhrawardi.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Shahab_al-Din_Suhrawardi.jpg?width=1280",
+      "scene": {
+        "width": 455,
+        "height": 640,
+        "bytes": 113190,
+        "sha256": "8bc20a620f301a26175acb37da399e2794890fd391190680c144d8325d4f6099"
+      },
+      "panel": {
+        "width": 677,
+        "height": 953,
+        "bytes": 352844,
+        "sha256": "88a4b27eba0fd2a0555e9dc1502b7e517897727682e99f0f92c2b20ed4df20b7"
+      }
+    },
+    "mulla-sadra-modern-statue": {
+      "hallFolder": "islamic-philosophical-worlds",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:%D9%85%D8%AC%D8%B3%D9%85%D9%87_%D9%85%D9%84%D8%A7%D8%B5%D8%AF%D8%B1%D8%A7.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/%D9%85%D8%AC%D8%B3%D9%85%D9%87_%D9%85%D9%84%D8%A7%D8%B5%D8%AF%D8%B1%D8%A7.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/%D9%85%D8%AC%D8%B3%D9%85%D9%87_%D9%85%D9%84%D8%A7%D8%B5%D8%AF%D8%B1%D8%A7.jpg?width=1280",
+      "scene": {
+        "width": 559,
+        "height": 640,
+        "bytes": 69904,
+        "sha256": "9d9c4925bc8dceb4c27bb366cbf087bd113c4457d85d5623c12d058b7cecead9"
+      },
+      "panel": {
+        "width": 1118,
+        "height": 1280,
+        "bytes": 368188,
+        "sha256": "e0bfcf4942b1aebf788ee22c13264b7bdc1cd1c37516fd259530934c2498ea4c"
+      }
+    },
+    "suhrawardi-ishraq-1477": {
+      "hallFolder": "islamic-philosophical-worlds",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Opening_page_from_the_manuscript_of_%22Hikmat_al-%CA%BFIshraq%22_by_al-Suhrawardi.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Opening_page_from_the_manuscript_of_%22Hikmat_al-%CA%BFIshraq%22_by_al-Suhrawardi.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Opening_page_from_the_manuscript_of_%22Hikmat_al-%CA%BFIshraq%22_by_al-Suhrawardi.jpg?width=1280",
+      "scene": {
+        "width": 370,
+        "height": 640,
+        "bytes": 49664,
+        "sha256": "7c68ee1f25fdd35e25538fdfc50e786c796f0686c49c254418efd28217fdd444"
+      },
+      "panel": {
+        "width": 739,
+        "height": 1280,
+        "bytes": 278770,
+        "sha256": "8bb7ee8857959bcfd4976d15dc5cfd47707bad0fd8fe6116c7176acacfacd87a"
+      }
+    },
+    "suhrawardi-ishraq-1220": {
+      "hallFolder": "islamic-philosophical-worlds",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Shihab_al-Din_Abu_al-Futuh_Ahmad_bin_Habbash_(Ya%27ish)_bin_Amirak_al-Suhrawardi_al-Maqtuli_(d._1191-92)%3B_Hikmat_al-Ishraq,_copied_by_Shams_bin_Jamal_al-Hatani,_post-Seljuq_Iran,_dated_Tuesday_13_October_1220.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Shihab_al-Din_Abu_al-Futuh_Ahmad_bin_Habbash_(Ya%27ish)_bin_Amirak_al-Suhrawardi_al-Maqtuli_(d._1191-92)%3B_Hikmat_al-Ishraq,_copied_by_Shams_bin_Jamal_al-Hatani,_post-Seljuq_Iran,_dated_Tuesday_13_October_1220.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Shihab_al-Din_Abu_al-Futuh_Ahmad_bin_Habbash_(Ya%27ish)_bin_Amirak_al-Suhrawardi_al-Maqtuli_(d._1191-92)%3B_Hikmat_al-Ishraq,_copied_by_Shams_bin_Jamal_al-Hatani,_post-Seljuq_Iran,_dated_Tuesday_13_October_1220.jpg?width=1280",
+      "scene": {
+        "width": 640,
+        "height": 539,
+        "bytes": 121606,
+        "sha256": "c9b88a0b89192a3a88d193c0424673bb4ad9cd05a9b154b0e13f6d90dce9c3a8"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 1078,
+        "bytes": 594324,
+        "sha256": "93a3025b9fdd6782717a6d22feb8da7608ae0da132a20a64693af87a3fad11b8"
+      }
+    },
+    "mulla-sadra-kahak-house": {
+      "hallFolder": "islamic-philosophical-worlds",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Untitled-8586_%D9%85%D9%84%D8%A7_%D8%B5%D8%AF%D8%B1%D8%A7.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Untitled-8586_%D9%85%D9%84%D8%A7_%D8%B5%D8%AF%D8%B1%D8%A7.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Untitled-8586_%D9%85%D9%84%D8%A7_%D8%B5%D8%AF%D8%B1%D8%A7.jpg?width=1280",
+      "scene": {
+        "width": 427,
+        "height": 640,
+        "bytes": 20214,
+        "sha256": "1e6a7cfbd9a802a87647dd55371483531e866adf4842b6445299a456e4b8bc74"
+      },
+      "panel": {
+        "width": 853,
+        "height": 1280,
+        "bytes": 101220,
+        "sha256": "e6a881f63d829374a3f90ab00f9facffbd93a970f1966254e4de6f4342cec819"
+      }
+    },
+    "safavid-chahar-bagh-school": {
+      "hallFolder": "islamic-philosophical-worlds",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Chahar_Bagh_School_%D9%85%D8%AF%D8%B1%D8%B3%D9%87_%D8%B9%D9%84%D9%88%D9%85_%D8%AF%DB%8C%D9%86%DB%8C_%DA%86%D9%87%D8%A7%D8%B1%D8%A8%D8%A7%D8%BA_%D8%A7%D8%B5%D9%81%D9%87%D8%A7%D9%86_03.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Chahar_Bagh_School_%D9%85%D8%AF%D8%B1%D8%B3%D9%87_%D8%B9%D9%84%D9%88%D9%85_%D8%AF%DB%8C%D9%86%DB%8C_%DA%86%D9%87%D8%A7%D8%B1%D8%A8%D8%A7%D8%BA_%D8%A7%D8%B5%D9%81%D9%87%D8%A7%D9%86_03.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Chahar_Bagh_School_%D9%85%D8%AF%D8%B1%D8%B3%D9%87_%D8%B9%D9%84%D9%88%D9%85_%D8%AF%DB%8C%D9%86%DB%8C_%DA%86%D9%87%D8%A7%D8%B1%D8%A8%D8%A7%D8%BA_%D8%A7%D8%B5%D9%81%D9%87%D8%A7%D9%86_03.jpg?width=1280",
+      "scene": {
+        "width": 640,
+        "height": 427,
+        "bytes": 85992,
+        "sha256": "8c4afd573cf42752b12ad111030b6ed3a1b94b1296a68f897a2315dff9634293"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 853,
+        "bytes": 425272,
+        "sha256": "9df1343f7e1d0388b7041d7261efcc0291ac9510c89768b7e8e559f07b963f54"
+      }
     }
   }
 }

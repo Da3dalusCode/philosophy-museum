@@ -52,7 +52,7 @@ export type MuseumManifestNode = {
 export type MuseumBuildingManifest = {
   schemaVersion: 1;
   manifestVersion: string;
-  status: 'approved-canonical-eight';
+  status: 'approved-canonical-ten';
   physicalOptionId: 'ring-of-wings';
   units: 'metres';
   level: {id: 'L0'; title: string; elevation: number};
@@ -85,7 +85,7 @@ const manifest = manifestJson as MuseumBuildingManifest;
 const assertApprovedManifest = (candidate: MuseumBuildingManifest): void => {
   if (
     candidate.schemaVersion !== 1
-    || candidate.status !== 'approved-canonical-eight'
+    || candidate.status !== 'approved-canonical-ten'
     || candidate.physicalOptionId !== 'ring-of-wings'
     || candidate.level.id !== 'L0'
   ) throw new Error('The Museum building manifest is not the approved canonical Ring of Wings contract.');

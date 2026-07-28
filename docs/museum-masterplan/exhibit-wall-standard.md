@@ -37,3 +37,22 @@ Gallery 06 is a crossroads, not a sequential two-half-room gallery. Its approved
 - Primaries retain the full 3.8 metre Gallery 03–05 scale and must be larger than every comparative lens.
 - Rooms with no canonical primary still receive their planned physical lenses; directory-only routes do not count as wall exhibits.
 - Prefer a small number of offset, exhibit-sized walls over a regular cubicle grid. Verify all approaches and guided routes after any interior change.
+
+## Classical Chinese crossroads rule
+
+Gallery 09 is also a `crossroads-4` hall, but it is not the Forum and must never inherit Gallery 06's nine-room grid. Its four debate rooms use an authored **six-installation contract per room: 24 physical exhibits total**.
+
+- Keep the central crossing open and legible from every approach.
+- Each room receives six distinct wall-backed slots across its perimeter and restrained display baffle; unused wall faces are not acceptable.
+- Canonical schools and philosophers own the prominent walls. All twelve primaries use the same full-scale floor and can never be smaller than a contextual exhibit.
+- Adjacency communicates debate, not school membership: Mohism remains distinct from the retrospective grouping called “Legalism,” and Laozi is presented as an attributed textual persona rather than a secure conventional biography.
+
+## Release checklist for every new hall
+
+Before a hall can be called finished:
+
+1. The executable audit enumerates its exact physical wall slots and rejects blanks, duplicates, undersized primaries, missing interaction handlers, or missing attributions.
+2. Every room is inspected in the running app from both directions; each half-room or crossroads bay is photographed or otherwise visually checked at visitor eye level.
+3. Every primary, supplemental panel, doorway, fast-travel destination, directory entry, and direct exhibit route works.
+4. The visitor map shows the new hall, its real walking connection, and the visitor's directional arrow without requiring desktop scrolling.
+5. The production build and all Museum, routing, integrity, accuracy, article, and asset audits pass before deployment.

@@ -32,6 +32,14 @@ import {
   BUDDHIST_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
 } from './buddhistSupplementalExhibits';
 import {
+  CLASSICAL_CHINESE_SUPPLEMENTAL_EXHIBITS,
+  CLASSICAL_CHINESE_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
+} from './classicalChineseSupplementalExhibits';
+import {
+  ISLAMIC_SUPPLEMENTAL_EXHIBITS,
+  ISLAMIC_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
+} from './islamicSupplementalExhibits';
+import {
   CORE_QUESTIONS_FORUM_SUPPLEMENTAL_EXHIBITS,
   CORE_QUESTIONS_FORUM_SUPPLEMENTAL_LAYOUTS,
 } from './coreQuestionsForumSupplementalExhibits';
@@ -96,6 +104,16 @@ const COLLECTIONS = [
     hallId: 'buddhist-philosophies',
     exhibits: BUDDHIST_SUPPLEMENTAL_EXHIBITS,
     layouts: BUDDHIST_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
+  },
+  {
+    hallId: 'classical-chinese-traditions',
+    exhibits: CLASSICAL_CHINESE_SUPPLEMENTAL_EXHIBITS,
+    layouts: CLASSICAL_CHINESE_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
+  },
+  {
+    hallId: 'islamic-philosophical-worlds',
+    exhibits: ISLAMIC_SUPPLEMENTAL_EXHIBITS,
+    layouts: ISLAMIC_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
   },
 ] as const satisfies readonly MuseumSupplementalCollection[];
 
