@@ -410,7 +410,7 @@ const guidedSegmentIsClear = (
   from: MuseumPoint,
   to: MuseumPoint,
   bounds: MuseumBounds,
-  colliders: readonly MuseumCollider[],
+  obstacleBounds: readonly MuseumBounds[],
 ): boolean => {
   const distance = Math.hypot(to.x - from.x, to.z - from.z);
   const sampleCount = Math.max(1, Math.ceil(distance / .05));
@@ -421,10 +421,10 @@ const guidedSegmentIsClear = (
       z: from.z + (to.z - from.z) * ratio,
     };
     if (!viewpointFitsRoom(point, bounds)) return false;
-    if (colliders.some((collider) => circleIntersectsBounds(
+    if (obstacleBounds.some((obstacle) => circleIntersectsBounds(
       point,
       VIEWPOINT_CLEARANCE_RADIUS,
-      colliderBounds(collider.center, collider.rotation, collider.size.width, collider.size.depth),
+      obstacle,
     ))) return false;
   }
   return true;
@@ -443,9 +443,17 @@ const guidedRouteLength = (points: readonly MuseumPoint[]): number => points.sli
 const guidedRouteIsClear = (
   points: readonly MuseumPoint[],
   bounds: MuseumBounds,
-  colliders: readonly MuseumCollider[],
+  obstacleBounds: readonly MuseumBounds[],
 ): boolean => points.slice(1).every((point, index) =>
-  guidedSegmentIsClear(points[index], point, bounds, colliders));
+  guidedSegmentIsClear(points[index], point, bounds, obstacleBounds));
+
+const guidedObstacleBounds = (colliders: readonly MuseumCollider[]): readonly MuseumBounds[] =>
+  colliders.map((collider) => colliderBounds(
+    collider.center,
+    collider.rotation,
+    collider.size.width,
+    collider.size.depth,
+  ));
 
 /** Find a short, deterministic aisle route instead of letting a tour cut through an installation. */
 const guidedWaypointsWithinRoom = (
@@ -453,6 +461,7 @@ const guidedWaypointsWithinRoom = (
   to: MuseumPoint,
   bounds: MuseumBounds,
   colliders: readonly MuseumCollider[],
+  includeCrossroadsCandidates = false,
 ): readonly MuseumPoint[] => {
   const candidates: MuseumPoint[][] = [
     [from, to],
@@ -470,41 +479,44 @@ const guidedWaypointsWithinRoom = (
   for (let x = bounds.minX + 1; x <= bounds.maxX - 1; x += 1) {
     candidates.push([from, {x, z: from.z}, {x, z: to.z}, to]);
   }
-  // Crossroads rooms sometimes need one move into an aisle before turning
-  // around a display baffle. Pairing interior x/z lanes covers that simple
-  // museum-walk shape without introducing a general pathfinding subsystem.
-  for (let x = bounds.minX + 1; x <= bounds.maxX - 1; x += .75) {
-    for (let z = bounds.minZ + 1; z <= bounds.maxZ - 1; z += .75) {
-      candidates.push([
-        from,
-        {x, z: from.z},
-        {x, z},
-        {x: to.x, z},
-        to,
-      ]);
-      candidates.push([
-        from,
-        {x: from.x, z},
-        {x, z},
-        {x, z: to.z},
-        to,
-      ]);
-      candidates.push([
-        from,
-        {x: from.x, z: roomCenter.z},
-        {x, z: roomCenter.z},
-        {x, z},
-        {x: to.x, z},
-        to,
-      ]);
+  if (includeCrossroadsCandidates) {
+    // Crossroads rooms sometimes need one move into an aisle before turning
+    // around a display baffle. Pairing interior x/z lanes covers that simple
+    // museum-walk shape without imposing this quadratic search on every hall.
+    for (let x = bounds.minX + 1; x <= bounds.maxX - 1; x += .75) {
+      for (let z = bounds.minZ + 1; z <= bounds.maxZ - 1; z += .75) {
+        candidates.push([
+          from,
+          {x, z: from.z},
+          {x, z},
+          {x: to.x, z},
+          to,
+        ]);
+        candidates.push([
+          from,
+          {x: from.x, z},
+          {x, z},
+          {x, z: to.z},
+          to,
+        ]);
+        candidates.push([
+          from,
+          {x: from.x, z: roomCenter.z},
+          {x, z: roomCenter.z},
+          {x, z},
+          {x: to.x, z},
+          to,
+        ]);
+      }
     }
   }
+  const obstacleBounds = guidedObstacleBounds(colliders);
   const clear = candidates
     .map((candidate) => compactRoute(candidate))
-    .filter((candidate) => guidedRouteIsClear(candidate, bounds, colliders))
-    .sort((first, second) => guidedRouteLength(first) - guidedRouteLength(second));
-  if (!clear.length) throw new Error(`No collision-free guided route exists between ${JSON.stringify(from)} and ${JSON.stringify(to)}.`);
-  return clear[0];
+    .sort((first, second) => guidedRouteLength(first) - guidedRouteLength(second))
+    .find((candidate) => guidedRouteIsClear(candidate, bounds, obstacleBounds));
+  if (!clear) throw new Error(`No collision-free guided route exists between ${JSON.stringify(from)} and ${JSON.stringify(to)}.`);
+  return clear;
 };
 
 type PlacementCandidate = MuseumPoint & {rotationY: number};
@@ -774,10 +786,10 @@ const forumGuidedWaypoints = (
       const after = horizontal
         ? {x: openingCenter.x + direction * .55, z: openingCenter.z}
         : {x: openingCenter.x, z: openingCenter.z + direction * .55};
-      result.push(...guidedWaypointsWithinRoom(current, before, currentBounds, colliders).slice(1), after);
+      result.push(...guidedWaypointsWithinRoom(current, before, currentBounds, colliders, true).slice(1), after);
       current = after;
     }
-    result.push(...guidedWaypointsWithinRoom(current, to, roomBounds.get(toCellId)!, colliders).slice(1));
+    result.push(...guidedWaypointsWithinRoom(current, to, roomBounds.get(toCellId)!, colliders, true).slice(1));
     return compactRoute(result);
   };
   const hallBounds = {minX: -FORUM_SIZE / 2, maxX: FORUM_SIZE / 2, minZ: -FORUM_SIZE / 2, maxZ: FORUM_SIZE / 2};
@@ -789,8 +801,9 @@ const forumGuidedWaypoints = (
         return [];
       }
     }));
+  const obstacleBounds = guidedObstacleBounds(colliders);
   const clear = candidates
-    .filter((candidate) => guidedRouteIsClear(candidate, hallBounds, colliders))
+    .filter((candidate) => guidedRouteIsClear(candidate, hallBounds, obstacleBounds))
     .sort((first, second) => guidedRouteLength(first) - guidedRouteLength(second));
   if (!clear.length) throw new Error(`No collision-free Forum route exists between ${fromCellId} and ${toCellId}.`);
   return clear[0];
@@ -822,12 +835,14 @@ const classicalChineseGuidedWaypoints = (
     startEntry,
     roomBounds.get(fromCellId)!,
     colliders,
+    true,
   );
   const targetLeg = guidedWaypointsWithinRoom(
     targetEntry,
     to,
     roomBounds.get(toCellId)!,
     colliders,
+    true,
   );
   const route = compactRoute([
     ...startLeg,
@@ -844,7 +859,7 @@ const classicalChineseGuidedWaypoints = (
     minZ: -CLASSICAL_CHINESE_HALL_DIMENSIONS.depth / 2,
     maxZ: CLASSICAL_CHINESE_HALL_DIMENSIONS.depth / 2,
   };
-  if (!guidedRouteIsClear(route, hallBounds, colliders)) {
+  if (!guidedRouteIsClear(route, hallBounds, guidedObstacleBounds(colliders))) {
     throw new Error(`No collision-free Gallery 09 route exists between ${fromCellId} and ${toCellId}.`);
   }
   return route;
@@ -1210,6 +1225,7 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
           target.viewpoint,
           roomBounds.get(layout.spatialCellId)!,
           [...wallColliders, ...obstacleColliders],
+          isCrossroads,
         )
       : [
           layout.viewpoint,

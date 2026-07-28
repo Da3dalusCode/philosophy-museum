@@ -326,11 +326,22 @@ The approved 26-hall program has 260 record-capacity slots for 189 current prima
 
 Modern Philosophical Traditions is at 24 of 28 primary-record slots (85.7%), so the approved program commissions a local capacity review and protects the outward reservation at `PDI`. PEE’s nominal open primary slot is also expected to carry Beauvoir’s anchor-strength secondary. The review does not automatically authorize a fifth hall: it must first test tier changes, room interpretation, and whether an approved new roster has a coherent independent program.
 
+## Visitor-startup performance boundary
+
+Scene residency and media budgets do not cover synchronous TypeScript module initialization. Canonical hall definitions, collision geometry, and guided routes therefore have a separate visitor-startup contract:
+
+- do not run exhaustive authoring-time layout or circulation searches for every hall when the Museum route is imported;
+- keep specialized route candidates scoped to the room template that needs them, and stop after the shortest collision-free candidate is found;
+- precompute repeated collider bounds instead of rebuilding them at every sampled path point;
+- keep canonical-data initialization below the audited 2,000 ms ceiling, and verify a cold production-browser Museum route before release;
+- move any future search that cannot remain comfortably inside that ceiling to an authoring/build artifact or defer it to the active hall without changing route safety.
+
 ## Verification at every release
 
 Before a phase is called complete:
 
 - run the production build and the full Museum, asset, routing, integrity, content, and masterplan validations;
+- run the canonical-data startup-budget audit and cold-load the production Museum route;
 - validate every public connection in both directions and every reservation as non-crossable;
 - inspect collision, portal alignment, 4 × 4 m landings, 1.8–2 m routes, and turning pockets;
 - verify direct routes, Back/Forward, directory travel, guided viewpoints, saved-session fallback, Pointer Lock release/resume, fullscreen continuity, and non-WebGL access;

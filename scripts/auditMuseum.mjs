@@ -1,9 +1,11 @@
 import assert from 'node:assert/strict';
 import {existsSync, readFileSync, readdirSync} from 'node:fs';
 import {dirname, extname, resolve} from 'node:path';
+import {performance} from 'node:perf_hooks';
 import {fileURLToPath} from 'node:url';
 import {build} from 'vite';
 
+const MUSEUM_MODULE_INITIALIZATION_BUDGET_MS = 2_000;
 const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const galleryRoot = resolve(repoRoot, 'src/components/MuseumGallery');
 const museumDataRoot = resolve(repoRoot, 'src/data/museum');
@@ -111,6 +113,7 @@ const result = await build({
 const outputs = (Array.isArray(result) ? result : [result]).flatMap(({output}) => output);
 const entry = outputs.find((item) => item.type === 'chunk' && item.isEntry);
 assert(entry, 'Vite did not produce an executable canonical Museum audit entry.');
+const museumModuleInitializationStartedAt = performance.now();
 let museum;
 try {
   museum = await import(`data:text/javascript;base64,${Buffer.from(entry.code).toString('base64')}`);
@@ -118,6 +121,7 @@ try {
   console.error(`Museum audit module initialization failed: ${error instanceof Error ? error.message : String(error)}`);
   process.exit(1);
 }
+const museumModuleInitializationMs = performance.now() - museumModuleInitializationStartedAt;
 
 const {
   ANALYTIC_SUPPLEMENTAL_EXHIBITS,
@@ -296,6 +300,15 @@ const check = (name, assertion) => {
   checks += 1;
   console.log(`✓ ${name}`);
 };
+
+check('canonical Museum visitor data initializes within its startup budget', () => {
+  assert(
+    museumModuleInitializationMs <= MUSEUM_MODULE_INITIALIZATION_BUDGET_MS,
+    `Canonical Museum data took ${Math.round(museumModuleInitializationMs)}ms to initialize; `
+      + `the ${MUSEUM_MODULE_INITIALIZATION_BUDGET_MS}ms ceiling prevents authoring-time route synthesis from blocking visitor startup.`,
+  );
+});
+
 const unique = (values) => new Set(values).size === values.length;
 const sorted = (values) => [...values].sort();
 const sequenceWallSlotFor = (layout) => {
@@ -2298,4 +2311,4 @@ assert.deepEqual(seamCrossingFailures, [], `collision-resolved seam failures:\n$
 assert.deepEqual(residencyAdmissionFailures, [], `approached-hall residency failures:\n${[...new Set(residencyAdmissionFailures)].join('\n')}`);
 assert.deepEqual(interpretationQualityFailures, [], `interpretation quality failures:\n${interpretationQualityFailures.join('\n')}`);
 
-console.log(`\nMuseum audit passed: ${checks} groups covering ${definitions.length} canonical halls, 48 rooms, 100 exhibits, ${physicalMovementTrajectories} production-frame crossing trajectories over ${MUSEUM_DIRECTED_CONNECTIONS.length} directed crossings and ${MUSEUM_BUILDING_MANIFEST.connections.length} physical seams, ${MUSEUM_INTERPRETATIONS.length} interpretations, and 96 MiB bounded residency.`);
+console.log(`\nMuseum audit passed: ${checks} groups covering ${definitions.length} canonical halls, 48 rooms, 100 exhibits, ${physicalMovementTrajectories} production-frame crossing trajectories over ${MUSEUM_DIRECTED_CONNECTIONS.length} directed crossings and ${MUSEUM_BUILDING_MANIFEST.connections.length} physical seams, ${MUSEUM_INTERPRETATIONS.length} interpretations, 96 MiB bounded residency, and ${Math.round(museumModuleInitializationMs)}ms canonical-data initialization.`);
