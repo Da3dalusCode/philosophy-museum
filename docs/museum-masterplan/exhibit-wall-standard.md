@@ -47,7 +47,7 @@ Gallery 09 is also a `crossroads-4` hall, but it is not the Forum and must never
 - Canonical schools and philosophers own the prominent walls. All twelve primaries use the same full-scale floor and can never be smaller than a contextual exhibit.
 - Adjacency communicates debate, not school membership: Mohism remains distinct from the retrospective grouping called “Legalism,” and Laozi is presented as an attributed textual persona rather than a secure conventional biography.
 
-## Gallery 11–12 authored wall contracts
+## Gallery 11–13 and 16 authored wall contracts
 
 Gallery 11, **Confucian Renewal & East Asian Continuities**, uses the normal sequence-room rule with no physical exceptions: **six installations in each of three rooms, 18 total**.
 
@@ -62,7 +62,11 @@ Gallery 12, **Jewish Philosophy in Arabic-Speaking & Mediterranean Worlds**, als
 - `jewish-reason-revelation`: six — equal full-scale Saadia Gaon and Judah Halevi outer-wall primaries, with four smaller work and Judeo-Arabic context installations.
 - `jewish-maimonidean-crossroads`: six — Maimonides as the anchor primary, four work/reception/threshold installations, and one full-scale but explicitly contextual later-continuity anchor.
 
-The Gallery 10 connection uses the north threshold. The future Latin Christian/Scholastic threshold is visibly closed at the south threshold, which remains architectural rather than a reason to leave either partition wall blank.
+The Gallery 10 connection uses the north threshold, and the Gallery 12–13 threshold is now live. Both are centered architectural openings and do not erase the authored return-wall slots.
+
+Gallery 13, **Latin Christian & Scholastic Traditions**, follows the sequence rule exactly: **six installations in each of four rooms, 24 total**. Its ten canonical primaries and fourteen supplemental works, concepts, and contexts form one physical program; promoting the hall required data, placement, routing, collision, map, and guided-tour changes in the same release.
+
+Gallery 16, **Rationalism: Mind, Nature, and System**, likewise contains **six installations in each of three rooms, 18 total**. Its five canonical primaries and thirteen supplemental installations treat “rationalism” as a later family label while preserving the disagreements among Descartes, Spinoza, Conway, and Leibniz.
 
 ## Release checklist for every new hall
 

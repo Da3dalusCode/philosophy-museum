@@ -17,13 +17,13 @@ No account, subscription, download, or special software is required. Everything 
 - **Philosophy Map**, showing selected relationships between traditions and thinkers
 - **Compare**, for side-by-side branch and philosopher comparisons
 - **Learning Paths**, with guided routes through major themes and periods
-- **A one-level 26-gallery 3D museum** with 14 curated/open galleries, 12 honest planned/walkable shells, 105 named rooms, and two closed expansion reserves
+- **A one-level 26-gallery 3D museum** with 16 curated/open galleries, 10 honest planned/walkable shells, 105 named rooms, and two closed expansion reserves
 
 ## The walkable museum
 
 The Museum presents philosophy as a physical journey through the implemented **Continuous Enfilade**. A chronological route crosses all 26 gallery shells in six structural bands; a 10 m north–south crosscut provides six alternate intersections, including the independent Core Questions Forum. Five bounded turn courts connect the bands, and a Final Return threshold closes the full route.
 
-The public state is deliberately mixed: the 14 galleries listed below are curated and open, while Gallery 13 and Galleries 16–26 remain named, blank, walkable architectural shells with one truthful planned-status sign and no fabricated exhibits or fast-travel controls.
+The public state is deliberately mixed: the 16 galleries listed below are curated and open, while Galleries 17–26 remain named, blank, walkable architectural shells with one truthful planned-status sign and no fabricated exhibits or fast-travel controls.
 
 1. **Mediterranean Beginnings & Classical Athens**
    Ionian natural explanation, disputes over being and change, civic argument, Socrates, Plato, Aristotle, Platonism, and Aristotelianism
@@ -55,15 +55,21 @@ The public state is deliberately mixed: the 14 galleries listed below are curate
 
 12. **Jewish Philosophy in Arabic-Speaking & Mediterranean Worlds**
 
+13. **Latin Christian & Scholastic Traditions**
+    Boethian and Carolingian transmission, early dialectic, university practices, Aquinas’s connected synthesis, and late-medieval debates over universals, freedom, mysticism, poverty, and political authority
+
 14. **Hellenistic & Roman Ways of Life**
     Cynic public refusal, Epicurean therapy, Stoic systems and exercises, and rival Academic and Pyrrhonian skeptical lineages
 
 15. **Late Antiquity: Neoplatonism, Commentary, and Inheritance**
     Pagan and Christian Platonisms, commentary classrooms, translation networks, and distinct Byzantine, Arabic, Latin, Jewish, and Renaissance afterlives
 
-Every curated exhibit has a walkable installation, focused interpretation, structured facts, and a link to the full philosopher or branch article. The 14 curated galleries contain 132 primary exhibits and 198 supplemental/context installations. Provenance-backed media is used where reliable reusable imagery or documents are available; media is not added merely to fill a quota.
+16. **Rationalism: Mind, Nature, and System**
+    Cartesian method and embodiment, Spinoza and Conway’s rival alternatives to substance dualism, and Leibniz on monads, sufficient reason, harmony, and possible worlds
 
-The physical visitor map is generated from the same compiled manifest that places gallery shells, rooms, crosscut intersections, turn courts, doors, safe arrivals, the entrance, final threshold, and reserves. It shows all 26 stable gallery numbers and titles, distinguishes curated/open from planned/walkable, tracks current position and facing, and limits fast travel to the 14 curated galleries.
+Every curated exhibit has a walkable installation, focused interpretation, structured facts, and a link to the full philosopher or branch article. The 16 curated galleries contain 147 primary exhibits and 225 supplemental/context installations. Provenance-backed media is used where reliable reusable imagery or documents are available; media is not added merely to fill a quota.
+
+The physical visitor map is generated from the same compiled manifest that places gallery shells, rooms, crosscut intersections, turn courts, doors, safe arrivals, the entrance, final threshold, and reserves. It shows all 26 stable gallery numbers and titles, distinguishes curated/open from planned/walkable, tracks current position and facing, and limits fast travel to the 16 curated galleries.
 
 ### Museum controls
 
@@ -82,7 +88,7 @@ Philosophy Atlas is intended for curious readers, students, teachers, and anyone
 
 The project is actively being developed.
 
-Current written coverage includes all **146 philosophers** and **43 branches** in the Atlas. The Museum program and its implemented architecture are locked at 10 wings, 26 galleries, and 105 rooms. Fourteen galleries are curated/open; twelve complete planned shells remain walkable but uncurated; two 56 × 28 m expansion reserves remain physically closed. Retired Museum URLs resolve through aliases or explanatory handoffs, and displaced records remain available in the Atlas. Museum media includes structured provenance and rights metadata; citation depth across the wider Atlas is still being improved.
+Current written coverage includes all **146 philosophers** and **43 branches** in the Atlas. The Museum program and its implemented architecture are locked at 10 wings, 26 galleries, and 105 rooms. Sixteen galleries are curated/open; ten complete planned shells remain walkable but uncurated; two 56 × 28 m expansion reserves remain physically closed. Retired Museum URLs resolve through aliases or explanatory handoffs, and displaced records remain available in the Atlas. Museum media includes structured provenance and rights metadata; citation depth across the wider Atlas is still being improved.
 
 The application is local-first and static. It has no backend, database, login system, runtime API, advertising, or paid service dependency.
 
@@ -154,6 +160,8 @@ Pushing to `main` triggers the GitHub Pages workflow, which installs dependencie
 - `#/museum/analytic-traditions`
 - `#/museum/justice-democratic-reason`
 - `#/museum/core-questions-forum`
+- `#/museum/latin-christian-scholastic`
+- `#/museum/rationalism-mind-nature-system`
 - `#/branches`
 - `#/map`
 - `#/philosophers`
@@ -187,9 +195,9 @@ Keep explanations readable, distinguish disputed membership from canonical affil
 
 ## Current limitations and future work
 
-- The full 26-gallery, 105-room building is walkable. Galleries 01–12 and 14–15 are curated/open exhibitions; Gallery 13 and Galleries 16–26 remain honest planned architectural shells.
+- The full 26-gallery, 105-room building is walkable. Galleries 01–16 are curated/open exhibitions; Galleries 17–26 remain honest planned architectural shells.
 - Source and citation depth is stronger in the long-form articles and Museum records than in some older structured summaries.
 - The Philosophy Map intentionally uses a curated subset for readability.
 - Some influence and relationship data could be linked more deeply.
 - Visit position is stored locally, but there are no accounts or long-term reading-progress features.
-- Planned work includes curating Galleries 13–26 in place, broader cross-cultural Museum coverage, stronger source layers, study tools, saved progress, quizzes, and exportable notes. Planned shells remain walkable but expose no exhibits, guided routes, or fast travel until their curation is complete.
+- Planned work includes curating Galleries 17–26 in place, broader cross-cultural Museum coverage, stronger source layers, study tools, saved progress, quizzes, and exportable notes. Planned shells remain walkable but expose no exhibits, guided routes, or fast travel until their curation is complete.

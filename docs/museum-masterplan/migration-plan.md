@@ -42,9 +42,9 @@ Every implementation phase must preserve these rules:
 | 2. Six-shell physical truth | arrange the six temporary shells as a compact pilot ring with real corridors, central orientation court, shortcuts or spokes, and named reserved portals | completed Ring-infrastructure scope; the former 48 exhibits and 18 zones remained unchanged during this phase |
 | 3. Canonical-six permanent cutover | replace the six temporary programs with five permanent outer-loop halls and the permanent central Core Questions Forum | install every primary assignment in the six final rosters by approved tier; preserve aliases for displaced records; add Krishnamurti as philosopher 142 |
 | 4. Global-worlds demonstration | open `CSA`, `BP`, `CCT`, and `IPW` | complete |
-| 5. Gallery 11–12 connected worlds | open `EAC` and `JPH`; preserve the future `LCS` threshold | complete for Galleries 11–12; `LCS` remains planned |
+| 5. Gallery 11–12 connected worlds | open `EAC` and `JPH`; preserve the future `LCS` threshold | complete for Galleries 11–12; `LCS` remained planned at this historical phase boundary |
 | 6. Continuous Enfilade architecture migration | build all 26 hall/105 room shells, new circulation, entrance, map, and two reserves; atomically move the 12 populated halls | no new exhibit curation; 12 curated open and 14 walkable planned shells |
-| 7. Subsequent gallery releases | curate planned shells one or two galleries at a time, beginning with Gallery 13 Latin Christian & Scholastic Traditions | each release changes only its reviewed shell from planned to curated-open |
+| 7. Subsequent gallery releases | curate planned shells one or two galleries at a time; Galleries 13 and 16 are complete and Gallery 17 is next | each release changes only its reviewed shell from planned to curated-open |
 
 Phases 1–6 are implementation history. Phase 6 built the complete architecture without speculative gallery content. Phase 7 returns to the established one-or-two-gallery curation cadence.
 
@@ -283,9 +283,9 @@ This quartet established distinct cultural-historical orientation rooms, transmi
 
 ## Phase 5 — Gallery 11–12 connected worlds (implemented)
 
-Gallery 11, Confucian Renewal & East Asian Continuities, and Gallery 12, Jewish Philosophy in Arabic-Speaking & Mediterranean Worlds, extend the live collection to twelve galleries. Latin Christian & Scholastic Traditions remains the planned Gallery 13 and the next curation release.
+Gallery 11, Confucian Renewal & East Asian Continuities, and Gallery 12, Jewish Philosophy in Arabic-Speaking & Mediterranean Worlds, extended the live collection to twelve galleries. At that historical phase boundary, Latin Christian & Scholastic Traditions remained the planned Gallery 13; it is now a completed Phase 7 release.
 
-The current Warring States/East Asian, Buddhist/East Asian, Arabic-Islamic/Jewish, and future Latin Scholastic relationships remain interpretive contracts. Their old physical corridors do not constrain the new building; the Continuous Enfilade preserves the historical sequence and uses the crosscut for alternate movement without turning adjacency into an influence claim.
+The Warring States/East Asian, Buddhist/East Asian, Arabic-Islamic/Jewish, and Latin Scholastic relationships remain interpretive contracts. Their old physical corridors do not constrain the new building; the Continuous Enfilade preserves the historical sequence and uses the crosscut for alternate movement without turning adjacency into an influence claim.
 
 ## Phase 6 — complete Continuous Enfilade architecture migration (implemented)
 
@@ -356,7 +356,7 @@ Each release must:
 5. add media to the existing lazy-loading boundary;
 6. update map/directory status and open counts atomically.
 
-Gallery 13, Latin Christian & Scholastic Traditions, is the recommended first Phase 7 release because it completes the live Arabic-Islamic/Jewish/Latin connected-world sequence and occupies the already fixed bay beside Jewish Philosophy and the Forum.
+Gallery 13, Latin Christian & Scholastic Traditions, and Gallery 16, Rationalism: Mind, Nature, and System, are now complete Phase 7 releases in their fixed architectural bays. Gallery 17, Empiricism, Science, and Political Order, is the next planned shell in architectural sequence.
 
 ## Visitor-map truthfulness through every phase
 

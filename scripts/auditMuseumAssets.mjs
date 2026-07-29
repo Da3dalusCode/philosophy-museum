@@ -15,6 +15,8 @@ const mediterraneanPreparationSource = readFileSync(resolve(repoRoot, 'scripts/p
 const mediterraneanManifest = JSON.parse(readFileSync(resolve(repoRoot, 'scripts/museumMediterraneanAssetManifest.json'), 'utf8'));
 const successorPreparationSource = readFileSync(resolve(repoRoot, 'scripts/prepareMuseumSuccessorGalleriesAssets.py'), 'utf8');
 const successorManifest = JSON.parse(readFileSync(resolve(repoRoot, 'scripts/museumSuccessorGalleriesAssetManifest.json'), 'utf8'));
+const galleries13And16PreparationSource = readFileSync(resolve(repoRoot, 'scripts/prepareMuseumGalleries13And16Assets.py'), 'utf8');
+const galleries13And16Manifest = JSON.parse(readFileSync(resolve(repoRoot, 'scripts/museumGalleries13And16AssetManifest.json'), 'utf8'));
 const auditBase = '/philosophy-atlas-audit/';
 const virtualEntry = 'virtual:philosophy-atlas-museum-asset-audit';
 const resolvedEntry = `\0${virtualEntry}`;
@@ -42,8 +44,10 @@ const result = await build({
       export * from '/src/data/museum/islamicSupplementalExhibits.ts';
       export * from '/src/data/museum/eastAsianSupplementalExhibits.ts';
       export * from '/src/data/museum/jewishSupplementalExhibits.ts';
+      export * from '/src/data/museum/latinChristianScholasticSupplementalExhibits.ts';
       export * from '/src/data/museum/hellenisticRomanSupplementalExhibits.ts';
       export * from '/src/data/museum/lateAntiquitySupplementalExhibits.ts';
+      export * from '/src/data/museum/rationalismSupplementalExhibits.ts';
     ` : undefined,
   }],
   build: {
@@ -73,10 +77,14 @@ const {
   ISLAMIC_SUPPLEMENTAL_EXHIBITS,
   JEWISH_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
   JEWISH_SUPPLEMENTAL_EXHIBITS,
+  LATIN_SCHOLASTIC_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
+  LATIN_SCHOLASTIC_SUPPLEMENTAL_EXHIBITS,
   HELLENISTIC_ROMAN_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
   HELLENISTIC_ROMAN_SUPPLEMENTAL_EXHIBITS,
   LATE_ANTIQUITY_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
   LATE_ANTIQUITY_SUPPLEMENTAL_EXHIBITS,
+  RATIONALISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
+  RATIONALISM_SUPPLEMENTAL_EXHIBITS,
   JUSTICE_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
   JUSTICE_SUPPLEMENTAL_EXHIBITS,
   MUSEUM_ASSETS,
@@ -109,8 +117,10 @@ const ACTIVE_HALL_IDS = [
   'islamic-philosophical-worlds',
   'east-asian-continuities',
   'jewish-philosophy',
+  'latin-christian-scholastic',
   'hellenistic-roman-ways',
   'late-antiquity-inheritance',
+  'rationalism-mind-nature-system',
 ];
 const MANAGED_HALL_FOLDERS = [
   'analytic-traditions',
@@ -282,6 +292,11 @@ const TRUSTED_EXTERNAL_SOURCE_LOCKS = new Map([
     sourceImageUrl: 'https://archive.org/download/kitbalamnt00saaduoft/kitbalamnt00saaduoft.pdf',
     selectedThumbnailUrl: 'https://archive.org/download/kitbalamnt00saaduoft/page/n6.jpg',
   }],
+  ['rationalism-conway-principia', {
+    sourcePageUrl: 'https://books.google.com/books?id=y6hbDBQqTiQC',
+    sourceImageUrl: 'https://books.google.com/books/content?id=y6hbDBQqTiQC&printsec=frontcover&img=1&zoom=2&edge=curl&source=gbs_api',
+    selectedThumbnailUrl: 'https://books.google.com/books/content?id=y6hbDBQqTiQC&printsec=frontcover&img=1&zoom=2&edge=curl&source=gbs_api',
+  }],
 ]);
 const TRUSTED_EXTERNAL_OBJECT_PAGES = new Map([
   ['saadia-beliefs-landauer', 'https://archive.org/details/kitbalamnt00saaduoft'],
@@ -290,6 +305,7 @@ const TRUSTED_EXTERNAL_OBJECT_PAGES = new Map([
 const manifestAssets = modernManifest?.assets ?? {};
 const mediterraneanManifestAssets = mediterraneanManifest?.assets ?? {};
 const successorManifestAssets = successorManifest?.assets ?? {};
+const galleries13And16ManifestAssets = galleries13And16Manifest?.assets ?? {};
 const assetById = new Map(MUSEUM_ASSETS.map((asset) => [asset.id, asset]));
 const liveExhibits = MUSEUM_HALLS.flatMap((hall) => hall.exhibits.map((exhibit) => ({hall, exhibit})));
 const canonicalReferencedIds = liveExhibits.flatMap(({exhibit}) => [
@@ -307,8 +323,10 @@ const classicalChineseSupplementalReferencedIds = CLASSICAL_CHINESE_SUPPLEMENTAL
 const islamicSupplementalReferencedIds = ISLAMIC_SUPPLEMENTAL_EXHIBITS.map(({assetId}) => assetId);
 const eastAsianSupplementalReferencedIds = EAST_ASIAN_SUPPLEMENTAL_EXHIBITS.map(({assetId}) => assetId);
 const jewishSupplementalReferencedIds = JEWISH_SUPPLEMENTAL_EXHIBITS.map(({assetId}) => assetId);
+const latinScholasticSupplementalReferencedIds = LATIN_SCHOLASTIC_SUPPLEMENTAL_EXHIBITS.map(({assetId}) => assetId);
 const hellenisticRomanSupplementalReferencedIds = HELLENISTIC_ROMAN_SUPPLEMENTAL_EXHIBITS.map(({assetId}) => assetId);
 const lateAntiquitySupplementalReferencedIds = LATE_ANTIQUITY_SUPPLEMENTAL_EXHIBITS.map(({assetId}) => assetId);
+const rationalismSupplementalReferencedIds = RATIONALISM_SUPPLEMENTAL_EXHIBITS.map(({assetId}) => assetId);
 const supplementalReferencedIds = [
   ...platoSupplementalReferencedIds,
   ...renaissanceSupplementalReferencedIds,
@@ -321,8 +339,10 @@ const supplementalReferencedIds = [
   ...islamicSupplementalReferencedIds,
   ...eastAsianSupplementalReferencedIds,
   ...jewishSupplementalReferencedIds,
+  ...latinScholasticSupplementalReferencedIds,
   ...hellenisticRomanSupplementalReferencedIds,
   ...lateAntiquitySupplementalReferencedIds,
+  ...rationalismSupplementalReferencedIds,
 ];
 const referencedIds = [...canonicalReferencedIds, ...supplementalReferencedIds];
 const physicalSupplementalGroups = [
@@ -337,8 +357,10 @@ const physicalSupplementalGroups = [
   {galleryId: 'islamic-philosophical-worlds', records: ISLAMIC_SUPPLEMENTAL_EXHIBITS, layouts: ISLAMIC_SUPPLEMENTAL_EXHIBIT_LAYOUTS},
   {galleryId: 'east-asian-continuities', records: EAST_ASIAN_SUPPLEMENTAL_EXHIBITS, layouts: EAST_ASIAN_SUPPLEMENTAL_EXHIBIT_LAYOUTS},
   {galleryId: 'jewish-philosophy', records: JEWISH_SUPPLEMENTAL_EXHIBITS, layouts: JEWISH_SUPPLEMENTAL_EXHIBIT_LAYOUTS},
+  {galleryId: 'latin-christian-scholastic', records: LATIN_SCHOLASTIC_SUPPLEMENTAL_EXHIBITS, layouts: LATIN_SCHOLASTIC_SUPPLEMENTAL_EXHIBIT_LAYOUTS},
   {galleryId: 'hellenistic-roman-ways', records: HELLENISTIC_ROMAN_SUPPLEMENTAL_EXHIBITS, layouts: HELLENISTIC_ROMAN_SUPPLEMENTAL_EXHIBIT_LAYOUTS},
   {galleryId: 'late-antiquity-inheritance', records: LATE_ANTIQUITY_SUPPLEMENTAL_EXHIBITS, layouts: LATE_ANTIQUITY_SUPPLEMENTAL_EXHIBIT_LAYOUTS},
+  {galleryId: 'rationalism-mind-nature-system', records: RATIONALISM_SUPPLEMENTAL_EXHIBITS, layouts: RATIONALISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS},
 ];
 const physicalSupplementalAssetIds = physicalSupplementalGroups.flatMap(({layouts}) => layouts.map(({assetId}) => assetId));
 const physicalInstallationAssetIds = [...canonicalReferencedIds, ...physicalSupplementalAssetIds];
@@ -400,9 +422,9 @@ const webpDimensions = (path) => {
   assert.fail(`Unable to determine WebP dimensions for ${path}`);
 };
 
-check('the canonical fourteen expose 132 primaries with optional, resolvable local media references', () => {
+check('the canonical sixteen expose 147 primaries with optional, resolvable local media references', () => {
   assert.deepEqual(MUSEUM_HALLS.map(({id}) => id), ACTIVE_HALL_IDS);
-  assert.equal(liveExhibits.length, 132);
+  assert.equal(liveExhibits.length, 147);
   assert(canonicalReferencedIds.length > 0, 'the live primary program references no local media');
   for (const {hall, exhibit} of liveExhibits) {
     assert(Array.isArray(exhibit.supportingAssetIds), `${hall.id}/${exhibit.id} has no supporting-asset array`);
@@ -734,6 +756,66 @@ check('Gallery 12 fixes six physical installations in each of its two rectangula
   }
 });
 
+check('Galleries 13 and 16 fill seven sequence rooms with 42 distinct physical media records', () => {
+  const expected = new Map([
+    ['latin-christian-scholastic', {
+      primary: 10,
+      supplemental: 14,
+      physical: 24,
+      rooms: ['latin-transmission-carolingian', 'latin-dialectic-early-scholastic', 'latin-high-scholastic', 'latin-late-debates'],
+    }],
+    ['rationalism-mind-nature-system', {
+      primary: 5,
+      supplemental: 13,
+      physical: 18,
+      rooms: ['rationalism-cartesian-foundations', 'rationalism-spinoza-conway', 'rationalism-leibniz-system'],
+    }],
+  ]);
+  const combinedPhysicalIds = [];
+  for (const [hallId, counts] of expected) {
+    const hall = MUSEUM_HALLS.find(({id}) => id === hallId);
+    const group = physicalSupplementalGroups.find(({galleryId}) => galleryId === hallId);
+    assert(hall && group, `${hallId} is absent from the physical asset audit`);
+    assert.equal(hall.exhibits.length, counts.primary, `${hallId} primary count changed`);
+    assert.equal(group.records.length, counts.supplemental, `${hallId} supplemental record count changed`);
+    assert.equal(group.layouts.length, counts.supplemental, `${hallId} supplemental layout count changed`);
+    assert.deepEqual(
+      group.layouts.map(({id}) => id).sort(),
+      group.records.map(({id}) => id).sort(),
+      `${hallId} supplemental records and layouts diverged`,
+    );
+    for (const layout of group.layouts) {
+      const record = group.records.find(({id}) => id === layout.id);
+      assert.equal(layout.assetId, record?.assetId, `${hallId}/${layout.id} physical layout uses the wrong scene asset`);
+      assert.equal(layout.assetId, record?.panelAssetId, `${hallId}/${layout.id} panel uses a different asset`);
+      assert(assetById.has(layout.assetId), `${hallId}/${layout.id} references missing asset ${layout.assetId}`);
+    }
+    const primaryIds = hall.exhibits.flatMap(({principalAssetId, supportingAssetIds, id}) => {
+      assert(principalAssetId, `${hallId}/${id} lacks a principal asset`);
+      assert.equal(supportingAssetIds.length, 0, `${hallId}/${id} adds an unexpected second image to a six-wall installation`);
+      return [principalAssetId];
+    });
+    const physicalIds = [...primaryIds, ...group.layouts.map(({assetId}) => assetId)];
+    assert.equal(physicalIds.length, counts.physical, `${hallId} physical media count changed`);
+    assert.equal(new Set(physicalIds).size, counts.physical, `${hallId} repeats a physical asset`);
+    for (const roomId of counts.rooms) {
+      const roomPrimaryCount = hall.exhibits
+        .filter(({roomId: exhibitRoomId}) => exhibitRoomId === roomId)
+        .length;
+      const roomSupplementalCount = group.layouts.filter(({spatialCellId}) => spatialCellId === roomId).length;
+      assert.equal(roomPrimaryCount + roomSupplementalCount, 6, `${hallId}/${roomId} must retain six physical wall installations`);
+    }
+    combinedPhysicalIds.push(...physicalIds);
+  }
+  assert.equal(combinedPhysicalIds.length, 42);
+  assert.equal(new Set(combinedPhysicalIds).size, 42, 'Galleries 13 and 16 reuse a physical image across galleries');
+  assert.deepEqual(
+    Object.keys(galleries13And16ManifestAssets).sort(),
+    combinedPhysicalIds.sort(),
+    'The Gallery 13/16 source lock does not exactly cover the 42 physical installations',
+  );
+});
+
 check('every physical installation has a museum-wide unique asset, source page, and derivative hash', () => {
   for (const {galleryId, records, layouts} of physicalSupplementalGroups) {
     assert.equal(layouts.length, records.length, `${galleryId} supplemental record and physical-layout counts diverged`);
@@ -772,11 +854,11 @@ check('every physical installation has a museum-wide unique asset, source page, 
   assert(unique(physicalAssets.map(({variants}) => sha256(exactCasePath(variants.panel.path)))), 'two physical installations reuse identical panel bytes');
 });
 
-check('the preserved asset registry contains 387 unique records and derivative paths', () => {
-  assert.equal(MUSEUM_ASSETS.length, 387);
-  assert.equal(assetById.size, 387);
+check('the preserved asset registry contains 429 unique records and derivative paths', () => {
+  assert.equal(MUSEUM_ASSETS.length, 429);
+  assert.equal(assetById.size, 429);
   const variantPaths = MUSEUM_ASSETS.flatMap(({variants}) => [variants.scene.path, variants.panel.path]);
-  assert.equal(variantPaths.length, 774);
+  assert.equal(variantPaths.length, 858);
   assert(unique(variantPaths), 'two asset variants share a derivative path');
   for (const id of NEW_CANONICAL_ASSET_IDS) assert(assetById.has(id), `new canonical asset ${id} is missing`);
   for (const id of MEDITERRANEAN_ASSET_IDS) assert(assetById.has(id), `Gallery 01 asset ${id} is missing`);
@@ -880,13 +962,15 @@ check('every registered variant is exact-case local WebP media with locked dimen
   }
 });
 
-check('the 315-file-source preparation manifest locks every post-Ancient asset uniformly', () => {
+check('the 315-source modern-manifest subset excludes separately locked Ancient, successor, and Gallery 13/16 media', () => {
   assert.equal(modernManifest.version, 1);
   assert.equal(Object.keys(manifestAssets).length, 315);
   const managedAssets = MUSEUM_ASSETS.filter(({variants}) =>
     !variants.scene.path.startsWith('assets/museum/ancient-greek/')
       && !variants.scene.path.startsWith('assets/museum/hellenistic-roman-ways/')
-      && !variants.scene.path.startsWith('assets/museum/late-antiquity-inheritance/'));
+      && !variants.scene.path.startsWith('assets/museum/late-antiquity-inheritance/')
+      && !variants.scene.path.startsWith('assets/museum/latin-christian-scholastic/')
+      && !variants.scene.path.startsWith('assets/museum/rationalism-mind-nature-system/'));
   assert.equal(managedAssets.length, 315);
   assert.deepEqual(Object.keys(manifestAssets).sort(), managedAssets.map(({id}) => id).sort());
   assert.match(preparationSource, /MANIFEST_PATH = ROOT \/ "scripts" \/ "museumModernAssetManifest\.json"/);
@@ -1062,6 +1146,60 @@ check('the 34-source Galleries 14–15 lock reproduces every successor-gallery d
   });
 });
 
+check('the 42-source Galleries 13 and 16 lock reproduces every curated derivative', () => {
+  assert.equal(galleries13And16Manifest.version, 1);
+  assert.equal(Object.keys(galleries13And16ManifestAssets).length, 42);
+  const previouslyLockedIds = new Set([
+    ...Object.keys(manifestAssets),
+    ...Object.keys(mediterraneanManifestAssets),
+    ...Object.keys(successorManifestAssets),
+  ]);
+  assert.equal(previouslyLockedIds.size, 371, 'The pre-Gallery-13/16 source-lock inventories overlap');
+  for (const id of Object.keys(galleries13And16ManifestAssets)) {
+    assert(!previouslyLockedIds.has(id), `${id} is redundantly owned by an older preparation manifest`);
+  }
+  assert.equal(previouslyLockedIds.size + Object.keys(galleries13And16ManifestAssets).length, 413);
+  assert.match(galleries13And16PreparationSource, /museumGalleries13And16AssetManifest\.json/);
+  assert.match(galleries13And16PreparationSource, /EXPECTED_ASSET_COUNT = 42/);
+  assert.match(galleries13And16PreparationSource, /assert_locked\(slug, "scene"/);
+  assert.match(galleries13And16PreparationSource, /assert_locked\(slug, "panel"/);
+  assert.match(galleries13And16PreparationSource, /"sha256": sha256\(destination\)/);
+  const countsByFolder = new Map();
+  for (const [id, lock] of Object.entries(galleries13And16ManifestAssets)) {
+    const asset = assetById.get(id);
+    assert(asset, `${id} Gallery 13/16 lock has no asset record`);
+    assert(
+      ['latin-christian-scholastic', 'rationalism-mind-nature-system'].includes(lock.hallFolder),
+      `${id} has invalid Gallery 13/16 folder ${lock.hallFolder}`,
+    );
+    countsByFolder.set(lock.hallFolder, (countsByFolder.get(lock.hallFolder) ?? 0) + 1);
+    assert.equal(lock.sourcePageUrl, asset.sourcePageUrl, `${id} source lock differs from runtime provenance`);
+    for (const field of ['sourcePageUrl', 'sourceImageUrl', 'selectedThumbnailUrl']) {
+      assert(lock[field]?.startsWith('https://'), `${id}.${field} must be locked HTTPS`);
+    }
+    for (const variantName of ['scene', 'panel']) {
+      const variant = asset.variants[variantName];
+      const expected = lock[variantName];
+      assert(expected, `${id}.${variantName} Gallery 13/16 lock is missing`);
+      assert(Number.isSafeInteger(expected.width) && expected.width > 0, `${id}.${variantName}.width is invalid`);
+      assert(Number.isSafeInteger(expected.height) && expected.height > 0, `${id}.${variantName}.height is invalid`);
+      assert(Number.isSafeInteger(expected.bytes) && expected.bytes > 0, `${id}.${variantName}.bytes is invalid`);
+      assert.match(expected.sha256 ?? '', /^[0-9a-f]{64}$/, `${id}.${variantName}.sha256 is invalid`);
+      assert.equal(variant.path, `assets/museum/${lock.hallFolder}/${id}-${variantName}.webp`);
+      assert.equal(variant.width, expected.width, `${id}.${variantName} width differs from its lock`);
+      assert.equal(variant.height, expected.height, `${id}.${variantName} height differs from its lock`);
+      const path = exactCasePath(variant.path);
+      assert.equal(statSync(path).size, expected.bytes, `${id}.${variantName} byte count drifted`);
+      assert.equal(sha256(path), expected.sha256, `${id}.${variantName} SHA-256 drifted`);
+      assert.deepEqual(webpDimensions(path), {width: expected.width, height: expected.height}, `${id}.${variantName} locked dimensions drifted`);
+    }
+  }
+  assert.deepEqual(Object.fromEntries([...countsByFolder].sort()), {
+    'latin-christian-scholastic': 24,
+    'rationalism-mind-nature-system': 18,
+  });
+});
+
 check('Galleries 14–15 fill 43 unique physical installations without image reuse', () => {
   const expected = new Map([
     ['hellenistic-roman-ways', {primary: 18, supplemental: 7, physical: 25}],
@@ -1082,7 +1220,7 @@ check('Galleries 14–15 fill 43 unique physical installations without image reu
   }
 });
 
-check('the committed Museum inventory contains exactly the 774 registered derivatives', () => {
+check('the committed Museum inventory contains exactly the 858 registered derivatives', () => {
   const actual = walkFiles(museumMediaRoot).map(toPublicPath).sort();
   const expected = MUSEUM_ASSETS.flatMap(({variants}) => [variants.scene.path, variants.panel.path]).sort();
   assert.deepEqual(actual, expected);
@@ -1115,4 +1253,4 @@ check('scene-media policy keeps local images unlit, front-facing, and clear of f
   assert.doesNotMatch(sceneMediaSource, /sourcePageUrl|objectPageUrl|selectedThumbnailUrl/);
 });
 
-console.log(`\nMuseum asset audit passed: ${checks} groups, ${MUSEUM_ASSETS.length} provenance records, ${MUSEUM_ASSETS.length * 2} local derivatives, ${Object.keys(manifestAssets).length * 2 + Object.keys(mediterraneanManifestAssets).length * 2 + Object.keys(successorManifestAssets).length * 2} exact hash locks, and ${referencedIds.length} live media placements.`);
+console.log(`\nMuseum asset audit passed: ${checks} groups, ${MUSEUM_ASSETS.length} provenance records, ${MUSEUM_ASSETS.length * 2} local derivatives, ${Object.keys(manifestAssets).length * 2 + Object.keys(mediterraneanManifestAssets).length * 2 + Object.keys(successorManifestAssets).length * 2 + Object.keys(galleries13And16ManifestAssets).length * 2} exact hash locks, and ${referencedIds.length} live media placements.`);

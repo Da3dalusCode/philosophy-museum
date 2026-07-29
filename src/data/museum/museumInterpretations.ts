@@ -19,6 +19,7 @@ import {EARLY_MODERN_MUSEUM_INTERPRETATIONS} from './renaissanceReasonRevolution
 import {MODERNITY_MUSEUM_INTERPRETATIONS} from './modernityFreedomCritiqueInterpretations';
 import {MUSEUM_EXPANSION_INTERPRETATIONS} from './museumExpansionInterpretations';
 import {KRISHNAMURTI_MUSEUM_INTERPRETATIONS} from './krishnamurtiMuseumInterpretations';
+import {SCHOLASTIC_RATIONALIST_PRIMARY_INTERPRETATION_ENRICHMENT} from './scholasticRationalistPrimaryInterpretationEnrichment';
 
 export type MuseumInterpretationSource = {
   label: string;
@@ -1283,26 +1284,69 @@ const branchInterpretation = (
   };
 };
 
+const applyScholasticRationalistPrimaryEnrichment = (
+  entityId: string,
+  interpretation: MuseumInterpretation,
+): MuseumInterpretation => {
+  const enrichment = SCHOLASTIC_RATIONALIST_PRIMARY_INTERPRETATION_ENRICHMENT[entityId];
+  if (!enrichment) return interpretation;
+  const sources = [...interpretation.sources, ...(enrichment.sources ?? [])];
+  const enrichedSections = enrichment.sections?.length === 1
+    && enrichment.sections[0].paragraphs.length >= 2
+    && enrichment.sectionCaution
+    ? [
+        {
+          heading: enrichment.sections[0].heading,
+          paragraphs: enrichment.sections[0].paragraphs.slice(0, 1),
+        },
+        {
+          heading: 'Arguments, evidence, and transmission',
+          paragraphs: enrichment.sections[0].paragraphs.slice(1),
+        },
+        {
+          heading: 'Interpretive limit',
+          paragraphs: [enrichment.sectionCaution],
+        },
+      ]
+    : enrichment.sections;
+  return {
+    ...interpretation,
+    lead: enrichment.lead ?? interpretation.lead,
+    keyIdeas: enrichment.keyIdeas ?? interpretation.keyIdeas,
+    keyWorks: enrichment.keyWorks ?? interpretation.keyWorks,
+    sections: enrichedSections ?? interpretation.sections,
+    objectInterpretations: {
+      ...interpretation.objectInterpretations,
+      ...enrichment.objectInterpretations,
+    },
+    sources: [...new Map(sources.map((source) => [source.url, source])).values()],
+  };
+};
+
 const canonicalInterpretation = (location: CanonicalProgramLocation): MuseumInterpretation => {
   const legacy = legacyInterpretationByEntityId.get(location.exhibit.entityId);
   const related = relatedRefs(location, legacy);
-  if (legacy) return {
-    ...legacy,
-    hallId: location.hall.id,
-    id: location.exhibit.id as MuseumExhibitId,
-    roomId: location.room.id,
-    tier: location.exhibit.tier,
-    relatedExhibits: related,
-    connections: interpretiveConnections(location, related),
-  };
-  if (location.exhibit.entityKind === 'philosopher') {
+  let interpretation: MuseumInterpretation;
+  if (legacy) {
+    interpretation = {
+      ...legacy,
+      hallId: location.hall.id,
+      id: location.exhibit.id as MuseumExhibitId,
+      roomId: location.room.id,
+      tier: location.exhibit.tier,
+      relatedExhibits: related,
+      connections: interpretiveConnections(location, related),
+    };
+  } else if (location.exhibit.entityKind === 'philosopher') {
     const record = philosopherById.get(location.exhibit.entityId);
     if (!record) throw new Error(`Canonical Museum philosopher ${location.exhibit.entityId} is missing.`);
-    return philosopherInterpretation(location, record, related);
+    interpretation = philosopherInterpretation(location, record, related);
+  } else {
+    const record = branchById.get(location.exhibit.entityId);
+    if (!record) throw new Error(`Canonical Museum branch ${location.exhibit.entityId} is missing.`);
+    interpretation = branchInterpretation(location, record, related);
   }
-  const record = branchById.get(location.exhibit.entityId);
-  if (!record) throw new Error(`Canonical Museum branch ${location.exhibit.entityId} is missing.`);
-  return branchInterpretation(location, record, related);
+  return applyScholasticRationalistPrimaryEnrichment(location.exhibit.entityId, interpretation);
 };
 
 export const MUSEUM_INTERPRETATIONS: readonly MuseumInterpretation[] = canonicalLocations.map(canonicalInterpretation);

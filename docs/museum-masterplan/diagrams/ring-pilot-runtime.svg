@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="-62 -146 183 184.4" role="img" aria-labelledby="title description">
-  <title id="title">Ring of Wings live physical pilot: 7 of 26 planned public halls open</title>
-  <desc id="description">Manifest-derived main-level plan showing constructed geometry only: 7 of 26 planned public halls are open, with the entrance, central Forum location, closed outer loop, four spokes, entrance shortcut, active doorways, 2 planned gallery connections, and 8 reserved outward expansion portals, R1–R8. Remaining planned halls will appear as they are physically constructed.</desc>
-  <metadata>{&quot;generatedFrom&quot;:&quot;src/data/museum/museumBuildingManifest.json + compiled hall-local footprints&quot;,&quot;manifestVersion&quot;:&quot;canonical-seven-v1&quot;,&quot;level&quot;:&quot;L0&quot;,&quot;livePhysicalNodes&quot;:19,&quot;authoredConnections&quot;:23,&quot;blockedReservations&quot;:10,&quot;openPublicHalls&quot;:7,&quot;plannedPublicHalls&quot;:26,&quot;plannedGalleryConnections&quot;:2,&quot;reservedOutwardExpansionPortals&quot;:8}</metadata>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-137 -120 298 240" role="img" aria-labelledby="title description">
+  <title id="title">Ring of Wings live physical pilot: 26 of 26 planned public halls open</title>
+  <desc id="description">Manifest-derived main-level plan showing constructed geometry only: 26 of 26 planned public halls are open, with the entrance, central Forum location, closed outer loop, four spokes, entrance shortcut, active doorways, 0 planned gallery connections, and 0 reserved outward expansion portals, R1–R8. Remaining planned halls will appear as they are physically constructed.</desc>
+  <metadata>{&quot;generatedFrom&quot;:&quot;src/data/museum/museumBuildingManifest.json + compiled hall-local footprints&quot;,&quot;manifestVersion&quot;:&quot;continuous-enfilade-single-level-v1&quot;,&quot;level&quot;:&quot;L0&quot;,&quot;livePhysicalNodes&quot;:39,&quot;authoredConnections&quot;:43,&quot;blockedReservations&quot;:2,&quot;openPublicHalls&quot;:26,&quot;plannedPublicHalls&quot;:26,&quot;plannedGalleryConnections&quot;:0,&quot;reservedOutwardExpansionPortals&quot;:0}</metadata>
   <defs>
     <pattern id="future-hatch" width="3" height="3" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="3" stroke="#b98c6b" stroke-width=".7"/></pattern>
     <style>
@@ -10,138 +10,273 @@
     </style>
     <pattern id="minor-grid" width="8" height="8" patternUnits="userSpaceOnUse"><path class="grid" d="M 8 0 L 0 0 0 8" fill="none"/></pattern>
   </defs>
-  <rect class="background" x="-62" y="-146" width="183" height="184.4"/>
-  <rect fill="url(#minor-grid)" x="-62" y="-146" width="183" height="184.4"/>
-  <text class="title" x="-58" y="-141.5">RING OF WINGS · LIVE PILOT · 7 OF 26 PLANNED PUBLIC HALLS OPEN · L0</text>
-  <g aria-label="Physical footprints"><polygon class="node node-hall role-outer-hall" data-node="hall:mediterranean-beginnings-classical" points="-12,0 12,0 12,-56 -12,-56"/>
-    <polygon class="node node-hall role-outer-hall" data-node="hall:renaissance-humanism-new-method" points="-40,-58 -16,-58 -16,-114 -40,-114"/>
-    <polygon class="node node-hall role-outer-hall" data-node="hall:phenomenology-existence-embodiment" points="68,-114 68,-138 12,-138 12,-114"/>
-    <polygon class="node node-hall role-outer-hall" data-node="hall:analytic-traditions" points="100,-122 76,-122 76,-66 100,-66"/>
-    <polygon class="node node-hall role-outer-hall" data-node="hall:justice-democratic-reason" points="113,-56 89,-56 89,0 113,0"/>
-    <polygon class="node node-hall role-forum-hall" data-node="place:core-questions-forum" points="26,-41 54,-41 54,-69 26,-69"/>
-    <polygon class="node node-hall role-outer-hall" data-node="hall:classical-south-asian-worlds" points="-30,-56 -54,-56 -54,0 -30,0"/>
-    <polygon class="node node-corridor role-outer-loop-link" data-node="corridor:outer-01-mediterranean-renaissance" points="-2.4,-56 2.4,-56 2.4,-60 -2.4,-60"/>
-    <polygon class="node node-corridor role-outer-loop-link" data-node="corridor:outer-01-mediterranean-renaissance" points="-12,-56 -2.4,-56 -2.4,-60 -12,-60"/>
-    <polygon class="node node-corridor role-outer-loop-link" data-node="corridor:outer-01-mediterranean-renaissance" points="-16,-54 -12,-54 -12,-60 -16,-60"/>
-    <polygon class="node node-corridor role-outer-loop-link" data-node="corridor:outer-01-mediterranean-renaissance" points="-25.6,-54 -16,-54 -16,-58 -25.6,-58"/>
-    <polygon class="node node-corridor role-outer-loop-link" data-node="corridor:outer-01-mediterranean-renaissance" points="-30.4,-54 -25.6,-54 -25.6,-58 -30.4,-58"/>
-    <polygon class="node node-corridor role-outer-loop-link" data-node="corridor:outer-01-mediterranean-renaissance" points="-40,-56 -30.4,-56 -30.4,-60 -40,-60"/>
-    <polygon class="node node-corridor role-outer-loop-link" data-node="corridor:outer-01-mediterranean-renaissance" points="-44,-56 -40,-56 -40,-60 -44,-60"/>
-    <polygon class="node node-corridor role-outer-loop-link" data-node="corridor:outer-02-renaissance-phenomenology" points="-30.4,-114 -25.6,-114 -25.6,-126 -30.4,-126"/>
-    <polygon class="node node-corridor role-outer-loop-link" data-node="corridor:outer-02-renaissance-phenomenology" points="-28,-123.6 12,-123.6 12,-128.4 -28,-128.4"/>
-    <polygon class="node node-corridor role-outer-loop-link" data-node="corridor:outer-03-phenomenology-analytic" points="68,-123.6 88,-123.6 88,-128.4 68,-128.4"/>
-    <polygon class="node node-corridor role-outer-loop-link" data-node="corridor:outer-03-phenomenology-analytic" points="85.6,-122 90.4,-122 90.4,-126 85.6,-126"/>
-    <polygon class="node node-corridor role-outer-loop-link" data-node="corridor:outer-04-analytic-justice" points="85.6,-56 90.4,-56 90.4,-66 85.6,-66"/>
-    <polygon class="node node-corridor role-outer-loop-link" data-node="corridor:outer-04-analytic-justice" points="88,-55.6 101,-55.6 101,-60.4 88,-60.4"/>
-    <polygon class="node node-corridor role-outer-loop-link" data-node="corridor:outer-04-analytic-justice" points="98.6,-56 103.4,-56 103.4,-60 98.6,-60"/>
-    <polygon class="node node-corridor role-outer-loop-link" data-node="corridor:outer-05-justice-return" points="98.6,22 103.4,22 103.4,0 98.6,0"/>
-    <polygon class="node node-corridor role-outer-loop-link" data-node="corridor:outer-05-justice-return" points="86,24.4 101,24.4 101,19.6 86,19.6"/>
-    <polygon class="node node-corridor role-south-return-sleeve" data-node="place:south-return-sleeve" points="22,24.4 86,24.4 86,19.6 22,19.6"/>
-    <polygon class="node node-entrance role-public-entrance" data-node="place:entrance-orientation" points="-8,27 8,27 8,12 -8,12"/>
-    <polygon class="node node-entrance role-public-entrance" data-node="place:entrance-orientation" points="8,24.4 22,24.4 22,19.6 8,19.6"/>
-    <polygon class="node node-entrance role-public-entrance" data-node="place:entrance-orientation" points="-2.4,12 2.4,12 2.4,0 -2.4,0"/>
-    <polygon class="node node-corridor role-forum-spoke" data-node="corridor:spoke-west" points="12,-25.6 18,-25.6 18,-30.4 12,-30.4"/>
-    <polygon class="node node-corridor role-forum-spoke" data-node="corridor:spoke-west" points="15.6,-28 20.4,-28 20.4,-55 15.6,-55"/>
-    <polygon class="node node-corridor role-forum-spoke" data-node="corridor:spoke-west" points="18,-52.6 26,-52.6 26,-57.4 18,-57.4"/>
-    <polygon class="node node-corridor role-forum-spoke" data-node="corridor:spoke-north" points="37.6,-69 42.4,-69 42.4,-114 37.6,-114"/>
-    <polygon class="node node-corridor role-forum-spoke" data-node="corridor:spoke-east" points="62,-91.6 76,-91.6 76,-96.4 62,-96.4"/>
-    <polygon class="node node-corridor role-forum-spoke" data-node="corridor:spoke-east" points="59.6,-55 64.4,-55 64.4,-94 59.6,-94"/>
-    <polygon class="node node-corridor role-forum-spoke" data-node="corridor:spoke-east" points="54,-52.6 62,-52.6 62,-57.4 54,-57.4"/>
-    <polygon class="node node-corridor role-forum-spoke" data-node="corridor:spoke-south" points="67.6,19.6 72.4,19.6 72.4,8 67.6,8"/>
-    <polygon class="node node-corridor role-forum-spoke" data-node="corridor:spoke-south" points="47,10.4 70,10.4 70,5.6 47,5.6"/>
-    <polygon class="node node-corridor role-forum-spoke" data-node="corridor:spoke-south" points="44.6,8 49.4,8 49.4,-41 44.6,-41"/>
-    <polygon class="node node-corridor role-shortcut" data-node="corridor:entrance-forum-shortcut" points="8,18.4 40,18.4 40,13.6 8,13.6"/>
-    <polygon class="node node-corridor role-shortcut" data-node="corridor:entrance-forum-shortcut" points="37.6,16 42.4,16 42.4,-41 37.6,-41"/></g>
-  <g aria-label="Walkable connections"><polyline class="edge edge-outer-loop" data-connection="conn:entrance-mediterranean" points="0,2 0,0 0,-2"/>
-    <polyline class="edge edge-outer-loop" data-connection="conn:mediterranean-outer-01" points="0,-54 0,-56 0,-58"/>
-    <polyline class="edge edge-outer-loop" data-connection="conn:outer-01-renaissance" points="-28,-56 -28,-58 -28,-60"/>
-    <polyline class="edge edge-gallery-branch" data-connection="conn:outer-01-south-asian" points="-42,-58 -42,-56 -42,-54"/>
-    <polyline class="edge edge-outer-loop" data-connection="conn:renaissance-outer-02" points="-28,-112 -28,-114 -28,-116"/>
-    <polyline class="edge edge-outer-loop" data-connection="conn:outer-02-phenomenology" points="10,-126 12,-126 14,-126"/>
-    <polyline class="edge edge-outer-loop" data-connection="conn:phenomenology-outer-03" points="66,-126 68,-126 70,-126"/>
-    <polyline class="edge edge-outer-loop" data-connection="conn:outer-03-analytic" points="88,-124 88,-122 88,-120"/>
-    <polyline class="edge edge-outer-loop" data-connection="conn:analytic-outer-04" points="88,-68 88,-66 88,-64"/>
-    <polyline class="edge edge-outer-loop" data-connection="conn:outer-04-justice" points="101,-58 101,-56 101,-54"/>
-    <polyline class="edge edge-outer-loop" data-connection="conn:justice-outer-05" points="101,-2 101,0 101,2"/>
-    <polyline class="edge edge-outer-loop" data-connection="conn:outer-05-return" points="88,22 86,22 84,22"/>
-    <polyline class="edge edge-outer-loop" data-connection="conn:return-entrance" points="24,22 22,22 20,22"/>
-    <polyline class="edge edge-forum-spoke" data-connection="conn:mediterranean-spoke-west" points="10,-28 12,-28 14,-28"/>
-    <polyline class="edge edge-forum-spoke" data-connection="conn:spoke-west-forum" points="24,-55 26,-55 28,-55"/>
-    <polyline class="edge edge-forum-spoke" data-connection="conn:phenomenology-spoke-north" points="40,-116 40,-114 40,-112"/>
-    <polyline class="edge edge-forum-spoke" data-connection="conn:spoke-north-forum" points="40,-71 40,-69 40,-67"/>
-    <polyline class="edge edge-forum-spoke" data-connection="conn:analytic-spoke-east" points="78,-94 76,-94 74,-94"/>
-    <polyline class="edge edge-forum-spoke" data-connection="conn:spoke-east-forum" points="56,-55 54,-55 52,-55"/>
-    <polyline class="edge edge-forum-spoke" data-connection="conn:return-spoke-south" points="70,21.6 70,19.6 70,17.6"/>
-    <polyline class="edge edge-forum-spoke" data-connection="conn:spoke-south-forum" points="47,-39 47,-41 47,-43"/>
-    <polyline class="edge edge-shortcut" data-connection="conn:entrance-shortcut" points="6,16 8,16 10,16"/>
-    <polyline class="edge edge-shortcut" data-connection="conn:shortcut-forum" points="40,-39 40,-41 40,-43"/></g>
-  <g aria-label="Active doorways"><line class="door" x1="2" y1="0" x2="-2" y2="0"/>
-    <line class="door" x1="-2" y1="-56" x2="2" y2="-56"/>
-    <line class="door" x1="12" y1="-30" x2="12" y2="-26"/>
-    <line class="door" x1="-26" y1="-58" x2="-30" y2="-58"/>
-    <line class="door" x1="-30" y1="-114" x2="-26" y2="-114"/>
-    <line class="door" x1="68" y1="-128" x2="68" y2="-124"/>
-    <line class="door" x1="12" y1="-124" x2="12" y2="-128"/>
-    <line class="door" x1="42" y1="-114" x2="38" y2="-114"/>
-    <line class="door" x1="86" y1="-122" x2="90" y2="-122"/>
-    <line class="door" x1="90" y1="-66" x2="86" y2="-66"/>
-    <line class="door" x1="76" y1="-92" x2="76" y2="-96"/>
-    <line class="door" x1="99" y1="-56" x2="103" y2="-56"/>
-    <line class="door" x1="103" y1="0" x2="99" y2="0"/>
-    <line class="door" x1="42" y1="-41" x2="38" y2="-41"/>
-    <line class="door" x1="38" y1="-69" x2="42" y2="-69"/>
-    <line class="door" x1="54" y1="-57" x2="54" y2="-53"/>
-    <line class="door" x1="26" y1="-53" x2="26" y2="-57"/>
-    <line class="door" x1="49" y1="-41" x2="45" y2="-41"/>
-    <line class="door" x1="-44" y1="-56" x2="-40" y2="-56"/>
-    <line class="door" x1="2" y1="-56" x2="-2" y2="-56"/>
-    <line class="door" x1="-30" y1="-58" x2="-26" y2="-58"/>
-    <line class="door" x1="-40" y1="-56" x2="-44" y2="-56"/>
-    <line class="door" x1="-26" y1="-114" x2="-30" y2="-114"/>
-    <line class="door" x1="12" y1="-128" x2="12" y2="-124"/>
-    <line class="door" x1="68" y1="-124" x2="68" y2="-128"/>
-    <line class="door" x1="90" y1="-122" x2="86" y2="-122"/>
-    <line class="door" x1="86" y1="-66" x2="90" y2="-66"/>
-    <line class="door" x1="103" y1="-56" x2="99" y2="-56"/>
-    <line class="door" x1="99" y1="0" x2="103" y2="0"/>
-    <line class="door" x1="86" y1="24" x2="86" y2="20"/>
-    <line class="door" x1="22" y1="24" x2="22" y2="20"/>
-    <line class="door" x1="86" y1="20" x2="86" y2="24"/>
-    <line class="door" x1="68" y1="19.6" x2="72" y2="19.6"/>
-    <line class="door" x1="22" y1="20" x2="22" y2="24"/>
-    <line class="door" x1="-2" y1="0" x2="2" y2="0"/>
-    <line class="door" x1="8" y1="14" x2="8" y2="18"/>
-    <line class="door main-door" x1="3" y1="27" x2="-3" y2="27"/>
-    <line class="door" x1="12" y1="-26" x2="12" y2="-30"/>
-    <line class="door" x1="26" y1="-57" x2="26" y2="-53"/>
-    <line class="door" x1="38" y1="-114" x2="42" y2="-114"/>
-    <line class="door" x1="42" y1="-69" x2="38" y2="-69"/>
-    <line class="door" x1="76" y1="-96" x2="76" y2="-92"/>
-    <line class="door" x1="54" y1="-53" x2="54" y2="-57"/>
-    <line class="door" x1="72" y1="19.6" x2="68" y2="19.6"/>
-    <line class="door" x1="45" y1="-41" x2="49" y2="-41"/>
-    <line class="door" x1="8" y1="18" x2="8" y2="14"/>
-    <line class="door" x1="38" y1="-41" x2="42" y2="-41"/></g>
-  <g aria-label="2 planned gallery connections and 8 reserved outward expansion portals"><g data-reservation="reserve:insert-islamic"><polygon class="reservation reservation-insertion" points="-35.4,-123 -35.4,-117 -31.4,-117 -31.4,-123"/><text class="reservation-label" x="-33.4" y="-120">PLAN</text></g>
-    <g data-reservation="reserve:insert-feminist"><polygon class="reservation reservation-insertion" points="92,-61.4 98,-61.4 98,-65.4 92,-65.4"/><text class="reservation-label" x="95" y="-63.4">PLAN</text></g>
-    <g data-reservation="reserve:outward-R1"><polygon class="reservation reservation-outward-expansion" points="-14,16 -14,24 -8,24 -8,16"/><text class="reservation-label" x="-11" y="20">R1</text></g>
-    <g data-reservation="reserve:outward-R2"><polygon class="reservation reservation-outward-expansion" points="-24,-48 -16,-48 -16,-54 -24,-54"/><text class="reservation-label" x="-20" y="-51">R2</text></g>
-    <g data-reservation="reserve:outward-R3"><polygon class="reservation reservation-outward-expansion" points="-9,-128.4 -1,-128.4 -1,-134.4 -9,-134.4"/><text class="reservation-label" x="-5" y="-131.4">R3</text></g>
-    <g data-reservation="reserve:outward-R4"><polygon class="reservation reservation-outward-expansion" points="74,-128.4 82,-128.4 82,-134.4 74,-134.4"/><text class="reservation-label" x="78" y="-131.4">R4</text></g>
-    <g data-reservation="reserve:outward-R5"><polygon class="reservation reservation-outward-expansion" points="79.6,-67 79.6,-59 85.6,-59 85.6,-67"/><text class="reservation-label" x="82.6" y="-63">R5</text></g>
-    <g data-reservation="reserve:outward-R6"><polygon class="reservation reservation-outward-expansion" points="103.4,8 103.4,16 109.4,16 109.4,8"/><text class="reservation-label" x="106.4" y="12">R6</text></g>
-    <g data-reservation="reserve:outward-R7"><polygon class="reservation reservation-outward-expansion" points="12,30.4 20,30.4 20,24.4 12,24.4"/><text class="reservation-label" x="16" y="27.4">R7</text></g>
-    <g data-reservation="reserve:outward-R8"><polygon class="reservation reservation-outward-expansion" points="46,30.4 54,30.4 54,24.4 46,24.4"/><text class="reservation-label" x="50" y="27.4">R8</text></g></g>
-  <g aria-label="Building labels"><text class="label label-hall" x="0" y="-28"><tspan x="0" dy="-.25em">Gallery 01</tspan><tspan class="label-detail" x="0" dy="1.25em">Mediterranean Beginnings</tspan></text>
-    <text class="label label-hall" x="-28" y="-86"><tspan x="-28" dy="-.25em">Gallery 02</tspan><tspan class="label-detail" x="-28" dy="1.25em">Renaissance</tspan></text>
-    <text class="label label-hall" x="40" y="-126"><tspan x="40" dy="-.25em">Gallery 03</tspan><tspan class="label-detail" x="40" dy="1.25em">Phenomenology</tspan></text>
-    <text class="label label-hall" x="88" y="-94"><tspan x="88" dy="-.25em">Gallery 04</tspan><tspan class="label-detail" x="88" dy="1.25em">Analytic Traditions: Logic</tspan></text>
-    <text class="label label-hall" x="101" y="-28"><tspan x="101" dy="-.25em">Gallery 05</tspan><tspan class="label-detail" x="101" dy="1.25em">Political Action</tspan></text>
-    <text class="label label-hall" x="40" y="-55"><tspan x="40" dy="-.25em">Gallery 06</tspan><tspan class="label-detail" x="40" dy="1.25em">Core Questions Forum</tspan></text>
-    <text class="label label-hall" x="-42" y="-28"><tspan x="-42" dy="-.25em">Gallery 07</tspan><tspan class="label-detail" x="-42" dy="1.25em">Classical South Asia: Jain</tspan></text>
-    <text class="label label-entrance" x="0" y="19.5"><tspan x="0" dy="-.25em">Entrance and orientation court</tspan></text></g>
-  <g aria-label="Main entrance"><line class="entrance-line" x1="0" y1="27" x2="0" y2="24.6"/><circle class="entrance-dot" cx="0" cy="27" r="1.4"/><text class="marker-label" x="0" y="31.5" text-anchor="middle">MAIN ENTRANCE</text></g>
-  <g aria-label="Visitor map kiosk" transform="translate(-3.6 -6.6)"><rect class="kiosk" x="-1.2" y="-1.2" width="2.4" height="2.4" transform="rotate(45)"/><text class="marker-label" x="2.6" y=".7">MAP KIOSK</text></g>
-  <text class="caption" x="-58" y="33.5">SOLID · OUTER LOOP   DASHED · FORUM SPOKES   DOTTED · ENTRANCE SHORTCUT</text>
-  <text class="caption" x="-58" y="36">PLAN · 2 PLANNED GALLERY CONNECTIONS   R1–R8 · 8 RESERVED OUTWARD EXPANSION PORTALS</text>
+  <rect class="background" x="-137" y="-120" width="298" height="240"/>
+  <rect fill="url(#minor-grid)" x="-137" y="-120" width="298" height="240"/>
+  <text class="title" x="-133" y="-115.5">RING OF WINGS · LIVE PILOT · 26 OF 26 PLANNED PUBLIC HALLS OPEN · L0</text>
+  <g aria-label="Physical footprints"><polygon class="node node-hall role-gallery" data-node="hall:mediterranean-beginnings-classical" points="-33,82 -89,82 -89,58 -33,58"/>
+    <polygon class="node node-hall role-gallery" data-node="hall:hellenistic-roman-ways" points="-5,84 -33,84 -33,56 -5,56"/>
+    <polygon class="node node-hall role-gallery" data-node="hall:late-antiquity-inheritance" points="61,82 5,82 5,58 61,58"/>
+    <polygon class="node node-hall role-gallery" data-node="hall:classical-south-asian-worlds" points="117,82 61,82 61,58 117,58"/>
+    <polygon class="node node-hall role-gallery" data-node="hall:buddhist-philosophies" points="89,54 33,54 33,30 89,30"/>
+    <polygon class="node node-hall role-gallery" data-node="hall:classical-chinese-traditions" points="33,56 5,56 5,28 33,28"/>
+    <polygon class="node node-hall role-gallery" data-node="hall:east-asian-continuities" points="-5,54 -61,54 -61,30 -5,30"/>
+    <polygon class="node node-hall role-gallery" data-node="hall:islamic-philosophical-worlds" points="-61,54 -117,54 -117,30 -61,30"/>
+    <polygon class="node node-hall role-gallery" data-node="hall:jewish-philosophy" points="-70,24 -94,24 -94,4 -70,4"/>
+    <polygon class="node node-hall role-gallery" data-node="hall:latin-christian-scholastic" points="-14,26 -70,26 -70,2 -14,2"/>
+    <polygon class="node node-hall role-gallery" data-node="hall:core-questions-forum" points="14,28 -14,28 -14,0 14,0"/>
+    <polygon class="node node-hall role-gallery" data-node="hall:renaissance-humanism-new-method" points="70,26 14,26 14,2 70,2"/>
+    <polygon class="node node-hall role-gallery" data-node="hall:rationalism-mind-nature-system" points="126,26 70,26 70,2 126,2"/>
+    <polygon class="node node-hall role-gallery" data-node="hall:empiricism-science-political-order" points="145,-26 145,-2 126.33,-2 126.33,-26"/>
+    <polygon class="node node-hall role-gallery" data-node="hall:empiricism-science-political-order" points="126.33,-26 126.33,-2 107.67,-2 107.67,-26"/>
+    <polygon class="node node-hall role-gallery" data-node="hall:empiricism-science-political-order" points="107.67,-26 107.67,-2 89,-2 89,-26"/>
+    <polygon class="node node-hall role-gallery" data-node="hall:enlightenment-revolution-kant" points="61,-28 89,-28 89,-18 61,-18"/>
+    <polygon class="node node-hall role-gallery" data-node="hall:enlightenment-revolution-kant" points="79,-18 89,-18 89,-10 79,-10"/>
+    <polygon class="node node-hall role-gallery" data-node="hall:enlightenment-revolution-kant" points="61,-10 89,-10 89,0 61,0"/>
+    <polygon class="node node-hall role-gallery" data-node="hall:enlightenment-revolution-kant" points="61,-18 71,-18 71,-10 61,-10"/>
+    <polygon class="node node-hall role-gallery" data-node="hall:enlightenment-revolution-kant" points="71,-18 79,-18 79,-10 71,-10"/>
+    <polygon class="node node-hall role-gallery" data-node="hall:german-idealism-afterlives" points="61,-26 61,-2 47,-2 47,-26"/>
+    <polygon class="node node-hall role-gallery" data-node="hall:german-idealism-afterlives" points="47,-26 47,-2 33,-2 33,-26"/>
+    <polygon class="node node-hall role-gallery" data-node="hall:german-idealism-afterlives" points="33,-26 33,-2 19,-2 19,-26"/>
+    <polygon class="node node-hall role-gallery" data-node="hall:german-idealism-afterlives" points="19,-26 19,-2 5,-2 5,-26"/>
+    <polygon class="node node-hall role-gallery" data-node="hall:utility-liberty-history-capital" points="-5,-26 -5,-2 -19,-2 -19,-26"/>
+    <polygon class="node node-hall role-gallery" data-node="hall:utility-liberty-history-capital" points="-19,-26 -19,-2 -33,-2 -33,-26"/>
+    <polygon class="node node-hall role-gallery" data-node="hall:utility-liberty-history-capital" points="-33,-26 -33,-2 -47,-2 -47,-26"/>
+    <polygon class="node node-hall role-gallery" data-node="hall:utility-liberty-history-capital" points="-47,-26 -47,-2 -61,-2 -61,-26"/>
+    <polygon class="node node-hall role-gallery" data-node="hall:faith-pessimism-life-value" points="-61,-26 -61,-2 -79.67,-2 -79.67,-26"/>
+    <polygon class="node node-hall role-gallery" data-node="hall:faith-pessimism-life-value" points="-79.67,-26 -79.67,-2 -98.33,-2 -98.33,-26"/>
+    <polygon class="node node-hall role-gallery" data-node="hall:faith-pessimism-life-value" points="-98.33,-26 -98.33,-2 -117,-2 -117,-26"/>
+    <polygon class="node node-hall role-gallery" data-node="hall:pragmatism-democratic-inquiry" points="-61,-54 -61,-30 -75,-30 -75,-54"/>
+    <polygon class="node node-hall role-gallery" data-node="hall:pragmatism-democratic-inquiry" points="-75,-54 -75,-30 -89,-30 -89,-54"/>
+    <polygon class="node node-hall role-gallery" data-node="hall:pragmatism-democratic-inquiry" points="-89,-54 -89,-30 -103,-30 -103,-54"/>
+    <polygon class="node node-hall role-gallery" data-node="hall:pragmatism-democratic-inquiry" points="-103,-54 -103,-30 -117,-30 -117,-54"/>
+    <polygon class="node node-hall role-gallery" data-node="hall:analytic-traditions" points="-5,-30 -61,-30 -61,-54 -5,-54"/>
+    <polygon class="node node-hall role-gallery" data-node="hall:phenomenology-existence-embodiment" points="61,-30 5,-30 5,-54 61,-54"/>
+    <polygon class="node node-hall role-gallery" data-node="hall:critique-power-deconstruction" points="61,-56 73,-56 73,-44 61,-44"/>
+    <polygon class="node node-hall role-gallery" data-node="hall:critique-power-deconstruction" points="77,-56 89,-56 89,-44 77,-44"/>
+    <polygon class="node node-hall role-gallery" data-node="hall:critique-power-deconstruction" points="77,-40 89,-40 89,-28 77,-28"/>
+    <polygon class="node node-hall role-gallery" data-node="hall:critique-power-deconstruction" points="61,-40 73,-40 73,-28 61,-28"/>
+    <polygon class="node node-hall role-gallery" data-node="hall:critique-power-deconstruction" points="73,-56 77,-56 77,-44 73,-44"/>
+    <polygon class="node node-hall role-gallery" data-node="hall:critique-power-deconstruction" points="77,-44 89,-44 89,-40 77,-40"/>
+    <polygon class="node node-hall role-gallery" data-node="hall:critique-power-deconstruction" points="73,-40 77,-40 77,-28 73,-28"/>
+    <polygon class="node node-hall role-gallery" data-node="hall:critique-power-deconstruction" points="61,-44 73,-44 73,-40 61,-40"/>
+    <polygon class="node node-hall role-gallery" data-node="hall:critique-power-deconstruction" points="73,-44 77,-44 77,-40 73,-40"/>
+    <polygon class="node node-hall role-gallery" data-node="hall:moral-life-practical-reason" points="61,-84 73,-84 73,-72 61,-72"/>
+    <polygon class="node node-hall role-gallery" data-node="hall:moral-life-practical-reason" points="77,-84 89,-84 89,-72 77,-72"/>
+    <polygon class="node node-hall role-gallery" data-node="hall:moral-life-practical-reason" points="77,-68 89,-68 89,-56 77,-56"/>
+    <polygon class="node node-hall role-gallery" data-node="hall:moral-life-practical-reason" points="61,-68 73,-68 73,-56 61,-56"/>
+    <polygon class="node node-hall role-gallery" data-node="hall:moral-life-practical-reason" points="73,-84 77,-84 77,-72 73,-72"/>
+    <polygon class="node node-hall role-gallery" data-node="hall:moral-life-practical-reason" points="77,-72 89,-72 89,-68 77,-68"/>
+    <polygon class="node node-hall role-gallery" data-node="hall:moral-life-practical-reason" points="73,-68 77,-68 77,-56 73,-56"/>
+    <polygon class="node node-hall role-gallery" data-node="hall:moral-life-practical-reason" points="61,-72 73,-72 73,-68 61,-68"/>
+    <polygon class="node node-hall role-gallery" data-node="hall:moral-life-practical-reason" points="73,-72 77,-72 77,-68 73,-68"/>
+    <polygon class="node node-hall role-gallery" data-node="hall:justice-democratic-reason" points="61,-58 5,-58 5,-82 61,-82"/>
+    <polygon class="node node-hall role-gallery" data-node="hall:feminist-philosophies" points="-33,-84 -21,-84 -21,-72 -33,-72"/>
+    <polygon class="node node-hall role-gallery" data-node="hall:feminist-philosophies" points="-17,-84 -5,-84 -5,-72 -17,-72"/>
+    <polygon class="node node-hall role-gallery" data-node="hall:feminist-philosophies" points="-17,-68 -5,-68 -5,-56 -17,-56"/>
+    <polygon class="node node-hall role-gallery" data-node="hall:feminist-philosophies" points="-33,-68 -21,-68 -21,-56 -33,-56"/>
+    <polygon class="node node-hall role-gallery" data-node="hall:feminist-philosophies" points="-21,-84 -17,-84 -17,-72 -21,-72"/>
+    <polygon class="node node-hall role-gallery" data-node="hall:feminist-philosophies" points="-17,-72 -5,-72 -5,-68 -17,-68"/>
+    <polygon class="node node-hall role-gallery" data-node="hall:feminist-philosophies" points="-21,-68 -17,-68 -17,-56 -21,-56"/>
+    <polygon class="node node-hall role-gallery" data-node="hall:feminist-philosophies" points="-33,-72 -21,-72 -21,-68 -33,-68"/>
+    <polygon class="node node-hall role-gallery" data-node="hall:feminist-philosophies" points="-21,-72 -17,-72 -17,-68 -21,-68"/>
+    <polygon class="node node-hall role-gallery" data-node="hall:colonialism-race-liberation" points="-33,-82 -33,-58 -51.67,-58 -51.67,-82"/>
+    <polygon class="node node-hall role-gallery" data-node="hall:colonialism-race-liberation" points="-51.67,-82 -51.67,-58 -70.33,-58 -70.33,-82"/>
+    <polygon class="node node-hall role-gallery" data-node="hall:colonialism-race-liberation" points="-70.33,-82 -70.33,-58 -89,-58 -89,-82"/>
+    <polygon class="node node-entrance role-grand-entrance-orientation" data-node="place:grand-entrance-orientation" points="-89,112 -129,112 -129,56 -89,56"/>
+    <polygon class="node node-crossing role-crosscut-intersection" data-node="crossing:band-01" points="5,84 -5,84 -5,56 5,56"/>
+    <polygon class="node node-crossing role-crosscut-intersection" data-node="crossing:band-02" points="5,56 -5,56 -5,28 5,28"/>
+    <polygon class="node node-crossing role-crosscut-intersection" data-node="crossing:band-04" points="5,0 -5,0 -5,-28 5,-28"/>
+    <polygon class="node node-crossing role-crosscut-intersection" data-node="crossing:band-05" points="5,-28 -5,-28 -5,-56 5,-56"/>
+    <polygon class="node node-crossing role-crosscut-intersection" data-node="crossing:band-06" points="5,-56 -5,-56 -5,-84 5,-84"/>
+    <polygon class="node node-turn-court role-turn-court" data-node="turn:band-01-to-02" points="121,74 117,74 117,66 121,66"/>
+    <polygon class="node node-turn-court role-turn-court" data-node="turn:band-01-to-02" points="129,74 121,74 121,38 129,38"/>
+    <polygon class="node node-turn-court role-turn-court" data-node="turn:band-01-to-02" points="121,46 89,46 89,38 121,38"/>
+    <polygon class="node node-turn-court role-turn-court" data-node="turn:band-02-to-03" points="-117,46 -121,46 -121,38 -117,38"/>
+    <polygon class="node node-turn-court role-turn-court" data-node="turn:band-02-to-03" points="-121,46 -129,46 -129,10 -121,10"/>
+    <polygon class="node node-turn-court role-turn-court" data-node="turn:band-02-to-03" points="-94,18 -121,18 -121,10 -94,10"/>
+    <polygon class="node node-turn-court role-turn-court" data-node="turn:band-03-to-04" points="145,18 126,18 126,10 145,10"/>
+    <polygon class="node node-turn-court role-turn-court" data-node="turn:band-03-to-04" points="153,18 145,18 145,-18 153,-18"/>
+    <polygon class="node node-turn-court role-turn-court" data-node="turn:band-04-to-05" points="-117,-10 -121,-10 -121,-18 -117,-18"/>
+    <polygon class="node node-turn-court role-turn-court" data-node="turn:band-04-to-05" points="-121,-10 -129,-10 -129,-46 -121,-46"/>
+    <polygon class="node node-turn-court role-turn-court" data-node="turn:band-04-to-05" points="-117,-38 -121,-38 -121,-46 -117,-46"/>
+    <polygon class="node node-turn-court role-turn-court" data-node="turn:band-05-to-06" points="93,-38 89,-38 89,-46 93,-46"/>
+    <polygon class="node node-turn-court role-turn-court" data-node="turn:band-05-to-06" points="101,-38 93,-38 93,-74 101,-74"/>
+    <polygon class="node node-turn-court role-turn-court" data-node="turn:band-05-to-06" points="93,-66 89,-66 89,-74 93,-74"/>
+    <polygon class="node node-final-threshold role-final-return-threshold" data-node="place:final-return-threshold" points="-89,-56 -101,-56 -101,-84 -89,-84"/>
+    <polygon class="node node-reserve-extension role-crosscut-north-extension" data-node="route:north-south-crosscut:north-extension" points="5,-84 -5,-84 -5,-112 5,-112"/></g>
+  <g aria-label="Walkable connections"><polyline class="edge edge-through-route" data-connection="conn:through:00:entrance-&gt;mediterranean-beginnings-classical" points="-91,70 -89,70 -87,70"/>
+    <polyline class="edge edge-through-route" data-connection="conn:through:01:mediterranean-beginnings-classical-&gt;hellenistic-roman-ways" points="-35,70 -33,70 -31,70"/>
+    <polyline class="edge edge-through-route" data-connection="conn:through:02:hellenistic-roman-ways-&gt;crossing:band-01" points="-7,70 -5,70 -3,70"/>
+    <polyline class="edge edge-through-route" data-connection="conn:through:03:crossing:band-01-&gt;late-antiquity-inheritance" points="3,70 5,70 7,70"/>
+    <polyline class="edge edge-through-route" data-connection="conn:through:04:late-antiquity-inheritance-&gt;classical-south-asian-worlds" points="59,70 61,70 63,70"/>
+    <polyline class="edge edge-through-route" data-connection="conn:through:05:classical-south-asian-worlds-&gt;turn:band-01-to-02" points="115,70 117,70 119,70"/>
+    <polyline class="edge edge-through-route" data-connection="conn:through:06:turn:band-01-to-02-&gt;buddhist-philosophies" points="91,42 89,42 87,42"/>
+    <polyline class="edge edge-through-route" data-connection="conn:through:07:buddhist-philosophies-&gt;classical-chinese-traditions" points="35,42 33,42 31,42"/>
+    <polyline class="edge edge-through-route" data-connection="conn:through:08:classical-chinese-traditions-&gt;crossing:band-02" points="7,42 5,42 3,42"/>
+    <polyline class="edge edge-through-route" data-connection="conn:through:09:crossing:band-02-&gt;east-asian-continuities" points="-3,42 -5,42 -7,42"/>
+    <polyline class="edge edge-through-route" data-connection="conn:through:10:east-asian-continuities-&gt;islamic-philosophical-worlds" points="-59,42 -61,42 -63,42"/>
+    <polyline class="edge edge-through-route" data-connection="conn:through:11:islamic-philosophical-worlds-&gt;turn:band-02-to-03" points="-115,42 -117,42 -119,42"/>
+    <polyline class="edge edge-through-route" data-connection="conn:through:12:turn:band-02-to-03-&gt;jewish-philosophy" points="-96,14 -94,14 -92,14"/>
+    <polyline class="edge edge-through-route" data-connection="conn:through:13:jewish-philosophy-&gt;latin-christian-scholastic" points="-72,14 -70,14 -68,14"/>
+    <polyline class="edge edge-through-route" data-connection="conn:through:14:latin-christian-scholastic-&gt;core-questions-forum" points="-16,14 -14,14 -12,14"/>
+    <polyline class="edge edge-through-route" data-connection="conn:through:15:core-questions-forum-&gt;renaissance-humanism-new-method" points="12,14 14,14 16,14"/>
+    <polyline class="edge edge-through-route" data-connection="conn:through:16:renaissance-humanism-new-method-&gt;rationalism-mind-nature-system" points="68,14 70,14 72,14"/>
+    <polyline class="edge edge-through-route" data-connection="conn:through:17:rationalism-mind-nature-system-&gt;turn:band-03-to-04" points="124,14 126,14 128,14"/>
+    <polyline class="edge edge-through-route" data-connection="conn:through:18:turn:band-03-to-04-&gt;empiricism-science-political-order" points="147,-14 145,-14 143,-14"/>
+    <polyline class="edge edge-through-route" data-connection="conn:through:19:empiricism-science-political-order-&gt;enlightenment-revolution-kant" points="91,-14 89,-14 87,-14"/>
+    <polyline class="edge edge-through-route" data-connection="conn:through:20:enlightenment-revolution-kant-&gt;german-idealism-afterlives" points="63,-14 61,-14 59,-14"/>
+    <polyline class="edge edge-through-route" data-connection="conn:through:21:german-idealism-afterlives-&gt;crossing:band-04" points="7,-14 5,-14 3,-14"/>
+    <polyline class="edge edge-through-route" data-connection="conn:through:22:crossing:band-04-&gt;utility-liberty-history-capital" points="-3,-14 -5,-14 -7,-14"/>
+    <polyline class="edge edge-through-route" data-connection="conn:through:23:utility-liberty-history-capital-&gt;faith-pessimism-life-value" points="-59,-14 -61,-14 -63,-14"/>
+    <polyline class="edge edge-through-route" data-connection="conn:through:24:faith-pessimism-life-value-&gt;turn:band-04-to-05" points="-115,-14 -117,-14 -119,-14"/>
+    <polyline class="edge edge-through-route" data-connection="conn:through:25:turn:band-04-to-05-&gt;pragmatism-democratic-inquiry" points="-119,-42 -117,-42 -115,-42"/>
+    <polyline class="edge edge-through-route" data-connection="conn:through:26:pragmatism-democratic-inquiry-&gt;analytic-traditions" points="-63,-42 -61,-42 -59,-42"/>
+    <polyline class="edge edge-through-route" data-connection="conn:through:27:analytic-traditions-&gt;crossing:band-05" points="-7,-42 -5,-42 -3,-42"/>
+    <polyline class="edge edge-through-route" data-connection="conn:through:28:crossing:band-05-&gt;phenomenology-existence-embodiment" points="3,-42 5,-42 7,-42"/>
+    <polyline class="edge edge-through-route" data-connection="conn:through:29:phenomenology-existence-embodiment-&gt;critique-power-deconstruction" points="59,-42 61,-42 63,-42"/>
+    <polyline class="edge edge-through-route" data-connection="conn:through:30:critique-power-deconstruction-&gt;turn:band-05-to-06" points="87,-42 89,-42 91,-42"/>
+    <polyline class="edge edge-through-route" data-connection="conn:through:31:turn:band-05-to-06-&gt;moral-life-practical-reason" points="91,-70 89,-70 87,-70"/>
+    <polyline class="edge edge-through-route" data-connection="conn:through:32:moral-life-practical-reason-&gt;justice-democratic-reason" points="63,-70 61,-70 59,-70"/>
+    <polyline class="edge edge-through-route" data-connection="conn:through:33:justice-democratic-reason-&gt;crossing:band-06" points="7,-70 5,-70 3,-70"/>
+    <polyline class="edge edge-through-route" data-connection="conn:through:34:crossing:band-06-&gt;feminist-philosophies" points="-3,-70 -5,-70 -7,-70"/>
+    <polyline class="edge edge-through-route" data-connection="conn:through:35:feminist-philosophies-&gt;colonialism-race-liberation" points="-31,-70 -33,-70 -35,-70"/>
+    <polyline class="edge edge-through-route" data-connection="conn:through:36:colonialism-race-liberation-&gt;final-threshold" points="-87,-70 -89,-70 -91,-70"/>
+    <polyline class="edge edge-crosscut" data-connection="conn:crosscut:01" points="0,58 0,56 0,54"/>
+    <polyline class="edge edge-crosscut" data-connection="conn:crosscut:02" points="0,30 0,28 0,26"/>
+    <polyline class="edge edge-crosscut" data-connection="conn:crosscut:03" points="0,2 0,0 0,-2"/>
+    <polyline class="edge edge-crosscut" data-connection="conn:crosscut:04" points="0,-26 0,-28 0,-30"/>
+    <polyline class="edge edge-crosscut" data-connection="conn:crosscut:05" points="0,-54 0,-56 0,-58"/>
+    <polyline class="edge edge-crosscut" data-connection="conn:crosscut:06" points="0,-82 0,-84 0,-86"/></g>
+  <g aria-label="Active doorways"><line class="door" x1="-33" y1="72" x2="-33" y2="68"/>
+    <line class="door" x1="-89" y1="68" x2="-89" y2="72"/>
+    <line class="door" x1="-5" y1="72" x2="-5" y2="68"/>
+    <line class="door" x1="-33" y1="68" x2="-33" y2="72"/>
+    <line class="door" x1="61" y1="72" x2="61" y2="68"/>
+    <line class="door" x1="5" y1="68" x2="5" y2="72"/>
+    <line class="door" x1="117" y1="72" x2="117" y2="68"/>
+    <line class="door" x1="61" y1="68" x2="61" y2="72"/>
+    <line class="door" x1="89" y1="44" x2="89" y2="40"/>
+    <line class="door" x1="33" y1="40" x2="33" y2="44"/>
+    <line class="door" x1="33" y1="44" x2="33" y2="40"/>
+    <line class="door" x1="5" y1="40" x2="5" y2="44"/>
+    <line class="door" x1="-5" y1="44" x2="-5" y2="40"/>
+    <line class="door" x1="-61" y1="40" x2="-61" y2="44"/>
+    <line class="door" x1="-61" y1="44" x2="-61" y2="40"/>
+    <line class="door" x1="-117" y1="40" x2="-117" y2="44"/>
+    <line class="door" x1="-70" y1="16" x2="-70" y2="12"/>
+    <line class="door" x1="-94" y1="12" x2="-94" y2="16"/>
+    <line class="door" x1="-14" y1="16" x2="-14" y2="12"/>
+    <line class="door" x1="-70" y1="12" x2="-70" y2="16"/>
+    <line class="door" x1="5" y1="0" x2="-5" y2="0"/>
+    <line class="door" x1="-5" y1="28" x2="5" y2="28"/>
+    <line class="door" x1="14" y1="16" x2="14" y2="12"/>
+    <line class="door" x1="-14" y1="12" x2="-14" y2="16"/>
+    <line class="door" x1="70" y1="16" x2="70" y2="12"/>
+    <line class="door" x1="14" y1="12" x2="14" y2="16"/>
+    <line class="door" x1="126" y1="16" x2="126" y2="12"/>
+    <line class="door" x1="70" y1="12" x2="70" y2="16"/>
+    <line class="door" x1="145" y1="-12" x2="145" y2="-16"/>
+    <line class="door" x1="89" y1="-16" x2="89" y2="-12"/>
+    <line class="door" x1="89" y1="-12" x2="89" y2="-16"/>
+    <line class="door" x1="61" y1="-16" x2="61" y2="-12"/>
+    <line class="door" x1="61" y1="-12" x2="61" y2="-16"/>
+    <line class="door" x1="5" y1="-16" x2="5" y2="-12"/>
+    <line class="door" x1="-5" y1="-12" x2="-5" y2="-16"/>
+    <line class="door" x1="-61" y1="-16" x2="-61" y2="-12"/>
+    <line class="door" x1="-61" y1="-12" x2="-61" y2="-16"/>
+    <line class="door" x1="-117" y1="-16" x2="-117" y2="-12"/>
+    <line class="door" x1="-61" y1="-40" x2="-61" y2="-44"/>
+    <line class="door" x1="-117" y1="-44" x2="-117" y2="-40"/>
+    <line class="door" x1="-5" y1="-40" x2="-5" y2="-44"/>
+    <line class="door" x1="-61" y1="-44" x2="-61" y2="-40"/>
+    <line class="door" x1="61" y1="-40" x2="61" y2="-44"/>
+    <line class="door" x1="5" y1="-44" x2="5" y2="-40"/>
+    <line class="door" x1="89" y1="-40" x2="89" y2="-44"/>
+    <line class="door" x1="61" y1="-44" x2="61" y2="-40"/>
+    <line class="door" x1="89" y1="-68" x2="89" y2="-72"/>
+    <line class="door" x1="61" y1="-72" x2="61" y2="-68"/>
+    <line class="door" x1="61" y1="-68" x2="61" y2="-72"/>
+    <line class="door" x1="5" y1="-72" x2="5" y2="-68"/>
+    <line class="door" x1="-5" y1="-68" x2="-5" y2="-72"/>
+    <line class="door" x1="-33" y1="-72" x2="-33" y2="-68"/>
+    <line class="door" x1="-33" y1="-68" x2="-33" y2="-72"/>
+    <line class="door" x1="-89" y1="-72" x2="-89" y2="-68"/>
+    <line class="door main-door" x1="-129" y1="82" x2="-129" y2="86"/>
+    <line class="door" x1="-89" y1="72" x2="-89" y2="68"/>
+    <line class="door" x1="-5" y1="68" x2="-5" y2="72"/>
+    <line class="door" x1="5" y1="72" x2="5" y2="68"/>
+    <line class="door" x1="5" y1="56" x2="-5" y2="56"/>
+    <line class="door" x1="-5" y1="40" x2="-5" y2="44"/>
+    <line class="door" x1="5" y1="44" x2="5" y2="40"/>
+    <line class="door" x1="-5" y1="56" x2="5" y2="56"/>
+    <line class="door" x1="5" y1="28" x2="-5" y2="28"/>
+    <line class="door" x1="-5" y1="-16" x2="-5" y2="-12"/>
+    <line class="door" x1="5" y1="-12" x2="5" y2="-16"/>
+    <line class="door" x1="-5" y1="0" x2="5" y2="0"/>
+    <line class="door" x1="5" y1="-28" x2="-5" y2="-28"/>
+    <line class="door" x1="-5" y1="-44" x2="-5" y2="-40"/>
+    <line class="door" x1="5" y1="-40" x2="5" y2="-44"/>
+    <line class="door" x1="-5" y1="-28" x2="5" y2="-28"/>
+    <line class="door" x1="5" y1="-56" x2="-5" y2="-56"/>
+    <line class="door" x1="-5" y1="-72" x2="-5" y2="-68"/>
+    <line class="door" x1="5" y1="-68" x2="5" y2="-72"/>
+    <line class="door" x1="-5" y1="-56" x2="5" y2="-56"/>
+    <line class="door" x1="5" y1="-84" x2="-5" y2="-84"/>
+    <line class="door" x1="117" y1="68" x2="117" y2="72"/>
+    <line class="door" x1="89" y1="40" x2="89" y2="44"/>
+    <line class="door" x1="-117" y1="44" x2="-117" y2="40"/>
+    <line class="door" x1="-94" y1="16" x2="-94" y2="12"/>
+    <line class="door" x1="126" y1="12" x2="126" y2="16"/>
+    <line class="door" x1="145" y1="-16" x2="145" y2="-12"/>
+    <line class="door" x1="-117" y1="-12" x2="-117" y2="-16"/>
+    <line class="door" x1="-117" y1="-40" x2="-117" y2="-44"/>
+    <line class="door" x1="89" y1="-44" x2="89" y2="-40"/>
+    <line class="door" x1="89" y1="-72" x2="89" y2="-68"/>
+    <line class="door" x1="-89" y1="-68" x2="-89" y2="-72"/>
+    <line class="door" x1="-5" y1="-84" x2="5" y2="-84"/></g>
+  <g aria-label="0 planned gallery connections and 0 reserved outward expansion portals"><g data-reservation="reserve:north-west-gallery"><polygon class="reservation reservation-gallery-reserve" points="-5,-84 -61,-84 -61,-112 -5,-112"/><text class="reservation-label" x="-33" y="-98">undefined</text></g>
+    <g data-reservation="reserve:north-east-gallery"><polygon class="reservation reservation-gallery-reserve" points="61,-84 5,-84 5,-112 61,-112"/><text class="reservation-label" x="33" y="-98">undefined</text></g></g>
+  <g aria-label="Building labels"><text class="label label-hall" x="-61" y="70"><tspan x="-61" dy="-.25em">Gallery 01</tspan><tspan class="label-detail" x="-61" dy="1.25em">Mediterranean Beginnings</tspan></text>
+    <text class="label label-hall" x="-19" y="70"><tspan x="-19" dy="-.25em">Gallery 14</tspan><tspan class="label-detail" x="-19" dy="1.25em">Hellenistic</tspan></text>
+    <text class="label label-hall" x="33" y="70"><tspan x="33" dy="-.25em">Gallery 15</tspan><tspan class="label-detail" x="33" dy="1.25em">Late Antiquity</tspan></text>
+    <text class="label label-hall" x="89" y="70"><tspan x="89" dy="-.25em">Gallery 07</tspan><tspan class="label-detail" x="89" dy="1.25em">Classical South Asia: Jain</tspan></text>
+    <text class="label label-hall" x="61" y="42"><tspan x="61" dy="-.25em">Gallery 08</tspan><tspan class="label-detail" x="61" dy="1.25em">Buddhist Philosophies of Liberation and Knowledge</tspan></text>
+    <text class="label label-hall" x="19" y="42"><tspan x="19" dy="-.25em">Gallery 09</tspan><tspan class="label-detail" x="19" dy="1.25em">Warring States</tspan></text>
+    <text class="label label-hall" x="-33" y="42"><tspan x="-33" dy="-.25em">Gallery 11</tspan><tspan class="label-detail" x="-33" dy="1.25em">Confucian Renewal</tspan></text>
+    <text class="label label-hall" x="-89" y="42"><tspan x="-89" dy="-.25em">Gallery 10</tspan><tspan class="label-detail" x="-89" dy="1.25em">Arabic</tspan></text>
+    <text class="label label-hall" x="-82" y="14"><tspan x="-82" dy="-.25em">Gallery 12</tspan><tspan class="label-detail" x="-82" dy="1.25em">Jewish Philosophy in Arabic-Speaking</tspan></text>
+    <text class="label label-hall" x="-42" y="14"><tspan x="-42" dy="-.25em">Gallery 13</tspan><tspan class="label-detail" x="-42" dy="1.25em">Latin Christian</tspan></text>
+    <text class="label label-hall" x="0" y="14"><tspan x="0" dy="-.25em">Gallery 06</tspan><tspan class="label-detail" x="0" dy="1.25em">Core Questions Forum</tspan></text>
+    <text class="label label-hall" x="42" y="14"><tspan x="42" dy="-.25em">Gallery 02</tspan><tspan class="label-detail" x="42" dy="1.25em">Renaissance</tspan></text>
+    <text class="label label-hall" x="98" y="14"><tspan x="98" dy="-.25em">Gallery 16</tspan><tspan class="label-detail" x="98" dy="1.25em">Rationalism: Mind</tspan></text>
+    <text class="label label-hall" x="135.67" y="-14"><tspan x="135.67" dy="-.25em">Gallery 17</tspan><tspan class="label-detail" x="135.67" dy="1.25em">Empiricism, Science, and Political Order</tspan></text>
+    <text class="label label-hall" x="75" y="-5"><tspan x="75" dy="-.25em">Gallery 18</tspan><tspan class="label-detail" x="75" dy="1.25em">Enlightenment, Revolution, and Kant’s Critical Turn</tspan></text>
+    <text class="label label-hall" x="40" y="-14"><tspan x="40" dy="-.25em">Gallery 19</tspan><tspan class="label-detail" x="40" dy="1.25em">German Idealism &amp; Romantic Afterlives</tspan></text>
+    <text class="label label-hall" x="-12" y="-14"><tspan x="-12" dy="-.25em">Gallery 20</tspan><tspan class="label-detail" x="-12" dy="1.25em">Utility, Liberty, History, and Capital</tspan></text>
+    <text class="label label-hall" x="-70.33" y="-14"><tspan x="-70.33" dy="-.25em">Gallery 21</tspan><tspan class="label-detail" x="-70.33" dy="1.25em">Faith, Pessimism, Life, and Value</tspan></text>
+    <text class="label label-hall" x="-110" y="-42"><tspan x="-110" dy="-.25em">Gallery 22</tspan><tspan class="label-detail" x="-110" dy="1.25em">Pragmatism, Science, and Democratic Inquiry</tspan></text>
+    <text class="label label-hall" x="-33" y="-42"><tspan x="-33" dy="-.25em">Gallery 04</tspan><tspan class="label-detail" x="-33" dy="1.25em">Analytic Traditions: Logic</tspan></text>
+    <text class="label label-hall" x="33" y="-42"><tspan x="33" dy="-.25em">Gallery 03</tspan><tspan class="label-detail" x="33" dy="1.25em">Phenomenology</tspan></text>
+    <text class="label label-hall" x="83" y="-50"><tspan x="83" dy="-.25em">Gallery 23</tspan><tspan class="label-detail" x="83" dy="1.25em">Critique, Power, and Deconstruction</tspan></text>
+    <text class="label label-hall" x="83" y="-62"><tspan x="83" dy="-.25em">Gallery 24</tspan><tspan class="label-detail" x="83" dy="1.25em">Moral Life &amp; Practical Reason</tspan></text>
+    <text class="label label-hall" x="33" y="-70"><tspan x="33" dy="-.25em">Gallery 05</tspan><tspan class="label-detail" x="33" dy="1.25em">Political Action</tspan></text>
+    <text class="label label-hall" x="-27" y="-62"><tspan x="-27" dy="-.25em">Gallery 25</tspan><tspan class="label-detail" x="-27" dy="1.25em">Feminist Philosophies</tspan></text>
+    <text class="label label-hall" x="-42.33" y="-70"><tspan x="-42.33" dy="-.25em">Gallery 26</tspan><tspan class="label-detail" x="-42.33" dy="1.25em">Colonialism, Race, and Liberation</tspan></text>
+    <text class="label label-entrance" x="-109" y="84"><tspan x="-109" dy="-.25em">Grand Entrance &amp; Orientation Hall</tspan></text>
+    <text class="label label-crossing" x="0" y="70"><tspan x="0" dy="-.25em">North–South crosscut</tspan><tspan class="label-detail" x="0" dy="1.25em">band-01</tspan></text>
+    <text class="label label-crossing" x="0" y="42"><tspan x="0" dy="-.25em">North–South crosscut</tspan><tspan class="label-detail" x="0" dy="1.25em">band-02</tspan></text>
+    <text class="label label-crossing" x="0" y="-14"><tspan x="0" dy="-.25em">North–South crosscut</tspan><tspan class="label-detail" x="0" dy="1.25em">band-04</tspan></text>
+    <text class="label label-crossing" x="0" y="-42"><tspan x="0" dy="-.25em">North–South crosscut</tspan><tspan class="label-detail" x="0" dy="1.25em">band-05</tspan></text>
+    <text class="label label-crossing" x="0" y="-70"><tspan x="0" dy="-.25em">North–South crosscut</tspan><tspan class="label-detail" x="0" dy="1.25em">band-06</tspan></text>
+    <text class="label label-turn-court" x="125" y="56"><tspan x="125" dy="-.25em">Turn court</tspan><tspan class="label-detail" x="125" dy="1.25em">Galleries 07–08</tspan></text>
+    <text class="label label-turn-court" x="-125" y="28"><tspan x="-125" dy="-.25em">Turn court</tspan><tspan class="label-detail" x="-125" dy="1.25em">Galleries 10–12</tspan></text>
+    <text class="label label-turn-court" x="149" y="0"><tspan x="149" dy="-.25em">Turn court</tspan><tspan class="label-detail" x="149" dy="1.25em">Galleries 16–17</tspan></text>
+    <text class="label label-turn-court" x="-125" y="-28"><tspan x="-125" dy="-.25em">Turn court</tspan><tspan class="label-detail" x="-125" dy="1.25em">Galleries 21–22</tspan></text>
+    <text class="label label-turn-court" x="97" y="-56"><tspan x="97" dy="-.25em">Turn court</tspan><tspan class="label-detail" x="97" dy="1.25em">Galleries 23–24</tspan></text>
+    <text class="label label-final-threshold" x="-95" y="-70"><tspan x="-95" dy="-.25em">Final Return / Exit Threshold</tspan></text>
+    <text class="label label-reserve-extension" x="0" y="-98"><tspan x="0" dy="-.25em">North–South Collection Crosscut</tspan><tspan class="label-detail" x="0" dy="1.25em">closed-reserve extension</tspan></text></g>
+  <g aria-label="Main entrance"><line class="entrance-line" x1="-129" y1="84" x2="-126.6" y2="84"/><circle class="entrance-dot" cx="-129" cy="84" r="1.4"/><text class="marker-label" x="-129" y="88.5" text-anchor="middle">MAIN ENTRANCE</text></g>
+  <g aria-label="Visitor map kiosk" transform="translate(-119 93)"><rect class="kiosk" x="-1.2" y="-1.2" width="2.4" height="2.4" transform="rotate(45)"/><text class="marker-label" x="2.6" y=".7">MAP KIOSK</text></g>
+  <text class="caption" x="-133" y="115.1">SOLID · OUTER LOOP   DASHED · FORUM SPOKES   DOTTED · ENTRANCE SHORTCUT</text>
+  <text class="caption" x="-133" y="117.6">PLAN · 0 PLANNED GALLERY CONNECTIONS   R1–R8 · 0 RESERVED OUTWARD EXPANSION PORTALS</text>
 </svg>

@@ -28,8 +28,10 @@ export const MUSEUM_CANONICAL_HALL_IDS = [
   'islamic-philosophical-worlds',
   'east-asian-continuities',
   'jewish-philosophy',
+  'latin-christian-scholastic',
   'hellenistic-roman-ways',
   'late-antiquity-inheritance',
+  'rationalism-mind-nature-system',
 ] as const;
 
 export type MuseumCanonicalHallId = (typeof MUSEUM_CANONICAL_HALL_IDS)[number];
@@ -130,6 +132,10 @@ export const MUSEUM_CANONICAL_ROOM_IDS = [
   'east-regional-continuities-reserve',
   'jewish-reason-revelation',
   'jewish-maimonidean-crossroads',
+  'latin-transmission-carolingian',
+  'latin-dialectic-early-scholastic',
+  'latin-high-scholastic',
+  'latin-late-debates',
   'hell-cynic-way',
   'hell-epicurean-garden',
   'hell-stoic-stoa',
@@ -137,6 +143,9 @@ export const MUSEUM_CANONICAL_ROOM_IDS = [
   'late-neoplatonic-systems',
   'late-christian-platonisms',
   'late-commentary-transmission',
+  'rationalism-cartesian-foundations',
+  'rationalism-spinoza-conway',
+  'rationalism-leibniz-system',
 ] as const;
 
 export type MuseumCanonicalRoomId = (typeof MUSEUM_CANONICAL_ROOM_IDS)[number];
@@ -210,8 +219,7 @@ export type MuseumCanonicalHall = {
 
 /**
  * Gallery numbers are stable release identities, not array indexes or physical
- * visit positions. Galleries 14 and 15 can therefore open while the already
- * assigned Gallery 13 remains planned.
+ * visit positions.
  */
 export const MUSEUM_PUBLIC_GALLERY_NUMBERS = {
   'mediterranean-beginnings-classical': 1,
@@ -226,8 +234,10 @@ export const MUSEUM_PUBLIC_GALLERY_NUMBERS = {
   'islamic-philosophical-worlds': 10,
   'east-asian-continuities': 11,
   'jewish-philosophy': 12,
+  'latin-christian-scholastic': 13,
   'hellenistic-roman-ways': 14,
   'late-antiquity-inheritance': 15,
+  'rationalism-mind-nature-system': 16,
 } as const satisfies Readonly<Record<MuseumCanonicalHallId, number>>;
 
 const exhibit = <const Record extends MuseumCanonicalExhibit>(record: Record) => ({
@@ -624,6 +634,35 @@ export const MUSEUM_CANONICAL_PROGRAM = [
     ],
   },
   {
+    id: 'latin-christian-scholastic',
+    wingId: 'wing-medieval-connected-worlds',
+    title: 'Latin Christian & Scholastic Traditions',
+    templateId: 'sequence-3',
+    period: '6th–14th centuries, with late-antique inheritances',
+    description: 'Follow translation and reconstruction after Late Antiquity, the growth of dialectical and university practices, Aquinas’s connected intellectual world, and late-medieval disputes over universals, freedom, mystical theology, poverty, and political authority.',
+    recordCapacity: 14,
+    rooms: [
+      {id: 'latin-transmission-carolingian', title: 'Late-antique transmission and Carolingian reception', recordCapacity: 3, exhibits: [
+        exhibit({id: 'boethius', entityKind: 'philosopher', entityId: 'boethius', displayName: 'Boethius: Logic, Fortune, and a Double Transmission', tier: 'standard-individual-exhibit', question: 'How could one author reshape Greek logical learning in Latin and stage Philosophy as a guide through fortune, providence, and freedom?', secondaryHallIds: ['late-antiquity-inheritance'], principalAssetId: 'scholastic-boethius-miniature'}),
+        exhibit({id: 'eriugena', entityKind: 'philosopher', entityId: 'eriugena', displayName: 'John Scotus Eriugena: Translation, Nature, and Return', tier: 'standard-individual-exhibit', question: 'How can translation, negative theology, and a dialogue about nature reconstruct Greek Christian sources in a Carolingian setting?', secondaryHallIds: ['core-questions-forum'], principalAssetId: 'scholastic-eriugena-stained-glass'}),
+      ]},
+      {id: 'latin-dialectic-early-scholastic', title: 'Monastic reason, dialectic, and early scholastic practice', recordCapacity: 4, exhibits: [
+        exhibit({id: 'medieval-scholasticism', entityKind: 'branch', entityId: 'medieval-scholasticism', displayName: 'Scholasticism: Reading, Questioning, and Disputation', tier: 'anchor-exhibit', question: 'How did shared practices of reading authorities, posing questions, making distinctions, and disputing objections organize several rival intellectual projects?', secondaryHallIds: ['core-questions-forum', 'islamic-philosophical-worlds', 'jewish-philosophy'], principalAssetId: 'scholastic-university-lecture'}),
+        exhibit({id: 'anselm', entityKind: 'philosopher', entityId: 'anselm', displayName: 'Anselm: Faith Seeking Understanding', tier: 'standard-individual-exhibit', question: 'How can prayer, conceptual analysis, freedom, truth, and reflection on divine necessity belong to one inquiry?', secondaryHallIds: ['core-questions-forum'], principalAssetId: 'scholastic-anselm-cur-deus-homo'}),
+        exhibit({id: 'abelard', entityKind: 'philosopher', entityId: 'abelard', displayName: 'Peter Abelard: Dialectic, Intention, and Conflicting Authorities', tier: 'standard-individual-exhibit', question: 'What can disciplined contradiction reveal about language, universals, moral intention, and the interpretation of authorities?', secondaryHallIds: ['core-questions-forum'], principalAssetId: 'scholastic-abelard-heloise-manuscript'}),
+      ]},
+      {id: 'latin-high-scholastic', title: 'High university synthesis and contest', recordCapacity: 2, exhibits: [
+        exhibit({id: 'aquinas', entityKind: 'philosopher', entityId: 'aquinas', displayName: 'Thomas Aquinas: Creation, Causation, Virtue, and Law', tier: 'anchor-exhibit', question: 'How can Aristotelian philosophy, Christian theology, and arguments inherited through Arabic and Jewish thinkers be transformed within a university synthesis?', secondaryHallIds: ['core-questions-forum'], principalAssetId: 'scholastic-aquinas-crivelli'}),
+      ]},
+      {id: 'latin-late-debates', title: 'Late scholastic alternatives, mysticism, and political conflict', recordCapacity: 5, exhibits: [
+        exhibit({id: 'duns-scotus', entityKind: 'philosopher', entityId: 'duns-scotus', displayName: 'Duns Scotus: Univocity, Individuation, and Freedom', tier: 'standard-individual-exhibit', question: 'How can common concepts apply to God and creatures while each individual remains irreducibly this one?', secondaryHallIds: [], principalAssetId: 'scholastic-scotus-urbino'}),
+        exhibit({id: 'ockham', entityKind: 'philosopher', entityId: 'ockham', displayName: 'William of Ockham: Mental Language, Signs, and Economy', tier: 'standard-individual-exhibit', question: 'How can theories of signs, supposition, cognition, and divine freedom work without multiplying explanatory entities?', secondaryHallIds: ['core-questions-forum'], principalAssetId: 'scholastic-ockham-logica'}),
+        exhibit({id: 'meister-eckhart', entityKind: 'philosopher', entityId: 'meister-eckhart', displayName: 'Meister Eckhart: Intellect, Detachment, and Divine Birth', tier: 'standard-individual-exhibit', question: 'How do scholastic argument and vernacular preaching pursue detachment, intellect, and the relation between God and creatures?', secondaryHallIds: ['core-questions-forum'], principalAssetId: 'scholastic-eckhart-fragment'}),
+        exhibit({id: 'marsilius-padua', entityKind: 'philosopher', entityId: 'marsilius-padua', displayName: 'Marsilius of Padua: Peace, Law, and Political Authority', tier: 'standard-individual-exhibit', question: 'Who has authority to legislate, coerce, appoint, and interpret when civic peace and claims of papal plenitude collide?', secondaryHallIds: ['justice-democratic-reason'], principalAssetId: 'scholastic-marsilius-defensor'}),
+      ]},
+    ],
+  },
+  {
     id: 'hellenistic-roman-ways',
     wingId: 'wing-mediterranean-antiquity',
     title: 'Hellenistic & Roman Ways of Life',
@@ -685,6 +724,28 @@ export const MUSEUM_CANONICAL_PROGRAM = [
       {id: 'late-commentary-transmission', title: 'Commentary, translation, and transmission', recordCapacity: 2, exhibits: []},
     ],
   },
+  {
+    id: 'rationalism-mind-nature-system',
+    wingId: 'wing-early-modern-enlightenment',
+    title: 'Rationalism: Mind, Nature, and System',
+    templateId: 'sequence-3',
+    period: '17th–early 18th centuries',
+    description: 'Treat rationalism as a later historical grouping rather than a unified self-declared school: begin with Cartesian method and mind–body dualism, stage Spinoza and Conway as rival accounts of substance and living nature, and end with Leibniz’s monads, sufficient reason, and possible worlds.',
+    recordCapacity: 7,
+    rooms: [
+      {id: 'rationalism-cartesian-foundations', title: 'Cartesian foundations and dualism', recordCapacity: 3, exhibits: [
+        exhibit({id: 'rationalism', entityKind: 'branch', entityId: 'rationalism', displayName: 'Rationalism: A Later Family Name', tier: 'anchor-exhibit', question: 'What unites—and what separates—early-modern projects that gave reason, intelligible structure, and systematic explanation unusually ambitious roles?', secondaryHallIds: ['core-questions-forum', 'empiricism-science-political-order'], principalAssetId: 'rationalism-cartesian-vortices'}),
+        exhibit({id: 'descartes', entityKind: 'philosopher', entityId: 'descartes', displayName: 'René Descartes: Method, Mind, and Mechanized Nature', tier: 'anchor-exhibit', question: 'Can methodic doubt secure a thinking self and a mathematical science of nature without leaving mind and body unintelligibly divided?', secondaryHallIds: ['core-questions-forum'], formerHallId: 'renaissance-reason-revolution', principalAssetId: 'rationalism-descartes-weenix'}),
+      ]},
+      {id: 'rationalism-spinoza-conway', title: 'Substance, vitality, God/Nature, and freedom', recordCapacity: 3, exhibits: [
+        exhibit({id: 'spinoza', entityKind: 'philosopher', entityId: 'spinoza', displayName: 'Baruch Spinoza: Substance, Affects, and Freedom', tier: 'anchor-exhibit', question: 'What becomes of mind, body, God, nature, ethics, and freedom if there is only one infinite substance?', secondaryHallIds: ['core-questions-forum', 'jewish-philosophy'], formerHallId: 'renaissance-reason-revolution', principalAssetId: 'rationalism-spinoza-engraving'}),
+        exhibit({id: 'anne-conway', entityKind: 'philosopher', entityId: 'anne-conway', displayName: 'Anne Conway: Living Substance Against Dualism', tier: 'standard-individual-exhibit', question: 'Can an entire created world be living, changeable, and spiritually continuous without collapsing creator and creatures?', secondaryHallIds: ['core-questions-forum'], principalAssetId: 'rationalism-conway-portrait'}),
+      ]},
+      {id: 'rationalism-leibniz-system', title: 'Monads, sufficient reason, and possible worlds', recordCapacity: 1, exhibits: [
+        exhibit({id: 'leibniz', entityKind: 'philosopher', entityId: 'leibniz', displayName: 'Gottfried Wilhelm Leibniz: Monads, Reasons, and Possible Worlds', tier: 'standard-individual-exhibit', question: 'How can simple perceiving substances, complete concepts, sufficient reasons, and divine choice explain unity, change, and contingency?', secondaryHallIds: ['core-questions-forum'], principalAssetId: 'rationalism-leibniz-francke'}),
+      ]},
+    ],
+  },
 ] as const satisfies readonly MuseumCanonicalHall[];
 
 export const MUSEUM_HALL_ROUTE_ALIASES = {
@@ -738,9 +799,7 @@ const displaced = (
 });
 
 export const MUSEUM_LEGACY_EXHIBIT_COMPATIBILITY = [
-  displaced('renaissance-reason-revolution', 'philosopher', 'descartes', 'René Descartes', 'rationalism-mind-nature-system', 'move-primary-later'),
   displaced('renaissance-reason-revolution', 'philosopher', 'locke', 'John Locke', 'empiricism-science-political-order', 'move-primary-later'),
-  displaced('renaissance-reason-revolution', 'philosopher', 'spinoza', 'Baruch Spinoza', 'rationalism-mind-nature-system', 'move-primary-later'),
   displaced('renaissance-reason-revolution', 'philosopher', 'hume', 'David Hume', 'empiricism-science-political-order', 'move-primary-later'),
   displaced('renaissance-reason-revolution', 'philosopher', 'rousseau', 'Jean-Jacques Rousseau', 'enlightenment-revolution-kant', 'move-primary-later'),
   displaced('renaissance-reason-revolution', 'philosopher', 'kant', 'Immanuel Kant', 'enlightenment-revolution-kant', 'move-primary-later'),

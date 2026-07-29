@@ -1,10 +1,10 @@
 # Philosophy Atlas Museum masterplan
 
-**Status:** the 26-gallery intellectual program and the dimensioned single-level **Continuous Enfilade** are implemented together. The production runtime contains 14 curated/open galleries, 12 planned/walkable shells, all 105 named rooms, and two closed expansion reserves.
+**Status:** the 26-gallery intellectual program and the dimensioned single-level **Continuous Enfilade** are implemented together. The production runtime contains 16 curated/open galleries, 10 planned/walkable shells, all 105 named rooms, and two closed expansion reserves.
 
 ## Whole-building architectural control plan
 
-The earlier Ring diagrams fixed a topology, not a scaled building. Galleries 01–12 were therefore placed incrementally until the complete migration; Galleries 14–15 were curated afterward in their approved physical positions. All curated hall-local roots remain intact, while the Continuous Enfilade manifest owns their final world positions, orientations, route portals, entrance relationship, and map geometry.
+The earlier Ring diagrams fixed a topology, not a scaled building. Galleries 01–12 were therefore placed incrementally until the complete migration; Galleries 13–16 were curated afterward in their approved physical positions. All curated hall-local roots remain intact, while the Continuous Enfilade manifest owns their final world positions, orientations, route portals, entrance relationship, and map geometry.
 
 The approved complete single-level plan is:
 
@@ -67,7 +67,8 @@ Start with these documents, in order:
 6. [Building options](./building-options.md) — three physical concepts, templates, circulation, accessibility, and expansion.
 7. [Continuous Enfilade plan](./single-level-building-plan.md) — exact dimensions, coordinates, 105-room setup, states, movement, performance, and migration gates.
 8. [Migration plan](./migration-plan.md) — implementation history plus the coordinated whole-building cutover.
-9. [Implementation handoff prompt](./implementation-handoff-prompt.md) — the archived exact prompt used for the completed build-and-deploy cutover.
+9. [Implementation lessons](./implementation-lessons.md) — binding regression guidance learned from coordinate, portal, turn-court, sign, gallery-promotion, and deployment failures.
+10. [Implementation handoff prompt](./implementation-handoff-prompt.md) — the archived exact prompt used for the completed build-and-deploy cutover.
 
 The complete assignments are reviewable as spreadsheets:
 
@@ -134,4 +135,4 @@ The template contract treats accessibility as geometry, not decoration. Detailed
 
 ## Scope boundary
 
-This directory remains the long-term planning contract. Its CSV and JSON data assign all 189 Atlas records—146 philosophers and 43 branches—exactly once. The runtime installs the currently curated records in Galleries 01–12 and 14–15 and preserves Gallery 13 and Galleries 16–26 as honest planned shells. The former 48-installation roster and Ring manifest are retained only as migration/rollback records. Runtime geometry, connections, residency, and visitor-map projection are compiled and audited in the Museum source layer.
+This directory remains the long-term planning contract. Its CSV and JSON data assign all 189 Atlas records—146 philosophers and 43 branches—exactly once. The runtime installs the currently curated records in Galleries 01–16 and preserves Galleries 17–26 as honest planned shells. The former 48-installation roster and Ring manifest are retained only as migration/rollback records. Runtime geometry, connections, residency, and visitor-map projection are compiled and audited in the Museum source layer.

@@ -46,18 +46,18 @@ Those margins are walls and building services. They are not public gaps and do n
 | Visit | Public gallery | Full gallery title | State at architectural migration |
 | ---: | ---: | --- | --- |
 | 1 | Gallery 01 | Mediterranean Beginnings & Classical Athens | move populated hall |
-| 2 | Gallery 14 | Hellenistic & Roman Ways of Life | build walkable planned shell |
-| 3 | Gallery 15 | Late Antiquity & Neoplatonic Inheritance | build walkable planned shell |
+| 2 | Gallery 14 | Hellenistic & Roman Ways of Life | preserve populated hall |
+| 3 | Gallery 15 | Late Antiquity & Neoplatonic Inheritance | preserve populated hall |
 | 4 | Gallery 07 | Classical South Asia: Jain, Yoga, and Brahmanical Systems | move populated hall |
 | 5 | Gallery 08 | Buddhist Philosophies of Liberation and Knowledge | move populated hall |
 | 6 | Gallery 09 | Warring States & Classical Chinese Traditions | move populated hall |
 | 7 | Gallery 11 | Confucian Renewal & East Asian Continuities | move populated hall |
 | 8 | Gallery 10 | Arabic & Islamic Philosophical Worlds | move populated hall |
 | 9 | Gallery 12 | Jewish Philosophy in Arabic-Speaking & Mediterranean Worlds | move populated hall |
-| 10 | Gallery 13 | Latin Christian & Scholastic Traditions | build walkable planned shell |
+| 10 | Gallery 13 | Latin Christian & Scholastic Traditions | preserve populated hall |
 | 11 | Gallery 06 | Core Questions Forum | move populated hall |
 | 12 | Gallery 02 | Renaissance, Political Order, and New Science | move populated hall |
-| 13 | Gallery 16 | Rationalism: Mind, Nature, and System | build walkable planned shell |
+| 13 | Gallery 16 | Rationalism: Mind, Nature, and System | preserve populated hall |
 | 14 | Gallery 17 | Empiricism, Science, and Political Order | build walkable planned shell |
 | 15 | Gallery 18 | Enlightenment, Revolution, and Kant’s Critical Turn | build walkable planned shell |
 | 16 | Gallery 19 | German Idealism & Romantic Afterlives | build walkable planned shell |
@@ -72,7 +72,7 @@ Those margins are walls and building services. They are not public gaps and do n
 | 25 | Gallery 25 | Feminist Philosophies | build walkable planned shell |
 | 26 | Gallery 26 | Colonialism, Race, and Liberation | build walkable planned shell |
 
-Future public numbers intentionally begin with Gallery 13 for Latin Christian & Scholastic Traditions, the already planned successor to Jewish Philosophy. Release numbering is not rewritten to imitate the architectural chronology.
+The curated sequence now includes Gallery 13 for Latin Christian & Scholastic Traditions and Gallery 16 for Rationalism: Mind, Nature, and System. Gallery 17 is the next planned public number. Release numbering is not rewritten to imitate the architectural chronology.
 
 ## Six bands and crosscut joints
 
@@ -110,16 +110,16 @@ The canonical source already names all **105 rooms** in [hall-program.json](./ha
 
 At the architectural migration:
 
-- the 12 existing populated galleries move as whole hall-local roots;
+- the 16 populated galleries remain whole hall-local roots;
 - their room partitions, exhibits, imagery, attribution, lighting, signs, guided viewpoints, interactions, and local collision remain intact;
-- the 14 future galleries receive every named room, floor, ceiling, partition, collision wall, doorway, lighting interface, safe arrival, and geometry-only wall slot;
+- the 10 future galleries retain every named room, floor, ceiling, partition, collision wall, doorway, lighting interface, safe arrival, and geometry-only wall slot;
 - future walls remain blank except for one honest, noninteractive status sign at the gallery entrance;
 - no placeholder exhibit, fake interaction, article link, quotation, image, or attribution is created;
 - a planned shell is walkable because the continuous route must remain intact, but it is not counted as an open gallery.
 
 Future sequential galleries divide the 56 m long axis into equal named room spans unless their curation later justifies an authored adjustment. Four-room crossroads galleries use four independent quadrants. Enlightenment, Revolution, and Kant uses four perimeter rooms plus a distinct central Kant room. The current nine-room Forum layout is preserved.
 
-This is a deliberate staging state: visitors can understand the final building, reach every populated hall on foot, and see exactly which galleries are awaiting curation. The map must distinguish **14 curated open galleries** from **12 walkable planned shells**.
+This is a deliberate staging state: visitors can understand the final building, reach every populated hall on foot, and see exactly which galleries are awaiting curation. The map must distinguish **16 curated open galleries** from **10 walkable planned shells**.
 
 ## Exhibit-wall protection
 
@@ -139,7 +139,7 @@ The chronological walk through all 26 large galleries is approximately 1.56 km. 
 The crosscut gives six collection intersections in 168 m. The physical map and fast travel provide a second layer of navigation. The map must derive from the same manifest as rendered geometry and show:
 
 - all 26 gallery shells with full titles;
-- 14 curated/open and 12 planned/walkable states;
+- 16 curated/open and 10 planned/walkable states;
 - two closed expansion reserves outside the 26-gallery program;
 - the complete through route, crosscut, turn courts, entrance, final threshold, current position, and facing arrow;
 - stable Gallery 01–26 release numbers and separate visit sequence when useful;
@@ -180,13 +180,13 @@ They begin as solid construction walls and do not appear as open map destination
 ### Phase B — architecture-only preview
 
 1. Build the entrance, six shared-wall bands, crosscut, Forum bay, turn courts, final threshold, and both closed reserves.
-2. Generate all 14 future room shells with honest planned status.
+2. Generate all 10 future room shells with honest planned status.
 3. Add collision, thresholds, safe arrivals, generic local lighting, facing-aware map geometry, and browser-visible development diagnostics.
 4. Keep the preview private until the complete manifest passes; production cut over only after that gate.
 
 **Gate:** every room and connection is walkable, no wall/ceiling gap is visible, no sign floats, no collider traps the visitor, the map exactly matches the shell, and no future media is loaded.
 
-### Phase C — transplant the 12 populated halls
+### Phase C — preserve the 16 populated halls
 
 1. Mount each existing hall definition under a manifest-controlled world transform.
 2. Rotate the complete local root; do not rewrite exhibit coordinates individually.
@@ -200,8 +200,8 @@ They begin as solid construction walls and do not appear as open map destination
 ### Phase D — atomic building integration
 
 1. Replace old corridor/spoke nodes with the through route, crosscut, and turn courts.
-2. Update directory and map states without renumbering Gallery 01–12.
-3. Add stable Gallery 13–26 planned records and room viewpoints without adding exhibit controls.
+2. Update directory and map states without renumbering Gallery 01–16.
+3. Preserve stable Gallery 17–26 planned records and room viewpoints without adding exhibit controls.
 4. Migrate sessions by stable location IDs.
 5. Verify direct URLs, walking connections, guided visits, fast travel, reset, resume, and all adjacent-room transitions.
 6. Keep the old manifest selectable until local and production verification succeeds.
@@ -221,7 +221,7 @@ They begin as solid construction walls and do not appear as open map destination
 
 | Risk | Resolution |
 | --- | --- |
-| Existing halls might not fit the plan | All 12 now use exact canonical footprints; they fit the 28 m band system and can move as local roots. |
+| Existing halls might not fit the plan | All 16 now use exact canonical footprints; they fit the 28 m band system and remain local roots. |
 | Crosscut could steal exhibit walls | It lands only at six threshold joints; the Forum is its sole gallery interior. |
 | Forum could overlap neighbors | It owns an independent 28 × 28 m bay between complete galleries. |
 | Future empty halls could break the walking sequence | All named room shells are walkable but truthfully labeled planned; they are not counted as open. |
@@ -245,7 +245,7 @@ For runtime maintenance and each future gallery-curation release, treat these as
 1. [single-level-building-plan.json](./single-level-building-plan.json) — coordinates, states, numbering, route, crosscut, entrance, reserves, and implementation contracts;
 2. [hall-program.json](./hall-program.json) — 26 gallery identities and all 105 room identities;
 3. [exhibit-wall-standard.md](./exhibit-wall-standard.md) — physical curation and wall-slot rules;
-4. the current runtime hall definitions and audits — exact populated Gallery 01–12 content and local architecture;
+4. the current runtime hall definitions and audits — exact populated Gallery 01–16 content and local architecture;
 5. [migration-plan.md](./migration-plan.md) — safe cutover procedure.
 
 Do not improvise a new gallery position, orientation, shortcut, side doorway, corridor, entrance, or reserve during implementation. If a measured conflict appears, stop and amend this control plan before changing runtime geometry.

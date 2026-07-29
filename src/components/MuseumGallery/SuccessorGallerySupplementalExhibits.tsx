@@ -8,6 +8,14 @@ import {
   LATE_ANTIQUITY_PALETTE,
 } from '../../data/museum/lateAntiquitySupplementalExhibits';
 import {
+  getLatinScholasticSupplementalExhibit,
+  LATIN_SCHOLASTIC_PALETTE,
+} from '../../data/museum/latinChristianScholasticSupplementalExhibits';
+import {
+  getRationalismSupplementalExhibit,
+  RATIONALISM_PALETTE,
+} from '../../data/museum/rationalismSupplementalExhibits';
+import {
   MUSEUM_CANONICAL_EXHIBIT_BACKING_MATERIAL,
   MUSEUM_CANONICAL_EXHIBIT_PLINTH_GEOMETRY,
   MUSEUM_CANONICAL_EXHIBIT_PLINTH_MATERIAL,
@@ -188,5 +196,23 @@ export function LateAntiquitySupplementalExhibits(props: GallerySupplementalProp
     collection="gallery-15-late-antiquity-inheritance-v1"
     ink={LATE_ANTIQUITY_PALETTE.ink}
     getRecord={getLateAntiquitySupplementalExhibit}
+  />;
+}
+
+export function LatinScholasticSupplementalExhibits(props: GallerySupplementalProps) {
+  return <SupplementalCollection
+    {...props}
+    collection="gallery-13-latin-christian-scholastic-v1"
+    ink={LATIN_SCHOLASTIC_PALETTE.ink}
+    getRecord={getLatinScholasticSupplementalExhibit}
+  />;
+}
+
+export function RationalismSupplementalExhibits(props: GallerySupplementalProps) {
+  return <SupplementalCollection
+    {...props}
+    collection="gallery-16-rationalism-mind-nature-system-v1"
+    ink={RATIONALISM_PALETTE.ink}
+    getRecord={getRationalismSupplementalExhibit}
   />;
 }

@@ -123,6 +123,24 @@ import {
   LATE_ANTIQUITY_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
 } from './lateAntiquitySupplementalExhibits';
 import {
+  LATIN_SCHOLASTIC_GALLERY_ID,
+  LATIN_SCHOLASTIC_PRIMARY_PLACEMENTS,
+  LATIN_SCHOLASTIC_ROOM_ENTRY_POSES,
+  LATIN_SCHOLASTIC_ROOM_SIGN_COPY,
+} from './latinChristianScholasticGalleryCuration';
+import {
+  LATIN_SCHOLASTIC_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
+} from './latinChristianScholasticSupplementalExhibits';
+import {
+  RATIONALISM_GALLERY_ID,
+  RATIONALISM_PRIMARY_PLACEMENTS,
+  RATIONALISM_ROOM_ENTRY_POSES,
+  RATIONALISM_ROOM_SIGN_COPY,
+} from './rationalismGalleryCuration';
+import {
+  RATIONALISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
+} from './rationalismSupplementalExhibits';
+import {
   CORE_QUESTIONS_FORUM_GALLERY_ID,
   CORE_QUESTIONS_FORUM_PRIMARY_CIRCULATION,
   CORE_QUESTIONS_FORUM_PRIMARY_PLACEMENTS,
@@ -221,10 +239,14 @@ const supplementalLayoutsForHall = (hallId: MuseumPublicHallId): readonly Museum
                   ? EAST_ASIAN_SUPPLEMENTAL_EXHIBIT_LAYOUTS
                 : hallId === JEWISH_GALLERY_ID
                   ? JEWISH_SUPPLEMENTAL_EXHIBIT_LAYOUTS
+                : hallId === LATIN_SCHOLASTIC_GALLERY_ID
+                  ? LATIN_SCHOLASTIC_SUPPLEMENTAL_EXHIBIT_LAYOUTS
                 : hallId === HELLENISTIC_ROMAN_GALLERY_ID
                   ? HELLENISTIC_ROMAN_SUPPLEMENTAL_EXHIBIT_LAYOUTS
                 : hallId === LATE_ANTIQUITY_GALLERY_ID
                   ? LATE_ANTIQUITY_SUPPLEMENTAL_EXHIBIT_LAYOUTS
+                : hallId === RATIONALISM_GALLERY_ID
+                  ? RATIONALISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS
               : [];
 
 const primaryScaleFloorForHall = (
@@ -1210,6 +1232,10 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
                       ? JEWISH_PRIMARY_PLACEMENTS
                     : hall.id === LATE_ANTIQUITY_GALLERY_ID
                       ? LATE_ANTIQUITY_PRIMARY_PLACEMENTS
+                    : hall.id === LATIN_SCHOLASTIC_GALLERY_ID
+                      ? LATIN_SCHOLASTIC_PRIMARY_PLACEMENTS
+                    : hall.id === RATIONALISM_GALLERY_ID
+                      ? RATIONALISM_PRIMARY_PLACEMENTS
             : undefined,
       hall.id === MEDITERRANEAN_GALLERY_ID
         || hall.id === RENAISSANCE_GALLERY_ID
@@ -1272,6 +1298,8 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
     || hall.id === 'jewish-philosophy'
     || hall.id === HELLENISTIC_ROMAN_GALLERY_ID
     || hall.id === LATE_ANTIQUITY_GALLERY_ID
+    || hall.id === LATIN_SCHOLASTIC_GALLERY_ID
+    || hall.id === RATIONALISM_GALLERY_ID
   ) {
     const acceptedSupplementalBounds: {spatialCellId: string; bounds: MuseumBounds}[] = [];
     for (const layout of supplementalExhibits) {
@@ -1677,6 +1705,44 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
                             height: .82,
                           };
                         })
+                    : hall.id === LATIN_SCHOLASTIC_GALLERY_ID
+                      ? orderedRooms.map((room) => {
+                          const copy = LATIN_SCHOLASTIC_ROOM_SIGN_COPY[
+                            room.id as keyof typeof LATIN_SCHOLASTIC_ROOM_SIGN_COPY
+                          ];
+                          if (!copy) throw new Error(`Gallery 13 has no visitor-facing orientation copy for ${room.id}.`);
+                          const bounds = roomBounds.get(room.id)!;
+                          return {
+                            id: `${room.id}:room-sign`,
+                            kind: room.id === 'latin-transmission-carolingian' ? 'entrance' as const : 'zone' as const,
+                            title: copy.title,
+                            kicker: copy.kicker,
+                            subtitle: copy.subtitle,
+                            position: {x: 0, y: 4.55, z: bounds.maxZ - .22},
+                            rotationY: Math.PI,
+                            width: room.id === 'latin-transmission-carolingian' ? 5.2 : 4.8,
+                            height: .82,
+                          };
+                        })
+                    : hall.id === RATIONALISM_GALLERY_ID
+                      ? orderedRooms.map((room) => {
+                          const copy = RATIONALISM_ROOM_SIGN_COPY[
+                            room.id as keyof typeof RATIONALISM_ROOM_SIGN_COPY
+                          ];
+                          if (!copy) throw new Error(`Gallery 16 has no visitor-facing orientation copy for ${room.id}.`);
+                          const bounds = roomBounds.get(room.id)!;
+                          return {
+                            id: `${room.id}:room-sign`,
+                            kind: room.id === 'rationalism-cartesian-foundations' ? 'entrance' as const : 'zone' as const,
+                            title: copy.title,
+                            kicker: copy.kicker,
+                            subtitle: copy.subtitle,
+                            position: {x: 0, y: 4.55, z: bounds.maxZ - .22},
+                            rotationY: Math.PI,
+                            width: room.id === 'rationalism-cartesian-foundations' ? 5.2 : 4.8,
+                            height: .82,
+                          };
+                        })
               : hall.id === CORE_QUESTIONS_FORUM_ID
                 ? coreQuestionsForumSigns()
                 : standardSigns;
@@ -1738,6 +1804,8 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
           || hall.id === EAST_ASIAN_GALLERY_ID
           || hall.id === JEWISH_GALLERY_ID
           || hall.id === LATE_ANTIQUITY_GALLERY_ID
+          || hall.id === LATIN_SCHOLASTIC_GALLERY_ID
+          || hall.id === RATIONALISM_GALLERY_ID
           ? exhibits.find(({spatialCellId}) => spatialCellId === cell.id)
           : undefined;
         const authoredEntryPose = isClassicalChineseCrossroads
@@ -1763,6 +1831,14 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
           : hall.id === LATE_ANTIQUITY_GALLERY_ID
             ? LATE_ANTIQUITY_ROOM_ENTRY_POSES[
                 cell.id as keyof typeof LATE_ANTIQUITY_ROOM_ENTRY_POSES
+              ]
+          : hall.id === LATIN_SCHOLASTIC_GALLERY_ID
+            ? LATIN_SCHOLASTIC_ROOM_ENTRY_POSES[
+                cell.id as keyof typeof LATIN_SCHOLASTIC_ROOM_ENTRY_POSES
+              ]
+          : hall.id === RATIONALISM_GALLERY_ID
+            ? RATIONALISM_ROOM_ENTRY_POSES[
+                cell.id as keyof typeof RATIONALISM_ROOM_ENTRY_POSES
               ]
           : isCoreForum
             ? CORE_QUESTIONS_FORUM_ROOM_ENTRY_POSES[cell.id]

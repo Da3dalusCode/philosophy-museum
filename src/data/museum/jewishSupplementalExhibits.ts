@@ -313,7 +313,7 @@ export const JEWISH_SUPPLEMENTAL_EXHIBITS = [
     dateLabel: 'Published anonymously in 1670 under a false Hamburg imprint',
     question: 'How can a thinker emerge from a community while breaking with its authorities and categories?',
     frontSubtitle: 'Portuguese Jewish Amsterdam, the 1656 herem, scripture, prophecy, law, freedom, and political community',
-    lead: 'Spinoza’s Portuguese Jewish formation, the 1656 herem, and his radical interpretation of scripture, prophecy, law, and political authority form a threshold into early modern philosophy. He is secondary here and remains primary in the future Rationalism gallery.',
+    lead: 'Spinoza’s Portuguese Jewish formation, the 1656 herem, and his radical interpretation of scripture, prophecy, law, and political authority form a threshold into early modern philosophy. He is secondary here and primary in Gallery 16, Rationalism: Mind, Nature, and System.',
     keyIdeas: [
       'Formation provides language, texts, institutions, and conflicts without fixing a thinker’s later conclusions.',
       'The Treatise joins biblical criticism to an argument for freedom of philosophizing and political stability.',
@@ -326,7 +326,7 @@ export const JEWISH_SUPPLEMENTAL_EXHIBITS = [
     sections: [
       {heading: 'Formation is neither possession nor destiny', paragraph: 'Amsterdam’s Portuguese Jewish community supplied education, language, commercial networks, and authority structures. Spinoza’s later break is intelligible against that setting without being reducible to it.'},
       {heading: 'Scriptural criticism becomes political', paragraph: 'The Treatise distinguishes philosophy from theology, analyzes prophecy and textual transmission, and argues that suppressing judgment can threaten rather than secure a commonwealth.'},
-      {heading: 'The route continues elsewhere', paragraph: 'This installation marks an early-modern formation-and-rupture threshold. Spinoza’s metaphysics, mind, freedom, and full political philosophy belong to his future primary gallery. Keeping him secondary here preserves both the Jewish setting of his formation and the scale of his later philosophical break.'},
+      {heading: 'The route continues in Gallery 16', paragraph: 'This installation marks an early-modern formation-and-rupture threshold. Gallery 16 now develops Spinoza’s metaphysics, philosophy of mind, account of freedom, and political thought at primary scale. Keeping him secondary here preserves both the Jewish setting of his formation and the scale of his later philosophical break.'},
     ],
     sources: [
       image('Wikimedia Commons — Spinoza, Tractatus Theologico-Politicus, 1670', 'https://commons.wikimedia.org/wiki/File:Benedictus_de_Spinoza_-_Tractatus_theologico-politicus_continens_dissertationes_aliquot,_Hamburg,_Henricus_K%C3%BCnrath,_1670.jpg'),

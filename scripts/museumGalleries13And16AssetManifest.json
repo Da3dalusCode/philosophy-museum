@@ -1,0 +1,761 @@
+{
+  "version": 1,
+  "assets": {
+    "scholastic-eriugena-stained-glass": {
+      "hallFolder": "latin-christian-scholastic",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:John-Scotus-Eriugena.png",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/John-Scotus-Eriugena.png",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/John-Scotus-Eriugena.png",
+      "scene": {
+        "width": 235,
+        "height": 640,
+        "bytes": 51522,
+        "sha256": "d504547cb34c801a4750b0fe2c429e7afb6e0d767e4948e3e2b322865ca8ee3a"
+      },
+      "panel": {
+        "width": 366,
+        "height": 998,
+        "bytes": 138554,
+        "sha256": "3dff782f39a7ba4b1aa33aadee29d65c80a5cd6c09f60935e5b9370cdcdef85e"
+      }
+    },
+    "scholastic-university-lecture": {
+      "hallFolder": "latin-christian-scholastic",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Laurentius_de_Voltolina_Vorlesung_vor_Studenten_-_Min_1233_-_Kupferstichkabinett_Berlin.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Laurentius_de_Voltolina_Vorlesung_vor_Studenten_-_Min_1233_-_Kupferstichkabinett_Berlin.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Laurentius_de_Voltolina_Vorlesung_vor_Studenten_-_Min_1233_-_Kupferstichkabinett_Berlin.jpg?width=1600",
+      "scene": {
+        "width": 640,
+        "height": 524,
+        "bytes": 84336,
+        "sha256": "f40bd8222fe51f89b37264f6c02204c1710e769e4df32581ff6439580423ce8d"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 1049,
+        "bytes": 443456,
+        "sha256": "5089a2cbcacf3d8bfb9bf76f6fd1e65eb2f19fabb0f602187a9cc07d6b3368a9"
+      }
+    },
+    "scholastic-anselm-cur-deus-homo": {
+      "hallFolder": "latin-christian-scholastic",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Ms_224_anselm.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ms_224_anselm.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ms_224_anselm.jpg",
+      "scene": {
+        "width": 400,
+        "height": 365,
+        "bytes": 38450,
+        "sha256": "30013a471667e0d246e8d99aca411e21d9b2f9d5afaf117da047c6d91b9fcdfd"
+      },
+      "panel": {
+        "width": 400,
+        "height": 365,
+        "bytes": 48822,
+        "sha256": "e8f9f9afa4e61d3e0cd48a5296d2263adc383fcd0c3a6d2bec71f0830d429712"
+      }
+    },
+    "scholastic-abelard-heloise-manuscript": {
+      "hallFolder": "latin-christian-scholastic",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Abelardo_ed_Eloisa.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Abelardo_ed_Eloisa.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Abelardo_ed_Eloisa.jpg",
+      "scene": {
+        "width": 324,
+        "height": 428,
+        "bytes": 50768,
+        "sha256": "4e772e9d762c3aa5a6ff89953120de625576c256dd472927d1290721d36ec334"
+      },
+      "panel": {
+        "width": 324,
+        "height": 428,
+        "bytes": 60690,
+        "sha256": "55f9f3c068f79c46faadbe2d19b49a4675b82343328df851055db5d3889abc8f"
+      }
+    },
+    "scholastic-aquinas-crivelli": {
+      "hallFolder": "latin-christian-scholastic",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:St-thomas-aquinas.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/St-thomas-aquinas.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/St-thomas-aquinas.jpg?width=1280",
+      "scene": {
+        "width": 427,
+        "height": 640,
+        "bytes": 50862,
+        "sha256": "33fb86dee7b456771babfef71564d921657705e634531de90cca6adecbfb7ba9"
+      },
+      "panel": {
+        "width": 854,
+        "height": 1280,
+        "bytes": 332742,
+        "sha256": "0784c8f8adec5395398d99ff76520bc0ed1896125c224b893c5eaf52c1ab2431"
+      }
+    },
+    "scholastic-scotus-urbino": {
+      "hallFolder": "latin-christian-scholastic",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Duns_Scotus_Painting_(cropped).jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Duns_Scotus_Painting_(cropped).jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Duns_Scotus_Painting_(cropped).jpg?width=1280",
+      "scene": {
+        "width": 457,
+        "height": 640,
+        "bytes": 50286,
+        "sha256": "fdf2a2882c770a1b05a39cd826036fbd5d6210c0aab84af60768a880a7431e0f"
+      },
+      "panel": {
+        "width": 914,
+        "height": 1280,
+        "bytes": 368984,
+        "sha256": "365da5914ea48246384c6d5a6a18903016cbcf63d34c54b3ef575dc36141cb3a"
+      }
+    },
+    "scholastic-ockham-logica": {
+      "hallFolder": "latin-christian-scholastic",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:William_of_Ockham_-_Logica_1341.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/William_of_Ockham_-_Logica_1341.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/William_of_Ockham_-_Logica_1341.jpg",
+      "scene": {
+        "width": 400,
+        "height": 373,
+        "bytes": 23024,
+        "sha256": "0239e5f4fe420c5d249e350d05c3d1f8876bd8b2b5f139e970e53e5e71cd61fa"
+      },
+      "panel": {
+        "width": 400,
+        "height": 373,
+        "bytes": 32630,
+        "sha256": "16b2892621707363b714446c4d59f364cf5c95c244a56f4149cee366b92e7ffb"
+      }
+    },
+    "scholastic-eckhart-fragment": {
+      "hallFolder": "latin-christian-scholastic",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Meister_Eckhart_Fragment_1003.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Meister_Eckhart_Fragment_1003.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Meister_Eckhart_Fragment_1003.jpg?width=1280",
+      "scene": {
+        "width": 404,
+        "height": 640,
+        "bytes": 49340,
+        "sha256": "e83969c98f3d8c88caee85e9c13e5d0ad5cee28619e5c3b95066246746239bce"
+      },
+      "panel": {
+        "width": 808,
+        "height": 1280,
+        "bytes": 198402,
+        "sha256": "408f58c36c99ad2561924754483084ad1bbe81df49170985668d9f859e92a11d"
+      }
+    },
+    "scholastic-marsilius-defensor": {
+      "hallFolder": "latin-christian-scholastic",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Marsilius,_Defensor_pacis,_Tortosa.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Marsilius,_Defensor_pacis,_Tortosa.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Marsilius,_Defensor_pacis,_Tortosa.jpg?width=1280",
+      "scene": {
+        "width": 495,
+        "height": 640,
+        "bytes": 96114,
+        "sha256": "b5e8fcfb1c108e10e06d8bde179325fa2d66c6e211bce7b32cc6cdcc5328d125"
+      },
+      "panel": {
+        "width": 989,
+        "height": 1280,
+        "bytes": 484518,
+        "sha256": "7ae717bc39619cae6d80bf5240ebe900b6e4c8730462b40343f9dc026829c57f"
+      }
+    },
+    "scholastic-boethius-topics": {
+      "hallFolder": "latin-christian-scholastic",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:BnF_lat._1338,_f._221bis-v.JPEG",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/BnF_lat._1338,_f._221bis-v.JPEG",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/BnF_lat._1338,_f._221bis-v.JPEG?width=1280",
+      "scene": {
+        "width": 370,
+        "height": 640,
+        "bytes": 74944,
+        "sha256": "398fe891141db9743f28e02369cfd04d75565d1b5a64dd8f7e5923106c6ceffd"
+      },
+      "panel": {
+        "width": 740,
+        "height": 1280,
+        "bytes": 295652,
+        "sha256": "2b296b72517887b907a9bcf74b6f70eb13c81016d9ce2aaa0bb3114cb143855d"
+      }
+    },
+    "scholastic-consolation-wheel": {
+      "hallFolder": "latin-christian-scholastic",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Wheel-of-fortune-carmina-burana.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Wheel-of-fortune-carmina-burana.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Wheel-of-fortune-carmina-burana.jpg?width=1280",
+      "scene": {
+        "width": 429,
+        "height": 640,
+        "bytes": 62342,
+        "sha256": "bc945386cad6ffaa4b05f97209fd5852f5b879badef726c57d511d9bc7edec25"
+      },
+      "panel": {
+        "width": 859,
+        "height": 1280,
+        "bytes": 328208,
+        "sha256": "89f869d20ab92ab4608a7c6cdab6d3f35a0899cf955ab4cbf9f0bdae4bbd1d08"
+      }
+    },
+    "scholastic-caroline-minuscule": {
+      "hallFolder": "latin-christian-scholastic",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Caroline_2.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Caroline_2.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Caroline_2.jpg?width=1280",
+      "scene": {
+        "width": 524,
+        "height": 462,
+        "bytes": 61548,
+        "sha256": "8b75a960525c76302fd3dbf706f988abf97a4df3306439518726c54975e27365"
+      },
+      "panel": {
+        "width": 524,
+        "height": 462,
+        "bytes": 82602,
+        "sha256": "0e3049d95cbabe44d5e61039f2dba456906e44dea6e2f9762e443d38c53be341"
+      }
+    },
+    "scholastic-eriugena-periphyseon": {
+      "hallFolder": "latin-christian-scholastic",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Eriugena,_Periphyseon,_Reims,_875.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Eriugena,_Periphyseon,_Reims,_875.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Eriugena,_Periphyseon,_Reims,_875.jpg?width=1280",
+      "scene": {
+        "width": 591,
+        "height": 640,
+        "bytes": 63494,
+        "sha256": "70256618e18368591999a97ac8cda41d203d9995b481cb8c06ac0759058be8e6"
+      },
+      "panel": {
+        "width": 1182,
+        "height": 1280,
+        "bytes": 395486,
+        "sha256": "a70c6204210ae31bf82619c67111f7d1dbec9f4ad1b1afdf2ccb0f9d7d7f666e"
+      }
+    },
+    "scholastic-abelard-apologia-manuscript": {
+      "hallFolder": "latin-christian-scholastic",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Abaelard.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Abaelard.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Abaelard.jpg",
+      "scene": {
+        "width": 374,
+        "height": 540,
+        "bytes": 59770,
+        "sha256": "6d85ed6d96b0aeb9a28fc53e01c64ab8a31af99c8bcc80e7be4a0b71bdf2c0fa"
+      },
+      "panel": {
+        "width": 374,
+        "height": 540,
+        "bytes": 73232,
+        "sha256": "c6813b66b1561b018dea45305326787a44120178e02010d442f62cda236df724"
+      }
+    },
+    "scholastic-heloise-letters": {
+      "hallFolder": "latin-christian-scholastic",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Lettres_et_epitres_amoureuses_d%27Heloise_et_d%27Abeilard._-_Upper_cover_(c155f8).jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Lettres_et_epitres_amoureuses_d%27Heloise_et_d%27Abeilard._-_Upper_cover_(c155f8).jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Lettres_et_epitres_amoureuses_d%27Heloise_et_d%27Abeilard._-_Upper_cover_(c155f8).jpg?width=1280",
+      "scene": {
+        "width": 472,
+        "height": 640,
+        "bytes": 90750,
+        "sha256": "1257f5151ecd083809a321b3e420a73f064b52307165c346b3c9bf9cdcbb7645"
+      },
+      "panel": {
+        "width": 944,
+        "height": 1280,
+        "bytes": 459546,
+        "sha256": "df9edb330ccc21ce05f87064a37b5ebc9f095aab284b98fba6dd34439a1e64ac"
+      }
+    },
+    "scholastic-sorbonne-theology": {
+      "hallFolder": "latin-christian-scholastic",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Cours_de_th%C3%A9ologie_%C3%A0_la_Sorbonne_-_Biblioth%C3%A8que_de_Troyes.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Cours_de_th%C3%A9ologie_%C3%A0_la_Sorbonne_-_Biblioth%C3%A8que_de_Troyes.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Cours_de_th%C3%A9ologie_%C3%A0_la_Sorbonne_-_Biblioth%C3%A8que_de_Troyes.jpg?width=1280",
+      "scene": {
+        "width": 640,
+        "height": 417,
+        "bytes": 67668,
+        "sha256": "dcd0b38edd04795cf818bb6899d7d6e670ef32b6bae565162cc47b40e53429eb"
+      },
+      "panel": {
+        "width": 1278,
+        "height": 832,
+        "bytes": 334736,
+        "sha256": "46f7fcbefbb2c756762f60923c19ccddc6d8c42121310dfc243ccf3c2acaabba"
+      }
+    },
+    "scholastic-aquinas-summa-basel": {
+      "hallFolder": "latin-christian-scholastic",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Basel,_Universit%C3%A4tsbibliothek,_A_I_14,_f._69v_%E2%80%93_Thomas_Aquinas,_Summa_theologiae_(prima_pars.JPG",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Basel,_Universit%C3%A4tsbibliothek,_A_I_14,_f._69v_%E2%80%93_Thomas_Aquinas,_Summa_theologiae_(prima_pars.JPG",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Basel,_Universit%C3%A4tsbibliothek,_A_I_14,_f._69v_%E2%80%93_Thomas_Aquinas,_Summa_theologiae_(prima_pars.JPG?width=1280",
+      "scene": {
+        "width": 480,
+        "height": 640,
+        "bytes": 62670,
+        "sha256": "5ebf402d725eedeef09ce77447ccb96420f56912dd14602e58233d1dca533677"
+      },
+      "panel": {
+        "width": 960,
+        "height": 1280,
+        "bytes": 326726,
+        "sha256": "8a6b25d979ba19dc4c34e66e85b87aa418c4249d5654a5120d44f55700c7ffb9"
+      }
+    },
+    "scholastic-aquinas-summa-1482": {
+      "hallFolder": "latin-christian-scholastic",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Thomas_Aquinas_Summa_theologiae_1482.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Thomas_Aquinas_Summa_theologiae_1482.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Thomas_Aquinas_Summa_theologiae_1482.jpg",
+      "scene": {
+        "width": 469,
+        "height": 640,
+        "bytes": 111370,
+        "sha256": "c4aba4fd18b16ce9714589f7ad42ed72cb118c0fd3592a2cf7ed73c9d2cca68b"
+      },
+      "panel": {
+        "width": 640,
+        "height": 874,
+        "bytes": 223476,
+        "sha256": "3bae107056f52cc3ad108f53c39c1baddaf54f40ac10f0a7bdfac2da08cd5760"
+      }
+    },
+    "scholastic-aquinas-summa-1477": {
+      "hallFolder": "latin-christian-scholastic",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Summa_theologica_1477.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Summa_theologica_1477.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Summa_theologica_1477.jpg?width=1280",
+      "scene": {
+        "width": 403,
+        "height": 640,
+        "bytes": 73108,
+        "sha256": "d13a93214b564cdb88b3c087effd40907228a91be9ac787301a4b7621f0b3b0e"
+      },
+      "panel": {
+        "width": 806,
+        "height": 1280,
+        "bytes": 325806,
+        "sha256": "51ea72e72ef794d771848855f2ab9884348665175d72767742d2b6748e163f3e"
+      }
+    },
+    "scholastic-condemnation-1277": {
+      "hallFolder": "latin-christian-scholastic",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:1277_condemn_70.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/1277_condemn_70.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/1277_condemn_70.jpg?width=1280",
+      "scene": {
+        "width": 640,
+        "height": 442,
+        "bytes": 43248,
+        "sha256": "0add7ddf66a91be83afaa60ae7260dfcd370fc08e2688c7b90ec1b12e38393f5"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 883,
+        "bytes": 204450,
+        "sha256": "eadb4c42b37ee6a59ab6f70f70c4e03b58aac2d9ac81220116179348501ebbeb"
+      }
+    },
+    "scholastic-eckhart-recantation": {
+      "hallFolder": "latin-christian-scholastic",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Meister_Eckhart,_recantation,_1327.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Meister_Eckhart,_recantation,_1327.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Meister_Eckhart,_recantation,_1327.jpg?width=1280",
+      "scene": {
+        "width": 482,
+        "height": 640,
+        "bytes": 78214,
+        "sha256": "f6d454aa39606e39865318b1bbb8628ff7520d88b135b9c48374e292f184448e"
+      },
+      "panel": {
+        "width": 964,
+        "height": 1280,
+        "bytes": 496394,
+        "sha256": "87cc9e3b325a47d75a2a34cd1bf872c9faad8230856e66dc019d336830bd160e"
+      }
+    },
+    "rationalism-cartesian-vortices": {
+      "hallFolder": "rationalism-mind-nature-system",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Illustration_showing_Descartes%27_mechanical_view_of_a_universe_filled_with_plenum_and_a_system_of_vortexes_that_carries_planets_around_the_sun_LCCN92518505.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Illustration_showing_Descartes%27_mechanical_view_of_a_universe_filled_with_plenum_and_a_system_of_vortexes_that_carries_planets_around_the_sun_LCCN92518505.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Illustration_showing_Descartes%27_mechanical_view_of_a_universe_filled_with_plenum_and_a_system_of_vortexes_that_carries_planets_around_the_sun_LCCN92518505.jpg?width=1280",
+      "scene": {
+        "width": 414,
+        "height": 640,
+        "bytes": 52164,
+        "sha256": "fe50fe4966a128fb1c9676fd240bdd702627f6824fc023109cdd870e077869b9"
+      },
+      "panel": {
+        "width": 828,
+        "height": 1280,
+        "bytes": 179460,
+        "sha256": "7de2dd59b6b03e46194096491695aded05cdbaf09661c4ced9be98f7fa422e9e"
+      }
+    },
+    "rationalism-conway-portrait": {
+      "hallFolder": "rationalism-mind-nature-system",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Samuel_van_Hoogstraten_-_Perspective_View_with_a_Woman_Reading_a_Letter_-_66_-_Mauritshuis.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Samuel_van_Hoogstraten_-_Perspective_View_with_a_Woman_Reading_a_Letter_-_66_-_Mauritshuis.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Samuel_van_Hoogstraten_-_Perspective_View_with_a_Woman_Reading_a_Letter_-_66_-_Mauritshuis.jpg?width=1280",
+      "scene": {
+        "width": 471,
+        "height": 640,
+        "bytes": 40416,
+        "sha256": "185fc0d1d2786165a3966b857fd53534d8d4f5540bd31d9bca3267d44058d2f6"
+      },
+      "panel": {
+        "width": 941,
+        "height": 1280,
+        "bytes": 220814,
+        "sha256": "4d0b9c8b8069ff85565767c4e7584446f2307a5a99272d9414a61fc004f838f6"
+      }
+    },
+    "rationalism-leibniz-francke": {
+      "hallFolder": "rationalism-mind-nature-system",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Christoph_Bernhard_Francke_-_Bildnis_des_Philosophen_Leibniz_(ca._1695).jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Christoph_Bernhard_Francke_-_Bildnis_des_Philosophen_Leibniz_(ca._1695).jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Christoph_Bernhard_Francke_-_Bildnis_des_Philosophen_Leibniz_(ca._1695).jpg?width=1280",
+      "scene": {
+        "width": 518,
+        "height": 640,
+        "bytes": 15234,
+        "sha256": "e53bc43bed4a857a516250abff3dbc8690963b8ba3b3178f6c967099ac53c65b"
+      },
+      "panel": {
+        "width": 1037,
+        "height": 1280,
+        "bytes": 150568,
+        "sha256": "dbd6ecc98005b9362ce4298a07f9d393b28480d032ddf471e35505798f39035c"
+      }
+    },
+    "rationalism-meditations-1641": {
+      "hallFolder": "rationalism-mind-nature-system",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Meditationes_de_prima_philosophia_1641.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Meditationes_de_prima_philosophia_1641.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Meditationes_de_prima_philosophia_1641.jpg?width=1280",
+      "scene": {
+        "width": 395,
+        "height": 640,
+        "bytes": 43536,
+        "sha256": "ea56d4f4fdc32d7b9eb509fffe47b6940472c481348e8bedd88ca565c7a1549f"
+      },
+      "panel": {
+        "width": 790,
+        "height": 1280,
+        "bytes": 203700,
+        "sha256": "103d86d8ae41423b49acbc89f9746dcc8defc78bee5d8c221eaf40828b18727c"
+      }
+    },
+    "rationalism-elisabeth-portrait": {
+      "hallFolder": "rationalism-mind-nature-system",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Elizabeth_(1618-80)_van_de_Paltz,_dochter_van_Frederik_V,_koning_van_Bohemen,_bijgenaamd_de_%27Winterkoning%27_Rijksmuseum_SK-A-4314.jpeg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Elizabeth_(1618-80)_van_de_Paltz,_dochter_van_Frederik_V,_koning_van_Bohemen,_bijgenaamd_de_%27Winterkoning%27_Rijksmuseum_SK-A-4314.jpeg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Elizabeth_(1618-80)_van_de_Paltz,_dochter_van_Frederik_V,_koning_van_Bohemen,_bijgenaamd_de_%27Winterkoning%27_Rijksmuseum_SK-A-4314.jpeg?width=1280",
+      "scene": {
+        "width": 459,
+        "height": 640,
+        "bytes": 73862,
+        "sha256": "0ca0acd64047282bd4f50ee5628438baf4a79b4c0a30c1b7295a138a3cde6e4f"
+      },
+      "panel": {
+        "width": 917,
+        "height": 1280,
+        "bytes": 359098,
+        "sha256": "081bc692dfa9fc28fe312742299d0ee2498a67b64b5e862d5070e7987400254e"
+      }
+    },
+    "rationalism-descartes-pineal": {
+      "hallFolder": "rationalism-mind-nature-system",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Descartes_diagram.png",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Descartes_diagram.png",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Descartes_diagram.png",
+      "scene": {
+        "width": 520,
+        "height": 640,
+        "bytes": 67400,
+        "sha256": "7fa2b07ad53cafb8149843bfffaa960b1cf9affdc1f136cb07418b68d1bf0d83"
+      },
+      "panel": {
+        "width": 836,
+        "height": 1029,
+        "bytes": 147672,
+        "sha256": "4ee2f23e4b7b3a4ff24474f502a00f5214ea4e46631c06a1eeab9bd45e4b88b7"
+      }
+    },
+    "rationalism-conway-principia": {
+      "hallFolder": "rationalism-mind-nature-system",
+      "sourcePageUrl": "https://books.google.com/books?id=y6hbDBQqTiQC",
+      "sourceImageUrl": "https://books.google.com/books/content?id=y6hbDBQqTiQC&printsec=frontcover&img=1&zoom=2&edge=curl&source=gbs_api",
+      "selectedThumbnailUrl": "https://books.google.com/books/content?id=y6hbDBQqTiQC&printsec=frontcover&img=1&zoom=2&edge=curl&source=gbs_api",
+      "scene": {
+        "width": 300,
+        "height": 509,
+        "bytes": 36510,
+        "sha256": "d64a4b1367d1a38f25181e596ff4a5acc74482c97a2d5e54caa5a52b0776a4c2"
+      },
+      "panel": {
+        "width": 300,
+        "height": 509,
+        "bytes": 45576,
+        "sha256": "e2056c5376dc05fef88155af20d7aed81d2aff18e93df5e7588d2ea7b15083df"
+      }
+    },
+    "rationalism-henry-more-portrait": {
+      "hallFolder": "rationalism-mind-nature-system",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Portret_van_Henry_More,_RP-P-OB-46.333.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Portret_van_Henry_More,_RP-P-OB-46.333.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Portret_van_Henry_More,_RP-P-OB-46.333.jpg?width=1280",
+      "scene": {
+        "width": 422,
+        "height": 640,
+        "bytes": 73250,
+        "sha256": "7a4b25768d741781290fc5d962ea997fa819dd6e8758f9fc7ac894b771aa8dc2"
+      },
+      "panel": {
+        "width": 844,
+        "height": 1280,
+        "bytes": 521910,
+        "sha256": "f676d8285e0c92edc69c1ae4596dddc5e7832c7c7fb00919a8df25819d79a6a0"
+      }
+    },
+    "rationalism-leibniz-monadology": {
+      "hallFolder": "rationalism-mind-nature-system",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Leibniz_Monadology_2.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Leibniz_Monadology_2.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Leibniz_Monadology_2.jpg",
+      "scene": {
+        "width": 420,
+        "height": 594,
+        "bytes": 72958,
+        "sha256": "7f5437fa240d0f86efed397045155b1371ac198b965060a1091c4fc1f0dec1df"
+      },
+      "panel": {
+        "width": 420,
+        "height": 594,
+        "bytes": 89424,
+        "sha256": "2c9e7da979a37eb710cdc0da649ba3003695d7f3d05f0345db53a5d93e91ef1c"
+      }
+    },
+    "rationalism-leibniz-correspondence": {
+      "hallFolder": "rationalism-mind-nature-system",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Korespondencja_Gottfrieda_Leibniza.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Korespondencja_Gottfrieda_Leibniza.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Korespondencja_Gottfrieda_Leibniza.jpg",
+      "scene": {
+        "width": 640,
+        "height": 533,
+        "bytes": 62876,
+        "sha256": "fdc0c04968b566e9fb369c351c6bbbdb22083c3a708d9bebdec52c990aa814ff"
+      },
+      "panel": {
+        "width": 713,
+        "height": 594,
+        "bytes": 94064,
+        "sha256": "9f31fab1947edc1ca415b3770e016d95d210d6b94f2eb7a88f79619d0b78b0c1"
+      }
+    },
+    "rationalism-leibniz-new-essays": {
+      "hallFolder": "rationalism-mind-nature-system",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Leibniz_-_Nouveaux_Essais_sur_l%E2%80%99entendement_humain,_1921.djvu",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Leibniz_-_Nouveaux_Essais_sur_l%E2%80%99entendement_humain,_1921.djvu",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Leibniz_-_Nouveaux_Essais_sur_l%E2%80%99entendement_humain%2C_1921.djvu/page17-1280px-Leibniz_-_Nouveaux_Essais_sur_l%E2%80%99entendement_humain%2C_1921.djvu.jpg",
+      "scene": {
+        "width": 381,
+        "height": 640,
+        "bytes": 46574,
+        "sha256": "d68faa901dd73c44cc7d22abc880275d4c6eb2f48516a916b9cfa8c0b02c313c"
+      },
+      "panel": {
+        "width": 762,
+        "height": 1280,
+        "bytes": 160806,
+        "sha256": "4d0502482181d7a6b194dfe0eb534c74b0884bdc51db27157b41141c07785dfd"
+      }
+    },
+    "rationalism-leibniz-clarke": {
+      "hallFolder": "rationalism-mind-nature-system",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Portrait_of_Samuel_Clarke_D._D_(4671390).jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Portrait_of_Samuel_Clarke_D._D_(4671390).jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Portrait_of_Samuel_Clarke_D._D_(4671390).jpg?width=1280",
+      "scene": {
+        "width": 391,
+        "height": 640,
+        "bytes": 35092,
+        "sha256": "779d9862651ec3bf788940bb412ad49cb27743338af7a60f6a865695322176fa"
+      },
+      "panel": {
+        "width": 782,
+        "height": 1280,
+        "bytes": 277446,
+        "sha256": "592422b50c971bc0176aeb9ba4f8ccfd2f63fd277f201033ca2f02b8694cdb17"
+      }
+    },
+    "rationalism-leibniz-binary": {
+      "hallFolder": "rationalism-mind-nature-system",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Leibniz_binary_system_1703.png",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Leibniz_binary_system_1703.png",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Leibniz_binary_system_1703.png",
+      "scene": {
+        "width": 475,
+        "height": 640,
+        "bytes": 64788,
+        "sha256": "469ad140c71022ff968c9bee3f459383c63b820487c6f80e2f4f8b442ea1bf2d"
+      },
+      "panel": {
+        "width": 727,
+        "height": 979,
+        "bytes": 137450,
+        "sha256": "0de0d7d1e05ffdda3b58ff065da92756b4f43cf4dd070a69a4cb6d8740e140e1"
+      }
+    },
+    "scholastic-boethius-miniature": {
+      "hallFolder": "latin-christian-scholastic",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Boethius.jpeg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Boethius.jpeg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Boethius.jpeg",
+      "scene": {
+        "width": 453,
+        "height": 640,
+        "bytes": 47036,
+        "sha256": "e4560e5b2bad40a24fe711dd5832f48b887158b72a080770cbe60935088fa666"
+      },
+      "panel": {
+        "width": 499,
+        "height": 705,
+        "bytes": 75842,
+        "sha256": "c9158ff96a06175e8013b1bd2be919d2e1562a8bd0530fd65b657247e5c7e4ef"
+      }
+    },
+    "scholastic-aristotle-latin-physics": {
+      "hallFolder": "latin-christian-scholastic",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Aristotle_latin_manuscript.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Aristotle_latin_manuscript.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Aristotle_latin_manuscript.jpg?width=1280",
+      "scene": {
+        "width": 464,
+        "height": 640,
+        "bytes": 83416,
+        "sha256": "126907a7f951ffd79e64d7574190d07284d9ad25e1725eeb0e6edc11e2d4918c"
+      },
+      "panel": {
+        "width": 929,
+        "height": 1280,
+        "bytes": 309202,
+        "sha256": "c21e6d22ecaacdf71c335e375e76f9f264e19b2f2f986af3e28a9cf1e692c327"
+      }
+    },
+    "scholastic-porphyrian-tree-fresco": {
+      "hallFolder": "latin-christian-scholastic",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Schussenried_Kloster_Bibliothekssaal_Gew%C3%B6lbefresko_Baum_des_Porphyrius.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Schussenried_Kloster_Bibliothekssaal_Gew%C3%B6lbefresko_Baum_des_Porphyrius.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Schussenried_Kloster_Bibliothekssaal_Gew%C3%B6lbefresko_Baum_des_Porphyrius.jpg?width=1280",
+      "scene": {
+        "width": 384,
+        "height": 640,
+        "bytes": 62936,
+        "sha256": "2fe823e094d94903d0d9c680d67f0c81a6dc6dae6a2d8c5c224c507f50069602"
+      },
+      "panel": {
+        "width": 768,
+        "height": 1280,
+        "bytes": 272762,
+        "sha256": "6cd3c67c6e920840969abe6e6594231e38ca66e879baa79f1825101c72e509ce"
+      }
+    },
+    "rationalism-descartes-weenix": {
+      "hallFolder": "rationalism-mind-nature-system",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Utrecht_Weenix_Descartes.JPG",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Utrecht_Weenix_Descartes.JPG",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Utrecht_Weenix_Descartes.JPG?width=1280",
+      "scene": {
+        "width": 484,
+        "height": 640,
+        "bytes": 12618,
+        "sha256": "5a84c5d10b7b23b78f0b543ecdebfe9abd53db96cbd52ca0c34aa2a95e7d1c94"
+      },
+      "panel": {
+        "width": 967,
+        "height": 1280,
+        "bytes": 111444,
+        "sha256": "92789123dd544b6200e34e826dd7a2bfa75b519251b79c702bacf0912a6f20c6"
+      }
+    },
+    "rationalism-spinoza-engraving": {
+      "hallFolder": "rationalism-mind-nature-system",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Engraving_of_Spinoza,_Nagelate_Schriften_van_B.d.S._Amsterdam_1677.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Engraving_of_Spinoza,_Nagelate_Schriften_van_B.d.S._Amsterdam_1677.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Engraving_of_Spinoza,_Nagelate_Schriften_van_B.d.S._Amsterdam_1677.jpg?width=1280",
+      "scene": {
+        "width": 491,
+        "height": 640,
+        "bytes": 122764,
+        "sha256": "cddb9e8fd809f1524a63786b47c262bb814ec2e9a8af967d2540b4789e154a2a"
+      },
+      "panel": {
+        "width": 982,
+        "height": 1280,
+        "bytes": 552652,
+        "sha256": "db5cb6e17e04897e283c25ca5a7a399ae33990a9cef0d6ebd5fe528da09ffa0b"
+      }
+    },
+    "rationalism-discourse-first-edition": {
+      "hallFolder": "rationalism-mind-nature-system",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Page_de_titre_de_la_premi%C3%A8re_%C3%A9dition_du_discours_de_la_m%C3%A9thode.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Page_de_titre_de_la_premi%C3%A8re_%C3%A9dition_du_discours_de_la_m%C3%A9thode.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Page_de_titre_de_la_premi%C3%A8re_%C3%A9dition_du_discours_de_la_m%C3%A9thode.jpg?width=1280",
+      "scene": {
+        "width": 474,
+        "height": 640,
+        "bytes": 44314,
+        "sha256": "5e1d62e4d9898758f207f49719e11af3b28ec70cc48d2e16179120269806628e"
+      },
+      "panel": {
+        "width": 948,
+        "height": 1280,
+        "bytes": 292516,
+        "sha256": "e6c7748b5bdb41a1b6771c55aee1657802c6f3709769b5363648ad63ce70fd9d"
+      }
+    },
+    "rationalism-ethics-propositions": {
+      "hallFolder": "rationalism-mind-nature-system",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Spinoza_Ethica_Pars1_Prop1.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Spinoza_Ethica_Pars1_Prop1.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Spinoza_Ethica_Pars1_Prop1.jpg",
+      "scene": {
+        "width": 640,
+        "height": 479,
+        "bytes": 74592,
+        "sha256": "b20b9e32127bc5b0f51b23b5db4197cb3cd4b717c2786237ef839eaa24eb2996"
+      },
+      "panel": {
+        "width": 949,
+        "height": 711,
+        "bytes": 180704,
+        "sha256": "ea4d94b1965289a0fed830e67fe86c113b23597c8e34e07d1972b72c3cadcb09"
+      }
+    },
+    "rationalism-tractatus-manuscript-note": {
+      "hallFolder": "rationalism-mind-nature-system",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Benedictus_de_Spinoza_-_Manuscript_notes_with_Tractatus_theologico-politicus_IX_Adnotatio_14.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Benedictus_de_Spinoza_-_Manuscript_notes_with_Tractatus_theologico-politicus_IX_Adnotatio_14.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Benedictus_de_Spinoza_-_Manuscript_notes_with_Tractatus_theologico-politicus_IX_Adnotatio_14.jpg?width=1280",
+      "scene": {
+        "width": 375,
+        "height": 640,
+        "bytes": 52906,
+        "sha256": "8c7661729989f7377e1b6aca506e8cf2cd02f08b4c9595e6440bb68e0dd92d10"
+      },
+      "panel": {
+        "width": 750,
+        "height": 1280,
+        "bytes": 162946,
+        "sha256": "cf570fd03f29f9d35b5604753b26927f3fe5e9923a5da96a6a5cbea9cac98b5b"
+      }
+    }
+  }
+}

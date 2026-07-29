@@ -59,6 +59,14 @@ import {
   LATE_ANTIQUITY_SUPPLEMENTAL_EXHIBITS,
   LATE_ANTIQUITY_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
 } from './lateAntiquitySupplementalExhibits';
+import {
+  LATIN_SCHOLASTIC_SUPPLEMENTAL_EXHIBITS,
+  LATIN_SCHOLASTIC_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
+} from './latinChristianScholasticSupplementalExhibits';
+import {
+  RATIONALISM_SUPPLEMENTAL_EXHIBITS,
+  RATIONALISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
+} from './rationalismSupplementalExhibits';
 import type {
   MuseumSupplementalExhibitId,
   MuseumSupplementalExhibitLayout,
@@ -142,6 +150,11 @@ const COLLECTIONS = [
     layouts: JEWISH_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
   },
   {
+    hallId: 'latin-christian-scholastic',
+    exhibits: LATIN_SCHOLASTIC_SUPPLEMENTAL_EXHIBITS,
+    layouts: LATIN_SCHOLASTIC_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
+  },
+  {
     hallId: 'hellenistic-roman-ways',
     exhibits: HELLENISTIC_ROMAN_SUPPLEMENTAL_EXHIBITS,
     layouts: HELLENISTIC_ROMAN_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
@@ -150,6 +163,11 @@ const COLLECTIONS = [
     hallId: 'late-antiquity-inheritance',
     exhibits: LATE_ANTIQUITY_SUPPLEMENTAL_EXHIBITS,
     layouts: LATE_ANTIQUITY_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
+  },
+  {
+    hallId: 'rationalism-mind-nature-system',
+    exhibits: RATIONALISM_SUPPLEMENTAL_EXHIBITS,
+    layouts: RATIONALISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
   },
 ] as const satisfies readonly MuseumSupplementalCollection[];
 

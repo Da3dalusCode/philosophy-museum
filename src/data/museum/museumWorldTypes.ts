@@ -275,7 +275,34 @@ export type MuseumSupplementalExhibitId =
   | 'hypatia-alexandrian-teaching'
   | 'aristotle-across-languages'
   | 'proclus-elements-afterlife'
-  | 'ficino-late-antique-revival';
+  | 'ficino-late-antique-revival'
+  | 'latin-boethian-logic-curriculum'
+  | 'latin-consolation-fortune-providence'
+  | 'latin-carolingian-copying-script'
+  | 'latin-eriugena-greek-christian-sources'
+  | 'latin-sic-et-non-dialectic'
+  | 'latin-heloise-love-intention-rule'
+  | 'latin-lectio-quaestio-disputatio'
+  | 'latin-arabic-latin-crosscurrents'
+  | 'latin-summa-question-architecture'
+  | 'latin-essence-existence-analogy'
+  | 'latin-natural-law-virtue'
+  | 'latin-paris-1277-contestation'
+  | 'latin-universals-signs-individuals'
+  | 'latin-poverty-censure-political-authority'
+  | 'descartes-discourse-method'
+  | 'descartes-meditations-foundation'
+  | 'elisabeth-descartes-union'
+  | 'descartes-treatise-man-embodiment'
+  | 'spinoza-ethics-geometrical-order'
+  | 'spinoza-scripture-freedom'
+  | 'conway-principles-vital-creation'
+  | 'conway-intellectual-network'
+  | 'leibniz-monadology-perception'
+  | 'leibniz-preestablished-harmony'
+  | 'leibniz-new-essays-innateness'
+  | 'leibniz-clarke-space-time'
+  | 'leibniz-binary-symbolic-reason';
 
 export type MuseumSupplementalInstallationKind =
   | 'cave-ascent'
@@ -310,6 +337,12 @@ export type MuseumSupplementalInstallationKind =
   | 'late-antique-work'
   | 'late-antique-context'
   | 'late-antique-concept'
+  | 'scholastic-work'
+  | 'scholastic-context'
+  | 'scholastic-concept'
+  | 'rationalism-work'
+  | 'rationalism-context'
+  | 'rationalism-concept'
   | 'forum-comparative-lens';
 
 export type MuseumSupplementalExhibitLayout = {
@@ -572,7 +605,7 @@ export type MuseumRuntimeNodeDefinition = {
   kind: MuseumPhysicalNodeKind;
   /** Every one of the 26 architectural galleries has a stable program id. */
   programHallId?: MuseumPlannedHallId;
-  /** Only the fourteen curated/open galleries own a content registration. */
+  /** Only the sixteen curated/open galleries own a content registration. */
   publicHallId?: MuseumPublicHallId;
   galleryState?: MuseumGalleryState;
   publicGalleryNumber?: number;
