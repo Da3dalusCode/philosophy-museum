@@ -82,7 +82,7 @@ Philosophy Atlas is intended for curious readers, students, teachers, and anyone
 
 The project is actively being developed.
 
-Current written coverage includes all **146 philosophers** and **43 branches** in the Atlas. The Museum program and its implemented architecture are locked at 10 wings, 26 galleries, and 105 rooms. Twelve galleries are curated/open; fourteen complete planned shells remain walkable but uncurated; two 56 × 28 m expansion reserves remain physically closed. Retired Museum URLs resolve through aliases or explanatory handoffs, and displaced records remain available in the Atlas. Museum media includes structured provenance and rights metadata; citation depth across the wider Atlas is still being improved.
+Current written coverage includes all **146 philosophers** and **43 branches** in the Atlas. The Museum program and its implemented architecture are locked at 10 wings, 26 galleries, and 105 rooms. Fourteen galleries are curated/open; twelve complete planned shells remain walkable but uncurated; two 56 × 28 m expansion reserves remain physically closed. Retired Museum URLs resolve through aliases or explanatory handoffs, and displaced records remain available in the Atlas. Museum media includes structured provenance and rights metadata; citation depth across the wider Atlas is still being improved.
 
 The application is local-first and static. It has no backend, database, login system, runtime API, advertising, or paid service dependency.
 

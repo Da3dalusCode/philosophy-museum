@@ -22,8 +22,8 @@ export const CORE_QUESTIONS_FORUM_PRIMARY_PLACEMENTS: Readonly<
 > = {
   metaphysics: {x: -9.33, z: -12.8, rotationY: 0},
   ontology: {x: -12.8, z: -9, rotationY: Math.PI / 2},
-  whitehead: {x: -5.82, z: -11.33, rotationY: -Math.PI / 2},
-  epistemology: {x: -3.52, z: -11.33, rotationY: Math.PI / 2},
+  whitehead: {x: -6.153, z: -11.33, rotationY: -Math.PI / 2},
+  epistemology: {x: -3.853, z: -11.33, rotationY: Math.PI / 2},
   'philosophy-of-mind': {x: 12.8, z: -8.8, rotationY: -Math.PI / 2},
   'thomas-nagel': {x: 11.33, z: -5.82, rotationY: Math.PI},
   'jiddu-krishnamurti': {x: 7.4, z: -8.4, rotationY: 0},
@@ -50,20 +50,21 @@ const WALL = .36;
 const HEIGHT = 6.2;
 
 /**
- * Four central seams stay fully open. At each peripheral seam, the doorway is
- * offset so the remaining 5.33 m wall is wide enough for a full primary bay.
- * The six short baffles support the few installations that cannot use the
- * perimeter without blocking a live approach.
+ * Four central seams stay fully open. The north/south supports begin at the
+ * finished edges of the 10 m crosscut opening and retain their full outer-wall
+ * joins; the paired installations move with those supports. At each peripheral
+ * seam, the remaining 5.33 m wall is wide enough for a full primary bay. The
+ * short baffles support installations that cannot use the perimeter.
  */
 export const coreQuestionsForumInteriorWalls = (
   prefix: string,
 ): readonly MuseumWallDefinition[] => [
   // North row: support walls north of offset openings.
-  {id: `${prefix}:forum-v-west-north`, center: {x: -4.667, z: -11.333}, size: {width: WALL, depth: 5.333}, rotation: 0, height: HEIGHT},
-  {id: `${prefix}:forum-v-east-north`, center: {x: 4.667, z: -11.333}, size: {width: WALL, depth: 5.333}, rotation: 0, height: HEIGHT},
+  {id: `${prefix}:forum-v-west-north`, center: {x: -5, z: -11.333}, size: {width: WALL, depth: 5.333}, rotation: 0, height: HEIGHT},
+  {id: `${prefix}:forum-v-east-north`, center: {x: 5, z: -11.333}, size: {width: WALL, depth: 5.333}, rotation: 0, height: HEIGHT},
   // South row: support walls south of offset openings.
-  {id: `${prefix}:forum-v-west-south`, center: {x: -4.667, z: 11.333}, size: {width: WALL, depth: 5.333}, rotation: 0, height: HEIGHT},
-  {id: `${prefix}:forum-v-east-south`, center: {x: 4.667, z: 11.333}, size: {width: WALL, depth: 5.333}, rotation: 0, height: HEIGHT},
+  {id: `${prefix}:forum-v-west-south`, center: {x: -5, z: 11.333}, size: {width: WALL, depth: 5.333}, rotation: 0, height: HEIGHT},
+  {id: `${prefix}:forum-v-east-south`, center: {x: 5, z: 11.333}, size: {width: WALL, depth: 5.333}, rotation: 0, height: HEIGHT},
   // West column: support walls west of offset openings.
   {id: `${prefix}:forum-h-north-west`, center: {x: -11.333, z: -4.667}, size: {width: 5.333, depth: WALL}, rotation: 0, height: HEIGHT},
   {id: `${prefix}:forum-h-south-west`, center: {x: -11.333, z: 4.667}, size: {width: 5.333, depth: WALL}, rotation: 0, height: HEIGHT},
@@ -92,13 +93,13 @@ type ForumSignCopy = Readonly<{
 
 const ROOM_SIGNS: readonly ForumSignCopy[] = [
   {title: 'Reality & Being', kicker: 'Forum route 01', subtitle: 'Routes: existence · categories · process', position: {x: -9.33, y: 4.92, z: -13.78}, rotationY: 0},
-  {title: 'Knowledge', kicker: 'Forum route 02', subtitle: 'Routes: perception · inference · reliable cognition', position: {x: -4.47, y: 4.92, z: -11.33}, rotationY: Math.PI / 2},
+  {title: 'Knowledge', kicker: 'Forum route 02', subtitle: 'Routes: perception · inference · reliable cognition', position: {x: -4.803, y: 4.92, z: -11.33}, rotationY: Math.PI / 2},
   {title: 'Mind & Self', kicker: 'Forum route 03', subtitle: 'Routes: consciousness · attention · selfhood', position: {x: 11.33, y: 4.92, z: -4.87}, rotationY: Math.PI},
   {title: 'Logic & Language', kicker: 'Forum route 04', subtitle: 'Routes: inference · names · meaning', position: {x: -11.33, y: 4.92, z: -4.47}, rotationY: 0},
   {title: 'Aesthetics', kicker: 'Forum route 05', subtitle: 'Routes: art · form · music · judgment', position: {x: -2.62, y: 4.72, z: -3.57}, rotationY: 0},
   {title: 'Science', kicker: 'Forum route 06', subtitle: 'Routes: evidence · models · criticism · change', position: {x: 11.33, y: 4.92, z: -4.47}, rotationY: 0},
   {title: 'Ethics', kicker: 'Forum route 07 · comparative portal', subtitle: 'Ritual · cultivation · humane judgment', position: {x: -9.33, y: 3.45, z: 13.78}, rotationY: Math.PI, width: 5.6, height: 1.08},
-  {title: 'Political Life', kicker: 'Forum route 08', subtitle: 'Routes: civic order · law · interpretation', position: {x: -4.47, y: 4.92, z: 11.33}, rotationY: Math.PI / 2},
+  {title: 'Political Life', kicker: 'Forum route 08', subtitle: 'Routes: civic order · law · interpretation', position: {x: -4.803, y: 4.92, z: 11.33}, rotationY: Math.PI / 2},
   {title: 'Philosophy of Religion', kicker: 'Forum route 09', subtitle: 'Routes: reason · revelation · critique', position: {x: 13.78, y: 4.82, z: 8.45}, rotationY: -Math.PI / 2},
 ];
 

@@ -220,7 +220,7 @@ export const MEDITERRANEAN_ORIENTATION_DISPLAY = {
   kind: 'orientation-plinth',
   center: {x: 4.65, z: -21.1},
   size: {width: 5.8, depth: .55},
-  rotation: Math.PI,
+  rotation: 0,
   height: 3.15,
 } as const satisfies MuseumFurnishingDefinition;
 

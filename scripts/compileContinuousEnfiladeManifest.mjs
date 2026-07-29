@@ -174,11 +174,18 @@ const safeDoorwayContract = (position, inwardNormal) => {
   };
 };
 
-const interiorOpening = (id, position, inwardNormal, fromCellId, toCellId) => ({
+const interiorOpening = (
   id,
   position,
   inwardNormal,
-  clearWidth: portalDimensions.clearWidthMetres,
+  fromCellId,
+  toCellId,
+  clearWidth = portalDimensions.clearWidthMetres,
+) => ({
+  id,
+  position,
+  inwardNormal,
+  clearWidth,
   clearHeight: portalDimensions.clearHeightMetres,
   transitionDepth: portalDimensions.transitionDepthMetres,
   fromCellId,
@@ -584,21 +591,152 @@ const crossingNodes = plan.crosscut.intersections
 const crossingNodeById = new Map(crossingNodes.map((node) => [node.id, node]));
 
 const turnCourtNodes = plan.turnCourts.map((turn) => {
+  assert.equal(turn.centerline.length, 4, `${turn.id} must define a three-run exterior dogleg.`);
   const from = turn.centerline[0];
   const to = turn.centerline.at(-1);
-  const delta = {x: to.x - from.x, z: to.z - from.z};
-  const measuredLength = Math.hypot(delta.x, delta.z);
+  const halfWidth = plan.physicalContract.turnCourtClearWidth / 2;
+  const segments = turn.centerline.slice(1).map((point, index) => {
+    const previous = turn.centerline[index];
+    const delta = {x: point.x - previous.x, z: point.z - previous.z};
+    const length = Math.hypot(delta.x, delta.z);
+    assert(length > .001, `${turn.id} contains a zero-length centerline segment.`);
+    const horizontal = Math.abs(delta.x) > .001 && Math.abs(delta.z) <= .001;
+    const vertical = Math.abs(delta.z) > .001 && Math.abs(delta.x) <= .001;
+    assert(horizontal || vertical, `${turn.id} centerline segments must be orthogonal.`);
+    return {
+      from: previous,
+      to: point,
+      direction: {x: round(delta.x / length), z: round(delta.z / length)},
+      horizontal,
+      length,
+    };
+  });
+  const measuredLength = segments.reduce((sum, segment) => sum + segment.length, 0);
+  assert(
+    Math.abs(segments[0].direction.x * segments[1].direction.x + segments[0].direction.z * segments[1].direction.z) < .001
+      && Math.abs(segments[1].direction.x * segments[2].direction.x + segments[1].direction.z * segments[2].direction.z) < .001,
+    `${turn.id} must make two right-angle turns.`,
+  );
+  assert(segments[0].length >= halfWidth * 2, `${turn.id} source turn basin is too shallow.`);
+  assert(segments[2].length >= halfWidth, `${turn.id} target turn basin is too shallow.`);
+  const passageBounds = (start, end, direction) => Math.abs(direction.x) > .5
+    ? {
+        minX: round(Math.min(start.x, end.x)),
+        maxX: round(Math.max(start.x, end.x)),
+        minZ: round(start.z - halfWidth),
+        maxZ: round(start.z + halfWidth),
+      }
+    : {
+        minX: round(start.x - halfWidth),
+        maxX: round(start.x + halfWidth),
+        minZ: round(Math.min(start.z, end.z)),
+        maxZ: round(Math.max(start.z, end.z)),
+      };
+  const passageCell = (suffix, bounds, direction) => ({
+    id: `cell:${turn.id}:${suffix}`,
+    kind: 'passage',
+    title: `Turn court · ${turn.fromHallId} to ${turn.toHallId}`,
+    bounds,
+    ceilingHeight: defaultCeilingHeight,
+    guidanceAxis: Math.abs(direction.x) > .5 ? 'x' : 'z',
+  });
+  const firstArmEnd = {
+    x: round(segments[0].to.x - segments[0].direction.x * halfWidth),
+    z: round(segments[0].to.z - segments[0].direction.z * halfWidth),
+  };
+  const spineStart = {
+    x: round(segments[1].from.x - segments[1].direction.x * halfWidth),
+    z: round(segments[1].from.z - segments[1].direction.z * halfWidth),
+  };
+  const spineEnd = {
+    x: round(segments[1].to.x + segments[1].direction.x * halfWidth),
+    z: round(segments[1].to.z + segments[1].direction.z * halfWidth),
+  };
+  const lastArmStart = {
+    x: round(segments[2].from.x + segments[2].direction.x * halfWidth),
+    z: round(segments[2].from.z + segments[2].direction.z * halfWidth),
+  };
+  const firstCell = passageCell(
+    'from-arm',
+    passageBounds(from, firstArmEnd, segments[0].direction),
+    segments[0].direction,
+  );
+  const spineCell = passageCell(
+    'turn-spine',
+    passageBounds(spineStart, spineEnd, segments[1].direction),
+    segments[1].direction,
+  );
+  const hasLastArm = segments[2].length > halfWidth + .001;
+  const lastCell = hasLastArm
+    ? passageCell('to-arm', passageBounds(lastArmStart, to, segments[2].direction), segments[2].direction)
+    : undefined;
+  const cells = [firstCell, spineCell, ...(lastCell ? [lastCell] : [])];
+  for (let firstIndex = 0; firstIndex < cells.length; firstIndex += 1) {
+    for (let secondIndex = firstIndex + 1; secondIndex < cells.length; secondIndex += 1) {
+      assert(
+        !strictOverlap(cells[firstIndex].bounds, cells[secondIndex].bounds),
+        `${turn.id} circulation cells overlap.`,
+      );
+    }
+  }
+  const openings = [
+    interiorOpening(
+      `opening:${turn.id}:from-arm->turn-spine`,
+      firstArmEnd,
+      segments[0].direction,
+      firstCell.id,
+      spineCell.id,
+      plan.physicalContract.turnCourtClearWidth,
+    ),
+    ...(lastCell
+      ? [interiorOpening(
+          `opening:${turn.id}:turn-spine->to-arm`,
+          lastArmStart,
+          segments[2].direction,
+          spineCell.id,
+          lastCell.id,
+          plan.physicalContract.turnCourtClearWidth,
+        )]
+      : []),
+  ];
   const localTurnBounds = {
-    minX: round(-measuredLength / 2),
-    maxX: round(measuredLength / 2),
-    minZ: round(-plan.physicalContract.turnCourtClearWidth / 2),
-    maxZ: round(plan.physicalContract.turnCourtClearWidth / 2),
+    minX: Math.min(...cells.map(({bounds}) => bounds.minX)),
+    maxX: Math.max(...cells.map(({bounds}) => bounds.maxX)),
+    minZ: Math.min(...cells.map(({bounds}) => bounds.minZ)),
+    maxZ: Math.max(...cells.map(({bounds}) => bounds.maxZ)),
   };
-  const transform = {
-    x: round((from.x + to.x) / 2),
-    z: round((from.z + to.z) / 2),
-    yaw: round(-Math.atan2(delta.z, delta.x), 12),
+  const fromInwardNormal = clone(segments[0].direction);
+  const toInwardNormal = {
+    x: round(-segments[2].direction.x),
+    z: round(-segments[2].direction.z),
   };
+  const targetHall = planHallById.get(turn.toHallId);
+  const spineMidpoint = {
+    x: round((segments[1].from.x + segments[1].to.x) / 2),
+    z: round((segments[1].from.z + segments[1].to.z) / 2),
+  };
+  const signSideNormal = {
+    x: round(-segments[1].direction.z),
+    z: round(segments[1].direction.x),
+  };
+  const signFrontNormal = {x: -signSideNormal.x, z: -signSideNormal.z};
+  const turnWayfindingSign = {
+    id: `sign:turn-wayfinding:${turn.id}`,
+    kind: 'wayfinding',
+    title: `Next · Gallery ${galleryNumber(targetHall.publicGalleryNumber)}`,
+    kicker: 'Continuous Enfilade · Turn court',
+    subtitle: targetHall.title,
+    position: {
+      x: round(spineMidpoint.x + signSideNormal.x * (halfWidth - .2)),
+      y: 2.55,
+      z: round(spineMidpoint.z + signSideNormal.z * (halfWidth - .2)),
+    },
+    rotationY: round(Math.atan2(signFrontNormal.x, signFrontNormal.z), 12),
+    width: 4.2,
+    height: 1.14,
+    interactive: false,
+  };
+  const transform = {x: 0, z: 0, yaw: 0};
   return {
     id: turn.id,
     kind: 'court',
@@ -607,13 +745,8 @@ const turnCourtNodes = plan.turnCourts.map((turn) => {
     implementationStatus: 'live',
     levelId: 'L0',
     transform,
-    bounds: {
-      minX: Math.min(from.x, to.x),
-      maxX: Math.max(from.x, to.x),
-      minZ: Math.min(from.z, to.z),
-      maxZ: Math.max(from.z, to.z),
-    },
-    boundsKind: 'centerline-control-envelope',
+    bounds: localTurnBounds,
+    boundsKind: 'constructed-circulation-envelope',
     map: {
       label: `Turn court · Galleries ${galleryNumber(planHallById.get(turn.fromHallId).publicGalleryNumber)}–${galleryNumber(planHallById.get(turn.toHallId).publicGalleryNumber)}`,
       status: 'orientation-open',
@@ -621,31 +754,31 @@ const turnCourtNodes = plan.turnCourts.map((turn) => {
     doorwaySlots: [
       {
         id: 'from',
-        position: {x: round(-measuredLength / 2), z: 0},
+        position: clone(from),
         worldPosition: clone(from),
-        inwardNormal: {x: 1, z: 0},
-        worldInwardNormal: {x: round(delta.x / measuredLength), z: round(delta.z / measuredLength)},
+        inwardNormal: fromInwardNormal,
+        worldInwardNormal: fromInwardNormal,
         clearWidth: portalDimensions.clearWidthMetres,
         clearHeight: portalDimensions.clearHeightMetres,
         transitionDepth: portalDimensions.transitionDepthMetres,
         ...safeDoorwayContract(
-          {x: round(-measuredLength / 2), z: 0},
-          {x: 1, z: 0},
+          from,
+          fromInwardNormal,
         ),
         openingState: 'pending',
       },
       {
         id: 'to',
-        position: {x: round(measuredLength / 2), z: 0},
+        position: clone(to),
         worldPosition: clone(to),
-        inwardNormal: {x: -1, z: 0},
-        worldInwardNormal: {x: round(-delta.x / measuredLength), z: round(-delta.z / measuredLength)},
+        inwardNormal: toInwardNormal,
+        worldInwardNormal: toInwardNormal,
         clearWidth: portalDimensions.clearWidthMetres,
         clearHeight: portalDimensions.clearHeightMetres,
         transitionDepth: portalDimensions.transitionDepthMetres,
         ...safeDoorwayContract(
-          {x: round(measuredLength / 2), z: 0},
-          {x: -1, z: 0},
+          to,
+          toInwardNormal,
         ),
         openingState: 'pending',
       },
@@ -653,20 +786,15 @@ const turnCourtNodes = plan.turnCourts.map((turn) => {
     geometry: {
       coordinateFrame: 'node-local',
       bounds: localTurnBounds,
-      cells: [{
-        id: `cell:${turn.id}`,
-        kind: 'passage',
-        title: `Turn court · ${turn.fromHallId} to ${turn.toHallId}`,
-        bounds: localTurnBounds,
-        ceilingHeight: defaultCeilingHeight,
-      }],
+      cells,
       worldCenterline: clone(turn.centerline),
       centerlineLength: turn.centerlineLength,
       measuredCenterlineLength: round(measuredLength, 6),
+      segmentCount: segments.length,
       clearWidth: plan.physicalContract.turnCourtClearWidth,
       treatment: turn.treatment,
-      interiorOpenings: [],
-      signs: [],
+      interiorOpenings: openings,
+      signs: [turnWayfindingSign],
     },
     fromProgramHallId: turn.fromHallId,
     toProgramHallId: turn.toHallId,
@@ -1216,13 +1344,20 @@ const validateManifest = (candidate) => {
     }
   }
 
-  const occupancyNodes = candidate.nodes.filter(({boundsKind}) => boundsKind !== 'centerline-control-envelope');
+  const occupancyNodes = candidate.nodes;
+  const occupancyFootprints = (node) => node.physicalRole === 'turn-court'
+    ? node.geometry.cells.map(({bounds}) => bounds)
+    : [node.bounds];
   for (let first = 0; first < occupancyNodes.length; first += 1) {
     for (let second = first + 1; second < occupancyNodes.length; second += 1) {
-      assert(
-        !strictOverlap(occupancyNodes[first].bounds, occupancyNodes[second].bounds),
-        `${occupancyNodes[first].id} overlaps ${occupancyNodes[second].id}.`,
-      );
+      for (const firstBounds of occupancyFootprints(occupancyNodes[first])) {
+        for (const secondBounds of occupancyFootprints(occupancyNodes[second])) {
+          assert(
+            !strictOverlap(firstBounds, secondBounds),
+            `${occupancyNodes[first].id} overlaps ${occupancyNodes[second].id}.`,
+          );
+        }
+      }
     }
   }
   for (const reserve of candidate.reserves) {
@@ -1234,14 +1369,16 @@ const validateManifest = (candidate) => {
     assert.equal(reserve.boundaryWall.collision, true);
     assert.equal(reserve.boundaryWall.rendered, true);
     for (const node of occupancyNodes) {
-      assert(!strictOverlap(reserve.bounds, node.bounds), `${reserve.id} overlaps ${node.id}.`);
+      for (const bounds of occupancyFootprints(node)) {
+        assert(!strictOverlap(reserve.bounds, bounds), `${reserve.id} overlaps ${node.id}.`);
+      }
     }
   }
   assert(!strictOverlap(candidate.reserves[0].bounds, candidate.reserves[1].bounds));
 
   const controlledBounds = plan.physicalContract.controlledPlanBoundsIncludingEntranceAndReserves;
   const boundedItems = [
-    ...occupancyNodes.map(({bounds}) => bounds),
+    ...occupancyNodes.flatMap(occupancyFootprints),
     ...candidate.reserves.map(({bounds}) => bounds),
   ];
   const measuredBounds = {
@@ -1270,6 +1407,13 @@ const validateManifest = (candidate) => {
     const first = compiledSlot(connection.a);
     const second = compiledSlot(connection.b);
     assert(samePoint(first.worldPosition, second.worldPosition), `${connection.id} endpoints are not coincident.`);
+    assert(
+      Math.hypot(
+        first.worldInwardNormal.x + second.worldInwardNormal.x,
+        first.worldInwardNormal.z + second.worldInwardNormal.z,
+      ) < .001,
+      `${connection.id} endpoint normals do not oppose.`,
+    );
     connectedSlotKeys.add(`${connection.a.nodeId}/${connection.a.slotId}`);
     connectedSlotKeys.add(`${connection.b.nodeId}/${connection.b.slotId}`);
     assert.equal(connection.accessible, true);
@@ -1335,13 +1479,28 @@ const validateManifest = (candidate) => {
     const node = compiledNodeById.get(turn.id);
     assert(node, `Missing turn court ${turn.id}.`);
     assert.equal(node.geometry.coordinateFrame, 'node-local');
-    assert.equal(node.geometry.cells.length, 1);
-    assert.equal(node.geometry.cells[0].kind, 'passage');
-    assert.equal(node.geometry.cells[0].ceilingHeight, defaultCeilingHeight);
+    assert([2, 3].includes(node.geometry.cells.length));
+    assert(node.geometry.cells.every(({kind}) => kind === 'passage'));
+    assert(node.geometry.cells.every(({ceilingHeight}) => ceilingHeight === defaultCeilingHeight));
     assert.deepEqual(node.geometry.worldCenterline, turn.centerline);
     assert.equal(node.geometry.centerlineLength, turn.centerlineLength);
     assert(close(node.geometry.measuredCenterlineLength, turn.centerlineLength));
+    assert.equal(node.geometry.segmentCount, turn.centerline.length - 1);
     assert.equal(node.geometry.clearWidth, 8);
+    assert.equal(node.geometry.interiorOpenings.length, node.geometry.cells.length - 1);
+    assert(node.geometry.interiorOpenings.every(({clearWidth}) => clearWidth === 8));
+    assert.equal(node.geometry.signs.length, 1);
+    assert.equal(node.geometry.signs[0].kind, 'wayfinding');
+    assert.match(node.geometry.signs[0].title, /^Next · Gallery \d{2}$/u);
+    assert(node.geometry.cells.every(({guidanceAxis}) => guidanceAxis === 'x' || guidanceAxis === 'z'));
+    const constructedArea = node.geometry.cells.reduce((sum, {bounds}) =>
+      sum + (bounds.maxX - bounds.minX) * (bounds.maxZ - bounds.minZ), 0);
+    assert(close(constructedArea, node.geometry.clearWidth * node.geometry.measuredCenterlineLength));
+    for (let first = 0; first < node.geometry.cells.length; first += 1) {
+      for (let second = first + 1; second < node.geometry.cells.length; second += 1) {
+        assert(!strictOverlap(node.geometry.cells[first].bounds, node.geometry.cells[second].bounds));
+      }
+    }
   }
 };
 

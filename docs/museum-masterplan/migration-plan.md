@@ -337,7 +337,7 @@ A reviewer must be able to:
 1. enter through the Grand Entrance and understand map, facing, routes, and status without opening a control;
 2. follow the full chronological route through all 26 shells without turning around inside a gallery;
 3. use every crosscut intersection in both north/south directions;
-4. traverse all five turn courts with the next threshold visible;
+4. traverse all five exterior dogleg turn courts in both directions with continuous ceiling and threshold wayfinding;
 5. enter every one of the 105 rooms;
 6. use all twelve populated galleries, their direct URLs, interactions, guided visits, reset, fast travel, and session resume;
 7. distinguish every planned shell and both closed reserves from a curated gallery;

@@ -73,17 +73,16 @@ const baffleId = (
 export const hellenisticRomanInteriorWalls = (
   prefix = HELLENISTIC_ROMAN_GALLERY_ID,
 ): readonly MuseumWallDefinition[] => {
-  const {wallThickness} = HELLENISTIC_ROMAN_HALL_DIMENSIONS;
-  const height = 5.45;
+  const {ceilingHeight: height, wallThickness} = HELLENISTIC_ROMAN_HALL_DIMENSIONS;
   return [
-    {id: baffleId('nw', 'vertical', prefix), center: {x: -4, z: -10}, size: {width: wallThickness, depth: 8}, rotation: 0, height},
-    {id: baffleId('nw', 'horizontal', prefix), center: {x: -10, z: -4}, size: {width: 8, depth: wallThickness}, rotation: 0, height},
-    {id: baffleId('ne', 'vertical', prefix), center: {x: 4, z: -10}, size: {width: wallThickness, depth: 8}, rotation: 0, height},
-    {id: baffleId('ne', 'horizontal', prefix), center: {x: 10, z: -4}, size: {width: 8, depth: wallThickness}, rotation: 0, height},
-    {id: baffleId('sw', 'vertical', prefix), center: {x: -4, z: 10}, size: {width: wallThickness, depth: 8}, rotation: 0, height},
-    {id: baffleId('sw', 'horizontal', prefix), center: {x: -10, z: 4}, size: {width: 8, depth: wallThickness}, rotation: 0, height},
-    {id: baffleId('se', 'vertical', prefix), center: {x: 4, z: 10}, size: {width: wallThickness, depth: 8}, rotation: 0, height},
-    {id: baffleId('se', 'horizontal', prefix), center: {x: 10, z: 4}, size: {width: 8, depth: wallThickness}, rotation: 0, height},
+    {id: baffleId('nw', 'vertical', prefix), center: {x: -4, z: -11}, size: {width: wallThickness, depth: 6}, rotation: 0, height},
+    {id: baffleId('nw', 'horizontal', prefix), center: {x: -11, z: -4}, size: {width: 6, depth: wallThickness}, rotation: 0, height},
+    {id: baffleId('ne', 'vertical', prefix), center: {x: 4, z: -11}, size: {width: wallThickness, depth: 6}, rotation: 0, height},
+    {id: baffleId('ne', 'horizontal', prefix), center: {x: 11, z: -4}, size: {width: 6, depth: wallThickness}, rotation: 0, height},
+    {id: baffleId('sw', 'vertical', prefix), center: {x: -4, z: 11}, size: {width: wallThickness, depth: 6}, rotation: 0, height},
+    {id: baffleId('sw', 'horizontal', prefix), center: {x: -11, z: 4}, size: {width: 6, depth: wallThickness}, rotation: 0, height},
+    {id: baffleId('se', 'vertical', prefix), center: {x: 4, z: 11}, size: {width: wallThickness, depth: 6}, rotation: 0, height},
+    {id: baffleId('se', 'horizontal', prefix), center: {x: 11, z: 4}, size: {width: 6, depth: wallThickness}, rotation: 0, height},
   ];
 };
 
@@ -127,32 +126,32 @@ const slot = (
 export const HELLENISTIC_ROMAN_INSTALLATION_SLOTS = [
   slot('hell-cynic-way:north-outer', 'hell-cynic-way', -9, -12.8, 0, outerWallId('north')),
   slot('hell-cynic-way:west-outer', 'hell-cynic-way', -12.8, -9, Math.PI / 2, outerWallId('west')),
-  slot('hell-cynic-way:east-room-face', 'hell-cynic-way', -5.2, -10, -Math.PI / 2, baffleId('nw', 'vertical')),
-  slot('hell-cynic-way:east-cross-face', 'hell-cynic-way', -3, -10, Math.PI / 2, baffleId('nw', 'vertical'), 2.5),
-  slot('hell-cynic-way:south-room-face', 'hell-cynic-way', -10, -5.2, Math.PI, baffleId('nw', 'horizontal')),
-  slot('hell-cynic-way:south-cross-face', 'hell-cynic-way', -10, -3, 0, baffleId('nw', 'horizontal'), 2.5),
+  slot('hell-cynic-way:east-room-face', 'hell-cynic-way', -5.2, -11, -Math.PI / 2, baffleId('nw', 'vertical')),
+  slot('hell-cynic-way:east-cross-face', 'hell-cynic-way', -3, -11, Math.PI / 2, baffleId('nw', 'vertical'), 2.5),
+  slot('hell-cynic-way:south-room-face', 'hell-cynic-way', -11, -5.2, Math.PI, baffleId('nw', 'horizontal')),
+  slot('hell-cynic-way:south-cross-face', 'hell-cynic-way', -11, -3, 0, baffleId('nw', 'horizontal'), 2.5),
 
   slot('hell-epicurean-garden:north-outer', 'hell-epicurean-garden', 9, -12.8, 0, outerWallId('north')),
   slot('hell-epicurean-garden:east-outer', 'hell-epicurean-garden', 12.8, -9, -Math.PI / 2, outerWallId('east')),
-  slot('hell-epicurean-garden:west-room-face', 'hell-epicurean-garden', 5.2, -10, Math.PI / 2, baffleId('ne', 'vertical')),
-  slot('hell-epicurean-garden:west-cross-face', 'hell-epicurean-garden', 3, -10, -Math.PI / 2, baffleId('ne', 'vertical'), 2.5),
-  slot('hell-epicurean-garden:south-room-face', 'hell-epicurean-garden', 10, -5.2, Math.PI, baffleId('ne', 'horizontal')),
-  slot('hell-epicurean-garden:south-cross-face', 'hell-epicurean-garden', 10, -3, 0, baffleId('ne', 'horizontal'), 2.5),
+  slot('hell-epicurean-garden:west-room-face', 'hell-epicurean-garden', 5.2, -11, Math.PI / 2, baffleId('ne', 'vertical')),
+  slot('hell-epicurean-garden:west-cross-face', 'hell-epicurean-garden', 3, -11, -Math.PI / 2, baffleId('ne', 'vertical'), 2.5),
+  slot('hell-epicurean-garden:south-room-face', 'hell-epicurean-garden', 11, -5.2, Math.PI, baffleId('ne', 'horizontal')),
+  slot('hell-epicurean-garden:south-cross-face', 'hell-epicurean-garden', 11, -3, 0, baffleId('ne', 'horizontal'), 2.5),
 
-  slot('hell-stoic-stoa:west-outer-north', 'hell-stoic-stoa', -12.8, 6.6, Math.PI / 2, outerWallId('west')),
-  slot('hell-stoic-stoa:west-outer-south', 'hell-stoic-stoa', -12.8, 11.2, Math.PI / 2, outerWallId('west')),
+  slot('hell-stoic-stoa:west-outer-north', 'hell-stoic-stoa', -12.8, 7.25, Math.PI / 2, outerWallId('west')),
+  slot('hell-stoic-stoa:west-outer-south', 'hell-stoic-stoa', -12.8, 11.55, Math.PI / 2, outerWallId('west')),
   slot('hell-stoic-stoa:south-outer', 'hell-stoic-stoa', -8.8, 12.8, Math.PI, outerWallId('south')),
-  slot('hell-stoic-stoa:east-room-face', 'hell-stoic-stoa', -5.2, 10, -Math.PI / 2, baffleId('sw', 'vertical')),
-  slot('hell-stoic-stoa:east-cross-face', 'hell-stoic-stoa', -3, 10, Math.PI / 2, baffleId('sw', 'vertical'), 2.5),
-  slot('hell-stoic-stoa:north-room-face', 'hell-stoic-stoa', -8.4, 5.2, 0, baffleId('sw', 'horizontal')),
-  slot('hell-stoic-stoa:north-cross-face', 'hell-stoic-stoa', -10, 3, Math.PI, baffleId('sw', 'horizontal'), 2.5),
+  slot('hell-stoic-stoa:east-room-face', 'hell-stoic-stoa', -5.2, 11, -Math.PI / 2, baffleId('sw', 'vertical')),
+  slot('hell-stoic-stoa:east-cross-face', 'hell-stoic-stoa', -3, 11, Math.PI / 2, baffleId('sw', 'vertical'), 2.5),
+  slot('hell-stoic-stoa:north-room-face', 'hell-stoic-stoa', -9.9, 5.2, 0, baffleId('sw', 'horizontal')),
+  slot('hell-stoic-stoa:north-cross-face', 'hell-stoic-stoa', -11, 3, Math.PI, baffleId('sw', 'horizontal'), 2.5),
 
   slot('hell-skeptical-lineages:east-outer', 'hell-skeptical-lineages', 12.8, 9, -Math.PI / 2, outerWallId('east')),
   slot('hell-skeptical-lineages:south-outer', 'hell-skeptical-lineages', 9, 12.8, Math.PI, outerWallId('south')),
-  slot('hell-skeptical-lineages:west-room-face', 'hell-skeptical-lineages', 5.2, 10, Math.PI / 2, baffleId('se', 'vertical')),
-  slot('hell-skeptical-lineages:west-cross-face', 'hell-skeptical-lineages', 3, 10, -Math.PI / 2, baffleId('se', 'vertical'), 2.5),
-  slot('hell-skeptical-lineages:north-room-face', 'hell-skeptical-lineages', 10, 5.2, 0, baffleId('se', 'horizontal')),
-  slot('hell-skeptical-lineages:north-cross-face', 'hell-skeptical-lineages', 10, 3, Math.PI, baffleId('se', 'horizontal'), 2.5),
+  slot('hell-skeptical-lineages:west-room-face', 'hell-skeptical-lineages', 5.2, 11, Math.PI / 2, baffleId('se', 'vertical')),
+  slot('hell-skeptical-lineages:west-cross-face', 'hell-skeptical-lineages', 3, 11, -Math.PI / 2, baffleId('se', 'vertical'), 2.5),
+  slot('hell-skeptical-lineages:north-room-face', 'hell-skeptical-lineages', 11, 5.2, 0, baffleId('se', 'horizontal')),
+  slot('hell-skeptical-lineages:north-cross-face', 'hell-skeptical-lineages', 11, 3, Math.PI, baffleId('se', 'horizontal'), 2.5),
 ] as const satisfies readonly HellenisticRomanInstallationSlot[];
 
 const installationSlotById = new Map(
@@ -244,10 +243,10 @@ export const HELLENISTIC_ROMAN_ROOM_SIGN_COPY = {
 }>>;
 
 export const HELLENISTIC_ROMAN_ROOM_ENTRY_POSES = Object.freeze({
-  'hell-cynic-way': {x: -6.1, z: -6.1, yaw: .408, pitch: -.02},
-  'hell-epicurean-garden': {x: 6.1, z: -6.1, yaw: -.408, pitch: -.02},
-  'hell-stoic-stoa': {x: -6.1, z: 6.1, yaw: 1.979, pitch: -.02},
-  'hell-skeptical-lineages': {x: 6.1, z: 6.1, yaw: -1.979, pitch: -.02},
+  'hell-cynic-way': {x: -8.2, z: -8.2, yaw: .408, pitch: -.02},
+  'hell-epicurean-garden': {x: 8.2, z: -8.2, yaw: -.408, pitch: -.02},
+  'hell-stoic-stoa': {x: -8.2, z: 8.2, yaw: 1.979, pitch: -.02},
+  'hell-skeptical-lineages': {x: 8.2, z: 8.2, yaw: -1.979, pitch: -.02},
 } as const satisfies Readonly<Record<HellenisticRomanRoomId, MuseumPose>>);
 
 export const HELLENISTIC_ROMAN_PRIMARY_CIRCULATION = Object.freeze({

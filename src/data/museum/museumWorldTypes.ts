@@ -360,6 +360,8 @@ export type MuseumSpatialCell = {
   ceilingHeight: number;
   exhibitIds: readonly MuseumExhibitId[];
   lightingGroupId: string;
+  /** Authored walking direction for ceiling guides in compact connector cells. */
+  guidanceAxis?: 'x' | 'z';
   /** Optional visual trim for a shared hall seam; traversal still uses bounds. */
   renderBounds?: MuseumBounds;
 };

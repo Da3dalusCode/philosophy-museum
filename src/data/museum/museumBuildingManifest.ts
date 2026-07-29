@@ -32,6 +32,7 @@ export type MuseumManifestGeometryCell = {
   title?: string;
   bounds: MuseumBounds;
   ceilingHeight: number;
+  guidanceAxis?: 'x' | 'z';
 };
 
 export type MuseumManifestInteriorOpening = {

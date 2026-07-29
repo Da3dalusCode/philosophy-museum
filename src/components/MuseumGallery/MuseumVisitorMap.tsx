@@ -211,6 +211,15 @@ export function MuseumVisitorMap({
                 >
                   {node.cells.map((cell) =>
                     <polygon key={cell.id} points={svgPoints(cell.points)}/>)}
+                  <g className="museum-visitor-map-node-outline" aria-hidden="true">
+                    {node.outline.map((segment, index) => <line
+                      key={`${index}:${segment.start.x}:${segment.start.y}`}
+                      x1={segment.start.x}
+                      y1={segment.start.y}
+                      x2={segment.end.x}
+                      y2={segment.end.y}
+                    />)}
+                  </g>
                   {selectable && <title>
                     {gallery.hall.galleryNumber} · {gallery.hall.title} · {stateLabel(gallery.hall.galleryState)}
                   </title>}

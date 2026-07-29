@@ -328,13 +328,13 @@ function MuseumPlayerRig({
       return;
     }
     if (physicalFrame?.kind === 'blocked') {
-      const {connection} = physicalFrame;
+      const {connection, reason} = physicalFrame;
       // Keep the visitor on the inward side of an unready threshold. Holding
       // movement can then produce a fresh signed-plane crossing as soon as the
       // adjacent hall becomes ready, without asking the visitor to backtrack.
       if (blockedTransitionLatchRef.current !== connection.id) {
         blockedTransitionLatchRef.current = connection.id;
-        onNodeTransitionBlocked(connection);
+        onNodeTransitionBlocked(connection, reason);
       }
     } else if (!museumConnectionAtPose(definition, pose)) {
       transitionLatchRef.current = undefined;

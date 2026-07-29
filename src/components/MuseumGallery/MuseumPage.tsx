@@ -84,6 +84,7 @@ import {
 import {useMuseumControls, type MuseumControls} from './useMuseumControls';
 import {useMuseumExperienceMode} from './useMuseumExperienceMode';
 import {resolveMuseumHallResidency} from './museumResidency';
+import {shouldPreserveCommittedMuseumPose} from './museumRouteSync';
 
 import {
   museumHallEntryReadinessKey,
@@ -91,6 +92,7 @@ import {
   type MuseumHallApproach,
   type MuseumHallLoadStatus,
   type MuseumNodeTransition,
+  type MuseumNodeTransitionBlockReason,
 } from './museumRuntime';
 import {
   getMuseumHallRegistration,
@@ -1120,9 +1122,25 @@ export function MuseumPage({route, href, push, replace}: {
     return true;
   }, [promotePreparedEntranceToActive, replace]);
 
-  const handleNodeTransitionBlocked = useCallback((connection: MuseumDirectedConnection) => {
+  const handleNodeTransitionBlocked = useCallback((
+    connection: MuseumDirectedConnection,
+    reason: MuseumNodeTransitionBlockReason,
+  ) => {
+    if (reason === 'invalid-target') {
+      const targetNode = getMuseumRuntimeNode(connection.targetNodeId);
+      console.error(
+        `[museum] Safety-blocked invalid seam ${connection.id} into ${connection.targetNodeId}.`,
+      );
+      setAnnouncement(
+        `Safety stop: the connection to ${targetNode?.mapLabel ?? 'the adjoining space'} is misaligned. Use Reset position and report this doorway.`,
+      );
+      return;
+    }
     const targetHallId = getMuseumConnectionTargetHallId(connection);
-    if (!targetHallId) return;
+    if (!targetHallId) {
+      setAnnouncement('Preparing the adjoining museum space before you cross…');
+      return;
+    }
     const target = getMuseumHallCatalog(targetHallId);
     const readinessKey = museumHallEntryReadinessKey(targetHallId, connection.targetEntranceId);
     const status = hallEntryLoadStatus[readinessKey];
@@ -1447,7 +1465,16 @@ export function MuseumPage({route, href, push, replace}: {
 
   useEffect(() => {
     if (previousEntranceRouteRef.current === route.entry) return;
+    const previousEntry = previousEntranceRouteRef.current;
     previousEntranceRouteRef.current = route.entry;
+    if (shouldPreserveCommittedMuseumPose({
+      previousEntry,
+      nextEntry: route.entry,
+      routeHallId: route.hallId,
+      activeHallId: activeHallIdRef.current,
+      pendingTransition: pendingHallTransitionRef.current,
+      pendingTravel: pendingHallTravelRef.current,
+    })) return;
     const targetRegistration = getMuseumHallRegistration(route.hallId);
     const targetNode = route.entry === 'entrance'
       ? getMuseumRuntimeNode(MUSEUM_BUILDING_MANIFEST.mainEntrance.nodeId)

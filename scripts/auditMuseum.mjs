@@ -110,6 +110,7 @@ const result = await build({
       export * from '/src/components/MuseumGallery/museumMovement.ts';
       export * from '/src/components/MuseumGallery/museumResidency.ts';
       export * from '/src/components/MuseumGallery/museumSession.ts';
+      export * from '/src/components/MuseumGallery/museumRouteSync.ts';
       export * from '/src/components/MuseumGallery/museumVisitState.ts';
       export * from '/src/components/MuseumGallery/museumWorldTransform.ts';
       export * from '/src/components/MuseumGallery/museumHallTransitions.ts';
@@ -150,6 +151,7 @@ const {
   BUDDHIST_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
   CLASSICAL_CHINESE_CURATION_VALIDATION,
   CLASSICAL_CHINESE_GALLERY_ID,
+  CLASSICAL_CHINESE_HALL_DIMENSIONS,
   CLASSICAL_CHINESE_INSTALLATION_SLOTS,
   CLASSICAL_CHINESE_PRIMARY_CIRCULATION,
   CLASSICAL_CHINESE_PRIMARY_PLACEMENTS,
@@ -160,6 +162,7 @@ const {
   CLASSICAL_CHINESE_SPATIAL_CONNECTIONS,
   CLASSICAL_CHINESE_SUPPLEMENTAL_EXHIBITS,
   CLASSICAL_CHINESE_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
+  classicalChineseInteriorWalls,
   EAST_ASIAN_GALLERY_ID,
   EAST_ASIAN_PRIMARY_PLACEMENTS,
   EAST_ASIAN_ROOM_ENTRY_POSES,
@@ -179,6 +182,7 @@ const {
   JEWISH_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
   HELLENISTIC_ROMAN_CURATION_VALIDATION,
   HELLENISTIC_ROMAN_GALLERY_ID,
+  HELLENISTIC_ROMAN_HALL_DIMENSIONS,
   HELLENISTIC_ROMAN_INSTALLATION_SLOTS,
   HELLENISTIC_ROMAN_PRIMARY_CIRCULATION,
   HELLENISTIC_ROMAN_PRIMARY_PLACEMENTS,
@@ -189,6 +193,7 @@ const {
   HELLENISTIC_ROMAN_SPATIAL_CONNECTIONS,
   HELLENISTIC_ROMAN_SUPPLEMENTAL_EXHIBITS,
   HELLENISTIC_ROMAN_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
+  hellenisticRomanInteriorWalls,
   LATE_ANTIQUITY_GALLERY_ID,
   LATE_ANTIQUITY_PRIMARY_PLACEMENTS,
   LATE_ANTIQUITY_ROOM_ENTRY_POSES,
@@ -265,6 +270,7 @@ const {
   moveWithCollisions,
   museumSessionStorageKey,
   museumPointToWorld,
+  museumPoseFromWorld,
   museumPoseToWorld,
   parseMuseumExhibitVisitContext,
   parseMuseumHallTravelContext,
@@ -281,6 +287,7 @@ const {
   saveMuseumLastVisit,
   saveMuseumSession,
   sanitizeMuseumPose,
+  shouldPreserveCommittedMuseumPose,
 } = museum;
 
 const HALL_IDS = [
@@ -374,6 +381,43 @@ check('canonical Museum visitor data initializes within its startup budget', () 
     `Canonical Museum data took ${Math.round(museumModuleInitializationMs)}ms to initialize; `
       + `the ${MUSEUM_MODULE_INITIALIZATION_BUDGET_MS}ms ceiling prevents authoring-time route synthesis from blocking visitor startup.`,
   );
+});
+
+check('committed hall crossings survive the one-shot entrance route marker clearing', () => {
+  const sourceHallId = 'mediterranean-beginnings-classical';
+  const targetHallId = 'hellenistic-roman-ways';
+  assert.equal(shouldPreserveCommittedMuseumPose({
+    previousEntry: 'entrance',
+    nextEntry: undefined,
+    routeHallId: targetHallId,
+    activeHallId: targetHallId,
+    pendingTransition: {sourceHallId, targetHallId},
+    pendingTravel: undefined,
+  }), true, 'Gallery 01 → Gallery 14 would reload a semantic Cynicism room anchor after crossing');
+  assert.equal(shouldPreserveCommittedMuseumPose({
+    previousEntry: 'entrance',
+    nextEntry: undefined,
+    routeHallId: targetHallId,
+    activeHallId: targetHallId,
+    pendingTransition: undefined,
+    pendingTravel: {sourceHallId, targetHallId},
+  }), true, 'Map travel would reload a semantic room anchor after committing its exact pose');
+  assert.equal(shouldPreserveCommittedMuseumPose({
+    previousEntry: undefined,
+    nextEntry: undefined,
+    routeHallId: targetHallId,
+    activeHallId: targetHallId,
+    pendingTransition: {sourceHallId, targetHallId},
+    pendingTravel: undefined,
+  }), false, 'Ordinary route synchronization was incorrectly suppressed');
+  assert.equal(shouldPreserveCommittedMuseumPose({
+    previousEntry: 'entrance',
+    nextEntry: undefined,
+    routeHallId: targetHallId,
+    activeHallId: sourceHallId,
+    pendingTransition: {sourceHallId, targetHallId},
+    pendingTravel: undefined,
+  }), false, 'An uncommitted crossing was incorrectly treated as complete');
 });
 
 const unique = (values) => new Set(values).size === values.length;
@@ -477,7 +521,8 @@ const assertInstallationsDoNotOverlap = (galleryLabel, rooms, installations) => 
 };
 const wordCount = (value) => value.trim().split(/\s+/).filter(Boolean).length;
 const distance = (first, second) => Math.hypot(first.x - second.x, first.z - second.z);
-const approx = (actual, expected, message, epsilon = 1e-5) => assert(Math.abs(actual - expected) <= epsilon, `${message}: expected ${expected}, got ${actual}`);
+const close = (actual, expected, epsilon = 1e-5) => Math.abs(actual - expected) <= epsilon;
+const approx = (actual, expected, message, epsilon = 1e-5) => assert(close(actual, expected, epsilon), `${message}: expected ${expected}, got ${actual}`);
 const independentDecodedTextureBytes = ({width, height, mipmaps}) => {
   let levelWidth = Math.max(1, Math.floor(width));
   let levelHeight = Math.max(1, Math.floor(height));
@@ -560,6 +605,13 @@ const wallPlaneFullyCovers = (covering, candidate) => {
     && covering.bottom <= candidate.bottom + epsilon
     && covering.top >= candidate.top - epsilon;
 };
+const wallPlaneOverlapArea = (first, second) => {
+  const epsilon = .012;
+  if (first.axis !== second.axis || Math.abs(first.coordinate - second.coordinate) > epsilon) return 0;
+  const run = Math.min(first.end, second.end) - Math.max(first.start, second.start);
+  const height = Math.min(first.top, second.top) - Math.max(first.bottom, second.bottom);
+  return run > epsilon && height > epsilon ? run * height : 0;
+};
 
 check('the public catalog is exactly the canonical fourteen-hall, 60-room, 132-exhibit program', () => {
   assert.deepEqual(MUSEUM_HALLS.map(({id}) => id), HALL_IDS);
@@ -609,6 +661,29 @@ check('curated halls and persistent Continuous Enfilade architecture use the can
     assert((node.architectureWalls ?? node.layout.wallColliders).length > 0, `${node.id} has no rendered architecture`);
     assert(unique((node.architectureWalls ?? []).map(({id}) => id)), `${node.id} repeats a rendered wall id`);
   }
+  const assertNoCoplanarRenderOverlap = (first, second) => {
+    const firstWalls = first.architectureWalls ?? first.layout.wallColliders;
+    const secondWalls = second.architectureWalls ?? second.layout.wallColliders;
+    for (const firstWall of firstWalls) {
+      const firstPlane = wallPlane(first, firstWall);
+      for (const secondWall of secondWalls) {
+        const overlapArea = wallPlaneOverlapArea(firstPlane, wallPlane(second, secondWall));
+        assert(
+          overlapArea <= .001,
+          `${first.id}/${firstWall.id} and ${second.id}/${secondWall.id} render ${overlapArea.toFixed(3)} m² coplanar`,
+        );
+      }
+    }
+  };
+  for (let first = 0; first < persistentNodes.length; first += 1) {
+    for (let second = first + 1; second < persistentNodes.length; second += 1) {
+      assertNoCoplanarRenderOverlap(persistentNodes[first], persistentNodes[second]);
+    }
+  }
+  const curatedNodes = MUSEUM_RUNTIME_NODES.filter(({publicHallId}) => publicHallId);
+  for (const persistent of persistentNodes) {
+    for (const curated of curatedNodes) assertNoCoplanarRenderOverlap(persistent, curated);
+  }
   assert.match(buildingArchitectureSource, /MUSEUM_CIRCULATION_NODES\.map/, 'Persistent building architecture is not manifest-driven');
   assert.match(buildingArchitectureSource, /MUSEUM_BUILDING_MANIFEST\.reserves\.map/, 'Closed reserve walls are not rendered from the manifest');
 });
@@ -639,8 +714,10 @@ check('Gallery 01 has bounded authored curation, visitor-facing orientation, and
   assert.deepEqual(MEDITERRANEAN_EXHIBIT_CURATION.anaxagoras.authored, {x: -5.8, z: -1.15, rotationY: Math.PI}, 'Anaxagoras returned to the crowded side-wall sightline');
 
   const entranceNode = runtimeNodeById.get(MUSEUM_VISITOR_MAP_KIOSK.nodeId);
+  const galleryNode = MUSEUM_RUNTIME_NODES.find(({publicHallId}) => publicHallId === MEDITERRANEAN_GALLERY_ID);
   const orientation = definition.layout.furnishings.find(({id}) => id === MEDITERRANEAN_ORIENTATION_DISPLAY.id);
   assert(entranceNode, 'The Grand Entrance runtime node is absent');
+  assert(galleryNode, 'Gallery 01 has no runtime building node');
   assert.equal(entranceNode.kind, 'entrance');
   assert.deepEqual(orientation, MEDITERRANEAN_ORIENTATION_DISPLAY, 'Gallery 01 orientation display is absent or stale');
   assert(definition.layout.obstacleColliders.some(({id}) => id === orientation.id), 'Gallery 01 orientation display is absent from collision');
@@ -655,6 +732,21 @@ check('Gallery 01 has bounded authored curation, visitor-facing orientation, and
     'Grand Entrance map approach is unsafe',
   );
   assert.deepEqual(definition.layout.spawnFocalPoint, MEDITERRANEAN_ORIENTATION_DISPLAY.center, 'Gallery 01 spawn does not focus its local orientation landmark');
+  const chronologicalEntry = galleryNode.entrances.find(({id}) => id === galleryNode.routePortals.entry);
+  assert(chronologicalEntry, 'Gallery 01 chronological route entry is absent');
+  const entryVector = {
+    x: chronologicalEntry.arrivalPose.x - orientation.center.x,
+    z: chronologicalEntry.arrivalPose.z - orientation.center.z,
+  };
+  const entryDistance = Math.hypot(entryVector.x, entryVector.z);
+  const orientationFront = {
+    x: Math.sin(orientation.rotation),
+    z: Math.cos(orientation.rotation),
+  };
+  assert(
+    (orientationFront.x * entryVector.x + orientationFront.z * entryVector.z) / entryDistance > .9,
+    'Gallery 01 “From Nature to the Examined Life” sign faces away from the chronological entrance',
+  );
   assert(
     Number.isFinite(definition.layout.spawnFocalPoint.x)
       && Number.isFinite(definition.layout.spawnFocalPoint.z),
@@ -1903,6 +1995,38 @@ check('Gallery 14 is a complete 25-installation crossroads of four distinct Hell
     assert.equal(authored.scale, 'full');
     assert(HELLENISTIC_ROMAN_INSTALLATION_SLOTS.some(({id: slotId, backingWallId}) =>
       slotId === authored.slotId && backingWallId === authored.backingWallId), `${id} lacks a real backing wall`);
+    const backingWall = definition.layout.wallColliders.find(({id: wallId}) => wallId === authored.backingWallId);
+    const backing = layout.scene.objectBounds.find(({id: volumeId}) => volumeId.endsWith('-backing'));
+    assert(backing, `${id} lacks a measurable installation backing`);
+    if (!backingWall) {
+      assert.match(authored.backingWallId, /:(?:north|south|west|east)-wall$/u, `${id} names an unknown backing wall`);
+      continue;
+    }
+    const cosine = Math.cos(layout.rotationY);
+    const sine = Math.sin(layout.rotationY);
+    const backingCenter = {
+      x: layout.position.x + cosine * backing.center.x + sine * backing.center.z,
+      z: layout.position.z - sine * backing.center.x + cosine * backing.center.z,
+    };
+    const wallRunsAlongLocalX = backingWall.size.width >= backingWall.size.depth;
+    const wallRun = wallRunsAlongLocalX
+      ? {x: Math.cos(backingWall.rotation), z: -Math.sin(backingWall.rotation)}
+      : {x: Math.sin(backingWall.rotation), z: Math.cos(backingWall.rotation)};
+    const wallRunLength = Math.max(backingWall.size.width, backingWall.size.depth);
+    const backingRun = {x: cosine, z: -sine};
+    const backingDepth = {x: sine, z: cosine};
+    const centerOffset = Math.abs(
+      (backingCenter.x - backingWall.center.x) * wallRun.x
+        + (backingCenter.z - backingWall.center.z) * wallRun.z,
+    );
+    const projectedHalfWidth = (
+      Math.abs(backingRun.x * wallRun.x + backingRun.z * wallRun.z) * backing.size.width
+        + Math.abs(backingDepth.x * wallRun.x + backingDepth.z * wallRun.z) * backing.size.depth
+    ) / 2;
+    assert(
+      centerOffset + projectedHalfWidth <= wallRunLength / 2 + .01,
+      `${id} overhangs ${authored.backingWallId}`,
+    );
   }
   assert.deepEqual(
     definition.layout.primaryCirculation,
@@ -1928,6 +2052,38 @@ check('Gallery 14 is a complete 25-installation crossroads of four distinct Hell
   assert.match(successorSupplementalSceneSource, /interactionForSupplemental/u, 'Gallery 14 supplemental installations lack stable interaction identity');
   assert.match(successorSupplementalSceneSource, /MuseumSceneMedia/u, 'Gallery 14 supplemental installations lack provenance-backed media');
   assert.match(hellenisticRomanSupplementalDataSource, /Frank Speech[\s\S]*Partnership Against Convention[\s\S]*Cosmopolitan Claim/u, 'Gallery 14 Cynic context is incomplete');
+});
+
+check('Galleries 09 and 14 have finished full-height baffles and four-metre room throats', () => {
+  const contracts = [
+    {
+      id: CLASSICAL_CHINESE_GALLERY_ID,
+      dimensions: CLASSICAL_CHINESE_HALL_DIMENSIONS,
+      walls: classicalChineseInteriorWalls(),
+      entryPoses: CLASSICAL_CHINESE_ROOM_ENTRY_POSES,
+    },
+    {
+      id: HELLENISTIC_ROMAN_GALLERY_ID,
+      dimensions: HELLENISTIC_ROMAN_HALL_DIMENSIONS,
+      walls: hellenisticRomanInteriorWalls(),
+      entryPoses: HELLENISTIC_ROMAN_ROOM_ENTRY_POSES,
+    },
+  ];
+  for (const {id, dimensions, walls, entryPoses} of contracts) {
+    assert.equal(walls.length, 8, `${id} lost an L-baffle segment`);
+    assert(walls.every(({height}) => close(height, dimensions.ceilingHeight)), `${id} has an unfinished baffle top`);
+    assert(walls.every(({size}) => close(Math.max(size.width, size.depth), 6)), `${id} restored an eight-metre blind baffle`);
+    const innerEnds = walls.map(({center, size}) => size.depth > size.width
+      ? Math.abs(center.z) - size.depth / 2
+      : Math.abs(center.x) - size.width / 2);
+    assert(innerEnds.every((innerEnd) => close(innerEnd - dimensions.crossHalfWidth, 4)), `${id} room throat is narrower than four metres`);
+    const definition = definitionById.get(id);
+    assert(definition);
+    for (const [roomId, pose] of Object.entries(entryPoses)) {
+      assert(Math.abs(pose.x) >= 8.1 && Math.abs(pose.z) >= 8.1, `${id}/${roomId} still stages in the turn throat`);
+      assert(validPose(definition, pose), `${id}/${roomId} has an unsafe widened-room entry`);
+    }
+  }
 });
 
 check('Gallery 15 is a complete 18-installation sequence whose final room makes transmission substantive', () => {
@@ -2106,6 +2262,11 @@ check('Gallery 06 is an open, wall-supported 25-exhibit Forum with full-scale pr
   };
   const wallSupportsInstallation = (installation, wall) => {
     const wallBounds = axisAlignedBounds(wall);
+    const installationBounds = axisAlignedBounds({
+      center: installation.position,
+      size: {width: installation.footprint.width, depth: installation.footprint.depth},
+      rotation: installation.rotationY,
+    });
     const back = {
       x: -Math.sin(installation.rotationY),
       z: -Math.cos(installation.rotationY),
@@ -2115,6 +2276,14 @@ check('Gallery 06 is an open, wall-supported 25-exhibit Forum with full-scale pr
       ? wallBounds.maxX - wallBounds.minX
       : wallBounds.maxZ - wallBounds.minZ;
     if (wallRun < installation.footprint.width - .06) return false;
+    if (widthRunsAlongX && (
+      installationBounds.minX < wallBounds.minX - .06
+      || installationBounds.maxX > wallBounds.maxX + .06
+    )) return false;
+    if (!widthRunsAlongX && (
+      installationBounds.minZ < wallBounds.minZ - .06
+      || installationBounds.maxZ > wallBounds.maxZ + .06
+    )) return false;
     for (let distanceBehind = .35; distanceBehind <= 1.6; distanceBehind += .05) {
       const point = {
         x: installation.position.x + back.x * distanceBehind,
@@ -2143,7 +2312,34 @@ check('Gallery 06 is an open, wall-supported 25-exhibit Forum with full-scale pr
       forumDefinition.layout.wallColliders.some((wall) => wallSupportsInstallation(installation, wall)),
       `${installation.id} is not backed by an exhibit-sized Forum wall`,
     );
+    const installationBounds = axisAlignedBounds({
+      center: installation.position,
+      size: {width: installation.footprint.width, depth: installation.footprint.depth},
+      rotation: installation.rotationY,
+    });
+    for (const wall of forumDefinition.layout.wallColliders) {
+      const wallBounds = axisAlignedBounds(wall);
+      assert(
+        !(
+          installationBounds.minX < wallBounds.maxX - .001
+          && installationBounds.maxX > wallBounds.minX + .001
+          && installationBounds.minZ < wallBounds.maxZ - .001
+          && installationBounds.maxZ > wallBounds.minZ + .001
+        ),
+        `${installation.id} intersects structural wall ${wall.id}`,
+      );
+    }
   }
+  const northSouthSupports = forumDefinition.layout.wallColliders.filter(({id}) =>
+    /:forum-v-(?:west|east)-(?:north|south)$/u.test(id));
+  assert.equal(northSouthSupports.length, 4, 'Gallery 06 lost a crosscut-edge support wall');
+  assert(northSouthSupports.every(({center, size}) =>
+    close(Math.abs(center.x), 5)
+      && close(Math.abs(center.z), 11.333)
+      && close(size.width, .36)
+      && close(size.depth, 5.333)
+      && Math.abs(center.z) + size.depth / 2 >= 13.999),
+  'Gallery 06 crosscut supports intrude into the doorway or leave a perimeter slit');
   assert.deepEqual(
     sorted(Object.keys(CORE_QUESTIONS_FORUM_PRIMARY_PLACEMENTS)),
     sorted(forumDefinition.layout.exhibits.map(({id}) => id)),
@@ -2547,13 +2743,10 @@ check('runtime seams are bidirectional, world-aligned, step-free, and crossable'
     assert(distance(sourceWorld, targetWorld) < .001, `${connection.id} endpoints do not meet in world space`);
     const sourceNormal = worldNormal(source, sourceEntrance.inwardNormal);
     const targetNormal = worldNormal(target, targetEntrance.inwardNormal);
-    const joinsTurnCourt = source.pilotRole === 'turn-court' || target.pilotRole === 'turn-court';
-    if (!joinsTurnCourt) {
-      assert(Math.hypot(sourceNormal.x + targetNormal.x, sourceNormal.z + targetNormal.z) < .001, `${connection.id} normals do not oppose`);
-    } else {
-      approx(Math.hypot(sourceNormal.x, sourceNormal.z), 1, `${connection.id} source turn normal`);
-      approx(Math.hypot(targetNormal.x, targetNormal.z), 1, `${connection.id} target turn normal`);
-    }
+    assert(
+      Math.hypot(sourceNormal.x + targetNormal.x, sourceNormal.z + targetNormal.z) < .001,
+      `${connection.id} normals do not oppose`,
+    );
     const sourceDimensions = Math.abs(sourceEntrance.inwardNormal.x) > .5
       ? {clearWidth: sourceEntrance.transitionBounds.size.depth, transitionDepth: sourceEntrance.transitionBounds.size.width}
       : {clearWidth: sourceEntrance.transitionBounds.size.width, transitionDepth: sourceEntrance.transitionBounds.size.depth};
@@ -2565,7 +2758,12 @@ check('runtime seams are bidirectional, world-aligned, step-free, and crossable'
     assert(validPose(target, targetEntrance.arrivalPose), `${connection.id} target landing is unsafe`);
   }
 
-  const runPhysicalCrossing = (connection, walkingSpeed, retainedTargetActive) => {
+  const runPhysicalCrossing = (
+    connection,
+    walkingSpeed,
+    retainedTargetActive,
+    tangentOffset = 0,
+  ) => {
     physicalMovementTrajectories += 1;
     const source = runtimeNodeById.get(connection.sourceNodeId);
     const target = runtimeNodeById.get(connection.targetNodeId);
@@ -2600,20 +2798,31 @@ check('runtime seams are bidirectional, world-aligned, step-free, and crossable'
     );
     const readyHallEntryKeys = new Set(renderedTargetKeys);
     let currentNode = source;
+    const tangent = {x: -entrance.inwardNormal.z, z: entrance.inwardNormal.x};
+    const lateralApertureSample = Math.abs(tangentOffset) > 1e-6;
+    const sourceDepth = lateralApertureSample ? .25 : 0;
     let currentPose = {
       ...entrance.arrivalPose,
+      x: (lateralApertureSample
+        ? entrance.position.x + entrance.inwardNormal.x * sourceDepth
+        : entrance.arrivalPose.x) + tangent.x * tangentOffset,
+      z: (lateralApertureSample
+        ? entrance.position.z + entrance.inwardNormal.z * sourceDepth
+        : entrance.arrivalPose.z) + tangent.z * tangentOffset,
       yaw: Math.atan2(entrance.inwardNormal.x, entrance.inwardNormal.z),
       pitch: 0,
     };
+    assert(validPose(source, currentPose), `${connection.id} offset ${tangentOffset} starts from an invalid source arrival`);
     let currentWorld = museumPoseToWorld(currentNode, currentPose);
     assert(sourceSignedWorldDistance(currentWorld) > 0, `${connection.id} authored arrival is not inside its source portal`);
     const areaSequence = [source.id];
     let portalCrossings = 0;
     let transitionCount = 0;
     let targetProgress = 0;
+    const requiredTargetProgress = lateralApertureSample ? .25 : 3;
     const frameLimit = 360;
 
-    for (let frame = 0; frame < frameLimit && targetProgress < 3; frame += 1) {
+    for (let frame = 0; frame < frameLimit && targetProgress < requiredTargetProgress; frame += 1) {
       const previousWorld = currentWorld;
       const previousSigned = sourceSignedWorldDistance(previousWorld);
       const result = advanceMuseumPhysicalFrame({
@@ -2623,7 +2832,11 @@ check('runtime seams are bidirectional, world-aligned, step-free, and crossable'
         rawDelta: 1 / 60,
         readyHallEntryKeys,
       });
-      assert.notEqual(result.kind, 'blocked', `${connection.id} blocked during held production movement (${result.reason ?? 'unknown'})`);
+      assert.notEqual(
+        result.kind,
+        'blocked',
+        `${connection.id} offset ${tangentOffset.toFixed(3)} blocked during held production movement (${result.reason ?? 'unknown'})`,
+      );
       const frameNode = currentNode;
       const framePose = result.pose;
       assert(validPose(frameNode, framePose), `${connection.id} produced an invalid ${frameNode.id} pose`);
@@ -2643,16 +2856,22 @@ check('runtime seams are bidirectional, world-aligned, step-free, and crossable'
         assert.equal(result.transition.connection.id, connection.id, `${connection.id} triggered ${result.transition.connection.id}`);
         assert.equal(result.transition.targetNode.id, target.id, `${connection.id} entered ${result.transition.targetNode.id}`);
         const arrivalWorld = museumPoseToWorld(result.transition.targetNode, result.transition.arrival);
+        const mappedArrival = museumPoseFromWorld(result.transition.targetNode, crossingWorld);
+        const mappedBlockers = [
+          ...result.transition.targetNode.layout.wallColliders,
+          ...result.transition.targetNode.layout.obstacleColliders,
+        ].filter((collider) => circleIntersectsCollider(
+          mappedArrival,
+          result.transition.targetNode.layout.playerRadius,
+          collider,
+        )).map(({id}) => id);
         assert(
           distance(crossingWorld, arrivalWorld) <= 1e-5,
-          `${connection.id} transition fell back or teleported ${distance(crossingWorld, arrivalWorld).toFixed(3)} m`,
+          `${connection.id} offset ${tangentOffset.toFixed(3)} transition fell back or teleported ${distance(crossingWorld, arrivalWorld).toFixed(3)} m`
+            + ` at (${mappedArrival.x.toFixed(3)}, ${mappedArrival.z.toFixed(3)}); blockers: ${mappedBlockers.join(', ') || 'spatial union'}`,
         );
         currentNode = result.transition.targetNode;
-        currentPose = {
-          ...result.transition.arrival,
-          yaw: targetEntrance.arrivalPose.yaw,
-          pitch: targetEntrance.arrivalPose.pitch,
-        };
+        currentPose = {...result.transition.arrival};
         assert(validPose(currentNode, currentPose), `${connection.id} committed an invalid target pose`);
         areaSequence.push(currentNode.id);
         currentWorld = arrivalWorld;
@@ -2666,18 +2885,110 @@ check('runtime seams are bidirectional, world-aligned, step-free, and crossable'
     assert.deepEqual(areaSequence, [source.id, target.id], `${connection.id} area sequence drifted`);
     assert.equal(transitionCount, 1, `${connection.id} did not commit exactly one transition`);
     assert.equal(portalCrossings, 1, `${connection.id} did not cross exactly one portal plane`);
-    assert(targetProgress >= 3, `${connection.id} stopped ${targetProgress.toFixed(2)} m beyond the seam`);
+    assert(
+      targetProgress >= requiredTargetProgress,
+      `${connection.id} stopped ${targetProgress.toFixed(2)} m beyond the seam`,
+    );
   };
 
   for (const connection of MUSEUM_DIRECTED_CONNECTIONS) {
+    const source = runtimeNodeById.get(connection.sourceNodeId);
+    const entrance = source?.entrances.find(({id}) => id === connection.localEntranceId);
+    assert(source && entrance, `${connection.id} lacks a source aperture for trajectory sampling`);
+    const clearWidth = Math.abs(entrance.inwardNormal.x) > .5
+      ? entrance.transitionBounds.size.depth
+      : entrance.transitionBounds.size.width;
+    const usableHalfWidth = clearWidth / 2
+      - source.layout.playerRadius
+      - MUSEUM_BUILDING_MANIFEST.physicalContract.wallThickness / 2
+      - .08;
+    assert(usableHalfWidth > 0, `${connection.id} has no usable doorway aperture`);
     runPhysicalCrossing(connection, MUSEUM_STANDARD_WALK_SPEED, false);
     runPhysicalCrossing(connection, MUSEUM_FAST_WALK_SPEED, false);
-    const source = runtimeNodeById.get(connection.sourceNodeId);
+    for (const fraction of [-1, -.5, .5, 1]) {
+      runPhysicalCrossing(connection, MUSEUM_STANDARD_WALK_SPEED, false, usableHalfWidth * fraction);
+    }
     const target = runtimeNodeById.get(connection.targetNodeId);
     if (target?.publicHallId && !source?.publicHallId) {
       runPhysicalCrossing(connection, MUSEUM_STANDARD_WALK_SPEED, true);
       runPhysicalCrossing(connection, MUSEUM_FAST_WALK_SPEED, true);
     }
+  }
+});
+
+check('all five turn courts have non-overlapping structure and are walkable through both bends', () => {
+  const hallNodes = MUSEUM_BUILDING_MANIFEST.nodes.filter(({kind}) => kind === 'hall');
+  const strictBoundsOverlap = (first, second) => first.minX < second.maxX - 1e-5
+    && first.maxX > second.minX + 1e-5
+    && first.minZ < second.maxZ - 1e-5
+    && first.maxZ > second.minZ + 1e-5;
+  for (const turn of singleLevelPlan.turnCourts) {
+    const manifestNode = MUSEUM_BUILDING_MANIFEST.nodes.find(({id}) => id === turn.id);
+    const runtimeNode = runtimeNodeById.get(turn.id);
+    assert(manifestNode?.geometry && runtimeNode, `${turn.id} is absent from the constructed runtime`);
+    assert.deepEqual(runtimeNode.worldTransform, {x: 0, z: 0, yaw: 0}, `${turn.id} does not use its world-authored orthogonal footprint`);
+    assert.equal(manifestNode.geometry.segmentCount, 3, `${turn.id} lost a centerline run`);
+    assert.equal(manifestNode.geometry.interiorOpenings.length, manifestNode.geometry.cells.length - 1, `${turn.id} has a sealed internal bend`);
+    assert(manifestNode.geometry.interiorOpenings.every(({clearWidth}) => close(clearWidth, 8)), `${turn.id} has a narrowed internal bend`);
+    assert.equal(manifestNode.geometry.signs.length, 1, `${turn.id} lacks threshold wayfinding`);
+    assert.equal(manifestNode.geometry.signs[0].kind, 'wayfinding', `${turn.id} has the wrong sign type`);
+    assert(manifestNode.geometry.cells.every(({guidanceAxis}) => guidanceAxis === 'x' || guidanceAxis === 'z'), `${turn.id} has a transverse ceiling guide`);
+    const constructedArea = manifestNode.geometry.cells.reduce((sum, {bounds}) =>
+      sum + (bounds.maxX - bounds.minX) * (bounds.maxZ - bounds.minZ), 0);
+    approx(
+      constructedArea,
+      manifestNode.geometry.clearWidth * manifestNode.geometry.measuredCenterlineLength,
+      `${turn.id} constructed floor area`,
+    );
+    for (let first = 0; first < manifestNode.geometry.cells.length; first += 1) {
+      for (let second = first + 1; second < manifestNode.geometry.cells.length; second += 1) {
+        assert(
+          !strictBoundsOverlap(manifestNode.geometry.cells[first].bounds, manifestNode.geometry.cells[second].bounds),
+          `${turn.id} duplicates floor or ceiling at a bend`,
+        );
+      }
+      for (const hallNode of hallNodes) {
+        assert(
+          !strictBoundsOverlap(manifestNode.geometry.cells[first].bounds, hallNode.bounds),
+          `${turn.id}/${manifestNode.geometry.cells[first].id} cuts through ${hallNode.id}`,
+        );
+      }
+    }
+    const fromEntrance = runtimeNode.entrances.find(({id}) => id === 'from');
+    const toEntrance = runtimeNode.entrances.find(({id}) => id === 'to');
+    assert(fromEntrance && toEntrance, `${turn.id} lacks a terminal doorway`);
+    const colliders = [...runtimeNode.layout.wallColliders, ...runtimeNode.layout.obstacleColliders];
+    const traverse = (start, waypoints, label) => {
+      physicalMovementTrajectories += 1;
+      let current = {...start};
+      assert(validPose(runtimeNode, current), `${turn.id}/${label} begins outside the court`);
+      for (const point of waypoints) {
+        const moved = moveWithCollisions(
+          current,
+          {x: point.x - current.x, z: point.z - current.z},
+          runtimeNode.layout.playerRadius,
+          runtimeNode.layout.bounds,
+          colliders,
+          runtimeNode.layout.spatialCells,
+        );
+        assert(
+          distance(moved, point) <= .01,
+          `${turn.id}/${label} is blocked ${distance(moved, point).toFixed(3)} m before a bend`,
+        );
+        current = {...current, ...moved};
+        assert(validPose(runtimeNode, current), `${turn.id}/${label} reaches an invalid bend`);
+      }
+    };
+    traverse(
+      fromEntrance.arrivalPose,
+      [...turn.centerline.slice(1, -1), toEntrance.arrivalPose],
+      'forward',
+    );
+    traverse(
+      toEntrance.arrivalPose,
+      [...turn.centerline.slice(1, -1).reverse(), fromEntrance.arrivalPose],
+      'reverse',
+    );
   }
 });
 
@@ -2707,6 +3018,25 @@ check('the physical visitor map is a truthful projection of live geometry and sa
     assert(runtimeNodeById.has(projection.id), `Visitor map projects unknown physical node ${projection.id}`);
     assert(projection.cells.length > 0, `${projection.id} has no projected map polygon`);
     assert(projection.cells.every(({area, points}) => area > 0 && points.length >= 4 && points.every(({x, y}) => Number.isFinite(x) && Number.isFinite(y))), `${projection.id} has invalid projected geometry`);
+    assert(projection.outline.length > 0, `${projection.id} has no projected exterior outline`);
+    const insideProjectedUnion = (point) => projection.cells.some(({points}) => {
+      const minimumX = Math.min(...points.map(({x}) => x));
+      const maximumX = Math.max(...points.map(({x}) => x));
+      const minimumY = Math.min(...points.map(({y}) => y));
+      const maximumY = Math.max(...points.map(({y}) => y));
+      return point.x > minimumX + .001 && point.x < maximumX - .001
+        && point.y > minimumY + .001 && point.y < maximumY - .001;
+    });
+    for (const {start, end} of projection.outline) {
+      assert([start.x, start.y, end.x, end.y].every(Number.isFinite), `${projection.id} has an invalid outline segment`);
+      const run = Math.hypot(end.x - start.x, end.y - start.y);
+      assert(run > .001, `${projection.id} has a zero-length outline segment`);
+      const midpoint = {x: (start.x + end.x) / 2, y: (start.y + end.y) / 2};
+      const normal = {x: -(end.y - start.y) / run, y: (end.x - start.x) / run};
+      const firstSide = insideProjectedUnion({x: midpoint.x + normal.x * .02, y: midpoint.y + normal.y * .02});
+      const secondSide = insideProjectedUnion({x: midpoint.x - normal.x * .02, y: midpoint.y - normal.y * .02});
+      assert(firstSide !== secondSide, `${projection.id} map outline draws a false internal wall`);
+    }
     assert(Number.isFinite(projection.labelPoint.x) && Number.isFinite(projection.labelPoint.y), `${projection.id} has an invalid map label point`);
   }
   for (const edge of MUSEUM_VISITOR_MAP_EDGES) {

@@ -22,12 +22,12 @@ This plan supersedes the unscaled Ring topology and the rejected Forum Cloister 
 | Grand Entrance & Orientation Hall | **40 × 56 m** |
 | North–south crosscut | **10 m clear × 168 m public length** |
 | Core Questions Forum | **28 × 28 m** |
-| Turn courts | **8 m clear**, longest direct sightline **39.598 m** |
-| Overall controlled bounds, including entrance and two reserves | **274 × 224 m** |
+| Turn courts | **8 m clear**, longest straight run **36 m** |
+| Overall controlled bounds, including entrance and two reserves | **282 × 224 m** |
 | Additional gallery reserves | **2 × 56 × 28 m** |
-| Complete through-gallery route | approximately **1,443.7 m** |
+| Complete through-gallery route | approximately **1,560 m** |
 
-The 262 × 168 m block is a stepped continuous envelope, not a promise that every row has an equal east or west edge. The offsets are absorbed by five enclosed turning courts. Three are diagonal, two are straight, and every one shows the next gallery threshold from its entrance. They are purposeful transitions rather than long, empty halls.
+The 262 × 168 m gallery block is a stepped continuous envelope, not a promise that every row has an equal east or west edge. Five enclosed exterior dogleg courts absorb the offsets without cutting back through a gallery footprint. Every court has two full-width right-angle turns, continuous ceiling guidance, and threshold wayfinding. Their longest uninterrupted run is 36 m, so they remain purposeful transitions rather than long, empty halls.
 
 The 28 m band depth reconciles all approved templates without changing their interiors:
 
@@ -132,7 +132,7 @@ Relocation does not relax [exhibit-wall-standard.md](./exhibit-wall-standard.md)
 
 ## Movement, map, and URL contract
 
-The chronological walk through all 26 large galleries is approximately 1.44 km. That length is inherent in preserving full-size galleries and allowing visitors to walk through them in sequence. It is not a mandatory route.
+The chronological walk through all 26 large galleries is approximately 1.56 km. That length is inherent in preserving full-size galleries and allowing visitors to walk through them in sequence. It is not a mandatory route.
 
 The crosscut gives six collection intersections in 168 m. The physical map and fast travel provide a second layer of navigation. The map must derive from the same manifest as rendered geometry and show:
 

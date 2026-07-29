@@ -97,9 +97,9 @@ const baffleId = (
 
 /**
  * Four restrained L-shaped pairs define the rooms without reproducing the
- * Forum's cubicle grid. Each segment is eight metres long: enough for a full
- * 4.6 m primary bay, while its two-metre inner-end opening gives each corner
- * room an unambiguous entrance from the central cross.
+ * Forum's cubicle grid. Each full-height segment is six metres long: enough
+ * for a full 4.6 m primary bay, while its four-metre inner-end opening gives
+ * each corner room a comfortable entrance from the central cross.
  *
  * The baffles sit on x/z = ±4 and never cross either cardinal axis. Their
  * room-facing and cross-facing sides provide four backed exhibit faces per
@@ -108,17 +108,16 @@ const baffleId = (
 export const classicalChineseInteriorWalls = (
   prefix = CLASSICAL_CHINESE_GALLERY_ID,
 ): readonly MuseumWallDefinition[] => {
-  const {wallThickness} = CLASSICAL_CHINESE_HALL_DIMENSIONS;
-  const height = 5.45;
+  const {ceilingHeight: height, wallThickness} = CLASSICAL_CHINESE_HALL_DIMENSIONS;
   return [
-    {id: baffleId('nw', 'vertical', prefix), center: {x: -4, z: -10}, size: {width: wallThickness, depth: 8}, rotation: 0, height},
-    {id: baffleId('nw', 'horizontal', prefix), center: {x: -10, z: -4}, size: {width: 8, depth: wallThickness}, rotation: 0, height},
-    {id: baffleId('ne', 'vertical', prefix), center: {x: 4, z: -10}, size: {width: wallThickness, depth: 8}, rotation: 0, height},
-    {id: baffleId('ne', 'horizontal', prefix), center: {x: 10, z: -4}, size: {width: 8, depth: wallThickness}, rotation: 0, height},
-    {id: baffleId('sw', 'vertical', prefix), center: {x: -4, z: 10}, size: {width: wallThickness, depth: 8}, rotation: 0, height},
-    {id: baffleId('sw', 'horizontal', prefix), center: {x: -10, z: 4}, size: {width: 8, depth: wallThickness}, rotation: 0, height},
-    {id: baffleId('se', 'vertical', prefix), center: {x: 4, z: 10}, size: {width: wallThickness, depth: 8}, rotation: 0, height},
-    {id: baffleId('se', 'horizontal', prefix), center: {x: 10, z: 4}, size: {width: 8, depth: wallThickness}, rotation: 0, height},
+    {id: baffleId('nw', 'vertical', prefix), center: {x: -4, z: -11}, size: {width: wallThickness, depth: 6}, rotation: 0, height},
+    {id: baffleId('nw', 'horizontal', prefix), center: {x: -11, z: -4}, size: {width: 6, depth: wallThickness}, rotation: 0, height},
+    {id: baffleId('ne', 'vertical', prefix), center: {x: 4, z: -11}, size: {width: wallThickness, depth: 6}, rotation: 0, height},
+    {id: baffleId('ne', 'horizontal', prefix), center: {x: 11, z: -4}, size: {width: 6, depth: wallThickness}, rotation: 0, height},
+    {id: baffleId('sw', 'vertical', prefix), center: {x: -4, z: 11}, size: {width: wallThickness, depth: 6}, rotation: 0, height},
+    {id: baffleId('sw', 'horizontal', prefix), center: {x: -11, z: 4}, size: {width: 6, depth: wallThickness}, rotation: 0, height},
+    {id: baffleId('se', 'vertical', prefix), center: {x: 4, z: 11}, size: {width: wallThickness, depth: 6}, rotation: 0, height},
+    {id: baffleId('se', 'horizontal', prefix), center: {x: 11, z: 4}, size: {width: 6, depth: wallThickness}, rotation: 0, height},
   ];
 };
 
@@ -174,34 +173,34 @@ export const CLASSICAL_CHINESE_INSTALLATION_SLOTS = [
   // Northwest · Many ways in early China
   slot('china-many-ways:north-outer', 'china-many-ways', -9, -12.8, 0, outerWallId('north'), 'outer-primary'),
   slot('china-many-ways:west-outer', 'china-many-ways', -12.8, -9, Math.PI / 2, outerWallId('west'), 'outer-primary'),
-  slot('china-many-ways:east-room-face', 'china-many-ways', -5.2, -10, -Math.PI / 2, baffleId('nw', 'vertical'), 'room-return'),
-  slot('china-many-ways:east-cross-face', 'china-many-ways', -3, -10, Math.PI / 2, baffleId('nw', 'vertical'), 'cross-return'),
-  slot('china-many-ways:south-room-face', 'china-many-ways', -10, -5.2, Math.PI, baffleId('nw', 'horizontal'), 'room-return'),
-  slot('china-many-ways:south-cross-face', 'china-many-ways', -10, -3, 0, baffleId('nw', 'horizontal'), 'cross-return'),
+  slot('china-many-ways:east-room-face', 'china-many-ways', -5.2, -11, -Math.PI / 2, baffleId('nw', 'vertical'), 'room-return'),
+  slot('china-many-ways:east-cross-face', 'china-many-ways', -3, -11, Math.PI / 2, baffleId('nw', 'vertical'), 'cross-return'),
+  slot('china-many-ways:south-room-face', 'china-many-ways', -11, -5.2, Math.PI, baffleId('nw', 'horizontal'), 'room-return'),
+  slot('china-many-ways:south-cross-face', 'china-many-ways', -11, -3, 0, baffleId('nw', 'horizontal'), 'cross-return'),
 
   // Northeast · Confucian cultivation
   slot('china-confucian-cultivation:north-outer', 'china-confucian-cultivation', 9, -12.8, 0, outerWallId('north'), 'outer-primary'),
   slot('china-confucian-cultivation:east-outer', 'china-confucian-cultivation', 12.8, -9, -Math.PI / 2, outerWallId('east'), 'outer-primary'),
-  slot('china-confucian-cultivation:west-room-face', 'china-confucian-cultivation', 5.2, -10, Math.PI / 2, baffleId('ne', 'vertical'), 'room-return'),
-  slot('china-confucian-cultivation:west-cross-face', 'china-confucian-cultivation', 3, -10, -Math.PI / 2, baffleId('ne', 'vertical'), 'cross-return'),
-  slot('china-confucian-cultivation:south-room-face', 'china-confucian-cultivation', 10, -5.2, Math.PI, baffleId('ne', 'horizontal'), 'room-return'),
-  slot('china-confucian-cultivation:south-cross-face', 'china-confucian-cultivation', 10, -3, 0, baffleId('ne', 'horizontal'), 'cross-return'),
+  slot('china-confucian-cultivation:west-room-face', 'china-confucian-cultivation', 5.2, -11, Math.PI / 2, baffleId('ne', 'vertical'), 'room-return'),
+  slot('china-confucian-cultivation:west-cross-face', 'china-confucian-cultivation', 3, -11, -Math.PI / 2, baffleId('ne', 'vertical'), 'cross-return'),
+  slot('china-confucian-cultivation:south-room-face', 'china-confucian-cultivation', 11, -5.2, Math.PI, baffleId('ne', 'horizontal'), 'room-return'),
+  slot('china-confucian-cultivation:south-cross-face', 'china-confucian-cultivation', 11, -3, 0, baffleId('ne', 'horizontal'), 'cross-return'),
 
   // Southwest · Daodejing, Zhuangzi, and the Way
   slot('china-daoist-way:west-outer', 'china-daoist-way', -12.8, 9, Math.PI / 2, outerWallId('west'), 'outer-primary'),
   slot('china-daoist-way:south-outer', 'china-daoist-way', -9, 12.8, Math.PI, outerWallId('south'), 'outer-primary'),
-  slot('china-daoist-way:east-room-face', 'china-daoist-way', -5.2, 10, -Math.PI / 2, baffleId('sw', 'vertical'), 'room-return'),
-  slot('china-daoist-way:east-cross-face', 'china-daoist-way', -3, 10, Math.PI / 2, baffleId('sw', 'vertical'), 'cross-return'),
-  slot('china-daoist-way:north-room-face', 'china-daoist-way', -10, 5.2, 0, baffleId('sw', 'horizontal'), 'room-return'),
-  slot('china-daoist-way:north-cross-face', 'china-daoist-way', -10, 3, Math.PI, baffleId('sw', 'horizontal'), 'cross-return'),
+  slot('china-daoist-way:east-room-face', 'china-daoist-way', -5.2, 11, -Math.PI / 2, baffleId('sw', 'vertical'), 'room-return'),
+  slot('china-daoist-way:east-cross-face', 'china-daoist-way', -3, 11, Math.PI / 2, baffleId('sw', 'vertical'), 'cross-return'),
+  slot('china-daoist-way:north-room-face', 'china-daoist-way', -11, 5.2, 0, baffleId('sw', 'horizontal'), 'room-return'),
+  slot('china-daoist-way:north-cross-face', 'china-daoist-way', -11, 3, Math.PI, baffleId('sw', 'horizontal'), 'cross-return'),
 
   // Southeast · Mohist debate and fa/statecraft currents
   slot('china-mohist-fa:east-outer', 'china-mohist-fa', 12.8, 9, -Math.PI / 2, outerWallId('east'), 'outer-primary'),
   slot('china-mohist-fa:south-outer', 'china-mohist-fa', 9, 12.8, Math.PI, outerWallId('south'), 'outer-primary'),
-  slot('china-mohist-fa:west-room-face', 'china-mohist-fa', 5.2, 10, Math.PI / 2, baffleId('se', 'vertical'), 'room-return'),
-  slot('china-mohist-fa:west-cross-face', 'china-mohist-fa', 3, 10, -Math.PI / 2, baffleId('se', 'vertical'), 'cross-return'),
-  slot('china-mohist-fa:north-room-face', 'china-mohist-fa', 10, 5.2, 0, baffleId('se', 'horizontal'), 'room-return'),
-  slot('china-mohist-fa:north-cross-face', 'china-mohist-fa', 10, 3, Math.PI, baffleId('se', 'horizontal'), 'cross-return'),
+  slot('china-mohist-fa:west-room-face', 'china-mohist-fa', 5.2, 11, Math.PI / 2, baffleId('se', 'vertical'), 'room-return'),
+  slot('china-mohist-fa:west-cross-face', 'china-mohist-fa', 3, 11, -Math.PI / 2, baffleId('se', 'vertical'), 'cross-return'),
+  slot('china-mohist-fa:north-room-face', 'china-mohist-fa', 11, 5.2, 0, baffleId('se', 'horizontal'), 'room-return'),
+  slot('china-mohist-fa:north-cross-face', 'china-mohist-fa', 11, 3, Math.PI, baffleId('se', 'horizontal'), 'cross-return'),
 ] as const satisfies readonly ClassicalChineseInstallationSlot[];
 
 export const CLASSICAL_CHINESE_PHYSICAL_INSTALL_COUNT = 24 as const;
@@ -305,20 +304,20 @@ export const CLASSICAL_CHINESE_ROOM_SIGN_COPY = {
 }>>;
 
 /**
- * Directory views begin in each room's two-metre diagonal opening and face its
+ * Directory views begin just inside each room's four-metre opening and face its
  * strongest perimeter primary. They do not stage the central cross or a
  * secondary installation as the room's accidental focal point.
  */
 export const CLASSICAL_CHINESE_ROOM_ENTRY_POSES = Object.freeze({
-  'china-many-ways': {x: -6.1, z: -6.1, yaw: .408, pitch: -.02},
-  'china-confucian-cultivation': {x: 6.1, z: -6.1, yaw: -.408, pitch: -.02},
-  'china-daoist-way': {x: -6.1, z: 6.1, yaw: 1.979, pitch: -.02},
-  'china-mohist-fa': {x: 6.1, z: 6.1, yaw: -1.979, pitch: -.02},
+  'china-many-ways': {x: -8.2, z: -8.2, yaw: .408, pitch: -.02},
+  'china-confucian-cultivation': {x: 8.2, z: -8.2, yaw: -.408, pitch: -.02},
+  'china-daoist-way': {x: -8.2, z: 8.2, yaw: 1.979, pitch: -.02},
+  'china-mohist-fa': {x: 8.2, z: 8.2, yaw: -1.979, pitch: -.02},
 } as const satisfies Readonly<Record<ClassicalChineseRoomId, MuseumPose>>);
 
 /**
  * The primary route is the unobstructed cardinal cross. Room tours branch from
- * it through the two-metre corner openings, but the building's required
+ * it through the four-metre corner openings, but the building's required
  * north/south and east/west paths never enter an exhibit footprint.
  */
 export const CLASSICAL_CHINESE_PRIMARY_CIRCULATION = Object.freeze({

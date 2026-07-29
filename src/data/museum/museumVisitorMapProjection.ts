@@ -20,6 +20,10 @@ import type {
 } from './museumWorldTypes';
 
 export type MuseumVisitorMapPoint = {x: number; y: number};
+export type MuseumVisitorMapOutlineSegment = {
+  start: MuseumVisitorMapPoint;
+  end: MuseumVisitorMapPoint;
+};
 
 export type MuseumVisitorMapGallerySummary = {
   id: MuseumPlannedHallId;
@@ -67,6 +71,7 @@ export type MuseumVisitorMapPhysicalNodeProjection = {
   label: string;
   status: MuseumVisitorMapManifestNode['map']['status'];
   cells: readonly MuseumVisitorMapProjectedCell[];
+  outline: readonly MuseumVisitorMapOutlineSegment[];
   labelPoint: MuseumVisitorMapPoint;
 };
 
@@ -216,6 +221,57 @@ const nodeCells = (
   return [projectedWorldBounds(`${node.id}:bounds`, node.bounds)];
 };
 
+const nodeOutline = (
+  cells: readonly MuseumVisitorMapProjectedCell[],
+): readonly MuseumVisitorMapOutlineSegment[] => {
+  const normalize = (value: number) => Math.round(value * 1_000_000) / 1_000_000;
+  const rectangles = cells.map(({points}) => ({
+    minX: normalize(Math.min(...points.map(({x}) => x))),
+    maxX: normalize(Math.max(...points.map(({x}) => x))),
+    minY: normalize(Math.min(...points.map(({y}) => y))),
+    maxY: normalize(Math.max(...points.map(({y}) => y))),
+  }));
+  const xCoordinates = [...new Set(rectangles.flatMap(({minX, maxX}) => [minX, maxX]))]
+    .sort((first, second) => first - second);
+  const yCoordinates = [...new Set(rectangles.flatMap(({minY, maxY}) => [minY, maxY]))]
+    .sort((first, second) => first - second);
+  const occupied = new Set<string>();
+  for (let xIndex = 0; xIndex < xCoordinates.length - 1; xIndex += 1) {
+    for (let yIndex = 0; yIndex < yCoordinates.length - 1; yIndex += 1) {
+      const x = (xCoordinates[xIndex] + xCoordinates[xIndex + 1]) / 2;
+      const y = (yCoordinates[yIndex] + yCoordinates[yIndex + 1]) / 2;
+      if (rectangles.some((rectangle) =>
+        x > rectangle.minX && x < rectangle.maxX && y > rectangle.minY && y < rectangle.maxY)) {
+        occupied.add(`${xIndex}:${yIndex}`);
+      }
+    }
+  }
+  const outline: MuseumVisitorMapOutlineSegment[] = [];
+  const append = (start: MuseumVisitorMapPoint, end: MuseumVisitorMapPoint) => {
+    outline.push({start, end});
+  };
+  for (const key of occupied) {
+    const [xIndex, yIndex] = key.split(':').map(Number);
+    const minimumX = xCoordinates[xIndex];
+    const maximumX = xCoordinates[xIndex + 1];
+    const minimumY = yCoordinates[yIndex];
+    const maximumY = yCoordinates[yIndex + 1];
+    if (!occupied.has(`${xIndex - 1}:${yIndex}`)) {
+      append({x: minimumX, y: minimumY}, {x: minimumX, y: maximumY});
+    }
+    if (!occupied.has(`${xIndex + 1}:${yIndex}`)) {
+      append({x: maximumX, y: minimumY}, {x: maximumX, y: maximumY});
+    }
+    if (!occupied.has(`${xIndex}:${yIndex - 1}`)) {
+      append({x: minimumX, y: minimumY}, {x: maximumX, y: minimumY});
+    }
+    if (!occupied.has(`${xIndex}:${yIndex + 1}`)) {
+      append({x: minimumX, y: maximumY}, {x: maximumX, y: maximumY});
+    }
+  }
+  return outline;
+};
+
 const projectedNodeKind = (
   node: MuseumVisitorMapManifestNode,
 ): MuseumPhysicalNodeKind => {
@@ -286,6 +342,7 @@ export const MUSEUM_VISITOR_MAP_NODE_PROJECTIONS: readonly MuseumVisitorMapPhysi
         label: node.map.label,
         status: node.map.status,
         cells,
+        outline: nodeOutline(cells),
         labelPoint: labelCell.center,
       };
     });

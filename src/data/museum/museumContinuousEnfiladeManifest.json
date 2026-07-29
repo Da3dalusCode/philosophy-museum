@@ -9,7 +9,7 @@
       "path": "docs/museum-masterplan/single-level-building-plan.json",
       "planId": "continuous-enfilade-single-level-v1",
       "schemaVersion": 2,
-      "sha256": "8c3ea1d131d1aab3c0fd4d2db8c898a5efe7422029fa6b415a84edaea2207da5"
+      "sha256": "6e024b2052ce2adbe2884c663e030c474fe04ccf3116773880c4070cc78dc50a"
     },
     "program": {
       "path": "docs/museum-masterplan/hall-program.json",
@@ -43,17 +43,17 @@
     },
     "controlledPlanBoundsIncludingEntranceAndReserves": {
       "minX": -129,
-      "maxX": 145,
+      "maxX": 153,
       "minZ": -112,
       "maxZ": 112,
-      "width": 274,
+      "width": 282,
       "depth": 224
     },
     "structuralBandDepth": 28,
     "bandCount": 6,
     "crosscutClearWidth": 10,
     "turnCourtClearWidth": 8,
-    "maximumTurnCourtSightline": 40,
+    "maximumTurnCourtStraightRun": 40,
     "templateEmbedding": {
       "sequence-3": {
         "rotationDegrees": 90,
@@ -399,8 +399,8 @@
     ],
     "nominalHallRunLength": 1228,
     "crossingBayRunLength": 50,
-    "turnCourtRunLength": 165.671,
-    "completeVisitLength": 1443.671
+    "turnCourtRunLength": 282,
+    "completeVisitLength": 1560
   },
   "nodes": [
     {
@@ -9759,17 +9759,17 @@
       "implementationStatus": "live",
       "levelId": "L0",
       "transform": {
-        "x": 103,
-        "z": -56,
-        "yaw": -2.356194490192
+        "x": 0,
+        "z": 0,
+        "yaw": 0
       },
       "bounds": {
         "minX": 89,
-        "maxX": 117,
-        "minZ": -70,
-        "maxZ": -42
+        "maxX": 129,
+        "minZ": -74,
+        "maxZ": -38
       },
-      "boundsKind": "centerline-control-envelope",
+      "boundsKind": "constructed-circulation-envelope",
       "map": {
         "label": "Turn court · Galleries 07–08",
         "status": "orientation-open"
@@ -9778,8 +9778,8 @@
         {
           "id": "from",
           "position": {
-            "x": -19.79899,
-            "z": 0
+            "x": 117,
+            "z": -70
           },
           "worldPosition": {
             "x": 117,
@@ -9790,21 +9790,21 @@
             "z": 0
           },
           "worldInwardNormal": {
-            "x": -0.707107,
-            "z": 0.707107
+            "x": 1,
+            "z": 0
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
           "transitionDepth": 1.2,
           "landingBounds": {
-            "minX": -19.79899,
-            "maxX": -15.79899,
-            "minZ": -2,
-            "maxZ": 2
+            "minX": 117,
+            "maxX": 121,
+            "minZ": -72,
+            "maxZ": -68
           },
           "arrivalPose": {
-            "x": -17.79899,
-            "z": 0,
+            "x": 119,
+            "z": -70,
             "yaw": -1.570796326795,
             "pitch": 0
           },
@@ -9813,34 +9813,34 @@
         {
           "id": "to",
           "position": {
-            "x": 19.79899,
-            "z": 0
+            "x": 89,
+            "z": -42
           },
           "worldPosition": {
             "x": 89,
             "z": -42
           },
           "inwardNormal": {
-            "x": -1,
+            "x": 1,
             "z": 0
           },
           "worldInwardNormal": {
-            "x": 0.707107,
-            "z": -0.707107
+            "x": 1,
+            "z": 0
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
           "transitionDepth": 1.2,
           "landingBounds": {
-            "minX": 15.79899,
-            "maxX": 19.79899,
-            "minZ": -2,
-            "maxZ": 2
+            "minX": 89,
+            "maxX": 93,
+            "minZ": -44,
+            "maxZ": -40
           },
           "arrivalPose": {
-            "x": 17.79899,
-            "z": 0,
-            "yaw": 1.570796326795,
+            "x": 91,
+            "z": -42,
+            "yaw": -1.570796326795,
             "pitch": 0
           },
           "openingState": "open"
@@ -9849,23 +9849,50 @@
       "geometry": {
         "coordinateFrame": "node-local",
         "bounds": {
-          "minX": -19.79899,
-          "maxX": 19.79899,
-          "minZ": -4,
-          "maxZ": 4
+          "minX": 89,
+          "maxX": 129,
+          "minZ": -74,
+          "maxZ": -38
         },
         "cells": [
           {
-            "id": "cell:turn:band-01-to-02",
+            "id": "cell:turn:band-01-to-02:from-arm",
             "kind": "passage",
             "title": "Turn court · classical-south-asian-worlds to buddhist-philosophies",
             "bounds": {
-              "minX": -19.79899,
-              "maxX": 19.79899,
-              "minZ": -4,
-              "maxZ": 4
+              "minX": 117,
+              "maxX": 121,
+              "minZ": -74,
+              "maxZ": -66
             },
-            "ceilingHeight": 5.8
+            "ceilingHeight": 5.8,
+            "guidanceAxis": "x"
+          },
+          {
+            "id": "cell:turn:band-01-to-02:turn-spine",
+            "kind": "passage",
+            "title": "Turn court · classical-south-asian-worlds to buddhist-philosophies",
+            "bounds": {
+              "minX": 121,
+              "maxX": 129,
+              "minZ": -74,
+              "maxZ": -38
+            },
+            "ceilingHeight": 5.8,
+            "guidanceAxis": "z"
+          },
+          {
+            "id": "cell:turn:band-01-to-02:to-arm",
+            "kind": "passage",
+            "title": "Turn court · classical-south-asian-worlds to buddhist-philosophies",
+            "bounds": {
+              "minX": 89,
+              "maxX": 121,
+              "minZ": -46,
+              "maxZ": -38
+            },
+            "ceilingHeight": 5.8,
+            "guidanceAxis": "x"
           }
         ],
         "worldCenterline": [
@@ -9874,16 +9901,75 @@
             "z": -70
           },
           {
+            "x": 125,
+            "z": -70
+          },
+          {
+            "x": 125,
+            "z": -42
+          },
+          {
             "x": 89,
             "z": -42
           }
         ],
-        "centerlineLength": 39.598,
-        "measuredCenterlineLength": 39.59798,
+        "centerlineLength": 72,
+        "measuredCenterlineLength": 72,
+        "segmentCount": 3,
         "clearWidth": 8,
-        "treatment": "enclosed diagonal turning court with direct sightline to the next threshold",
-        "interiorOpenings": [],
-        "signs": []
+        "treatment": "enclosed exterior turning court with two full-width right-angle turns, continuous ceiling guidance, and threshold wayfinding",
+        "interiorOpenings": [
+          {
+            "id": "opening:turn:band-01-to-02:from-arm->turn-spine",
+            "position": {
+              "x": 121,
+              "z": -70
+            },
+            "inwardNormal": {
+              "x": 1,
+              "z": 0
+            },
+            "clearWidth": 8,
+            "clearHeight": 3.2,
+            "transitionDepth": 1.2,
+            "fromCellId": "cell:turn:band-01-to-02:from-arm",
+            "toCellId": "cell:turn:band-01-to-02:turn-spine"
+          },
+          {
+            "id": "opening:turn:band-01-to-02:turn-spine->to-arm",
+            "position": {
+              "x": 121,
+              "z": -42
+            },
+            "inwardNormal": {
+              "x": -1,
+              "z": 0
+            },
+            "clearWidth": 8,
+            "clearHeight": 3.2,
+            "transitionDepth": 1.2,
+            "fromCellId": "cell:turn:band-01-to-02:turn-spine",
+            "toCellId": "cell:turn:band-01-to-02:to-arm"
+          }
+        ],
+        "signs": [
+          {
+            "id": "sign:turn-wayfinding:turn:band-01-to-02",
+            "kind": "wayfinding",
+            "title": "Next · Gallery 08",
+            "kicker": "Continuous Enfilade · Turn court",
+            "subtitle": "Buddhist Philosophies of Liberation and Knowledge",
+            "position": {
+              "x": 121.2,
+              "y": 2.55,
+              "z": -56
+            },
+            "rotationY": 1.570796326795,
+            "width": 4.2,
+            "height": 1.14,
+            "interactive": false
+          }
+        ]
       },
       "fromProgramHallId": "classical-south-asian-worlds",
       "toProgramHallId": "buddhist-philosophies"
@@ -9896,17 +9982,17 @@
       "implementationStatus": "live",
       "levelId": "L0",
       "transform": {
-        "x": -105.5,
-        "z": -28,
-        "yaw": -0.883125070756
+        "x": 0,
+        "z": 0,
+        "yaw": 0
       },
       "bounds": {
-        "minX": -117,
+        "minX": -129,
         "maxX": -94,
-        "minZ": -42,
-        "maxZ": -14
+        "minZ": -46,
+        "maxZ": -10
       },
-      "boundsKind": "centerline-control-envelope",
+      "boundsKind": "constructed-circulation-envelope",
       "map": {
         "label": "Turn court · Galleries 10–12",
         "status": "orientation-open"
@@ -9915,34 +10001,34 @@
         {
           "id": "from",
           "position": {
-            "x": -18.117671,
-            "z": 0
+            "x": -117,
+            "z": -42
           },
           "worldPosition": {
             "x": -117,
             "z": -42
           },
           "inwardNormal": {
-            "x": 1,
+            "x": -1,
             "z": 0
           },
           "worldInwardNormal": {
-            "x": 0.634739,
-            "z": 0.772726
+            "x": -1,
+            "z": 0
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
           "transitionDepth": 1.2,
           "landingBounds": {
-            "minX": -18.117671,
-            "maxX": -14.117671,
-            "minZ": -2,
-            "maxZ": 2
+            "minX": -121,
+            "maxX": -117,
+            "minZ": -44,
+            "maxZ": -40
           },
           "arrivalPose": {
-            "x": -16.117671,
-            "z": 0,
-            "yaw": -1.570796326795,
+            "x": -119,
+            "z": -42,
+            "yaw": 1.570796326795,
             "pitch": 0
           },
           "openingState": "open"
@@ -9950,8 +10036,8 @@
         {
           "id": "to",
           "position": {
-            "x": 18.117671,
-            "z": 0
+            "x": -94,
+            "z": -14
           },
           "worldPosition": {
             "x": -94,
@@ -9962,21 +10048,21 @@
             "z": 0
           },
           "worldInwardNormal": {
-            "x": -0.634739,
-            "z": -0.772726
+            "x": -1,
+            "z": 0
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
           "transitionDepth": 1.2,
           "landingBounds": {
-            "minX": 14.117671,
-            "maxX": 18.117671,
-            "minZ": -2,
-            "maxZ": 2
+            "minX": -98,
+            "maxX": -94,
+            "minZ": -16,
+            "maxZ": -12
           },
           "arrivalPose": {
-            "x": 16.117671,
-            "z": 0,
+            "x": -96,
+            "z": -14,
             "yaw": 1.570796326795,
             "pitch": 0
           },
@@ -9986,23 +10072,50 @@
       "geometry": {
         "coordinateFrame": "node-local",
         "bounds": {
-          "minX": -18.117671,
-          "maxX": 18.117671,
-          "minZ": -4,
-          "maxZ": 4
+          "minX": -129,
+          "maxX": -94,
+          "minZ": -46,
+          "maxZ": -10
         },
         "cells": [
           {
-            "id": "cell:turn:band-02-to-03",
+            "id": "cell:turn:band-02-to-03:from-arm",
             "kind": "passage",
             "title": "Turn court · islamic-philosophical-worlds to jewish-philosophy",
             "bounds": {
-              "minX": -18.117671,
-              "maxX": 18.117671,
-              "minZ": -4,
-              "maxZ": 4
+              "minX": -121,
+              "maxX": -117,
+              "minZ": -46,
+              "maxZ": -38
             },
-            "ceilingHeight": 5.8
+            "ceilingHeight": 5.8,
+            "guidanceAxis": "x"
+          },
+          {
+            "id": "cell:turn:band-02-to-03:turn-spine",
+            "kind": "passage",
+            "title": "Turn court · islamic-philosophical-worlds to jewish-philosophy",
+            "bounds": {
+              "minX": -129,
+              "maxX": -121,
+              "minZ": -46,
+              "maxZ": -10
+            },
+            "ceilingHeight": 5.8,
+            "guidanceAxis": "z"
+          },
+          {
+            "id": "cell:turn:band-02-to-03:to-arm",
+            "kind": "passage",
+            "title": "Turn court · islamic-philosophical-worlds to jewish-philosophy",
+            "bounds": {
+              "minX": -121,
+              "maxX": -94,
+              "minZ": -18,
+              "maxZ": -10
+            },
+            "ceilingHeight": 5.8,
+            "guidanceAxis": "x"
           }
         ],
         "worldCenterline": [
@@ -10011,16 +10124,75 @@
             "z": -42
           },
           {
+            "x": -125,
+            "z": -42
+          },
+          {
+            "x": -125,
+            "z": -14
+          },
+          {
             "x": -94,
             "z": -14
           }
         ],
-        "centerlineLength": 36.235,
-        "measuredCenterlineLength": 36.235342,
+        "centerlineLength": 67,
+        "measuredCenterlineLength": 67,
+        "segmentCount": 3,
         "clearWidth": 8,
-        "treatment": "enclosed diagonal turning court with direct sightline to the next threshold",
-        "interiorOpenings": [],
-        "signs": []
+        "treatment": "enclosed exterior turning court with two full-width right-angle turns, continuous ceiling guidance, and threshold wayfinding",
+        "interiorOpenings": [
+          {
+            "id": "opening:turn:band-02-to-03:from-arm->turn-spine",
+            "position": {
+              "x": -121,
+              "z": -42
+            },
+            "inwardNormal": {
+              "x": -1,
+              "z": 0
+            },
+            "clearWidth": 8,
+            "clearHeight": 3.2,
+            "transitionDepth": 1.2,
+            "fromCellId": "cell:turn:band-02-to-03:from-arm",
+            "toCellId": "cell:turn:band-02-to-03:turn-spine"
+          },
+          {
+            "id": "opening:turn:band-02-to-03:turn-spine->to-arm",
+            "position": {
+              "x": -121,
+              "z": -14
+            },
+            "inwardNormal": {
+              "x": 1,
+              "z": 0
+            },
+            "clearWidth": 8,
+            "clearHeight": 3.2,
+            "transitionDepth": 1.2,
+            "fromCellId": "cell:turn:band-02-to-03:turn-spine",
+            "toCellId": "cell:turn:band-02-to-03:to-arm"
+          }
+        ],
+        "signs": [
+          {
+            "id": "sign:turn-wayfinding:turn:band-02-to-03",
+            "kind": "wayfinding",
+            "title": "Next · Gallery 12",
+            "kicker": "Continuous Enfilade · Turn court",
+            "subtitle": "Jewish Philosophy in Arabic-Speaking & Mediterranean Worlds",
+            "position": {
+              "x": -128.8,
+              "y": 2.55,
+              "z": -28
+            },
+            "rotationY": 1.570796326795,
+            "width": 4.2,
+            "height": 1.14,
+            "interactive": false
+          }
+        ]
       },
       "fromProgramHallId": "islamic-philosophical-worlds",
       "toProgramHallId": "jewish-philosophy"
@@ -10033,17 +10205,17 @@
       "implementationStatus": "live",
       "levelId": "L0",
       "transform": {
-        "x": 135.5,
+        "x": 0,
         "z": 0,
-        "yaw": -0.974597185497
+        "yaw": 0
       },
       "bounds": {
         "minX": 126,
-        "maxX": 145,
-        "minZ": -14,
-        "maxZ": 14
+        "maxX": 153,
+        "minZ": -18,
+        "maxZ": 18
       },
-      "boundsKind": "centerline-control-envelope",
+      "boundsKind": "constructed-circulation-envelope",
       "map": {
         "label": "Turn court · Galleries 16–17",
         "status": "orientation-open"
@@ -10052,8 +10224,8 @@
         {
           "id": "from",
           "position": {
-            "x": -16.918924,
-            "z": 0
+            "x": 126,
+            "z": -14
           },
           "worldPosition": {
             "x": 126,
@@ -10064,21 +10236,21 @@
             "z": 0
           },
           "worldInwardNormal": {
-            "x": 0.561501,
-            "z": 0.827476
+            "x": 1,
+            "z": 0
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
           "transitionDepth": 1.2,
           "landingBounds": {
-            "minX": -16.918924,
-            "maxX": -12.918924,
-            "minZ": -2,
-            "maxZ": 2
+            "minX": 126,
+            "maxX": 130,
+            "minZ": -16,
+            "maxZ": -12
           },
           "arrivalPose": {
-            "x": -14.918924,
-            "z": 0,
+            "x": 128,
+            "z": -14,
             "yaw": -1.570796326795,
             "pitch": 0
           },
@@ -10087,34 +10259,34 @@
         {
           "id": "to",
           "position": {
-            "x": 16.918924,
-            "z": 0
+            "x": 145,
+            "z": 14
           },
           "worldPosition": {
             "x": 145,
             "z": 14
           },
           "inwardNormal": {
-            "x": -1,
+            "x": 1,
             "z": 0
           },
           "worldInwardNormal": {
-            "x": -0.561501,
-            "z": -0.827476
+            "x": 1,
+            "z": 0
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
           "transitionDepth": 1.2,
           "landingBounds": {
-            "minX": 12.918924,
-            "maxX": 16.918924,
-            "minZ": -2,
-            "maxZ": 2
+            "minX": 145,
+            "maxX": 149,
+            "minZ": 12,
+            "maxZ": 16
           },
           "arrivalPose": {
-            "x": 14.918924,
-            "z": 0,
-            "yaw": 1.570796326795,
+            "x": 147,
+            "z": 14,
+            "yaw": -1.570796326795,
             "pitch": 0
           },
           "openingState": "open"
@@ -10123,23 +10295,37 @@
       "geometry": {
         "coordinateFrame": "node-local",
         "bounds": {
-          "minX": -16.918924,
-          "maxX": 16.918924,
-          "minZ": -4,
-          "maxZ": 4
+          "minX": 126,
+          "maxX": 153,
+          "minZ": -18,
+          "maxZ": 18
         },
         "cells": [
           {
-            "id": "cell:turn:band-03-to-04",
+            "id": "cell:turn:band-03-to-04:from-arm",
             "kind": "passage",
             "title": "Turn court · rationalism-mind-nature-system to empiricism-science-political-order",
             "bounds": {
-              "minX": -16.918924,
-              "maxX": 16.918924,
-              "minZ": -4,
-              "maxZ": 4
+              "minX": 126,
+              "maxX": 145,
+              "minZ": -18,
+              "maxZ": -10
             },
-            "ceilingHeight": 5.8
+            "ceilingHeight": 5.8,
+            "guidanceAxis": "x"
+          },
+          {
+            "id": "cell:turn:band-03-to-04:turn-spine",
+            "kind": "passage",
+            "title": "Turn court · rationalism-mind-nature-system to empiricism-science-political-order",
+            "bounds": {
+              "minX": 145,
+              "maxX": 153,
+              "minZ": -18,
+              "maxZ": 18
+            },
+            "ceilingHeight": 5.8,
+            "guidanceAxis": "z"
           }
         ],
         "worldCenterline": [
@@ -10148,16 +10334,59 @@
             "z": -14
           },
           {
+            "x": 149,
+            "z": -14
+          },
+          {
+            "x": 149,
+            "z": 14
+          },
+          {
             "x": 145,
             "z": 14
           }
         ],
-        "centerlineLength": 33.838,
-        "measuredCenterlineLength": 33.837849,
+        "centerlineLength": 55,
+        "measuredCenterlineLength": 55,
+        "segmentCount": 3,
         "clearWidth": 8,
-        "treatment": "enclosed diagonal turning court with direct sightline to the next threshold",
-        "interiorOpenings": [],
-        "signs": []
+        "treatment": "enclosed exterior turning court with two full-width right-angle turns, continuous ceiling guidance, and threshold wayfinding",
+        "interiorOpenings": [
+          {
+            "id": "opening:turn:band-03-to-04:from-arm->turn-spine",
+            "position": {
+              "x": 145,
+              "z": -14
+            },
+            "inwardNormal": {
+              "x": 1,
+              "z": 0
+            },
+            "clearWidth": 8,
+            "clearHeight": 3.2,
+            "transitionDepth": 1.2,
+            "fromCellId": "cell:turn:band-03-to-04:from-arm",
+            "toCellId": "cell:turn:band-03-to-04:turn-spine"
+          }
+        ],
+        "signs": [
+          {
+            "id": "sign:turn-wayfinding:turn:band-03-to-04",
+            "kind": "wayfinding",
+            "title": "Next · Gallery 17",
+            "kicker": "Continuous Enfilade · Turn court",
+            "subtitle": "Empiricism, Science, and Political Order",
+            "position": {
+              "x": 145.2,
+              "y": 2.55,
+              "z": 0
+            },
+            "rotationY": 1.570796326795,
+            "width": 4.2,
+            "height": 1.14,
+            "interactive": false
+          }
+        ]
       },
       "fromProgramHallId": "rationalism-mind-nature-system",
       "toProgramHallId": "empiricism-science-political-order"
@@ -10170,17 +10399,17 @@
       "implementationStatus": "live",
       "levelId": "L0",
       "transform": {
-        "x": -117,
-        "z": 28,
-        "yaw": -1.570796326795
+        "x": 0,
+        "z": 0,
+        "yaw": 0
       },
       "bounds": {
-        "minX": -117,
+        "minX": -129,
         "maxX": -117,
-        "minZ": 14,
-        "maxZ": 42
+        "minZ": 10,
+        "maxZ": 46
       },
-      "boundsKind": "centerline-control-envelope",
+      "boundsKind": "constructed-circulation-envelope",
       "map": {
         "label": "Turn court · Galleries 21–22",
         "status": "orientation-open"
@@ -10189,34 +10418,34 @@
         {
           "id": "from",
           "position": {
-            "x": -14,
-            "z": 0
+            "x": -117,
+            "z": 14
           },
           "worldPosition": {
             "x": -117,
             "z": 14
           },
           "inwardNormal": {
-            "x": 1,
+            "x": -1,
             "z": 0
           },
           "worldInwardNormal": {
-            "x": 0,
-            "z": 1
+            "x": -1,
+            "z": 0
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
           "transitionDepth": 1.2,
           "landingBounds": {
-            "minX": -14,
-            "maxX": -10,
-            "minZ": -2,
-            "maxZ": 2
+            "minX": -121,
+            "maxX": -117,
+            "minZ": 12,
+            "maxZ": 16
           },
           "arrivalPose": {
-            "x": -12,
-            "z": 0,
-            "yaw": -1.570796326795,
+            "x": -119,
+            "z": 14,
+            "yaw": 1.570796326795,
             "pitch": 0
           },
           "openingState": "open"
@@ -10224,8 +10453,8 @@
         {
           "id": "to",
           "position": {
-            "x": 14,
-            "z": 0
+            "x": -117,
+            "z": 42
           },
           "worldPosition": {
             "x": -117,
@@ -10236,21 +10465,21 @@
             "z": 0
           },
           "worldInwardNormal": {
-            "x": 0,
-            "z": -1
+            "x": -1,
+            "z": 0
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
           "transitionDepth": 1.2,
           "landingBounds": {
-            "minX": 10,
-            "maxX": 14,
-            "minZ": -2,
-            "maxZ": 2
+            "minX": -121,
+            "maxX": -117,
+            "minZ": 40,
+            "maxZ": 44
           },
           "arrivalPose": {
-            "x": 12,
-            "z": 0,
+            "x": -119,
+            "z": 42,
             "yaw": 1.570796326795,
             "pitch": 0
           },
@@ -10260,23 +10489,50 @@
       "geometry": {
         "coordinateFrame": "node-local",
         "bounds": {
-          "minX": -14,
-          "maxX": 14,
-          "minZ": -4,
-          "maxZ": 4
+          "minX": -129,
+          "maxX": -117,
+          "minZ": 10,
+          "maxZ": 46
         },
         "cells": [
           {
-            "id": "cell:turn:band-04-to-05",
+            "id": "cell:turn:band-04-to-05:from-arm",
             "kind": "passage",
             "title": "Turn court · faith-pessimism-life-value to pragmatism-democratic-inquiry",
             "bounds": {
-              "minX": -14,
-              "maxX": 14,
-              "minZ": -4,
-              "maxZ": 4
+              "minX": -121,
+              "maxX": -117,
+              "minZ": 10,
+              "maxZ": 18
             },
-            "ceilingHeight": 5.8
+            "ceilingHeight": 5.8,
+            "guidanceAxis": "x"
+          },
+          {
+            "id": "cell:turn:band-04-to-05:turn-spine",
+            "kind": "passage",
+            "title": "Turn court · faith-pessimism-life-value to pragmatism-democratic-inquiry",
+            "bounds": {
+              "minX": -129,
+              "maxX": -121,
+              "minZ": 10,
+              "maxZ": 46
+            },
+            "ceilingHeight": 5.8,
+            "guidanceAxis": "z"
+          },
+          {
+            "id": "cell:turn:band-04-to-05:to-arm",
+            "kind": "passage",
+            "title": "Turn court · faith-pessimism-life-value to pragmatism-democratic-inquiry",
+            "bounds": {
+              "minX": -121,
+              "maxX": -117,
+              "minZ": 38,
+              "maxZ": 46
+            },
+            "ceilingHeight": 5.8,
+            "guidanceAxis": "x"
           }
         ],
         "worldCenterline": [
@@ -10285,16 +10541,75 @@
             "z": 14
           },
           {
+            "x": -125,
+            "z": 14
+          },
+          {
+            "x": -125,
+            "z": 42
+          },
+          {
             "x": -117,
             "z": 42
           }
         ],
-        "centerlineLength": 28,
-        "measuredCenterlineLength": 28,
+        "centerlineLength": 44,
+        "measuredCenterlineLength": 44,
+        "segmentCount": 3,
         "clearWidth": 8,
-        "treatment": "enclosed straight turning court with the next threshold visible",
-        "interiorOpenings": [],
-        "signs": []
+        "treatment": "enclosed exterior turning court with two full-width right-angle turns, continuous ceiling guidance, and threshold wayfinding",
+        "interiorOpenings": [
+          {
+            "id": "opening:turn:band-04-to-05:from-arm->turn-spine",
+            "position": {
+              "x": -121,
+              "z": 14
+            },
+            "inwardNormal": {
+              "x": -1,
+              "z": 0
+            },
+            "clearWidth": 8,
+            "clearHeight": 3.2,
+            "transitionDepth": 1.2,
+            "fromCellId": "cell:turn:band-04-to-05:from-arm",
+            "toCellId": "cell:turn:band-04-to-05:turn-spine"
+          },
+          {
+            "id": "opening:turn:band-04-to-05:turn-spine->to-arm",
+            "position": {
+              "x": -121,
+              "z": 42
+            },
+            "inwardNormal": {
+              "x": 1,
+              "z": 0
+            },
+            "clearWidth": 8,
+            "clearHeight": 3.2,
+            "transitionDepth": 1.2,
+            "fromCellId": "cell:turn:band-04-to-05:turn-spine",
+            "toCellId": "cell:turn:band-04-to-05:to-arm"
+          }
+        ],
+        "signs": [
+          {
+            "id": "sign:turn-wayfinding:turn:band-04-to-05",
+            "kind": "wayfinding",
+            "title": "Next · Gallery 22",
+            "kicker": "Continuous Enfilade · Turn court",
+            "subtitle": "Pragmatism, Science, and Democratic Inquiry",
+            "position": {
+              "x": -128.8,
+              "y": 2.55,
+              "z": 28
+            },
+            "rotationY": 1.570796326795,
+            "width": 4.2,
+            "height": 1.14,
+            "interactive": false
+          }
+        ]
       },
       "fromProgramHallId": "faith-pessimism-life-value",
       "toProgramHallId": "pragmatism-democratic-inquiry"
@@ -10307,17 +10622,17 @@
       "implementationStatus": "live",
       "levelId": "L0",
       "transform": {
-        "x": 89,
-        "z": 56,
-        "yaw": -1.570796326795
+        "x": 0,
+        "z": 0,
+        "yaw": 0
       },
       "bounds": {
         "minX": 89,
-        "maxX": 89,
-        "minZ": 42,
-        "maxZ": 70
+        "maxX": 101,
+        "minZ": 38,
+        "maxZ": 74
       },
-      "boundsKind": "centerline-control-envelope",
+      "boundsKind": "constructed-circulation-envelope",
       "map": {
         "label": "Turn court · Galleries 23–24",
         "status": "orientation-open"
@@ -10326,8 +10641,8 @@
         {
           "id": "from",
           "position": {
-            "x": -14,
-            "z": 0
+            "x": 89,
+            "z": 42
           },
           "worldPosition": {
             "x": 89,
@@ -10338,21 +10653,21 @@
             "z": 0
           },
           "worldInwardNormal": {
-            "x": 0,
-            "z": 1
+            "x": 1,
+            "z": 0
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
           "transitionDepth": 1.2,
           "landingBounds": {
-            "minX": -14,
-            "maxX": -10,
-            "minZ": -2,
-            "maxZ": 2
+            "minX": 89,
+            "maxX": 93,
+            "minZ": 40,
+            "maxZ": 44
           },
           "arrivalPose": {
-            "x": -12,
-            "z": 0,
+            "x": 91,
+            "z": 42,
             "yaw": -1.570796326795,
             "pitch": 0
           },
@@ -10361,34 +10676,34 @@
         {
           "id": "to",
           "position": {
-            "x": 14,
-            "z": 0
+            "x": 89,
+            "z": 70
           },
           "worldPosition": {
             "x": 89,
             "z": 70
           },
           "inwardNormal": {
-            "x": -1,
+            "x": 1,
             "z": 0
           },
           "worldInwardNormal": {
-            "x": 0,
-            "z": -1
+            "x": 1,
+            "z": 0
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
           "transitionDepth": 1.2,
           "landingBounds": {
-            "minX": 10,
-            "maxX": 14,
-            "minZ": -2,
-            "maxZ": 2
+            "minX": 89,
+            "maxX": 93,
+            "minZ": 68,
+            "maxZ": 72
           },
           "arrivalPose": {
-            "x": 12,
-            "z": 0,
-            "yaw": 1.570796326795,
+            "x": 91,
+            "z": 70,
+            "yaw": -1.570796326795,
             "pitch": 0
           },
           "openingState": "open"
@@ -10397,23 +10712,50 @@
       "geometry": {
         "coordinateFrame": "node-local",
         "bounds": {
-          "minX": -14,
-          "maxX": 14,
-          "minZ": -4,
-          "maxZ": 4
+          "minX": 89,
+          "maxX": 101,
+          "minZ": 38,
+          "maxZ": 74
         },
         "cells": [
           {
-            "id": "cell:turn:band-05-to-06",
+            "id": "cell:turn:band-05-to-06:from-arm",
             "kind": "passage",
             "title": "Turn court · critique-power-deconstruction to moral-life-practical-reason",
             "bounds": {
-              "minX": -14,
-              "maxX": 14,
-              "minZ": -4,
-              "maxZ": 4
+              "minX": 89,
+              "maxX": 93,
+              "minZ": 38,
+              "maxZ": 46
             },
-            "ceilingHeight": 5.8
+            "ceilingHeight": 5.8,
+            "guidanceAxis": "x"
+          },
+          {
+            "id": "cell:turn:band-05-to-06:turn-spine",
+            "kind": "passage",
+            "title": "Turn court · critique-power-deconstruction to moral-life-practical-reason",
+            "bounds": {
+              "minX": 93,
+              "maxX": 101,
+              "minZ": 38,
+              "maxZ": 74
+            },
+            "ceilingHeight": 5.8,
+            "guidanceAxis": "z"
+          },
+          {
+            "id": "cell:turn:band-05-to-06:to-arm",
+            "kind": "passage",
+            "title": "Turn court · critique-power-deconstruction to moral-life-practical-reason",
+            "bounds": {
+              "minX": 89,
+              "maxX": 93,
+              "minZ": 66,
+              "maxZ": 74
+            },
+            "ceilingHeight": 5.8,
+            "guidanceAxis": "x"
           }
         ],
         "worldCenterline": [
@@ -10422,16 +10764,75 @@
             "z": 42
           },
           {
+            "x": 97,
+            "z": 42
+          },
+          {
+            "x": 97,
+            "z": 70
+          },
+          {
             "x": 89,
             "z": 70
           }
         ],
-        "centerlineLength": 28,
-        "measuredCenterlineLength": 28,
+        "centerlineLength": 44,
+        "measuredCenterlineLength": 44,
+        "segmentCount": 3,
         "clearWidth": 8,
-        "treatment": "enclosed straight turning court with the next threshold visible",
-        "interiorOpenings": [],
-        "signs": []
+        "treatment": "enclosed exterior turning court with two full-width right-angle turns, continuous ceiling guidance, and threshold wayfinding",
+        "interiorOpenings": [
+          {
+            "id": "opening:turn:band-05-to-06:from-arm->turn-spine",
+            "position": {
+              "x": 93,
+              "z": 42
+            },
+            "inwardNormal": {
+              "x": 1,
+              "z": 0
+            },
+            "clearWidth": 8,
+            "clearHeight": 3.2,
+            "transitionDepth": 1.2,
+            "fromCellId": "cell:turn:band-05-to-06:from-arm",
+            "toCellId": "cell:turn:band-05-to-06:turn-spine"
+          },
+          {
+            "id": "opening:turn:band-05-to-06:turn-spine->to-arm",
+            "position": {
+              "x": 93,
+              "z": 70
+            },
+            "inwardNormal": {
+              "x": -1,
+              "z": 0
+            },
+            "clearWidth": 8,
+            "clearHeight": 3.2,
+            "transitionDepth": 1.2,
+            "fromCellId": "cell:turn:band-05-to-06:turn-spine",
+            "toCellId": "cell:turn:band-05-to-06:to-arm"
+          }
+        ],
+        "signs": [
+          {
+            "id": "sign:turn-wayfinding:turn:band-05-to-06",
+            "kind": "wayfinding",
+            "title": "Next · Gallery 24",
+            "kicker": "Continuous Enfilade · Turn court",
+            "subtitle": "Moral Life & Practical Reason",
+            "position": {
+              "x": 93.2,
+              "y": 2.55,
+              "z": 56
+            },
+            "rotationY": 1.570796326795,
+            "width": 4.2,
+            "height": 1.14,
+            "interactive": false
+          }
+        ]
       },
       "fromProgramHallId": "critique-power-deconstruction",
       "toProgramHallId": "moral-life-practical-reason"

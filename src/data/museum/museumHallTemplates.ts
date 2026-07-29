@@ -276,20 +276,21 @@ const extendNavigationThroughActivePortals = (
     const bounds = {...cell.bounds};
     for (const slot of activeSlots) {
       const seamOverlap = Math.max(.6, slot.transitionDepth / 2);
-      const withinX = slot.position.x >= renderBounds.minX - epsilon
-        && slot.position.x <= renderBounds.maxX + epsilon;
-      const withinZ = slot.position.z >= renderBounds.minZ - epsilon
-        && slot.position.z <= renderBounds.maxZ + epsilon;
-      if (withinZ && close(slot.position.x, renderBounds.minX, epsilon) && slot.inwardNormal.x > .5) {
+      const halfClearWidth = slot.clearWidth / 2;
+      const doorwayOverlapsCellAlongX = renderBounds.maxX >= slot.position.x - halfClearWidth - epsilon
+        && renderBounds.minX <= slot.position.x + halfClearWidth + epsilon;
+      const doorwayOverlapsCellAlongZ = renderBounds.maxZ >= slot.position.z - halfClearWidth - epsilon
+        && renderBounds.minZ <= slot.position.z + halfClearWidth + epsilon;
+      if (doorwayOverlapsCellAlongZ && close(slot.position.x, renderBounds.minX, epsilon) && slot.inwardNormal.x > .5) {
         bounds.minX = Math.min(bounds.minX, renderBounds.minX - seamOverlap);
       }
-      if (withinZ && close(slot.position.x, renderBounds.maxX, epsilon) && slot.inwardNormal.x < -.5) {
+      if (doorwayOverlapsCellAlongZ && close(slot.position.x, renderBounds.maxX, epsilon) && slot.inwardNormal.x < -.5) {
         bounds.maxX = Math.max(bounds.maxX, renderBounds.maxX + seamOverlap);
       }
-      if (withinX && close(slot.position.z, renderBounds.minZ, epsilon) && slot.inwardNormal.z > .5) {
+      if (doorwayOverlapsCellAlongX && close(slot.position.z, renderBounds.minZ, epsilon) && slot.inwardNormal.z > .5) {
         bounds.minZ = Math.min(bounds.minZ, renderBounds.minZ - seamOverlap);
       }
-      if (withinX && close(slot.position.z, renderBounds.maxZ, epsilon) && slot.inwardNormal.z < -.5) {
+      if (doorwayOverlapsCellAlongX && close(slot.position.z, renderBounds.maxZ, epsilon) && slot.inwardNormal.z < -.5) {
         bounds.maxZ = Math.max(bounds.maxZ, renderBounds.maxZ + seamOverlap);
       }
     }

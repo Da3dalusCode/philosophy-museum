@@ -212,6 +212,14 @@ check('main block, entrance, final threshold, and capacity reserves are dimensio
     width: 262,
     depth: 168,
   });
+  assert.deepEqual(plan.physicalContract.controlledPlanBoundsIncludingEntranceAndReserves, {
+    minX: -129,
+    maxX: 153,
+    minZ: -112,
+    maxZ: 112,
+    width: 282,
+    depth: 224,
+  });
   assert.equal(plan.grandEntrance.width, 40);
   assert.equal(plan.grandEntrance.depth, 56);
   assert.deepEqual(plan.grandEntrance.bounds, {minX: -129, maxX: -89, minZ: -112, maxZ: -56});
@@ -245,11 +253,37 @@ check('all adjacent halls have a direct threshold, 10 metre crossing, or bounded
     const pair = `${from.id}->${to.id}`;
     const turn = turnByPair.get(pair);
     if (turn) {
-      assert(close(gap, turn.centerlineLength), `${turn.id} length does not match its portal endpoints`);
       assert(close(turn.centerline[0].x, exit.x) && close(turn.centerline[0].z, exit.z), `${turn.id} does not begin at the source portal`);
       assert(close(turn.centerline.at(-1).x, entry.x) && close(turn.centerline.at(-1).z, entry.z), `${turn.id} does not end at the target portal`);
-      assert(turn.centerlineLength <= plan.physicalContract.maximumTurnCourtSightline, `${turn.id} exceeds the sightline cap`);
-      computedTurnLength += gap;
+      assert.equal(turn.centerline.length, 4, `${turn.id} is not a three-run exterior dogleg`);
+      const runs = turn.centerline.slice(1).map((point, runIndex) => {
+        const previous = turn.centerline[runIndex];
+        const delta = {x: point.x - previous.x, z: point.z - previous.z};
+        assert(
+          (Math.abs(delta.x) > .001 && Math.abs(delta.z) <= .001)
+            || (Math.abs(delta.z) > .001 && Math.abs(delta.x) <= .001),
+          `${turn.id} run ${runIndex + 1} is not orthogonal`,
+        );
+        return {
+          direction: {
+            x: Math.sign(delta.x),
+            z: Math.sign(delta.z),
+          },
+          length: Math.hypot(delta.x, delta.z),
+        };
+      });
+      assert(
+        Math.abs(runs[0].direction.x * runs[1].direction.x + runs[0].direction.z * runs[1].direction.z) < .001
+          && Math.abs(runs[1].direction.x * runs[2].direction.x + runs[1].direction.z * runs[2].direction.z) < .001,
+        `${turn.id} does not make two right-angle turns`,
+      );
+      const pathLength = runs.reduce((sum, run) => sum + run.length, 0);
+      assert(close(pathLength, turn.centerlineLength), `${turn.id} path length is stale`);
+      assert(
+        runs.every(({length}) => length <= plan.physicalContract.maximumTurnCourtStraightRun),
+        `${turn.id} exceeds the straight-run cap`,
+      );
+      computedTurnLength += pathLength;
     } else if (crossingPairs.has(pair)) {
       assert(close(gap, 10), `${pair} is not a 10 metre crosscut crossing`);
       computedCrossingLength += gap;
@@ -268,7 +302,7 @@ check('route length is derived from gallery footprints and real connectors', () 
   assert.equal(plan.throughRoute.nominalHallRunLength, 1228);
   const total = hallRun + plan.throughRoute.crossingBayRunLength + plan.throughRoute.turnCourtRunLength;
   assert(close(total, plan.throughRoute.completeVisitLength));
-  assert(close(total, 1443.671));
+  assert(close(total, 1560));
 });
 
 check('crosscut owns six truthful intersections and no exhibit-space fiction', () => {
@@ -413,6 +447,30 @@ check('compiled route, crosscut, turn courts, entrance, threshold, and reserves 
     assert(close(compiled.geometry.centerlineLength, turn.centerlineLength));
     assert(close(compiled.geometry.measuredCenterlineLength, turn.centerlineLength));
     assert.equal(compiled.geometry.clearWidth, 8);
+    assert.equal(compiled.geometry.segmentCount, 3);
+    assert([2, 3].includes(compiled.geometry.cells.length));
+    assert.equal(compiled.geometry.interiorOpenings.length, compiled.geometry.cells.length - 1);
+    assert(compiled.geometry.interiorOpenings.every(({clearWidth}) => clearWidth === 8));
+    assert.equal(compiled.geometry.signs.length, 1);
+    assert.equal(compiled.geometry.signs[0].kind, 'wayfinding');
+    assert(compiled.geometry.cells.every(({guidanceAxis}) => guidanceAxis === 'x' || guidanceAxis === 'z'));
+    const constructedArea = compiled.geometry.cells.reduce((sum, {bounds}) =>
+      sum + (bounds.maxX - bounds.minX) * (bounds.maxZ - bounds.minZ), 0);
+    assert(close(constructedArea, compiled.geometry.clearWidth * compiled.geometry.measuredCenterlineLength));
+    for (let first = 0; first < compiled.geometry.cells.length; first += 1) {
+      for (let second = first + 1; second < compiled.geometry.cells.length; second += 1) {
+        assert(
+          !strictOverlap(compiled.geometry.cells[first].bounds, compiled.geometry.cells[second].bounds),
+          `${turn.id} contains overlapping structural cells`,
+        );
+      }
+      for (const hall of plan.halls) {
+        assert(
+          !strictOverlap(compiled.geometry.cells[first].bounds, worldBounds(hall)),
+          `${turn.id}/${compiled.geometry.cells[first].id} cuts through ${hall.id}`,
+        );
+      }
+    }
   }
 
   assert.equal(runtime.reserves.length, 2);
@@ -495,6 +553,21 @@ check('scaled drawing and implementation handoff files exist', () => {
   assert.match(drawing, /1:1000/);
   assert.match(drawing, /Core Questions/);
   assert.match(drawing, /Grand Entrance/);
+  const expectedTurnPaths = plan.turnCourts.map(({centerline}) => centerline.reduce((path, point, index) => {
+    const projected = {x: point.x + 159, y: 140 - point.z};
+    if (index === 0) return `M${projected.x} ${projected.y}`;
+    const previous = centerline[index - 1];
+    return `${path}${close(point.z, previous.z) ? `H${projected.x}` : `V${projected.y}`}`;
+  }, ''));
+  const drawnTurnPaths = [...drawing.matchAll(/<path class="turn" d="([^"]+)"/gu)]
+    .map((match) => match[1]);
+  assert.deepEqual(drawnTurnPaths, expectedTurnPaths, 'scaled drawing turn paths differ from the control plan');
+  const controlled = plan.physicalContract.controlledPlanBoundsIncludingEntranceAndReserves;
+  assert(drawing.includes(`${controlled.width} m controlled width`));
+  assert(drawing.includes(`${controlled.depth} m controlled depth`));
+  assert(drawing.includes(`${plan.throughRoute.completeVisitLength.toLocaleString('en-US')} m`));
+  assert.equal([...drawing.matchAll(/<rect class="open"/gu)].length, 14, 'scaled drawing curated/open count is stale');
+  assert.equal([...drawing.matchAll(/<rect class="planned"/gu)].length, 13, 'scaled drawing planned/walkable count is stale');
   assert(!/\bMBC\b|\bHRW\b|\bLAI\b|\bCSA\b|\bCQ\b/.test(drawing), 'scaled drawing exposes unexplained internal abbreviations');
 });
 

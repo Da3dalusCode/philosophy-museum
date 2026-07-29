@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="420mm" height="297mm" viewBox="0 0 420 297" role="img" aria-labelledby="title description">
   <title id="title">Continuous Enfilade single-level architectural control plan at 1:1000</title>
-  <desc id="description">A dimensioned single-level plan for 26 fully named philosophy museum galleries in six shared-wall bands, with a grand entrance, a continuous serpentine route, a north-south crosscut, an independent Core Questions Forum bay, five short turning courts, and two gallery reserves.</desc>
+  <desc id="description">A dimensioned single-level plan for 26 fully named philosophy museum galleries in six shared-wall bands, with a grand entrance, a continuous serpentine route, a north-south crosscut, an independent Core Questions Forum bay, five exterior dogleg turning courts, and two gallery reserves.</desc>
   <defs>
     <marker id="route-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto">
       <path d="M0 0L10 5L0 10Z" fill="#a6541e"/>
@@ -21,7 +21,7 @@
       .crossing{fill:#c9e0dc;stroke:#146a75;stroke-width:.65}
       .reserve{fill:#f4f0e5;stroke:#8b6a35;stroke-width:.7;stroke-dasharray:2.5 2}
       .turn{fill:none;stroke:#757b7f;stroke-width:8;stroke-linecap:butt}
-      .turn-edge{fill:none;stroke:#343a40;stroke-width:.55}
+      .turn-edge{fill:none;stroke:#343a40;stroke-width:9;stroke-linecap:butt;stroke-linejoin:miter}
       .route{fill:none;stroke:#a6541e;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round;marker-end:url(#route-arrow)}
       .axis{fill:none;stroke:#146a75;stroke-width:1.5;stroke-linecap:round;marker-start:url(#axis-arrow);marker-end:url(#axis-arrow)}
       .label{font-family:Arial,sans-serif;fill:#172026;text-anchor:middle;font-size:2.25px;font-weight:600}
@@ -68,14 +68,14 @@
     <tspan x="98" dy="3.1">Mediterranean Beginnings</tspan>
     <tspan x="98" dy="3.1">&amp; Classical Athens</tspan>
   </text>
-  <rect class="planned" x="126" y="196" width="28" height="28"/>
+  <rect class="open" x="126" y="196" width="28" height="28"/>
   <text class="tiny" x="140" y="201">
     <tspan x="140">Gallery 14 · Visit 2</tspan>
     <tspan x="140" dy="2.5">Hellenistic &amp; Roman</tspan>
     <tspan x="140" dy="2.5">Ways of Life</tspan>
   </text>
   <rect class="crossing" x="154" y="196" width="10" height="28"/>
-  <rect class="planned" x="164" y="198" width="56" height="24"/>
+  <rect class="open" x="164" y="198" width="56" height="24"/>
   <text class="label" x="192" y="204">
     <tspan x="192">Gallery 15 · Visit 3</tspan>
     <tspan x="192" dy="3.1">Late Antiquity &amp;</tspan>
@@ -259,24 +259,24 @@
   </text>
 
   <!-- Enclosed turning courts. -->
-  <path class="turn" d="M276 210L248 182"/>
-  <path class="turn-edge" d="M278.8 207.2L250.8 179.2M273.2 212.8L245.2 184.8"/>
-  <path class="turn" d="M42 182L65 154"/>
-  <path class="turn-edge" d="M38.9 179.5L61.9 151.5M45.1 184.5L68.1 156.5"/>
-  <path class="turn" d="M285 154L304 126"/>
-  <path class="turn-edge" d="M281.7 151.8L300.7 123.8M288.3 156.2L307.3 128.2"/>
-  <path class="turn" d="M42 126L42 98"/>
-  <path class="turn-edge" d="M38 126V98M46 126V98"/>
-  <path class="turn" d="M248 98L248 70"/>
-  <path class="turn-edge" d="M244 98V70M252 98V70"/>
+  <path class="turn-edge" d="M276 210H284V182H248"/>
+  <path class="turn" d="M276 210H284V182H248"/>
+  <path class="turn-edge" d="M42 182H34V154H65"/>
+  <path class="turn" d="M42 182H34V154H65"/>
+  <path class="turn-edge" d="M285 154H308V126H304"/>
+  <path class="turn" d="M285 154H308V126H304"/>
+  <path class="turn-edge" d="M42 126H34V98H42"/>
+  <path class="turn" d="M42 126H34V98H42"/>
+  <path class="turn-edge" d="M248 98H256V70H248"/>
+  <path class="turn" d="M248 98H256V70H248"/>
 
   <!-- Through-gallery route. -->
   <path class="route" d="M38 216H272"/>
-  <path class="route" d="M272 210L248 186H46"/>
-  <path class="route" d="M46 182L69 154H281"/>
-  <path class="route" d="M281 154L300 126H46"/>
-  <path class="route" d="M46 126V98H244"/>
-  <path class="route" d="M244 98V70H74"/>
+  <path class="route" d="M272 210H284V182H248V186H46"/>
+  <path class="route" d="M46 182H34V154H69H281"/>
+  <path class="route" d="M281 154H308V126H304H46"/>
+  <path class="route" d="M46 126H34V98H42H244"/>
+  <path class="route" d="M244 98H256V70H248H74"/>
 
   <!-- Crosscut. -->
   <path class="axis" d="M159 32V220"/>
@@ -287,8 +287,8 @@
   <text class="dimension-text" x="173" y="261">262 m main gallery block</text>
   <path class="dimension" d="M18 28V252"/>
   <text class="dimension-text" x="14" y="140" transform="rotate(-90 14 140)">224 m controlled depth including entrance and reserves</text>
-  <path class="dimension" d="M30 274H304"/>
-  <text class="dimension-text" x="167" y="282">274 m controlled width including Grand Entrance</text>
+  <path class="dimension" d="M30 274H312"/>
+  <text class="dimension-text" x="171" y="282">282 m controlled width including Grand Entrance and turn courts</text>
 
   <!-- North arrow. -->
   <path class="north" d="M292 38L298 23L304 38L298 34Z"/>
@@ -302,16 +302,16 @@
     <tspan x="320" dy="4.2">• one continuous through-gallery route</tspan>
     <tspan x="320" dy="4.2">• crosscut only at threshold joints</tspan>
     <tspan x="320" dy="4.2">• an independent 28 × 28 m Forum</tspan>
-    <tspan x="320" dy="4.2">• five direct-sightline turn courts</tspan>
+    <tspan x="320" dy="4.2">• five exterior dogleg turn courts</tspan>
     <tspan x="320" dy="4.2">• a grand, functional virtual entrance</tspan>
     <tspan x="320" dy="4.2">• two full additional gallery reserves</tspan>
   </text>
 
-  <text class="meta-bold" x="320" y="82">STATUS AT MIGRATION</text>
+  <text class="meta-bold" x="320" y="82">CURRENT RUNTIME STATUS</text>
   <rect class="open" x="320" y="88" width="12" height="7"/>
-  <text class="meta" x="336" y="93">12 populated galleries moved intact</text>
+  <text class="meta" x="336" y="93">14 curated galleries retained intact</text>
   <rect class="planned" x="320" y="99" width="12" height="7"/>
-  <text class="meta" x="336" y="104">14 named, walkable planned shells</text>
+  <text class="meta" x="336" y="104">12 named, walkable planned shells</text>
   <rect class="forum" x="320" y="110" width="12" height="7"/>
   <text class="meta" x="336" y="115">Core Questions Forum, full bay</text>
   <rect class="crossing" x="320" y="121" width="12" height="7"/>
@@ -322,16 +322,16 @@
   <text class="meta-bold" x="320" y="153">NUMBERING</text>
   <text class="meta" x="320" y="160">
     <tspan x="320">“Gallery” is the stable public release number.</tspan>
-    <tspan x="320" dy="4.2">Existing Gallery 01–12 numbers do not change.</tspan>
+    <tspan x="320" dy="4.2">Existing public Gallery numbers do not change.</tspan>
     <tspan x="320" dy="4.2">“Visit” is the physical walking sequence.</tspan>
     <tspan x="320" dy="4.2">No title is represented by an abbreviation.</tspan>
   </text>
 
   <text class="meta-bold" x="320" y="187">MOVEMENT</text>
   <text class="meta" x="320" y="194">
-    <tspan x="320">Complete chronological walk: ≈ 1,443.7 m.</tspan>
+    <tspan x="320">Complete chronological walk: ≈ 1,560 m.</tspan>
     <tspan x="320" dy="4.2">Crosscut public length: 168 m.</tspan>
-    <tspan x="320" dy="4.2">Longest turn-court sightline: 39.598 m.</tspan>
+    <tspan x="320" dy="4.2">Longest turn-court straight run: 36 m.</tspan>
     <tspan x="320" dy="4.2">Visitors can continue through every gallery;</tspan>
     <tspan x="320" dy="4.2">crosscut, guided routes, and fast travel remain</tspan>
     <tspan x="320" dy="4.2">available without creating empty long corridors.</tspan>

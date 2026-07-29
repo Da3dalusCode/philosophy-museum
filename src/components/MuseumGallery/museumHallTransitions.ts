@@ -20,6 +20,7 @@ import {
   museumHallEntryReadinessKey,
   type MuseumInputState,
   type MuseumNodeTransition,
+  type MuseumNodeTransitionBlockReason,
 } from './museumRuntime';
 import {museumPoseFromWorld, museumPoseToWorld} from './museumWorldTransform';
 
@@ -53,8 +54,9 @@ export const museumConnectionCrossed = (
 
 /**
  * Preserve the actual world position and heading at the authored overlap. The
- * target entrance pose is only a safe recovery fallback if transformed geometry
- * or collision metadata disagree.
+ * crossing fails closed if transformed geometry or collision metadata disagree;
+ * silently substituting an authored room pose would turn a seam defect into a
+ * visible multi-metre teleport.
  */
 export const resolveMuseumHallArrival = (
   source: MuseumRuntimeNodeDefinition,
@@ -69,7 +71,7 @@ export const resolveMuseumHallArrival = (
   const colliders = [...layout.wallColliders, ...layout.obstacleColliders];
   return isValidMuseumPosition(mapped, layout.playerRadius, layout.bounds, colliders, layout.spatialCells)
     ? mapped
-    : {...entrance.arrivalPose, yaw: mapped.yaw, pitch: mapped.pitch};
+    : undefined;
 };
 
 export type MuseumPhysicalFrameResult = {
@@ -81,7 +83,7 @@ export type MuseumPhysicalFrameResult = {
   previousPose: MuseumPose;
   pose: MuseumPose;
   connection: MuseumDirectedConnection;
-  reason: 'unready' | 'invalid-target';
+  reason: MuseumNodeTransitionBlockReason;
 } | {
   kind: 'transition';
   previousPose: MuseumPose;

@@ -195,6 +195,8 @@ export type MuseumNodeTransition = {
   arrival: MuseumPose;
 };
 
+export type MuseumNodeTransitionBlockReason = 'unready' | 'invalid-target';
+
 export type MuseumSceneRuntimeProps = {
   definition: MuseumRuntimeNodeDefinition;
   activeHallId: MuseumHallId;
@@ -214,7 +216,10 @@ export type MuseumSceneRuntimeProps = {
   onSelectSupplementalExhibit: (exhibit: MuseumSupplementalExhibitRef) => void;
   onSelectVisitorMap: () => void;
   onNodeTransition: (transition: MuseumNodeTransition) => boolean;
-  onNodeTransitionBlocked: (connection: MuseumDirectedConnection) => void;
+  onNodeTransitionBlocked: (
+    connection: MuseumDirectedConnection,
+    reason: MuseumNodeTransitionBlockReason,
+  ) => void;
   onApproachHall: (approach: MuseumHallApproach | undefined) => void;
   onHallContentReady: (hallId: MuseumPublicHallId, readinessKey: string) => void;
   onHallContentUnavailable: (hallId: MuseumPublicHallId, readinessKey: string) => void;

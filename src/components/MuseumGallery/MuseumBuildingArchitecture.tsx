@@ -39,7 +39,7 @@ function StructuralCell({cell, forum}: {cell: MuseumSpatialCell; forum: boolean}
   const depth = renderBounds.maxZ - renderBounds.minZ;
   const x = (renderBounds.minX + renderBounds.maxX) / 2;
   const z = (renderBounds.minZ + renderBounds.maxZ) / 2;
-  const alongZ = depth >= width;
+  const alongZ = cell.guidanceAxis ? cell.guidanceAxis === 'z' : depth >= width;
   const run = alongZ ? depth : width;
   const guideSegmentCount = Math.max(1, Math.ceil(run / 12));
   const guideSegmentLength = Math.min(8, Math.max(1, (run - (guideSegmentCount - 1) * 2) / guideSegmentCount));

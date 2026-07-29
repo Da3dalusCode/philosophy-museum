@@ -16,7 +16,7 @@ The earlier masterplan decided the intellectual program, reusable hall templates
 
 As a result, Galleries 01–12 were placed incrementally as each release was built. Those placements were not random, but they were optimized locally rather than compiled from a final construction drawing. The accumulated long corridors, irregular orientation, and shortcut logic are therefore not preserved as design commitments.
 
-The room-scale work is reusable. All twelve open halls now conform to canonical template footprints and hall-local geometry. Their collective world transforms, connectors, entrance relationship, and map are the parts being replaced.
+The room-scale work is reusable. All fourteen open halls now conform to canonical template footprints and hall-local geometry. Their collective world transforms, connectors, entrance relationship, and map are the parts being replaced.
 
 ## Reviewed concepts
 
@@ -37,7 +37,7 @@ Six 28 m structural bands touch back-to-back. The 24 m-deep sequential shells si
 
 ### It keeps the successful through-gallery behavior
 
-The chronological route alternates direction by band. A visitor exits through the far end of a gallery and continues to the next one. Five enclosed turn courts connect row ends; their direct sightlines range from 28 m to 39.598 m. None is a long empty wing.
+The chronological route alternates direction by band. A visitor exits through the far end of a gallery and continues to the next one. Five enclosed exterior dogleg courts connect row ends with full-width bends, ceiling guidance, and threshold wayfinding. Their longest uninterrupted run is 36 m; none is a long empty wing.
 
 ### It gives the crosscut a real architectural job
 
@@ -60,13 +60,13 @@ Two 56 × 28 m reserves sit at the north end of the crosscut. If commissioned, t
 | Measure | Continuous Enfilade |
 | --- | ---: |
 | Main gallery block | 262 × 168 m |
-| Controlled bounds with entrance and reserves | 274 × 224 m |
+| Controlled bounds with entrance and reserves | 282 × 224 m |
 | Nominal gallery floor area | approximately 30,160 m² |
-| Complete through-gallery route | approximately 1,443.7 m |
+| Complete through-gallery route | approximately 1,560 m |
 | Public crosscut | 10 × 168 m |
 | Grand Entrance | 40 × 56 m |
 | Core Questions Forum | 28 × 28 m |
-| Turn courts | 5, maximum direct sightline 39.598 m |
+| Turn courts | 5, maximum straight run 36 m |
 | Additional full gallery reserves | 2 |
 | Public levels | 1 |
 
@@ -86,9 +86,9 @@ Directly adjacent galleries share a 4 m clear threshold. A crosscut pair has a 1
 
 ## Room-architecture decision
 
-The 12 populated halls move as complete hall-local roots. This preserves their current room partitions, installations, media, lighting, signs, interpretation, guided views, and collision.
+The 14 populated halls retain complete hall-local roots. This preserves their current room partitions, installations, media, lighting, signs, interpretation, guided views, and collision.
 
-The remaining 14 halls use the approved templates to construct every canonical room:
+The remaining 12 halls use the approved templates to construct every canonical room:
 
 - sequential rooms divide the long axis into equal named spans until curation supplies a reviewed override;
 - four-room crossroads galleries use four independent quadrants;
@@ -108,7 +108,7 @@ A multi-level museum remains technically possible, but it is not the current pla
 - per-level residency/prefetch rules and browser visual review;
 - a revised construction drawing proving that reduced footprint or walking distance offsets the complexity.
 
-The app has no implemented level transition. A multi-level comparison should be commissioned only if production evidence shows that the implemented single-level plan’s 274 × 224 m controlled footprint or 1.44 km complete route is unacceptable.
+The app has no implemented level transition. A multi-level comparison should be commissioned only if production evidence shows that the implemented single-level plan’s 282 × 224 m controlled footprint or 1.56 km complete route is unacceptable.
 
 ## Decision change control
 

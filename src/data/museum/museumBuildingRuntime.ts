@@ -285,6 +285,7 @@ const toSpatialCells = (node: MuseumManifestNode): readonly MuseumSpatialCell[] 
       ceilingHeight: cell.ceilingHeight,
       exhibitIds: [],
       lightingGroupId: `${node.id}:circulation`,
+      ...(cell.guidanceAxis ? {guidanceAxis: cell.guidanceAxis} : {}),
     };
   });
 };
@@ -359,15 +360,16 @@ const liveConnectionEndpointKeys = new Set(
     .flatMap(({a, b}) => [`${a.nodeId}/${a.slotId}`, `${b.nodeId}/${b.slotId}`]),
 );
 
+const activeSlotIdsForNode = (node: MuseumManifestNode): ReadonlySet<string> => new Set(
+  node.doorwaySlots
+    .filter(({id}) => liveConnectionEndpointKeys.has(`${node.id}/${id}`))
+    .map(({id}) => id),
+);
+
 const hallDefinitions: readonly MuseumHallDefinition[] = hallContents.map((content) => {
   const node = MUSEUM_BUILDING_MANIFEST.nodes.find(({publicHallId}) => publicHallId === content.id);
   if (!node) throw new Error(`Museum hall ${content.id} has no physical node in the building manifest.`);
-  const activeSlotIds = new Set(
-    node.doorwaySlots
-      .filter(({id}) => liveConnectionEndpointKeys.has(`${node.id}/${id}`))
-      .map(({id}) => id),
-  );
-  const shell = resolveMuseumHallShell(node, content.layout, activeSlotIds);
+  const shell = resolveMuseumHallShell(node, content.layout, activeSlotIdsForNode(node));
   return {
     ...content,
     layout: shell.layout,
@@ -423,45 +425,132 @@ const worldWallPlane = (
       };
 };
 
-const planeFullyCovers = (covering: WorldWallPlane, candidate: WorldWallPlane): boolean => {
+const subtractCoplanarPlane = (
+  candidate: WorldWallPlane,
+  covering: WorldWallPlane,
+): readonly WorldWallPlane[] => {
   const epsilon = .012;
-  return covering.axis === candidate.axis
-    && Math.abs(covering.coordinate - candidate.coordinate) <= epsilon
-    && covering.start <= candidate.start + epsilon
-    && covering.end >= candidate.end - epsilon
-    && covering.bottom <= candidate.bottom + epsilon
-    && covering.top >= candidate.top - epsilon;
+  if (covering.axis !== candidate.axis || Math.abs(covering.coordinate - candidate.coordinate) > epsilon) {
+    return [candidate];
+  }
+  const overlapStart = Math.max(candidate.start, covering.start);
+  const overlapEnd = Math.min(candidate.end, covering.end);
+  const overlapBottom = Math.max(candidate.bottom, covering.bottom);
+  const overlapTop = Math.min(candidate.top, covering.top);
+  if (overlapEnd - overlapStart <= epsilon || overlapTop - overlapBottom <= epsilon) return [candidate];
+
+  const fragments: WorldWallPlane[] = [];
+  const append = (start: number, end: number, bottom: number, top: number) => {
+    if (end - start < .08 || top - bottom < .08) return;
+    fragments.push({
+      axis: candidate.axis,
+      coordinate: candidate.coordinate,
+      start,
+      end,
+      bottom,
+      top,
+    });
+  };
+  append(candidate.start, overlapStart, candidate.bottom, candidate.top);
+  append(overlapEnd, candidate.end, candidate.bottom, candidate.top);
+  append(overlapStart, overlapEnd, candidate.bottom, overlapBottom);
+  append(overlapStart, overlapEnd, overlapTop, candidate.top);
+  return fragments;
+};
+
+const wallFragmentFromWorldPlane = (
+  node: MuseumManifestNode,
+  wall: MuseumWallDefinition,
+  fragment: WorldWallPlane,
+  fragmentIndex: number,
+): MuseumWallDefinition => {
+  const worldCenter = fragment.axis === 'x'
+    ? {x: (fragment.start + fragment.end) / 2, z: fragment.coordinate}
+    : {x: fragment.coordinate, z: (fragment.start + fragment.end) / 2};
+  const offset = {
+    x: worldCenter.x - node.transform.x,
+    z: worldCenter.z - node.transform.z,
+  };
+  const cosine = Math.cos(node.transform.yaw);
+  const sine = Math.sin(node.transform.yaw);
+  const result: MuseumWallDefinition = {
+    ...wall,
+    id: `${wall.id}:visible-${fragmentIndex + 1}`,
+    center: {
+      x: cosine * offset.x - sine * offset.z,
+      z: sine * offset.x + cosine * offset.z,
+    },
+    size: {...wall.size, width: fragment.end - fragment.start},
+    height: fragment.top - fragment.bottom,
+  };
+  if (fragment.bottom > .001) result.bottom = fragment.bottom;
+  else delete result.bottom;
+  return result;
 };
 
 /**
- * Collision keeps the complete doorway seam, but rendering has one owner.
- * Short circulation-wall and lintel fragments that sit inside a hall's wall
- * plane are removed instead of being drawn coplanar with the hall shell.
+ * Collision retains every authored seam. Rendering instead assigns each
+ * coplanar rectangle to one node and splits partially covered walls/lintels,
+ * preventing z-fighting without opening a hole in the architectural union.
  */
-const removeHallCoveredCirculationSurfaces = (
+const removeCoveredArchitectureSurfaces = (
   node: MuseumManifestNode,
   walls: readonly MuseumWallDefinition[],
-): readonly MuseumWallDefinition[] => walls.filter((wall) => {
-  const candidate = worldWallPlane(node.transform, wall);
-  return !hallDefinitions.some((hall) => (hall.architectureWalls ?? hall.layout.wallColliders)
-    .some((hallWall) => planeFullyCovers(worldWallPlane(hall.worldTransform, hallWall), candidate)));
+  coveringPlanes: readonly WorldWallPlane[],
+): readonly MuseumWallDefinition[] => walls.flatMap((wall) => {
+  const original = worldWallPlane(node.transform, wall);
+  const fragments = coveringPlanes.reduce<readonly WorldWallPlane[]>(
+    (visible, covering) => visible.flatMap((candidate) => subtractCoplanarPlane(candidate, covering)),
+    [original],
+  );
+  if (
+    fragments.length === 1
+    && fragments[0].start === original.start
+    && fragments[0].end === original.end
+    && fragments[0].bottom === original.bottom
+    && fragments[0].top === original.top
+  ) return [wall];
+  return fragments.map((fragment, index) => wallFragmentFromWorldPlane(node, wall, fragment, index));
 });
+
+const hallDefinitionByPhysicalNodeId = new Map(
+  hallDefinitions.map((definition) => [definition.physicalNodeId, definition]),
+);
+const circulationWallSetsByNodeId = new Map(
+  MUSEUM_BUILDING_MANIFEST.nodes.flatMap((node) => hallDefinitionByPhysicalNodeId.has(node.id)
+    ? []
+    : [[node.id, createCirculationWalls(node, activeSlotIdsForNode(node))] as const]),
+);
+const manifestNodeIndex = new Map(
+  MUSEUM_BUILDING_MANIFEST.nodes.map((node, index) => [node.id, index]),
+);
+const persistentArchitectureNodes = MUSEUM_BUILDING_MANIFEST.nodes
+  .filter((node) => circulationWallSetsByNodeId.has(node.id))
+  .sort((first, second) => {
+    const firstRole = first.kind === 'hall' ? 0 : 1;
+    const secondRole = second.kind === 'hall' ? 0 : 1;
+    return firstRole - secondRole
+      || (manifestNodeIndex.get(first.id) ?? 0) - (manifestNodeIndex.get(second.id) ?? 0);
+  });
+const visibleCirculationArchitectureByNodeId = new Map<string, readonly MuseumWallDefinition[]>();
+const ownedArchitecturePlanes: WorldWallPlane[] = hallDefinitions.flatMap((hall) =>
+  (hall.architectureWalls ?? hall.layout.wallColliders)
+    .map((wall) => worldWallPlane(hall.worldTransform, wall)));
+for (const node of persistentArchitectureNodes) {
+  const rawWalls = circulationWallSetsByNodeId.get(node.id)?.architecture ?? [];
+  const visibleWalls = removeCoveredArchitectureSurfaces(node, rawWalls, ownedArchitecturePlanes);
+  visibleCirculationArchitectureByNodeId.set(node.id, visibleWalls);
+  ownedArchitecturePlanes.push(...visibleWalls.map((wall) => worldWallPlane(node.transform, wall)));
+}
 
 const runtimeNodes: readonly MuseumRuntimeNodeDefinition[] = MUSEUM_BUILDING_MANIFEST.nodes.map((node) => {
   const hall = node.publicHallId
     ? hallDefinitions.find(({id}) => id === node.publicHallId)
     : undefined;
-  const activeSlotIds = new Set(
-    node.doorwaySlots
-      .filter(({id}) => liveConnectionEndpointKeys.has(`${node.id}/${id}`))
-      .map(({id}) => id),
-  );
-  const circulationWalls = hall ? undefined : createCirculationWalls(node, activeSlotIds);
-  const circulationArchitectureWalls = circulationWalls
-    ? node.physicalRole === 'turn-court'
-      ? circulationWalls.architecture
-      : removeHallCoveredCirculationSurfaces(node, circulationWalls.architecture)
-    : undefined;
+  const circulationWalls = hall ? undefined : circulationWallSetsByNodeId.get(node.id);
+  const circulationArchitectureWalls = hall
+    ? undefined
+    : visibleCirculationArchitectureByNodeId.get(node.id);
   return {
     id: node.id,
     kind: node.kind,

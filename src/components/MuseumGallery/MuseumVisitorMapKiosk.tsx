@@ -132,8 +132,15 @@ const useVisitorMapScreenTexture = (): CanvasTexture => {
         context.beginPath();
         tracePolygon(context, cell.points, point);
         context.fill();
-        context.stroke();
       });
+      context.beginPath();
+      node.outline.forEach(({start, end}) => {
+        const mappedStart = point(start);
+        const mappedEnd = point(end);
+        context.moveTo(mappedStart.x, mappedStart.y);
+        context.lineTo(mappedEnd.x, mappedEnd.y);
+      });
+      context.stroke();
     });
     context.setLineDash([]);
 
