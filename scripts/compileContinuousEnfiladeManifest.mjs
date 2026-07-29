@@ -26,11 +26,18 @@ const samePoint = (first, second, epsilon = .001) =>
   close(first.x, second.x, epsilon) && close(first.z, second.z, epsilon);
 const sorted = (values) => [...values].sort((first, second) => `${first}`.localeCompare(`${second}`));
 const unique = (values) => new Set(values).size === values.length;
-const hash = (source) => createHash('sha256').update(source).digest('hex');
+const canonicalizeText = (source) => source.replace(/\r\n?/g, '\n');
+const hash = (source) => createHash('sha256').update(canonicalizeText(source)).digest('hex');
 const clone = (value) => JSON.parse(JSON.stringify(value));
 const hallNodeId = (programHallId) => `hall:${programHallId}`;
 const pairKey = (first, second) => sorted([first, second]).join('|');
 const galleryNumber = (value) => String(value).padStart(2, '0');
+
+assert.equal(
+  hash('cross-platform\r\nmanifest\rhash\r\n'),
+  hash('cross-platform\nmanifest\nhash\n'),
+  'Authority hashes must be independent of checkout line endings.',
+);
 
 const templatePortalSpecs = {
   'standard-rect': [
