@@ -243,15 +243,19 @@
       "scene": {
         "width": 470,
         "height": 180,
-        "bytes": 24054,
-        "sha256": "95c8c38b128cc9f8776f43d53eb5101c7fa798261aec754f486c2542f53e791b"
+        "bytes": 8724,
+        "sha256": "8279c70847aff4ed3cb9d7ab839136ff6271ad7b581f9ebfc2c3dfe512a8450c"
       },
       "panel": {
         "width": 470,
         "height": 180,
-        "bytes": 30134,
-        "sha256": "f96a8918f8c5524d28dc09eb6b0c5faf68b378e13dca1c8efe479a3513bb1ceb"
-      }
+        "bytes": 8550,
+        "sha256": "e4a4109c4dee9f48ac2747ad8afcd612ed601a698a23a49555a1f5a1b0ba6233"
+      },
+      "visualCharacter": "contextual-composite",
+      "textDominantOrSingleBook": false,
+      "contextualCompositeVersion": 1,
+      "contextualCompositeMotif": "fourfold-remedy"
     },
     "epicurean-philodemus-subscription": {
       "hallFolder": "hellenistic-roman-ways",
@@ -261,15 +265,19 @@
       "scene": {
         "width": 306,
         "height": 529,
-        "bytes": 10986,
-        "sha256": "f206cbe05d9747e51445146749ba2a288fca968164c960cafb15d5fdad874eef"
+        "bytes": 7272,
+        "sha256": "df17809d1c106a62644df3332f4a70aed66b85b6d1faa7267159c2cf315a6da5"
       },
       "panel": {
         "width": 306,
         "height": 529,
-        "bytes": 14988,
-        "sha256": "b3f2419e0c2a548fc76376c12d860d2f5dd889e825b2d17bbd3b83e079181b1f"
-      }
+        "bytes": 6730,
+        "sha256": "dea9224b26ce120e234f4543ddc62864cd33c0ea0f90a4b1655eeb44104f2e8f"
+      },
+      "visualCharacter": "contextual-composite",
+      "textDominantOrSingleBook": false,
+      "contextualCompositeVersion": 1,
+      "contextualCompositeMotif": "villa-library"
     },
     "epicurean-herculaneum-papyrus": {
       "hallFolder": "hellenistic-roman-ways",
@@ -279,15 +287,19 @@
       "scene": {
         "width": 432,
         "height": 640,
-        "bytes": 34674,
-        "sha256": "6677db615969ebeaa37aa0f325a8671938c17eb14b0a6308125d21ae4b847045"
+        "bytes": 11018,
+        "sha256": "b96fad75d367a4df353f0bc6ace7889db0f457f857b48899d20f46c8126bb157"
       },
       "panel": {
         "width": 500,
         "height": 740,
-        "bytes": 81850,
-        "sha256": "98c2689fc3edce17b971f9f9a9bbadb427b1abef0e83280bfe09bd56b6f2648d"
-      }
+        "bytes": 14106,
+        "sha256": "d01643632475925706b094694f6fbc7a6ed0e62c89402fd1a2f323855f3afc43"
+      },
+      "visualCharacter": "contextual-composite",
+      "textDominantOrSingleBook": false,
+      "contextualCompositeVersion": 1,
+      "contextualCompositeMotif": "papyrus-imaging"
     },
     "skeptical-sextus-adversus-edition": {
       "hallFolder": "hellenistic-roman-ways",
@@ -297,15 +309,19 @@
       "scene": {
         "width": 330,
         "height": 601,
-        "bytes": 10078,
-        "sha256": "62b961d89faff24ad321859e8d74f9012875b294e4b9c0d575a69b0c3df6e72d"
+        "bytes": 8384,
+        "sha256": "fb6e391243f792ee04c84c3664de4667216547c4adf705f562f819d295eee022"
       },
       "panel": {
         "width": 330,
         "height": 601,
-        "bytes": 15200,
-        "sha256": "2ce9c82dc21da2706762dbe3478aaf03db66cb778f81a2828cfc9db6d54ddc46"
-      }
+        "bytes": 8554,
+        "sha256": "2a550eae6b1d54102409f7dc30724aa147c4cc7f934c3812dad7d2721895b1ee"
+      },
+      "visualCharacter": "contextual-composite",
+      "textDominantOrSingleBook": false,
+      "contextualCompositeVersion": 1,
+      "contextualCompositeMotif": "suspension-scales"
     },
     "porphyry-plotinus-medieval": {
       "hallFolder": "late-antiquity-inheritance",
@@ -351,15 +367,19 @@
       "scene": {
         "width": 456,
         "height": 640,
-        "bytes": 85814,
-        "sha256": "d54a71fff6081c35f3580a43cc6f5d44a1554a8a1435edc60cedb11da70b212d"
+        "bytes": 29806,
+        "sha256": "819446e1a3b52594d5a5c6b2a289ac49a9aa435f04b879165c7671ef76441f1d"
       },
       "panel": {
         "width": 911,
         "height": 1280,
-        "bytes": 439738,
-        "sha256": "ea56257d6d6126c3bbe73326d30102352eff20c86c90e2d8786b751cfc5099ae"
-      }
+        "bytes": 92866,
+        "sha256": "17af4b95ba71bafa6595808e4c117f5bd3160f615e29ed182d2406cbde080980"
+      },
+      "visualCharacter": "contextual-composite",
+      "textDominantOrSingleBook": false,
+      "contextualCompositeVersion": 1,
+      "contextualCompositeMotif": "henadic-radiance"
     },
     "augustine-lateran-fresco": {
       "hallFolder": "late-antiquity-inheritance",
@@ -423,15 +443,19 @@
       "scene": {
         "width": 379,
         "height": 640,
-        "bytes": 57998,
-        "sha256": "5672794053fb9294760734225ae6bfe7c3f56684a82e4942c1348083641ee87a"
+        "bytes": 27124,
+        "sha256": "6babff0be6142bc86960d05dc4f5ebebf3e389563bc76a5614c9ee16f9db6110"
       },
       "panel": {
         "width": 591,
         "height": 997,
-        "bytes": 153820,
-        "sha256": "82b4e248b1fcbfacdb484c6f3bacb808ef1f6d5381363164f3fe04ba0188a465"
-      }
+        "bytes": 52438,
+        "sha256": "cc4841f964f5b09d79262f1068166f1f3e80ed63fdc2b4d26003e360d7bf9019"
+      },
+      "visualCharacter": "contextual-composite",
+      "textDominantOrSingleBook": false,
+      "contextualCompositeVersion": 1,
+      "contextualCompositeMotif": "celestial-ladder"
     },
     "neoplatonic-porphyrian-tree": {
       "hallFolder": "late-antiquity-inheritance",
@@ -477,15 +501,19 @@
       "scene": {
         "width": 427,
         "height": 640,
-        "bytes": 93790,
-        "sha256": "d1d29866e144cf21da9f20b3dc14b7263d7bf68c9352b3d9e9c1c151436740c2"
+        "bytes": 32744,
+        "sha256": "a5af19e9de9338beb4f8ba82e6f38eeeefce574fdbffe5b71a83cf21bfbae238"
       },
       "panel": {
         "width": 853,
         "height": 1280,
-        "bytes": 486856,
-        "sha256": "32fabf9298970386161f775349e29bbea233263e194724f6d0048637ad27d1e8"
-      }
+        "bytes": 99300,
+        "sha256": "c706371038416a8b23a2af58a47c9f944b66b675b273e812a3e3a76185a3c8dc"
+      },
+      "visualCharacter": "contextual-composite",
+      "textDominantOrSingleBook": false,
+      "contextualCompositeVersion": 1,
+      "contextualCompositeMotif": "celestial-orders"
     },
     "late-greek-aristotle-codex": {
       "hallFolder": "late-antiquity-inheritance",
@@ -567,15 +595,19 @@
       "scene": {
         "width": 472,
         "height": 640,
-        "bytes": 41794,
-        "sha256": "1f5c7ff96b34cbcf1e79dbc6082571cc1f24da26cc0b6af6db3c0cb8e543ed4b"
+        "bytes": 18334,
+        "sha256": "ac520762770cd93126d2162ed3f3dbe4c6ff915f3f257b52b313c4bc07678e7e"
       },
       "panel": {
         "width": 656,
         "height": 889,
-        "bytes": 81712,
-        "sha256": "f649b198eb2499ec902d4538aceb25a5b1e73f00039773c6fb24b08f98a6af78"
-      }
+        "bytes": 29706,
+        "sha256": "bee306824868e334b639281d542fa2ffdae1b8d92618adc295ed7e6dbec5dcb8"
+      },
+      "visualCharacter": "contextual-composite",
+      "textDominantOrSingleBook": false,
+      "contextualCompositeVersion": 1,
+      "contextualCompositeMotif": "proposition-chain"
     },
     "late-ficino-iamblichus-manuscript": {
       "hallFolder": "late-antiquity-inheritance",

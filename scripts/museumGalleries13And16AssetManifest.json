@@ -153,15 +153,19 @@
       "scene": {
         "width": 495,
         "height": 640,
-        "bytes": 96114,
-        "sha256": "b5e8fcfb1c108e10e06d8bde179325fa2d66c6e211bce7b32cc6cdcc5328d125"
+        "bytes": 17836,
+        "sha256": "01622de963c3b3d1b422d34161337ae13b469a85bebe80698f0d6a92bc049d31"
       },
       "panel": {
         "width": 989,
         "height": 1280,
-        "bytes": 484518,
-        "sha256": "7ae717bc39619cae6d80bf5240ebe900b6e4c8730462b40343f9dc026829c57f"
-      }
+        "bytes": 66226,
+        "sha256": "f710c8c06e5cb95d79dd9508913b65ea7836b66d9c92f3966de5fa39ee41a013"
+      },
+      "visualCharacter": "contextual-composite",
+      "textDominantOrSingleBook": false,
+      "contextualCompositeVersion": 1,
+      "contextualCompositeMotif": "civic-authority"
     },
     "scholastic-boethius-topics": {
       "hallFolder": "latin-christian-scholastic",
@@ -171,15 +175,19 @@
       "scene": {
         "width": 370,
         "height": 640,
-        "bytes": 74944,
-        "sha256": "398fe891141db9743f28e02369cfd04d75565d1b5a64dd8f7e5923106c6ceffd"
+        "bytes": 21622,
+        "sha256": "22359f0ad7880f7f2e5c715dff8ef09a6ee8636b1cf2542ab14fddcc8a3f02c2"
       },
       "panel": {
         "width": 740,
         "height": 1280,
-        "bytes": 295652,
-        "sha256": "2b296b72517887b907a9bcf74b6f70eb13c81016d9ce2aaa0bb3114cb143855d"
-      }
+        "bytes": 65270,
+        "sha256": "e2e96729d78eeb307b3cfa7397c0a35d103b6a20fb848355555d652f13139c95"
+      },
+      "visualCharacter": "contextual-composite",
+      "textDominantOrSingleBook": false,
+      "contextualCompositeVersion": 1,
+      "contextualCompositeMotif": "logic-curriculum"
     },
     "scholastic-consolation-wheel": {
       "hallFolder": "latin-christian-scholastic",
@@ -225,15 +233,19 @@
       "scene": {
         "width": 591,
         "height": 640,
-        "bytes": 63494,
-        "sha256": "70256618e18368591999a97ac8cda41d203d9995b481cb8c06ac0759058be8e6"
+        "bytes": 21552,
+        "sha256": "d5172e621b788fd7cedf6cdafa9353bd172dc633a867e0f8b91afc180d09c7f4"
       },
       "panel": {
         "width": 1182,
         "height": 1280,
-        "bytes": 395486,
-        "sha256": "a70c6204210ae31bf82619c67111f7d1dbec9f4ad1b1afdf2ccb0f9d7d7f666e"
-      }
+        "bytes": 58236,
+        "sha256": "59357edf198f4215ce804473119be5bba180b69ca7c3a4b43eb007ecbaf479d4"
+      },
+      "visualCharacter": "contextual-composite",
+      "textDominantOrSingleBook": false,
+      "contextualCompositeVersion": 1,
+      "contextualCompositeMotif": "nature-divisions"
     },
     "scholastic-abelard-apologia-manuscript": {
       "hallFolder": "latin-christian-scholastic",
@@ -243,15 +255,19 @@
       "scene": {
         "width": 374,
         "height": 540,
-        "bytes": 59770,
-        "sha256": "6d85ed6d96b0aeb9a28fc53e01c64ab8a31af99c8bcc80e7be4a0b71bdf2c0fa"
+        "bytes": 17366,
+        "sha256": "2b1067cd45b1ac2101e20226cf99f26764644a1fc42a3c1b4b4c9487c58fbf51"
       },
       "panel": {
         "width": 374,
         "height": 540,
-        "bytes": 73232,
-        "sha256": "c6813b66b1561b018dea45305326787a44120178e02010d442f62cda236df724"
-      }
+        "bytes": 17160,
+        "sha256": "18bbff5830f5d48aba99e878ba629f72ebc67110547cb3395dc8dac93e24e580"
+      },
+      "visualCharacter": "contextual-composite",
+      "textDominantOrSingleBook": false,
+      "contextualCompositeVersion": 1,
+      "contextualCompositeMotif": "dialectic-debate"
     },
     "scholastic-heloise-letters": {
       "hallFolder": "latin-christian-scholastic",
@@ -261,15 +277,19 @@
       "scene": {
         "width": 472,
         "height": 640,
-        "bytes": 90750,
-        "sha256": "1257f5151ecd083809a321b3e420a73f064b52307165c346b3c9bf9cdcbb7645"
+        "bytes": 21402,
+        "sha256": "dc73456a7a2c389faf0da7ea316c5d3b7758612879b2d9bfa4bf8fdab37e4fdb"
       },
       "panel": {
         "width": 944,
         "height": 1280,
-        "bytes": 459546,
-        "sha256": "df9edb330ccc21ce05f87064a37b5ebc9f095aab284b98fba6dd34439a1e64ac"
-      }
+        "bytes": 71324,
+        "sha256": "beaa5352705928b519041426bfaa085bd087804fd1adb2d6add195d9ae8c0f69"
+      },
+      "visualCharacter": "contextual-composite",
+      "textDominantOrSingleBook": false,
+      "contextualCompositeVersion": 1,
+      "contextualCompositeMotif": "love-intention"
     },
     "scholastic-sorbonne-theology": {
       "hallFolder": "latin-christian-scholastic",
@@ -297,15 +317,19 @@
       "scene": {
         "width": 480,
         "height": 640,
-        "bytes": 62670,
-        "sha256": "5ebf402d725eedeef09ce77447ccb96420f56912dd14602e58233d1dca533677"
+        "bytes": 15108,
+        "sha256": "5dd845936bb2d848bd8daec220fdd3b3885156528d626be5b52ad05bdbf790f4"
       },
       "panel": {
         "width": 960,
         "height": 1280,
-        "bytes": 326726,
-        "sha256": "8a6b25d979ba19dc4c34e66e85b87aa418c4249d5654a5120d44f55700c7ffb9"
-      }
+        "bytes": 50890,
+        "sha256": "2d825a2f75b34ef131da33c6f0439b59c8cd2776bd836f985ab222a807b25efb"
+      },
+      "visualCharacter": "contextual-composite",
+      "textDominantOrSingleBook": false,
+      "contextualCompositeVersion": 1,
+      "contextualCompositeMotif": "summa-architecture"
     },
     "scholastic-aquinas-summa-1482": {
       "hallFolder": "latin-christian-scholastic",
@@ -315,15 +339,19 @@
       "scene": {
         "width": 469,
         "height": 640,
-        "bytes": 111370,
-        "sha256": "c4aba4fd18b16ce9714589f7ad42ed72cb118c0fd3592a2cf7ed73c9d2cca68b"
+        "bytes": 23384,
+        "sha256": "5f99e6abe872e3c2a83a6fa33b3e34ad9d2fad45f9fc9322b2c7a0e71df799cb"
       },
       "panel": {
         "width": 640,
         "height": 874,
-        "bytes": 223476,
-        "sha256": "3bae107056f52cc3ad108f53c39c1baddaf54f40ac10f0a7bdfac2da08cd5760"
-      }
+        "bytes": 40816,
+        "sha256": "01d536cee0146ae7fbaab299f638d556f1eb7b63ab353078ba237f0f340f365c"
+      },
+      "visualCharacter": "contextual-composite",
+      "textDominantOrSingleBook": false,
+      "contextualCompositeVersion": 1,
+      "contextualCompositeMotif": "essence-existence"
     },
     "scholastic-aquinas-summa-1477": {
       "hallFolder": "latin-christian-scholastic",
@@ -333,15 +361,19 @@
       "scene": {
         "width": 403,
         "height": 640,
-        "bytes": 73108,
-        "sha256": "d13a93214b564cdb88b3c087effd40907228a91be9ac787301a4b7621f0b3b0e"
+        "bytes": 16562,
+        "sha256": "2e84d480f7bb85fe10cd7a7e4b68c05c8c4cee58c97d947199775bea5278f108"
       },
       "panel": {
         "width": 806,
         "height": 1280,
-        "bytes": 325806,
-        "sha256": "51ea72e72ef794d771848855f2ab9884348665175d72767742d2b6748e163f3e"
-      }
+        "bytes": 56428,
+        "sha256": "d0c4bd2236bcb4895457aae592bdf0e18efac7c9d81344f925bb67e2b066647a"
+      },
+      "visualCharacter": "contextual-composite",
+      "textDominantOrSingleBook": false,
+      "contextualCompositeVersion": 1,
+      "contextualCompositeMotif": "natural-law"
     },
     "scholastic-condemnation-1277": {
       "hallFolder": "latin-christian-scholastic",
@@ -369,15 +401,19 @@
       "scene": {
         "width": 482,
         "height": 640,
-        "bytes": 78214,
-        "sha256": "f6d454aa39606e39865318b1bbb8628ff7520d88b135b9c48374e292f184448e"
+        "bytes": 17296,
+        "sha256": "76c8cd45e2a40ef008c0bdfcdb9f5edd48a8b8237960ed6ae89a0ed4ba29f6fd"
       },
       "panel": {
         "width": 964,
         "height": 1280,
-        "bytes": 496394,
-        "sha256": "87cc9e3b325a47d75a2a34cd1bf872c9faad8230856e66dc019d336830bd160e"
-      }
+        "bytes": 58542,
+        "sha256": "505c622a5df23244ae25f1b274de2ad91279bcc55d000beb52decd37fd885bbf"
+      },
+      "visualCharacter": "contextual-composite",
+      "textDominantOrSingleBook": false,
+      "contextualCompositeVersion": 1,
+      "contextualCompositeMotif": "censure-pulpit"
     },
     "rationalism-cartesian-vortices": {
       "hallFolder": "rationalism-mind-nature-system",
@@ -495,15 +531,19 @@
       "scene": {
         "width": 300,
         "height": 509,
-        "bytes": 36510,
-        "sha256": "d64a4b1367d1a38f25181e596ff4a5acc74482c97a2d5e54caa5a52b0776a4c2"
+        "bytes": 15312,
+        "sha256": "f2881e0ac8b0bf6f480693d304cbd977116d43f76e9e78d91739f55284986294"
       },
       "panel": {
         "width": 300,
         "height": 509,
-        "bytes": 45576,
-        "sha256": "e2056c5376dc05fef88155af20d7aed81d2aff18e93df5e7588d2ea7b15083df"
-      }
+        "bytes": 15832,
+        "sha256": "9476df556e3d59a900968cd215217ee71227f1dd9310dcff70364579b1b0f6bb"
+      },
+      "visualCharacter": "contextual-composite",
+      "textDominantOrSingleBook": false,
+      "contextualCompositeVersion": 1,
+      "contextualCompositeMotif": "vital-continuum"
     },
     "rationalism-henry-more-portrait": {
       "hallFolder": "rationalism-mind-nature-system",
@@ -549,15 +589,19 @@
       "scene": {
         "width": 640,
         "height": 533,
-        "bytes": 62876,
-        "sha256": "fdc0c04968b566e9fb369c351c6bbbdb22083c3a708d9bebdec52c990aa814ff"
+        "bytes": 27076,
+        "sha256": "8d8b80352cd7b8327ad6bdac7640f318133c5ab65ff1facc97eeb184f431fb3e"
       },
       "panel": {
         "width": 713,
         "height": 594,
-        "bytes": 94064,
-        "sha256": "9f31fab1947edc1ca415b3770e016d95d210d6b94f2eb7a88f79619d0b78b0c1"
-      }
+        "bytes": 31722,
+        "sha256": "c9304505178566f6c3ebb74c00ae675445ce259132436523504567ff1be54a11"
+      },
+      "visualCharacter": "contextual-composite",
+      "textDominantOrSingleBook": false,
+      "contextualCompositeVersion": 1,
+      "contextualCompositeMotif": "harmony-clocks"
     },
     "rationalism-leibniz-new-essays": {
       "hallFolder": "rationalism-mind-nature-system",
@@ -567,15 +611,19 @@
       "scene": {
         "width": 381,
         "height": 640,
-        "bytes": 46574,
-        "sha256": "d68faa901dd73c44cc7d22abc880275d4c6eb2f48516a916b9cfa8c0b02c313c"
+        "bytes": 19026,
+        "sha256": "f538b87fb2b29827aee0b0c7e4fe2dc9adb2c2f59b9d9d410c48ccbad08e2d94"
       },
       "panel": {
         "width": 762,
         "height": 1280,
-        "bytes": 160806,
-        "sha256": "4d0502482181d7a6b194dfe0eb534c74b0884bdc51db27157b41141c07785dfd"
-      }
+        "bytes": 56066,
+        "sha256": "085f9d01dace9d116681b96ef420db8f6d856c77ea824c21b0ed6fffef2b2287"
+      },
+      "visualCharacter": "contextual-composite",
+      "textDominantOrSingleBook": false,
+      "contextualCompositeVersion": 1,
+      "contextualCompositeMotif": "innate-veins"
     },
     "rationalism-leibniz-clarke": {
       "hallFolder": "rationalism-mind-nature-system",
@@ -639,15 +687,19 @@
       "scene": {
         "width": 464,
         "height": 640,
-        "bytes": 83416,
-        "sha256": "126907a7f951ffd79e64d7574190d07284d9ad25e1725eeb0e6edc11e2d4918c"
+        "bytes": 20008,
+        "sha256": "b052cac62755f1aa3c3dffc621492c6d9f5a4e54d0d50114c74d47f057af8f46"
       },
       "panel": {
         "width": 929,
         "height": 1280,
-        "bytes": 309202,
-        "sha256": "c21e6d22ecaacdf71c335e375e76f9f264e19b2f2f986af3e28a9cf1e692c327"
-      }
+        "bytes": 68032,
+        "sha256": "2d95673e00c9f415649a37a0029910d9435b54249a30dfef187a33f1a31d06db"
+      },
+      "visualCharacter": "contextual-composite",
+      "textDominantOrSingleBook": false,
+      "contextualCompositeVersion": 1,
+      "contextualCompositeMotif": "translation-motion"
     },
     "scholastic-porphyrian-tree-fresco": {
       "hallFolder": "latin-christian-scholastic",
@@ -711,15 +763,19 @@
       "scene": {
         "width": 474,
         "height": 640,
-        "bytes": 44314,
-        "sha256": "5e1d62e4d9898758f207f49719e11af3b28ec70cc48d2e16179120269806628e"
+        "bytes": 28248,
+        "sha256": "9a73cb46e009fd89e085e593cb47893a3d631f0e27b2151a933aac5660cd1a68"
       },
       "panel": {
         "width": 948,
         "height": 1280,
-        "bytes": 292516,
-        "sha256": "e6c7748b5bdb41a1b6771c55aee1657802c6f3709769b5363648ad63ce70fd9d"
-      }
+        "bytes": 76344,
+        "sha256": "e8ed35e5ea759bda437699314111332c1f7d10a46e0573e5c4f4fd0d2326c021"
+      },
+      "visualCharacter": "contextual-composite",
+      "textDominantOrSingleBook": false,
+      "contextualCompositeVersion": 1,
+      "contextualCompositeMotif": "method-optics"
     },
     "rationalism-ethics-propositions": {
       "hallFolder": "rationalism-mind-nature-system",
@@ -747,15 +803,19 @@
       "scene": {
         "width": 375,
         "height": 640,
-        "bytes": 52906,
-        "sha256": "8c7661729989f7377e1b6aca506e8cf2cd02f08b4c9595e6440bb68e0dd92d10"
+        "bytes": 33806,
+        "sha256": "85674ebfaa9c9fcc544051ec4ef26a644fb51b558f5543a8ac61a58f1e57e49a"
       },
       "panel": {
         "width": 750,
         "height": 1280,
-        "bytes": 162946,
-        "sha256": "cf570fd03f29f9d35b5604753b26927f3fe5e9923a5da96a6a5cbea9cac98b5b"
-      }
+        "bytes": 84474,
+        "sha256": "2e23730ae0c3e76d3ec0c43558216f9bf9c2adea39440a9b6b6103d247e3d442"
+      },
+      "visualCharacter": "contextual-composite",
+      "textDominantOrSingleBook": false,
+      "contextualCompositeVersion": 1,
+      "contextualCompositeMotif": "lens-scripture"
     }
   }
 }

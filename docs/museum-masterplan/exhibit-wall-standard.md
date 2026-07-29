@@ -74,6 +74,8 @@ Gallery 18, **Enlightenment, Revolution, and Kant’s Critical Turn**, preserves
 
 For Galleries 17 and 18, every new asset records a visual-character class. Text-dominant pages and isolated books are exceptions: Gallery 17 allows no more than 3 of 18 and Gallery 18 no more than 4 of 25, while each gallery must use at least four non-textual character groups. Relevant portraits, social scenes, places, material objects, and maps or diagrams should dominate.
 
+The completed Gallery 01–16 retrospective applies a stricter room-level rule across the open Museum: **no room may contain more than one text-dominant page or isolated-book image**. Every physical manuscript, document, papyrus, and book-page placement is explicitly reviewed. Illustrated scenes, diagrams, decorated objects, and materially distinctive artifacts are classified by what the visitor actually sees; 52 excess plain-page or lone-book views are now contextual composites with the authenticated object retained as a subordinate inset. The source record remains authoritative, and the composite notice must distinguish the contemporary visual study from historical evidence.
+
 ## Release checklist for every new hall
 
 Before a hall can be called finished:
@@ -83,3 +85,4 @@ Before a hall can be called finished:
 3. Every primary, supplemental panel, doorway, fast-travel destination, directory entry, and direct exhibit route works.
 4. The visitor map shows the new hall, its real walking connection, and the visitor's directional arrow without requiring desktop scrolling.
 5. The production build and the focused Museum, routing, plan, and asset audits for the changed contracts pass locally; unchanged broad integrity, accuracy, and article suites may run in CI unless a release-specific risk justifies repeating them.
+6. The image-diversity audit classifies every textual-medium installation and rejects any curated room containing more than one plain page or isolated book.

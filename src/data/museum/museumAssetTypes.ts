@@ -498,6 +498,7 @@ export type MuseumVisualCharacter =
   | 'place-or-architecture'
   | 'material-object'
   | 'map-or-diagram'
+  | 'contextual-composite'
   | 'text-dominant';
 
 export type MuseumLikenessStatus =
@@ -524,7 +525,7 @@ export type MuseumAssetRecord = {
   entityId: string;
   role: MuseumAssetRole;
   mediaKind: MuseumMediaKind;
-  /** Required by the visual-diversity gate for assets added from Gallery 17 onward. */
+  /** Explicitly populated for gated visual-diversity programs and legacy replacements. */
   visualCharacter?: MuseumVisualCharacter;
   title: string;
   creator: string;

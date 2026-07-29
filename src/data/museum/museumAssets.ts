@@ -22,6 +22,7 @@ import {SUCCESSOR_GALLERIES_ASSETS} from './successorGalleriesAssets';
 import {SCHOLASTIC_RATIONALIST_GALLERY_ASSETS} from './scholasticRationalistGalleryAssets';
 import {EMPIRICISM_GALLERY_ASSETS} from './empiricismGalleryAssets';
 import {ENLIGHTENMENT_GALLERY_ASSETS} from './enlightenmentGalleryAssets';
+import {applyMuseumLegacyImageDiversityMetadata} from './museumLegacyImageDiversity';
 
 const assetPath = (slug: string, variant: 'scene' | 'panel', width: number, height: number): MuseumAssetVariant => ({
   path: `assets/museum/ancient-greek/${slug}-${variant}.webp`,
@@ -413,7 +414,7 @@ const ANCIENT_MUSEUM_ASSETS = [
   },
 ] as const satisfies readonly MuseumAssetRecord[];
 
-export const MUSEUM_ASSETS = [
+const RAW_MUSEUM_ASSETS = [
   ...ANCIENT_MUSEUM_ASSETS,
   ...MODERN_MUSEUM_ASSETS,
   ...MUSEUM_EXPANSION_ASSETS,
@@ -435,6 +436,10 @@ export const MUSEUM_ASSETS = [
   ...EMPIRICISM_GALLERY_ASSETS,
   ...ENLIGHTENMENT_GALLERY_ASSETS,
 ] as const satisfies readonly MuseumAssetRecord[];
+
+export const MUSEUM_ASSETS = RAW_MUSEUM_ASSETS.map(
+  applyMuseumLegacyImageDiversityMetadata,
+) satisfies readonly MuseumAssetRecord[];
 
 export const museumAssetById = new Map<MuseumAssetId, MuseumAssetRecord>(
   MUSEUM_ASSETS.map((asset) => [asset.id, asset]),

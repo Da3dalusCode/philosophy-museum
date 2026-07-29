@@ -27,15 +27,19 @@
       "scene": {
         "width": 411,
         "height": 640,
-        "bytes": 35634,
-        "sha256": "0b5461581e43380e6350f1cc28ce3f0575c77c932b84058d4fa24ce484cf3906"
+        "bytes": 13686,
+        "sha256": "05dce3a4a06f089a510de68be22f8ccc842e56a9026cd236cdde8725e2f4d89e"
       },
       "panel": {
         "width": 457,
         "height": 712,
-        "bytes": 56520,
-        "sha256": "74202cea97e7b4669881a8fafa73a19f889f6b94433d3a493f09cd2ac488200c"
-      }
+        "bytes": 15608,
+        "sha256": "7aa0a5429d5402328afcd3e7904ed76634a685f866c4dd3a9c929704082d199c"
+      },
+      "visualCharacter": "contextual-composite",
+      "textDominantOrSingleBook": false,
+      "contextualCompositeVersion": 1,
+      "contextualCompositeMotif": "fortress-choice"
     },
     "descartes-hals-portrait": {
       "hallFolder": "renaissance-reason-revolution",
@@ -675,15 +679,19 @@
       "scene": {
         "width": 360,
         "height": 640,
-        "bytes": 21984,
-        "sha256": "3df3315159c3918f90ba2da2b347e409efd58ff0d1a3b13ca0cb0a4cd60f9809"
+        "bytes": 13944,
+        "sha256": "373f0845fd87a947987a95cd9b50d70946ac571bfa56592bd24d88e7602801a3"
       },
       "panel": {
         "width": 720,
         "height": 1280,
-        "bytes": 97296,
-        "sha256": "b2c10bf27b644a5c4bfc8d4785f670c1a2977b6bde7a736ea008b2842c9cdd2e"
-      }
+        "bytes": 34976,
+        "sha256": "24003c986bab6ac4afdaa37fef5acbea16558832b2d51ab442d2b2b1f696b22e"
+      },
+      "visualCharacter": "contextual-composite",
+      "textDominantOrSingleBook": false,
+      "contextualCompositeVersion": 1,
+      "contextualCompositeMotif": "description-crown"
     },
     "dewey-portrait-1902": {
       "hallFolder": "logic-language-science",
@@ -855,15 +863,19 @@
       "scene": {
         "width": 480,
         "height": 640,
-        "bytes": 25614,
-        "sha256": "eba21c7446e73e9c14ae5ce5f92e771e36c03f3d3594ad8260ce90ac2cc30aa5"
+        "bytes": 18294,
+        "sha256": "82e4c297a2cff28f938b14033a873c707ed63e787fa1875e3a165c431820ace1"
       },
       "panel": {
         "width": 867,
         "height": 1156,
-        "bytes": 83558,
-        "sha256": "28c8ad5b408665d1278ab3d36018a56f979cc1563a8a4217fbcf5ca1cf0edab9"
-      }
+        "bytes": 37434,
+        "sha256": "d49c17429a6178cf88458e032ef9768c65d617b6cbc0d7e934341a5341e12f00"
+      },
+      "visualCharacter": "contextual-composite",
+      "textDominantOrSingleBook": false,
+      "contextualCompositeVersion": 1,
+      "contextualCompositeMotif": "paradigm-shift"
     },
     "bentham-pickering-portrait": {
       "hallFolder": "ethics-justice-political-life",
@@ -1107,15 +1119,19 @@
       "scene": {
         "width": 432,
         "height": 640,
-        "bytes": 26220,
-        "sha256": "4f00eb70b2005c3defdf1d49407841ecf3ee594f6a397cde7037f8dc16eda664"
+        "bytes": 14308,
+        "sha256": "55aa6cef8e5e47a8e17466e7ff921b37ada5aad06d293d3e6303d5755a906d39"
       },
       "panel": {
         "width": 644,
         "height": 954,
-        "bytes": 77378,
-        "sha256": "14717c5d65fa1c8bd4bc9dcaabfcc87b6e87edb7d85cc28b587f661f67862aca"
-      }
+        "bytes": 23338,
+        "sha256": "0f9ab99676b4f3e4b15c1a47aa838954d092f2143f6eace709c04246318b759a"
+      },
+      "visualCharacter": "contextual-composite",
+      "textDominantOrSingleBook": false,
+      "contextualCompositeVersion": 1,
+      "contextualCompositeMotif": "exchange-entitlement"
     },
     "habermas-portrait": {
       "hallFolder": "ethics-justice-political-life",
@@ -1359,15 +1375,19 @@
       "scene": {
         "width": 423,
         "height": 640,
-        "bytes": 19354,
-        "sha256": "9e740fae760e555aad1e2d6a2c800f71e7f54be807ab071d8ec1eb142f8d4815"
+        "bytes": 14612,
+        "sha256": "5fbedb23e0763c679ae97f824bb811edb17673e5a9c08126c184b5b3b5cdfafa"
       },
       "panel": {
         "width": 574,
         "height": 868,
-        "bytes": 56874,
-        "sha256": "71990ef407b1959ba66737c8cba22eab97d0ed4f7035da4790415cb53c15f5f7"
-      }
+        "bytes": 20754,
+        "sha256": "87271cf89704c1e77da7eadba9701b53b5d80048c5b14bc0866bd7e3a086f827"
+      },
+      "visualCharacter": "contextual-composite",
+      "textDominantOrSingleBook": false,
+      "contextualCompositeVersion": 1,
+      "contextualCompositeMotif": "language-practice"
     },
     "thomas-nagel-portrait": {
       "hallFolder": "mind-consciousness-self",
@@ -1647,15 +1667,19 @@
       "scene": {
         "width": 373,
         "height": 640,
-        "bytes": 36132,
-        "sha256": "fa07d330d586cf11f6417c350615f2ac959e12fbb62d45aee2cf1858432aad33"
+        "bytes": 12040,
+        "sha256": "6df13e8e8704f1c665d42cbe69d5c65a905cba94efd9d86065f588865e2f5cf4"
       },
       "panel": {
         "width": 745,
         "height": 1280,
-        "bytes": 149394,
-        "sha256": "57b67403d3e79373b6e848c376d82722c650a17923e7d35785f0b4a82ab56732"
-      }
+        "bytes": 37244,
+        "sha256": "7497da456e1595a4da5568b374a322faf874fb971b0f70afcbfaf6f75726e2a2"
+      },
+      "visualCharacter": "contextual-composite",
+      "textDominantOrSingleBook": false,
+      "contextualCompositeVersion": 1,
+      "contextualCompositeMotif": "civic-forum"
     },
     "bacon-novum-organum-1645": {
       "hallFolder": "renaissance-humanism-new-method",
@@ -2102,15 +2126,19 @@
       "scene": {
         "width": 416,
         "height": 640,
-        "bytes": 10830,
-        "sha256": "fffaec30b4f7ec99e8a935f8f04c6b13190a9a1474a114e782872873f671d408"
+        "bytes": 11928,
+        "sha256": "869e06c4bcda9010feb7471231a302bcd882c7b36b34abc6c44e08f83fac223d"
       },
       "panel": {
         "width": 650,
         "height": 1000,
-        "bytes": 21376,
-        "sha256": "e79474dee166091fae7f15d897b8a0d542283786b12c2d8ff60fefd4213c9419"
-      }
+        "bytes": 21110,
+        "sha256": "360669e04207027ca56c706b2d14a5a895637d4a5089a7236549429ef87bc8d0"
+      },
+      "visualCharacter": "contextual-composite",
+      "textDominantOrSingleBook": false,
+      "contextualCompositeVersion": 1,
+      "contextualCompositeMotif": "face-to-face"
     },
     "levinas-signature-1983": {
       "hallFolder": "phenomenology-existence-embodiment",
@@ -2120,15 +2148,19 @@
       "scene": {
         "width": 637,
         "height": 640,
-        "bytes": 20206,
-        "sha256": "8ff156e23d7569a2905c97bb76c58a5929dbe5378c9594bfe273783b3c48f886"
+        "bytes": 17202,
+        "sha256": "b7aba05c9328a21875a024896a4440906197b78936a97101c9882a6de79ae76f"
       },
       "panel": {
         "width": 1273,
         "height": 1280,
-        "bytes": 62930,
-        "sha256": "36a361c335ede06cfc3e193c28f7a2281416badda6ff08a55e44a75c2bb61f3d"
-      }
+        "bytes": 38468,
+        "sha256": "88729d51f04e7f44487eab12392d52083fc7f657d6f4430555045053921841ff"
+      },
+      "visualCharacter": "contextual-composite",
+      "textDominantOrSingleBook": false,
+      "contextualCompositeVersion": 1,
+      "contextualCompositeMotif": "ethical-threshold"
     },
     "gadamer-letter-pawliszyn": {
       "hallFolder": "phenomenology-existence-embodiment",
@@ -2228,15 +2260,19 @@
       "scene": {
         "width": 344,
         "height": 640,
-        "bytes": 54386,
-        "sha256": "16a6df1926181970564d9a26743712af65e43c8fea47e0118d22739e011afe82"
+        "bytes": 29718,
+        "sha256": "bdfef2d92555832a5018fd044ead93ea300aea637a3224bb9ef7fab9b9b9281d"
       },
       "panel": {
         "width": 687,
         "height": 1280,
-        "bytes": 169240,
-        "sha256": "8fff503e1c7dc44995f5eeeb3afd0e8bf60afc73304ccc94c142b3c29d0b45c3"
-      }
+        "bytes": 81642,
+        "sha256": "6f6784c24a2fcf93ca6baace9ae137ad05144be646e7765ce2f40725ae235a53"
+      },
+      "visualCharacter": "contextual-composite",
+      "textDominantOrSingleBook": false,
+      "contextualCompositeVersion": 1,
+      "contextualCompositeMotif": "identity-stars"
     },
     "russell-whitehead-principia-1910": {
       "hallFolder": "analytic-traditions",
@@ -2246,15 +2282,19 @@
       "scene": {
         "width": 380,
         "height": 640,
-        "bytes": 8720,
-        "sha256": "2236574c898ff19e9d6271414108e3e618ba20b0599a7187102d7af4ef4c379d"
+        "bytes": 12034,
+        "sha256": "a61c01bdaed7295db491ffa5d6ee55a3a1d109a5b49ab848a28e7af38b76a882"
       },
       "panel": {
         "width": 759,
         "height": 1280,
-        "bytes": 24930,
-        "sha256": "cfd96a042dd98794377e842a0662258ec0f073662ce5d61c0f48edb6112b0cd6"
-      }
+        "bytes": 26568,
+        "sha256": "679104de6329ae7e857c3c082872e2ff781c7c719728e82287f16fff9d44134f"
+      },
+      "visualCharacter": "contextual-composite",
+      "textDominantOrSingleBook": false,
+      "contextualCompositeVersion": 1,
+      "contextualCompositeMotif": "logic-foundations"
     },
     "russell-principia-54-43": {
       "hallFolder": "analytic-traditions",
@@ -2264,15 +2304,19 @@
       "scene": {
         "width": 640,
         "height": 266,
-        "bytes": 16998,
-        "sha256": "64390c20fffaf2e5b2e15081021671319da81c32c735c0058a718775d9ac11e8"
+        "bytes": 12050,
+        "sha256": "1a4599a1a59274a8b876bf9d8c14dac47c85a7c78c7b4ad5b58b5f075d1bcea2"
       },
       "panel": {
         "width": 800,
         "height": 333,
-        "bytes": 25734,
-        "sha256": "b8cc4b44841b890243db55d3d0447c164e1dfb024088a9f38b11dc13246ee2c2"
-      }
+        "bytes": 15500,
+        "sha256": "f69b632bdd288d74bf2c77798637a6e380f20d5bab6c2669fff1b0e2c6388d95"
+      },
+      "visualCharacter": "contextual-composite",
+      "textDominantOrSingleBook": false,
+      "contextualCompositeVersion": 1,
+      "contextualCompositeMotif": "type-layers"
     },
     "moore-principia-ethica-1903": {
       "hallFolder": "analytic-traditions",
@@ -3054,15 +3098,19 @@
       "scene": {
         "width": 640,
         "height": 546,
-        "bytes": 92318,
-        "sha256": "a7ba093b654df0b696b8b86e46f62a0ace574a2d040126e7ea3654e59a190c74"
+        "bytes": 25112,
+        "sha256": "d848a3d16c08515df0b0313adeecfdf7972974d864196ee6ccb0440ff5344757"
       },
       "panel": {
         "width": 960,
         "height": 819,
-        "bytes": 201604,
-        "sha256": "2c3075397812f206ef6808fa4f5dff05f3bff111640edfdf93af93e5e4b0ebc4"
-      }
+        "bytes": 50404,
+        "sha256": "7ae76eafdd8948f43253218c486b3f4f8958827c081801d4a30764209cb6249b"
+      },
+      "visualCharacter": "contextual-composite",
+      "textDominantOrSingleBook": false,
+      "contextualCompositeVersion": 1,
+      "contextualCompositeMotif": "atom-lattice"
     },
     "vedanta-telugu-manuscript": {
       "hallFolder": "classical-south-asian-worlds",
@@ -3144,15 +3192,19 @@
       "scene": {
         "width": 419,
         "height": 640,
-        "bytes": 5986,
-        "sha256": "e61ee2966d90d42c04c6212bc4130a5cb0f22263c0bb874a9153e26eb70899fd"
+        "bytes": 9058,
+        "sha256": "6fa51b0457dfe90a66fa50c3e693f66a9243d4df1d4f79f2fa7cc74f9ab0ebe7"
       },
       "panel": {
         "width": 500,
         "height": 763,
-        "bytes": 11522,
-        "sha256": "1572323e76029615416da8e236ccc92d4b4810cbcb724b690a1b1139b85e0500"
-      }
+        "bytes": 11238,
+        "sha256": "25be70eb39c76e00f16c0f164bb904d7fb032833e82d54011b4016e580c4094a"
+      },
+      "visualCharacter": "contextual-composite",
+      "textDominantOrSingleBook": false,
+      "contextualCompositeVersion": 1,
+      "contextualCompositeMotif": "many-schools"
     },
     "south-upanishad-sama-veda-manuscript": {
       "hallFolder": "classical-south-asian-worlds",
@@ -3252,15 +3304,19 @@
       "scene": {
         "width": 640,
         "height": 258,
-        "bytes": 64656,
-        "sha256": "04959dd2991e37f9c95bae40a292dceeff1f21817d7ef7060273acbd26dd6bfe"
+        "bytes": 11832,
+        "sha256": "293e3f5f4b8e5d61a5c292684236c566e7913a44196f6794822aced607e43fdb"
       },
       "panel": {
         "width": 1280,
         "height": 516,
-        "bytes": 281446,
-        "sha256": "ec1857e82c7ff194a7212f60e7875036a9538a17666eb59b97088df76191005d"
-      }
+        "bytes": 43974,
+        "sha256": "8f5ad807ebb5cff964135437e2c99abb7d45adfd2315f5284ff9ebef978486b8"
+      },
+      "visualCharacter": "contextual-composite",
+      "textDominantOrSingleBook": false,
+      "contextualCompositeVersion": 1,
+      "contextualCompositeMotif": "teaching-lineage"
     },
     "madhva-udupi-krishna-matha": {
       "hallFolder": "classical-south-asian-worlds",
@@ -4782,15 +4838,19 @@
       "scene": {
         "width": 362,
         "height": 640,
-        "bytes": 35986,
-        "sha256": "3bfbbcd44321522681aa81c1b64d3cff581781b99058c60858b7204c65367628"
+        "bytes": 14426,
+        "sha256": "21f95ce8f344df284b4bce8421473373d888f61d74b79f8d576829529fb832dc"
       },
       "panel": {
         "width": 500,
         "height": 883,
-        "bytes": 88356,
-        "sha256": "88fdcb7768d087e91e26d87f40a7b4d1545822568719ca21d76a19fe54dbd4a7"
-      }
+        "bytes": 22958,
+        "sha256": "9e2c5bb8a2c5b4f9c652584215da8b843008bec4c00b877f5806a74226de8ea8"
+      },
+      "visualCharacter": "contextual-composite",
+      "textDominantOrSingleBook": false,
+      "contextualCompositeVersion": 1,
+      "contextualCompositeMotif": "demonstration-chain"
     },
     "avicenna-medicines-heart": {
       "hallFolder": "islamic-philosophical-worlds",
@@ -4800,15 +4860,19 @@
       "scene": {
         "width": 640,
         "height": 542,
-        "bytes": 123032,
-        "sha256": "e3b75c797727d273bcd689e7978e0a31e9c77d003b066dbac05edba638642372"
+        "bytes": 22174,
+        "sha256": "a15768886bbd6146509fdb5f5116caf806c47c88e61d02643cddf41720e14c96"
       },
       "panel": {
         "width": 1280,
         "height": 1083,
-        "bytes": 570240,
-        "sha256": "b13df8fe124d25d17a708e189c299e4816ab776a870443f7af016b21f2650402"
-      }
+        "bytes": 75402,
+        "sha256": "f359a389db8e7ea9c45cd2ad19f2118e23aac7bcf8eda1db4b37f1f12aab7b10"
+      },
+      "visualCharacter": "contextual-composite",
+      "textDominantOrSingleBook": false,
+      "contextualCompositeVersion": 1,
+      "contextualCompositeMotif": "medicine-heart"
     },
     "avicenna-hebrew-canon": {
       "hallFolder": "islamic-philosophical-worlds",
@@ -4872,15 +4936,19 @@
       "scene": {
         "width": 515,
         "height": 640,
-        "bytes": 37774,
-        "sha256": "7fcbf3e46f2d98624b212fcca774e201e18a88d5ed38dc6e50231ea1893a9903"
+        "bytes": 18956,
+        "sha256": "c325df0d372cc5f228b77037d601f30043b934a23f0a515f63d89d48b3d9a088"
       },
       "panel": {
         "width": 773,
         "height": 961,
-        "bytes": 80898,
-        "sha256": "df5175480752e5f9e44f6dcc7dbd4d7432e6bab849ed5a76ca86d17729fa97e4"
-      }
+        "bytes": 32612,
+        "sha256": "b0720c4f206abd8a14296c2191c0357265909004260fcc489331dae8a79d3d36"
+      },
+      "visualCharacter": "contextual-composite",
+      "textDominantOrSingleBook": false,
+      "contextualCompositeVersion": 1,
+      "contextualCompositeMotif": "system-map"
     },
     "al-ghazali-ihya-manuscript": {
       "hallFolder": "islamic-philosophical-worlds",
@@ -4890,15 +4958,19 @@
       "scene": {
         "width": 430,
         "height": 640,
-        "bytes": 85472,
-        "sha256": "f52005e7549436a80a9f4323158fdd1a8f33b609512041a13eea905a3a2b9386"
+        "bytes": 21636,
+        "sha256": "19d4c804415c172e4978cdc6075d7e659f5b6c8231e5f9eb966311ff78e95601"
       },
       "panel": {
         "width": 860,
         "height": 1280,
-        "bytes": 312376,
-        "sha256": "607cf7c68764fb397e7512d68b56925c71bc990ad3c3b1ca28906c8fce87f681"
-      }
+        "bytes": 72842,
+        "sha256": "43ad82f12c5b077617f1e45ddcd1a9da810abe26a81f21e002933f66138f475d"
+      },
+      "visualCharacter": "contextual-composite",
+      "textDominantOrSingleBook": false,
+      "contextualCompositeVersion": 1,
+      "contextualCompositeMotif": "practice-path"
     },
     "al-ghazali-munqidh-last-page": {
       "hallFolder": "islamic-philosophical-worlds",
@@ -4908,15 +4980,19 @@
       "scene": {
         "width": 402,
         "height": 640,
-        "bytes": 29242,
-        "sha256": "657b326a76c2e804e2dde645ae267ecec50c93fe446737f128a5ff4deac0b754"
+        "bytes": 14054,
+        "sha256": "9bf8b1f7c4f21524cf8cfc16f0c43d2ce0a98f1b027796a6cc90e80dd1c07e01"
       },
       "panel": {
         "width": 805,
         "height": 1280,
-        "bytes": 92296,
-        "sha256": "36caf9a94d2626b7fa8f16f3715f77225ec7ccad06442df65662a5c8ea0d401c"
-      }
+        "bytes": 36310,
+        "sha256": "e0de34c27a3af8488734ea59cffed2faecd9cd895b2198928fefccf7571f4cb2"
+      },
+      "visualCharacter": "contextual-composite",
+      "textDominantOrSingleBook": false,
+      "contextualCompositeVersion": 1,
+      "contextualCompositeMotif": "skeptical-crossroads"
     },
     "al-ghazali-asas-qiyas": {
       "hallFolder": "islamic-philosophical-worlds",
@@ -4926,15 +5002,19 @@
       "scene": {
         "width": 384,
         "height": 640,
-        "bytes": 64250,
-        "sha256": "f05bd372d5611efc1d51f463f2cd22c47b66871ed9ce8ab56f3867bc5b521a2b"
+        "bytes": 20710,
+        "sha256": "762bc38881077b443d52de4e2a0ea73f4b6aa1f2dbbd116993b7dd4447e922ff"
       },
       "panel": {
         "width": 495,
         "height": 824,
-        "bytes": 101170,
-        "sha256": "9e94380f25b8031434fd3ccaf31264c432be664ba3b700aad37af9f58dffbe99"
-      }
+        "bytes": 30752,
+        "sha256": "0068f657155764ae9132f4006a4e030eb91e675ea16d09011c5fb02dab7087df"
+      },
+      "visualCharacter": "contextual-composite",
+      "textDominantOrSingleBook": false,
+      "contextualCompositeVersion": 1,
+      "contextualCompositeMotif": "analogy-scales"
     },
     "averroes-wellcome-portrait": {
       "hallFolder": "islamic-philosophical-worlds",
@@ -4998,15 +5078,19 @@
       "scene": {
         "width": 519,
         "height": 600,
-        "bytes": 69868,
-        "sha256": "dd8b46088685756353caac9180ff06b9c3da87f342e329624c2222fb4f948c67"
+        "bytes": 23442,
+        "sha256": "ffd1e02d57da59c9143fde12a7c98bbfdbc8d7bc3b484eb9fd848fcfd4436152"
       },
       "panel": {
         "width": 519,
         "height": 600,
-        "bytes": 82544,
-        "sha256": "0668d7e381bd3814222593b6723e5678078f597bc99382bddf78e5f118c6377e"
-      }
+        "bytes": 23338,
+        "sha256": "5e7370eb7b8c931a59a8b4a5255545069fc2acd6b3d261135550370647da6e5d"
+      },
+      "visualCharacter": "contextual-composite",
+      "textDominantOrSingleBook": false,
+      "contextualCompositeVersion": 1,
+      "contextualCompositeMotif": "intellect-light"
     },
     "averroes-colliget": {
       "hallFolder": "islamic-philosophical-worlds",
@@ -5016,15 +5100,19 @@
       "scene": {
         "width": 438,
         "height": 640,
-        "bytes": 18808,
-        "sha256": "a353a99a7acf5bf64c73b006e7a475508761b58c0756a5e464411609f9477a81"
+        "bytes": 14142,
+        "sha256": "fa85e1dba8b3c1387bc664bf1d683330cc42a9fb084b54abd61adba177af6aa3"
       },
       "panel": {
         "width": 500,
         "height": 730,
-        "bytes": 33562,
-        "sha256": "380fbaff3f772a4f122d6071317745dc1d1a9af5b53b4c3658600b29415d9eb1"
-      }
+        "bytes": 16280,
+        "sha256": "7892eb27ef23646918637f7d14db985ae634bf378d46706e4a1e12c11b1c81f5"
+      },
+      "visualCharacter": "contextual-composite",
+      "textDominantOrSingleBook": false,
+      "contextualCompositeVersion": 1,
+      "contextualCompositeMotif": "medicine-instruments"
     },
     "andalusian-astrolabe-1029": {
       "hallFolder": "islamic-philosophical-worlds",
@@ -5232,15 +5320,19 @@
       "scene": {
         "width": 640,
         "height": 333,
-        "bytes": 13624,
-        "sha256": "ab767045dab4ec9549648aa36c01b1e3ef30c2ed9fc102342fd30c595f42bf41"
+        "bytes": 10202,
+        "sha256": "ee92550e0307b922c9756d27d0e836f5c499491ed8f010d4df78dff1185c402b"
       },
       "panel": {
         "width": 1280,
         "height": 666,
-        "bytes": 87488,
-        "sha256": "110c88de6e1085e00bf8a8468f5cbcd501585004f7a914b611da18b91d7048a7"
-      }
+        "bytes": 25700,
+        "sha256": "ddb9b087e845cb9bdbd3c36dd9fe714d63a635def2a660d5f107ff16e033b0f8"
+      },
+      "visualCharacter": "contextual-composite",
+      "textDominantOrSingleBook": false,
+      "contextualCompositeVersion": 1,
+      "contextualCompositeMotif": "knowledge-action"
     },
     "zhou-dunyi-taijitu-reconstruction": {
       "hallFolder": "east-asian-continuities",
@@ -5484,15 +5576,19 @@
       "scene": {
         "width": 485,
         "height": 640,
-        "bytes": 54330,
-        "sha256": "046988425aceac45464cf8e5469510dc86248c2cf55a8888f942b860afe54b87"
+        "bytes": 19584,
+        "sha256": "67db06dd42e653f63986b743ac62fb56dd8d1ec723f806b3a504482c02fdb58c"
       },
       "panel": {
         "width": 971,
         "height": 1280,
-        "bytes": 306978,
-        "sha256": "c87d1698d4f4420d5d271c6c16fcead809a6b53614ba0eaabfe08b190918b77b"
-      }
+        "bytes": 55002,
+        "sha256": "e626ccab51de7d504bd3352f71a5a496bca3c8b2788aee39fea700d7e863ec65"
+      },
+      "visualCharacter": "contextual-composite",
+      "textDominantOrSingleBook": false,
+      "contextualCompositeVersion": 1,
+      "contextualCompositeMotif": "community-prayer"
     },
     "saadia-beliefs-landauer": {
       "hallFolder": "jewish-philosophy",
@@ -5502,15 +5598,19 @@
       "scene": {
         "width": 386,
         "height": 640,
-        "bytes": 13460,
-        "sha256": "39d98158aec3f9ddf2cd780efe5f9a85d8637074cce95f6875ca432925dfbd5d"
+        "bytes": 11804,
+        "sha256": "010efb3dfe34225cf896e10d58620bf01eeacb8f25d4d1ecdc08322083786f79"
       },
       "panel": {
         "width": 772,
         "height": 1280,
-        "bytes": 55496,
-        "sha256": "adb7d27ad098935c6feb6e1860151f3313158ee19985f1ced59f922ac8713245"
-      }
+        "bytes": 29544,
+        "sha256": "28ce44eb424d0efb62b8917840d9c48b41453dfb9f0120f912e78075b179ef7d"
+      },
+      "visualCharacter": "contextual-composite",
+      "textDominantOrSingleBook": false,
+      "contextualCompositeVersion": 1,
+      "contextualCompositeMotif": "reason-revelation"
     },
     "cairo-geniza-legal-document": {
       "hallFolder": "jewish-philosophy",
@@ -5520,15 +5620,19 @@
       "scene": {
         "width": 480,
         "height": 640,
-        "bytes": 79498,
-        "sha256": "a2d7bf7b4a2d515a111afe6e1a82b6520dafd825336b84bb06d8a4c4ae579442"
+        "bytes": 26464,
+        "sha256": "13878b4721780be06ec8264595cb1dc893a6310e02cccca23ced0bbe9f3fdf6f"
       },
       "panel": {
         "width": 959,
         "height": 1280,
-        "bytes": 312938,
-        "sha256": "7f8d6bae0e8ed9624422513b066b89b8938b4fc04b490fa45e7a9c7f6d474b4b"
-      }
+        "bytes": 78306,
+        "sha256": "49715e6bb6caca2bcf08a1af4e207585a962aff4b04111d860900050670aede5"
+      },
+      "visualCharacter": "contextual-composite",
+      "textDominantOrSingleBook": false,
+      "contextualCompositeVersion": 1,
+      "contextualCompositeMotif": "trade-network"
     },
     "judah-halevi-letter-geniza": {
       "hallFolder": "jewish-philosophy",
@@ -5556,15 +5660,19 @@
       "scene": {
         "width": 507,
         "height": 640,
-        "bytes": 57782,
-        "sha256": "f5b795647ad13af53e9d2b5229e765c9dec48f3e270d2b38605f72f548d5831a"
+        "bytes": 21544,
+        "sha256": "32e6461df73fdf2dc9b679754fb1c6c55fd496937f1269d2fef6672882985f84"
       },
       "panel": {
         "width": 960,
         "height": 1211,
-        "bytes": 179342,
-        "sha256": "ca8d9af2b083c618e7f0012eabc1c307e9e645bee7e8e8624e6841316beec63c"
-      }
+        "bytes": 55064,
+        "sha256": "bc1625d9901875f626a2e9ed2231030136a12e4cb4178a33957d1ea8ac80b301"
+      },
+      "visualCharacter": "contextual-composite",
+      "textDominantOrSingleBook": false,
+      "contextualCompositeVersion": 1,
+      "contextualCompositeMotif": "dialogue-table"
     },
     "judah-halevi-divan-geniza": {
       "hallFolder": "jewish-philosophy",
@@ -5574,15 +5682,19 @@
       "scene": {
         "width": 468,
         "height": 640,
-        "bytes": 65910,
-        "sha256": "06c426c85d4ee205102bfd2a2ee20c383a44e52e91f13c3659a521b0f7a1b24d"
+        "bytes": 19772,
+        "sha256": "fe677327c1450fae71e857db0df3db4f3dc13a47ae407249946340605d82505f"
       },
       "panel": {
         "width": 936,
         "height": 1280,
-        "bytes": 299774,
-        "sha256": "3fa331254737bb5008bd930c2eb8429f23c9648a64112f011cc83da5ba2b0246"
-      }
+        "bytes": 62440,
+        "sha256": "44979797979c5079b19e326fe77d690b7434a2570b44611a65164f83ffc99a5f"
+      },
+      "visualCharacter": "contextual-composite",
+      "textDominantOrSingleBook": false,
+      "contextualCompositeVersion": 1,
+      "contextualCompositeMotif": "poetry-voyage"
     },
     "maimonides-mishnah-autograph": {
       "hallFolder": "jewish-philosophy",
@@ -5683,15 +5795,19 @@
       "scene": {
         "width": 503,
         "height": 640,
-        "bytes": 62062,
-        "sha256": "9e2f4c1978a7a07dbb71d4fdeaae6e168034ac5357bbc3472df908bf20eb7d14"
+        "bytes": 15314,
+        "sha256": "709248a343b78e43014cc3f2b7a28249f1f020fb61b6d075503d718e934443f7"
       },
       "panel": {
         "width": 1006,
         "height": 1280,
-        "bytes": 426762,
-        "sha256": "f929307af58dd48e0c7da745b59522fae710ab457e76f14779aa5771fbd3eb9b"
-      }
+        "bytes": 47956,
+        "sha256": "7b3a93d9636bfd2d090558e2869865eeb38fe3116d4ddccac6e0e3593bd86d3e"
+      },
+      "visualCharacter": "contextual-composite",
+      "textDominantOrSingleBook": false,
+      "contextualCompositeVersion": 1,
+      "contextualCompositeMotif": "tolerance-city"
     }
   }
 }

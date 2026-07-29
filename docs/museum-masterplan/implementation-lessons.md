@@ -60,10 +60,12 @@ This document records failures that reached review during the Continuous Enfilad
 - A photographed title page, open page of uninterrupted writing, or single closed book is an exception justified by the material history of that exact text, not the default image for an argument.
 - Completed galleries classify every newly installed image by visual character. Portraits and figures, artworks and social scenes, places and architecture, material objects, and maps or diagrams must collectively dominate the room.
 - A page that contains a genuinely interpretive illustration, map, scientific diagram, or materially distinctive annotation is classified by that visual subject rather than automatically as text-only. The panel must explain what the visitor should look at.
-- Galleries 17 and 18 establish the initial measurable ceiling: no more than 3 of 18 Gallery 17 installations and no more than 4 of 25 Gallery 18 installations may be text-dominant pages or single-book views.
+- The retrospective Gallery 01–16 audit replaces the gallery-wide approximation with the stricter room rule: no completed room may display more than one text-dominant page or isolated-book view. This is a room-level ceiling, not a target.
+- When a source page is materially indispensable but would exceed the room ceiling, a contextual composite may retain the authenticated object as a subordinate inset while a clearly contemporary, subject-specific visual study carries the frame. The rights panel must say that the surrounding study is interpretive and not a historical reconstruction.
+- Galleries 17 and 18 retain their original gallery-wide ceilings in addition to the room rule: no more than 3 of 18 Gallery 17 installations and no more than 4 of 25 Gallery 18 installations may be text-dominant pages or single-book views.
 - Media variety does not excuse weak relevance. Every image still needs a direct relationship to the displayed person, work, practice, institution, event, or argument, with accurate provenance and an explicit interpretive reason for being on the wall.
 
-**Regression gate:** require an explicit visual-character value for every asset added during a gallery promotion, enforce the gallery’s text-dominant ceiling, and confirm that at least four non-textual visual-character groups appear across the gallery.
+**Regression gate:** require an explicit visual-character value for every asset added during a gallery promotion; classify every legacy manuscript, document, papyrus, and book-page installation as retained text, visually rich material, or contextual composite; enforce the one-per-room ceiling; preserve the Gallery 17/18 gallery ceilings; and confirm that at least four non-textual visual-character groups appear across newly promoted galleries.
 
 ## Release verification
 

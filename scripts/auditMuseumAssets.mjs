@@ -21,6 +21,13 @@ const gallery17PreparationSource = readFileSync(resolve(repoRoot, 'scripts/prepa
 const gallery17Manifest = JSON.parse(readFileSync(resolve(repoRoot, 'scripts/museumGallery17AssetManifest.json'), 'utf8'));
 const gallery18PreparationSource = readFileSync(resolve(repoRoot, 'scripts/prepareMuseumGallery18Assets.py'), 'utf8');
 const gallery18Manifest = JSON.parse(readFileSync(resolve(repoRoot, 'scripts/museumGallery18AssetManifest.json'), 'utf8'));
+const legacyImageDiversityPreparationSource = readFileSync(
+  resolve(repoRoot, 'scripts/prepareMuseumLegacyImageDiversityComposites.py'),
+  'utf8',
+);
+const legacyImageDiversityProgram = JSON.parse(
+  readFileSync(resolve(repoRoot, 'src/data/museum/museumLegacyImageDiversity.json'), 'utf8'),
+);
 const auditBase = '/philosophy-atlas-audit/';
 const virtualEntry = 'virtual:philosophy-atlas-museum-asset-audit';
 const resolvedEntry = `\0${virtualEntry}`;
@@ -37,6 +44,7 @@ const result = await build({
       export * from '/src/data/museumCatalog.ts';
       export * from '/src/data/museum/museumAssets.ts';
       export * from '/src/data/museum/museumMediaPolicy.ts';
+      export * from '/src/data/museum/museumLegacyImageDiversity.ts';
       export * from '/src/data/museum/platoSupplementalExhibits.ts';
       export * from '/src/data/museum/renaissanceSupplementalExhibits.ts';
       export * from '/src/data/museum/phenomenologySupplementalExhibits.ts';
@@ -108,6 +116,10 @@ const {
   MUSEUM_SCENE_IMAGE_PLANE_Z,
   MUSEUM_SCENE_MEDIA_LOADING_COLOR,
   MUSEUM_SCENE_MEDIA_MATERIAL_MODE,
+  MUSEUM_LEGACY_CONTEXTUAL_COMPOSITE_ASSET_IDS,
+  MUSEUM_LEGACY_RETAINED_TEXT_DOMINANT_OR_SINGLE_BOOK_ASSET_IDS,
+  MUSEUM_LEGACY_VISUALLY_RICH_TEXTUAL_MEDIA_ASSET_IDS,
+  MUSEUM_MAXIMUM_TEXT_DOMINANT_OR_SINGLE_BOOK_PER_ROOM,
   PLATO_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
   PLATO_SUPPLEMENTAL_EXHIBITS,
   PHENOMENOLOGY_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
@@ -391,6 +403,91 @@ const physicalSupplementalGroups = [
 const physicalSupplementalAssetIds = physicalSupplementalGroups.flatMap(({layouts}) => layouts.map(({assetId}) => assetId));
 const physicalInstallationAssetIds = [...canonicalReferencedIds, ...physicalSupplementalAssetIds];
 
+const LEGACY_IMAGE_DIVERSITY_HALL_IDS = ACTIVE_HALL_IDS.slice(0, 16);
+const TEXT_OR_SINGLE_BOOK_CANDIDATE_MEDIA_KINDS = new Set([
+  'book-page',
+  'document',
+  'manuscript',
+  'papyrus',
+]);
+const legacyContextualCompositeIds = new Set(MUSEUM_LEGACY_CONTEXTUAL_COMPOSITE_ASSET_IDS);
+const legacyRetainedTextDominantIds = new Set(
+  MUSEUM_LEGACY_RETAINED_TEXT_DOMINANT_OR_SINGLE_BOOK_ASSET_IDS,
+);
+const legacyVisuallyRichTextualMediaIds = new Set(
+  MUSEUM_LEGACY_VISUALLY_RICH_TEXTUAL_MEDIA_ASSET_IDS,
+);
+const legacyPhysicalPlacements = LEGACY_IMAGE_DIVERSITY_HALL_IDS.flatMap((hallId) => {
+  const hall = MUSEUM_HALLS.find(({id}) => id === hallId);
+  const supplementalGroup = physicalSupplementalGroups.find(({galleryId}) => galleryId === hallId);
+  assert(hall && supplementalGroup, `${hallId} is absent from the legacy image-diversity inventory`);
+  return [
+    ...hall.exhibits.flatMap(({id: exhibitId, roomId, principalAssetId, supportingAssetIds}) =>
+      [principalAssetId, ...(supportingAssetIds ?? [])]
+        .filter(Boolean)
+        .map((assetId, assetIndex) => ({
+          hallId,
+          roomId,
+          exhibitId,
+          assetId,
+          placementKind: assetIndex === 0 ? 'primary-principal' : 'primary-supporting',
+        }))),
+    ...supplementalGroup.layouts.map(({id: exhibitId, spatialCellId: roomId, assetId}) => ({
+      hallId,
+      roomId,
+      exhibitId,
+      assetId,
+      placementKind: 'supplemental',
+    })),
+  ];
+});
+
+if (process.argv.includes('--report-image-diversity-candidates')) {
+  const requestedHall = process.argv
+    .find((argument) => argument.startsWith('--image-diversity-hall='))
+    ?.split('=', 2)[1];
+  const candidatesByRoom = new Map();
+  for (const placement of legacyPhysicalPlacements) {
+    if (requestedHall && placement.hallId !== requestedHall) continue;
+    const asset = assetById.get(placement.assetId);
+    assert(asset, `${placement.assetId} is absent from the Museum asset registry`);
+    if (
+      asset.visualCharacter !== 'text-dominant'
+      && !TEXT_OR_SINGLE_BOOK_CANDIDATE_MEDIA_KINDS.has(asset.mediaKind)
+    ) continue;
+    const key = `${placement.hallId}/${placement.roomId}`;
+    if (!candidatesByRoom.has(key)) candidatesByRoom.set(key, []);
+    candidatesByRoom.get(key).push({
+      id: asset.id,
+      mediaKind: asset.mediaKind,
+      title: asset.title,
+      alt: asset.alt,
+      placementKind: placement.placementKind,
+    });
+  }
+  console.log('\nGallery 1–16 text/page/single-book candidate inventory:');
+  for (const [room, assets] of [...candidatesByRoom].sort(([first], [second]) => first.localeCompare(second))) {
+    console.log(`\n${room} · ${assets.length} candidate${assets.length === 1 ? '' : 's'}`);
+    for (const asset of assets) {
+      const placement = legacyPhysicalPlacements.find(({assetId}) => assetId === asset.id);
+      console.log(`- ${asset.id} [${asset.mediaKind}] ${asset.title} · ${placement?.exhibitId ?? 'unknown exhibit'} · ${asset.placementKind}`);
+      console.log(`  ${asset.alt}`);
+    }
+  }
+  process.exit(0);
+}
+
+if (process.argv.includes('--report-unplaced-assets')) {
+  const placedIds = new Set(physicalInstallationAssetIds);
+  const unplacedAssets = MUSEUM_ASSETS.filter(({id}) => !placedIds.has(id));
+  console.log(`\nUnplaced registered assets · ${unplacedAssets.length}`);
+  for (const asset of unplacedAssets) {
+    console.log(`- ${asset.id} [${asset.mediaKind}] ${asset.title}`);
+    console.log(`  ${asset.alt}`);
+  }
+  process.exit(0);
+}
+
 let checks = 0;
 const check = (name, assertion) => {
   assertion();
@@ -447,6 +544,82 @@ const webpDimensions = (path) => {
   }
   assert.fail(`Unable to determine WebP dimensions for ${path}`);
 };
+
+check('Galleries 1–16 classify every textual-media candidate and cap plain pages or lone books at one per room', () => {
+  const contextualIds = [...legacyContextualCompositeIds];
+  const retainedIds = [...legacyRetainedTextDominantIds];
+  const visuallyRichIds = [...legacyVisuallyRichTextualMediaIds];
+  assert.equal(legacyImageDiversityProgram.version, 1);
+  assert.equal(MUSEUM_MAXIMUM_TEXT_DOMINANT_OR_SINGLE_BOOK_PER_ROOM, 1);
+  assert.equal(contextualIds.length, 52, 'the reviewed Gallery 1–16 replacement program changed size');
+  assert.equal(new Set(contextualIds).size, contextualIds.length, 'the contextual-composite list repeats an asset');
+  assert.equal(new Set(retainedIds).size, retainedIds.length, 'the retained text-dominant list repeats an asset');
+  assert.equal(new Set(visuallyRichIds).size, visuallyRichIds.length, 'the visually rich textual-media list repeats an asset');
+  assert.equal(
+    new Set([...contextualIds, ...retainedIds, ...visuallyRichIds]).size,
+    contextualIds.length + retainedIds.length + visuallyRichIds.length,
+    'the legacy visual-character classifications overlap',
+  );
+
+  const candidatePlacements = legacyPhysicalPlacements.filter(({assetId}) => {
+    const asset = assetById.get(assetId);
+    assert(asset, `${assetId} is absent from the Museum asset registry`);
+    return TEXT_OR_SINGLE_BOOK_CANDIDATE_MEDIA_KINDS.has(asset.mediaKind);
+  });
+  const candidateIds = new Set(candidatePlacements.map(({assetId}) => assetId));
+  const classifiedIds = new Set([...contextualIds, ...retainedIds, ...visuallyRichIds]);
+  assert.deepEqual(
+    [...candidateIds].filter((id) => !classifiedIds.has(id)).sort(),
+    [],
+    'Gallery 1–16 contains unreviewed manuscript, document, papyrus, or book-page imagery',
+  );
+  assert.deepEqual(
+    [...classifiedIds].filter((id) => !candidateIds.has(id)).sort(),
+    [],
+    'the Gallery 1–16 visual-character inventory contains a stale or non-physical asset',
+  );
+
+  const retainedByRoom = new Map();
+  for (const placement of candidatePlacements) {
+    if (!legacyRetainedTextDominantIds.has(placement.assetId)) continue;
+    const key = `${placement.hallId}/${placement.roomId}`;
+    if (!retainedByRoom.has(key)) retainedByRoom.set(key, []);
+    retainedByRoom.get(key).push(placement.assetId);
+  }
+  for (const [room, ids] of retainedByRoom) {
+    assert(
+      ids.length <= MUSEUM_MAXIMUM_TEXT_DOMINANT_OR_SINGLE_BOOK_PER_ROOM,
+      `${room} exceeds the one-per-room plain-page/lone-book ceiling: ${ids.join(', ')}`,
+    );
+  }
+
+  const legacyLocks = {
+    ...manifestAssets,
+    ...successorManifestAssets,
+    ...galleries13And16ManifestAssets,
+  };
+  for (const id of contextualIds) {
+    const asset = assetById.get(id);
+    const lock = legacyLocks[id];
+    assert(asset && lock, `${id} lacks its runtime record or source lock`);
+    assert.equal(asset.visualCharacter, 'contextual-composite', `${id} runtime visual character drifted`);
+    assert.match(asset.derivativeNotice ?? '', /contextual composite/i, `${id} lacks a transparent composite notice`);
+    assert.equal(lock.visualCharacter, 'contextual-composite', `${id} source lock lacks its composite character`);
+    assert.equal(lock.textDominantOrSingleBook, false, `${id} remains flagged as a plain page or lone book`);
+    assert.equal(lock.contextualCompositeVersion, 1, `${id} composite version drifted`);
+    assert.equal(
+      lock.contextualCompositeMotif,
+      legacyImageDiversityProgram.contextualComposites[id]?.motif,
+      `${id} composite motif differs from the reviewed program`,
+    );
+  }
+  for (const id of retainedIds) {
+    assert.equal(assetById.get(id)?.visualCharacter, 'text-dominant', `${id} is not explicitly marked as the retained room exception`);
+  }
+  assert.match(legacyImageDiversityPreparationSource, /EXPECTED|52 contextual composites|len\(composites\) != 52/);
+  assert.match(legacyImageDiversityPreparationSource, /contextualCompositeVersion/);
+  assert.match(legacyImageDiversityPreparationSource, /--rebuild-from-source/);
+});
 
 check('the canonical eighteen expose 157 primaries, 258 supplementals, and 415 interpreted stops with resolvable local media', () => {
   assert.deepEqual(MUSEUM_HALLS.map(({id}) => id), ACTIVE_HALL_IDS);

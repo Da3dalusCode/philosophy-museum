@@ -63,7 +63,8 @@ Architecture and exhibit-wall safeguards:
 - The crosscut may occupy only the five planned threshold bays and the Forum. It must never pierce another gallery room.
 - Every unused optional portal is a full-height rendered and collision wall.
 - Preserve the current exact Gallery 01–18 room-by-room installation and wall-slot audit expectations after relocation.
-- Preserve the Gallery 17/18 visual-character gate: text-dominant pages or isolated books are justified exceptions, never the default media plan.
+- Preserve the Museum-wide visual-character gate: every Gallery 01–16 textual-medium placement is explicitly classified, no curated room may contain more than one text-dominant page or isolated book, and the existing Gallery 17/18 gallery-wide ceilings remain in force.
+- Contextual composites may retain an authenticated page or book only as a subordinate inset. Their source record and rights notice must distinguish the historical object from the contemporary interpretive study.
 - Do not use a connector, planned threshold, or status sign to excuse a blank usable wall in a curated gallery.
 - Planned shells are exempt from installation-count completeness only while their manifest state remains planned; audit all of their room counts, walls, portals, collision, and circulation.
 - Architecture must not clip or crowd any existing installation, sign, light, viewpoint, or interaction.
