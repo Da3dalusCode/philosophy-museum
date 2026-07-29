@@ -237,91 +237,87 @@
     },
     "epicurean-tetrapharmakos": {
       "hallFolder": "hellenistic-roman-ways",
-      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Tetrapharmakos_PHerc_1005_col_5.png",
-      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Tetrapharmakos_PHerc_1005_col_5.png",
-      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Tetrapharmakos_PHerc_1005_col_5.png",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:OinoandaInscription.JPG",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1a/OinoandaInscription.JPG",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1a/OinoandaInscription.JPG",
       "scene": {
-        "width": 470,
-        "height": 180,
-        "bytes": 8724,
-        "sha256": "8279c70847aff4ed3cb9d7ab839136ff6271ad7b581f9ebfc2c3dfe512a8450c"
+        "width": 480,
+        "height": 640,
+        "bytes": 109268,
+        "sha256": "0a54c9a0afa758de3c58bc9712d93e946222600283d09d60d2c11880550a07c3"
       },
       "panel": {
-        "width": 470,
-        "height": 180,
-        "bytes": 8550,
-        "sha256": "e4a4109c4dee9f48ac2747ad8afcd612ed601a698a23a49555a1f5a1b0ba6233"
+        "width": 960,
+        "height": 1280,
+        "bytes": 474468,
+        "sha256": "081464276cc744e321b93e819727ba3694b235697493e6ba1902ea159157cf99"
       },
-      "visualCharacter": "contextual-composite",
+      "visualCharacter": "material-object",
       "textDominantOrSingleBook": false,
-      "contextualCompositeVersion": 1,
-      "contextualCompositeMotif": "fourfold-remedy"
+      "standaloneReplacementVersion": 1
     },
     "epicurean-philodemus-subscription": {
       "hallFolder": "hellenistic-roman-ways",
-      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Philedemus_Herculaneum_subscription_enhance.jpg",
-      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/43/Philedemus_Herculaneum_subscription_enhance.jpg",
-      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/4/43/Philedemus_Herculaneum_subscription_enhance.jpg",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:From_the_Villa_of_the_Papyri_in_Herculaneum,_Naples_National_Archaeological_Museum_(49439110928).jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/75/From_the_Villa_of_the_Papyri_in_Herculaneum%2C_Naples_National_Archaeological_Museum_%2849439110928%29.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/7/75/From_the_Villa_of_the_Papyri_in_Herculaneum%2C_Naples_National_Archaeological_Museum_%2849439110928%29.jpg",
       "scene": {
-        "width": 306,
-        "height": 529,
-        "bytes": 7272,
-        "sha256": "df17809d1c106a62644df3332f4a70aed66b85b6d1faa7267159c2cf315a6da5"
+        "width": 424,
+        "height": 640,
+        "bytes": 36880,
+        "sha256": "56873625a314b16f4b0d4b1852178a2c2f303d9643a59a3313e3f84711e53149"
       },
       "panel": {
-        "width": 306,
-        "height": 529,
-        "bytes": 6730,
-        "sha256": "dea9224b26ce120e234f4543ddc62864cd33c0ea0f90a4b1655eeb44104f2e8f"
+        "width": 848,
+        "height": 1280,
+        "bytes": 124760,
+        "sha256": "d13c14207a1f7ec8cb76f8ba928c31e9001d9e70a16192bfb640138354a0b67a"
       },
-      "visualCharacter": "contextual-composite",
+      "visualCharacter": "material-object",
       "textDominantOrSingleBook": false,
-      "contextualCompositeVersion": 1,
-      "contextualCompositeMotif": "villa-library"
+      "standaloneReplacementVersion": 1
     },
     "epicurean-herculaneum-papyrus": {
       "hallFolder": "hellenistic-roman-ways",
-      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Herculaneum_papyrus_1425.png",
-      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6e/Herculaneum_papyrus_1425.png",
-      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6e/Herculaneum_papyrus_1425.png",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Abbot_Piaggios_machine_Device-to-unroll-papyri_1756_Vatican.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Abbot_Piaggios_machine_Device-to-unroll-papyri_1756_Vatican.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Abbot_Piaggios_machine_Device-to-unroll-papyri_1756_Vatican.jpg",
       "scene": {
-        "width": 432,
+        "width": 414,
         "height": 640,
-        "bytes": 11018,
-        "sha256": "b96fad75d367a4df353f0bc6ace7889db0f457f857b48899d20f46c8126bb157"
+        "bytes": 53964,
+        "sha256": "994f0b5687a02ecca2b262af8a9d792c737431c538c26e38d2f2c5d12474ca6f"
       },
       "panel": {
-        "width": 500,
-        "height": 740,
-        "bytes": 14106,
-        "sha256": "d01643632475925706b094694f6fbc7a6ed0e62c89402fd1a2f323855f3afc43"
+        "width": 663,
+        "height": 1024,
+        "bytes": 202604,
+        "sha256": "45ee0372785d3f5f8bb058bc2f75ab04ee7863ee972c20df46ec9014794144ba"
       },
-      "visualCharacter": "contextual-composite",
+      "visualCharacter": "map-or-diagram",
       "textDominantOrSingleBook": false,
-      "contextualCompositeVersion": 1,
-      "contextualCompositeMotif": "papyrus-imaging"
+      "standaloneReplacementVersion": 1
     },
     "skeptical-sextus-adversus-edition": {
       "hallFolder": "hellenistic-roman-ways",
-      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Sextus_Empiricus_and_Greek_scepticism_.._(IA_sextusempiricusg00patrrich).pdf",
-      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Sextus_Empiricus_and_Greek_scepticism_.._%28IA_sextusempiricusg00patrrich%29.pdf/page1-330px-Sextus_Empiricus_and_Greek_scepticism_.._%28IA_sextusempiricusg00patrrich%29.pdf.jpg",
-      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Sextus_Empiricus_and_Greek_scepticism_.._%28IA_sextusempiricusg00patrrich%29.pdf/page1-330px-Sextus_Empiricus_and_Greek_scepticism_.._%28IA_sextusempiricusg00patrrich%29.pdf.jpg",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Petrarca-Meister_001.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d0/Petrarca-Meister_001.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d0/Petrarca-Meister_001.jpg",
       "scene": {
-        "width": 330,
-        "height": 601,
-        "bytes": 8384,
-        "sha256": "fb6e391243f792ee04c84c3664de4667216547c4adf705f562f819d295eee022"
+        "width": 640,
+        "height": 468,
+        "bytes": 95290,
+        "sha256": "696212d8d0eb586f984397c47389fe01c32bed57f6485ee87ec26f63d1c222ff"
       },
       "panel": {
-        "width": 330,
-        "height": 601,
-        "bytes": 8554,
-        "sha256": "2a550eae6b1d54102409f7dc30724aa147c4cc7f934c3812dad7d2721895b1ee"
+        "width": 1280,
+        "height": 936,
+        "bytes": 340510,
+        "sha256": "7146e5bbba8c44405223ac9224f1eb350f4eb51a002dc0d48cdd909dbdcbdb34"
       },
-      "visualCharacter": "contextual-composite",
+      "visualCharacter": "artwork-or-social-scene",
       "textDominantOrSingleBook": false,
-      "contextualCompositeVersion": 1,
-      "contextualCompositeMotif": "suspension-scales"
+      "standaloneReplacementVersion": 1
     },
     "porphyry-plotinus-medieval": {
       "hallFolder": "late-antiquity-inheritance",
@@ -361,25 +357,24 @@
     },
     "proclus-platonic-theology-manuscript": {
       "hallFolder": "late-antiquity-inheritance",
-      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Proclus,_Venice,_Gr._547,_fol._1r.jpg",
-      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Proclus%2C_Venice%2C_Gr._547%2C_fol._1r.jpg",
-      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Proclus%2C_Venice%2C_Gr._547%2C_fol._1r.jpg/1280px-Proclus%2C_Venice%2C_Gr._547%2C_fol._1r.jpg",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Portrait_of_philosopher,_early_5th_c_AD,_224977.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Portrait_of_philosopher%2C_early_5th_c_AD%2C_224977.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Portrait_of_philosopher%2C_early_5th_c_AD%2C_224977.jpg",
       "scene": {
-        "width": 456,
+        "width": 426,
         "height": 640,
-        "bytes": 29806,
-        "sha256": "819446e1a3b52594d5a5c6b2a289ac49a9aa435f04b879165c7671ef76441f1d"
+        "bytes": 28576,
+        "sha256": "3f4fe59d0a786816cc8aa5be83efc04aee01c11685a1f00e19919b7c771119d8"
       },
       "panel": {
-        "width": 911,
+        "width": 852,
         "height": 1280,
-        "bytes": 92866,
-        "sha256": "17af4b95ba71bafa6595808e4c117f5bd3160f615e29ed182d2406cbde080980"
+        "bytes": 132792,
+        "sha256": "13117c8aa4bf3c49e81708bcf42af79dc40110715d7b0a94f6a8a6536fac898d"
       },
-      "visualCharacter": "contextual-composite",
+      "visualCharacter": "portrait-or-figure",
       "textDominantOrSingleBook": false,
-      "contextualCompositeVersion": 1,
-      "contextualCompositeMotif": "henadic-radiance"
+      "standaloneReplacementVersion": 1
     },
     "augustine-lateran-fresco": {
       "hallFolder": "late-antiquity-inheritance",
@@ -437,25 +432,24 @@
     },
     "pseudo-dionysius-opera-1556": {
       "hallFolder": "late-antiquity-inheritance",
-      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Pseudo-Dionysius.jpg",
-      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c1/Pseudo-Dionysius.jpg",
-      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c1/Pseudo-Dionysius.jpg",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:V%26A_-_Raphael,_St_Paul_Preaching_in_Athens_(1515).jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/56/V%26A_-_Raphael%2C_St_Paul_Preaching_in_Athens_%281515%29.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/5/56/V%26A_-_Raphael%2C_St_Paul_Preaching_in_Athens_%281515%29.jpg",
       "scene": {
-        "width": 379,
-        "height": 640,
-        "bytes": 27124,
-        "sha256": "6babff0be6142bc86960d05dc4f5ebebf3e389563bc76a5614c9ee16f9db6110"
+        "width": 640,
+        "height": 493,
+        "bytes": 86020,
+        "sha256": "aceaf4b32bd57f0bd0cebd8cad0fb2840d5a1a0d8e678b826f8ce40bba29eb52"
       },
       "panel": {
-        "width": 591,
-        "height": 997,
-        "bytes": 52438,
-        "sha256": "cc4841f964f5b09d79262f1068166f1f3e80ed63fdc2b4d26003e360d7bf9019"
+        "width": 1280,
+        "height": 985,
+        "bytes": 311578,
+        "sha256": "dc3a7ea95702e7c4652e06131b34e028d7dae1cc9ca269ad8b47bfa77015d898"
       },
-      "visualCharacter": "contextual-composite",
+      "visualCharacter": "artwork-or-social-scene",
       "textDominantOrSingleBook": false,
-      "contextualCompositeVersion": 1,
-      "contextualCompositeMotif": "celestial-ladder"
+      "standaloneReplacementVersion": 1
     },
     "neoplatonic-porphyrian-tree": {
       "hallFolder": "late-antiquity-inheritance",
@@ -495,25 +489,30 @@
     },
     "late-celestial-hierarchy-manuscript": {
       "hallFolder": "late-antiquity-inheritance",
-      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Dionysius_Areopagita,_De_coelesti_hierarchia_(Latin).jpg",
-      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/27/Dionysius_Areopagita%2C_De_coelesti_hierarchia_%28Latin%29.jpg",
-      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Dionysius_Areopagita%2C_De_coelesti_hierarchia_%28Latin%29.jpg/1280px-Dionysius_Areopagita%2C_De_coelesti_hierarchia_%28Latin%29.jpg",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Dirc_van_Delft_-_The_Nine_Choirs_of_Angels_-_Walters_W1716V_-_Full_Page.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/54/Dirc_van_Delft_-_The_Nine_Choirs_of_Angels_-_Walters_W1716V_-_Full_Page.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/5/54/Dirc_van_Delft_-_The_Nine_Choirs_of_Angels_-_Walters_W1716V_-_Full_Page.jpg",
       "scene": {
-        "width": 427,
+        "width": 579,
         "height": 640,
-        "bytes": 32744,
-        "sha256": "a5af19e9de9338beb4f8ba82e6f38eeeefce574fdbffe5b71a83cf21bfbae238"
+        "bytes": 92286,
+        "sha256": "bb209c907d1ed1edcc60bef73c989a771209f446185cd54e624a953033495257"
       },
       "panel": {
-        "width": 853,
-        "height": 1280,
-        "bytes": 99300,
-        "sha256": "c706371038416a8b23a2af58a47c9f944b66b675b273e812a3e3a76185a3c8dc"
+        "width": 648,
+        "height": 716,
+        "bytes": 143954,
+        "sha256": "a226ab1c1ee9ed195843fec31495257b706aa47415b376169d8f0058e9f8d3b3"
       },
-      "visualCharacter": "contextual-composite",
+      "visualCharacter": "artwork-or-social-scene",
       "textDominantOrSingleBook": false,
-      "contextualCompositeVersion": 1,
-      "contextualCompositeMotif": "celestial-orders"
+      "standaloneReplacementVersion": 1,
+      "sourceCropBox": [
+        0.14,
+        0.12,
+        0.64,
+        0.52
+      ]
     },
     "late-greek-aristotle-codex": {
       "hallFolder": "late-antiquity-inheritance",
@@ -589,25 +588,24 @@
     },
     "late-proclus-elements-latin": {
       "hallFolder": "late-antiquity-inheritance",
-      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Proclus_Elements_of_Theology_and_Elements_of_Physics_Latin_translation_by_Patricius_1583.png",
-      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/44/Proclus_Elements_of_Theology_and_Elements_of_Physics_Latin_translation_by_Patricius_1583.png",
-      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/4/44/Proclus_Elements_of_Theology_and_Elements_of_Physics_Latin_translation_by_Patricius_1583.png",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Francesco_Patrizi_1580.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4d/Francesco_Patrizi_1580.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4d/Francesco_Patrizi_1580.jpg",
       "scene": {
-        "width": 472,
+        "width": 503,
         "height": 640,
-        "bytes": 18334,
-        "sha256": "ac520762770cd93126d2162ed3f3dbe4c6ff915f3f257b52b313c4bc07678e7e"
+        "bytes": 128490,
+        "sha256": "e71db306e41c1a46a688ec2060512debd362f133b891c9bd981b7d036e974a7b"
       },
       "panel": {
-        "width": 656,
-        "height": 889,
-        "bytes": 29706,
-        "sha256": "bee306824868e334b639281d542fa2ffdae1b8d92618adc295ed7e6dbec5dcb8"
+        "width": 1005,
+        "height": 1280,
+        "bytes": 494216,
+        "sha256": "f5be1504b3896cb6ddf711a97ad1c9682b39211e63fd30b0a8069f7c43fdb648"
       },
-      "visualCharacter": "contextual-composite",
+      "visualCharacter": "portrait-or-figure",
       "textDominantOrSingleBook": false,
-      "contextualCompositeVersion": 1,
-      "contextualCompositeMotif": "proposition-chain"
+      "standaloneReplacementVersion": 1
     },
     "late-ficino-iamblichus-manuscript": {
       "hallFolder": "late-antiquity-inheritance",

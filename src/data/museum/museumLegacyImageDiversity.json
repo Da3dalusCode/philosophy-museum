@@ -1,59 +1,1545 @@
 {
-  "version": 1,
+  "version": 2,
   "maximumTextDominantOrSingleBookPerRoom": 1,
-  "contextualComposites": {
-    "machiavelli-discourses-1540": {"motif": "civic-forum", "palette": "renaissance", "artifactSide": "right"},
-    "machiavelli-prince-1532": {"motif": "fortress-choice", "palette": "renaissance", "artifactSide": "left"},
-    "levinas-totality-infinity-2002": {"motif": "face-to-face", "palette": "phenomenology", "artifactSide": "right"},
-    "levinas-signature-1983": {"motif": "ethical-threshold", "palette": "phenomenology", "artifactSide": "left"},
-    "russell-on-denoting-1905": {"motif": "description-crown", "palette": "analytic", "artifactSide": "right"},
-    "frege-sense-reference-1892": {"motif": "identity-stars", "palette": "analytic", "artifactSide": "left"},
-    "russell-whitehead-principia-1910": {"motif": "logic-foundations", "palette": "analytic", "artifactSide": "right"},
-    "russell-principia-54-43": {"motif": "type-layers", "palette": "analytic", "artifactSide": "left"},
-    "anscombe-philosophical-investigations-1953": {"motif": "language-practice", "palette": "analytic", "artifactSide": "right"},
-    "nozick-anarchy-state-utopia-1974": {"motif": "exchange-entitlement", "palette": "justice", "artifactSide": "left"},
-    "kuhn-structure-1962": {"motif": "paradigm-shift", "palette": "forum", "artifactSide": "right"},
-    "kanada-vaisesika-sutra-1793": {"motif": "atom-lattice", "palette": "south-asia", "artifactSide": "left"},
-    "south-sarva-darsana-1908": {"motif": "many-schools", "palette": "south-asia", "artifactSide": "right"},
-    "shankara-aitareya-bhasya-1593": {"motif": "teaching-lineage", "palette": "south-asia", "artifactSide": "left"},
-    "avicenna-pointers-tusi-commentary": {"motif": "demonstration-chain", "palette": "islamic", "artifactSide": "right"},
-    "avicenna-medicines-heart": {"motif": "medicine-heart", "palette": "islamic", "artifactSide": "left"},
-    "al-ghazali-ihya-manuscript": {"motif": "practice-path", "palette": "islamic", "artifactSide": "right"},
-    "al-ghazali-maqasid-1913": {"motif": "system-map", "palette": "islamic", "artifactSide": "left"},
-    "al-ghazali-munqidh-last-page": {"motif": "skeptical-crossroads", "palette": "islamic", "artifactSide": "right"},
-    "al-ghazali-asas-qiyas": {"motif": "analogy-scales", "palette": "islamic", "artifactSide": "left"},
-    "averroes-de-anima-bnf": {"motif": "intellect-light", "palette": "islamic", "artifactSide": "right"},
-    "averroes-colliget": {"motif": "medicine-instruments", "palette": "islamic", "artifactSide": "left"},
-    "wang-yangming-letters-zheng": {"motif": "knowledge-action", "palette": "east-asia", "artifactSide": "right"},
-    "spinoza-tractatus-1670": {"motif": "tolerance-city", "palette": "jewish", "artifactSide": "left"},
-    "saadia-baqashah-geniza": {"motif": "community-prayer", "palette": "jewish", "artifactSide": "right"},
-    "saadia-beliefs-landauer": {"motif": "reason-revelation", "palette": "jewish", "artifactSide": "left"},
-    "judah-halevi-kuzari-1796": {"motif": "dialogue-table", "palette": "jewish", "artifactSide": "right"},
-    "cairo-geniza-legal-document": {"motif": "trade-network", "palette": "jewish", "artifactSide": "left"},
-    "judah-halevi-divan-geniza": {"motif": "poetry-voyage", "palette": "jewish", "artifactSide": "right"},
-    "scholastic-abelard-apologia-manuscript": {"motif": "dialectic-debate", "palette": "scholastic", "artifactSide": "left"},
-    "scholastic-heloise-letters": {"motif": "love-intention", "palette": "scholastic", "artifactSide": "right"},
-    "scholastic-aristotle-latin-physics": {"motif": "translation-motion", "palette": "scholastic", "artifactSide": "left"},
-    "scholastic-aquinas-summa-basel": {"motif": "summa-architecture", "palette": "scholastic", "artifactSide": "right"},
-    "scholastic-aquinas-summa-1482": {"motif": "essence-existence", "palette": "scholastic", "artifactSide": "left"},
-    "scholastic-aquinas-summa-1477": {"motif": "natural-law", "palette": "scholastic", "artifactSide": "right"},
-    "scholastic-marsilius-defensor": {"motif": "civic-authority", "palette": "scholastic", "artifactSide": "left"},
-    "scholastic-eckhart-recantation": {"motif": "censure-pulpit", "palette": "scholastic", "artifactSide": "right"},
-    "scholastic-boethius-topics": {"motif": "logic-curriculum", "palette": "scholastic", "artifactSide": "left"},
-    "scholastic-eriugena-periphyseon": {"motif": "nature-divisions", "palette": "scholastic", "artifactSide": "right"},
-    "epicurean-tetrapharmakos": {"motif": "fourfold-remedy", "palette": "hellenistic", "artifactSide": "left"},
-    "epicurean-philodemus-subscription": {"motif": "villa-library", "palette": "hellenistic", "artifactSide": "right"},
-    "epicurean-herculaneum-papyrus": {"motif": "papyrus-imaging", "palette": "hellenistic", "artifactSide": "left"},
-    "skeptical-sextus-adversus-edition": {"motif": "suspension-scales", "palette": "hellenistic", "artifactSide": "right"},
-    "pseudo-dionysius-opera-1556": {"motif": "celestial-ladder", "palette": "late-antiquity", "artifactSide": "left"},
-    "late-celestial-hierarchy-manuscript": {"motif": "celestial-orders", "palette": "late-antiquity", "artifactSide": "right"},
-    "late-proclus-elements-latin": {"motif": "proposition-chain", "palette": "late-antiquity", "artifactSide": "left"},
-    "proclus-platonic-theology-manuscript": {"motif": "henadic-radiance", "palette": "late-antiquity", "artifactSide": "right"},
-    "rationalism-discourse-first-edition": {"motif": "method-optics", "palette": "rationalism", "artifactSide": "left"},
-    "rationalism-leibniz-correspondence": {"motif": "harmony-clocks", "palette": "rationalism", "artifactSide": "right"},
-    "rationalism-leibniz-new-essays": {"motif": "innate-veins", "palette": "rationalism", "artifactSide": "left"},
-    "rationalism-tractatus-manuscript-note": {"motif": "lens-scripture", "palette": "rationalism", "artifactSide": "right"},
-    "rationalism-conway-principia": {"motif": "vital-continuum", "palette": "rationalism", "artifactSide": "left"}
+  "standaloneReplacements": {
+    "machiavelli-discourses-1540": {
+      "visualCharacter": "artwork-or-social-scene",
+      "mediaKind": "painting",
+      "title": "The Lictors Bring to Brutus the Bodies of His Sons",
+      "creator": "Jacques-Louis David",
+      "objectDate": "1789",
+      "institution": "Musée du Louvre",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:David_Brutus.jpg",
+      "license": "Public Domain Mark 1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "rightsKind": "rights-status",
+      "attribution": "Jacques-Louis David, The Lictors Bring to Brutus the Bodies of His Sons, 1789. Musée du Louvre. Public domain.",
+      "alt": "David’s painting of Brutus seated in shadow as the bodies of his sons are returned to his grieving household.",
+      "caption": "Jacques-Louis David, The Lictors Bring to Brutus the Bodies of His Sons, 1789.",
+      "historicalNote": "This later reception painting stages a Livian conflict between civic judgment, family loyalty, and republican virtue—the Roman historical archive Machiavelli reworks in the Discourses. It is not Renaissance documentation.",
+      "likenessStatus": "not-applicable",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fb/David_Brutus.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/David_Brutus.jpg/3840px-David_Brutus.jpg",
+      "variants": {
+        "scene": {
+          "width": 640,
+          "height": 489
+        },
+        "panel": {
+          "width": 1280,
+          "height": 979
+        }
+      }
+    },
+    "machiavelli-prince-1532": {
+      "visualCharacter": "portrait-or-figure",
+      "mediaKind": "painting",
+      "title": "Portrait of a Gentleman, traditionally identified as Cesare Borgia",
+      "creator": "Altobello Melone",
+      "objectDate": "c. 1515–1520",
+      "institution": "Accademia Carrara, Bergamo",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Cesareborgia.jpg",
+      "license": "Public Domain Mark 1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "rightsKind": "rights-status",
+      "attribution": "Altobello Melone, Portrait of a Gentleman, c. 1515–1520. Accademia Carrara. Public domain.",
+      "alt": "Renaissance portrait of a richly dressed young man traditionally, but disputably, identified as Cesare Borgia.",
+      "caption": "Altobello Melone, Portrait of a Gentleman, traditionally identified as Cesare Borgia, c. 1515–1520.",
+      "historicalNote": "Borgia is Machiavelli’s central case of virtù, force, calculation, and dependence on fortune. The sitter’s identification as Borgia is traditional and disputed; this is not a secure portrait from life.",
+      "likenessStatus": "uncertain",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/96/Cesareborgia.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/9/96/Cesareborgia.jpg",
+      "variants": {
+        "scene": {
+          "width": 525,
+          "height": 640
+        },
+        "panel": {
+          "width": 1050,
+          "height": 1280
+        }
+      }
+    },
+    "levinas-totality-infinity-2002": {
+      "visualCharacter": "artwork-or-social-scene",
+      "mediaKind": "digital-image",
+      "title": "Interrupted Passage: a contemporary face-to-face interpretation",
+      "creator": "Philosophy Atlas Museum with OpenAI image generation",
+      "objectDate": "2026",
+      "institution": "Philosophy Atlas Museum",
+      "sourceKind": "owner-approved-original-illustration",
+      "localSourcePath": "source-art/museum/levinas-face-to-face-contemporary-interpretation.png",
+      "sourcePageUrl": "https://github.com/Da3dalusCode/philosophy-museum/blob/main/source-art/museum/levinas-face-to-face-contemporary-interpretation.png",
+      "sourceImageUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/main/source-art/museum/levinas-face-to-face-contemporary-interpretation.png",
+      "selectedThumbnailUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/main/source-art/museum/levinas-face-to-face-contemporary-interpretation.png",
+      "license": "Original Philosophy Atlas Museum interpretive illustration",
+      "rightsKind": "rights-status",
+      "attribution": "Philosophy Atlas Museum with OpenAI image generation, Interrupted Passage, 2026.",
+      "alt": "Contemporary interpretive scene of a passerby stopping before an exhausted stranger outside a clinic after rain.",
+      "caption": "Interrupted Passage, a contemporary Philosophy Atlas interpretation of ethical interruption, 2026.",
+      "historicalNote": "This is a contemporary interpretive image made for this exhibit, not a historical reconstruction, documentary photograph, or portrait of Levinas. The visible encounter is not meant to reduce Levinas’s “face” to facial appearance or to turn ethics into a staged act of rescue.",
+      "likenessStatus": "not-applicable",
+      "variants": {
+        "scene": {
+          "width": 640,
+          "height": 480
+        },
+        "panel": {
+          "width": 1280,
+          "height": 960
+        }
+      }
+    },
+    "levinas-signature-1983": {
+      "visualCharacter": "artwork-or-social-scene",
+      "mediaKind": "photograph",
+      "title": "Prisoners at Stalag XI-B welcome their liberators",
+      "creator": "Sgt Smith, No. 5 Army Film and Photographic Unit",
+      "objectDate": "16 April 1945",
+      "institution": "Imperial War Museums, BU 3661",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:POWs_at_Stalag_11B_at_Fallingbostel_in_Germany_welcome_their_liberators,_16_April_1945._BU3661.jpg",
+      "license": "Public domain — UK Government work",
+      "licenseUrl": "https://commons.wikimedia.org/wiki/Template:PD-UKGov",
+      "rightsKind": "rights-status",
+      "attribution": "Sgt Smith, No. 5 Army Film and Photographic Unit, Stalag XI-B prisoners at liberation, 16 April 1945. Imperial War Museums. Public domain.",
+      "alt": "Crowd of prisoners at Stalag XI-B in Fallingbostel greeting Allied liberators in April 1945.",
+      "caption": "Prisoners at Stalag XI-B, Fallingbostel, welcome their liberators, 16 April 1945.",
+      "historicalNote": "Levinas was held at Stalag XI-B and developed philosophical, literary, and critical projects in his captivity notebooks. The photograph records the camp’s liberation but does not identify Levinas or depict his barrack; captivity is context for his later work, not a complete explanation of the Saying and the Said.",
+      "likenessStatus": "not-applicable",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8a/POWs_at_Stalag_11B_at_Fallingbostel_in_Germany_welcome_their_liberators%2C_16_April_1945._BU3661.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8a/POWs_at_Stalag_11B_at_Fallingbostel_in_Germany_welcome_their_liberators%2C_16_April_1945._BU3661.jpg",
+      "variants": {
+        "scene": {
+          "width": 640,
+          "height": 630
+        },
+        "panel": {
+          "width": 1280,
+          "height": 1260
+        }
+      }
+    },
+    "russell-on-denoting-1905": {
+      "visualCharacter": "portrait-or-figure",
+      "mediaKind": "photograph",
+      "title": "The Honourable Bertrand Russell",
+      "creator": "Photographer unrecorded",
+      "objectDate": "published 1916",
+      "institution": "Open Court / Internet Archive scan",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Honourable_Bertrand_Russell.jpg",
+      "license": "Public domain",
+      "licenseUrl": "https://commons.wikimedia.org/wiki/Template:PD-anon-expired",
+      "rightsKind": "rights-status",
+      "attribution": "The Honourable Bertrand Russell, anonymous photograph published in 1916. Public domain.",
+      "alt": "Black-and-white seated portrait of Bertrand Russell in formal clothes, looking toward the camera.",
+      "caption": "Bertrand Russell, anonymous photograph published in 1916.",
+      "historicalNote": "This documentary portrait is close to the 1905 essay’s period, but it does not illustrate the logic of descriptions; the interpretation panel must do that conceptual work.",
+      "likenessStatus": "lifetime-photograph",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Honourable_Bertrand_Russell.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Honourable_Bertrand_Russell.jpg",
+      "variants": {
+        "scene": {
+          "width": 432,
+          "height": 640
+        },
+        "panel": {
+          "width": 864,
+          "height": 1280
+        }
+      }
+    },
+    "frege-sense-reference-1892": {
+      "visualCharacter": "map-or-diagram",
+      "mediaKind": "drawing",
+      "title": "Phases of Venus",
+      "creator": "Fernando de Gorocica, after Galileo Galilei",
+      "objectDate": "2014 rendition after seventeenth-century observations",
+      "institution": "Wikimedia Commons",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Fases_de_Venus_-_Galileo_Galilei.png",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "rightsKind": "license",
+      "attribution": "Fernando de Gorocica, Phases of Venus, 2014, CC BY-SA 3.0.",
+      "alt": "Astronomical diagram showing Venus in a sequence of illuminated phases.",
+      "caption": "Fernando de Gorocica, Phases of Venus, after Galileo’s observations.",
+      "historicalNote": "Frege’s canonical example concerns the Morning Star and Evening Star as different modes of presenting the same referent, Venus. The phases shown here are not those two names and should not be mistaken for a diagram authored by Frege.",
+      "likenessStatus": "not-applicable",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/50/Fases_de_Venus_-_Galileo_Galilei.png",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/5/50/Fases_de_Venus_-_Galileo_Galilei.png",
+      "variants": {
+        "scene": {
+          "width": 640,
+          "height": 478
+        },
+        "panel": {
+          "width": 1164,
+          "height": 869
+        }
+      }
+    },
+    "russell-whitehead-principia-1910": {
+      "visualCharacter": "portrait-or-figure",
+      "mediaKind": "photograph",
+      "title": "Alfred North Whitehead",
+      "creator": "Photographer unrecorded",
+      "objectDate": "date unrecorded",
+      "institution": "Wellcome Collection, V0027330",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Alfred_North_Whitehead._Photograph._Wellcome_V0027330.jpg",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "rightsKind": "license",
+      "attribution": "Alfred North Whitehead, photographer unrecorded. Wellcome Collection, CC BY 4.0.",
+      "alt": "Black-and-white photograph of Alfred North Whitehead seated in a dark suit.",
+      "caption": "Alfred North Whitehead, coauthor of Principia Mathematica.",
+      "historicalNote": "The portrait restores the coauthor often eclipsed when Principia Mathematica is discussed through Russell alone. Its date is not recorded and it does not document the collaborators at work.",
+      "likenessStatus": "lifetime-photograph",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/55/Alfred_North_Whitehead._Photograph._Wellcome_V0027330.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/5/55/Alfred_North_Whitehead._Photograph._Wellcome_V0027330.jpg",
+      "variants": {
+        "scene": {
+          "width": 640,
+          "height": 469
+        },
+        "panel": {
+          "width": 1280,
+          "height": 938
+        }
+      }
+    },
+    "russell-principia-54-43": {
+      "visualCharacter": "portrait-or-figure",
+      "mediaKind": "photograph",
+      "title": "Bertrand Russell at the California Institute of Technology",
+      "creator": "Los Angeles Times photographer",
+      "objectDate": "28 October 1929",
+      "institution": "UCLA Library, Los Angeles Times Photographic Collection",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Bertrand_Russell_at_Cal_Tech.jpg",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "rightsKind": "license",
+      "attribution": "Los Angeles Times, Bertrand Russell at Caltech, 1929. UCLA Library, CC BY 4.0.",
+      "alt": "Bertrand Russell standing outdoors at Caltech in a long coat and holding a hat.",
+      "caption": "Bertrand Russell at the California Institute of Technology, 1929.",
+      "historicalNote": "This later documentary portrait identifies one coauthor of the proof architecture discussed by the exhibit. It does not visualize proposition *54·43 or erase Whitehead’s coauthorship.",
+      "likenessStatus": "lifetime-photograph",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Bertrand_Russell_at_Cal_Tech.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Bertrand_Russell_at_Cal_Tech.jpg",
+      "variants": {
+        "scene": {
+          "width": 447,
+          "height": 640
+        },
+        "panel": {
+          "width": 895,
+          "height": 1280
+        }
+      }
+    },
+    "anscombe-philosophical-investigations-1953": {
+      "visualCharacter": "place-or-architecture",
+      "mediaKind": "photograph",
+      "title": "Wittgenstein’s house at Skjolden",
+      "creator": "Mia1964",
+      "objectDate": "photographed 3 October 2022",
+      "institution": "Skjolden, Norway; protected monument 247129",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Wittgenstein_Skjolden.jpg",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "rightsKind": "license",
+      "attribution": "Mia1964, Wittgenstein’s house at Skjolden, 2022, CC BY-SA 4.0.",
+      "alt": "Small dark wooden house on a steep green slope above a Norwegian fjord.",
+      "caption": "The reconstructed house at Skjolden where Wittgenstein worked during formative periods.",
+      "historicalNote": "Wittgenstein repeatedly worked at Skjolden, including on ideas that entered Philosophical Investigations. The building was reconstructed and returned to its site; this is a present-day place photograph, not untouched 1930s fabric.",
+      "likenessStatus": "not-applicable",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Wittgenstein_Skjolden.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Wittgenstein_Skjolden.jpg/3840px-Wittgenstein_Skjolden.jpg",
+      "variants": {
+        "scene": {
+          "width": 640,
+          "height": 400
+        },
+        "panel": {
+          "width": 1280,
+          "height": 800
+        }
+      }
+    },
+    "nozick-anarchy-state-utopia-1974": {
+      "visualCharacter": "portrait-or-figure",
+      "mediaKind": "photograph",
+      "title": "Wilt Chamberlain",
+      "creator": "Fred Palumbo",
+      "objectDate": "1959",
+      "institution": "Library of Congress, New York World-Telegram & Sun Collection",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Wilt_Chamberlain.jpg",
+      "license": "Public domain — no known restrictions",
+      "licenseUrl": "https://commons.wikimedia.org/wiki/Template:PD-NYWT%26S",
+      "rightsKind": "rights-status",
+      "attribution": "Fred Palumbo, Wilt Chamberlain, 1959. Library of Congress. Public domain.",
+      "alt": "Black-and-white portrait of basketball player Wilt Chamberlain holding a basketball.",
+      "caption": "Wilt Chamberlain, the named figure in Nozick’s voluntary-transfer thought experiment.",
+      "historicalNote": "Nozick asks readers to imagine people voluntarily paying to watch Chamberlain play. This portrait predates the hypothetical and does not settle the argument’s disputed assumption that the starting distribution was just.",
+      "likenessStatus": "lifetime-photograph",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/57/Wilt_Chamberlain.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/5/57/Wilt_Chamberlain.jpg",
+      "variants": {
+        "scene": {
+          "width": 506,
+          "height": 640
+        },
+        "panel": {
+          "width": 1012,
+          "height": 1280
+        }
+      }
+    },
+    "kuhn-structure-1962": {
+      "visualCharacter": "map-or-diagram",
+      "mediaKind": "engraving",
+      "title": "Planisphaerium Copernicanum",
+      "creator": "Andreas Cellarius",
+      "objectDate": "1661",
+      "institution": "Chester Beatty Library, Rare Books AI788, plate 22",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:PLANISPH%C3%86RIVM_COPERNICANVM_(CBL_Rare_Books_AI788,_plate_22).jpg",
+      "license": "Public Domain Mark 1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "rightsKind": "rights-status",
+      "attribution": "Andreas Cellarius, Planisphaerium Copernicanum, 1661. Chester Beatty Library. Public domain.",
+      "alt": "Elaborate celestial chart arranging the planets around a sun-centered Copernican system.",
+      "caption": "Andreas Cellarius, Planisphaerium Copernicanum, 1661.",
+      "historicalNote": "The mature Copernican world picture connects directly to Kuhn’s historical study of scientific revolutions. It is one historical case, not a universal icon that explains every paradigm shift.",
+      "likenessStatus": "not-applicable",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b0/PLANISPH%C3%86RIVM_COPERNICANVM_%28CBL_Rare_Books_AI788%2C_plate_22%29.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/PLANISPH%C3%86RIVM_COPERNICANVM_%28CBL_Rare_Books_AI788%2C_plate_22%29.jpg/3840px-PLANISPH%C3%86RIVM_COPERNICANVM_%28CBL_Rare_Books_AI788%2C_plate_22%29.jpg",
+      "variants": {
+        "scene": {
+          "width": 640,
+          "height": 513
+        },
+        "panel": {
+          "width": 1280,
+          "height": 1027
+        }
+      }
+    },
+    "kanada-vaisesika-sutra-1793": {
+      "visualCharacter": "portrait-or-figure",
+      "mediaKind": "sculpture-photograph",
+      "title": "Modern bas-relief of Rishi Kaṇāda",
+      "creator": "Contemporary sculptor unrecorded",
+      "objectDate": "modern memorial; photographed 2024",
+      "imageCreator": "Pur 0 0",
+      "institution": "Shaheedi Park, Delhi",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Bas-relief_of_Rishi_Kanad.jpg",
+      "license": "CC0 1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "rightsKind": "dedication",
+      "attribution": "Pur 0 0, Bas-relief of Rishi Kaṇāda, 2024, CC0.",
+      "alt": "Contemporary metal bas-relief imagining Kaṇāda seated in thought beside stylized natural forms.",
+      "caption": "Modern commemorative bas-relief of Kaṇāda, Shaheedi Park, Delhi.",
+      "historicalNote": "This is a modern imagined likeness, not an ancient portrait. Its commemoration of Kaṇāda must not collapse Vaiśeṣika atomism into modern particle physics.",
+      "likenessStatus": "imagined",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Bas-relief_of_Rishi_Kanad.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Bas-relief_of_Rishi_Kanad.jpg/3840px-Bas-relief_of_Rishi_Kanad.jpg",
+      "variants": {
+        "scene": {
+          "width": 640,
+          "height": 475
+        },
+        "panel": {
+          "width": 1280,
+          "height": 949
+        }
+      }
+    },
+    "south-sarva-darsana-1908": {
+      "visualCharacter": "artwork-or-social-scene",
+      "mediaKind": "painting",
+      "title": "A Gathering of Holy Men of Different Faiths",
+      "creator": "Mir Kalan Khan",
+      "objectDate": "c. 1770–1775",
+      "institution": "The Metropolitan Museum of Art, 2009.318",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:A_Gathering_of_Holy_Men_of_Different_Faiths_MET_DP213133.jpg",
+      "license": "Public Domain Mark 1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "rightsKind": "rights-status",
+      "attribution": "Mir Kalan Khan, A Gathering of Holy Men of Different Faiths, c. 1770–1775. The Metropolitan Museum of Art. Public domain.",
+      "alt": "Indian painting assembling many named teachers and holy men in a landscape for conversation and practice.",
+      "caption": "Mir Kalan Khan, A Gathering of Holy Men of Different Faiths, c. 1770–1775.",
+      "historicalNote": "The painting offers a later visual analogue for plural traditions; it does not depict the schools catalogued by Mādhava or illustrate the Sarva-darśana-saṃgraha itself.",
+      "likenessStatus": "not-applicable",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/df/A_Gathering_of_Holy_Men_of_Different_Faiths_MET_DP213133.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/d/df/A_Gathering_of_Holy_Men_of_Different_Faiths_MET_DP213133.jpg",
+      "variants": {
+        "scene": {
+          "width": 486,
+          "height": 640
+        },
+        "panel": {
+          "width": 972,
+          "height": 1280
+        }
+      }
+    },
+    "shankara-aitareya-bhasya-1593": {
+      "visualCharacter": "portrait-or-figure",
+      "mediaKind": "sculpture-photograph",
+      "title": "Ādi Śaṅkarācārya with disciples",
+      "creator": "Modern sculptor unrecorded",
+      "objectDate": "modern devotional sculpture; photographed 2016",
+      "imageCreator": "Shishirdasika",
+      "institution": "Warangal, Telangana",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Adi_Shankaracharya_with_Disciples.jpg",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "rightsKind": "license",
+      "attribution": "Shishirdasika, Ādi Śaṅkarācārya with disciples, 2016, CC BY-SA 4.0.",
+      "alt": "Modern sculptural group imagining Śaṅkara seated as a teacher among four disciples.",
+      "caption": "Modern devotional sculpture of Śaṅkara with disciples, Warangal.",
+      "historicalNote": "The group makes teaching and interpretive transmission visible, but it is a modern devotional image—not a historical likeness or evidence about this particular commentary.",
+      "likenessStatus": "imagined",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/42/Adi_Shankaracharya_with_Disciples.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Adi_Shankaracharya_with_Disciples.jpg/3840px-Adi_Shankaracharya_with_Disciples.jpg",
+      "variants": {
+        "scene": {
+          "width": 640,
+          "height": 480
+        },
+        "panel": {
+          "width": 1280,
+          "height": 960
+        }
+      }
+    },
+    "avicenna-pointers-tusi-commentary": {
+      "visualCharacter": "place-or-architecture",
+      "mediaKind": "photograph",
+      "title": "Maragheh Observatory",
+      "creator": "Behrad09",
+      "objectDate": "thirteenth-century site under a modern protective shelter; photographed 2018",
+      "institution": "Maragheh, East Azerbaijan; Iranian monument 1675",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Rasadmaraqe1.jpg",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "rightsKind": "license",
+      "attribution": "Behrad09, Maragheh Observatory, 2018, CC BY-SA 4.0.",
+      "alt": "Archaeological remains of Maragheh Observatory beneath a modern protective dome.",
+      "caption": "Maragheh Observatory, the scholarly institution founded under Naṣīr al-Dīn al-Ṭūsī.",
+      "historicalNote": "The site anchors al-Ṭūsī’s organized post-Avicennian scholarly world, not the place where this commentary is known to have been composed. The geodesic shelter is modern.",
+      "likenessStatus": "not-applicable",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/38/Rasadmaraqe1.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Rasadmaraqe1.jpg/3840px-Rasadmaraqe1.jpg",
+      "variants": {
+        "scene": {
+          "width": 640,
+          "height": 427
+        },
+        "panel": {
+          "width": 1280,
+          "height": 853
+        }
+      }
+    },
+    "avicenna-medicines-heart": {
+      "visualCharacter": "artwork-or-social-scene",
+      "mediaKind": "painting",
+      "title": "Doctor taking a woman’s pulse",
+      "creator": "Artist unrecorded",
+      "objectDate": "1632",
+      "institution": "Wellcome Collection, Arabic MS 155, L0000009",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Doctor_taking_woman%27s_pulse._Avicenna%27s_Canon_manuscript_Wellcome_L0000009.jpg",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "rightsKind": "license",
+      "attribution": "Doctor taking a woman’s pulse, from a 1632 manuscript of Avicenna’s Canon. Wellcome Collection, CC BY 4.0.",
+      "alt": "Lacquer-painted scene of a seated doctor taking a woman’s pulse while attendants watch.",
+      "caption": "Doctor taking a woman’s pulse, image from a 1632 manuscript of Avicenna’s Canon.",
+      "historicalNote": "The later clinical scene links bodily signs, pulse, passion, and Avicenna’s embodied psychology. It comes from the Canon, not Medicines of the Heart, and does not imply modern cardiology.",
+      "likenessStatus": "not-applicable",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/26/Doctor_taking_woman%27s_pulse._Avicenna%27s_Canon_manuscript_Wellcome_L0000009.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/2/26/Doctor_taking_woman%27s_pulse._Avicenna%27s_Canon_manuscript_Wellcome_L0000009.jpg",
+      "variants": {
+        "scene": {
+          "width": 433,
+          "height": 640
+        },
+        "panel": {
+          "width": 866,
+          "height": 1280
+        }
+      }
+    },
+    "al-ghazali-ihya-manuscript": {
+      "visualCharacter": "place-or-architecture",
+      "mediaKind": "photograph",
+      "title": "Haruniyeh Mausoleum at Tus",
+      "creator": "Ahmad Masoominezhad",
+      "objectDate": "photographed 17 April 2009",
+      "institution": "Haruniyeh Mausoleum, Tus; Iranian monument 173",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Harouniyeh.jpg",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "rightsKind": "license",
+      "attribution": "Ahmad Masoominezhad, Haruniyeh Mausoleum at Tus, 2009, CC BY-SA 4.0.",
+      "alt": "Monumental brick façade and recessed entrance of the Haruniyeh Mausoleum at Tus.",
+      "caption": "Haruniyeh Mausoleum at Tus, near the memorial landscape associated with al-Ghazali.",
+      "historicalNote": "Haruniyeh stands in the Tus memorial landscape associated with al-Ghazali, but its original function and direct relation to him remain disputed. It anchors the place of his later memory, not the Iḥyāʾ’s authorship or teaching.",
+      "likenessStatus": "not-applicable",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/be/Harouniyeh.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/b/be/Harouniyeh.jpg",
+      "variants": {
+        "scene": {
+          "width": 640,
+          "height": 480
+        },
+        "panel": {
+          "width": 1280,
+          "height": 960
+        }
+      }
+    },
+    "al-ghazali-maqasid-1913": {
+      "visualCharacter": "artwork-or-social-scene",
+      "mediaKind": "painting",
+      "title": "Hermes Debates with Seventy Greek Scholars",
+      "creator": "Muhammad Musá al-Mudhahhib",
+      "objectDate": "1517–1518",
+      "institution": "Walters Art Museum, W.606.333B",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Muhammad_Mus%C3%A1_al-Mudhahhib_-_Hermes_Debates_with_70_Greek_Scholars_-_Walters_W606333B_-_Full_Page.jpg",
+      "license": "Public Domain Mark 1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "rightsKind": "rights-status",
+      "attribution": "Muhammad Musá al-Mudhahhib, Hermes Debates with Seventy Greek Scholars, 1517–1518. Walters Art Museum. Public domain.",
+      "alt": "Persian painting of Hermes seated in debate among a large semicircle of Greek scholars.",
+      "caption": "Hermes Debates with Seventy Greek Scholars, Persian painting, 1517–1518.",
+      "historicalNote": "This later literary image evokes sustained Islamic-world engagement with Greek argument. It does not depict al-Ghazali or the Maqāṣid, and serves only as context for reconstructing philosophical disciplines before critique.",
+      "likenessStatus": "not-applicable",
+      "cropBox": [
+        0.02,
+        0.2,
+        0.6,
+        0.83
+      ],
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9c/Muhammad_Mus%C3%A1_al-Mudhahhib_-_Hermes_Debates_with_70_Greek_Scholars_-_Walters_W606333B_-_Full_Page.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9c/Muhammad_Mus%C3%A1_al-Mudhahhib_-_Hermes_Debates_with_70_Greek_Scholars_-_Walters_W606333B_-_Full_Page.jpg",
+      "variants": {
+        "scene": {
+          "width": 344,
+          "height": 640
+        },
+        "panel": {
+          "width": 610,
+          "height": 1134
+        }
+      }
+    },
+    "al-ghazali-munqidh-last-page": {
+      "visualCharacter": "place-or-architecture",
+      "mediaKind": "photograph",
+      "title": "Courtyard of the Umayyad Mosque, Damascus",
+      "creator": "Vyacheslav Argenberg",
+      "objectDate": "photographed 2008",
+      "institution": "Umayyad Mosque, Damascus",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:The_Umayyad_Mosque,_Courtyard,_Damascus,_Syria.jpg",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "rightsKind": "license",
+      "attribution": "Vyacheslav Argenberg, Umayyad Mosque courtyard, Damascus, 2008, CC BY 4.0.",
+      "alt": "Broad stone courtyard and arcaded façade of the Umayyad Mosque in Damascus.",
+      "caption": "Courtyard of the Umayyad Mosque, Damascus.",
+      "historicalNote": "Damascus belongs to al-Ghazali’s withdrawal and search for a transformed life of practice. The modern photograph shows restored fabric, not his exact retreat room or an untouched eleventh-century setting.",
+      "likenessStatus": "not-applicable",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/db/The_Umayyad_Mosque%2C_Courtyard%2C_Damascus%2C_Syria.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/The_Umayyad_Mosque%2C_Courtyard%2C_Damascus%2C_Syria.jpg/3840px-The_Umayyad_Mosque%2C_Courtyard%2C_Damascus%2C_Syria.jpg",
+      "variants": {
+        "scene": {
+          "width": 640,
+          "height": 480
+        },
+        "panel": {
+          "width": 1280,
+          "height": 960
+        }
+      }
+    },
+    "al-ghazali-asas-qiyas": {
+      "visualCharacter": "artwork-or-social-scene",
+      "mediaKind": "painting",
+      "title": "Abu Zayd pleads before the qadi of Ma‘arrat al-Nu‘man",
+      "creator": "Anonymous Arab painter",
+      "objectDate": "1334",
+      "institution": "Austrian National Library",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Arabischer_Maler_um_1335_002.jpg",
+      "license": "Public Domain Mark 1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "rightsKind": "rights-status",
+      "attribution": "Anonymous Arab painter, Abu Zayd before a qadi, 1334. Austrian National Library. Public domain.",
+      "alt": "Medieval Arabic painting of a litigant addressing a seated qadi before witnesses.",
+      "caption": "Abu Zayd pleads before a qadi, illustration from al-Hariri’s Maqamat, 1334.",
+      "historicalNote": "The fictional court scene makes case reasoning and legal judgment institutionally visible. It is about two centuries later and does not illustrate al-Ghazali’s treatise or a recorded proceeding.",
+      "likenessStatus": "not-applicable",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Arabischer_Maler_um_1335_002.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Arabischer_Maler_um_1335_002.jpg",
+      "variants": {
+        "scene": {
+          "width": 640,
+          "height": 546
+        },
+        "panel": {
+          "width": 1280,
+          "height": 1092
+        }
+      }
+    },
+    "averroes-de-anima-bnf": {
+      "visualCharacter": "map-or-diagram",
+      "mediaKind": "engraving",
+      "title": "Cerebral ventricles, sensory pathways, and faculties",
+      "creator": "Woodcut artist unrecorded, after Gregor Reisch",
+      "objectDate": "1503",
+      "institution": "Wellcome Collection, M0000436",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Woodcut_of_head_showing_Cerebral_ventricles._Wellcome_M0000436.jpg",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "rightsKind": "license",
+      "attribution": "Cerebral ventricles and faculties, from Gregor Reisch’s Margarita philosophica, 1503. Wellcome Collection, CC BY 4.0.",
+      "alt": "Woodcut profile of a head mapping sensory channels to labeled internal faculties and cerebral ventricles.",
+      "caption": "Woodcut of sensory pathways and internal faculties, 1503.",
+      "historicalNote": "This Latin reception diagram visualizes sensation, imagination, cogitation, and memory. It is not a diagram made by Averroes and does not coincide with every Averroist account of intellect.",
+      "likenessStatus": "not-applicable",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/74/Woodcut_of_head_showing_Cerebral_ventricles._Wellcome_M0000436.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/7/74/Woodcut_of_head_showing_Cerebral_ventricles._Wellcome_M0000436.jpg",
+      "variants": {
+        "scene": {
+          "width": 444,
+          "height": 640
+        },
+        "panel": {
+          "width": 887,
+          "height": 1280
+        }
+      }
+    },
+    "averroes-colliget": {
+      "visualCharacter": "artwork-or-social-scene",
+      "mediaKind": "painting",
+      "title": "Two doctors preparing medicine",
+      "creator": "Illuminator unrecorded; copied by Abdallah ibn al-Fadl",
+      "objectDate": "1224",
+      "institution": "Walters Art Museum, W.675a",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Illuminated_single_leaf,_Two_doctors_preparing_medicine,_Walters_Art_Museum_Ms._W.675a.jpg",
+      "license": "CC0 1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "rightsKind": "dedication",
+      "attribution": "Two doctors preparing medicine, Baghdad, 1224. Walters Art Museum, CC0.",
+      "alt": "Arabic manuscript painting of two physicians mixing ingredients among jars and instruments.",
+      "caption": "Two doctors preparing medicine, Baghdad, 1224.",
+      "historicalNote": "This near-contemporary scene makes medical practice and apparatus visible beside the Colliget’s general principles. It comes from an Arabic Dioscorides, not Averroes’s Córdoba or the Colliget itself.",
+      "likenessStatus": "not-applicable",
+      "cropBox": [
+        0.13,
+        0.24,
+        0.93,
+        0.6
+      ],
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Illuminated_single_leaf%2C_Two_doctors_preparing_medicine%2C_Walters_Art_Museum_Ms._W.675a.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Illuminated_single_leaf%2C_Two_doctors_preparing_medicine%2C_Walters_Art_Museum_Ms._W.675a.jpg",
+      "variants": {
+        "scene": {
+          "width": 640,
+          "height": 386
+        },
+        "panel": {
+          "width": 1075,
+          "height": 648
+        }
+      }
+    },
+    "wang-yangming-letters-zheng": {
+      "visualCharacter": "place-or-architecture",
+      "mediaKind": "photograph",
+      "title": "Former residence site of Wang Shouren in Shaoxing",
+      "creator": "猫猫的日记本",
+      "objectDate": "photographed February 2017",
+      "institution": "Shaoxing, Zhejiang",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Former_Residence_of_Wang_Shouren_in_Shaoxing_01_2017-02.jpg",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "rightsKind": "license",
+      "attribution": "猫猫的日记本, former residence site of Wang Shouren, 2017, CC BY-SA 4.0.",
+      "alt": "Courtyard and restored structures at the former residence site of Wang Yangming in Shaoxing.",
+      "caption": "Former residence site of Wang Yangming in Shaoxing.",
+      "historicalNote": "The present-day site grounds Wang’s counsel and teaching in a lived public and household world. It is restored archaeological context, not the setting of the Zheng correspondence or intact sixteenth-century fabric.",
+      "likenessStatus": "not-applicable",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Former_Residence_of_Wang_Shouren_in_Shaoxing_01_2017-02.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Former_Residence_of_Wang_Shouren_in_Shaoxing_01_2017-02.jpg",
+      "variants": {
+        "scene": {
+          "width": 640,
+          "height": 425
+        },
+        "panel": {
+          "width": 1280,
+          "height": 850
+        }
+      }
+    },
+    "spinoza-tractatus-1670": {
+      "visualCharacter": "artwork-or-social-scene",
+      "mediaKind": "painting",
+      "title": "Excommunicated Spinoza",
+      "creator": "Samuel Hirszenberg",
+      "objectDate": "1907",
+      "institution": "Herbert D. Katz Center for Advanced Judaic Studies digital source",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Hirszenberg,_Spinoza_wykl%C3%AAty_(Excommunicated_Spinoza),_1907.jpg",
+      "license": "Public Domain Mark 1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "rightsKind": "rights-status",
+      "attribution": "Samuel Hirszenberg, Excommunicated Spinoza, 1907. Public domain.",
+      "alt": "Dark painting of Spinoza isolated in the foreground while a synagogue congregation gathers behind him.",
+      "caption": "Samuel Hirszenberg, Excommunicated Spinoza, 1907.",
+      "historicalNote": "This is an imaginative reception painting made centuries after the Amsterdam herem, not eyewitness evidence. It stages the rupture behind later debates over scripture, authority, and freedom without documenting the Tractatus.",
+      "likenessStatus": "imagined",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/75/Hirszenberg%2C_Spinoza_wykl%C3%AAty_%28Excommunicated_Spinoza%29%2C_1907.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/7/75/Hirszenberg%2C_Spinoza_wykl%C3%AAty_%28Excommunicated_Spinoza%29%2C_1907.jpg",
+      "variants": {
+        "scene": {
+          "width": 640,
+          "height": 490
+        },
+        "panel": {
+          "width": 1280,
+          "height": 981
+        }
+      }
+    },
+    "saadia-baqashah-geniza": {
+      "visualCharacter": "place-or-architecture",
+      "mediaKind": "photograph",
+      "title": "Interior of the Ben Ezra Synagogue",
+      "creator": "Fahd Hashemi",
+      "objectDate": "photographed 2025",
+      "institution": "Ben Ezra Synagogue, Cairo",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Interior_of_the_Ben_Ezra_Synagogue,_Cairo.jpg",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "rightsKind": "license",
+      "attribution": "Fahd Hashemi, interior of the Ben Ezra Synagogue, 2025, CC BY-SA 4.0.",
+      "alt": "Restored interior of the Ben Ezra Synagogue with carved woodwork, lamps, and a central reading platform.",
+      "caption": "Interior of the Ben Ezra Synagogue, Cairo.",
+      "historicalNote": "The synagogue and its geniza history anchor communal prayer, memory, language, and archive. The interior is modern and restored; it neither recreates Saadia’s setting nor proves where this prayer fragment was first used.",
+      "likenessStatus": "not-applicable",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Interior_of_the_Ben_Ezra_Synagogue%2C_Cairo.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Interior_of_the_Ben_Ezra_Synagogue%2C_Cairo.jpg",
+      "variants": {
+        "scene": {
+          "width": 480,
+          "height": 640
+        },
+        "panel": {
+          "width": 960,
+          "height": 1280
+        }
+      }
+    },
+    "saadia-beliefs-landauer": {
+      "visualCharacter": "material-object",
+      "mediaKind": "photograph",
+      "title": "Planispheric astrolabe inscribed in Judaeo-Arabic",
+      "creator": "Maker unrecorded",
+      "objectDate": "c. 1300",
+      "institution": "Khalili Collections, SCI 158",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Khalili_Collection_Islamic_Art_sci_0158.1.jpg",
+      "license": "CC BY-SA 3.0 IGO",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/igo/deed.en",
+      "rightsKind": "license",
+      "attribution": "Khalili Collections, planispheric astrolabe inscribed in Judaeo-Arabic, c. 1300, CC BY-SA 3.0 IGO.",
+      "alt": "Circular brass astrolabe densely engraved with scales, stars, and Judaeo-Arabic inscriptions.",
+      "caption": "Planispheric astrolabe made for an Arabic-speaking Jewish community, probably Spain, c. 1300.",
+      "historicalNote": "The instrument joins rational inquiry, Jewish communal use, and Arabic intellectual language. It was made centuries after Saadia and is not a theological object or his possession.",
+      "likenessStatus": "not-applicable",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/78/Khalili_Collection_Islamic_Art_sci_0158.1.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/7/78/Khalili_Collection_Islamic_Art_sci_0158.1.jpg",
+      "variants": {
+        "scene": {
+          "width": 527,
+          "height": 640
+        },
+        "panel": {
+          "width": 1053,
+          "height": 1280
+        }
+      }
+    },
+    "judah-halevi-kuzari-1796": {
+      "visualCharacter": "place-or-architecture",
+      "mediaKind": "photograph",
+      "title": "Excavations at the Khazar fortress of Sarkel",
+      "creator": "Photographer unrecorded",
+      "objectDate": "1930s",
+      "institution": "M. I. Artamonov archaeological expedition",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Sarkel.jpg",
+      "license": "Public domain — Russia",
+      "licenseUrl": "https://commons.wikimedia.org/wiki/Template:PD-Russia",
+      "rightsKind": "rights-status",
+      "attribution": "Aerial photograph of excavations at Sarkel, 1930s. Public domain.",
+      "alt": "Aerial black-and-white photograph of the excavated walls and rooms of the Khazar fortress at Sarkel.",
+      "caption": "Excavations at Sarkel, a Khazar fortress, 1930s.",
+      "historicalNote": "Khazar archaeology makes the dialogue’s historical frame tangible. Sarkel is not evidence that the Kuzari records an actual conversion dialogue or that Halevi visited the site.",
+      "likenessStatus": "not-applicable",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f6/Sarkel.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f6/Sarkel.jpg",
+      "variants": {
+        "scene": {
+          "width": 640,
+          "height": 487
+        },
+        "panel": {
+          "width": 1280,
+          "height": 973
+        }
+      }
+    },
+    "cairo-geniza-legal-document": {
+      "visualCharacter": "artwork-or-social-scene",
+      "mediaKind": "photograph",
+      "title": "Solomon Schechter studying Cairo Geniza fragments",
+      "creator": "Photographer unrecorded",
+      "objectDate": "c. 1898",
+      "institution": "Cambridge Geniza Collections / Smarthistory reproduction",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Solomon_Schechter_studying_the_fragments_of_the_Cairo_Genizah,_c._1898.jpg",
+      "license": "Public Domain Mark 1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "rightsKind": "rights-status",
+      "attribution": "Solomon Schechter studying Cairo Geniza fragments, c. 1898. Public domain.",
+      "alt": "Solomon Schechter seated at a table surrounded by dense piles of Cairo Geniza fragments.",
+      "caption": "Solomon Schechter studying Cairo Geniza fragments, c. 1898.",
+      "historicalNote": "The photograph turns an isolated legal page back into a mass archive of lived exchange and obligation. It records modern recovery and study, not medieval court or contract practice.",
+      "likenessStatus": "lifetime-photograph",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Solomon_Schechter_studying_the_fragments_of_the_Cairo_Genizah%2C_c._1898.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Solomon_Schechter_studying_the_fragments_of_the_Cairo_Genizah%2C_c._1898.jpg/3840px-Solomon_Schechter_studying_the_fragments_of_the_Cairo_Genizah%2C_c._1898.jpg",
+      "variants": {
+        "scene": {
+          "width": 640,
+          "height": 565
+        },
+        "panel": {
+          "width": 1280,
+          "height": 1130
+        }
+      }
+    },
+    "judah-halevi-divan-geniza": {
+      "visualCharacter": "portrait-or-figure",
+      "mediaKind": "sculpture-photograph",
+      "title": "Modern memorial sculpture of Judah Halevi",
+      "creator": "Sculptor unrecorded; photographed by Raananms",
+      "objectDate": "modern memorial; photographed 2009",
+      "institution": "Ralli Museum 2, Caesarea",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:%D7%A8%D7%99%D7%94%D7%9C_%D7%A8%D7%90%D7%9C%D7%99.jpg",
+      "license": "Public-domain dedication",
+      "licenseUrl": "https://commons.wikimedia.org/wiki/Template:PD-user",
+      "rightsKind": "dedication",
+      "attribution": "Raananms, memorial sculpture of Judah Halevi at the Ralli Museum, 2009. Public-domain dedication.",
+      "alt": "Modern standing sculpture imagining Judah Halevi as a robed poet holding a manuscript roll.",
+      "caption": "Modern memorial sculpture of Judah Halevi, Ralli Museum, Caesarea.",
+      "historicalNote": "No secure historical likeness is known. This modern idealized memorial identifies Halevi as poet and philosopher but is not evidence for his appearance, the Divan, or his sea journey.",
+      "likenessStatus": "imagined",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/42/%D7%A8%D7%99%D7%94%D7%9C_%D7%A8%D7%90%D7%9C%D7%99.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/4/42/%D7%A8%D7%99%D7%94%D7%9C_%D7%A8%D7%90%D7%9C%D7%99.jpg",
+      "variants": {
+        "scene": {
+          "width": 297,
+          "height": 640
+        },
+        "panel": {
+          "width": 595,
+          "height": 1280
+        }
+      }
+    },
+    "scholastic-abelard-apologia-manuscript": {
+      "visualCharacter": "artwork-or-social-scene",
+      "mediaKind": "painting",
+      "title": "Héloïse and Abelard: The Astronomy Lesson",
+      "creator": "Charles Durupt",
+      "objectDate": "c. 1837",
+      "institution": "Collection unrecorded; Galerie Michel Descours digital source",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:DURUPT_H%C3%A9lo%C3%AFse_et_Ab%C3%A9lard_(la_le%C3%A7on_d%27astronomie).jpg",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "rightsKind": "license",
+      "attribution": "Charles Durupt, Héloïse and Abelard: The Astronomy Lesson, c. 1837, CC BY-SA 4.0.",
+      "alt": "Romantic-era painting of Héloïse and Abelard studying an astronomical globe together.",
+      "caption": "Charles Durupt, Héloïse and Abelard: The Astronomy Lesson, c. 1837.",
+      "historicalNote": "The later Romantic reconstruction makes disciplined study visible but depicts astronomy, not the dialectical method of Sic et Non. Héloïse should not be reduced to a passive pupil or the scene treated as medieval evidence.",
+      "likenessStatus": "imagined",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/09/DURUPT_H%C3%A9lo%C3%AFse_et_Ab%C3%A9lard_%28la_le%C3%A7on_d%27astronomie%29.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/0/09/DURUPT_H%C3%A9lo%C3%AFse_et_Ab%C3%A9lard_%28la_le%C3%A7on_d%27astronomie%29.jpg",
+      "variants": {
+        "scene": {
+          "width": 509,
+          "height": 640
+        },
+        "panel": {
+          "width": 1017,
+          "height": 1280
+        }
+      }
+    },
+    "scholastic-heloise-letters": {
+      "visualCharacter": "place-or-architecture",
+      "mediaKind": "engraving",
+      "title": "Abbey of the Paraclete",
+      "creator": "Michel Picquenot after Lazare Bruandet",
+      "objectDate": "1757–1814",
+      "institution": "Rijksmuseum, RP-P-OB-72.305",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Abdij_van_Paraclet,_RP-P-OB-72.305.jpg",
+      "license": "Public Domain Mark 1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "rightsKind": "rights-status",
+      "attribution": "Michel Picquenot after Lazare Bruandet, Abbey of the Paraclete. Rijksmuseum. Public domain.",
+      "alt": "Landscape print of the Abbey of the Paraclete with trees, low buildings, and figures on a road.",
+      "caption": "The Abbey of the Paraclete, later print after Lazare Bruandet.",
+      "historicalNote": "Héloïse governed the Paraclete as abbess, making institutional leadership, community rule, and women’s learning central to her life. The print is later and shows a rebuilt site, not surviving twelfth-century fabric.",
+      "likenessStatus": "not-applicable",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/40/Abdij_van_Paraclet%2C_RP-P-OB-72.305.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Abdij_van_Paraclet%2C_RP-P-OB-72.305.jpg/3840px-Abdij_van_Paraclet%2C_RP-P-OB-72.305.jpg",
+      "variants": {
+        "scene": {
+          "width": 640,
+          "height": 507
+        },
+        "panel": {
+          "width": 1280,
+          "height": 1013
+        }
+      }
+    },
+    "scholastic-aristotle-latin-physics": {
+      "visualCharacter": "artwork-or-social-scene",
+      "mediaKind": "painting",
+      "title": "Triumph of Saint Thomas Aquinas",
+      "creator": "Benozzo Gozzoli",
+      "objectDate": "c. 1470–1475",
+      "imageCreator": "Sailko",
+      "institution": "Musée du Louvre; originally Pisa Cathedral",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Benozzo_gozzoli,_trionfo_di_san_tommaso_d%27aquino,_da_duomo_di_pisa,_1470-75_ca._01.JPG",
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+      "rightsKind": "license",
+      "attribution": "Benozzo Gozzoli, Triumph of Saint Thomas Aquinas, c. 1470–1475; photograph Sailko, CC BY 3.0.",
+      "alt": "Large painted scholastic hierarchy placing Aquinas above Aristotle and Plato while Averroes lies below.",
+      "caption": "Benozzo Gozzoli, Triumph of Saint Thomas Aquinas, c. 1470–1475.",
+      "historicalNote": "The image is evidence of Latin scholasticism constructing a contested genealogy from Greek and Arabic philosophy. Its polemical subordination of Averroes is not a neutral account of translation and reception.",
+      "likenessStatus": "imagined",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/38/Benozzo_gozzoli%2C_trionfo_di_san_tommaso_d%27aquino%2C_da_duomo_di_pisa%2C_1470-75_ca._01.JPG",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/3/38/Benozzo_gozzoli%2C_trionfo_di_san_tommaso_d%27aquino%2C_da_duomo_di_pisa%2C_1470-75_ca._01.JPG",
+      "variants": {
+        "scene": {
+          "width": 317,
+          "height": 640
+        },
+        "panel": {
+          "width": 633,
+          "height": 1280
+        }
+      }
+    },
+    "scholastic-aquinas-summa-basel": {
+      "visualCharacter": "artwork-or-social-scene",
+      "mediaKind": "painting",
+      "title": "Saint Thomas Aquinas in disputation",
+      "creator": "Bartolomeo degli Erri",
+      "objectDate": "c. 1470",
+      "imageCreator": "Sailko",
+      "institution": "Fine Arts Museums of San Francisco, 61.44.10",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Bartolomeo_degli_erri,_san_tommaso_d%27aquino_dibatte_con_gli_eretici,_1465_ca..JPG",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "rightsKind": "license",
+      "attribution": "Bartolomeo degli Erri, Saint Thomas Aquinas in disputation, c. 1470; photograph Sailko, CC BY-SA 3.0.",
+      "alt": "Renaissance panel painting of Aquinas speaking in a crowded formal disputation.",
+      "caption": "Bartolomeo degli Erri, Saint Thomas Aquinas in disputation, c. 1470.",
+      "historicalNote": "The later hagiographic scene makes objections, counterargument, and response visible as public discipline. The source title’s label “heretics” is historically loaded and is not endorsed by the exhibit.",
+      "likenessStatus": "imagined",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/34/Bartolomeo_degli_erri%2C_san_tommaso_d%27aquino_dibatte_con_gli_eretici%2C_1465_ca..JPG",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/3/34/Bartolomeo_degli_erri%2C_san_tommaso_d%27aquino_dibatte_con_gli_eretici%2C_1465_ca..JPG",
+      "variants": {
+        "scene": {
+          "width": 513,
+          "height": 640
+        },
+        "panel": {
+          "width": 1026,
+          "height": 1280
+        }
+      }
+    },
+    "scholastic-aquinas-summa-1482": {
+      "visualCharacter": "artwork-or-social-scene",
+      "mediaKind": "drawing",
+      "title": "Saint Thomas Aquinas Presenting His Work to the Crucified Christ",
+      "creator": "Santi di Tito",
+      "objectDate": "c. 1593",
+      "institution": "The Metropolitan Museum of Art, 1984.237",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:St._Thomas_Aquinas_Presenting_His_Work_to_the_Crucified_Christ_MET_DP811542.jpg",
+      "license": "CC0 1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "rightsKind": "dedication",
+      "attribution": "Santi di Tito, Saint Thomas Aquinas Presenting His Work to the Crucified Christ, c. 1593. The Metropolitan Museum of Art, CC0.",
+      "alt": "Large preparatory drawing of Aquinas kneeling and presenting a book before the crucified Christ.",
+      "caption": "Santi di Tito, Saint Thomas Aquinas Presenting His Work to the Crucified Christ, c. 1593.",
+      "historicalNote": "This later devotional reception image places intellectual labor before its theological horizon. It does not visually prove essence, existence, participation, or analogy.",
+      "likenessStatus": "imagined",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e6/St._Thomas_Aquinas_Presenting_His_Work_to_the_Crucified_Christ_MET_DP811542.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e6/St._Thomas_Aquinas_Presenting_His_Work_to_the_Crucified_Christ_MET_DP811542.jpg",
+      "variants": {
+        "scene": {
+          "width": 464,
+          "height": 640
+        },
+        "panel": {
+          "width": 928,
+          "height": 1280
+        }
+      }
+    },
+    "scholastic-aquinas-summa-1477": {
+      "visualCharacter": "artwork-or-social-scene",
+      "mediaKind": "painting",
+      "title": "Allegory of the Cardinal Virtues",
+      "creator": "Raphael",
+      "objectDate": "1511",
+      "institution": "Vatican Museums, Stanza della Segnatura",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Raffael_054.jpg",
+      "license": "Public Domain Mark 1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "rightsKind": "rights-status",
+      "attribution": "Raphael, Allegory of the Cardinal Virtues, 1511. Vatican Museums. Public domain.",
+      "alt": "Raphael fresco of personified Prudence, Fortitude, and Temperance in an architectural lunette.",
+      "caption": "Raphael, Allegory of the Cardinal Virtues, 1511.",
+      "historicalNote": "This later virtue architecture supports the exhibit’s insistence that natural law sits inside a broader account of practical reason and character. It is not an illustration commissioned by Aquinas.",
+      "likenessStatus": "not-applicable",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f2/Raffael_054.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Raffael_054.jpg/3840px-Raffael_054.jpg",
+      "variants": {
+        "scene": {
+          "width": 640,
+          "height": 194
+        },
+        "panel": {
+          "width": 1280,
+          "height": 387
+        }
+      }
+    },
+    "scholastic-marsilius-defensor": {
+      "visualCharacter": "artwork-or-social-scene",
+      "mediaKind": "painting",
+      "title": "Dedication scene from Defensor pacis",
+      "creator": "Anonymous illuminator",
+      "objectDate": "fifteenth century",
+      "institution": "Bibliothèque nationale de France, Latin 14620, fol. 3r",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Marsilius,_Defensor_pacis,_Paris,_Lat._14620.jpg",
+      "license": "Public Domain Mark 1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "rightsKind": "rights-status",
+      "attribution": "Dedication miniature from Defensor pacis, fifteenth century. Bibliothèque nationale de France. Public domain.",
+      "alt": "Illuminated dedication scene showing a kneeling author presenting a book to an enthroned ruler.",
+      "caption": "Dedication scene from a fifteenth-century manuscript of Defensor pacis.",
+      "historicalNote": "This pictorial witness comes from the exact work but is later than Marsilius. Its figures are presented as a dedication scene, not securely identified lifetime portraits.",
+      "likenessStatus": "imagined",
+      "cropBox": [
+        0.1,
+        0.09,
+        0.76,
+        0.58
+      ],
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/02/Marsilius%2C_Defensor_pacis%2C_Paris%2C_Lat._14620.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/0/02/Marsilius%2C_Defensor_pacis%2C_Paris%2C_Lat._14620.jpg",
+      "variants": {
+        "scene": {
+          "width": 640,
+          "height": 615
+        },
+        "panel": {
+          "width": 928,
+          "height": 892
+        }
+      }
+    },
+    "scholastic-eckhart-recantation": {
+      "visualCharacter": "portrait-or-figure",
+      "mediaKind": "painting",
+      "title": "Pope John XXII",
+      "creator": "Giuseppe Franchi",
+      "objectDate": "1613",
+      "institution": "Pinacoteca Ambrosiana, inv. 1426",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Portrait_of_Pope_John_XXII_Dueze_(by_Giuseppe_Franchi)_%E2%80%93_Pinacoteca_Ambrosiana.jpg",
+      "license": "Public Domain Mark 1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "rightsKind": "rights-status",
+      "attribution": "Giuseppe Franchi, Portrait of Pope John XXII, 1613. Pinacoteca Ambrosiana. Public domain.",
+      "alt": "Seventeenth-century retrospective portrait of Pope John XXII in papal robes.",
+      "caption": "Giuseppe Franchi, retrospective portrait of Pope John XXII, 1613.",
+      "historicalNote": "John XXII issued the posthumous condemnation of propositions associated with Eckhart and also figured in disputes involving Ockham and Marsilius. This portrait was made centuries later and is not a likeness from life.",
+      "likenessStatus": "posthumous-portrait",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/be/Portrait_of_Pope_John_XXII_Dueze_%28by_Giuseppe_Franchi%29_%E2%80%93_Pinacoteca_Ambrosiana.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/b/be/Portrait_of_Pope_John_XXII_Dueze_%28by_Giuseppe_Franchi%29_%E2%80%93_Pinacoteca_Ambrosiana.jpg",
+      "variants": {
+        "scene": {
+          "width": 485,
+          "height": 640
+        },
+        "panel": {
+          "width": 971,
+          "height": 1280
+        }
+      }
+    },
+    "scholastic-boethius-topics": {
+      "visualCharacter": "artwork-or-social-scene",
+      "mediaKind": "painting",
+      "title": "Philosophy Presenting the Seven Liberal Arts to Boethius",
+      "creator": "Coëtivy Master, possibly Henri de Vulcop",
+      "objectDate": "c. 1460–1470",
+      "institution": "J. Paul Getty Museum",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Co%C3%ABtivy_Master_(Henri_de_Vulcop%3F)_(French,_active_about_1450_-_1485)_-_Philosophy_Presenting_the_Seven_Liberal_Arts_to_Boethius_-_Google_Art_Project.jpg",
+      "license": "Public Domain Mark 1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "rightsKind": "rights-status",
+      "attribution": "Coëtivy Master, Philosophy Presenting the Seven Liberal Arts to Boethius, c. 1460–1470. J. Paul Getty Museum. Public domain.",
+      "alt": "Illuminated scene of Philosophy introducing personifications of the seven liberal arts to Boethius.",
+      "caption": "Philosophy Presenting the Seven Liberal Arts to Boethius, c. 1460–1470.",
+      "historicalNote": "The later imagined scene precisely visualizes Boethius’s curricular afterlife across grammar, rhetoric, logic, arithmetic, geometry, music, and astronomy.",
+      "likenessStatus": "imagined",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/72/Co%C3%ABtivy_Master_%28Henri_de_Vulcop%3F%29_%28French%2C_active_about_1450_-_1485%29_-_Philosophy_Presenting_the_Seven_Liberal_Arts_to_Boethius_-_Google_Art_Project.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Co%C3%ABtivy_Master_%28Henri_de_Vulcop%3F%29_%28French%2C_active_about_1450_-_1485%29_-_Philosophy_Presenting_the_Seven_Liberal_Arts_to_Boethius_-_Google_Art_Project.jpg/3840px-Co%C3%ABtivy_Master_%28Henri_de_Vulcop%3F%29_%28French%2C_active_about_1450_-_1485%29_-_Philosophy_Presenting_the_Seven_Liberal_Arts_to_Boethius_-_Google_Art_Project.jpg",
+      "variants": {
+        "scene": {
+          "width": 640,
+          "height": 257
+        },
+        "panel": {
+          "width": 1280,
+          "height": 514
+        }
+      }
+    },
+    "scholastic-eriugena-periphyseon": {
+      "visualCharacter": "artwork-or-social-scene",
+      "mediaKind": "painting",
+      "title": "Charles the Bald surrounded by courtiers",
+      "creator": "Monks of Saint-Martin of Tours",
+      "objectDate": "851",
+      "institution": "Bibliothèque nationale de France, Latin 1",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:CharlestheBald_Vivian_Bible.png",
+      "license": "Public Domain Mark 1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "rightsKind": "rights-status",
+      "attribution": "Charles the Bald and courtiers, Vivian Bible, 851. Bibliothèque nationale de France. Public domain.",
+      "alt": "Carolingian dedication image of Charles the Bald enthroned among attendants beneath an architectural canopy.",
+      "caption": "Charles the Bald and his court in the Vivian Bible, 851.",
+      "historicalNote": "The period image anchors the royal court and patronage context of Eriugena’s translation and philosophical work. It does not depict Eriugena.",
+      "likenessStatus": "not-applicable",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e0/CharlestheBald_Vivian_Bible.png",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e0/CharlestheBald_Vivian_Bible.png",
+      "variants": {
+        "scene": {
+          "width": 481,
+          "height": 640
+        },
+        "panel": {
+          "width": 962,
+          "height": 1280
+        }
+      }
+    },
+    "epicurean-tetrapharmakos": {
+      "visualCharacter": "material-object",
+      "mediaKind": "photograph",
+      "title": "Fragment of Diogenes of Oenoanda’s Epicurean inscription",
+      "creator": "Ancient cutter unrecorded; photographed by Procopius",
+      "objectDate": "second century CE; photographed 2010",
+      "institution": "Oenoanda inscription fragment; holding location unrecorded",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:OinoandaInscription.JPG",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "rightsKind": "license",
+      "attribution": "Procopius, fragment of the Oenoanda inscription, 2010, CC BY-SA 3.0.",
+      "alt": "Weathered stone fragment carved with lines of the monumental Epicurean inscription at Oenoanda.",
+      "caption": "Fragment of Diogenes of Oenoanda’s monumental Epicurean inscription.",
+      "historicalNote": "The public stone inscription shows Epicurean teaching compressed for wide display, a material analogue for portable philosophical therapy. This fragment does not contain the tetrapharmakos wording itself.",
+      "likenessStatus": "not-applicable",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1a/OinoandaInscription.JPG",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1a/OinoandaInscription.JPG",
+      "variants": {
+        "scene": {
+          "width": 480,
+          "height": 640
+        },
+        "panel": {
+          "width": 960,
+          "height": 1280
+        }
+      }
+    },
+    "epicurean-philodemus-subscription": {
+      "visualCharacter": "material-object",
+      "mediaKind": "sculpture-photograph",
+      "title": "Athena Promachos from the Villa of the Papyri",
+      "creator": "Roman sculptor unrecorded; photographed by Carole Raddato",
+      "objectDate": "Roman period; photographed 2014",
+      "institution": "National Archaeological Museum, Naples",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:From_the_Villa_of_the_Papyri_in_Herculaneum,_Naples_National_Archaeological_Museum_(49439110928).jpg",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "rightsKind": "license",
+      "attribution": "Carole Raddato, Athena Promachos from the Villa of the Papyri, 2014, CC BY-SA 2.0.",
+      "alt": "Monumental bronze-colored statue of Athena recovered from the Villa of the Papyri.",
+      "caption": "Athena Promachos from the Villa of the Papyri, National Archaeological Museum, Naples.",
+      "historicalNote": "The statue anchors the elite Roman villa and library environment in which Philodemus’s rolls survived. It is not Philodemus, does not identify a papyrus author, and should not be mistaken for an Epicurean cult image.",
+      "likenessStatus": "not-applicable",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/75/From_the_Villa_of_the_Papyri_in_Herculaneum%2C_Naples_National_Archaeological_Museum_%2849439110928%29.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/7/75/From_the_Villa_of_the_Papyri_in_Herculaneum%2C_Naples_National_Archaeological_Museum_%2849439110928%29.jpg",
+      "variants": {
+        "scene": {
+          "width": 424,
+          "height": 640
+        },
+        "panel": {
+          "width": 848,
+          "height": 1280
+        }
+      }
+    },
+    "epicurean-herculaneum-papyrus": {
+      "visualCharacter": "map-or-diagram",
+      "mediaKind": "engraving",
+      "title": "Antonio Piaggio’s machine for unrolling Herculaneum papyri",
+      "creator": "Giacomo Castrucci",
+      "objectDate": "1858, depicting an eighteenth-century device",
+      "institution": "Tesoro letterario di Ercolano / Internet Archive scan",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Abbot_Piaggios_machine_Device-to-unroll-papyri_1756_Vatican.jpg",
+      "license": "Public Domain Mark 1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "rightsKind": "rights-status",
+      "attribution": "Giacomo Castrucci, Piaggio’s machine for unrolling papyri, 1858. Public domain.",
+      "alt": "Technical engraving of a long mechanical apparatus designed to unroll carbonized papyrus slowly.",
+      "caption": "Antonio Piaggio’s apparatus for unrolling Herculaneum papyri, illustrated in 1858.",
+      "historicalNote": "The device belongs to the scientific and conservation afterlife of the Villa’s library. Mechanical unrolling exposed texts but could damage the fragile rolls, before modern noninvasive imaging.",
+      "likenessStatus": "not-applicable",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Abbot_Piaggios_machine_Device-to-unroll-papyri_1756_Vatican.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Abbot_Piaggios_machine_Device-to-unroll-papyri_1756_Vatican.jpg",
+      "variants": {
+        "scene": {
+          "width": 414,
+          "height": 640
+        },
+        "panel": {
+          "width": 663,
+          "height": 1024
+        }
+      }
+    },
+    "skeptical-sextus-adversus-edition": {
+      "visualCharacter": "artwork-or-social-scene",
+      "mediaKind": "engraving",
+      "title": "Pyrrho of Elis in a storm",
+      "creator": "Master of Petrarch, attribution uncertain",
+      "objectDate": "first quarter of the sixteenth century",
+      "institution": "Bavarian State Painting Collections, acc. 3688",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Petrarca-Meister_001.jpg",
+      "license": "Public Domain Mark 1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "rightsKind": "rights-status",
+      "attribution": "Master of Petrarch, Pyrrho of Elis in a Storm, early sixteenth century. Bavarian State Painting Collections. Public domain.",
+      "alt": "Woodcut of sailors struggling in a storm while Pyrrho points to a calm pig eating on deck.",
+      "caption": "Pyrrho of Elis in a storm, early sixteenth-century reception image.",
+      "historicalNote": "The scene visualizes an anecdote transmitted by Sextus about Pyrrho, appearances, and tranquility. It is a much later imagined episode, not an ancient portrait or proof that the event occurred.",
+      "likenessStatus": "imagined",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d0/Petrarca-Meister_001.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d0/Petrarca-Meister_001.jpg",
+      "variants": {
+        "scene": {
+          "width": 640,
+          "height": 468
+        },
+        "panel": {
+          "width": 1280,
+          "height": 936
+        }
+      }
+    },
+    "pseudo-dionysius-opera-1556": {
+      "visualCharacter": "artwork-or-social-scene",
+      "mediaKind": "painting",
+      "title": "Saint Paul Preaching at Athens",
+      "creator": "Raphael",
+      "objectDate": "c. 1515–1516",
+      "institution": "Victoria and Albert Museum, Royal Collection loan, Royal Loans.7",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:V%26A_-_Raphael,_St_Paul_Preaching_in_Athens_(1515).jpg",
+      "license": "Public Domain Mark 1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "rightsKind": "rights-status",
+      "attribution": "Raphael, Saint Paul Preaching at Athens, c. 1515–1516. Royal Collection / V&A. Public domain.",
+      "alt": "Raphael cartoon of Paul preaching before a varied Athenian crowd among classical buildings.",
+      "caption": "Raphael, Saint Paul Preaching at Athens, c. 1515–1516.",
+      "historicalNote": "Acts 17 supplies the setting and apostolic identity later assumed by the author called Pseudo-Dionysius. The cartoon is not a portrait of that late-antique author or evidence for the apophatic system.",
+      "likenessStatus": "not-applicable",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/56/V%26A_-_Raphael%2C_St_Paul_Preaching_in_Athens_%281515%29.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/5/56/V%26A_-_Raphael%2C_St_Paul_Preaching_in_Athens_%281515%29.jpg",
+      "variants": {
+        "scene": {
+          "width": 640,
+          "height": 493
+        },
+        "panel": {
+          "width": 1280,
+          "height": 985
+        }
+      }
+    },
+    "late-celestial-hierarchy-manuscript": {
+      "visualCharacter": "artwork-or-social-scene",
+      "mediaKind": "painting",
+      "title": "The Nine Choirs of Angels",
+      "creator": "Dirc van Delft",
+      "objectDate": "1400–1404",
+      "institution": "Walters Art Museum, MS W.171",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Dirc_van_Delft_-_The_Nine_Choirs_of_Angels_-_Walters_W1716V_-_Full_Page.jpg",
+      "license": "Public Domain Mark 1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "rightsKind": "rights-status",
+      "attribution": "Dirc van Delft, The Nine Choirs of Angels, 1400–1404. Walters Art Museum. Public domain.",
+      "alt": "Illuminated miniature arranging nine distinct choirs of angels in ordered ranks around the divine.",
+      "caption": "Dirc van Delft, The Nine Choirs of Angels, 1400–1404.",
+      "historicalNote": "The fully pictorial hierarchy shows a major medieval reception of Dionysian angelic order. It was made centuries later and is not an image by Pseudo-Dionysius.",
+      "likenessStatus": "not-applicable",
+      "cropBox": [
+        0.14,
+        0.12,
+        0.64,
+        0.52
+      ],
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/54/Dirc_van_Delft_-_The_Nine_Choirs_of_Angels_-_Walters_W1716V_-_Full_Page.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/5/54/Dirc_van_Delft_-_The_Nine_Choirs_of_Angels_-_Walters_W1716V_-_Full_Page.jpg",
+      "variants": {
+        "scene": {
+          "width": 579,
+          "height": 640
+        },
+        "panel": {
+          "width": 648,
+          "height": 716
+        }
+      }
+    },
+    "late-proclus-elements-latin": {
+      "visualCharacter": "portrait-or-figure",
+      "mediaKind": "engraving",
+      "title": "Francesco Patrizi",
+      "creator": "Engraver unrecorded",
+      "objectDate": "portrait dated 1580; printed 1581",
+      "institution": "Discussiones peripateticae; holding institution unrecorded",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Francesco_Patrizi_1580.jpg",
+      "license": "Public Domain Mark 1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "rightsKind": "rights-status",
+      "attribution": "Francesco Patrizi, early printed portrait dated 1580. Public domain.",
+      "alt": "Oval engraved lifetime portrait of Renaissance philosopher Francesco Patrizi.",
+      "caption": "Francesco Patrizi, lifetime portrait dated 1580.",
+      "historicalNote": "Patrizi’s edition and translation helped carry Proclus into Renaissance Latin print. The engraver and holding institution are unrecorded on the source page; this is an afterlife image, not a portrait of Proclus.",
+      "likenessStatus": "lifetime-portrait",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4d/Francesco_Patrizi_1580.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4d/Francesco_Patrizi_1580.jpg",
+      "variants": {
+        "scene": {
+          "width": 503,
+          "height": 640
+        },
+        "panel": {
+          "width": 1005,
+          "height": 1280
+        }
+      }
+    },
+    "proclus-platonic-theology-manuscript": {
+      "visualCharacter": "portrait-or-figure",
+      "mediaKind": "sculpture-photograph",
+      "title": "Portrait of an Athenian Neoplatonist, probably Plutarch of Athens",
+      "creator": "Ancient sculptor unrecorded",
+      "objectDate": "early fifth century CE; photographed 10 June 2022",
+      "imageCreator": "Zde",
+      "institution": "Acropolis Museum, Acr. 1313",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Portrait_of_philosopher,_early_5th_c_AD,_224977.jpg",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "rightsKind": "license",
+      "attribution": "Portrait of an Athenian philosopher, probably Plutarch of Athens, early fifth century CE. Acropolis Museum; photograph by Zde, CC BY-SA 4.0.",
+      "alt": "Marble portrait head of an early fifth-century Athenian philosopher, probably the Neoplatonist Plutarch of Athens.",
+      "caption": "Early fifth-century Athenian philosopher, probably Plutarch of Athens.",
+      "historicalNote": "The identification as Plutarch of Athens is probable, not certain. Plutarch revived the Athenian Neoplatonist school and preceded Syrianus, Proclus’s teacher; the portrait evokes Proclus’s immediate intellectual lineage rather than depicting Proclus or illustrating the Platonic Theology’s arguments.",
+      "likenessStatus": "uncertain",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Portrait_of_philosopher%2C_early_5th_c_AD%2C_224977.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Portrait_of_philosopher%2C_early_5th_c_AD%2C_224977.jpg",
+      "variants": {
+        "scene": {
+          "width": 426,
+          "height": 640
+        },
+        "panel": {
+          "width": 852,
+          "height": 1280
+        }
+      }
+    },
+    "rationalism-discourse-first-edition": {
+      "visualCharacter": "map-or-diagram",
+      "mediaKind": "drawing",
+      "title": "Descartes’s diagram of rainbow formation",
+      "creator": "René Descartes and an unrecorded engraver",
+      "objectDate": "1637",
+      "institution": "Les Météores in the original Discourse volume",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Descartes_Rainbow.png",
+      "license": "Public Domain Mark 1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "rightsKind": "rights-status",
+      "attribution": "René Descartes, diagram of rainbow formation from Les Météores, 1637. Public domain.",
+      "alt": "Historical optical diagram tracing rays through a circular water drop to explain rainbow formation.",
+      "caption": "Descartes’s diagram of rainbow formation in Les Météores, 1637.",
+      "historicalNote": "The diagram comes from one of the scientific essays published with the Discourse and keeps method connected to geometry, observation, and refraction. It is historical evidence, not a modern decorative analogy.",
+      "likenessStatus": "not-applicable",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/bb/Descartes_Rainbow.png",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Descartes_Rainbow.png/3840px-Descartes_Rainbow.png",
+      "variants": {
+        "scene": {
+          "width": 640,
+          "height": 564
+        },
+        "panel": {
+          "width": 1280,
+          "height": 1128
+        }
+      }
+    },
+    "rationalism-leibniz-correspondence": {
+      "visualCharacter": "portrait-or-figure",
+      "mediaKind": "engraving",
+      "title": "Antoine Arnauld at his writing desk",
+      "creator": "Antoine Trouvain",
+      "objectDate": "1694",
+      "institution": "Rijksmuseum, RP-P-OB-74.574",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Portret_van_Antoine_Arnauld_aan_een_bureau,_RP-P-OB-74.574.jpg",
+      "license": "CC0 1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "rightsKind": "dedication",
+      "attribution": "Antoine Trouvain, Antoine Arnauld at his writing desk, 1694. Rijksmuseum, CC0.",
+      "alt": "Engraved portrait of Antoine Arnauld seated at a desk with writing implements and papers.",
+      "caption": "Antoine Arnauld at his writing desk, 1694.",
+      "historicalNote": "Arnauld was an actual correspondent whose objections shaped Leibniz’s mature account of individual substance. The visible paper is not identified as a Leibniz letter and the image does not diagram pre-established harmony.",
+      "likenessStatus": "lifetime-portrait",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/df/Portret_van_Antoine_Arnauld_aan_een_bureau%2C_RP-P-OB-74.574.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/d/df/Portret_van_Antoine_Arnauld_aan_een_bureau%2C_RP-P-OB-74.574.jpg",
+      "variants": {
+        "scene": {
+          "width": 418,
+          "height": 640
+        },
+        "panel": {
+          "width": 837,
+          "height": 1280
+        }
+      }
+    },
+    "rationalism-leibniz-new-essays": {
+      "visualCharacter": "portrait-or-figure",
+      "mediaKind": "painting",
+      "title": "John Locke",
+      "creator": "Godfrey Kneller",
+      "objectDate": "1697",
+      "institution": "State Hermitage Museum, GE-1345",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:%27John_Locke%27_by_Godfrey_Kneller,_1697,_Hermitage.JPG",
+      "license": "Public Domain Mark 1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "rightsKind": "rights-status",
+      "attribution": "Godfrey Kneller, John Locke, 1697. State Hermitage Museum. Public domain.",
+      "alt": "Lifetime portrait of John Locke in a brown mantle against a dark background.",
+      "caption": "Godfrey Kneller, John Locke, 1697—the interlocutor answered by Leibniz’s New Essays.",
+      "historicalNote": "The New Essays is a sustained response to Locke’s Essay, making Locke the work’s direct interlocutor. His portrait does not itself illustrate innate dispositions.",
+      "likenessStatus": "lifetime-portrait",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5b/%27John_Locke%27_by_Godfrey_Kneller%2C_1697%2C_Hermitage.JPG",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5b/%27John_Locke%27_by_Godfrey_Kneller%2C_1697%2C_Hermitage.JPG",
+      "variants": {
+        "scene": {
+          "width": 494,
+          "height": 640
+        },
+        "panel": {
+          "width": 987,
+          "height": 1280
+        }
+      }
+    },
+    "rationalism-tractatus-manuscript-note": {
+      "visualCharacter": "artwork-or-social-scene",
+      "mediaKind": "painting",
+      "title": "Interior of the Portuguese Synagogue in Amsterdam",
+      "creator": "Emanuel de Witte",
+      "objectDate": "1680",
+      "institution": "Rijksmuseum, SK-A-3738",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Interieur_van_de_Portugese_synagoge_te_Amsterdam_Rijksmuseum_SK-A-3738.jpeg",
+      "license": "CC0 1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "rightsKind": "dedication",
+      "attribution": "Emanuel de Witte, Interior of the Portuguese Synagogue in Amsterdam, 1680. Rijksmuseum, CC0.",
+      "alt": "Sunlit painting of worshippers and visitors inside Amsterdam’s Portuguese Synagogue.",
+      "caption": "Emanuel de Witte, Interior of the Portuguese Synagogue in Amsterdam, 1680.",
+      "historicalNote": "The painting supplies Amsterdam’s Jewish and scriptural setting for debates over authority and toleration. The synagogue opened after Spinoza’s herem and the work postdates the 1670 Tractatus; it depicts neither Spinoza nor his manuscript.",
+      "likenessStatus": "not-applicable",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/68/Interieur_van_de_Portugese_synagoge_te_Amsterdam_Rijksmuseum_SK-A-3738.jpeg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Interieur_van_de_Portugese_synagoge_te_Amsterdam_Rijksmuseum_SK-A-3738.jpeg/3840px-Interieur_van_de_Portugese_synagoge_te_Amsterdam_Rijksmuseum_SK-A-3738.jpeg",
+      "variants": {
+        "scene": {
+          "width": 568,
+          "height": 640
+        },
+        "panel": {
+          "width": 1137,
+          "height": 1280
+        }
+      }
+    },
+    "rationalism-conway-principia": {
+      "visualCharacter": "portrait-or-figure",
+      "mediaKind": "painting",
+      "title": "Franciscus Mercurius van Helmont",
+      "creator": "Peter Lely",
+      "objectDate": "1670–1671",
+      "institution": "Tate, N03583",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Peter_Lely_(1618-1680)_-_Frans_Mercurius_van_Helmont_-_N03583_-_National_Gallery.jpg",
+      "license": "Public Domain Mark 1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "rightsKind": "rights-status",
+      "attribution": "Peter Lely, Franciscus Mercurius van Helmont, 1670–1671. Tate. Public domain.",
+      "alt": "Lifetime portrait of Franciscus Mercurius van Helmont in dark robes with long hair.",
+      "caption": "Peter Lely, Franciscus Mercurius van Helmont, 1670–1671.",
+      "historicalNote": "Van Helmont was Conway’s physician and intellectual companion and prepared her notes for posthumous anonymous publication. He is not Anne Conway, must not displace her authorship, and should not be called the sole translator without qualification.",
+      "likenessStatus": "lifetime-portrait",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c8/Peter_Lely_%281618-1680%29_-_Frans_Mercurius_van_Helmont_-_N03583_-_National_Gallery.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c8/Peter_Lely_%281618-1680%29_-_Frans_Mercurius_van_Helmont_-_N03583_-_National_Gallery.jpg",
+      "variants": {
+        "scene": {
+          "width": 513,
+          "height": 640
+        },
+        "panel": {
+          "width": 961,
+          "height": 1200
+        }
+      }
+    }
   },
   "retainedTextDominantOrSingleBookAssetIds": [
     "aristotle-athenian-constitution-papyrus",

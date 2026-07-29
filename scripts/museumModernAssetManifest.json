@@ -21,25 +21,24 @@
     },
     "machiavelli-prince-1532": {
       "hallFolder": "renaissance-reason-revolution",
-      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Machiavelli_Il_principe_1532_title_page.jpg",
-      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f6/Machiavelli_Il_principe_1532_title_page.jpg",
-      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f6/Machiavelli_Il_principe_1532_title_page.jpg",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Cesareborgia.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/96/Cesareborgia.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/9/96/Cesareborgia.jpg",
       "scene": {
-        "width": 411,
+        "width": 525,
         "height": 640,
-        "bytes": 13686,
-        "sha256": "05dce3a4a06f089a510de68be22f8ccc842e56a9026cd236cdde8725e2f4d89e"
+        "bytes": 82728,
+        "sha256": "5fd4b8686a264f89d25c969ab03ef97fcf0b4fd6e8dc711d6fb1df28790f8e1c"
       },
       "panel": {
-        "width": 457,
-        "height": 712,
-        "bytes": 15608,
-        "sha256": "7aa0a5429d5402328afcd3e7904ed76634a685f866c4dd3a9c929704082d199c"
+        "width": 1050,
+        "height": 1280,
+        "bytes": 428844,
+        "sha256": "d55d3146efcdb32452bf0bfe3947b9714af841175ef875ff7d950123117cdb6f"
       },
-      "visualCharacter": "contextual-composite",
+      "visualCharacter": "portrait-or-figure",
       "textDominantOrSingleBook": false,
-      "contextualCompositeVersion": 1,
-      "contextualCompositeMotif": "fortress-choice"
+      "standaloneReplacementVersion": 1
     },
     "descartes-hals-portrait": {
       "hallFolder": "renaissance-reason-revolution",
@@ -673,25 +672,24 @@
     },
     "russell-on-denoting-1905": {
       "hallFolder": "logic-language-science",
-      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:On_Denoting.jpg",
-      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/bb/On_Denoting.jpg",
-      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/b/bb/On_Denoting.jpg",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Honourable_Bertrand_Russell.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Honourable_Bertrand_Russell.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Honourable_Bertrand_Russell.jpg",
       "scene": {
-        "width": 360,
+        "width": 432,
         "height": 640,
-        "bytes": 13944,
-        "sha256": "373f0845fd87a947987a95cd9b50d70946ac571bfa56592bd24d88e7602801a3"
+        "bytes": 44208,
+        "sha256": "7c72ca3362149d9e39d4824574f3ced97aaa88e4e7d23d062a875c9a3a298971"
       },
       "panel": {
-        "width": 720,
+        "width": 864,
         "height": 1280,
-        "bytes": 34976,
-        "sha256": "24003c986bab6ac4afdaa37fef5acbea16558832b2d51ab442d2b2b1f696b22e"
+        "bytes": 176420,
+        "sha256": "746f44124a7e5fb0b8cdca87c33a04627f4a4312c1c518b268f82d623078e191"
       },
-      "visualCharacter": "contextual-composite",
+      "visualCharacter": "portrait-or-figure",
       "textDominantOrSingleBook": false,
-      "contextualCompositeVersion": 1,
-      "contextualCompositeMotif": "description-crown"
+      "standaloneReplacementVersion": 1
     },
     "dewey-portrait-1902": {
       "hallFolder": "logic-language-science",
@@ -857,25 +855,24 @@
     },
     "kuhn-structure-1962": {
       "hallFolder": "logic-language-science",
-      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:The_Structure_of_Scientific_Revolutions_2nd_edition_Thomas_Kuhn.jpg",
-      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a4/The_Structure_of_Scientific_Revolutions_2nd_edition_Thomas_Kuhn.jpg",
-      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a4/The_Structure_of_Scientific_Revolutions_2nd_edition_Thomas_Kuhn.jpg",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:PLANISPH%C3%86RIVM_COPERNICANVM_(CBL_Rare_Books_AI788,_plate_22).jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b0/PLANISPH%C3%86RIVM_COPERNICANVM_%28CBL_Rare_Books_AI788%2C_plate_22%29.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/PLANISPH%C3%86RIVM_COPERNICANVM_%28CBL_Rare_Books_AI788%2C_plate_22%29.jpg/3840px-PLANISPH%C3%86RIVM_COPERNICANVM_%28CBL_Rare_Books_AI788%2C_plate_22%29.jpg",
       "scene": {
-        "width": 480,
-        "height": 640,
-        "bytes": 18294,
-        "sha256": "82e4c297a2cff28f938b14033a873c707ed63e787fa1875e3a165c431820ace1"
+        "width": 640,
+        "height": 513,
+        "bytes": 90578,
+        "sha256": "0b32534afee3c26979fc6fb65dea802b4af06ae16f6186c330740d60bf87ef7e"
       },
       "panel": {
-        "width": 867,
-        "height": 1156,
-        "bytes": 37434,
-        "sha256": "d49c17429a6178cf88458e032ef9768c65d617b6cbc0d7e934341a5341e12f00"
+        "width": 1280,
+        "height": 1027,
+        "bytes": 455348,
+        "sha256": "83bc7e434339f7e5a02fd1118aa67cf30c1a11965bac458f170ab35ecfdfc9ef"
       },
-      "visualCharacter": "contextual-composite",
+      "visualCharacter": "map-or-diagram",
       "textDominantOrSingleBook": false,
-      "contextualCompositeVersion": 1,
-      "contextualCompositeMotif": "paradigm-shift"
+      "standaloneReplacementVersion": 1
     },
     "bentham-pickering-portrait": {
       "hallFolder": "ethics-justice-political-life",
@@ -1113,25 +1110,24 @@
     },
     "nozick-anarchy-state-utopia-1974": {
       "hallFolder": "ethics-justice-political-life",
-      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Anarchy,_State,_and_Utopia_(first_edition).JPG",
-      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b7/Anarchy%2C_State%2C_and_Utopia_%28first_edition%29.JPG",
-      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b7/Anarchy%2C_State%2C_and_Utopia_%28first_edition%29.JPG",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Wilt_Chamberlain.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/57/Wilt_Chamberlain.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/5/57/Wilt_Chamberlain.jpg",
       "scene": {
-        "width": 432,
+        "width": 506,
         "height": 640,
-        "bytes": 14308,
-        "sha256": "55aa6cef8e5e47a8e17466e7ff921b37ada5aad06d293d3e6303d5755a906d39"
+        "bytes": 35014,
+        "sha256": "6afb33ef854567cb4657043f2bf11ecf522b9b1f1893c0156cb64c08e9e7ae07"
       },
       "panel": {
-        "width": 644,
-        "height": 954,
-        "bytes": 23338,
-        "sha256": "0f9ab99676b4f3e4b15c1a47aa838954d092f2143f6eace709c04246318b759a"
+        "width": 1012,
+        "height": 1280,
+        "bytes": 159018,
+        "sha256": "8741ba0973e7461b8b780f3fbd5032faf0abe4dae95102fbb23243cc7f60a7f9"
       },
-      "visualCharacter": "contextual-composite",
+      "visualCharacter": "portrait-or-figure",
       "textDominantOrSingleBook": false,
-      "contextualCompositeVersion": 1,
-      "contextualCompositeMotif": "exchange-entitlement"
+      "standaloneReplacementVersion": 1
     },
     "habermas-portrait": {
       "hallFolder": "ethics-justice-political-life",
@@ -1369,25 +1365,24 @@
     },
     "anscombe-philosophical-investigations-1953": {
       "hallFolder": "mind-consciousness-self",
-      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Ludwig_Wittgenstein_-_Philosophical_Investigations,_1953.jpg",
-      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/92/Ludwig_Wittgenstein_-_Philosophical_Investigations%2C_1953.jpg",
-      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/9/92/Ludwig_Wittgenstein_-_Philosophical_Investigations%2C_1953.jpg",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Wittgenstein_Skjolden.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Wittgenstein_Skjolden.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Wittgenstein_Skjolden.jpg/3840px-Wittgenstein_Skjolden.jpg",
       "scene": {
-        "width": 423,
-        "height": 640,
-        "bytes": 14612,
-        "sha256": "5fbedb23e0763c679ae97f824bb811edb17673e5a9c08126c184b5b3b5cdfafa"
+        "width": 640,
+        "height": 400,
+        "bytes": 50916,
+        "sha256": "f4a7aab50b9f3a9c5756884161414e7bf31762a9c9a0066f4a9e52ac8d74221e"
       },
       "panel": {
-        "width": 574,
-        "height": 868,
-        "bytes": 20754,
-        "sha256": "87271cf89704c1e77da7eadba9701b53b5d80048c5b14bc0866bd7e3a086f827"
+        "width": 1280,
+        "height": 800,
+        "bytes": 258862,
+        "sha256": "dedbd9260ebd3b21737c9c129d2535a739bea2bc80432aa7406b53b7f3790db4"
       },
-      "visualCharacter": "contextual-composite",
+      "visualCharacter": "place-or-architecture",
       "textDominantOrSingleBook": false,
-      "contextualCompositeVersion": 1,
-      "contextualCompositeMotif": "language-practice"
+      "standaloneReplacementVersion": 1
     },
     "thomas-nagel-portrait": {
       "hallFolder": "mind-consciousness-self",
@@ -1661,25 +1656,24 @@
     },
     "machiavelli-discourses-1540": {
       "hallFolder": "renaissance-humanism-new-method",
-      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Discorsi_di_Nicolo_Machiavelli,_firentino,_sopra_la_prima_deca_di_Tito_Livio.jpg",
-      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/61/Discorsi_di_Nicolo_Machiavelli%2C_firentino%2C_sopra_la_prima_deca_di_Tito_Livio.jpg",
-      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Discorsi_di_Nicolo_Machiavelli%2C_firentino%2C_sopra_la_prima_deca_di_Tito_Livio.jpg/1280px-Discorsi_di_Nicolo_Machiavelli%2C_firentino%2C_sopra_la_prima_deca_di_Tito_Livio.jpg",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:David_Brutus.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fb/David_Brutus.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/David_Brutus.jpg/3840px-David_Brutus.jpg",
       "scene": {
-        "width": 373,
-        "height": 640,
-        "bytes": 12040,
-        "sha256": "6df13e8e8704f1c665d42cbe69d5c65a905cba94efd9d86065f588865e2f5cf4"
+        "width": 640,
+        "height": 489,
+        "bytes": 42540,
+        "sha256": "a82b9f2a972d395df9f44d16979db559046f3dd140d0702219fd9f2545ab6b6c"
       },
       "panel": {
-        "width": 745,
-        "height": 1280,
-        "bytes": 37244,
-        "sha256": "7497da456e1595a4da5568b374a322faf874fb971b0f70afcbfaf6f75726e2a2"
+        "width": 1280,
+        "height": 979,
+        "bytes": 232244,
+        "sha256": "05e544c569dab8467c66e8cafebfcb4a62f078d21df005b44a88f9e17ab4b3dc"
       },
-      "visualCharacter": "contextual-composite",
+      "visualCharacter": "artwork-or-social-scene",
       "textDominantOrSingleBook": false,
-      "contextualCompositeVersion": 1,
-      "contextualCompositeMotif": "civic-forum"
+      "standaloneReplacementVersion": 1
     },
     "bacon-novum-organum-1645": {
       "hallFolder": "renaissance-humanism-new-method",
@@ -2120,47 +2114,46 @@
     },
     "levinas-totality-infinity-2002": {
       "hallFolder": "phenomenology-existence-embodiment",
-      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Emmanuel_Levinas,_Totalit%C3%A4t_und_Unendlichkeit_2002.jpg",
-      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Emmanuel_Levinas%2C_Totalit%C3%A4t_und_Unendlichkeit_2002.jpg",
-      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Emmanuel_Levinas%2C_Totalit%C3%A4t_und_Unendlichkeit_2002.jpg",
+      "sourcePageUrl": "https://github.com/Da3dalusCode/philosophy-museum/blob/main/source-art/museum/levinas-face-to-face-contemporary-interpretation.png",
+      "sourceImageUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/main/source-art/museum/levinas-face-to-face-contemporary-interpretation.png",
+      "selectedThumbnailUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/main/source-art/museum/levinas-face-to-face-contemporary-interpretation.png",
       "scene": {
-        "width": 416,
-        "height": 640,
-        "bytes": 11928,
-        "sha256": "869e06c4bcda9010feb7471231a302bcd882c7b36b34abc6c44e08f83fac223d"
+        "width": 640,
+        "height": 480,
+        "bytes": 49608,
+        "sha256": "a806181bc0635e690d64bab8685e316e5281086d3898e7072e5548925e609203"
       },
       "panel": {
-        "width": 650,
-        "height": 1000,
-        "bytes": 21110,
-        "sha256": "360669e04207027ca56c706b2d14a5a895637d4a5089a7236549429ef87bc8d0"
+        "width": 1280,
+        "height": 960,
+        "bytes": 201488,
+        "sha256": "7c8b7a3987124bf488bed60597c516f5fb8891df3e03b35a4daf505030cbaba0"
       },
-      "visualCharacter": "contextual-composite",
+      "visualCharacter": "artwork-or-social-scene",
       "textDominantOrSingleBook": false,
-      "contextualCompositeVersion": 1,
-      "contextualCompositeMotif": "face-to-face"
+      "standaloneReplacementVersion": 1,
+      "sourceKind": "owner-approved-original-illustration"
     },
     "levinas-signature-1983": {
       "hallFolder": "phenomenology-existence-embodiment",
-      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Levinas_Signatur_1983.jpg",
-      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Levinas_Signatur_1983.jpg",
-      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Levinas_Signatur_1983.jpg/1280px-Levinas_Signatur_1983.jpg",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:POWs_at_Stalag_11B_at_Fallingbostel_in_Germany_welcome_their_liberators,_16_April_1945._BU3661.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8a/POWs_at_Stalag_11B_at_Fallingbostel_in_Germany_welcome_their_liberators%2C_16_April_1945._BU3661.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8a/POWs_at_Stalag_11B_at_Fallingbostel_in_Germany_welcome_their_liberators%2C_16_April_1945._BU3661.jpg",
       "scene": {
-        "width": 637,
-        "height": 640,
-        "bytes": 17202,
-        "sha256": "b7aba05c9328a21875a024896a4440906197b78936a97101c9882a6de79ae76f"
+        "width": 640,
+        "height": 630,
+        "bytes": 81324,
+        "sha256": "264339c4cd80d4613dca8741990d3fca8e27dd39c246d65b4467cf10b8ff2a83"
       },
       "panel": {
-        "width": 1273,
-        "height": 1280,
-        "bytes": 38468,
-        "sha256": "88729d51f04e7f44487eab12392d52083fc7f657d6f4430555045053921841ff"
+        "width": 1280,
+        "height": 1260,
+        "bytes": 264464,
+        "sha256": "c46673ed4a9a57485aa59c65aa8ac59915b9ac0776fa00c45f4be79c997a9121"
       },
-      "visualCharacter": "contextual-composite",
+      "visualCharacter": "artwork-or-social-scene",
       "textDominantOrSingleBook": false,
-      "contextualCompositeVersion": 1,
-      "contextualCompositeMotif": "ethical-threshold"
+      "standaloneReplacementVersion": 1
     },
     "gadamer-letter-pawliszyn": {
       "hallFolder": "phenomenology-existence-embodiment",
@@ -2254,69 +2247,66 @@
     },
     "frege-sense-reference-1892": {
       "hallFolder": "analytic-traditions",
-      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:%C3%9Cber_Sinn_und_Bedeutung.djvu",
-      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c8/%C3%9Cber_Sinn_und_Bedeutung.djvu",
-      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/%C3%9Cber_Sinn_und_Bedeutung.djvu/page1-1280px-%C3%9Cber_Sinn_und_Bedeutung.djvu.jpg",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Fases_de_Venus_-_Galileo_Galilei.png",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/50/Fases_de_Venus_-_Galileo_Galilei.png",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/5/50/Fases_de_Venus_-_Galileo_Galilei.png",
       "scene": {
-        "width": 344,
-        "height": 640,
-        "bytes": 29718,
-        "sha256": "bdfef2d92555832a5018fd044ead93ea300aea637a3224bb9ef7fab9b9b9281d"
+        "width": 640,
+        "height": 478,
+        "bytes": 63988,
+        "sha256": "d6e4c56f5acb9ff5a4937992bcce99cbcd8c89bf56efa7ebf893d56b76fe3af1"
       },
       "panel": {
-        "width": 687,
-        "height": 1280,
-        "bytes": 81642,
-        "sha256": "6f6784c24a2fcf93ca6baace9ae137ad05144be646e7765ce2f40725ae235a53"
+        "width": 1164,
+        "height": 869,
+        "bytes": 196224,
+        "sha256": "d2c1deb5a00facdf64748fcf017ddad0706849d9f4025e23abf9d6a1f44f618d"
       },
-      "visualCharacter": "contextual-composite",
+      "visualCharacter": "map-or-diagram",
       "textDominantOrSingleBook": false,
-      "contextualCompositeVersion": 1,
-      "contextualCompositeMotif": "identity-stars"
+      "standaloneReplacementVersion": 1
     },
     "russell-whitehead-principia-1910": {
       "hallFolder": "analytic-traditions",
-      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Russell,_Whitehead_-_Principia_Mathematica,_vol._I,_1910.djvu",
-      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/57/Russell%2C_Whitehead_-_Principia_Mathematica%2C_vol._I%2C_1910.djvu",
-      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Russell%2C_Whitehead_-_Principia_Mathematica%2C_vol._I%2C_1910.djvu/page9-1280px-Russell%2C_Whitehead_-_Principia_Mathematica%2C_vol._I%2C_1910.djvu.jpg",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Alfred_North_Whitehead._Photograph._Wellcome_V0027330.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/55/Alfred_North_Whitehead._Photograph._Wellcome_V0027330.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/5/55/Alfred_North_Whitehead._Photograph._Wellcome_V0027330.jpg",
       "scene": {
-        "width": 380,
-        "height": 640,
-        "bytes": 12034,
-        "sha256": "a61c01bdaed7295db491ffa5d6ee55a3a1d109a5b49ab848a28e7af38b76a882"
+        "width": 640,
+        "height": 469,
+        "bytes": 49312,
+        "sha256": "0357748ddd4f228a60c4f79155c00a3f341bac44d294a80128ddf3ffd450ca4f"
       },
       "panel": {
-        "width": 759,
-        "height": 1280,
-        "bytes": 26568,
-        "sha256": "679104de6329ae7e857c3c082872e2ff781c7c719728e82287f16fff9d44134f"
+        "width": 1280,
+        "height": 938,
+        "bytes": 393678,
+        "sha256": "c59f6abdc6e239a7df0bebe3a15b8a08adea5d0069cd7f61817463a6056b91df"
       },
-      "visualCharacter": "contextual-composite",
+      "visualCharacter": "portrait-or-figure",
       "textDominantOrSingleBook": false,
-      "contextualCompositeVersion": 1,
-      "contextualCompositeMotif": "logic-foundations"
+      "standaloneReplacementVersion": 1
     },
     "russell-principia-54-43": {
       "hallFolder": "analytic-traditions",
-      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Principia_Mathematica_54-43.png",
-      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Principia_Mathematica_54-43.png",
-      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Principia_Mathematica_54-43.png",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Bertrand_Russell_at_Cal_Tech.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Bertrand_Russell_at_Cal_Tech.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Bertrand_Russell_at_Cal_Tech.jpg",
       "scene": {
-        "width": 640,
-        "height": 266,
-        "bytes": 12050,
-        "sha256": "1a4599a1a59274a8b876bf9d8c14dac47c85a7c78c7b4ad5b58b5f075d1bcea2"
+        "width": 447,
+        "height": 640,
+        "bytes": 41004,
+        "sha256": "23d1a467fcbc5ec53044973faf49a01c86cf0522f88d4a99be4e34685f8fe53c"
       },
       "panel": {
-        "width": 800,
-        "height": 333,
-        "bytes": 15500,
-        "sha256": "f69b632bdd288d74bf2c77798637a6e380f20d5bab6c2669fff1b0e2c6388d95"
+        "width": 895,
+        "height": 1280,
+        "bytes": 246806,
+        "sha256": "3c3629a4c4e6707b44bf2b942d83d7793cfba04e781e97fac0a8933dfb7bf002"
       },
-      "visualCharacter": "contextual-composite",
+      "visualCharacter": "portrait-or-figure",
       "textDominantOrSingleBook": false,
-      "contextualCompositeVersion": 1,
-      "contextualCompositeMotif": "type-layers"
+      "standaloneReplacementVersion": 1
     },
     "moore-principia-ethica-1903": {
       "hallFolder": "analytic-traditions",
@@ -3092,25 +3082,24 @@
     },
     "kanada-vaisesika-sutra-1793": {
       "hallFolder": "classical-south-asian-worlds",
-      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:%E0%A4%B5%E0%A5%88%E0%A4%B6%E0%A5%87%E0%A4%B7%E0%A4%BF%E0%A4%95%E0%A4%B8%E0%A5%82%E0%A4%A4%E0%A5%8D%E0%A4%B0_of_%E0%A4%95%E0%A4%A3%E0%A4%BE%E0%A4%A6._(IA_dli.granth.17191).pdf",
-      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/94/%E0%A4%B5%E0%A5%88%E0%A4%B6%E0%A5%87%E0%A4%B7%E0%A4%BF%E0%A4%95%E0%A4%B8%E0%A5%82%E0%A4%A4%E0%A5%8D%E0%A4%B0_of_%E0%A4%95%E0%A4%A3%E0%A4%BE%E0%A4%A6._%28IA_dli.granth.17191%29.pdf",
-      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/%E0%A4%B5%E0%A5%88%E0%A4%B6%E0%A5%87%E0%A4%B7%E0%A4%BF%E0%A4%95%E0%A4%B8%E0%A5%82%E0%A4%A4%E0%A5%8D%E0%A4%B0_of_%E0%A4%95%E0%A4%A3%E0%A4%BE%E0%A4%A6._%28IA_dli.granth.17191%29.pdf/page1-960px-%E0%A4%B5%E0%A5%88%E0%A4%B7%E0%A4%BF%E0%A4%95%E0%A4%B8%E0%A5%82%E0%A4%A4%E0%A5%8D%E0%A4%B0_of_%E0%A4%95%E0%A4%A3%E0%A4%BE%E0%A4%A6._%28IA_dli.granth.17191%29.pdf.jpg",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Bas-relief_of_Rishi_Kanad.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Bas-relief_of_Rishi_Kanad.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Bas-relief_of_Rishi_Kanad.jpg/3840px-Bas-relief_of_Rishi_Kanad.jpg",
       "scene": {
         "width": 640,
-        "height": 546,
-        "bytes": 25112,
-        "sha256": "d848a3d16c08515df0b0313adeecfdf7972974d864196ee6ccb0440ff5344757"
+        "height": 475,
+        "bytes": 68348,
+        "sha256": "907dfdb33bc0bb76b05f730ef0db2bf27b9e4215cac3f11ecf612f805d4953c5"
       },
       "panel": {
-        "width": 960,
-        "height": 819,
-        "bytes": 50404,
-        "sha256": "7ae76eafdd8948f43253218c486b3f4f8958827c081801d4a30764209cb6249b"
+        "width": 1280,
+        "height": 949,
+        "bytes": 331904,
+        "sha256": "9614241a3bc7d947f80f4dcd6cd41d5abd1dbd24fa8561c7ec06a5132a4a499f"
       },
-      "visualCharacter": "contextual-composite",
+      "visualCharacter": "portrait-or-figure",
       "textDominantOrSingleBook": false,
-      "contextualCompositeVersion": 1,
-      "contextualCompositeMotif": "atom-lattice"
+      "standaloneReplacementVersion": 1
     },
     "vedanta-telugu-manuscript": {
       "hallFolder": "classical-south-asian-worlds",
@@ -3186,25 +3175,24 @@
     },
     "south-sarva-darsana-1908": {
       "hallFolder": "classical-south-asian-worlds",
-      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:The_Sarva-darsana-samgraha;_or,_Review_of_the_different_systems_of_Hindu_philosophy_(IA_sarvadarsanasamg00madhrich).pdf",
-      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/The_Sarva-darsana-samgraha;_or,_Review_of_the_different_systems_of_Hindu_philosophy_(IA_sarvadarsanasamg00madhrich).pdf",
-      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/The_Sarva-darsana-samgraha;_or,_Review_of_the_different_systems_of_Hindu_philosophy_(IA_sarvadarsanasamg00madhrich).pdf?width=1280&page=1",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:A_Gathering_of_Holy_Men_of_Different_Faiths_MET_DP213133.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/df/A_Gathering_of_Holy_Men_of_Different_Faiths_MET_DP213133.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/d/df/A_Gathering_of_Holy_Men_of_Different_Faiths_MET_DP213133.jpg",
       "scene": {
-        "width": 419,
+        "width": 486,
         "height": 640,
-        "bytes": 9058,
-        "sha256": "6fa51b0457dfe90a66fa50c3e693f66a9243d4df1d4f79f2fa7cc74f9ab0ebe7"
+        "bytes": 64768,
+        "sha256": "9cb8ca804c8af12ce17758ad69dee36b0c7600d9bb252d8672a912197ffbde63"
       },
       "panel": {
-        "width": 500,
-        "height": 763,
-        "bytes": 11238,
-        "sha256": "25be70eb39c76e00f16c0f164bb904d7fb032833e82d54011b4016e580c4094a"
+        "width": 972,
+        "height": 1280,
+        "bytes": 306662,
+        "sha256": "c98f7bf9c7ffbf3a6d7037def8687850db2eb35e73c2d85c08d3863439f3e246"
       },
-      "visualCharacter": "contextual-composite",
+      "visualCharacter": "artwork-or-social-scene",
       "textDominantOrSingleBook": false,
-      "contextualCompositeVersion": 1,
-      "contextualCompositeMotif": "many-schools"
+      "standaloneReplacementVersion": 1
     },
     "south-upanishad-sama-veda-manuscript": {
       "hallFolder": "classical-south-asian-worlds",
@@ -3298,25 +3286,24 @@
     },
     "shankara-aitareya-bhasya-1593": {
       "hallFolder": "classical-south-asian-worlds",
-      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:1593_CE,_Adi_Shankara_bhasya_Aitareya_Upanishad,_Varanasi_Jain_temple_bhandara,_Sanskrit,_Devanagari,_MS_Add.2092.jpg",
-      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/1593_CE,_Adi_Shankara_bhasya_Aitareya_Upanishad,_Varanasi_Jain_temple_bhandara,_Sanskrit,_Devanagari,_MS_Add.2092.jpg",
-      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/1593_CE,_Adi_Shankara_bhasya_Aitareya_Upanishad,_Varanasi_Jain_temple_bhandara,_Sanskrit,_Devanagari,_MS_Add.2092.jpg?width=1280",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Adi_Shankaracharya_with_Disciples.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/42/Adi_Shankaracharya_with_Disciples.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Adi_Shankaracharya_with_Disciples.jpg/3840px-Adi_Shankaracharya_with_Disciples.jpg",
       "scene": {
         "width": 640,
-        "height": 258,
-        "bytes": 11832,
-        "sha256": "293e3f5f4b8e5d61a5c292684236c566e7913a44196f6794822aced607e43fdb"
+        "height": 480,
+        "bytes": 103114,
+        "sha256": "0c1ac352400904292f2716e7e62e4a097dce9bc7be695c02a85ab86a2a625e89"
       },
       "panel": {
         "width": 1280,
-        "height": 516,
-        "bytes": 43974,
-        "sha256": "8f5ad807ebb5cff964135437e2c99abb7d45adfd2315f5284ff9ebef978486b8"
+        "height": 960,
+        "bytes": 498166,
+        "sha256": "fa88685ae66935c699337e2eeb81b61bb1b101c7587905f8ef65e3ce91f4e8f5"
       },
-      "visualCharacter": "contextual-composite",
+      "visualCharacter": "portrait-or-figure",
       "textDominantOrSingleBook": false,
-      "contextualCompositeVersion": 1,
-      "contextualCompositeMotif": "teaching-lineage"
+      "standaloneReplacementVersion": 1
     },
     "madhva-udupi-krishna-matha": {
       "hallFolder": "classical-south-asian-worlds",
@@ -4832,47 +4819,45 @@
     },
     "avicenna-pointers-tusi-commentary": {
       "hallFolder": "islamic-philosophical-worlds",
-      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:%E1%B8%A4all_mushkil%C4%81t_al-Ish%C4%81r%C4%81t_wa-al-tanb%C4%ABh%C4%81t_(IA_McGillLibrary-rbsc_islam-ms-isl-0029-18293).pdf",
-      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/%E1%B8%A4all_mushkil%C4%81t_al-Ish%C4%81r%C4%81t_wa-al-tanb%C4%ABh%C4%81t_(IA_McGillLibrary-rbsc_islam-ms-isl-0029-18293).pdf?page=1",
-      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/%E1%B8%A4all_mushkil%C4%81t_al-Ish%C4%81r%C4%81t_wa-al-tanb%C4%ABh%C4%81t_(IA_McGillLibrary-rbsc_islam-ms-isl-0029-18293).pdf?page=1&width=1280",
-      "scene": {
-        "width": 362,
-        "height": 640,
-        "bytes": 14426,
-        "sha256": "21f95ce8f344df284b4bce8421473373d888f61d74b79f8d576829529fb832dc"
-      },
-      "panel": {
-        "width": 500,
-        "height": 883,
-        "bytes": 22958,
-        "sha256": "9e2c5bb8a2c5b4f9c652584215da8b843008bec4c00b877f5806a74226de8ea8"
-      },
-      "visualCharacter": "contextual-composite",
-      "textDominantOrSingleBook": false,
-      "contextualCompositeVersion": 1,
-      "contextualCompositeMotif": "demonstration-chain"
-    },
-    "avicenna-medicines-heart": {
-      "hallFolder": "islamic-philosophical-worlds",
-      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Ibn_Sina_(Avicenna),_Rules_about_medicines_of_the_heart._Wellcome_L0016607.jpg",
-      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ibn_Sina_(Avicenna),_Rules_about_medicines_of_the_heart._Wellcome_L0016607.jpg",
-      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ibn_Sina_(Avicenna),_Rules_about_medicines_of_the_heart._Wellcome_L0016607.jpg?width=1280",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Rasadmaraqe1.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/38/Rasadmaraqe1.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Rasadmaraqe1.jpg/3840px-Rasadmaraqe1.jpg",
       "scene": {
         "width": 640,
-        "height": 542,
-        "bytes": 22174,
-        "sha256": "a15768886bbd6146509fdb5f5116caf806c47c88e61d02643cddf41720e14c96"
+        "height": 427,
+        "bytes": 41352,
+        "sha256": "b21bf3b106f68c5182479e4532ba56da9b091b914fb83d7a41d28226986e7101"
       },
       "panel": {
         "width": 1280,
-        "height": 1083,
-        "bytes": 75402,
-        "sha256": "f359a389db8e7ea9c45cd2ad19f2118e23aac7bcf8eda1db4b37f1f12aab7b10"
+        "height": 853,
+        "bytes": 217036,
+        "sha256": "f0ce7d523f14b6be1496cdcaaed8e92710cd5b5bc5a06a7c5a331bb31bf146fc"
       },
-      "visualCharacter": "contextual-composite",
+      "visualCharacter": "place-or-architecture",
       "textDominantOrSingleBook": false,
-      "contextualCompositeVersion": 1,
-      "contextualCompositeMotif": "medicine-heart"
+      "standaloneReplacementVersion": 1
+    },
+    "avicenna-medicines-heart": {
+      "hallFolder": "islamic-philosophical-worlds",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Doctor_taking_woman%27s_pulse._Avicenna%27s_Canon_manuscript_Wellcome_L0000009.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/26/Doctor_taking_woman%27s_pulse._Avicenna%27s_Canon_manuscript_Wellcome_L0000009.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/2/26/Doctor_taking_woman%27s_pulse._Avicenna%27s_Canon_manuscript_Wellcome_L0000009.jpg",
+      "scene": {
+        "width": 433,
+        "height": 640,
+        "bytes": 76680,
+        "sha256": "2c88f56d0f0179490ac7b4b69f8904ce34c29fbd51e0cbd90cd52661561ba8f3"
+      },
+      "panel": {
+        "width": 866,
+        "height": 1280,
+        "bytes": 347026,
+        "sha256": "f8341736d27b18f4e9502237bc4667806b8523d2ce88b0450a5c5d7ffc2618a9"
+      },
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "standaloneReplacementVersion": 1
     },
     "avicenna-hebrew-canon": {
       "hallFolder": "islamic-philosophical-worlds",
@@ -4930,91 +4915,93 @@
     },
     "al-ghazali-maqasid-1913": {
       "hallFolder": "islamic-philosophical-worlds",
-      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Maqasid_al-falasifah.JPG",
-      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Maqasid_al-falasifah.JPG",
-      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Maqasid_al-falasifah.JPG?width=1280",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Muhammad_Mus%C3%A1_al-Mudhahhib_-_Hermes_Debates_with_70_Greek_Scholars_-_Walters_W606333B_-_Full_Page.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9c/Muhammad_Mus%C3%A1_al-Mudhahhib_-_Hermes_Debates_with_70_Greek_Scholars_-_Walters_W606333B_-_Full_Page.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9c/Muhammad_Mus%C3%A1_al-Mudhahhib_-_Hermes_Debates_with_70_Greek_Scholars_-_Walters_W606333B_-_Full_Page.jpg",
       "scene": {
-        "width": 515,
+        "width": 344,
         "height": 640,
-        "bytes": 18956,
-        "sha256": "c325df0d372cc5f228b77037d601f30043b934a23f0a515f63d89d48b3d9a088"
+        "bytes": 62006,
+        "sha256": "110a0e343f86db374a6fc267f9a91cee323efc2442e27aebae5ec77aca2ceef6"
       },
       "panel": {
-        "width": 773,
-        "height": 961,
-        "bytes": 32612,
-        "sha256": "b0720c4f206abd8a14296c2191c0357265909004260fcc489331dae8a79d3d36"
+        "width": 610,
+        "height": 1134,
+        "bytes": 186326,
+        "sha256": "9f38e95ba21ea18956cbbfb408fafe80836efdcb8d5c8e514e2efad51ad6edfc"
       },
-      "visualCharacter": "contextual-composite",
+      "visualCharacter": "artwork-or-social-scene",
       "textDominantOrSingleBook": false,
-      "contextualCompositeVersion": 1,
-      "contextualCompositeMotif": "system-map"
+      "standaloneReplacementVersion": 1,
+      "sourceCropBox": [
+        0.02,
+        0.2,
+        0.6,
+        0.83
+      ]
     },
     "al-ghazali-ihya-manuscript": {
       "hallFolder": "islamic-philosophical-worlds",
-      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Al-Ihya.jpg",
-      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Al-Ihya.jpg",
-      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Al-Ihya.jpg?width=1280",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Harouniyeh.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/be/Harouniyeh.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/b/be/Harouniyeh.jpg",
       "scene": {
-        "width": 430,
-        "height": 640,
-        "bytes": 21636,
-        "sha256": "19d4c804415c172e4978cdc6075d7e659f5b6c8231e5f9eb966311ff78e95601"
+        "width": 640,
+        "height": 480,
+        "bytes": 92934,
+        "sha256": "d8b8950d8f051a56378fd1129a240ab9bae1b06040bc87db49f078bd7316150b"
       },
       "panel": {
-        "width": 860,
-        "height": 1280,
-        "bytes": 72842,
-        "sha256": "43ad82f12c5b077617f1e45ddcd1a9da810abe26a81f21e002933f66138f475d"
+        "width": 1280,
+        "height": 960,
+        "bytes": 426508,
+        "sha256": "54c56816b39f5ad98dfab55554751df543fdcf491f43ceb8ce44219f43c1f04a"
       },
-      "visualCharacter": "contextual-composite",
+      "visualCharacter": "place-or-architecture",
       "textDominantOrSingleBook": false,
-      "contextualCompositeVersion": 1,
-      "contextualCompositeMotif": "practice-path"
+      "standaloneReplacementVersion": 1
     },
     "al-ghazali-munqidh-last-page": {
       "hallFolder": "islamic-philosophical-worlds",
-      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Munqidh_min_al-dalal_(last_page).jpg",
-      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Munqidh_min_al-dalal_(last_page).jpg",
-      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Munqidh_min_al-dalal_(last_page).jpg?width=1280",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:The_Umayyad_Mosque,_Courtyard,_Damascus,_Syria.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/db/The_Umayyad_Mosque%2C_Courtyard%2C_Damascus%2C_Syria.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/The_Umayyad_Mosque%2C_Courtyard%2C_Damascus%2C_Syria.jpg/3840px-The_Umayyad_Mosque%2C_Courtyard%2C_Damascus%2C_Syria.jpg",
       "scene": {
-        "width": 402,
-        "height": 640,
-        "bytes": 14054,
-        "sha256": "9bf8b1f7c4f21524cf8cfc16f0c43d2ce0a98f1b027796a6cc90e80dd1c07e01"
+        "width": 640,
+        "height": 480,
+        "bytes": 47088,
+        "sha256": "249e63445e0265d9c78a9fb8479deee2dba12bf84f2b294f7e9e34b964a0245b"
       },
       "panel": {
-        "width": 805,
-        "height": 1280,
-        "bytes": 36310,
-        "sha256": "e0de34c27a3af8488734ea59cffed2faecd9cd895b2198928fefccf7571f4cb2"
+        "width": 1280,
+        "height": 960,
+        "bytes": 212918,
+        "sha256": "92cdd42f4930c30ed77d6c8f283f555316b7853094e1ba8b4742c2407b0b3ef6"
       },
-      "visualCharacter": "contextual-composite",
+      "visualCharacter": "place-or-architecture",
       "textDominantOrSingleBook": false,
-      "contextualCompositeVersion": 1,
-      "contextualCompositeMotif": "skeptical-crossroads"
+      "standaloneReplacementVersion": 1
     },
     "al-ghazali-asas-qiyas": {
       "hallFolder": "islamic-philosophical-worlds",
-      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Asas_alqiyas_manuscript.jpg",
-      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Asas_alqiyas_manuscript.jpg",
-      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Asas_alqiyas_manuscript.jpg?width=1280",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Arabischer_Maler_um_1335_002.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Arabischer_Maler_um_1335_002.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Arabischer_Maler_um_1335_002.jpg",
       "scene": {
-        "width": 384,
-        "height": 640,
-        "bytes": 20710,
-        "sha256": "762bc38881077b443d52de4e2a0ea73f4b6aa1f2dbbd116993b7dd4447e922ff"
+        "width": 640,
+        "height": 546,
+        "bytes": 98780,
+        "sha256": "b651253dfc793786def23fd5f8743e758916646fad1479d22cf46162ad5afbc0"
       },
       "panel": {
-        "width": 495,
-        "height": 824,
-        "bytes": 30752,
-        "sha256": "0068f657155764ae9132f4006a4e030eb91e675ea16d09011c5fb02dab7087df"
+        "width": 1280,
+        "height": 1092,
+        "bytes": 294284,
+        "sha256": "06310192a0070d03027561d9a0aa963874db9a5e0f4924ed000af30e7600b578"
       },
-      "visualCharacter": "contextual-composite",
+      "visualCharacter": "artwork-or-social-scene",
       "textDominantOrSingleBook": false,
-      "contextualCompositeVersion": 1,
-      "contextualCompositeMotif": "analogy-scales"
+      "standaloneReplacementVersion": 1
     },
     "averroes-wellcome-portrait": {
       "hallFolder": "islamic-philosophical-worlds",
@@ -5072,47 +5059,51 @@
     },
     "averroes-de-anima-bnf": {
       "hallFolder": "islamic-philosophical-worlds",
-      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Bnf_lat16151_f22.jpg",
-      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Bnf_lat16151_f22.jpg",
-      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Bnf_lat16151_f22.jpg?width=1280",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Woodcut_of_head_showing_Cerebral_ventricles._Wellcome_M0000436.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/74/Woodcut_of_head_showing_Cerebral_ventricles._Wellcome_M0000436.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/7/74/Woodcut_of_head_showing_Cerebral_ventricles._Wellcome_M0000436.jpg",
       "scene": {
-        "width": 519,
-        "height": 600,
-        "bytes": 23442,
-        "sha256": "ffd1e02d57da59c9143fde12a7c98bbfdbc8d7bc3b484eb9fd848fcfd4436152"
+        "width": 444,
+        "height": 640,
+        "bytes": 96900,
+        "sha256": "146fba4d552d765cf481575d9d1540aacb68e2900fa35bc4f7becfb04e22e61e"
       },
       "panel": {
-        "width": 519,
-        "height": 600,
-        "bytes": 23338,
-        "sha256": "5e7370eb7b8c931a59a8b4a5255545069fc2acd6b3d261135550370647da6e5d"
+        "width": 887,
+        "height": 1280,
+        "bytes": 463920,
+        "sha256": "9815571e66a460d1e17ea6e7378a2be8f7c3f0679ac64c0588bc07be2c4e4f42"
       },
-      "visualCharacter": "contextual-composite",
+      "visualCharacter": "map-or-diagram",
       "textDominantOrSingleBook": false,
-      "contextualCompositeVersion": 1,
-      "contextualCompositeMotif": "intellect-light"
+      "standaloneReplacementVersion": 1
     },
     "averroes-colliget": {
       "hallFolder": "islamic-philosophical-worlds",
-      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Colliget_(IA_4022010.med.yale.edu).pdf",
-      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Colliget_(IA_4022010.med.yale.edu).pdf?page=1",
-      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Colliget_(IA_4022010.med.yale.edu).pdf?page=1&width=1280",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Illuminated_single_leaf,_Two_doctors_preparing_medicine,_Walters_Art_Museum_Ms._W.675a.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Illuminated_single_leaf%2C_Two_doctors_preparing_medicine%2C_Walters_Art_Museum_Ms._W.675a.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Illuminated_single_leaf%2C_Two_doctors_preparing_medicine%2C_Walters_Art_Museum_Ms._W.675a.jpg",
       "scene": {
-        "width": 438,
-        "height": 640,
-        "bytes": 14142,
-        "sha256": "fa85e1dba8b3c1387bc664bf1d683330cc42a9fb084b54abd61adba177af6aa3"
+        "width": 640,
+        "height": 386,
+        "bytes": 70204,
+        "sha256": "66e66e75711c1478202a92afbd62290361c92fae90cd163a0eef1c3f668efde4"
       },
       "panel": {
-        "width": 500,
-        "height": 730,
-        "bytes": 16280,
-        "sha256": "7892eb27ef23646918637f7d14db985ae634bf378d46706e4a1e12c11b1c81f5"
+        "width": 1075,
+        "height": 648,
+        "bytes": 236696,
+        "sha256": "0ff0cdf17a963131210abfae45f43e6b74ab30206bd11b2e935c7e254903f8db"
       },
-      "visualCharacter": "contextual-composite",
+      "visualCharacter": "artwork-or-social-scene",
       "textDominantOrSingleBook": false,
-      "contextualCompositeVersion": 1,
-      "contextualCompositeMotif": "medicine-instruments"
+      "standaloneReplacementVersion": 1,
+      "sourceCropBox": [
+        0.13,
+        0.24,
+        0.93,
+        0.6
+      ]
     },
     "andalusian-astrolabe-1029": {
       "hallFolder": "islamic-philosophical-worlds",
@@ -5314,25 +5305,24 @@
     },
     "wang-yangming-letters-zheng": {
       "hallFolder": "east-asian-continuities",
-      "sourcePageUrl": "https://artmuseum.princeton.edu/art/collections/objects/32340",
-      "sourceImageUrl": "https://media.artmuseum.princeton.edu/iiif/3/collection/PUAMSTU2016_38492/full/max/0/default.jpg",
-      "selectedThumbnailUrl": "https://media.artmuseum.princeton.edu/iiif/3/collection/PUAMSTU2016_38492/full/1280,/0/default.jpg",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Former_Residence_of_Wang_Shouren_in_Shaoxing_01_2017-02.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Former_Residence_of_Wang_Shouren_in_Shaoxing_01_2017-02.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Former_Residence_of_Wang_Shouren_in_Shaoxing_01_2017-02.jpg",
       "scene": {
         "width": 640,
-        "height": 333,
-        "bytes": 10202,
-        "sha256": "ee92550e0307b922c9756d27d0e836f5c499491ed8f010d4df78dff1185c402b"
+        "height": 425,
+        "bytes": 46856,
+        "sha256": "60dc096f5984f6194a53a0ae50aa38449c232b8523ad45153ee61099372d19b4"
       },
       "panel": {
         "width": 1280,
-        "height": 666,
-        "bytes": 25700,
-        "sha256": "ddb9b087e845cb9bdbd3c36dd9fe714d63a635def2a660d5f107ff16e033b0f8"
+        "height": 850,
+        "bytes": 203712,
+        "sha256": "f7e809f771f10afbc66ed605e48ad52d4455a54879832ffad99c0598d616a2e8"
       },
-      "visualCharacter": "contextual-composite",
+      "visualCharacter": "place-or-architecture",
       "textDominantOrSingleBook": false,
-      "contextualCompositeVersion": 1,
-      "contextualCompositeMotif": "knowledge-action"
+      "standaloneReplacementVersion": 1
     },
     "zhou-dunyi-taijitu-reconstruction": {
       "hallFolder": "east-asian-continuities",
@@ -5570,69 +5560,66 @@
     },
     "saadia-baqashah-geniza": {
       "hallFolder": "jewish-philosophy",
-      "sourcePageUrl": "https://openn.library.upenn.edu/Data/0002/html/h221.html",
-      "sourceImageUrl": "https://openn.library.upenn.edu/Data/0002/h221/data/web/4589_0000_web.jpg",
-      "selectedThumbnailUrl": "https://openn.library.upenn.edu/Data/0002/h221/data/web/4589_0000_web.jpg",
-      "scene": {
-        "width": 485,
-        "height": 640,
-        "bytes": 19584,
-        "sha256": "67db06dd42e653f63986b743ac62fb56dd8d1ec723f806b3a504482c02fdb58c"
-      },
-      "panel": {
-        "width": 971,
-        "height": 1280,
-        "bytes": 55002,
-        "sha256": "e626ccab51de7d504bd3352f71a5a496bca3c8b2788aee39fea700d7e863ec65"
-      },
-      "visualCharacter": "contextual-composite",
-      "textDominantOrSingleBook": false,
-      "contextualCompositeVersion": 1,
-      "contextualCompositeMotif": "community-prayer"
-    },
-    "saadia-beliefs-landauer": {
-      "hallFolder": "jewish-philosophy",
-      "sourcePageUrl": "https://archive.org/details/kitbalamnt00saaduoft",
-      "sourceImageUrl": "https://archive.org/download/kitbalamnt00saaduoft/kitbalamnt00saaduoft.pdf",
-      "selectedThumbnailUrl": "https://archive.org/download/kitbalamnt00saaduoft/page/n6.jpg",
-      "scene": {
-        "width": 386,
-        "height": 640,
-        "bytes": 11804,
-        "sha256": "010efb3dfe34225cf896e10d58620bf01eeacb8f25d4d1ecdc08322083786f79"
-      },
-      "panel": {
-        "width": 772,
-        "height": 1280,
-        "bytes": 29544,
-        "sha256": "28ce44eb424d0efb62b8917840d9c48b41453dfb9f0120f912e78075b179ef7d"
-      },
-      "visualCharacter": "contextual-composite",
-      "textDominantOrSingleBook": false,
-      "contextualCompositeVersion": 1,
-      "contextualCompositeMotif": "reason-revelation"
-    },
-    "cairo-geniza-legal-document": {
-      "hallFolder": "jewish-philosophy",
-      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Fragment_of_the_Cairo_Genizah_-_Legal_document.jpg",
-      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Fragment_of_the_Cairo_Genizah_-_Legal_document.jpg",
-      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Fragment_of_the_Cairo_Genizah_-_Legal_document.jpg?width=1280",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Interior_of_the_Ben_Ezra_Synagogue,_Cairo.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Interior_of_the_Ben_Ezra_Synagogue%2C_Cairo.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Interior_of_the_Ben_Ezra_Synagogue%2C_Cairo.jpg",
       "scene": {
         "width": 480,
         "height": 640,
-        "bytes": 26464,
-        "sha256": "13878b4721780be06ec8264595cb1dc893a6310e02cccca23ced0bbe9f3fdf6f"
+        "bytes": 103612,
+        "sha256": "9c48f2410892f037765f07b6659485aa1219d167e4946a7c71719c8437136e8c"
       },
       "panel": {
-        "width": 959,
+        "width": 960,
         "height": 1280,
-        "bytes": 78306,
-        "sha256": "49715e6bb6caca2bcf08a1af4e207585a962aff4b04111d860900050670aede5"
+        "bytes": 387728,
+        "sha256": "a7e17f020253fc96e51048097785915aeb646e8c47a751fc7407599781f6d52d"
       },
-      "visualCharacter": "contextual-composite",
+      "visualCharacter": "place-or-architecture",
       "textDominantOrSingleBook": false,
-      "contextualCompositeVersion": 1,
-      "contextualCompositeMotif": "trade-network"
+      "standaloneReplacementVersion": 1
+    },
+    "saadia-beliefs-landauer": {
+      "hallFolder": "jewish-philosophy",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Khalili_Collection_Islamic_Art_sci_0158.1.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/78/Khalili_Collection_Islamic_Art_sci_0158.1.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/7/78/Khalili_Collection_Islamic_Art_sci_0158.1.jpg",
+      "scene": {
+        "width": 527,
+        "height": 640,
+        "bytes": 48118,
+        "sha256": "ba262e10b8030e9e0e19be55083e76bcc6cfad077bbb2ef1974992ba6300a73c"
+      },
+      "panel": {
+        "width": 1053,
+        "height": 1280,
+        "bytes": 205496,
+        "sha256": "86953c4e034701d721732cd03103222e6bccc2f29d700d033ef2b00079b72610"
+      },
+      "visualCharacter": "material-object",
+      "textDominantOrSingleBook": false,
+      "standaloneReplacementVersion": 1
+    },
+    "cairo-geniza-legal-document": {
+      "hallFolder": "jewish-philosophy",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Solomon_Schechter_studying_the_fragments_of_the_Cairo_Genizah,_c._1898.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Solomon_Schechter_studying_the_fragments_of_the_Cairo_Genizah%2C_c._1898.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Solomon_Schechter_studying_the_fragments_of_the_Cairo_Genizah%2C_c._1898.jpg/3840px-Solomon_Schechter_studying_the_fragments_of_the_Cairo_Genizah%2C_c._1898.jpg",
+      "scene": {
+        "width": 640,
+        "height": 565,
+        "bytes": 72544,
+        "sha256": "78a536d8ebef3678bca7c7f10ae5a93db0023b8a6887df5dcc5aa3755d204cc5"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 1130,
+        "bytes": 404876,
+        "sha256": "a6932dfda58660bb60748632574ff270712c898a298b4f2e8e3736af08e66737"
+      },
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "standaloneReplacementVersion": 1
     },
     "judah-halevi-letter-geniza": {
       "hallFolder": "jewish-philosophy",
@@ -5654,47 +5641,45 @@
     },
     "judah-halevi-kuzari-1796": {
       "hallFolder": "jewish-philosophy",
-      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Sefer_ha-Kuzari_(23855).pdf",
-      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sefer_ha-Kuzari_%2823855%29.pdf?page=1",
-      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sefer_ha-Kuzari_%2823855%29.pdf?page=1&width=1280",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Sarkel.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f6/Sarkel.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f6/Sarkel.jpg",
       "scene": {
-        "width": 507,
-        "height": 640,
-        "bytes": 21544,
-        "sha256": "32e6461df73fdf2dc9b679754fb1c6c55fd496937f1269d2fef6672882985f84"
+        "width": 640,
+        "height": 487,
+        "bytes": 105564,
+        "sha256": "9bffcfc98e196e02379185a94edf9cf6c77594631dce24aa7aa8bee45eb774ca"
       },
       "panel": {
-        "width": 960,
-        "height": 1211,
-        "bytes": 55064,
-        "sha256": "bc1625d9901875f626a2e9ed2231030136a12e4cb4178a33957d1ea8ac80b301"
+        "width": 1280,
+        "height": 973,
+        "bytes": 328922,
+        "sha256": "014ee99674245f20183f71b30511f42c38f381ba762f9e3a9514b52becaf2321"
       },
-      "visualCharacter": "contextual-composite",
+      "visualCharacter": "place-or-architecture",
       "textDominantOrSingleBook": false,
-      "contextualCompositeVersion": 1,
-      "contextualCompositeMotif": "dialogue-table"
+      "standaloneReplacementVersion": 1
     },
     "judah-halevi-divan-geniza": {
       "hallFolder": "jewish-philosophy",
-      "sourcePageUrl": "https://openn.library.upenn.edu/Data/0002/html/h314.html",
-      "sourceImageUrl": "https://openn.library.upenn.edu/Data/0002/h314/data/web/4681_0000_web.jpg",
-      "selectedThumbnailUrl": "https://openn.library.upenn.edu/Data/0002/h314/data/web/4681_0000_web.jpg",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:%D7%A8%D7%99%D7%94%D7%9C_%D7%A8%D7%90%D7%9C%D7%99.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/42/%D7%A8%D7%99%D7%94%D7%9C_%D7%A8%D7%90%D7%9C%D7%99.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/4/42/%D7%A8%D7%99%D7%94%D7%9C_%D7%A8%D7%90%D7%9C%D7%99.jpg",
       "scene": {
-        "width": 468,
+        "width": 297,
         "height": 640,
-        "bytes": 19772,
-        "sha256": "fe677327c1450fae71e857db0df3db4f3dc13a47ae407249946340605d82505f"
+        "bytes": 27856,
+        "sha256": "b08af9532117ef327159b4776e0376547c303834432e0479c4f4879fbea1110e"
       },
       "panel": {
-        "width": 936,
+        "width": 595,
         "height": 1280,
-        "bytes": 62440,
-        "sha256": "44979797979c5079b19e326fe77d690b7434a2570b44611a65164f83ffc99a5f"
+        "bytes": 102214,
+        "sha256": "499c8c3b31d6bba77785f51b274fe83facbe835bdf2005c214751fed68656db6"
       },
-      "visualCharacter": "contextual-composite",
+      "visualCharacter": "portrait-or-figure",
       "textDominantOrSingleBook": false,
-      "contextualCompositeVersion": 1,
-      "contextualCompositeMotif": "poetry-voyage"
+      "standaloneReplacementVersion": 1
     },
     "maimonides-mishnah-autograph": {
       "hallFolder": "jewish-philosophy",
@@ -5789,25 +5774,24 @@
     },
     "spinoza-tractatus-1670": {
       "hallFolder": "jewish-philosophy",
-      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Benedictus_de_Spinoza_-_Tractatus_theologico-politicus_continens_dissertationes_aliquot,_Hamburg,_Henricus_K%C3%BCnrath,_1670.jpg",
-      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Benedictus_de_Spinoza_-_Tractatus_theologico-politicus_continens_dissertationes_aliquot%2C_Hamburg%2C_Henricus_K%C3%BCnrath%2C_1670.jpg",
-      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Benedictus_de_Spinoza_-_Tractatus_theologico-politicus_continens_dissertationes_aliquot%2C_Hamburg%2C_Henricus_K%C3%BCnrath%2C_1670.jpg?width=1280",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Hirszenberg,_Spinoza_wykl%C3%AAty_(Excommunicated_Spinoza),_1907.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/75/Hirszenberg%2C_Spinoza_wykl%C3%AAty_%28Excommunicated_Spinoza%29%2C_1907.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/7/75/Hirszenberg%2C_Spinoza_wykl%C3%AAty_%28Excommunicated_Spinoza%29%2C_1907.jpg",
       "scene": {
-        "width": 503,
-        "height": 640,
-        "bytes": 15314,
-        "sha256": "709248a343b78e43014cc3f2b7a28249f1f020fb61b6d075503d718e934443f7"
+        "width": 640,
+        "height": 490,
+        "bytes": 63654,
+        "sha256": "903beef07c7d1818fbcd04e946641d2218b0f6ad674eda8b803efc6b47228976"
       },
       "panel": {
-        "width": 1006,
-        "height": 1280,
-        "bytes": 47956,
-        "sha256": "7b3a93d9636bfd2d090558e2869865eeb38fe3116d4ddccac6e0e3593bd86d3e"
+        "width": 1280,
+        "height": 981,
+        "bytes": 240078,
+        "sha256": "0b977f45c8e0570d869e588f876476835357a534c1bbf781ad968c9e584daee1"
       },
-      "visualCharacter": "contextual-composite",
+      "visualCharacter": "artwork-or-social-scene",
       "textDominantOrSingleBook": false,
-      "contextualCompositeVersion": 1,
-      "contextualCompositeMotif": "tolerance-city"
+      "standaloneReplacementVersion": 1
     }
   }
 }

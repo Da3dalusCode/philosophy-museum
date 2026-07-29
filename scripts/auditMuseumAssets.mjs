@@ -22,7 +22,7 @@ const gallery17Manifest = JSON.parse(readFileSync(resolve(repoRoot, 'scripts/mus
 const gallery18PreparationSource = readFileSync(resolve(repoRoot, 'scripts/prepareMuseumGallery18Assets.py'), 'utf8');
 const gallery18Manifest = JSON.parse(readFileSync(resolve(repoRoot, 'scripts/museumGallery18AssetManifest.json'), 'utf8'));
 const legacyImageDiversityPreparationSource = readFileSync(
-  resolve(repoRoot, 'scripts/prepareMuseumLegacyImageDiversityComposites.py'),
+  resolve(repoRoot, 'scripts/prepareMuseumLegacyImageReplacements.py'),
   'utf8',
 );
 const legacyImageDiversityProgram = JSON.parse(
@@ -116,7 +116,7 @@ const {
   MUSEUM_SCENE_IMAGE_PLANE_Z,
   MUSEUM_SCENE_MEDIA_LOADING_COLOR,
   MUSEUM_SCENE_MEDIA_MATERIAL_MODE,
-  MUSEUM_LEGACY_CONTEXTUAL_COMPOSITE_ASSET_IDS,
+  MUSEUM_LEGACY_STANDALONE_REPLACEMENT_ASSET_IDS,
   MUSEUM_LEGACY_RETAINED_TEXT_DOMINANT_OR_SINGLE_BOOK_ASSET_IDS,
   MUSEUM_LEGACY_VISUALLY_RICH_TEXTUAL_MEDIA_ASSET_IDS,
   MUSEUM_MAXIMUM_TEXT_DOMINANT_OR_SINGLE_BOOK_PER_ROOM,
@@ -231,6 +231,7 @@ const NEW_CANONICAL_ASSET_IDS = [
 ];
 const ORIGINAL_INTERPRETIVE_ASSET_IDS = new Set([
   'plato-cave-interpretive-illustration',
+  'levinas-totality-infinity-2002',
   'phenomenology-intentionality-interpretive',
   'heidegger-being-time-interpretive',
   'merleau-perception-interpretive',
@@ -410,7 +411,7 @@ const TEXT_OR_SINGLE_BOOK_CANDIDATE_MEDIA_KINDS = new Set([
   'manuscript',
   'papyrus',
 ]);
-const legacyContextualCompositeIds = new Set(MUSEUM_LEGACY_CONTEXTUAL_COMPOSITE_ASSET_IDS);
+const legacyStandaloneReplacementIds = new Set(MUSEUM_LEGACY_STANDALONE_REPLACEMENT_ASSET_IDS);
 const legacyRetainedTextDominantIds = new Set(
   MUSEUM_LEGACY_RETAINED_TEXT_DOMINANT_OR_SINGLE_BOOK_ASSET_IDS,
 );
@@ -546,18 +547,18 @@ const webpDimensions = (path) => {
 };
 
 check('Galleries 1–16 classify every textual-media candidate and cap plain pages or lone books at one per room', () => {
-  const contextualIds = [...legacyContextualCompositeIds];
+  const replacementIds = [...legacyStandaloneReplacementIds];
   const retainedIds = [...legacyRetainedTextDominantIds];
   const visuallyRichIds = [...legacyVisuallyRichTextualMediaIds];
-  assert.equal(legacyImageDiversityProgram.version, 1);
+  assert.equal(legacyImageDiversityProgram.version, 2);
   assert.equal(MUSEUM_MAXIMUM_TEXT_DOMINANT_OR_SINGLE_BOOK_PER_ROOM, 1);
-  assert.equal(contextualIds.length, 52, 'the reviewed Gallery 1–16 replacement program changed size');
-  assert.equal(new Set(contextualIds).size, contextualIds.length, 'the contextual-composite list repeats an asset');
+  assert.equal(replacementIds.length, 52, 'the reviewed Gallery 1–16 replacement program changed size');
+  assert.equal(new Set(replacementIds).size, replacementIds.length, 'the standalone-replacement list repeats an asset');
   assert.equal(new Set(retainedIds).size, retainedIds.length, 'the retained text-dominant list repeats an asset');
   assert.equal(new Set(visuallyRichIds).size, visuallyRichIds.length, 'the visually rich textual-media list repeats an asset');
   assert.equal(
-    new Set([...contextualIds, ...retainedIds, ...visuallyRichIds]).size,
-    contextualIds.length + retainedIds.length + visuallyRichIds.length,
+    new Set([...replacementIds, ...retainedIds, ...visuallyRichIds]).size,
+    replacementIds.length + retainedIds.length + visuallyRichIds.length,
     'the legacy visual-character classifications overlap',
   );
 
@@ -567,16 +568,21 @@ check('Galleries 1–16 classify every textual-media candidate and cap plain pag
     return TEXT_OR_SINGLE_BOOK_CANDIDATE_MEDIA_KINDS.has(asset.mediaKind);
   });
   const candidateIds = new Set(candidatePlacements.map(({assetId}) => assetId));
-  const classifiedIds = new Set([...contextualIds, ...retainedIds, ...visuallyRichIds]);
+  const classifiedTextualIds = new Set([...retainedIds, ...visuallyRichIds]);
   assert.deepEqual(
-    [...candidateIds].filter((id) => !classifiedIds.has(id)).sort(),
+    [...candidateIds].filter((id) => !classifiedTextualIds.has(id)).sort(),
     [],
     'Gallery 1–16 contains unreviewed manuscript, document, papyrus, or book-page imagery',
   );
   assert.deepEqual(
-    [...classifiedIds].filter((id) => !candidateIds.has(id)).sort(),
+    [...classifiedTextualIds].filter((id) => !candidateIds.has(id)).sort(),
     [],
     'the Gallery 1–16 visual-character inventory contains a stale or non-physical asset',
+  );
+  assert.deepEqual(
+    replacementIds.filter((id) => !legacyPhysicalPlacements.some(({assetId}) => assetId === id)).sort(),
+    [],
+    'the standalone replacement inventory contains an uninstalled asset',
   );
 
   const retainedByRoom = new Map();
@@ -598,27 +604,63 @@ check('Galleries 1–16 classify every textual-media candidate and cap plain pag
     ...successorManifestAssets,
     ...galleries13And16ManifestAssets,
   };
-  for (const id of contextualIds) {
+  const replacementSourcePages = [];
+  for (const id of replacementIds) {
     const asset = assetById.get(id);
     const lock = legacyLocks[id];
     assert(asset && lock, `${id} lacks its runtime record or source lock`);
-    assert.equal(asset.visualCharacter, 'contextual-composite', `${id} runtime visual character drifted`);
-    assert.match(asset.derivativeNotice ?? '', /contextual composite/i, `${id} lacks a transparent composite notice`);
-    assert.equal(lock.visualCharacter, 'contextual-composite', `${id} source lock lacks its composite character`);
-    assert.equal(lock.textDominantOrSingleBook, false, `${id} remains flagged as a plain page or lone book`);
-    assert.equal(lock.contextualCompositeVersion, 1, `${id} composite version drifted`);
-    assert.equal(
-      lock.contextualCompositeMotif,
-      legacyImageDiversityProgram.contextualComposites[id]?.motif,
-      `${id} composite motif differs from the reviewed program`,
+    assert(
+      ['portrait-or-figure', 'artwork-or-social-scene', 'place-or-architecture', 'material-object', 'map-or-diagram']
+        .includes(asset.visualCharacter),
+      `${id} is not classified as a standalone visual`,
     );
+    assert(
+      !TEXT_OR_SINGLE_BOOK_CANDIDATE_MEDIA_KINDS.has(asset.mediaKind),
+      `${id} still presents a textual medium after replacement`,
+    );
+    assert.doesNotMatch(
+      `${asset.alt} ${asset.caption} ${asset.historicalNote} ${asset.derivativeNotice ?? ''}`,
+      /contextual composite|subordinate (?:source |authenticated-source )?inset|visual study of/i,
+      `${id} retains rejected composite language`,
+    );
+    assert.equal(lock.visualCharacter, asset.visualCharacter, `${id} source lock visual character drifted`);
+    assert.equal(lock.textDominantOrSingleBook, false, `${id} remains flagged as a plain page or lone book`);
+    assert.equal(lock.standaloneReplacementVersion, 1, `${id} standalone replacement version drifted`);
+    assert.equal(lock.sourcePageUrl, asset.sourcePageUrl, `${id} source lock differs from runtime provenance`);
+    assert.deepEqual(
+      lock.sourceCropBox ?? null,
+      legacyImageDiversityProgram.standaloneReplacements[id].cropBox ?? null,
+      `${id} source crop drifted`,
+    );
+    if (lock.sourceCropBox) {
+      assert.match(asset.derivativeNotice ?? '', /cropped.+resized.+converted.+WebP/i, `${id} does not disclose its source crop`);
+    }
+    if (lock.sourceKind === 'owner-approved-original-illustration') {
+      assert.equal(id, 'levinas-totality-infinity-2002', `${id} is an unreviewed original illustration`);
+      assert.equal(new URL(lock.sourcePageUrl).hostname, 'github.com', `${id} original source page is not on GitHub`);
+      assert.equal(new URL(lock.sourceImageUrl).hostname, 'raw.githubusercontent.com', `${id} original source file is not raw GitHub content`);
+      assert.match(asset.historicalNote, /contemporary interpretive/i, `${id} does not disclose its contemporary interpretation`);
+    } else {
+      assert.equal(new URL(lock.sourcePageUrl).hostname, 'commons.wikimedia.org', `${id} source is not on Commons`);
+      assert(new URL(lock.sourcePageUrl).pathname.startsWith('/wiki/File:'), `${id} source is not an exact File page`);
+    }
+    for (const rejectedField of [
+      'contextualCompositeVersion',
+      'contextualCompositeMotif',
+      'contextualCompositeSourceInset',
+    ]) {
+      assert(!(rejectedField in lock), `${id} retains rejected source-lock field ${rejectedField}`);
+    }
+    replacementSourcePages.push(lock.sourcePageUrl);
   }
+  assert.equal(new Set(replacementSourcePages).size, replacementSourcePages.length, 'standalone replacements reuse a source page');
   for (const id of retainedIds) {
     assert.equal(assetById.get(id)?.visualCharacter, 'text-dominant', `${id} is not explicitly marked as the retained room exception`);
   }
-  assert.match(legacyImageDiversityPreparationSource, /EXPECTED|52 contextual composites|len\(composites\) != 52/);
-  assert.match(legacyImageDiversityPreparationSource, /contextualCompositeVersion/);
-  assert.match(legacyImageDiversityPreparationSource, /--rebuild-from-source/);
+  assert.match(legacyImageDiversityPreparationSource, /EXPECTED_REPLACEMENT_COUNT\s*=\s*52/);
+  assert.match(legacyImageDiversityPreparationSource, /standaloneReplacementVersion/);
+  assert.match(legacyImageDiversityPreparationSource, /no compositing, framing/);
+  assert.match(legacyImageDiversityPreparationSource, /--refresh-locks/);
 });
 
 check('the canonical eighteen expose 157 primaries, 258 supplementals, and 415 interpreted stops with resolvable local media', () => {
@@ -1143,7 +1185,7 @@ check('the preserved asset registry contains 472 unique records and derivative p
 
 check('all asset records carry complete provenance, rights, interpretation, and accessibility metadata', () => {
   const allowedRoles = new Set(['identity', 'primary-source', 'material-history', 'context']);
-  const allowedKinds = new Set(['sculpture-photograph', 'painting', 'engraving', 'manuscript', 'papyrus', 'book-page', 'photograph', 'drawing', 'document', 'architectural-plan']);
+  const allowedKinds = new Set(['sculpture-photograph', 'painting', 'engraving', 'manuscript', 'papyrus', 'book-page', 'photograph', 'drawing', 'digital-image', 'document', 'architectural-plan']);
   const allowedRights = new Set(['license', 'rights-status', 'dedication']);
   for (const asset of MUSEUM_ASSETS) {
     for (const [field, value] of Object.entries({
@@ -1164,7 +1206,9 @@ check('all asset records carry complete provenance, rights, interpretation, and 
     assert(isHttpUrl(asset.sourcePageUrl), `${asset.id} sourcePageUrl is not an HTTP(S) source page`);
     const sourcePage = new URL(asset.sourcePageUrl);
     assert.equal(sourcePage.protocol, 'https:', `${asset.id} source page must use HTTPS`);
-    const trustedExternalSource = TRUSTED_EXTERNAL_SOURCE_LOCKS.get(asset.id);
+    const trustedExternalSource = legacyStandaloneReplacementIds.has(asset.id)
+      ? undefined
+      : TRUSTED_EXTERNAL_SOURCE_LOCKS.get(asset.id);
     if (ORIGINAL_INTERPRETIVE_ASSET_IDS.has(asset.id)) {
       assert.equal(sourcePage.hostname, 'github.com');
       if (asset.id === 'anscombe-portrait-interpretive') {
@@ -1192,7 +1236,10 @@ check('all asset records carry complete provenance, rights, interpretation, and 
       assert(isHttpUrl(asset.objectPageUrl), `${asset.id} objectPageUrl is invalid`);
       assert.equal(new URL(asset.objectPageUrl).protocol, 'https:', `${asset.id} objectPageUrl must use HTTPS`);
     }
-    if (TRUSTED_EXTERNAL_OBJECT_PAGES.has(asset.id)) {
+    if (
+      TRUSTED_EXTERNAL_OBJECT_PAGES.has(asset.id)
+      && !legacyStandaloneReplacementIds.has(asset.id)
+    ) {
       assert.equal(asset.objectPageUrl, TRUSTED_EXTERNAL_OBJECT_PAGES.get(asset.id), `${asset.id} trusted external object page changed`);
     }
     if (/^CC BY(?:-|\s)/.test(asset.license)) {
@@ -1268,9 +1315,14 @@ check('the 315-source modern-manifest subset excludes all separately locked Gall
     countsByFolder.set(lock.hallFolder, (countsByFolder.get(lock.hallFolder) ?? 0) + 1);
     assert.equal(lock.sourcePageUrl, asset.sourcePageUrl, `${asset.id} lock source page differs from provenance`);
     for (const field of ['sourcePageUrl', 'sourceImageUrl', 'selectedThumbnailUrl']) assert(lock[field]?.startsWith('https://'), `${asset.id}.${field} must be locked HTTPS`);
-    const trustedExternalSource = TRUSTED_EXTERNAL_SOURCE_LOCKS.get(asset.id);
+    const trustedExternalSource = legacyStandaloneReplacementIds.has(asset.id)
+      ? undefined
+      : TRUSTED_EXTERNAL_SOURCE_LOCKS.get(asset.id);
     if (lock.sourceKind === 'owner-approved-original-illustration') {
-      assert.match(asset.id, /-interpretive$/, `${asset.id} marks a non-interpretive asset as an original illustration`);
+      assert(
+        asset.id.endsWith('-interpretive') || legacyStandaloneReplacementIds.has(asset.id),
+        `${asset.id} marks an unreviewed asset as an original illustration`,
+      );
       assert.equal(new URL(lock.sourcePageUrl).hostname, 'github.com', `${asset.id} original source page must use GitHub`);
       assert.equal(new URL(lock.sourceImageUrl).hostname, 'raw.githubusercontent.com', `${asset.id} original source image must use the repository`);
       assert.equal(new URL(lock.selectedThumbnailUrl).hostname, 'raw.githubusercontent.com', `${asset.id} original thumbnail must use the repository`);

@@ -147,47 +147,51 @@
     },
     "scholastic-marsilius-defensor": {
       "hallFolder": "latin-christian-scholastic",
-      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Marsilius,_Defensor_pacis,_Tortosa.jpg",
-      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Marsilius,_Defensor_pacis,_Tortosa.jpg",
-      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Marsilius,_Defensor_pacis,_Tortosa.jpg?width=1280",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Marsilius,_Defensor_pacis,_Paris,_Lat._14620.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/02/Marsilius%2C_Defensor_pacis%2C_Paris%2C_Lat._14620.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/0/02/Marsilius%2C_Defensor_pacis%2C_Paris%2C_Lat._14620.jpg",
       "scene": {
-        "width": 495,
-        "height": 640,
-        "bytes": 17836,
-        "sha256": "01622de963c3b3d1b422d34161337ae13b469a85bebe80698f0d6a92bc049d31"
+        "width": 640,
+        "height": 615,
+        "bytes": 111494,
+        "sha256": "d1de7b8c106d7069355a083486e2b799fb035b24af83e2046bf293a1eda51f40"
       },
       "panel": {
-        "width": 989,
-        "height": 1280,
-        "bytes": 66226,
-        "sha256": "f710c8c06e5cb95d79dd9508913b65ea7836b66d9c92f3966de5fa39ee41a013"
+        "width": 928,
+        "height": 892,
+        "bytes": 228974,
+        "sha256": "4f12cf1b3bf1f54bfeef48868f44116f9a924a290bf73e1b3e8a3fb7e6ae78da"
       },
-      "visualCharacter": "contextual-composite",
+      "visualCharacter": "artwork-or-social-scene",
       "textDominantOrSingleBook": false,
-      "contextualCompositeVersion": 1,
-      "contextualCompositeMotif": "civic-authority"
+      "standaloneReplacementVersion": 1,
+      "sourceCropBox": [
+        0.1,
+        0.09,
+        0.76,
+        0.58
+      ]
     },
     "scholastic-boethius-topics": {
       "hallFolder": "latin-christian-scholastic",
-      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:BnF_lat._1338,_f._221bis-v.JPEG",
-      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/BnF_lat._1338,_f._221bis-v.JPEG",
-      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/BnF_lat._1338,_f._221bis-v.JPEG?width=1280",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Co%C3%ABtivy_Master_(Henri_de_Vulcop%3F)_(French,_active_about_1450_-_1485)_-_Philosophy_Presenting_the_Seven_Liberal_Arts_to_Boethius_-_Google_Art_Project.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/72/Co%C3%ABtivy_Master_%28Henri_de_Vulcop%3F%29_%28French%2C_active_about_1450_-_1485%29_-_Philosophy_Presenting_the_Seven_Liberal_Arts_to_Boethius_-_Google_Art_Project.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Co%C3%ABtivy_Master_%28Henri_de_Vulcop%3F%29_%28French%2C_active_about_1450_-_1485%29_-_Philosophy_Presenting_the_Seven_Liberal_Arts_to_Boethius_-_Google_Art_Project.jpg/3840px-Co%C3%ABtivy_Master_%28Henri_de_Vulcop%3F%29_%28French%2C_active_about_1450_-_1485%29_-_Philosophy_Presenting_the_Seven_Liberal_Arts_to_Boethius_-_Google_Art_Project.jpg",
       "scene": {
-        "width": 370,
-        "height": 640,
-        "bytes": 21622,
-        "sha256": "22359f0ad7880f7f2e5c715dff8ef09a6ee8636b1cf2542ab14fddcc8a3f02c2"
+        "width": 640,
+        "height": 257,
+        "bytes": 54980,
+        "sha256": "d419dc26f845a11fc2dde1a82014c293bd58b9aa17128b2fe3a0644dbee41cbc"
       },
       "panel": {
-        "width": 740,
-        "height": 1280,
-        "bytes": 65270,
-        "sha256": "e2e96729d78eeb307b3cfa7397c0a35d103b6a20fb848355555d652f13139c95"
+        "width": 1280,
+        "height": 514,
+        "bytes": 293020,
+        "sha256": "7196221e0e8d696958f84eb761cbc78d3f36b531d4e1cbdd342eba568be0d142"
       },
-      "visualCharacter": "contextual-composite",
+      "visualCharacter": "artwork-or-social-scene",
       "textDominantOrSingleBook": false,
-      "contextualCompositeVersion": 1,
-      "contextualCompositeMotif": "logic-curriculum"
+      "standaloneReplacementVersion": 1
     },
     "scholastic-consolation-wheel": {
       "hallFolder": "latin-christian-scholastic",
@@ -227,69 +231,66 @@
     },
     "scholastic-eriugena-periphyseon": {
       "hallFolder": "latin-christian-scholastic",
-      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Eriugena,_Periphyseon,_Reims,_875.jpg",
-      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Eriugena,_Periphyseon,_Reims,_875.jpg",
-      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Eriugena,_Periphyseon,_Reims,_875.jpg?width=1280",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:CharlestheBald_Vivian_Bible.png",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e0/CharlestheBald_Vivian_Bible.png",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e0/CharlestheBald_Vivian_Bible.png",
       "scene": {
-        "width": 591,
+        "width": 481,
         "height": 640,
-        "bytes": 21552,
-        "sha256": "d5172e621b788fd7cedf6cdafa9353bd172dc633a867e0f8b91afc180d09c7f4"
+        "bytes": 94084,
+        "sha256": "67e3cd024657654c7c8a9dff6ab91b333579bee086e8a7c8dc1cc554105ca330"
       },
       "panel": {
-        "width": 1182,
+        "width": 962,
         "height": 1280,
-        "bytes": 58236,
-        "sha256": "59357edf198f4215ce804473119be5bba180b69ca7c3a4b43eb007ecbaf479d4"
+        "bytes": 520090,
+        "sha256": "00a2e02f1192662a2f768925013fb76bdf1c3407b50396b2d26301899078e57d"
       },
-      "visualCharacter": "contextual-composite",
+      "visualCharacter": "artwork-or-social-scene",
       "textDominantOrSingleBook": false,
-      "contextualCompositeVersion": 1,
-      "contextualCompositeMotif": "nature-divisions"
+      "standaloneReplacementVersion": 1
     },
     "scholastic-abelard-apologia-manuscript": {
       "hallFolder": "latin-christian-scholastic",
-      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Abaelard.jpg",
-      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Abaelard.jpg",
-      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Abaelard.jpg",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:DURUPT_H%C3%A9lo%C3%AFse_et_Ab%C3%A9lard_(la_le%C3%A7on_d%27astronomie).jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/09/DURUPT_H%C3%A9lo%C3%AFse_et_Ab%C3%A9lard_%28la_le%C3%A7on_d%27astronomie%29.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/0/09/DURUPT_H%C3%A9lo%C3%AFse_et_Ab%C3%A9lard_%28la_le%C3%A7on_d%27astronomie%29.jpg",
       "scene": {
-        "width": 374,
-        "height": 540,
-        "bytes": 17366,
-        "sha256": "2b1067cd45b1ac2101e20226cf99f26764644a1fc42a3c1b4b4c9487c58fbf51"
+        "width": 509,
+        "height": 640,
+        "bytes": 74388,
+        "sha256": "896589fe1be9efa9b318dedb278e5c5ef7916e3f4bf1be7979dbd99e849117d8"
       },
       "panel": {
-        "width": 374,
-        "height": 540,
-        "bytes": 17160,
-        "sha256": "18bbff5830f5d48aba99e878ba629f72ebc67110547cb3395dc8dac93e24e580"
+        "width": 1017,
+        "height": 1280,
+        "bytes": 445688,
+        "sha256": "a9b7413e164eeda450e031450bf459a1243ce1e8d1b107169ff635aa442c5d50"
       },
-      "visualCharacter": "contextual-composite",
+      "visualCharacter": "artwork-or-social-scene",
       "textDominantOrSingleBook": false,
-      "contextualCompositeVersion": 1,
-      "contextualCompositeMotif": "dialectic-debate"
+      "standaloneReplacementVersion": 1
     },
     "scholastic-heloise-letters": {
       "hallFolder": "latin-christian-scholastic",
-      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Lettres_et_epitres_amoureuses_d%27Heloise_et_d%27Abeilard._-_Upper_cover_(c155f8).jpg",
-      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Lettres_et_epitres_amoureuses_d%27Heloise_et_d%27Abeilard._-_Upper_cover_(c155f8).jpg",
-      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Lettres_et_epitres_amoureuses_d%27Heloise_et_d%27Abeilard._-_Upper_cover_(c155f8).jpg?width=1280",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Abdij_van_Paraclet,_RP-P-OB-72.305.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/40/Abdij_van_Paraclet%2C_RP-P-OB-72.305.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Abdij_van_Paraclet%2C_RP-P-OB-72.305.jpg/3840px-Abdij_van_Paraclet%2C_RP-P-OB-72.305.jpg",
       "scene": {
-        "width": 472,
-        "height": 640,
-        "bytes": 21402,
-        "sha256": "dc73456a7a2c389faf0da7ea316c5d3b7758612879b2d9bfa4bf8fdab37e4fdb"
+        "width": 640,
+        "height": 507,
+        "bytes": 53420,
+        "sha256": "fac45381aaf021f12454e4c16d004c61794b338d5390f2989834e967ad3993df"
       },
       "panel": {
-        "width": 944,
-        "height": 1280,
-        "bytes": 71324,
-        "sha256": "beaa5352705928b519041426bfaa085bd087804fd1adb2d6add195d9ae8c0f69"
+        "width": 1280,
+        "height": 1013,
+        "bytes": 367676,
+        "sha256": "7dcf67bb717bf46d43394c6a2bd0962dfae529faf58a42b7af5ba9ac9c8ae779"
       },
-      "visualCharacter": "contextual-composite",
+      "visualCharacter": "place-or-architecture",
       "textDominantOrSingleBook": false,
-      "contextualCompositeVersion": 1,
-      "contextualCompositeMotif": "love-intention"
+      "standaloneReplacementVersion": 1
     },
     "scholastic-sorbonne-theology": {
       "hallFolder": "latin-christian-scholastic",
@@ -311,69 +312,66 @@
     },
     "scholastic-aquinas-summa-basel": {
       "hallFolder": "latin-christian-scholastic",
-      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Basel,_Universit%C3%A4tsbibliothek,_A_I_14,_f._69v_%E2%80%93_Thomas_Aquinas,_Summa_theologiae_(prima_pars.JPG",
-      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Basel,_Universit%C3%A4tsbibliothek,_A_I_14,_f._69v_%E2%80%93_Thomas_Aquinas,_Summa_theologiae_(prima_pars.JPG",
-      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Basel,_Universit%C3%A4tsbibliothek,_A_I_14,_f._69v_%E2%80%93_Thomas_Aquinas,_Summa_theologiae_(prima_pars.JPG?width=1280",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Bartolomeo_degli_erri,_san_tommaso_d%27aquino_dibatte_con_gli_eretici,_1465_ca..JPG",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/34/Bartolomeo_degli_erri%2C_san_tommaso_d%27aquino_dibatte_con_gli_eretici%2C_1465_ca..JPG",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/3/34/Bartolomeo_degli_erri%2C_san_tommaso_d%27aquino_dibatte_con_gli_eretici%2C_1465_ca..JPG",
       "scene": {
-        "width": 480,
+        "width": 513,
         "height": 640,
-        "bytes": 15108,
-        "sha256": "5dd845936bb2d848bd8daec220fdd3b3885156528d626be5b52ad05bdbf790f4"
+        "bytes": 63250,
+        "sha256": "ff8db734671bd0a68cec44d4e66643fa657606efbbd68369e02dc57768b48883"
       },
       "panel": {
-        "width": 960,
+        "width": 1026,
         "height": 1280,
-        "bytes": 50890,
-        "sha256": "2d825a2f75b34ef131da33c6f0439b59c8cd2776bd836f985ab222a807b25efb"
+        "bytes": 276066,
+        "sha256": "0e103946ead7c75d9efe91292ae3ed7f3aa0ebd4d9863df484300f3530487ca0"
       },
-      "visualCharacter": "contextual-composite",
+      "visualCharacter": "artwork-or-social-scene",
       "textDominantOrSingleBook": false,
-      "contextualCompositeVersion": 1,
-      "contextualCompositeMotif": "summa-architecture"
+      "standaloneReplacementVersion": 1
     },
     "scholastic-aquinas-summa-1482": {
       "hallFolder": "latin-christian-scholastic",
-      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Thomas_Aquinas_Summa_theologiae_1482.jpg",
-      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Thomas_Aquinas_Summa_theologiae_1482.jpg",
-      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Thomas_Aquinas_Summa_theologiae_1482.jpg",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:St._Thomas_Aquinas_Presenting_His_Work_to_the_Crucified_Christ_MET_DP811542.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e6/St._Thomas_Aquinas_Presenting_His_Work_to_the_Crucified_Christ_MET_DP811542.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e6/St._Thomas_Aquinas_Presenting_His_Work_to_the_Crucified_Christ_MET_DP811542.jpg",
       "scene": {
-        "width": 469,
+        "width": 464,
         "height": 640,
-        "bytes": 23384,
-        "sha256": "5f99e6abe872e3c2a83a6fa33b3e34ad9d2fad45f9fc9322b2c7a0e71df799cb"
+        "bytes": 61946,
+        "sha256": "17e5e11aa8f4ad499339ee240612b504e1d38d1631bacd00888f05d3f53b3109"
       },
       "panel": {
-        "width": 640,
-        "height": 874,
-        "bytes": 40816,
-        "sha256": "01d536cee0146ae7fbaab299f638d556f1eb7b63ab353078ba237f0f340f365c"
+        "width": 928,
+        "height": 1280,
+        "bytes": 283410,
+        "sha256": "c1810af85c53dcbf11d2fd2f4f9f3c9eb0b1a8cd556bb7251aa7f3516d871412"
       },
-      "visualCharacter": "contextual-composite",
+      "visualCharacter": "artwork-or-social-scene",
       "textDominantOrSingleBook": false,
-      "contextualCompositeVersion": 1,
-      "contextualCompositeMotif": "essence-existence"
+      "standaloneReplacementVersion": 1
     },
     "scholastic-aquinas-summa-1477": {
       "hallFolder": "latin-christian-scholastic",
-      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Summa_theologica_1477.jpg",
-      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Summa_theologica_1477.jpg",
-      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Summa_theologica_1477.jpg?width=1280",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Raffael_054.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f2/Raffael_054.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Raffael_054.jpg/3840px-Raffael_054.jpg",
       "scene": {
-        "width": 403,
-        "height": 640,
-        "bytes": 16562,
-        "sha256": "2e84d480f7bb85fe10cd7a7e4b68c05c8c4cee58c97d947199775bea5278f108"
+        "width": 640,
+        "height": 194,
+        "bytes": 42976,
+        "sha256": "c0f2e95e0d30ae9aabfa37e45aad4904391b5cb40e3fc9b47e5c5d9ddcba71be"
       },
       "panel": {
-        "width": 806,
-        "height": 1280,
-        "bytes": 56428,
-        "sha256": "d0c4bd2236bcb4895457aae592bdf0e18efac7c9d81344f925bb67e2b066647a"
+        "width": 1280,
+        "height": 387,
+        "bytes": 165124,
+        "sha256": "91ce20482b67f7f818570b1feb37f1a380dc6c9c6cf88a1a7c686e676fcb4410"
       },
-      "visualCharacter": "contextual-composite",
+      "visualCharacter": "artwork-or-social-scene",
       "textDominantOrSingleBook": false,
-      "contextualCompositeVersion": 1,
-      "contextualCompositeMotif": "natural-law"
+      "standaloneReplacementVersion": 1
     },
     "scholastic-condemnation-1277": {
       "hallFolder": "latin-christian-scholastic",
@@ -395,25 +393,24 @@
     },
     "scholastic-eckhart-recantation": {
       "hallFolder": "latin-christian-scholastic",
-      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Meister_Eckhart,_recantation,_1327.jpg",
-      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Meister_Eckhart,_recantation,_1327.jpg",
-      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Meister_Eckhart,_recantation,_1327.jpg?width=1280",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Portrait_of_Pope_John_XXII_Dueze_(by_Giuseppe_Franchi)_%E2%80%93_Pinacoteca_Ambrosiana.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/be/Portrait_of_Pope_John_XXII_Dueze_%28by_Giuseppe_Franchi%29_%E2%80%93_Pinacoteca_Ambrosiana.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/b/be/Portrait_of_Pope_John_XXII_Dueze_%28by_Giuseppe_Franchi%29_%E2%80%93_Pinacoteca_Ambrosiana.jpg",
       "scene": {
-        "width": 482,
+        "width": 485,
         "height": 640,
-        "bytes": 17296,
-        "sha256": "76c8cd45e2a40ef008c0bdfcdb9f5edd48a8b8237960ed6ae89a0ed4ba29f6fd"
+        "bytes": 80002,
+        "sha256": "ece85fa31628939f19b008752679ef95119737932a0b66fdc563d202a1103ac3"
       },
       "panel": {
-        "width": 964,
+        "width": 971,
         "height": 1280,
-        "bytes": 58542,
-        "sha256": "505c622a5df23244ae25f1b274de2ad91279bcc55d000beb52decd37fd885bbf"
+        "bytes": 445092,
+        "sha256": "30b7561eefb1e1b1e8a5604aa3af0d69eb7f926a43532c4f959faba2c7b98cec"
       },
-      "visualCharacter": "contextual-composite",
+      "visualCharacter": "portrait-or-figure",
       "textDominantOrSingleBook": false,
-      "contextualCompositeVersion": 1,
-      "contextualCompositeMotif": "censure-pulpit"
+      "standaloneReplacementVersion": 1
     },
     "rationalism-cartesian-vortices": {
       "hallFolder": "rationalism-mind-nature-system",
@@ -525,25 +522,24 @@
     },
     "rationalism-conway-principia": {
       "hallFolder": "rationalism-mind-nature-system",
-      "sourcePageUrl": "https://books.google.com/books?id=y6hbDBQqTiQC",
-      "sourceImageUrl": "https://books.google.com/books/content?id=y6hbDBQqTiQC&printsec=frontcover&img=1&zoom=2&edge=curl&source=gbs_api",
-      "selectedThumbnailUrl": "https://books.google.com/books/content?id=y6hbDBQqTiQC&printsec=frontcover&img=1&zoom=2&edge=curl&source=gbs_api",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Peter_Lely_(1618-1680)_-_Frans_Mercurius_van_Helmont_-_N03583_-_National_Gallery.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c8/Peter_Lely_%281618-1680%29_-_Frans_Mercurius_van_Helmont_-_N03583_-_National_Gallery.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c8/Peter_Lely_%281618-1680%29_-_Frans_Mercurius_van_Helmont_-_N03583_-_National_Gallery.jpg",
       "scene": {
-        "width": 300,
-        "height": 509,
-        "bytes": 15312,
-        "sha256": "f2881e0ac8b0bf6f480693d304cbd977116d43f76e9e78d91739f55284986294"
+        "width": 513,
+        "height": 640,
+        "bytes": 22028,
+        "sha256": "99669fac3356a1a0074e59a06314460fa416a789bb2938edce1860864c351b5a"
       },
       "panel": {
-        "width": 300,
-        "height": 509,
-        "bytes": 15832,
-        "sha256": "9476df556e3d59a900968cd215217ee71227f1dd9310dcff70364579b1b0f6bb"
+        "width": 961,
+        "height": 1200,
+        "bytes": 99608,
+        "sha256": "8c7b845ff543c47dbaaec0f7ad91609229fbd43383fc78f659727a44463a7318"
       },
-      "visualCharacter": "contextual-composite",
+      "visualCharacter": "portrait-or-figure",
       "textDominantOrSingleBook": false,
-      "contextualCompositeVersion": 1,
-      "contextualCompositeMotif": "vital-continuum"
+      "standaloneReplacementVersion": 1
     },
     "rationalism-henry-more-portrait": {
       "hallFolder": "rationalism-mind-nature-system",
@@ -583,47 +579,45 @@
     },
     "rationalism-leibniz-correspondence": {
       "hallFolder": "rationalism-mind-nature-system",
-      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Korespondencja_Gottfrieda_Leibniza.jpg",
-      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Korespondencja_Gottfrieda_Leibniza.jpg",
-      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Korespondencja_Gottfrieda_Leibniza.jpg",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Portret_van_Antoine_Arnauld_aan_een_bureau,_RP-P-OB-74.574.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/df/Portret_van_Antoine_Arnauld_aan_een_bureau%2C_RP-P-OB-74.574.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/d/df/Portret_van_Antoine_Arnauld_aan_een_bureau%2C_RP-P-OB-74.574.jpg",
       "scene": {
-        "width": 640,
-        "height": 533,
-        "bytes": 27076,
-        "sha256": "8d8b80352cd7b8327ad6bdac7640f318133c5ab65ff1facc97eeb184f431fb3e"
+        "width": 418,
+        "height": 640,
+        "bytes": 42260,
+        "sha256": "1e082f9573e8935bdd5b72f62c351efadc3e9fa7700a7dd59b6376021cc9045c"
       },
       "panel": {
-        "width": 713,
-        "height": 594,
-        "bytes": 31722,
-        "sha256": "c9304505178566f6c3ebb74c00ae675445ce259132436523504567ff1be54a11"
+        "width": 837,
+        "height": 1280,
+        "bytes": 288320,
+        "sha256": "d42d2d8cb2e8361fcbaf8e4196ee39f4cac9cf939562e2b9ccbb327e61809536"
       },
-      "visualCharacter": "contextual-composite",
+      "visualCharacter": "portrait-or-figure",
       "textDominantOrSingleBook": false,
-      "contextualCompositeVersion": 1,
-      "contextualCompositeMotif": "harmony-clocks"
+      "standaloneReplacementVersion": 1
     },
     "rationalism-leibniz-new-essays": {
       "hallFolder": "rationalism-mind-nature-system",
-      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Leibniz_-_Nouveaux_Essais_sur_l%E2%80%99entendement_humain,_1921.djvu",
-      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Leibniz_-_Nouveaux_Essais_sur_l%E2%80%99entendement_humain,_1921.djvu",
-      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Leibniz_-_Nouveaux_Essais_sur_l%E2%80%99entendement_humain%2C_1921.djvu/page17-1280px-Leibniz_-_Nouveaux_Essais_sur_l%E2%80%99entendement_humain%2C_1921.djvu.jpg",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:%27John_Locke%27_by_Godfrey_Kneller,_1697,_Hermitage.JPG",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5b/%27John_Locke%27_by_Godfrey_Kneller%2C_1697%2C_Hermitage.JPG",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5b/%27John_Locke%27_by_Godfrey_Kneller%2C_1697%2C_Hermitage.JPG",
       "scene": {
-        "width": 381,
+        "width": 494,
         "height": 640,
-        "bytes": 19026,
-        "sha256": "f538b87fb2b29827aee0b0c7e4fe2dc9adb2c2f59b9d9d410c48ccbad08e2d94"
+        "bytes": 23328,
+        "sha256": "87c6ffd03e6eff62c63eb2c3f3191d4ee1dbe53932389d67438bc4af99cf4c41"
       },
       "panel": {
-        "width": 762,
+        "width": 987,
         "height": 1280,
-        "bytes": 56066,
-        "sha256": "085f9d01dace9d116681b96ef420db8f6d856c77ea824c21b0ed6fffef2b2287"
+        "bytes": 114626,
+        "sha256": "764b8ffa6d65ce5c87cff839284e5887ec7e2fa0a4fea39bc08ad18c8a18358a"
       },
-      "visualCharacter": "contextual-composite",
+      "visualCharacter": "portrait-or-figure",
       "textDominantOrSingleBook": false,
-      "contextualCompositeVersion": 1,
-      "contextualCompositeMotif": "innate-veins"
+      "standaloneReplacementVersion": 1
     },
     "rationalism-leibniz-clarke": {
       "hallFolder": "rationalism-mind-nature-system",
@@ -681,25 +675,24 @@
     },
     "scholastic-aristotle-latin-physics": {
       "hallFolder": "latin-christian-scholastic",
-      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Aristotle_latin_manuscript.jpg",
-      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Aristotle_latin_manuscript.jpg",
-      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Aristotle_latin_manuscript.jpg?width=1280",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Benozzo_gozzoli,_trionfo_di_san_tommaso_d%27aquino,_da_duomo_di_pisa,_1470-75_ca._01.JPG",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/38/Benozzo_gozzoli%2C_trionfo_di_san_tommaso_d%27aquino%2C_da_duomo_di_pisa%2C_1470-75_ca._01.JPG",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/3/38/Benozzo_gozzoli%2C_trionfo_di_san_tommaso_d%27aquino%2C_da_duomo_di_pisa%2C_1470-75_ca._01.JPG",
       "scene": {
-        "width": 464,
+        "width": 317,
         "height": 640,
-        "bytes": 20008,
-        "sha256": "b052cac62755f1aa3c3dffc621492c6d9f5a4e54d0d50114c74d47f057af8f46"
+        "bytes": 56354,
+        "sha256": "915f1ef6ea8797e3a65d25e63ff656180c16c681ca68cbf0a1cab89e30926af1"
       },
       "panel": {
-        "width": 929,
+        "width": 633,
         "height": 1280,
-        "bytes": 68032,
-        "sha256": "2d95673e00c9f415649a37a0029910d9435b54249a30dfef187a33f1a31d06db"
+        "bytes": 210098,
+        "sha256": "6639c6bc33fa15ef7f89f496c2ca2c8df101a47a4899a76e96ebab5fc19a7aa7"
       },
-      "visualCharacter": "contextual-composite",
+      "visualCharacter": "artwork-or-social-scene",
       "textDominantOrSingleBook": false,
-      "contextualCompositeVersion": 1,
-      "contextualCompositeMotif": "translation-motion"
+      "standaloneReplacementVersion": 1
     },
     "scholastic-porphyrian-tree-fresco": {
       "hallFolder": "latin-christian-scholastic",
@@ -757,25 +750,24 @@
     },
     "rationalism-discourse-first-edition": {
       "hallFolder": "rationalism-mind-nature-system",
-      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Page_de_titre_de_la_premi%C3%A8re_%C3%A9dition_du_discours_de_la_m%C3%A9thode.jpg",
-      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Page_de_titre_de_la_premi%C3%A8re_%C3%A9dition_du_discours_de_la_m%C3%A9thode.jpg",
-      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Page_de_titre_de_la_premi%C3%A8re_%C3%A9dition_du_discours_de_la_m%C3%A9thode.jpg?width=1280",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Descartes_Rainbow.png",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/bb/Descartes_Rainbow.png",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Descartes_Rainbow.png/3840px-Descartes_Rainbow.png",
       "scene": {
-        "width": 474,
-        "height": 640,
-        "bytes": 28248,
-        "sha256": "9a73cb46e009fd89e085e593cb47893a3d631f0e27b2151a933aac5660cd1a68"
+        "width": 640,
+        "height": 564,
+        "bytes": 93564,
+        "sha256": "942e2fe4c94c33d0d0228abf24a4ea66de0c09a5ad1b82a2309de509c32b3ac1"
       },
       "panel": {
-        "width": 948,
-        "height": 1280,
-        "bytes": 76344,
-        "sha256": "e8ed35e5ea759bda437699314111332c1f7d10a46e0573e5c4f4fd0d2326c021"
+        "width": 1280,
+        "height": 1128,
+        "bytes": 255014,
+        "sha256": "b81e5707171f5ec54e0b060fed2179c5b0dac742d4d0159b797d773178891141"
       },
-      "visualCharacter": "contextual-composite",
+      "visualCharacter": "map-or-diagram",
       "textDominantOrSingleBook": false,
-      "contextualCompositeVersion": 1,
-      "contextualCompositeMotif": "method-optics"
+      "standaloneReplacementVersion": 1
     },
     "rationalism-ethics-propositions": {
       "hallFolder": "rationalism-mind-nature-system",
@@ -797,25 +789,24 @@
     },
     "rationalism-tractatus-manuscript-note": {
       "hallFolder": "rationalism-mind-nature-system",
-      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Benedictus_de_Spinoza_-_Manuscript_notes_with_Tractatus_theologico-politicus_IX_Adnotatio_14.jpg",
-      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Benedictus_de_Spinoza_-_Manuscript_notes_with_Tractatus_theologico-politicus_IX_Adnotatio_14.jpg",
-      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Benedictus_de_Spinoza_-_Manuscript_notes_with_Tractatus_theologico-politicus_IX_Adnotatio_14.jpg?width=1280",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Interieur_van_de_Portugese_synagoge_te_Amsterdam_Rijksmuseum_SK-A-3738.jpeg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/68/Interieur_van_de_Portugese_synagoge_te_Amsterdam_Rijksmuseum_SK-A-3738.jpeg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Interieur_van_de_Portugese_synagoge_te_Amsterdam_Rijksmuseum_SK-A-3738.jpeg/3840px-Interieur_van_de_Portugese_synagoge_te_Amsterdam_Rijksmuseum_SK-A-3738.jpeg",
       "scene": {
-        "width": 375,
+        "width": 568,
         "height": 640,
-        "bytes": 33806,
-        "sha256": "85674ebfaa9c9fcc544051ec4ef26a644fb51b558f5543a8ac61a58f1e57e49a"
+        "bytes": 46504,
+        "sha256": "e2b0f007d8ac08ef95fa75bf68f93eec6f84cc20dc83d0a500497f7d87bfddd9"
       },
       "panel": {
-        "width": 750,
+        "width": 1137,
         "height": 1280,
-        "bytes": 84474,
-        "sha256": "2e23730ae0c3e76d3ec0c43558216f9bf9c2adea39440a9b6b6103d247e3d442"
+        "bytes": 271538,
+        "sha256": "0e4bae6dd810fa7e6cdf3dacde9e766e2098fdfdb2bb4c5a007128fced0d2566"
       },
-      "visualCharacter": "contextual-composite",
+      "visualCharacter": "artwork-or-social-scene",
       "textDominantOrSingleBook": false,
-      "contextualCompositeVersion": 1,
-      "contextualCompositeMotif": "lens-scripture"
+      "standaloneReplacementVersion": 1
     }
   }
 }

@@ -489,6 +489,7 @@ export type MuseumMediaKind =
   | 'book-page'
   | 'photograph'
   | 'drawing'
+  | 'digital-image'
   | 'document'
   | 'architectural-plan';
 
@@ -498,7 +499,6 @@ export type MuseumVisualCharacter =
   | 'place-or-architecture'
   | 'material-object'
   | 'map-or-diagram'
-  | 'contextual-composite'
   | 'text-dominant';
 
 export type MuseumLikenessStatus =
