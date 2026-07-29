@@ -117,7 +117,7 @@ At the architectural migration:
 
 Future sequential galleries divide the 56 m long axis into equal named room spans unless their curation later justifies an authored adjustment. Four-room crossroads galleries use four independent quadrants. Enlightenment, Revolution, and Kant uses four perimeter rooms plus a distinct central Kant room. The current nine-room Forum layout is preserved.
 
-This is a deliberate staging state: visitors can understand the final building, reach every populated hall on foot, and see exactly which galleries are awaiting curation. The map must distinguish **12 curated open galleries** from **14 walkable planned shells**.
+This is a deliberate staging state: visitors can understand the final building, reach every populated hall on foot, and see exactly which galleries are awaiting curation. The map must distinguish **14 curated open galleries** from **12 walkable planned shells**.
 
 ## Exhibit-wall protection
 
@@ -137,7 +137,7 @@ The chronological walk through all 26 large galleries is approximately 1.44 km. 
 The crosscut gives six collection intersections in 168 m. The physical map and fast travel provide a second layer of navigation. The map must derive from the same manifest as rendered geometry and show:
 
 - all 26 gallery shells with full titles;
-- 12 curated/open and 14 planned/walkable states;
+- 14 curated/open and 12 planned/walkable states;
 - two closed expansion reserves outside the 26-gallery program;
 - the complete through route, crosscut, turn courts, entrance, final threshold, current position, and facing arrow;
 - stable Gallery 01–26 release numbers and separate visit sequence when useful;

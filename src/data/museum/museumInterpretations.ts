@@ -229,11 +229,12 @@ const ANCIENT_MUSEUM_INTERPRETATIONS = {
     sections: [
       {heading: 'Physics serving ethics', paragraphs: ['Atoms and void are not a detached science exhibit. By explaining mind, death, weather, and celestial events without punitive providence, Epicurean physics removes sources of anxiety.']},
       {heading: 'The social Garden', paragraphs: ['The Garden formed a continuing community rather than a private technique. Surviving names and portraits show how friendship, teaching succession, and shared memory sustained the school.']},
-      {heading: 'Fragments and opponents', paragraphs: ['Diogenes Laertius preserves crucial Epicurean texts centuries later. Lucretius is indispensable but writes poetry in Latin; Cicero and Plutarch preserve information while arguing against the school.']},
+      {heading: 'Fragments and opponents', paragraphs: ['Diogenes Laertius preserves crucial Epicurean texts centuries later. Lucretius is indispensable but writes poetry in Latin; Cicero and Plutarch preserve information while arguing against the school. Herculaneum’s damaged rolls add a materially difficult archive whose readings remain open to revision.']},
     ],
     objectInterpretations: {
       'epicureanism-double-herm': 'The joined portraits of Epicurus and Metrodorus materialize philosophical friendship and collective memory. The object is a restored Roman copy after a Greek model, not a surviving Garden original.',
       'epicureanism-lucretius-manuscript': 'This illuminated 1483 manuscript shows an ancient materialist poem crossing fifteen centuries of copying. It is evidence of Renaissance transmission, not an ancient witness.',
+      'epicurean-garden-herculaneum-papyrus': 'This carbonized Herculaneum papyrus makes the Epicurean school visible as a community of writing, collecting, and argument. Its damaged state also warns that the surviving Garden is materially partial and mediated by modern recovery.',
     },
     sources: [
       {label: 'Stanford Encyclopedia of Philosophy — Epicurus', url: 'https://plato.stanford.edu/entries/epicurus/', kind: 'academic-reference'},
@@ -265,6 +266,7 @@ const ANCIENT_MUSEUM_INTERPRETATIONS = {
     objectInterpretations: {
       'stoicism-zeno-naples': 'The bust gives the founder a focal presence while teaching how ancient portraits are attributed through comparison. No surviving inscription secures this identification.',
       'stoicism-marcus-aurelius-bust': 'An ancient imperial portrait demonstrates Stoicism’s movement into Roman political life. Marcus is an important practitioner, not a substitute for the entire system or an exemption from judging imperial power.',
+      'stoicism-stoa-attalos': 'The reconstructed Stoa of Attalos locates Stoic identity in an Athenian public colonnade while remaining a modern reconstruction of a different stoa. It evokes philosophy in civic space without pretending to preserve Zeno’s original classroom.',
     },
     sources: [
       {label: 'Stanford Encyclopedia of Philosophy — Stoicism', url: 'https://plato.stanford.edu/entries/stoicism/', kind: 'academic-reference'},
@@ -327,6 +329,7 @@ const ANCIENT_MUSEUM_INTERPRETATIONS = {
     objectInterpretations: {
       'neoplatonism-plotinus-ostia': 'The third-century Ostia head offers historical proximity but not certainty. Its identification as Plotinus is conventional and plausible rather than proven.',
       'neoplatonism-ficino-enneads': 'Ficino’s dense annotations make Renaissance interpretation visible. This working manuscript documents active transmission, not an ancient or authorial copy.',
+      'late-neoplatonic-reader-sarcophagus': 'This late-antique sarcophagus relief depicts an intellectual reader, not an authenticated portrait of Plotinus or proof of Neoplatonic affiliation. It establishes the material culture of learned identity while keeping the proposed Plotinian comparison explicitly speculative.',
     },
     sources: [
       {label: 'Stanford Encyclopedia of Philosophy — Neoplatonism', url: 'https://plato.stanford.edu/entries/neoplatonism/', kind: 'academic-reference'},
@@ -378,6 +381,94 @@ const collectionSource = (label: string, url: string): MuseumInterpretationSourc
  * writing; these links give visitors a route to the evidence and scholarship.
  */
 const CANONICAL_DIRECT_INTERPRETATION_SOURCES: Readonly<Record<string, readonly MuseumInterpretationSource[]>> = {
+  antisthenes: [
+    academicSource('Stanford Encyclopedia of Philosophy — Cynics', 'https://plato.stanford.edu/entries/cynics/'),
+    academicSource('Internet Encyclopedia of Philosophy — Cynics', 'https://iep.utm.edu/cynics/'),
+  ],
+  diogenes: [
+    academicSource('Stanford Encyclopedia of Philosophy — Cynics', 'https://plato.stanford.edu/entries/cynics/'),
+    academicSource('Internet Encyclopedia of Philosophy — Diogenes of Sinope', 'https://iep.utm.edu/diogenes-of-sinope/'),
+  ],
+  epicurus: [
+    academicSource('Stanford Encyclopedia of Philosophy — Epicurus', 'https://plato.stanford.edu/entries/epicurus/'),
+    academicSource('Internet Encyclopedia of Philosophy — Epicurus', 'https://iep.utm.edu/epicur/'),
+  ],
+  lucretius: [
+    academicSource('Stanford Encyclopedia of Philosophy — Lucretius', 'https://plato.stanford.edu/entries/lucretius/'),
+    academicSource('Stanford Encyclopedia of Philosophy — Epicurus', 'https://plato.stanford.edu/entries/epicurus/'),
+  ],
+  zeno: [
+    academicSource('Stanford Encyclopedia of Philosophy — Stoicism', 'https://plato.stanford.edu/entries/stoicism/'),
+    academicSource('Internet Encyclopedia of Philosophy — Stoicism', 'https://iep.utm.edu/stoicism/'),
+  ],
+  cleanthes: [
+    academicSource('Stanford Encyclopedia of Philosophy — Stoicism', 'https://plato.stanford.edu/entries/stoicism/'),
+    academicSource('Internet Encyclopedia of Philosophy — Stoicism', 'https://iep.utm.edu/stoicism/'),
+  ],
+  chrysippus: [
+    academicSource('Stanford Encyclopedia of Philosophy — Stoicism', 'https://plato.stanford.edu/entries/stoicism/'),
+    academicSource('Internet Encyclopedia of Philosophy — Stoicism', 'https://iep.utm.edu/stoicism/'),
+  ],
+  epictetus: [
+    academicSource('Stanford Encyclopedia of Philosophy — Epictetus', 'https://plato.stanford.edu/entries/epictetus/'),
+    academicSource('Internet Encyclopedia of Philosophy — Epictetus', 'https://iep.utm.edu/epictetu/'),
+  ],
+  seneca: [
+    academicSource('Stanford Encyclopedia of Philosophy — Seneca', 'https://plato.stanford.edu/entries/seneca/'),
+    academicSource('Internet Encyclopedia of Philosophy — Seneca', 'https://iep.utm.edu/seneca/'),
+  ],
+  'marcus-aurelius': [
+    academicSource('Stanford Encyclopedia of Philosophy — Marcus Aurelius', 'https://plato.stanford.edu/entries/marcus-aurelius/'),
+    academicSource('Internet Encyclopedia of Philosophy — Marcus Aurelius', 'https://iep.utm.edu/marcus-aurelius/'),
+  ],
+  pyrrho: [
+    academicSource('Stanford Encyclopedia of Philosophy — Ancient Skepticism', 'https://plato.stanford.edu/entries/skepticism-ancient/'),
+    academicSource('Internet Encyclopedia of Philosophy — Ancient Greek Skepticism', 'https://iep.utm.edu/ancient-greek-skepticism/'),
+  ],
+  arcesilaus: [
+    academicSource('Stanford Encyclopedia of Philosophy — Ancient Skepticism', 'https://plato.stanford.edu/entries/skepticism-ancient/'),
+    academicSource('Internet Encyclopedia of Philosophy — Ancient Greek Skepticism', 'https://iep.utm.edu/ancient-greek-skepticism/'),
+  ],
+  carneades: [
+    academicSource('Stanford Encyclopedia of Philosophy — Ancient Skepticism', 'https://plato.stanford.edu/entries/skepticism-ancient/'),
+    academicSource('Internet Encyclopedia of Philosophy — Ancient Greek Skepticism', 'https://iep.utm.edu/ancient-greek-skepticism/'),
+  ],
+  'sextus-empiricus': [
+    academicSource('Stanford Encyclopedia of Philosophy — Ancient Skepticism', 'https://plato.stanford.edu/entries/skepticism-ancient/'),
+    academicSource('Internet Encyclopedia of Philosophy — Ancient Greek Skepticism', 'https://iep.utm.edu/ancient-greek-skepticism/'),
+  ],
+  plotinus: [
+    academicSource('Stanford Encyclopedia of Philosophy — Plotinus', 'https://plato.stanford.edu/entries/plotinus/'),
+    academicSource('Internet Encyclopedia of Philosophy — Neo-Platonism', 'https://iep.utm.edu/neoplato/'),
+  ],
+  porphyry: [
+    academicSource('Stanford Encyclopedia of Philosophy — Porphyry', 'https://plato.stanford.edu/entries/porphyry/'),
+    academicSource('Internet Encyclopedia of Philosophy — Neo-Platonism', 'https://iep.utm.edu/neoplato/'),
+  ],
+  iamblichus: [
+    academicSource('Stanford Encyclopedia of Philosophy — Iamblichus', 'https://plato.stanford.edu/entries/iamblichus/'),
+    academicSource('Internet Encyclopedia of Philosophy — Neo-Platonism', 'https://iep.utm.edu/neoplato/'),
+  ],
+  proclus: [
+    academicSource('Stanford Encyclopedia of Philosophy — Proclus', 'https://plato.stanford.edu/entries/proclus/'),
+    academicSource('Internet Encyclopedia of Philosophy — Neo-Platonism', 'https://iep.utm.edu/neoplato/'),
+  ],
+  origen: [
+    academicSource('Stanford Encyclopedia of Philosophy — Origen', 'https://plato.stanford.edu/entries/origen/'),
+    academicSource('Internet Encyclopedia of Philosophy — Origen of Alexandria', 'https://iep.utm.edu/origen-of-alexandria/'),
+  ],
+  augustine: [
+    academicSource('Stanford Encyclopedia of Philosophy — Saint Augustine', 'https://plato.stanford.edu/entries/augustine/'),
+    academicSource('Internet Encyclopedia of Philosophy — Augustine’s political and social philosophy', 'https://iep.utm.edu/augustine-political-and-social-philosophy/'),
+  ],
+  'gregory-nyssa': [
+    academicSource('Internet Encyclopedia of Philosophy — Gregory of Nyssa', 'https://iep.utm.edu/gregoryn/'),
+    primarySource('New Advent — Gregory of Nyssa, Life of Moses', 'https://www.newadvent.org/fathers/2915.htm'),
+  ],
+  'pseudo-dionysius': [
+    academicSource('Stanford Encyclopedia of Philosophy — Pseudo-Dionysius', 'https://plato.stanford.edu/entries/pseudo-dionysius-areopagite/'),
+    academicSource('Internet Encyclopedia of Philosophy — Pseudo-Dionysius', 'https://iep.utm.edu/?p=2458'),
+  ],
   'zhu-xi': [
     academicSource('Stanford Encyclopedia of Philosophy — Zhu Xi', 'https://plato.stanford.edu/entries/zhu-xi/'),
     academicSource('Internet Encyclopedia of Philosophy — Zhu Xi (Chu Hsi)', 'https://iep.utm.edu/zhu-xi-chu-hsi-chinese-philosopher/'),
@@ -783,7 +874,11 @@ const interpretationSources = (
   entityId: string,
   sourceLinks: readonly SourceLink[] = [],
   readings: readonly ReadingEntry[] = [],
+  principalAssetId?: string,
 ): readonly MuseumInterpretationSource[] => {
+  const principalAsset = principalAssetId
+    ? museumAssetById.get(principalAssetId as MuseumAssetId)
+    : undefined;
   const sources: MuseumInterpretationSource[] = [
     ...(CANONICAL_DIRECT_INTERPRETATION_SOURCES[entityId] ?? []),
     ...sourceLinks.map((source) => ({
@@ -791,6 +886,11 @@ const interpretationSources = (
       url: source.url,
       kind: sourceKind(source),
     })),
+    ...(principalAsset ? [{
+      label: `${principalAsset.institution} — ${principalAsset.title}`,
+      url: principalAsset.objectPageUrl ?? principalAsset.sourcePageUrl,
+      kind: 'collection-record' as const,
+    }] : []),
   ];
   for (const reading of readings) {
     const url = reading.publicDomainUrl ?? reading.sourceUrl;
@@ -914,6 +1014,28 @@ const MUSEUM_DEEP_ARTICLE_ENTITY_IDS = new Set([
   'saadia-gaon',
   'judah-halevi',
   'maimonides',
+  'antisthenes',
+  'diogenes',
+  'epicurus',
+  'lucretius',
+  'zeno',
+  'cleanthes',
+  'chrysippus',
+  'epictetus',
+  'seneca',
+  'marcus-aurelius',
+  'pyrrho',
+  'arcesilaus',
+  'carneades',
+  'sextus-empiricus',
+  'plotinus',
+  'porphyry',
+  'iamblichus',
+  'proclus',
+  'origen',
+  'augustine',
+  'gregory-nyssa',
+  'pseudo-dionysius',
 ]);
 
 const articleSectionText = ({id, title}: ArticleSection): string => `${id} ${title}`.toLocaleLowerCase();
@@ -1077,7 +1199,7 @@ const philosopherInterpretation = (
       },
     ],
     objectInterpretations: assetInterpretations(location),
-    sources: interpretationSources(record.id, record.sourceLinks, readings),
+    sources: interpretationSources(record.id, record.sourceLinks, readings, location.exhibit.principalAssetId),
     relatedExhibits: related,
     connections: interpretiveConnections(location, related),
     articleRoute: {kind: 'philosopher', philosopherId: record.id},
@@ -1154,7 +1276,7 @@ const branchInterpretation = (
       ])]},
     ],
     objectInterpretations: assetInterpretations(location),
-    sources: interpretationSources(record.id, record.sourceLinks, readings),
+    sources: interpretationSources(record.id, record.sourceLinks, readings, location.exhibit.principalAssetId),
     relatedExhibits: related,
     connections: interpretiveConnections(location, related),
     articleRoute: {kind: 'branch', branchId: record.id},

@@ -8,7 +8,7 @@ The approved physical planning basis is the single-level **Continuous Enfilade**
 - [machine-readable geometry](./single-level-building-plan.json);
 - [1:1000 construction-control drawing](./diagrams/continuous-enfilade-single-level.svg).
 
-It holds the approved 10-wing, 26-gallery, 105-room program in six back-to-back structural bands and is now the active production runtime. Galleries 01–12 retain their curated hall-local roots; Galleries 13–26 are complete planned/walkable shells.
+It holds the approved 10-wing, 26-gallery, 105-room program in six back-to-back structural bands and is now the active production runtime. Galleries 01–12 and 14–15 retain curated hall-local roots; Gallery 13 and Galleries 16–26 are complete planned/walkable shells.
 
 ## What the earlier masterplan did and did not decide
 

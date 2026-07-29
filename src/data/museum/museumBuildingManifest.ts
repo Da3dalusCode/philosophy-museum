@@ -50,7 +50,7 @@ export type MuseumManifestNode = {
   kind: MuseumPhysicalNodeKind;
   physicalRole: string;
   programHallId?: MuseumPlannedHallId;
-  /** Curated content id; absent from the fourteen planned/walkable shells. */
+  /** Curated content id; absent from the twelve planned/walkable shells. */
   publicHallId?: MuseumPublicHallId;
   title: string;
   galleryState?: MuseumGalleryState;
@@ -178,8 +178,8 @@ export type MuseumBuildingManifest = {
   counts: {
     halls: 26;
     rooms: 105;
-    curatedOpen: 12;
-    plannedWalkable: 14;
+    curatedOpen: 14;
+    plannedWalkable: 12;
     reserves: 2;
   };
 };
@@ -202,12 +202,12 @@ const assertApprovedManifest = (candidate: MuseumBuildingManifest): void => {
   const roomIds = halls.flatMap(({roomIds: ids}) => ids ?? []);
   if (
     halls.length !== 26
-    || curated.length !== 12
-    || planned.length !== 14
+    || curated.length !== 14
+    || planned.length !== 12
     || roomIds.length !== 105
     || new Set(roomIds).size !== 105
     || candidate.reserves.length !== 2
-  ) throw new Error('The Continuous Enfilade must expose 26 halls, 105 rooms, 12 curated galleries, 14 planned shells, and two reserves.');
+  ) throw new Error('The Continuous Enfilade must expose 26 halls, 105 rooms, 14 curated galleries, 12 planned shells, and two reserves.');
   if (candidate.crosscut.intersections.length !== 6 || candidate.throughRoute.hallOrder.length !== 26) {
     throw new Error('The Continuous Enfilade route and six-intersection crosscut are incomplete.');
   }

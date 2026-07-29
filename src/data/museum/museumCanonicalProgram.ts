@@ -28,6 +28,8 @@ export const MUSEUM_CANONICAL_HALL_IDS = [
   'islamic-philosophical-worlds',
   'east-asian-continuities',
   'jewish-philosophy',
+  'hellenistic-roman-ways',
+  'late-antiquity-inheritance',
 ] as const;
 
 export type MuseumCanonicalHallId = (typeof MUSEUM_CANONICAL_HALL_IDS)[number];
@@ -128,6 +130,13 @@ export const MUSEUM_CANONICAL_ROOM_IDS = [
   'east-regional-continuities-reserve',
   'jewish-reason-revelation',
   'jewish-maimonidean-crossroads',
+  'hell-cynic-way',
+  'hell-epicurean-garden',
+  'hell-stoic-stoa',
+  'hell-skeptical-lineages',
+  'late-neoplatonic-systems',
+  'late-christian-platonisms',
+  'late-commentary-transmission',
 ] as const;
 
 export type MuseumCanonicalRoomId = (typeof MUSEUM_CANONICAL_ROOM_IDS)[number];
@@ -198,6 +207,28 @@ export type MuseumCanonicalHall = {
   recordCapacity: number;
   rooms: readonly MuseumCanonicalRoom[];
 };
+
+/**
+ * Gallery numbers are stable release identities, not array indexes or physical
+ * visit positions. Galleries 14 and 15 can therefore open while the already
+ * assigned Gallery 13 remains planned.
+ */
+export const MUSEUM_PUBLIC_GALLERY_NUMBERS = {
+  'mediterranean-beginnings-classical': 1,
+  'renaissance-humanism-new-method': 2,
+  'phenomenology-existence-embodiment': 3,
+  'analytic-traditions': 4,
+  'justice-democratic-reason': 5,
+  'core-questions-forum': 6,
+  'classical-south-asian-worlds': 7,
+  'buddhist-philosophies': 8,
+  'classical-chinese-traditions': 9,
+  'islamic-philosophical-worlds': 10,
+  'east-asian-continuities': 11,
+  'jewish-philosophy': 12,
+  'hellenistic-roman-ways': 14,
+  'late-antiquity-inheritance': 15,
+} as const satisfies Readonly<Record<MuseumCanonicalHallId, number>>;
 
 const exhibit = <const Record extends MuseumCanonicalExhibit>(record: Record) => ({
   ...record,
@@ -592,6 +623,68 @@ export const MUSEUM_CANONICAL_PROGRAM = [
       ]},
     ],
   },
+  {
+    id: 'hellenistic-roman-ways',
+    wingId: 'wing-mediterranean-antiquity',
+    title: 'Hellenistic & Roman Ways of Life',
+    templateId: 'crossroads-4',
+    period: 'Late 5th century BCE–3rd century CE',
+    description: 'Enter four rival practices of freedom: Cynic exposure of convention, Epicurean friendship and measured pleasure, Stoic disciplines of judgment and social duty, and Academic and Pyrrhonian ways of testing assent.',
+    recordCapacity: 22,
+    rooms: [
+      {id: 'hell-cynic-way', title: 'Cynic challenge', recordCapacity: 4, exhibits: [
+        exhibit({id: 'cynicism', entityKind: 'branch', entityId: 'cynicism', displayName: 'Cynicism: Freedom Against Convention', tier: 'anchor-exhibit', question: 'How much convention, property, reputation, and comfort must be refused to live freely?', secondaryHallIds: ['moral-life-practical-reason'], formerHallId: 'ancient-greek', principalAssetId: 'cynicism-alexander-and-diogenes'}),
+        exhibit({id: 'antisthenes', entityKind: 'philosopher', entityId: 'antisthenes', displayName: 'Antisthenes: A Disputed Cynic Beginning', tier: 'supporting-exhibit', question: 'How did Socratic virtue become a demand for self-sufficiency without inventing a tidy founder story?', secondaryHallIds: ['moral-life-practical-reason'], principalAssetId: 'antisthenes-british-museum-bust'}),
+        exhibit({id: 'diogenes', entityKind: 'philosopher', entityId: 'diogenes', displayName: 'Diogenes: Philosophy Performed in Public', tier: 'standard-individual-exhibit', question: 'What can shameless practice and frank speech expose about a city’s accepted values?', secondaryHallIds: [], principalAssetId: 'cynicism-diogenes-walters'}),
+      ]},
+      {id: 'hell-epicurean-garden', title: 'Epicurean Garden and Roman transmission', recordCapacity: 4, exhibits: [
+        exhibit({id: 'epicureanism', entityKind: 'branch', entityId: 'epicureanism', displayName: 'Epicureanism: Pleasure Without Excess', tier: 'anchor-exhibit', question: 'Which desires, friendships, and explanations of nature free a life from needless disturbance?', secondaryHallIds: ['moral-life-practical-reason'], formerHallId: 'ancient-greek', principalAssetId: 'epicurean-garden-herculaneum-papyrus'}),
+        exhibit({id: 'epicurus', entityKind: 'philosopher', entityId: 'epicurus', displayName: 'Epicurus: Friendship, Nature, and Tranquility', tier: 'anchor-exhibit', question: 'How can modest pleasure and understanding nature loosen fear of gods and death?', secondaryHallIds: ['moral-life-practical-reason'], principalAssetId: 'epicureanism-double-herm'}),
+        exhibit({id: 'lucretius', entityKind: 'philosopher', entityId: 'lucretius', displayName: 'Lucretius: Epicurean Nature in Latin Verse', tier: 'standard-individual-exhibit', question: 'How can poetry make atomism a practical therapy against fear and superstition?', secondaryHallIds: [], principalAssetId: 'epicureanism-lucretius-manuscript'}),
+      ]},
+      {id: 'hell-stoic-stoa', title: 'Early system and Roman Stoa', recordCapacity: 8, exhibits: [
+        exhibit({id: 'stoicism', entityKind: 'branch', entityId: 'stoicism', displayName: 'Stoicism: Logic, Nature, and the Work of Assent', tier: 'anchor-exhibit', question: 'How can reasoned judgment and social duty make freedom possible inside a causal world?', secondaryHallIds: ['buddhist-philosophies', 'moral-life-practical-reason'], formerHallId: 'ancient-greek', principalAssetId: 'stoicism-stoa-attalos'}),
+        exhibit({id: 'zeno', entityKind: 'philosopher', entityId: 'zeno', displayName: 'Zeno of Citium: Beginning at the Stoa', tier: 'anchor-exhibit', question: 'How can virtue, nature, reason, and cosmopolitan community form one way of life?', secondaryHallIds: [], principalAssetId: 'stoicism-zeno-naples'}),
+        exhibit({id: 'cleanthes', entityKind: 'philosopher', entityId: 'cleanthes', displayName: 'Cleanthes: Labor, Logos, and Cosmic Order', tier: 'supporting-exhibit', question: 'What does it mean to consent responsibly to an ordered cosmos?', secondaryHallIds: [], principalAssetId: 'cleanthes-olgiati-portrait'}),
+        exhibit({id: 'chrysippus', entityKind: 'philosopher', entityId: 'chrysippus', displayName: 'Chrysippus: Building the Stoic System', tier: 'standard-individual-exhibit', question: 'How can logic, fate, responsibility, psychology, and ethics hold together?', secondaryHallIds: ['core-questions-forum'], principalAssetId: 'chrysippus-portrait-bust'}),
+        exhibit({id: 'epictetus', entityKind: 'philosopher', entityId: 'epictetus', displayName: 'Epictetus: Training Judgment and Desire', tier: 'standard-individual-exhibit', question: 'Which judgments and commitments belong to us even when outcomes do not?', secondaryHallIds: [], principalAssetId: 'epictetus-enchiridion-frontispiece'}),
+        exhibit({id: 'seneca', entityKind: 'philosopher', entityId: 'seneca', displayName: 'Seneca: Practicing Amid Wealth, Power, and Loss', tier: 'standard-individual-exhibit', question: 'Can an imperfect person practice philosophy within political compromise, anger, grief, and privilege?', secondaryHallIds: [], principalAssetId: 'seneca-pseudo-seneca-bm'}),
+        exhibit({id: 'marcus-aurelius', entityKind: 'philosopher', entityId: 'marcus-aurelius', displayName: 'Marcus Aurelius: Private Exercises in Public Duty', tier: 'standard-individual-exhibit', question: 'How can attention to mortality, judgment, and common humanity guide action under pressure?', secondaryHallIds: [], principalAssetId: 'stoicism-marcus-aurelius-bust'}),
+      ]},
+      {id: 'hell-skeptical-lineages', title: 'Academic and Pyrrhonian skeptical lineages', recordCapacity: 6, exhibits: [
+        exhibit({id: 'skepticism', entityKind: 'branch', entityId: 'skepticism', displayName: 'Ancient Skepticism: Rival Ways of Withholding Assent', tier: 'anchor-exhibit', question: 'How can disciplined opposition and suspension test dogmatism without becoming one more dogma?', secondaryHallIds: ['core-questions-forum', 'rationalism-mind-nature-system'], formerHallId: 'ancient-greek', principalAssetId: 'skepticism-adversus-mathematicos'}),
+        exhibit({id: 'pyrrho', entityKind: 'philosopher', entityId: 'pyrrho', displayName: 'Pyrrho: A Life Reconstructed Through Later Reports', tier: 'supporting-exhibit', question: 'What can later testimony responsibly tell us about an early skeptical practice?', secondaryHallIds: [], principalAssetId: 'pyrrho-stanley-portrait'}),
+        exhibit({id: 'arcesilaus', entityKind: 'philosopher', entityId: 'arcesilaus', displayName: 'Arcesilaus: The Academy Turns Against Certainty', tier: 'standard-individual-exhibit', question: 'Can Socratic and Platonic inquiry undermine every claimed criterion of secure cognition?', secondaryHallIds: ['core-questions-forum', 'mediterranean-beginnings-classical'], principalAssetId: 'arcesilaus-carneades-academica'}),
+        exhibit({id: 'carneades', entityKind: 'philosopher', entityId: 'carneades', displayName: 'Carneades: Argument on Both Sides', tier: 'standard-individual-exhibit', question: 'How can action proceed through persuasive appearances without claiming certainty?', secondaryHallIds: ['core-questions-forum', 'moral-life-practical-reason'], principalAssetId: 'carneades-louvre-bust'}),
+        exhibit({id: 'sextus-empiricus', entityKind: 'philosopher', entityId: 'sextus-empiricus', displayName: 'Sextus Empiricus: Pyrrhonian Practice Preserved', tier: 'standard-individual-exhibit', question: 'How do equipollence and suspension change a person’s relation to unsettled claims?', secondaryHallIds: [], principalAssetId: 'skepticism-sextus-riedel'}),
+      ]},
+    ],
+  },
+  {
+    id: 'late-antiquity-inheritance',
+    wingId: 'wing-mediterranean-antiquity',
+    title: 'Late Antiquity & Neoplatonic Inheritance',
+    templateId: 'sequence-3',
+    period: '3rd–6th centuries CE, with later transmission',
+    description: 'Follow pagan Platonist systems of unity, intellect, soul, ritual, procession, and return; Christian transformations of Platonism; and the commentary and translation practices that carried late-antique arguments into several later intellectual worlds.',
+    recordCapacity: 13,
+    rooms: [
+      {id: 'late-neoplatonic-systems', title: 'Plotinus and later pagan Platonisms', recordCapacity: 6, exhibits: [
+        exhibit({id: 'neoplatonism', entityKind: 'branch', entityId: 'neoplatonism', displayName: 'Neoplatonism: A Modern Name for Late-Antique Platonisms', tier: 'anchor-exhibit', question: 'How can plurality depend on unity, and how can a soul return toward its source?', secondaryHallIds: ['core-questions-forum', 'islamic-philosophical-worlds', 'jewish-philosophy', 'latin-christian-scholastic', 'mediterranean-beginnings-classical'], formerHallId: 'ancient-greek', principalAssetId: 'late-neoplatonic-reader-sarcophagus'}),
+        exhibit({id: 'plotinus', entityKind: 'philosopher', entityId: 'plotinus', displayName: 'Plotinus: The One, Intellect, Soul, and Return', tier: 'anchor-exhibit', question: 'How can all reality depend on a source beyond ordinary being and thought?', secondaryHallIds: ['core-questions-forum'], principalAssetId: 'neoplatonism-plotinus-ostia'}),
+        exhibit({id: 'porphyry', entityKind: 'philosopher', entityId: 'porphyry', displayName: 'Porphyry: Editing Plotinus and Ordering Inquiry', tier: 'standard-individual-exhibit', question: 'How do editorial form, logic, interpretation, and philosophical purification shape a tradition?', secondaryHallIds: ['core-questions-forum'], principalAssetId: 'porphyry-plotinus-medieval'}),
+        exhibit({id: 'iamblichus', entityKind: 'philosopher', entityId: 'iamblichus', displayName: 'Iamblichus: Theurgy and Divine Causation', tier: 'standard-individual-exhibit', question: 'Why might rational contemplation require ritual participation in a divine order?', secondaryHallIds: ['core-questions-forum'], principalAssetId: 'iamblichus-protreptikos-manuscript'}),
+        exhibit({id: 'proclus', entityKind: 'philosopher', entityId: 'proclus', displayName: 'Proclus: Participation, Procession, and Return', tier: 'standard-individual-exhibit', question: 'How can a systematic metaphysics preserve both causal dependence and structured plurality?', secondaryHallIds: ['core-questions-forum'], principalAssetId: 'proclus-platonic-theology-manuscript'}),
+      ]},
+      {id: 'late-christian-platonisms', title: 'Christian transformations of Platonism', recordCapacity: 5, exhibits: [
+        exhibit({id: 'origen', entityKind: 'philosopher', entityId: 'origen', displayName: 'Origen: Scripture, Freedom, and First Principles', tier: 'standard-individual-exhibit', question: 'How can philosophical argument and layered scriptural interpretation belong to one Christian inquiry?', secondaryHallIds: ['core-questions-forum'], principalAssetId: 'origen-schaftlarn-manuscript'}),
+        exhibit({id: 'augustine', entityKind: 'philosopher', entityId: 'augustine', displayName: 'Augustine: Inwardness, Will, Evil, and Time', tier: 'anchor-exhibit', question: 'How do memory, desire, creation, grace, and responsibility transform Platonist ascent?', secondaryHallIds: ['core-questions-forum'], principalAssetId: 'augustine-lateran-fresco'}),
+        exhibit({id: 'gregory-nyssa', entityKind: 'philosopher', entityId: 'gregory-nyssa', displayName: 'Gregory of Nyssa: Infinity and Transformative Ascent', tier: 'standard-individual-exhibit', question: 'What if flourishing toward the divine has no final intellectual stopping point?', secondaryHallIds: ['core-questions-forum'], principalAssetId: 'gregory-nyssa-mosaic'}),
+        exhibit({id: 'pseudo-dionysius', entityKind: 'philosopher', entityId: 'pseudo-dionysius', displayName: 'Pseudo-Dionysius: Divine Names and Unknowing', tier: 'thematic-cluster-participant', question: 'How can affirmative and negative language lead thought toward what exceeds every name?', secondaryHallIds: ['core-questions-forum'], principalAssetId: 'pseudo-dionysius-opera-1556'}),
+      ]},
+      {id: 'late-commentary-transmission', title: 'Commentary, translation, and transmission', recordCapacity: 2, exhibits: []},
+    ],
+  },
 ] as const satisfies readonly MuseumCanonicalHall[];
 
 export const MUSEUM_HALL_ROUTE_ALIASES = {
@@ -645,11 +738,6 @@ const displaced = (
 });
 
 export const MUSEUM_LEGACY_EXHIBIT_COMPATIBILITY = [
-  displaced('ancient-greek', 'branch', 'cynicism', 'Cynicism', 'hellenistic-roman-ways', 'move-primary-later'),
-  displaced('ancient-greek', 'branch', 'epicureanism', 'Epicureanism', 'hellenistic-roman-ways', 'move-primary-later'),
-  displaced('ancient-greek', 'branch', 'stoicism', 'Stoicism', 'hellenistic-roman-ways', 'move-primary-later'),
-  displaced('ancient-greek', 'branch', 'skepticism', 'Skepticism', 'hellenistic-roman-ways', 'move-primary-later'),
-  displaced('ancient-greek', 'branch', 'neoplatonism', 'Neoplatonism', 'late-antiquity-inheritance', 'become-secondary-later'),
   displaced('renaissance-reason-revolution', 'philosopher', 'descartes', 'René Descartes', 'rationalism-mind-nature-system', 'move-primary-later'),
   displaced('renaissance-reason-revolution', 'philosopher', 'locke', 'John Locke', 'empiricism-science-political-order', 'move-primary-later'),
   displaced('renaissance-reason-revolution', 'philosopher', 'spinoza', 'Baruch Spinoza', 'rationalism-mind-nature-system', 'move-primary-later'),

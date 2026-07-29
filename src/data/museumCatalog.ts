@@ -2,6 +2,7 @@ import type {MuseumAssetId} from './museum/museumAssetTypes';
 import {
   MUSEUM_CANONICAL_PROGRAM,
   MUSEUM_HALL_ROUTE_ALIASES,
+  MUSEUM_PUBLIC_GALLERY_NUMBERS,
   type MuseumCanonicalEntityKind,
   type MuseumCanonicalExhibit,
   type MuseumCanonicalHallId,
@@ -423,7 +424,7 @@ export const MUSEUM_HALLS = MUSEUM_CANONICAL_PROGRAM.map((hall, index) => {
   return {
     id: hall.id,
     title: hall.title,
-    galleryNumber: `Gallery ${String(index + 1).padStart(2, '0')}`,
+    galleryNumber: `Gallery ${String(MUSEUM_PUBLIC_GALLERY_NUMBERS[hall.id]).padStart(2, '0')}`,
     period: hall.period,
     description: hall.description,
     sweep: hall.rooms.map(({title}) => title),

@@ -51,6 +51,14 @@ import {
   CORE_QUESTIONS_FORUM_SUPPLEMENTAL_EXHIBITS,
   CORE_QUESTIONS_FORUM_SUPPLEMENTAL_LAYOUTS,
 } from './coreQuestionsForumSupplementalExhibits';
+import {
+  HELLENISTIC_ROMAN_SUPPLEMENTAL_EXHIBITS,
+  HELLENISTIC_ROMAN_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
+} from './hellenisticRomanSupplementalExhibits';
+import {
+  LATE_ANTIQUITY_SUPPLEMENTAL_EXHIBITS,
+  LATE_ANTIQUITY_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
+} from './lateAntiquitySupplementalExhibits';
 import type {
   MuseumSupplementalExhibitId,
   MuseumSupplementalExhibitLayout,
@@ -132,6 +140,16 @@ const COLLECTIONS = [
     hallId: 'jewish-philosophy',
     exhibits: JEWISH_SUPPLEMENTAL_EXHIBITS,
     layouts: JEWISH_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
+  },
+  {
+    hallId: 'hellenistic-roman-ways',
+    exhibits: HELLENISTIC_ROMAN_SUPPLEMENTAL_EXHIBITS,
+    layouts: HELLENISTIC_ROMAN_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
+  },
+  {
+    hallId: 'late-antiquity-inheritance',
+    exhibits: LATE_ANTIQUITY_SUPPLEMENTAL_EXHIBITS,
+    layouts: LATE_ANTIQUITY_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
   },
 ] as const satisfies readonly MuseumSupplementalCollection[];
 

@@ -259,7 +259,23 @@ export type MuseumSupplementalExhibitId =
   | 'maimonides-guide-negative-theology'
   | 'maimonides-guide-translation-reception'
   | 'jewish-philosophy-after-maimonides'
-  | 'spinoza-formation-rupture-threshold';
+  | 'spinoza-formation-rupture-threshold'
+  | 'cynic-frank-speech-in-public'
+  | 'cynic-hipparchia-crates'
+  | 'cynic-cosmopolitan-constellation'
+  | 'epicurean-fourfold-remedy'
+  | 'epicurean-philodemus-library'
+  | 'epicurean-herculaneum-afterlife'
+  | 'skeptical-arguments-preserved'
+  | 'porphyrian-tree-classification'
+  | 'augustine-confessions-memory-time'
+  | 'pseudo-dionysius-celestial-hierarchy'
+  | 'late-commentary-codex'
+  | 'boethius-philosophy-in-prison'
+  | 'hypatia-alexandrian-teaching'
+  | 'aristotle-across-languages'
+  | 'proclus-elements-afterlife'
+  | 'ficino-late-antique-revival';
 
 export type MuseumSupplementalInstallationKind =
   | 'cave-ascent'
@@ -288,6 +304,12 @@ export type MuseumSupplementalInstallationKind =
   | 'jewish-work'
   | 'jewish-context'
   | 'jewish-concept'
+  | 'hellenistic-work'
+  | 'hellenistic-context'
+  | 'hellenistic-concept'
+  | 'late-antique-work'
+  | 'late-antique-context'
+  | 'late-antique-concept'
   | 'forum-comparative-lens';
 
 export type MuseumSupplementalExhibitLayout = {
@@ -548,7 +570,7 @@ export type MuseumRuntimeNodeDefinition = {
   kind: MuseumPhysicalNodeKind;
   /** Every one of the 26 architectural galleries has a stable program id. */
   programHallId?: MuseumPlannedHallId;
-  /** Only the twelve curated/open galleries own a content registration. */
+  /** Only the fourteen curated/open galleries own a content registration. */
   publicHallId?: MuseumPublicHallId;
   galleryState?: MuseumGalleryState;
   publicGalleryNumber?: number;

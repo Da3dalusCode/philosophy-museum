@@ -18,8 +18,8 @@
     "hallCount": 26,
     "roomCount": 105,
     "recordCapacity": 260,
-    "curatedOpenAtMigration": 12,
-    "plannedWalkableShellsAtMigration": 14,
+    "curatedOpenAtMigration": 14,
+    "plannedWalkableShellsAtMigration": 12,
     "additionalGalleryReservations": 2
   },
   "numberingPolicy": {
@@ -27,8 +27,6 @@
     "visitSequence": "Physical through-route order. This is independent of public release numbering.",
     "futureReleaseOrder": [
       "latin-christian-scholastic",
-      "hellenistic-roman-ways",
-      "late-antiquity-inheritance",
       "rationalism-mind-nature-system",
       "empiricism-science-political-order",
       "enlightenment-revolution-kant",
@@ -292,8 +290,8 @@
         "hell-stoic-stoa",
         "hell-skeptical-lineages"
       ],
-      "migrationState": "construct-planned-walkable-shell",
-      "roomLayoutStrategy": "crossroads-four-quadrants",
+      "migrationState": "migrate-populated",
+      "roomLayoutStrategy": "preserve-existing-authored-layout",
       "bandId": "band-01-south",
       "placement": {
         "x": -19,
@@ -316,8 +314,8 @@
         "late-christian-platonisms",
         "late-commentary-transmission"
       ],
-      "migrationState": "construct-planned-walkable-shell",
-      "roomLayoutStrategy": "sequence-equal-room-spans",
+      "migrationState": "migrate-populated",
+      "roomLayoutStrategy": "preserve-existing-authored-layout",
       "bandId": "band-01-south",
       "placement": {
         "x": 33,
@@ -1136,7 +1134,7 @@
     "futureCrossroadsFiveRoomRule": "Generate four perimeter rooms plus a distinct central Kant room without notching a neighboring gallery.",
     "plannedShellPresentation": "Planned rooms are walkable architectural shells with blank walls and one honest noninteractive status sign at the hall entrance. They have no placeholder exhibits, media, interaction controls, article routes, or fake attribution.",
     "openCountRule": "A planned walkable shell is not counted as an open gallery until its complete curation, wall-slot audit, imagery audit, interactions, interpretation, routes, and visual review pass.",
-    "wallAuditActivation": "Exact physical installation counts remain enforced for the twelve curated halls. Future halls enter the exhibit-wall audit only when their migration state changes to curated-open."
+    "wallAuditActivation": "Exact physical installation counts remain enforced for the fourteen curated halls. Future halls enter the exhibit-wall audit only when their migration state changes to curated-open."
   },
   "performanceContract": {
     "authority": "Extend the current runtime residency and lazy-loading implementation; do not replace it.",

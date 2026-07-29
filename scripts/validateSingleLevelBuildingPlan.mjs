@@ -132,7 +132,7 @@ check('stable public numbers and physical visit sequence are independent and com
   );
 });
 
-check('current twelve populated galleries retain their public numbers', () => {
+check('all fourteen populated galleries retain their stable public numbers', () => {
   const expectedNumbers = new Map([
     ['mediterranean-beginnings-classical', 1],
     ['renaissance-humanism-new-method', 2],
@@ -146,13 +146,15 @@ check('current twelve populated galleries retain their public numbers', () => {
     ['islamic-philosophical-worlds', 10],
     ['east-asian-continuities', 11],
     ['jewish-philosophy', 12],
+    ['hellenistic-roman-ways', 14],
+    ['late-antiquity-inheritance', 15],
   ]);
   const migrating = plan.halls.filter(({migrationState}) => migrationState === 'migrate-populated');
   const planned = plan.halls.filter(({migrationState}) => migrationState === 'construct-planned-walkable-shell');
-  assert.equal(migrating.length, 12);
-  assert.equal(planned.length, 14);
-  assert.equal(plan.programContract.curatedOpenAtMigration, 12);
-  assert.equal(plan.programContract.plannedWalkableShellsAtMigration, 14);
+  assert.equal(migrating.length, 14);
+  assert.equal(planned.length, 12);
+  assert.equal(plan.programContract.curatedOpenAtMigration, 14);
+  assert.equal(plan.programContract.plannedWalkableShellsAtMigration, 12);
   assert.deepEqual(sorted(migrating.map(({id}) => id)), sorted([...expectedNumbers.keys()]));
   for (const [id, number] of expectedNumbers) assert.equal(hallById.get(id).publicGalleryNumber, number);
 
@@ -301,12 +303,12 @@ check('compiled runtime manifest is the approved Continuous Enfilade cutover', (
   assert.deepEqual(runtime.counts, {
     halls: 26,
     rooms: 105,
-    curatedOpen: 12,
-    plannedWalkable: 14,
+    curatedOpen: 14,
+    plannedWalkable: 12,
     reserves: 2,
     hallCount: 26,
-    curatedOpenHallCount: 12,
-    plannedWalkableHallCount: 14,
+    curatedOpenHallCount: 14,
+    plannedWalkableHallCount: 12,
     canonicalRoomCount: 105,
     nodeCount: 39,
     connectionCount: 43,
@@ -316,7 +318,7 @@ check('compiled runtime manifest is the approved Continuous Enfilade cutover', (
     standaloneCrossingNodeCount: 5,
     turnCourtCount: 5,
     reserveCount: 2,
-    plannedStatusSignCount: 14,
+    plannedStatusSignCount: 12,
   });
   assert.deepEqual(runtime.physicalContract.mainGalleryBlock, plan.physicalContract.mainGalleryBlock);
   assert.deepEqual(
@@ -335,8 +337,8 @@ check('compiled runtime binds all 26 transforms and all 105 named rooms exactly'
   const runtimeHalls = runtime.nodes.filter(({kind}) => kind === 'hall');
   const runtimeHallByProgramId = new Map(runtimeHalls.map((node) => [node.programHallId, node]));
   assert.equal(runtimeHalls.length, 26);
-  assert.equal(runtimeHalls.filter(({galleryState}) => galleryState === 'curated-open').length, 12);
-  assert.equal(runtimeHalls.filter(({galleryState}) => galleryState === 'planned-walkable').length, 14);
+  assert.equal(runtimeHalls.filter(({galleryState}) => galleryState === 'curated-open').length, 14);
+  assert.equal(runtimeHalls.filter(({galleryState}) => galleryState === 'planned-walkable').length, 12);
   assert.deepEqual(
     sorted(runtimeHalls.filter(({publicHallId}) => publicHallId).map(({publicHallId}) => publicHallId)),
     sorted(plan.halls.filter(({migrationState}) => migrationState === 'migrate-populated').map(({id}) => id)),

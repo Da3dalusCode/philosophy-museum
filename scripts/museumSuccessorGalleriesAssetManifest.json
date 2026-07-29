@@ -1,0 +1,617 @@
+{
+  "version": 1,
+  "assets": {
+    "antisthenes-british-museum-bust": {
+      "hallFolder": "hellenistic-roman-ways",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Antisthenes_BM_1838.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Antisthenes_BM_1838.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Antisthenes_BM_1838.jpg/1280px-Antisthenes_BM_1838.jpg",
+      "scene": {
+        "width": 427,
+        "height": 640,
+        "bytes": 28400,
+        "sha256": "009cf9051b53b41df58b7d78bbf006a4ff96ed964dbb1525332a55d6311453e3"
+      },
+      "panel": {
+        "width": 853,
+        "height": 1280,
+        "bytes": 191204,
+        "sha256": "c8de43e3083af5fb668960a2daf6843fa72a3a9bad915fa77df0b2849b753000"
+      }
+    },
+    "epicurean-garden-herculaneum-papyrus": {
+      "hallFolder": "hellenistic-roman-ways",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Herculaneum_papyri.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/65/Herculaneum_papyri.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Herculaneum_papyri.jpg/1280px-Herculaneum_papyri.jpg",
+      "scene": {
+        "width": 640,
+        "height": 555,
+        "bytes": 77304,
+        "sha256": "f18d7c183809b580354833f8b74ad8cbc05737a342bdb3453a8f6ad243ce16ec"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 1110,
+        "bytes": 395102,
+        "sha256": "2b2e8da72044ec631a6b344644858735ba6fdbd31527c2e2a69b2dc77f190f2b"
+      }
+    },
+    "stoicism-stoa-attalos": {
+      "hallFolder": "hellenistic-roman-ways",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Stoa_of_Attalos,_Athens,_Greece.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/73/Stoa_of_Attalos%2C_Athens%2C_Greece.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Stoa_of_Attalos%2C_Athens%2C_Greece.jpg/1280px-Stoa_of_Attalos%2C_Athens%2C_Greece.jpg",
+      "scene": {
+        "width": 640,
+        "height": 549,
+        "bytes": 60874,
+        "sha256": "d1f2d91d4b1a927395b3b5e2b0c57901f4b34dae5d28c2115fcaee41d5bc33a7"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 1098,
+        "bytes": 264242,
+        "sha256": "0fdc8437cb21b98092e118f712cb5ded56b908dcbd9e37d41e21ccc991a9e890"
+      }
+    },
+    "cleanthes-olgiati-portrait": {
+      "hallFolder": "hellenistic-roman-ways",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Cleanthes_Assius_-_Illustrium_philosophorum_et_sapientum_effigies_ab_eorum_numistatibus_extractae.png",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/87/Cleanthes_Assius_-_Illustrium_philosophorum_et_sapientum_effigies_ab_eorum_numistatibus_extractae.png",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/8/87/Cleanthes_Assius_-_Illustrium_philosophorum_et_sapientum_effigies_ab_eorum_numistatibus_extractae.png",
+      "scene": {
+        "width": 451,
+        "height": 640,
+        "bytes": 75898,
+        "sha256": "792fe638bbc521ff54885777e295e941a45a62a1d146e6765509e5eff66dbd1b"
+      },
+      "panel": {
+        "width": 670,
+        "height": 950,
+        "bytes": 167520,
+        "sha256": "7d4e5c4473daaf7e7098c73327f024aba6af944704afafdce589c28aae0b0a5b"
+      }
+    },
+    "chrysippus-portrait-bust": {
+      "hallFolder": "hellenistic-roman-ways",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Portrait-bust_of_Chrysippus.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/af/Portrait-bust_of_Chrysippus.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Portrait-bust_of_Chrysippus.jpg/1280px-Portrait-bust_of_Chrysippus.jpg",
+      "scene": {
+        "width": 393,
+        "height": 640,
+        "bytes": 38212,
+        "sha256": "769d1dcf0bedca6dec4ef05cf417153eb204fce561978a9dbf39ad9687a172c3"
+      },
+      "panel": {
+        "width": 787,
+        "height": 1280,
+        "bytes": 323614,
+        "sha256": "c8c4bddf060fa7bb5a0447375ba65638bfa9e271ec956bc9f542dffbdf2f2276"
+      }
+    },
+    "epictetus-enchiridion-frontispiece": {
+      "hallFolder": "hellenistic-roman-ways",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Epicteti_Enchiridion_Latinis_versibus_adumbratum_(Oxford_1715)_frontispiece.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/00/Epicteti_Enchiridion_Latinis_versibus_adumbratum_%28Oxford_1715%29_frontispiece.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Epicteti_Enchiridion_Latinis_versibus_adumbratum_%28Oxford_1715%29_frontispiece.jpg/1280px-Epicteti_Enchiridion_Latinis_versibus_adumbratum_%28Oxford_1715%29_frontispiece.jpg",
+      "scene": {
+        "width": 362,
+        "height": 640,
+        "bytes": 80676,
+        "sha256": "91fe509ee5be19085b890abeee6dd4271d77e506c48e8140e8b093c1abb63ceb"
+      },
+      "panel": {
+        "width": 724,
+        "height": 1280,
+        "bytes": 464038,
+        "sha256": "6ebebd28ea0bdc5ef83548a50fd44e45ba01a2b247daec83ecb113f464c5f1e4"
+      }
+    },
+    "seneca-pseudo-seneca-bm": {
+      "hallFolder": "hellenistic-roman-ways",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Pseudo-Seneca_BM_GR1962.8-24.1.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/36/Pseudo-Seneca_BM_GR1962.8-24.1.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Pseudo-Seneca_BM_GR1962.8-24.1.jpg/1280px-Pseudo-Seneca_BM_GR1962.8-24.1.jpg",
+      "scene": {
+        "width": 427,
+        "height": 640,
+        "bytes": 21524,
+        "sha256": "3936c02cb6e90279cdef6442dd904aa061fc71df348a073d04b846327352bdb3"
+      },
+      "panel": {
+        "width": 853,
+        "height": 1280,
+        "bytes": 119882,
+        "sha256": "7b1b3d539590998447f242010d9e2d17492d6c993958e71577a9c21f96e13cbb"
+      }
+    },
+    "pyrrho-stanley-portrait": {
+      "hallFolder": "hellenistic-roman-ways",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Pyrrho_in_Thomas_Stanley_History_of_Philosophy.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/aa/Pyrrho_in_Thomas_Stanley_History_of_Philosophy.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/a/aa/Pyrrho_in_Thomas_Stanley_History_of_Philosophy.jpg",
+      "scene": {
+        "width": 417,
+        "height": 640,
+        "bytes": 64454,
+        "sha256": "ccd7e17d965db304212aa6f64f027c583568e039dd52bedc43fc8a36beb31230"
+      },
+      "panel": {
+        "width": 835,
+        "height": 1280,
+        "bytes": 269326,
+        "sha256": "d2e00a8e91ad3bfc709744c7f64664f064508013d1ce4172bf8f57ed0773a456"
+      }
+    },
+    "arcesilaus-carneades-academica": {
+      "hallFolder": "hellenistic-roman-ways",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Arcesilaus_and_Carneades.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Arcesilaus_and_Carneades.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Arcesilaus_and_Carneades.jpg",
+      "scene": {
+        "width": 640,
+        "height": 640,
+        "bytes": 52004,
+        "sha256": "950ba2fc3ea5199dee4e3ae154557c4132b0253d1851feda5ac8fb0c1c76b156"
+      },
+      "panel": {
+        "width": 720,
+        "height": 720,
+        "bytes": 73174,
+        "sha256": "936fcaec96c1f8acc2db1a469ec126f354d79b2b9110d330b87b1dd516a5570b"
+      }
+    },
+    "carneades-louvre-bust": {
+      "hallFolder": "hellenistic-roman-ways",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Carneades_Campana_Louvre_Ma72.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Carneades_Campana_Louvre_Ma72.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Carneades_Campana_Louvre_Ma72.jpg/1280px-Carneades_Campana_Louvre_Ma72.jpg",
+      "scene": {
+        "width": 427,
+        "height": 640,
+        "bytes": 19738,
+        "sha256": "57f28efea5a6763b5ea7ad51f59d5a678cbd81551ad54317cd21671265711c3e"
+      },
+      "panel": {
+        "width": 853,
+        "height": 1280,
+        "bytes": 122808,
+        "sha256": "443de40edb1505af527a10351a78aa39b1d908796023e96d68c00a2ee08dc16e"
+      }
+    },
+    "cynic-diogenes-honest-man": {
+      "hallFolder": "hellenistic-roman-ways",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Pieter_van_Mol_-_Diogenes_with_his_lantern_looking_for_an_honest_man.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/14/Pieter_van_Mol_-_Diogenes_with_his_lantern_looking_for_an_honest_man.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Pieter_van_Mol_-_Diogenes_with_his_lantern_looking_for_an_honest_man.jpg/1280px-Pieter_van_Mol_-_Diogenes_with_his_lantern_looking_for_an_honest_man.jpg",
+      "scene": {
+        "width": 640,
+        "height": 494,
+        "bytes": 36928,
+        "sha256": "45d3102b0ab502c16e89a43a45208ceb4ed8cd3bcdd67292b15c359163e317b4"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 988,
+        "bytes": 252490,
+        "sha256": "440196acba9e7ec049cbe701d032adba85b667c221fc2dc3359219f960f08fa7"
+      }
+    },
+    "cynic-hipparchia-crates-print": {
+      "hallFolder": "hellenistic-roman-ways",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Hipparchia_en_Krates,_RP-P-1938-2026.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5e/Hipparchia_en_Krates%2C_RP-P-1938-2026.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Hipparchia_en_Krates%2C_RP-P-1938-2026.jpg/1280px-Hipparchia_en_Krates%2C_RP-P-1938-2026.jpg",
+      "scene": {
+        "width": 384,
+        "height": 640,
+        "bytes": 69264,
+        "sha256": "67e13dc084b40c5329e88e630dda4c81931a5d1e285da128e92710239e010a2a"
+      },
+      "panel": {
+        "width": 768,
+        "height": 1280,
+        "bytes": 423948,
+        "sha256": "83a580afd8edd4271555f8ecd78bd2a79e6f22594790bbca118d9d56960cf299"
+      }
+    },
+    "cynic-philosophers-constellation": {
+      "hallFolder": "hellenistic-roman-ways",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Philosophers;_twenty_portraits_of_classical_thinkers._Engrav_Wellcome_V0006810.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/70/Philosophers%3B_twenty_portraits_of_classical_thinkers._Engrav_Wellcome_V0006810.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Philosophers%3B_twenty_portraits_of_classical_thinkers._Engrav_Wellcome_V0006810.jpg/1280px-Philosophers%3B_twenty_portraits_of_classical_thinkers._Engrav_Wellcome_V0006810.jpg",
+      "scene": {
+        "width": 464,
+        "height": 640,
+        "bytes": 77706,
+        "sha256": "9bea98e95491a9f03d6ee4d5cbab3ab3ee64f6f79f35adbd1af2f36e8bea2076"
+      },
+      "panel": {
+        "width": 927,
+        "height": 1280,
+        "bytes": 540178,
+        "sha256": "6e6835268900fb307e9cda10399b8363324f8cec61e033f06f9f42e6251b3f25"
+      }
+    },
+    "epicurean-tetrapharmakos": {
+      "hallFolder": "hellenistic-roman-ways",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Tetrapharmakos_PHerc_1005_col_5.png",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Tetrapharmakos_PHerc_1005_col_5.png",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Tetrapharmakos_PHerc_1005_col_5.png",
+      "scene": {
+        "width": 470,
+        "height": 180,
+        "bytes": 24054,
+        "sha256": "95c8c38b128cc9f8776f43d53eb5101c7fa798261aec754f486c2542f53e791b"
+      },
+      "panel": {
+        "width": 470,
+        "height": 180,
+        "bytes": 30134,
+        "sha256": "f96a8918f8c5524d28dc09eb6b0c5faf68b378e13dca1c8efe479a3513bb1ceb"
+      }
+    },
+    "epicurean-philodemus-subscription": {
+      "hallFolder": "hellenistic-roman-ways",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Philedemus_Herculaneum_subscription_enhance.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/43/Philedemus_Herculaneum_subscription_enhance.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/4/43/Philedemus_Herculaneum_subscription_enhance.jpg",
+      "scene": {
+        "width": 306,
+        "height": 529,
+        "bytes": 10986,
+        "sha256": "f206cbe05d9747e51445146749ba2a288fca968164c960cafb15d5fdad874eef"
+      },
+      "panel": {
+        "width": 306,
+        "height": 529,
+        "bytes": 14988,
+        "sha256": "b3f2419e0c2a548fc76376c12d860d2f5dd889e825b2d17bbd3b83e079181b1f"
+      }
+    },
+    "epicurean-herculaneum-papyrus": {
+      "hallFolder": "hellenistic-roman-ways",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Herculaneum_papyrus_1425.png",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6e/Herculaneum_papyrus_1425.png",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6e/Herculaneum_papyrus_1425.png",
+      "scene": {
+        "width": 432,
+        "height": 640,
+        "bytes": 34674,
+        "sha256": "6677db615969ebeaa37aa0f325a8671938c17eb14b0a6308125d21ae4b847045"
+      },
+      "panel": {
+        "width": 500,
+        "height": 740,
+        "bytes": 81850,
+        "sha256": "98c2689fc3edce17b971f9f9a9bbadb427b1abef0e83280bfe09bd56b6f2648d"
+      }
+    },
+    "skeptical-sextus-adversus-edition": {
+      "hallFolder": "hellenistic-roman-ways",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Sextus_Empiricus_and_Greek_scepticism_.._(IA_sextusempiricusg00patrrich).pdf",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Sextus_Empiricus_and_Greek_scepticism_.._%28IA_sextusempiricusg00patrrich%29.pdf/page1-330px-Sextus_Empiricus_and_Greek_scepticism_.._%28IA_sextusempiricusg00patrrich%29.pdf.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Sextus_Empiricus_and_Greek_scepticism_.._%28IA_sextusempiricusg00patrrich%29.pdf/page1-330px-Sextus_Empiricus_and_Greek_scepticism_.._%28IA_sextusempiricusg00patrrich%29.pdf.jpg",
+      "scene": {
+        "width": 330,
+        "height": 601,
+        "bytes": 10078,
+        "sha256": "62b961d89faff24ad321859e8d74f9012875b294e4b9c0d575a69b0c3df6e72d"
+      },
+      "panel": {
+        "width": 330,
+        "height": 601,
+        "bytes": 15200,
+        "sha256": "2ce9c82dc21da2706762dbe3478aaf03db66cb778f81a2828cfc9db6d54ddc46"
+      }
+    },
+    "porphyry-plotinus-medieval": {
+      "hallFolder": "late-antiquity-inheritance",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Porphyry_and_Plotinus.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/99/Porphyry_and_Plotinus.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/9/99/Porphyry_and_Plotinus.jpg",
+      "scene": {
+        "width": 420,
+        "height": 640,
+        "bytes": 96918,
+        "sha256": "1e9127ef0b7106ca87c7dd66d7ae853108443322416543fc2b40366f1f15eef2"
+      },
+      "panel": {
+        "width": 750,
+        "height": 1142,
+        "bytes": 327648,
+        "sha256": "02b3dcc986e5b3ad63687c4cd2b1df9f86b4ce3e6b426a8f9ae8414487fe3681"
+      }
+    },
+    "iamblichus-protreptikos-manuscript": {
+      "hallFolder": "late-antiquity-inheritance",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Iamblichos,_Protreptikos.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e3/Iamblichos%2C_Protreptikos.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e3/Iamblichos%2C_Protreptikos.jpg",
+      "scene": {
+        "width": 427,
+        "height": 640,
+        "bytes": 42542,
+        "sha256": "1075332a51fb74a6c468be6128dab799c232463964d4db59de88e82a7dfafea7"
+      },
+      "panel": {
+        "width": 724,
+        "height": 1084,
+        "bytes": 107092,
+        "sha256": "a92f6d8d55a3a149a3151e2ffde4fa66ad7c708e07db1e976c2ea2631b98c09c"
+      }
+    },
+    "proclus-platonic-theology-manuscript": {
+      "hallFolder": "late-antiquity-inheritance",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Proclus,_Venice,_Gr._547,_fol._1r.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Proclus%2C_Venice%2C_Gr._547%2C_fol._1r.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Proclus%2C_Venice%2C_Gr._547%2C_fol._1r.jpg/1280px-Proclus%2C_Venice%2C_Gr._547%2C_fol._1r.jpg",
+      "scene": {
+        "width": 456,
+        "height": 640,
+        "bytes": 85814,
+        "sha256": "d54a71fff6081c35f3580a43cc6f5d44a1554a8a1435edc60cedb11da70b212d"
+      },
+      "panel": {
+        "width": 911,
+        "height": 1280,
+        "bytes": 439738,
+        "sha256": "ea56257d6d6126c3bbe73326d30102352eff20c86c90e2d8786b751cfc5099ae"
+      }
+    },
+    "augustine-lateran-fresco": {
+      "hallFolder": "late-antiquity-inheritance",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:AugustineLateran.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/23/AugustineLateran.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/2/23/AugustineLateran.jpg",
+      "scene": {
+        "width": 375,
+        "height": 640,
+        "bytes": 65086,
+        "sha256": "e1bb272d50048f872066aecd9a61d9abe915d4cbfad2a4b48966ff7943a8cf99"
+      },
+      "panel": {
+        "width": 422,
+        "height": 720,
+        "bytes": 88966,
+        "sha256": "47310fec6cddb9c4e4df6fa23cc88c8f35d57a70a2605f68c34f954cf6344890"
+      }
+    },
+    "origen-schaftlarn-manuscript": {
+      "hallFolder": "late-antiquity-inheritance",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Origen3.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Origen3.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Origen3.jpg",
+      "scene": {
+        "width": 220,
+        "height": 343,
+        "bytes": 29404,
+        "sha256": "18cccd204d1553e40fe50f96235713c9fcd98967b37729a21f369eda03cf0d00"
+      },
+      "panel": {
+        "width": 220,
+        "height": 343,
+        "bytes": 34708,
+        "sha256": "ccfd1e8474764c2a69e3bbce5831e48da4c2fce65ee73c9eb4f9e7e70c2cdc50"
+      }
+    },
+    "gregory-nyssa-mosaic": {
+      "hallFolder": "late-antiquity-inheritance",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:St._Gregory_of_Nyssa.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fe/St._Gregory_of_Nyssa.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fe/St._Gregory_of_Nyssa.jpg",
+      "scene": {
+        "width": 331,
+        "height": 450,
+        "bytes": 81018,
+        "sha256": "05024d27b1a5e0b0497325c35ea50a8d865cfaef575f2af68bf804f0f79628ca"
+      },
+      "panel": {
+        "width": 331,
+        "height": 450,
+        "bytes": 95250,
+        "sha256": "18153ba9a771b1f82e1d99f36b40411687970ed63dd74b2e8ab979ed44393fbd"
+      }
+    },
+    "pseudo-dionysius-opera-1556": {
+      "hallFolder": "late-antiquity-inheritance",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Pseudo-Dionysius.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c1/Pseudo-Dionysius.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c1/Pseudo-Dionysius.jpg",
+      "scene": {
+        "width": 379,
+        "height": 640,
+        "bytes": 57998,
+        "sha256": "5672794053fb9294760734225ae6bfe7c3f56684a82e4942c1348083641ee87a"
+      },
+      "panel": {
+        "width": 591,
+        "height": 997,
+        "bytes": 153820,
+        "sha256": "82b4e248b1fcbfacdb484c6f3bacb808ef1f6d5381363164f3fe04ba0188a465"
+      }
+    },
+    "neoplatonic-porphyrian-tree": {
+      "hallFolder": "late-antiquity-inheritance",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Arbor_porphyrii_(probably_from_one_of_Boethius'_translations).png",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/63/Arbor_porphyrii_%28probably_from_one_of_Boethius%27_translations%29.png",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Arbor_porphyrii_%28probably_from_one_of_Boethius%27_translations%29.png/1280px-Arbor_porphyrii_%28probably_from_one_of_Boethius%27_translations%29.png",
+      "scene": {
+        "width": 605,
+        "height": 640,
+        "bytes": 49538,
+        "sha256": "1a4bee661e1fc9bdb8344d60aca29eddbe01e5fd0c9e4b00cba18d22af7dad7f"
+      },
+      "panel": {
+        "width": 1211,
+        "height": 1280,
+        "bytes": 122622,
+        "sha256": "3bb48cfd88cf9b05d39dab2d245eee41c8743315df1e1e1319ca74eb94684a09"
+      }
+    },
+    "late-augustine-confessions-manuscript": {
+      "hallFolder": "late-antiquity-inheritance",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Basel,_Universitätsbibliothek,_A_IV_4,_f._1r_–_Aurelius_Augustinus,_Confessiones.JPG",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Basel%2C_Universit%C3%A4tsbibliothek%2C_A_IV_4%2C_f._1r_%E2%80%93_Aurelius_Augustinus%2C_Confessiones.JPG",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Basel%2C_Universit%C3%A4tsbibliothek%2C_A_IV_4%2C_f._1r_%E2%80%93_Aurelius_Augustinus%2C_Confessiones.JPG/1280px-Basel%2C_Universit%C3%A4tsbibliothek%2C_A_IV_4%2C_f._1r_%E2%80%93_Aurelius_Augustinus%2C_Confessiones.JPG",
+      "scene": {
+        "width": 480,
+        "height": 640,
+        "bytes": 77098,
+        "sha256": "70b157b42158d67121e8b2b8f2391540b6d8db16e5348abd1f00f9a114ad74c6"
+      },
+      "panel": {
+        "width": 960,
+        "height": 1280,
+        "bytes": 466576,
+        "sha256": "ac93dcbfaccfd19c4f0f8a9b880eeeea242b56a1a820de53a43ca1de8f5da4e9"
+      }
+    },
+    "late-celestial-hierarchy-manuscript": {
+      "hallFolder": "late-antiquity-inheritance",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Dionysius_Areopagita,_De_coelesti_hierarchia_(Latin).jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/27/Dionysius_Areopagita%2C_De_coelesti_hierarchia_%28Latin%29.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Dionysius_Areopagita%2C_De_coelesti_hierarchia_%28Latin%29.jpg/1280px-Dionysius_Areopagita%2C_De_coelesti_hierarchia_%28Latin%29.jpg",
+      "scene": {
+        "width": 427,
+        "height": 640,
+        "bytes": 93790,
+        "sha256": "d1d29866e144cf21da9f20b3dc14b7263d7bf68c9352b3d9e9c1c151436740c2"
+      },
+      "panel": {
+        "width": 853,
+        "height": 1280,
+        "bytes": 486856,
+        "sha256": "32fabf9298970386161f775349e29bbea233263e194724f6d0048637ad27d1e8"
+      }
+    },
+    "late-greek-aristotle-codex": {
+      "hallFolder": "late-antiquity-inheritance",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Greek_manuscript_minuscule_Aristotle.png",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Greek_manuscript_minuscule_Aristotle.png",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Greek_manuscript_minuscule_Aristotle.png",
+      "scene": {
+        "width": 498,
+        "height": 407,
+        "bytes": 78884,
+        "sha256": "12d6bb3b8943c03f59ab0badb7917238df965bed9b6a7a30f721e170e0c16e1e"
+      },
+      "panel": {
+        "width": 498,
+        "height": 407,
+        "bytes": 89448,
+        "sha256": "b0bda1d235664c5a921f5d4fe476857206fda0211968d5ee30650e06749def05"
+      }
+    },
+    "late-boethius-consolation-manuscript": {
+      "hallFolder": "late-antiquity-inheritance",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Consolation_of_philosophy_1385_boethius_images.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Consolation_of_philosophy_1385_boethius_images.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Consolation_of_philosophy_1385_boethius_images.jpg",
+      "scene": {
+        "width": 462,
+        "height": 640,
+        "bytes": 83520,
+        "sha256": "bf66a498d81b2a4638926dd56f4d68ac6f1d447adfba8521d2205c5b9d5cd110"
+      },
+      "panel": {
+        "width": 924,
+        "height": 1280,
+        "bytes": 322918,
+        "sha256": "780bb43368734f512760b9c06a076aa0da1cd9c0eb550a4c127d6ad975d8e44f"
+      }
+    },
+    "late-hypatia-reception": {
+      "hallFolder": "late-antiquity-inheritance",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Hypatia.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Hypatia.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Hypatia.jpg",
+      "scene": {
+        "width": 303,
+        "height": 326,
+        "bytes": 16050,
+        "sha256": "3ec7c0fac769691f961b1ba3e9ccf613193cfdc779b70d5a5311292f3dfed50b"
+      },
+      "panel": {
+        "width": 303,
+        "height": 326,
+        "bytes": 20998,
+        "sha256": "911710197b104f0c99a76a00315ea83123d1a1656cafc7ba1a42f87c79c76c8f"
+      }
+    },
+    "late-arabic-aristotle": {
+      "hallFolder": "late-antiquity-inheritance",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Aristotle_instructs_a_pupil_in_the_%22Kitab_na%E2%80%98t_al-hayawan%22.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Aristotle_instructs_a_pupil_in_the_%22Kitab_na%E2%80%98t_al-hayawan%22.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Aristotle_instructs_a_pupil_in_the_%22Kitab_na%E2%80%98t_al-hayawan%22.jpg",
+      "scene": {
+        "width": 640,
+        "height": 480,
+        "bytes": 45498,
+        "sha256": "643922c1d54f5e7001f9b7f4962bb2a5a6a519f489f9ea408f4ea3f15ef31d26"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 960,
+        "bytes": 184852,
+        "sha256": "fde9fcc1d0ed16ac8ce92ac46e0fb2104cc5a4d1228114829ffd10c8fe3e2c9a"
+      }
+    },
+    "late-proclus-elements-latin": {
+      "hallFolder": "late-antiquity-inheritance",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Proclus_Elements_of_Theology_and_Elements_of_Physics_Latin_translation_by_Patricius_1583.png",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/44/Proclus_Elements_of_Theology_and_Elements_of_Physics_Latin_translation_by_Patricius_1583.png",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/4/44/Proclus_Elements_of_Theology_and_Elements_of_Physics_Latin_translation_by_Patricius_1583.png",
+      "scene": {
+        "width": 472,
+        "height": 640,
+        "bytes": 41794,
+        "sha256": "1f5c7ff96b34cbcf1e79dbc6082571cc1f24da26cc0b6af6db3c0cb8e543ed4b"
+      },
+      "panel": {
+        "width": 656,
+        "height": 889,
+        "bytes": 81712,
+        "sha256": "f649b198eb2499ec902d4538aceb25a5b1e73f00039773c6fb24b08f98a6af78"
+      }
+    },
+    "late-ficino-iamblichus-manuscript": {
+      "hallFolder": "late-antiquity-inheritance",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Ficino,_De_mysteriis_Aegyptiorum.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/ca/Ficino%2C_De_mysteriis_Aegyptiorum.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Ficino%2C_De_mysteriis_Aegyptiorum.jpg/1280px-Ficino%2C_De_mysteriis_Aegyptiorum.jpg",
+      "scene": {
+        "width": 425,
+        "height": 640,
+        "bytes": 90338,
+        "sha256": "320629298d73e8cae493e20d2d5a494ed488c202d4672a8ddaee7e96781cd584"
+      },
+      "panel": {
+        "width": 850,
+        "height": 1280,
+        "bytes": 486502,
+        "sha256": "dc0506442194c8db9aec5b9b98484dade194f79c8382779770ed1c6c37f1e93b"
+      }
+    },
+    "late-neoplatonic-reader-sarcophagus": {
+      "hallFolder": "late-antiquity-inheritance",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Roman_sarcophagus_of_a_reader_identified_to_Plotinus_and_disciples.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/30/Roman_sarcophagus_of_a_reader_identified_to_Plotinus_and_disciples.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/3/30/Roman_sarcophagus_of_a_reader_identified_to_Plotinus_and_disciples.jpg",
+      "scene": {
+        "width": 573,
+        "height": 400,
+        "bytes": 36226,
+        "sha256": "db3b7ad0ddfe2a6f183da5def443e723def00faf5649bd75be05c7a41cac35ac"
+      },
+      "panel": {
+        "width": 573,
+        "height": 400,
+        "bytes": 46350,
+        "sha256": "aee9e4e394ec12da93b16654fd60ca25dc218b1821b3bef79a9f79332be5755a"
+      }
+    }
+  }
+}

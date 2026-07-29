@@ -18,6 +18,7 @@ import {CLASSICAL_CHINESE_GALLERY_ASSETS} from './classicalChineseGalleryAssets'
 import {ISLAMIC_GALLERY_ASSETS} from './islamicGalleryAssets';
 import {EAST_ASIAN_GALLERY_ASSETS} from './eastAsianGalleryAssets';
 import {JEWISH_GALLERY_ASSETS} from './jewishGalleryAssets';
+import {SUCCESSOR_GALLERIES_ASSETS} from './successorGalleriesAssets';
 
 const assetPath = (slug: string, variant: 'scene' | 'panel', width: number, height: number): MuseumAssetVariant => ({
   path: `assets/museum/ancient-greek/${slug}-${variant}.webp`,
@@ -118,7 +119,7 @@ const ANCIENT_MUSEUM_ASSETS = [
     historicalNote: 'The date attached to the Commons reproduction is modern publication history, not the papyrus date; authorship by Aristotle personally or his school remains qualified.', likenessStatus: 'not-applicable',
   },
   {
-    id: 'cynicism-diogenes-walters', entityKind: 'branch', entityId: 'cynicism', role: 'identity', mediaKind: 'painting',
+    id: 'cynicism-diogenes-walters', entityKind: 'philosopher', entityId: 'diogenes', role: 'context', mediaKind: 'painting',
     title: 'Diogenes', creator: 'Jean-Léon Gérôme', objectDate: '1860', imageCreator: 'Walters Art Museum digital reproduction', institution: 'Walters Art Museum, 37.131',
     sourcePageUrl: 'https://commons.wikimedia.org/wiki/File:Jean-L%C3%A9on_G%C3%A9r%C3%B4me_-_Diogenes_-_Walters_37131.jpg', objectPageUrl: 'https://art.thewalters.org/object/37.131/',
     license: 'CC0 1.0', licenseUrl: 'https://creativecommons.org/publicdomain/zero/1.0/', rightsKind: 'dedication', attribution: 'Jean-Léon Gérôme, Diogenes, Walters Art Museum, CC0.',
@@ -138,7 +139,7 @@ const ANCIENT_MUSEUM_ASSETS = [
     historicalNote: 'Later history painting of the celebrated confrontation between political power and Cynic independence, not documentary portraiture.', likenessStatus: 'imagined',
   },
   {
-    id: 'epicureanism-double-herm', entityKind: 'branch', entityId: 'epicureanism', role: 'identity', mediaKind: 'sculpture-photograph',
+    id: 'epicureanism-double-herm', entityKind: 'philosopher', entityId: 'epicurus', role: 'identity', mediaKind: 'sculpture-photograph',
     title: 'Double herm of Epicurus and Metrodorus', creator: 'Unknown Roman sculptor, after a Greek original', objectDate: 'c. 150–200 CE; Greek model c. 260 BCE', imageCreator: 'Eric Gaba (Wikimedia Commons user Sting)', institution: 'Musée du Louvre, Ma 88 / MR 478',
     sourcePageUrl: 'https://commons.wikimedia.org/wiki/File:Epicurus_Louvre.jpg', objectPageUrl: 'https://collections.louvre.fr/ark:/53355/cl010279179',
     license: 'CC BY-SA 2.5', licenseUrl: 'https://creativecommons.org/licenses/by-sa/2.5/', rightsKind: 'license', derivativeNotice: 'Resized and converted to WebP by Philosophy Atlas.', attribution: 'Eric Gaba (Wikimedia Commons user Sting), CC BY-SA 2.5.',
@@ -148,7 +149,7 @@ const ANCIENT_MUSEUM_ASSETS = [
     historicalNote: 'A later Roman copy with substantial restorations. Historical labels once confused which side represented Epicurus and Metrodorus.', likenessStatus: 'roman-copy', focalPoint: {x: .5, y: .4},
   },
   {
-    id: 'epicureanism-lucretius-manuscript', entityKind: 'branch', entityId: 'epicureanism', role: 'primary-source', mediaKind: 'manuscript',
+    id: 'epicureanism-lucretius-manuscript', entityKind: 'philosopher', entityId: 'lucretius', role: 'primary-source', mediaKind: 'manuscript',
     title: 'Lucretius, De rerum natura', creator: 'Copied by Girolamo di Matteo de Tauris for Sixtus IV', objectDate: '1483', institution: 'Vatican Library, Vat. lat. 1569, fol. 1r',
     sourcePageUrl: 'https://commons.wikimedia.org/wiki/File:Lucretius,_De_rerum_natura.jpg', objectPageUrl: 'https://digi.vatlib.it/view/MSS_Vat.lat.1569',
     license: 'Public Domain Mark 1.0', licenseUrl: 'https://creativecommons.org/publicdomain/mark/1.0/', rightsKind: 'rights-status', attribution: 'Vatican Library, Vat. lat. 1569, fol. 1r. Public domain.',
@@ -158,7 +159,7 @@ const ANCIENT_MUSEUM_ASSETS = [
     historicalNote: 'A Renaissance manuscript transmitting a first-century BCE Epicurean poem, not an ancient surviving copy.', likenessStatus: 'not-applicable',
   },
   {
-    id: 'stoicism-zeno-naples', entityKind: 'branch', entityId: 'stoicism', role: 'identity', mediaKind: 'sculpture-photograph',
+    id: 'stoicism-zeno-naples', entityKind: 'philosopher', entityId: 'zeno', role: 'identity', mediaKind: 'sculpture-photograph',
     title: 'Bust identified as Zeno of Citium', creator: 'Unknown ancient sculptor', objectDate: 'Ancient Roman period; exact date not secured in the source record', imageCreator: 'Jeremy Weate', institution: 'National Archaeological Museum of Naples, inv. 6128',
     sourcePageUrl: 'https://commons.wikimedia.org/wiki/File:Zeno_of_Citium_-_Museo_archeologico_nazionale_di_Napoli.jpg',
     license: 'CC BY 2.0', licenseUrl: 'https://creativecommons.org/licenses/by/2.0/', rightsKind: 'license', derivativeNotice: 'Resized and converted to WebP by Philosophy Atlas.', attribution: 'Jeremy Weate, CC BY 2.0.',
@@ -168,7 +169,7 @@ const ANCIENT_MUSEUM_ASSETS = [
     historicalNote: 'The identification rests on comparison with a bronze portrait from the Villa of the Papyri; it is not secured by an inscription.', likenessStatus: 'attributed', focalPoint: {x: .5, y: .4},
   },
   {
-    id: 'stoicism-marcus-aurelius-bust', entityKind: 'branch', entityId: 'stoicism', role: 'material-history', mediaKind: 'sculpture-photograph',
+    id: 'stoicism-marcus-aurelius-bust', entityKind: 'philosopher', entityId: 'marcus-aurelius', role: 'identity', mediaKind: 'sculpture-photograph',
     title: 'Portrait bust of Marcus Aurelius', creator: 'Unknown Roman sculptor', objectDate: 'Antonine period, 161–169 CE', imageCreator: 'Wikimedia Commons user Steerpike', institution: 'Musée du Louvre, MR 561 / Ma 1166',
     sourcePageUrl: 'https://commons.wikimedia.org/wiki/File:Marcus_Aurelius_Metropolitan_Museum.png', objectPageUrl: 'https://collections.louvre.fr/ark:/53355/cl010275331',
     license: 'Public-domain dedication (PD-self)', licenseUrl: 'https://commons.wikimedia.org/wiki/Template:PD-self', rightsKind: 'dedication', attribution: 'Steerpike, public-domain dedication.',
@@ -178,7 +179,7 @@ const ANCIENT_MUSEUM_ASSETS = [
     historicalNote: 'An ancient imperial portrait, photographed while on loan to The Metropolitan Museum of Art in 2008–2010; the object belongs to the Louvre.', likenessStatus: 'ancient-portrait', focalPoint: {x: .5, y: .42},
   },
   {
-    id: 'skepticism-sextus-riedel', entityKind: 'branch', entityId: 'skepticism', role: 'identity', mediaKind: 'engraving',
+    id: 'skepticism-sextus-riedel', entityKind: 'philosopher', entityId: 'sextus-empiricus', role: 'identity', mediaKind: 'engraving',
     title: 'Sextus Empyricus', creator: 'Gottlieb Friedrich Riedel', objectDate: '1801 reissue of an engraving first published 1781–1783', institution: 'Source collection not recorded on the Commons file page',
     sourcePageUrl: 'https://commons.wikimedia.org/wiki/File:Sextus_Empiricus_-_engraving_by_G._F._Riedel_-_1801.jpg',
     license: 'Public Domain Mark 1.0', licenseUrl: 'https://creativecommons.org/publicdomain/mark/1.0/', rightsKind: 'rights-status', attribution: 'Gottlieb Friedrich Riedel, Sextus Empyricus, 1801. Public domain.',
@@ -198,7 +199,7 @@ const ANCIENT_MUSEUM_ASSETS = [
     historicalNote: 'This later printed edition is evidence of Sextus’s transmission, not an authorial or ancient copy.', likenessStatus: 'not-applicable',
   },
   {
-    id: 'neoplatonism-plotinus-ostia', entityKind: 'branch', entityId: 'neoplatonism', role: 'identity', mediaKind: 'sculpture-photograph',
+    id: 'neoplatonism-plotinus-ostia', entityKind: 'philosopher', entityId: 'plotinus', role: 'identity', mediaKind: 'sculpture-photograph',
     title: 'Head conventionally identified as Plotinus', creator: 'Unknown Roman sculptor', objectDate: 'Probably 3rd century CE', imageCreator: 'Sailko', institution: 'Museo Ostiense, Ostia Antica, inv. 1386',
     sourcePageUrl: 'https://commons.wikimedia.org/wiki/File:Testa_di_plotino,_III_secolo,_dalla_domus_del_filosofo.JPG',
     license: 'CC BY 3.0', licenseUrl: 'https://creativecommons.org/licenses/by/3.0/', rightsKind: 'license', derivativeNotice: 'Resized and converted to WebP by Philosophy Atlas.', attribution: 'Sailko, CC BY 3.0.',
@@ -426,6 +427,7 @@ export const MUSEUM_ASSETS = [
   ...ISLAMIC_GALLERY_ASSETS,
   ...EAST_ASIAN_GALLERY_ASSETS,
   ...JEWISH_GALLERY_ASSETS,
+  ...SUCCESSOR_GALLERIES_ASSETS,
 ] as const satisfies readonly MuseumAssetRecord[];
 
 export const museumAssetById = new Map<MuseumAssetId, MuseumAssetRecord>(

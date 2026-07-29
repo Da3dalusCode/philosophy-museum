@@ -9,7 +9,7 @@
       "path": "docs/museum-masterplan/single-level-building-plan.json",
       "planId": "continuous-enfilade-single-level-v1",
       "schemaVersion": 2,
-      "sha256": "13d856b5ed134b4608c29133127c82e9fd4898b49554da1bc293350758e736ca"
+      "sha256": "8c3ea1d131d1aab3c0fd4d2db8c898a5efe7422029fa6b415a84edaea2207da5"
     },
     "program": {
       "path": "docs/museum-masterplan/hall-program.json",
@@ -633,8 +633,9 @@
       "kind": "hall",
       "physicalRole": "gallery",
       "programHallId": "hellenistic-roman-ways",
+      "publicHallId": "hellenistic-roman-ways",
       "title": "Hellenistic & Roman Ways of Life",
-      "galleryState": "planned-walkable",
+      "galleryState": "curated-open",
       "publicGalleryNumber": 14,
       "visitSequence": 2,
       "bandId": "band-01-south",
@@ -662,7 +663,7 @@
           "title": "Academic and Pyrrhonian skeptical lineages"
         }
       ],
-      "roomLayoutStrategy": "crossroads-four-quadrants",
+      "roomLayoutStrategy": "preserve-existing-authored-layout",
       "templateId": "crossroads-4",
       "implementationStatus": "live",
       "levelId": "L0",
@@ -699,7 +700,7 @@
       },
       "map": {
         "label": "Gallery 14 · Hellenistic & Roman Ways of Life",
-        "status": "planned-walkable"
+        "status": "open"
       },
       "doorwaySlots": [
         {
@@ -924,282 +925,16 @@
           "routeRole": null,
           "openingState": "closed-solid-wall"
         }
-      ],
-      "geometry": {
-        "coordinateFrame": "node-local",
-        "bounds": {
-          "minX": -14,
-          "maxX": 14,
-          "minZ": -14,
-          "maxZ": 14
-        },
-        "cells": [
-          {
-            "id": "hell-cynic-way",
-            "kind": "room",
-            "title": "Cynic challenge",
-            "bounds": {
-              "minX": -14,
-              "maxX": -2,
-              "minZ": -14,
-              "maxZ": -2
-            },
-            "ceilingHeight": 6.2
-          },
-          {
-            "id": "hell-epicurean-garden",
-            "kind": "room",
-            "title": "Epicurean Garden and Roman transmission",
-            "bounds": {
-              "minX": 2,
-              "maxX": 14,
-              "minZ": -14,
-              "maxZ": -2
-            },
-            "ceilingHeight": 6.2
-          },
-          {
-            "id": "hell-stoic-stoa",
-            "kind": "room",
-            "title": "Early system and Roman Stoa",
-            "bounds": {
-              "minX": 2,
-              "maxX": 14,
-              "minZ": 2,
-              "maxZ": 14
-            },
-            "ceilingHeight": 6.2
-          },
-          {
-            "id": "hell-skeptical-lineages",
-            "kind": "room",
-            "title": "Academic and Pyrrhonian skeptical lineages",
-            "bounds": {
-              "minX": -14,
-              "maxX": -2,
-              "minZ": 2,
-              "maxZ": 14
-            },
-            "ceilingHeight": 6.2
-          },
-          {
-            "id": "passage:hellenistic-roman-ways:north",
-            "kind": "passage",
-            "title": "Central circulation passage",
-            "bounds": {
-              "minX": -2,
-              "maxX": 2,
-              "minZ": -14,
-              "maxZ": -2
-            },
-            "ceilingHeight": 6.2
-          },
-          {
-            "id": "passage:hellenistic-roman-ways:east",
-            "kind": "passage",
-            "title": "Central circulation passage",
-            "bounds": {
-              "minX": 2,
-              "maxX": 14,
-              "minZ": -2,
-              "maxZ": 2
-            },
-            "ceilingHeight": 6.2
-          },
-          {
-            "id": "passage:hellenistic-roman-ways:south",
-            "kind": "passage",
-            "title": "Central circulation passage",
-            "bounds": {
-              "minX": -2,
-              "maxX": 2,
-              "minZ": 2,
-              "maxZ": 14
-            },
-            "ceilingHeight": 6.2
-          },
-          {
-            "id": "passage:hellenistic-roman-ways:west",
-            "kind": "passage",
-            "title": "Central circulation passage",
-            "bounds": {
-              "minX": -14,
-              "maxX": -2,
-              "minZ": -2,
-              "maxZ": 2
-            },
-            "ceilingHeight": 6.2
-          },
-          {
-            "id": "passage:hellenistic-roman-ways:center",
-            "kind": "passage",
-            "title": "Central circulation passage",
-            "bounds": {
-              "minX": -2,
-              "maxX": 2,
-              "minZ": -2,
-              "maxZ": 2
-            },
-            "ceilingHeight": 6.2
-          }
-        ],
-        "interiorOpenings": [
-          {
-            "id": "opening:hellenistic-roman-ways:hell-cynic-way->north-passage",
-            "position": {
-              "x": -2,
-              "z": -8
-            },
-            "inwardNormal": {
-              "x": 1,
-              "z": 0
-            },
-            "clearWidth": 4,
-            "clearHeight": 3.2,
-            "transitionDepth": 1.2,
-            "fromCellId": "hell-cynic-way",
-            "toCellId": "passage:hellenistic-roman-ways:north"
-          },
-          {
-            "id": "opening:hellenistic-roman-ways:hell-epicurean-garden->north-passage",
-            "position": {
-              "x": 2,
-              "z": -8
-            },
-            "inwardNormal": {
-              "x": -1,
-              "z": 0
-            },
-            "clearWidth": 4,
-            "clearHeight": 3.2,
-            "transitionDepth": 1.2,
-            "fromCellId": "hell-epicurean-garden",
-            "toCellId": "passage:hellenistic-roman-ways:north"
-          },
-          {
-            "id": "opening:hellenistic-roman-ways:hell-stoic-stoa->south-passage",
-            "position": {
-              "x": 2,
-              "z": 8
-            },
-            "inwardNormal": {
-              "x": -1,
-              "z": 0
-            },
-            "clearWidth": 4,
-            "clearHeight": 3.2,
-            "transitionDepth": 1.2,
-            "fromCellId": "hell-stoic-stoa",
-            "toCellId": "passage:hellenistic-roman-ways:south"
-          },
-          {
-            "id": "opening:hellenistic-roman-ways:hell-skeptical-lineages->south-passage",
-            "position": {
-              "x": -2,
-              "z": 8
-            },
-            "inwardNormal": {
-              "x": 1,
-              "z": 0
-            },
-            "clearWidth": 4,
-            "clearHeight": 3.2,
-            "transitionDepth": 1.2,
-            "fromCellId": "hell-skeptical-lineages",
-            "toCellId": "passage:hellenistic-roman-ways:south"
-          },
-          {
-            "id": "opening:hellenistic-roman-ways:north-passage->center",
-            "position": {
-              "x": 0,
-              "z": -2
-            },
-            "inwardNormal": {
-              "x": 0,
-              "z": 1
-            },
-            "clearWidth": 4,
-            "clearHeight": 3.2,
-            "transitionDepth": 1.2,
-            "fromCellId": "passage:hellenistic-roman-ways:north",
-            "toCellId": "passage:hellenistic-roman-ways:center"
-          },
-          {
-            "id": "opening:hellenistic-roman-ways:east-passage->center",
-            "position": {
-              "x": 2,
-              "z": 0
-            },
-            "inwardNormal": {
-              "x": -1,
-              "z": 0
-            },
-            "clearWidth": 4,
-            "clearHeight": 3.2,
-            "transitionDepth": 1.2,
-            "fromCellId": "passage:hellenistic-roman-ways:east",
-            "toCellId": "passage:hellenistic-roman-ways:center"
-          },
-          {
-            "id": "opening:hellenistic-roman-ways:south-passage->center",
-            "position": {
-              "x": 0,
-              "z": 2
-            },
-            "inwardNormal": {
-              "x": 0,
-              "z": -1
-            },
-            "clearWidth": 4,
-            "clearHeight": 3.2,
-            "transitionDepth": 1.2,
-            "fromCellId": "passage:hellenistic-roman-ways:south",
-            "toCellId": "passage:hellenistic-roman-ways:center"
-          },
-          {
-            "id": "opening:hellenistic-roman-ways:west-passage->center",
-            "position": {
-              "x": -2,
-              "z": 0
-            },
-            "inwardNormal": {
-              "x": 1,
-              "z": 0
-            },
-            "clearWidth": 4,
-            "clearHeight": 3.2,
-            "transitionDepth": 1.2,
-            "fromCellId": "passage:hellenistic-roman-ways:west",
-            "toCellId": "passage:hellenistic-roman-ways:center"
-          }
-        ],
-        "signs": [
-          {
-            "id": "sign:planned-status:hellenistic-roman-ways",
-            "kind": "planned-status",
-            "title": "Gallery 14 · Hellenistic & Roman Ways of Life",
-            "kicker": "Planned gallery",
-            "subtitle": "Architectural shell open · exhibits not yet installed",
-            "position": {
-              "x": -12,
-              "y": 1.65,
-              "z": 0
-            },
-            "rotationY": -1.570796326795,
-            "width": 3.2,
-            "height": 1.35,
-            "interactive": false
-          }
-        ]
-      }
+      ]
     },
     {
       "id": "hall:late-antiquity-inheritance",
       "kind": "hall",
       "physicalRole": "gallery",
       "programHallId": "late-antiquity-inheritance",
+      "publicHallId": "late-antiquity-inheritance",
       "title": "Late Antiquity & Neoplatonic Inheritance",
-      "galleryState": "planned-walkable",
+      "galleryState": "curated-open",
       "publicGalleryNumber": 15,
       "visitSequence": 3,
       "bandId": "band-01-south",
@@ -1222,7 +957,7 @@
           "title": "Commentary, translation, and transmission"
         }
       ],
-      "roomLayoutStrategy": "sequence-equal-room-spans",
+      "roomLayoutStrategy": "preserve-existing-authored-layout",
       "templateId": "sequence-3",
       "implementationStatus": "live",
       "levelId": "L0",
@@ -1259,7 +994,7 @@
       },
       "map": {
         "label": "Gallery 15 · Late Antiquity & Neoplatonic Inheritance",
-        "status": "planned-walkable"
+        "status": "open"
       },
       "doorwaySlots": [
         {
@@ -1410,106 +1145,7 @@
           "routeRole": null,
           "openingState": "closed-solid-wall"
         }
-      ],
-      "geometry": {
-        "coordinateFrame": "node-local",
-        "bounds": {
-          "minX": -12,
-          "maxX": 12,
-          "minZ": -28,
-          "maxZ": 28
-        },
-        "cells": [
-          {
-            "id": "late-neoplatonic-systems",
-            "kind": "room",
-            "title": "Plotinus and later pagan Platonisms",
-            "bounds": {
-              "minX": -12,
-              "maxX": 12,
-              "minZ": -28,
-              "maxZ": -9.333333
-            },
-            "ceilingHeight": 5.8
-          },
-          {
-            "id": "late-christian-platonisms",
-            "kind": "room",
-            "title": "Christian transformations of Platonism",
-            "bounds": {
-              "minX": -12,
-              "maxX": 12,
-              "minZ": -9.333333,
-              "maxZ": 9.333333
-            },
-            "ceilingHeight": 5.8
-          },
-          {
-            "id": "late-commentary-transmission",
-            "kind": "room",
-            "title": "Commentary, translation, and transmission",
-            "bounds": {
-              "minX": -12,
-              "maxX": 12,
-              "minZ": 9.333333,
-              "maxZ": 28
-            },
-            "ceilingHeight": 5.8
-          }
-        ],
-        "interiorOpenings": [
-          {
-            "id": "opening:late-antiquity-inheritance:late-neoplatonic-systems->late-christian-platonisms",
-            "position": {
-              "x": 0,
-              "z": -9.333333
-            },
-            "inwardNormal": {
-              "x": 0,
-              "z": 1
-            },
-            "clearWidth": 4,
-            "clearHeight": 3.2,
-            "transitionDepth": 1.2,
-            "fromCellId": "late-neoplatonic-systems",
-            "toCellId": "late-christian-platonisms"
-          },
-          {
-            "id": "opening:late-antiquity-inheritance:late-christian-platonisms->late-commentary-transmission",
-            "position": {
-              "x": 0,
-              "z": 9.333333
-            },
-            "inwardNormal": {
-              "x": 0,
-              "z": 1
-            },
-            "clearWidth": 4,
-            "clearHeight": 3.2,
-            "transitionDepth": 1.2,
-            "fromCellId": "late-christian-platonisms",
-            "toCellId": "late-commentary-transmission"
-          }
-        ],
-        "signs": [
-          {
-            "id": "sign:planned-status:late-antiquity-inheritance",
-            "kind": "planned-status",
-            "title": "Gallery 15 · Late Antiquity & Neoplatonic Inheritance",
-            "kicker": "Planned gallery",
-            "subtitle": "Architectural shell open · exhibits not yet installed",
-            "position": {
-              "x": 0,
-              "y": 1.65,
-              "z": 26
-            },
-            "rotationY": 0,
-            "width": 3.2,
-            "height": 1.35,
-            "interactive": false
-          }
-        ]
-      }
+      ]
     },
     {
       "id": "hall:classical-south-asian-worlds",
@@ -11775,12 +11411,12 @@
   "counts": {
     "halls": 26,
     "rooms": 105,
-    "curatedOpen": 12,
-    "plannedWalkable": 14,
+    "curatedOpen": 14,
+    "plannedWalkable": 12,
     "reserves": 2,
     "hallCount": 26,
-    "curatedOpenHallCount": 12,
-    "plannedWalkableHallCount": 14,
+    "curatedOpenHallCount": 14,
+    "plannedWalkableHallCount": 12,
     "canonicalRoomCount": 105,
     "nodeCount": 39,
     "connectionCount": 43,
@@ -11790,6 +11426,6 @@
     "standaloneCrossingNodeCount": 5,
     "turnCourtCount": 5,
     "reserveCount": 2,
-    "plannedStatusSignCount": 14
+    "plannedStatusSignCount": 12
   }
 }

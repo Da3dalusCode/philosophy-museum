@@ -1,10 +1,10 @@
 # Philosophy Atlas Museum masterplan
 
-**Status:** the 26-gallery intellectual program and the dimensioned single-level **Continuous Enfilade** are implemented together. The production runtime contains 12 curated/open galleries, 14 planned/walkable shells, all 105 named rooms, and two closed expansion reserves.
+**Status:** the 26-gallery intellectual program and the dimensioned single-level **Continuous Enfilade** are implemented together. The production runtime contains 14 curated/open galleries, 12 planned/walkable shells, all 105 named rooms, and two closed expansion reserves.
 
 ## Whole-building architectural control plan
 
-The earlier Ring diagrams fixed a topology, not a scaled building. Galleries 01–12 were therefore placed incrementally until the complete migration. Their curated hall-local roots remain intact, while the Continuous Enfilade manifest now owns their final world positions, orientations, route portals, entrance relationship, and map geometry.
+The earlier Ring diagrams fixed a topology, not a scaled building. Galleries 01–12 were therefore placed incrementally until the complete migration; Galleries 14–15 were curated afterward in their approved physical positions. All curated hall-local roots remain intact, while the Continuous Enfilade manifest owns their final world positions, orientations, route portals, entrance relationship, and map geometry.
 
 The approved complete single-level plan is:
 
@@ -134,4 +134,4 @@ The template contract treats accessibility as geometry, not decoration. Detailed
 
 ## Scope boundary
 
-This directory remains the long-term planning contract. Its CSV and JSON data assign all 189 Atlas records—146 philosophers and 43 branches—exactly once. The runtime installs the curated records in Galleries 01–12 and preserves the remaining named rooms as honest planned shells. The former 48-installation roster and Ring manifest are retained only as migration/rollback records. Runtime geometry, connections, residency, and visitor-map projection are compiled and audited in the Museum source layer.
+This directory remains the long-term planning contract. Its CSV and JSON data assign all 189 Atlas records—146 philosophers and 43 branches—exactly once. The runtime installs the currently curated records in Galleries 01–12 and 14–15 and preserves Gallery 13 and Galleries 16–26 as honest planned shells. The former 48-installation roster and Ring manifest are retained only as migration/rollback records. Runtime geometry, connections, residency, and visitor-map projection are compiled and audited in the Museum source layer.
