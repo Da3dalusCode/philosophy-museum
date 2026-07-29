@@ -131,6 +131,13 @@ export type MuseumBuildingManifest = {
     zAxis: 'north-positive';
     yAxis: 'up-positive';
   };
+  runtimeEmbedding: {
+    engine: 'Three.js';
+    runtimeHandedness: 'right-handed-y-up';
+    planToRuntime: {x: '-plan.x'; z: 'plan.z'; y: 'plan.y'};
+    mapFromRuntime: {x: '-runtime.x'; y: '-runtime.z'};
+    reason: string;
+  };
   physicalContract: {
     wallThickness: number;
     doorClearWidth: number;

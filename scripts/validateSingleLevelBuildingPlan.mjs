@@ -13,6 +13,17 @@ const check = (title, callback) => checks.push({title, callback});
 const sorted = (values) => [...values].sort((a, b) => `${a}`.localeCompare(`${b}`));
 const unique = (values) => new Set(values).size === values.length;
 const close = (first, second, epsilon = .001) => Math.abs(first - second) <= epsilon;
+const normalizeRadians = (value) => {
+  const wrapped = (value + Math.PI) % (Math.PI * 2);
+  return (wrapped < 0 ? wrapped + Math.PI * 2 : wrapped) - Math.PI;
+};
+const planPointToRuntime = ({x, z}) => ({x: -x, z});
+const planBoundsToRuntime = (bounds) => ({
+  minX: -bounds.maxX,
+  maxX: -bounds.minX,
+  minZ: bounds.minZ,
+  maxZ: bounds.maxZ,
+});
 
 const templateWorldSize = {
   'sequence-3': {width: 56, depth: 24},
@@ -50,6 +61,7 @@ const worldBounds = (hall) => {
     maxZ: hall.placement.z + size.depth / 2,
   };
 };
+const runtimeWorldBounds = (hall) => planBoundsToRuntime(worldBounds(hall));
 
 const strictOverlap = (first, second) => (
   Math.min(first.maxX, second.maxX) - Math.max(first.minX, second.minX) > .001
@@ -66,6 +78,22 @@ const portalWorld = (hall, portalId) => {
   };
 };
 
+const mirroredRuntimeHallYaw = (hall) => {
+  const entry = templateLocalPortals[hall.templateId][hall.routePortals.entry];
+  const exit = templateLocalPortals[hall.templateId][hall.routePortals.exit];
+  assert(entry && exit, `${hall.id} lacks a route axis for runtime embedding`);
+  const localRoute = {x: exit.x - entry.x, z: exit.z - entry.z};
+  const entryWorld = portalWorld(hall, hall.routePortals.entry);
+  const exitWorld = portalWorld(hall, hall.routePortals.exit);
+  const runtimeRoute = {
+    x: -(exitWorld.x - entryWorld.x),
+    z: exitWorld.z - entryWorld.z,
+  };
+  return normalizeRadians(
+    Math.atan2(localRoute.z, localRoute.x) - Math.atan2(runtimeRoute.z, runtimeRoute.x),
+  );
+};
+
 const distance = (first, second) => Math.hypot(second.x - first.x, second.z - first.z);
 
 check('plan identity and approved status are explicit', () => {
@@ -75,6 +103,8 @@ check('plan identity and approved status are explicit', () => {
   assert.equal(plan.runtimeStatus, 'implemented-approved-continuous-enfilade');
   assert.equal(plan.units, 'metres');
   assert.equal(plan.coordinateSystem.levelId, 'L0');
+  assert.deepEqual(plan.runtimeEmbedding.planToRuntime, {x: '-plan.x', z: 'plan.z', y: 'plan.y'});
+  assert.deepEqual(plan.runtimeEmbedding.mapFromRuntime, {x: '-runtime.x', y: '-runtime.z'});
 });
 
 check('approved program totals and complete roster are unchanged', () => {
@@ -333,6 +363,7 @@ check('compiled runtime manifest is the approved Continuous Enfilade cutover', (
   assert.equal(runtime.manifestVersion, plan.planId);
   assert.equal(runtime.status, 'implemented-approved-continuous-enfilade');
   assert.equal(runtime.physicalOptionId, 'continuous-enfilade-single-level');
+  assert.deepEqual(runtime.runtimeEmbedding, plan.runtimeEmbedding);
   assert.equal(runtime.level.id, 'L0');
   assert.deepEqual(runtime.counts, {
     halls: 26,
@@ -392,10 +423,10 @@ check('compiled runtime binds all 26 transforms and all 105 named rooms exactly'
     assert.equal(compiled.bandId, approved.bandId);
     assert.deepEqual(compiled.roomIds, approved.roomIds);
     assert.deepEqual(compiled.planPlacement, approved.placement);
-    assert.deepEqual(compiled.bounds, worldBounds(approved));
-    assert(close(compiled.transform.x, approved.placement.x));
+    assert.deepEqual(compiled.bounds, runtimeWorldBounds(approved));
+    assert(close(compiled.transform.x, planPointToRuntime(approved.placement).x));
     assert(close(compiled.transform.z, approved.placement.z));
-    assert(close(compiled.transform.yaw, -approved.placement.rotationDegrees * Math.PI / 180));
+    assert(close(compiled.transform.yaw, mirroredRuntimeHallYaw(approved)));
     if (approved.migrationState === 'migrate-populated') {
       assert.equal(compiled.publicHallId, approved.id);
       assert.equal(compiled.galleryState, 'curated-open');
@@ -433,9 +464,9 @@ check('compiled route, crosscut, turn courts, entrance, threshold, and reserves 
   assert.equal(runtime.nodes.filter(({physicalRole}) => physicalRole === 'final-return-threshold').length, 1);
   assert.equal(runtime.nodes.filter(({physicalRole}) => physicalRole === 'grand-entrance-orientation').length, 1);
   assert.equal(runtime.forumNodeId, 'hall:core-questions-forum');
-  assert.deepEqual(runtimeNodeById.get(runtime.mainEntrance.nodeId).bounds, plan.grandEntrance.bounds);
+  assert.deepEqual(runtimeNodeById.get(runtime.mainEntrance.nodeId).bounds, planBoundsToRuntime(plan.grandEntrance.bounds));
   assert.equal(runtimeNodeById.get(runtime.mainEntrance.nodeId).orientationLandmark.id, 'entrance-visitor-map-kiosk');
-  assert.deepEqual(runtimeNodeById.get(runtime.finalThresholdNodeId).bounds, plan.finalThreshold.bounds);
+  assert.deepEqual(runtimeNodeById.get(runtime.finalThresholdNodeId).bounds, planBoundsToRuntime(plan.finalThreshold.bounds));
 
   const forum = runtimeNodeById.get(runtime.forumNodeId);
   assert.equal(forum.doorwaySlots.find(({id}) => id === 'N0').clearWidth, 10);
@@ -443,7 +474,8 @@ check('compiled route, crosscut, turn courts, entrance, threshold, and reserves 
   for (const turn of plan.turnCourts) {
     const compiled = runtimeNodeById.get(turn.id);
     assert(compiled, `${turn.id} is absent from the runtime`);
-    assert.deepEqual(compiled.geometry.worldCenterline, turn.centerline);
+    assert.deepEqual(compiled.geometry.planCenterline, turn.centerline);
+    assert.deepEqual(compiled.geometry.worldCenterline, turn.centerline.map(planPointToRuntime));
     assert(close(compiled.geometry.centerlineLength, turn.centerlineLength));
     assert(close(compiled.geometry.measuredCenterlineLength, turn.centerlineLength));
     assert.equal(compiled.geometry.clearWidth, 8);
@@ -466,7 +498,7 @@ check('compiled route, crosscut, turn courts, entrance, threshold, and reserves 
       }
       for (const hall of plan.halls) {
         assert(
-          !strictOverlap(compiled.geometry.cells[first].bounds, worldBounds(hall)),
+          !strictOverlap(compiled.geometry.cells[first].bounds, runtimeWorldBounds(hall)),
           `${turn.id}/${compiled.geometry.cells[first].id} cuts through ${hall.id}`,
         );
       }
@@ -477,7 +509,7 @@ check('compiled route, crosscut, turn courts, entrance, threshold, and reserves 
   for (const approved of plan.expansionReservations) {
     const reserve = runtime.reserves.find(({id}) => id === approved.id);
     assert(reserve, `${approved.id} is absent from the runtime`);
-    assert.deepEqual(reserve.bounds, approved.bounds);
+    assert.deepEqual(reserve.bounds, planBoundsToRuntime(approved.bounds));
     assert.equal(reserve.currentDoorState, 'solid-construction-wall');
     assert.equal(reserve.boundaryWall.size.height, 5.8);
     assert.equal(reserve.boundaryWall.fullHeight, true);

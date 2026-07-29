@@ -116,9 +116,9 @@ const manifestNodeById = new Map(
 );
 
 /**
- * Converts local x/z coordinates to the north-up plan. This is intentionally
- * the runtime transform convention, after the plan compiler has inverted the
- * source document's positive rotation.
+ * Converts right-handed Three.js runtime coordinates back to the approved
+ * east-positive, north-positive architectural plan. The compiler reflects
+ * plan X once at the runtime boundary; the map reverses that reflection.
  */
 const projectLocalPoint = (
   point: MuseumPoint,
@@ -128,10 +128,10 @@ const projectLocalPoint = (
   const sine = Math.sin(transform.yaw);
   const worldX = transform.x + point.x * cosine + point.z * sine;
   const worldZ = transform.z - point.x * sine + point.z * cosine;
-  return {x: worldX, y: -worldZ};
+  return {x: -worldX, y: -worldZ};
 };
 
-const projectWorldPoint = ({x, z}: MuseumPoint): MuseumVisitorMapPoint => ({x, y: -z});
+const projectWorldPoint = ({x, z}: MuseumPoint): MuseumVisitorMapPoint => ({x: -x, y: -z});
 
 export const projectMuseumVisitorMapPoint = (
   nodeId: MuseumPhysicalNodeId,
@@ -147,7 +147,10 @@ export const projectMuseumVisitorMapHeading = (
 ): number | undefined => {
   const node = manifestNodeById.get(nodeId);
   if (!node || !Number.isFinite(yaw)) return undefined;
-  return (yaw + node.transform.yaw + Math.PI) * 180 / Math.PI;
+  const worldYaw = yaw + node.transform.yaw;
+  const worldForward = {x: -Math.sin(worldYaw), z: -Math.cos(worldYaw)};
+  const mapForward = {x: -worldForward.x, y: -worldForward.z};
+  return Math.atan2(mapForward.x, -mapForward.y) * 180 / Math.PI;
 };
 
 const midpoint = (

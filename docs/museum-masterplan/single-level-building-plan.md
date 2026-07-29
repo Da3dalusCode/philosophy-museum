@@ -27,6 +27,8 @@ This plan supersedes the unscaled Ring topology and the rejected Forum Cloister 
 | Additional gallery reserves | **2 × 56 × 28 m** |
 | Complete through-gallery route | approximately **1,560 m** |
 
+The control plan is an architectural, north-up frame: X is east-positive and Z is north-positive. Three.js uses a right-handed Y-up world, so those two positive floor axes cannot be copied directly without reversing embodied left and right. The manifest compiler therefore applies one explicit coordinate adapter: runtime X is `-plan.x`, runtime Z is `plan.z`, and runtime hall yaw is derived from each approved entry-to-exit axis. The visitor map projects runtime X back with the same reflection. This preserves every approved centerline and the north-up drawing while ensuring that a turn shown as left on the map is also physically left while walking.
+
 The 262 × 168 m gallery block is a stepped continuous envelope, not a promise that every row has an equal east or west edge. Five enclosed exterior dogleg courts absorb the offsets without cutting back through a gallery footprint. Every court has two full-width right-angle turns, continuous ceiling guidance, and threshold wayfinding. Their longest uninterrupted run is 36 m, so they remain purposeful transitions rather than long, empty halls.
 
 The 28 m band depth reconciles all approved templates without changing their interiors:
@@ -171,7 +173,7 @@ They begin as solid construction walls and do not appear as open map destination
 1. Retain the former runtime manifest and production files as the one-release rollback artifact.
 2. Add a versioned continuous-building manifest beside it.
 3. Compile the 26 placements, 105 room IDs, five turn courts, five ordinary crossing bays, Forum crossing, entrance, final threshold, and two reserves from the control JSON.
-4. Make the plan validator and runtime manifest validator compare the same coordinates and template transforms.
+4. Make the plan validator and runtime manifest validator compare the architectural coordinates through the declared plan-to-runtime handedness adapter, including the left/right sense of both bends in every turn court.
 
 **Gate:** no geometry is hand-positioned outside the manifest and the plan validator passes.
 

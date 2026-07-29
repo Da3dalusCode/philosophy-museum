@@ -12,7 +12,7 @@ The approved complete single-level plan is:
 - [Machine-readable control geometry](./single-level-building-plan.json)
 - [1:1000 dimensioned drawing](./diagrams/continuous-enfilade-single-level.svg)
 
-The plan contains all 26 approved galleries and 105 rooms, two full gallery-capable reserve bays, exact coordinates and rotations, a grand entrance, six shared-wall bands, a through-gallery route, a north–south crosscut that lands only at threshold joints, five bounded turn courts, and an executable validator. The compiler and runtime implement that contract directly; improvised piecemeal corridor edits remain prohibited.
+The plan contains all 26 approved galleries and 105 rooms, two full gallery-capable reserve bays, exact coordinates and rotations, a grand entrance, six shared-wall bands, a through-gallery route, a north–south crosscut that lands only at threshold joints, five bounded turn courts, and an executable validator. Its declared handedness adapter reflects architectural X once when embedding the east-positive, north-positive plan in Three.js, then reflects it back for the north-up map; this keeps physical and mapped left/right turns identical. The compiler and runtime implement that contract directly; improvised piecemeal corridor edits remain prohibited.
 
 ## Decision in one page
 

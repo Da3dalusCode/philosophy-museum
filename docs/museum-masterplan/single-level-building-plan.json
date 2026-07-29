@@ -12,6 +12,20 @@
     "levelId": "L0",
     "finishedFloorY": 0
   },
+  "runtimeEmbedding": {
+    "engine": "Three.js",
+    "runtimeHandedness": "right-handed-y-up",
+    "planToRuntime": {
+      "x": "-plan.x",
+      "z": "plan.z",
+      "y": "plan.y"
+    },
+    "mapFromRuntime": {
+      "x": "-runtime.x",
+      "y": "-runtime.z"
+    },
+    "reason": "Reflect architectural east-west coordinates once at compilation so embodied left/right turns in Three.js agree with the approved east-positive, north-positive plan and its north-up visitor map."
+  },
   "programContract": {
     "source": "hall-program.json",
     "wingCount": 10,

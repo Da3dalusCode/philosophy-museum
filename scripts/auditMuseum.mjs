@@ -249,6 +249,7 @@ const {
   MUSEUM_VISITOR_MAP_CROSSCUT_INTERSECTIONS,
   MUSEUM_VISITOR_MAP_TURN_COURTS,
   MUSEUM_VISITOR_MAP_VIEWBOX,
+  projectMuseumVisitorMapPoint,
   MUSEUM_WORLD_DEFINITIONS,
   PLATO_SUPPLEMENTAL_EXHIBITS,
   PLATO_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
@@ -2410,6 +2411,7 @@ check('the executable manifest exactly implements the approved Continuous Enfila
   assert.equal(buildingManifest.manifestVersion, 'continuous-enfilade-single-level-v1');
   assert.equal(buildingManifest.status, 'implemented-approved-continuous-enfilade');
   assert.equal(buildingManifest.physicalOptionId, 'continuous-enfilade-single-level');
+  assert.deepEqual(buildingManifest.runtimeEmbedding, singleLevelPlan.runtimeEmbedding);
   assert.deepEqual(MUSEUM_BUILDING_MANIFEST, buildingManifest, 'the imported runtime manifest differs from the generated artifact');
   assert.deepEqual(
     buildingManifest.counts,
@@ -2460,6 +2462,16 @@ check('the executable manifest exactly implements the approved Continuous Enfila
     && boundaryWall?.rendered === true));
 
   const nodeByProgramHallId = new Map(hallNodes.map((node) => [node.programHallId, node]));
+  const templateById = new Map(MUSEUM_HALL_TEMPLATE_REGISTRY.map((template) => [template.id, template]));
+  const architecturalPortalWorld = (plannedHall, portalId) => {
+    const portal = templateById.get(plannedHall.templateId)?.portalSlots.find(({id}) => id === portalId);
+    assert(portal, `${plannedHall.id}/${portalId} is absent from its canonical template`);
+    const radians = plannedHall.placement.rotationDegrees * Math.PI / 180;
+    return {
+      x: plannedHall.placement.x + portal.position.x * Math.cos(radians) - portal.position.z * Math.sin(radians),
+      z: plannedHall.placement.z + portal.position.x * Math.sin(radians) + portal.position.z * Math.cos(radians),
+    };
+  };
   for (const plannedHall of singleLevelPlan.halls) {
     const node = nodeByProgramHallId.get(plannedHall.id);
     assert(node, `${plannedHall.id} is absent from the executable manifest`);
@@ -2469,9 +2481,17 @@ check('the executable manifest exactly implements the approved Continuous Enfila
     assert.equal(node.bandId, plannedHall.bandId, `${plannedHall.id} structural band changed`);
     assert.deepEqual(node.roomIds, plannedHall.roomIds, `${plannedHall.id} room roster changed`);
     assert.deepEqual(node.planPlacement, plannedHall.placement, `${plannedHall.id} source plan placement changed`);
-    approx(node.transform.x, plannedHall.placement.x, `${plannedHall.id} runtime x`);
+    approx(node.transform.x, -plannedHall.placement.x, `${plannedHall.id} reflected runtime x`);
     approx(node.transform.z, plannedHall.placement.z, `${plannedHall.id} runtime z`);
-    approx(node.transform.yaw, -plannedHall.placement.rotationDegrees * Math.PI / 180, `${plannedHall.id} runtime yaw`);
+    assert(Number.isFinite(node.transform.yaw), `${plannedHall.id} runtime yaw is invalid`);
+    for (const role of ['entry', 'exit']) {
+      const portalId = plannedHall.routePortals[role];
+      const runtimePortal = node.doorwaySlots.find(({id}) => id === portalId);
+      const approvedPortal = architecturalPortalWorld(plannedHall, portalId);
+      assert(runtimePortal, `${plannedHall.id}/${role} runtime doorway is missing`);
+      approx(-runtimePortal.worldPosition.x, approvedPortal.x, `${plannedHall.id}/${role} architectural x`);
+      approx(runtimePortal.worldPosition.z, approvedPortal.z, `${plannedHall.id}/${role} architectural z`);
+    }
   }
   const roomIds = hallNodes.flatMap(({roomIds}) => roomIds);
   assert.equal(roomIds.length, 105);
@@ -2916,7 +2936,7 @@ check('runtime seams are bidirectional, world-aligned, step-free, and crossable'
   }
 });
 
-check('all five turn courts have non-overlapping structure and are walkable through both bends', () => {
+check('all five turn courts match map handedness and are walkable through both bends', () => {
   const hallNodes = MUSEUM_BUILDING_MANIFEST.nodes.filter(({kind}) => kind === 'hall');
   const strictBoundsOverlap = (first, second) => first.minX < second.maxX - 1e-5
     && first.maxX > second.minX + 1e-5
@@ -2927,6 +2947,51 @@ check('all five turn courts have non-overlapping structure and are walkable thro
     const runtimeNode = runtimeNodeById.get(turn.id);
     assert(manifestNode?.geometry && runtimeNode, `${turn.id} is absent from the constructed runtime`);
     assert.deepEqual(runtimeNode.worldTransform, {x: 0, z: 0, yaw: 0}, `${turn.id} does not use its world-authored orthogonal footprint`);
+    assert.deepEqual(manifestNode.geometry.planCenterline, turn.centerline, `${turn.id} lost its architectural centerline`);
+    const runtimeCenterline = manifestNode.geometry.worldCenterline;
+    assert.deepEqual(
+      runtimeCenterline,
+      turn.centerline.map(({x, z}) => ({x: -x, z})),
+      `${turn.id} did not reflect architectural X into the right-handed runtime`,
+    );
+    runtimeCenterline.forEach((point, index) => {
+      const projected = projectMuseumVisitorMapPoint(turn.id, point);
+      assert.deepEqual(
+        projected,
+        {x: turn.centerline[index].x, y: -turn.centerline[index].z},
+        `${turn.id} map point ${index} differs from its approved centerline`,
+      );
+    });
+    for (const bendIndex of [1, 2]) {
+      const planIncoming = {
+        x: turn.centerline[bendIndex].x - turn.centerline[bendIndex - 1].x,
+        z: turn.centerline[bendIndex].z - turn.centerline[bendIndex - 1].z,
+      };
+      const planOutgoing = {
+        x: turn.centerline[bendIndex + 1].x - turn.centerline[bendIndex].x,
+        z: turn.centerline[bendIndex + 1].z - turn.centerline[bendIndex].z,
+      };
+      const runtimeIncoming = {
+        x: runtimeCenterline[bendIndex].x - runtimeCenterline[bendIndex - 1].x,
+        z: runtimeCenterline[bendIndex].z - runtimeCenterline[bendIndex - 1].z,
+      };
+      const runtimeOutgoing = {
+        x: runtimeCenterline[bendIndex + 1].x - runtimeCenterline[bendIndex].x,
+        z: runtimeCenterline[bendIndex + 1].z - runtimeCenterline[bendIndex].z,
+      };
+      const architecturalTurn = Math.sign(
+        planIncoming.x * planOutgoing.z - planIncoming.z * planOutgoing.x,
+      );
+      const embodiedRuntimeTurn = Math.sign(
+        runtimeIncoming.z * runtimeOutgoing.x - runtimeIncoming.x * runtimeOutgoing.z,
+      );
+      assert.notEqual(architecturalTurn, 0, `${turn.id} bend ${bendIndex} is not a turn`);
+      assert.equal(
+        embodiedRuntimeTurn,
+        architecturalTurn,
+        `${turn.id} bend ${bendIndex} has opposite physical and map handedness`,
+      );
+    }
     assert.equal(manifestNode.geometry.segmentCount, 3, `${turn.id} lost a centerline run`);
     assert.equal(manifestNode.geometry.interiorOpenings.length, manifestNode.geometry.cells.length - 1, `${turn.id} has a sealed internal bend`);
     assert(manifestNode.geometry.interiorOpenings.every(({clearWidth}) => close(clearWidth, 8)), `${turn.id} has a narrowed internal bend`);
@@ -2981,12 +3046,12 @@ check('all five turn courts have non-overlapping structure and are walkable thro
     };
     traverse(
       fromEntrance.arrivalPose,
-      [...turn.centerline.slice(1, -1), toEntrance.arrivalPose],
+      [...runtimeCenterline.slice(1, -1), toEntrance.arrivalPose],
       'forward',
     );
     traverse(
       toEntrance.arrivalPose,
-      [...turn.centerline.slice(1, -1).reverse(), fromEntrance.arrivalPose],
+      [...runtimeCenterline.slice(1, -1).reverse(), fromEntrance.arrivalPose],
       'reverse',
     );
   }

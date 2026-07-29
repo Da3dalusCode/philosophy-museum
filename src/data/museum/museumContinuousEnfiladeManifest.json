@@ -9,7 +9,7 @@
       "path": "docs/museum-masterplan/single-level-building-plan.json",
       "planId": "continuous-enfilade-single-level-v1",
       "schemaVersion": 2,
-      "sha256": "6e024b2052ce2adbe2884c663e030c474fe04ccf3116773880c4070cc78dc50a"
+      "sha256": "ad775473ad7ead57878b2cda84e98b6e2e7e87ab0f911a0debc0ac3216c7f7d8"
     },
     "program": {
       "path": "docs/museum-masterplan/hall-program.json",
@@ -29,6 +29,20 @@
     "yAxis": "up-positive",
     "levelId": "L0",
     "finishedFloorY": 0
+  },
+  "runtimeEmbedding": {
+    "engine": "Three.js",
+    "runtimeHandedness": "right-handed-y-up",
+    "planToRuntime": {
+      "x": "-plan.x",
+      "z": "plan.z",
+      "y": "plan.y"
+    },
+    "mapFromRuntime": {
+      "x": "-runtime.x",
+      "y": "-runtime.z"
+    },
+    "reason": "Reflect architectural east-west coordinates once at compilation so embodied left/right turns in Three.js agree with the approved east-positive, north-positive plan and its north-up visitor map."
   },
   "physicalContract": {
     "mainGalleryBlock": {
@@ -443,9 +457,9 @@
       "implementationStatus": "live",
       "levelId": "L0",
       "transform": {
-        "x": -61,
+        "x": 61,
         "z": -70,
-        "yaw": -1.570796326795
+        "yaw": 1.570796326795
       },
       "planPlacement": {
         "x": -61,
@@ -453,8 +467,8 @@
         "rotationDegrees": 90
       },
       "bounds": {
-        "minX": -89,
-        "maxX": -33,
+        "minX": 33,
+        "maxX": 89,
         "minZ": -82,
         "maxZ": -58
       },
@@ -485,7 +499,7 @@
             "z": -28
           },
           "worldPosition": {
-            "x": -33,
+            "x": 33,
             "z": -70
           },
           "inwardNormal": {
@@ -493,7 +507,7 @@
             "z": 1
           },
           "worldInwardNormal": {
-            "x": -1,
+            "x": 1,
             "z": 0
           },
           "clearWidth": 4,
@@ -522,7 +536,7 @@
             "z": 28
           },
           "worldPosition": {
-            "x": -89,
+            "x": 89,
             "z": -70
           },
           "inwardNormal": {
@@ -530,7 +544,7 @@
             "z": -1
           },
           "worldInwardNormal": {
-            "x": 1,
+            "x": -1,
             "z": 0
           },
           "clearWidth": 4,
@@ -559,8 +573,8 @@
             "z": 0
           },
           "worldPosition": {
-            "x": -61,
-            "z": -58
+            "x": 61,
+            "z": -82
           },
           "inwardNormal": {
             "x": -1,
@@ -568,7 +582,7 @@
           },
           "worldInwardNormal": {
             "x": 0,
-            "z": -1
+            "z": 1
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
@@ -596,8 +610,8 @@
             "z": 0
           },
           "worldPosition": {
-            "x": -61,
-            "z": -82
+            "x": 61,
+            "z": -58
           },
           "inwardNormal": {
             "x": 1,
@@ -605,7 +619,7 @@
           },
           "worldInwardNormal": {
             "x": 0,
-            "z": 1
+            "z": -1
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
@@ -668,9 +682,9 @@
       "implementationStatus": "live",
       "levelId": "L0",
       "transform": {
-        "x": -19,
+        "x": 19,
         "z": -70,
-        "yaw": 0
+        "yaw": -3.14159265359
       },
       "planPlacement": {
         "x": -19,
@@ -678,8 +692,8 @@
         "rotationDegrees": 0
       },
       "bounds": {
-        "minX": -33,
-        "maxX": -5,
+        "minX": 5,
+        "maxX": 33,
         "minZ": -84,
         "maxZ": -56
       },
@@ -710,8 +724,8 @@
             "z": -14
           },
           "worldPosition": {
-            "x": -19,
-            "z": -84
+            "x": 19,
+            "z": -56
           },
           "inwardNormal": {
             "x": 0,
@@ -719,7 +733,7 @@
           },
           "worldInwardNormal": {
             "x": 0,
-            "z": 1
+            "z": -1
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
@@ -747,8 +761,8 @@
             "z": 14
           },
           "worldPosition": {
-            "x": -19,
-            "z": -56
+            "x": 19,
+            "z": -84
           },
           "inwardNormal": {
             "x": 0,
@@ -756,7 +770,7 @@
           },
           "worldInwardNormal": {
             "x": 0,
-            "z": -1
+            "z": 1
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
@@ -784,7 +798,7 @@
             "z": 0
           },
           "worldPosition": {
-            "x": -5,
+            "x": 5,
             "z": -70
           },
           "inwardNormal": {
@@ -792,7 +806,7 @@
             "z": 0
           },
           "worldInwardNormal": {
-            "x": -1,
+            "x": 1,
             "z": 0
           },
           "clearWidth": 4,
@@ -821,7 +835,7 @@
             "z": 0
           },
           "worldPosition": {
-            "x": -33,
+            "x": 33,
             "z": -70
           },
           "inwardNormal": {
@@ -829,7 +843,7 @@
             "z": 0
           },
           "worldInwardNormal": {
-            "x": 1,
+            "x": -1,
             "z": 0
           },
           "clearWidth": 4,
@@ -858,8 +872,8 @@
             "z": -14
           },
           "worldPosition": {
-            "x": -12,
-            "z": -84
+            "x": 12,
+            "z": -56
           },
           "inwardNormal": {
             "x": 0,
@@ -867,7 +881,7 @@
           },
           "worldInwardNormal": {
             "x": 0,
-            "z": 1
+            "z": -1
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
@@ -895,8 +909,8 @@
             "z": 14
           },
           "worldPosition": {
-            "x": -26,
-            "z": -56
+            "x": 26,
+            "z": -84
           },
           "inwardNormal": {
             "x": 0,
@@ -904,7 +918,7 @@
           },
           "worldInwardNormal": {
             "x": 0,
-            "z": -1
+            "z": 1
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
@@ -962,9 +976,9 @@
       "implementationStatus": "live",
       "levelId": "L0",
       "transform": {
-        "x": 33,
+        "x": -33,
         "z": -70,
-        "yaw": -1.570796326795
+        "yaw": 1.570796326795
       },
       "planPlacement": {
         "x": 33,
@@ -972,8 +986,8 @@
         "rotationDegrees": 90
       },
       "bounds": {
-        "minX": 5,
-        "maxX": 61,
+        "minX": -61,
+        "maxX": -5,
         "minZ": -82,
         "maxZ": -58
       },
@@ -1004,7 +1018,7 @@
             "z": -28
           },
           "worldPosition": {
-            "x": 61,
+            "x": -61,
             "z": -70
           },
           "inwardNormal": {
@@ -1012,7 +1026,7 @@
             "z": 1
           },
           "worldInwardNormal": {
-            "x": -1,
+            "x": 1,
             "z": 0
           },
           "clearWidth": 4,
@@ -1041,7 +1055,7 @@
             "z": 28
           },
           "worldPosition": {
-            "x": 5,
+            "x": -5,
             "z": -70
           },
           "inwardNormal": {
@@ -1049,7 +1063,7 @@
             "z": -1
           },
           "worldInwardNormal": {
-            "x": 1,
+            "x": -1,
             "z": 0
           },
           "clearWidth": 4,
@@ -1078,8 +1092,8 @@
             "z": 0
           },
           "worldPosition": {
-            "x": 33,
-            "z": -58
+            "x": -33,
+            "z": -82
           },
           "inwardNormal": {
             "x": -1,
@@ -1087,7 +1101,7 @@
           },
           "worldInwardNormal": {
             "x": 0,
-            "z": -1
+            "z": 1
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
@@ -1115,8 +1129,8 @@
             "z": 0
           },
           "worldPosition": {
-            "x": 33,
-            "z": -82
+            "x": -33,
+            "z": -58
           },
           "inwardNormal": {
             "x": 1,
@@ -1124,7 +1138,7 @@
           },
           "worldInwardNormal": {
             "x": 0,
-            "z": 1
+            "z": -1
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
@@ -1192,9 +1206,9 @@
       "implementationStatus": "live",
       "levelId": "L0",
       "transform": {
-        "x": 89,
+        "x": -89,
         "z": -70,
-        "yaw": -1.570796326795
+        "yaw": 1.570796326795
       },
       "planPlacement": {
         "x": 89,
@@ -1202,8 +1216,8 @@
         "rotationDegrees": 90
       },
       "bounds": {
-        "minX": 61,
-        "maxX": 117,
+        "minX": -117,
+        "maxX": -61,
         "minZ": -82,
         "maxZ": -58
       },
@@ -1234,7 +1248,7 @@
             "z": -28
           },
           "worldPosition": {
-            "x": 117,
+            "x": -117,
             "z": -70
           },
           "inwardNormal": {
@@ -1242,7 +1256,7 @@
             "z": 1
           },
           "worldInwardNormal": {
-            "x": -1,
+            "x": 1,
             "z": 0
           },
           "clearWidth": 4,
@@ -1271,7 +1285,7 @@
             "z": 28
           },
           "worldPosition": {
-            "x": 61,
+            "x": -61,
             "z": -70
           },
           "inwardNormal": {
@@ -1279,7 +1293,7 @@
             "z": -1
           },
           "worldInwardNormal": {
-            "x": 1,
+            "x": -1,
             "z": 0
           },
           "clearWidth": 4,
@@ -1308,8 +1322,8 @@
             "z": 0
           },
           "worldPosition": {
-            "x": 89,
-            "z": -58
+            "x": -89,
+            "z": -82
           },
           "inwardNormal": {
             "x": -1,
@@ -1317,7 +1331,7 @@
           },
           "worldInwardNormal": {
             "x": 0,
-            "z": -1
+            "z": 1
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
@@ -1345,8 +1359,8 @@
             "z": 0
           },
           "worldPosition": {
-            "x": 89,
-            "z": -82
+            "x": -89,
+            "z": -58
           },
           "inwardNormal": {
             "x": 1,
@@ -1354,7 +1368,7 @@
           },
           "worldInwardNormal": {
             "x": 0,
-            "z": 1
+            "z": -1
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
@@ -1422,9 +1436,9 @@
       "implementationStatus": "live",
       "levelId": "L0",
       "transform": {
-        "x": 61,
+        "x": -61,
         "z": -42,
-        "yaw": -1.570796326795
+        "yaw": 1.570796326795
       },
       "planPlacement": {
         "x": 61,
@@ -1432,8 +1446,8 @@
         "rotationDegrees": 90
       },
       "bounds": {
-        "minX": 33,
-        "maxX": 89,
+        "minX": -89,
+        "maxX": -33,
         "minZ": -54,
         "maxZ": -30
       },
@@ -1464,7 +1478,7 @@
             "z": -28
           },
           "worldPosition": {
-            "x": 89,
+            "x": -89,
             "z": -42
           },
           "inwardNormal": {
@@ -1472,7 +1486,7 @@
             "z": 1
           },
           "worldInwardNormal": {
-            "x": -1,
+            "x": 1,
             "z": 0
           },
           "clearWidth": 4,
@@ -1501,7 +1515,7 @@
             "z": 28
           },
           "worldPosition": {
-            "x": 33,
+            "x": -33,
             "z": -42
           },
           "inwardNormal": {
@@ -1509,7 +1523,7 @@
             "z": -1
           },
           "worldInwardNormal": {
-            "x": 1,
+            "x": -1,
             "z": 0
           },
           "clearWidth": 4,
@@ -1538,8 +1552,8 @@
             "z": 0
           },
           "worldPosition": {
-            "x": 61,
-            "z": -30
+            "x": -61,
+            "z": -54
           },
           "inwardNormal": {
             "x": -1,
@@ -1547,7 +1561,7 @@
           },
           "worldInwardNormal": {
             "x": 0,
-            "z": -1
+            "z": 1
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
@@ -1575,8 +1589,8 @@
             "z": 0
           },
           "worldPosition": {
-            "x": 61,
-            "z": -54
+            "x": -61,
+            "z": -30
           },
           "inwardNormal": {
             "x": 1,
@@ -1584,7 +1598,7 @@
           },
           "worldInwardNormal": {
             "x": 0,
-            "z": 1
+            "z": -1
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
@@ -1647,9 +1661,9 @@
       "implementationStatus": "live",
       "levelId": "L0",
       "transform": {
-        "x": 19,
+        "x": -19,
         "z": -42,
-        "yaw": 0
+        "yaw": -3.14159265359
       },
       "planPlacement": {
         "x": 19,
@@ -1657,8 +1671,8 @@
         "rotationDegrees": 0
       },
       "bounds": {
-        "minX": 5,
-        "maxX": 33,
+        "minX": -33,
+        "maxX": -5,
         "minZ": -56,
         "maxZ": -28
       },
@@ -1689,8 +1703,8 @@
             "z": -14
           },
           "worldPosition": {
-            "x": 19,
-            "z": -56
+            "x": -19,
+            "z": -28
           },
           "inwardNormal": {
             "x": 0,
@@ -1698,7 +1712,7 @@
           },
           "worldInwardNormal": {
             "x": 0,
-            "z": 1
+            "z": -1
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
@@ -1726,8 +1740,8 @@
             "z": 14
           },
           "worldPosition": {
-            "x": 19,
-            "z": -28
+            "x": -19,
+            "z": -56
           },
           "inwardNormal": {
             "x": 0,
@@ -1735,7 +1749,7 @@
           },
           "worldInwardNormal": {
             "x": 0,
-            "z": -1
+            "z": 1
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
@@ -1763,7 +1777,7 @@
             "z": 0
           },
           "worldPosition": {
-            "x": 33,
+            "x": -33,
             "z": -42
           },
           "inwardNormal": {
@@ -1771,7 +1785,7 @@
             "z": 0
           },
           "worldInwardNormal": {
-            "x": -1,
+            "x": 1,
             "z": 0
           },
           "clearWidth": 4,
@@ -1800,7 +1814,7 @@
             "z": 0
           },
           "worldPosition": {
-            "x": 5,
+            "x": -5,
             "z": -42
           },
           "inwardNormal": {
@@ -1808,7 +1822,7 @@
             "z": 0
           },
           "worldInwardNormal": {
-            "x": 1,
+            "x": -1,
             "z": 0
           },
           "clearWidth": 4,
@@ -1837,8 +1851,8 @@
             "z": -14
           },
           "worldPosition": {
-            "x": 26,
-            "z": -56
+            "x": -26,
+            "z": -28
           },
           "inwardNormal": {
             "x": 0,
@@ -1846,7 +1860,7 @@
           },
           "worldInwardNormal": {
             "x": 0,
-            "z": 1
+            "z": -1
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
@@ -1874,8 +1888,8 @@
             "z": 14
           },
           "worldPosition": {
-            "x": 12,
-            "z": -28
+            "x": -12,
+            "z": -56
           },
           "inwardNormal": {
             "x": 0,
@@ -1883,7 +1897,7 @@
           },
           "worldInwardNormal": {
             "x": 0,
-            "z": -1
+            "z": 1
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
@@ -1941,9 +1955,9 @@
       "implementationStatus": "live",
       "levelId": "L0",
       "transform": {
-        "x": -33,
+        "x": 33,
         "z": -42,
-        "yaw": -1.570796326795
+        "yaw": 1.570796326795
       },
       "planPlacement": {
         "x": -33,
@@ -1951,8 +1965,8 @@
         "rotationDegrees": 90
       },
       "bounds": {
-        "minX": -61,
-        "maxX": -5,
+        "minX": 5,
+        "maxX": 61,
         "minZ": -54,
         "maxZ": -30
       },
@@ -1983,7 +1997,7 @@
             "z": -28
           },
           "worldPosition": {
-            "x": -5,
+            "x": 5,
             "z": -42
           },
           "inwardNormal": {
@@ -1991,7 +2005,7 @@
             "z": 1
           },
           "worldInwardNormal": {
-            "x": -1,
+            "x": 1,
             "z": 0
           },
           "clearWidth": 4,
@@ -2020,7 +2034,7 @@
             "z": 28
           },
           "worldPosition": {
-            "x": -61,
+            "x": 61,
             "z": -42
           },
           "inwardNormal": {
@@ -2028,7 +2042,7 @@
             "z": -1
           },
           "worldInwardNormal": {
-            "x": 1,
+            "x": -1,
             "z": 0
           },
           "clearWidth": 4,
@@ -2057,8 +2071,8 @@
             "z": 0
           },
           "worldPosition": {
-            "x": -33,
-            "z": -30
+            "x": 33,
+            "z": -54
           },
           "inwardNormal": {
             "x": -1,
@@ -2066,7 +2080,7 @@
           },
           "worldInwardNormal": {
             "x": 0,
-            "z": -1
+            "z": 1
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
@@ -2094,8 +2108,8 @@
             "z": 0
           },
           "worldPosition": {
-            "x": -33,
-            "z": -54
+            "x": 33,
+            "z": -30
           },
           "inwardNormal": {
             "x": 1,
@@ -2103,7 +2117,7 @@
           },
           "worldInwardNormal": {
             "x": 0,
-            "z": 1
+            "z": -1
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
@@ -2171,9 +2185,9 @@
       "implementationStatus": "live",
       "levelId": "L0",
       "transform": {
-        "x": -89,
+        "x": 89,
         "z": -42,
-        "yaw": -1.570796326795
+        "yaw": 1.570796326795
       },
       "planPlacement": {
         "x": -89,
@@ -2181,8 +2195,8 @@
         "rotationDegrees": 90
       },
       "bounds": {
-        "minX": -117,
-        "maxX": -61,
+        "minX": 61,
+        "maxX": 117,
         "minZ": -54,
         "maxZ": -30
       },
@@ -2213,7 +2227,7 @@
             "z": -28
           },
           "worldPosition": {
-            "x": -61,
+            "x": 61,
             "z": -42
           },
           "inwardNormal": {
@@ -2221,7 +2235,7 @@
             "z": 1
           },
           "worldInwardNormal": {
-            "x": -1,
+            "x": 1,
             "z": 0
           },
           "clearWidth": 4,
@@ -2250,7 +2264,7 @@
             "z": 28
           },
           "worldPosition": {
-            "x": -117,
+            "x": 117,
             "z": -42
           },
           "inwardNormal": {
@@ -2258,7 +2272,7 @@
             "z": -1
           },
           "worldInwardNormal": {
-            "x": 1,
+            "x": -1,
             "z": 0
           },
           "clearWidth": 4,
@@ -2287,8 +2301,8 @@
             "z": 0
           },
           "worldPosition": {
-            "x": -89,
-            "z": -30
+            "x": 89,
+            "z": -54
           },
           "inwardNormal": {
             "x": -1,
@@ -2296,7 +2310,7 @@
           },
           "worldInwardNormal": {
             "x": 0,
-            "z": -1
+            "z": 1
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
@@ -2324,8 +2338,8 @@
             "z": 0
           },
           "worldPosition": {
-            "x": -89,
-            "z": -54
+            "x": 89,
+            "z": -30
           },
           "inwardNormal": {
             "x": 1,
@@ -2333,7 +2347,7 @@
           },
           "worldInwardNormal": {
             "x": 0,
-            "z": 1
+            "z": -1
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
@@ -2386,9 +2400,9 @@
       "implementationStatus": "live",
       "levelId": "L0",
       "transform": {
-        "x": -82,
+        "x": 82,
         "z": -14,
-        "yaw": -1.570796326795
+        "yaw": 1.570796326795
       },
       "planPlacement": {
         "x": -82,
@@ -2396,8 +2410,8 @@
         "rotationDegrees": 90
       },
       "bounds": {
-        "minX": -94,
-        "maxX": -70,
+        "minX": 70,
+        "maxX": 94,
         "minZ": -24,
         "maxZ": -4
       },
@@ -2428,7 +2442,7 @@
             "z": -12
           },
           "worldPosition": {
-            "x": -70,
+            "x": 70,
             "z": -14
           },
           "inwardNormal": {
@@ -2436,7 +2450,7 @@
             "z": 1
           },
           "worldInwardNormal": {
-            "x": -1,
+            "x": 1,
             "z": 0
           },
           "clearWidth": 4,
@@ -2465,7 +2479,7 @@
             "z": 12
           },
           "worldPosition": {
-            "x": -94,
+            "x": 94,
             "z": -14
           },
           "inwardNormal": {
@@ -2473,7 +2487,7 @@
             "z": -1
           },
           "worldInwardNormal": {
-            "x": 1,
+            "x": -1,
             "z": 0
           },
           "clearWidth": 4,
@@ -2502,8 +2516,8 @@
             "z": 0
           },
           "worldPosition": {
-            "x": -82,
-            "z": -4
+            "x": 82,
+            "z": -24
           },
           "inwardNormal": {
             "x": -1,
@@ -2511,7 +2525,7 @@
           },
           "worldInwardNormal": {
             "x": 0,
-            "z": -1
+            "z": 1
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
@@ -2539,8 +2553,8 @@
             "z": 0
           },
           "worldPosition": {
-            "x": -82,
-            "z": -24
+            "x": 82,
+            "z": -4
           },
           "inwardNormal": {
             "x": 1,
@@ -2548,7 +2562,7 @@
           },
           "worldInwardNormal": {
             "x": 0,
-            "z": 1
+            "z": -1
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
@@ -2610,9 +2624,9 @@
       "implementationStatus": "live",
       "levelId": "L0",
       "transform": {
-        "x": -42,
+        "x": 42,
         "z": -14,
-        "yaw": -1.570796326795
+        "yaw": 1.570796326795
       },
       "planPlacement": {
         "x": -42,
@@ -2620,8 +2634,8 @@
         "rotationDegrees": 90
       },
       "bounds": {
-        "minX": -70,
-        "maxX": -14,
+        "minX": 14,
+        "maxX": 70,
         "minZ": -26,
         "maxZ": -2
       },
@@ -2652,7 +2666,7 @@
             "z": -28
           },
           "worldPosition": {
-            "x": -14,
+            "x": 14,
             "z": -14
           },
           "inwardNormal": {
@@ -2660,7 +2674,7 @@
             "z": 1
           },
           "worldInwardNormal": {
-            "x": -1,
+            "x": 1,
             "z": 0
           },
           "clearWidth": 4,
@@ -2689,7 +2703,7 @@
             "z": 28
           },
           "worldPosition": {
-            "x": -70,
+            "x": 70,
             "z": -14
           },
           "inwardNormal": {
@@ -2697,7 +2711,7 @@
             "z": -1
           },
           "worldInwardNormal": {
-            "x": 1,
+            "x": -1,
             "z": 0
           },
           "clearWidth": 4,
@@ -2726,8 +2740,8 @@
             "z": 0
           },
           "worldPosition": {
-            "x": -42,
-            "z": -2
+            "x": 42,
+            "z": -26
           },
           "inwardNormal": {
             "x": -1,
@@ -2735,7 +2749,7 @@
           },
           "worldInwardNormal": {
             "x": 0,
-            "z": -1
+            "z": 1
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
@@ -2763,8 +2777,8 @@
             "z": 0
           },
           "worldPosition": {
-            "x": -42,
-            "z": -26
+            "x": 42,
+            "z": -2
           },
           "inwardNormal": {
             "x": 1,
@@ -2772,7 +2786,7 @@
           },
           "worldInwardNormal": {
             "x": 0,
-            "z": 1
+            "z": -1
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
@@ -2989,7 +3003,7 @@
       "transform": {
         "x": 0,
         "z": -14,
-        "yaw": 0
+        "yaw": -3.14159265359
       },
       "planPlacement": {
         "x": 0,
@@ -3032,7 +3046,7 @@
           },
           "worldPosition": {
             "x": 0,
-            "z": -28
+            "z": 0
           },
           "inwardNormal": {
             "x": 0,
@@ -3040,7 +3054,7 @@
           },
           "worldInwardNormal": {
             "x": 0,
-            "z": 1
+            "z": -1
           },
           "clearWidth": 10,
           "clearHeight": 3.2,
@@ -3069,7 +3083,7 @@
           },
           "worldPosition": {
             "x": 0,
-            "z": 0
+            "z": -28
           },
           "inwardNormal": {
             "x": 0,
@@ -3077,7 +3091,7 @@
           },
           "worldInwardNormal": {
             "x": 0,
-            "z": -1
+            "z": 1
           },
           "clearWidth": 10,
           "clearHeight": 3.2,
@@ -3105,7 +3119,7 @@
             "z": 0
           },
           "worldPosition": {
-            "x": 14,
+            "x": -14,
             "z": -14
           },
           "inwardNormal": {
@@ -3113,7 +3127,7 @@
             "z": 0
           },
           "worldInwardNormal": {
-            "x": -1,
+            "x": 1,
             "z": 0
           },
           "clearWidth": 4,
@@ -3142,7 +3156,7 @@
             "z": 0
           },
           "worldPosition": {
-            "x": -14,
+            "x": 14,
             "z": -14
           },
           "inwardNormal": {
@@ -3150,7 +3164,7 @@
             "z": 0
           },
           "worldInwardNormal": {
-            "x": 1,
+            "x": -1,
             "z": 0
           },
           "clearWidth": 4,
@@ -3179,8 +3193,8 @@
             "z": -14
           },
           "worldPosition": {
-            "x": 7,
-            "z": -28
+            "x": -7,
+            "z": 0
           },
           "inwardNormal": {
             "x": 0,
@@ -3188,7 +3202,7 @@
           },
           "worldInwardNormal": {
             "x": 0,
-            "z": 1
+            "z": -1
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
@@ -3216,8 +3230,8 @@
             "z": 14
           },
           "worldPosition": {
-            "x": -7,
-            "z": 0
+            "x": 7,
+            "z": -28
           },
           "inwardNormal": {
             "x": 0,
@@ -3225,7 +3239,7 @@
           },
           "worldInwardNormal": {
             "x": 0,
-            "z": -1
+            "z": 1
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
@@ -3283,9 +3297,9 @@
       "implementationStatus": "live",
       "levelId": "L0",
       "transform": {
-        "x": 42,
+        "x": -42,
         "z": -14,
-        "yaw": -1.570796326795
+        "yaw": 1.570796326795
       },
       "planPlacement": {
         "x": 42,
@@ -3293,8 +3307,8 @@
         "rotationDegrees": 90
       },
       "bounds": {
-        "minX": 14,
-        "maxX": 70,
+        "minX": -70,
+        "maxX": -14,
         "minZ": -26,
         "maxZ": -2
       },
@@ -3325,7 +3339,7 @@
             "z": -28
           },
           "worldPosition": {
-            "x": 70,
+            "x": -70,
             "z": -14
           },
           "inwardNormal": {
@@ -3333,7 +3347,7 @@
             "z": 1
           },
           "worldInwardNormal": {
-            "x": -1,
+            "x": 1,
             "z": 0
           },
           "clearWidth": 4,
@@ -3362,7 +3376,7 @@
             "z": 28
           },
           "worldPosition": {
-            "x": 14,
+            "x": -14,
             "z": -14
           },
           "inwardNormal": {
@@ -3370,7 +3384,7 @@
             "z": -1
           },
           "worldInwardNormal": {
-            "x": 1,
+            "x": -1,
             "z": 0
           },
           "clearWidth": 4,
@@ -3399,8 +3413,8 @@
             "z": 0
           },
           "worldPosition": {
-            "x": 42,
-            "z": -2
+            "x": -42,
+            "z": -26
           },
           "inwardNormal": {
             "x": -1,
@@ -3408,7 +3422,7 @@
           },
           "worldInwardNormal": {
             "x": 0,
-            "z": -1
+            "z": 1
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
@@ -3436,8 +3450,8 @@
             "z": 0
           },
           "worldPosition": {
-            "x": 42,
-            "z": -26
+            "x": -42,
+            "z": -2
           },
           "inwardNormal": {
             "x": 1,
@@ -3445,7 +3459,7 @@
           },
           "worldInwardNormal": {
             "x": 0,
-            "z": 1
+            "z": -1
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
@@ -3502,9 +3516,9 @@
       "implementationStatus": "live",
       "levelId": "L0",
       "transform": {
-        "x": 98,
+        "x": -98,
         "z": -14,
-        "yaw": -1.570796326795
+        "yaw": 1.570796326795
       },
       "planPlacement": {
         "x": 98,
@@ -3512,8 +3526,8 @@
         "rotationDegrees": 90
       },
       "bounds": {
-        "minX": 70,
-        "maxX": 126,
+        "minX": -126,
+        "maxX": -70,
         "minZ": -26,
         "maxZ": -2
       },
@@ -3544,7 +3558,7 @@
             "z": -28
           },
           "worldPosition": {
-            "x": 126,
+            "x": -126,
             "z": -14
           },
           "inwardNormal": {
@@ -3552,7 +3566,7 @@
             "z": 1
           },
           "worldInwardNormal": {
-            "x": -1,
+            "x": 1,
             "z": 0
           },
           "clearWidth": 4,
@@ -3581,7 +3595,7 @@
             "z": 28
           },
           "worldPosition": {
-            "x": 70,
+            "x": -70,
             "z": -14
           },
           "inwardNormal": {
@@ -3589,7 +3603,7 @@
             "z": -1
           },
           "worldInwardNormal": {
-            "x": 1,
+            "x": -1,
             "z": 0
           },
           "clearWidth": 4,
@@ -3618,8 +3632,8 @@
             "z": 0
           },
           "worldPosition": {
-            "x": 98,
-            "z": -2
+            "x": -98,
+            "z": -26
           },
           "inwardNormal": {
             "x": -1,
@@ -3627,7 +3641,7 @@
           },
           "worldInwardNormal": {
             "x": 0,
-            "z": -1
+            "z": 1
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
@@ -3655,8 +3669,8 @@
             "z": 0
           },
           "worldPosition": {
-            "x": 98,
-            "z": -26
+            "x": -98,
+            "z": -2
           },
           "inwardNormal": {
             "x": 1,
@@ -3664,7 +3678,7 @@
           },
           "worldInwardNormal": {
             "x": 0,
-            "z": 1
+            "z": -1
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
@@ -3820,9 +3834,9 @@
       "implementationStatus": "live",
       "levelId": "L0",
       "transform": {
-        "x": 117,
+        "x": -117,
         "z": 14,
-        "yaw": -1.570796326795
+        "yaw": 1.570796326795
       },
       "planPlacement": {
         "x": 117,
@@ -3830,8 +3844,8 @@
         "rotationDegrees": 90
       },
       "bounds": {
-        "minX": 89,
-        "maxX": 145,
+        "minX": -145,
+        "maxX": -89,
         "minZ": 2,
         "maxZ": 26
       },
@@ -3862,7 +3876,7 @@
             "z": -28
           },
           "worldPosition": {
-            "x": 145,
+            "x": -145,
             "z": 14
           },
           "inwardNormal": {
@@ -3870,7 +3884,7 @@
             "z": 1
           },
           "worldInwardNormal": {
-            "x": -1,
+            "x": 1,
             "z": 0
           },
           "clearWidth": 4,
@@ -3899,7 +3913,7 @@
             "z": 28
           },
           "worldPosition": {
-            "x": 89,
+            "x": -89,
             "z": 14
           },
           "inwardNormal": {
@@ -3907,7 +3921,7 @@
             "z": -1
           },
           "worldInwardNormal": {
-            "x": 1,
+            "x": -1,
             "z": 0
           },
           "clearWidth": 4,
@@ -3936,8 +3950,8 @@
             "z": 0
           },
           "worldPosition": {
-            "x": 117,
-            "z": 26
+            "x": -117,
+            "z": 2
           },
           "inwardNormal": {
             "x": -1,
@@ -3945,7 +3959,7 @@
           },
           "worldInwardNormal": {
             "x": 0,
-            "z": -1
+            "z": 1
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
@@ -3973,8 +3987,8 @@
             "z": 0
           },
           "worldPosition": {
-            "x": 117,
-            "z": 2
+            "x": -117,
+            "z": 26
           },
           "inwardNormal": {
             "x": 1,
@@ -3982,7 +3996,7 @@
           },
           "worldInwardNormal": {
             "x": 0,
-            "z": 1
+            "z": -1
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
@@ -4148,9 +4162,9 @@
       "implementationStatus": "live",
       "levelId": "L0",
       "transform": {
-        "x": 75,
+        "x": -75,
         "z": 14,
-        "yaw": 0
+        "yaw": -3.14159265359
       },
       "planPlacement": {
         "x": 75,
@@ -4158,8 +4172,8 @@
         "rotationDegrees": 0
       },
       "bounds": {
-        "minX": 61,
-        "maxX": 89,
+        "minX": -89,
+        "maxX": -61,
         "minZ": 0,
         "maxZ": 28
       },
@@ -4190,8 +4204,8 @@
             "z": -14
           },
           "worldPosition": {
-            "x": 75,
-            "z": 0
+            "x": -75,
+            "z": 28
           },
           "inwardNormal": {
             "x": 0,
@@ -4199,7 +4213,7 @@
           },
           "worldInwardNormal": {
             "x": 0,
-            "z": 1
+            "z": -1
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
@@ -4227,8 +4241,8 @@
             "z": 14
           },
           "worldPosition": {
-            "x": 75,
-            "z": 28
+            "x": -75,
+            "z": 0
           },
           "inwardNormal": {
             "x": 0,
@@ -4236,7 +4250,7 @@
           },
           "worldInwardNormal": {
             "x": 0,
-            "z": -1
+            "z": 1
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
@@ -4264,7 +4278,7 @@
             "z": 0
           },
           "worldPosition": {
-            "x": 89,
+            "x": -89,
             "z": 14
           },
           "inwardNormal": {
@@ -4272,7 +4286,7 @@
             "z": 0
           },
           "worldInwardNormal": {
-            "x": -1,
+            "x": 1,
             "z": 0
           },
           "clearWidth": 4,
@@ -4301,7 +4315,7 @@
             "z": 0
           },
           "worldPosition": {
-            "x": 61,
+            "x": -61,
             "z": 14
           },
           "inwardNormal": {
@@ -4309,7 +4323,7 @@
             "z": 0
           },
           "worldInwardNormal": {
-            "x": 1,
+            "x": -1,
             "z": 0
           },
           "clearWidth": 4,
@@ -4338,8 +4352,8 @@
             "z": -14
           },
           "worldPosition": {
-            "x": 82,
-            "z": 0
+            "x": -82,
+            "z": 28
           },
           "inwardNormal": {
             "x": 0,
@@ -4347,7 +4361,7 @@
           },
           "worldInwardNormal": {
             "x": 0,
-            "z": 1
+            "z": -1
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
@@ -4375,8 +4389,8 @@
             "z": 14
           },
           "worldPosition": {
-            "x": 68,
-            "z": 28
+            "x": -68,
+            "z": 0
           },
           "inwardNormal": {
             "x": 0,
@@ -4384,7 +4398,7 @@
           },
           "worldInwardNormal": {
             "x": 0,
-            "z": -1
+            "z": 1
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
@@ -4601,9 +4615,9 @@
       "implementationStatus": "live",
       "levelId": "L0",
       "transform": {
-        "x": 33,
+        "x": -33,
         "z": 14,
-        "yaw": -1.570796326795
+        "yaw": 1.570796326795
       },
       "planPlacement": {
         "x": 33,
@@ -4611,8 +4625,8 @@
         "rotationDegrees": 90
       },
       "bounds": {
-        "minX": 5,
-        "maxX": 61,
+        "minX": -61,
+        "maxX": -5,
         "minZ": 2,
         "maxZ": 26
       },
@@ -4643,7 +4657,7 @@
             "z": -28
           },
           "worldPosition": {
-            "x": 61,
+            "x": -61,
             "z": 14
           },
           "inwardNormal": {
@@ -4651,7 +4665,7 @@
             "z": 1
           },
           "worldInwardNormal": {
-            "x": -1,
+            "x": 1,
             "z": 0
           },
           "clearWidth": 4,
@@ -4680,7 +4694,7 @@
             "z": 28
           },
           "worldPosition": {
-            "x": 5,
+            "x": -5,
             "z": 14
           },
           "inwardNormal": {
@@ -4688,7 +4702,7 @@
             "z": -1
           },
           "worldInwardNormal": {
-            "x": 1,
+            "x": -1,
             "z": 0
           },
           "clearWidth": 4,
@@ -4717,8 +4731,8 @@
             "z": 0
           },
           "worldPosition": {
-            "x": 33,
-            "z": 26
+            "x": -33,
+            "z": 2
           },
           "inwardNormal": {
             "x": -1,
@@ -4726,7 +4740,7 @@
           },
           "worldInwardNormal": {
             "x": 0,
-            "z": -1
+            "z": 1
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
@@ -4754,8 +4768,8 @@
             "z": 0
           },
           "worldPosition": {
-            "x": 33,
-            "z": 2
+            "x": -33,
+            "z": 26
           },
           "inwardNormal": {
             "x": 1,
@@ -4763,7 +4777,7 @@
           },
           "worldInwardNormal": {
             "x": 0,
-            "z": 1
+            "z": -1
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
@@ -4952,9 +4966,9 @@
       "implementationStatus": "live",
       "levelId": "L0",
       "transform": {
-        "x": -33,
+        "x": 33,
         "z": 14,
-        "yaw": -1.570796326795
+        "yaw": 1.570796326795
       },
       "planPlacement": {
         "x": -33,
@@ -4962,8 +4976,8 @@
         "rotationDegrees": 90
       },
       "bounds": {
-        "minX": -61,
-        "maxX": -5,
+        "minX": 5,
+        "maxX": 61,
         "minZ": 2,
         "maxZ": 26
       },
@@ -4994,7 +5008,7 @@
             "z": -28
           },
           "worldPosition": {
-            "x": -5,
+            "x": 5,
             "z": 14
           },
           "inwardNormal": {
@@ -5002,7 +5016,7 @@
             "z": 1
           },
           "worldInwardNormal": {
-            "x": -1,
+            "x": 1,
             "z": 0
           },
           "clearWidth": 4,
@@ -5031,7 +5045,7 @@
             "z": 28
           },
           "worldPosition": {
-            "x": -61,
+            "x": 61,
             "z": 14
           },
           "inwardNormal": {
@@ -5039,7 +5053,7 @@
             "z": -1
           },
           "worldInwardNormal": {
-            "x": 1,
+            "x": -1,
             "z": 0
           },
           "clearWidth": 4,
@@ -5068,8 +5082,8 @@
             "z": 0
           },
           "worldPosition": {
-            "x": -33,
-            "z": 26
+            "x": 33,
+            "z": 2
           },
           "inwardNormal": {
             "x": -1,
@@ -5077,7 +5091,7 @@
           },
           "worldInwardNormal": {
             "x": 0,
-            "z": -1
+            "z": 1
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
@@ -5105,8 +5119,8 @@
             "z": 0
           },
           "worldPosition": {
-            "x": -33,
-            "z": 2
+            "x": 33,
+            "z": 26
           },
           "inwardNormal": {
             "x": 1,
@@ -5114,7 +5128,7 @@
           },
           "worldInwardNormal": {
             "x": 0,
-            "z": 1
+            "z": -1
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
@@ -5298,9 +5312,9 @@
       "implementationStatus": "live",
       "levelId": "L0",
       "transform": {
-        "x": -89,
+        "x": 89,
         "z": 14,
-        "yaw": -1.570796326795
+        "yaw": 1.570796326795
       },
       "planPlacement": {
         "x": -89,
@@ -5308,8 +5322,8 @@
         "rotationDegrees": 90
       },
       "bounds": {
-        "minX": -117,
-        "maxX": -61,
+        "minX": 61,
+        "maxX": 117,
         "minZ": 2,
         "maxZ": 26
       },
@@ -5340,7 +5354,7 @@
             "z": -28
           },
           "worldPosition": {
-            "x": -61,
+            "x": 61,
             "z": 14
           },
           "inwardNormal": {
@@ -5348,7 +5362,7 @@
             "z": 1
           },
           "worldInwardNormal": {
-            "x": -1,
+            "x": 1,
             "z": 0
           },
           "clearWidth": 4,
@@ -5377,7 +5391,7 @@
             "z": 28
           },
           "worldPosition": {
-            "x": -117,
+            "x": 117,
             "z": 14
           },
           "inwardNormal": {
@@ -5385,7 +5399,7 @@
             "z": -1
           },
           "worldInwardNormal": {
-            "x": 1,
+            "x": -1,
             "z": 0
           },
           "clearWidth": 4,
@@ -5414,8 +5428,8 @@
             "z": 0
           },
           "worldPosition": {
-            "x": -89,
-            "z": 26
+            "x": 89,
+            "z": 2
           },
           "inwardNormal": {
             "x": -1,
@@ -5423,7 +5437,7 @@
           },
           "worldInwardNormal": {
             "x": 0,
-            "z": -1
+            "z": 1
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
@@ -5451,8 +5465,8 @@
             "z": 0
           },
           "worldPosition": {
-            "x": -89,
-            "z": 2
+            "x": 89,
+            "z": 26
           },
           "inwardNormal": {
             "x": 1,
@@ -5460,7 +5474,7 @@
           },
           "worldInwardNormal": {
             "x": 0,
-            "z": 1
+            "z": -1
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
@@ -5621,9 +5635,9 @@
       "implementationStatus": "live",
       "levelId": "L0",
       "transform": {
-        "x": -89,
+        "x": 89,
         "z": 42,
-        "yaw": -1.570796326795
+        "yaw": 1.570796326795
       },
       "planPlacement": {
         "x": -89,
@@ -5631,8 +5645,8 @@
         "rotationDegrees": 90
       },
       "bounds": {
-        "minX": -117,
-        "maxX": -61,
+        "minX": 61,
+        "maxX": 117,
         "minZ": 30,
         "maxZ": 54
       },
@@ -5663,7 +5677,7 @@
             "z": -28
           },
           "worldPosition": {
-            "x": -61,
+            "x": 61,
             "z": 42
           },
           "inwardNormal": {
@@ -5671,7 +5685,7 @@
             "z": 1
           },
           "worldInwardNormal": {
-            "x": -1,
+            "x": 1,
             "z": 0
           },
           "clearWidth": 4,
@@ -5700,7 +5714,7 @@
             "z": 28
           },
           "worldPosition": {
-            "x": -117,
+            "x": 117,
             "z": 42
           },
           "inwardNormal": {
@@ -5708,7 +5722,7 @@
             "z": -1
           },
           "worldInwardNormal": {
-            "x": 1,
+            "x": -1,
             "z": 0
           },
           "clearWidth": 4,
@@ -5737,8 +5751,8 @@
             "z": 0
           },
           "worldPosition": {
-            "x": -89,
-            "z": 54
+            "x": 89,
+            "z": 30
           },
           "inwardNormal": {
             "x": -1,
@@ -5746,7 +5760,7 @@
           },
           "worldInwardNormal": {
             "x": 0,
-            "z": -1
+            "z": 1
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
@@ -5774,8 +5788,8 @@
             "z": 0
           },
           "worldPosition": {
-            "x": -89,
-            "z": 30
+            "x": 89,
+            "z": 54
           },
           "inwardNormal": {
             "x": 1,
@@ -5783,7 +5797,7 @@
           },
           "worldInwardNormal": {
             "x": 0,
-            "z": 1
+            "z": -1
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
@@ -5978,9 +5992,9 @@
       "implementationStatus": "live",
       "levelId": "L0",
       "transform": {
-        "x": -33,
+        "x": 33,
         "z": 42,
-        "yaw": -1.570796326795
+        "yaw": 1.570796326795
       },
       "planPlacement": {
         "x": -33,
@@ -5988,8 +6002,8 @@
         "rotationDegrees": 90
       },
       "bounds": {
-        "minX": -61,
-        "maxX": -5,
+        "minX": 5,
+        "maxX": 61,
         "minZ": 30,
         "maxZ": 54
       },
@@ -6020,7 +6034,7 @@
             "z": -28
           },
           "worldPosition": {
-            "x": -5,
+            "x": 5,
             "z": 42
           },
           "inwardNormal": {
@@ -6028,7 +6042,7 @@
             "z": 1
           },
           "worldInwardNormal": {
-            "x": -1,
+            "x": 1,
             "z": 0
           },
           "clearWidth": 4,
@@ -6057,7 +6071,7 @@
             "z": 28
           },
           "worldPosition": {
-            "x": -61,
+            "x": 61,
             "z": 42
           },
           "inwardNormal": {
@@ -6065,7 +6079,7 @@
             "z": -1
           },
           "worldInwardNormal": {
-            "x": 1,
+            "x": -1,
             "z": 0
           },
           "clearWidth": 4,
@@ -6094,8 +6108,8 @@
             "z": 0
           },
           "worldPosition": {
-            "x": -33,
-            "z": 54
+            "x": 33,
+            "z": 30
           },
           "inwardNormal": {
             "x": -1,
@@ -6103,7 +6117,7 @@
           },
           "worldInwardNormal": {
             "x": 0,
-            "z": -1
+            "z": 1
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
@@ -6131,8 +6145,8 @@
             "z": 0
           },
           "worldPosition": {
-            "x": -33,
-            "z": 30
+            "x": 33,
+            "z": 54
           },
           "inwardNormal": {
             "x": 1,
@@ -6140,7 +6154,7 @@
           },
           "worldInwardNormal": {
             "x": 0,
-            "z": 1
+            "z": -1
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
@@ -6208,9 +6222,9 @@
       "implementationStatus": "live",
       "levelId": "L0",
       "transform": {
-        "x": 33,
+        "x": -33,
         "z": 42,
-        "yaw": -1.570796326795
+        "yaw": 1.570796326795
       },
       "planPlacement": {
         "x": 33,
@@ -6218,8 +6232,8 @@
         "rotationDegrees": 90
       },
       "bounds": {
-        "minX": 5,
-        "maxX": 61,
+        "minX": -61,
+        "maxX": -5,
         "minZ": 30,
         "maxZ": 54
       },
@@ -6250,7 +6264,7 @@
             "z": -28
           },
           "worldPosition": {
-            "x": 61,
+            "x": -61,
             "z": 42
           },
           "inwardNormal": {
@@ -6258,7 +6272,7 @@
             "z": 1
           },
           "worldInwardNormal": {
-            "x": -1,
+            "x": 1,
             "z": 0
           },
           "clearWidth": 4,
@@ -6287,7 +6301,7 @@
             "z": 28
           },
           "worldPosition": {
-            "x": 5,
+            "x": -5,
             "z": 42
           },
           "inwardNormal": {
@@ -6295,7 +6309,7 @@
             "z": -1
           },
           "worldInwardNormal": {
-            "x": 1,
+            "x": -1,
             "z": 0
           },
           "clearWidth": 4,
@@ -6324,8 +6338,8 @@
             "z": 0
           },
           "worldPosition": {
-            "x": 33,
-            "z": 54
+            "x": -33,
+            "z": 30
           },
           "inwardNormal": {
             "x": -1,
@@ -6333,7 +6347,7 @@
           },
           "worldInwardNormal": {
             "x": 0,
-            "z": -1
+            "z": 1
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
@@ -6361,8 +6375,8 @@
             "z": 0
           },
           "worldPosition": {
-            "x": 33,
-            "z": 30
+            "x": -33,
+            "z": 54
           },
           "inwardNormal": {
             "x": 1,
@@ -6370,7 +6384,7 @@
           },
           "worldInwardNormal": {
             "x": 0,
-            "z": 1
+            "z": -1
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
@@ -6432,9 +6446,9 @@
       "implementationStatus": "live",
       "levelId": "L0",
       "transform": {
-        "x": 75,
+        "x": -75,
         "z": 42,
-        "yaw": 0
+        "yaw": -3.14159265359
       },
       "planPlacement": {
         "x": 75,
@@ -6442,8 +6456,8 @@
         "rotationDegrees": 0
       },
       "bounds": {
-        "minX": 61,
-        "maxX": 89,
+        "minX": -89,
+        "maxX": -61,
         "minZ": 28,
         "maxZ": 56
       },
@@ -6474,8 +6488,8 @@
             "z": -14
           },
           "worldPosition": {
-            "x": 75,
-            "z": 28
+            "x": -75,
+            "z": 56
           },
           "inwardNormal": {
             "x": 0,
@@ -6483,7 +6497,7 @@
           },
           "worldInwardNormal": {
             "x": 0,
-            "z": 1
+            "z": -1
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
@@ -6511,8 +6525,8 @@
             "z": 14
           },
           "worldPosition": {
-            "x": 75,
-            "z": 56
+            "x": -75,
+            "z": 28
           },
           "inwardNormal": {
             "x": 0,
@@ -6520,7 +6534,7 @@
           },
           "worldInwardNormal": {
             "x": 0,
-            "z": -1
+            "z": 1
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
@@ -6548,7 +6562,7 @@
             "z": 0
           },
           "worldPosition": {
-            "x": 89,
+            "x": -89,
             "z": 42
           },
           "inwardNormal": {
@@ -6556,7 +6570,7 @@
             "z": 0
           },
           "worldInwardNormal": {
-            "x": -1,
+            "x": 1,
             "z": 0
           },
           "clearWidth": 4,
@@ -6585,7 +6599,7 @@
             "z": 0
           },
           "worldPosition": {
-            "x": 61,
+            "x": -61,
             "z": 42
           },
           "inwardNormal": {
@@ -6593,7 +6607,7 @@
             "z": 0
           },
           "worldInwardNormal": {
-            "x": 1,
+            "x": -1,
             "z": 0
           },
           "clearWidth": 4,
@@ -6622,8 +6636,8 @@
             "z": -14
           },
           "worldPosition": {
-            "x": 82,
-            "z": 28
+            "x": -82,
+            "z": 56
           },
           "inwardNormal": {
             "x": 0,
@@ -6631,7 +6645,7 @@
           },
           "worldInwardNormal": {
             "x": 0,
-            "z": 1
+            "z": -1
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
@@ -6659,8 +6673,8 @@
             "z": 14
           },
           "worldPosition": {
-            "x": 68,
-            "z": 56
+            "x": -68,
+            "z": 28
           },
           "inwardNormal": {
             "x": 0,
@@ -6668,7 +6682,7 @@
           },
           "worldInwardNormal": {
             "x": 0,
-            "z": -1
+            "z": 1
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
@@ -6997,9 +7011,9 @@
       "implementationStatus": "live",
       "levelId": "L0",
       "transform": {
-        "x": 75,
+        "x": -75,
         "z": 70,
-        "yaw": 0
+        "yaw": -3.14159265359
       },
       "planPlacement": {
         "x": 75,
@@ -7007,8 +7021,8 @@
         "rotationDegrees": 0
       },
       "bounds": {
-        "minX": 61,
-        "maxX": 89,
+        "minX": -89,
+        "maxX": -61,
         "minZ": 56,
         "maxZ": 84
       },
@@ -7039,8 +7053,8 @@
             "z": -14
           },
           "worldPosition": {
-            "x": 75,
-            "z": 56
+            "x": -75,
+            "z": 84
           },
           "inwardNormal": {
             "x": 0,
@@ -7048,7 +7062,7 @@
           },
           "worldInwardNormal": {
             "x": 0,
-            "z": 1
+            "z": -1
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
@@ -7076,8 +7090,8 @@
             "z": 14
           },
           "worldPosition": {
-            "x": 75,
-            "z": 84
+            "x": -75,
+            "z": 56
           },
           "inwardNormal": {
             "x": 0,
@@ -7085,7 +7099,7 @@
           },
           "worldInwardNormal": {
             "x": 0,
-            "z": -1
+            "z": 1
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
@@ -7113,7 +7127,7 @@
             "z": 0
           },
           "worldPosition": {
-            "x": 89,
+            "x": -89,
             "z": 70
           },
           "inwardNormal": {
@@ -7121,7 +7135,7 @@
             "z": 0
           },
           "worldInwardNormal": {
-            "x": -1,
+            "x": 1,
             "z": 0
           },
           "clearWidth": 4,
@@ -7150,7 +7164,7 @@
             "z": 0
           },
           "worldPosition": {
-            "x": 61,
+            "x": -61,
             "z": 70
           },
           "inwardNormal": {
@@ -7158,7 +7172,7 @@
             "z": 0
           },
           "worldInwardNormal": {
-            "x": 1,
+            "x": -1,
             "z": 0
           },
           "clearWidth": 4,
@@ -7187,8 +7201,8 @@
             "z": -14
           },
           "worldPosition": {
-            "x": 82,
-            "z": 56
+            "x": -82,
+            "z": 84
           },
           "inwardNormal": {
             "x": 0,
@@ -7196,7 +7210,7 @@
           },
           "worldInwardNormal": {
             "x": 0,
-            "z": 1
+            "z": -1
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
@@ -7224,8 +7238,8 @@
             "z": 14
           },
           "worldPosition": {
-            "x": 68,
-            "z": 84
+            "x": -68,
+            "z": 56
           },
           "inwardNormal": {
             "x": 0,
@@ -7233,7 +7247,7 @@
           },
           "worldInwardNormal": {
             "x": 0,
-            "z": -1
+            "z": 1
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
@@ -7558,9 +7572,9 @@
       "implementationStatus": "live",
       "levelId": "L0",
       "transform": {
-        "x": 33,
+        "x": -33,
         "z": 70,
-        "yaw": -1.570796326795
+        "yaw": 1.570796326795
       },
       "planPlacement": {
         "x": 33,
@@ -7568,8 +7582,8 @@
         "rotationDegrees": 90
       },
       "bounds": {
-        "minX": 5,
-        "maxX": 61,
+        "minX": -61,
+        "maxX": -5,
         "minZ": 58,
         "maxZ": 82
       },
@@ -7600,7 +7614,7 @@
             "z": -28
           },
           "worldPosition": {
-            "x": 61,
+            "x": -61,
             "z": 70
           },
           "inwardNormal": {
@@ -7608,7 +7622,7 @@
             "z": 1
           },
           "worldInwardNormal": {
-            "x": -1,
+            "x": 1,
             "z": 0
           },
           "clearWidth": 4,
@@ -7637,7 +7651,7 @@
             "z": 28
           },
           "worldPosition": {
-            "x": 5,
+            "x": -5,
             "z": 70
           },
           "inwardNormal": {
@@ -7645,7 +7659,7 @@
             "z": -1
           },
           "worldInwardNormal": {
-            "x": 1,
+            "x": -1,
             "z": 0
           },
           "clearWidth": 4,
@@ -7674,8 +7688,8 @@
             "z": 0
           },
           "worldPosition": {
-            "x": 33,
-            "z": 82
+            "x": -33,
+            "z": 58
           },
           "inwardNormal": {
             "x": -1,
@@ -7683,7 +7697,7 @@
           },
           "worldInwardNormal": {
             "x": 0,
-            "z": -1
+            "z": 1
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
@@ -7711,8 +7725,8 @@
             "z": 0
           },
           "worldPosition": {
-            "x": 33,
-            "z": 58
+            "x": -33,
+            "z": 82
           },
           "inwardNormal": {
             "x": 1,
@@ -7720,7 +7734,7 @@
           },
           "worldInwardNormal": {
             "x": 0,
-            "z": 1
+            "z": -1
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
@@ -7782,9 +7796,9 @@
       "implementationStatus": "live",
       "levelId": "L0",
       "transform": {
-        "x": -19,
+        "x": 19,
         "z": 70,
-        "yaw": 0
+        "yaw": -3.14159265359
       },
       "planPlacement": {
         "x": -19,
@@ -7792,8 +7806,8 @@
         "rotationDegrees": 0
       },
       "bounds": {
-        "minX": -33,
-        "maxX": -5,
+        "minX": 5,
+        "maxX": 33,
         "minZ": 56,
         "maxZ": 84
       },
@@ -7824,8 +7838,8 @@
             "z": -14
           },
           "worldPosition": {
-            "x": -19,
-            "z": 56
+            "x": 19,
+            "z": 84
           },
           "inwardNormal": {
             "x": 0,
@@ -7833,7 +7847,7 @@
           },
           "worldInwardNormal": {
             "x": 0,
-            "z": 1
+            "z": -1
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
@@ -7861,8 +7875,8 @@
             "z": 14
           },
           "worldPosition": {
-            "x": -19,
-            "z": 84
+            "x": 19,
+            "z": 56
           },
           "inwardNormal": {
             "x": 0,
@@ -7870,7 +7884,7 @@
           },
           "worldInwardNormal": {
             "x": 0,
-            "z": -1
+            "z": 1
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
@@ -7898,7 +7912,7 @@
             "z": 0
           },
           "worldPosition": {
-            "x": -5,
+            "x": 5,
             "z": 70
           },
           "inwardNormal": {
@@ -7906,7 +7920,7 @@
             "z": 0
           },
           "worldInwardNormal": {
-            "x": -1,
+            "x": 1,
             "z": 0
           },
           "clearWidth": 4,
@@ -7935,7 +7949,7 @@
             "z": 0
           },
           "worldPosition": {
-            "x": -33,
+            "x": 33,
             "z": 70
           },
           "inwardNormal": {
@@ -7943,7 +7957,7 @@
             "z": 0
           },
           "worldInwardNormal": {
-            "x": 1,
+            "x": -1,
             "z": 0
           },
           "clearWidth": 4,
@@ -7972,8 +7986,8 @@
             "z": -14
           },
           "worldPosition": {
-            "x": -12,
-            "z": 56
+            "x": 12,
+            "z": 84
           },
           "inwardNormal": {
             "x": 0,
@@ -7981,7 +7995,7 @@
           },
           "worldInwardNormal": {
             "x": 0,
-            "z": 1
+            "z": -1
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
@@ -8009,8 +8023,8 @@
             "z": 14
           },
           "worldPosition": {
-            "x": -26,
-            "z": 84
+            "x": 26,
+            "z": 56
           },
           "inwardNormal": {
             "x": 0,
@@ -8018,7 +8032,7 @@
           },
           "worldInwardNormal": {
             "x": 0,
-            "z": -1
+            "z": 1
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
@@ -8342,9 +8356,9 @@
       "implementationStatus": "live",
       "levelId": "L0",
       "transform": {
-        "x": -61,
+        "x": 61,
         "z": 70,
-        "yaw": -1.570796326795
+        "yaw": 1.570796326795
       },
       "planPlacement": {
         "x": -61,
@@ -8352,8 +8366,8 @@
         "rotationDegrees": 90
       },
       "bounds": {
-        "minX": -89,
-        "maxX": -33,
+        "minX": 33,
+        "maxX": 89,
         "minZ": 58,
         "maxZ": 82
       },
@@ -8384,7 +8398,7 @@
             "z": -28
           },
           "worldPosition": {
-            "x": -33,
+            "x": 33,
             "z": 70
           },
           "inwardNormal": {
@@ -8392,7 +8406,7 @@
             "z": 1
           },
           "worldInwardNormal": {
-            "x": -1,
+            "x": 1,
             "z": 0
           },
           "clearWidth": 4,
@@ -8421,7 +8435,7 @@
             "z": 28
           },
           "worldPosition": {
-            "x": -89,
+            "x": 89,
             "z": 70
           },
           "inwardNormal": {
@@ -8429,7 +8443,7 @@
             "z": -1
           },
           "worldInwardNormal": {
-            "x": 1,
+            "x": -1,
             "z": 0
           },
           "clearWidth": 4,
@@ -8458,8 +8472,8 @@
             "z": 0
           },
           "worldPosition": {
-            "x": -61,
-            "z": 82
+            "x": 61,
+            "z": 58
           },
           "inwardNormal": {
             "x": -1,
@@ -8467,7 +8481,7 @@
           },
           "worldInwardNormal": {
             "x": 0,
-            "z": -1
+            "z": 1
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
@@ -8495,8 +8509,8 @@
             "z": 0
           },
           "worldPosition": {
-            "x": -61,
-            "z": 58
+            "x": 61,
+            "z": 82
           },
           "inwardNormal": {
             "x": 1,
@@ -8504,7 +8518,7 @@
           },
           "worldInwardNormal": {
             "x": 0,
-            "z": 1
+            "z": -1
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
@@ -8634,13 +8648,13 @@
       "implementationStatus": "live",
       "levelId": "L0",
       "transform": {
-        "x": -109,
+        "x": 109,
         "z": -84,
         "yaw": 0
       },
       "bounds": {
-        "minX": -129,
-        "maxX": -89,
+        "minX": 89,
+        "maxX": 129,
         "minZ": -112,
         "maxZ": -56
       },
@@ -8652,48 +8666,12 @@
         {
           "id": "public-entry",
           "position": {
-            "x": -20,
-            "z": 0
-          },
-          "worldPosition": {
-            "x": -129,
-            "z": -84
-          },
-          "inwardNormal": {
-            "x": 1,
-            "z": 0
-          },
-          "worldInwardNormal": {
-            "x": 1,
-            "z": 0
-          },
-          "clearWidth": 4,
-          "clearHeight": 3.2,
-          "transitionDepth": 1.2,
-          "landingBounds": {
-            "minX": -20,
-            "maxX": -16,
-            "minZ": -2,
-            "maxZ": 2
-          },
-          "arrivalPose": {
-            "x": -18,
-            "z": 0,
-            "yaw": -0.726642340682,
-            "pitch": 0
-          },
-          "openingState": "external-open",
-          "external": true
-        },
-        {
-          "id": "through-route",
-          "position": {
             "x": 20,
-            "z": 14
+            "z": 0
           },
           "worldPosition": {
-            "x": -89,
-            "z": -70
+            "x": 129,
+            "z": -84
           },
           "inwardNormal": {
             "x": -1,
@@ -8709,13 +8687,49 @@
           "landingBounds": {
             "minX": 16,
             "maxX": 20,
+            "minZ": -2,
+            "maxZ": 2
+          },
+          "arrivalPose": {
+            "x": 18,
+            "z": 0,
+            "yaw": 0.726642340682,
+            "pitch": 0
+          },
+          "openingState": "external-open",
+          "external": true
+        },
+        {
+          "id": "through-route",
+          "position": {
+            "x": -20,
+            "z": 14
+          },
+          "worldPosition": {
+            "x": 89,
+            "z": -70
+          },
+          "inwardNormal": {
+            "x": 1,
+            "z": 0
+          },
+          "worldInwardNormal": {
+            "x": 1,
+            "z": 0
+          },
+          "clearWidth": 4,
+          "clearHeight": 3.2,
+          "transitionDepth": 1.2,
+          "landingBounds": {
+            "minX": -20,
+            "maxX": -16,
             "minZ": 12,
             "maxZ": 16
           },
           "arrivalPose": {
-            "x": 18,
+            "x": -18,
             "z": 14,
-            "yaw": 1.570796326795,
+            "yaw": -1.570796326795,
             "pitch": 0
           },
           "openingState": "open"
@@ -8766,7 +8780,7 @@
       "orientationLandmark": {
         "id": "entrance-visitor-map-kiosk",
         "position": {
-          "x": -10,
+          "x": 10,
           "z": -9
         }
       }
@@ -8797,41 +8811,6 @@
         {
           "id": "west",
           "position": {
-            "x": -5,
-            "z": 0
-          },
-          "worldPosition": {
-            "x": -5,
-            "z": -70
-          },
-          "inwardNormal": {
-            "x": 1,
-            "z": 0
-          },
-          "worldInwardNormal": {
-            "x": 1,
-            "z": 0
-          },
-          "clearWidth": 4,
-          "clearHeight": 3.2,
-          "transitionDepth": 1.2,
-          "landingBounds": {
-            "minX": -5,
-            "maxX": -1,
-            "minZ": -2,
-            "maxZ": 2
-          },
-          "arrivalPose": {
-            "x": -3,
-            "z": 0,
-            "yaw": -1.570796326795,
-            "pitch": 0
-          },
-          "openingState": "open"
-        },
-        {
-          "id": "east",
-          "position": {
             "x": 5,
             "z": 0
           },
@@ -8860,6 +8839,41 @@
             "x": 3,
             "z": 0,
             "yaw": 1.570796326795,
+            "pitch": 0
+          },
+          "openingState": "open"
+        },
+        {
+          "id": "east",
+          "position": {
+            "x": -5,
+            "z": 0
+          },
+          "worldPosition": {
+            "x": -5,
+            "z": -70
+          },
+          "inwardNormal": {
+            "x": 1,
+            "z": 0
+          },
+          "worldInwardNormal": {
+            "x": 1,
+            "z": 0
+          },
+          "clearWidth": 4,
+          "clearHeight": 3.2,
+          "transitionDepth": 1.2,
+          "landingBounds": {
+            "minX": -5,
+            "maxX": -1,
+            "minZ": -2,
+            "maxZ": 2
+          },
+          "arrivalPose": {
+            "x": -3,
+            "z": 0,
+            "yaw": -1.570796326795,
             "pitch": 0
           },
           "openingState": "open"
@@ -8993,41 +9007,6 @@
         {
           "id": "west",
           "position": {
-            "x": -5,
-            "z": 0
-          },
-          "worldPosition": {
-            "x": -5,
-            "z": -42
-          },
-          "inwardNormal": {
-            "x": 1,
-            "z": 0
-          },
-          "worldInwardNormal": {
-            "x": 1,
-            "z": 0
-          },
-          "clearWidth": 4,
-          "clearHeight": 3.2,
-          "transitionDepth": 1.2,
-          "landingBounds": {
-            "minX": -5,
-            "maxX": -1,
-            "minZ": -2,
-            "maxZ": 2
-          },
-          "arrivalPose": {
-            "x": -3,
-            "z": 0,
-            "yaw": -1.570796326795,
-            "pitch": 0
-          },
-          "openingState": "open"
-        },
-        {
-          "id": "east",
-          "position": {
             "x": 5,
             "z": 0
           },
@@ -9056,6 +9035,41 @@
             "x": 3,
             "z": 0,
             "yaw": 1.570796326795,
+            "pitch": 0
+          },
+          "openingState": "open"
+        },
+        {
+          "id": "east",
+          "position": {
+            "x": -5,
+            "z": 0
+          },
+          "worldPosition": {
+            "x": -5,
+            "z": -42
+          },
+          "inwardNormal": {
+            "x": 1,
+            "z": 0
+          },
+          "worldInwardNormal": {
+            "x": 1,
+            "z": 0
+          },
+          "clearWidth": 4,
+          "clearHeight": 3.2,
+          "transitionDepth": 1.2,
+          "landingBounds": {
+            "minX": -5,
+            "maxX": -1,
+            "minZ": -2,
+            "maxZ": 2
+          },
+          "arrivalPose": {
+            "x": -3,
+            "z": 0,
+            "yaw": -1.570796326795,
             "pitch": 0
           },
           "openingState": "open"
@@ -9189,41 +9203,6 @@
         {
           "id": "west",
           "position": {
-            "x": -5,
-            "z": 0
-          },
-          "worldPosition": {
-            "x": -5,
-            "z": 14
-          },
-          "inwardNormal": {
-            "x": 1,
-            "z": 0
-          },
-          "worldInwardNormal": {
-            "x": 1,
-            "z": 0
-          },
-          "clearWidth": 4,
-          "clearHeight": 3.2,
-          "transitionDepth": 1.2,
-          "landingBounds": {
-            "minX": -5,
-            "maxX": -1,
-            "minZ": -2,
-            "maxZ": 2
-          },
-          "arrivalPose": {
-            "x": -3,
-            "z": 0,
-            "yaw": -1.570796326795,
-            "pitch": 0
-          },
-          "openingState": "open"
-        },
-        {
-          "id": "east",
-          "position": {
             "x": 5,
             "z": 0
           },
@@ -9252,6 +9231,41 @@
             "x": 3,
             "z": 0,
             "yaw": 1.570796326795,
+            "pitch": 0
+          },
+          "openingState": "open"
+        },
+        {
+          "id": "east",
+          "position": {
+            "x": -5,
+            "z": 0
+          },
+          "worldPosition": {
+            "x": -5,
+            "z": 14
+          },
+          "inwardNormal": {
+            "x": 1,
+            "z": 0
+          },
+          "worldInwardNormal": {
+            "x": 1,
+            "z": 0
+          },
+          "clearWidth": 4,
+          "clearHeight": 3.2,
+          "transitionDepth": 1.2,
+          "landingBounds": {
+            "minX": -5,
+            "maxX": -1,
+            "minZ": -2,
+            "maxZ": 2
+          },
+          "arrivalPose": {
+            "x": -3,
+            "z": 0,
+            "yaw": -1.570796326795,
             "pitch": 0
           },
           "openingState": "open"
@@ -9385,41 +9399,6 @@
         {
           "id": "west",
           "position": {
-            "x": -5,
-            "z": 0
-          },
-          "worldPosition": {
-            "x": -5,
-            "z": 42
-          },
-          "inwardNormal": {
-            "x": 1,
-            "z": 0
-          },
-          "worldInwardNormal": {
-            "x": 1,
-            "z": 0
-          },
-          "clearWidth": 4,
-          "clearHeight": 3.2,
-          "transitionDepth": 1.2,
-          "landingBounds": {
-            "minX": -5,
-            "maxX": -1,
-            "minZ": -2,
-            "maxZ": 2
-          },
-          "arrivalPose": {
-            "x": -3,
-            "z": 0,
-            "yaw": -1.570796326795,
-            "pitch": 0
-          },
-          "openingState": "open"
-        },
-        {
-          "id": "east",
-          "position": {
             "x": 5,
             "z": 0
           },
@@ -9448,6 +9427,41 @@
             "x": 3,
             "z": 0,
             "yaw": 1.570796326795,
+            "pitch": 0
+          },
+          "openingState": "open"
+        },
+        {
+          "id": "east",
+          "position": {
+            "x": -5,
+            "z": 0
+          },
+          "worldPosition": {
+            "x": -5,
+            "z": 42
+          },
+          "inwardNormal": {
+            "x": 1,
+            "z": 0
+          },
+          "worldInwardNormal": {
+            "x": 1,
+            "z": 0
+          },
+          "clearWidth": 4,
+          "clearHeight": 3.2,
+          "transitionDepth": 1.2,
+          "landingBounds": {
+            "minX": -5,
+            "maxX": -1,
+            "minZ": -2,
+            "maxZ": 2
+          },
+          "arrivalPose": {
+            "x": -3,
+            "z": 0,
+            "yaw": -1.570796326795,
             "pitch": 0
           },
           "openingState": "open"
@@ -9581,41 +9595,6 @@
         {
           "id": "west",
           "position": {
-            "x": -5,
-            "z": 0
-          },
-          "worldPosition": {
-            "x": -5,
-            "z": 70
-          },
-          "inwardNormal": {
-            "x": 1,
-            "z": 0
-          },
-          "worldInwardNormal": {
-            "x": 1,
-            "z": 0
-          },
-          "clearWidth": 4,
-          "clearHeight": 3.2,
-          "transitionDepth": 1.2,
-          "landingBounds": {
-            "minX": -5,
-            "maxX": -1,
-            "minZ": -2,
-            "maxZ": 2
-          },
-          "arrivalPose": {
-            "x": -3,
-            "z": 0,
-            "yaw": -1.570796326795,
-            "pitch": 0
-          },
-          "openingState": "open"
-        },
-        {
-          "id": "east",
-          "position": {
             "x": 5,
             "z": 0
           },
@@ -9644,6 +9623,41 @@
             "x": 3,
             "z": 0,
             "yaw": 1.570796326795,
+            "pitch": 0
+          },
+          "openingState": "open"
+        },
+        {
+          "id": "east",
+          "position": {
+            "x": -5,
+            "z": 0
+          },
+          "worldPosition": {
+            "x": -5,
+            "z": 70
+          },
+          "inwardNormal": {
+            "x": 1,
+            "z": 0
+          },
+          "worldInwardNormal": {
+            "x": 1,
+            "z": 0
+          },
+          "clearWidth": 4,
+          "clearHeight": 3.2,
+          "transitionDepth": 1.2,
+          "landingBounds": {
+            "minX": -5,
+            "maxX": -1,
+            "minZ": -2,
+            "maxZ": 2
+          },
+          "arrivalPose": {
+            "x": -3,
+            "z": 0,
+            "yaw": -1.570796326795,
             "pitch": 0
           },
           "openingState": "open"
@@ -9764,8 +9778,8 @@
         "yaw": 0
       },
       "bounds": {
-        "minX": 89,
-        "maxX": 129,
+        "minX": -129,
+        "maxX": -89,
         "minZ": -74,
         "maxZ": -38
       },
@@ -9778,34 +9792,34 @@
         {
           "id": "from",
           "position": {
-            "x": 117,
+            "x": -117,
             "z": -70
           },
           "worldPosition": {
-            "x": 117,
+            "x": -117,
             "z": -70
           },
           "inwardNormal": {
-            "x": 1,
+            "x": -1,
             "z": 0
           },
           "worldInwardNormal": {
-            "x": 1,
+            "x": -1,
             "z": 0
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
           "transitionDepth": 1.2,
           "landingBounds": {
-            "minX": 117,
-            "maxX": 121,
+            "minX": -121,
+            "maxX": -117,
             "minZ": -72,
             "maxZ": -68
           },
           "arrivalPose": {
-            "x": 119,
+            "x": -119,
             "z": -70,
-            "yaw": -1.570796326795,
+            "yaw": 1.570796326795,
             "pitch": 0
           },
           "openingState": "open"
@@ -9813,34 +9827,34 @@
         {
           "id": "to",
           "position": {
-            "x": 89,
+            "x": -89,
             "z": -42
           },
           "worldPosition": {
-            "x": 89,
+            "x": -89,
             "z": -42
           },
           "inwardNormal": {
-            "x": 1,
+            "x": -1,
             "z": 0
           },
           "worldInwardNormal": {
-            "x": 1,
+            "x": -1,
             "z": 0
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
           "transitionDepth": 1.2,
           "landingBounds": {
-            "minX": 89,
-            "maxX": 93,
+            "minX": -93,
+            "maxX": -89,
             "minZ": -44,
             "maxZ": -40
           },
           "arrivalPose": {
-            "x": 91,
+            "x": -91,
             "z": -42,
-            "yaw": -1.570796326795,
+            "yaw": 1.570796326795,
             "pitch": 0
           },
           "openingState": "open"
@@ -9849,8 +9863,8 @@
       "geometry": {
         "coordinateFrame": "node-local",
         "bounds": {
-          "minX": 89,
-          "maxX": 129,
+          "minX": -129,
+          "maxX": -89,
           "minZ": -74,
           "maxZ": -38
         },
@@ -9860,8 +9874,8 @@
             "kind": "passage",
             "title": "Turn court · classical-south-asian-worlds to buddhist-philosophies",
             "bounds": {
-              "minX": 117,
-              "maxX": 121,
+              "minX": -121,
+              "maxX": -117,
               "minZ": -74,
               "maxZ": -66
             },
@@ -9873,8 +9887,8 @@
             "kind": "passage",
             "title": "Turn court · classical-south-asian-worlds to buddhist-philosophies",
             "bounds": {
-              "minX": 121,
-              "maxX": 129,
+              "minX": -129,
+              "maxX": -121,
               "minZ": -74,
               "maxZ": -38
             },
@@ -9886,8 +9900,8 @@
             "kind": "passage",
             "title": "Turn court · classical-south-asian-worlds to buddhist-philosophies",
             "bounds": {
-              "minX": 89,
-              "maxX": 121,
+              "minX": -121,
+              "maxX": -89,
               "minZ": -46,
               "maxZ": -38
             },
@@ -9895,7 +9909,7 @@
             "guidanceAxis": "x"
           }
         ],
-        "worldCenterline": [
+        "planCenterline": [
           {
             "x": 117,
             "z": -70
@@ -9910,6 +9924,24 @@
           },
           {
             "x": 89,
+            "z": -42
+          }
+        ],
+        "worldCenterline": [
+          {
+            "x": -117,
+            "z": -70
+          },
+          {
+            "x": -125,
+            "z": -70
+          },
+          {
+            "x": -125,
+            "z": -42
+          },
+          {
+            "x": -89,
             "z": -42
           }
         ],
@@ -9922,11 +9954,11 @@
           {
             "id": "opening:turn:band-01-to-02:from-arm->turn-spine",
             "position": {
-              "x": 121,
+              "x": -121,
               "z": -70
             },
             "inwardNormal": {
-              "x": 1,
+              "x": -1,
               "z": 0
             },
             "clearWidth": 8,
@@ -9938,11 +9970,11 @@
           {
             "id": "opening:turn:band-01-to-02:turn-spine->to-arm",
             "position": {
-              "x": 121,
+              "x": -121,
               "z": -42
             },
             "inwardNormal": {
-              "x": -1,
+              "x": 1,
               "z": 0
             },
             "clearWidth": 8,
@@ -9960,7 +9992,7 @@
             "kicker": "Continuous Enfilade · Turn court",
             "subtitle": "Buddhist Philosophies of Liberation and Knowledge",
             "position": {
-              "x": 121.2,
+              "x": -128.8,
               "y": 2.55,
               "z": -56
             },
@@ -9987,8 +10019,8 @@
         "yaw": 0
       },
       "bounds": {
-        "minX": -129,
-        "maxX": -94,
+        "minX": 94,
+        "maxX": 129,
         "minZ": -46,
         "maxZ": -10
       },
@@ -10001,34 +10033,34 @@
         {
           "id": "from",
           "position": {
-            "x": -117,
+            "x": 117,
             "z": -42
           },
           "worldPosition": {
-            "x": -117,
+            "x": 117,
             "z": -42
           },
           "inwardNormal": {
-            "x": -1,
+            "x": 1,
             "z": 0
           },
           "worldInwardNormal": {
-            "x": -1,
+            "x": 1,
             "z": 0
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
           "transitionDepth": 1.2,
           "landingBounds": {
-            "minX": -121,
-            "maxX": -117,
+            "minX": 117,
+            "maxX": 121,
             "minZ": -44,
             "maxZ": -40
           },
           "arrivalPose": {
-            "x": -119,
+            "x": 119,
             "z": -42,
-            "yaw": 1.570796326795,
+            "yaw": -1.570796326795,
             "pitch": 0
           },
           "openingState": "open"
@@ -10036,34 +10068,34 @@
         {
           "id": "to",
           "position": {
-            "x": -94,
+            "x": 94,
             "z": -14
           },
           "worldPosition": {
-            "x": -94,
+            "x": 94,
             "z": -14
           },
           "inwardNormal": {
-            "x": -1,
+            "x": 1,
             "z": 0
           },
           "worldInwardNormal": {
-            "x": -1,
+            "x": 1,
             "z": 0
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
           "transitionDepth": 1.2,
           "landingBounds": {
-            "minX": -98,
-            "maxX": -94,
+            "minX": 94,
+            "maxX": 98,
             "minZ": -16,
             "maxZ": -12
           },
           "arrivalPose": {
-            "x": -96,
+            "x": 96,
             "z": -14,
-            "yaw": 1.570796326795,
+            "yaw": -1.570796326795,
             "pitch": 0
           },
           "openingState": "open"
@@ -10072,8 +10104,8 @@
       "geometry": {
         "coordinateFrame": "node-local",
         "bounds": {
-          "minX": -129,
-          "maxX": -94,
+          "minX": 94,
+          "maxX": 129,
           "minZ": -46,
           "maxZ": -10
         },
@@ -10083,8 +10115,8 @@
             "kind": "passage",
             "title": "Turn court · islamic-philosophical-worlds to jewish-philosophy",
             "bounds": {
-              "minX": -121,
-              "maxX": -117,
+              "minX": 117,
+              "maxX": 121,
               "minZ": -46,
               "maxZ": -38
             },
@@ -10096,8 +10128,8 @@
             "kind": "passage",
             "title": "Turn court · islamic-philosophical-worlds to jewish-philosophy",
             "bounds": {
-              "minX": -129,
-              "maxX": -121,
+              "minX": 121,
+              "maxX": 129,
               "minZ": -46,
               "maxZ": -10
             },
@@ -10109,8 +10141,8 @@
             "kind": "passage",
             "title": "Turn court · islamic-philosophical-worlds to jewish-philosophy",
             "bounds": {
-              "minX": -121,
-              "maxX": -94,
+              "minX": 94,
+              "maxX": 121,
               "minZ": -18,
               "maxZ": -10
             },
@@ -10118,7 +10150,7 @@
             "guidanceAxis": "x"
           }
         ],
-        "worldCenterline": [
+        "planCenterline": [
           {
             "x": -117,
             "z": -42
@@ -10133,6 +10165,24 @@
           },
           {
             "x": -94,
+            "z": -14
+          }
+        ],
+        "worldCenterline": [
+          {
+            "x": 117,
+            "z": -42
+          },
+          {
+            "x": 125,
+            "z": -42
+          },
+          {
+            "x": 125,
+            "z": -14
+          },
+          {
+            "x": 94,
             "z": -14
           }
         ],
@@ -10145,11 +10195,11 @@
           {
             "id": "opening:turn:band-02-to-03:from-arm->turn-spine",
             "position": {
-              "x": -121,
+              "x": 121,
               "z": -42
             },
             "inwardNormal": {
-              "x": -1,
+              "x": 1,
               "z": 0
             },
             "clearWidth": 8,
@@ -10161,11 +10211,11 @@
           {
             "id": "opening:turn:band-02-to-03:turn-spine->to-arm",
             "position": {
-              "x": -121,
+              "x": 121,
               "z": -14
             },
             "inwardNormal": {
-              "x": 1,
+              "x": -1,
               "z": 0
             },
             "clearWidth": 8,
@@ -10183,7 +10233,7 @@
             "kicker": "Continuous Enfilade · Turn court",
             "subtitle": "Jewish Philosophy in Arabic-Speaking & Mediterranean Worlds",
             "position": {
-              "x": -128.8,
+              "x": 121.2,
               "y": 2.55,
               "z": -28
             },
@@ -10210,8 +10260,8 @@
         "yaw": 0
       },
       "bounds": {
-        "minX": 126,
-        "maxX": 153,
+        "minX": -153,
+        "maxX": -126,
         "minZ": -18,
         "maxZ": 18
       },
@@ -10224,34 +10274,34 @@
         {
           "id": "from",
           "position": {
-            "x": 126,
+            "x": -126,
             "z": -14
           },
           "worldPosition": {
-            "x": 126,
+            "x": -126,
             "z": -14
           },
           "inwardNormal": {
-            "x": 1,
+            "x": -1,
             "z": 0
           },
           "worldInwardNormal": {
-            "x": 1,
+            "x": -1,
             "z": 0
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
           "transitionDepth": 1.2,
           "landingBounds": {
-            "minX": 126,
-            "maxX": 130,
+            "minX": -130,
+            "maxX": -126,
             "minZ": -16,
             "maxZ": -12
           },
           "arrivalPose": {
-            "x": 128,
+            "x": -128,
             "z": -14,
-            "yaw": -1.570796326795,
+            "yaw": 1.570796326795,
             "pitch": 0
           },
           "openingState": "open"
@@ -10259,34 +10309,34 @@
         {
           "id": "to",
           "position": {
-            "x": 145,
+            "x": -145,
             "z": 14
           },
           "worldPosition": {
-            "x": 145,
+            "x": -145,
             "z": 14
           },
           "inwardNormal": {
-            "x": 1,
+            "x": -1,
             "z": 0
           },
           "worldInwardNormal": {
-            "x": 1,
+            "x": -1,
             "z": 0
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
           "transitionDepth": 1.2,
           "landingBounds": {
-            "minX": 145,
-            "maxX": 149,
+            "minX": -149,
+            "maxX": -145,
             "minZ": 12,
             "maxZ": 16
           },
           "arrivalPose": {
-            "x": 147,
+            "x": -147,
             "z": 14,
-            "yaw": -1.570796326795,
+            "yaw": 1.570796326795,
             "pitch": 0
           },
           "openingState": "open"
@@ -10295,8 +10345,8 @@
       "geometry": {
         "coordinateFrame": "node-local",
         "bounds": {
-          "minX": 126,
-          "maxX": 153,
+          "minX": -153,
+          "maxX": -126,
           "minZ": -18,
           "maxZ": 18
         },
@@ -10306,8 +10356,8 @@
             "kind": "passage",
             "title": "Turn court · rationalism-mind-nature-system to empiricism-science-political-order",
             "bounds": {
-              "minX": 126,
-              "maxX": 145,
+              "minX": -145,
+              "maxX": -126,
               "minZ": -18,
               "maxZ": -10
             },
@@ -10319,8 +10369,8 @@
             "kind": "passage",
             "title": "Turn court · rationalism-mind-nature-system to empiricism-science-political-order",
             "bounds": {
-              "minX": 145,
-              "maxX": 153,
+              "minX": -153,
+              "maxX": -145,
               "minZ": -18,
               "maxZ": 18
             },
@@ -10328,7 +10378,7 @@
             "guidanceAxis": "z"
           }
         ],
-        "worldCenterline": [
+        "planCenterline": [
           {
             "x": 126,
             "z": -14
@@ -10343,6 +10393,24 @@
           },
           {
             "x": 145,
+            "z": 14
+          }
+        ],
+        "worldCenterline": [
+          {
+            "x": -126,
+            "z": -14
+          },
+          {
+            "x": -149,
+            "z": -14
+          },
+          {
+            "x": -149,
+            "z": 14
+          },
+          {
+            "x": -145,
             "z": 14
           }
         ],
@@ -10355,11 +10423,11 @@
           {
             "id": "opening:turn:band-03-to-04:from-arm->turn-spine",
             "position": {
-              "x": 145,
+              "x": -145,
               "z": -14
             },
             "inwardNormal": {
-              "x": 1,
+              "x": -1,
               "z": 0
             },
             "clearWidth": 8,
@@ -10377,7 +10445,7 @@
             "kicker": "Continuous Enfilade · Turn court",
             "subtitle": "Empiricism, Science, and Political Order",
             "position": {
-              "x": 145.2,
+              "x": -152.8,
               "y": 2.55,
               "z": 0
             },
@@ -10404,8 +10472,8 @@
         "yaw": 0
       },
       "bounds": {
-        "minX": -129,
-        "maxX": -117,
+        "minX": 117,
+        "maxX": 129,
         "minZ": 10,
         "maxZ": 46
       },
@@ -10418,34 +10486,34 @@
         {
           "id": "from",
           "position": {
-            "x": -117,
+            "x": 117,
             "z": 14
           },
           "worldPosition": {
-            "x": -117,
+            "x": 117,
             "z": 14
           },
           "inwardNormal": {
-            "x": -1,
+            "x": 1,
             "z": 0
           },
           "worldInwardNormal": {
-            "x": -1,
+            "x": 1,
             "z": 0
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
           "transitionDepth": 1.2,
           "landingBounds": {
-            "minX": -121,
-            "maxX": -117,
+            "minX": 117,
+            "maxX": 121,
             "minZ": 12,
             "maxZ": 16
           },
           "arrivalPose": {
-            "x": -119,
+            "x": 119,
             "z": 14,
-            "yaw": 1.570796326795,
+            "yaw": -1.570796326795,
             "pitch": 0
           },
           "openingState": "open"
@@ -10453,34 +10521,34 @@
         {
           "id": "to",
           "position": {
-            "x": -117,
+            "x": 117,
             "z": 42
           },
           "worldPosition": {
-            "x": -117,
+            "x": 117,
             "z": 42
           },
           "inwardNormal": {
-            "x": -1,
+            "x": 1,
             "z": 0
           },
           "worldInwardNormal": {
-            "x": -1,
+            "x": 1,
             "z": 0
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
           "transitionDepth": 1.2,
           "landingBounds": {
-            "minX": -121,
-            "maxX": -117,
+            "minX": 117,
+            "maxX": 121,
             "minZ": 40,
             "maxZ": 44
           },
           "arrivalPose": {
-            "x": -119,
+            "x": 119,
             "z": 42,
-            "yaw": 1.570796326795,
+            "yaw": -1.570796326795,
             "pitch": 0
           },
           "openingState": "open"
@@ -10489,8 +10557,8 @@
       "geometry": {
         "coordinateFrame": "node-local",
         "bounds": {
-          "minX": -129,
-          "maxX": -117,
+          "minX": 117,
+          "maxX": 129,
           "minZ": 10,
           "maxZ": 46
         },
@@ -10500,8 +10568,8 @@
             "kind": "passage",
             "title": "Turn court · faith-pessimism-life-value to pragmatism-democratic-inquiry",
             "bounds": {
-              "minX": -121,
-              "maxX": -117,
+              "minX": 117,
+              "maxX": 121,
               "minZ": 10,
               "maxZ": 18
             },
@@ -10513,8 +10581,8 @@
             "kind": "passage",
             "title": "Turn court · faith-pessimism-life-value to pragmatism-democratic-inquiry",
             "bounds": {
-              "minX": -129,
-              "maxX": -121,
+              "minX": 121,
+              "maxX": 129,
               "minZ": 10,
               "maxZ": 46
             },
@@ -10526,8 +10594,8 @@
             "kind": "passage",
             "title": "Turn court · faith-pessimism-life-value to pragmatism-democratic-inquiry",
             "bounds": {
-              "minX": -121,
-              "maxX": -117,
+              "minX": 117,
+              "maxX": 121,
               "minZ": 38,
               "maxZ": 46
             },
@@ -10535,7 +10603,7 @@
             "guidanceAxis": "x"
           }
         ],
-        "worldCenterline": [
+        "planCenterline": [
           {
             "x": -117,
             "z": 14
@@ -10550,6 +10618,24 @@
           },
           {
             "x": -117,
+            "z": 42
+          }
+        ],
+        "worldCenterline": [
+          {
+            "x": 117,
+            "z": 14
+          },
+          {
+            "x": 125,
+            "z": 14
+          },
+          {
+            "x": 125,
+            "z": 42
+          },
+          {
+            "x": 117,
             "z": 42
           }
         ],
@@ -10562,11 +10648,11 @@
           {
             "id": "opening:turn:band-04-to-05:from-arm->turn-spine",
             "position": {
-              "x": -121,
+              "x": 121,
               "z": 14
             },
             "inwardNormal": {
-              "x": -1,
+              "x": 1,
               "z": 0
             },
             "clearWidth": 8,
@@ -10578,11 +10664,11 @@
           {
             "id": "opening:turn:band-04-to-05:turn-spine->to-arm",
             "position": {
-              "x": -121,
+              "x": 121,
               "z": 42
             },
             "inwardNormal": {
-              "x": 1,
+              "x": -1,
               "z": 0
             },
             "clearWidth": 8,
@@ -10600,7 +10686,7 @@
             "kicker": "Continuous Enfilade · Turn court",
             "subtitle": "Pragmatism, Science, and Democratic Inquiry",
             "position": {
-              "x": -128.8,
+              "x": 121.2,
               "y": 2.55,
               "z": 28
             },
@@ -10627,8 +10713,8 @@
         "yaw": 0
       },
       "bounds": {
-        "minX": 89,
-        "maxX": 101,
+        "minX": -101,
+        "maxX": -89,
         "minZ": 38,
         "maxZ": 74
       },
@@ -10641,34 +10727,34 @@
         {
           "id": "from",
           "position": {
-            "x": 89,
+            "x": -89,
             "z": 42
           },
           "worldPosition": {
-            "x": 89,
+            "x": -89,
             "z": 42
           },
           "inwardNormal": {
-            "x": 1,
+            "x": -1,
             "z": 0
           },
           "worldInwardNormal": {
-            "x": 1,
+            "x": -1,
             "z": 0
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
           "transitionDepth": 1.2,
           "landingBounds": {
-            "minX": 89,
-            "maxX": 93,
+            "minX": -93,
+            "maxX": -89,
             "minZ": 40,
             "maxZ": 44
           },
           "arrivalPose": {
-            "x": 91,
+            "x": -91,
             "z": 42,
-            "yaw": -1.570796326795,
+            "yaw": 1.570796326795,
             "pitch": 0
           },
           "openingState": "open"
@@ -10676,34 +10762,34 @@
         {
           "id": "to",
           "position": {
-            "x": 89,
+            "x": -89,
             "z": 70
           },
           "worldPosition": {
-            "x": 89,
+            "x": -89,
             "z": 70
           },
           "inwardNormal": {
-            "x": 1,
+            "x": -1,
             "z": 0
           },
           "worldInwardNormal": {
-            "x": 1,
+            "x": -1,
             "z": 0
           },
           "clearWidth": 4,
           "clearHeight": 3.2,
           "transitionDepth": 1.2,
           "landingBounds": {
-            "minX": 89,
-            "maxX": 93,
+            "minX": -93,
+            "maxX": -89,
             "minZ": 68,
             "maxZ": 72
           },
           "arrivalPose": {
-            "x": 91,
+            "x": -91,
             "z": 70,
-            "yaw": -1.570796326795,
+            "yaw": 1.570796326795,
             "pitch": 0
           },
           "openingState": "open"
@@ -10712,8 +10798,8 @@
       "geometry": {
         "coordinateFrame": "node-local",
         "bounds": {
-          "minX": 89,
-          "maxX": 101,
+          "minX": -101,
+          "maxX": -89,
           "minZ": 38,
           "maxZ": 74
         },
@@ -10723,8 +10809,8 @@
             "kind": "passage",
             "title": "Turn court · critique-power-deconstruction to moral-life-practical-reason",
             "bounds": {
-              "minX": 89,
-              "maxX": 93,
+              "minX": -93,
+              "maxX": -89,
               "minZ": 38,
               "maxZ": 46
             },
@@ -10736,8 +10822,8 @@
             "kind": "passage",
             "title": "Turn court · critique-power-deconstruction to moral-life-practical-reason",
             "bounds": {
-              "minX": 93,
-              "maxX": 101,
+              "minX": -101,
+              "maxX": -93,
               "minZ": 38,
               "maxZ": 74
             },
@@ -10749,8 +10835,8 @@
             "kind": "passage",
             "title": "Turn court · critique-power-deconstruction to moral-life-practical-reason",
             "bounds": {
-              "minX": 89,
-              "maxX": 93,
+              "minX": -93,
+              "maxX": -89,
               "minZ": 66,
               "maxZ": 74
             },
@@ -10758,7 +10844,7 @@
             "guidanceAxis": "x"
           }
         ],
-        "worldCenterline": [
+        "planCenterline": [
           {
             "x": 89,
             "z": 42
@@ -10773,6 +10859,24 @@
           },
           {
             "x": 89,
+            "z": 70
+          }
+        ],
+        "worldCenterline": [
+          {
+            "x": -89,
+            "z": 42
+          },
+          {
+            "x": -97,
+            "z": 42
+          },
+          {
+            "x": -97,
+            "z": 70
+          },
+          {
+            "x": -89,
             "z": 70
           }
         ],
@@ -10785,11 +10889,11 @@
           {
             "id": "opening:turn:band-05-to-06:from-arm->turn-spine",
             "position": {
-              "x": 93,
+              "x": -93,
               "z": 42
             },
             "inwardNormal": {
-              "x": 1,
+              "x": -1,
               "z": 0
             },
             "clearWidth": 8,
@@ -10801,11 +10905,11 @@
           {
             "id": "opening:turn:band-05-to-06:turn-spine->to-arm",
             "position": {
-              "x": 93,
+              "x": -93,
               "z": 70
             },
             "inwardNormal": {
-              "x": -1,
+              "x": 1,
               "z": 0
             },
             "clearWidth": 8,
@@ -10823,7 +10927,7 @@
             "kicker": "Continuous Enfilade · Turn court",
             "subtitle": "Moral Life & Practical Reason",
             "position": {
-              "x": 93.2,
+              "x": -100.8,
               "y": 2.55,
               "z": 56
             },
@@ -10845,13 +10949,13 @@
       "implementationStatus": "live",
       "levelId": "L0",
       "transform": {
-        "x": -95,
+        "x": 95,
         "z": 70,
         "yaw": 0
       },
       "bounds": {
-        "minX": -101,
-        "maxX": -89,
+        "minX": 89,
+        "maxX": 101,
         "minZ": 56,
         "maxZ": 84
       },
@@ -10863,46 +10967,11 @@
         {
           "id": "through-route",
           "position": {
-            "x": 6,
-            "z": 0
-          },
-          "worldPosition": {
-            "x": -89,
-            "z": 70
-          },
-          "inwardNormal": {
-            "x": -1,
-            "z": 0
-          },
-          "worldInwardNormal": {
-            "x": -1,
-            "z": 0
-          },
-          "clearWidth": 4,
-          "clearHeight": 3.2,
-          "transitionDepth": 1.2,
-          "landingBounds": {
-            "minX": 2,
-            "maxX": 6,
-            "minZ": -2,
-            "maxZ": 2
-          },
-          "arrivalPose": {
-            "x": 4,
-            "z": 0,
-            "yaw": 1.570796326795,
-            "pitch": 0
-          },
-          "openingState": "open"
-        },
-        {
-          "id": "return-exit",
-          "position": {
             "x": -6,
             "z": 0
           },
           "worldPosition": {
-            "x": -101,
+            "x": 89,
             "z": 70
           },
           "inwardNormal": {
@@ -10926,6 +10995,41 @@
             "x": -4,
             "z": 0,
             "yaw": -1.570796326795,
+            "pitch": 0
+          },
+          "openingState": "open"
+        },
+        {
+          "id": "return-exit",
+          "position": {
+            "x": 6,
+            "z": 0
+          },
+          "worldPosition": {
+            "x": 101,
+            "z": 70
+          },
+          "inwardNormal": {
+            "x": -1,
+            "z": 0
+          },
+          "worldInwardNormal": {
+            "x": -1,
+            "z": 0
+          },
+          "clearWidth": 4,
+          "clearHeight": 3.2,
+          "transitionDepth": 1.2,
+          "landingBounds": {
+            "minX": 2,
+            "maxX": 6,
+            "minZ": -2,
+            "maxZ": 2
+          },
+          "arrivalPose": {
+            "x": 4,
+            "z": 0,
+            "yaw": 1.570796326795,
             "pitch": 0
           },
           "openingState": "external-open",
@@ -11628,7 +11732,7 @@
       },
       "b": {
         "nodeId": "hall:core-questions-forum",
-        "slotId": "N0"
+        "slotId": "S0"
       },
       "routeRole": "crosscut",
       "accessible": true,
@@ -11638,7 +11742,7 @@
       "id": "conn:crosscut:03",
       "a": {
         "nodeId": "hall:core-questions-forum",
-        "slotId": "S0"
+        "slotId": "N0"
       },
       "b": {
         "nodeId": "crossing:band-04",
@@ -11699,64 +11803,6 @@
       "implementationStatus": "reserved",
       "levelId": "L0",
       "bounds": {
-        "minX": -61,
-        "maxX": -5,
-        "minZ": 84,
-        "maxZ": 112
-      },
-      "center": {
-        "x": -33,
-        "z": 98
-      },
-      "size": {
-        "width": 56,
-        "depth": 28
-      },
-      "maximumTemplate": "sequence-3-rotated",
-      "futureEntryFrom": "route:north-south-crosscut",
-      "futureEntryFromNodeId": "route:north-south-crosscut:north-extension",
-      "currentDoorState": "solid-construction-wall",
-      "accessible": false,
-      "map": {
-        "label": "Closed expansion reserve",
-        "status": "closed-reserve"
-      },
-      "boundaryWall": {
-        "id": "wall:reserve:north-west-gallery:crosscut-boundary",
-        "center": {
-          "x": -5,
-          "y": 2.9,
-          "z": 98
-        },
-        "line": {
-          "from": {
-            "x": -5,
-            "z": 84
-          },
-          "to": {
-            "x": -5,
-            "z": 112
-          }
-        },
-        "size": {
-          "width": 28,
-          "height": 5.8,
-          "depth": 0.36
-        },
-        "rotationY": 1.570796326795,
-        "fullHeight": true,
-        "openingState": "closed-solid-wall",
-        "collision": true,
-        "rendered": true
-      }
-    },
-    {
-      "id": "reserve:north-east-gallery",
-      "kind": "closed-expansion-reserve",
-      "status": "site-and-structure-reserved-closed",
-      "implementationStatus": "reserved",
-      "levelId": "L0",
-      "bounds": {
         "minX": 5,
         "maxX": 61,
         "minZ": 84,
@@ -11780,7 +11826,7 @@
         "status": "closed-reserve"
       },
       "boundaryWall": {
-        "id": "wall:reserve:north-east-gallery:crosscut-boundary",
+        "id": "wall:reserve:north-west-gallery:crosscut-boundary",
         "center": {
           "x": 5,
           "y": 2.9,
@@ -11793,6 +11839,64 @@
           },
           "to": {
             "x": 5,
+            "z": 112
+          }
+        },
+        "size": {
+          "width": 28,
+          "height": 5.8,
+          "depth": 0.36
+        },
+        "rotationY": 1.570796326795,
+        "fullHeight": true,
+        "openingState": "closed-solid-wall",
+        "collision": true,
+        "rendered": true
+      }
+    },
+    {
+      "id": "reserve:north-east-gallery",
+      "kind": "closed-expansion-reserve",
+      "status": "site-and-structure-reserved-closed",
+      "implementationStatus": "reserved",
+      "levelId": "L0",
+      "bounds": {
+        "minX": -61,
+        "maxX": -5,
+        "minZ": 84,
+        "maxZ": 112
+      },
+      "center": {
+        "x": -33,
+        "z": 98
+      },
+      "size": {
+        "width": 56,
+        "depth": 28
+      },
+      "maximumTemplate": "sequence-3-rotated",
+      "futureEntryFrom": "route:north-south-crosscut",
+      "futureEntryFromNodeId": "route:north-south-crosscut:north-extension",
+      "currentDoorState": "solid-construction-wall",
+      "accessible": false,
+      "map": {
+        "label": "Closed expansion reserve",
+        "status": "closed-reserve"
+      },
+      "boundaryWall": {
+        "id": "wall:reserve:north-east-gallery:crosscut-boundary",
+        "center": {
+          "x": -5,
+          "y": 2.9,
+          "z": 98
+        },
+        "line": {
+          "from": {
+            "x": -5,
+            "z": 84
+          },
+          "to": {
+            "x": -5,
             "z": 112
           }
         },

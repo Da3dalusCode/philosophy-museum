@@ -33,6 +33,7 @@ Required physical result:
 - The exact 262 × 168 m six-band gallery block and 282 × 224 m controlled plan bounds from the JSON.
 - The exact 40 × 56 m Grand Entrance & Orientation Hall, with map, facing direction, resume, route choice, guided visit, and fast travel. Do not build fake tickets, lockers, café, shop, or generic study controls.
 - All 26 canonical hall shells at the exact centers and rotations in the control JSON.
+- Compile the JSON’s east-positive, north-positive architectural frame through its declared Three.js handedness adapter (`runtime.x = -plan.x`, `runtime.z = plan.z`). Do not copy the left-handed floor coordinates directly into the right-handed runtime or mirror the north-up visitor map. Both bends of every turn must have the same embodied left/right sense in the runtime and map.
 - All 105 canonical named rooms.
 - Six back-to-back 28 m structural bands. Template margins are solid structure/services, never visible public gaps.
 - The exact continuous serpentine through-gallery route, so visitors continue through each gallery’s far threshold without turning around.

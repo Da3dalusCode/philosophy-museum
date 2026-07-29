@@ -70,6 +70,7 @@ const result = await build({
       export {philosophers} from '/src/data/philosophers.ts';
       export {branches} from '/src/data/branches.ts';
       export * from '/src/data/museum/museumCanonicalProgram.ts';
+      export {MUSEUM_HALL_TEMPLATE_REGISTRY} from '/src/data/museum/museumHallTemplates.ts';
     ` : undefined,
   }],
   build: {
@@ -91,6 +92,7 @@ const {
   MUSEUM_CANONICAL_HALL_IDS,
   MUSEUM_CANONICAL_PROGRAM,
   MUSEUM_HALL_ROUTE_ALIASES,
+  MUSEUM_HALL_TEMPLATE_REGISTRY,
   MUSEUM_LEGACY_EXHIBIT_COMPATIBILITY,
   MUSEUM_LIVE_HALL_TOTALS,
   MUSEUM_LIVE_LEGACY_EXHIBIT_COMPATIBILITY,
@@ -426,6 +428,21 @@ const polygonBounds = (polygon) => ({
   maxZ: Math.max(...polygon.map(([, z]) => z)),
 });
 const close = (first, second) => Math.abs(first - second) <= .001;
+const planPointToRuntime = ({x, z}) => ({x: -x, z});
+const planBoundsToRuntime = ({minX, maxX, minZ, maxZ}) => ({
+  minX: -maxX,
+  maxX: -minX,
+  minZ,
+  maxZ,
+});
+const pointToWorld = ({x, z, yaw}, point) => {
+  const cosine = Math.cos(yaw);
+  const sine = Math.sin(yaw);
+  return {
+    x: x + point.x * cosine + point.z * sine,
+    z: z - point.x * sine + point.z * cosine,
+  };
+};
 for (const node of planningManifest.nodes) {
   check(planningLevelIds.has(node.levelId), `Planning manifest node ${node.id} references unknown level ${node.levelId}`);
   check(['planned', 'live', 'retired'].includes(node.implementationStatus), `Planning manifest node ${node.id} has invalid status ${node.implementationStatus}`);
@@ -700,6 +717,7 @@ check(activeBuildingManifest.schemaVersion === 2, `Active building manifest sche
 check(activeBuildingManifest.manifestVersion === singleLevelPlan.planId, 'Active manifest and approved control-plan versions differ');
 check(activeBuildingManifest.status === 'implemented-approved-continuous-enfilade', `Active building status changed to ${activeBuildingManifest.status}`);
 check(activeBuildingManifest.physicalOptionId === 'continuous-enfilade-single-level', `Active physical option changed to ${activeBuildingManifest.physicalOptionId}`);
+check(same(activeBuildingManifest.runtimeEmbedding, singleLevelPlan.runtimeEmbedding), 'Active runtime embedding differs from the approved plan-to-Three.js adapter');
 check(activeBuildingManifest.level?.id === 'L0' && activeBuildingManifest.nodes.every(({levelId}) => levelId === 'L0'), 'The Continuous Enfilade must remain on one public level');
 check(activeBuildingManifest.counts?.halls === 26, 'Active manifest must contain 26 galleries');
 check(activeBuildingManifest.counts?.rooms === 105, 'Active manifest must contain 105 rooms');
@@ -737,8 +755,34 @@ for (const plannedHall of singleLevelPlan.halls) {
   check(node.bandId === plannedHall.bandId, `${plannedHall.id} structural band changed`);
   check(same(node.roomIds, plannedHall.roomIds), `${plannedHall.id} room binding changed`);
   check(same(node.planPlacement, plannedHall.placement), `${plannedHall.id} source placement changed`);
-  check(close(node.transform.x, plannedHall.placement.x) && close(node.transform.z, plannedHall.placement.z), `${plannedHall.id} runtime origin differs from the control plan`);
-  check(close(node.transform.yaw, -plannedHall.placement.rotationDegrees * Math.PI / 180), `${plannedHall.id} runtime yaw does not implement the control-plan rotation`);
+  const expectedRuntimeOrigin = planPointToRuntime(plannedHall.placement);
+  check(
+    close(node.transform.x, expectedRuntimeOrigin.x) && close(node.transform.z, expectedRuntimeOrigin.z),
+    `${plannedHall.id} runtime origin does not implement the approved plan reflection`,
+  );
+  const template = MUSEUM_HALL_TEMPLATE_REGISTRY.find(({id}) => id === plannedHall.templateId);
+  for (const portalId of [plannedHall.routePortals.entry, plannedHall.routePortals.exit]) {
+    const templatePortal = template?.portalSlots.find(({id}) => id === portalId);
+    const runtimePortal = node.doorwaySlots.find(({id}) => id === portalId);
+    const architecturalPortal = templatePortal && pointToWorld(
+      {
+        x: plannedHall.placement.x,
+        z: plannedHall.placement.z,
+        yaw: -plannedHall.placement.rotationDegrees * Math.PI / 180,
+      },
+      templatePortal.position,
+    );
+    const expectedRuntimePortal = architecturalPortal && planPointToRuntime(architecturalPortal);
+    check(
+      Boolean(
+        expectedRuntimePortal
+          && runtimePortal
+          && close(runtimePortal.worldPosition.x, expectedRuntimePortal.x)
+          && close(runtimePortal.worldPosition.z, expectedRuntimePortal.z)
+      ),
+      `${plannedHall.id}/${portalId} runtime doorway does not project to its approved architectural position`,
+    );
+  }
   if (plannedHall.migrationState === 'construct-planned-walkable-shell') {
     const roomCells = node.geometry?.cells?.filter(({kind}) => kind === 'room') ?? [];
     const signs = node.geometry?.signs ?? [];
@@ -785,16 +829,23 @@ check(turnNodes.length === 5, `Active manifest contains ${turnNodes.length}, not
 for (const turn of singleLevelPlan.turnCourts) {
   const node = activeNodeById.get(turn.id);
   check(Boolean(node), `Active manifest omits turn court ${turn.id}`);
-  check(same(node?.geometry?.worldCenterline, turn.centerline), `${turn.id} endpoints differ from the control plan`);
+  check(same(node?.geometry?.planCenterline, turn.centerline), `${turn.id} architectural centerline differs from the control plan`);
+  check(
+    same(node?.geometry?.worldCenterline, turn.centerline.map(planPointToRuntime)),
+    `${turn.id} runtime centerline does not implement the approved plan reflection`,
+  );
   check(close(node?.geometry?.centerlineLength ?? 0, turn.centerlineLength), `${turn.id} centerline length changed`);
   check(node?.geometry?.clearWidth === 8, `${turn.id} is not 8 m clear`);
 }
 
 const activeEntrance = activeNodeById.get(activeBuildingManifest.mainEntrance.nodeId);
 check(activeBuildingManifest.mainEntrance.nodeId === singleLevelPlan.grandEntrance.id, 'Grand Entrance node identity changed');
-check(same(activeEntrance?.bounds, singleLevelPlan.grandEntrance.bounds), 'Grand Entrance must remain exactly 40 × 56 m');
+check(same(activeEntrance?.bounds, planBoundsToRuntime(singleLevelPlan.grandEntrance.bounds)), 'Grand Entrance must remain exactly 40 × 56 m through the runtime embedding');
 check(activeEntrance?.orientationLandmark?.id === 'entrance-visitor-map-kiosk', 'Grand Entrance lacks its permanent orientation landmark');
-check(same(activeNodeById.get(activeBuildingManifest.finalThresholdNodeId)?.bounds, singleLevelPlan.finalThreshold.bounds), 'Final Return threshold dimensions changed');
+check(
+  same(activeNodeById.get(activeBuildingManifest.finalThresholdNodeId)?.bounds, planBoundsToRuntime(singleLevelPlan.finalThreshold.bounds)),
+  'Final Return threshold dimensions changed through the runtime embedding',
+);
 check(activeBuildingManifest.reserves.length === 2 && unique(activeBuildingManifest.reserves.map(({id}) => id)), 'Active manifest must retain exactly two unique reserves');
 for (const reserve of activeBuildingManifest.reserves) {
   check(reserve.bounds.maxX - reserve.bounds.minX === 56 && reserve.bounds.maxZ - reserve.bounds.minZ === 28, `${reserve.id} is not a 56 × 28 m capacity reserve`);

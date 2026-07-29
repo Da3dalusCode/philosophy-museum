@@ -86,6 +86,18 @@ const safeArrivalLanding = clone(program.sharedPhysicalContract.safeArrivalLandi
 const defaultCeilingHeight = programTemplateById.get('sequence-3').ceilingHeightMetres;
 
 const runtimeYaw = (rotationDegrees) => round(-rotationDegrees * Math.PI / 180, 12);
+const normalizeRadians = (value) => {
+  const wrapped = (value + Math.PI) % (Math.PI * 2);
+  return round((wrapped < 0 ? wrapped + Math.PI * 2 : wrapped) - Math.PI, 12);
+};
+const planPointToRuntime = ({x, z}) => ({x: round(-x), z: round(z)});
+const planVectorToRuntime = ({x, z}) => ({x: round(-x), z: round(z)});
+const planBoundsToRuntime = (bounds) => ({
+  minX: round(-bounds.maxX),
+  maxX: round(-bounds.minX),
+  minZ: round(bounds.minZ),
+  maxZ: round(bounds.maxZ),
+});
 const pointToWorld = (transform, point) => {
   const cosine = Math.cos(transform.yaw);
   const sine = Math.sin(transform.yaw);
@@ -101,6 +113,23 @@ const vectorToWorld = (transform, vector) => {
     x: round(vector.x * cosine + vector.z * sine),
     z: round(-vector.x * sine + vector.z * cosine),
   };
+};
+const mirroredHallRuntimeYaw = (hall, portalSpecs) => {
+  const entryPortal = portalSpecs.find(({id}) => id === hall.routePortals.entry);
+  const exitPortal = portalSpecs.find(({id}) => id === hall.routePortals.exit);
+  assert(entryPortal && exitPortal, `${hall.id} lacks an entry/exit axis for runtime embedding.`);
+  const localRoute = {
+    x: exitPortal.position.x - entryPortal.position.x,
+    z: exitPortal.position.z - entryPortal.position.z,
+  };
+  const architecturalRoute = vectorToWorld(
+    {x: 0, z: 0, yaw: runtimeYaw(hall.placement.rotationDegrees)},
+    localRoute,
+  );
+  const runtimeRoute = planVectorToRuntime(architecturalRoute);
+  return normalizeRadians(
+    Math.atan2(localRoute.z, localRoute.x) - Math.atan2(runtimeRoute.z, runtimeRoute.x),
+  );
 };
 const boundsFromCenter = ({x, z}, width, depth) => ({
   minX: round(x - width / 2),
@@ -375,10 +404,10 @@ const hallNodes = plan.halls.map((hall) => {
   assert(template, `${hall.id} uses unknown template ${hall.templateId}.`);
   assert(portalSpecs, `${hall.id} uses unsupported template ${hall.templateId}.`);
   assert.deepEqual(hall.roomIds, canonicalHall.roomIds, `${hall.id} room IDs differ from the approved program.`);
+  const runtimePlacement = planPointToRuntime(hall.placement);
   const transform = {
-    x: hall.placement.x,
-    z: hall.placement.z,
-    yaw: runtimeYaw(hall.placement.rotationDegrees),
+    ...runtimePlacement,
+    yaw: mirroredHallRuntimeYaw(hall, portalSpecs),
   };
   const embedding = plan.physicalContract.templateEmbedding[hall.templateId];
   assert(embedding, `${hall.id} has no approved template embedding.`);
@@ -430,7 +459,7 @@ const hallNodes = plan.halls.map((hall) => {
     levelId: 'L0',
     transform,
     planPlacement: clone(hall.placement),
-    bounds: boundsFromCenter(hall.placement, embedding.worldFootprint.width, embedding.worldFootprint.depth),
+    bounds: boundsFromCenter(runtimePlacement, embedding.worldFootprint.width, embedding.worldFootprint.depth),
     footprint: {
       world: clone(embedding.worldFootprint),
       local: clone(template.footprintMetres),
@@ -507,10 +536,10 @@ const rectangularNode = ({
   };
 };
 
-const entranceBounds = clone(plan.grandEntrance.bounds);
+const entranceBounds = planBoundsToRuntime(plan.grandEntrance.bounds);
 const entranceOrientationLandmark = {
   id: 'entrance-visitor-map-kiosk',
-  position: {x: -10, z: -9},
+  position: {x: 10, z: -9},
 };
 const entranceNode = rectangularNode({
   id: plan.grandEntrance.id,
@@ -521,8 +550,11 @@ const entranceNode = rectangularNode({
   slotSpecs: [
     {
       id: 'public-entry',
-      worldPosition: {x: entranceBounds.minX, z: round((entranceBounds.minZ + entranceBounds.maxZ) / 2)},
-      inwardNormal: {x: 1, z: 0},
+      worldPosition: planPointToRuntime({
+        x: plan.grandEntrance.bounds.minX,
+        z: round((plan.grandEntrance.bounds.minZ + plan.grandEntrance.bounds.maxZ) / 2),
+      }),
+      inwardNormal: planVectorToRuntime({x: 1, z: 0}),
       external: true,
     },
     {
@@ -530,7 +562,7 @@ const entranceNode = rectangularNode({
       worldPosition: hallNodeByProgramId.get(plan.grandEntrance.routeTargetHallId)
         .doorwaySlots.find(({id}) => id === planHallById.get(plan.grandEntrance.routeTargetHallId).routePortals.entry)
         .worldPosition,
-      inwardNormal: {x: -1, z: 0},
+      inwardNormal: planVectorToRuntime({x: -1, z: 0}),
     },
   ],
   metadata: {
@@ -553,12 +585,13 @@ publicEntrySlot.arrivalPose.yaw = round(Math.atan2(
 const crossingNodes = plan.crosscut.intersections
   .filter(({betweenHallIds}) => betweenHallIds)
   .map((intersection) => {
-    const bounds = {
+    const architecturalBounds = {
       minX: plan.crosscut.bounds.minX,
       maxX: plan.crosscut.bounds.maxX,
       minZ: intersection.zCenter - plan.physicalContract.structuralBandDepth / 2,
       maxZ: intersection.zCenter + plan.physicalContract.structuralBandDepth / 2,
     };
+    const bounds = planBoundsToRuntime(architecturalBounds);
     return rectangularNode({
       id: intersection.id,
       kind: 'corridor',
@@ -566,8 +599,16 @@ const crossingNodes = plan.crosscut.intersections
       title: `North–South crosscut · ${intersection.id.replace('crossing:', '')}`,
       bounds,
       slotSpecs: [
-        {id: 'west', worldPosition: {x: bounds.minX, z: intersection.zCenter}, inwardNormal: {x: 1, z: 0}},
-        {id: 'east', worldPosition: {x: bounds.maxX, z: intersection.zCenter}, inwardNormal: {x: -1, z: 0}},
+        {
+          id: 'west',
+          worldPosition: planPointToRuntime({x: architecturalBounds.minX, z: intersection.zCenter}),
+          inwardNormal: planVectorToRuntime({x: 1, z: 0}),
+        },
+        {
+          id: 'east',
+          worldPosition: planPointToRuntime({x: architecturalBounds.maxX, z: intersection.zCenter}),
+          inwardNormal: planVectorToRuntime({x: -1, z: 0}),
+        },
         {
           id: 'south',
           worldPosition: {x: 0, z: bounds.minZ},
@@ -592,11 +633,12 @@ const crossingNodeById = new Map(crossingNodes.map((node) => [node.id, node]));
 
 const turnCourtNodes = plan.turnCourts.map((turn) => {
   assert.equal(turn.centerline.length, 4, `${turn.id} must define a three-run exterior dogleg.`);
-  const from = turn.centerline[0];
-  const to = turn.centerline.at(-1);
+  const runtimeCenterline = turn.centerline.map(planPointToRuntime);
+  const from = runtimeCenterline[0];
+  const to = runtimeCenterline.at(-1);
   const halfWidth = plan.physicalContract.turnCourtClearWidth / 2;
-  const segments = turn.centerline.slice(1).map((point, index) => {
-    const previous = turn.centerline[index];
+  const segments = runtimeCenterline.slice(1).map((point, index) => {
+    const previous = runtimeCenterline[index];
     const delta = {x: point.x - previous.x, z: point.z - previous.z};
     const length = Math.hypot(delta.x, delta.z);
     assert(length > .001, `${turn.id} contains a zero-length centerline segment.`);
@@ -787,7 +829,8 @@ const turnCourtNodes = plan.turnCourts.map((turn) => {
       coordinateFrame: 'node-local',
       bounds: localTurnBounds,
       cells,
-      worldCenterline: clone(turn.centerline),
+      planCenterline: clone(turn.centerline),
+      worldCenterline: runtimeCenterline,
       centerlineLength: turn.centerlineLength,
       measuredCenterlineLength: round(measuredLength, 6),
       segmentCount: segments.length,
@@ -804,7 +847,7 @@ const turnCourtByPair = new Map(
   turnCourtNodes.map((node) => [`${node.fromProgramHallId}->${node.toProgramHallId}`, node]),
 );
 
-const finalBounds = clone(plan.finalThreshold.bounds);
+const finalBounds = planBoundsToRuntime(plan.finalThreshold.bounds);
 const finalSourceHall = hallNodeByProgramId.get(plan.finalThreshold.routeSourceHallId);
 const finalSourcePlan = planHallById.get(plan.finalThreshold.routeSourceHallId);
 const finalSourcePortal = finalSourceHall.doorwaySlots.find(({id}) => id === finalSourcePlan.routePortals.exit);
@@ -818,12 +861,15 @@ const finalThresholdNode = rectangularNode({
     {
       id: 'through-route',
       worldPosition: clone(finalSourcePortal.worldPosition),
-      inwardNormal: {x: -1, z: 0},
+      inwardNormal: planVectorToRuntime({x: -1, z: 0}),
     },
     {
       id: 'return-exit',
-      worldPosition: {x: finalBounds.minX, z: round((finalBounds.minZ + finalBounds.maxZ) / 2)},
-      inwardNormal: {x: 1, z: 0},
+      worldPosition: planPointToRuntime({
+        x: plan.finalThreshold.bounds.minX,
+        z: round((plan.finalThreshold.bounds.minZ + plan.finalThreshold.bounds.maxZ) / 2),
+      }),
+      inwardNormal: planVectorToRuntime({x: 1, z: 0}),
       external: true,
     },
   ],
@@ -867,7 +913,9 @@ const crosscutExtensionNode = rectangularNode({
 
 const reserves = plan.expansionReservations.map((reserve) => {
   const westReserve = reserve.bounds.maxX === plan.crosscut.bounds.minX;
-  const boundaryX = westReserve ? reserve.bounds.maxX : reserve.bounds.minX;
+  const architecturalBoundaryX = westReserve ? reserve.bounds.maxX : reserve.bounds.minX;
+  const runtimeBounds = planBoundsToRuntime(reserve.bounds);
+  const boundaryX = planPointToRuntime({x: architecturalBoundaryX, z: 0}).x;
   const fullHeight = programTemplateById.get('sequence-3').ceilingHeightMetres;
   return {
     id: reserve.id,
@@ -875,9 +923,9 @@ const reserves = plan.expansionReservations.map((reserve) => {
     status: reserve.status,
     implementationStatus: 'reserved',
     levelId: 'L0',
-    bounds: clone(reserve.bounds),
-    center: centerOfBounds(reserve.bounds),
-    size: sizeOfBounds(reserve.bounds),
+    bounds: runtimeBounds,
+    center: centerOfBounds(runtimeBounds),
+    size: sizeOfBounds(runtimeBounds),
     maximumTemplate: reserve.maximumTemplate,
     futureEntryFrom: reserve.futureEntryFrom,
     futureEntryFromNodeId: crosscutExtensionNode.id,
@@ -889,14 +937,14 @@ const reserves = plan.expansionReservations.map((reserve) => {
       center: {
         x: boundaryX,
         y: round(fullHeight / 2),
-        z: round((reserve.bounds.minZ + reserve.bounds.maxZ) / 2),
+        z: round((runtimeBounds.minZ + runtimeBounds.maxZ) / 2),
       },
       line: {
-        from: {x: boundaryX, z: reserve.bounds.minZ},
-        to: {x: boundaryX, z: reserve.bounds.maxZ},
+        from: {x: boundaryX, z: runtimeBounds.minZ},
+        to: {x: boundaryX, z: runtimeBounds.maxZ},
       },
       size: {
-        width: reserve.bounds.maxZ - reserve.bounds.minZ,
+        width: runtimeBounds.maxZ - runtimeBounds.minZ,
         height: fullHeight,
         depth: wallThicknessMetres,
       },
@@ -1050,8 +1098,8 @@ const crosscutChain = [
   {nodeId: 'crossing:band-02', lowerSlotId: 'south', upperSlotId: 'north'},
   {
     nodeId: hallNodeId('core-questions-forum'),
-    lowerSlotId: forumPlan.routePortals.crosscutNorth,
-    upperSlotId: forumPlan.routePortals.crosscutSouth,
+    lowerSlotId: forumPlan.routePortals.crosscutSouth,
+    upperSlotId: forumPlan.routePortals.crosscutNorth,
   },
   {nodeId: 'crossing:band-04', lowerSlotId: 'south', upperSlotId: 'north'},
   {nodeId: 'crossing:band-05', lowerSlotId: 'south', upperSlotId: 'north'},
@@ -1127,6 +1175,7 @@ const manifest = {
   units: plan.units,
   level: {id: plan.coordinateSystem.levelId, title: 'Single public level', elevation: plan.coordinateSystem.finishedFloorY},
   coordinateSystem: clone(plan.coordinateSystem),
+  runtimeEmbedding: clone(plan.runtimeEmbedding),
   physicalContract: {
     ...clone(plan.physicalContract),
     wallThickness: wallThicknessMetres,
@@ -1205,6 +1254,7 @@ const validateManifest = (candidate) => {
   assert.equal(candidate.schemaVersion, 2);
   assert.equal(candidate.status, 'implemented-approved-continuous-enfilade');
   assert.equal(candidate.physicalOptionId, 'continuous-enfilade-single-level');
+  assert.deepEqual(candidate.runtimeEmbedding, plan.runtimeEmbedding);
   assert.equal(candidate.physicalContract.wallThickness, wallThicknessMetres);
   assert.equal(candidate.physicalContract.doorClearWidth, portalDimensions.clearWidthMetres);
   assert.equal(candidate.physicalContract.doorClearHeight, portalDimensions.clearHeightMetres);
@@ -1282,13 +1332,15 @@ const validateManifest = (candidate) => {
         return {id: room.id, title: room.title};
       }),
     );
-    assert.equal(node.transform.x, approved.placement.x);
+    const expectedRuntimePlacement = planPointToRuntime(approved.placement);
+    const expectedPortalSpecs = templatePortalSpecs[approved.templateId];
+    assert.equal(node.transform.x, expectedRuntimePlacement.x);
     assert.equal(node.transform.z, approved.placement.z);
-    assert(close(node.transform.yaw, -approved.placement.rotationDegrees * Math.PI / 180, 1e-9));
+    assert(close(node.transform.yaw, mirroredHallRuntimeYaw(approved, expectedPortalSpecs), 1e-9));
     assert.deepEqual(node.planPlacement, approved.placement);
     const expectedEmbedding = plan.physicalContract.templateEmbedding[approved.templateId];
     assert.deepEqual(node.bounds, boundsFromCenter(
-      approved.placement,
+      expectedRuntimePlacement,
       expectedEmbedding.worldFootprint.width,
       expectedEmbedding.worldFootprint.depth,
     ));
@@ -1388,10 +1440,7 @@ const validateManifest = (candidate) => {
     maxZ: Math.max(...boundedItems.map(({maxZ}) => maxZ)),
   };
   assert.deepEqual(measuredBounds, {
-    minX: controlledBounds.minX,
-    maxX: controlledBounds.maxX,
-    minZ: controlledBounds.minZ,
-    maxZ: controlledBounds.maxZ,
+    ...planBoundsToRuntime(controlledBounds),
   });
 
   const compiledNodeById = new Map(candidate.nodes.map((node) => [node.id, node]));
@@ -1482,7 +1531,8 @@ const validateManifest = (candidate) => {
     assert([2, 3].includes(node.geometry.cells.length));
     assert(node.geometry.cells.every(({kind}) => kind === 'passage'));
     assert(node.geometry.cells.every(({ceilingHeight}) => ceilingHeight === defaultCeilingHeight));
-    assert.deepEqual(node.geometry.worldCenterline, turn.centerline);
+    assert.deepEqual(node.geometry.planCenterline, turn.centerline);
+    assert.deepEqual(node.geometry.worldCenterline, turn.centerline.map(planPointToRuntime));
     assert.equal(node.geometry.centerlineLength, turn.centerlineLength);
     assert(close(node.geometry.measuredCenterlineLength, turn.centerlineLength));
     assert.equal(node.geometry.segmentCount, turn.centerline.length - 1);
