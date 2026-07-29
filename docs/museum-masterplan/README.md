@@ -1,10 +1,22 @@
 # Philosophy Atlas Museum masterplan
 
-**Status:** approved long-term program and physical direction. The canonical-six implementation converts the six temporary shells to five permanent outer-loop halls plus the central Core Questions Forum without pretending that all 26 final halls are open. Deployment status is determined by `main`, not by this feature branch.
+**Status:** the 26-gallery intellectual program and the dimensioned single-level **Continuous Enfilade** are implemented together. The production runtime contains 12 curated/open galleries, 14 planned/walkable shells, all 105 named rooms, and two closed expansion reserves.
+
+## Whole-building architectural control plan
+
+The earlier Ring diagrams fixed a topology, not a scaled building. Galleries 01–12 were therefore placed incrementally until the complete migration. Their curated hall-local roots remain intact, while the Continuous Enfilade manifest now owns their final world positions, orientations, route portals, entrance relationship, and map geometry.
+
+The approved complete single-level plan is:
+
+- [Continuous Enfilade architectural plan](./single-level-building-plan.md)
+- [Machine-readable control geometry](./single-level-building-plan.json)
+- [1:1000 dimensioned drawing](./diagrams/continuous-enfilade-single-level.svg)
+
+The plan contains all 26 approved galleries and 105 rooms, two full gallery-capable reserve bays, exact coordinates and rotations, a grand entrance, six shared-wall bands, a through-gallery route, a north–south crosscut that lands only at threshold joints, five bounded turn courts, and an executable validator. The compiler and runtime implement that contract directly; improvised piecemeal corridor edits remain prohibited.
 
 ## Decision in one page
 
-**Worlds with a Questions Forum — Expanded and Culturally Safeguarded** is the approved intellectual program, and the single-level **Ring of Wings** is the approved physical direction. These choices are locked for the staged Ring implementation.
+**Worlds with a Questions Forum — Expanded and Culturally Safeguarded** is the approved intellectual program. The single-level **Continuous Enfilade** is its approved physical planning basis. The former Ring remains design history, not construction geometry.
 
 The approved program gives historically and culturally situated traditions their own primary homes, then lets a central questions forum and explicit secondary associations reveal shared problems. It contains:
 
@@ -26,7 +38,7 @@ The hybrid program best satisfies the project’s priority order:
 4. Its 71-record capacity margin supports new Atlas content and rotation without forcing an immediate new wing.
 5. A small set of reusable gallery templates can realize the program gradually.
 
-The Ring of Wings is approved because its central forum gives visitors a legible point of return, most halls can have two useful connections, and eight priority halls have named outward expansion points. The Braided Promenade and Pavilion Campus remain archived comparison studies, not active alternatives for this phase.
+The Continuous Enfilade is approved because it keeps the visitor moving through galleries instead of empty interstitial corridors, gives every gallery a far-side continuation, places the Forum in an independent full bay, creates a useful central crosscut without piercing exhibit rooms, and reserves two additional gallery bays without sacrificing an existing wall. The Braided Promenade, Pavilion Campus, and Ring remain archived design history.
 
 ## How the plan was challenged
 
@@ -39,7 +51,7 @@ Parallel specialist reviews were organized by distinct scope rather than by one 
 | Early modern/Enlightenment; German Idealism/continental traditions | kept Kant late-Enlightenment, made Camus a rejected label, and documented Beauvoir’s close primary-home dispute before the approved Feminist-primary decision |
 | Analytic, logic, language, science, and mind | kept Wittgenstein longitudinally Analytic, Anscombe primary in Action/Intention, and modern field branches comparative rather than cultureless |
 | Ethics, politics, feminist, race, and liberation thought | separated Moral Life, Justice, Feminist, and Colonialism/Race/Liberation halls and distinguished Fanon, Davis, hooks, Butler, and Habermas |
-| Taxonomy, visitor experience, physical architecture, accessibility, and wayfinding | expanded the program to 26 halls, selected a one-level loop, centralized the physical manifest, and made blocked growth points explicit |
+| Taxonomy, visitor experience, physical architecture, accessibility, and wayfinding | expanded the program to 26 halls, established the physical-manifest contract, then replaced the unscaled loop with a dimensioned continuous single-level building and two crosscut-fed reserves |
 
 Independent final audits then checked scholarship/cultural balance, exact data coverage, and physical correspondence. Their blocking findings—uncertainty dates serialized as raw anchors, generic branch rationales, missing continuity routes, diagram/prose conflicts, and a non-crossable manifest fragment—were corrected and added to deterministic validation where machine checks are appropriate.
 
@@ -53,7 +65,9 @@ Start with these documents, in order:
 4. [Approved program](./recommended-program.md) — all 10 wings, 26 halls, and 105 rooms or zones.
 5. [Difficult placements](./difficult-placements.md) — disputed cases and the judgment calls made.
 6. [Building options](./building-options.md) — three physical concepts, templates, circulation, accessibility, and expansion.
-7. [Migration plan](./migration-plan.md) — how the completed Ring pilot converts to six permanent programs and expands without building the whole museum at once.
+7. [Continuous Enfilade plan](./single-level-building-plan.md) — exact dimensions, coordinates, 105-room setup, states, movement, performance, and migration gates.
+8. [Migration plan](./migration-plan.md) — implementation history plus the coordinated whole-building cutover.
+9. [Implementation handoff prompt](./implementation-handoff-prompt.md) — the archived exact prompt used for the completed build-and-deploy cutover.
 
 The complete assignments are reviewable as spreadsheets:
 
@@ -68,13 +82,15 @@ The machine-readable planning contract is split deliberately:
 
 CSV secondary hall IDs are reviewed route candidates. Before implementation, each must receive a room-level destination, a typed relation, and a one-sentence scholarly rationale; bare adjacency must never be rendered as influence or membership.
 
-The three directly reviewable, conceptual (not-to-scale) floor-plan diagrams record the design review. Only the Ring is active for this phase:
+The three earlier conceptual (not-to-scale) diagrams remain as design history. None is an approved final construction layout:
 
-- [Ring of Wings](./diagrams/ring-of-wings.svg) — approved single-level loop and central forum.
+- [Ring of Wings](./diagrams/ring-of-wings.svg) — the loop-and-Forum concept that guided earlier runtime phases.
 - [Braided Promenade](./diagrams/braided-promenade.svg) — archived compact two-level comparison.
 - [Pavilion Campus](./diagrams/pavilion-campus.svg) — archived campus comparison.
 
-## Approved decisions locked for the Ring program
+The dimensioned [Continuous Enfilade](./single-level-building-plan.md) is both the approved physical basis and the active compiled runtime.
+
+## Approved decisions locked for the intellectual program
 
 The package records, but does not hide, several consequential approved choices:
 
@@ -92,22 +108,23 @@ The package records, but does not hide, several consequential approved choices:
 
 See [Difficult placements](./difficult-placements.md) for the complete reasoning and unresolved interpretive risks.
 
-## Approved permanent-six phase
+## Earlier permanent-six migration phase
 
-The hybrid taxonomy, disputed primary homes, and Ring layout remain approved. The completed infrastructure phase supplied real walls and corridors, a centralized runtime building manifest, accessible safe arrivals, a compact loop and spokes, and blocked insertion and outward-expansion reservations. The canonical-six implementation replaces the six temporary public programs with `mediterranean-beginnings-classical`, `renaissance-humanism-new-method`, `phenomenology-existence-embodiment`, `analytic-traditions`, `justice-democratic-reason`, and the permanent central `core-questions-forum`.
+The hybrid taxonomy and disputed primary homes remain approved. The earlier infrastructure phase supplied real walls and corridors, accessible safe arrivals, a compact loop and spokes, and blocked insertion/outward-expansion reservations. That Ring geometry is now retained only as a rollback artifact. The canonical-six implementation replaced the six temporary public programs with `mediterranean-beginnings-classical`, `renaissance-humanism-new-method`, `phenomenology-existence-embodiment`, `analytic-traditions`, `justice-democratic-reason`, and `core-questions-forum`; later releases expanded the curated roster to Galleries 01–12 before their roots migrated into the Continuous Enfilade.
 
-The five historical/methodological successors remain on the compact outer loop; the Forum occupies the central court. The former outer Mind shell is retired as a public gallery and used only for truthful circulation, construction, or reservation geometry. The canonical six install their 63 exact primary assignments by tier rather than preserving the former 48-installation quota. Displaced exhibit routes remain aliases or explanatory handoffs to intact Atlas content and planned primary halls.
+The old five-hall outer loop and central spokes are migration history, not active geometry. The former outer Mind shell remains retired. Displaced exhibit routes remain aliases or explanatory handoffs to intact Atlas content and planned primary halls.
 
 ## Deterministic validation
 
 From the repository root, run:
 
 ```powershell
-node scripts/validateMuseumMasterplan.mjs
+npm run validate:museum-masterplan
+npm run validate:museum-building-plan
 npm run build
 ```
 
-The validator compares the CSVs with the current TypeScript data and checks exact-once primary coverage, applied uncertainty-date metadata, stable IDs, all wing/hall/room/tier references, unique secondary hall references, template ranges/slots, program totals, capacities, and the planning-manifest example’s nodes, poses, connections, footprints, status, and blocked reservations. Runtime canonical-six geometry and behavior require the separate Museum audits in addition to this planning validation and the normal application build.
+The program validator compares the CSVs with the current TypeScript data and checks exact-once primary coverage, applied uncertainty-date metadata, stable IDs, all wing/hall/room/tier references, unique secondary hall references, template ranges/slots, program totals, capacities, and the planning-manifest example. The building-plan validator compares the active compiled runtime with the exact 26-gallery/105-room control plan, including public and visit numbering, transforms, room shells, safe portals, non-overlap, crosscut joints, route length, entrance, Forum bay, five turn courts, performance contract, and two full expansion reserves. Runtime behavior also requires the Museum audits and browser review.
 
 ## Research and accessibility anchors
 
@@ -117,4 +134,4 @@ The template contract treats accessibility as geometry, not decoration. Detailed
 
 ## Scope boundary
 
-This directory remains the long-term planning contract. Its CSV and JSON data assign all 189 Atlas records—146 philosophers and 43 branches—exactly once. The canonical-six runtime installs the 63 records whose approved primary homes are among the six permanent halls, in 29 rooms and at their approved presentation tiers. The former 48-installation roster is retained only as a Phase 2 migration record. Displaced legacy URLs use aliases or explanatory handoffs to intact Atlas articles and their planned Museum homes. Runtime geometry, connections, residency, and visitor-map projection are implemented and audited in the Museum source layer.
+This directory remains the long-term planning contract. Its CSV and JSON data assign all 189 Atlas records—146 philosophers and 43 branches—exactly once. The runtime installs the curated records in Galleries 01–12 and preserves the remaining named rooms as honest planned shells. The former 48-installation roster and Ring manifest are retained only as migration/rollback records. Runtime geometry, connections, residency, and visitor-map projection are compiled and audited in the Museum source layer.

@@ -37,6 +37,7 @@ import {
   getMuseumRuntimeHallNode,
   getMuseumRuntimeNode,
 } from '../../data/museum/museumBuildingRuntime';
+import {MUSEUM_BUILDING_MANIFEST} from '../../data/museum/museumBuildingManifest';
 import {getMuseumInterpretation} from '../../data/museum/museumInterpretations';
 import {
   findMuseumSupplementalExhibit,
@@ -74,7 +75,12 @@ import {MuseumModal} from './MuseumModal';
 import {MuseumTouchControls} from './MuseumTouchControls';
 import {MuseumVisitorMap} from './MuseumVisitorMap';
 import type {MuseumWalkingPace} from './museumMovement';
-import {loadMuseumSession, removeMuseumSession, saveMuseumSession} from './museumSession';
+import {
+  loadMuseumLastVisit,
+  loadMuseumSession,
+  removeMuseumSession,
+  saveMuseumSession,
+} from './museumSession';
 import {useMuseumControls, type MuseumControls} from './useMuseumControls';
 import {useMuseumExperienceMode} from './useMuseumExperienceMode';
 import {resolveMuseumHallResidency} from './museumResidency';
@@ -82,7 +88,6 @@ import {resolveMuseumHallResidency} from './museumResidency';
 import {
   museumHallEntryReadinessKey,
   museumHallReadinessKeyBelongsTo,
-  resolveMuseumOrientationReset,
   type MuseumHallApproach,
   type MuseumHallLoadStatus,
   type MuseumNodeTransition,
@@ -398,7 +403,9 @@ export function MuseumPage({route, href, push, replace}: {
   replace: RouteNavigator;
 }) {
   const [activeHallId, setActiveHallId] = useState<MuseumHallId>(route.hallId);
-  const [activeNodeId, setActiveNodeId] = useState(() => getMuseumRuntimeHallNode(route.hallId)?.id ?? '');
+  const [activeNodeId, setActiveNodeId] = useState(() => route.entry === 'entrance'
+    ? MUSEUM_BUILDING_MANIFEST.mainEntrance.nodeId
+    : getMuseumRuntimeHallNode(route.hallId)?.id ?? '');
   const activeNode = getMuseumRuntimeNode(activeNodeId);
   if (!activeNode) throw new Error(`Museum physical node ${activeNodeId || route.hallId} is not registered in the building manifest.`);
   const registration = getMuseumHallRegistration(activeHallId);
@@ -415,6 +422,9 @@ export function MuseumPage({route, href, push, replace}: {
     () => getMuseumGuidedStops(activeHallId, hall.guidedOrder as readonly MuseumExhibitId[]),
     [activeHallId, hall.guidedOrder],
   );
+  const atCuratedHall = activeNode.publicHallId === activeHallId;
+  const atGrandEntrance = activeNode.id === MUSEUM_BUILDING_MANIFEST.mainEntrance.nodeId;
+  const atFinalThreshold = activeNode.id === MUSEUM_BUILDING_MANIFEST.finalThresholdNodeId;
   const sceneLocationLabel = activeNode.publicHallId ? hall.title : activeNode.mapLabel;
   const visitContext = route.hallId === activeHallId && route.exhibitId
     ? parseMuseumExhibitVisitContext(window.history.state, route.hallId) ?? directMuseumVisitContext(route.hallId)
@@ -429,6 +439,7 @@ export function MuseumPage({route, href, push, replace}: {
   const travelResumeModeRef = useRef<'locked' | 'drag-look'>('drag-look');
   const controlsRef = useRef<MuseumControls | null>(null);
   const poseRef = useRef<MuseumPose>((() => {
+    if (route.entry === 'entrance') return {...activeNode.layout.spawn};
     const session = loadMuseumSession(layout);
     const marker = parseMuseumExhibitVisitContext(window.history.state, route.hallId);
     if (session && (!route.exhibitId || marker)) {
@@ -461,6 +472,7 @@ export function MuseumPage({route, href, push, replace}: {
   } | undefined>(undefined);
   const previousRouteExhibitRef = useRef(route.exhibitId);
   const previousHallIdRef = useRef(route.hallId);
+  const previousEntranceRouteRef = useRef(route.entry);
   const pendingHallTransitionRef = useRef<{sourceHallId: MuseumHallId; targetHallId: MuseumHallId} | undefined>(undefined);
   const pendingHallTravelRef = useRef<{sourceHallId: MuseumHallId; targetHallId: MuseumHallId} | undefined>(undefined);
   const preparedHallEntryKeysRef = useRef<Set<string>>(new Set());
@@ -491,11 +503,11 @@ export function MuseumPage({route, href, push, replace}: {
   const approachedHallId = approachedHall?.hallId;
   const [recentHallId, setRecentHallId] = useState<MuseumHallId | undefined>();
   const residentHallIds = useMemo(() => new Set(resolveMuseumHallResidency({
-    activeHallId,
+    activeHallId: activeNode.publicHallId ? activeHallId : undefined,
     approachedHallId,
     approachedEntranceId: approachedHall?.entranceId,
     recentHallId,
-  })), [activeHallId, approachedHall?.entranceId, approachedHallId, recentHallId]);
+  })), [activeHallId, activeNode.publicHallId, approachedHall?.entranceId, approachedHallId, recentHallId]);
   const residentHallIdsRef = useRef(residentHallIds);
   residentHallIdsRef.current = residentHallIds;
   const [announcement, setAnnouncement] = useState('');
@@ -519,8 +531,9 @@ export function MuseumPage({route, href, push, replace}: {
   const LazyMuseumWorldScene = useMemo(createLazyMuseumWorldScene, [sceneEpoch]);
   const reducedMotion = useReducedMotion();
   const modalOpen = Boolean(exhibit || supplementalExhibit || overlay);
-  const activeHallLoadFailed = hallLoadStatus[activeHallId] === 'failed';
-  const activeHallLoading = hallLoadStatus[activeHallId] === 'idle' || hallLoadStatus[activeHallId] === 'loading';
+  const activeHallLoadFailed = Boolean(activeNode.publicHallId) && hallLoadStatus[activeHallId] === 'failed';
+  const activeHallLoading = Boolean(activeNode.publicHallId)
+    && (hallLoadStatus[activeHallId] === 'idle' || hallLoadStatus[activeHallId] === 'loading');
   const blocked = modalOpen || Boolean(sceneError) || activeHallLoading;
   const exploring = visitPhase === 'active';
   const focusSuspended = visitPhase === 'focus-suspended';
@@ -757,41 +770,32 @@ export function MuseumPage({route, href, push, replace}: {
   }, [push, saveCurrentHallSession, visitPhase]);
 
   const resetPosition = useCallback(() => {
-    const targetHallId = MUSEUM_VISITOR_MAP_KIOSK.hallId;
+    const targetHallId: MuseumHallId = 'mediterranean-beginnings-classical';
     const targetRegistration = getMuseumHallRegistration(targetHallId);
-    const targetNode = getMuseumRuntimeHallNode(targetHallId);
+    const targetNode = getMuseumRuntimeNode(MUSEUM_BUILDING_MANIFEST.mainEntrance.nodeId);
     if (!targetRegistration || !targetNode) {
       setAnnouncement('The authored Museum orientation point is unavailable.');
       return;
     }
     const sourceHallId = activeHallIdRef.current;
-    const reset = resolveMuseumOrientationReset({
-      sourceHallId,
-      targetHallId,
-      targetNodeId: targetNode.id,
-      targetPose: targetRegistration.definition.layout.reset,
-    });
     controlsRef.current?.pauseExploring();
-    activeHallIdRef.current = reset.activeHallId;
-    activeNodeIdRef.current = reset.activeNodeId;
+    activeHallIdRef.current = targetHallId;
+    activeNodeIdRef.current = targetNode.id;
     activeNodeRef.current = targetNode;
     activeDefinitionRef.current = targetRegistration.definition;
-    reset.clearedHallIds.forEach((hallId) => {
+    [...new Set<MuseumHallId>([sourceHallId, targetHallId])].forEach((hallId) => {
       removeMuseumSession(hallId);
       lastSavedHallSignatureRef.current.delete(hallId);
     });
     pendingHallTravelRef.current = undefined;
     pendingCrossHallCloseRef.current = undefined;
-    const routeChangesHall = route.hallId !== targetHallId;
-    pendingHallTransitionRef.current = routeChangesHall
-      ? {sourceHallId: route.hallId, targetHallId}
-      : undefined;
-    setActiveHallId(reset.activeHallId);
-    setActiveNodeId(reset.activeNodeId);
+    pendingHallTransitionRef.current = undefined;
+    setActiveHallId(targetHallId);
+    setActiveNodeId(targetNode.id);
     setApproachedHall(undefined);
     setRecentHallId(undefined);
-    residentHallIdsRef.current = new Set(resolveMuseumHallResidency({activeHallId: targetHallId}));
-    poseRef.current = reset.pose;
+    residentHallIdsRef.current = new Set();
+    poseRef.current = {...targetNode.layout.reset};
     nearbyRef.current = undefined;
     setNearbyReference(undefined);
     nearbySupplementalRef.current = undefined;
@@ -801,19 +805,14 @@ export function MuseumPage({route, href, push, replace}: {
     visitorMapResumeRef.current = false;
     setOverlay(null);
     setVisitPhase('explicitly-paused');
-    setAnnouncement('Position reset beside the visitor map and Gallery 01 entrance.');
+    setAnnouncement('Position reset to the Grand Entrance and visitor map.');
     setPoseRevision((value) => value + 1);
     const resetHistoryState = museumHistoryStateWithHallTravelContext(
       museumHistoryStateWithVisitContext(window.history.state, undefined),
       undefined,
     );
-    if (routeChangesHall || route.exhibitId) {
-      replace({kind: 'museum', hallId: targetHallId}, {state: resetHistoryState});
-    } else {
-      window.history.replaceState(resetHistoryState, '');
-    }
-    void ensureHallEntry(targetHallId).catch(() => undefined);
-  }, [ensureHallEntry, replace, route.exhibitId, route.hallId]);
+    replace({kind: 'museum', hallId: targetHallId, entry: 'entrance'}, {state: resetHistoryState});
+  }, [replace]);
 
   const showVisitorMap = useCallback(() => {
     overlayOpenerRef.current = document.activeElement instanceof HTMLElement ? document.activeElement : sceneCanvasRef.current;
@@ -830,8 +829,8 @@ export function MuseumPage({route, href, push, replace}: {
   }, [saveCurrentHallSession, visitPhase]);
 
   const openVisitorMap = useCallback(() => {
-    if (activeHallIdRef.current !== MUSEUM_VISITOR_MAP_KIOSK.hallId || !visitorMapNearbyRef.current) {
-      setAnnouncement('The Museum visitor map is beside the Hall I entrance. Move closer to the illuminated kiosk to use it.');
+    if (activeNodeIdRef.current !== MUSEUM_VISITOR_MAP_KIOSK.nodeId || !visitorMapNearbyRef.current) {
+      setAnnouncement('The Museum visitor map is in the Grand Entrance. Move closer to the illuminated kiosk to use it.');
       return;
     }
     showVisitorMap();
@@ -1004,6 +1003,47 @@ export function MuseumPage({route, href, push, replace}: {
     setAnnouncement(`Arrived at the safe entrance to ${getMuseumHallCatalog(hallId)?.title ?? 'the selected gallery'}. Continue exploring.`);
   }, [travelToHall]);
 
+  const resumeLastMuseumVisit = useCallback(() => {
+    const lastVisit = loadMuseumLastVisit();
+    const lastVisitHallId = lastVisit
+      && MUSEUM_HALLS.some(({id}) => id === lastVisit.hallId)
+      ? lastVisit.hallId as MuseumHallId
+      : undefined;
+    const targetRegistration = lastVisitHallId ? getMuseumHallRegistration(lastVisitHallId) : undefined;
+    const targetMapNode = lastVisitHallId ? getMuseumVisitorMapNode(lastVisitHallId) : undefined;
+    const semanticSession = targetRegistration
+      ? loadMuseumSession(targetRegistration.definition.layout)
+      : undefined;
+    const fallbackDestination = targetRegistration && targetMapNode
+      ? resolveMuseumVisitorMapDestination(targetRegistration.definition, targetMapNode)
+      : undefined;
+    const destination = semanticSession
+      ? {
+          x: semanticSession.x,
+          z: semanticSession.z,
+          yaw: semanticSession.yaw,
+          pitch: semanticSession.pitch,
+        }
+      : fallbackDestination;
+    if (!lastVisitHallId || !targetRegistration || !destination || !travelToHall(lastVisitHallId, destination)) {
+      setAnnouncement('No safe saved Museum visit is available yet. Begin the chronological route or choose a curated gallery from the map.');
+      return;
+    }
+    setAnnouncement(`Resumed your last visit in ${getMuseumHallCatalog(lastVisitHallId)?.title ?? 'the saved gallery'}.`);
+  }, [travelToHall]);
+
+  const startAtForumCrosscut = useCallback(() => {
+    const forumHallId: MuseumHallId = 'core-questions-forum';
+    const forumNode = getMuseumRuntimeHallNode(forumHallId);
+    const crosscutEntrance = forumNode?.entrances.find(({id}) => id === 'N0')
+      ?? forumNode?.entrances.find(({id}) => id === 'S0');
+    if (!crosscutEntrance || !travelToHall(forumHallId, crosscutEntrance.arrivalPose)) {
+      setAnnouncement('The Forum crosscut arrival could not be prepared.');
+      return;
+    }
+    setAnnouncement('Arrived at the Core Questions Forum on the north–south crosscut.');
+  }, [travelToHall]);
+
   const stageZoneViewpoint = useCallback((hallId: MuseumHallId, zoneId: string) => {
     const targetRegistration = getMuseumHallRegistration(hallId);
     const targetHall = getMuseumHallCatalog(hallId);
@@ -1097,7 +1137,7 @@ export function MuseumPage({route, href, push, replace}: {
     if (!approach) return;
     const {hallId, entranceId} = approach;
     residentHallIdsRef.current = new Set(resolveMuseumHallResidency({
-      activeHallId: activeHallIdRef.current,
+      activeHallId: activeNodeRef.current.publicHallId ? activeHallIdRef.current : undefined,
       approachedHallId: hallId,
       approachedEntranceId: entranceId,
       recentHallId,
@@ -1166,7 +1206,10 @@ export function MuseumPage({route, href, push, replace}: {
     setOverlay(next);
   };
   const beginExploring = () => {
-    if (sceneError || hallLoadStatus[activeHallId] !== 'ready') return;
+    if (
+      sceneError
+      || (activeNodeRef.current.publicHallId && hallLoadStatus[activeHallId] !== 'ready')
+    ) return;
     setOverlay(null);
     setVisitPhase((phase) => transitionMuseumVisitPhase(phase, 'enter'));
     controls.beginExploring();
@@ -1218,6 +1261,62 @@ export function MuseumPage({route, href, push, replace}: {
     lastExhibitContextRef.current = context;
     const state = museumHistoryStateWithVisitContext(window.history.state, context);
     if (replaceCurrent) replace(target, {state}); else push(target, {state});
+  };
+
+  const beginChronologicalRoute = () => {
+    const node = activeNodeRef.current;
+    const routeDoor = node.entrances.find(({id}) => id === 'through-route');
+    if (node.id !== MUSEUM_BUILDING_MANIFEST.mainEntrance.nodeId || !routeDoor) {
+      setAnnouncement('Return to the Grand Entrance to begin the chronological route.');
+      return;
+    }
+    const offsetX = routeDoor.position.x - poseRef.current.x;
+    const offsetZ = routeDoor.position.z - poseRef.current.z;
+    poseRef.current = {
+      ...poseRef.current,
+      yaw: Math.atan2(-offsetX, -offsetZ),
+      pitch: 0,
+    };
+    setPoseRevision((value) => value + 1);
+    setAnnouncement('Chronological route selected. Continue through Gallery 01 and each far threshold.');
+    beginExploring();
+  };
+
+  const startGuidedVisitFromEntrance = () => {
+    const firstHallId: MuseumHallId = 'mediterranean-beginnings-classical';
+    const firstRegistration = getMuseumHallRegistration(firstHallId);
+    const firstHall = getMuseumHallCatalog(firstHallId);
+    const firstStop = firstHall
+      ? getMuseumGuidedStops(firstHallId, firstHall.guidedOrder as readonly MuseumExhibitId[])[0]
+      : undefined;
+    const viewpoint = firstRegistration && firstStop
+      ? museumRouteViewpoint(firstRegistration.definition.layout, firstStop.exhibitId)
+      : undefined;
+    if (!firstRegistration || !firstStop || !viewpoint || !activateHall(firstHallId, viewpoint)) {
+      setAnnouncement('The opening guided visit could not be prepared.');
+      return;
+    }
+    saveMuseumSession(
+      firstRegistration.definition.layout,
+      viewpoint,
+      firstStop.kind === 'primary' ? firstStop.exhibitId : undefined,
+    );
+    const context = createMuseumExhibitVisitContext(firstHallId, 'guided');
+    lastExhibitContextRef.current = context;
+    push(
+      {kind: 'museum', hallId: firstHallId, exhibitId: firstStop.exhibitId},
+      {state: museumHistoryStateWithVisitContext(window.history.state, context)},
+    );
+  };
+
+  const endGuidedVisitAtThreshold = () => {
+    controls.pauseExploring();
+    setVisitPhase((phase) => transitionMuseumVisitPhase(phase, 'explicit-pause'));
+    window.history.replaceState(
+      museumHistoryStateWithVisitContext(window.history.state, undefined),
+      '',
+    );
+    setAnnouncement('Guided visit ended at the Final Return threshold. Return to the entrance or open the collection map.');
   };
 
   const retryScene = () => {
@@ -1347,9 +1446,54 @@ export function MuseumPage({route, href, push, replace}: {
   }, [route.exhibitId, route.hallId]);
 
   useEffect(() => {
+    if (previousEntranceRouteRef.current === route.entry) return;
+    previousEntranceRouteRef.current = route.entry;
+    const targetRegistration = getMuseumHallRegistration(route.hallId);
+    const targetNode = route.entry === 'entrance'
+      ? getMuseumRuntimeNode(MUSEUM_BUILDING_MANIFEST.mainEntrance.nodeId)
+      : getMuseumRuntimeHallNode(route.hallId);
+    if (!targetRegistration || !targetNode) return;
+    saveCurrentHallSession();
+    activeHallIdRef.current = route.hallId;
+    activeNodeIdRef.current = targetNode.id;
+    activeNodeRef.current = targetNode;
+    activeDefinitionRef.current = targetRegistration.definition;
+    setActiveHallId(route.hallId);
+    setActiveNodeId(targetNode.id);
+    setApproachedHall(undefined);
+    setRecentHallId(undefined);
+    residentHallIdsRef.current = new Set(resolveMuseumHallResidency({
+      activeHallId: targetNode.publicHallId ? route.hallId : undefined,
+    }));
+    const targetLayout = targetNode.publicHallId
+      ? targetRegistration.definition.layout
+      : targetNode.layout;
+    const session = targetNode.publicHallId
+      ? loadMuseumSession(targetRegistration.definition.layout)
+      : undefined;
+    poseRef.current = session
+      ? {x: session.x, z: session.z, yaw: session.yaw, pitch: session.pitch}
+      : {...targetLayout.spawn};
+    nearbyRef.current = undefined;
+    nearbySupplementalRef.current = undefined;
+    visitorMapNearbyRef.current = false;
+    setNearbyReference(undefined);
+    setNearbySupplementalReference(undefined);
+    setVisitorMapNearby(false);
+    setOverlay(null);
+    controlsRef.current?.pauseExploring();
+    setVisitPhase('explicitly-paused');
+    setAnnouncement(route.entry === 'entrance'
+      ? 'Returned to the Grand Entrance and orientation hall.'
+      : `Now in ${getMuseumHallCatalog(route.hallId)?.title ?? 'the selected Museum gallery'}.`);
+    setPoseRevision((value) => value + 1);
+  }, [route.entry, route.hallId, saveCurrentHallSession]);
+
+  useEffect(() => {
     if (previousHallIdRef.current === route.hallId) return;
     const previousRouteHallId = previousHallIdRef.current;
     previousHallIdRef.current = route.hallId;
+    if (route.entry === 'entrance') return;
     const pendingTravel = pendingHallTravelRef.current;
     if (
       pendingTravel?.sourceHallId === previousRouteHallId
@@ -1441,9 +1585,10 @@ export function MuseumPage({route, href, push, replace}: {
       setVisitPhase('explicitly-paused');
       setAnnouncement(`${getMuseumHallCatalog(route.hallId)?.title ?? 'The selected gallery'} could not be prepared. Retry is available.`);
     });
-  }, [ensureHallEntry, recentHallId, route.exhibitId, route.hallId, saveCurrentHallSession]);
+  }, [ensureHallEntry, recentHallId, route.entry, route.exhibitId, route.hallId, saveCurrentHallSession]);
 
   useEffect(() => {
+    if (!activeNode.publicHallId) return;
     void ensureHallEntry(activeHallId)
       .then(() => {
         warmHallRemainder(activeHallId);
@@ -1454,7 +1599,7 @@ export function MuseumPage({route, href, push, replace}: {
         ) controlsRef.current?.resumeWithoutGesture();
       })
       .catch(() => undefined);
-  }, [activeHallId, ensureHallEntry, route.exhibitId, route.hallId, warmHallRemainder]);
+  }, [activeHallId, activeNode.publicHallId, ensureHallEntry, route.exhibitId, route.hallId, warmHallRemainder]);
 
   useEffect(() => {
     if (!exploring) return;
@@ -1571,7 +1716,9 @@ export function MuseumPage({route, href, push, replace}: {
                 controls.onCanvasReady(canvas);
               }}
               onNearbyInteractionChange={(target) => {
-                const current = target?.hallId === activeHallIdRef.current ? target : undefined;
+                const current = target?.kind === 'visitor-map'
+                  ? target.nodeId === activeNodeIdRef.current ? target : undefined
+                  : target?.hallId === activeHallIdRef.current ? target : undefined;
                 const exhibitTarget = current?.kind === 'exhibit'
                   ? {hallId: current.hallId, exhibitId: current.exhibitId}
                   : undefined;
@@ -1613,11 +1760,17 @@ export function MuseumPage({route, href, push, replace}: {
 
         <div className="museum-hud">
           <header className="museum-masthead" data-condensed={activeIntent ? 'true' : 'false'}>
-            <p className="museum-masthead-kicker"><Landmark size={14}/> Philosophy Atlas Museum <span>{hall.galleryNumber}</span></p>
-            <h1 id="museum-title" tabIndex={-1}>{hall.title}</h1>
-            <p className="museum-masthead-period">{hall.period}</p>
-            {!activeNode.publicHallId && <p className="museum-masthead-location">Current location · {activeNode.mapLabel}</p>}
-            <p className="museum-masthead-sweep">{hall.sweep.map((item, index) => <span key={item}>{index > 0 && <i aria-hidden="true">→</i>}{item}</span>)}</p>
+            <p className="museum-masthead-kicker"><Landmark size={14}/> Philosophy Atlas Museum <span>{activeNode.publicGalleryNumber ? `Gallery ${String(activeNode.publicGalleryNumber).padStart(2, '0')}` : 'One public level'}</span></p>
+            <h1 id="museum-title" tabIndex={-1}>{atCuratedHall ? hall.title : activeNode.mapLabel}</h1>
+            <p className="museum-masthead-period">{atCuratedHall
+              ? hall.period
+              : activeNode.galleryState === 'planned-walkable'
+                ? 'Planned gallery · architectural shell open for walking'
+                : activeNode.kind === 'entrance'
+                  ? 'Grand Entrance · collection orientation'
+                  : 'Continuous Enfilade circulation'}</p>
+            {!atCuratedHall && <p className="museum-masthead-location">Current location · {activeNode.mapLabel}</p>}
+            {atCuratedHall && <p className="museum-masthead-sweep">{hall.sweep.map((item, index) => <span key={item}>{index > 0 && <i aria-hidden="true">→</i>}{item}</span>)}</p>}
             <div className="museum-entry-row">
               <button
                 id="museum-enter-button"
@@ -1650,6 +1803,34 @@ export function MuseumPage({route, href, push, replace}: {
             {experience.fullscreenSupported && <button className="museum-control-fullscreen" type="button" onClick={() => void experience.toggleFullscreen()} aria-pressed={experience.fullscreen} aria-label={experience.fullscreen ? 'Exit browser fullscreen' : 'Enter browser fullscreen'} title={experience.fullscreen ? 'Exit fullscreen' : 'Enter fullscreen'}>{experience.fullscreen ? <Minimize2 size={16}/> : <Maximize2 size={16}/>}<span>{experience.fullscreen ? 'Exit fullscreen' : 'Fullscreen'}</span></button>}
             {exploring && <button className="museum-pause-button" type="button" onClick={controls.pauseExploring} aria-label="Pause Museum visit">Pause visit</button>}
           </nav>
+
+          {atGrandEntrance && !activeIntent && overlay === null && <aside className="museum-route-choice-card" aria-label="Choose how to begin your Museum visit">
+            <div>
+              <p className="eyebrow">Grand Entrance orientation</p>
+              <h2>Choose a route</h2>
+              <p>The complete collection is on one level. Walk the chronological enfilade, begin at the Forum crosscut, follow a guided opening, resume by stable exhibit or room, or use curated fast travel.</p>
+            </div>
+            <div className="museum-route-choice-actions">
+              <button type="button" onClick={beginChronologicalRoute}>Begin chronological route</button>
+              <button type="button" onClick={startAtForumCrosscut}>Begin at Forum crosscut</button>
+              <button type="button" onClick={startGuidedVisitFromEntrance}>Start guided visit</button>
+              <button type="button" onClick={resumeLastMuseumVisit}>Resume last visit</button>
+              <button type="button" onClick={showVisitorMap}>Map & curated fast travel</button>
+            </div>
+          </aside>}
+
+          {atFinalThreshold && overlay === null && <aside className="museum-route-choice-card museum-final-threshold-card" aria-label="Final Return threshold actions">
+            <div>
+              <p className="eyebrow">Final Return / Exit threshold</p>
+              <h2>Chronological route complete</h2>
+              <p>Return to the Grand Entrance, review the complete collection map, or end the guided visit here.</p>
+            </div>
+            <div className="museum-route-choice-actions">
+              <button type="button" onClick={resetPosition}>Return to Grand Entrance</button>
+              <button type="button" onClick={showVisitorMap}>Open collection map</button>
+              <button type="button" onClick={endGuidedVisitAtThreshold}>End guided visit</button>
+            </div>
+          </aside>}
 
           {visitorMapNearby && exploring && <aside className="museum-proximity-card museum-map-proximity-card" data-zone="visitor-map">
             <p><span>Visitor orientation</span><span>All registered galleries</span></p>

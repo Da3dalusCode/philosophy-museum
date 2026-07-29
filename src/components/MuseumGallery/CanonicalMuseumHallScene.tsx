@@ -1,4 +1,3 @@
-import {MUSEUM_BUILDING_MANIFEST} from '../../data/museum/museumBuildingManifest';
 import type {MuseumHallContentProps} from './museumWorldRegistry';
 import {AnalyticSupplementalExhibits} from './AnalyticSupplementalExhibits';
 import {BuddhistSupplementalExhibits} from './BuddhistSupplementalExhibits';
@@ -14,7 +13,6 @@ import {IslamicSupplementalExhibits} from './IslamicSupplementalExhibits';
 import {JewishSupplementalExhibits} from './JewishSupplementalExhibits';
 import {MediterraneanGalleryCuration} from './MediterraneanGalleryCuration';
 import {MuseumHallSpatialRoot} from './MuseumHallSpatialRoot';
-import {MuseumVisitorMapKiosk} from './MuseumVisitorMapKiosk';
 import {PhenomenologySupplementalExhibits} from './PhenomenologySupplementalExhibits';
 import {PlatoSupplementalExhibits} from './PlatoSupplementalExhibits';
 import {RenaissanceSupplementalExhibits} from './RenaissanceSupplementalExhibits';
@@ -26,15 +24,12 @@ export function CanonicalMuseumHallContent({
   entryEntranceId,
   nearby,
   nearbySupplemental,
-  visitorMapNearby,
   onSelectExhibit,
   onSelectSupplementalExhibit,
-  onSelectVisitorMap,
   onSceneGesture,
 }: MuseumHallContentProps) {
   const entryIds = definition.prefetch.entryExhibitIdsByEntrance[entryEntranceId ?? ''] ?? [];
   const entryAssetIds = new Set(definition.prefetch.entrySceneAssetIdsByEntrance?.[entryEntranceId ?? ''] ?? []);
-  const ownsKiosk = definition.id === MUSEUM_BUILDING_MANIFEST.kiosk.publicHallId;
   return <MuseumHallSpatialRoot definition={definition}>
     {active && <ContemporaryHallLighting lighting={definition.layout.lighting}/>}
     <ContemporaryHallArchitecture definition={definition} onSceneGesture={onSceneGesture}/>
@@ -152,8 +147,5 @@ export function CanonicalMuseumHallContent({
         nearbyId={nearbySupplemental?.hallId === definition.id ? nearbySupplemental.supplementalExhibitId : undefined}
         onSelect={(supplementalExhibitId) => onSelectSupplementalExhibit({hallId: definition.id, supplementalExhibitId})}
       />}
-    {ownsKiosk && (
-      <MuseumVisitorMapKiosk active={active} nearby={visitorMapNearby} onActivate={onSelectVisitorMap}/>
-    )}
   </MuseumHallSpatialRoot>;
 }

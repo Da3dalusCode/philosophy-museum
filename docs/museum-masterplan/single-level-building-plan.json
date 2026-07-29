@@ -1,0 +1,1198 @@
+{
+  "schemaVersion": 2,
+  "planId": "continuous-enfilade-single-level-v1",
+  "title": "Continuous Enfilade — Single-Level Architectural Control Plan",
+  "status": "owner-approved-planning-basis",
+  "runtimeStatus": "implemented-approved-continuous-enfilade",
+  "units": "metres",
+  "coordinateSystem": {
+    "xAxis": "east-positive",
+    "zAxis": "north-positive",
+    "yAxis": "up-positive",
+    "levelId": "L0",
+    "finishedFloorY": 0
+  },
+  "programContract": {
+    "source": "hall-program.json",
+    "wingCount": 10,
+    "hallCount": 26,
+    "roomCount": 105,
+    "recordCapacity": 260,
+    "curatedOpenAtMigration": 12,
+    "plannedWalkableShellsAtMigration": 14,
+    "additionalGalleryReservations": 2
+  },
+  "numberingPolicy": {
+    "publicGalleryNumber": "Stable release number. Existing Gallery 01–12 numbers do not change.",
+    "visitSequence": "Physical through-route order. This is independent of public release numbering.",
+    "futureReleaseOrder": [
+      "latin-christian-scholastic",
+      "hellenistic-roman-ways",
+      "late-antiquity-inheritance",
+      "rationalism-mind-nature-system",
+      "empiricism-science-political-order",
+      "enlightenment-revolution-kant",
+      "german-idealism-afterlives",
+      "utility-liberty-history-capital",
+      "faith-pessimism-life-value",
+      "pragmatism-democratic-inquiry",
+      "critique-power-deconstruction",
+      "moral-life-practical-reason",
+      "feminist-philosophies",
+      "colonialism-race-liberation"
+    ]
+  },
+  "physicalContract": {
+    "mainGalleryBlock": {
+      "bounds": {
+        "minX": -117,
+        "maxX": 145,
+        "minZ": -84,
+        "maxZ": 84
+      },
+      "width": 262,
+      "depth": 168
+    },
+    "controlledPlanBoundsIncludingEntranceAndReserves": {
+      "minX": -129,
+      "maxX": 145,
+      "minZ": -112,
+      "maxZ": 112,
+      "width": 274,
+      "depth": 224
+    },
+    "structuralBandDepth": 28,
+    "bandCount": 6,
+    "crosscutClearWidth": 10,
+    "turnCourtClearWidth": 8,
+    "maximumTurnCourtSightline": 40,
+    "templateEmbedding": {
+      "sequence-3": {
+        "rotationDegrees": 90,
+        "worldFootprint": {
+          "width": 56,
+          "depth": 24
+        },
+        "solidServiceMarginPerBandSide": 2
+      },
+      "crossroads-4": {
+        "rotationDegrees": 0,
+        "worldFootprint": {
+          "width": 28,
+          "depth": 28
+        },
+        "solidServiceMarginPerBandSide": 0
+      },
+      "standard-rect": {
+        "rotationDegrees": 90,
+        "worldFootprint": {
+          "width": 24,
+          "depth": 20
+        },
+        "solidServiceMarginPerBandSide": 4
+      }
+    },
+    "sharedWallRule": "Adjacent 28 metre structural bands share a wall/service line. Template margins are solid structure and services, never public voids.",
+    "galleryPiercingRule": "The north–south crosscut occupies five threshold bays and the Core Questions Forum. It never crosses a gallery room.",
+    "inactivePortalRule": "Every unused optional gallery portal remains a full-height collision wall and remains available for exhibit placement.",
+    "crosscutThresholdPairs": [
+      [
+        "hellenistic-roman-ways",
+        "late-antiquity-inheritance"
+      ],
+      [
+        "classical-chinese-traditions",
+        "east-asian-continuities"
+      ],
+      [
+        "latin-christian-scholastic",
+        "core-questions-forum",
+        "renaissance-humanism-new-method"
+      ],
+      [
+        "german-idealism-afterlives",
+        "utility-liberty-history-capital"
+      ],
+      [
+        "analytic-traditions",
+        "phenomenology-existence-embodiment"
+      ],
+      [
+        "justice-democratic-reason",
+        "feminist-philosophies"
+      ]
+    ]
+  },
+  "grandEntrance": {
+    "id": "place:grand-entrance-orientation",
+    "title": "Grand Entrance & Orientation Hall",
+    "bounds": {
+      "minX": -129,
+      "maxX": -89,
+      "minZ": -112,
+      "maxZ": -56
+    },
+    "width": 40,
+    "depth": 56,
+    "ceilingTreatment": "double-height visual volume on the single public level",
+    "publicFunctions": [
+      "collection map and directory",
+      "resume last visit",
+      "choose chronological route, crosscut, guided visit, or fast travel",
+      "one permanent orientation landmark"
+    ],
+    "excludedFunctions": [
+      "tickets",
+      "lockers",
+      "cafe",
+      "shop",
+      "generic study lounge"
+    ],
+    "routeTargetHallId": "mediterranean-beginnings-classical"
+  },
+  "finalThreshold": {
+    "id": "place:final-return-threshold",
+    "title": "Final Return / Exit Threshold",
+    "bounds": {
+      "minX": -101,
+      "maxX": -89,
+      "minZ": 56,
+      "maxZ": 84
+    },
+    "routeSourceHallId": "colonialism-race-liberation",
+    "actions": [
+      "return to Grand Entrance",
+      "open collection map",
+      "end guided visit"
+    ]
+  },
+  "structuralBands": [
+    {
+      "id": "band-01-south",
+      "zCenter": -70,
+      "routeDirection": "west-to-east",
+      "visitSequence": [
+        "mediterranean-beginnings-classical",
+        "hellenistic-roman-ways",
+        "late-antiquity-inheritance",
+        "classical-south-asian-worlds"
+      ],
+      "crosscutAfter": "hellenistic-roman-ways",
+      "westExtent": 89,
+      "eastExtent": 117
+    },
+    {
+      "id": "band-02-asia-connected-worlds",
+      "zCenter": -42,
+      "routeDirection": "east-to-west",
+      "visitSequence": [
+        "buddhist-philosophies",
+        "classical-chinese-traditions",
+        "east-asian-continuities",
+        "islamic-philosophical-worlds"
+      ],
+      "crosscutAfter": "classical-chinese-traditions",
+      "westExtent": 117,
+      "eastExtent": 89
+    },
+    {
+      "id": "band-03-forum",
+      "zCenter": -14,
+      "routeDirection": "west-to-east",
+      "visitSequence": [
+        "jewish-philosophy",
+        "latin-christian-scholastic",
+        "core-questions-forum",
+        "renaissance-humanism-new-method",
+        "rationalism-mind-nature-system"
+      ],
+      "crosscutHallId": "core-questions-forum",
+      "westExtent": 94,
+      "eastExtent": 126
+    },
+    {
+      "id": "band-04-nineteenth-transformations",
+      "zCenter": 14,
+      "routeDirection": "east-to-west",
+      "visitSequence": [
+        "empiricism-science-political-order",
+        "enlightenment-revolution-kant",
+        "german-idealism-afterlives",
+        "utility-liberty-history-capital",
+        "faith-pessimism-life-value"
+      ],
+      "crosscutAfter": "german-idealism-afterlives",
+      "westExtent": 117,
+      "eastExtent": 145
+    },
+    {
+      "id": "band-05-modern-traditions",
+      "zCenter": 42,
+      "routeDirection": "west-to-east",
+      "visitSequence": [
+        "pragmatism-democratic-inquiry",
+        "analytic-traditions",
+        "phenomenology-existence-embodiment",
+        "critique-power-deconstruction"
+      ],
+      "crosscutAfter": "analytic-traditions",
+      "westExtent": 117,
+      "eastExtent": 89
+    },
+    {
+      "id": "band-06-ethics-politics-society",
+      "zCenter": 70,
+      "routeDirection": "east-to-west",
+      "visitSequence": [
+        "moral-life-practical-reason",
+        "justice-democratic-reason",
+        "feminist-philosophies",
+        "colonialism-race-liberation"
+      ],
+      "crosscutAfter": "justice-democratic-reason",
+      "westExtent": 89,
+      "eastExtent": 89
+    }
+  ],
+  "halls": [
+    {
+      "id": "mediterranean-beginnings-classical",
+      "title": "Mediterranean Beginnings & Classical Athens",
+      "publicGalleryNumber": 1,
+      "visitSequence": 1,
+      "templateId": "sequence-3",
+      "roomIds": [
+        "med-orientation-nature",
+        "med-being-change-plurality",
+        "med-sophists-socratic",
+        "med-plato-aristotle"
+      ],
+      "migrationState": "migrate-populated",
+      "roomLayoutStrategy": "preserve-existing-authored-layout",
+      "bandId": "band-01-south",
+      "placement": {
+        "x": -61,
+        "z": -70,
+        "rotationDegrees": 90
+      },
+      "routePortals": {
+        "entry": "S0",
+        "exit": "N0"
+      }
+    },
+    {
+      "id": "hellenistic-roman-ways",
+      "title": "Hellenistic & Roman Ways of Life",
+      "publicGalleryNumber": 14,
+      "visitSequence": 2,
+      "templateId": "crossroads-4",
+      "roomIds": [
+        "hell-cynic-way",
+        "hell-epicurean-garden",
+        "hell-stoic-stoa",
+        "hell-skeptical-lineages"
+      ],
+      "migrationState": "construct-planned-walkable-shell",
+      "roomLayoutStrategy": "crossroads-four-quadrants",
+      "bandId": "band-01-south",
+      "placement": {
+        "x": -19,
+        "z": -70,
+        "rotationDegrees": 0
+      },
+      "routePortals": {
+        "entry": "W0",
+        "exit": "E0"
+      }
+    },
+    {
+      "id": "late-antiquity-inheritance",
+      "title": "Late Antiquity & Neoplatonic Inheritance",
+      "publicGalleryNumber": 15,
+      "visitSequence": 3,
+      "templateId": "sequence-3",
+      "roomIds": [
+        "late-neoplatonic-systems",
+        "late-christian-platonisms",
+        "late-commentary-transmission"
+      ],
+      "migrationState": "construct-planned-walkable-shell",
+      "roomLayoutStrategy": "sequence-equal-room-spans",
+      "bandId": "band-01-south",
+      "placement": {
+        "x": 33,
+        "z": -70,
+        "rotationDegrees": 90
+      },
+      "routePortals": {
+        "entry": "S0",
+        "exit": "N0"
+      }
+    },
+    {
+      "id": "classical-south-asian-worlds",
+      "title": "Classical South Asia: Jain, Yoga, and Brahmanical Systems",
+      "publicGalleryNumber": 7,
+      "visitSequence": 4,
+      "templateId": "sequence-3",
+      "roomIds": [
+        "south-orientation-many-schools",
+        "south-jain-worlds",
+        "south-categories-realism",
+        "south-yoga-mind-liberation",
+        "south-vedanta-rival-readings"
+      ],
+      "migrationState": "migrate-populated",
+      "roomLayoutStrategy": "preserve-existing-authored-layout",
+      "bandId": "band-01-south",
+      "placement": {
+        "x": 89,
+        "z": -70,
+        "rotationDegrees": 90
+      },
+      "routePortals": {
+        "entry": "S0",
+        "exit": "N0"
+      }
+    },
+    {
+      "id": "buddhist-philosophies",
+      "title": "Buddhist Philosophies of Liberation and Knowledge",
+      "publicGalleryNumber": 8,
+      "visitSequence": 5,
+      "templateId": "sequence-3",
+      "roomIds": [
+        "buddhist-many-paths",
+        "buddhist-madhyamaka",
+        "buddhist-abhidharma-yogacara",
+        "buddhist-pramana",
+        "buddhist-transmission-reserve"
+      ],
+      "migrationState": "migrate-populated",
+      "roomLayoutStrategy": "preserve-existing-authored-layout",
+      "bandId": "band-02-asia-connected-worlds",
+      "placement": {
+        "x": 61,
+        "z": -42,
+        "rotationDegrees": 90
+      },
+      "routePortals": {
+        "entry": "N0",
+        "exit": "S0"
+      }
+    },
+    {
+      "id": "classical-chinese-traditions",
+      "title": "Warring States & Classical Chinese Traditions",
+      "publicGalleryNumber": 9,
+      "visitSequence": 6,
+      "templateId": "crossroads-4",
+      "roomIds": [
+        "china-many-ways",
+        "china-confucian-cultivation",
+        "china-daoist-way",
+        "china-mohist-fa"
+      ],
+      "migrationState": "migrate-populated",
+      "roomLayoutStrategy": "preserve-existing-authored-layout",
+      "bandId": "band-02-asia-connected-worlds",
+      "placement": {
+        "x": 19,
+        "z": -42,
+        "rotationDegrees": 0
+      },
+      "routePortals": {
+        "entry": "E0",
+        "exit": "W0"
+      }
+    },
+    {
+      "id": "east-asian-continuities",
+      "title": "Confucian Renewal & East Asian Continuities",
+      "publicGalleryNumber": 11,
+      "visitSequence": 7,
+      "templateId": "sequence-3",
+      "roomIds": [
+        "east-song-ming-confucian",
+        "east-buddhist-daoist-transmissions",
+        "east-regional-continuities-reserve"
+      ],
+      "migrationState": "migrate-populated",
+      "roomLayoutStrategy": "preserve-existing-authored-layout",
+      "bandId": "band-02-asia-connected-worlds",
+      "placement": {
+        "x": -33,
+        "z": -42,
+        "rotationDegrees": 90
+      },
+      "routePortals": {
+        "entry": "N0",
+        "exit": "S0"
+      }
+    },
+    {
+      "id": "islamic-philosophical-worlds",
+      "title": "Arabic & Islamic Philosophical Worlds",
+      "publicGalleryNumber": 10,
+      "visitSequence": 8,
+      "templateId": "sequence-3",
+      "roomIds": [
+        "islamic-translation-falsafa",
+        "islamic-avicennan-system",
+        "islamic-kalam-critique",
+        "islamic-andalusian-worlds",
+        "islamic-post-avicennian"
+      ],
+      "migrationState": "migrate-populated",
+      "roomLayoutStrategy": "preserve-existing-authored-layout",
+      "bandId": "band-02-asia-connected-worlds",
+      "placement": {
+        "x": -89,
+        "z": -42,
+        "rotationDegrees": 90
+      },
+      "routePortals": {
+        "entry": "N0",
+        "exit": "S0"
+      }
+    },
+    {
+      "id": "jewish-philosophy",
+      "title": "Jewish Philosophy in Arabic-Speaking & Mediterranean Worlds",
+      "publicGalleryNumber": 12,
+      "visitSequence": 9,
+      "templateId": "standard-rect",
+      "roomIds": [
+        "jewish-reason-revelation",
+        "jewish-maimonidean-crossroads"
+      ],
+      "migrationState": "migrate-populated",
+      "roomLayoutStrategy": "preserve-existing-authored-layout",
+      "bandId": "band-03-forum",
+      "placement": {
+        "x": -82,
+        "z": -14,
+        "rotationDegrees": 90
+      },
+      "routePortals": {
+        "entry": "S0",
+        "exit": "N0"
+      }
+    },
+    {
+      "id": "latin-christian-scholastic",
+      "title": "Latin Christian & Scholastic Traditions",
+      "publicGalleryNumber": 13,
+      "visitSequence": 10,
+      "templateId": "sequence-3",
+      "roomIds": [
+        "latin-transmission-carolingian",
+        "latin-dialectic-early-scholastic",
+        "latin-high-scholastic",
+        "latin-late-debates"
+      ],
+      "migrationState": "construct-planned-walkable-shell",
+      "roomLayoutStrategy": "sequence-equal-room-spans",
+      "bandId": "band-03-forum",
+      "placement": {
+        "x": -42,
+        "z": -14,
+        "rotationDegrees": 90
+      },
+      "routePortals": {
+        "entry": "S0",
+        "exit": "N0"
+      }
+    },
+    {
+      "id": "core-questions-forum",
+      "title": "Core Questions Forum",
+      "publicGalleryNumber": 6,
+      "visitSequence": 11,
+      "templateId": "crossroads-4",
+      "roomIds": [
+        "core-reality-being",
+        "core-knowledge",
+        "core-mind-self",
+        "core-logic-language",
+        "core-science",
+        "core-ethics-portal",
+        "core-political-portal",
+        "core-aesthetics",
+        "core-religion"
+      ],
+      "migrationState": "migrate-populated",
+      "roomLayoutStrategy": "preserve-existing-authored-layout",
+      "bandId": "band-03-forum",
+      "placement": {
+        "x": 0,
+        "z": -14,
+        "rotationDegrees": 0
+      },
+      "routePortals": {
+        "entry": "W0",
+        "exit": "E0",
+        "crosscutNorth": "N0",
+        "crosscutSouth": "S0"
+      }
+    },
+    {
+      "id": "renaissance-humanism-new-method",
+      "title": "Renaissance, Political Order, and New Science",
+      "publicGalleryNumber": 2,
+      "visitSequence": 12,
+      "templateId": "sequence-3",
+      "roomIds": [
+        "early-statecraft-republic",
+        "early-experiment-method",
+        "early-sovereignty-materialism"
+      ],
+      "migrationState": "migrate-populated",
+      "roomLayoutStrategy": "preserve-existing-authored-layout",
+      "bandId": "band-03-forum",
+      "placement": {
+        "x": 42,
+        "z": -14,
+        "rotationDegrees": 90
+      },
+      "routePortals": {
+        "entry": "S0",
+        "exit": "N0"
+      }
+    },
+    {
+      "id": "rationalism-mind-nature-system",
+      "title": "Rationalism: Mind, Nature, and System",
+      "publicGalleryNumber": 16,
+      "visitSequence": 13,
+      "templateId": "sequence-3",
+      "roomIds": [
+        "rationalism-cartesian-foundations",
+        "rationalism-spinoza-conway",
+        "rationalism-leibniz-system"
+      ],
+      "migrationState": "construct-planned-walkable-shell",
+      "roomLayoutStrategy": "sequence-equal-room-spans",
+      "bandId": "band-03-forum",
+      "placement": {
+        "x": 98,
+        "z": -14,
+        "rotationDegrees": 90
+      },
+      "routePortals": {
+        "entry": "S0",
+        "exit": "N0"
+      }
+    },
+    {
+      "id": "empiricism-science-political-order",
+      "title": "Empiricism, Science, and Political Order",
+      "publicGalleryNumber": 17,
+      "visitSequence": 14,
+      "templateId": "sequence-3",
+      "roomIds": [
+        "empiricism-locke-ideas-rights",
+        "empiricism-berkeley-perception",
+        "empiricism-hume-skepticism"
+      ],
+      "migrationState": "construct-planned-walkable-shell",
+      "roomLayoutStrategy": "sequence-equal-room-spans",
+      "bandId": "band-04-nineteenth-transformations",
+      "placement": {
+        "x": 117,
+        "z": 14,
+        "rotationDegrees": 90
+      },
+      "routePortals": {
+        "entry": "N0",
+        "exit": "S0"
+      }
+    },
+    {
+      "id": "enlightenment-revolution-kant",
+      "title": "Enlightenment, Revolution, and Kant’s Critical Turn",
+      "publicGalleryNumber": 18,
+      "visitSequence": 15,
+      "templateId": "crossroads-4",
+      "roomIds": [
+        "enlightenment-law-institutions",
+        "enlightenment-society-freedom",
+        "enlightenment-sentiment-commerce",
+        "enlightenment-equality-education",
+        "enlightenment-kant-critical"
+      ],
+      "migrationState": "construct-planned-walkable-shell",
+      "roomLayoutStrategy": "crossroads-four-quadrants-with-central-kant-room",
+      "bandId": "band-04-nineteenth-transformations",
+      "placement": {
+        "x": 75,
+        "z": 14,
+        "rotationDegrees": 0
+      },
+      "routePortals": {
+        "entry": "E0",
+        "exit": "W0"
+      }
+    },
+    {
+      "id": "german-idealism-afterlives",
+      "title": "German Idealism & Romantic Afterlives",
+      "publicGalleryNumber": 19,
+      "visitSequence": 16,
+      "templateId": "sequence-3",
+      "roomIds": [
+        "german-idealism-orientation",
+        "german-idealism-nature",
+        "german-idealism-hegel",
+        "german-idealism-afterlives-room"
+      ],
+      "migrationState": "construct-planned-walkable-shell",
+      "roomLayoutStrategy": "sequence-equal-room-spans",
+      "bandId": "band-04-nineteenth-transformations",
+      "placement": {
+        "x": 33,
+        "z": 14,
+        "rotationDegrees": 90
+      },
+      "routePortals": {
+        "entry": "N0",
+        "exit": "S0"
+      }
+    },
+    {
+      "id": "utility-liberty-history-capital",
+      "title": "Utility, Liberty, History, and Capital",
+      "publicGalleryNumber": 20,
+      "visitSequence": 17,
+      "templateId": "sequence-3",
+      "roomIds": [
+        "nineteenth-utilitarian-reform",
+        "nineteenth-liberty-equality",
+        "nineteenth-labor-capital",
+        "nineteenth-social-transformations"
+      ],
+      "migrationState": "construct-planned-walkable-shell",
+      "roomLayoutStrategy": "sequence-equal-room-spans",
+      "bandId": "band-04-nineteenth-transformations",
+      "placement": {
+        "x": -33,
+        "z": 14,
+        "rotationDegrees": 90
+      },
+      "routePortals": {
+        "entry": "N0",
+        "exit": "S0"
+      }
+    },
+    {
+      "id": "faith-pessimism-life-value",
+      "title": "Faith, Pessimism, Life, and Value",
+      "publicGalleryNumber": 21,
+      "visitSequence": 18,
+      "templateId": "sequence-3",
+      "roomIds": [
+        "nineteenth-will-pessimism",
+        "nineteenth-faith-subjectivity",
+        "nineteenth-genealogy-value"
+      ],
+      "migrationState": "construct-planned-walkable-shell",
+      "roomLayoutStrategy": "sequence-equal-room-spans",
+      "bandId": "band-04-nineteenth-transformations",
+      "placement": {
+        "x": -89,
+        "z": 14,
+        "rotationDegrees": 90
+      },
+      "routePortals": {
+        "entry": "N0",
+        "exit": "S0"
+      }
+    },
+    {
+      "id": "pragmatism-democratic-inquiry",
+      "title": "Pragmatism, Science, and Democratic Inquiry",
+      "publicGalleryNumber": 22,
+      "visitSequence": 19,
+      "templateId": "sequence-3",
+      "roomIds": [
+        "pragmatism-peirce-inquiry",
+        "pragmatism-james-experience",
+        "pragmatism-dewey-democracy",
+        "pragmatism-continuities-reserve"
+      ],
+      "migrationState": "construct-planned-walkable-shell",
+      "roomLayoutStrategy": "sequence-equal-room-spans",
+      "bandId": "band-05-modern-traditions",
+      "placement": {
+        "x": -89,
+        "z": 42,
+        "rotationDegrees": 90
+      },
+      "routePortals": {
+        "entry": "S0",
+        "exit": "N0"
+      }
+    },
+    {
+      "id": "analytic-traditions",
+      "title": "Analytic Traditions: Logic, Language, and Analysis",
+      "publicGalleryNumber": 4,
+      "visitSequence": 20,
+      "templateId": "sequence-3",
+      "roomIds": [
+        "analytic-origins-foundations",
+        "analytic-common-sense-metaethics",
+        "analytic-wittgenstein",
+        "analytic-naturalism",
+        "analytic-action-intention"
+      ],
+      "migrationState": "migrate-populated",
+      "roomLayoutStrategy": "preserve-existing-authored-layout",
+      "bandId": "band-05-modern-traditions",
+      "placement": {
+        "x": -33,
+        "z": 42,
+        "rotationDegrees": 90
+      },
+      "routePortals": {
+        "entry": "S0",
+        "exit": "N0"
+      }
+    },
+    {
+      "id": "phenomenology-existence-embodiment",
+      "title": "Phenomenology, Existence, and Embodiment",
+      "publicGalleryNumber": 3,
+      "visitSequence": 21,
+      "templateId": "sequence-3",
+      "roomIds": [
+        "phenomenology-method",
+        "phenomenology-being-embodiment",
+        "existentialism-freedom",
+        "existentialism-situated-absurd",
+        "phenomenology-interpretation-alterity"
+      ],
+      "migrationState": "migrate-populated",
+      "roomLayoutStrategy": "preserve-existing-authored-layout",
+      "bandId": "band-05-modern-traditions",
+      "placement": {
+        "x": 33,
+        "z": 42,
+        "rotationDegrees": 90
+      },
+      "routePortals": {
+        "entry": "S0",
+        "exit": "N0"
+      }
+    },
+    {
+      "id": "critique-power-deconstruction",
+      "title": "Critique, Power, and Deconstruction",
+      "publicGalleryNumber": 23,
+      "visitSequence": 22,
+      "templateId": "crossroads-4",
+      "roomIds": [
+        "continental-orientation",
+        "critique-genealogy-power",
+        "critique-deconstruction",
+        "critique-critical-theory"
+      ],
+      "migrationState": "construct-planned-walkable-shell",
+      "roomLayoutStrategy": "crossroads-four-quadrants",
+      "bandId": "band-05-modern-traditions",
+      "placement": {
+        "x": 75,
+        "z": 42,
+        "rotationDegrees": 0
+      },
+      "routePortals": {
+        "entry": "W0",
+        "exit": "E0"
+      }
+    },
+    {
+      "id": "moral-life-practical-reason",
+      "title": "Moral Life & Practical Reason",
+      "publicGalleryNumber": 24,
+      "visitSequence": 23,
+      "templateId": "crossroads-4",
+      "roomIds": [
+        "moral-ethics-orientation",
+        "moral-character-virtue",
+        "moral-duty-consequence",
+        "moral-rights-persons-futures"
+      ],
+      "migrationState": "construct-planned-walkable-shell",
+      "roomLayoutStrategy": "crossroads-four-quadrants",
+      "bandId": "band-06-ethics-politics-society",
+      "placement": {
+        "x": 75,
+        "z": 70,
+        "rotationDegrees": 0
+      },
+      "routePortals": {
+        "entry": "E0",
+        "exit": "W0"
+      }
+    },
+    {
+      "id": "justice-democratic-reason",
+      "title": "Political Action, Justice, and Democratic Reason",
+      "publicGalleryNumber": 5,
+      "visitSequence": 24,
+      "templateId": "sequence-3",
+      "roomIds": [
+        "justice-political-orientation",
+        "justice-distribution-rights",
+        "justice-capabilities-democracy"
+      ],
+      "migrationState": "migrate-populated",
+      "roomLayoutStrategy": "preserve-existing-authored-layout",
+      "bandId": "band-06-ethics-politics-society",
+      "placement": {
+        "x": 33,
+        "z": 70,
+        "rotationDegrees": 90
+      },
+      "routePortals": {
+        "entry": "N0",
+        "exit": "S0"
+      }
+    },
+    {
+      "id": "feminist-philosophies",
+      "title": "Feminist Philosophies",
+      "publicGalleryNumber": 25,
+      "visitSequence": 25,
+      "templateId": "crossroads-4",
+      "roomIds": [
+        "feminist-orientation-genealogies",
+        "feminist-early-genealogies",
+        "feminist-situated-freedom",
+        "feminist-gender-norms"
+      ],
+      "migrationState": "construct-planned-walkable-shell",
+      "roomLayoutStrategy": "crossroads-four-quadrants",
+      "bandId": "band-06-ethics-politics-society",
+      "placement": {
+        "x": -19,
+        "z": 70,
+        "rotationDegrees": 0
+      },
+      "routePortals": {
+        "entry": "E0",
+        "exit": "W0"
+      }
+    },
+    {
+      "id": "colonialism-race-liberation",
+      "title": "Colonialism, Race, and Liberation",
+      "publicGalleryNumber": 26,
+      "visitSequence": 26,
+      "templateId": "sequence-3",
+      "roomIds": [
+        "colonial-embodiment-liberation",
+        "colonial-black-feminism-abolition",
+        "colonial-context-reserve"
+      ],
+      "migrationState": "construct-planned-walkable-shell",
+      "roomLayoutStrategy": "sequence-equal-room-spans",
+      "bandId": "band-06-ethics-politics-society",
+      "placement": {
+        "x": -61,
+        "z": 70,
+        "rotationDegrees": 90
+      },
+      "routePortals": {
+        "entry": "N0",
+        "exit": "S0"
+      }
+    }
+  ],
+  "throughRoute": {
+    "start": "place:grand-entrance-orientation",
+    "finish": "place:final-return-threshold",
+    "hallOrder": [
+      "mediterranean-beginnings-classical",
+      "hellenistic-roman-ways",
+      "late-antiquity-inheritance",
+      "classical-south-asian-worlds",
+      "buddhist-philosophies",
+      "classical-chinese-traditions",
+      "east-asian-continuities",
+      "islamic-philosophical-worlds",
+      "jewish-philosophy",
+      "latin-christian-scholastic",
+      "core-questions-forum",
+      "renaissance-humanism-new-method",
+      "rationalism-mind-nature-system",
+      "empiricism-science-political-order",
+      "enlightenment-revolution-kant",
+      "german-idealism-afterlives",
+      "utility-liberty-history-capital",
+      "faith-pessimism-life-value",
+      "pragmatism-democratic-inquiry",
+      "analytic-traditions",
+      "phenomenology-existence-embodiment",
+      "critique-power-deconstruction",
+      "moral-life-practical-reason",
+      "justice-democratic-reason",
+      "feminist-philosophies",
+      "colonialism-race-liberation"
+    ],
+    "crossingBayIds": [
+      "crossing:band-01",
+      "crossing:band-02",
+      "crossing:band-04",
+      "crossing:band-05",
+      "crossing:band-06"
+    ],
+    "nominalHallRunLength": 1228,
+    "crossingBayRunLength": 50,
+    "turnCourtRunLength": 165.671,
+    "completeVisitLength": 1443.671
+  },
+  "crosscut": {
+    "id": "route:north-south-crosscut",
+    "title": "North–South Collection Crosscut",
+    "bounds": {
+      "minX": -5,
+      "maxX": 5,
+      "minZ": -84,
+      "maxZ": 112
+    },
+    "publicMainLength": 168,
+    "reserveExtensionLength": 28,
+    "intersections": [
+      {
+        "id": "crossing:band-01",
+        "zCenter": -70,
+        "betweenHallIds": [
+          "hellenistic-roman-ways",
+          "late-antiquity-inheritance"
+        ]
+      },
+      {
+        "id": "crossing:band-02",
+        "zCenter": -42,
+        "betweenHallIds": [
+          "east-asian-continuities",
+          "classical-chinese-traditions"
+        ]
+      },
+      {
+        "id": "crossing:forum",
+        "zCenter": -14,
+        "occupiedByHallId": "core-questions-forum"
+      },
+      {
+        "id": "crossing:band-04",
+        "zCenter": 14,
+        "betweenHallIds": [
+          "utility-liberty-history-capital",
+          "german-idealism-afterlives"
+        ]
+      },
+      {
+        "id": "crossing:band-05",
+        "zCenter": 42,
+        "betweenHallIds": [
+          "analytic-traditions",
+          "phenomenology-existence-embodiment"
+        ]
+      },
+      {
+        "id": "crossing:band-06",
+        "zCenter": 70,
+        "betweenHallIds": [
+          "feminist-philosophies",
+          "justice-democratic-reason"
+        ]
+      }
+    ],
+    "wayfindingRule": "Every intersection names the halls immediately east and west, shows north, and exposes a truthful map. It contains no exhibit and is not a gallery."
+  },
+  "turnCourts": [
+    {
+      "id": "turn:band-01-to-02",
+      "fromHallId": "classical-south-asian-worlds",
+      "toHallId": "buddhist-philosophies",
+      "centerline": [
+        {
+          "x": 117,
+          "z": -70
+        },
+        {
+          "x": 89,
+          "z": -42
+        }
+      ],
+      "centerlineLength": 39.598,
+      "treatment": "enclosed diagonal turning court with direct sightline to the next threshold"
+    },
+    {
+      "id": "turn:band-02-to-03",
+      "fromHallId": "islamic-philosophical-worlds",
+      "toHallId": "jewish-philosophy",
+      "centerline": [
+        {
+          "x": -117,
+          "z": -42
+        },
+        {
+          "x": -94,
+          "z": -14
+        }
+      ],
+      "centerlineLength": 36.235,
+      "treatment": "enclosed diagonal turning court with direct sightline to the next threshold"
+    },
+    {
+      "id": "turn:band-03-to-04",
+      "fromHallId": "rationalism-mind-nature-system",
+      "toHallId": "empiricism-science-political-order",
+      "centerline": [
+        {
+          "x": 126,
+          "z": -14
+        },
+        {
+          "x": 145,
+          "z": 14
+        }
+      ],
+      "centerlineLength": 33.838,
+      "treatment": "enclosed diagonal turning court with direct sightline to the next threshold"
+    },
+    {
+      "id": "turn:band-04-to-05",
+      "fromHallId": "faith-pessimism-life-value",
+      "toHallId": "pragmatism-democratic-inquiry",
+      "centerline": [
+        {
+          "x": -117,
+          "z": 14
+        },
+        {
+          "x": -117,
+          "z": 42
+        }
+      ],
+      "centerlineLength": 28,
+      "treatment": "enclosed straight turning court with the next threshold visible"
+    },
+    {
+      "id": "turn:band-05-to-06",
+      "fromHallId": "critique-power-deconstruction",
+      "toHallId": "moral-life-practical-reason",
+      "centerline": [
+        {
+          "x": 89,
+          "z": 42
+        },
+        {
+          "x": 89,
+          "z": 70
+        }
+      ],
+      "centerlineLength": 28,
+      "treatment": "enclosed straight turning court with the next threshold visible"
+    }
+  ],
+  "expansionReservations": [
+    {
+      "id": "reserve:north-west-gallery",
+      "status": "site-and-structure-reserved-closed",
+      "bounds": {
+        "minX": -61,
+        "maxX": -5,
+        "minZ": 84,
+        "maxZ": 112
+      },
+      "maximumTemplate": "sequence-3-rotated",
+      "futureEntryFrom": "route:north-south-crosscut",
+      "currentDoorState": "solid-construction-wall"
+    },
+    {
+      "id": "reserve:north-east-gallery",
+      "status": "site-and-structure-reserved-closed",
+      "bounds": {
+        "minX": 5,
+        "maxX": 61,
+        "minZ": 84,
+        "maxZ": 112
+      },
+      "maximumTemplate": "sequence-3-rotated",
+      "futureEntryFrom": "route:north-south-crosscut",
+      "currentDoorState": "solid-construction-wall"
+    }
+  ],
+  "roomShellContract": {
+    "canonicalRoomSource": "hall-program.json",
+    "allRoomCount": 105,
+    "existingRoomRule": "Move each populated hall as one hall-local root. Preserve room partitions, exhibits, media, lighting, signs, guided viewpoints, interactions, and local collision.",
+    "futureSequenceRule": "Generate every named room along the 56 metre long axis using equal spans, then add the normal two-half-room partition and geometry-only wall slots. Curation may refine partitions before that gallery opens.",
+    "futureCrossroadsFourRoomRule": "Generate four independent room quadrants around the central circulation crossing.",
+    "futureCrossroadsFiveRoomRule": "Generate four perimeter rooms plus a distinct central Kant room without notching a neighboring gallery.",
+    "plannedShellPresentation": "Planned rooms are walkable architectural shells with blank walls and one honest noninteractive status sign at the hall entrance. They have no placeholder exhibits, media, interaction controls, article routes, or fake attribution.",
+    "openCountRule": "A planned walkable shell is not counted as an open gallery until its complete curation, wall-slot audit, imagery audit, interactions, interpretation, routes, and visual review pass.",
+    "wallAuditActivation": "Exact physical installation counts remain enforced for the twelve curated halls. Future halls enter the exhibit-wall audit only when their migration state changes to curated-open."
+  },
+  "performanceContract": {
+    "authority": "Extend the current runtime residency and lazy-loading implementation; do not replace it.",
+    "maxResidentHallContents": 3,
+    "recentHallCount": 1,
+    "approachDistance": 6,
+    "decodedTextureBudgetMiB": 96,
+    "initialMuseumLoad": [
+      "Grand Entrance architecture and controls",
+      "nearest structural band shell",
+      "lightweight physical map geometry",
+      "no gallery media outside the active or prepared threshold target"
+    ],
+    "plannedShellRule": "Planned shells use shared architecture, material, lighting, and collision modules and import no exhibit media.",
+    "crossingRule": "A doorway becomes crossable only after target code, nearest-room media, collision, and safe arrival are committed.",
+    "mapRule": "The map consumes lightweight plan metadata and never imports hall scene or media modules."
+  },
+  "migrationContract": {
+    "cutover": "Build beside the current runtime manifest and switch atomically only after the complete building passes review.",
+    "stableIdentifiers": [
+      "public gallery IDs",
+      "public Gallery 01–12 numbers",
+      "room IDs",
+      "exhibit IDs",
+      "article routes",
+      "direct exhibit URLs"
+    ],
+    "worldStateMigration": "Persist gallery, room, and exhibit IDs rather than old world coordinates. Old saved coordinates must resolve to the matching new safe arrival.",
+    "mapProjection": "Derive hall rectangles, crosscut, turn courts, facing arrow, current hall, and walkable graph from the new physical manifest.",
+    "noPartialRelease": "Do not ship a mixed old/new building, disconnected populated hall, or map edge before its physical route exists.",
+    "rollback": "Keep the current manifest selectable until the new manifest, session migration, and live-site checks pass."
+  },
+  "implementationAuditContract": {
+    "requiredPlanningChecks": [
+      "npm run validate:museum-masterplan",
+      "npm run validate:museum-building-plan"
+    ],
+    "requiredRuntimeChecks": [
+      "npm run build",
+      "npm run audit:routing",
+      "npm run audit:museum",
+      "npm run audit:museum-assets",
+      "npm run audit:articles",
+      "npm run audit:accuracy",
+      "git diff --check"
+    ],
+    "requiredVisualChecks": [
+      "Grand Entrance at visitor eye level",
+      "all six bands in both route directions",
+      "all five turn courts",
+      "all six crosscut intersections including the Forum",
+      "every one of the 105 rooms",
+      "all twelve populated galleries after relocation",
+      "the complete 1920 by 1080 map without scrolling",
+      "direct URLs, guided visits, fast travel, reset, and session resume",
+      "browser console on local and production builds"
+    ]
+  }
+}

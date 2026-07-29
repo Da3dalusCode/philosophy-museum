@@ -1,0 +1,352 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420mm" height="297mm" viewBox="0 0 420 297" role="img" aria-labelledby="title description">
+  <title id="title">Continuous Enfilade single-level architectural control plan at 1:1000</title>
+  <desc id="description">A dimensioned single-level plan for 26 fully named philosophy museum galleries in six shared-wall bands, with a grand entrance, a continuous serpentine route, a north-south crosscut, an independent Core Questions Forum bay, five short turning courts, and two gallery reserves.</desc>
+  <defs>
+    <marker id="route-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto">
+      <path d="M0 0L10 5L0 10Z" fill="#a6541e"/>
+    </marker>
+    <marker id="axis-arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10Z" fill="#146a75"/>
+    </marker>
+    <marker id="dim-arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="3.2" markerHeight="3.2" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10Z" fill="#50565c"/>
+    </marker>
+    <style>
+      .sheet{fill:#f8f5ed}
+      .service{fill:#d8d5cd;stroke:#42484e;stroke-width:.45}
+      .open{fill:#cfe0e8;stroke:#202a32;stroke-width:.8}
+      .planned{fill:#ece9e0;stroke:#5d6267;stroke-width:.65}
+      .forum{fill:#ead28d;stroke:#3d3320;stroke-width:1}
+      .entrance{fill:#ead9b2;stroke:#4c3c25;stroke-width:1.1}
+      .crossing{fill:#c9e0dc;stroke:#146a75;stroke-width:.65}
+      .reserve{fill:#f4f0e5;stroke:#8b6a35;stroke-width:.7;stroke-dasharray:2.5 2}
+      .turn{fill:none;stroke:#757b7f;stroke-width:8;stroke-linecap:butt}
+      .turn-edge{fill:none;stroke:#343a40;stroke-width:.55}
+      .route{fill:none;stroke:#a6541e;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round;marker-end:url(#route-arrow)}
+      .axis{fill:none;stroke:#146a75;stroke-width:1.5;stroke-linecap:round;marker-start:url(#axis-arrow);marker-end:url(#axis-arrow)}
+      .label{font-family:Arial,sans-serif;fill:#172026;text-anchor:middle;font-size:2.25px;font-weight:600}
+      .small{font-family:Arial,sans-serif;fill:#172026;text-anchor:middle;font-size:1.8px;font-weight:600}
+      .tiny{font-family:Arial,sans-serif;fill:#172026;text-anchor:middle;font-size:1.55px;font-weight:600}
+      .meta{font-family:Arial,sans-serif;fill:#353b40;font-size:2.6px}
+      .meta-bold{font-family:Arial,sans-serif;fill:#172026;font-size:3.2px;font-weight:700}
+      .heading{font-family:Georgia,serif;fill:#172026;font-size:6px;font-weight:700}
+      .subheading{font-family:Arial,sans-serif;fill:#8b4d1d;font-size:2.7px;font-weight:700;letter-spacing:.4px}
+      .dimension{fill:none;stroke:#50565c;stroke-width:.45;marker-start:url(#dim-arrow);marker-end:url(#dim-arrow)}
+      .dimension-text{font-family:Arial,sans-serif;fill:#50565c;font-size:2.4px;text-anchor:middle}
+      .north{fill:#172026}
+    </style>
+  </defs>
+
+  <rect class="sheet" width="420" height="297"/>
+
+  <text class="heading" x="30" y="12">Continuous Enfilade — single-level architectural control plan</text>
+  <text class="subheading" x="30" y="18">26 GALLERIES · 105 ROOMS · SIX SHARED-WALL BANDS · 1:1000 AT A3 / 100%</text>
+
+  <!-- Solid structural/service bands: these are not public gaps. -->
+  <rect class="service" x="70" y="196" width="206" height="28"/>
+  <rect class="service" x="42" y="168" width="206" height="28"/>
+  <rect class="service" x="65" y="140" width="220" height="28"/>
+  <rect class="service" x="42" y="112" width="262" height="28"/>
+  <rect class="service" x="42" y="84" width="206" height="28"/>
+  <rect class="service" x="70" y="56" width="178" height="28"/>
+
+  <!-- Grand entrance. -->
+  <rect class="entrance" x="30" y="196" width="40" height="56"/>
+  <text class="label" x="50" y="210">
+    <tspan x="50">GRAND ENTRANCE</tspan>
+    <tspan x="50" dy="3.2">&amp; ORIENTATION HALL</tspan>
+    <tspan x="50" dy="5">40 × 56 m</tspan>
+    <tspan x="50" dy="4.2">double-height arrival</tspan>
+    <tspan x="50" dy="3.2">map · resume · routes</tspan>
+    <tspan x="50" dy="3.2">guided visit · fast travel</tspan>
+  </text>
+
+  <!-- Band 1: south, west to east. -->
+  <rect class="open" x="70" y="198" width="56" height="24"/>
+  <text class="label" x="98" y="204">
+    <tspan x="98">Gallery 01 · Visit 1</tspan>
+    <tspan x="98" dy="3.1">Mediterranean Beginnings</tspan>
+    <tspan x="98" dy="3.1">&amp; Classical Athens</tspan>
+  </text>
+  <rect class="planned" x="126" y="196" width="28" height="28"/>
+  <text class="tiny" x="140" y="201">
+    <tspan x="140">Gallery 14 · Visit 2</tspan>
+    <tspan x="140" dy="2.5">Hellenistic &amp; Roman</tspan>
+    <tspan x="140" dy="2.5">Ways of Life</tspan>
+  </text>
+  <rect class="crossing" x="154" y="196" width="10" height="28"/>
+  <rect class="planned" x="164" y="198" width="56" height="24"/>
+  <text class="label" x="192" y="204">
+    <tspan x="192">Gallery 15 · Visit 3</tspan>
+    <tspan x="192" dy="3.1">Late Antiquity &amp;</tspan>
+    <tspan x="192" dy="3.1">Neoplatonic Inheritance</tspan>
+  </text>
+  <rect class="open" x="220" y="198" width="56" height="24"/>
+  <text class="small" x="248" y="203">
+    <tspan x="248">Gallery 07 · Visit 4</tspan>
+    <tspan x="248" dy="2.7">Classical South Asia:</tspan>
+    <tspan x="248" dy="2.7">Jain, Yoga &amp;</tspan>
+    <tspan x="248" dy="2.7">Brahmanical Systems</tspan>
+  </text>
+
+  <!-- Band 2: east to west. -->
+  <rect class="open" x="42" y="170" width="56" height="24"/>
+  <text class="small" x="70" y="175">
+    <tspan x="70">Gallery 10 · Visit 8</tspan>
+    <tspan x="70" dy="2.7">Arabic &amp; Islamic</tspan>
+    <tspan x="70" dy="2.7">Philosophical Worlds</tspan>
+  </text>
+  <rect class="open" x="98" y="170" width="56" height="24"/>
+  <text class="small" x="126" y="175">
+    <tspan x="126">Gallery 11 · Visit 7</tspan>
+    <tspan x="126" dy="2.7">Confucian Renewal &amp;</tspan>
+    <tspan x="126" dy="2.7">East Asian Continuities</tspan>
+  </text>
+  <rect class="crossing" x="154" y="168" width="10" height="28"/>
+  <rect class="open" x="164" y="168" width="28" height="28"/>
+  <text class="tiny" x="178" y="173">
+    <tspan x="178">Gallery 09 · Visit 6</tspan>
+    <tspan x="178" dy="2.5">Warring States &amp;</tspan>
+    <tspan x="178" dy="2.5">Classical Chinese</tspan>
+    <tspan x="178" dy="2.5">Traditions</tspan>
+  </text>
+  <rect class="open" x="192" y="170" width="56" height="24"/>
+  <text class="small" x="220" y="175">
+    <tspan x="220">Gallery 08 · Visit 5</tspan>
+    <tspan x="220" dy="2.7">Buddhist Philosophies of</tspan>
+    <tspan x="220" dy="2.7">Liberation &amp; Knowledge</tspan>
+  </text>
+
+  <!-- Band 3: independent Forum bay. -->
+  <rect class="open" x="65" y="144" width="24" height="20"/>
+  <text class="tiny" x="77" y="149">
+    <tspan x="77">Gallery 12</tspan>
+    <tspan x="77" dy="2.4">Visit 9</tspan>
+    <tspan x="77" dy="2.4">Jewish Philosophy</tspan>
+  </text>
+  <rect class="planned" x="89" y="142" width="56" height="24"/>
+  <text class="small" x="117" y="147">
+    <tspan x="117">Gallery 13 · Visit 10</tspan>
+    <tspan x="117" dy="2.7">Latin Christian &amp;</tspan>
+    <tspan x="117" dy="2.7">Scholastic Traditions</tspan>
+  </text>
+  <rect class="forum" x="145" y="140" width="28" height="28"/>
+  <text class="tiny" x="159" y="146">
+    <tspan x="159">Gallery 06 · Visit 11</tspan>
+    <tspan x="159" dy="2.6">CORE QUESTIONS</tspan>
+    <tspan x="159" dy="2.6">FORUM</tspan>
+    <tspan x="159" dy="3">28 × 28 m</tspan>
+  </text>
+  <rect class="open" x="173" y="142" width="56" height="24"/>
+  <text class="small" x="201" y="147">
+    <tspan x="201">Gallery 02 · Visit 12</tspan>
+    <tspan x="201" dy="2.7">Renaissance, Political</tspan>
+    <tspan x="201" dy="2.7">Order &amp; New Science</tspan>
+  </text>
+  <rect class="planned" x="229" y="142" width="56" height="24"/>
+  <text class="small" x="257" y="147">
+    <tspan x="257">Gallery 16 · Visit 13</tspan>
+    <tspan x="257" dy="2.7">Rationalism: Mind,</tspan>
+    <tspan x="257" dy="2.7">Nature &amp; System</tspan>
+  </text>
+
+  <!-- Band 4: east to west. -->
+  <rect class="planned" x="42" y="114" width="56" height="24"/>
+  <text class="small" x="70" y="119">
+    <tspan x="70">Gallery 21 · Visit 18</tspan>
+    <tspan x="70" dy="2.7">Faith, Pessimism,</tspan>
+    <tspan x="70" dy="2.7">Life &amp; Value</tspan>
+  </text>
+  <rect class="planned" x="98" y="114" width="56" height="24"/>
+  <text class="small" x="126" y="119">
+    <tspan x="126">Gallery 20 · Visit 17</tspan>
+    <tspan x="126" dy="2.7">Utility, Liberty,</tspan>
+    <tspan x="126" dy="2.7">History &amp; Capital</tspan>
+  </text>
+  <rect class="crossing" x="154" y="112" width="10" height="28"/>
+  <rect class="planned" x="164" y="114" width="56" height="24"/>
+  <text class="small" x="192" y="119">
+    <tspan x="192">Gallery 19 · Visit 16</tspan>
+    <tspan x="192" dy="2.7">German Idealism &amp;</tspan>
+    <tspan x="192" dy="2.7">Romantic Afterlives</tspan>
+  </text>
+  <rect class="planned" x="220" y="112" width="28" height="28"/>
+  <text class="tiny" x="234" y="117">
+    <tspan x="234">Gallery 18 · Visit 15</tspan>
+    <tspan x="234" dy="2.5">Enlightenment,</tspan>
+    <tspan x="234" dy="2.5">Revolution &amp;</tspan>
+    <tspan x="234" dy="2.5">Kant’s Critical Turn</tspan>
+  </text>
+  <rect class="planned" x="248" y="114" width="56" height="24"/>
+  <text class="small" x="276" y="119">
+    <tspan x="276">Gallery 17 · Visit 14</tspan>
+    <tspan x="276" dy="2.7">Empiricism, Science</tspan>
+    <tspan x="276" dy="2.7">&amp; Political Order</tspan>
+  </text>
+
+  <!-- Band 5: west to east. -->
+  <rect class="planned" x="42" y="86" width="56" height="24"/>
+  <text class="small" x="70" y="91">
+    <tspan x="70">Gallery 22 · Visit 19</tspan>
+    <tspan x="70" dy="2.7">Pragmatism, Science &amp;</tspan>
+    <tspan x="70" dy="2.7">Democratic Inquiry</tspan>
+  </text>
+  <rect class="open" x="98" y="86" width="56" height="24"/>
+  <text class="small" x="126" y="91">
+    <tspan x="126">Gallery 04 · Visit 20</tspan>
+    <tspan x="126" dy="2.7">Analytic Traditions:</tspan>
+    <tspan x="126" dy="2.7">Logic, Language &amp; Analysis</tspan>
+  </text>
+  <rect class="crossing" x="154" y="84" width="10" height="28"/>
+  <rect class="open" x="164" y="86" width="56" height="24"/>
+  <text class="small" x="192" y="91">
+    <tspan x="192">Gallery 03 · Visit 21</tspan>
+    <tspan x="192" dy="2.7">Phenomenology, Existence</tspan>
+    <tspan x="192" dy="2.7">&amp; Embodiment</tspan>
+  </text>
+  <rect class="planned" x="220" y="84" width="28" height="28"/>
+  <text class="tiny" x="234" y="89">
+    <tspan x="234">Gallery 23 · Visit 22</tspan>
+    <tspan x="234" dy="2.5">Critique, Power &amp;</tspan>
+    <tspan x="234" dy="2.5">Deconstruction</tspan>
+  </text>
+
+  <!-- Band 6: east to west. -->
+  <rect class="planned" x="70" y="58" width="56" height="24"/>
+  <text class="small" x="98" y="63">
+    <tspan x="98">Gallery 26 · Visit 26</tspan>
+    <tspan x="98" dy="2.7">Colonialism, Race</tspan>
+    <tspan x="98" dy="2.7">&amp; Liberation</tspan>
+  </text>
+  <rect class="planned" x="126" y="56" width="28" height="28"/>
+  <text class="tiny" x="140" y="62">
+    <tspan x="140">Gallery 25</tspan>
+    <tspan x="140" dy="2.5">Visit 25</tspan>
+    <tspan x="140" dy="2.5">Feminist</tspan>
+    <tspan x="140" dy="2.5">Philosophies</tspan>
+  </text>
+  <rect class="crossing" x="154" y="56" width="10" height="28"/>
+  <rect class="open" x="164" y="58" width="56" height="24"/>
+  <text class="small" x="192" y="63">
+    <tspan x="192">Gallery 05 · Visit 24</tspan>
+    <tspan x="192" dy="2.7">Political Action, Justice</tspan>
+    <tspan x="192" dy="2.7">&amp; Democratic Reason</tspan>
+  </text>
+  <rect class="planned" x="220" y="56" width="28" height="28"/>
+  <text class="tiny" x="234" y="62">
+    <tspan x="234">Gallery 24 · Visit 23</tspan>
+    <tspan x="234" dy="2.5">Moral Life &amp;</tspan>
+    <tspan x="234" dy="2.5">Practical Reason</tspan>
+  </text>
+
+  <!-- Final threshold and two reserves. -->
+  <rect class="entrance" x="58" y="56" width="12" height="28"/>
+  <text class="tiny" x="64" y="63">
+    <tspan x="64">FINAL</tspan>
+    <tspan x="64" dy="2.4">RETURN</tspan>
+    <tspan x="64" dy="2.4">/ EXIT</tspan>
+  </text>
+  <rect class="reserve" x="98" y="28" width="56" height="28"/>
+  <text class="small" x="126" y="39">
+    <tspan x="126">Additional gallery reserve 1</tspan>
+    <tspan x="126" dy="3">56 × 28 m · closed</tspan>
+  </text>
+  <rect class="crossing" x="154" y="28" width="10" height="28"/>
+  <rect class="reserve" x="164" y="28" width="56" height="28"/>
+  <text class="small" x="192" y="39">
+    <tspan x="192">Additional gallery reserve 2</tspan>
+    <tspan x="192" dy="3">56 × 28 m · closed</tspan>
+  </text>
+
+  <!-- Enclosed turning courts. -->
+  <path class="turn" d="M276 210L248 182"/>
+  <path class="turn-edge" d="M278.8 207.2L250.8 179.2M273.2 212.8L245.2 184.8"/>
+  <path class="turn" d="M42 182L65 154"/>
+  <path class="turn-edge" d="M38.9 179.5L61.9 151.5M45.1 184.5L68.1 156.5"/>
+  <path class="turn" d="M285 154L304 126"/>
+  <path class="turn-edge" d="M281.7 151.8L300.7 123.8M288.3 156.2L307.3 128.2"/>
+  <path class="turn" d="M42 126L42 98"/>
+  <path class="turn-edge" d="M38 126V98M46 126V98"/>
+  <path class="turn" d="M248 98L248 70"/>
+  <path class="turn-edge" d="M244 98V70M252 98V70"/>
+
+  <!-- Through-gallery route. -->
+  <path class="route" d="M38 216H272"/>
+  <path class="route" d="M272 210L248 186H46"/>
+  <path class="route" d="M46 182L69 154H281"/>
+  <path class="route" d="M281 154L300 126H46"/>
+  <path class="route" d="M46 126V98H244"/>
+  <path class="route" d="M244 98V70H74"/>
+
+  <!-- Crosscut. -->
+  <path class="axis" d="M159 32V220"/>
+  <text class="meta-bold" x="161.5" y="109" transform="rotate(-90 161.5 109)">NORTH–SOUTH COLLECTION CROSSCUT · 10 m CLEAR</text>
+
+  <!-- Dimensions. -->
+  <path class="dimension" d="M42 264H304"/>
+  <text class="dimension-text" x="173" y="261">262 m main gallery block</text>
+  <path class="dimension" d="M18 28V252"/>
+  <text class="dimension-text" x="14" y="140" transform="rotate(-90 14 140)">224 m controlled depth including entrance and reserves</text>
+  <path class="dimension" d="M30 274H304"/>
+  <text class="dimension-text" x="167" y="282">274 m controlled width including Grand Entrance</text>
+
+  <!-- North arrow. -->
+  <path class="north" d="M292 38L298 23L304 38L298 34Z"/>
+  <text class="meta-bold" x="296" y="20">N</text>
+
+  <!-- Right-hand notes and legend. -->
+  <text class="meta-bold" x="320" y="33">WHAT THIS DRAWING LOCKS</text>
+  <text class="meta" x="320" y="40">
+    <tspan x="320">• exact gallery centers and rotations</tspan>
+    <tspan x="320" dy="4.2">• all 105 named room shells</tspan>
+    <tspan x="320" dy="4.2">• one continuous through-gallery route</tspan>
+    <tspan x="320" dy="4.2">• crosscut only at threshold joints</tspan>
+    <tspan x="320" dy="4.2">• an independent 28 × 28 m Forum</tspan>
+    <tspan x="320" dy="4.2">• five direct-sightline turn courts</tspan>
+    <tspan x="320" dy="4.2">• a grand, functional virtual entrance</tspan>
+    <tspan x="320" dy="4.2">• two full additional gallery reserves</tspan>
+  </text>
+
+  <text class="meta-bold" x="320" y="82">STATUS AT MIGRATION</text>
+  <rect class="open" x="320" y="88" width="12" height="7"/>
+  <text class="meta" x="336" y="93">12 populated galleries moved intact</text>
+  <rect class="planned" x="320" y="99" width="12" height="7"/>
+  <text class="meta" x="336" y="104">14 named, walkable planned shells</text>
+  <rect class="forum" x="320" y="110" width="12" height="7"/>
+  <text class="meta" x="336" y="115">Core Questions Forum, full bay</text>
+  <rect class="crossing" x="320" y="121" width="12" height="7"/>
+  <text class="meta" x="336" y="126">crosscut / crossing bay</text>
+  <rect class="reserve" x="320" y="132" width="12" height="7"/>
+  <text class="meta" x="336" y="137">closed capacity reserve</text>
+
+  <text class="meta-bold" x="320" y="153">NUMBERING</text>
+  <text class="meta" x="320" y="160">
+    <tspan x="320">“Gallery” is the stable public release number.</tspan>
+    <tspan x="320" dy="4.2">Existing Gallery 01–12 numbers do not change.</tspan>
+    <tspan x="320" dy="4.2">“Visit” is the physical walking sequence.</tspan>
+    <tspan x="320" dy="4.2">No title is represented by an abbreviation.</tspan>
+  </text>
+
+  <text class="meta-bold" x="320" y="187">MOVEMENT</text>
+  <text class="meta" x="320" y="194">
+    <tspan x="320">Complete chronological walk: ≈ 1,443.7 m.</tspan>
+    <tspan x="320" dy="4.2">Crosscut public length: 168 m.</tspan>
+    <tspan x="320" dy="4.2">Longest turn-court sightline: 39.598 m.</tspan>
+    <tspan x="320" dy="4.2">Visitors can continue through every gallery;</tspan>
+    <tspan x="320" dy="4.2">crosscut, guided routes, and fast travel remain</tspan>
+    <tspan x="320" dy="4.2">available without creating empty long corridors.</tspan>
+  </text>
+
+  <text class="meta-bold" x="320" y="229">SCALE</text>
+  <text class="meta" x="320" y="236">
+    <tspan x="320">A3 landscape at 100%:</tspan>
+    <tspan x="320" dy="4.2">1 mm on drawing = 1 m in building.</tspan>
+    <tspan x="320" dy="4.2">Scale 1:1000.</tspan>
+  </text>
+
+  <text class="meta" x="320" y="261">
+    <tspan x="320">Solid grey margins are structure/services,</tspan>
+    <tspan x="320" dy="4.2">not public space. Adjacent bands share walls.</tspan>
+    <tspan x="320" dy="4.2">Future shells contain no fake exhibits or media.</tspan>
+  </text>
+</svg>

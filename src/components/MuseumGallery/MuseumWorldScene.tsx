@@ -152,7 +152,7 @@ const interactionTargetKey = (target: MuseumInteractionTarget | undefined): stri
   if (!target) return '';
   if (target.kind === 'exhibit') return `${target.kind}:${target.hallId}:${target.exhibitId}`;
   if (target.kind === 'supplemental-exhibit') return `${target.kind}:${target.hallId}:${target.supplementalExhibitId}`;
-  return `${target.kind}:${target.hallId}:${target.kioskId}`;
+  return `${target.kind}:${target.nodeId}:${target.kioskId}`;
 };
 
 function MuseumPlayerRig({
@@ -210,7 +210,7 @@ function MuseumPlayerRig({
 
   const publishNearby = useCallback(() => {
     const hallId = definition.publicHallId;
-    const visitorMap = hallId ? visitorMapInteractionAtPose(hallId, poseRef.current) : undefined;
+    const visitorMap = visitorMapInteractionAtPose(definition.id, poseRef.current);
     const primary = visitorMap ? undefined : nearestInteractableItem(poseRef.current, layout.exhibits);
     const supplemental = visitorMap ? undefined : nearestInteractableItem(poseRef.current, layout.supplementalExhibits ?? []);
     const primaryDistance = primary
@@ -232,7 +232,7 @@ function MuseumPlayerRig({
     lastNearbyRef.current = next;
     onNearbyVisualChange(next);
     onNearbyInteractionChange(next);
-  }, [definition.publicHallId, layout.exhibits, onNearbyInteractionChange, onNearbyVisualChange, poseRef]);
+  }, [definition.id, definition.publicHallId, layout.exhibits, onNearbyInteractionChange, onNearbyVisualChange, poseRef]);
 
   useEffect(() => {
     void poseRevision;
@@ -448,7 +448,12 @@ function MuseumWorldContents(props: MuseumSceneRuntimeProps) {
     <color attach="background" args={['#d8d3ca']}/>
     <hemisphereLight args={['#fff8e8', '#48433d', hemisphereIntensity]}/>
     <ambientLight color="#fff5e5" intensity={ambientIntensity}/>
-    <MuseumBuildingArchitecture onSceneGesture={props.onSceneGesture}/>
+    <MuseumBuildingArchitecture
+      activeNodeId={props.definition.id}
+      visitorMapNearby={visitorMapNearby}
+      onSelectVisitorMap={props.onSelectVisitorMap}
+      onSceneGesture={props.onSceneGesture}
+    />
     <MuseumReadinessGates
       definition={props.definition}
       readyHallEntryKeys={props.readyHallEntryKeys}

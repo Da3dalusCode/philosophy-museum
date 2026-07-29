@@ -97,6 +97,10 @@ export const getRouteTitle = (route: AppRoute): string => {
       break;
     }
     case 'museum': {
+      if (route.entry === 'entrance') {
+        title = 'Grand Entrance & Orientation Hall';
+        break;
+      }
       const hall = getMuseumHallCatalog(route.hallId);
       const exhibit = route.exhibitId
         ? getMuseumExhibitCatalog(route.hallId, route.exhibitId)

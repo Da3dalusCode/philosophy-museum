@@ -495,7 +495,12 @@ const resolveTemplate = (
       && close(landingWidth, template.safeArrivalLanding.width)
       && close(landingDepth, template.safeArrivalLanding.depth)
       && close(arrivalOffset, template.safeArrivalLanding.poseOffsetFromPortal);
-    if (!adapter && (!exact || !interfaceExact)) {
+    const approvedForumCrosscutExpansion = node.programHallId === 'core-questions-forum'
+      && (slot.id === 'N0' || slot.id === 'S0')
+      && close(slot.clearWidth, MUSEUM_BUILDING_MANIFEST.physicalContract.crosscutClearWidth)
+      && close(slot.clearHeight, template.publicPortal.clearHeightMetres)
+      && close(slot.transitionDepth, template.publicPortal.transitionDepthMetres);
+    if (!adapter && ((!exact && !approvedForumCrosscutExpansion) || !interfaceExact)) {
       throw new Error(`Canonical museum slot ${node.id}/${slot.id} deviates from template ${template.id}.`);
     }
     const shellCeilingHeight = ceilingAtSlot(slot, layout, template.ceilingHeightMetres);
@@ -523,6 +528,11 @@ const resolveTemplate = (
   if (!close(layout.floorArea, template.footprintMetres.width * template.footprintMetres.depth)) deviations.push(`Resolved floor area ${layout.floorArea.toFixed(1)} m² differs from canonical ${template.footprintMetres.width * template.footprintMetres.depth} m².`);
   if (!roomCeilings.every((height) => close(height, template.ceilingHeightMetres))) deviations.push(`Resolved room ceilings ${roomCeilingRange[0].toFixed(1)}–${roomCeilingRange[1].toFixed(1)} m differ from the canonical ${template.ceilingHeightMetres.toFixed(1)} m interface.`);
   for (const portalInterface of portals.filter(({dimensionConformance}) => dimensionConformance === 'expanded-adapter')) {
+    if (
+      node.programHallId === 'core-questions-forum'
+      && (portalInterface.manifestSlotId === 'N0' || portalInterface.manifestSlotId === 'S0')
+      && close(portalInterface.actual.clearWidth, MUSEUM_BUILDING_MANIFEST.physicalContract.crosscutClearWidth)
+    ) continue;
     deviations.push(`Portal ${portalInterface.manifestSlotId} expands the canonical 4.0 × 3.2 m interface.`);
   }
   const anchorTrackIds = [...new Set(layout.lighting.exhibitLights.map(({trackId}) => trackId))];

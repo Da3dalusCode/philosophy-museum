@@ -1,14 +1,16 @@
 import type {ThreeEvent} from '@react-three/fiber';
-import {MUSEUM_BUILDING_MANIFEST} from '../../data/museum/museumBuildingManifest';
+import {
+  MUSEUM_BUILDING_MANIFEST,
+  type MuseumManifestReserve,
+} from '../../data/museum/museumBuildingManifest';
 import {
   MUSEUM_CIRCULATION_NODES,
-  getMuseumReservationBarrierBody,
   getMuseumRuntimeNode,
 } from '../../data/museum/museumBuildingRuntime';
 import type {
   MuseumFurnishingDefinition,
-  MuseumReservation,
   MuseumRuntimeNodeDefinition,
+  MuseumSignDefinition,
   MuseumSpatialCell,
   MuseumWallDefinition,
 } from '../../data/museum/museumWorldTypes';
@@ -21,6 +23,8 @@ import {
   MUSEUM_TEXTURE_SPECS,
   museumTextureDimensionsForPlane,
 } from '../../data/museum/museumTexturePolicy';
+import {MUSEUM_VISITOR_MAP_KIOSK} from '../../data/museum/museumVisitorMapKioskDefinition';
+import {MuseumVisitorMapKiosk} from './MuseumVisitorMapKiosk';
 import {usePlaqueTexture} from './plaqueTextures';
 
 const FLOOR = '#514e48';
@@ -135,17 +139,36 @@ function BuildingSign({title, kicker, subtitle, position, rotation = 0, width = 
   </group>;
 }
 
-function ReservationBarrier({reservation}: {reservation: MuseumReservation}) {
-  const body = getMuseumReservationBarrierBody(reservation);
+function AuthoredBuildingSign({sign}: {sign: MuseumSignDefinition}) {
+  return <BuildingSign
+    title={sign.title}
+    kicker={sign.kicker}
+    subtitle={sign.subtitle}
+    position={[sign.position.x, sign.position.y, sign.position.z]}
+    rotation={sign.rotationY}
+    width={sign.width}
+  />;
+}
+
+function ReservationBarrier({reservation}: {reservation: MuseumManifestReserve}) {
+  const authoredWall = reservation.boundaryWall;
+  if (!authoredWall) return null;
+  const body = {
+    id: reservation.id,
+    center: {x: authoredWall.center.x, z: authoredWall.center.z},
+    size: {width: authoredWall.size.width, depth: authoredWall.size.depth},
+    rotation: authoredWall.rotationY,
+    height: authoredWall.size.height,
+  };
   const labelWidth = body.size.width * .9;
-  const labelHeight = body.size.width * .245;
+  const labelHeight = Math.min(1.1, body.size.width * .245);
   const textureSize = museumTextureDimensionsForPlane(
     labelWidth,
     labelHeight,
     MUSEUM_TEXTURE_SPECS.reservationSign,
   );
   const texture = usePlaqueTexture({
-    title: reservation.label,
+    title: reservation.label ?? 'Future gallery — not yet open',
     kicker: 'This doorway is closed',
     subtitle: 'Continue along the open Museum route.',
     accent: '#a56d45',
@@ -155,29 +178,32 @@ function ReservationBarrier({reservation}: {reservation: MuseumReservation}) {
   return <group
     position={[body.center.x, 0, body.center.z]}
     rotation={[0, body.rotation, 0]}
-    userData={{reservationId: reservation.id, blocked: true, label: reservation.label}}
+    userData={{reservationId: reservation.id, blocked: true, label: reservation.label ?? reservation.title}}
   >
     <mesh position={[0, body.height / 2, 0]}><boxGeometry args={[body.size.width, body.height, body.size.depth]}/><meshStandardMaterial color="#ddd7cc" roughness={.84} metalness={.02}/></mesh>
-    <mesh position={[0, body.height + .18, body.size.depth / 2 + .02]}><planeGeometry args={[labelWidth, labelHeight]}/><meshBasicMaterial map={texture} toneMapped={false}/></mesh>
-    <mesh position={[0, body.height + .18, -body.size.depth / 2 - .02]} rotation={[0, Math.PI, 0]}><planeGeometry args={[labelWidth, labelHeight]}/><meshBasicMaterial map={texture} toneMapped={false}/></mesh>
-    {[-body.size.width * .42, body.size.width * .42].map((x) => <mesh key={x} position={[x, .72, 0]}><cylinderGeometry args={[.055, .075, 1.45, 10]}/><meshStandardMaterial color={BRONZE} metalness={.55} roughness={.4}/></mesh>)}
+    <mesh position={[0, 2.05, body.size.depth / 2 + .02]}><planeGeometry args={[labelWidth, labelHeight]}/><meshBasicMaterial map={texture} toneMapped={false}/></mesh>
+    <mesh position={[0, 2.05, -body.size.depth / 2 - .02]} rotation={[0, Math.PI, 0]}><planeGeometry args={[labelWidth, labelHeight]}/><meshBasicMaterial map={texture} toneMapped={false}/></mesh>
   </group>;
 }
 
 function CirculationNode({node}: {node: MuseumRuntimeNodeDefinition}) {
-  const forum = false;
+  const forum = node.programHallId === 'core-questions-forum';
   const architectureWalls = node.architectureWalls ?? node.layout.wallColliders;
   const entranceCell = node.id === MUSEUM_BUILDING_MANIFEST.mainEntrance.nodeId
     ? node.layout.spatialCells.find(({id}) => id.endsWith(':orientation-court'))
+      ?? node.layout.spatialCells[0]
     : undefined;
   return <group position={[node.worldTransform.x, 0, node.worldTransform.z]} rotation={[0, node.worldTransform.yaw, 0]}>
     {node.layout.spatialCells.map((cell) => <StructuralCell key={cell.id} cell={cell} forum={forum}/>)}
     {architectureWalls.map((wall) => <StructuralWall key={wall.id} wall={wall}/>)}
-    {node.layout.furnishings.map((item) => <StructuralBench key={item.id} item={item}/>)}
+    {node.layout.furnishings
+      .filter(({kind}) => kind !== 'visitor-map-kiosk')
+      .map((item) => <StructuralBench key={item.id} item={item}/>)}
+    {(node.layout.signs ?? []).map((sign) => <AuthoredBuildingSign key={sign.id} sign={sign}/>)}
     {entranceCell && <BuildingSign
       title="Philosophy Atlas Museum"
-      kicker="Entrance and orientation"
-      subtitle="Walk the full Ring in either direction · Central shortcuts are open"
+      kicker="Grand Entrance & Orientation"
+      subtitle="Chronological enfilade · North–south crosscut · 26 galleries on one public level"
       position={[
         (entranceCell.bounds.minX + entranceCell.bounds.maxX) / 2,
         4.25,
@@ -189,20 +215,36 @@ function CirculationNode({node}: {node: MuseumRuntimeNodeDefinition}) {
   </group>;
 }
 
-export function MuseumBuildingArchitecture({onSceneGesture}: {onSceneGesture: () => void}) {
+export function MuseumBuildingArchitecture({
+  activeNodeId,
+  visitorMapNearby,
+  onSelectVisitorMap,
+  onSceneGesture,
+}: {
+  activeNodeId: string;
+  visitorMapNearby: boolean;
+  onSelectVisitorMap: () => void;
+  onSceneGesture: () => void;
+}) {
   const activate = (event: ThreeEvent<MouseEvent>) => {
     if (event.delta > 7) return;
     event.stopPropagation();
     onSceneGesture();
   };
+  const kioskHost = getMuseumRuntimeNode(MUSEUM_VISITOR_MAP_KIOSK.nodeId);
   return <group onClick={activate} userData={{museumBuilding: MUSEUM_BUILDING_MANIFEST.manifestVersion}}>
     {MUSEUM_CIRCULATION_NODES.map((node) => <CirculationNode key={node.id} node={node}/>)}
-    {MUSEUM_BUILDING_MANIFEST.reservations.map((reservation) => {
-      const host = getMuseumRuntimeNode(reservation.hostNodeId);
-      if (!host) return null;
-      return <group key={reservation.id} position={[host.worldTransform.x, 0, host.worldTransform.z]} rotation={[0, host.worldTransform.yaw, 0]}>
-        <ReservationBarrier reservation={reservation}/>
-      </group>;
-    })}
+    {kioskHost && <group
+      position={[kioskHost.worldTransform.x, 0, kioskHost.worldTransform.z]}
+      rotation={[0, kioskHost.worldTransform.yaw, 0]}
+    >
+      <MuseumVisitorMapKiosk
+        active={activeNodeId === kioskHost.id}
+        nearby={visitorMapNearby}
+        onActivate={onSelectVisitorMap}
+      />
+    </group>}
+    {MUSEUM_BUILDING_MANIFEST.reserves.map((reservation) =>
+      <ReservationBarrier key={reservation.id} reservation={reservation}/>)}
   </group>;
 }

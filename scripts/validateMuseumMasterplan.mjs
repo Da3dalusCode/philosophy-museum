@@ -159,7 +159,10 @@ const EXPECTED_GLOBAL_TIERS = {
 };
 
 const program = readJson('docs/museum-masterplan/hall-program.json');
+// The former Ring manifest remains a validated rollback artifact only.
 const buildingManifest = readJson('src/data/museum/museumBuildingManifest.json');
+const activeBuildingManifest = readJson('src/data/museum/museumContinuousEnfiladeManifest.json');
+const singleLevelPlan = readJson('docs/museum-masterplan/single-level-building-plan.json');
 const planningManifest = readJson('docs/museum-masterplan/building-manifest.example.json');
 const philosopherAssignments = parseCsv('philosopher-assignments.csv');
 const branchAssignments = parseCsv('branch-assignments.csv');
@@ -687,6 +690,125 @@ for (const reservation of buildingManifest.reservations) {
   if (reservation.targetProgramHallId) check(hallById.has(reservation.targetProgramHallId) && !APPROVED_HALL_IDS.includes(reservation.targetProgramHallId), `Reservation ${reservation.id} leaks a live or unknown target hall`);
 }
 
+// Active implementation: the owner-approved Continuous Enfilade.
+check(activeBuildingManifest.schemaVersion === 2, `Active building manifest schema changed to ${activeBuildingManifest.schemaVersion}`);
+check(activeBuildingManifest.manifestVersion === singleLevelPlan.planId, 'Active manifest and approved control-plan versions differ');
+check(activeBuildingManifest.status === 'implemented-approved-continuous-enfilade', `Active building status changed to ${activeBuildingManifest.status}`);
+check(activeBuildingManifest.physicalOptionId === 'continuous-enfilade-single-level', `Active physical option changed to ${activeBuildingManifest.physicalOptionId}`);
+check(activeBuildingManifest.level?.id === 'L0' && activeBuildingManifest.nodes.every(({levelId}) => levelId === 'L0'), 'The Continuous Enfilade must remain on one public level');
+check(activeBuildingManifest.counts?.halls === 26, 'Active manifest must contain 26 galleries');
+check(activeBuildingManifest.counts?.rooms === 105, 'Active manifest must contain 105 rooms');
+check(activeBuildingManifest.counts?.curatedOpen === 12, 'Active manifest must contain 12 curated/open galleries');
+check(activeBuildingManifest.counts?.plannedWalkable === 14, 'Active manifest must contain 14 planned/walkable galleries');
+check(activeBuildingManifest.counts?.reserves === 2, 'Active manifest must contain two closed reserves');
+check(activeBuildingManifest.nodes.length === 39, `Active manifest must contain 39 walkable nodes, found ${activeBuildingManifest.nodes.length}`);
+check(activeBuildingManifest.connections.length === 43, `Active manifest must contain 43 physical seams, found ${activeBuildingManifest.connections.length}`);
+check(unique(activeBuildingManifest.nodes.map(({id}) => id)), 'Active manifest contains duplicate node IDs');
+check(unique(activeBuildingManifest.connections.map(({id}) => id)), 'Active manifest contains duplicate connection IDs');
+
+const activeNodeById = new Map(activeBuildingManifest.nodes.map((node) => [node.id, node]));
+const activeHallNodes = activeBuildingManifest.nodes.filter(({kind}) => kind === 'hall');
+const activeHallByProgramId = new Map(activeHallNodes.map((node) => [node.programHallId, node]));
+const activeCuratedNodes = activeHallNodes.filter(({galleryState}) => galleryState === 'curated-open');
+const activePlannedNodes = activeHallNodes.filter(({galleryState}) => galleryState === 'planned-walkable');
+check(activeHallNodes.length === 26, `Active manifest exposes ${activeHallNodes.length}, not 26, gallery nodes`);
+check(activeCuratedNodes.length === 12, `Active manifest exposes ${activeCuratedNodes.length}, not 12, curated galleries`);
+check(activePlannedNodes.length === 14, `Active manifest exposes ${activePlannedNodes.length}, not 14, planned shells`);
+check(same(sorted(activeCuratedNodes.map(({publicHallId}) => publicHallId)), sorted(APPROVED_HALL_IDS)), 'Active curated roster differs from the canonical twelve');
+check(activePlannedNodes.every(({publicHallId, fastTravelEligible}) => publicHallId === undefined && fastTravelEligible !== true), 'A planned shell exposes curated content or fast travel');
+
+const activeRoomIds = activeHallNodes.flatMap(({roomIds}) => roomIds);
+check(activeRoomIds.length === 105 && unique(activeRoomIds), 'Active room IDs must bind all 105 rooms exactly once');
+check(same(sorted(activeRoomIds), sorted(program.rooms.map(({id}) => id))), 'Active room roster differs from the approved intellectual program');
+check(activeHallNodes.flatMap(({rooms}) => rooms ?? []).length === 105, 'Active manifest omits human-readable room metadata');
+
+for (const plannedHall of singleLevelPlan.halls) {
+  const node = activeHallByProgramId.get(plannedHall.id);
+  check(Boolean(node), `Active manifest omits ${plannedHall.id}`);
+  if (!node) continue;
+  check(node.publicGalleryNumber === plannedHall.publicGalleryNumber, `${plannedHall.id} stable public number changed`);
+  check(node.visitSequence === plannedHall.visitSequence, `${plannedHall.id} visit sequence changed`);
+  check(node.templateId === plannedHall.templateId, `${plannedHall.id} template changed`);
+  check(node.bandId === plannedHall.bandId, `${plannedHall.id} structural band changed`);
+  check(same(node.roomIds, plannedHall.roomIds), `${plannedHall.id} room binding changed`);
+  check(same(node.planPlacement, plannedHall.placement), `${plannedHall.id} source placement changed`);
+  check(close(node.transform.x, plannedHall.placement.x) && close(node.transform.z, plannedHall.placement.z), `${plannedHall.id} runtime origin differs from the control plan`);
+  check(close(node.transform.yaw, -plannedHall.placement.rotationDegrees * Math.PI / 180), `${plannedHall.id} runtime yaw does not implement the control-plan rotation`);
+  if (plannedHall.migrationState === 'construct-planned-walkable-shell') {
+    const roomCells = node.geometry?.cells?.filter(({kind}) => kind === 'room') ?? [];
+    const signs = node.geometry?.signs ?? [];
+    check(same(sorted(roomCells.map(({id}) => id)), sorted(plannedHall.roomIds)), `${plannedHall.id} planned shell does not expose its exact room layout`);
+    check(signs.length === 1 && signs[0].kind === 'planned-status' && signs[0].interactive === false, `${plannedHall.id} must have exactly one honest, noninteractive planned-status sign`);
+    const serializedGeometry = JSON.stringify(node.geometry);
+    check(!/"(?:exhibits|media|articleRoutes|assetIds|interactions|attributions)"/u.test(serializedGeometry), `${plannedHall.id} planned shell contains fake curated content`);
+  }
+}
+
+const activeEndpointKeys = new Set();
+for (const connection of activeBuildingManifest.connections) {
+  check(connection.accessible === true && connection.implementationStatus === 'live', `${connection.id} is not a live, accessible seam`);
+  for (const endpoint of [connection.a, connection.b]) {
+    const node = activeNodeById.get(endpoint.nodeId);
+    const slot = node?.doorwaySlots.find(({id}) => id === endpoint.slotId);
+    check(Boolean(node && slot), `${connection.id} references missing endpoint ${endpoint.nodeId}/${endpoint.slotId}`);
+    const key = `${endpoint.nodeId}/${endpoint.slotId}`;
+    check(!activeEndpointKeys.has(key), `${connection.id} reuses active endpoint ${key}`);
+    activeEndpointKeys.add(key);
+  }
+}
+for (const node of activeBuildingManifest.nodes) {
+  for (const slot of node.doorwaySlots) {
+    check(close(slot.landingBounds.maxX - slot.landingBounds.minX, 4) && close(slot.landingBounds.maxZ - slot.landingBounds.minZ, 4), `${node.id}/${slot.id} lacks a 4 × 4 m safe landing`);
+    check(close(Math.hypot(slot.arrivalPose.x - slot.position.x, slot.arrivalPose.z - slot.position.z), 2), `${node.id}/${slot.id} safe arrival is not 2 m inward`);
+  }
+}
+
+const approvedVisitOrder = singleLevelPlan.structuralBands.flatMap(({visitSequence}) => visitSequence);
+check(same(activeBuildingManifest.throughRoute.hallOrder, approvedVisitOrder), 'Active chronological route differs from the approved serpentine order');
+check(activeBuildingManifest.throughRoute.start === singleLevelPlan.grandEntrance.id, 'Active route does not begin at the Grand Entrance');
+check(activeBuildingManifest.throughRoute.finish === singleLevelPlan.finalThreshold.id, 'Active route does not end at the Final Return threshold');
+check(activeBuildingManifest.connections.filter(({routeRole}) => routeRole === 'through-route').length === 37, 'Chronological through-route must contain 37 seams');
+check(activeBuildingManifest.connections.filter(({routeRole}) => routeRole === 'crosscut').length === 6, 'North–south crosscut must contain six seams');
+check(activeBuildingManifest.crosscut.clearWidth === 10 && activeBuildingManifest.crosscut.intersections.length === 6, 'Crosscut must remain 10 m clear with six truthful intersections');
+check(activeBuildingManifest.nodes.filter(({physicalRole}) => physicalRole === 'crosscut-intersection').length === 5, 'Crosscut must retain five ordinary crossing bays plus the Forum');
+check(activeBuildingManifest.forumNodeId === 'hall:core-questions-forum', 'Core Questions Forum no longer owns the central crosscut intersection');
+const forumNode = activeNodeById.get(activeBuildingManifest.forumNodeId);
+check(['N0', 'S0'].every((slotId) => forumNode?.doorwaySlots.find(({id}) => id === slotId)?.clearWidth === 10), 'Forum north/south crosscut openings are not 10 m clear');
+
+const turnNodes = activeBuildingManifest.nodes.filter(({physicalRole}) => physicalRole === 'turn-court');
+check(turnNodes.length === 5, `Active manifest contains ${turnNodes.length}, not five, turn courts`);
+for (const turn of singleLevelPlan.turnCourts) {
+  const node = activeNodeById.get(turn.id);
+  check(Boolean(node), `Active manifest omits turn court ${turn.id}`);
+  check(same(node?.geometry?.worldCenterline, turn.centerline), `${turn.id} endpoints differ from the control plan`);
+  check(close(node?.geometry?.centerlineLength ?? 0, turn.centerlineLength), `${turn.id} centerline length changed`);
+  check(node?.geometry?.clearWidth === 8, `${turn.id} is not 8 m clear`);
+}
+
+const activeEntrance = activeNodeById.get(activeBuildingManifest.mainEntrance.nodeId);
+check(activeBuildingManifest.mainEntrance.nodeId === singleLevelPlan.grandEntrance.id, 'Grand Entrance node identity changed');
+check(same(activeEntrance?.bounds, singleLevelPlan.grandEntrance.bounds), 'Grand Entrance must remain exactly 40 × 56 m');
+check(activeEntrance?.orientationLandmark?.id === 'entrance-visitor-map-kiosk', 'Grand Entrance lacks its permanent orientation landmark');
+check(same(activeNodeById.get(activeBuildingManifest.finalThresholdNodeId)?.bounds, singleLevelPlan.finalThreshold.bounds), 'Final Return threshold dimensions changed');
+check(activeBuildingManifest.reserves.length === 2 && unique(activeBuildingManifest.reserves.map(({id}) => id)), 'Active manifest must retain exactly two unique reserves');
+for (const reserve of activeBuildingManifest.reserves) {
+  check(reserve.bounds.maxX - reserve.bounds.minX === 56 && reserve.bounds.maxZ - reserve.bounds.minZ === 28, `${reserve.id} is not a 56 × 28 m capacity reserve`);
+  check(reserve.currentDoorState === 'solid-construction-wall', `${reserve.id} is not physically closed`);
+  check(reserve.boundaryWall?.fullHeight === true && reserve.boundaryWall?.collision === true && reserve.boundaryWall?.rendered === true, `${reserve.id} lacks a rendered full-height collision boundary`);
+}
+
+const activeGraph = new Map();
+for (const {a, b} of activeBuildingManifest.connections) addEdge(activeGraph, a.nodeId, b.nodeId);
+const activeReached = new Set();
+const activeQueue = [activeBuildingManifest.mainEntrance.nodeId];
+while (activeQueue.length) {
+  const current = activeQueue.shift();
+  if (activeReached.has(current)) continue;
+  activeReached.add(current);
+  activeQueue.push(...(activeGraph.get(current) ?? []));
+}
+check(activeBuildingManifest.nodes.every(({id}) => activeReached.has(id)), 'The Continuous Enfilade is not continuously walkable from the Grand Entrance');
+
 if (errors.length) {
   console.error(`Museum masterplan validation failed (${errors.length} issue${errors.length === 1 ? '' : 's'} across ${checks} checks):`);
   for (const error of errors) console.error(`- ${error}`);
@@ -698,4 +820,6 @@ console.log('  approved program: 10 wings · 26 halls · 105 rooms · 146 philos
 console.log('  canonical live subset: 12 halls · 53 rooms · 105 primary exhibits · 149 capacity · 44 reserve');
 console.log('  tiers: 55 anchor · 40 standard · 5 supporting · 4 cluster · 1 archive');
 console.log('  compatibility: 23 carried legacy routes · 25 truthful not-installed handoffs');
-console.log('  physical subset: compact five-hall outer loop · Galleries 07–12 branches · central Forum · four spokes · two shortcuts · ten blocked reservations');
+console.log('  active building: Continuous Enfilade · 26 galleries · 105 rooms · 12 curated/open · 14 planned/walkable');
+console.log('  circulation: Grand Entrance · 37-seam through-route · 10 m six-intersection crosscut · five turn courts · Final Return');
+console.log('  capacity: two closed 56 × 28 m reserves · 3 active/recent hall contents · 96 MiB decoded-texture ceiling');

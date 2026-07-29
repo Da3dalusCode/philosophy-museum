@@ -2,9 +2,11 @@
 
 ## Status and governing decision
 
-This plan records the approved implementation sequence. **Worlds with a Questions Forum** and the single-level **Ring of Wings** in [building-options.md](./building-options.md) remain locked, supporting the long-term 10-wing, 26-hall, 105-room program. The Ring infrastructure phase is complete, and the canonical-six cutover is implemented on this feature branch. Production status is still determined by `main`. The owner explicitly overrode the earlier order that placed a global-worlds demonstration before conversion of the six prototype shells.
+This plan records the implementation history through the completed building-level migration. **Worlds with a Questions Forum** remains the locked 10-wing, 26-gallery, 105-room intellectual program. The owner-approved physical planning basis and production geometry is the dimensioned [Continuous Enfilade](./single-level-building-plan.md).
 
-The current canonical phase replaces the temporary shells with six permanent successor programs: `mediterranean-beginnings-classical`, `renaissance-humanism-new-method`, `phenomenology-existence-embodiment`, `analytic-traditions`, `justice-democratic-reason`, and `core-questions-forum`. The first five occupy the compact outer loop. The Forum occupies the central court, not the former outer Mind-shell position. The former Mind area is used only for truthful circulation, return connection, construction sleeve, or reserved space as required by the physical manifest.
+The Continuous Enfilade manifest is production truth after a complete parallel build and atomic cutover. The former Ring manifest is retained only for one-release rollback; it does not authorize a partial corridor patch or piecemeal hall move. The architecture preview and executable geometry audits passed before Galleries 01–12 migrated together.
+
+All current populated halls are exact canonical-template shells. Their hall-local room architecture and curation are migration assets. Their collective world transforms, old loop/spoke connectors, entrance, reservations, and map projection are not carried forward.
 
 ## Why a staged migration is necessary
 
@@ -26,24 +28,25 @@ Every implementation phase must preserve these rules:
 1. **The map never leads construction.** It may show only geometry, doors, corridors, levels, and status present in the approved physical manifest. A blocked reservation is labeled “future” and is neither an edge nor a destination.
 2. **One connection has one source record.** Runtime directions, prefetch adjacency, collision openings, and map edges derive from that record.
 3. **A philosophical record has one primary home.** A secondary appearance is a cross-reference, study-wall record, or deliberately reduced interpretation—not a duplicate anchor claiming a second primary home.
-4. **Compatibility survives the permanent cutover.** Former hall and exhibit-qualified routes remain aliases or explanatory handoffs, while the public directory, map, sessions, search, and guided routes use the six permanent IDs and live roster.
+4. **Compatibility survives the building cutover.** Hall, room, and exhibit-qualified routes remain stable. The public directory, map, sessions, search, and guided routes resolve through stable IDs rather than old world coordinates.
 5. **Construction and curatorial cutover are separate.** A target hall can be built and tested before an installation moves; an installation moves only after its target hall, route, interpretation, collision, and map state are live together.
 6. **Accessibility is physical.** Fast travel does not excuse a blocked walking route, an unsafe landing, a color-only sign, or an inaccessible map.
-7. **No stage requires all 26 halls.** Each opened subset must be an honest, usable building with truthful blocked thresholds for later work.
+7. **Planned shells are honest.** The complete architecture may expose a walkable blank shell so the through route remains intact, but that shell is labeled planned, contains no fake exhibit or control, imports no exhibit media, and is not counted as open.
 
 ## Phase sequence
 
 | Phase | Outcome | Museum content change |
 | --- | --- | --- |
-| 0. Review and approval | taxonomy, Ring concept, stable IDs, successor-shell assumptions, and disposition table approved | complete; no content change |
+| 0. Review and approval | taxonomy, conceptual Ring pilot, stable IDs, successor-shell assumptions, and disposition table approved | complete; no content change |
 | 1. Infrastructure and compatibility adapters | introduce the authoritative runtime building manifest and compatibility adapters | part of the approved Ring-pilot implementation; no roster change |
 | 2. Six-shell physical truth | arrange the six temporary shells as a compact pilot ring with real corridors, central orientation court, shortcuts or spokes, and named reserved portals | completed Ring-infrastructure scope; the former 48 exhibits and 18 zones remained unchanged during this phase |
 | 3. Canonical-six permanent cutover | replace the six temporary programs with five permanent outer-loop halls and the permanent central Core Questions Forum | install every primary assignment in the six final rosters by approved tier; preserve aliases for displaced records; add Krishnamurti as philosopher 142 |
-| 4. Global-worlds demonstration | open `CSA`, `BP`, `CCT`, and `IPW` as the next four halls | only approved primary moves whose targets are live; secondary links replace, rather than duplicate, full anchors |
-| 5. Connected-world completion | open `JPH`, `LCS`, and `EAC`; complete their transmission routes | target-specific moves and new assigned records |
-| 6. Remaining program and capacity-led expansion | construct the remaining approved halls, then use outward reservations or evaluate another level only if formal triggers are met | staged moves and additions under the same exact-once and compatibility rules |
+| 4. Global-worlds demonstration | open `CSA`, `BP`, `CCT`, and `IPW` | complete |
+| 5. Gallery 11–12 connected worlds | open `EAC` and `JPH`; preserve the future `LCS` threshold | complete for Galleries 11–12; `LCS` remains planned |
+| 6. Continuous Enfilade architecture migration | build all 26 hall/105 room shells, new circulation, entrance, map, and two reserves; atomically move the 12 populated halls | no new exhibit curation; 12 curated open and 14 walkable planned shells |
+| 7. Subsequent gallery releases | curate planned shells one or two galleries at a time, beginning with Gallery 13 Latin Christian & Scholastic Traditions | each release changes only its reviewed shell from planned to curated-open |
 
-The numbers describe order, not releases. Phases 1 and 2 established the shared manifest and truthful compact Ring. Phase 3 is the owner-approved canonical-six cutover implemented on this branch. No later intellectual-hall construction may be pulled forward to avoid content, accessibility, route-compatibility, or physical-truth gates.
+Phases 1–6 are implementation history. Phase 6 built the complete architecture without speculative gallery content. Phase 7 returns to the established one-or-two-gallery curation cadence.
 
 ## Phase 1 — infrastructure and adapters first
 
@@ -267,33 +270,93 @@ Krishnamurti is primary exactly once in `wing-core-questions` → `core-question
 
 Open no successor as an empty shell. Each requires every assigned room, tier-appropriate primary treatment, complete interpretation, accessible walking and fast-travel arrival, route alias behavior, map footprint, directory/search presence, and a validated connection. The public roster, map, directory, guided routes, saved-session fallback, and direct routes change atomically.
 
-## Phase 4 — global-worlds demonstration (next)
+## Phase 4 — global-worlds demonstration (implemented)
 
 Build four distinct settings rather than one catch-all “non-Western” district:
 
-1. `CSA` — Classical South Asia: Jain, Yoga, and Brahmanical Systems.
-2. `BP` — Buddhist Philosophies of Liberation and Knowledge.
-3. `CCT` — Warring States & Classical Chinese Traditions.
-4. `IPW` — Arabic & Islamic Philosophical Worlds.
+1. Classical South Asia: Jain, Yoga, and Brahmanical Systems.
+2. Buddhist Philosophies of Liberation and Knowledge.
+3. Warring States & Classical Chinese Traditions.
+4. Arabic & Islamic Philosophical Worlds.
 
-This quartet remains the strongest next demonstration that the long-term plan corrects the prototype's narrow historical coverage. It tests cultural-historical orientation rooms, transmission thresholds, cross-wing routes, hub loading, and a map that grows from six to ten permanent halls. Patañjali and Vasubandhu may receive live canonical primaries only when `CSA` and `BP` are complete; their current Forum references remain explicitly secondary.
+This quartet established distinct cultural-historical orientation rooms, transmission thresholds, cross-wing routes, bounded loading, and a physical map that grew from six to ten permanent halls.
 
-## Phase 5 — connected-world completion
+## Phase 5 — Gallery 11–12 connected worlds (implemented)
 
-Add `JPH` (Jewish Philosophy) and `LCS` (Latin Christian & Scholastic Traditions), completing the connected-medieval triad around `IPW`. Add `EAC` (East Asian Continuities) to complete the planned East Asian wing and make Buddhist translation and regional continuities visible.
+Gallery 11, Confucian Renewal & East Asian Continuities, and Gallery 12, Jewish Philosophy in Arabic-Speaking & Mediterranean Worlds, extend the live collection to twelve galleries. Latin Christian & Scholastic Traditions remains the planned Gallery 13 and the next curation release.
 
-These halls open with their connecting thresholds, not as isolated terminals. `IPW–JPH–LCS`, the East Asian wing link `CCT–EAC`, and the Buddhist/East Asian transmission shortcut `BP–EAC` must distinguish translation, commentary, institutional reception, and comparative juxtaposition. The future `LAI–IPW` threshold remains visibly blocked until `LAI` is built; proximity must not imply a simple one-way inheritance story.
+The current Warring States/East Asian, Buddhist/East Asian, Arabic-Islamic/Jewish, and future Latin Scholastic relationships remain interpretive contracts. Their old physical corridors do not constrain the new building; the Continuous Enfilade preserves the historical sequence and uses the crosscut for alternate movement without turning adjacency into an influence claim.
 
-## Phase 6 — remaining program and capacity-led expansion
+## Phase 6 — complete Continuous Enfilade architecture migration (implemented)
 
-Complete the approved Mediterranean, early-modern, nineteenth-century, modern, ethics/social, and entrance programs around the six permanent foundations. Use the same cutover contract for each addition:
+This shipped as one building release, assembled beside the Ring rollback manifest and switched atomically.
 
-1. Build and validate the target behind a blocked reservation.
-2. Publish its content and safe routes without removing a source installation prematurely.
-3. Move the canonical primary presentation in one release.
-4. Where approved, replace a source station with a visibly secondary link or study-wall record.
-5. Update route labels, guided walks, visit state, and map status atomically.
-6. Open the threshold only after content, interpretation, collision, accessibility, readiness, and safe-arrival gates all pass.
+### Phase 6A — compile rather than hand-place (complete)
+
+- Introduce a versioned Continuous Enfilade runtime manifest beside the current manifest.
+- Generate hall transforms, footprints, portal transforms, crossing bays, turn courts, entrance, final threshold, crosscut, and reserves from [single-level-building-plan.json](./single-level-building-plan.json).
+- Bind every one of the 105 canonical room IDs before scene construction.
+- Fail the build if runtime geometry differs from the control plan.
+
+### Phase 6B — architecture-only preview (complete)
+
+- Build the Grand Entrance, six shared-wall bands, five turn courts, full crosscut, independent Forum bay, final threshold, and two closed reserves.
+- Construct all 14 future galleries as named walkable room shells.
+- Give planned shells architecture, collision, safe arrivals, generic lighting, and one honest noninteractive entrance status sign.
+- Give them no exhibit, media, interaction, article control, quotation, attribution, or fast-travel promise that implies a finished exhibition.
+- Keep the old manifest as a one-release rollback artifact.
+
+### Phase 6C — transplant the populated hall roots (complete)
+
+- Move Gallery 01–12 definitions as whole local roots under their new world transforms.
+- Preserve room partitions, exhibit positions relative to the hall, media, lighting, signs, interpretation, guided order, and local collision.
+- Recompute transformed safe arrivals, doorway readiness, camera poses, map footprints, audio/light bounds, and world collision.
+- Close obsolete optional portals as complete collision walls.
+- Give the Forum east/west chronological portals and north/south crosscut portals without changing its room envelope.
+
+### Phase 6D — integrate state, navigation, and performance (complete)
+
+- Preserve existing public Gallery 01–12 numbers and direct routes.
+- Register Gallery 13–26 stable planned records in the release order from the control plan.
+- Migrate saved visits by stable gallery, room, and exhibit IDs; never replay old raw coordinates.
+- Derive the 26-shell map, facing arrow, current room, through route, crosscut, and turn courts from the new manifest.
+- Show 12 curated open galleries and 14 walkable planned shells as different states.
+- Extend the current three-hall residency, 6 m approach preparation, and 96 MiB decoded-texture budget. Do not import planned-shell media because none exists.
+
+### Phase 6E — atomic cutover and rollback (complete)
+
+- The full new building passed its automated and visual release gates before cutover.
+- Building manifest, map, directory state, session resolver, and entry route switched together.
+- No mixed old/new building, disconnected populated hall, or speculative map edge was released.
+- The old Ring manifest remains a one-release rollback artifact.
+
+### Phase 6 acceptance walk
+
+A reviewer must be able to:
+
+1. enter through the Grand Entrance and understand map, facing, routes, and status without opening a control;
+2. follow the full chronological route through all 26 shells without turning around inside a gallery;
+3. use every crosscut intersection in both north/south directions;
+4. traverse all five turn courts with the next threshold visible;
+5. enter every one of the 105 rooms;
+6. use all twelve populated galleries, their direct URLs, interactions, guided visits, reset, fast travel, and session resume;
+7. distinguish every planned shell and both closed reserves from a curated gallery;
+8. confirm the initial Museum load does not initialize all gallery content.
+
+## Phase 7 — curate planned galleries one or two at a time
+
+The architecture is stable after Phase 6. A normal gallery release changes one shell from `construct-planned-walkable-shell` to `curated-open` and adds its real content bundle.
+
+Each release must:
+
+1. preserve the planned center, orientation, route portals, and room IDs;
+2. refine room partitions only within the approved shell;
+3. implement exact room-by-room physical installation expectations in the executable audit;
+4. complete interpretation, unique sourced imagery, attribution, routes, interactions, guided views, and visual review;
+5. add media to the existing lazy-loading boundary;
+6. update map/directory status and open counts atomically.
+
+Gallery 13, Latin Christian & Scholastic Traditions, is the recommended first Phase 7 release because it completes the live Arabic-Islamic/Jewish/Latin connected-world sequence and occupies the already fixed bay beside Jewish Philosophy and the Forum.
 
 ## Visitor-map truthfulness through every phase
 
@@ -301,13 +364,13 @@ The visitor map is a projection, not a second floor-plan database.
 
 - Project each live node's physical polygon, level, rotation, public doorway slots, corridor geometry, entrance, and current-location pose from the building manifest.
 - Find walking routes over live, accessible connection records. Do not draw a straight line across a wall because two hall centers are close.
-- Show reserved footprints only when a physical blocked reservation exists. Use a status legend; never give a reserved node a selection or travel action.
+- Show planned gallery shells only when their complete physical geometry exists, and label them planned/walkable rather than open. Show the two expansion reserves only as physically blocked footprints; they receive no selection or travel action.
 - Label **Walk route** and **Fast travel** as different operations. Fast travel targets an approved live safe pose and does not make a disconnected floor plan look connected.
-- Place maps at the entrance and wing gateways. Each repeats text, symbol, and color, and identifies level where relevant.
-- In a loop there is no terminal “journey complete” state. Guided routes may end; the building does not.
+- Place the primary map in the Grand Entrance and repeat compact orientation at all six crosscut intersections. Each uses text, symbol, and color.
+- The final threshold may end a guided visit or return to the entrance; it must not force the visitor to retrace Colonialism, Race, and Liberation.
 - Treat manifest/map disagreement as a release blocker. A new connection appears only when its walls, colliders, threshold, crossing logic, readiness, and both safe arrivals are live.
 
-During construction, the map must show only connections that are physically crossable. The canonical-six map projects the completed outer loop, central Forum, and every live spoke from the authoritative building manifest; it must not preview an unfinished edge merely because the masterplan expects it.
+During construction, the public map must show only connections that are physically crossable. The architecture-preview map may expose the complete planned building only behind the same preview flag as the geometry. At cutover, it projects the through route, crosscut, turn courts, Forum, entrance, final threshold, 26 shells, and two closed reserves from the authoritative manifest.
 
 ## Construction and expansion triggers
 
@@ -319,8 +382,8 @@ During construction, the map must show only connections that are physically cros
 | Commission a local wing-capacity review | assigned or approved projected records consume more than 85% of reviewed wing capacity, or a compressed tradition cannot be interpreted responsibly in reserve space; Modern Traditions triggers this review immediately at 85.7% |
 | Add a hall inside an existing wing | the capacity review demonstrates a stable independent room program that cannot be handled by responsible tiering, rotation, or existing reserve space, and an accessible reserved connection is approved |
 | Add a new wing | the content has a distinct cultural-historical or methodological setting spanning a stable multi-hall program, and placing it under an existing wing would be materially misleading |
-| Use an outward Ring reservation | the new program has stable IDs, at least two defensible connections, an accessible return route, and no existing planned reserve can absorb it without displacing primary records |
-| Consider another floor | all suitable single-level outward reservations are allocated, a new program of at least three halls still lacks a defensible ground-level location, and three redundant lift/stair cores plus level-aware maps, collision, sessions, and fallback routes can be delivered together |
+| Build a full single-level expansion bay | the new program has stable IDs, one 56 × 28 m crosscut-fed reserve fits its reviewed template, the public threshold and accessible return route are approved, and the new room program cannot be absorbed responsibly within the approved 26 galleries |
+| Compare a multi-level design | the circulation-only single-level prototype demonstrates an unacceptable footprint or walking problem and the owner requests a measured alternative; the comparison must include redundant lift/stair cores, level-aware maps, collision, sessions, fallback routes, and an explicit walking-distance benefit |
 
 The approved 26-hall program has 260 record-capacity slots for 189 current primary records, so a second floor is not justified by the present Atlas inventory. Capacity is a curatorial planning measure, not visitor occupancy; thresholds must be reassessed if presentation tiers or room programs change.
 
@@ -341,16 +404,17 @@ Scene residency and media budgets do not cover synchronous TypeScript module ini
 Before a phase is called complete:
 
 - run the production build and the full Museum, asset, routing, integrity, content, and masterplan validations;
+- run `npm run validate:museum-building-plan` and require runtime positions, portals, states, and route lengths to match the control JSON;
 - run the canonical-data startup-budget audit and cold-load the production Museum route;
-- validate every public connection in both directions and every reservation as non-crossable;
+- validate every public connection in both directions, every planned shell as truthfully walkable, and both expansion reserves as non-crossable;
 - inspect collision, portal alignment, 4 × 4 m landings, 1.8–2 m routes, and turning pockets;
 - verify direct routes, Back/Forward, directory travel, guided viewpoints, saved-session fallback, Pointer Lock release/resume, fullscreen continuity, and non-WebGL access;
-- verify the map at desktop and narrow widths from every live hall and every level in use;
+- verify the map at 1920 × 1080 without scrolling and at narrow widths from every populated gallery, planned shell, turn court, and crosscut intersection;
 - compare the live hall, connection, and exhibit counts with the phase manifest;
 - have a historical/cultural reviewer approve any primary-to-secondary change before it reaches production.
 
 If browser automation is blocked by the Windows process sandbox, record that limitation, complete deterministic and direct handler checks, and perform the named manual walk before release. Browser-tool failure is not permission to ship a dead doorway or a fictional map edge.
 
-## Stop condition for this masterplan
+## Current production contract
 
-The taxonomy, Ring topology, permanent successor programs, exact-once assignments, and compatibility rules are locked. The historical 48-exhibit disposition table remains a migration record, not the live-roster target. Stop the canonical-six phase only when the shared physical source, five-hall outer loop, central Forum and spokes, 63-record tiered roster, bounded residency, blocked reservations, physical visitor map, route handoffs, and required audits are complete. Later construction of the remaining twenty planned halls remains outside this phase.
+The taxonomy, permanent programs, exact-once assignments, compatibility rules, and [Continuous Enfilade control geometry](./single-level-building-plan.json) are locked in production. The historical 48-exhibit disposition table and old Ring topology remain migration/rollback history, not live targets. Do not add or move a gallery, connector, shortcut, side doorway, entrance, or reserve outside the control plan. If later implementation discovers a measured conflict, amend and revalidate the control plan before changing runtime geometry.

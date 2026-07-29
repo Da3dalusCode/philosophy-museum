@@ -108,7 +108,6 @@ import {
 import {
   CORE_QUESTIONS_FORUM_SUPPLEMENTAL_LAYOUTS,
 } from './coreQuestionsForumSupplementalExhibits';
-import {MUSEUM_VISITOR_MAP_KIOSK} from './museumVisitorMapKioskDefinition';
 import type {
   MuseumBounds,
   MuseumCollider,
@@ -1069,7 +1068,7 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
   if (!node) throw new Error(`Canonical hall ${hall.id} has no physical manifest node.`);
   const liveEndpointKeys = new Set(
     MUSEUM_BUILDING_MANIFEST.connections
-      .filter(({implementationStatus}) => implementationStatus === 'live')
+      .filter(({implementationStatus, accessible}) => implementationStatus === 'live' && accessible)
       .flatMap(({a, b}) => [`${a.nodeId}/${a.slotId}`, `${b.nodeId}/${b.slotId}`]),
   );
   const doorwayExclusions = node.doorwaySlots
@@ -1078,11 +1077,8 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
     // remain full-height exhibit walls.
     .filter(({id}) => liveEndpointKeys.has(`${node.id}/${id}`))
     .map(({landingBounds}) => landingBounds);
-  const furnishings = hall.id === MUSEUM_VISITOR_MAP_KIOSK.hallId
-    ? [
-        MUSEUM_VISITOR_MAP_KIOSK,
-        ...(hall.id === MEDITERRANEAN_GALLERY_ID ? [MEDITERRANEAN_ORIENTATION_DISPLAY] : []),
-      ]
+  const furnishings = hall.id === MEDITERRANEAN_GALLERY_ID
+    ? [MEDITERRANEAN_ORIENTATION_DISPLAY]
     : [];
   const furnishingExclusions = furnishings.map((item) => colliderBounds(
     item.center,
@@ -1278,9 +1274,14 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
     return {fromExhibitId: layout.id, toExhibitId: target.id, waypoints};
   });
   const defaultSpawn = node.doorwaySlots.find(({id}) => id === 'N0')?.arrivalPose ?? node.doorwaySlots[0].arrivalPose;
+  const southAsianEntryPrimary = hall.id === CLASSICAL_SOUTH_ASIAN_GALLERY_ID
+    ? exhibits.find(({spatialCellId}) => spatialCellId === orderedRooms[0]?.id)
+    : undefined;
   const spawn = hall.id === MEDITERRANEAN_GALLERY_ID
     ? {...defaultSpawn, yaw: 2.65, pitch: -.015}
-    : defaultSpawn;
+    : southAsianEntryPrimary
+      ? {...southAsianEntryPrimary.viewpoint}
+      : defaultSpawn;
   const standardSigns = [
     {
       id: `${hall.id}:entrance-sign`,
@@ -1594,7 +1595,7 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
       cameraFar: 260,
       spawn,
       spawnFocalPoint: hall.id === MEDITERRANEAN_GALLERY_ID
-        ? {...MUSEUM_VISITOR_MAP_KIOSK.center}
+        ? {...MEDITERRANEAN_ORIENTATION_DISPLAY.center}
         : hall.id === RENAISSANCE_GALLERY_ID
           ? {...RENAISSANCE_EXHIBIT_CURATION.machiavelli.authored}
           : {x: 0, z: 0},

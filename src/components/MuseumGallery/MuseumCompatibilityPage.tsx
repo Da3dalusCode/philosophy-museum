@@ -28,14 +28,14 @@ export function MuseumCompatibilityPage({route, href}: {
   return <main className="page compact-content-page museum-compatibility-page">
     <div className="eyebrow">Museum collection update</div>
     <h1>{record.displayName} is not currently installed</h1>
-    <p className="lead">The former prototype installation has been retired while the permanent Ring of Wings is built. The underlying Atlas record, article, relationships, media, and source data have not been deleted.</p>
+    <p className="lead">The former prototype installation was retired when the permanent Continuous Enfilade Museum opened. The underlying Atlas record, article, relationships, media, and source data have not been deleted.</p>
 
     <section className="museum-compatibility-status" aria-labelledby="museum-compatibility-status-title">
       <Landmark aria-hidden="true"/>
       <div>
         <p className="eyebrow" id="museum-compatibility-status-title">Planned primary home</p>
         <h2>{record.plannedHallTitle}</h2>
-        <p>This hall belongs to the approved Museum masterplan but is not open in the current six-hall construction stage.</p>
+        <p>This hall belongs to the approved Museum program but does not yet have a curated public installation. Its architectural shell remains truthfully marked as planned.</p>
       </div>
     </section>
 

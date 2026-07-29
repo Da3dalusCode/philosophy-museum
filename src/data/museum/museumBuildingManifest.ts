@@ -1,16 +1,18 @@
-import manifestJson from './museumBuildingManifest.json';
+import continuousEnfiladeJson from './museumContinuousEnfiladeManifest.json';
+import rollbackRingJson from './museumBuildingManifest.json';
 import type {
   MuseumBounds,
   MuseumFurnishingDefinition,
+  MuseumGalleryState,
   MuseumImplementationStatus,
   MuseumPhysicalConnection,
   MuseumPhysicalNodeKind,
-  MuseumPilotRole,
   MuseumPoint,
   MuseumPose,
-  MuseumReservation,
+  MuseumSignDefinition,
   MuseumWorldTransform,
 } from './museumWorldTypes';
+import type {MuseumPlannedHallId} from './museumCanonicalProgram';
 import type {MuseumPublicHallId} from '../museumCatalog';
 
 export type MuseumManifestDoorwaySlot = {
@@ -27,35 +29,107 @@ export type MuseumManifestDoorwaySlot = {
 export type MuseumManifestGeometryCell = {
   id: string;
   kind?: 'room' | 'passage';
+  title?: string;
   bounds: MuseumBounds;
   ceilingHeight: number;
+};
+
+export type MuseumManifestInteriorOpening = {
+  id: string;
+  fromCellId: string;
+  toCellId: string;
+  position: MuseumPoint;
+  inwardNormal: MuseumPoint;
+  clearWidth: number;
+  clearHeight: number;
+  transitionDepth: number;
 };
 
 export type MuseumManifestNode = {
   id: string;
   kind: MuseumPhysicalNodeKind;
+  physicalRole: string;
+  programHallId?: MuseumPlannedHallId;
+  /** Curated content id; absent from the fourteen planned/walkable shells. */
   publicHallId?: MuseumPublicHallId;
-  pilotRole: MuseumPilotRole;
+  title: string;
+  galleryState?: MuseumGalleryState;
+  publicGalleryNumber?: number;
+  visitSequence?: number;
+  bandId?: string;
+  roomIds?: readonly string[];
+  rooms?: readonly {id: string; title: string}[];
+  roomLayoutStrategy?: string;
   templateId?: 'standard-rect' | 'sequence-3' | 'crossroads-4' | 'focal-terminal';
   geometryAdapterId?: string;
+  routePortals?: Readonly<Record<string, string>>;
+  orientationLandmark?: {id: string; position: MuseumPoint};
+  fastTravelEligible?: boolean;
   implementationStatus: MuseumImplementationStatus;
   levelId: 'L0';
   transform: MuseumWorldTransform;
-  map: {label: string; status: 'open' | 'orientation-open' | 'future'};
+  planPlacement?: {x: number; z: number; rotationDegrees: number};
+  bounds: MuseumBounds;
+  footprint?: unknown;
+  map: {
+    label: string;
+    status:
+      | 'open'
+      | 'orientation-open'
+      | 'future'
+      | 'planned-walkable'
+      | 'crosscut-open'
+      | 'final-open'
+      | 'closed-reserve';
+  };
   geometry?: {
+    coordinateFrame?: 'node-local' | 'hall-local';
+    bounds?: MuseumBounds;
     cells: readonly MuseumManifestGeometryCell[];
+    interiorOpenings?: readonly MuseumManifestInteriorOpening[];
     furnishings?: readonly MuseumFurnishingDefinition[];
+    signs?: readonly MuseumSignDefinition[];
   };
   doorwaySlots: readonly MuseumManifestDoorwaySlot[];
 };
 
+export type MuseumManifestReserve = {
+  id: string;
+  title?: string;
+  label?: string;
+  status: 'site-and-structure-reserved-closed';
+  bounds: MuseumBounds;
+  maximumTemplate?: string;
+  futureEntryFrom?: string;
+  currentDoorState: 'solid-construction-wall';
+  boundaryWall?: {
+    id: string;
+    center: MuseumPoint & {y?: number};
+    size: {width: number; height: number; depth: number};
+    rotationY: number;
+    fullHeight: true;
+    collision: true;
+    rendered: true;
+  };
+};
+
 export type MuseumBuildingManifest = {
-  schemaVersion: 1;
+  schemaVersion: 2;
   manifestVersion: string;
-  status: 'approved-canonical-twelve';
-  physicalOptionId: 'ring-of-wings';
+  status: 'implemented-approved-continuous-enfilade';
+  physicalOptionId: 'continuous-enfilade-single-level';
+  generatedBy: string;
+  source: {
+    plan: {path: string; planId: string; schemaVersion: number; sha256: string};
+    program: {path: string; schemaVersion: number; sha256: string};
+  };
   units: 'metres';
   level: {id: 'L0'; title: string; elevation: number};
+  coordinateSystem: {
+    xAxis: 'east-positive';
+    zAxis: 'north-positive';
+    yAxis: 'up-positive';
+  };
   physicalContract: {
     wallThickness: number;
     doorClearWidth: number;
@@ -64,6 +138,10 @@ export type MuseumBuildingManifest = {
     safeLandingWidth: number;
     safeLandingDepth: number;
     defaultCeilingHeight: number;
+    crosscutClearWidth: number;
+    turnCourtClearWidth: number;
+    mainGalleryBlock: {bounds: MuseumBounds; width: number; depth: number};
+    controlledPlanBoundsIncludingEntranceAndReserves: MuseumBounds & {width: number; depth: number};
     stepFree: true;
   };
   residencyPolicy: {
@@ -72,26 +150,67 @@ export type MuseumBuildingManifest = {
     approachDistance: number;
     decodedTextureBudgetMiB: number;
   };
-  mainEntrance: {nodeId: string; slotId: string};
-  forumLocationNodeId: string;
-  kiosk: {publicHallId: MuseumPublicHallId; kioskId: string};
+  mainEntrance: {nodeId: string; slotId: string; routeTargetHallId?: MuseumPublicHallId};
+  forumNodeId: string;
+  finalThresholdNodeId: string;
+  crosscut: {
+    id: string;
+    title: string;
+    clearWidth: number;
+    bounds?: MuseumBounds;
+    intersections: readonly {
+      id: string;
+      nodeId?: string;
+      zCenter: number;
+      occupiedByHallId?: MuseumPlannedHallId;
+      betweenHallIds?: readonly MuseumPlannedHallId[];
+    }[];
+  };
+  throughRoute: {
+    start: string;
+    finish: string;
+    hallOrder: readonly MuseumPlannedHallId[];
+    crossingBayIds: readonly string[];
+  };
   nodes: readonly MuseumManifestNode[];
   connections: readonly MuseumPhysicalConnection[];
-  reservations: readonly MuseumReservation[];
+  reserves: readonly MuseumManifestReserve[];
+  counts: {
+    halls: 26;
+    rooms: 105;
+    curatedOpen: 12;
+    plannedWalkable: 14;
+    reserves: 2;
+  };
 };
 
-const manifest = manifestJson as MuseumBuildingManifest;
+const manifest = continuousEnfiladeJson as unknown as MuseumBuildingManifest;
 
 const assertApprovedManifest = (candidate: MuseumBuildingManifest): void => {
   if (
-    candidate.schemaVersion !== 1
-    || candidate.status !== 'approved-canonical-twelve'
-    || candidate.physicalOptionId !== 'ring-of-wings'
+    candidate.schemaVersion !== 2
+    || candidate.status !== 'implemented-approved-continuous-enfilade'
+    || candidate.physicalOptionId !== 'continuous-enfilade-single-level'
     || candidate.level.id !== 'L0'
-  ) throw new Error('The Museum building manifest is not the approved canonical Ring of Wings contract.');
+  ) throw new Error('The active Museum manifest is not the approved Continuous Enfilade contract.');
 
   const nodeIds = new Set(candidate.nodes.map(({id}) => id));
   if (nodeIds.size !== candidate.nodes.length) throw new Error('Museum building node IDs must be unique.');
+  const halls = candidate.nodes.filter(({kind}) => kind === 'hall');
+  const curated = halls.filter(({galleryState}) => galleryState === 'curated-open');
+  const planned = halls.filter(({galleryState}) => galleryState === 'planned-walkable');
+  const roomIds = halls.flatMap(({roomIds: ids}) => ids ?? []);
+  if (
+    halls.length !== 26
+    || curated.length !== 12
+    || planned.length !== 14
+    || roomIds.length !== 105
+    || new Set(roomIds).size !== 105
+    || candidate.reserves.length !== 2
+  ) throw new Error('The Continuous Enfilade must expose 26 halls, 105 rooms, 12 curated galleries, 14 planned shells, and two reserves.');
+  if (candidate.crosscut.intersections.length !== 6 || candidate.throughRoute.hallOrder.length !== 26) {
+    throw new Error('The Continuous Enfilade route and six-intersection crosscut are incomplete.');
+  }
   for (const connection of candidate.connections) {
     for (const endpoint of [connection.a, connection.b]) {
       const node = candidate.nodes.find(({id}) => id === endpoint.nodeId);
@@ -100,26 +219,38 @@ const assertApprovedManifest = (candidate: MuseumBuildingManifest): void => {
       }
     }
   }
-  const outwardPortals = candidate.reservations.filter(({reservationType}) => reservationType === 'outward-expansion');
-  if (outwardPortals.length !== 8) throw new Error('The canonical Ring must retain exactly eight outward expansion portals.');
-  for (const reservation of candidate.reservations) {
+  for (const hall of halls) {
     if (
-      !Number.isFinite(reservation.barrierCenter?.x)
-      || !Number.isFinite(reservation.barrierCenter?.z)
-      || !Number.isFinite(reservation.barrierWidth)
-      || reservation.barrierWidth <= 0
-      || reservation.barrierWidth > reservation.size.width
-    ) throw new Error(`Museum reservation ${reservation.id} has an invalid physical barrier contract.`);
+      !hall.programHallId
+      || !hall.publicGalleryNumber
+      || !hall.visitSequence
+      || !hall.roomIds?.length
+      || !hall.templateId
+    ) throw new Error(`Museum hall node ${hall.id} lacks stable program metadata.`);
+    if (hall.galleryState === 'curated-open' && !hall.publicHallId) {
+      throw new Error(`Curated hall ${hall.programHallId} has no content registration id.`);
+    }
+    if (hall.galleryState === 'planned-walkable' && hall.publicHallId) {
+      throw new Error(`Planned hall ${hall.programHallId} must not masquerade as curated content.`);
+    }
   }
 };
 
 assertApprovedManifest(manifest);
 
-/** The sole authored physical source for geometry placement, seams, and expansion reservations. */
+/** Atomic cutover: all runtime/map consumers select this one generated source. */
 export const MUSEUM_BUILDING_MANIFEST = manifest;
+
+/** Preserved authored v1 Ring source for rollback inspection and session migration only. */
+export const MUSEUM_ROLLBACK_BUILDING_MANIFEST = rollbackRingJson as unknown;
 
 export const getMuseumManifestNode = (nodeId: string): MuseumManifestNode | undefined =>
   MUSEUM_BUILDING_MANIFEST.nodes.find(({id}) => id === nodeId);
 
 export const getMuseumManifestHallNode = (hallId: MuseumPublicHallId): MuseumManifestNode | undefined =>
   MUSEUM_BUILDING_MANIFEST.nodes.find(({publicHallId}) => publicHallId === hallId);
+
+export const getMuseumManifestProgramHallNode = (
+  hallId: MuseumPlannedHallId,
+): MuseumManifestNode | undefined =>
+  MUSEUM_BUILDING_MANIFEST.nodes.find(({programHallId}) => programHallId === hallId);

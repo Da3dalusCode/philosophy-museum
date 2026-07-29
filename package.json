@@ -6,7 +6,10 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "compile:museum-building": "node scripts/compileContinuousEnfiladeManifest.mjs",
+    "check:museum-building": "node scripts/compileContinuousEnfiladeManifest.mjs --check",
     "validate:museum-masterplan": "node scripts/validateMuseumMasterplan.mjs",
+    "validate:museum-building-plan": "node scripts/validateSingleLevelBuildingPlan.mjs",
     "audit:routing": "node scripts/auditRouting.mjs",
     "audit:museum": "node scripts/auditMuseum.mjs",
     "audit:museum-assets": "node scripts/auditMuseumAssets.mjs",

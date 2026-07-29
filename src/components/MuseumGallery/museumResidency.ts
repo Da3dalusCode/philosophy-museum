@@ -8,7 +8,11 @@ import {
 import type {MuseumHallId} from '../../data/museumCatalog';
 
 export type MuseumHallResidencyRequest = {
-  activeHallId: MuseumHallId;
+  /**
+   * Undefined while the visitor is in entrance/crosscut/turn architecture.
+   * Those persistent shells must not force an unrelated curated subtree resident.
+   */
+  activeHallId?: MuseumHallId;
   approachedHallId?: MuseumHallId;
   approachedEntranceId?: string;
   recentHallId?: MuseumHallId;
@@ -52,8 +56,8 @@ export const resolveMuseumHallResidencyPlan = ({
     decodedTextureBytes += estimate.totalBytes;
   };
 
-  // The current hall is never evicted. Audits guarantee that one active hall
-  // plus every live approached target fits; recently used content is optional.
+  // The current curated hall is never evicted. Building-only nodes have no
+  // activeHallId; an approached curated threshold is still prepared normally.
   add(activeHallId, 'active', true);
   add(approachedHallId, 'entry-resident', true, approachedEntranceId);
   if (MUSEUM_BUILDING_MANIFEST.residencyPolicy.recentHallCount > 0) {

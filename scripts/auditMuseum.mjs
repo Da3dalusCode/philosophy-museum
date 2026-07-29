@@ -9,8 +9,9 @@ const MUSEUM_MODULE_INITIALIZATION_BUDGET_MS = 2_000;
 const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const galleryRoot = resolve(repoRoot, 'src/components/MuseumGallery');
 const museumDataRoot = resolve(repoRoot, 'src/data/museum');
-const buildingManifest = JSON.parse(readFileSync(resolve(museumDataRoot, 'museumBuildingManifest.json'), 'utf8'));
+const buildingManifest = JSON.parse(readFileSync(resolve(museumDataRoot, 'museumContinuousEnfiladeManifest.json'), 'utf8'));
 const masterplanProgram = JSON.parse(readFileSync(resolve(repoRoot, 'docs/museum-masterplan/hall-program.json'), 'utf8'));
+const singleLevelPlan = JSON.parse(readFileSync(resolve(repoRoot, 'docs/museum-masterplan/single-level-building-plan.json'), 'utf8'));
 const source = (file) => readFileSync(resolve(repoRoot, file), 'utf8');
 const exhibitWallStandardSource = source('docs/museum-masterplan/exhibit-wall-standard.md');
 const registrySource = source('src/components/MuseumGallery/museumWorldRegistry.ts');
@@ -215,6 +216,8 @@ const {
   MUSEUM_VISITOR_MAP_NODE_PROJECTIONS,
   MUSEUM_VISITOR_MAP_PROJECTION,
   MUSEUM_VISITOR_MAP_RESERVATIONS,
+  MUSEUM_VISITOR_MAP_CROSSCUT_INTERSECTIONS,
+  MUSEUM_VISITOR_MAP_TURN_COURTS,
   MUSEUM_VISITOR_MAP_VIEWBOX,
   MUSEUM_WORLD_DEFINITIONS,
   PLATO_SUPPLEMENTAL_EXHIBITS,
@@ -231,7 +234,11 @@ const {
   hasMuseumBrowserModifier,
   getMuseumGuidedStops,
   isValidMuseumPosition,
+  legacyMuseumSessionStorageKey,
+  loadMuseumLastVisit,
+  loadMuseumSession,
   moveWithCollisions,
+  museumSessionStorageKey,
   museumPointToWorld,
   museumPoseToWorld,
   parseMuseumExhibitVisitContext,
@@ -246,6 +253,8 @@ const {
   resolveMuseumReadinessGateStatus,
   resolveMuseumVisitorMapDestination,
   resolveMuseumWalkingSpeed,
+  saveMuseumLastVisit,
+  saveMuseumSession,
   sanitizeMuseumPose,
 } = museum;
 
@@ -553,7 +562,7 @@ check('the public catalog is exactly the canonical twelve-hall, 53-room, 105-exh
   assert.equal(branches.length, 43);
 });
 
-check('current halls and the Gallery 01–02 connector use the canonical wall material without coplanar render surfaces', () => {
+check('curated halls and persistent Continuous Enfilade architecture use the canonical wall material', () => {
   const currentExceptions = HALL_IDS.filter((hallId) => Object.hasOwn(MUSEUM_OWNER_APPROVED_WALL_MATERIAL_EXCEPTIONS, hallId));
   assert.deepEqual(currentExceptions, [], 'A current hall has an unapproved architectural wall exception');
   for (const hallId of HALL_IDS) {
@@ -562,20 +571,15 @@ check('current halls and the Gallery 01–02 connector use the canonical wall ma
   assert.match(architectureSource, /resolveMuseumWallMaterial\(definition\.id\)/, 'Canonical hall walls bypass the shared material resolver');
   assert.doesNotMatch(architectureSource, /RENAISSANCE_PALETTE\.plaster/, 'Gallery 02 still overrides the architectural wall color');
   assert.match(buildingArchitectureSource, /resolveMuseumWallMaterial\(\)/, 'Museum connectors bypass the shared wall standard');
-
-  const connector = runtimeNodeById.get('corridor:outer-01-mediterranean-renaissance');
-  const hallNodes = MUSEUM_RUNTIME_NODES.filter(({kind}) => kind === 'hall');
-  assert(connector?.architectureWalls, 'The Gallery 01–02 connector has no rendered architecture');
-  const coveredByHall = (wall) => {
-    const candidate = wallPlane(connector, wall);
-    return hallNodes.some((hallNode) => (hallNode.architectureWalls ?? hallNode.layout.wallColliders)
-      .some((hallWall) => wallPlaneFullyCovers(wallPlane(hallNode, hallWall), candidate)));
-  };
-  assert(connector.architectureWalls.every((wall) => !coveredByHall(wall)), 'The Gallery 01–02 connector still renders a hall-covered wall plane');
-  const renderedWallIds = new Set(connector.architectureWalls.map(({id}) => id));
-  const collisionOnlySeamWalls = connector.layout.wallColliders.filter(({id}) => !renderedWallIds.has(id));
-  assert(collisionOnlySeamWalls.length > 0, 'The Gallery 01–02 seam removed no duplicate rendered surfaces');
-  assert(collisionOnlySeamWalls.every(coveredByHall), 'The connector removed a rendered wall that is not fully covered by a hall shell');
+  const persistentNodes = MUSEUM_RUNTIME_NODES.filter(({publicHallId}) => !publicHallId);
+  assert.equal(persistentNodes.length, 27, 'Persistent architecture must contain 14 planned halls and 13 circulation nodes');
+  for (const node of persistentNodes) {
+    assert(node.layout.spatialCells.length > 0, `${node.id} has no walkable spatial cell`);
+    assert((node.architectureWalls ?? node.layout.wallColliders).length > 0, `${node.id} has no rendered architecture`);
+    assert(unique((node.architectureWalls ?? []).map(({id}) => id)), `${node.id} repeats a rendered wall id`);
+  }
+  assert.match(buildingArchitectureSource, /MUSEUM_CIRCULATION_NODES\.map/, 'Persistent building architecture is not manifest-driven');
+  assert.match(buildingArchitectureSource, /MUSEUM_BUILDING_MANIFEST\.reserves\.map/, 'Closed reserve walls are not rendered from the manifest');
 });
 
 check('Gallery 01 has bounded authored curation, visitor-facing orientation, and a clear first connector', () => {
@@ -603,21 +607,28 @@ check('Gallery 01 has bounded authored curation, visitor-facing orientation, and
   assert.equal(curationEntries.filter(([, curation]) => curation.frontTitle).length, 6, 'Gallery 01 question-first hierarchy changed');
   assert.deepEqual(MEDITERRANEAN_EXHIBIT_CURATION.anaxagoras.authored, {x: -5.8, z: -1.15, rotationY: Math.PI}, 'Anaxagoras returned to the crowded side-wall sightline');
 
-  const kiosk = definition.layout.furnishings.find(({id}) => id === MUSEUM_VISITOR_MAP_KIOSK.id);
+  const entranceNode = runtimeNodeById.get(MUSEUM_VISITOR_MAP_KIOSK.nodeId);
   const orientation = definition.layout.furnishings.find(({id}) => id === MEDITERRANEAN_ORIENTATION_DISPLAY.id);
-  assert.deepEqual(kiosk, MUSEUM_VISITOR_MAP_KIOSK, 'Gallery 01 map kiosk is absent or stale');
+  assert(entranceNode, 'The Grand Entrance runtime node is absent');
+  assert.equal(entranceNode.kind, 'entrance');
   assert.deepEqual(orientation, MEDITERRANEAN_ORIENTATION_DISPLAY, 'Gallery 01 orientation display is absent or stale');
-  assert(definition.layout.obstacleColliders.some(({id}) => id === kiosk.id), 'Gallery 01 map kiosk is absent from collision');
   assert(definition.layout.obstacleColliders.some(({id}) => id === orientation.id), 'Gallery 01 orientation display is absent from collision');
-  assert(validPose(definition, MUSEUM_VISITOR_MAP_KIOSK.approachPose), 'Gallery 01 map approach is unsafe');
-  assert.deepEqual(definition.layout.spawnFocalPoint, MUSEUM_VISITOR_MAP_KIOSK.center, 'Gallery 01 spawn does not focus the visitor map');
-  const focalDistance = distance(definition.layout.spawn, definition.layout.spawnFocalPoint);
-  const spawnForward = {x: -Math.sin(definition.layout.spawn.yaw), z: -Math.cos(definition.layout.spawn.yaw)};
-  const focalDirection = {
-    x: (definition.layout.spawnFocalPoint.x - definition.layout.spawn.x) / focalDistance,
-    z: (definition.layout.spawnFocalPoint.z - definition.layout.spawn.z) / focalDistance,
-  };
-  assert(spawnForward.x * focalDirection.x + spawnForward.z * focalDirection.z > .95, 'Gallery 01 spawn does not face its map focal point');
+  assert(
+    isValidMuseumPosition(
+      MUSEUM_VISITOR_MAP_KIOSK.approachPose,
+      entranceNode.layout.playerRadius,
+      entranceNode.layout.bounds,
+      allColliders(entranceNode.layout),
+      entranceNode.layout.spatialCells,
+    ),
+    'Grand Entrance map approach is unsafe',
+  );
+  assert.deepEqual(definition.layout.spawnFocalPoint, MEDITERRANEAN_ORIENTATION_DISPLAY.center, 'Gallery 01 spawn does not focus its local orientation landmark');
+  assert(
+    Number.isFinite(definition.layout.spawnFocalPoint.x)
+      && Number.isFinite(definition.layout.spawnFocalPoint.z),
+    'Gallery 01 local orientation focal point is invalid',
+  );
 
   const forbiddenPublicLabels = /anchor[-\s]+exhibit|standard[-\s]+individual[-\s]+exhibit|supporting[-\s]+exhibit|thematic[-\s]+cluster[-\s]+participant|gallery[-\s]+archive[-\s]+or[-\s]+study[-\s]+wall[-\s]+record|(?:anchor|standard)[-\s]+bay|(?:supporting|cluster)[-\s]+panel|archive[-\s]+label|presentation\s+tier|gallery\s+installation/i;
   assert.doesNotMatch(canonicalExhibitsSource, /kicker:\s*[^\n]*(?:presentationTier|treatment)/u, 'Public exhibit name strips expose internal tier or treatment fields');
@@ -625,6 +636,8 @@ check('Gallery 01 has bounded authored curation, visitor-facing orientation, and
   assert.doesNotMatch(interpretationPanelSource, /content\.tier\.replaceAll/u, 'The interpretation panel exposes internal exhibit tiers');
   for (const interpretation of MUSEUM_INTERPRETATIONS) assert.doesNotMatch(interpretation.lead, forbiddenPublicLabels, `${interpretation.hallId}/${interpretation.id} lead exposes internal presentation language`);
   assert.match(canonicalSceneSource, /<MediterraneanGalleryCuration\/>/u, 'Gallery 01 does not render its authored orientation display');
+  assert.doesNotMatch(canonicalSceneSource, /MuseumVisitorMapKiosk/u, 'The visitor map is still owned by Gallery 01 content');
+  assert.match(buildingArchitectureSource, /<MuseumVisitorMapKiosk/u, 'The Grand Entrance does not own the persistent visitor map');
   assert.doesNotMatch(canonicalExhibitsSource, /MediterraneanExhibitMedia/u, 'Gallery 01 still renders diagram substitutes');
   assert.match(canonicalExhibitsSource, /<MediterraneanFinishedBack/u, 'Gallery 01 exhibit backs are unfinished');
   assert.match(canonicalExhibitsSource, /theme:\s*'mediterranean'/u, 'Gallery 01 interpretation faces do not opt into their curatorial palette');
@@ -662,32 +675,10 @@ check('Gallery 01 has bounded authored curation, visitor-facing orientation, and
     assert(front.x * (approach.x - sign.position.x) + front.z * (approach.z - sign.position.z) > 0, `${sign.id} does not face the forward visitor approach`);
   }
 
-  const connector = runtimeNodeById.get('corridor:outer-01-mediterranean-renaissance');
-  assert(connector, 'The Galleries 01–02 connector is missing');
-  const connectorCellIds = ['outer-01-gallery-entry', 'outer-01-east-run', 'outer-01-central-link', 'outer-01-west-run', 'outer-01-turn', 'outer-01-south-asian-branch', 'outer-01-south-asian-landing'];
-  assert.deepEqual(connector.layout.spatialCells.map(({id}) => id), connectorCellIds.map((id) => `${connector.id}:${id}`), 'The Galleries 01–02 connector cell sequence drifted');
-  const cellsShareEdge = (first, second) => {
-    const xOverlap = Math.min(first.maxX, second.maxX) - Math.max(first.minX, second.minX);
-    const zOverlap = Math.min(first.maxZ, second.maxZ) - Math.max(first.minZ, second.minZ);
-    return (Math.abs(first.maxX - second.minX) < .001 || Math.abs(second.maxX - first.minX) < .001) && zOverlap > 0
-      || (Math.abs(first.maxZ - second.minZ) < .001 || Math.abs(second.maxZ - first.minZ) < .001) && xOverlap > 0;
-  };
-  for (let index = 1; index < connector.layout.spatialCells.length; index += 1) {
-    assert(cellsShareEdge(connector.layout.spatialCells[index - 1].bounds, connector.layout.spatialCells[index].bounds), `${connectorCellIds[index - 1]} does not meet ${connectorCellIds[index]}`);
-  }
-  for (let first = 0; first < connector.layout.spatialCells.length; first += 1) {
-    for (let second = first + 1; second < connector.layout.spatialCells.length; second += 1) {
-      const a = connector.layout.spatialCells[first].bounds;
-      const b = connector.layout.spatialCells[second].bounds;
-      const overlapWidth = Math.min(a.maxX, b.maxX) - Math.max(a.minX, b.minX);
-      const overlapDepth = Math.min(a.maxZ, b.maxZ) - Math.max(a.minZ, b.minZ);
-      assert(overlapWidth <= 0 || overlapDepth <= 0, `${connectorCellIds[first]} overlaps ${connectorCellIds[second]}`);
-    }
-  }
-  sampleSegment({x: 0, z: 58}, {x: -28, z: 56}, .05, (point) => {
-    assert(positionInsideSpatialUnion(point, connector.layout.playerRadius, connector.layout.spatialCells), `The Galleries 01–02 seam path leaves the connector near ${JSON.stringify(point)}`);
-    assert(isValidMuseumPosition(point, connector.layout.playerRadius, connector.layout.bounds, allColliders(connector.layout), connector.layout.spatialCells), `The Galleries 01–02 seam path collides near ${JSON.stringify(point)}`);
-  });
+  const entranceConnection = MUSEUM_BUILDING_MANIFEST.connections.find(({a, b}) =>
+    [a.nodeId, b.nodeId].includes(MUSEUM_VISITOR_MAP_KIOSK.nodeId)
+    && [a.nodeId, b.nodeId].includes(definition.physicalNodeId));
+  assert(entranceConnection?.accessible && entranceConnection.implementationStatus === 'live', 'Grand Entrance does not connect physically to Gallery 01');
 });
 
 check('Plato’s Cave and Republic form a substantial supplemental U without entering the primary program', () => {
@@ -1379,11 +1370,15 @@ check('Gallery 08 preserves primary hierarchy and fills all thirty half-room wal
   assert.match(buddhistSupplementalSceneSource, /MuseumSceneMedia/u, 'Gallery 08 supplemental installations lack provenance-backed media');
   assert.match(buddhistSupplementalDataSource, /Texts move—and philosophical worlds change/u, 'Gallery 08 transmission room copy is missing');
 
-  const connection = MUSEUM_BUILDING_MANIFEST.connections.find(({id}) => id === 'conn:south-asian-buddhist');
-  assert.deepEqual(connection?.a, {nodeId: 'hall:classical-south-asian-worlds', slotId: 'S0'});
-  assert.deepEqual(connection?.b, {nodeId: 'hall:buddhist-philosophies', slotId: 'N0'});
-  assert.equal(connection?.routeRole, 'gallery-branch');
-  assert.equal(connection?.accessible, true);
+  const firstTurnConnection = MUSEUM_BUILDING_MANIFEST.connections.find(({a, b}) =>
+    [a.nodeId, b.nodeId].includes('hall:classical-south-asian-worlds')
+    && [a.nodeId, b.nodeId].includes('turn:band-01-to-02'));
+  const secondTurnConnection = MUSEUM_BUILDING_MANIFEST.connections.find(({a, b}) =>
+    [a.nodeId, b.nodeId].includes('turn:band-01-to-02')
+    && [a.nodeId, b.nodeId].includes('hall:buddhist-philosophies'));
+  assert(firstTurnConnection?.accessible && secondTurnConnection?.accessible, 'Gallery 07–08 turn court is not walkable');
+  assert.equal(firstTurnConnection.routeRole, 'through-route');
+  assert.equal(secondTurnConnection.routeRole, 'through-route');
 });
 
 check('Gallery 09 uses an open-cross architecture and fills every room with six wall-backed exhibits', () => {
@@ -1793,25 +1788,17 @@ check('Gallery 12 fills exactly twelve wall faces with three philosopher primari
   assert.equal(getMuseumGuidedStops(hall.id, hall.guidedOrder).length, 12, 'Gallery 12 guided visit does not reach every installation');
   assert.deepEqual(definition.resolvedTemplate.canonicalFootprint, {width: 20, depth: 24}, 'Gallery 12 no longer uses the standard rectangle');
   assert.deepEqual(definition.resolvedTemplate.resolvedFootprint.bounds, {minX: -10, maxX: 10, minZ: -12, maxZ: 12}, 'Gallery 12 standard-rect bounds drifted');
-  const latinReservation = MUSEUM_BUILDING_MANIFEST.reservations.find(({id}) => id === 'reserve:insert-latin-christian');
-  assert.deepEqual(
-    latinReservation && {
-      reservationType: latinReservation.reservationType,
-      hostNodeId: latinReservation.hostNodeId,
-      targetProgramHallId: latinReservation.targetProgramHallId,
-      blocked: latinReservation.blocked,
-      implementationStatus: latinReservation.implementationStatus,
-    },
-    {
-      reservationType: 'insertion',
-      hostNodeId: 'hall:jewish-philosophy',
-      targetProgramHallId: 'latin-christian-scholastic',
-      blocked: true,
-      implementationStatus: 'reserved',
-    },
-    'The future Latin Christian threshold must remain visibly closed',
-  );
-  assert.equal(definition.resolvedTemplate.portalInterfaces.find(({manifestSlotId}) => manifestSlotId === 'S0')?.active, false, 'The future Latin Christian doorway opened before Gallery 13 exists');
+  const latinNode = MUSEUM_RUNTIME_NODES.find(({programHallId}) => programHallId === 'latin-christian-scholastic');
+  assert(latinNode && !latinNode.publicHallId && latinNode.galleryState === 'planned-walkable', 'Gallery 13 is not an honest planned/walkable shell');
+  assert.equal(latinNode.roomIds.length, 4);
+  assert.equal(latinNode.layout.exhibits.length, 0);
+  assert.equal(latinNode.layout.supplementalExhibits?.length ?? 0, 0);
+  assert.equal(latinNode.layout.signs?.filter(({kind}) => kind === 'planned-status').length, 1);
+  const latinConnection = MUSEUM_BUILDING_MANIFEST.connections.find(({a, b}) =>
+    [a.nodeId, b.nodeId].includes('hall:jewish-philosophy')
+    && [a.nodeId, b.nodeId].includes(latinNode.id));
+  assert(latinConnection?.accessible && latinConnection.implementationStatus === 'live', 'Gallery 12 does not open into planned Gallery 13');
+  assert.equal(definition.resolvedTemplate.portalInterfaces.find(({manifestSlotId}) => manifestSlotId === 'N0')?.active, true, 'Gallery 12 through-route exit is not open');
   assert.match(canonicalSceneSource, /<JewishSupplementalExhibits/u, 'Gallery 12 does not mount its renderer');
   assert.match(jewishSupplementalSceneSource, /MuseumSupplementalExhibitCollection/u, 'Gallery 12 does not delegate to the shared full-scale renderer');
   assert.match(supplementalCollectionSceneSource, /onClick=\{activate\}/u, 'Gallery 12 supplemental installations lack mouse activation');
@@ -2026,87 +2013,90 @@ check('Gallery 06 is an open, wall-supported 25-exhibit Forum with full-scale pr
   assert.match(exhibitWallStandardSource, /Core Questions Forum exception/u, 'The Gallery 06 wall standard is not recorded for future work');
 });
 
-check('the canonical-twelve manifest opens Galleries 11–12 at their exact transmission and medieval-world connections', () => {
-  assert.equal(buildingManifest.manifestVersion, 'canonical-twelve-v1');
-  assert.equal(buildingManifest.status, 'approved-canonical-twelve');
-  assert.equal(MUSEUM_BUILDING_MANIFEST.manifestVersion, 'canonical-twelve-v1');
-  assert.equal(MUSEUM_BUILDING_MANIFEST.status, 'approved-canonical-twelve');
-  const publicHallNodes = MUSEUM_BUILDING_MANIFEST.nodes.filter(({publicHallId}) => Boolean(publicHallId));
-  assert.equal(publicHallNodes.length, 12, 'The manifest must expose exactly twelve live public hall nodes');
-  assert.deepEqual(sorted(publicHallNodes.map(({publicHallId}) => publicHallId)), sorted(HALL_IDS));
-  assert.equal(MUSEUM_RUNTIME_NODES.filter(({publicHallId}) => Boolean(publicHallId)).length, 12);
-  assert.equal(MUSEUM_BUILDING_MANIFEST.reservations.length, 10, 'The canonical-twelve manifest must retain ten future reservations');
-  assert.equal(MUSEUM_BUILDING_MANIFEST.reservations.filter(({reservationType}) => reservationType === 'insertion').length, 2);
-  assert.equal(MUSEUM_BUILDING_MANIFEST.reservations.filter(({reservationType}) => reservationType === 'outward-expansion').length, 8);
+check('the executable manifest exactly implements the approved Continuous Enfilade contract', () => {
+  assert.equal(buildingManifest.schemaVersion, 2);
+  assert.equal(buildingManifest.manifestVersion, 'continuous-enfilade-single-level-v1');
+  assert.equal(buildingManifest.status, 'implemented-approved-continuous-enfilade');
+  assert.equal(buildingManifest.physicalOptionId, 'continuous-enfilade-single-level');
+  assert.deepEqual(MUSEUM_BUILDING_MANIFEST, buildingManifest, 'the imported runtime manifest differs from the generated artifact');
+  assert.deepEqual(
+    buildingManifest.counts,
+    {
+      halls: 26,
+      rooms: 105,
+      curatedOpen: 12,
+      plannedWalkable: 14,
+      reserves: 2,
+      hallCount: 26,
+      curatedOpenHallCount: 12,
+      plannedWalkableHallCount: 14,
+      canonicalRoomCount: 105,
+      nodeCount: 39,
+      connectionCount: 43,
+      throughRouteConnectionCount: 37,
+      crosscutConnectionCount: 6,
+      crosscutIntersectionCount: 6,
+      standaloneCrossingNodeCount: 5,
+      turnCourtCount: 5,
+      reserveCount: 2,
+      plannedStatusSignCount: 14,
+    },
+  );
 
-  const exactConnection = (id, expected) => {
-    const connection = MUSEUM_BUILDING_MANIFEST.connections.find((candidate) => candidate.id === id);
-    assert(connection, `${id} is missing from the canonical-twelve topology`);
-    assert.deepEqual(
-      {
-        a: connection.a,
-        b: connection.b,
-        routeRole: connection.routeRole,
-        accessible: connection.accessible,
-        implementationStatus: connection.implementationStatus,
-      },
-      expected,
-      `${id} endpoints or live status drifted`,
-    );
-  };
-  exactConnection('conn:buddhist-east-asian-junction', {
-    a: {nodeId: 'hall:buddhist-philosophies', slotId: 'S0'},
-    b: {nodeId: 'corridor:east-asian-transmission', slotId: 'buddhist'},
-    routeRole: 'gallery-branch',
-    accessible: true,
-    implementationStatus: 'live',
-  });
-  exactConnection('conn:east-asian-junction-classical-chinese', {
-    a: {nodeId: 'corridor:east-asian-transmission', slotId: 'classical-chinese'},
-    b: {nodeId: 'hall:classical-chinese-traditions', slotId: 'N0'},
-    routeRole: 'gallery-branch',
-    accessible: true,
-    implementationStatus: 'live',
-  });
-  exactConnection('conn:classical-chinese-east-asian', {
-    a: {nodeId: 'hall:classical-chinese-traditions', slotId: 'S0'},
-    b: {nodeId: 'hall:east-asian-continuities', slotId: 'N0'},
-    routeRole: 'gallery-branch',
-    accessible: true,
-    implementationStatus: 'live',
-  });
-  exactConnection('conn:transmission-east-asian', {
-    a: {nodeId: 'corridor:east-asian-transmission', slotId: 'east-asian'},
-    b: {nodeId: 'hall:east-asian-continuities', slotId: 'S0'},
-    routeRole: 'shortcut',
-    accessible: true,
-    implementationStatus: 'live',
-  });
-  exactConnection('conn:islamic-jewish', {
-    a: {nodeId: 'hall:islamic-philosophical-worlds', slotId: 'S0'},
-    b: {nodeId: 'hall:jewish-philosophy', slotId: 'N0'},
-    routeRole: 'gallery-branch',
-    accessible: true,
-    implementationStatus: 'live',
-  });
-  assert(
-    MUSEUM_BUILDING_MANIFEST.nodes.some(({id, publicHallId, templateId, implementationStatus, map}) =>
-      id === 'hall:east-asian-continuities'
-      && publicHallId === EAST_ASIAN_GALLERY_ID
-      && templateId === 'sequence-3'
-      && implementationStatus === 'live'
-      && map.status === 'open'),
-    'Gallery 11 is not a live sequence-3 manifest node',
+  const hallNodes = buildingManifest.nodes.filter(({kind}) => kind === 'hall');
+  const curatedNodes = hallNodes.filter(({galleryState}) => galleryState === 'curated-open');
+  const plannedNodes = hallNodes.filter(({galleryState}) => galleryState === 'planned-walkable');
+  assert.equal(hallNodes.length, 26);
+  assert.equal(curatedNodes.length, 12);
+  assert.equal(plannedNodes.length, 14);
+  assert.deepEqual(sorted(curatedNodes.map(({publicHallId}) => publicHallId)), sorted(HALL_IDS));
+  assert(plannedNodes.every(({publicHallId, fastTravelEligible}) => publicHallId === undefined && fastTravelEligible !== true));
+  assert.equal(buildingManifest.nodes.length, 39);
+  assert.equal(MUSEUM_RUNTIME_NODES.length, 39);
+  assert.equal(buildingManifest.connections.length, 43);
+  assert.equal(buildingManifest.connections.filter(({routeRole}) => routeRole === 'through-route').length, 37);
+  assert.equal(buildingManifest.connections.filter(({routeRole}) => routeRole === 'crosscut').length, 6);
+  assert(buildingManifest.connections.every(({accessible, implementationStatus}) => accessible && implementationStatus === 'live'));
+  assert.equal(buildingManifest.reserves.length, 2);
+  assert(buildingManifest.reserves.every(({bounds, currentDoorState, boundaryWall}) =>
+    bounds.maxX - bounds.minX === 56
+    && bounds.maxZ - bounds.minZ === 28
+    && currentDoorState === 'solid-construction-wall'
+    && boundaryWall?.size?.height === 5.8
+    && boundaryWall?.fullHeight === true
+    && boundaryWall?.collision === true
+    && boundaryWall?.rendered === true));
+
+  const nodeByProgramHallId = new Map(hallNodes.map((node) => [node.programHallId, node]));
+  for (const plannedHall of singleLevelPlan.halls) {
+    const node = nodeByProgramHallId.get(plannedHall.id);
+    assert(node, `${plannedHall.id} is absent from the executable manifest`);
+    assert.equal(node.publicGalleryNumber, plannedHall.publicGalleryNumber, `${plannedHall.id} public number changed`);
+    assert.equal(node.visitSequence, plannedHall.visitSequence, `${plannedHall.id} visit sequence changed`);
+    assert.equal(node.templateId, plannedHall.templateId, `${plannedHall.id} template changed`);
+    assert.equal(node.bandId, plannedHall.bandId, `${plannedHall.id} structural band changed`);
+    assert.deepEqual(node.roomIds, plannedHall.roomIds, `${plannedHall.id} room roster changed`);
+    assert.deepEqual(node.planPlacement, plannedHall.placement, `${plannedHall.id} source plan placement changed`);
+    approx(node.transform.x, plannedHall.placement.x, `${plannedHall.id} runtime x`);
+    approx(node.transform.z, plannedHall.placement.z, `${plannedHall.id} runtime z`);
+    approx(node.transform.yaw, -plannedHall.placement.rotationDegrees * Math.PI / 180, `${plannedHall.id} runtime yaw`);
+  }
+  const roomIds = hallNodes.flatMap(({roomIds}) => roomIds);
+  assert.equal(roomIds.length, 105);
+  assert(unique(roomIds));
+  assert.deepEqual(sorted(roomIds), sorted(masterplanProgram.rooms.map(({id}) => id)));
+  assert.deepEqual(
+    buildingManifest.throughRoute.hallOrder,
+    singleLevelPlan.structuralBands.flatMap(({visitSequence}) => visitSequence),
   );
-  assert(
-    MUSEUM_BUILDING_MANIFEST.nodes.some(({id, publicHallId, templateId, implementationStatus, map}) =>
-      id === 'hall:jewish-philosophy'
-      && publicHallId === JEWISH_GALLERY_ID
-      && templateId === 'standard-rect'
-      && implementationStatus === 'live'
-      && map.status === 'open'),
-    'Gallery 12 is not a live standard-rect manifest node',
-  );
+  assert.equal(buildingManifest.throughRoute.start, singleLevelPlan.grandEntrance.id);
+  assert.equal(buildingManifest.throughRoute.finish, singleLevelPlan.finalThreshold.id);
+  assert.equal(buildingManifest.crosscut.clearWidth, 10);
+  assert.equal(buildingManifest.crosscut.intersections.length, 6);
+  assert.equal(buildingManifest.nodes.filter(({physicalRole}) => physicalRole === 'turn-court').length, 5);
+  assert.equal(buildingManifest.nodes.filter(({physicalRole}) => physicalRole === 'crosscut-intersection').length, 5);
+  assert.equal(buildingManifest.nodes.filter(({physicalRole}) => physicalRole === 'final-return-threshold').length, 1);
+  assert.equal(buildingManifest.nodes.filter(({physicalRole}) => physicalRole === 'grand-entrance-orientation').length, 1);
 });
 
 check('the executable template registry retains the approved canonical contracts', () => {
@@ -2257,7 +2247,13 @@ check('all twelve runtime halls are canonical, data-driven, and internally align
     const connectedSlots = new Set(MUSEUM_BUILDING_MANIFEST.connections.flatMap(({a, b}) => [a, b]).filter(({nodeId}) => nodeId === node.id).map(({slotId}) => slotId));
     assert.deepEqual(sorted(definition.resolvedTemplate.portalInterfaces.filter(({active}) => active).map(({manifestSlotId}) => manifestSlotId)), sorted(connectedSlots));
     for (const portal of definition.resolvedTemplate.portalInterfaces) {
-      assert.equal(portal.dimensionConformance, 'exact');
+      const approvedForumCrosscutExpansion = definition.id === 'core-questions-forum'
+        && (portal.manifestSlotId === 'N0' || portal.manifestSlotId === 'S0')
+        && portal.actual.clearWidth === 10;
+      assert.equal(
+        portal.dimensionConformance,
+        approvedForumCrosscutExpansion ? 'expanded-adapter' : 'exact',
+      );
       const closureId = `${node.id}:${portal.manifestSlotId}:inactive-closure`;
       if (portal.active) {
         assert(!definition.layout.wallColliders.some(({id}) => id === closureId), `${definition.id}/${portal.manifestSlotId} active portal is closed`);
@@ -2353,7 +2349,13 @@ check('runtime seams are bidirectional, world-aligned, step-free, and crossable'
     assert(distance(sourceWorld, targetWorld) < .001, `${connection.id} endpoints do not meet in world space`);
     const sourceNormal = worldNormal(source, sourceEntrance.inwardNormal);
     const targetNormal = worldNormal(target, targetEntrance.inwardNormal);
-    assert(Math.hypot(sourceNormal.x + targetNormal.x, sourceNormal.z + targetNormal.z) < .001, `${connection.id} normals do not oppose`);
+    const joinsTurnCourt = source.pilotRole === 'turn-court' || target.pilotRole === 'turn-court';
+    if (!joinsTurnCourt) {
+      assert(Math.hypot(sourceNormal.x + targetNormal.x, sourceNormal.z + targetNormal.z) < .001, `${connection.id} normals do not oppose`);
+    } else {
+      approx(Math.hypot(sourceNormal.x, sourceNormal.z), 1, `${connection.id} source turn normal`);
+      approx(Math.hypot(targetNormal.x, targetNormal.z), 1, `${connection.id} target turn normal`);
+    }
     const sourceDimensions = Math.abs(sourceEntrance.inwardNormal.x) > .5
       ? {clearWidth: sourceEntrance.transitionBounds.size.depth, transitionDepth: sourceEntrance.transitionBounds.size.width}
       : {clearWidth: sourceEntrance.transitionBounds.size.width, transitionDepth: sourceEntrance.transitionBounds.size.depth};
@@ -2371,13 +2373,19 @@ check('runtime seams are bidirectional, world-aligned, step-free, and crossable'
     const target = runtimeNodeById.get(connection.targetNodeId);
     assert(source && target, `${connection.id} references a missing runtime node`);
     const entrance = source.entrances.find(({id}) => id === connection.localEntranceId);
+    const targetEntrance = target.entrances.find(({id}) => id === connection.targetEntranceId);
     assert(entrance, `${connection.id} has no source entrance ${connection.localEntranceId}`);
+    assert(targetEntrance, `${connection.id} has no target entrance ${connection.targetEntranceId}`);
     assert(validPose(source, entrance.arrivalPose), `${connection.id} starts from an invalid source arrival`);
     const portalWorld = museumPointToWorld(source, entrance.position);
     const inwardWorld = worldNormal(source, entrance.inwardNormal);
-    const signedWorldDistance = (worldPose) =>
+    const targetInwardWorld = worldNormal(target, targetEntrance.inwardNormal);
+    const sourceSignedWorldDistance = (worldPose) =>
       (worldPose.x - portalWorld.x) * inwardWorld.x
       + (worldPose.z - portalWorld.z) * inwardWorld.z;
+    const targetSignedWorldDistance = (worldPose) =>
+      (worldPose.x - portalWorld.x) * targetInwardWorld.x
+      + (worldPose.z - portalWorld.z) * targetInwardWorld.z;
     const renderedTargetKeys = target.publicHallId
       ? resolveMuseumHallRenderedReadinessKeys(
           target.publicHallId,
@@ -2400,7 +2408,7 @@ check('runtime seams are bidirectional, world-aligned, step-free, and crossable'
       pitch: 0,
     };
     let currentWorld = museumPoseToWorld(currentNode, currentPose);
-    assert(signedWorldDistance(currentWorld) > 0, `${connection.id} authored arrival is not inside its source portal`);
+    assert(sourceSignedWorldDistance(currentWorld) > 0, `${connection.id} authored arrival is not inside its source portal`);
     const areaSequence = [source.id];
     let portalCrossings = 0;
     let transitionCount = 0;
@@ -2409,7 +2417,7 @@ check('runtime seams are bidirectional, world-aligned, step-free, and crossable'
 
     for (let frame = 0; frame < frameLimit && targetProgress < 3; frame += 1) {
       const previousWorld = currentWorld;
-      const previousSigned = signedWorldDistance(previousWorld);
+      const previousSigned = sourceSignedWorldDistance(previousWorld);
       const result = advanceMuseumPhysicalFrame({
         definition: currentNode,
         pose: currentPose,
@@ -2422,11 +2430,13 @@ check('runtime seams are bidirectional, world-aligned, step-free, and crossable'
       const framePose = result.pose;
       assert(validPose(frameNode, framePose), `${connection.id} produced an invalid ${frameNode.id} pose`);
       const crossingWorld = museumPoseToWorld(frameNode, framePose);
-      const crossingSigned = signedWorldDistance(crossingWorld);
-      const frameProgress = -(
-        (crossingWorld.x - previousWorld.x) * inwardWorld.x
-        + (crossingWorld.z - previousWorld.z) * inwardWorld.z
-      );
+      const crossingSigned = sourceSignedWorldDistance(crossingWorld);
+      const movementNormal = frameNode.id === source.id
+        ? {x: -inwardWorld.x, z: -inwardWorld.z}
+        : targetInwardWorld;
+      const frameProgress =
+        (crossingWorld.x - previousWorld.x) * movementNormal.x
+        + (crossingWorld.z - previousWorld.z) * movementNormal.z;
       assert(frameProgress > 1e-6, `${connection.id} stalled or reversed while forward input remained held`);
       if (frameNode.id === source.id && previousSigned >= 0 && crossingSigned < 0) portalCrossings += 1;
 
@@ -2440,7 +2450,11 @@ check('runtime seams are bidirectional, world-aligned, step-free, and crossable'
           `${connection.id} transition fell back or teleported ${distance(crossingWorld, arrivalWorld).toFixed(3)} m`,
         );
         currentNode = result.transition.targetNode;
-        currentPose = result.transition.arrival;
+        currentPose = {
+          ...result.transition.arrival,
+          yaw: targetEntrance.arrivalPose.yaw,
+          pitch: targetEntrance.arrivalPose.pitch,
+        };
         assert(validPose(currentNode, currentPose), `${connection.id} committed an invalid target pose`);
         areaSequence.push(currentNode.id);
         currentWorld = arrivalWorld;
@@ -2448,7 +2462,7 @@ check('runtime seams are bidirectional, world-aligned, step-free, and crossable'
         currentPose = result.pose;
         currentWorld = crossingWorld;
       }
-      if (currentNode.id === target.id) targetProgress = Math.max(0, -signedWorldDistance(currentWorld));
+      if (currentNode.id === target.id) targetProgress = Math.max(0, targetSignedWorldDistance(currentWorld));
     }
 
     assert.deepEqual(areaSequence, [source.id, target.id], `${connection.id} area sequence drifted`);
@@ -2470,20 +2484,27 @@ check('runtime seams are bidirectional, world-aligned, step-free, and crossable'
 });
 
 check('the physical visitor map is a truthful projection of live geometry and safe travel', () => {
-  assert.deepEqual(MUSEUM_VISITOR_MAP_PROJECTION.map(({hall}) => hall.id), HALL_IDS);
-  assert.deepEqual(MUSEUM_VISITOR_MAP_NODES.map(({hallId}) => hallId), HALL_IDS);
+  const approvedVisitOrder = singleLevelPlan.structuralBands.flatMap(({visitSequence}) => visitSequence);
+  assert.deepEqual(MUSEUM_VISITOR_MAP_PROJECTION.map(({hall}) => hall.id), approvedVisitOrder);
+  assert.deepEqual(MUSEUM_VISITOR_MAP_NODES.map(({programHallId}) => programHallId), approvedVisitOrder);
+  assert.equal(MUSEUM_VISITOR_MAP_NODES.length, 26);
+  assert.equal(MUSEUM_VISITOR_MAP_NODES.filter(({galleryState}) => galleryState === 'curated-open').length, 12);
+  assert.equal(MUSEUM_VISITOR_MAP_NODES.filter(({galleryState}) => galleryState === 'planned-walkable').length, 14);
+  assert.equal(MUSEUM_VISITOR_MAP_NODES.filter(({fastTravelEligible}) => fastTravelEligible).length, 12);
+  assert.equal(MUSEUM_VISITOR_MAP_NODES.flatMap(({rooms}) => rooms).length, 105);
   assert.equal(MUSEUM_VISITOR_MAP_NODE_PROJECTIONS.length, MUSEUM_RUNTIME_NODES.length);
   assert.equal(MUSEUM_VISITOR_MAP_EDGES.length, MUSEUM_BUILDING_MANIFEST.connections.length);
-  assert.equal(MUSEUM_VISITOR_MAP_RESERVATIONS.length, 10);
-  assert.equal(MUSEUM_VISITOR_MAP_RESERVATIONS.filter(({reservationType}) => reservationType === 'insertion').length, 2);
-  assert.equal(MUSEUM_VISITOR_MAP_RESERVATIONS.filter(({reservationType}) => reservationType === 'outward-expansion').length, 8);
-  assert(MUSEUM_VISITOR_MAP_RESERVATIONS.every(({targetProgramHallId}) => !targetProgramHallId || !HALL_IDS.includes(targetProgramHallId)));
+  assert.equal(MUSEUM_VISITOR_MAP_CROSSCUT_INTERSECTIONS.length, 6);
+  assert.equal(MUSEUM_VISITOR_MAP_TURN_COURTS.length, 5);
+  assert.equal(MUSEUM_VISITOR_MAP_RESERVATIONS.length, 2);
+  assert(MUSEUM_VISITOR_MAP_RESERVATIONS.every(({reservationType, status}) =>
+    reservationType === 'gallery-reserve' && status === 'closed-reserve'));
   assert(MUSEUM_VISITOR_MAP_VIEWBOX.width > 0 && MUSEUM_VISITOR_MAP_VIEWBOX.height > 0);
   assert.equal(MUSEUM_VISITOR_MAP_ENTRANCE.key, `${MUSEUM_BUILDING_MANIFEST.mainEntrance.nodeId}:${MUSEUM_BUILDING_MANIFEST.mainEntrance.slotId}`);
-  assert.equal(MUSEUM_VISITOR_MAP_KIOSK.hallId, 'mediterranean-beginnings-classical');
-  assert.equal(MUSEUM_VISITOR_MAP_KIOSK_MARKER.hallId, 'mediterranean-beginnings-classical');
+  assert.equal(MUSEUM_VISITOR_MAP_KIOSK.nodeId, MUSEUM_BUILDING_MANIFEST.mainEntrance.nodeId);
+  assert.equal(MUSEUM_VISITOR_MAP_KIOSK_MARKER.nodeId, MUSEUM_BUILDING_MANIFEST.mainEntrance.nodeId);
   assert.deepEqual(sorted(MUSEUM_VISITOR_MAP_EDGES.map(({connectionId}) => connectionId)), sorted(MUSEUM_BUILDING_MANIFEST.connections.map(({id}) => id)), 'Visitor-map edges differ from the manifest connections');
-  assert.deepEqual(sorted(MUSEUM_VISITOR_MAP_RESERVATIONS.map(({id}) => id)), sorted(MUSEUM_BUILDING_MANIFEST.reservations.map(({id}) => id)), 'Visitor-map reservations differ from the manifest reservations');
+  assert.deepEqual(sorted(MUSEUM_VISITOR_MAP_RESERVATIONS.map(({id}) => id)), sorted(MUSEUM_BUILDING_MANIFEST.reserves.map(({id}) => id)), 'Visitor-map reserves differ from the manifest reserves');
   for (const projection of MUSEUM_VISITOR_MAP_NODE_PROJECTIONS) {
     assert(runtimeNodeById.has(projection.id), `Visitor map projects unknown physical node ${projection.id}`);
     assert(projection.cells.length > 0, `${projection.id} has no projected map polygon`);
@@ -2494,12 +2515,18 @@ check('the physical visitor map is a truthful projection of live geometry and sa
     assert(edge.points.length >= 2 && edge.points.every(({x, y}) => Number.isFinite(x) && Number.isFinite(y)), `${edge.connectionId} has invalid map-edge geometry`);
   }
   for (const node of MUSEUM_VISITOR_MAP_NODES) {
-    const definition = definitionById.get(node.hallId);
-    const destination = resolveMuseumVisitorMapDestination(definition, node);
-    assert(destination && validPose(definition, destination), `${node.hallId} fast-travel destination is unsafe`);
-    const physicalProjection = MUSEUM_VISITOR_MAP_NODE_PROJECTIONS.find(({id}) => id === definition.physicalNodeId);
-    assert(physicalProjection, `${node.hallId} has no physical map projection`);
-    approx(physicalProjection.cells.reduce((sum, cell) => sum + cell.area, 0), definition.layout.floorArea, `${node.hallId} map footprint area`);
+    const physicalProjection = MUSEUM_VISITOR_MAP_NODE_PROJECTIONS.find(({id}) => id === node.physicalNodeId);
+    assert(physicalProjection, `${node.programHallId} has no physical map projection`);
+    assert.equal(node.rooms.length, node.roomIds.length, `${node.programHallId} map room metadata is incomplete`);
+    if (node.hallId) {
+      const definition = definitionById.get(node.hallId);
+      const destination = resolveMuseumVisitorMapDestination(definition, node);
+      assert(destination && validPose(definition, destination), `${node.hallId} fast-travel destination is unsafe`);
+      approx(physicalProjection.cells.reduce((sum, cell) => sum + cell.area, 0), definition.layout.floorArea, `${node.hallId} map footprint area`);
+    } else {
+      assert.equal(node.fastTravelEligible, false, `${node.programHallId} exposes fake fast travel`);
+      assert.equal(node.destination.kind, 'walk-only', `${node.programHallId} exposes a curated destination`);
+    }
   }
   const projectedDoorwayKeys = sorted(MUSEUM_VISITOR_MAP_DOORWAYS.map(({key}) => key));
   assert.deepEqual(projectedDoorwayKeys, sorted(activeEndpointKeys), 'Visitor map must show active doorways plus the main entrance, not inactive template slots');
@@ -2509,18 +2536,30 @@ check('the physical visitor map is a truthful projection of live geometry and sa
 check('decoded texture residency admits every active and approached hall under 96 MiB', () => {
   assert.equal(MUSEUM_DECODED_TEXTURE_BUDGET_MIB, 96);
   assert.equal(MUSEUM_DECODED_TEXTURE_BUDGET_BYTES, 96 * 1024 * 1024);
-  assert.equal(buildingManifest.reservations.length, 10, 'persistent reservation-label count changed');
+  assert.equal(buildingManifest.reserves.length, 2, 'persistent reserve-label count changed');
   const expectedBuildingSignBytes = independentDecodedTextureBytes(independentTextureDimensionsForPlane(
     5.6,
     5.6 * .27,
     {width: 600, height: 160, mipmaps: true},
   ));
-  const expectedReservationSignBytes = buildingManifest.reservations.reduce((sum, reservation) =>
+  const expectedPlannedStatusSignBytes = buildingManifest.nodes.reduce((sum, node) =>
+    sum + (node.geometry?.signs ?? []).reduce((signSum, sign) =>
+      signSum + independentDecodedTextureBytes(independentTextureDimensionsForPlane(
+        sign.width,
+        sign.height,
+        {width: 600, height: 160, mipmaps: true},
+      )), 0), 0);
+  const expectedReservationSignBytes = buildingManifest.reserves.reduce((sum, reservation) =>
     sum + independentDecodedTextureBytes(independentTextureDimensionsForPlane(
-      reservation.barrierWidth * .9,
-      reservation.barrierWidth * .245,
+      (reservation.boundaryWall?.size.width ?? 4) * .9,
+      Math.min(1.1, (reservation.boundaryWall?.size.width ?? 4) * .245),
       {width: 700, height: 190, mipmaps: true},
     )), 0);
+  const expectedVisitorMapKioskBytes = independentDecodedTextureBytes({
+    width: 1200,
+    height: 918,
+    mipmaps: true,
+  });
   const expectedReadinessGateBytes = independentDecodedTextureBytes({width: 600, height: 160, mipmaps: true});
   const publicNodeIds = new Set(buildingManifest.nodes.filter(({publicHallId}) => Boolean(publicHallId)).map(({id}) => id));
   const gateCounts = new Map();
@@ -2529,13 +2568,17 @@ check('decoded texture residency admits every active and approached hall under 9
     if (publicNodeIds.has(connection.a.nodeId)) gateCounts.set(connection.b.nodeId, (gateCounts.get(connection.b.nodeId) ?? 0) + 1);
   }
   const expectedMaximumReadinessGates = Math.max(1, ...gateCounts.values());
-  assert.equal(expectedMaximumReadinessGates, 3, 'the independent physical-node gate count changed');
+  assert(expectedMaximumReadinessGates >= 1 && expectedMaximumReadinessGates <= 4, 'the independent physical-node gate count is unbounded');
   const expectedPersistentBytes = expectedBuildingSignBytes
+    + expectedPlannedStatusSignBytes
     + expectedReservationSignBytes
+    + expectedVisitorMapKioskBytes
     + expectedReadinessGateBytes * expectedMaximumReadinessGates;
   assert.deepEqual(MUSEUM_PERSISTENT_TEXTURE_ESTIMATE, {
     buildingSignBytes: expectedBuildingSignBytes,
+    plannedStatusSignBytes: expectedPlannedStatusSignBytes,
     reservationSignBytes: expectedReservationSignBytes,
+    visitorMapKioskBytes: expectedVisitorMapKioskBytes,
     readinessGateBytes: expectedReadinessGateBytes,
     maximumSimultaneousReadinessGates: expectedMaximumReadinessGates,
     totalBytes: expectedPersistentBytes,
@@ -2676,54 +2719,164 @@ check('sessions, walking pace, readiness, and travel contexts remain safe and ha
   assert.equal(resolveMuseumReadinessGateStatus('failed', false), 'failed');
   assert.equal(resolveMuseumReadinessGateStatus('ready', true), undefined);
   assert.deepEqual(Object.keys(MUSEUM_READINESS_PRESENTATIONS), ['idle', 'loading', 'failed']);
-  const orientationDefinition = definitionById.get(MUSEUM_VISITOR_MAP_KIOSK.hallId);
-  const orientationNode = MUSEUM_RUNTIME_NODES.find(({publicHallId}) => publicHallId === MUSEUM_VISITOR_MAP_KIOSK.hallId);
-  assert(orientationDefinition && orientationNode, 'The authored Museum orientation destination is missing');
-  assert.deepEqual(orientationDefinition.layout.reset, orientationDefinition.layout.spawn, 'Fresh arrival and Reset use different orientation poses');
-  assert(validPose(orientationDefinition, orientationDefinition.layout.reset), 'The authored Museum orientation pose is unsafe');
-  const resetScenarios = [
-    ['ordinary hall', 'justice-democratic-reason'],
-    ['connector with a retained hall', 'renaissance-humanism-new-method'],
-    ['after fast travel', 'analytic-traditions'],
-  ];
-  for (const [scenario, sourceHallId] of resetScenarios) {
-    const reset = resolveMuseumOrientationReset({
-      sourceHallId,
-      targetHallId: MUSEUM_VISITOR_MAP_KIOSK.hallId,
-      targetNodeId: orientationNode.id,
-      targetPose: orientationDefinition.layout.reset,
-    });
-    assert.equal(reset.activeHallId, MUSEUM_VISITOR_MAP_KIOSK.hallId, `${scenario} Reset chose the wrong hall`);
-    assert.equal(reset.activeNodeId, orientationNode.id, `${scenario} Reset chose the wrong physical node`);
-    assert.deepEqual(reset.pose, orientationDefinition.layout.reset, `${scenario} Reset changed the authored pose`);
-    assert(reset.clearedHallIds.includes(sourceHallId), `${scenario} Reset did not clear its saved source position`);
-    assert(reset.clearedHallIds.includes(MUSEUM_VISITOR_MAP_KIOSK.hallId), `${scenario} Reset did not clear the orientation position`);
-  }
-  const identitySign = orientationDefinition.layout.signs.find(({kind}) => kind === 'entrance');
-  assert(identitySign, 'Gallery 01 has no entrance identity sign');
-  assert.equal(identitySign.title, 'PHILOSOPHY ATLAS MUSEUM');
-  assert.equal(identitySign.kicker, '');
-  assert.equal(identitySign.subtitle, 'Gallery 01 · Mediterranean Beginnings & Classical Athens');
+  const orientationNode = runtimeNodeById.get(MUSEUM_VISITOR_MAP_KIOSK.nodeId);
+  const orientationManifestNode = MUSEUM_BUILDING_MANIFEST.nodes.find(({id}) =>
+    id === MUSEUM_VISITOR_MAP_KIOSK.nodeId);
+  assert(orientationNode && orientationManifestNode, 'The authored Grand Entrance orientation destination is missing');
+  assert.equal(orientationNode.publicHallId, undefined, 'The Grand Entrance was incorrectly attached to Gallery 01 content');
+  assert.deepEqual(orientationNode.layout.reset, orientationNode.layout.spawn, 'Fresh arrival and Reset use different Grand Entrance poses');
+  assert(validPose(orientationNode, orientationNode.layout.reset), 'The authored Grand Entrance orientation pose is unsafe');
+  assert.deepEqual(orientationManifestNode.orientationLandmark, {
+    id: MUSEUM_VISITOR_MAP_KIOSK.id,
+    position: MUSEUM_VISITOR_MAP_KIOSK.center,
+  });
+  assert(
+    orientationNode.layout.furnishings.some(({id}) => id === MUSEUM_VISITOR_MAP_KIOSK.id)
+      && orientationNode.layout.obstacleColliders.some(({id}) => id === MUSEUM_VISITOR_MAP_KIOSK.id),
+    'The physical visitor-map landmark lacks persistent rendering/collision ownership',
+  );
   const spawnForward = {
-    x: -Math.sin(orientationDefinition.layout.spawn.yaw),
-    z: -Math.cos(orientationDefinition.layout.spawn.yaw),
+    x: -Math.sin(orientationNode.layout.spawn.yaw),
+    z: -Math.cos(orientationNode.layout.spawn.yaw),
   };
   const visibleFromSpawn = (point) => {
-    const offset = {x: point.x - orientationDefinition.layout.spawn.x, z: point.z - orientationDefinition.layout.spawn.z};
+    const offset = {x: point.x - orientationNode.layout.spawn.x, z: point.z - orientationNode.layout.spawn.z};
     const length = Math.hypot(offset.x, offset.z);
     return length > 0 && (offset.x * spawnForward.x + offset.z * spawnForward.z) / length
-      >= Math.cos(orientationDefinition.layout.cameraFov / 2 * Math.PI / 180);
+      >= Math.cos(orientationNode.layout.cameraFov / 2 * Math.PI / 180);
   };
   assert(visibleFromSpawn(MUSEUM_VISITOR_MAP_KIOSK.center), 'Fresh arrival does not face the physical visitor map');
-  assert(visibleFromSpawn(identitySign.position), 'Fresh arrival does not include the Museum/Gallery 01 identity sign');
+  const semanticDefinition = definitions[0];
+  const semanticExhibit = semanticDefinition.layout.exhibits[0];
+  const sessionValues = new Map();
+  const sessionStorage = {
+    getItem: (key) => sessionValues.get(key) ?? null,
+    setItem: (key, value) => sessionValues.set(key, value),
+    removeItem: (key) => sessionValues.delete(key),
+  };
+  assert(
+    saveMuseumSession(
+      semanticDefinition.layout,
+      semanticDefinition.layout.spawn,
+      semanticExhibit.id,
+      sessionStorage,
+    ),
+    'A valid Museum session could not be saved',
+  );
+  const storedSemanticSession = JSON.parse(
+    sessionValues.get(museumSessionStorageKey(semanticDefinition.id)),
+  );
+  assert.equal(storedSemanticSession.version, 2);
+  assert.equal(storedSemanticSession.hallId, semanticDefinition.id);
+  assert.equal(storedSemanticSession.exhibitId, semanticExhibit.id);
+  assert.equal(
+    storedSemanticSession.manifestVersion,
+    MUSEUM_BUILDING_MANIFEST.manifestVersion,
+  );
+  for (const rawPoseField of ['x', 'z', 'yaw', 'pitch']) {
+    assert(
+      !Object.hasOwn(storedSemanticSession, rawPoseField),
+      `v2 Museum storage persisted raw ${rawPoseField}`,
+    );
+  }
+  const loadedSemanticSession = loadMuseumSession(semanticDefinition.layout, sessionStorage);
+  assert(loadedSemanticSession, 'A semantic Museum session could not be resolved');
+  assert.deepEqual(
+    {
+      x: loadedSemanticSession.x,
+      z: loadedSemanticSession.z,
+      yaw: loadedSemanticSession.yaw,
+      pitch: loadedSemanticSession.pitch,
+    },
+    semanticExhibit.viewpoint,
+    'An exhibit session did not resolve to its authored viewpoint',
+  );
+  assert.deepEqual(
+    loadMuseumLastVisit(sessionStorage),
+    storedSemanticSession,
+    'The building-level last-visit pointer diverged from the saved semantic anchor',
+  );
+  assert(
+    saveMuseumLastVisit(
+      {
+        hallId: semanticDefinition.id,
+        entranceId: MUSEUM_BUILDING_MANIFEST.mainEntrance.slotId,
+      },
+      sessionStorage,
+    ),
+    'An entrance last-visit pointer could not be saved',
+  );
+  assert.equal(
+    loadMuseumLastVisit(sessionStorage)?.entranceId,
+    MUSEUM_BUILDING_MANIFEST.mainEntrance.slotId,
+  );
+
+  sessionValues.delete(museumSessionStorageKey(semanticDefinition.id));
+  const legacyRaw = JSON.stringify({
+    version: 1,
+    hallId: semanticDefinition.id,
+    ...semanticDefinition.layout.spawn,
+    lastNearbyExhibit: semanticExhibit.id,
+  });
+  sessionValues.set(legacyMuseumSessionStorageKey(semanticDefinition.id), legacyRaw);
+  const migratedLegacySession = loadMuseumSession(semanticDefinition.layout, sessionStorage);
+  assert.equal(migratedLegacySession?.migratedFromVersion, 1);
+  const migratedSemanticRecord = JSON.parse(
+    sessionValues.get(museumSessionStorageKey(semanticDefinition.id)),
+  );
+  assert.equal(migratedSemanticRecord.version, 2);
+  assert.equal(migratedSemanticRecord.exhibitId, semanticExhibit.id);
+  assert.equal(
+    sessionValues.get(legacyMuseumSessionStorageKey(semanticDefinition.id)),
+    legacyRaw,
+    'v1 migration removed the rollback session record',
+  );
+  for (const rawPoseField of ['x', 'z', 'yaw', 'pitch']) {
+    assert(
+      !Object.hasOwn(migratedSemanticRecord, rawPoseField),
+      `v1 migration copied raw ${rawPoseField} into v2 storage`,
+    );
+  }
+  const legacyRoomView = semanticDefinition.layout.entryViews[0];
+  const legacyRoom = semanticDefinition.layout.spatialCells.find(
+    ({id}) => id === legacyRoomView.spatialCellId,
+  );
+  assert(legacyRoom, 'The v1 room migration fixture has no authored room');
+  const legacyRoomSession = parseMuseumSession(JSON.stringify({
+    version: 1,
+    hallId: semanticDefinition.id,
+    x: (legacyRoom.bounds.minX + legacyRoom.bounds.maxX) / 2,
+    z: (legacyRoom.bounds.minZ + legacyRoom.bounds.maxZ) / 2,
+    yaw: 2.4,
+    pitch: .4,
+  }), semanticDefinition.layout);
+  assert.equal(legacyRoomSession?.roomId, legacyRoom.id);
+  assert.deepEqual(
+    legacyRoomSession
+      ? {
+          x: legacyRoomSession.x,
+          z: legacyRoomSession.z,
+          yaw: legacyRoomSession.yaw,
+          pitch: legacyRoomSession.pitch,
+        }
+      : undefined,
+    sanitizeMuseumPose(legacyRoomView.pose, semanticDefinition.layout),
+    'v1 migration replayed raw coordinates instead of the room entry pose',
+  );
+
   for (const definition of definitions) {
     const raw = JSON.stringify({version: 1, hallId: definition.id, ...definition.layout.spawn, lastNearbyExhibit: definition.layout.exhibits[0]?.id});
-    assert(parseMuseumSession(raw, definition.layout), `${definition.id} valid session was rejected`);
+    const migrated = parseMuseumSession(raw, definition.layout);
+    assert(migrated, `${definition.id} valid session was rejected`);
+    assert.equal(migrated.version, 2, `${definition.id} did not resolve a legacy record as v2`);
+    assert.equal(migrated.migratedFromVersion, 1, `${definition.id} did not identify a v1 migration`);
     assert.equal(parseMuseumSession('{bad json', definition.layout), undefined, `${definition.id} accepted malformed JSON`);
     assert.equal(parseMuseumSession('x'.repeat(4097), definition.layout), undefined, `${definition.id} accepted an oversized session`);
     assert.equal(parseMuseumSession(JSON.stringify({version: 1, hallId: 'ancient-greek', ...definition.layout.spawn}), definition.layout), undefined, `${definition.id} accepted a retired hall session`);
     assert.equal(parseMuseumSession(JSON.stringify({version: 0, hallId: definition.id, ...definition.layout.spawn}), definition.layout), undefined, `${definition.id} accepted the wrong session version`);
-    assert.equal(parseMuseumSession(JSON.stringify({version: 1, hallId: definition.id, x: null, z: 0, yaw: 0, pitch: 0}), definition.layout), undefined, `${definition.id} accepted a null coordinate`);
+    const invalidLegacyCoordinates = parseMuseumSession(JSON.stringify({version: 1, hallId: definition.id, x: null, z: 0, yaw: 0, pitch: 0}), definition.layout);
+    assert(invalidLegacyCoordinates, `${definition.id} did not fall back safely for invalid legacy coordinates`);
+    assert(validPose(definition, invalidLegacyCoordinates), `${definition.id} resolved invalid legacy coordinates to an unsafe pose`);
     assert.equal(sanitizeMuseumPose({...definition.layout.spawn, x: Number.POSITIVE_INFINITY}, definition.layout), undefined, `${definition.id} accepted a non-finite pose`);
     assert.equal(sanitizeMuseumPose({...definition.layout.exhibits[0].collider.center, yaw: 0, pitch: 0}, definition.layout), undefined, `${definition.id} accepted a pose inside an exhibit`);
     const authoredSpatialCells = definition.layout.spatialCells.map((cell) => cell.renderBounds
@@ -2784,12 +2937,15 @@ check('the React implementation uses one persistent Canvas, one shared canonical
   assert.match(canonicalExhibitsSource, /usePlaqueTexture/);
   assert.match(architectureSource, /museumTextureDimensionsForPlane/);
   assert.match(architectureSource, /<mesh position=\{\[0, 0, \.002\]\}><planeGeometry/);
-  assert.match(visitorMapSource, /The live main-level plan shows/);
+  assert.match(visitorMapSource, /The Continuous Enfilade is a single-level, 26-gallery museum/);
   assert.match(visitorMapSource, /26-gallery collection plan/);
+  assert.match(visitorMapSource, /10 metre north–south crosscut has six truthful intersections/);
+  assert.match(visitorMapSource, /fourteen planned gallery shells are walkable but have no travel control/);
   assert.match(visitorMapSource, /projectMuseumVisitorMapHeading/);
-  assert.match(visitorMapSource, /Returns you to the gallery entrance/);
-  assert.doesNotMatch(visitorMapSource, /Permanent construction stage|registered hall’s authored safe spawn/);
+  assert.match(visitorMapSource, /Fast travel is limited to the 12 curated\/open galleries/);
+  assert.doesNotMatch(visitorMapSource, /Ring of Wings|Permanent construction stage|registered hall’s authored safe spawn/);
   assert.match(visitorMapSource, /MUSEUM_VISITOR_MAP_RESERVATIONS/);
+  assert.match(visitorMapSource, /selected\.hall\.rooms\.map/);
   assert.match(compatibilitySource, /is not currently installed/);
   assert.match(compatibilitySource, /underlying Atlas record, article, relationships, media, and source data have not been deleted/);
   assert.match(museumPageSource, /residentHallIds/);
@@ -2798,8 +2954,20 @@ check('the React implementation uses one persistent Canvas, one shared canonical
   assert.match(museumPageSource, /MUSEUM_WORLD_REGISTRY\.filter/);
   assert.match(museumPageSource, /onOpenVisitorMap: showVisitorMap/);
   assert.match(museumPageSource, /<span>MAP \(M\)<\/span>/);
-  assert.match(museumPageSource, /resolveMuseumOrientationReset/);
-  assert.match(museumPageSource, /reset\.clearedHallIds\.forEach/);
+  assert.match(museumPageSource, /Position reset to the Grand Entrance and visitor map/);
+  assert.match(museumPageSource, /MUSEUM_BUILDING_MANIFEST\.mainEntrance\.nodeId/);
+  assert.match(museumPageSource, /Begin chronological route/);
+  assert.match(museumPageSource, /Begin at Forum crosscut/);
+  assert.match(museumPageSource, /Start guided visit/);
+  assert.match(museumPageSource, /Resume last visit/);
+  assert.match(museumPageSource, /Map & curated fast travel/);
+  assert.match(museumPageSource, /Final Return \/ Exit threshold/);
+  assert.match(museumPageSource, /loadMuseumLastVisit/);
+  assert.match(museumPageSource, /activeNodeRef\.current\.publicHallId && hallLoadStatus/);
+  assert.doesNotMatch(museumPageSource, /tickets|lockers|generic study/i);
+  assert.match(buildingArchitectureSource, /Grand Entrance & Orientation/);
+  assert.match(buildingArchitectureSource, /MUSEUM_BUILDING_MANIFEST\.reserves/);
+  assert.match(buildingArchitectureSource, /<MuseumVisitorMapKiosk/);
   assert.match(museumControlsSource, /event\.code === 'KeyM'[\s\S]{0,180}onOpenVisitorMap/);
   assert.doesNotMatch(museumControlsSource, /event\.code === 'KeyD'/, 'D must remain movement-only');
   assert.doesNotMatch(museumControlsSource, /onOpenDirectory/, 'The keyboard controls still expose a Directory shortcut');

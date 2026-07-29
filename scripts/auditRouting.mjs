@@ -5,7 +5,7 @@ import {fileURLToPath} from 'node:url';
 import {build} from 'vite';
 
 const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const buildingManifest = JSON.parse(readFileSync(resolve(repoRoot, 'src/data/museum/museumBuildingManifest.json'), 'utf8'));
+const buildingManifest = JSON.parse(readFileSync(resolve(repoRoot, 'src/data/museum/museumContinuousEnfiladeManifest.json'), 'utf8'));
 const virtualEntry = 'virtual:philosophy-atlas-routing-audit';
 const resolvedVirtualEntry = `\0${virtualEntry}`;
 
@@ -190,9 +190,13 @@ check('top-level history and map routes parse and serialize', () => {
 check('Museum convenience, hall, and exhibit routes parse and serialize', () => {
   const convenience = expectKind('#/museum', 'museum');
   assert.equal(DEFAULT_MUSEUM_HALL_ID, 'mediterranean-beginnings-classical');
-  assert.deepEqual(convenience.route, {kind: 'museum', hallId: DEFAULT_MUSEUM_HALL_ID});
-  assert.equal(convenience.canonicalHash, '#/museum/mediterranean-beginnings-classical');
-  assert.equal(convenience.shouldReplace, true);
+  assert.deepEqual(convenience.route, {
+    kind: 'museum',
+    hallId: DEFAULT_MUSEUM_HALL_ID,
+    entry: 'entrance',
+  });
+  assert.equal(convenience.canonicalHash, '#/museum');
+  assert.equal(convenience.shouldReplace, false);
   let exhibitCount = 0;
   for (const hall of MUSEUM_HALLS) {
     expectRoundTrip({kind: 'museum', hallId: hall.id});
@@ -213,6 +217,14 @@ check('Museum convenience, hall, and exhibit routes parse and serialize', () => 
 check('serializers emit the required literal route families', () => {
   assert.equal(serializeHashRoute({kind: 'history'}), '#/history');
   assert.equal(serializeHashRoute({kind: 'map'}), '#/map');
+  assert.equal(
+    serializeHashRoute({
+      kind: 'museum',
+      hallId: 'mediterranean-beginnings-classical',
+      entry: 'entrance',
+    }),
+    '#/museum',
+  );
   assert.equal(
     serializeHashRoute({kind: 'museum', hallId: 'mediterranean-beginnings-classical'}),
     '#/museum/mediterranean-beginnings-classical',
@@ -425,21 +437,27 @@ check('unknown and malformed Museum routes remain visible as not-found', () => {
 });
 
 check('physical building and reserved expansion IDs are never accepted as public Museum routes', () => {
-  const publicHallIds = buildingManifest.nodes.filter(({kind, implementationStatus}) => kind === 'hall' && implementationStatus === 'live').map(({publicHallId}) => publicHallId);
-  assert.equal(buildingManifest.manifestVersion, 'canonical-twelve-v1');
-  assert.equal(buildingManifest.status, 'approved-canonical-twelve');
+  const publicHallIds = buildingManifest.nodes
+    .filter(({kind, implementationStatus, publicHallId}) =>
+      kind === 'hall' && implementationStatus === 'live' && publicHallId)
+    .map(({publicHallId}) => publicHallId);
+  const plannedHalls = buildingManifest.nodes.filter(({galleryState}) => galleryState === 'planned-walkable');
+  assert.equal(buildingManifest.manifestVersion, 'continuous-enfilade-single-level-v1');
+  assert.equal(buildingManifest.status, 'implemented-approved-continuous-enfilade');
   assert.equal(publicHallIds.length, 12);
   assert.deepEqual(publicHallIds.sort(), MUSEUM_HALLS.map(({id}) => id).sort());
-  assert.equal(buildingManifest.reservations.length, 10);
-  assert.equal(buildingManifest.reservations.filter(({reservationType}) => reservationType === 'insertion').length, 2);
-  assert.equal(buildingManifest.reservations.filter(({reservationType}) => reservationType === 'outward-expansion').length, 8);
+  assert.equal(plannedHalls.length, 14);
+  assert(plannedHalls.every(({publicHallId, fastTravelEligible}) =>
+    publicHallId === undefined && fastTravelEligible !== true));
+  assert.equal(buildingManifest.reserves.length, 2);
   for (const node of buildingManifest.nodes) {
     expectNotFound(`#/museum/${encodeURIComponent(node.id)}`, /No museum hall exists/);
+    if (node.galleryState === 'planned-walkable') {
+      expectNotFound(`#/museum/${encodeURIComponent(node.programHallId)}`, /No museum hall exists/);
+    }
   }
-  for (const reservation of buildingManifest.reservations) {
+  for (const reservation of buildingManifest.reserves) {
     expectNotFound(`#/museum/${encodeURIComponent(reservation.id)}`, /No museum hall exists/);
-    if (reservation.expansionPortalId) expectNotFound(`#/museum/${encodeURIComponent(reservation.expansionPortalId)}`, /No museum hall exists/);
-    if (reservation.targetProgramHallId) expectNotFound(`#/museum/${encodeURIComponent(reservation.targetProgramHallId)}`, /No museum hall exists/);
   }
 });
 
@@ -528,6 +546,10 @@ check('document titles are exhaustive and section-aware', () => {
   ];
   for (const route of routes) assert.match(getRouteTitle(route), / \| Philosophy Atlas$/);
   assert.equal(getRouteTitle({kind: 'history'}), 'Big History | Philosophy Atlas');
+  assert.equal(
+    getRouteTitle(DEFAULT_ROUTES.museum),
+    'Grand Entrance & Orientation Hall | Philosophy Atlas',
+  );
   assert.equal(
     getRouteTitle({kind: 'museum', hallId: 'mediterranean-beginnings-classical'}),
     'Mediterranean Beginnings & Classical Athens | Philosophy Atlas',

@@ -28,6 +28,8 @@ export type MuseumRoute = {
   kind: 'museum';
   hallId: MuseumPublicHallId;
   exhibitId?: MuseumRouteExhibitId;
+  /** The Museum root represents the building's Grand Entrance, not Gallery 01. */
+  entry?: 'entrance';
 };
 export type MuseumCompatibilityRoute = {
   kind: 'museum-compatibility';
@@ -93,6 +95,7 @@ export const DEFAULT_ROUTES = {
   museum: {
     kind: 'museum',
     hallId: 'mediterranean-beginnings-classical',
+    entry: 'entrance',
   },
 } as const satisfies Record<string, NavigableAppRoute>;
 

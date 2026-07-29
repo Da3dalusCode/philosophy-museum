@@ -17,11 +17,13 @@ No account, subscription, download, or special software is required. Everything 
 - **Philosophy Map**, showing selected relationships between traditions and thinkers
 - **Compare**, for side-by-side branch and philosopher comparisons
 - **Learning Paths**, with guided routes through major themes and periods
-- **A six-hall 3D museum** with 63 primary exhibits and 15 interpreted work/context stops inside a compact, walkable Ring of Wings
+- **A one-level 26-gallery 3D museum** with 12 curated/open galleries, 14 honest planned/walkable shells, 105 named rooms, and two closed expansion reserves
 
 ## The walkable museum
 
-The Museum presents philosophy as a physical journey through five permanent outer-loop halls and the central Core Questions Forum. The six live halls form a truthful, continuously walkable subset of the approved 26-hall Ring of Wings; eleven blocked thresholds mark staged insertion and outward-expansion points without presenting the other twenty planned halls as open.
+The Museum presents philosophy as a physical journey through the implemented **Continuous Enfilade**. A chronological route crosses all 26 gallery shells in six structural bands; a 10 m north–south crosscut provides six alternate intersections, including the independent Core Questions Forum. Five bounded turn courts connect the bands, and a Final Return threshold closes the full route.
+
+The public state is deliberately mixed: these 12 galleries are curated and open, while Galleries 13–26 remain named, blank, walkable architectural shells with one truthful planned-status sign and no fabricated exhibits or fast-travel controls.
 
 1. **Mediterranean Beginnings & Classical Athens**
    Ionian natural explanation, disputes over being and change, civic argument, Socrates, Plato, Aristotle, Platonism, and Aristotelianism
@@ -41,9 +43,21 @@ The Museum presents philosophy as a physical journey through five permanent oute
 6. **Core Questions Forum**
    Comparative rooms for reality, knowledge, mind and self, logic and language, science, aesthetics, religion, and outward routes to historically situated traditions; Jiddu Krishnamurti appears in Mind & Self
 
-Every exhibit has a walkable installation, focused interpretation, structured facts, and a link to the full philosopher or branch article. The live roster uses 81 local, provenance-backed media placements where reliable reusable images or documents are available; media is not required merely to fill a quota.
+7. **Classical South Asia: Jain, Yoga, and Brahmanical Systems**
 
-The physical visitor map is generated from the same building manifest that places walls, corridors, doors, and safe arrivals. It distinguishes the walkable loop and central spokes from six labeled fast-travel actions and from visibly blocked future insertion or expansion portals.
+8. **Buddhist Philosophies of Liberation and Knowledge**
+
+9. **Warring States & Classical Chinese Traditions**
+
+10. **Arabic & Islamic Philosophical Worlds**
+
+11. **Confucian Renewal & East Asian Continuities**
+
+12. **Jewish Philosophy in Arabic-Speaking & Mediterranean Worlds**
+
+Every curated exhibit has a walkable installation, focused interpretation, structured facts, and a link to the full philosopher or branch article. The 12 curated galleries contain 105 primary exhibits and 182 supplemental/context installations. Provenance-backed media is used where reliable reusable imagery or documents are available; media is not added merely to fill a quota.
+
+The physical visitor map is generated from the same compiled manifest that places gallery shells, rooms, crosscut intersections, turn courts, doors, safe arrivals, the entrance, final threshold, and reserves. It shows all 26 stable gallery numbers and titles, distinguishes curated/open from planned/walkable, tracks current position and facing, and limits fast travel to the 12 curated galleries.
 
 ### Museum controls
 
@@ -62,7 +76,7 @@ Philosophy Atlas is intended for curious readers, students, teachers, and anyone
 
 The project is actively being developed.
 
-Current written coverage includes all **146 philosophers** and **43 branches** in the Atlas. The long-term Museum program is locked at 10 wings, 26 halls, and 105 rooms or zones. The implemented canonical-six phase opens five permanent outer-loop halls plus the central Core Questions Forum, with 29 rooms, 63 primary exhibits, and 17 reserve slots. Retired Museum URLs resolve through aliases or explanatory handoffs, and displaced records remain available in the Atlas. Museum media includes structured provenance and rights metadata; citation depth across the wider Atlas is still being improved.
+Current written coverage includes all **146 philosophers** and **43 branches** in the Atlas. The Museum program and its implemented architecture are locked at 10 wings, 26 galleries, and 105 rooms. Twelve galleries are curated/open; fourteen complete planned shells remain walkable but uncurated; two 56 × 28 m expansion reserves remain physically closed. Retired Museum URLs resolve through aliases or explanatory handoffs, and displaced records remain available in the Atlas. Museum media includes structured provenance and rights metadata; citation depth across the wider Atlas is still being improved.
 
 The application is local-first and static. It has no backend, database, login system, runtime API, advertising, or paid service dependency.
 
@@ -100,7 +114,9 @@ npm run preview
 
 ```bash
 npm run build
-node scripts/validateMuseumMasterplan.mjs
+npm run check:museum-building
+npm run validate:museum-masterplan
+npm run validate:museum-building-plan
 npm run audit:routing
 npm run audit:museum
 npm run audit:museum-assets
@@ -112,7 +128,7 @@ npm run report:bundle
 npm run generate:museum-diagram
 ```
 
-The Museum audits cover the approved masterplan, canonical hall-template contracts, endpoint-owned openings and closures, hall and exhibit registration, public and compatibility routes, loop and spoke reachability, blocked reservations, decoded-texture-budgeted residency, map correspondence, sessions, movement and colliders, viewpoints, guided paths, interpretation coverage, local media, and asset provenance.
+The Museum audits cover the approved masterplan, the exact compiled 26-gallery/105-room geometry, canonical hall-template contracts, endpoint-owned openings and closures, curated and planned states, public and compatibility routes, through-route/crosscut/turn-court reachability, closed reserves, decoded-texture-budgeted residency, map correspondence, stable-ID sessions, movement and colliders, viewpoints, guided paths, interpretation coverage, local media, and asset provenance.
 
 ### GitHub Pages deployment
 
@@ -149,7 +165,7 @@ Every Museum exhibit also has a direct route, such as:
 
 ### Data model
 
-Core interfaces live in `src/types/philosophy.ts`. Most local content records live under `src/data`, including branches, philosophers, timeline events, relationships, learning paths, Museum catalogs, interpretations, hall layouts, and asset metadata. The Museum’s physical placement and circulation contract lives in `src/data/museum/museumBuildingManifest.json`; its executable canonical hall-template contracts live in `src/data/museum/museumHallTemplates.ts`.
+Core interfaces live in `src/types/philosophy.ts`. Most local content records live under `src/data`, including branches, philosophers, timeline events, relationships, learning paths, Museum catalogs, interpretations, hall layouts, and asset metadata. The Museum’s production physical placement and circulation contract lives in `src/data/museum/museumContinuousEnfiladeManifest.json`; `museumBuildingManifest.json` is retained only as the rollback-era Ring artifact. Executable canonical hall-template contracts live in `src/data/museum/museumHallTemplates.ts`.
 
 Stable IDs connect records without a database. Content and runtime integrity are checked by repository audit scripts.
 
@@ -165,9 +181,9 @@ Keep explanations readable, distinguish disputed membership from canonical affil
 
 ## Current limitations and future work
 
-- The walkable Museum covers only part of philosophy's full historical and cross-cultural range; the six permanent halls are the first implemented subset of the final 26-hall intellectual program.
+- The full 26-gallery, 105-room building is walkable, but only Galleries 01–12 are curated/open exhibitions; Galleries 13–26 remain honest planned architectural shells.
 - Source and citation depth is stronger in the long-form articles and Museum records than in some older structured summaries.
 - The Philosophy Map intentionally uses a curated subset for readability.
 - Some influence and relationship data could be linked more deeply.
 - Visit position is stored locally, but there are no accounts or long-term reading-progress features.
-- Planned work includes constructing the other twenty approved halls, broader cross-cultural Museum coverage, stronger source layers, study tools, saved progress, quizzes, and exportable notes. Future portals remain physically blocked until their content and circulation are complete.
+- Planned work includes curating Galleries 13–26 in place, broader cross-cultural Museum coverage, stronger source layers, study tools, saved progress, quizzes, and exportable notes. Planned shells remain walkable but expose no exhibits, guided routes, or fast travel until their curation is complete.

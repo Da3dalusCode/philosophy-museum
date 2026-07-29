@@ -1,6 +1,6 @@
 # Museum taxonomy decision record
 
-**Decision status:** Worlds with a Questions Forum is approved and locked for the Ring pilot. The Braided Global Timeline and Questions and Methods Network are retained below as archival comparison studies, not active alternatives for this phase.
+**Decision status:** Worlds with a Questions Forum is approved and locked as the production Museum’s intellectual program. The Braided Global Timeline and Questions and Methods Network are retained below as archival comparison studies, not active alternatives.
 
 ## What these options are deciding
 
@@ -18,7 +18,7 @@ The totals above are fixed program totals. The hall rosters below show how each 
 
 ## Approved program — Worlds with a Questions Forum
 
-**Approved and locked for the Ring pilot.** It gives a thinker or tradition one historically and culturally defensible primary home, while allowing visitors to follow shared questions without pretending that those questions developed in a single universal sequence. It uses a Core Questions Forum as an orienting and comparative space, not as the origin or owner of every tradition.
+**Approved and locked for the production Continuous Enfilade.** It gives a thinker or tradition one historically and culturally defensible primary home, while allowing visitors to follow shared questions without pretending that those questions developed in a single universal sequence. It uses a Core Questions Forum as an orienting and comparative space, not as the origin or owner of every tradition.
 
 ### Program roster
 
@@ -178,4 +178,4 @@ Implementation must continue to answer yes to the following:
 4. Can a visitor find Aristotle through ethics, Buddhist epistemology through knowledge, or Beauvoir through phenomenology and existential thought without encountering a duplicate or contradictory exhibit?
 5. Can a future collection expansion add a missing intellectual setting instead of forcing it into the nearest existing label?
 
-On those checks, Worlds with a Questions Forum remains the locked balance of accuracy, intelligibility, complete current coverage, and long-term physical growth for the Ring pilot.
+On those checks, Worlds with a Questions Forum remains the locked balance of accuracy, intelligibility, complete current coverage, and long-term physical growth for the production Museum.

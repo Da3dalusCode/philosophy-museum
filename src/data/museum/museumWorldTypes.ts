@@ -6,6 +6,7 @@ import type {
   MuseumPublicHallId,
   MuseumZoneId,
 } from '../museumCatalog';
+import type {MuseumPlannedHallId} from './museumCanonicalProgram';
 
 export type MuseumPoint = {x: number; z: number};
 export type MuseumPoint3 = {x: number; y: number; z: number};
@@ -343,7 +344,7 @@ export type MuseumSpatialCell = {
 
 export type MuseumSignDefinition = {
   id: string;
-  kind: 'entrance' | 'zone' | 'wayfinding';
+  kind: 'entrance' | 'zone' | 'wayfinding' | 'orientation' | 'planned-status' | 'final-threshold';
   title: string;
   kicker: string;
   subtitle: string;
@@ -484,7 +485,15 @@ export type MuseumHallDefinition = Omit<MuseumHallContentDefinition, 'id'> & {
 };
 
 export type MuseumPhysicalNodeId = string;
-export type MuseumPhysicalNodeKind = 'hall' | 'court' | 'corridor' | 'entrance';
+export type MuseumPhysicalNodeKind =
+  | 'hall'
+  | 'court'
+  | 'corridor'
+  | 'entrance'
+  | 'crossing'
+  | 'turn-court'
+  | 'final-threshold'
+  | 'reserve-extension';
 export type MuseumImplementationStatus = 'live' | 'planned' | 'retired';
 export type MuseumPilotRole =
   | 'public-entrance'
@@ -493,7 +502,14 @@ export type MuseumPilotRole =
   | 'south-return-sleeve'
   | 'outer-loop-link'
   | 'forum-spoke'
-  | 'shortcut';
+  | 'shortcut'
+  | 'chronological-gallery'
+  | 'crosscut-intersection'
+  | 'north-south-crosscut'
+  | 'serpentine-turn'
+  | 'final-return'
+  | 'reserve-extension';
+export type MuseumGalleryState = 'curated-open' | 'planned-walkable';
 
 export type MuseumDoorwaySlot = {
   id: string;
@@ -530,7 +546,18 @@ export type MuseumNavigationLayout = {
 export type MuseumRuntimeNodeDefinition = {
   id: MuseumPhysicalNodeId;
   kind: MuseumPhysicalNodeKind;
+  /** Every one of the 26 architectural galleries has a stable program id. */
+  programHallId?: MuseumPlannedHallId;
+  /** Only the twelve curated/open galleries own a content registration. */
   publicHallId?: MuseumPublicHallId;
+  galleryState?: MuseumGalleryState;
+  publicGalleryNumber?: number;
+  visitSequence?: number;
+  bandId?: string;
+  roomIds?: readonly string[];
+  roomLayoutStrategy?: string;
+  routePortals?: Readonly<Record<string, string>>;
+  fastTravelEligible?: boolean;
   pilotRole: MuseumPilotRole;
   templateId?: 'standard-rect' | 'sequence-3' | 'crossroads-4' | 'focal-terminal';
   geometryAdapterId?: string;
@@ -544,7 +571,14 @@ export type MuseumRuntimeNodeDefinition = {
   resolvedTemplate?: MuseumResolvedHallTemplate;
   entrances: readonly MuseumHallEntrance[];
   mapLabel: string;
-  mapStatus: 'open' | 'orientation-open' | 'future';
+  mapStatus:
+    | 'open'
+    | 'orientation-open'
+    | 'future'
+    | 'planned-walkable'
+    | 'crosscut-open'
+    | 'final-open'
+    | 'closed-reserve';
 };
 
 export type MuseumDirectedConnection = MuseumHallConnection & {
@@ -557,16 +591,26 @@ export type MuseumPhysicalConnection = {
   id: string;
   a: {nodeId: MuseumPhysicalNodeId; slotId: string};
   b: {nodeId: MuseumPhysicalNodeId; slotId: string};
-  routeRole: 'outer-loop' | 'forum-spoke' | 'shortcut' | 'gallery-branch';
+  routeRole:
+    | 'outer-loop'
+    | 'forum-spoke'
+    | 'shortcut'
+    | 'gallery-branch'
+    | 'through-route'
+    | 'crosscut'
+    | 'turn-court'
+    | 'entrance-link'
+    | 'final-return'
+    | 'reserve-extension';
   accessible: boolean;
   implementationStatus: 'live' | 'blocked' | 'planned';
 };
 
 export type MuseumReservation = {
   id: string;
-  reservationType: 'insertion' | 'outward-expansion';
+  reservationType: 'insertion' | 'outward-expansion' | 'gallery-reserve';
   hostNodeId: MuseumPhysicalNodeId;
-  label: 'Future gallery — not yet open';
+  label: string;
   /** Reserved future footprint, kept outside the live circulation envelope. */
   center: MuseumPoint;
   size: {width: number; depth: number};
@@ -593,4 +637,4 @@ export type MuseumSupplementalExhibitRef = {
 export type MuseumInteractionTarget =
   | ({kind: 'exhibit'} & MuseumExhibitRef)
   | ({kind: 'supplemental-exhibit'} & MuseumSupplementalExhibitRef)
-  | {kind: 'visitor-map'; hallId: MuseumPublicHallId; kioskId: string};
+  | {kind: 'visitor-map'; nodeId: MuseumPhysicalNodeId; kioskId: string};

@@ -63,17 +63,17 @@ export const museumHallReadinessKeyBelongsTo = (
 export const MUSEUM_READINESS_PRESENTATIONS = {
   idle: {
     title: 'Gallery ahead',
-    subtitle: 'Approach to prepare · alternate Ring routes remain open',
+    subtitle: 'Approach to prepare · the crosscut and through-route remain open',
     accent: '#66878a',
   },
   loading: {
     title: 'Preparing gallery',
-    subtitle: 'Please wait at the threshold · alternate Ring routes remain open',
+    subtitle: 'Please wait at the threshold · other Museum routes remain open',
     accent: '#b58a51',
   },
   failed: {
     title: 'Preparation failed',
-    subtitle: 'Use Retry on screen · alternate Ring routes remain open',
+    subtitle: 'Use Retry on screen · other Museum routes remain open',
     accent: '#b35f47',
   },
 } as const satisfies Record<Exclude<MuseumHallLoadStatus, 'ready'>, {

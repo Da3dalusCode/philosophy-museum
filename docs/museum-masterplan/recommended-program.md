@@ -2,9 +2,9 @@
 
 ## Approved program at a glance
 
-**Worlds with a Questions Forum — Expanded and Culturally Safeguarded** is the approved long-term intellectual program, locked for the Ring pilot. It combines one comparative Core Questions Forum with nine historically or culturally situated wings. The Forum helps visitors ask across traditions; it does not claim that modern academic branches are the source, destination, or universal vocabulary of every tradition.
+**Worlds with a Questions Forum — Expanded and Culturally Safeguarded** is the approved long-term intellectual program. It combines one comparative Core Questions Forum with nine historically or culturally situated wings. The Forum helps visitors ask across traditions; it does not claim that modern academic branches are the source, destination, or universal vocabulary of every tradition.
 
-This is the approved planning program and the authority for the first permanent collection cutover. Its machine-readable intellectual sources are [hall-program.json](./hall-program.json), [branch-assignments.csv](./branch-assignments.csv), and [philosopher-assignments.csv](./philosopher-assignments.csv). The owner-approved implementation order converts the six prototype shells directly to their six permanent successors; it follows final primary assignments and presentation tiers rather than preserving the former 48-exhibit roster.
+This is the approved planning program and the intellectual authority for every gallery release. Its machine-readable sources are [hall-program.json](./hall-program.json), [branch-assignments.csv](./branch-assignments.csv), and [philosopher-assignments.csv](./philosopher-assignments.csv). Exact physical placement, visit sequence, stable public numbering, and the 105-room shell migration are governed by the [Continuous Enfilade architectural plan](./single-level-building-plan.md). Gallery numbers identify release history; the separate visit sequence identifies physical walking order.
 
 | Program measure | Exact total |
 | --- | ---: |
@@ -363,7 +363,7 @@ Four halls are already at their planned primary-record capacity: Empiricism, Enl
 
 ## Locked program conditions
 
-This approved program governs the Ring pilot under all of the following conditions:
+This approved intellectual program governs the production Continuous Enfilade under all of the following conditions:
 
 - one primary assignment for each of the 43 branch IDs and 146 philosopher IDs;
 - capacity is treated as record-planning capacity rather than visitor or architectural occupancy;
@@ -372,4 +372,4 @@ This approved program governs the Ring pilot under all of the following conditio
 - reserve contexts remain visibly provisional until supported by researched Atlas records;
 - a full hall can expand rather than forcing future material into a misleading category.
 
-The program establishes what the eventual Museum must be capable of housing and the intellectual rules the approved Ring geometry and staged migration must preserve. The first permanent cutover opens the Core Questions Forum and five other permanent halls; it does not claim that the remaining twenty planned halls are already built.
+The program establishes what the Museum houses and the intellectual rules the production Continuous Enfilade must preserve. The complete building cutover provides all 26 walkable gallery shells and 105 named rooms; Galleries 01–12 are curated/open, while Galleries 13–26 remain planned/walkable without invented content or fast travel.

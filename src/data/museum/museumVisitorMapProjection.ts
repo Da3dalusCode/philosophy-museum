@@ -1,35 +1,48 @@
-import {getMuseumHallCatalog, type MuseumCanonicalHallCatalog, type MuseumPublicHallId as MuseumHallId} from '../museumCatalog';
-import {MUSEUM_BUILDING_MANIFEST} from './museumBuildingManifest';
-import {
-  getMuseumRuntimeHallNode,
-  getMuseumRuntimeNode,
-  MUSEUM_DIRECTED_CONNECTIONS,
-  MUSEUM_RUNTIME_NODES,
-  MUSEUM_WORLD_DEFINITIONS,
-} from './museumBuildingRuntime';
+import type {MuseumPublicHallId as MuseumHallId} from '../museumCatalog';
+import type {MuseumPlannedHallId} from './museumCanonicalProgram';
 import {
   getMuseumVisitorMapNode,
   MUSEUM_VISITOR_MAP_KIOSK,
+  MUSEUM_VISITOR_MAP_MANIFEST,
+  MUSEUM_VISITOR_MAP_NODES,
+  type MuseumVisitorMapManifestCell,
+  type MuseumVisitorMapManifestNode,
   type MuseumVisitorMapNode,
 } from './museumVisitorMap';
 import type {
   MuseumBounds,
+  MuseumGalleryState,
   MuseumPhysicalConnection,
   MuseumPhysicalNodeId,
   MuseumPhysicalNodeKind,
-  MuseumPilotRole,
   MuseumPoint,
-  MuseumReservation,
-  MuseumRuntimeNodeDefinition,
   MuseumWorldTransform,
 } from './museumWorldTypes';
 
 export type MuseumVisitorMapPoint = {x: number; y: number};
 
+export type MuseumVisitorMapGallerySummary = {
+  id: MuseumPlannedHallId;
+  publicHallId?: MuseumHallId;
+  title: string;
+  publicGalleryNumber: number;
+  galleryNumber: string;
+  visitSequence: number;
+  galleryState: MuseumGalleryState;
+  roomIds: readonly string[];
+  rooms: readonly {id: string; title: string}[];
+  roomCount: number;
+  fastTravelEligible: boolean;
+  /** Compatibility aliases for callers that previously consumed the catalog. */
+  period: string;
+  description: string;
+  sweep: readonly string[];
+};
+
 export type MuseumVisitorMapProjectionNode = {
-  hall: MuseumCanonicalHallCatalog;
+  hall: MuseumVisitorMapGallerySummary;
   node: MuseumVisitorMapNode;
-  physicalNode: MuseumRuntimeNodeDefinition;
+  physicalNode: MuseumVisitorMapManifestNode;
 };
 
 export type MuseumVisitorMapProjectedCell = {
@@ -42,10 +55,17 @@ export type MuseumVisitorMapProjectedCell = {
 export type MuseumVisitorMapPhysicalNodeProjection = {
   id: MuseumPhysicalNodeId;
   kind: MuseumPhysicalNodeKind;
+  programHallId?: MuseumPlannedHallId;
   publicHallId?: MuseumHallId;
-  pilotRole: MuseumPilotRole;
+  galleryState?: MuseumGalleryState;
+  publicGalleryNumber?: number;
+  visitSequence?: number;
+  roomIds: readonly string[];
+  fastTravelEligible: boolean;
+  /** v2 architectural role; property name retained for existing map callers. */
+  pilotRole: string;
   label: string;
-  status: MuseumRuntimeNodeDefinition['mapStatus'];
+  status: MuseumVisitorMapManifestNode['map']['status'];
   cells: readonly MuseumVisitorMapProjectedCell[];
   labelPoint: MuseumVisitorMapPoint;
 };
@@ -72,13 +92,11 @@ export type MuseumVisitorMapDoorwayProjection = {
 
 export type MuseumVisitorMapReservationProjection = {
   id: string;
-  reservationType: MuseumReservation['reservationType'];
-  hostNodeId: MuseumPhysicalNodeId;
-  label: MuseumReservation['label'];
+  reservationType: 'gallery-reserve';
+  label: string;
   points: readonly MuseumVisitorMapPoint[];
   labelPoint: MuseumVisitorMapPoint;
-  targetProgramHallId?: string;
-  expansionPortalId?: string;
+  status: 'closed-reserve';
 };
 
 export type MuseumVisitorMapViewBox = {
@@ -88,9 +106,14 @@ export type MuseumVisitorMapViewBox = {
   height: number;
 };
 
+const manifestNodeById = new Map(
+  MUSEUM_VISITOR_MAP_MANIFEST.nodes.map((node) => [node.id, node]),
+);
+
 /**
- * Converts authored local x/z coordinates to a north-up diagram. This mirrors
- * the runtime's yaw transform and then flips world z onto SVG's downward y axis.
+ * Converts local x/z coordinates to the north-up plan. This is intentionally
+ * the runtime transform convention, after the plan compiler has inverted the
+ * source document's positive rotation.
  */
 const projectLocalPoint = (
   point: MuseumPoint,
@@ -103,55 +126,60 @@ const projectLocalPoint = (
   return {x: worldX, y: -worldZ};
 };
 
-/** Project a frozen local visitor pose through the same runtime transform as the plan geometry. */
+const projectWorldPoint = ({x, z}: MuseumPoint): MuseumVisitorMapPoint => ({x, y: -z});
+
 export const projectMuseumVisitorMapPoint = (
   nodeId: MuseumPhysicalNodeId,
   point: MuseumPoint,
 ): MuseumVisitorMapPoint | undefined => {
-  const node = getMuseumRuntimeNode(nodeId);
-  return node ? projectLocalPoint(point, node.worldTransform) : undefined;
+  const node = manifestNodeById.get(nodeId);
+  return node ? projectLocalPoint(point, node.transform) : undefined;
 };
 
-/**
- * Converts a node-local camera yaw into the clockwise SVG rotation of a
- * north-up marker whose unrotated point faces the top of the map.
- */
 export const projectMuseumVisitorMapHeading = (
   nodeId: MuseumPhysicalNodeId,
   yaw: number,
 ): number | undefined => {
-  const node = getMuseumRuntimeNode(nodeId);
+  const node = manifestNodeById.get(nodeId);
   if (!node || !Number.isFinite(yaw)) return undefined;
-  return (yaw + node.worldTransform.yaw + Math.PI) * 180 / Math.PI;
+  return (yaw + node.transform.yaw + Math.PI) * 180 / Math.PI;
 };
 
 const midpoint = (
   first: MuseumVisitorMapPoint,
   second: MuseumVisitorMapPoint,
-): MuseumVisitorMapPoint => ({x: (first.x + second.x) / 2, y: (first.y + second.y) / 2});
+): MuseumVisitorMapPoint => ({
+  x: (first.x + second.x) / 2,
+  y: (first.y + second.y) / 2,
+});
 
-const projectedRectangle = (
-  center: MuseumPoint,
-  size: {width: number; depth: number},
-  rotation: number,
-  transform: MuseumWorldTransform,
-): readonly MuseumVisitorMapPoint[] => {
-  const cosine = Math.cos(rotation);
-  const sine = Math.sin(rotation);
-  return [
-    {x: -size.width / 2, z: -size.depth / 2},
-    {x: size.width / 2, z: -size.depth / 2},
-    {x: size.width / 2, z: size.depth / 2},
-    {x: -size.width / 2, z: size.depth / 2},
-  ].map((offset) => projectLocalPoint({
-    x: center.x + offset.x * cosine + offset.z * sine,
-    z: center.z - offset.x * sine + offset.z * cosine,
-  }, transform));
+const polygonArea = (points: readonly MuseumVisitorMapPoint[]): number =>
+  Math.abs(points.reduce((area, point, index) => {
+    const next = points[(index + 1) % points.length];
+    return area + point.x * next.y - next.x * point.y;
+  }, 0) / 2);
+
+const projectedWorldBounds = (
+  id: string,
+  bounds: MuseumBounds,
+): MuseumVisitorMapProjectedCell => {
+  const points = [
+    {x: bounds.minX, z: bounds.minZ},
+    {x: bounds.maxX, z: bounds.minZ},
+    {x: bounds.maxX, z: bounds.maxZ},
+    {x: bounds.minX, z: bounds.maxZ},
+  ].map(projectWorldPoint);
+  return {
+    id,
+    points,
+    center: midpoint(points[0], points[2]),
+    area: (bounds.maxX - bounds.minX) * (bounds.maxZ - bounds.minZ),
+  };
 };
 
-const projectedCell = (
-  node: MuseumRuntimeNodeDefinition,
-  cell: {id: string; bounds: MuseumBounds; renderBounds?: MuseumBounds},
+const projectedLocalCell = (
+  node: MuseumVisitorMapManifestNode,
+  cell: MuseumVisitorMapManifestCell,
 ): MuseumVisitorMapProjectedCell => {
   const bounds = cell.renderBounds ?? cell.bounds;
   const points = [
@@ -159,51 +187,113 @@ const projectedCell = (
     {x: bounds.maxX, z: bounds.minZ},
     {x: bounds.maxX, z: bounds.maxZ},
     {x: bounds.minX, z: bounds.maxZ},
-  ].map((point) => projectLocalPoint(point, node.worldTransform));
+  ].map((point) => projectLocalPoint(point, node.transform));
   return {
     id: cell.id,
     points,
     center: midpoint(points[0], points[2]),
-    area: (bounds.maxX - bounds.minX) * (bounds.maxZ - bounds.minZ),
+    area: polygonArea(points),
   };
 };
 
-const requireProjectionNode = (hallId: MuseumHallId): MuseumVisitorMapProjectionNode => {
-  const hall = getMuseumHallCatalog(hallId);
-  const node = getMuseumVisitorMapNode(hallId);
-  const physicalNode = getMuseumRuntimeHallNode(hallId);
-  if (!hall || !node || !physicalNode || node.physicalNodeId !== physicalNode.id) {
-    throw new Error(`Museum visitor-map projection is incomplete for ${hallId}.`);
+const nodeCells = (
+  node: MuseumVisitorMapManifestNode,
+): readonly MuseumVisitorMapProjectedCell[] => {
+  const cells = node.geometry?.cells;
+  if (cells?.length) return cells.map((cell) => projectedLocalCell(node, cell));
+  if (Array.isArray(node.footprint) && node.footprint.length >= 3) {
+    const points = node.footprint.map(projectWorldPoint);
+    return [{
+      id: `${node.id}:footprint`,
+      points,
+      center: {
+        x: points.reduce((sum, point) => sum + point.x, 0) / points.length,
+        y: points.reduce((sum, point) => sum + point.y, 0) / points.length,
+      },
+      area: polygonArea(points),
+    }];
   }
-  return {hall, node, physicalNode};
+  return [projectedWorldBounds(`${node.id}:bounds`, node.bounds)];
 };
 
-/** The six catalogued public destinations joined to their physical runtime nodes. */
-export const MUSEUM_VISITOR_MAP_PROJECTION = MUSEUM_WORLD_DEFINITIONS.map(({id}) =>
-  requireProjectionNode(id));
+const projectedNodeKind = (
+  node: MuseumVisitorMapManifestNode,
+): MuseumPhysicalNodeKind => {
+  if (node.physicalRole === 'turn-court') return 'turn-court';
+  if (node.physicalRole === 'final-return-threshold') return 'final-threshold';
+  if (node.physicalRole === 'crosscut-intersection') return 'crossing';
+  if (node.physicalRole === 'crosscut-north-extension') return 'reserve-extension';
+  return node.kind;
+};
 
-/** Every live physical cell in the approved L0 building plan. */
+const requireProjectionNode = (
+  programHallId: MuseumPlannedHallId,
+): MuseumVisitorMapProjectionNode => {
+  const node = getMuseumVisitorMapNode(programHallId);
+  const physicalNode = node ? manifestNodeById.get(node.physicalNodeId) : undefined;
+  if (!node || !physicalNode) {
+    throw new Error(`Museum visitor-map projection is incomplete for ${programHallId}.`);
+  }
+  return {
+    hall: {
+      id: node.programHallId,
+      publicHallId: node.hallId,
+      title: node.title,
+      publicGalleryNumber: node.publicGalleryNumber,
+      galleryNumber: `Gallery ${String(node.publicGalleryNumber).padStart(2, '0')}`,
+      visitSequence: node.visitSequence,
+      galleryState: node.galleryState,
+      roomIds: node.roomIds,
+      rooms: node.rooms,
+      roomCount: node.roomIds.length,
+      fastTravelEligible: node.fastTravelEligible,
+      period: `Visit sequence ${String(node.visitSequence).padStart(2, '0')}`,
+      description: node.galleryState === 'curated-open'
+        ? `${node.roomIds.length} named rooms · curated and open`
+        : `${node.roomIds.length} named rooms · architectural shell open, installations planned`,
+      sweep: node.roomIds,
+    },
+    node,
+    physicalNode,
+  };
+};
+
+/** All 26 galleries, in chronological walking order, joined to manifest nodes. */
+export const MUSEUM_VISITOR_MAP_PROJECTION: readonly MuseumVisitorMapProjectionNode[] =
+  MUSEUM_VISITOR_MAP_NODES.map(({programHallId}) => requireProjectionNode(programHallId));
+
+/** Every walkable architectural node in the Continuous Enfilade. */
 export const MUSEUM_VISITOR_MAP_NODE_PROJECTIONS: readonly MuseumVisitorMapPhysicalNodeProjection[] =
-  MUSEUM_RUNTIME_NODES.filter(({implementationStatus}) => implementationStatus === 'live').map((node) => {
-    const mapCells = node.resolvedTemplate?.mapCells ?? node.layout.spatialCells;
-    const cells = mapCells.map((cell) => projectedCell(node, cell));
-    const labelCell = cells.reduce((largest, cell) => cell.area > largest.area ? cell : largest);
-    return {
-      id: node.id,
-      kind: node.kind,
-      publicHallId: node.publicHallId,
-      pilotRole: node.pilotRole,
-      label: node.mapLabel,
-      status: node.mapStatus,
-      cells,
-      labelPoint: labelCell.center,
-    };
-  });
+  MUSEUM_VISITOR_MAP_MANIFEST.nodes
+    .filter(({implementationStatus}) => implementationStatus === 'live')
+    .map((node) => {
+      const cells = nodeCells(node);
+      const labelCell = cells.reduce((largest, cell) => cell.area > largest.area ? cell : largest);
+      const galleryNode = node.programHallId
+        ? getMuseumVisitorMapNode(node.programHallId)
+        : undefined;
+      return {
+        id: node.id,
+        kind: projectedNodeKind(node),
+        programHallId: node.programHallId,
+        publicHallId: node.publicHallId,
+        galleryState: node.galleryState,
+        publicGalleryNumber: node.publicGalleryNumber,
+        visitSequence: node.visitSequence,
+        roomIds: node.roomIds ?? [],
+        fastTravelEligible: galleryNode?.fastTravelEligible ?? false,
+        pilotRole: node.physicalRole ?? node.pilotRole ?? node.kind,
+        label: node.map.label,
+        status: node.map.status,
+        cells,
+        labelPoint: labelCell.center,
+      };
+    });
 
-const requireEntrance = (node: MuseumRuntimeNodeDefinition, entranceId: string) => {
-  const entrance = node.entrances.find(({id}) => id === entranceId);
-  if (!entrance) throw new Error(`Museum map node ${node.id} has no entrance ${entranceId}.`);
-  return entrance;
+const requireDoorway = (node: MuseumVisitorMapManifestNode, doorwayId: string) => {
+  const doorway = node.doorwaySlots.find(({id}) => id === doorwayId);
+  if (!doorway) throw new Error(`Museum map node ${node.id} has no doorway ${doorwayId}.`);
+  return doorway;
 };
 
 const uniqueConsecutivePoints = (
@@ -213,135 +303,141 @@ const uniqueConsecutivePoints = (
   return !previous || Math.hypot(point.x - previous.x, point.y - previous.y) > .01;
 });
 
-/**
- * Authored walking seams, including safe landing points and door thresholds.
- * These are physical paths rather than center-to-center conceptual graph lines.
- */
-export const MUSEUM_VISITOR_MAP_EDGES: readonly MuseumVisitorMapProjectionEdge[] = (() => {
-  const seen = new Set<string>();
-  return MUSEUM_DIRECTED_CONNECTIONS.flatMap((connection) => {
-    if (
-      seen.has(connection.connectionId)
-      || !connection.accessible
-      || connection.implementationStatus !== 'live'
-    ) return [];
-    seen.add(connection.connectionId);
-    const sourceNode = getMuseumRuntimeNode(connection.sourceNodeId);
-    const targetNode = getMuseumRuntimeNode(connection.targetNodeId);
-    if (!sourceNode || !targetNode) {
-      throw new Error(`Museum map connection ${connection.connectionId} has a missing runtime node.`);
-    }
-    const sourceEntrance = requireEntrance(sourceNode, connection.localEntranceId);
-    const targetEntrance = requireEntrance(targetNode, connection.targetEntranceId);
-    return [{
-      key: connection.connectionId,
-      connectionId: connection.connectionId,
-      fromNodeId: sourceNode.id,
-      toNodeId: targetNode.id,
-      routeRole: connection.routeRole,
-      points: uniqueConsecutivePoints([
-        projectLocalPoint(sourceEntrance.arrivalPose, sourceNode.worldTransform),
-        projectLocalPoint(sourceEntrance.position, sourceNode.worldTransform),
-        projectLocalPoint(targetEntrance.position, targetNode.worldTransform),
-        projectLocalPoint(targetEntrance.arrivalPose, targetNode.worldTransform),
-      ]),
-    }];
-  });
-})();
+/** Every physically crossable seam in the through route and crosscut. */
+export const MUSEUM_VISITOR_MAP_EDGES: readonly MuseumVisitorMapProjectionEdge[] =
+  MUSEUM_VISITOR_MAP_MANIFEST.connections
+    .filter(({accessible, implementationStatus}) =>
+      accessible && implementationStatus === 'live')
+    .map((connection) => {
+      const sourceNode = manifestNodeById.get(connection.a.nodeId);
+      const targetNode = manifestNodeById.get(connection.b.nodeId);
+      if (!sourceNode || !targetNode) {
+        throw new Error(`Museum map connection ${connection.id} has a missing manifest node.`);
+      }
+      const sourceDoorway = requireDoorway(sourceNode, connection.a.slotId);
+      const targetDoorway = requireDoorway(targetNode, connection.b.slotId);
+      return {
+        key: connection.id,
+        connectionId: connection.id,
+        fromNodeId: sourceNode.id,
+        toNodeId: targetNode.id,
+        routeRole: connection.routeRole,
+        points: uniqueConsecutivePoints([
+          projectLocalPoint(sourceDoorway.arrivalPose, sourceNode.transform),
+          projectLocalPoint(sourceDoorway.position, sourceNode.transform),
+          projectLocalPoint(targetDoorway.position, targetNode.transform),
+          projectLocalPoint(targetDoorway.arrivalPose, targetNode.transform),
+        ]),
+      };
+    });
 
 const liveDoorwayKeys = new Set<string>([
-  `${MUSEUM_BUILDING_MANIFEST.mainEntrance.nodeId}:${MUSEUM_BUILDING_MANIFEST.mainEntrance.slotId}`,
-  ...MUSEUM_DIRECTED_CONNECTIONS
-    .filter(({accessible, implementationStatus}) => accessible && implementationStatus === 'live')
+  `${MUSEUM_VISITOR_MAP_MANIFEST.mainEntrance.nodeId}:${MUSEUM_VISITOR_MAP_MANIFEST.mainEntrance.slotId}`,
+  ...MUSEUM_VISITOR_MAP_MANIFEST.connections
+    .filter(({accessible, implementationStatus}) =>
+      accessible && implementationStatus === 'live')
     .flatMap((connection) => [
-      `${connection.sourceNodeId}:${connection.localEntranceId}`,
-      `${connection.targetNodeId}:${connection.targetEntranceId}`,
+      `${connection.a.nodeId}:${connection.a.slotId}`,
+      `${connection.b.nodeId}:${connection.b.slotId}`,
     ]),
 ]);
 
-/**
- * Every constructed, walkable doorway, projected with its true clear width and
- * inward side. Dormant template slots are solid closures and deliberately do
- * not appear as doors; blocked future interfaces are represented separately by
- * MUSEUM_VISITOR_MAP_RESERVATIONS.
- */
+/** All constructed public doorways; closed reserves deliberately contribute none. */
 export const MUSEUM_VISITOR_MAP_DOORWAYS: readonly MuseumVisitorMapDoorwayProjection[] =
-  MUSEUM_BUILDING_MANIFEST.nodes.flatMap((node) => node.doorwaySlots
-    .filter((slot) => liveDoorwayKeys.has(`${node.id}:${slot.id}`))
-    .map((slot) => {
-    const tangent = {x: -slot.inwardNormal.z, z: slot.inwardNormal.x};
-    const start = projectLocalPoint({
-      x: slot.position.x - tangent.x * slot.clearWidth / 2,
-      z: slot.position.z - tangent.z * slot.clearWidth / 2,
-    }, node.transform);
-    const end = projectLocalPoint({
-      x: slot.position.x + tangent.x * slot.clearWidth / 2,
-      z: slot.position.z + tangent.z * slot.clearWidth / 2,
-    }, node.transform);
-    return {
-      key: `${node.id}:${slot.id}`,
-      nodeId: node.id,
-      entranceId: slot.id,
-      position: projectLocalPoint(slot.position, node.transform),
-      start,
-      end,
-      inwardPoint: projectLocalPoint({
-        x: slot.position.x + slot.inwardNormal.x * 2.4,
-        z: slot.position.z + slot.inwardNormal.z * 2.4,
-      }, node.transform),
-      isMainEntrance: node.id === MUSEUM_BUILDING_MANIFEST.mainEntrance.nodeId
-        && slot.id === MUSEUM_BUILDING_MANIFEST.mainEntrance.slotId,
-    };
-    }));
+  MUSEUM_VISITOR_MAP_MANIFEST.nodes.flatMap((node) =>
+    node.doorwaySlots
+      .filter((slot) => liveDoorwayKeys.has(`${node.id}:${slot.id}`))
+      .map((slot) => {
+        const tangent = {x: -slot.inwardNormal.z, z: slot.inwardNormal.x};
+        const start = projectLocalPoint({
+          x: slot.position.x - tangent.x * slot.clearWidth / 2,
+          z: slot.position.z - tangent.z * slot.clearWidth / 2,
+        }, node.transform);
+        const end = projectLocalPoint({
+          x: slot.position.x + tangent.x * slot.clearWidth / 2,
+          z: slot.position.z + tangent.z * slot.clearWidth / 2,
+        }, node.transform);
+        return {
+          key: `${node.id}:${slot.id}`,
+          nodeId: node.id,
+          entranceId: slot.id,
+          position: projectLocalPoint(slot.position, node.transform),
+          start,
+          end,
+          inwardPoint: projectLocalPoint({
+            x: slot.position.x + slot.inwardNormal.x * 2.4,
+            z: slot.position.z + slot.inwardNormal.z * 2.4,
+          }, node.transform),
+          isMainEntrance: node.id === MUSEUM_VISITOR_MAP_MANIFEST.mainEntrance.nodeId
+            && slot.id === MUSEUM_VISITOR_MAP_MANIFEST.mainEntrance.slotId,
+        };
+      }),
+  );
 
 export const MUSEUM_VISITOR_MAP_ENTRANCE: MuseumVisitorMapDoorwayProjection = (() => {
   const entrance = MUSEUM_VISITOR_MAP_DOORWAYS.find(({isMainEntrance}) => isMainEntrance);
-  if (!entrance) throw new Error('The Museum visitor map has no projected main entrance.');
+  if (!entrance) throw new Error('The Continuous Enfilade map has no main entrance doorway.');
   return entrance;
 })();
 
-/** Three insertion bays and eight blocked outward portals from the approved manifest. */
+/** Exactly two closed, noninteractive capacity reserves north of the public block. */
 export const MUSEUM_VISITOR_MAP_RESERVATIONS: readonly MuseumVisitorMapReservationProjection[] =
-  MUSEUM_BUILDING_MANIFEST.reservations.map((reservation) => {
-    const host = getMuseumRuntimeNode(reservation.hostNodeId);
-    if (!host) throw new Error(`Museum map reservation ${reservation.id} has no host node.`);
-    const points = projectedRectangle(
-      reservation.center,
-      reservation.size,
-      reservation.rotation,
-      host.worldTransform,
-    );
+  MUSEUM_VISITOR_MAP_MANIFEST.reserves.map((reserve) => {
+    const cell = projectedWorldBounds(reserve.id, reserve.bounds);
     return {
-      id: reservation.id,
-      reservationType: reservation.reservationType,
-      hostNodeId: reservation.hostNodeId,
-      label: reservation.label,
-      points,
-      labelPoint: midpoint(points[0], points[2]),
-      targetProgramHallId: reservation.targetProgramHallId,
-      expansionPortalId: reservation.expansionPortalId,
+      id: reserve.id,
+      reservationType: 'gallery-reserve',
+      label: reserve.map?.label ?? reserve.title ?? reserve.label ?? 'Closed capacity reserve',
+      points: cell.points,
+      labelPoint: cell.center,
+      status: 'closed-reserve',
     };
   });
 
 export const MUSEUM_VISITOR_MAP_KIOSK_MARKER = (() => {
-  const node = getMuseumRuntimeHallNode(MUSEUM_VISITOR_MAP_KIOSK.hallId);
-  if (!node) throw new Error('The Museum visitor-map kiosk hall has no runtime node.');
+  const node = manifestNodeById.get(MUSEUM_VISITOR_MAP_KIOSK.nodeId);
+  if (!node) throw new Error('The visitor-map kiosk entrance node is missing.');
   return {
     nodeId: node.id,
-    hallId: MUSEUM_VISITOR_MAP_KIOSK.hallId,
     kioskId: MUSEUM_VISITOR_MAP_KIOSK.id,
-    point: projectLocalPoint(MUSEUM_VISITOR_MAP_KIOSK.center, node.worldTransform),
+    point: projectLocalPoint(MUSEUM_VISITOR_MAP_KIOSK.center, node.transform),
   } as const;
 })();
 
+export const MUSEUM_VISITOR_MAP_CROSSCUT_INTERSECTIONS = MUSEUM_VISITOR_MAP_MANIFEST.crosscut.intersections
+  .map((intersection) => {
+    const nodeId = intersection.nodeId
+      ?? (intersection.occupiedByHallId
+        ? getMuseumVisitorMapNode(intersection.occupiedByHallId)?.physicalNodeId
+        : intersection.id);
+    const projection = nodeId
+      ? MUSEUM_VISITOR_MAP_NODE_PROJECTIONS.find(({id}) => id === nodeId)
+      : undefined;
+    if (!projection) {
+      throw new Error(`Crosscut intersection ${intersection.id} has no map node.`);
+    }
+    return {
+      ...intersection,
+      nodeId: projection.id,
+      point: projection.labelPoint,
+      label: intersection.occupiedByHallId ? 'Forum intersection' : 'Crosscut intersection',
+    };
+  });
+
+export const MUSEUM_VISITOR_MAP_TURN_COURTS =
+  MUSEUM_VISITOR_MAP_NODE_PROJECTIONS.filter(
+    ({kind, pilotRole}) => kind === 'turn-court' || pilotRole === 'turn-court',
+  );
+
 const projectedExtents = [
-  ...MUSEUM_VISITOR_MAP_NODE_PROJECTIONS.flatMap(({cells}) => cells.flatMap(({points}) => points)),
+  ...MUSEUM_VISITOR_MAP_NODE_PROJECTIONS.flatMap(({cells}) =>
+    cells.flatMap(({points}) => points)),
   ...MUSEUM_VISITOR_MAP_RESERVATIONS.flatMap(({points}) => points),
   ...MUSEUM_VISITOR_MAP_DOORWAYS.flatMap(({start, end}) => [start, end]),
   MUSEUM_VISITOR_MAP_KIOSK_MARKER.point,
 ];
 
-/** A padded, aspect-preserving view box shared by the modal SVG and kiosk canvas. */
+/** Padded north-up bounds shared by the modal SVG and physical kiosk canvas. */
 export const MUSEUM_VISITOR_MAP_VIEWBOX: MuseumVisitorMapViewBox = (() => {
   const padding = 8;
   const minimumX = Math.min(...projectedExtents.map(({x}) => x)) - padding;

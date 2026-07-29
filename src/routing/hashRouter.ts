@@ -110,7 +110,9 @@ export const serializeHashRoute = (route: AppRoute): string => {
     case 'museum':
       return route.exhibitId
         ? `#/museum/${encodeURIComponent(route.hallId)}/exhibits/${encodeURIComponent(route.exhibitId)}`
-        : `#/museum/${encodeURIComponent(route.hallId)}`;
+        : route.entry === 'entrance'
+          ? '#/museum'
+          : `#/museum/${encodeURIComponent(route.hallId)}`;
     case 'museum-compatibility':
       return `#/museum/${encodeURIComponent(route.formerHallId)}/exhibits/${encodeURIComponent(route.exhibitId)}`;
     case 'not-found':

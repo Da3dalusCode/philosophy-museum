@@ -29,7 +29,9 @@ export type MuseumHallTextureEstimate = {
 
 export type MuseumPersistentTextureEstimate = {
   buildingSignBytes: number;
+  plannedStatusSignBytes: number;
   reservationSignBytes: number;
+  visitorMapKioskBytes: number;
   readinessGateBytes: number;
   maximumSimultaneousReadinessGates: number;
   totalBytes: number;
@@ -58,12 +60,20 @@ const persistentTextureEstimate = (): MuseumPersistentTextureEstimate => {
     5.6 * .27,
     MUSEUM_TEXTURE_SPECS.buildingSign,
   ));
-  const reservationSignBytes = MUSEUM_BUILDING_MANIFEST.reservations.reduce((sum, reservation) =>
+  const plannedStatusSignBytes = MUSEUM_BUILDING_MANIFEST.nodes.reduce((sum, node) =>
+    sum + (node.geometry?.signs ?? []).reduce((signSum, sign) =>
+      signSum + decodedTextureBytes(museumTextureDimensionsForPlane(
+        sign.width,
+        sign.height,
+        MUSEUM_TEXTURE_SPECS.buildingSign,
+      )), 0), 0);
+  const reservationSignBytes = MUSEUM_BUILDING_MANIFEST.reserves.reduce((sum, reservation) =>
     sum + decodedTextureBytes(museumTextureDimensionsForPlane(
-      reservation.barrierWidth * .9,
-      reservation.barrierWidth * .245,
+      (reservation.boundaryWall?.size.width ?? 4) * .9,
+      Math.min(1.1, (reservation.boundaryWall?.size.width ?? 4) * .245),
       MUSEUM_TEXTURE_SPECS.reservationSign,
     )), 0);
+  const visitorMapKioskBytes = decodedTextureBytes(MUSEUM_TEXTURE_SPECS.visitorMapKiosk);
   const hallConnectionsByNode = new Map<string, number>();
   for (const connection of MUSEUM_BUILDING_MANIFEST.connections.filter(({implementationStatus}) => implementationStatus === 'live')) {
     if (publicHallNodeIds.has(connection.b.nodeId)) {
@@ -76,11 +86,15 @@ const persistentTextureEstimate = (): MuseumPersistentTextureEstimate => {
   const maximumSimultaneousReadinessGates = Math.max(1, ...hallConnectionsByNode.values());
   const readinessGateBytes = decodedTextureBytes(MUSEUM_TEXTURE_SPECS.readinessSign);
   const totalBytes = buildingSignBytes
+    + plannedStatusSignBytes
     + reservationSignBytes
+    + visitorMapKioskBytes
     + readinessGateBytes * maximumSimultaneousReadinessGates;
   return {
     buildingSignBytes,
+    plannedStatusSignBytes,
     reservationSignBytes,
+    visitorMapKioskBytes,
     readinessGateBytes,
     maximumSimultaneousReadinessGates,
     totalBytes,
@@ -162,12 +176,8 @@ const generatedHallSpecs = (hallId: MuseumHallId): readonly MuseumDecodedTexture
     const spec = museumTextureDimensionsForPlane(sign.width, sign.height, reference);
     return [spec];
   });
-  return hallId === MUSEUM_BUILDING_MANIFEST.kiosk.publicHallId
-    ? [
-        ...signs,
-        MUSEUM_TEXTURE_SPECS.visitorMapKiosk,
-        MUSEUM_TEXTURE_SPECS.mediterraneanOrientation,
-      ]
+  return hallId === MEDITERRANEAN_GALLERY_ID
+    ? [...signs, MUSEUM_TEXTURE_SPECS.mediterraneanOrientation]
     : signs;
 };
 

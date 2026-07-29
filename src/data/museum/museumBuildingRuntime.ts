@@ -6,9 +6,11 @@ import {
   MUSEUM_BUILDING_MANIFEST,
   type MuseumManifestDoorwaySlot,
   type MuseumManifestGeometryCell,
+  type MuseumManifestInteriorOpening,
   type MuseumManifestNode,
 } from './museumBuildingManifest';
 import {resolveMuseumHallShell} from './museumHallTemplates';
+import {MUSEUM_VISITOR_MAP_KIOSK} from './museumVisitorMapKioskDefinition';
 import type {
   MuseumBounds,
   MuseumDirectedConnection,
@@ -16,9 +18,10 @@ import type {
   MuseumHallEntrance,
   MuseumNavigationLayout,
   MuseumPhysicalNodeId,
-  MuseumReservation,
+  MuseumPilotRole,
   MuseumRuntimeNodeDefinition,
   MuseumSpatialCell,
+  MuseumSpatialConnection,
   MuseumWallDefinition,
 } from './museumWorldTypes';
 import type {MuseumPublicHallId} from '../museumCatalog';
@@ -135,27 +138,6 @@ const slotCutsEdge = (
   return undefined;
 };
 
-const reservationCutsEdge = (
-  edge: CellEdge,
-  reservation: MuseumReservation,
-): [number, number] | undefined => {
-  const epsilon = .01;
-  const cosine = Math.cos(reservation.rotation);
-  const sine = Math.sin(reservation.rotation);
-  const halfWidth = reservation.barrierWidth / 2;
-  if (
-    edge.axis === 'x'
-    && Math.abs(sine) <= epsilon
-    && Math.abs(reservation.barrierCenter.z - edge.coordinate) <= epsilon
-  ) return [reservation.barrierCenter.x - halfWidth, reservation.barrierCenter.x + halfWidth];
-  if (
-    edge.axis === 'z'
-    && Math.abs(cosine) <= epsilon
-    && Math.abs(reservation.barrierCenter.x - edge.coordinate) <= epsilon
-  ) return [reservation.barrierCenter.z - halfWidth, reservation.barrierCenter.z + halfWidth];
-  return undefined;
-};
-
 type WallOpening = {
   id: string;
   interval: [number, number];
@@ -168,10 +150,37 @@ type CirculationWallSet = {
   architecture: readonly MuseumWallDefinition[];
 };
 
-const createCirculationWalls = (node: MuseumManifestNode): CirculationWallSet => {
+const interiorOpeningAsSlot = (
+  opening: MuseumManifestInteriorOpening,
+): MuseumManifestDoorwaySlot => ({
+  id: opening.id,
+  position: opening.position,
+  inwardNormal: opening.inwardNormal,
+  clearWidth: opening.clearWidth,
+  clearHeight: opening.clearHeight,
+  transitionDepth: opening.transitionDepth,
+  landingBounds: {
+    minX: opening.position.x - 2,
+    maxX: opening.position.x + 2,
+    minZ: opening.position.z - 2,
+    maxZ: opening.position.z + 2,
+  },
+  arrivalPose: {
+    x: opening.position.x,
+    z: opening.position.z,
+    yaw: 0,
+    pitch: 0,
+  },
+});
+
+const createCirculationWalls = (
+  node: MuseumManifestNode,
+  activeSlotIds: ReadonlySet<string>,
+): CirculationWallSet => {
   const cells = node.geometry?.cells ?? [];
   const thickness = MUSEUM_BUILDING_MANIFEST.physicalContract.wallThickness;
-  const reservations = MUSEUM_BUILDING_MANIFEST.reservations.filter(({hostNodeId}) => hostNodeId === node.id);
+  const activeExteriorSlots = node.doorwaySlots.filter(({id}) => activeSlotIds.has(id));
+  const interiorSlots = (node.geometry?.interiorOpenings ?? []).map(interiorOpeningAsSlot);
   const colliders: MuseumWallDefinition[] = [];
   const architecture: MuseumWallDefinition[] = [];
   const seen = new Set<string>();
@@ -205,22 +214,13 @@ const createCirculationWalls = (node: MuseumManifestNode): CirculationWallSet =>
         if (cut && cut[1] > cut[0]) exposedIntervals = subtractIntervals(exposedIntervals, cut[0], cut[1]);
       }
       const openings: WallOpening[] = [];
-      for (const slot of node.doorwaySlots) {
+      for (const slot of [...activeExteriorSlots, ...interiorSlots]) {
         const cut = slotCutsEdge(edge, slot);
         if (cut) openings.push({
           id: `${node.id}:${slot.id}`,
           interval: cut.interval,
           clearHeight: slot.clearHeight,
           renderLintel: cut.renderLintel,
-        });
-      }
-      for (const reservation of reservations) {
-        const cut = reservationCutsEdge(edge, reservation);
-        if (cut) openings.push({
-          id: reservation.id,
-          interval: cut,
-          clearHeight: MUSEUM_BUILDING_MANIFEST.physicalContract.doorClearHeight,
-          renderLintel: true,
         });
       }
       let wallIntervals = [...exposedIntervals];
@@ -254,18 +254,6 @@ const createCirculationWalls = (node: MuseumManifestNode): CirculationWallSet =>
   return {colliders, architecture};
 };
 
-/** One physical body contract shared by rendering, collision, and portal-wall cuts. */
-export const getMuseumReservationBarrierBody = (reservation: MuseumReservation) => ({
-  id: reservation.id,
-  center: reservation.barrierCenter,
-  size: {
-    width: reservation.barrierWidth,
-    depth: MUSEUM_BUILDING_MANIFEST.physicalContract.wallThickness * 2 / 3,
-  },
-  rotation: reservation.rotation,
-  height: 1.24,
-});
-
 const unionBounds = (cells: readonly MuseumManifestGeometryCell[]): MuseumBounds => ({
   minX: Math.min(...cells.map(({bounds}) => bounds.minX)),
   maxX: Math.max(...cells.map(({bounds}) => bounds.maxX)),
@@ -291,7 +279,7 @@ const toSpatialCells = (node: MuseumManifestNode): readonly MuseumSpatialCell[] 
     return {
       id: `${node.id}:${cell.id}`,
       kind: cell.kind ?? 'passage',
-      title: node.map.label,
+      title: cell.title ?? node.map.label,
       bounds,
       ...(expanded ? {renderBounds: cell.bounds} : {}),
       ceilingHeight: cell.ceilingHeight,
@@ -300,6 +288,30 @@ const toSpatialCells = (node: MuseumManifestNode): readonly MuseumSpatialCell[] 
     };
   });
 };
+
+const createInteriorSpatialConnections = (
+  node: MuseumManifestNode,
+): readonly MuseumSpatialConnection[] => (node.geometry?.interiorOpenings ?? []).map((opening) => {
+  const acrossX = Math.abs(opening.inwardNormal.z) > .5;
+  return {
+    id: `${node.id}:${opening.id}`,
+    fromCellId: `${node.id}:${opening.fromCellId}`,
+    toCellId: `${node.id}:${opening.toCellId}`,
+    openingBounds: acrossX
+      ? {
+          minX: opening.position.x - opening.clearWidth / 2,
+          maxX: opening.position.x + opening.clearWidth / 2,
+          minZ: opening.position.z - opening.transitionDepth / 2,
+          maxZ: opening.position.z + opening.transitionDepth / 2,
+        }
+      : {
+          minX: opening.position.x - opening.transitionDepth / 2,
+          maxX: opening.position.x + opening.transitionDepth / 2,
+          minZ: opening.position.z - opening.clearWidth / 2,
+          maxZ: opening.position.z + opening.clearWidth / 2,
+        },
+  };
+});
 
 const createNavigationLayout = (
   node: MuseumManifestNode,
@@ -317,8 +329,10 @@ const createNavigationLayout = (
     yaw: 0,
     pitch: 0,
   };
-  const furnishings = node.geometry?.furnishings ?? [];
-  const reservations = MUSEUM_BUILDING_MANIFEST.reservations.filter(({hostNodeId}) => hostNodeId === node.id);
+  const furnishings = [
+    ...(node.geometry?.furnishings ?? []),
+    ...(node.id === MUSEUM_VISITOR_MAP_KIOSK.nodeId ? [MUSEUM_VISITOR_MAP_KIOSK] : []),
+  ];
   return {
     id: node.id,
     title: node.map.label,
@@ -330,20 +344,18 @@ const createNavigationLayout = (
     spawn,
     reset: spawn,
     spatialCells,
-    spatialConnections: [],
+    spatialConnections: createInteriorSpatialConnections(node),
     wallColliders,
     furnishings,
-    obstacleColliders: [
-      ...furnishings,
-      ...reservations.map(getMuseumReservationBarrierBody),
-    ],
+    obstacleColliders: [...furnishings],
     exhibits: [],
+    signs: node.geometry?.signs ?? [],
   };
 };
 
 const liveConnectionEndpointKeys = new Set(
   MUSEUM_BUILDING_MANIFEST.connections
-    .filter(({implementationStatus}) => implementationStatus === 'live')
+    .filter(({implementationStatus, accessible}) => implementationStatus === 'live' && accessible)
     .flatMap(({a, b}) => [`${a.nodeId}/${a.slotId}`, `${b.nodeId}/${b.slotId}`]),
 );
 
@@ -439,15 +451,31 @@ const runtimeNodes: readonly MuseumRuntimeNodeDefinition[] = MUSEUM_BUILDING_MAN
   const hall = node.publicHallId
     ? hallDefinitions.find(({id}) => id === node.publicHallId)
     : undefined;
-  const circulationWalls = hall ? undefined : createCirculationWalls(node);
+  const activeSlotIds = new Set(
+    node.doorwaySlots
+      .filter(({id}) => liveConnectionEndpointKeys.has(`${node.id}/${id}`))
+      .map(({id}) => id),
+  );
+  const circulationWalls = hall ? undefined : createCirculationWalls(node, activeSlotIds);
   const circulationArchitectureWalls = circulationWalls
-    ? removeHallCoveredCirculationSurfaces(node, circulationWalls.architecture)
+    ? node.physicalRole === 'turn-court'
+      ? circulationWalls.architecture
+      : removeHallCoveredCirculationSurfaces(node, circulationWalls.architecture)
     : undefined;
   return {
     id: node.id,
     kind: node.kind,
+    programHallId: node.programHallId,
     publicHallId: node.publicHallId,
-    pilotRole: node.pilotRole,
+    galleryState: node.galleryState,
+    publicGalleryNumber: node.publicGalleryNumber,
+    visitSequence: node.visitSequence,
+    bandId: node.bandId,
+    roomIds: node.roomIds,
+    roomLayoutStrategy: node.roomLayoutStrategy,
+    routePortals: node.routePortals,
+    fastTravelEligible: node.fastTravelEligible ?? node.galleryState === 'curated-open',
+    pilotRole: node.physicalRole as MuseumPilotRole,
     templateId: node.templateId,
     geometryAdapterId: node.geometryAdapterId,
     implementationStatus: node.implementationStatus,
@@ -492,7 +520,8 @@ const directedConnections: readonly MuseumDirectedConnection[] = MUSEUM_BUILDING
 
 export const MUSEUM_WORLD_DEFINITIONS = hallDefinitions;
 export const MUSEUM_RUNTIME_NODES = runtimeNodes;
-export const MUSEUM_CIRCULATION_NODES = runtimeNodes.filter(({kind}) => kind !== 'hall');
+/** Persistent architecture: circulation plus the fourteen zero-media planned shells. */
+export const MUSEUM_CIRCULATION_NODES = runtimeNodes.filter(({publicHallId}) => !publicHallId);
 export const MUSEUM_DIRECTED_CONNECTIONS = directedConnections;
 
 export const getMuseumRuntimeNode = (nodeId: MuseumPhysicalNodeId): MuseumRuntimeNodeDefinition | undefined =>
@@ -505,7 +534,8 @@ export const getMuseumHallDefinition = (hallId: MuseumPublicHallId): MuseumHallD
   MUSEUM_WORLD_DEFINITIONS.find(({id}) => id === hallId);
 
 export const getMuseumNodeConnections = (nodeId: MuseumPhysicalNodeId): readonly MuseumDirectedConnection[] =>
-  MUSEUM_DIRECTED_CONNECTIONS.filter(({sourceNodeId}) => sourceNodeId === nodeId);
+  MUSEUM_DIRECTED_CONNECTIONS.filter(({sourceNodeId, accessible, implementationStatus}) =>
+    sourceNodeId === nodeId && accessible && implementationStatus === 'live');
 
 export const getMuseumConnectionTargetHallId = (
   connection: Pick<MuseumDirectedConnection, 'targetNodeId'>,

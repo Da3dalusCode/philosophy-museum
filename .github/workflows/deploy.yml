@@ -31,6 +31,23 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Verify compiled building manifest
+        run: npm run check:museum-building
+
+      - name: Validate Museum masterplan and building
+        run: |
+          npm run validate:museum-masterplan
+          npm run validate:museum-building-plan
+
+      - name: Audit routes, Museum, assets, articles, accuracy, and integrity
+        run: |
+          npm run audit:routing
+          npm run audit:museum
+          npm run audit:museum-assets
+          npm run audit:articles
+          npm run audit:accuracy
+          npm run audit:integrity
+
       - name: Build
         run: npm run build
 
