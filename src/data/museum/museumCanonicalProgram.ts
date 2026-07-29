@@ -32,6 +32,8 @@ export const MUSEUM_CANONICAL_HALL_IDS = [
   'hellenistic-roman-ways',
   'late-antiquity-inheritance',
   'rationalism-mind-nature-system',
+  'empiricism-science-political-order',
+  'enlightenment-revolution-kant',
 ] as const;
 
 export type MuseumCanonicalHallId = (typeof MUSEUM_CANONICAL_HALL_IDS)[number];
@@ -146,6 +148,14 @@ export const MUSEUM_CANONICAL_ROOM_IDS = [
   'rationalism-cartesian-foundations',
   'rationalism-spinoza-conway',
   'rationalism-leibniz-system',
+  'empiricism-locke-ideas-rights',
+  'empiricism-berkeley-perception',
+  'empiricism-hume-skepticism',
+  'enlightenment-law-institutions',
+  'enlightenment-society-freedom',
+  'enlightenment-sentiment-commerce',
+  'enlightenment-equality-education',
+  'enlightenment-kant-critical',
 ] as const;
 
 export type MuseumCanonicalRoomId = (typeof MUSEUM_CANONICAL_ROOM_IDS)[number];
@@ -238,6 +248,8 @@ export const MUSEUM_PUBLIC_GALLERY_NUMBERS = {
   'hellenistic-roman-ways': 14,
   'late-antiquity-inheritance': 15,
   'rationalism-mind-nature-system': 16,
+  'empiricism-science-political-order': 17,
+  'enlightenment-revolution-kant': 18,
 } as const satisfies Readonly<Record<MuseumCanonicalHallId, number>>;
 
 const exhibit = <const Record extends MuseumCanonicalExhibit>(record: Record) => ({
@@ -746,6 +758,54 @@ export const MUSEUM_CANONICAL_PROGRAM = [
       ]},
     ],
   },
+  {
+    id: 'empiricism-science-political-order',
+    wingId: 'wing-early-modern-enlightenment',
+    title: 'Empiricism, Science, and Political Order',
+    templateId: 'sequence-3',
+    period: 'Late 17th–18th centuries',
+    description: 'Follow experience from Locke’s account of ideas, identity, toleration, rights, and authority through Berkeley’s immaterialist reconstruction of perception to Hume’s analysis of causation, habit, sentiment, religion, and mitigated skepticism.',
+    recordCapacity: 4,
+    rooms: [
+      {id: 'empiricism-locke-ideas-rights', title: 'Ideas, experience, identity, and rights', recordCapacity: 2, exhibits: [
+        exhibit({id: 'empiricism', entityKind: 'branch', entityId: 'empiricism', displayName: 'Empiricism: Experience, Experiment, and Their Limits', tier: 'anchor-exhibit', question: 'How did experience become an early-modern source and test of ideas without making observation a simple, neutral transcript of the world?', secondaryHallIds: ['core-questions-forum', 'rationalism-mind-nature-system'], principalAssetId: 'empiricism-orrery-lecture-1766'}),
+        exhibit({id: 'locke', entityKind: 'philosopher', entityId: 'locke', displayName: 'John Locke: Ideas, Persons, Rights, and Authority', tier: 'anchor-exhibit', question: 'How can experience ground knowledge while memory, toleration, property, government, and colonial power define—and strain—the boundaries of freedom?', secondaryHallIds: ['justice-democratic-reason'], formerHallId: 'renaissance-reason-revolution', principalAssetId: 'empiricism-locke-greenhill-portrait'}),
+      ]},
+      {id: 'empiricism-berkeley-perception', title: 'Perception and immaterialism', recordCapacity: 1, exhibits: [
+        exhibit({id: 'berkeley', entityKind: 'philosopher', entityId: 'berkeley', displayName: 'George Berkeley: Vision, Ideas, Spirits, and Immaterialism', tier: 'standard-individual-exhibit', question: 'If sensible objects are collections of perceived ideas, what remains of matter, abstraction, causation, other minds, and an ordered world?', secondaryHallIds: ['core-questions-forum'], principalAssetId: 'empiricism-berkeley-smibert-portrait'}),
+      ]},
+      {id: 'empiricism-hume-skepticism', title: 'Causation, habit, sentiment, and mitigated skepticism', recordCapacity: 1, exhibits: [
+        exhibit({id: 'hume', entityKind: 'philosopher', entityId: 'hume', displayName: 'David Hume: Habit, Sentiment, and the Limits of Experience', tier: 'anchor-exhibit', question: 'What justifies causal inference, personal identity, moral judgment, and religious belief when experience never displays necessary connection itself?', secondaryHallIds: ['core-questions-forum'], formerHallId: 'renaissance-reason-revolution', principalAssetId: 'hume-ramsay-portrait-1754'}),
+      ]},
+    ],
+  },
+  {
+    id: 'enlightenment-revolution-kant',
+    wingId: 'wing-early-modern-enlightenment',
+    title: 'Enlightenment, Revolution, and Kant’s Critical Turn',
+    templateId: 'crossroads-4',
+    period: 'Late 17th–late 18th centuries',
+    description: 'Compare law, civic freedom, moral sentiment, commercial society, education, gender, and revolution in four perimeter rooms, then cross a distinct central threshold where Kant turns the rationalist–empiricist crisis into a critical inquiry into the conditions and limits of reason.',
+    recordCapacity: 6,
+    rooms: [
+      {id: 'enlightenment-law-institutions', title: 'Law and comparative institutions', recordCapacity: 1, exhibits: [
+        exhibit({id: 'montesquieu', entityKind: 'philosopher', entityId: 'montesquieu', displayName: 'Montesquieu: Law, Comparison, and Institutional Power', tier: 'standard-individual-exhibit', question: 'How do laws and political forms depend on institutions, economy, custom, history, and place—and how can power be made to check power?', secondaryHallIds: ['justice-democratic-reason'], principalAssetId: 'enlightenment-montesquieu-versailles-portrait'}),
+      ]},
+      {id: 'enlightenment-society-freedom', title: 'Inequality, civic freedom, and education', recordCapacity: 1, exhibits: [
+        exhibit({id: 'rousseau', entityKind: 'philosopher', entityId: 'rousseau', displayName: 'Jean-Jacques Rousseau: Inequality, Civic Freedom, and Education', tier: 'anchor-exhibit', question: 'Can people become free by obeying laws they prescribe together when social dependence and unequal institutions have already formed their desires?', secondaryHallIds: ['justice-democratic-reason'], formerHallId: 'renaissance-reason-revolution', principalAssetId: 'enlightenment-rousseau-ramsay-portrait'}),
+      ]},
+      {id: 'enlightenment-sentiment-commerce', title: 'Moral sentiments and commercial society', recordCapacity: 1, exhibits: [
+        exhibit({id: 'adam-smith', entityKind: 'philosopher', entityId: 'adam-smith', displayName: 'Adam Smith: Sympathy, Judgment, Labor, and Commercial Society', tier: 'standard-individual-exhibit', question: 'How do spectatorship, institutions, labor, exchange, inequality, and empire shape both moral judgment and commercial life?', secondaryHallIds: ['justice-democratic-reason', 'moral-life-practical-reason'], principalAssetId: 'enlightenment-smith-wedgwood-medallion'}),
+      ]},
+      {id: 'enlightenment-equality-education', title: 'Education, gender, and excluded universalism', recordCapacity: 2, exhibits: [
+        exhibit({id: 'mary-astell', entityKind: 'philosopher', entityId: 'mary-astell', displayName: 'Mary Astell: Reason, Education, and Freedom in Marriage', tier: 'standard-individual-exhibit', question: 'If women possess rational souls, how can denied education and subordination in marriage be defended without contradicting the era’s own standards of reason and freedom?', secondaryHallIds: ['feminist-philosophies', 'justice-democratic-reason'], principalAssetId: 'enlightenment-astell-serious-proposal-1694'}),
+        exhibit({id: 'wollstonecraft', entityKind: 'philosopher', entityId: 'wollstonecraft', displayName: 'Mary Wollstonecraft: Education, Citizenship, and Manufactured Inequality', tier: 'anchor-exhibit', question: 'What becomes of universal rights when education and social expectations train women for dependence, appearance, and obedience rather than citizenship?', secondaryHallIds: ['feminist-philosophies', 'justice-democratic-reason'], formerHallId: 'ethics-justice-political-life', principalAssetId: 'enlightenment-wollstonecraft-heath-engraving'}),
+      ]},
+      {id: 'enlightenment-kant-critical', title: 'Kant: critical philosophy as threshold', recordCapacity: 1, exhibits: [
+        exhibit({id: 'kant', entityKind: 'philosopher', entityId: 'kant', displayName: 'Immanuel Kant: The Conditions and Limits of Reason', tier: 'anchor-exhibit', question: 'What must cognition contribute for experience to be possible, and how can critique delimit knowledge while defending autonomy, obligation, and public reason?', secondaryHallIds: ['core-questions-forum', 'german-idealism-afterlives', 'justice-democratic-reason', 'moral-life-practical-reason'], formerHallId: 'renaissance-reason-revolution', principalAssetId: 'enlightenment-kant-doebler-portrait'}),
+      ]},
+    ],
+  },
 ] as const satisfies readonly MuseumCanonicalHall[];
 
 export const MUSEUM_HALL_ROUTE_ALIASES = {
@@ -799,10 +859,6 @@ const displaced = (
 });
 
 export const MUSEUM_LEGACY_EXHIBIT_COMPATIBILITY = [
-  displaced('renaissance-reason-revolution', 'philosopher', 'locke', 'John Locke', 'empiricism-science-political-order', 'move-primary-later'),
-  displaced('renaissance-reason-revolution', 'philosopher', 'hume', 'David Hume', 'empiricism-science-political-order', 'move-primary-later'),
-  displaced('renaissance-reason-revolution', 'philosopher', 'rousseau', 'Jean-Jacques Rousseau', 'enlightenment-revolution-kant', 'move-primary-later'),
-  displaced('renaissance-reason-revolution', 'philosopher', 'kant', 'Immanuel Kant', 'enlightenment-revolution-kant', 'move-primary-later'),
   displaced('modernity-freedom-critique', 'philosopher', 'kierkegaard', 'Søren Kierkegaard', 'faith-pessimism-life-value', 'become-secondary-later'),
   displaced('modernity-freedom-critique', 'philosopher', 'marx', 'Karl Marx', 'utility-liberty-history-capital', 'move-primary-later'),
   displaced('modernity-freedom-critique', 'philosopher', 'nietzsche', 'Friedrich Nietzsche', 'faith-pessimism-life-value', 'become-secondary-later'),
@@ -811,7 +867,6 @@ export const MUSEUM_LEGACY_EXHIBIT_COMPATIBILITY = [
   displaced('logic-language-science', 'philosopher', 'peirce', 'Charles Sanders Peirce', 'pragmatism-democratic-inquiry', 'move-primary-later'),
   displaced('logic-language-science', 'philosopher', 'dewey', 'John Dewey', 'pragmatism-democratic-inquiry', 'move-primary-later'),
   displaced('ethics-justice-political-life', 'philosopher', 'bentham', 'Jeremy Bentham', 'utility-liberty-history-capital', 'become-secondary-later'),
-  displaced('ethics-justice-political-life', 'philosopher', 'wollstonecraft', 'Mary Wollstonecraft', 'enlightenment-revolution-kant', 'become-secondary-later'),
   displaced('ethics-justice-political-life', 'philosopher', 'mill', 'John Stuart Mill', 'utility-liberty-history-capital', 'become-secondary-later'),
   displaced('ethics-justice-political-life', 'philosopher', 'fanon', 'Frantz Fanon', 'colonialism-race-liberation', 'become-secondary-later'),
   displaced('ethics-justice-political-life', 'philosopher', 'habermas', 'Jürgen Habermas', 'critique-power-deconstruction', 'become-secondary-later'),

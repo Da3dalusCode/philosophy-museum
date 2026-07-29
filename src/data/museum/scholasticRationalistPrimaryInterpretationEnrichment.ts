@@ -12,7 +12,7 @@ type PrimaryInterpretationSection = {
   readonly points?: readonly string[];
 };
 
-export type ScholasticRationalistPrimaryInterpretationEnrichment = {
+export type MuseumPrimaryInterpretationEnrichment = {
   readonly lead?: string;
   readonly keyIdeas?: readonly string[];
   readonly keyWorks?: readonly string[];
@@ -21,6 +21,9 @@ export type ScholasticRationalistPrimaryInterpretationEnrichment = {
   readonly sources?: readonly PrimaryInterpretationSource[];
   readonly objectInterpretations?: Readonly<Partial<Record<MuseumAssetId, string>>>;
 };
+
+export type ScholasticRationalistPrimaryInterpretationEnrichment =
+  MuseumPrimaryInterpretationEnrichment;
 
 /**
  * Focused depth and evidence for the canonical primary installations in

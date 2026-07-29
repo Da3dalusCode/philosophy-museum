@@ -32,16 +32,14 @@
     "hallCount": 26,
     "roomCount": 105,
     "recordCapacity": 260,
-    "curatedOpenAtMigration": 16,
-    "plannedWalkableShellsAtMigration": 10,
+    "curatedOpenAtMigration": 18,
+    "plannedWalkableShellsAtMigration": 8,
     "additionalGalleryReservations": 2
   },
   "numberingPolicy": {
-    "publicGalleryNumber": "Stable release number. Existing Gallery 01–16 numbers do not change.",
+    "publicGalleryNumber": "Stable release number. Existing Gallery 01–18 numbers do not change.",
     "visitSequence": "Physical through-route order. This is independent of public release numbering.",
     "futureReleaseOrder": [
-      "empiricism-science-political-order",
-      "enlightenment-revolution-kant",
       "german-idealism-afterlives",
       "utility-liberty-history-capital",
       "faith-pessimism-life-value",
@@ -605,7 +603,7 @@
         "empiricism-berkeley-perception",
         "empiricism-hume-skepticism"
       ],
-      "migrationState": "construct-planned-walkable-shell",
+      "migrationState": "migrate-populated",
       "roomLayoutStrategy": "sequence-equal-room-spans",
       "bandId": "band-04-nineteenth-transformations",
       "placement": {
@@ -631,7 +629,7 @@
         "enlightenment-equality-education",
         "enlightenment-kant-critical"
       ],
-      "migrationState": "construct-planned-walkable-shell",
+      "migrationState": "migrate-populated",
       "roomLayoutStrategy": "crossroads-four-quadrants-with-central-kant-room",
       "bandId": "band-04-nineteenth-transformations",
       "placement": {
@@ -1186,7 +1184,7 @@
     "futureCrossroadsFiveRoomRule": "Generate four perimeter rooms plus a distinct central Kant room without notching a neighboring gallery.",
     "plannedShellPresentation": "Planned rooms are walkable architectural shells with blank walls and one honest noninteractive status sign at the hall entrance. They have no placeholder exhibits, media, interaction controls, article routes, or fake attribution.",
     "openCountRule": "A planned walkable shell is not counted as an open gallery until its complete curation, wall-slot audit, imagery audit, interactions, interpretation, routes, and visual review pass.",
-    "wallAuditActivation": "Exact physical installation counts remain enforced for the sixteen curated halls. Future halls enter the exhibit-wall audit only when their migration state changes to curated-open."
+    "wallAuditActivation": "Exact physical installation counts remain enforced for the eighteen curated halls. Future halls enter the exhibit-wall audit only when their migration state changes to curated-open."
   },
   "performanceContract": {
     "authority": "Extend the current runtime residency and lazy-loading implementation; do not replace it.",
@@ -1208,7 +1206,7 @@
     "cutover": "Build beside the current runtime manifest and switch atomically only after the complete building passes review.",
     "stableIdentifiers": [
       "public gallery IDs",
-      "public Gallery 01–16 numbers",
+      "public Gallery 01–18 numbers",
       "room IDs",
       "exhibit IDs",
       "article routes",

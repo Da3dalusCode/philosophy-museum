@@ -1,0 +1,555 @@
+{
+  "version": 1,
+  "assets": {
+    "enlightenment-montesquieu-versailles-portrait": {
+      "hallFolder": "enlightenment-revolution-kant",
+      "visualCharacter": "portrait-or-figure",
+      "textDominantOrSingleBook": false,
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Montesquieu_-_Versailles_MV_2976.png",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Montesquieu_-_Versailles_MV_2976.png",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Montesquieu_-_Versailles_MV_2976.png?width=1600",
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 534,
+        "height": 640,
+        "bytes": 38156,
+        "sha256": "9010364834ebf719e74dd1db5f5c63ca95d072cb9f22c0449ff0a47002a54918"
+      },
+      "panel": {
+        "width": 1067,
+        "height": 1280,
+        "bytes": 269350,
+        "sha256": "4a771a743b4a1c7cc0e18caa44bdc7394cb733d40003a35c7228ca4da9193cde"
+      }
+    },
+    "enlightenment-rousseau-ramsay-portrait": {
+      "hallFolder": "enlightenment-revolution-kant",
+      "visualCharacter": "portrait-or-figure",
+      "textDominantOrSingleBook": false,
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Allan_Ramsay_-_Jean-Jacques_Rousseau_(1712_-_1778)_-_Google_Art_Project.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Allan_Ramsay_-_Jean-Jacques_Rousseau_(1712_-_1778)_-_Google_Art_Project.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Allan_Ramsay_-_Jean-Jacques_Rousseau_(1712_-_1778)_-_Google_Art_Project.jpg?width=1600",
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 524,
+        "height": 640,
+        "bytes": 18798,
+        "sha256": "17fb73b31c78aa86125339154cc6897e1ed4d804695c88bffdde29ae66ecbdcc"
+      },
+      "panel": {
+        "width": 1048,
+        "height": 1280,
+        "bytes": 197476,
+        "sha256": "7140da485e305adf84f2e37d4285739a61e9ca7ca2ade322b6b1514ee4d8f905"
+      }
+    },
+    "enlightenment-smith-wedgwood-medallion": {
+      "hallFolder": "enlightenment-revolution-kant",
+      "visualCharacter": "material-object",
+      "textDominantOrSingleBook": false,
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Adam_Smith,_1787_-_Wedgwood_Museum_-_Barlaston,_Stoke-on-Trent,_England_-_DSC09700.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Adam_Smith,_1787_-_Wedgwood_Museum_-_Barlaston,_Stoke-on-Trent,_England_-_DSC09700.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Adam_Smith,_1787_-_Wedgwood_Museum_-_Barlaston,_Stoke-on-Trent,_England_-_DSC09700.jpg?width=1600",
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 518,
+        "height": 640,
+        "bytes": 12300,
+        "sha256": "84e509b75fbcdbfb543c0739c607b39c8d084ff5c8a62ea87837e64f724ef087"
+      },
+      "panel": {
+        "width": 1036,
+        "height": 1280,
+        "bytes": 52188,
+        "sha256": "ebcc2b70956d3755a7c272781cfa8562b0cb7f3054cd04ce35004e058603de85"
+      }
+    },
+    "enlightenment-astell-serious-proposal-1694": {
+      "hallFolder": "enlightenment-revolution-kant",
+      "visualCharacter": "text-dominant",
+      "textDominantOrSingleBook": true,
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:AstellProposal.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/AstellProposal.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/AstellProposal.jpg?width=1600",
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 356,
+        "height": 640,
+        "bytes": 49418,
+        "sha256": "2e279ca103de53551deef666d33ac7f3379771c6dc19a97b4efbd77b6f5b7345"
+      },
+      "panel": {
+        "width": 570,
+        "height": 1025,
+        "bytes": 138156,
+        "sha256": "14a39d726f1c563e47e489bb5948d5b406cf716bb2fbf3c53357801735cc8a0e"
+      }
+    },
+    "enlightenment-wollstonecraft-heath-engraving": {
+      "hallFolder": "enlightenment-revolution-kant",
+      "visualCharacter": "portrait-or-figure",
+      "textDominantOrSingleBook": false,
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Heath_and_Opie_-_Mary_Wollstonecraft,_1797.png",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Heath_and_Opie_-_Mary_Wollstonecraft,_1797.png",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Heath_and_Opie_-_Mary_Wollstonecraft,_1797.png?width=1600",
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 479,
+        "height": 640,
+        "bytes": 83988,
+        "sha256": "99f0df733453aefa548d1639e44b204345fe65cba123c67e2b83ce6d350dffea"
+      },
+      "panel": {
+        "width": 788,
+        "height": 1052,
+        "bytes": 197912,
+        "sha256": "5d83bef34bef95d283755515dd58151f3987d2018fa8f39b8f457e3e155e2ffa"
+      }
+    },
+    "enlightenment-kant-doebler-portrait": {
+      "hallFolder": "enlightenment-revolution-kant",
+      "visualCharacter": "portrait-or-figure",
+      "textDominantOrSingleBook": false,
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Kant_gemaelde_1.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kant_gemaelde_1.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kant_gemaelde_1.jpg?width=1600",
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 544,
+        "height": 640,
+        "bytes": 26666,
+        "sha256": "2bc930b1be3ba71daa9381553af44260ce7237936e9b5be72e4c1f551b9697ff"
+      },
+      "panel": {
+        "width": 1087,
+        "height": 1280,
+        "bytes": 156184,
+        "sha256": "896ffa7e3db9d9be6c40ae2726a65a090da92a96a7f25fec9a920198c3e941b0"
+      }
+    },
+    "enlightenment-persian-envoy-coypel": {
+      "hallFolder": "enlightenment-revolution-kant",
+      "visualCharacter": "portrait-or-figure",
+      "textDominantOrSingleBook": false,
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Mohammed_Reza_Bey,_Persian_Ambassador_to_France,_during_the_reign_of_Louis_XIV_by_Antoine_Coypel.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Mohammed_Reza_Bey,_Persian_Ambassador_to_France,_during_the_reign_of_Louis_XIV_by_Antoine_Coypel.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Mohammed_Reza_Bey,_Persian_Ambassador_to_France,_during_the_reign_of_Louis_XIV_by_Antoine_Coypel.jpg?width=1600",
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 521,
+        "height": 640,
+        "bytes": 38152,
+        "sha256": "31cc8f28c28c66aa1d675b049c5128f57c966446ddc21a0f2964ed9ae2e42524"
+      },
+      "panel": {
+        "width": 1042,
+        "height": 1280,
+        "bytes": 204740,
+        "sha256": "1253bf9ef83f4cc6b74aaec1b93a35913df1007b55e831c8a90099aa448040c6"
+      }
+    },
+    "enlightenment-delisle-world-map-1720": {
+      "hallFolder": "enlightenment-revolution-kant",
+      "visualCharacter": "map-or-diagram",
+      "textDominantOrSingleBook": false,
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:1720_map_of_the_world_-_Mappemonde_a_l%27usage_du_Roy.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/1720_map_of_the_world_-_Mappemonde_a_l%27usage_du_Roy.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/1720_map_of_the_world_-_Mappemonde_a_l%27usage_du_Roy.jpg?width=1600",
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 436,
+        "bytes": 72792,
+        "sha256": "0560e7b5216f12d377a20c755f3c7e2622df0c9e031b3a4d5885eb9d9fbfa8c0"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 872,
+        "bytes": 380934,
+        "sha256": "8a4ffffa040310025e8c72c606333bd9f5e8bac3578b8c06b709dad50f940b4d"
+      }
+    },
+    "enlightenment-house-commons-walpole": {
+      "hallFolder": "enlightenment-revolution-kant",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:William_Hogarth_(1697-1764)_(after)_-_The_House_of_Commons,_Sir_Robert_Walpole%27s_Administration_(1722%E2%80%931742)_-_WOA_3067_-_Parliamentary_Art_Collection.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/William_Hogarth_(1697-1764)_(after)_-_The_House_of_Commons,_Sir_Robert_Walpole%27s_Administration_(1722%E2%80%931742)_-_WOA_3067_-_Parliamentary_Art_Collection.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/William_Hogarth_(1697-1764)_(after)_-_The_House_of_Commons,_Sir_Robert_Walpole%27s_Administration_(1722%E2%80%931742)_-_WOA_3067_-_Parliamentary_Art_Collection.jpg?width=1600",
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 501,
+        "height": 640,
+        "bytes": 55812,
+        "sha256": "f9d6b17bfe7c0c7c051b5a8b31d1c465338054a8547fdf5af683fe7714721570"
+      },
+      "panel": {
+        "width": 939,
+        "height": 1200,
+        "bytes": 206322,
+        "sha256": "c3ad98c58fb940d3dcde14b33400200a81c4c3def5e93c5cc2c5f6b54daed55a"
+      }
+    },
+    "enlightenment-hogarth-bench-1758": {
+      "hallFolder": "enlightenment-revolution-kant",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:William_Hogarth,_The_Bench,_1758,_NGA_30450.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/William_Hogarth,_The_Bench,_1758,_NGA_30450.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/William_Hogarth,_The_Bench,_1758,_NGA_30450.jpg?width=1600",
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 431,
+        "height": 640,
+        "bytes": 93210,
+        "sha256": "d6dc829f7555ffaf2a003a67676262006e5c486e161c7bbb9a85e10fd4f9358a"
+      },
+      "panel": {
+        "width": 862,
+        "height": 1280,
+        "bytes": 513422,
+        "sha256": "753dd1f29f9199b0c131465e5cddf34f501b3689da9d42c2ed1553ca306a4e23"
+      }
+    },
+    "enlightenment-wedgwood-abolition-medallion": {
+      "hallFolder": "enlightenment-revolution-kant",
+      "visualCharacter": "material-object",
+      "textDominantOrSingleBook": false,
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Am_I_not_a_Man_and_a_Brother,_medallion_modelled_by_William_H._Hackwood,_Wedgwood,_Etruria,_England,_c._1786,_tinted_stoneware_-_Brooklyn_Museum_-_DSC09289_(cropped).JPG",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Am_I_not_a_Man_and_a_Brother,_medallion_modelled_by_William_H._Hackwood,_Wedgwood,_Etruria,_England,_c._1786,_tinted_stoneware_-_Brooklyn_Museum_-_DSC09289_(cropped).JPG",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Am_I_not_a_Man_and_a_Brother,_medallion_modelled_by_William_H._Hackwood,_Wedgwood,_Etruria,_England,_c._1786,_tinted_stoneware_-_Brooklyn_Museum_-_DSC09289_(cropped).JPG?width=1600",
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 589,
+        "height": 640,
+        "bytes": 32540,
+        "sha256": "43c7fe0e27c321109eac227fd87916511b49d725e9a1799c5cf43b8350d54224"
+      },
+      "panel": {
+        "width": 612,
+        "height": 665,
+        "bytes": 55442,
+        "sha256": "4dd97cd557f1109273e6d59c1296344b2b216770561833be89f26b19b056accf"
+      }
+    },
+    "enlightenment-geneva-gardelle-view": {
+      "hallFolder": "enlightenment-revolution-kant",
+      "visualCharacter": "place-or-architecture",
+      "textDominantOrSingleBook": false,
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Zentralbibliothek_Z%C3%BCrich_-_Vue_de_Geneve_du_cot%C3%A9_du_Couchant_-_991081642359705501.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Zentralbibliothek_Z%C3%BCrich_-_Vue_de_Geneve_du_cot%C3%A9_du_Couchant_-_991081642359705501.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Zentralbibliothek_Z%C3%BCrich_-_Vue_de_Geneve_du_cot%C3%A9_du_Couchant_-_991081642359705501.jpg?width=1600",
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 362,
+        "bytes": 43832,
+        "sha256": "e3682389e49d953d38b32000d476741e9d3884f4a024aa73ecff0ddb81bf534f"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 724,
+        "bytes": 301814,
+        "sha256": "031e35edf1cbcbb8a4383a5fd463e1b03a31316e096c5222f212d14b26cedfe5"
+      }
+    },
+    "enlightenment-fragonard-swing": {
+      "hallFolder": "enlightenment-revolution-kant",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Fragonard,_The_Swing.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Fragonard,_The_Swing.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Fragonard,_The_Swing.jpg?width=1600",
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 510,
+        "height": 640,
+        "bytes": 71970,
+        "sha256": "3b0693ac791f8537c83ad64751c8c5a1693cb0b9cef2788c4fccc45557d4e815"
+      },
+      "panel": {
+        "width": 1020,
+        "height": 1280,
+        "bytes": 397056,
+        "sha256": "ab32312ed0db248ca7f9ce4ed1b29f283c05e74327f8c14ca1c29d59ac70d2f1"
+      }
+    },
+    "enlightenment-chardin-schoolmistress": {
+      "hallFolder": "enlightenment-revolution-kant",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Jean_Sim%C3%A9on_Chardin_-_The_Young_Schoolmistress_-_WGA04750FXD.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Jean_Sim%C3%A9on_Chardin_-_The_Young_Schoolmistress_-_WGA04750FXD.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Jean_Sim%C3%A9on_Chardin_-_The_Young_Schoolmistress_-_WGA04750FXD.jpg?width=1600",
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 592,
+        "bytes": 24694,
+        "sha256": "d2d1241b099e47f3e32aca2fa57629ec6652b6f088ce54b00ccf6cab51e6b5f4"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 1184,
+        "bytes": 340776,
+        "sha256": "7f5e3289d2ee77a5cc34b9c26396d2fdd74f80462c0da7b5b9e34df989526430"
+      }
+    },
+    "enlightenment-thevenin-federation": {
+      "hallFolder": "enlightenment-revolution-kant",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Charles_Th%C3%A9venin_-_La_f%C3%AAte_de_la_F%C3%A9d%C3%A9ration,_le_14_juillet_1790,_au_Champ-de-Mars,_actuel_7%C3%A8me_arrondissement_-_La_F%C3%AAte_de_la_F%C3%A9d%C3%A9ration,_le_14_juillet_1790,_au_Champ-de-Mars_-_Mus%C3%A9e_Carnavalet_-_2.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Charles_Th%C3%A9venin_-_La_f%C3%AAte_de_la_F%C3%A9d%C3%A9ration,_le_14_juillet_1790,_au_Champ-de-Mars,_actuel_7%C3%A8me_arrondissement_-_La_F%C3%AAte_de_la_F%C3%A9d%C3%A9ration,_le_14_juillet_1790,_au_Champ-de-Mars_-_Mus%C3%A9e_Carnavalet_-_2.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Charles_Th%C3%A9venin_-_La_f%C3%AAte_de_la_F%C3%A9d%C3%A9ration,_le_14_juillet_1790,_au_Champ-de-Mars,_actuel_7%C3%A8me_arrondissement_-_La_F%C3%AAte_de_la_F%C3%A9d%C3%A9ration,_le_14_juillet_1790,_au_Champ-de-Mars_-_Mus%C3%A9e_Carnavalet_-_2.jpg?width=1600",
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 433,
+        "bytes": 78462,
+        "sha256": "9c0977b3917b4d4a87db9c1a3a796cd7e9f0cf0ad61fe93eb9172c6145e7be2a"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 865,
+        "bytes": 402546,
+        "sha256": "2ea4c08dba8a55817e9ddc93b0411476c74c633edbd1d2656696a78376ab827b"
+      }
+    },
+    "enlightenment-rousseau-botanizing": {
+      "hallFolder": "enlightenment-revolution-kant",
+      "visualCharacter": "portrait-or-figure",
+      "textDominantOrSingleBook": false,
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Jean-Jacques_Rousseau_herborisant_%C3%A0_Ermenonville_en_juin_1778,_G.21034(2).jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Jean-Jacques_Rousseau_herborisant_%C3%A0_Ermenonville_en_juin_1778,_G.21034(2).jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Jean-Jacques_Rousseau_herborisant_%C3%A0_Ermenonville_en_juin_1778,_G.21034(2).jpg?width=1600",
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 483,
+        "height": 640,
+        "bytes": 38434,
+        "sha256": "1548884efd45a3764e300c3fc33213391b17032952bb579c1c2099a5145ae9dd"
+      },
+      "panel": {
+        "width": 966,
+        "height": 1280,
+        "bytes": 210148,
+        "sha256": "4c674b74010f9090002ecc3204aa35aead4258076cb10d85245535c4d23e4a85"
+      }
+    },
+    "enlightenment-greuze-punished-son": {
+      "hallFolder": "enlightenment-revolution-kant",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Jean-Baptiste_Greuze_-_The_Punished_Son.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Jean-Baptiste_Greuze_-_The_Punished_Son.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Jean-Baptiste_Greuze_-_The_Punished_Son.jpg?width=1600",
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 512,
+        "bytes": 37062,
+        "sha256": "8943447d2eee7c83fae763535ed3b1cb86f5b19937f36690a50d56779e812158"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 1024,
+        "bytes": 148002,
+        "sha256": "c6003229a3a4915a4a34c1d7b2ae364e4914911133ebfc58b46af5f42b6eb1ee"
+      }
+    },
+    "enlightenment-encyclopedie-pinmaking": {
+      "hallFolder": "enlightenment-revolution-kant",
+      "visualCharacter": "map-or-diagram",
+      "textDominantOrSingleBook": false,
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Encyclopedie_volume_3-057.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Encyclopedie_volume_3-057.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Encyclopedie_volume_3-057.jpg?width=1600",
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 436,
+        "bytes": 44636,
+        "sha256": "870db94dc8e1c60d688db937600e4d1c08be89e9702eb4e71f9beb7bf4f8f2a9"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 872,
+        "bytes": 198988,
+        "sha256": "710823f6e80796b6a7e15844f8295bf2995364f143355232fa87480fe1a72378"
+      }
+    },
+    "enlightenment-vernet-bordeaux-harbor": {
+      "hallFolder": "enlightenment-revolution-kant",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Vernet-port-Bordeaux.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Vernet-port-Bordeaux.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Vernet-port-Bordeaux.jpg?width=1600",
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 398,
+        "bytes": 23562,
+        "sha256": "63df923311b328e87aaef14b4acf118d58b9c212e43e02bed9b278a575f2d513"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 797,
+        "bytes": 220408,
+        "sha256": "17ace6ef8b80724665d61d65d192b81908c1f96334c2b566c7f1090394dca311"
+      }
+    },
+    "enlightenment-luny-hindostan": {
+      "hallFolder": "enlightenment-revolution-kant",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Thomas_Luny_(1759-1837)_-_The_East_Indiaman_%27Hindostan%27_(%27Hindustan%27)_and_Other_Vessels_-_BHC3403_-_Royal_Museums_Greenwich.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Thomas_Luny_(1759-1837)_-_The_East_Indiaman_%27Hindostan%27_(%27Hindustan%27)_and_Other_Vessels_-_BHC3403_-_Royal_Museums_Greenwich.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Thomas_Luny_(1759-1837)_-_The_East_Indiaman_%27Hindostan%27_(%27Hindustan%27)_and_Other_Vessels_-_BHC3403_-_Royal_Museums_Greenwich.jpg?width=1600",
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 399,
+        "bytes": 22764,
+        "sha256": "2c6f2b0355bfb2fb883447c66de3c94f21009cf7bc765de6819384268b6244de"
+      },
+      "panel": {
+        "width": 1200,
+        "height": 749,
+        "bytes": 98072,
+        "sha256": "dc585b9ffc824aa3077e1456d61865ba2d9afc6183a1a3d2b50da1333e2ce941"
+      }
+    },
+    "enlightenment-sandby-iron-forge": {
+      "hallFolder": "enlightenment-revolution-kant",
+      "visualCharacter": "place-or-architecture",
+      "textDominantOrSingleBook": false,
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Paul_Sandby_-_Iron_Forge_on_the_River_Kent,_Westmorland_-_Google_Art_Project.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Paul_Sandby_-_Iron_Forge_on_the_River_Kent,_Westmorland_-_Google_Art_Project.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Paul_Sandby_-_Iron_Forge_on_the_River_Kent,_Westmorland_-_Google_Art_Project.jpg?width=1600",
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 503,
+        "bytes": 60326,
+        "sha256": "69df2791c9173c451e1814c12439dd22ab134f98d304880360cf21885430721c"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 1007,
+        "bytes": 365088,
+        "sha256": "bc0eb8b707be587d86a84852a376267f8c60bac12e881788e6e12f4e849d6c66"
+      }
+    },
+    "enlightenment-hogarth-marriage-settlement": {
+      "hallFolder": "enlightenment-revolution-kant",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:William_Hogarth_-_Marriage_A-la-Mode_1_The_Marriage_Settlement.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/William_Hogarth_-_Marriage_A-la-Mode_1_The_Marriage_Settlement.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/William_Hogarth_-_Marriage_A-la-Mode_1_The_Marriage_Settlement.jpg?width=1600",
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 487,
+        "bytes": 40556,
+        "sha256": "d484c9370fa3c834c0d5495068521547257f31896ce2aac35732fbaffb028c02"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 973,
+        "bytes": 314840,
+        "sha256": "9835cb3273b7f0b34b47551ed4e058ce282e98800d17902da3b37a969fcf97cc"
+      }
+    },
+    "enlightenment-samuel-nine-muses": {
+      "hallFolder": "enlightenment-revolution-kant",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Portraits_in_the_Characters_of_the_Muses_in_the_Temple_of_Apollo_by_Richard_Samuel.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Portraits_in_the_Characters_of_the_Muses_in_the_Temple_of_Apollo_by_Richard_Samuel.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Portraits_in_the_Characters_of_the_Muses_in_the_Temple_of_Apollo_by_Richard_Samuel.jpg?width=1600",
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 538,
+        "bytes": 42052,
+        "sha256": "dfb9a7c50102f4f9cb5af04228ae859ac9b3bfffc69d7e49e1b78ccaf1b80a19"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 1076,
+        "bytes": 291452,
+        "sha256": "2c2d21d8c9cc99b1bcd2408b92cf3e8fc141204457fd577ee8913a13055fbb98"
+      }
+    },
+    "enlightenment-duchesse-du-maine-astronomy-lesson": {
+      "hallFolder": "enlightenment-revolution-kant",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:La_Le%C3%A7on_d%E2%80%99astronomie_de_la_duchesse_du_Maine_-_Fran%C3%A7ois_de_Troy.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/La_Le%C3%A7on_d%E2%80%99astronomie_de_la_duchesse_du_Maine_-_Fran%C3%A7ois_de_Troy.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/La_Le%C3%A7on_d%E2%80%99astronomie_de_la_duchesse_du_Maine_-_Fran%C3%A7ois_de_Troy.jpg?width=1600",
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 483,
+        "bytes": 20710,
+        "sha256": "9d68ec748f29fe646c02c2d143d83c1d2917eecd7a8e17b152560cb47fd87a8c"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 966,
+        "bytes": 83960,
+        "sha256": "c1ae4a4dde037331c2470cfdf42f9198c6faa9d2945f5fc616a2622df857499b"
+      }
+    },
+    "enlightenment-womens-march-versailles": {
+      "hallFolder": "enlightenment-revolution-kant",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:A_Versailles,_%C3%A0_Versailles_5_octobre_1789_-_Restoration.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/A_Versailles,_%C3%A0_Versailles_5_octobre_1789_-_Restoration.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/A_Versailles,_%C3%A0_Versailles_5_octobre_1789_-_Restoration.jpg?width=1600",
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 449,
+        "bytes": 54690,
+        "sha256": "a06a900a8bfb0d064039ac5d987cf198587e76f6f70c968b4183585a1b971745"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 897,
+        "bytes": 303400,
+        "sha256": "aaa789be7b69b04cc01dcb4beed142d7bea68d65a5c65cc5192f222cecf2b5c9"
+      }
+    }
+  }
+}

@@ -68,6 +68,12 @@ Gallery 13, **Latin Christian & Scholastic Traditions**, follows the sequence ru
 
 Gallery 16, **Rationalism: Mind, Nature, and System**, likewise contains **six installations in each of three rooms, 18 total**. Its five canonical primaries and thirteen supplemental installations treat “rationalism” as a later family label while preserving the disagreements among Descartes, Spinoza, Conway, and Leibniz.
 
+Gallery 17, **Empiricism, Science, and Political Order**, preserves the same sequence rule: **six installations in each of three rooms, 18 total**. Four canonical primaries and fourteen supplemental installations move from Locke through Berkeley to Hume while showing observation as instrumented, represented, social, political, and historically situated.
+
+Gallery 18, **Enlightenment, Revolution, and Kant’s Critical Turn**, preserves its approved special crossroads: four perimeter rooms contain **six installations each**, while the independent central Kant room contains **one anchor**, for **25 total**. The east–west chronological route stays straight; every perimeter room opens only through the central cell; the Kant installation uses its own full-height exhibit baffle without replacing, overlapping, or collapsing the five-room architecture.
+
+For Galleries 17 and 18, every new asset records a visual-character class. Text-dominant pages and isolated books are exceptions: Gallery 17 allows no more than 3 of 18 and Gallery 18 no more than 4 of 25, while each gallery must use at least four non-textual character groups. Relevant portraits, social scenes, places, material objects, and maps or diagrams should dominate.
+
 ## Release checklist for every new hall
 
 Before a hall can be called finished:
@@ -76,4 +82,4 @@ Before a hall can be called finished:
 2. Every room is inspected in the running app from both directions; each half-room or crossroads bay is photographed or otherwise visually checked at visitor eye level.
 3. Every primary, supplemental panel, doorway, fast-travel destination, directory entry, and direct exhibit route works.
 4. The visitor map shows the new hall, its real walking connection, and the visitor's directional arrow without requiring desktop scrolling.
-5. The production build and all Museum, routing, integrity, accuracy, article, and asset audits pass before deployment.
+5. The production build and the focused Museum, routing, plan, and asset audits for the changed contracts pass locally; unchanged broad integrity, accuracy, and article suites may run in CI unless a release-specific risk justifies repeating them.

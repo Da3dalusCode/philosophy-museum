@@ -17,6 +17,8 @@ import {PhenomenologySupplementalExhibits} from './PhenomenologySupplementalExhi
 import {PlatoSupplementalExhibits} from './PlatoSupplementalExhibits';
 import {RenaissanceSupplementalExhibits} from './RenaissanceSupplementalExhibits';
 import {
+  EmpiricismSupplementalExhibits,
+  EnlightenmentSupplementalExhibits,
   HellenisticRomanSupplementalExhibits,
   LateAntiquitySupplementalExhibits,
   LatinScholasticSupplementalExhibits,
@@ -183,6 +185,24 @@ export function CanonicalMuseumHallContent({
     {definition.id === 'rationalism-mind-nature-system'
       && definition.layout.supplementalExhibits
       && <RationalismSupplementalExhibits
+        layouts={active
+          ? definition.layout.supplementalExhibits
+          : definition.layout.supplementalExhibits.filter(({assetId}) => entryAssetIds.has(assetId))}
+        nearbyId={nearbySupplemental?.hallId === definition.id ? nearbySupplemental.supplementalExhibitId : undefined}
+        onSelect={(supplementalExhibitId) => onSelectSupplementalExhibit({hallId: definition.id, supplementalExhibitId})}
+      />}
+    {definition.id === 'empiricism-science-political-order'
+      && definition.layout.supplementalExhibits
+      && <EmpiricismSupplementalExhibits
+        layouts={active
+          ? definition.layout.supplementalExhibits
+          : definition.layout.supplementalExhibits.filter(({assetId}) => entryAssetIds.has(assetId))}
+        nearbyId={nearbySupplemental?.hallId === definition.id ? nearbySupplemental.supplementalExhibitId : undefined}
+        onSelect={(supplementalExhibitId) => onSelectSupplementalExhibit({hallId: definition.id, supplementalExhibitId})}
+      />}
+    {definition.id === 'enlightenment-revolution-kant'
+      && definition.layout.supplementalExhibits
+      && <EnlightenmentSupplementalExhibits
         layouts={active
           ? definition.layout.supplementalExhibits
           : definition.layout.supplementalExhibits.filter(({assetId}) => entryAssetIds.has(assetId))}

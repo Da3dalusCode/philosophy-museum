@@ -67,6 +67,14 @@ import {
   RATIONALISM_SUPPLEMENTAL_EXHIBITS,
   RATIONALISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
 } from './rationalismSupplementalExhibits';
+import {
+  EMPIRICISM_SUPPLEMENTAL_EXHIBITS,
+  EMPIRICISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
+} from './empiricismSupplementalExhibits';
+import {
+  ENLIGHTENMENT_SUPPLEMENTAL_EXHIBITS,
+  ENLIGHTENMENT_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
+} from './enlightenmentSupplementalExhibits';
 import type {
   MuseumSupplementalExhibitId,
   MuseumSupplementalExhibitLayout,
@@ -168,6 +176,16 @@ const COLLECTIONS = [
     hallId: 'rationalism-mind-nature-system',
     exhibits: RATIONALISM_SUPPLEMENTAL_EXHIBITS,
     layouts: RATIONALISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
+  },
+  {
+    hallId: 'empiricism-science-political-order',
+    exhibits: EMPIRICISM_SUPPLEMENTAL_EXHIBITS,
+    layouts: EMPIRICISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
+  },
+  {
+    hallId: 'enlightenment-revolution-kant',
+    exhibits: ENLIGHTENMENT_SUPPLEMENTAL_EXHIBITS,
+    layouts: ENLIGHTENMENT_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
   },
 ] as const satisfies readonly MuseumSupplementalCollection[];
 

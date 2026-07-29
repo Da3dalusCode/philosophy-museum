@@ -302,7 +302,40 @@ export type MuseumSupplementalExhibitId =
   | 'leibniz-preestablished-harmony'
   | 'leibniz-new-essays-innateness'
   | 'leibniz-clarke-space-time'
-  | 'leibniz-binary-symbolic-reason';
+  | 'leibniz-binary-symbolic-reason'
+  | 'empiricism-micrographia-enlarged-sight'
+  | 'locke-molyneux-crossmodal-vision'
+  | 'locke-consciousness-prince-cobbler'
+  | 'locke-rights-property-carolina'
+  | 'berkeley-vision-learned-distance'
+  | 'berkeley-perception-and-object'
+  | 'berkeley-bermuda-college-project'
+  | 'berkeley-camera-obscura-signs'
+  | 'berkeley-siris-tar-water-chain'
+  | 'hume-causation-billiard-table'
+  | 'hume-self-theatre-without-spectator'
+  | 'hume-sentiment-and-social-judgment'
+  | 'hume-skepticism-backgammon-return'
+  | 'hume-edinburgh-public-world'
+  | 'enlightenment-persian-mirror'
+  | 'enlightenment-comparison-map'
+  | 'enlightenment-power-checks-power'
+  | 'enlightenment-law-lived-institution'
+  | 'enlightenment-liberty-slavery-contradiction'
+  | 'enlightenment-geneva-citizenship'
+  | 'enlightenment-luxury-amour-propre'
+  | 'enlightenment-education-forms-person'
+  | 'enlightenment-general-will'
+  | 'enlightenment-rousseau-botany'
+  | 'enlightenment-sympathy-judgment'
+  | 'enlightenment-division-labor'
+  | 'enlightenment-commerce-social-world'
+  | 'enlightenment-chartered-monopoly'
+  | 'enlightenment-industry-public-judgment'
+  | 'enlightenment-marriage-domestic-government'
+  | 'enlightenment-women-public-intellectuals'
+  | 'enlightenment-access-to-knowledge'
+  | 'enlightenment-revolution-from-street';
 
 export type MuseumSupplementalInstallationKind =
   | 'cave-ascent'
@@ -343,6 +376,12 @@ export type MuseumSupplementalInstallationKind =
   | 'rationalism-work'
   | 'rationalism-context'
   | 'rationalism-concept'
+  | 'empiricism-work'
+  | 'empiricism-context'
+  | 'empiricism-concept'
+  | 'enlightenment-work'
+  | 'enlightenment-context'
+  | 'enlightenment-concept'
   | 'forum-comparative-lens';
 
 export type MuseumSupplementalExhibitLayout = {
@@ -526,6 +565,8 @@ export type MuseumHallPrefetch = {
 export type MuseumHallContentDefinition = {
   id: MuseumHallId;
   layout: MuseumHallLayout;
+  /** Hall-local render-only walls such as lintels over authored interior openings. */
+  architectureOnlyWalls?: readonly MuseumWallDefinition[];
   prefetch: MuseumHallPrefetch;
   fallbackLabel: string;
 };
@@ -605,7 +646,7 @@ export type MuseumRuntimeNodeDefinition = {
   kind: MuseumPhysicalNodeKind;
   /** Every one of the 26 architectural galleries has a stable program id. */
   programHallId?: MuseumPlannedHallId;
-  /** Only the sixteen curated/open galleries own a content registration. */
+  /** Only the eighteen curated/open galleries own a content registration. */
   publicHallId?: MuseumPublicHallId;
   galleryState?: MuseumGalleryState;
   publicGalleryNumber?: number;

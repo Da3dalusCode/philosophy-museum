@@ -20,6 +20,8 @@ import {EAST_ASIAN_GALLERY_ASSETS} from './eastAsianGalleryAssets';
 import {JEWISH_GALLERY_ASSETS} from './jewishGalleryAssets';
 import {SUCCESSOR_GALLERIES_ASSETS} from './successorGalleriesAssets';
 import {SCHOLASTIC_RATIONALIST_GALLERY_ASSETS} from './scholasticRationalistGalleryAssets';
+import {EMPIRICISM_GALLERY_ASSETS} from './empiricismGalleryAssets';
+import {ENLIGHTENMENT_GALLERY_ASSETS} from './enlightenmentGalleryAssets';
 
 const assetPath = (slug: string, variant: 'scene' | 'panel', width: number, height: number): MuseumAssetVariant => ({
   path: `assets/museum/ancient-greek/${slug}-${variant}.webp`,
@@ -430,6 +432,8 @@ export const MUSEUM_ASSETS = [
   ...JEWISH_GALLERY_ASSETS,
   ...SUCCESSOR_GALLERIES_ASSETS,
   ...SCHOLASTIC_RATIONALIST_GALLERY_ASSETS,
+  ...EMPIRICISM_GALLERY_ASSETS,
+  ...ENLIGHTENMENT_GALLERY_ASSETS,
 ] as const satisfies readonly MuseumAssetRecord[];
 
 export const museumAssetById = new Map<MuseumAssetId, MuseumAssetRecord>(

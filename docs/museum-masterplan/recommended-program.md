@@ -372,4 +372,4 @@ This approved intellectual program governs the production Continuous Enfilade un
 - reserve contexts remain visibly provisional until supported by researched Atlas records;
 - a full hall can expand rather than forcing future material into a misleading category.
 
-The program establishes what the Museum houses and the intellectual rules the production Continuous Enfilade must preserve. The complete building provides all 26 walkable gallery shells and 105 named rooms; Galleries 01–16 are curated/open, while Galleries 17–26 remain planned/walkable without invented content or fast travel.
+The program establishes what the Museum houses and the intellectual rules the production Continuous Enfilade must preserve. The complete building provides all 26 walkable gallery shells and 105 named rooms; Galleries 01–18 are curated/open, while Galleries 19–26 remain planned/walkable without invented content or fast travel.

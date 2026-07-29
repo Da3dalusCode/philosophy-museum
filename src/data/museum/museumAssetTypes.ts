@@ -429,7 +429,50 @@ export type MuseumAssetId =
   | 'rationalism-spinoza-engraving'
   | 'rationalism-discourse-first-edition'
   | 'rationalism-ethics-propositions'
-  | 'rationalism-tractatus-manuscript-note';
+  | 'rationalism-tractatus-manuscript-note'
+  | 'empiricism-hooke-micrographia-flea'
+  | 'empiricism-orrery-lecture-1766'
+  | 'locke-molyneux-cataract-surgery'
+  | 'locke-cobbler-workshop-1671'
+  | 'empiricism-locke-greenhill-portrait'
+  | 'empiricism-locke-carolina-map'
+  | 'berkeley-perspective-instrument-1604'
+  | 'empiricism-berkeley-smibert-portrait'
+  | 'empiricism-berkeley-optical-illusion'
+  | 'empiricism-berkeley-bermuda-scheme'
+  | 'empiricism-camera-obscura'
+  | 'berkeley-scots-pine-botanical-plate'
+  | 'empiricism-hume-billiards'
+  | 'hume-ramsay-portrait-1754'
+  | 'hume-theatre-interior-c1740'
+  | 'hume-greuze-village-bride-1761'
+  | 'empiricism-hume-backgammon'
+  | 'empiricism-hume-edinburgh'
+  | 'enlightenment-montesquieu-versailles-portrait'
+  | 'enlightenment-rousseau-ramsay-portrait'
+  | 'enlightenment-smith-wedgwood-medallion'
+  | 'enlightenment-astell-serious-proposal-1694'
+  | 'enlightenment-wollstonecraft-heath-engraving'
+  | 'enlightenment-kant-doebler-portrait'
+  | 'enlightenment-persian-envoy-coypel'
+  | 'enlightenment-delisle-world-map-1720'
+  | 'enlightenment-house-commons-walpole'
+  | 'enlightenment-hogarth-bench-1758'
+  | 'enlightenment-wedgwood-abolition-medallion'
+  | 'enlightenment-geneva-gardelle-view'
+  | 'enlightenment-fragonard-swing'
+  | 'enlightenment-chardin-schoolmistress'
+  | 'enlightenment-thevenin-federation'
+  | 'enlightenment-rousseau-botanizing'
+  | 'enlightenment-greuze-punished-son'
+  | 'enlightenment-encyclopedie-pinmaking'
+  | 'enlightenment-vernet-bordeaux-harbor'
+  | 'enlightenment-luny-hindostan'
+  | 'enlightenment-sandby-iron-forge'
+  | 'enlightenment-hogarth-marriage-settlement'
+  | 'enlightenment-samuel-nine-muses'
+  | 'enlightenment-duchesse-du-maine-astronomy-lesson'
+  | 'enlightenment-womens-march-versailles';
 
 export type MuseumAssetRole =
   | 'identity'
@@ -448,6 +491,14 @@ export type MuseumMediaKind =
   | 'drawing'
   | 'document'
   | 'architectural-plan';
+
+export type MuseumVisualCharacter =
+  | 'portrait-or-figure'
+  | 'artwork-or-social-scene'
+  | 'place-or-architecture'
+  | 'material-object'
+  | 'map-or-diagram'
+  | 'text-dominant';
 
 export type MuseumLikenessStatus =
   | 'not-applicable'
@@ -473,6 +524,8 @@ export type MuseumAssetRecord = {
   entityId: string;
   role: MuseumAssetRole;
   mediaKind: MuseumMediaKind;
+  /** Required by the visual-diversity gate for assets added from Gallery 17 onward. */
+  visualCharacter?: MuseumVisualCharacter;
   title: string;
   creator: string;
   objectDate: string;

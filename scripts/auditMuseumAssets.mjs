@@ -17,6 +17,10 @@ const successorPreparationSource = readFileSync(resolve(repoRoot, 'scripts/prepa
 const successorManifest = JSON.parse(readFileSync(resolve(repoRoot, 'scripts/museumSuccessorGalleriesAssetManifest.json'), 'utf8'));
 const galleries13And16PreparationSource = readFileSync(resolve(repoRoot, 'scripts/prepareMuseumGalleries13And16Assets.py'), 'utf8');
 const galleries13And16Manifest = JSON.parse(readFileSync(resolve(repoRoot, 'scripts/museumGalleries13And16AssetManifest.json'), 'utf8'));
+const gallery17PreparationSource = readFileSync(resolve(repoRoot, 'scripts/prepareMuseumGallery17Assets.py'), 'utf8');
+const gallery17Manifest = JSON.parse(readFileSync(resolve(repoRoot, 'scripts/museumGallery17AssetManifest.json'), 'utf8'));
+const gallery18PreparationSource = readFileSync(resolve(repoRoot, 'scripts/prepareMuseumGallery18Assets.py'), 'utf8');
+const gallery18Manifest = JSON.parse(readFileSync(resolve(repoRoot, 'scripts/museumGallery18AssetManifest.json'), 'utf8'));
 const auditBase = '/philosophy-atlas-audit/';
 const virtualEntry = 'virtual:philosophy-atlas-museum-asset-audit';
 const resolvedEntry = `\0${virtualEntry}`;
@@ -38,6 +42,7 @@ const result = await build({
       export * from '/src/data/museum/phenomenologySupplementalExhibits.ts';
       export * from '/src/data/museum/analyticSupplementalExhibits.ts';
       export * from '/src/data/museum/justiceSupplementalExhibits.ts';
+      export * from '/src/data/museum/coreQuestionsForumSupplementalExhibits.ts';
       export * from '/src/data/museum/classicalSouthAsianSupplementalExhibits.ts';
       export * from '/src/data/museum/buddhistSupplementalExhibits.ts';
       export * from '/src/data/museum/classicalChineseSupplementalExhibits.ts';
@@ -48,6 +53,8 @@ const result = await build({
       export * from '/src/data/museum/hellenisticRomanSupplementalExhibits.ts';
       export * from '/src/data/museum/lateAntiquitySupplementalExhibits.ts';
       export * from '/src/data/museum/rationalismSupplementalExhibits.ts';
+      export * from '/src/data/museum/empiricismSupplementalExhibits.ts';
+      export * from '/src/data/museum/enlightenmentSupplementalExhibits.ts';
     ` : undefined,
   }],
   build: {
@@ -85,8 +92,14 @@ const {
   LATE_ANTIQUITY_SUPPLEMENTAL_EXHIBITS,
   RATIONALISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
   RATIONALISM_SUPPLEMENTAL_EXHIBITS,
+  EMPIRICISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
+  EMPIRICISM_SUPPLEMENTAL_EXHIBITS,
+  ENLIGHTENMENT_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
+  ENLIGHTENMENT_SUPPLEMENTAL_EXHIBITS,
   JUSTICE_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
   JUSTICE_SUPPLEMENTAL_EXHIBITS,
+  CORE_QUESTIONS_FORUM_SUPPLEMENTAL_LAYOUTS,
+  CORE_QUESTIONS_FORUM_SUPPLEMENTAL_EXHIBITS,
   MUSEUM_ASSETS,
   MUSEUM_HALLS,
   MUSEUM_FRAME_RAIL_FRONT_Z,
@@ -121,6 +134,8 @@ const ACTIVE_HALL_IDS = [
   'hellenistic-roman-ways',
   'late-antiquity-inheritance',
   'rationalism-mind-nature-system',
+  'empiricism-science-political-order',
+  'enlightenment-revolution-kant',
 ];
 const MANAGED_HALL_FOLDERS = [
   'analytic-traditions',
@@ -306,6 +321,8 @@ const manifestAssets = modernManifest?.assets ?? {};
 const mediterraneanManifestAssets = mediterraneanManifest?.assets ?? {};
 const successorManifestAssets = successorManifest?.assets ?? {};
 const galleries13And16ManifestAssets = galleries13And16Manifest?.assets ?? {};
+const gallery17ManifestAssets = gallery17Manifest?.assets ?? {};
+const gallery18ManifestAssets = gallery18Manifest?.assets ?? {};
 const assetById = new Map(MUSEUM_ASSETS.map((asset) => [asset.id, asset]));
 const liveExhibits = MUSEUM_HALLS.flatMap((hall) => hall.exhibits.map((exhibit) => ({hall, exhibit})));
 const canonicalReferencedIds = liveExhibits.flatMap(({exhibit}) => [
@@ -317,6 +334,7 @@ const renaissanceSupplementalReferencedIds = RENAISSANCE_SUPPLEMENTAL_EXHIBITS.m
 const phenomenologySupplementalReferencedIds = PHENOMENOLOGY_SUPPLEMENTAL_EXHIBITS.map(({assetId}) => assetId);
 const analyticSupplementalReferencedIds = ANALYTIC_SUPPLEMENTAL_EXHIBITS.map(({assetId}) => assetId);
 const justiceSupplementalReferencedIds = JUSTICE_SUPPLEMENTAL_EXHIBITS.map(({assetId}) => assetId);
+const coreQuestionsForumSupplementalReferencedIds = CORE_QUESTIONS_FORUM_SUPPLEMENTAL_EXHIBITS.map(({assetId}) => assetId);
 const classicalSouthAsianSupplementalReferencedIds = CLASSICAL_SOUTH_ASIAN_SUPPLEMENTAL_EXHIBITS.map(({assetId}) => assetId);
 const buddhistSupplementalReferencedIds = BUDDHIST_SUPPLEMENTAL_EXHIBITS.map(({assetId}) => assetId);
 const classicalChineseSupplementalReferencedIds = CLASSICAL_CHINESE_SUPPLEMENTAL_EXHIBITS.map(({assetId}) => assetId);
@@ -327,12 +345,15 @@ const latinScholasticSupplementalReferencedIds = LATIN_SCHOLASTIC_SUPPLEMENTAL_E
 const hellenisticRomanSupplementalReferencedIds = HELLENISTIC_ROMAN_SUPPLEMENTAL_EXHIBITS.map(({assetId}) => assetId);
 const lateAntiquitySupplementalReferencedIds = LATE_ANTIQUITY_SUPPLEMENTAL_EXHIBITS.map(({assetId}) => assetId);
 const rationalismSupplementalReferencedIds = RATIONALISM_SUPPLEMENTAL_EXHIBITS.map(({assetId}) => assetId);
+const empiricismSupplementalReferencedIds = EMPIRICISM_SUPPLEMENTAL_EXHIBITS.map(({assetId}) => assetId);
+const enlightenmentSupplementalReferencedIds = ENLIGHTENMENT_SUPPLEMENTAL_EXHIBITS.map(({assetId}) => assetId);
 const supplementalReferencedIds = [
   ...platoSupplementalReferencedIds,
   ...renaissanceSupplementalReferencedIds,
   ...phenomenologySupplementalReferencedIds,
   ...analyticSupplementalReferencedIds,
   ...justiceSupplementalReferencedIds,
+  ...coreQuestionsForumSupplementalReferencedIds,
   ...classicalSouthAsianSupplementalReferencedIds,
   ...buddhistSupplementalReferencedIds,
   ...classicalChineseSupplementalReferencedIds,
@@ -343,6 +364,8 @@ const supplementalReferencedIds = [
   ...hellenisticRomanSupplementalReferencedIds,
   ...lateAntiquitySupplementalReferencedIds,
   ...rationalismSupplementalReferencedIds,
+  ...empiricismSupplementalReferencedIds,
+  ...enlightenmentSupplementalReferencedIds,
 ];
 const referencedIds = [...canonicalReferencedIds, ...supplementalReferencedIds];
 const physicalSupplementalGroups = [
@@ -351,6 +374,7 @@ const physicalSupplementalGroups = [
   {galleryId: 'phenomenology-existence-embodiment', records: PHENOMENOLOGY_SUPPLEMENTAL_EXHIBITS, layouts: PHENOMENOLOGY_SUPPLEMENTAL_EXHIBIT_LAYOUTS},
   {galleryId: 'analytic-traditions', records: ANALYTIC_SUPPLEMENTAL_EXHIBITS, layouts: ANALYTIC_SUPPLEMENTAL_EXHIBIT_LAYOUTS},
   {galleryId: 'justice-democratic-reason', records: JUSTICE_SUPPLEMENTAL_EXHIBITS, layouts: JUSTICE_SUPPLEMENTAL_EXHIBIT_LAYOUTS},
+  {galleryId: 'core-questions-forum', records: CORE_QUESTIONS_FORUM_SUPPLEMENTAL_EXHIBITS, layouts: CORE_QUESTIONS_FORUM_SUPPLEMENTAL_LAYOUTS},
   {galleryId: 'classical-south-asian-worlds', records: CLASSICAL_SOUTH_ASIAN_SUPPLEMENTAL_EXHIBITS, layouts: CLASSICAL_SOUTH_ASIAN_SUPPLEMENTAL_EXHIBIT_LAYOUTS},
   {galleryId: 'buddhist-philosophies', records: BUDDHIST_SUPPLEMENTAL_EXHIBITS, layouts: BUDDHIST_SUPPLEMENTAL_EXHIBIT_LAYOUTS},
   {galleryId: 'classical-chinese-traditions', records: CLASSICAL_CHINESE_SUPPLEMENTAL_EXHIBITS, layouts: CLASSICAL_CHINESE_SUPPLEMENTAL_EXHIBIT_LAYOUTS},
@@ -361,6 +385,8 @@ const physicalSupplementalGroups = [
   {galleryId: 'hellenistic-roman-ways', records: HELLENISTIC_ROMAN_SUPPLEMENTAL_EXHIBITS, layouts: HELLENISTIC_ROMAN_SUPPLEMENTAL_EXHIBIT_LAYOUTS},
   {galleryId: 'late-antiquity-inheritance', records: LATE_ANTIQUITY_SUPPLEMENTAL_EXHIBITS, layouts: LATE_ANTIQUITY_SUPPLEMENTAL_EXHIBIT_LAYOUTS},
   {galleryId: 'rationalism-mind-nature-system', records: RATIONALISM_SUPPLEMENTAL_EXHIBITS, layouts: RATIONALISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS},
+  {galleryId: 'empiricism-science-political-order', records: EMPIRICISM_SUPPLEMENTAL_EXHIBITS, layouts: EMPIRICISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS},
+  {galleryId: 'enlightenment-revolution-kant', records: ENLIGHTENMENT_SUPPLEMENTAL_EXHIBITS, layouts: ENLIGHTENMENT_SUPPLEMENTAL_EXHIBIT_LAYOUTS},
 ];
 const physicalSupplementalAssetIds = physicalSupplementalGroups.flatMap(({layouts}) => layouts.map(({assetId}) => assetId));
 const physicalInstallationAssetIds = [...canonicalReferencedIds, ...physicalSupplementalAssetIds];
@@ -422,9 +448,13 @@ const webpDimensions = (path) => {
   assert.fail(`Unable to determine WebP dimensions for ${path}`);
 };
 
-check('the canonical sixteen expose 147 primaries with optional, resolvable local media references', () => {
+check('the canonical eighteen expose 157 primaries, 258 supplementals, and 415 interpreted stops with resolvable local media', () => {
   assert.deepEqual(MUSEUM_HALLS.map(({id}) => id), ACTIVE_HALL_IDS);
-  assert.equal(liveExhibits.length, 147);
+  assert.equal(MUSEUM_HALLS.length, 18);
+  assert.equal(liveExhibits.length, 157);
+  assert.equal(supplementalReferencedIds.length, 258);
+  assert.equal(liveExhibits.length + supplementalReferencedIds.length, 415);
+  assert.equal(referencedIds.length, 430);
   assert(canonicalReferencedIds.length > 0, 'the live primary program references no local media');
   for (const {hall, exhibit} of liveExhibits) {
     assert(Array.isArray(exhibit.supportingAssetIds), `${hall.id}/${exhibit.id} has no supporting-asset array`);
@@ -816,6 +846,80 @@ check('Galleries 13 and 16 fill seven sequence rooms with 42 distinct physical m
   );
 });
 
+check('Galleries 17 and 18 fill their approved rooms with 43 distinct physical media records', () => {
+  const expected = new Map([
+    ['empiricism-science-political-order', {
+      primary: 4,
+      supplemental: 14,
+      physical: 18,
+      manifestAssets: gallery17ManifestAssets,
+      roomInstallations: new Map([
+        ['empiricism-locke-ideas-rights', 6],
+        ['empiricism-berkeley-perception', 6],
+        ['empiricism-hume-skepticism', 6],
+      ]),
+    }],
+    ['enlightenment-revolution-kant', {
+      primary: 6,
+      supplemental: 19,
+      physical: 25,
+      manifestAssets: gallery18ManifestAssets,
+      roomInstallations: new Map([
+        ['enlightenment-law-institutions', 6],
+        ['enlightenment-society-freedom', 6],
+        ['enlightenment-sentiment-commerce', 6],
+        ['enlightenment-equality-education', 6],
+        ['enlightenment-kant-critical', 1],
+      ]),
+    }],
+  ]);
+  const combinedPhysicalIds = [];
+  for (const [hallId, counts] of expected) {
+    const hall = MUSEUM_HALLS.find(({id}) => id === hallId);
+    const group = physicalSupplementalGroups.find(({galleryId}) => galleryId === hallId);
+    assert(hall && group, `${hallId} is absent from the physical asset audit`);
+    assert.equal(hall.exhibits.length, counts.primary, `${hallId} primary count changed`);
+    assert.equal(group.records.length, counts.supplemental, `${hallId} supplemental record count changed`);
+    assert.equal(group.layouts.length, counts.supplemental, `${hallId} supplemental layout count changed`);
+    assert.deepEqual(
+      group.layouts.map(({id}) => id).sort(),
+      group.records.map(({id}) => id).sort(),
+      `${hallId} supplemental records and layouts diverged`,
+    );
+    for (const layout of group.layouts) {
+      const record = group.records.find(({id}) => id === layout.id);
+      assert.equal(layout.assetId, record?.assetId, `${hallId}/${layout.id} physical layout uses the wrong scene asset`);
+      assert.equal(layout.assetId, record?.panelAssetId, `${hallId}/${layout.id} panel uses a different asset`);
+      assert(assetById.has(layout.assetId), `${hallId}/${layout.id} references missing asset ${layout.assetId}`);
+    }
+    const primaryIds = hall.exhibits.flatMap(({principalAssetId, supportingAssetIds, id}) => {
+      assert(principalAssetId, `${hallId}/${id} lacks a principal asset`);
+      assert.equal(supportingAssetIds.length, 0, `${hallId}/${id} adds an unexpected second physical image`);
+      return [principalAssetId];
+    });
+    const physicalIds = [...primaryIds, ...group.layouts.map(({assetId}) => assetId)];
+    assert.equal(physicalIds.length, counts.physical, `${hallId} physical media count changed`);
+    assert.equal(new Set(physicalIds).size, counts.physical, `${hallId} repeats a physical asset`);
+    assert.deepEqual(
+      Object.keys(counts.manifestAssets).sort(),
+      physicalIds.slice().sort(),
+      `${hallId} source lock does not exactly cover its physical installations`,
+    );
+    for (const [roomId, installationCount] of counts.roomInstallations) {
+      const roomPrimaryCount = hall.exhibits.filter(({roomId: exhibitRoomId}) => exhibitRoomId === roomId).length;
+      const roomSupplementalCount = group.layouts.filter(({spatialCellId}) => spatialCellId === roomId).length;
+      assert.equal(
+        roomPrimaryCount + roomSupplementalCount,
+        installationCount,
+        `${hallId}/${roomId} physical wall-installation count changed`,
+      );
+    }
+    combinedPhysicalIds.push(...physicalIds);
+  }
+  assert.equal(combinedPhysicalIds.length, 43);
+  assert.equal(new Set(combinedPhysicalIds).size, 43, 'Galleries 17 and 18 reuse a physical asset across galleries');
+});
+
 check('every physical installation has a museum-wide unique asset, source page, and derivative hash', () => {
   for (const {galleryId, records, layouts} of physicalSupplementalGroups) {
     assert.equal(layouts.length, records.length, `${galleryId} supplemental record and physical-layout counts diverged`);
@@ -854,11 +958,11 @@ check('every physical installation has a museum-wide unique asset, source page, 
   assert(unique(physicalAssets.map(({variants}) => sha256(exactCasePath(variants.panel.path)))), 'two physical installations reuse identical panel bytes');
 });
 
-check('the preserved asset registry contains 429 unique records and derivative paths', () => {
-  assert.equal(MUSEUM_ASSETS.length, 429);
-  assert.equal(assetById.size, 429);
+check('the preserved asset registry contains 472 unique records and derivative paths', () => {
+  assert.equal(MUSEUM_ASSETS.length, 472);
+  assert.equal(assetById.size, 472);
   const variantPaths = MUSEUM_ASSETS.flatMap(({variants}) => [variants.scene.path, variants.panel.path]);
-  assert.equal(variantPaths.length, 858);
+  assert.equal(variantPaths.length, 944);
   assert(unique(variantPaths), 'two asset variants share a derivative path');
   for (const id of NEW_CANONICAL_ASSET_IDS) assert(assetById.has(id), `new canonical asset ${id} is missing`);
   for (const id of MEDITERRANEAN_ASSET_IDS) assert(assetById.has(id), `Gallery 01 asset ${id} is missing`);
@@ -962,7 +1066,7 @@ check('every registered variant is exact-case local WebP media with locked dimen
   }
 });
 
-check('the 315-source modern-manifest subset excludes separately locked Ancient, successor, and Gallery 13/16 media', () => {
+check('the 315-source modern-manifest subset excludes all separately locked Gallery 01 and 13–18 media', () => {
   assert.equal(modernManifest.version, 1);
   assert.equal(Object.keys(manifestAssets).length, 315);
   const managedAssets = MUSEUM_ASSETS.filter(({variants}) =>
@@ -970,7 +1074,9 @@ check('the 315-source modern-manifest subset excludes separately locked Ancient,
       && !variants.scene.path.startsWith('assets/museum/hellenistic-roman-ways/')
       && !variants.scene.path.startsWith('assets/museum/late-antiquity-inheritance/')
       && !variants.scene.path.startsWith('assets/museum/latin-christian-scholastic/')
-      && !variants.scene.path.startsWith('assets/museum/rationalism-mind-nature-system/'));
+      && !variants.scene.path.startsWith('assets/museum/rationalism-mind-nature-system/')
+      && !variants.scene.path.startsWith('assets/museum/empiricism-science-political-order/')
+      && !variants.scene.path.startsWith('assets/museum/enlightenment-revolution-kant/'));
   assert.equal(managedAssets.length, 315);
   assert.deepEqual(Object.keys(manifestAssets).sort(), managedAssets.map(({id}) => id).sort());
   assert.match(preparationSource, /MANIFEST_PATH = ROOT \/ "scripts" \/ "museumModernAssetManifest\.json"/);
@@ -1200,6 +1306,133 @@ check('the 42-source Galleries 13 and 16 lock reproduces every curated derivativ
   });
 });
 
+check('the 43-source Galleries 17 and 18 locks reproduce every curated derivative without source or hash reuse', () => {
+  assert.equal(gallery17Manifest.version, 1);
+  assert.equal(gallery18Manifest.version, 1);
+  assert.equal(Object.keys(gallery17ManifestAssets).length, 18);
+  assert.equal(Object.keys(gallery18ManifestAssets).length, 25);
+
+  const previousManifestAssets = {
+    ...manifestAssets,
+    ...mediterraneanManifestAssets,
+    ...successorManifestAssets,
+    ...galleries13And16ManifestAssets,
+  };
+  const previouslyLockedIds = new Set(Object.keys(previousManifestAssets));
+  const newManifestAssets = {...gallery17ManifestAssets, ...gallery18ManifestAssets};
+  const newManifestIds = Object.keys(newManifestAssets);
+  assert.equal(previouslyLockedIds.size, 413, 'The pre-Gallery-17/18 source-lock inventories overlap');
+  assert.equal(newManifestIds.length, 43, 'The Gallery 17/18 source-lock inventories overlap');
+  for (const id of newManifestIds) {
+    assert(!previouslyLockedIds.has(id), `${id} is redundantly owned by an older preparation manifest`);
+  }
+  assert.equal(previouslyLockedIds.size + newManifestIds.length, 456);
+
+  for (const [source, manifestName, count] of [
+    [gallery17PreparationSource, 'museumGallery17AssetManifest.json', 18],
+    [gallery18PreparationSource, 'museumGallery18AssetManifest.json', 25],
+  ]) {
+    assert(source.includes(manifestName), `preparation pipeline omits ${manifestName}`);
+    assert.match(source, new RegExp(`EXPECTED_ASSET_COUNT = ${count}`));
+    assert.match(source, /assert_locked\(slug, "scene"/);
+    assert.match(source, /assert_locked\(slug, "panel"/);
+    assert.match(source, /"sha256": sha256\(destination\)/);
+    assert.match(source, /visualCharacter/);
+    assert.match(source, /textDominantOrSingleBook/);
+  }
+
+  const previousSourcePages = new Set(Object.values(previousManifestAssets).map(({sourcePageUrl}) => sourcePageUrl));
+  const previousSceneHashes = new Set(Object.values(previousManifestAssets).map(({scene}) => scene.sha256));
+  const previousPanelHashes = new Set(Object.values(previousManifestAssets).map(({panel}) => panel.sha256));
+  const newSourcePages = [];
+  const newSceneHashes = [];
+  const newPanelHashes = [];
+  const countsByFolder = new Map();
+  for (const [id, lock] of Object.entries(newManifestAssets)) {
+    const asset = assetById.get(id);
+    assert(asset, `${id} Gallery 17/18 lock has no asset record`);
+    assert(
+      ['empiricism-science-political-order', 'enlightenment-revolution-kant'].includes(lock.hallFolder),
+      `${id} has invalid Gallery 17/18 folder ${lock.hallFolder}`,
+    );
+    countsByFolder.set(lock.hallFolder, (countsByFolder.get(lock.hallFolder) ?? 0) + 1);
+    assert.equal(lock.sourcePageUrl, asset.sourcePageUrl, `${id} source lock differs from runtime provenance`);
+    assert.equal(lock.visualCharacter, asset.visualCharacter, `${id} visual-character lock differs from runtime metadata`);
+    for (const field of ['sourcePageUrl', 'sourceImageUrl', 'selectedThumbnailUrl']) {
+      assert(lock[field]?.startsWith('https://'), `${id}.${field} must be locked HTTPS`);
+    }
+    assert.equal(new URL(lock.sourcePageUrl).hostname, 'commons.wikimedia.org', `${id} source page must use Commons`);
+    assert(new URL(lock.sourcePageUrl).pathname.startsWith('/wiki/File:'), `${id} source page must identify an exact Commons file`);
+    assert(!previousSourcePages.has(lock.sourcePageUrl), `${id} reuses a source page owned by an earlier manifest`);
+    newSourcePages.push(lock.sourcePageUrl);
+    for (const variantName of ['scene', 'panel']) {
+      const variant = asset.variants[variantName];
+      const expected = lock[variantName];
+      assert(expected, `${id}.${variantName} Gallery 17/18 lock is missing`);
+      assert(Number.isSafeInteger(expected.width) && expected.width > 0, `${id}.${variantName}.width is invalid`);
+      assert(Number.isSafeInteger(expected.height) && expected.height > 0, `${id}.${variantName}.height is invalid`);
+      assert(Number.isSafeInteger(expected.bytes) && expected.bytes > 0, `${id}.${variantName}.bytes is invalid`);
+      assert.match(expected.sha256 ?? '', /^[0-9a-f]{64}$/, `${id}.${variantName}.sha256 is invalid`);
+      assert.equal(variant.path, `assets/museum/${lock.hallFolder}/${id}-${variantName}.webp`);
+      assert.equal(variant.width, expected.width, `${id}.${variantName} width differs from its lock`);
+      assert.equal(variant.height, expected.height, `${id}.${variantName} height differs from its lock`);
+      const path = exactCasePath(variant.path);
+      assert.equal(statSync(path).size, expected.bytes, `${id}.${variantName} byte count drifted`);
+      assert.equal(sha256(path), expected.sha256, `${id}.${variantName} SHA-256 drifted`);
+      assert.deepEqual(webpDimensions(path), {width: expected.width, height: expected.height}, `${id}.${variantName} locked dimensions drifted`);
+      if (variantName === 'scene') {
+        assert(!previousSceneHashes.has(expected.sha256), `${id}.scene reuses bytes owned by an earlier manifest`);
+        newSceneHashes.push(expected.sha256);
+      } else {
+        assert(!previousPanelHashes.has(expected.sha256), `${id}.panel reuses bytes owned by an earlier manifest`);
+        newPanelHashes.push(expected.sha256);
+      }
+    }
+  }
+  assert(unique(newSourcePages), 'Galleries 17 and 18 reuse an exact source page');
+  assert(unique(newSceneHashes), 'Galleries 17 and 18 reuse identical scene bytes');
+  assert(unique(newPanelHashes), 'Galleries 17 and 18 reuse identical panel bytes');
+  assert.deepEqual(Object.fromEntries([...countsByFolder].sort()), {
+    'empiricism-science-political-order': 18,
+    'enlightenment-revolution-kant': 25,
+  });
+});
+
+check('Galleries 17 and 18 preserve the approved visual-diversity limits', () => {
+  for (const {galleryName, assets, maximumTextDominant} of [
+    {galleryName: 'Gallery 17', assets: gallery17ManifestAssets, maximumTextDominant: 3},
+    {galleryName: 'Gallery 18', assets: gallery18ManifestAssets, maximumTextDominant: 4},
+  ]) {
+    const entries = Object.entries(assets);
+    const textDominantIds = entries
+      .filter(([, lock]) => lock.visualCharacter === 'text-dominant')
+      .map(([id]) => id);
+    const loneBookIds = entries
+      .filter(([, lock]) => lock.textDominantOrSingleBook === true && lock.visualCharacter !== 'text-dominant')
+      .map(([id]) => id);
+    const nonTextVisualCategories = new Set(
+      entries
+        .map(([, lock]) => lock.visualCharacter)
+        .filter((visualCharacter) => visualCharacter !== 'text-dominant'),
+    );
+    for (const [id, lock] of entries) {
+      assert.equal(typeof lock.textDominantOrSingleBook, 'boolean', `${id} lacks an explicit text/lone-book classification`);
+      if (lock.visualCharacter === 'text-dominant') {
+        assert.equal(lock.textDominantOrSingleBook, true, `${id} text-dominant classification is not explicitly flagged`);
+      }
+    }
+    assert(
+      textDominantIds.length <= maximumTextDominant,
+      `${galleryName} exceeds its ${maximumTextDominant}-asset text-dominant limit: ${textDominantIds.join(', ')}`,
+    );
+    assert.equal(loneBookIds.length, 0, `${galleryName} contains lone-book imagery: ${loneBookIds.join(', ')}`);
+    assert(
+      nonTextVisualCategories.size >= 4,
+      `${galleryName} needs at least four non-text visual categories; found ${[...nonTextVisualCategories].sort().join(', ')}`,
+    );
+  }
+});
+
 check('Galleries 14–15 fill 43 unique physical installations without image reuse', () => {
   const expected = new Map([
     ['hellenistic-roman-ways', {primary: 18, supplemental: 7, physical: 25}],
@@ -1220,7 +1453,7 @@ check('Galleries 14–15 fill 43 unique physical installations without image reu
   }
 });
 
-check('the committed Museum inventory contains exactly the 858 registered derivatives', () => {
+check('the committed Museum inventory contains exactly the 944 registered derivatives', () => {
   const actual = walkFiles(museumMediaRoot).map(toPublicPath).sort();
   const expected = MUSEUM_ASSETS.flatMap(({variants}) => [variants.scene.path, variants.panel.path]).sort();
   assert.deepEqual(actual, expected);
@@ -1253,4 +1486,4 @@ check('scene-media policy keeps local images unlit, front-facing, and clear of f
   assert.doesNotMatch(sceneMediaSource, /sourcePageUrl|objectPageUrl|selectedThumbnailUrl/);
 });
 
-console.log(`\nMuseum asset audit passed: ${checks} groups, ${MUSEUM_ASSETS.length} provenance records, ${MUSEUM_ASSETS.length * 2} local derivatives, ${Object.keys(manifestAssets).length * 2 + Object.keys(mediterraneanManifestAssets).length * 2 + Object.keys(successorManifestAssets).length * 2 + Object.keys(galleries13And16ManifestAssets).length * 2} exact hash locks, and ${referencedIds.length} live media placements.`);
+console.log(`\nMuseum asset audit passed: ${checks} groups, ${MUSEUM_ASSETS.length} provenance records, ${MUSEUM_ASSETS.length * 2} local derivatives, ${Object.keys(manifestAssets).length * 2 + Object.keys(mediterraneanManifestAssets).length * 2 + Object.keys(successorManifestAssets).length * 2 + Object.keys(galleries13And16ManifestAssets).length * 2 + Object.keys(gallery17ManifestAssets).length * 2 + Object.keys(gallery18ManifestAssets).length * 2} exact hash locks, and ${referencedIds.length} live media placements.`);

@@ -16,6 +16,14 @@ import {
   RATIONALISM_PALETTE,
 } from '../../data/museum/rationalismSupplementalExhibits';
 import {
+  EMPIRICISM_PALETTE,
+  getEmpiricismSupplementalExhibit,
+} from '../../data/museum/empiricismSupplementalExhibits';
+import {
+  ENLIGHTENMENT_PALETTE,
+  getEnlightenmentSupplementalExhibit,
+} from '../../data/museum/enlightenmentSupplementalExhibits';
+import {
   MUSEUM_CANONICAL_EXHIBIT_BACKING_MATERIAL,
   MUSEUM_CANONICAL_EXHIBIT_PLINTH_GEOMETRY,
   MUSEUM_CANONICAL_EXHIBIT_PLINTH_MATERIAL,
@@ -214,5 +222,23 @@ export function RationalismSupplementalExhibits(props: GallerySupplementalProps)
     collection="gallery-16-rationalism-mind-nature-system-v1"
     ink={RATIONALISM_PALETTE.ink}
     getRecord={getRationalismSupplementalExhibit}
+  />;
+}
+
+export function EmpiricismSupplementalExhibits(props: GallerySupplementalProps) {
+  return <SupplementalCollection
+    {...props}
+    collection="gallery-17-empiricism-science-political-order-v1"
+    ink={EMPIRICISM_PALETTE.ink}
+    getRecord={getEmpiricismSupplementalExhibit}
+  />;
+}
+
+export function EnlightenmentSupplementalExhibits(props: GallerySupplementalProps) {
+  return <SupplementalCollection
+    {...props}
+    collection="gallery-18-enlightenment-revolution-kant-v1"
+    ink={ENLIGHTENMENT_PALETTE.ink}
+    getRecord={getEnlightenmentSupplementalExhibit}
   />;
 }

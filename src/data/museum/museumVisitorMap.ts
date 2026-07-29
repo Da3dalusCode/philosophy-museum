@@ -152,7 +152,7 @@ export type MuseumVisitorMapDestination =
 
 export type MuseumVisitorMapNode = {
   programHallId: MuseumPlannedHallId;
-  /** Present only for the sixteen curated/open content registrations. */
+  /** Present only for the eighteen curated/open content registrations. */
   hallId?: MuseumHallId;
   physicalNodeId: MuseumPhysicalNodeId;
   title: string;
@@ -216,7 +216,7 @@ if (
   || programIds.size !== 26
   || roomIds.length !== 105
   || new Set(roomIds).size !== 105
-  || curatedDestinations.length !== 16
+  || curatedDestinations.length !== 18
   || MUSEUM_VISITOR_MAP_MANIFEST.reserves.length !== 2
 ) {
   throw new Error('The Continuous Enfilade visitor-map program is incomplete.');

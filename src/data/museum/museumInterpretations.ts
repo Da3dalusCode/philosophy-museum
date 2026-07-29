@@ -20,6 +20,7 @@ import {MODERNITY_MUSEUM_INTERPRETATIONS} from './modernityFreedomCritiqueInterp
 import {MUSEUM_EXPANSION_INTERPRETATIONS} from './museumExpansionInterpretations';
 import {KRISHNAMURTI_MUSEUM_INTERPRETATIONS} from './krishnamurtiMuseumInterpretations';
 import {SCHOLASTIC_RATIONALIST_PRIMARY_INTERPRETATION_ENRICHMENT} from './scholasticRationalistPrimaryInterpretationEnrichment';
+import {EMPIRICISM_ENLIGHTENMENT_PRIMARY_INTERPRETATION_ENRICHMENT} from './empiricismEnlightenmentPrimaryInterpretationEnrichment';
 
 export type MuseumInterpretationSource = {
   label: string;
@@ -1284,11 +1285,16 @@ const branchInterpretation = (
   };
 };
 
-const applyScholasticRationalistPrimaryEnrichment = (
+const PRIMARY_INTERPRETATION_ENRICHMENT = {
+  ...SCHOLASTIC_RATIONALIST_PRIMARY_INTERPRETATION_ENRICHMENT,
+  ...EMPIRICISM_ENLIGHTENMENT_PRIMARY_INTERPRETATION_ENRICHMENT,
+};
+
+const applyPrimaryInterpretationEnrichment = (
   entityId: string,
   interpretation: MuseumInterpretation,
 ): MuseumInterpretation => {
-  const enrichment = SCHOLASTIC_RATIONALIST_PRIMARY_INTERPRETATION_ENRICHMENT[entityId];
+  const enrichment = PRIMARY_INTERPRETATION_ENRICHMENT[entityId];
   if (!enrichment) return interpretation;
   const sources = [...interpretation.sources, ...(enrichment.sources ?? [])];
   const enrichedSections = enrichment.sections?.length === 1
@@ -1328,12 +1334,33 @@ const canonicalInterpretation = (location: CanonicalProgramLocation): MuseumInte
   const related = relatedRefs(location, legacy);
   let interpretation: MuseumInterpretation;
   if (legacy) {
+    const currentAssetIds = new Set([
+      location.exhibit.principalAssetId,
+      ...(location.exhibit.supportingAssetIds ?? []),
+    ].filter(Boolean));
+    const retainedObjectInterpretations = Object.fromEntries(
+      Object.entries(legacy.objectInterpretations)
+        .filter(([assetId]) => currentAssetIds.has(assetId)),
+    ) as Readonly<Partial<Record<MuseumAssetId, string>>>;
+    const currentAssetSources = interpretationSources(
+      location.exhibit.entityId,
+      [],
+      [],
+      location.exhibit.principalAssetId,
+    );
     interpretation = {
       ...legacy,
       hallId: location.hall.id,
       id: location.exhibit.id as MuseumExhibitId,
       roomId: location.room.id,
       tier: location.exhibit.tier,
+      objectInterpretations: {
+        ...assetInterpretations(location),
+        ...retainedObjectInterpretations,
+      },
+      sources: [...new Map(
+        [...legacy.sources, ...currentAssetSources].map((source) => [source.url, source]),
+      ).values()],
       relatedExhibits: related,
       connections: interpretiveConnections(location, related),
     };
@@ -1346,7 +1373,7 @@ const canonicalInterpretation = (location: CanonicalProgramLocation): MuseumInte
     if (!record) throw new Error(`Canonical Museum branch ${location.exhibit.entityId} is missing.`);
     interpretation = branchInterpretation(location, record, related);
   }
-  return applyScholasticRationalistPrimaryEnrichment(location.exhibit.entityId, interpretation);
+  return applyPrimaryInterpretationEnrichment(location.exhibit.entityId, interpretation);
 };
 
 export const MUSEUM_INTERPRETATIONS: readonly MuseumInterpretation[] = canonicalLocations.map(canonicalInterpretation);

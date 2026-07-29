@@ -170,14 +170,14 @@
     <tspan x="192" dy="2.7">German Idealism &amp;</tspan>
     <tspan x="192" dy="2.7">Romantic Afterlives</tspan>
   </text>
-  <rect class="planned" x="220" y="112" width="28" height="28"/>
+  <rect class="open" x="220" y="112" width="28" height="28"/>
   <text class="tiny" x="234" y="117">
     <tspan x="234">Gallery 18 · Visit 15</tspan>
     <tspan x="234" dy="2.5">Enlightenment,</tspan>
     <tspan x="234" dy="2.5">Revolution &amp;</tspan>
     <tspan x="234" dy="2.5">Kant’s Critical Turn</tspan>
   </text>
-  <rect class="planned" x="248" y="114" width="56" height="24"/>
+  <rect class="open" x="248" y="114" width="56" height="24"/>
   <text class="small" x="276" y="119">
     <tspan x="276">Gallery 17 · Visit 14</tspan>
     <tspan x="276" dy="2.7">Empiricism, Science</tspan>
@@ -309,9 +309,9 @@
 
   <text class="meta-bold" x="320" y="82">CURRENT RUNTIME STATUS</text>
   <rect class="open" x="320" y="88" width="12" height="7"/>
-  <text class="meta" x="336" y="93">16 curated galleries retained intact</text>
+  <text class="meta" x="336" y="93">18 curated galleries retained intact</text>
   <rect class="planned" x="320" y="99" width="12" height="7"/>
-  <text class="meta" x="336" y="104">10 named, walkable planned shells</text>
+  <text class="meta" x="336" y="104">8 named, walkable planned shells</text>
   <rect class="forum" x="320" y="110" width="12" height="7"/>
   <text class="meta" x="336" y="115">Core Questions Forum, full bay</text>
   <rect class="crossing" x="320" y="121" width="12" height="7"/>

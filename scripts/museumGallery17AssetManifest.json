@@ -1,0 +1,401 @@
+{
+  "version": 1,
+  "assets": {
+    "empiricism-hooke-micrographia-flea": {
+      "hallFolder": "empiricism-science-political-order",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Robert_Hooke,_Micrographia,_flea_Wellcome_L0043503.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Robert_Hooke,_Micrographia,_flea_Wellcome_L0043503.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Robert_Hooke,_Micrographia,_flea_Wellcome_L0043503.jpg?width=1600",
+      "visualCharacter": "map-or-diagram",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 383,
+        "bytes": 32086,
+        "sha256": "143049d3cb0b1898e90f06d3f395f739932771444aa4d467cbba0ea989c67a38"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 767,
+        "bytes": 198502,
+        "sha256": "b3129aba7ff23fdc6b78a7dacf5b36cb081a0c1e4121cf2235e7d477a923c63c"
+      }
+    },
+    "empiricism-orrery-lecture-1766": {
+      "hallFolder": "empiricism-science-political-order",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Wright_of_Derby,_The_Orrery.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Wright_of_Derby,_The_Orrery.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Wright_of_Derby,_The_Orrery.jpg?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 449,
+        "bytes": 36424,
+        "sha256": "d6de138717272c2a6fa0090007cc997abf0b53fe58b0c0ad0d40d0406f2492cd"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 899,
+        "bytes": 208210,
+        "sha256": "0a9c472fd33062545d48e60372bfe87b71ebdfe8a6ba03e3d400dc679c9fa49c"
+      }
+    },
+    "locke-molyneux-cataract-surgery": {
+      "hallFolder": "empiricism-science-political-order",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Cataract_surgery.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Cataract_surgery.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Cataract_surgery.jpg?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 480,
+        "bytes": 24682,
+        "sha256": "5801bcaf492de1622b1f1ec1fab20066f786b001f775e1379b5171ad62d51b50"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 961,
+        "bytes": 91386,
+        "sha256": "2d5b4ae083514223b0f22bfc14664894c5279b61bf2ef16a67c1c6e25fe9de65"
+      }
+    },
+    "locke-cobbler-workshop-1671": {
+      "hallFolder": "empiricism-science-political-order",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:David_Teniers_(II)_-_A_cobbler_in_his_workshop.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/David_Teniers_(II)_-_A_cobbler_in_his_workshop.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/David_Teniers_(II)_-_A_cobbler_in_his_workshop.jpg?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 460,
+        "height": 640,
+        "bytes": 44572,
+        "sha256": "e9d909d8b5cb6855662ca6bb9785031e702918d09e0bd3ca1694178f0c360846"
+      },
+      "panel": {
+        "width": 787,
+        "height": 1094,
+        "bytes": 193708,
+        "sha256": "a4fb49c87f8e569b40124833c9a3272e31e173c8e895dab7cca4f6f3e3853aae"
+      }
+    },
+    "empiricism-locke-greenhill-portrait": {
+      "hallFolder": "empiricism-science-political-order",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:John_Locke_by_John_Greenhill.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/John_Locke_by_John_Greenhill.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/John_Locke_by_John_Greenhill.jpg?width=1600",
+      "visualCharacter": "portrait-or-figure",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 526,
+        "height": 640,
+        "bytes": 19182,
+        "sha256": "08ff3daa87bbab8e4026077e65154304c1ab0731453a910843a4f6626599147e"
+      },
+      "panel": {
+        "width": 1053,
+        "height": 1280,
+        "bytes": 137842,
+        "sha256": "34329eff5d86e8a25ce7ac3e1ec2fcca2db3f7b021c810045aab220f951b77c1"
+      }
+    },
+    "empiricism-locke-carolina-map": {
+      "hallFolder": "empiricism-science-political-order",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:A_New_Description_of_Carolina.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/A_New_Description_of_Carolina.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/A_New_Description_of_Carolina.jpg?width=1600",
+      "visualCharacter": "map-or-diagram",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 490,
+        "bytes": 71430,
+        "sha256": "caaa3fe49ab61bde64607ad6d0f7ecfd5c897d2fcd92bb38096bb92a8642f3e8"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 979,
+        "bytes": 334282,
+        "sha256": "1902315fa45eb6fa7bc3f9a142204e7d227e15790143ea75d6f73ff95c37fa83"
+      }
+    },
+    "berkeley-perspective-instrument-1604": {
+      "hallFolder": "empiricism-science-political-order",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Perspektive_Zeichenger%C3%A4t.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Perspektive_Zeichenger%C3%A4t.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Perspektive_Zeichenger%C3%A4t.jpg?width=1600",
+      "visualCharacter": "material-object",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 480,
+        "bytes": 37356,
+        "sha256": "553269ce29432f90b6880be030b2f539933d4914fe0b7acaca24e95ed8aca655"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 960,
+        "bytes": 270086,
+        "sha256": "f1198fba0ad0f3c1c87ef36b5c3a403607067a1bc67d8c1b2270dfaa4c75a867"
+      }
+    },
+    "empiricism-berkeley-smibert-portrait": {
+      "hallFolder": "empiricism-science-political-order",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:George_Berkeley_by_John_Smibert.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/George_Berkeley_by_John_Smibert.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/George_Berkeley_by_John_Smibert.jpg?width=1600",
+      "visualCharacter": "portrait-or-figure",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 472,
+        "height": 640,
+        "bytes": 9872,
+        "sha256": "bafe71e556b12bc58acc784aad8646c412699424035c93e3a4692e683333cc0d"
+      },
+      "panel": {
+        "width": 943,
+        "height": 1280,
+        "bytes": 101716,
+        "sha256": "b0b2f926175135a6eb4bc42e5e2a0d2862606f70397d71d29b9c69f7c2866930"
+      }
+    },
+    "empiricism-berkeley-optical-illusion": {
+      "hallFolder": "empiricism-science-political-order",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Cornelius_Norbertus_Gijsbrechts_-_Trompe_l%27oeil._The_Reverse_of_a_Framed_Painting_-_Google_Art_Project.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Cornelius_Norbertus_Gijsbrechts_-_Trompe_l%27oeil._The_Reverse_of_a_Framed_Painting_-_Google_Art_Project.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Cornelius_Norbertus_Gijsbrechts_-_Trompe_l%27oeil._The_Reverse_of_a_Framed_Painting_-_Google_Art_Project.jpg?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 493,
+        "bytes": 29262,
+        "sha256": "9a1facef926067185fd2c8034dc896f931935d645f14edcdaff6f54aa6bef2c2"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 987,
+        "bytes": 395658,
+        "sha256": "67630c2b24b4965af68531bc3e34cb12b1fea6d6700057a64ea8fa79e4a7a690"
+      }
+    },
+    "empiricism-berkeley-bermuda-scheme": {
+      "hallFolder": "empiricism-science-political-order",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:John_Smibert_-_The_Bermuda_Group_(Dean_Berkeley_and_His_Entourage)_-_1808.1_-_Yale_University_Art_Gallery.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/John_Smibert_-_The_Bermuda_Group_(Dean_Berkeley_and_His_Entourage)_-_1808.1_-_Yale_University_Art_Gallery.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/John_Smibert_-_The_Bermuda_Group_(Dean_Berkeley_and_His_Entourage)_-_1808.1_-_Yale_University_Art_Gallery.jpg?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 478,
+        "bytes": 36062,
+        "sha256": "e67f2ac5b6184218bbbed696cc568929c1e60b877c530673c1338e839a330e86"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 955,
+        "bytes": 230120,
+        "sha256": "5ced8fc534a0bc7e9f903b6632b715fa92df949b83e4a03889b650ab52e27339"
+      }
+    },
+    "empiricism-camera-obscura": {
+      "hallFolder": "empiricism-science-political-order",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Van_Loo_The_Camera_Obscura_1764.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Van_Loo_The_Camera_Obscura_1764.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Van_Loo_The_Camera_Obscura_1764.jpg?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 638,
+        "height": 640,
+        "bytes": 34228,
+        "sha256": "22d8d205d95476963e35c0437afcc34fe4be5c18c1d09c5aecbb1c251819ac3a"
+      },
+      "panel": {
+        "width": 1276,
+        "height": 1280,
+        "bytes": 223260,
+        "sha256": "56de9dbcacbfd215a467909693cdf8551bc8964bcfe7898fa7dbb374e8e03034"
+      }
+    },
+    "berkeley-scots-pine-botanical-plate": {
+      "hallFolder": "empiricism-science-political-order",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Illustration_Pinus_sylvestris0.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Illustration_Pinus_sylvestris0.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Illustration_Pinus_sylvestris0.jpg?width=1600",
+      "visualCharacter": "map-or-diagram",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 396,
+        "height": 640,
+        "bytes": 69528,
+        "sha256": "625773cb82253e1e69173cc0c1aecf06feae4970c61242b67d5418dd7e48a3a6"
+      },
+      "panel": {
+        "width": 792,
+        "height": 1280,
+        "bytes": 308326,
+        "sha256": "a0989b0c166bcf5e321516938e2bd5fffd3c5a2a8d0bac76387f284d9ad763e5"
+      }
+    },
+    "empiricism-hume-billiards": {
+      "hallFolder": "empiricism-science-political-order",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Chardin_-_La_Partie_de_billard,_Vers_1720,_P2081.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Chardin_-_La_Partie_de_billard,_Vers_1720,_P2081.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Chardin_-_La_Partie_de_billard,_Vers_1720,_P2081.jpg?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 423,
+        "bytes": 31580,
+        "sha256": "439765229b2ed2016075753dab8eff35c46985264bd912673867f977b1824ed1"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 846,
+        "bytes": 233662,
+        "sha256": "661cebb92fc9fcec6eb9cf14a46974fd28309b403555947a2ed76e695ed9a3e8"
+      }
+    },
+    "hume-ramsay-portrait-1754": {
+      "hallFolder": "empiricism-science-political-order",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Painting_of_David_Hume.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Painting_of_David_Hume.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Painting_of_David_Hume.jpg?width=1600",
+      "visualCharacter": "portrait-or-figure",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 522,
+        "height": 640,
+        "bytes": 16532,
+        "sha256": "58a143ef3be51531597ad31d6394fcffb2d71184d8b8ccc697435091e466d99e"
+      },
+      "panel": {
+        "width": 1044,
+        "height": 1280,
+        "bytes": 94240,
+        "sha256": "ef07d889152676f5e767688723940e92fcd042237f44d318be3df871c1227531"
+      }
+    },
+    "hume-theatre-interior-c1740": {
+      "hallFolder": "empiricism-science-political-order",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Print,_Theater_Interior_with_Performance_Taking_Place,_ca._1740%E2%80%9360_(CH_18348639).jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Print,_Theater_Interior_with_Performance_Taking_Place,_ca._1740%E2%80%9360_(CH_18348639).jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Print,_Theater_Interior_with_Performance_Taking_Place,_ca._1740%E2%80%9360_(CH_18348639).jpg?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 434,
+        "bytes": 77308,
+        "sha256": "9bd0c9f01396891add46c1c032960a2d3c0aa6ad757cd2ecc1afc017f4885cae"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 867,
+        "bytes": 494520,
+        "sha256": "76671fca9dbf3ae6e0aba5044b93a7b6b65ad9e82146c8b94bffff4194a0343a"
+      }
+    },
+    "hume-greuze-village-bride-1761": {
+      "hallFolder": "empiricism-science-political-order",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Jean-Baptiste_Greuze_-_L%27Accord%C3%A9e_de_Village_-_WGA10655.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Jean-Baptiste_Greuze_-_L%27Accord%C3%A9e_de_Village_-_WGA10655.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Jean-Baptiste_Greuze_-_L%27Accord%C3%A9e_de_Village_-_WGA10655.jpg?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 497,
+        "bytes": 50000,
+        "sha256": "1de632d9bcbe65d4374c8f1ffa91276867c7ce66c362a17ff30f8a302f592132"
+      },
+      "panel": {
+        "width": 1099,
+        "height": 854,
+        "bytes": 157076,
+        "sha256": "875dbe539a89c9a8ab00979ed11d094954483e4c491a65ad8901c182bc383f75"
+      }
+    },
+    "empiricism-hume-backgammon": {
+      "hallFolder": "empiricism-science-political-order",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Three_Backgammon_Players_from_the_circle_of_Hendrick_ter_Brugghen_Centraal_Museum_6144.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Three_Backgammon_Players_from_the_circle_of_Hendrick_ter_Brugghen_Centraal_Museum_6144.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Three_Backgammon_Players_from_the_circle_of_Hendrick_ter_Brugghen_Centraal_Museum_6144.jpg?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 477,
+        "bytes": 37482,
+        "sha256": "2ea0d5cb3cef78e661b678c90a957212a49b70b42bfe7a648141de521c332a38"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 954,
+        "bytes": 238242,
+        "sha256": "58cc42d2f5778fe208bf9ba1105e6be361d5737b912efb47194f6993bb36ca04"
+      }
+    },
+    "empiricism-hume-edinburgh": {
+      "hallFolder": "empiricism-science-political-order",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:The_%27Heart_of_Midlothian%27,_High_Street,_Edinburgh.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/The_%27Heart_of_Midlothian%27,_High_Street,_Edinburgh.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/The_%27Heart_of_Midlothian%27,_High_Street,_Edinburgh.jpg?width=1600",
+      "visualCharacter": "place-or-architecture",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 461,
+        "bytes": 81054,
+        "sha256": "57fdc4deadada31bbb927ee3ced5cac654f3b589a11584c5f095b434bd33ba5d"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 923,
+        "bytes": 422270,
+        "sha256": "97ed05ff44326696f47983ba2aab1819b3d218d2861aab34b464815fadb1d20b"
+      }
+    }
+  }
+}

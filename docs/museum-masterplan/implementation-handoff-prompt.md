@@ -4,7 +4,7 @@ Copy everything below into a new Codex conversation:
 
 ---
 
-Fully implement the approved Continuous Enfilade Museum architecture, preserve the 16 populated galleries in it, build all 26 gallery shells and all 105 named rooms, and push the completed building migration to production.
+Fully implement the approved Continuous Enfilade Museum architecture, preserve the 18 populated galleries in it, build all 26 gallery shells and all 105 named rooms, and push the completed building migration to production.
 
 This is an implementation turn, not another architecture-design turn. Do not redesign, reinterpret, or hand-place the building. The authoritative physical contract is:
 
@@ -24,7 +24,7 @@ Before editing:
 
 1. Read `AGENTS.md` and every authority listed above. Treat the implementation-lessons regression gates as binding acceptance criteria.
 2. Run `git status --short` first. Preserve all unrelated and in-progress work. Never reset, delete, overwrite, or stage unrelated files.
-3. Inspect the current Galleries 01–16 hall definitions, world transforms, manifest, connections, map projection, directory, direct routes, session persistence, guided visits, collision, audits, and performance/lazy-loading implementation.
+3. Inspect the current Galleries 01–18 hall definitions, world transforms, manifest, connections, map projection, directory, direct routes, session persistence, guided visits, collision, audits, and performance/lazy-loading implementation.
 4. Treat the current three-hall residency, 6 m approach preparation, 96 MiB decoded-texture budget, and lazy media boundary as authoritative. Extend them; do not replace them or eagerly initialize 26 halls.
 5. Keep planning brief. Build the full migration.
 
@@ -47,22 +47,23 @@ Required physical result:
 
 Populated versus planned states:
 
-- Preserve Galleries 01–16 as whole hall-local roots wherever possible. Preserve every room partition, exhibit, supplemental/context installation, image/media mount, attribution, interpretation, sign, lighting treatment, guided viewpoint/order, interaction, article route, asset ID, direct URL, and local collider.
+- Preserve Galleries 01–18 as whole hall-local roots wherever possible. Preserve every room partition, exhibit, supplemental/context installation, image/media mount, attribution, interpretation, sign, lighting treatment, guided viewpoint/order, interaction, article route, asset ID, direct URL, and local collider.
 - Recompute only world transforms, active route portals, world collision, safe arrivals, guided/world camera transforms, audio/light bounds, connection readiness, and map projection.
 - Preserve all existing public Gallery numbers exactly. Public release number is not the same as physical visit sequence.
-- Assign the planned Gallery 17–26 numbers exactly as specified in the control JSON.
-- Build the remaining 10 halls and every named room as walkable architectural shells. Use the room-layout strategies in the control JSON.
+- Assign the planned Gallery 19–26 numbers exactly as specified in the control JSON.
+- Build the remaining 8 halls and every named room as walkable architectural shells. Use the room-layout strategies in the control JSON.
 - Planned shells have floors, ceilings, partitions, collision, safe arrivals, generic local lighting, closed unused portals, and geometry-only future wall slots.
 - Planned shells have blank exhibit walls and one honest noninteractive “planned gallery” status sign at the hall entrance. Do not fabricate placeholder exhibits, images, quotations, biographies, controls, article routes, attributions, or dead interactions.
 - Planned shells remain walkable so the through route is complete, but they are not counted as open galleries and should not receive normal gallery fast-travel controls.
-- The public state is exactly 16 curated/open galleries, 10 walkable/planned shells, and 2 closed expansion reserves.
-- Do not curate Gallery 17 or any other future gallery in this turn.
+- The public state is exactly 18 curated/open galleries, 8 walkable/planned shells, and 2 closed expansion reserves.
+- Do not curate Gallery 19 or any other future gallery in this turn.
 
 Architecture and exhibit-wall safeguards:
 
 - The crosscut may occupy only the five planned threshold bays and the Forum. It must never pierce another gallery room.
 - Every unused optional portal is a full-height rendered and collision wall.
-- Preserve the current exact Gallery 01–16 room-by-room installation and wall-slot audit expectations after relocation.
+- Preserve the current exact Gallery 01–18 room-by-room installation and wall-slot audit expectations after relocation.
+- Preserve the Gallery 17/18 visual-character gate: text-dominant pages or isolated books are justified exceptions, never the default media plan.
 - Do not use a connector, planned threshold, or status sign to excuse a blank usable wall in a curated gallery.
 - Planned shells are exempt from installation-count completeness only while their manifest state remains planned; audit all of their room counts, walls, portals, collision, and circulation.
 - Architecture must not clip or crowd any existing installation, sign, light, viewpoint, or interaction.
@@ -70,7 +71,7 @@ Architecture and exhibit-wall safeguards:
 Map, routing, and state:
 
 - Generate the physical visitor map from the new authoritative runtime manifest, not a separate hand-authored topology.
-- Show all 26 full gallery titles, stable public Gallery numbers, 16 curated/open states, 10 planned/walkable states, the Grand Entrance, through route, crosscut, five turn courts, final threshold, current position, facing arrow, and two closed reserves.
+- Show all 26 full gallery titles, stable public Gallery numbers, 18 curated/open states, 8 planned/walkable states, the Grand Entrance, through route, crosscut, five turn courts, final threshold, current position, facing arrow, and two closed reserves.
 - The complete map, gallery list, current-location information, legend, and curated fast-travel controls must fit at 1920 × 1080 without scrolling.
 - Planned shells may be selected for truthful status/details but must not look curated or expose dead exhibit controls.
 - Preserve every existing direct gallery/exhibit URL, directory entry, guided visit, fast travel, reset, Back/Forward behavior, and interaction.
@@ -83,7 +84,7 @@ Performance and implementation setup:
 - Prefer one manifest compiler/source over duplicated hand-authored transforms.
 - Extend the existing lazy-loading/residency solution. Initial Museum load may mount the Grand Entrance, nearby lightweight architecture, and lightweight map data only.
 - Do not import or initialize curated-gallery media except for the active/prepared threshold target.
-- The 10 planned shells use shared architecture/material/lighting/collision modules and import no exhibit media.
+- The 8 planned shells use shared architecture/material/lighting/collision modules and import no exhibit media.
 - A crossing becomes available only after target code, nearest-room media where applicable, collision, safe arrival, and scene commit are ready.
 - The map must not import Three.js hall scenes or media modules.
 - Cut over the building manifest, map, directory state, session resolver, and entrance together. Do not ship a mixed old/new building.
@@ -103,7 +104,7 @@ Verification before release:
   - `npm run audit:accuracy`
   - `git diff --check`
 - Run the local app and verify HTTP 200.
-- Use the browser to inspect the Grand Entrance, the complete map at 1920 × 1080, both travel directions in all six bands, every crosscut intersection, all five turn courts, the final threshold, both reserves, all 105 rooms, and every populated Gallery 01–16 room at visitor eye level.
+- Use risk-scoped browser checks for the changed galleries and affected architecture, plus one representative through-route and map pass. Do not repeat the entire unchanged building merely to increase the test count.
 - Confirm usable walls in curated galleries remain filled, primaries still read first, imagery/titles remain legible and relevant, nothing is clipped/cramped/floating, movement is clear, planned shells are honestly blank, and browser console has no errors.
 - Test representative direct exhibit URLs, directory entries, interactions, image attribution, guided visits, fast travel, reset, session resume, and old-route compatibility.
 - Cold-load the Museum and confirm it does not download or initialize all curated-gallery media or any nonexistent planned-gallery media.
@@ -114,7 +115,7 @@ Deployment:
 - Stage only intended files. Do not include unrelated user files or changes from other conversations.
 - Commit the complete building migration and push the production branch.
 - Wait for GitHub Pages deployment to succeed.
-- Recheck the Grand Entrance, map, all 16 populated gallery entries, representative interactions and imagery, planned-shell status/counts, crosscut/turn movement, direct URLs, and browser console on the live production site.
+- Recheck the Grand Entrance, map, the changed populated gallery entries, representative interactions and imagery, planned-shell status/counts, affected movement, direct URLs, and browser console on the live production site.
 - Do not stop with unpushed local work.
 
 In the final report provide:
@@ -127,6 +128,6 @@ In the final report provide:
 - local and production visual-verification result;
 - deployment result;
 - any real limitations or approved control-plan amendments;
-- the exact recommended prompt to curate Gallery 17 — Empiricism, Science, and Political Order.
+- the exact recommended prompt to curate Gallery 19 — German Idealism and Its Afterlives.
 
 ---

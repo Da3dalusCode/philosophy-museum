@@ -9,7 +9,7 @@
       "path": "docs/museum-masterplan/single-level-building-plan.json",
       "planId": "continuous-enfilade-single-level-v1",
       "schemaVersion": 2,
-      "sha256": "970247041d1a056fbda950172551cd71f583298f21e2133d7f17f3400690b629"
+      "sha256": "65d3ffdfa2d82425cfa342a657df4b78a12c6bc33924e714b88d546aa0cb2a43"
     },
     "program": {
       "path": "docs/museum-masterplan/hall-program.json",
@@ -3581,8 +3581,9 @@
       "kind": "hall",
       "physicalRole": "gallery",
       "programHallId": "empiricism-science-political-order",
+      "publicHallId": "empiricism-science-political-order",
       "title": "Empiricism, Science, and Political Order",
-      "galleryState": "planned-walkable",
+      "galleryState": "curated-open",
       "publicGalleryNumber": 17,
       "visitSequence": 14,
       "bandId": "band-04-nineteenth-transformations",
@@ -3642,7 +3643,7 @@
       },
       "map": {
         "label": "Gallery 17 · Empiricism, Science, and Political Order",
-        "status": "planned-walkable"
+        "status": "open"
       },
       "doorwaySlots": [
         {
@@ -3793,114 +3794,16 @@
           "routeRole": null,
           "openingState": "closed-solid-wall"
         }
-      ],
-      "geometry": {
-        "coordinateFrame": "node-local",
-        "bounds": {
-          "minX": -12,
-          "maxX": 12,
-          "minZ": -28,
-          "maxZ": 28
-        },
-        "cells": [
-          {
-            "id": "empiricism-locke-ideas-rights",
-            "kind": "room",
-            "title": "Ideas, experience, identity, and rights",
-            "bounds": {
-              "minX": -12,
-              "maxX": 12,
-              "minZ": -28,
-              "maxZ": -9.333333
-            },
-            "ceilingHeight": 5.8
-          },
-          {
-            "id": "empiricism-berkeley-perception",
-            "kind": "room",
-            "title": "Perception and immaterialism",
-            "bounds": {
-              "minX": -12,
-              "maxX": 12,
-              "minZ": -9.333333,
-              "maxZ": 9.333333
-            },
-            "ceilingHeight": 5.8
-          },
-          {
-            "id": "empiricism-hume-skepticism",
-            "kind": "room",
-            "title": "Causation, habit, sentiment, and mitigated skepticism",
-            "bounds": {
-              "minX": -12,
-              "maxX": 12,
-              "minZ": 9.333333,
-              "maxZ": 28
-            },
-            "ceilingHeight": 5.8
-          }
-        ],
-        "interiorOpenings": [
-          {
-            "id": "opening:empiricism-science-political-order:empiricism-locke-ideas-rights->empiricism-berkeley-perception",
-            "position": {
-              "x": 0,
-              "z": -9.333333
-            },
-            "inwardNormal": {
-              "x": 0,
-              "z": 1
-            },
-            "clearWidth": 4,
-            "clearHeight": 3.2,
-            "transitionDepth": 1.2,
-            "fromCellId": "empiricism-locke-ideas-rights",
-            "toCellId": "empiricism-berkeley-perception"
-          },
-          {
-            "id": "opening:empiricism-science-political-order:empiricism-berkeley-perception->empiricism-hume-skepticism",
-            "position": {
-              "x": 0,
-              "z": 9.333333
-            },
-            "inwardNormal": {
-              "x": 0,
-              "z": 1
-            },
-            "clearWidth": 4,
-            "clearHeight": 3.2,
-            "transitionDepth": 1.2,
-            "fromCellId": "empiricism-berkeley-perception",
-            "toCellId": "empiricism-hume-skepticism"
-          }
-        ],
-        "signs": [
-          {
-            "id": "sign:planned-status:empiricism-science-political-order",
-            "kind": "planned-status",
-            "title": "Gallery 17 · Empiricism, Science, and Political Order",
-            "kicker": "Planned gallery",
-            "subtitle": "Architectural shell open · exhibits not yet installed",
-            "position": {
-              "x": 0,
-              "y": 1.65,
-              "z": -26
-            },
-            "rotationY": -3.14159265359,
-            "width": 3.2,
-            "height": 1.35,
-            "interactive": false
-          }
-        ]
-      }
+      ]
     },
     {
       "id": "hall:enlightenment-revolution-kant",
       "kind": "hall",
       "physicalRole": "gallery",
       "programHallId": "enlightenment-revolution-kant",
+      "publicHallId": "enlightenment-revolution-kant",
       "title": "Enlightenment, Revolution, and Kant’s Critical Turn",
-      "galleryState": "planned-walkable",
+      "galleryState": "curated-open",
       "publicGalleryNumber": 18,
       "visitSequence": 15,
       "bandId": "band-04-nineteenth-transformations",
@@ -3970,7 +3873,7 @@
       },
       "map": {
         "label": "Gallery 18 · Enlightenment, Revolution, and Kant’s Critical Turn",
-        "status": "planned-walkable"
+        "status": "open"
       },
       "doorwaySlots": [
         {
@@ -4195,162 +4098,7 @@
           "routeRole": null,
           "openingState": "closed-solid-wall"
         }
-      ],
-      "geometry": {
-        "coordinateFrame": "node-local",
-        "bounds": {
-          "minX": -14,
-          "maxX": 14,
-          "minZ": -14,
-          "maxZ": 14
-        },
-        "cells": [
-          {
-            "id": "enlightenment-law-institutions",
-            "kind": "room",
-            "title": "Law and comparative institutions",
-            "bounds": {
-              "minX": -14,
-              "maxX": 14,
-              "minZ": -14,
-              "maxZ": -4
-            },
-            "ceilingHeight": 6.2
-          },
-          {
-            "id": "enlightenment-society-freedom",
-            "kind": "room",
-            "title": "Inequality, civic freedom, and education",
-            "bounds": {
-              "minX": 4,
-              "maxX": 14,
-              "minZ": -4,
-              "maxZ": 4
-            },
-            "ceilingHeight": 6.2
-          },
-          {
-            "id": "enlightenment-sentiment-commerce",
-            "kind": "room",
-            "title": "Moral sentiments and commercial society",
-            "bounds": {
-              "minX": -14,
-              "maxX": 14,
-              "minZ": 4,
-              "maxZ": 14
-            },
-            "ceilingHeight": 6.2
-          },
-          {
-            "id": "enlightenment-equality-education",
-            "kind": "room",
-            "title": "Education, gender, and excluded universalism",
-            "bounds": {
-              "minX": -14,
-              "maxX": -4,
-              "minZ": -4,
-              "maxZ": 4
-            },
-            "ceilingHeight": 6.2
-          },
-          {
-            "id": "enlightenment-kant-critical",
-            "kind": "room",
-            "title": "Kant: critical philosophy as threshold",
-            "bounds": {
-              "minX": -4,
-              "maxX": 4,
-              "minZ": -4,
-              "maxZ": 4
-            },
-            "ceilingHeight": 6.2
-          }
-        ],
-        "interiorOpenings": [
-          {
-            "id": "opening:enlightenment-revolution-kant:enlightenment-law-institutions->enlightenment-kant-critical",
-            "position": {
-              "x": 0,
-              "z": -4
-            },
-            "inwardNormal": {
-              "x": 0,
-              "z": 1
-            },
-            "clearWidth": 4,
-            "clearHeight": 3.2,
-            "transitionDepth": 1.2,
-            "fromCellId": "enlightenment-law-institutions",
-            "toCellId": "enlightenment-kant-critical"
-          },
-          {
-            "id": "opening:enlightenment-revolution-kant:enlightenment-society-freedom->enlightenment-kant-critical",
-            "position": {
-              "x": 4,
-              "z": 0
-            },
-            "inwardNormal": {
-              "x": -1,
-              "z": 0
-            },
-            "clearWidth": 4,
-            "clearHeight": 3.2,
-            "transitionDepth": 1.2,
-            "fromCellId": "enlightenment-society-freedom",
-            "toCellId": "enlightenment-kant-critical"
-          },
-          {
-            "id": "opening:enlightenment-revolution-kant:enlightenment-sentiment-commerce->enlightenment-kant-critical",
-            "position": {
-              "x": 0,
-              "z": 4
-            },
-            "inwardNormal": {
-              "x": 0,
-              "z": -1
-            },
-            "clearWidth": 4,
-            "clearHeight": 3.2,
-            "transitionDepth": 1.2,
-            "fromCellId": "enlightenment-sentiment-commerce",
-            "toCellId": "enlightenment-kant-critical"
-          },
-          {
-            "id": "opening:enlightenment-revolution-kant:enlightenment-equality-education->enlightenment-kant-critical",
-            "position": {
-              "x": -4,
-              "z": 0
-            },
-            "inwardNormal": {
-              "x": 1,
-              "z": 0
-            },
-            "clearWidth": 4,
-            "clearHeight": 3.2,
-            "transitionDepth": 1.2,
-            "fromCellId": "enlightenment-equality-education",
-            "toCellId": "enlightenment-kant-critical"
-          }
-        ],
-        "signs": [
-          {
-            "id": "sign:planned-status:enlightenment-revolution-kant",
-            "kind": "planned-status",
-            "title": "Gallery 18 · Enlightenment, Revolution, and Kant’s Critical Turn",
-            "kicker": "Planned gallery",
-            "subtitle": "Architectural shell open · exhibits not yet installed",
-            "position": {
-              "x": 12,
-              "y": 1.65,
-              "z": 0
-            },
-            "rotationY": 1.570796326795,
-            "width": 3.2,
-            "height": 1.35,
-            "interactive": false
-          }
-        ]
-      }
+      ]
     },
     {
       "id": "hall:german-idealism-afterlives",
@@ -11692,12 +11440,12 @@
   "counts": {
     "halls": 26,
     "rooms": 105,
-    "curatedOpen": 16,
-    "plannedWalkable": 10,
+    "curatedOpen": 18,
+    "plannedWalkable": 8,
     "reserves": 2,
     "hallCount": 26,
-    "curatedOpenHallCount": 16,
-    "plannedWalkableHallCount": 10,
+    "curatedOpenHallCount": 18,
+    "plannedWalkableHallCount": 8,
     "canonicalRoomCount": 105,
     "nodeCount": 39,
     "connectionCount": 43,
@@ -11707,6 +11455,6 @@
     "standaloneCrossingNodeCount": 5,
     "turnCourtCount": 5,
     "reserveCount": 2,
-    "plannedStatusSignCount": 10
+    "plannedStatusSignCount": 8
   }
 }
