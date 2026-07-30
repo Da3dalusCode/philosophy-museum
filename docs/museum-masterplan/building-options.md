@@ -8,7 +8,7 @@ The approved physical planning basis is the single-level **Continuous Enfilade**
 - [machine-readable geometry](./single-level-building-plan.json);
 - [1:1000 construction-control drawing](./diagrams/continuous-enfilade-single-level.svg).
 
-It holds the approved 10-wing, 26-gallery, 105-room program in six back-to-back structural bands and is now the active production runtime. Galleries 01–24 and Gallery 26 retain curated hall-local roots; Gallery 25 is a complete planned/walkable shell.
+It holds the approved 10-wing, 26-gallery, 105-room program in six back-to-back structural bands and is now the active production runtime. All Galleries 01–26 retain curated hall-local roots.
 
 ## What the earlier masterplan did and did not decide
 
@@ -16,7 +16,7 @@ The earlier masterplan decided the intellectual program, reusable hall templates
 
 As a result, Galleries 01–12 were placed incrementally as each release was built. Those placements were not random, but they were optimized locally rather than compiled from a final construction drawing. The accumulated long corridors, irregular orientation, and shortcut logic are therefore not preserved as design commitments.
 
-The room-scale work is reusable. All 24 open halls now conform to canonical template footprints and hall-local geometry. Their collective world transforms, connectors, entrance relationship, and map are manifest-owned rather than improvised per release.
+The room-scale work is reusable. All 26 open halls now conform to canonical template footprints and hall-local geometry. Their collective world transforms, connectors, entrance relationship, and map are manifest-owned rather than improvised per release.
 
 ## Reviewed concepts
 

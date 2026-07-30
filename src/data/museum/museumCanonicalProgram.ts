@@ -40,6 +40,7 @@ export const MUSEUM_CANONICAL_HALL_IDS = [
   'pragmatism-democratic-inquiry',
   'critique-power-deconstruction',
   'moral-life-practical-reason',
+  'feminist-philosophies',
   'colonialism-race-liberation',
 ] as const;
 
@@ -186,6 +187,10 @@ export const MUSEUM_CANONICAL_ROOM_IDS = [
   'moral-character-virtue',
   'moral-duty-consequence',
   'moral-rights-persons-futures',
+  'feminist-orientation-genealogies',
+  'feminist-early-genealogies',
+  'feminist-situated-freedom',
+  'feminist-gender-norms',
   'colonial-embodiment-liberation',
   'colonial-black-feminism-abolition',
   'colonial-context-reserve',
@@ -290,6 +295,7 @@ export const MUSEUM_PUBLIC_GALLERY_NUMBERS = {
   'pragmatism-democratic-inquiry': 22,
   'critique-power-deconstruction': 23,
   'moral-life-practical-reason': 24,
+  'feminist-philosophies': 25,
   'colonialism-race-liberation': 26,
 } as const satisfies Readonly<Record<MuseumCanonicalHallId, number>>;
 
@@ -982,6 +988,27 @@ export const MUSEUM_CANONICAL_PROGRAM = [
     ],
   },
   {
+    id: 'feminist-philosophies',
+    wingId: 'wing-ethics-politics-society',
+    title: 'Feminist Philosophies',
+    templateId: 'crossroads-4',
+    period: '17th–21st centuries',
+    description: 'Follow plural feminist genealogies through education, abolition, citizenship, standpoint, care, embodied and situated freedom, intersectionality, gender norms, disability, queer and trans livability, coalition, and public assembly—without treating one universal “woman” or one national movement as the field’s subject.',
+    recordCapacity: 5,
+    rooms: [
+      {id: 'feminist-orientation-genealogies', title: 'Feminist philosophy and plural genealogies', recordCapacity: 2, exhibits: [
+        exhibit({id: 'feminist-philosophy', entityKind: 'branch', entityId: 'feminist-philosophy', displayName: 'Feminist Philosophy: Plural Genealogies, Methods, and Subjects', tier: 'anchor-exhibit', question: 'How do gender, race, class, sexuality, disability, coloniality, labor, and knowledge reorganize philosophical questions rather than merely add neglected examples?', secondaryHallIds: ['colonialism-race-liberation', 'enlightenment-revolution-kant', 'justice-democratic-reason', 'moral-life-practical-reason', 'phenomenology-existence-embodiment'], principalAssetId: 'feminist-philosophy-procession'}),
+      ]},
+      {id: 'feminist-early-genealogies', title: 'Early-modern education, marriage, virtue, and citizenship', recordCapacity: 1, exhibits: []},
+      {id: 'feminist-situated-freedom', title: 'Situated freedom, embodiment, and otherness', recordCapacity: 1, exhibits: [
+        exhibit({id: 'beauvoir', entityKind: 'philosopher', entityId: 'beauvoir', displayName: 'Simone de Beauvoir: Situated Freedom, Otherness, and Social Becoming', tier: 'anchor-exhibit', question: 'How can freedom be embodied and socially constrained without becoming either a fixed destiny or an abstract power of choice?', secondaryHallIds: ['phenomenology-existence-embodiment'], formerHallId: 'modernity-freedom-critique', principalAssetId: 'feminist-beauvoir-portrait'}),
+      ]},
+      {id: 'feminist-gender-norms', title: 'Gender, norms, performativity, and social ontology', recordCapacity: 1, exhibits: [
+        exhibit({id: 'judith-butler', entityKind: 'philosopher', entityId: 'judith-butler', displayName: 'Judith Butler: Performativity, Livability, and Bodies in Alliance', tier: 'anchor-exhibit', question: 'How do norms make genders and lives recognizable, and how can repeated embodied action contest the terms of recognition?', secondaryHallIds: ['critique-power-deconstruction'], principalAssetId: 'feminist-butler-portrait'}),
+      ]},
+    ],
+  },
+  {
     id: 'colonialism-race-liberation',
     wingId: 'wing-ethics-politics-society',
     title: 'Colonialism, Race, and Liberation',
@@ -1034,27 +1061,7 @@ export type MuseumLegacyExhibitCompatibility = {
   liveExhibitRef?: MuseumPrimaryExhibitRef;
 };
 
-const displaced = (
-  formerHallId: MuseumLegacyHallId,
-  entityKind: MuseumCanonicalEntityKind,
-  entityId: string,
-  displayName: string,
-  plannedHallId: MuseumPlannedHallId,
-  disposition: MuseumLegacyExhibitDisposition,
-): MuseumLegacyExhibitCompatibility => ({
-  formerHallId,
-  exhibitId: entityId,
-  entityKind,
-  entityId,
-  displayName,
-  plannedHallId,
-  plannedHallTitle: MUSEUM_PLANNED_HALL_TITLES[plannedHallId],
-  disposition,
-});
-
-export const MUSEUM_LEGACY_EXHIBIT_COMPATIBILITY = [
-  displaced('modernity-freedom-critique', 'philosopher', 'beauvoir', 'Simone de Beauvoir', 'feminist-philosophies', 'become-secondary-later'),
-] as const satisfies readonly MuseumLegacyExhibitCompatibility[];
+export const MUSEUM_LEGACY_EXHIBIT_COMPATIBILITY: readonly MuseumLegacyExhibitCompatibility[] = [];
 
 const canonicalProgramForIndexes: readonly MuseumCanonicalHall[] = MUSEUM_CANONICAL_PROGRAM;
 

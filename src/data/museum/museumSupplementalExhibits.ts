@@ -100,6 +100,10 @@ import {
   MORAL_LIFE_PRACTICAL_REASON_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
 } from './moralLifePracticalReasonSupplementalExhibits';
 import {
+  FEMINIST_PHILOSOPHIES_SUPPLEMENTAL_EXHIBITS,
+  FEMINIST_PHILOSOPHIES_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
+} from './feministPhilosophiesSupplementalExhibits';
+import {
   COLONIALISM_RACE_LIBERATION_SUPPLEMENTAL_EXHIBITS,
   COLONIALISM_RACE_LIBERATION_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
 } from './colonialismRaceLiberationSupplementalExhibits';
@@ -244,6 +248,11 @@ const COLLECTIONS = [
     hallId: 'moral-life-practical-reason',
     exhibits: MORAL_LIFE_PRACTICAL_REASON_SUPPLEMENTAL_EXHIBITS,
     layouts: MORAL_LIFE_PRACTICAL_REASON_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
+  },
+  {
+    hallId: 'feminist-philosophies',
+    exhibits: FEMINIST_PHILOSOPHIES_SUPPLEMENTAL_EXHIBITS,
+    layouts: FEMINIST_PHILOSOPHIES_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
   },
   {
     hallId: 'colonialism-race-liberation',

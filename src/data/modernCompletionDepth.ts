@@ -34,6 +34,23 @@ export const modernCompletionDetails:Record<string,Partial<Philosopher>>={
     advancedReadingPath:[reading('Frantz Fanon','The Wretched of the Earth, complete','advanced','Read violence, political organization, national consciousness, and clinical aftermath together.'),reading('Frantz Fanon','Toward the African Revolution','advanced','Trace journalism, political strategy, solidarity, and Fanon’s changing anticolonial commitments.')],
     sourceLinks:[sep('Frantz Fanon','frantz-fanon')]
   },
+  'judith-butler':{
+    beginnerReadingPath:[
+      reading('Judith Butler','Gender Trouble, Preface and Chapter 1','intermediate','Enter through the problem of grounding feminist politics in a stable identity and distinguish performativity from voluntary performance.'),
+      reading('Judith Butler','Undoing Gender, selected essays','intermediate','Follow recognition, kinship, embodiment, and the conditions of a livable life in a more accessible register.'),
+      reading('Judith Butler','Precarious Life, selected essays','intermediate','Connect vulnerability and grievability to ethics, violence, and public responsibility.'),
+    ],
+    advancedReadingPath:[
+      reading('Judith Butler','Bodies That Matter','advanced','Study materialization, regulatory norms, citation, and Butler’s response to charges that discourse makes bodies unreal.'),
+      reading('Judith Butler','Excitable Speech','advanced','Trace speech acts, social injury, censorship, and the possibility of resignifying inherited language.'),
+      reading('Judith Butler','Notes Toward a Performative Theory of Assembly','advanced','Extend performativity from gendered subject formation to bodily interdependence and collective appearance.'),
+    ],
+    sourceLinks:[
+      sep('Feminist Perspectives on Sex and Gender','feminism-gender'),
+      sep('Feminist Perspectives on the Body','feminist-body'),
+      {label:'UC Berkeley: Judith Butler',url:'https://complit.berkeley.edu/people/judith-butler',type:'other',notes:'Official faculty biography and works list'},
+    ],
+  },
   'jiddu-krishnamurti':{
     shortBio:'Jiddu Krishnamurti was an Indian-born international speaker and educator who turned a childhood shaped by the Theosophical World Teacher project into a lifelong inquiry into conditioning, authority, attention, relationship, and psychological freedom.',
     extendedBio:[

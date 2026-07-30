@@ -205,10 +205,10 @@ check('Museum convenience, hall, and exhibit routes parse and serialize', () => 
       exhibitCount += 1;
     }
   }
-  assert.equal(MUSEUM_HALLS.length, 25);
-  assert.equal(exhibitCount, 186);
-  assert.equal(MUSEUM_SUPPLEMENTAL_EXHIBITS.length, 385);
-  assert.equal(exhibitCount + MUSEUM_SUPPLEMENTAL_EXHIBITS.length, 571, 'The Museum directory must expose 571 interpreted stops');
+  assert.equal(MUSEUM_HALLS.length, 26);
+  assert.equal(exhibitCount, 189);
+  assert.equal(MUSEUM_SUPPLEMENTAL_EXHIBITS.length, 406);
+  assert.equal(exhibitCount + MUSEUM_SUPPLEMENTAL_EXHIBITS.length, 595, 'The Museum directory must expose 595 interpreted stops');
   for (const {hallId, exhibit} of MUSEUM_SUPPLEMENTAL_EXHIBITS) {
     expectRoundTrip({kind: 'museum', hallId, exhibitId: exhibit.id});
   }
@@ -343,8 +343,8 @@ check('retired hall and exhibit routes preserve exact aliases or truthful compat
     'ethics-justice-political-life': 'justice-democratic-reason',
     'mind-consciousness-self': 'core-questions-forum',
   });
-  assert.equal(MUSEUM_LIVE_LEGACY_EXHIBIT_COMPATIBILITY.length, 47);
-  assert.equal(MUSEUM_LEGACY_EXHIBIT_COMPATIBILITY.length, 1);
+  assert.equal(MUSEUM_LIVE_LEGACY_EXHIBIT_COMPATIBILITY.length, 48);
+  assert.equal(MUSEUM_LEGACY_EXHIBIT_COMPATIBILITY.length, 0);
   const compatibility = [...MUSEUM_LIVE_LEGACY_EXHIBIT_COMPATIBILITY, ...MUSEUM_LEGACY_EXHIBIT_COMPATIBILITY];
   assert.equal(compatibility.length, 48);
   assert.equal(new Set(compatibility.map(({formerHallId, exhibitId}) => `${formerHallId}/${exhibitId}`)).size, 48);
@@ -476,9 +476,9 @@ check('physical building and reserved expansion IDs are never accepted as public
   const plannedHalls = buildingManifest.nodes.filter(({galleryState}) => galleryState === 'planned-walkable');
   assert.equal(buildingManifest.manifestVersion, 'continuous-enfilade-single-level-v1');
   assert.equal(buildingManifest.status, 'implemented-approved-continuous-enfilade');
-  assert.equal(publicHallIds.length, 25);
+  assert.equal(publicHallIds.length, 26);
   assert.deepEqual(publicHallIds.sort(), MUSEUM_HALLS.map(({id}) => id).sort());
-  assert.equal(plannedHalls.length, 1);
+  assert.equal(plannedHalls.length, 0);
   assert(plannedHalls.every(({publicHallId, fastTravelEligible}) =>
     publicHallId === undefined && fastTravelEligible !== true));
   assert.equal(buildingManifest.reserves.length, 2);

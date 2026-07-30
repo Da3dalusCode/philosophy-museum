@@ -52,6 +52,10 @@ import {
   getColonialismRaceLiberationSupplementalExhibit,
 } from '../../data/museum/colonialismRaceLiberationSupplementalExhibits';
 import {
+  FEMINIST_PHILOSOPHIES_PALETTE,
+  getFeministPhilosophiesSupplementalExhibit,
+} from '../../data/museum/feministPhilosophiesSupplementalExhibits';
+import {
   MUSEUM_CANONICAL_EXHIBIT_BACKING_MATERIAL,
   MUSEUM_CANONICAL_EXHIBIT_PLINTH_GEOMETRY,
   MUSEUM_CANONICAL_EXHIBIT_PLINTH_MATERIAL,
@@ -322,6 +326,15 @@ export function MoralLifePracticalReasonSupplementalExhibits(props: GallerySuppl
     collection="gallery-24-moral-life-practical-reason-v1"
     ink={MORAL_LIFE_PRACTICAL_REASON_PALETTE.ink}
     getRecord={getMoralLifePracticalReasonSupplementalExhibit}
+  />;
+}
+
+export function FeministPhilosophiesSupplementalExhibits(props: GallerySupplementalProps) {
+  return <SupplementalCollection
+    {...props}
+    collection="gallery-25-feminist-philosophies-v1"
+    ink={FEMINIST_PHILOSOPHIES_PALETTE.ink}
+    getRecord={getFeministPhilosophiesSupplementalExhibit}
   />;
 }
 

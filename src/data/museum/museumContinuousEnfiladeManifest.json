@@ -9,7 +9,7 @@
       "path": "docs/museum-masterplan/single-level-building-plan.json",
       "planId": "continuous-enfilade-single-level-v1",
       "schemaVersion": 2,
-      "sha256": "865bfc222e43a42b1f416f87a2fac7246389a3d7466fa61f367b2beb7a1c6f36"
+      "sha256": "433d3d09b8cbcdfc15ad0a7078c92e0c6b8b98b7a01cd35e7573c326536d2214"
     },
     "program": {
       "path": "docs/museum-masterplan/hall-program.json",
@@ -6278,8 +6278,9 @@
       "kind": "hall",
       "physicalRole": "gallery",
       "programHallId": "feminist-philosophies",
+      "publicHallId": "feminist-philosophies",
       "title": "Feminist Philosophies",
-      "galleryState": "planned-walkable",
+      "galleryState": "curated-open",
       "publicGalleryNumber": 25,
       "visitSequence": 25,
       "bandId": "band-06-ethics-politics-society",
@@ -6344,7 +6345,7 @@
       },
       "map": {
         "label": "Gallery 25 · Feminist Philosophies",
-        "status": "planned-walkable"
+        "status": "open"
       },
       "doorwaySlots": [
         {
@@ -6569,274 +6570,7 @@
           "routeRole": null,
           "openingState": "closed-solid-wall"
         }
-      ],
-      "geometry": {
-        "coordinateFrame": "node-local",
-        "bounds": {
-          "minX": -14,
-          "maxX": 14,
-          "minZ": -14,
-          "maxZ": 14
-        },
-        "cells": [
-          {
-            "id": "feminist-orientation-genealogies",
-            "kind": "room",
-            "title": "Feminist philosophy and plural genealogies",
-            "bounds": {
-              "minX": -14,
-              "maxX": -2,
-              "minZ": -14,
-              "maxZ": -2
-            },
-            "ceilingHeight": 6.2
-          },
-          {
-            "id": "feminist-early-genealogies",
-            "kind": "room",
-            "title": "Early-modern education, marriage, virtue, and citizenship",
-            "bounds": {
-              "minX": 2,
-              "maxX": 14,
-              "minZ": -14,
-              "maxZ": -2
-            },
-            "ceilingHeight": 6.2
-          },
-          {
-            "id": "feminist-situated-freedom",
-            "kind": "room",
-            "title": "Situated freedom, embodiment, and otherness",
-            "bounds": {
-              "minX": 2,
-              "maxX": 14,
-              "minZ": 2,
-              "maxZ": 14
-            },
-            "ceilingHeight": 6.2
-          },
-          {
-            "id": "feminist-gender-norms",
-            "kind": "room",
-            "title": "Gender, norms, performativity, and social ontology",
-            "bounds": {
-              "minX": -14,
-              "maxX": -2,
-              "minZ": 2,
-              "maxZ": 14
-            },
-            "ceilingHeight": 6.2
-          },
-          {
-            "id": "passage:feminist-philosophies:north",
-            "kind": "passage",
-            "title": "Central circulation passage",
-            "bounds": {
-              "minX": -2,
-              "maxX": 2,
-              "minZ": -14,
-              "maxZ": -2
-            },
-            "ceilingHeight": 6.2
-          },
-          {
-            "id": "passage:feminist-philosophies:east",
-            "kind": "passage",
-            "title": "Central circulation passage",
-            "bounds": {
-              "minX": 2,
-              "maxX": 14,
-              "minZ": -2,
-              "maxZ": 2
-            },
-            "ceilingHeight": 6.2
-          },
-          {
-            "id": "passage:feminist-philosophies:south",
-            "kind": "passage",
-            "title": "Central circulation passage",
-            "bounds": {
-              "minX": -2,
-              "maxX": 2,
-              "minZ": 2,
-              "maxZ": 14
-            },
-            "ceilingHeight": 6.2
-          },
-          {
-            "id": "passage:feminist-philosophies:west",
-            "kind": "passage",
-            "title": "Central circulation passage",
-            "bounds": {
-              "minX": -14,
-              "maxX": -2,
-              "minZ": -2,
-              "maxZ": 2
-            },
-            "ceilingHeight": 6.2
-          },
-          {
-            "id": "passage:feminist-philosophies:center",
-            "kind": "passage",
-            "title": "Central circulation passage",
-            "bounds": {
-              "minX": -2,
-              "maxX": 2,
-              "minZ": -2,
-              "maxZ": 2
-            },
-            "ceilingHeight": 6.2
-          }
-        ],
-        "interiorOpenings": [
-          {
-            "id": "opening:feminist-philosophies:feminist-orientation-genealogies->north-passage",
-            "position": {
-              "x": -2,
-              "z": -8
-            },
-            "inwardNormal": {
-              "x": 1,
-              "z": 0
-            },
-            "clearWidth": 4,
-            "clearHeight": 3.2,
-            "transitionDepth": 1.2,
-            "fromCellId": "feminist-orientation-genealogies",
-            "toCellId": "passage:feminist-philosophies:north"
-          },
-          {
-            "id": "opening:feminist-philosophies:feminist-early-genealogies->north-passage",
-            "position": {
-              "x": 2,
-              "z": -8
-            },
-            "inwardNormal": {
-              "x": -1,
-              "z": 0
-            },
-            "clearWidth": 4,
-            "clearHeight": 3.2,
-            "transitionDepth": 1.2,
-            "fromCellId": "feminist-early-genealogies",
-            "toCellId": "passage:feminist-philosophies:north"
-          },
-          {
-            "id": "opening:feminist-philosophies:feminist-situated-freedom->south-passage",
-            "position": {
-              "x": 2,
-              "z": 8
-            },
-            "inwardNormal": {
-              "x": -1,
-              "z": 0
-            },
-            "clearWidth": 4,
-            "clearHeight": 3.2,
-            "transitionDepth": 1.2,
-            "fromCellId": "feminist-situated-freedom",
-            "toCellId": "passage:feminist-philosophies:south"
-          },
-          {
-            "id": "opening:feminist-philosophies:feminist-gender-norms->south-passage",
-            "position": {
-              "x": -2,
-              "z": 8
-            },
-            "inwardNormal": {
-              "x": 1,
-              "z": 0
-            },
-            "clearWidth": 4,
-            "clearHeight": 3.2,
-            "transitionDepth": 1.2,
-            "fromCellId": "feminist-gender-norms",
-            "toCellId": "passage:feminist-philosophies:south"
-          },
-          {
-            "id": "opening:feminist-philosophies:north-passage->center",
-            "position": {
-              "x": 0,
-              "z": -2
-            },
-            "inwardNormal": {
-              "x": 0,
-              "z": 1
-            },
-            "clearWidth": 4,
-            "clearHeight": 3.2,
-            "transitionDepth": 1.2,
-            "fromCellId": "passage:feminist-philosophies:north",
-            "toCellId": "passage:feminist-philosophies:center"
-          },
-          {
-            "id": "opening:feminist-philosophies:east-passage->center",
-            "position": {
-              "x": 2,
-              "z": 0
-            },
-            "inwardNormal": {
-              "x": -1,
-              "z": 0
-            },
-            "clearWidth": 4,
-            "clearHeight": 3.2,
-            "transitionDepth": 1.2,
-            "fromCellId": "passage:feminist-philosophies:east",
-            "toCellId": "passage:feminist-philosophies:center"
-          },
-          {
-            "id": "opening:feminist-philosophies:south-passage->center",
-            "position": {
-              "x": 0,
-              "z": 2
-            },
-            "inwardNormal": {
-              "x": 0,
-              "z": -1
-            },
-            "clearWidth": 4,
-            "clearHeight": 3.2,
-            "transitionDepth": 1.2,
-            "fromCellId": "passage:feminist-philosophies:south",
-            "toCellId": "passage:feminist-philosophies:center"
-          },
-          {
-            "id": "opening:feminist-philosophies:west-passage->center",
-            "position": {
-              "x": -2,
-              "z": 0
-            },
-            "inwardNormal": {
-              "x": 1,
-              "z": 0
-            },
-            "clearWidth": 4,
-            "clearHeight": 3.2,
-            "transitionDepth": 1.2,
-            "fromCellId": "passage:feminist-philosophies:west",
-            "toCellId": "passage:feminist-philosophies:center"
-          }
-        ],
-        "signs": [
-          {
-            "id": "sign:planned-status:feminist-philosophies",
-            "kind": "planned-status",
-            "title": "Gallery 25 · Feminist Philosophies",
-            "kicker": "Planned gallery",
-            "subtitle": "Architectural shell open · exhibits not yet installed",
-            "position": {
-              "x": 12,
-              "y": 1.65,
-              "z": 0
-            },
-            "rotationY": 1.570796326795,
-            "width": 3.2,
-            "height": 1.35,
-            "interactive": false
-          }
-        ]
-      }
+      ]
     },
     {
       "id": "hall:colonialism-race-liberation",
@@ -10334,12 +10068,12 @@
   "counts": {
     "halls": 26,
     "rooms": 105,
-    "curatedOpen": 25,
-    "plannedWalkable": 1,
+    "curatedOpen": 26,
+    "plannedWalkable": 0,
     "reserves": 2,
     "hallCount": 26,
-    "curatedOpenHallCount": 25,
-    "plannedWalkableHallCount": 1,
+    "curatedOpenHallCount": 26,
+    "plannedWalkableHallCount": 0,
     "canonicalRoomCount": 105,
     "nodeCount": 39,
     "connectionCount": 43,
@@ -10349,6 +10083,6 @@
     "standaloneCrossingNodeCount": 5,
     "turnCourtCount": 5,
     "reserveCount": 2,
-    "plannedStatusSignCount": 1
+    "plannedStatusSignCount": 0
   }
 }

@@ -22,6 +22,7 @@ import {
   EmpiricismSupplementalExhibits,
   EnlightenmentSupplementalExhibits,
   FaithPessimismValueSupplementalExhibits,
+  FeministPhilosophiesSupplementalExhibits,
   GermanIdealismSupplementalExhibits,
   HellenisticRomanSupplementalExhibits,
   LateAntiquitySupplementalExhibits,
@@ -264,6 +265,15 @@ export function CanonicalMuseumHallContent({
     {definition.id === 'moral-life-practical-reason'
       && definition.layout.supplementalExhibits
       && <MoralLifePracticalReasonSupplementalExhibits
+        layouts={active
+          ? definition.layout.supplementalExhibits
+          : definition.layout.supplementalExhibits.filter(({assetId}) => entryAssetIds.has(assetId))}
+        nearbyId={nearbySupplemental?.hallId === definition.id ? nearbySupplemental.supplementalExhibitId : undefined}
+        onSelect={(supplementalExhibitId) => onSelectSupplementalExhibit({hallId: definition.id, supplementalExhibitId})}
+      />}
+    {definition.id === 'feminist-philosophies'
+      && definition.layout.supplementalExhibits
+      && <FeministPhilosophiesSupplementalExhibits
         layouts={active
           ? definition.layout.supplementalExhibits
           : definition.layout.supplementalExhibits.filter(({assetId}) => entryAssetIds.has(assetId))}

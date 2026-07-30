@@ -1,0 +1,535 @@
+{
+  "version": 1,
+  "gallery": 25,
+  "hallId": "feminist-philosophies",
+  "assets": {
+    "feminist-philosophy-procession": {
+      "hallFolder": "feminist-philosophies",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Woman_Suffrage_Procession_1913_opening.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Woman%20Suffrage%20Procession%201913%20opening.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Woman%20Suffrage%20Procession%201913%20opening.jpg?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 289,
+        "bytes": 38606,
+        "sha256": "12847cfad4b0e0b08c232630c30b6eb6e39394c74a8c42e7c5d2800e167fc924"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 578,
+        "bytes": 169808,
+        "sha256": "45d674721c3626b25120146e26e01cfee128b6d945d39f96ace8e5d6524b82a4"
+      }
+    },
+    "feminist-cooper-m-street-school": {
+      "hallFolder": "feminist-philosophies",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:M_Street_High_School.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/M%20Street%20High%20School.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/M%20Street%20High%20School.jpg?width=1600",
+      "visualCharacter": "place-or-architecture",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 326,
+        "bytes": 38218,
+        "sha256": "8dc1a4269c9b4659c2b9891c4455ea57f303bdf03a221619909257d25e615ed0"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 653,
+        "bytes": 215226,
+        "sha256": "3f0e60755e32180d5b16d77cbfe5d8ec5f473c32d5e069b01703e1073c8d6aa3"
+      }
+    },
+    "feminist-truth-self-representation": {
+      "hallFolder": "feminist-philosophies",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:American_19th_Century,_Sojourner_Truth,_1864,_NGA_164108.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/American%2019th%20Century,%20Sojourner%20Truth,%201864,%20NGA%20164108.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/American%2019th%20Century,%20Sojourner%20Truth,%201864,%20NGA%20164108.jpg?width=1600",
+      "visualCharacter": "portrait-or-figure",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 383,
+        "height": 640,
+        "bytes": 29140,
+        "sha256": "05d7cecefe1ae6465794ef7ab80857ae958bd8df82a27fb9525e309f0d90bf9b"
+      },
+      "panel": {
+        "width": 766,
+        "height": 1280,
+        "bytes": 206354,
+        "sha256": "484236a25f15188c9f9431db692109e3e06d8f196c344edb2f9a09063737116a"
+      }
+    },
+    "feminist-crenshaw-intersectionality": {
+      "hallFolder": "feminist-philosophies",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Kimberl%C3%A9_Crenshaw_(47078270414).jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kimberl%C3%A9%20Crenshaw%20(47078270414).jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kimberl%C3%A9%20Crenshaw%20(47078270414).jpg?width=1600",
+      "visualCharacter": "portrait-or-figure",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 418,
+        "bytes": 23636,
+        "sha256": "63231b307d96d993d565b50a950b22970a1476f716f331b4ce31ab18da6799b6"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 836,
+        "bytes": 129242,
+        "sha256": "644ee3cc5b524d4870adf10399a557ea3edca18174237665d89483581a8cae15"
+      }
+    },
+    "feminist-situated-knowledge-computers": {
+      "hallFolder": "feminist-philosophies",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Human_computers_-_Dryden.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Human%20computers%20-%20Dryden.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Human%20computers%20-%20Dryden.jpg?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 501,
+        "bytes": 34310,
+        "sha256": "cfad35d98c7db099d2168db3865d4cd1a1bfa06a3c9387e22b7680c2efa66b5a"
+      },
+      "panel": {
+        "width": 1150,
+        "height": 900,
+        "bytes": 103594,
+        "sha256": "7f76dd59129e4de0d42f9ee86e03eb3444c284dac5c8d9e6229b6a1dfa5436f7"
+      }
+    },
+    "feminist-care-laundry-child": {
+      "hallFolder": "feminist-philosophies",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Photograph_of_a_Woman_Holding_a_Baby_while_Doing_Laundry_-_NARA_-_30805869.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Photograph%20of%20a%20Woman%20Holding%20a%20Baby%20while%20Doing%20Laundry%20-%20NARA%20-%2030805869.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Photograph%20of%20a%20Woman%20Holding%20a%20Baby%20while%20Doing%20Laundry%20-%20NARA%20-%2030805869.jpg?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 489,
+        "bytes": 47216,
+        "sha256": "33687eb55b65caaef6172072488bb766e9053d118b9ae3fd76fa8cccd02450c1"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 979,
+        "bytes": 279108,
+        "sha256": "50a17717fbdd2f22c6d3e10a7ca25be178ffa46b3aad559b4a898cf512b5e861"
+      }
+    },
+    "feminist-astell-learned-woman": {
+      "hallFolder": "feminist-philosophies",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Frontispiece-from-Jacques-du-Boscs-The-Excellent-Woman-1.png",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Frontispiece-from-Jacques-du-Boscs-The-Excellent-Woman-1.png",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Frontispiece-from-Jacques-du-Boscs-The-Excellent-Woman-1.png?width=1600",
+      "visualCharacter": "material-object",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 387,
+        "height": 640,
+        "bytes": 74058,
+        "sha256": "53f44c50fda608d62589830c13d6839a2fbb80a654addecfe3fbbfe7d29bc46f"
+      },
+      "panel": {
+        "width": 774,
+        "height": 1280,
+        "bytes": 340856,
+        "sha256": "95f3e589c77754390ca245db971ec109e1c1d41beeb1d3e512b2a90286f82517"
+      }
+    },
+    "feminist-wollstonecraft-portrait": {
+      "hallFolder": "feminist-philosophies",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Mary_Wollstonecraft_by_John_Opie_from_the_National_Portrait_Gallery.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Mary%20Wollstonecraft%20by%20John%20Opie%20from%20the%20National%20Portrait%20Gallery.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Mary%20Wollstonecraft%20by%20John%20Opie%20from%20the%20National%20Portrait%20Gallery.jpg?width=1600",
+      "visualCharacter": "portrait-or-figure",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 530,
+        "height": 640,
+        "bytes": 20674,
+        "sha256": "c6fbf7559bc3908b78fe258a8370943fc3b83321ebd2ab0b74b194fa9c2dab39"
+      },
+      "panel": {
+        "width": 1060,
+        "height": 1280,
+        "bytes": 151682,
+        "sha256": "8285a552fdfb13f68e05199e505d2a72422d6a5c642e3d4d558c576fe335aece"
+      }
+    },
+    "feminist-de-gouges-presumed-portrait": {
+      "hallFolder": "feminist-philosophies",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Portrait_pr%C3%A9sum%C3%A9_de_Marie-Olympe_Aubry_de_Gouges.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Portrait%20pr%C3%A9sum%C3%A9%20de%20Marie-Olympe%20Aubry%20de%20Gouges.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Portrait%20pr%C3%A9sum%C3%A9%20de%20Marie-Olympe%20Aubry%20de%20Gouges.jpg?width=1600",
+      "visualCharacter": "portrait-or-figure",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 569,
+        "height": 640,
+        "bytes": 56330,
+        "sha256": "662764e14d82195b6360a32bef4689059440fe475bc45795cb4d92e809defe16"
+      },
+      "panel": {
+        "width": 960,
+        "height": 1080,
+        "bytes": 208260,
+        "sha256": "d8efc48c394c237abe2e534c7d6d7fa0c348c20b4492dd78d0a2d20f61776f40"
+      }
+    },
+    "feminist-bluestocking-muses": {
+      "hallFolder": "feminist-philosophies",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Nine_Living_Muses_of_Great_Britain.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Nine%20Living%20Muses%20of%20Great%20Britain.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Nine%20Living%20Muses%20of%20Great%20Britain.jpg?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 499,
+        "bytes": 69114,
+        "sha256": "5c3b6410d9b0bdb069fdf6b5b1bae070e7ce19e890ef9581b3c06d2b85f1e928"
+      },
+      "panel": {
+        "width": 988,
+        "height": 771,
+        "bytes": 165294,
+        "sha256": "2a09cc1af04732fb84c69dfc08084a21f3db56445c6d29d6b869dd4936081e7a"
+      }
+    },
+    "feminist-education-domestic-science": {
+      "hallFolder": "feminist-philosophies",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Ohio_State_Normal_College_domestic_science_class_in_cooking_classroom_1913_(3200527454).jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ohio%20State%20Normal%20College%20domestic%20science%20class%20in%20cooking%20classroom%201913%20(3200527454).jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ohio%20State%20Normal%20College%20domestic%20science%20class%20in%20cooking%20classroom%201913%20(3200527454).jpg?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 515,
+        "bytes": 44344,
+        "sha256": "643480197fae922baeba8b926e3d6be3b97b578167cd5c34f22a8ba17d223016"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 1030,
+        "bytes": 198730,
+        "sha256": "d580692c527e337e22b6cc3379436998176c59afa9f9fde35397169a58dd0de0"
+      }
+    },
+    "feminist-abolition-convention": {
+      "hallFolder": "feminist-philosophies",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:The_Anti-Slavery_Society_Convention,_1840_by_Benjamin_Robert_Haydon.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/The%20Anti-Slavery%20Society%20Convention,%201840%20by%20Benjamin%20Robert%20Haydon.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/The%20Anti-Slavery%20Society%20Convention,%201840%20by%20Benjamin%20Robert%20Haydon.jpg?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 497,
+        "bytes": 42778,
+        "sha256": "7ec0971ddd0ce5f75c262777c2a3913319a14c596f6a6868184b9a248a23b50b"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 995,
+        "bytes": 224080,
+        "sha256": "479fbb12e43c064881f75db52a35b60e04a9a17b302fb160d4e2dad0f96e331b"
+      }
+    },
+    "feminist-beauvoir-portrait": {
+      "hallFolder": "feminist-philosophies",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Simone_de_Beauvoir_1955.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Simone%20de%20Beauvoir%201955.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Simone%20de%20Beauvoir%201955.jpg?width=1600",
+      "visualCharacter": "portrait-or-figure",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 400,
+        "height": 500,
+        "bytes": 28896,
+        "sha256": "64e03d256c6326800399f237f745d0907f3711909383458e4968247f5835f382"
+      },
+      "panel": {
+        "width": 400,
+        "height": 500,
+        "bytes": 39726,
+        "sha256": "78ed897484de52f93a89749f9372a46851de60bf15bccafbc29f23aa4d8ef5c7"
+      }
+    },
+    "feminist-labor-washerwoman": {
+      "hallFolder": "feminist-philosophies",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:A_washer_woman_-_laundry_worker.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/A%20washer%20woman%20-%20laundry%20worker.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/A%20washer%20woman%20-%20laundry%20worker.jpg?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 472,
+        "height": 640,
+        "bytes": 73878,
+        "sha256": "ea9e0105686c4669999e559744959c1327d0d607dd3625ceb9410f50814749cb"
+      },
+      "panel": {
+        "width": 756,
+        "height": 1024,
+        "bytes": 218366,
+        "sha256": "84de9c97f9942148bfebc0985565a63048b88a59616e09935214057d83a2697d"
+      }
+    },
+    "feminist-situation-paris-street": {
+      "hallFolder": "feminist-philosophies",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:La_rue_Bonaparte_%C3%A0_l%27angle_des_rues_Guillaume-Apollinaire_et_de_l%27Abbaye_vue_de_l%27actuelle_place_Jean-Paul_Sartre_et_Simone_de_Beauvoir_-_A7569.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/La%20rue%20Bonaparte%20%C3%A0%20l%27angle%20des%20rues%20Guillaume-Apollinaire%20et%20de%20l%27Abbaye%20vue%20de%20l%27actuelle%20place%20Jean-Paul%20Sartre%20et%20Simone%20de%20Beauvoir%20-%20A7569.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/La%20rue%20Bonaparte%20%C3%A0%20l%27angle%20des%20rues%20Guillaume-Apollinaire%20et%20de%20l%27Abbaye%20vue%20de%20l%27actuelle%20place%20Jean-Paul%20Sartre%20et%20Simone%20de%20Beauvoir%20-%20A7569.jpg?width=1600",
+      "visualCharacter": "place-or-architecture",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 475,
+        "bytes": 68766,
+        "sha256": "08c6e160d011de129937a0b44ba2740589f48fd173d05deeb6958fe52678251c"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 949,
+        "bytes": 422382,
+        "sha256": "0160bddb71e8db68ea106bc4e0626705dbb47cea3860d8919caec31704eeb297"
+      }
+    },
+    "feminist-womens-day-petrograd": {
+      "hallFolder": "feminist-philosophies",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:1917_International_Women%27s_Day_-_Petrograd.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/1917%20International%20Women%27s%20Day%20-%20Petrograd.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/1917%20International%20Women%27s%20Day%20-%20Petrograd.jpg?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 493,
+        "bytes": 64018,
+        "sha256": "129d2357e81142224919d235d8288f83905fb776c0564ec458df6e13e08cb76f"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 986,
+        "bytes": 191812,
+        "sha256": "1fd340debf4a5d873f0cc06b01a388f6e6c6b673db1badde37b9243a85bb628c"
+      }
+    },
+    "feminist-aging-portrait": {
+      "hallFolder": "feminist-philosophies",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Portrait_of_an_elderly_woman.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Portrait%20of%20an%20elderly%20woman.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Portrait%20of%20an%20elderly%20woman.jpg?width=1600",
+      "visualCharacter": "portrait-or-figure",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 498,
+        "height": 640,
+        "bytes": 32026,
+        "sha256": "a69c48424d4c4e6ba8e2670d2d0ebe45ba3397bfa0ce843d9d2b07ba94c3fc30"
+      },
+      "panel": {
+        "width": 600,
+        "height": 771,
+        "bytes": 55190,
+        "sha256": "44cc5e89ad4990938cf0ba560633d5b4b0954f511a0bfea5bdede842ca892fd9"
+      }
+    },
+    "feminist-boupacha-solidarity": {
+      "hallFolder": "feminist-philosophies",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Djamila_Boupacha_1963.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Djamila%20Boupacha%201963.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Djamila%20Boupacha%201963.jpg?width=1600",
+      "visualCharacter": "portrait-or-figure",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 630,
+        "height": 640,
+        "bytes": 34164,
+        "sha256": "1ed0432aaa609440736ca451f3cd9105e969d4db1e0c51bc489f4c04a0562717"
+      },
+      "panel": {
+        "width": 1261,
+        "height": 1280,
+        "bytes": 234622,
+        "sha256": "4265fbdb193a6420f60e3ff633c61249cc8775bd7ae7f4b4036cfe2649d20e56"
+      }
+    },
+    "feminist-butler-portrait": {
+      "hallFolder": "feminist-philosophies",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Judith_Butler_(2011).jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Judith%20Butler%20(2011).jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Judith%20Butler%20(2011).jpg?width=1600",
+      "visualCharacter": "portrait-or-figure",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 427,
+        "bytes": 23852,
+        "sha256": "dc8cad195b430805e5b90a98c4b3fb4edf7580cf228a45c6aef2d3ca067b7ad0"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 853,
+        "bytes": 174198,
+        "sha256": "263ded7f03c904159fcf07eafecaaa0882213bc33c8e517d7adb27dd60f24cc9"
+      }
+    },
+    "feminist-act-up-assembly": {
+      "hallFolder": "feminist-philosophies",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:ACT_UP_Demonstration_at_NIH_(14336262776).jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/ACT%20UP%20Demonstration%20at%20NIH%20(14336262776).jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/ACT%20UP%20Demonstration%20at%20NIH%20(14336262776).jpg?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 447,
+        "bytes": 43932,
+        "sha256": "bfffb2d43088f45ff758bc92eab274024486cc3e6624fb9f9b2b78065675cc44"
+      },
+      "panel": {
+        "width": 1024,
+        "height": 715,
+        "bytes": 97962,
+        "sha256": "cd5a40219ba6a65b3abd80f65486960b216df0406172ad0444c88c786dda8b0a"
+      }
+    },
+    "feminist-trans-visibility-march": {
+      "hallFolder": "feminist-philosophies",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:National_Trans_Visibility_March_1773.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/National%20Trans%20Visibility%20March%201773.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/National%20Trans%20Visibility%20March%201773.jpg?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 427,
+        "bytes": 57894,
+        "sha256": "374564c9f78b2be41ea1fa7f02c66a9281b553355f15eb002b3fed124557dc10"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 853,
+        "bytes": 249516,
+        "sha256": "bf15a53858c145abad8365ff0e2e43f483118e53107dbf3e7401bd6488d25bf0"
+      }
+    },
+    "feminist-disability-access-protest": {
+      "hallFolder": "feminist-philosophies",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:8_Sept_1991_-_Inaccessible_buses_demo,_Wilmslow_Road,_Manchester_outside_Owens_Park.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/8%20Sept%201991%20-%20Inaccessible%20buses%20demo,%20Wilmslow%20Road,%20Manchester%20outside%20Owens%20Park.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/8%20Sept%201991%20-%20Inaccessible%20buses%20demo,%20Wilmslow%20Road,%20Manchester%20outside%20Owens%20Park.jpg?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 450,
+        "height": 640,
+        "bytes": 69432,
+        "sha256": "69b87cc21b83eb69ec461d75ca169e32b79f07a01088dc2d2e8856e4dce937ff"
+      },
+      "panel": {
+        "width": 899,
+        "height": 1280,
+        "bytes": 350216,
+        "sha256": "4a503b13b46a7d4a88cfcf53f1b00834edd36bcf684db0b8402302553dd89ea0"
+      }
+    },
+    "feminist-queer-coalition-krakow": {
+      "hallFolder": "feminist-philosophies",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Equality_March_2022_in_Krak%C3%B3w_-_Strajk_Kobiet.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Equality%20March%202022%20in%20Krak%C3%B3w%20-%20Strajk%20Kobiet.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Equality%20March%202022%20in%20Krak%C3%B3w%20-%20Strajk%20Kobiet.jpg?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 479,
+        "height": 640,
+        "bytes": 33638,
+        "sha256": "9b33e36ffe0ebcf1fdbe6c4504d315442d3bef396631acd5b014847dedb9c620"
+      },
+      "panel": {
+        "width": 957,
+        "height": 1280,
+        "bytes": 146758,
+        "sha256": "fc280f006cd26d85d667c3c6d08454624444c88845e2531295e8bd5dcbedd7ad"
+      }
+    },
+    "feminist-public-assembly-ithaca": {
+      "hallFolder": "feminist-philosophies",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Women%27s_March_in_Ithaca,_New_York.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Women%27s%20March%20in%20Ithaca,%20New%20York.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Women%27s%20March%20in%20Ithaca,%20New%20York.jpg?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 229,
+        "bytes": 41382,
+        "sha256": "e21a05ca966e3b1f0a2047ac1ded791635acbd40877c2a60e312bc82601979b0"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 457,
+        "bytes": 194528,
+        "sha256": "cf49f3b452626fee1a6370ce71ac420397e12a3c50c6d8367758d400517d34b3"
+      }
+    }
+  }
+}

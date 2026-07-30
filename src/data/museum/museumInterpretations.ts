@@ -1074,6 +1074,9 @@ const MUSEUM_DEEP_ARTICLE_ENTITY_IDS = new Set([
   'deontology',
   'utilitarianism',
   'judith-thomson',
+  'feminist-philosophy',
+  'beauvoir',
+  'judith-butler',
 ]);
 
 const articleSectionText = ({id, title}: ArticleSection): string => `${id} ${title}`.toLocaleLowerCase();

@@ -1,4 +1,4 @@
-"""Build and verify the locked Gallery 26 media derivatives."""
+"""Build and verify locked media derivatives for one museum gallery."""
 
 from __future__ import annotations
 
@@ -27,6 +27,10 @@ USER_AGENT = (
 )
 EXPECTED_ASSET_COUNT = 18
 EXPECTED_HALL_FOLDER = "colonialism-race-liberation"
+GALLERY_NUMBER = 26
+ASSET_SOURCE_RECORD_PATH = (
+    ROOT / "src" / "data" / "museum" / "colonialismRaceLiberationGalleryAssets.ts"
+)
 EXPECTED_VISUAL_CHARACTER_MINIMUM = 4
 MAX_DERIVATIVE_BYTES = 600_000
 MIN_DERIVATIVE_EDGE = 180
@@ -108,13 +112,7 @@ def assert_source_urls_are_new(
     ]
     exclusions = {
         MANIFEST_PATH.resolve(),
-        (
-            ROOT
-            / "src"
-            / "data"
-            / "museum"
-            / "colonialismRaceLiberationGalleryAssets.ts"
-        ).resolve(),
+        ASSET_SOURCE_RECORD_PATH.resolve(),
     }
     searchable = [
         (path, path.read_text(encoding="utf-8"))
@@ -131,7 +129,7 @@ def assert_source_urls_are_new(
             ]
             if matches:
                 raise RuntimeError(
-                    f"{slug}.{field} reuses a Gallery 1-25 source in "
+                    f"{slug}.{field} reuses another gallery source in "
                     f"{', '.join(matches)}: {url}"
                 )
 
@@ -143,7 +141,7 @@ def load_manifest(refresh_locks: bool) -> dict[str, dict[str, object]]:
         raise RuntimeError(f"Unsupported or malformed manifest: {MANIFEST_PATH}")
     if len(assets) != EXPECTED_ASSET_COUNT:
         raise RuntimeError(
-            f"Expected {EXPECTED_ASSET_COUNT} Gallery 26 assets, found {len(assets)}."
+            f"Expected {EXPECTED_ASSET_COUNT} Gallery {GALLERY_NUMBER} assets, found {len(assets)}."
         )
 
     characters: set[str] = set()
@@ -167,7 +165,7 @@ def load_manifest(refresh_locks: bool) -> dict[str, dict[str, object]]:
             or record.get("textDominantOrSingleBook") is not False
         ):
             raise RuntimeError(
-                f"{slug} violates Gallery 26's zero text-dominant/lone-book gate."
+                f"{slug} violates Gallery {GALLERY_NUMBER}'s zero text-dominant/lone-book gate."
             )
         for maximum_field in ("sceneMaximum", "panelMaximum"):
             maximum = record.get(maximum_field)
@@ -186,7 +184,7 @@ def load_manifest(refresh_locks: bool) -> dict[str, dict[str, object]]:
 
     if len(characters) < EXPECTED_VISUAL_CHARACTER_MINIMUM:
         raise RuntimeError(
-            f"Gallery 26 has only {len(characters)} visual-character groups; "
+            f"Gallery {GALLERY_NUMBER} has only {len(characters)} visual-character groups; "
             f"at least {EXPECTED_VISUAL_CHARACTER_MINIMUM} are required."
         )
     require_unique(assets, "sourcePageUrl")
@@ -355,7 +353,7 @@ def main() -> None:
     unknown = selected.difference(assets)
     if unknown:
         raise RuntimeError(
-            f"Unknown Gallery 26 asset selection: {', '.join(sorted(unknown))}"
+            f"Unknown Gallery {GALLERY_NUMBER} asset selection: {', '.join(sorted(unknown))}"
         )
     refreshed = json.loads(MANIFEST_PATH.read_text(encoding="utf-8"))
     processed = 0
@@ -429,9 +427,9 @@ def main() -> None:
             json.dumps(refreshed, indent=2, ensure_ascii=False) + "\n",
             encoding="utf-8",
         )
-        print(f"Refreshed {processed * 2} Gallery 26 derivative locks.")
+        print(f"Refreshed {processed * 2} Gallery {GALLERY_NUMBER} derivative locks.")
     else:
-        print(f"Verified {processed * 2} locked Gallery 26 derivatives.")
+        print(f"Verified {processed * 2} locked Gallery {GALLERY_NUMBER} derivatives.")
 
     if not selected:
         assert_no_local_asset_collisions(list(assets))

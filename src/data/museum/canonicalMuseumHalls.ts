@@ -241,6 +241,22 @@ import {
   MORAL_LIFE_PRACTICAL_REASON_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
 } from './moralLifePracticalReasonSupplementalExhibits';
 import {
+  FEMINIST_PHILOSOPHIES_GALLERY_ID,
+  FEMINIST_PHILOSOPHIES_HALL_DIMENSIONS,
+  FEMINIST_PHILOSOPHIES_PRIMARY_CIRCULATION,
+  FEMINIST_PHILOSOPHIES_PRIMARY_PLACEMENTS,
+  FEMINIST_PHILOSOPHIES_PRIMARY_SCALE_FLOOR,
+  FEMINIST_PHILOSOPHIES_ROOM_BOUNDS,
+  FEMINIST_PHILOSOPHIES_ROOM_ENTRY_POSES,
+  FEMINIST_PHILOSOPHIES_ROOM_ORDER,
+  FEMINIST_PHILOSOPHIES_ROOM_SIGN_COPY,
+  FEMINIST_PHILOSOPHIES_SPATIAL_CONNECTIONS,
+  feministPhilosophiesInteriorWalls,
+} from './feministPhilosophiesGalleryCuration';
+import {
+  FEMINIST_PHILOSOPHIES_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
+} from './feministPhilosophiesSupplementalExhibits';
+import {
   COLONIALISM_RACE_LIBERATION_GALLERY_ID,
   COLONIALISM_RACE_LIBERATION_PRIMARY_PLACEMENTS,
   COLONIALISM_RACE_LIBERATION_ROOM_ENTRY_POSES,
@@ -373,6 +389,8 @@ const supplementalLayoutsForHall = (hallId: MuseumPublicHallId): readonly Museum
                   ? CRITIQUE_POWER_DECONSTRUCTION_SUPPLEMENTAL_EXHIBIT_LAYOUTS
                 : hallId === MORAL_LIFE_PRACTICAL_REASON_GALLERY_ID
                   ? MORAL_LIFE_PRACTICAL_REASON_SUPPLEMENTAL_EXHIBIT_LAYOUTS
+                : hallId === FEMINIST_PHILOSOPHIES_GALLERY_ID
+                  ? FEMINIST_PHILOSOPHIES_SUPPLEMENTAL_EXHIBIT_LAYOUTS
                 : hallId === COLONIALISM_RACE_LIBERATION_GALLERY_ID
                   ? COLONIALISM_RACE_LIBERATION_SUPPLEMENTAL_EXHIBIT_LAYOUTS
               : [];
@@ -1339,10 +1357,12 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
   const isEnlightenmentCrossroads = hall.id === ENLIGHTENMENT_GALLERY_ID;
   const isCritiquePowerDeconstructionCrossroads = hall.id === CRITIQUE_POWER_DECONSTRUCTION_GALLERY_ID;
   const isMoralLifePracticalReasonCrossroads = hall.id === MORAL_LIFE_PRACTICAL_REASON_GALLERY_ID;
+  const isFeministPhilosophiesCrossroads = hall.id === FEMINIST_PHILOSOPHIES_GALLERY_ID;
   const isAuthoredQuadrantCrossroads = isClassicalChineseCrossroads
     || isHellenisticRomanCrossroads
     || isCritiquePowerDeconstructionCrossroads
-    || isMoralLifePracticalReasonCrossroads;
+    || isMoralLifePracticalReasonCrossroads
+    || isFeministPhilosophiesCrossroads;
   const isAuthoredCrossroads = isAuthoredQuadrantCrossroads || isEnlightenmentCrossroads;
   const isCrossroads = isCoreForum || isAuthoredCrossroads;
   const template = getMuseumHallTemplate(hall.templateId);
@@ -1354,6 +1374,8 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
       ? CRITIQUE_POWER_DECONSTRUCTION_HALL_DIMENSIONS
     : isMoralLifePracticalReasonCrossroads
       ? MORAL_LIFE_PRACTICAL_REASON_HALL_DIMENSIONS
+    : isFeministPhilosophiesCrossroads
+      ? FEMINIST_PHILOSOPHIES_HALL_DIMENSIONS
       : ENLIGHTENMENT_HALL_DIMENSIONS;
   const ceiling = isAuthoredCrossroads
     ? authoredCrossroadsDimensions.ceilingHeight
@@ -1372,6 +1394,8 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
       ? new Map(Object.entries(CRITIQUE_POWER_DECONSTRUCTION_ROOM_BOUNDS))
     : isMoralLifePracticalReasonCrossroads
       ? new Map(Object.entries(MORAL_LIFE_PRACTICAL_REASON_ROOM_BOUNDS))
+    : isFeministPhilosophiesCrossroads
+      ? new Map(Object.entries(FEMINIST_PHILOSOPHIES_ROOM_BOUNDS))
     : isEnlightenmentCrossroads
       ? new Map(Object.entries(ENLIGHTENMENT_ROOM_BOUNDS))
     : isCoreForum ? roomBoundsForForum(hall.rooms) : roomBoundsForSequence(hall.rooms, width, depth);
@@ -1383,6 +1407,8 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
       ? CRITIQUE_POWER_DECONSTRUCTION_ROOM_ORDER.map((id) => hall.rooms.find((room) => room.id === id)!)
     : isMoralLifePracticalReasonCrossroads
       ? MORAL_LIFE_PRACTICAL_REASON_ROOM_ORDER.map((id) => hall.rooms.find((room) => room.id === id)!)
+    : isFeministPhilosophiesCrossroads
+      ? FEMINIST_PHILOSOPHIES_ROOM_ORDER.map((id) => hall.rooms.find((room) => room.id === id)!)
     : isEnlightenmentCrossroads
       ? ENLIGHTENMENT_ROOM_ORDER.map((id) => hall.rooms.find((room) => room.id === id)!)
     : isCoreForum
@@ -1396,6 +1422,8 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
       ? [...CRITIQUE_POWER_DECONSTRUCTION_SPATIAL_CONNECTIONS]
     : isMoralLifePracticalReasonCrossroads
       ? [...MORAL_LIFE_PRACTICAL_REASON_SPATIAL_CONNECTIONS]
+    : isFeministPhilosophiesCrossroads
+      ? [...FEMINIST_PHILOSOPHIES_SPATIAL_CONNECTIONS]
     : isEnlightenmentCrossroads
       ? [...ENLIGHTENMENT_SPATIAL_CONNECTIONS]
     : isCoreForum
@@ -1433,6 +1461,8 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
       ? CRITIQUE_POWER_DECONSTRUCTION_PRIMARY_SCALE_FLOOR
     : isMoralLifePracticalReasonCrossroads
       ? MORAL_LIFE_PRACTICAL_REASON_PRIMARY_SCALE_FLOOR
+    : isFeministPhilosophiesCrossroads
+      ? FEMINIST_PHILOSOPHIES_PRIMARY_SCALE_FLOOR
       : ENLIGHTENMENT_PRIMARY_SCALE_FLOOR;
   const primaryScaleFloor = isAuthoredCrossroads
     ? {
@@ -1467,6 +1497,8 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
           ? CRITIQUE_POWER_DECONSTRUCTION_PRIMARY_PLACEMENTS
         : hall.id === MORAL_LIFE_PRACTICAL_REASON_GALLERY_ID
           ? MORAL_LIFE_PRACTICAL_REASON_PRIMARY_PLACEMENTS
+        : hall.id === FEMINIST_PHILOSOPHIES_GALLERY_ID
+          ? FEMINIST_PHILOSOPHIES_PRIMARY_PLACEMENTS
         : hall.id === MEDITERRANEAN_GALLERY_ID
         ? MEDITERRANEAN_AUTHORED_PLACEMENTS
         : hall.id === RENAISSANCE_GALLERY_ID
@@ -1555,6 +1587,8 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
         ? critiquePowerDeconstructionInteriorWalls()
       : isMoralLifePracticalReasonCrossroads
         ? moralLifePracticalReasonInteriorWalls()
+      : isFeministPhilosophiesCrossroads
+        ? feministPhilosophiesInteriorWalls()
       : isEnlightenmentCrossroads
         ? [...enlightenmentInteriorWalls(), enlightenmentKantBaffle()]
       : isCoreForum
@@ -1585,6 +1619,7 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
     || hall.id === PRAGMATISM_GALLERY_ID
     || hall.id === CRITIQUE_POWER_DECONSTRUCTION_GALLERY_ID
     || hall.id === MORAL_LIFE_PRACTICAL_REASON_GALLERY_ID
+    || hall.id === FEMINIST_PHILOSOPHIES_GALLERY_ID
     || hall.id === COLONIALISM_RACE_LIBERATION_GALLERY_ID
   ) {
     const acceptedSupplementalBounds: {spatialCellId: string; bounds: MuseumBounds}[] = [];
@@ -1654,6 +1689,8 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
               ? HELLENISTIC_ROMAN_ROOM_ENTRY_POSES
             : isCritiquePowerDeconstructionCrossroads
               ? CRITIQUE_POWER_DECONSTRUCTION_ROOM_ENTRY_POSES
+            : isFeministPhilosophiesCrossroads
+              ? FEMINIST_PHILOSOPHIES_ROOM_ENTRY_POSES
               : MORAL_LIFE_PRACTICAL_REASON_ROOM_ENTRY_POSES,
           authoredCrossroadsDimensions,
           isClassicalChineseCrossroads
@@ -1662,6 +1699,8 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
               ? 'Gallery 14'
             : isCritiquePowerDeconstructionCrossroads
               ? 'Gallery 23'
+            : isFeministPhilosophiesCrossroads
+              ? 'Gallery 25'
               : 'Gallery 24',
         )
       : isCoreForum && layout.spatialCellId !== target.spatialCellId
@@ -2165,6 +2204,44 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
                             };
                           }),
                         ]
+                    : hall.id === FEMINIST_PHILOSOPHIES_GALLERY_ID
+                      ? [
+                          {
+                            id: `${hall.id}:entrance-sign`,
+                            kind: 'entrance' as const,
+                            title: hall.title,
+                            kicker: 'Gallery 25 · Plural feminist genealogies',
+                            subtitle: hall.period,
+                            position: {x: 13.78, y: 4.7, z: 0},
+                            rotationY: Math.PI / 2,
+                            width: 4.2,
+                            height: .72,
+                          },
+                          ...orderedRooms.map((room) => {
+                            const copy = FEMINIST_PHILOSOPHIES_ROOM_SIGN_COPY[
+                              room.id as keyof typeof FEMINIST_PHILOSOPHIES_ROOM_SIGN_COPY
+                            ];
+                            if (!copy) throw new Error(`Gallery 25 has no visitor-facing orientation copy for ${room.id}.`);
+                            const placement = room.id === 'feminist-orientation-genealogies'
+                              ? {x: -9, z: -13.72, rotationY: 0}
+                              : room.id === 'feminist-early-genealogies'
+                                ? {x: 9, z: -13.72, rotationY: 0}
+                                : room.id === 'feminist-situated-freedom'
+                                  ? {x: 13.72, z: 9, rotationY: -Math.PI / 2}
+                                  : {x: -13.72, z: 9, rotationY: Math.PI / 2};
+                            return {
+                              id: `${room.id}:room-sign`,
+                              kind: 'zone' as const,
+                              title: copy.title,
+                              kicker: copy.kicker,
+                              subtitle: copy.subtitle,
+                              position: {x: placement.x, y: 5.22, z: placement.z},
+                              rotationY: placement.rotationY,
+                              width: 4.6,
+                              height: .72,
+                            };
+                          }),
+                        ]
                     : hall.id === LATE_ANTIQUITY_GALLERY_ID
                       ? orderedRooms.map((room) => {
                           const copy = LATE_ANTIQUITY_ROOM_SIGN_COPY[
@@ -2383,6 +2460,10 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
             ? MORAL_LIFE_PRACTICAL_REASON_ROOM_ENTRY_POSES[
                 cell.id as keyof typeof MORAL_LIFE_PRACTICAL_REASON_ROOM_ENTRY_POSES
               ]
+          : isFeministPhilosophiesCrossroads
+            ? FEMINIST_PHILOSOPHIES_ROOM_ENTRY_POSES[
+                cell.id as keyof typeof FEMINIST_PHILOSOPHIES_ROOM_ENTRY_POSES
+              ]
           : hall.id === ISLAMIC_GALLERY_ID
             ? ISLAMIC_ROOM_ENTRY_POSES[
                 cell.id as keyof typeof ISLAMIC_ROOM_ENTRY_POSES
@@ -2468,6 +2549,8 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
           ? CRITIQUE_POWER_DECONSTRUCTION_PRIMARY_CIRCULATION
         : isMoralLifePracticalReasonCrossroads
           ? MORAL_LIFE_PRACTICAL_REASON_PRIMARY_CIRCULATION
+        : isFeministPhilosophiesCrossroads
+          ? FEMINIST_PHILOSOPHIES_PRIMARY_CIRCULATION
         : isEnlightenmentCrossroads
           ? ENLIGHTENMENT_PRIMARY_CIRCULATION
         : {

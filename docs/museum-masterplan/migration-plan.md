@@ -44,9 +44,9 @@ Every implementation phase must preserve these rules:
 | 4. Global-worlds demonstration | open `CSA`, `BP`, `CCT`, and `IPW` | complete |
 | 5. Gallery 11–12 connected worlds | open `EAC` and `JPH`; preserve the future `LCS` threshold | complete for Galleries 11–12; `LCS` remained planned at this historical phase boundary |
 | 6. Continuous Enfilade architecture migration | build all 26 hall/105 room shells, new circulation, entrance, map, and two reserves; atomically move the 12 populated halls | no new exhibit curation; 12 curated open and 14 walkable planned shells |
-| 7. Subsequent gallery releases | curate planned shells one or two galleries at a time; Galleries 13–24 and Gallery 26 are complete while Gallery 25 remains planned | each release changes only its reviewed shell from planned to curated-open |
+| 7. Subsequent gallery releases | curate planned shells one or two galleries at a time; Galleries 13–26 are complete | completed; each release changed only its reviewed shell from planned to curated-open |
 
-Phases 1–6 are implementation history. Phase 6 built the complete architecture without speculative gallery content. Phase 7 returns to the established one-or-two-gallery curation cadence.
+Phases 1–7 are implementation history. Phase 6 built the complete architecture without speculative gallery content. Phase 7 completed the permanent curation program in the established one-or-two-gallery release cadence.
 
 ## Phase 1 — infrastructure and adapters first
 
@@ -357,7 +357,7 @@ Each release must:
 6. update map/directory status and open counts atomically;
 7. preserve public release numbering and the manifest-owned route transform even when a later-numbered gallery opens before an earlier-numbered planned shell.
 
-Galleries 13 through 24 are now complete Phase 7 releases in their fixed architectural bays. Gallery 17 preserves its approved three-room sequence and Gallery 18 preserves its four-perimeter-room crossroads around an independent central Kant room. Galleries 19–22 preserve visit positions 16–19, their approved transforms, and the physical route through both crossing-adjacent bands; their 90 installations use no text-dominant page or isolated-book images, exceed the room-level image-diversity gate, and avoid generated wrappers or gallery-wide house motifs. Galleries 23 and 24 preserve visit positions 22 and 23, their approved 28 × 28 m crossroads shells, full-height L-baffles, four-metre inner throats, and all four semantic seams; their 48 exhibit-specific installations meet the same standalone-image and room-level diversity gates. Gallery 25, Feminist Philosophies, is the next planned shell by stable public release number.
+Galleries 13 through 26 are now complete Phase 7 releases in their fixed architectural bays. Gallery 17 preserves its approved three-room sequence and Gallery 18 preserves its four-perimeter-room crossroads around an independent central Kant room. Galleries 19–22 preserve visit positions 16–19, their approved transforms, and the physical route through both crossing-adjacent bands; their 90 installations use no text-dominant page or isolated-book images, exceed the room-level image-diversity gate, and avoid generated wrappers or gallery-wide house motifs. Galleries 23 and 24 preserve visit positions 22 and 23, their approved 28 × 28 m crossroads shells, full-height L-baffles, four-metre inner throats, and all four semantic seams; their 48 exhibit-specific installations meet the same standalone-image and room-level diversity gates. Gallery 25 preserves visit position 25, its approved four-room crossroads, all four semantic seams, and 24 unique provenance-backed installations. Gallery 26 preserves its approved final three-room sequence.
 
 ## Visitor-map truthfulness through every phase
 
@@ -365,7 +365,7 @@ The visitor map is a projection, not a second floor-plan database.
 
 - Project each live node's physical polygon, level, rotation, public doorway slots, corridor geometry, entrance, and current-location pose from the building manifest.
 - Find walking routes over live, accessible connection records. Do not draw a straight line across a wall because two hall centers are close.
-- Show planned gallery shells only when their complete physical geometry exists, and label them planned/walkable rather than open. Show the two expansion reserves only as physically blocked footprints; they receive no selection or travel action.
+- Show all 26 curated galleries as open. Show the two expansion reserves only as physically blocked footprints; they receive no selection or travel action.
 - Label **Walk route** and **Fast travel** as different operations. Fast travel targets an approved live safe pose and does not make a disconnected floor plan look connected.
 - Place the primary map in the Grand Entrance and repeat compact orientation at all six crosscut intersections. Each uses text, symbol, and color.
 - The final threshold may end a guided visit or return to the entrance; it must not force the visitor to retrace Colonialism, Race, and Liberation.
@@ -407,10 +407,10 @@ Before a phase is called complete:
 - run the production build and the full Museum, asset, routing, integrity, content, and masterplan validations;
 - run `npm run validate:museum-building-plan` and require runtime positions, portals, states, and route lengths to match the control JSON;
 - run the canonical-data startup-budget audit and cold-load the production Museum route;
-- validate every public connection in both directions, every planned shell as truthfully walkable, and both expansion reserves as non-crossable;
+- validate every public connection in both directions and both expansion reserves as non-crossable;
 - inspect collision, portal alignment, 4 × 4 m landings, 1.8–2 m routes, and turning pockets;
 - verify direct routes, Back/Forward, directory travel, guided viewpoints, saved-session fallback, Pointer Lock release/resume, fullscreen continuity, and non-WebGL access;
-- verify the map at 1920 × 1080 without scrolling and at narrow widths from every populated gallery, planned shell, turn court, and crosscut intersection;
+- verify the map at 1920 × 1080 without scrolling and at narrow widths from every curated gallery, turn court, and crosscut intersection;
 - compare the live hall, connection, and exhibit counts with the phase manifest;
 - have a historical/cultural reviewer approve any primary-to-secondary change before it reaches production.
 
