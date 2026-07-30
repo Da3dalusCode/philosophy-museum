@@ -204,7 +204,7 @@
     <tspan x="192" dy="2.7">Phenomenology, Existence</tspan>
     <tspan x="192" dy="2.7">&amp; Embodiment</tspan>
   </text>
-  <rect class="planned" x="220" y="84" width="28" height="28"/>
+  <rect class="open" x="220" y="84" width="28" height="28"/>
   <text class="tiny" x="234" y="89">
     <tspan x="234">Gallery 23 · Visit 22</tspan>
     <tspan x="234" dy="2.5">Critique, Power &amp;</tspan>
@@ -232,7 +232,7 @@
     <tspan x="192" dy="2.7">Political Action, Justice</tspan>
     <tspan x="192" dy="2.7">&amp; Democratic Reason</tspan>
   </text>
-  <rect class="planned" x="220" y="56" width="28" height="28"/>
+  <rect class="open" x="220" y="56" width="28" height="28"/>
   <text class="tiny" x="234" y="62">
     <tspan x="234">Gallery 24 · Visit 23</tspan>
     <tspan x="234" dy="2.5">Moral Life &amp;</tspan>
@@ -309,9 +309,9 @@
 
   <text class="meta-bold" x="320" y="82">CURRENT RUNTIME STATUS</text>
   <rect class="open" x="320" y="88" width="12" height="7"/>
-  <text class="meta" x="336" y="93">22 curated galleries retained intact</text>
+  <text class="meta" x="336" y="93">24 curated galleries retained intact</text>
   <rect class="planned" x="320" y="99" width="12" height="7"/>
-  <text class="meta" x="336" y="104">4 named, walkable planned shells</text>
+  <text class="meta" x="336" y="104">2 named, walkable planned shells</text>
   <rect class="forum" x="320" y="110" width="12" height="7"/>
   <text class="meta" x="336" y="115">Core Questions Forum, full bay</text>
   <rect class="crossing" x="320" y="121" width="12" height="7"/>

@@ -9,7 +9,7 @@
       "path": "docs/museum-masterplan/single-level-building-plan.json",
       "planId": "continuous-enfilade-single-level-v1",
       "schemaVersion": 2,
-      "sha256": "c1b69377c790480c7cf8e16fa49cf8980cf4aaf576b168e83c68cd5568627b69"
+      "sha256": "314d11e244bdfe18351ec9625ea15488f46c03068a9aa0b61e668490dc9aa431"
     },
     "program": {
       "path": "docs/museum-masterplan/hall-program.json",
@@ -5460,8 +5460,9 @@
       "kind": "hall",
       "physicalRole": "gallery",
       "programHallId": "critique-power-deconstruction",
+      "publicHallId": "critique-power-deconstruction",
       "title": "Critique, Power, and Deconstruction",
-      "galleryState": "planned-walkable",
+      "galleryState": "curated-open",
       "publicGalleryNumber": 23,
       "visitSequence": 22,
       "bandId": "band-05-modern-traditions",
@@ -5526,7 +5527,7 @@
       },
       "map": {
         "label": "Gallery 23 · Critique, Power, and Deconstruction",
-        "status": "planned-walkable"
+        "status": "open"
       },
       "doorwaySlots": [
         {
@@ -5751,282 +5752,16 @@
           "routeRole": null,
           "openingState": "closed-solid-wall"
         }
-      ],
-      "geometry": {
-        "coordinateFrame": "node-local",
-        "bounds": {
-          "minX": -14,
-          "maxX": 14,
-          "minZ": -14,
-          "maxZ": 14
-        },
-        "cells": [
-          {
-            "id": "continental-orientation",
-            "kind": "room",
-            "title": "Continental philosophy as a retrospective family",
-            "bounds": {
-              "minX": -14,
-              "maxX": -2,
-              "minZ": -14,
-              "maxZ": -2
-            },
-            "ceilingHeight": 6.2
-          },
-          {
-            "id": "critique-genealogy-power",
-            "kind": "room",
-            "title": "Archaeology, genealogy, institutions, and subject formation",
-            "bounds": {
-              "minX": 2,
-              "maxX": 14,
-              "minZ": -14,
-              "maxZ": -2
-            },
-            "ceilingHeight": 6.2
-          },
-          {
-            "id": "critique-deconstruction",
-            "kind": "room",
-            "title": "Writing, difference, institution, and justice",
-            "bounds": {
-              "minX": 2,
-              "maxX": 14,
-              "minZ": 2,
-              "maxZ": 14
-            },
-            "ceilingHeight": 6.2
-          },
-          {
-            "id": "critique-critical-theory",
-            "kind": "room",
-            "title": "Critical Theory, public sphere, and communicative reason",
-            "bounds": {
-              "minX": -14,
-              "maxX": -2,
-              "minZ": 2,
-              "maxZ": 14
-            },
-            "ceilingHeight": 6.2
-          },
-          {
-            "id": "passage:critique-power-deconstruction:north",
-            "kind": "passage",
-            "title": "Central circulation passage",
-            "bounds": {
-              "minX": -2,
-              "maxX": 2,
-              "minZ": -14,
-              "maxZ": -2
-            },
-            "ceilingHeight": 6.2
-          },
-          {
-            "id": "passage:critique-power-deconstruction:east",
-            "kind": "passage",
-            "title": "Central circulation passage",
-            "bounds": {
-              "minX": 2,
-              "maxX": 14,
-              "minZ": -2,
-              "maxZ": 2
-            },
-            "ceilingHeight": 6.2
-          },
-          {
-            "id": "passage:critique-power-deconstruction:south",
-            "kind": "passage",
-            "title": "Central circulation passage",
-            "bounds": {
-              "minX": -2,
-              "maxX": 2,
-              "minZ": 2,
-              "maxZ": 14
-            },
-            "ceilingHeight": 6.2
-          },
-          {
-            "id": "passage:critique-power-deconstruction:west",
-            "kind": "passage",
-            "title": "Central circulation passage",
-            "bounds": {
-              "minX": -14,
-              "maxX": -2,
-              "minZ": -2,
-              "maxZ": 2
-            },
-            "ceilingHeight": 6.2
-          },
-          {
-            "id": "passage:critique-power-deconstruction:center",
-            "kind": "passage",
-            "title": "Central circulation passage",
-            "bounds": {
-              "minX": -2,
-              "maxX": 2,
-              "minZ": -2,
-              "maxZ": 2
-            },
-            "ceilingHeight": 6.2
-          }
-        ],
-        "interiorOpenings": [
-          {
-            "id": "opening:critique-power-deconstruction:continental-orientation->north-passage",
-            "position": {
-              "x": -2,
-              "z": -8
-            },
-            "inwardNormal": {
-              "x": 1,
-              "z": 0
-            },
-            "clearWidth": 4,
-            "clearHeight": 3.2,
-            "transitionDepth": 1.2,
-            "fromCellId": "continental-orientation",
-            "toCellId": "passage:critique-power-deconstruction:north"
-          },
-          {
-            "id": "opening:critique-power-deconstruction:critique-genealogy-power->north-passage",
-            "position": {
-              "x": 2,
-              "z": -8
-            },
-            "inwardNormal": {
-              "x": -1,
-              "z": 0
-            },
-            "clearWidth": 4,
-            "clearHeight": 3.2,
-            "transitionDepth": 1.2,
-            "fromCellId": "critique-genealogy-power",
-            "toCellId": "passage:critique-power-deconstruction:north"
-          },
-          {
-            "id": "opening:critique-power-deconstruction:critique-deconstruction->south-passage",
-            "position": {
-              "x": 2,
-              "z": 8
-            },
-            "inwardNormal": {
-              "x": -1,
-              "z": 0
-            },
-            "clearWidth": 4,
-            "clearHeight": 3.2,
-            "transitionDepth": 1.2,
-            "fromCellId": "critique-deconstruction",
-            "toCellId": "passage:critique-power-deconstruction:south"
-          },
-          {
-            "id": "opening:critique-power-deconstruction:critique-critical-theory->south-passage",
-            "position": {
-              "x": -2,
-              "z": 8
-            },
-            "inwardNormal": {
-              "x": 1,
-              "z": 0
-            },
-            "clearWidth": 4,
-            "clearHeight": 3.2,
-            "transitionDepth": 1.2,
-            "fromCellId": "critique-critical-theory",
-            "toCellId": "passage:critique-power-deconstruction:south"
-          },
-          {
-            "id": "opening:critique-power-deconstruction:north-passage->center",
-            "position": {
-              "x": 0,
-              "z": -2
-            },
-            "inwardNormal": {
-              "x": 0,
-              "z": 1
-            },
-            "clearWidth": 4,
-            "clearHeight": 3.2,
-            "transitionDepth": 1.2,
-            "fromCellId": "passage:critique-power-deconstruction:north",
-            "toCellId": "passage:critique-power-deconstruction:center"
-          },
-          {
-            "id": "opening:critique-power-deconstruction:east-passage->center",
-            "position": {
-              "x": 2,
-              "z": 0
-            },
-            "inwardNormal": {
-              "x": -1,
-              "z": 0
-            },
-            "clearWidth": 4,
-            "clearHeight": 3.2,
-            "transitionDepth": 1.2,
-            "fromCellId": "passage:critique-power-deconstruction:east",
-            "toCellId": "passage:critique-power-deconstruction:center"
-          },
-          {
-            "id": "opening:critique-power-deconstruction:south-passage->center",
-            "position": {
-              "x": 0,
-              "z": 2
-            },
-            "inwardNormal": {
-              "x": 0,
-              "z": -1
-            },
-            "clearWidth": 4,
-            "clearHeight": 3.2,
-            "transitionDepth": 1.2,
-            "fromCellId": "passage:critique-power-deconstruction:south",
-            "toCellId": "passage:critique-power-deconstruction:center"
-          },
-          {
-            "id": "opening:critique-power-deconstruction:west-passage->center",
-            "position": {
-              "x": -2,
-              "z": 0
-            },
-            "inwardNormal": {
-              "x": 1,
-              "z": 0
-            },
-            "clearWidth": 4,
-            "clearHeight": 3.2,
-            "transitionDepth": 1.2,
-            "fromCellId": "passage:critique-power-deconstruction:west",
-            "toCellId": "passage:critique-power-deconstruction:center"
-          }
-        ],
-        "signs": [
-          {
-            "id": "sign:planned-status:critique-power-deconstruction",
-            "kind": "planned-status",
-            "title": "Gallery 23 · Critique, Power, and Deconstruction",
-            "kicker": "Planned gallery",
-            "subtitle": "Architectural shell open · exhibits not yet installed",
-            "position": {
-              "x": -12,
-              "y": 1.65,
-              "z": 0
-            },
-            "rotationY": -1.570796326795,
-            "width": 3.2,
-            "height": 1.35,
-            "interactive": false
-          }
-        ]
-      }
+      ]
     },
     {
       "id": "hall:moral-life-practical-reason",
       "kind": "hall",
       "physicalRole": "gallery",
       "programHallId": "moral-life-practical-reason",
+      "publicHallId": "moral-life-practical-reason",
       "title": "Moral Life & Practical Reason",
-      "galleryState": "planned-walkable",
+      "galleryState": "curated-open",
       "publicGalleryNumber": 24,
       "visitSequence": 23,
       "bandId": "band-06-ethics-politics-society",
@@ -6091,7 +5826,7 @@
       },
       "map": {
         "label": "Gallery 24 · Moral Life & Practical Reason",
-        "status": "planned-walkable"
+        "status": "open"
       },
       "doorwaySlots": [
         {
@@ -6316,274 +6051,7 @@
           "routeRole": null,
           "openingState": "closed-solid-wall"
         }
-      ],
-      "geometry": {
-        "coordinateFrame": "node-local",
-        "bounds": {
-          "minX": -14,
-          "maxX": 14,
-          "minZ": -14,
-          "maxZ": 14
-        },
-        "cells": [
-          {
-            "id": "moral-ethics-orientation",
-            "kind": "room",
-            "title": "Ethics: reasons, relationships, practices, and ways of living",
-            "bounds": {
-              "minX": -14,
-              "maxX": -2,
-              "minZ": -14,
-              "maxZ": -2
-            },
-            "ceilingHeight": 6.2
-          },
-          {
-            "id": "moral-character-virtue",
-            "kind": "room",
-            "title": "Character, flourishing, attention, and virtue revival",
-            "bounds": {
-              "minX": 2,
-              "maxX": 14,
-              "minZ": -14,
-              "maxZ": -2
-            },
-            "ceilingHeight": 6.2
-          },
-          {
-            "id": "moral-duty-consequence",
-            "kind": "room",
-            "title": "Duty, respect, consequences, and welfare",
-            "bounds": {
-              "minX": 2,
-              "maxX": 14,
-              "minZ": 2,
-              "maxZ": 14
-            },
-            "ceilingHeight": 6.2
-          },
-          {
-            "id": "moral-rights-persons-futures",
-            "kind": "room",
-            "title": "Rights, persons, hard cases, and future generations",
-            "bounds": {
-              "minX": -14,
-              "maxX": -2,
-              "minZ": 2,
-              "maxZ": 14
-            },
-            "ceilingHeight": 6.2
-          },
-          {
-            "id": "passage:moral-life-practical-reason:north",
-            "kind": "passage",
-            "title": "Central circulation passage",
-            "bounds": {
-              "minX": -2,
-              "maxX": 2,
-              "minZ": -14,
-              "maxZ": -2
-            },
-            "ceilingHeight": 6.2
-          },
-          {
-            "id": "passage:moral-life-practical-reason:east",
-            "kind": "passage",
-            "title": "Central circulation passage",
-            "bounds": {
-              "minX": 2,
-              "maxX": 14,
-              "minZ": -2,
-              "maxZ": 2
-            },
-            "ceilingHeight": 6.2
-          },
-          {
-            "id": "passage:moral-life-practical-reason:south",
-            "kind": "passage",
-            "title": "Central circulation passage",
-            "bounds": {
-              "minX": -2,
-              "maxX": 2,
-              "minZ": 2,
-              "maxZ": 14
-            },
-            "ceilingHeight": 6.2
-          },
-          {
-            "id": "passage:moral-life-practical-reason:west",
-            "kind": "passage",
-            "title": "Central circulation passage",
-            "bounds": {
-              "minX": -14,
-              "maxX": -2,
-              "minZ": -2,
-              "maxZ": 2
-            },
-            "ceilingHeight": 6.2
-          },
-          {
-            "id": "passage:moral-life-practical-reason:center",
-            "kind": "passage",
-            "title": "Central circulation passage",
-            "bounds": {
-              "minX": -2,
-              "maxX": 2,
-              "minZ": -2,
-              "maxZ": 2
-            },
-            "ceilingHeight": 6.2
-          }
-        ],
-        "interiorOpenings": [
-          {
-            "id": "opening:moral-life-practical-reason:moral-ethics-orientation->north-passage",
-            "position": {
-              "x": -2,
-              "z": -8
-            },
-            "inwardNormal": {
-              "x": 1,
-              "z": 0
-            },
-            "clearWidth": 4,
-            "clearHeight": 3.2,
-            "transitionDepth": 1.2,
-            "fromCellId": "moral-ethics-orientation",
-            "toCellId": "passage:moral-life-practical-reason:north"
-          },
-          {
-            "id": "opening:moral-life-practical-reason:moral-character-virtue->north-passage",
-            "position": {
-              "x": 2,
-              "z": -8
-            },
-            "inwardNormal": {
-              "x": -1,
-              "z": 0
-            },
-            "clearWidth": 4,
-            "clearHeight": 3.2,
-            "transitionDepth": 1.2,
-            "fromCellId": "moral-character-virtue",
-            "toCellId": "passage:moral-life-practical-reason:north"
-          },
-          {
-            "id": "opening:moral-life-practical-reason:moral-duty-consequence->south-passage",
-            "position": {
-              "x": 2,
-              "z": 8
-            },
-            "inwardNormal": {
-              "x": -1,
-              "z": 0
-            },
-            "clearWidth": 4,
-            "clearHeight": 3.2,
-            "transitionDepth": 1.2,
-            "fromCellId": "moral-duty-consequence",
-            "toCellId": "passage:moral-life-practical-reason:south"
-          },
-          {
-            "id": "opening:moral-life-practical-reason:moral-rights-persons-futures->south-passage",
-            "position": {
-              "x": -2,
-              "z": 8
-            },
-            "inwardNormal": {
-              "x": 1,
-              "z": 0
-            },
-            "clearWidth": 4,
-            "clearHeight": 3.2,
-            "transitionDepth": 1.2,
-            "fromCellId": "moral-rights-persons-futures",
-            "toCellId": "passage:moral-life-practical-reason:south"
-          },
-          {
-            "id": "opening:moral-life-practical-reason:north-passage->center",
-            "position": {
-              "x": 0,
-              "z": -2
-            },
-            "inwardNormal": {
-              "x": 0,
-              "z": 1
-            },
-            "clearWidth": 4,
-            "clearHeight": 3.2,
-            "transitionDepth": 1.2,
-            "fromCellId": "passage:moral-life-practical-reason:north",
-            "toCellId": "passage:moral-life-practical-reason:center"
-          },
-          {
-            "id": "opening:moral-life-practical-reason:east-passage->center",
-            "position": {
-              "x": 2,
-              "z": 0
-            },
-            "inwardNormal": {
-              "x": -1,
-              "z": 0
-            },
-            "clearWidth": 4,
-            "clearHeight": 3.2,
-            "transitionDepth": 1.2,
-            "fromCellId": "passage:moral-life-practical-reason:east",
-            "toCellId": "passage:moral-life-practical-reason:center"
-          },
-          {
-            "id": "opening:moral-life-practical-reason:south-passage->center",
-            "position": {
-              "x": 0,
-              "z": 2
-            },
-            "inwardNormal": {
-              "x": 0,
-              "z": -1
-            },
-            "clearWidth": 4,
-            "clearHeight": 3.2,
-            "transitionDepth": 1.2,
-            "fromCellId": "passage:moral-life-practical-reason:south",
-            "toCellId": "passage:moral-life-practical-reason:center"
-          },
-          {
-            "id": "opening:moral-life-practical-reason:west-passage->center",
-            "position": {
-              "x": -2,
-              "z": 0
-            },
-            "inwardNormal": {
-              "x": 1,
-              "z": 0
-            },
-            "clearWidth": 4,
-            "clearHeight": 3.2,
-            "transitionDepth": 1.2,
-            "fromCellId": "passage:moral-life-practical-reason:west",
-            "toCellId": "passage:moral-life-practical-reason:center"
-          }
-        ],
-        "signs": [
-          {
-            "id": "sign:planned-status:moral-life-practical-reason",
-            "kind": "planned-status",
-            "title": "Gallery 24 · Moral Life & Practical Reason",
-            "kicker": "Planned gallery",
-            "subtitle": "Architectural shell open · exhibits not yet installed",
-            "position": {
-              "x": 12,
-              "y": 1.65,
-              "z": 0
-            },
-            "rotationY": 1.570796326795,
-            "width": 3.2,
-            "height": 1.35,
-            "interactive": false
-          }
-        ]
-      }
+      ]
     },
     {
       "id": "hall:justice-democratic-reason",
@@ -10964,12 +10432,12 @@
   "counts": {
     "halls": 26,
     "rooms": 105,
-    "curatedOpen": 22,
-    "plannedWalkable": 4,
+    "curatedOpen": 24,
+    "plannedWalkable": 2,
     "reserves": 2,
     "hallCount": 26,
-    "curatedOpenHallCount": 22,
-    "plannedWalkableHallCount": 4,
+    "curatedOpenHallCount": 24,
+    "plannedWalkableHallCount": 2,
     "canonicalRoomCount": 105,
     "nodeCount": 39,
     "connectionCount": 43,
@@ -10979,6 +10447,6 @@
     "standaloneCrossingNodeCount": 5,
     "turnCourtCount": 5,
     "reserveCount": 2,
-    "plannedStatusSignCount": 4
+    "plannedStatusSignCount": 2
   }
 }

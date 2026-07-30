@@ -1,0 +1,1061 @@
+{
+  "version": 1,
+  "assets": {
+    "critique-continental-europe-orthographic": {
+      "hallFolder": "critique-power-deconstruction",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Europe_(orthographic_projection).svg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Europe_(orthographic_projection).svg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Europe_(orthographic_projection).svg?width=1600",
+      "visualCharacter": "map-or-diagram",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 640,
+        "bytes": 29180,
+        "sha256": "7e996e02d09e003048deef05bb3c9924458faf9a9754bdaca07b73444064016a"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 1280,
+        "bytes": 86174,
+        "sha256": "75f66c64788607fee747884934aa2bb52387da66aed4d4cce10e81bd1c9713a4"
+      }
+    },
+    "critique-saussure-jullien-portrait": {
+      "hallFolder": "critique-power-deconstruction",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Ferdinand_de_Saussure_by_Jullien.png",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ferdinand_de_Saussure_by_Jullien.png",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ferdinand_de_Saussure_by_Jullien.png?width=1600",
+      "visualCharacter": "portrait-or-figure",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 424,
+        "height": 640,
+        "bytes": 43830,
+        "sha256": "4b71579487d14013ece1a902f76ac176e701d7feb496df959410b927c9977a1e"
+      },
+      "panel": {
+        "width": 849,
+        "height": 1280,
+        "bytes": 168838,
+        "sha256": "28f5f8320b37b510cb9e5015e04f87485f7f1aa72bd1bec3e9f4f8d99e0c29e6"
+      }
+    },
+    "critique-freud-couch-london-2019": {
+      "hallFolder": "critique-power-deconstruction",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Sigmund_Freud%27s_couch.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sigmund_Freud%27s_couch.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sigmund_Freud%27s_couch.jpg?width=1600",
+      "visualCharacter": "material-object",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 528,
+        "bytes": 98914,
+        "sha256": "017841b76c3edfa89159e0aa68b30aa119296bfc22dad25e176507713d1bc6fc"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 1056,
+        "bytes": 406560,
+        "sha256": "7e866ecb65dc184843ec0105e3e966d9d6c68700faa9981d54f8f34db226ffe7"
+      }
+    },
+    "critique-college-de-france-courtyard": {
+      "hallFolder": "critique-power-deconstruction",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:College_de_France.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/College_de_France.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/College_de_France.jpg?width=1600",
+      "visualCharacter": "place-or-architecture",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 284,
+        "bytes": 33568,
+        "sha256": "5ccc2b4eaff2012965e973e7ed0011ee0d951c173f6fa8a3bb1b333766f25f06"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 567,
+        "bytes": 144072,
+        "sha256": "5b8ea341ead1f4cb5acf139654fa50ee1bea97d2ce664723cfbdcf3b7f6cd466"
+      }
+    },
+    "critique-berlin-wall-brandenburg-1989": {
+      "hallFolder": "critique-power-deconstruction",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:BerlinWall-BrandenburgGate.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/BerlinWall-BrandenburgGate.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/BerlinWall-BrandenburgGate.jpg?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 431,
+        "height": 640,
+        "bytes": 84122,
+        "sha256": "069e9f4811744242bf623a57703b58515d361705cb1253b92cd23f85f8394c81"
+      },
+      "panel": {
+        "width": 861,
+        "height": 1280,
+        "bytes": 355876,
+        "sha256": "dfd1e7a501db885cf92ae6597872d36a8527b97b43efa5c9a25a36964cedf152"
+      }
+    },
+    "critique-freiburg-university-building": {
+      "hallFolder": "critique-power-deconstruction",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Universit%C3%A4t_Freiburg_Kollegiengeb%C3%A4ude_I_(Altbau).jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Universit%C3%A4t_Freiburg_Kollegiengeb%C3%A4ude_I_(Altbau).jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Universit%C3%A4t_Freiburg_Kollegiengeb%C3%A4ude_I_(Altbau).jpg?width=1600",
+      "visualCharacter": "place-or-architecture",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 480,
+        "bytes": 61262,
+        "sha256": "822a782da798d83619a5cab67b2681b1b633a2b20f07b69690783f0e85017aaa"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 960,
+        "bytes": 291932,
+        "sha256": "b63998988e6a9e02ee458b921171a7d754be874672dfb6744033c814901f7959"
+      }
+    },
+    "critique-foucault-watercolor-2013": {
+      "hallFolder": "critique-power-deconstruction",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Michel_Foucault.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Michel_Foucault.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Michel_Foucault.jpg?width=1600",
+      "visualCharacter": "portrait-or-figure",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 503,
+        "height": 640,
+        "bytes": 25410,
+        "sha256": "94cea7cd05d2b041039d297dfc9344cc059059ccf0c7db83658c94003015919c"
+      },
+      "panel": {
+        "width": 1006,
+        "height": 1280,
+        "bytes": 184268,
+        "sha256": "b860810c551b4a0b20a959d87331a3c128d52f96aaf1b2359f000d948943d102"
+      }
+    },
+    "critique-panopticon-outram-proposal-1880s": {
+      "hallFolder": "critique-power-deconstruction",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:J_F_A_McNair,_architectural_drawing_of_a_proposed_prison_at_Outram,_Singapore_(1880s).jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/J_F_A_McNair,_architectural_drawing_of_a_proposed_prison_at_Outram,_Singapore_(1880s).jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/J_F_A_McNair,_architectural_drawing_of_a_proposed_prison_at_Outram,_Singapore_(1880s).jpg?width=1600",
+      "visualCharacter": "map-or-diagram",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 480,
+        "bytes": 51696,
+        "sha256": "d763be118124a42eb94d455e295dcd206f1881cd745d81b1c2f9ae795cea1067"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 960,
+        "bytes": 271404,
+        "sha256": "10f42b398e4385ea76ca8b3291c4f0d5aedb12d3bbf55d1c74767067db30a3e4"
+      }
+    },
+    "critique-salpetriere-clinical-lesson": {
+      "hallFolder": "critique-power-deconstruction",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Une_le%C3%A7on_clinique_%C3%A0_la_Salp%C3%AAtri%C3%A8re.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Une_le%C3%A7on_clinique_%C3%A0_la_Salp%C3%AAtri%C3%A8re.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Une_le%C3%A7on_clinique_%C3%A0_la_Salp%C3%AAtri%C3%A8re.jpg?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 404,
+        "bytes": 46686,
+        "sha256": "bbe38c30487f0acf28bbf044f0aae94fe0e6e6a258b085510536c0c7999105ac"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 809,
+        "bytes": 344716,
+        "sha256": "1ab42ea21777bad2076f6d11a9f4bbae99198f434aa34b2e46e5f4800de1e725"
+      }
+    },
+    "critique-bertillon-evidence-display": {
+      "hallFolder": "critique-power-deconstruction",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Alphonse_Bertillon,_Scene_of_Crime_Evidence_Photography,_Mus%C3%A9e_de_la_Pr%C3%A9fecture_de_Police,_Paris.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Alphonse_Bertillon,_Scene_of_Crime_Evidence_Photography,_Mus%C3%A9e_de_la_Pr%C3%A9fecture_de_Police,_Paris.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Alphonse_Bertillon,_Scene_of_Crime_Evidence_Photography,_Mus%C3%A9e_de_la_Pr%C3%A9fecture_de_Police,_Paris.jpg?width=1600",
+      "visualCharacter": "material-object",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 373,
+        "bytes": 37206,
+        "sha256": "c8fa6ee54cfe466bef9f5cb154d74e88d0f3bb90480a59acf8901ae8ecffdb7b"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 747,
+        "bytes": 268430,
+        "sha256": "12756728986de2a54e054f83aaa27e2b5102f284ad8e9cee5e376d3a3b6b738e"
+      }
+    },
+    "critique-mettray-shoemakers-c1910": {
+      "hallFolder": "critique-power-deconstruction",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Colonie_de_Mettray_CP_les_sabotiers.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Colonie_de_Mettray_CP_les_sabotiers.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Colonie_de_Mettray_CP_les_sabotiers.jpg?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 414,
+        "bytes": 60526,
+        "sha256": "f90ba14c37d15115abbcf8186900a8d67a9f09b243a354b4204cd95a563e8cf8"
+      },
+      "panel": {
+        "width": 1148,
+        "height": 743,
+        "bytes": 220766,
+        "sha256": "2cb48eaaa928b3e01a7fa50f44522206af8ea93fc20bf46843e8c6a6e3081126"
+      }
+    },
+    "critique-bnf-labrouste-reading-room": {
+      "hallFolder": "critique-power-deconstruction",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Biblioth%C3%A8que_nationale_de_France_Salle_Labrouste.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Biblioth%C3%A8que_nationale_de_France_Salle_Labrouste.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Biblioth%C3%A8que_nationale_de_France_Salle_Labrouste.jpg?width=1600",
+      "visualCharacter": "place-or-architecture",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 426,
+        "bytes": 80232,
+        "sha256": "110f85ea6c49f2385b5e303f6a22733718a44937abd77a9ee11cfc7d4f3f10be"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 851,
+        "bytes": 354450,
+        "sha256": "dda7e985d4cc7978ba702262181fb98b4bb338714901d8f07804f6b56ee8490d"
+      }
+    },
+    "critique-derrida-espinosa-drawing-2013": {
+      "hallFolder": "critique-power-deconstruction",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Derrida_Dibujo.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Derrida_Dibujo.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Derrida_Dibujo.jpg?width=1600",
+      "visualCharacter": "portrait-or-figure",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 454,
+        "height": 640,
+        "bytes": 108270,
+        "sha256": "0ba15035ac89c7759492f93ca84c6883567b216c84899e537500ac346064aed0"
+      },
+      "panel": {
+        "width": 909,
+        "height": 1280,
+        "bytes": 585412,
+        "sha256": "0dbdadfc54daf6906e84cfd3f7bea31a76586e62b247027912d16c42cf22600f"
+      }
+    },
+    "critique-french-algeria-1934-map": {
+      "hallFolder": "critique-power-deconstruction",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:French_Algeria_1934-1955_administrative_map-fr.svg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/French_Algeria_1934-1955_administrative_map-fr.svg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/French_Algeria_1934-1955_administrative_map-fr.svg?width=1600",
+      "visualCharacter": "map-or-diagram",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 636,
+        "bytes": 40268,
+        "sha256": "d10d325e957e77a06486909eb76f9bf1e2aa1eec2991451b696614540b136125"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 1271,
+        "bytes": 155714,
+        "sha256": "1cf82d0b2ae2f9710377811d34ea70877934e5a360409a858b0527b6dc830563"
+      }
+    },
+    "critique-rosetta-stone-babelstone": {
+      "hallFolder": "critique-power-deconstruction",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Rosetta_Stone_at_the_British_Museum.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Rosetta_Stone_at_the_British_Museum.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Rosetta_Stone_at_the_British_Museum.jpg?width=1600",
+      "visualCharacter": "material-object",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 382,
+        "height": 640,
+        "bytes": 28778,
+        "sha256": "5c0859fe714de448693babbbecdf66cbfb57db9cca491939f9dbe41aa350ecb2"
+      },
+      "panel": {
+        "width": 764,
+        "height": 1280,
+        "bytes": 153494,
+        "sha256": "a2eacebae4a791de361e0613202db1b80be57f1e69aacda6831cc63b97ff39c0"
+      }
+    },
+    "critique-bruegel-tower-babel": {
+      "hallFolder": "critique-power-deconstruction",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Pieter_Bruegel_the_Elder_-_The_Tower_of_Babel_(Vienna)_-_Google_Art_Project.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Pieter_Bruegel_the_Elder_-_The_Tower_of_Babel_(Vienna)_-_Google_Art_Project.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Pieter_Bruegel_the_Elder_-_The_Tower_of_Babel_(Vienna)_-_Google_Art_Project.jpg?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 468,
+        "bytes": 60474,
+        "sha256": "3661d22818217b86f3f5bf7022bac56070698e556d8ea6ca3b289e3e16186b22"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 937,
+        "bytes": 342758,
+        "sha256": "d477eefd1ff60c374293e1f0d7f49a429993167a4070fa33c68fd4c6676a25d5"
+      }
+    },
+    "critique-ens-rue-ulm-c1900": {
+      "hallFolder": "critique-power-deconstruction",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:%C3%89cole_normale_sup%C3%A9rieure,_rue_d%27Ulm,_Paris,_vers_1900.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/%C3%89cole_normale_sup%C3%A9rieure,_rue_d%27Ulm,_Paris,_vers_1900.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/%C3%89cole_normale_sup%C3%A9rieure,_rue_d%27Ulm,_Paris,_vers_1900.jpg?width=1600",
+      "visualCharacter": "place-or-architecture",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 408,
+        "bytes": 75052,
+        "sha256": "ab898f58e46b6560de1cdc67dcfc860f4be61415203e55a077df120843171026"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 817,
+        "bytes": 304622,
+        "sha256": "9d2e96d13ba01ef75962112e44aa995e12a4f19e53cc2f4be1dc0e43e431711d"
+      }
+    },
+    "critique-writing-tablet-stylus-london": {
+      "hallFolder": "critique-power-deconstruction",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Writing_tablet_and_stylus_-_oldest_record_of_a_commercial_transaction_in_the_City_of_London.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Writing_tablet_and_stylus_-_oldest_record_of_a_commercial_transaction_in_the_City_of_London.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Writing_tablet_and_stylus_-_oldest_record_of_a_commercial_transaction_in_the_City_of_London.jpg?width=1600",
+      "visualCharacter": "material-object",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 390,
+        "bytes": 44902,
+        "sha256": "b1fe4271a430ac3325c6eb1e3f0d5b06d2b8c74a68113cebff49bf1412a6ff54"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 781,
+        "bytes": 247472,
+        "sha256": "376c2af082666dd3191e0ebfd555b9e56fcd98dbba635f701f8ba2c486bce65f"
+      }
+    },
+    "critique-habermas-critical-theory-heidelberg-1964": {
+      "hallFolder": "critique-power-deconstruction",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:AdornoHorkheimerHabermasbyJeremyJShapiro2.png",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/AdornoHorkheimerHabermasbyJeremyJShapiro2.png",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/AdornoHorkheimerHabermasbyJeremyJShapiro2.png?width=1600",
+      "visualCharacter": "portrait-or-figure",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 479,
+        "bytes": 27516,
+        "sha256": "37b17686bc926577bec38e50a9d56742e8bdc0c7c5540554a1712b47a0151932"
+      },
+      "panel": {
+        "width": 900,
+        "height": 674,
+        "bytes": 72772,
+        "sha256": "50d2742eadae539a1cd6f201a19e9c42e2d8ad29301332f742304a94ef6d6d39"
+      }
+    },
+    "critique-frankfurt-institute-building": {
+      "hallFolder": "critique-power-deconstruction",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Ffm-institut-fuer-sozialforschung001.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ffm-institut-fuer-sozialforschung001.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ffm-institut-fuer-sozialforschung001.jpg?width=1600",
+      "visualCharacter": "place-or-architecture",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 492,
+        "bytes": 98796,
+        "sha256": "d8c09e08ecdb4b2d014c0f90ef6a58f696b7419284e1d87322360f7bb4f73f04"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 985,
+        "bytes": 500778,
+        "sha256": "353df5f73a19910797be55141bcd6bf74feaed3c09feb7a5c5be0ff2020499da"
+      }
+    },
+    "critique-coffee-house-bunbury-dickinson-1781": {
+      "hallFolder": "critique-power-deconstruction",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:The_Coffee-House_(BM_1893,0731.61).jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/The_Coffee-House_(BM_1893,0731.61).jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/The_Coffee-House_(BM_1893,0731.61).jpg?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 571,
+        "bytes": 82962,
+        "sha256": "9aed87e7fd3efeee4e654fd2990e9e3502bb2e28439b92bb84bdd27ea534c9cb"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 1142,
+        "bytes": 528902,
+        "sha256": "bd26aa8175e32dfac81f65f78a6a858af0651cb8642f88e4325185ca9f1d99e1"
+      }
+    },
+    "critique-bundestag-plenary-dome-view": {
+      "hallFolder": "critique-power-deconstruction",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:View_of_the_Plenary_Chamber_of_the_Bundestag_from_the_Dome_of_the_Reichstag._(4209149129).jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/View_of_the_Plenary_Chamber_of_the_Bundestag_from_the_Dome_of_the_Reichstag._(4209149129).jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/View_of_the_Plenary_Chamber_of_the_Bundestag_from_the_Dome_of_the_Reichstag._(4209149129).jpg?width=1600",
+      "visualCharacter": "place-or-architecture",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 426,
+        "bytes": 63826,
+        "sha256": "d89d1e071530f8028ede5f226c666f82b6b0f7b64faa8069914f2550c5a6777e"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 853,
+        "bytes": 249258,
+        "sha256": "28dc9e3d05e30c7789f8a892b551b19ebae287bb74651ec85a2595a57c774360"
+      }
+    },
+    "critique-frankfurt-radio-1930s": {
+      "hallFolder": "critique-power-deconstruction",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Rundfunkempf%C3%A4nger_1930er-Jahre.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Rundfunkempf%C3%A4nger_1930er-Jahre.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Rundfunkempf%C3%A4nger_1930er-Jahre.jpg?width=1600",
+      "visualCharacter": "material-object",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 398,
+        "bytes": 59682,
+        "sha256": "ab6dd476906deb9ef90a7c915d068e21c45fd6218fadb15217a21362a9203989"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 796,
+        "bytes": 279430,
+        "sha256": "424db28111a6c4265c9743a5cc22c79749fc445523089245b1b38a9e8e12a232"
+      }
+    },
+    "critique-adorno-memorial-desk": {
+      "hallFolder": "critique-power-deconstruction",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:FFM_Adorno-Denkmal_Schreibtisch_1.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/FFM_Adorno-Denkmal_Schreibtisch_1.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/FFM_Adorno-Denkmal_Schreibtisch_1.jpg?width=1600",
+      "visualCharacter": "material-object",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 480,
+        "bytes": 38036,
+        "sha256": "81a920bbe7c52e48bfa226af5de73733a1d15947d2021b62c0d3134bc3702e15"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 960,
+        "bytes": 173466,
+        "sha256": "65f43920237804e237975c71d635f75bbef93ec9accc8e97291a8f50ab2e006e"
+      }
+    },
+    "moral-ethics-seven-works-mercy": {
+      "hallFolder": "moral-life-practical-reason",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Caravaggio_-_The_Seven_Works_of_Mercy_-_Google_Art_Project.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Caravaggio_-_The_Seven_Works_of_Mercy_-_Google_Art_Project.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Caravaggio_-_The_Seven_Works_of_Mercy_-_Google_Art_Project.jpg?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 434,
+        "height": 640,
+        "bytes": 28880,
+        "sha256": "23819ce5165d4b04ff54abd1ad79f94fdb31e6cc54c3e8b1b87e074665fbd9fd"
+      },
+      "panel": {
+        "width": 867,
+        "height": 1280,
+        "bytes": 122462,
+        "sha256": "b6a284c2b96f7ea515005a336f9e184479aa7f29337990db3d09bb385af4bcf3"
+      }
+    },
+    "moral-virtue-aristotle-homer": {
+      "hallFolder": "moral-life-practical-reason",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Aristotle_with_a_Bust_of_Homer_MET_DP319026.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Aristotle_with_a_Bust_of_Homer_MET_DP319026.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Aristotle_with_a_Bust_of_Homer_MET_DP319026.jpg?width=1600",
+      "visualCharacter": "portrait-or-figure",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 608,
+        "height": 640,
+        "bytes": 17524,
+        "sha256": "c54e4af91f1192fc0f41d78ed8da1cd143825c81dfef21e12d93e472fa33ee18"
+      },
+      "panel": {
+        "width": 1216,
+        "height": 1280,
+        "bytes": 125176,
+        "sha256": "dc06eda240040eda5e4b021195298c1585e45f5f47340484ff14211020f515cb"
+      }
+    },
+    "moral-murdoch-charlbury-road": {
+      "hallFolder": "moral-life-practical-reason",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:30_Charlbury_Road,_Oxford,_with_blue_plaque_to_Iris_Murdoch_-_geograph.org.uk_-_8084214.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/30_Charlbury_Road,_Oxford,_with_blue_plaque_to_Iris_Murdoch_-_geograph.org.uk_-_8084214.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/30_Charlbury_Road,_Oxford,_with_blue_plaque_to_Iris_Murdoch_-_geograph.org.uk_-_8084214.jpg?width=1600",
+      "visualCharacter": "place-or-architecture",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 640,
+        "bytes": 170580,
+        "sha256": "cff075ff767c90fa6ba04fafdd1832f397693951a3c7844a666bdd5e1dc8fbf8"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 1280,
+        "bytes": 586860,
+        "sha256": "a31705b8e920113685435d0c4975b97930268ea46a4eef0ca1312297f081f350"
+      }
+    },
+    "moral-foot-somerville-1939": {
+      "hallFolder": "moral-life-practical-reason",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Somerville_College_graduates_in_1939.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Somerville_College_graduates_in_1939.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Somerville_College_graduates_in_1939.jpg?width=1600",
+      "visualCharacter": "portrait-or-figure",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 463,
+        "bytes": 39476,
+        "sha256": "5ff579ce8bcb66839d185528214a614f730bf9c86ca60ca55457e62fa95444f8"
+      },
+      "panel": {
+        "width": 840,
+        "height": 608,
+        "bytes": 83126,
+        "sha256": "e0b924bc6467a1c91eaa7830efd9377ab3ce4d69036d24a58116fb682cde7b75"
+      }
+    },
+    "moral-deontology-oath-horatii": {
+      "hallFolder": "moral-life-practical-reason",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Jacques-Louis_David_-_Oath_of_the_Horatii_-_Google_Art_Project.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Jacques-Louis_David_-_Oath_of_the_Horatii_-_Google_Art_Project.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Jacques-Louis_David_-_Oath_of_the_Horatii_-_Google_Art_Project.jpg?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 499,
+        "bytes": 52284,
+        "sha256": "1c87238aacf43c6f2efdbabc76cf4602f915ac4d8814f4a3b7da2a4fbca67f36"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 998,
+        "bytes": 295904,
+        "sha256": "6c5c5a8e6ef66187cd8341bb18278a5d7aa2bc77685f7182846e2bba674ae35b"
+      }
+    },
+    "moral-utilitarian-sidgwick-portrait": {
+      "hallFolder": "moral-life-practical-reason",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Henry_Sidgwick_National_Portrait_Gallery.png",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Henry_Sidgwick_National_Portrait_Gallery.png",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Henry_Sidgwick_National_Portrait_Gallery.png?width=1600",
+      "visualCharacter": "portrait-or-figure",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 520,
+        "height": 640,
+        "bytes": 24420,
+        "sha256": "7289d923bfd0cfa4076aa654500f25d5319e9ad7d41f3e50abd57569fb582c60"
+      },
+      "panel": {
+        "width": 1041,
+        "height": 1280,
+        "bytes": 151390,
+        "sha256": "d103c52d530655909ea88963437ac3e849cf32e1b214bec8e521b97dbe208bbb"
+      }
+    },
+    "moral-thomson-trolley-problem": {
+      "hallFolder": "moral-life-practical-reason",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Trolley_Problem.svg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Trolley_Problem.svg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Trolley_Problem.svg?width=1600",
+      "visualCharacter": "map-or-diagram",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 219,
+        "bytes": 6020,
+        "sha256": "a593ee9c975c8607ee029a31e4a6e6fda5ae23a8be388d4a6b995ef0cca54e03"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 437,
+        "bytes": 14274,
+        "sha256": "3841d6f6a56f77856450a8bd6386676855690a88c2e443c138ef048791a8adbe"
+      }
+    },
+    "moral-parfit-all-souls-college": {
+      "hallFolder": "moral-life-practical-reason",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:All_Souls_College,_Oxford.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/All_Souls_College,_Oxford.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/All_Souls_College,_Oxford.jpg?width=1600",
+      "visualCharacter": "place-or-architecture",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 418,
+        "height": 640,
+        "bytes": 42392,
+        "sha256": "2e22cb853980aa2df6270b4fcc05f62233f9274b2a97e421e34a8ae4a86bb1f7"
+      },
+      "panel": {
+        "width": 836,
+        "height": 1280,
+        "bytes": 210544,
+        "sha256": "9f9886c568946ceab396d345f602e33e338d1e7d593a650d9e229530221f7f5a"
+      }
+    },
+    "moral-ethics-confucian-apricot-platform": {
+      "hallFolder": "moral-life-practical-reason",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Confuciustempleapricotplatform.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Confuciustempleapricotplatform.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Confuciustempleapricotplatform.jpg?width=1600",
+      "visualCharacter": "place-or-architecture",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 480,
+        "height": 640,
+        "bytes": 104644,
+        "sha256": "afaa554c7e4ce1193ac3385ff83ed53d8c23524daeedf549df28fb3b7b8e1375"
+      },
+      "panel": {
+        "width": 960,
+        "height": 1280,
+        "bytes": 440260,
+        "sha256": "ac5efa6d95b22c8faf6e49ce6a42cdb9690d4d2643c3c13d42d91912d5902b14"
+      }
+    },
+    "moral-ethics-jain-bird-hospital": {
+      "hallFolder": "moral-life-practical-reason",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Bird_hospital,_Chandni_Chowk.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Bird_hospital,_Chandni_Chowk.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Bird_hospital,_Chandni_Chowk.jpg?width=1600",
+      "visualCharacter": "place-or-architecture",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 480,
+        "height": 640,
+        "bytes": 58844,
+        "sha256": "8d50a0ff747b9afea1a4c5f28945a65a554c057d0fa05863b860119210751601"
+      },
+      "panel": {
+        "width": 960,
+        "height": 1280,
+        "bytes": 352506,
+        "sha256": "23375c4a6c6ae929c058e479f1fcaed3f63a4fcb231af63f6b9be4af371c2792"
+      }
+    },
+    "moral-ethics-sanchi-dharmachakra": {
+      "hallFolder": "moral-life-practical-reason",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Sanchi_Stupa_2_elephants_and_Dharmachakra.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sanchi_Stupa_2_elephants_and_Dharmachakra.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sanchi_Stupa_2_elephants_and_Dharmachakra.jpg?width=1600",
+      "visualCharacter": "material-object",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 309,
+        "height": 640,
+        "bytes": 61934,
+        "sha256": "70a0da40047aa1cbb2306d462fc5b1cb2d176096e107d32dd319a85bb3f8dfeb"
+      },
+      "panel": {
+        "width": 619,
+        "height": 1280,
+        "bytes": 341966,
+        "sha256": "d07afa7797dfe988caae12a1895e3521c17593d6c3c8a49cfa0f68ba4fc1847c"
+      }
+    },
+    "moral-ethics-cassatt-child-bath": {
+      "hallFolder": "moral-life-practical-reason",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Mary_Cassatt_-_The_Child%27s_Bath_-_Google_Art_Project.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Mary_Cassatt_-_The_Child%27s_Bath_-_Google_Art_Project.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Mary_Cassatt_-_The_Child%27s_Bath_-_Google_Art_Project.jpg?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 419,
+        "height": 640,
+        "bytes": 37626,
+        "sha256": "0dd46bc5fa0c6109733ba926a2e8dc6a41876511b7e8e331a880e7369ebc3fcd"
+      },
+      "panel": {
+        "width": 839,
+        "height": 1280,
+        "bytes": 218798,
+        "sha256": "d4d1d8d7288f3fc69e613a2d8e0eded3eaf5f8963907b58bcaa5581e5b0fd9e3"
+      }
+    },
+    "moral-ethics-millet-gleaners": {
+      "hallFolder": "moral-life-practical-reason",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Jean-Fran%C3%A7ois_Millet_-_Gleaners_-_Google_Art_Project.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Jean-Fran%C3%A7ois_Millet_-_Gleaners_-_Google_Art_Project.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Jean-Fran%C3%A7ois_Millet_-_Gleaners_-_Google_Art_Project.jpg?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 479,
+        "bytes": 40080,
+        "sha256": "fe9a88e11ac36478053498c02bf9d9d65c24287933eb0a4c27f603d3b4c5622f"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 958,
+        "bytes": 325206,
+        "sha256": "9b4b8566f38f4e810887e052a56bb809d2d7032f7285c9617e83445f4611b4c8"
+      }
+    },
+    "moral-virtue-panathenaic-runners": {
+      "hallFolder": "moral-life-practical-reason",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Panathenaic_amphora_BM_B137.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Panathenaic_amphora_BM_B137.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Panathenaic_amphora_BM_B137.jpg?width=1600",
+      "visualCharacter": "material-object",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 423,
+        "height": 640,
+        "bytes": 27200,
+        "sha256": "22af9273a9aba868c62b08298ed8b9d967365a6ab087bd12e5f4988bc1416067"
+      },
+      "panel": {
+        "width": 846,
+        "height": 1280,
+        "bytes": 116568,
+        "sha256": "1739d40145a94d051ff02a4e8b833414839e53a23c35237c5cc468545134c20e"
+      }
+    },
+    "moral-murdoch-kestrel": {
+      "hallFolder": "moral-life-practical-reason",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:078_Wild_Common_kestrel_in_flight_at_Pfyn-Finges_Photo_by_Giles_Laurent.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/078_Wild_Common_kestrel_in_flight_at_Pfyn-Finges_Photo_by_Giles_Laurent.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/078_Wild_Common_kestrel_in_flight_at_Pfyn-Finges_Photo_by_Giles_Laurent.jpg?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 427,
+        "bytes": 22526,
+        "sha256": "4908284490c97a8f9aa3b670422b777b83ea4d0560bbad163ba331c22e06c967"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 853,
+        "bytes": 92000,
+        "sha256": "b5dce245c8d03a0697b31dbd047d9eafcceeebd4f2ed686c58c2dbda2db75a33"
+      }
+    },
+    "moral-foot-oak-acorns": {
+      "hallFolder": "moral-life-practical-reason",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Japanese_oak_(Quercus_mongolica)%3B_tree_branch_with_acorns._Wellcome_V0043799.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Japanese_oak_(Quercus_mongolica)%3B_tree_branch_with_acorns._Wellcome_V0043799.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Japanese_oak_(Quercus_mongolica)%3B_tree_branch_with_acorns._Wellcome_V0043799.jpg?width=1600",
+      "visualCharacter": "material-object",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 565,
+        "bytes": 77124,
+        "sha256": "ccfa5c7f6f35bab762ee44857628876c762422004531431d04c058bec3808a4d"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 1130,
+        "bytes": 595052,
+        "sha256": "8aef3f19ebbe0363ede779458fa7b279981721d1da8efedc2604eab25df95b2a"
+      }
+    },
+    "moral-duty-kant-monument": {
+      "hallFolder": "moral-life-practical-reason",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:%D0%9F%D0%B0%D0%BC%D1%8F%D1%82%D0%BD%D0%B8%D0%BA_%D0%98_%D0%9A%D0%B0%D0%BD%D1%82%D1%83.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/%D0%9F%D0%B0%D0%BC%D1%8F%D1%82%D0%BD%D0%B8%D0%BA_%D0%98_%D0%9A%D0%B0%D0%BD%D1%82%D1%83.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/%D0%9F%D0%B0%D0%BC%D1%8F%D1%82%D0%BD%D0%B8%D0%BA_%D0%98_%D0%9A%D0%B0%D0%BD%D1%82%D1%83.jpg?width=1600",
+      "visualCharacter": "portrait-or-figure",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 480,
+        "height": 640,
+        "bytes": 42526,
+        "sha256": "2fbe932a34c7da3d2a1d20cc1fad1c3849ebfdd4e30ea5cd37414abcae2c8af0"
+      },
+      "panel": {
+        "width": 960,
+        "height": 1280,
+        "bytes": 223898,
+        "sha256": "fb954702fd29f94ebc92d6a4141bb4608235607f8b3eb378c0c8a3d910cdac07"
+      }
+    },
+    "moral-utility-bentham-inspection-house": {
+      "hallFolder": "moral-life-practical-reason",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Reveley_Plan_of_Houses_of_Inspection_c._1791.png",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Reveley_Plan_of_Houses_of_Inspection_c._1791.png",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Reveley_Plan_of_Houses_of_Inspection_c._1791.png?width=1600",
+      "visualCharacter": "map-or-diagram",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 407,
+        "height": 640,
+        "bytes": 41886,
+        "sha256": "54827d2b787bde34cf60080f62ed52aa24de90ac788d922050e6b514828e9a9d"
+      },
+      "panel": {
+        "width": 664,
+        "height": 1045,
+        "bytes": 116678,
+        "sha256": "6b69ae94be5d17323b0d2cd874e8acb3511ce32f1993201babff91491652bd64"
+      }
+    },
+    "moral-utility-equal-pay-act": {
+      "hallFolder": "moral-life-practical-reason",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:President_John_F._Kennedy_Signs_the_Equal_Pay_Act_-_DPLA_-_083c441f6899162229a11a295e0b8139.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/President_John_F._Kennedy_Signs_the_Equal_Pay_Act_-_DPLA_-_083c441f6899162229a11a295e0b8139.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/President_John_F._Kennedy_Signs_the_Equal_Pay_Act_-_DPLA_-_083c441f6899162229a11a295e0b8139.jpg?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 638,
+        "bytes": 64934,
+        "sha256": "f5a91d626fee3da3bf8a43fc6fbf49b27f67c2b320f0145fa80cb15017033e89"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 1277,
+        "bytes": 418908,
+        "sha256": "6649bfed03f5ec3f03cdb4d7ead19bfec155a5dfacf8f33b12e4a8066671eccc"
+      }
+    },
+    "moral-utility-jenner-vaccination": {
+      "hallFolder": "moral-life-practical-reason",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Edward_Jenner_vaccinating_a_boy._Oil_painting_by_E.-E._Hille_Wellcome_L0029093.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Edward_Jenner_vaccinating_a_boy._Oil_painting_by_E.-E._Hille_Wellcome_L0029093.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Edward_Jenner_vaccinating_a_boy._Oil_painting_by_E.-E._Hille_Wellcome_L0029093.jpg?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 498,
+        "bytes": 49502,
+        "sha256": "29f63fe235de9af02be6ff549a649d1108048778b5f060f3ab7c96fc4ee326f4"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 997,
+        "bytes": 326358,
+        "sha256": "f1a20a67f1a0db7509f7a344ea1e2d17250c4c6f32001f14b1358ae6d7102073"
+      }
+    },
+    "moral-thomson-violinist": {
+      "hallFolder": "moral-life-practical-reason",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Anne_Vallayer-Coster,_Portrait_of_a_Violinist.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Anne_Vallayer-Coster,_Portrait_of_a_Violinist.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Anne_Vallayer-Coster,_Portrait_of_a_Violinist.jpg?width=1600",
+      "visualCharacter": "portrait-or-figure",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 488,
+        "height": 640,
+        "bytes": 22096,
+        "sha256": "2833b89e56fd6c47f61da858d29d8f3f1b47ef5f62af65196bd80f32458b32d7"
+      },
+      "panel": {
+        "width": 976,
+        "height": 1280,
+        "bytes": 136176,
+        "sha256": "d6d140e4277bb8fa2ad8682d3b2c542f96416b1f24dc91e5140ce1ead7180b0f"
+      }
+    },
+    "moral-thomson-womens-strike-1970": {
+      "hallFolder": "moral-life-practical-reason",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Leffler_-_WomensLib1970_WashingtonDC.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Leffler_-_WomensLib1970_WashingtonDC.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Leffler_-_WomensLib1970_WashingtonDC.jpg?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 425,
+        "bytes": 49120,
+        "sha256": "132f0ce174b7cf5214fb480cfa554d56de4a3784bb841bba1cea1d346e8556bf"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 850,
+        "bytes": 238064,
+        "sha256": "2c5e0f6f5d6e486448d7e7b5ab87ab0eea15e06851d63644862a670ce01ffde8"
+      }
+    },
+    "moral-parfit-marey-motion": {
+      "hallFolder": "moral-life-practical-reason",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:%C3%89tienne-Jules_Marey_-_Movements_in_Pole_Vaulting_-_Google_Art_Project.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/%C3%89tienne-Jules_Marey_-_Movements_in_Pole_Vaulting_-_Google_Art_Project.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/%C3%89tienne-Jules_Marey_-_Movements_in_Pole_Vaulting_-_Google_Art_Project.jpg?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 257,
+        "bytes": 12768,
+        "sha256": "d3b52ab6e4ecda8ec36dcffcfe75ec5cd9376bb0ecb9b36501040dcb9ba1b3c2"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 514,
+        "bytes": 99376,
+        "sha256": "ae775aa41a94255e189e0fe4c4ba8f101b9d7e2ad4654d6c734e00fccc6ab4f9"
+      }
+    },
+    "moral-parfit-svalbard-seed-vault": {
+      "hallFolder": "moral-life-practical-reason",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Svalbard_seed_vault.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Svalbard_seed_vault.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Svalbard_seed_vault.jpg?width=1600",
+      "visualCharacter": "place-or-architecture",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 429,
+        "bytes": 10542,
+        "sha256": "7a76c0f708c65e643fc3c43a1e3edc63f820e13e9098e32baf2913bf7f151998"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 859,
+        "bytes": 131148,
+        "sha256": "74f8685b2d2bf2d688278d57401c94c9cce34b12f0a9145ce8f814ca76d26dd9"
+      }
+    }
+  }
+}

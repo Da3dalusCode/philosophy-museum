@@ -779,6 +779,21 @@ const CANONICAL_DIRECT_INTERPRETATION_SOURCES: Readonly<Record<string, readonly 
     academicSource('Internet Encyclopedia of Philosophy — Philosophy of Religion', 'https://iep.utm.edu/religion/'),
     primarySource('David Hume, Dialogues Concerning Natural Religion — Project Gutenberg', 'https://www.gutenberg.org/ebooks/4583'),
   ],
+  derrida: [
+    academicSource('Internet Encyclopedia of Philosophy — Jacques Derrida', 'https://iep.utm.edu/jacques-derrida/'),
+  ],
+  'iris-murdoch': [
+    academicSource('Stanford Encyclopedia of Philosophy — Iris Murdoch', 'https://plato.stanford.edu/entries/murdoch/'),
+    collectionSource('Somerville College, Oxford — Iris Murdoch', 'https://www.some.ox.ac.uk/eminent/iris-murdoch/'),
+  ],
+  'philippa-foot': [
+    academicSource('Stanford Encyclopedia of Philosophy — Philippa Foot', 'https://plato.stanford.edu/entries/philippa-foot/'),
+    collectionSource('Somerville College Library — Philippa Foot Collection', 'https://library.some.ox.ac.uk/2026/01/16/philippa-foot-collection/'),
+  ],
+  'judith-thomson': [
+    academicSource('MIT Philosophy — Judith Jarvis Thomson', 'https://philosophy.mit.edu/people/faculty/thomson/'),
+    collectionSource('MIT News — Judith Jarvis Thomson memorial', 'https://news.mit.edu/2020/professor-emerita-judith-jarvis-thomson-influential-philosopher-dies-1204'),
+  ],
 };
 
 const GALLERY_07_PHILOSOPHER_ENRICHMENT: Readonly<Record<string, {
@@ -1042,6 +1057,15 @@ const MUSEUM_DEEP_ARTICLE_ENTITY_IDS = new Set([
   'fichte',
   'schelling',
   'hegel',
+  'continental-philosophy',
+  'derrida',
+  'ethics',
+  'virtue-ethics',
+  'iris-murdoch',
+  'philippa-foot',
+  'deontology',
+  'utilitarianism',
+  'judith-thomson',
 ]);
 
 const articleSectionText = ({id, title}: ArticleSection): string => `${id} ${title}`.toLocaleLowerCase();
@@ -1142,7 +1166,7 @@ const philosopherInterpretation = (
     kind: 'philosopher',
     name: record.name,
     dateLabel: record.dateDisplay ?? record.lifespan,
-    entityType: `${record.tradition} philosopher`,
+    entityType: /philosopher/i.test(record.tradition) ? record.tradition : `${record.tradition} philosopher`,
     centralQuestion: location.exhibit.question,
     lead: substantialSections
       ? paragraph([

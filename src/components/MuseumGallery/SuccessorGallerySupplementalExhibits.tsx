@@ -40,6 +40,14 @@ import {
   PRAGMATISM_PALETTE,
 } from '../../data/museum/pragmatismSupplementalExhibits';
 import {
+  getMoralLifePracticalReasonSupplementalExhibit,
+  MORAL_LIFE_PRACTICAL_REASON_PALETTE,
+} from '../../data/museum/moralLifePracticalReasonSupplementalExhibits';
+import {
+  CRITIQUE_POWER_DECONSTRUCTION_PALETTE,
+  getCritiquePowerDeconstructionSupplementalExhibit,
+} from '../../data/museum/critiquePowerDeconstructionSupplementalExhibits';
+import {
   MUSEUM_CANONICAL_EXHIBIT_BACKING_MATERIAL,
   MUSEUM_CANONICAL_EXHIBIT_PLINTH_GEOMETRY,
   MUSEUM_CANONICAL_EXHIBIT_PLINTH_MATERIAL,
@@ -292,5 +300,23 @@ export function PragmatismSupplementalExhibits(props: GallerySupplementalProps) 
     collection="gallery-22-pragmatism-democratic-inquiry-v1"
     ink={PRAGMATISM_PALETTE.ink}
     getRecord={getPragmatismSupplementalExhibit}
+  />;
+}
+
+export function CritiquePowerDeconstructionSupplementalExhibits(props: GallerySupplementalProps) {
+  return <SupplementalCollection
+    {...props}
+    collection="gallery-23-critique-power-deconstruction-v1"
+    ink={CRITIQUE_POWER_DECONSTRUCTION_PALETTE.charcoal}
+    getRecord={getCritiquePowerDeconstructionSupplementalExhibit}
+  />;
+}
+
+export function MoralLifePracticalReasonSupplementalExhibits(props: GallerySupplementalProps) {
+  return <SupplementalCollection
+    {...props}
+    collection="gallery-24-moral-life-practical-reason-v1"
+    ink={MORAL_LIFE_PRACTICAL_REASON_PALETTE.ink}
+    getRecord={getMoralLifePracticalReasonSupplementalExhibit}
   />;
 }

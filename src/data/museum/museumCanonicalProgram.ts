@@ -38,6 +38,8 @@ export const MUSEUM_CANONICAL_HALL_IDS = [
   'utility-liberty-history-capital',
   'faith-pessimism-life-value',
   'pragmatism-democratic-inquiry',
+  'critique-power-deconstruction',
+  'moral-life-practical-reason',
 ] as const;
 
 export type MuseumCanonicalHallId = (typeof MUSEUM_CANONICAL_HALL_IDS)[number];
@@ -175,6 +177,14 @@ export const MUSEUM_CANONICAL_ROOM_IDS = [
   'pragmatism-james-experience',
   'pragmatism-dewey-democracy',
   'pragmatism-continuities-reserve',
+  'continental-orientation',
+  'critique-genealogy-power',
+  'critique-deconstruction',
+  'critique-critical-theory',
+  'moral-ethics-orientation',
+  'moral-character-virtue',
+  'moral-duty-consequence',
+  'moral-rights-persons-futures',
 ] as const;
 
 export type MuseumCanonicalRoomId = (typeof MUSEUM_CANONICAL_ROOM_IDS)[number];
@@ -274,6 +284,8 @@ export const MUSEUM_PUBLIC_GALLERY_NUMBERS = {
   'utility-liberty-history-capital': 20,
   'faith-pessimism-life-value': 21,
   'pragmatism-democratic-inquiry': 22,
+  'critique-power-deconstruction': 23,
+  'moral-life-practical-reason': 24,
 } as const satisfies Readonly<Record<MuseumCanonicalHallId, number>>;
 
 const exhibit = <const Record extends MuseumCanonicalExhibit>(record: Record) => ({
@@ -914,6 +926,56 @@ export const MUSEUM_CANONICAL_PROGRAM = [
       {id: 'pragmatism-continuities-reserve', title: 'Later pragmatist continuities and omissions', recordCapacity: 2, exhibits: []},
     ],
   },
+  {
+    id: 'critique-power-deconstruction',
+    wingId: 'wing-modern-traditions',
+    title: 'Critique, Power, and Deconstruction',
+    templateId: 'crossroads-4',
+    period: '20th–21st centuries',
+    description: 'Treat “Continental philosophy” as a contested retrospective family, then compare Foucault’s historical analyses of knowledge and power, Derrida’s deconstruction of textual and institutional oppositions, and Habermas’s reconstruction of communicative reason and the public sphere.',
+    recordCapacity: 5,
+    rooms: [
+      {id: 'continental-orientation', title: 'Continental philosophy as a retrospective family', recordCapacity: 2, exhibits: [
+        exhibit({id: 'continental-philosophy', entityKind: 'branch', entityId: 'continental-philosophy', displayName: 'Continental Philosophy: A Retrospective and Contested Family', tier: 'supporting-exhibit', question: 'What does the label “Continental philosophy” illuminate, and what histories or disagreements does it risk flattening?', secondaryHallIds: ['analytic-traditions', 'phenomenology-existence-embodiment', 'german-idealism-afterlives', 'utility-liberty-history-capital', 'faith-pessimism-life-value'], principalAssetId: 'critique-continental-europe-orthographic'}),
+      ]},
+      {id: 'critique-genealogy-power', title: 'Archaeology, genealogy, institutions, and subject formation', recordCapacity: 1, exhibits: [
+        exhibit({id: 'foucault', entityKind: 'philosopher', entityId: 'foucault', displayName: 'Michel Foucault: Knowledge, Power, and the Formation of Subjects', tier: 'anchor-exhibit', question: 'How do historically specific practices, institutions, and regimes of truth make subjects and fields of knowledge possible?', secondaryHallIds: ['colonialism-race-liberation', 'feminist-philosophies', 'justice-democratic-reason'], formerHallId: 'modernity-freedom-critique', principalAssetId: 'critique-foucault-watercolor-2013'}),
+      ]},
+      {id: 'critique-deconstruction', title: 'Writing, difference, institution, and justice', recordCapacity: 1, exhibits: [
+        exhibit({id: 'derrida', entityKind: 'philosopher', entityId: 'derrida', displayName: 'Jacques Derrida: Writing, Difference, and Deconstruction', tier: 'standard-individual-exhibit', question: 'How can close reading expose the exclusions and instabilities through which texts, concepts, and institutions organize meaning?', secondaryHallIds: ['core-questions-forum'], principalAssetId: 'critique-derrida-espinosa-drawing-2013'}),
+      ]},
+      {id: 'critique-critical-theory', title: 'Critical Theory, public sphere, and communicative reason', recordCapacity: 1, exhibits: [
+        exhibit({id: 'habermas', entityKind: 'philosopher', entityId: 'habermas', displayName: 'Jürgen Habermas: Public Reason, Communication, and Modernity', tier: 'anchor-exhibit', question: 'What social conditions allow reasons to be tested through communication rather than imposed through force, status, or administrative power?', secondaryHallIds: ['justice-democratic-reason'], formerHallId: 'ethics-justice-political-life', principalAssetId: 'critique-habermas-critical-theory-heidelberg-1964'}),
+      ]},
+    ],
+  },
+  {
+    id: 'moral-life-practical-reason',
+    wingId: 'wing-ethics-politics-society',
+    title: 'Moral Life & Practical Reason',
+    templateId: 'crossroads-4',
+    period: 'Ancient worlds–21st century',
+    description: 'Compare ethical inquiry as a practice of asking how to live, then test character, attention, duty, consequence, rights, personal identity, and responsibility to future people without reducing moral philosophy to one master principle.',
+    recordCapacity: 9,
+    rooms: [
+      {id: 'moral-ethics-orientation', title: 'Ethics: reasons, relationships, practices, and ways of living', recordCapacity: 2, exhibits: [
+        exhibit({id: 'ethics', entityKind: 'branch', entityId: 'ethics', displayName: 'Ethics: Reasons, Relationships, Practices, and Ways of Living', tier: 'anchor-exhibit', question: 'How should reasons, relationships, character, consequences, practices, and forms of life guide what we do and become?', secondaryHallIds: ['justice-democratic-reason'], principalAssetId: 'moral-ethics-seven-works-mercy'}),
+      ]},
+      {id: 'moral-character-virtue', title: 'Character, flourishing, attention, and virtue revival', recordCapacity: 3, exhibits: [
+        exhibit({id: 'virtue-ethics', entityKind: 'branch', entityId: 'virtue-ethics', displayName: 'Virtue Ethics: Character, Practice, and Human Flourishing', tier: 'anchor-exhibit', question: 'What traits, practices, relationships, and forms of attention help a person live and act well across changing situations?', secondaryHallIds: ['hellenistic-roman-ways'], principalAssetId: 'moral-virtue-aristotle-homer'}),
+        exhibit({id: 'iris-murdoch', entityKind: 'philosopher', entityId: 'iris-murdoch', displayName: 'Iris Murdoch: Attention, Moral Vision, and the Sovereignty of Good', tier: 'standard-individual-exhibit', question: 'How can just and loving attention transform the moral world we are able to see before a choice is made?', secondaryHallIds: [], principalAssetId: 'moral-murdoch-charlbury-road'}),
+        exhibit({id: 'philippa-foot', entityKind: 'philosopher', entityId: 'philippa-foot', displayName: 'Philippa Foot: Virtue, Natural Goodness, and Moral Reasons', tier: 'standard-individual-exhibit', question: 'Can evaluations of human action be grounded in the forms of life, needs, and practical rationality of human beings?', secondaryHallIds: [], principalAssetId: 'moral-foot-somerville-1939'}),
+      ]},
+      {id: 'moral-duty-consequence', title: 'Duty, respect, consequences, and welfare', recordCapacity: 2, exhibits: [
+        exhibit({id: 'deontology', entityKind: 'branch', entityId: 'deontology', displayName: 'Deontology: Duty, Respect, and the Constraints on Action', tier: 'anchor-exhibit', question: 'Which duties, rights, or forms of respect constrain what we may do even when violating them could improve the outcome?', secondaryHallIds: ['enlightenment-revolution-kant'], principalAssetId: 'moral-deontology-oath-horatii'}),
+        exhibit({id: 'utilitarianism', entityKind: 'branch', entityId: 'utilitarianism', displayName: 'Utilitarianism: Consequences, Welfare, and Impartial Concern', tier: 'anchor-exhibit', question: 'How should the well-being of everyone affected guide action, and what might aggregate judgment leave out?', secondaryHallIds: ['justice-democratic-reason'], principalAssetId: 'moral-utilitarian-sidgwick-portrait'}),
+      ]},
+      {id: 'moral-rights-persons-futures', title: 'Rights, persons, hard cases, and future generations', recordCapacity: 2, exhibits: [
+        exhibit({id: 'judith-thomson', entityKind: 'philosopher', entityId: 'judith-thomson', displayName: 'Judith Jarvis Thomson: Rights, Permissibility, and Hard Cases', tier: 'standard-individual-exhibit', question: 'What can carefully designed cases reveal about rights, bodily authority, intention, and the moral limits of harming?', secondaryHallIds: [], principalAssetId: 'moral-thomson-trolley-problem'}),
+        exhibit({id: 'derek-parfit', entityKind: 'philosopher', entityId: 'derek-parfit', displayName: 'Derek Parfit: Persons, Reasons, and Future Generations', tier: 'anchor-exhibit', question: 'How do personal identity, impartial reasons, and the existence of future people transform what morality asks of us?', secondaryHallIds: ['core-questions-forum'], formerHallId: 'mind-consciousness-self', principalAssetId: 'moral-parfit-all-souls-college'}),
+      ]},
+    ],
+  },
 ] as const satisfies readonly MuseumCanonicalHall[];
 
 export const MUSEUM_HALL_ROUTE_ALIASES = {
@@ -968,10 +1030,7 @@ const displaced = (
 
 export const MUSEUM_LEGACY_EXHIBIT_COMPATIBILITY = [
   displaced('modernity-freedom-critique', 'philosopher', 'beauvoir', 'Simone de Beauvoir', 'feminist-philosophies', 'become-secondary-later'),
-  displaced('modernity-freedom-critique', 'philosopher', 'foucault', 'Michel Foucault', 'critique-power-deconstruction', 'move-primary-later'),
   displaced('ethics-justice-political-life', 'philosopher', 'fanon', 'Frantz Fanon', 'colonialism-race-liberation', 'become-secondary-later'),
-  displaced('ethics-justice-political-life', 'philosopher', 'habermas', 'Jürgen Habermas', 'critique-power-deconstruction', 'become-secondary-later'),
-  displaced('mind-consciousness-self', 'philosopher', 'derek-parfit', 'Derek Parfit', 'moral-life-practical-reason', 'become-secondary-later'),
 ] as const satisfies readonly MuseumLegacyExhibitCompatibility[];
 
 const canonicalProgramForIndexes: readonly MuseumCanonicalHall[] = MUSEUM_CANONICAL_PROGRAM;

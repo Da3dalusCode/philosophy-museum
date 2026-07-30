@@ -216,7 +216,7 @@ if (
   || programIds.size !== 26
   || roomIds.length !== 105
   || new Set(roomIds).size !== 105
-  || curatedDestinations.length !== 22
+  || curatedDestinations.length !== 24
   || MUSEUM_VISITOR_MAP_MANIFEST.reserves.length !== 2
 ) {
   throw new Error('The Continuous Enfilade visitor-map program is incomplete.');

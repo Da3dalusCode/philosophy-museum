@@ -91,6 +91,14 @@ import {
   PRAGMATISM_SUPPLEMENTAL_EXHIBITS,
   PRAGMATISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
 } from './pragmatismSupplementalExhibits';
+import {
+  CRITIQUE_POWER_DECONSTRUCTION_SUPPLEMENTAL_EXHIBITS,
+  CRITIQUE_POWER_DECONSTRUCTION_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
+} from './critiquePowerDeconstructionSupplementalExhibits';
+import {
+  MORAL_LIFE_PRACTICAL_REASON_SUPPLEMENTAL_EXHIBITS,
+  MORAL_LIFE_PRACTICAL_REASON_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
+} from './moralLifePracticalReasonSupplementalExhibits';
 import type {
   MuseumSupplementalExhibitId,
   MuseumSupplementalExhibitLayout,
@@ -222,6 +230,16 @@ const COLLECTIONS = [
     hallId: 'pragmatism-democratic-inquiry',
     exhibits: PRAGMATISM_SUPPLEMENTAL_EXHIBITS,
     layouts: PRAGMATISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
+  },
+  {
+    hallId: 'critique-power-deconstruction',
+    exhibits: CRITIQUE_POWER_DECONSTRUCTION_SUPPLEMENTAL_EXHIBITS,
+    layouts: CRITIQUE_POWER_DECONSTRUCTION_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
+  },
+  {
+    hallId: 'moral-life-practical-reason',
+    exhibits: MORAL_LIFE_PRACTICAL_REASON_SUPPLEMENTAL_EXHIBITS,
+    layouts: MORAL_LIFE_PRACTICAL_REASON_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
   },
 ] as const satisfies readonly MuseumSupplementalCollection[];
 

@@ -205,10 +205,10 @@ check('Museum convenience, hall, and exhibit routes parse and serialize', () => 
       exhibitCount += 1;
     }
   }
-  assert.equal(MUSEUM_HALLS.length, 22);
-  assert.equal(exhibitCount, 171);
-  assert.equal(MUSEUM_SUPPLEMENTAL_EXHIBITS.length, 334);
-  assert.equal(exhibitCount + MUSEUM_SUPPLEMENTAL_EXHIBITS.length, 505, 'The Museum directory must expose 505 interpreted stops');
+  assert.equal(MUSEUM_HALLS.length, 24);
+  assert.equal(exhibitCount, 183);
+  assert.equal(MUSEUM_SUPPLEMENTAL_EXHIBITS.length, 370);
+  assert.equal(exhibitCount + MUSEUM_SUPPLEMENTAL_EXHIBITS.length, 553, 'The Museum directory must expose 553 interpreted stops');
   for (const {hallId, exhibit} of MUSEUM_SUPPLEMENTAL_EXHIBITS) {
     expectRoundTrip({kind: 'museum', hallId, exhibitId: exhibit.id});
   }
@@ -295,6 +295,14 @@ check('serializers emit the required literal route families', () => {
     serializeHashRoute({kind: 'museum', hallId: 'pragmatism-democratic-inquiry', exhibitId: 'peirce'}),
     '#/museum/pragmatism-democratic-inquiry/exhibits/peirce',
   );
+  assert.equal(
+    serializeHashRoute({kind: 'museum', hallId: 'critique-power-deconstruction', exhibitId: 'foucault'}),
+    '#/museum/critique-power-deconstruction/exhibits/foucault',
+  );
+  assert.equal(
+    serializeHashRoute({kind: 'museum', hallId: 'moral-life-practical-reason', exhibitId: 'derek-parfit'}),
+    '#/museum/moral-life-practical-reason/exhibits/derek-parfit',
+  );
   assert.equal(serializeHashRoute({kind: 'museum-compatibility', formerHallId: 'renaissance-reason-revolution', exhibitId: 'kant'}), '#/museum/renaissance-reason-revolution/exhibits/kant');
   assert.equal(
     serializeHashRoute({kind: 'branch', branchId: 'stoicism'}),
@@ -327,8 +335,8 @@ check('retired hall and exhibit routes preserve exact aliases or truthful compat
     'ethics-justice-political-life': 'justice-democratic-reason',
     'mind-consciousness-self': 'core-questions-forum',
   });
-  assert.equal(MUSEUM_LIVE_LEGACY_EXHIBIT_COMPATIBILITY.length, 43);
-  assert.equal(MUSEUM_LEGACY_EXHIBIT_COMPATIBILITY.length, 5);
+  assert.equal(MUSEUM_LIVE_LEGACY_EXHIBIT_COMPATIBILITY.length, 46);
+  assert.equal(MUSEUM_LEGACY_EXHIBIT_COMPATIBILITY.length, 2);
   const compatibility = [...MUSEUM_LIVE_LEGACY_EXHIBIT_COMPATIBILITY, ...MUSEUM_LEGACY_EXHIBIT_COMPATIBILITY];
   assert.equal(compatibility.length, 48);
   assert.equal(new Set(compatibility.map(({formerHallId, exhibitId}) => `${formerHallId}/${exhibitId}`)).size, 48);
@@ -460,9 +468,9 @@ check('physical building and reserved expansion IDs are never accepted as public
   const plannedHalls = buildingManifest.nodes.filter(({galleryState}) => galleryState === 'planned-walkable');
   assert.equal(buildingManifest.manifestVersion, 'continuous-enfilade-single-level-v1');
   assert.equal(buildingManifest.status, 'implemented-approved-continuous-enfilade');
-  assert.equal(publicHallIds.length, 22);
+  assert.equal(publicHallIds.length, 24);
   assert.deepEqual(publicHallIds.sort(), MUSEUM_HALLS.map(({id}) => id).sort());
-  assert.equal(plannedHalls.length, 4);
+  assert.equal(plannedHalls.length, 2);
   assert(plannedHalls.every(({publicHallId, fastTravelEligible}) =>
     publicHallId === undefined && fastTravelEligible !== true));
   assert.equal(buildingManifest.reserves.length, 2);

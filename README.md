@@ -17,13 +17,13 @@ No account, subscription, download, or special software is required. Everything 
 - **Philosophy Map**, showing selected relationships between traditions and thinkers
 - **Compare**, for side-by-side branch and philosopher comparisons
 - **Learning Paths**, with guided routes through major themes and periods
-- **A one-level 26-gallery 3D museum** with 22 curated/open galleries, 4 honest planned/walkable shells, 105 named rooms, and two closed expansion reserves
+- **A one-level 26-gallery 3D museum** with 24 curated/open galleries, 2 honest planned/walkable shells, 105 named rooms, and two closed expansion reserves
 
 ## The walkable museum
 
 The Museum presents philosophy as a physical journey through the implemented **Continuous Enfilade**. A chronological route crosses all 26 gallery shells in six structural bands; a 10 m north–south crosscut provides six alternate intersections, including the independent Core Questions Forum. Five bounded turn courts connect the bands, and a Final Return threshold closes the full route.
 
-The public state is deliberately mixed. Galleries 01–22 are curated/open in their fixed architectural bays. Galleries 23–26 remain named, blank, walkable architectural shells with one truthful planned-status sign and no fabricated exhibits or fast-travel controls. Each promotion preserves its stable public number, physical visit position, approved transform, route portals, and room sequence.
+The public state is deliberately mixed. Galleries 01–24 are curated/open in their fixed architectural bays. Galleries 25–26 remain named, blank, walkable architectural shells with one truthful planned-status sign and no fabricated exhibits or fast-travel controls. Each promotion preserves its stable public number, physical visit position, approved transform, route portals, and room sequence.
 
 1. **Mediterranean Beginnings & Classical Athens**
    Ionian natural explanation, disputes over being and change, civic argument, Socrates, Plato, Aristotle, Platonism, and Aristotelianism
@@ -85,9 +85,15 @@ The public state is deliberately mixed. Galleries 01–22 are curated/open in th
 22. **Pragmatism, Science, and Democratic Inquiry**
     Peirce, William James, and Dewey across fallibilist inquiry, experience, habit, experimental intelligence, education, democracy, and later continuities
 
-Every curated exhibit has a walkable installation, focused interpretation, structured facts, and a link to the full philosopher or branch article. The 22 curated galleries contain 171 primary exhibits and 334 supplemental/context installations: 505 interpreted stops in all. Provenance-backed media is used where reliable reusable imagery or documents are available; media is not added merely to fill a quota. No curated room may contain more than one text-dominant page or isolated-book view. Galleries 19 and 22 deliberately use none: their 48 installations use independently sourced, exhibit-specific standalone imagery, with at least four non-textual visual-character groups in each gallery and no synthetic wrapper, geometric overlay, or repeated gallery-wide anchor motif. Galleries 20 and 21 retain the same zero-text-image standard across their 42 installations.
+23. **Critique, Power, and Deconstruction**
+    Continental philosophy as a retrospective family, Foucault’s genealogy of power and subject formation, Derrida’s deconstruction, and Habermas’s critical theory and communicative reason
 
-The physical visitor map is generated from the same compiled manifest that places gallery shells, rooms, crosscut intersections, turn courts, doors, safe arrivals, the entrance, final threshold, and reserves. It shows all 26 stable gallery numbers and titles, distinguishes curated/open from planned/walkable, tracks current position and facing, and limits fast travel to the 22 curated galleries.
+24. **Moral Life & Practical Reason**
+    Ethics as lived practice, virtue and attention through Murdoch and Foot, duty and consequence, and hard cases about rights, persons, and future generations through Thomson and Parfit
+
+Every curated exhibit has a walkable installation, focused interpretation, structured facts, and a link to the full philosopher or branch article. The 24 curated galleries contain 183 primary exhibits and 370 supplemental/context installations: 553 interpreted stops in all. Their implemented primary-record capacity is 250, leaving 67 live reserve slots; the complete approved 26-gallery program remains fixed at 189 assigned records and 260 capacity. Provenance-backed media is used where reliable reusable imagery or documents are available; media is not added merely to fill a quota. No curated room may contain more than one text-dominant page or isolated-book view. Galleries 19 and 22 deliberately use none: their 48 installations use independently sourced, exhibit-specific standalone imagery, with at least four non-textual visual-character groups in each gallery and no synthetic wrapper, geometric overlay, or repeated gallery-wide anchor motif. Galleries 20 and 21 retain the same zero-text-image standard across their 42 installations. Galleries 23 and 24 add 48 independently sourced, exhibit-specific installations with the same room-level diversity and standalone-image requirements.
+
+The physical visitor map is generated from the same compiled manifest that places gallery shells, rooms, crosscut intersections, turn courts, doors, safe arrivals, the entrance, final threshold, and reserves. It shows all 26 stable gallery numbers and titles, distinguishes curated/open from planned/walkable, tracks current position and facing, and limits fast travel to the 24 curated galleries.
 
 ### Museum controls
 
@@ -106,7 +112,7 @@ Philosophy Atlas is intended for curious readers, students, teachers, and anyone
 
 The project is actively being developed.
 
-Current written coverage includes all **146 philosophers** and **43 branches** in the Atlas. The Museum program and its implemented architecture are locked at 10 wings, 26 galleries, and 105 rooms. Twenty-two galleries are curated/open; four complete planned shells remain walkable but uncurated; two 56 × 28 m expansion reserves remain physically closed. Galleries 01–22 are now live without changing their stable public numbers or the Continuous Enfilade visit sequence. Retired Museum URLs resolve through aliases or explanatory handoffs, and displaced records remain available in the Atlas. Museum media includes structured provenance and rights metadata; citation depth across the wider Atlas is still being improved.
+Current written coverage includes all **146 philosophers** and **43 branches** in the Atlas. The Museum program and its implemented architecture are locked at 10 wings, 26 galleries, and 105 rooms. Twenty-four galleries are curated/open; two complete planned shells remain walkable but uncurated; two 56 × 28 m expansion reserves remain physically closed. Galleries 01–24 are now live without changing their stable public numbers or the Continuous Enfilade visit sequence. Compatibility routing preserves 46 carried legacy exhibit routes and two explicit displaced-record handoffs to the remaining planned primary halls. Museum media includes structured provenance and rights metadata; citation depth across the wider Atlas is still being improved.
 
 The application is local-first and static. It has no backend, database, login system, runtime API, advertising, or paid service dependency.
 
@@ -215,9 +221,9 @@ Keep explanations readable, distinguish disputed membership from canonical affil
 
 ## Current limitations and future work
 
-- The full 26-gallery, 105-room building is walkable. Galleries 01–22 are curated/open exhibitions; Galleries 23–26 remain honest planned architectural shells.
+- The full 26-gallery, 105-room building is walkable. Galleries 01–24 are curated/open exhibitions; Galleries 25–26 remain honest planned architectural shells.
 - Source and citation depth is stronger in the long-form articles and Museum records than in some older structured summaries.
 - The Philosophy Map intentionally uses a curated subset for readability.
 - Some influence and relationship data could be linked more deeply.
 - Visit position is stored locally, but there are no accounts or long-term reading-progress features.
-- Planned work includes curating Galleries 23–26 in place, broader cross-cultural Museum coverage, stronger source layers, study tools, saved progress, quizzes, and exportable notes. Planned shells remain walkable but expose no exhibits, guided routes, or fast travel until their curation is complete.
+- Planned work includes curating Galleries 25–26 in place, broader cross-cultural Museum coverage, stronger source layers, study tools, saved progress, quizzes, and exportable notes. Planned shells remain walkable but expose no exhibits, guided routes, or fast travel until their curation is complete.

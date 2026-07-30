@@ -97,7 +97,7 @@ export function MuseumVisitorMap({
     .sort((first, second) => second.point.y - first.point.y)
     .map(({point}) => point);
   const crosscutLabelPoint = crosscutPoints[Math.floor(crosscutPoints.length / 2)];
-  const routeSummary = `The Continuous Enfilade is a single-level, 26-gallery museum. The chronological through-route passes every gallery in sequence and uses five turn courts. A 10 metre north–south crosscut has six truthful intersections, including the Core Questions Forum. Twenty-two curated galleries are open for fast travel; four planned gallery shells are walkable but have no travel control. Two northern capacity reserves remain closed and are not routes.`;
+  const routeSummary = `The Continuous Enfilade is a single-level, 26-gallery museum. The chronological through-route passes every gallery in sequence and uses five turn courts. A 10 metre north–south crosscut has six truthful intersections, including the Core Questions Forum. Twenty-four curated galleries are open for fast travel; two planned gallery shells are walkable but have no travel control. Two northern capacity reserves remain closed and are not routes.`;
 
   const selectGallery = (programHallId: MuseumPlannedHallId) =>
     setSelectedProgramHallId(programHallId);
@@ -453,7 +453,7 @@ export function MuseumVisitorMap({
               <strong>Walkable gallery shell</strong>
               <span>Installations are planned. Enter from the chronological route or crosscut; fast travel is unavailable.</span>
             </div>}
-          <small>Fast travel is limited to the 22 curated/open galleries.</small>
+          <small>Fast travel is limited to the 24 curated/open galleries.</small>
         </div>
       </aside>
     </div>

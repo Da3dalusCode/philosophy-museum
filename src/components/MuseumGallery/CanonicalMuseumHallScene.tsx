@@ -17,6 +17,7 @@ import {PhenomenologySupplementalExhibits} from './PhenomenologySupplementalExhi
 import {PlatoSupplementalExhibits} from './PlatoSupplementalExhibits';
 import {RenaissanceSupplementalExhibits} from './RenaissanceSupplementalExhibits';
 import {
+  CritiquePowerDeconstructionSupplementalExhibits,
   EmpiricismSupplementalExhibits,
   EnlightenmentSupplementalExhibits,
   FaithPessimismValueSupplementalExhibits,
@@ -24,6 +25,7 @@ import {
   HellenisticRomanSupplementalExhibits,
   LateAntiquitySupplementalExhibits,
   LatinScholasticSupplementalExhibits,
+  MoralLifePracticalReasonSupplementalExhibits,
   PragmatismSupplementalExhibits,
   RationalismSupplementalExhibits,
   UtilityLibertyCapitalSupplementalExhibits,
@@ -243,6 +245,24 @@ export function CanonicalMuseumHallContent({
     {definition.id === 'pragmatism-democratic-inquiry'
       && definition.layout.supplementalExhibits
       && <PragmatismSupplementalExhibits
+        layouts={active
+          ? definition.layout.supplementalExhibits
+          : definition.layout.supplementalExhibits.filter(({assetId}) => entryAssetIds.has(assetId))}
+        nearbyId={nearbySupplemental?.hallId === definition.id ? nearbySupplemental.supplementalExhibitId : undefined}
+        onSelect={(supplementalExhibitId) => onSelectSupplementalExhibit({hallId: definition.id, supplementalExhibitId})}
+      />}
+    {definition.id === 'critique-power-deconstruction'
+      && definition.layout.supplementalExhibits
+      && <CritiquePowerDeconstructionSupplementalExhibits
+        layouts={active
+          ? definition.layout.supplementalExhibits
+          : definition.layout.supplementalExhibits.filter(({assetId}) => entryAssetIds.has(assetId))}
+        nearbyId={nearbySupplemental?.hallId === definition.id ? nearbySupplemental.supplementalExhibitId : undefined}
+        onSelect={(supplementalExhibitId) => onSelectSupplementalExhibit({hallId: definition.id, supplementalExhibitId})}
+      />}
+    {definition.id === 'moral-life-practical-reason'
+      && definition.layout.supplementalExhibits
+      && <MoralLifePracticalReasonSupplementalExhibits
         layouts={active
           ? definition.layout.supplementalExhibits
           : definition.layout.supplementalExhibits.filter(({assetId}) => entryAssetIds.has(assetId))}
