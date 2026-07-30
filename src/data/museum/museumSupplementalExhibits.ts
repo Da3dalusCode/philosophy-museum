@@ -76,6 +76,10 @@ import {
   ENLIGHTENMENT_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
 } from './enlightenmentSupplementalExhibits';
 import {
+  GERMAN_IDEALISM_SUPPLEMENTAL_EXHIBITS,
+  GERMAN_IDEALISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
+} from './germanIdealismSupplementalExhibits';
+import {
   UTILITY_LIBERTY_CAPITAL_SUPPLEMENTAL_EXHIBITS,
   UTILITY_LIBERTY_CAPITAL_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
 } from './utilityLibertyCapitalSupplementalExhibits';
@@ -83,6 +87,10 @@ import {
   FAITH_PESSIMISM_VALUE_SUPPLEMENTAL_EXHIBITS,
   FAITH_PESSIMISM_VALUE_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
 } from './faithPessimismValueSupplementalExhibits';
+import {
+  PRAGMATISM_SUPPLEMENTAL_EXHIBITS,
+  PRAGMATISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
+} from './pragmatismSupplementalExhibits';
 import type {
   MuseumSupplementalExhibitId,
   MuseumSupplementalExhibitLayout,
@@ -196,6 +204,11 @@ const COLLECTIONS = [
     layouts: ENLIGHTENMENT_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
   },
   {
+    hallId: 'german-idealism-afterlives',
+    exhibits: GERMAN_IDEALISM_SUPPLEMENTAL_EXHIBITS,
+    layouts: GERMAN_IDEALISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
+  },
+  {
     hallId: 'utility-liberty-history-capital',
     exhibits: UTILITY_LIBERTY_CAPITAL_SUPPLEMENTAL_EXHIBITS,
     layouts: UTILITY_LIBERTY_CAPITAL_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
@@ -204,6 +217,11 @@ const COLLECTIONS = [
     hallId: 'faith-pessimism-life-value',
     exhibits: FAITH_PESSIMISM_VALUE_SUPPLEMENTAL_EXHIBITS,
     layouts: FAITH_PESSIMISM_VALUE_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
+  },
+  {
+    hallId: 'pragmatism-democratic-inquiry',
+    exhibits: PRAGMATISM_SUPPLEMENTAL_EXHIBITS,
+    layouts: PRAGMATISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
   },
 ] as const satisfies readonly MuseumSupplementalCollection[];
 

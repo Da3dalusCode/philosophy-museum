@@ -28,6 +28,13 @@ const galleries20And21PreparationSource = readFileSync(
 const galleries20And21Manifest = JSON.parse(
   readFileSync(resolve(repoRoot, 'scripts/museumGalleries20And21AssetManifest.json'), 'utf8'),
 );
+const galleries19And22PreparationSource = readFileSync(
+  resolve(repoRoot, 'scripts/prepareMuseumGalleries19And22Assets.py'),
+  'utf8',
+);
+const galleries19And22Manifest = JSON.parse(
+  readFileSync(resolve(repoRoot, 'scripts/museumGalleries19And22AssetManifest.json'), 'utf8'),
+);
 const legacyImageDiversityPreparationSource = readFileSync(
   resolve(repoRoot, 'scripts/prepareMuseumLegacyImageReplacements.py'),
   'utf8',
@@ -72,6 +79,8 @@ const result = await build({
       export * from '/src/data/museum/enlightenmentSupplementalExhibits.ts';
       export * from '/src/data/museum/utilityLibertyCapitalSupplementalExhibits.ts';
       export * from '/src/data/museum/faithPessimismValueSupplementalExhibits.ts';
+      export * from '/src/data/museum/germanIdealismSupplementalExhibits.ts';
+      export * from '/src/data/museum/pragmatismSupplementalExhibits.ts';
     ` : undefined,
   }],
   build: {
@@ -117,6 +126,10 @@ const {
   UTILITY_LIBERTY_CAPITAL_SUPPLEMENTAL_EXHIBITS,
   FAITH_PESSIMISM_VALUE_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
   FAITH_PESSIMISM_VALUE_SUPPLEMENTAL_EXHIBITS,
+  GERMAN_IDEALISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
+  GERMAN_IDEALISM_SUPPLEMENTAL_EXHIBITS,
+  PRAGMATISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
+  PRAGMATISM_SUPPLEMENTAL_EXHIBITS,
   JUSTICE_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
   JUSTICE_SUPPLEMENTAL_EXHIBITS,
   CORE_QUESTIONS_FORUM_SUPPLEMENTAL_LAYOUTS,
@@ -161,8 +174,10 @@ const ACTIVE_HALL_IDS = [
   'rationalism-mind-nature-system',
   'empiricism-science-political-order',
   'enlightenment-revolution-kant',
+  'german-idealism-afterlives',
   'utility-liberty-history-capital',
   'faith-pessimism-life-value',
+  'pragmatism-democratic-inquiry',
 ];
 const MANAGED_HALL_FOLDERS = [
   'analytic-traditions',
@@ -352,6 +367,7 @@ const galleries13And16ManifestAssets = galleries13And16Manifest?.assets ?? {};
 const gallery17ManifestAssets = gallery17Manifest?.assets ?? {};
 const gallery18ManifestAssets = gallery18Manifest?.assets ?? {};
 const galleries20And21ManifestAssets = galleries20And21Manifest?.assets ?? {};
+const galleries19And22ManifestAssets = galleries19And22Manifest?.assets ?? {};
 const assetById = new Map(MUSEUM_ASSETS.map((asset) => [asset.id, asset]));
 const liveExhibits = MUSEUM_HALLS.flatMap((hall) => hall.exhibits.map((exhibit) => ({hall, exhibit})));
 const canonicalReferencedIds = liveExhibits.flatMap(({exhibit}) => [
@@ -378,6 +394,8 @@ const empiricismSupplementalReferencedIds = EMPIRICISM_SUPPLEMENTAL_EXHIBITS.map
 const enlightenmentSupplementalReferencedIds = ENLIGHTENMENT_SUPPLEMENTAL_EXHIBITS.map(({assetId}) => assetId);
 const utilityLibertyCapitalSupplementalReferencedIds = UTILITY_LIBERTY_CAPITAL_SUPPLEMENTAL_EXHIBITS.map(({assetId}) => assetId);
 const faithPessimismValueSupplementalReferencedIds = FAITH_PESSIMISM_VALUE_SUPPLEMENTAL_EXHIBITS.map(({assetId}) => assetId);
+const germanIdealismSupplementalReferencedIds = GERMAN_IDEALISM_SUPPLEMENTAL_EXHIBITS.map(({assetId}) => assetId);
+const pragmatismSupplementalReferencedIds = PRAGMATISM_SUPPLEMENTAL_EXHIBITS.map(({assetId}) => assetId);
 const supplementalReferencedIds = [
   ...platoSupplementalReferencedIds,
   ...renaissanceSupplementalReferencedIds,
@@ -399,6 +417,8 @@ const supplementalReferencedIds = [
   ...enlightenmentSupplementalReferencedIds,
   ...utilityLibertyCapitalSupplementalReferencedIds,
   ...faithPessimismValueSupplementalReferencedIds,
+  ...germanIdealismSupplementalReferencedIds,
+  ...pragmatismSupplementalReferencedIds,
 ];
 const referencedIds = [...canonicalReferencedIds, ...supplementalReferencedIds];
 const physicalSupplementalGroups = [
@@ -422,6 +442,8 @@ const physicalSupplementalGroups = [
   {galleryId: 'enlightenment-revolution-kant', records: ENLIGHTENMENT_SUPPLEMENTAL_EXHIBITS, layouts: ENLIGHTENMENT_SUPPLEMENTAL_EXHIBIT_LAYOUTS},
   {galleryId: 'utility-liberty-history-capital', records: UTILITY_LIBERTY_CAPITAL_SUPPLEMENTAL_EXHIBITS, layouts: UTILITY_LIBERTY_CAPITAL_SUPPLEMENTAL_EXHIBIT_LAYOUTS},
   {galleryId: 'faith-pessimism-life-value', records: FAITH_PESSIMISM_VALUE_SUPPLEMENTAL_EXHIBITS, layouts: FAITH_PESSIMISM_VALUE_SUPPLEMENTAL_EXHIBIT_LAYOUTS},
+  {galleryId: 'german-idealism-afterlives', records: GERMAN_IDEALISM_SUPPLEMENTAL_EXHIBITS, layouts: GERMAN_IDEALISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS},
+  {galleryId: 'pragmatism-democratic-inquiry', records: PRAGMATISM_SUPPLEMENTAL_EXHIBITS, layouts: PRAGMATISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS},
 ];
 const physicalSupplementalAssetIds = physicalSupplementalGroups.flatMap(({layouts}) => layouts.map(({assetId}) => assetId));
 const physicalInstallationAssetIds = [...canonicalReferencedIds, ...physicalSupplementalAssetIds];
@@ -685,13 +707,13 @@ check('Galleries 1–16 classify every textual-media candidate and cap plain pag
   assert.match(legacyImageDiversityPreparationSource, /--refresh-locks/);
 });
 
-check('the canonical twenty expose 163 primaries, 294 supplementals, and 457 interpreted stops with resolvable local media', () => {
+check('the canonical twenty-two expose 171 primaries, 334 supplementals, and 505 interpreted stops with resolvable local media', () => {
   assert.deepEqual(MUSEUM_HALLS.map(({id}) => id), ACTIVE_HALL_IDS);
-  assert.equal(MUSEUM_HALLS.length, 20);
-  assert.equal(liveExhibits.length, 163);
-  assert.equal(supplementalReferencedIds.length, 294);
-  assert.equal(liveExhibits.length + supplementalReferencedIds.length, 457);
-  assert.equal(referencedIds.length, 472);
+  assert.equal(MUSEUM_HALLS.length, 22);
+  assert.equal(liveExhibits.length, 171);
+  assert.equal(supplementalReferencedIds.length, 334);
+  assert.equal(liveExhibits.length + supplementalReferencedIds.length, 505);
+  assert.equal(referencedIds.length, 520);
   assert(canonicalReferencedIds.length > 0, 'the live primary program references no local media');
   for (const {hall, exhibit} of liveExhibits) {
     assert(Array.isArray(exhibit.supportingAssetIds), `${hall.id}/${exhibit.id} has no supporting-asset array`);
@@ -1241,6 +1263,85 @@ check('Galleries 20 and 21 fill every room with six distinct standalone images a
   assert.equal(new Set(combinedPhysicalIds).size, 42, 'Galleries 20 and 21 reuse a physical image across galleries');
 });
 
+check('Galleries 19 and 22 fill every room with six new standalone images and preserve the image-diversity gate', () => {
+  const expected = new Map([
+    ['german-idealism-afterlives', {
+      roomIds: [
+        'german-idealism-orientation',
+        'german-idealism-nature',
+        'german-idealism-hegel',
+        'german-idealism-afterlives-room',
+      ],
+    }],
+    ['pragmatism-democratic-inquiry', {
+      roomIds: [
+        'pragmatism-peirce-inquiry',
+        'pragmatism-james-experience',
+        'pragmatism-dewey-democracy',
+        'pragmatism-continuities-reserve',
+      ],
+    }],
+  ]);
+  const combinedPhysicalIds = [];
+  for (const [hallId, {roomIds}] of expected) {
+    const hall = MUSEUM_HALLS.find(({id}) => id === hallId);
+    const group = physicalSupplementalGroups.find(({galleryId}) => galleryId === hallId);
+    assert(hall && group, `${hallId} is absent from the physical asset audit`);
+    assert.equal(hall.exhibits.length, 4, `${hallId} primary count changed`);
+    assert.equal(group.records.length, 20, `${hallId} supplemental record count changed`);
+    assert.equal(group.layouts.length, 20, `${hallId} supplemental layout count changed`);
+    assert.deepEqual(
+      group.layouts.map(({id}) => id).sort(),
+      group.records.map(({id}) => id).sort(),
+      `${hallId} supplemental records and layouts diverged`,
+    );
+    const primaryIds = hall.exhibits.map(({principalAssetId, supportingAssetIds, id}) => {
+      assert(principalAssetId, `${hallId}/${id} lacks a principal asset`);
+      assert.equal(supportingAssetIds.length, 0, `${hallId}/${id} adds an unexpected second physical image`);
+      return principalAssetId;
+    });
+    const physicalIds = [...primaryIds, ...group.layouts.map(({assetId}) => assetId)];
+    assert.equal(physicalIds.length, 24, `${hallId} physical media count changed`);
+    assert.equal(new Set(physicalIds).size, 24, `${hallId} repeats a physical asset`);
+    assert.deepEqual(
+      physicalIds.slice().sort(),
+      Object.entries(galleries19And22ManifestAssets)
+        .filter(([, lock]) => lock.hallFolder === hallId)
+        .map(([id]) => id)
+        .sort(),
+      `${hallId} source lock does not exactly cover its physical installations`,
+    );
+    for (const roomId of roomIds) {
+      const roomAssetIds = [
+        ...hall.exhibits
+          .filter(({roomId: exhibitRoomId}) => exhibitRoomId === roomId)
+          .map(({principalAssetId}) => principalAssetId),
+        ...group.layouts
+          .filter(({spatialCellId}) => spatialCellId === roomId)
+          .map(({assetId}) => assetId),
+      ];
+      assert.equal(roomAssetIds.length, 6, `${hallId}/${roomId} must retain six physical wall installations`);
+      assert.equal(new Set(roomAssetIds).size, 6, `${hallId}/${roomId} repeats an image`);
+      for (const id of roomAssetIds) {
+        const lock = galleries19And22ManifestAssets[id];
+        assert(lock, `${hallId}/${roomId}/${id} lacks a Gallery 19/22 source lock`);
+        assert.equal(lock.textDominantOrSingleBook, false, `${hallId}/${roomId}/${id} violates the no paper-only/lone-book gate`);
+        assert.notEqual(lock.visualCharacter, 'text-dominant', `${hallId}/${roomId}/${id} is text-dominant`);
+      }
+    }
+    const visualCharacters = new Set(
+      physicalIds.map((id) => galleries19And22ManifestAssets[id]?.visualCharacter).filter(Boolean),
+    );
+    assert(
+      visualCharacters.size >= 4,
+      `${hallId} needs at least four visual-character groups; found ${[...visualCharacters].sort().join(', ')}`,
+    );
+    combinedPhysicalIds.push(...physicalIds);
+  }
+  assert.equal(combinedPhysicalIds.length, 48);
+  assert.equal(new Set(combinedPhysicalIds).size, 48, 'Galleries 19 and 22 reuse a physical image across galleries');
+});
+
 check('every physical installation has a museum-wide unique asset, source page, and derivative hash', () => {
   for (const {galleryId, records, layouts} of physicalSupplementalGroups) {
     assert.equal(layouts.length, records.length, `${galleryId} supplemental record and physical-layout counts diverged`);
@@ -1279,11 +1380,11 @@ check('every physical installation has a museum-wide unique asset, source page, 
   assert(unique(physicalAssets.map(({variants}) => sha256(exactCasePath(variants.panel.path)))), 'two physical installations reuse identical panel bytes');
 });
 
-check('the preserved asset registry contains 514 unique records and derivative paths', () => {
-  assert.equal(MUSEUM_ASSETS.length, 514);
-  assert.equal(assetById.size, 514);
+check('the preserved asset registry contains 562 unique records and derivative paths', () => {
+  assert.equal(MUSEUM_ASSETS.length, 562);
+  assert.equal(assetById.size, 562);
   const variantPaths = MUSEUM_ASSETS.flatMap(({variants}) => [variants.scene.path, variants.panel.path]);
-  assert.equal(variantPaths.length, 1028);
+  assert.equal(variantPaths.length, 1124);
   assert(unique(variantPaths), 'two asset variants share a derivative path');
   for (const id of NEW_CANONICAL_ASSET_IDS) assert(assetById.has(id), `new canonical asset ${id} is missing`);
   for (const id of MEDITERRANEAN_ASSET_IDS) assert(assetById.has(id), `Gallery 01 asset ${id} is missing`);
@@ -1392,7 +1493,7 @@ check('every registered variant is exact-case local WebP media with locked dimen
   }
 });
 
-check('the 315-source modern-manifest subset excludes all separately locked Gallery 01, 13–18, and 20–21 media', () => {
+check('the 315-source modern-manifest subset excludes all separately locked Gallery 01 and Galleries 13–22 media', () => {
   assert.equal(modernManifest.version, 1);
   assert.equal(Object.keys(manifestAssets).length, 315);
   const managedAssets = MUSEUM_ASSETS.filter(({variants}) =>
@@ -1403,8 +1504,10 @@ check('the 315-source modern-manifest subset excludes all separately locked Gall
       && !variants.scene.path.startsWith('assets/museum/rationalism-mind-nature-system/')
       && !variants.scene.path.startsWith('assets/museum/empiricism-science-political-order/')
       && !variants.scene.path.startsWith('assets/museum/enlightenment-revolution-kant/')
+      && !variants.scene.path.startsWith('assets/museum/german-idealism-afterlives/')
       && !variants.scene.path.startsWith('assets/museum/utility-liberty-history-capital/')
-      && !variants.scene.path.startsWith('assets/museum/faith-pessimism-life-value/'));
+      && !variants.scene.path.startsWith('assets/museum/faith-pessimism-life-value/')
+      && !variants.scene.path.startsWith('assets/museum/pragmatism-democratic-inquiry/'));
   assert.equal(managedAssets.length, 315);
   assert.deepEqual(Object.keys(manifestAssets).sort(), managedAssets.map(({id}) => id).sort());
   assert.match(preparationSource, /MANIFEST_PATH = ROOT \/ "scripts" \/ "museumModernAssetManifest\.json"/);
@@ -1848,6 +1951,89 @@ check('the 42-source Galleries 20 and 21 lock reproduces every derivative withou
   });
 });
 
+check('the 48-source Galleries 19 and 22 lock reproduces every derivative without source or hash reuse', () => {
+  assert.equal(galleries19And22Manifest.version, 1);
+  assert.equal(Object.keys(galleries19And22ManifestAssets).length, 48);
+  assert.match(galleries19And22PreparationSource, /museumGalleries19And22AssetManifest\.json/);
+  assert.match(galleries19And22PreparationSource, /EXPECTED_ASSET_COUNT = 48/);
+  assert.match(galleries19And22PreparationSource, /assert_locked\(slug, "scene"/);
+  assert.match(galleries19And22PreparationSource, /assert_locked\(slug, "panel"/);
+  assert.match(galleries19And22PreparationSource, /"sha256": sha256\(destination\)/);
+  assert.match(galleries19And22PreparationSource, /visualCharacter/);
+  assert.match(galleries19And22PreparationSource, /textDominantOrSingleBook/);
+
+  const previousManifestAssets = {
+    ...manifestAssets,
+    ...mediterraneanManifestAssets,
+    ...successorManifestAssets,
+    ...galleries13And16ManifestAssets,
+    ...gallery17ManifestAssets,
+    ...gallery18ManifestAssets,
+    ...galleries20And21ManifestAssets,
+  };
+  const previouslyLockedIds = new Set(Object.keys(previousManifestAssets));
+  assert.equal(previouslyLockedIds.size, 498, 'The pre-Gallery-19/22 source-lock inventories overlap');
+  const previousSourcePages = new Set(Object.values(previousManifestAssets).map(({sourcePageUrl}) => sourcePageUrl));
+  const previousSceneHashes = new Set(Object.values(previousManifestAssets).map(({scene}) => scene.sha256));
+  const previousPanelHashes = new Set(Object.values(previousManifestAssets).map(({panel}) => panel.sha256));
+  const sourcePages = [];
+  const sceneHashes = [];
+  const panelHashes = [];
+  const countsByFolder = new Map();
+
+  for (const [id, lock] of Object.entries(galleries19And22ManifestAssets)) {
+    assert(!previouslyLockedIds.has(id), `${id} is redundantly owned by an older preparation manifest`);
+    const asset = assetById.get(id);
+    assert(asset, `${id} Gallery 19/22 lock has no asset record`);
+    assert(
+      ['german-idealism-afterlives', 'pragmatism-democratic-inquiry'].includes(lock.hallFolder),
+      `${id} has invalid Gallery 19/22 folder ${lock.hallFolder}`,
+    );
+    countsByFolder.set(lock.hallFolder, (countsByFolder.get(lock.hallFolder) ?? 0) + 1);
+    assert.equal(lock.sourcePageUrl, asset.sourcePageUrl, `${id} source lock differs from runtime provenance`);
+    assert.equal(lock.visualCharacter, asset.visualCharacter, `${id} visual-character lock differs from runtime metadata`);
+    assert.equal(lock.textDominantOrSingleBook, false, `${id} violates the no paper-only/lone-book gate`);
+    for (const field of ['sourcePageUrl', 'sourceImageUrl', 'selectedThumbnailUrl']) {
+      assert(lock[field]?.startsWith('https://'), `${id}.${field} must be locked HTTPS`);
+    }
+    assert.equal(new URL(lock.sourcePageUrl).hostname, 'commons.wikimedia.org', `${id} source page must use Commons`);
+    assert(new URL(lock.sourcePageUrl).pathname.startsWith('/wiki/File:'), `${id} source page must identify an exact Commons file`);
+    assert(!previousSourcePages.has(lock.sourcePageUrl), `${id} reuses a source page owned by an earlier manifest`);
+    sourcePages.push(lock.sourcePageUrl);
+    for (const variantName of ['scene', 'panel']) {
+      const variant = asset.variants[variantName];
+      const expected = lock[variantName];
+      assert(expected, `${id}.${variantName} Gallery 19/22 lock is missing`);
+      assert(Number.isSafeInteger(expected.width) && expected.width > 0, `${id}.${variantName}.width is invalid`);
+      assert(Number.isSafeInteger(expected.height) && expected.height > 0, `${id}.${variantName}.height is invalid`);
+      assert(Number.isSafeInteger(expected.bytes) && expected.bytes > 0, `${id}.${variantName}.bytes is invalid`);
+      assert.match(expected.sha256 ?? '', /^[0-9a-f]{64}$/, `${id}.${variantName}.sha256 is invalid`);
+      assert.equal(variant.path, `assets/museum/${lock.hallFolder}/${id}-${variantName}.webp`);
+      assert.equal(variant.width, expected.width, `${id}.${variantName} width differs from its lock`);
+      assert.equal(variant.height, expected.height, `${id}.${variantName} height differs from its lock`);
+      const path = exactCasePath(variant.path);
+      assert.equal(statSync(path).size, expected.bytes, `${id}.${variantName} byte count drifted`);
+      assert.equal(sha256(path), expected.sha256, `${id}.${variantName} SHA-256 drifted`);
+      assert.deepEqual(webpDimensions(path), {width: expected.width, height: expected.height}, `${id}.${variantName} locked dimensions drifted`);
+      if (variantName === 'scene') {
+        assert(!previousSceneHashes.has(expected.sha256), `${id}.scene reuses bytes owned by an earlier manifest`);
+        sceneHashes.push(expected.sha256);
+      } else {
+        assert(!previousPanelHashes.has(expected.sha256), `${id}.panel reuses bytes owned by an earlier manifest`);
+        panelHashes.push(expected.sha256);
+      }
+    }
+  }
+  assert.equal(previouslyLockedIds.size + Object.keys(galleries19And22ManifestAssets).length, 546);
+  assert(unique(sourcePages), 'Galleries 19 and 22 reuse an exact source page');
+  assert(unique(sceneHashes), 'Galleries 19 and 22 reuse identical scene bytes');
+  assert(unique(panelHashes), 'Galleries 19 and 22 reuse identical panel bytes');
+  assert.deepEqual(Object.fromEntries([...countsByFolder].sort()), {
+    'german-idealism-afterlives': 24,
+    'pragmatism-democratic-inquiry': 24,
+  });
+});
+
 check('Galleries 14–15 fill 43 unique physical installations without image reuse', () => {
   const expected = new Map([
     ['hellenistic-roman-ways', {primary: 18, supplemental: 7, physical: 25}],
@@ -1868,7 +2054,7 @@ check('Galleries 14–15 fill 43 unique physical installations without image reu
   }
 });
 
-check('the committed Museum inventory contains exactly the 1028 registered derivatives', () => {
+check('the committed Museum inventory contains exactly the 1124 registered derivatives', () => {
   const actual = walkFiles(museumMediaRoot).map(toPublicPath).sort();
   const expected = MUSEUM_ASSETS.flatMap(({variants}) => [variants.scene.path, variants.panel.path]).sort();
   assert.deepEqual(actual, expected);
@@ -1901,4 +2087,4 @@ check('scene-media policy keeps local images unlit, front-facing, and clear of f
   assert.doesNotMatch(sceneMediaSource, /sourcePageUrl|objectPageUrl|selectedThumbnailUrl/);
 });
 
-console.log(`\nMuseum asset audit passed: ${checks} groups, ${MUSEUM_ASSETS.length} provenance records, ${MUSEUM_ASSETS.length * 2} local derivatives, ${Object.keys(manifestAssets).length * 2 + Object.keys(mediterraneanManifestAssets).length * 2 + Object.keys(successorManifestAssets).length * 2 + Object.keys(galleries13And16ManifestAssets).length * 2 + Object.keys(gallery17ManifestAssets).length * 2 + Object.keys(gallery18ManifestAssets).length * 2 + Object.keys(galleries20And21ManifestAssets).length * 2} exact hash locks, and ${referencedIds.length} live media placements.`);
+console.log(`\nMuseum asset audit passed: ${checks} groups, ${MUSEUM_ASSETS.length} provenance records, ${MUSEUM_ASSETS.length * 2} local derivatives, ${Object.keys(manifestAssets).length * 2 + Object.keys(mediterraneanManifestAssets).length * 2 + Object.keys(successorManifestAssets).length * 2 + Object.keys(galleries13And16ManifestAssets).length * 2 + Object.keys(gallery17ManifestAssets).length * 2 + Object.keys(gallery18ManifestAssets).length * 2 + Object.keys(galleries20And21ManifestAssets).length * 2 + Object.keys(galleries19And22ManifestAssets).length * 2} exact hash locks, and ${referencedIds.length} live media placements.`);

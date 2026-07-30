@@ -297,7 +297,7 @@ const useVisitorMapScreenTexture = (): CanvasTexture => {
     const legend = [
       {label: 'Chronological through-route', color: '#c79558', dash: [] as number[]},
       {label: '10 m crosscut · 6 intersections', color: '#8eb7b7', dash: [8, 5]},
-      {label: '20 curated/open · 6 planned/walkable', color: '#879295', dash: [4, 3]},
+      {label: '22 curated/open · 4 planned/walkable', color: '#879295', dash: [4, 3]},
       {label: '2 closed capacity reserves', color: '#a77b5f', dash: [6, 5]},
     ];
     legend.forEach(({label, color, dash}, index) => {

@@ -32,6 +32,14 @@ import {
   getFaithPessimismValueSupplementalExhibit,
 } from '../../data/museum/faithPessimismValueSupplementalExhibits';
 import {
+  GERMAN_IDEALISM_PALETTE,
+  getGermanIdealismSupplementalExhibit,
+} from '../../data/museum/germanIdealismSupplementalExhibits';
+import {
+  getPragmatismSupplementalExhibit,
+  PRAGMATISM_PALETTE,
+} from '../../data/museum/pragmatismSupplementalExhibits';
+import {
   MUSEUM_CANONICAL_EXHIBIT_BACKING_MATERIAL,
   MUSEUM_CANONICAL_EXHIBIT_PLINTH_GEOMETRY,
   MUSEUM_CANONICAL_EXHIBIT_PLINTH_MATERIAL,
@@ -266,5 +274,23 @@ export function FaithPessimismValueSupplementalExhibits(props: GallerySupplement
     collection="gallery-21-faith-pessimism-life-value-v1"
     ink={FAITH_PESSIMISM_VALUE_PALETTE.midnight}
     getRecord={getFaithPessimismValueSupplementalExhibit}
+  />;
+}
+
+export function GermanIdealismSupplementalExhibits(props: GallerySupplementalProps) {
+  return <SupplementalCollection
+    {...props}
+    collection="gallery-19-german-idealism-afterlives-v1"
+    ink={GERMAN_IDEALISM_PALETTE.ink}
+    getRecord={getGermanIdealismSupplementalExhibit}
+  />;
+}
+
+export function PragmatismSupplementalExhibits(props: GallerySupplementalProps) {
+  return <SupplementalCollection
+    {...props}
+    collection="gallery-22-pragmatism-democratic-inquiry-v1"
+    ink={PRAGMATISM_PALETTE.ink}
+    getRecord={getPragmatismSupplementalExhibit}
   />;
 }

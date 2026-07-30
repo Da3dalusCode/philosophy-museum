@@ -56,6 +56,8 @@ const empiricismSupplementalDataSource = source('src/data/museum/empiricismSuppl
 const enlightenmentSupplementalDataSource = source('src/data/museum/enlightenmentSupplementalExhibits.ts');
 const utilityLibertyCapitalSupplementalDataSource = source('src/data/museum/utilityLibertyCapitalSupplementalExhibits.ts');
 const faithPessimismValueSupplementalDataSource = source('src/data/museum/faithPessimismValueSupplementalExhibits.ts');
+const germanIdealismSupplementalDataSource = source('src/data/museum/germanIdealismSupplementalExhibits.ts');
+const pragmatismSupplementalDataSource = source('src/data/museum/pragmatismSupplementalExhibits.ts');
 const successorSupplementalSceneSource = source('src/components/MuseumGallery/SuccessorGallerySupplementalExhibits.tsx');
 const supplementalCollectionSceneSource = source('src/components/MuseumGallery/MuseumSupplementalExhibitCollection.tsx');
 const forumSupplementalDataSource = source('src/data/museum/coreQuestionsForumSupplementalExhibits.ts');
@@ -122,6 +124,10 @@ const result = await build({
       export * from '/src/data/museum/utilityLibertyCapitalSupplementalExhibits.ts';
       export * from '/src/data/museum/faithPessimismValueGalleryCuration.ts';
       export * from '/src/data/museum/faithPessimismValueSupplementalExhibits.ts';
+      export * from '/src/data/museum/germanIdealismGalleryCuration.ts';
+      export * from '/src/data/museum/germanIdealismSupplementalExhibits.ts';
+      export * from '/src/data/museum/pragmatismGalleryCuration.ts';
+      export * from '/src/data/museum/pragmatismSupplementalExhibits.ts';
       export * from '/src/data/museum/coreQuestionsForumCuration.ts';
       export * from '/src/data/museum/coreQuestionsForumSupplementalExhibits.ts';
       export * from '/src/data/museum/museumSupplementalExhibits.ts';
@@ -271,6 +277,22 @@ const {
   FAITH_PESSIMISM_VALUE_SUPPLEMENTAL_EXHIBITS,
   FAITH_PESSIMISM_VALUE_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
   faithPessimismValueInteriorLintels,
+  GERMAN_IDEALISM_GALLERY_ID,
+  GERMAN_IDEALISM_HALL_DIMENSIONS,
+  GERMAN_IDEALISM_PRIMARY_PLACEMENTS,
+  GERMAN_IDEALISM_ROOM_ENTRY_POSES,
+  GERMAN_IDEALISM_ROOM_SIGN_COPY,
+  GERMAN_IDEALISM_SUPPLEMENTAL_EXHIBITS,
+  GERMAN_IDEALISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
+  germanIdealismInteriorLintels,
+  PRAGMATISM_GALLERY_ID,
+  PRAGMATISM_HALL_DIMENSIONS,
+  PRAGMATISM_PRIMARY_PLACEMENTS,
+  PRAGMATISM_ROOM_ENTRY_POSES,
+  PRAGMATISM_ROOM_SIGN_COPY,
+  PRAGMATISM_SUPPLEMENTAL_EXHIBITS,
+  PRAGMATISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
+  pragmatismInteriorLintels,
   CLASSICAL_SOUTH_ASIAN_GALLERY_ID,
   CLASSICAL_SOUTH_ASIAN_PRIMARY_PLACEMENTS,
   CLASSICAL_SOUTH_ASIAN_SUPPLEMENTAL_EXHIBITS,
@@ -381,8 +403,10 @@ const HALL_IDS = [
   'rationalism-mind-nature-system',
   'empiricism-science-political-order',
   'enlightenment-revolution-kant',
+  'german-idealism-afterlives',
   'utility-liberty-history-capital',
   'faith-pessimism-life-value',
+  'pragmatism-democratic-inquiry',
 ];
 const LEGACY_HALL_IDS = [
   'ancient-greek',
@@ -411,8 +435,10 @@ const EXPECTED_COUNTS = {
   'rationalism-mind-nature-system': {rooms: 3, exhibits: 5, template: 'sequence-3'},
   'empiricism-science-political-order': {rooms: 3, exhibits: 4, template: 'sequence-3'},
   'enlightenment-revolution-kant': {rooms: 5, exhibits: 6, template: 'crossroads-4'},
+  'german-idealism-afterlives': {rooms: 4, exhibits: 4, template: 'sequence-3'},
   'utility-liberty-history-capital': {rooms: 4, exhibits: 3, template: 'sequence-3'},
   'faith-pessimism-life-value': {rooms: 3, exhibits: 3, template: 'sequence-3'},
+  'pragmatism-democratic-inquiry': {rooms: 4, exhibits: 4, template: 'sequence-3'},
 };
 const EXPECTED_MAP_LABELS = {
   'mediterranean-beginnings-classical': 'Gallery 01 · Mediterranean Beginnings & Classical Athens',
@@ -433,8 +459,10 @@ const EXPECTED_MAP_LABELS = {
   'rationalism-mind-nature-system': 'Gallery 16 · Rationalism: Mind, Nature, and System',
   'empiricism-science-political-order': 'Gallery 17 · Empiricism, Science, and Political Order',
   'enlightenment-revolution-kant': 'Gallery 18 · Enlightenment, Revolution, and Kant’s Critical Turn',
+  'german-idealism-afterlives': 'Gallery 19 · German Idealism & Romantic Afterlives',
   'utility-liberty-history-capital': 'Gallery 20 · Utility, Liberty, History, and Capital',
   'faith-pessimism-life-value': 'Gallery 21 · Faith, Pessimism, Life, and Value',
+  'pragmatism-democratic-inquiry': 'Gallery 22 · Pragmatism, Science, and Democratic Inquiry',
 };
 const TIER_RUNTIME = {
   'anchor-exhibit': {tier: 'anchor', treatment: 'anchor-bay'},
@@ -810,25 +838,25 @@ const assertCompleteSixWallSequenceGallery = ({
   }
 };
 
-check('the public catalog is exactly the canonical twenty-hall, 82-room, 163-exhibit program', () => {
+check('the public catalog is exactly the canonical twenty-two-hall, 90-room, 171-exhibit program', () => {
   assert.deepEqual(MUSEUM_HALLS.map(({id}) => id), HALL_IDS);
-  assert.equal(MUSEUM_HALLS.reduce((sum, hall) => sum + hall.zones.length, 0), 82);
-  assert.equal(MUSEUM_HALLS.reduce((sum, hall) => sum + hall.exhibits.length, 0), 163);
+  assert.equal(MUSEUM_HALLS.reduce((sum, hall) => sum + hall.zones.length, 0), 90);
+  assert.equal(MUSEUM_HALLS.reduce((sum, hall) => sum + hall.exhibits.length, 0), 171);
   assert.deepEqual(MUSEUM_LIVE_PROGRAM_TOTALS.tierCounts, {
-    'anchor-exhibit': 78,
-    'standard-individual-exhibit': 71,
+    'anchor-exhibit': 82,
+    'standard-individual-exhibit': 75,
     'supporting-exhibit': 8,
     'thematic-cluster-participant': 5,
     'gallery-archive-or-study-wall-record': 1,
   });
-  assert.equal(MUSEUM_LIVE_PROGRAM_TOTALS.recordCapacity, 223);
-  assert.equal(MUSEUM_LIVE_PROGRAM_TOTALS.reserveCapacity, 60);
-  assert.equal(MUSEUM_LIVE_PROGRAM_TOTALS.hallCount, 20);
-  assert.equal(MUSEUM_LIVE_PROGRAM_TOTALS.roomCount, 82);
-  assert.equal(MUSEUM_LIVE_PROGRAM_TOTALS.exhibitCount, 163);
+  assert.equal(MUSEUM_LIVE_PROGRAM_TOTALS.recordCapacity, 236);
+  assert.equal(MUSEUM_LIVE_PROGRAM_TOTALS.reserveCapacity, 65);
+  assert.equal(MUSEUM_LIVE_PROGRAM_TOTALS.hallCount, 22);
+  assert.equal(MUSEUM_LIVE_PROGRAM_TOTALS.roomCount, 90);
+  assert.equal(MUSEUM_LIVE_PROGRAM_TOTALS.exhibitCount, 171);
   assert.equal(Object.keys(MUSEUM_PLANNED_HALL_TITLES).length, 26);
-  assert.equal(Object.keys(MUSEUM_PLANNED_HALL_TITLES).filter((id) => HALL_IDS.includes(id)).length, 20);
-  assert.equal(Object.keys(MUSEUM_PLANNED_HALL_TITLES).filter((id) => !HALL_IDS.includes(id)).length, 6);
+  assert.equal(Object.keys(MUSEUM_PLANNED_HALL_TITLES).filter((id) => HALL_IDS.includes(id)).length, 22);
+  assert.equal(Object.keys(MUSEUM_PLANNED_HALL_TITLES).filter((id) => !HALL_IDS.includes(id)).length, 4);
   for (const hall of MUSEUM_HALLS) {
     const expected = EXPECTED_COUNTS[hall.id];
     const runtimeNode = MUSEUM_RUNTIME_NODES.find(({publicHallId}) => publicHallId === hall.id);
@@ -855,8 +883,8 @@ check('curated halls and persistent Continuous Enfilade architecture use the can
   const persistentPlannedHalls = persistentNodes.filter(({kind, galleryState}) =>
     kind === 'hall' && galleryState === 'planned-walkable');
   const persistentCirculationNodes = persistentNodes.filter(({kind}) => kind !== 'hall');
-  assert.equal(persistentNodes.length, 19, 'Persistent architecture must contain 6 planned halls and 13 circulation nodes');
-  assert.equal(persistentPlannedHalls.length, 6, 'Persistent architecture must retain exactly 6 planned hall shells');
+  assert.equal(persistentNodes.length, 17, 'Persistent architecture must contain 4 planned halls and 13 circulation nodes');
+  assert.equal(persistentPlannedHalls.length, 4, 'Persistent architecture must retain exactly 4 planned hall shells');
   assert.equal(persistentCirculationNodes.length, 13, 'Persistent architecture must retain exactly 13 circulation nodes');
   for (const node of persistentNodes) {
     assert(node.layout.spatialCells.length > 0, `${node.id} has no walkable spatial cell`);
@@ -1073,10 +1101,10 @@ check('Plato’s Cave and Republic form a substantial supplemental U without ent
   assert.match(supplementalPanelSource, /event\.key === 'Escape'/u, 'The supplemental panel lacks its keyboard close path');
 });
 
-check('all 294 supplemental exhibits share route, directory, search, guided, and fallback contracts', () => {
-  assert.equal(MUSEUM_SUPPLEMENTAL_EXHIBITS.length, 294);
-  assert.equal(MUSEUM_INTERPRETATIONS.length, 163, 'Every canonical installation needs one interpretation');
-  assert.equal(MUSEUM_INTERPRETATIONS.length + MUSEUM_SUPPLEMENTAL_EXHIBITS.length, 457, 'The directory interpreted-stop count changed');
+check('all 334 supplemental exhibits share route, directory, search, guided, and fallback contracts', () => {
+  assert.equal(MUSEUM_SUPPLEMENTAL_EXHIBITS.length, 334);
+  assert.equal(MUSEUM_INTERPRETATIONS.length, 171, 'Every canonical installation needs one interpretation');
+  assert.equal(MUSEUM_INTERPRETATIONS.length + MUSEUM_SUPPLEMENTAL_EXHIBITS.length, 505, 'The directory interpreted-stop count changed');
   assert.equal(
     new Set(MUSEUM_SUPPLEMENTAL_EXHIBITS.map(({exhibit}) => exhibit.id)).size,
     MUSEUM_SUPPLEMENTAL_EXHIBITS.length,
@@ -1533,10 +1561,12 @@ check('Gallery 03 onward makes every primary at least as large as its biggest se
       'rationalism-mind-nature-system',
       'empiricism-science-political-order',
       'enlightenment-revolution-kant',
+      'german-idealism-afterlives',
       'utility-liberty-history-capital',
       'faith-pessimism-life-value',
+      'pragmatism-democratic-inquiry',
     ]),
-    'Fully built Galleries 03–18 and 20–21 should enforce the completed-gallery hierarchy',
+    'Fully built Galleries 03–22 should enforce the completed-gallery hierarchy',
   );
   assert(
     canonicalExhibitsSource.includes('primaryEmphasis ? .72 : .42'),
@@ -2882,6 +2912,46 @@ const assertSequenceGalleryLintels = (label, galleryId, expectedDimensions, lint
   }
 };
 
+check('Gallery 19 is a complete four-room, 24-installation German Idealism and afterlives sequence', () => {
+  assertCompleteSixWallSequenceGallery({
+    label: 'Gallery 19',
+    galleryId: GERMAN_IDEALISM_GALLERY_ID,
+    roomCount: 4,
+    primaryCount: 4,
+    supplementalCount: 20,
+    physicalCount: 24,
+    primaryPlacements: GERMAN_IDEALISM_PRIMARY_PLACEMENTS,
+    roomEntryPoses: GERMAN_IDEALISM_ROOM_ENTRY_POSES,
+    roomSignCopy: GERMAN_IDEALISM_ROOM_SIGN_COPY,
+    supplementalExhibits: GERMAN_IDEALISM_SUPPLEMENTAL_EXHIBITS,
+    supplementalLayouts: GERMAN_IDEALISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
+    directNeighborNodeIds: ['hall:enlightenment-revolution-kant', 'crossing:band-04'],
+  });
+  assertSequenceGalleryLintels(
+    'Gallery 19',
+    GERMAN_IDEALISM_GALLERY_ID,
+    GERMAN_IDEALISM_HALL_DIMENSIONS,
+    germanIdealismInteriorLintels(),
+  );
+  assert.equal(germanIdealismInteriorLintels().length, 3, 'Gallery 19 must retain three render-only lintels');
+  assert.match(canonicalSceneSource, /<GermanIdealismSupplementalExhibits/u, 'Gallery 19 does not mount its supplemental renderer');
+  assert.match(successorSupplementalSceneSource, /getGermanIdealismSupplementalExhibit/u, 'Gallery 19 renderer does not resolve authored visitor content');
+  assert.match(germanIdealismSupplementalDataSource, /export const GERMAN_IDEALISM_SUPPLEMENTAL_EXHIBITS/u, 'Gallery 19 supplemental content is not exported');
+  const romanticNature = GERMAN_IDEALISM_SUPPLEMENTAL_EXHIBITS.find(({id}) => id === 'nature-romantic-beholder');
+  assert(
+    romanticNature?.sections.flatMap(({paragraphs}) => paragraphs).join(' ').includes('nature as visible spirit and spirit as invisible nature'),
+    'Gallery 19 reverses Schelling’s visible-spirit / invisible-nature formulation',
+  );
+  const haitiDebate = GERMAN_IDEALISM_SUPPLEMENTAL_EXHIBITS.find(({id}) => id === 'hegel-haiti-recognition-debate');
+  assert(
+    haitiDebate?.sources.some(({url}) => url === 'https://mimesisjournals.com/ojs/index.php/babelonline/article/view/2932'),
+    'Gallery 19 lacks a debate-specific academic source for the contested Hegel–Haiti connection',
+  );
+  const haitiAsset = assetById.get('german-idealism-haiti-crete-a-pierrot');
+  assert.match(haitiAsset?.creator ?? '', /Ernest Hébert/u, 'Gallery 19 misspells the Crête-à-Pierrot engraver’s name');
+  assert.doesNotMatch(haitiAsset?.attribution ?? '', /Ernst Hébert/u, 'Gallery 19 retains the incorrect Crête-à-Pierrot attribution');
+});
+
 check('Gallery 20 is a complete four-room, 24-installation utility, liberty, and capital sequence', () => {
   assertCompleteSixWallSequenceGallery({
     label: 'Gallery 20',
@@ -2934,6 +3004,55 @@ check('Gallery 21 is a complete three-room, 18-installation faith, pessimism, an
   assert.match(canonicalSceneSource, /<FaithPessimismValueSupplementalExhibits/u, 'Gallery 21 does not mount its supplemental renderer');
   assert.match(successorSupplementalSceneSource, /getFaithPessimismValueSupplementalExhibit/u, 'Gallery 21 renderer does not resolve authored visitor content');
   assert.match(faithPessimismValueSupplementalDataSource, /export const FAITH_PESSIMISM_VALUE_SUPPLEMENTAL_EXHIBITS/u, 'Gallery 21 supplemental content is not exported');
+});
+
+check('Gallery 22 is a complete four-room, 24-installation pragmatism and democratic-inquiry sequence', () => {
+  assertCompleteSixWallSequenceGallery({
+    label: 'Gallery 22',
+    galleryId: PRAGMATISM_GALLERY_ID,
+    roomCount: 4,
+    primaryCount: 4,
+    supplementalCount: 20,
+    physicalCount: 24,
+    primaryPlacements: PRAGMATISM_PRIMARY_PLACEMENTS,
+    roomEntryPoses: PRAGMATISM_ROOM_ENTRY_POSES,
+    roomSignCopy: PRAGMATISM_ROOM_SIGN_COPY,
+    supplementalExhibits: PRAGMATISM_SUPPLEMENTAL_EXHIBITS,
+    supplementalLayouts: PRAGMATISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
+    directNeighborNodeIds: ['turn:band-04-to-05', 'hall:analytic-traditions'],
+  });
+  assertSequenceGalleryLintels(
+    'Gallery 22',
+    PRAGMATISM_GALLERY_ID,
+    PRAGMATISM_HALL_DIMENSIONS,
+    pragmatismInteriorLintels(),
+  );
+  assert.equal(pragmatismInteriorLintels().length, 3, 'Gallery 22 must retain three render-only lintels');
+  assert.match(canonicalSceneSource, /<PragmatismSupplementalExhibits/u, 'Gallery 22 does not mount its supplemental renderer');
+  assert.match(successorSupplementalSceneSource, /getPragmatismSupplementalExhibit/u, 'Gallery 22 renderer does not resolve authored visitor content');
+  assert.match(pragmatismSupplementalDataSource, /export const PRAGMATISM_SUPPLEMENTAL_EXHIBITS/u, 'Gallery 22 supplemental content is not exported');
+  const calaisExhibit = PRAGMATISM_SUPPLEMENTAL_EXHIBITS.find(({id}) => id === 'peirce-coast-survey-observatory');
+  assert.match(calaisExhibit?.lead ?? '', /granite instrument supports/u, 'Gallery 22 misdescribes the surviving Calais observatory remains');
+  assert(
+    calaisExhibit?.sources.some(({url}) => url.includes('maine.gov/mhpc/') && url.includes('calais-observatory')),
+    'Gallery 22 lacks the official preservation record for the Calais observatory site',
+  );
+  const calaisAsset = assetById.get('peirce-coast-survey-calais-observatory');
+  assert.match(calaisAsset?.alt ?? '', /granite instrument-support stones/u, 'Gallery 22 alt text does not describe the visible Calais remains');
+  assert.doesNotMatch(calaisAsset?.alt ?? '', /\bbuilding\b/u, 'Gallery 22 alt text incorrectly claims the Calais observatory building survives');
+  const alexandrinaAsset = assetById.get('william-james-alexandrina-woodcut-1865');
+  assert.doesNotMatch(alexandrinaAsset?.alt ?? '', /Black Brazilian/u, 'Gallery 22 accessibility text assigns an unsupported modern identity to Alexandrina');
+
+  const runtimeNode = MUSEUM_RUNTIME_NODES.find(({publicHallId}) => publicHallId === PRAGMATISM_GALLERY_ID);
+  const definition = definitionById.get(PRAGMATISM_GALLERY_ID);
+  assert(runtimeNode && definition);
+  assert.equal(runtimeNode.routePortals.entry, 'S0', 'Gallery 22 must preserve the approved reverse-direction S0 entry');
+  const entry = runtimeNode.entrances.find(({id}) => id === 'S0');
+  assert(entry, 'Gallery 22 S0 entrance is absent from runtime geometry');
+  assert.deepEqual(definition.layout.spawn, entry.arrivalPose, 'Gallery 22 default spawn is not the physical S0 arrival pose');
+  const entranceSign = definition.layout.signs.find(({kind}) => kind === 'entrance');
+  assert.equal(entranceSign?.id, 'pragmatism-continuities-reserve:room-sign', 'Gallery 22 entrance sign is not placed in the physically first zone');
+  assert.equal(entranceSign?.rotationY, 0, 'Gallery 22 entrance sign faces away from visitors arriving through S0');
 });
 
 check('Gallery 06 is an open, wall-supported 25-exhibit Forum with full-scale primaries', () => {
@@ -3193,12 +3312,12 @@ check('the executable manifest exactly implements the approved Continuous Enfila
     {
       halls: 26,
       rooms: 105,
-      curatedOpen: 20,
-      plannedWalkable: 6,
+      curatedOpen: 22,
+      plannedWalkable: 4,
       reserves: 2,
       hallCount: 26,
-      curatedOpenHallCount: 20,
-      plannedWalkableHallCount: 6,
+      curatedOpenHallCount: 22,
+      plannedWalkableHallCount: 4,
       canonicalRoomCount: 105,
       nodeCount: 39,
       connectionCount: 43,
@@ -3208,7 +3327,7 @@ check('the executable manifest exactly implements the approved Continuous Enfila
       standaloneCrossingNodeCount: 5,
       turnCourtCount: 5,
       reserveCount: 2,
-      plannedStatusSignCount: 6,
+      plannedStatusSignCount: 4,
     },
   );
 
@@ -3216,15 +3335,17 @@ check('the executable manifest exactly implements the approved Continuous Enfila
   const curatedNodes = hallNodes.filter(({galleryState}) => galleryState === 'curated-open');
   const plannedNodes = hallNodes.filter(({galleryState}) => galleryState === 'planned-walkable');
   assert.equal(hallNodes.length, 26);
-  assert.equal(curatedNodes.length, 20);
-  assert.equal(plannedNodes.length, 6);
+  assert.equal(curatedNodes.length, 22);
+  assert.equal(plannedNodes.length, 4);
   assert.deepEqual(sorted(curatedNodes.map(({publicHallId}) => publicHallId)), sorted(HALL_IDS));
   assert(plannedNodes.every(({publicHallId, fastTravelEligible}) => publicHallId === undefined && fastTravelEligible !== true));
-  assert.equal(
-    hallNodes.find(({programHallId}) => programHallId === 'german-idealism-afterlives')?.galleryState,
-    'planned-walkable',
-    'Gallery 19 must remain planned while Galleries 20 and 21 are curated',
-  );
+  for (const promotedHallId of ['german-idealism-afterlives', 'pragmatism-democratic-inquiry']) {
+    assert.equal(
+      hallNodes.find(({programHallId}) => programHallId === promotedHallId)?.galleryState,
+      'curated-open',
+      `${promotedHallId} did not promote to curated/open`,
+    );
+  }
   assert.equal(buildingManifest.nodes.length, 39);
   assert.equal(MUSEUM_RUNTIME_NODES.length, 39);
   assert.equal(buildingManifest.connections.length, 43);
@@ -3333,9 +3454,9 @@ check('the executable template registry retains the approved canonical contracts
   assert(MUSEUM_LEGACY_GEOMETRY_ADAPTERS.length > 0, 'retained prototype data should remain explicitly classified, not silently erased');
 });
 
-check('all twenty runtime halls are canonical, data-driven, and internally aligned', () => {
+check('all twenty-two runtime halls are canonical, data-driven, and internally aligned', () => {
   assert.deepEqual(definitions.map(({id}) => id), HALL_IDS);
-  assert.equal(new Set(definitions.map(({physicalNodeId}) => physicalNodeId)).size, 20);
+  assert.equal(new Set(definitions.map(({physicalNodeId}) => physicalNodeId)).size, 22);
   for (const definition of definitions) {
     const hall = hallById.get(definition.id);
     const node = MUSEUM_BUILDING_MANIFEST.nodes.find(({publicHallId}) => publicHallId === definition.id);
@@ -3374,8 +3495,10 @@ check('all twenty runtime halls are canonical, data-driven, and internally align
       'late-antiquity-inheritance',
       'rationalism-mind-nature-system',
       'empiricism-science-political-order',
+      'german-idealism-afterlives',
       'utility-liberty-history-capital',
       'faith-pessimism-life-value',
+      'pragmatism-democratic-inquiry',
     ].includes(definition.id) ? 1 : 0;
     const expectedPhysicalSignCount = definition.id === 'core-questions-forum'
       ? 10
@@ -3847,9 +3970,9 @@ check('the physical visitor map is a truthful projection of live geometry and sa
   assert.deepEqual(MUSEUM_VISITOR_MAP_PROJECTION.map(({hall}) => hall.id), approvedVisitOrder);
   assert.deepEqual(MUSEUM_VISITOR_MAP_NODES.map(({programHallId}) => programHallId), approvedVisitOrder);
   assert.equal(MUSEUM_VISITOR_MAP_NODES.length, 26);
-  assert.equal(MUSEUM_VISITOR_MAP_NODES.filter(({galleryState}) => galleryState === 'curated-open').length, 20);
-  assert.equal(MUSEUM_VISITOR_MAP_NODES.filter(({galleryState}) => galleryState === 'planned-walkable').length, 6);
-  assert.equal(MUSEUM_VISITOR_MAP_NODES.filter(({fastTravelEligible}) => fastTravelEligible).length, 20);
+  assert.equal(MUSEUM_VISITOR_MAP_NODES.filter(({galleryState}) => galleryState === 'curated-open').length, 22);
+  assert.equal(MUSEUM_VISITOR_MAP_NODES.filter(({galleryState}) => galleryState === 'planned-walkable').length, 4);
+  assert.equal(MUSEUM_VISITOR_MAP_NODES.filter(({fastTravelEligible}) => fastTravelEligible).length, 22);
   assert.equal(MUSEUM_VISITOR_MAP_NODES.flatMap(({rooms}) => rooms).length, 105);
   assert.equal(MUSEUM_VISITOR_MAP_NODE_PROJECTIONS.length, MUSEUM_RUNTIME_NODES.length);
   assert.equal(MUSEUM_VISITOR_MAP_EDGES.length, MUSEUM_BUILDING_MANIFEST.connections.length);
@@ -4002,9 +4125,9 @@ check('decoded texture residency admits every active and approached hall under 9
   console.log(`  texture residency peak: ${(peak / 1024 / 1024).toFixed(2)} MiB / 96 MiB`);
 });
 
-check('all 163 live canonical exhibits have substantial, sourced, route-aware interpretation', () => {
-  assert.equal(MUSEUM_INTERPRETATIONS.length, 163);
-  assert.equal(new Set(MUSEUM_INTERPRETATIONS.map(({hallId, id}) => `${hallId}/${id}`)).size, 163);
+check('all 171 live canonical exhibits have substantial, sourced, route-aware interpretation', () => {
+  assert.equal(MUSEUM_INTERPRETATIONS.length, 171);
+  assert.equal(new Set(MUSEUM_INTERPRETATIONS.map(({hallId, id}) => `${hallId}/${id}`)).size, 171);
   assert.deepEqual(sorted(MUSEUM_INTERPRETATIONS.map(({hallId, id}) => `${hallId}/${id}`)), sorted(activeRefs));
   for (const interpretation of MUSEUM_INTERPRETATIONS) {
     const hall = hallById.get(interpretation.hallId);
@@ -4318,9 +4441,9 @@ check('the React implementation uses one persistent Canvas, one shared canonical
   assert.match(visitorMapSource, /The Continuous Enfilade is a single-level, 26-gallery museum/);
   assert.match(visitorMapSource, /26-gallery collection plan/);
   assert.match(visitorMapSource, /10 metre north–south crosscut has six truthful intersections/);
-  assert.match(visitorMapSource, /Twenty curated galleries are open for fast travel; six planned gallery shells are walkable but have no travel control/);
+  assert.match(visitorMapSource, /Twenty-two curated galleries are open for fast travel; four planned gallery shells are walkable but have no travel control/);
   assert.match(visitorMapSource, /projectMuseumVisitorMapHeading/);
-  assert.match(visitorMapSource, /Fast travel is limited to the 20 curated\/open galleries/);
+  assert.match(visitorMapSource, /Fast travel is limited to the 22 curated\/open galleries/);
   assert.doesNotMatch(visitorMapSource, /Ring of Wings|Permanent construction stage|registered hall’s authored safe spawn/);
   assert.match(visitorMapSource, /MUSEUM_VISITOR_MAP_RESERVATIONS/);
   assert.match(visitorMapSource, /selected\.hall\.rooms\.map/);
@@ -4364,4 +4487,4 @@ assert.deepEqual(seamCrossingFailures, [], `collision-resolved seam failures:\n$
 assert.deepEqual(residencyAdmissionFailures, [], `approached-hall residency failures:\n${[...new Set(residencyAdmissionFailures)].join('\n')}`);
 assert.deepEqual(interpretationQualityFailures, [], `interpretation quality failures:\n${interpretationQualityFailures.join('\n')}`);
 
-console.log(`\nMuseum audit passed: ${checks} groups covering ${definitions.length} canonical halls, 82 rooms, 163 canonical exhibits, ${MUSEUM_SUPPLEMENTAL_EXHIBITS.length} supplemental exhibits, 457 interpreted stops, ${physicalMovementTrajectories} production-frame crossing trajectories over ${MUSEUM_DIRECTED_CONNECTIONS.length} directed crossings and ${MUSEUM_BUILDING_MANIFEST.connections.length} physical seams, 96 MiB bounded residency, and ${Math.round(museumModuleInitializationMs)}ms canonical-data initialization.`);
+console.log(`\nMuseum audit passed: ${checks} groups covering ${definitions.length} canonical halls, 90 rooms, 171 canonical exhibits, ${MUSEUM_SUPPLEMENTAL_EXHIBITS.length} supplemental exhibits, 505 interpreted stops, ${physicalMovementTrajectories} production-frame crossing trajectories over ${MUSEUM_DIRECTED_CONNECTIONS.length} directed crossings and ${MUSEUM_BUILDING_MANIFEST.connections.length} physical seams, 96 MiB bounded residency, and ${Math.round(museumModuleInitializationMs)}ms canonical-data initialization.`);

@@ -47,7 +47,7 @@ Gallery 09 is also a `crossroads-4` hall, but it is not the Forum and must never
 - Canonical schools and philosophers own the prominent walls. All twelve primaries use the same full-scale floor and can never be smaller than a contextual exhibit.
 - Adjacency communicates debate, not school membership: Mohism remains distinct from the retrospective grouping called “Legalism,” and Laozi is presented as an attributed textual persona rather than a secure conventional biography.
 
-## Gallery 11–13, 16–18, and 20–21 authored wall contracts
+## Gallery 11–13 and 16–22 authored wall contracts
 
 Gallery 11, **Confucian Renewal & East Asian Continuities**, uses the normal sequence-room rule with no physical exceptions: **six installations in each of three rooms, 18 total**.
 
@@ -74,11 +74,15 @@ Gallery 18, **Enlightenment, Revolution, and Kant’s Critical Turn**, preserves
 
 For Galleries 17 and 18, every new asset records a visual-character class. Text-dominant pages and isolated books are exceptions: Gallery 17 allows no more than 3 of 18 and Gallery 18 no more than 4 of 25, while each gallery must use at least four non-textual character groups. Relevant portraits, social scenes, places, material objects, and maps or diagrams should dominate.
 
+Gallery 19, **German Idealism & Romantic Afterlives**, follows the normal sequence rule exactly: **six installations in each of four rooms, 24 total**. Four canonical primaries—the German Idealism branch, Fichte, Schelling, and Hegel—join 20 supplemental works, contexts, concepts, and afterlives. The fourth room has no canonical primary, so its strongest contextual anchors occupy the outer walls without pretending to be duplicate primary homes.
+
 Gallery 20, **Utility, Liberty, History, and Capital**, follows the normal sequence rule exactly: **six installations in each of four rooms, 24 total**. Its three canonical primaries and 21 supplemental works, objects, places, social scenes, and historical contexts preserve the approved four-room argument from utility and reform through liberty, labor/capital, and social transformation.
 
 Gallery 21, **Faith, Pessimism, Life, and Value**, also follows the normal sequence rule exactly: **six installations in each of three rooms, 18 total**. Schopenhauer, Kierkegaard, and Nietzsche remain the three canonical primaries; 15 supplemental installations develop each room without duplicating a primary home or collapsing the three positions into one house style.
 
-Galleries 20 and 21 set a stricter completed-image result: **zero** of their 42 installations use a text-dominant page or isolated-book view, and each gallery contains at least four non-textual visual-character groups. Each image is an independently sourced, directly relevant object strong enough to carry its installation alone. Synthetic or geometric wrappers, subordinate manuscript/book insets, quota-filling composites, and a repeated gallery-wide anchor motif are prohibited.
+Gallery 22, **Pragmatism, Science, and Democratic Inquiry**, follows the normal sequence rule exactly: **six installations in each of four rooms, 24 total**. Four canonical primaries—the Pragmatism branch, Peirce, William James, and Dewey—join 20 supplemental works, practices, institutions, contexts, and later continuities. The physical through-route enters through the continuities room and proceeds toward Peirce; room identities and guided order remain explicit rather than being silently reversed to imitate travel direction.
+
+Galleries 19–22 set a stricter completed-image result: **zero** of their 90 installations use a text-dominant page or isolated-book view, and each gallery contains at least four non-textual visual-character groups. Each image is an independently sourced, directly relevant object strong enough to carry its installation alone. Synthetic or geometric wrappers, subordinate manuscript/book insets, quota-filling composites, and a repeated gallery-wide anchor motif are prohibited.
 
 The completed Gallery 01–16 retrospective applies a stricter room-level rule across the open Museum: **no room may contain more than one text-dominant page or isolated-book image**. Every physical manuscript, document, papyrus, and book-page placement is explicitly reviewed. Illustrated scenes, diagrams, decorated objects, and materially distinctive artifacts are classified by what the visitor actually sees; excess plain-page or lone-book views must be replaced by independently sourced, exhibit-specific images that are visually and historically strong enough to carry the installation alone. Generated wrappers, subordinate artifact insets, quota-filling collages, and repeated gallery-wide “anchor” illustration styles are prohibited.
 

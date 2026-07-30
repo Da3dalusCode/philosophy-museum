@@ -371,7 +371,47 @@ export type MuseumSupplementalExhibitId =
   | 'nietzsche-lou-interlocutor'
   | 'nietzsche-writing-machine'
   | 'nietzsche-eternal-recurrence'
-  | 'nietzsche-archive-afterlife';
+  | 'nietzsche-archive-afterlife'
+  | 'idealism-jena-system-labor'
+  | 'idealism-weimar-intellectual-world'
+  | 'fichte-napoleonic-political-geography'
+  | 'fichte-revolution-freedom'
+  | 'nature-caroline-intellectual-network'
+  | 'nature-romantic-beholder'
+  | 'nature-goethe-color'
+  | 'nature-galvani-living-force'
+  | 'nature-voltaic-pile'
+  | 'hegel-lecture-room'
+  | 'hegel-napoleon-jena'
+  | 'hegel-birthplace-stuttgart'
+  | 'hegel-berlin-institution'
+  | 'hegel-haiti-recognition-debate'
+  | 'afterlives-holderlin'
+  | 'afterlives-novalis'
+  | 'afterlives-runge-morning'
+  | 'afterlives-young-hegelians'
+  | 'afterlives-feuerbach'
+  | 'afterlives-strauss'
+  | 'peirce-observatory-measurement'
+  | 'peirce-coast-survey-observatory'
+  | 'peirce-mapmaking-standards'
+  | 'peirce-printing-public-record'
+  | 'james-naturalist-expedition'
+  | 'james-alexandrina-observation'
+  | 'james-home-library'
+  | 'james-leonora-piper-inquiry'
+  | 'james-self-portrait-formation'
+  | 'dewey-michigan-intellectual-work'
+  | 'dewey-child-drawing'
+  | 'dewey-hull-house-kindergarten'
+  | 'dewey-laboratory-school'
+  | 'dewey-labor-education'
+  | 'continuity-jane-addams'
+  | 'continuity-hull-house-arts'
+  | 'continuity-alain-locke'
+  | 'continuity-anna-julia-cooper'
+  | 'continuity-shaw-student-movement'
+  | 'continuity-fannie-lou-hamer';
 
 export type MuseumSupplementalInstallationKind =
   | 'cave-ascent'
@@ -424,6 +464,12 @@ export type MuseumSupplementalInstallationKind =
   | 'value-work'
   | 'value-context'
   | 'value-concept'
+  | 'idealism-work'
+  | 'idealism-context'
+  | 'idealism-concept'
+  | 'pragmatism-work'
+  | 'pragmatism-context'
+  | 'pragmatism-concept'
   | 'forum-comparative-lens';
 
 export type MuseumSupplementalExhibitLayout = {
@@ -688,7 +734,7 @@ export type MuseumRuntimeNodeDefinition = {
   kind: MuseumPhysicalNodeKind;
   /** Every one of the 26 architectural galleries has a stable program id. */
   programHallId?: MuseumPlannedHallId;
-  /** Only the twenty curated/open galleries own a content registration. */
+  /** Only curated/open galleries own a content registration. */
   publicHallId?: MuseumPublicHallId;
   galleryState?: MuseumGalleryState;
   publicGalleryNumber?: number;

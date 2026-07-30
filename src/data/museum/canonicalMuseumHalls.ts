@@ -169,6 +169,16 @@ import {
   ENLIGHTENMENT_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
 } from './enlightenmentSupplementalExhibits';
 import {
+  GERMAN_IDEALISM_GALLERY_ID,
+  GERMAN_IDEALISM_PRIMARY_PLACEMENTS,
+  GERMAN_IDEALISM_ROOM_ENTRY_POSES,
+  GERMAN_IDEALISM_ROOM_SIGN_COPY,
+  germanIdealismInteriorLintels,
+} from './germanIdealismGalleryCuration';
+import {
+  GERMAN_IDEALISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
+} from './germanIdealismSupplementalExhibits';
+import {
   UTILITY_LIBERTY_CAPITAL_GALLERY_ID,
   UTILITY_LIBERTY_CAPITAL_PRIMARY_PLACEMENTS,
   UTILITY_LIBERTY_CAPITAL_ROOM_ENTRY_POSES,
@@ -188,6 +198,16 @@ import {
 import {
   FAITH_PESSIMISM_VALUE_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
 } from './faithPessimismValueSupplementalExhibits';
+import {
+  PRAGMATISM_GALLERY_ID,
+  PRAGMATISM_PRIMARY_PLACEMENTS,
+  PRAGMATISM_ROOM_ENTRY_POSES,
+  PRAGMATISM_ROOM_SIGN_COPY,
+  pragmatismInteriorLintels,
+} from './pragmatismGalleryCuration';
+import {
+  PRAGMATISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
+} from './pragmatismSupplementalExhibits';
 import {
   CORE_QUESTIONS_FORUM_GALLERY_ID,
   CORE_QUESTIONS_FORUM_PRIMARY_CIRCULATION,
@@ -299,10 +319,14 @@ const supplementalLayoutsForHall = (hallId: MuseumPublicHallId): readonly Museum
                   ? EMPIRICISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS
                 : hallId === ENLIGHTENMENT_GALLERY_ID
                   ? ENLIGHTENMENT_SUPPLEMENTAL_EXHIBIT_LAYOUTS
+                : hallId === GERMAN_IDEALISM_GALLERY_ID
+                  ? GERMAN_IDEALISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS
                 : hallId === UTILITY_LIBERTY_CAPITAL_GALLERY_ID
                   ? UTILITY_LIBERTY_CAPITAL_SUPPLEMENTAL_EXHIBIT_LAYOUTS
                 : hallId === FAITH_PESSIMISM_VALUE_GALLERY_ID
                   ? FAITH_PESSIMISM_VALUE_SUPPLEMENTAL_EXHIBIT_LAYOUTS
+                : hallId === PRAGMATISM_GALLERY_ID
+                  ? PRAGMATISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS
               : [];
 
 const primaryScaleFloorForHall = (
@@ -1396,10 +1420,14 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
                       ? EMPIRICISM_PRIMARY_PLACEMENTS
                     : hall.id === ENLIGHTENMENT_GALLERY_ID
                       ? ENLIGHTENMENT_PRIMARY_PLACEMENTS
+                    : hall.id === GERMAN_IDEALISM_GALLERY_ID
+                      ? GERMAN_IDEALISM_PRIMARY_PLACEMENTS
                     : hall.id === UTILITY_LIBERTY_CAPITAL_GALLERY_ID
                       ? UTILITY_LIBERTY_CAPITAL_PRIMARY_PLACEMENTS
                     : hall.id === FAITH_PESSIMISM_VALUE_GALLERY_ID
                       ? FAITH_PESSIMISM_VALUE_PRIMARY_PLACEMENTS
+                    : hall.id === PRAGMATISM_GALLERY_ID
+                      ? PRAGMATISM_PRIMARY_PLACEMENTS
             : undefined,
       hall.id === MEDITERRANEAN_GALLERY_ID
         || hall.id === RENAISSANCE_GALLERY_ID
@@ -1468,8 +1496,10 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
     || hall.id === RATIONALISM_GALLERY_ID
     || hall.id === EMPIRICISM_GALLERY_ID
     || hall.id === ENLIGHTENMENT_GALLERY_ID
+    || hall.id === GERMAN_IDEALISM_GALLERY_ID
     || hall.id === UTILITY_LIBERTY_CAPITAL_GALLERY_ID
     || hall.id === FAITH_PESSIMISM_VALUE_GALLERY_ID
+    || hall.id === PRAGMATISM_GALLERY_ID
   ) {
     const acceptedSupplementalBounds: {spatialCellId: string; bounds: MuseumBounds}[] = [];
     for (const layout of supplementalExhibits) {
@@ -1618,7 +1648,26 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
       return [roomSign, ...comparativeLensSigns];
     }),
   ];
-  const promotedSequenceSigns = hall.id === UTILITY_LIBERTY_CAPITAL_GALLERY_ID
+  const promotedSequenceSigns = hall.id === GERMAN_IDEALISM_GALLERY_ID
+    ? orderedRooms.map((room) => {
+        const copy = GERMAN_IDEALISM_ROOM_SIGN_COPY[
+          room.id as keyof typeof GERMAN_IDEALISM_ROOM_SIGN_COPY
+        ];
+        if (!copy) throw new Error(`Gallery 19 has no visitor-facing orientation copy for ${room.id}.`);
+        const bounds = roomBounds.get(room.id)!;
+        return {
+          id: `${room.id}:room-sign`,
+          kind: room.id === 'german-idealism-orientation' ? 'entrance' as const : 'zone' as const,
+          title: copy.title,
+          kicker: copy.kicker,
+          subtitle: copy.subtitle,
+          position: {x: 0, y: 4.55, z: bounds.maxZ - .22},
+          rotationY: Math.PI,
+          width: room.id === 'german-idealism-orientation' ? 5.2 : 4.8,
+          height: .82,
+        };
+      })
+    : hall.id === UTILITY_LIBERTY_CAPITAL_GALLERY_ID
     ? orderedRooms.map((room) => {
         const copy = UTILITY_LIBERTY_CAPITAL_ROOM_SIGN_COPY[
           room.id as keyof typeof UTILITY_LIBERTY_CAPITAL_ROOM_SIGN_COPY
@@ -1656,6 +1705,25 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
             height: .82,
           };
         })
+      : hall.id === PRAGMATISM_GALLERY_ID
+        ? orderedRooms.map((room) => {
+            const copy = PRAGMATISM_ROOM_SIGN_COPY[
+              room.id as keyof typeof PRAGMATISM_ROOM_SIGN_COPY
+            ];
+            if (!copy) throw new Error(`Gallery 22 has no visitor-facing orientation copy for ${room.id}.`);
+            const bounds = roomBounds.get(room.id)!;
+            return {
+              id: `${room.id}:room-sign`,
+              kind: room.id === 'pragmatism-continuities-reserve' ? 'entrance' as const : 'zone' as const,
+              title: copy.title,
+              kicker: copy.kicker,
+              subtitle: copy.subtitle,
+              position: {x: 0, y: 4.55, z: bounds.minZ + .22},
+              rotationY: 0,
+              width: room.id === 'pragmatism-continuities-reserve' ? 5.2 : 4.8,
+              height: .82,
+            };
+          })
       : undefined;
   const establishedSigns = hall.id === MEDITERRANEAN_GALLERY_ID
     ? [
@@ -2061,10 +2129,14 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
       ? {architectureOnlyWalls: empiricismInteriorLintels()}
       : hall.id === ENLIGHTENMENT_GALLERY_ID
         ? {architectureOnlyWalls: enlightenmentInteriorLintels()}
+      : hall.id === GERMAN_IDEALISM_GALLERY_ID
+        ? {architectureOnlyWalls: germanIdealismInteriorLintels()}
       : hall.id === UTILITY_LIBERTY_CAPITAL_GALLERY_ID
         ? {architectureOnlyWalls: utilityLibertyCapitalInteriorLintels()}
       : hall.id === FAITH_PESSIMISM_VALUE_GALLERY_ID
         ? {architectureOnlyWalls: faithPessimismValueInteriorLintels()}
+      : hall.id === PRAGMATISM_GALLERY_ID
+        ? {architectureOnlyWalls: pragmatismInteriorLintels()}
         : {}),
     prefetch: {entryExhibitIdsByEntrance, entrySceneAssetIdsByEntrance, entrySceneAssetIds, sceneAssetIds: allSceneAssetIds},
     layout: {
@@ -2096,8 +2168,10 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
           || hall.id === LATIN_SCHOLASTIC_GALLERY_ID
           || hall.id === RATIONALISM_GALLERY_ID
           || hall.id === EMPIRICISM_GALLERY_ID
+          || hall.id === GERMAN_IDEALISM_GALLERY_ID
           || hall.id === UTILITY_LIBERTY_CAPITAL_GALLERY_ID
           || hall.id === FAITH_PESSIMISM_VALUE_GALLERY_ID
+          || hall.id === PRAGMATISM_GALLERY_ID
           ? exhibits.find(({spatialCellId}) => spatialCellId === cell.id)
           : undefined;
         const authoredEntryPose = isClassicalChineseCrossroads
@@ -2140,6 +2214,10 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
             ? ENLIGHTENMENT_ROOM_ENTRY_POSES[
                 cell.id as keyof typeof ENLIGHTENMENT_ROOM_ENTRY_POSES
               ]
+          : hall.id === GERMAN_IDEALISM_GALLERY_ID
+            ? GERMAN_IDEALISM_ROOM_ENTRY_POSES[
+                cell.id as keyof typeof GERMAN_IDEALISM_ROOM_ENTRY_POSES
+              ]
           : hall.id === UTILITY_LIBERTY_CAPITAL_GALLERY_ID
             ? UTILITY_LIBERTY_CAPITAL_ROOM_ENTRY_POSES[
                 cell.id as keyof typeof UTILITY_LIBERTY_CAPITAL_ROOM_ENTRY_POSES
@@ -2147,6 +2225,10 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
           : hall.id === FAITH_PESSIMISM_VALUE_GALLERY_ID
             ? FAITH_PESSIMISM_VALUE_ROOM_ENTRY_POSES[
                 cell.id as keyof typeof FAITH_PESSIMISM_VALUE_ROOM_ENTRY_POSES
+              ]
+          : hall.id === PRAGMATISM_GALLERY_ID
+            ? PRAGMATISM_ROOM_ENTRY_POSES[
+                cell.id as keyof typeof PRAGMATISM_ROOM_ENTRY_POSES
               ]
           : isCoreForum
             ? CORE_QUESTIONS_FORUM_ROOM_ENTRY_POSES[cell.id]

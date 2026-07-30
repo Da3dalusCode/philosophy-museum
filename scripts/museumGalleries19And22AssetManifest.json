@@ -1,0 +1,1061 @@
+{
+  "version": 1,
+  "assets": {
+    "german-idealism-fichte-bury-1801": {
+      "hallFolder": "german-idealism-afterlives",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Friedrich_Bury_-_Johann_Gottlieb_Fichte_1801.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Friedrich_Bury_-_Johann_Gottlieb_Fichte_1801.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Friedrich_Bury_-_Johann_Gottlieb_Fichte_1801.jpg?width=1600",
+      "visualCharacter": "portrait-or-figure",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 509,
+        "height": 640,
+        "bytes": 97238,
+        "sha256": "3618afd2bbe96a51cb6a7cba8a7e77b102f5e5d7cdaf175ee92a6b625f72dbbc"
+      },
+      "panel": {
+        "width": 1018,
+        "height": 1280,
+        "bytes": 418454,
+        "sha256": "70565099ad346ebd21799df3ca0ed5b8203a5ef462ca65d42382c00bcf184aa1"
+      }
+    },
+    "german-idealism-kant-claessens-portrait": {
+      "hallFolder": "german-idealism-afterlives",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Portret_van_Immanuel_Kant,_RP-P-1886-A-10329.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Portret_van_Immanuel_Kant,_RP-P-1886-A-10329.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Portret_van_Immanuel_Kant,_RP-P-1886-A-10329.jpg?width=1600",
+      "visualCharacter": "portrait-or-figure",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 442,
+        "height": 640,
+        "bytes": 88924,
+        "sha256": "5b5dd4d5b9ea6b9fa16226c1a7eed5f9f9c2c5d77f7e1245f776c623f9b8c3f2"
+      },
+      "panel": {
+        "width": 885,
+        "height": 1280,
+        "bytes": 524542,
+        "sha256": "61e6a57af7f447804f8a9d8770607e2b4216fdf8fe85c6955f72d8f9b79f36b2"
+      }
+    },
+    "german-idealism-collegium-jenense": {
+      "hallFolder": "german-idealism-afterlives",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Collegium_Jenense_(Jena).jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Collegium_Jenense_(Jena).jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Collegium_Jenense_(Jena).jpg?width=1600",
+      "visualCharacter": "place-or-architecture",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 250,
+        "bytes": 28394,
+        "sha256": "369b588bd8d5f563f051c0cd153eacfa9f7a37a258bc1bfb7dbce04d62ef676e"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 500,
+        "bytes": 152468,
+        "sha256": "5cdcb3284f01b2857b43169b2c671095f5417f704d4af8755e4e3ce19ce52be7"
+      }
+    },
+    "german-idealism-weimar-musenhof": {
+      "hallFolder": "german-idealism-afterlives",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Oer-Weimarer_Musenhof.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Oer-Weimarer_Musenhof.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Oer-Weimarer_Musenhof.jpg?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 495,
+        "bytes": 95164,
+        "sha256": "ce04c4a7a2761b36dcbac4a8fa62f3eb1907b36a9cf816f0f12c3b99986dbba3"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 989,
+        "bytes": 529706,
+        "sha256": "7c0e8f8bb4c8f0c37a04a7f0e073bc59f88e37ecdb2eda99ead357f277af747a"
+      }
+    },
+    "german-idealism-rhine-confederation-map": {
+      "hallFolder": "german-idealism-afterlives",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:(Putzger)_Germany_and_Confederation_of_the_Rhine,_1812.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/(Putzger)_Germany_and_Confederation_of_the_Rhine,_1812.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/(Putzger)_Germany_and_Confederation_of_the_Rhine,_1812.jpg?width=1600",
+      "visualCharacter": "map-or-diagram",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 516,
+        "bytes": 114144,
+        "sha256": "08f97ddcf9984d50e4c5a5bc46a46f2fedb1506e89ee79a039fcad418d5b5648"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 1031,
+        "bytes": 592164,
+        "sha256": "af25c9523eea01863c099f1c39c905841d83c56f61be728c204a6d53828174f4"
+      }
+    },
+    "german-idealism-bastille-1789": {
+      "hallFolder": "german-idealism-afterlives",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Anonymous_-_Prise_de_la_Bastille.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Anonymous_-_Prise_de_la_Bastille.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Anonymous_-_Prise_de_la_Bastille.jpg?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 505,
+        "bytes": 71444,
+        "sha256": "7518a62a78c95ce8c9d59dc7cdf4dd55ebdd104a309061e62b1f71747d0b607f"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 1009,
+        "bytes": 411598,
+        "sha256": "0319109826d9fecfac0b093611cee12974bb4887083fc797367f82e8261347fa"
+      }
+    },
+    "german-idealism-schelling-stieler-1835": {
+      "hallFolder": "german-idealism-afterlives",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Joseph-karl-stieler-friedrich-wilhelm-joseph-von-schelling.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Joseph-karl-stieler-friedrich-wilhelm-joseph-von-schelling.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Joseph-karl-stieler-friedrich-wilhelm-joseph-von-schelling.jpg?width=1600",
+      "visualCharacter": "portrait-or-figure",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 516,
+        "height": 640,
+        "bytes": 29610,
+        "sha256": "b57b1e0b395ed4683062d8f45898946ac6be75b05a1538873c520b9aea732d97"
+      },
+      "panel": {
+        "width": 803,
+        "height": 996,
+        "bytes": 101200,
+        "sha256": "31c3e29a8c741052e0fb3a7942ad72d1942642064036d51717b8a7ff04c9ceaa"
+      }
+    },
+    "german-idealism-caroline-schelling-tischbein": {
+      "hallFolder": "german-idealism-afterlives",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Johann_Heinrich_Tischbein_-_Bildnis_der_Caroline_Schelling_(1798).jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Johann_Heinrich_Tischbein_-_Bildnis_der_Caroline_Schelling_(1798).jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Johann_Heinrich_Tischbein_-_Bildnis_der_Caroline_Schelling_(1798).jpg?width=1600",
+      "visualCharacter": "portrait-or-figure",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 523,
+        "height": 640,
+        "bytes": 15796,
+        "sha256": "a56fc86ec601efe84fdb390759e35ed4f9ba901a29edf1629337ec0ce3bd72e5"
+      },
+      "panel": {
+        "width": 1045,
+        "height": 1280,
+        "bytes": 123278,
+        "sha256": "a0f4a7daa398d3c8d62a3112e459ec4cbe7334419565575b3fc753d64c75e5cb"
+      }
+    },
+    "german-idealism-wanderer-friedrich": {
+      "hallFolder": "german-idealism-afterlives",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Caspar_David_Friedrich_-_Wanderer_above_the_Sea_of_Fog.jpeg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Caspar_David_Friedrich_-_Wanderer_above_the_Sea_of_Fog.jpeg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Caspar_David_Friedrich_-_Wanderer_above_the_Sea_of_Fog.jpeg?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 499,
+        "height": 640,
+        "bytes": 28742,
+        "sha256": "575dd10c5a47b871241391b9734e12ee9793314748c66bf357c4eb1b93eb42db"
+      },
+      "panel": {
+        "width": 998,
+        "height": 1280,
+        "bytes": 300846,
+        "sha256": "ffc8baed9fefc6de7ae2c9774af0ad8a14997bbb3bc7f19aeb7252231b7293be"
+      }
+    },
+    "german-idealism-goethe-color-wheel": {
+      "hallFolder": "german-idealism-afterlives",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Goethe,_Farbenkreis_zur_Symbolisierung_des_menschlichen_Geistes-_und_Seelenlebens,_1809,_square.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Goethe,_Farbenkreis_zur_Symbolisierung_des_menschlichen_Geistes-_und_Seelenlebens,_1809,_square.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Goethe,_Farbenkreis_zur_Symbolisierung_des_menschlichen_Geistes-_und_Seelenlebens,_1809,_square.jpg?width=1600",
+      "visualCharacter": "map-or-diagram",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 600,
+        "height": 600,
+        "bytes": 66916,
+        "sha256": "d2199d581c32b4564d1cf2f3efc36c16d1be5cab4f1add6166a18107f2e18f10"
+      },
+      "panel": {
+        "width": 600,
+        "height": 600,
+        "bytes": 84636,
+        "sha256": "5c9be546a3554175f732432cfeec3485db3b57f183b2d425c1b4cbf49531fe8f"
+      }
+    },
+    "german-idealism-galvani-frog-experiment": {
+      "hallFolder": "german-idealism-afterlives",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Luigi_Galvani_Experiment.jpeg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Luigi_Galvani_Experiment.jpeg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Luigi_Galvani_Experiment.jpeg?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 460,
+        "bytes": 96998,
+        "sha256": "9ae6459b3e824c0d3c63a7b3e8a57c8d525d84513319ba6c830fbee921b25df0"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 920,
+        "bytes": 554700,
+        "sha256": "a55ff2a03b2ae9c3c9f44e82ccd16100670a118533640a0abe00bfbd1189b65e"
+      }
+    },
+    "german-idealism-voltaic-pile": {
+      "hallFolder": "german-idealism-afterlives",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Original_Voltaic_pile._Wellcome_M0017447.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Original_Voltaic_pile._Wellcome_M0017447.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Original_Voltaic_pile._Wellcome_M0017447.jpg?width=1600",
+      "visualCharacter": "material-object",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 336,
+        "height": 640,
+        "bytes": 16560,
+        "sha256": "6a64637026212f5b67a53e362c4f4019869816f81b3cb2262aeb01f74117b6b9"
+      },
+      "panel": {
+        "width": 671,
+        "height": 1280,
+        "bytes": 88296,
+        "sha256": "bbb72dec1095d697f90b95eb8718e0f2b890e2a319fd1dc1e2c121cfa0dbe3d7"
+      }
+    },
+    "german-idealism-hegel-schlesinger-1831": {
+      "hallFolder": "german-idealism-afterlives",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Jakob_Schlesinger_-_Hegel_1831.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Jakob_Schlesinger_-_Hegel_1831.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Jakob_Schlesinger_-_Hegel_1831.jpg?width=1600",
+      "visualCharacter": "portrait-or-figure",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 508,
+        "height": 640,
+        "bytes": 31654,
+        "sha256": "8db72c487593745a1a2fdf6890934d6c6243e884f900f8102592ace4bf22c788"
+      },
+      "panel": {
+        "width": 1015,
+        "height": 1280,
+        "bytes": 223016,
+        "sha256": "a8431f07534456b63045c5f9024f25df1a7164a3a2147ab049cd7bd8fe4b4298"
+      }
+    },
+    "german-idealism-hegel-lecturing-kugler": {
+      "hallFolder": "german-idealism-afterlives",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Friedrich_Hegel_mit_Studenten_Lithographie_F_Kugler.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Friedrich_Hegel_mit_Studenten_Lithographie_F_Kugler.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Friedrich_Hegel_mit_Studenten_Lithographie_F_Kugler.jpg?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 360,
+        "bytes": 43588,
+        "sha256": "636a071e7bfb8eb2415504d687b369f241c770ed802c3553db3c04882ab65968"
+      },
+      "panel": {
+        "width": 1024,
+        "height": 576,
+        "bytes": 154234,
+        "sha256": "9ff8a0998fc7aece37619e86d136b76dbafbde1abb2d8682b3d581570db50fc3"
+      }
+    },
+    "german-idealism-hegel-napoleon-jena": {
+      "hallFolder": "german-idealism-afterlives",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Hegel-and-Napoleon-in-Jena-1806.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Hegel-and-Napoleon-in-Jena-1806.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Hegel-and-Napoleon-in-Jena-1806.jpg?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 387,
+        "height": 640,
+        "bytes": 59128,
+        "sha256": "0e01e3fceca6980c23c3459e24576ff63f7fa447903b860da313ac597e125318"
+      },
+      "panel": {
+        "width": 774,
+        "height": 1280,
+        "bytes": 195208,
+        "sha256": "60a9673edb55388bfc2d16af660679e166c034a2e55bfc620eb507dc3f52e640"
+      }
+    },
+    "german-idealism-hegelhaus-stuttgart": {
+      "hallFolder": "german-idealism-afterlives",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Hegelhaus_Stuttgart.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Hegelhaus_Stuttgart.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Hegelhaus_Stuttgart.jpg?width=1600",
+      "visualCharacter": "place-or-architecture",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 480,
+        "bytes": 73664,
+        "sha256": "fb64a9d05baabe69b3bd24abb1b8209a702e3a955191f463fd45c6a0b3333a3b"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 960,
+        "bytes": 364170,
+        "sha256": "06f5d23b56701c26d816263fca9903fdcf8367f38c9a0068f553d965f8d93ec3"
+      }
+    },
+    "german-idealism-berlin-university-1855": {
+      "hallFolder": "german-idealism-afterlives",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:OpernplatzUniversitaet1855.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/OpernplatzUniversitaet1855.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/OpernplatzUniversitaet1855.jpg?width=1600",
+      "visualCharacter": "place-or-architecture",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 421,
+        "bytes": 78648,
+        "sha256": "b24295d8b043dc5aed412949223b216696cdf33544336ab36b4429d2b6cd3e4b"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 841,
+        "bytes": 344170,
+        "sha256": "2aac265872d98851e92e773b8de71411ec191e5bdb3f730231907611e1506a25"
+      }
+    },
+    "german-idealism-haiti-crete-a-pierrot": {
+      "hallFolder": "german-idealism-afterlives",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Haitian_Revolution.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Haitian_Revolution.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Haitian_Revolution.jpg?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 473,
+        "bytes": 73636,
+        "sha256": "00888c6b85b8452411ea89a3c067d6077c175a1e851f5538b3c77dacbaea0afa"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 947,
+        "bytes": 321000,
+        "sha256": "940b2bafda7036c30b1e9ff3aa5c68f4ea95a46fa56d308de03b3401141ef593"
+      }
+    },
+    "german-idealism-holderlin-hiemer-1792": {
+      "hallFolder": "german-idealism-afterlives",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:FK_Hiemer_-_Friedrich_H%C3%B6lderlin_(Pastell_1792).jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/FK_Hiemer_-_Friedrich_H%C3%B6lderlin_(Pastell_1792).jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/FK_Hiemer_-_Friedrich_H%C3%B6lderlin_(Pastell_1792).jpg?width=1600",
+      "visualCharacter": "portrait-or-figure",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 479,
+        "height": 640,
+        "bytes": 29662,
+        "sha256": "3c94cbde20ea499fda40ed4faf6378368a7a3278c5531406de6fbec5e4d4ced0"
+      },
+      "panel": {
+        "width": 958,
+        "height": 1280,
+        "bytes": 112304,
+        "sha256": "fad313967281355f386b9c075d0bf13e0129b792e9f90b67e2ba4dbd1ca7400c"
+      }
+    },
+    "german-idealism-novalis-eichens-1845": {
+      "hallFolder": "german-idealism-afterlives",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Novalis2.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Novalis2.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Novalis2.jpg?width=1600",
+      "visualCharacter": "portrait-or-figure",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 471,
+        "height": 640,
+        "bytes": 70716,
+        "sha256": "d81afed87cbf961b23608736a4f8bfb650a1d018ea52f735e95d9fd167b471c2"
+      },
+      "panel": {
+        "width": 941,
+        "height": 1280,
+        "bytes": 500064,
+        "sha256": "896132cadff7697fc5cd7b8d8262a1e5d2f5a1f569e704898aa2664a1cd573f5"
+      }
+    },
+    "german-idealism-runge-morning-1808": {
+      "hallFolder": "german-idealism-afterlives",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Philipp_Otto_Runge_-_Der_Morgen.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Philipp_Otto_Runge_-_Der_Morgen.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Philipp_Otto_Runge_-_Der_Morgen.jpg?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 486,
+        "height": 640,
+        "bytes": 48186,
+        "sha256": "d5ab480497fade03f8e50542cae985db01a95a8aee1c3ff736b5ecf7bce08fde"
+      },
+      "panel": {
+        "width": 972,
+        "height": 1280,
+        "bytes": 235004,
+        "sha256": "2e102d7f005099a4ddff413f65f960d341578b6a95f4a83f881c0cef9c4d7a66"
+      }
+    },
+    "german-idealism-young-hegelians-engels": {
+      "hallFolder": "german-idealism-afterlives",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Skiz-hegel.png",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Skiz-hegel.png",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Skiz-hegel.png?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 608,
+        "height": 480,
+        "bytes": 48474,
+        "sha256": "f6376230069e760b05fa3aa04182c5a78489b0e0645141334984bcb0645da2bd"
+      },
+      "panel": {
+        "width": 608,
+        "height": 480,
+        "bytes": 53458,
+        "sha256": "3a7f1e0dac530a752db0151f4aaa3b597e59520812322bef06a701c4f16375fd"
+      }
+    },
+    "german-idealism-feuerbach-c1840": {
+      "hallFolder": "german-idealism-afterlives",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Ludwig-Feuerbach.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ludwig-Feuerbach.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ludwig-Feuerbach.jpg?width=1600",
+      "visualCharacter": "portrait-or-figure",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 413,
+        "height": 640,
+        "bytes": 11456,
+        "sha256": "254d2c12378c8171e1c359c0d6652b422230d941f2fd15492d6e0c7695464755"
+      },
+      "panel": {
+        "width": 600,
+        "height": 930,
+        "bytes": 24838,
+        "sha256": "3d802b87ca4d5ce28151fe21b917c9ff35be8e4dbac350ded82a45f6d824a821"
+      }
+    },
+    "german-idealism-strauss-rijksmuseum": {
+      "hallFolder": "german-idealism-afterlives",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Portret_van_David_Friedrich_Strauss,_RP-P-1913-325.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Portret_van_David_Friedrich_Strauss,_RP-P-1913-325.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Portret_van_David_Friedrich_Strauss,_RP-P-1913-325.jpg?width=1600",
+      "visualCharacter": "portrait-or-figure",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 409,
+        "height": 640,
+        "bytes": 11354,
+        "sha256": "ae310b49e01f077c0974016a474f4a72cb7ee440587e3990adce6ab6d9ed2a53"
+      },
+      "panel": {
+        "width": 817,
+        "height": 1280,
+        "bytes": 118338,
+        "sha256": "68e0c240f05f2a506e5255a2a3ee86cf5233b7aa3b6a723aeddfea9e3f3e2426"
+      }
+    },
+    "pragmatism-peirce-quincuncial-map-1879": {
+      "hallFolder": "pragmatism-democratic-inquiry",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Peirce_Quincuncial_Projection_1879.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Peirce_Quincuncial_Projection_1879.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Peirce_Quincuncial_Projection_1879.jpg?width=1600",
+      "visualCharacter": "map-or-diagram",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 627,
+        "height": 640,
+        "bytes": 116462,
+        "sha256": "960df5ec19b43893c4ba16df1455020115332067981153c72dab3e63f111ee2b"
+      },
+      "panel": {
+        "width": 1255,
+        "height": 1280,
+        "bytes": 440554,
+        "sha256": "0974564c7aaf03392e8be78a3dd7c2d9ce9a8ffb08bde6dfb092850a4f3cc0ed"
+      }
+    },
+    "peirce-harvard-graduation-portrait-1859": {
+      "hallFolder": "pragmatism-democratic-inquiry",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Charles_Sanders_Peirce_in_1859.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Charles_Sanders_Peirce_in_1859.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Charles_Sanders_Peirce_in_1859.jpg?width=1600",
+      "visualCharacter": "portrait-or-figure",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 594,
+        "height": 640,
+        "bytes": 40674,
+        "sha256": "06c16592626c3015238dab6c4178fc9124a04c0bc262441cfdea3d46974dcb25"
+      },
+      "panel": {
+        "width": 910,
+        "height": 980,
+        "bytes": 140892,
+        "sha256": "dd9ec806026272aa55aa13575c3bfa65546bae22cd04376c6625cb7180a700a5"
+      }
+    },
+    "peirce-harvard-observatory-telescope-c1900": {
+      "hallFolder": "pragmatism-democratic-inquiry",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Harvard_Observatory_Telescope.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Harvard_Observatory_Telescope.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Harvard_Observatory_Telescope.jpg?width=1600",
+      "visualCharacter": "material-object",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 535,
+        "height": 640,
+        "bytes": 29308,
+        "sha256": "58bf90ba4578722c54b8f4228955901037196acab187f1caa2995323672c86a1"
+      },
+      "panel": {
+        "width": 656,
+        "height": 785,
+        "bytes": 50872,
+        "sha256": "769c69c473193a371a7dc60f99a2629c916c00e12233544a86d59eaafd252709"
+      }
+    },
+    "peirce-coast-survey-calais-observatory": {
+      "hallFolder": "pragmatism-democratic-inquiry",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:CastineME_Observatory.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/CastineME_Observatory.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/CastineME_Observatory.jpg?width=1600",
+      "visualCharacter": "place-or-architecture",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 425,
+        "bytes": 101136,
+        "sha256": "823c67739ad68e6137ea47c8253e980ca7f3461c8ffe9fdb73bab46a9eda9b7d"
+      },
+      "panel": {
+        "width": 1024,
+        "height": 680,
+        "bytes": 284680,
+        "sha256": "352431030f5fa1eba5c1dcbf25f5029a408c0d174a3d2e7648b634f8f18b91dd"
+      }
+    },
+    "peirce-coast-survey-mapmaking-division-1940": {
+      "hallFolder": "pragmatism-democratic-inquiry",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Map-making_Division_of_Coast_%26_Geodetic_Survey,_Dept_of_Commerce_LCCN2016877308.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Map-making_Division_of_Coast_%26_Geodetic_Survey,_Dept_of_Commerce_LCCN2016877308.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Map-making_Division_of_Coast_%26_Geodetic_Survey,_Dept_of_Commerce_LCCN2016877308.jpg?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 514,
+        "bytes": 33760,
+        "sha256": "6e73906569a4a3a63a2f00cbd2c474aa46cd8d9bc281520f314488fb1f3dc8d5"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 1028,
+        "bytes": 146838,
+        "sha256": "3e2f487c1a2e11989fcaa4abc07dd2f77e8d72cca2e8873542466152821a018d"
+      }
+    },
+    "peirce-coast-survey-press-room-1937": {
+      "hallFolder": "pragmatism-democratic-inquiry",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Press_room_where_all_maps_and_charts_are_printed_for_the_Coast_and_Geodetic_Survey_LCCN2016871356.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Press_room_where_all_maps_and_charts_are_printed_for_the_Coast_and_Geodetic_Survey_LCCN2016871356.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Press_room_where_all_maps_and_charts_are_printed_for_the_Coast_and_Geodetic_Survey_LCCN2016871356.jpg?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 505,
+        "bytes": 42110,
+        "sha256": "3cc430b7a3e680040e41495418acdbba7853a0f4149c2d9597764ea057a1c706"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 1010,
+        "bytes": 161460,
+        "sha256": "76949773b6e4bef6113e88819c6eac754d2b03dc72cb8f61820b6ab9ff9e56a1"
+      }
+    },
+    "william-james-whitman-painted-portrait-1903": {
+      "hallFolder": "pragmatism-democratic-inquiry",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Sarah_Wyman_Whitman_-_William_James_(1842-1910)_-_HNA29_-_Harvard_Art_Museums.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sarah_Wyman_Whitman_-_William_James_(1842-1910)_-_HNA29_-_Harvard_Art_Museums.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sarah_Wyman_Whitman_-_William_James_(1842-1910)_-_HNA29_-_Harvard_Art_Museums.jpg?width=1600",
+      "visualCharacter": "portrait-or-figure",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 534,
+        "height": 640,
+        "bytes": 23170,
+        "sha256": "7ad326dc7c0627ce1112251e2fb9366e5e0aa4a36363c0c4e4dea66b4f96f159"
+      },
+      "panel": {
+        "width": 854,
+        "height": 1024,
+        "bytes": 98604,
+        "sha256": "efd9a10bb1939255ec26e17d0307d66e5c9f36c979d1f38e85c3e630c465a52c"
+      }
+    },
+    "william-james-thayer-expedition-group-c1866": {
+      "hallFolder": "pragmatism-democratic-inquiry",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Group_portrait_of_Thayer_Expedition_assistants_and_volunteers.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Group_portrait_of_Thayer_Expedition_assistants_and_volunteers.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Group_portrait_of_Thayer_Expedition_assistants_and_volunteers.jpg?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 485,
+        "bytes": 49472,
+        "sha256": "b2a8e0d4d7757553150c2da5b5fcca32e97f94eac0a0d05495ddbe78b0ec45b2"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 971,
+        "bytes": 337966,
+        "sha256": "cd7700e87e0a48eedb71664352773f6ac1672fe04c62fe959b9db0d71907eaa3"
+      }
+    },
+    "william-james-alexandrina-woodcut-1865": {
+      "hallFolder": "pragmatism-democratic-inquiry",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Head_of_Alexandrina.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Head_of_Alexandrina.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Head_of_Alexandrina.jpg?width=1600",
+      "visualCharacter": "portrait-or-figure",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 578,
+        "height": 640,
+        "bytes": 108786,
+        "sha256": "b001642cb9a0af51ad02c145fff352a54a17327f395b5f839159435154307836"
+      },
+      "panel": {
+        "width": 1003,
+        "height": 1111,
+        "bytes": 374864,
+        "sha256": "63a74be79e24ed31de21c73b5bceab750ed3c0f07ae4d3f9cbff657499568248"
+      }
+    },
+    "william-james-house-library-habs-1967": {
+      "hallFolder": "pragmatism-democratic-inquiry",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:William_James_House_-_079933pv.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/William_James_House_-_079933pv.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/William_James_House_-_079933pv.jpg?width=1600",
+      "visualCharacter": "place-or-architecture",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 458,
+        "bytes": 36606,
+        "sha256": "53c9f6ab60bd6270f5d8883250c319eaf66367eafd39c2e3775c2af5a6600277"
+      },
+      "panel": {
+        "width": 1024,
+        "height": 732,
+        "bytes": 102330,
+        "sha256": "e00e58b15769a96a5d49543ded1fc29dec31c5386e06f5536df148760723883f"
+      }
+    },
+    "william-james-leonora-piper-newspaper-1899": {
+      "hallFolder": "pragmatism-democratic-inquiry",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:The_medium_Mrs._Leonora_Piper.png",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/The_medium_Mrs._Leonora_Piper.png",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/The_medium_Mrs._Leonora_Piper.png?width=1600",
+      "visualCharacter": "portrait-or-figure",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 581,
+        "bytes": 129936,
+        "sha256": "6ab84d058c67918539c6ba77bf24a18d672ac8057b1913eaa2c13c57994fb774"
+      },
+      "panel": {
+        "width": 1146,
+        "height": 1040,
+        "bytes": 336968,
+        "sha256": "aee7fa27c74e9b5d8e1c9fea5b5fb20b31289702cf5561d4179408986468b5e2"
+      }
+    },
+    "william-james-self-portrait-c1866": {
+      "hallFolder": "pragmatism-democratic-inquiry",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:William_James_self-portrait.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/William_James_self-portrait.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/William_James_self-portrait.jpg?width=1600",
+      "visualCharacter": "portrait-or-figure",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 479,
+        "height": 640,
+        "bytes": 42524,
+        "sha256": "c0f7a3bf09ee8740c1089603a4d8a1e52f2b03b36ae0e949eac08493be5c1060"
+      },
+      "panel": {
+        "width": 958,
+        "height": 1280,
+        "bytes": 298860,
+        "sha256": "29dd079e31cc53add4f40e1a378690eb81a73a2e25034f6b81be993e5fddc8bf"
+      }
+    },
+    "dewey-gibson-studio-portrait-c1890": {
+      "hallFolder": "pragmatism-democratic-inquiry",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:John_Dewey,_studio_portrait,_ca_1890.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/John_Dewey,_studio_portrait,_ca_1890.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/John_Dewey,_studio_portrait,_ca_1890.jpg?width=1600",
+      "visualCharacter": "portrait-or-figure",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 458,
+        "height": 640,
+        "bytes": 18686,
+        "sha256": "ae955749ac14684d35dd825c536f64557f5644e441ad9ef7461d4c1faff7974c"
+      },
+      "panel": {
+        "width": 916,
+        "height": 1280,
+        "bytes": 188152,
+        "sha256": "1e4cb507fe46cebe19072403a03f34ce9c965eec19504099ec3275c9e1cd6115"
+      }
+    },
+    "dewey-inlander-staff-faculty-advisers-c1884-93": {
+      "hallFolder": "pragmatism-democratic-inquiry",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Inlander_staff_with_faculty_advisors_John_Dewey_%26_Fred_Newton_Scott.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Inlander_staff_with_faculty_advisors_John_Dewey_%26_Fred_Newton_Scott.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Inlander_staff_with_faculty_advisors_John_Dewey_%26_Fred_Newton_Scott.jpg?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 499,
+        "bytes": 37910,
+        "sha256": "2930bd6af51184faa4d4e447fbf22203d77905ef7ca35061b5f7dcad9af2ff9b"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 999,
+        "bytes": 373758,
+        "sha256": "45adf2844ec67eda2c482131c126e6b34d4a146f0145ec65d71c343916dc5018"
+      }
+    },
+    "dewey-child-cave-and-trees-drawing-1900": {
+      "hallFolder": "pragmatism-democratic-inquiry",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:The_School_and_Society_-_Drawing_of_a_Cave_and_Trees.png",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/The_School_and_Society_-_Drawing_of_a_Cave_and_Trees.png",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/The_School_and_Society_-_Drawing_of_a_Cave_and_Trees.png?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 480,
+        "bytes": 75724,
+        "sha256": "c546c26ea4770a1f20a86d0c4f23ca7a97edecdad46902e12b78f03c54673480"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 961,
+        "bytes": 336246,
+        "sha256": "8e5ed20d8a60349602b29969da6ebc7534eb0b6988fae14a23a37e0e720ae3de"
+      }
+    },
+    "dewey-hull-house-kindergarten-1902": {
+      "hallFolder": "pragmatism-democratic-inquiry",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:JA_Hull_House_-_Kindergarten_Detail.jpeg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/JA_Hull_House_-_Kindergarten_Detail.jpeg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/JA_Hull_House_-_Kindergarten_Detail.jpeg?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 571,
+        "height": 375,
+        "bytes": 40678,
+        "sha256": "4fd4504e3ca16ea805418a6338e268edf24fd148339d08aecf8a7108bb708bd9"
+      },
+      "panel": {
+        "width": 571,
+        "height": 375,
+        "bytes": 51878,
+        "sha256": "f8d9294b13afeb5c839b1279a3f75e66877c700c1c63bb0141401d545ba7b993"
+      }
+    },
+    "dewey-laboratory-schools-exterior-2006": {
+      "hallFolder": "pragmatism-democratic-inquiry",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:University_of_Chicago_Laboratory_Schools.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/University_of_Chicago_Laboratory_Schools.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/University_of_Chicago_Laboratory_Schools.jpg?width=1600",
+      "visualCharacter": "place-or-architecture",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 480,
+        "bytes": 32792,
+        "sha256": "171562352269c24308bef29e586d3c86164c2fc97862ce47a742fd17268c78e6"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 960,
+        "bytes": 137422,
+        "sha256": "e35e41f0b6f968e73c965689fdb145f6baafa6bcad5e17293605cce4461f4b51"
+      }
+    },
+    "dewey-dubinsky-kilpatrick-labor-education-1949": {
+      "hallFolder": "pragmatism-democratic-inquiry",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:David_Dubinsky_greets_John_Dewey_on_his_90th_birthday,_October_20,_1949._William_H._Kilpatrick,_Professor_Emeritus_of_Education_at_Columbia_University,_looks_on._(5279010141).jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/David_Dubinsky_greets_John_Dewey_on_his_90th_birthday,_October_20,_1949._William_H._Kilpatrick,_Professor_Emeritus_of_Education_at_Columbia_University,_looks_on._(5279010141).jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/David_Dubinsky_greets_John_Dewey_on_his_90th_birthday,_October_20,_1949._William_H._Kilpatrick,_Professor_Emeritus_of_Education_at_Columbia_University,_looks_on._(5279010141).jpg?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 512,
+        "bytes": 16972,
+        "sha256": "1a10985e2c3faedb644c94b4b843d216d04168b63ae7d3d26f2e49d1f85d0991"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 1025,
+        "bytes": 118004,
+        "sha256": "5d98b3f8dbbc6e6af194f7de9d54cc1d97eee7a2ba432e3df809fe502bb58f13"
+      }
+    },
+    "pragmatism-continuity-jane-addams-hine-1913": {
+      "hallFolder": "pragmatism-democratic-inquiry",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Jane_Addams_of_Hull_House,_Chicago,_Ill._LOC_nclc.04836.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Jane_Addams_of_Hull_House,_Chicago,_Ill._LOC_nclc.04836.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Jane_Addams_of_Hull_House,_Chicago,_Ill._LOC_nclc.04836.jpg?width=1600",
+      "visualCharacter": "portrait-or-figure",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 448,
+        "height": 640,
+        "bytes": 22832,
+        "sha256": "4e49fb6eef5f7d2c644a812304a8d1bf457cdb33cc807ac2c476e1aa54a11187"
+      },
+      "panel": {
+        "width": 896,
+        "height": 1280,
+        "bytes": 136270,
+        "sha256": "652b5ecf99054ee4dfb2bc070f26085f7d7f2be267944282a3c23e7f89d0d437"
+      }
+    },
+    "pragmatism-continuity-hull-house-singing-class-1929": {
+      "hallFolder": "pragmatism-democratic-inquiry",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Eleanor_Smith_singing_class.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Eleanor_Smith_singing_class.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Eleanor_Smith_singing_class.jpg?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 412,
+        "bytes": 43340,
+        "sha256": "65214ab07398f0d9d1b3deacec48649d06b4dbf134d01149e20b7a20a75d4400"
+      },
+      "panel": {
+        "width": 772,
+        "height": 497,
+        "bytes": 86026,
+        "sha256": "cbbc2ee445a78f41096e3b54be6f0aeffbf88a4f338d394810142ac1f804c7fc"
+      }
+    },
+    "pragmatism-continuity-alain-locke-rhodes-portrait-1907": {
+      "hallFolder": "pragmatism-democratic-inquiry",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Portrait_of_Alain_LeRoy_Locke.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Portrait_of_Alain_LeRoy_Locke.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Portrait_of_Alain_LeRoy_Locke.jpg?width=1600",
+      "visualCharacter": "portrait-or-figure",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 455,
+        "height": 640,
+        "bytes": 34646,
+        "sha256": "451fe565b17a053569f15d67537a8f7ec1250ea0f336a7e5fcfb5e495c59b5db"
+      },
+      "panel": {
+        "width": 909,
+        "height": 1280,
+        "bytes": 279794,
+        "sha256": "190b6715f98080f192f646797baa9471d2fdeab64acd0404e87954f03feb0a93"
+      }
+    },
+    "pragmatism-continuity-anna-julia-cooper-bell-c1902": {
+      "hallFolder": "pragmatism-democratic-inquiry",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:A_J_Cooper.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/A_J_Cooper.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/A_J_Cooper.jpg?width=1600",
+      "visualCharacter": "portrait-or-figure",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 462,
+        "height": 640,
+        "bytes": 27784,
+        "sha256": "a2936b1312b163ecedb5f0ea13cb3a8826e2d7cd300acb36bf164f2f92023939"
+      },
+      "panel": {
+        "width": 924,
+        "height": 1280,
+        "bytes": 144334,
+        "sha256": "4d8db655697c1a55330f892827ebea081ed9a6df3abe2f7e4c233b55ceeb1699"
+      }
+    },
+    "pragmatism-continuity-shaw-university-public-inquiry-1960": {
+      "hallFolder": "pragmatism-democratic-inquiry",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Martin_Luther_King_Jr._at_Shaw_University.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Martin_Luther_King_Jr._at_Shaw_University.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Martin_Luther_King_Jr._at_Shaw_University.jpg?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 389,
+        "bytes": 17870,
+        "sha256": "1b78823245134bfab289083b9d995f8dee5841af1c9455dd1ab7dd9f36084f2f"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 777,
+        "bytes": 124164,
+        "sha256": "92f310adeb4fe7dc28166465508d0aa2870f6c999401dd2203e01615087b34e0"
+      }
+    },
+    "pragmatism-continuity-fannie-lou-hamer-1964": {
+      "hallFolder": "pragmatism-democratic-inquiry",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Fannie_Lou_Hamer_1964-08-22.png",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Fannie_Lou_Hamer_1964-08-22.png",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Fannie_Lou_Hamer_1964-08-22.png?width=1600",
+      "visualCharacter": "portrait-or-figure",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 425,
+        "height": 640,
+        "bytes": 48570,
+        "sha256": "6942b62b63b20634f8904812db300f05faf565d68abdbbf39635ee3bf863aedd"
+      },
+      "panel": {
+        "width": 851,
+        "height": 1280,
+        "bytes": 195224,
+        "sha256": "3737b3f89eed1154cf7ae03faaccb935c155e6c34807225483f5573a1579eab9"
+      }
+    }
+  }
+}

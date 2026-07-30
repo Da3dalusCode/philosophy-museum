@@ -9,7 +9,7 @@
       "path": "docs/museum-masterplan/single-level-building-plan.json",
       "planId": "continuous-enfilade-single-level-v1",
       "schemaVersion": 2,
-      "sha256": "dabb2e28e5cb26a9f8deda60b9858675af49767de7caa35e3e3f13ad2b5b63e0"
+      "sha256": "c1b69377c790480c7cf8e16fa49cf8980cf4aaf576b168e83c68cd5568627b69"
     },
     "program": {
       "path": "docs/museum-masterplan/hall-program.json",
@@ -4105,8 +4105,9 @@
       "kind": "hall",
       "physicalRole": "gallery",
       "programHallId": "german-idealism-afterlives",
+      "publicHallId": "german-idealism-afterlives",
       "title": "German Idealism & Romantic Afterlives",
-      "galleryState": "planned-walkable",
+      "galleryState": "curated-open",
       "publicGalleryNumber": 19,
       "visitSequence": 16,
       "bandId": "band-04-nineteenth-transformations",
@@ -4171,7 +4172,7 @@
       },
       "map": {
         "label": "Gallery 19 · German Idealism & Romantic Afterlives",
-        "status": "planned-walkable"
+        "status": "open"
       },
       "doorwaySlots": [
         {
@@ -4322,134 +4323,7 @@
           "routeRole": null,
           "openingState": "closed-solid-wall"
         }
-      ],
-      "geometry": {
-        "coordinateFrame": "node-local",
-        "bounds": {
-          "minX": -12,
-          "maxX": 12,
-          "minZ": -28,
-          "maxZ": 28
-        },
-        "cells": [
-          {
-            "id": "german-idealism-orientation",
-            "kind": "room",
-            "title": "Post-Kantian self, activity, and freedom",
-            "bounds": {
-              "minX": -12,
-              "maxX": 12,
-              "minZ": -28,
-              "maxZ": -14
-            },
-            "ceilingHeight": 5.8
-          },
-          {
-            "id": "german-idealism-nature",
-            "kind": "room",
-            "title": "Nature, identity, art, and freedom",
-            "bounds": {
-              "minX": -12,
-              "maxX": 12,
-              "minZ": -14,
-              "maxZ": 0
-            },
-            "ceilingHeight": 5.8
-          },
-          {
-            "id": "german-idealism-hegel",
-            "kind": "room",
-            "title": "History, recognition, social freedom, and system",
-            "bounds": {
-              "minX": -12,
-              "maxX": 12,
-              "minZ": 0,
-              "maxZ": 14
-            },
-            "ceilingHeight": 5.8
-          },
-          {
-            "id": "german-idealism-afterlives-room",
-            "kind": "room",
-            "title": "Divergent receptions and later arguments",
-            "bounds": {
-              "minX": -12,
-              "maxX": 12,
-              "minZ": 14,
-              "maxZ": 28
-            },
-            "ceilingHeight": 5.8
-          }
-        ],
-        "interiorOpenings": [
-          {
-            "id": "opening:german-idealism-afterlives:german-idealism-orientation->german-idealism-nature",
-            "position": {
-              "x": 0,
-              "z": -14
-            },
-            "inwardNormal": {
-              "x": 0,
-              "z": 1
-            },
-            "clearWidth": 4,
-            "clearHeight": 3.2,
-            "transitionDepth": 1.2,
-            "fromCellId": "german-idealism-orientation",
-            "toCellId": "german-idealism-nature"
-          },
-          {
-            "id": "opening:german-idealism-afterlives:german-idealism-nature->german-idealism-hegel",
-            "position": {
-              "x": 0,
-              "z": 0
-            },
-            "inwardNormal": {
-              "x": 0,
-              "z": 1
-            },
-            "clearWidth": 4,
-            "clearHeight": 3.2,
-            "transitionDepth": 1.2,
-            "fromCellId": "german-idealism-nature",
-            "toCellId": "german-idealism-hegel"
-          },
-          {
-            "id": "opening:german-idealism-afterlives:german-idealism-hegel->german-idealism-afterlives-room",
-            "position": {
-              "x": 0,
-              "z": 14
-            },
-            "inwardNormal": {
-              "x": 0,
-              "z": 1
-            },
-            "clearWidth": 4,
-            "clearHeight": 3.2,
-            "transitionDepth": 1.2,
-            "fromCellId": "german-idealism-hegel",
-            "toCellId": "german-idealism-afterlives-room"
-          }
-        ],
-        "signs": [
-          {
-            "id": "sign:planned-status:german-idealism-afterlives",
-            "kind": "planned-status",
-            "title": "Gallery 19 · German Idealism & Romantic Afterlives",
-            "kicker": "Planned gallery",
-            "subtitle": "Architectural shell open · exhibits not yet installed",
-            "position": {
-              "x": 0,
-              "y": 1.65,
-              "z": -26
-            },
-            "rotationY": -3.14159265359,
-            "width": 3.2,
-            "height": 1.35,
-            "interactive": false
-          }
-        ]
-      }
+      ]
     },
     {
       "id": "hall:utility-liberty-history-capital",
@@ -4901,8 +4775,9 @@
       "kind": "hall",
       "physicalRole": "gallery",
       "programHallId": "pragmatism-democratic-inquiry",
+      "publicHallId": "pragmatism-democratic-inquiry",
       "title": "Pragmatism, Science, and Democratic Inquiry",
-      "galleryState": "planned-walkable",
+      "galleryState": "curated-open",
       "publicGalleryNumber": 22,
       "visitSequence": 19,
       "bandId": "band-05-modern-traditions",
@@ -4967,7 +4842,7 @@
       },
       "map": {
         "label": "Gallery 22 · Pragmatism, Science, and Democratic Inquiry",
-        "status": "planned-walkable"
+        "status": "open"
       },
       "doorwaySlots": [
         {
@@ -5118,134 +4993,7 @@
           "routeRole": null,
           "openingState": "closed-solid-wall"
         }
-      ],
-      "geometry": {
-        "coordinateFrame": "node-local",
-        "bounds": {
-          "minX": -12,
-          "maxX": 12,
-          "minZ": -28,
-          "maxZ": 28
-        },
-        "cells": [
-          {
-            "id": "pragmatism-peirce-inquiry",
-            "kind": "room",
-            "title": "Peirce: signs, fallibilism, and public inquiry",
-            "bounds": {
-              "minX": -12,
-              "maxX": 12,
-              "minZ": -28,
-              "maxZ": -14
-            },
-            "ceilingHeight": 5.8
-          },
-          {
-            "id": "pragmatism-james-experience",
-            "kind": "room",
-            "title": "James: experience, belief, and pluralism",
-            "bounds": {
-              "minX": -12,
-              "maxX": 12,
-              "minZ": -14,
-              "maxZ": 0
-            },
-            "ceilingHeight": 5.8
-          },
-          {
-            "id": "pragmatism-dewey-democracy",
-            "kind": "room",
-            "title": "Dewey: inquiry, education, and experimental democracy",
-            "bounds": {
-              "minX": -12,
-              "maxX": 12,
-              "minZ": 0,
-              "maxZ": 14
-            },
-            "ceilingHeight": 5.8
-          },
-          {
-            "id": "pragmatism-continuities-reserve",
-            "kind": "room",
-            "title": "Later pragmatist continuities and omissions",
-            "bounds": {
-              "minX": -12,
-              "maxX": 12,
-              "minZ": 14,
-              "maxZ": 28
-            },
-            "ceilingHeight": 5.8
-          }
-        ],
-        "interiorOpenings": [
-          {
-            "id": "opening:pragmatism-democratic-inquiry:pragmatism-peirce-inquiry->pragmatism-james-experience",
-            "position": {
-              "x": 0,
-              "z": -14
-            },
-            "inwardNormal": {
-              "x": 0,
-              "z": 1
-            },
-            "clearWidth": 4,
-            "clearHeight": 3.2,
-            "transitionDepth": 1.2,
-            "fromCellId": "pragmatism-peirce-inquiry",
-            "toCellId": "pragmatism-james-experience"
-          },
-          {
-            "id": "opening:pragmatism-democratic-inquiry:pragmatism-james-experience->pragmatism-dewey-democracy",
-            "position": {
-              "x": 0,
-              "z": 0
-            },
-            "inwardNormal": {
-              "x": 0,
-              "z": 1
-            },
-            "clearWidth": 4,
-            "clearHeight": 3.2,
-            "transitionDepth": 1.2,
-            "fromCellId": "pragmatism-james-experience",
-            "toCellId": "pragmatism-dewey-democracy"
-          },
-          {
-            "id": "opening:pragmatism-democratic-inquiry:pragmatism-dewey-democracy->pragmatism-continuities-reserve",
-            "position": {
-              "x": 0,
-              "z": 14
-            },
-            "inwardNormal": {
-              "x": 0,
-              "z": 1
-            },
-            "clearWidth": 4,
-            "clearHeight": 3.2,
-            "transitionDepth": 1.2,
-            "fromCellId": "pragmatism-dewey-democracy",
-            "toCellId": "pragmatism-continuities-reserve"
-          }
-        ],
-        "signs": [
-          {
-            "id": "sign:planned-status:pragmatism-democratic-inquiry",
-            "kind": "planned-status",
-            "title": "Gallery 22 · Pragmatism, Science, and Democratic Inquiry",
-            "kicker": "Planned gallery",
-            "subtitle": "Architectural shell open · exhibits not yet installed",
-            "position": {
-              "x": 0,
-              "y": 1.65,
-              "z": 26
-            },
-            "rotationY": 0,
-            "width": 3.2,
-            "height": 1.35,
-            "interactive": false
-          }
-        ]
-      }
+      ]
     },
     {
       "id": "hall:analytic-traditions",
@@ -11216,12 +10964,12 @@
   "counts": {
     "halls": 26,
     "rooms": 105,
-    "curatedOpen": 20,
-    "plannedWalkable": 6,
+    "curatedOpen": 22,
+    "plannedWalkable": 4,
     "reserves": 2,
     "hallCount": 26,
-    "curatedOpenHallCount": 20,
-    "plannedWalkableHallCount": 6,
+    "curatedOpenHallCount": 22,
+    "plannedWalkableHallCount": 4,
     "canonicalRoomCount": 105,
     "nodeCount": 39,
     "connectionCount": 43,
@@ -11231,6 +10979,6 @@
     "standaloneCrossingNodeCount": 5,
     "turnCourtCount": 5,
     "reserveCount": 2,
-    "plannedStatusSignCount": 6
+    "plannedStatusSignCount": 4
   }
 }

@@ -20,9 +20,11 @@ import {
   EmpiricismSupplementalExhibits,
   EnlightenmentSupplementalExhibits,
   FaithPessimismValueSupplementalExhibits,
+  GermanIdealismSupplementalExhibits,
   HellenisticRomanSupplementalExhibits,
   LateAntiquitySupplementalExhibits,
   LatinScholasticSupplementalExhibits,
+  PragmatismSupplementalExhibits,
   RationalismSupplementalExhibits,
   UtilityLibertyCapitalSupplementalExhibits,
 } from './SuccessorGallerySupplementalExhibits';
@@ -223,6 +225,24 @@ export function CanonicalMuseumHallContent({
     {definition.id === 'faith-pessimism-life-value'
       && definition.layout.supplementalExhibits
       && <FaithPessimismValueSupplementalExhibits
+        layouts={active
+          ? definition.layout.supplementalExhibits
+          : definition.layout.supplementalExhibits.filter(({assetId}) => entryAssetIds.has(assetId))}
+        nearbyId={nearbySupplemental?.hallId === definition.id ? nearbySupplemental.supplementalExhibitId : undefined}
+        onSelect={(supplementalExhibitId) => onSelectSupplementalExhibit({hallId: definition.id, supplementalExhibitId})}
+      />}
+    {definition.id === 'german-idealism-afterlives'
+      && definition.layout.supplementalExhibits
+      && <GermanIdealismSupplementalExhibits
+        layouts={active
+          ? definition.layout.supplementalExhibits
+          : definition.layout.supplementalExhibits.filter(({assetId}) => entryAssetIds.has(assetId))}
+        nearbyId={nearbySupplemental?.hallId === definition.id ? nearbySupplemental.supplementalExhibitId : undefined}
+        onSelect={(supplementalExhibitId) => onSelectSupplementalExhibit({hallId: definition.id, supplementalExhibitId})}
+      />}
+    {definition.id === 'pragmatism-democratic-inquiry'
+      && definition.layout.supplementalExhibits
+      && <PragmatismSupplementalExhibits
         layouts={active
           ? definition.layout.supplementalExhibits
           : definition.layout.supplementalExhibits.filter(({assetId}) => entryAssetIds.has(assetId))}

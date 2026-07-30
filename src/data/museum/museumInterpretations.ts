@@ -1039,6 +1039,9 @@ const MUSEUM_DEEP_ARTICLE_ENTITY_IDS = new Set([
   'augustine',
   'gregory-nyssa',
   'pseudo-dionysius',
+  'fichte',
+  'schelling',
+  'hegel',
 ]);
 
 const articleSectionText = ({id, title}: ArticleSection): string => `${id} ${title}`.toLocaleLowerCase();

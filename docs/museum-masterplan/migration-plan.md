@@ -44,7 +44,7 @@ Every implementation phase must preserve these rules:
 | 4. Global-worlds demonstration | open `CSA`, `BP`, `CCT`, and `IPW` | complete |
 | 5. Gallery 11–12 connected worlds | open `EAC` and `JPH`; preserve the future `LCS` threshold | complete for Galleries 11–12; `LCS` remained planned at this historical phase boundary |
 | 6. Continuous Enfilade architecture migration | build all 26 hall/105 room shells, new circulation, entrance, map, and two reserves; atomically move the 12 populated halls | no new exhibit curation; 12 curated open and 14 walkable planned shells |
-| 7. Subsequent gallery releases | curate planned shells one or two galleries at a time; Galleries 13–18 and 20–21 are complete, while Gallery 19 remains planned | each release changes only its reviewed shell from planned to curated-open |
+| 7. Subsequent gallery releases | curate planned shells one or two galleries at a time; Galleries 13–22 are complete and Galleries 23–26 remain planned | each release changes only its reviewed shell from planned to curated-open |
 
 Phases 1–6 are implementation history. Phase 6 built the complete architecture without speculative gallery content. Phase 7 returns to the established one-or-two-gallery curation cadence.
 
@@ -357,7 +357,7 @@ Each release must:
 6. update map/directory status and open counts atomically;
 7. preserve public release numbering and the manifest-owned route transform even when a later-numbered gallery opens before an earlier-numbered planned shell.
 
-Galleries 13 through 18 and Galleries 20–21 are now complete Phase 7 releases in their fixed architectural bays. Gallery 17 preserves its approved three-room sequence and Gallery 18 preserves its four-perimeter-room crossroads around an independent central Kant room. Galleries 20 and 21 preserve visit positions 17 and 18, their approved transforms, and the physical route on either side of the crossing bay even though Gallery 19 remains planned at visit position 16. Their 42 new installations use no text-dominant page or isolated-book images, exceed the room-level image-diversity gate, and avoid generated wrappers or gallery-wide house motifs. Gallery 19, German Idealism and Its Afterlives, remains the next planned shell in architectural sequence.
+Galleries 13 through 22 are now complete Phase 7 releases in their fixed architectural bays. Gallery 17 preserves its approved three-room sequence and Gallery 18 preserves its four-perimeter-room crossroads around an independent central Kant room. Galleries 19–22 preserve visit positions 16–19, their approved transforms, and the physical route through both crossing-adjacent bands. Their 90 installations use no text-dominant page or isolated-book images, exceed the room-level image-diversity gate, and avoid generated wrappers or gallery-wide house motifs. Gallery 23, Critique, Power, and Deconstruction, is the next planned shell in architectural sequence.
 
 ## Visitor-map truthfulness through every phase
 

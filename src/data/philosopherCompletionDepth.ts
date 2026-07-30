@@ -46,7 +46,10 @@ export const philosopherCompletionDetails:Record<string,Partial<Philosopher>>={
       reading('Johann Gottlieb Fichte','Foundation of the Entire Wissenschaftslehre','advanced','Study the difficult 1794–95 presentation of self-positing, opposition, limitation, and striving.'),
       reading('Johann Gottlieb Fichte','The System of Ethics','advanced','Connect the Wissenschaftslehre to freedom, duty, embodiment, and concrete moral agency.')
     ],
-    sourceLinks:[sep('Johann Gottlieb Fichte','johann-fichte')]
+    sourceLinks:[
+      sep('Johann Gottlieb Fichte','johann-fichte'),
+      {label:'Internet Encyclopedia of Philosophy: Johann Gottlieb Fichte',url:'https://iep.utm.edu/fichtejg/',type:'IEP'}
+    ]
   },
   schelling:{
     beginnerReadingPath:[
@@ -58,7 +61,16 @@ export const philosopherCompletionDetails:Record<string,Partial<Philosopher>>={
       reading('F. W. J. Schelling','The Ages of the World, selected draft','advanced','Approach the unfinished middle-period attempt to think time, freedom, and divine becoming.'),
       reading('F. W. J. Schelling','Philosophy of Revelation, selections','advanced','Study the later distinction between negative and positive philosophy.')
     ],
-    sourceLinks:[sep('F. W. J. Schelling','schelling')]
+    sourceLinks:[
+      sep('F. W. J. Schelling','schelling'),
+      {label:'Internet Encyclopedia of Philosophy: F. W. J. von Schelling',url:'https://iep.utm.edu/schellin/',type:'IEP'}
+    ]
+  },
+  hegel:{
+    sourceLinks:[
+      sep('Georg Wilhelm Friedrich Hegel','hegel'),
+      {label:'Internet Encyclopedia of Philosophy: Hegel’s Social and Political Thought',url:'https://iep.utm.edu/hegelsoc/',type:'IEP'}
+    ]
   },
   husserl:{
     beginnerReadingPath:[

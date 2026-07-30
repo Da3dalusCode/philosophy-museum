@@ -34,8 +34,10 @@ export const MUSEUM_CANONICAL_HALL_IDS = [
   'rationalism-mind-nature-system',
   'empiricism-science-political-order',
   'enlightenment-revolution-kant',
+  'german-idealism-afterlives',
   'utility-liberty-history-capital',
   'faith-pessimism-life-value',
+  'pragmatism-democratic-inquiry',
 ] as const;
 
 export type MuseumCanonicalHallId = (typeof MUSEUM_CANONICAL_HALL_IDS)[number];
@@ -158,6 +160,10 @@ export const MUSEUM_CANONICAL_ROOM_IDS = [
   'enlightenment-sentiment-commerce',
   'enlightenment-equality-education',
   'enlightenment-kant-critical',
+  'german-idealism-orientation',
+  'german-idealism-nature',
+  'german-idealism-hegel',
+  'german-idealism-afterlives-room',
   'nineteenth-utilitarian-reform',
   'nineteenth-liberty-equality',
   'nineteenth-labor-capital',
@@ -165,6 +171,10 @@ export const MUSEUM_CANONICAL_ROOM_IDS = [
   'nineteenth-will-pessimism',
   'nineteenth-faith-subjectivity',
   'nineteenth-genealogy-value',
+  'pragmatism-peirce-inquiry',
+  'pragmatism-james-experience',
+  'pragmatism-dewey-democracy',
+  'pragmatism-continuities-reserve',
 ] as const;
 
 export type MuseumCanonicalRoomId = (typeof MUSEUM_CANONICAL_ROOM_IDS)[number];
@@ -260,8 +270,10 @@ export const MUSEUM_PUBLIC_GALLERY_NUMBERS = {
   'rationalism-mind-nature-system': 16,
   'empiricism-science-political-order': 17,
   'enlightenment-revolution-kant': 18,
+  'german-idealism-afterlives': 19,
   'utility-liberty-history-capital': 20,
   'faith-pessimism-life-value': 21,
+  'pragmatism-democratic-inquiry': 22,
 } as const satisfies Readonly<Record<MuseumCanonicalHallId, number>>;
 
 const exhibit = <const Record extends MuseumCanonicalExhibit>(record: Record) => ({
@@ -819,6 +831,28 @@ export const MUSEUM_CANONICAL_PROGRAM = [
     ],
   },
   {
+    id: 'german-idealism-afterlives',
+    wingId: 'wing-nineteenth-transformations',
+    title: 'German Idealism & Romantic Afterlives',
+    templateId: 'sequence-3',
+    period: 'Late 18th–mid-19th centuries',
+    description: 'Begin with the post-Kantian demand to explain self-conscious activity, follow Schelling’s philosophies of nature, art, identity, and freedom, enter Hegel’s accounts of recognition, history, and social freedom, and test the divergent afterlives of systematic idealism.',
+    recordCapacity: 7,
+    rooms: [
+      {id: 'german-idealism-orientation', title: 'Post-Kantian self, activity, and freedom', recordCapacity: 3, exhibits: [
+        exhibit({id: 'german-idealism', entityKind: 'branch', entityId: 'german-idealism', displayName: 'German Idealism: Critique Becomes System', tier: 'anchor-exhibit', question: 'How did post-Kantian thinkers turn the limits of critique into competing systems of self, nature, freedom, reason, and history?', secondaryHallIds: ['core-questions-forum', 'enlightenment-revolution-kant'], principalAssetId: 'german-idealism-kant-claessens-portrait'}),
+        exhibit({id: 'fichte', entityKind: 'philosopher', entityId: 'fichte', displayName: 'Johann Gottlieb Fichte: Activity, Self-Positing, and Freedom', tier: 'standard-individual-exhibit', question: 'What if self-consciousness is not a thing we discover but an activity through which a world of obligation, resistance, and freedom becomes intelligible?', secondaryHallIds: [], principalAssetId: 'german-idealism-fichte-bury-1801'}),
+      ]},
+      {id: 'german-idealism-nature', title: 'Nature, identity, art, and freedom', recordCapacity: 1, exhibits: [
+        exhibit({id: 'schelling', entityKind: 'philosopher', entityId: 'schelling', displayName: 'F. W. J. Schelling: Nature, Art, Identity, and Freedom', tier: 'standard-individual-exhibit', question: 'Can nature be understood as productive and self-organizing rather than as inert material—and can freedom include the real possibility of evil?', secondaryHallIds: [], principalAssetId: 'german-idealism-schelling-stieler-1835'}),
+      ]},
+      {id: 'german-idealism-hegel', title: 'History, recognition, social freedom, and system', recordCapacity: 1, exhibits: [
+        exhibit({id: 'hegel', entityKind: 'philosopher', entityId: 'hegel', displayName: 'G. W. F. Hegel: Recognition, History, and Social Freedom', tier: 'anchor-exhibit', question: 'How can freedom become actual through conflict, recognition, institutions, and the historical revision of inadequate forms of life?', secondaryHallIds: ['critique-power-deconstruction'], principalAssetId: 'german-idealism-hegel-schlesinger-1831'}),
+      ]},
+      {id: 'german-idealism-afterlives-room', title: 'Divergent receptions and later arguments', recordCapacity: 2, exhibits: []},
+    ],
+  },
+  {
     id: 'utility-liberty-history-capital',
     wingId: 'wing-nineteenth-transformations',
     title: 'Utility, Liberty, History, and Capital',
@@ -856,6 +890,28 @@ export const MUSEUM_CANONICAL_PROGRAM = [
       {id: 'nineteenth-genealogy-value', title: 'Genealogy, nihilism, life, and value creation', recordCapacity: 1, exhibits: [
         exhibit({id: 'nietzsche', entityKind: 'philosopher', entityId: 'nietzsche', displayName: 'Friedrich Nietzsche: Genealogy, Nihilism, and Affirmation', tier: 'anchor-exhibit', question: 'What histories of power, embodiment, resentment, and interpretation lie behind moral values—and what could it mean to create values after their authority collapses?', secondaryHallIds: ['critique-power-deconstruction', 'phenomenology-existence-embodiment'], formerHallId: 'modernity-freedom-critique', principalAssetId: 'value-nietzsche-1869-siebe-portrait'}),
       ]},
+    ],
+  },
+  {
+    id: 'pragmatism-democratic-inquiry',
+    wingId: 'wing-modern-traditions',
+    title: 'Pragmatism, Science, and Democratic Inquiry',
+    templateId: 'sequence-3',
+    period: 'Late 19th–21st centuries',
+    description: 'Follow pragmatism from Peirce’s logic of signs and fallibilist inquiry through James’s pluralism and radical empiricism to Dewey’s experimental account of education, publics, democracy, and art, then confront the movement’s later continuities and exclusions.',
+    recordCapacity: 6,
+    rooms: [
+      {id: 'pragmatism-peirce-inquiry', title: 'Peirce: signs, fallibilism, and public inquiry', recordCapacity: 2, exhibits: [
+        exhibit({id: 'pragmatism', entityKind: 'branch', entityId: 'pragmatism', displayName: 'Pragmatism: Meaning Through Consequences and Inquiry', tier: 'anchor-exhibit', question: 'How can ideas earn meaning and credibility through their conceivable consequences, disciplined testing, and exposure to future correction?', secondaryHallIds: ['core-questions-forum'], principalAssetId: 'pragmatism-peirce-quincuncial-map-1879'}),
+        exhibit({id: 'peirce', entityKind: 'philosopher', entityId: 'peirce', displayName: 'Charles Sanders Peirce: Signs, Abduction, and Fallibilism', tier: 'anchor-exhibit', question: 'How can a community of inquiry move from real doubt through hypothesis and testing without claiming final certainty?', secondaryHallIds: ['core-questions-forum'], formerHallId: 'logic-language-science', principalAssetId: 'peirce-harvard-graduation-portrait-1859'}),
+      ]},
+      {id: 'pragmatism-james-experience', title: 'James: experience, belief, and pluralism', recordCapacity: 1, exhibits: [
+        exhibit({id: 'william-james', entityKind: 'philosopher', entityId: 'william-james', displayName: 'William James: Experience, Pluralism, and the Will to Believe', tier: 'standard-individual-exhibit', question: 'How should belief and truth be understood when inquiry occurs within a plural, unfinished world and some choices cannot wait for certainty?', secondaryHallIds: ['core-questions-forum'], formerHallId: 'mind-consciousness-self', principalAssetId: 'william-james-whitman-painted-portrait-1903'}),
+      ]},
+      {id: 'pragmatism-dewey-democracy', title: 'Dewey: inquiry, education, and experimental democracy', recordCapacity: 1, exhibits: [
+        exhibit({id: 'dewey', entityKind: 'philosopher', entityId: 'dewey', displayName: 'John Dewey: Inquiry, Education, and Democracy as a Way of Life', tier: 'standard-individual-exhibit', question: 'How can inquiry reconstruct problematic situations, and what institutions help people learn the habits of shared democratic intelligence?', secondaryHallIds: ['justice-democratic-reason'], formerHallId: 'logic-language-science', principalAssetId: 'dewey-gibson-studio-portrait-c1890'}),
+      ]},
+      {id: 'pragmatism-continuities-reserve', title: 'Later pragmatist continuities and omissions', recordCapacity: 2, exhibits: []},
     ],
   },
 ] as const satisfies readonly MuseumCanonicalHall[];
@@ -913,11 +969,8 @@ const displaced = (
 export const MUSEUM_LEGACY_EXHIBIT_COMPATIBILITY = [
   displaced('modernity-freedom-critique', 'philosopher', 'beauvoir', 'Simone de Beauvoir', 'feminist-philosophies', 'become-secondary-later'),
   displaced('modernity-freedom-critique', 'philosopher', 'foucault', 'Michel Foucault', 'critique-power-deconstruction', 'move-primary-later'),
-  displaced('logic-language-science', 'philosopher', 'peirce', 'Charles Sanders Peirce', 'pragmatism-democratic-inquiry', 'move-primary-later'),
-  displaced('logic-language-science', 'philosopher', 'dewey', 'John Dewey', 'pragmatism-democratic-inquiry', 'move-primary-later'),
   displaced('ethics-justice-political-life', 'philosopher', 'fanon', 'Frantz Fanon', 'colonialism-race-liberation', 'become-secondary-later'),
   displaced('ethics-justice-political-life', 'philosopher', 'habermas', 'Jürgen Habermas', 'critique-power-deconstruction', 'become-secondary-later'),
-  displaced('mind-consciousness-self', 'philosopher', 'william-james', 'William James', 'pragmatism-democratic-inquiry', 'become-secondary-later'),
   displaced('mind-consciousness-self', 'philosopher', 'derek-parfit', 'Derek Parfit', 'moral-life-practical-reason', 'become-secondary-later'),
 ] as const satisfies readonly MuseumLegacyExhibitCompatibility[];
 

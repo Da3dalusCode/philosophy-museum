@@ -32,16 +32,14 @@
     "hallCount": 26,
     "roomCount": 105,
     "recordCapacity": 260,
-    "curatedOpenAtMigration": 20,
-    "plannedWalkableShellsAtMigration": 6,
+    "curatedOpenAtMigration": 22,
+    "plannedWalkableShellsAtMigration": 4,
     "additionalGalleryReservations": 2
   },
   "numberingPolicy": {
-    "publicGalleryNumber": "Stable release number. Existing Gallery 01–21 numbers do not change; Gallery 19 may remain planned while later numbered galleries are curated.",
+    "publicGalleryNumber": "Stable release number. Existing Gallery 01–26 numbers do not change when a planned shell is promoted.",
     "visitSequence": "Physical through-route order. This is independent of public release numbering.",
     "futureReleaseOrder": [
-      "german-idealism-afterlives",
-      "pragmatism-democratic-inquiry",
       "critique-power-deconstruction",
       "moral-life-practical-reason",
       "feminist-philosophies",
@@ -652,7 +650,7 @@
         "german-idealism-hegel",
         "german-idealism-afterlives-room"
       ],
-      "migrationState": "construct-planned-walkable-shell",
+      "migrationState": "migrate-populated",
       "roomLayoutStrategy": "sequence-equal-room-spans",
       "bandId": "band-04-nineteenth-transformations",
       "placement": {
@@ -726,7 +724,7 @@
         "pragmatism-dewey-democracy",
         "pragmatism-continuities-reserve"
       ],
-      "migrationState": "construct-planned-walkable-shell",
+      "migrationState": "migrate-populated",
       "roomLayoutStrategy": "sequence-equal-room-spans",
       "bandId": "band-05-modern-traditions",
       "placement": {
@@ -1182,7 +1180,7 @@
     "futureCrossroadsFiveRoomRule": "Generate four perimeter rooms plus a distinct central Kant room without notching a neighboring gallery.",
     "plannedShellPresentation": "Planned rooms are walkable architectural shells with blank walls and one honest noninteractive status sign at the hall entrance. They have no placeholder exhibits, media, interaction controls, article routes, or fake attribution.",
     "openCountRule": "A planned walkable shell is not counted as an open gallery until its complete curation, wall-slot audit, imagery audit, interactions, interpretation, routes, and visual review pass.",
-    "wallAuditActivation": "Exact physical installation counts remain enforced for the twenty curated halls. Future halls enter the exhibit-wall audit only when their migration state changes to curated-open."
+    "wallAuditActivation": "Exact physical installation counts remain enforced for the twenty-two curated halls. Future halls enter the exhibit-wall audit only when their migration state changes to curated-open."
   },
   "performanceContract": {
     "authority": "Extend the current runtime residency and lazy-loading implementation; do not replace it.",
@@ -1235,7 +1233,7 @@
       "all five turn courts",
       "all six crosscut intersections including the Forum",
       "every one of the 105 rooms",
-      "all twenty populated galleries after relocation",
+      "all twenty-two populated galleries after relocation",
       "the complete 1920 by 1080 map without scrolling",
       "direct URLs, guided visits, fast travel, reset, and session resume",
       "browser console on local and production builds"
