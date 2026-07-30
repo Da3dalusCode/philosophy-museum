@@ -44,7 +44,7 @@ Every implementation phase must preserve these rules:
 | 4. Global-worlds demonstration | open `CSA`, `BP`, `CCT`, and `IPW` | complete |
 | 5. Gallery 11–12 connected worlds | open `EAC` and `JPH`; preserve the future `LCS` threshold | complete for Galleries 11–12; `LCS` remained planned at this historical phase boundary |
 | 6. Continuous Enfilade architecture migration | build all 26 hall/105 room shells, new circulation, entrance, map, and two reserves; atomically move the 12 populated halls | no new exhibit curation; 12 curated open and 14 walkable planned shells |
-| 7. Subsequent gallery releases | curate planned shells one or two galleries at a time; Galleries 13–24 are complete and Galleries 25–26 remain planned | each release changes only its reviewed shell from planned to curated-open |
+| 7. Subsequent gallery releases | curate planned shells one or two galleries at a time; Galleries 13–24 and Gallery 26 are complete while Gallery 25 remains planned | each release changes only its reviewed shell from planned to curated-open |
 
 Phases 1–6 are implementation history. Phase 6 built the complete architecture without speculative gallery content. Phase 7 returns to the established one-or-two-gallery curation cadence.
 

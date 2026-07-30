@@ -99,6 +99,10 @@ import {
   MORAL_LIFE_PRACTICAL_REASON_SUPPLEMENTAL_EXHIBITS,
   MORAL_LIFE_PRACTICAL_REASON_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
 } from './moralLifePracticalReasonSupplementalExhibits';
+import {
+  COLONIALISM_RACE_LIBERATION_SUPPLEMENTAL_EXHIBITS,
+  COLONIALISM_RACE_LIBERATION_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
+} from './colonialismRaceLiberationSupplementalExhibits';
 import type {
   MuseumSupplementalExhibitId,
   MuseumSupplementalExhibitLayout,
@@ -240,6 +244,11 @@ const COLLECTIONS = [
     hallId: 'moral-life-practical-reason',
     exhibits: MORAL_LIFE_PRACTICAL_REASON_SUPPLEMENTAL_EXHIBITS,
     layouts: MORAL_LIFE_PRACTICAL_REASON_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
+  },
+  {
+    hallId: 'colonialism-race-liberation',
+    exhibits: COLONIALISM_RACE_LIBERATION_SUPPLEMENTAL_EXHIBITS,
+    layouts: COLONIALISM_RACE_LIBERATION_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
   },
 ] as const satisfies readonly MuseumSupplementalCollection[];
 

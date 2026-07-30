@@ -18,6 +18,7 @@ import {PlatoSupplementalExhibits} from './PlatoSupplementalExhibits';
 import {RenaissanceSupplementalExhibits} from './RenaissanceSupplementalExhibits';
 import {
   CritiquePowerDeconstructionSupplementalExhibits,
+  ColonialismRaceLiberationSupplementalExhibits,
   EmpiricismSupplementalExhibits,
   EnlightenmentSupplementalExhibits,
   FaithPessimismValueSupplementalExhibits,
@@ -263,6 +264,15 @@ export function CanonicalMuseumHallContent({
     {definition.id === 'moral-life-practical-reason'
       && definition.layout.supplementalExhibits
       && <MoralLifePracticalReasonSupplementalExhibits
+        layouts={active
+          ? definition.layout.supplementalExhibits
+          : definition.layout.supplementalExhibits.filter(({assetId}) => entryAssetIds.has(assetId))}
+        nearbyId={nearbySupplemental?.hallId === definition.id ? nearbySupplemental.supplementalExhibitId : undefined}
+        onSelect={(supplementalExhibitId) => onSelectSupplementalExhibit({hallId: definition.id, supplementalExhibitId})}
+      />}
+    {definition.id === 'colonialism-race-liberation'
+      && definition.layout.supplementalExhibits
+      && <ColonialismRaceLiberationSupplementalExhibits
         layouts={active
           ? definition.layout.supplementalExhibits
           : definition.layout.supplementalExhibits.filter(({assetId}) => entryAssetIds.has(assetId))}

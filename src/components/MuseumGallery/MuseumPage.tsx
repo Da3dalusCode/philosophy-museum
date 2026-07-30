@@ -1695,6 +1695,17 @@ export function MuseumPage({route, href, push, replace}: {
     approachedReadinessKey && hallEntryLoadStatus[approachedReadinessKey] === 'failed');
   const adjacentLoadingHallIds = approachedHallIds.filter(() =>
     approachedReadinessKey && hallEntryLoadStatus[approachedReadinessKey] === 'loading');
+  const savedMuseumVisit = loadMuseumLastVisit();
+  const savedMuseumHallId = savedMuseumVisit
+    && MUSEUM_HALLS.some(({id}) => id === savedMuseumVisit.hallId)
+    ? savedMuseumVisit.hallId as MuseumHallId
+    : undefined;
+  const savedMuseumHall = savedMuseumHallId ? getMuseumHallCatalog(savedMuseumHallId) : undefined;
+  const canResumeLastMuseumVisit = Boolean(
+    savedMuseumHallId
+    && getMuseumHallRegistration(savedMuseumHallId)
+    && getMuseumVisitorMapNode(savedMuseumHallId),
+  );
 
   return <div
     ref={experienceRootRef}
@@ -1704,7 +1715,7 @@ export function MuseumPage({route, href, push, replace}: {
     data-exploring={exploring ? 'true' : 'false'}
   >
     <section className="museum-stage" data-exploring={exploring ? 'true' : 'false'} data-visit-phase={visitPhase} aria-describedby="museum-controls-description">
-      <p className="sr-only" id="museum-controls-description">A first-person gallery. Use Enter museum before keyboard, mouse, or touch controls affect the scene. The complete directory and guided visit are available without free movement.</p>
+      <p className="sr-only" id="museum-controls-description">A first-person museum. Activate the main visit control before keyboard, mouse, or touch controls affect the scene. The complete directory and guided visit are available without free movement.</p>
 
       <div ref={backgroundRef} className="museum-stage-surface" data-museum-background>
         {sceneError ? <MuseumFallback
@@ -1815,7 +1826,9 @@ export function MuseumPage({route, href, push, replace}: {
                       ? 'Resume visit'
                       : exploring
                         ? 'Visit active'
-                        : 'Enter museum'}
+                        : atGrandEntrance
+                          ? 'Explore entrance freely'
+                          : 'Enter museum'}
               </button>
               <span>{activeIntent ? controls.mode.replace('-', ' ') : 'WASD · arrows · touch'}</span>
             </div>
@@ -1834,14 +1847,20 @@ export function MuseumPage({route, href, push, replace}: {
           {atGrandEntrance && !activeIntent && overlay === null && <aside className="museum-route-choice-card" aria-label="Choose how to begin your Museum visit">
             <div>
               <p className="eyebrow">Grand Entrance orientation</p>
-              <h2>Choose a route</h2>
-              <p>The complete collection is on one level. Walk the chronological enfilade, begin at the Forum crosscut, follow a guided opening, resume by stable exhibit or room, or use curated fast travel.</p>
+              <h2>Start your visit</h2>
+              <p>Walk through the framed Gallery 01 threshold, or choose a clearly mediated route through the one-level collection.</p>
             </div>
             <div className="museum-route-choice-actions">
-              <button type="button" onClick={beginChronologicalRoute}>Begin chronological route</button>
-              <button type="button" onClick={startAtForumCrosscut}>Begin at Forum crosscut</button>
-              <button type="button" onClick={startGuidedVisitFromEntrance}>Start guided visit</button>
-              <button type="button" onClick={resumeLastMuseumVisit}>Resume last visit</button>
+              <button type="button" onClick={beginChronologicalRoute}>Walk to Gallery 01</button>
+              <button type="button" onClick={startAtForumCrosscut}>Fast-travel to Forum crosscut</button>
+              <button type="button" onClick={startGuidedVisitFromEntrance}>Start guided opening</button>
+              {canResumeLastMuseumVisit && <button
+                type="button"
+                onClick={resumeLastMuseumVisit}
+                title={savedMuseumHall ? `Resume in ${savedMuseumHall.title}` : 'Resume saved Museum visit'}
+              >
+                Resume saved visit
+              </button>}
               <button type="button" onClick={showVisitorMap}>Map & curated fast travel</button>
             </div>
           </aside>}

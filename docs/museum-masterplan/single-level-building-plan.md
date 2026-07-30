@@ -70,9 +70,9 @@ Those margins are walls and building services. They are not public gaps and do n
 | 23 | Gallery 24 | Moral Life & Practical Reason | curated/open |
 | 24 | Gallery 05 | Political Action, Justice, and Democratic Reason | curated/open |
 | 25 | Gallery 25 | Feminist Philosophies | planned/walkable |
-| 26 | Gallery 26 | Colonialism, Race, and Liberation | planned/walkable |
+| 26 | Gallery 26 | Colonialism, Race, and Liberation | curated/open |
 
-The curated sequence now includes Galleries 13–24 through the completed Scholastic, Hellenistic/Roman, Late Antiquity, Rationalist, Empiricist, Enlightenment/Kant, German Idealist, Utility/Liberty/Capital, Faith/Pessimism/Life/Value, Pragmatist, Critique/Power/Deconstruction, and Moral Life programs. Each promotion changed only its reviewed manifest state and content bundle: stable public numbers, visit positions, approved centers, rotations, and route transforms remain unchanged.
+The curated sequence now includes Galleries 13–24 and Gallery 26 through the completed Scholastic, Hellenistic/Roman, Late Antiquity, Rationalist, Empiricist, Enlightenment/Kant, German Idealist, Utility/Liberty/Capital, Faith/Pessimism/Life/Value, Pragmatist, Critique/Power/Deconstruction, Moral Life, and Colonialism/Race/Liberation programs. Each promotion changed only its reviewed manifest state and content bundle: stable public numbers, visit positions, approved centers, rotations, and route transforms remain unchanged.
 
 ## Six bands and crosscut joints
 
@@ -91,7 +91,7 @@ The crosscut therefore consumes no exhibit wall. Each ordinary intersection is a
 
 ## Grand entrance and visitor functions
 
-The Grand Entrance is a 40 × 56 m, double-height-feeling arrival volume attached to the first gallery band. It is deliberately larger and more legible than the current entrance court.
+The Grand Entrance is a 40 × 56 m, double-height-feeling arrival volume attached to the first gallery band. Its implemented arrival sequence now begins on a level exterior forecourt beneath a luminous canopy, passes through open bronze-and-glass doors, crosses a compass-and-timeline floor inlay, and terminates at a framed Gallery 01 threshold. A coffered luminous ceiling, wall pilasters, and the orientation oculus give the room civic scale without placing decorative obstacles in the four-metre accessible route. It is deliberately larger and more legible than an ordinary circulation court.
 
 It has four real jobs:
 
@@ -110,16 +110,16 @@ The canonical source already names all **105 rooms** in [hall-program.json](./ha
 
 At the architectural migration and through subsequent gallery promotions:
 
-- the 24 populated galleries remain whole hall-local roots;
+- the 25 populated galleries remain whole hall-local roots;
 - their room partitions, exhibits, imagery, attribution, lighting, signs, guided viewpoints, interactions, and local collision remain intact;
-- the two future galleries retain every named room, floor, ceiling, partition, collision wall, doorway, lighting interface, safe arrival, and geometry-only wall slot;
+- the future Gallery 25 shell retains every named room, floor, ceiling, partition, collision wall, doorway, lighting interface, safe arrival, and geometry-only wall slot;
 - future walls remain blank except for one honest, noninteractive status sign at the gallery entrance;
 - no placeholder exhibit, fake interaction, article link, quotation, image, or attribution is created;
 - a planned shell is walkable because the continuous route must remain intact, but it is not counted as an open gallery.
 
 Future sequential galleries divide the 56 m long axis into equal named room spans unless their curation later justifies an authored adjustment. Four-room crossroads galleries use four independent quadrants. Enlightenment, Revolution, and Kant uses four perimeter rooms plus a distinct central Kant room. The current nine-room Forum layout is preserved.
 
-This is a deliberate staging state: visitors can understand the final building, reach every populated hall on foot, and see exactly which galleries are awaiting curation. The map must distinguish **24 curated open galleries** from **two walkable planned shells**.
+This is a deliberate staging state: visitors can understand the final building, reach every populated hall on foot, and see exactly which gallery is awaiting curation. The map must distinguish **25 curated open galleries** from **one walkable planned shell**.
 
 ## Exhibit-wall protection
 
@@ -139,7 +139,7 @@ The chronological walk through all 26 large galleries is approximately 1.56 km. 
 The crosscut gives six collection intersections in 168 m. The physical map and fast travel provide a second layer of navigation. The map must derive from the same manifest as rendered geometry and show:
 
 - all 26 gallery shells with full titles;
-- 24 curated/open and two planned/walkable states;
+- 25 curated/open and one planned/walkable state;
 - two closed expansion reserves outside the 26-gallery program;
 - the complete through route, crosscut, turn courts, entrance, final threshold, current position, and facing arrow;
 - stable Gallery 01–26 release numbers and separate visit sequence when useful;
@@ -156,9 +156,9 @@ The current residency solution remains authoritative:
 - 6 m approach preparation;
 - 96 MiB decoded-texture budget.
 
-The new building extends that pattern instead of mounting 26 galleries at Museum startup. Entrance controls, nearby architecture, and lightweight map metadata may load initially. Populated hall code and media load only for the active or prepared threshold target. Planned shells share low-cost architecture/material modules and import no exhibit media.
+The new building extends that pattern instead of mounting 26 galleries at Museum startup. Entrance controls, nearby architecture, and lightweight map metadata may load initially. Populated hall code and media load only for the active or prepared threshold target. The planned shell shares low-cost architecture/material modules and imports no exhibit media.
 
-The map imports plan metadata, not Three.js hall scenes. A threshold becomes crossable only after its target code, nearest-room media, collision, safe arrival, and scene commit are ready. The empty future shells remain cheap because they contain no content bundle.
+The map imports plan metadata, not Three.js hall scenes. A threshold becomes crossable only after its target code, nearest-room media, collision, safe arrival, and scene commit are ready. The empty planned shell remains cheap because it contains no content bundle.
 
 ## Two-gallery capacity reserve
 
@@ -180,7 +180,7 @@ They begin as solid construction walls and do not appear as open map destination
 ### Phase B — architecture-only preview
 
 1. Build the entrance, six shared-wall bands, crosscut, Forum bay, turn courts, final threshold, and both closed reserves.
-2. Generate all future room shells with honest planned status; the architecture cutover left eight planned, the Gallery 20–21 promotions left six, the Gallery 19/22 promotions left four, and the Gallery 23–24 promotions leave two.
+2. Generate all future room shells with honest planned status; the architecture cutover left eight planned, the Gallery 20–21 promotions left six, the Gallery 19/22 promotions left four, the Gallery 23–24 promotions left two, and the Gallery 26 promotion leaves one.
 3. Add collision, thresholds, safe arrivals, generic local lighting, facing-aware map geometry, and browser-visible development diagnostics.
 4. Keep the preview private until the complete manifest passes; production cut over only after that gate.
 
@@ -201,7 +201,7 @@ They begin as solid construction walls and do not appear as open map destination
 
 1. Replace old corridor/spoke nodes with the through route, crosscut, and turn courts.
 2. Update directory and map states without renumbering any existing gallery.
-3. Preserve stable Galleries 25–26 planned records and room viewpoints without adding exhibit controls.
+3. Preserve stable Gallery 25 planned records and room viewpoints without adding exhibit controls.
 4. Migrate sessions by stable location IDs.
 5. Verify direct URLs, walking connections, guided visits, fast travel, reset, resume, and all adjacent-room transitions.
 6. Keep the old manifest selectable until local and production verification succeeds.
@@ -221,11 +221,11 @@ They begin as solid construction walls and do not appear as open map destination
 
 | Risk | Resolution |
 | --- | --- |
-| Existing halls might not fit the plan | All 24 curated halls use exact canonical footprints; they fit the 28 m band system and remain local roots. |
+| Existing halls might not fit the plan | All 25 curated halls use exact canonical footprints; they fit the 28 m band system and remain local roots. |
 | Crosscut could steal exhibit walls | It lands only at six threshold joints; the Forum is its sole gallery interior. |
 | Forum could overlap neighbors | It owns an independent 28 × 28 m bay between complete galleries. |
 | Future empty halls could break the walking sequence | All named room shells are walkable but truthfully labeled planned; they are not counted as open. |
-| Building startup could eagerly initialize 26 halls | Existing three-subtree residency and lazy media preparation remain authoritative; planned shells contain no media bundles. |
+| Building startup could eagerly initialize 26 halls | Existing three-subtree residency and lazy media preparation remain authoritative; the planned shell contains no media bundle. |
 | Old URLs and saved visits could break | IDs remain stable and saved locations migrate by gallery/room/exhibit ID, never raw coordinates. |
 | Public numbers could become incoherent | Gallery number remains release identity; visit sequence is a separate field. |
 | A later extra hall could damage a curated wall | Two full reserves open from the crosscut extension, not through existing galleries. |
@@ -236,7 +236,7 @@ The plan is plausible and implementable; no discovered issue makes it impossible
 
 1. The full chronological route is long because the galleries are genuinely large. The crosscut, guided routes, and fast travel are necessary parts of normal use, not optional polish.
 2. The migration is a building-level release. It should not be attempted as a series of production corridor patches; all current halls, routes, map projection, and session arrivals must cut over together.
-3. Two galleries remain architectural previews until curated. That is the honest cost of building the complete walkable museum before filling it. They must never be advertised or counted as finished exhibitions.
+3. Gallery 25 remains an architectural preview until curated. That is the honest cost of building the complete walkable museum before filling it. It must never be advertised or counted as a finished exhibition.
 
 ## Construction authority
 

@@ -32,16 +32,15 @@
     "hallCount": 26,
     "roomCount": 105,
     "recordCapacity": 260,
-    "curatedOpenAtMigration": 24,
-    "plannedWalkableShellsAtMigration": 2,
+    "curatedOpenAtMigration": 25,
+    "plannedWalkableShellsAtMigration": 1,
     "additionalGalleryReservations": 2
   },
   "numberingPolicy": {
     "publicGalleryNumber": "Stable release number. Existing Gallery 01–26 numbers do not change when a planned shell is promoted.",
     "visitSequence": "Physical through-route order. This is independent of public release numbering.",
     "futureReleaseOrder": [
-      "feminist-philosophies",
-      "colonialism-race-liberation"
+      "feminist-philosophies"
     ]
   },
   "physicalContract": {
@@ -897,7 +896,7 @@
         "colonial-black-feminism-abolition",
         "colonial-context-reserve"
       ],
-      "migrationState": "construct-planned-walkable-shell",
+      "migrationState": "migrate-populated",
       "roomLayoutStrategy": "sequence-equal-room-spans",
       "bandId": "band-06-ethics-politics-society",
       "placement": {
@@ -1178,7 +1177,7 @@
     "futureCrossroadsFiveRoomRule": "Generate four perimeter rooms plus a distinct central Kant room without notching a neighboring gallery.",
     "plannedShellPresentation": "Planned rooms are walkable architectural shells with blank walls and one honest noninteractive status sign at the hall entrance. They have no placeholder exhibits, media, interaction controls, article routes, or fake attribution.",
     "openCountRule": "A planned walkable shell is not counted as an open gallery until its complete curation, wall-slot audit, imagery audit, interactions, interpretation, routes, and visual review pass.",
-    "wallAuditActivation": "Exact physical installation counts remain enforced for the twenty-four curated halls. Future halls enter the exhibit-wall audit only when their migration state changes to curated-open."
+    "wallAuditActivation": "Exact physical installation counts remain enforced for the twenty-five curated halls. Future halls enter the exhibit-wall audit only when their migration state changes to curated-open."
   },
   "performanceContract": {
     "authority": "Extend the current runtime residency and lazy-loading implementation; do not replace it.",
@@ -1192,7 +1191,7 @@
       "lightweight physical map geometry",
       "no gallery media outside the active or prepared threshold target"
     ],
-    "plannedShellRule": "Planned shells use shared architecture, material, lighting, and collision modules and import no exhibit media.",
+    "plannedShellRule": "Planned-shell architecture, material, lighting, and collision modules are shared and import no exhibit media.",
     "crossingRule": "A doorway becomes crossable only after target code, nearest-room media, collision, and safe arrival are committed.",
     "mapRule": "The map consumes lightweight plan metadata and never imports hall scene or media modules."
   },
@@ -1200,7 +1199,7 @@
     "cutover": "Build beside the current runtime manifest and switch atomically only after the complete building passes review.",
     "stableIdentifiers": [
       "public gallery IDs",
-      "public Gallery 01–21 numbers",
+      "public Gallery 01–26 numbers",
       "room IDs",
       "exhibit IDs",
       "article routes",
@@ -1231,7 +1230,7 @@
       "all five turn courts",
       "all six crosscut intersections including the Forum",
       "every one of the 105 rooms",
-      "all twenty-four populated galleries after relocation",
+      "all twenty-five populated galleries after relocation",
       "the complete 1920 by 1080 map without scrolling",
       "direct URLs, guided visits, fast travel, reset, and session resume",
       "browser console on local and production builds"

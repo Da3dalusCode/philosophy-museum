@@ -636,6 +636,14 @@ const CANONICAL_DIRECT_INTERPRETATION_SOURCES: Readonly<Record<string, readonly 
     academicSource('Stanford Encyclopedia of Philosophy — Political Authority', 'https://plato.stanford.edu/entries/authority/'),
     primarySource('Plato, Republic I — justice and political power', 'https://www.perseus.tufts.edu/hopper/text?doc=Plat.%20Rep.%201.327a'),
   ],
+  'angela-davis': [
+    academicSource('UC Santa Cruz — Angela Davis', 'https://campusdirectory.ucsc.edu/cd_detail?uid=aydavis'),
+    academicSource('UC Santa Cruz History of Consciousness — An interview with Angela Davis', 'https://histcon.ucsc.edu/profiles/2019/08/you-have-the-right-to-be-brilliant-an-interview-with-dr-angela-davis/'),
+  ],
+  'bell-hooks': [
+    academicSource('Berea College — About bell hooks', 'https://www.berea.edu/centers/the-bell-hooks-center/about-bell'),
+    collectionSource('Berea College — bell hooks center', 'https://www.berea.edu/centers/the-bell-hooks-center'),
+  ],
   'martha-nussbaum': [
     academicSource('Stanford Encyclopedia of Philosophy — The Capability Approach', 'https://plato.stanford.edu/entries/capability-approach/'),
     academicSource("Internet Encyclopedia of Philosophy — Sen's Capability Approach", 'https://iep.utm.edu/sen-cap/'),
@@ -1429,7 +1437,7 @@ export const museumInterpretationFacts = (record: MuseumInterpretation): MuseumF
       {label: 'School / setting', value: biography.affiliations.join(' · ')},
       {label: 'Influenced by', value: biography.influencedBy.join(' · ')},
       {label: 'Students / followers', value: biography.studentsOrFollowers.join(' · ')},
-      {label: 'Surviving evidence', value: biography.sourceSituation},
+      {label: 'Evidence / interpretive cautions', value: biography.sourceSituation},
       {label: 'Known for', value: biography.knownFor.join(' · ')},
     ].filter((fact): fact is MuseumFact => Boolean(fact));
   }

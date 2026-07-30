@@ -447,7 +447,22 @@ export type MuseumSupplementalExhibitId =
   | 'thomson-violinist-bodily-rights'
   | 'thomson-bodily-autonomy-context'
   | 'parfit-psychological-continuity'
-  | 'parfit-future-generations';
+  | 'parfit-future-generations'
+  | 'fanon-racializing-gaze'
+  | 'fanon-colonial-psychiatry'
+  | 'fanon-algerian-revolution'
+  | 'fanon-violence-decolonization'
+  | 'fanon-national-consciousness'
+  | 'davis-prison-abolition'
+  | 'davis-race-gender-class'
+  | 'hooks-margin-center'
+  | 'hooks-engaged-pedagogy-love'
+  | 'cesaire-colonialism-thingification'
+  | 'dubois-color-line-colonial-world'
+  | 'said-orientalism-representation'
+  | 'spivak-subaltern-representation'
+  | 'ngugi-language-decolonization'
+  | 'wynter-humanism-coloniality';
 
 export type MuseumSupplementalInstallationKind =
   | 'cave-ascent'
@@ -512,6 +527,9 @@ export type MuseumSupplementalInstallationKind =
   | 'moral-work'
   | 'moral-context'
   | 'moral-concept'
+  | 'colonial-work'
+  | 'colonial-context'
+  | 'colonial-concept'
   | 'forum-comparative-lens';
 
 export type MuseumSupplementalExhibitLayout = {

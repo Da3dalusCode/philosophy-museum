@@ -311,5 +311,159 @@ export const philosopherCompletionDetails:Record<string,Partial<Philosopher>>={
       {label:'MIT Philosophy: Judith Jarvis Thomson',url:'https://philosophy.mit.edu/people/faculty/thomson/',type:'other'},
       {label:'MIT News: Judith Jarvis Thomson memorial',url:'https://news.mit.edu/2020/professor-emerita-judith-jarvis-thomson-influential-philosopher-dies-1204',type:'other'}
     ]
+  },
+  'angela-davis':{
+    shortBio:'Angela Davis joins Black radical and Marxist feminism to prison abolition, labor history, cultural criticism, and collective movements for freedom. Her work asks why punishment appears to solve problems that unequal institutions continually reproduce.',
+    lifeStory:'Born in Birmingham, Alabama, in 1944, Davis grew up amid Jim Crow segregation and organized resistance. She studied philosophy at Brandeis, Frankfurt, and the University of California, San Diego, where Herbert Marcuse supervised her doctoral work. Her political organizing, Communist Party membership, teaching, 1970 arrest, international campaign for her release, and 1972 acquittal became part of a public life that she consistently situates within collective struggle rather than individual heroism. She later became a major teacher in the History of Consciousness and Feminist Studies at the University of California, Santa Cruz, where the university lists her as Distinguished Professor Emerita.',
+    historicalContext:'Black freedom struggles after Jim Crow, international Marxist and anticolonial movements, second-wave and Black feminist debates, the expansion of U.S. policing and imprisonment, and contemporary prison-abolition organizing',
+    beginnerExplanation:'Davis asks us to stop treating prisons as the natural endpoint of every discussion of harm. She follows the histories and institutions that make confinement seem inevitable, then asks which forms of care, provision, accountability, and democratic participation could make punishment less necessary.',
+    extendedBio:[
+      'Davis’s education crossed French and German philosophy, Frankfurt School critical theory, Marxism, Black studies, music, and activist traditions. That range matters because her abolitionism is not only a criminal-justice policy position; it is an analysis of labor, race, gender, culture, and the institutions through which a society imagines safety.',
+      'Her imprisonment made political detention a lived problem, but it does not by itself establish her later arguments. Davis draws on research and movements larger than her biography, and responsible interpretation keeps organizers, incarcerated people, survivors, scholars, and local campaigns visible beside the famous name.'
+    ],
+    centralQuestions:[
+      'How do prisons and policing become normal answers to social problems whose causes they do not repair?',
+      'What would abolition build in housing, health, education, accountability, and democratic life as carceral institutions are dismantled?',
+      'How do race, gender, class, sexuality, labor, and nationality interact within movements that sometimes universalize one group’s experience?',
+      'What forms of collective freedom become possible when emancipation means more than individual access to existing institutions?'
+    ],
+    majorIdeasDetailed:[
+      {name:'Prison abolition',explanation:'Abolition is a long project of dismantling punitive institutions while creating social conditions, survivor support, prevention, and accountability practices that reduce reliance on confinement.',whyItMatters:'It shifts debate from whether every imprisoned person is sympathetic toward which institutions actually prevent harm, distribute safety, and make repair possible.'},
+      {name:'Prison-industrial complex',explanation:'Prisons belong to a wider network of law, policing, political incentives, public fear, racial hierarchy, labor, contracts, and institutional expansion rather than operating as isolated buildings.',whyItMatters:'The framework explains why changing one rule may leave the forces that produce mass incarceration substantially intact.'},
+      {name:'Abolition democracy',explanation:'Borrowing and extending a problem associated with W. E. B. Du Bois, Davis argues that destroying an oppressive institution is incomplete without building democratic capacities and material alternatives.',whyItMatters:'Freedom becomes constructive and institutional, not only the absence of a chain, law, or prison gate.'},
+      {name:'Black feminist materialism',explanation:'Davis studies race, gender, and class through labor, property, law, movement history, domestic work, reproduction, and punishment rather than treating identities as separate attributes to be added together.',whyItMatters:'It reveals why a reform can benefit some women or Black people while leaving the most vulnerable positions unchanged.'},
+      {name:'Collective freedom',explanation:'Political transformation emerges through movements, coalitions, study, culture, and organization rather than the moral purity or exceptional achievement of one individual.',whyItMatters:'It resists both savior narratives and models of equality limited to entry into elite positions.'}
+    ],
+    keyWorksDetailed:[
+      {title:'If They Come in the Morning: Voices of Resistance',year:1971,summary:'An edited collection on political prisoners, repression, resistance, and the campaign surrounding Davis’s own incarceration.',whyItMatters:'It places the famous case inside a collective archive rather than presenting autobiography as solitary proof.'},
+      {title:'Women, Race & Class',year:1981,summary:'A historical study of slavery, abolition, suffrage, labor, domestic work, racism within women’s movements, and contested political alliances.',whyItMatters:'It offers the clearest beginner route into Davis’s Black feminist historical method.'},
+      {title:'Blues Legacies and Black Feminism',year:1998,summary:'A study of Gertrude “Ma” Rainey, Bessie Smith, and Billie Holiday that treats musical performance as a site of working-class Black women’s knowledge, sexuality, and social criticism.',whyItMatters:'It prevents Davis’s philosophy from being reduced to prisons and shows how cultural form can articulate freedom.'},
+      {title:'Are Prisons Obsolete?',year:2003,summary:'A concise history and argument that challenges the apparent inevitability of prisons and introduces abolitionist alternatives.',whyItMatters:'It is the most accessible starting point for her prison-abolition project.'},
+      {title:'Abolition Democracy',year:2005,summary:'Conversations connecting slavery’s aftermath, democracy, punishment, empire, and the positive institutions abolition requires.',whyItMatters:'It clarifies why abolition cannot stop at tearing an oppressive structure down.'}
+    ],
+    lifeEvents:[
+      {year:1944,label:'Born',description:'Born 26 January 1944 in Birmingham, Alabama, and raised in a community shaped by segregation and civil-rights organizing.'},
+      {year:1970,label:'Arrest and international campaign',description:'Was arrested after a major search; movements in the United States and abroad organized for her release.'},
+      {year:1972,label:'Acquittal',description:'A California jury acquitted Davis of all charges after a widely publicized trial.'},
+      {year:1981,label:'Women, Race & Class',description:'Published the historical study that became a central text in Black feminist and movement education.'},
+      {year:2003,label:'Are Prisons Obsolete?',description:'Published her concise, widely read introduction to prison abolition.'}
+    ],
+    intellectualDevelopment:[
+      'Joined philosophical study in the Frankfurt School and Marxist traditions to the practical demands of Black freedom, antiwar, labor, feminist, and political-prisoner movements.',
+      'Expanded analysis of repression into a historical account of the prison-industrial complex and an affirmative account of abolition democracy.',
+      'Developed cultural criticism through blues and performance, showing that working-class Black women’s music can carry social knowledge excluded from official theory.',
+      'Continued revising coalition politics around gender, sexuality, disability, trans liberation, Palestine, and international solidarity without claiming that all struggles share one identical structure.'
+    ],
+    influencesReceived:['Karl Marx and Marxist traditions','Herbert Marcuse and Frankfurt School critical theory','W. E. B. Du Bois and Black radical historiography','Black freedom, Communist, labor, feminist, and political-prisoner movements','Abolitionist organizers and incarcerated intellectuals'],
+    influenceOnLaterThought:['Contemporary prison abolition and transformative-justice debates','Black feminist political theory and movement education','Critical prison studies and analyses of the prison-industrial complex','Feminist histories of labor, domestic work, and racial capitalism','International solidarity movements linking carceral and colonial power'],
+    controversiesOrInterpretiveTensions:[
+      'Abolition must answer urgent questions about protection, survivor support, dangerous conduct, transition, and institutional scale; invoking a distant horizon is not a substitute for concrete design.',
+      'Davis’s longstanding Communist commitments and historical judgments about socialist states remain politically contested and should be examined rather than hidden behind her later canonization.',
+      'Women, Race & Class offers a powerful large-scale history but uses broad categories whose internal differences and source choices require continued revision.',
+      'Public attention to Davis can reproduce the individual-celebrity model her work resists unless collective movements and less visible intellectual labor remain present.'
+    ],
+    commonMisunderstandings:[
+      'Abolition does not mean denying harm, abandoning survivors, or releasing everyone overnight without institutions of prevention and accountability.',
+      'Davis did not coin “intersectionality,” and her Marxist Black feminist method should not be collapsed into every later theory using that term.',
+      'Her acquittal is historically important but is not the sole evidence for her analysis of prisons.',
+      'Abolition is not merely a critique of private prison companies; public institutions, policing, law, budgets, and social abandonment also sustain carceral power.'
+    ],
+    schoolMemberships:['Black radical thought','Marxist feminism','Prison abolition','Critical theory'],
+    branchContributions:[
+      {branchId:'feminist-philosophy',summary:'Connected Black feminist analysis to labor, punishment, culture, social reproduction, and coalition without treating women as a uniform political group.'},
+      {branchId:'political-philosophy',summary:'Reframed freedom through abolition democracy, collective action, and the construction of noncarceral institutions.'}
+    ],
+    beginnerReadingPath:[
+      reading('Angela Y. Davis','Are Prisons Obsolete?','beginner','Begin with the compact historical challenge to prison inevitability and the constructive meaning of abolition.'),
+      reading('Angela Y. Davis','Women, Race & Class','beginner','Follow Davis’s material and historical method across slavery, suffrage, labor, domestic work, racism, and feminist coalition.'),
+      reading('Angela Y. Davis','Freedom Is a Constant Struggle','beginner','See how Davis connects abolition, feminism, racial capitalism, Palestine, and movement solidarity in accessible speeches and interviews.')
+    ],
+    advancedReadingPath:[
+      reading('Angela Y. Davis','Abolition Democracy','advanced','Study why dismantling domination requires positive democratic institutions rather than only formal emancipation.'),
+      reading('Angela Y. Davis','Blues Legacies and Black Feminism','advanced','Examine how music, sexuality, labor, and working-class Black women’s experience become sources of social thought.'),
+      reading('Angela Y. Davis','If They Come in the Morning: Voices of Resistance','advanced','Place political imprisonment and Davis’s case within a collective archive of repression and resistance.')
+    ],
+    sourceLinks:[
+      {label:'University of California, Santa Cruz: Angela Davis',url:'https://campusdirectory.ucsc.edu/cd_detail?uid=aydavis',type:'other'},
+      {label:'Encyclopaedia Britannica: Angela Davis',url:'https://www.britannica.com/biography/Angela-Davis',type:'other'}
+    ]
+  },
+  'bell-hooks':{
+    shortBio:'bell hooks made feminism answerable to race, class, education, cultural representation, and everyday relationships. Across theory, criticism, memoir, and teaching, she joined structural critique to the demanding practice of love.',
+    lifeStory:'Born Gloria Jean Watkins in Hopkinsville, Kentucky, in 1952, hooks experienced both segregated Black schools and later integration before studying at Stanford, the University of Wisconsin, and the University of California, Santa Cruz. She adopted the pen name bell hooks from a maternal ancestor and used lowercase to direct attention toward the work rather than authorial status. She taught literature, women’s studies, and related fields at several institutions, returned to Kentucky, and established the bell hooks Institute at Berea College, where her archive and educational legacy continue.',
+    historicalContext:'Black feminist thought after civil rights and Black Power, feminist disputes over race and class, critical pedagogy, cultural studies and film criticism, and late twentieth-century debates about domination in public institutions and intimate life',
+    beginnerExplanation:'hooks asks who disappears when one group’s experience is presented as universal. She then goes further: critique should help people practice different relations through education, cultural interpretation, political struggle, and love understood as responsible action.',
+    extendedBio:[
+      'hooks wrote for audiences beyond academic specialization without treating accessibility as simplification. Her shifts among literary criticism, social theory, memoir, children’s books, film essays, classroom reflection, and writing on love are different methods for examining how domination becomes ordinary.',
+      'Davis and hooks share Black feminist and antiracist commitments, but their projects are not interchangeable. hooks places distinctive emphasis on cultural representation, pedagogy, patriarchal habits, voice, spirituality, and love; Davis more centrally develops Black radical political economy and prison abolition.'
+    ],
+    centralQuestions:[
+      'How do race, class, and gender alter whose experience a feminist movement treats as representative?',
+      'Can education become a practice of freedom while teachers and institutions retain real power?',
+      'How do images, stories, popular culture, and habits of looking reproduce or contest domination?',
+      'What would it mean to practice love as care, commitment, knowledge, responsibility, respect, and trust rather than sentiment or possession?'
+    ],
+    majorIdeasDetailed:[
+      {name:'Feminism from margin to center',explanation:'hooks argues that theory should begin from positions excluded by dominant agendas, using those perspectives to transform the movement rather than merely adding representation at the top.',whyItMatters:'It exposes why equality for already privileged women can leave racial, economic, and imperial domination intact.'},
+      {name:'Interlocking domination',explanation:'Race, class, gender, sexuality, imperial power, and cultural hierarchy shape one another through institutions and everyday life rather than functioning as sealed systems.',whyItMatters:'Political strategy must address relationships among structures without assuming one identity supplies a complete standpoint.'},
+      {name:'Oppositional gaze',explanation:'Critical looking can refuse the roles and pleasures a dominant visual order assigns, especially where Black women have been stereotyped, erased, or denied authority as spectators.',whyItMatters:'Viewers become interpreters capable of contesting representation, though no gaze exists wholly outside power.'},
+      {name:'Engaged pedagogy',explanation:'Teaching can invite active participation, critical voice, intellectual excitement, and care for the whole person while making authority and unequal risk discussable.',whyItMatters:'A classroom can cultivate freedom only if participation does not disguise grading power or coerce vulnerable disclosure.'},
+      {name:'Love as practice',explanation:'Love is a disciplined combination of care, commitment, knowledge, responsibility, respect, and trust that is incompatible with domination and abuse.',whyItMatters:'It connects structural transformation with the habits through which people reproduce or resist power in intimate and communal life.'}
+    ],
+    keyWorksDetailed:[
+      {title:'Ain’t I a Woman: Black Women and Feminism',year:1981,summary:'A historical and polemical study of slavery, racist and sexist representation, Black womanhood, and exclusions within feminist and antiracist movements.',whyItMatters:'It announces the linked critique that shapes hooks’s later work, while its historical claims should be read alongside subsequent scholarship.'},
+      {title:'Feminist Theory: From Margin to Center',year:1984,summary:'A critique of feminism centered on relatively privileged white women and an argument for a mass movement against sexist oppression.',whyItMatters:'It is the clearest systematic entry into hooks’s political theory.'},
+      {title:'Black Looks: Race and Representation',year:1992,summary:'Essays on spectatorship, film, photography, popular culture, and the oppositional gaze.',whyItMatters:'It shows how representation organizes political possibility and how critical viewers answer back.'},
+      {title:'Teaching to Transgress',year:1994,summary:'Reflections on engaged pedagogy, voice, authority, pleasure, theory, and education as a practice of freedom.',whyItMatters:'It translates hooks’s politics into the everyday institutions through which people learn.'},
+      {title:'All About Love',year:2000,summary:'An accessible ethical and cultural argument that distinguishes love from domination, abuse, and sentimental declaration.',whyItMatters:'It makes intimate practice part of political transformation without claiming affection alone can replace institutions.'}
+    ],
+    lifeEvents:[
+      {year:1952,label:'Born',description:'Born Gloria Jean Watkins on 25 September 1952 in Hopkinsville, Kentucky.'},
+      {year:1981,label:'Ain’t I a Woman',description:'Published the first major book associated with the bell hooks authorial name.'},
+      {year:1984,label:'From Margin to Center',description:'Published her influential reconstruction of feminist movement and theory.'},
+      {year:1994,label:'Teaching to Transgress',description:'Published the first of her widely read books on education and engaged pedagogy.'},
+      {year:2015,label:'bell hooks Institute inaugural event',description:'The bell hooks Institute held its inaugural event at Berea College, where hooks also placed her papers and sustained public conversation.'},
+      {year:2021,label:'Died',description:'Died 15 December 2021 in Berea, Kentucky.'}
+    ],
+    intellectualDevelopment:[
+      'Began from Black women’s exclusion within dominant feminist history and racist representations within U.S. culture.',
+      'Developed a broad theory of linked domination while insisting that feminism become a transformative mass politics rather than an elite equality project.',
+      'Extended critique through literary and film analysis, making spectatorship and popular culture sites of political struggle.',
+      'Built engaged pedagogy through dialogue with Paulo Freire, feminist teaching, personal experience, and criticism of authority—including sexism within liberatory traditions.',
+      'Made love, community, spirituality, and mourning central to later work without abandoning structural analysis.'
+    ],
+    influencesReceived:['Black feminist writers and movement traditions','Paulo Freire and critical pedagogy, received critically rather than as discipleship','Martin Luther King Jr. and traditions of love joined to justice','James Baldwin, Toni Morrison, and Black literary criticism','Feminist, antiracist, labor, and cultural-studies debates'],
+    influenceOnLaterThought:['Black feminist and intersectional cultural criticism','Critical pedagogy and feminist teaching practice','Film and media studies through the oppositional gaze','Public ethics of love, care, masculinity, and community','Accessible theory written across academic and popular forms'],
+    controversiesOrInterpretiveTensions:[
+      'hooks’s broad historical claims, especially in early work, require comparison with later scholarship rather than reverent repetition.',
+      'Her recurring language about “women” and “men” can rely on binary generalization even as the larger project criticizes fixed identity and domination.',
+      'An ethics of love risks political vagueness unless connected to resources, law, organization, boundaries, and protection from abuse.',
+      'Engaged pedagogy must address how authority, grading, class size, disability, precarity, and uneven vulnerability constrain the invitation to speak.'
+    ],
+    commonMisunderstandings:[
+      'Writing from the margin does not make a speaker automatically correct or replace coalition with identity authority.',
+      'The lowercase name is a deliberate authorial practice, not evidence that hooks lacked a personal identity or should be reduced to a branding fact.',
+      'Love in hooks’s work is accountable action incompatible with domination, not a demand to remain in an abusive relation or avoid political conflict.',
+      'Davis and hooks are adjacent Black feminist thinkers, not two names for one method or one unified doctrine.'
+    ],
+    schoolMemberships:['Black feminist thought','Feminist cultural criticism','Critical pedagogy','Ethics of love and care'],
+    branchContributions:[
+      {branchId:'feminist-philosophy',summary:'Reconstructed feminist theory from race- and class-excluded positions while joining movement politics to cultural and intimate life.'},
+      {branchId:'political-philosophy',summary:'Made education, representation, voice, patriarchy, and love central sites in the struggle against domination.'}
+    ],
+    beginnerReadingPath:[
+      reading('bell hooks','Feminist Theory: From Margin to Center','beginner','Begin with hooks’s clearest account of feminist movement, race and class exclusion, solidarity, and transformative politics.'),
+      reading('bell hooks','Teaching to Transgress','beginner','See how political commitments enter classroom authority, participation, pleasure, and the practice of freedom.'),
+      reading('bell hooks','All About Love','beginner','Approach the later ethical vocabulary of love while testing how it connects to institutions and conflict.')
+    ],
+    advancedReadingPath:[
+      reading('bell hooks','Ain’t I a Woman: Black Women and Feminism','advanced','Study the formative historical argument while checking its large claims against subsequent Black feminist scholarship.'),
+      reading('bell hooks','Black Looks: Race and Representation','advanced','Follow the oppositional gaze and hooks’s method across film, photography, spectatorship, and popular culture.'),
+      reading('bell hooks','Talking Back: Thinking Feminist, Thinking Black','advanced','Trace voice, education, theory, family, and resistance through essays that join autobiography to critique.')
+    ],
+    sourceLinks:[
+      {label:'Berea College bell hooks Center: About bell hooks',url:'https://www.berea.edu/centers/the-bell-hooks-center/about-bell',type:'other'},
+      {label:'Encyclopaedia Britannica: bell hooks',url:'https://www.britannica.com/biography/bell-hooks',type:'other'}
+    ]
   }
 };

@@ -241,6 +241,16 @@ import {
   MORAL_LIFE_PRACTICAL_REASON_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
 } from './moralLifePracticalReasonSupplementalExhibits';
 import {
+  COLONIALISM_RACE_LIBERATION_GALLERY_ID,
+  COLONIALISM_RACE_LIBERATION_PRIMARY_PLACEMENTS,
+  COLONIALISM_RACE_LIBERATION_ROOM_ENTRY_POSES,
+  COLONIALISM_RACE_LIBERATION_ROOM_SIGN_COPY,
+  colonialismRaceLiberationInteriorLintels,
+} from './colonialismRaceLiberationGalleryCuration';
+import {
+  COLONIALISM_RACE_LIBERATION_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
+} from './colonialismRaceLiberationSupplementalExhibits';
+import {
   CORE_QUESTIONS_FORUM_GALLERY_ID,
   CORE_QUESTIONS_FORUM_PRIMARY_CIRCULATION,
   CORE_QUESTIONS_FORUM_PRIMARY_PLACEMENTS,
@@ -363,6 +373,8 @@ const supplementalLayoutsForHall = (hallId: MuseumPublicHallId): readonly Museum
                   ? CRITIQUE_POWER_DECONSTRUCTION_SUPPLEMENTAL_EXHIBIT_LAYOUTS
                 : hallId === MORAL_LIFE_PRACTICAL_REASON_GALLERY_ID
                   ? MORAL_LIFE_PRACTICAL_REASON_SUPPLEMENTAL_EXHIBIT_LAYOUTS
+                : hallId === COLONIALISM_RACE_LIBERATION_GALLERY_ID
+                  ? COLONIALISM_RACE_LIBERATION_SUPPLEMENTAL_EXHIBIT_LAYOUTS
               : [];
 
 const primaryScaleFloorForHall = (
@@ -1493,6 +1505,8 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
                       ? FAITH_PESSIMISM_VALUE_PRIMARY_PLACEMENTS
                     : hall.id === PRAGMATISM_GALLERY_ID
                       ? PRAGMATISM_PRIMARY_PLACEMENTS
+                    : hall.id === COLONIALISM_RACE_LIBERATION_GALLERY_ID
+                      ? COLONIALISM_RACE_LIBERATION_PRIMARY_PLACEMENTS
             : undefined,
       hall.id === MEDITERRANEAN_GALLERY_ID
         || hall.id === RENAISSANCE_GALLERY_ID
@@ -1571,6 +1585,7 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
     || hall.id === PRAGMATISM_GALLERY_ID
     || hall.id === CRITIQUE_POWER_DECONSTRUCTION_GALLERY_ID
     || hall.id === MORAL_LIFE_PRACTICAL_REASON_GALLERY_ID
+    || hall.id === COLONIALISM_RACE_LIBERATION_GALLERY_ID
   ) {
     const acceptedSupplementalBounds: {spatialCellId: string; bounds: MuseumBounds}[] = [];
     for (const layout of supplementalExhibits) {
@@ -1802,6 +1817,25 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
               position: {x: 0, y: 4.55, z: bounds.minZ + .22},
               rotationY: 0,
               width: room.id === 'pragmatism-continuities-reserve' ? 5.2 : 4.8,
+              height: .82,
+            };
+          })
+      : hall.id === COLONIALISM_RACE_LIBERATION_GALLERY_ID
+        ? orderedRooms.map((room) => {
+            const copy = COLONIALISM_RACE_LIBERATION_ROOM_SIGN_COPY[
+              room.id as keyof typeof COLONIALISM_RACE_LIBERATION_ROOM_SIGN_COPY
+            ];
+            if (!copy) throw new Error(`Gallery 26 has no visitor-facing orientation copy for ${room.id}.`);
+            const bounds = roomBounds.get(room.id)!;
+            return {
+              id: `${room.id}:room-sign`,
+              kind: room.id === 'colonial-embodiment-liberation' ? 'entrance' as const : 'zone' as const,
+              title: copy.title,
+              kicker: copy.kicker,
+              subtitle: copy.subtitle,
+              position: {x: 0, y: 4.55, z: bounds.maxZ - .22},
+              rotationY: Math.PI,
+              width: room.id === 'colonial-embodiment-liberation' ? 5.2 : 4.8,
               height: .82,
             };
           })
@@ -2294,6 +2328,8 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
         ? {architectureOnlyWalls: faithPessimismValueInteriorLintels()}
       : hall.id === PRAGMATISM_GALLERY_ID
         ? {architectureOnlyWalls: pragmatismInteriorLintels()}
+      : hall.id === COLONIALISM_RACE_LIBERATION_GALLERY_ID
+        ? {architectureOnlyWalls: colonialismRaceLiberationInteriorLintels()}
         : {}),
     prefetch: {entryExhibitIdsByEntrance, entrySceneAssetIdsByEntrance, entrySceneAssetIds, sceneAssetIds: allSceneAssetIds},
     layout: {
@@ -2394,6 +2430,10 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
           : hall.id === PRAGMATISM_GALLERY_ID
             ? PRAGMATISM_ROOM_ENTRY_POSES[
                 cell.id as keyof typeof PRAGMATISM_ROOM_ENTRY_POSES
+              ]
+          : hall.id === COLONIALISM_RACE_LIBERATION_GALLERY_ID
+            ? COLONIALISM_RACE_LIBERATION_ROOM_ENTRY_POSES[
+                cell.id as keyof typeof COLONIALISM_RACE_LIBERATION_ROOM_ENTRY_POSES
               ]
           : isCoreForum
             ? CORE_QUESTIONS_FORUM_ROOM_ENTRY_POSES[cell.id]

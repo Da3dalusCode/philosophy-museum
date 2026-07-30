@@ -610,7 +610,25 @@ export type MuseumAssetId =
   | 'moral-thomson-violinist'
   | 'moral-thomson-womens-strike-1970'
   | 'moral-parfit-marey-motion'
-  | 'moral-parfit-svalbard-seed-vault';
+  | 'moral-parfit-svalbard-seed-vault'
+  | 'colonial-fanon-portrait'
+  | 'colonial-fanon-racial-schema'
+  | 'colonial-fanon-clinic'
+  | 'colonial-fanon-algerian-revolution'
+  | 'colonial-fanon-war-displacement'
+  | 'colonial-fanon-national-consciousness'
+  | 'colonial-davis-portrait'
+  | 'colonial-hooks-portrait'
+  | 'colonial-davis-prison-abolition'
+  | 'colonial-davis-race-gender-class'
+  | 'colonial-hooks-margin-center'
+  | 'colonial-hooks-engaged-pedagogy'
+  | 'colonial-cesaire-anticolonialism'
+  | 'colonial-dubois-pan-africanism'
+  | 'colonial-said-orientalism'
+  | 'colonial-spivak-subaltern'
+  | 'colonial-ngugi-language'
+  | 'colonial-wynter-humanism';
 
 export type MuseumAssetRole =
   | 'identity'

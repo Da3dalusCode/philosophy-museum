@@ -48,6 +48,10 @@ import {
   getCritiquePowerDeconstructionSupplementalExhibit,
 } from '../../data/museum/critiquePowerDeconstructionSupplementalExhibits';
 import {
+  COLONIALISM_RACE_LIBERATION_PALETTE,
+  getColonialismRaceLiberationSupplementalExhibit,
+} from '../../data/museum/colonialismRaceLiberationSupplementalExhibits';
+import {
   MUSEUM_CANONICAL_EXHIBIT_BACKING_MATERIAL,
   MUSEUM_CANONICAL_EXHIBIT_PLINTH_GEOMETRY,
   MUSEUM_CANONICAL_EXHIBIT_PLINTH_MATERIAL,
@@ -318,5 +322,14 @@ export function MoralLifePracticalReasonSupplementalExhibits(props: GallerySuppl
     collection="gallery-24-moral-life-practical-reason-v1"
     ink={MORAL_LIFE_PRACTICAL_REASON_PALETTE.ink}
     getRecord={getMoralLifePracticalReasonSupplementalExhibit}
+  />;
+}
+
+export function ColonialismRaceLiberationSupplementalExhibits(props: GallerySupplementalProps) {
+  return <SupplementalCollection
+    {...props}
+    collection="gallery-26-colonialism-race-liberation-v1"
+    ink={COLONIALISM_RACE_LIBERATION_PALETTE.ink}
+    getRecord={getColonialismRaceLiberationSupplementalExhibit}
   />;
 }

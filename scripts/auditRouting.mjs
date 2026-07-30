@@ -205,10 +205,10 @@ check('Museum convenience, hall, and exhibit routes parse and serialize', () => 
       exhibitCount += 1;
     }
   }
-  assert.equal(MUSEUM_HALLS.length, 24);
-  assert.equal(exhibitCount, 183);
-  assert.equal(MUSEUM_SUPPLEMENTAL_EXHIBITS.length, 370);
-  assert.equal(exhibitCount + MUSEUM_SUPPLEMENTAL_EXHIBITS.length, 553, 'The Museum directory must expose 553 interpreted stops');
+  assert.equal(MUSEUM_HALLS.length, 25);
+  assert.equal(exhibitCount, 186);
+  assert.equal(MUSEUM_SUPPLEMENTAL_EXHIBITS.length, 385);
+  assert.equal(exhibitCount + MUSEUM_SUPPLEMENTAL_EXHIBITS.length, 571, 'The Museum directory must expose 571 interpreted stops');
   for (const {hallId, exhibit} of MUSEUM_SUPPLEMENTAL_EXHIBITS) {
     expectRoundTrip({kind: 'museum', hallId, exhibitId: exhibit.id});
   }
@@ -303,6 +303,14 @@ check('serializers emit the required literal route families', () => {
     serializeHashRoute({kind: 'museum', hallId: 'moral-life-practical-reason', exhibitId: 'derek-parfit'}),
     '#/museum/moral-life-practical-reason/exhibits/derek-parfit',
   );
+  assert.equal(
+    serializeHashRoute({kind: 'museum', hallId: 'colonialism-race-liberation', exhibitId: 'fanon'}),
+    '#/museum/colonialism-race-liberation/exhibits/fanon',
+  );
+  assert.equal(
+    serializeHashRoute({kind: 'museum', hallId: 'colonialism-race-liberation', exhibitId: 'said-orientalism-representation'}),
+    '#/museum/colonialism-race-liberation/exhibits/said-orientalism-representation',
+  );
   assert.equal(serializeHashRoute({kind: 'museum-compatibility', formerHallId: 'renaissance-reason-revolution', exhibitId: 'kant'}), '#/museum/renaissance-reason-revolution/exhibits/kant');
   assert.equal(
     serializeHashRoute({kind: 'branch', branchId: 'stoicism'}),
@@ -335,8 +343,8 @@ check('retired hall and exhibit routes preserve exact aliases or truthful compat
     'ethics-justice-political-life': 'justice-democratic-reason',
     'mind-consciousness-self': 'core-questions-forum',
   });
-  assert.equal(MUSEUM_LIVE_LEGACY_EXHIBIT_COMPATIBILITY.length, 46);
-  assert.equal(MUSEUM_LEGACY_EXHIBIT_COMPATIBILITY.length, 2);
+  assert.equal(MUSEUM_LIVE_LEGACY_EXHIBIT_COMPATIBILITY.length, 47);
+  assert.equal(MUSEUM_LEGACY_EXHIBIT_COMPATIBILITY.length, 1);
   const compatibility = [...MUSEUM_LIVE_LEGACY_EXHIBIT_COMPATIBILITY, ...MUSEUM_LEGACY_EXHIBIT_COMPATIBILITY];
   assert.equal(compatibility.length, 48);
   assert.equal(new Set(compatibility.map(({formerHallId, exhibitId}) => `${formerHallId}/${exhibitId}`)).size, 48);
@@ -468,9 +476,9 @@ check('physical building and reserved expansion IDs are never accepted as public
   const plannedHalls = buildingManifest.nodes.filter(({galleryState}) => galleryState === 'planned-walkable');
   assert.equal(buildingManifest.manifestVersion, 'continuous-enfilade-single-level-v1');
   assert.equal(buildingManifest.status, 'implemented-approved-continuous-enfilade');
-  assert.equal(publicHallIds.length, 24);
+  assert.equal(publicHallIds.length, 25);
   assert.deepEqual(publicHallIds.sort(), MUSEUM_HALLS.map(({id}) => id).sort());
-  assert.equal(plannedHalls.length, 2);
+  assert.equal(plannedHalls.length, 1);
   assert(plannedHalls.every(({publicHallId, fastTravelEligible}) =>
     publicHallId === undefined && fastTravelEligible !== true));
   assert.equal(buildingManifest.reserves.length, 2);
@@ -620,6 +628,14 @@ check('document titles are exhaustive and section-aware', () => {
   );
   assert.equal(getRouteTitle({kind: 'museum', hallId: 'core-questions-forum'}), 'Core Questions Forum | Philosophy Atlas');
   assert.equal(
+    getRouteTitle({kind: 'museum', hallId: 'colonialism-race-liberation'}),
+    'Colonialism, Race, and Liberation | Philosophy Atlas',
+  );
+  assert.equal(
+    getRouteTitle({kind: 'museum', hallId: 'colonialism-race-liberation', exhibitId: 'fanon'}),
+    'Frantz Fanon: Colonial Embodiment, Violence, and Liberation — Colonialism, Race, and Liberation | Philosophy Atlas',
+  );
+  assert.equal(
     getRouteTitle({kind: 'museum', hallId: 'east-asian-continuities'}),
     'Confucian Renewal & East Asian Continuities | Philosophy Atlas',
   );
@@ -682,6 +698,10 @@ check('canonical hashes remain stable under parse → serialize → parse', () =
     '#/museum/core-questions-forum',
     '#/museum/mind-consciousness-self/exhibits/thomas-nagel',
     '#/museum/core-questions-forum/exhibits/jiddu-krishnamurti',
+    '#/museum/colonialism-race-liberation',
+    '#/museum/colonialism-race-liberation/exhibits/fanon',
+    '#/museum/colonialism-race-liberation/exhibits/wynter-humanism-coloniality',
+    '#/museum/ethics-justice-political-life/exhibits/fanon',
     '#/branches/stoicism?section=overview',
     '#/philosophers/plato?section=major-works',
     serializeHashRoute(DEFAULT_ROUTES.compare),

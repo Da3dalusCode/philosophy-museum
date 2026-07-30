@@ -24,6 +24,7 @@ import {
   museumTextureDimensionsForPlane,
 } from '../../data/museum/museumTexturePolicy';
 import {MUSEUM_VISITOR_MAP_KIOSK} from '../../data/museum/museumVisitorMapKioskDefinition';
+import {MuseumGrandEntranceArchitecture} from './MuseumGrandEntranceArchitecture';
 import {MuseumVisitorMapKiosk} from './MuseumVisitorMapKiosk';
 import {usePlaqueTexture} from './plaqueTextures';
 
@@ -200,18 +201,28 @@ function CirculationNode({node}: {node: MuseumRuntimeNodeDefinition}) {
       .filter(({kind}) => kind !== 'visitor-map-kiosk')
       .map((item) => <StructuralBench key={item.id} item={item}/>)}
     {(node.layout.signs ?? []).map((sign) => <AuthoredBuildingSign key={sign.id} sign={sign}/>)}
-    {entranceCell && <BuildingSign
-      title="Philosophy Atlas Museum"
-      kicker="Grand Entrance & Orientation"
-      subtitle="Chronological enfilade · North–south crosscut · 26 galleries on one public level"
-      position={[
-        (entranceCell.bounds.minX + entranceCell.bounds.maxX) / 2,
-        4.25,
-        entranceCell.bounds.maxZ - .2,
-      ]}
-      rotation={Math.PI}
-      width={5.6}
-    />}
+    {entranceCell && <>
+      <MuseumGrandEntranceArchitecture node={node}/>
+      <BuildingSign
+        title="Welcome"
+        kicker="Philosophy Atlas Museum · Grand Entrance"
+        subtitle="Twenty-six galleries · one unfolding conversation"
+        position={[10, 3.05, entranceCell.bounds.minZ + .7]}
+        width={6.7}
+      />
+      <BuildingSign
+        title="Begin the collection"
+        kicker="Gallery 01 · Mediterranean beginnings"
+        subtitle="Nature → argument → the examined life"
+        position={[
+          entranceCell.bounds.minX + .22,
+          4.6,
+          14,
+        ]}
+        rotation={Math.PI / 2}
+        width={4.8}
+      />
+    </>}
   </group>;
 }
 

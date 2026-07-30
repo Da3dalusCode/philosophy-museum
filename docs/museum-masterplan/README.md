@@ -1,10 +1,10 @@
 # Philosophy Atlas Museum masterplan
 
-**Status:** the 26-gallery intellectual program and the dimensioned single-level **Continuous Enfilade** are implemented together. The production runtime contains 24 curated/open galleries, 2 planned/walkable shells, all 105 named rooms, and two closed expansion reserves. Its live directory contains 183 primary exhibits and 370 supplemental/context installations, for 553 interpreted stops. The curated halls expose 250 primary-record capacity with 67 live reserve slots, while the locked whole-program totals remain 189 assigned records and 260 capacity. Compatibility routing retains 46 carried legacy exhibit routes and two explicit displaced-record handoffs to Galleries 25–26.
+**Status:** the 26-gallery intellectual program and the dimensioned single-level **Continuous Enfilade** are implemented together. The production runtime contains 25 curated/open galleries, 1 planned/walkable shell, all 105 named rooms, and two closed expansion reserves. Its live directory contains 186 primary exhibits and 385 supplemental/context installations, for 571 interpreted stops. The curated halls expose 255 primary-record capacity with 69 live reserve slots, while the locked whole-program totals remain 189 assigned records and 260 capacity. Compatibility routing retains 47 carried legacy exhibit routes and one explicit displaced-record handoff to Gallery 25.
 
 ## Whole-building architectural control plan
 
-The earlier Ring diagrams fixed a topology, not a scaled building. Galleries 01–12 were therefore placed incrementally until the complete migration; Galleries 13–24 were curated afterward in their approved physical positions. Public numbers continue to identify releases while the manifest’s separate visit sequence controls physical order, so a promotion never moves, renumbers, or mirrors a shell. All curated hall-local roots remain intact, while the Continuous Enfilade manifest owns their final world positions, orientations, route portals, entrance relationship, and map geometry.
+The earlier Ring diagrams fixed a topology, not a scaled building. Galleries 01–12 were therefore placed incrementally until the complete migration; Galleries 13–24 and Gallery 26 were curated afterward in their approved physical positions. Public numbers continue to identify releases while the manifest’s separate visit sequence controls physical order, so a promotion never moves, renumbers, or mirrors a shell. All curated hall-local roots remain intact, while the Continuous Enfilade manifest owns their final world positions, orientations, route portals, entrance relationship, and map geometry.
 
 The approved complete single-level plan is:
 
@@ -113,7 +113,7 @@ See [Difficult placements](./difficult-placements.md) for the complete reasoning
 
 The hybrid taxonomy and disputed primary homes remain approved. The earlier infrastructure phase supplied real walls and corridors, accessible safe arrivals, a compact loop and spokes, and blocked insertion/outward-expansion reservations. That Ring geometry is now retained only as a rollback artifact. The canonical-six implementation replaced the six temporary public programs with `mediterranean-beginnings-classical`, `renaissance-humanism-new-method`, `phenomenology-existence-embodiment`, `analytic-traditions`, `justice-democratic-reason`, and `core-questions-forum`; later releases expanded the curated roster to Galleries 01–12 before their roots migrated into the Continuous Enfilade.
 
-The old five-hall outer loop and central spokes are migration history, not active geometry. The former outer Mind shell remains retired. Displaced exhibit routes remain aliases or explanatory handoffs to intact Atlas content and planned primary halls.
+The old five-hall outer loop and central spokes are migration history, not active geometry. The former outer Mind shell remains retired. Displaced exhibit routes remain aliases or explanatory handoffs to intact Atlas content and the remaining planned primary hall.
 
 ## Deterministic validation
 
@@ -135,4 +135,4 @@ The template contract treats accessibility as geometry, not decoration. Detailed
 
 ## Scope boundary
 
-This directory remains the long-term planning contract. Its CSV and JSON data assign all 189 Atlas records—146 philosophers and 43 branches—exactly once. The runtime installs the currently curated records in Galleries 01–24, while preserving Galleries 25–26 as honest planned shells. The former 48-installation roster and Ring manifest are retained only as migration/rollback records. Runtime geometry, connections, residency, and visitor-map projection are compiled and audited in the Museum source layer.
+This directory remains the long-term planning contract. Its CSV and JSON data assign all 189 Atlas records—146 philosophers and 43 branches—exactly once. The runtime installs the currently curated records in Galleries 01–24 and Gallery 26, while preserving Gallery 25 as an honest planned shell. The former 48-installation roster and Ring manifest are retained only as migration/rollback records. Runtime geometry, connections, residency, and visitor-map projection are compiled and audited in the Museum source layer.

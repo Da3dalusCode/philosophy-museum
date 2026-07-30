@@ -42,6 +42,10 @@ const galleries23And24PreparationSource = readFileSync(
 const galleries23And24Manifest = JSON.parse(
   readFileSync(resolve(repoRoot, 'scripts/museumGalleries23And24AssetManifest.json'), 'utf8'),
 );
+const gallery26PreparationSource = readFileSync(resolve(repoRoot, 'scripts/prepareMuseumGallery26Assets.py'), 'utf8');
+const gallery26Manifest = JSON.parse(
+  readFileSync(resolve(repoRoot, 'scripts/museumGallery26AssetManifest.json'), 'utf8'),
+);
 const legacyImageDiversityPreparationSource = readFileSync(
   resolve(repoRoot, 'scripts/prepareMuseumLegacyImageReplacements.py'),
   'utf8',
@@ -90,6 +94,7 @@ const result = await build({
       export * from '/src/data/museum/pragmatismSupplementalExhibits.ts';
       export * from '/src/data/museum/critiquePowerDeconstructionSupplementalExhibits.ts';
       export * from '/src/data/museum/moralLifePracticalReasonSupplementalExhibits.ts';
+      export * from '/src/data/museum/colonialismRaceLiberationSupplementalExhibits.ts';
     ` : undefined,
   }],
   build: {
@@ -143,6 +148,8 @@ const {
   CRITIQUE_POWER_DECONSTRUCTION_SUPPLEMENTAL_EXHIBITS,
   MORAL_LIFE_PRACTICAL_REASON_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
   MORAL_LIFE_PRACTICAL_REASON_SUPPLEMENTAL_EXHIBITS,
+  COLONIALISM_RACE_LIBERATION_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
+  COLONIALISM_RACE_LIBERATION_SUPPLEMENTAL_EXHIBITS,
   JUSTICE_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
   JUSTICE_SUPPLEMENTAL_EXHIBITS,
   CORE_QUESTIONS_FORUM_SUPPLEMENTAL_LAYOUTS,
@@ -193,6 +200,7 @@ const ACTIVE_HALL_IDS = [
   'pragmatism-democratic-inquiry',
   'critique-power-deconstruction',
   'moral-life-practical-reason',
+  'colonialism-race-liberation',
 ];
 const MANAGED_HALL_FOLDERS = [
   'analytic-traditions',
@@ -384,6 +392,7 @@ const gallery18ManifestAssets = gallery18Manifest?.assets ?? {};
 const galleries20And21ManifestAssets = galleries20And21Manifest?.assets ?? {};
 const galleries19And22ManifestAssets = galleries19And22Manifest?.assets ?? {};
 const galleries23And24ManifestAssets = galleries23And24Manifest?.assets ?? {};
+const gallery26ManifestAssets = gallery26Manifest?.assets ?? {};
 const assetById = new Map(MUSEUM_ASSETS.map((asset) => [asset.id, asset]));
 const liveExhibits = MUSEUM_HALLS.flatMap((hall) => hall.exhibits.map((exhibit) => ({hall, exhibit})));
 const canonicalReferencedIds = liveExhibits.flatMap(({exhibit}) => [
@@ -416,6 +425,8 @@ const critiquePowerDeconstructionSupplementalReferencedIds =
   CRITIQUE_POWER_DECONSTRUCTION_SUPPLEMENTAL_EXHIBITS.map(({assetId}) => assetId);
 const moralLifePracticalReasonSupplementalReferencedIds =
   MORAL_LIFE_PRACTICAL_REASON_SUPPLEMENTAL_EXHIBITS.map(({assetId}) => assetId);
+const colonialismRaceLiberationSupplementalReferencedIds =
+  COLONIALISM_RACE_LIBERATION_SUPPLEMENTAL_EXHIBITS.map(({assetId}) => assetId);
 const supplementalReferencedIds = [
   ...platoSupplementalReferencedIds,
   ...renaissanceSupplementalReferencedIds,
@@ -441,6 +452,7 @@ const supplementalReferencedIds = [
   ...pragmatismSupplementalReferencedIds,
   ...critiquePowerDeconstructionSupplementalReferencedIds,
   ...moralLifePracticalReasonSupplementalReferencedIds,
+  ...colonialismRaceLiberationSupplementalReferencedIds,
 ];
 const referencedIds = [...canonicalReferencedIds, ...supplementalReferencedIds];
 const physicalSupplementalGroups = [
@@ -468,6 +480,7 @@ const physicalSupplementalGroups = [
   {galleryId: 'pragmatism-democratic-inquiry', records: PRAGMATISM_SUPPLEMENTAL_EXHIBITS, layouts: PRAGMATISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS},
   {galleryId: 'critique-power-deconstruction', records: CRITIQUE_POWER_DECONSTRUCTION_SUPPLEMENTAL_EXHIBITS, layouts: CRITIQUE_POWER_DECONSTRUCTION_SUPPLEMENTAL_EXHIBIT_LAYOUTS},
   {galleryId: 'moral-life-practical-reason', records: MORAL_LIFE_PRACTICAL_REASON_SUPPLEMENTAL_EXHIBITS, layouts: MORAL_LIFE_PRACTICAL_REASON_SUPPLEMENTAL_EXHIBIT_LAYOUTS},
+  {galleryId: 'colonialism-race-liberation', records: COLONIALISM_RACE_LIBERATION_SUPPLEMENTAL_EXHIBITS, layouts: COLONIALISM_RACE_LIBERATION_SUPPLEMENTAL_EXHIBIT_LAYOUTS},
 ];
 const physicalSupplementalAssetIds = physicalSupplementalGroups.flatMap(({layouts}) => layouts.map(({assetId}) => assetId));
 const physicalInstallationAssetIds = [...canonicalReferencedIds, ...physicalSupplementalAssetIds];
@@ -731,13 +744,13 @@ check('Galleries 1–16 classify every textual-media candidate and cap plain pag
   assert.match(legacyImageDiversityPreparationSource, /--refresh-locks/);
 });
 
-check('the canonical twenty-four expose 183 primaries, 370 supplementals, and 553 interpreted stops with resolvable local media', () => {
+check('the canonical twenty-five expose 186 primaries, 385 supplementals, and 571 interpreted stops with resolvable local media', () => {
   assert.deepEqual(MUSEUM_HALLS.map(({id}) => id), ACTIVE_HALL_IDS);
-  assert.equal(MUSEUM_HALLS.length, 24);
-  assert.equal(liveExhibits.length, 183);
-  assert.equal(supplementalReferencedIds.length, 370);
-  assert.equal(liveExhibits.length + supplementalReferencedIds.length, 553);
-  assert.equal(referencedIds.length, 568);
+  assert.equal(MUSEUM_HALLS.length, 25);
+  assert.equal(liveExhibits.length, 186);
+  assert.equal(supplementalReferencedIds.length, 385);
+  assert.equal(liveExhibits.length + supplementalReferencedIds.length, 571);
+  assert.equal(referencedIds.length, 586);
   assert(canonicalReferencedIds.length > 0, 'the live primary program references no local media');
   for (const {hall, exhibit} of liveExhibits) {
     assert(Array.isArray(exhibit.supportingAssetIds), `${hall.id}/${exhibit.id} has no supporting-asset array`);
@@ -1449,6 +1462,116 @@ check('Galleries 23 and 24 fill every room with six new standalone images and pr
   assert.equal(new Set(combinedPhysicalIds).size, 48, 'Galleries 23 and 24 reuse a physical image across galleries');
 });
 
+check('Gallery 26 fills its approved three-room sequence with six unique standalone images per room', () => {
+  const hallId = 'colonialism-race-liberation';
+  const roomIds = [
+    'colonial-embodiment-liberation',
+    'colonial-black-feminism-abolition',
+    'colonial-context-reserve',
+  ];
+  const hall = MUSEUM_HALLS.find(({id}) => id === hallId);
+  const group = physicalSupplementalGroups.find(({galleryId}) => galleryId === hallId);
+  assert(hall && group, 'Gallery 26 is absent from the physical asset audit');
+  assert.equal(hall.exhibits.length, 3, 'Gallery 26 primary count changed');
+  assert.equal(group.records.length, 15, 'Gallery 26 supplemental record count changed');
+  assert.equal(group.layouts.length, 15, 'Gallery 26 supplemental layout count changed');
+  assert.deepEqual(
+    group.layouts.map(({id}) => id).sort(),
+    group.records.map(({id}) => id).sort(),
+    'Gallery 26 supplemental records and layouts diverged',
+  );
+  const primaryIds = hall.exhibits.map(({principalAssetId, supportingAssetIds, id}) => {
+    assert(principalAssetId, `Gallery 26/${id} lacks a principal asset`);
+    assert.equal(supportingAssetIds.length, 0, `Gallery 26/${id} adds an unexpected second physical image`);
+    return principalAssetId;
+  });
+  const physicalIds = [...primaryIds, ...group.layouts.map(({assetId}) => assetId)];
+  assert.equal(physicalIds.length, 18);
+  assert.equal(new Set(physicalIds).size, 18, 'Gallery 26 repeats a physical asset');
+  assert.deepEqual(
+    physicalIds.slice().sort(),
+    Object.keys(gallery26ManifestAssets).sort(),
+    'Gallery 26 source lock does not exactly cover its physical installations',
+  );
+  for (const roomId of roomIds) {
+    const roomAssetIds = [
+      ...hall.exhibits
+        .filter(({roomId: exhibitRoomId}) => exhibitRoomId === roomId)
+        .map(({principalAssetId}) => principalAssetId),
+      ...group.layouts
+        .filter(({spatialCellId}) => spatialCellId === roomId)
+        .map(({assetId}) => assetId),
+    ];
+    assert.equal(roomAssetIds.length, 6, `Gallery 26/${roomId} must retain six physical wall installations`);
+    assert.equal(new Set(roomAssetIds).size, 6, `Gallery 26/${roomId} repeats an image`);
+    for (const id of roomAssetIds) {
+      const lock = gallery26ManifestAssets[id];
+      assert(lock, `Gallery 26/${roomId}/${id} lacks a source lock`);
+      assert.equal(lock.textDominantOrSingleBook, false, `Gallery 26/${roomId}/${id} violates the no paper-only/lone-book gate`);
+      assert.notEqual(lock.visualCharacter, 'text-dominant', `Gallery 26/${roomId}/${id} is text-dominant`);
+    }
+  }
+  const visualCharacters = new Set(
+    physicalIds.map((id) => gallery26ManifestAssets[id]?.visualCharacter).filter(Boolean),
+  );
+  assert(
+    visualCharacters.size >= 4,
+    `Gallery 26 needs at least four visual-character groups; found ${[...visualCharacters].sort().join(', ')}`,
+  );
+});
+
+check('Gallery 26 media keeps documented likenesses and contextual time-place caveats explicit', () => {
+  for (const [id, entityId] of [
+    ['colonial-fanon-portrait', 'fanon'],
+    ['colonial-davis-portrait', 'angela-davis'],
+    ['colonial-hooks-portrait', 'bell-hooks'],
+  ]) {
+    const asset = assetById.get(id);
+    assert(asset, `${id} is absent from the Gallery 26 asset registry`);
+    assert.equal(asset.entityId, entityId, `${id} is attached to the wrong philosopher`);
+    assert.equal(asset.role, 'identity', `${id} must remain an identity image`);
+    assert.equal(asset.mediaKind, 'photograph', `${id} must remain a documented photograph`);
+    assert.equal(asset.likenessStatus, 'lifetime-photograph', `${id} must remain a documented lifetime photograph`);
+  }
+
+  for (const id of [
+    'colonial-fanon-racial-schema',
+    'colonial-fanon-clinic',
+    'colonial-davis-prison-abolition',
+    'colonial-hooks-engaged-pedagogy',
+  ]) {
+    const asset = assetById.get(id);
+    assert(asset, `${id} is absent from the Gallery 26 asset registry`);
+    assert.equal(asset.role, 'context', `${id} must remain contextual rather than a likeness`);
+    assert.equal(asset.likenessStatus, 'not-applicable', `${id} must not imply a likeness`);
+  }
+
+  for (const id of Object.keys(gallery26ManifestAssets)) {
+    const asset = assetById.get(id);
+    assert(asset, `${id} is absent from the Gallery 26 asset registry`);
+    assert.doesNotMatch(
+      `${asset.title} ${asset.alt} ${asset.caption} ${asset.historicalNote}`,
+      /\bnegro\b/iu,
+      `${id} leaks a historical source-file slur into visitor-facing copy`,
+    );
+  }
+
+  const racialSchema = assetById.get('colonial-fanon-racial-schema');
+  assert.match(racialSchema?.historicalNote ?? '', /Oklahoma/iu, 'Fanon racial-schema context omits its Oklahoma location');
+  assert.match(racialSchema?.historicalNote ?? '', /Fanon/iu, 'Fanon racial-schema context omits its interpretive distance from Fanon');
+  const clinic = assetById.get('colonial-fanon-clinic');
+  assert.match(clinic?.historicalNote ?? '', /1933/iu, 'Fanon clinic context omits its 1933 date');
+  assert.match(clinic?.historicalNote ?? '', /(?:before|predat)[\s\S]*Fanon|Fanon[\s\S]*(?:before|predat)/iu, 'Fanon clinic context omits that the photograph predates Fanon');
+  const abolition = assetById.get('colonial-davis-prison-abolition');
+  assert.match(abolition?.historicalNote ?? '', /Belmarsh/iu, 'Davis abolition context omits its Belmarsh location');
+  assert.match(abolition?.historicalNote ?? '', /(?:contemporary|202\d)/iu, 'Davis abolition context omits that the image is contemporary');
+  assert.match(abolition?.historicalNote ?? '', /Davis/iu, 'Davis abolition context omits its interpretive distance from Davis');
+  const pedagogy = assetById.get('colonial-hooks-engaged-pedagogy');
+  assert.match(pedagogy?.historicalNote ?? '', /1940/iu, 'hooks pedagogy context omits its historical date');
+  assert.match(pedagogy?.historicalNote ?? '', /hooks/iu, 'hooks pedagogy context omits its interpretive distance from hooks');
+  assert.match(pedagogy?.historicalNote ?? '', /\bnot\b|\bbefore\b|\bpredat/iu, 'hooks pedagogy context risks presenting the classroom as a scene from hooks’s work');
+});
+
 check('every physical installation has a museum-wide unique asset, source page, and derivative hash', () => {
   for (const {galleryId, records, layouts} of physicalSupplementalGroups) {
     assert.equal(layouts.length, records.length, `${galleryId} supplemental record and physical-layout counts diverged`);
@@ -1487,11 +1610,11 @@ check('every physical installation has a museum-wide unique asset, source page, 
   assert(unique(physicalAssets.map(({variants}) => sha256(exactCasePath(variants.panel.path)))), 'two physical installations reuse identical panel bytes');
 });
 
-check('the preserved asset registry contains 610 unique records and derivative paths', () => {
-  assert.equal(MUSEUM_ASSETS.length, 610);
-  assert.equal(assetById.size, 610);
+check('the preserved asset registry contains 628 unique records and derivative paths', () => {
+  assert.equal(MUSEUM_ASSETS.length, 628);
+  assert.equal(assetById.size, 628);
   const variantPaths = MUSEUM_ASSETS.flatMap(({variants}) => [variants.scene.path, variants.panel.path]);
-  assert.equal(variantPaths.length, 1220);
+  assert.equal(variantPaths.length, 1256);
   assert(unique(variantPaths), 'two asset variants share a derivative path');
   for (const id of NEW_CANONICAL_ASSET_IDS) assert(assetById.has(id), `new canonical asset ${id} is missing`);
   for (const id of MEDITERRANEAN_ASSET_IDS) assert(assetById.has(id), `Gallery 01 asset ${id} is missing`);
@@ -1600,7 +1723,7 @@ check('every registered variant is exact-case local WebP media with locked dimen
   }
 });
 
-check('the 315-source modern-manifest subset excludes all separately locked Gallery 01 and Galleries 13–24 media', () => {
+check('the 315-source modern-manifest subset excludes all separately locked Gallery 01 and Galleries 13–26 media', () => {
   assert.equal(modernManifest.version, 1);
   assert.equal(Object.keys(manifestAssets).length, 315);
   const managedAssets = MUSEUM_ASSETS.filter(({variants}) =>
@@ -1616,7 +1739,8 @@ check('the 315-source modern-manifest subset excludes all separately locked Gall
       && !variants.scene.path.startsWith('assets/museum/faith-pessimism-life-value/')
       && !variants.scene.path.startsWith('assets/museum/pragmatism-democratic-inquiry/')
       && !variants.scene.path.startsWith('assets/museum/critique-power-deconstruction/')
-      && !variants.scene.path.startsWith('assets/museum/moral-life-practical-reason/'));
+      && !variants.scene.path.startsWith('assets/museum/moral-life-practical-reason/')
+      && !variants.scene.path.startsWith('assets/museum/colonialism-race-liberation/'));
   assert.equal(managedAssets.length, 315);
   assert.deepEqual(Object.keys(manifestAssets).sort(), managedAssets.map(({id}) => id).sort());
   assert.match(preparationSource, /MANIFEST_PATH = ROOT \/ "scripts" \/ "museumModernAssetManifest\.json"/);
@@ -2227,6 +2351,88 @@ check('the 48-source Galleries 23 and 24 lock reproduces every derivative withou
   });
 });
 
+check('the 18-source Gallery 26 lock reproduces every derivative without source or hash reuse', () => {
+  assert.equal(gallery26Manifest.version, 1);
+  assert.equal(Object.keys(gallery26ManifestAssets).length, 18);
+  assert.match(gallery26PreparationSource, /museumGallery26AssetManifest\.json/);
+  assert.match(gallery26PreparationSource, /EXPECTED_ASSET_COUNT = 18/);
+  assert.match(gallery26PreparationSource, /EXPECTED_VISUAL_CHARACTER_MINIMUM = 4/);
+  assert.match(gallery26PreparationSource, /NEAR_DUPLICATE_DISTANCE_LIMIT = 6/);
+  assert.match(gallery26PreparationSource, /assert_locked\(/);
+  assert.match(gallery26PreparationSource, /"sha256": sha256\(destination\)/);
+  assert.match(gallery26PreparationSource, /textDominantOrSingleBook/);
+  assert.match(gallery26PreparationSource, /assert_no_local_asset_collisions/);
+  assert.match(gallery26PreparationSource, /--refresh-locks/);
+
+  const previousManifestAssets = {
+    ...manifestAssets,
+    ...mediterraneanManifestAssets,
+    ...successorManifestAssets,
+    ...galleries13And16ManifestAssets,
+    ...gallery17ManifestAssets,
+    ...gallery18ManifestAssets,
+    ...galleries20And21ManifestAssets,
+    ...galleries19And22ManifestAssets,
+    ...galleries23And24ManifestAssets,
+  };
+  const previouslyLockedIds = new Set(Object.keys(previousManifestAssets));
+  assert.equal(previouslyLockedIds.size, 594, 'The pre-Gallery-26 source-lock inventories overlap');
+  const previousSourcePages = new Set(Object.values(previousManifestAssets).map(({sourcePageUrl}) => sourcePageUrl));
+  const previousSceneHashes = new Set(Object.values(previousManifestAssets).map(({scene}) => scene.sha256));
+  const previousPanelHashes = new Set(Object.values(previousManifestAssets).map(({panel}) => panel.sha256));
+  const sourcePages = [];
+  const sceneHashes = [];
+  const panelHashes = [];
+  const visualCharacters = new Set();
+
+  for (const [id, lock] of Object.entries(gallery26ManifestAssets)) {
+    assert(!previouslyLockedIds.has(id), `${id} is redundantly owned by an older preparation manifest`);
+    const asset = assetById.get(id);
+    assert(asset, `${id} Gallery 26 lock has no asset record`);
+    assert.equal(lock.hallFolder, 'colonialism-race-liberation', `${id} has an invalid Gallery 26 folder`);
+    assert.equal(lock.sourcePageUrl, asset.sourcePageUrl, `${id} source lock differs from runtime provenance`);
+    assert.equal(lock.visualCharacter, asset.visualCharacter, `${id} visual-character lock differs from runtime metadata`);
+    assert.equal(lock.textDominantOrSingleBook, false, `${id} violates the no paper-only/lone-book gate`);
+    assert.notEqual(lock.visualCharacter, 'text-dominant', `${id} is text-dominant`);
+    visualCharacters.add(lock.visualCharacter);
+    for (const field of ['sourcePageUrl', 'sourceImageUrl', 'selectedThumbnailUrl']) {
+      assert(lock[field]?.startsWith('https://'), `${id}.${field} must be locked HTTPS`);
+    }
+    assert.equal(new URL(lock.sourcePageUrl).hostname, 'commons.wikimedia.org', `${id} source page must use Commons`);
+    assert(new URL(lock.sourcePageUrl).pathname.startsWith('/wiki/File:'), `${id} source page must identify an exact Commons file`);
+    assert(!previousSourcePages.has(lock.sourcePageUrl), `${id} reuses a source page owned by an earlier manifest`);
+    sourcePages.push(lock.sourcePageUrl);
+    for (const variantName of ['scene', 'panel']) {
+      const variant = asset.variants[variantName];
+      const expected = lock[variantName];
+      assert(expected, `${id}.${variantName} Gallery 26 lock is missing`);
+      assert(Number.isSafeInteger(expected.width) && expected.width > 0, `${id}.${variantName}.width is invalid`);
+      assert(Number.isSafeInteger(expected.height) && expected.height > 0, `${id}.${variantName}.height is invalid`);
+      assert(Number.isSafeInteger(expected.bytes) && expected.bytes > 0, `${id}.${variantName}.bytes is invalid`);
+      assert.match(expected.sha256 ?? '', /^[0-9a-f]{64}$/, `${id}.${variantName}.sha256 is invalid`);
+      assert.equal(variant.path, `assets/museum/colonialism-race-liberation/${id}-${variantName}.webp`);
+      assert.equal(variant.width, expected.width, `${id}.${variantName} width differs from its lock`);
+      assert.equal(variant.height, expected.height, `${id}.${variantName} height differs from its lock`);
+      const path = exactCasePath(variant.path);
+      assert.equal(statSync(path).size, expected.bytes, `${id}.${variantName} byte count drifted`);
+      assert.equal(sha256(path), expected.sha256, `${id}.${variantName} SHA-256 drifted`);
+      assert.deepEqual(webpDimensions(path), {width: expected.width, height: expected.height}, `${id}.${variantName} locked dimensions drifted`);
+      if (variantName === 'scene') {
+        assert(!previousSceneHashes.has(expected.sha256), `${id}.scene reuses bytes owned by an earlier manifest`);
+        sceneHashes.push(expected.sha256);
+      } else {
+        assert(!previousPanelHashes.has(expected.sha256), `${id}.panel reuses bytes owned by an earlier manifest`);
+        panelHashes.push(expected.sha256);
+      }
+    }
+  }
+  assert.equal(previouslyLockedIds.size + Object.keys(gallery26ManifestAssets).length, 612);
+  assert.equal(visualCharacters.size >= 4, true, 'Gallery 26 has insufficient visual-character diversity');
+  assert(unique(sourcePages), 'Gallery 26 reuses an exact source page');
+  assert(unique(sceneHashes), 'Gallery 26 reuses identical scene bytes');
+  assert(unique(panelHashes), 'Gallery 26 reuses identical panel bytes');
+});
+
 check('Galleries 14–15 fill 43 unique physical installations without image reuse', () => {
   const expected = new Map([
     ['hellenistic-roman-ways', {primary: 18, supplemental: 7, physical: 25}],
@@ -2247,7 +2453,7 @@ check('Galleries 14–15 fill 43 unique physical installations without image reu
   }
 });
 
-check('the committed Museum inventory contains exactly the 1220 registered derivatives', () => {
+check('the committed Museum inventory contains exactly the 1256 registered derivatives', () => {
   const actual = walkFiles(museumMediaRoot).map(toPublicPath).sort();
   const expected = MUSEUM_ASSETS.flatMap(({variants}) => [variants.scene.path, variants.panel.path]).sort();
   assert.deepEqual(actual, expected);
@@ -2280,4 +2486,4 @@ check('scene-media policy keeps local images unlit, front-facing, and clear of f
   assert.doesNotMatch(sceneMediaSource, /sourcePageUrl|objectPageUrl|selectedThumbnailUrl/);
 });
 
-console.log(`\nMuseum asset audit passed: ${checks} groups, ${MUSEUM_ASSETS.length} provenance records, ${MUSEUM_ASSETS.length * 2} local derivatives, ${Object.keys(manifestAssets).length * 2 + Object.keys(mediterraneanManifestAssets).length * 2 + Object.keys(successorManifestAssets).length * 2 + Object.keys(galleries13And16ManifestAssets).length * 2 + Object.keys(gallery17ManifestAssets).length * 2 + Object.keys(gallery18ManifestAssets).length * 2 + Object.keys(galleries20And21ManifestAssets).length * 2 + Object.keys(galleries19And22ManifestAssets).length * 2 + Object.keys(galleries23And24ManifestAssets).length * 2} exact hash locks, and ${referencedIds.length} live media placements.`);
+console.log(`\nMuseum asset audit passed: ${checks} groups, ${MUSEUM_ASSETS.length} provenance records, ${MUSEUM_ASSETS.length * 2} local derivatives, ${Object.keys(manifestAssets).length * 2 + Object.keys(mediterraneanManifestAssets).length * 2 + Object.keys(successorManifestAssets).length * 2 + Object.keys(galleries13And16ManifestAssets).length * 2 + Object.keys(gallery17ManifestAssets).length * 2 + Object.keys(gallery18ManifestAssets).length * 2 + Object.keys(galleries20And21ManifestAssets).length * 2 + Object.keys(galleries19And22ManifestAssets).length * 2 + Object.keys(galleries23And24ManifestAssets).length * 2 + Object.keys(gallery26ManifestAssets).length * 2} exact hash locks, and ${referencedIds.length} live media placements.`);

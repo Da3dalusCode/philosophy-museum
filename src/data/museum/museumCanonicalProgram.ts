@@ -40,6 +40,7 @@ export const MUSEUM_CANONICAL_HALL_IDS = [
   'pragmatism-democratic-inquiry',
   'critique-power-deconstruction',
   'moral-life-practical-reason',
+  'colonialism-race-liberation',
 ] as const;
 
 export type MuseumCanonicalHallId = (typeof MUSEUM_CANONICAL_HALL_IDS)[number];
@@ -185,6 +186,9 @@ export const MUSEUM_CANONICAL_ROOM_IDS = [
   'moral-character-virtue',
   'moral-duty-consequence',
   'moral-rights-persons-futures',
+  'colonial-embodiment-liberation',
+  'colonial-black-feminism-abolition',
+  'colonial-context-reserve',
 ] as const;
 
 export type MuseumCanonicalRoomId = (typeof MUSEUM_CANONICAL_ROOM_IDS)[number];
@@ -286,6 +290,7 @@ export const MUSEUM_PUBLIC_GALLERY_NUMBERS = {
   'pragmatism-democratic-inquiry': 22,
   'critique-power-deconstruction': 23,
   'moral-life-practical-reason': 24,
+  'colonialism-race-liberation': 26,
 } as const satisfies Readonly<Record<MuseumCanonicalHallId, number>>;
 
 const exhibit = <const Record extends MuseumCanonicalExhibit>(record: Record) => ({
@@ -976,6 +981,25 @@ export const MUSEUM_CANONICAL_PROGRAM = [
       ]},
     ],
   },
+  {
+    id: 'colonialism-race-liberation',
+    wingId: 'wing-ethics-politics-society',
+    title: 'Colonialism, Race, and Liberation',
+    templateId: 'sequence-3',
+    period: '19th–21st centuries',
+    description: 'Follow anticolonial philosophy from Fanon’s analysis of racialized embodiment, colonial psychiatry, revolutionary violence, and national consciousness through Black feminist abolition, engaged pedagogy, postcolonial representation, language, and contested projects of decolonizing the human.',
+    recordCapacity: 5,
+    rooms: [
+      {id: 'colonial-embodiment-liberation', title: 'Colonial embodiment, violence, psychiatry, and liberation', recordCapacity: 1, exhibits: [
+        exhibit({id: 'fanon', entityKind: 'philosopher', entityId: 'fanon', displayName: 'Frantz Fanon: Colonial Embodiment, Violence, and Liberation', tier: 'anchor-exhibit', question: 'How does colonial domination enter bodies, identities, institutions, and struggles for liberation?', secondaryHallIds: ['critique-power-deconstruction', 'justice-democratic-reason', 'phenomenology-existence-embodiment'], formerHallId: 'ethics-justice-political-life', principalAssetId: 'colonial-fanon-portrait'}),
+      ]},
+      {id: 'colonial-black-feminism-abolition', title: 'Black feminism, abolition, education, culture, and love', recordCapacity: 2, exhibits: [
+        exhibit({id: 'angela-davis', entityKind: 'philosopher', entityId: 'angela-davis', displayName: 'Angela Davis: Abolition, Black Feminism, and Collective Freedom', tier: 'anchor-exhibit', question: 'How do prisons, policing, racial capitalism, gender, and organized struggle shape what freedom can mean beyond reform?', secondaryHallIds: ['feminist-philosophies', 'justice-democratic-reason'], principalAssetId: 'colonial-davis-portrait'}),
+        exhibit({id: 'bell-hooks', entityKind: 'philosopher', entityId: 'bell-hooks', displayName: 'bell hooks: Engaged Pedagogy, Cultural Criticism, and Love', tier: 'anchor-exhibit', question: 'How can education, cultural criticism, and an ethic of love resist interlocking structures of race, class, and gender?', secondaryHallIds: ['feminist-philosophies', 'justice-democratic-reason'], principalAssetId: 'colonial-hooks-portrait'}),
+      ]},
+      {id: 'colonial-context-reserve', title: 'Anticolonial, postcolonial, Africana, and decolonial continuities', recordCapacity: 2, exhibits: []},
+    ],
+  },
 ] as const satisfies readonly MuseumCanonicalHall[];
 
 export const MUSEUM_HALL_ROUTE_ALIASES = {
@@ -1030,7 +1054,6 @@ const displaced = (
 
 export const MUSEUM_LEGACY_EXHIBIT_COMPATIBILITY = [
   displaced('modernity-freedom-critique', 'philosopher', 'beauvoir', 'Simone de Beauvoir', 'feminist-philosophies', 'become-secondary-later'),
-  displaced('ethics-justice-political-life', 'philosopher', 'fanon', 'Frantz Fanon', 'colonialism-race-liberation', 'become-secondary-later'),
 ] as const satisfies readonly MuseumLegacyExhibitCompatibility[];
 
 const canonicalProgramForIndexes: readonly MuseumCanonicalHall[] = MUSEUM_CANONICAL_PROGRAM;

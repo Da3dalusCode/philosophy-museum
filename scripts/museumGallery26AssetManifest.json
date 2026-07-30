@@ -1,0 +1,401 @@
+{
+  "version": 1,
+  "assets": {
+    "colonial-fanon-portrait": {
+      "hallFolder": "colonialism-race-liberation",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:02_Frantz-Fanon-lors-dune-conf%C3%A9rence-de-presse-du-Congr%C3%A8s-des-%C3%A9crivains-%C3%A0-Tunis-1959.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/02_Frantz-Fanon-lors-dune-conf%C3%A9rence-de-presse-du-Congr%C3%A8s-des-%C3%A9crivains-%C3%A0-Tunis-1959.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/02_Frantz-Fanon-lors-dune-conf%C3%A9rence-de-presse-du-Congr%C3%A8s-des-%C3%A9crivains-%C3%A0-Tunis-1959.jpg?width=1600",
+      "visualCharacter": "portrait-or-figure",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 444,
+        "bytes": 60662,
+        "sha256": "192a833800860c60bc969aa22980899937abfce77af08cef3d3784e2422125ab"
+      },
+      "panel": {
+        "width": 950,
+        "height": 659,
+        "bytes": 158028,
+        "sha256": "77980b9c314532dd9a062c23e2d8dc08c5938df80c7f25e28669e9fff433ed07"
+      }
+    },
+    "colonial-fanon-racial-schema": {
+      "hallFolder": "colonialism-race-liberation",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Negro_drinking_at_%22Colored%22_water_cooler_in_streetcar_terminal,_Oklahoma_City,_Oklahoma_by_Russell_Lee.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Negro_drinking_at_%22Colored%22_water_cooler_in_streetcar_terminal,_Oklahoma_City,_Oklahoma_by_Russell_Lee.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Negro_drinking_at_%22Colored%22_water_cooler_in_streetcar_terminal,_Oklahoma_City,_Oklahoma_by_Russell_Lee.jpg?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 430,
+        "bytes": 24928,
+        "sha256": "9eb35ecf16d0c736e5c6fac90c27978e222ae2cd7bac93ac9fbe26618a698561"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 861,
+        "bytes": 145162,
+        "sha256": "acb7ee360f0dfc01a597de7e7976d764ddc238662a49376e3397c56c428cdb3d"
+      }
+    },
+    "colonial-fanon-clinic": {
+      "hallFolder": "colonialism-race-liberation",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Frantz_Fanon_hospital_in_1933.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Frantz_Fanon_hospital_in_1933.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Frantz_Fanon_hospital_in_1933.jpg?width=1600",
+      "visualCharacter": "place-or-architecture",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 446,
+        "bytes": 64410,
+        "sha256": "320fc870c172c15f85d171f515534dc6f9e4b86ac50cd62fd519fcbd678d16f3"
+      },
+      "panel": {
+        "width": 738,
+        "height": 514,
+        "bytes": 100906,
+        "sha256": "e017301bde24607e0c946dff7aea3321d9e0581e0ed8c358a1d63947d0e70146"
+      }
+    },
+    "colonial-fanon-algerian-revolution": {
+      "hallFolder": "colonialism-race-liberation",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:A_female_fighter_of_the_Front_de_Lib%C3%A9ration_Nationale_(FLN).jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/A_female_fighter_of_the_Front_de_Lib%C3%A9ration_Nationale_(FLN).jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/A_female_fighter_of_the_Front_de_Lib%C3%A9ration_Nationale_(FLN).jpg?width=1600",
+      "visualCharacter": "portrait-or-figure",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 334,
+        "bytes": 22796,
+        "sha256": "f773ca7f2b552ed3b1e7eeb81d339d98167d14dd796b0e760a297341a8def39b"
+      },
+      "panel": {
+        "width": 670,
+        "height": 350,
+        "bytes": 31664,
+        "sha256": "c76fa25dbe29736c86a6468e7fbd41cd1309b5c17723717280f264a881348bb5"
+      }
+    },
+    "colonial-fanon-war-displacement": {
+      "hallFolder": "colonialism-race-liberation",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:R%C3%A9fugi%C3%A9s_algeriens_dans_des_grottes_1958_(cropped).jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/R%C3%A9fugi%C3%A9s_algeriens_dans_des_grottes_1958_(cropped).jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/R%C3%A9fugi%C3%A9s_algeriens_dans_des_grottes_1958_(cropped).jpg?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 453,
+        "height": 640,
+        "bytes": 41834,
+        "sha256": "353ec19d3c8bcf55580de15b4b8f2aaef0b48561132bd8eae32d0d54959f2ade"
+      },
+      "panel": {
+        "width": 905,
+        "height": 1280,
+        "bytes": 207070,
+        "sha256": "fe30af68274485504ae8fda98fafd6ca9332c8b7253129a0e9e02adaf2c89d1e"
+      }
+    },
+    "colonial-fanon-national-consciousness": {
+      "hallFolder": "colonialism-race-liberation",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Celebration_of_National_Independence_Day_(Algeria).jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Celebration_of_National_Independence_Day_(Algeria).jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Celebration_of_National_Independence_Day_(Algeria).jpg?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 360,
+        "bytes": 42606,
+        "sha256": "6a8d1e94b3300de364017ba65bd31255e4d9e7216d641ef79a15f5fe7f7ba0df"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 720,
+        "bytes": 160750,
+        "sha256": "3d136c8e079514f42c33343829342dba3b1bd256d8934900a474a2827cf2b2af"
+      }
+    },
+    "colonial-davis-portrait": {
+      "hallFolder": "colonialism-race-liberation",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Angela-Davis-Mar-28-2006.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Angela-Davis-Mar-28-2006.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Angela-Davis-Mar-28-2006.jpg?width=1600",
+      "visualCharacter": "portrait-or-figure",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 480,
+        "bytes": 21722,
+        "sha256": "ec2a9a9fe7ec60e53bc3fa538ac8fabe67b2d2a8a7a663fa40a3fd6280ced5f2"
+      },
+      "panel": {
+        "width": 1067,
+        "height": 800,
+        "bytes": 96602,
+        "sha256": "165d4f0c4e8a7df50bc9dc24e171f79e0b452ca10dca5f034964f8309cb0199e"
+      }
+    },
+    "colonial-hooks-portrait": {
+      "hallFolder": "colonialism-race-liberation",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Bellhooks.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Bellhooks.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Bellhooks.jpg?width=1600",
+      "visualCharacter": "portrait-or-figure",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 503,
+        "bytes": 26842,
+        "sha256": "f8006516d297bdf5718b28a4942ac6e5f453227e5d0a140f46affa1b18014729"
+      },
+      "panel": {
+        "width": 764,
+        "height": 600,
+        "bytes": 55732,
+        "sha256": "d7c5a01beb94ea5dcc69836911a94617183f177358b46e3888c98333bca046e7"
+      }
+    },
+    "colonial-davis-prison-abolition": {
+      "hallFolder": "colonialism-race-liberation",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Abolish_All_Prisons_Protest_outside_Belmarsh_Prison.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Abolish_All_Prisons_Protest_outside_Belmarsh_Prison.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Abolish_All_Prisons_Protest_outside_Belmarsh_Prison.jpg?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 360,
+        "bytes": 55442,
+        "sha256": "c355cd769c63b2e72a0086109d202f76208acb040f253d904698f63a3801f2d7"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 720,
+        "bytes": 289028,
+        "sha256": "c95ec06d5a6766d6bc3a93db8526f924675e1f4ab299e11942557dcb07654db9"
+      }
+    },
+    "colonial-davis-race-gender-class": {
+      "hallFolder": "colonialism-race-liberation",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:%22The_National_Council_of_Negro_Women_entertained_British_war_workers_representing_labor_unions_and_American_labor_women_-_NARA_-_535812.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/%22The_National_Council_of_Negro_Women_entertained_British_war_workers_representing_labor_unions_and_American_labor_women_-_NARA_-_535812.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/%22The_National_Council_of_Negro_Women_entertained_British_war_workers_representing_labor_unions_and_American_labor_women_-_NARA_-_535812.jpg?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 519,
+        "bytes": 55382,
+        "sha256": "8f06b309851e43ec4f675b5e0c5031c80b52534290352df615ca97cf3e31c3d0"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 1039,
+        "bytes": 261880,
+        "sha256": "33c7d84b38cdc33d86cc9d4b55f5f14cfbacee4e476fced2ffbf32588df1bf82"
+      }
+    },
+    "colonial-hooks-margin-center": {
+      "hallFolder": "colonialism-race-liberation",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Negro_going_in_colored_entrance_of_movie_house_on_Saturday_afternoon,_Belzoni,_Mississippi_Delta,_Mississippi_LOC_3549667550.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Negro_going_in_colored_entrance_of_movie_house_on_Saturday_afternoon,_Belzoni,_Mississippi_Delta,_Mississippi_LOC_3549667550.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Negro_going_in_colored_entrance_of_movie_house_on_Saturday_afternoon,_Belzoni,_Mississippi_Delta,_Mississippi_LOC_3549667550.jpg?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 458,
+        "bytes": 52660,
+        "sha256": "2a235342db2fe450bbc9fc868ff607c9fb9928207cdf2f73bccc8d3eb738434b"
+      },
+      "panel": {
+        "width": 1024,
+        "height": 733,
+        "bytes": 143778,
+        "sha256": "4d37b73921400bdac9c9bb09faa6c9b8023db7f381e20fd4f382ef5f9425a81f"
+      }
+    },
+    "colonial-hooks-engaged-pedagogy": {
+      "hallFolder": "colonialism-race-liberation",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Schoolchildren_reading_with_teacher_1940.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Schoolchildren_reading_with_teacher_1940.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Schoolchildren_reading_with_teacher_1940.jpg?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 473,
+        "height": 640,
+        "bytes": 38290,
+        "sha256": "76face30866f516ea3a3d71d911778ed6efac3539a12876eb812db41213ce665"
+      },
+      "panel": {
+        "width": 698,
+        "height": 944,
+        "bytes": 116222,
+        "sha256": "a9e11093edf521240589b90a647ddd587a81a6fd387fdccc4cfa9614b308f56b"
+      }
+    },
+    "colonial-cesaire-anticolonialism": {
+      "hallFolder": "colonialism-race-liberation",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:1760_Plan_of_Martinique.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/1760_Plan_of_Martinique.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/1760_Plan_of_Martinique.jpg?width=1600",
+      "visualCharacter": "map-or-diagram",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 597,
+        "bytes": 94670,
+        "sha256": "28638423e4d87dbc0aff24bdc21389b977bd88d03e8b02327065d39e969e4bc4"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 1195,
+        "bytes": 529778,
+        "sha256": "6c166cb0b6982a2fa38f90e619096584567788242dbf5170860ff8f763341a71"
+      }
+    },
+    "colonial-dubois-pan-africanism": {
+      "hallFolder": "colonialism-race-liberation",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Pan-African_Congress,_Paris,_February_19-22,_1919.png",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Pan-African_Congress,_Paris,_February_19-22,_1919.png",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Pan-African_Congress,_Paris,_February_19-22,_1919.png?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 415,
+        "bytes": 54564,
+        "sha256": "3ba1596e4ee5911ee93f999dc40af95caae539f3c41b62fd2f3e6818bdf934f1"
+      },
+      "panel": {
+        "width": 1070,
+        "height": 694,
+        "bytes": 155070,
+        "sha256": "0f1dac1cd72fb44a1b9ff08284f887cb5cf7eb89970ce28ec0eecb81b89617dc"
+      }
+    },
+    "colonial-said-orientalism": {
+      "hallFolder": "colonialism-race-liberation",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Women_of_Algiers_in_Their_Apartment_by_Eug%C3%A8ne_Delacroix_(Houston).jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Women_of_Algiers_in_Their_Apartment_by_Eug%C3%A8ne_Delacroix_(Houston).jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Women_of_Algiers_in_Their_Apartment_by_Eug%C3%A8ne_Delacroix_(Houston).jpg?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 521,
+        "height": 640,
+        "bytes": 48720,
+        "sha256": "8fcdd6a2da97ffa4c41fb76108df9864314b9cfc0b69bf41c4994399717b06c1"
+      },
+      "panel": {
+        "width": 834,
+        "height": 1024,
+        "bytes": 138220,
+        "sha256": "c651bde6fe52b3f9a9c8abb7225f6e6b065ef497e46f75997310424e2f3c72ba"
+      }
+    },
+    "colonial-spivak-subaltern": {
+      "hallFolder": "colonialism-race-liberation",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:BengalPartition1905_Map.png",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/BengalPartition1905_Map.png",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/BengalPartition1905_Map.png?width=1600",
+      "visualCharacter": "map-or-diagram",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 424,
+        "bytes": 32944,
+        "sha256": "9b5937791a3bdce947247f50843aea8329bfbb7185e9b349371e4e2205e07a8b"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 849,
+        "bytes": 116234,
+        "sha256": "726877354f277c8128cae5a7e6951ead52b922b5120f48486e9564844b2a3cff"
+      }
+    },
+    "colonial-ngugi-language": {
+      "hallFolder": "colonialism-race-liberation",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Primary_School_Class,_Kikuyu,_Kenya,_ca.1905-ca.1940_(imp-cswc-GB-237-CSWC47-LS7-024).jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Primary_School_Class,_Kikuyu,_Kenya,_ca.1905-ca.1940_(imp-cswc-GB-237-CSWC47-LS7-024).jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Primary_School_Class,_Kikuyu,_Kenya,_ca.1905-ca.1940_(imp-cswc-GB-237-CSWC47-LS7-024).jpg?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 640,
+        "bytes": 51806,
+        "sha256": "421b839e9597218ab7254f493ab024cb0f8a2a33c65c69f1ac17ed40ef004272"
+      },
+      "panel": {
+        "width": 1279,
+        "height": 1280,
+        "bytes": 344234,
+        "sha256": "110a75f7d58b7f1128b55880b6675613ca24a2739162d25d334c79af3b6d8f02"
+      }
+    },
+    "colonial-wynter-humanism": {
+      "hallFolder": "colonialism-race-liberation",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:The_Jamaica_Insurrection.png",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/The_Jamaica_Insurrection.png",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/The_Jamaica_Insurrection.png?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 431,
+        "bytes": 95132,
+        "sha256": "f6c1275bfc21bed6392df55b6f874ffab84eadcb739e325fe40b3a07169bdf40"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 861,
+        "bytes": 387802,
+        "sha256": "c613810d1b3ad98dfe84a1e531e5416a49939c22bc3a4733cad38bd7d5242b1c"
+      }
+    }
+  }
+}

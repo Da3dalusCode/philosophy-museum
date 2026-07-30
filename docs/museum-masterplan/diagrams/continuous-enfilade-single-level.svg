@@ -212,7 +212,7 @@
   </text>
 
   <!-- Band 6: east to west. -->
-  <rect class="planned" x="70" y="58" width="56" height="24"/>
+  <rect class="open" x="70" y="58" width="56" height="24"/>
   <text class="small" x="98" y="63">
     <tspan x="98">Gallery 26 · Visit 26</tspan>
     <tspan x="98" dy="2.7">Colonialism, Race</tspan>
@@ -309,9 +309,9 @@
 
   <text class="meta-bold" x="320" y="82">CURRENT RUNTIME STATUS</text>
   <rect class="open" x="320" y="88" width="12" height="7"/>
-  <text class="meta" x="336" y="93">24 curated galleries retained intact</text>
+  <text class="meta" x="336" y="93">25 curated galleries retained intact</text>
   <rect class="planned" x="320" y="99" width="12" height="7"/>
-  <text class="meta" x="336" y="104">2 named, walkable planned shells</text>
+  <text class="meta" x="336" y="104">1 named, walkable planned shell</text>
   <rect class="forum" x="320" y="110" width="12" height="7"/>
   <text class="meta" x="336" y="115">Core Questions Forum, full bay</text>
   <rect class="crossing" x="320" y="121" width="12" height="7"/>
@@ -347,6 +347,6 @@
   <text class="meta" x="320" y="261">
     <tspan x="320">Solid grey margins are structure/services,</tspan>
     <tspan x="320" dy="4.2">not public space. Adjacent bands share walls.</tspan>
-    <tspan x="320" dy="4.2">Future shells contain no fake exhibits or media.</tspan>
+    <tspan x="320" dy="4.2">The planned shell contains no fake exhibits or media.</tspan>
   </text>
 </svg>

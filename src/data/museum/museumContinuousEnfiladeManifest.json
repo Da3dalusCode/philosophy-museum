@@ -9,7 +9,7 @@
       "path": "docs/museum-masterplan/single-level-building-plan.json",
       "planId": "continuous-enfilade-single-level-v1",
       "schemaVersion": 2,
-      "sha256": "314d11e244bdfe18351ec9625ea15488f46c03068a9aa0b61e668490dc9aa431"
+      "sha256": "865bfc222e43a42b1f416f87a2fac7246389a3d7466fa61f367b2beb7a1c6f36"
     },
     "program": {
       "path": "docs/museum-masterplan/hall-program.json",
@@ -6843,8 +6843,9 @@
       "kind": "hall",
       "physicalRole": "gallery",
       "programHallId": "colonialism-race-liberation",
+      "publicHallId": "colonialism-race-liberation",
       "title": "Colonialism, Race, and Liberation",
-      "galleryState": "planned-walkable",
+      "galleryState": "curated-open",
       "publicGalleryNumber": 26,
       "visitSequence": 26,
       "bandId": "band-06-ethics-politics-society",
@@ -6904,7 +6905,7 @@
       },
       "map": {
         "label": "Gallery 26 · Colonialism, Race, and Liberation",
-        "status": "planned-walkable"
+        "status": "open"
       },
       "doorwaySlots": [
         {
@@ -7055,106 +7056,7 @@
           "routeRole": null,
           "openingState": "closed-solid-wall"
         }
-      ],
-      "geometry": {
-        "coordinateFrame": "node-local",
-        "bounds": {
-          "minX": -12,
-          "maxX": 12,
-          "minZ": -28,
-          "maxZ": 28
-        },
-        "cells": [
-          {
-            "id": "colonial-embodiment-liberation",
-            "kind": "room",
-            "title": "Colonial embodiment, violence, psychiatry, and liberation",
-            "bounds": {
-              "minX": -12,
-              "maxX": 12,
-              "minZ": -28,
-              "maxZ": -9.333333
-            },
-            "ceilingHeight": 5.8
-          },
-          {
-            "id": "colonial-black-feminism-abolition",
-            "kind": "room",
-            "title": "Black feminism, abolition, education, culture, and love",
-            "bounds": {
-              "minX": -12,
-              "maxX": 12,
-              "minZ": -9.333333,
-              "maxZ": 9.333333
-            },
-            "ceilingHeight": 5.8
-          },
-          {
-            "id": "colonial-context-reserve",
-            "kind": "room",
-            "title": "Anticolonial, postcolonial, Africana, and decolonial continuities",
-            "bounds": {
-              "minX": -12,
-              "maxX": 12,
-              "minZ": 9.333333,
-              "maxZ": 28
-            },
-            "ceilingHeight": 5.8
-          }
-        ],
-        "interiorOpenings": [
-          {
-            "id": "opening:colonialism-race-liberation:colonial-embodiment-liberation->colonial-black-feminism-abolition",
-            "position": {
-              "x": 0,
-              "z": -9.333333
-            },
-            "inwardNormal": {
-              "x": 0,
-              "z": 1
-            },
-            "clearWidth": 4,
-            "clearHeight": 3.2,
-            "transitionDepth": 1.2,
-            "fromCellId": "colonial-embodiment-liberation",
-            "toCellId": "colonial-black-feminism-abolition"
-          },
-          {
-            "id": "opening:colonialism-race-liberation:colonial-black-feminism-abolition->colonial-context-reserve",
-            "position": {
-              "x": 0,
-              "z": 9.333333
-            },
-            "inwardNormal": {
-              "x": 0,
-              "z": 1
-            },
-            "clearWidth": 4,
-            "clearHeight": 3.2,
-            "transitionDepth": 1.2,
-            "fromCellId": "colonial-black-feminism-abolition",
-            "toCellId": "colonial-context-reserve"
-          }
-        ],
-        "signs": [
-          {
-            "id": "sign:planned-status:colonialism-race-liberation",
-            "kind": "planned-status",
-            "title": "Gallery 26 · Colonialism, Race, and Liberation",
-            "kicker": "Planned gallery",
-            "subtitle": "Architectural shell open · exhibits not yet installed",
-            "position": {
-              "x": 0,
-              "y": 1.65,
-              "z": -26
-            },
-            "rotationY": -3.14159265359,
-            "width": 3.2,
-            "height": 1.35,
-            "interactive": false
-          }
-        ]
-      }
+      ]
     },
     {
       "id": "place:grand-entrance-orientation",
@@ -10432,12 +10334,12 @@
   "counts": {
     "halls": 26,
     "rooms": 105,
-    "curatedOpen": 24,
-    "plannedWalkable": 2,
+    "curatedOpen": 25,
+    "plannedWalkable": 1,
     "reserves": 2,
     "hallCount": 26,
-    "curatedOpenHallCount": 24,
-    "plannedWalkableHallCount": 2,
+    "curatedOpenHallCount": 25,
+    "plannedWalkableHallCount": 1,
     "canonicalRoomCount": 105,
     "nodeCount": 39,
     "connectionCount": 43,
@@ -10447,6 +10349,6 @@
     "standaloneCrossingNodeCount": 5,
     "turnCourtCount": 5,
     "reserveCount": 2,
-    "plannedStatusSignCount": 2
+    "plannedStatusSignCount": 1
   }
 }

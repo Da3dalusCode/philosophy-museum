@@ -186,8 +186,8 @@ export type MuseumBuildingManifest = {
   counts: {
     halls: 26;
     rooms: 105;
-    curatedOpen: 24;
-    plannedWalkable: 2;
+    curatedOpen: 25;
+    plannedWalkable: 1;
     reserves: 2;
   };
 };
@@ -210,12 +210,12 @@ const assertApprovedManifest = (candidate: MuseumBuildingManifest): void => {
   const roomIds = halls.flatMap(({roomIds: ids}) => ids ?? []);
   if (
     halls.length !== 26
-    || curated.length !== 24
-    || planned.length !== 2
+    || curated.length !== 25
+    || planned.length !== 1
     || roomIds.length !== 105
     || new Set(roomIds).size !== 105
     || candidate.reserves.length !== 2
-  ) throw new Error('The Continuous Enfilade must expose 26 halls, 105 rooms, 24 curated galleries, 2 planned shells, and two reserves.');
+  ) throw new Error('The Continuous Enfilade must expose 26 halls, 105 rooms, 25 curated galleries, 1 planned shell, and two reserves.');
   if (candidate.crosscut.intersections.length !== 6 || candidate.throughRoute.hallOrder.length !== 26) {
     throw new Error('The Continuous Enfilade route and six-intersection crosscut are incomplete.');
   }
