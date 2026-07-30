@@ -19,10 +19,12 @@ import {RenaissanceSupplementalExhibits} from './RenaissanceSupplementalExhibits
 import {
   EmpiricismSupplementalExhibits,
   EnlightenmentSupplementalExhibits,
+  FaithPessimismValueSupplementalExhibits,
   HellenisticRomanSupplementalExhibits,
   LateAntiquitySupplementalExhibits,
   LatinScholasticSupplementalExhibits,
   RationalismSupplementalExhibits,
+  UtilityLibertyCapitalSupplementalExhibits,
 } from './SuccessorGallerySupplementalExhibits';
 
 /** Shared lazy subtree for every canonical hall; the definition supplies all differences. */
@@ -203,6 +205,24 @@ export function CanonicalMuseumHallContent({
     {definition.id === 'enlightenment-revolution-kant'
       && definition.layout.supplementalExhibits
       && <EnlightenmentSupplementalExhibits
+        layouts={active
+          ? definition.layout.supplementalExhibits
+          : definition.layout.supplementalExhibits.filter(({assetId}) => entryAssetIds.has(assetId))}
+        nearbyId={nearbySupplemental?.hallId === definition.id ? nearbySupplemental.supplementalExhibitId : undefined}
+        onSelect={(supplementalExhibitId) => onSelectSupplementalExhibit({hallId: definition.id, supplementalExhibitId})}
+      />}
+    {definition.id === 'utility-liberty-history-capital'
+      && definition.layout.supplementalExhibits
+      && <UtilityLibertyCapitalSupplementalExhibits
+        layouts={active
+          ? definition.layout.supplementalExhibits
+          : definition.layout.supplementalExhibits.filter(({assetId}) => entryAssetIds.has(assetId))}
+        nearbyId={nearbySupplemental?.hallId === definition.id ? nearbySupplemental.supplementalExhibitId : undefined}
+        onSelect={(supplementalExhibitId) => onSelectSupplementalExhibit({hallId: definition.id, supplementalExhibitId})}
+      />}
+    {definition.id === 'faith-pessimism-life-value'
+      && definition.layout.supplementalExhibits
+      && <FaithPessimismValueSupplementalExhibits
         layouts={active
           ? definition.layout.supplementalExhibits
           : definition.layout.supplementalExhibits.filter(({assetId}) => entryAssetIds.has(assetId))}

@@ -1,0 +1,929 @@
+{
+  "version": 1,
+  "assets": {
+    "utility-bentham-frye-youth": {
+      "hallFolder": "utility-liberty-history-capital",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Jeremy_Bentham_by_Thomas_Frye.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Jeremy_Bentham_by_Thomas_Frye.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Jeremy_Bentham_by_Thomas_Frye.jpg?width=1600",
+      "visualCharacter": "portrait-or-figure",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 425,
+        "height": 640,
+        "bytes": 32128,
+        "sha256": "c8dacb21c192dffea540129c61de2a476914a9c357129abed6f6fd1ed37ae986"
+      },
+      "panel": {
+        "width": 850,
+        "height": 1280,
+        "bytes": 297714,
+        "sha256": "d3ba4135bcdaa613049829eae802dd3375ca70e08e9fd3f5d856e6c1a29860cd"
+      }
+    },
+    "utility-mill-watts-portrait": {
+      "hallFolder": "utility-liberty-history-capital",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:George_Frederic_Watts_(1817-1904)_-_John_Stuart_Mill_(1806%E2%80%931873)_-_COMWG_86_-_Watts_Gallery.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/George_Frederic_Watts_(1817-1904)_-_John_Stuart_Mill_(1806%E2%80%931873)_-_COMWG_86_-_Watts_Gallery.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/George_Frederic_Watts_(1817-1904)_-_John_Stuart_Mill_(1806%E2%80%931873)_-_COMWG_86_-_Watts_Gallery.jpg?width=1600",
+      "visualCharacter": "portrait-or-figure",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 511,
+        "height": 640,
+        "bytes": 14636,
+        "sha256": "095d670665b38def93a615c04fb11fa9f5c81f5acfe9bac9ec7f0d60e5744ee0"
+      },
+      "panel": {
+        "width": 958,
+        "height": 1200,
+        "bytes": 82232,
+        "sha256": "88406939d213387a4a3b706546cd071572a525c86163920cef04cf7ed8019fc5"
+      }
+    },
+    "utility-bentham-auto-icon": {
+      "hallFolder": "utility-liberty-history-capital",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:2014-07-03_The_auto-icon_of_Jeremy_Bentham.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/2014-07-03_The_auto-icon_of_Jeremy_Bentham.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/2014-07-03_The_auto-icon_of_Jeremy_Bentham.jpg?width=1600",
+      "visualCharacter": "material-object",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 480,
+        "height": 640,
+        "bytes": 17120,
+        "sha256": "f5eb743e7b3b9f2f5a8c5a8ac0e7a04960b7efdf7f68082bee509bc47b7ce43c"
+      },
+      "panel": {
+        "width": 960,
+        "height": 1280,
+        "bytes": 69836,
+        "sha256": "3180bdb96a0627b7318752857752451bee3ccba7226b7a0358582ce35bbbcd28"
+      }
+    },
+    "utility-millbank-penitentiary-1829": {
+      "hallFolder": "utility-liberty-history-capital",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Millbank_Penitentiary_1829.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Millbank_Penitentiary_1829.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Millbank_Penitentiary_1829.jpg?width=1600",
+      "visualCharacter": "place-or-architecture",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 444,
+        "bytes": 70350,
+        "sha256": "ffdd186fe1a0f3fb44f01279f8a772caba24ebf36c994bbc5f0a78a1447326f0"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 888,
+        "bytes": 398484,
+        "sha256": "e0257bde638269dff40d32643bab9a03fd52b7360b1323512594bd916bcb3772"
+      }
+    },
+    "utility-hogarth-first-cruelty": {
+      "hallFolder": "utility-liberty-history-capital",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:William_Hogarth_-_The_First_Stage_of_Cruelty,_First,_Children_Torturing_Animals_-_B1981.25.1440_-_Yale_Center_for_British_Art.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/William_Hogarth_-_The_First_Stage_of_Cruelty,_First,_Children_Torturing_Animals_-_B1981.25.1440_-_Yale_Center_for_British_Art.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/William_Hogarth_-_The_First_Stage_of_Cruelty,_First,_Children_Torturing_Animals_-_B1981.25.1440_-_Yale_Center_for_British_Art.jpg?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 525,
+        "height": 640,
+        "bytes": 99586,
+        "sha256": "0e4bbaa1fdf6e13c96c27d41c3a73f1a321260c832c5592ccd5e1fb2024ab23e"
+      },
+      "panel": {
+        "width": 1050,
+        "height": 1280,
+        "bytes": 595840,
+        "sha256": "bfa964eb8c0dae80fd57110439ec9734b9f023f6df70c9d155b8ebb27fcaea10"
+      }
+    },
+    "utility-old-bailey-1808": {
+      "hallFolder": "utility-liberty-history-capital",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Microcosm_of_London_Plate_058_-_Old_Bailey_edited.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Microcosm_of_London_Plate_058_-_Old_Bailey_edited.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Microcosm_of_London_Plate_058_-_Old_Bailey_edited.jpg?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 484,
+        "bytes": 68130,
+        "sha256": "a3edc392b7fee2f70028432606431c0d6608834c67adc1cdeabbe5bad7dc392d"
+      },
+      "panel": {
+        "width": 828,
+        "height": 626,
+        "bytes": 125748,
+        "sha256": "1879c92b85fe003f0c5c47e11853ac6f1bf58458fd013109c9e93ce7410a9052"
+      }
+    },
+    "liberty-harriet-taylor-npg": {
+      "hallFolder": "utility-liberty-history-capital",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Harriet_Mill_from_NPG.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Harriet_Mill_from_NPG.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Harriet_Mill_from_NPG.jpg?width=1600",
+      "visualCharacter": "portrait-or-figure",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 523,
+        "height": 640,
+        "bytes": 29174,
+        "sha256": "7921c333854901cd7bf877a06a555d4adb8b298ca8f6c68edcda354526655299"
+      },
+      "panel": {
+        "width": 1046,
+        "height": 1280,
+        "bytes": 284812,
+        "sha256": "034e716f79649ae21960dbc449131e5bbc47e0251c8374f51fa09317a3cab404"
+      }
+    },
+    "liberty-suffrage-petition-newcombe": {
+      "hallFolder": "utility-liberty-history-capital",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:First_women%27s_suffrage_petition_hidden_under_an_apple_stall_(26510794911).jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/First_women%27s_suffrage_petition_hidden_under_an_apple_stall_(26510794911).jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/First_women%27s_suffrage_petition_hidden_under_an_apple_stall_(26510794911).jpg?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 574,
+        "bytes": 33386,
+        "sha256": "88825f676713c6c5b0542ad17e438f34cf1d5a3bd55c3e9e021282ccff066d81"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 1149,
+        "bytes": 380576,
+        "sha256": "5dbec4a87c2f65d8a099075b450f5d110e51a97072f78c9d53fbe8d5defdc44b"
+      }
+    },
+    "liberty-hyde-park-railings-1866": {
+      "hallFolder": "utility-liberty-history-capital",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:In_Memory_of_the_Hyde_Park_Railings,_1866.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/In_Memory_of_the_Hyde_Park_Railings,_1866.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/In_Memory_of_the_Hyde_Park_Railings,_1866.jpg?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 468,
+        "bytes": 65182,
+        "sha256": "3a2f117056f613d5e85e00874e393a0c637acbf885cbde90cba9917feddc2fc7"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 936,
+        "bytes": 292328,
+        "sha256": "2980d308e52b4b84ded3265b77a054fbc4cf0e6b956acd9d47015630ddfe30f8"
+      }
+    },
+    "liberty-rochdale-pioneers-shop": {
+      "hallFolder": "utility-liberty-history-capital",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Toad_Lane,_Rochdale,_Lancashire_(27380261546).jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Toad_Lane,_Rochdale,_Lancashire_(27380261546).jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Toad_Lane,_Rochdale,_Lancashire_(27380261546).jpg?width=1600",
+      "visualCharacter": "place-or-architecture",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 440,
+        "bytes": 45654,
+        "sha256": "75de9c47bb52e4835540de6827a9add1752faca69fb5f5dab5d8bf71ab3ecd74"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 881,
+        "bytes": 223244,
+        "sha256": "37214810b1042eefc492e5e5be833043c86ff86a4bd5a47d9c2bcace0836b409"
+      }
+    },
+    "liberty-wordsworth-helvellyn": {
+      "hallFolder": "utility-liberty-history-capital",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Wordsworth_on_Helvellyn_by_Benjamin_Robert_Haydon.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Wordsworth_on_Helvellyn_by_Benjamin_Robert_Haydon.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Wordsworth_on_Helvellyn_by_Benjamin_Robert_Haydon.jpg?width=1600",
+      "visualCharacter": "portrait-or-figure",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 522,
+        "height": 640,
+        "bytes": 22400,
+        "sha256": "dba56f2ad8c9b1a73ab6c26829ce336d88f1e0fc2ec2d709b6e3eb9158551077"
+      },
+      "panel": {
+        "width": 1044,
+        "height": 1280,
+        "bytes": 144178,
+        "sha256": "a77506a0f1bcfa1bcfbf91447d6d986d6c613883836b0d442aca012ab3326ded"
+      }
+    },
+    "liberty-east-india-company-coins": {
+      "hallFolder": "utility-liberty-history-capital",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:East_India_Company_coins_-_National_Museum,_New_Delhi_-_IMG_2224.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/East_India_Company_coins_-_National_Museum,_New_Delhi_-_IMG_2224.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/East_India_Company_coins_-_National_Museum,_New_Delhi_-_IMG_2224.jpg?width=1600",
+      "visualCharacter": "material-object",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 480,
+        "bytes": 30828,
+        "sha256": "6d3c3654e0458b1f68fe7da0e0dc69f8e3c93efd7c4a2651f18cb2fa85e1018e"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 960,
+        "bytes": 317298,
+        "sha256": "c6880cfc1bb6536aab56bee739753bb3601590c504704c83ad6d4ca61c3b061d"
+      }
+    },
+    "utility-marx-1861-beard-portrait": {
+      "hallFolder": "utility-liberty-history-capital",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Karl_Marx,_May_1861.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Karl_Marx,_May_1861.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Karl_Marx,_May_1861.jpg?width=1600",
+      "visualCharacter": "portrait-or-figure",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 399,
+        "height": 640,
+        "bytes": 44826,
+        "sha256": "e3067f73abd5079ba8efa38d492d1e6dce16bd2fac3efe93ffd08f4b954116f4"
+      },
+      "panel": {
+        "width": 798,
+        "height": 1280,
+        "bytes": 178544,
+        "sha256": "442323338ccbcfcf7627418276942fa50b6214339b930c34789a6322bd455df5"
+      }
+    },
+    "utility-feuerbach-weger-engraving": {
+      "hallFolder": "utility-liberty-history-capital",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Feuerbach_Ludwig.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Feuerbach_Ludwig.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Feuerbach_Ludwig.jpg?width=1600",
+      "visualCharacter": "portrait-or-figure",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 492,
+        "height": 640,
+        "bytes": 62952,
+        "sha256": "d75eb77b3558d0cdc61a94500228e10869d3fa0b66e4b941075b209676b7619a"
+      },
+      "panel": {
+        "width": 504,
+        "height": 656,
+        "bytes": 89442,
+        "sha256": "0d6530d3faddb92c8b2b78633a604ddd647df6e27c69505503a35b4c1913639d"
+      }
+    },
+    "utility-menzel-iron-rolling-mill": {
+      "hallFolder": "utility-liberty-history-capital",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Adolph_Menzel_-_Eisenwalzwerk_-_Google_Art_Project.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Adolph_Menzel_-_Eisenwalzwerk_-_Google_Art_Project.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Adolph_Menzel_-_Eisenwalzwerk_-_Google_Art_Project.jpg?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 397,
+        "bytes": 42498,
+        "sha256": "31bd5868e9b72b5c0dd27d653693cea9bf9a95de70c82dfdbb27be04a0581c55"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 795,
+        "bytes": 272262,
+        "sha256": "dd11dfd78b18e18ee76d631bab31fe59e9a4262d69d707edd6eb6b663f17f0f8"
+      }
+    },
+    "utility-crystal-palace-interior": {
+      "hallFolder": "utility-liberty-history-capital",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Crystal_Palace_-_interior.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Crystal_Palace_-_interior.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Crystal_Palace_-_interior.jpg?width=1600",
+      "visualCharacter": "place-or-architecture",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 402,
+        "bytes": 92418,
+        "sha256": "93e76e0a3be63ffcfd48612b2c1c5df801437740b6cf0280ce7184779d8e9152"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 805,
+        "bytes": 409336,
+        "sha256": "f64d402ea14cf577c50e45a6ec678ad1ee411c264b2b385e7a21adfe236cdd73"
+      }
+    },
+    "utility-jacquard-loom": {
+      "hallFolder": "utility-liberty-history-capital",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Jacquard_loom,_photo_1.JPG",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Jacquard_loom,_photo_1.JPG",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Jacquard_loom,_photo_1.JPG?width=1600",
+      "visualCharacter": "material-object",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 480,
+        "bytes": 70146,
+        "sha256": "d2b523404d672ee177957ff25878c7da6362ef0f49508bcc07b53e1f11d23003"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 960,
+        "bytes": 290514,
+        "sha256": "651479ec8a6f1e1d2a4a38f601d2855f45525ba31bf2aabc88f53ba546a71576"
+      }
+    },
+    "utility-meissonier-barricade": {
+      "hallFolder": "utility-liberty-history-capital",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Meissonier_Barricade.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Meissonier_Barricade.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Meissonier_Barricade.jpg?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 473,
+        "height": 640,
+        "bytes": 57182,
+        "sha256": "dbc828c114c30d3570b9e47a93034ccb33f218d8f319bfbcf5ef8fd27f38d76d"
+      },
+      "panel": {
+        "width": 945,
+        "height": 1280,
+        "bytes": 314790,
+        "sha256": "78f7ad9f7cdae4cf8dd0e60353bf62e7019b0e96c41f6a7859ce9ac8ce55c8b9"
+      }
+    },
+    "utility-ricardo-phillips-portrait": {
+      "hallFolder": "utility-liberty-history-capital",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Portrait_of_David_Ricardo_by_Thomas_Phillips.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Portrait_of_David_Ricardo_by_Thomas_Phillips.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Portrait_of_David_Ricardo_by_Thomas_Phillips.jpg?width=1600",
+      "visualCharacter": "portrait-or-figure",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 496,
+        "height": 640,
+        "bytes": 9630,
+        "sha256": "61956c579a4139b0c4ec7d093a285216d12a3d891ac4947a1a4a88ea07d60923"
+      },
+      "panel": {
+        "width": 620,
+        "height": 800,
+        "bytes": 29436,
+        "sha256": "f2894100738033b47eae540ece97d120a12adbf9cdc376df061c10ce6f6e70a6"
+      }
+    },
+    "utility-manchester-kersal-moor": {
+      "hallFolder": "utility-liberty-history-capital",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Wyld,_William_-_Manchester_from_Kersal_Moor,_with_rustic_figures_and_goats_-_Google_Art_Project.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Wyld,_William_-_Manchester_from_Kersal_Moor,_with_rustic_figures_and_goats_-_Google_Art_Project.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Wyld,_William_-_Manchester_from_Kersal_Moor,_with_rustic_figures_and_goats_-_Google_Art_Project.jpg?width=1600",
+      "visualCharacter": "place-or-architecture",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 410,
+        "bytes": 49654,
+        "sha256": "39414c91d23d6237f40658ab21cc9db6b0bd79378634a6df0c0891a232371294"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 821,
+        "bytes": 318290,
+        "sha256": "924fe9ab7925cdcf5529647a9cb5834630588ad4f40de7d2386508bc81e22cae"
+      }
+    },
+    "utility-degas-cotton-office": {
+      "hallFolder": "utility-liberty-history-capital",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Edgar_Germain_Hilaire_Degas_016.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Edgar_Germain_Hilaire_Degas_016.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Edgar_Germain_Hilaire_Degas_016.jpg?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 505,
+        "bytes": 45258,
+        "sha256": "259c95e3c1fc3a121a33249a122d72e5fe088a31fb186ade11b1ac18b3771d33"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 1010,
+        "bytes": 381296,
+        "sha256": "c8efe3c54fa96f90ff603e48b42b53b6e0752db494165f85b864ab37c827c26c"
+      }
+    },
+    "utility-redgrave-sempstress": {
+      "hallFolder": "utility-liberty-history-capital",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Richard_Redgrave_-_The_Sempstress.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Richard_Redgrave_-_The_Sempstress.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Richard_Redgrave_-_The_Sempstress.jpg?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 535,
+        "bytes": 44132,
+        "sha256": "9e13b3972d8e39708a15b01d9c751d57220e94de34409cfc761be5652c48a8d2"
+      },
+      "panel": {
+        "width": 1000,
+        "height": 836,
+        "bytes": 126306,
+        "sha256": "d0e511500f06ce6c99f2d90c19165f2199b9043462a70e1aa0bbf5586dd14b3c"
+      }
+    },
+    "utility-chartist-kennington-common": {
+      "hallFolder": "utility-liberty-history-capital",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Chartist_meeting_on_Kennington_Common_by_William_Edward_Kilburn_1848_-_restoration1.png",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Chartist_meeting_on_Kennington_Common_by_William_Edward_Kilburn_1848_-_restoration1.png",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Chartist_meeting_on_Kennington_Common_by_William_Edward_Kilburn_1848_-_restoration1.png?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 455,
+        "bytes": 35158,
+        "sha256": "38861aba42ecd0c70e5ed4427f6cd37fef785ed2628748cc86cb2174e558a879"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 911,
+        "bytes": 133088,
+        "sha256": "a1c86b111487f7ba9155a5eb832a59de61caea0bd6a1bb0cf4686ad817794e39"
+      }
+    },
+    "utility-minard-cotton-flows-1866": {
+      "hallFolder": "utility-liberty-history-capital",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Carte_figurative_et_approximative_des_quantit%C3%A9s_de_coton_brut_import%C3%A9es_en_Europe_en_1858%2C_en_1864_et_en_1865_LOC_99463789.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Carte_figurative_et_approximative_des_quantit%C3%A9s_de_coton_brut_import%C3%A9es_en_Europe_en_1858%2C_en_1864_et_en_1865_LOC_99463789.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Carte_figurative_et_approximative_des_quantit%C3%A9s_de_coton_brut_import%C3%A9es_en_Europe_en_1858%2C_en_1864_et_en_1865_LOC_99463789.jpg?width=1600",
+      "visualCharacter": "map-or-diagram",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 408,
+        "bytes": 38006,
+        "sha256": "16a391d7effd4b6ef1201b2a2fe7d715b9a4d696446d44c114d259d6f76369fa"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 816,
+        "bytes": 197754,
+        "sha256": "c700a3da889b6b0330762a6777eeb96213e1f5f52c26c54514f9f615c34b683a"
+      }
+    },
+    "value-schopenhauer-schaefer-portrait": {
+      "hallFolder": "faith-pessimism-life-value",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Arthur_Schopenhauer_by_J_Sch%C3%A4fer,_1859.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Arthur_Schopenhauer_by_J_Sch%C3%A4fer,_1859.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Arthur_Schopenhauer_by_J_Sch%C3%A4fer,_1859.jpg?width=1600",
+      "visualCharacter": "portrait-or-figure",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 489,
+        "height": 640,
+        "bytes": 43862,
+        "sha256": "d4bf4265f57d6777c5defcac732e7abac05017d96ce1d815f445ce877e50c03d"
+      },
+      "panel": {
+        "width": 978,
+        "height": 1280,
+        "bytes": 316528,
+        "sha256": "18722e6c26f4ddc6d18f637a86fa137c072315c9e74bac0304e330d7a243d850"
+      }
+    },
+    "value-kant-hagemann-bust": {
+      "hallFolder": "faith-pessimism-life-value",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Bust_of_Emmanuel_Kant.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Bust_of_Emmanuel_Kant.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Bust_of_Emmanuel_Kant.jpg?width=1600",
+      "visualCharacter": "material-object",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 478,
+        "height": 640,
+        "bytes": 13188,
+        "sha256": "fcd6ff96aebfe4299b95fdba1eeb69cc9e470a270b98f0b7a914c46fe0d89759"
+      },
+      "panel": {
+        "width": 955,
+        "height": 1280,
+        "bytes": 234060,
+        "sha256": "a1746f22fb605ec278d88a796ed20e2ed597964c08be0a37e6931d1320f35697"
+      }
+    },
+    "value-schopenhauer-house-1861": {
+      "hallFolder": "faith-pessimism-life-value",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Frankfurt_Am_Main-Schopenhauerhaus-Carl_Friedrich_Mylius-1861.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Frankfurt_Am_Main-Schopenhauerhaus-Carl_Friedrich_Mylius-1861.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Frankfurt_Am_Main-Schopenhauerhaus-Carl_Friedrich_Mylius-1861.jpg?width=1600",
+      "visualCharacter": "place-or-architecture",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 497,
+        "bytes": 51746,
+        "sha256": "c72638237d1a33064f2ca3d4785a526e637d58b6060ffa01f3fbfe251383415f"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 994,
+        "bytes": 269094,
+        "sha256": "2bb687b0961159b1c97719b2b4c70e7f1b878fd6d4022487c85d68488e65b729"
+      }
+    },
+    "value-wagner-met-portrait": {
+      "hallFolder": "faith-pessimism-life-value",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Portrait_of_Richard_Wagner_MET_DP807085.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Portrait_of_Richard_Wagner_MET_DP807085.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Portrait_of_Richard_Wagner_MET_DP807085.jpg?width=1600",
+      "visualCharacter": "portrait-or-figure",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 438,
+        "height": 640,
+        "bytes": 36026,
+        "sha256": "f198bab161f706170f65f27c66c8e96580a8b3e52cc3f78345a9fb11e84022c8"
+      },
+      "panel": {
+        "width": 877,
+        "height": 1280,
+        "bytes": 269800,
+        "sha256": "827857d88b6d563edf2132c4045a1a398b8e13ed23b787b0b2e9565913733d6e"
+      }
+    },
+    "value-anquetil-duperron-medallion": {
+      "hallFolder": "faith-pessimism-life-value",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:David_d%27Angers_-_Portrait_d%27Abraham-Hyacinthe_Anquetil-Duperron_(1731-1805),_orientaliste.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/David_d%27Angers_-_Portrait_d%27Abraham-Hyacinthe_Anquetil-Duperron_(1731-1805),_orientaliste.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/David_d%27Angers_-_Portrait_d%27Abraham-Hyacinthe_Anquetil-Duperron_(1731-1805),_orientaliste.jpg?width=1600",
+      "visualCharacter": "material-object",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 637,
+        "height": 640,
+        "bytes": 50224,
+        "sha256": "a01be2c095b6e6b3ab38a34b4a54067f5a328de671eee99c0324a89ce6c7100e"
+      },
+      "panel": {
+        "width": 1273,
+        "height": 1280,
+        "bytes": 386784,
+        "sha256": "4759f3a698ae05c7409ffd55ace7adc18e7888b5a091dce94c214682660d4fda"
+      }
+    },
+    "value-schopenhauer-monument-frankfurt": {
+      "hallFolder": "faith-pessimism-life-value",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:FFM_Wallanlagen_Schopenhauer-Denkmal.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/FFM_Wallanlagen_Schopenhauer-Denkmal.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/FFM_Wallanlagen_Schopenhauer-Denkmal.jpg?width=1600",
+      "visualCharacter": "place-or-architecture",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 480,
+        "height": 640,
+        "bytes": 87896,
+        "sha256": "79ac23ea3c3da5c5e2d28445dc249fa7e52d2f6c835e67221a1a5a593e6fd620"
+      },
+      "panel": {
+        "width": 960,
+        "height": 1280,
+        "bytes": 491062,
+        "sha256": "fab0b46b47ec50e4926f261ee5506b18ae7b221b506feb2a3b0707f6e89ae93c"
+      }
+    },
+    "value-kierkegaard-copenhagen-portrait": {
+      "hallFolder": "faith-pessimism-life-value",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Kierkegaard_portrait.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kierkegaard_portrait.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kierkegaard_portrait.jpg?width=1600",
+      "visualCharacter": "portrait-or-figure",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 436,
+        "height": 640,
+        "bytes": 54052,
+        "sha256": "903487caff4d69a5984a4fe7fc739965fa4f30efe8fc1ed2cf499627e14a77e8"
+      },
+      "panel": {
+        "width": 872,
+        "height": 1280,
+        "bytes": 242188,
+        "sha256": "62dff8f81ff72da7a74f1d6fb6f1173aaff487a6f2c14fe724e7d1539abaec88"
+      }
+    },
+    "value-church-our-lady-copenhagen": {
+      "hallFolder": "faith-pessimism-life-value",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Interieur_van_de_Vor_Frue_Kirke_in_Kopenhagen,_RP-F-F18138.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Interieur_van_de_Vor_Frue_Kirke_in_Kopenhagen,_RP-F-F18138.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Interieur_van_de_Vor_Frue_Kirke_in_Kopenhagen,_RP-F-F18138.jpg?width=1600",
+      "visualCharacter": "place-or-architecture",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 495,
+        "height": 640,
+        "bytes": 22402,
+        "sha256": "b627e5787408c9a23bafdb156fcb992e4d2c6284ef45b668c3a97d0bd5fdd54d"
+      },
+      "panel": {
+        "width": 989,
+        "height": 1280,
+        "bytes": 128694,
+        "sha256": "f23afa6ef4d5cb1cb8b3e24e80901d04786554cc7ea4b7402534b0b5f73ee588"
+      }
+    },
+    "value-caravaggio-sacrifice-isaac": {
+      "hallFolder": "faith-pessimism-life-value",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Sacrifice_of_Isaac-Caravaggio_(Uffizi).jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sacrifice_of_Isaac-Caravaggio_(Uffizi).jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sacrifice_of_Isaac-Caravaggio_(Uffizi).jpg?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 493,
+        "bytes": 35632,
+        "sha256": "0b3e6ce6fdfbc7830768a971f6dcbad10c44268b586d400db3ea8ac86d1de022"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 986,
+        "bytes": 272970,
+        "sha256": "5c4df880e969278d1cff2bf983326d7f8608523fcc43381d3a606196e3936681"
+      }
+    },
+    "value-kierkegaard-corsar-cartoon": {
+      "hallFolder": "faith-pessimism-life-value",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Kierkegaard_im_%27Corsar.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kierkegaard_im_%27Corsar.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kierkegaard_im_%27Corsar.jpg?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 611,
+        "height": 640,
+        "bytes": 84382,
+        "sha256": "00d5486ae2713b5e61221dade45a8ded53807a10b7cf9232e4185f911a3fc93e"
+      },
+      "panel": {
+        "width": 1222,
+        "height": 1280,
+        "bytes": 373698,
+        "sha256": "6df70cda3e96abf9e7eafdfc263cddfa34681f4d429ce446e0db239f33fad336"
+      }
+    },
+    "value-regine-olsen-1870": {
+      "hallFolder": "faith-pessimism-life-value",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Regine_Olsen_(1870).jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Regine_Olsen_(1870).jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Regine_Olsen_(1870).jpg?width=1600",
+      "visualCharacter": "portrait-or-figure",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 413,
+        "height": 640,
+        "bytes": 20012,
+        "sha256": "6b379bbf6471e35cc3d52505b14f7f3e6e3a299d260142f32328bcd71805030d"
+      },
+      "panel": {
+        "width": 702,
+        "height": 1088,
+        "bytes": 46916,
+        "sha256": "f81a389112bbb6b8bd9acc6480a3445a05efef8f38e99da2a47d834ae20f95eb"
+      }
+    },
+    "value-kierkegaard-copenhagen-salon": {
+      "hallFolder": "faith-pessimism-life-value",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Peter_Christian_Kl%C3%A6strup_-_S%C3%B8ren_Kierkegaard_i_en_salon_i_K%C3%B8benhavn.png",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Peter_Christian_Kl%C3%A6strup_-_S%C3%B8ren_Kierkegaard_i_en_salon_i_K%C3%B8benhavn.png",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Peter_Christian_Kl%C3%A6strup_-_S%C3%B8ren_Kierkegaard_i_en_salon_i_K%C3%B8benhavn.png?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 479,
+        "bytes": 55718,
+        "sha256": "21af927461c1bebffabba60c6e2e01d3a05ab2c423a8dfa23059c69a86121ffd"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 957,
+        "bytes": 431070,
+        "sha256": "e23f99a83b88be529fad560cd0decaddeb82be91a9924d76120d78414baea5ee"
+      }
+    },
+    "value-nietzsche-1869-siebe-portrait": {
+      "hallFolder": "faith-pessimism-life-value",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Nietzsche187c.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Nietzsche187c.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Nietzsche187c.jpg?width=1600",
+      "visualCharacter": "portrait-or-figure",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 426,
+        "height": 640,
+        "bytes": 37154,
+        "sha256": "b2d03c303c0da24f97ad40b81820163371d6cd98766570b38b0760fea361f492"
+      },
+      "panel": {
+        "width": 852,
+        "height": 1280,
+        "bytes": 154216,
+        "sha256": "5f76bc58a4ec97b3235c74ef163561eaf07c098389e34b48607ed65aed6469df"
+      }
+    },
+    "value-greek-tragedy-mask-taranto": {
+      "hallFolder": "faith-pessimism-life-value",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Greek_mask_in_terracotta_in_Museo_archeologico_nazionale_(Taranto).jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Greek_mask_in_terracotta_in_Museo_archeologico_nazionale_(Taranto).jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Greek_mask_in_terracotta_in_Museo_archeologico_nazionale_(Taranto).jpg?width=1600",
+      "visualCharacter": "material-object",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 426,
+        "bytes": 40232,
+        "sha256": "9eb51373324ea10aa00f0e9591c8586858526e357ec2c147eb081c3efdc7037f"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 851,
+        "bytes": 201210,
+        "sha256": "1ee4a87e7896ab3588bd1a18dc335c454638493b24a6358606020c562d186ef2"
+      }
+    },
+    "value-lou-andreas-salome-elvira-1897": {
+      "hallFolder": "faith-pessimism-life-value",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Lou_Andreas-Salom%C3%A9_-_Foto_Atelier_Elvira.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Lou_Andreas-Salom%C3%A9_-_Foto_Atelier_Elvira.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Lou_Andreas-Salom%C3%A9_-_Foto_Atelier_Elvira.jpg?width=1600",
+      "visualCharacter": "portrait-or-figure",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 439,
+        "height": 640,
+        "bytes": 33428,
+        "sha256": "aa0b73e7d8f57fa2a2fceeb0ab2a7b83e756434d26c631f4cb485728b60b2117"
+      },
+      "panel": {
+        "width": 879,
+        "height": 1280,
+        "bytes": 248670,
+        "sha256": "b0f2d16c03ad9389c77fb0d02b21885b2cacd4d206594865898ffc12b98dfd76"
+      }
+    },
+    "value-nietzsche-writing-ball": {
+      "hallFolder": "faith-pessimism-life-value",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Nietzsches_Schreibkugel_%22Malling_Hansen%22.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Nietzsches_Schreibkugel_%22Malling_Hansen%22.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Nietzsches_Schreibkugel_%22Malling_Hansen%22.jpg?width=1600",
+      "visualCharacter": "material-object",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 413,
+        "bytes": 48738,
+        "sha256": "a6853c68f309bd87bd70237f044721ad2d654ecaf53af7de50edad0c5a501bcf"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 826,
+        "bytes": 203040,
+        "sha256": "755875224f8a8989ed18468873ba9231b6ee056ddb8a08c54feb343667c6863b"
+      }
+    },
+    "value-nietzsche-stone-surlej": {
+      "hallFolder": "faith-pessimism-life-value",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Nietzsche-Stein_01.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Nietzsche-Stein_01.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Nietzsche-Stein_01.jpg?width=1600",
+      "visualCharacter": "place-or-architecture",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 480,
+        "bytes": 83818,
+        "sha256": "889fd034602e6d837ea9b5cd56392315168a10c0d98e8f840011d1d9499b28d3"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 960,
+        "bytes": 436224,
+        "sha256": "a3584a93fbd38956024483870942c8d58fca38b910a931041d909d7388381dd5"
+      }
+    },
+    "value-villa-silberblick-archive": {
+      "hallFolder": "faith-pessimism-life-value",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Villa_Silberblick.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Villa_Silberblick.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Villa_Silberblick.jpg?width=1600",
+      "visualCharacter": "place-or-architecture",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 480,
+        "height": 640,
+        "bytes": 73804,
+        "sha256": "853d431ddb21db18ceabb0c49b6e93b4430b7849aa876f6eac2255e6aaf53ae6"
+      },
+      "panel": {
+        "width": 960,
+        "height": 1280,
+        "bytes": 362352,
+        "sha256": "5ef9c3f330b5311e7fe54f235cce7cfe57bd734bc4be863a6f8ff649c4513543"
+      }
+    }
+  }
+}

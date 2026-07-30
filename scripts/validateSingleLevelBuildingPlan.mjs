@@ -162,7 +162,7 @@ check('stable public numbers and physical visit sequence are independent and com
   );
 });
 
-check('all eighteen populated galleries retain their stable public numbers', () => {
+check('all twenty populated galleries retain their stable public numbers', () => {
   const expectedNumbers = new Map([
     ['mediterranean-beginnings-classical', 1],
     ['renaissance-humanism-new-method', 2],
@@ -182,13 +182,15 @@ check('all eighteen populated galleries retain their stable public numbers', () 
     ['rationalism-mind-nature-system', 16],
     ['empiricism-science-political-order', 17],
     ['enlightenment-revolution-kant', 18],
+    ['utility-liberty-history-capital', 20],
+    ['faith-pessimism-life-value', 21],
   ]);
   const migrating = plan.halls.filter(({migrationState}) => migrationState === 'migrate-populated');
   const planned = plan.halls.filter(({migrationState}) => migrationState === 'construct-planned-walkable-shell');
-  assert.equal(migrating.length, 18);
-  assert.equal(planned.length, 8);
-  assert.equal(plan.programContract.curatedOpenAtMigration, 18);
-  assert.equal(plan.programContract.plannedWalkableShellsAtMigration, 8);
+  assert.equal(migrating.length, 20);
+  assert.equal(planned.length, 6);
+  assert.equal(plan.programContract.curatedOpenAtMigration, 20);
+  assert.equal(plan.programContract.plannedWalkableShellsAtMigration, 6);
   assert.deepEqual(sorted(migrating.map(({id}) => id)), sorted([...expectedNumbers.keys()]));
   for (const [id, number] of expectedNumbers) assert.equal(hallById.get(id).publicGalleryNumber, number);
 
@@ -204,6 +206,18 @@ check('all eighteen populated galleries retain their stable public numbers', () 
       primaryCount: 6,
       templateId: 'crossroads-4',
       roomLayoutStrategy: 'crossroads-four-quadrants-with-central-kant-room',
+    }],
+    ['utility-liberty-history-capital', {
+      roomCount: 4,
+      primaryCount: 5,
+      templateId: 'sequence-3',
+      roomLayoutStrategy: 'sequence-equal-room-spans',
+    }],
+    ['faith-pessimism-life-value', {
+      roomCount: 3,
+      primaryCount: 3,
+      templateId: 'sequence-3',
+      roomLayoutStrategy: 'sequence-equal-room-spans',
     }],
   ]);
   for (const [id, expected] of promotedExpectations) {
@@ -379,6 +393,8 @@ check('planned shells remain honest, walkable, and non-curated', () => {
   const approvedPromotedStrategies = new Map([
     ['empiricism-science-political-order', 'sequence-equal-room-spans'],
     ['enlightenment-revolution-kant', 'crossroads-four-quadrants-with-central-kant-room'],
+    ['utility-liberty-history-capital', 'sequence-equal-room-spans'],
+    ['faith-pessimism-life-value', 'sequence-equal-room-spans'],
   ]);
   for (const hall of plan.halls) {
     if (hall.migrationState === 'migrate-populated') {
@@ -403,12 +419,12 @@ check('compiled runtime manifest is the approved Continuous Enfilade cutover', (
   assert.deepEqual(runtime.counts, {
     halls: 26,
     rooms: 105,
-    curatedOpen: 18,
-    plannedWalkable: 8,
+    curatedOpen: 20,
+    plannedWalkable: 6,
     reserves: 2,
     hallCount: 26,
-    curatedOpenHallCount: 18,
-    plannedWalkableHallCount: 8,
+    curatedOpenHallCount: 20,
+    plannedWalkableHallCount: 6,
     canonicalRoomCount: 105,
     nodeCount: 39,
     connectionCount: 43,
@@ -418,7 +434,7 @@ check('compiled runtime manifest is the approved Continuous Enfilade cutover', (
     standaloneCrossingNodeCount: 5,
     turnCourtCount: 5,
     reserveCount: 2,
-    plannedStatusSignCount: 8,
+    plannedStatusSignCount: 6,
   });
   assert.deepEqual(runtime.physicalContract.mainGalleryBlock, plan.physicalContract.mainGalleryBlock);
   assert.deepEqual(
@@ -437,8 +453,8 @@ check('compiled runtime binds all 26 transforms and all 105 named rooms exactly'
   const runtimeHalls = runtime.nodes.filter(({kind}) => kind === 'hall');
   const runtimeHallByProgramId = new Map(runtimeHalls.map((node) => [node.programHallId, node]));
   assert.equal(runtimeHalls.length, 26);
-  assert.equal(runtimeHalls.filter(({galleryState}) => galleryState === 'curated-open').length, 18);
-  assert.equal(runtimeHalls.filter(({galleryState}) => galleryState === 'planned-walkable').length, 8);
+  assert.equal(runtimeHalls.filter(({galleryState}) => galleryState === 'curated-open').length, 20);
+  assert.equal(runtimeHalls.filter(({galleryState}) => galleryState === 'planned-walkable').length, 6);
   assert.deepEqual(
     sorted(runtimeHalls.filter(({publicHallId}) => publicHallId).map(({publicHallId}) => publicHallId)),
     sorted(plan.halls.filter(({migrationState}) => migrationState === 'migrate-populated').map(({id}) => id)),
@@ -633,8 +649,8 @@ check('scaled drawing and implementation handoff files exist', () => {
   assert(drawing.includes(`${controlled.width} m controlled width`));
   assert(drawing.includes(`${controlled.depth} m controlled depth`));
   assert(drawing.includes(`${plan.throughRoute.completeVisitLength.toLocaleString('en-US')} m`));
-  assert.equal([...drawing.matchAll(/<rect class="open"/gu)].length, 18, 'scaled drawing curated/open count is stale');
-  assert.equal([...drawing.matchAll(/<rect class="planned"/gu)].length, 9, 'scaled drawing planned/walkable count is stale');
+  assert.equal([...drawing.matchAll(/<rect class="open"/gu)].length, 20, 'scaled drawing curated/open count is stale');
+  assert.equal([...drawing.matchAll(/<rect class="planned"/gu)].length, 7, 'scaled drawing planned/walkable count is stale');
   assert(!/\bMBC\b|\bHRW\b|\bLAI\b|\bCSA\b|\bCQ\b/.test(drawing), 'scaled drawing exposes unexplained internal abbreviations');
 });
 

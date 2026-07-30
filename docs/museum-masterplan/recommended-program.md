@@ -227,6 +227,8 @@ Rooms: Law and comparative institutions (1); Inequality, civic freedom, and educ
 
 The wing makes three simultaneous transformations legible: post-Kantian system building; arguments about utility, liberty, history, labor, and capital; and challenges organized around faith, suffering, life, and value. It avoids treating all nineteenth-century thought as a single march toward one twentieth-century school.
 
+The current production state intentionally does not follow public-number order: Galleries 20 and 21 are curated/open in their approved visit positions and Gallery 19 remains planned/walkable. This changes no hall identity or route geometry. Stable public numbers remain release identities, while the Continuous Enfilade manifest continues to own visit order, center, rotation, entry/exit portals, and handedness.
+
 #### German Idealism & Romantic Afterlives
 
 `german-idealism-afterlives` · sequential template · 4 rooms · capacity 7 · 4 assigned · 3 reserve
@@ -372,4 +374,4 @@ This approved intellectual program governs the production Continuous Enfilade un
 - reserve contexts remain visibly provisional until supported by researched Atlas records;
 - a full hall can expand rather than forcing future material into a misleading category.
 
-The program establishes what the Museum houses and the intellectual rules the production Continuous Enfilade must preserve. The complete building provides all 26 walkable gallery shells and 105 named rooms; Galleries 01–18 are curated/open, while Galleries 19–26 remain planned/walkable without invented content or fast travel.
+The program establishes what the Museum houses and the intellectual rules the production Continuous Enfilade must preserve. The complete building provides all 26 walkable gallery shells and 105 named rooms; Galleries 01–18 and 20–21 are curated/open, while Gallery 19 and Galleries 22–26 remain planned/walkable without invented content or fast travel.

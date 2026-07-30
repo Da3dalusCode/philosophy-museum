@@ -75,6 +75,14 @@ import {
   ENLIGHTENMENT_SUPPLEMENTAL_EXHIBITS,
   ENLIGHTENMENT_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
 } from './enlightenmentSupplementalExhibits';
+import {
+  UTILITY_LIBERTY_CAPITAL_SUPPLEMENTAL_EXHIBITS,
+  UTILITY_LIBERTY_CAPITAL_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
+} from './utilityLibertyCapitalSupplementalExhibits';
+import {
+  FAITH_PESSIMISM_VALUE_SUPPLEMENTAL_EXHIBITS,
+  FAITH_PESSIMISM_VALUE_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
+} from './faithPessimismValueSupplementalExhibits';
 import type {
   MuseumSupplementalExhibitId,
   MuseumSupplementalExhibitLayout,
@@ -186,6 +194,16 @@ const COLLECTIONS = [
     hallId: 'enlightenment-revolution-kant',
     exhibits: ENLIGHTENMENT_SUPPLEMENTAL_EXHIBITS,
     layouts: ENLIGHTENMENT_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
+  },
+  {
+    hallId: 'utility-liberty-history-capital',
+    exhibits: UTILITY_LIBERTY_CAPITAL_SUPPLEMENTAL_EXHIBITS,
+    layouts: UTILITY_LIBERTY_CAPITAL_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
+  },
+  {
+    hallId: 'faith-pessimism-life-value',
+    exhibits: FAITH_PESSIMISM_VALUE_SUPPLEMENTAL_EXHIBITS,
+    layouts: FAITH_PESSIMISM_VALUE_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
   },
 ] as const satisfies readonly MuseumSupplementalCollection[];
 

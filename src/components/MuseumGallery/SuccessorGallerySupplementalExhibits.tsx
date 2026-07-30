@@ -24,6 +24,14 @@ import {
   getEnlightenmentSupplementalExhibit,
 } from '../../data/museum/enlightenmentSupplementalExhibits';
 import {
+  getUtilityLibertyCapitalSupplementalExhibit,
+  UTILITY_LIBERTY_CAPITAL_PALETTE,
+} from '../../data/museum/utilityLibertyCapitalSupplementalExhibits';
+import {
+  FAITH_PESSIMISM_VALUE_PALETTE,
+  getFaithPessimismValueSupplementalExhibit,
+} from '../../data/museum/faithPessimismValueSupplementalExhibits';
+import {
   MUSEUM_CANONICAL_EXHIBIT_BACKING_MATERIAL,
   MUSEUM_CANONICAL_EXHIBIT_PLINTH_GEOMETRY,
   MUSEUM_CANONICAL_EXHIBIT_PLINTH_MATERIAL,
@@ -240,5 +248,23 @@ export function EnlightenmentSupplementalExhibits(props: GallerySupplementalProp
     collection="gallery-18-enlightenment-revolution-kant-v1"
     ink={ENLIGHTENMENT_PALETTE.ink}
     getRecord={getEnlightenmentSupplementalExhibit}
+  />;
+}
+
+export function UtilityLibertyCapitalSupplementalExhibits(props: GallerySupplementalProps) {
+  return <SupplementalCollection
+    {...props}
+    collection="gallery-20-utility-liberty-history-capital-v1"
+    ink={UTILITY_LIBERTY_CAPITAL_PALETTE.charcoal}
+    getRecord={getUtilityLibertyCapitalSupplementalExhibit}
+  />;
+}
+
+export function FaithPessimismValueSupplementalExhibits(props: GallerySupplementalProps) {
+  return <SupplementalCollection
+    {...props}
+    collection="gallery-21-faith-pessimism-life-value-v1"
+    ink={FAITH_PESSIMISM_VALUE_PALETTE.midnight}
+    getRecord={getFaithPessimismValueSupplementalExhibit}
   />;
 }

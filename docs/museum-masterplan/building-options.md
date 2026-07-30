@@ -8,7 +8,7 @@ The approved physical planning basis is the single-level **Continuous Enfilade**
 - [machine-readable geometry](./single-level-building-plan.json);
 - [1:1000 construction-control drawing](./diagrams/continuous-enfilade-single-level.svg).
 
-It holds the approved 10-wing, 26-gallery, 105-room program in six back-to-back structural bands and is now the active production runtime. Galleries 01–18 retain curated hall-local roots; Galleries 19–26 are complete planned/walkable shells.
+It holds the approved 10-wing, 26-gallery, 105-room program in six back-to-back structural bands and is now the active production runtime. Galleries 01–18 and 20–21 retain curated hall-local roots; Gallery 19 and Galleries 22–26 are complete planned/walkable shells.
 
 ## What the earlier masterplan did and did not decide
 
@@ -16,7 +16,7 @@ The earlier masterplan decided the intellectual program, reusable hall templates
 
 As a result, Galleries 01–12 were placed incrementally as each release was built. Those placements were not random, but they were optimized locally rather than compiled from a final construction drawing. The accumulated long corridors, irregular orientation, and shortcut logic are therefore not preserved as design commitments.
 
-The room-scale work is reusable. All sixteen open halls now conform to canonical template footprints and hall-local geometry. Their collective world transforms, connectors, entrance relationship, and map are the parts being replaced.
+The room-scale work is reusable. All 20 open halls now conform to canonical template footprints and hall-local geometry. Their collective world transforms, connectors, entrance relationship, and map are manifest-owned rather than improvised per release.
 
 ## Reviewed concepts
 
@@ -86,9 +86,9 @@ Directly adjacent galleries share a 4 m clear threshold. A crosscut pair has a 1
 
 ## Room-architecture decision
 
-The 18 populated halls retain complete hall-local roots. This preserves their current room partitions, installations, media, lighting, signs, interpretation, guided views, and collision.
+The 20 populated halls retain complete hall-local roots. This preserves their current room partitions, installations, media, lighting, signs, interpretation, guided views, and collision.
 
-The remaining 10 halls use the approved templates to construct every canonical room:
+The remaining six halls use the approved templates to construct every canonical room:
 
 - sequential rooms divide the long axis into equal named spans until curation supplies a reviewed override;
 - four-room crossroads galleries use four independent quadrants;

@@ -22,6 +22,8 @@ import {SUCCESSOR_GALLERIES_ASSETS} from './successorGalleriesAssets';
 import {SCHOLASTIC_RATIONALIST_GALLERY_ASSETS} from './scholasticRationalistGalleryAssets';
 import {EMPIRICISM_GALLERY_ASSETS} from './empiricismGalleryAssets';
 import {ENLIGHTENMENT_GALLERY_ASSETS} from './enlightenmentGalleryAssets';
+import {UTILITY_LIBERTY_CAPITAL_GALLERY_ASSETS} from './utilityLibertyCapitalGalleryAssets';
+import {FAITH_PESSIMISM_VALUE_GALLERY_ASSETS} from './faithPessimismValueGalleryAssets';
 import {applyMuseumLegacyImageDiversityMetadata} from './museumLegacyImageDiversity';
 
 const assetPath = (slug: string, variant: 'scene' | 'panel', width: number, height: number): MuseumAssetVariant => ({
@@ -435,6 +437,8 @@ const RAW_MUSEUM_ASSETS = [
   ...SCHOLASTIC_RATIONALIST_GALLERY_ASSETS,
   ...EMPIRICISM_GALLERY_ASSETS,
   ...ENLIGHTENMENT_GALLERY_ASSETS,
+  ...UTILITY_LIBERTY_CAPITAL_GALLERY_ASSETS,
+  ...FAITH_PESSIMISM_VALUE_GALLERY_ASSETS,
 ] as const satisfies readonly MuseumAssetRecord[];
 
 export const MUSEUM_ASSETS = RAW_MUSEUM_ASSETS.map(

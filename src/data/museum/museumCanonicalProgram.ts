@@ -34,6 +34,8 @@ export const MUSEUM_CANONICAL_HALL_IDS = [
   'rationalism-mind-nature-system',
   'empiricism-science-political-order',
   'enlightenment-revolution-kant',
+  'utility-liberty-history-capital',
+  'faith-pessimism-life-value',
 ] as const;
 
 export type MuseumCanonicalHallId = (typeof MUSEUM_CANONICAL_HALL_IDS)[number];
@@ -156,6 +158,13 @@ export const MUSEUM_CANONICAL_ROOM_IDS = [
   'enlightenment-sentiment-commerce',
   'enlightenment-equality-education',
   'enlightenment-kant-critical',
+  'nineteenth-utilitarian-reform',
+  'nineteenth-liberty-equality',
+  'nineteenth-labor-capital',
+  'nineteenth-social-transformations',
+  'nineteenth-will-pessimism',
+  'nineteenth-faith-subjectivity',
+  'nineteenth-genealogy-value',
 ] as const;
 
 export type MuseumCanonicalRoomId = (typeof MUSEUM_CANONICAL_ROOM_IDS)[number];
@@ -164,6 +173,7 @@ export type MuseumCanonicalWingId =
   | 'wing-core-questions'
   | 'wing-mediterranean-antiquity'
   | 'wing-early-modern-enlightenment'
+  | 'wing-nineteenth-transformations'
   | 'wing-modern-traditions'
   | 'wing-ethics-politics-society'
   | 'wing-south-asian-worlds'
@@ -250,6 +260,8 @@ export const MUSEUM_PUBLIC_GALLERY_NUMBERS = {
   'rationalism-mind-nature-system': 16,
   'empiricism-science-political-order': 17,
   'enlightenment-revolution-kant': 18,
+  'utility-liberty-history-capital': 20,
+  'faith-pessimism-life-value': 21,
 } as const satisfies Readonly<Record<MuseumCanonicalHallId, number>>;
 
 const exhibit = <const Record extends MuseumCanonicalExhibit>(record: Record) => ({
@@ -806,6 +818,46 @@ export const MUSEUM_CANONICAL_PROGRAM = [
       ]},
     ],
   },
+  {
+    id: 'utility-liberty-history-capital',
+    wingId: 'wing-nineteenth-transformations',
+    title: 'Utility, Liberty, History, and Capital',
+    templateId: 'sequence-3',
+    period: '19th century',
+    description: 'Follow utilitarian reform from Bentham to Mill, test liberty against social and imperial power, and enter Marx’s critique of labor, commodities, capital, and collective transformation.',
+    recordCapacity: 5,
+    rooms: [
+      {id: 'nineteenth-utilitarian-reform', title: 'Utility, law, reform, and individuality', recordCapacity: 2, exhibits: [
+        exhibit({id: 'bentham', entityKind: 'philosopher', entityId: 'bentham', displayName: 'Jeremy Bentham: Utility, Law, and Institutional Reform', tier: 'standard-individual-exhibit', question: 'Can public institutions be judged and redesigned by the consequences they produce for pleasure, pain, security, and well-being?', secondaryHallIds: ['justice-democratic-reason', 'moral-life-practical-reason'], formerHallId: 'ethics-justice-political-life', principalAssetId: 'utility-bentham-auto-icon'}),
+        exhibit({id: 'mill', entityKind: 'philosopher', entityId: 'mill', displayName: 'John Stuart Mill: Liberty, Character, and Social Progress', tier: 'anchor-exhibit', question: 'How can a consequentialist ethics defend individuality, qualitative goods, free discussion, equality, and experiments in living?', secondaryHallIds: ['justice-democratic-reason', 'moral-life-practical-reason'], formerHallId: 'ethics-justice-political-life', principalAssetId: 'utility-mill-watts-portrait'}),
+      ]},
+      {id: 'nineteenth-liberty-equality', title: 'Liberty, equality, and experiments in living', recordCapacity: 1, exhibits: []},
+      {id: 'nineteenth-labor-capital', title: 'Labor, capital, class, and historical critique', recordCapacity: 1, exhibits: [
+        exhibit({id: 'marx', entityKind: 'philosopher', entityId: 'marx', displayName: 'Karl Marx: Labor, Capital, and Historical Transformation', tier: 'anchor-exhibit', question: 'How do social relations created through labor confront people as commodities, capital, class power, and an apparently independent historical system?', secondaryHallIds: ['critique-power-deconstruction', 'justice-democratic-reason'], formerHallId: 'modernity-freedom-critique', principalAssetId: 'utility-marx-1861-beard-portrait'}),
+      ]},
+      {id: 'nineteenth-social-transformations', title: 'Political economy and social transformations', recordCapacity: 1, exhibits: []},
+    ],
+  },
+  {
+    id: 'faith-pessimism-life-value',
+    wingId: 'wing-nineteenth-transformations',
+    title: 'Faith, Pessimism, Life, and Value',
+    templateId: 'sequence-3',
+    period: '19th century',
+    description: 'Move from Schopenhauer’s metaphysics of representation and striving through Kierkegaard’s indirect communication and religious subjectivity to Nietzsche’s genealogy of values, nihilism, and experiments in affirmation.',
+    recordCapacity: 3,
+    rooms: [
+      {id: 'nineteenth-will-pessimism', title: 'Will, representation, suffering, and reception', recordCapacity: 1, exhibits: [
+        exhibit({id: 'schopenhauer', entityKind: 'philosopher', entityId: 'schopenhauer', displayName: 'Arthur Schopenhauer: Representation, Will, and Compassion', tier: 'standard-individual-exhibit', question: 'What if the ordered world of experience is representation while embodied striving discloses a restless will beneath it?', secondaryHallIds: ['buddhist-philosophies', 'classical-south-asian-worlds', 'core-questions-forum'], principalAssetId: 'value-schopenhauer-schaefer-portrait'}),
+      ]},
+      {id: 'nineteenth-faith-subjectivity', title: 'Faith, subjectivity, anxiety, and becoming a self', recordCapacity: 1, exhibits: [
+        exhibit({id: 'kierkegaard', entityKind: 'philosopher', entityId: 'kierkegaard', displayName: 'Søren Kierkegaard: Choice, Anxiety, Faith, and the Self', tier: 'standard-individual-exhibit', question: 'How can a person become a self through choices and commitments that no detached philosophical system can make on that person’s behalf?', secondaryHallIds: ['core-questions-forum', 'phenomenology-existence-embodiment'], formerHallId: 'modernity-freedom-critique', principalAssetId: 'value-kierkegaard-copenhagen-portrait'}),
+      ]},
+      {id: 'nineteenth-genealogy-value', title: 'Genealogy, nihilism, life, and value creation', recordCapacity: 1, exhibits: [
+        exhibit({id: 'nietzsche', entityKind: 'philosopher', entityId: 'nietzsche', displayName: 'Friedrich Nietzsche: Genealogy, Nihilism, and Affirmation', tier: 'anchor-exhibit', question: 'What histories of power, embodiment, resentment, and interpretation lie behind moral values—and what could it mean to create values after their authority collapses?', secondaryHallIds: ['critique-power-deconstruction', 'phenomenology-existence-embodiment'], formerHallId: 'modernity-freedom-critique', principalAssetId: 'value-nietzsche-1869-siebe-portrait'}),
+      ]},
+    ],
+  },
 ] as const satisfies readonly MuseumCanonicalHall[];
 
 export const MUSEUM_HALL_ROUTE_ALIASES = {
@@ -859,15 +911,10 @@ const displaced = (
 });
 
 export const MUSEUM_LEGACY_EXHIBIT_COMPATIBILITY = [
-  displaced('modernity-freedom-critique', 'philosopher', 'kierkegaard', 'Søren Kierkegaard', 'faith-pessimism-life-value', 'become-secondary-later'),
-  displaced('modernity-freedom-critique', 'philosopher', 'marx', 'Karl Marx', 'utility-liberty-history-capital', 'move-primary-later'),
-  displaced('modernity-freedom-critique', 'philosopher', 'nietzsche', 'Friedrich Nietzsche', 'faith-pessimism-life-value', 'become-secondary-later'),
   displaced('modernity-freedom-critique', 'philosopher', 'beauvoir', 'Simone de Beauvoir', 'feminist-philosophies', 'become-secondary-later'),
   displaced('modernity-freedom-critique', 'philosopher', 'foucault', 'Michel Foucault', 'critique-power-deconstruction', 'move-primary-later'),
   displaced('logic-language-science', 'philosopher', 'peirce', 'Charles Sanders Peirce', 'pragmatism-democratic-inquiry', 'move-primary-later'),
   displaced('logic-language-science', 'philosopher', 'dewey', 'John Dewey', 'pragmatism-democratic-inquiry', 'move-primary-later'),
-  displaced('ethics-justice-political-life', 'philosopher', 'bentham', 'Jeremy Bentham', 'utility-liberty-history-capital', 'become-secondary-later'),
-  displaced('ethics-justice-political-life', 'philosopher', 'mill', 'John Stuart Mill', 'utility-liberty-history-capital', 'become-secondary-later'),
   displaced('ethics-justice-political-life', 'philosopher', 'fanon', 'Frantz Fanon', 'colonialism-race-liberation', 'become-secondary-later'),
   displaced('ethics-justice-political-life', 'philosopher', 'habermas', 'Jürgen Habermas', 'critique-power-deconstruction', 'become-secondary-later'),
   displaced('mind-consciousness-self', 'philosopher', 'william-james', 'William James', 'pragmatism-democratic-inquiry', 'become-secondary-later'),

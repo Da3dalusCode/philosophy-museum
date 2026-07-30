@@ -21,6 +21,7 @@ import {MUSEUM_EXPANSION_INTERPRETATIONS} from './museumExpansionInterpretations
 import {KRISHNAMURTI_MUSEUM_INTERPRETATIONS} from './krishnamurtiMuseumInterpretations';
 import {SCHOLASTIC_RATIONALIST_PRIMARY_INTERPRETATION_ENRICHMENT} from './scholasticRationalistPrimaryInterpretationEnrichment';
 import {EMPIRICISM_ENLIGHTENMENT_PRIMARY_INTERPRETATION_ENRICHMENT} from './empiricismEnlightenmentPrimaryInterpretationEnrichment';
+import {NINETEENTH_PRIMARY_INTERPRETATION_ENRICHMENT} from './nineteenthPrimaryInterpretationEnrichment';
 
 export type MuseumInterpretationSource = {
   label: string;
@@ -1288,6 +1289,7 @@ const branchInterpretation = (
 const PRIMARY_INTERPRETATION_ENRICHMENT = {
   ...SCHOLASTIC_RATIONALIST_PRIMARY_INTERPRETATION_ENRICHMENT,
   ...EMPIRICISM_ENLIGHTENMENT_PRIMARY_INTERPRETATION_ENRICHMENT,
+  ...NINETEENTH_PRIMARY_INTERPRETATION_ENRICHMENT,
 };
 
 const applyPrimaryInterpretationEnrichment = (

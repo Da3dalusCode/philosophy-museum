@@ -54,6 +54,8 @@ const lateAntiquitySupplementalDataSource = source('src/data/museum/lateAntiquit
 const rationalismSupplementalDataSource = source('src/data/museum/rationalismSupplementalExhibits.ts');
 const empiricismSupplementalDataSource = source('src/data/museum/empiricismSupplementalExhibits.ts');
 const enlightenmentSupplementalDataSource = source('src/data/museum/enlightenmentSupplementalExhibits.ts');
+const utilityLibertyCapitalSupplementalDataSource = source('src/data/museum/utilityLibertyCapitalSupplementalExhibits.ts');
+const faithPessimismValueSupplementalDataSource = source('src/data/museum/faithPessimismValueSupplementalExhibits.ts');
 const successorSupplementalSceneSource = source('src/components/MuseumGallery/SuccessorGallerySupplementalExhibits.tsx');
 const supplementalCollectionSceneSource = source('src/components/MuseumGallery/MuseumSupplementalExhibitCollection.tsx');
 const forumSupplementalDataSource = source('src/data/museum/coreQuestionsForumSupplementalExhibits.ts');
@@ -116,6 +118,10 @@ const result = await build({
       export * from '/src/data/museum/empiricismSupplementalExhibits.ts';
       export * from '/src/data/museum/enlightenmentGalleryCuration.ts';
       export * from '/src/data/museum/enlightenmentSupplementalExhibits.ts';
+      export * from '/src/data/museum/utilityLibertyCapitalGalleryCuration.ts';
+      export * from '/src/data/museum/utilityLibertyCapitalSupplementalExhibits.ts';
+      export * from '/src/data/museum/faithPessimismValueGalleryCuration.ts';
+      export * from '/src/data/museum/faithPessimismValueSupplementalExhibits.ts';
       export * from '/src/data/museum/coreQuestionsForumCuration.ts';
       export * from '/src/data/museum/coreQuestionsForumSupplementalExhibits.ts';
       export * from '/src/data/museum/museumSupplementalExhibits.ts';
@@ -249,6 +255,22 @@ const {
   enlightenmentInteriorLintels,
   enlightenmentInteriorWalls,
   enlightenmentKantBaffle,
+  UTILITY_LIBERTY_CAPITAL_GALLERY_ID,
+  UTILITY_LIBERTY_CAPITAL_HALL_DIMENSIONS,
+  UTILITY_LIBERTY_CAPITAL_PRIMARY_PLACEMENTS,
+  UTILITY_LIBERTY_CAPITAL_ROOM_ENTRY_POSES,
+  UTILITY_LIBERTY_CAPITAL_ROOM_SIGN_COPY,
+  UTILITY_LIBERTY_CAPITAL_SUPPLEMENTAL_EXHIBITS,
+  UTILITY_LIBERTY_CAPITAL_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
+  utilityLibertyCapitalInteriorLintels,
+  FAITH_PESSIMISM_VALUE_GALLERY_ID,
+  FAITH_PESSIMISM_VALUE_HALL_DIMENSIONS,
+  FAITH_PESSIMISM_VALUE_PRIMARY_PLACEMENTS,
+  FAITH_PESSIMISM_VALUE_ROOM_ENTRY_POSES,
+  FAITH_PESSIMISM_VALUE_ROOM_SIGN_COPY,
+  FAITH_PESSIMISM_VALUE_SUPPLEMENTAL_EXHIBITS,
+  FAITH_PESSIMISM_VALUE_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
+  faithPessimismValueInteriorLintels,
   CLASSICAL_SOUTH_ASIAN_GALLERY_ID,
   CLASSICAL_SOUTH_ASIAN_PRIMARY_PLACEMENTS,
   CLASSICAL_SOUTH_ASIAN_SUPPLEMENTAL_EXHIBITS,
@@ -359,6 +381,8 @@ const HALL_IDS = [
   'rationalism-mind-nature-system',
   'empiricism-science-political-order',
   'enlightenment-revolution-kant',
+  'utility-liberty-history-capital',
+  'faith-pessimism-life-value',
 ];
 const LEGACY_HALL_IDS = [
   'ancient-greek',
@@ -387,6 +411,8 @@ const EXPECTED_COUNTS = {
   'rationalism-mind-nature-system': {rooms: 3, exhibits: 5, template: 'sequence-3'},
   'empiricism-science-political-order': {rooms: 3, exhibits: 4, template: 'sequence-3'},
   'enlightenment-revolution-kant': {rooms: 5, exhibits: 6, template: 'crossroads-4'},
+  'utility-liberty-history-capital': {rooms: 4, exhibits: 3, template: 'sequence-3'},
+  'faith-pessimism-life-value': {rooms: 3, exhibits: 3, template: 'sequence-3'},
 };
 const EXPECTED_MAP_LABELS = {
   'mediterranean-beginnings-classical': 'Gallery 01 · Mediterranean Beginnings & Classical Athens',
@@ -407,6 +433,8 @@ const EXPECTED_MAP_LABELS = {
   'rationalism-mind-nature-system': 'Gallery 16 · Rationalism: Mind, Nature, and System',
   'empiricism-science-political-order': 'Gallery 17 · Empiricism, Science, and Political Order',
   'enlightenment-revolution-kant': 'Gallery 18 · Enlightenment, Revolution, and Kant’s Critical Turn',
+  'utility-liberty-history-capital': 'Gallery 20 · Utility, Liberty, History, and Capital',
+  'faith-pessimism-life-value': 'Gallery 21 · Faith, Pessimism, Life, and Value',
 };
 const TIER_RUNTIME = {
   'anchor-exhibit': {tier: 'anchor', treatment: 'anchor-bay'},
@@ -782,25 +810,25 @@ const assertCompleteSixWallSequenceGallery = ({
   }
 };
 
-check('the public catalog is exactly the canonical eighteen-hall, 75-room, 157-exhibit program', () => {
+check('the public catalog is exactly the canonical twenty-hall, 82-room, 163-exhibit program', () => {
   assert.deepEqual(MUSEUM_HALLS.map(({id}) => id), HALL_IDS);
-  assert.equal(MUSEUM_HALLS.reduce((sum, hall) => sum + hall.zones.length, 0), 75);
-  assert.equal(MUSEUM_HALLS.reduce((sum, hall) => sum + hall.exhibits.length, 0), 157);
+  assert.equal(MUSEUM_HALLS.reduce((sum, hall) => sum + hall.zones.length, 0), 82);
+  assert.equal(MUSEUM_HALLS.reduce((sum, hall) => sum + hall.exhibits.length, 0), 163);
   assert.deepEqual(MUSEUM_LIVE_PROGRAM_TOTALS.tierCounts, {
-    'anchor-exhibit': 75,
-    'standard-individual-exhibit': 68,
+    'anchor-exhibit': 78,
+    'standard-individual-exhibit': 71,
     'supporting-exhibit': 8,
     'thematic-cluster-participant': 5,
     'gallery-archive-or-study-wall-record': 1,
   });
-  assert.equal(MUSEUM_LIVE_PROGRAM_TOTALS.recordCapacity, 215);
-  assert.equal(MUSEUM_LIVE_PROGRAM_TOTALS.reserveCapacity, 58);
-  assert.equal(MUSEUM_LIVE_PROGRAM_TOTALS.hallCount, 18);
-  assert.equal(MUSEUM_LIVE_PROGRAM_TOTALS.roomCount, 75);
-  assert.equal(MUSEUM_LIVE_PROGRAM_TOTALS.exhibitCount, 157);
+  assert.equal(MUSEUM_LIVE_PROGRAM_TOTALS.recordCapacity, 223);
+  assert.equal(MUSEUM_LIVE_PROGRAM_TOTALS.reserveCapacity, 60);
+  assert.equal(MUSEUM_LIVE_PROGRAM_TOTALS.hallCount, 20);
+  assert.equal(MUSEUM_LIVE_PROGRAM_TOTALS.roomCount, 82);
+  assert.equal(MUSEUM_LIVE_PROGRAM_TOTALS.exhibitCount, 163);
   assert.equal(Object.keys(MUSEUM_PLANNED_HALL_TITLES).length, 26);
-  assert.equal(Object.keys(MUSEUM_PLANNED_HALL_TITLES).filter((id) => HALL_IDS.includes(id)).length, 18);
-  assert.equal(Object.keys(MUSEUM_PLANNED_HALL_TITLES).filter((id) => !HALL_IDS.includes(id)).length, 8);
+  assert.equal(Object.keys(MUSEUM_PLANNED_HALL_TITLES).filter((id) => HALL_IDS.includes(id)).length, 20);
+  assert.equal(Object.keys(MUSEUM_PLANNED_HALL_TITLES).filter((id) => !HALL_IDS.includes(id)).length, 6);
   for (const hall of MUSEUM_HALLS) {
     const expected = EXPECTED_COUNTS[hall.id];
     const runtimeNode = MUSEUM_RUNTIME_NODES.find(({publicHallId}) => publicHallId === hall.id);
@@ -827,8 +855,8 @@ check('curated halls and persistent Continuous Enfilade architecture use the can
   const persistentPlannedHalls = persistentNodes.filter(({kind, galleryState}) =>
     kind === 'hall' && galleryState === 'planned-walkable');
   const persistentCirculationNodes = persistentNodes.filter(({kind}) => kind !== 'hall');
-  assert.equal(persistentNodes.length, 21, 'Persistent architecture must contain 8 planned halls and 13 circulation nodes');
-  assert.equal(persistentPlannedHalls.length, 8, 'Persistent architecture must retain exactly 8 planned hall shells');
+  assert.equal(persistentNodes.length, 19, 'Persistent architecture must contain 6 planned halls and 13 circulation nodes');
+  assert.equal(persistentPlannedHalls.length, 6, 'Persistent architecture must retain exactly 6 planned hall shells');
   assert.equal(persistentCirculationNodes.length, 13, 'Persistent architecture must retain exactly 13 circulation nodes');
   for (const node of persistentNodes) {
     assert(node.layout.spatialCells.length > 0, `${node.id} has no walkable spatial cell`);
@@ -1045,10 +1073,10 @@ check('Plato’s Cave and Republic form a substantial supplemental U without ent
   assert.match(supplementalPanelSource, /event\.key === 'Escape'/u, 'The supplemental panel lacks its keyboard close path');
 });
 
-check('all 258 supplemental exhibits share route, directory, search, guided, and fallback contracts', () => {
-  assert.equal(MUSEUM_SUPPLEMENTAL_EXHIBITS.length, 258);
-  assert.equal(MUSEUM_INTERPRETATIONS.length, 157, 'Every canonical installation needs one interpretation');
-  assert.equal(MUSEUM_INTERPRETATIONS.length + MUSEUM_SUPPLEMENTAL_EXHIBITS.length, 415, 'The directory interpreted-stop count changed');
+check('all 294 supplemental exhibits share route, directory, search, guided, and fallback contracts', () => {
+  assert.equal(MUSEUM_SUPPLEMENTAL_EXHIBITS.length, 294);
+  assert.equal(MUSEUM_INTERPRETATIONS.length, 163, 'Every canonical installation needs one interpretation');
+  assert.equal(MUSEUM_INTERPRETATIONS.length + MUSEUM_SUPPLEMENTAL_EXHIBITS.length, 457, 'The directory interpreted-stop count changed');
   assert.equal(
     new Set(MUSEUM_SUPPLEMENTAL_EXHIBITS.map(({exhibit}) => exhibit.id)).size,
     MUSEUM_SUPPLEMENTAL_EXHIBITS.length,
@@ -1505,8 +1533,10 @@ check('Gallery 03 onward makes every primary at least as large as its biggest se
       'rationalism-mind-nature-system',
       'empiricism-science-political-order',
       'enlightenment-revolution-kant',
+      'utility-liberty-history-capital',
+      'faith-pessimism-life-value',
     ]),
-    'Fully built Galleries 03–18 should enforce the completed-gallery hierarchy',
+    'Fully built Galleries 03–18 and 20–21 should enforce the completed-gallery hierarchy',
   );
   assert(
     canonicalExhibitsSource.includes('primaryEmphasis ? .72 : .42'),
@@ -2822,6 +2852,90 @@ check('Gallery 18 is a complete 25-installation Enlightenment crossroads with th
   assert.match(enlightenmentSupplementalDataSource, /export const ENLIGHTENMENT_SUPPLEMENTAL_EXHIBITS/u, 'Gallery 18 supplemental content is not exported');
 });
 
+const assertSequenceGalleryLintels = (label, galleryId, expectedDimensions, lintels) => {
+  const definition = definitionById.get(galleryId);
+  assert(definition, `${label} has no runtime definition`);
+  assert.deepEqual(expectedDimensions, {
+    width: 24,
+    depth: 56,
+    ceilingHeight: 5.8,
+    wallThickness: .36,
+    openingWidth: 4,
+    openingHeight: 3.2,
+  });
+  assert(lintels.length > 0, `${label} has no interior lintels`);
+  assert(lintels.every(({size, bottom, height}) =>
+    close(size.width, 4)
+    && close(size.depth, .36)
+    && close(bottom, 3.2)
+    && close(height, 2.6)), `${label} lintel dimensions drifted`);
+  for (const lintel of lintels) {
+    assert.deepEqual(
+      definition.architectureWalls.find(({id}) => id === lintel.id),
+      lintel,
+      `${label}/${lintel.id} is absent from rendered architecture`,
+    );
+    assert(
+      !definition.layout.wallColliders.some(({id}) => id === lintel.id),
+      `${label}/${lintel.id} incorrectly closes a walkable opening`,
+    );
+  }
+};
+
+check('Gallery 20 is a complete four-room, 24-installation utility, liberty, and capital sequence', () => {
+  assertCompleteSixWallSequenceGallery({
+    label: 'Gallery 20',
+    galleryId: UTILITY_LIBERTY_CAPITAL_GALLERY_ID,
+    roomCount: 4,
+    primaryCount: 3,
+    supplementalCount: 21,
+    physicalCount: 24,
+    primaryPlacements: UTILITY_LIBERTY_CAPITAL_PRIMARY_PLACEMENTS,
+    roomEntryPoses: UTILITY_LIBERTY_CAPITAL_ROOM_ENTRY_POSES,
+    roomSignCopy: UTILITY_LIBERTY_CAPITAL_ROOM_SIGN_COPY,
+    supplementalExhibits: UTILITY_LIBERTY_CAPITAL_SUPPLEMENTAL_EXHIBITS,
+    supplementalLayouts: UTILITY_LIBERTY_CAPITAL_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
+    directNeighborNodeIds: ['crossing:band-04', 'hall:faith-pessimism-life-value'],
+  });
+  assertSequenceGalleryLintels(
+    'Gallery 20',
+    UTILITY_LIBERTY_CAPITAL_GALLERY_ID,
+    UTILITY_LIBERTY_CAPITAL_HALL_DIMENSIONS,
+    utilityLibertyCapitalInteriorLintels(),
+  );
+  assert.equal(utilityLibertyCapitalInteriorLintels().length, 3, 'Gallery 20 must retain three render-only lintels');
+  assert.match(canonicalSceneSource, /<UtilityLibertyCapitalSupplementalExhibits/u, 'Gallery 20 does not mount its supplemental renderer');
+  assert.match(successorSupplementalSceneSource, /getUtilityLibertyCapitalSupplementalExhibit/u, 'Gallery 20 renderer does not resolve authored visitor content');
+  assert.match(utilityLibertyCapitalSupplementalDataSource, /export const UTILITY_LIBERTY_CAPITAL_SUPPLEMENTAL_EXHIBITS/u, 'Gallery 20 supplemental content is not exported');
+});
+
+check('Gallery 21 is a complete three-room, 18-installation faith, pessimism, and value sequence', () => {
+  assertCompleteSixWallSequenceGallery({
+    label: 'Gallery 21',
+    galleryId: FAITH_PESSIMISM_VALUE_GALLERY_ID,
+    roomCount: 3,
+    primaryCount: 3,
+    supplementalCount: 15,
+    physicalCount: 18,
+    primaryPlacements: FAITH_PESSIMISM_VALUE_PRIMARY_PLACEMENTS,
+    roomEntryPoses: FAITH_PESSIMISM_VALUE_ROOM_ENTRY_POSES,
+    roomSignCopy: FAITH_PESSIMISM_VALUE_ROOM_SIGN_COPY,
+    supplementalExhibits: FAITH_PESSIMISM_VALUE_SUPPLEMENTAL_EXHIBITS,
+    supplementalLayouts: FAITH_PESSIMISM_VALUE_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
+    directNeighborNodeIds: ['hall:utility-liberty-history-capital', 'turn:band-04-to-05'],
+  });
+  assertSequenceGalleryLintels(
+    'Gallery 21',
+    FAITH_PESSIMISM_VALUE_GALLERY_ID,
+    FAITH_PESSIMISM_VALUE_HALL_DIMENSIONS,
+    faithPessimismValueInteriorLintels(),
+  );
+  assert.equal(faithPessimismValueInteriorLintels().length, 2, 'Gallery 21 must retain two render-only lintels');
+  assert.match(canonicalSceneSource, /<FaithPessimismValueSupplementalExhibits/u, 'Gallery 21 does not mount its supplemental renderer');
+  assert.match(successorSupplementalSceneSource, /getFaithPessimismValueSupplementalExhibit/u, 'Gallery 21 renderer does not resolve authored visitor content');
+  assert.match(faithPessimismValueSupplementalDataSource, /export const FAITH_PESSIMISM_VALUE_SUPPLEMENTAL_EXHIBITS/u, 'Gallery 21 supplemental content is not exported');
+});
+
 check('Gallery 06 is an open, wall-supported 25-exhibit Forum with full-scale primaries', () => {
   const forumProgram = MUSEUM_CANONICAL_PROGRAM.find(({id}) => id === 'core-questions-forum');
   const forumDirectory = hallById.get('core-questions-forum');
@@ -3079,12 +3193,12 @@ check('the executable manifest exactly implements the approved Continuous Enfila
     {
       halls: 26,
       rooms: 105,
-      curatedOpen: 18,
-      plannedWalkable: 8,
+      curatedOpen: 20,
+      plannedWalkable: 6,
       reserves: 2,
       hallCount: 26,
-      curatedOpenHallCount: 18,
-      plannedWalkableHallCount: 8,
+      curatedOpenHallCount: 20,
+      plannedWalkableHallCount: 6,
       canonicalRoomCount: 105,
       nodeCount: 39,
       connectionCount: 43,
@@ -3094,7 +3208,7 @@ check('the executable manifest exactly implements the approved Continuous Enfila
       standaloneCrossingNodeCount: 5,
       turnCourtCount: 5,
       reserveCount: 2,
-      plannedStatusSignCount: 8,
+      plannedStatusSignCount: 6,
     },
   );
 
@@ -3102,10 +3216,15 @@ check('the executable manifest exactly implements the approved Continuous Enfila
   const curatedNodes = hallNodes.filter(({galleryState}) => galleryState === 'curated-open');
   const plannedNodes = hallNodes.filter(({galleryState}) => galleryState === 'planned-walkable');
   assert.equal(hallNodes.length, 26);
-  assert.equal(curatedNodes.length, 18);
-  assert.equal(plannedNodes.length, 8);
+  assert.equal(curatedNodes.length, 20);
+  assert.equal(plannedNodes.length, 6);
   assert.deepEqual(sorted(curatedNodes.map(({publicHallId}) => publicHallId)), sorted(HALL_IDS));
   assert(plannedNodes.every(({publicHallId, fastTravelEligible}) => publicHallId === undefined && fastTravelEligible !== true));
+  assert.equal(
+    hallNodes.find(({programHallId}) => programHallId === 'german-idealism-afterlives')?.galleryState,
+    'planned-walkable',
+    'Gallery 19 must remain planned while Galleries 20 and 21 are curated',
+  );
   assert.equal(buildingManifest.nodes.length, 39);
   assert.equal(MUSEUM_RUNTIME_NODES.length, 39);
   assert.equal(buildingManifest.connections.length, 43);
@@ -3214,9 +3333,9 @@ check('the executable template registry retains the approved canonical contracts
   assert(MUSEUM_LEGACY_GEOMETRY_ADAPTERS.length > 0, 'retained prototype data should remain explicitly classified, not silently erased');
 });
 
-check('all eighteen runtime halls are canonical, data-driven, and internally aligned', () => {
+check('all twenty runtime halls are canonical, data-driven, and internally aligned', () => {
   assert.deepEqual(definitions.map(({id}) => id), HALL_IDS);
-  assert.equal(new Set(definitions.map(({physicalNodeId}) => physicalNodeId)).size, 18);
+  assert.equal(new Set(definitions.map(({physicalNodeId}) => physicalNodeId)).size, 20);
   for (const definition of definitions) {
     const hall = hallById.get(definition.id);
     const node = MUSEUM_BUILDING_MANIFEST.nodes.find(({publicHallId}) => publicHallId === definition.id);
@@ -3255,6 +3374,8 @@ check('all eighteen runtime halls are canonical, data-driven, and internally ali
       'late-antiquity-inheritance',
       'rationalism-mind-nature-system',
       'empiricism-science-political-order',
+      'utility-liberty-history-capital',
+      'faith-pessimism-life-value',
     ].includes(definition.id) ? 1 : 0;
     const expectedPhysicalSignCount = definition.id === 'core-questions-forum'
       ? 10
@@ -3726,9 +3847,9 @@ check('the physical visitor map is a truthful projection of live geometry and sa
   assert.deepEqual(MUSEUM_VISITOR_MAP_PROJECTION.map(({hall}) => hall.id), approvedVisitOrder);
   assert.deepEqual(MUSEUM_VISITOR_MAP_NODES.map(({programHallId}) => programHallId), approvedVisitOrder);
   assert.equal(MUSEUM_VISITOR_MAP_NODES.length, 26);
-  assert.equal(MUSEUM_VISITOR_MAP_NODES.filter(({galleryState}) => galleryState === 'curated-open').length, 18);
-  assert.equal(MUSEUM_VISITOR_MAP_NODES.filter(({galleryState}) => galleryState === 'planned-walkable').length, 8);
-  assert.equal(MUSEUM_VISITOR_MAP_NODES.filter(({fastTravelEligible}) => fastTravelEligible).length, 18);
+  assert.equal(MUSEUM_VISITOR_MAP_NODES.filter(({galleryState}) => galleryState === 'curated-open').length, 20);
+  assert.equal(MUSEUM_VISITOR_MAP_NODES.filter(({galleryState}) => galleryState === 'planned-walkable').length, 6);
+  assert.equal(MUSEUM_VISITOR_MAP_NODES.filter(({fastTravelEligible}) => fastTravelEligible).length, 20);
   assert.equal(MUSEUM_VISITOR_MAP_NODES.flatMap(({rooms}) => rooms).length, 105);
   assert.equal(MUSEUM_VISITOR_MAP_NODE_PROJECTIONS.length, MUSEUM_RUNTIME_NODES.length);
   assert.equal(MUSEUM_VISITOR_MAP_EDGES.length, MUSEUM_BUILDING_MANIFEST.connections.length);
@@ -3881,9 +4002,9 @@ check('decoded texture residency admits every active and approached hall under 9
   console.log(`  texture residency peak: ${(peak / 1024 / 1024).toFixed(2)} MiB / 96 MiB`);
 });
 
-check('all 157 live canonical exhibits have substantial, sourced, route-aware interpretation', () => {
-  assert.equal(MUSEUM_INTERPRETATIONS.length, 157);
-  assert.equal(new Set(MUSEUM_INTERPRETATIONS.map(({hallId, id}) => `${hallId}/${id}`)).size, 157);
+check('all 163 live canonical exhibits have substantial, sourced, route-aware interpretation', () => {
+  assert.equal(MUSEUM_INTERPRETATIONS.length, 163);
+  assert.equal(new Set(MUSEUM_INTERPRETATIONS.map(({hallId, id}) => `${hallId}/${id}`)).size, 163);
   assert.deepEqual(sorted(MUSEUM_INTERPRETATIONS.map(({hallId, id}) => `${hallId}/${id}`)), sorted(activeRefs));
   for (const interpretation of MUSEUM_INTERPRETATIONS) {
     const hall = hallById.get(interpretation.hallId);
@@ -4197,9 +4318,9 @@ check('the React implementation uses one persistent Canvas, one shared canonical
   assert.match(visitorMapSource, /The Continuous Enfilade is a single-level, 26-gallery museum/);
   assert.match(visitorMapSource, /26-gallery collection plan/);
   assert.match(visitorMapSource, /10 metre north–south crosscut has six truthful intersections/);
-  assert.match(visitorMapSource, /Eighteen curated galleries are open for fast travel; eight planned gallery shells are walkable but have no travel control/);
+  assert.match(visitorMapSource, /Twenty curated galleries are open for fast travel; six planned gallery shells are walkable but have no travel control/);
   assert.match(visitorMapSource, /projectMuseumVisitorMapHeading/);
-  assert.match(visitorMapSource, /Fast travel is limited to the 18 curated\/open galleries/);
+  assert.match(visitorMapSource, /Fast travel is limited to the 20 curated\/open galleries/);
   assert.doesNotMatch(visitorMapSource, /Ring of Wings|Permanent construction stage|registered hall’s authored safe spawn/);
   assert.match(visitorMapSource, /MUSEUM_VISITOR_MAP_RESERVATIONS/);
   assert.match(visitorMapSource, /selected\.hall\.rooms\.map/);
@@ -4243,4 +4364,4 @@ assert.deepEqual(seamCrossingFailures, [], `collision-resolved seam failures:\n$
 assert.deepEqual(residencyAdmissionFailures, [], `approached-hall residency failures:\n${[...new Set(residencyAdmissionFailures)].join('\n')}`);
 assert.deepEqual(interpretationQualityFailures, [], `interpretation quality failures:\n${interpretationQualityFailures.join('\n')}`);
 
-console.log(`\nMuseum audit passed: ${checks} groups covering ${definitions.length} canonical halls, 75 rooms, 157 canonical exhibits, ${MUSEUM_SUPPLEMENTAL_EXHIBITS.length} supplemental exhibits, 415 interpreted stops, ${physicalMovementTrajectories} production-frame crossing trajectories over ${MUSEUM_DIRECTED_CONNECTIONS.length} directed crossings and ${MUSEUM_BUILDING_MANIFEST.connections.length} physical seams, 96 MiB bounded residency, and ${Math.round(museumModuleInitializationMs)}ms canonical-data initialization.`);
+console.log(`\nMuseum audit passed: ${checks} groups covering ${definitions.length} canonical halls, 82 rooms, 163 canonical exhibits, ${MUSEUM_SUPPLEMENTAL_EXHIBITS.length} supplemental exhibits, 457 interpreted stops, ${physicalMovementTrajectories} production-frame crossing trajectories over ${MUSEUM_DIRECTED_CONNECTIONS.length} directed crossings and ${MUSEUM_BUILDING_MANIFEST.connections.length} physical seams, 96 MiB bounded residency, and ${Math.round(museumModuleInitializationMs)}ms canonical-data initialization.`);

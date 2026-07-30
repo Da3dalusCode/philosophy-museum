@@ -335,7 +335,43 @@ export type MuseumSupplementalExhibitId =
   | 'enlightenment-marriage-domestic-government'
   | 'enlightenment-women-public-intellectuals'
   | 'enlightenment-access-to-knowledge'
-  | 'enlightenment-revolution-from-street';
+  | 'enlightenment-revolution-from-street'
+  | 'utility-bentham-young-reformer'
+  | 'utility-penitentiary-reform'
+  | 'utility-law-public-judgment'
+  | 'utility-suffering-moral-standing'
+  | 'liberty-romantic-formation'
+  | 'liberty-harriet-collaboration'
+  | 'liberty-cooperative-experiments'
+  | 'liberty-public-assembly'
+  | 'liberty-womens-suffrage'
+  | 'liberty-imperial-exception'
+  | 'capital-feuerbach-inversion'
+  | 'capital-alienated-labor'
+  | 'capital-machinery-knowledge'
+  | 'capital-commodity-spectacle'
+  | 'capital-class-revolution-1848'
+  | 'transformations-ricardo-political-economy'
+  | 'transformations-industrial-city'
+  | 'transformations-gendered-labor'
+  | 'transformations-global-cotton'
+  | 'transformations-chartist-politics'
+  | 'transformations-cotton-flows'
+  | 'schopenhauer-kant-and-representation'
+  | 'schopenhauer-frankfurt-work'
+  | 'schopenhauer-music-and-wagner'
+  | 'schopenhauer-oupnekhat-route'
+  | 'schopenhauer-pessimism-afterlife'
+  | 'kierkegaard-indirect-communication'
+  | 'kierkegaard-fear-trembling'
+  | 'kierkegaard-christendom-attack'
+  | 'kierkegaard-corsair-public'
+  | 'kierkegaard-regine-legend'
+  | 'nietzsche-birth-tragedy'
+  | 'nietzsche-lou-interlocutor'
+  | 'nietzsche-writing-machine'
+  | 'nietzsche-eternal-recurrence'
+  | 'nietzsche-archive-afterlife';
 
 export type MuseumSupplementalInstallationKind =
   | 'cave-ascent'
@@ -382,6 +418,12 @@ export type MuseumSupplementalInstallationKind =
   | 'enlightenment-work'
   | 'enlightenment-context'
   | 'enlightenment-concept'
+  | 'utility-work'
+  | 'utility-context'
+  | 'utility-concept'
+  | 'value-work'
+  | 'value-context'
+  | 'value-concept'
   | 'forum-comparative-lens';
 
 export type MuseumSupplementalExhibitLayout = {
@@ -646,7 +688,7 @@ export type MuseumRuntimeNodeDefinition = {
   kind: MuseumPhysicalNodeKind;
   /** Every one of the 26 architectural galleries has a stable program id. */
   programHallId?: MuseumPlannedHallId;
-  /** Only the eighteen curated/open galleries own a content registration. */
+  /** Only the twenty curated/open galleries own a content registration. */
   publicHallId?: MuseumPublicHallId;
   galleryState?: MuseumGalleryState;
   publicGalleryNumber?: number;

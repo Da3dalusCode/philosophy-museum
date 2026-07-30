@@ -151,13 +151,13 @@
   </text>
 
   <!-- Band 4: east to west. -->
-  <rect class="planned" x="42" y="114" width="56" height="24"/>
+  <rect class="open" x="42" y="114" width="56" height="24"/>
   <text class="small" x="70" y="119">
     <tspan x="70">Gallery 21 · Visit 18</tspan>
     <tspan x="70" dy="2.7">Faith, Pessimism,</tspan>
     <tspan x="70" dy="2.7">Life &amp; Value</tspan>
   </text>
-  <rect class="planned" x="98" y="114" width="56" height="24"/>
+  <rect class="open" x="98" y="114" width="56" height="24"/>
   <text class="small" x="126" y="119">
     <tspan x="126">Gallery 20 · Visit 17</tspan>
     <tspan x="126" dy="2.7">Utility, Liberty,</tspan>
@@ -309,9 +309,9 @@
 
   <text class="meta-bold" x="320" y="82">CURRENT RUNTIME STATUS</text>
   <rect class="open" x="320" y="88" width="12" height="7"/>
-  <text class="meta" x="336" y="93">18 curated galleries retained intact</text>
+  <text class="meta" x="336" y="93">20 curated galleries retained intact</text>
   <rect class="planned" x="320" y="99" width="12" height="7"/>
-  <text class="meta" x="336" y="104">8 named, walkable planned shells</text>
+  <text class="meta" x="336" y="104">6 named, walkable planned shells</text>
   <rect class="forum" x="320" y="110" width="12" height="7"/>
   <text class="meta" x="336" y="115">Core Questions Forum, full bay</text>
   <rect class="crossing" x="320" y="121" width="12" height="7"/>
