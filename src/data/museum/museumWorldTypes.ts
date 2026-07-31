@@ -31,6 +31,8 @@ export type MuseumWallDefinition = MuseumCollider & {
   /** Optional visual trim for authored overlaps; collision continues to use center/size. */
   renderCenter?: MuseumPoint;
   renderSize?: {width: number; depth: number};
+  /** Preserves the authored run axis when a render-only fragment becomes thinner than the wall. */
+  renderLongAxis?: 'width' | 'depth';
 };
 
 export type MuseumFurnishingDefinition = MuseumCollider & {

@@ -458,6 +458,7 @@ const {
   loadMuseumLastVisit,
   loadMuseumSession,
   moveWithCollisions,
+  museumHallContentIsActive,
   museumWallFragmentFromPlane,
   museumWallPlaneOverlapArea,
   museumWallWorldFootprint,
@@ -471,6 +472,7 @@ const {
   parseMuseumHallTravelContext,
   parseMuseumSession,
   positionInsideSpatialUnion,
+  resolveMuseumHallApproachAtPose,
   resolveMuseumHallRenderedReadinessKeys,
   resolveMuseumHallResidencyPlan,
   resolveMuseumHallResidency,
@@ -676,6 +678,41 @@ check('committed hall crossings survive the one-shot entrance route marker clear
   assert.match(museumPageSource, /previousHallId !== targetHallId \|\| clearsEntranceRoute/u);
   assert.match(museumPageSource, /hallId !== sourceHallId \|\| sourceAtGrandEntrance/u);
   assert.match(museumPageSource, /previousHallIdRef\.current === route\.hallId/u);
+});
+
+check('resident hall content keeps its logical owner through connectors except at the Grand Entrance', () => {
+  const gallery01Node = MUSEUM_RUNTIME_NODES.find(
+    ({publicHallId}) => publicHallId === 'mediterranean-beginnings-classical',
+  );
+  const ordinaryConnector = MUSEUM_RUNTIME_NODES.find(
+    ({publicHallId, id}) =>
+      publicHallId === undefined
+      && id !== MUSEUM_BUILDING_MANIFEST.mainEntrance.nodeId,
+  );
+  assert(gallery01Node, 'Gallery 01 has no physical runtime node');
+  assert(ordinaryConnector, 'The building has no ordinary connector for the content-owner audit');
+
+  assert.equal(museumHallContentIsActive({
+    physicalNodeId: gallery01Node.id,
+    logicalActiveHallId: 'mediterranean-beginnings-classical',
+    hallId: 'mediterranean-beginnings-classical',
+  }), true, 'Gallery 01 does not own full content inside its physical hall');
+  assert.equal(museumHallContentIsActive({
+    physicalNodeId: ordinaryConnector.id,
+    logicalActiveHallId: 'mediterranean-beginnings-classical',
+    hallId: 'mediterranean-beginnings-classical',
+  }), true, 'The source hall lost full content while the visitor was in an ordinary connector');
+  assert.equal(museumHallContentIsActive({
+    physicalNodeId: ordinaryConnector.id,
+    logicalActiveHallId: 'mediterranean-beginnings-classical',
+    hallId: 'hellenistic-roman-ways',
+  }), false, 'An approached hall incorrectly became the full-content owner inside a connector');
+  assert.equal(museumHallContentIsActive({
+    physicalNodeId: MUSEUM_BUILDING_MANIFEST.mainEntrance.nodeId,
+    logicalActiveHallId: 'mediterranean-beginnings-classical',
+    hallId: 'mediterranean-beginnings-classical',
+  }), false, 'Gallery 01 mounted full content before the Grand Entrance threshold');
+  assert.match(museumWorldSource, /active=\{museumHallContentIsActive\(\{/u);
 });
 
 check('guided visit follows the physical 26-gallery route and ends at Final Return', () => {
@@ -1434,6 +1471,40 @@ check('wall geometry matches rendered width/depth, overrides, rotations, and fra
     approx(roundTrip.top, requested.top, `${label} fragment top`, 1e-6);
   }
 
+  const narrowWidthWall = {
+    id: 'audit:narrow-width-fragment',
+    center: {x: 0, z: 0},
+    size: {width: 10, depth: .4},
+    rotation: 0,
+    height: 4,
+  };
+  const narrowWidthPlane = museumWorldWallPlane({x: 0, z: 0, yaw: 0}, narrowWidthWall);
+  const narrowWidthRequest = {
+    ...narrowWidthPlane,
+    start: 0,
+    end: .2,
+  };
+  const narrowWidthFragment = museumWallFragmentFromPlane(
+    {x: 0, z: 0, yaw: 0},
+    narrowWidthWall,
+    narrowWidthRequest,
+    0,
+  );
+  assert.equal(narrowWidthFragment.renderLongAxis, 'width');
+  assert.equal(resolveMuseumWallRenderGeometry(narrowWidthFragment).longAxis, 'width');
+  const narrowWidthRoundTrip = museumWorldWallPlane(
+    {x: 0, z: 0, yaw: 0},
+    narrowWidthFragment,
+  );
+  approx(narrowWidthRoundTrip.start, narrowWidthRequest.start, 'narrow fragment start', 1e-6);
+  approx(narrowWidthRoundTrip.end, narrowWidthRequest.end, 'narrow fragment end', 1e-6);
+  approx(
+    narrowWidthRoundTrip.coordinate,
+    narrowWidthRequest.coordinate,
+    'narrow fragment plane',
+    1e-6,
+  );
+
   const candidate = museumWorldWallPlane({x: 0, z: 0, yaw: 0}, {
     id: 'audit:candidate',
     center: {x: 0, z: 0},
@@ -1497,20 +1568,70 @@ check('the permanent two-hall structural plan owns both pilot seams without medi
   const structuralIds = MUSEUM_PERMANENT_STRUCTURAL_HALLS.flatMap(
     ({hallId, structuralWallIds}) => structuralWallIds.map((id) => `${hallId}/${id}`),
   );
-  const structuralIdsForState = () => structuralIds;
+  const structuralIdsForState = (residentHallIds) => [
+    ...structuralIds,
+    ...residentHallIds.flatMap((hallId) => {
+      if (!resolveMuseumHallStructureMountPolicy(hallId).residentContentOwnsStructure) return [];
+      const definition = definitionById.get(hallId);
+      assert(definition, `No Museum definition exists for resident hall ${hallId}`);
+      return (definition.architectureWalls ?? definition.layout.wallColliders)
+        .map(({id}) => `${hallId}/resident/${id}`);
+    }),
+  ];
+  const entranceDefinition = runtimeNodeById.get(MUSEUM_BUILDING_MANIFEST.mainEntrance.nodeId);
+  const gallery01Definition = MUSEUM_RUNTIME_NODES.find(
+    ({publicHallId}) => publicHallId === gallery01Id,
+  );
+  assert(entranceDefinition, 'The Grand Entrance runtime definition is missing');
+  assert(gallery01Definition, 'The Gallery 01 runtime definition is missing');
+  const poseFromWorld = (definition, x, z) => museumPoseFromWorld(
+    definition,
+    {x, z, yaw: Math.PI / 2, pitch: 0},
+  );
+  const entranceFarApproach = resolveMuseumHallApproachAtPose(
+    entranceDefinition,
+    poseFromWorld(entranceDefinition, 97, -70),
+  );
+  const entranceNearApproach = resolveMuseumHallApproachAtPose(
+    entranceDefinition,
+    poseFromWorld(entranceDefinition, 94.5, -70),
+  );
+  assert.equal(entranceFarApproach, undefined, 'The exact Entrance far pose entered approach residency');
+  assert.deepEqual(
+    entranceNearApproach,
+    {hallId: gallery01Id, entranceId: 'S0'},
+    'The exact Entrance near pose did not naturally approach Gallery 01',
+  );
   const entranceStates = [
     resolveMuseumHallResidency({}),
-    resolveMuseumHallResidency({approachedHallId: gallery01Id, approachedEntranceId: 'S0'}),
+    resolveMuseumHallResidency({
+      approachedHallId: entranceNearApproach.hallId,
+      approachedEntranceId: entranceNearApproach.entranceId,
+    }),
     resolveMuseumHallResidency({}),
     resolveMuseumHallResidency({}),
   ];
   assert.deepEqual(entranceStates, [[], [gallery01Id], [], []]);
+  const galleryFarApproach = resolveMuseumHallApproachAtPose(
+    gallery01Definition,
+    poseFromWorld(gallery01Definition, 41, -70),
+  );
+  const galleryNearApproach = resolveMuseumHallApproachAtPose(
+    gallery01Definition,
+    poseFromWorld(gallery01Definition, 38.5, -70),
+  );
+  assert.equal(galleryFarApproach, undefined, 'The exact Gallery 01 far pose entered approach residency');
+  assert.deepEqual(
+    galleryNearApproach,
+    {hallId: gallery14Id, entranceId: 'W0'},
+    'The exact Gallery 01 near pose did not naturally approach Gallery 14',
+  );
   const galleryStates = [
     resolveMuseumHallResidency({activeHallId: gallery01Id}),
     resolveMuseumHallResidency({
       activeHallId: gallery01Id,
-      approachedHallId: gallery14Id,
-      approachedEntranceId: 'W0',
+      approachedHallId: galleryNearApproach.hallId,
+      approachedEntranceId: galleryNearApproach.entranceId,
     }),
     resolveMuseumHallResidency({activeHallId: gallery01Id}),
     resolveMuseumHallResidency({activeHallId: gallery01Id}),
@@ -1521,9 +1642,19 @@ check('the permanent two-hall structural plan owns both pilot seams without medi
     [gallery01Id],
     [gallery01Id],
   ]);
-  for (const _state of [...entranceStates, ...galleryStates]) {
-    assert.deepEqual(structuralIdsForState(), structuralIds, 'pilot structural IDs changed with content residency');
+  for (const state of [...entranceStates, ...galleryStates]) {
+    assert.deepEqual(
+      structuralIdsForState(state),
+      structuralIds,
+      'pilot structural IDs changed with content residency',
+    );
   }
+  const nonPilotHallId = HALL_IDS.find((id) => !MUSEUM_PERMANENT_STRUCTURAL_HALL_IDS.includes(id));
+  assert(nonPilotHallId, 'The structural mount-plan audit has no non-pilot negative control');
+  assert(
+    structuralIdsForState([nonPilotHallId]).length > structuralIds.length,
+    'The structural state audit cannot detect resident-owned architecture',
+  );
 
   const persistentLayers = MUSEUM_RUNTIME_NODES.filter(({publicHallId}) => !publicHallId);
   const permanentLayers = MUSEUM_PERMANENT_STRUCTURAL_HALLS.map(({definition}) => definition);

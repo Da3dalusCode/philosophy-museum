@@ -37,6 +37,24 @@ export type MuseumHallApproach = {
 };
 
 /**
+ * Keeps the last public hall as the full-content owner while the visitor is in
+ * ordinary connectors. The Grand Entrance is the one exception: its route
+ * remains Gallery 01 for public-URL compatibility, but Gallery 01 must stay in
+ * entry-resident mode until the visitor actually crosses its threshold.
+ */
+export const museumHallContentIsActive = ({
+  physicalNodeId,
+  logicalActiveHallId,
+  hallId,
+}: {
+  physicalNodeId: MuseumPhysicalNodeId;
+  logicalActiveHallId: MuseumHallId;
+  hallId: MuseumPublicHallId;
+}): boolean =>
+  physicalNodeId !== MUSEUM_BUILDING_MANIFEST.mainEntrance.nodeId
+  && logicalActiveHallId === hallId;
+
+/**
  * Resolves the same natural threshold approach used during walking. Development
  * camera instrumentation calls this after moving the visitor pose; it never
  * names or forces a resident hall.

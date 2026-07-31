@@ -41,6 +41,7 @@ import {
   normalizeYaw,
 } from './museumMovement';
 import {
+  museumHallContentIsActive,
   museumHallEntryReadinessKey,
   MUSEUM_READINESS_GATE_CONFIG,
   MUSEUM_READINESS_PRESENTATIONS,
@@ -605,7 +606,11 @@ function MuseumWorldContents(props: MuseumSceneRuntimeProps) {
     {props.registrations.map((registration) => <LoadedHall
       key={`${registration.definition.id}-${props.hallContentEpochs[registration.definition.id] ?? 0}`}
       registration={registration}
-      active={props.definition.publicHallId === registration.definition.id}
+      active={museumHallContentIsActive({
+        physicalNodeId: props.definition.id,
+        logicalActiveHallId: props.activeHallId,
+        hallId: registration.definition.id,
+      })}
       entryEntranceId={connectedEntranceByHallId.get(registration.definition.id)}
       nearby={nearby}
       nearbySupplemental={nearbySupplemental}

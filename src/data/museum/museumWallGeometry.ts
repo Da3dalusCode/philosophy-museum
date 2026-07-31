@@ -102,7 +102,8 @@ export const resolveMuseumWallRenderGeometry = (
 ): MuseumWallRenderGeometry => {
   const center = wall.renderCenter ?? wall.center;
   const size = wall.renderSize ?? wall.size;
-  const longAxis: MuseumWallLongAxis = size.width >= size.depth ? 'width' : 'depth';
+  const longAxis: MuseumWallLongAxis = wall.renderLongAxis
+    ?? (size.width >= size.depth ? 'width' : 'depth');
   return {
     center,
     size,
@@ -226,6 +227,7 @@ export const museumWallFragmentFromPlane = (
     id: `${wall.id}:visible-${fragmentIndex + 1}`,
     renderCenter: inverseTransformPoint(transform, worldCenter),
     renderSize,
+    renderLongAxis: renderGeometry.longAxis,
     height: fragment.top - fragment.bottom,
   };
   if (fragment.bottom > .001) result.bottom = fragment.bottom;
