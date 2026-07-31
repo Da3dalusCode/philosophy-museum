@@ -114,6 +114,62 @@ const result = await build({
 const outputs = (Array.isArray(result) ? result : [result]).flatMap(({output}) => output);
 const entry = outputs.find((item) => item.type === 'chunk' && item.isEntry);
 assert(entry, 'Vite did not produce an executable Museum asset audit entry.');
+
+const permanentStructureResult = await build({
+  root: repoRoot,
+  configFile: false,
+  logLevel: 'silent',
+  build: {
+    ssr: true,
+    write: false,
+    minify: false,
+    target: 'node18',
+    rollupOptions: {
+      input: resolve(
+        repoRoot,
+        'src/components/MuseumGallery/MuseumPermanentHallStructure.tsx',
+      ),
+      output: {format: 'es', codeSplitting: false},
+    },
+  },
+});
+const permanentStructureOutputs = (
+  Array.isArray(permanentStructureResult)
+    ? permanentStructureResult
+    : [permanentStructureResult]
+).flatMap(({output}) => output);
+const permanentStructureEntry = permanentStructureOutputs.find(
+  (item) => item.type === 'chunk' && item.isEntry,
+);
+assert(permanentStructureEntry, 'Vite did not produce the permanent Museum structure audit entry.');
+const permanentStructureModules = Object.keys(permanentStructureEntry.modules)
+  .map((moduleId) => moduleId.replaceAll('\\', '/'));
+const permanentStructureHasModule = (suffix) =>
+  permanentStructureModules.some((moduleId) => moduleId.endsWith(suffix));
+for (const required of [
+  '/MuseumPermanentHallStructure.tsx',
+  '/ContemporaryHallArchitecture.tsx',
+  '/MuseumPrimaryExhibitStructure.tsx',
+  '/MediterraneanOrientationStructure.tsx',
+]) {
+  assert(
+    permanentStructureHasModule(required),
+    `Permanent Museum structure is missing ${required}`,
+  );
+}
+for (const forbidden of [
+  '/CanonicalMuseumHallScene.tsx',
+  '/CanonicalMuseumExhibits.tsx',
+  '/MuseumSceneMedia.tsx',
+  '/PlatoSupplementalExhibits.tsx',
+  '/SuccessorGallerySupplementalExhibits.tsx',
+]) {
+  assert(
+    !permanentStructureHasModule(forbidden),
+    `Permanent Museum structure statically imports resident media module ${forbidden}`,
+  );
+}
+
 const {
   ANALYTIC_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
   ANALYTIC_SUPPLEMENTAL_EXHIBITS,

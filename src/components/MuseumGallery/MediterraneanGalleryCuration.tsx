@@ -7,8 +7,8 @@ import {
 import {MUSEUM_TEXTURE_SPECS} from '../../data/museum/museumTexturePolicy';
 import type {MuseumAssetId} from '../../data/museum/museumAssetTypes';
 import type {MuseumMediaMountDefinition, MuseumSceneVolume} from '../../data/museum/museumWorldTypes';
+import {MediterraneanOrientationStructure} from './MediterraneanOrientationStructure';
 import {MuseumSceneMedia} from './MuseumSceneMedia';
-import {VISITOR_MAP_FRAME_MATERIAL} from './MuseumVisitorMapKiosk';
 
 const ORIENTATION_DESIGN_WIDTH = 1024;
 const ORIENTATION_DESIGN_HEIGHT = 512;
@@ -135,7 +135,9 @@ const FRONT_MEDIA = orientationMount(
 );
 
 /** A gallery-wide opening orientation with a finished structural reverse. */
-export function MediterraneanGalleryCuration() {
+export function MediterraneanGalleryCuration({includeStructure = true}: {
+  includeStructure?: boolean;
+}) {
   const frontTexture = useMemo(createFrontTexture, []);
   useEffect(() => () => {
     frontTexture.dispose();
@@ -143,31 +145,13 @@ export function MediterraneanGalleryCuration() {
   const display = MEDITERRANEAN_ORIENTATION_DISPLAY;
   const panelHeight = 2.8;
   return <group userData={{galleryCuration: 'mediterranean-orientation-v2'}}>
+    {includeStructure && <MediterraneanOrientationStructure/>}
     <group position={[display.center.x, 0, display.center.z]} rotation={[0, display.rotation, 0]}>
-      <mesh position={[0, 1.72, -.07]}>
-        <boxGeometry args={[display.size.width + .18, panelHeight + .18, .24]}/>
-        {[0, 1, 2, 3, 5].map((materialIndex) => (
-          <meshStandardMaterial
-            key={materialIndex}
-            attach={`material-${materialIndex}`}
-            {...VISITOR_MAP_FRAME_MATERIAL}
-          />
-        ))}
-        <meshStandardMaterial
-          attach="material-4"
-          color={MEDITERRANEAN_PALETTE.limestone}
-          roughness={.84}
-        />
-      </mesh>
       <mesh position={[0, 1.72, .06]}>
         <planeGeometry args={[display.size.width, panelHeight]}/>
         <meshBasicMaterial map={frontTexture} toneMapped={false}/>
       </mesh>
       <MuseumSceneMedia mount={FRONT_MEDIA} nearby={false} accent={MEDITERRANEAN_PALETTE.terracotta}/>
-      <mesh position={[0, .18, 0]}>
-        <boxGeometry args={[display.size.width * .86, .24, display.size.depth]}/>
-        <meshStandardMaterial color={MEDITERRANEAN_PALETTE.bronze} roughness={.7} metalness={.12}/>
-      </mesh>
     </group>
   </group>;
 }

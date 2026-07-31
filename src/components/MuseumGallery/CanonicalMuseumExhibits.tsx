@@ -1,8 +1,6 @@
 import type {ThreeEvent} from '@react-three/fiber';
 import type {MuseumExhibitLayout, MuseumHallDefinition, MuseumSceneVolume} from '../../data/museum/museumWorldTypes';
 import {
-  MUSEUM_CANONICAL_EXHIBIT_BACKING_MATERIAL,
-  MUSEUM_CANONICAL_EXHIBIT_PLINTH_MATERIAL,
   MUSEUM_GALLERY_02_EXHIBIT_BACKING_MATERIAL,
   MUSEUM_GALLERY_02_EXHIBIT_PLINTH_MATERIAL,
 } from '../../data/museum/museumArchitectureMaterials';
@@ -23,6 +21,7 @@ import {
   type RenaissanceExhibitCuration,
   type RenaissancePrimaryExhibitId,
 } from '../../data/museum/renaissanceGalleryCuration';
+import {MuseumPrimaryExhibitStructure, museumHallUsesPrimaryEmphasis} from './MuseumPrimaryExhibitStructure';
 import {MUSEUM_TEXTURE_SPECS, museumTextureDimensionsForPlane} from '../../data/museum/museumTexturePolicy';
 import {MuseumSceneMedia} from './MuseumSceneMedia';
 import {usePlaqueTexture} from './plaqueTextures';
@@ -162,7 +161,8 @@ function RenaissanceFinishedBack({backing, accent}: {
   </group>;
 }
 
-function Installation({layout, title, question, kicker, accent, nearby, curation, renaissanceCuration, primaryEmphasis}: {
+function Installation({definition, layout, title, question, kicker, accent, nearby, curation, renaissanceCuration, primaryEmphasis, includeStructure}: {
+  definition: MuseumHallDefinition;
   layout: MuseumExhibitLayout;
   title: string;
   question: string;
@@ -172,28 +172,18 @@ function Installation({layout, title, question, kicker, accent, nearby, curation
   curation?: MediterraneanExhibitCuration;
   renaissanceCuration?: RenaissanceExhibitCuration;
   primaryEmphasis: boolean;
+  includeStructure: boolean;
 }) {
-  const plinth = layout.scene.objectBounds.find(({id}) => id.endsWith('-plinth'))!;
   const backing = layout.scene.objectBounds.find(({id}) => id.endsWith('-backing'))!;
   const motif = layout.scene.objectBounds.find(({id}) => id.endsWith('-concept'))!;
   const interaction = layout.scene.interactionBounds;
   const canonicalConstruction = Boolean(curation || renaissanceCuration || primaryEmphasis);
-  const backingColor = '#d9d5cd';
   return <group>
-    <Box
-      volume={plinth}
-      {...(canonicalConstruction
-        ? MUSEUM_CANONICAL_EXHIBIT_PLINTH_MATERIAL
-        : {color: '#6e6b65'})}
-      gallery02Surface={Boolean(renaissanceCuration)}
-    />
-    <Box
-      volume={backing}
-      {...(canonicalConstruction
-        ? MUSEUM_CANONICAL_EXHIBIT_BACKING_MATERIAL
-        : {color: backingColor})}
-      gallery02Surface={Boolean(renaissanceCuration)}
-    />
+    {includeStructure && <MuseumPrimaryExhibitStructure
+      layout={layout}
+      definition={definition}
+      canonical={canonicalConstruction}
+    />}
     {curation
       ? <MediterraneanFinishedBack backing={backing} groupLabel={curation.groupLabel} accent={accent}/>
       : renaissanceCuration
@@ -218,26 +208,16 @@ function Installation({layout, title, question, kicker, accent, nearby, curation
 }
 
 /** Every Gallery 01 installation presents provenance-backed imagery in a physically supported frame. */
-export function CanonicalMuseumExhibits({definition, nearbyId, visibleExhibitIds, onSelectExhibit}: {
+export function CanonicalMuseumExhibits({definition, nearbyId, visibleExhibitIds, includeStructure = true, onSelectExhibit}: {
   definition: MuseumHallDefinition;
   nearbyId?: MuseumExhibitId;
   visibleExhibitIds?: readonly MuseumExhibitId[];
+  includeStructure?: boolean;
   onSelectExhibit: (id: MuseumExhibitId) => void;
 }) {
   const hall = getMuseumHallCatalog(definition.id);
   if (!hall) return null;
-  const supplementalLayouts = definition.layout.supplementalExhibits ?? [];
-  const largestSupplementalWidth = Math.max(0, ...supplementalLayouts.map(({footprint}) => footprint.width));
-  const largestSupplementalHeight = Math.max(0, ...supplementalLayouts.map(({footprint}) => footprint.height));
-  const primaryEmphasis = definition.id === 'core-questions-forum'
-    || (
-      definition.id !== MEDITERRANEAN_GALLERY_ID
-      && definition.id !== RENAISSANCE_GALLERY_ID
-      && supplementalLayouts.length > 0
-      && definition.layout.exhibits.every(({scene}) =>
-        scene.footprint.width >= largestSupplementalWidth - .001
-        && scene.footprint.height >= largestSupplementalHeight - .001)
-    );
+  const primaryEmphasis = museumHallUsesPrimaryEmphasis(definition);
   return <group>{definition.layout.exhibits
     .filter(({id}) => !visibleExhibitIds || visibleExhibitIds.includes(id))
     .map((layout) => {
@@ -270,6 +250,7 @@ export function CanonicalMuseumExhibits({definition, nearbyId, visibleExhibitIds
       };
       return <group key={layout.id} position={[layout.position.x, 0, layout.position.z]} rotation={[0, layout.rotationY, 0]} onClick={activate}>
         <Installation
+          definition={definition}
           layout={layout}
           title={title}
           question={question}
@@ -279,6 +260,7 @@ export function CanonicalMuseumExhibits({definition, nearbyId, visibleExhibitIds
           curation={curation}
           renaissanceCuration={renaissanceCuration}
           primaryEmphasis={primaryEmphasis}
+          includeStructure={includeStructure}
         />
       </group>;
     })}

@@ -12,7 +12,15 @@ import {
   type ErrorInfo,
   type ReactNode,
 } from 'react';
-import {PerspectiveCamera, type WebGLRenderer} from 'three';
+import {
+  Box3,
+  Light,
+  type Material,
+  Mesh,
+  PerspectiveCamera,
+  Vector3,
+  type WebGLRenderer,
+} from 'three';
 import type {
   MuseumExhibitRef,
   MuseumInteractionTarget,
@@ -20,10 +28,10 @@ import type {
 } from '../../data/museum/museumWorldTypes';
 import {
   getMuseumConnectionTargetHallId,
+  getMuseumHallDefinition,
   getMuseumNodeConnections,
   getMuseumRuntimeNode,
 } from '../../data/museum/museumBuildingRuntime';
-import {MUSEUM_BUILDING_MANIFEST} from '../../data/museum/museumBuildingManifest';
 import {visitorMapInteractionAtPose} from '../../data/museum/museumVisitorMap';
 import {MUSEUM_TEXTURE_SPECS} from '../../data/museum/museumTexturePolicy';
 import {getMuseumHallCatalog, type MuseumPublicHallId} from '../../data/museumCatalog';
@@ -39,6 +47,7 @@ import {
   resolveMuseumHallRenderedReadinessKeys,
   resolveMuseumReadinessGateGeometry,
   resolveMuseumReadinessGateStatus,
+  resolveMuseumHallApproachAtPose,
   type MuseumHallLoadStatus,
   type MuseumSceneRuntimeProps,
 } from './museumRuntime';
@@ -47,6 +56,11 @@ import {museumPoseToWorld} from './museumWorldTransform';
 import {advanceMuseumPhysicalFrame, museumConnectionAtPose} from './museumHallTransitions';
 import {MuseumBuildingArchitecture} from './MuseumBuildingArchitecture';
 import {usePlaqueTexture} from './plaqueTextures';
+import {
+  museumPilotDebugEnabled,
+  registerMuseumPilotSceneReader,
+  type MuseumPilotMaterialTelemetry,
+} from './museumPilotDebug';
 
 function DoorReadinessGate({title, entrance, status}: {
   title: string;
@@ -291,18 +305,7 @@ function MuseumPlayerRig({
     }
 
     if (!changed) return;
-    let approachedHall: {hallId: MuseumPublicHallId; entranceId: string} | undefined;
-    let approachedDistance = Number.POSITIVE_INFINITY;
-    for (const candidate of getMuseumNodeConnections(definition.id)) {
-      const entrance = definition.entrances.find(({id}) => id === candidate.localEntranceId);
-      const targetHallId = getMuseumConnectionTargetHallId(candidate);
-      if (!entrance || !targetHallId) continue;
-      const distance = Math.hypot(pose.x - entrance.position.x, pose.z - entrance.position.z);
-      if (distance <= MUSEUM_BUILDING_MANIFEST.residencyPolicy.approachDistance && distance < approachedDistance) {
-        approachedDistance = distance;
-        approachedHall = {hallId: targetHallId, entranceId: candidate.targetEntranceId};
-      }
-    }
+    const approachedHall = resolveMuseumHallApproachAtPose(definition, pose);
     const approachedKey = approachedHall
       ? museumHallEntryReadinessKey(approachedHall.hallId, approachedHall.entranceId)
       : undefined;
@@ -423,6 +426,144 @@ function HallRenderedSignal({hallId, readinessKey, onReady, onUnavailable}: {
   return null;
 }
 
+const materialTelemetry = (material: Material): MuseumPilotMaterialTelemetry => {
+  const source = material as Material & {
+    color?: {getHexString: () => string};
+    emissive?: {getHexString: () => string};
+    roughness?: number;
+    metalness?: number;
+  };
+  return {
+    uuid: material.uuid,
+    type: material.type,
+    ...(source.color ? {color: `#${source.color.getHexString()}`} : {}),
+    ...(source.emissive ? {emissive: `#${source.emissive.getHexString()}`} : {}),
+    ...(typeof source.roughness === 'number' ? {roughness: source.roughness} : {}),
+    ...(typeof source.metalness === 'number' ? {metalness: source.metalness} : {}),
+    opacity: material.opacity,
+    transparent: material.transparent,
+  };
+};
+
+function MuseumPilotSceneBridge() {
+  const {camera, gl, scene, size, invalidate} = useThree();
+
+  useEffect(() => {
+    if (!museumPilotDebugEnabled()) return;
+    return registerMuseumPilotSceneReader(() => {
+      scene.updateMatrixWorld(true);
+      camera.updateMatrixWorld(true);
+      const structuralMeshes: {
+        id: string;
+        ownerHallId?: string;
+        ownerNodeId?: string;
+        residencyLayer?: string;
+        openingId?: string;
+        bounds: {
+          min: readonly [number, number, number];
+          max: readonly [number, number, number];
+        };
+        materials: readonly MuseumPilotMaterialTelemetry[];
+      }[] = [];
+      scene.traverse((object) => {
+        const id = typeof object.userData.wallColliderId === 'string'
+          ? object.userData.wallColliderId
+          : typeof object.userData.structuralWallId === 'string'
+            ? object.userData.structuralWallId
+            : undefined;
+        if (!id) return;
+        let owner = object;
+        let ownerHallId: string | undefined;
+        let ownerNodeId: string | undefined;
+        let residencyLayer: string | undefined;
+        while (owner) {
+          if (!ownerHallId && typeof owner.userData.museumHallId === 'string') {
+            ownerHallId = owner.userData.museumHallId;
+          }
+          if (!ownerNodeId && typeof owner.userData.museumPhysicalNodeId === 'string') {
+            ownerNodeId = owner.userData.museumPhysicalNodeId;
+          }
+          if (!residencyLayer && typeof owner.userData.museumStructuralResidency === 'string') {
+            residencyLayer = owner.userData.museumStructuralResidency;
+          }
+          if (!owner.parent) break;
+          owner = owner.parent;
+        }
+        const materialMap = new Map<string, MuseumPilotMaterialTelemetry>();
+        object.traverse((child) => {
+          if (!(child instanceof Mesh)) return;
+          const materials = Array.isArray(child.material) ? child.material : [child.material];
+          for (const material of materials) {
+            materialMap.set(material.uuid, materialTelemetry(material));
+          }
+        });
+        const bounds = new Box3().setFromObject(object);
+        structuralMeshes.push({
+          id,
+          ...(ownerHallId ? {ownerHallId} : {}),
+          ...(ownerNodeId ? {ownerNodeId} : {}),
+          ...(residencyLayer ? {residencyLayer} : {}),
+          ...(typeof object.userData.openingId === 'string'
+            ? {openingId: object.userData.openingId}
+            : {}),
+          bounds: {
+            min: [bounds.min.x, bounds.min.y, bounds.min.z],
+            max: [bounds.max.x, bounds.max.y, bounds.max.z],
+          },
+          materials: [...materialMap.values()],
+        });
+      });
+      const lights: {
+        uuid: string;
+        type: string;
+        intensity: number;
+        color: string;
+        position: readonly [number, number, number];
+      }[] = [];
+      scene.traverse((object) => {
+        if (!(object instanceof Light)) return;
+        const position = object.getWorldPosition(new Vector3());
+        lights.push({
+          uuid: object.uuid,
+          type: object.type,
+          intensity: object.intensity,
+          color: `#${object.color.getHexString()}`,
+          position: [position.x, position.y, position.z],
+        });
+      });
+      return {
+        camera: {
+          position: [camera.position.x, camera.position.y, camera.position.z],
+          rotation: [camera.rotation.x, camera.rotation.y, camera.rotation.z],
+          ...(camera instanceof PerspectiveCamera
+            ? {fov: camera.fov, near: camera.near, far: camera.far}
+            : {}),
+        },
+        viewport: {
+          width: size.width,
+          height: size.height,
+          dpr: gl.getPixelRatio(),
+        },
+        renderer: {
+          calls: gl.info.render.calls,
+          triangles: gl.info.render.triangles,
+          lines: gl.info.render.lines,
+          points: gl.info.render.points,
+          geometries: gl.info.memory.geometries,
+          textures: gl.info.memory.textures,
+          programs: gl.info.programs?.length ?? 0,
+          toneMapping: gl.toneMapping,
+          exposure: gl.toneMappingExposure,
+        },
+        structuralMeshes,
+        lights,
+      };
+    }, invalidate);
+  }, [camera, gl, invalidate, scene, size.height, size.width]);
+
+  return null;
+}
+
 function MuseumWorldContents(props: MuseumSceneRuntimeProps) {
   const [nearbyTarget, setNearbyTarget] = useState<MuseumInteractionTarget | undefined>();
   const nearby = nearbyTarget?.kind === 'exhibit'
@@ -435,7 +576,7 @@ function MuseumWorldContents(props: MuseumSceneRuntimeProps) {
   // The public hall remains the lighting/content owner while the visitor is in
   // its connector. This prevents a hall from unloading or changing shade at
   // the physical seam before the next hall is actually entered.
-  const activeHallLighting = props.registrations.find(({definition}) => definition.id === props.activeHallId)?.definition.layout.lighting;
+  const activeHallLighting = getMuseumHallDefinition(props.activeHallId)?.layout.lighting;
   const hemisphereIntensity = activeHallLighting?.hemisphereIntensity ?? .64;
   const ambientIntensity = activeHallLighting?.ambientIntensity ?? .48;
   const connectedEntranceByHallId = useMemo(() => new Map(
@@ -445,11 +586,13 @@ function MuseumWorldContents(props: MuseumSceneRuntimeProps) {
     }),
   ), [props.definition.id]);
   return <>
+    <MuseumPilotSceneBridge/>
     <color attach="background" args={['#d8d3ca']}/>
     <hemisphereLight args={['#fff8e8', '#48433d', hemisphereIntensity]}/>
     <ambientLight color="#fff5e5" intensity={ambientIntensity}/>
     <MuseumBuildingArchitecture
       activeNodeId={props.definition.id}
+      activeHallId={props.activeHallId}
       visitorMapNearby={visitorMapNearby}
       onSelectVisitorMap={props.onSelectVisitorMap}
       onSceneGesture={props.onSceneGesture}
@@ -462,7 +605,7 @@ function MuseumWorldContents(props: MuseumSceneRuntimeProps) {
     {props.registrations.map((registration) => <LoadedHall
       key={`${registration.definition.id}-${props.hallContentEpochs[registration.definition.id] ?? 0}`}
       registration={registration}
-      active={registration.definition.id === props.activeHallId}
+      active={props.definition.publicHallId === registration.definition.id}
       entryEntranceId={connectedEntranceByHallId.get(registration.definition.id)}
       nearby={nearby}
       nearbySupplemental={nearbySupplemental}
@@ -543,7 +686,7 @@ export function MuseumWorldScene(props: MuseumSceneRuntimeProps) {
       <Canvas
         className="museum-scene-canvas"
         camera={{position: [initialCameraPose.x, layout.eyeHeight, initialCameraPose.z], fov: layout.cameraFov, near: .08, far: layout.cameraFar}}
-        dpr={lowPower ? [1, 1.25] : [1, 1.5]}
+        dpr={museumPilotDebugEnabled() ? 1 : lowPower ? [1, 1.25] : [1, 1.5]}
         frameloop={renderable ? 'demand' : 'never'}
         gl={{antialias: !lowPower, alpha: false, powerPreference: lowPower ? 'low-power' : 'high-performance'}}
         shadows={false}

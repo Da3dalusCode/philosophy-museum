@@ -1,10 +1,14 @@
 import type {MuseumHallContentProps} from './museumWorldRegistry';
+import {resolveMuseumHallStructureMountPolicy} from '../../data/museum/museumStructuralResidency';
 import {AnalyticSupplementalExhibits} from './AnalyticSupplementalExhibits';
 import {BuddhistSupplementalExhibits} from './BuddhistSupplementalExhibits';
 import {ClassicalChineseSupplementalExhibits} from './ClassicalChineseSupplementalExhibits';
 import {CanonicalMuseumExhibits} from './CanonicalMuseumExhibits';
 import {ContemporaryHallArchitecture} from './ContemporaryHallArchitecture';
-import {ContemporaryHallLighting} from './ContemporaryHallLighting';
+import {
+  ContemporaryHallExhibitLighting,
+  ContemporaryHallLighting,
+} from './ContemporaryHallLighting';
 import {JusticeSupplementalExhibits} from './JusticeSupplementalExhibits';
 import {ClassicalSouthAsianSupplementalExhibits} from './ClassicalSouthAsianSupplementalExhibits';
 import {CoreQuestionsForumSupplementalExhibits} from './CoreQuestionsForumSupplementalExhibits';
@@ -46,11 +50,16 @@ export function CanonicalMuseumHallContent({
 }: MuseumHallContentProps) {
   const entryIds = definition.prefetch.entryExhibitIdsByEntrance[entryEntranceId ?? ''] ?? [];
   const entryAssetIds = new Set(definition.prefetch.entrySceneAssetIdsByEntrance?.[entryEntranceId ?? ''] ?? []);
+  const structurePolicy = resolveMuseumHallStructureMountPolicy(definition.id);
   return <MuseumHallSpatialRoot definition={definition}>
-    {active && <ContemporaryHallLighting lighting={definition.layout.lighting}/>}
-    <ContemporaryHallArchitecture definition={definition} onSceneGesture={onSceneGesture}/>
+    {active && (structurePolicy.permanentStructure
+      ? <ContemporaryHallExhibitLighting lighting={definition.layout.lighting}/>
+      : <ContemporaryHallLighting lighting={definition.layout.lighting}/>)}
+    {structurePolicy.residentContentOwnsStructure
+      && <ContemporaryHallArchitecture definition={definition} onSceneGesture={onSceneGesture}/>}
     <CanonicalMuseumExhibits
       definition={definition}
+      includeStructure={structurePolicy.residentContentOwnsStructure}
       visibleExhibitIds={active ? undefined : entryIds}
       nearbyId={nearby?.hallId === definition.id ? nearby.exhibitId : undefined}
       onSelectExhibit={(exhibitId) => onSelectExhibit({hallId: definition.id, exhibitId})}
@@ -63,7 +72,10 @@ export function CanonicalMuseumHallContent({
         nearbyId={nearbySupplemental?.hallId === definition.id ? nearbySupplemental.supplementalExhibitId : undefined}
         onSelect={(supplementalExhibitId) => onSelectSupplementalExhibit({hallId: definition.id, supplementalExhibitId})}
       />}
-    {definition.id === 'mediterranean-beginnings-classical' && <MediterraneanGalleryCuration/>}
+    {definition.id === 'mediterranean-beginnings-classical'
+      && <MediterraneanGalleryCuration
+        includeStructure={structurePolicy.residentContentOwnsStructure}
+      />}
     {definition.id === 'core-questions-forum'
       && definition.layout.supplementalExhibits
       && <CoreQuestionsForumSupplementalExhibits

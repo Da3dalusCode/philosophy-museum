@@ -7,5 +7,14 @@ export function MuseumHallSpatialRoot({definition, children}: {
   children: ReactNode;
 }) {
   const {x, z, yaw} = definition.worldTransform;
-  return <group position={[x, 0, z]} rotation={[0, yaw, 0]}>{children}</group>;
+  return <group
+    position={[x, 0, z]}
+    rotation={[0, yaw, 0]}
+    userData={{
+      museumHallId: definition.id,
+      museumPhysicalNodeId: definition.physicalNodeId,
+    }}
+  >
+    {children}
+  </group>;
 }

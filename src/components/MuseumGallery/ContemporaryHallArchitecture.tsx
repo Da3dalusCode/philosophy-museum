@@ -29,6 +29,7 @@ import {
   MUSEUM_TEXTURE_SPECS,
   museumTextureDimensionsForPlane,
 } from '../../data/museum/museumTexturePolicy';
+import {resolveMuseumWallRenderGeometry} from '../../data/museum/museumWallGeometry';
 import {MuseumTemplateInterfaces} from './MuseumTemplateInterfaces';
 import {usePlaqueTexture} from './plaqueTextures';
 
@@ -94,11 +95,13 @@ function CeilingLightStrips({cell}: {cell: MuseumSpatialCell}) {
 
 function GalleryWall({wall, wallMaterial}: {wall: MuseumWallDefinition; wallMaterial: MuseumWallMaterialSpec}) {
   const bottom = wall.bottom ?? 0;
-  const center = wall.renderCenter ?? wall.center;
-  const size = wall.renderSize ?? wall.size;
+  const {center, size, longAxis} = resolveMuseumWallRenderGeometry(wall);
+  const edgeSize = longAxis === 'width'
+    ? {width: size.width, depth: size.depth + .025}
+    : {width: size.width + .025, depth: size.depth};
   return <group position={[center.x, bottom + wall.height / 2, center.z]} rotation={[0, wall.rotation, 0]} userData={{wallColliderId: wall.id, openingId: wall.openingId}}>
     <mesh receiveShadow><boxGeometry args={[size.width, wall.height, size.depth]}/><meshStandardMaterial {...wallMaterial}/></mesh>
-    {bottom === 0 && <mesh position={[0, -wall.height / 2 + .075, 0]}><boxGeometry args={[size.width + .015, .15, size.depth + .025]}/><meshStandardMaterial {...MUSEUM_CANONICAL_WALL_EDGE_MATERIAL}/></mesh>}
+    {bottom === 0 && <mesh position={[0, -wall.height / 2 + .075, 0]}><boxGeometry args={[edgeSize.width, .15, edgeSize.depth]}/><meshStandardMaterial {...MUSEUM_CANONICAL_WALL_EDGE_MATERIAL}/></mesh>}
   </group>;
 }
 
@@ -197,7 +200,17 @@ function PhysicalSign({definition, mediterranean, renaissance}: {definition: Mus
   </group>;
 }
 
-export function ContemporaryHallArchitecture({definition, onSceneGesture}: {definition: MuseumHallDefinition; onSceneGesture: () => void}) {
+export function ContemporaryHallArchitecture({
+  definition,
+  architectureWalls = definition.architectureWalls,
+  ownedPortalIds,
+  onSceneGesture,
+}: {
+  definition: MuseumHallDefinition;
+  architectureWalls?: readonly MuseumWallDefinition[];
+  ownedPortalIds?: ReadonlySet<string>;
+  onSceneGesture: () => void;
+}) {
   const {layout} = definition;
   const mediterranean = definition.id === MEDITERRANEAN_GALLERY_ID;
   const renaissance = definition.id === RENAISSANCE_GALLERY_ID;
@@ -216,8 +229,8 @@ export function ContemporaryHallArchitecture({definition, onSceneGesture}: {defi
       <mesh position={[0, .016, 0]} rotation={[-Math.PI / 2, 0, 0]}><ringGeometry args={[.55, .64, 48]}/><meshStandardMaterial color={BRONZE} roughness={.45} metalness={.42}/></mesh>
     </group>}
     {layout.spatialConnections.map((connection) => <ThresholdFascia key={connection.id} connection={connection} cells={layout.spatialCells} wallMaterial={wallMaterial}/>)}
-    {definition.architectureWalls.map((wall) => <GalleryWall key={wall.id} wall={wall} wallMaterial={wallMaterial}/>)}
-    <MuseumTemplateInterfaces definition={definition}/>
+    {architectureWalls.map((wall) => <GalleryWall key={wall.id} wall={wall} wallMaterial={wallMaterial}/>)}
+    <MuseumTemplateInterfaces definition={definition} ownedPortalIds={ownedPortalIds}/>
     {layout.furnishings.filter(({kind}) => kind === 'bench').map((item) => <Bench key={item.id} definition={item} mediterranean={mediterranean}/>)}
     {layout.lighting.tracks.map((track) => <Track key={track.id} track={track}/>)}
     {layout.lighting.exhibitLights.map((light) => <Fixture key={light.id} definition={light}/>)}

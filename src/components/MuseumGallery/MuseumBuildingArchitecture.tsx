@@ -7,6 +7,7 @@ import {
   MUSEUM_CIRCULATION_NODES,
   getMuseumRuntimeNode,
 } from '../../data/museum/museumBuildingRuntime';
+import {resolveMuseumWallRenderGeometry} from '../../data/museum/museumWallGeometry';
 import type {
   MuseumFurnishingDefinition,
   MuseumRuntimeNodeDefinition,
@@ -25,6 +26,7 @@ import {
 } from '../../data/museum/museumTexturePolicy';
 import {MUSEUM_VISITOR_MAP_KIOSK} from '../../data/museum/museumVisitorMapKioskDefinition';
 import {MuseumGrandEntranceArchitecture} from './MuseumGrandEntranceArchitecture';
+import {MuseumPermanentHallStructure} from './MuseumPermanentHallStructure';
 import {MuseumVisitorMapKiosk} from './MuseumVisitorMapKiosk';
 import {usePlaqueTexture} from './plaqueTextures';
 
@@ -80,18 +82,22 @@ function StructuralCell({cell, forum}: {cell: MuseumSpatialCell; forum: boolean}
 
 function StructuralWall({wall}: {wall: MuseumWallDefinition}) {
   const bottom = wall.bottom ?? 0;
+  const {center, size, longAxis} = resolveMuseumWallRenderGeometry(wall);
+  const edgeSize = longAxis === 'width'
+    ? {width: size.width, depth: size.depth + .02}
+    : {width: size.width + .02, depth: size.depth};
   const wallMaterial = resolveMuseumWallMaterial();
   return <group
-    position={[wall.center.x, bottom + wall.height / 2, wall.center.z]}
+    position={[center.x, bottom + wall.height / 2, center.z]}
     rotation={[0, wall.rotation, 0]}
-    userData={{openingId: wall.openingId}}
+    userData={{structuralWallId: wall.id, openingId: wall.openingId}}
   >
     <mesh receiveShadow>
-      <boxGeometry args={[wall.size.width, wall.height, wall.size.depth]}/>
+      <boxGeometry args={[size.width, wall.height, size.depth]}/>
       <meshStandardMaterial {...wallMaterial}/>
     </mesh>
     {bottom === 0 && <mesh position={[0, -wall.height / 2 + .07, 0]}>
-      <boxGeometry args={[wall.size.width + .02, .14, wall.size.depth + .02]}/>
+      <boxGeometry args={[edgeSize.width, .14, edgeSize.depth]}/>
       <meshStandardMaterial {...MUSEUM_CANONICAL_WALL_EDGE_MATERIAL}/>
     </mesh>}
   </group>;
@@ -194,7 +200,11 @@ function CirculationNode({node}: {node: MuseumRuntimeNodeDefinition}) {
     ? node.layout.spatialCells.find(({id}) => id.endsWith(':orientation-court'))
       ?? node.layout.spatialCells[0]
     : undefined;
-  return <group position={[node.worldTransform.x, 0, node.worldTransform.z]} rotation={[0, node.worldTransform.yaw, 0]}>
+  return <group
+    position={[node.worldTransform.x, 0, node.worldTransform.z]}
+    rotation={[0, node.worldTransform.yaw, 0]}
+    userData={{museumPhysicalNodeId: node.id}}
+  >
     {node.layout.spatialCells.map((cell) => <StructuralCell key={cell.id} cell={cell} forum={forum}/>)}
     {architectureWalls.map((wall) => <StructuralWall key={wall.id} wall={wall}/>)}
     {node.layout.furnishings
@@ -228,11 +238,13 @@ function CirculationNode({node}: {node: MuseumRuntimeNodeDefinition}) {
 
 export function MuseumBuildingArchitecture({
   activeNodeId,
+  activeHallId,
   visitorMapNearby,
   onSelectVisitorMap,
   onSceneGesture,
 }: {
   activeNodeId: string;
+  activeHallId: string;
   visitorMapNearby: boolean;
   onSelectVisitorMap: () => void;
   onSceneGesture: () => void;
@@ -245,6 +257,10 @@ export function MuseumBuildingArchitecture({
   const kioskHost = getMuseumRuntimeNode(MUSEUM_VISITOR_MAP_KIOSK.nodeId);
   return <group onClick={activate} userData={{museumBuilding: MUSEUM_BUILDING_MANIFEST.manifestVersion}}>
     {MUSEUM_CIRCULATION_NODES.map((node) => <CirculationNode key={node.id} node={node}/>)}
+    <MuseumPermanentHallStructure
+      activeHallId={activeHallId}
+      onSceneGesture={onSceneGesture}
+    />
     {kioskHost && <group
       position={[kioskHost.worldTransform.x, 0, kioskHost.worldTransform.z]}
       rotation={[0, kioskHost.worldTransform.yaw, 0]}

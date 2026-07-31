@@ -12,6 +12,11 @@ import {MUSEUM_TEXTURE_SPECS} from '../../data/museum/museumTexturePolicy';
 import type {MuseumHallId, MuseumPublicHallId} from '../../data/museumCatalog';
 import type {MuseumHallRegistration} from './museumWorldRegistry';
 import {resolveMuseumWalkingSpeed} from './museumMovement';
+import {
+  getMuseumConnectionTargetHallId,
+  getMuseumNodeConnections,
+} from '../../data/museum/museumBuildingRuntime';
+import {MUSEUM_BUILDING_MANIFEST} from '../../data/museum/museumBuildingManifest';
 
 export type MuseumInputState = {
   forward: number;
@@ -29,6 +34,33 @@ export type MuseumHallLoadStatus = 'idle' | 'loading' | 'ready' | 'failed';
 export type MuseumHallApproach = {
   hallId: MuseumPublicHallId;
   entranceId: string;
+};
+
+/**
+ * Resolves the same natural threshold approach used during walking. Development
+ * camera instrumentation calls this after moving the visitor pose; it never
+ * names or forces a resident hall.
+ */
+export const resolveMuseumHallApproachAtPose = (
+  definition: MuseumRuntimeNodeDefinition,
+  pose: MuseumPose,
+): MuseumHallApproach | undefined => {
+  let approachedHall: MuseumHallApproach | undefined;
+  let approachedDistance = Number.POSITIVE_INFINITY;
+  for (const candidate of getMuseumNodeConnections(definition.id)) {
+    const entrance = definition.entrances.find(({id}) => id === candidate.localEntranceId);
+    const targetHallId = getMuseumConnectionTargetHallId(candidate);
+    if (!entrance || !targetHallId) continue;
+    const distance = Math.hypot(pose.x - entrance.position.x, pose.z - entrance.position.z);
+    if (
+      distance <= MUSEUM_BUILDING_MANIFEST.residencyPolicy.approachDistance
+      && distance < approachedDistance
+    ) {
+      approachedDistance = distance;
+      approachedHall = {hallId: targetHallId, entranceId: candidate.targetEntranceId};
+    }
+  }
+  return approachedHall;
 };
 
 const MUSEUM_HALL_READINESS_SEPARATOR = '::museum-entry::';

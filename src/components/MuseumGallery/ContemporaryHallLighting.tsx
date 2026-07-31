@@ -28,8 +28,8 @@ function ExhibitSpotlight({definition}: {definition: MuseumExhibitLightDefinitio
   </>;
 }
 
-/** Keeps every light and target in the same hall-local transform. */
-export function ContemporaryHallLighting({lighting}: {lighting: MuseumLightingDefinition}) {
+/** Stable, low-cost architectural light for a hall whose structure is permanent. */
+export function ContemporaryHallBaseLighting({lighting}: {lighting: MuseumLightingDefinition}) {
   const directionalTarget = useMemo(() => new Object3D(), []);
 
   return <>
@@ -41,6 +41,20 @@ export function ContemporaryHallLighting({lighting}: {lighting: MuseumLightingDe
       color="#fff4e2"
       castShadow={false}
     />
+  </>;
+}
+
+/** Detailed per-installation lights remain tied to active resident content. */
+export function ContemporaryHallExhibitLighting({lighting}: {lighting: MuseumLightingDefinition}) {
+  return <>
     {lighting.exhibitLights.map((light) => <ExhibitSpotlight key={light.id} definition={light}/>)}
+  </>;
+}
+
+/** Keeps every light and target in the same hall-local transform. */
+export function ContemporaryHallLighting({lighting}: {lighting: MuseumLightingDefinition}) {
+  return <>
+    <ContemporaryHallBaseLighting lighting={lighting}/>
+    <ContemporaryHallExhibitLighting lighting={lighting}/>
   </>;
 }

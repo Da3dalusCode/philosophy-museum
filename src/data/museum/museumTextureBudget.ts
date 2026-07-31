@@ -4,6 +4,7 @@ import {getMuseumAsset} from './museumAssets';
 import {
   MEDITERRANEAN_GALLERY_ID,
 } from './mediterraneanGalleryCuration';
+import {museumHallHasPermanentStructure} from './museumStructuralResidency';
 import {
   bytesToMiB,
   decodedTextureBytes,
@@ -29,6 +30,7 @@ export type MuseumHallTextureEstimate = {
 
 export type MuseumPersistentTextureEstimate = {
   buildingSignBytes: number;
+  permanentStructuralSignBytes: number;
   plannedStatusSignBytes: number;
   reservationSignBytes: number;
   visitorMapKioskBytes: number;
@@ -60,6 +62,23 @@ const persistentTextureEstimate = (): MuseumPersistentTextureEstimate => {
     5.6 * .27,
     MUSEUM_TEXTURE_SPECS.buildingSign,
   ));
+  const permanentStructuralSignBytes = MUSEUM_WORLD_DEFINITIONS
+    .filter(({id}) => museumHallHasPermanentStructure(id))
+    .reduce((sum, definition) =>
+      sum + (definition.layout.signs ?? []).reduce((signSum, sign) => {
+        const referenceWidth = definition.id === MEDITERRANEAN_GALLERY_ID
+          ? 600
+          : MUSEUM_TEXTURE_SPECS.contemporarySignWidth;
+        return signSum + decodedTextureBytes(museumTextureDimensionsForPlane(
+          sign.width,
+          sign.height,
+          {
+            width: referenceWidth,
+            height: Math.round(referenceWidth * sign.height / sign.width),
+            mipmaps: true,
+          },
+        ));
+      }, 0), 0);
   const plannedStatusSignBytes = MUSEUM_BUILDING_MANIFEST.nodes.reduce((sum, node) =>
     sum + (node.geometry?.signs ?? []).reduce((signSum, sign) =>
       signSum + decodedTextureBytes(museumTextureDimensionsForPlane(
@@ -86,12 +105,14 @@ const persistentTextureEstimate = (): MuseumPersistentTextureEstimate => {
   const maximumSimultaneousReadinessGates = Math.max(1, ...hallConnectionsByNode.values());
   const readinessGateBytes = decodedTextureBytes(MUSEUM_TEXTURE_SPECS.readinessSign);
   const totalBytes = buildingSignBytes
+    + permanentStructuralSignBytes
     + plannedStatusSignBytes
     + reservationSignBytes
     + visitorMapKioskBytes
     + readinessGateBytes * maximumSimultaneousReadinessGates;
   return {
     buildingSignBytes,
+    permanentStructuralSignBytes,
     plannedStatusSignBytes,
     reservationSignBytes,
     visitorMapKioskBytes,
@@ -164,7 +185,9 @@ const generatedHallSpecs = (hallId: MuseumHallId): readonly MuseumDecodedTexture
       MUSEUM_TEXTURE_SPECS.visitorMapKiosk,
     ];
   }
-  const signs = (definition.layout.signs ?? []).flatMap((sign) => {
+  const signs = (museumHallHasPermanentStructure(hallId)
+    ? []
+    : definition.layout.signs ?? []).flatMap((sign) => {
     const referenceWidth = hallId === MEDITERRANEAN_GALLERY_ID
       ? 600
       : MUSEUM_TEXTURE_SPECS.contemporarySignWidth;

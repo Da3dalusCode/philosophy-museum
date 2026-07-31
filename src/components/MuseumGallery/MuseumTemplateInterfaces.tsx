@@ -6,8 +6,14 @@ const THRESHOLD_LIGHT = '#fff1d5';
  * Renders the standard threshold-light interface resolved by the hall-template
  * compiler. Inactive manifest slots deliberately have no luminous invitation.
  */
-export function MuseumTemplateInterfaces({definition}: {definition: MuseumHallDefinition}) {
-  const activePortals = definition.resolvedTemplate.portalInterfaces.filter(({active}) => active);
+export function MuseumTemplateInterfaces({definition, ownedPortalIds}: {
+  definition: MuseumHallDefinition;
+  ownedPortalIds?: ReadonlySet<string>;
+}) {
+  const activePortals = definition.resolvedTemplate.portalInterfaces.filter(
+    ({active, manifestSlotId}) =>
+      active && (!ownedPortalIds || ownedPortalIds.has(manifestSlotId)),
+  );
   return <group userData={{museumTemplateId: definition.resolvedTemplate.templateId}}>
     {activePortals.map((portal) => {
       const {position, width, depth} = portal.thresholdLightAnchor;

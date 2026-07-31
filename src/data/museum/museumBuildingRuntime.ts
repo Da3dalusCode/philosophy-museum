@@ -10,7 +10,16 @@ import {
   type MuseumManifestNode,
 } from './museumBuildingManifest';
 import {resolveMuseumHallShell} from './museumHallTemplates';
+import {
+  MUSEUM_PERMANENT_STRUCTURAL_HALL_IDS,
+  type MuseumPermanentStructuralHallId,
+} from './museumStructuralResidency';
 import {MUSEUM_VISITOR_MAP_KIOSK} from './museumVisitorMapKioskDefinition';
+import {
+  museumWorldWallPlane,
+  removeCoveredMuseumWallSurfaces,
+  type MuseumWorldWallPlane,
+} from './museumWallGeometry';
 import type {
   MuseumBounds,
   MuseumDirectedConnection,
@@ -381,138 +390,6 @@ const hallDefinitions: readonly MuseumHallDefinition[] = hallContents.map((conte
   };
 });
 
-type WorldWallPlane = {
-  axis: 'x' | 'z';
-  coordinate: number;
-  start: number;
-  end: number;
-  bottom: number;
-  top: number;
-};
-
-const worldWallPlane = (
-  transform: {x: number; z: number; yaw: number},
-  wall: MuseumWallDefinition,
-): WorldWallPlane => {
-  const cosine = Math.cos(transform.yaw);
-  const sine = Math.sin(transform.yaw);
-  const centerX = transform.x + cosine * wall.center.x + sine * wall.center.z;
-  const centerZ = transform.z - sine * wall.center.x + cosine * wall.center.z;
-  const directionX = Math.cos(wall.rotation + transform.yaw);
-  const directionZ = -Math.sin(wall.rotation + transform.yaw);
-  const halfRun = wall.size.width / 2;
-  const firstX = centerX - directionX * halfRun;
-  const secondX = centerX + directionX * halfRun;
-  const firstZ = centerZ - directionZ * halfRun;
-  const secondZ = centerZ + directionZ * halfRun;
-  const bottom = wall.bottom ?? 0;
-  return Math.abs(directionX) >= Math.abs(directionZ)
-    ? {
-        axis: 'x',
-        coordinate: centerZ,
-        start: Math.min(firstX, secondX),
-        end: Math.max(firstX, secondX),
-        bottom,
-        top: bottom + wall.height,
-      }
-    : {
-        axis: 'z',
-        coordinate: centerX,
-        start: Math.min(firstZ, secondZ),
-        end: Math.max(firstZ, secondZ),
-        bottom,
-        top: bottom + wall.height,
-      };
-};
-
-const subtractCoplanarPlane = (
-  candidate: WorldWallPlane,
-  covering: WorldWallPlane,
-): readonly WorldWallPlane[] => {
-  const epsilon = .012;
-  if (covering.axis !== candidate.axis || Math.abs(covering.coordinate - candidate.coordinate) > epsilon) {
-    return [candidate];
-  }
-  const overlapStart = Math.max(candidate.start, covering.start);
-  const overlapEnd = Math.min(candidate.end, covering.end);
-  const overlapBottom = Math.max(candidate.bottom, covering.bottom);
-  const overlapTop = Math.min(candidate.top, covering.top);
-  if (overlapEnd - overlapStart <= epsilon || overlapTop - overlapBottom <= epsilon) return [candidate];
-
-  const fragments: WorldWallPlane[] = [];
-  const append = (start: number, end: number, bottom: number, top: number) => {
-    if (end - start < .08 || top - bottom < .08) return;
-    fragments.push({
-      axis: candidate.axis,
-      coordinate: candidate.coordinate,
-      start,
-      end,
-      bottom,
-      top,
-    });
-  };
-  append(candidate.start, overlapStart, candidate.bottom, candidate.top);
-  append(overlapEnd, candidate.end, candidate.bottom, candidate.top);
-  append(overlapStart, overlapEnd, candidate.bottom, overlapBottom);
-  append(overlapStart, overlapEnd, overlapTop, candidate.top);
-  return fragments;
-};
-
-const wallFragmentFromWorldPlane = (
-  node: MuseumManifestNode,
-  wall: MuseumWallDefinition,
-  fragment: WorldWallPlane,
-  fragmentIndex: number,
-): MuseumWallDefinition => {
-  const worldCenter = fragment.axis === 'x'
-    ? {x: (fragment.start + fragment.end) / 2, z: fragment.coordinate}
-    : {x: fragment.coordinate, z: (fragment.start + fragment.end) / 2};
-  const offset = {
-    x: worldCenter.x - node.transform.x,
-    z: worldCenter.z - node.transform.z,
-  };
-  const cosine = Math.cos(node.transform.yaw);
-  const sine = Math.sin(node.transform.yaw);
-  const result: MuseumWallDefinition = {
-    ...wall,
-    id: `${wall.id}:visible-${fragmentIndex + 1}`,
-    center: {
-      x: cosine * offset.x - sine * offset.z,
-      z: sine * offset.x + cosine * offset.z,
-    },
-    size: {...wall.size, width: fragment.end - fragment.start},
-    height: fragment.top - fragment.bottom,
-  };
-  if (fragment.bottom > .001) result.bottom = fragment.bottom;
-  else delete result.bottom;
-  return result;
-};
-
-/**
- * Collision retains every authored seam. Rendering instead assigns each
- * coplanar rectangle to one node and splits partially covered walls/lintels,
- * preventing z-fighting without opening a hole in the architectural union.
- */
-const removeCoveredArchitectureSurfaces = (
-  node: MuseumManifestNode,
-  walls: readonly MuseumWallDefinition[],
-  coveringPlanes: readonly WorldWallPlane[],
-): readonly MuseumWallDefinition[] => walls.flatMap((wall) => {
-  const original = worldWallPlane(node.transform, wall);
-  const fragments = coveringPlanes.reduce<readonly WorldWallPlane[]>(
-    (visible, covering) => visible.flatMap((candidate) => subtractCoplanarPlane(candidate, covering)),
-    [original],
-  );
-  if (
-    fragments.length === 1
-    && fragments[0].start === original.start
-    && fragments[0].end === original.end
-    && fragments[0].bottom === original.bottom
-    && fragments[0].top === original.top
-  ) return [wall];
-  return fragments.map((fragment, index) => wallFragmentFromWorldPlane(node, wall, fragment, index));
-});
-
 const hallDefinitionByPhysicalNodeId = new Map(
   hallDefinitions.map((definition) => [definition.physicalNodeId, definition]),
 );
@@ -533,15 +410,74 @@ const persistentArchitectureNodes = MUSEUM_BUILDING_MANIFEST.nodes
       || (manifestNodeIndex.get(first.id) ?? 0) - (manifestNodeIndex.get(second.id) ?? 0);
   });
 const visibleCirculationArchitectureByNodeId = new Map<string, readonly MuseumWallDefinition[]>();
-const ownedArchitecturePlanes: WorldWallPlane[] = hallDefinitions.flatMap((hall) =>
+const ownedArchitecturePlanes: MuseumWorldWallPlane[] = hallDefinitions.flatMap((hall) =>
   (hall.architectureWalls ?? hall.layout.wallColliders)
-    .map((wall) => worldWallPlane(hall.worldTransform, wall)));
+    .map((wall) => museumWorldWallPlane(hall.worldTransform, wall)));
 for (const node of persistentArchitectureNodes) {
   const rawWalls = circulationWallSetsByNodeId.get(node.id)?.architecture ?? [];
-  const visibleWalls = removeCoveredArchitectureSurfaces(node, rawWalls, ownedArchitecturePlanes);
+  const visibleWalls = removeCoveredMuseumWallSurfaces(
+    node.transform,
+    rawWalls,
+    ownedArchitecturePlanes,
+  );
   visibleCirculationArchitectureByNodeId.set(node.id, visibleWalls);
-  ownedArchitecturePlanes.push(...visibleWalls.map((wall) => worldWallPlane(node.transform, wall)));
+  ownedArchitecturePlanes.push(
+    ...visibleWalls.map((wall) => museumWorldWallPlane(node.transform, wall)),
+  );
 }
+
+const permanentStructuralOrderByNodeId = new Map(
+  MUSEUM_PERMANENT_STRUCTURAL_HALL_IDS.map((hallId, index) => {
+    const definition = hallDefinitions.find(({id}) => id === hallId);
+    if (!definition) throw new Error(`Permanent Museum structure cannot resolve ${hallId}.`);
+    return [definition.physicalNodeId, index] as const;
+  }),
+);
+const suppressedPermanentPortalKeys = new Set<string>();
+for (const connection of MUSEUM_BUILDING_MANIFEST.connections) {
+  const firstIndex = permanentStructuralOrderByNodeId.get(connection.a.nodeId);
+  const secondIndex = permanentStructuralOrderByNodeId.get(connection.b.nodeId);
+  if (firstIndex === undefined || secondIndex === undefined) continue;
+  const suppressed = firstIndex < secondIndex ? connection.b : connection.a;
+  suppressedPermanentPortalKeys.add(`${suppressed.nodeId}/${suppressed.slotId}`);
+}
+
+export type MuseumPermanentStructuralHall = {
+  hallId: MuseumPermanentStructuralHallId;
+  definition: MuseumHallDefinition;
+  structuralWallIds: readonly string[];
+  ownedPortalIds: readonly string[];
+  sceneAssetIds: readonly [];
+  sceneBytes: 0;
+};
+
+const permanentStructuralOwnedPlanes: MuseumWorldWallPlane[] = [];
+export const MUSEUM_PERMANENT_STRUCTURAL_HALLS: readonly MuseumPermanentStructuralHall[] =
+  MUSEUM_PERMANENT_STRUCTURAL_HALL_IDS.map((hallId) => {
+    const source = hallDefinitions.find(({id}) => id === hallId);
+    if (!source) throw new Error(`Permanent Museum structure cannot resolve ${hallId}.`);
+    const architectureWalls = removeCoveredMuseumWallSurfaces(
+      source.worldTransform,
+      source.architectureWalls,
+      permanentStructuralOwnedPlanes,
+    );
+    permanentStructuralOwnedPlanes.push(
+      ...architectureWalls.map((wall) => museumWorldWallPlane(source.worldTransform, wall)),
+    );
+    const ownedPortalIds = source.resolvedTemplate.portalInterfaces
+      .filter(({active, manifestSlotId}) =>
+        active
+        && !suppressedPermanentPortalKeys.has(`${source.physicalNodeId}/${manifestSlotId}`))
+      .map(({manifestSlotId}) => manifestSlotId);
+    return {
+      hallId,
+      definition: {...source, architectureWalls},
+      structuralWallIds: architectureWalls.map(({id}) => id),
+      ownedPortalIds,
+      sceneAssetIds: [],
+      sceneBytes: 0,
+    };
+  });
 
 const runtimeNodes: readonly MuseumRuntimeNodeDefinition[] = MUSEUM_BUILDING_MANIFEST.nodes.map((node) => {
   const hall = node.publicHallId
@@ -619,7 +555,7 @@ export const getMuseumRuntimeNode = (nodeId: MuseumPhysicalNodeId): MuseumRuntim
 export const getMuseumRuntimeHallNode = (hallId: MuseumPublicHallId): MuseumRuntimeNodeDefinition | undefined =>
   MUSEUM_RUNTIME_NODES.find(({publicHallId}) => publicHallId === hallId);
 
-export const getMuseumHallDefinition = (hallId: MuseumPublicHallId): MuseumHallDefinition | undefined =>
+export const getMuseumHallDefinition = (hallId: string): MuseumHallDefinition | undefined =>
   MUSEUM_WORLD_DEFINITIONS.find(({id}) => id === hallId);
 
 export const getMuseumNodeConnections = (nodeId: MuseumPhysicalNodeId): readonly MuseumDirectedConnection[] =>

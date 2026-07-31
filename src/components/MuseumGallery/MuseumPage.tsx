@@ -94,6 +94,7 @@ import {
 import {
   museumHallEntryReadinessKey,
   museumHallReadinessKeyBelongsTo,
+  resolveMuseumHallApproachAtPose,
   type MuseumHallApproach,
   type MuseumHallLoadStatus,
   type MuseumNodeTransition,
@@ -105,6 +106,15 @@ import {
   prefetchMuseumHallEntry,
   prefetchMuseumHallRemainder,
 } from './museumWorldRegistry';
+import {museumPoseFromWorld} from './museumWorldTransform';
+import {
+  installMuseumPilotDebugApi,
+  museumPilotDebugEnabled,
+  readMuseumPilotSceneTelemetry,
+  requestMuseumPilotSceneRender,
+  type MuseumPilotCameraRequest,
+  type MuseumPilotPageTelemetry,
+} from './museumPilotDebug';
 import {
   createMuseumHallTravelContext,
   createMuseumExhibitVisitContext,
@@ -132,6 +142,18 @@ const createLazyMuseumWorldScene = () => lazy(() => import('./MuseumWorldScene')
 ));
 
 type Overlay = 'directory' | 'help' | 'visitor-map' | null;
+
+const MUSEUM_PILOT_HALL_IDS = [
+  'mediterranean-beginnings-classical',
+  'hellenistic-roman-ways',
+] as const satisfies readonly MuseumHallId[];
+
+const MUSEUM_PILOT_CAMERA_KEYS: Readonly<Record<string, MuseumPilotCameraRequest>> = {
+  '1': {position: [97, 1.7, -70], target: [89, 1.7, -70]},
+  '2': {position: [94.5, 1.7, -70], target: [89, 1.7, -70]},
+  '3': {position: [41, 1.7, -70], target: [33, 1.7, -70]},
+  '4': {position: [38.5, 1.7, -70], target: [33, 1.7, -70]},
+};
 
 class MuseumHallResidencyError extends Error {
   constructor(hallId: MuseumHallId) {
@@ -555,6 +577,18 @@ export function MuseumPage({route, href, push, replace}: {
   })), [activeHallId, activeNode.publicHallId, approachedHall?.entranceId, approachedHallId, recentHallId]);
   const residentHallIdsRef = useRef(residentHallIds);
   residentHallIdsRef.current = residentHallIds;
+  const museumPilotPageTelemetryRef = useRef<MuseumPilotPageTelemetry>({
+    activeNodeId: activeNode.id,
+    activeNodeLabel: activeNode.mapLabel,
+    activeHallId,
+    ...(activeNode.publicHallId ? {activePhysicalHallId: activeNode.publicHallId} : {}),
+    residentHallIds: [...residentHallIds],
+    readyHallEntryKeys: [],
+    hallLoadStatus: {},
+    hallEntryLoadStatus: {},
+    hallContentEpochs: {},
+    hallStates: {},
+  });
   const [announcement, setAnnouncement] = useState('');
   const [visitPhase, setVisitPhase] = useState<MuseumVisitPhase>(() => (
     route.exhibitId
@@ -1839,6 +1873,112 @@ export function MuseumPage({route, href, push, replace}: {
   }, [exploring, reducedMotion, visitorMapNearby]);
 
   const sceneRegistrations = MUSEUM_WORLD_REGISTRY.filter(({definition: item}) => residentHallIds.has(item.id));
+  const pilotHallStates = Object.fromEntries(MUSEUM_PILOT_HALL_IDS.map((hallId) => {
+    const entryKey = approachedHall?.hallId === hallId
+      ? museumHallEntryReadinessKey(hallId, approachedHall.entranceId)
+      : undefined;
+    const entryLoadStatus = entryKey ? hallEntryLoadStatus[entryKey] : undefined;
+    const activeResidency = activeNode.publicHallId === hallId && activeHallId === hallId;
+    const residency: MuseumPilotPageTelemetry['hallStates'][string]['residency'] = activeResidency
+      ? 'active'
+      : !residentHallIds.has(hallId)
+        ? 'absent'
+        : approachedHall?.hallId === hallId && entryLoadStatus === 'loading'
+          ? 'loading'
+          : approachedHall?.hallId === hallId
+            ? 'entry-resident'
+            : recentHallId === hallId
+              ? 'recent-resident'
+              : 'entry-resident';
+    return [hallId, {
+      residency,
+      ...(hallLoadStatus[hallId] ? {loadStatus: hallLoadStatus[hallId]} : {}),
+      ...(entryLoadStatus ? {entryLoadStatus} : {}),
+    }];
+  }));
+  museumPilotPageTelemetryRef.current = {
+    activeNodeId: activeNode.id,
+    activeNodeLabel: activeNode.mapLabel,
+    activeHallId,
+    ...(activeNode.publicHallId ? {activePhysicalHallId: activeNode.publicHallId} : {}),
+    ...(approachedHall ? {approachedHall: {...approachedHall}} : {}),
+    ...(recentHallId ? {recentHallId} : {}),
+    residentHallIds: [...residentHallIds],
+    readyHallEntryKeys: [...readyHallEntryKeys],
+    hallLoadStatus: Object.fromEntries(
+      Object.entries(hallLoadStatus).filter((entry): entry is [string, MuseumHallLoadStatus] => Boolean(entry[1])),
+    ),
+    hallEntryLoadStatus: Object.fromEntries(
+      Object.entries(hallEntryLoadStatus).filter((entry): entry is [string, MuseumHallLoadStatus] => Boolean(entry[1])),
+    ),
+    hallContentEpochs: Object.fromEntries(
+      Object.entries(hallContentEpochs).filter((entry): entry is [string, number] => typeof entry[1] === 'number'),
+    ),
+    hallStates: pilotHallStates,
+  };
+
+  useEffect(() => {
+    if (!museumPilotDebugEnabled()) return;
+    const setCamera = ({position, target}: MuseumPilotCameraRequest) => {
+      const currentNode = activeNodeRef.current;
+      if (Math.abs(position[1] - currentNode.layout.eyeHeight) > .001) {
+        throw new Error(
+          `Museum pilot eye height must be ${currentNode.layout.eyeHeight.toFixed(3)} m; received ${position[1].toFixed(3)} m.`,
+        );
+      }
+      const offsetX = target[0] - position[0];
+      const offsetY = target[1] - position[1];
+      const offsetZ = target[2] - position[2];
+      const horizontalDistance = Math.hypot(offsetX, offsetZ);
+      const worldPose: MuseumPose = {
+        x: position[0],
+        z: position[2],
+        yaw: Math.atan2(-offsetX, -offsetZ),
+        pitch: Math.atan2(offsetY, horizontalDistance),
+      };
+      const localPose = museumPoseFromWorld(currentNode, worldPose);
+      poseRef.current = localPose;
+      const naturalApproach = resolveMuseumHallApproachAtPose(currentNode, localPose);
+      handleApproachHall(naturalApproach);
+      setPoseRevision((value) => value + 1);
+      window.requestAnimationFrame(requestMuseumPilotSceneRender);
+      return {
+        localPose: {...localPose},
+        ...(naturalApproach ? {naturalApproach: {...naturalApproach}} : {}),
+      };
+    };
+    const api = {
+      setCamera,
+      requestRender: requestMuseumPilotSceneRender,
+      snapshot: () => ({
+        capturedAt: new Date().toISOString(),
+        page: museumPilotPageTelemetryRef.current,
+        scene: readMuseumPilotSceneTelemetry(),
+      }),
+    };
+    const uninstallApi = installMuseumPilotDebugApi(api);
+    document.documentElement.dataset.museumPilotApi = 'ready';
+    const publishTelemetry = () => {
+      const output = document.getElementById('museum-pilot-telemetry');
+      if (output) output.textContent = JSON.stringify(api.snapshot());
+    };
+    publishTelemetry();
+    const telemetryInterval = window.setInterval(publishTelemetry, 250);
+    const onKeyDown = (event: KeyboardEvent) => {
+      const request = MUSEUM_PILOT_CAMERA_KEYS[event.key];
+      if (!request) return;
+      event.preventDefault();
+      setCamera(request);
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => {
+      window.removeEventListener('keydown', onKeyDown);
+      window.clearInterval(telemetryInterval);
+      uninstallApi();
+      delete document.documentElement.dataset.museumPilotApi;
+    };
+  }, [handleApproachHall]);
+
   const approachedHallIds = approachedHallId ? [approachedHallId] : [];
   const approachedReadinessKey = approachedHall
     ? museumHallEntryReadinessKey(approachedHall.hallId, approachedHall.entranceId)
@@ -1865,7 +2005,9 @@ export function MuseumPage({route, href, push, replace}: {
     data-immersive={experience.immersive ? 'true' : 'false'}
     data-fullscreen={experience.fullscreen ? 'true' : 'false'}
     data-exploring={exploring ? 'true' : 'false'}
+    data-museum-pilot-debug={museumPilotDebugEnabled() ? 'true' : 'false'}
   >
+    {museumPilotDebugEnabled() && <output id="museum-pilot-telemetry" hidden/>}
     <section
       className="museum-stage"
       data-exploring={exploring ? 'true' : 'false'}
