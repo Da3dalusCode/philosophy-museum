@@ -5359,6 +5359,76 @@ check('all five turn courts match map handedness and are walkable through both b
   }
 });
 
+check('every rendered wall sign clears any open doorway it overlaps', () => {
+  const manifestNodeById = new Map(MUSEUM_BUILDING_MANIFEST.nodes.map((node) => [node.id, node]));
+  for (const runtimeNode of MUSEUM_RUNTIME_NODES) {
+    const manifestNode = manifestNodeById.get(runtimeNode.id);
+    assert(manifestNode, `${runtimeNode.id} has no manifest node for sign-clearance inspection`);
+    for (const sign of runtimeNode.layout.signs ?? []) {
+      const signNormal = {x: Math.sin(sign.rotationY), z: Math.cos(sign.rotationY)};
+      const signTangent = {x: Math.cos(sign.rotationY), z: -Math.sin(sign.rotationY)};
+      const renderedHeight = sign.height;
+      const frameHalfWidth = (sign.width + (runtimeNode.publicHallId ? .1 : .12)) / 2;
+      const frameBottom = sign.position.y
+        - (renderedHeight + (runtimeNode.publicHallId ? .1 : .12)) / 2;
+      for (const doorway of manifestNode.doorwaySlots) {
+        if (doorway.openingState !== 'open' && doorway.openingState !== 'external-open') continue;
+        const parallel = Math.abs(
+          signNormal.x * doorway.inwardNormal.x + signNormal.z * doorway.inwardNormal.z,
+        );
+        if (parallel < .98) continue;
+        const delta = {
+          x: sign.position.x - doorway.position.x,
+          z: sign.position.z - doorway.position.z,
+        };
+        const normalDistance = Math.abs(delta.x * signNormal.x + delta.z * signNormal.z);
+        if (normalDistance > .35) continue;
+        const tangentDistance = Math.abs(delta.x * signTangent.x + delta.z * signTangent.z);
+        if (tangentDistance >= frameHalfWidth + doorway.clearWidth / 2) continue;
+        assert(
+          frameBottom >= doorway.clearHeight + .25,
+          `${runtimeNode.id}/${sign.id} crowds open doorway ${doorway.id}: `
+            + `${frameBottom.toFixed(3)} m sign clearance over ${doorway.clearHeight.toFixed(3)} m opening`,
+        );
+      }
+      for (const connection of runtimeNode.layout.spatialConnections) {
+        const {openingBounds} = connection;
+        const openingWidth = openingBounds.maxX - openingBounds.minX;
+        const openingDepth = openingBounds.maxZ - openingBounds.minZ;
+        const tangentAlongX = openingWidth >= openingDepth;
+        const openingNormal = tangentAlongX ? {x: 0, z: 1} : {x: 1, z: 0};
+        const openingTangent = tangentAlongX ? {x: 1, z: 0} : {x: 0, z: 1};
+        const parallel = Math.abs(
+          signNormal.x * openingNormal.x + signNormal.z * openingNormal.z,
+        );
+        if (parallel < .98) continue;
+        const openingCenter = {
+          x: (openingBounds.minX + openingBounds.maxX) / 2,
+          z: (openingBounds.minZ + openingBounds.maxZ) / 2,
+        };
+        const delta = {
+          x: sign.position.x - openingCenter.x,
+          z: sign.position.z - openingCenter.z,
+        };
+        const openingHalfWidth = Math.max(openingWidth, openingDepth) / 2;
+        const openingHalfDepth = Math.min(openingWidth, openingDepth) / 2;
+        const normalDistance = Math.abs(delta.x * signNormal.x + delta.z * signNormal.z);
+        if (normalDistance > openingHalfDepth + .35) continue;
+        const tangentDistance = Math.abs(
+          delta.x * openingTangent.x + delta.z * openingTangent.z,
+        );
+        if (tangentDistance >= frameHalfWidth + openingHalfWidth) continue;
+        assert(
+          frameBottom >= MUSEUM_BUILDING_MANIFEST.physicalContract.doorClearHeight + .25,
+          `${runtimeNode.id}/${sign.id} crowds interior opening ${connection.id}: `
+            + `${frameBottom.toFixed(3)} m sign clearance over `
+            + `${MUSEUM_BUILDING_MANIFEST.physicalContract.doorClearHeight.toFixed(3)} m opening`,
+        );
+      }
+    }
+  }
+});
+
 check('the physical visitor map is a truthful projection of live geometry and safe travel', () => {
   const approvedVisitOrder = singleLevelPlan.structuralBands.flatMap(({visitSequence}) => visitSequence);
   assert.deepEqual(MUSEUM_VISITOR_MAP_PROJECTION.map(({hall}) => hall.id), approvedVisitOrder);

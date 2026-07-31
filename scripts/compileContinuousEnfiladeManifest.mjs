@@ -605,7 +605,7 @@ const crossingNodes = plan.crosscut.intersections
       subtitle: `${westHall.title} ↔ ${eastHall.title} · Visitor map: M`,
       position: {
         x: round(-(bounds.maxX - bounds.minX) / 2 + .2),
-        y: 2.55,
+        y: 4.35,
         z: 0,
       },
       rotationY: round(Math.PI / 2, 12),
@@ -1544,6 +1544,20 @@ const validateManifest = (candidate) => {
     assert.match(sign.subtitle, /Visitor map: M/u);
     assert(sign.subtitle.includes(westHall.title), `${intersection.id} does not name its west gallery.`);
     assert(sign.subtitle.includes(eastHall.title), `${intersection.id} does not name its east gallery.`);
+    const renderedSignHalfHeight = (sign.height + .12) / 2;
+    const sideDoorClearHeight = Math.max(
+      ...node.doorwaySlots
+        .filter(({id}) => id === 'west' || id === 'east')
+        .map(({clearHeight}) => clearHeight),
+    );
+    assert(
+      sign.position.y - renderedSignHalfHeight >= sideDoorClearHeight + .25,
+      `${intersection.id} crosscut sign crowds its east/west doorway opening.`,
+    );
+    assert(
+      sign.position.y + renderedSignHalfHeight <= node.geometry.cells[0].ceilingHeight - .25,
+      `${intersection.id} crosscut sign crowds its ceiling.`,
+    );
   }
 
   const adjacency = new Map(candidate.nodes.map(({id}) => [id, new Set()]));

@@ -110,15 +110,23 @@ function StructuralBench({item}: {item: MuseumFurnishingDefinition}) {
   </group>;
 }
 
-function BuildingSign({title, kicker, subtitle, position, rotation = 0, width = 4.8}: {
+function BuildingSign({
+  title,
+  kicker,
+  subtitle,
+  position,
+  rotation = 0,
+  width = 4.8,
+  height = width * .27,
+}: {
   title: string;
   kicker: string;
   subtitle: string;
   position: readonly [number, number, number];
   rotation?: number;
   width?: number;
+  height?: number;
 }) {
-  const height = width * .27;
   const textureSize = museumTextureDimensionsForPlane(
     width,
     height,
@@ -154,6 +162,7 @@ function AuthoredBuildingSign({sign}: {sign: MuseumSignDefinition}) {
     position={[sign.position.x, sign.position.y, sign.position.z]}
     rotation={sign.rotationY}
     width={sign.width}
+    height={sign.height}
   />;
 }
 
