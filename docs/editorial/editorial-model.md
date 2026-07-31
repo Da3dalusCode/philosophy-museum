@@ -18,6 +18,14 @@ The UI derives source numbering from source-array order. Evidence lists include 
 
 The interface uses descriptive labels rather than terms such as “fact-checked” or “peer-reviewed.”
 
+## Article completeness is a separate hard requirement
+
+Every applicable canonical full educational article must contain at least 2,000 substantive article-prose words. The applicable registry includes all philosopher articles, all philosophy/branch/school/tradition/movement/method/framework articles, and any future standalone article-backed work, text, argument, concept, or major Museum exhibit. Short plaques, captions, drawers, timeline entries, and Museum panels that route to one canonical article are supporting surfaces, not duplicate full articles.
+
+The counter tokenizes only text in canonical `articleSections[].paragraphs`; it excludes titles and headings, metadata, citation and source records, reading lists, image data, interface copy, and duplicated rendering. There are no exemptions. Current failures are a migration backlog recorded by `npm run report:depth`, and `npm run audit:articles` remains a strict failing audit until that backlog is eliminated.
+
+The floor measures completeness, not credibility. Reaching it does not establish accuracy, adequate sourcing, originality, `source-mapped` status, or `claim-reviewed` status. Filler, repetition, generic biography, redundant summaries, excessive quotations, and prose written only to manipulate the counter are not acceptable. Conversely, proximity to 2,000 words is not automatic evidence of padding. A page cannot receive `claim-reviewed` status while below the floor, and the editorial and depth audits enforce those properties independently.
+
 ## Review lock
 
 The deterministic review snapshot includes visitor-facing prose and structured facts, source links, editorial citations, and editorial source metadata. Presentation-only fields such as colors, icons, and images are excluded. Review bookkeeping and the lock itself are also excluded.

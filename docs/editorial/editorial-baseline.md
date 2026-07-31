@@ -18,7 +18,9 @@ This document records the corpus before claim-level citations and editorial stat
 
 The existing `sourceLinks` arrays were bibliography-style links. They did not identify which sentence, list item, date, classification, quotation, work attribution, or influence claim a source supported. Their presence therefore did not establish claim-level coverage.
 
-The article-depth audit reported a long-form article for all 146 philosopher records and all 43 branch records. Its word totals are length heuristics only: they detect missing or unexpectedly short material, not accuracy, evidence quality, originality, or editorial review. Several records sat exactly at or near the configured minimum, which made the threshold particularly unsuitable as a quality label.
+The starting repository contained a long-form article for all 146 philosopher records and all 43 branch records, but its depth audit used a manually maintained target list and mixed 1,800- and 2,000-word thresholds. The corrected universal policy applies one hard 2,000-word substantive-prose minimum to every canonical full article, without exemptions. A complete inventory found that the former target list omitted nine records and that 109 of 189 canonical articles are currently below the universal floor. Those failures are migration backlog, not exceptions.
+
+Depth remains separate from credibility: 2,000 words is a completeness requirement, but it does not establish accuracy, evidence quality, originality, or editorial review. Near-threshold counts can be triage signals only; quality must be judged from the prose. The strict universal audit continues to fail until the backlog is resolved and is not wired into the ordinary build or deployment gate during that migration. Exact live counts are generated in [`article-depth-inventory.md`](./article-depth-inventory.md).
 
 The accuracy audit passed its selected known-fact regression checks. Those checks protect a limited set of deliberately encoded dates, labels, memberships, and integrity corrections. They do not read or fact-check every prose claim and must not be represented as doing so.
 
@@ -57,7 +59,7 @@ The unchanged starting commit passed:
 
 - `npm run build`
 - `npm run audit:integrity`
-- `npm run audit:articles`
+- the former target-list version of `npm run audit:articles`
 - `npm run audit:accuracy`
 - `npm run audit:routing`
 - `npm run report:coverage`

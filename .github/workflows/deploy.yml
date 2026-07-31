@@ -41,12 +41,13 @@ jobs:
           npm run validate:museum-masterplan
           npm run validate:museum-building-plan
 
-      - name: Audit routes, Museum, assets, articles, accuracy, and integrity
+      - name: Audit routes, Museum, assets, pilot depth, editorial metadata, accuracy, and integrity
         run: |
           npm run audit:routing
           npm run audit:museum
           npm run audit:museum-assets
-          npm run audit:articles
+          npm run audit:articles:pilots
+          npm run audit:editorial
           npm run audit:accuracy
           npm run audit:integrity
 

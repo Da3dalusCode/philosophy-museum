@@ -25,9 +25,9 @@ Philosopher Profiles and Branch Explorer now use article-grade reference pages a
 
 The renderer retains the earlier structured exhibit layout as a safe fallback for any future or incomplete record, but no current philosopher or branch depends on that fallback for core article coverage.
 
-## Gold-standard audited articles
+## Canonical article roster and universal depth migration
 
-The current gold-standard articles pass the default `npm run audit:articles` check. Most article records meet the 1,800-word floor. Medieval bridge, scholastic, medieval Islamic continuation, and early modern core records use the stricter 2,000-word floor.
+Every philosopher and philosophy record below has canonical `articleSections`, but presence is not the same as completeness or editorial review. The permanent rule is one hard floor of 2,000 substantive article-prose words for every applicable full article, with no exemptions. `npm run report:depth` currently records 189 canonical articles: 80 pass and 109 fail. `npm run audit:articles` is the strict universal check and intentionally fails on that migration backlog; `npm run audit:articles:pilots` enforces the same rule for Socrates, Nāgārjuna, and Feminist Philosophy. Length remains separate from sourcing, accuracy, and the public editorial status.
 
 - Philosophers, ancient and Hellenistic: Thales, Anaximander, Anaximenes, Pythagoras, Philolaus, Parmenides, Zeno of Elea, Heraclitus, Empedocles, Anaxagoras, Leucippus, Democritus, Protagoras, Gorgias, Antisthenes, Plato, Socrates, Aristotle, Epicurus, Epictetus, Zeno of Citium, Seneca, Marcus Aurelius, Pyrrho, Sextus Empiricus, Lucretius, Diogenes, Cleanthes, Chrysippus, Arcesilaus, and Carneades.
 - Philosophers, late antique and medieval: Plotinus, Porphyry, Iamblichus, Proclus, Pseudo-Dionysius, Origen, Gregory of Nyssa, Augustine, Boethius, John Scotus Eriugena, Anselm, Peter Abelard, Thomas Aquinas, Ibn Sina / Avicenna, Maimonides, Al-Kindi, Al-Farabi, Al-Ghazali, Averroes, Duns Scotus, William of Ockham, Meister Eckhart, and Marsilius of Padua.
@@ -36,7 +36,7 @@ The current gold-standard articles pass the default `npm run audit:articles` che
 - Philosophers, nineteenth and twentieth century: Hegel, Schopenhauer, Kierkegaard, Marx, Frege, Bertrand Russell, G. E. Moore, Rudolf Carnap, W. V. O. Quine, Elizabeth Anscombe, Peirce, William James, Dewey, Whitehead, Jiddu Krishnamurti, Popper, Kuhn, Merleau-Ponty, Levinas, Gadamer, Iris Murdoch, Philippa Foot, Judith Jarvis Thomson, Thomas Nagel, Derek Parfit, Martha Nussbaum, Judith Butler, Angela Davis, and bell hooks.
 - Branches: Platonism, Ancient Greek Philosophy, Stoicism, Epicureanism, Skepticism, Cynicism, Aristotelianism, Neoplatonism, Epistemology, Ethics, Analytic Philosophy, Philosophy of Religion, Medieval Scholasticism, Islamic Philosophy, Rationalism, Empiricism, German Idealism, Existentialism, Phenomenology, Political Philosophy, Philosophy of Science, Metaphysics, Ontology, Virtue Ethics, Deontology, Utilitarianism, Logic, Philosophy of Language, Philosophy of Mind, Chinese Philosophy, Confucianism, Daoism, Mohism, Legalism, Indian Philosophy, Jainism, Vedanta, Buddhist Philosophy, Buddhist Epistemology, Aesthetics, Pragmatism, Continental Philosophy, and Feminist Philosophy.
 
-These records model the target editorial depth: a clear opening orientation, sustained historical and argumentative explanation, interpretive cautions, connections across the atlas, and a practical reading path.
+These records define the canonical article roster, not a claim that every item already meets the depth or credibility standard. The generated inventory is authoritative for current compliance.
 
 The medieval bridge and continuation passes now cover the Christian/Jewish/Islamic transition from late antiquity into scholastic and post-Avicennian debates, with special attention to faith and reason, divine language, law, grace, free will, necessary being, political order, mysticism, and philosophical interpretation.
 
@@ -56,7 +56,7 @@ The branch content-model pass splits named cross-cultural traditions out of over
 
 ## Article-format coverage
 
-The philosopher records authored and rendered in the article-first format now include every philosopher listed in the gold-standard audited section above. Kant, Nietzsche, and Wittgenstein also have earlier article-format records, but they are not currently part of the default long-form audit floor.
+The philosopher records authored and rendered in the article-first format include every philosopher listed above. Kant, Nietzsche, Wittgenstein, and every other canonical article are included in the universal long-form audit; none is excluded from the floor.
 
 The branch records authored and rendered in the article-first format are:
 
@@ -87,12 +87,13 @@ The current audited article-grade branch pack is:
 
 These pages now contain specific origin stories, periodized development, concepts, major works, internal debates, modern relevance, misconceptions, reading paths, and reference links. All branch records now count as article-grade coverage.
 
-## Core article coverage complete
+## Core article presence complete; depth migration open
 
-Branch article coverage is complete at 43 of 43, and philosopher article coverage is complete at 146 of 146. Missing core article coverage is no longer a roadmap category.
+Branch article presence is complete at 43 of 43, and philosopher article presence is complete at 146 of 146. Compliance is not complete: the 109 records below 2,000 substantive words remain a measured migration category in [`editorial/article-depth-inventory.md`](./editorial/article-depth-inventory.md).
 
 Remaining editorial priorities include:
 
+- Raise every sub-2,000-word canonical article through useful, source-ready additions rather than filler, while keeping the strict universal audit unchanged.
 - Broader source provenance, primary-text links, and reference review across the full corpus.
 - Portrait/source metadata remains shallow. Most new article profiles still rely on fallback medallions until image rights and attribution can be verified.
 

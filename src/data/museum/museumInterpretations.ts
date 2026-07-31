@@ -101,15 +101,15 @@ export type MuseumInterpretation = MuseumPhilosopherInterpretation | MuseumTradi
 
 const ANCIENT_MUSEUM_INTERPRETATIONS = {
   socrates: {
-    hallId: 'ancient-greek', id: 'socrates', kind: 'philosopher', name: 'Socrates', originalName: 'Σωκράτης', dateLabel: '469–399 BCE', entityType: 'Athenian philosopher',
+    hallId: 'ancient-greek', id: 'socrates', kind: 'philosopher', name: 'Socrates', originalName: 'Σωκράτης', dateLabel: 'c. 470/469–399 BCE', entityType: 'Athenian philosopher',
     centralQuestion: 'How should a person live, and how can claimed knowledge survive examination?',
-    lead: 'Socrates changed philosophy without writing a book. In the streets, workshops, and gymnasia of democratic Athens, he asked people to explain ideas they confidently used—justice, courage, piety, friendship—and then tested whether their answers fit together. This questioning practice, later called the elenchus, often ended without a definition. Its value lay in exposing the distance between appearing wise and understanding how one ought to live. Socrates made care of the soul more important than wealth, reputation, or political success, and treated examination as a lifelong ethical obligation. That mission unfolded during Athens’ military defeat, oligarchic coups, and democratic restoration. Some associates became notorious political actors, while his unconventional religious language and public questioning made him vulnerable. In 399 BCE, an Athenian jury convicted him of impiety and corrupting the young. He accepted the sentence rather than abandon his practice. Yet the historical Socrates remains elusive: Plato, Xenophon, Aristophanes, and later Aristotle present significantly different figures.',
+    lead: 'Socrates changed philosophy without leaving writings of his own. Plato and Xenophon portray him asking people to explain ideas they confidently used—justice, courage, piety, friendship—and testing whether their answers fit together. This family of practices, later discussed under labels such as elenchus, often ended without a definition. Its value lay in exposing the distance between appearing wise and understanding how one ought to live. The Platonic Socrates gives care of the soul priority over wealth, reputation, or survival and presents examination as an ethical obligation. That mission unfolded during Athens’ military defeat, oligarchic coups, and democratic restoration. Some associates became notorious political actors, while his religious language and public questioning formed part of the trial context. In 399 BCE, an Athenian jury convicted him of impiety and corrupting the young. Plato’s defense speech presents him as refusing to abandon inquiry in exchange for acquittal. The historical Socrates remains elusive because Plato, Xenophon, Aristophanes, and later Aristotle write in different genres and for different purposes.',
     biography: {
-      born: '469 BCE, probably Athens', died: '399 BCE, Athens', associatedPlaces: ['Athens'], era: 'Classical Greece', affiliations: ['Socratic circles'],
+      born: 'c. 470/469 BCE, probably Athens', died: '399 BCE, Athens', associatedPlaces: ['Athens'], era: 'Classical Greece', affiliations: ['Socratic circles'],
       influencedBy: ['Athenian moral debate', 'Presocratic inquiry', 'Sophistic argument'], studentsOrFollowers: ['Plato', 'Xenophon', 'Antisthenes', 'Aristippus'],
       sourceSituation: 'Wrote nothing; reconstructed from conflicting literary witnesses.', knownFor: ['Elenchus', 'Professed ignorance', 'Care of the soul', 'Examined life'],
     },
-    keyIdeas: ['Cross-examination tests whether beliefs cohere.', 'Wisdom begins by recognizing the limits of one’s knowledge.', 'Moral character matters more than wealth, reputation, or survival.'],
+    keyIdeas: ['Socratic conversations test whether an interlocutor’s commitments cohere.', 'The Apology presents wisdom as recognizing the limits of one’s knowledge.', 'Platonic and Xenophontic portraits make character more important than wealth or reputation.'],
     keyWorks: ['Plato, Apology', 'Plato, Crito and Euthyphro', 'Xenophon, Memorabilia', 'Aristophanes, Clouds'],
     sections: [
       {heading: 'Athens under pressure', paragraphs: ['Socrates practiced during the Peloponnesian War, the rule of the Thirty, and the restored democracy. His trial cannot be separated from this civic trauma, even though the formal accusations concerned impiety and corrupting the young.']},
@@ -920,7 +920,12 @@ const interpretationSources = (
   ];
   for (const reading of readings) {
     const url = reading.publicDomainUrl ?? reading.sourceUrl;
-    if (url) sources.push({label: `${reading.author} — ${reading.title}`, url, kind: 'primary-text'});
+    if (url) {
+      const kind = reading.type === 'primary' || Boolean(reading.publicDomainUrl)
+        ? 'primary-text' as const
+        : 'academic-reference' as const;
+      sources.push({label: `${reading.author} — ${reading.title}`, url, kind});
+    }
   }
   return [...new Map(sources.map((source) => [source.url, source])).values()].slice(0, 6);
 };
@@ -1183,10 +1188,10 @@ const philosopherInterpretation = (
     centralQuestion: location.exhibit.question,
     lead: substantialSections
       ? paragraph([
-          `In “${location.room.title},” ${record.name} asks ${location.exhibit.question}`,
+          `In “${location.room.title},” ${record.name} asks: ${location.exhibit.question}`,
           record.shortBio ?? record.contributionSummary,
           `The curatorial problem is not to compress ${record.name} into a doctrine label, but to distinguish what the surviving record supports, what later interpreters supplied, and which philosophical question remains live when the historical vocabulary is no longer ours.`,
-          `The installation follows the evidence through ${record.historicalContext}, reconstructs the argument without pretending that later reports are neutral transcripts, and carries the visitor into the strongest criticisms and afterlives.`,
+          `The installation follows the evidence through ${record.historicalContext.replace(/[.!?]\s*$/, '')}, reconstructs the argument without pretending that later reports are neutral transcripts, and carries the visitor into the strongest criticisms and afterlives.`,
           `Its article-derived sequence moves from setting to argument, evidence, disagreement, and a reading route; neighboring Museum installations are offered as comparisons, never as automatic proof of influence, agreement, or school membership.`,
         ])
       : paragraph([
@@ -1270,11 +1275,13 @@ const branchInterpretation = (
     kind: 'tradition',
     name: record.name,
     dateLabel: record.originPeriod,
-    entityType: `${record.category} philosophical field or tradition`,
+    entityType: /field|tradition|school|movement|method|framework/i.test(record.category)
+      ? record.category
+      : `${record.category} philosophical field or tradition`,
     centralQuestion: location.exhibit.question,
     lead: substantialSections
       ? paragraph([
-          `In “${location.room.title},” ${record.name} asks ${location.exhibit.question}`,
+          `In “${location.room.title},” ${record.name} asks: ${location.exhibit.question}`,
           record.beginnerExplanation,
           `The curatorial problem is not to turn ${record.name} into a timeless list of positions, but to show how its questions change across institutions, genres, languages, communities, and rival standards of evidence.`,
           `The installation treats ${record.name} as a historically changing field of arguments and practices, preserves differences among religious and nonreligious traditions, and uses the Forum routes for comparison without claiming one center or one linear origin.`,
@@ -1292,13 +1299,16 @@ const branchInterpretation = (
       origin: record.originStory ?? record.historicalDevelopment[0],
       place: record.category,
       historicalPeriod: record.originPeriod,
-      earlyFigures: record.majorFigures?.slice(0, 3) ?? record.majorPhilosopherIds.slice(0, 3),
-      majorRepresentatives: record.majorFigures?.length ? record.majorFigures : record.majorPhilosopherIds,
+      earlyFigures: (record.majorFigures?.slice(0, 3) ?? record.majorPhilosopherIds.slice(0, 3))
+        .map((id) => philosopherById.get(id)?.name ?? id),
+      majorRepresentatives: (record.majorFigures?.length ? record.majorFigures : record.majorPhilosopherIds)
+        .map((id) => philosopherById.get(id)?.name ?? id),
       characteristicPractices: record.keyConcepts.slice(0, 5).map(({name}) => name),
       centralDoctrines: record.coreQuestions,
       sourceTraditions: readings.slice(0, 5).map(({title}) => title),
-      principalRivals: record.rivalPositions?.length ? record.rivalPositions : record.contrastingBranchIds,
-      laterInfluence: record.relatedBranchIds,
+      principalRivals: (record.rivalPositions?.length ? record.rivalPositions : record.contrastingBranchIds)
+        .map((id) => branchById.get(id)?.name ?? id),
+      laterInfluence: record.relatedBranchIds.map((id) => branchById.get(id)?.name ?? id),
       commonMisconception: (record.misconceptionsDetailed ?? record.commonMisunderstandings)[0] ?? `${record.name} is not one timeless doctrine.`,
       transmission: paragraph(development.slice(-2)),
     },
@@ -1441,7 +1451,7 @@ export const museumInterpretationFacts = (record: MuseumInterpretation): MuseumF
       {label: 'Era', value: biography.era},
       {label: 'School / setting', value: biography.affiliations.join(' · ')},
       {label: 'Influenced by', value: biography.influencedBy.join(' · ')},
-      {label: 'Students / followers', value: biography.studentsOrFollowers.join(' · ')},
+      {label: 'Students / followers / later reception', value: biography.studentsOrFollowers.join(' · ')},
       {label: 'Evidence / interpretive cautions', value: biography.sourceSituation},
       {label: 'Known for', value: biography.knownFor.join(' · ')},
     ].filter((fact): fact is MuseumFact => Boolean(fact));

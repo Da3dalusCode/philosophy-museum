@@ -1181,56 +1181,80 @@
       "name": "Feminist Philosophy",
       "sections": [
         {
-          "id": "overview",
-          "title": "Gender, power, and the remaking of philosophical questions"
+          "id": "orientation",
+          "title": "A field in the plural"
         },
         {
-          "id": "historical-development",
-          "title": "From claims to equal reason to structural and global critique"
+          "id": "genealogies",
+          "title": "Genealogies instead of one origin"
         },
         {
-          "id": "power-oppression",
-          "title": "Power, oppression, and the institutions of ordinary life"
+          "id": "waves",
+          "title": "What the wave metaphor hides"
         },
         {
-          "id": "knowledge-standpoint-intersectionality",
-          "title": "Situated knowledge, standpoint, and intersectional explanation"
+          "id": "ethics-care",
+          "title": "Ethics, care, dependency, and power"
         },
         {
-          "id": "embodiment-language-identity",
-          "title": "Embodiment, language, identity, and social ontology"
+          "id": "epistemology",
+          "title": "Knowledge, standpoint, and objectivity"
         },
         {
-          "id": "care-autonomy",
-          "title": "Care, dependency, autonomy, and moral agency"
+          "id": "political",
+          "title": "Making power in ordinary life visible"
         },
         {
-          "id": "labor-family-membership",
-          "title": "Labor, family, and the terms of political membership"
+          "id": "intersectionality",
+          "title": "Intersectionality and Black feminist critique"
         },
         {
-          "id": "figures-works",
-          "title": "A plural canon of arguments, not a parade of names"
+          "id": "sex-gender",
+          "title": "Sex, gender, and the category of women"
         },
         {
-          "id": "internal-debates",
-          "title": "Equality, difference, identity, universality, and strategy"
+          "id": "trans-feminism",
+          "title": "Trans feminism, conflict, and solidarity"
         },
         {
-          "id": "neighboring-branches",
-          "title": "Feminist interventions across the philosophical atlas"
+          "id": "global-decolonial",
+          "title": "Transnational, decolonial, and Indigenous challenges"
         },
         {
-          "id": "misunderstandings",
-          "title": "What feminist philosophy is not"
+          "id": "disability",
+          "title": "Disability, embodiment, and dependence"
         },
         {
-          "id": "modern-relevance",
-          "title": "Institutions, technologies, care crises, and democratic life"
+          "id": "methods-canon",
+          "title": "Methods, canons, and philosophical institutions"
         },
         {
-          "id": "reading-path",
-          "title": "A staged route through the field"
+          "id": "autonomy-agency",
+          "title": "Autonomy, agency, and nonideal conditions"
+        },
+        {
+          "id": "embodiment-reproduction",
+          "title": "Embodiment, reproduction, and social reproduction"
+        },
+        {
+          "id": "violence-law-state",
+          "title": "Violence, law, and ambivalence about the state"
+        },
+        {
+          "id": "language-objectification",
+          "title": "Language, objectification, and social meaning"
+        },
+        {
+          "id": "science-technology",
+          "title": "Science, medicine, and technology"
+        },
+        {
+          "id": "solidarity-coalition",
+          "title": "Solidarity without a single subject"
+        },
+        {
+          "id": "debates-reading",
+          "title": "Internal disagreement and a responsible reading path"
         }
       ],
       "hasSources": true
@@ -2909,48 +2933,72 @@
       "name": "Socrates",
       "sections": [
         {
-          "id": "overview",
-          "title": "A turning point without a written doctrine"
+          "id": "orientation",
+          "title": "Why Socrates is difficult to recover"
         },
         {
-          "id": "athens",
-          "title": "Athens, democracy, war, and public argument"
+          "id": "chronology-setting",
+          "title": "Athens, war, and an approximate life"
         },
         {
-          "id": "sources",
-          "title": "The sources and the historical Socrates"
+          "id": "witnesses",
+          "title": "Four witness traditions"
         },
         {
-          "id": "elenchus",
-          "title": "Elenchus, definition, and productive perplexity"
+          "id": "inquiry",
+          "title": "Questioning without one uniform method"
         },
         {
-          "id": "virtue-knowledge",
+          "id": "ethics",
           "title": "Virtue, knowledge, and care of the soul"
         },
         {
-          "id": "irony-ignorance",
-          "title": "Irony, ignorance, and the examined life"
-        },
-        {
-          "id": "sophists",
-          "title": "Socrates and the sophists"
+          "id": "doctrine-drama",
+          "title": "Historical doctrine and Platonic drama"
         },
         {
           "id": "trial",
-          "title": "Trial, conviction, and execution"
+          "title": "Charges, defense, and civic context"
         },
         {
-          "id": "portraits",
-          "title": "Four philosophical portraits"
+          "id": "death",
+          "title": "Death, law, and philosophical integrity"
         },
         {
-          "id": "legacy",
-          "title": "Schools, methods, and later moral philosophy"
+          "id": "influence",
+          "title": "Socratic schools and later inheritances"
         },
         {
-          "id": "disputes-reading",
-          "title": "Interpretive disputes and how to read Socrates"
+          "id": "evidence-discipline",
+          "title": "What the evidence can and cannot support"
+        },
+        {
+          "id": "conversation-teaching",
+          "title": "Conversation, teaching, and the sophists"
+        },
+        {
+          "id": "irony-aporia",
+          "title": "Irony, definition, and productive perplexity"
+        },
+        {
+          "id": "religion-sign",
+          "title": "Piety, oracle, and the divine sign"
+        },
+        {
+          "id": "knowledge-action",
+          "title": "Knowledge, desire, and moral failure"
+        },
+        {
+          "id": "education-politics",
+          "title": "Education, democracy, and political judgment"
+        },
+        {
+          "id": "apology-arguments",
+          "title": "Four arguments in the Apology"
+        },
+        {
+          "id": "reading",
+          "title": "How to read Socrates responsibly"
         }
       ],
       "hasSources": true
@@ -4230,58 +4278,82 @@
     },
     {
       "id": "nagarjuna",
-      "name": "Nagarjuna",
+      "name": "Nāgārjuna",
       "sections": [
         {
-          "id": "overview",
-          "title": "Emptiness as the deep meaning of dependent arising"
+          "id": "orientation",
+          "title": "A philosopher behind layers of tradition"
         },
         {
-          "id": "historical-context",
-          "title": "Mahayana, scholastic debate, and uncertain dates"
+          "id": "historical-setting",
+          "title": "Buddhist debate in ancient India"
         },
         {
-          "id": "works-and-attribution",
-          "title": "Works, attribution, and the core text"
+          "id": "works-attribution",
+          "title": "Works and attribution cautions"
         },
         {
-          "id": "emptiness",
-          "title": "What emptiness denies and what it preserves"
+          "id": "svabhava",
+          "title": "What emptiness denies"
+        },
+        {
+          "id": "dependent-arising",
+          "title": "Dependent arising and conditions"
         },
         {
           "id": "two-truths",
-          "title": "The two truths and conventional reality"
+          "title": "Conventional and ultimate truth"
         },
         {
-          "id": "causation-and-motion",
-          "title": "Causation, motion, and the critique of fixed entities"
+          "id": "nihilism",
+          "title": "Why emptiness is not nihilism"
         },
         {
-          "id": "self-and-suffering",
-          "title": "Self, aggregates, suffering, and nirvana"
+          "id": "method",
+          "title": "Dialectic, consequence, and disputed commitments"
         },
         {
-          "id": "method-and-prasanga",
-          "title": "Method, reductio, and the question of thesis"
+          "id": "reception",
+          "title": "Many Madhyamaka traditions"
         },
         {
-          "id": "ethics-and-compassion",
-          "title": "Emptiness, ethics, and the bodhisattva path"
+          "id": "argument-forms",
+          "title": "How the arguments unsettle fixed alternatives"
         },
         {
-          "id": "relation-to-earlier-buddhism",
-          "title": "Relation to early Buddhism and Abhidharma"
+          "id": "self-person",
+          "title": "Persons, aggregates, and reduction"
         },
         {
-          "id": "influence",
-          "title": "Influence across Buddhist worlds and beyond"
+          "id": "language-designation",
+          "title": "Language, dependence, and designation"
         },
         {
-          "id": "misunderstandings-reading",
-          "title": "Misunderstandings and a reading strategy"
+          "id": "samsara-nirvana",
+          "title": "Saṃsāra, nirvāṇa, and the middle way"
+        },
+        {
+          "id": "practice-ethics",
+          "title": "Soteriological purpose and ethical consequence"
+        },
+        {
+          "id": "objections",
+          "title": "Objections about self-refutation and explanation"
+        },
+        {
+          "id": "translation-comparison",
+          "title": "Translation and comparative interpretation"
+        },
+        {
+          "id": "explanation-knowledge",
+          "title": "Explanation, change, and reliable reasoning"
+        },
+        {
+          "id": "reading",
+          "title": "A careful reading path"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "vasubandhu",

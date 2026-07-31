@@ -1,5 +1,7 @@
 import type {Philosopher} from '../types/philosophy';
 import {applyPhilosopherDepth} from './contentDepth';
+import {applySocratesEditorial} from './editorial/socratesEditorial';
+import {applyNagarjunaEditorial} from './editorial/nagarjunaEditorial';
 type P=[string,string,number,number|null,string,string,string[],string,string[],string[]];
 const displayYear=(year:number)=>year<0?`${Math.abs(year)} BCE`:`${year}`;
 const make=([id,name,birthYear,deathYear,region,tradition,primaryBranchIds,contributionSummary,mainIdeas,keyWorks]:P):Philosopher=>({id,name,birthYear,deathYear,region,tradition,primaryBranchIds,secondaryBranchIds:[],lifespan:`${displayYear(birthYear)}–${deathYear===null?'present':displayYear(deathYear)}`,mainIdeas,keyWorks,lifeStory:`${name} worked in ${region} within ${tradition}, responding to the urgent intellectual and social problems of the time.`,contributionSummary,beginnerExplanation:`Think of ${name} as a guide to ${mainIdeas[0]?.toLowerCase() ?? 'a foundational philosophical problem'}. The point is not to memorize a slogan, but to see what problem this approach helps solve.`,influencedByIds:[],influencedIds:[],disagreementIds:[],suggestedFirstReading:keyWorks[0]??'A reliable beginner introduction',historicalContext:`Part of the ${tradition} conversation in ${region}.`,color:'#c9b27d'});
@@ -234,5 +236,5 @@ const accuracyDepth:Record<string,Partial<Philosopher>>={
   'g-e-moore':{branchMemberships:[{branchId:'analytic-philosophy',status:'major',note:'Major early analytic figure for common sense, clarity, and non-naturalist ethics.',confidence:'high'},{branchId:'ethics',status:'major',note:'Influential in metaethics through the open question argument.',confidence:'high'}]},
   wittgenstein:{branchMemberships:[{branchId:'analytic-philosophy',status:'central',note:'Central figure for both early logical analysis and later ordinary-language approaches.',confidence:'high'},{branchId:'philosophy-of-language',status:'central',note:'Transforms philosophy of language through logical form and later language-games.',confidence:'high'}]}
 };
-export const philosophers=specs.map(make).map(p=>({...p,...relationshipDepth[p.id],...accuracyDepth[p.id]})).map(applyPhilosopherDepth);
+export const philosophers=specs.map(make).map(p=>({...p,...relationshipDepth[p.id],...accuracyDepth[p.id]})).map(applyPhilosopherDepth).map(applySocratesEditorial).map(applyNagarjunaEditorial);
 export const philosopherById=(id:string)=>philosophers.find(p=>p.id===id);
