@@ -94,6 +94,8 @@ export const serializeHashRoute = (route: AppRoute): string => {
       return '#/history';
     case 'map':
       return '#/map';
+    case 'editorial-methodology':
+      return '#/methodology';
     case 'branch':
       return appendSection(`#/branches/${encodeURIComponent(route.branchId)}`, route.section);
     case 'philosopher':
@@ -169,6 +171,7 @@ export const parseHashRoute = (hash: string): ParsedHashRoute => {
 
   if (segments.length === 1 && head === 'history') return finalize(DEFAULT_ROUTES.history, hash);
   if (segments.length === 1 && head === 'map') return finalize(DEFAULT_ROUTES.map, hash);
+  if (segments.length === 1 && head === 'methodology') return finalize(DEFAULT_ROUTES.methodology, hash);
 
   if (head === 'museum') {
     if (segments.length === 1) return finalize(DEFAULT_ROUTES.museum, hash);

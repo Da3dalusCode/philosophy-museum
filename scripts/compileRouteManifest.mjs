@@ -65,7 +65,7 @@ const articleRecord = (record) => ({
   id: record.id,
   name: record.name,
   sections: (record.articleSections ?? []).map(({id, title}) => ({id, title})),
-  hasSources: Boolean(record.sourceLinks?.length),
+  hasSources: Boolean(record.sourceLinks?.length || record.editorial?.sources?.length),
 });
 
 const supplementalByHall = new Map(MUSEUM_HALLS.map(({id}) => [id, []]));

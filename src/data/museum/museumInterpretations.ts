@@ -1124,22 +1124,24 @@ const substantialMuseumSections = (
   const debate = selectArticleSection(articleSections, usedIds, /critic|debate|tension|misunderstand|influence|legacy|reception|modern-relevance|why-it-matters/, articleSections.length - 3);
   const reading = selectArticleSection(articleSections, usedIds, /reading/, articleSections.length - 1);
 
+  const paragraphText = (paragraph: ArticleSection['paragraphs'][number]): string =>
+    typeof paragraph === 'string' ? paragraph : paragraph.text;
   return [
     {
       heading: `Historical frame — ${opening.title}`,
-      paragraphs: [...opening.paragraphs.slice(0, 1), ...setting.paragraphs.slice(0, 1)],
+      paragraphs: [...opening.paragraphs.slice(0, 1), ...setting.paragraphs.slice(0, 1)].map(paragraphText),
     },
     {
       heading: `Argument in focus — ${argument.title}`,
-      paragraphs: argument.paragraphs.slice(0, 2),
+      paragraphs: argument.paragraphs.slice(0, 2).map(paragraphText),
     },
     {
       heading: `Evidence and method — ${evidence.title}`,
-      paragraphs: evidence.paragraphs.slice(0, 2),
+      paragraphs: evidence.paragraphs.slice(0, 2).map(paragraphText),
     },
     {
       heading: `Debate and onward route — ${debate.title}`,
-      paragraphs: [...debate.paragraphs.slice(0, 2), ...reading.paragraphs.slice(0, 1)],
+      paragraphs: [...debate.paragraphs.slice(0, 2), ...reading.paragraphs.slice(0, 1)].map(paragraphText),
     },
   ];
 };

@@ -5,6 +5,7 @@ export type ArticleSectionRoute = {section?: string};
 
 export type HistoryRoute = {kind: 'history'};
 export type MapRoute = {kind: 'map'};
+export type EditorialMethodologyRoute = {kind: 'editorial-methodology'};
 export type BranchRoute = {kind: 'branch'; branchId: string} & ArticleSectionRoute;
 export type PhilosopherRoute = {kind: 'philosopher'; philosopherId: string} & ArticleSectionRoute;
 export type BranchComparisonRoute = {
@@ -45,6 +46,7 @@ export type NotFoundRoute = {
 export type NavigableAppRoute =
   | HistoryRoute
   | MapRoute
+  | EditorialMethodologyRoute
   | BranchRoute
   | PhilosopherRoute
   | BranchComparisonRoute
@@ -77,6 +79,7 @@ export const DEFAULT_LEARNING_PATH_STEP = 1;
 export const DEFAULT_ROUTES = {
   history: {kind: 'history'},
   map: {kind: 'map'},
+  methodology: {kind: 'editorial-methodology'},
   branch: {kind: 'branch', branchId: DEFAULT_BRANCH_ID, section: undefined},
   philosopher: {kind: 'philosopher', philosopherId: DEFAULT_PHILOSOPHER_ID, section: undefined},
   compare: {

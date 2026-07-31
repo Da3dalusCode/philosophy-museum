@@ -9,6 +9,7 @@ import {
   LazyBigHistoryView,
   LazyBranchExplorer,
   LazyCompareMode,
+  LazyEditorialMethodology,
   LazyLearningPaths,
   LazyMuseumCompatibilityPage,
   LazyMuseumPage,
@@ -25,6 +26,7 @@ const activeViewForRoute = (route: AppRoute): ViewId | undefined => {
   switch (route.kind) {
     case 'history': return 'history';
     case 'map': return 'map';
+    case 'editorial-methodology': return undefined;
     case 'branch': return 'branches';
     case 'philosopher': return 'philosophers';
     case 'compare-branches':
@@ -51,6 +53,8 @@ function RouteView({route, routeKey, href, push, replace, onReady}: {
       return <LazyBigHistoryView href={href}/>;
     case 'map':
       return <LazyPhilosophyMap href={href}/>;
+    case 'editorial-methodology':
+      return <LazyEditorialMethodology/>;
     case 'branch':
       return <LazyBranchExplorer route={route} href={href}/>;
     case 'philosopher':

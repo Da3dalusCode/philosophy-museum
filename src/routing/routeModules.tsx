@@ -17,6 +17,7 @@ const once = <T,>(loader: () => Promise<T>): (() => Promise<T>) => {
 
 const loadHistory = once(() => import('../components/BigHistory/BigHistoryView'));
 const loadMap = once(() => import('../components/PhilosophyMap/PhilosophyMap'));
+const loadEditorialMethodology = once(() => import('../components/Editorial/EditorialMethodology'));
 const loadBranches = once(() => import('../components/BranchExplorer/BranchExplorer'));
 const loadPhilosophers = once(() => import('../components/PhilosopherProfile/PhilosopherProfile'));
 const loadCompare = once(() => import('../components/Compare/CompareMode'));
@@ -48,6 +49,9 @@ export const LazyLearningPaths = lazy(() =>
 );
 export const LazyMuseumPage = lazy(() =>
   loadMuseumForNavigation().then(({MuseumPage}) => ({default: MuseumPage})),
+);
+export const LazyEditorialMethodology = lazy(() =>
+  loadEditorialMethodology().then(({EditorialMethodology}) => ({default: EditorialMethodology})),
 );
 export const LazyMuseumCompatibilityPage = lazy(() =>
   loadMuseumCompatibility().then(({MuseumCompatibilityPage}) => ({default: MuseumCompatibilityPage})),

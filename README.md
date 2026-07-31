@@ -177,6 +177,8 @@ npm run report:bundle
 
 For a concise article-coverage report, run `npm run report:coverage`. The Ring-pilot diagram generator is retained only for its historical rollback artifact and is not part of the current release gate.
 
+The article-depth word totals are length heuristics, not evidence of accuracy or editorial quality. `npm run audit:accuracy` protects a selected set of known metadata and wording invariants; it does not fact-check the full prose corpus. Public editorial statuses and claim-level evidence are documented in [`docs/editorial/editorial-model.md`](docs/editorial/editorial-model.md).
+
 The Museum audits cover the approved masterplan, the exact compiled 26-gallery/105-room geometry, canonical hall-template contracts, endpoint-owned openings and closures, curated and planned states, public and compatibility routes, through-route/crosscut/turn-court reachability, closed reserves, decoded-texture-budgeted residency, map correspondence, stable-ID sessions, movement and colliders, viewpoints, guided paths, interpretation coverage, local media, and asset provenance.
 
 ### GitHub Pages deployment

@@ -6,12 +6,20 @@ import {getArticleRouteEntries} from '../../routing/routeMetadata';
 import type {ArticleRoute, RouteHref} from '../../routing/routes';
 import {focusArticleTarget, scrollToArticleTarget} from '../../routing/useArticleSection';
 import type {ArticleSection} from '../../types/philosophy';
+import {CitedParagraph} from '../Editorial/EditorialEvidence';
+import type {EditorialRecord} from '../../editorial/reviewLock';
 
-export function ArticleBody({sections, href}: {sections: ArticleSection[]; href: RouteHref}) {
+export function ArticleBody({sections, href, record}: {sections: ArticleSection[]; href: RouteHref; record?: EditorialRecord}) {
   return <div className="reference-article">
     {sections.map((section, index) => <section className="article-section" id={`article-${section.id}`} key={section.id}>
       <header><span>{String(index + 1).padStart(2, '0')}</span><h2>{section.title}</h2></header>
-      <div className="article-prose">{section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div>
+      <div className="article-prose">{section.paragraphs.map((paragraph) =>
+        typeof paragraph === 'string'
+          ? <p key={paragraph}>{paragraph}</p>
+          : record
+            ? <CitedParagraph key={paragraph.id} record={record} paragraph={paragraph}/>
+            : <p key={paragraph.id}>{paragraph.text}</p>,
+      )}</div>
       {(section.relatedBranchIds?.length || section.relatedPhilosopherIds?.length || section.relatedWorkTitles?.length) ? <aside className="article-connections" aria-label={`Connections for ${section.title}`}>
         {section.relatedBranchIds && section.relatedBranchIds.length > 0 && <div><b><GitBranch size={12}/> Related branches</b>{section.relatedBranchIds.map((id) => branchById(id) ? <a href={href({kind: 'branch', branchId: id})} key={id}>{branchById(id)?.name}<ArrowRight size={11}/></a> : null)}</div>}
         {section.relatedPhilosopherIds && section.relatedPhilosopherIds.length > 0 && <div><b><Users size={12}/> Related thinkers</b>{section.relatedPhilosopherIds.map((id) => philosopherById(id) ? <a href={href({kind: 'philosopher', philosopherId: id})} key={id}>{philosopherById(id)?.name}<ArrowRight size={11}/></a> : null)}</div>}

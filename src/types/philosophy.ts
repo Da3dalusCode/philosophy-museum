@@ -1,26 +1,242 @@
-export type KeyConcept={id:string;name:string;plainDefinition:string;deeperExplanation:string;example:string;relatedConceptIds:string[]};
-export type ReadingType='primary'|'secondary'|'essay'|'dialogue'|'book'|'lecture'|'article';
-export type ReadingDifficulty='beginner'|'intermediate'|'advanced';
-export type ReadingEntry={title:string;author:string;year?:number;approximateYear?:number;type:ReadingType;difficulty:ReadingDifficulty;whyRead:string;publicDomainUrl?:string;sourceUrl?:string;notes?:string};
-export type SourceLinkType='SEP'|'IEP'|'Wikipedia'|'Wikidata'|'Wikimedia'|'primary-text'|'public-domain-text'|'other';
-export type SourceLink={label:string;url:string;type:SourceLinkType;notes?:string};
-export type MediaAsset={url?:string;alt:string;sourceUrl?:string;credit?:string;license?:string;licenseUrl?:string;notes?:string};
-export type DetailedIdea={name:string;explanation:string;whyItMatters:string};
-export type DetailedWork={title:string;year?:number;approximateYear?:number;summary:string;whyItMatters:string};
-export type LifeEvent={year?:number;approximateYear?:number;label:string;description:string};
-export type BranchContribution={branchId:string;summary:string};
-export type DateConfidence='high'|'medium'|'low'|'legendary'|'pseudonymous';
-export type BranchMembershipStatus='founder'|'central'|'major'|'canonical'|'commentator'|'school-systematizer'|'precursor'|'associated'|'critic'|'disputed'|'self-rejected-label'|'influence'|'later-reception';
-export type BranchMembership={branchId:string;status:BranchMembershipStatus;note?:string;confidence?:'high'|'medium'|'low'};
-export type ArticleSection={id:string;title:string;paragraphs:string[];relatedBranchIds?:string[];relatedPhilosopherIds?:string[];relatedWorkTitles?:string[]};
-export type Branch={id:string;name:string;category:string;shortDefinition:string;oneSentencePurpose:string;beginnerExplanation:string;coreQuestions:string[];whyItMatters:string;originPeriod:string;roughStartYear:number;historicalDevelopment:string[];keyConcepts:KeyConcept[];subBranches:string[];relatedBranchIds:string[];contrastingBranchIds:string[];majorPhilosopherIds:string[];timelineEventIds:string[];suggestedReadingPath:string[];commonMisunderstandings:string[];modernExamples:string[];internalTensions?:string[];comparisons?:string[];color:string;iconName:string;originStory?:string;historicalDevelopmentDetailed?:string[];keyConceptsDetailed?:DetailedIdea[];internalDebates?:string[];rivalPositions?:string[];majorWorks?:DetailedWork[];majorFigures?:string[];modernRelevanceDetailed?:string[];misconceptionsDetailed?:string[];beginnerReadingPath?:ReadingEntry[];advancedReadingPath?:ReadingEntry[];sourceLinks?:SourceLink[];relatedImages?:MediaAsset[];articleSections?:ArticleSection[]};
-export type Philosopher={id:string;name:string;lifespan:string;birthYear:number;deathYear:number|null;region:string;tradition:string;primaryBranchIds:string[];secondaryBranchIds:string[];mainIdeas:string[];keyWorks:string[];lifeStory:string;contributionSummary:string;beginnerExplanation:string;influencedByIds:string[];influencedIds:string[];disagreementIds:string[];suggestedFirstReading:string;historicalContext:string;color:string;dateDisplay?:string;dateConfidence?:DateConfidence;dateNote?:string;shortBio?:string;extendedBio?:string[];centralQuestions?:string[];majorIdeasDetailed?:DetailedIdea[];keyWorksDetailed?:DetailedWork[];lifeEvents?:LifeEvent[];intellectualDevelopment?:string[];influencesReceived?:string[];influenceOnLaterThought?:string[];controversiesOrInterpretiveTensions?:string[];commonMisunderstandings?:string[];schoolMemberships?:string[];branchContributions?:BranchContribution[];branchMemberships?:BranchMembership[];beginnerReadingPath?:ReadingEntry[];advancedReadingPath?:ReadingEntry[];sourceLinks?:SourceLink[];image?:MediaAsset;relatedImages?:MediaAsset[];imageUrl?:string;imageAlt?:string;imageSource?:string;imageCredit?:string;imageLicense?:string;articleSections?:ArticleSection[]};
-export type TimelineEventType='branch-origin'|'philosopher-life'|'major-work'|'school-formation'|'debate'|'transition'|'historical-context';
-export type TimelineEra='Ancient'|'Medieval'|'Early Modern'|'19th Century'|'Modern'|'Contemporary';
-export type TimelineLane='branch-origins'|'philosophers'|'major-works'|'schools-movements'|'debates-transitions';
-export type TimelineEvent={id:string;year:number;approximate:boolean;title:string;description:string;whyItMatters?:string;branchIds:string[];philosopherIds:string[];relatedWorkIds?:string[];type:TimelineEventType;era:TimelineEra;lane:TimelineLane};
-export type RelationshipType='influenced'|'reacts-against'|'overlaps-with'|'sub-branch-of'|'historical-predecessor'|'modern-descendant'|'disagreement'|'synthesis'|'contrast';
-export type Relationship={id:string;sourceId:string;targetId:string;sourceType:'branch'|'philosopher';targetType:'branch'|'philosopher';relationshipType:RelationshipType};
-export type LearningPathStep={id:string;title:string;explanation:string;branchIds:string[];philosopherIds:string[];conceptIds:string[];checkpointQuestion:string;nextHint:string};
-export type LearningPath={id:string;title:string;beginnerDescription:string;branchIds:string[];philosopherIds:string[];steps:LearningPathStep[]};
-export type ViewId='history'|'branches'|'map'|'philosophers'|'compare'|'paths'|'museum';
+export type KeyConcept = {
+  id: string;
+  name: string;
+  plainDefinition: string;
+  deeperExplanation: string;
+  example: string;
+  relatedConceptIds: string[];
+};
+
+export type ReadingType = 'primary' | 'secondary' | 'essay' | 'dialogue' | 'book' | 'lecture' | 'article';
+export type ReadingDifficulty = 'beginner' | 'intermediate' | 'advanced';
+export type ReadingEntry = {
+  title: string;
+  author: string;
+  year?: number;
+  approximateYear?: number;
+  type: ReadingType;
+  difficulty: ReadingDifficulty;
+  whyRead: string;
+  publicDomainUrl?: string;
+  sourceUrl?: string;
+  notes?: string;
+};
+
+export type SourceLinkType = 'SEP' | 'IEP' | 'Wikipedia' | 'Wikidata' | 'Wikimedia' | 'primary-text' | 'public-domain-text' | 'other';
+export type SourceLink = {label: string; url: string; type: SourceLinkType; notes?: string};
+
+export type EditorialReviewStatus =
+  | 'unreviewed'
+  | 'bibliography-only'
+  | 'source-mapped'
+  | 'claim-reviewed';
+export type EffectiveEditorialStatus = EditorialReviewStatus | 'review-out-of-date';
+export type EditorialSourceType =
+  | 'primary-text'
+  | 'scholarly-reference'
+  | 'journal-article'
+  | 'scholarly-book'
+  | 'institutional-archive';
+export type CitationLocatorKind =
+  | 'section'
+  | 'chapter'
+  | 'standard-division'
+  | 'book-chapter'
+  | 'line'
+  | 'verse'
+  | 'page'
+  | 'work';
+export type CitationLocator = {kind: CitationLocatorKind; value: string};
+export type CitationReference = {sourceId: string; locator?: CitationLocator; note?: string};
+export type EditorialSource = {
+  id: string;
+  type: EditorialSourceType;
+  authors: string[];
+  title: string;
+  containerTitle?: string;
+  editors?: string[];
+  translator?: string;
+  publisher?: string;
+  edition?: string;
+  year?: number;
+  doi?: string;
+  isbn?: string;
+  url: string;
+  accessedOn?: string;
+  note?: string;
+};
+export type EditorialParagraph = {id: string; text: string; citations: CitationReference[]};
+export type ArticleParagraph = string | EditorialParagraph;
+export type EditorialStructuredClaim = {value: string; citations: CitationReference[]};
+export type PageEditorial = {
+  sources: EditorialSource[];
+  furtherReadingSourceIds?: string[];
+  structuredClaims: Record<string, EditorialStructuredClaim>;
+  review: {
+    status: EditorialReviewStatus;
+    reviewedOn?: string;
+    method?: string;
+    reviewNotePath?: string;
+    lock?: string;
+  };
+};
+
+export type MediaAsset = {
+  url?: string;
+  alt: string;
+  sourceUrl?: string;
+  credit?: string;
+  license?: string;
+  licenseUrl?: string;
+  notes?: string;
+};
+export type DetailedIdea = {name: string; explanation: string; whyItMatters: string};
+export type DetailedWork = {title: string; year?: number; approximateYear?: number; summary: string; whyItMatters: string};
+export type LifeEvent = {year?: number; approximateYear?: number; label: string; description: string};
+export type BranchContribution = {branchId: string; summary: string};
+export type DateConfidence = 'high' | 'medium' | 'low' | 'legendary' | 'pseudonymous';
+export type BranchMembershipStatus =
+  | 'founder'
+  | 'central'
+  | 'major'
+  | 'canonical'
+  | 'commentator'
+  | 'school-systematizer'
+  | 'precursor'
+  | 'associated'
+  | 'critic'
+  | 'disputed'
+  | 'self-rejected-label'
+  | 'influence'
+  | 'later-reception';
+export type BranchMembership = {
+  branchId: string;
+  status: BranchMembershipStatus;
+  note?: string;
+  confidence?: 'high' | 'medium' | 'low';
+};
+export type ArticleSection = {
+  id: string;
+  title: string;
+  paragraphs: ArticleParagraph[];
+  relatedBranchIds?: string[];
+  relatedPhilosopherIds?: string[];
+  relatedWorkTitles?: string[];
+};
+
+export type Branch = {
+  id: string;
+  name: string;
+  category: string;
+  shortDefinition: string;
+  oneSentencePurpose: string;
+  beginnerExplanation: string;
+  coreQuestions: string[];
+  whyItMatters: string;
+  originPeriod: string;
+  roughStartYear: number;
+  historicalDevelopment: string[];
+  keyConcepts: KeyConcept[];
+  subBranches: string[];
+  relatedBranchIds: string[];
+  contrastingBranchIds: string[];
+  majorPhilosopherIds: string[];
+  timelineEventIds: string[];
+  suggestedReadingPath: string[];
+  commonMisunderstandings: string[];
+  modernExamples: string[];
+  internalTensions?: string[];
+  comparisons?: string[];
+  color: string;
+  iconName: string;
+  originStory?: string;
+  historicalDevelopmentDetailed?: string[];
+  keyConceptsDetailed?: DetailedIdea[];
+  internalDebates?: string[];
+  rivalPositions?: string[];
+  majorWorks?: DetailedWork[];
+  majorFigures?: string[];
+  modernRelevanceDetailed?: string[];
+  misconceptionsDetailed?: string[];
+  beginnerReadingPath?: ReadingEntry[];
+  advancedReadingPath?: ReadingEntry[];
+  sourceLinks?: SourceLink[];
+  relatedImages?: MediaAsset[];
+  articleSections?: ArticleSection[];
+  editorial?: PageEditorial;
+};
+
+export type Philosopher = {
+  id: string;
+  name: string;
+  lifespan: string;
+  birthYear: number;
+  deathYear: number | null;
+  region: string;
+  tradition: string;
+  primaryBranchIds: string[];
+  secondaryBranchIds: string[];
+  mainIdeas: string[];
+  keyWorks: string[];
+  lifeStory: string;
+  contributionSummary: string;
+  beginnerExplanation: string;
+  influencedByIds: string[];
+  influencedIds: string[];
+  disagreementIds: string[];
+  suggestedFirstReading: string;
+  historicalContext: string;
+  color: string;
+  dateDisplay?: string;
+  dateConfidence?: DateConfidence;
+  dateNote?: string;
+  shortBio?: string;
+  extendedBio?: string[];
+  centralQuestions?: string[];
+  majorIdeasDetailed?: DetailedIdea[];
+  keyWorksDetailed?: DetailedWork[];
+  lifeEvents?: LifeEvent[];
+  intellectualDevelopment?: string[];
+  influencesReceived?: string[];
+  influenceOnLaterThought?: string[];
+  controversiesOrInterpretiveTensions?: string[];
+  commonMisunderstandings?: string[];
+  schoolMemberships?: string[];
+  branchContributions?: BranchContribution[];
+  branchMemberships?: BranchMembership[];
+  beginnerReadingPath?: ReadingEntry[];
+  advancedReadingPath?: ReadingEntry[];
+  sourceLinks?: SourceLink[];
+  image?: MediaAsset;
+  relatedImages?: MediaAsset[];
+  imageUrl?: string;
+  imageAlt?: string;
+  imageSource?: string;
+  imageCredit?: string;
+  imageLicense?: string;
+  articleSections?: ArticleSection[];
+  editorial?: PageEditorial;
+};
+
+export type TimelineEventType = 'branch-origin' | 'philosopher-life' | 'major-work' | 'school-formation' | 'debate' | 'transition' | 'historical-context';
+export type TimelineEra = 'Ancient' | 'Medieval' | 'Early Modern' | '19th Century' | 'Modern' | 'Contemporary';
+export type TimelineLane = 'branch-origins' | 'philosophers' | 'major-works' | 'schools-movements' | 'debates-transitions';
+export type TimelineEvent = {
+  id: string;
+  year: number;
+  approximate: boolean;
+  title: string;
+  description: string;
+  whyItMatters?: string;
+  branchIds: string[];
+  philosopherIds: string[];
+  relatedWorkIds?: string[];
+  type: TimelineEventType;
+  era: TimelineEra;
+  lane: TimelineLane;
+};
+export type RelationshipType = 'influenced' | 'reacts-against' | 'overlaps-with' | 'sub-branch-of' | 'historical-predecessor' | 'modern-descendant' | 'disagreement' | 'synthesis' | 'contrast';
+export type Relationship = {id: string; sourceId: string; targetId: string; sourceType: 'branch' | 'philosopher'; targetType: 'branch' | 'philosopher'; relationshipType: RelationshipType};
+export type LearningPathStep = {id: string; title: string; explanation: string; branchIds: string[]; philosopherIds: string[]; conceptIds: string[]; checkpointQuestion: string; nextHint: string};
+export type LearningPath = {id: string; title: string; beginnerDescription: string; branchIds: string[]; philosopherIds: string[]; steps: LearningPathStep[]};
+export type ViewId = 'history' | 'branches' | 'map' | 'philosophers' | 'compare' | 'paths' | 'museum';
