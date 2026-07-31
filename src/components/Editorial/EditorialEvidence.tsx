@@ -23,8 +23,8 @@ const sourceEntryId = (recordId: string, sourceId: string): string =>
 const focusAndScroll = (id: string): void => {
   const target = document.getElementById(id);
   if (!target) return;
+  target.focus({preventScroll: true});
   target.scrollIntoView({block: 'center', behavior: 'smooth'});
-  window.requestAnimationFrame(() => target.focus({preventScroll: true}));
 };
 
 const sourceLabel = (source: EditorialSource): string =>
