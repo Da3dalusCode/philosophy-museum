@@ -633,6 +633,8 @@ export type MuseumSpatialConnection = {
 
 export type MuseumRoomEntryView = {
   spatialCellId: string;
+  /** Optional intellectual route when several directory routes share one physical room. */
+  semanticZoneId?: string;
   pose: MuseumPose;
   expectedVisibleExhibitIds: readonly MuseumExhibitId[];
 };

@@ -390,7 +390,16 @@ const {
   CLASSICAL_SOUTH_ASIAN_SUPPLEMENTAL_EXHIBITS,
   CLASSICAL_SOUTH_ASIAN_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
   CORE_QUESTIONS_FORUM_PHYSICAL_LENS_IDS,
+  CORE_QUESTIONS_FORUM_CELL_BOUNDS,
+  CORE_QUESTIONS_FORUM_CELL_ORDER,
+  CORE_QUESTIONS_FORUM_INSTALLATION_SLOTS,
+  CORE_QUESTIONS_FORUM_PRIMARY_CIRCULATION,
   CORE_QUESTIONS_FORUM_PRIMARY_PLACEMENTS,
+  CORE_QUESTIONS_FORUM_PRIMARY_SCALE_FLOOR,
+  CORE_QUESTIONS_FORUM_ROOM_ENTRY_POSES,
+  CORE_QUESTIONS_FORUM_SPATIAL_CONNECTIONS,
+  CORE_QUESTIONS_FORUM_ZONE_ORDER,
+  CORE_QUESTIONS_FORUM_ZONE_TO_CELL,
   CORE_QUESTIONS_FORUM_SUPPLEMENTAL_EXHIBITS,
   CORE_QUESTIONS_FORUM_SUPPLEMENTAL_LAYOUTS,
   MUSEUM_ASSETS,
@@ -4419,7 +4428,7 @@ check('Gallery 26 is a complete three-room, 18-installation colonialism, race, a
   );
 });
 
-check('Gallery 06 is an open, wall-supported 25-exhibit Forum with full-scale primaries', () => {
+check('Gallery 06 is a compact four-bay Forum with 25 named wall slots and a clear cross', () => {
   const forumProgram = MUSEUM_CANONICAL_PROGRAM.find(({id}) => id === 'core-questions-forum');
   const forumDirectory = hallById.get('core-questions-forum');
   const forumDefinition = definitionById.get('core-questions-forum');
@@ -4438,7 +4447,7 @@ check('Gallery 06 is an open, wall-supported 25-exhibit Forum with full-scale pr
 
   for (const room of forumProgram.rooms) {
     const supplementalCount = CORE_QUESTIONS_FORUM_SUPPLEMENTAL_LAYOUTS
-      .filter(({spatialCellId}) => spatialCellId === room.id).length;
+      .filter(({zoneId}) => zoneId === room.id).length;
     assert.equal(
       room.exhibits.length + supplementalCount,
       room.recordCapacity,
@@ -4452,15 +4461,15 @@ check('Gallery 06 is an open, wall-supported 25-exhibit Forum with full-scale pr
   const largestSupplementalHeight = Math.max(...CORE_QUESTIONS_FORUM_SUPPLEMENTAL_LAYOUTS.map(({footprint}) => footprint.height));
   for (const layout of forumDefinition.layout.exhibits) {
     const backing = layout.scene.objectBounds.find(({id}) => id.endsWith('-backing'));
-    assert(backing, `${layout.id} lacks its full-scale primary backing`);
+    assert(backing, `${layout.id} lacks its compact primary backing`);
     assert.equal(layout.scene.footprint.width, largestPrimaryWidth, `${layout.id} is narrower than another Forum primary`);
     assert.equal(layout.scene.footprint.height, largestPrimaryHeight, `${layout.id} is shorter than another Forum primary`);
     assert.equal(backing.size.width, largestPrimaryWidth, `${layout.id} backing is narrower than another Forum primary`);
-    assert.equal(backing.size.height, 3.55, `${layout.id} backing lost the Gallery 03–05 primary height`);
+    assert.equal(backing.size.height, CORE_QUESTIONS_FORUM_PRIMARY_SCALE_FLOOR.objectHeight, `${layout.id} backing left the compact Forum envelope`);
     assert(layout.scene.mediaMounts.length >= 1, `${layout.id} lacks an image-led installation`);
   }
-  assert.equal(largestPrimaryWidth, 3.8, 'Gallery 06 primary width drifted from the established anchor standard');
-  assert.equal(largestPrimaryHeight, 3.71, 'Gallery 06 primary height drifted from the established anchor standard');
+  assert.equal(largestPrimaryWidth, CORE_QUESTIONS_FORUM_PRIMARY_SCALE_FLOOR.objectWidth, 'Gallery 06 primary width drifted from its compact module');
+  assert.equal(largestPrimaryHeight, CORE_QUESTIONS_FORUM_PRIMARY_SCALE_FLOOR.footprintHeight, 'Gallery 06 primary height drifted from its compact module');
   assert(largestPrimaryWidth > largestSupplementalWidth, 'A Forum supplemental is as wide as a primary');
   assert(largestPrimaryHeight > largestSupplementalHeight, 'A Forum supplemental is as tall as a primary');
 
@@ -4500,8 +4509,8 @@ check('Gallery 06 is an open, wall-supported 25-exhibit Forum with full-scale pr
     'Gallery 06 physical comparative-lens roster drifted',
   );
   assert(
-    primaryExhibitStructureSource.includes("definition.id === 'core-questions-forum'"),
-    'Gallery 06 must retain the full-scale primary renderer instead of the compact legacy treatment',
+    !primaryExhibitStructureSource.includes("definition.id === 'core-questions-forum'"),
+    'Gallery 06 should qualify for structural primary emphasis without a one-off renderer override',
   );
   assert.match(canonicalSceneSource, /<CoreQuestionsForumSupplementalExhibits/u, 'Gallery 06 does not mount its physical comparative lenses');
   assert.match(forumSupplementalSceneSource, /interactionForSupplemental/u, 'Gallery 06 comparative lenses lack stable interaction identity');
@@ -4557,19 +4566,82 @@ check('Gallery 06 is an open, wall-supported 25-exhibit Forum with full-scale pr
     }
     return false;
   };
+  const wallSetSupportsInstallation = (installation, walls) => {
+    const tangent = {x: Math.cos(installation.rotationY), z: -Math.sin(installation.rotationY)};
+    const back = {x: -Math.sin(installation.rotationY), z: -Math.cos(installation.rotationY)};
+    const sampleCount = Math.max(2, Math.ceil(installation.footprint.width / .15));
+    for (let sampleIndex = 0; sampleIndex <= sampleCount; sampleIndex += 1) {
+      const across = -installation.footprint.width / 2
+        + installation.footprint.width * sampleIndex / sampleCount;
+      let supported = false;
+      for (let distanceBehind = .35; distanceBehind <= 1.6 && !supported; distanceBehind += .05) {
+        const point = {
+          x: installation.position.x + tangent.x * across + back.x * distanceBehind,
+          z: installation.position.z + tangent.z * across + back.z * distanceBehind,
+        };
+        supported = walls.some((wall) => {
+          const bounds = axisAlignedBounds(wall);
+          return point.x >= bounds.minX - .04
+            && point.x <= bounds.maxX + .04
+            && point.z >= bounds.minZ - .04
+            && point.z <= bounds.maxZ + .04;
+        });
+      }
+      if (!supported) return false;
+    }
+    return true;
+  };
+  const slotById = new Map(CORE_QUESTIONS_FORUM_INSTALLATION_SLOTS.map((slot) => [slot.id, slot]));
+  const runtimePrimaryById = new Map(forumDefinition.layout.exhibits.map((layout) => [layout.id, layout]));
   const physicalInstallations = [
-    ...forumDefinition.layout.exhibits.map((layout) => ({
-      id: layout.id,
-      position: layout.position,
-      rotationY: layout.rotationY,
-      footprint: layout.scene.footprint,
-    })),
+    ...Object.entries(CORE_QUESTIONS_FORUM_PRIMARY_PLACEMENTS).map(([id, placement]) => {
+      const runtime = runtimePrimaryById.get(id);
+      assert(runtime, `Gallery 06 primary ${id} is missing from the runtime layout`);
+      return {
+        id,
+        slotId: placement.slotId,
+        backingWallId: placement.backingWallId,
+        spatialCellId: placement.spatialCellId,
+        position: runtime.position,
+        rotationY: runtime.rotationY,
+        footprint: runtime.scene.footprint,
+        viewpoint: runtime.viewpoint,
+      };
+    }),
     ...CORE_QUESTIONS_FORUM_SUPPLEMENTAL_LAYOUTS,
   ];
+  assert.equal(CORE_QUESTIONS_FORUM_INSTALLATION_SLOTS.length, 25, 'Gallery 06 must retain exactly 25 authored slots');
+  assert.equal(new Set(CORE_QUESTIONS_FORUM_INSTALLATION_SLOTS.map(({id}) => id)).size, 25, 'Gallery 06 slot IDs must be unique');
+  assert.deepEqual(
+    sorted(physicalInstallations.map(({slotId}) => slotId)),
+    sorted(CORE_QUESTIONS_FORUM_INSTALLATION_SLOTS.map(({id}) => id)),
+    'Gallery 06 must consume every authored wall slot exactly once',
+  );
+  assert.deepEqual(
+    CORE_QUESTIONS_FORUM_CELL_ORDER.map((cellId) =>
+      CORE_QUESTIONS_FORUM_INSTALLATION_SLOTS.filter(({spatialCellId}) => spatialCellId === cellId).length),
+    [6, 6, 7, 6],
+    'Gallery 06 lost its compact 6/6/7/6 bay rhythm',
+  );
+  const wallById = new Map([
+    ...forumDefinition.architectureWalls,
+    ...forumDefinition.layout.wallColliders,
+  ].map((wall) => [wall.id, wall]));
   for (const installation of physicalInstallations) {
+    const authoredSlot = slotById.get(installation.slotId);
+    assert(authoredSlot, `${installation.id} occupies unknown slot ${installation.slotId}`);
+    assert.equal(installation.backingWallId, authoredSlot.backingWallId, `${installation.id} lost exact backing-wall ownership`);
+    assert.equal(installation.spatialCellId, authoredSlot.spatialCellId, `${installation.id} drifted into another physical bay`);
+    assert(close(installation.position.x, authoredSlot.x) && close(installation.position.z, authoredSlot.z), `${installation.id} drifted away from ${installation.slotId}`);
+    assert(close(installation.rotationY, authoredSlot.rotationY), `${installation.id} changed orientation in ${installation.slotId}`);
+    const intendedBackingWalls = [...wallById.values()].filter((wall) =>
+      wall.id === authoredSlot.backingWallId
+      || wall.id.startsWith(`${authoredSlot.backingWallId}:manifest-cut-`)
+      || (authoredSlot.face === 'outer-primary' && wall.id.endsWith(':inactive-closure')));
+    assert(intendedBackingWalls.length > 0, `${installation.id} references missing backing wall ${authoredSlot.backingWallId}`);
     assert(
-      forumDefinition.layout.wallColliders.some((wall) => wallSupportsInstallation(installation, wall)),
-      `${installation.id} is not backed by an exhibit-sized Forum wall`,
+      wallSetSupportsInstallation(installation, intendedBackingWalls),
+      `${installation.id} is not continuously backed across assigned wall ${authoredSlot.backingWallId}`,
     );
     const installationBounds = axisAlignedBounds({
       center: installation.position,
@@ -4589,6 +4661,67 @@ check('Gallery 06 is an open, wall-supported 25-exhibit Forum with full-scale pr
       );
     }
   }
+  const installationBounds = physicalInstallations.map((installation) => ({
+    installation,
+    bounds: axisAlignedBounds({
+      center: installation.position,
+      size: {width: installation.footprint.width, depth: installation.footprint.depth},
+      rotation: installation.rotationY,
+    }),
+  }));
+  const paddedOverlap = (first, second, padding) =>
+    first.minX < second.maxX + padding
+    && first.maxX > second.minX - padding
+    && first.minZ < second.maxZ + padding
+    && first.maxZ > second.minZ - padding;
+  for (const [index, first] of installationBounds.entries()) {
+    for (const second of installationBounds.slice(index + 1)) {
+      assert(
+        !paddedOverlap(first.bounds, second.bounds, .32),
+        `${first.installation.id} crowds ${second.installation.id}`,
+      );
+    }
+  }
+  const distanceFromPointToBounds = (point, bounds) => {
+    const x = Math.max(bounds.minX, Math.min(bounds.maxX, point.x));
+    const z = Math.max(bounds.minZ, Math.min(bounds.maxZ, point.z));
+    return Math.hypot(point.x - x, point.z - z);
+  };
+  const solidBounds = [
+    ...forumDefinition.layout.wallColliders.map(axisAlignedBounds),
+    ...installationBounds.map(({bounds}) => bounds),
+  ];
+  let minimumCrossClearance = Number.POSITIVE_INFINITY;
+  for (let legIndex = 0; legIndex < CORE_QUESTIONS_FORUM_PRIMARY_CIRCULATION.points.length - 1; legIndex += 1) {
+    const from = CORE_QUESTIONS_FORUM_PRIMARY_CIRCULATION.points[legIndex];
+    const to = CORE_QUESTIONS_FORUM_PRIMARY_CIRCULATION.points[legIndex + 1];
+    const sampleCount = Math.max(1, Math.ceil(Math.hypot(to.x - from.x, to.z - from.z) / .1));
+    for (let sampleIndex = 0; sampleIndex <= sampleCount; sampleIndex += 1) {
+      const ratio = sampleIndex / sampleCount;
+      const point = {x: from.x + (to.x - from.x) * ratio, z: from.z + (to.z - from.z) * ratio};
+      for (const bounds of solidBounds) {
+        minimumCrossClearance = Math.min(minimumCrossClearance, distanceFromPointToBounds(point, bounds));
+      }
+    }
+  }
+  assert(
+    minimumCrossClearance >= CORE_QUESTIONS_FORUM_PRIMARY_CIRCULATION.clearanceRadius,
+    `Gallery 06 cross has only ${minimumCrossClearance.toFixed(2)} m clearance`,
+  );
+  for (const installation of physicalInstallations) {
+    assert(
+      Math.abs(installation.viewpoint.x) >= CORE_QUESTIONS_FORUM_PRIMARY_CIRCULATION.clearanceRadius
+      && Math.abs(installation.viewpoint.z) >= CORE_QUESTIONS_FORUM_PRIMARY_CIRCULATION.clearanceRadius,
+      `${installation.id} stages its visitor viewpoint in the cardinal walkway`,
+    );
+  }
+  for (const [roomId, pose] of Object.entries(CORE_QUESTIONS_FORUM_ROOM_ENTRY_POSES)) {
+    assert(
+      Math.abs(pose.x) >= CORE_QUESTIONS_FORUM_PRIMARY_CIRCULATION.clearanceRadius
+      && Math.abs(pose.z) >= CORE_QUESTIONS_FORUM_PRIMARY_CIRCULATION.clearanceRadius,
+      `${roomId} stages its directory view in the cardinal walkway`,
+    );
+  }
   const northSouthSupports = forumDefinition.layout.wallColliders.filter(({id}) =>
     /:forum-v-(?:west|east)-(?:north|south)$/u.test(id));
   assert.equal(northSouthSupports.length, 4, 'Gallery 06 lost a crosscut-edge support wall');
@@ -4604,8 +4737,42 @@ check('Gallery 06 is an open, wall-supported 25-exhibit Forum with full-scale pr
     sorted(forumDefinition.layout.exhibits.map(({id}) => id)),
     'Gallery 06 primary authored-placement roster drifted',
   );
-  assert.equal(forumDefinition.layout.spatialConnections.length, 12, 'Gallery 06 lost a room-to-room opening');
-  assert.equal(forumDefinition.layout.primaryCirculation.points.length, 7, 'Gallery 06 lost one arm of its four-way circulation cross');
+  assert.equal(forumDefinition.layout.spatialCells.length, 4, 'Gallery 06 must render four physical question bays');
+  assert.deepEqual(
+    forumDefinition.layout.spatialCells.map(({id}) => id),
+    CORE_QUESTIONS_FORUM_CELL_ORDER,
+    'Gallery 06 physical bay order drifted',
+  );
+  for (const cell of forumDefinition.layout.spatialCells) {
+    const authored = CORE_QUESTIONS_FORUM_CELL_BOUNDS[cell.id];
+    assert(
+      cell.bounds.minX <= authored.minX && cell.bounds.minX >= authored.minX - .61
+      && cell.bounds.maxX >= authored.maxX && cell.bounds.maxX <= authored.maxX + .61
+      && cell.bounds.minZ <= authored.minZ && cell.bounds.minZ >= authored.minZ - .61
+      && cell.bounds.maxZ >= authored.maxZ && cell.bounds.maxZ <= authored.maxZ + .61,
+      `${cell.id} lost its authored quadrant or approved portal transition apron`,
+    );
+  }
+  assert.deepEqual(
+    forumDefinition.layout.spatialConnections,
+    CORE_QUESTIONS_FORUM_SPATIAL_CONNECTIONS,
+    'Gallery 06 physical quadrant connections drifted from the authored contract',
+  );
+  assert.deepEqual(
+    forumDefinition.layout.primaryCirculation,
+    CORE_QUESTIONS_FORUM_PRIMARY_CIRCULATION,
+    'Gallery 06 live circulation drifted from its authored four-way cross',
+  );
+  assert.equal(forumDefinition.layout.entryViews.length, 9, 'Gallery 06 lost an intellectual-route directory view');
+  for (const zoneId of CORE_QUESTIONS_FORUM_ZONE_ORDER) {
+    const entryView = forumDefinition.layout.entryViews.find(({semanticZoneId}) => semanticZoneId === zoneId);
+    assert(entryView, `Gallery 06 ${zoneId} lacks its semantic directory view`);
+    assert.equal(
+      entryView.spatialCellId,
+      CORE_QUESTIONS_FORUM_ZONE_TO_CELL[zoneId],
+      `Gallery 06 ${zoneId} directory view does not resolve to its physical bay`,
+    );
+  }
 
   const plannedHallIds = new Set(Object.keys(MUSEUM_PLANNED_HALL_TITLES));
   const culturallyOutwardHallIds = new Set([
@@ -4656,17 +4823,17 @@ check('Gallery 06 is an open, wall-supported 25-exhibit Forum with full-scale pr
   assert.equal(wayfindingSigns.length, 0, 'Gallery 06 restored floating comparative-lens signs in place of exhibits');
   const roomSigns = forumDefinition.layout.signs.filter(({kind}) => kind === 'zone');
   assert.equal(roomSigns.length, 9);
-  const ethicsPortalSign = roomSigns.find(({title}) => title === 'Ethics');
-  const compactRoomSigns = roomSigns.filter(({title}) => title !== 'Ethics');
-  assert(compactRoomSigns.every(({width, height, position}) => width <= 3.65 && height === .68 && position.y < 5), 'Forum field-room labels must remain compact and wall-backed');
-  assert(ethicsPortalSign?.width === 5.6 && ethicsPortalSign.height === 1.08 && ethicsPortalSign.position.y === 3.45, 'The Ethics portal must retain its prominent wall-backed orientation panel');
+  assert(
+    roomSigns.every(({width, height, position}) => width === 3.45 && height === .68 && position.y === 4.92),
+    'All nine Forum route labels must use the same compact, overhead hierarchy',
+  );
   const [forumEntranceSign] = forumDefinition.layout.signs.filter(({kind}) => kind === 'entrance');
   assert(forumEntranceSign, 'Gallery 06 lacks its entrance and crosscut orientation sign');
   assert.match(forumEntranceSign.kicker, /↑ North/u);
   assert.match(forumEntranceSign.kicker, /Visitor map \(M\)/u);
   assert.match(forumEntranceSign.subtitle, /West: Gallery 13/u);
   assert.match(forumEntranceSign.subtitle, /East: Gallery 02/u);
-  assert.match(exhibitWallStandardSource, /Core Questions Forum exception/u, 'The Gallery 06 wall standard is not recorded for future work');
+  assert.match(exhibitWallStandardSource, /6\/6\/7\/6/u, 'The Gallery 06 compact wall-slot rhythm is not recorded for future work');
 });
 
 check('the executable manifest exactly implements the approved Continuous Enfilade contract', () => {
@@ -4845,13 +5012,25 @@ check('all twenty-six runtime halls are canonical, data-driven, and internally a
     assert.deepEqual(definition.resolvedTemplate.deviations, []);
     assert.equal(definition.resolvedTemplate.templateId, expected.template);
     assert.equal(definition.resolvedTemplate.exhibitSlots.length, expected.exhibits);
-    assert.equal(definition.layout.spatialCells.filter(({kind}) => kind === 'room').length, expected.rooms);
-    assert.deepEqual(sorted(definition.layout.spatialCells.map(({id}) => id)), sorted(hall.zones.map(({id}) => id)));
+    const expectedPhysicalRoomCount = definition.id === 'core-questions-forum' ? 4 : expected.rooms;
+    assert.equal(definition.layout.spatialCells.filter(({kind}) => kind === 'room').length, expectedPhysicalRoomCount);
+    const physicalCellIds = new Set(definition.layout.spatialCells.map(({id}) => id));
+    for (const view of definition.layout.entryViews) {
+      assert(
+        physicalCellIds.has(view.spatialCellId),
+        `${definition.id} entry view references missing physical cell ${view.spatialCellId}`,
+      );
+    }
+    if (definition.id === 'core-questions-forum') {
+      assert.deepEqual(definition.layout.spatialCells.map(({id}) => id), CORE_QUESTIONS_FORUM_CELL_ORDER);
+    } else {
+      assert.deepEqual(sorted(definition.layout.spatialCells.map(({id}) => id)), sorted(hall.zones.map(({id}) => id)));
+    }
     assert.deepEqual(sorted(definition.layout.exhibits.map(({id}) => id)), sorted(hall.exhibits.map(({id}) => id)));
     assert.deepEqual(definition.layout.guidedOrder, definition.layout.exhibits.map(({id}) => id));
     assert.equal(definition.layout.guidedWalkLegs.length, Math.max(0, hall.exhibits.length - 1));
     assert.equal(definition.layout.entryViews.length, hall.zones.length);
-    assert.equal(definition.layout.lighting.tracks.length, hall.zones.length);
+    assert.equal(definition.layout.lighting.tracks.length, expectedPhysicalRoomCount);
     assert.equal(definition.layout.lighting.exhibitLights.length, hall.exhibits.length);
     const comparativeLensCount = hall.zones.reduce((sum, zone) => sum + (zone.comparativeLenses?.length ?? 0), 0);
     const removedPhysicalRoomSigns = [
@@ -4905,7 +5084,7 @@ check('all twenty-six runtime halls are canonical, data-driven, and internally a
     assert.deepEqual(definition.resolvedTemplate.canonicalFootprint, {width: expectedWidth, depth: expectedDepth});
     assert.deepEqual(definition.resolvedTemplate.resolvedRoomCeilingRange, [definition.resolvedTemplate.canonicalCeilingHeight, definition.resolvedTemplate.canonicalCeilingHeight]);
     assert.deepEqual(definition.resolvedTemplate.lightingInterface.roles, ['ambient', 'threshold', 'perimeter-track', 'anchor-track', 'accessible-label-light']);
-    assert.equal(definition.resolvedTemplate.lightingInterface.perimeterTrackIds.length, expected.rooms);
+    assert.equal(definition.resolvedTemplate.lightingInterface.perimeterTrackIds.length, expectedPhysicalRoomCount);
     assert.equal(definition.resolvedTemplate.lightingInterface.anchorTrackIds.length > 0, true);
     assert.equal(
       definition.resolvedTemplate.lightingInterface.accessibleLabelAnchorIds.length,
@@ -4917,7 +5096,13 @@ check('all twenty-six runtime halls are canonical, data-driven, and internally a
       const catalog = hall.exhibits.find(({id}) => id === layout.id);
       const tier = TIER_RUNTIME[catalog.tier];
       assert.equal(layout.zoneId, catalog.zoneId, `${definition.id}/${layout.id} room drifted`);
-      assert.equal(layout.spatialCellId, catalog.zoneId, `${definition.id}/${layout.id} spatial cell drifted`);
+      assert.equal(
+        layout.spatialCellId,
+        definition.id === 'core-questions-forum'
+          ? CORE_QUESTIONS_FORUM_PRIMARY_PLACEMENTS[layout.id].spatialCellId
+          : catalog.zoneId,
+        `${definition.id}/${layout.id} spatial cell drifted`,
+      );
       assert.equal(layout.presentationTier, tier.tier, `${definition.id}/${layout.id} tier drifted`);
       assert.equal(layout.treatment, tier.treatment, `${definition.id}/${layout.id} treatment drifted`);
       const viewpointBlockers = [...definition.layout.wallColliders, ...definition.layout.obstacleColliders]

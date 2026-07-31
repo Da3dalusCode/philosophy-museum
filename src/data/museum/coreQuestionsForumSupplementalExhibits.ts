@@ -1,4 +1,5 @@
 import type {MuseumZoneId} from '../museumCatalog';
+import {getCoreQuestionsForumInstallationSlot} from './coreQuestionsForumCuration';
 import type {MuseumAssetId} from './museumAssetTypes';
 import type {MuseumSupplementalExhibit} from './platoSupplementalExhibits';
 import type {
@@ -10,6 +11,11 @@ import type {
 } from './museumWorldTypes';
 
 export const CORE_QUESTIONS_FORUM_GALLERY_ID = 'core-questions-forum' as const;
+
+export type CoreQuestionsForumSupplementalLayout = MuseumSupplementalExhibitLayout & Readonly<{
+  slotId: string;
+  backingWallId: string;
+}>;
 
 export const CORE_QUESTIONS_FORUM_PHYSICAL_LENS_IDS = [
   'forum-mulla-sadra-existence',
@@ -76,51 +82,62 @@ const cameraFor = (position: MuseumPoint, rotationY: number, distance = 2.9): Mu
 
 const layout = ({
   id,
+  slotId,
   parentExhibitId,
   guidedAfterExhibitId,
   zoneId,
-  position,
-  rotationY,
   assetId,
   mediaWidth,
   mediaHeight,
   accent,
-  footprintWidth = 3.42,
 }: {
   id: MuseumSupplementalExhibitId;
+  slotId: string;
   parentExhibitId: MuseumSupplementalExhibitLayout['parentExhibitId'];
   guidedAfterExhibitId?: MuseumSupplementalExhibitLayout['guidedAfterExhibitId'];
   zoneId: MuseumZoneId;
-  position: MuseumPoint;
-  rotationY: number;
   assetId: MuseumAssetId;
   mediaWidth: number;
   mediaHeight: number;
   accent: string;
-  footprintWidth?: number;
-}): MuseumSupplementalExhibitLayout => {
-  const width = footprintWidth;
-  const height = 3.58;
+}): CoreQuestionsForumSupplementalLayout => {
+  const authoredSlot = getCoreQuestionsForumInstallationSlot(slotId);
+  const position = {x: authoredSlot.x, z: authoredSlot.z};
+  const rotationY = authoredSlot.rotationY;
+  const width = 2.7;
+  const height = 2.94;
+  const depth = .82;
   return {
     id,
+    slotId: authoredSlot.id,
+    backingWallId: authoredSlot.backingWallId,
     parentExhibitId,
     ...(guidedAfterExhibitId ? {guidedAfterExhibitId} : {}),
     zoneId,
-    spatialCellId: zoneId,
+    spatialCellId: authoredSlot.spatialCellId,
     position,
     rotationY,
     interactionRadius: 3.25,
     collider: {
       id: `supplemental:${id}`,
       center: position,
-      size: {width, depth: .96},
+      size: {width, depth},
       rotation: rotationY,
     },
-    viewpoint: {...cameraFor(position, rotationY), yaw: rotationY, pitch: -.045},
+    viewpoint: {
+      ...cameraFor(position, rotationY, authoredSlot.supplementalViewpointDistance),
+      yaw: rotationY,
+      pitch: -.045,
+    },
     assetId,
-    mediaMount: mediaMount(id, assetId, mediaWidth, mediaHeight),
-    label: {position: [0, 3.25, -.3], width: 3.12, height: .62},
-    footprint: {width, height, depth: .96},
+    mediaMount: mediaMount(
+      id,
+      assetId,
+      Math.min(mediaWidth, width - .42),
+      Math.min(mediaHeight, 2.62),
+    ),
+    label: {position: [0, 2.65, -.3], width: 2.44, height: .54},
+    footprint: {width, height, depth},
     installationKind: 'forum-comparative-lens',
     accent,
   };
@@ -556,10 +573,9 @@ export const CORE_QUESTIONS_FORUM_SUPPLEMENTAL_EXHIBITS = [
 export const CORE_QUESTIONS_FORUM_SUPPLEMENTAL_LAYOUTS = [
   layout({
     id: 'forum-mulla-sadra-existence',
+    slotId: 'forum-nw:east-cross-face',
     parentExhibitId: 'metaphysics',
     zoneId: 'core-reality-being',
-    position: {x: -11.33, z: -5.82},
-    rotationY: Math.PI,
     assetId: 'forum-mulla-sadra-miscellany',
     mediaWidth: 1.71,
     mediaHeight: 2.88,
@@ -567,10 +583,9 @@ export const CORE_QUESTIONS_FORUM_SUPPLEMENTAL_LAYOUTS = [
   }),
   layout({
     id: 'forum-dignaga-pramana',
+    slotId: 'forum-nw:south-cross-face',
     parentExhibitId: 'epistemology',
     zoneId: 'core-knowledge',
-    position: {x: 3.853, z: -11.33},
-    rotationY: -Math.PI / 2,
     assetId: 'forum-dignaga-commemorative-portrait',
     mediaWidth: 2.16,
     mediaHeight: 2.88,
@@ -578,10 +593,9 @@ export const CORE_QUESTIONS_FORUM_SUPPLEMENTAL_LAYOUTS = [
   }),
   layout({
     id: 'forum-mozi-standards',
+    slotId: 'forum-ne:south-cross-face',
     parentExhibitId: 'logic',
     zoneId: 'core-logic-language',
-    position: {x: -7, z: 2},
-    rotationY: Math.PI,
     assetId: 'forum-mozi-conventional-portrait',
     mediaWidth: 2.88,
     mediaHeight: 2.88,
@@ -589,23 +603,20 @@ export const CORE_QUESTIONS_FORUM_SUPPLEMENTAL_LAYOUTS = [
   }),
   layout({
     id: 'forum-avicenna-demonstration',
+    slotId: 'forum-sw:east-cross-face',
     parentExhibitId: 'philosophy-of-science',
     zoneId: 'core-science',
-    position: {x: 8.095, z: 1.12},
-    rotationY: Math.PI,
     assetId: 'forum-avicenna-canon-1597',
     mediaWidth: 2.03,
     mediaHeight: 2.88,
     accent: FORUM_PALETTE.saffron,
-    footprintWidth: 3.24,
   }),
   layout({
     id: 'forum-confucius-cultivation',
+    slotId: 'forum-se:south-outer',
     parentExhibitId: 'political-philosophy',
     guidedAfterExhibitId: 'kuhn',
     zoneId: 'core-ethics-portal',
-    position: {x: -11.33, z: 5.82},
-    rotationY: 0,
     assetId: 'forum-confucius-tilting-vessel',
     mediaWidth: 1.7,
     mediaHeight: 2.88,
@@ -613,11 +624,10 @@ export const CORE_QUESTIONS_FORUM_SUPPLEMENTAL_LAYOUTS = [
   }),
   layout({
     id: 'forum-mencius-humane-rule',
+    slotId: 'forum-se:west-room-face',
     parentExhibitId: 'political-philosophy',
     guidedAfterExhibitId: 'kuhn',
     zoneId: 'core-ethics-portal',
-    position: {x: -12.8, z: 10.3},
-    rotationY: Math.PI / 2,
     assetId: 'forum-mencius-three-moves',
     mediaWidth: 1.82,
     mediaHeight: 2.88,
@@ -625,11 +635,10 @@ export const CORE_QUESTIONS_FORUM_SUPPLEMENTAL_LAYOUTS = [
   }),
   layout({
     id: 'forum-al-farabi-virtuous-city',
+    slotId: 'forum-se:north-room-face',
     parentExhibitId: 'political-philosophy',
     guidedAfterExhibitId: 'kuhn',
     zoneId: 'core-political-portal',
-    position: {x: -3.853, z: 11.33},
-    rotationY: Math.PI / 2,
     assetId: 'forum-al-farabi-round-city',
     mediaWidth: 3.18,
     mediaHeight: 2.17,
@@ -637,11 +646,10 @@ export const CORE_QUESTIONS_FORUM_SUPPLEMENTAL_LAYOUTS = [
   }),
   layout({
     id: 'forum-maimonides-law',
+    slotId: 'forum-se:north-cross-face',
     parentExhibitId: 'political-philosophy',
     guidedAfterExhibitId: 'kuhn',
     zoneId: 'core-political-portal',
-    position: {x: 3.853, z: 11.33},
-    rotationY: -Math.PI / 2,
     assetId: 'forum-maimonides-mishneh-torah',
     mediaWidth: 3.18,
     mediaHeight: 1.95,
@@ -649,10 +657,9 @@ export const CORE_QUESTIONS_FORUM_SUPPLEMENTAL_LAYOUTS = [
   }),
   layout({
     id: 'forum-confucian-music',
+    slotId: 'forum-sw:north-cross-face',
     parentExhibitId: 'aesthetics',
     zoneId: 'core-aesthetics',
-    position: {x: 2.45, z: 2.55},
-    rotationY: Math.PI,
     assetId: 'forum-confucian-marquis-yi-bells',
     mediaWidth: 3.18,
     mediaHeight: 2.12,
@@ -660,13 +667,12 @@ export const CORE_QUESTIONS_FORUM_SUPPLEMENTAL_LAYOUTS = [
   }),
   layout({
     id: 'forum-al-ghazali-causation',
+    slotId: 'forum-se:west-cross-face',
     parentExhibitId: 'philosophy-of-religion',
     zoneId: 'core-religion',
-    position: {x: 9.33, z: 12.85},
-    rotationY: Math.PI,
     assetId: 'forum-al-ghazali-faysal-manuscript',
     mediaWidth: 3.18,
     mediaHeight: 2.2,
     accent: FORUM_PALETTE.saffron,
   }),
-] as const satisfies readonly MuseumSupplementalExhibitLayout[];
+] as const satisfies readonly CoreQuestionsForumSupplementalLayout[];

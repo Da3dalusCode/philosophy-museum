@@ -30,13 +30,16 @@ Only an actual live side portal or fixed architectural obstruction removes a wal
 
 ## Core Questions Forum exception
 
-Gallery 06 is a crossroads, not a sequential two-half-room gallery. Its approved program is the governing count: **15 full-scale primaries plus 10 physical comparative lenses, for 25 installations across nine question rooms**.
+Gallery 06 is a crossroads, not a sequential two-half-room gallery. Its approved program is the governing count: **15 compact primaries plus 10 compact physical comparative lenses, for 25 installations across nine intellectual routes**.
 
 - Preserve the 28 × 28 metre shell, all live portals, and an open four-way circulation cross.
-- Author every placement against an actual outer wall, offset partition, or display baffle. A backing wall must be at least as wide as the installation it supports; signs cannot float in openings.
-- Primaries retain the full 3.8 metre Gallery 03–05 scale and must be larger than every comparative lens.
+- Treat the nine routes as directory and guided-tour groupings inside four physical question bays; do not rebuild a nine-cubicle floor plan.
+- Keep exactly eight repeated doorway-edge return walls and a **6/6/7/6** installation rhythm. Do not add one-off exhibit baffles in the central field.
+- Every installation owns a named outer-wall or return-wall slot. A backing wall must be at least as wide as the installation it supports; signs cannot float in openings.
+- Primaries use the Gallery 06 compact 3.0 metre module and remain larger than every 2.7 metre comparative lens.
+- Preserve at least 1.25 metres of clearance from the full cardinal cross, including exhibit footprints and authored visitor viewpoints.
 - Rooms with no canonical primary still receive their planned physical lenses; directory-only routes do not count as wall exhibits.
-- Prefer a small number of offset, exhibit-sized walls over a regular cubicle grid. Verify all approaches and guided routes after any interior change.
+- Verify all six live approaches, the center crossing, directory views, and guided routes after any interior change.
 
 ## Classical Chinese crossroads rule
 

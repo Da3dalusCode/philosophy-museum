@@ -1152,7 +1152,8 @@ export function MuseumPage({route, href, push, replace}: {
     getMuseumSupplementalExhibitsForHall(hallId)
       .filter(({layout}) => layout.zoneId === zoneId)
       .forEach(({exhibit}) => exhibitIds.add(exhibit.id));
-    const view = targetRegistration.definition.layout.entryViews.find((item) => item.expectedVisibleExhibitIds.some((id) => exhibitIds.has(id)))
+    const view = targetRegistration.definition.layout.entryViews.find((item) => item.semanticZoneId === zoneId)
+      ?? targetRegistration.definition.layout.entryViews.find((item) => item.expectedVisibleExhibitIds.some((id) => exhibitIds.has(id)))
       ?? targetRegistration.definition.layout.entryViews.find((item) => item.spatialCellId === zoneId);
     if (!view) return;
     activateHall(hallId, view.pose);

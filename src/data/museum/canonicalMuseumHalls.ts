@@ -267,12 +267,21 @@ import {
   COLONIALISM_RACE_LIBERATION_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
 } from './colonialismRaceLiberationSupplementalExhibits';
 import {
+  CORE_QUESTIONS_FORUM_CELL_BOUNDS,
+  CORE_QUESTIONS_FORUM_CELL_ENTRY_POSES,
+  CORE_QUESTIONS_FORUM_CELL_ORDER,
+  CORE_QUESTIONS_FORUM_CELL_TITLES,
   CORE_QUESTIONS_FORUM_GALLERY_ID,
+  CORE_QUESTIONS_FORUM_HALL_DIMENSIONS,
   CORE_QUESTIONS_FORUM_PRIMARY_CIRCULATION,
   CORE_QUESTIONS_FORUM_PRIMARY_PLACEMENTS,
+  CORE_QUESTIONS_FORUM_PRIMARY_SCALE_FLOOR,
   CORE_QUESTIONS_FORUM_ROOM_ENTRY_POSES,
+  CORE_QUESTIONS_FORUM_SPATIAL_CONNECTIONS,
+  CORE_QUESTIONS_FORUM_ZONE_ORDER,
   coreQuestionsForumInteriorWalls,
   coreQuestionsForumSigns,
+  getCoreQuestionsForumCellIdForZone,
 } from './coreQuestionsForumCuration';
 import {
   CORE_QUESTIONS_FORUM_SUPPLEMENTAL_LAYOUTS,
@@ -400,12 +409,7 @@ const primaryScaleFloorForHall = (
   supplementalLayouts: readonly MuseumSupplementalExhibitLayout[],
 ): PrimaryInstallationScaleFloor | undefined => {
   if (hall.id === CORE_QUESTIONS_FORUM_ID) {
-    return {
-      bayWidth: TIER_CONTRACTS['anchor-exhibit'].bayWidth,
-      objectWidth: TIER_CONTRACTS['anchor-exhibit'].objectWidth,
-      objectHeight: TIER_CONTRACTS['anchor-exhibit'].objectHeight,
-      footprintHeight: TIER_CONTRACTS['anchor-exhibit'].objectHeight + .16,
-    };
+    return CORE_QUESTIONS_FORUM_PRIMARY_SCALE_FLOOR;
   }
   const galleryIndex = MUSEUM_CANONICAL_PROGRAM.findIndex(({id}) => id === hall.id);
   if (galleryIndex < fullScalePrimaryStartIndex || !supplementalLayouts.length) return undefined;
@@ -505,11 +509,11 @@ const createScene = (
     ? {
         ...contract,
         objectWidth: primaryScaleFloor
-          ? contract.objectWidth
+          ? primaryScaleFloor.objectWidth
           : Math.min(contract.objectWidth, contract.tier === 'anchor' ? 3 : 2.55),
         objectDepth: Math.min(contract.objectDepth, contract.tier === 'anchor' ? 1.45 : 1.4),
         objectHeight: primaryScaleFloor
-          ? contract.objectHeight
+          ? primaryScaleFloor.objectHeight
           : Math.min(contract.objectHeight, contract.tier === 'anchor' ? 3.15 : 2.85),
       }
     : contract;
@@ -739,7 +743,11 @@ const guidedWaypointsWithinRoom = (
   return clear;
 };
 
-type PlacementCandidate = MuseumPoint & {rotationY: number; viewpointDistance?: number};
+type PlacementCandidate = MuseumPoint & {
+  rotationY: number;
+  viewpointDistance?: number;
+  spatialCellId?: string;
+};
 
 const MEDITERRANEAN_AUTHORED_PLACEMENTS = Object.fromEntries(
   Object.entries(MEDITERRANEAN_EXHIBIT_CURATION).map(([id, curation]) => [id, {
@@ -806,7 +814,7 @@ const createExhibitLayout = (
   return {
     id: record.id as MuseumExhibitId,
     zoneId: roomId as MuseumZoneId,
-    spatialCellId: roomId,
+    spatialCellId: candidate.spatialCellId ?? roomId,
     position: {x: candidate.x, z: candidate.z},
     rotationY: candidate.rotationY,
     interactionRadius: primaryScaleFloor ? 5.15 : contract.tier === 'anchor' ? 4 : 3.45,
@@ -837,27 +845,16 @@ const roomBoundsForSequence = (
   }]));
 };
 
-const FORUM_ROOM_ORDER = [
-  'core-reality-being', 'core-knowledge', 'core-mind-self',
-  'core-logic-language', 'core-aesthetics', 'core-science',
-  'core-ethics-portal', 'core-political-portal', 'core-religion',
-] as const;
-
-const roomBoundsForForum = (rooms: readonly MuseumCanonicalRoom[]): ReadonlyMap<string, MuseumBounds> => {
-  const byId = new Map(rooms.map((room) => [room.id, room]));
-  const cellSize = FORUM_SIZE / 3;
-  const result = new Map<string, MuseumBounds>();
-  FORUM_ROOM_ORDER.forEach((roomId, index) => {
-    if (!byId.has(roomId)) throw new Error(`Core Questions Forum is missing canonical room ${roomId}.`);
-    const column = index % 3;
-    const row = Math.floor(index / 3);
-    result.set(roomId, {
-      minX: -FORUM_SIZE / 2 + column * cellSize,
-      maxX: -FORUM_SIZE / 2 + (column + 1) * cellSize,
-      minZ: -FORUM_SIZE / 2 + row * cellSize,
-      maxZ: -FORUM_SIZE / 2 + (row + 1) * cellSize,
-    });
-  });
+const roomBoundsForForum = (
+  rooms: readonly MuseumCanonicalRoom[],
+): ReadonlyMap<string, MuseumBounds> => {
+  const result = new Map<string, MuseumBounds>(
+    Object.entries(CORE_QUESTIONS_FORUM_CELL_BOUNDS),
+  );
+  for (const room of rooms) {
+    const cellId = getCoreQuestionsForumCellIdForZone(room.id);
+    result.set(room.id, CORE_QUESTIONS_FORUM_CELL_BOUNDS[cellId]);
+  }
   return result;
 };
 
@@ -873,165 +870,6 @@ const sequenceConnections = (rooms: readonly MuseumCanonicalRoom[], roomBounds: 
     };
   });
 
-const forumConnections = (roomBounds: ReadonlyMap<string, MuseumBounds>): MuseumSpatialConnection[] => {
-  const result: MuseumSpatialConnection[] = [];
-  const cellSize = FORUM_SIZE / 3;
-  const boundaryInset = .3;
-  for (let row = 0; row < 3; row += 1) {
-    for (let column = 0; column < 3; column += 1) {
-      const index = row * 3 + column;
-      const id = FORUM_ROOM_ORDER[index];
-      const bounds = roomBounds.get(id)!;
-      if (column < 2) {
-        const target = FORUM_ROOM_ORDER[index + 1];
-        const opening = row === 1
-          ? {minZ: bounds.minZ + .35, maxZ: bounds.maxZ - .35}
-          : row === 0
-            ? {minZ: bounds.maxZ - 4, maxZ: bounds.maxZ}
-            : {minZ: bounds.minZ, maxZ: bounds.minZ + 4};
-        result.push({
-          id: `threshold:${id}:${target}`,
-          fromCellId: id,
-          toCellId: target,
-          openingBounds: {
-            minX: bounds.maxX - boundaryInset,
-            maxX: bounds.maxX + boundaryInset,
-            ...opening,
-          },
-        });
-      }
-      if (row < 2) {
-        const target = FORUM_ROOM_ORDER[index + 3];
-        const opening = column === 1
-          ? {minX: bounds.minX + .35, maxX: bounds.maxX - .35}
-          : column === 0
-            ? {minX: bounds.maxX - 4, maxX: bounds.maxX}
-            : {minX: bounds.minX, maxX: bounds.minX + 4};
-        result.push({
-          id: `threshold:${id}:${target}`,
-          fromCellId: id,
-          toCellId: target,
-          openingBounds: {
-            ...opening,
-            minZ: bounds.maxZ - boundaryInset,
-            maxZ: bounds.maxZ + boundaryInset,
-          },
-        });
-      }
-    }
-  }
-  if (result.length !== 12 || cellSize <= 0) {
-    throw new Error('Core Questions Forum must retain all twelve room-to-room connections.');
-  }
-  return result;
-};
-
-const forumGuidedWaypoints = (
-  from: MuseumPoint,
-  to: MuseumPoint,
-  fromCellId: string,
-  toCellId: string,
-  roomBounds: ReadonlyMap<string, MuseumBounds>,
-  spatialConnections: readonly MuseumSpatialConnection[],
-  colliders: readonly MuseumCollider[],
-): readonly MuseumPoint[] => {
-  const center = (bounds: MuseumBounds): MuseumPoint => ({
-    x: (bounds.minX + bounds.maxX) / 2,
-    z: (bounds.minZ + bounds.maxZ) / 2,
-  });
-  const fromIndex = FORUM_ROOM_ORDER.indexOf(fromCellId as (typeof FORUM_ROOM_ORDER)[number]);
-  const toIndex = FORUM_ROOM_ORDER.indexOf(toCellId as (typeof FORUM_ROOM_ORDER)[number]);
-  if (fromIndex < 0 || toIndex < 0) throw new Error(`Unknown Forum guided cells ${fromCellId} -> ${toCellId}.`);
-  const startRow = Math.floor(fromIndex / 3);
-  const startColumn = fromIndex % 3;
-  const targetRow = Math.floor(toIndex / 3);
-  const targetColumn = toIndex % 3;
-  const cellPath = (horizontalFirst: boolean): string[] => {
-    let row = startRow;
-    let column = startColumn;
-    const cells: string[] = [FORUM_ROOM_ORDER[row * 3 + column]];
-    const moveColumn = () => {
-      while (column !== targetColumn) {
-        column += Math.sign(targetColumn - column);
-        cells.push(FORUM_ROOM_ORDER[row * 3 + column]);
-      }
-    };
-    const moveRow = () => {
-      while (row !== targetRow) {
-        row += Math.sign(targetRow - row);
-        cells.push(FORUM_ROOM_ORDER[row * 3 + column]);
-      }
-    };
-    if (horizontalFirst) {
-      moveColumn();
-      moveRow();
-    } else {
-      moveRow();
-      moveColumn();
-    }
-    return cells;
-  };
-  const routeThroughCells = (
-    cells: readonly string[],
-    openingBias: -1 | 0 | 1,
-  ): readonly MuseumPoint[] => {
-    const result: MuseumPoint[] = [from];
-    let current = from;
-    for (let index = 0; index < cells.length - 1; index += 1) {
-      const currentCellId = cells[index];
-      const nextCellId = cells[index + 1];
-      const currentBounds = roomBounds.get(currentCellId)!;
-      const nextBounds = roomBounds.get(nextCellId)!;
-      const connection = spatialConnections.find(({fromCellId: first, toCellId: second}) =>
-        (first === currentCellId && second === nextCellId)
-        || (first === nextCellId && second === currentCellId));
-      if (!connection) throw new Error(`Forum route has no opening between ${currentCellId} and ${nextCellId}.`);
-      const openingCenter = center(connection.openingBounds);
-      const openingWidth = connection.openingBounds.maxX - connection.openingBounds.minX;
-      const openingDepth = connection.openingBounds.maxZ - connection.openingBounds.minZ;
-      if (openingBias && openingWidth > openingDepth) {
-        openingCenter.x = openingBias < 0
-          ? connection.openingBounds.minX + .65
-          : connection.openingBounds.maxX - .65;
-      } else if (openingBias && openingDepth > openingWidth) {
-        openingCenter.z = openingBias < 0
-          ? connection.openingBounds.minZ + .65
-          : connection.openingBounds.maxZ - .65;
-      }
-      const currentCenter = center(currentBounds);
-      const nextCenter = center(nextBounds);
-      const horizontal = Math.abs(nextCenter.x - currentCenter.x) > Math.abs(nextCenter.z - currentCenter.z);
-      const direction = horizontal
-        ? Math.sign(nextCenter.x - currentCenter.x)
-        : Math.sign(nextCenter.z - currentCenter.z);
-      const before = horizontal
-        ? {x: openingCenter.x - direction * .55, z: openingCenter.z}
-        : {x: openingCenter.x, z: openingCenter.z - direction * .55};
-      const after = horizontal
-        ? {x: openingCenter.x + direction * .55, z: openingCenter.z}
-        : {x: openingCenter.x, z: openingCenter.z + direction * .55};
-      result.push(...guidedWaypointsWithinRoom(current, before, currentBounds, colliders, true).slice(1), after);
-      current = after;
-    }
-    result.push(...guidedWaypointsWithinRoom(current, to, roomBounds.get(toCellId)!, colliders, true).slice(1));
-    return compactRoute(result);
-  };
-  const hallBounds = {minX: -FORUM_SIZE / 2, maxX: FORUM_SIZE / 2, minZ: -FORUM_SIZE / 2, maxZ: FORUM_SIZE / 2};
-  const candidates: readonly MuseumPoint[][] = [true, false].flatMap((horizontalFirst) =>
-    ([-1, 0, 1] as const).flatMap((openingBias) => {
-      try {
-        return [[...routeThroughCells(cellPath(horizontalFirst), openingBias)]];
-      } catch {
-        return [];
-      }
-    }));
-  const obstacleBounds = guidedObstacleBounds(colliders);
-  const clear = candidates
-    .filter((candidate) => guidedRouteIsClear(candidate, hallBounds, obstacleBounds))
-    .sort((first, second) => guidedRouteLength(first) - guidedRouteLength(second));
-  if (!clear.length) throw new Error(`No collision-free Forum route exists between ${fromCellId} and ${toCellId}.`);
-  return clear[0];
-};
 
 const quadrantCrossroadsGuidedWaypoints = (
   from: MuseumPoint,
@@ -1412,7 +1250,7 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
     : isEnlightenmentCrossroads
       ? ENLIGHTENMENT_ROOM_ORDER.map((id) => hall.rooms.find((room) => room.id === id)!)
     : isCoreForum
-      ? FORUM_ROOM_ORDER.map((id) => hall.rooms.find((room) => room.id === id)!)
+      ? CORE_QUESTIONS_FORUM_ZONE_ORDER.map((id) => hall.rooms.find((room) => room.id === id)!)
       : [...hall.rooms];
   const spatialConnections = isClassicalChineseCrossroads
     ? [...CLASSICAL_CHINESE_SPATIAL_CONNECTIONS]
@@ -1427,7 +1265,7 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
     : isEnlightenmentCrossroads
       ? [...ENLIGHTENMENT_SPATIAL_CONNECTIONS]
     : isCoreForum
-      ? forumConnections(roomBounds)
+      ? [...CORE_QUESTIONS_FORUM_SPATIAL_CONNECTIONS]
       : sequenceConnections(orderedRooms, roomBounds);
   const node = getMuseumManifestHallNode(hall.id);
   if (!node) throw new Error(`Canonical hall ${hall.id} has no physical manifest node.`);
@@ -1546,15 +1384,27 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
       primaryScaleFloor,
     );
   });
-  const cells: MuseumSpatialCell[] = orderedRooms.map((room) => ({
-    id: room.id,
-    kind: 'room',
-    title: room.title,
-    bounds: roomBounds.get(room.id)!,
-    ceilingHeight: ceiling,
-    exhibitIds: room.exhibits.map(({id}) => id as MuseumExhibitId),
-    lightingGroupId: `lighting:${room.id}`,
-  }));
+  const cells: MuseumSpatialCell[] = isCoreForum
+    ? CORE_QUESTIONS_FORUM_CELL_ORDER.map((cellId) => ({
+        id: cellId,
+        kind: 'room' as const,
+        title: CORE_QUESTIONS_FORUM_CELL_TITLES[cellId],
+        bounds: CORE_QUESTIONS_FORUM_CELL_BOUNDS[cellId],
+        ceilingHeight: ceiling,
+        exhibitIds: exhibits
+          .filter(({spatialCellId}) => spatialCellId === cellId)
+          .map(({id}) => id),
+        lightingGroupId: `lighting:${cellId}`,
+      }))
+    : orderedRooms.map((room) => ({
+        id: room.id,
+        kind: 'room' as const,
+        title: room.title,
+        bounds: roomBounds.get(room.id)!,
+        ceilingHeight: ceiling,
+        exhibitIds: room.exhibits.map(({id}) => id as MuseumExhibitId),
+        lightingGroupId: `lighting:${room.id}`,
+      }));
   const tracks: MuseumTrackDefinition[] = cells.map((cell) => ({
     id: `track:${cell.id}`,
     center: {x: (cell.bounds.minX + cell.bounds.maxX) / 2, y: ceiling - .24, z: (cell.bounds.minZ + cell.bounds.maxZ) / 2},
@@ -1666,7 +1516,19 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
   ];
   const guidedWalkLegs = exhibits.slice(0, -1).map((layout, index) => {
     const target = exhibits[index + 1];
-    const waypoints = isEnlightenmentCrossroads && layout.spatialCellId !== target.spatialCellId
+    const waypoints = isCoreForum && layout.spatialCellId !== target.spatialCellId
+      ? quadrantCrossroadsGuidedWaypoints(
+          layout.viewpoint,
+          target.viewpoint,
+          layout.spatialCellId,
+          target.spatialCellId,
+          roomBounds,
+          [...wallColliders, ...obstacleColliders],
+          CORE_QUESTIONS_FORUM_CELL_ENTRY_POSES,
+          CORE_QUESTIONS_FORUM_HALL_DIMENSIONS,
+          'Gallery 06',
+        )
+      : isEnlightenmentCrossroads && layout.spatialCellId !== target.spatialCellId
       ? enlightenmentCrossroadsGuidedWaypoints(
           layout.viewpoint,
           target.viewpoint,
@@ -1703,16 +1565,6 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
               ? 'Gallery 25'
               : 'Gallery 24',
         )
-      : isCoreForum && layout.spatialCellId !== target.spatialCellId
-        ? forumGuidedWaypoints(
-            layout.viewpoint,
-            target.viewpoint,
-            layout.spatialCellId,
-            target.spatialCellId,
-            roomBounds,
-            spatialConnections,
-            [...wallColliders, ...obstacleColliders],
-          )
       : layout.spatialCellId === target.spatialCellId
       ? guidedWaypointsWithinRoom(
           layout.viewpoint,
@@ -2390,6 +2242,13 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
     ...supplementalExhibits.map(({assetId}) => assetId),
   ])];
   const entrySceneAssetIds = [...new Set(Object.values(entrySceneAssetIdsByEntrance).flat())];
+  const entryViewRooms = isCoreForum
+    ? orderedRooms.map((room) => ({
+        id: room.id,
+        bounds: roomBounds.get(room.id)!,
+        exhibitIds: room.exhibits.map(({id}) => id as MuseumExhibitId),
+      }))
+    : cells;
   return {
     id: hall.id,
     fallbackLabel: hall.title,
@@ -2427,7 +2286,7 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
       reset: spawn,
       spatialCells: cells,
       spatialConnections,
-      entryViews: cells.map((cell) => {
+      entryViews: entryViewRooms.map((cell) => {
         const firstPrimary = isCrossroads
           || hall.id === CLASSICAL_SOUTH_ASIAN_GALLERY_ID
           || hall.id === BUDDHIST_GALLERY_ID
@@ -2520,7 +2379,10 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
             ? CORE_QUESTIONS_FORUM_ROOM_ENTRY_POSES[cell.id]
             : undefined;
         return {
-          spatialCellId: cell.id,
+          spatialCellId: isCoreForum
+            ? getCoreQuestionsForumCellIdForZone(cell.id)
+            : cell.id,
+          ...(isCoreForum ? {semanticZoneId: cell.id} : {}),
           // Gallery 01 is read as a chronological promenade. Stage its directory
           // views just inside each threshold so the visitor sees the room unfold
           // in the same direction as the authored route. Forum views prioritize
@@ -2553,14 +2415,14 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
           ? FEMINIST_PHILOSOPHIES_PRIMARY_CIRCULATION
         : isEnlightenmentCrossroads
           ? ENLIGHTENMENT_PRIMARY_CIRCULATION
+        : isCoreForum
+          ? CORE_QUESTIONS_FORUM_PRIMARY_CIRCULATION
         : {
             id: `${hall.id}:primary-circulation`,
-            points: isCoreForum
-              ? CORE_QUESTIONS_FORUM_PRIMARY_CIRCULATION
-              : hall.id === BUDDHIST_GALLERY_ID
+            points: hall.id === BUDDHIST_GALLERY_ID
                 ? [{x: 0, z: -26}, {x: 0, z: 0}, {x: 0, z: 24.4}]
                 : [{x: 0, z: -depth / 2 + 2}, {x: 0, z: 0}, {x: 0, z: depth / 2 - 2}],
-            clearanceRadius: isCoreForum ? .62 : 1.25,
+            clearanceRadius: 1.25,
           },
       guidedOrder,
       guidedWalkLegs,

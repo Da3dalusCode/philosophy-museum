@@ -60,15 +60,12 @@ export const museumHallUsesPrimaryEmphasis = (
     0,
     ...supplementalLayouts.map(({footprint}) => footprint.height),
   );
-  return definition.id === 'core-questions-forum'
-    || (
-      definition.id !== MEDITERRANEAN_GALLERY_ID
-      && definition.id !== RENAISSANCE_GALLERY_ID
-      && supplementalLayouts.length > 0
-      && definition.layout.exhibits.every(({scene}) =>
-        scene.footprint.width >= largestSupplementalWidth - .001
-        && scene.footprint.height >= largestSupplementalHeight - .001)
-    );
+  return definition.id !== MEDITERRANEAN_GALLERY_ID
+    && definition.id !== RENAISSANCE_GALLERY_ID
+    && supplementalLayouts.length > 0
+    && definition.layout.exhibits.every(({scene}) =>
+      scene.footprint.width >= largestSupplementalWidth - .001
+      && scene.footprint.height >= largestSupplementalHeight - .001);
 };
 
 export function MuseumPrimaryExhibitStructure({layout, definition, canonical}: {
