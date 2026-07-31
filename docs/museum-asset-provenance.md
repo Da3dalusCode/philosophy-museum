@@ -1,8 +1,10 @@
 # Museum asset provenance
 
-The preserved Museum registry contains **135 provenance records** and **270 committed local WebP derivatives**, with a scene and panel variant for each registered source object. The canonical six contain **63 primary exhibits** and currently reference **81 local media placements**; media is optional across the program, while Gallery 01 intentionally gives all 22 exhibits at least one sourced image. The modern preparation manifest locks 97 post-Ancient records and 194 derivatives; the Gallery 01 Mediterranean manifest locks 22 additional records and 44 derivatives. Sixteen earlier Ancient records retain reviewed typed metadata and 32 derivatives.
+> Current inventory and policy are stated first. The canonical-six and Phase 2 tables later in this file are preserved historical evidence, not the live roster. If a prose count drifts, `src/data/museum/museumAssets.ts` and `npm run audit:museum-assets` are authoritative.
 
-Typed records are assembled in `src/data/museum/museumAssets.ts` from the Ancient records in that file and the preserved modern, expansion, canonical-six, and Krishnamurti sets in `modernMuseumAssets.ts`, `museumExpansionAssets.ts`, `canonicalMuseumAssets.ts`, and `krishnamurtiMuseumAssets.ts`. They preserve titles, creators, object dates, institutions, exact source pages, rights terms, attribution, transformation notices, dimensions, alt text, captions, focal points, and likeness cautions.
+The current Museum registry contains **652 provenance records** and **1,304 committed local WebP derivatives**, with scene and panel variants for every registered source object. The complete 26-gallery Museum contains **595 interpreted stops**—189 primary exhibits and 406 supplemental/context exhibits—and resolves **610 live media placements**. Preparation manifests maintain **1,272 exact derivative hash locks**.
+
+Typed records are assembled by `src/data/museum/museumAssets.ts` from the Ancient, modern, expansion, canonical, and gallery-specific registries. They preserve titles, creators, object dates, institutions, exact source pages, rights terms, attribution, transformation notices, dimensions, alt text, captions, focal points, and likeness cautions.
 
 Human review establishes provenance and interpretive suitability. The deterministic audit verifies committed records and files without pretending to re-verify remote collection metadata.
 
@@ -13,13 +15,21 @@ Human review establishes provenance and interpretive suitability. The determinis
 - Portraits are labeled as lifetime, posthumous, attributed, copied, imagined, or uncertain. A face never substitutes for historical evidence.
 - Where practical, a philosopher exhibit pairs an identity or contextual anchor with a primary text, manuscript, document, or other material witness.
 - Public-domain and CC0 sources are preferred. CC BY and CC BY-SA sources remain acceptable when creator, license, attribution, and derivative notice are explicit.
-- Downloaded originals are not committed. Exact source pages, selected download URLs, derivative dimensions, byte counts, and hashes for the post-Ancient corpus are locked in the preparation manifest.
+- Downloaded originals are not committed. Exact source pages, selected download URLs, derivative dimensions, byte counts, and hashes are retained in the relevant preparation manifests.
 
-## Current canonical-six use
+## Current registry and lock pipeline
 
-The live roster reuses reviewed legacy media when the same philosopher remains in one of the six permanent halls. It also adds five provenance records needed by the canonical program:
+The asset registry composes gallery-specific typed records while preparation scripts under `scripts/` verify the managed source sets. Those sets include the modern and Mediterranean foundations, successor galleries, Galleries 13 and 16, Galleries 17 and 18, paired later-gallery releases, and the Gallery 25 and 26 releases. Together they account for the current **1,272 exact hash locks**.
 
-| Live exhibit | Registered source object | Rights / caveat |
+Preparation scripts download originals only into temporary workspaces, apply orientation and bounded resizing, write optimized WebP candidates, and compare generated files with the committed lock metadata. `--refresh-locks` is an explicit curatorial operation; ordinary verification must not silently rewrite the corpus.
+
+Runtime media is served from `public/assets/museum/` through Vite-base-aware paths. Source pages remain metadata links for attribution and review; the 3D scene never hotlinks the remote originals.
+
+## Historical canonical-six checkpoint
+
+The following table records five additions made during the canonical-six checkpoint. Those records remain useful provenance history, but the six-hall roster and its placement totals no longer describe the live 26-gallery Museum.
+
+| Checkpoint exhibit | Registered source object | Rights / caveat |
 | --- | --- | --- |
 | Francis Bacon | Paul van Somer I, *Portrait of Francis Bacon*, 1617 | Public-domain painting and reproduction; the collection attribution supersedes an older Pourbus attribution. |
 | Alfred North Whitehead | 1923 portrait published in *Splendour of the Heavens* | Photographer unknown; public domain in the United States, with status elsewhere requiring separate jurisdictional review. |
@@ -27,7 +37,7 @@ The live roster reuses reviewed legacy media when the same philosopher remains i
 | Jiddu Krishnamurti | 1920s Bain News Service lifetime photograph | Library of Congress Bain Collection; no known copyright restrictions. The 1920s date follows the reviewed Commons record because the Library of Congress caption card records no date. |
 | Jiddu Krishnamurti with Annie Besant | Agence Rol photograph aboard the *Pacific*, March 1927 | Bibliothèque nationale de France, Rol 118226 / EI-13 (1421); public domain in France and the United States. It documents Theosophical formation, not mature allegiance. |
 
-## Gallery 01 · corrected visual-curation source set
+## Current Gallery 01 · corrected visual-curation source set
 
 Gallery 01 gives every exhibit a reviewed, provenance-backed image. The corrected set favors visually legible works with real interpretive value while labeling later portraits and reception scenes honestly; none is presented as an authenticated ancient likeness.
 
@@ -133,21 +143,20 @@ The tables below preserve the 96-object Phase 2 registry. They remain useful pro
 | Nagel | 1978 lifetime photograph | 2008 NYU ethics class | CC BY-SA 4.0 and CC BY-SA 3.0; the classroom image is not specifically about the bat argument. |
 | Parfit | Anna Riedl 2015 Harvard photograph | Later Repugnant Conclusion diagram | CC BY-SA 4.0 and public-domain dedication; the diagram is later explanatory work, not Parfit-authored. |
 
-## Modern asset lock pipeline
+## Preserved early lock-pipeline notes
 
-`scripts/prepareMuseumModernAssets.py` reads `scripts/museumModernAssetManifest.json`. The manifest fixes all 97 post-Ancient asset IDs—including the Gallery 02 expansion—along with their hall folders, exact source pages, original-image URLs, selected download URLs, derivative dimensions, byte counts, and SHA-256 digests.
+The first lock-pipeline passes remain part of the larger current inventory. `scripts/prepareMuseumModernAssets.py` reads `scripts/museumModernAssetManifest.json`, which fixes 97 post-Ancient asset IDs—including the Gallery 02 expansion—along with their hall folders, exact source pages, original-image URLs, selected download URLs, derivative dimensions, byte counts, and SHA-256 digests.
 
 `scripts/prepareMuseumMediterraneanAssets.py` reads `scripts/museumMediterraneanAssetManifest.json` and applies the same local-only, size-bounded, hashed workflow to the 22 Gallery 01 sources. This separate lock keeps the bounded curatorial pass auditable without changing the separate 97-record modern corpus.
 
-The script downloads to a temporary workspace, applies EXIF orientation, resizes without upscaling, writes optimized WebP candidates, and validates both cached and generated files against the lock. `--refresh-locks` is an explicit curatorial operation; ordinary runs verify without silently rewriting the corpus. Ancient derivatives retain their existing reviewed typed records.
+These two manifests are historical foundations of the lock system, not the whole current inventory. Later gallery manifests extend the same reviewed, local-only pattern.
 
 ## Rights categories represented
 
 - Public Domain Mark 1.0 and collection-specific public-domain determinations
 - CC0 1.0 public-domain dedication
-- CC BY 4.0
-- CC BY-SA 3.0
-- Earlier CC BY / CC BY-SA terms used by the Ancient gallery
+- CC BY 2.0, 3.0, and 4.0
+- CC BY-SA 2.0, 3.0, and 4.0
 - Commons public-domain templates for anonymous European works, Portugal, and U.S. press material
 
-Run `npm run audit:museum-assets` to verify that every optional media-reference field across the 63 live exhibits resolves when present, the registry contains 135 records and 270 derivatives, the post-Ancient lock contains 97 records and 194 derivatives, and the Gallery 01 lock contains 22 records and 44 derivatives. Together the two manifests maintain 238 exact derivative hash locks; sixteen earlier typed Ancient records account for the remaining 32 derivatives. The audit also checks local path safety and case, WebP dimensions, rights-kind and license-URL consistency, derivative notices, attribution, alt text, likeness classification, manifest-to-typed-record agreement, byte and SHA-256 locks, runtime hotlink prevention, and unexpected missing or orphaned files. The audit performs no network requests and does not impose a two-object-per-exhibit quota outside Gallery 01.
+Run `npm run audit:museum-assets` to verify the current **652 records**, **1,304 local derivatives**, **1,272 exact hash locks**, **610 live media placements**, and media resolution across all **595 interpreted stops**. The audit also checks local path safety and case, WebP dimensions, rights-kind and license-URL consistency, derivative notices, attribution, alt text, likeness classification, manifest-to-typed-record agreement, byte and SHA-256 locks, runtime hotlink prevention, visual-diversity rules, and unexpected missing or orphaned files. It performs no network requests.

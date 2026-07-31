@@ -32,7 +32,7 @@ spotlights remain lazy. The two visually approved pilot halls retain their
 generated sign faces in the permanent layer; the other 24 halls mount those
 faces only while their content is resident. This 26-structure/2-sign-face split
 keeps the persistent decoded-texture estimate at 17.88 MiB and the audited
-active/approach peak at 92.39 MiB under the unchanged 96 MiB cap.
+active/approach peak at 92.79 MiB under the unchanged 96 MiB cap.
 
 The content-residency contract remains:
 
@@ -54,8 +54,10 @@ production and audit implementation for transformed wall planes, subtraction,
 overlap measurement, and fragment reconstruction. It respects arbitrary
 rotation and render overrides while preserving collision geometry.
 
-The compiled production plan covers 105 spatial cells and all 39
-hall-touching physical connections. Automated probes verify open apertures,
+The compiled production plan covers 105 named program rooms or zones through
+100 physical spatial cells and all 39 hall-touching physical connections. The
+Core Questions Forum's nine semantic routes share four physical question bays;
+every other gallery keeps a one-to-one room/zone-to-cell mapping. Automated probes verify open apertures,
 single-owner jambs and lintels, one threshold owner, and closure of all 64
 inactive hall slots. Pairwise world-plane checks reject coplanar duplicates.
 

@@ -1,6 +1,6 @@
 # Historical Museum Ring-pilot runtime architecture record
 
-> This document records the completed Phase 2 six-shell pilot. Its temporary hall identities, 48-exhibit roster, legacy adapters, orientation-only Forum court, and measured residency figures are historical evidence, not the live canonical-six contract. The canonical-six implementation uses five permanent `sequence-3` outer halls plus the central `crossroads-4` Core Questions Forum, with 29 rooms and 63 primary exhibits. Current runtime truth lives in `src/data/museum/museumBuildingManifest.json`, `src/data/museum/museumCanonicalProgram.ts`, and the executable Museum audits. Production status remains governed by `main`.
+> This document records the completed Phase 2 six-shell pilot. Its temporary hall identities, 48-exhibit roster, legacy adapters, orientation-only Forum court, and measured residency figures are historical evidence, not the current production contract. The live Museum is the completed 26-gallery, 105-named-room-or-zone Continuous Enfilade described in [`museum-masterplan/README.md`](./museum-masterplan/README.md). Current executable truth lives in `src/data/museum/museumContinuousEnfiladeManifest.json`, its validated `museumBuildingManifest.ts` entry point, the canonical hall definitions, and the executable Museum audits. Production status remains governed by `main` and the GitHub Pages workflow.
 
 ## Phase 2 approved scope
 
@@ -27,7 +27,7 @@ The pilot deliberately separates concerns that the former chain coupled together
 | Physical building manifest | physical node IDs, level, transforms, doorway slots, connections, safe arrivals, circulation cells, reservations, map status | philosopher assignments, exhibit interpretation |
 | Rendered hall content | hall-local partitions, installations, lighting, media, interaction viewpoints | world placement or building adjacency |
 
-`src/data/museum/museumBuildingManifest.json` is the authoritative runtime source for placement, doorway occupancy, and physical connections. `museumHallTemplates.ts` is the executable template/interface registry and mirrors the approved `hall-program.json` dimensions and portal slots. `museumBuildingRuntime.ts` joins those sources, validates named legacy adapters, and compiles placed hall definitions, low-cost circulation nodes, two directed transitions per live connection, collision walls, and lookup APIs. The six `*Hall.ts` modules remain content and legacy-layout inputs: moving a hall changes its manifest transform, not its philosopher/exhibit data.
+At this checkpoint, `src/data/museum/museumBuildingManifest.json` was the authoritative Ring-pilot source for placement, doorway occupancy, and physical connections. `museumHallTemplates.ts` was the executable template/interface registry and mirrored the approved `hall-program.json` dimensions and portal slots. `museumBuildingRuntime.ts` joined those sources, validated named legacy adapters, and compiled placed hall definitions, low-cost circulation nodes, two directed transitions per live connection, collision walls, and lookup APIs. The six `*Hall.ts` modules remained content and legacy-layout inputs: moving a hall changed its manifest transform, not its philosopher/exhibit data.
 
 Public `MuseumHallId` values remain the six URL-safe content IDs. Physical IDs use a separate namespace (`hall:`, `corridor:`, and `place:`), so the entrance, court, and corridors never become public Museum routes or fake intellectual halls.
 
@@ -125,13 +125,13 @@ The public compatibility boundary is intentionally narrow:
 
 Rollback is correspondingly simple: revert the Ring-pilot commits through normal Git history; no data migration is required. Circulation placement is isolated in the manifest and compiler, while the content files contain only the physical openings required by their legacy adapters.
 
-## Phase 2 verification contract
+## Historical Phase 2 verification contract
 
-At this checkpoint, `node scripts/validateMuseumMasterplan.mjs` checked the locked program and Beauvoir placement. `npm run audit:museum` compared the executable registry to the approved planning templates, resolved the legacy adapters, toggled a synthetic endpoint to test opening and closure behavior, checked pedestrian bands and landings against colliders, verified lintels and threshold anchors, and confirmed that the visitor map consumed resolved map cells. Loop and spoke reachability, reservations, bounded residency, one Canvas, and the temporary six-hall/48-exhibit contract were Phase 2 release gates. The current canonical-six release gate is defined by the repository's present validation and audit scripts, not by this historical list.
+At this checkpoint, `node scripts/validateMuseumMasterplan.mjs` checked the locked program and Beauvoir placement. `npm run audit:museum` compared the executable registry to the approved planning templates, resolved the legacy adapters, toggled a synthetic endpoint to test opening and closure behavior, checked pedestrian bands and landings against colliders, verified lintels and threshold anchors, and confirmed that the visitor map consumed resolved map cells. Loop and spoke reachability, reservations, bounded residency, one Canvas, and the temporary six-hall/48-exhibit contract were Phase 2 release gates. The current 26-gallery production gate is defined by the repository's present validation and audit scripts, not by this historical list.
 
-Before extending the building, run the production build and every audit, then inspect the full loop in both directions, all five central route choices, every blocked barrier, the desktop and narrow maps, safe fast travel to all six halls, directory/guided/session/history behavior, controls and focus, representative media in all six halls, and the non-WebGL/failure fallbacks.
+At the Phase 2 checkpoint, extension review required the production build and every audit, followed by inspection of the full loop in both directions, all five central route choices, every blocked barrier, the desktop and narrow maps, safe fast travel to all six halls, directory/guided/session/history behavior, controls and focus, representative media in all six halls, and the non-WebGL/failure fallbacks. Current maintenance uses the Continuous Enfilade handoff and regression contract instead.
 
-## Adding a future live hall
+## Historical Ring procedure for adding a future live hall
 
 1. Complete and review the intellectual program and content independently.
 2. Select one of the three normal templates or justify the rare focal template.

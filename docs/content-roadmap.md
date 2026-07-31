@@ -21,9 +21,9 @@ The atlas now includes meaningful starting coverage for:
 
 ## Article-first direction
 
-Philosopher Profiles and Branch Explorer are moving from exhibit-card summaries toward article-grade reference pages. The new model preserves concise structured fields for the Philosophy Wall, comparisons, quick reference, readings, and connections, while adding `articleSections` as the primary depth layer. Article sections use sustained paragraph prose, stable headings, a contents rail, and optional links to related branches, philosophers, and works.
+Philosopher Profiles and Branch Explorer now use article-grade reference pages across the complete 146-philosopher and 43-branch roster. The model preserves concise structured fields for the Philosophy Wall, comparisons, quick reference, readings, and connections, while using `articleSections` as the primary depth layer. Article sections provide sustained paragraph prose, stable headings, a contents rail, and optional links to related branches, philosophers, and works.
 
-Records without authored article sections continue to render through the earlier structured exhibit layout. They should be treated as useful summaries rather than finished reference articles.
+The renderer retains the earlier structured exhibit layout as a safe fallback for any future or incomplete record, but no current philosopher or branch depends on that fallback for core article coverage.
 
 ## Gold-standard audited articles
 

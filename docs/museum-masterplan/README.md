@@ -12,7 +12,7 @@ The approved complete single-level plan is:
 - [Machine-readable control geometry](./single-level-building-plan.json)
 - [1:1000 dimensioned drawing](./diagrams/continuous-enfilade-single-level.svg)
 
-The plan contains all 26 approved galleries and 105 rooms, two full gallery-capable reserve bays, exact coordinates and rotations, a grand entrance, six shared-wall bands, a through-gallery route, a north–south crosscut that lands only at threshold joints, five bounded turn courts, and an executable validator. Its declared handedness adapter reflects architectural X once when embedding the east-positive, north-positive plan in Three.js, then reflects it back for the north-up map; this keeps physical and mapped left/right turns identical. The compiler and runtime implement that contract directly; improvised piecemeal corridor edits remain prohibited.
+The plan contains all 26 approved galleries and 105 named program rooms or zones, two full gallery-capable reserve bays, exact coordinates and rotations, a grand entrance, six shared-wall bands, a through-gallery route, a north–south crosscut that lands only at threshold joints, five bounded turn courts, and an executable validator. Gallery 06's nine semantic question routes share four physical question bays, so the runtime resolves the program through 100 physical spatial cells while preserving every named directory and guided-tour destination. Its declared handedness adapter reflects architectural X once when embedding the east-positive, north-positive plan in Three.js, then reflects it back for the north-up map; this keeps physical and mapped left/right turns identical. The compiler and runtime implement that contract directly; improvised piecemeal corridor edits remain prohibited.
 
 ## Decision in one page
 
@@ -68,7 +68,7 @@ Start with these documents, in order:
 7. [Continuous Enfilade plan](./single-level-building-plan.md) — exact dimensions, coordinates, 105-room setup, states, movement, performance, and migration gates.
 8. [Migration plan](./migration-plan.md) — implementation history plus the coordinated whole-building cutover.
 9. [Implementation lessons](./implementation-lessons.md) — binding regression guidance learned from coordinate, portal, turn-court, sign, gallery-promotion, and deployment failures.
-10. [Implementation handoff prompt](./implementation-handoff-prompt.md) — the current exact implementation and maintenance contract for preserving the completed building while promoting reviewed galleries.
+10. [Implementation handoff prompt](./implementation-handoff-prompt.md) — the current maintenance and release contract for preserving the completed building during scoped fixes, gallery refits, and any separately approved expansion.
 
 The complete assignments are reviewable as spreadsheets:
 
@@ -113,7 +113,7 @@ See [Difficult placements](./difficult-placements.md) for the complete reasoning
 
 The hybrid taxonomy and disputed primary homes remain approved. The earlier infrastructure phase supplied real walls and corridors, accessible safe arrivals, a compact loop and spokes, and blocked insertion/outward-expansion reservations. That Ring geometry is now retained only as a rollback artifact. The canonical-six implementation replaced the six temporary public programs with `mediterranean-beginnings-classical`, `renaissance-humanism-new-method`, `phenomenology-existence-embodiment`, `analytic-traditions`, `justice-democratic-reason`, and `core-questions-forum`; later releases expanded the curated roster to Galleries 01–12 before their roots migrated into the Continuous Enfilade.
 
-The old five-hall outer loop and central spokes are migration history, not active geometry. The former outer Mind shell remains retired. Displaced exhibit routes remain aliases or explanatory handoffs to intact Atlas content and the remaining planned primary hall.
+The old five-hall outer loop and central spokes are migration history, not active geometry. The former outer Mind shell remains retired. Displaced exhibit routes remain aliases or explanatory handoffs to intact Atlas content and the relevant canonical primary hall, all of which are now curated/open.
 
 ## Deterministic validation
 

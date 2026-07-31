@@ -1,6 +1,6 @@
 # Continuous Enfilade implementation lessons
 
-**Status:** binding regression guidance for every Museum architecture, gallery-completion, and deployment turn.
+**Status:** binding regression guidance for every Museum architecture, gallery-maintenance/refit, approved expansion, and deployment turn.
 
 This document records failures that reached review during the Continuous Enfilade build and the invariants that now prevent them from recurring. It supplements the dimensioned control plan; it does not redesign it.
 
@@ -38,39 +38,39 @@ This document records failures that reached review during the Continuous Enfilad
 
 **Regression gate:** verify the dot product between the sign’s front normal and the visitor-to-sign approach vector, then visually inspect it from the actual route. A plausible Euler angle alone is not evidence that the sign faces correctly.
 
-## Curating a planned shell
+## Maintaining curated galleries and commissioning expansion
 
-- Promote the gallery atomically across the canonical program, public roster, compiled manifest state, map/directory/fast travel, hall-local content, interpretations, supplemental registry, renderer, local media, guided stops, and audits.
-- Public Gallery number and architectural visit position are independent immutable fields. A later-numbered hall may be promoted while an earlier number remains planned, but the release must change only the selected hall’s state/content and must preserve every shell center, yaw, route portal, handedness transform, seam, and map position.
-- Remove the planned-status sign by recompiling from the changed migration state; never layer curated content over a planned shell.
-- Preserve the approved hall transform, route portals, room IDs, and architecture. Gallery completion is a hall-local content operation unless a measured control-plan conflict is documented.
-- The compiler deliberately removes planned-shell room geometry when a hall becomes `migrate-populated`. Re-author the approved hall-local bounds, spatial openings, collision partitions, and render-only lintels in the curated module during the same promotion; otherwise a state change silently erases part of the shell.
+- All Galleries 01–26 are curated/open. Current maintenance must preserve that complete roster; ordinary gallery work is no longer a planned-shell promotion.
+- Apply an affected-gallery change atomically across the canonical program, public roster, compiled manifest state, map/directory/fast travel, hall-local content, interpretations, supplemental registry, renderer, local media, guided stops, and audits.
+- Public Gallery number and architectural visit position are independent immutable fields. A maintenance release must preserve every unaffected shell center, yaw, route portal, handedness transform, seam, and map position.
+- Preserve the approved hall transform, route portals, named room/zone IDs, and architecture. A gallery refit is hall-local unless a measured control-plan conflict is documented and the physical manifest, map, collision, routes, and sessions are updated atomically.
+- If a closed reserve is separately commissioned in the future, remove any planned-status treatment by recompiling from its changed state; never layer curated content over a planned shell. The historical compiler removed planned-shell room geometry during promotion, so any reused promotion path must author the approved bounds, spatial openings, collision partitions, and render-only lintels in the same release.
 - Lintels above passable openings are render-only architecture. Never add their footprints to two-dimensional collision, and never omit them merely because the floor opening is correct.
 - Choose placement coordinates against the actual installation footprint class and the live doorway-landing padding. Full-scale primaries, supplemental millwork, and compact portal returns do not have interchangeable depths.
 - A route that clears collision by only a few centimetres is not visitor-ready. Doorway bends and baffle bypasses retain an additional practical steering margin beyond the player radius; thin exhibit millwork may preserve its display face without borrowing the full depth of an architectural wall.
 - Resolve the default spawn from the hall’s declared route-entry portal. Do not assume `N0`; Gallery 18’s chronological entry is `E0`.
 - Fill every usable exhibit face at the established scale. Primary and supplemental installations receive unique physical slots, relevant provenance-backed media, interpretation, article routing, and keyboard/mouse activation.
-- Treat physical media as museum-wide installations, not gallery-local decorations. A newly curated gallery must not reuse an asset ID, exact source page, or identical derivative already hanging elsewhere; select a distinct relevant object instead.
+- Treat physical media as museum-wide installations, not gallery-local decorations. New or replaced gallery media must not reuse an asset ID, exact source page, or identical derivative already hanging elsewhere; select a distinct relevant object instead.
 - Keep the displayed interpretation source synchronized with the actual image asset and its locked provenance record. Replacing an image requires updating the asset ID, local derivatives, source link, rights note, and audit lock together.
 - Planning capacity is an allowance, not permission to invent philosophers or duplicate a primary assignment. Context installations can complete the physical room while keeping the exact-once intellectual roster intact.
 
-**Regression gate:** compare room-by-room primary and supplemental counts with the wall standard; assert approved bounds, partitions, lintels, route-entry spawn, installation footprints, and a practical steering margin around baffles; test the full guided order; confirm that no physical installation repeats an image anywhere in the live museum; and, for an out-of-order promotion, prove that the skipped shell remains planned while the promoted shell keeps its original visit position and route transform.
+**Regression gate:** compare room-by-room primary and supplemental counts with the wall standard; assert approved bounds, partitions, lintels, route-entry spawn, installation footprints, and a practical steering margin around baffles; test the full guided order; confirm that no physical installation repeats an image anywhere in the live museum; prove that all unaffected galleries retain their curated/open state, visit position, and route transform; and keep both reserves physically closed unless a separately approved expansion commissions one.
 
 ## Visual-medium diversity
 
 - A photographed title page, open page of uninterrupted writing, or single closed book is an exception justified by the material history of that exact text, not the default image for an argument.
 - Completed galleries classify every newly installed image by visual character. Portraits and figures, artworks and social scenes, places and architecture, material objects, and maps or diagrams must collectively dominate the room.
-- Every new gallery release uses at least four non-textual visual-character groups overall. Diversity is also reviewed room by room, so a varied gallery total cannot excuse repetitive or visually lazy selections.
+- Every release that adds or replaces a substantial gallery image set uses at least four non-textual visual-character groups overall. Diversity is also reviewed room by room, so a varied gallery total cannot excuse repetitive or visually lazy selections.
 - A page that contains a genuinely interpretive illustration, map, scientific diagram, or materially distinctive annotation is classified by that visual subject rather than automatically as text-only. The panel must explain what the visitor should look at.
 - The retrospective Gallery 01–16 audit replaces the gallery-wide approximation with the stricter room rule: no completed room may display more than one text-dominant page or isolated-book view. This is a room-level ceiling, not a target.
 - When a source page would exceed the room ceiling, replace that installation with one strong, independently sourced visual object: a directly relevant artwork, social scene, place, portrait, material object, or documentary image that can carry the exhibit by itself. Do not shrink the source into an inset, surround it with a generated frame, or invent a repeated visual motif to satisfy a quota.
 - A gallery must not use an arbitrary house illustration style as an “anchor” repeated across otherwise unrelated exhibits. Limited original or AI-assisted imagery is acceptable only when the individual exhibit genuinely requires it, the result is strong enough to stand alone, and its provenance clearly identifies it as a contemporary interpretation.
 - Galleries 17 and 18 retain their original gallery-wide ceilings in addition to the room rule: no more than 3 of 18 Gallery 17 installations and no more than 4 of 25 Gallery 18 installations may be text-dominant pages or single-book views.
 - Galleries 19–22 establish the preferred result rather than merely meeting the ceiling: all 90 images are standalone, directly relevant visual objects, with zero text-dominant pages or isolated-book views and at least four non-textual visual-character groups in each gallery.
-- Galleries 23–24 preserve the same result across 48 additional images. Gallery 26 adds 18 more with exactly six unique physical images in each of its three rooms, zero text-dominant pages or isolated-book views, and at least four visual-character groups overall.
+- Galleries 23–24 preserve the same result across 48 additional images. Gallery 25 preserves 24 distinct provenance-backed images—exactly six in each of four rooms—with no fallback or museum-wide image reuse. Gallery 26 adds 18 more with exactly six unique physical images in each of its three rooms, zero text-dominant pages or isolated-book views, and at least four visual-character groups overall.
 - Media variety does not excuse weak relevance. Every image still needs a direct relationship to the displayed person, work, practice, institution, event, or argument, with accurate provenance and an explicit interpretive reason for being on the wall.
 
-**Regression gate:** require an explicit visual-character value for every asset added during a gallery promotion; classify every legacy manuscript, document, papyrus, and book-page installation as retained text, visually rich material, or a standalone curated replacement; reject synthetic or geometric wrappers, subordinate source insets, and repeated gallery-wide anchor styles; enforce the one-per-room ceiling and any gallery-specific zero-text result; preserve the Gallery 17/18 gallery ceilings; confirm at least four non-textual visual-character groups per new gallery; and perform a room-by-room visual review for repetition.
+**Regression gate:** require an explicit visual-character value for every asset added during a gallery curation or media change; classify every legacy manuscript, document, papyrus, and book-page installation as retained text, visually rich material, or a standalone curated replacement; reject synthetic or geometric wrappers, subordinate source insets, and repeated gallery-wide anchor styles; enforce the one-per-room ceiling and any gallery-specific zero-text result; preserve the Gallery 17/18 gallery ceilings; confirm at least four non-textual visual-character groups in every substantially changed gallery; and perform a room-by-room visual review for repetition.
 
 ## Release verification
 

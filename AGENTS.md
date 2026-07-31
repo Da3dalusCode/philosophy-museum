@@ -4,7 +4,7 @@
 
 Philosophy Atlas is a local-first Vite + React + TypeScript educational web app. It teaches philosophy through branches, schools, thinkers, historical timelines, relationships, comparisons, and guided learning paths.
 
-The app has no backend, no database, no auth, no API requirement, and no deployment requirement for v1. All core content lives in local TypeScript data files under `src/data`.
+The app has no backend, database, authentication, or runtime API requirement. All core content lives in local TypeScript data files under `src/data`. The static production site is deployed through the existing GitHub Pages workflow in `.github/workflows/deploy.yml` when `main` is updated.
 
 ## Core product goal
 
@@ -59,7 +59,7 @@ Then verify the local URL returns HTTP 200.
 * Keep data in `src/data`.
 * Keep shared types in `src/types`.
 * Keep visual style in `src/styles/global.css` unless a component-specific style is clearly better.
-* Do not introduce a backend, database, auth, deployment, external runtime API, or paid service unless explicitly requested.
+* Do not introduce a backend, database, auth, external runtime API, paid service, or additional hosting/deployment system unless explicitly requested. Preserve the existing GitHub Pages production path.
 * Do not add heavy dependencies without a strong reason.
 * Do not invent exact quotes, citations, sources, images, or command output.
 * Use approximate dates when exact dates are uncertain.

@@ -43,14 +43,14 @@ Gallery 06 is a crossroads, not a sequential two-half-room gallery. Its approved
 
 ## Classical Chinese crossroads rule
 
-Gallery 09 is also a `crossroads-4` hall, but it is not the Forum and must never inherit Gallery 06's nine-room grid. Its four debate rooms use an authored **six-installation contract per room: 24 physical exhibits total**.
+Gallery 09 is also a `crossroads-4` hall, but it is not the Forum and must never turn Gallery 06's nine semantic routes into nine physical cubicles. Its four debate rooms use an authored **six-installation contract per room: 24 physical exhibits total**.
 
 - Keep the central crossing open and legible from every approach.
 - Each room receives six distinct wall-backed slots across its perimeter and restrained display baffle; unused wall faces are not acceptable.
 - Canonical schools and philosophers own the prominent walls. All twelve primaries use the same full-scale floor and can never be smaller than a contextual exhibit.
 - Adjacency communicates debate, not school membership: Mohism remains distinct from the retrospective grouping called “Legalism,” and Laozi is presented as an attributed textual persona rather than a secure conventional biography.
 
-## Gallery 11–13 and 16–22 authored wall contracts
+## Gallery 11–13 and 16–26 authored wall contracts
 
 Gallery 11, **Confucian Renewal & East Asian Continuities**, uses the normal sequence-room rule with no physical exceptions: **six installations in each of three rooms, 18 total**.
 
@@ -87,15 +87,21 @@ Gallery 22, **Pragmatism, Science, and Democratic Inquiry**, follows the normal 
 
 Galleries 19–22 set a stricter completed-image result: **zero** of their 90 installations use a text-dominant page or isolated-book view, and each gallery contains at least four non-textual visual-character groups. Each image is an independently sourced, directly relevant object strong enough to carry its installation alone. Synthetic or geometric wrappers, subordinate manuscript/book insets, quota-filling composites, and a repeated gallery-wide anchor motif are prohibited.
 
+Gallery 23, **Critique, Power, and Deconstruction**, and Gallery 24, **Moral Life & Practical Reason**, each preserve an authored four-room crossroads with full-height L-baffles, a four-metre inner throat, and all four semantic seams. Every room contains **six installations**, for **24 per gallery and 48 total**. Their independently sourced, exhibit-specific images retain the same standalone-image and room-level diversity requirements as Galleries 19–22.
+
+Gallery 25, **Feminist Philosophies**, preserves its four-room crossroads and all four semantic seams. Every room contains **six installations, 24 total**. All 24 use distinct provenance-backed images with no fallback or museum-wide image reuse.
+
+Gallery 26, **Colonialism, Race, and Liberation**, follows the sequence rule exactly: **six installations in each of three rooms, 18 total**. Its images remain distinct and provenance-backed, use at least four non-textual visual-character groups, and include no text-dominant page or isolated-book view.
+
 The completed Gallery 01–16 retrospective applies a stricter room-level rule across the open Museum: **no room may contain more than one text-dominant page or isolated-book image**. Every physical manuscript, document, papyrus, and book-page placement is explicitly reviewed. Illustrated scenes, diagrams, decorated objects, and materially distinctive artifacts are classified by what the visitor actually sees; excess plain-page or lone-book views must be replaced by independently sourced, exhibit-specific images that are visually and historically strong enough to carry the installation alone. Generated wrappers, subordinate artifact insets, quota-filling collages, and repeated gallery-wide “anchor” illustration styles are prohibited.
 
-## Release checklist for every new hall
+## Release checklist for future expansion and major refits
 
-Before a hall can be called finished:
+Before a future hall, approved expansion, or substantially refitted gallery can be called finished:
 
 1. The executable audit enumerates its exact physical wall slots and rejects blanks, duplicates, undersized primaries, missing interaction handlers, or missing attributions.
 2. Every room is inspected in the running app from both directions; each half-room or crossroads bay is photographed or otherwise visually checked at visitor eye level.
 3. Every primary, supplemental panel, doorway, fast-travel destination, directory entry, and direct exhibit route works.
-4. The visitor map shows the new hall, its real walking connection, and the visitor's directional arrow without requiring desktop scrolling.
+4. The visitor map shows the affected hall, its real walking connection, and the visitor's directional arrow without requiring desktop scrolling.
 5. The production build and the focused Museum, routing, plan, and asset audits for the changed contracts pass locally; unchanged broad integrity, accuracy, and article suites may run in CI unless a release-specific risk justifies repeating them.
-6. The image-diversity audit classifies every textual-medium installation and rejects any curated room containing more than one plain page or isolated book. Every new gallery release must use at least four non-textual visual-character groups overall, with room-by-room visual review rejecting repetitive image selections even when the gallery total passes.
+6. The image-diversity audit classifies every textual-medium installation and rejects any curated room containing more than one plain page or isolated book. Every affected-gallery release must use at least four non-textual visual-character groups overall, with room-by-room visual review rejecting repetitive image selections even when the gallery total passes.

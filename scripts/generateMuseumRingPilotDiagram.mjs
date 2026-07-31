@@ -111,7 +111,7 @@ try {
     const committed = await readFile(outputPath, 'utf8');
     const normalizeLines = (value) => value.replaceAll('\r\n', '\n');
     if (normalizeLines(committed) !== normalizeLines(svg)) {
-      throw new Error(`Generated Museum diagram differs from ${outputPath}. Run npm run generate:museum-diagram and review the result.`);
+      throw new Error(`Generated historical Ring diagram differs from ${outputPath}. This archived generator is no longer a production release gate; review docs/museum-ring-pilot.md before deliberately refreshing the artifact.`);
     }
     console.log(`Verified ${outputPath} is deterministic and current.`);
   } else {

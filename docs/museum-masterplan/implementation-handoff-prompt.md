@@ -1,10 +1,10 @@
-# Exact implementation handoff prompt
+# Production maintenance and release handoff prompt
 
 Copy everything below into a new Codex conversation:
 
 ---
 
-Fully maintain and verify the approved Continuous Enfilade Museum architecture, preserve all 26 curated galleries and all 105 named rooms, and push the completed implementation to production.
+Maintain and verify the approved Continuous Enfilade Museum architecture, preserve all 26 curated galleries and all 105 named program rooms or zones, and push the scoped maintenance release to production when deployment is part of the request.
 
 This is an implementation turn, not another architecture-design turn. Do not redesign, reinterpret, or hand-place the building. The Continuous Enfilade is already the production architecture. The physical requirements below are preservation and regression gates, not authorization to reconstruct working building geometry. The current state is all 26 galleries curated/open in their fixed visit positions.
 
@@ -14,7 +14,7 @@ The authoritative physical contract is:
 - `docs/museum-masterplan/single-level-building-plan.md`
 - `docs/museum-masterplan/diagrams/continuous-enfilade-single-level.svg`
 
-The intellectual/room and migration authorities are:
+The intellectual, room, wall, and historical change-control authorities are:
 
 - `docs/museum-masterplan/hall-program.json`
 - `docs/museum-masterplan/recommended-program.md`
@@ -28,7 +28,7 @@ Before editing:
 2. Run `git status --short` first. Preserve all unrelated and in-progress work. Never reset, delete, overwrite, or stage unrelated files.
 3. Inspect the current Galleries 01–26 hall definitions, world transforms, manifest, connections, map projection, directory, direct routes, session persistence, guided visits, collision, audits, and performance/lazy-loading implementation.
 4. Treat the current three-hall residency, 6 m approach preparation, 96 MiB decoded-texture budget, and lazy media boundary as authoritative. Extend them; do not replace them or eagerly initialize 26 halls.
-5. Keep planning brief. Build the full migration.
+5. Keep planning brief. Make only the scoped maintenance, gallery-refit, or separately approved expansion changes required by the prompt.
 
 Required physical result:
 
@@ -37,11 +37,11 @@ Required physical result:
 - The exact 40 × 56 m Grand Entrance & Orientation Hall, with map, facing direction, resume, route choice, guided visit, and fast travel. Do not build fake tickets, lockers, café, shop, or generic study controls.
 - All 26 canonical hall shells at the exact centers and rotations in the control JSON.
 - Compile the JSON’s east-positive, north-positive architectural frame through its declared Three.js handedness adapter (`runtime.x = -plan.x`, `runtime.z = plan.z`). Do not copy the left-handed floor coordinates directly into the right-handed runtime or mirror the north-up visitor map. Both bends of every turn must have the same embodied left/right sense in the runtime and map.
-- All 105 canonical named rooms.
+- All 105 canonical named program rooms or zones. Gallery 06 keeps nine semantic routes in four physical question bays, so the rendered gallery plan contains 100 physical spatial cells without removing directory or guided-tour destinations.
 - Six back-to-back 28 m structural bands. Template margins are solid structure/services, never visible public gaps.
 - The exact continuous serpentine through-gallery route, so visitors continue through each gallery’s far threshold without turning around.
 - The exact 10 m north–south crosscut, with five ordinary threshold crossing bays and the Core Questions Forum as its sixth intersection.
-- The Core Questions Forum in its own independent 28 × 28 m bay. It must not overlap, notch, cover, or steal space from Jewish Philosophy, Latin Christian & Scholastic Traditions, Renaissance/New Science, or Rationalism.
+- The Core Questions Forum in its own independent 28 × 28 m bay. Its 25 installations remain wall-backed in a 6/6/7/6 rhythm around an open four-way cross, with nine semantic routes grouped inside four physical question bays. It must not overlap, notch, cover, or steal space from Jewish Philosophy, Latin Christian & Scholastic Traditions, Renaissance/New Science, or Rationalism.
 - All five exterior dogleg turn courts at the exact centerlines from the control JSON, 8 m clear, with two full-width right-angle turns, continuous ceiling guidance, and threshold wayfinding. Do not substitute diagonal chords or long empty corridors.
 - The exact final return/exit threshold after Colonialism, Race, and Liberation.
 - Two exact 56 × 28 m closed expansion reserves fed by the north crosscut extension. They are outside the 26-gallery program and are not destinations.
@@ -71,24 +71,26 @@ Map, routing, and state:
 - Show all 26 full gallery titles, stable public Gallery numbers, 26 curated/open states, the Grand Entrance, through route, crosscut, five turn courts, final threshold, current position, facing arrow, and two closed reserves.
 - The complete map, gallery list, current-location information, legend, and curated fast-travel controls must fit at 1920 × 1080 without scrolling.
 - Preserve every existing direct gallery/exhibit URL, directory entry, guided visit, fast travel, reset, Back/Forward behavior, and interaction.
-- Migrate saved sessions by stable gallery/room/exhibit ID. Never replay old raw world coordinates into the new building.
+- Resolve saved sessions by stable gallery/room/exhibit ID. Never replay obsolete raw world coordinates into the current building.
 - Walking directions use only physically crossable connections. Map proximity never implies a connection or philosophical influence.
 
-Performance and implementation setup:
+Performance and implementation safeguards:
 
-- Build the new manifest and building beside the current runtime and keep the current manifest as rollback until the new building passes.
-- Prefer one manifest compiler/source over duplicated hand-authored transforms.
-- Extend the existing lazy-loading/residency solution. Initial Museum load may mount the Grand Entrance, nearby lightweight architecture, and lightweight map data only.
+- Preserve `museumContinuousEnfiladeManifest.json` as the physical source of truth and keep its validated runtime entry point, map projection, routing, collision, and session behavior in agreement.
+- Prefer one manifest/compiler source over duplicated hand-authored transforms.
+- Preserve the existing lazy-loading/residency solution. Initial Museum load may mount the Grand Entrance, nearby lightweight architecture, and lightweight map data only.
 - Do not import or initialize curated-gallery media except for the active/prepared threshold target.
 - A crossing becomes available only after target code, nearest-room media where applicable, collision, safe arrival, and scene commit are ready.
 - The map must not import Three.js hall scenes or media modules.
-- Cut over the building manifest, map, directory state, session resolver, and entrance together. Do not ship a mixed old/new building.
+- If an approved architecture change affects the manifest, update the rendered building, map, directory state, session resolver, collision, and entrance behavior atomically. Do not ship mixed physical and navigation truth.
 
 Verification before release:
 
-- Extend `npm run validate:museum-building-plan` so it compares the implemented runtime manifest and compiled geometry to the approved JSON—not merely the planning file to itself.
-- Encode all 26 hall transforms, 105 rooms, six crosscut intersections, five turn-court endpoints/lengths, entrance, final threshold, planned/open states, two reserves, no-overlap, and no-gallery-piercing rules in executable audits.
+- Keep `npm run validate:museum-building-plan` comparing the implemented runtime manifest and compiled geometry to the approved JSON—not merely the planning file to itself.
+- Preserve executable coverage for all 26 hall transforms, 105 named rooms or zones, 100 physical spatial cells, six crosscut intersections, five turn-court endpoints/lengths, entrance, final threshold, 26 curated/open states, zero planned shells, two reserves, no-overlap, and no-gallery-piercing rules.
 - Run:
+  - `npm run check:museum-building`
+  - `npm run check:route-manifest`
   - `npm run build`
   - `npm run validate:museum-masterplan`
   - `npm run validate:museum-building-plan`
@@ -97,6 +99,8 @@ Verification before release:
   - `npm run audit:museum-assets`
   - `npm run audit:articles`
   - `npm run audit:accuracy`
+  - `npm run audit:integrity`
+  - `npm run report:bundle`
   - `git diff --check`
 - Run the local app and verify HTTP 200.
 - Use risk-scoped browser checks for the changed galleries and affected architecture, plus one representative through-route and map pass. Do not repeat the entire unchanged building merely to increase the test count.
@@ -108,20 +112,20 @@ Verification before release:
 Deployment:
 
 - Stage only intended files. Do not include unrelated user files or changes from other conversations.
-- Commit the complete building migration and push the production branch.
+- Commit only the scoped maintenance release and push the production branch when deployment is authorized.
 - Wait for GitHub Pages deployment to succeed.
 - Recheck the Grand Entrance, map, changed gallery entries, representative interactions and imagery, affected movement, direct URLs, and browser console on the live production site.
-- Do not stop with unpushed local work.
+- When deployment is authorized, do not stop with unpushed local work or an unverified production workflow.
 
 In the final report provide:
 
-- production links;
+- production links when deployed;
 - commit hash;
 - exact counts for curated galleries, rooms, crosscut intersections, turn courts, and reserves;
 - major files changed;
 - checks run and results;
 - local and production visual-verification result;
-- deployment result;
+- deployment result when deployment was requested;
 - any real limitations or approved control-plan amendments;
 - the exact recommended prompt for the next museum-quality release.
 

@@ -1,6 +1,8 @@
 # Canonical six-hall Museum screenshot index
 
-Captured from the local Vite app on the `codex/museum-canonical-six` feature branch. The 1920×1080 set covers every permanent entrance, one staged room viewpoint per hall, all presentation tiers that actually occur in the approved program, the physical visitor map, a blocked future interface, and the outer-loop approach. Responsive evidence covers 1365×768, 390×844, and 320×568.
+> **Historical visual evidence only.** These captures predate the complete 26-gallery Continuous Enfilade, the current Gallery 06 arrangement, and the later gallery releases. They must not be used as proof of the current deployed layout. See the [documentation map](../../README.md) for current authorities.
+
+Captured from the local Vite app on the `codex/museum-canonical-six` feature branch. At that checkpoint, the 1920×1080 set covered every then-permanent entrance, one staged room viewpoint per hall, the presentation tiers in that six-hall program, the physical visitor map, a blocked future interface, and the outer-loop approach. Responsive evidence covered 1365×768, 390×844, and 320×568.
 
 ## Entrances
 
@@ -18,7 +20,7 @@ Captured from the local Vite app on the `codex/museum-canonical-six` feature bra
 - `09-supporting-anaximenes-1920x1080.png`
 - `10-archive-leucippus-1920x1080.png`
 
-The approved live program contains no cluster exhibits, so there is no fabricated cluster screenshot. The audited tier totals are 30 anchor, 25 standard, 3 supporting, 0 cluster, and 1 gallery archive/study-wall record.
+The checkpoint program contained no cluster exhibits, so there is no fabricated cluster screenshot. Its then-audited tier totals were 30 anchor, 25 standard, 3 supporting, 0 cluster, and 1 gallery archive/study-wall record. These totals are historical and do not describe the current 189-primary, 595-stop Museum.
 
 ## Map, rooms, and circulation
 
@@ -39,3 +41,5 @@ The approved live program contains no cluster exhibits, so there is no fabricate
 - `22-krishnamurti-mobile-320x568.png`
 
 The 320px capture deliberately shows the scrollable interpretation panel and its persistent article/return actions. The 390px capture shows the compact header, search, entrance card, and Museum control rail together.
+
+For current visual review, use the deployed site or capture a fresh production build. No image in this directory should be promoted as a current README hero without being replaced and re-verified.

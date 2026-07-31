@@ -41,7 +41,7 @@ Those margins are walls and building services. They are not public gaps and do n
 
 ## The complete physical route
 
-“Visit” below means architectural sequence. “Gallery” remains the stable public release number. Existing Gallery 01–26 numbers and URLs do not change when a planned shell is promoted.
+“Visit” below means architectural sequence. “Gallery” remains the stable public release number. During the completed staged rollout, Gallery 01–26 numbers and URLs did not change as shells moved from planned to curated/open; all 26 are now curated/open.
 
 | Visit | Public gallery | Full gallery title | Current production state |
 | ---: | ---: | --- | --- |
@@ -117,7 +117,7 @@ At the architectural migration and through subsequent gallery promotions:
 - every interaction, article link, image, attribution, guided stop, and route is production-backed;
 - all 26 galleries are counted as curated/open and are available through walking and fast travel.
 
-Future sequential galleries divide the 56 m long axis into equal named room spans unless their curation later justifies an authored adjustment. Four-room crossroads galleries use four independent quadrants. Enlightenment, Revolution, and Kant uses four perimeter rooms plus a distinct central Kant room. The current nine-room Forum layout is preserved.
+Sequential galleries divide the 56 m long axis into authored named room spans. Ordinary four-room crossroads galleries use four independent quadrants. Enlightenment, Revolution, and Kant uses four perimeter rooms plus a distinct central Kant room. The Core Questions Forum preserves nine named semantic routes in the directory and guided visit while arranging its 25 installations inside four physical question bays around the open cardinal cross. The complete program therefore retains 105 named rooms or zones while the rendered galleries use 100 physical spatial cells.
 
 The staging state is complete: visitors can understand the final building and reach every curated hall on foot or by fast travel. The map must show **26 curated/open galleries**.
 
@@ -156,7 +156,7 @@ The current residency solution remains authoritative:
 - 6 m approach preparation;
 - 96 MiB decoded-texture budget.
 
-The new building extends that pattern instead of mounting 26 galleries at Museum startup. Entrance controls, nearby architecture, and lightweight map metadata may load initially. Curated hall code and media load only for the active or prepared threshold target.
+The production building preserves that pattern instead of mounting 26 galleries at Museum startup. Entrance controls, nearby architecture, and lightweight map metadata may load initially. Curated hall code and media load only for the active or prepared threshold target.
 
 The map imports plan metadata, not Three.js hall scenes. A threshold becomes crossable only after its target code, nearest-room media, collision, safe arrival, and scene commit are ready.
 
@@ -180,7 +180,7 @@ They begin as solid construction walls and do not appear as open map destination
 ### Phase B — architecture-only preview
 
 1. Build the entrance, six shared-wall bands, crosscut, Forum bay, turn courts, final threshold, and both closed reserves.
-2. Generate all future room shells with honest planned status; the architecture cutover left eight planned, the Gallery 20–21 promotions left six, the Gallery 19/22 promotions left four, the Gallery 23–24 promotions left two, and the Gallery 26 promotion leaves one.
+2. Generate all future room shells with honest planned status; the architecture cutover left eight planned, the Gallery 20–21 promotions left six, the Gallery 19/22 promotions left four, the Gallery 23–24 promotions left two, the Gallery 26 promotion left one, and the Gallery 25 promotion completed the 26-gallery roster.
 3. Add collision, thresholds, safe arrivals, generic local lighting, facing-aware map geometry, and browser-visible development diagnostics.
 4. Keep the preview private until the complete manifest passes; production cut over only after that gate.
 
@@ -235,16 +235,16 @@ They begin as solid construction walls and do not appear as open map destination
 The plan is implemented; no discovered issue makes it impossible. Two limitations are real:
 
 1. The full chronological route is long because the galleries are genuinely large. The crosscut, guided routes, and fast travel are necessary parts of normal use, not optional polish.
-2. The migration is a building-level release. It should not be attempted as a series of production corridor patches; all current halls, routes, map projection, and session arrivals must cut over together.
+2. Architecture-wide changes remain atomic maintenance work: the manifest, rendered geometry, collision, routes, map projection, and session arrivals must agree in the same release rather than shipping as piecemeal corridor patches.
 
 ## Construction authority
 
-For runtime maintenance and each future gallery-curation release, treat these as the ordered sources of truth:
+For runtime maintenance, substantial gallery refits, and any separately approved expansion, treat these as the ordered sources of truth:
 
 1. [single-level-building-plan.json](./single-level-building-plan.json) — coordinates, states, numbering, route, crosscut, entrance, reserves, and implementation contracts;
 2. [hall-program.json](./hall-program.json) — 26 gallery identities and all 105 room identities;
 3. [exhibit-wall-standard.md](./exhibit-wall-standard.md) — physical curation and wall-slot rules;
-4. the current runtime hall definitions and audits — exact populated Gallery 01–24 content and local architecture;
-5. [migration-plan.md](./migration-plan.md) — safe cutover procedure.
+4. the current runtime hall definitions and audits — exact populated Gallery 01–26 content and local architecture;
+5. [migration-plan.md](./migration-plan.md) — historical cutover record and the change-control lessons that remain applicable.
 
 Do not improvise a new gallery position, orientation, shortcut, side doorway, corridor, entrance, or reserve during implementation. If a measured conflict appears, stop and amend this control plan before changing runtime geometry.

@@ -61,7 +61,7 @@ This makes Aristotle ancient in his primary placement while allowing major appea
 
 ### Navigation implications
 
-The approved visitor sequence begins in the Core Questions Forum, where nine portals explain the museum's question vocabulary and point outward. From there, visitors may take a broadly historical sweep, enter a cultural-historical wing, or follow a highlighted question route across several wings. Wing-level loops should return to a recognizable crossroads rather than force a complete linear traversal. Color denotes wing, while separate visual grammars denote period, transmission, disagreement, and secondary association.
+The built visitor sequence begins in the Grand Entrance and continues through Gallery 01 along the historical-cultural through route. The Core Questions Forum remains the program's conceptual comparison entry: visitors can reach it at visit position 11, from the north–south crosscut, or directly through the map and directory. Its nine semantic routes are organized inside four physical question bays and point outward across the collection. The Continuous Enfilade and crosscut provide recognizable returns and alternatives without pretending that the building contains wing-level loops. Color denotes wing, while separate visual grammars denote period, transmission, disagreement, and secondary association.
 
 ### Expansion implications
 

@@ -20,8 +20,6 @@
     "audit:integrity": "node scripts/auditReferentialIntegrity.mjs",
     "report:coverage": "node scripts/reportContentCoverage.mjs",
     "report:bundle": "node scripts/reportBundle.mjs",
-    "generate:museum-diagram": "node scripts/generateMuseumRingPilotDiagram.mjs",
-    "check:museum-diagram": "node scripts/generateMuseumRingPilotDiagram.mjs --check",
     "preview": "vite preview"
   },
   "dependencies": {
