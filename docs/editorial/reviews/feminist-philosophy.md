@@ -4,7 +4,7 @@
 - Visitor route: `#/branches/feminist-philosophy`
 - Review date: 2026-07-31
 - Authored and effective status: `claim-reviewed`
-- Stored review lock: `fnv1a64:0b0ccd2b6bf09e28`
+- Stored review lock: `fnv1a64:3eb99e42640e77d1`
 - Article depth: 3,631 baseline words; 3,065 final words; 3,631 words removed and 3,065 substantive words added; net change −566
 
 ## Method and boundaries
@@ -15,7 +15,7 @@ The word counter includes only Unicode word tokens in `articleSections[].paragra
 
 ## Sources consulted
 
-The source set includes the 2026 SEP field overview; specialist SEP articles on political philosophy, ethics, epistemology and philosophy of science, sex and gender, trans issues, Latin American feminism, and disability; Kimberlé Crenshaw’s 1989 law-review article; Mary Wollstonecraft’s *Vindication* as a primary text; and Linda Nicholson’s peer-reviewed critique of the wave metaphor. The Library of Congress record for the Combahee River Collective Statement is further reading only and does not count as evidence.
+The source set includes the 2026 SEP field overview; specialist SEP articles on political philosophy, ethics, epistemology and philosophy of science, sex and gender, trans issues, Latin American feminism, and disability; Kimberlé Crenshaw’s 1989 law-review article; Mary Wollstonecraft’s *Vindication* as a primary text; and Linda Nicholson’s published critique of the wave metaphor. The Library of Congress record for the Combahee River Collective Statement is further reading only and does not count as evidence. The Feminist Ethics section locators were independently checked and corrected where a prior label did not exist in the cited version.
 
 ## Claims retained
 

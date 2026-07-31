@@ -4,7 +4,7 @@
 - Visitor route: `#/philosophers/nagarjuna`
 - Review date: 2026-07-31
 - Authored and effective status: `claim-reviewed`
-- Stored review lock: `fnv1a64:a626e5ec56d63fd3`
+- Stored review lock: `fnv1a64:57b6a52d533c9f50`
 - Article depth: 1,805 baseline words; 3,007 final words; 1,805 words removed and 3,007 substantive words added; net change +1,202
 
 ## Method and boundaries
@@ -15,7 +15,7 @@ The word counter includes only Unicode word tokens in `articleSections[].paragra
 
 ## Sources consulted
 
-The principal secondary sources were Jan Christoph Westerhoff’s 2026 SEP article, Douglas Berger’s IEP overview, Dan Arnold’s IEP account of Madhyamaka, and Sonam Thakchoe’s SEP article on the Indian two-truths tradition. The primary-text evidence uses the accessible first chapter of Siderits and Katsura’s translation of the *Mūlamadhyamakakārikā* and does not imply that the preview supplies the whole work. Richard Hayes’s SEP *Madhyamaka* article is further reading only and does not count toward evidence coverage.
+The principal secondary sources were Jan Christoph Westerhoff’s 2026 SEP article, Douglas Berger’s IEP overview, Dan Arnold’s IEP account of Madhyamaka, and Sonam Thakchoe’s SEP article on the Indian two-truths tradition. The primary-text evidence uses the accessible Wisdom Publications excerpt of chapters 1 and 24 from Siderits and Katsura’s translation of the *Mūlamadhyamakakārikā*; the page’s primary citations use chapter 1 and do not imply that the excerpt supplies the whole work. SEP and IEP section locators were independently reconciled with the cited versions’ tables of contents. Richard Hayes’s SEP *Madhyamaka* article is further reading only and does not count toward evidence coverage.
 
 ## Claims retained
 

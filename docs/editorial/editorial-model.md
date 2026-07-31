@@ -1,5 +1,7 @@
 # Editorial data model
 
+Philosophy Atlas is an independent educational project, not a peer-reviewed journal or independently reviewed academic publication. AI-assisted tools may contribute to drafting, coding, synthesis, review organization, and consistency checks, but AI output is never treated as a source. The public statuses describe the recorded editorial process; they do not confer academic validation.
+
 The editorial layer is backward compatible. Legacy article paragraphs remain strings and legacy `sourceLinks` remain further-reading references. A reviewed page may instead use structured paragraphs with stable claim IDs and citation references.
 
 ## Source and citation records
@@ -20,7 +22,7 @@ The interface uses descriptive labels rather than terms such as â€œfact-checkedâ
 
 ## Article completeness is a separate hard requirement
 
-Every applicable canonical full educational article must contain at least 2,000 substantive article-prose words. The applicable registry includes all philosopher articles, all philosophy/branch/school/tradition/movement/method/framework articles, and any future standalone article-backed work, text, argument, concept, or major Museum exhibit. Short plaques, captions, drawers, timeline entries, and Museum panels that route to one canonical article are supporting surfaces, not duplicate full articles.
+Every applicable canonical full educational article must contain at least 2,000 substantive article-prose words. This is a Philosophy Atlas product-depth policy, not an academic standard. The applicable registry includes all philosopher articles, all philosophy/branch/school/tradition/movement/method/framework articles, and any future standalone article-backed work, text, argument, concept, or major Museum exhibit. Short plaques, captions, drawers, timeline entries, and Museum panels that route to one canonical article are supporting surfaces, not duplicate full articles.
 
 The counter tokenizes only text in canonical `articleSections[].paragraphs`; it excludes titles and headings, metadata, citation and source records, reading lists, image data, interface copy, and duplicated rendering. There are no exemptions. Current failures are a migration backlog recorded by `npm run report:depth`, and `npm run audit:articles` remains a strict failing audit until that backlog is eliminated.
 
@@ -30,7 +32,7 @@ The floor measures completeness, not credibility. Reaching it does not establish
 
 The deterministic review snapshot includes visitor-facing prose and structured facts, source links, editorial citations, and editorial source metadata. Presentation-only fields such as colors, icons, and images are excluded. Review bookkeeping and the lock itself are also excluded.
 
-The snapshot is serialized with sorted object keys and hashed with a stable 64-bit FNV-1a implementation. This is a change detector, not a cryptographic signature or proof of correctness. Both the browser and the editorial audit use the same implementation. A change to a reviewed claim, citation locator, or cited-source record therefore removes the current-review badge until a reviewer records a new lock.
+The snapshot is serialized with sorted object keys and hashed with a stable 64-bit FNV-1a implementation. The stored lock is a literal review artifact, not a value recomputed and saved when data loads. This is a change detector, not a cryptographic signature or proof of correctness. Both the browser and the editorial audit use the same implementation. A change to a reviewed claim, citation locator, or cited-source record therefore removes the current-review badge until a reviewer completes a new review and deliberately records a new lock.
 
 ## Accessibility and routing
 

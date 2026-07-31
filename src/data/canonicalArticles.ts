@@ -1,4 +1,5 @@
 import type {ArticleSection} from '../types/philosophy';
+import type {EditorialRecord} from '../editorial/reviewLock';
 import {branches} from './branches';
 import {philosophers} from './philosophers';
 import {standaloneArticles, type StandaloneArticleCategory} from './standaloneArticles';
@@ -11,6 +12,7 @@ export type CanonicalArticle = {
   category: CanonicalArticleCategory;
   visitorEntryPoint: string;
   articleSections: ArticleSection[] | undefined;
+  editorialRecord: EditorialRecord;
 };
 
 export const canonicalArticles: readonly CanonicalArticle[] = [
@@ -20,6 +22,7 @@ export const canonicalArticles: readonly CanonicalArticle[] = [
     category: 'philosopher' as const,
     visitorEntryPoint: `#/philosophers/${encodeURIComponent(record.id)}`,
     articleSections: record.articleSections,
+    editorialRecord: record,
   })),
   ...branches.map((record) => ({
     canonicalId: record.id,
@@ -27,6 +30,7 @@ export const canonicalArticles: readonly CanonicalArticle[] = [
     category: 'philosophy' as const,
     visitorEntryPoint: `#/branches/${encodeURIComponent(record.id)}`,
     articleSections: record.articleSections,
+    editorialRecord: record,
   })),
   ...standaloneArticles.map((record) => ({
     canonicalId: record.id,
@@ -34,5 +38,6 @@ export const canonicalArticles: readonly CanonicalArticle[] = [
     category: record.category,
     visitorEntryPoint: record.visitorEntryPoint,
     articleSections: record.articleSections,
+    editorialRecord: record,
   })),
 ];

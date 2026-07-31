@@ -360,7 +360,7 @@ main{min-height:calc(100dvh - 120px)}
 .legacy-reference-list a{display:inline-flex;align-items:center;gap:5px;width:fit-content;font-size:.81rem;font-weight:700}
 .legacy-reference-list small{color:var(--muted);font-size:.71rem}
 .methodology-page{max-width:1120px;margin:0 auto;padding-bottom:80px}
-.methodology-hero{max-width:820px;padding:42px 0 28px}
+.methodology-hero{position:static;top:auto;z-index:auto;display:block;max-width:820px;padding:42px 0 28px;border:0;background:transparent;backdrop-filter:none}
 .methodology-hero h1{margin:10px 0 14px;font-size:clamp(2.2rem,5vw,4.7rem);line-height:.98;letter-spacing:-.045em}
 .methodology-hero>p{max-width:760px;margin:0;color:var(--muted);font-size:1.04rem;line-height:1.75}
 .methodology-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:10px 0 46px}

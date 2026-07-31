@@ -1,5 +1,45 @@
-import type {ArticleSection, EditorialSource, Philosopher} from '../../types/philosophy';
-import {citation as c, finalizeClaimReviewedRecord, paragraph as p, structuredClaim as claim} from './pilotHelpers';
+import type {ArticleSection, CitationLocatorKind, EditorialSource, Philosopher} from '../../types/philosophy';
+import {citation as rawCitation, paragraph as p, structuredClaim as claim} from './pilotHelpers';
+
+const verifiedLocatorReplacements: Record<string, readonly [string, string][]> = {
+  'nag-sep': [
+    ['2. Svabhāva', '2. Emptiness and svabhāva'],
+    ['3. The arguments against svabhāva', '3. Arguments against svabhāva'],
+    ['4. Emptiness', '2. Emptiness and svabhāva; 3.5 Language and truth'],
+    ['5. The nature of Madhyamaka', '3.4 Knowledge; 3.5 Language and truth; 4. Conclusion'],
+    ['6. Influence', '4. Conclusion'],
+    ['3–5', '3–4'],
+    ['2–5', '2–4'],
+    ['2–6', '2–4'],
+    ['5–6', '4. Conclusion'],
+    ['4–5', '4. Conclusion'],
+  ],
+  'nag-iep': [
+    ['2. Sunyata and Svabhava', '2. Nagarjuna’s Skeptical Method and its Targets; 3. Against Worldly and Ultimate Substantialism'],
+    ['3. The Perfection of Wisdom', '3. Against Worldly and Ultimate Substantialism; 5. The New Buddhist Space and Mission'],
+    ['4. The Limits of Thought', '4. Against Proof'],
+  ],
+  'nag-madhyamaka-iep': [
+    ['1. The Abhidharma Context', '1. Nāgārjuna and the Paradoxical “Perfection of Wisdom” Literature; 2.a. The “Two Truths” in Buddhist Abhidharma'],
+    ['2. Nāgārjuna and the Middle Way', '2. The Basic Philosophical Impulse'],
+    ['3. Two Truths', '2.a–2.c. The Basic Philosophical Impulse; 3. The Question of Self-contradiction'],
+    ['4. Later Developments', '4–7. Historical Development and Reception'],
+  ],
+  'nag-two-truths-sep': [
+    ['3. The Two Truths in Madhyamaka', '4. Madhyamaka'],
+    ['3–4', '4. Madhyamaka'],
+  ],
+};
+
+const c = (sourceId: string, kind?: CitationLocatorKind, value?: string, note?: string) => {
+  const verifiedValue = value === undefined
+    ? undefined
+    : (verifiedLocatorReplacements[sourceId] ?? []).reduce(
+      (current, [obsolete, verified]) => current.replaceAll(obsolete, verified),
+      value,
+    ).split('; ').filter((part, index, parts) => parts.indexOf(part) === index).join('; ');
+  return rawCitation(sourceId, kind, verifiedValue, note);
+};
 
 const sources: EditorialSource[] = [
   {
@@ -47,9 +87,9 @@ const sources: EditorialSource[] = [
     publisher: 'Wisdom Publications',
     year: 2013,
     isbn: '9781614290506',
-    url: 'https://wisdomexperience.org/ebook/nagarjunas-middle-way/mulamadhyamakakarika-by-nagarjuna/1-an-analysis-of-conditions/',
+    url: 'https://wisdomexperience.org/wp-content/uploads/2018/07/Three-Turnings-Lesson-6-Reading.pdf',
     accessedOn: '2026-07-31',
-    note: 'Recognized translation; the linked publisher preview was checked for chapter 1. Claims about other chapters use the specialist sources below rather than pretending the preview supplied inaccessible text.',
+    note: 'Recognized translation; the accessible publisher excerpt was checked for chapters 1 and 24. Primary-text citations on this page use chapter 1; specialist sources support discussion beyond the excerpted verses.',
   },
   {
     id: 'nag-two-truths-sep',
@@ -241,7 +281,7 @@ const articleSections: ArticleSection[] = [
 
 export const applyNagarjunaEditorial = (record: Philosopher): Philosopher => {
   if (record.id !== 'nagarjuna') return record;
-  return finalizeClaimReviewedRecord({
+  return {
     ...record,
     name: 'Nāgārjuna',
     lifespan: 'c. 150–250 CE; chronology uncertain',
@@ -323,7 +363,9 @@ export const applyNagarjunaEditorial = (record: Philosopher): Philosopher => {
         reviewedOn: '2026-07-31',
         method: 'Full visitor-page claim review with cross-tradition terminology safeguards, attribution review, translation checks, explicit interpretive disagreement, reuse reconciliation, and automated lock validation.',
         reviewNotePath: 'docs/editorial/reviews/nagarjuna.md',
+        lock: 'fnv1a64:57b6a52d533c9f50',
+        evidencePolicy: {requiredSourceTypes: ['primary-text']},
       },
     },
-  });
+  };
 };

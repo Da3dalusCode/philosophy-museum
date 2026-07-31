@@ -72,7 +72,7 @@ The high-risk-language report is triage only. It does not prove that a sentence 
 
 - `npm run report:depth` regenerates every canonical count, failure ID, and Museum backing map.
 - `npm run audit:articles` remains the strict universal audit and will fail until all 189 applicable records pass.
-- `npm run audit:articles:pilots` verifies the three completed pilot pages.
+- `npm run audit:articles:reviewed` dynamically verifies every claim-reviewed page; `audit:articles:pilots` remains a historical cohort check.
 - `npm run report:editorial` regenerates status totals and high-risk triage.
 - `npm run audit:editorial` validates the source model, citations, review notes, depth/status rule, and locks.
 

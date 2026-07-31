@@ -1,5 +1,40 @@
-import type {ArticleSection, EditorialSource, Philosopher} from '../../types/philosophy';
-import {citation as c, finalizeClaimReviewedRecord, paragraph as p, structuredClaim as claim} from './pilotHelpers';
+import type {ArticleSection, CitationLocatorKind, EditorialSource, Philosopher} from '../../types/philosophy';
+import {citation as rawCitation, paragraph as p, structuredClaim as claim} from './pilotHelpers';
+
+const verifiedLocatorReplacements: Record<string, readonly [string, string][]> = {
+  'soc-sep': [
+    ['1. The Socratic problem', '2. The Socratic problem: Who was Socrates really?'],
+    ['2. The historical Socrates', '3. A Chronology of the historical Socrates'],
+    ['2.2 Biography and trial', '3. A Chronology of the historical Socrates'],
+    ['1.1 Aristophanes', '2.1 Three primary sources: Aristophanes, Xenophon, and Plato'],
+    ['1.2 Xenophon; 1.3 Plato; 1.4 Aristotle', '2.1 Three primary sources: Aristophanes, Xenophon, and Plato; 2.3 Implications for the philosophy of Socrates'],
+    ['2.1 Life; 2.2 Sources for Socrates', '1. Socrates’s strangeness; 2.1 Three primary sources: Aristophanes, Xenophon, and Plato'],
+    ['3. Socrates in Plato', '2.2 Contemporary interpretative strategies'],
+    ['3.1 Socratic ignorance', '1. Socrates’s strangeness; 2.3 Implications for the philosophy of Socrates'],
+    ['4. Socratic ethics', '1. Socrates’s strangeness; 2.3 Implications for the philosophy of Socrates'],
+    ['5. Legacy', '4. Socrates outside philosophy'],
+    ['4–5', '2.3 Implications for the philosophy of Socrates; 4. Socrates outside philosophy'],
+  ],
+  'soc-iep': [
+    ['1. The Historical Socrates', '1.a. The Historical Socrates'],
+    ['2. Life and Trial', '1.a.ii. Later Life and Trial'],
+    ['3.1 Socratic Ignorance', '2.b.i. Socratic Ignorance'],
+    ['3.2 Socratic Method', '3. Method: How Did Socrates Do Philosophy?'],
+    ['3.3 Care of the Soul', '2.b.ii. Priority of the Care of the Soul'],
+    ['3.4 Virtue and Knowledge', '2.c.i. Unity of Virtue; All Virtue is Knowledge'],
+    ['4. Socratic Influence', '4. Legacy: How Have Other Philosophers Understood Socrates?'],
+  ],
+};
+
+const c = (sourceId: string, kind?: CitationLocatorKind, value?: string, note?: string) => {
+  const verifiedValue = value === undefined
+    ? undefined
+    : (verifiedLocatorReplacements[sourceId] ?? []).reduce(
+      (current, [obsolete, verified]) => current.replaceAll(obsolete, verified),
+      value,
+    ).split('; ').filter((part, index, parts) => parts.indexOf(part) === index).join('; ');
+  return rawCitation(sourceId, kind, verifiedValue, note);
+};
 
 const sources: EditorialSource[] = [
   {
@@ -231,7 +266,7 @@ const articleSections: ArticleSection[] = [
 
 export const applySocratesEditorial = (record: Philosopher): Philosopher => {
   if (record.id !== 'socrates') return record;
-  return finalizeClaimReviewedRecord({
+  return {
     ...record,
     name: 'Socrates',
     lifespan: 'c. 470/469–399 BCE',
@@ -321,7 +356,9 @@ export const applySocratesEditorial = (record: Philosopher): Philosopher => {
         reviewedOn: '2026-07-31',
         method: 'Full visitor-page claim review with source comparison, structured-fact review, quote check, reuse reconciliation, and automated lock validation.',
         reviewNotePath: 'docs/editorial/reviews/socrates.md',
+        lock: 'fnv1a64:6e6aff134ff8e585',
+        evidencePolicy: {requiredSourceTypes: ['primary-text']},
       },
     },
-  });
+  };
 };

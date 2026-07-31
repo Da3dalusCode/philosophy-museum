@@ -1,11 +1,17 @@
 import type {
-  Branch,
+  ArticleSection,
   EffectiveEditorialStatus,
   EditorialReviewStatus,
-  Philosopher,
+  PageEditorial,
+  SourceLink,
 } from '../types/philosophy';
 
-export type EditorialRecord = Branch | Philosopher;
+export type EditorialRecord = {
+  id: string;
+  articleSections?: ArticleSection[];
+  sourceLinks?: SourceLink[];
+  editorial?: PageEditorial;
+};
 
 const presentationOnlyKeys = new Set([
   'color',

@@ -19,7 +19,7 @@ const escapeCell = (value) => String(value ?? '').replaceAll('|', '\\|').replace
 
 const markdown = `# Editorial coverage report
 
-Generated: ${result.generatedOn}
+Data as of: ${result.dataAsOf ?? 'no completed claim reviews'}
 
 This report distinguishes bibliographies, mapped evidence, completed claim review, and stale review locks. It also reports article depth, but the hard ${result.policy.articleMinimum.toLocaleString('en-US')}-word completeness requirement is a separate test: length does not establish accuracy, sourcing, or review status.
 

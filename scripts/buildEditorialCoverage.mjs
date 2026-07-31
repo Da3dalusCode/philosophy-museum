@@ -116,28 +116,30 @@ const highRiskWarnings = (record, recordKey) => (record.articleSections ?? []).f
   }),
 );
 
-export const buildEditorialCoverage = async () => {
-  const repoRoot = resolve(fileURLToPath(new URL('..', import.meta.url)));
-  const {philosophers, branches, canonicalArticles, reviewLock} = await loadAppData();
-  const routeManifest = JSON.parse(await readFile(new URL('../src/data/generated/routeManifest.json', import.meta.url), 'utf8'));
-  const records = [
-    ...philosophers.map((record) => ({category: 'philosopher', title: record.name, record})),
-    ...branches.map((record) => ({category: 'philosophy', title: record.name, record})),
-  ];
+export const buildEditorialCoverageFromData = async ({repoRoot, canonicalArticles, routeManifest, reviewLock}) => {
+  const records = canonicalArticles.map((article) => ({
+    category: article.category,
+    title: article.title,
+    visitorEntryPoint: article.visitorEntryPoint,
+    record: article.editorialRecord,
+  }));
   const errors = [];
   const warnings = [];
   const entries = [];
 
-  const canonicalKeys = new Set(canonicalArticles.map(({category, canonicalId}) => `${category}:${canonicalId}`));
+  const routedCanonicalKeys = new Set(canonicalArticles
+    .filter(({category}) => ['philosopher', 'philosophy'].includes(category))
+    .map(({category, canonicalId}) => `${category}:${canonicalId}`));
   const routeKeys = new Set([
     ...(routeManifest.philosophers ?? []).map(({id}) => `philosopher:${id}`),
     ...(routeManifest.branches ?? []).map(({id}) => `philosophy:${id}`),
   ]);
-  for (const key of canonicalKeys) if (!routeKeys.has(key)) errors.push(`${key}: canonical article is missing from the route manifest.`);
-  for (const key of routeKeys) if (!canonicalKeys.has(key)) errors.push(`${key}: route manifest record is missing from canonical article coverage.`);
+  for (const key of routedCanonicalKeys) if (!routeKeys.has(key)) errors.push(`${key}: canonical article is missing from the route manifest.`);
+  for (const key of routeKeys) if (!routedCanonicalKeys.has(key)) errors.push(`${key}: route manifest record is missing from canonical article coverage.`);
 
-  for (const {category, title, record} of records) {
+  for (const {category, title, visitorEntryPoint, record} of records) {
     const recordKey = `${category}:${record.id}`;
+    if (!isNonEmptyString(visitorEntryPoint)) errors.push(`${recordKey}: canonical visitor entry point is required.`);
     const editorial = record.editorial;
     const authoredStatus = reviewLock.authoredEditorialStatus(record);
     const effectiveStatus = reviewLock.effectiveEditorialStatus(record);
@@ -241,12 +243,25 @@ export const buildEditorialCoverage = async () => {
       const citedSecondarySources = citedSources.filter(({type}) =>
         ['scholarly-reference', 'journal-article', 'scholarly-book'].includes(type));
       const citedSecondaryDomains = new Set(citedSecondarySources.map(({url}) => new URL(url).hostname));
-      if (citedSecondarySources.length < 2 || citedSecondaryDomains.size < 2) {
-        errors.push(`${recordKey}: claim review requires at least two independent cited secondary sources.`);
+      const evidencePolicy = review?.evidencePolicy ?? {};
+      const minimumSecondarySources = evidencePolicy.minimumIndependentSecondarySources ?? 2;
+      const minimumSecondaryDomains = evidencePolicy.minimumIndependentSecondaryDomains ?? 2;
+      if (!Number.isInteger(minimumSecondarySources) || minimumSecondarySources < 1) {
+        errors.push(`${recordKey}: minimumIndependentSecondarySources must be a positive integer.`);
       }
-      if (['socrates', 'nagarjuna', 'feminist-philosophy'].includes(record.id)
-          && !citedSources.some(({type}) => type === 'primary-text')) {
-        errors.push(`${recordKey}: this pilot requires cited primary-text evidence.`);
+      if (!Number.isInteger(minimumSecondaryDomains) || minimumSecondaryDomains < 1) {
+        errors.push(`${recordKey}: minimumIndependentSecondaryDomains must be a positive integer.`);
+      }
+      if (citedSecondarySources.length < minimumSecondarySources || citedSecondaryDomains.size < minimumSecondaryDomains) {
+        errors.push(`${recordKey}: claim review requires at least ${minimumSecondarySources} cited secondary sources across ${minimumSecondaryDomains} independent domains.`);
+      }
+      const requiredSourceTypes = evidencePolicy.requiredSourceTypes ?? [];
+      for (const sourceType of requiredSourceTypes) {
+        if (!VALID_SOURCE_TYPES.has(sourceType)) {
+          errors.push(`${recordKey}: evidence policy names invalid source type ${sourceType}.`);
+        } else if (!citedSources.some(({type}) => type === sourceType)) {
+          errors.push(`${recordKey}: claim review requires cited ${sourceType} evidence.`);
+        }
       }
       if (wordCount < ARTICLE_PROSE_WORD_MINIMUM) {
         errors.push(`${recordKey}: claim-reviewed record has ${wordCount} substantive words; minimum is ${ARTICLE_PROSE_WORD_MINIMUM}.`);
@@ -258,9 +273,7 @@ export const buildEditorialCoverage = async () => {
       id: record.id,
       title,
       category,
-      visitorEntryPoint: category === 'philosopher'
-        ? `#/philosophers/${encodeURIComponent(record.id)}`
-        : `#/branches/${encodeURIComponent(record.id)}`,
+      visitorEntryPoint,
       authoredStatus,
       effectiveStatus,
       sourceCount: sources.length,
@@ -277,27 +290,12 @@ export const buildEditorialCoverage = async () => {
     });
   }
 
-  const standaloneArticles = canonicalArticles.filter(({category}) => !['philosopher', 'philosophy'].includes(category));
-  for (const article of standaloneArticles) {
-    entries.push({
-      id: article.canonicalId,
-      title: article.title,
-      category: article.category,
-      visitorEntryPoint: article.visitorEntryPoint,
-      authoredStatus: 'unreviewed',
-      effectiveStatus: 'unreviewed',
-      sourceCount: 0,
-      citedSourceCount: 0,
-      furtherReadingSourceCount: 0,
-      structuredClaimCount: 0,
-      structuredParagraphCount: 0,
-      citationCount: 0,
-      substantiveArticleWordCount: countArticleProseWords(article.articleSections),
-    });
-  }
-
+  const reviewedDates = entries
+    .map(({id, category}) => records.find(({record, category: recordCategory}) => record.id === id && recordCategory === category)?.record.editorial?.review.reviewedOn)
+    .filter(reviewedDateIsValid)
+    .sort();
   return {
-    generatedOn: new Date().toISOString().slice(0, 10),
+    dataAsOf: reviewedDates.at(-1) ?? null,
     policy: {
       articleMinimum: ARTICLE_PROSE_WORD_MINIMUM,
       statusAndDepthAreIndependent: true,
@@ -307,6 +305,13 @@ export const buildEditorialCoverage = async () => {
     warnings,
     errors,
   };
+};
+
+export const buildEditorialCoverage = async () => {
+  const repoRoot = resolve(fileURLToPath(new URL('..', import.meta.url)));
+  const {canonicalArticles, reviewLock} = await loadAppData();
+  const routeManifest = JSON.parse(await readFile(new URL('../src/data/generated/routeManifest.json', import.meta.url), 'utf8'));
+  return buildEditorialCoverageFromData({repoRoot, canonicalArticles, routeManifest, reviewLock});
 };
 
 const reviewedDateIsValid = (value) => isNonEmptyString(value) && ISO_DATE.test(value);

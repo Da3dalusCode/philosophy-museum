@@ -1,6 +1,6 @@
 # Editorial coverage report
 
-Generated: 2026-07-31
+Data as of: 2026-07-31
 
 This report distinguishes bibliographies, mapped evidence, completed claim review, and stale review locks. It also reports article depth, but the hard 2,000-word completeness requirement is a separate test: length does not establish accuracy, sourcing, or review status.
 

@@ -1,4 +1,4 @@
-import type {ArticleSection} from '../types/philosophy';
+import type {ArticleSection, PageEditorial, SourceLink} from '../types/philosophy';
 
 export type StandaloneArticleCategory =
   | 'work'
@@ -14,6 +14,8 @@ export type StandaloneArticle = {
   category: StandaloneArticleCategory;
   visitorEntryPoint: string;
   articleSections: ArticleSection[];
+  sourceLinks?: SourceLink[];
+  editorial?: PageEditorial;
 };
 
 /**

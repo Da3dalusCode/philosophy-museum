@@ -4,7 +4,7 @@
 - Visitor route: `#/philosophers/socrates`
 - Review date: 2026-07-31
 - Authored and effective status: `claim-reviewed`
-- Stored review lock: `fnv1a64:174811fd272155ae`
+- Stored review lock: `fnv1a64:6e6aff134ff8e585`
 - Article depth: 2,702 baseline words; 3,010 final words; 2,702 words removed and 3,010 substantive words added; net change +308
 
 ## Method and boundaries
@@ -34,7 +34,7 @@ The review retained the secure orientation that Socrates was a conspicuous Athen
 
 ## Quotations, disputes, and unresolved questions
 
-No unattributed exact quotation is presented as the historical Socrates’ verbatim speech. Quoted language is either identified as a modern slogan or anchored to a primary text and durable locator. The historical relation among the Platonic, Xenophontic, Aristophanic, and Aristotelian portraits remains unresolved, as do the exact scope of Socrates’ positive ethical commitments, the unity of his inquiry practices, and the weight of political context in the conviction. The profile records those limits instead of selecting one reconstruction as settled fact.
+No unattributed exact quotation is presented as the historical Socrates’ verbatim speech. Quoted language is either identified as a modern slogan or anchored to a primary text and durable locator. SEP and IEP section locators were independently checked against the cited archived/current tables of contents and corrected where earlier labels no longer matched. The historical relation among the Platonic, Xenophontic, Aristophanic, and Aristotelian portraits remains unresolved, as do the exact scope of Socrates’ positive ethical commitments, the unity of his inquiry practices, and the weight of political context in the conviction. The profile records those limits instead of selecting one reconstruction as settled fact.
 
 ## Review acceptance and commands
 

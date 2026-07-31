@@ -1,5 +1,5 @@
 {
-  "generatedOn": "2026-07-31",
+  "dataAsOf": "2026-07-31",
   "policy": {
     "articleMinimum": 2000,
     "statusAndDepthAreIndependent": true,
@@ -262,8 +262,8 @@
       "substantiveArticleWordCount": 3010,
       "reviewNotePath": "docs/editorial/reviews/socrates.md",
       "reviewNoteExists": true,
-      "storedReviewLock": "fnv1a64:174811fd272155ae",
-      "currentReviewLock": "fnv1a64:174811fd272155ae"
+      "storedReviewLock": "fnv1a64:6e6aff134ff8e585",
+      "currentReviewLock": "fnv1a64:6e6aff134ff8e585"
     },
     {
       "id": "plato",
@@ -626,8 +626,8 @@
       "substantiveArticleWordCount": 3007,
       "reviewNotePath": "docs/editorial/reviews/nagarjuna.md",
       "reviewNoteExists": true,
-      "storedReviewLock": "fnv1a64:a626e5ec56d63fd3",
-      "currentReviewLock": "fnv1a64:a626e5ec56d63fd3"
+      "storedReviewLock": "fnv1a64:57b6a52d533c9f50",
+      "currentReviewLock": "fnv1a64:57b6a52d533c9f50"
     },
     {
       "id": "vasubandhu",
@@ -2595,8 +2595,8 @@
       "substantiveArticleWordCount": 3065,
       "reviewNotePath": "docs/editorial/reviews/feminist-philosophy.md",
       "reviewNoteExists": true,
-      "storedReviewLock": "fnv1a64:0b0ccd2b6bf09e28",
-      "currentReviewLock": "fnv1a64:0b0ccd2b6bf09e28"
+      "storedReviewLock": "fnv1a64:3eb99e42640e77d1",
+      "currentReviewLock": "fnv1a64:3eb99e42640e77d1"
     },
     {
       "id": "philosophy-of-religion",

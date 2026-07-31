@@ -78,6 +78,11 @@ export type PageEditorial = {
     method?: string;
     reviewNotePath?: string;
     lock?: string;
+    evidencePolicy?: {
+      minimumIndependentSecondarySources?: number;
+      minimumIndependentSecondaryDomains?: number;
+      requiredSourceTypes?: EditorialSourceType[];
+    };
   };
 };
 

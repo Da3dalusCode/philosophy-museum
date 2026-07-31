@@ -1,5 +1,5 @@
 import type {ArticleSection, Branch, EditorialSource} from '../../types/philosophy';
-import {citation as c, finalizeClaimReviewedRecord, paragraph as p, structuredClaim as claim} from './pilotHelpers';
+import {citation as c, paragraph as p, structuredClaim as claim} from './pilotHelpers';
 
 const sources: EditorialSource[] = [
   {
@@ -263,8 +263,8 @@ const articleSections: ArticleSection[] = [
     id: 'autonomy-agency',
     title: 'Autonomy, agency, and nonideal conditions',
     paragraphs: [
-      p('fem-autonomy-1', 'Feminist philosophers have criticized models of autonomy that picture a person as self-made, socially detached, and free whenever no one issues a direct command. Relational approaches examine how family, education, economic dependence, violence, social norms, and available narratives shape the capacities through which choices are formed and acted upon. This need not replace individual agency with social determination. It asks what relationships and institutions support reflection, self-trust, practical authority, and meaningful options, while recognizing that people exercise agency under conditions they did not choose.', [c('fem-ethics-sep', 'section', '2.2 Ethic of care and relational ethics; 2.4 Non-ideal theory'), c('fem-politics-sep', 'section', '2. Contemporary Approaches and Debates')]),
-      p('fem-autonomy-2', 'Nonideal theory begins from injustice as it is reproduced rather than from perfectly compliant institutions alone. It examines power, history, adaptive preferences, resistance, compromise, and the unequal risks attached to action. The approach raises its own questions: how should theory identify injustice without a normative standard, when does attention to feasibility become resignation, and whose account of lived constraint guides the diagnosis? Feminist philosophers answer differently. The shared lesson is that a recommendation can be formally universal yet practically unavailable to people whose material and social conditions the theory leaves unexamined.', [c('fem-ethics-sep', 'section', '2.4 Non-ideal theory'), c('fem-politics-sep', 'section', '1–2')]),
+      p('fem-autonomy-1', 'Feminist philosophers have criticized models of autonomy that picture a person as self-made, socially detached, and free whenever no one issues a direct command. Relational approaches examine how family, education, economic dependence, violence, social norms, and available narratives shape the capacities through which choices are formed and acted upon. This need not replace individual agency with social determination. It asks what relationships and institutions support reflection, self-trust, practical authority, and meaningful options, while recognizing that people exercise agency under conditions they did not choose.', [c('fem-ethics-sep', 'section', '2.2 Ethic of care and relational ethics; 2.4.3 Moral contractarianism'), c('fem-politics-sep', 'section', '2. Contemporary Approaches and Debates')]),
+      p('fem-autonomy-2', 'Nonideal theory begins from injustice as it is reproduced rather than from perfectly compliant institutions alone. It examines power, history, adaptive preferences, resistance, compromise, and the unequal risks attached to action. The approach raises its own questions: how should theory identify injustice without a normative standard, when does attention to feasibility become resignation, and whose account of lived constraint guides the diagnosis? Feminist philosophers answer differently. The shared lesson is that a recommendation can be formally universal yet practically unavailable to people whose material and social conditions the theory leaves unexamined.', [c('fem-ethics-sep', 'section', 'Introduction; 2.4 Feminist criticisms and expansions of traditional moral theories'), c('fem-politics-sep', 'section', '1–2')]),
     ],
     relatedBranchIds: ['ethics', 'political-philosophy'],
   },
@@ -281,7 +281,7 @@ const articleSections: ArticleSection[] = [
     title: 'Violence, law, and ambivalence about the state',
     paragraphs: [
       p('fem-violence-1', 'Feminist philosophy helped make domestic abuse, sexual violence, harassment, and coercive control visible as political and ethical problems rather than private misfortunes. The analysis concerns credibility, consent, bodily integrity, economic dependence, institutional complicity, and the social conditions under which refusal can be expressed or heard. Legal recognition can provide language and remedies, but law alone does not eliminate unequal power. Policies can fail when they assume one model victim, ignore disability or immigration status, or require people to seek protection from institutions they reasonably distrust.', [c('fem-politics-sep', 'section', '1. Historical Context and Developments; 2. Contemporary Approaches and Debates'), c('fem-ethics-sep', 'section', '2. Themes in feminist ethics')]),
-      p('fem-violence-2', 'This produces disagreement about policing, punishment, and the state. Some feminists seek stronger criminal enforcement and civil protection; others argue that carceral responses can intensify racialized violence, family separation, surveillance, or precarity and advocate prevention, material support, restorative practices, or abolitionist transformation. No formula resolves every case. Philosophical assessment must compare harms, institutional histories, agency, accountability, and feasible protections instead of assuming that more punishment always equals more safety or that criticism of punishment makes immediate danger unreal.', [c('fem-politics-sep', 'section', '2. Contemporary Approaches and Debates; 2.6–2.7'), c('fem-ethics-sep', 'section', '2.3 Intersectionality; 2.4 Non-ideal theory')]),
+      p('fem-violence-2', 'This produces disagreement about policing, punishment, and the state. Some feminists seek stronger criminal enforcement and civil protection; others argue that carceral responses can intensify racialized violence, family separation, surveillance, or precarity and advocate prevention, material support, restorative practices, or abolitionist transformation. No formula resolves every case. Philosophical assessment must compare harms, institutional histories, agency, accountability, and feasible protections instead of assuming that more punishment always equals more safety or that criticism of punishment makes immediate danger unreal.', [c('fem-politics-sep', 'section', '2. Contemporary Approaches and Debates; 2.6–2.7'), c('fem-ethics-sep', 'section', 'Introduction; 2.3 Intersectionality')]),
     ],
     relatedBranchIds: ['political-philosophy', 'ethics'],
   },
@@ -325,7 +325,7 @@ const articleSections: ArticleSection[] = [
 
 export const applyFeministPhilosophyEditorial = (record: Branch): Branch => {
   if (record.id !== 'feminist-philosophy') return record;
-  return finalizeClaimReviewedRecord({
+  return {
     ...record,
     name: 'Feminist Philosophy',
     category: 'Field / family of traditions',
@@ -408,7 +408,9 @@ export const applyFeministPhilosophyEditorial = (record: Branch): Branch => {
         reviewedOn: '2026-07-31',
         method: 'Full visitor-page claim review using multiple subfield specialists, primary interventions, regional and intersectional safeguards, explicit internal disagreement, reuse reconciliation, and automated lock validation.',
         reviewNotePath: 'docs/editorial/reviews/feminist-philosophy.md',
+        lock: 'fnv1a64:3eb99e42640e77d1',
+        evidencePolicy: {requiredSourceTypes: ['primary-text']},
       },
     },
-  });
+  };
 };
