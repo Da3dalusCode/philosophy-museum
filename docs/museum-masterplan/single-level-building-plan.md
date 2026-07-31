@@ -110,7 +110,7 @@ The canonical source already names all **105 rooms** in [hall-program.json](./ha
 
 At the architectural migration and through subsequent gallery promotions:
 
-- the 25 populated galleries remain whole hall-local roots;
+- all 26 curated galleries remain whole hall-local roots;
 - their room partitions, exhibits, imagery, attribution, lighting, signs, guided viewpoints, interactions, and local collision remain intact;
 - Gallery 25 retains every approved room, floor, ceiling, partition, collision wall, doorway, lighting interface, safe arrival, and wall slot;
 - its four curated rooms contain exactly six substantial installations each;

@@ -559,6 +559,19 @@ check('compiled route, crosscut, turn courts, entrance, threshold, and reserves 
   assert.equal(runtime.crosscut.intersections.length, 6);
   assert.equal(runtime.crosscut.clearWidth, 10);
   assert.equal(runtime.nodes.filter(({physicalRole}) => physicalRole === 'crosscut-intersection').length, 5);
+  for (const intersection of plan.crosscut.intersections.filter(({betweenHallIds}) => betweenHallIds)) {
+    const node = runtimeNodeById.get(intersection.id);
+    assert(node?.geometry, `${intersection.id} is missing from the compiled crosscut`);
+    assert.equal(node.geometry.signs.length, 1, `${intersection.id} must expose one orientation sign`);
+    const sign = node.geometry.signs[0];
+    const [westHallId, eastHallId] = intersection.betweenHallIds;
+    assert.equal(sign.kind, 'wayfinding');
+    assert.match(sign.title, /^West · Gallery \d{2} \| East · Gallery \d{2}$/u);
+    assert.match(sign.kicker, /North/u);
+    assert.match(sign.subtitle, /Visitor map: M/u);
+    assert(sign.subtitle.includes(hallById.get(westHallId).title), `${intersection.id} omits its west hall`);
+    assert(sign.subtitle.includes(hallById.get(eastHallId).title), `${intersection.id} omits its east hall`);
+  }
   assert.equal(runtime.nodes.filter(({physicalRole}) => physicalRole === 'turn-court').length, 5);
   assert.equal(runtime.nodes.filter(({physicalRole}) => physicalRole === 'final-return-threshold').length, 1);
   assert.equal(runtime.nodes.filter(({physicalRole}) => physicalRole === 'grand-entrance-orientation').length, 1);

@@ -1,15 +1,18 @@
-import {branches} from '../data/branches';
-import {learningPaths} from '../data/learningPaths';
-import {philosophers} from '../data/philosophers';
 import {
-  getMuseumHallCatalog,
-  getMuseumLegacyExhibitCompatibility,
-  isMuseumExhibitId,
-  isMuseumHallId,
-  MUSEUM_HALL_ROUTE_ALIASES,
   type MuseumExhibitId,
 } from '../data/museumCatalog';
-import {isMuseumSupplementalExhibitId} from '../data/museum/museumSupplementalExhibits';
+import {
+  getRouteLearningPath,
+  getRouteLegacyExhibitCompatibility,
+  getRouteMuseumHall,
+  isRouteBranchId,
+  isRouteLearningPathId,
+  isRouteMuseumHallId,
+  isRouteMuseumPrimaryExhibitId,
+  isRouteMuseumSupplementalExhibitId,
+  isRoutePhilosopherId,
+  MUSEUM_ROUTE_HALL_ALIASES,
+} from '../data/routeManifest';
 import {canonicalizeArticleSection} from './routeMetadata';
 import {
   DEFAULT_ROUTES,
@@ -18,9 +21,6 @@ import {
   type NotFoundRoute,
 } from './routes';
 
-const branchIds = new Set(branches.map(({id}) => id));
-const philosopherIds = new Set(philosophers.map(({id}) => id));
-const learningPathById = new Map(learningPaths.map((path) => [path.id, path]));
 const sectionPattern = /^[A-Za-z0-9][A-Za-z0-9_-]*$/;
 const invalidPercentEscapePattern = /%(?![0-9A-Fa-f]{2})/;
 
@@ -32,13 +32,13 @@ export type ParsedHashRoute = {
   shouldReplace: boolean;
 };
 
-export const isBranchId = (id: string): boolean => branchIds.has(id);
-export const isPhilosopherId = (id: string): boolean => philosopherIds.has(id);
-export const isLearningPathId = (id: string): boolean => learningPathById.has(id);
+export const isBranchId = isRouteBranchId;
+export const isPhilosopherId = isRoutePhilosopherId;
+export const isLearningPathId = isRouteLearningPathId;
 
 export const isValidLearningPathStep = (pathId: string, step: number): boolean => {
-  const path = learningPathById.get(pathId);
-  return Boolean(path && Number.isSafeInteger(step) && step >= 1 && step <= path.steps.length);
+  const path = getRouteLearningPath(pathId);
+  return Boolean(path && Number.isSafeInteger(step) && step >= 1 && step <= path.stepCount);
 };
 
 export const isValidBranchComparison = (leftId: string, rightId: string): boolean =>
@@ -172,13 +172,13 @@ export const parseHashRoute = (hash: string): ParsedHashRoute => {
 
   if (head === 'museum') {
     if (segments.length === 1) return finalize(DEFAULT_ROUTES.museum, hash);
-    const successorHallId = MUSEUM_HALL_ROUTE_ALIASES[second as keyof typeof MUSEUM_HALL_ROUTE_ALIASES];
+    const successorHallId = MUSEUM_ROUTE_HALL_ALIASES[second as keyof typeof MUSEUM_ROUTE_HALL_ALIASES];
     if (successorHallId) {
       if (segments.length === 2) return finalize({kind: 'museum', hallId: successorHallId}, hash);
       if (segments.length !== 4 || third !== 'exhibits') {
         return fail(hash, 'This museum route has an unexpected shape.');
       }
-      const compatibility = getMuseumLegacyExhibitCompatibility(second, fourth);
+      const compatibility = getRouteLegacyExhibitCompatibility(second, fourth);
       if (!compatibility) {
         return fail(hash, `No former exhibit exists with the id “${fourth}” in “${second}”.`);
       }
@@ -196,15 +196,15 @@ export const parseHashRoute = (hash: string): ParsedHashRoute => {
         shouldReplace: false,
       };
     }
-    if (!isMuseumHallId(second)) {
+    if (!isRouteMuseumHallId(second)) {
       return fail(hash, `No museum hall exists with the id “${second}”.`);
     }
     if (segments.length === 2) return finalize({kind: 'museum', hallId: second}, hash);
     if (segments.length !== 4 || third !== 'exhibits') {
       return fail(hash, 'This museum route has an unexpected shape.');
     }
-    if (!isMuseumExhibitId(second, fourth) && !isMuseumSupplementalExhibitId(second, fourth)) {
-      const hall = getMuseumHallCatalog(second);
+    if (!isRouteMuseumPrimaryExhibitId(second, fourth) && !isRouteMuseumSupplementalExhibitId(second, fourth)) {
+      const hall = getRouteMuseumHall(second);
       return fail(hash, `No exhibit exists with the id “${fourth}” in “${hall?.title ?? second}”.`);
     }
     return finalize({kind: 'museum', hallId: second, exhibitId: fourth}, hash);

@@ -15,17 +15,22 @@ const once = <T,>(loader: () => Promise<T>): (() => Promise<T>) => {
   };
 };
 
+const loadHistory = once(() => import('../components/BigHistory/BigHistoryView'));
 const loadMap = once(() => import('../components/PhilosophyMap/PhilosophyMap'));
 const loadBranches = once(() => import('../components/BranchExplorer/BranchExplorer'));
 const loadPhilosophers = once(() => import('../components/PhilosopherProfile/PhilosopherProfile'));
 const loadCompare = once(() => import('../components/Compare/CompareMode'));
 const loadPaths = once(() => import('../components/LearningPaths/LearningPaths'));
 const loadMuseum = once(() => import('../components/MuseumGallery/MuseumPage'));
+const loadMuseumCompatibility = once(() => import('../components/MuseumGallery/MuseumCompatibilityPage'));
 let museumIntentPreloadError: Error | undefined;
 const loadMuseumForNavigation = () => museumIntentPreloadError
   ? Promise.reject(museumIntentPreloadError)
   : loadMuseum();
 
+export const LazyBigHistoryView = lazy(() =>
+  loadHistory().then(({BigHistoryView}) => ({default: BigHistoryView})),
+);
 export const LazyPhilosophyMap = lazy(() =>
   loadMap().then(({PhilosophyMap}) => ({default: PhilosophyMap})),
 );
@@ -44,8 +49,12 @@ export const LazyLearningPaths = lazy(() =>
 export const LazyMuseumPage = lazy(() =>
   loadMuseumForNavigation().then(({MuseumPage}) => ({default: MuseumPage})),
 );
+export const LazyMuseumCompatibilityPage = lazy(() =>
+  loadMuseumCompatibility().then(({MuseumCompatibilityPage}) => ({default: MuseumCompatibilityPage})),
+);
 
 const loaders: Partial<Record<ViewId, () => Promise<unknown>>> = {
+  history: loadHistory,
   map: loadMap,
   branches: loadBranches,
   philosophers: loadPhilosophers,

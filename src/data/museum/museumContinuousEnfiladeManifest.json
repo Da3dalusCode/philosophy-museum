@@ -7124,7 +7124,24 @@
           }
         ],
         "interiorOpenings": [],
-        "signs": []
+        "signs": [
+          {
+            "id": "sign:crosscut-wayfinding:crossing:band-01",
+            "kind": "wayfinding",
+            "title": "West · Gallery 14 | East · Gallery 15",
+            "kicker": "North–South crosscut · ↑ North",
+            "subtitle": "Hellenistic & Roman Ways of Life ↔ Late Antiquity & Neoplatonic Inheritance · Visitor map: M",
+            "position": {
+              "x": -4.8,
+              "y": 2.55,
+              "z": 0
+            },
+            "rotationY": 1.570796326795,
+            "width": 5.6,
+            "height": 1.18,
+            "interactive": false
+          }
+        ]
       },
       "crosscutIntersectionId": "crossing:band-01",
       "betweenProgramHallIds": [
@@ -7320,7 +7337,24 @@
           }
         ],
         "interiorOpenings": [],
-        "signs": []
+        "signs": [
+          {
+            "id": "sign:crosscut-wayfinding:crossing:band-02",
+            "kind": "wayfinding",
+            "title": "West · Gallery 11 | East · Gallery 09",
+            "kicker": "North–South crosscut · ↑ North",
+            "subtitle": "Confucian Renewal & East Asian Continuities ↔ Warring States & Classical Chinese Traditions · Visitor map: M",
+            "position": {
+              "x": -4.8,
+              "y": 2.55,
+              "z": 0
+            },
+            "rotationY": 1.570796326795,
+            "width": 5.6,
+            "height": 1.18,
+            "interactive": false
+          }
+        ]
       },
       "crosscutIntersectionId": "crossing:band-02",
       "betweenProgramHallIds": [
@@ -7516,7 +7550,24 @@
           }
         ],
         "interiorOpenings": [],
-        "signs": []
+        "signs": [
+          {
+            "id": "sign:crosscut-wayfinding:crossing:band-04",
+            "kind": "wayfinding",
+            "title": "West · Gallery 20 | East · Gallery 19",
+            "kicker": "North–South crosscut · ↑ North",
+            "subtitle": "Utility, Liberty, History, and Capital ↔ German Idealism & Romantic Afterlives · Visitor map: M",
+            "position": {
+              "x": -4.8,
+              "y": 2.55,
+              "z": 0
+            },
+            "rotationY": 1.570796326795,
+            "width": 5.6,
+            "height": 1.18,
+            "interactive": false
+          }
+        ]
       },
       "crosscutIntersectionId": "crossing:band-04",
       "betweenProgramHallIds": [
@@ -7712,7 +7763,24 @@
           }
         ],
         "interiorOpenings": [],
-        "signs": []
+        "signs": [
+          {
+            "id": "sign:crosscut-wayfinding:crossing:band-05",
+            "kind": "wayfinding",
+            "title": "West · Gallery 04 | East · Gallery 03",
+            "kicker": "North–South crosscut · ↑ North",
+            "subtitle": "Analytic Traditions: Logic, Language, and Analysis ↔ Phenomenology, Existence, and Embodiment · Visitor map: M",
+            "position": {
+              "x": -4.8,
+              "y": 2.55,
+              "z": 0
+            },
+            "rotationY": 1.570796326795,
+            "width": 5.6,
+            "height": 1.18,
+            "interactive": false
+          }
+        ]
       },
       "crosscutIntersectionId": "crossing:band-05",
       "betweenProgramHallIds": [
@@ -7908,7 +7976,24 @@
           }
         ],
         "interiorOpenings": [],
-        "signs": []
+        "signs": [
+          {
+            "id": "sign:crosscut-wayfinding:crossing:band-06",
+            "kind": "wayfinding",
+            "title": "West · Gallery 25 | East · Gallery 05",
+            "kicker": "North–South crosscut · ↑ North",
+            "subtitle": "Feminist Philosophies ↔ Political Action, Justice, and Democratic Reason · Visitor map: M",
+            "position": {
+              "x": -4.8,
+              "y": 2.55,
+              "z": 0
+            },
+            "rotationY": 1.570796326795,
+            "width": 5.6,
+            "height": 1.18,
+            "interactive": false
+          }
+        ]
       },
       "crosscutIntersectionId": "crossing:band-06",
       "betweenProgramHallIds": [

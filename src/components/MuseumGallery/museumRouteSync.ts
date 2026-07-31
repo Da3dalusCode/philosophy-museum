@@ -6,12 +6,14 @@ export type PendingMuseumHallRouteSync = {
   targetHallId: MuseumHallId;
 };
 
+export type MuseumCommittedPoseOwner = 'transition' | 'travel';
+
 /**
  * A committed physical crossing or map journey already owns the exact target
  * pose. Clearing the one-shot `entrance` URL marker must not reload a semantic
  * room anchor on top of that pose.
  */
-export const shouldPreserveCommittedMuseumPose = ({
+export const getCommittedMuseumPoseOwner = ({
   previousEntry,
   nextEntry,
   routeHallId,
@@ -25,7 +27,17 @@ export const shouldPreserveCommittedMuseumPose = ({
   activeHallId: MuseumHallId;
   pendingTransition: PendingMuseumHallRouteSync | undefined;
   pendingTravel: PendingMuseumHallRouteSync | undefined;
-}): boolean => previousEntry === 'entrance'
-  && nextEntry === undefined
-  && activeHallId === routeHallId
-  && [pendingTransition, pendingTravel].some((pending) => pending?.targetHallId === routeHallId);
+}): MuseumCommittedPoseOwner | undefined => {
+  if (
+    previousEntry !== 'entrance'
+    || nextEntry !== undefined
+    || activeHallId !== routeHallId
+  ) return undefined;
+  if (pendingTransition?.targetHallId === routeHallId) return 'transition';
+  if (pendingTravel?.targetHallId === routeHallId) return 'travel';
+  return undefined;
+};
+
+export const shouldPreserveCommittedMuseumPose = (
+  options: Parameters<typeof getCommittedMuseumPoseOwner>[0],
+): boolean => getCommittedMuseumPoseOwner(options) !== undefined;

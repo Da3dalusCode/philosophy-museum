@@ -487,6 +487,7 @@ const rectangularNode = ({
   bounds,
   mapStatus = 'orientation-open',
   slotSpecs,
+  signs = [],
   metadata = {},
 }) => {
   const transform = {...centerOfBounds(bounds), yaw: 0};
@@ -530,7 +531,7 @@ const rectangularNode = ({
         ceilingHeight: metadata.ceilingHeight ?? 5.8,
       }],
       interiorOpenings: [],
-      signs: [],
+      signs: clone(signs),
     },
     ...metadata,
   };
@@ -585,6 +586,10 @@ publicEntrySlot.arrivalPose.yaw = round(Math.atan2(
 const crossingNodes = plan.crosscut.intersections
   .filter(({betweenHallIds}) => betweenHallIds)
   .map((intersection) => {
+    const [westHallId, eastHallId] = intersection.betweenHallIds;
+    const westHall = planHallById.get(westHallId);
+    const eastHall = planHallById.get(eastHallId);
+    assert(westHall && eastHall, `${intersection.id} does not resolve both crosscut destinations.`);
     const architecturalBounds = {
       minX: plan.crosscut.bounds.minX,
       maxX: plan.crosscut.bounds.maxX,
@@ -592,6 +597,22 @@ const crossingNodes = plan.crosscut.intersections
       maxZ: intersection.zCenter + plan.physicalContract.structuralBandDepth / 2,
     };
     const bounds = planBoundsToRuntime(architecturalBounds);
+    const crosscutWayfindingSign = {
+      id: `sign:crosscut-wayfinding:${intersection.id}`,
+      kind: 'wayfinding',
+      title: `West · Gallery ${galleryNumber(westHall.publicGalleryNumber)} | East · Gallery ${galleryNumber(eastHall.publicGalleryNumber)}`,
+      kicker: 'North–South crosscut · ↑ North',
+      subtitle: `${westHall.title} ↔ ${eastHall.title} · Visitor map: M`,
+      position: {
+        x: round(-(bounds.maxX - bounds.minX) / 2 + .2),
+        y: 2.55,
+        z: 0,
+      },
+      rotationY: round(Math.PI / 2, 12),
+      width: 5.6,
+      height: 1.18,
+      interactive: false,
+    };
     return rectangularNode({
       id: intersection.id,
       kind: 'corridor',
@@ -622,6 +643,7 @@ const crossingNodes = plan.crosscut.intersections
           clearWidth: plan.physicalContract.crosscutClearWidth,
         },
       ],
+      signs: [crosscutWayfindingSign],
       metadata: {
         crosscutIntersectionId: intersection.id,
         betweenProgramHallIds: clone(intersection.betweenHallIds),
@@ -1508,6 +1530,21 @@ const validateManifest = (candidate) => {
   assert.equal(candidate.crosscut.nodeOrder.length, 7);
   assert.equal(candidate.crosscut.forumIntersection.nodeId, candidate.forumNodeId);
   assert.equal(candidate.crosscut.standaloneCrossingNodeIds.length, 5);
+  for (const intersection of plan.crosscut.intersections.filter(({betweenHallIds}) => betweenHallIds)) {
+    const node = compiledNodeById.get(intersection.id);
+    const [westHallId, eastHallId] = intersection.betweenHallIds;
+    const westHall = planHallById.get(westHallId);
+    const eastHall = planHallById.get(eastHallId);
+    assert(node?.geometry, `Missing crosscut intersection ${intersection.id}.`);
+    assert.equal(node.geometry.signs.length, 1, `${intersection.id} must expose one crosscut orientation sign.`);
+    const sign = node.geometry.signs[0];
+    assert.equal(sign.kind, 'wayfinding');
+    assert.match(sign.title, /^West · Gallery \d{2} \| East · Gallery \d{2}$/u);
+    assert.match(sign.kicker, /North/u);
+    assert.match(sign.subtitle, /Visitor map: M/u);
+    assert(sign.subtitle.includes(westHall.title), `${intersection.id} does not name its west gallery.`);
+    assert(sign.subtitle.includes(eastHall.title), `${intersection.id} does not name its east gallery.`);
+  }
 
   const adjacency = new Map(candidate.nodes.map(({id}) => [id, new Set()]));
   for (const {a, b} of candidate.connections) {

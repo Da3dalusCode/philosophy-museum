@@ -86,14 +86,14 @@ Directly adjacent galleries share a 4 m clear threshold. A crosscut pair has a 1
 
 ## Room-architecture decision
 
-The 25 populated halls retain complete hall-local roots. This preserves their current room partitions, installations, media, lighting, signs, interpretation, guided views, and collision.
+All 26 populated halls retain complete hall-local roots. This preserves their current room partitions, installations, media, lighting, signs, interpretation, guided views, and collision.
 
-The remaining Gallery 25 hall uses its approved template to construct every canonical room. The template strategies remain:
+Gallery 25’s completed promotion retains its approved crossroads template and reviewed room authoring. The template strategies remain:
 
 - sequential rooms divide the long axis into equal named spans until curation supplies a reviewed override;
 - four-room crossroads galleries use four independent quadrants;
 - Enlightenment/Revolution/Kant uses four perimeter rooms plus a distinct central Kant room;
-- planned rooms expose geometry and circulation only, not fake exhibits or controls.
+- closed expansion reserves remain structure-only and never masquerade as curated galleries.
 
 This is why the migration remained bounded: populated content did not need to be individually reauthored, while building-level transforms, portals, map projection, safe arrivals, and saved sessions were rebuilt from the control manifest.
 

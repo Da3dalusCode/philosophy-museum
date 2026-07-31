@@ -2,6 +2,7 @@ import type {MuseumHallId} from '../../data/museumCatalog';
 
 export const MUSEUM_VISIT_CONTEXT_VERSION = 2 as const;
 export const MUSEUM_HALL_TRAVEL_CONTEXT_VERSION = 1 as const;
+export const MUSEUM_GUIDED_VISIT_CONTEXT_VERSION = 1 as const;
 
 export type MuseumExhibitOrigin =
   | 'active-exploration'
@@ -25,6 +26,13 @@ export type MuseumHallTravelContext = {
   version: typeof MUSEUM_HALL_TRAVEL_CONTEXT_VERSION;
   hallId: MuseumHallId;
   resumeExploration: true;
+};
+
+export type MuseumGuidedVisitContext = {
+  version: typeof MUSEUM_GUIDED_VISIT_CONTEXT_VERSION;
+  hallId: MuseumHallId;
+  stepIndex: number;
+  phase: 'stop' | 'final-return';
 };
 
 export type MuseumExitTrigger = 'gesture' | 'history';
@@ -78,6 +86,7 @@ export const transitionMuseumVisitPhase = (
 type MuseumHistoryState = {
   philosophyAtlasMuseum?: MuseumExhibitVisitContext;
   philosophyAtlasMuseumTravel?: MuseumHallTravelContext;
+  philosophyAtlasMuseumGuided?: MuseumGuidedVisitContext;
   [key: string]: unknown;
 };
 
@@ -139,6 +148,33 @@ export const parseMuseumHallTravelContext = (
   return value as MuseumHallTravelContext;
 };
 
+export const createMuseumGuidedVisitContext = (
+  hallId: MuseumHallId,
+  stepIndex: number,
+  phase: MuseumGuidedVisitContext['phase'] = 'stop',
+): MuseumGuidedVisitContext => ({
+  version: MUSEUM_GUIDED_VISIT_CONTEXT_VERSION,
+  hallId,
+  stepIndex,
+  phase,
+});
+
+export const parseMuseumGuidedVisitContext = (
+  state: unknown,
+  expectedHallId: MuseumHallId,
+): MuseumGuidedVisitContext | undefined => {
+  if (!isRecord(state) || !isRecord(state.philosophyAtlasMuseumGuided)) return undefined;
+  const value = state.philosophyAtlasMuseumGuided;
+  if (
+    value.version !== MUSEUM_GUIDED_VISIT_CONTEXT_VERSION
+    || value.hallId !== expectedHallId
+    || !Number.isSafeInteger(value.stepIndex)
+    || (value.stepIndex as number) < 0
+    || (value.phase !== 'stop' && value.phase !== 'final-return')
+  ) return undefined;
+  return value as MuseumGuidedVisitContext;
+};
+
 export const museumHistoryStateWithVisitContext = (
   currentState: unknown,
   context: MuseumExhibitVisitContext | undefined,
@@ -153,6 +189,14 @@ export const museumHistoryStateWithHallTravelContext = (
 ): MuseumHistoryState => ({
   ...(isRecord(currentState) ? currentState : {}),
   philosophyAtlasMuseumTravel: context,
+});
+
+export const museumHistoryStateWithGuidedVisitContext = (
+  currentState: unknown,
+  context: MuseumGuidedVisitContext | undefined,
+): MuseumHistoryState => ({
+  ...(isRecord(currentState) ? currentState : {}),
+  philosophyAtlasMuseumGuided: context,
 });
 
 export const resolveMuseumExitPolicy = (

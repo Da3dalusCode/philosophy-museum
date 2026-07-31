@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "compile:route-manifest": "node scripts/compileRouteManifest.mjs",
+    "check:route-manifest": "node scripts/compileRouteManifest.mjs --check",
     "compile:museum-building": "node scripts/compileContinuousEnfiladeManifest.mjs",
     "check:museum-building": "node scripts/compileContinuousEnfiladeManifest.mjs --check",
     "validate:museum-masterplan": "node scripts/validateMuseumMasterplan.mjs",

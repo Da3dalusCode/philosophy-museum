@@ -387,32 +387,6 @@ export function MuseumVisitorMap({
           <LocateFixed size={14}/>
           You are in {currentPhysicalNode?.label ?? 'the Continuous Enfilade'}
         </strong>
-        <div className="museum-visitor-map-destination-row">
-          <p className="museum-visitor-map-destination-heading">Complete gallery directory</p>
-          <span>{curatedCount} fast travel</span>
-        </div>
-        <div className="museum-visitor-map-destinations" aria-label="Select any gallery">
-          {galleriesByPublicNumber.map(({hall, node}) => {
-            const current = node.physicalNodeId === currentNodeId;
-            const isSelected = hall.id === selected.hall.id;
-            return <button
-              key={hall.id}
-              type="button"
-              className="museum-visitor-map-destination"
-              data-state={hall.galleryState}
-              data-current={current ? 'true' : 'false'}
-              data-selected={isSelected ? 'true' : 'false'}
-              aria-current={current ? 'location' : undefined}
-              aria-pressed={isSelected}
-              onClick={() => selectGallery(hall.id)}
-            >
-              <span>G{String(hall.publicGalleryNumber).padStart(2, '0')}</span>
-              <b>{hall.title}</b>
-              <small>{hall.galleryState === 'curated-open' ? 'Open' : 'Walk only'}</small>
-            </button>;
-          })}
-        </div>
-
         <div className="museum-visitor-map-selection">
           <p className="eyebrow">
             {selected.hall.galleryNumber} · Route {String(selected.hall.visitSequence).padStart(2, '0')}
@@ -454,6 +428,32 @@ export function MuseumVisitorMap({
               <span>Installations are planned. Enter from the chronological route or crosscut; fast travel is unavailable.</span>
             </div>}
           <small>Fast travel is available for all 26 curated/open galleries.</small>
+        </div>
+
+        <div className="museum-visitor-map-destination-row">
+          <p className="museum-visitor-map-destination-heading">Complete gallery directory</p>
+          <span>{curatedCount} fast travel</span>
+        </div>
+        <div className="museum-visitor-map-destinations" aria-label="Select any gallery">
+          {galleriesByPublicNumber.map(({hall, node}) => {
+            const current = node.physicalNodeId === currentNodeId;
+            const isSelected = hall.id === selected.hall.id;
+            return <button
+              key={hall.id}
+              type="button"
+              className="museum-visitor-map-destination"
+              data-state={hall.galleryState}
+              data-current={current ? 'true' : 'false'}
+              data-selected={isSelected ? 'true' : 'false'}
+              aria-current={current ? 'location' : undefined}
+              aria-pressed={isSelected}
+              onClick={() => selectGallery(hall.id)}
+            >
+              <span>G{String(hall.publicGalleryNumber).padStart(2, '0')}</span>
+              <b>{hall.title}</b>
+              <small>{hall.galleryState === 'curated-open' ? 'Open' : 'Walk only'}</small>
+            </button>;
+          })}
         </div>
       </aside>
     </div>

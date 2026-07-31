@@ -73,6 +73,7 @@ const forumSupplementalDataSource = source('src/data/museum/coreQuestionsForumSu
 const forumSupplementalSceneSource = source('src/components/MuseumGallery/CoreQuestionsForumSupplementalExhibits.tsx');
 const supplementalPanelSource = source('src/components/MuseumGallery/MuseumSupplementalInterpretationPanel.tsx');
 const interpretationPanelSource = source('src/components/MuseumGallery/MuseumInterpretationPanel.tsx');
+const guidedRouteSource = source('src/components/MuseumGallery/museumGuidedRoute.ts');
 const globalSearchSource = source('src/components/Search/GlobalSearch.tsx');
 const hashRouterSource = source('src/routing/hashRouter.ts');
 const visitorMapSource = source('src/components/MuseumGallery/MuseumVisitorMap.tsx');
@@ -153,6 +154,7 @@ const result = await build({
       export * from '/src/components/MuseumGallery/museumSession.ts';
       export * from '/src/components/MuseumGallery/museumRouteSync.ts';
       export * from '/src/components/MuseumGallery/museumVisitState.ts';
+      export * from '/src/components/MuseumGallery/museumGuidedRoute.ts';
       export * from '/src/components/MuseumGallery/museumWorldTransform.ts';
       export * from '/src/components/MuseumGallery/museumHallTransitions.ts';
       export * from '/src/components/MuseumGallery/museumRuntime.ts';
@@ -389,6 +391,9 @@ const {
   MUSEUM_DECODED_TEXTURE_BUDGET_BYTES,
   MUSEUM_DECODED_TEXTURE_BUDGET_MIB,
   MUSEUM_DIRECTED_CONNECTIONS,
+  MUSEUM_BUILDING_GUIDED_FINAL_HALL_ID,
+  MUSEUM_BUILDING_GUIDED_HALL_ORDER,
+  MUSEUM_BUILDING_GUIDED_STOPS,
   MUSEUM_FAST_WALK_SPEED,
   MUSEUM_HALLS,
   MUSEUM_HALL_TEMPLATE_REGISTRY,
@@ -434,10 +439,14 @@ const {
   circleIntersectsCollider,
   clampFrameDelta,
   createMuseumExhibitVisitContext,
+  createMuseumGuidedVisitContext,
   createMuseumHallTravelContext,
   createMuseumInputState,
   estimateMuseumHallTextureResidency,
   hasMuseumBrowserModifier,
+  getCommittedMuseumPoseOwner,
+  getMuseumBuildingGuidedHallStartIndex,
+  getMuseumBuildingGuidedStopIndex,
   getMuseumGuidedStops,
   isValidMuseumPosition,
   legacyMuseumSessionStorageKey,
@@ -449,6 +458,7 @@ const {
   museumPoseFromWorld,
   museumPoseToWorld,
   parseMuseumExhibitVisitContext,
+  parseMuseumGuidedVisitContext,
   parseMuseumHallTravelContext,
   parseMuseumSession,
   positionInsideSpatialUnion,
@@ -630,6 +640,69 @@ check('committed hall crossings survive the one-shot entrance route marker clear
     pendingTransition: {sourceHallId, targetHallId},
     pendingTravel: undefined,
   }), false, 'An uncommitted crossing was incorrectly treated as complete');
+  const sameHallTransition = {
+    sourceHallId,
+    targetHallId: sourceHallId,
+  };
+  assert.equal(getCommittedMuseumPoseOwner({
+    previousEntry: 'entrance',
+    nextEntry: undefined,
+    routeHallId: sourceHallId,
+    activeHallId: sourceHallId,
+    pendingTransition: sameHallTransition,
+    pendingTravel: undefined,
+  }), 'transition', 'Walking from the Grand Entrance into Gallery 01 lost its committed crossing');
+  assert.equal(getCommittedMuseumPoseOwner({
+    previousEntry: 'entrance',
+    nextEntry: undefined,
+    routeHallId: sourceHallId,
+    activeHallId: sourceHallId,
+    pendingTransition: undefined,
+    pendingTravel: sameHallTransition,
+  }), 'travel', 'Fast travel from the Grand Entrance into Gallery 01 lost its committed arrival');
+  assert.match(museumPageSource, /previousHallId !== targetHallId \|\| clearsEntranceRoute/u);
+  assert.match(museumPageSource, /hallId !== sourceHallId \|\| sourceAtGrandEntrance/u);
+  assert.match(museumPageSource, /previousHallIdRef\.current === route\.hallId/u);
+});
+
+check('guided visit follows the physical 26-gallery route and ends at Final Return', () => {
+  assert.deepEqual(
+    MUSEUM_BUILDING_GUIDED_HALL_ORDER,
+    MUSEUM_BUILDING_MANIFEST.throughRoute.hallOrder,
+    'Guided hall order diverges from the physical through-route',
+  );
+  assert.equal(MUSEUM_BUILDING_GUIDED_HALL_ORDER.length, 26);
+  assert.equal(new Set(MUSEUM_BUILDING_GUIDED_HALL_ORDER).size, 26);
+  assert.equal(
+    MUSEUM_BUILDING_GUIDED_FINAL_HALL_ID,
+    MUSEUM_BUILDING_MANIFEST.throughRoute.hallOrder.at(-1),
+  );
+
+  let expectedGlobalIndex = 0;
+  for (const hallId of MUSEUM_BUILDING_GUIDED_HALL_ORDER) {
+    const hall = MUSEUM_HALLS.find(({id}) => id === hallId);
+    assert(hall, `Guided route cannot resolve ${hallId}`);
+    const localStops = getMuseumGuidedStops(hallId, hall.guidedOrder);
+    assert(localStops.length > 0, `${hallId} has no guided stops`);
+    assert.equal(getMuseumBuildingGuidedHallStartIndex(hallId), expectedGlobalIndex);
+    for (const localStop of localStops) {
+      const globalStop = MUSEUM_BUILDING_GUIDED_STOPS[expectedGlobalIndex];
+      assert(globalStop, `${hallId}/${localStop.exhibitId} is absent from the building route`);
+      assert.equal(globalStop.hallId, hallId);
+      assert.equal(globalStop.exhibitId, localStop.exhibitId);
+      assert.equal(
+        getMuseumBuildingGuidedStopIndex(hallId, localStop.exhibitId),
+        expectedGlobalIndex,
+      );
+      expectedGlobalIndex += 1;
+    }
+  }
+  assert.equal(expectedGlobalIndex, MUSEUM_BUILDING_GUIDED_STOPS.length);
+  assert.match(guidedRouteSource, /MUSEUM_BUILDING_MANIFEST\.throughRoute\.hallOrder/u);
+  assert.match(interpretationPanelSource, /guidedNextIsFinal \? 'Final Return' : 'Next'/u);
+  assert.match(supplementalPanelSource, /guidedNextIsFinal \? 'Final Return' : 'Next'/u);
+  assert.match(museumPageSource, /finishGuidedVisitAtThreshold/u);
+  assert.match(museumPageSource, /guidedAtFinalReturn/u);
 });
 
 const unique = (values) => new Set(values).size === values.length;
@@ -1556,10 +1629,10 @@ check('all 406 supplemental exhibits share route, directory, search, guided, and
     }
   }
 
-  assert.match(hashRouterSource, /isMuseumSupplementalExhibitId/u, 'Supplemental ids are not accepted by the Museum route guard');
+  assert.match(hashRouterSource, /isRouteMuseumSupplementalExhibitId/u, 'Supplemental ids are not accepted by the Museum route guard');
   assert.match(museumPageSource, /getMuseumSupplementalExhibitsForHall/u, 'The directory/fallback does not enumerate supplemental exhibits');
-  assert.match(museumPageSource, /getMuseumGuidedStops/u, 'Guided mode does not include supplemental exhibits');
-  assert.match(globalSearchSource, /MUSEUM_SUPPLEMENTAL_EXHIBITS/u, 'Global search does not index supplemental exhibits');
+  assert.match(museumPageSource, /MUSEUM_BUILDING_GUIDED_STOPS/u, 'Guided mode does not include the building-wide interpreted route');
+  assert.match(globalSearchSource, /loadAtlasSearchIndex/u, 'Global search does not load the checked compact Museum index');
   assert.match(supplementalPanelSource, /onClose\('history'\)/u, 'Supplemental Escape behavior does not use history-aware closing');
   assert.match(supplementalPanelSource, /museum-guided-controls/u, 'Supplemental panels lack guided navigation');
 });
@@ -4060,7 +4133,12 @@ check('Gallery 06 is an open, wall-supported 25-exhibit Forum with full-scale pr
   const compactRoomSigns = roomSigns.filter(({title}) => title !== 'Ethics');
   assert(compactRoomSigns.every(({width, height, position}) => width <= 3.65 && height === .68 && position.y < 5), 'Forum field-room labels must remain compact and wall-backed');
   assert(ethicsPortalSign?.width === 5.6 && ethicsPortalSign.height === 1.08 && ethicsPortalSign.position.y === 3.45, 'The Ethics portal must retain its prominent wall-backed orientation panel');
-  assert.equal(forumDefinition.layout.signs.filter(({kind}) => kind === 'entrance').length, 1);
+  const [forumEntranceSign] = forumDefinition.layout.signs.filter(({kind}) => kind === 'entrance');
+  assert(forumEntranceSign, 'Gallery 06 lacks its entrance and crosscut orientation sign');
+  assert.match(forumEntranceSign.kicker, /↑ North/u);
+  assert.match(forumEntranceSign.kicker, /Visitor map \(M\)/u);
+  assert.match(forumEntranceSign.subtitle, /West: Gallery 13/u);
+  assert.match(forumEntranceSign.subtitle, /East: Gallery 02/u);
   assert.match(exhibitWallStandardSource, /Core Questions Forum exception/u, 'The Gallery 06 wall standard is not recorded for future work');
 });
 
@@ -4622,6 +4700,23 @@ check('all five turn courts match map handedness and are walkable through both b
     && first.maxX > second.minX + 1e-5
     && first.minZ < second.maxZ - 1e-5
     && first.maxZ > second.minZ + 1e-5;
+  for (const intersection of singleLevelPlan.crosscut.intersections.filter(({betweenHallIds}) => betweenHallIds)) {
+    const manifestNode = MUSEUM_BUILDING_MANIFEST.nodes.find(({id}) => id === intersection.id);
+    const runtimeNode = runtimeNodeById.get(intersection.id);
+    assert(manifestNode?.geometry && runtimeNode, `${intersection.id} is absent from the constructed runtime`);
+    assert.equal(manifestNode.geometry.signs.length, 1, `${intersection.id} lacks crosscut wayfinding`);
+    const sign = manifestNode.geometry.signs[0];
+    const [westHallId, eastHallId] = intersection.betweenHallIds;
+    const westHall = singleLevelPlan.halls.find(({id}) => id === westHallId);
+    const eastHall = singleLevelPlan.halls.find(({id}) => id === eastHallId);
+    assert.equal(sign.kind, 'wayfinding', `${intersection.id} has the wrong sign type`);
+    assert.match(sign.title, /^West · Gallery \d{2} \| East · Gallery \d{2}$/u);
+    assert.match(sign.kicker, /North/u);
+    assert.match(sign.subtitle, /Visitor map: M/u);
+    assert(sign.subtitle.includes(westHall.title), `${intersection.id} does not name its west hall`);
+    assert(sign.subtitle.includes(eastHall.title), `${intersection.id} does not name its east hall`);
+    assert.equal(runtimeNode.layout.signs.length, 1, `${intersection.id} did not render its orientation sign`);
+  }
   for (const turn of singleLevelPlan.turnCourts) {
     const manifestNode = MUSEUM_BUILDING_MANIFEST.nodes.find(({id}) => id === turn.id);
     const runtimeNode = runtimeNodeById.get(turn.id);
@@ -5186,6 +5281,25 @@ check('sessions, walking pace, readiness, and travel contexts remain safe and ha
     assert.deepEqual(parseMuseumExhibitVisitContext({philosophyAtlasMuseum: visit}, definition.id), visit);
     assert.equal(parseMuseumExhibitVisitContext({philosophyAtlasMuseum: {...visit, version: 0}}, definition.id), undefined);
     assert.equal(parseMuseumExhibitVisitContext({philosophyAtlasMuseum: visit}, HALL_IDS.find((id) => id !== definition.id)), undefined);
+    const guidedVisit = createMuseumGuidedVisitContext(definition.id, 0);
+    assert.deepEqual(
+      parseMuseumGuidedVisitContext({philosophyAtlasMuseumGuided: guidedVisit}, definition.id),
+      guidedVisit,
+    );
+    assert.equal(
+      parseMuseumGuidedVisitContext(
+        {philosophyAtlasMuseumGuided: {...guidedVisit, stepIndex: -1}},
+        definition.id,
+      ),
+      undefined,
+    );
+    assert.equal(
+      parseMuseumGuidedVisitContext(
+        {philosophyAtlasMuseumGuided: guidedVisit},
+        HALL_IDS.find((id) => id !== definition.id),
+      ),
+      undefined,
+    );
     for (const entrance of definition.entrances) {
       const gate = resolveMuseumReadinessGateGeometry(entrance);
       assert(gate.thresholdWidth < gate.clearWidth && gate.plaqueWidth < gate.clearWidth, `${definition.id}/${entrance.id} readiness furniture blocks the doorway`);
@@ -5231,7 +5345,7 @@ check('the React implementation uses one persistent Canvas, one shared canonical
   assert.match(museumPageSource, /MUSEUM_BUILDING_MANIFEST\.mainEntrance\.nodeId/);
   assert.match(museumPageSource, /Walk to Gallery 01/);
   assert.match(museumPageSource, /Fast-travel to Forum crosscut/);
-  assert.match(museumPageSource, /Start guided opening/);
+  assert.match(museumPageSource, /Start guided route/);
   assert.match(museumPageSource, /canResumeLastMuseumVisit && <button/);
   assert.match(museumPageSource, /Resume saved visit/);
   assert.match(museumPageSource, /Explore entrance freely/);

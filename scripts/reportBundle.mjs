@@ -5,6 +5,11 @@ import {brotliCompressSync, gzipSync} from 'node:zlib';
 const distDir = join(process.cwd(), 'dist');
 const assetsDir = join(distDir, 'assets');
 const indexPath = join(distDir, 'index.html');
+const INITIAL_STATIC_JS_BUDGET = Object.freeze({
+  raw: 640 * 1024,
+  gzip: 200 * 1024,
+  brotli: 170 * 1024,
+});
 
 const fail = (message) => {
   console.error(`Bundle report failed: ${message}`);
@@ -61,10 +66,23 @@ const initialPaths = [...new Set([entryPath, ...preloadUrls.map(assetPath).filte
 const initialMetrics = add(initialPaths.map(metric));
 const totalMetrics = add(measuredJs);
 const entryMetrics = metric(entryPath);
+const initialBudgetFailures = Object.entries(INITIAL_STATIC_JS_BUDGET)
+  .filter(([key, budget]) => initialMetrics[key] > budget)
+  .map(([key, budget]) => `${key}=${initialMetrics[key]} exceeds ${budget}`);
+if (initialBudgetFailures.length) {
+  fail(`initial static JS closure exceeds its release budget: ${initialBudgetFailures.join(', ')}.`);
+}
+const eagerlyLoadedPhilosopherChunks = initialPaths
+  .map((path) => basename(path))
+  .filter((name) => /^philosophers(?:-|\.|$)/u.test(name));
+if (eagerlyLoadedPhilosopherChunks.length) {
+  fail(`enriched philosopher data is eagerly loaded: ${eagerlyLoadedPhilosopherChunks.join(', ')}.`);
+}
 
 console.log('Philosophy Atlas bundle report');
 console.log(`Entry JS: ${basename(entryPath)} ${format(entryMetrics)}`);
 console.log(`Initial static JS closure: files=${initialPaths.length} ${format(initialMetrics)}`);
+console.log(`Initial static JS budget: ${format(INITIAL_STATIC_JS_BUDGET)}`);
 console.log(`Total emitted JS: files=${measuredJs.length} ${format(totalMetrics)}`);
 console.log(`JS chunks under 5 KiB: ${measuredJs.filter(({raw}) => raw < 5120).length}`);
 

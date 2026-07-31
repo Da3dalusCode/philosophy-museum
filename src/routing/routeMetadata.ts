@@ -1,12 +1,10 @@
-import {branchById} from '../data/branches';
-import {learningPaths} from '../data/learningPaths';
-import {philosopherById} from '../data/philosophers';
 import {
-  getMuseumExhibitCatalog,
-  getMuseumHallCatalog,
-  getMuseumLegacyExhibitCompatibility,
-} from '../data/museumCatalog';
-import {findMuseumSupplementalExhibit} from '../data/museum/museumSupplementalExhibits';
+  getRouteArticleRecord,
+  getRouteLearningPath,
+  getRouteLegacyExhibitCompatibility,
+  getRouteMuseumExhibit,
+  getRouteMuseumHall,
+} from '../data/routeManifest';
 import type {AppRoute, ArticleRoute} from './routes';
 
 export type ArticleRouteEntry = {
@@ -17,22 +15,22 @@ export type ArticleRouteEntry = {
 };
 
 const branchExtras = (branchId: string): ArticleRouteEntry[] => {
-  const branch = branchById(branchId);
+  const branch = getRouteArticleRecord('branch', branchId);
   return [
     {id: 'branch-quick-reference', label: 'Quick reference', targetId: 'branch-quick-reference', marker: '+'},
     {id: 'branch-reading', label: 'Reading path', targetId: 'branch-reading', marker: '+'},
-    ...(branch?.sourceLinks?.length
+    ...(branch?.hasSources
       ? [{id: 'branch-sources', label: 'Sources', targetId: 'branch-sources', marker: '+'}]
       : []),
   ];
 };
 
 const philosopherExtras = (philosopherId: string): ArticleRouteEntry[] => {
-  const philosopher = philosopherById(philosopherId);
+  const philosopher = getRouteArticleRecord('philosopher', philosopherId);
   return [
     {id: 'profile-reading', label: 'Reading path', targetId: 'profile-reading', marker: '+'},
     {id: 'profile-branches', label: 'Atlas connections', targetId: 'profile-branches', marker: '+'},
-    ...(philosopher?.sourceLinks?.length
+    ...(philosopher?.hasSources
       ? [{id: 'profile-sources', label: 'Sources', targetId: 'profile-sources', marker: '+'}]
       : []),
   ];
@@ -40,9 +38,9 @@ const philosopherExtras = (philosopherId: string): ArticleRouteEntry[] => {
 
 export const getArticleRouteEntries = (route: ArticleRoute): ArticleRouteEntry[] => {
   const entity = route.kind === 'branch'
-    ? branchById(route.branchId)
-    : philosopherById(route.philosopherId);
-  const sections = entity?.articleSections?.map((section, index) => ({
+    ? getRouteArticleRecord('branch', route.branchId)
+    : getRouteArticleRecord('philosopher', route.philosopherId);
+  const sections = entity?.sections.map((section, index) => ({
     id: section.id,
     label: section.title,
     targetId: `article-${section.id}`,
@@ -74,25 +72,25 @@ export const getRouteTitle = (route: AppRoute): string => {
       title = 'Philosophy Map';
       break;
     case 'branch': {
-      const branch = branchById(route.branchId);
+      const branch = getRouteArticleRecord('branch', route.branchId);
       const section = getArticleSectionTitle(route);
       title = [branch?.name ?? route.branchId, section].filter(Boolean).join(' — ');
       break;
     }
     case 'philosopher': {
-      const philosopher = philosopherById(route.philosopherId);
+      const philosopher = getRouteArticleRecord('philosopher', route.philosopherId);
       const section = getArticleSectionTitle(route);
       title = [philosopher?.name ?? route.philosopherId, section].filter(Boolean).join(' — ');
       break;
     }
     case 'compare-branches':
-      title = `${branchById(route.leftId)?.name ?? route.leftId} vs ${branchById(route.rightId)?.name ?? route.rightId}`;
+      title = `${getRouteArticleRecord('branch', route.leftId)?.name ?? route.leftId} vs ${getRouteArticleRecord('branch', route.rightId)?.name ?? route.rightId}`;
       break;
     case 'compare-philosophers':
-      title = `${philosopherById(route.leftId)?.name ?? route.leftId} vs ${philosopherById(route.rightId)?.name ?? route.rightId}`;
+      title = `${getRouteArticleRecord('philosopher', route.leftId)?.name ?? route.leftId} vs ${getRouteArticleRecord('philosopher', route.rightId)?.name ?? route.rightId}`;
       break;
     case 'learning-path': {
-      const path = learningPaths.find(({id}) => id === route.pathId);
+      const path = getRouteLearningPath(route.pathId);
       title = `${path?.title ?? route.pathId} — Step ${route.step}`;
       break;
     }
@@ -101,20 +99,15 @@ export const getRouteTitle = (route: AppRoute): string => {
         title = 'Grand Entrance & Orientation Hall';
         break;
       }
-      const hall = getMuseumHallCatalog(route.hallId);
-      const exhibit = route.exhibitId
-        ? getMuseumExhibitCatalog(route.hallId, route.exhibitId)
-        : undefined;
-      const supplemental = route.exhibitId
-        ? findMuseumSupplementalExhibit(route.hallId, route.exhibitId)
-        : undefined;
-      title = exhibit || supplemental
-        ? `${exhibit?.displayName ?? supplemental?.displayName} — ${hall?.title ?? route.hallId}`
+      const hall = getRouteMuseumHall(route.hallId);
+      const exhibit = getRouteMuseumExhibit(route.hallId, route.exhibitId);
+      title = exhibit
+        ? `${exhibit.displayName} — ${hall?.title ?? route.hallId}`
         : hall?.title ?? route.hallId;
       break;
     }
     case 'museum-compatibility': {
-      const compatibility = getMuseumLegacyExhibitCompatibility(route.formerHallId, route.exhibitId);
+      const compatibility = getRouteLegacyExhibitCompatibility(route.formerHallId, route.exhibitId);
       title = compatibility
         ? `${compatibility.displayName} — Museum installation status`
         : 'Museum installation status';

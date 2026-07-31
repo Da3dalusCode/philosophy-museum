@@ -56,6 +56,7 @@ export function MuseumInterpretationPanel({
   guided,
   exhibitIndex,
   exhibitCount,
+  guidedNextIsFinal,
   continueLabel,
   onClose,
   onArticleIntent,
@@ -70,6 +71,7 @@ export function MuseumInterpretationPanel({
   guided: boolean;
   exhibitIndex: number;
   exhibitCount: number;
+  guidedNextIsFinal?: boolean;
   continueLabel: string;
   onClose: (trigger: MuseumExitTrigger) => void;
   onArticleIntent: () => void;
@@ -215,7 +217,9 @@ export function MuseumInterpretationPanel({
         {guided && <div className="museum-guided-controls" aria-label="Guided exhibit navigation">
           <button type="button" disabled={exhibitIndex <= 0} onClick={onGuidedPrevious}><ArrowLeft size={15}/> Previous</button>
           <span>{exhibitIndex + 1} / {exhibitCount}</span>
-          <button type="button" disabled={exhibitIndex >= exhibitCount - 1} onClick={onGuidedNext}>Next <ArrowRight size={15}/></button>
+          <button type="button" onClick={onGuidedNext}>
+            {guidedNextIsFinal ? 'Final Return' : 'Next'} <ArrowRight size={15}/>
+          </button>
         </div>}
         <div>
           <a className="btn btn-primary" href={href(content.articleRoute)} onClick={onArticleIntent}>{exhibit.entityKind === 'philosopher' ? 'Full philosopher profile' : 'Open Branch Explorer'}</a>

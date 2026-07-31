@@ -32,7 +32,9 @@ jobs:
         run: npm ci
 
       - name: Verify compiled building manifest
-        run: npm run check:museum-building
+        run: |
+          npm run check:museum-building
+          npm run check:route-manifest
 
       - name: Validate Museum masterplan and building
         run: |
@@ -50,6 +52,9 @@ jobs:
 
       - name: Build
         run: npm run build
+
+      - name: Enforce initial bundle budgets
+        run: npm run report:bundle
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

@@ -609,7 +609,7 @@ const directedConnections: readonly MuseumDirectedConnection[] = MUSEUM_BUILDING
 
 export const MUSEUM_WORLD_DEFINITIONS = hallDefinitions;
 export const MUSEUM_RUNTIME_NODES = runtimeNodes;
-/** Persistent architecture: circulation plus the one zero-media planned shell. */
+/** Persistent architecture outside the 26 curated hall-content subtrees. */
 export const MUSEUM_CIRCULATION_NODES = runtimeNodes.filter(({publicHallId}) => !publicHallId);
 export const MUSEUM_DIRECTED_CONNECTIONS = directedConnections;
 

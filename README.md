@@ -61,7 +61,7 @@ All Galleries 01–26 are curated/open in their fixed architectural bays. Each c
 14. **Hellenistic & Roman Ways of Life**
     Cynic public refusal, Epicurean therapy, Stoic systems and exercises, and rival Academic and Pyrrhonian skeptical lineages
 
-15. **Late Antiquity: Neoplatonism, Commentary, and Inheritance**
+15. **Late Antiquity & Neoplatonic Inheritance**
     Pagan and Christian Platonisms, commentary classrooms, translation networks, and distinct Byzantine, Arabic, Latin, Jewish, and Renaissance afterlives
 
 16. **Rationalism: Mind, Nature, and System**

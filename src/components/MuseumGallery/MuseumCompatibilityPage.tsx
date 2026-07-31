@@ -1,17 +1,17 @@
 import {ArrowRight, BookOpen, Landmark} from 'lucide-react';
 import {
-  getMuseumLegacyExhibitCompatibility,
-  MUSEUM_HALL_ROUTE_ALIASES,
-} from '../../data/museumCatalog';
+  getRouteLegacyExhibitCompatibility,
+  MUSEUM_ROUTE_HALL_ALIASES,
+} from '../../data/routeManifest';
 import type {MuseumCompatibilityRoute, RouteHref} from '../../routing/routes';
 
 export function MuseumCompatibilityPage({route, href}: {
   route: MuseumCompatibilityRoute;
   href: RouteHref;
 }) {
-  const record = getMuseumLegacyExhibitCompatibility(route.formerHallId, route.exhibitId);
-  const successorHallId = MUSEUM_HALL_ROUTE_ALIASES[
-    route.formerHallId as keyof typeof MUSEUM_HALL_ROUTE_ALIASES
+  const record = getRouteLegacyExhibitCompatibility(route.formerHallId, route.exhibitId);
+  const successorHallId = MUSEUM_ROUTE_HALL_ALIASES[
+    route.formerHallId as keyof typeof MUSEUM_ROUTE_HALL_ALIASES
   ];
 
   if (!record) return <main className="page compact-content-page museum-compatibility-page">

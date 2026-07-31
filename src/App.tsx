@@ -1,16 +1,16 @@
 import {Suspense, useCallback, useEffect, useLayoutEffect, useRef} from 'react';
 import {AppShell} from './components/Layout/AppShell';
-import {BigHistoryView} from './components/BigHistory/BigHistoryView';
 import {IdeaConstellation} from './components/Museum/IdeaConstellation';
-import {MuseumCompatibilityPage} from './components/MuseumGallery/MuseumCompatibilityPage';
 import {RouteNotFound} from './routing/RouteNotFound';
 import {RouteLoadBoundary, RouteLoading} from './routing/RouteLoadBoundary';
 import {serializeHashRoute} from './routing/hashRouter';
 import {getArticleSectionTarget, getRouteTitle} from './routing/routeMetadata';
 import {
+  LazyBigHistoryView,
   LazyBranchExplorer,
   LazyCompareMode,
   LazyLearningPaths,
+  LazyMuseumCompatibilityPage,
   LazyMuseumPage,
   LazyPhilosopherProfile,
   LazyPhilosophyMap,
@@ -48,7 +48,7 @@ function RouteView({route, routeKey, href, push, replace, onReady}: {
 
   switch (route.kind) {
     case 'history':
-      return <BigHistoryView href={href}/>;
+      return <LazyBigHistoryView href={href}/>;
     case 'map':
       return <LazyPhilosophyMap href={href}/>;
     case 'branch':
@@ -63,7 +63,7 @@ function RouteView({route, routeKey, href, push, replace, onReady}: {
     case 'museum':
       return <LazyMuseumPage route={route} href={href} push={push} replace={replace}/>;
     case 'museum-compatibility':
-      return <MuseumCompatibilityPage route={route} href={href}/>;
+      return <LazyMuseumCompatibilityPage route={route} href={href}/>;
     case 'not-found':
       return <RouteNotFound route={route}/>;
   }

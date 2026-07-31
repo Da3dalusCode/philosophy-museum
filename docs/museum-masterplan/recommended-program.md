@@ -227,7 +227,7 @@ Rooms: Law and comparative institutions (1); Inequality, civic freedom, and educ
 
 The wing makes three simultaneous transformations legible: post-Kantian system building; arguments about utility, liberty, history, labor, and capital; and challenges organized around faith, suffering, life, and value. It avoids treating all nineteenth-century thought as a single march toward one twentieth-century school.
 
-The current production state now includes Galleries 19–24 as curated/open in their approved visit positions. This changes no hall identity or route geometry. Stable public numbers remain release identities, while the Continuous Enfilade manifest continues to own visit order, center, rotation, entry/exit portals, and handedness.
+The current production state includes all Galleries 01–26 as curated/open in their approved visit positions. This changes no hall identity or route geometry. Stable public numbers remain release identities, while the Continuous Enfilade manifest continues to own visit order, center, rotation, entry/exit portals, and handedness.
 
 #### German Idealism & Romantic Afterlives
 
