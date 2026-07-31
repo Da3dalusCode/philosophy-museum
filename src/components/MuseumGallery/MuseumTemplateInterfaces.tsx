@@ -25,6 +25,7 @@ export function MuseumTemplateInterfaces({definition, ownedPortalIds}: {
           museumTemplatePortalId: portal.templateSlotId,
           museumManifestSlotId: portal.manifestSlotId,
           museumThresholdLight: true,
+          museumStructuralId: `threshold-light:${definition.id}:${portal.manifestSlotId}`,
         }}
       >
         <boxGeometry args={normalRunsAlongX ? [depth, .045, width] : [width, .045, depth]}/>

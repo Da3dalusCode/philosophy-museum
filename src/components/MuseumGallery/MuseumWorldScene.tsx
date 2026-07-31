@@ -17,6 +17,7 @@ import {
   Light,
   type Material,
   Mesh,
+  type Object3D,
   PerspectiveCamera,
   Vector3,
   type WebGLRenderer,
@@ -456,6 +457,7 @@ function MuseumPilotSceneBridge() {
       camera.updateMatrixWorld(true);
       const structuralMeshes: {
         id: string;
+        category: string;
         ownerHallId?: string;
         ownerNodeId?: string;
         residencyLayer?: string;
@@ -467,13 +469,17 @@ function MuseumPilotSceneBridge() {
         materials: readonly MuseumPilotMaterialTelemetry[];
       }[] = [];
       scene.traverse((object) => {
-        const id = typeof object.userData.wallColliderId === 'string'
+        const semanticStructuralId = typeof object.userData.museumStructuralId === 'string'
+          ? object.userData.museumStructuralId
+          : undefined;
+        const id = semanticStructuralId
+          ?? (typeof object.userData.wallColliderId === 'string'
           ? object.userData.wallColliderId
           : typeof object.userData.structuralWallId === 'string'
             ? object.userData.structuralWallId
-            : undefined;
+            : undefined);
         if (!id) return;
-        let owner = object;
+        let owner: Object3D = object;
         let ownerHallId: string | undefined;
         let ownerNodeId: string | undefined;
         let residencyLayer: string | undefined;
@@ -501,6 +507,7 @@ function MuseumPilotSceneBridge() {
         const bounds = new Box3().setFromObject(object);
         structuralMeshes.push({
           id,
+          category: semanticStructuralId?.split(':')[0] ?? 'wall',
           ...(ownerHallId ? {ownerHallId} : {}),
           ...(ownerNodeId ? {ownerNodeId} : {}),
           ...(residencyLayer ? {residencyLayer} : {}),
@@ -515,6 +522,9 @@ function MuseumPilotSceneBridge() {
         });
       });
       const lights: {
+        id: string;
+        role: string;
+        ownerHallId?: string;
         uuid: string;
         type: string;
         intensity: number;
@@ -523,8 +533,24 @@ function MuseumPilotSceneBridge() {
       }[] = [];
       scene.traverse((object) => {
         if (!(object instanceof Light)) return;
+        let owner: Object3D = object;
+        let ownerHallId: string | undefined;
+        while (owner) {
+          if (!ownerHallId && typeof owner.userData.museumHallId === 'string') {
+            ownerHallId = owner.userData.museumHallId;
+          }
+          if (!owner.parent) break;
+          owner = owner.parent;
+        }
         const position = object.getWorldPosition(new Vector3());
         lights.push({
+          id: typeof object.userData.museumLightId === 'string'
+            ? object.userData.museumLightId
+            : object.type,
+          role: typeof object.userData.museumLightRole === 'string'
+            ? object.userData.museumLightRole
+            : 'unspecified',
+          ...(ownerHallId ? {ownerHallId} : {}),
           uuid: object.uuid,
           type: object.type,
           intensity: object.intensity,
@@ -589,8 +615,15 @@ function MuseumWorldContents(props: MuseumSceneRuntimeProps) {
   return <>
     <MuseumPilotSceneBridge/>
     <color attach="background" args={['#d8d3ca']}/>
-    <hemisphereLight args={['#fff8e8', '#48433d', hemisphereIntensity]}/>
-    <ambientLight color="#fff5e5" intensity={ambientIntensity}/>
+    <hemisphereLight
+      args={['#fff8e8', '#48433d', hemisphereIntensity]}
+      userData={{museumLightId: 'world:hemisphere', museumLightRole: 'world-base'}}
+    />
+    <ambientLight
+      color="#fff5e5"
+      intensity={ambientIntensity}
+      userData={{museumLightId: 'world:ambient', museumLightRole: 'world-base'}}
+    />
     <MuseumBuildingArchitecture
       activeNodeId={props.definition.id}
       activeHallId={props.activeHallId}

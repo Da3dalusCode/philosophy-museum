@@ -4,7 +4,6 @@ import {AnalyticSupplementalExhibits} from './AnalyticSupplementalExhibits';
 import {BuddhistSupplementalExhibits} from './BuddhistSupplementalExhibits';
 import {ClassicalChineseSupplementalExhibits} from './ClassicalChineseSupplementalExhibits';
 import {CanonicalMuseumExhibits} from './CanonicalMuseumExhibits';
-import {ContemporaryHallArchitecture} from './ContemporaryHallArchitecture';
 import {
   ContemporaryHallExhibitLighting,
   ContemporaryHallLighting,
@@ -17,6 +16,7 @@ import {IslamicSupplementalExhibits} from './IslamicSupplementalExhibits';
 import {JewishSupplementalExhibits} from './JewishSupplementalExhibits';
 import {MediterraneanGalleryCuration} from './MediterraneanGalleryCuration';
 import {MuseumHallSpatialRoot} from './MuseumHallSpatialRoot';
+import {MuseumResidentHallStructure} from './MuseumHallStructureLayers';
 import {PhenomenologySupplementalExhibits} from './PhenomenologySupplementalExhibits';
 import {PlatoSupplementalExhibits} from './PlatoSupplementalExhibits';
 import {RenaissanceSupplementalExhibits} from './RenaissanceSupplementalExhibits';
@@ -55,8 +55,10 @@ export function CanonicalMuseumHallContent({
     {active && (structurePolicy.permanentStructure
       ? <ContemporaryHallExhibitLighting lighting={definition.layout.lighting}/>
       : <ContemporaryHallLighting lighting={definition.layout.lighting}/>)}
-    {structurePolicy.residentContentOwnsStructure
-      && <ContemporaryHallArchitecture definition={definition} onSceneGesture={onSceneGesture}/>}
+    <MuseumResidentHallStructure
+      definition={definition}
+      onSceneGesture={onSceneGesture}
+    />
     <CanonicalMuseumExhibits
       definition={definition}
       includeStructure={structurePolicy.residentContentOwnsStructure}

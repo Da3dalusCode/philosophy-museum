@@ -406,6 +406,10 @@ export function MuseumVisitorMapKiosk({
     </mesh>)}
     {active && <pointLight
       position={[0, kiosk.height - .27, .65]}
+      userData={{
+        museumLightId: 'visitor-map-kiosk',
+        museumLightRole: 'persistent-orientation',
+      }}
       color={kiosk.light.color}
       intensity={kiosk.light.intensity}
       distance={kiosk.light.distance}

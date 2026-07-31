@@ -11,7 +11,10 @@ export function MediterraneanOrientationStructure() {
   return <group
     position={[display.center.x, 0, display.center.z]}
     rotation={[0, display.rotation, 0]}
-    userData={{museumOrientationStructure: display.id}}
+    userData={{
+      museumOrientationStructure: display.id,
+      museumStructuralId: `orientation:${display.id}`,
+    }}
   >
     <mesh position={[0, 1.72, -.07]}>
       <boxGeometry args={[display.size.width + .18, panelHeight + .18, .24]}/>

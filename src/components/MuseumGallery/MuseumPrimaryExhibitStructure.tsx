@@ -109,7 +109,10 @@ export function MuseumPrimaryExhibitStructures({definition}: {
       key={layout.id}
       position={[layout.position.x, 0, layout.position.z]}
       rotation={[0, layout.rotationY, 0]}
-      userData={{museumPrimaryStructureId: layout.id}}
+      userData={{
+        museumPrimaryStructureId: layout.id,
+        museumStructuralId: `primary-installation:${layout.id}`,
+      }}
     >
       <MuseumPrimaryExhibitStructure
         layout={layout}

@@ -17,6 +17,10 @@ function ExhibitSpotlight({definition}: {definition: MuseumExhibitLightDefinitio
     <spotLight
       position={[definition.position.x, definition.position.y, definition.position.z]}
       target={target}
+      userData={{
+        museumLightId: `exhibit:${definition.id}`,
+        museumLightRole: 'resident-exhibit',
+      }}
       intensity={definition.intensity}
       distance={definition.distance}
       angle={definition.angle}
@@ -37,6 +41,10 @@ export function ContemporaryHallBaseLighting({lighting}: {lighting: MuseumLighti
     <directionalLight
       position={[-8, 12, 8]}
       target={directionalTarget}
+      userData={{
+        museumLightId: 'architectural-base',
+        museumLightRole: 'architectural-base',
+      }}
       intensity={lighting.directionalIntensity}
       color="#fff4e2"
       castShadow={false}

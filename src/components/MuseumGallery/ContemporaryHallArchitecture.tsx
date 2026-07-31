@@ -51,7 +51,10 @@ function CellShell({cell, renaissance, forum}: {
   const x = (bounds.minX + bounds.maxX) / 2;
   const z = (bounds.minZ + bounds.maxZ) / 2;
   const renderCell = bounds === cell.bounds ? cell : {...cell, bounds};
-  return <group userData={{spatialCellId: cell.id}}>
+  return <group userData={{
+    spatialCellId: cell.id,
+    museumStructuralId: `cell:${cell.id}`,
+  }}>
     <mesh position={[x, -.11, z]} receiveShadow>
       <boxGeometry args={[width, .22, depth]}/>
       <meshStandardMaterial
@@ -117,14 +120,20 @@ function ThresholdFascia({connection, cells, wallMaterial}: {connection: MuseumS
   const z = (openingBounds.minZ + openingBounds.maxZ) / 2;
   const width = Math.max(.42, openingBounds.maxX - openingBounds.minX);
   const depth = Math.max(.42, openingBounds.maxZ - openingBounds.minZ);
-  return <mesh position={[x, (lower + upper) / 2, z]} userData={{thresholdFasciaId: connection.id}}>
+  return <mesh position={[x, (lower + upper) / 2, z]} userData={{
+    thresholdFasciaId: connection.id,
+    museumStructuralId: `threshold-fascia:${connection.id}`,
+  }}>
     <boxGeometry args={[width, upper - lower + .08, depth]}/>
     <meshStandardMaterial {...wallMaterial}/>
   </mesh>;
 }
 
 function Track({track}: {track: MuseumTrackDefinition}) {
-  return <mesh position={[track.center.x, track.center.y, track.center.z]} userData={{trackId: track.id}}>
+  return <mesh position={[track.center.x, track.center.y, track.center.z]} userData={{
+    trackId: track.id,
+    museumStructuralId: `track:${track.id}`,
+  }}>
     <boxGeometry args={[track.size.width, track.size.height, track.size.depth]}/>
     <meshStandardMaterial color={BLACK_METAL} roughness={.3} metalness={.72}/>
   </mesh>;
@@ -139,7 +148,11 @@ function Fixture({definition}: {definition: MuseumExhibitLightDefinition}) {
     ).normalize();
     return new Quaternion().setFromUnitVectors(new Vector3(0, -1, 0), direction);
   }, [definition]);
-  return <group position={[definition.mountPosition.x, definition.mountPosition.y, definition.mountPosition.z]} quaternion={quaternion}>
+  return <group
+    position={[definition.mountPosition.x, definition.mountPosition.y, definition.mountPosition.z]}
+    quaternion={quaternion}
+    userData={{museumStructuralId: `fixture:${definition.id}`}}
+  >
     <mesh position={[0, -.13, 0]}><cylinderGeometry args={[.065, .095, .3, 12]}/><meshStandardMaterial color={BLACK_METAL} metalness={.7} roughness={.32}/></mesh>
     <mesh position={[0, -.29, 0]} rotation={[Math.PI / 2, 0, 0]}><circleGeometry args={[.08, 16]}/><meshBasicMaterial color={LUMINOUS} toneMapped={false}/></mesh>
   </group>;
@@ -147,13 +160,20 @@ function Fixture({definition}: {definition: MuseumExhibitLightDefinition}) {
 
 function Bench({definition, mediterranean}: {definition: MuseumFurnishingDefinition; mediterranean: boolean}) {
   const {width, depth} = definition.size;
-  return <group position={[definition.center.x, 0, definition.center.z]} rotation={[0, definition.rotation, 0]} userData={{furnishingId: definition.id}}>
+  return <group position={[definition.center.x, 0, definition.center.z]} rotation={[0, definition.rotation, 0]} userData={{
+    furnishingId: definition.id,
+    museumStructuralId: `furnishing:${definition.id}`,
+  }}>
     <mesh position={[0, .43, 0]}><boxGeometry args={[width, .16, depth]}/><meshStandardMaterial color={mediterranean ? '#9b644a' : '#756957'} roughness={.78}/></mesh>
     {[-width * .34, width * .34].map((x) => <mesh key={x} position={[x, .21, 0]}><boxGeometry args={[.14, .42, depth * .72]}/><meshStandardMaterial color={BLACK_METAL} metalness={.52} roughness={.46}/></mesh>)}
   </group>;
 }
 
-function PhysicalSign({definition, mediterranean, renaissance}: {definition: MuseumSignDefinition; mediterranean: boolean; renaissance: boolean}) {
+const physicalSignPresentation = ({definition, mediterranean, renaissance}: {
+  definition: MuseumSignDefinition;
+  mediterranean: boolean;
+  renaissance: boolean;
+}) => {
   const museumIdentity = mediterranean && definition.kind === 'entrance';
   const accent = museumIdentity
     ? '#b88b4a'
@@ -162,6 +182,44 @@ function PhysicalSign({definition, mediterranean, renaissance}: {definition: Mus
     : renaissance
       ? definition.kind === 'entrance' ? RENAISSANCE_PALETTE.agedBrass : definition.kind === 'wayfinding' ? RENAISSANCE_PALETTE.inkBlue : RENAISSANCE_PALETTE.oxblood
       : definition.kind === 'entrance' ? '#7b5d3d' : definition.kind === 'wayfinding' ? '#486d70' : BRONZE;
+  return {accent, museumIdentity};
+};
+
+function PhysicalSignStructure({definition, mediterranean, renaissance}: {
+  definition: MuseumSignDefinition;
+  mediterranean: boolean;
+  renaissance: boolean;
+}) {
+  const {accent, museumIdentity} = physicalSignPresentation({
+    definition,
+    mediterranean,
+    renaissance,
+  });
+  return <>
+    <mesh position={[0, 0, -.04]}><boxGeometry args={[definition.width + .1, definition.height + .1, .07]}/><meshStandardMaterial color={mediterranean && !museumIdentity ? SIGN_REAR : BLACK_METAL} roughness={mediterranean && !museumIdentity ? .86 : .52} metalness={mediterranean && !museumIdentity ? .02 : .42}/></mesh>
+    {!mediterranean && <>
+      <mesh position={[0, 0, -.077]} rotation={[0, Math.PI, 0]}>
+        <planeGeometry args={[definition.width, definition.height]}/>
+        <meshStandardMaterial color={renaissance ? RENAISSANCE_PALETTE.walnutEdge : SIGN_REAR} roughness={.88} metalness={.02}/>
+      </mesh>
+      <mesh position={[0, -definition.height * .36, -.079]} rotation={[0, Math.PI, 0]}>
+        <planeGeometry args={[definition.width * .72, .026]}/>
+        <meshStandardMaterial color={accent} roughness={.42} metalness={.38}/>
+      </mesh>
+    </>}
+  </>;
+}
+
+function PhysicalSignFace({definition, mediterranean, renaissance}: {
+  definition: MuseumSignDefinition;
+  mediterranean: boolean;
+  renaissance: boolean;
+}) {
+  const {accent, museumIdentity} = physicalSignPresentation({
+    definition,
+    mediterranean,
+    renaissance,
+  });
   const referenceWidth = mediterranean ? 600 : MUSEUM_TEXTURE_SPECS.contemporarySignWidth;
   const referenceHeight = Math.round(
     referenceWidth * definition.height / definition.width,
@@ -180,23 +238,58 @@ function PhysicalSign({definition, mediterranean, renaissance}: {definition: Mus
     height: textureSize.height,
     theme: mediterranean && !museumIdentity ? 'mediterranean' : 'dark',
   });
+  return <mesh position={[0, 0, .002]} userData={{museumSignFaceId: definition.id}}>
+    <planeGeometry args={[definition.width, definition.height]}/>
+    <meshBasicMaterial map={texture} toneMapped={false}/>
+  </mesh>;
+}
+
+function PhysicalSign({definition, mediterranean, renaissance, includeFace}: {
+  definition: MuseumSignDefinition;
+  mediterranean: boolean;
+  renaissance: boolean;
+  includeFace: boolean;
+}) {
   return <group
     position={[definition.position.x, definition.position.y, definition.position.z]}
     rotation={[0, definition.rotationY, 0]}
-    userData={{museumSignId: definition.id, museumSignKind: definition.kind}}
+    userData={{
+      museumSignId: definition.id,
+      museumSignKind: definition.kind,
+      museumStructuralId: `sign-body:${definition.id}`,
+    }}
   >
-    <mesh position={[0, 0, -.04]}><boxGeometry args={[definition.width + .1, definition.height + .1, .07]}/><meshStandardMaterial color={mediterranean && !museumIdentity ? SIGN_REAR : BLACK_METAL} roughness={mediterranean && !museumIdentity ? .86 : .52} metalness={mediterranean && !museumIdentity ? .02 : .42}/></mesh>
-    <mesh position={[0, 0, .002]}><planeGeometry args={[definition.width, definition.height]}/><meshBasicMaterial map={texture} toneMapped={false}/></mesh>
-    {!mediterranean && <>
-      <mesh position={[0, 0, -.077]} rotation={[0, Math.PI, 0]}>
-        <planeGeometry args={[definition.width, definition.height]}/>
-        <meshStandardMaterial color={renaissance ? RENAISSANCE_PALETTE.walnutEdge : SIGN_REAR} roughness={.88} metalness={.02}/>
-      </mesh>
-      <mesh position={[0, -definition.height * .36, -.079]} rotation={[0, Math.PI, 0]}>
-        <planeGeometry args={[definition.width * .72, .026]}/>
-        <meshStandardMaterial color={accent} roughness={.42} metalness={.38}/>
-      </mesh>
-    </>}
+    <PhysicalSignStructure
+      definition={definition}
+      mediterranean={mediterranean}
+      renaissance={renaissance}
+    />
+    {includeFace && <PhysicalSignFace
+      definition={definition}
+      mediterranean={mediterranean}
+      renaissance={renaissance}
+    />}
+  </group>;
+}
+
+/** Texture-bearing sign faces that remain tied to lazy hall-content residency. */
+export function ContemporaryHallSignFaces({definition}: {
+  definition: MuseumHallDefinition;
+}) {
+  const mediterranean = definition.id === MEDITERRANEAN_GALLERY_ID;
+  const renaissance = definition.id === RENAISSANCE_GALLERY_ID;
+  return <group userData={{museumResidentSignFacesFor: definition.id}}>
+    {definition.layout.signs?.map((sign) => <group
+      key={sign.id}
+      position={[sign.position.x, sign.position.y, sign.position.z]}
+      rotation={[0, sign.rotationY, 0]}
+    >
+      <PhysicalSignFace
+        definition={sign}
+        mediterranean={mediterranean}
+        renaissance={renaissance}
+      />
+    </group>)}
   </group>;
 }
 
@@ -204,11 +297,13 @@ export function ContemporaryHallArchitecture({
   definition,
   architectureWalls = definition.architectureWalls,
   ownedPortalIds,
+  includeSignFaces = true,
   onSceneGesture,
 }: {
   definition: MuseumHallDefinition;
   architectureWalls?: readonly MuseumWallDefinition[];
   ownedPortalIds?: ReadonlySet<string>;
+  includeSignFaces?: boolean;
   onSceneGesture: () => void;
 }) {
   const {layout} = definition;
@@ -234,6 +329,12 @@ export function ContemporaryHallArchitecture({
     {layout.furnishings.filter(({kind}) => kind === 'bench').map((item) => <Bench key={item.id} definition={item} mediterranean={mediterranean}/>)}
     {layout.lighting.tracks.map((track) => <Track key={track.id} track={track}/>)}
     {layout.lighting.exhibitLights.map((light) => <Fixture key={light.id} definition={light}/>)}
-    {layout.signs?.map((sign) => <PhysicalSign key={sign.id} definition={sign} mediterranean={mediterranean} renaissance={renaissance}/>)}
+    {layout.signs?.map((sign) => <PhysicalSign
+      key={sign.id}
+      definition={sign}
+      mediterranean={mediterranean}
+      renaissance={renaissance}
+      includeFace={includeSignFaces}
+    />)}
   </group>;
 }

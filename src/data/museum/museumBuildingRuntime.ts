@@ -12,6 +12,7 @@ import {
 import {resolveMuseumHallShell} from './museumHallTemplates';
 import {
   MUSEUM_PERMANENT_STRUCTURAL_HALL_IDS,
+  museumHallHasPermanentStructure,
   type MuseumPermanentStructuralHallId,
 } from './museumStructuralResidency';
 import {MUSEUM_VISITOR_MAP_KIOSK} from './museumVisitorMapKioskDefinition';
@@ -426,12 +427,19 @@ for (const node of persistentArchitectureNodes) {
   );
 }
 
+// Physical manifest order is the permanent ownership priority. Activation-list
+// order must never change which hall owns a shared atomic wall or portal.
+const permanentStructuralSources = MUSEUM_BUILDING_MANIFEST.nodes.flatMap((node) => {
+  const source = node.publicHallId
+    ? hallDefinitions.find(({id}) => id === node.publicHallId)
+    : undefined;
+  return source && museumHallHasPermanentStructure(source.id) ? [source] : [];
+});
+if (permanentStructuralSources.length !== MUSEUM_PERMANENT_STRUCTURAL_HALL_IDS.length) {
+  throw new Error('Permanent Museum structure does not resolve every configured canonical hall.');
+}
 const permanentStructuralOrderByNodeId = new Map(
-  MUSEUM_PERMANENT_STRUCTURAL_HALL_IDS.map((hallId, index) => {
-    const definition = hallDefinitions.find(({id}) => id === hallId);
-    if (!definition) throw new Error(`Permanent Museum structure cannot resolve ${hallId}.`);
-    return [definition.physicalNodeId, index] as const;
-  }),
+  permanentStructuralSources.map((definition, index) => [definition.physicalNodeId, index]),
 );
 const suppressedPermanentPortalKeys = new Set<string>();
 for (const connection of MUSEUM_BUILDING_MANIFEST.connections) {
@@ -453,9 +461,8 @@ export type MuseumPermanentStructuralHall = {
 
 const permanentStructuralOwnedPlanes: MuseumWorldWallPlane[] = [];
 export const MUSEUM_PERMANENT_STRUCTURAL_HALLS: readonly MuseumPermanentStructuralHall[] =
-  MUSEUM_PERMANENT_STRUCTURAL_HALL_IDS.map((hallId) => {
-    const source = hallDefinitions.find(({id}) => id === hallId);
-    if (!source) throw new Error(`Permanent Museum structure cannot resolve ${hallId}.`);
+  permanentStructuralSources.map((source) => {
+    const hallId = source.id as MuseumPermanentStructuralHallId;
     const architectureWalls = removeCoveredMuseumWallSurfaces(
       source.worldTransform,
       source.architectureWalls,

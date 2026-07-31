@@ -4,7 +4,7 @@ import {getMuseumAsset} from './museumAssets';
 import {
   MEDITERRANEAN_GALLERY_ID,
 } from './mediterraneanGalleryCuration';
-import {museumHallHasPermanentStructure} from './museumStructuralResidency';
+import {museumHallHasPermanentSignFaces} from './museumStructuralResidency';
 import {
   bytesToMiB,
   decodedTextureBytes,
@@ -63,7 +63,7 @@ const persistentTextureEstimate = (): MuseumPersistentTextureEstimate => {
     MUSEUM_TEXTURE_SPECS.buildingSign,
   ));
   const permanentStructuralSignBytes = MUSEUM_WORLD_DEFINITIONS
-    .filter(({id}) => museumHallHasPermanentStructure(id))
+    .filter(({id}) => museumHallHasPermanentSignFaces(id))
     .reduce((sum, definition) =>
       sum + (definition.layout.signs ?? []).reduce((signSum, sign) => {
         const referenceWidth = definition.id === MEDITERRANEAN_GALLERY_ID
@@ -185,7 +185,7 @@ const generatedHallSpecs = (hallId: MuseumHallId): readonly MuseumDecodedTexture
       MUSEUM_TEXTURE_SPECS.visitorMapKiosk,
     ];
   }
-  const signs = (museumHallHasPermanentStructure(hallId)
+  const signs = (museumHallHasPermanentSignFaces(hallId)
     ? []
     : definition.layout.signs ?? []).flatMap((sign) => {
     const referenceWidth = hallId === MEDITERRANEAN_GALLERY_ID

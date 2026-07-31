@@ -20,6 +20,8 @@ const museumWorldSource = source('src/components/MuseumGallery/MuseumWorldScene.
 const museumControlsSource = source('src/components/MuseumGallery/useMuseumControls.ts');
 const museumModalSource = source('src/components/MuseumGallery/MuseumModal.tsx');
 const architectureSource = source('src/components/MuseumGallery/ContemporaryHallArchitecture.tsx');
+const permanentHallStructureSource = source('src/components/MuseumGallery/MuseumPermanentHallStructure.tsx');
+const residentHallStructureSource = source('src/components/MuseumGallery/MuseumHallStructureLayers.tsx');
 const buildingArchitectureSource = source('src/components/MuseumGallery/MuseumBuildingArchitecture.tsx');
 const grandEntranceArchitectureSource = source('src/components/MuseumGallery/MuseumGrandEntranceArchitecture.tsx');
 const canonicalSceneSource = source('src/components/MuseumGallery/CanonicalMuseumHallScene.tsx');
@@ -87,6 +89,7 @@ const result = await build({
   root: repoRoot,
   configFile: false,
   logLevel: 'silent',
+  ssr: {noExternal: true},
   plugins: [{
     name: 'canonical-museum-audit-entry',
     resolveId: (id) => id === virtualEntry ? resolvedEntry : undefined,
@@ -161,6 +164,9 @@ const result = await build({
       export * from '/src/components/MuseumGallery/museumWorldTransform.ts';
       export * from '/src/components/MuseumGallery/museumHallTransitions.ts';
       export * from '/src/components/MuseumGallery/museumRuntime.ts';
+      export * from '/src/components/MuseumGallery/ContemporaryHallArchitecture.tsx';
+      export * from '/src/components/MuseumGallery/MuseumHallStructureLayers.tsx';
+      export * from '/src/components/MuseumGallery/MuseumPermanentHallStructure.tsx';
       export {branches} from '/src/data/branches.ts';
       export {philosophers} from '/src/data/philosophers.ts';
     ` : undefined,
@@ -414,6 +420,11 @@ const {
   MEDITERRANEAN_ORIENTATION_DISPLAY,
   MEDITERRANEAN_ROOM_SIGN_COPY,
   MUSEUM_PLANNED_HALL_TITLES,
+  ContemporaryHallArchitecture,
+  ContemporaryHallSignFaces,
+  MuseumPermanentHallStructure,
+  MuseumResidentHallStructure,
+  MUSEUM_PERMANENT_SIGN_FACE_HALL_IDS,
   MUSEUM_PERMANENT_STRUCTURAL_HALL_IDS,
   MUSEUM_PERMANENT_STRUCTURAL_HALLS,
   MUSEUM_OWNER_APPROVED_WALL_MATERIAL_EXCEPTIONS,
@@ -1532,13 +1543,19 @@ check('wall geometry matches rendered width/depth, overrides, rotations, and fra
   }
 });
 
-check('the permanent two-hall structural plan owns both pilot seams without media or overlap', () => {
+check('the permanent museum-wide structural plan owns every hall seam without media or overlap', () => {
   const gallery01Id = 'mediterranean-beginnings-classical';
   const gallery14Id = 'hellenistic-roman-ways';
   assert.deepEqual(
-    MUSEUM_PERMANENT_STRUCTURAL_HALL_IDS,
+    sorted(MUSEUM_PERMANENT_STRUCTURAL_HALL_IDS),
+    sorted(HALL_IDS),
+    'Permanent structural residency does not cover exactly the canonical 26 halls',
+  );
+  assert(unique(MUSEUM_PERMANENT_STRUCTURAL_HALL_IDS), 'Permanent structural hall IDs repeat');
+  assert.deepEqual(
+    MUSEUM_PERMANENT_SIGN_FACE_HALL_IDS,
     [gallery01Id, gallery14Id],
-    'The structural pilot expanded beyond Gallery 01 and Gallery 14',
+    'Permanent high-resolution sign faces expanded beyond the visually approved pilot halls',
   );
   assert.deepEqual(MUSEUM_BUILDING_MANIFEST.residencyPolicy, {
     maxResidentHallContents: 3,
@@ -1546,7 +1563,14 @@ check('the permanent two-hall structural plan owns both pilot seams without medi
     approachDistance: 6,
     decodedTextureBudgetMiB: 96,
   }, 'The approved content residency contract changed');
-  assert.equal(MUSEUM_PERMANENT_STRUCTURAL_HALLS.length, 2);
+  assert.equal(MUSEUM_PERMANENT_STRUCTURAL_HALLS.length, HALL_IDS.length);
+  const expectedPhysicalOwnershipOrder = MUSEUM_BUILDING_MANIFEST.nodes
+    .flatMap(({publicHallId}) => publicHallId ? [publicHallId] : []);
+  assert.deepEqual(
+    MUSEUM_PERMANENT_STRUCTURAL_HALLS.map(({hallId}) => hallId),
+    expectedPhysicalOwnershipOrder,
+    'Permanent wall ownership is not fixed to physical manifest order',
+  );
   for (const hall of MUSEUM_PERMANENT_STRUCTURAL_HALLS) {
     assert.equal(hall.sceneBytes, 0, `${hall.hallId} permanent structure owns scene bytes`);
     assert.deepEqual(hall.sceneAssetIds, [], `${hall.hallId} permanent structure owns scene media`);
@@ -1557,13 +1581,11 @@ check('the permanent two-hall structural plan owns both pilot seams without medi
     );
     assert(unique(hall.structuralWallIds), `${hall.hallId} permanent wall IDs are unstable`);
   }
-  for (const hallId of HALL_IDS.filter((id) => !MUSEUM_PERMANENT_STRUCTURAL_HALL_IDS.includes(id))) {
-    assert.equal(
-      resolveMuseumHallStructureMountPolicy(hallId).residentContentOwnsStructure,
-      true,
-      `${hallId} was accidentally promoted into permanent structure`,
-    );
-  }
+  assert.equal(
+    resolveMuseumHallStructureMountPolicy(LEGACY_HALL_IDS[0]).residentContentOwnsStructure,
+    true,
+    'Unknown or legacy content no longer retains safe resident-owned structure',
+  );
 
   const structuralIds = MUSEUM_PERMANENT_STRUCTURAL_HALLS.flatMap(
     ({hallId, structuralWallIds}) => structuralWallIds.map((id) => `${hallId}/${id}`),
@@ -1578,83 +1600,84 @@ check('the permanent two-hall structural plan owns both pilot seams without medi
         .map(({id}) => `${hallId}/resident/${id}`);
     }),
   ];
-  const entranceDefinition = runtimeNodeById.get(MUSEUM_BUILDING_MANIFEST.mainEntrance.nodeId);
-  const gallery01Definition = MUSEUM_RUNTIME_NODES.find(
-    ({publicHallId}) => publicHallId === gallery01Id,
-  );
-  assert(entranceDefinition, 'The Grand Entrance runtime definition is missing');
-  assert(gallery01Definition, 'The Gallery 01 runtime definition is missing');
-  const poseFromWorld = (definition, x, z) => museumPoseFromWorld(
-    definition,
-    {x, z, yaw: Math.PI / 2, pitch: 0},
-  );
-  const entranceFarApproach = resolveMuseumHallApproachAtPose(
-    entranceDefinition,
-    poseFromWorld(entranceDefinition, 97, -70),
-  );
-  const entranceNearApproach = resolveMuseumHallApproachAtPose(
-    entranceDefinition,
-    poseFromWorld(entranceDefinition, 94.5, -70),
-  );
-  assert.equal(entranceFarApproach, undefined, 'The exact Entrance far pose entered approach residency');
-  assert.deepEqual(
-    entranceNearApproach,
-    {hallId: gallery01Id, entranceId: 'S0'},
-    'The exact Entrance near pose did not naturally approach Gallery 01',
-  );
-  const entranceStates = [
-    resolveMuseumHallResidency({}),
-    resolveMuseumHallResidency({
-      approachedHallId: entranceNearApproach.hallId,
-      approachedEntranceId: entranceNearApproach.entranceId,
+  const residencyStates = [
+    [],
+    ...HALL_IDS.map((hallId) => resolveMuseumHallResidency({activeHallId: hallId})),
+    ...MUSEUM_DIRECTED_CONNECTIONS.flatMap((connection) => {
+      const source = runtimeNodeById.get(connection.sourceNodeId);
+      const target = runtimeNodeById.get(connection.targetNodeId);
+      if (!source?.publicHallId || !target?.publicHallId) return [];
+      return [resolveMuseumHallResidency({
+        activeHallId: source.publicHallId,
+        approachedHallId: target.publicHallId,
+        approachedEntranceId: connection.targetEntranceId,
+      })];
     }),
-    resolveMuseumHallResidency({}),
-    resolveMuseumHallResidency({}),
   ];
-  assert.deepEqual(entranceStates, [[], [gallery01Id], [], []]);
-  const galleryFarApproach = resolveMuseumHallApproachAtPose(
-    gallery01Definition,
-    poseFromWorld(gallery01Definition, 41, -70),
-  );
-  const galleryNearApproach = resolveMuseumHallApproachAtPose(
-    gallery01Definition,
-    poseFromWorld(gallery01Definition, 38.5, -70),
-  );
-  assert.equal(galleryFarApproach, undefined, 'The exact Gallery 01 far pose entered approach residency');
-  assert.deepEqual(
-    galleryNearApproach,
-    {hallId: gallery14Id, entranceId: 'W0'},
-    'The exact Gallery 01 near pose did not naturally approach Gallery 14',
-  );
-  const galleryStates = [
-    resolveMuseumHallResidency({activeHallId: gallery01Id}),
-    resolveMuseumHallResidency({
-      activeHallId: gallery01Id,
-      approachedHallId: galleryNearApproach.hallId,
-      approachedEntranceId: galleryNearApproach.entranceId,
-    }),
-    resolveMuseumHallResidency({activeHallId: gallery01Id}),
-    resolveMuseumHallResidency({activeHallId: gallery01Id}),
-  ];
-  assert.deepEqual(galleryStates, [
-    [gallery01Id],
-    [gallery01Id, gallery14Id],
-    [gallery01Id],
-    [gallery01Id],
-  ]);
-  for (const state of [...entranceStates, ...galleryStates]) {
+  const reactChildren = (element) => {
+    const children = element?.props?.children;
+    return (Array.isArray(children) ? children.flat(Infinity) : [children])
+      .filter((child) => child && typeof child === 'object');
+  };
+  const reactDescendants = (element) => reactChildren(element)
+    .flatMap((child) => [child, ...reactDescendants(child)]);
+  const permanentComposition = MuseumPermanentHallStructure({onSceneGesture: () => undefined});
+  const permanentHallRoots = reactChildren(permanentComposition);
+  assert.equal(permanentHallRoots.length, HALL_IDS.length, 'Permanent React composition omits a canonical hall');
+  const permanentShellCounts = new Map();
+  const permanentSignFaceCounts = new Map();
+  for (const hallRoot of permanentHallRoots) {
+    const hallId = hallRoot.props.definition?.id;
+    assert(HALL_IDS.includes(hallId), 'Permanent React composition contains an unknown hall');
+    const architecture = reactDescendants(hallRoot)
+      .filter(({type}) => type === ContemporaryHallArchitecture);
+    assert.equal(architecture.length, 1, `${hallId} permanent React composition does not own exactly one shell`);
+    permanentShellCounts.set(hallId, architecture.length);
+    permanentSignFaceCounts.set(
+      hallId,
+      architecture.filter(({props}) => props.includeSignFaces === true).length,
+    );
+  }
+  for (const state of residencyStates) {
     assert.deepEqual(
       structuralIdsForState(state),
       structuralIds,
-      'pilot structural IDs changed with content residency',
+      'permanent structural IDs changed with content residency',
     );
+    const shellCounts = new Map(permanentShellCounts);
+    const signFaceCounts = new Map(permanentSignFaceCounts);
+    for (const hallId of state) {
+      const definition = definitionById.get(hallId);
+      assert(definition, `Resident React composition cannot resolve ${hallId}`);
+      const residentComposition = MuseumResidentHallStructure({
+        definition,
+        onSceneGesture: () => undefined,
+      });
+      const residentChildren = reactDescendants(residentComposition);
+      shellCounts.set(
+        hallId,
+        (shellCounts.get(hallId) ?? 0)
+          + residentChildren.filter(({type}) => type === ContemporaryHallArchitecture).length,
+      );
+      signFaceCounts.set(
+        hallId,
+        (signFaceCounts.get(hallId) ?? 0)
+          + residentChildren.filter(({type}) => type === ContemporaryHallSignFaces).length,
+      );
+    }
+    for (const hallId of HALL_IDS) {
+      assert.equal(shellCounts.get(hallId), 1, `${hallId} has duplicate or missing React shell ownership`);
+      const expectedSignFaces = MUSEUM_PERMANENT_SIGN_FACE_HALL_IDS.includes(hallId)
+        || state.includes(hallId)
+        ? 1
+        : 0;
+      assert.equal(
+        signFaceCounts.get(hallId) ?? 0,
+        expectedSignFaces,
+        `${hallId} has duplicate or missing React sign-face ownership`,
+      );
+    }
   }
-  const nonPilotHallId = HALL_IDS.find((id) => !MUSEUM_PERMANENT_STRUCTURAL_HALL_IDS.includes(id));
-  assert(nonPilotHallId, 'The structural mount-plan audit has no non-pilot negative control');
-  assert(
-    structuralIdsForState([nonPilotHallId]).length > structuralIds.length,
-    'The structural state audit cannot detect resident-owned architecture',
-  );
 
   const persistentLayers = MUSEUM_RUNTIME_NODES.filter(({publicHallId}) => !publicHallId);
   const permanentLayers = MUSEUM_PERMANENT_STRUCTURAL_HALLS.map(({definition}) => definition);
@@ -1681,6 +1704,53 @@ check('the permanent two-hall structural plan owns both pilot seams without medi
     }
   }
 
+  const cellWorldBounds = (layer, cell) => {
+    const bounds = cell.renderBounds ?? cell.bounds;
+    const cosine = Math.cos(layer.worldTransform.yaw);
+    const sine = Math.sin(layer.worldTransform.yaw);
+    const corners = [
+      [bounds.minX, bounds.minZ],
+      [bounds.minX, bounds.maxZ],
+      [bounds.maxX, bounds.minZ],
+      [bounds.maxX, bounds.maxZ],
+    ].map(([x, z]) => ({
+      x: layer.worldTransform.x + cosine * x + sine * z,
+      z: layer.worldTransform.z - sine * x + cosine * z,
+    }));
+    return {
+      minX: Math.min(...corners.map(({x}) => x)),
+      maxX: Math.max(...corners.map(({x}) => x)),
+      minZ: Math.min(...corners.map(({z}) => z)),
+      maxZ: Math.max(...corners.map(({z}) => z)),
+    };
+  };
+  for (let firstIndex = 0; firstIndex < renderedLayers.length; firstIndex += 1) {
+    const first = renderedLayers[firstIndex];
+    const firstCells = first.layout.spatialCells.map((cell) => ({
+      id: cell.id,
+      bounds: cellWorldBounds(first, cell),
+    }));
+    for (let secondIndex = firstIndex + 1; secondIndex < renderedLayers.length; secondIndex += 1) {
+      const second = renderedLayers[secondIndex];
+      const secondCells = second.layout.spatialCells.map((cell) => ({
+        id: cell.id,
+        bounds: cellWorldBounds(second, cell),
+      }));
+      for (const firstCell of firstCells) {
+        for (const secondCell of secondCells) {
+          const overlapWidth = Math.max(0, Math.min(firstCell.bounds.maxX, secondCell.bounds.maxX)
+            - Math.max(firstCell.bounds.minX, secondCell.bounds.minX));
+          const overlapDepth = Math.max(0, Math.min(firstCell.bounds.maxZ, secondCell.bounds.maxZ)
+            - Math.max(firstCell.bounds.minZ, secondCell.bounds.minZ));
+          assert(
+            overlapWidth * overlapDepth <= .001,
+            `${first.id}/${firstCell.id} and ${second.id}/${secondCell.id} overlap structurally`,
+          );
+        }
+      }
+    }
+  }
+
   const renderedPlanes = renderedLayers.flatMap((layer) =>
     (layer.architectureWalls ?? layer.layout.wallColliders)
       .map((wall) => museumWorldWallPlane(layer.worldTransform, wall)));
@@ -1693,53 +1763,104 @@ check('the permanent two-hall structural plan owns both pilot seams without medi
       && y >= plane.bottom - .012
       && y <= plane.top + .012;
   }).length;
-  const pilotSeams = [
-    {
-      label: 'Entrance/Gallery 01',
-      firstNodeId: MUSEUM_BUILDING_MANIFEST.mainEntrance.nodeId,
-      secondNodeId: definitionById.get(gallery01Id)?.physicalNodeId,
-      x: 89,
-      z: -70,
-    },
-    {
-      label: 'Gallery 01/Gallery 14',
-      firstNodeId: definitionById.get(gallery01Id)?.physicalNodeId,
-      secondNodeId: definitionById.get(gallery14Id)?.physicalNodeId,
-      x: 33,
-      z: -70,
-    },
-  ];
-  for (const seam of pilotSeams) {
-    const connection = MUSEUM_BUILDING_MANIFEST.connections.find(({a, b}) =>
-      (a.nodeId === seam.firstNodeId && b.nodeId === seam.secondNodeId)
-      || (a.nodeId === seam.secondNodeId && b.nodeId === seam.firstNodeId));
-    assert(connection, `${seam.label} live connection is unavailable`);
-    const endpointWorldPositions = [connection.a, connection.b].map((endpoint) => {
-      const manifestNode = MUSEUM_BUILDING_MANIFEST.nodes.find(({id}) => id === endpoint.nodeId);
-      const slot = manifestNode?.doorwaySlots.find(({id}) => id === endpoint.slotId);
-      assert(manifestNode && slot, `${seam.label} endpoint ${endpoint.nodeId}/${endpoint.slotId} is unavailable`);
-      assert.equal(slot.clearWidth, 4, `${seam.label} clear width changed`);
-      assert.equal(slot.clearHeight, 3.2, `${seam.label} clear height changed`);
-      const cosine = Math.cos(manifestNode.transform.yaw);
-      const sine = Math.sin(manifestNode.transform.yaw);
-      return {
-        x: manifestNode.transform.x + cosine * slot.position.x + sine * slot.position.z,
-        z: manifestNode.transform.z - sine * slot.position.x + cosine * slot.position.z,
-      };
+  const manifestNodeById = new Map(MUSEUM_BUILDING_MANIFEST.nodes.map((node) => [node.id, node]));
+  const permanentByPhysicalNodeId = new Map(MUSEUM_PERMANENT_STRUCTURAL_HALLS.map((hall) => [
+    hall.definition.physicalNodeId,
+    hall,
+  ]));
+  const hallTouchingConnections = MUSEUM_BUILDING_MANIFEST.connections.filter(({a, b}) =>
+    permanentByPhysicalNodeId.has(a.nodeId) || permanentByPhysicalNodeId.has(b.nodeId));
+  assert.equal(hallTouchingConnections.length, 39, 'Hall-touching seam count changed');
+  for (const connection of hallTouchingConnections) {
+    const endpoints = [connection.a, connection.b].map((endpoint) => {
+      const node = manifestNodeById.get(endpoint.nodeId);
+      const slot = node?.doorwaySlots.find(({id}) => id === endpoint.slotId);
+      assert(node && slot, `${connection.id} endpoint ${endpoint.nodeId}/${endpoint.slotId} is unavailable`);
+      return {endpoint, node, slot};
     });
-    for (const endpoint of endpointWorldPositions) {
-      approx(endpoint.x, seam.x, `${seam.label} endpoint x`);
-      approx(endpoint.z, seam.z, `${seam.label} endpoint z`);
+    const [first, second] = endpoints;
+    approx(first.slot.worldPosition.x, second.slot.worldPosition.x, `${connection.id} endpoint x`);
+    approx(first.slot.worldPosition.z, second.slot.worldPosition.z, `${connection.id} endpoint z`);
+    approx(first.slot.worldInwardNormal.x, -second.slot.worldInwardNormal.x, `${connection.id} normal x`);
+    approx(first.slot.worldInwardNormal.z, -second.slot.worldInwardNormal.z, `${connection.id} normal z`);
+    approx(first.slot.clearWidth, second.slot.clearWidth, `${connection.id} clear width`);
+    approx(first.slot.clearHeight, second.slot.clearHeight, `${connection.id} clear height`);
+    const center = first.slot.worldPosition;
+    const tangent = {
+      x: -first.slot.worldInwardNormal.z,
+      z: first.slot.worldInwardNormal.x,
+    };
+    const jambOffset = first.slot.clearWidth / 2 + .2;
+    assert.equal(coverageAt({x: center.x, z: center.z, y: 1.6}), 0, `${connection.id} aperture is not open`);
+    assert.equal(coverageAt({
+      x: center.x + tangent.x * jambOffset,
+      z: center.z + tangent.z * jambOffset,
+      y: 1.6,
+    }), 1, `${connection.id} first jamb lacks one owner`);
+    assert.equal(coverageAt({
+      x: center.x - tangent.x * jambOffset,
+      z: center.z - tangent.z * jambOffset,
+      y: 1.6,
+    }), 1, `${connection.id} second jamb lacks one owner`);
+    assert.equal(coverageAt({
+      x: center.x,
+      z: center.z,
+      y: first.slot.clearHeight + .1,
+    }), 1, `${connection.id} lintel lacks one owner`);
+    const thresholdOwners = endpoints.filter(({endpoint}) =>
+      permanentByPhysicalNodeId.get(endpoint.nodeId)?.ownedPortalIds.includes(endpoint.slotId));
+    assert.equal(thresholdOwners.length, 1, `${connection.id} does not have exactly one threshold owner`);
+  }
+
+  const inactiveHallSlots = MUSEUM_BUILDING_MANIFEST.nodes.flatMap((node) =>
+    node.publicHallId
+      ? node.doorwaySlots.filter((slot) => !activeEndpointKeys.has(`${node.id}:${slot.id}`))
+        .map((slot) => ({node, slot}))
+      : []);
+  assert.equal(inactiveHallSlots.length, 64, 'Inactive canonical hall-slot count changed');
+  for (const {node, slot} of inactiveHallSlots) {
+    assert(
+      coverageAt({x: slot.worldPosition.x, z: slot.worldPosition.z, y: 1.6}) >= 1,
+      `${node.id}/${slot.id} inactive portal is not structurally closed`,
+    );
+  }
+
+  const collisionPlanes = MUSEUM_RUNTIME_NODES.flatMap((node) =>
+    node.layout.wallColliders.map((wall) => museumWorldWallPlane(node.worldTransform, wall)));
+  const planeArea = (plane) =>
+    Math.max(0, plane.end - plane.start) * Math.max(0, plane.top - plane.bottom);
+  for (const definition of definitions) {
+    for (const collider of definition.layout.wallColliders) {
+      let uncovered = [museumWorldWallPlane(definition.worldTransform, collider)];
+      for (const rendered of renderedPlanes) {
+        uncovered = uncovered.flatMap((fragment) => subtractMuseumWallPlane(fragment, rendered));
+      }
+      const uncoveredArea = uncovered.reduce((sum, plane) => sum + planeArea(plane), 0);
+      assert(uncoveredArea <= .001, `${definition.id}/${collider.id} collision lacks rendered structural coverage`);
     }
-    approx(endpointWorldPositions[0].x, endpointWorldPositions[1].x, `${seam.label} endpoint alignment x`);
-    approx(endpointWorldPositions[0].z, endpointWorldPositions[1].z, `${seam.label} endpoint alignment z`);
+    assert(
+      definition.layout.wallColliders.every(({id}) => !id.includes(':visible-')),
+      `${definition.id} leaked render-only wall fragments into collision`,
+    );
   }
-  for (const seam of pilotSeams) {
-    assert.equal(coverageAt({...seam, y: 1.6}), 0, `${seam.label} aperture is not open`);
-    assert.equal(coverageAt({x: seam.x, z: seam.z - 2.2, y: 1.6}), 1, `${seam.label} first jamb lacks one owner`);
-    assert.equal(coverageAt({x: seam.x, z: seam.z + 2.2, y: 1.6}), 1, `${seam.label} second jamb lacks one owner`);
-    assert.equal(coverageAt({x: seam.x, z: seam.z, y: 3.3}), 1, `${seam.label} lintel lacks one owner`);
+  for (const rendered of renderedPlanes) {
+    const visitorHeightFragment = {
+      ...rendered,
+      bottom: Math.max(0, rendered.bottom),
+      top: Math.min(2, rendered.top),
+    };
+    if (planeArea(visitorHeightFragment) <= .001) continue;
+    let unsupported = [visitorHeightFragment];
+    for (const collision of collisionPlanes) {
+      unsupported = unsupported.flatMap((fragment) => subtractMuseumWallPlane(fragment, collision));
+    }
+    const unsupportedArea = unsupported.reduce((sum, plane) => sum + planeArea(plane), 0);
+    assert(
+      unsupportedArea <= .001,
+      `${rendered.ownerId}/${rendered.wallId} renders ${unsupportedArea.toFixed(3)} m² below 2 m without collision support`,
+    );
   }
+
   const gallery14 = definitionById.get(gallery14Id);
   const gallery14Permanent = MUSEUM_PERMANENT_STRUCTURAL_HALLS.find(({hallId}) => hallId === gallery14Id);
   assert(gallery14 && gallery14Permanent, 'Gallery 14 permanent structure is unavailable');
@@ -5316,7 +5437,10 @@ check('decoded texture residency admits every active and approached hall under 9
     5.6 * .27,
     {width: 600, height: 160, mipmaps: true},
   ));
-  const expectedPermanentStructuralSignBytes = MUSEUM_PERMANENT_STRUCTURAL_HALLS.reduce(
+  const permanentSignFaceHallIds = new Set(MUSEUM_PERMANENT_SIGN_FACE_HALL_IDS);
+  const expectedPermanentStructuralSignBytes = MUSEUM_PERMANENT_STRUCTURAL_HALLS
+    .filter(({hallId}) => permanentSignFaceHallIds.has(hallId))
+    .reduce(
     (sum, {hallId, definition}) =>
       sum + (definition.layout.signs ?? []).reduce((signSum, sign) => {
         const referenceWidth = hallId === 'mediterranean-beginnings-classical' ? 600 : 900;
@@ -5743,11 +5867,29 @@ check('the React implementation uses one persistent Canvas, one shared canonical
     assert(!registrySource.includes(legacyScene), `runtime registry still imports ${legacyScene}`);
   }
   assert.match(canonicalSceneSource, /CanonicalMuseumExhibits/);
-  assert.match(canonicalSceneSource, /ContemporaryHallArchitecture/);
+  assert.match(canonicalSceneSource, /MuseumResidentHallStructure/);
+  assert.doesNotMatch(
+    canonicalSceneSource,
+    /ContemporaryHallArchitecture|ContemporaryHallSignFaces/,
+    'Canonical content bypasses the audited resident structural-complement component',
+  );
+  assert.match(
+    residentHallStructureSource,
+    /!museumHallHasPermanentSignFaces\(definition\.id\)[\s\S]*<ContemporaryHallSignFaces/,
+    'Non-pilot sign faces are not mounted with lazy resident hall content',
+  );
+  assert.match(
+    permanentHallStructureSource,
+    /includeSignFaces=\{museumHallHasPermanentSignFaces\(hall\.hallId\)\}/,
+    'Permanent halls no longer apply the two-hall sign-face exception',
+  );
   assert.match(canonicalExhibitsSource, /Every Gallery 01 installation presents provenance-backed imagery/);
   assert.match(canonicalExhibitsSource, /usePlaqueTexture/);
   assert.match(architectureSource, /museumTextureDimensionsForPlane/);
-  assert.match(architectureSource, /<mesh position=\{\[0, 0, \.002\]\}><planeGeometry/);
+  assert.match(
+    architectureSource,
+    /function PhysicalSignFace[\s\S]*museumSignFaceId[\s\S]*<planeGeometry/,
+  );
   assert.match(visitorMapSource, /The Continuous Enfilade is a single-level, 26-gallery museum/);
   assert.match(visitorMapSource, /26-gallery collection plan/);
   assert.match(visitorMapSource, /10 metre north–south crosscut has six truthful intersections/);

@@ -18,6 +18,7 @@ export type MuseumPilotMaterialTelemetry = {
 
 export type MuseumPilotStructuralTelemetry = {
   id: string;
+  category: string;
   ownerHallId?: string;
   ownerNodeId?: string;
   residencyLayer?: string;
@@ -55,6 +56,9 @@ export type MuseumPilotSceneTelemetry = {
   };
   structuralMeshes: readonly MuseumPilotStructuralTelemetry[];
   lights: readonly {
+    id: string;
+    role: string;
+    ownerHallId?: string;
     uuid: string;
     type: string;
     intensity: number;

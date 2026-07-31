@@ -95,6 +95,10 @@ function CofferedCeiling() {
     {[10, 0, -10].map((x) => <pointLight
       key={x}
       position={[x, 5.2, x === 10 ? -8 : x === -10 ? 12 : 2]}
+      userData={{
+        museumLightId: `entrance:coffer:${x}`,
+        museumLightRole: 'persistent-entrance',
+      }}
       color={DAYLIGHT}
       intensity={.5}
       distance={24}
@@ -143,7 +147,17 @@ function ExteriorArrival({x, z}: {x: number; z: number}) {
             <meshStandardMaterial {...BRONZE}/>
           </mesh>
         </group>))}
-      <pointLight position={[4.5, 3.4, 0]} color={DAYLIGHT} intensity={1.25} distance={14} decay={2}/>
+      <pointLight
+        position={[4.5, 3.4, 0]}
+        userData={{
+          museumLightId: 'entrance:public-threshold',
+          museumLightRole: 'persistent-entrance',
+        }}
+        color={DAYLIGHT}
+        intensity={1.25}
+        distance={14}
+        decay={2}
+      />
     </group>
 
     <group position={[x - .38, 0, z]}>
@@ -313,7 +327,17 @@ function GalleryOnePortal({x, z}: {x: number; z: number}) {
         metalness={.58}
       />
     </mesh>
-    <pointLight position={[1.5, 2.55, 0]} color="#ffd99c" intensity={.85} distance={9} decay={2}/>
+    <pointLight
+      position={[1.5, 2.55, 0]}
+      userData={{
+        museumLightId: 'entrance:first-gallery-threshold',
+        museumLightRole: 'persistent-entrance',
+      }}
+      color="#ffd99c"
+      intensity={.85}
+      distance={9}
+      decay={2}
+    />
   </group>;
 }
 
