@@ -24,8 +24,8 @@
     {
       "label": "Philosophies, branches, schools, traditions, movements, methods, and frameworks",
       "total": 43,
-      "pass": 33,
-      "fail": 10,
+      "pass": 34,
+      "fail": 9,
       "missing": 0
     },
     {
@@ -38,8 +38,8 @@
   ],
   "universalSummary": {
     "total": 189,
-    "pass": 87,
-    "fail": 102,
+    "pass": 88,
+    "fail": 101,
     "missing": 0
   },
   "pilotChanges": [
@@ -798,10 +798,10 @@
     },
     {
       "canonicalId": "descartes",
-      "title": "Descartes",
+      "title": "René Descartes",
       "visitorEntryPoint": "#/philosophers/descartes",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 2563,
+      "substantiveWordCount": 4687,
       "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
@@ -2313,8 +2313,8 @@
       "title": "Rationalism",
       "visitorEntryPoint": "#/branches/rationalism",
       "contentCategory": "philosophy",
-      "substantiveWordCount": 1824,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 5757,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -4174,8 +4174,8 @@
         "surfaceWords": 480,
         "canonicalArticleKey": "philosophy:rationalism",
         "canonicalArticleId": "rationalism",
-        "canonicalArticleWordCount": 1824,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 5757,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "descartes",
@@ -4186,7 +4186,7 @@
         "surfaceWords": 395,
         "canonicalArticleKey": "philosopher:descartes",
         "canonicalArticleId": "descartes",
-        "canonicalArticleWordCount": 2563,
+        "canonicalArticleWordCount": 4687,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -8124,7 +8124,7 @@
         "canonicalArticleKey": "philosopher:descartes",
         "canonicalArticleId": "descartes",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 2563,
+        "canonicalArticleWordCount": 4687,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -8140,7 +8140,7 @@
         "canonicalArticleKey": "philosopher:descartes",
         "canonicalArticleId": "descartes",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 2563,
+        "canonicalArticleWordCount": 4687,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -8156,7 +8156,7 @@
         "canonicalArticleKey": "philosopher:descartes",
         "canonicalArticleId": "descartes",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 2563,
+        "canonicalArticleWordCount": 4687,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -8172,7 +8172,7 @@
         "canonicalArticleKey": "philosopher:descartes",
         "canonicalArticleId": "descartes",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 2563,
+        "canonicalArticleWordCount": 4687,
         "canonicalArticleComplianceStatus": "pass"
       },
       {

@@ -15,10 +15,10 @@ The hard floor is **2,000 substantive article-prose words**. The counter tokeniz
 | Category | Total | Pass | Fail | Missing article |
 | --- | ---: | ---: | ---: | ---: |
 | Philosophers | 146 | 54 | 92 | 0 |
-| Philosophies, branches, schools, traditions, movements, methods, and frameworks | 43 | 33 | 10 | 0 |
+| Philosophies, branches, schools, traditions, movements, methods, and frameworks | 43 | 34 | 9 | 0 |
 | Standalone works, texts, arguments, concepts, and article-backed exhibits | 0 | 0 | 0 | 0 |
 
-Universal total: **189** applicable articles; **87 pass**; **102 fail**; **0 are missing article prose**.
+Universal total: **189** applicable articles; **88 pass**; **101 fail**; **0 are missing article prose**.
 
 Current failures are migration backlog, not approved exceptions. The strict audit is intentionally separate from the ordinary build until that backlog reaches zero.
 
@@ -137,7 +137,6 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | buddhist-philosophy | Buddhist Philosophy | philosophy | 1800 | fail |
 | buddhist-epistemology | Buddhist Epistemology | philosophy | 1804 | fail |
 | islamic-philosophy | Islamic Philosophy | philosophy | 1834 | fail |
-| rationalism | Rationalism | philosophy | 1824 | fail |
 
 ## Records omitted by the former manual target list
 
@@ -217,7 +216,7 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | philosopher | machiavelli | Machiavelli | #/philosophers/machiavelli | 1920 | fail | yes | yes (1 primary; 2 supplemental) |
 | philosopher | bacon | Francis Bacon | #/philosophers/bacon | 1888 | fail | yes | yes (1 primary; 2 supplemental) |
 | philosopher | galileo | Galileo Galilei | #/philosophers/galileo | 1803 | fail | no | yes (1 primary; 2 supplemental) |
-| philosopher | descartes | Descartes | #/philosophers/descartes | 2563 | pass | yes | yes (1 primary; 4 supplemental) |
+| philosopher | descartes | René Descartes | #/philosophers/descartes | 4687 | pass | yes | yes (1 primary; 4 supplemental) |
 | philosopher | hobbes | Thomas Hobbes | #/philosophers/hobbes | 1886 | fail | yes | yes (1 primary; 5 supplemental) |
 | philosopher | spinoza | Spinoza | #/philosophers/spinoza | 2350 | pass | yes | yes (1 primary; 3 supplemental) |
 | philosopher | leibniz | Leibniz | #/philosophers/leibniz | 2303 | pass | yes | yes (1 primary; 5 supplemental) |
@@ -343,7 +342,7 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | philosophy | buddhist-epistemology | Buddhist Epistemology | #/branches/buddhist-epistemology | 1804 | fail | yes | yes (1 primary; 1 supplemental) |
 | philosophy | islamic-philosophy | Islamic Philosophy | #/branches/islamic-philosophy | 1834 | fail | yes | yes (1 primary; 5 supplemental) |
 | philosophy | medieval-scholasticism | Medieval Scholasticism | #/branches/medieval-scholasticism | 2081 | pass | yes | yes (1 primary; 5 supplemental) |
-| philosophy | rationalism | Rationalism | #/branches/rationalism | 1824 | fail | yes | yes (1 primary; 0 supplemental) |
+| philosophy | rationalism | Rationalism | #/branches/rationalism | 5757 | pass | yes | yes (1 primary; 0 supplemental) |
 | philosophy | empiricism | Empiricism | #/branches/empiricism | 5228 | pass | yes | yes (1 primary; 1 supplemental) |
 | philosophy | german-idealism | German Idealism | #/branches/german-idealism | 2206 | pass | yes | yes (1 primary; 4 supplemental) |
 

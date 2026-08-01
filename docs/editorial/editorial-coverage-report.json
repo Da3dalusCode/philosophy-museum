@@ -916,7 +916,7 @@
     },
     {
       "id": "descartes",
-      "title": "Descartes",
+      "title": "René Descartes",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/descartes",
       "authoredStatus": "bibliography-only",
@@ -927,7 +927,7 @@
       "structuredClaimCount": 0,
       "structuredParagraphCount": 0,
       "citationCount": 0,
-      "substantiveArticleWordCount": 2563
+      "substantiveArticleWordCount": 4687
     },
     {
       "id": "hobbes",
@@ -2821,7 +2821,7 @@
       "structuredClaimCount": 0,
       "structuredParagraphCount": 0,
       "citationCount": 0,
-      "substantiveArticleWordCount": 1824
+      "substantiveArticleWordCount": 5757
     },
     {
       "id": "empiricism",
@@ -4959,64 +4959,99 @@
       "recordKey": "philosopher:descartes",
       "status": "bibliography-only",
       "signal": "priority-or-superlative",
-      "location": "overview/paragraph-1",
-      "excerpt": "Descartes is often introduced as the founder of modern philosophy because he turns inquiry toward the conditions under which a thinking subject can know anything with certainty. That label is useful only if it does not m"
+      "location": "project/paragraph-2",
+      "excerpt": "Calling Descartes the father of modern philosophy can identify his enormous influence, but it also hides continuities. He was educated in Jesuit scholastic philosophy, borrowed and transformed inherited concepts of subst"
     },
     {
       "recordKey": "philosopher:descartes",
       "status": "bibliography-only",
       "signal": "priority-or-superlative",
-      "location": "overview/paragraph-2",
-      "excerpt": "The famous method of doubt is not a mood of permanent suspicion. It is an artificial test designed to discover whether anything remains secure when inherited beliefs, sensory confidence, and even mathematical judgments a"
+      "location": "doubt/paragraph-1",
+      "excerpt": "The first Meditation seeks grounds for overturning a structure of belief rather than refuting each belief separately. If principles learned through the senses have sometimes misled, they may not supply an absolutely secu"
     },
     {
       "recordKey": "philosopher:descartes",
       "status": "bibliography-only",
       "signal": "priority-or-superlative",
       "location": "cogito/paragraph-1",
-      "excerpt": "The cogito is the first secure result of the doubt. However radically I am deceived, I cannot be deceived about my existence while I am thinking. The insight is sometimes compressed into a slogan, but in the Meditations"
+      "excerpt": "When Descartes considers that he may be deceived about everything, the deception itself discloses an activity that must exist while it occurs. The judgment that I am, I exist is necessarily true whenever it is thought. I"
     },
     {
       "recordKey": "philosopher:descartes",
       "status": "bibliography-only",
       "signal": "priority-or-superlative",
-      "location": "cogito/paragraph-2",
-      "excerpt": "This discovery changes the starting point of philosophy. The self first known is not a biological organism, a social role, or an Aristotelian substance identified through a natural kind. It is a res cogitans, a thinking"
-    },
-    {
-      "recordKey": "philosopher:descartes",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "ideas-representation/paragraph-1",
-      "excerpt": "Descartes' theory of ideas is central to his epistemology. Ideas are modes of thought that represent things. Some seem adventitious, arriving through the senses; some are invented by the imagination; some are innate in t"
-    },
-    {
-      "recordKey": "philosopher:descartes",
-      "status": "bibliography-only",
-      "signal": "disputed-attribution",
-      "location": "misunderstandings/paragraph-2",
-      "excerpt": "The genuine tensions are more interesting. Descartes wants a philosophy of pure intellectual clarity, but human life appears as a union of mind and body that resists clear separation. He wants science secured by metaphys"
-    },
-    {
-      "recordKey": "philosopher:descartes",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "reading-strategy/paragraph-1",
-      "excerpt": "A good route begins with the Discourse on Method, especially its autobiographical presentation of intellectual dissatisfaction, method, provisional morality, and the link between mathematics and inquiry. Then read the Me"
+      "location": "cogito/paragraph-3",
+      "excerpt": "Interpretation remains contested. Some readers see an inference, others an intuition, others a self-verifying utterance, and still others a staged discovery whose certainty depends on attention. Another dispute asks whet"
     },
     {
       "recordKey": "philosopher:descartes",
       "status": "bibliography-only",
       "signal": "quotation",
-      "location": "reading-strategy/paragraph-2",
-      "excerpt": "After the Meditations, read selections from Principles of Philosophy for the systematic project, then the Passions of the Soul to see how embodiment, emotion, and ethics complicate the metaphysical picture. Keep three qu"
+      "location": "ideas/paragraph-1",
+      "excerpt": "Descartes uses “idea” for modes of thought that present or represent objects. He distinguishes ideas that seem to arrive from outside, ideas constructed by the mind, and innate ideas arising from the mind’s own nature. T"
     },
     {
       "recordKey": "philosopher:descartes",
       "status": "bibliography-only",
       "signal": "priority-or-superlative",
-      "location": "reading-strategy/paragraph-2",
-      "excerpt": "After the Meditations, read selections from Principles of Philosophy for the systematic project, then the Passions of the Soul to see how embodiment, emotion, and ethics complicate the metaphysical picture. Keep three qu"
+      "location": "god-arguments/paragraph-2",
+      "excerpt": "The fifth Meditation offers an ontological argument. Descartes treats necessary existence as belonging to the clear and distinct idea of a supremely perfect being, much as certain properties belong to the essence of a tr"
+    },
+    {
+      "recordKey": "philosopher:descartes",
+      "status": "bibliography-only",
+      "signal": "influence-or-causation",
+      "location": "world-senses/paragraph-1",
+      "excerpt": "By the sixth Meditation, Descartes argues that material things exist. His strong inclination to believe that sensory ideas come from bodies must have a source; if God systematically caused that inclination while no bodie"
+    },
+    {
+      "recordKey": "philosopher:descartes",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "life-machines/paragraph-1",
+      "excerpt": "Descartes treated many functions traditionally assigned to a sensitive soul as bodily mechanisms. Digestion, circulation, reflex-like withdrawal, memory traces, locomotion, and sensory processing could be modeled through"
+    },
+    {
+      "recordKey": "philosopher:descartes",
+      "status": "bibliography-only",
+      "signal": "disputed-attribution",
+      "location": "life-machines/paragraph-2",
+      "excerpt": "Nonhuman animals became a test case. Descartes denied them rational souls and explained their behavior as highly organized bodily response. Language and flexible action were his main proposed signs of thought: no animal,"
+    },
+    {
+      "recordKey": "philosopher:descartes",
+      "status": "bibliography-only",
+      "signal": "influence-or-causation",
+      "location": "passions/paragraph-1",
+      "excerpt": "The Passions of the Soul approaches emotion as natural philosophy, moral psychology, and practical guidance. Passions are perceptions referred especially to the soul and caused, maintained, or strengthened by bodily proc"
+    },
+    {
+      "recordKey": "philosopher:descartes",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "reception/paragraph-1",
+      "excerpt": "Cartesianism became a movement that Descartes could not control. Dutch controversies involved theologians, university authorities, supporters, and former allies such as Henricus Regius. Followers developed occasionalism,"
+    },
+    {
+      "recordKey": "philosopher:descartes",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "reception/paragraph-2",
+      "excerpt": "Spinoza rejected two created substances in favor of one substance expressed through attributes, transforming mind and body into parallel ways of conceiving the same reality. Leibniz criticized Cartesian matter and motion"
+    },
+    {
+      "recordKey": "philosopher:descartes",
+      "status": "bibliography-only",
+      "signal": "priority-or-superlative",
+      "location": "reception/paragraph-3",
+      "excerpt": "Kant criticized the rational psychology that inferred a substantial, simple, enduring soul from the unity of thought, while keeping the first-person unity of apperception central to his own project. Later phenomenology c"
+    },
+    {
+      "recordKey": "philosopher:descartes",
+      "status": "bibliography-only",
+      "signal": "disputed-attribution",
+      "location": "disputes/paragraph-3",
+      "excerpt": "Historians also reassess the story of heroic modern rupture. Descartes criticized scholasticism while using its training and vocabulary; pursued universal reason through elite learned networks; and was shaped by women co"
     },
     {
       "recordKey": "philosopher:hobbes",
@@ -9928,37 +9963,86 @@
     {
       "recordKey": "philosophy:rationalism",
       "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "historical-development/paragraph-1",
-      "excerpt": "Seventeenth-century rationalism developed amid religious conflict, new mathematical sciences, mechanical philosophy, and continuing scholastic education. Descartes sought a method capable of resisting inherited error and"
-    },
-    {
-      "recordKey": "philosophy:rationalism",
-      "status": "bibliography-only",
       "signal": "quotation",
-      "location": "internal-debates/paragraph-1",
-      "excerpt": "Rationalists divide sharply over substance. Descartes recognizes thinking and extended created substances dependent on God, producing the problem of how mind and body interact. Spinoza argues that thought and extension a"
-    },
-    {
-      "recordKey": "philosophy:rationalism",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "neighbors/paragraph-2",
-      "excerpt": "Medieval scholasticism supplies vocabulary and arguments that early modern writers revise even while presenting themselves as reformers. Philosophy of science appears in disputes about mechanism, laws, mathematics, hypot"
+      "location": "category/paragraph-2",
+      "excerpt": "Descartes, Spinoza, and Leibniz did not form a self-declared continental party with a common manifesto. They disagreed radically about substance, God, freedom, mind, matter, causation, and method. “Rationalism” became st"
     },
     {
       "recordKey": "philosophy:rationalism",
       "status": "bibliography-only",
       "signal": "priority-or-superlative",
-      "location": "reading-path/paragraph-1",
-      "excerpt": "Begin with Descartes’ Discourse on Method and the first six Meditations, keeping separate the certainty of the cogito from the later arguments required to recover God and body. Read Spinoza’s Ethics slowly through defini"
+      "location": "descartes/paragraph-1",
+      "excerpt": "Descartes gives rationalism its classic dramatic form. Methodic doubt suspends beliefs vulnerable to sensory error, dreams, or radical deception. The cogito survives because present thinking verifies existence in the act"
+    },
+    {
+      "recordKey": "philosophy:rationalism",
+      "status": "bibliography-only",
+      "signal": "disputed-attribution",
+      "location": "leibniz/paragraph-1",
+      "excerpt": "Leibniz builds another incompatible rationalist system. Reality consists not ultimately of extended matter but of simple substances conventionally called monads, each expressing the universe from a unique perspective. Co"
+    },
+    {
+      "recordKey": "philosophy:rationalism",
+      "status": "bibliography-only",
+      "signal": "disputed-attribution",
+      "location": "necessity/paragraph-2",
+      "excerpt": "The principle of sufficient reason demands that there be an adequate reason why something is so rather than otherwise. It can guide inquiry toward causes and explanations, but its scope is disputed. If every fact has a n"
     },
     {
       "recordKey": "philosophy:rationalism",
       "status": "bibliography-only",
       "signal": "quotation",
-      "location": "reading-path/paragraph-4",
-      "excerpt": "Then organize reading around a shared question. Compare substance, causal interaction, freedom, innate structure, or sufficient reason across the four thinkers and against Locke or Hume. Finish with Kant’s account of syn"
+      "location": "experience/paragraph-1",
+      "excerpt": "The slogan “reason rather than experience” fails most clearly in natural philosophy. Descartes used observations of refraction, anatomy, weather, magnets, and other phenomena; he recognized that several imperceptible mec"
+    },
+    {
+      "recordKey": "philosophy:rationalism",
+      "status": "bibliography-only",
+      "signal": "priority-or-superlative",
+      "location": "kant/paragraph-2",
+      "excerpt": "Hume’s challenge concerning causality becomes decisive. Repeated impressions cannot display necessity, yet Kant argues that causal order is a condition for experiencing objective succession rather than a habit projected"
+    },
+    {
+      "recordKey": "philosophy:rationalism",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "later/paragraph-3",
+      "excerpt": "Karl Popper’s “critical rationalism” names a different program centered on conjecture, criticism, and fallibility rather than classical certainty or innate concepts. Contemporary political uses of “rationalism” can mean"
+    },
+    {
+      "recordKey": "philosophy:rationalism",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "contemporary/paragraph-1",
+      "excerpt": "Contemporary epistemology still asks whether some justification is independent of particular sensory experience. Logic, mathematics, conceptual truths, modality, introspection, morality, and testimony generate different"
+    },
+    {
+      "recordKey": "philosophy:rationalism",
+      "status": "bibliography-only",
+      "signal": "disputed-attribution",
+      "location": "politics-ethics/paragraph-2",
+      "excerpt": "They can also conceal exclusion. Proclaiming a universal reason does not ensure equal education, authorship, legal standing, or credibility. Learned networks relied on social rank and imperial exchange. A philosophical c"
+    },
+    {
+      "recordKey": "philosophy:rationalism",
+      "status": "bibliography-only",
+      "signal": "broad-classification",
+      "location": "comparison-china/paragraph-2",
+      "excerpt": "Some comparisons are nevertheless illuminating. Leibniz engaged reports about China and interpreted the Yijing through his own mathematical and theological projects, but his reading does not make Chinese thought an antic"
+    },
+    {
+      "recordKey": "philosophy:rationalism",
+      "status": "bibliography-only",
+      "signal": "priority-or-superlative",
+      "location": "beginner/paragraph-1",
+      "excerpt": "Begin with three questions rather than a slogan. First, what does a knower contribute that sensory input alone cannot provide? Second, how can anyone know that something must be true rather than merely having happened re"
+    },
+    {
+      "recordKey": "philosophy:rationalism",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "beginner/paragraph-3",
+      "excerpt": "Finally restore experience. Rationalists learn contingent facts, observe bodies, communicate testimony, and test natural explanations. Their controversial claim is that experience cannot do every epistemic job. Empiricis"
     },
     {
       "recordKey": "philosophy:empiricism",

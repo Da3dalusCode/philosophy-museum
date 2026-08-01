@@ -9,6 +9,7 @@ import {continentalPhilosophyBranchArticles} from './continentalPhilosophyBranch
 import {crossCulturalCorePhilosopherArticles} from './crossCulturalCoreArticles';
 import {daoMohistLegalistBranchArticles} from './daoMohistLegalistBranchDepth';
 import {earlyModernCorePhilosopherArticles} from './earlyModernCoreArticles';
+import {descartesFlagshipArticle} from './descartesFlagshipArticle';
 import {humeFlagshipArticle} from './humeFlagshipArticle';
 import {earlyModernPoliticalPhilosopherArticles} from './earlyModernPoliticalArticles';
 import {earlyStoicSystemPhilosopherArticles} from './earlyStoicSystemArticles';
@@ -42,6 +43,7 @@ import {medievalChristianContinuationPhilosopherArticles} from './medievalChrist
 import {medievalIslamicContinuationPhilosopherArticles} from './medievalIslamicContinuationArticles';
 import {earlyModernKnowledgeBranchArticles} from './earlyModernKnowledgeBranchDepth';
 import {empiricismFlagshipArticle} from './empiricismFlagshipArticle';
+import {rationalismFlagshipArticle} from './rationalismFlagshipArticle';
 import {editorialDepthBatch01BranchArticles} from './editorialDepthBatch01';
 import {deontologyBranchArticles} from './deontologyBranchDepth';
 import {logicBranchArticles} from './logicBranchDepth';
@@ -70,6 +72,7 @@ export const philosopherArticles:Record<string,ArticleSection[]>={
   ...chineseContinuationPhilosopherArticles,
   ...crossCulturalCorePhilosopherArticles,
   ...earlyModernCorePhilosopherArticles,
+  descartes:descartesFlagshipArticle,
   hume:humeFlagshipArticle,
   ...earlyModernPoliticalPhilosopherArticles,
   ...earlyStoicSystemPhilosopherArticles,
@@ -411,6 +414,7 @@ export const branchArticles:Record<string,ArticleSection[]>={
   ...hellenisticBranchArticles,
   ...lateAntiqueInheritanceBranchArticles,
   ...earlyModernKnowledgeBranchArticles,
+  rationalism:rationalismFlagshipArticle,
   empiricism:empiricismFlagshipArticle,
   ...feministPhilosophyBranchArticles,
   ...deontologyBranchArticles,
