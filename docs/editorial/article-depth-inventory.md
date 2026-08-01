@@ -15,10 +15,10 @@ The hard floor is **2,000 substantive article-prose words**. The counter tokeniz
 | Category | Total | Pass | Fail | Missing article |
 | --- | ---: | ---: | ---: | ---: |
 | Philosophers | 146 | 54 | 92 | 0 |
-| Philosophies, branches, schools, traditions, movements, methods, and frameworks | 43 | 32 | 11 | 0 |
+| Philosophies, branches, schools, traditions, movements, methods, and frameworks | 43 | 33 | 10 | 0 |
 | Standalone works, texts, arguments, concepts, and article-backed exhibits | 0 | 0 | 0 | 0 |
 
-Universal total: **189** applicable articles; **86 pass**; **103 fail**; **0 are missing article prose**.
+Universal total: **189** applicable articles; **87 pass**; **102 fail**; **0 are missing article prose**.
 
 Current failures are migration backlog, not approved exceptions. The strict audit is intentionally separate from the ordinary build until that backlog reaches zero.
 
@@ -138,7 +138,6 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | buddhist-epistemology | Buddhist Epistemology | philosophy | 1804 | fail |
 | islamic-philosophy | Islamic Philosophy | philosophy | 1834 | fail |
 | rationalism | Rationalism | philosophy | 1824 | fail |
-| empiricism | Empiricism | philosophy | 1807 | fail |
 
 ## Records omitted by the former manual target list
 
@@ -224,7 +223,7 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | philosopher | leibniz | Leibniz | #/philosophers/leibniz | 2303 | pass | yes | yes (1 primary; 5 supplemental) |
 | philosopher | locke | Locke | #/philosophers/locke | 2360 | pass | yes | yes (1 primary; 3 supplemental) |
 | philosopher | berkeley | Berkeley | #/philosophers/berkeley | 1903 | fail | yes | yes (1 primary; 5 supplemental) |
-| philosopher | hume | Hume | #/philosophers/hume | 2231 | pass | yes | yes (1 primary; 5 supplemental) |
+| philosopher | hume | David Hume | #/philosophers/hume | 4800 | pass | yes | yes (1 primary; 5 supplemental) |
 | philosopher | rousseau | Rousseau | #/philosophers/rousseau | 1836 | fail | yes | yes (1 primary; 5 supplemental) |
 | philosopher | bentham | Jeremy Bentham | #/philosophers/bentham | 1976 | fail | yes | yes (1 primary; 4 supplemental) |
 | philosopher | kant | Immanuel Kant | #/philosophers/kant | 3296 | pass | no | yes (1 primary; 0 supplemental) |
@@ -345,7 +344,7 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | philosophy | islamic-philosophy | Islamic Philosophy | #/branches/islamic-philosophy | 1834 | fail | yes | yes (1 primary; 5 supplemental) |
 | philosophy | medieval-scholasticism | Medieval Scholasticism | #/branches/medieval-scholasticism | 2081 | pass | yes | yes (1 primary; 5 supplemental) |
 | philosophy | rationalism | Rationalism | #/branches/rationalism | 1824 | fail | yes | yes (1 primary; 0 supplemental) |
-| philosophy | empiricism | Empiricism | #/branches/empiricism | 1807 | fail | yes | yes (1 primary; 1 supplemental) |
+| philosophy | empiricism | Empiricism | #/branches/empiricism | 5228 | pass | yes | yes (1 primary; 1 supplemental) |
 | philosophy | german-idealism | German Idealism | #/branches/german-idealism | 2206 | pass | yes | yes (1 primary; 4 supplemental) |
 
 ## Museum article-backing audit

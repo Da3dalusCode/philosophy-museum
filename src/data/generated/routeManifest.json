@@ -2017,40 +2017,92 @@
       "name": "Empiricism",
       "sections": [
         {
-          "id": "overview",
-          "title": "Experience as the beginning, not the end, of inquiry"
+          "id": "category",
+          "title": "A family of questions, not a sensory slogan"
         },
         {
-          "id": "historical-development",
-          "title": "Experiment, ideas, skepticism, and later inheritances"
+          "id": "historiography",
+          "title": "The retrospective construction of empiricism"
         },
         {
-          "id": "key-concepts",
-          "title": "Impressions, ideas, abstraction, induction, and probability"
+          "id": "ancient-medieval",
+          "title": "Ancient and medieval precedents without a perennial school"
         },
         {
-          "id": "figures-works",
-          "title": "Bacon, Locke, Berkeley, and Hume in context"
+          "id": "scientific-practice",
+          "title": "Observation, experiment, instruments, and public evidence"
         },
         {
-          "id": "internal-debates",
-          "title": "Matter, causation, self, and the reach of skepticism"
+          "id": "bacon",
+          "title": "Bacon: organized inquiry, idols, and experimental reform"
         },
         {
-          "id": "neighbors",
-          "title": "Rationalism, science, pragmatism, and analytic philosophy"
+          "id": "locke",
+          "title": "Locke: sensation, reflection, ideas, and responsible assent"
+        },
+        {
+          "id": "berkeley",
+          "title": "Berkeley: perception, signs, and immaterialism"
+        },
+        {
+          "id": "hume",
+          "title": "Hume: impressions, custom, and skeptical naturalism"
+        },
+        {
+          "id": "rationalism",
+          "title": "Rationalism as interlocutor rather than opposite team"
+        },
+        {
+          "id": "kant",
+          "title": "Kant: conditions of experience, not a simple compromise"
+        },
+        {
+          "id": "nineteenth-century",
+          "title": "Mill, positivism, and pragmatist transformations"
+        },
+        {
+          "id": "logical-empiricism",
+          "title": "Logical empiricism: a plural movement, not one verification slogan"
+        },
+        {
+          "id": "quine-naturalism",
+          "title": "Quine, holism, and naturalized epistemology"
+        },
+        {
+          "id": "perception-concepts",
+          "title": "Perception, conceptual content, and theory-ladenness"
+        },
+        {
+          "id": "measurement-models",
+          "title": "Measurement, models, statistics, and causal inference"
+        },
+        {
+          "id": "social-evidence",
+          "title": "Testimony, expertise, institutions, and situated evidence"
+        },
+        {
+          "id": "objections",
+          "title": "A priori knowledge, induction, modality, and underdetermination"
+        },
+        {
+          "id": "non-european",
+          "title": "Responsible comparison beyond European empiricism"
+        },
+        {
+          "id": "modern-practice",
+          "title": "Data-intensive inquiry, medicine, climate, and machine learning"
         },
         {
           "id": "misunderstandings",
-          "title": "Why empiricism is not raw data without reason"
+          "title": "What empiricism does not entail"
         },
         {
-          "id": "modern-relevance",
-          "title": "Evidence, data, expertise, and uncertain decisions"
+          "id": "live-disputes",
+          "title": "Live forms of the empiricist stance"
         },
         {
           "id": "reading-path",
-          "title": "A route through experience and its limits"
+          "title": "A historical and methodological reading route"
         }
       ],
       "hasSources": true
@@ -5888,59 +5940,83 @@
     },
     {
       "id": "hume",
-      "name": "Hume",
+      "name": "David Hume",
       "sections": [
         {
-          "id": "overview",
-          "title": "A skeptical naturalist of human understanding"
+          "id": "project",
+          "title": "The science of human nature and its limits"
         },
         {
-          "id": "life-context",
-          "title": "Enlightenment Scotland and literary ambition"
+          "id": "life-career",
+          "title": "Scotland, authorship, office, and public reputation"
         },
         {
-          "id": "copy-principle",
-          "title": "Impressions, ideas, and the copy principle"
+          "id": "texts-revisions",
+          "title": "Treatise, Enquiries, essays, dialogues, and revision"
+        },
+        {
+          "id": "perceptions-copy",
+          "title": "Perceptions, the copy principle, and conceptual scrutiny"
         },
         {
           "id": "association-belief",
-          "title": "Association, imagination, and belief"
+          "title": "Association, imagination, belief, and probability"
         },
         {
-          "id": "causation-induction",
-          "title": "Causation, induction, and necessary connection"
+          "id": "causation",
+          "title": "Causation, necessity, projection, and realism"
         },
         {
-          "id": "external-world-self",
-          "title": "The external world and the bundle theory of the self"
+          "id": "induction-skepticism",
+          "title": "Induction and the skeptical solution"
         },
         {
-          "id": "reason-passions",
-          "title": "Reason, passion, and motivation"
+          "id": "self-identity",
+          "title": "The self, personal identity, and the Appendix problem"
         },
         {
-          "id": "morality-sentiment",
-          "title": "Morality, sympathy, and artificial virtues"
+          "id": "passions-action",
+          "title": "Passions, action, liberty, and necessity"
         },
         {
-          "id": "religion-miracles-design",
-          "title": "Religion, miracles, and natural theology"
+          "id": "morals",
+          "title": "Moral distinctions, sentiment, reason, and the is–ought passage"
         },
         {
-          "id": "politics-history-commerce",
-          "title": "Politics, history, and commercial society"
+          "id": "sympathy-justice",
+          "title": "Sympathy, the general point of view, justice, and convention"
         },
         {
-          "id": "aesthetics-taste",
-          "title": "Taste, art, and standards of judgment"
+          "id": "religion",
+          "title": "Miracles, design, evil, and the natural history of religion"
         },
         {
-          "id": "influence-misunderstandings",
-          "title": "Influence, misunderstandings, and interpretive tensions"
+          "id": "politics",
+          "title": "Authority, parties, liberty, and political judgment"
         },
         {
-          "id": "reading-strategy",
-          "title": "A reading strategy for Hume"
+          "id": "history",
+          "title": "History as explanation, argument, and literary achievement"
+        },
+        {
+          "id": "economics",
+          "title": "Commerce, money, trade, debt, and economic development"
+        },
+        {
+          "id": "taste",
+          "title": "Taste, criticism, and educated sentiment"
+        },
+        {
+          "id": "race",
+          "title": "Race, national character, empire, and failed correction"
+        },
+        {
+          "id": "disputes-influence",
+          "title": "Skepticism, naturalism, realism, and contested inheritances"
+        },
+        {
+          "id": "reading-path",
+          "title": "A staged and critical route through Hume"
         }
       ],
       "hasSources": true

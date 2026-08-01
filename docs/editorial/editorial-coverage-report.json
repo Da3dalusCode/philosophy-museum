@@ -1006,7 +1006,7 @@
     },
     {
       "id": "hume",
-      "title": "Hume",
+      "title": "David Hume",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/hume",
       "authoredStatus": "bibliography-only",
@@ -1017,7 +1017,7 @@
       "structuredClaimCount": 0,
       "structuredParagraphCount": 0,
       "citationCount": 0,
-      "substantiveArticleWordCount": 2231
+      "substantiveArticleWordCount": 4800
     },
     {
       "id": "rousseau",
@@ -2836,7 +2836,7 @@
       "structuredClaimCount": 0,
       "structuredParagraphCount": 0,
       "citationCount": 0,
-      "substantiveArticleWordCount": 1807
+      "substantiveArticleWordCount": 5228
     },
     {
       "id": "german-idealism",
@@ -5155,29 +5155,169 @@
       "recordKey": "philosopher:hume",
       "status": "bibliography-only",
       "signal": "quotation",
-      "location": "overview/paragraph-2",
-      "excerpt": "His philosophy changes the question from \"What can be proven with absolute certainty?\" to \"How do creatures like us come to believe, judge, act, and live together despite the limits of proof?\" That shift made him decisiv"
+      "location": "project/paragraph-1",
+      "excerpt": "David Hume presents philosophy as an experimental inquiry into human nature. The word “experimental” does not mean that he ran laboratory trials, and it does not reduce thought to a stream of sensory reports. It signals"
     },
     {
       "recordKey": "philosopher:hume",
       "status": "bibliography-only",
       "signal": "priority-or-superlative",
-      "location": "overview/paragraph-2",
-      "excerpt": "His philosophy changes the question from \"What can be proven with absolute certainty?\" to \"How do creatures like us come to believe, judge, act, and live together despite the limits of proof?\" That shift made him decisiv"
+      "location": "life-career/paragraph-1",
+      "excerpt": "Hume was born in Edinburgh in 1711 and grew up at Ninewells, his family’s estate near the Scottish border. He entered the University of Edinburgh unusually young, studied a broad humanist curriculum, and left without tak"
     },
     {
       "recordKey": "philosopher:hume",
       "status": "bibliography-only",
       "signal": "priority-or-superlative",
-      "location": "causation-induction/paragraph-1",
-      "excerpt": "Hume's account of causation is the classic challenge. When we observe one event followed by another, we never perceive a necessary connection binding them. We perceive contiguity, priority, and constant conjunction. Afte"
+      "location": "texts-revisions/paragraph-1",
+      "excerpt": "The architecture of Hume’s corpus affects interpretation. The Treatise moves from understanding to passions and morals, making psychology the connective tissue of a system. The first Enquiry is shorter, more literary, an"
+    },
+    {
+      "recordKey": "philosopher:hume",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "texts-revisions/paragraph-2",
+      "excerpt": "Hume revised his essays across many editions. Titles, notes, arguments, and collections changed, so the date of first publication does not always identify the text of a familiar modern edition. The two Enquiries, essays,"
+    },
+    {
+      "recordKey": "philosopher:hume",
+      "status": "bibliography-only",
+      "signal": "priority-or-superlative",
+      "location": "texts-revisions/paragraph-2",
+      "excerpt": "Hume revised his essays across many editions. Titles, notes, arguments, and collections changed, so the date of first publication does not always identify the text of a familiar modern edition. The two Enquiries, essays,"
+    },
+    {
+      "recordKey": "philosopher:hume",
+      "status": "bibliography-only",
+      "signal": "priority-or-superlative",
+      "location": "perceptions-copy/paragraph-1",
+      "excerpt": "Hume calls the contents of the mind perceptions and divides them into impressions and ideas. Impressions include sensations, emotions, and passions in their first appearance; ideas are typically less forceful perceptions"
+    },
+    {
+      "recordKey": "philosopher:hume",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "causation/paragraph-2",
+      "excerpt": "Hume offers two definitions of cause, one emphasizing regular succession among objects and another emphasizing the mind’s inferential transition. Their relation is disputed. A regularity reading treats causal claims as c"
+    },
+    {
+      "recordKey": "philosopher:hume",
+      "status": "bibliography-only",
+      "signal": "disputed-attribution",
+      "location": "causation/paragraph-2",
+      "excerpt": "Hume offers two definitions of cause, one emphasizing regular succession among objects and another emphasizing the mind’s inferential transition. Their relation is disputed. A regularity reading treats causal claims as c"
+    },
+    {
+      "recordKey": "philosopher:hume",
+      "status": "bibliography-only",
+      "signal": "priority-or-superlative",
+      "location": "causation/paragraph-3",
+      "excerpt": "Hume does not deny that one event causes another in ordinary and scientific reasoning. He supplies rules for judging causes, distinguishes accidental conjunction from stable comparison, and treats causal inference as ind"
+    },
+    {
+      "recordKey": "philosopher:hume",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "induction-skepticism/paragraph-2",
+      "excerpt": "Hume’s “skeptical solution” does not provide a hidden deductive proof. Custom determines the mind to expect familiar outcomes after repeated conjunction, and this response is part of human nature. The solution is explana"
+    },
+    {
+      "recordKey": "philosopher:hume",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "self-identity/paragraph-3",
+      "excerpt": "In the Treatise Appendix Hume declares himself dissatisfied with his explanation. He cannot see how distinct perceptions are united in one mind while maintaining the principles on which the account relies. Scholars disag"
+    },
+    {
+      "recordKey": "philosopher:hume",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "morals/paragraph-2",
+      "excerpt": "The celebrated is–ought paragraph observes writers moving from propositions joined by “is” to propositions joined by “ought” without explaining the new relation. Hume does not formulate every modern version of a fact–val"
+    },
+    {
+      "recordKey": "philosopher:hume",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "sympathy-justice/paragraph-2",
+      "excerpt": "Natural virtues such as benevolence and generosity can attract approval without depending on an invented rule. Justice, fidelity to promises, and allegiance are artificial virtues: their value depends on conventions that"
+    },
+    {
+      "recordKey": "philosopher:hume",
+      "status": "bibliography-only",
+      "signal": "priority-or-superlative",
+      "location": "sympathy-justice/paragraph-2",
+      "excerpt": "Natural virtues such as benevolence and generosity can attract approval without depending on an invented rule. Justice, fidelity to promises, and allegiance are artificial virtues: their value depends on conventions that"
+    },
+    {
+      "recordKey": "philosopher:hume",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "religion/paragraph-2",
+      "excerpt": "The Dialogues Concerning Natural Religion stages Cleanthes’s empirical design argument, Demea’s more a priori and mystical theology, and Philo’s skeptical criticism. Analogy between the world and a machine may suggest in"
+    },
+    {
+      "recordKey": "philosopher:hume",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "religion/paragraph-3",
+      "excerpt": "The Natural History of Religion asks how religious belief arises in human life. Hope and fear under uncertainty, ignorance of causes, anthropomorphism, flattery, and social authority help generate and transform religious"
+    },
+    {
+      "recordKey": "philosopher:hume",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "history/paragraph-2",
+      "excerpt": "Hume sought distance from both Whig stories of ancient constitutional liberty and Tory defenses of royal authority, yet impartiality did not mean neutrality without commitments. His narrative choices, judgments of “civil"
+    },
+    {
+      "recordKey": "philosopher:hume",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "taste/paragraph-1",
+      "excerpt": "“Of the Standard of Taste” begins from an apparent conflict. Beauty depends on sentiment, yet critical practices distinguish informed judgment from superficial or prejudiced response. Hume does not solve the problem by m"
+    },
+    {
+      "recordKey": "philosopher:hume",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "race/paragraph-1",
+      "excerpt": "Hume’s essay “Of National Characters” often explains collective differences through political, social, historical, and economic circumstances rather than climate. Yet a notorious note asserts a natural hierarchy in which"
+    },
+    {
+      "recordKey": "philosopher:hume",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "race/paragraph-3",
+      "excerpt": "This failure bears directly on Humean epistemology and morals. Limited testimony, selective archives, colonial power, and a prejudiced “general point of view” can produce confidence without warranted impartiality. Sympat"
+    },
+    {
+      "recordKey": "philosopher:hume",
+      "status": "bibliography-only",
+      "signal": "disputed-attribution",
+      "location": "disputes-influence/paragraph-2",
+      "excerpt": "Causation divides regularity, projectivist, fictionalist, and skeptical-realist readings. Ethics divides sentimentalist realism, antirealism, response-dependence, virtue, and utilitarian interpretations. The self, libert"
     },
     {
       "recordKey": "philosopher:hume",
       "status": "bibliography-only",
       "signal": "influence-or-causation",
-      "location": "influence-misunderstandings/paragraph-1",
-      "excerpt": "Hume's influence is vast. Kant famously credits Hume with disrupting dogmatic metaphysics, especially through the problem of causation. Logical positivists, analytic philosophers, naturalists, moral sentimentalists, skep"
+      "location": "disputes-influence/paragraph-3",
+      "excerpt": "Hume transformed Kant’s account of causality and metaphysical limits, influenced Smith and later political economy, supplied problems for theories of induction and scientific confirmation, and became a reference point fo"
+    },
+    {
+      "recordKey": "philosopher:hume",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "reading-path/paragraph-2",
+      "excerpt": "Next read An Enquiry concerning the Principles of Morals beside selected parts of Treatise Books 2 and 3. Follow passions, sympathy, the general point of view, utility, natural virtue, justice, and convention. Add “Of th"
+    },
+    {
+      "recordKey": "philosopher:hume",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "reading-path/paragraph-3",
+      "excerpt": "Finish with the Natural History of Religion and Dialogues Concerning Natural Religion, keeping genre and posthumous publication in view. Read “Of National Characters” with scholarship on Hume and race, not as a detachabl"
     },
     {
       "recordKey": "philosopher:rousseau",
@@ -9823,30 +9963,121 @@
     {
       "recordKey": "philosophy:empiricism",
       "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "figures-works/paragraph-2",
-      "excerpt": "Berkeley’s Principles and Three Dialogues argue that ordinary sensible objects remain real even if material substance is rejected; his position is immaterialist, not the view that only his private mind exists. Hume’s Tre"
+      "signal": "quotation",
+      "location": "category/paragraph-1",
+      "excerpt": "Empiricism names a family of positions about the roles of experience, observation, experiment, and evidence. It does not mean simply that all knowledge comes from sensory experience. That slogan leaves almost every impor"
     },
     {
       "recordKey": "philosophy:empiricism",
       "status": "bibliography-only",
       "signal": "quotation",
-      "location": "misunderstandings/paragraph-1",
-      "excerpt": "The first misconception is that empiricists believe only what they personally see. Historical knowledge, science, and ordinary life depend on memory, testimony, inference, and institutions. The philosophical question is"
-    },
-    {
-      "recordKey": "philosophy:empiricism",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "misunderstandings/paragraph-1",
-      "excerpt": "The first misconception is that empiricists believe only what they personally see. Historical knowledge, science, and ordinary life depend on memory, testimony, inference, and institutions. The philosophical question is"
+      "location": "historiography/paragraph-3",
+      "excerpt": "Recent scholarship on early modern experimental philosophy offers another map. Many writers contrasted experimental with speculative or hypothetical approaches, and those labels circulated within natural philosophy befor"
     },
     {
       "recordKey": "philosophy:empiricism",
       "status": "bibliography-only",
       "signal": "quotation",
-      "location": "reading-path/paragraph-4",
-      "excerpt": "Compare each thinker on one question instead of treating the sequence as increasingly skeptical. What does experience contain? How are general concepts formed? What justifies belief in objects, causes, or selves? Then re"
+      "location": "bacon/paragraph-2",
+      "excerpt": "Bacon’s “induction” differs from simply counting confirming instances. Negative cases, comparative trials, and carefully chosen experiments can discriminate among possibilities. He valued experiments of light that reveal"
+    },
+    {
+      "recordKey": "philosophy:empiricism",
+      "status": "bibliography-only",
+      "signal": "priority-or-superlative",
+      "location": "hume/paragraph-3",
+      "excerpt": "Interpretation divides over whether Hume is primarily a skeptic, a naturalist, a regularity theorist, a projectivist, or a skeptical realist about causal powers. His racial hierarchy also reveals a decisive failure of em"
+    },
+    {
+      "recordKey": "philosophy:empiricism",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "kant/paragraph-2",
+      "excerpt": "The formula that cognition begins with experience but does not all arise from experience marks a new question: what a priori conditions make an experienced world possible for finite knowers? This critical project limits"
+    },
+    {
+      "recordKey": "philosophy:empiricism",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "nineteenth-century/paragraph-2",
+      "excerpt": "Positivist programs associated with Auguste Comte prioritized observable laws and the organization of sciences while criticizing speculative metaphysics. Later figures including Ernst Mach analyzed scientific concepts in"
+    },
+    {
+      "recordKey": "philosophy:empiricism",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "quine-naturalism/paragraph-1",
+      "excerpt": "Quine’s “Two Dogmas of Empiricism” challenges a principled analytic–synthetic boundary and the reductionist hope that each meaningful statement has its own confirming experiences. Statements face experience within an int"
+    },
+    {
+      "recordKey": "philosophy:empiricism",
+      "status": "bibliography-only",
+      "signal": "priority-or-superlative",
+      "location": "quine-naturalism/paragraph-2",
+      "excerpt": "Naturalized epistemology rejects the picture of philosophy first validating science from an external, non-scientific foundation. It studies how limited organisms form theories from sensory input using psychology, linguis"
+    },
+    {
+      "recordKey": "philosophy:empiricism",
+      "status": "bibliography-only",
+      "signal": "priority-or-superlative",
+      "location": "quine-naturalism/paragraph-3",
+      "excerpt": "Contemporary naturalism is broader than Quine and broader than empiricism. Cognitive science, evolutionary theory, social science, history, and formal methods can inform accounts of perception, reasoning, expertise, and"
+    },
+    {
+      "recordKey": "philosophy:empiricism",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "perception-concepts/paragraph-2",
+      "excerpt": "The “given” becomes a problem when raw experience is expected to justify belief without any conceptual or inferential role. If a sensation bears no relation to judgment, it cannot serve as a reason; if it is already prop"
+    },
+    {
+      "recordKey": "philosophy:empiricism",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "measurement-models/paragraph-3",
+      "excerpt": "Models deliberately simplify. Their idealizations can reveal structure, support prediction, or isolate mechanisms even though no model literally reproduces the whole target. Empirical adequacy, explanatory power, and tru"
+    },
+    {
+      "recordKey": "philosophy:empiricism",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "non-european/paragraph-1",
+      "excerpt": "Comparisons with non-European traditions can illuminate questions about perception and evidence, but “empiricism” is a European historical category with shifting modern uses. Classical Indian epistemologies organize deba"
+    },
+    {
+      "recordKey": "philosophy:empiricism",
+      "status": "bibliography-only",
+      "signal": "broad-classification",
+      "location": "non-european/paragraph-3",
+      "excerpt": "Classical Chinese thought includes close attention to observation, names, practical success, cultivated perception, and the relation between knowledge and action. Mohist texts appeal to standards that include reported mo"
+    },
+    {
+      "recordKey": "philosophy:empiricism",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "modern-practice/paragraph-1",
+      "excerpt": "Clinical evidence shows why empiricism cannot mean “trust the data” without qualification. Randomized trials estimate effects under specified inclusion criteria and protocols; observational studies may reveal longer-term"
+    },
+    {
+      "recordKey": "philosophy:empiricism",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "misunderstandings/paragraph-3",
+      "excerpt": "Finally, empiricism is not identical with science. Science uses mathematics, models, explanation, simulation, testimony, values, institutional norms, and sometimes highly speculative theory. Nor does every appeal to data"
+    },
+    {
+      "recordKey": "philosophy:empiricism",
+      "status": "bibliography-only",
+      "signal": "priority-or-superlative",
+      "location": "reading-path/paragraph-2",
+      "excerpt": "For early modern philosophy, read Locke’s Essay on innate principles, sensation and reflection, qualities, abstraction, knowledge, and probability. Follow with Berkeley’s New Theory of Vision, Principles, or Three Dialog"
+    },
+    {
+      "recordKey": "philosophy:empiricism",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "reading-path/paragraph-3",
+      "excerpt": "Then read Kant’s response to Hume before moving to Mill, James or Dewey, logical empiricism, Quine, and naturalized epistemology. Add a philosophy-of-science case on experiment or measurement and a social-epistemology ca"
     },
     {
       "recordKey": "philosophy:german-idealism",

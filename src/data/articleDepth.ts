@@ -9,6 +9,7 @@ import {continentalPhilosophyBranchArticles} from './continentalPhilosophyBranch
 import {crossCulturalCorePhilosopherArticles} from './crossCulturalCoreArticles';
 import {daoMohistLegalistBranchArticles} from './daoMohistLegalistBranchDepth';
 import {earlyModernCorePhilosopherArticles} from './earlyModernCoreArticles';
+import {humeFlagshipArticle} from './humeFlagshipArticle';
 import {earlyModernPoliticalPhilosopherArticles} from './earlyModernPoliticalArticles';
 import {earlyStoicSystemPhilosopherArticles} from './earlyStoicSystemArticles';
 import {feministSocialContinuationPhilosopherArticles} from './feministSocialContinuationArticles';
@@ -40,6 +41,7 @@ import {medievalBridgePhilosopherArticles} from './medievalBridgeArticles';
 import {medievalChristianContinuationPhilosopherArticles} from './medievalChristianContinuationArticles';
 import {medievalIslamicContinuationPhilosopherArticles} from './medievalIslamicContinuationArticles';
 import {earlyModernKnowledgeBranchArticles} from './earlyModernKnowledgeBranchDepth';
+import {empiricismFlagshipArticle} from './empiricismFlagshipArticle';
 import {editorialDepthBatch01BranchArticles} from './editorialDepthBatch01';
 import {deontologyBranchArticles} from './deontologyBranchDepth';
 import {logicBranchArticles} from './logicBranchDepth';
@@ -68,6 +70,7 @@ export const philosopherArticles:Record<string,ArticleSection[]>={
   ...chineseContinuationPhilosopherArticles,
   ...crossCulturalCorePhilosopherArticles,
   ...earlyModernCorePhilosopherArticles,
+  hume:humeFlagshipArticle,
   ...earlyModernPoliticalPhilosopherArticles,
   ...earlyStoicSystemPhilosopherArticles,
   ...feministSocialContinuationPhilosopherArticles,
@@ -408,6 +411,7 @@ export const branchArticles:Record<string,ArticleSection[]>={
   ...hellenisticBranchArticles,
   ...lateAntiqueInheritanceBranchArticles,
   ...earlyModernKnowledgeBranchArticles,
+  empiricism:empiricismFlagshipArticle,
   ...feministPhilosophyBranchArticles,
   ...deontologyBranchArticles,
   ...logicBranchArticles,

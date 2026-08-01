@@ -24,8 +24,8 @@
     {
       "label": "Philosophies, branches, schools, traditions, movements, methods, and frameworks",
       "total": 43,
-      "pass": 32,
-      "fail": 11,
+      "pass": 33,
+      "fail": 10,
       "missing": 0
     },
     {
@@ -38,8 +38,8 @@
   ],
   "universalSummary": {
     "total": 189,
-    "pass": 86,
-    "fail": 103,
+    "pass": 87,
+    "fail": 102,
     "missing": 0
   },
   "pilotChanges": [
@@ -870,10 +870,10 @@
     },
     {
       "canonicalId": "hume",
-      "title": "Hume",
+      "title": "David Hume",
       "visitorEntryPoint": "#/philosophers/hume",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 2231,
+      "substantiveWordCount": 4800,
       "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
@@ -2325,8 +2325,8 @@
       "title": "Empiricism",
       "visitorEntryPoint": "#/branches/empiricism",
       "contentCategory": "philosophy",
-      "substantiveWordCount": 1807,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 5228,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -4231,11 +4231,11 @@
         "hallId": "empiricism-science-political-order",
         "visitorEntryPoint": "#/museum/empiricism-science-political-order/exhibits/empiricism",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 400,
+        "surfaceWords": 626,
         "canonicalArticleKey": "philosophy:empiricism",
         "canonicalArticleId": "empiricism",
-        "canonicalArticleWordCount": 1807,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 5228,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "locke",
@@ -4267,10 +4267,10 @@
         "hallId": "empiricism-science-political-order",
         "visitorEntryPoint": "#/museum/empiricism-science-political-order/exhibits/hume",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 330,
+        "surfaceWords": 347,
         "canonicalArticleKey": "philosopher:hume",
         "canonicalArticleId": "hume",
-        "canonicalArticleWordCount": 2231,
+        "canonicalArticleWordCount": 4800,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -8332,8 +8332,8 @@
         "canonicalArticleKey": "philosophy:empiricism",
         "canonicalArticleId": "empiricism",
         "canonicalArticleCategory": "philosophy",
-        "canonicalArticleWordCount": 1807,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 5228,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "locke-molyneux-crossmodal-vision",
@@ -8476,7 +8476,7 @@
         "canonicalArticleKey": "philosopher:hume",
         "canonicalArticleId": "hume",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 2231,
+        "canonicalArticleWordCount": 4800,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -8492,7 +8492,7 @@
         "canonicalArticleKey": "philosopher:hume",
         "canonicalArticleId": "hume",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 2231,
+        "canonicalArticleWordCount": 4800,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -8508,7 +8508,7 @@
         "canonicalArticleKey": "philosopher:hume",
         "canonicalArticleId": "hume",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 2231,
+        "canonicalArticleWordCount": 4800,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -8524,7 +8524,7 @@
         "canonicalArticleKey": "philosopher:hume",
         "canonicalArticleId": "hume",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 2231,
+        "canonicalArticleWordCount": 4800,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -8540,7 +8540,7 @@
         "canonicalArticleKey": "philosopher:hume",
         "canonicalArticleId": "hume",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 2231,
+        "canonicalArticleWordCount": 4800,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
