@@ -1182,7 +1182,7 @@
       "structuredClaimCount": 0,
       "structuredParagraphCount": 0,
       "citationCount": 0,
-      "substantiveArticleWordCount": 3222
+      "substantiveArticleWordCount": 4336
     },
     {
       "id": "husserl",
@@ -5666,7 +5666,7 @@
       "recordKey": "philosopher:nietzsche",
       "status": "bibliography-only",
       "signal": "priority-or-superlative",
-      "location": "reception/paragraph-2",
+      "location": "reception/paragraph-3",
       "excerpt": "Elisabeth’s Nietzsche Archive shaped the public author through editions, access, photographs, ceremony, and nationalist networking. Fascist and Nazi readers then appropriated hierarchy, struggle, breeding, the Übermensch"
     },
     {

@@ -148,7 +148,7 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | ficino | Marsilio Ficino | philosopher | 1819 | fail |
 | galileo | Galileo Galilei | philosopher | 1803 | fail |
 | kant | Immanuel Kant | philosopher | 3296 | pass |
-| nietzsche | Friedrich Nietzsche | philosopher | 3222 | pass |
+| nietzsche | Friedrich Nietzsche | philosopher | 4336 | pass |
 | wittgenstein | Wittgenstein | philosopher | 839 | fail |
 | jiddu-krishnamurti | Jiddu Krishnamurti | philosopher | 2720 | pass |
 | epistemology | Epistemology | philosophy | 2615 | pass |
@@ -236,7 +236,7 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | philosopher | kierkegaard | Kierkegaard | #/philosophers/kierkegaard | 1834 | fail | yes | yes (1 primary; 5 supplemental) |
 | philosopher | marx | Marx | #/philosophers/marx | 1803 | fail | yes | yes (1 primary; 11 supplemental) |
 | philosopher | mill | John Stuart Mill | #/philosophers/mill | 1806 | fail | yes | yes (1 primary; 6 supplemental) |
-| philosopher | nietzsche | Friedrich Nietzsche | #/philosophers/nietzsche | 3222 | pass | no | yes (1 primary; 5 supplemental) |
+| philosopher | nietzsche | Friedrich Nietzsche | #/philosophers/nietzsche | 4336 | pass | no | yes (1 primary; 5 supplemental) |
 | philosopher | husserl | Husserl | #/philosophers/husserl | 2046 | pass | yes | yes (1 primary; 3 supplemental) |
 | philosopher | heidegger | Heidegger | #/philosophers/heidegger | 2284 | pass | yes | yes (1 primary; 2 supplemental) |
 | philosopher | wittgenstein | Wittgenstein | #/philosophers/wittgenstein | 839 | fail | no | yes (1 primary; 4 supplemental) |
