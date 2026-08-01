@@ -204,7 +204,7 @@
     {
       "id": "rationalism",
       "label": "Rationalism",
-      "searchText": "rationalism emphasizes reason and innate structure as sources of knowledge. what can reason know independently of experience? method central question"
+      "searchText": "rationalism a contested later category for arguments about a priori warrant, innate structure, necessity, and the intelligibility of reality, not a rejection of experience or a self-declared early modern party. what must mind and reality contribute for experience to become knowledge? which truths, concepts, or principles—if any—have warrant that does not derive from particular sensory encounters? method central question"
     },
     {
       "id": "empiricism",
@@ -520,8 +520,8 @@
     },
     {
       "id": "descartes",
-      "label": "Descartes",
-      "searchText": "descartes methodic doubt mind-body dualism meditations rationalist"
+      "label": "René Descartes",
+      "searchText": "rené descartes methodic doubt and ordered inquiry cogito and first-person certainty ideas and innateness mind-body distinction and union mechanical natural philosophy passions and generosity discourse on the method meditations on first philosophy principles of philosophy correspondence with princess elisabeth passions of the soul early modern philosophy and natural science"
     },
     {
       "id": "hobbes",

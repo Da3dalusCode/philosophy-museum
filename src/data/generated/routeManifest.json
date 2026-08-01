@@ -1974,40 +1974,104 @@
       "name": "Rationalism",
       "sections": [
         {
-          "id": "overview",
-          "title": "Reason, experience, and the architecture of knowledge"
+          "id": "category",
+          "title": "A contested retrospective category"
         },
         {
-          "id": "historical-development",
-          "title": "From scholastic inheritance to critical philosophy"
+          "id": "historiography",
+          "title": "How the textbook opposition was constructed"
         },
         {
-          "id": "key-concepts",
-          "title": "Innateness, a priori knowledge, deduction, and sufficient reason"
+          "id": "contexts",
+          "title": "Scholastic inheritance and early modern rupture"
         },
         {
-          "id": "figures-works",
-          "title": "Descartes, Spinoza, Leibniz, Conway, and their arguments"
+          "id": "family",
+          "title": "A family of claims, not one master thesis"
         },
         {
-          "id": "internal-debates",
-          "title": "Substance, freedom, mind, and the limits of explanation"
+          "id": "descartes",
+          "title": "Descartes: method, certainty, and created natures"
         },
         {
-          "id": "neighbors",
-          "title": "Empiricism, science, scholasticism, and idealism"
+          "id": "spinoza",
+          "title": "Spinoza: adequate ideas and immanent necessity"
+        },
+        {
+          "id": "leibniz",
+          "title": "Leibniz: sufficient reason, possibility, and perspective"
+        },
+        {
+          "id": "expanded-canon",
+          "title": "Beyond the canonical three"
+        },
+        {
+          "id": "innateness",
+          "title": "Innate ideas, capacities, and triggering experience"
+        },
+        {
+          "id": "mathematics",
+          "title": "Mathematics as model and problem"
+        },
+        {
+          "id": "necessity",
+          "title": "Necessity, modality, and sufficient reason"
+        },
+        {
+          "id": "metaphysics",
+          "title": "Metaphysics and the intelligibility of reality"
+        },
+        {
+          "id": "experience",
+          "title": "Experience inside rationalist inquiry"
+        },
+        {
+          "id": "empiricism",
+          "title": "Empiricism as rival, neighbor, and later mirror"
+        },
+        {
+          "id": "kant",
+          "title": "Kant’s critical transformation"
+        },
+        {
+          "id": "later",
+          "title": "Idealism, logic, science, and critical rationalism"
+        },
+        {
+          "id": "contemporary",
+          "title": "A priori knowledge and naturalized minds"
+        },
+        {
+          "id": "science-ai",
+          "title": "Scientific explanation, models, and artificial intelligence"
+        },
+        {
+          "id": "politics-ethics",
+          "title": "Reason, ethics, politics, and exclusion"
+        },
+        {
+          "id": "comparison-india",
+          "title": "Careful comparison with Indian epistemologies"
+        },
+        {
+          "id": "comparison-china",
+          "title": "Careful comparison with Chinese philosophies"
         },
         {
           "id": "misunderstandings",
-          "title": "Why rationalism is not reason without experience"
+          "title": "Common misunderstandings"
         },
         {
-          "id": "modern-relevance",
-          "title": "A priori structure in mathematics, mind, and technology"
+          "id": "disputes",
+          "title": "Live disputes and unresolved burdens"
+        },
+        {
+          "id": "beginner",
+          "title": "A beginner’s working model"
         },
         {
           "id": "reading-path",
-          "title": "How to compare rationalist systems"
+          "title": "A problem-centered reading path"
         }
       ],
       "hasSources": true
@@ -5590,59 +5654,83 @@
     },
     {
       "id": "descartes",
-      "name": "Descartes",
+      "name": "René Descartes",
       "sections": [
         {
-          "id": "overview",
-          "title": "A new beginning that still argues with the old world"
+          "id": "project",
+          "title": "A project larger than the cogito"
         },
         {
-          "id": "historical-setting",
-          "title": "Scholastic inheritance and the new science"
+          "id": "life-context",
+          "title": "Education, travel, controversy, and publication"
         },
         {
-          "id": "life-and-caution",
-          "title": "Life, publication, and philosophical caution"
+          "id": "method",
+          "title": "Method, order, intuition, and deduction"
         },
         {
-          "id": "methodical-doubt",
-          "title": "Methodical doubt and the search for certainty"
+          "id": "doubt",
+          "title": "Methodic doubt: sensory error, dreams, and deception"
         },
         {
           "id": "cogito",
-          "title": "The cogito and the thinking self"
+          "title": "Cogito, performance, and the thinking thing"
         },
         {
-          "id": "clear-distinct-god",
-          "title": "Clear and distinct perception, God, and the Cartesian circle"
+          "id": "ideas",
+          "title": "Ideas, representation, and innateness"
         },
         {
-          "id": "mind-body-dualism",
-          "title": "Mind, body, and the problem of interaction"
+          "id": "god-arguments",
+          "title": "The causal and ontological arguments for God"
         },
         {
-          "id": "ideas-representation",
-          "title": "Ideas, representation, and the external world"
+          "id": "truth-circle",
+          "title": "Clear and distinct perception and the Cartesian Circle"
         },
         {
-          "id": "science-and-mechanism",
-          "title": "Mechanism, mathematics, and the living body"
+          "id": "error-freedom",
+          "title": "Judgment, freedom, and the possibility of error"
         },
         {
-          "id": "ethics-passions",
-          "title": "Ethics, the passions, and provisional morality"
+          "id": "world-senses",
+          "title": "Bodies, the external world, and the proper work of sense"
         },
         {
-          "id": "influence-and-reactions",
-          "title": "Influence, objections, and later transformations"
+          "id": "dualism",
+          "title": "Real distinction: mind and body"
         },
         {
-          "id": "misunderstandings",
-          "title": "Common misunderstandings and interpretive tensions"
+          "id": "elisabeth-union",
+          "title": "Elisabeth’s challenge and the mind-body union"
         },
         {
-          "id": "reading-strategy",
-          "title": "A reading strategy for Descartes"
+          "id": "physics",
+          "title": "Matter, laws, vortices, and the scope of physics"
+        },
+        {
+          "id": "life-machines",
+          "title": "Bodies, physiology, medicine, and animal machines"
+        },
+        {
+          "id": "passions",
+          "title": "Passions, embodiment, and agency"
+        },
+        {
+          "id": "ethics",
+          "title": "Provisional morality, virtue, generosity, and happiness"
+        },
+        {
+          "id": "reception",
+          "title": "Cartesians, critics, and transformed inheritances"
+        },
+        {
+          "id": "disputes",
+          "title": "Major disputes without forced verdicts"
+        },
+        {
+          "id": "reading-path",
+          "title": "A responsible route through Descartes"
         }
       ],
       "hasSources": true
