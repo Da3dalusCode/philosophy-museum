@@ -34,12 +34,12 @@
     {
       "id": "epistemology",
       "label": "Epistemology",
-      "searchText": "epistemology studies knowledge, justification, and the limits of belief. what can we know, and why? justification skepticism testimony"
+      "searchText": "epistemology studies knowledge, understanding, rational belief, reliable cognition, and the social organization of inquiry. what can we know, understand, or reasonably believe—and why? justification skepticism testimony"
     },
     {
       "id": "ethics",
       "label": "Ethics",
-      "searchText": "ethics asks how we should live and act. what makes an action or life good? flourishing duty consequences"
+      "searchText": "ethics studies action, character, value, obligation, relationship, responsibility, and the institutions that shape shared life. how should we act, live together, and become responsible to others? flourishing duty consequences"
     },
     {
       "id": "virtue-ethics",
@@ -119,7 +119,7 @@
     {
       "id": "analytic-philosophy",
       "label": "Analytic Philosophy",
-      "searchText": "analytic philosophy emerges from frege, russell, moore, and wittgenstein through logic, language, clarity, and careful argument. can clearer analysis dissolve or solve this problem? conceptual analysis reference language-game"
+      "searchText": "analytic philosophy a contested modern family of lineages, institutions, methods, and problems shaped by logic, language, science, and explicit argument. what—if anything—unifies analytic philosophy across its changing methods and subjects? conceptual analysis reference language-game"
     },
     {
       "id": "continental-philosophy",

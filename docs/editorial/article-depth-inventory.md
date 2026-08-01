@@ -15,10 +15,10 @@ The hard floor is **2,000 substantive article-prose words**. The counter tokeniz
 | Category | Total | Pass | Fail | Missing article |
 | --- | ---: | ---: | ---: | ---: |
 | Philosophers | 146 | 51 | 95 | 0 |
-| Philosophies, branches, schools, traditions, movements, methods, and frameworks | 43 | 29 | 14 | 0 |
+| Philosophies, branches, schools, traditions, movements, methods, and frameworks | 43 | 32 | 11 | 0 |
 | Standalone works, texts, arguments, concepts, and article-backed exhibits | 0 | 0 | 0 | 0 |
 
-Universal total: **189** applicable articles; **80 pass**; **109 fail**; **0 are missing article prose**.
+Universal total: **189** applicable articles; **83 pass**; **106 fail**; **0 are missing article prose**.
 
 Current failures are migration backlog, not approved exceptions. The strict audit is intentionally separate from the ordinary build until that backlog reaches zero.
 
@@ -132,12 +132,9 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | angela-davis | Angela Davis | philosopher | 1801 | fail |
 | bell-hooks | bell hooks | philosopher | 1883 | fail |
 | ontology | Ontology | philosophy | 1975 | fail |
-| epistemology | Epistemology | philosophy | 670 | fail |
-| ethics | Ethics | philosophy | 719 | fail |
 | political-philosophy | Political Philosophy | philosophy | 1948 | fail |
 | philosophy-of-mind | Philosophy of Mind | philosophy | 1920 | fail |
 | philosophy-of-science | Philosophy of Science | philosophy | 1962 | fail |
-| analytic-philosophy | Analytic Philosophy | philosophy | 709 | fail |
 | jainism | Jainism | philosophy | 1961 | fail |
 | vedanta | Vedanta | philosophy | 1980 | fail |
 | buddhist-philosophy | Buddhist Philosophy | philosophy | 1800 | fail |
@@ -156,9 +153,9 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | nietzsche | Nietzsche | philosopher | 825 | fail |
 | wittgenstein | Wittgenstein | philosopher | 839 | fail |
 | jiddu-krishnamurti | Jiddu Krishnamurti | philosopher | 2720 | pass |
-| epistemology | Epistemology | philosophy | 670 | fail |
-| ethics | Ethics | philosophy | 719 | fail |
-| analytic-philosophy | Analytic Philosophy | philosophy | 709 | fail |
+| epistemology | Epistemology | philosophy | 2615 | pass |
+| ethics | Ethics | philosophy | 2900 | pass |
+| analytic-philosophy | Analytic Philosophy | philosophy | 2963 | pass |
 
 ## Complete canonical inventory
 
@@ -316,8 +313,8 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | philosophy | neoplatonism | Neoplatonism | #/branches/neoplatonism | 2130 | pass | yes | yes (1 primary; 5 supplemental) |
 | philosophy | metaphysics | Metaphysics | #/branches/metaphysics | 2027 | pass | yes | yes (1 primary; 0 supplemental) |
 | philosophy | ontology | Ontology | #/branches/ontology | 1975 | fail | yes | yes (1 primary; 0 supplemental) |
-| philosophy | epistemology | Epistemology | #/branches/epistemology | 670 | fail | no | yes (1 primary; 0 supplemental) |
-| philosophy | ethics | Ethics | #/branches/ethics | 719 | fail | no | yes (1 primary; 5 supplemental) |
+| philosophy | epistemology | Epistemology | #/branches/epistemology | 2615 | pass | no | yes (1 primary; 0 supplemental) |
+| philosophy | ethics | Ethics | #/branches/ethics | 2900 | pass | no | yes (1 primary; 5 supplemental) |
 | philosophy | virtue-ethics | Virtue Ethics | #/branches/virtue-ethics | 2760 | pass | yes | yes (1 primary; 1 supplemental) |
 | philosophy | epicureanism | Epicureanism | #/branches/epicureanism | 2022 | pass | yes | yes (1 primary; 3 supplemental) |
 | philosophy | cynicism | Cynicism | #/branches/cynicism | 2035 | pass | yes | yes (1 primary; 2 supplemental) |
@@ -333,7 +330,7 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | philosophy | existentialism | Existentialism | #/branches/existentialism | 2056 | pass | yes | yes (1 primary; 1 supplemental) |
 | philosophy | phenomenology | Phenomenology | #/branches/phenomenology | 2022 | pass | yes | yes (1 primary; 1 supplemental) |
 | philosophy | pragmatism | Pragmatism | #/branches/pragmatism | 3473 | pass | yes | yes (1 primary; 6 supplemental) |
-| philosophy | analytic-philosophy | Analytic Philosophy | #/branches/analytic-philosophy | 709 | fail | no | yes (1 primary; 0 supplemental) |
+| philosophy | analytic-philosophy | Analytic Philosophy | #/branches/analytic-philosophy | 2963 | pass | no | yes (1 primary; 0 supplemental) |
 | philosophy | continental-philosophy | Continental Philosophy | #/branches/continental-philosophy | 3093 | pass | yes | yes (1 primary; 5 supplemental) |
 | philosophy | feminist-philosophy | Feminist Philosophy | #/branches/feminist-philosophy | 3065 | pass | yes | yes (1 primary; 11 supplemental) |
 | philosophy | philosophy-of-religion | Philosophy of Religion | #/branches/philosophy-of-religion | 2388 | pass | yes | yes (1 primary; 0 supplemental) |

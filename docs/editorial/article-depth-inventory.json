@@ -24,8 +24,8 @@
     {
       "label": "Philosophies, branches, schools, traditions, movements, methods, and frameworks",
       "total": 43,
-      "pass": 29,
-      "fail": 14,
+      "pass": 32,
+      "fail": 11,
       "missing": 0
     },
     {
@@ -38,8 +38,8 @@
   ],
   "universalSummary": {
     "total": 189,
-    "pass": 80,
-    "fail": 109,
+    "pass": 83,
+    "fail": 106,
     "missing": 0
   },
   "pilotChanges": [
@@ -1905,8 +1905,8 @@
       "title": "Epistemology",
       "visitorEntryPoint": "#/branches/epistemology",
       "contentCategory": "philosophy",
-      "substantiveWordCount": 670,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2615,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": false,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -1917,8 +1917,8 @@
       "title": "Ethics",
       "visitorEntryPoint": "#/branches/ethics",
       "contentCategory": "philosophy",
-      "substantiveWordCount": 719,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2900,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": false,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -2109,8 +2109,8 @@
       "title": "Analytic Philosophy",
       "visitorEntryPoint": "#/branches/analytic-philosophy",
       "contentCategory": "philosophy",
-      "substantiveWordCount": 709,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2963,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": false,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -2423,8 +2423,8 @@
       "title": "Epistemology",
       "visitorEntryPoint": "#/branches/epistemology",
       "contentCategory": "philosophy",
-      "substantiveWordCount": 670,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2615,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": false,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -2435,8 +2435,8 @@
       "title": "Ethics",
       "visitorEntryPoint": "#/branches/ethics",
       "contentCategory": "philosophy",
-      "substantiveWordCount": 719,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2900,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": false,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -2447,8 +2447,8 @@
       "title": "Analytic Philosophy",
       "visitorEntryPoint": "#/branches/analytic-philosophy",
       "contentCategory": "philosophy",
-      "substantiveWordCount": 709,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2963,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": false,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -2899,11 +2899,11 @@
         "hallId": "analytic-traditions",
         "visitorEntryPoint": "#/museum/analytic-traditions/exhibits/analytic-philosophy",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 445,
+        "surfaceWords": 490,
         "canonicalArticleKey": "philosophy:analytic-philosophy",
         "canonicalArticleId": "analytic-philosophy",
-        "canonicalArticleWordCount": 709,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2963,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "russell",
@@ -3079,11 +3079,11 @@
         "hallId": "core-questions-forum",
         "visitorEntryPoint": "#/museum/core-questions-forum/exhibits/epistemology",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 452,
+        "surfaceWords": 478,
         "canonicalArticleKey": "philosophy:epistemology",
         "canonicalArticleId": "epistemology",
-        "canonicalArticleWordCount": 670,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2615,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "philosophy-of-mind",
@@ -4567,11 +4567,11 @@
         "hallId": "moral-life-practical-reason",
         "visitorEntryPoint": "#/museum/moral-life-practical-reason/exhibits/ethics",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 735,
+        "surfaceWords": 959,
         "canonicalArticleKey": "philosophy:ethics",
         "canonicalArticleId": "ethics",
-        "canonicalArticleWordCount": 719,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2900,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "virtue-ethics",
@@ -10396,8 +10396,8 @@
         "canonicalArticleKey": "philosophy:ethics",
         "canonicalArticleId": "ethics",
         "canonicalArticleCategory": "philosophy",
-        "canonicalArticleWordCount": 719,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2900,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "ethics-jain-nonviolence-practice",
@@ -10412,8 +10412,8 @@
         "canonicalArticleKey": "philosophy:ethics",
         "canonicalArticleId": "ethics",
         "canonicalArticleCategory": "philosophy",
-        "canonicalArticleWordCount": 719,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2900,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "ethics-buddhist-discipline-compassion",
@@ -10428,8 +10428,8 @@
         "canonicalArticleKey": "philosophy:ethics",
         "canonicalArticleId": "ethics",
         "canonicalArticleCategory": "philosophy",
-        "canonicalArticleWordCount": 719,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2900,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "ethics-care-attention-practice",
@@ -10444,8 +10444,8 @@
         "canonicalArticleKey": "philosophy:ethics",
         "canonicalArticleId": "ethics",
         "canonicalArticleCategory": "philosophy",
-        "canonicalArticleWordCount": 719,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2900,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "ethics-labor-social-position",
@@ -10460,8 +10460,8 @@
         "canonicalArticleKey": "philosophy:ethics",
         "canonicalArticleId": "ethics",
         "canonicalArticleCategory": "philosophy",
-        "canonicalArticleWordCount": 719,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2900,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "virtue-practice-habituation",

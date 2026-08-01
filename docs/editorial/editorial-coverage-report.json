@@ -2307,7 +2307,7 @@
       "structuredClaimCount": 0,
       "structuredParagraphCount": 0,
       "citationCount": 0,
-      "substantiveArticleWordCount": 670
+      "substantiveArticleWordCount": 2615
     },
     {
       "id": "ethics",
@@ -2322,7 +2322,7 @@
       "structuredClaimCount": 0,
       "structuredParagraphCount": 0,
       "citationCount": 0,
-      "substantiveArticleWordCount": 719
+      "substantiveArticleWordCount": 2900
     },
     {
       "id": "virtue-ethics",
@@ -2562,7 +2562,7 @@
       "structuredClaimCount": 0,
       "structuredParagraphCount": 0,
       "citationCount": 0,
-      "substantiveArticleWordCount": 709
+      "substantiveArticleWordCount": 2963
     },
     {
       "id": "continental-philosophy",
@@ -7311,8 +7311,64 @@
       "recordKey": "philosophy:epistemology",
       "status": "bibliography-only",
       "signal": "priority-or-superlative",
-      "location": "reading/paragraph-1",
-      "excerpt": "Begin with a concrete problem rather than a definition list. Plato’s Theaetetus shows why defining knowledge is difficult. Descartes’ first two Meditations let the reader perform foundational doubt. Hume’s discussion of"
+      "location": "sources/paragraph-2",
+      "excerpt": "Memory preserves knowledge and reasons across time, but it is not a neutral recording. Remembering can fade, reconstruct, combine, and be altered by later information. A person may retain knowledge after forgetting the e"
+    },
+    {
+      "recordKey": "philosophy:epistemology",
+      "status": "bibliography-only",
+      "signal": "priority-or-superlative",
+      "location": "testimony/paragraph-2",
+      "excerpt": "Expertise intensifies the problem because a layperson often cannot evaluate the expert’s first-order reasoning. Responsible deference can instead consider training, relevant track records, openness to criticism, agreemen"
+    },
+    {
+      "recordKey": "philosophy:epistemology",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "skepticism/paragraph-2",
+      "excerpt": "Responses reject different steps. Foundationalists permit some non-inferentially justified beliefs; contextualists argue that standards for “knows” vary with conversational purposes; relevant-alternatives views require r"
+    },
+    {
+      "recordKey": "philosophy:epistemology",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "structure/paragraph-3",
+      "excerpt": "Reliabilism proposes that beliefs gain positive status through processes that tend to produce truth, but the relevant process must be specified carefully. “Seeing” may be reliable while “judging red objects at dusk” is n"
+    },
+    {
+      "recordKey": "philosophy:ethics",
+      "status": "bibliography-only",
+      "signal": "disputed-attribution",
+      "location": "histories/paragraph-2",
+      "excerpt": "Classical Chinese traditions debate how ritual, humaneness, standards, cultivated emotion, social role, and government shape good conduct. Confucian thinkers disagree over human tendencies and the work of education; Mohi"
+    },
+    {
+      "recordKey": "philosophy:ethics",
+      "status": "bibliography-only",
+      "signal": "priority-or-superlative",
+      "location": "reasons-value/paragraph-1",
+      "excerpt": "A reason for action counts in favor of doing something, but philosophers disagree over what grounds reasons. Some begin with value: suffering gives reason to prevent it because suffering is bad. Reasons-first views expla"
+    },
+    {
+      "recordKey": "philosophy:ethics",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "reasons-value/paragraph-3",
+      "excerpt": "Ordinary judgment is neither raw intuition nor automatic application of theory. People notice salient features through habits, emotions, concepts, and social narratives. Particularists argue that a consideration’s moral"
+    },
+    {
+      "recordKey": "philosophy:ethics",
+      "status": "bibliography-only",
+      "signal": "disputed-attribution",
+      "location": "consequences/paragraph-3",
+      "excerpt": "Consequences remain unavoidable even for opponents of consequentialism. A rule followed without attention to predictable harm can become moral evasion, and institutions must compare policies under uncertainty. Conversely"
+    },
+    {
+      "recordKey": "philosophy:ethics",
+      "status": "bibliography-only",
+      "signal": "influence-or-causation",
+      "location": "institutions/paragraph-2",
+      "excerpt": "Collective responsibility is controversial because a corporation, state, or movement may act through decision procedures that no single member controls, while indiscriminate group blame can punish people who neither caus"
     },
     {
       "recordKey": "philosophy:virtue-ethics",
@@ -8242,22 +8298,85 @@
       "recordKey": "philosophy:analytic-philosophy",
       "status": "bibliography-only",
       "signal": "quotation",
-      "location": "overview/paragraph-2",
-      "excerpt": "The label can mislead when it is treated as the simple opposite of “continental philosophy.” The traditions have overlapping sources and topics, and each contains many styles. Analytic philosophy is best understood histo"
+      "location": "category/paragraph-3",
+      "excerpt": "The category is therefore both descriptive and contested. Calling a work “analytic” can locate it within conversations, audiences, and standards, but it can also function as an honorific meaning rigorous philosophy, unfa"
+    },
+    {
+      "recordKey": "philosophy:analytic-philosophy",
+      "status": "bibliography-only",
+      "signal": "priority-or-superlative",
+      "location": "category/paragraph-3",
+      "excerpt": "The category is therefore both descriptive and contested. Calling a work “analytic” can locate it within conversations, audiences, and standards, but it can also function as an honorific meaning rigorous philosophy, unfa"
     },
     {
       "recordKey": "philosophy:analytic-philosophy",
       "status": "bibliography-only",
       "signal": "quotation",
-      "location": "origins/paragraph-2",
-      "excerpt": "Russell used logical analysis to reveal structures concealed by ordinary grammar. His theory of descriptions analyzes a sentence containing “the present king of France” without treating the phrase as a name that must ref"
+      "location": "contexts/paragraph-2",
+      "excerpt": "In Britain, Bertrand Russell and G. E. Moore broke with forms of idealism influential at Cambridge. Their revolt was not simply common sense defeating obscurity. British idealists themselves differed, and Russell’s and M"
+    },
+    {
+      "recordKey": "philosophy:analytic-philosophy",
+      "status": "bibliography-only",
+      "signal": "priority-or-superlative",
+      "location": "contexts/paragraph-2",
+      "excerpt": "In Britain, Bertrand Russell and G. E. Moore broke with forms of idealism influential at Cambridge. Their revolt was not simply common sense defeating obscurity. British idealists themselves differed, and Russell’s and M"
+    },
+    {
+      "recordKey": "philosophy:analytic-philosophy",
+      "status": "bibliography-only",
+      "signal": "priority-or-superlative",
+      "location": "ordinary-language/paragraph-2",
+      "excerpt": "Oxford ordinary-language philosophers such as J. L. Austin and Gilbert Ryle investigated distinctions embedded in what people do with words. Austin’s work on speech acts showed that utterances can promise, warn, name, ex"
+    },
+    {
+      "recordKey": "philosophy:analytic-philosophy",
+      "status": "bibliography-only",
+      "signal": "priority-or-superlative",
+      "location": "quine-and-after/paragraph-1",
+      "excerpt": "W. V. O. Quine challenged the analytic-synthetic distinction and reductionist pictures in which each meaningful statement receives confirmation separately from immediate experience. His holistic image treated beliefs as"
+    },
+    {
+      "recordKey": "philosophy:analytic-philosophy",
+      "status": "bibliography-only",
+      "signal": "priority-or-superlative",
+      "location": "quine-and-after/paragraph-3",
+      "excerpt": "Naturalism itself ranges from modest engagement with science to strong claims that philosophical questions should be reconstructed within scientific inquiry. Its critics worry about normativity, first-person knowledge, m"
     },
     {
       "recordKey": "philosophy:analytic-philosophy",
       "status": "bibliography-only",
       "signal": "quotation",
-      "location": "debates-reading/paragraph-2",
-      "excerpt": "A useful reading path moves historically. Read Frege or Russell to see why logical analysis seemed revolutionary, early and later Wittgenstein to witness a major internal transformation, and Quine to understand the break"
+      "location": "methods/paragraph-3",
+      "excerpt": "Even “clarity” requires interpretation. An argument may be syntactically explicit while its framing hides a contested social ontology; a historically rich argument may be clear without using numbered premises. Charity, p"
+    },
+    {
+      "recordKey": "philosophy:analytic-philosophy",
+      "status": "bibliography-only",
+      "signal": "influence-or-causation",
+      "location": "boundaries/paragraph-1",
+      "excerpt": "Relations with pragmatism are close and contested. Peirce’s logic and theory of inquiry, James’s account of experience, and Dewey’s naturalism influenced debates later housed in analytic departments, while Quine, Sellars"
+    },
+    {
+      "recordKey": "philosophy:analytic-philosophy",
+      "status": "bibliography-only",
+      "signal": "influence-or-causation",
+      "location": "boundaries/paragraph-2",
+      "excerpt": "Early analytic philosophy and phenomenology also developed from intersecting concerns about logic, meaning, intentionality, and psychologism. Frege and Husserl are often assigned to opposing traditions only retrospective"
+    },
+    {
+      "recordKey": "philosophy:analytic-philosophy",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "boundaries/paragraph-3",
+      "excerpt": "The analytic-continental divide is therefore an unreliable map of philosophical topic, rigor, politics, or geography. “Continental” groups disparate movements partly by what analytic institutions placed outside themselve"
+    },
+    {
+      "recordKey": "philosophy:analytic-philosophy",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "institutions-future/paragraph-3",
+      "excerpt": "Open questions concern both philosophy and its organization. Does “analytic” still identify a useful tradition, or has it become too broad? Can family resemblance avoid turning the label into praise for whatever its user"
     },
     {
       "recordKey": "philosophy:continental-philosophy",

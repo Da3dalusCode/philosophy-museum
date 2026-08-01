@@ -324,28 +324,44 @@
       "name": "Epistemology",
       "sections": [
         {
-          "id": "overview",
-          "title": "What separates knowledge from getting it right?"
+          "id": "orientation",
+          "title": "Knowledge is one success among many"
         },
         {
-          "id": "classical",
-          "title": "From Plato to skepticism"
+          "id": "histories",
+          "title": "Many histories of reliable cognition"
         },
         {
-          "id": "modern",
-          "title": "Reason, experience, and the external world"
+          "id": "sources",
+          "title": "Perception, memory, inference, and self-knowledge"
         },
         {
-          "id": "analysis",
-          "title": "Justification, Gettier, and epistemic luck"
+          "id": "testimony",
+          "title": "Testimony, trust, expertise, and disagreement"
         },
         {
-          "id": "social",
-          "title": "Testimony, expertise, and epistemic injustice"
+          "id": "skepticism",
+          "title": "What skeptical arguments test"
         },
         {
-          "id": "reading",
-          "title": "How to enter epistemology"
+          "id": "structure",
+          "title": "How justification is structured and accessed"
+        },
+        {
+          "id": "knowledge-analysis",
+          "title": "Gettier, reliability, virtue, and context"
+        },
+        {
+          "id": "methods",
+          "title": "Naturalized, formal, and scientific epistemology"
+        },
+        {
+          "id": "power",
+          "title": "Social position, injustice, ignorance, and institutions"
+        },
+        {
+          "id": "open-questions",
+          "title": "What remains unsettled and how to keep exploring"
         }
       ],
       "hasSources": true
@@ -355,28 +371,48 @@
       "name": "Ethics",
       "sections": [
         {
-          "id": "overview",
-          "title": "Reasons for action and forms of life"
+          "id": "orientation",
+          "title": "Action, character, value, and shared life"
         },
         {
-          "id": "ancient",
-          "title": "Flourishing, virtue, and practice"
+          "id": "histories",
+          "title": "Plural histories of ethical reflection"
         },
         {
-          "id": "modern",
-          "title": "Duty, sentiment, and consequences"
+          "id": "reasons-value",
+          "title": "Reasons, value, obligation, and judgment"
         },
         {
-          "id": "care-power",
-          "title": "Care, power, and moral psychology"
+          "id": "consequences",
+          "title": "Consequences, welfare, and demandingness"
+        },
+        {
+          "id": "duties-agreement",
+          "title": "Duties, rights, contracts, and justifiability"
+        },
+        {
+          "id": "virtue-care",
+          "title": "Virtue, care, relationship, and dependency"
+        },
+        {
+          "id": "agency",
+          "title": "Intention, motivation, freedom, and moral luck"
         },
         {
           "id": "metaethics",
-          "title": "What kind of truth is a moral truth?"
+          "title": "What moral claims mean and what could make them true"
         },
         {
-          "id": "reading",
-          "title": "Learning to compare ethical arguments"
+          "id": "institutions",
+          "title": "Power, institutions, collective responsibility, and global justice"
+        },
+        {
+          "id": "applied",
+          "title": "Bodies, environments, technologies, and future beings"
+        },
+        {
+          "id": "method",
+          "title": "Pluralism, criticism, and a route into ethical inquiry"
         }
       ],
       "hasSources": true
@@ -1087,28 +1123,52 @@
       "name": "Analytic Philosophy",
       "sections": [
         {
-          "id": "overview",
-          "title": "A tradition of methods, not one doctrine"
+          "id": "category",
+          "title": "A disputed name for a changing tradition"
         },
         {
-          "id": "origins",
-          "title": "Frege, Russell, and logical analysis"
+          "id": "contexts",
+          "title": "Logic, idealism, science, and several origin stories"
         },
         {
-          "id": "positivism",
-          "title": "Early Wittgenstein and logical positivism"
+          "id": "early-analysis",
+          "title": "Logical form, constructions, and atomism"
+        },
+        {
+          "id": "logical-empiricism",
+          "title": "The Vienna Circle and philosophy of science"
         },
         {
           "id": "ordinary-language",
-          "title": "Use, practice, and ordinary language"
+          "title": "Wittgenstein, ordinary language, and philosophical therapy"
         },
         {
-          "id": "quine-after",
-          "title": "Quine and the plural contemporary field"
+          "id": "quine-and-after",
+          "title": "Quine, naturalism, and broken boundaries"
         },
         {
-          "id": "debates-reading",
-          "title": "Internal debates and how to read the tradition"
+          "id": "modality-metaphysics",
+          "title": "Modal logic and the return of metaphysics"
+        },
+        {
+          "id": "normative-social",
+          "title": "Ethics, politics, race, gender, and social knowledge"
+        },
+        {
+          "id": "methods",
+          "title": "Formal, experimental, conceptual, and historical methods"
+        },
+        {
+          "id": "boundaries",
+          "title": "Pragmatism, phenomenology, and the continental divide"
+        },
+        {
+          "id": "institutions-future",
+          "title": "Institutions, geography, exclusions, and open questions"
+        },
+        {
+          "id": "reading",
+          "title": "How to read the tradition without mistaking a canon for destiny"
         }
       ],
       "hasSources": true
@@ -10272,7 +10332,7 @@
     {
       "id": "ethics",
       "title": "Understand Ethics",
-      "stepCount": 3
+      "stepCount": 4
     },
     {
       "id": "metaphysics",
@@ -10282,7 +10342,7 @@
     {
       "id": "knowledge",
       "title": "Understand Epistemology",
-      "stepCount": 3
+      "stepCount": 5
     },
     {
       "id": "politics",
@@ -10302,7 +10362,7 @@
     {
       "id": "traditions",
       "title": "Understand Analytic vs Continental Philosophy",
-      "stepCount": 2
+      "stepCount": 3
     }
   ],
   "museumHalls": [
