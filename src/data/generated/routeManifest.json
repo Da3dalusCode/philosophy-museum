@@ -6718,31 +6718,79 @@
     },
     {
       "id": "wittgenstein",
-      "name": "Wittgenstein",
+      "name": "Ludwig Wittgenstein",
       "sections": [
         {
-          "id": "overview",
-          "title": "Two revolutions in philosophical method"
+          "id": "changing-problems",
+          "title": "A philosopher of changing problems"
         },
         {
-          "id": "early",
-          "title": "Logical form and the limits of saying"
+          "id": "vienna-engineering-cambridge",
+          "title": "Vienna, engineering, and the road to Cambridge"
         },
         {
-          "id": "later",
-          "title": "Language-games and meaning as use"
+          "id": "war-teaching-return",
+          "title": "War, teaching, architecture, and return"
         },
         {
-          "id": "mind",
+          "id": "corpus-editors-form",
+          "title": "Books, manuscripts, voices, and editors"
+        },
+        {
+          "id": "tractatus-origins",
+          "title": "Frege, Russell, and the architecture of the Tractatus"
+        },
+        {
+          "id": "pictures-propositions",
+          "title": "Pictures, logical form, and propositions"
+        },
+        {
+          "id": "limits-ethics-mystical",
+          "title": "Silence, ethics, value, and the mystical"
+        },
+        {
+          "id": "middle-transition",
+          "title": "Return, criticism, and the middle transition"
+        },
+        {
+          "id": "use-games-life",
+          "title": "Meaning, use, language-games, and forms of life"
+        },
+        {
+          "id": "family-resemblance",
+          "title": "Family resemblance and the limits of definition"
+        },
+        {
+          "id": "rules-going-on",
+          "title": "Rules, interpretation, and going on"
+        },
+        {
+          "id": "private-language-mind",
           "title": "Private language, sensation, and mind"
         },
         {
-          "id": "certainty",
-          "title": "Doubt, hinges, and forms of life"
+          "id": "therapy-method-form",
+          "title": "Clarification, therapy, and literary method"
         },
         {
-          "id": "legacy",
-          "title": "Continuity, therapy, and legacy"
+          "id": "certainty-hinges",
+          "title": "Certainty, doubt, knowledge, and hinges"
+        },
+        {
+          "id": "mathematics-psychology-aesthetics",
+          "title": "Mathematics, psychology, aesthetics, and anthropology"
+        },
+        {
+          "id": "ethics-religion-later",
+          "title": "Ethics and religion after the Tractatus"
+        },
+        {
+          "id": "continuity-discontinuity",
+          "title": "One career, several transformations"
+        },
+        {
+          "id": "influence-criticism",
+          "title": "Influence, disputes, and criticisms"
         }
       ],
       "hasSources": true

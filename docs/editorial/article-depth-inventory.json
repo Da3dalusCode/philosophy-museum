@@ -17,8 +17,8 @@
     {
       "label": "Philosophers",
       "total": 146,
-      "pass": 53,
-      "fail": 93,
+      "pass": 54,
+      "fail": 92,
       "missing": 0
     },
     {
@@ -38,8 +38,8 @@
   ],
   "universalSummary": {
     "total": 189,
-    "pass": 85,
-    "fail": 104,
+    "pass": 86,
+    "fail": 103,
     "missing": 0
   },
   "pilotChanges": [
@@ -1038,11 +1038,11 @@
     },
     {
       "canonicalId": "wittgenstein",
-      "title": "Wittgenstein",
+      "title": "Ludwig Wittgenstein",
       "visitorEntryPoint": "#/philosophers/wittgenstein",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 839,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 4790,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": false,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -2396,11 +2396,11 @@
     },
     {
       "canonicalId": "wittgenstein",
-      "title": "Wittgenstein",
+      "title": "Ludwig Wittgenstein",
       "visitorEntryPoint": "#/philosophers/wittgenstein",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 839,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 4790,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": false,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -2943,15 +2943,15 @@
       },
       {
         "surfaceId": "wittgenstein",
-        "title": "Wittgenstein",
+        "title": "Ludwig Wittgenstein",
         "hallId": "analytic-traditions",
         "visitorEntryPoint": "#/museum/analytic-traditions/exhibits/wittgenstein",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 607,
+        "surfaceWords": 831,
         "canonicalArticleKey": "philosopher:wittgenstein",
         "canonicalArticleId": "wittgenstein",
-        "canonicalArticleWordCount": 839,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 4790,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "quine",
@@ -5590,8 +5590,8 @@
         "canonicalArticleKey": "philosopher:wittgenstein",
         "canonicalArticleId": "wittgenstein",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 839,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 4790,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "wittgenstein-truth-tables",
@@ -5606,8 +5606,8 @@
         "canonicalArticleKey": "philosopher:wittgenstein",
         "canonicalArticleId": "wittgenstein",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 839,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 4790,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "wittgenstein-investigations",
@@ -5622,8 +5622,8 @@
         "canonicalArticleKey": "philosopher:wittgenstein",
         "canonicalArticleId": "wittgenstein",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 839,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 4790,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "wittgenstein-language-games",
@@ -5638,8 +5638,8 @@
         "canonicalArticleKey": "philosopher:wittgenstein",
         "canonicalArticleId": "wittgenstein",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 839,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 4790,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "quine-two-dogmas",

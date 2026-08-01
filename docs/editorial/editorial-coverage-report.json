@@ -1216,7 +1216,7 @@
     },
     {
       "id": "wittgenstein",
-      "title": "Wittgenstein",
+      "title": "Ludwig Wittgenstein",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/wittgenstein",
       "authoredStatus": "bibliography-only",
@@ -1227,7 +1227,7 @@
       "structuredClaimCount": 0,
       "structuredParagraphCount": 0,
       "citationCount": 0,
-      "substantiveArticleWordCount": 839
+      "substantiveArticleWordCount": 4790
     },
     {
       "id": "russell",
@@ -5715,29 +5715,148 @@
       "recordKey": "philosopher:wittgenstein",
       "status": "bibliography-only",
       "signal": "quotation",
-      "location": "later/paragraph-2",
-      "excerpt": "“Meaning is use” is therefore a methodological redirection, not a slogan that answers every semantic question. Wittgenstein asks readers to look at differences that philosophical theory smooths over. The word “game” has"
+      "location": "changing-problems/paragraph-2",
+      "excerpt": "The familiar contrast between an “early” and a “later” Wittgenstein is useful only if it does not erase the transitional work of the late 1920s and 1930s or the distinctive writings of his final years. He criticized cent"
     },
     {
       "recordKey": "philosopher:wittgenstein",
       "status": "bibliography-only",
       "signal": "priority-or-superlative",
-      "location": "mind/paragraph-2",
-      "excerpt": "This changes philosophy of mind. Expressions of pain belong to patterns of behavior, circumstance, response, and learning; they are not uncertain reports inferred from hidden inner entities. First-person and third-person"
+      "location": "vienna-engineering-cambridge/paragraph-2",
+      "excerpt": "He first trained in mechanical engineering in Berlin and then pursued aeronautical research at Manchester, working on kites and propeller design. Problems in engineering drew him toward mathematics; questions about mathe"
     },
     {
       "recordKey": "philosopher:wittgenstein",
       "status": "bibliography-only",
-      "signal": "disputed-attribution",
-      "location": "mind/paragraph-2",
-      "excerpt": "This changes philosophy of mind. Expressions of pain belong to patterns of behavior, circumstance, response, and learning; they are not uncertain reports inferred from hidden inner entities. First-person and third-person"
+      "signal": "priority-or-superlative",
+      "location": "war-teaching-return/paragraph-1",
+      "excerpt": "When the First World War began, Wittgenstein volunteered for the Austro-Hungarian army. He continued philosophical work through military service and captivity, writing notebooks in which logical investigation stands besi"
     },
     {
       "recordKey": "philosopher:wittgenstein",
       "status": "bibliography-only",
       "signal": "quotation",
-      "location": "legacy/paragraph-2",
-      "excerpt": "His influence extends through ordinary-language philosophy, philosophy of mind, rule-following, mathematics, action, religion, and social practice. Some readers treat his method as dissolving philosophical problems; othe"
+      "location": "corpus-editors-form/paragraph-1",
+      "excerpt": "The form of the surviving corpus is philosophically important. The Tractatus was the only book-length philosophical work Wittgenstein published in his lifetime. He published the transitional paper “Some Remarks on Logica"
+    },
+    {
+      "recordKey": "philosopher:wittgenstein",
+      "status": "bibliography-only",
+      "signal": "priority-or-superlative",
+      "location": "corpus-editors-form/paragraph-1",
+      "excerpt": "The form of the surviving corpus is philosophically important. The Tractatus was the only book-length philosophical work Wittgenstein published in his lifetime. He published the transitional paper “Some Remarks on Logica"
+    },
+    {
+      "recordKey": "philosopher:wittgenstein",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "limits-ethics-mystical/paragraph-2",
+      "excerpt": "Ethics and aesthetics are called transcendental because value is not an item inside the totality of facts. No accumulation of descriptions establishes that life is absolutely good or reveals its meaning. The wartime note"
+    },
+    {
+      "recordKey": "philosopher:wittgenstein",
+      "status": "bibliography-only",
+      "signal": "disputed-attribution",
+      "location": "limits-ethics-mystical/paragraph-2",
+      "excerpt": "Ethics and aesthetics are called transcendental because value is not an item inside the totality of facts. No accumulation of descriptions establishes that life is absolutely good or reveals its meaning. The wartime note"
+    },
+    {
+      "recordKey": "philosopher:wittgenstein",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "limits-ethics-mystical/paragraph-3",
+      "excerpt": "The book’s ladder intensifies the problem. A reader who understands Wittgenstein is to recognize the elucidatory propositions as nonsensical and throw them away. Traditional or “ineffabilist” readings hold that the remar"
+    },
+    {
+      "recordKey": "philosopher:wittgenstein",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "use-games-life/paragraph-1",
+      "excerpt": "The Philosophical Investigations begins with a picture of language in which words name objects and sentences combine names. Wittgenstein does not claim that naming never occurs. He shows that one genuine use has been mis"
+    },
+    {
+      "recordKey": "philosopher:wittgenstein",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "use-games-life/paragraph-2",
+      "excerpt": "The remark that the meaning of a word is its use in the language is a methodological guide, not a dictionary theory saying that the most common behavior fixes every meaning. “Use” includes standards, circumstances, conse"
+    },
+    {
+      "recordKey": "philosopher:wittgenstein",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "rules-going-on/paragraph-3",
+      "excerpt": "Saul Kripke’s influential skeptical interpretation dramatizes a paradox: any finite history seems compatible with indefinitely many functions, so no past fact uniquely determines what a speaker meant. His proposed “skept"
+    },
+    {
+      "recordKey": "philosopher:wittgenstein",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "private-language-mind/paragraph-2",
+      "excerpt": "This does not deny consciousness, pain, privacy, or asymmetry between one’s own experience and another person’s. Wittgenstein repeatedly treats pain as real. He questions the model according to which a child learns psych"
+    },
+    {
+      "recordKey": "philosopher:wittgenstein",
+      "status": "bibliography-only",
+      "signal": "priority-or-superlative",
+      "location": "private-language-mind/paragraph-2",
+      "excerpt": "This does not deny consciousness, pain, privacy, or asymmetry between one’s own experience and another person’s. Wittgenstein repeatedly treats pain as real. He questions the model according to which a child learns psych"
+    },
+    {
+      "recordKey": "philosopher:wittgenstein",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "certainty-hinges/paragraph-1",
+      "excerpt": "The notes published as On Certainty were written in the last eighteen months of Wittgenstein’s life in response to G. E. Moore’s claims to know such things as that he has hands and that the earth existed long before his"
+    },
+    {
+      "recordKey": "philosopher:wittgenstein",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "certainty-hinges/paragraph-2",
+      "excerpt": "Doubt itself belongs to a practice. A doubt that treats every memory, perception, calculation, and word as simultaneously uncertain removes the background that would let doubting count as a meaningful activity. Some comm"
+    },
+    {
+      "recordKey": "philosopher:wittgenstein",
+      "status": "bibliography-only",
+      "signal": "disputed-attribution",
+      "location": "certainty-hinges/paragraph-2",
+      "excerpt": "Doubt itself belongs to a practice. A doubt that treats every memory, perception, calculation, and word as simultaneously uncertain removes the background that would let doubting count as a meaningful activity. Some comm"
+    },
+    {
+      "recordKey": "philosopher:wittgenstein",
+      "status": "bibliography-only",
+      "signal": "priority-or-superlative",
+      "location": "mathematics-psychology-aesthetics/paragraph-3",
+      "excerpt": "Remarks on Frazer’s Golden Bough criticize the assumption that ritual must be a failed scientific hypothesis. Description, comparison, and invented intermediate cases may reveal the human significance of a ceremony witho"
+    },
+    {
+      "recordKey": "philosopher:wittgenstein",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "ethics-religion-later/paragraph-2",
+      "excerpt": "Lectures on religious belief, preserved in student notes, explore differences between a believer’s and nonbeliever’s orientation to pictures such as Last Judgment. Interpreters disagree whether this yields noncognitivism"
+    },
+    {
+      "recordKey": "philosopher:wittgenstein",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "continuity-discontinuity/paragraph-2",
+      "excerpt": "Continuity readings point elsewhere. Both periods reject philosophy as a natural science that discovers new facts. Both ask how signs have sense, distinguish philosophical elucidation from theory, and use unusual writing"
+    },
+    {
+      "recordKey": "philosopher:wittgenstein",
+      "status": "bibliography-only",
+      "signal": "priority-or-superlative",
+      "location": "influence-criticism/paragraph-1",
+      "excerpt": "The Tractatus influenced the Vienna Circle, logical empiricism, theories of symbolism, and the development of analytic philosophy, although its readers often separated anti-metaphysical arguments from its ethical and mys"
+    },
+    {
+      "recordKey": "philosopher:wittgenstein",
+      "status": "bibliography-only",
+      "signal": "influence-or-causation",
+      "location": "influence-criticism/paragraph-1",
+      "excerpt": "The Tractatus influenced the Vienna Circle, logical empiricism, theories of symbolism, and the development of analytic philosophy, although its readers often separated anti-metaphysical arguments from its ethical and mys"
     },
     {
       "recordKey": "philosopher:russell",
