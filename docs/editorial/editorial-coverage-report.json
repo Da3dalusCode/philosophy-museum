@@ -1171,7 +1171,7 @@
     },
     {
       "id": "nietzsche",
-      "title": "Nietzsche",
+      "title": "Friedrich Nietzsche",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/nietzsche",
       "authoredStatus": "bibliography-only",
@@ -1182,7 +1182,7 @@
       "structuredClaimCount": 0,
       "structuredParagraphCount": 0,
       "citationCount": 0,
-      "substantiveArticleWordCount": 825
+      "substantiveArticleWordCount": 3222
     },
     {
       "id": "husserl",
@@ -5504,23 +5504,170 @@
     {
       "recordKey": "philosopher:nietzsche",
       "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "overview/paragraph-2",
+      "excerpt": "Nietzsche’s work also changes enough that no handful of slogans can represent it. Scholars commonly distinguish early, middle, and later periods, but the boundaries and continuities are disputed. Greek tragedy, historica"
+    },
+    {
+      "recordKey": "philosopher:nietzsche",
+      "status": "bibliography-only",
+      "signal": "disputed-attribution",
+      "location": "overview/paragraph-2",
+      "excerpt": "Nietzsche’s work also changes enough that no handful of slogans can represent it. Scholars commonly distinguish early, middle, and later periods, but the boundaries and continuities are disputed. Greek tragedy, historica"
+    },
+    {
+      "recordKey": "philosopher:nietzsche",
+      "status": "bibliography-only",
+      "signal": "disputed-attribution",
+      "location": "life-context/paragraph-2",
+      "excerpt": "Persistent headaches, impaired vision, digestive illness, and periods of incapacity interrupted his teaching; their diagnosis remains contested and should not be turned into a key for decoding every text. Nietzsche resig"
+    },
+    {
+      "recordKey": "philosopher:nietzsche",
+      "status": "bibliography-only",
       "signal": "priority-or-superlative",
-      "location": "genealogy/paragraph-1",
-      "excerpt": "Genealogy does not simply reveal that values have histories. It asks how a value’s meaning changes as different groups and practices appropriate it. In the first essay of On the Genealogy of Morality, Nietzsche contrasts"
+      "location": "tragedy-wagner/paragraph-1",
+      "excerpt": "The Birth of Tragedy (1872) interprets Greek tragedy through a productive tension between Apollonian image and form and Dionysian music, dissolution, and excess. Tragedy does not prove that suffering fits a benevolent or"
+    },
+    {
+      "recordKey": "philosopher:nietzsche",
+      "status": "bibliography-only",
+      "signal": "priority-or-superlative",
+      "location": "tragedy-wagner/paragraph-2",
+      "excerpt": "The early book joins Schopenhauer’s pessimism to hope in Richard Wagner’s musical drama and German cultural renewal. Nietzsche admired Schopenhauer’s challenge to rational optimism, but eventually rejected the conclusion"
+    },
+    {
+      "recordKey": "philosopher:nietzsche",
+      "status": "bibliography-only",
+      "signal": "priority-or-superlative",
+      "location": "free-spirit-period/paragraph-1",
+      "excerpt": "Human, All Too Human (1878), Daybreak (1881), and the first edition of The Gay Science (1882) mark what is often called the middle or free-spirit period. The change is stylistic and methodological. Short numbered section"
     },
     {
       "recordKey": "philosopher:nietzsche",
       "status": "bibliography-only",
       "signal": "quotation",
-      "location": "nihilism/paragraph-1",
-      "excerpt": "The “death of God” names a cultural event in which inherited moral and metaphysical authority loses credibility while its values continue to organize life. Nietzsche’s concern is not simply whether individuals believe in"
+      "location": "free-spirit-period/paragraph-2",
+      "excerpt": "This turn challenges stable essences, simple origins, and the “thing in itself,” but it does not yield one unambiguous naturalism. Some interpreters see a methodological naturalist who explains persons through physiology"
     },
     {
       "recordKey": "philosopher:nietzsche",
       "status": "bibliography-only",
-      "signal": "influence-or-causation",
-      "location": "appropriation/paragraph-1",
-      "excerpt": "Nietzsche influenced existentialism, psychoanalysis, modernist literature, genealogy, deconstruction, and moral psychology. Foucault adopts genealogy while shifting its focus toward institutions and subject formation. Be"
+      "signal": "quotation",
+      "location": "body-drives/paragraph-1",
+      "excerpt": "Nietzsche distrusts the picture of a transparent rational ego governing a passive body. Persons are changing organizations of drives and affects: patterns of attraction, aversion, attention, memory, interpretation, and b"
+    },
+    {
+      "recordKey": "philosopher:nietzsche",
+      "status": "bibliography-only",
+      "signal": "priority-or-superlative",
+      "location": "body-drives/paragraph-1",
+      "excerpt": "Nietzsche distrusts the picture of a transparent rational ego governing a passive body. Persons are changing organizations of drives and affects: patterns of attraction, aversion, attention, memory, interpretation, and b"
+    },
+    {
+      "recordKey": "philosopher:nietzsche",
+      "status": "bibliography-only",
+      "signal": "priority-or-superlative",
+      "location": "genealogy-method/paragraph-1",
+      "excerpt": "On the Genealogy of Morality (1887) asks what conditions produced moral values and what value those values now possess. Genealogy refuses a single pure origin. A practice such as punishment can persist while different po"
+    },
+    {
+      "recordKey": "philosopher:nietzsche",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "genealogy-method/paragraph-2",
+      "excerpt": "How historical Nietzsche intends the Genealogy to be is disputed. Some episodes function as deliberately schematic hypotheses rather than archival history, and many empirical claims invite correction. Interpreters variou"
+    },
+    {
+      "recordKey": "philosopher:nietzsche",
+      "status": "bibliography-only",
+      "signal": "disputed-attribution",
+      "location": "genealogy-method/paragraph-2",
+      "excerpt": "How historical Nietzsche intends the Genealogy to be is disputed. Some episodes function as deliberately schematic hypotheses rather than archival history, and many empirical claims invite correction. Interpreters variou"
+    },
+    {
+      "recordKey": "philosopher:nietzsche",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "master-slave/paragraph-1",
+      "excerpt": "The Genealogy’s first essay contrasts two patterns of evaluation. Noble valuation begins with a group’s affirmative sense of itself as good and labels what is common or low “bad.” Slave valuation begins reactively: it id"
+    },
+    {
+      "recordKey": "philosopher:nietzsche",
+      "status": "bibliography-only",
+      "signal": "priority-or-superlative",
+      "location": "master-slave/paragraph-1",
+      "excerpt": "The Genealogy’s first essay contrasts two patterns of evaluation. Noble valuation begins with a group’s affirmative sense of itself as good and labels what is common or low “bad.” Slave valuation begins reactively: it id"
+    },
+    {
+      "recordKey": "philosopher:nietzsche",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "master-slave/paragraph-2",
+      "excerpt": "Nietzsche’s account is diagnostic rather than a permanent caste chart, but it is not politically innocent. Individuals and cultures can combine active and reactive evaluations, and “master morality” is not simply his rec"
+    },
+    {
+      "recordKey": "philosopher:nietzsche",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "guilt-conscience/paragraph-2",
+      "excerpt": "Bad conscience emerges when aggressive tendencies that once discharged outward are forced inward by social organization. The internalized animal becomes capable of depth, memory, artistry, and self-formation, but also of"
+    },
+    {
+      "recordKey": "philosopher:nietzsche",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "ascetic-christianity/paragraph-2",
+      "excerpt": "Nietzsche’s attack on Christianity targets its moral interpretation of guilt, equality before God, pity, otherworldly hope, and the alleged freedom that makes sinners deserving of punishment. He does not merely offer an"
+    },
+    {
+      "recordKey": "philosopher:nietzsche",
+      "status": "bibliography-only",
+      "signal": "disputed-attribution",
+      "location": "death-god-nihilism/paragraph-2",
+      "excerpt": "Nihilism names the crisis in which highest values lose their authority, unattainable ideals condemn the actual world, or valuing itself seems groundless. Much of Nietzsche’s explicit taxonomy survives in notebooks, so it"
+    },
+    {
+      "recordKey": "philosopher:nietzsche",
+      "status": "bibliography-only",
+      "signal": "priority-or-superlative",
+      "location": "will-power/paragraph-1",
+      "excerpt": "Will to power appears in Nietzsche’s published works as a claim about psychology, living processes, interpretation, and the value of overcoming resistance. It need not mean a conscious wish to rule other people. A drive"
+    },
+    {
+      "recordKey": "philosopher:nietzsche",
+      "status": "bibliography-only",
+      "signal": "disputed-attribution",
+      "location": "will-power/paragraph-2",
+      "excerpt": "The scope of the idea remains fiercely disputed. Some passages invite a psychology of plural drives; others suggest biological or physical force-centers, and notebook fragments venture broader cosmological claims. Metaph"
+    },
+    {
+      "recordKey": "philosopher:nietzsche",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "overhuman-overcoming/paragraph-1",
+      "excerpt": "Zarathustra presents the Übermensch—often translated as overhuman or overman—as a future-facing figure after the death of God. Human beings are a passage rather than a finished essence, and self-overcoming names the capa"
+    },
+    {
+      "recordKey": "philosopher:nietzsche",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "politics/paragraph-2",
+      "excerpt": "At the same time, Nietzsche rejected German chauvinism, pan-German politics, and the antisemitic movements of his day, and his rupture with Wagner and Elisabeth involved those commitments. He praised aspects of Jewish en"
+    },
+    {
+      "recordKey": "philosopher:nietzsche",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "publication-history/paragraph-2",
+      "excerpt": "The Will to Power is not a book Nietzsche completed or authorized. Elisabeth Förster-Nietzsche, Heinrich Köselitz (Peter Gast), and other editors selected and rearranged notebook fragments for editions issued in 1901 and"
+    },
+    {
+      "recordKey": "philosopher:nietzsche",
+      "status": "bibliography-only",
+      "signal": "priority-or-superlative",
+      "location": "reception/paragraph-2",
+      "excerpt": "Elisabeth’s Nietzsche Archive shaped the public author through editions, access, photographs, ceremony, and nationalist networking. Fascist and Nazi readers then appropriated hierarchy, struggle, breeding, the Übermensch"
     },
     {
       "recordKey": "philosopher:husserl",

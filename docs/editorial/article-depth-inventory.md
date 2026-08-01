@@ -14,11 +14,11 @@ The hard floor is **2,000 substantive article-prose words**. The counter tokeniz
 
 | Category | Total | Pass | Fail | Missing article |
 | --- | ---: | ---: | ---: | ---: |
-| Philosophers | 146 | 52 | 94 | 0 |
+| Philosophers | 146 | 53 | 93 | 0 |
 | Philosophies, branches, schools, traditions, movements, methods, and frameworks | 43 | 32 | 11 | 0 |
 | Standalone works, texts, arguments, concepts, and article-backed exhibits | 0 | 0 | 0 | 0 |
 
-Universal total: **189** applicable articles; **84 pass**; **105 fail**; **0 are missing article prose**.
+Universal total: **189** applicable articles; **85 pass**; **104 fail**; **0 are missing article prose**.
 
 Current failures are migration backlog, not approved exceptions. The strict audit is intentionally separate from the ordinary build until that backlog reaches zero.
 
@@ -77,7 +77,6 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | kierkegaard | Kierkegaard | philosopher | 1834 | fail |
 | marx | Marx | philosopher | 1803 | fail |
 | mill | John Stuart Mill | philosopher | 1806 | fail |
-| nietzsche | Nietzsche | philosopher | 825 | fail |
 | wittgenstein | Wittgenstein | philosopher | 839 | fail |
 | russell | Bertrand Russell | philosopher | 1802 | fail |
 | whitehead | Alfred North Whitehead | philosopher | 1819 | fail |
@@ -149,7 +148,7 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | ficino | Marsilio Ficino | philosopher | 1819 | fail |
 | galileo | Galileo Galilei | philosopher | 1803 | fail |
 | kant | Immanuel Kant | philosopher | 3296 | pass |
-| nietzsche | Nietzsche | philosopher | 825 | fail |
+| nietzsche | Friedrich Nietzsche | philosopher | 3222 | pass |
 | wittgenstein | Wittgenstein | philosopher | 839 | fail |
 | jiddu-krishnamurti | Jiddu Krishnamurti | philosopher | 2720 | pass |
 | epistemology | Epistemology | philosophy | 2615 | pass |
@@ -237,7 +236,7 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | philosopher | kierkegaard | Kierkegaard | #/philosophers/kierkegaard | 1834 | fail | yes | yes (1 primary; 5 supplemental) |
 | philosopher | marx | Marx | #/philosophers/marx | 1803 | fail | yes | yes (1 primary; 11 supplemental) |
 | philosopher | mill | John Stuart Mill | #/philosophers/mill | 1806 | fail | yes | yes (1 primary; 6 supplemental) |
-| philosopher | nietzsche | Nietzsche | #/philosophers/nietzsche | 825 | fail | no | yes (1 primary; 5 supplemental) |
+| philosopher | nietzsche | Friedrich Nietzsche | #/philosophers/nietzsche | 3222 | pass | no | yes (1 primary; 5 supplemental) |
 | philosopher | husserl | Husserl | #/philosophers/husserl | 2046 | pass | yes | yes (1 primary; 3 supplemental) |
 | philosopher | heidegger | Heidegger | #/philosophers/heidegger | 2284 | pass | yes | yes (1 primary; 2 supplemental) |
 | philosopher | wittgenstein | Wittgenstein | #/philosophers/wittgenstein | 839 | fail | no | yes (1 primary; 4 supplemental) |

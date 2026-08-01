@@ -17,8 +17,8 @@
     {
       "label": "Philosophers",
       "total": 146,
-      "pass": 52,
-      "fail": 94,
+      "pass": 53,
+      "fail": 93,
       "missing": 0
     },
     {
@@ -38,8 +38,8 @@
   ],
   "universalSummary": {
     "total": 189,
-    "pass": 84,
-    "fail": 105,
+    "pass": 85,
+    "fail": 104,
     "missing": 0
   },
   "pilotChanges": [
@@ -1002,11 +1002,11 @@
     },
     {
       "canonicalId": "nietzsche",
-      "title": "Nietzsche",
+      "title": "Friedrich Nietzsche",
       "visitorEntryPoint": "#/philosophers/nietzsche",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 825,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 3222,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": false,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -2384,11 +2384,11 @@
     },
     {
       "canonicalId": "nietzsche",
-      "title": "Nietzsche",
+      "title": "Friedrich Nietzsche",
       "visitorEntryPoint": "#/philosophers/nietzsche",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 825,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 3222,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": false,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -4462,8 +4462,8 @@
         "surfaceWords": 385,
         "canonicalArticleKey": "philosopher:nietzsche",
         "canonicalArticleId": "nietzsche",
-        "canonicalArticleWordCount": 825,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 3222,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "pragmatism",
@@ -9676,8 +9676,8 @@
         "canonicalArticleKey": "philosopher:nietzsche",
         "canonicalArticleId": "nietzsche",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 825,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 3222,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "nietzsche-lou-interlocutor",
@@ -9692,8 +9692,8 @@
         "canonicalArticleKey": "philosopher:nietzsche",
         "canonicalArticleId": "nietzsche",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 825,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 3222,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "nietzsche-writing-machine",
@@ -9708,8 +9708,8 @@
         "canonicalArticleKey": "philosopher:nietzsche",
         "canonicalArticleId": "nietzsche",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 825,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 3222,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "nietzsche-eternal-recurrence",
@@ -9724,8 +9724,8 @@
         "canonicalArticleKey": "philosopher:nietzsche",
         "canonicalArticleId": "nietzsche",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 825,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 3222,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "nietzsche-archive-afterlife",
@@ -9740,8 +9740,8 @@
         "canonicalArticleKey": "philosopher:nietzsche",
         "canonicalArticleId": "nietzsche",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 825,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 3222,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "peirce-observatory-measurement",

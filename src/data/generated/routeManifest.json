@@ -6521,31 +6521,79 @@
     },
     {
       "id": "nietzsche",
-      "name": "Nietzsche",
+      "name": "Friedrich Nietzsche",
       "sections": [
         {
           "id": "overview",
-          "title": "Philosophy as diagnosis"
+          "title": "A philosopher of changing problems"
         },
         {
-          "id": "formation",
-          "title": "Philology, tragedy, and the problem of culture"
+          "id": "life-context",
+          "title": "Philology, illness, and a life outside the academy"
         },
         {
-          "id": "genealogy",
-          "title": "Genealogy and moral psychology"
+          "id": "tragedy-wagner",
+          "title": "Tragedy, Schopenhauer, and the Wagnerian hope"
         },
         {
-          "id": "perspective-truth",
-          "title": "Perspective, truth, and interpretation"
+          "id": "free-spirit-period",
+          "title": "Free spirits and the turn toward historical psychology"
         },
         {
-          "id": "nihilism",
-          "title": "Nihilism, recurrence, and affirmation"
+          "id": "truth-perspective",
+          "title": "Truth, interpretation, and perspectivism"
         },
         {
-          "id": "appropriation",
-          "title": "Legacy and dangerous appropriations"
+          "id": "body-drives",
+          "title": "Embodiment, drives, affects, and the divided self"
+        },
+        {
+          "id": "genealogy-method",
+          "title": "Genealogy as history, interpretation, and critique"
+        },
+        {
+          "id": "master-slave",
+          "title": "Master and slave moralities, nobility, and ressentiment"
+        },
+        {
+          "id": "guilt-conscience",
+          "title": "Debt, punishment, bad conscience, and guilt"
+        },
+        {
+          "id": "ascetic-christianity",
+          "title": "Ascetic ideals and the critique of Christianity"
+        },
+        {
+          "id": "death-god-nihilism",
+          "title": "The death of God and the crisis of nihilism"
+        },
+        {
+          "id": "will-power",
+          "title": "Will to power without a single settled doctrine"
+        },
+        {
+          "id": "recurrence",
+          "title": "Eternal recurrence as cosmology, test, and literary event"
+        },
+        {
+          "id": "overhuman-overcoming",
+          "title": "The Übermensch and self-overcoming"
+        },
+        {
+          "id": "politics",
+          "title": "Hierarchy, democracy, nationalism, and antisemitism"
+        },
+        {
+          "id": "publication-history",
+          "title": "Published books, notebooks, and The Will to Power"
+        },
+        {
+          "id": "reception",
+          "title": "Influence, fascist appropriation, and competing inheritances"
+        },
+        {
+          "id": "disputes-reading",
+          "title": "Live disputes and a responsible reading path"
         }
       ],
       "hasSources": true
