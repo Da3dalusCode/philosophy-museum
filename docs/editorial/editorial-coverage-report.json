@@ -278,7 +278,7 @@
       "structuredClaimCount": 0,
       "structuredParagraphCount": 0,
       "citationCount": 0,
-      "substantiveArticleWordCount": 2622
+      "substantiveArticleWordCount": 4900
     },
     {
       "id": "aristotle",
@@ -2232,7 +2232,7 @@
       "structuredClaimCount": 0,
       "structuredParagraphCount": 0,
       "citationCount": 0,
-      "substantiveArticleWordCount": 2883
+      "substantiveArticleWordCount": 5558
     },
     {
       "id": "aristotelianism",
@@ -3596,6 +3596,20 @@
       "signal": "disputed-attribution",
       "location": "interpretive-disputes/paragraph-1",
       "excerpt": "The first dispute concerns Socrates. Some early dialogues may preserve recognizable features of the historical Socrates, while other works clearly use Socrates to develop arguments that cannot be independently attributed"
+    },
+    {
+      "recordKey": "philosopher:plato",
+      "status": "bibliography-only",
+      "signal": "disputed-attribution",
+      "location": "corpus-chronology-authorship/paragraph-1",
+      "excerpt": "Nearly all of the works transmitted under Plato’s name are dialogues, but the surviving corpus also includes letters and texts whose authenticity has been questioned since antiquity. Modern scholars generally accept a la"
+    },
+    {
+      "recordKey": "philosopher:plato",
+      "status": "bibliography-only",
+      "signal": "priority-or-superlative",
+      "location": "corpus-chronology-authorship/paragraph-3",
+      "excerpt": "Speakers make attribution harder. Socrates dominates many works, but the Eleatic Stranger leads the Sophist and Statesman, Timaeus delivers the cosmological discourse named for him, and the Laws is conducted by an unname"
     },
     {
       "recordKey": "philosopher:aristotle",
@@ -7698,6 +7712,55 @@
       "signal": "priority-or-superlative",
       "location": "debates/paragraph-1",
       "excerpt": "Aristotle’s criticism of separate Forms is the most influential internal challenge. If Forms are separated from sensible things, he argues, they may duplicate rather than explain those things. Platonists answer by refini"
+    },
+    {
+      "recordKey": "philosophy:platonism",
+      "status": "bibliography-only",
+      "signal": "exact-date",
+      "location": "old-academy-disputes/paragraph-1",
+      "excerpt": "After Plato’s death in 347 BCE, leadership of the Academy passed to Speusippus rather than to Aristotle or to a custodian of a finished creed. Evidence for the early successors is fragmentary and often comes through crit"
+    },
+    {
+      "recordKey": "philosophy:platonism",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "academic-skepticism/paragraph-3",
+      "excerpt": "This history matters for the meaning of Platonism. A tradition founded on dialogues that expose ignorance, test their own hypotheses, and frequently stop without closure could identify fidelity with continued inquiry rat"
+    },
+    {
+      "recordKey": "philosophy:platonism",
+      "status": "bibliography-only",
+      "signal": "priority-or-superlative",
+      "location": "academic-skepticism/paragraph-3",
+      "excerpt": "This history matters for the meaning of Platonism. A tradition founded on dialogues that expose ignorance, test their own hypotheses, and frequently stop without closure could identify fidelity with continued inquiry rat"
+    },
+    {
+      "recordKey": "philosophy:platonism",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "hierarchy-participation-return/paragraph-3",
+      "excerpt": "Forms also change location and function. In many Middle and later Platonists they are understood as thoughts within divine Intellect rather than as a separately populated realm. This move connects universals to living in"
+    },
+    {
+      "recordKey": "philosophy:platonism",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "religious-plurality/paragraph-4",
+      "excerpt": "These traditions interacted. Jewish philosophers wrote in Arabic and drew on Muslim teachers and texts; works crossed into Hebrew and Latin; Christian authors in Arabic participated in translation and debate; and Latin s"
+    },
+    {
+      "recordKey": "philosophy:platonism",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "renaissance-cambridge-revivals/paragraph-1",
+      "excerpt": "Renaissance Platonism depended on philology, manuscript movement, patronage, translation, and religious controversy. Greek teachers and émigré scholars expanded access to Plato, while debates over Plato’s relation to Ari"
+    },
+    {
+      "recordKey": "philosophy:platonism",
+      "status": "bibliography-only",
+      "signal": "influence-or-causation",
+      "location": "renaissance-cambridge-revivals/paragraph-2",
+      "excerpt": "Other Renaissance Platonists made different selections. Giovanni Pico della Mirandola pursued concord among philosophical and religious traditions; Francesco Patrizi used Platonist resources against dominant Aristotelian"
     },
     {
       "recordKey": "philosophy:aristotelianism",

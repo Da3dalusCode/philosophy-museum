@@ -173,7 +173,7 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | philosopher | lucretius | Lucretius | #/philosophers/lucretius | 2003 | pass | yes | yes (1 primary; 0 supplemental) |
 | philosopher | pyrrho | Pyrrho | #/philosophers/pyrrho | 2022 | pass | yes | yes (1 primary; 0 supplemental) |
 | philosopher | socrates | Socrates | #/philosophers/socrates | 3010 | pass | yes | yes (1 primary; 0 supplemental) |
-| philosopher | plato | Plato | #/philosophers/plato | 2622 | pass | yes | yes (1 primary; 2 supplemental) |
+| philosopher | plato | Plato | #/philosophers/plato | 4900 | pass | yes | yes (1 primary; 2 supplemental) |
 | philosopher | aristotle | Aristotle | #/philosophers/aristotle | 2704 | pass | yes | yes (1 primary; 0 supplemental) |
 | philosopher | diogenes | Diogenes | #/philosophers/diogenes | 2236 | pass | yes | yes (1 primary; 1 supplemental) |
 | philosopher | epicurus | Epicurus | #/philosophers/epicurus | 2007 | pass | yes | yes (1 primary; 0 supplemental) |
@@ -303,7 +303,7 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | philosopher | bell-hooks | bell hooks | #/philosophers/bell-hooks | 1883 | fail | yes | yes (1 primary; 3 supplemental) |
 | philosopher | jiddu-krishnamurti | Jiddu Krishnamurti | #/philosophers/jiddu-krishnamurti | 2720 | pass | no | yes (1 primary; 0 supplemental) |
 | philosophy | stoicism | Stoicism | #/branches/stoicism | 2062 | pass | yes | yes (1 primary; 0 supplemental) |
-| philosophy | platonism | Platonism | #/branches/platonism | 2883 | pass | yes | yes (1 primary; 0 supplemental) |
+| philosophy | platonism | Platonism | #/branches/platonism | 5558 | pass | yes | yes (1 primary; 0 supplemental) |
 | philosophy | aristotelianism | Aristotelianism | #/branches/aristotelianism | 2134 | pass | yes | yes (1 primary; 0 supplemental) |
 | philosophy | neoplatonism | Neoplatonism | #/branches/neoplatonism | 2130 | pass | yes | yes (1 primary; 5 supplemental) |
 | philosophy | metaphysics | Metaphysics | #/branches/metaphysics | 2027 | pass | yes | yes (1 primary; 0 supplemental) |
@@ -355,8 +355,8 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 
 | Example surface | Title | Supporting prose words | Canonical target | Target words | Target status | Standalone full article? |
 | --- | --- | ---: | --- | ---: | --- | --- |
-| plato-cave-book-vii | The Allegory of the Cave | 180 | plato | 2622 | pass | no — this is a short Museum surface |
-| plato-republic | Plato’s Republic | 249 | plato | 2622 | pass | no — this is a short Museum surface |
+| plato-cave-book-vii | The Allegory of the Cave | 180 | plato | 4900 | pass | no — this is a short Museum surface |
+| plato-republic | Plato’s Republic | 249 | plato | 4900 | pass | no — this is a short Museum surface |
 
 ## Commands
 

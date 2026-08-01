@@ -105,6 +105,38 @@
           "title": "Recurring internal questions"
         },
         {
+          "id": "old-academy-disputes",
+          "title": "The Old Academy: succession without orthodoxy"
+        },
+        {
+          "id": "academic-skepticism",
+          "title": "Academic skepticism as a Platonic inheritance"
+        },
+        {
+          "id": "hierarchy-participation-return",
+          "title": "Hierarchy, intellect, soul, participation, and return"
+        },
+        {
+          "id": "practice-embodiment-evil",
+          "title": "Virtue, contemplation, embodiment, and evil"
+        },
+        {
+          "id": "late-antique-transmission",
+          "title": "Late-antique schools, commentary, and transmission"
+        },
+        {
+          "id": "religious-plurality",
+          "title": "Christian, Jewish, and Islamic Platonisms in their own terms"
+        },
+        {
+          "id": "renaissance-cambridge-revivals",
+          "title": "Renaissance recoveries, Cambridge Platonists, and later revivals"
+        },
+        {
+          "id": "contemporary-platonisms",
+          "title": "Mathematical, metaphysical, and ethical platonisms today"
+        },
+        {
           "id": "reading",
           "title": "How to read the tradition"
         },
@@ -3222,6 +3254,30 @@
         {
           "id": "interpretive-disputes",
           "title": "What can responsibly be attributed to Plato?"
+        },
+        {
+          "id": "corpus-chronology-authorship",
+          "title": "Corpus, chronology, authenticity, and philosophical voices"
+        },
+        {
+          "id": "inquiry-dialectic-mathematics",
+          "title": "Inquiry, dialectic, recollection, and mathematical education"
+        },
+        {
+          "id": "psychology-virtue-happiness",
+          "title": "Soul, desire, virtue, pleasure, and the good life"
+        },
+        {
+          "id": "love-beauty-rhetoric-poetry",
+          "title": "Love, beauty, rhetoric, poetry, and the power of form"
+        },
+        {
+          "id": "cosmology-nature-number",
+          "title": "Cosmos, nature, necessity, and mathematical order"
+        },
+        {
+          "id": "politics-gender-power",
+          "title": "Political expertise, law, gender, reproduction, and coercive power"
         },
         {
           "id": "reading-practice",

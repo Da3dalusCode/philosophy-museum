@@ -33,7 +33,7 @@ This report distinguishes bibliographies, mapped evidence, completed claim revie
 | philosopher | lucretius | Lucretius | bibliography-only | 0 | 0 | 0 | 0 | 0 | 2003 | #/philosophers/lucretius |
 | philosopher | pyrrho | Pyrrho | bibliography-only | 0 | 0 | 0 | 0 | 0 | 2022 | #/philosophers/pyrrho |
 | philosopher | socrates | Socrates | claim-reviewed | 6 | 5 | 7 | 37 | 98 | 3010 | #/philosophers/socrates |
-| philosopher | plato | Plato | bibliography-only | 0 | 0 | 0 | 0 | 0 | 2622 | #/philosophers/plato |
+| philosopher | plato | Plato | bibliography-only | 0 | 0 | 0 | 0 | 0 | 4900 | #/philosophers/plato |
 | philosopher | aristotle | Aristotle | bibliography-only | 0 | 0 | 0 | 0 | 0 | 2704 | #/philosophers/aristotle |
 | philosopher | diogenes | Diogenes | bibliography-only | 0 | 0 | 0 | 0 | 0 | 2236 | #/philosophers/diogenes |
 | philosopher | epicurus | Epicurus | bibliography-only | 0 | 0 | 0 | 0 | 0 | 2007 | #/philosophers/epicurus |
@@ -163,7 +163,7 @@ This report distinguishes bibliographies, mapped evidence, completed claim revie
 | philosopher | bell-hooks | bell hooks | bibliography-only | 0 | 0 | 0 | 0 | 0 | 1883 | #/philosophers/bell-hooks |
 | philosopher | jiddu-krishnamurti | Jiddu Krishnamurti | bibliography-only | 0 | 0 | 0 | 0 | 0 | 2720 | #/philosophers/jiddu-krishnamurti |
 | philosophy | stoicism | Stoicism | bibliography-only | 0 | 0 | 0 | 0 | 0 | 2062 | #/branches/stoicism |
-| philosophy | platonism | Platonism | bibliography-only | 0 | 0 | 0 | 0 | 0 | 2883 | #/branches/platonism |
+| philosophy | platonism | Platonism | bibliography-only | 0 | 0 | 0 | 0 | 0 | 5558 | #/branches/platonism |
 | philosophy | aristotelianism | Aristotelianism | bibliography-only | 0 | 0 | 0 | 0 | 0 | 2134 | #/branches/aristotelianism |
 | philosophy | neoplatonism | Neoplatonism | bibliography-only | 0 | 0 | 0 | 0 | 0 | 2130 | #/branches/neoplatonism |
 | philosophy | metaphysics | Metaphysics | bibliography-only | 0 | 0 | 0 | 0 | 0 | 2027 | #/branches/metaphysics |
@@ -210,7 +210,7 @@ This report distinguishes bibliographies, mapped evidence, completed claim revie
 
 The patterns below flag uncited legacy article paragraphs containing quotation-like text, exact dates, priority claims, influence/causation language, disputed attribution, or broad classifications. They are review-routing signals, not findings of error or padding. Proximity to the depth floor is not treated as evidence of padding.
 
-Total signals: **1051**.
+Total signals: **1060**.
 
 | Record | Current status | Signal | Location | Excerpt |
 | --- | --- | --- | --- | --- |
@@ -320,6 +320,8 @@ Total signals: **1051**.
 | philosopher:plato | bibliography-only | quotation | knowledge-forms/paragraph-2 | Forms enter as objects or structures suited to this explanatory demand. Equal sticks can appear equal in one respect and unequal in another, but the standard of equality does not fluctuate with them. Beautiful things cha |
 | philosopher:plato | bibliography-only | priority-or-superlative | interpretive-disputes/paragraph-1 | The first dispute concerns Socrates. Some early dialogues may preserve recognizable features of the historical Socrates, while other works clearly use Socrates to develop arguments that cannot be independently attributed |
 | philosopher:plato | bibliography-only | disputed-attribution | interpretive-disputes/paragraph-1 | The first dispute concerns Socrates. Some early dialogues may preserve recognizable features of the historical Socrates, while other works clearly use Socrates to develop arguments that cannot be independently attributed |
+| philosopher:plato | bibliography-only | disputed-attribution | corpus-chronology-authorship/paragraph-1 | Nearly all of the works transmitted under Plato’s name are dialogues, but the surviving corpus also includes letters and texts whose authenticity has been questioned since antiquity. Modern scholars generally accept a la |
+| philosopher:plato | bibliography-only | priority-or-superlative | corpus-chronology-authorship/paragraph-3 | Speakers make attribution harder. Socrates dominates many works, but the Eleatic Stranger leads the Sophist and Statesman, Timaeus delivers the cosmological discourse named for him, and the Laws is conducted by an unname |
 | philosopher:aristotle | bibliography-only | quotation | overview/paragraph-2 | His central concepts connect these inquiries. Form and matter explain how concrete beings are structured; potentiality and actuality explain change and development; four kinds of cause distinguish different answers to “w |
 | philosopher:aristotle | bibliography-only | exact-date | life-academy/paragraph-1 | Aristotle was born in Stagira in northern Greece in 384 BCE. His father was associated with the Macedonian court as a physician, a background sometimes connected to Aristotle’s sustained interest in living beings, althou |
 | philosopher:aristotle | bibliography-only | priority-or-superlative | life-academy/paragraph-2 | After Plato’s death, Aristotle spent time in Assos and Lesbos, where his biological investigations likely developed through close observation of marine and terrestrial life. He later tutored the young Alexander of Macedo |
@@ -906,6 +908,13 @@ Total signals: **1051**.
 | philosophy:platonism | bibliography-only | priority-or-superlative | universals-mathematics/paragraph-2 | Mathematics makes the realist pressure especially vivid. Mathematical reasoning concerns exact triangles, infinite series, numbers, sets, and proofs that do not appear to depend on the imperfections of physical examples. |
 | philosophy:platonism | bibliography-only | priority-or-superlative | middle-neoplatonism/paragraph-1 | From roughly the first century BCE through the second century CE, thinkers now called Middle Platonists sought to coordinate Plato’s dialogues into a more systematic philosophy. They interpreted the Timaeus, Republic, an |
 | philosophy:platonism | bibliography-only | priority-or-superlative | debates/paragraph-1 | Aristotle’s criticism of separate Forms is the most influential internal challenge. If Forms are separated from sensible things, he argues, they may duplicate rather than explain those things. Platonists answer by refini |
+| philosophy:platonism | bibliography-only | exact-date | old-academy-disputes/paragraph-1 | After Plato’s death in 347 BCE, leadership of the Academy passed to Speusippus rather than to Aristotle or to a custodian of a finished creed. Evidence for the early successors is fragmentary and often comes through crit |
+| philosophy:platonism | bibliography-only | quotation | academic-skepticism/paragraph-3 | This history matters for the meaning of Platonism. A tradition founded on dialogues that expose ignorance, test their own hypotheses, and frequently stop without closure could identify fidelity with continued inquiry rat |
+| philosophy:platonism | bibliography-only | priority-or-superlative | academic-skepticism/paragraph-3 | This history matters for the meaning of Platonism. A tradition founded on dialogues that expose ignorance, test their own hypotheses, and frequently stop without closure could identify fidelity with continued inquiry rat |
+| philosophy:platonism | bibliography-only | quotation | hierarchy-participation-return/paragraph-3 | Forms also change location and function. In many Middle and later Platonists they are understood as thoughts within divine Intellect rather than as a separately populated realm. This move connects universals to living in |
+| philosophy:platonism | bibliography-only | quotation | religious-plurality/paragraph-4 | These traditions interacted. Jewish philosophers wrote in Arabic and drew on Muslim teachers and texts; works crossed into Hebrew and Latin; Christian authors in Arabic participated in translation and debate; and Latin s |
+| philosophy:platonism | bibliography-only | quotation | renaissance-cambridge-revivals/paragraph-1 | Renaissance Platonism depended on philology, manuscript movement, patronage, translation, and religious controversy. Greek teachers and émigré scholars expanded access to Plato, while debates over Plato’s relation to Ari |
+| philosophy:platonism | bibliography-only | influence-or-causation | renaissance-cambridge-revivals/paragraph-2 | Other Renaissance Platonists made different selections. Giovanni Pico della Mirandola pursued concord among philosophical and religious traditions; Francesco Patrizi used Platonist resources against dominant Aristotelian |
 | philosophy:aristotelianism | bibliography-only | priority-or-superlative | logic-categories/paragraph-2 | Aristotelian logic was never only a mechanical rulebook. It raises questions about how language, thought, and reality correspond; what makes a premise explanatory rather than merely true; and how first principles can be |
 | philosophy:aristotelianism | bibliography-only | priority-or-superlative | peripatetics-commentators/paragraph-1 | After Aristotle, the Peripatetic school did not simply preserve a complete system unchanged. Theophrastus and other early successors extended natural inquiry, ethics, logic, and the study of character while debating the |
 | philosophy:aristotelianism | bibliography-only | disputed-attribution | jewish-christian/paragraph-2 | Aquinas likewise integrates Aristotelian form, matter, causation, act, potency, virtue, and natural law within Christian theology, while distinguishing philosophical argument from revealed doctrine. He rejects some inter |

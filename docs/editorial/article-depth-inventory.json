@@ -285,7 +285,7 @@
       "title": "Plato",
       "visitorEntryPoint": "#/philosophers/plato",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 2622,
+      "substantiveWordCount": 4900,
       "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
@@ -1845,7 +1845,7 @@
       "title": "Platonism",
       "visitorEntryPoint": "#/branches/platonism",
       "contentCategory": "philosophy",
-      "substantiveWordCount": 2883,
+      "substantiveWordCount": 5558,
       "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
@@ -2683,10 +2683,10 @@
         "hallId": "mediterranean-beginnings-classical",
         "visitorEntryPoint": "#/museum/mediterranean-beginnings-classical/exhibits/platonism",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 428,
+        "surfaceWords": 535,
         "canonicalArticleKey": "philosophy:platonism",
         "canonicalArticleId": "platonism",
-        "canonicalArticleWordCount": 2883,
+        "canonicalArticleWordCount": 5558,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -2710,7 +2710,7 @@
         "surfaceWords": 316,
         "canonicalArticleKey": "philosopher:plato",
         "canonicalArticleId": "plato",
-        "canonicalArticleWordCount": 2622,
+        "canonicalArticleWordCount": 4900,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -4903,7 +4903,7 @@
         "canonicalArticleKey": "philosopher:plato",
         "canonicalArticleId": "plato",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 2622,
+        "canonicalArticleWordCount": 4900,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -4918,7 +4918,7 @@
         "canonicalArticleKey": "philosopher:plato",
         "canonicalArticleId": "plato",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 2622,
+        "canonicalArticleWordCount": 4900,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
