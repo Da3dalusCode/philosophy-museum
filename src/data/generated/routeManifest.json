@@ -6061,31 +6061,75 @@
     },
     {
       "id": "kant",
-      "name": "Kant",
+      "name": "Immanuel Kant",
       "sections": [
         {
-          "id": "overview",
-          "title": "The critical turn"
+          "id": "setting",
+          "title": "Königsberg, Prussia, and an Enlightenment in dispute"
         },
         {
-          "id": "hume-problem",
-          "title": "Hume, causality, and objective experience"
+          "id": "critical-project",
+          "title": "One critical project, three Critiques"
+        },
+        {
+          "id": "copernican-revolution",
+          "title": "The “Copernican revolution” and synthetic a priori judgment"
+        },
+        {
+          "id": "intuition-categories",
+          "title": "Space, time, categories, and objective experience"
         },
         {
           "id": "idealism",
-          "title": "Appearances and things in themselves"
+          "title": "Transcendental idealism without an unreal external world"
         },
         {
-          "id": "ethics",
-          "title": "Autonomy, duty, and dignity"
+          "id": "reason-limits",
+          "title": "Skepticism, metaphysical illusion, and regulative reason"
         },
         {
-          "id": "judgment-history",
-          "title": "Judgment, enlightenment, and history"
+          "id": "freedom",
+          "title": "Nature, causality, and the practical standpoint of freedom"
         },
         {
-          "id": "legacy",
-          "title": "After Kant"
+          "id": "good-will-duty",
+          "title": "Good will, duty, and kinds of imperative"
+        },
+        {
+          "id": "categorical-imperative",
+          "title": "The categorical imperative as a family of formulations"
+        },
+        {
+          "id": "virtue-motivation",
+          "title": "Virtue, character, motivation, and consequences"
+        },
+        {
+          "id": "highest-good-religion",
+          "title": "Happiness, the highest good, and religion within reason"
+        },
+        {
+          "id": "beauty-sublime",
+          "title": "Beauty, common validity, and the sublime"
+        },
+        {
+          "id": "teleology",
+          "title": "Organisms, purposiveness, and reflective judgment"
+        },
+        {
+          "id": "politics-history",
+          "title": "Right, enlightenment, history, and perpetual peace"
+        },
+        {
+          "id": "exclusion-anthropology",
+          "title": "Race, gender, anthropology, and excluded universalism"
+        },
+        {
+          "id": "influence",
+          "title": "German Idealism and wider philosophical afterlives"
+        },
+        {
+          "id": "disputes-reading",
+          "title": "Objections, unresolved disputes, and a reading route"
         }
       ],
       "hasSources": true

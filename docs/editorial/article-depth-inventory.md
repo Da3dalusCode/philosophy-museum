@@ -14,11 +14,11 @@ The hard floor is **2,000 substantive article-prose words**. The counter tokeniz
 
 | Category | Total | Pass | Fail | Missing article |
 | --- | ---: | ---: | ---: | ---: |
-| Philosophers | 146 | 51 | 95 | 0 |
+| Philosophers | 146 | 52 | 94 | 0 |
 | Philosophies, branches, schools, traditions, movements, methods, and frameworks | 43 | 32 | 11 | 0 |
 | Standalone works, texts, arguments, concepts, and article-backed exhibits | 0 | 0 | 0 | 0 |
 
-Universal total: **189** applicable articles; **83 pass**; **106 fail**; **0 are missing article prose**.
+Universal total: **189** applicable articles; **84 pass**; **105 fail**; **0 are missing article prose**.
 
 Current failures are migration backlog, not approved exceptions. The strict audit is intentionally separate from the ordinary build until that backlog reaches zero.
 
@@ -71,7 +71,6 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | berkeley | Berkeley | philosopher | 1903 | fail |
 | rousseau | Rousseau | philosopher | 1836 | fail |
 | bentham | Jeremy Bentham | philosopher | 1976 | fail |
-| kant | Kant | philosopher | 939 | fail |
 | schelling | Schelling | philosopher | 1998 | fail |
 | hegel | Hegel | philosopher | 1808 | fail |
 | schopenhauer | Schopenhauer | philosopher | 1830 | fail |
@@ -149,7 +148,7 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | --- | --- | --- | ---: | --- |
 | ficino | Marsilio Ficino | philosopher | 1819 | fail |
 | galileo | Galileo Galilei | philosopher | 1803 | fail |
-| kant | Kant | philosopher | 939 | fail |
+| kant | Immanuel Kant | philosopher | 3296 | pass |
 | nietzsche | Nietzsche | philosopher | 825 | fail |
 | wittgenstein | Wittgenstein | philosopher | 839 | fail |
 | jiddu-krishnamurti | Jiddu Krishnamurti | philosopher | 2720 | pass |
@@ -230,7 +229,7 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | philosopher | hume | Hume | #/philosophers/hume | 2231 | pass | yes | yes (1 primary; 5 supplemental) |
 | philosopher | rousseau | Rousseau | #/philosophers/rousseau | 1836 | fail | yes | yes (1 primary; 5 supplemental) |
 | philosopher | bentham | Jeremy Bentham | #/philosophers/bentham | 1976 | fail | yes | yes (1 primary; 4 supplemental) |
-| philosopher | kant | Kant | #/philosophers/kant | 939 | fail | no | yes (1 primary; 0 supplemental) |
+| philosopher | kant | Immanuel Kant | #/philosophers/kant | 3296 | pass | no | yes (1 primary; 0 supplemental) |
 | philosopher | fichte | Fichte | #/philosophers/fichte | 2026 | pass | yes | yes (1 primary; 3 supplemental) |
 | philosopher | schelling | Schelling | #/philosophers/schelling | 1998 | fail | yes | yes (1 primary; 5 supplemental) |
 | philosopher | hegel | Hegel | #/philosophers/hegel | 1808 | fail | yes | yes (1 primary; 8 supplemental) |

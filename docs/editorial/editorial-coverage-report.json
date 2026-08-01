@@ -1051,7 +1051,7 @@
     },
     {
       "id": "kant",
-      "title": "Kant",
+      "title": "Immanuel Kant",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/kant",
       "authoredStatus": "bibliography-only",
@@ -1062,7 +1062,7 @@
       "structuredClaimCount": 0,
       "structuredParagraphCount": 0,
       "citationCount": 0,
-      "substantiveArticleWordCount": 939
+      "substantiveArticleWordCount": 3296
     },
     {
       "id": "fichte",
@@ -5218,8 +5218,120 @@
       "recordKey": "philosopher:kant",
       "status": "bibliography-only",
       "signal": "quotation",
+      "location": "setting/paragraph-2",
+      "excerpt": "The familiar image of an elderly author producing three forbidding Critiques hides a long pre-critical career. Kant wrote on force, the formation of the solar system, physical geography, metaphysics, natural theology, be"
+    },
+    {
+      "recordKey": "philosopher:kant",
+      "status": "bibliography-only",
+      "signal": "priority-or-superlative",
+      "location": "setting/paragraph-2",
+      "excerpt": "The familiar image of an elderly author producing three forbidding Critiques hides a long pre-critical career. Kant wrote on force, the formation of the solar system, physical geography, metaphysics, natural theology, be"
+    },
+    {
+      "recordKey": "philosopher:kant",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "copernican-revolution/paragraph-2",
+      "excerpt": "This strategy addresses the possibility of synthetic a priori judgments. “A priori” means that their justification does not depend on collecting particular experiences; “synthetic” means that they extend cognition rather"
+    },
+    {
+      "recordKey": "philosopher:kant",
+      "status": "bibliography-only",
+      "signal": "disputed-attribution",
+      "location": "copernican-revolution/paragraph-2",
+      "excerpt": "This strategy addresses the possibility of synthetic a priori judgments. “A priori” means that their justification does not depend on collecting particular experiences; “synthetic” means that they extend cognition rather"
+    },
+    {
+      "recordKey": "philosopher:kant",
+      "status": "bibliography-only",
+      "signal": "priority-or-superlative",
+      "location": "intuition-categories/paragraph-1",
+      "excerpt": "Space and time are a priori forms of intuition: they organize how outer objects and inner states can be given to human sensibility. They are not learned by abstracting from many observations, and Kant denies that the fir"
+    },
+    {
+      "recordKey": "philosopher:kant",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "idealism/paragraph-1",
+      "excerpt": "Transcendental idealism holds that space, time, and the objects within them are appearances relative to the conditions of our sensible cognition, while things considered as they are in themselves are not objects of theor"
+    },
+    {
+      "recordKey": "philosopher:kant",
+      "status": "bibliography-only",
+      "signal": "quotation",
       "location": "idealism/paragraph-2",
-      "excerpt": "This position has generated one of the largest interpretive disputes in modern philosophy. A “two-world” reading treats appearances and things in themselves as different sets of entities; a “two-aspect” reading treats th"
+      "excerpt": "What appearances and things in themselves are remains fiercely disputed. A two-object or “two-world” reading distinguishes appearances from independently existing things that affect us. A one-object or two-aspect reading"
+    },
+    {
+      "recordKey": "philosopher:kant",
+      "status": "bibliography-only",
+      "signal": "disputed-attribution",
+      "location": "idealism/paragraph-2",
+      "excerpt": "What appearances and things in themselves are remains fiercely disputed. A two-object or “two-world” reading distinguishes appearances from independently existing things that affect us. A one-object or two-aspect reading"
+    },
+    {
+      "recordKey": "philosopher:kant",
+      "status": "bibliography-only",
+      "signal": "priority-or-superlative",
+      "location": "freedom/paragraph-1",
+      "excerpt": "The problem of freedom connects Kant’s theoretical and practical philosophy. As an appearance, a human action belongs to nature and is open to causal explanation. Yet deliberation requires agents to regard reasons as cap"
+    },
+    {
+      "recordKey": "philosopher:kant",
+      "status": "bibliography-only",
+      "signal": "priority-or-superlative",
+      "location": "good-will-duty/paragraph-1",
+      "excerpt": "The Groundwork begins with the good will because talents, courage, wealth, and happiness can be used badly. A good will is committed to what morality requires, and its value does not disappear when circumstances frustrat"
+    },
+    {
+      "recordKey": "philosopher:kant",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "virtue-motivation/paragraph-2",
+      "excerpt": "Consequences do not ground the moral law for Kant, but it does not follow that they never matter in deliberation. A maxim includes an end and an understanding of the proposed action; imperfect duties require promoting en"
+    },
+    {
+      "recordKey": "philosopher:kant",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "highest-good-religion/paragraph-2",
+      "excerpt": "Religion within the Boundaries of Mere Reason interprets religious ideas through moral agency. Kant analyzes radical evil as a propensity to subordinate the moral law to self-interested maxims, while insisting that agent"
+    },
+    {
+      "recordKey": "philosopher:kant",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "beauty-sublime/paragraph-1",
+      "excerpt": "A judgment of beauty is based on pleasure rather than a determinate concept, yet it speaks with a claim to others’ agreement. Kant calls the pleasure disinterested because it does not depend simply on possessing, consumi"
+    },
+    {
+      "recordKey": "philosopher:kant",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "politics-history/paragraph-1",
+      "excerpt": "Kant’s political philosophy begins from an innate right to freedom compatible with the freedom of others under universal law. A rightful civil condition uses public law and coercive institutions to secure external freedo"
+    },
+    {
+      "recordKey": "philosopher:kant",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "politics-history/paragraph-2",
+      "excerpt": "Toward Perpetual Peace joins domestic right to international and cosmopolitan right. Kant proposes republican states, a federation that restrains war, and a limited right of hospitality for persons encountering others on"
+    },
+    {
+      "recordKey": "philosopher:kant",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "exclusion-anthropology/paragraph-1",
+      "excerpt": "Kant’s universal moral language coexists with writings that classify human races, assign hierarchical capacities to peoples, and repeat degrading claims about Africans, Indigenous peoples, and others. His lectures and pu"
+    },
+    {
+      "recordKey": "philosopher:kant",
+      "status": "bibliography-only",
+      "signal": "priority-or-superlative",
+      "location": "disputes-reading/paragraph-2",
+      "excerpt": "Begin with What Is Enlightenment?, the Groundwork, and the Prolegomena, then use a guide for selected parts of the first Critique. Continue through practical reason and the third Critique before turning to Religion, righ"
     },
     {
       "recordKey": "philosopher:fichte",

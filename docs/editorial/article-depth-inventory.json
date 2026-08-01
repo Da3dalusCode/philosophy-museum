@@ -17,8 +17,8 @@
     {
       "label": "Philosophers",
       "total": 146,
-      "pass": 51,
-      "fail": 95,
+      "pass": 52,
+      "fail": 94,
       "missing": 0
     },
     {
@@ -38,8 +38,8 @@
   ],
   "universalSummary": {
     "total": 189,
-    "pass": 83,
-    "fail": 106,
+    "pass": 84,
+    "fail": 105,
     "missing": 0
   },
   "pilotChanges": [
@@ -906,11 +906,11 @@
     },
     {
       "canonicalId": "kant",
-      "title": "Kant",
+      "title": "Immanuel Kant",
       "visitorEntryPoint": "#/philosophers/kant",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 939,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 3296,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": false,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -2372,11 +2372,11 @@
     },
     {
       "canonicalId": "kant",
-      "title": "Kant",
+      "title": "Immanuel Kant",
       "visitorEntryPoint": "#/philosophers/kant",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 939,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 3296,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": false,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -4342,8 +4342,8 @@
         "surfaceWords": 339,
         "canonicalArticleKey": "philosopher:kant",
         "canonicalArticleId": "kant",
-        "canonicalArticleWordCount": 939,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 3296,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "german-idealism",
