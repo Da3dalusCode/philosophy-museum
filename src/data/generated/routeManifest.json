@@ -2276,6 +2276,109 @@
       "hasSources": true
     },
     {
+      "id": "kantianism",
+      "name": "Kantianism",
+      "sections": [
+        {
+          "id": "contested-inheritance",
+          "title": "A contested inheritance, not Kant repeated"
+        },
+        {
+          "id": "first-reception",
+          "title": "The first readers: clarification quickly becomes reconstruction"
+        },
+        {
+          "id": "fichte",
+          "title": "Fichte: from a critique of faculties to self-positing activity"
+        },
+        {
+          "id": "schelling-hegel",
+          "title": "Schelling and Hegel: completing Kant by criticizing his limits"
+        },
+        {
+          "id": "nineteenth-critics",
+          "title": "Schopenhauer, Herbart, Fries, and nineteenth-century criticism"
+        },
+        {
+          "id": "marx-nietzsche",
+          "title": "Marx, Nietzsche, and critics of Kantian abstraction"
+        },
+        {
+          "id": "back-to-kant",
+          "title": "The “back to Kant” movements and philosophy’s new task"
+        },
+        {
+          "id": "marburg",
+          "title": "Marburg neo-Kantianism: science, method, and functional objectivity"
+        },
+        {
+          "id": "southwest",
+          "title": "Southwest neo-Kantianism: value, history, and cultural science"
+        },
+        {
+          "id": "international-neokantianism",
+          "title": "International neo-Kantianisms and disputed boundaries"
+        },
+        {
+          "id": "parting-ways",
+          "title": "Decline, exile, and the analytic–continental “parting of the ways”"
+        },
+        {
+          "id": "analytic-reception",
+          "title": "Analytic inheritances: rejection, reconstruction, and transcendental arguments"
+        },
+        {
+          "id": "sellars-mcdowell",
+          "title": "Sellars, McDowell, and the space of reasons"
+        },
+        {
+          "id": "continental-inheritances",
+          "title": "Phenomenology, Heidegger, and continental transformations"
+        },
+        {
+          "id": "critical-theory",
+          "title": "Critical theory and communicative transformations of reason"
+        },
+        {
+          "id": "ethical-revivals",
+          "title": "Kantian ethics after the caricature of rigid rules"
+        },
+        {
+          "id": "rawls-politics",
+          "title": "Rawls and political Kantianism"
+        },
+        {
+          "id": "constructivisms",
+          "title": "Constructivism and its rival Kantian interpretations"
+        },
+        {
+          "id": "science-theory",
+          "title": "Science, mathematics, and the revisable a priori"
+        },
+        {
+          "id": "contemporary-theory",
+          "title": "Contemporary theoretical Kantian debates"
+        },
+        {
+          "id": "criticism-exclusion",
+          "title": "Race, gender, disability, colonialism, and the critique of universality"
+        },
+        {
+          "id": "practical-tests",
+          "title": "What a Kantian approach changes in practice"
+        },
+        {
+          "id": "what-counts",
+          "title": "What counts as Kantian?"
+        },
+        {
+          "id": "reading-path",
+          "title": "A staged reading path through the reception"
+        }
+      ],
+      "hasSources": true
+    },
+    {
       "id": "german-idealism",
       "name": "German Idealism",
       "sections": [
@@ -6404,12 +6507,20 @@
           "title": "One critical project, three Critiques"
         },
         {
+          "id": "method-architecture",
+          "title": "Transcendental method, critique, and systematic architecture"
+        },
+        {
           "id": "copernican-revolution",
           "title": "The “Copernican revolution” and synthetic a priori judgment"
         },
         {
           "id": "intuition-categories",
           "title": "Space, time, categories, and objective experience"
+        },
+        {
+          "id": "synthesis-imagination",
+          "title": "Synthesis, imagination, apperception, and the unity of a knower"
         },
         {
           "id": "idealism",
@@ -6436,6 +6547,10 @@
           "title": "Virtue, character, motivation, and consequences"
         },
         {
+          "id": "right-property-punishment",
+          "title": "Right, coercion, property, and the limits of ethical virtue"
+        },
+        {
           "id": "highest-good-religion",
           "title": "Happiness, the highest good, and religion within reason"
         },
@@ -6446,6 +6561,10 @@
         {
           "id": "teleology",
           "title": "Organisms, purposiveness, and reflective judgment"
+        },
+        {
+          "id": "natural-science-change",
+          "title": "Natural science, mathematics, and the pressure of later change"
         },
         {
           "id": "politics-history",

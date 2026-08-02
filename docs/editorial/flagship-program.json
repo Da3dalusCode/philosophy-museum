@@ -32,10 +32,10 @@
     {"label": "Daoism", "canonicalId": "daoism", "category": "philosophy", "target": 5000},
     {"label": "Stoicism", "canonicalId": "stoicism", "category": "philosophy", "target": 5000},
     {"label": "Utilitarianism", "canonicalId": "utilitarianism", "category": "philosophy", "target": 5000},
-    {"label": "Existentialism", "canonicalId": "existentialism", "category": "philosophy", "target": 5000}
+    {"label": "Existentialism", "canonicalId": "existentialism", "category": "philosophy", "target": 5000},
+    {"label": "Kantianism", "canonicalId": "kantianism", "category": "philosophy", "target": 5000}
   ],
   "approvedButMissing": [
-    {"label": "Kantianism", "proposedCanonicalId": "kantianism", "category": "philosophy", "target": 5000},
     {"label": "Marxism", "proposedCanonicalId": "marxism", "category": "philosophy", "target": 5000}
   ]
 }

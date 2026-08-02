@@ -15,10 +15,10 @@ The hard floor is **2,000 substantive article-prose words**. The counter tokeniz
 | Category | Total | Pass | Fail | Missing article |
 | --- | ---: | ---: | ---: | ---: |
 | Philosophers | 146 | 55 | 91 | 0 |
-| Philosophies, branches, schools, traditions, movements, methods, and frameworks | 43 | 35 | 8 | 0 |
+| Philosophies, branches, schools, traditions, movements, methods, and frameworks | 44 | 36 | 8 | 0 |
 | Standalone works, texts, arguments, concepts, and article-backed exhibits | 0 | 0 | 0 | 0 |
 
-Universal total: **189** applicable articles; **90 pass**; **99 fail**; **0 are missing article prose**.
+Universal total: **190** applicable articles; **91 pass**; **99 fail**; **0 are missing article prose**.
 
 Current failures are migration backlog, not approved exceptions. The strict audit is intentionally separate from the ordinary build until that backlog reaches zero.
 
@@ -142,13 +142,14 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | --- | --- | --- | ---: | --- |
 | ficino | Marsilio Ficino | philosopher | 1819 | fail |
 | galileo | Galileo Galilei | philosopher | 1803 | fail |
-| kant | Immanuel Kant | philosopher | 3296 | pass |
+| kant | Immanuel Kant | philosopher | 4354 | pass |
 | nietzsche | Friedrich Nietzsche | philosopher | 4336 | pass |
 | wittgenstein | Ludwig Wittgenstein | philosopher | 4790 | pass |
 | jiddu-krishnamurti | Jiddu Krishnamurti | philosopher | 2720 | pass |
 | epistemology | Epistemology | philosophy | 2615 | pass |
 | ethics | Ethics | philosophy | 2900 | pass |
 | analytic-philosophy | Analytic Philosophy | philosophy | 2963 | pass |
+| kantianism | Kantianism | philosophy | 5566 | pass |
 
 ## Complete canonical inventory
 
@@ -223,7 +224,7 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | philosopher | hume | David Hume | #/philosophers/hume | 4800 | pass | yes | yes (1 primary; 5 supplemental) |
 | philosopher | rousseau | Rousseau | #/philosophers/rousseau | 1836 | fail | yes | yes (1 primary; 5 supplemental) |
 | philosopher | bentham | Jeremy Bentham | #/philosophers/bentham | 1976 | fail | yes | yes (1 primary; 4 supplemental) |
-| philosopher | kant | Immanuel Kant | #/philosophers/kant | 3296 | pass | no | yes (1 primary; 0 supplemental) |
+| philosopher | kant | Immanuel Kant | #/philosophers/kant | 4354 | pass | no | yes (1 primary; 0 supplemental) |
 | philosopher | fichte | Fichte | #/philosophers/fichte | 2026 | pass | yes | yes (1 primary; 3 supplemental) |
 | philosopher | schelling | Schelling | #/philosophers/schelling | 1998 | fail | yes | yes (1 primary; 5 supplemental) |
 | philosopher | hegel | Hegel | #/philosophers/hegel | 1808 | fail | yes | yes (1 primary; 8 supplemental) |
@@ -342,6 +343,7 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | philosophy | medieval-scholasticism | Medieval Scholasticism | #/branches/medieval-scholasticism | 2081 | pass | yes | yes (1 primary; 5 supplemental) |
 | philosophy | rationalism | Rationalism | #/branches/rationalism | 5757 | pass | yes | yes (1 primary; 0 supplemental) |
 | philosophy | empiricism | Empiricism | #/branches/empiricism | 5228 | pass | yes | yes (1 primary; 1 supplemental) |
+| philosophy | kantianism | Kantianism | #/branches/kantianism | 5566 | pass | no | no |
 | philosophy | german-idealism | German Idealism | #/branches/german-idealism | 2206 | pass | yes | yes (1 primary; 4 supplemental) |
 
 ## Museum article-backing audit

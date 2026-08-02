@@ -23,8 +23,8 @@
     },
     {
       "label": "Philosophies, branches, schools, traditions, movements, methods, and frameworks",
-      "total": 43,
-      "pass": 35,
+      "total": 44,
+      "pass": 36,
       "fail": 8,
       "missing": 0
     },
@@ -37,8 +37,8 @@
     }
   ],
   "universalSummary": {
-    "total": 189,
-    "pass": 90,
+    "total": 190,
+    "pass": 91,
     "fail": 99,
     "missing": 0
   },
@@ -909,7 +909,7 @@
       "title": "Immanuel Kant",
       "visitorEntryPoint": "#/philosophers/kant",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 3296,
+      "substantiveWordCount": 4354,
       "complianceStatus": "pass",
       "legacyDepthAuditIncluded": false,
       "reusedInMuseum": true,
@@ -2333,6 +2333,18 @@
       "museumSupplementalReuseCount": 1
     },
     {
+      "canonicalId": "kantianism",
+      "title": "Kantianism",
+      "visitorEntryPoint": "#/branches/kantianism",
+      "contentCategory": "philosophy",
+      "substantiveWordCount": 5566,
+      "complianceStatus": "pass",
+      "legacyDepthAuditIncluded": false,
+      "reusedInMuseum": false,
+      "museumPrimaryReuseCount": 0,
+      "museumSupplementalReuseCount": 0
+    },
+    {
       "canonicalId": "german-idealism",
       "title": "German Idealism",
       "visitorEntryPoint": "#/branches/german-idealism",
@@ -2375,7 +2387,7 @@
       "title": "Immanuel Kant",
       "visitorEntryPoint": "#/philosophers/kant",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 3296,
+      "substantiveWordCount": 4354,
       "complianceStatus": "pass",
       "legacyDepthAuditIncluded": false,
       "reusedInMuseum": true,
@@ -2452,6 +2464,18 @@
       "legacyDepthAuditIncluded": false,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
+      "museumSupplementalReuseCount": 0
+    },
+    {
+      "canonicalId": "kantianism",
+      "title": "Kantianism",
+      "visitorEntryPoint": "#/branches/kantianism",
+      "contentCategory": "philosophy",
+      "substantiveWordCount": 5566,
+      "complianceStatus": "pass",
+      "legacyDepthAuditIncluded": false,
+      "reusedInMuseum": false,
+      "museumPrimaryReuseCount": 0,
       "museumSupplementalReuseCount": 0
     }
   ],
@@ -4342,7 +4366,7 @@
         "surfaceWords": 339,
         "canonicalArticleKey": "philosopher:kant",
         "canonicalArticleId": "kant",
-        "canonicalArticleWordCount": 3296,
+        "canonicalArticleWordCount": 4354,
         "canonicalArticleComplianceStatus": "pass"
       },
       {

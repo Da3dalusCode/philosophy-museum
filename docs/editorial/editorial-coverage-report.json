@@ -1062,7 +1062,7 @@
       "structuredClaimCount": 0,
       "structuredParagraphCount": 0,
       "citationCount": 0,
-      "substantiveArticleWordCount": 3296
+      "substantiveArticleWordCount": 4354
     },
     {
       "id": "fichte",
@@ -2837,6 +2837,21 @@
       "structuredParagraphCount": 0,
       "citationCount": 0,
       "substantiveArticleWordCount": 5228
+    },
+    {
+      "id": "kantianism",
+      "title": "Kantianism",
+      "category": "philosophy",
+      "visitorEntryPoint": "#/branches/kantianism",
+      "authoredStatus": "bibliography-only",
+      "effectiveStatus": "bibliography-only",
+      "sourceCount": 0,
+      "citedSourceCount": 0,
+      "furtherReadingSourceCount": 0,
+      "structuredClaimCount": 0,
+      "structuredParagraphCount": 0,
+      "citationCount": 0,
+      "substantiveArticleWordCount": 5566
     },
     {
       "id": "german-idealism",
@@ -5574,6 +5589,13 @@
     {
       "recordKey": "philosopher:kant",
       "status": "bibliography-only",
+      "signal": "priority-or-superlative",
+      "location": "method-architecture/paragraph-2",
+      "excerpt": "The first Critique’s architecture matters to those tests. The Transcendental Aesthetic examines sensible intuition; the Analytic treats concepts, judgment, and principles of the understanding; the Dialectic diagnoses rea"
+    },
+    {
+      "recordKey": "philosopher:kant",
+      "status": "bibliography-only",
       "signal": "quotation",
       "location": "copernican-revolution/paragraph-2",
       "excerpt": "This strategy addresses the possibility of synthetic a priori judgments. “A priori” means that their justification does not depend on collecting particular experiences; “synthetic” means that they extend cognition rather"
@@ -5591,6 +5613,20 @@
       "signal": "priority-or-superlative",
       "location": "intuition-categories/paragraph-1",
       "excerpt": "Space and time are a priori forms of intuition: they organize how outer objects and inner states can be given to human sensibility. They are not learned by abstracting from many observations, and Kant denies that the fir"
+    },
+    {
+      "recordKey": "philosopher:kant",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "synthesis-imagination/paragraph-2",
+      "excerpt": "The “I think” must be able to accompany representations, but this transcendental unity of apperception is not knowledge of an immortal soul or a richly described inner object. It is a condition under which representation"
+    },
+    {
+      "recordKey": "philosopher:kant",
+      "status": "bibliography-only",
+      "signal": "priority-or-superlative",
+      "location": "synthesis-imagination/paragraph-3",
+      "excerpt": "Kant distinguishes inner sense from apperception. We encounter our mental states in time, but do not thereby intuit the self as it is independently of the conditions of inner experience. This creates a delicate position:"
     },
     {
       "recordKey": "philosopher:kant",
@@ -5647,6 +5683,13 @@
       "signal": "quotation",
       "location": "beauty-sublime/paragraph-1",
       "excerpt": "A judgment of beauty is based on pleasure rather than a determinate concept, yet it speaks with a claim to others’ agreement. Kant calls the pleasure disinterested because it does not depend simply on possessing, consumi"
+    },
+    {
+      "recordKey": "philosopher:kant",
+      "status": "bibliography-only",
+      "signal": "priority-or-superlative",
+      "location": "natural-science-change/paragraph-1",
+      "excerpt": "Kant’s relation to science extends beyond using Newton as an illustration. His pre-critical cosmology proposes a natural history of the heavens; the first Critique asks how mathematical natural science is possible; and t"
     },
     {
       "recordKey": "philosopher:kant",
@@ -10472,6 +10515,167 @@
       "excerpt": "Then read Kant’s response to Hume before moving to Mill, James or Dewey, logical empiricism, Quine, and naturalized epistemology. Add a philosophy-of-science case on experiment or measurement and a social-epistemology ca"
     },
     {
+      "recordKey": "philosophy:kantianism",
+      "status": "bibliography-only",
+      "signal": "priority-or-superlative",
+      "location": "first-reception/paragraph-1",
+      "excerpt": "The Critique of Pure Reason did not instantly found a unified school. Early reviewers disagreed about whether transcendental idealism was a version of Berkeleyan idealism, an answer to skepticism, or an unstable compromi"
+    },
+    {
+      "recordKey": "philosophy:kantianism",
+      "status": "bibliography-only",
+      "signal": "priority-or-superlative",
+      "location": "first-reception/paragraph-3",
+      "excerpt": "These first disputes established recurring choices. Should critique remain an investigation of finite cognitive limits, or should philosophy derive a systematic first principle? Is the thing in itself a necessary boundar"
+    },
+    {
+      "recordKey": "philosophy:kantianism",
+      "status": "bibliography-only",
+      "signal": "priority-or-superlative",
+      "location": "fichte/paragraph-2",
+      "excerpt": "The practical dimension is decisive. Finite agency experiences the world as a field of resistance within which freedom must be realized, not as a dream projected by an isolated mind. Fichte develops Kantian autonomy towa"
+    },
+    {
+      "recordKey": "philosophy:kantianism",
+      "status": "bibliography-only",
+      "signal": "priority-or-superlative",
+      "location": "schelling-hegel/paragraph-3",
+      "excerpt": "Whether German Idealism is Kantianism depends on the standard used. It clearly grows from problems set by Kant and frequently presents itself as completing critique. It also abandons Kant’s prohibition on knowledge beyon"
+    },
+    {
+      "recordKey": "philosophy:kantianism",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "nineteenth-critics/paragraph-3",
+      "excerpt": "Materialists, positivists, theologians, and emerging historical disciplines also challenged the critical system. New geometries and developments in physiology raised questions about the status of space and a priori form."
+    },
+    {
+      "recordKey": "philosophy:kantianism",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "back-to-kant/paragraph-2",
+      "excerpt": "The slogan did not demand restoration of Kant’s complete doctrine. New scientific theories made his Euclidean geometry, Newtonian background, fixed categories, and account of matter objects of revision. The return instea"
+    },
+    {
+      "recordKey": "philosophy:kantianism",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "marburg/paragraph-3",
+      "excerpt": "Marburg philosophy raises a productive tension between objectivity and historical change. If a priori principles are conditions of current science, how can they change with scientific revolutions without becoming merely"
+    },
+    {
+      "recordKey": "philosophy:kantianism",
+      "status": "bibliography-only",
+      "signal": "influence-or-causation",
+      "location": "southwest/paragraph-2",
+      "excerpt": "Windelband’s contrast between nomothetic and idiographic inquiry distinguishes law-seeking from individualizing methods without simply assigning every discipline to one box. Rickert develops a theory of concept formation"
+    },
+    {
+      "recordKey": "philosophy:kantianism",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "international-neokantianism/paragraph-1",
+      "excerpt": "Neo-Kantian philosophy extended beyond the two German schools. Alois Riehl defended a critical realism; Hans Vaihinger developed a philosophy of “as if”; Leonard Nelson renewed Friesian criticism; and diverse French, Bri"
+    },
+    {
+      "recordKey": "philosophy:kantianism",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "international-neokantianism/paragraph-3",
+      "excerpt": "The boundaries remain disputed because “neo-Kantian” can name an institutional movement, a period slogan, or any later revision of Kant. A narrow usage reserves the capitalized historical term for the Marburg and Southwe"
+    },
+    {
+      "recordKey": "philosophy:kantianism",
+      "status": "bibliography-only",
+      "signal": "disputed-attribution",
+      "location": "international-neokantianism/paragraph-3",
+      "excerpt": "The boundaries remain disputed because “neo-Kantian” can name an institutional movement, a period slogan, or any later revision of Kant. A narrow usage reserves the capitalized historical term for the Marburg and Southwe"
+    },
+    {
+      "recordKey": "philosophy:kantianism",
+      "status": "bibliography-only",
+      "signal": "priority-or-superlative",
+      "location": "parting-ways/paragraph-1",
+      "excerpt": "Neo-Kantianism’s institutional dominance weakened after the First World War. A younger generation criticized it as formal, academic, detached from existence, or unable to reach reality. Husserlian phenomenology, Heidegge"
+    },
+    {
+      "recordKey": "philosophy:kantianism",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "analytic-reception/paragraph-2",
+      "excerpt": "P. F. Strawson’s The Bounds of Sense offered an influential selective reconstruction. It sought to separate durable arguments about the conceptual conditions of objective experience from transcendental idealism and other"
+    },
+    {
+      "recordKey": "philosophy:kantianism",
+      "status": "bibliography-only",
+      "signal": "disputed-attribution",
+      "location": "analytic-reception/paragraph-3",
+      "excerpt": "Transcendental arguments became a broader analytic strategy: begin from an apparently unavoidable feature of experience or practice and infer conditions required for its possibility. Such arguments have been used against"
+    },
+    {
+      "recordKey": "philosophy:kantianism",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "sellars-mcdowell/paragraph-1",
+      "excerpt": "Wilfrid Sellars renewed Kantian themes while attacking the “myth of the given,” the idea that bare sensory episodes can justify beliefs without already standing in norm-governed relations. Knowledge belongs to a space of"
+    },
+    {
+      "recordKey": "philosophy:kantianism",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "continental-inheritances/paragraph-2",
+      "excerpt": "Heidegger radicalizes finitude. His “ontological difference” and analysis of being-in-the-world reject the picture of an isolated subject first receiving data and then constructing an external world. In his reading of Ka"
+    },
+    {
+      "recordKey": "philosophy:kantianism",
+      "status": "bibliography-only",
+      "signal": "priority-or-superlative",
+      "location": "continental-inheritances/paragraph-2",
+      "excerpt": "Heidegger radicalizes finitude. His “ontological difference” and analysis of being-in-the-world reject the picture of an isolated subject first receiving data and then constructing an external world. In his reading of Ka"
+    },
+    {
+      "recordKey": "philosophy:kantianism",
+      "status": "bibliography-only",
+      "signal": "priority-or-superlative",
+      "location": "ethical-revivals/paragraph-1",
+      "excerpt": "Twentieth- and twenty-first-century Kantian ethics is not one algorithm for testing maxims. Onora O’Neill emphasizes principles of action that others could share, the rejection of deception and coercion, and obligations"
+    },
+    {
+      "recordKey": "philosophy:kantianism",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "constructivisms/paragraph-3",
+      "excerpt": "Not every contemporary Kantian is a constructivist. Some interpret Kant as a realist about reasons or the value of rational nature. Others regard “construction” as a method of representing justification rather than a met"
+    },
+    {
+      "recordKey": "philosophy:kantianism",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "contemporary-theory/paragraph-3",
+      "excerpt": "Metaphysical Kantians explore grounding, modality, freedom, causation, and the status of things in themselves, while naturalists ask whether transcendental philosophy can coexist with cognitive science and evolutionary e"
+    },
+    {
+      "recordKey": "philosophy:kantianism",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "practical-tests/paragraph-3",
+      "excerpt": "In climate and global justice, cosmopolitan right and duties to future persons challenge state-centered convenience. Critics note that Kant’s own framework did not adequately confront colonial extraction, racial capitali"
+    },
+    {
+      "recordKey": "philosophy:kantianism",
+      "status": "bibliography-only",
+      "signal": "priority-or-superlative",
+      "location": "reading-path/paragraph-2",
+      "excerpt": "For the first reception, read Reinhold or a reliable history before sampling Fichte, Schelling, and Hegel. The goal is to see why the thing in itself, the division of faculties, and the relation between nature and freedo"
+    },
+    {
+      "recordKey": "philosophy:kantianism",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "reading-path/paragraph-3",
+      "excerpt": "For twentieth-century inheritances, choose parallel routes. In theoretical philosophy, compare Strawson, Sellars, and McDowell with phenomenology and Heidegger. In practical philosophy, compare Rawls, O’Neill, Korsgaard,"
+    },
+    {
       "recordKey": "philosophy:german-idealism",
       "status": "bibliography-only",
       "signal": "priority-or-superlative",
@@ -10532,9 +10736,9 @@
       "review-out-of-date": 0
     },
     "philosophies": {
-      "total": 43,
+      "total": 44,
       "unreviewed": 2,
-      "bibliography-only": 40,
+      "bibliography-only": 41,
       "source-mapped": 0,
       "claim-reviewed": 1,
       "review-out-of-date": 0
