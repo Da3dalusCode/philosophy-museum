@@ -25,6 +25,14 @@ A record below its flagship target remains valid migration backlog. The target i
 
 Before creating a canonical philosopher or branch record, inspect its Museum representation, authoritative assignment, intended room density, physical installation and asset needs, and directly affected fixed-count contracts. The task must either include that integration work or stop before the record is added and document the missing integration scope; a canonical article may not silently enter the registry without a Museum preflight.
 
+## Primary Museum interpretation
+
+Canonical articles and primary Museum interpretations are distinct editorial surfaces. The article is the comprehensive sourced reference; a primary Museum exhibit requires bespoke, concise, object-aware interpretation for spatial exploration. Do not mechanically dump article metadata, section prose, bibliographies, key-idea catalogs, or complete dispute inventories into a Museum modal.
+
+After a canonical page completes claim review, reconcile its primary Museum exhibit before deployment. The review record must state whether the Museum interpretation was inside the formal review boundary or was reconciled separately; never imply that an article lock covers separate Museum copy when it does not.
+
+As normal guidance rather than inflexible counters, aim for a 35–70-word wall plaque, a 45–90-word object identification and caption, a 250–400-word main interpretation divided into three short visitor-facing sections, and no more than five or six compact orientation items. Subject, object, layout, and accessibility may justify proportionate variation.
+
 ## Credibility states
 
 Depth, bibliography, source mapping, and claim review are separate states:

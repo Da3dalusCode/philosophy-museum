@@ -15,6 +15,10 @@ The complete branch article and rendered quick facts were reviewed against prima
 
 The word count includes canonical article-section paragraph prose only.
 
+### Primary Museum interpretation boundary
+
+The Gallery 20 Marxism interpretation was not included in this formal article claim-review boundary and is not hashed by the stored review lock. Its separate plaque, Zürich congress object reading, compact orientation, and three-section Museum interpretation were reconciled against the current canonical article and its reviewed source set on 2026-08-02. Future changes to that Museum copy require their own reconciliation and do not automatically invalidate or renew this article lock.
+
 ## Sources consulted
 
 The evidence registry includes Marx and Engels corpus records; primary texts by Engels, Bernstein, Luxemburg, Lenin, Mao, Lukács, Marx, Du Bois, Pannekoek, Trotsky, and Davis; SEP entries on socialism, Marx, Gramsci, critical theory, Lukács, Althusser, analytical Marxism, ideology, colonialism, Fanon, liberation philosophy, Latin American philosophy, and feminist class-and-work debates; and full scholarship by Eley, Marcobelli, Popp-Madsen and Kets, Douglas, Sayim, Mawdsley, Ripp, Weiner, Di Donato, Woodcock, and Battistini-linked Marx review work. Specialist OUP, Cambridge, SAGE, Davis, dependency, and ecology records state their access limits, while full digitized Library of Congress studies support Soviet and Chinese chronology. Sumpf's open specialist civil-war article supports political plurality and coercion. Exact victim totals are deliberately omitted. *The Marx-Engels Reader* is further reading only.

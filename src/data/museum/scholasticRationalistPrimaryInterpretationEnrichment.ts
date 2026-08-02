@@ -20,6 +20,12 @@ export type MuseumPrimaryInterpretationEnrichment = {
   readonly sectionCaution?: string;
   readonly sources?: readonly PrimaryInterpretationSource[];
   readonly objectInterpretations?: Readonly<Partial<Record<MuseumAssetId, string>>>;
+  readonly presentation?: {
+    readonly mode: 'concise';
+    readonly orientation: readonly {readonly label: string; readonly value: string}[];
+    readonly articleActionLabel: string;
+    readonly plaqueSubtitleLines?: 1 | 2 | 3 | 4;
+  };
 };
 
 export type ScholasticRationalistPrimaryInterpretationEnrichment =

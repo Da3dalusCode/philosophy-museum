@@ -89,7 +89,8 @@ export function MuseumInterpretationPanel({
     const relatedExhibit = getMuseumExhibitCatalog(reference.hallId, reference.exhibitId);
     return relatedExhibit ? [{reference, exhibit: relatedExhibit}] : [];
   });
-  const facts = museumInterpretationFacts(content);
+  const concise = content.presentation?.mode === 'concise';
+  const facts = content.presentation?.orientation ?? museumInterpretationFacts(content);
 
   useEffect(() => {
     const frame = window.requestAnimationFrame(() => document.getElementById(titleId)?.focus({preventScroll: true}));
@@ -145,6 +146,7 @@ export function MuseumInterpretationPanel({
       aria-describedby={descriptionId}
       tabIndex={-1}
       data-entity-kind={exhibit.entityKind}
+      data-presentation-mode={content.presentation?.mode ?? 'reference'}
       onKeyDown={handleKeyDown}
     >
       <header className="museum-panel-header">
@@ -160,18 +162,18 @@ export function MuseumInterpretationPanel({
           </figure>}
           <div className="museum-panel-opening-copy">
             <p className="museum-exhibit-question" id={descriptionId}>{content.centralQuestion}</p>
-            <p className="museum-panel-lead">{content.lead}</p>
+            {!concise && <p className="museum-panel-lead">{content.lead}</p>}
           </div>
         </section>
 
-        <dl className="museum-fact-grid">
+        <dl className="museum-fact-grid" aria-label={concise ? 'Visitor orientation' : undefined}>
           {facts.map((fact) => <div key={fact.label}><dt>{fact.label}</dt><dd>{fact.value}</dd></div>)}
         </dl>
 
-        <div className="museum-idea-grid">
+        {!concise && <div className="museum-idea-grid">
           <section><p className="museum-object-role">Key ideas</p><ul>{content.keyIdeas.map((idea) => <li key={idea}>{idea}</li>)}</ul></section>
           <section><p className="museum-object-role">Works and witnesses</p><ul>{content.keyWorks.map((work) => <li key={work}>{work}</li>)}</ul></section>
-        </div>
+        </div>}
 
         <div className="museum-interpretive-sections">
           {content.sections.map((section) => <section key={section.heading}>
@@ -189,7 +191,7 @@ export function MuseumInterpretationPanel({
 
         {principal && <MuseumSourceDetails asset={principal}/>}
 
-        {content.connections && content.connections.length > 0 && <aside className="museum-interpretive-connections">
+        {!concise && content.connections && content.connections.length > 0 && <aside className="museum-interpretive-connections">
           <p className="museum-object-role">Curatorial routes</p>
           <h3>Compare without collapsing</h3>
           <div>{content.connections.map((connection, index) => <article key={`${connection.kind}:${connection.label}:${index}`}>
@@ -204,7 +206,7 @@ export function MuseumInterpretationPanel({
           <ul>{content.sources.map((source) => <li key={source.url}><a href={source.url} target="_blank" rel="noreferrer">{source.label} <ExternalLink size={13}/></a><span>{source.kind.replace('-', ' ')}</span></li>)}</ul>
         </details>
 
-        {related.length > 0 && <aside className="museum-related-exhibit">
+        {!concise && related.length > 0 && <aside className="museum-related-exhibit">
           <p>Continue the conversation</p><h3>Related Museum exhibits</h3>
           <div className="museum-related-exhibit-list">{related.map(({reference, exhibit: relatedExhibit}) => <div key={`${reference.hallId}:${reference.exhibitId}`}>
             <strong>{relatedExhibit.displayName}</strong><span>{relatedExhibit.question}</span>
@@ -222,7 +224,7 @@ export function MuseumInterpretationPanel({
           </button>
         </div>}
         <div>
-          <a className="btn btn-primary" href={href(content.articleRoute)} onClick={onArticleIntent}>{exhibit.entityKind === 'philosopher' ? 'Full philosopher profile' : 'Open Branch Explorer'}</a>
+          <a className="btn btn-primary" href={href(content.articleRoute)} onClick={onArticleIntent}>{content.presentation?.articleActionLabel ?? (exhibit.entityKind === 'philosopher' ? 'Full philosopher profile' : 'Open Branch Explorer')}</a>
           <button className="btn" type="button" onClick={() => onClose('gesture')}>{continueLabel}</button>
         </div>
       </footer>

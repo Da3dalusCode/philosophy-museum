@@ -25,6 +25,7 @@ import {MuseumPrimaryExhibitStructure, museumHallUsesPrimaryEmphasis} from './Mu
 import {MUSEUM_TEXTURE_SPECS, museumTextureDimensionsForPlane} from '../../data/museum/museumTexturePolicy';
 import {MuseumSceneMedia} from './MuseumSceneMedia';
 import {usePlaqueTexture} from './plaqueTextures';
+import {CONCISE_PRIMARY_INTERPRETATIONS} from '../../data/museum/concisePrimaryInterpretations';
 
 const ACCENTS = ['#8d6947', '#4f7480', '#755f88', '#897241', '#546f67', '#825861', '#556f8a', '#8b654b', '#657153'];
 
@@ -55,7 +56,7 @@ function Box({volume, color, roughness = .9, metalness, gallery02Surface}: {
   </mesh>;
 }
 
-function InterpretationFace({layout, title, question, kicker, accent, mediterranean, renaissance, primaryEmphasis}: {
+function InterpretationFace({layout, title, question, kicker, accent, mediterranean, renaissance, primaryEmphasis, subtitleMaxLines}: {
   layout: MuseumExhibitLayout;
   title: string;
   question: string;
@@ -64,6 +65,7 @@ function InterpretationFace({layout, title, question, kicker, accent, mediterran
   mediterranean: boolean;
   renaissance: boolean;
   primaryEmphasis: boolean;
+  subtitleMaxLines?: 1 | 2 | 3 | 4;
 }) {
   const backing = layout.scene.objectBounds.find(({id}) => id.endsWith('-backing'))!;
   const hasMedia = layout.scene.mediaMounts.length > 0;
@@ -95,6 +97,7 @@ function InterpretationFace({layout, title, question, kicker, accent, mediterran
     width: textureSize.width,
     height: textureSize.height,
     theme: mediterranean ? 'mediterranean' : 'dark',
+    subtitleMaxLines,
   });
   return <group position={[0, centerY, backing.center.z + backing.size.depth / 2 + .012]}>
     <mesh position={[0, 0, -.035]}><boxGeometry args={[width + .12, height + .1, .07]}/><meshStandardMaterial color={mediterranean ? accent : renaissance ? RENAISSANCE_PALETTE.walnutEdge : '#202324'} roughness={.62}/></mesh>
@@ -178,6 +181,7 @@ function Installation({definition, layout, title, question, kicker, accent, near
   const motif = layout.scene.objectBounds.find(({id}) => id.endsWith('-concept'))!;
   const interaction = layout.scene.interactionBounds;
   const canonicalConstruction = Boolean(curation || renaissanceCuration || primaryEmphasis);
+  const subtitleMaxLines = CONCISE_PRIMARY_INTERPRETATIONS[layout.id]?.presentation?.plaqueSubtitleLines;
   return <group>
     {includeStructure && <MuseumPrimaryExhibitStructure
       layout={layout}
@@ -198,6 +202,7 @@ function Installation({definition, layout, title, question, kicker, accent, near
       mediterranean={Boolean(curation)}
       renaissance={Boolean(renaissanceCuration)}
       primaryEmphasis={primaryEmphasis}
+      subtitleMaxLines={subtitleMaxLines}
     />
     {layout.scene.mediaMounts.map((mount) => <MuseumSceneMedia key={mount.id} mount={mount} nearby={nearby} accent={accent}/>)}
     <mesh position={[interaction.center.x, interaction.center.y, interaction.center.z]} userData={{interactionFor: layout.id}}>

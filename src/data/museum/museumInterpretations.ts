@@ -22,6 +22,7 @@ import {KRISHNAMURTI_MUSEUM_INTERPRETATIONS} from './krishnamurtiMuseumInterpret
 import {SCHOLASTIC_RATIONALIST_PRIMARY_INTERPRETATION_ENRICHMENT} from './scholasticRationalistPrimaryInterpretationEnrichment';
 import {EMPIRICISM_ENLIGHTENMENT_PRIMARY_INTERPRETATION_ENRICHMENT} from './empiricismEnlightenmentPrimaryInterpretationEnrichment';
 import {NINETEENTH_PRIMARY_INTERPRETATION_ENRICHMENT} from './nineteenthPrimaryInterpretationEnrichment';
+import {CONCISE_PRIMARY_INTERPRETATIONS} from './concisePrimaryInterpretations';
 
 export type MuseumInterpretationSource = {
   label: string;
@@ -43,6 +44,13 @@ export type MuseumInterpretiveConnection = {
   route?: NavigableAppRoute;
 };
 
+export type MuseumPrimaryPresentation = {
+  mode: 'concise';
+  orientation: readonly {label: string; value: string}[];
+  articleActionLabel: string;
+  plaqueSubtitleLines?: 1 | 2 | 3 | 4;
+};
+
 type MuseumInterpretationBase = {
   hallId: MuseumHallId;
   id: MuseumExhibitId;
@@ -61,6 +69,7 @@ type MuseumInterpretationBase = {
   roomId?: string;
   tier?: MuseumPresentationTier;
   connections?: readonly MuseumInterpretiveConnection[];
+  presentation?: MuseumPrimaryPresentation;
 };
 
 export type MuseumPhilosopherInterpretation = MuseumInterpretationBase & {
@@ -1348,6 +1357,7 @@ const PRIMARY_INTERPRETATION_ENRICHMENT = {
   ...SCHOLASTIC_RATIONALIST_PRIMARY_INTERPRETATION_ENRICHMENT,
   ...EMPIRICISM_ENLIGHTENMENT_PRIMARY_INTERPRETATION_ENRICHMENT,
   ...NINETEENTH_PRIMARY_INTERPRETATION_ENRICHMENT,
+  ...CONCISE_PRIMARY_INTERPRETATIONS,
 };
 
 const applyPrimaryInterpretationEnrichment = (
@@ -1381,6 +1391,7 @@ const applyPrimaryInterpretationEnrichment = (
     keyIdeas: enrichment.keyIdeas ?? interpretation.keyIdeas,
     keyWorks: enrichment.keyWorks ?? interpretation.keyWorks,
     sections: enrichedSections ?? interpretation.sections,
+    presentation: enrichment.presentation ?? interpretation.presentation,
     objectInterpretations: {
       ...interpretation.objectInterpretations,
       ...enrichment.objectInterpretations,

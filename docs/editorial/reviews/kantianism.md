@@ -15,6 +15,10 @@ The entire visitor page and rendered branch facts were reviewed against primary 
 
 The word count includes canonical article-section paragraph prose only.
 
+### Primary Museum interpretation boundary
+
+The Gallery 19 Kantianism interpretation was not included in this formal article claim-review boundary and is not hashed by the stored review lock. Its separate plaque, Reinhold object reading, compact orientation, and three-section Museum interpretation were reconciled against the current canonical article and its reviewed source set on 2026-08-02. Future changes to that Museum copy require their own reconciliation and do not automatically invalidate or renew this article lock.
+
 ## Sources consulted
 
 The core evidence includes SEP and IEP entries on Kant, Reinhold, Maimon, Fichte, Schelling, Hegel, Schopenhauer, classical Neo-Kantianism, Cohen, Cassirer, conceptualism, transcendental arguments, Husserl, Heidegger, critical theory, Adorno, Habermas, Rawls, constructivism, political philosophy, and feminist autonomy. Primary anchors use Kant's Akademie corpus, the 1794/95 Fichte edition record and digitization, and Rawls's 1980 article. O'Shea is correctly registered as a peer-reviewed Routledge book chapter using its repository accepted manuscript. Beiser and Lu-Adler citations explicitly state their abstract, contents, or chapter-record access; Patton's full review and Kleingeld's article provide independent counterweights. The *Neo-Kantian Reader* is further reading only.

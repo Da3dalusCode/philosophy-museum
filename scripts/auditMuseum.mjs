@@ -4000,6 +4000,53 @@ check('Gallery 20 is a complete four-room, 25-installation utility, liberty, and
   assert.match(utilityLibertyCapitalSupplementalDataSource, /export const UTILITY_LIBERTY_CAPITAL_SUPPLEMENTAL_EXHIBITS/u, 'Gallery 20 supplemental content is not exported');
 });
 
+check('Kantianism and Marxism use the concise primary Museum interpretation contract', () => {
+  const expected = [
+    {
+      id: 'kantianism',
+      hallId: GERMAN_IDEALISM_GALLERY_ID,
+      assetId: 'german-idealism-reinhold-rijksmuseum-1795',
+      articleActionLabel: 'Read the full sourced Kantianism article',
+      requiredLabels: ['Reception landmark', 'Early reception', 'First transformations', 'Later reconstructions', 'Questions carried forward', 'Status'],
+    },
+    {
+      id: 'marxism',
+      hallId: UTILITY_LIBERTY_CAPITAL_GALLERY_ID,
+      assetId: 'utility-marxism-zurich-congress-1893',
+      articleActionLabel: 'Read the full sourced Marxism article',
+      requiredLabels: ['Post-Marx anchor', 'Formation', 'Political forms', 'Global revisions', 'Live disputes', 'Status'],
+    },
+  ];
+  for (const spec of expected) {
+    const interpretation = MUSEUM_INTERPRETATIONS.find(({hallId, id}) => hallId === spec.hallId && id === spec.id);
+    assert(interpretation, `${spec.id} concise Museum interpretation is missing`);
+    assert.equal(interpretation.presentation?.mode, 'concise');
+    assert.equal(interpretation.presentation.articleActionLabel, spec.articleActionLabel);
+    assert.deepEqual(interpretation.presentation.orientation.map(({label}) => label), spec.requiredLabels);
+    assert.equal(interpretation.presentation.orientation.length, 6);
+    assert.equal(interpretation.sections.length, 3);
+    const mainWords = wordCount(interpretation.sections.flatMap(({paragraphs}) => paragraphs).join(' '));
+    assert(mainWords >= 250 && mainWords <= 400, `${spec.id} main interpretation is ${mainWords} words`);
+    const asset = assetById.get(spec.assetId);
+    assert(asset, `${spec.id} principal object is missing`);
+    const captionWords = wordCount(`${asset.caption} ${interpretation.objectInterpretations[spec.assetId]}`);
+    assert(captionWords >= 45 && captionWords <= 90, `${spec.id} object and caption are ${captionWords} words`);
+    const catalog = hallById.get(spec.hallId)?.exhibits.find(({id}) => id === spec.id);
+    assert(catalog, `${spec.id} catalog exhibit is missing`);
+    const plaqueWords = wordCount(`${catalog.displayName} School and interpretive tradition ${catalog.question}`);
+    assert(plaqueWords >= 35 && plaqueWords <= 70, `${spec.id} wall plaque is ${plaqueWords} words`);
+    const visitorCopy = [
+      interpretation.centralQuestion,
+      ...interpretation.presentation.orientation.flatMap(({label, value}) => [label, value]),
+      ...interpretation.sections.flatMap(({heading, paragraphs}) => [heading, ...paragraphs]),
+      interpretation.objectInterpretations[spec.assetId],
+    ].join(' ');
+    assert.doesNotMatch(visitorCopy, /\b(?:kant|fichte|schelling|hegel|schopenhauer|rawls|habermas|marx|fanon|angela-davis)\b/u, `${spec.id} exposes a raw canonical ID`);
+  }
+  assert.match(interpretationPanelSource, /content\.presentation\?\.orientation/u, 'shared primary renderer does not consume concise orientation');
+  assert.match(interpretationPanelSource, /!concise && <div className="museum-idea-grid">/u, 'shared primary renderer still dumps article catalogs into concise exhibits');
+});
+
 check('Gallery 21 is a complete three-room, 18-installation faith, pessimism, and value sequence', () => {
   assertCompleteSixWallSequenceGallery({
     label: 'Gallery 21',
@@ -5807,17 +5854,24 @@ check('all 191 live canonical exhibits have substantial, sourced, route-aware in
     const hall = hallById.get(interpretation.hallId);
     const exhibit = hall?.exhibits.find(({id}) => id === interpretation.id);
     assert(exhibit, `${interpretation.hallId}/${interpretation.id} is not live`);
+    const concise = interpretation.presentation?.mode === 'concise';
     const minimumLead = ['anchor-exhibit', 'standard-individual-exhibit'].includes(interpretation.tier) ? 100 : 70;
     const minimumTotal = ['anchor-exhibit', 'standard-individual-exhibit'].includes(interpretation.tier) ? 220 : 150;
-    if (wordCount(interpretation.lead) < minimumLead) interpretationQualityFailures.push(`${interpretation.id}: lead ${wordCount(interpretation.lead)} < ${minimumLead} words`);
+    if (!concise && wordCount(interpretation.lead) < minimumLead) interpretationQualityFailures.push(`${interpretation.id}: lead ${wordCount(interpretation.lead)} < ${minimumLead} words`);
     assert(wordCount(interpretation.centralQuestion) >= 5, `${interpretation.id} central question is too shallow`);
     if (interpretation.sections.length < 3) interpretationQualityFailures.push(`${interpretation.id}: ${interpretation.sections.length} < 3 sections`);
     const sectionWords = wordCount(interpretation.sections.flatMap(({paragraphs}) => paragraphs).join(' '));
-    if (sectionWords < 80) interpretationQualityFailures.push(`${interpretation.id}: section body ${sectionWords} < 80 words`);
+    if (sectionWords < (concise ? 250 : 80)) interpretationQualityFailures.push(`${interpretation.id}: section body ${sectionWords} < ${concise ? 250 : 80} words`);
+    if (concise && sectionWords > 400) interpretationQualityFailures.push(`${interpretation.id}: concise section body ${sectionWords} > 400 words`);
     const totalInterpretiveWords = wordCount(interpretation.lead) + sectionWords;
-    if (totalInterpretiveWords < minimumTotal) interpretationQualityFailures.push(`${interpretation.id}: total interpretation ${totalInterpretiveWords} < ${minimumTotal} words`);
-    if (interpretation.keyIdeas.length < 1) interpretationQualityFailures.push(`${interpretation.id}: no key ideas`);
-    if (interpretation.keyWorks.length < 1) interpretationQualityFailures.push(`${interpretation.id}: no key works or traditions`);
+    if (!concise && totalInterpretiveWords < minimumTotal) interpretationQualityFailures.push(`${interpretation.id}: total interpretation ${totalInterpretiveWords} < ${minimumTotal} words`);
+    if (!concise && interpretation.keyIdeas.length < 1) interpretationQualityFailures.push(`${interpretation.id}: no key ideas`);
+    if (!concise && interpretation.keyWorks.length < 1) interpretationQualityFailures.push(`${interpretation.id}: no key works or traditions`);
+    if (concise) {
+      assert.equal(interpretation.sections.length, 3, `${interpretation.id} concise presentation must have three sections`);
+      assert(interpretation.presentation.orientation.length > 0 && interpretation.presentation.orientation.length <= 6, `${interpretation.id} concise orientation must contain one to six items`);
+      assert.match(interpretation.presentation.articleActionLabel, /^Read the full sourced /u, `${interpretation.id} concise article action is unclear`);
+    }
     if (interpretation.sources.length < 3) interpretationQualityFailures.push(`${interpretation.id}: ${interpretation.sources.length} < 3 sources`);
     for (const sourceRecord of interpretation.sources) assert(/^https?:\/\//.test(sourceRecord.url), `${interpretation.id} has invalid source ${sourceRecord.url}`);
     assert.equal(interpretation.articleRoute.kind, exhibit.entityKind === 'philosopher' ? 'philosopher' : 'branch');
