@@ -31,6 +31,8 @@ Canonical articles and primary Museum interpretations are distinct editorial sur
 
 Use the canonical subject name as the default prominent title. A thematic subtitle should be rare, genuinely useful, and visually subordinate. Do not stack an eyebrow, canonical title, thematic subtitle, giant question, and multiple section headings into competing title layers. Explain the subject directly before foregrounding a curatorial hook or representative object.
 
+Representative objects should support and illuminate the subject rather than redefine the entire exhibit around one object or historical episode. When the hierarchy needs clarification, prefer typography, spacing, and visual emphasis before adding more labels or subtitles.
+
 Paragraph-based interpretation without visible section headings is valid and preferred when headings would fragment the reading experience. Three conceptual movements do not require three visible subtitles.
 
 After a canonical page completes claim review, reconcile its primary Museum exhibit before deployment. The review record must state whether the Museum interpretation was inside the formal review boundary or was reconciled separately; never imply that an article lock covers separate Museum copy when it does not.
