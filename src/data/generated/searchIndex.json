@@ -217,6 +217,11 @@
       "searchText": "kantianism a diverse reception history that reconstructs kantian critique, objectivity, autonomy, judgment, and public reason across rival philosophical programs. which conditions make knowledge, agency, normativity, and public justification possible? what must later kantians preserve, revise, or reject in kant’s critical philosophy? how can universal reason confront its historical exclusions without losing critical force? method central question"
     },
     {
+      "id": "marxism",
+      "label": "Marxism",
+      "searchText": "marxism a diverse and contested family of theories, movements, organizations, and state projects that reconstruct marx’s critique of capitalism and social domination. how do capitalism, class, and accumulation organize social power? how can collective organization transform production without substituting party or state rule for self-emancipation? how should marxist analysis address empire, race, gender, care, ecology, democracy, and its own historical outcomes? method central question"
+    },
+    {
       "id": "german-idealism",
       "label": "German Idealism",
       "searchText": "german idealism develops from kant’s critical philosophy into post-kantian systems of mind, reason, history, and reality. how does the activity of mind shape experience and reality? method central question"
@@ -601,7 +606,7 @@
     {
       "id": "marx",
       "label": "Marx",
-      "searchText": "marx class alienation communist manifesto critical"
+      "searchText": "marx alienation historical materialism commodity fetishism surplus value class struggle capital the eighteenth brumaire of louis bonaparte critique of the gotha program critical"
     },
     {
       "id": "mill",

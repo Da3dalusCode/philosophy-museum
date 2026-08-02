@@ -2379,6 +2379,141 @@
       "hasSources": true
     },
     {
+      "id": "marxism",
+      "name": "Marxism",
+      "sections": [
+        {
+          "id": "contested-family",
+          "title": "A contested family, not Marx repeated"
+        },
+        {
+          "id": "marx-engels",
+          "title": "Marx, Engels, and the making of an inheritance"
+        },
+        {
+          "id": "second-international",
+          "title": "The Second International and orthodox Marxism"
+        },
+        {
+          "id": "revisionism",
+          "title": "Revisionism, reform, and the problem of transition"
+        },
+        {
+          "id": "luxemburg",
+          "title": "Rosa Luxemburg: accumulation, mass action, and democracy"
+        },
+        {
+          "id": "lenin",
+          "title": "Lenin: imperialism, organization, and revolutionary rupture"
+        },
+        {
+          "id": "russian-revolution",
+          "title": "Revolution, civil war, and the consolidation of party power"
+        },
+        {
+          "id": "comintern-antifascism",
+          "title": "The Communist International, anti-fascism, and discipline across borders"
+        },
+        {
+          "id": "soviet-orthodoxy",
+          "title": "Soviet orthodoxy, modernization, and repression"
+        },
+        {
+          "id": "oppositions",
+          "title": "Council, Trotskyist, and dissident communist alternatives"
+        },
+        {
+          "id": "postwar-eurocommunism",
+          "title": "Postwar communism, reform, and Eurocommunist paths"
+        },
+        {
+          "id": "gramsci",
+          "title": "Gramsci: hegemony, civil society, and political education"
+        },
+        {
+          "id": "western-marxism",
+          "title": "Western Marxism, reification, and the turn toward culture"
+        },
+        {
+          "id": "frankfurt-school",
+          "title": "The Frankfurt School: interdisciplinary critique after catastrophe"
+        },
+        {
+          "id": "maoism-theory",
+          "title": "Maoism: peasant revolution, contradiction, and the mass line"
+        },
+        {
+          "id": "maoism-power",
+          "title": "Maoist state power, mobilization, famine, and persecution"
+        },
+        {
+          "id": "anticolonial",
+          "title": "Anti-colonial Marxism and national liberation"
+        },
+        {
+          "id": "dependency-world-systems",
+          "title": "Dependency, unequal exchange, and world-systems analysis"
+        },
+        {
+          "id": "black-marxisms",
+          "title": "Black Marxisms, racial capitalism, and the Black radical tradition"
+        },
+        {
+          "id": "feminist-marxisms",
+          "title": "Marxist feminism and social-reproduction theory"
+        },
+        {
+          "id": "humanism-structuralism",
+          "title": "Humanism, structural Marxism, and the subject of history"
+        },
+        {
+          "id": "autonomism",
+          "title": "Operaismo, autonomism, and struggles inside production"
+        },
+        {
+          "id": "analytical-marxism",
+          "title": "Analytical Marxism: clarity, mechanisms, and normative reconstruction"
+        },
+        {
+          "id": "ecological-marxisms",
+          "title": "Ecological Marxism, metabolism, and ecosocialism"
+        },
+        {
+          "id": "political-economy",
+          "title": "Value, crisis, dependency, and changing capitalism"
+        },
+        {
+          "id": "democracy-organization",
+          "title": "Parties, councils, movements, and socialist democracy"
+        },
+        {
+          "id": "culture-ideology",
+          "title": "Culture, ideology, knowledge, and everyday life"
+        },
+        {
+          "id": "religion-liberation",
+          "title": "Religion, political theology, and liberation"
+        },
+        {
+          "id": "contemporary",
+          "title": "Contemporary work, technology, care, and crisis"
+        },
+        {
+          "id": "evaluation",
+          "title": "How to evaluate a Marxist claim or project"
+        },
+        {
+          "id": "what-counts",
+          "title": "What counts as Marxist?"
+        },
+        {
+          "id": "reading-path",
+          "title": "A staged path through Marxism’s arguments and histories"
+        }
+      ],
+      "hasSources": true
+    },
+    {
       "id": "german-idealism",
       "name": "German Idealism",
       "sections": [
@@ -6866,54 +7001,106 @@
       "sections": [
         {
           "id": "overview",
-          "title": "Philosophy turned toward material social life"
+          "title": "Critique of a social world people make but do not control"
         },
         {
-          "id": "industrial-context",
-          "title": "Industrial capitalism and nineteenth-century upheaval"
+          "id": "life-corpus",
+          "title": "Exile, collaboration, political work, and an unfinished corpus"
         },
         {
-          "id": "hegel-feuerbach",
-          "title": "From Hegel and Feuerbach to praxis"
+          "id": "development",
+          "title": "From Young Hegelian criticism to political economy"
         },
         {
           "id": "alienation",
-          "title": "Alienation and distorted human activity"
+          "title": "Alienation, objectification, and human powers"
         },
         {
-          "id": "historical-materialism",
-          "title": "Historical materialism without mechanical determinism"
+          "id": "materialist-history",
+          "title": "Materialist conceptions of history without a master key"
         },
         {
           "id": "ideology",
-          "title": "Ideology, critique, and false universality"
+          "title": "Ideology, social appearance, and immanent criticism"
         },
         {
-          "id": "commodity-value",
-          "title": "Commodity, value, and fetishism"
+          "id": "class",
+          "title": "Class as a social relation and political formation"
         },
         {
-          "id": "exploitation-class",
-          "title": "Exploitation, surplus value, and class struggle"
+          "id": "labor-process",
+          "title": "Labor, cooperation, machinery, and control of production"
         },
         {
-          "id": "state-politics",
-          "title": "State, rights, democracy, and revolution"
+          "id": "commodity-fetish",
+          "title": "The commodity form, money, and fetishism"
         },
         {
-          "id": "capitalism-dynamics",
-          "title": "Crisis, accumulation, and global capitalism"
+          "id": "method-presentation",
+          "title": "Abstraction, dialectic, and the order of presentation"
         },
         {
-          "id": "interpretive-tensions",
-          "title": "Humanism, science, determinism, and morality"
+          "id": "value-surplus",
+          "title": "Value, labor-power, and surplus value"
+        },
+        {
+          "id": "accumulation",
+          "title": "Accumulation, competition, and dispossession"
+        },
+        {
+          "id": "circulation-reproduction",
+          "title": "Circulation, turnover, and reproduction beyond Volume I"
+        },
+        {
+          "id": "profit-credit-rent",
+          "title": "Profit, competition, credit, and rent in the unfinished Volume III"
+        },
+        {
+          "id": "crisis",
+          "title": "Crisis tendencies without automatic collapse"
+        },
+        {
+          "id": "state",
+          "title": "The state, law, rights, and political emancipation"
+        },
+        {
+          "id": "revolution-communism",
+          "title": "Revolution, transition, and communism without a blueprint"
+        },
+        {
+          "id": "colonialism",
+          "title": "Colonialism, uneven development, and changing global perspectives"
+        },
+        {
+          "id": "race-slavery",
+          "title": "Slavery, race, nationalism, and divided labor"
+        },
+        {
+          "id": "gender-reproduction",
+          "title": "Gender, family, and social reproduction"
+        },
+        {
+          "id": "ecology",
+          "title": "Nature, metabolism, and ecological limits"
+        },
+        {
+          "id": "continuity",
+          "title": "Early and late Marx: rupture, continuity, and humanism"
+        },
+        {
+          "id": "morality-value-disputes",
+          "title": "Morality, justice, and rival interpretations of exploitation"
+        },
+        {
+          "id": "agency-strategy",
+          "title": "Historical agency, organization, and political strategy"
         },
         {
           "id": "legacy-reading",
-          "title": "Influence, misunderstandings, and how to read Marx"
+          "title": "Marx, later Marxism, and a staged reading path"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "mill",

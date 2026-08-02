@@ -179,7 +179,7 @@ const searchIndex = {
   ],
 };
 
-assert.equal(routeManifest.branches.length, 44, 'Route manifest must contain 44 branches.');
+assert.equal(routeManifest.branches.length, 45, 'Route manifest must contain 45 branches.');
 assert.equal(routeManifest.philosophers.length, 146, 'Route manifest must contain 146 philosophers.');
 assert.equal(routeManifest.learningPaths.length, 8, 'Route manifest must contain 8 learning paths.');
 assert.equal(routeManifest.museumHalls.length, 26, 'Route manifest must contain 26 Museum halls.');

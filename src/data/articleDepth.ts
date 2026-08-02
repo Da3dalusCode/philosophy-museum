@@ -13,6 +13,8 @@ import {earlyModernCorePhilosopherArticles} from './earlyModernCoreArticles';
 import {descartesFlagshipArticle} from './descartesFlagshipArticle';
 import {humeFlagshipArticle} from './humeFlagshipArticle';
 import {kantianismBranchArticle} from './kantianismBranchDepth';
+import {marxFlagshipArticle} from './marxFlagshipArticle';
+import {marxismBranchArticle} from './marxismBranchDepth';
 import {earlyModernPoliticalPhilosopherArticles} from './earlyModernPoliticalArticles';
 import {earlyStoicSystemPhilosopherArticles} from './earlyStoicSystemArticles';
 import {feministSocialContinuationPhilosopherArticles} from './feministSocialContinuationArticles';
@@ -105,6 +107,7 @@ export const philosopherArticles:Record<string,ArticleSection[]>={
   ...medievalChristianContinuationPhilosopherArticles,
   ...medievalIslamicContinuationPhilosopherArticles,
   ...postKantianNineteenthPhilosopherArticles,
+  marx:marxFlagshipArticle,
   ...pragmatismScienceContinuationPhilosopherArticles,
   ...presocraticEarlyPhilosopherArticles,
   ...presocraticLaterSophistPhilosopherArticles,
@@ -477,6 +480,7 @@ export const branchArticles:Record<string,ArticleSection[]>={
   rationalism:rationalismFlagshipArticle,
   empiricism:empiricismFlagshipArticle,
   kantianism:kantianismBranchArticle,
+  marxism:marxismBranchArticle,
   ...feministPhilosophyBranchArticles,
   ...deontologyBranchArticles,
   ...logicBranchArticles,

@@ -17,14 +17,14 @@
     {
       "label": "Philosophers",
       "total": 146,
-      "pass": 55,
-      "fail": 91,
+      "pass": 56,
+      "fail": 90,
       "missing": 0
     },
     {
       "label": "Philosophies, branches, schools, traditions, movements, methods, and frameworks",
-      "total": 44,
-      "pass": 36,
+      "total": 45,
+      "pass": 37,
       "fail": 8,
       "missing": 0
     },
@@ -37,9 +37,9 @@
     }
   ],
   "universalSummary": {
-    "total": 190,
-    "pass": 91,
-    "fail": 99,
+    "total": 191,
+    "pass": 93,
+    "fail": 98,
     "missing": 0
   },
   "pilotChanges": [
@@ -981,8 +981,8 @@
       "title": "Marx",
       "visitorEntryPoint": "#/philosophers/marx",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1803,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 4517,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -2345,6 +2345,18 @@
       "museumSupplementalReuseCount": 0
     },
     {
+      "canonicalId": "marxism",
+      "title": "Marxism",
+      "visitorEntryPoint": "#/branches/marxism",
+      "contentCategory": "philosophy",
+      "substantiveWordCount": 5409,
+      "complianceStatus": "pass",
+      "legacyDepthAuditIncluded": false,
+      "reusedInMuseum": false,
+      "museumPrimaryReuseCount": 0,
+      "museumSupplementalReuseCount": 0
+    },
+    {
       "canonicalId": "german-idealism",
       "title": "German Idealism",
       "visitorEntryPoint": "#/branches/german-idealism",
@@ -2472,6 +2484,18 @@
       "visitorEntryPoint": "#/branches/kantianism",
       "contentCategory": "philosophy",
       "substantiveWordCount": 5566,
+      "complianceStatus": "pass",
+      "legacyDepthAuditIncluded": false,
+      "reusedInMuseum": false,
+      "museumPrimaryReuseCount": 0,
+      "museumSupplementalReuseCount": 0
+    },
+    {
+      "canonicalId": "marxism",
+      "title": "Marxism",
+      "visitorEntryPoint": "#/branches/marxism",
+      "contentCategory": "philosophy",
+      "substantiveWordCount": 5409,
       "complianceStatus": "pass",
       "legacyDepthAuditIncluded": false,
       "reusedInMuseum": false,
@@ -4450,8 +4474,8 @@
         "surfaceWords": 379,
         "canonicalArticleKey": "philosopher:marx",
         "canonicalArticleId": "marx",
-        "canonicalArticleWordCount": 1803,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 4517,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "schopenhauer",
@@ -9364,8 +9388,8 @@
         "canonicalArticleKey": "philosopher:marx",
         "canonicalArticleId": "marx",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1803,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 4517,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "capital-alienated-labor",
@@ -9380,8 +9404,8 @@
         "canonicalArticleKey": "philosopher:marx",
         "canonicalArticleId": "marx",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1803,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 4517,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "capital-machinery-knowledge",
@@ -9396,8 +9420,8 @@
         "canonicalArticleKey": "philosopher:marx",
         "canonicalArticleId": "marx",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1803,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 4517,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "capital-commodity-spectacle",
@@ -9412,8 +9436,8 @@
         "canonicalArticleKey": "philosopher:marx",
         "canonicalArticleId": "marx",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1803,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 4517,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "capital-class-revolution-1848",
@@ -9428,8 +9452,8 @@
         "canonicalArticleKey": "philosopher:marx",
         "canonicalArticleId": "marx",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1803,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 4517,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "transformations-ricardo-political-economy",
@@ -9444,8 +9468,8 @@
         "canonicalArticleKey": "philosopher:marx",
         "canonicalArticleId": "marx",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1803,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 4517,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "transformations-industrial-city",
@@ -9460,8 +9484,8 @@
         "canonicalArticleKey": "philosopher:marx",
         "canonicalArticleId": "marx",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1803,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 4517,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "transformations-gendered-labor",
@@ -9476,8 +9500,8 @@
         "canonicalArticleKey": "philosopher:marx",
         "canonicalArticleId": "marx",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1803,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 4517,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "transformations-global-cotton",
@@ -9492,8 +9516,8 @@
         "canonicalArticleKey": "philosopher:marx",
         "canonicalArticleId": "marx",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1803,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 4517,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "transformations-chartist-politics",
@@ -9508,8 +9532,8 @@
         "canonicalArticleKey": "philosopher:marx",
         "canonicalArticleId": "marx",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1803,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 4517,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "transformations-cotton-flows",
@@ -9524,8 +9548,8 @@
         "canonicalArticleKey": "philosopher:marx",
         "canonicalArticleId": "marx",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1803,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 4517,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "schopenhauer-kant-and-representation",
