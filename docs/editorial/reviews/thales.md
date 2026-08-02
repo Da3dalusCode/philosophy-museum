@@ -12,7 +12,7 @@
 
 The visitor article and structured profile were reviewed together. The review distinguishes surviving text, ancient testimony, later reception, and modern reconstruction; citations use inspectable primary texts or identifiable specialist sources. Exact English translations are not presented as the subject’s words. Dates, attribution, priority, founder language, and later-witness claims received targeted review.
 
-Museum interpretation, assets, geometry, wall-chart copy, timelines, relationships, and other reuse surfaces were not edited or reconciled. This lock covers the canonical article record only and does not confer reviewed status on Museum copy.
+The primary Museum interpretation was not included in the formal article claim-review boundary and is not hashed by this review lock. Its separate wall invitation, object reading, compact orientation, and heading-free prose interpretation were reconciled against the locked article and reviewed evidence set on 2026-08-02. Assets, geometry, timelines, relationships, and other reuse surfaces remain outside this lock; future Museum-copy changes require their own reconciliation and do not renew the article review.
 
 ## Sources consulted
 

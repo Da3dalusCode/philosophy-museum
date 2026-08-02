@@ -5,13 +5,234 @@ const objectInterpretation = (assetId: string, text: string): Readonly<Record<st
 });
 
 /**
- * Bespoke, object-led interpretation for primary exhibits whose canonical
+ * Bespoke, subject-led and object-aware interpretation for primary exhibits whose canonical
  * articles are intentionally much deeper than a visitor should encounter in a
  * spatial modal. The concise presentation keeps the article available as the
  * sourced reference without reproducing its catalogs or dispute inventory.
  */
 export const CONCISE_PRIMARY_INTERPRETATIONS:
 Readonly<Record<string, MuseumPrimaryInterpretationEnrichment>> = {
+  thales: {
+    lead: 'Thales was an early Greek thinker from Miletus whom later authors associated with explaining the world through water and other natural principles. None of his writings survives, so the exhibit separates his historical importance from the much later testimony used to reconstruct it.',
+    keyIdeas: [],
+    keyWorks: [],
+    sections: [{heading: '', paragraphs: [
+      'Thales was active in Miletus, probably in the early sixth century BCE, but almost everything said about him comes from authors writing generations or centuries later. Aristotle reports that Thales made water a basic principle and thought the earth rested on water. Other traditions credit him with claims about soul, magnets, divine presence, astronomy, geometry, political advice, and travel. These reports show what antiquity came to associate with his name; they do not preserve a Thalean book or let us recover his exact arguments.',
+      'The water report matters because Aristotle presents it as an attempt to explain diverse things through a natural constituent rather than through a divine genealogy alone. Yet even that framing is Aristotle’s reconstruction of an earlier project. We cannot know whether Thales proposed one material source for everything, emphasized moisture in living processes, adapted older cosmological knowledge, or reasoned in some other way. The familiar story that he predicted the eclipse of 585 BCE is likewise possible but not securely documented as a scientific calculation.',
+      'Thales matters less as the author of a recoverable doctrine than as a landmark in later histories of inquiry. Aristotle helped make him the starting point of a genealogy of natural philosophy, while modern accounts often promoted him to “the first philosopher.” That title depends on how philosophy is defined and can obscure older Egyptian, Mesopotamian, and Greek knowledge. No ancient source gives us a neutral view from which to settle that priority. A careful exhibit therefore presents a historically elusive Milesian whose reception helped define what later readers thought philosophical explanation should be.',
+    ]}],
+    presentation: {mode: 'concise', orientation: [
+      {label: 'Historical setting', value: 'Miletus · probably early 6th century BCE'},
+      {label: 'Evidence', value: 'No surviving writings · later Greek and Roman testimony'},
+      {label: 'Attributed proposal', value: 'Water as a basic principle · earth resting on water'},
+      {label: 'Uncertain reports', value: 'Eclipse · geometry · travel · political advice'},
+      {label: 'Why he matters', value: 'A retrospective landmark in histories of natural explanation'},
+    ], articleActionLabel: 'Read the full sourced Thales article', bodyLayout: 'prose', plaqueKicker: '', plaqueSubtitleLines: 3},
+    objectInterpretations: objectInterpretation('thales-promptuarii-portrait', 'Rouillé’s 1553 woodcut gives a face to a thinker for whom no authenticated likeness survives. Made roughly two millennia after Thales, it records Renaissance reception rather than his appearance or the historical setting of sixth-century Miletus.'),
+  },
+  anaximander: {
+    lead: 'Anaximander was an early Greek thinker from Miletus who was later credited with explaining the cosmos from an indefinite or boundless source. One short fragment may preserve some of his wording; most details of his philosophy come through later reports and reconstruction.',
+    keyIdeas: [],
+    keyWorks: [],
+    sections: [{heading: '', paragraphs: [
+      'Anaximander was active in Miletus in the sixth century BCE and is conventionally placed after Thales, although the familiar teacher-and-pupil sequence is later testimony. Ancient sources associate him with a prose work, cosmology, geography, weather, and accounts of living things. Only a brief sentence quoted by Simplicius may preserve his wording. Even there, Simplicius is transmitting a report derived from Theophrastus, so editors must distinguish the fragment from the language surrounding it.',
+      'Aristotle and the doxographical tradition connect Anaximander with the apeiron: something indefinite or boundless from which worlds and opposites emerge. The proposal may have avoided making any familiar element—water, air, or fire—the source of its own contrary. But “infinite substance,” “spatially boundless,” and “qualitatively indefinite” are modern interpretive options, not interchangeable translations of a complete surviving theory. The fragment’s language of things paying penalty and reparation according to time suggests an ordered account of coming-to-be and passing-away without supplying a full mechanism.',
+      'Later reports also describe a freely suspended earth, celestial rings, meteorological processes, and the emergence of human beings from aquatic creatures. These claims have different evidential histories and should not be merged into a modern scientific system. The earth’s lack of support is one especially important attributed innovation, but its argument is reconstructed rather than quoted in his words. Anaximander matters because his project presses beyond a familiar material source toward conditions that could explain opposition, balance, and cosmic order. The surviving record is philosophically fertile precisely because fragment, testimony, later organization, and modern reconstruction remain visibly distinct.',
+    ]}],
+    presentation: {mode: 'concise', orientation: [
+      {label: 'Historical setting', value: 'Miletus · 6th century BCE'},
+      {label: 'Evidence', value: 'One narrow fragment · Theophrastean and later testimony'},
+      {label: 'Attributed principle', value: 'Apeiron · the indefinite or boundless'},
+      {label: 'Reported inquiries', value: 'Cosmos · earth · weather · life · geography'},
+      {label: 'Interpretive limit', value: 'Later terminology is not Anaximander’s surviving prose'},
+    ], articleActionLabel: 'Read the full sourced Anaximander article', bodyLayout: 'prose', plaqueKicker: '', plaqueSubtitleLines: 3},
+    objectInterpretations: objectInterpretation('anaximander-world-map', 'This 2006 diagram is one modern reconstruction of a map that ancient reports associate with Anaximander. No original map survives, and the diagram’s coastlines, labels, and arrangement should not be mistaken for a copy of his work.'),
+  },
+  anaximenes: {
+    lead: 'Anaximenes was an early Greek thinker from Miletus who was later credited with making air the underlying principle of the cosmos. Reports say that rarefaction and condensation explained how one underlying stuff could appear in many forms, but his own work is lost.',
+    keyIdeas: [],
+    keyWorks: [],
+    sections: [{heading: '', paragraphs: [
+      'Anaximenes probably worked in sixth-century Miletus, but his dates and his place in a neat succession after Anaximander are reconstructed from later testimony. Ancient authors say that he wrote in prose, yet no continuous work survives. A few possible verbal echoes and many doxographical reports connect him with air, breath, weather, the earth, and the heavens. These witnesses preserve an outline, not a transcript of his reasoning.',
+      'The central reported proposal is that air underlies things and changes through rarefaction and condensation. Rarer air becomes fire; denser air becomes wind, cloud, water, earth, and stone. This offers a mechanism linking differences of kind to changes in density while preserving an underlying continuity. Ancient examples involving breath, felt temperature, cloud, and precipitation may show how the view was explained, but their wording and arrangement belong to later reporters. The sequence should not be recast as a modern quantitative law or experimental theory.',
+      'A reported comparison between air sustaining the cosmos and breath or soul sustaining us is especially uncertain because its wording and attribution are debated. Cosmological details about a flat earth, celestial bodies, and weather likewise arrive through multiple later layers. The model’s value is conceptual rather than a claim that it anticipated modern physics. Later Greek theories of material change inherited the demand for an intelligible process, not necessarily Anaximenes’ air. Anaximenes matters because the attributed account makes transformation itself explanatory: a single principle becomes useful only when a process shows how diversity arises. His exhibit therefore emphasizes that philosophical advance while keeping the sparse, mediated evidence in view.',
+    ]}],
+    presentation: {mode: 'concise', orientation: [
+      {label: 'Historical setting', value: 'Miletus · probably later 6th century BCE'},
+      {label: 'Evidence', value: 'Lost prose work · later reports and possible echoes'},
+      {label: 'Attributed principle', value: 'Air'},
+      {label: 'Reported mechanism', value: 'Rarefaction and condensation'},
+      {label: 'Interpretive limit', value: 'Not a recoverable modern quantitative theory'},
+    ], articleActionLabel: 'Read the full sourced Anaximenes article', bodyLayout: 'prose', plaqueKicker: '', plaqueSubtitleLines: 3},
+    objectInterpretations: objectInterpretation('anaximenes-bnf-portrait', 'This conventional print supplies no evidence for Anaximenes’ appearance. Its date is uncertain but it is far later than sixth-century Miletus, so it belongs to the philosopher’s visual reception rather than to his biography.'),
+  },
+  pythagoras: {
+    lead: 'Pythagoras was an early Greek religious and philosophical teacher associated with a community at Croton in southern Italy. He wrote nothing that survives, and later Pythagorean mathematics and cosmology cannot automatically be assigned to the historical man.',
+    keyIdeas: [],
+    keyWorks: [],
+    sections: [{heading: '', paragraphs: [
+      'Pythagoras probably came from Samos and established a community at Croton in the late sixth century BCE. Early evidence associates him with an unusual way of life, authority over followers, and beliefs about the soul’s passage through multiple lives. Later biographies add travels, miracles, ritual rules, political episodes, and a vast body of wisdom. Because those accounts were written long after his death and often served later Pythagorean communities, the historical teacher must be separated from the ideal sage they constructed.',
+      'Number, harmony, and mathematical order became central to Pythagorean traditions, but the evidence does not justify giving the historical Pythagoras every later result. No surviving text shows him proving the theorem that bears his name, teaching that all things literally are numbers, or designing the cosmology associated with Philolaus. Early musical-ratio stories are also layered. A safer conclusion is that later Pythagoreans joined mathematics, cosmology, ritual discipline, and the care of the soul in changing ways, while the exact contribution of their founding figure remains difficult to isolate.',
+      'Pythagoras matters because his name came to unite philosophy with communal practice and personal transformation. Pythagorean groups shaped debates about soul, number, harmony, political association, and the ordered cosmos, and later Platonists repeatedly reinterpreted that inheritance. Conflict around communities in southern Italy also belongs to this history, although its causes are difficult to recover. “Pythagoreanism” was never one timeless doctrine. The exhibit therefore introduces the historical teacher before the tradition built around him and treats famous claims as later school doctrine unless the evidence supports a narrower attribution.',
+    ]}],
+    presentation: {mode: 'concise', orientation: [
+      {label: 'Historical setting', value: 'Samos and Croton · late 6th century BCE'},
+      {label: 'Evidence', value: 'No surviving writings · layered later biographies'},
+      {label: 'Early associations', value: 'Community · way of life · transmigration of soul'},
+      {label: 'Keep distinct', value: 'Historical Pythagoras · later Pythagorean doctrines'},
+      {label: 'Why he matters', value: 'Philosophy joined to discipline, community, and cosmic order'},
+    ], articleActionLabel: 'Read the full sourced Pythagoras article', bodyLayout: 'prose', plaqueKicker: '', plaqueSubtitleLines: 3},
+    objectInterpretations: objectInterpretation('pythagoras-ratios-raphael', 'Raphael painted this imagined Pythagoras with a tablet of ratios around 1510. The scene visualizes Renaissance reception of Pythagorean mathematics; it is neither a likeness nor evidence that the historical Pythagoras taught the displayed numerical scheme.'),
+  },
+  philolaus: {
+    lead: 'Philolaus was a fifth-century Pythagorean philosopher whose surviving fragments connect knowledge and cosmic order with limiters, unlimiteds, harmony, and number. Unlike Pythagoras, he is represented by substantial early material, although the authenticity and interpretation of particular fragments remain disputed.',
+    keyIdeas: [],
+    keyWorks: [],
+    sections: [{heading: '', paragraphs: [
+      'Philolaus was active in the fifth century BCE and is associated with Croton, Thebes, and the Pythagorean tradition, but his exact chronology and biography are uncertain. Several fragments attributed to a book under his name are widely accepted as genuine, while others remain disputed. Plato’s Phaedo names Philolaus in connection with a prohibition on suicide, yet the dialogue does not make him the author of everything Socrates subsequently says about the soul.',
+      'The best-attested fragments describe a cosmos composed from unlimited things and limiting things joined through harmony. Number makes their relations knowable: it gives order to plurality, proportion, and difference. This need not mean that physical objects simply are abstract numbers. Musical ratios provide an especially clear case in which a continuum becomes intelligible through measured divisions, but the fragments do not show how Philolaus applied the scheme to every domain. The surviving architecture explains ordered combination while leaving its full range uncertain. His account is powerful and incomplete rather than a universal formula preserved intact.',
+      'Later testimony connects Philolaus with a central fire, a counter-earth, the motion of the earth, and differentiated bodily centers. These reports are important but do not have the same status as quoted fragments, and the central-fire system should not be called heliocentric. His ideas overlap with Aristotle’s account of “the Pythagoreans” and with Plato’s uses of limit, unlimited, and harmonic proportion, yet influence does not establish plagiarism or identity. Philolaus matters as a distinctive author who made a Pythagorean style of explanation philosophically legible, not merely as a mouthpiece for Pythagoras.',
+    ]}],
+    presentation: {mode: 'concise', orientation: [
+      {label: 'Historical setting', value: '5th century BCE · Pythagorean contexts'},
+      {label: 'Evidence', value: 'Accepted and disputed fragments · later testimony'},
+      {label: 'Core structure', value: 'Limiters · unlimiteds · harmony'},
+      {label: 'Knowledge', value: 'Number makes relations and order intelligible'},
+      {label: 'Keep distinct', value: 'Philolaus · Pythagoras · Aristotle’s Pythagoreans'},
+    ], articleActionLabel: 'Read the full sourced Philolaus article', bodyLayout: 'prose', plaqueKicker: '', plaqueSubtitleLines: 3},
+    objectInterpretations: objectInterpretation('philolaus-musical-pipes', 'This 1492 woodcut imagines Pythagoras and Philolaus testing musical pipes. It is not an ancient scene or likeness. It visualizes a later tradition linking Pythagorean thought with musical ratio, a useful example whose historical details remain reconstructed.'),
+  },
+  parmenides: {
+    lead: 'Parmenides was an early fifth-century philosopher-poet from Elea whose fragmentary poem asks what coherent inquiry can think and say about what-is. Its arguments transformed Greek accounts of being and change, but their subject, scope, and relation to the poem’s cosmology remain contested.',
+    keyIdeas: [],
+    keyWorks: [],
+    sections: [{heading: '', paragraphs: [
+      'Parmenides composed a hexameter poem that combines a divine journey, rigorous argument, and a detailed account of the cosmos. About 160 lines survive, many because the late antique commentator Simplicius quoted them while discussing Aristotle. The title On Nature is conventional rather than securely authorial, and the poem’s original order is reconstructed. Even the familiar birth date near 515 BCE depends heavily on Plato’s fictional meeting between an elderly Parmenides and a young Socrates.',
+      'The goddess in the poem distinguishes routes of inquiry and argues that sheer not-being cannot be known or indicated as though it were something. The route concerned with what-is then develops signs such as being ungenerated, imperishable, whole, and stable. These claims place severe pressure on ordinary accounts of coming-to-be, destruction, division, and change. They do not survive as the simple maxim “nothing changes,” nor do they say that imagining something makes it exist. Translation matters because Greek often leaves the subject of “is” unstated.',
+      'Scholars disagree about whether the argument yields one being, stable predicational natures, necessary being, or another account. They also debate how the way of conviction relates to the goddess’s cosmology of mortal opinion: deception, a conditionally adequate account, and genuine cosmological knowledge are among the possibilities. The poem’s religious form and its demand for rational judgment belong together rather than canceling one another. Parmenides matters because later pluralists, atomists, Plato, and Aristotle had to explain how intelligible difference and change remain possible under this challenge. The exhibit preserves the poem’s force without pretending that one modern reconstruction has become its settled doctrine.',
+    ]}],
+    presentation: {mode: 'concise', orientation: [
+      {label: 'Historical setting', value: 'Elea · early 5th century BCE · chronology debated'},
+      {label: 'Evidence', value: 'Fragmentary hexameter poem · late transmission'},
+      {label: 'Central pressure', value: 'Inquiry cannot treat sheer not-being as an object'},
+      {label: 'Major dispute', value: 'Monist · predicational · modal · other readings'},
+      {label: 'Keep in view', value: 'Argument and mortal cosmology both belong to the poem'},
+    ], articleActionLabel: 'Read the full sourced Parmenides article', bodyLayout: 'prose', plaqueKicker: '', plaqueSubtitleLines: 3},
+    objectInterpretations: objectInterpretation('parmenides-raphael-traditional', 'This figure in Raphael’s School of Athens is only traditionally identified as Parmenides, and that identification is disputed. Painted around 1510, it is an imagined Renaissance reception image rather than an authenticated likeness of the philosopher.'),
+  },
+  'zeno-elea': {
+    lead: 'Zeno of Elea was a fifth-century thinker associated with Parmenides who used paradoxical arguments to test assumptions about plurality, magnitude, motion, place, and time. His book is lost, and the familiar paradoxes survive through different later authors and reconstructions.',
+    keyIdeas: [],
+    keyWorks: [],
+    sections: [{heading: '', paragraphs: [
+      'Zeno’s life and work are known chiefly through Plato, Aristotle, Simplicius, and later biographical tradition. Plato presents him as Parmenides’ close associate and describes a book of arguments against plurality; Aristotle preserves four arguments about motion along with puzzles about place and sound. Simplicius, writing roughly a millennium later, quotes lines he identifies as Zeno’s. These layers form an assembled dossier, not the recoverable sequence of one surviving book.',
+      'The arguments typically accept familiar assumptions and draw consequences their defenders should reject. Accounts of plurality can make things both limited and unlimited, while accounts of magnitude can make components vanish in size or grow without bound. The Dichotomy, Achilles, Arrow, and Moving Rows pressure different assumptions about completing infinitely divisible intervals, motion at an instant, and relative movement. Zeno need not believe every absurd conclusion: the force lies in showing that an opponent’s starting points carry hidden debts.',
+      'Modern mathematics can model convergent infinite series, dense orders, and instantaneous velocity, answering important reconstructed versions of the motion arguments. It does not recover Zeno’s exact wording or settle every question about physical parts, space, time, and motion. Different paradoxes require different reconstructions rather than one universal appeal to calculus. Aristotle’s replies are part of his own theory of continuity, not a neutral copy of Zeno. Scholars also dispute whether the arguments form one defense of Parmenides and which pluralist or quantitative theories they target. Zeno matters because his method forces explanations to state their assumptions precisely; the uncertainty belongs to the historical arguments, not to their continuing power.',
+    ]}],
+    presentation: {mode: 'concise', orientation: [
+      {label: 'Historical setting', value: 'Elea · mid-5th century BCE · chronology approximate'},
+      {label: 'Evidence', value: 'Lost book · fragments and reports in later authors'},
+      {label: 'Method', value: 'Dialectical challenge · reductio-like argument'},
+      {label: 'Problem fields', value: 'Plurality · magnitude · motion · place · time'},
+      {label: 'Interpretive limit', value: 'Modern solutions do not recover every ancient target'},
+    ], articleActionLabel: 'Read the full sourced Zeno of Elea article', bodyLayout: 'prose', plaqueKicker: '', plaqueSubtitleLines: 3},
+    objectInterpretations: objectInterpretation('zeno-elea-rijksmuseum-print', 'Bernard Picart made this imagined portrait in 1699, more than two millennia after Zeno. It records the philosopher’s later visual reception and supplies no evidence for his appearance, book, or fifth-century setting.'),
+  },
+  leucippus: {
+    lead: 'Leucippus is the earliest named Greek atomist in the main ancient tradition, credited with explaining change through indivisible bodies moving in void. His biography, writings, and even the boundary between his thought and Democritus’ are exceptionally uncertain.',
+    keyIdeas: [],
+    keyWorks: [],
+    sections: [{heading: '', paragraphs: [
+      'Ancient sources disagree about Leucippus’ origin, dates, teachers, and works, and one later report was read as denying that he existed. Aristotle and Theophrastus nevertheless treat him as a real predecessor of Democritus, which is the strongest basis for retaining him in the history of atomism. No book survives. A lone saying and reports about works such as the Great World System cannot be assembled into a securely recoverable Leucippan corpus.',
+      'Aristotle presents early atomism as a response to Eleatic pressure on generation, plurality, and motion. Full, indivisible bodies move in void; compounds arise and dissolve as those bodies combine and separate, while the basic constituents neither come from nothing nor perish into nothing. Their shapes, arrangements, and positions help explain perceptible differences. Void makes separation and movement possible. These ideas belong to the shared early atomist dossier, but the surviving sources rarely allow a confident division of labor between Leucippus and Democritus.',
+      'Reports also connect the early atomists with necessity and with worlds formed through vortical motion. The lone saying attributed to Leucippus links events with necessity or reason, but its wording cannot carry a complete determinist system. Their ancient atoms are not modern chemical atoms, and their method did not rest on modern experimental evidence. Attribution remains the exhibit’s central limit. Leucippus matters as the earliest named point in a tradition that offered a bold account of change without fundamental generation. The exhibit gives him that historical role while refusing to turn later summaries or Democritus’ better-attested breadth into a complete personal system.',
+    ]}],
+    presentation: {mode: 'concise', orientation: [
+      {label: 'Historical setting', value: '5th century BCE · place and chronology uncertain'},
+      {label: 'Evidence', value: 'Aristotle and Theophrastus · later reports · no surviving book'},
+      {label: 'Attributed framework', value: 'Indivisible bodies · void · rearrangement'},
+      {label: 'Central dispute', value: 'What belongs to Leucippus rather than Democritus'},
+      {label: 'Interpretive limit', value: 'Ancient atoms are not modern chemical atoms'},
+    ], articleActionLabel: 'Read the full sourced Leucippus article', bodyLayout: 'prose', plaqueKicker: '', plaqueSubtitleLines: 3},
+    objectInterpretations: objectInterpretation('leucippus-giordano', 'Luca Giordano painted this philosopher around 1652–1653 as part of a much later series. The book and globe help imagine a learned ancient, but the portrait is not evidence for Leucippus’ appearance or writings.'),
+  },
+  democritus: {
+    lead: 'Democritus of Abdera was a major early Greek atomist whose reported work ranged from nature and perception to mathematics, language, culture, and ethics. His large corpus is lost, and reconstruction depends on fragments, critics, excerptors, and doctrines often shared with Leucippus.',
+    keyIdeas: [],
+    keyWorks: [],
+    sections: [{heading: '', paragraphs: [
+      'Democritus probably lived during the fifth and early fourth centuries BCE, but exact dates, travels, and the stories attached to his long life are uncertain. Ancient catalogues credit him with an exceptionally broad body of writing, none of which survives intact. Aristotle and Theophrastus preserve much of the physics; Sextus and later commentators transmit material on perception and knowledge; ethical maxims come largely through much later collections. These witnesses select and reshape what they preserve.',
+      'The atomist system explains compounds through solid, ungenerated, indivisible bodies moving in void. Atoms differ in shape, size, arrangement, and position; visible generation and destruction are combinations and separations rather than the creation or annihilation of basic being. Reports about perception describe qualities such as color and taste as effects of atomic structures interacting with perceivers. But the physics is often attributed jointly to Leucippus and Democritus, and ancient atoms should not be equated with the divisible, experimentally studied atoms of modern chemistry.',
+      'Democritus was also associated with reflection on the limits of the senses and with an ethics of measure, self-command, justice, and euthymiē—good spirits or steadiness. The authenticity of individual maxims and the relation between ethics and physics remain disputed. Later art turned him into the “laughing philosopher,” but stable judgment is not constant amusement. The ethical collections must be assessed saying by saying, not accepted as one intact work. Democritus matters because atomist explanation reaches beyond matter toward questions about knowledge, value, and life, while the surviving archive prevents those domains from becoming one seamless modern system.',
+    ]}],
+    presentation: {mode: 'concise', orientation: [
+      {label: 'Historical setting', value: 'Abdera · 5th to early 4th century BCE · dates approximate'},
+      {label: 'Evidence', value: 'Lost corpus · fragments · critics · late excerpt collections'},
+      {label: 'Physical framework', value: 'Atoms and void · compounds through rearrangement'},
+      {label: 'Wider inquiries', value: 'Perception · knowledge · culture · ethics'},
+      {label: 'Keep distinct', value: 'Shared early atomism · Democritus-specific testimony · later science'},
+    ], articleActionLabel: 'Read the full sourced Democritus article', bodyLayout: 'prose', plaqueKicker: '', plaqueSubtitleLines: 3},
+    objectInterpretations: objectInterpretation('democritus-velazquez', 'Velázquez’s painting of about 1630 belongs to the later “laughing philosopher” tradition. Its smile and globe interpret Democritus for a Baroque audience; they are not an ancient likeness or direct evidence for his ethics.'),
+  },
+  protagoras: {
+    lead: 'Protagoras of Abdera was a prominent fifth-century teacher who examined judgment, language, education, and civic life. A few famous formulations survive through later authors, while Plato’s influential reconstructions must be kept distinct from Protagoras’ lost prose.',
+    keyIdeas: [],
+    keyWorks: [],
+    sections: [{heading: '', paragraphs: [
+      'Protagoras came from Abdera and became celebrated for paid higher education, especially in Athens. His dates are approximate, and stories about exile, book burning, shipwreck, and death appear in late and conflicting sources. Almost none of his writing survives continuously. Short formulations, titles, and reports reach us through Plato, Aristotle, Sextus Empiricus, Diogenes Laertius, and others whose own philosophical purposes shape the evidence.',
+      'The best-attested sentence makes a human being the measure of things that are and are not. It has been read in individual, civic, and broadly human terms. Plato’s Theaetetus develops an individual-relative account through differing perceptions, flux, and the truth of appearances, then constructs a defense in which experts improve judgments from worse to better. This is indispensable evidence for ancient interpretation, not a transcript of a lost Protagorean argument. The standard of “better” therefore remains a live interpretive problem. The bare measure sentence does not by itself establish that every belief is equally good or that “anything goes.”',
+      'Plato’s Protagoras also presents a Great Speech about civic virtue and education, while later reports associate Protagoras with agnosticism about the gods, opposed arguments, correctness of language, and kinds of utterance. Each attribution requires its own caution; even the Great Speech is Plato’s dramatic presentation, not recovered Protagorean prose. Reports about making the weaker argument stronger are especially vulnerable to hostile framing. Protagoras matters because he makes situated judgment answerable to questions about improvement, expertise, and shared political life. His exhibit preserves that problem without turning one sentence or one Platonic dialogue into a complete doctrine.',
+    ]}],
+    presentation: {mode: 'concise', orientation: [
+      {label: 'Historical setting', value: 'Abdera and Athens · 5th century BCE · dates approximate'},
+      {label: 'Evidence', value: 'Short formulations · later testimony · Platonic reconstructions'},
+      {label: 'Famous problem', value: 'The human being as measure'},
+      {label: 'Teaching context', value: 'Judgment · civic education · language · argument'},
+      {label: 'Keep distinct', value: 'Protagorean wording · Plato’s developed theories'},
+    ], articleActionLabel: 'Read the full sourced Protagoras article', bodyLayout: 'prose', plaqueKicker: '', plaqueSubtitleLines: 3},
+    objectInterpretations: objectInterpretation('protagoras-ribera', 'Jusepe de Ribera painted this imagined Protagoras in 1637, roughly two millennia after the philosopher. The open book suits a learned portrait tradition but does not document Protagoras’ appearance or preserve one of his lost works.'),
+  },
+  prodicus: {
+    lead: 'Prodicus of Ceos was a prominent fifth-century teacher remembered for fine distinctions between words and for an ethical performance about Heracles choosing a way of life. His works are lost, and both themes survive through other authors’ presentations.',
+    keyIdeas: [],
+    keyWorks: [],
+    sections: [{heading: '', paragraphs: [
+      'Prodicus came from the island polis of Ceos and is represented as visiting Athens for public business as well as teaching there. Exact life dates are not documented; a late-fifth-century floruit is safer. Plato repeatedly stages him making careful verbal distinctions, often with comic exaggeration. Those scenes strongly attest a recognizable reputation, but they are philosophical drama rather than notes from a Prodican lesson. Reputation is firmer here than recoverable doctrine.',
+      'In Xenophon’s Memorabilia, Socrates retells a performance attributed to Prodicus in which the young Heracles chooses between personified paths of Virtue and Vice. Xenophon explicitly presents an outline and says Prodicus expressed it more splendidly. The passage therefore preserves substantial evidence for a Prodican ethical performance while not preserving his exact words. Scholars disagree about how close Xenophon’s language stands to the original, and the later title Choice of Heracles is not a securely transmitted book title.',
+      'Later sources also connect Prodicus with theories about the origins of divine names and with natural inquiry, but the testimony is too mediated to call him simply an atheist or the founder of a modern theory of religion. Nor was his attention to synonyms a complete science of semantics. Claims that he formally trained Socrates or founded later linguistic traditions also outrun the record. Prodicus matters because he made the practical force of verbal distinctions conspicuous: arguments about courage, pleasure, benefit, and responsibility can change when speakers clarify what their words evaluate. Precision serves inquiry here, but it cannot replace evidence or reasons.',
+    ]}],
+    presentation: {mode: 'concise', orientation: [
+      {label: 'Historical setting', value: 'Ceos and Athens · late 5th century BCE'},
+      {label: 'Evidence', value: 'Plato · Xenophon · scattered later testimony'},
+      {label: 'Known for', value: 'Verbal distinctions · education · ethical performance'},
+      {label: 'Major witness', value: 'Xenophon’s adaptation of Heracles’ choice'},
+      {label: 'Interpretive limit', value: 'Not a preserved semantics or theology system'},
+    ], articleActionLabel: 'Read the full sourced Prodicus of Ceos article', bodyLayout: 'prose', plaqueKicker: '', plaqueSubtitleLines: 3},
+    objectInterpretations: objectInterpretation('prodicus-choice-of-hercules', 'Thomas Sully’s 1819 painting visualizes the Choice of Heracles centuries after Xenophon adapted a performance attributed to Prodicus. It is later reception, not an ancient scene, a portrait of Prodicus, or a record of his exact wording.'),
+    sources: [
+      {label: 'Stanford Encyclopedia of Philosophy — The Sophists', url: 'https://plato.stanford.edu/archives/spr2025/entries/sophists/', kind: 'academic-reference'},
+      {label: 'Xenophon, Memorabilia 2.1 — the Heracles adaptation', url: 'https://www.perseus.tufts.edu/hopper/text?doc=Xen.+Mem.+2.1&fromdoc=Perseus%3Atext%3A1999.01.0208', kind: 'primary-text'},
+      {label: 'Plato, Protagoras — dramatic evidence for Prodicus', url: 'https://atlas.perseus.tufts.edu/library/urn:cts:greekLit:tlg0059.tlg022/', kind: 'primary-text'},
+    ],
+  },
+  gorgias: {
+    lead: 'Gorgias of Leontini was a fifth-century Sicilian speaker and teacher whose surviving display speeches explore persuasion, responsibility, and the power of language. A separate work on not-being survives only in two later summaries, and Plato’s dramatic Gorgias is another distinct witness.',
+    keyIdeas: [],
+    keyWorks: [],
+    sections: [{heading: '', paragraphs: [
+      'Gorgias came from Leontini in Sicily and is reported to have led an embassy to Athens in 427 BCE. He became famous for public performances and teaching, but claims that he invented rhetoric or trained a fixed list of students exceed the evidence. Two substantial speeches survive under his name, the Encomium of Helen and Defense of Palamedes, along with a funeral-speech fragment and shorter sayings. Their exact dates and occasions remain uncertain.',
+      'Helen defends its notorious subject by testing several possible causes of her action. Its account of logos compares speech’s effects on the soul to drugs acting on the body: persuasion can shape belief and feeling where direct knowledge is unavailable. Palamedes stages a defense against an impossible accusation and exposes the fragility of inference from probability. These works demonstrate technique while also analyzing agency, evidence, and the ethical ambiguity of persuasive power. They should not be reduced to advertisements for manipulation.',
+      'The work conventionally called On Not-Being reaches us through differing summaries in Sextus Empiricus and the anonymous MXG. Its arguments about being, knowledge, and communication may be serious philosophy, parody, demonstration, or some combination; they do not securely yield the slogan that nothing exists. The two epitomes should not be silently merged into one text. Plato’s Gorgias supplies an indispensable critique of rhetoric without knowledge of justice, but its character is Plato’s construction, not Gorgias’ surviving voice. Gorgias matters because he makes language an event with consequences while leaving truth, communication, and responsibility in productive tension.',
+    ]}],
+    presentation: {mode: 'concise', orientation: [
+      {label: 'Historical setting', value: 'Leontini and Athens · 5th century BCE'},
+      {label: 'Surviving works', value: 'Helen · Palamedes · funeral-speech fragment'},
+      {label: 'Indirect work', value: 'On Not-Being through two later epitomes'},
+      {label: 'Central problem', value: 'Speech, belief, evidence, persuasion, responsibility'},
+      {label: 'Keep distinct', value: 'Gorgias’ texts · epitomes · Plato’s dramatic character'},
+    ], articleActionLabel: 'Read the full sourced Gorgias article', bodyLayout: 'prose', plaqueKicker: '', plaqueSubtitleLines: 3},
+    objectInterpretations: objectInterpretation('gorgias-ortolani', 'This imagined profile was published in an 1818 collection of notable Sicilians. It records later commemoration of Gorgias’ regional identity, not his historical appearance, an ancient portrait type, or evidence for his teaching.'),
+  },
   kantianism: {
     lead: 'Kantianism is a family of philosophies that develops Immanuel Kant’s account of the powers and limits of reason. It asks how knowledge, moral freedom, judgment, and shared political life are possible.',
     keyIdeas: [],
