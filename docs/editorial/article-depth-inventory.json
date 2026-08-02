@@ -909,7 +909,7 @@
       "title": "Immanuel Kant",
       "visitorEntryPoint": "#/philosophers/kant",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 4354,
+      "substantiveWordCount": 4511,
       "complianceStatus": "pass",
       "legacyDepthAuditIncluded": false,
       "reusedInMuseum": true,
@@ -978,10 +978,10 @@
     },
     {
       "canonicalId": "marx",
-      "title": "Marx",
+      "title": "Karl Marx",
       "visitorEntryPoint": "#/philosophers/marx",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 4517,
+      "substantiveWordCount": 4489,
       "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
@@ -2337,7 +2337,7 @@
       "title": "Kantianism",
       "visitorEntryPoint": "#/branches/kantianism",
       "contentCategory": "philosophy",
-      "substantiveWordCount": 5566,
+      "substantiveWordCount": 5373,
       "complianceStatus": "pass",
       "legacyDepthAuditIncluded": false,
       "reusedInMuseum": false,
@@ -2349,7 +2349,7 @@
       "title": "Marxism",
       "visitorEntryPoint": "#/branches/marxism",
       "contentCategory": "philosophy",
-      "substantiveWordCount": 5409,
+      "substantiveWordCount": 5144,
       "complianceStatus": "pass",
       "legacyDepthAuditIncluded": false,
       "reusedInMuseum": false,
@@ -2399,7 +2399,7 @@
       "title": "Immanuel Kant",
       "visitorEntryPoint": "#/philosophers/kant",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 4354,
+      "substantiveWordCount": 4511,
       "complianceStatus": "pass",
       "legacyDepthAuditIncluded": false,
       "reusedInMuseum": true,
@@ -2483,7 +2483,7 @@
       "title": "Kantianism",
       "visitorEntryPoint": "#/branches/kantianism",
       "contentCategory": "philosophy",
-      "substantiveWordCount": 5566,
+      "substantiveWordCount": 5373,
       "complianceStatus": "pass",
       "legacyDepthAuditIncluded": false,
       "reusedInMuseum": false,
@@ -2495,7 +2495,7 @@
       "title": "Marxism",
       "visitorEntryPoint": "#/branches/marxism",
       "contentCategory": "philosophy",
-      "substantiveWordCount": 5409,
+      "substantiveWordCount": 5144,
       "complianceStatus": "pass",
       "legacyDepthAuditIncluded": false,
       "reusedInMuseum": false,
@@ -4387,10 +4387,10 @@
         "hallId": "enlightenment-revolution-kant",
         "visitorEntryPoint": "#/museum/enlightenment-revolution-kant/exhibits/kant",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 339,
+        "surfaceWords": 391,
         "canonicalArticleKey": "philosopher:kant",
         "canonicalArticleId": "kant",
-        "canonicalArticleWordCount": 4354,
+        "canonicalArticleWordCount": 4511,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -4474,7 +4474,7 @@
         "surfaceWords": 379,
         "canonicalArticleKey": "philosopher:marx",
         "canonicalArticleId": "marx",
-        "canonicalArticleWordCount": 4517,
+        "canonicalArticleWordCount": 4489,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -9388,7 +9388,7 @@
         "canonicalArticleKey": "philosopher:marx",
         "canonicalArticleId": "marx",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 4517,
+        "canonicalArticleWordCount": 4489,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -9404,7 +9404,7 @@
         "canonicalArticleKey": "philosopher:marx",
         "canonicalArticleId": "marx",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 4517,
+        "canonicalArticleWordCount": 4489,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -9420,7 +9420,7 @@
         "canonicalArticleKey": "philosopher:marx",
         "canonicalArticleId": "marx",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 4517,
+        "canonicalArticleWordCount": 4489,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -9436,7 +9436,7 @@
         "canonicalArticleKey": "philosopher:marx",
         "canonicalArticleId": "marx",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 4517,
+        "canonicalArticleWordCount": 4489,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -9452,7 +9452,7 @@
         "canonicalArticleKey": "philosopher:marx",
         "canonicalArticleId": "marx",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 4517,
+        "canonicalArticleWordCount": 4489,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -9468,7 +9468,7 @@
         "canonicalArticleKey": "philosopher:marx",
         "canonicalArticleId": "marx",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 4517,
+        "canonicalArticleWordCount": 4489,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -9484,7 +9484,7 @@
         "canonicalArticleKey": "philosopher:marx",
         "canonicalArticleId": "marx",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 4517,
+        "canonicalArticleWordCount": 4489,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -9500,7 +9500,7 @@
         "canonicalArticleKey": "philosopher:marx",
         "canonicalArticleId": "marx",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 4517,
+        "canonicalArticleWordCount": 4489,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -9516,7 +9516,7 @@
         "canonicalArticleKey": "philosopher:marx",
         "canonicalArticleId": "marx",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 4517,
+        "canonicalArticleWordCount": 4489,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -9532,7 +9532,7 @@
         "canonicalArticleKey": "philosopher:marx",
         "canonicalArticleId": "marx",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 4517,
+        "canonicalArticleWordCount": 4489,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -9548,7 +9548,7 @@
         "canonicalArticleKey": "philosopher:marx",
         "canonicalArticleId": "marx",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 4517,
+        "canonicalArticleWordCount": 4489,
         "canonicalArticleComplianceStatus": "pass"
       },
       {

@@ -141,15 +141,15 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | --- | --- | --- | ---: | --- |
 | ficino | Marsilio Ficino | philosopher | 1819 | fail |
 | galileo | Galileo Galilei | philosopher | 1803 | fail |
-| kant | Immanuel Kant | philosopher | 4354 | pass |
+| kant | Immanuel Kant | philosopher | 4511 | pass |
 | nietzsche | Friedrich Nietzsche | philosopher | 4336 | pass |
 | wittgenstein | Ludwig Wittgenstein | philosopher | 4790 | pass |
 | jiddu-krishnamurti | Jiddu Krishnamurti | philosopher | 2720 | pass |
 | epistemology | Epistemology | philosophy | 2615 | pass |
 | ethics | Ethics | philosophy | 2900 | pass |
 | analytic-philosophy | Analytic Philosophy | philosophy | 2963 | pass |
-| kantianism | Kantianism | philosophy | 5566 | pass |
-| marxism | Marxism | philosophy | 5409 | pass |
+| kantianism | Kantianism | philosophy | 5373 | pass |
+| marxism | Marxism | philosophy | 5144 | pass |
 
 ## Complete canonical inventory
 
@@ -224,13 +224,13 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | philosopher | hume | David Hume | #/philosophers/hume | 4800 | pass | yes | yes (1 primary; 5 supplemental) |
 | philosopher | rousseau | Rousseau | #/philosophers/rousseau | 1836 | fail | yes | yes (1 primary; 5 supplemental) |
 | philosopher | bentham | Jeremy Bentham | #/philosophers/bentham | 1976 | fail | yes | yes (1 primary; 4 supplemental) |
-| philosopher | kant | Immanuel Kant | #/philosophers/kant | 4354 | pass | no | yes (1 primary; 0 supplemental) |
+| philosopher | kant | Immanuel Kant | #/philosophers/kant | 4511 | pass | no | yes (1 primary; 0 supplemental) |
 | philosopher | fichte | Fichte | #/philosophers/fichte | 2026 | pass | yes | yes (1 primary; 3 supplemental) |
 | philosopher | schelling | Schelling | #/philosophers/schelling | 1998 | fail | yes | yes (1 primary; 5 supplemental) |
 | philosopher | hegel | Hegel | #/philosophers/hegel | 1808 | fail | yes | yes (1 primary; 8 supplemental) |
 | philosopher | schopenhauer | Schopenhauer | #/philosophers/schopenhauer | 1830 | fail | yes | yes (1 primary; 5 supplemental) |
 | philosopher | kierkegaard | Kierkegaard | #/philosophers/kierkegaard | 1834 | fail | yes | yes (1 primary; 5 supplemental) |
-| philosopher | marx | Marx | #/philosophers/marx | 4517 | pass | yes | yes (1 primary; 11 supplemental) |
+| philosopher | marx | Karl Marx | #/philosophers/marx | 4489 | pass | yes | yes (1 primary; 11 supplemental) |
 | philosopher | mill | John Stuart Mill | #/philosophers/mill | 1806 | fail | yes | yes (1 primary; 6 supplemental) |
 | philosopher | nietzsche | Friedrich Nietzsche | #/philosophers/nietzsche | 4336 | pass | no | yes (1 primary; 5 supplemental) |
 | philosopher | husserl | Husserl | #/philosophers/husserl | 2046 | pass | yes | yes (1 primary; 3 supplemental) |
@@ -343,8 +343,8 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | philosophy | medieval-scholasticism | Medieval Scholasticism | #/branches/medieval-scholasticism | 2081 | pass | yes | yes (1 primary; 5 supplemental) |
 | philosophy | rationalism | Rationalism | #/branches/rationalism | 5757 | pass | yes | yes (1 primary; 0 supplemental) |
 | philosophy | empiricism | Empiricism | #/branches/empiricism | 5228 | pass | yes | yes (1 primary; 1 supplemental) |
-| philosophy | kantianism | Kantianism | #/branches/kantianism | 5566 | pass | no | no |
-| philosophy | marxism | Marxism | #/branches/marxism | 5409 | pass | no | no |
+| philosophy | kantianism | Kantianism | #/branches/kantianism | 5373 | pass | no | no |
+| philosophy | marxism | Marxism | #/branches/marxism | 5144 | pass | no | no |
 | philosophy | german-idealism | German Idealism | #/branches/german-idealism | 2206 | pass | yes | yes (1 primary; 4 supplemental) |
 
 ## Museum article-backing audit

@@ -153,7 +153,7 @@ export const marxismBranchDetails:Record<string,Partial<Branch>>={
       {name:'Associated production',explanation:'Producers democratically govern shared productive powers rather than meeting them as private capital or an unaccountable state.',whyItMatters:'It offers a standard for distinguishing social ownership from rule exercised merely in workers’ names.'},
       {name:'Metabolism and ecological crisis',explanation:'Production organizes material exchanges with the rest of nature and can disrupt the conditions on which life depends.',whyItMatters:'Ecological Marxism connects accumulation to climate, extraction, agriculture, and contested limits to growth.'}
     ],
-    majorFigures:['marx','fanon','angela-davis','habermas','sartre','beauvoir'],
+    majorFigures:['marx','fanon','angela-davis','habermas'],
     majorWorks:[
       {title:'Marx and Engels, The Communist Manifesto',summary:'A revolutionary intervention connecting capitalist development, class struggle, internationalism, and communist organization.',whyItMatters:'It became Marxism’s most influential short political text while remaining a document of 1848.'},
       {title:'Lenin, State and Revolution',summary:'Reconstructs Marx and the Paris Commune around smashing the old state and building transitional worker power.',whyItMatters:'It shaped revolutionary strategy and later disputes over the distance between soviet ideals and party-state rule.'},
