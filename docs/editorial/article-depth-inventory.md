@@ -14,11 +14,11 @@ The hard floor is **2,000 substantive article-prose words**. The counter tokeniz
 
 | Category | Total | Pass | Fail | Missing article |
 | --- | ---: | ---: | ---: | ---: |
-| Philosophers | 146 | 67 | 79 | 0 |
+| Philosophers | 146 | 79 | 67 | 0 |
 | Philosophies, branches, schools, traditions, movements, methods, and frameworks | 45 | 37 | 8 | 0 |
 | Standalone works, texts, arguments, concepts, and article-backed exhibits | 0 | 0 | 0 | 0 |
 
-Universal total: **191** applicable articles; **104 pass**; **87 fail**; **0 are missing article prose**.
+Universal total: **191** applicable articles; **116 pass**; **75 fail**; **0 are missing article prose**.
 
 Current failures are migration backlog, not approved exceptions. The strict audit is intentionally separate from the ordinary build until that backlog reaches zero.
 
@@ -36,18 +36,6 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 
 | ID | Title | Category | Words | Status |
 | --- | --- | --- | ---: | --- |
-| thales | Thales | philosopher | 1967 | fail |
-| anaximander | Anaximander | philosopher | 1952 | fail |
-| anaximenes | Anaximenes | philosopher | 1800 | fail |
-| pythagoras | Pythagoras | philosopher | 1956 | fail |
-| philolaus | Philolaus | philosopher | 1905 | fail |
-| parmenides | Parmenides | philosopher | 1979 | fail |
-| zeno-elea | Zeno of Elea | philosopher | 1976 | fail |
-| leucippus | Leucippus | philosopher | 1813 | fail |
-| democritus | Democritus | philosopher | 1805 | fail |
-| protagoras | Protagoras | philosopher | 1800 | fail |
-| prodicus | Prodicus of Ceos | philosopher | 1988 | fail |
-| gorgias | Gorgias | philosopher | 1807 | fail |
 | antisthenes | Antisthenes | philosopher | 1919 | fail |
 | arcesilaus | Arcesilaus | philosopher | 1856 | fail |
 | carneades | Carneades | philosopher | 1883 | fail |
@@ -144,19 +132,19 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 
 | Category | Canonical ID | Title | Visitor entry point | Words | Status | In former audit | Museum reuse |
 | --- | --- | --- | --- | ---: | --- | --- | --- |
-| philosopher | thales | Thales | #/philosophers/thales | 1967 | fail | yes | yes (1 primary; 0 supplemental) |
-| philosopher | anaximander | Anaximander | #/philosophers/anaximander | 1952 | fail | yes | yes (1 primary; 0 supplemental) |
-| philosopher | anaximenes | Anaximenes | #/philosophers/anaximenes | 1800 | fail | yes | yes (1 primary; 0 supplemental) |
-| philosopher | pythagoras | Pythagoras | #/philosophers/pythagoras | 1956 | fail | yes | yes (1 primary; 0 supplemental) |
-| philosopher | philolaus | Philolaus | #/philosophers/philolaus | 1905 | fail | yes | yes (1 primary; 0 supplemental) |
-| philosopher | parmenides | Parmenides | #/philosophers/parmenides | 1979 | fail | yes | yes (1 primary; 0 supplemental) |
-| philosopher | zeno-elea | Zeno of Elea | #/philosophers/zeno-elea | 1976 | fail | yes | yes (1 primary; 0 supplemental) |
-| philosopher | leucippus | Leucippus | #/philosophers/leucippus | 1813 | fail | yes | yes (1 primary; 0 supplemental) |
-| philosopher | democritus | Democritus | #/philosophers/democritus | 1805 | fail | yes | yes (1 primary; 0 supplemental) |
-| philosopher | protagoras | Protagoras | #/philosophers/protagoras | 1800 | fail | yes | yes (1 primary; 0 supplemental) |
-| philosopher | prodicus | Prodicus of Ceos | #/philosophers/prodicus | 1988 | fail | yes | yes (1 primary; 0 supplemental) |
+| philosopher | thales | Thales | #/philosophers/thales | 2087 | pass | yes | yes (1 primary; 0 supplemental) |
+| philosopher | anaximander | Anaximander | #/philosophers/anaximander | 2081 | pass | yes | yes (1 primary; 0 supplemental) |
+| philosopher | anaximenes | Anaximenes | #/philosophers/anaximenes | 2082 | pass | yes | yes (1 primary; 0 supplemental) |
+| philosopher | pythagoras | Pythagoras | #/philosophers/pythagoras | 2101 | pass | yes | yes (1 primary; 0 supplemental) |
+| philosopher | philolaus | Philolaus | #/philosophers/philolaus | 2070 | pass | yes | yes (1 primary; 0 supplemental) |
+| philosopher | parmenides | Parmenides | #/philosophers/parmenides | 2277 | pass | yes | yes (1 primary; 0 supplemental) |
+| philosopher | zeno-elea | Zeno of Elea | #/philosophers/zeno-elea | 2257 | pass | yes | yes (1 primary; 0 supplemental) |
+| philosopher | leucippus | Leucippus | #/philosophers/leucippus | 2068 | pass | yes | yes (1 primary; 0 supplemental) |
+| philosopher | democritus | Democritus | #/philosophers/democritus | 2203 | pass | yes | yes (1 primary; 0 supplemental) |
+| philosopher | protagoras | Protagoras | #/philosophers/protagoras | 2051 | pass | yes | yes (1 primary; 0 supplemental) |
+| philosopher | prodicus | Prodicus of Ceos | #/philosophers/prodicus | 2050 | pass | yes | yes (1 primary; 0 supplemental) |
 | philosopher | hippias-of-elis | Hippias of Elis | #/philosophers/hippias-of-elis | 2063 | pass | yes | yes (1 primary; 0 supplemental) |
-| philosopher | gorgias | Gorgias | #/philosophers/gorgias | 1807 | fail | yes | yes (1 primary; 0 supplemental) |
+| philosopher | gorgias | Gorgias | #/philosophers/gorgias | 2058 | pass | yes | yes (1 primary; 0 supplemental) |
 | philosopher | antisthenes | Antisthenes | #/philosophers/antisthenes | 1919 | fail | yes | yes (1 primary; 0 supplemental) |
 | philosopher | lucretius | Lucretius | #/philosophers/lucretius | 2003 | pass | yes | yes (1 primary; 0 supplemental) |
 | philosopher | pyrrho | Pyrrho | #/philosophers/pyrrho | 2022 | pass | yes | yes (1 primary; 0 supplemental) |

@@ -17,8 +17,8 @@
     {
       "label": "Philosophers",
       "total": 146,
-      "pass": 67,
-      "fail": 79,
+      "pass": 79,
+      "fail": 67,
       "missing": 0
     },
     {
@@ -38,8 +38,8 @@
   ],
   "universalSummary": {
     "total": 191,
-    "pass": 104,
-    "fail": 87,
+    "pass": 116,
+    "fail": 75,
     "missing": 0
   },
   "pilotChanges": [
@@ -81,8 +81,8 @@
       "title": "Thales",
       "visitorEntryPoint": "#/philosophers/thales",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1967,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2087,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -93,8 +93,8 @@
       "title": "Anaximander",
       "visitorEntryPoint": "#/philosophers/anaximander",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1952,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2081,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -105,8 +105,8 @@
       "title": "Anaximenes",
       "visitorEntryPoint": "#/philosophers/anaximenes",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1800,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2082,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -117,8 +117,8 @@
       "title": "Pythagoras",
       "visitorEntryPoint": "#/philosophers/pythagoras",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1956,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2101,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -129,8 +129,8 @@
       "title": "Philolaus",
       "visitorEntryPoint": "#/philosophers/philolaus",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1905,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2070,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -141,8 +141,8 @@
       "title": "Parmenides",
       "visitorEntryPoint": "#/philosophers/parmenides",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1979,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2277,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -153,8 +153,8 @@
       "title": "Zeno of Elea",
       "visitorEntryPoint": "#/philosophers/zeno-elea",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1976,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2257,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -165,8 +165,8 @@
       "title": "Leucippus",
       "visitorEntryPoint": "#/philosophers/leucippus",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1813,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2068,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -177,8 +177,8 @@
       "title": "Democritus",
       "visitorEntryPoint": "#/philosophers/democritus",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1805,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2203,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -189,8 +189,8 @@
       "title": "Protagoras",
       "visitorEntryPoint": "#/philosophers/protagoras",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1800,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2051,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -201,8 +201,8 @@
       "title": "Prodicus of Ceos",
       "visitorEntryPoint": "#/philosophers/prodicus",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1988,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2050,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -225,8 +225,8 @@
       "title": "Gorgias",
       "visitorEntryPoint": "#/philosophers/gorgias",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1807,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2058,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -2527,11 +2527,11 @@
         "hallId": "mediterranean-beginnings-classical",
         "visitorEntryPoint": "#/museum/mediterranean-beginnings-classical/exhibits/thales",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 894,
+        "surfaceWords": 1041,
         "canonicalArticleKey": "philosopher:thales",
         "canonicalArticleId": "thales",
-        "canonicalArticleWordCount": 1967,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2087,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "anaximander",
@@ -2539,11 +2539,11 @@
         "hallId": "mediterranean-beginnings-classical",
         "visitorEntryPoint": "#/museum/mediterranean-beginnings-classical/exhibits/anaximander",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 910,
+        "surfaceWords": 963,
         "canonicalArticleKey": "philosopher:anaximander",
         "canonicalArticleId": "anaximander",
-        "canonicalArticleWordCount": 1952,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2081,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "anaximenes",
@@ -2551,11 +2551,11 @@
         "hallId": "mediterranean-beginnings-classical",
         "visitorEntryPoint": "#/museum/mediterranean-beginnings-classical/exhibits/anaximenes",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 833,
+        "surfaceWords": 927,
         "canonicalArticleKey": "philosopher:anaximenes",
         "canonicalArticleId": "anaximenes",
-        "canonicalArticleWordCount": 1800,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2082,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "pythagoras",
@@ -2563,11 +2563,11 @@
         "hallId": "mediterranean-beginnings-classical",
         "visitorEntryPoint": "#/museum/mediterranean-beginnings-classical/exhibits/pythagoras",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 834,
+        "surfaceWords": 938,
         "canonicalArticleKey": "philosopher:pythagoras",
         "canonicalArticleId": "pythagoras",
-        "canonicalArticleWordCount": 1956,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2101,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "philolaus",
@@ -2575,11 +2575,11 @@
         "hallId": "mediterranean-beginnings-classical",
         "visitorEntryPoint": "#/museum/mediterranean-beginnings-classical/exhibits/philolaus",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 826,
+        "surfaceWords": 926,
         "canonicalArticleKey": "philosopher:philolaus",
         "canonicalArticleId": "philolaus",
-        "canonicalArticleWordCount": 1905,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2070,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "parmenides",
@@ -2587,11 +2587,11 @@
         "hallId": "mediterranean-beginnings-classical",
         "visitorEntryPoint": "#/museum/mediterranean-beginnings-classical/exhibits/parmenides",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 839,
+        "surfaceWords": 1104,
         "canonicalArticleKey": "philosopher:parmenides",
         "canonicalArticleId": "parmenides",
-        "canonicalArticleWordCount": 1979,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2277,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "zeno-elea",
@@ -2599,11 +2599,11 @@
         "hallId": "mediterranean-beginnings-classical",
         "visitorEntryPoint": "#/museum/mediterranean-beginnings-classical/exhibits/zeno-elea",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 847,
+        "surfaceWords": 1114,
         "canonicalArticleKey": "philosopher:zeno-elea",
         "canonicalArticleId": "zeno-elea",
-        "canonicalArticleWordCount": 1976,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2257,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "leucippus",
@@ -2611,11 +2611,11 @@
         "hallId": "mediterranean-beginnings-classical",
         "visitorEntryPoint": "#/museum/mediterranean-beginnings-classical/exhibits/leucippus",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 224,
+        "surfaceWords": 533,
         "canonicalArticleKey": "philosopher:leucippus",
         "canonicalArticleId": "leucippus",
-        "canonicalArticleWordCount": 1813,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2068,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "democritus",
@@ -2623,11 +2623,11 @@
         "hallId": "mediterranean-beginnings-classical",
         "visitorEntryPoint": "#/museum/mediterranean-beginnings-classical/exhibits/democritus",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 817,
+        "surfaceWords": 993,
         "canonicalArticleKey": "philosopher:democritus",
         "canonicalArticleId": "democritus",
-        "canonicalArticleWordCount": 1805,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2203,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "heraclitus",
@@ -2671,11 +2671,11 @@
         "hallId": "mediterranean-beginnings-classical",
         "visitorEntryPoint": "#/museum/mediterranean-beginnings-classical/exhibits/protagoras",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 811,
+        "surfaceWords": 1035,
         "canonicalArticleKey": "philosopher:protagoras",
         "canonicalArticleId": "protagoras",
-        "canonicalArticleWordCount": 1800,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2051,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "prodicus",
@@ -2683,11 +2683,11 @@
         "hallId": "mediterranean-beginnings-classical",
         "visitorEntryPoint": "#/museum/mediterranean-beginnings-classical/exhibits/prodicus",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 970,
+        "surfaceWords": 1007,
         "canonicalArticleKey": "philosopher:prodicus",
         "canonicalArticleId": "prodicus",
-        "canonicalArticleWordCount": 1988,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2050,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "hippias-of-elis",
@@ -2707,11 +2707,11 @@
         "hallId": "mediterranean-beginnings-classical",
         "visitorEntryPoint": "#/museum/mediterranean-beginnings-classical/exhibits/gorgias",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 840,
+        "surfaceWords": 971,
         "canonicalArticleKey": "philosopher:gorgias",
         "canonicalArticleId": "gorgias",
-        "canonicalArticleWordCount": 1807,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2058,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "socrates",
@@ -4447,7 +4447,7 @@
         "hallId": "german-idealism-afterlives",
         "visitorEntryPoint": "#/museum/german-idealism-afterlives/exhibits/kantianism",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 653,
+        "surfaceWords": 411,
         "canonicalArticleKey": "philosophy:kantianism",
         "canonicalArticleId": "kantianism",
         "canonicalArticleWordCount": 5373,
@@ -4495,7 +4495,7 @@
         "hallId": "utility-liberty-history-capital",
         "visitorEntryPoint": "#/museum/utility-liberty-history-capital/exhibits/marxism",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 667,
+        "surfaceWords": 398,
         "canonicalArticleKey": "philosophy:marxism",
         "canonicalArticleId": "marxism",
         "canonicalArticleWordCount": 5144,

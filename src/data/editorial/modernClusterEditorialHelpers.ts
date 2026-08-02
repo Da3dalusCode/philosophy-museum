@@ -1,4 +1,5 @@
 import type {
+  ArticleSection,
   CitationReference,
   EditorialSource,
   Philosopher,
@@ -16,6 +17,7 @@ export type ModernClusterEvidence = {
 
 export type ModernClusterEditorialConfig = {
   sources: EditorialSource[];
+  articleSections?: ArticleSection[];
   sectionCitations: Record<string, CitationReference[]>;
   evidence: ModernClusterEvidence;
   patch: Omit<Partial<Philosopher>, 'id' | 'articleSections' | 'editorial'>;
@@ -77,7 +79,7 @@ export const applyModernClusterEditorialConfig = (
   }
 
   const patched: Philosopher = {...record, ...config.patch, sourceLinks: []};
-  const articleSections = (patched.articleSections ?? []).map((section) => {
+  const articleSections = (config.articleSections ?? patched.articleSections ?? []).map((section) => {
     const citations = config.sectionCitations[section.id];
     if (!citations?.length) {
       throw new Error(`${record.id}/${section.id}: modern-cluster section lacks reviewed evidence.`);
