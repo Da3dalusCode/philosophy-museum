@@ -600,15 +600,15 @@
       "title": "Siddhartha Gautama / the Buddha",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/buddha",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
+      "authoredStatus": "bibliography-only",
+      "effectiveStatus": "bibliography-only",
       "sourceCount": 0,
       "citedSourceCount": 0,
       "furtherReadingSourceCount": 0,
       "structuredClaimCount": 0,
       "structuredParagraphCount": 0,
       "citationCount": 0,
-      "substantiveArticleWordCount": 1846
+      "substantiveArticleWordCount": 4502
     },
     {
       "id": "nagarjuna",
@@ -2761,7 +2761,7 @@
       "structuredClaimCount": 0,
       "structuredParagraphCount": 0,
       "citationCount": 0,
-      "substantiveArticleWordCount": 1800
+      "substantiveArticleWordCount": 5502
     },
     {
       "id": "buddhist-epistemology",
@@ -4292,17 +4292,171 @@
     },
     {
       "recordKey": "philosopher:buddha",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "historical-context/paragraph-1",
-      "excerpt": "The Buddha lived in northern India sometime around the middle of the first millennium BCE, in a world of expanding kingdoms, urbanization, trade, and debate among Brahmanical ritual specialists and non-Brahmanical renunc"
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "encountering-the-buddha/paragraph-1",
+      "excerpt": "Siddhartha Gautama, conventionally called the Buddha or “awakened one,” is among history’s most consequential teachers and one of its most difficult to reconstruct. Communities across Asia remember him as the human teach"
     },
     {
       "recordKey": "philosopher:buddha",
-      "status": "unreviewed",
+      "status": "bibliography-only",
+      "signal": "exact-date",
+      "location": "chronology-and-setting/paragraph-1",
+      "excerpt": "Older handbooks often gave the Buddha exact dates such as 563–483 BCE. Current scholarship is more cautious, commonly locating his activity around the fifth century BCE while disagreeing about narrower chronologies. The"
+    },
+    {
+      "recordKey": "philosopher:buddha",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "chronology-and-setting/paragraph-2",
+      "excerpt": "The setting was marked by growing towns, competing kingdoms and republic-like clans, trade networks, sacrificial and household traditions, wandering renunciants, and debate over action, rebirth, discipline, knowledge, an"
+    },
+    {
+      "recordKey": "philosopher:buddha",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "sources-and-method/paragraph-1",
+      "excerpt": "The principal evidence lies in discourse and disciplinary collections preserved in Pali and in parallels translated into Chinese, Sanskrit, Tibetan, and other languages. Comparison across recensions can reveal recurring"
+    },
+    {
+      "recordKey": "philosopher:buddha",
+      "status": "bibliography-only",
       "signal": "priority-or-superlative",
-      "location": "community-and-social-order/paragraph-1",
-      "excerpt": "The Buddha founded a sangha, a community of monks and nuns, alongside lay followers who supported and learned from the renunciant community. The institutional details developed over time, but the idea is philosophically"
+      "location": "noble-search/paragraph-2",
+      "excerpt": "Accounts then describe severe ascetic experimentation. The Buddha-to-be restricts food and breath and tests the body nearly to death before judging self-mortification ineffective. The lesson is not bland moderation betwe"
+    },
+    {
+      "recordKey": "philosopher:buddha",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "awakening-community-death/paragraph-2",
+      "excerpt": "After hesitation about whether such a subtle teaching could be understood, the Buddha is represented as teaching out of concern for beings. The community that forms includes renunciant men and women and networks of lay s"
+    },
+    {
+      "recordKey": "philosopher:buddha",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "middle-way/paragraph-1",
+      "excerpt": "The first-sermon tradition presents a Middle Way that avoids sensual indulgence and self-mortification and identifies it with the noble eightfold path. “Middle” here is not automatically compromise, political centrism, o"
+    },
+    {
+      "recordKey": "philosopher:buddha",
+      "status": "bibliography-only",
+      "signal": "priority-or-superlative",
+      "location": "middle-way/paragraph-1",
+      "excerpt": "The first-sermon tradition presents a Middle Way that avoids sensual indulgence and self-mortification and identifies it with the noble eightfold path. “Middle” here is not automatically compromise, political centrism, o"
+    },
+    {
+      "recordKey": "philosopher:buddha",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "middle-way/paragraph-2",
+      "excerpt": "Translations of “right” can sound like conformity to a list of correct opinions. The underlying sense also concerns skillful orientation, integration, and fitness for the path. Right view begins with confidence that acti"
+    },
+    {
+      "recordKey": "philosopher:buddha",
+      "status": "bibliography-only",
+      "signal": "priority-or-superlative",
+      "location": "four-truths/paragraph-2",
+      "excerpt": "The sequence also prevents two opposite mistakes. If only the first truth is heard, Buddhism becomes pessimism. If only cessation is advertised, it becomes a promise without diagnosis. If craving is treated as a single h"
+    },
+    {
+      "recordKey": "philosopher:buddha",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "dukkha-craving-cessation/paragraph-1",
+      "excerpt": "Dukkha includes obvious pain, grief, illness, and loss, but its range is wider than the English word “suffering.” Pleasant experiences change; identities depend on conditions; even refined states cannot provide permanent"
+    },
+    {
+      "recordKey": "philosopher:buddha",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "dependent-arising/paragraph-1",
+      "excerpt": "Dependent arising states, in a compact formula, that when this is present that comes to be, and with the cessation of this that ceases. One prominent twelvefold sequence connects ignorance, formations, consciousness, nam"
+    },
+    {
+      "recordKey": "philosopher:buddha",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "dependent-arising/paragraph-2",
+      "excerpt": "Causal dependence also helps explain why the Buddha avoids both eternalism and annihilationism. A permanent self is unnecessary for continuity, yet actions are not disconnected events without consequences. Processes inhe"
+    },
+    {
+      "recordKey": "philosopher:buddha",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "impermanence-aggregates/paragraph-2",
+      "excerpt": "The five aggregates—form, feeling, perception, formations, and consciousness—offer one analysis of the person. They are not five substances hiding beneath appearances. They sort bodily and mental processes that become ob"
+    },
+    {
+      "recordKey": "philosopher:buddha",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "teaching-strategy/paragraph-2",
+      "excerpt": "Several questions are left undeclared, including whether the cosmos is eternal or finite and how to describe an awakened person after death. The silence is sometimes portrayed as hostility to metaphysics. The texts give"
+    },
+    {
+      "recordKey": "philosopher:buddha",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "what-is-early/paragraph-2",
+      "excerpt": "Many teachings popularly labeled “what the Buddha taught” belong to later developments or to retrospective synthesis. Explicit Madhyamaka accounts of emptiness and two truths, Yogācāra models such as store consciousness"
+    },
+    {
+      "recordKey": "philosopher:buddha",
+      "status": "bibliography-only",
+      "signal": "disputed-attribution",
+      "location": "what-is-early/paragraph-2",
+      "excerpt": "Many teachings popularly labeled “what the Buddha taught” belong to later developments or to retrospective synthesis. Explicit Madhyamaka accounts of emptiness and two truths, Yogācāra models such as store consciousness"
+    },
+    {
+      "recordKey": "philosopher:buddha",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "nirvana/paragraph-1",
+      "excerpt": "Nirvāṇa is the path’s orienting end and one of its most disputed concepts. The word evokes extinguishing, as when a fire goes out because fuel is no longer supplied. Early descriptions emphasize the ending of greed, hatr"
+    },
+    {
+      "recordKey": "philosopher:buddha",
+      "status": "bibliography-only",
+      "signal": "disputed-attribution",
+      "location": "nirvana/paragraph-1",
+      "excerpt": "Nirvāṇa is the path’s orienting end and one of its most disputed concepts. The word evokes extinguishing, as when a fire goes out because fuel is no longer supplied. Early descriptions emphasize the ending of greed, hatr"
+    },
+    {
+      "recordKey": "philosopher:buddha",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "nirvana/paragraph-2",
+      "excerpt": "That resistance has generated interpretations ranging from an unconditioned reality to a purely negative cessation. Translators and schools weigh different passages, and no beginner slogan resolves the disagreement. “Blo"
+    },
+    {
+      "recordKey": "philosopher:buddha",
+      "status": "bibliography-only",
+      "signal": "priority-or-superlative",
+      "location": "reason-authority/paragraph-2",
+      "excerpt": "Authority is also distributed. The Buddha is exemplary, yet the teaching and discipline are presented as guides after his death. Communities preserve texts, interpret rules, recognize attainment, and sometimes disagree."
+    },
+    {
+      "recordKey": "philosopher:buddha",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "modern-buddhas/paragraph-1",
+      "excerpt": "Colonial scholarship, Asian reform, missionary polemic, print culture, archaeology, nationalism, psychology, and global migration reshaped public images of the Buddha. He has been presented as rational philosopher, ethic"
+    },
+    {
+      "recordKey": "philosopher:buddha",
+      "status": "bibliography-only",
+      "signal": "priority-or-superlative",
+      "location": "modern-buddhas/paragraph-1",
+      "excerpt": "Colonial scholarship, Asian reform, missionary polemic, print culture, archaeology, nationalism, psychology, and global migration reshaped public images of the Buddha. He has been presented as rational philosopher, ethic"
+    },
+    {
+      "recordKey": "philosopher:buddha",
+      "status": "bibliography-only",
+      "signal": "priority-or-superlative",
+      "location": "legacy-reading/paragraph-2",
+      "excerpt": "Begin with short early discourses in a translation that explains textual parallels: the first-sermon tradition, the not-self discourse, the noble-search narrative, teachings on loving-kindness, and selections on dependen"
     },
     {
       "recordKey": "philosopher:vasubandhu",
@@ -9751,6 +9905,97 @@
       "excerpt": "Modern Buddhist philosophers also examine structural suffering, social identity, disability, gender, race, economics, and climate responsibility. These discussions show why personal cultivation cannot substitute automati"
     },
     {
+      "recordKey": "philosophy:buddhist-philosophy",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "canons-genres-classification/paragraph-1",
+      "excerpt": "Buddhist thought survives in multiple canons and languages rather than one universally shared Bible. The Pali canon is complete in one early Indian language; Chinese collections preserve translated discourses, disciplina"
+    },
+    {
+      "recordKey": "philosophy:buddhist-philosophy",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "canons-genres-classification/paragraph-2",
+      "excerpt": "Genre changes what a text is doing. Discourses stage instruction; monastic codes regulate communities through cases; Abhidharma works classify phenomena; philosophical treatises present objections and arguments; Mahāyāna"
+    },
+    {
+      "recordKey": "philosophy:buddhist-philosophy",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "abhidharma-analysis/paragraph-1",
+      "excerpt": "After the early community, Abhidharma traditions systematized teachings by listing and relating dharmas: factors, events, or phenomena considered in analysis. They distinguished physical and mental processes, wholesome a"
+    },
+    {
+      "recordKey": "philosophy:buddhist-philosophy",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "persons-continuity-time/paragraph-1",
+      "excerpt": "No-self does not end discussion of persons; it starts a difficult explanatory program. Memory, deliberation, promises, training, karmic consequence, and rebirth require continuity, while a permanent essence is rejected."
+    },
+    {
+      "recordKey": "philosophy:buddhist-philosophy",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "mahayana-bodhisattva/paragraph-1",
+      "excerpt": "Movements and texts later grouped as Mahāyāna emerged gradually within Indian Buddhist institutions rather than replacing an older “Hinayana” church in one event. New sūtras praise the bodhisattva path, expansive cosmolo"
+    },
+    {
+      "recordKey": "philosophy:buddhist-philosophy",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "yogacara-cognition/paragraph-2",
+      "excerpt": "The label “mind-only” invites the claim that Yogācāra is idealism and denies any external world. Some texts and arguments support robustly idealist readings; others can be read as bracketing inaccessible external objects"
+    },
+    {
+      "recordKey": "philosophy:buddhist-philosophy",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "theravada-worlds/paragraph-1",
+      "excerpt": "Theravāda traditions preserve the Pali canon and a vast commentarial, ritual, narrative, legal, and vernacular inheritance across Sri Lanka and Southeast Asia. They should not be equated without qualification with “origi"
+    },
+    {
+      "recordKey": "philosophy:buddhist-philosophy",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "theravada-worlds/paragraph-2",
+      "excerpt": "Colonial encounters, print, lay education, reform movements, nationalism, migration, and global insight meditation reshaped Theravāda presentations. Modern teachers sometimes foreground direct meditation and contrast it"
+    },
+    {
+      "recordKey": "philosophy:buddhist-philosophy",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "chan-pure-land/paragraph-1",
+      "excerpt": "Chan traditions emphasize lineage, meditation, embodied conduct, and direct realization, but the stereotype of wordless spontaneity hides extensive textual and institutional production. Encounter dialogues, kōan collecti"
+    },
+    {
+      "recordKey": "philosophy:buddhist-philosophy",
+      "status": "bibliography-only",
+      "signal": "broad-classification",
+      "location": "korea-japan-regional/paragraph-2",
+      "excerpt": "Japanese Buddhism includes Tendai and Shingon formations, multiple Zen lineages, Pure Land traditions, Nichiren movements, and many later philosophical reconstructions. Dōgen’s writings on practice, time, language, and B"
+    },
+    {
+      "recordKey": "philosophy:buddhist-philosophy",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "ethical-theories/paragraph-2",
+      "excerpt": "Difficult cases reveal internal plurality. Stories of compassionate deception or violence raise disputes about skillful means and whether an advanced bodhisattva may accept karmic cost to prevent greater harm. Monastic r"
+    },
+    {
+      "recordKey": "philosophy:buddhist-philosophy",
+      "status": "bibliography-only",
+      "signal": "quotation",
+      "location": "modernism-globalization/paragraph-1",
+      "excerpt": "Modern presentations emerged from encounters among Asian reformers, colonial administrators, missionaries, scholars, nationalists, occultists, scientists, and converts. Buddhism was often reframed as rational, experienti"
+    },
+    {
+      "recordKey": "philosophy:buddhist-philosophy",
+      "status": "bibliography-only",
+      "signal": "priority-or-superlative",
+      "location": "contemporary-questions/paragraph-1",
+      "excerpt": "Buddhist accounts of attention, self-construction, emotion, and consciousness now enter dialogue with philosophy of mind, neuroscience, phenomenology, and cognitive science. Contemplative training may offer disciplined f"
+    },
+    {
       "recordKey": "philosophy:buddhist-epistemology",
       "status": "bibliography-only",
       "signal": "quotation",
@@ -10280,8 +10525,8 @@
   "groupSummary": {
     "philosophers": {
       "total": 146,
-      "unreviewed": 84,
-      "bibliography-only": 60,
+      "unreviewed": 83,
+      "bibliography-only": 61,
       "source-mapped": 0,
       "claim-reviewed": 2,
       "review-out-of-date": 0

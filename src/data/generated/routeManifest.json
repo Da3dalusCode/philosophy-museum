@@ -1864,6 +1864,78 @@
         {
           "id": "relevance-reading",
           "title": "Modern applications and a staged reading path"
+        },
+        {
+          "id": "canons-genres-classification",
+          "title": "Canons, genres, and the danger of one master system"
+        },
+        {
+          "id": "abhidharma-analysis",
+          "title": "Abhidharma: analysis becomes a field of debate"
+        },
+        {
+          "id": "persons-continuity-time",
+          "title": "Persons, continuity, momentariness, and time"
+        },
+        {
+          "id": "mahayana-bodhisattva",
+          "title": "Mahāyāna and the bodhisattva reorientation"
+        },
+        {
+          "id": "madhyamaka-two-truths",
+          "title": "Madhyamaka, emptiness, and two truths"
+        },
+        {
+          "id": "yogacara-cognition",
+          "title": "Yogācāra: cognition, construction, and disputed idealism"
+        },
+        {
+          "id": "pramana-language",
+          "title": "Perception, inference, proof, and language"
+        },
+        {
+          "id": "theravada-worlds",
+          "title": "Theravāda texts, commentary, and reform"
+        },
+        {
+          "id": "china-tiantai-huayan",
+          "title": "Translation in China: Tiantai and Huayan reconstructions"
+        },
+        {
+          "id": "chan-pure-land",
+          "title": "Chan, Zen, and Pure Land: practice is not the absence of thought"
+        },
+        {
+          "id": "korea-japan-regional",
+          "title": "Korean and Japanese philosophical developments"
+        },
+        {
+          "id": "tibetan-scholastic-tantric",
+          "title": "Tibetan scholastic and tantric transformations"
+        },
+        {
+          "id": "buddha-nature",
+          "title": "Buddha-nature and the risk of a hidden self"
+        },
+        {
+          "id": "ethical-theories",
+          "title": "Ethical reasoning beyond one imported theory"
+        },
+        {
+          "id": "interreligious-debate",
+          "title": "Debate with Jain, Brahmanical, Confucian, and Daoist traditions"
+        },
+        {
+          "id": "modernism-globalization",
+          "title": "Colonialism, Buddhist modernism, and globalization"
+        },
+        {
+          "id": "contemporary-questions",
+          "title": "Contemporary philosophy, science, and engaged practice"
+        },
+        {
+          "id": "study-method",
+          "title": "How to study a tradition that keeps branching"
         }
       ],
       "hasSources": true
@@ -4458,55 +4530,95 @@
       "name": "Siddhartha Gautama / the Buddha",
       "sections": [
         {
-          "id": "overview",
-          "title": "A path for ending suffering through understanding"
+          "id": "encountering-the-buddha",
+          "title": "Encountering a teacher through layered traditions"
         },
         {
-          "id": "historical-context",
-          "title": "North Indian religious ferment and the sramana world"
+          "id": "chronology-and-setting",
+          "title": "Disputed dates and a changing north Indian world"
         },
         {
-          "id": "life-story-and-caution",
-          "title": "Life story, awakening, and caution about legend"
+          "id": "sources-and-method",
+          "title": "What the early sources can—and cannot—tell us"
         },
         {
-          "id": "sources-and-canons",
-          "title": "Discourses, monastic memory, and textual plurality"
+          "id": "noble-search",
+          "title": "Renunciation and the noble search"
         },
         {
-          "id": "four-noble-truths",
-          "title": "The four noble truths as diagnosis and therapy"
+          "id": "awakening-community-death",
+          "title": "Awakening, teaching, community, and death"
         },
         {
-          "id": "dependent-origination",
-          "title": "Dependent origination and conditioned life"
+          "id": "middle-way",
+          "title": "The Middle Way as a program of training"
+        },
+        {
+          "id": "four-truths",
+          "title": "The four truths as interlocking tasks"
+        },
+        {
+          "id": "dukkha-craving-cessation",
+          "title": "Dukkha, craving, and cessation"
+        },
+        {
+          "id": "dependent-arising",
+          "title": "Dependent arising: suffering has conditions"
+        },
+        {
+          "id": "impermanence-aggregates",
+          "title": "Impermanence and the five aggregates"
         },
         {
           "id": "not-self",
-          "title": "Not-self and the analysis of personhood"
+          "title": "Not-self without erasing persons"
         },
         {
-          "id": "ethics-meditation-wisdom",
-          "title": "Ethics, meditation, and wisdom as one path"
+          "id": "karma-rebirth",
+          "title": "Karma and rebirth without a permanent soul"
         },
         {
-          "id": "community-and-social-order",
-          "title": "Sangha, caste critique, and practical institutions"
+          "id": "ethics-community",
+          "title": "Ethics, intention, compassion, and social life"
         },
         {
-          "id": "unanswered-questions",
-          "title": "Silence, speculation, and the poisoned arrow"
+          "id": "meditation-inquiry",
+          "title": "Meditation, attention, and disciplined inquiry"
         },
         {
-          "id": "later-influence",
-          "title": "From early Buddhism to vast philosophical traditions"
+          "id": "teaching-strategy",
+          "title": "Similes, silence, and practical teaching"
         },
         {
-          "id": "misunderstandings-reading",
-          "title": "Misunderstandings and a reading strategy"
+          "id": "what-is-early",
+          "title": "What can responsibly be attributed to the early teaching"
+        },
+        {
+          "id": "nirvana",
+          "title": "Nirvāṇa and the limits of description"
+        },
+        {
+          "id": "reason-authority",
+          "title": "Reason, testimony, and authority"
+        },
+        {
+          "id": "comparative-guardrails",
+          "title": "Comparison without turning difference into sameness"
+        },
+        {
+          "id": "modern-buddhas",
+          "title": "Modern reconstructions of the Buddha"
+        },
+        {
+          "id": "discipline-gender-power",
+          "title": "Discipline, gender, patronage, and power"
+        },
+        {
+          "id": "legacy-reading",
+          "title": "A branching legacy and a responsible reading path"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "nagarjuna",

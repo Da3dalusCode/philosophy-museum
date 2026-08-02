@@ -17,15 +17,15 @@
     {
       "label": "Philosophers",
       "total": 146,
-      "pass": 54,
-      "fail": 92,
+      "pass": 55,
+      "fail": 91,
       "missing": 0
     },
     {
       "label": "Philosophies, branches, schools, traditions, movements, methods, and frameworks",
       "total": 43,
-      "pass": 34,
-      "fail": 9,
+      "pass": 35,
+      "fail": 8,
       "missing": 0
     },
     {
@@ -38,8 +38,8 @@
   ],
   "universalSummary": {
     "total": 189,
-    "pass": 88,
-    "fail": 101,
+    "pass": 90,
+    "fail": 99,
     "missing": 0
   },
   "pilotChanges": [
@@ -549,8 +549,8 @@
       "title": "Siddhartha Gautama / the Buddha",
       "visitorEntryPoint": "#/philosophers/buddha",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1846,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 4502,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -2265,8 +2265,8 @@
       "title": "Buddhist Philosophy",
       "visitorEntryPoint": "#/branches/buddhist-philosophy",
       "contentCategory": "philosophy",
-      "substantiveWordCount": 1800,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 5502,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -3334,8 +3334,8 @@
         "surfaceWords": 382,
         "canonicalArticleKey": "philosophy:buddhist-philosophy",
         "canonicalArticleId": "buddhist-philosophy",
-        "canonicalArticleWordCount": 1800,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 5502,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "buddha",
@@ -3343,11 +3343,11 @@
         "hallId": "buddhist-philosophies",
         "visitorEntryPoint": "#/museum/buddhist-philosophies/exhibits/buddha",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 858,
+        "surfaceWords": 1121,
         "canonicalArticleKey": "philosopher:buddha",
         "canonicalArticleId": "buddha",
-        "canonicalArticleWordCount": 1846,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 4502,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "nagarjuna",
@@ -6358,8 +6358,8 @@
         "canonicalArticleKey": "philosopher:buddha",
         "canonicalArticleId": "buddha",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1846,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 4502,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "nagarjuna-prajnaparamita-witness",
@@ -6438,8 +6438,8 @@
         "canonicalArticleKey": "philosophy:buddhist-philosophy",
         "canonicalArticleId": "buddhist-philosophy",
         "canonicalArticleCategory": "philosophy",
-        "canonicalArticleWordCount": 1800,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 5502,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "buddhist-tibetan-pecha",
@@ -6454,8 +6454,8 @@
         "canonicalArticleKey": "philosophy:buddhist-philosophy",
         "canonicalArticleId": "buddhist-philosophy",
         "canonicalArticleCategory": "philosophy",
-        "canonicalArticleWordCount": 1800,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 5502,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "buddhist-diamond-sutra",
@@ -6470,8 +6470,8 @@
         "canonicalArticleKey": "philosophy:buddhist-philosophy",
         "canonicalArticleId": "buddhist-philosophy",
         "canonicalArticleCategory": "philosophy",
-        "canonicalArticleWordCount": 1800,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 5502,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "buddhist-first-sermon-four-truths",
@@ -6486,8 +6486,8 @@
         "canonicalArticleKey": "philosopher:buddha",
         "canonicalArticleId": "buddha",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1846,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 4502,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "ashoka-dhamma-public-ethics",
@@ -6502,8 +6502,8 @@
         "canonicalArticleKey": "philosophy:buddhist-philosophy",
         "canonicalArticleId": "buddhist-philosophy",
         "canonicalArticleCategory": "philosophy",
-        "canonicalArticleWordCount": 1800,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 5502,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "early-buddhist-stupa-community",
@@ -6518,8 +6518,8 @@
         "canonicalArticleKey": "philosophy:buddhist-philosophy",
         "canonicalArticleId": "buddhist-philosophy",
         "canonicalArticleCategory": "philosophy",
-        "canonicalArticleWordCount": 1800,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 5502,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "nagarjuna-root-verses-middle-way",
@@ -6678,8 +6678,8 @@
         "canonicalArticleKey": "philosophy:buddhist-philosophy",
         "canonicalArticleId": "buddhist-philosophy",
         "canonicalArticleCategory": "philosophy",
-        "canonicalArticleWordCount": 1800,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 5502,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "tripitaka-koreana-printing-canon",
@@ -6694,8 +6694,8 @@
         "canonicalArticleKey": "philosophy:buddhist-philosophy",
         "canonicalArticleId": "buddhist-philosophy",
         "canonicalArticleCategory": "philosophy",
-        "canonicalArticleWordCount": 1800,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 5502,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "pali-kammavaca-southeast-asia",
@@ -6710,8 +6710,8 @@
         "canonicalArticleKey": "philosophy:buddhist-philosophy",
         "canonicalArticleId": "buddhist-philosophy",
         "canonicalArticleCategory": "philosophy",
-        "canonicalArticleWordCount": 1800,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 5502,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "china-warring-states-courts",
@@ -7318,8 +7318,8 @@
         "canonicalArticleKey": "philosophy:buddhist-philosophy",
         "canonicalArticleId": "buddhist-philosophy",
         "canonicalArticleCategory": "philosophy",
-        "canonicalArticleWordCount": 1800,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 5502,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "eac-daoist-institutions",
@@ -7350,8 +7350,8 @@
         "canonicalArticleKey": "philosophy:buddhist-philosophy",
         "canonicalArticleId": "buddhist-philosophy",
         "canonicalArticleCategory": "philosophy",
-        "canonicalArticleWordCount": 1800,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 5502,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "eac-huineng-zen-reception",
@@ -7366,8 +7366,8 @@
         "canonicalArticleKey": "philosophy:buddhist-philosophy",
         "canonicalArticleId": "buddhist-philosophy",
         "canonicalArticleCategory": "philosophy",
-        "canonicalArticleWordCount": 1800,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 5502,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "eac-three-teachings",

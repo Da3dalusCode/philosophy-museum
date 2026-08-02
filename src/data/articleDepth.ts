@@ -7,6 +7,7 @@ import {chineseContinuationPhilosopherArticles} from './chineseContinuationArtic
 import {chineseConfucianBranchArticles} from './chineseConfucianBranchDepth';
 import {continentalPhilosophyBranchArticles} from './continentalPhilosophyBranchDepth';
 import {crossCulturalCorePhilosopherArticles} from './crossCulturalCoreArticles';
+import {buddhaFlagshipArticle} from './buddhaFlagshipArticle';
 import {daoMohistLegalistBranchArticles} from './daoMohistLegalistBranchDepth';
 import {earlyModernCorePhilosopherArticles} from './earlyModernCoreArticles';
 import {descartesFlagshipArticle} from './descartesFlagshipArticle';
@@ -34,6 +35,7 @@ import {hellenisticBranchArticles,hellenisticPhilosopherArticles} from './hellen
 import {indianBuddhistContinuationPhilosopherArticles} from './indianBuddhistContinuationArticles';
 import {buddhistEpistemologyBranchArticles} from './buddhistEpistemologyBranchDepth';
 import {buddhistPhilosophyBranchArticles} from './buddhistPhilosophyBranchDepth';
+import {buddhistPhilosophyFlagshipSupplement} from './buddhistPhilosophyFlagshipArticle';
 import {indianJainVedantaBranchArticles} from './indianJainVedantaBranchDepth';
 import {lateAntiqueBridgePhilosopherArticles} from './lateAntiqueBridgeArticles';
 import {lateAntiqueInheritanceBranchArticles,lateAntiqueInheritancePhilosopherArticles} from './lateAntiqueInheritanceArticles';
@@ -71,6 +73,7 @@ export const philosopherArticles:Record<string,ArticleSection[]>={
   ...ancientGreekPhilosopherArticles,
   ...chineseContinuationPhilosopherArticles,
   ...crossCulturalCorePhilosopherArticles,
+  buddha:buddhaFlagshipArticle,
   ...earlyModernCorePhilosopherArticles,
   descartes:descartesFlagshipArticle,
   hume:humeFlagshipArticle,
@@ -579,5 +582,6 @@ export const branchArticles:Record<string,ArticleSection[]>={
       'For modern questions, choose the Platonism that matches the problem. A reader interested in universals should compare realist and nominalist accounts of properties. A reader interested in mathematics should study the epistemological problem of knowledge of abstract objects. A reader interested in ethics should compare moral realism with constructivist and naturalist alternatives. Throughout, avoid treating historical influence as identity: a contemporary mathematical Platonist need not accept Plato’s politics, and a Christian Platonist does not simply reproduce Plotinus. The tradition is best understood by following how one explanatory pressure generates different systems.'
     ],['platonism','neoplatonism','metaphysics'],['plato','plotinus','augustine'],['Apology','Republic','Parmenides','Enneads','Confessions'])
   ],
-  ...editorialDepthBatch01BranchArticles
+  ...editorialDepthBatch01BranchArticles,
+  'buddhist-philosophy':[...buddhistPhilosophyBranchArticles['buddhist-philosophy'],...buddhistPhilosophyFlagshipSupplement]
 };

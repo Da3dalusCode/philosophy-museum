@@ -14,11 +14,11 @@ The hard floor is **2,000 substantive article-prose words**. The counter tokeniz
 
 | Category | Total | Pass | Fail | Missing article |
 | --- | ---: | ---: | ---: | ---: |
-| Philosophers | 146 | 54 | 92 | 0 |
-| Philosophies, branches, schools, traditions, movements, methods, and frameworks | 43 | 34 | 9 | 0 |
+| Philosophers | 146 | 55 | 91 | 0 |
+| Philosophies, branches, schools, traditions, movements, methods, and frameworks | 43 | 35 | 8 | 0 |
 | Standalone works, texts, arguments, concepts, and article-backed exhibits | 0 | 0 | 0 | 0 |
 
-Universal total: **189** applicable articles; **88 pass**; **101 fail**; **0 are missing article prose**.
+Universal total: **189** applicable articles; **90 pass**; **99 fail**; **0 are missing article prose**.
 
 Current failures are migration backlog, not approved exceptions. The strict audit is intentionally separate from the ordinary build until that backlog reaches zero.
 
@@ -59,7 +59,6 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | zhuangzi | Zhuangzi | philosopher | 1855 | fail |
 | mencius | Mencius | philosopher | 1902 | fail |
 | xunzi | Xunzi | philosopher | 1822 | fail |
-| buddha | Siddhartha Gautama / the Buddha | philosopher | 1846 | fail |
 | vasubandhu | Vasubandhu | philosopher | 1911 | fail |
 | shankara | Adi Shankara | philosopher | 1993 | fail |
 | ramanuja | Ramanuja | philosopher | 1877 | fail |
@@ -134,7 +133,6 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | philosophy-of-science | Philosophy of Science | philosophy | 1962 | fail |
 | jainism | Jainism | philosophy | 1961 | fail |
 | vedanta | Vedanta | philosophy | 1980 | fail |
-| buddhist-philosophy | Buddhist Philosophy | philosophy | 1800 | fail |
 | buddhist-epistemology | Buddhist Epistemology | philosophy | 1804 | fail |
 | islamic-philosophy | Islamic Philosophy | philosophy | 1834 | fail |
 
@@ -195,7 +193,7 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | philosopher | zhuangzi | Zhuangzi | #/philosophers/zhuangzi | 1855 | fail | yes | yes (1 primary; 2 supplemental) |
 | philosopher | mencius | Mencius | #/philosophers/mencius | 1902 | fail | yes | yes (1 primary; 1 supplemental) |
 | philosopher | xunzi | Xunzi | #/philosophers/xunzi | 1822 | fail | yes | yes (1 primary; 0 supplemental) |
-| philosopher | buddha | Siddhartha Gautama / the Buddha | #/philosophers/buddha | 1846 | fail | yes | yes (1 primary; 2 supplemental) |
+| philosopher | buddha | Siddhartha Gautama / the Buddha | #/philosophers/buddha | 4502 | pass | yes | yes (1 primary; 2 supplemental) |
 | philosopher | nagarjuna | Nāgārjuna | #/philosophers/nagarjuna | 3007 | pass | yes | yes (1 primary; 5 supplemental) |
 | philosopher | vasubandhu | Vasubandhu | #/philosophers/vasubandhu | 1911 | fail | yes | yes (1 primary; 5 supplemental) |
 | philosopher | shankara | Adi Shankara | #/philosophers/shankara | 1993 | fail | yes | yes (1 primary; 1 supplemental) |
@@ -338,7 +336,7 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | philosophy | indian-philosophy | Indian Philosophy | #/branches/indian-philosophy | 2077 | pass | yes | yes (1 primary; 5 supplemental) |
 | philosophy | jainism | Jainism | #/branches/jainism | 1961 | fail | yes | yes (1 primary; 3 supplemental) |
 | philosophy | vedanta | Vedanta | #/branches/vedanta | 1980 | fail | yes | yes (1 primary; 0 supplemental) |
-| philosophy | buddhist-philosophy | Buddhist Philosophy | #/branches/buddhist-philosophy | 1800 | fail | yes | yes (1 primary; 11 supplemental) |
+| philosophy | buddhist-philosophy | Buddhist Philosophy | #/branches/buddhist-philosophy | 5502 | pass | yes | yes (1 primary; 11 supplemental) |
 | philosophy | buddhist-epistemology | Buddhist Epistemology | #/branches/buddhist-epistemology | 1804 | fail | yes | yes (1 primary; 1 supplemental) |
 | philosophy | islamic-philosophy | Islamic Philosophy | #/branches/islamic-philosophy | 1834 | fail | yes | yes (1 primary; 5 supplemental) |
 | philosophy | medieval-scholasticism | Medieval Scholasticism | #/branches/medieval-scholasticism | 2081 | pass | yes | yes (1 primary; 5 supplemental) |
