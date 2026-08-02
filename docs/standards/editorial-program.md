@@ -29,9 +29,13 @@ Before creating a canonical philosopher or branch record, inspect its Museum rep
 
 Canonical articles and primary Museum interpretations are distinct editorial surfaces. The article is the comprehensive sourced reference; a primary Museum exhibit requires bespoke, concise, object-aware interpretation for spatial exploration. Do not mechanically dump article metadata, section prose, bibliographies, key-idea catalogs, or complete dispute inventories into a Museum modal.
 
+Use the canonical subject name as the default prominent title. A thematic subtitle should be rare, genuinely useful, and visually subordinate. Do not stack an eyebrow, canonical title, thematic subtitle, giant question, and multiple section headings into competing title layers. Explain the subject directly before foregrounding a curatorial hook or representative object.
+
+Paragraph-based interpretation without visible section headings is valid and preferred when headings would fragment the reading experience. Three conceptual movements do not require three visible subtitles.
+
 After a canonical page completes claim review, reconcile its primary Museum exhibit before deployment. The review record must state whether the Museum interpretation was inside the formal review boundary or was reconciled separately; never imply that an article lock covers separate Museum copy when it does not.
 
-As normal guidance rather than inflexible counters, aim for a 35–70-word wall plaque, a 45–90-word object identification and caption, a 250–400-word main interpretation divided into three short visitor-facing sections, and no more than five or six compact orientation items. Subject, object, layout, and accessibility may justify proportionate variation.
+As normal guidance rather than inflexible counters, aim for a 25–45-word direct wall-plaque invitation beneath the canonical title, a 45–90-word object identification and caption, a 250–400-word main interpretation arranged in three or four coherent paragraphs or genuinely useful sections, and no more than five or six compact orientation items. Subject, object, layout, and accessibility may justify proportionate variation.
 
 ## Credibility states
 

@@ -873,7 +873,7 @@ export const MUSEUM_CANONICAL_PROGRAM = [
         exhibit({id: 'hegel', entityKind: 'philosopher', entityId: 'hegel', displayName: 'G. W. F. Hegel: Recognition, History, and Social Freedom', tier: 'anchor-exhibit', question: 'How can freedom become actual through conflict, recognition, institutions, and the historical revision of inadequate forms of life?', secondaryHallIds: ['critique-power-deconstruction'], principalAssetId: 'german-idealism-hegel-schlesinger-1831'}),
       ]},
       {id: 'german-idealism-afterlives-room', title: 'Divergent receptions and later arguments', recordCapacity: 2, exhibits: [
-        exhibit({id: 'kantianism', entityKind: 'branch', entityId: 'kantianism', displayName: 'Kantianism: A Critical Inheritance in Motion', tier: 'anchor-exhibit', question: 'How did Kant’s project of testing reason become competing accounts of knowledge, freedom, science, morality, and public life—and why does criticism keep that inheritance alive?', secondaryHallIds: ['enlightenment-revolution-kant', 'core-questions-forum'], principalAssetId: 'german-idealism-reinhold-rijksmuseum-1795'}),
+        exhibit({id: 'kantianism', entityKind: 'branch', entityId: 'kantianism', displayName: 'Kantianism', tier: 'anchor-exhibit', question: 'Kantianism examines the powers and limits of human reason, the conditions of knowledge, the basis of moral freedom, and the demands of judgment. Enter to see how those questions became a diverse philosophical tradition.', secondaryHallIds: ['enlightenment-revolution-kant', 'core-questions-forum'], principalAssetId: 'german-idealism-reinhold-rijksmuseum-1795'}),
       ]},
     ],
   },
@@ -895,7 +895,7 @@ export const MUSEUM_CANONICAL_PROGRAM = [
         exhibit({id: 'marx', entityKind: 'philosopher', entityId: 'marx', displayName: 'Karl Marx: Labor, Capital, and Historical Transformation', tier: 'anchor-exhibit', question: 'How do social relations created through labor confront people as commodities, capital, class power, and an apparently independent historical system?', secondaryHallIds: ['critique-power-deconstruction', 'justice-democratic-reason'], formerHallId: 'modernity-freedom-critique', principalAssetId: 'utility-marx-1861-beard-portrait'}),
       ]},
       {id: 'nineteenth-social-transformations', title: 'Political economy and social transformations', recordCapacity: 1, exhibits: [
-        exhibit({id: 'marxism', entityKind: 'branch', entityId: 'marxism', displayName: 'Marxism: Theory Becomes Collective Power', tier: 'anchor-exhibit', question: 'What changed when Marx’s critique became parties, movements, and states—and how can collective power pursue emancipation without escaping judgment for the institutions it creates over time?', secondaryHallIds: ['critique-power-deconstruction', 'justice-democratic-reason', 'colonialism-race-liberation'], principalAssetId: 'utility-marxism-zurich-congress-1893'}),
+        exhibit({id: 'marxism', entityKind: 'branch', entityId: 'marxism', displayName: 'Marxism', tier: 'anchor-exhibit', question: 'Marxism analyzes capitalism through labor, class, exploitation, and historical change while asking how collective action might transform social life. Enter to explore why its theories, movements, and political forms remain deeply contested.', secondaryHallIds: ['critique-power-deconstruction', 'justice-democratic-reason', 'colonialism-race-liberation'], principalAssetId: 'utility-marxism-zurich-congress-1893'}),
       ]},
     ],
   },

@@ -240,14 +240,15 @@ export function CanonicalMuseumExhibits({definition, nearbyId, visibleExhibitIds
         : renaissanceCuration
           ? RENAISSANCE_ROOM_ACCENTS[Math.max(0, roomIndex) % RENAISSANCE_ROOM_ACCENTS.length]
         : ACCENTS[Math.max(0, roomIndex) % ACCENTS.length];
+      const concisePresentation = CONCISE_PRIMARY_INTERPRETATIONS[layout.id]?.presentation;
       const title = curation?.frontTitle ?? catalog.displayName;
-      const kicker = curation?.frontTitle
+      const kicker = concisePresentation?.plaqueKicker ?? (curation?.frontTitle
         ? `${catalog.displayName} · ${curation.publicKicker}`
         : curation?.publicKicker
         ?? renaissanceCuration?.publicKicker
         ?? (catalog.entityKind === 'philosopher'
           ? 'Philosopher · question and historical context'
-          : 'School and interpretive tradition');
+          : 'School and interpretive tradition'));
       const question = curation?.frontTitle ? curation.groupLabel : catalog.question;
       const activate = (event: ThreeEvent<MouseEvent>) => {
         event.stopPropagation();

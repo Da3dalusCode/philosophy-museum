@@ -13,26 +13,17 @@ const objectInterpretation = (assetId: string, text: string): Readonly<Record<st
 export const CONCISE_PRIMARY_INTERPRETATIONS:
 Readonly<Record<string, MuseumPrimaryInterpretationEnrichment>> = {
   kantianism: {
-    lead: 'Kantianism is not Kant repeated. It is the history of thinkers testing which parts of critique can survive new objections, sciences, institutions, and demands for freedom.',
+    lead: 'Kantianism is a family of philosophies that develops Immanuel Kant’s account of the powers and limits of reason. It asks how knowledge, moral freedom, judgment, and shared political life are possible.',
     keyIdeas: [],
     keyWorks: [],
     sections: [
       {
-        heading: 'When critique became a program',
+        heading: '',
         paragraphs: [
-          'Kant asked how knowledge, moral obligation, judgment, and freedom are possible without letting reason claim more than it can justify. His readers immediately disagreed about whether the critical system had secured those limits or left unstable divisions between sensibility and understanding, nature and freedom, appearances and things in themselves. Their debate moved critique from the interpretation of one author into rival efforts to explain how reason could be both limited and authoritative. Kantianism began in that argument. It became a family of programs, not a doctrine handed down intact.',
-        ],
-      },
-      {
-        heading: 'Why Reinhold stands here',
-        paragraphs: [
-          'Karl Leonhard Reinhold helped make Kant’s philosophy a public controversy through his influential Letters on the Kantian Philosophy, first published in 1786, and then sought a single foundation that Kant had not supplied in the same form. His portrait marks the moment when reception became reconstruction. Reinhold was an important mediator among Kant, early critics, and younger system-builders—not Kantianism’s founder, final authority, or only early voice. Maimon and other first readers opened different paths through the same unresolved problems.',
-        ],
-      },
-      {
-        heading: 'An inheritance kept alive by revision',
-        paragraphs: [
-          'Fichte, Schelling, and Hegel transformed the demand for systematic unity; Schopenhauer attacked the results; later neo-Kantians rebuilt critique around science, culture, and value. Twentieth- and twenty-first-century philosophers carried selected Kantian questions into phenomenology, analytic philosophy, critical theory, ethics, and democratic thought. The inheritance survives because it can be criticized and reconstructed. Live disputes concern whether transcendental idealism is essential, how concepts answer to experience, whether autonomy is socially enabled, and whether universal reason can confront racial, colonial, gendered, and ableist exclusions without losing its critical force.',
+          'Kantianism is the broad family of philosophies that begins from Immanuel Kant’s critical project. Kant argued that philosophy should examine what human reason can legitimately know, how experience becomes intelligible, and why reason must acknowledge limits when it moves beyond possible experience. He also treated persons as capable of moral self-government and asked how freedom, obligation, judgment, and public reasoning can be justified. Kantianism therefore names neither simple loyalty to Kant nor one fixed doctrine. It names continuing work on the questions and methods his philosophy made unavoidable.',
+          'Its central concerns connect knowledge and freedom. Kantian thinkers investigate how the mind contributes to experience without merely inventing the world, how objective judgment is possible, and how moral requirements can bind agents who are nevertheless free. They also ask how aesthetic and political judgment can claim shared validity without becoming mechanical rules. This critical method changed later debates because it made the authority of reason itself a subject of inquiry: reason must establish its powers while also testing the boundaries and social conditions of their use.',
+          'The tradition divided from its beginning. Reinhold, Maimon, Fichte, Schelling, and Hegel offered competing responses to perceived gaps in Kant’s system. Later neo-Kantians reconstructed critique around science, culture, and value, while phenomenology, analytic philosophy, critical theory, ethics, and democratic thought carried selected Kantian problems into new settings. Disputes continue over transcendental idealism, the relation between concepts and experience, whether autonomy depends on social institutions, and whether universal reason can confront racial, colonial, gendered, and ableist exclusions without repeating them.',
+          'The 1795 engraving of Karl Leonhard Reinhold belongs here because he helped turn the interpretation of Kant into an active philosophical movement. His Letters on the Kantian Philosophy brought the critical project to a wider public, and his search for a more unified foundation shows how quickly reception became revision. The portrait represents one influential mediator, not the founder or sole voice of Kantianism. It helps mark a tradition whose identity lies in argument about what critique requires and how it should change.',
         ],
       },
     ],
@@ -47,6 +38,8 @@ Readonly<Record<string, MuseumPrimaryInterpretationEnrichment>> = {
         {label: 'Status', value: 'A contested reception family, not one settled doctrine'},
       ],
       articleActionLabel: 'Read the full sourced Kantianism article',
+      bodyLayout: 'prose',
+      plaqueKicker: '',
       plaqueSubtitleLines: 3,
     },
     objectInterpretations: objectInterpretation(
@@ -60,26 +53,17 @@ Readonly<Record<string, MuseumPrimaryInterpretationEnrichment>> = {
     ],
   },
   marxism: {
-    lead: 'Marxism is not a synonym for Marx’s writings. It is the disputed history of attempts to turn a critique of capitalism into analysis, organization, collective action, and governing power.',
+    lead: 'Marxism is a family of intellectual and political traditions developed from Karl Marx’s critique of capitalism. It studies labor, class, exploitation, historical change, and the possibilities and risks of collective emancipation.',
     keyIdeas: [],
     keyWorks: [],
     sections: [
       {
-        heading: 'From a body of writing to competing traditions',
+        heading: '',
         paragraphs: [
-          'Marx left a changing and partly unfinished body of work, produced in sustained collaboration with Friedrich Engels. Marxism formed through editing, interpretation, labor organizing, socialist parties, and arguments about reform, revolution, class, empire, and historical change. Later thinkers did not simply apply a finished doctrine. They selected, systematized, rejected, and extended different parts of the inheritance as they confronted new institutions and political crises.',
-        ],
-      },
-      {
-        heading: 'Why a congress belongs in this exhibit',
-        paragraphs: [
-          'The Zürich photograph shows organizers and theorists gathered around the 1893 International Socialist Workers’ Congress. A political congress is an apt object because Marxism became unions, parties, councils, educational networks, social movements, and international organizations as well as books. Yet this image records one European socialist network on the day after the congress; it is not a complete delegate portrait, a picture of global Marxism, or proof that those present shared one strategy.',
-        ],
-      },
-      {
-        heading: 'Emancipation, organization, and the danger of rule',
-        paragraphs: [
-          'Marxists have asked how dispersed workers and oppressed groups can build collective power without letting party or state authority replace self-emancipation. Revolutionary governments pursued redistribution, industrialization, education, and anticolonial alliances while also creating one-party systems, censorship, imprisonment, mass repression, and catastrophic policies. Neither Soviet history nor abstract theory exhausts the tradition. Anticolonial Marxists revised European stage theories; Black Marxism challenged accounts that subordinated racial domination; feminist and social-reproduction traditions exposed unpaid care and gendered labor; later democratic, analytical, ecological, and critical reconstructions reopened questions of evidence, planning, pluralism, and freedom. The live dispute is therefore institutional as well as theoretical: who decides, who can dissent, and what forms of power remain answerable to the people they claim to emancipate?',
+          'Marxism is a family of theories and political traditions developed from Karl Marx’s critique of capitalism, much of it produced in sustained collaboration with Friedrich Engels. It examines how labor becomes organized through commodity production, wage relations, private control of productive resources, and class power. Marxists ask how these social relations shape institutions, ideas, and everyday life, why capitalism repeatedly changes and generates conflict, and whether people acting together can create less exploitative forms of social organization.',
+          'Marxism is historically significant because it joins interpretation to practice. Its account of society is not only an explanation of economic structures; it is also an inquiry into how those structures might be transformed. That connection made Marxism influential in labor movements, socialist parties, anticolonial struggles, revolutions, scholarship, and debates about planning and democracy. It also generated persistent questions about who can act collectively, how class relates to race, gender, empire, and nation, and whether reform can overcome domination or merely reorganize it.',
+          'No single doctrine or political history exhausts the tradition. Later thinkers selected, systematized, rejected, and extended different parts of Marx’s changing and partly unfinished work. Anticolonial Marxists revised European accounts of historical development; Black Marxism challenged theories that subordinated racial domination; feminist and social-reproduction approaches exposed unpaid care and gendered labor. Democratic, analytical, ecological, and critical reconstructions reopened questions about evidence, pluralism, planning, and freedom. Revolutionary governments also made Marxism inseparable from disputes over one-party rule, censorship, imprisonment, mass repression, and catastrophic policy.',
+          'The photograph from the 1893 International Socialist Workers’ Congress in Zürich shows why Marxism became more than a body of texts. Organizers and theorists carried its arguments into congresses, unions, parties, educational networks, and international alliances. The image records one European socialist network after one congress, not a complete delegate portrait, a picture of global Marxism, or proof of a shared strategy. It illustrates the continuing problem rather than resolving it: how can collective power pursue emancipation while remaining answerable to those in whose name it acts?',
         ],
       },
     ],
@@ -94,6 +78,8 @@ Readonly<Record<string, MuseumPrimaryInterpretationEnrichment>> = {
         {label: 'Status', value: 'Competing traditions, not one doctrine or one state history'},
       ],
       articleActionLabel: 'Read the full sourced Marxism article',
+      bodyLayout: 'prose',
+      plaqueKicker: '',
       plaqueSubtitleLines: 3,
     },
     objectInterpretations: objectInterpretation(

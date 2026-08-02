@@ -48,6 +48,8 @@ export type MuseumPrimaryPresentation = {
   mode: 'concise';
   orientation: readonly {label: string; value: string}[];
   articleActionLabel: string;
+  bodyLayout: 'prose';
+  plaqueKicker?: string;
   plaqueSubtitleLines?: 1 | 2 | 3 | 4;
 };
 

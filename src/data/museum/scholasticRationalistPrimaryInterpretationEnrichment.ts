@@ -24,6 +24,8 @@ export type MuseumPrimaryInterpretationEnrichment = {
     readonly mode: 'concise';
     readonly orientation: readonly {readonly label: string; readonly value: string}[];
     readonly articleActionLabel: string;
+    readonly bodyLayout: 'prose';
+    readonly plaqueKicker?: string;
     readonly plaqueSubtitleLines?: 1 | 2 | 3 | 4;
   };
 };

@@ -17,7 +17,7 @@ The word count includes canonical article-section paragraph prose only.
 
 ### Primary Museum interpretation boundary
 
-The Gallery 19 Kantianism interpretation was not included in this formal article claim-review boundary and is not hashed by the stored review lock. Its separate plaque, Reinhold object reading, compact orientation, and three-section Museum interpretation were reconciled against the current canonical article and its reviewed source set on 2026-08-02. Future changes to that Museum copy require their own reconciliation and do not automatically invalidate or renew this article lock.
+The Gallery 19 Kantianism interpretation was not included in this formal article claim-review boundary and is not hashed by the stored review lock. Its separate plaque, Reinhold object reading, compact orientation, and heading-free paragraph interpretation were reconciled against the current canonical article and its reviewed source set on 2026-08-02. Future changes to that Museum copy require their own reconciliation and do not automatically invalidate or renew this article lock.
 
 ## Sources consulted
 

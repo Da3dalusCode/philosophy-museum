@@ -150,7 +150,7 @@ export function MuseumInterpretationPanel({
       onKeyDown={handleKeyDown}
     >
       <header className="museum-panel-header">
-        <div><p className="museum-panel-kicker">{content.entityType} · {content.dateLabel}</p><h2 id={titleId} tabIndex={-1}>{content.name}</h2></div>
+        <div>{!concise && <p className="museum-panel-kicker">{content.entityType} · {content.dateLabel}</p>}<h2 id={titleId} tabIndex={-1}>{content.name}</h2></div>
         <button className="museum-icon-button" type="button" onClick={() => onClose('gesture')} aria-label={`Close ${content.name} exhibit`}><X/></button>
       </header>
 
@@ -161,7 +161,7 @@ export function MuseumInterpretationPanel({
             <figcaption><strong>{principal.caption}</strong><span>{content.objectInterpretations[principal.id] ?? principal.historicalNote}</span></figcaption>
           </figure>}
           <div className="museum-panel-opening-copy">
-            <p className="museum-exhibit-question" id={descriptionId}>{content.centralQuestion}</p>
+            <p className={concise ? 'museum-panel-deck' : 'museum-exhibit-question'} id={descriptionId}>{concise ? content.lead : content.centralQuestion}</p>
             {!concise && <p className="museum-panel-lead">{content.lead}</p>}
           </div>
         </section>
@@ -175,9 +175,9 @@ export function MuseumInterpretationPanel({
           <section><p className="museum-object-role">Works and witnesses</p><ul>{content.keyWorks.map((work) => <li key={work}>{work}</li>)}</ul></section>
         </div>}
 
-        <div className="museum-interpretive-sections">
-          {content.sections.map((section) => <section key={section.heading}>
-            <h3>{section.heading}</h3>
+        <div className="museum-interpretive-sections" data-body-layout={content.presentation?.bodyLayout ?? 'sections'}>
+          {content.sections.map((section, index) => <section key={section.heading || index}>
+            {section.heading && <h3>{section.heading}</h3>}
             {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
             {section.points && <ul>{section.points.map((point) => <li key={point}>{point}</li>)}</ul>}
           </section>)}
