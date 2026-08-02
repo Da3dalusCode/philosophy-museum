@@ -24,6 +24,7 @@
     "test:editorial": "node scripts/testEditorialReview.mjs",
     "report:coverage": "node scripts/reportContentCoverage.mjs",
     "report:depth": "node scripts/reportArticleDepth.mjs",
+    "report:flagships": "node scripts/reportFlagshipProgram.mjs",
     "report:editorial": "node scripts/reportEditorial.mjs",
     "report:bundle": "node scripts/reportBundle.mjs",
     "preview": "vite preview"

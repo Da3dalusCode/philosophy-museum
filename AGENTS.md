@@ -27,6 +27,23 @@ The central visual metaphor is a dense interactive philosophy wall chart:
 * influence/development/reaction/overlap lines show relationships
 * clicking items opens useful detail drawers
 
+## Mandatory standards workflow
+
+Before planning or editing, read [`docs/standards/README.md`](./docs/standards/README.md), the linked standard relevant to the request, and any accepted decision it references.
+
+Classify every task as one or more of:
+
+1. content depth;
+2. claim review;
+3. shared code/UI;
+4. Museum geometry/visual;
+5. integration/deployment;
+6. docs/governance.
+
+Use the matching level in [`docs/standards/validation-matrix.md`](./docs/standards/validation-matrix.md). For mixed work, use the union of the relevant focused checks or split the work when risks are independent.
+
+Repository standards and accepted decisions are authoritative unless the current owner prompt explicitly names the conflicting standard and intentionally overrides it. Without that explicit override, stop before implementation and report the requested action, conflict, why it matters, safest path, and approval needed. Never infer a standard from one suggestion or one-off instruction. Never change standards unless standards maintenance is explicitly in scope.
+
 ## Commands
 
 Use these commands from the repo root:
@@ -36,12 +53,6 @@ npm ci
 npm run dev
 npm run build
 npm run preview
-```
-
-Before calling a coding task complete, run:
-
-```bash
-npm run build
 ```
 
 If a browser/dev-server check is requested and possible, run:
@@ -144,9 +155,8 @@ For images:
 
 Before final response:
 
-* Run `npm run build`.
-* Inspect relevant handlers and navigation callbacks directly.
-* Verify named user flows from the prompt.
+* Run the validation level selected from the standards matrix and every command explicitly required by the prompt.
+* For interaction work, inspect relevant handlers and navigation callbacks directly and verify named user flows.
 * If browser automation fails because of the Windows process sandbox, say so clearly.
 * Do not use browser automation failure as an excuse to leave obvious click handlers broken.
 

@@ -1,5 +1,7 @@
 # Philosophy Atlas content roadmap
 
+This roadmap sequences current work; it does not change the durable [editorial program](./standards/editorial-program.md), [accepted depth decision](./decisions/0002-editorial-depth-and-flagship-scope.md), or [validation matrix](./standards/validation-matrix.md). Use `npm run report:depth` and `npm run report:flagships` for live counts.
+
 ## Current coverage
 
 The atlas currently contains:

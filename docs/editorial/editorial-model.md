@@ -1,5 +1,7 @@
 # Editorial data model
 
+**Governing standards:** [editorial program](../standards/editorial-program.md), [validation matrix](../standards/validation-matrix.md), and [accepted editorial-state decision](../decisions/0004-editorial-state-separation.md).
+
 Philosophy Atlas is an independent educational project, not a peer-reviewed journal or independently reviewed academic publication. AI-assisted tools may contribute to drafting, coding, synthesis, review organization, and consistency checks, but AI output is never treated as a source. The public statuses describe the recorded editorial process; they do not confer academic validation.
 
 The editorial layer is backward compatible. Legacy article paragraphs remain strings and legacy `sourceLinks` remain further-reading references. A reviewed page may instead use structured paragraphs with stable claim IDs and citation references.

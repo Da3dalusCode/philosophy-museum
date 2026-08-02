@@ -1,5 +1,7 @@
 # Editorial credibility roadmap
 
+This is a temporary sequencing roadmap, not a standards document. The durable rules are the [editorial program](../standards/editorial-program.md), [research-first decision](../decisions/0003-research-first-content-cadence.md), and [validation matrix](../standards/validation-matrix.md). Live inventories and reports supersede snapshot counts below.
+
 Snapshot date: 2026-07-31
 
 ## Measured starting point after the pilot

@@ -1,6 +1,6 @@
 # Philosophy Atlas Museum masterplan
 
-**Status:** the 26-gallery intellectual program and the dimensioned single-level **Continuous Enfilade** are implemented together. The production runtime contains all 26 galleries curated/open, all 105 named rooms, and two closed expansion reserves. Its live directory contains 189 primary exhibits and 406 supplemental/context installations, for 595 interpreted stops. The halls expose 260 primary-record capacity with 71 reserve slots. Compatibility routing retains all 48 carried legacy exhibit routes with no displaced-record handoff.
+**Status:** the 26-gallery intellectual program and the dimensioned single-level **Continuous Enfilade** are implemented together. [Accepted Decision 0001](../decisions/0001-museum-structure.md) locks the Continuous Enfilade as the permanent physical architecture unless the owner explicitly opens a new architecture redesign; the earlier Ring is superseded planning history. The production runtime contains all 26 galleries curated/open, all 105 named rooms, and two closed expansion reserves. Its live directory contains 189 primary exhibits and 406 supplemental/context installations, for 595 interpreted stops. The halls expose 260 primary-record capacity with 71 reserve slots. Compatibility routing retains all 48 carried legacy exhibit routes with no displaced-record handoff.
 
 ## Whole-building architectural control plan
 

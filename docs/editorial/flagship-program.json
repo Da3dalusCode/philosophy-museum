@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "programId": "owner-approved-flagships",
+  "targets": {
+    "thinker": 4000,
+    "philosophy": 5000
+  },
+  "entries": [
+    {"label": "Plato", "canonicalId": "plato", "category": "thinker", "target": 4000},
+    {"label": "Kant", "canonicalId": "kant", "category": "thinker", "target": 4000},
+    {"label": "Socrates", "canonicalId": "socrates", "category": "thinker", "target": 4000},
+    {"label": "the Buddha", "canonicalId": "buddha", "category": "thinker", "target": 4000},
+    {"label": "Descartes", "canonicalId": "descartes", "category": "thinker", "target": 4000},
+    {"label": "Marx", "canonicalId": "marx", "category": "thinker", "target": 4000},
+    {"label": "Hume", "canonicalId": "hume", "category": "thinker", "target": 4000},
+    {"label": "Hegel", "canonicalId": "hegel", "category": "thinker", "target": 4000},
+    {"label": "Nietzsche", "canonicalId": "nietzsche", "category": "thinker", "target": 4000},
+    {"label": "Rousseau", "canonicalId": "rousseau", "category": "thinker", "target": 4000},
+    {"label": "Wittgenstein", "canonicalId": "wittgenstein", "category": "thinker", "target": 4000},
+    {"label": "Spinoza", "canonicalId": "spinoza", "category": "thinker", "target": 4000},
+    {"label": "Heidegger", "canonicalId": "heidegger", "category": "thinker", "target": 4000},
+    {"label": "Philosophy of Religion", "canonicalId": "philosophy-of-religion", "category": "philosophy", "target": 5000},
+    {"label": "Logic", "canonicalId": "logic", "category": "philosophy", "target": 5000},
+    {"label": "Philosophy of Mind", "canonicalId": "philosophy-of-mind", "category": "philosophy", "target": 5000},
+    {"label": "Metaphysics", "canonicalId": "metaphysics", "category": "philosophy", "target": 5000},
+    {"label": "Epistemology", "canonicalId": "epistemology", "category": "philosophy", "target": 5000},
+    {"label": "Platonism", "canonicalId": "platonism", "category": "philosophy", "target": 5000},
+    {"label": "Confucianism", "canonicalId": "confucianism", "category": "philosophy", "target": 5000},
+    {"label": "Buddhist Philosophy", "canonicalId": "buddhist-philosophy", "category": "philosophy", "target": 5000},
+    {"label": "Empiricism", "canonicalId": "empiricism", "category": "philosophy", "target": 5000},
+    {"label": "Rationalism", "canonicalId": "rationalism", "category": "philosophy", "target": 5000},
+    {"label": "Daoism", "canonicalId": "daoism", "category": "philosophy", "target": 5000},
+    {"label": "Stoicism", "canonicalId": "stoicism", "category": "philosophy", "target": 5000},
+    {"label": "Utilitarianism", "canonicalId": "utilitarianism", "category": "philosophy", "target": 5000},
+    {"label": "Existentialism", "canonicalId": "existentialism", "category": "philosophy", "target": 5000}
+  ],
+  "approvedButMissing": [
+    {"label": "Kantianism", "proposedCanonicalId": "kantianism", "category": "philosophy", "target": 5000},
+    {"label": "Marxism", "proposedCanonicalId": "marxism", "category": "philosophy", "target": 5000}
+  ]
+}
