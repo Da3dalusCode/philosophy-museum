@@ -7482,11 +7482,15 @@
           "title": "Interpretive tensions and common misunderstandings"
         },
         {
+          "id": "changing-philosophy",
+          "title": "A philosophy that repeatedly changed"
+        },
+        {
           "id": "reading-strategy",
           "title": "How to read Russell"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "whitehead",
@@ -7499,6 +7503,10 @@
         {
           "id": "mathematical-background",
           "title": "Mathematics, logic, and abstraction"
+        },
+        {
+          "id": "career-continuity",
+          "title": "Continuity across mathematics, nature, and metaphysics"
         },
         {
           "id": "science-modern-world",
@@ -7541,7 +7549,7 @@
           "title": "Misunderstandings and reading strategy"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "dewey",
@@ -7592,11 +7600,15 @@
           "title": "Communication, community, and public meaning"
         },
         {
+          "id": "democratic-limits",
+          "title": "Democratic limits, exclusions, and intellectual exchange"
+        },
+        {
           "id": "misunderstandings-reading",
           "title": "Misunderstandings and reading strategy"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "sartre",
@@ -9804,6 +9816,10 @@
           "title": "An American thinker between science and philosophy"
         },
         {
+          "id": "science-corpus",
+          "title": "Measurement, institutions, and a developing corpus"
+        },
+        {
           "id": "pragmatic-maxim",
           "title": "The pragmatic maxim and clarified meaning"
         },
@@ -9844,7 +9860,7 @@
           "title": "Misunderstandings and reading strategy"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "william-james",
@@ -9857,6 +9873,10 @@
         {
           "id": "psychology-context",
           "title": "Psychology before the split from philosophy"
+        },
+        {
+          "id": "scientific-formation",
+          "title": "Scientific formation and its compromised setting"
         },
         {
           "id": "stream-consciousness",
@@ -9899,7 +9919,7 @@
           "title": "Misunderstandings and reading strategy"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "frege",
@@ -9919,7 +9939,7 @@
         },
         {
           "id": "concept-script",
-          "title": "The concept-script and the invention of modern logic"
+          "title": "The concept-script and the formation of modern logic"
         },
         {
           "id": "logicism",
@@ -9946,6 +9966,10 @@
           "title": "Russell's paradox and the broken system"
         },
         {
+          "id": "logicism-after-failure",
+          "title": "What survived the failure of logicism"
+        },
+        {
           "id": "influence",
           "title": "Influence on Russell, Wittgenstein, and later analysis"
         },
@@ -9954,7 +9978,7 @@
           "title": "How to read Frege without losing the thread"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "g-e-moore",
@@ -9985,6 +10009,10 @@
           "title": "Organic unities and the complexity of value"
         },
         {
+          "id": "ideal-consequentialism",
+          "title": "From intrinsic value to ideal consequentialism"
+        },
+        {
           "id": "common-sense",
           "title": "A Defence of Common Sense"
         },
@@ -10009,7 +10037,7 @@
           "title": "How to read Moore"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "carnap",
@@ -10018,6 +10046,10 @@
         {
           "id": "overview",
           "title": "The architect of logical empiricism"
+        },
+        {
+          "id": "conceptual-engineering",
+          "title": "Philosophy as conceptual engineering"
         },
         {
           "id": "vienna-circle",
@@ -10068,7 +10100,7 @@
           "title": "How to read Carnap"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "quine",
@@ -10103,6 +10135,10 @@
           "title": "Inscrutability of reference and proxy functions"
         },
         {
+          "id": "indeterminacy-underdetermination",
+          "title": "Indeterminacy is not ordinary ambiguity"
+        },
+        {
           "id": "naturalized-epistemology",
           "title": "Naturalized epistemology"
         },
@@ -10127,7 +10163,7 @@
           "title": "How to read Quine"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "popper",
@@ -10158,6 +10194,10 @@
           "title": "Corroboration, severity, and probability"
         },
         {
+          "id": "testing-decisions",
+          "title": "Why falsification is not mechanical"
+        },
+        {
           "id": "metaphysics-science",
           "title": "Metaphysics and science"
         },
@@ -10182,7 +10222,7 @@
           "title": "Misunderstandings and reading strategy"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "kuhn",
@@ -10225,6 +10265,10 @@
           "title": "The charge of relativism"
         },
         {
+          "id": "progress",
+          "title": "Progress without simple accumulation"
+        },
+        {
           "id": "popper-and-after",
           "title": "Popper, logical empiricism, and later debates"
         },
@@ -10237,7 +10281,7 @@
           "title": "Misunderstandings and reading strategy"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "merleau-ponty",
@@ -12970,7 +13014,7 @@
         },
         {
           "id": "kantianism",
-          "displayName": "Kantianism: A Contested Critical Inheritance"
+          "displayName": "Kantianism"
         }
       ],
       "supplementalExhibits": [
@@ -13074,7 +13118,7 @@
         },
         {
           "id": "marxism",
-          "displayName": "Marxism: Interpretation, Organization, and Historical Dispute"
+          "displayName": "Marxism"
         }
       ],
       "supplementalExhibits": [

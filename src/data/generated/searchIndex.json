@@ -636,17 +636,17 @@
     {
       "id": "russell",
       "label": "Bertrand Russell",
-      "searchText": "bertrand russell logical analysis problems of philosophy analytic"
+      "searchText": "bertrand russell logical analysis the principles of mathematics on denoting principia mathematica the problems of philosophy the philosophy of logical atomism analytic"
     },
     {
       "id": "whitehead",
       "label": "Alfred North Whitehead",
-      "searchText": "alfred north whitehead process process and reality process"
+      "searchText": "alfred north whitehead process principia mathematica the concept of nature science and the modern world process and reality adventures of ideas process"
     },
     {
       "id": "dewey",
       "label": "John Dewey",
-      "searchText": "john dewey inquiry democracy reconstruction in philosophy pragmatist"
+      "searchText": "john dewey inquiry democracy the school and society democracy and education reconstruction in philosophy human nature and conduct experience and nature the public and its problems art as experience pragmatist"
     },
     {
       "id": "sartre",
@@ -846,42 +846,42 @@
     {
       "id": "peirce",
       "label": "Charles Sanders Peirce",
-      "searchText": "charles sanders peirce pragmatic maxim fallibilism how to make our ideas clear pragmatist"
+      "searchText": "charles sanders peirce pragmatic maxim fallibilism the fixation of belief how to make our ideas clear a guess at the riddle the architecture of theories pragmatism as the logic of abduction pragmatist"
     },
     {
       "id": "william-james",
       "label": "William James",
-      "searchText": "william james radical empiricism will to believe pragmatism pragmatist"
+      "searchText": "william james radical empiricism will to believe the principles of psychology the will to believe the varieties of religious experience pragmatism the meaning of truth essays in radical empiricism pragmatist"
     },
     {
       "id": "frege",
       "label": "Gottlob Frege",
-      "searchText": "gottlob frege sense and reference modern logic on sense and reference analytic"
+      "searchText": "gottlob frege sense and reference modern logic begriffsschrift the foundations of arithmetic basic laws of arithmetic on sense and reference the thought analytic"
     },
     {
       "id": "g-e-moore",
       "label": "G. E. Moore",
-      "searchText": "g. e. moore open question argument common sense principia ethica analytic"
+      "searchText": "g. e. moore open question argument common sense the refutation of idealism principia ethica a defence of common sense proof of an external world analytic"
     },
     {
       "id": "carnap",
       "label": "Rudolf Carnap",
-      "searchText": "rudolf carnap logical syntax frameworks the logical structure of the world logical empiricist"
+      "searchText": "rudolf carnap logical syntax frameworks the logical structure of the world the logical syntax of language meaning and necessity empiricism, semantics, and ontology logical foundations of probability logical empiricist"
     },
     {
       "id": "quine",
       "label": "W. V. O. Quine",
-      "searchText": "w. v. o. quine confirmation holism naturalized epistemology two dogmas of empiricism analytic"
+      "searchText": "w. v. o. quine confirmation holism naturalized epistemology from a logical point of view two dogmas of empiricism word and object ontological relativity and other essays the pursuit of truth analytic"
     },
     {
       "id": "popper",
       "label": "Karl Popper",
-      "searchText": "karl popper falsifiability open society the logic of scientific discovery philosophy of science"
+      "searchText": "karl popper falsifiability open society the logic of scientific discovery the open society and its enemies the poverty of historicism conjectures and refutations objective knowledge philosophy of science"
     },
     {
       "id": "kuhn",
       "label": "Thomas Kuhn",
-      "searchText": "thomas kuhn paradigm scientific revolution the structure of scientific revolutions philosophy of science"
+      "searchText": "thomas kuhn paradigm scientific revolution the copernican revolution the structure of scientific revolutions the essential tension black-body theory and the quantum discontinuity the road since structure philosophy of science"
     },
     {
       "id": "merleau-ponty",
@@ -2061,8 +2061,8 @@
     {
       "id": "kantianism",
       "hallId": "german-idealism-afterlives",
-      "label": "Kantianism: A Contested Critical Inheritance",
-      "searchText": "kantianism: a contested critical inheritance how did kant’s critical project become rival programs in metaphysics, science, ethics, politics, religion, and theories of mind? german idealism & romantic afterlives divergent receptions and later arguments"
+      "label": "Kantianism",
+      "searchText": "kantianism kantianism examines the powers and limits of human reason, the conditions of knowledge, the basis of moral freedom, and the demands of judgment. enter to see how those questions became a diverse philosophical tradition. german idealism & romantic afterlives divergent receptions and later arguments"
     },
     {
       "id": "bentham",
@@ -2085,8 +2085,8 @@
     {
       "id": "marxism",
       "hallId": "utility-liberty-history-capital",
-      "label": "Marxism: Interpretation, Organization, and Historical Dispute",
-      "searchText": "marxism: interpretation, organization, and historical dispute how did marx’s critique become competing theories, movements, parties, states, and emancipatory projects across radically different historical settings? utility, liberty, history, and capital political economy and social transformations"
+      "label": "Marxism",
+      "searchText": "marxism marxism analyzes capitalism through labor, class, exploitation, and historical change while asking how collective action might transform social life. enter to explore why its theories, movements, and political forms remain deeply contested. utility, liberty, history, and capital political economy and social transformations"
     },
     {
       "id": "schopenhauer",
