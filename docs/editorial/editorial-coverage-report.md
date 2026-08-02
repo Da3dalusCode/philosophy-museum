@@ -1,6 +1,6 @@
 # Editorial coverage report
 
-Data as of: 2026-08-01
+Data as of: 2026-08-02
 
 This report distinguishes bibliographies, mapped evidence, completed claim review, and stale review locks. It also reports article depth, but the hard 2,000-word completeness requirement is a separate test: length does not establish accuracy, sourcing, or review status.
 
@@ -8,7 +8,7 @@ This report distinguishes bibliographies, mapped evidence, completed claim revie
 
 | Category | Total | Unreviewed | Bibliography only | Source mapped | Claim review current | Review out of date |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| Philosophers | 146 | 82 | 60 | 0 | 4 | 0 |
+| Philosophers | 146 | 71 | 60 | 0 | 15 | 0 |
 | Philosophies / branches / schools / traditions | 45 | 2 | 40 | 0 | 3 | 0 |
 | Standalone articles and major exhibits | 0 | 0 | 0 | 0 | 0 | 0 |
 
@@ -97,9 +97,9 @@ This report distinguishes bibliographies, mapped evidence, completed claim revie
 | philosopher | husserl | Husserl | bibliography-only | 0 | 0 | 0 | 0 | 0 | 2046 | #/philosophers/husserl |
 | philosopher | heidegger | Heidegger | bibliography-only | 0 | 0 | 0 | 0 | 0 | 2284 | #/philosophers/heidegger |
 | philosopher | wittgenstein | Ludwig Wittgenstein | bibliography-only | 0 | 0 | 0 | 0 | 0 | 4790 | #/philosophers/wittgenstein |
-| philosopher | russell | Bertrand Russell | unreviewed | 0 | 0 | 0 | 0 | 0 | 1802 | #/philosophers/russell |
-| philosopher | whitehead | Alfred North Whitehead | unreviewed | 0 | 0 | 0 | 0 | 0 | 1819 | #/philosophers/whitehead |
-| philosopher | dewey | John Dewey | unreviewed | 0 | 0 | 0 | 0 | 0 | 1821 | #/philosophers/dewey |
+| philosopher | russell | Bertrand Russell | claim-reviewed | 7 | 7 | 17 | 28 | 104 | 2111 | #/philosophers/russell |
+| philosopher | whitehead | Alfred North Whitehead | claim-reviewed | 6 | 6 | 17 | 32 | 124 | 2145 | #/philosophers/whitehead |
+| philosopher | dewey | John Dewey | claim-reviewed | 8 | 8 | 17 | 32 | 122 | 2118 | #/philosophers/dewey |
 | philosopher | sartre | Jean-Paul Sartre | bibliography-only | 0 | 0 | 0 | 0 | 0 | 2435 | #/philosophers/sartre |
 | philosopher | beauvoir | Simone de Beauvoir | bibliography-only | 0 | 0 | 0 | 0 | 0 | 2294 | #/philosophers/beauvoir |
 | philosopher | camus | Albert Camus | bibliography-only | 0 | 0 | 0 | 0 | 0 | 2285 | #/philosophers/camus |
@@ -139,14 +139,14 @@ This report distinguishes bibliographies, mapped evidence, completed claim revie
 | philosopher | montesquieu | Montesquieu | unreviewed | 0 | 0 | 0 | 0 | 0 | 1863 | #/philosophers/montesquieu |
 | philosopher | adam-smith | Adam Smith | unreviewed | 0 | 0 | 0 | 0 | 0 | 1844 | #/philosophers/adam-smith |
 | philosopher | wollstonecraft | Mary Wollstonecraft | unreviewed | 0 | 0 | 0 | 0 | 0 | 1800 | #/philosophers/wollstonecraft |
-| philosopher | peirce | Charles Sanders Peirce | unreviewed | 0 | 0 | 0 | 0 | 0 | 1812 | #/philosophers/peirce |
-| philosopher | william-james | William James | unreviewed | 0 | 0 | 0 | 0 | 0 | 1808 | #/philosophers/william-james |
-| philosopher | frege | Gottlob Frege | unreviewed | 0 | 0 | 0 | 0 | 0 | 1806 | #/philosophers/frege |
-| philosopher | g-e-moore | G. E. Moore | unreviewed | 0 | 0 | 0 | 0 | 0 | 1802 | #/philosophers/g-e-moore |
-| philosopher | carnap | Rudolf Carnap | unreviewed | 0 | 0 | 0 | 0 | 0 | 1814 | #/philosophers/carnap |
-| philosopher | quine | W. V. O. Quine | unreviewed | 0 | 0 | 0 | 0 | 0 | 1908 | #/philosophers/quine |
-| philosopher | popper | Karl Popper | unreviewed | 0 | 0 | 0 | 0 | 0 | 1812 | #/philosophers/popper |
-| philosopher | kuhn | Thomas Kuhn | unreviewed | 0 | 0 | 0 | 0 | 0 | 1801 | #/philosophers/kuhn |
+| philosopher | peirce | Charles Sanders Peirce | claim-reviewed | 6 | 6 | 17 | 30 | 101 | 2123 | #/philosophers/peirce |
+| philosopher | william-james | William James | claim-reviewed | 8 | 8 | 17 | 31 | 113 | 2092 | #/philosophers/william-james |
+| philosopher | frege | Gottlob Frege | claim-reviewed | 6 | 6 | 17 | 28 | 102 | 2150 | #/philosophers/frege |
+| philosopher | g-e-moore | G. E. Moore | claim-reviewed | 6 | 6 | 17 | 28 | 96 | 2119 | #/philosophers/g-e-moore |
+| philosopher | carnap | Rudolf Carnap | claim-reviewed | 5 | 5 | 17 | 30 | 96 | 2127 | #/philosophers/carnap |
+| philosopher | quine | W. V. O. Quine | claim-reviewed | 5 | 5 | 17 | 30 | 96 | 2174 | #/philosophers/quine |
+| philosopher | popper | Karl Popper | claim-reviewed | 6 | 6 | 17 | 32 | 114 | 2082 | #/philosophers/popper |
+| philosopher | kuhn | Thomas Kuhn | claim-reviewed | 7 | 7 | 17 | 32 | 117 | 2050 | #/philosophers/kuhn |
 | philosopher | merleau-ponty | Maurice Merleau-Ponty | unreviewed | 0 | 0 | 0 | 0 | 0 | 1824 | #/philosophers/merleau-ponty |
 | philosopher | levinas | Emmanuel Levinas | unreviewed | 0 | 0 | 0 | 0 | 0 | 1808 | #/philosophers/levinas |
 | philosopher | gadamer | Hans-Georg Gadamer | unreviewed | 0 | 0 | 0 | 0 | 0 | 1814 | #/philosophers/gadamer |
@@ -212,7 +212,7 @@ This report distinguishes bibliographies, mapped evidence, completed claim revie
 
 The patterns below flag uncited legacy article paragraphs containing quotation-like text, exact dates, priority claims, influence/causation language, disputed attribution, or broad classifications. They are review-routing signals, not findings of error or padding. Proximity to the depth floor is not treated as evidence of padding.
 
-Total signals: **1077**.
+Total signals: **1040**.
 
 | Record | Current status | Signal | Location | Excerpt |
 | --- | --- | --- | --- | --- |
@@ -676,14 +676,6 @@ Total signals: **1077**.
 | philosopher:wittgenstein | bibliography-only | quotation | continuity-discontinuity/paragraph-2 | Continuity readings point elsewhere. Both periods reject philosophy as a natural science that discovers new facts. Both ask how signs have sense, distinguish philosophical elucidation from theory, and use unusual writing |
 | philosopher:wittgenstein | bibliography-only | priority-or-superlative | influence-criticism/paragraph-1 | The Tractatus influenced the Vienna Circle, logical empiricism, theories of symbolism, and the development of analytic philosophy, although its readers often separated anti-metaphysical arguments from its ethical and mys |
 | philosopher:wittgenstein | bibliography-only | influence-or-causation | influence-criticism/paragraph-1 | The Tractatus influenced the Vienna Circle, logical empiricism, theories of symbolism, and the development of analytic philosophy, although its readers often separated anti-metaphysical arguments from its ethical and mys |
-| philosopher:russell | unreviewed | influence-or-causation | descriptions/paragraph-2 | The theory explains how a sentence can be meaningful without naming a mysterious nonexistent object. It also explains why sentences involving descriptions can be false rather than meaningless. The analysis influenced phi |
-| philosopher:russell | unreviewed | priority-or-superlative | relations/paragraph-2 | Wittgenstein was first Russell's student and then a severe critic. Russell recognized Wittgenstein's brilliance and helped bring the Tractatus to publication, but he did not simply become a Wittgensteinian. Their exchang |
-| philosopher:russell | unreviewed | priority-or-superlative | tensions/paragraph-1 | Russell is sometimes misread as if he held one stable doctrine called analytic philosophy from youth to old age. In fact, he changed his views about logic, perception, matter, language, and scientific knowledge. The cons |
-| philosopher:whitehead | unreviewed | priority-or-superlative | god-possibility/paragraph-1 | Whitehead's account of God is one of the most debated parts of his system. God is not the omnipotent ruler of classical popular imagination, nor simply a distant first cause. In Process and Reality, God orders possibilit |
-| philosopher:whitehead | unreviewed | priority-or-superlative | influence/paragraph-2 | That mixed reception is part of his importance. Whitehead exposes a tension in twentieth-century philosophy between technical analysis and systematic metaphysics. He had credentials in the first and ambition for the seco |
-| philosopher:whitehead | unreviewed | disputed-attribution | misunderstandings-reading/paragraph-3 | The safest beginner strategy is to keep asking what ordinary dualism Whitehead is trying to avoid. He resists mind versus nature, value versus fact, static being versus change, and science versus concrete experience. Not |
-| philosopher:dewey | unreviewed | disputed-attribution | problematic-situation/paragraph-1 | For Dewey, inquiry begins in a problematic situation, not in detached doubt about everything. Something in experience becomes uncertain, blocked, unstable, or confusing. The inquirer then defines the problem, imagines po |
-| philosopher:dewey | unreviewed | priority-or-superlative | misunderstandings-reading/paragraph-5 | This is also why Dewey remains useful for contemporary readers. He gives no escape from disagreement, uncertainty, or institutional failure. Instead he asks whether people can design practices that make those difficultie |
 | philosopher:sartre | bibliography-only | influence-or-causation | history-marxism/paragraph-3 | This vocabulary marks real development from the emphasis of Being and Nothingness, though not a simple abandonment of freedom. Sartre wants to show how freedom becomes collective and how collective achievements become co |
 | philosopher:sartre | bibliography-only | influence-or-causation | legacy-reading/paragraph-1 | Sartre influenced existential psychotherapy, literature, theology, political activism, anticolonial theory, and debates about agency. Beauvoir, Fanon, and later liberation thinkers transformed existential categories rath |
 | philosopher:beauvoir | bibliography-only | disputed-attribution | controversies-legacy/paragraph-1 | Debate about Beauvoir includes her relation to Sartre, her treatment of other women, and the ethics of her personal life. Presenting her as Sartre's disciple erases evidence and repeats the gender hierarchy her work diag |
@@ -833,35 +825,6 @@ Total signals: **1077**.
 | philosopher:adam-smith | unreviewed | influence-or-causation | reading-strategy/paragraph-1 | Begin with The Theory of Moral Sentiments, especially sympathy, the impartial spectator, self-command, justice, and the corruption caused by admiration for the wealthy. Then read selected books of The Wealth of Nations o |
 | philosopher:wollstonecraft | unreviewed | priority-or-superlative | marriage-family-citizenship/paragraph-2 | This domestic argument is also political. Children learn citizenship in households. If homes are organized around tyranny, flattery, and dependency, public virtue is weakened. Wollstonecraft therefore refuses to separate |
 | philosopher:wollstonecraft | unreviewed | influence-or-causation | influence/paragraph-1 | Wollstonecraft influenced later feminism, liberal political thought, debates over women's education, and critiques of marriage and domestic dependence. Her legacy is not simple. Later feminists have admired her insistenc |
-| philosopher:peirce | unreviewed | priority-or-superlative | overview/paragraph-1 | Charles Sanders Peirce is the founder of pragmatism in its most exacting form, but he is easy to misread if pragmatism is taken to mean whatever is useful right now. Peirce wanted a method for clarifying ideas by tracing |
-| philosopher:peirce | unreviewed | priority-or-superlative | realism-categories/paragraph-1 | Peirce defended a kind of scholastic realism about generals. He rejected the idea that laws, kinds, and general patterns are merely names we impose on unrelated particulars. Scientific inquiry depends on the reality of g |
-| philosopher:william-james | unreviewed | priority-or-superlative | radical-empiricism/paragraph-1 | James's radical empiricism holds that experience includes relations as well as discrete things. Traditional empiricism can seem to begin with separate sensations and then ask how the mind connects them. James argues that |
-| philosopher:william-james | unreviewed | priority-or-superlative | will-to-believe/paragraph-1 | The Will to Believe addresses cases where evidence is not yet decisive but a decision cannot be indefinitely postponed. James is not defending careless belief. He focuses on live, forced, and momentous options, where ref |
-| philosopher:william-james | unreviewed | influence-or-causation | religious-experience/paragraph-1 | In The Varieties of Religious Experience, James studies religion through individual experience rather than primarily through institutions, doctrines, or proofs. He examines conversion, saintliness, mysticism, melancholy, |
-| philosopher:william-james | unreviewed | disputed-attribution | habit-emotion-self/paragraph-2 | His account of emotion also resists simple inner theater models. James famously connects emotion with bodily response, though later psychologists have revised and disputed the details. The philosophical point remains imp |
-| philosopher:frege | unreviewed | priority-or-superlative | overview/paragraph-1 | Gottlob Frege is often treated as one of the starting points of analytic philosophy because he changed what philosophers could expect from logic, language, and mathematics. He was not a public school founder in the ordin |
-| philosopher:frege | unreviewed | priority-or-superlative | context-principle/paragraph-1 | One of Frege's most influential methodological rules is the context principle: words should be understood in the context of a proposition rather than in isolation. This rule helps him resist the idea that the meaning of |
-| philosopher:frege | unreviewed | priority-or-superlative | context-principle/paragraph-2 | The principle became central for later philosophy of language because it redirects questions about meaning from isolated names to the structure of sentences. It does not by itself solve every problem of meaning, and inte |
-| philosopher:frege | unreviewed | disputed-attribution | sense-reference/paragraph-2 | This distinction opened a new era in the philosophy of language. It explains how co-referring terms can differ in cognitive value, why substitution can fail in reports of belief, and why understanding a sentence involves |
-| philosopher:frege | unreviewed | priority-or-superlative | concept-object/paragraph-1 | Frege replaced the older subject-predicate model with a function-argument analysis. A concept is not a mental image or a class in the first instance, but something unsaturated that takes an object as argument and yields |
-| philosopher:g-e-moore | unreviewed | disputed-attribution | against-idealism/paragraph-2 | The slogan associated with that essay, that consciousness and its object are distinct, became important for realism. Moore argued that the experience of yellow is not the same as yellow itself, and that recognizing an ob |
-| philosopher:g-e-moore | unreviewed | influence-or-causation | method/paragraph-2 | This method influenced analytic philosophy as much as any one doctrine. Moore showed that ordinary words can be philosophically useful, but only when handled carefully. He did not think every ordinary belief is immune to |
-| philosopher:g-e-moore | unreviewed | priority-or-superlative | principia-ethica/paragraph-1 | Moore's Principia Ethica made a decisive intervention in moral philosophy. He argued that good is a simple, indefinable, non-natural property. Attempts to define good in terms of pleasure, desire, evolution, social appro |
-| philosopher:g-e-moore | unreviewed | disputed-attribution | principia-ethica/paragraph-1 | Moore's Principia Ethica made a decisive intervention in moral philosophy. He argued that good is a simple, indefinable, non-natural property. Attempts to define good in terms of pleasure, desire, evolution, social appro |
-| philosopher:g-e-moore | unreviewed | influence-or-causation | principia-ethica/paragraph-2 | The book influenced the Bloomsbury circle, early analytic ethics, and later metaethics. Moore's non-naturalism is no longer accepted by everyone, and many philosophers reject his appeal to intuition. Still, his pressure |
-| philosopher:g-e-moore | unreviewed | priority-or-superlative | external-world/paragraph-2 | The proof divides readers. Some see it as a decisive reminder that skeptical standards are unreasonable; others see it as failing to engage the skeptical challenge. Its influence on later philosophy is enormous precisely |
-| philosopher:g-e-moore | unreviewed | influence-or-causation | external-world/paragraph-2 | The proof divides readers. Some see it as a decisive reminder that skeptical standards are unreasonable; others see it as failing to engage the skeptical challenge. Its influence on later philosophy is enormous precisely |
-| philosopher:g-e-moore | unreviewed | priority-or-superlative | reading-strategy/paragraph-1 | Begin with The Refutation of Idealism to see the early break with idealism, then read the first chapters of Principia Ethica for the open question argument and the attack on naturalistic definitions. After that, A Defenc |
-| philosopher:quine | unreviewed | priority-or-superlative | web-belief/paragraph-1 | Quine's metaphor of the web of belief is one of the most influential images in twentieth-century epistemology. Our beliefs form an interconnected network. Peripheral beliefs are more directly exposed to sensory stimulati |
-| philosopher:quine | unreviewed | influence-or-causation | web-belief/paragraph-2 | The web image should not be mistaken for subjectivism. Quine does not say we may believe whatever we like. Experience constrains inquiry, and science is our best organized response to that constraint. The point is that e |
-| philosopher:quine | unreviewed | priority-or-superlative | ontology/paragraph-2 | This method connects metaphysics to science and logic. Quine is not asking what entities sound familiar or intuitively respectable; he asks what our best theory requires. He was willing to accept abstract objects such as |
-| philosopher:quine | unreviewed | priority-or-superlative | naturalized-epistemology/paragraph-1 | Quine's essay Epistemology Naturalized argues that traditional epistemology, understood as a project of justifying science from a firmer foundation, has failed. Instead of trying to derive the external world from sense d |
-| philosopher:quine | unreviewed | influence-or-causation | naturalized-epistemology/paragraph-2 | This proposal is radical and controversial. Supporters see it as honest: human knowledge is a natural phenomenon, and studying it scientifically is more fruitful than chasing impossible certainty. Critics worry that natu |
-| philosopher:quine | unreviewed | influence-or-causation | influence/paragraph-1 | Quine influenced philosophy of language, metaphysics, epistemology, philosophy of science, and logic. His attack on analyticity shaped later debates about meaning and necessity. His criterion of ontological commitment af |
-| philosopher:quine | unreviewed | priority-or-superlative | reading-strategy/paragraph-2 | A good reading strategy is to track what Quine is refusing to posit. He often rejects meanings, propositions, analyticity, and first philosophy because he thinks they lack a clear place in our best account of inquiry. As |
-| philosopher:popper | unreviewed | priority-or-superlative | overview/paragraph-1 | Karl Popper is one of the most influential philosophers of science of the twentieth century because he made criticism, testing, and falsifiability central to the image of science. He opposed the idea that science advance |
-| philosopher:popper | unreviewed | influence-or-causation | kuhn-lakatos/paragraph-1 | Popper influenced and provoked later philosophers of science. Thomas Kuhn challenged the image of science as a constant sequence of individual falsifications by emphasizing paradigms, normal science, crises, and revoluti |
-| philosopher:popper | unreviewed | priority-or-superlative | kuhn-lakatos/paragraph-2 | Popper's defenders argue that his account is a norm of rational criticism rather than a complete sociology of scientific behavior. Critics reply that real scientists do not abandon theories at the first anomaly and that |
 | philosopher:merleau-ponty | unreviewed | priority-or-superlative | overview/paragraph-2 | This starting point matters for ethics because it changes what a person is. A human being is not first an isolated mind that later receives bodily signals. The body is not merely a machine owned by a mind. It is the live |
 | philosopher:merleau-ponty | unreviewed | priority-or-superlative | body-subject/paragraph-1 | A central phrase in Merleau-Ponty is the lived body. The body can of course be studied as an object by medicine, anatomy, and physiology. But in ordinary experience I do not encounter my body first as a thing located in |
 | philosopher:merleau-ponty | unreviewed | priority-or-superlative | perception/paragraph-1 | For Merleau-Ponty, perception is not a low-grade belief waiting to be corrected by science. It is the field in which objects, space, time, and other people first show up as meaningful. A room appears as enterable, a tool |

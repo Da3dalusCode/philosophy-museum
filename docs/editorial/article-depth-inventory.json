@@ -17,8 +17,8 @@
     {
       "label": "Philosophers",
       "total": 146,
-      "pass": 56,
-      "fail": 90,
+      "pass": 67,
+      "fail": 79,
       "missing": 0
     },
     {
@@ -38,8 +38,8 @@
   ],
   "universalSummary": {
     "total": 191,
-    "pass": 93,
-    "fail": 98,
+    "pass": 104,
+    "fail": 87,
     "missing": 0
   },
   "pilotChanges": [
@@ -1053,8 +1053,8 @@
       "title": "Bertrand Russell",
       "visitorEntryPoint": "#/philosophers/russell",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1802,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2111,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -1065,8 +1065,8 @@
       "title": "Alfred North Whitehead",
       "visitorEntryPoint": "#/philosophers/whitehead",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1819,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2145,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -1077,8 +1077,8 @@
       "title": "John Dewey",
       "visitorEntryPoint": "#/philosophers/dewey",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1821,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2118,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -1557,8 +1557,8 @@
       "title": "Charles Sanders Peirce",
       "visitorEntryPoint": "#/philosophers/peirce",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1812,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2123,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -1569,8 +1569,8 @@
       "title": "William James",
       "visitorEntryPoint": "#/philosophers/william-james",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1808,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2092,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -1581,8 +1581,8 @@
       "title": "Gottlob Frege",
       "visitorEntryPoint": "#/philosophers/frege",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1806,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2150,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -1593,8 +1593,8 @@
       "title": "G. E. Moore",
       "visitorEntryPoint": "#/philosophers/g-e-moore",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1802,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2119,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -1605,8 +1605,8 @@
       "title": "Rudolf Carnap",
       "visitorEntryPoint": "#/philosophers/carnap",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1814,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2127,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -1617,8 +1617,8 @@
       "title": "W. V. O. Quine",
       "visitorEntryPoint": "#/philosophers/quine",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1908,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2174,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -1629,8 +1629,8 @@
       "title": "Karl Popper",
       "visitorEntryPoint": "#/philosophers/popper",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1812,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2082,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -1641,8 +1641,8 @@
       "title": "Thomas Kuhn",
       "visitorEntryPoint": "#/philosophers/kuhn",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1801,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2050,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -2962,8 +2962,8 @@
         "surfaceWords": 371,
         "canonicalArticleKey": "philosopher:russell",
         "canonicalArticleId": "russell",
-        "canonicalArticleWordCount": 1802,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2111,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "frege",
@@ -2974,8 +2974,8 @@
         "surfaceWords": 366,
         "canonicalArticleKey": "philosopher:frege",
         "canonicalArticleId": "frege",
-        "canonicalArticleWordCount": 1806,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2150,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "g-e-moore",
@@ -2983,11 +2983,11 @@
         "hallId": "analytic-traditions",
         "visitorEntryPoint": "#/museum/analytic-traditions/exhibits/g-e-moore",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 815,
+        "surfaceWords": 829,
         "canonicalArticleKey": "philosopher:g-e-moore",
         "canonicalArticleId": "g-e-moore",
-        "canonicalArticleWordCount": 1802,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2119,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "wittgenstein",
@@ -3010,8 +3010,8 @@
         "surfaceWords": 378,
         "canonicalArticleKey": "philosopher:quine",
         "canonicalArticleId": "quine",
-        "canonicalArticleWordCount": 1908,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2174,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "anscombe",
@@ -3115,11 +3115,11 @@
         "hallId": "core-questions-forum",
         "visitorEntryPoint": "#/museum/core-questions-forum/exhibits/whitehead",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 754,
+        "surfaceWords": 785,
         "canonicalArticleKey": "philosopher:whitehead",
         "canonicalArticleId": "whitehead",
-        "canonicalArticleWordCount": 1819,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2145,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "epistemology",
@@ -3214,8 +3214,8 @@
         "surfaceWords": 364,
         "canonicalArticleKey": "philosopher:carnap",
         "canonicalArticleId": "carnap",
-        "canonicalArticleWordCount": 1814,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2127,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "popper",
@@ -3226,8 +3226,8 @@
         "surfaceWords": 377,
         "canonicalArticleKey": "philosopher:popper",
         "canonicalArticleId": "popper",
-        "canonicalArticleWordCount": 1812,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2082,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "kuhn",
@@ -3238,8 +3238,8 @@
         "surfaceWords": 371,
         "canonicalArticleKey": "philosopher:kuhn",
         "canonicalArticleId": "kuhn",
-        "canonicalArticleWordCount": 1801,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2050,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "aesthetics",
@@ -4558,8 +4558,8 @@
         "surfaceWords": 319,
         "canonicalArticleKey": "philosopher:peirce",
         "canonicalArticleId": "peirce",
-        "canonicalArticleWordCount": 1812,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2123,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "william-james",
@@ -4570,8 +4570,8 @@
         "surfaceWords": 324,
         "canonicalArticleKey": "philosopher:william-james",
         "canonicalArticleId": "william-james",
-        "canonicalArticleWordCount": 1808,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2092,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "dewey",
@@ -4582,8 +4582,8 @@
         "surfaceWords": 317,
         "canonicalArticleKey": "philosopher:dewey",
         "canonicalArticleId": "dewey",
-        "canonicalArticleWordCount": 1821,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2118,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "continental-philosophy",
@@ -5534,8 +5534,8 @@
         "canonicalArticleKey": "philosopher:frege",
         "canonicalArticleId": "frege",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1806,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2150,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "russell-whitehead-principia",
@@ -5550,8 +5550,8 @@
         "canonicalArticleKey": "philosopher:russell",
         "canonicalArticleId": "russell",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1802,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2111,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "russell-logical-types",
@@ -5566,8 +5566,8 @@
         "canonicalArticleKey": "philosopher:russell",
         "canonicalArticleId": "russell",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1802,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2111,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "moore-principia-ethica",
@@ -5582,8 +5582,8 @@
         "canonicalArticleKey": "philosopher:g-e-moore",
         "canonicalArticleId": "g-e-moore",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1802,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2119,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "moore-open-question",
@@ -5598,8 +5598,8 @@
         "canonicalArticleKey": "philosopher:g-e-moore",
         "canonicalArticleId": "g-e-moore",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1802,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2119,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "moore-common-sense",
@@ -5614,8 +5614,8 @@
         "canonicalArticleKey": "philosopher:g-e-moore",
         "canonicalArticleId": "g-e-moore",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1802,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2119,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "moore-external-world",
@@ -5630,8 +5630,8 @@
         "canonicalArticleKey": "philosopher:g-e-moore",
         "canonicalArticleId": "g-e-moore",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1802,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2119,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "moore-cambridge-practice",
@@ -5646,8 +5646,8 @@
         "canonicalArticleKey": "philosopher:g-e-moore",
         "canonicalArticleId": "g-e-moore",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1802,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2119,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "wittgenstein-tractatus",
@@ -5726,8 +5726,8 @@
         "canonicalArticleKey": "philosopher:quine",
         "canonicalArticleId": "quine",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1908,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2174,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "quine-ontology",
@@ -5742,8 +5742,8 @@
         "canonicalArticleKey": "philosopher:quine",
         "canonicalArticleId": "quine",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1908,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2174,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "quine-word-object",
@@ -5758,8 +5758,8 @@
         "canonicalArticleKey": "philosopher:quine",
         "canonicalArticleId": "quine",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1908,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2174,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "quine-naturalized-epistemology",
@@ -5774,8 +5774,8 @@
         "canonicalArticleKey": "philosopher:quine",
         "canonicalArticleId": "quine",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1908,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2174,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "carnap-tolerance",
@@ -5790,8 +5790,8 @@
         "canonicalArticleKey": "philosopher:carnap",
         "canonicalArticleId": "carnap",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1814,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2127,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "anscombe-intention-why",
@@ -9828,8 +9828,8 @@
         "canonicalArticleKey": "philosopher:peirce",
         "canonicalArticleId": "peirce",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1812,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2123,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "peirce-coast-survey-observatory",
@@ -9844,8 +9844,8 @@
         "canonicalArticleKey": "philosopher:peirce",
         "canonicalArticleId": "peirce",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1812,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2123,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "peirce-mapmaking-standards",
@@ -9860,8 +9860,8 @@
         "canonicalArticleKey": "philosopher:peirce",
         "canonicalArticleId": "peirce",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1812,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2123,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "peirce-printing-public-record",
@@ -9876,8 +9876,8 @@
         "canonicalArticleKey": "philosopher:peirce",
         "canonicalArticleId": "peirce",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1812,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2123,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "james-naturalist-expedition",
@@ -9892,8 +9892,8 @@
         "canonicalArticleKey": "philosopher:william-james",
         "canonicalArticleId": "william-james",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1808,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2092,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "james-alexandrina-observation",
@@ -9908,8 +9908,8 @@
         "canonicalArticleKey": "philosopher:william-james",
         "canonicalArticleId": "william-james",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1808,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2092,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "james-home-library",
@@ -9924,8 +9924,8 @@
         "canonicalArticleKey": "philosopher:william-james",
         "canonicalArticleId": "william-james",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1808,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2092,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "james-leonora-piper-inquiry",
@@ -9940,8 +9940,8 @@
         "canonicalArticleKey": "philosopher:william-james",
         "canonicalArticleId": "william-james",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1808,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2092,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "james-self-portrait-formation",
@@ -9956,8 +9956,8 @@
         "canonicalArticleKey": "philosopher:william-james",
         "canonicalArticleId": "william-james",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1808,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2092,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "dewey-michigan-intellectual-work",
@@ -9972,8 +9972,8 @@
         "canonicalArticleKey": "philosopher:dewey",
         "canonicalArticleId": "dewey",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1821,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2118,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "dewey-child-drawing",
@@ -9988,8 +9988,8 @@
         "canonicalArticleKey": "philosopher:dewey",
         "canonicalArticleId": "dewey",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1821,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2118,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "dewey-hull-house-kindergarten",
@@ -10004,8 +10004,8 @@
         "canonicalArticleKey": "philosopher:dewey",
         "canonicalArticleId": "dewey",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1821,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2118,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "dewey-laboratory-school",
@@ -10020,8 +10020,8 @@
         "canonicalArticleKey": "philosopher:dewey",
         "canonicalArticleId": "dewey",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1821,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2118,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "dewey-labor-education",
@@ -10036,8 +10036,8 @@
         "canonicalArticleKey": "philosopher:dewey",
         "canonicalArticleId": "dewey",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1821,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2118,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "continuity-jane-addams",

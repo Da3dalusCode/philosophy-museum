@@ -14,11 +14,11 @@ The hard floor is **2,000 substantive article-prose words**. The counter tokeniz
 
 | Category | Total | Pass | Fail | Missing article |
 | --- | ---: | ---: | ---: | ---: |
-| Philosophers | 146 | 56 | 90 | 0 |
+| Philosophers | 146 | 67 | 79 | 0 |
 | Philosophies, branches, schools, traditions, movements, methods, and frameworks | 45 | 37 | 8 | 0 |
 | Standalone works, texts, arguments, concepts, and article-backed exhibits | 0 | 0 | 0 | 0 |
 
-Universal total: **191** applicable articles; **93 pass**; **98 fail**; **0 are missing article prose**.
+Universal total: **191** applicable articles; **104 pass**; **87 fail**; **0 are missing article prose**.
 
 Current failures are migration backlog, not approved exceptions. The strict audit is intentionally separate from the ordinary build until that backlog reaches zero.
 
@@ -75,9 +75,6 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | schopenhauer | Schopenhauer | philosopher | 1830 | fail |
 | kierkegaard | Kierkegaard | philosopher | 1834 | fail |
 | mill | John Stuart Mill | philosopher | 1806 | fail |
-| russell | Bertrand Russell | philosopher | 1802 | fail |
-| whitehead | Alfred North Whitehead | philosopher | 1819 | fail |
-| dewey | John Dewey | philosopher | 1821 | fail |
 | anscombe | Elizabeth Anscombe | philosopher | 1898 | fail |
 | heraclitus | Heraclitus | philosopher | 1839 | fail |
 | empedocles | Empedocles | philosopher | 1841 | fail |
@@ -106,14 +103,6 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | montesquieu | Montesquieu | philosopher | 1863 | fail |
 | adam-smith | Adam Smith | philosopher | 1844 | fail |
 | wollstonecraft | Mary Wollstonecraft | philosopher | 1800 | fail |
-| peirce | Charles Sanders Peirce | philosopher | 1812 | fail |
-| william-james | William James | philosopher | 1808 | fail |
-| frege | Gottlob Frege | philosopher | 1806 | fail |
-| g-e-moore | G. E. Moore | philosopher | 1802 | fail |
-| carnap | Rudolf Carnap | philosopher | 1814 | fail |
-| quine | W. V. O. Quine | philosopher | 1908 | fail |
-| popper | Karl Popper | philosopher | 1812 | fail |
-| kuhn | Thomas Kuhn | philosopher | 1801 | fail |
 | merleau-ponty | Maurice Merleau-Ponty | philosopher | 1824 | fail |
 | levinas | Emmanuel Levinas | philosopher | 1808 | fail |
 | gadamer | Hans-Georg Gadamer | philosopher | 1814 | fail |
@@ -236,9 +225,9 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | philosopher | husserl | Husserl | #/philosophers/husserl | 2046 | pass | yes | yes (1 primary; 3 supplemental) |
 | philosopher | heidegger | Heidegger | #/philosophers/heidegger | 2284 | pass | yes | yes (1 primary; 2 supplemental) |
 | philosopher | wittgenstein | Ludwig Wittgenstein | #/philosophers/wittgenstein | 4790 | pass | no | yes (1 primary; 4 supplemental) |
-| philosopher | russell | Bertrand Russell | #/philosophers/russell | 1802 | fail | yes | yes (1 primary; 2 supplemental) |
-| philosopher | whitehead | Alfred North Whitehead | #/philosophers/whitehead | 1819 | fail | yes | yes (1 primary; 0 supplemental) |
-| philosopher | dewey | John Dewey | #/philosophers/dewey | 1821 | fail | yes | yes (1 primary; 5 supplemental) |
+| philosopher | russell | Bertrand Russell | #/philosophers/russell | 2111 | pass | yes | yes (1 primary; 2 supplemental) |
+| philosopher | whitehead | Alfred North Whitehead | #/philosophers/whitehead | 2145 | pass | yes | yes (1 primary; 0 supplemental) |
+| philosopher | dewey | John Dewey | #/philosophers/dewey | 2118 | pass | yes | yes (1 primary; 5 supplemental) |
 | philosopher | sartre | Jean-Paul Sartre | #/philosophers/sartre | 2435 | pass | yes | yes (1 primary; 2 supplemental) |
 | philosopher | beauvoir | Simone de Beauvoir | #/philosophers/beauvoir | 2294 | pass | yes | yes (1 primary; 7 supplemental) |
 | philosopher | camus | Albert Camus | #/philosophers/camus | 2285 | pass | yes | yes (1 primary; 2 supplemental) |
@@ -278,14 +267,14 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | philosopher | montesquieu | Montesquieu | #/philosophers/montesquieu | 1863 | fail | yes | yes (1 primary; 5 supplemental) |
 | philosopher | adam-smith | Adam Smith | #/philosophers/adam-smith | 1844 | fail | yes | yes (1 primary; 5 supplemental) |
 | philosopher | wollstonecraft | Mary Wollstonecraft | #/philosophers/wollstonecraft | 1800 | fail | yes | yes (1 primary; 2 supplemental) |
-| philosopher | peirce | Charles Sanders Peirce | #/philosophers/peirce | 1812 | fail | yes | yes (1 primary; 4 supplemental) |
-| philosopher | william-james | William James | #/philosophers/william-james | 1808 | fail | yes | yes (1 primary; 5 supplemental) |
-| philosopher | frege | Gottlob Frege | #/philosophers/frege | 1806 | fail | yes | yes (1 primary; 1 supplemental) |
-| philosopher | g-e-moore | G. E. Moore | #/philosophers/g-e-moore | 1802 | fail | yes | yes (1 primary; 5 supplemental) |
-| philosopher | carnap | Rudolf Carnap | #/philosophers/carnap | 1814 | fail | yes | yes (1 primary; 1 supplemental) |
-| philosopher | quine | W. V. O. Quine | #/philosophers/quine | 1908 | fail | yes | yes (1 primary; 4 supplemental) |
-| philosopher | popper | Karl Popper | #/philosophers/popper | 1812 | fail | yes | yes (1 primary; 0 supplemental) |
-| philosopher | kuhn | Thomas Kuhn | #/philosophers/kuhn | 1801 | fail | yes | yes (1 primary; 0 supplemental) |
+| philosopher | peirce | Charles Sanders Peirce | #/philosophers/peirce | 2123 | pass | yes | yes (1 primary; 4 supplemental) |
+| philosopher | william-james | William James | #/philosophers/william-james | 2092 | pass | yes | yes (1 primary; 5 supplemental) |
+| philosopher | frege | Gottlob Frege | #/philosophers/frege | 2150 | pass | yes | yes (1 primary; 1 supplemental) |
+| philosopher | g-e-moore | G. E. Moore | #/philosophers/g-e-moore | 2119 | pass | yes | yes (1 primary; 5 supplemental) |
+| philosopher | carnap | Rudolf Carnap | #/philosophers/carnap | 2127 | pass | yes | yes (1 primary; 1 supplemental) |
+| philosopher | quine | W. V. O. Quine | #/philosophers/quine | 2174 | pass | yes | yes (1 primary; 4 supplemental) |
+| philosopher | popper | Karl Popper | #/philosophers/popper | 2082 | pass | yes | yes (1 primary; 0 supplemental) |
+| philosopher | kuhn | Thomas Kuhn | #/philosophers/kuhn | 2050 | pass | yes | yes (1 primary; 0 supplemental) |
 | philosopher | merleau-ponty | Maurice Merleau-Ponty | #/philosophers/merleau-ponty | 1824 | fail | yes | yes (1 primary; 2 supplemental) |
 | philosopher | levinas | Emmanuel Levinas | #/philosophers/levinas | 1808 | fail | yes | yes (1 primary; 2 supplemental) |
 | philosopher | gadamer | Hans-Georg Gadamer | #/philosophers/gadamer | 1814 | fail | yes | yes (1 primary; 2 supplemental) |

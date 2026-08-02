@@ -1,5 +1,5 @@
 {
-  "dataAsOf": "2026-08-01",
+  "dataAsOf": "2026-08-02",
   "policy": {
     "articleMinimum": 2000,
     "statusAndDepthAreIndependent": true,
@@ -1242,45 +1242,57 @@
       "title": "Bertrand Russell",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/russell",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 7,
+      "citedSourceCount": 7,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1802
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 28,
+      "citationCount": 104,
+      "substantiveArticleWordCount": 2111,
+      "reviewNotePath": "docs/editorial/reviews/russell.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:f78956a7f35ed079",
+      "currentReviewLock": "fnv1a64:f78956a7f35ed079"
     },
     {
       "id": "whitehead",
       "title": "Alfred North Whitehead",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/whitehead",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 6,
+      "citedSourceCount": 6,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1819
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 32,
+      "citationCount": 124,
+      "substantiveArticleWordCount": 2145,
+      "reviewNotePath": "docs/editorial/reviews/whitehead.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:72ebd22cc3629142",
+      "currentReviewLock": "fnv1a64:72ebd22cc3629142"
     },
     {
       "id": "dewey",
       "title": "John Dewey",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/dewey",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 8,
+      "citedSourceCount": 8,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1821
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 32,
+      "citationCount": 122,
+      "substantiveArticleWordCount": 2118,
+      "reviewNotePath": "docs/editorial/reviews/dewey.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:ad8e1b8342de9556",
+      "currentReviewLock": "fnv1a64:ad8e1b8342de9556"
     },
     {
       "id": "sartre",
@@ -1872,120 +1884,152 @@
       "title": "Charles Sanders Peirce",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/peirce",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 6,
+      "citedSourceCount": 6,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1812
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 30,
+      "citationCount": 101,
+      "substantiveArticleWordCount": 2123,
+      "reviewNotePath": "docs/editorial/reviews/peirce.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:701a4d5290768dfe",
+      "currentReviewLock": "fnv1a64:701a4d5290768dfe"
     },
     {
       "id": "william-james",
       "title": "William James",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/william-james",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 8,
+      "citedSourceCount": 8,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1808
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 31,
+      "citationCount": 113,
+      "substantiveArticleWordCount": 2092,
+      "reviewNotePath": "docs/editorial/reviews/william-james.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:9b7fa5665b7d3943",
+      "currentReviewLock": "fnv1a64:9b7fa5665b7d3943"
     },
     {
       "id": "frege",
       "title": "Gottlob Frege",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/frege",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 6,
+      "citedSourceCount": 6,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1806
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 28,
+      "citationCount": 102,
+      "substantiveArticleWordCount": 2150,
+      "reviewNotePath": "docs/editorial/reviews/frege.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:a9ff1f96d5fcb9f1",
+      "currentReviewLock": "fnv1a64:a9ff1f96d5fcb9f1"
     },
     {
       "id": "g-e-moore",
       "title": "G. E. Moore",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/g-e-moore",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 6,
+      "citedSourceCount": 6,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1802
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 28,
+      "citationCount": 96,
+      "substantiveArticleWordCount": 2119,
+      "reviewNotePath": "docs/editorial/reviews/g-e-moore.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:8f3fe6dc386bf917",
+      "currentReviewLock": "fnv1a64:8f3fe6dc386bf917"
     },
     {
       "id": "carnap",
       "title": "Rudolf Carnap",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/carnap",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 5,
+      "citedSourceCount": 5,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1814
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 30,
+      "citationCount": 96,
+      "substantiveArticleWordCount": 2127,
+      "reviewNotePath": "docs/editorial/reviews/carnap.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:3ab54d7ed36a2d74",
+      "currentReviewLock": "fnv1a64:3ab54d7ed36a2d74"
     },
     {
       "id": "quine",
       "title": "W. V. O. Quine",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/quine",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 5,
+      "citedSourceCount": 5,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1908
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 30,
+      "citationCount": 96,
+      "substantiveArticleWordCount": 2174,
+      "reviewNotePath": "docs/editorial/reviews/quine.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:ced8aaf11160702b",
+      "currentReviewLock": "fnv1a64:ced8aaf11160702b"
     },
     {
       "id": "popper",
       "title": "Karl Popper",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/popper",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 6,
+      "citedSourceCount": 6,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1812
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 32,
+      "citationCount": 114,
+      "substantiveArticleWordCount": 2082,
+      "reviewNotePath": "docs/editorial/reviews/popper.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:56785e5146875d3f",
+      "currentReviewLock": "fnv1a64:56785e5146875d3f"
     },
     {
       "id": "kuhn",
       "title": "Thomas Kuhn",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/kuhn",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 7,
+      "citedSourceCount": 7,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1801
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 32,
+      "citationCount": 117,
+      "substantiveArticleWordCount": 2050,
+      "reviewNotePath": "docs/editorial/reviews/kuhn.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:17bdb0880f1776a3",
+      "currentReviewLock": "fnv1a64:17bdb0880f1776a3"
     },
     {
       "id": "merleau-ponty",
@@ -6122,62 +6166,6 @@
       "excerpt": "The Tractatus influenced the Vienna Circle, logical empiricism, theories of symbolism, and the development of analytic philosophy, although its readers often separated anti-metaphysical arguments from its ethical and mys"
     },
     {
-      "recordKey": "philosopher:russell",
-      "status": "unreviewed",
-      "signal": "influence-or-causation",
-      "location": "descriptions/paragraph-2",
-      "excerpt": "The theory explains how a sentence can be meaningful without naming a mysterious nonexistent object. It also explains why sentences involving descriptions can be false rather than meaningless. The analysis influenced phi"
-    },
-    {
-      "recordKey": "philosopher:russell",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "relations/paragraph-2",
-      "excerpt": "Wittgenstein was first Russell's student and then a severe critic. Russell recognized Wittgenstein's brilliance and helped bring the Tractatus to publication, but he did not simply become a Wittgensteinian. Their exchang"
-    },
-    {
-      "recordKey": "philosopher:russell",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "tensions/paragraph-1",
-      "excerpt": "Russell is sometimes misread as if he held one stable doctrine called analytic philosophy from youth to old age. In fact, he changed his views about logic, perception, matter, language, and scientific knowledge. The cons"
-    },
-    {
-      "recordKey": "philosopher:whitehead",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "god-possibility/paragraph-1",
-      "excerpt": "Whitehead's account of God is one of the most debated parts of his system. God is not the omnipotent ruler of classical popular imagination, nor simply a distant first cause. In Process and Reality, God orders possibilit"
-    },
-    {
-      "recordKey": "philosopher:whitehead",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "influence/paragraph-2",
-      "excerpt": "That mixed reception is part of his importance. Whitehead exposes a tension in twentieth-century philosophy between technical analysis and systematic metaphysics. He had credentials in the first and ambition for the seco"
-    },
-    {
-      "recordKey": "philosopher:whitehead",
-      "status": "unreviewed",
-      "signal": "disputed-attribution",
-      "location": "misunderstandings-reading/paragraph-3",
-      "excerpt": "The safest beginner strategy is to keep asking what ordinary dualism Whitehead is trying to avoid. He resists mind versus nature, value versus fact, static being versus change, and science versus concrete experience. Not"
-    },
-    {
-      "recordKey": "philosopher:dewey",
-      "status": "unreviewed",
-      "signal": "disputed-attribution",
-      "location": "problematic-situation/paragraph-1",
-      "excerpt": "For Dewey, inquiry begins in a problematic situation, not in detached doubt about everything. Something in experience becomes uncertain, blocked, unstable, or confusing. The inquirer then defines the problem, imagines po"
-    },
-    {
-      "recordKey": "philosopher:dewey",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "misunderstandings-reading/paragraph-5",
-      "excerpt": "This is also why Dewey remains useful for contemporary readers. He gives no escape from disagreement, uncertainty, or institutional failure. Instead he asks whether people can design practices that make those difficultie"
-    },
-    {
       "recordKey": "philosopher:sartre",
       "status": "bibliography-only",
       "signal": "influence-or-causation",
@@ -7219,209 +7207,6 @@
       "signal": "influence-or-causation",
       "location": "influence/paragraph-1",
       "excerpt": "Wollstonecraft influenced later feminism, liberal political thought, debates over women's education, and critiques of marriage and domestic dependence. Her legacy is not simple. Later feminists have admired her insistenc"
-    },
-    {
-      "recordKey": "philosopher:peirce",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "overview/paragraph-1",
-      "excerpt": "Charles Sanders Peirce is the founder of pragmatism in its most exacting form, but he is easy to misread if pragmatism is taken to mean whatever is useful right now. Peirce wanted a method for clarifying ideas by tracing"
-    },
-    {
-      "recordKey": "philosopher:peirce",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "realism-categories/paragraph-1",
-      "excerpt": "Peirce defended a kind of scholastic realism about generals. He rejected the idea that laws, kinds, and general patterns are merely names we impose on unrelated particulars. Scientific inquiry depends on the reality of g"
-    },
-    {
-      "recordKey": "philosopher:william-james",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "radical-empiricism/paragraph-1",
-      "excerpt": "James's radical empiricism holds that experience includes relations as well as discrete things. Traditional empiricism can seem to begin with separate sensations and then ask how the mind connects them. James argues that"
-    },
-    {
-      "recordKey": "philosopher:william-james",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "will-to-believe/paragraph-1",
-      "excerpt": "The Will to Believe addresses cases where evidence is not yet decisive but a decision cannot be indefinitely postponed. James is not defending careless belief. He focuses on live, forced, and momentous options, where ref"
-    },
-    {
-      "recordKey": "philosopher:william-james",
-      "status": "unreviewed",
-      "signal": "influence-or-causation",
-      "location": "religious-experience/paragraph-1",
-      "excerpt": "In The Varieties of Religious Experience, James studies religion through individual experience rather than primarily through institutions, doctrines, or proofs. He examines conversion, saintliness, mysticism, melancholy,"
-    },
-    {
-      "recordKey": "philosopher:william-james",
-      "status": "unreviewed",
-      "signal": "disputed-attribution",
-      "location": "habit-emotion-self/paragraph-2",
-      "excerpt": "His account of emotion also resists simple inner theater models. James famously connects emotion with bodily response, though later psychologists have revised and disputed the details. The philosophical point remains imp"
-    },
-    {
-      "recordKey": "philosopher:frege",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "overview/paragraph-1",
-      "excerpt": "Gottlob Frege is often treated as one of the starting points of analytic philosophy because he changed what philosophers could expect from logic, language, and mathematics. He was not a public school founder in the ordin"
-    },
-    {
-      "recordKey": "philosopher:frege",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "context-principle/paragraph-1",
-      "excerpt": "One of Frege's most influential methodological rules is the context principle: words should be understood in the context of a proposition rather than in isolation. This rule helps him resist the idea that the meaning of"
-    },
-    {
-      "recordKey": "philosopher:frege",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "context-principle/paragraph-2",
-      "excerpt": "The principle became central for later philosophy of language because it redirects questions about meaning from isolated names to the structure of sentences. It does not by itself solve every problem of meaning, and inte"
-    },
-    {
-      "recordKey": "philosopher:frege",
-      "status": "unreviewed",
-      "signal": "disputed-attribution",
-      "location": "sense-reference/paragraph-2",
-      "excerpt": "This distinction opened a new era in the philosophy of language. It explains how co-referring terms can differ in cognitive value, why substitution can fail in reports of belief, and why understanding a sentence involves"
-    },
-    {
-      "recordKey": "philosopher:frege",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "concept-object/paragraph-1",
-      "excerpt": "Frege replaced the older subject-predicate model with a function-argument analysis. A concept is not a mental image or a class in the first instance, but something unsaturated that takes an object as argument and yields"
-    },
-    {
-      "recordKey": "philosopher:g-e-moore",
-      "status": "unreviewed",
-      "signal": "disputed-attribution",
-      "location": "against-idealism/paragraph-2",
-      "excerpt": "The slogan associated with that essay, that consciousness and its object are distinct, became important for realism. Moore argued that the experience of yellow is not the same as yellow itself, and that recognizing an ob"
-    },
-    {
-      "recordKey": "philosopher:g-e-moore",
-      "status": "unreviewed",
-      "signal": "influence-or-causation",
-      "location": "method/paragraph-2",
-      "excerpt": "This method influenced analytic philosophy as much as any one doctrine. Moore showed that ordinary words can be philosophically useful, but only when handled carefully. He did not think every ordinary belief is immune to"
-    },
-    {
-      "recordKey": "philosopher:g-e-moore",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "principia-ethica/paragraph-1",
-      "excerpt": "Moore's Principia Ethica made a decisive intervention in moral philosophy. He argued that good is a simple, indefinable, non-natural property. Attempts to define good in terms of pleasure, desire, evolution, social appro"
-    },
-    {
-      "recordKey": "philosopher:g-e-moore",
-      "status": "unreviewed",
-      "signal": "disputed-attribution",
-      "location": "principia-ethica/paragraph-1",
-      "excerpt": "Moore's Principia Ethica made a decisive intervention in moral philosophy. He argued that good is a simple, indefinable, non-natural property. Attempts to define good in terms of pleasure, desire, evolution, social appro"
-    },
-    {
-      "recordKey": "philosopher:g-e-moore",
-      "status": "unreviewed",
-      "signal": "influence-or-causation",
-      "location": "principia-ethica/paragraph-2",
-      "excerpt": "The book influenced the Bloomsbury circle, early analytic ethics, and later metaethics. Moore's non-naturalism is no longer accepted by everyone, and many philosophers reject his appeal to intuition. Still, his pressure"
-    },
-    {
-      "recordKey": "philosopher:g-e-moore",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "external-world/paragraph-2",
-      "excerpt": "The proof divides readers. Some see it as a decisive reminder that skeptical standards are unreasonable; others see it as failing to engage the skeptical challenge. Its influence on later philosophy is enormous precisely"
-    },
-    {
-      "recordKey": "philosopher:g-e-moore",
-      "status": "unreviewed",
-      "signal": "influence-or-causation",
-      "location": "external-world/paragraph-2",
-      "excerpt": "The proof divides readers. Some see it as a decisive reminder that skeptical standards are unreasonable; others see it as failing to engage the skeptical challenge. Its influence on later philosophy is enormous precisely"
-    },
-    {
-      "recordKey": "philosopher:g-e-moore",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "reading-strategy/paragraph-1",
-      "excerpt": "Begin with The Refutation of Idealism to see the early break with idealism, then read the first chapters of Principia Ethica for the open question argument and the attack on naturalistic definitions. After that, A Defenc"
-    },
-    {
-      "recordKey": "philosopher:quine",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "web-belief/paragraph-1",
-      "excerpt": "Quine's metaphor of the web of belief is one of the most influential images in twentieth-century epistemology. Our beliefs form an interconnected network. Peripheral beliefs are more directly exposed to sensory stimulati"
-    },
-    {
-      "recordKey": "philosopher:quine",
-      "status": "unreviewed",
-      "signal": "influence-or-causation",
-      "location": "web-belief/paragraph-2",
-      "excerpt": "The web image should not be mistaken for subjectivism. Quine does not say we may believe whatever we like. Experience constrains inquiry, and science is our best organized response to that constraint. The point is that e"
-    },
-    {
-      "recordKey": "philosopher:quine",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "ontology/paragraph-2",
-      "excerpt": "This method connects metaphysics to science and logic. Quine is not asking what entities sound familiar or intuitively respectable; he asks what our best theory requires. He was willing to accept abstract objects such as"
-    },
-    {
-      "recordKey": "philosopher:quine",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "naturalized-epistemology/paragraph-1",
-      "excerpt": "Quine's essay Epistemology Naturalized argues that traditional epistemology, understood as a project of justifying science from a firmer foundation, has failed. Instead of trying to derive the external world from sense d"
-    },
-    {
-      "recordKey": "philosopher:quine",
-      "status": "unreviewed",
-      "signal": "influence-or-causation",
-      "location": "naturalized-epistemology/paragraph-2",
-      "excerpt": "This proposal is radical and controversial. Supporters see it as honest: human knowledge is a natural phenomenon, and studying it scientifically is more fruitful than chasing impossible certainty. Critics worry that natu"
-    },
-    {
-      "recordKey": "philosopher:quine",
-      "status": "unreviewed",
-      "signal": "influence-or-causation",
-      "location": "influence/paragraph-1",
-      "excerpt": "Quine influenced philosophy of language, metaphysics, epistemology, philosophy of science, and logic. His attack on analyticity shaped later debates about meaning and necessity. His criterion of ontological commitment af"
-    },
-    {
-      "recordKey": "philosopher:quine",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "reading-strategy/paragraph-2",
-      "excerpt": "A good reading strategy is to track what Quine is refusing to posit. He often rejects meanings, propositions, analyticity, and first philosophy because he thinks they lack a clear place in our best account of inquiry. As"
-    },
-    {
-      "recordKey": "philosopher:popper",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "overview/paragraph-1",
-      "excerpt": "Karl Popper is one of the most influential philosophers of science of the twentieth century because he made criticism, testing, and falsifiability central to the image of science. He opposed the idea that science advance"
-    },
-    {
-      "recordKey": "philosopher:popper",
-      "status": "unreviewed",
-      "signal": "influence-or-causation",
-      "location": "kuhn-lakatos/paragraph-1",
-      "excerpt": "Popper influenced and provoked later philosophers of science. Thomas Kuhn challenged the image of science as a constant sequence of individual falsifications by emphasizing paradigms, normal science, crises, and revoluti"
-    },
-    {
-      "recordKey": "philosopher:popper",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "kuhn-lakatos/paragraph-2",
-      "excerpt": "Popper's defenders argue that his account is a norm of rational criticism rather than a complete sociology of scientific behavior. Critics reply that real scientists do not abandon theories at the first anomaly and that"
     },
     {
       "recordKey": "philosopher:merleau-ponty",
@@ -10445,10 +10230,10 @@
   "groupSummary": {
     "philosophers": {
       "total": 146,
-      "unreviewed": 82,
+      "unreviewed": 71,
       "bibliography-only": 60,
       "source-mapped": 0,
-      "claim-reviewed": 4,
+      "claim-reviewed": 15,
       "review-out-of-date": 0
     },
     "philosophies": {
