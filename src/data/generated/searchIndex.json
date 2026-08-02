@@ -214,12 +214,12 @@
     {
       "id": "kantianism",
       "label": "Kantianism",
-      "searchText": "kantianism a diverse reception history that reconstructs kantian critique, objectivity, autonomy, judgment, and public reason across rival philosophical programs. which conditions make knowledge, agency, normativity, and public justification possible? what must later kantians preserve, revise, or reject in kant’s critical philosophy? how can universal reason confront its historical exclusions without losing critical force? method central question"
+      "searchText": "kantianism a contested reception family that reconstructs kantian critique, objectivity, autonomy, judgment, and public justification across historically distinct and often rival programs. which conditions make knowledge, agency, normativity, and public justification possible? what must later kantians preserve, revise, or reject in kant’s critical philosophy? how can universal reason confront its historical exclusions without losing critical force? critique transcendental inquiry receptivity and spontaneity autonomy objective validity constructivism public justification"
     },
     {
       "id": "marxism",
       "label": "Marxism",
-      "searchText": "marxism a diverse and contested family of theories, movements, organizations, and state projects that reconstruct marx’s critique of capitalism and social domination. how do capitalism, class, and accumulation organize social power? how can collective organization transform production without substituting party or state rule for self-emancipation? how should marxist analysis address empire, race, gender, care, ecology, democracy, and its own historical outcomes? method central question"
+      "searchText": "marxism a diverse and contested family of theories, movements, organizations, and state projects that reconstruct marxian critiques of capitalism and social domination. how do capitalism, class, and accumulation organize social power? how can collective organization transform production without substituting party or state rule for self-emancipation? how should marxist analysis address empire, race, gender, care, ecology, democracy, and its own historical outcomes? historical materialism class struggle ideology and hegemony imperialism and uneven development organization and self-emancipation social reproduction associated production metabolism and ecological crisis"
     },
     {
       "id": "german-idealism",
@@ -605,8 +605,8 @@
     },
     {
       "id": "marx",
-      "label": "Marx",
-      "searchText": "marx alienation historical materialism commodity fetishism surplus value class struggle capital the eighteenth brumaire of louis bonaparte critique of the gotha program critical"
+      "label": "Karl Marx",
+      "searchText": "karl marx alienation historical materialism commodity fetishism surplus value class struggle capital the eighteenth brumaire of louis bonaparte critique of the gotha program critique of political economy / communist political thought"
     },
     {
       "id": "mill",
