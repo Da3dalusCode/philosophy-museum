@@ -554,7 +554,9 @@ check('article route metadata uses real targets and conditional extras', () => {
   assert(platoEntries.some(({id, targetId}) => id === 'major-works-early-middle' && targetId === 'article-major-works-early-middle'));
   assert(!platoEntries.some(({id}) => id === 'major-works'));
 
-  const philosopherWithoutSources = philosophers.find(({sourceLinks}) => !sourceLinks?.length);
+  const philosopherWithoutSources = philosophers.find(
+    ({sourceLinks, editorial}) => !(sourceLinks?.length || editorial?.sources?.length),
+  );
   assert(philosopherWithoutSources);
   assert(!getArticleRouteEntries({kind: 'philosopher', philosopherId: philosopherWithoutSources.id}).some(({id}) => id === 'profile-sources'));
 });

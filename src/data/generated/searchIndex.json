@@ -231,57 +231,57 @@
     {
       "id": "thales",
       "label": "Thales",
-      "searchText": "thales natural explanation water as first principle fragments and later reports milesian"
+      "searchText": "thales water as a reported first principle natural order unity beneath plurality internal powers of nature no securely surviving writing; fragments and testimonia only milesian / early greek inquiry"
     },
     {
       "id": "anaximander",
       "label": "Anaximander",
-      "searchText": "anaximander the boundless cosmic order fragments and later reports milesian"
+      "searchText": "anaximander the apeiron (boundless/indefinite) opposites ordered in time cosmic justice earth’s equilibrium a generated cosmos one short disputed-boundary fragment and later testimonia; a lost prose work is reported milesian / early greek inquiry"
     },
     {
       "id": "anaximenes",
       "label": "Anaximenes",
-      "searchText": "anaximenes air rarefaction and condensation fragments and later reports milesian"
+      "searchText": "anaximenes air as underlying nature rarefaction and condensation density and qualitative change breath-soul analogy air-supported cosmos lost prose work conventionally called on nature; fragments and testimonia only milesian / early greek inquiry"
     },
     {
       "id": "pythagoras",
       "label": "Pythagoras",
-      "searchText": "pythagoras number and harmony transmigration fragments and later reports pythagorean"
+      "searchText": "pythagoras transmigration of souls ritual and disciplined life moral cosmic order community and friendship later numerical-harmonic tradition no authenticated writings; early references and later testimonia early pythagorean way of life"
     },
     {
       "id": "philolaus",
       "label": "Philolaus",
-      "searchText": "philolaus harmony limit and unlimited fragments pythagorean"
+      "searchText": "philolaus limiters and unlimiteds harmony by ratio number and knowledge central fire and moving earth differentiated bodily centers one lost prose work, conventionally on nature; a core of approximately eleven genuine fragments fifth-century pythagorean / presocratic"
     },
     {
       "id": "parmenides",
       "label": "Parmenides",
-      "searchText": "parmenides being appearance and reason on nature eleatic"
+      "searchText": "parmenides ways of inquiry signs of what-is thinking and being truth and mortal opinion cosmology under epistemic constraint fragmentary hexameter poem conventionally titled on nature (dk 28b1–b19) eleatic / early greek"
     },
     {
       "id": "zeno-elea",
       "label": "Zeno of Elea",
-      "searchText": "zeno of elea paradox motion paradoxes preserved by later writers eleatic"
+      "searchText": "zeno of elea dialectical reductio paradoxes of plurality dichotomy and achilles arrow moving rows place and perceptual thresholds lost book of arguments; fragments and reports preserved by plato, aristotle, simplicius, and later sources eleatic / early greek"
     },
     {
       "id": "leucippus",
       "label": "Leucippus",
-      "searchText": "leucippus atoms void fragments and later reports atomist"
+      "searchText": "leucippus atoms and void change as rearrangement indivisible full bodies motion and necessity world-forming vortices great world system (attributed by the theophrastean tradition) on mind (reported source of dk 67b2) fragments and testimonia early greek atomist"
     },
     {
       "id": "democritus",
       "label": "Democritus",
-      "searchText": "democritus atoms and void cheerfulness fragments atomist"
+      "searchText": "democritus atoms and void structural explanation of sensible qualities images and embodied perception obscure and genuine knowing non-teleological cosmology cheerfulness and ethical measure little world system on mind / on the senses (titles reported in the catalogue) on cheerfulness (reported) fragments, maxims, and testimonia early greek atomist"
     },
     {
       "id": "protagoras",
       "label": "Protagoras",
-      "searchText": "protagoras measure doctrine rhetoric fragments sophist"
+      "searchText": "protagoras human-measure sentence opposed logoi improving judgment civic education limits of knowledge about gods truth or overthrowing arguments (lost; fragments) on the gods (lost; opening fragment) works and titles preserved in testimonia older sophist"
     },
     {
       "id": "prodicus",
       "label": "Prodicus of Ceos",
-      "searchText": "prodicus of ceos verbal distinctions choice of heracles fragments and testimonia xenophon, memorabilia 2.1 sophist"
+      "searchText": "prodicus of ceos near-synonym distinctions verbal precision in judgment choice of heracles pleasure shaped by effort and reciprocity genealogy of divine naming lost writings and testimonia choice of heracles (prodicean performance adapted by xenophon) possible seasons or hours (title and relation disputed) older sophist"
     },
     {
       "id": "hippias-of-elis",
@@ -291,7 +291,7 @@
     {
       "id": "gorgias",
       "label": "Gorgias",
-      "searchText": "gorgias rhetoric speech encomium of helen sophist"
+      "searchText": "gorgias causal power of logos persuasion and responsibility probability and forensic argument patterned prose dialectical challenge in on not-being encomium of helen defense of palamedes on not-being or on nature (lost; two divergent summaries) funeral speech (fragments) older sophist and rhetorician"
     },
     {
       "id": "antisthenes",
@@ -1102,55 +1102,55 @@
       "id": "thales",
       "hallId": "mediterranean-beginnings-classical",
       "label": "Thales",
-      "searchText": "thales could the changing world be explained through nature itself? mediterranean beginnings & classical athens orientation, ionia, and natural explanation"
+      "searchText": "thales thales is remembered through later reports as a milesian thinker who sought natural explanations and treated water as a basic principle. enter to examine what the evidence supports and why later histories made him foundational. mediterranean beginnings & classical athens orientation, ionia, and natural explanation"
     },
     {
       "id": "anaximander",
       "hallId": "mediterranean-beginnings-classical",
       "label": "Anaximander",
-      "searchText": "anaximander if no familiar substance is enough, could the world arise from an indefinite source? mediterranean beginnings & classical athens orientation, ionia, and natural explanation"
+      "searchText": "anaximander anaximander is credited with explaining cosmic order through the indefinite or boundless. enter to distinguish one surviving fragment from later reports about worlds, opposites, geography, weather, and life. mediterranean beginnings & classical athens orientation, ionia, and natural explanation"
     },
     {
       "id": "anaximenes",
       "hallId": "mediterranean-beginnings-classical",
       "label": "Anaximenes",
-      "searchText": "anaximenes how could air become many different kinds of thing? mediterranean beginnings & classical athens orientation, ionia, and natural explanation"
+      "searchText": "anaximenes anaximenes is remembered for making air the underlying principle and rarefaction and condensation the processes of change. enter to see how later testimony preserves this economical model and limits what can be claimed. mediterranean beginnings & classical athens orientation, ionia, and natural explanation"
     },
     {
       "id": "pythagoras",
       "hallId": "mediterranean-beginnings-classical",
       "label": "Pythagoras",
-      "searchText": "pythagoras how might number and proportion disclose an ordered cosmos and way of life? mediterranean beginnings & classical athens number, being, change, plurality, and atomism"
+      "searchText": "pythagoras pythagoras became the founding figure of communities joining a disciplined way of life to teachings about soul and cosmic order. enter to separate the elusive teacher from later pythagorean mathematics, doctrine, and legend. mediterranean beginnings & classical athens number, being, change, plurality, and atomism"
     },
     {
       "id": "philolaus",
       "hallId": "mediterranean-beginnings-classical",
       "label": "Philolaus",
-      "searchText": "philolaus how do limit and unlimited combine into an intelligible order? mediterranean beginnings & classical athens number, being, change, plurality, and atomism"
+      "searchText": "philolaus philolaus gave a distinctive account of limiters, unlimiteds, harmony, and number. enter to see what his fragments support, what later testimony adds, and why his thought cannot simply be assigned to pythagoras. mediterranean beginnings & classical athens number, being, change, plurality, and atomism"
     },
     {
       "id": "parmenides",
       "hallId": "mediterranean-beginnings-classical",
       "label": "Parmenides",
-      "searchText": "parmenides what can thought consistently say about being and change? mediterranean beginnings & classical athens number, being, change, plurality, and atomism"
+      "searchText": "parmenides parmenides used a fragmentary philosophical poem to test what coherent inquiry can think and say about what-is. enter to explore its challenge to accounts of generation, difference, and change without reducing it to a slogan. mediterranean beginnings & classical athens number, being, change, plurality, and atomism"
     },
     {
       "id": "zeno-elea",
       "hallId": "mediterranean-beginnings-classical",
       "label": "Zeno of Elea",
-      "searchText": "zeno of elea what do paradoxes reveal about motion, plurality, and reasoning? mediterranean beginnings & classical athens number, being, change, plurality, and atomism"
+      "searchText": "zeno of elea zeno of elea used paradoxical arguments to expose hidden commitments in ordinary accounts of plurality, magnitude, motion, place, and time. enter to reconstruct arguments preserved through several later witnesses. mediterranean beginnings & classical athens number, being, change, plurality, and atomism"
     },
     {
       "id": "leucippus",
       "hallId": "mediterranean-beginnings-classical",
       "label": "Leucippus",
-      "searchText": "leucippus can change be explained through indivisible bodies moving in void? mediterranean beginnings & classical athens number, being, change, plurality, and atomism"
+      "searchText": "leucippus leucippus is the earliest named greek atomist in the main ancient tradition. enter to examine how atoms and void answer problems of change—and why his contribution remains difficult to separate from democritus. mediterranean beginnings & classical athens number, being, change, plurality, and atomism"
     },
     {
       "id": "democritus",
       "hallId": "mediterranean-beginnings-classical",
       "label": "Democritus",
-      "searchText": "democritus how far can atomism explain nature, perception, and human flourishing? mediterranean beginnings & classical athens number, being, change, plurality, and atomism"
+      "searchText": "democritus democritus developed atomist inquiry across nature, perception, knowledge, culture, and ethics. enter to explore this lost corpus through fragments and testimony while keeping ancient atoms distinct from modern science. mediterranean beginnings & classical athens number, being, change, plurality, and atomism"
     },
     {
       "id": "heraclitus",
@@ -1174,13 +1174,13 @@
       "id": "protagoras",
       "hallId": "mediterranean-beginnings-classical",
       "label": "Protagoras",
-      "searchText": "protagoras how do judgment, education, and civic argument depend on human measure? mediterranean beginnings & classical athens sophists, civic speech, and socratic inquiry"
+      "searchText": "protagoras protagoras made human judgment, education, language, and civic competence central philosophical problems. enter to distinguish his surviving formulations from the influential theories and speeches plato builds around them. mediterranean beginnings & classical athens sophists, civic speech, and socratic inquiry"
     },
     {
       "id": "prodicus",
       "hallId": "mediterranean-beginnings-classical",
       "label": "Prodicus of Ceos",
-      "searchText": "prodicus of ceos can careful distinctions in language help a person choose how to live? mediterranean beginnings & classical athens sophists, civic speech, and socratic inquiry"
+      "searchText": "prodicus of ceos prodicus of ceos was known for verbal distinctions and an ethical performance about heracles choosing a life. enter to see how plato, xenophon, and later witnesses preserve—and reshape—his teaching. mediterranean beginnings & classical athens sophists, civic speech, and socratic inquiry"
     },
     {
       "id": "hippias-of-elis",
@@ -1192,7 +1192,7 @@
       "id": "gorgias",
       "hallId": "mediterranean-beginnings-classical",
       "label": "Gorgias",
-      "searchText": "gorgias what can speech accomplish when truth and persuasion come apart? mediterranean beginnings & classical athens sophists, civic speech, and socratic inquiry"
+      "searchText": "gorgias gorgias of leontini explored how speech shapes belief, feeling, evidence, and responsibility. enter to compare his surviving speeches, the later summaries of on not-being, and plato’s separate dramatic portrait. mediterranean beginnings & classical athens sophists, civic speech, and socratic inquiry"
     },
     {
       "id": "socrates",

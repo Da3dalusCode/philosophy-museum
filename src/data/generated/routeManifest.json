@@ -2563,614 +2563,558 @@
       "name": "Thales",
       "sections": [
         {
-          "id": "overview",
-          "title": "The first philosopher as a cautious historical problem"
+          "id": "orientation",
+          "title": "A beginning remembered through later witnesses"
         },
         {
-          "id": "miletus",
-          "title": "Miletus, trade, and Ionian inquiry"
-        },
-        {
-          "id": "sources",
-          "title": "Late reports and the limits of reconstruction"
+          "id": "miletus-dates",
+          "title": "Miletus and a chronology that will not become a lifespan"
         },
         {
           "id": "water",
-          "title": "Water as principle, source, and clue"
+          "title": "What Aristotle’s water report does—and does not—establish"
         },
         {
-          "id": "nature-and-divinity",
-          "title": "Natural explanation without simple secularism"
+          "id": "earth-cosmos",
+          "title": "Earth on water and the scale of cosmological explanation"
         },
         {
-          "id": "mathematics-and-astronomy",
-          "title": "Mathematics, astronomy, and practical wisdom"
+          "id": "soul-divinity",
+          "title": "Magnets, soul, and a world full of divine power"
         },
         {
-          "id": "milesian-sequence",
-          "title": "Thales in the Milesian sequence"
+          "id": "eclipse-geometry",
+          "title": "Eclipse, geometry, and the manufacture of a scientific hero"
         },
         {
-          "id": "being-and-change",
-          "title": "Unity, change, and the road to later metaphysics"
+          "id": "milesian-comparison",
+          "title": "A Milesian family resemblance, not a certified school roster"
         },
         {
-          "id": "influence",
-          "title": "Influence through a remembered beginning"
+          "id": "influence-priority",
+          "title": "How a later genealogy made Thales foundational"
         },
         {
-          "id": "misunderstandings",
-          "title": "Common misunderstandings and better questions"
+          "id": "modern-meaning",
+          "title": "Unity, explanation, and the danger of easy ancestry"
         },
         {
-          "id": "reading-strategy",
-          "title": "How to read Thales well"
+          "id": "origins-context",
+          "title": "Greek beginnings in a world with older knowledge"
         },
         {
-          "id": "why-it-matters",
-          "title": "Why Thales still belongs in the museum"
+          "id": "reading",
+          "title": "A source-critical route through Thales"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "anaximander",
       "name": "Anaximander",
       "sections": [
         {
-          "id": "overview",
-          "title": "The boundless and the widening of explanation"
+          "id": "orientation",
+          "title": "The boundless as an invitation to careful reconstruction"
         },
         {
-          "id": "historical-setting",
-          "title": "A Milesian thinker in a changing Ionian world"
+          "id": "life-setting",
+          "title": "A sixth-century Milesian without a modern biography"
         },
         {
-          "id": "sources",
-          "title": "The fragment and the doxographical frame"
+          "id": "source-layers",
+          "title": "Fragment, Theophrastean report, and later doxography"
         },
         {
           "id": "apeiron",
-          "title": "The apeiron as indefinite source"
+          "title": "What the apeiron is allowed to mean"
         },
         {
-          "id": "justice-and-time",
-          "title": "Justice, penalty, and the order of time"
+          "id": "justice-time",
+          "title": "Justice, reparation, and the order of time"
         },
         {
-          "id": "cosmos-earth",
-          "title": "Earth, heavens, and cosmic architecture"
+          "id": "cosmogony",
+          "title": "Opposites and the formation of an ordered world"
         },
         {
-          "id": "life-and-origins",
-          "title": "Life, humans, and natural genealogy"
+          "id": "earth-heavens",
+          "title": "A suspended earth and mechanical celestial rings"
         },
         {
-          "id": "relation-to-thales",
-          "title": "Critic and heir of Thales"
+          "id": "weather-life",
+          "title": "Meteorology, living beings, and cautious natural history"
         },
         {
-          "id": "later-pressure",
-          "title": "From Anaximander to later Presocratic problems"
+          "id": "milesian-reception",
+          "title": "Between Thales, Anaximenes, and later metaphysics"
         },
         {
-          "id": "misunderstandings",
-          "title": "Misreadings of the boundless"
+          "id": "models-knowledge",
+          "title": "Models, inference, and what cannot be seen directly"
         },
         {
-          "id": "reading-strategy",
-          "title": "How to read Anaximander well"
-        },
-        {
-          "id": "why-it-matters",
-          "title": "Why Anaximander remains philosophically alive"
+          "id": "reading",
+          "title": "How to read one fragment without making it say everything"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "anaximenes",
       "name": "Anaximenes",
       "sections": [
         {
-          "id": "overview",
-          "title": "Air, process, and the return to a concrete principle"
+          "id": "orientation",
+          "title": "Air and the problem of explaining transformation"
         },
         {
-          "id": "historical-place",
-          "title": "The last Milesian in a fragile sequence"
+          "id": "life-chronology",
+          "title": "A mid-sixth-century Milesian with incompatible dates"
         },
         {
           "id": "sources",
-          "title": "Evidence, reports, and Aristotelian categories"
+          "title": "A reported prose style and a largely doxographical philosophy"
         },
         {
           "id": "air",
-          "title": "Air as arche and surrounding power"
+          "title": "Why air can be definite and still indeterminate to perception"
         },
         {
-          "id": "rarefaction-condensation",
-          "title": "Rarefaction and condensation as mechanism"
+          "id": "density",
+          "title": "Rarefaction and condensation as a mechanism"
         },
         {
-          "id": "cosmology",
-          "title": "Cosmology, meteorology, and visible phenomena"
+          "id": "breath-soul",
+          "title": "The breath example and the soul analogy"
         },
         {
-          "id": "relation-to-predecessors",
-          "title": "Between Thales water and Anaximander boundless"
+          "id": "cosmogony",
+          "title": "Earth, sun, stars, and a cosmos carried by air"
         },
         {
-          "id": "soul-and-life",
-          "title": "Breath, soul, and cosmic analogy"
+          "id": "weather-earth",
+          "title": "One process across weather and terrestrial change"
         },
         {
-          "id": "later-influence",
-          "title": "Influence on pluralists, atomists, and science-like reasoning"
+          "id": "reception",
+          "title": "From Milesian sequence to later theories of change"
         },
         {
-          "id": "misunderstandings",
-          "title": "Misunderstandings of Anaximenes"
+          "id": "change-problem",
+          "title": "What the density model explains and leaves unexplained"
         },
         {
-          "id": "reading-strategy",
-          "title": "How to read Anaximenes well"
-        },
-        {
-          "id": "why-it-matters",
-          "title": "Why Anaximenes matters in the atlas"
+          "id": "reading",
+          "title": "How to reconstruct Anaximenes without inventing a book"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "pythagoras",
       "name": "Pythagoras",
       "sections": [
         {
-          "id": "overview",
-          "title": "A philosopher hidden behind a community and a legend"
+          "id": "orientation",
+          "title": "A famous name behind an unusually difficult source problem"
         },
         {
-          "id": "life-and-movement",
-          "title": "From Samos to southern Italy"
+          "id": "life-migration",
+          "title": "Samos, Croton, and an approximate life"
         },
         {
-          "id": "sources",
-          "title": "The Pythagorean source problem"
-        },
-        {
-          "id": "number",
-          "title": "Number and intelligible order"
-        },
-        {
-          "id": "harmony",
-          "title": "Harmony, limit, and the shaping of the unlimited"
+          "id": "evidence",
+          "title": "Early witnesses and the gravitational pull of late biography"
         },
         {
           "id": "soul",
-          "title": "Transmigration, purification, and the philosophical life"
+          "title": "Transmigration, identity, and a morally ordered cosmos"
         },
         {
-          "id": "community",
-          "title": "Rules, secrecy, and communal formation"
+          "id": "way-of-life",
+          "title": "Discipline, community, and rules that changed in transmission"
         },
         {
-          "id": "mathematics",
-          "title": "Mathematical discovery and later projection"
+          "id": "number-music",
+          "title": "Number and harmony without giving one man a later system"
         },
         {
-          "id": "relation-to-presocratics",
-          "title": "Pythagoras among early Greek alternatives"
+          "id": "theorem",
+          "title": "The theorem and the hazards of eponymous discovery"
         },
         {
-          "id": "later-influence",
-          "title": "Influence on Plato, Neoplatonism, and philosophical spirituality"
+          "id": "politics-violence",
+          "title": "Civic influence and anti-Pythagorean conflict"
         },
         {
-          "id": "misunderstandings",
-          "title": "Common misunderstandings of Pythagoras"
+          "id": "plato-reception",
+          "title": "Plato, later Pythagoreanism, and inflated ancestry"
         },
         {
-          "id": "reading-strategy",
-          "title": "How to read Pythagoras well"
+          "id": "authority-memory",
+          "title": "Founder authority, secrecy, and collective memory"
         },
         {
-          "id": "why-it-matters",
-          "title": "Why Pythagoras remains central"
+          "id": "reading",
+          "title": "A layered path through the Pythagorean question"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "philolaus",
       "name": "Philolaus",
       "sections": [
         {
-          "id": "overview",
-          "title": "A clearer voice from the Pythagorean tradition"
+          "id": "orientation",
+          "title": "A Pythagorean philosopher with fragments of his own"
         },
         {
-          "id": "historical-setting",
-          "title": "A fifth-century Pythagorean after the founder"
+          "id": "life-dates",
+          "title": "Croton, Thebes, and an approximate fifth-century life"
         },
         {
-          "id": "sources",
-          "title": "Fragments, authenticity, and cautious reconstruction"
+          "id": "book-authenticity",
+          "title": "One book, purchase legends, and forged doubles"
         },
         {
           "id": "limit-unlimited",
-          "title": "Limit and unlimited as basic factors"
+          "title": "Limiters, unlimiteds, and the conditions of a cosmos"
         },
         {
           "id": "harmony",
-          "title": "Harmony as fitting together"
+          "title": "Harmony as fitting together by ratio"
         },
         {
-          "id": "number-and-knowledge",
-          "title": "Number as the condition of knowing"
+          "id": "number-knowledge",
+          "title": "Why number belongs to knowledge"
         },
         {
-          "id": "cosmology",
-          "title": "Cosmos, central fire, and a decentered earth"
+          "id": "cosmos-central-fire",
+          "title": "Central fire, counter-earth, and a moving earth"
         },
         {
-          "id": "body-soul",
-          "title": "Soul, body, and ordered life"
+          "id": "cosmology-life",
+          "title": "Fire, breath, body, and the limits of reconstruction"
         },
         {
-          "id": "relation-to-pythagoras",
-          "title": "Heir and transformer of Pythagoras"
+          "id": "soul-ethics",
+          "title": "Embodiment, suicide, and what Plato’s Phaedo can show"
         },
         {
-          "id": "influence-on-plato",
-          "title": "Influence on Plato and later metaphysical imagination"
+          "id": "influence",
+          "title": "From Philolaus to Plato without a plagiarism legend"
         },
         {
-          "id": "misunderstandings",
-          "title": "Common misunderstandings of Philolaus"
+          "id": "method",
+          "title": "From musical case to philosophical architecture"
         },
         {
-          "id": "reading-strategy",
-          "title": "How to read Philolaus well"
-        },
-        {
-          "id": "why-it-matters",
-          "title": "Why Philolaus deserves depth"
+          "id": "reading",
+          "title": "Reading fragments, testimonia, and cosmic reconstructions"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "parmenides",
       "name": "Parmenides",
       "sections": [
         {
-          "id": "overview",
-          "title": "The shock of being"
+          "id": "orientation",
+          "title": "A poem that changes the terms of inquiry"
         },
         {
-          "id": "elea-and-poem",
-          "title": "Elea, poem, and philosophical drama"
+          "id": "life-corpus",
+          "title": "Elea, chronology, and a fragmentary corpus"
         },
         {
-          "id": "sources",
-          "title": "Fragments and interpretive difficulty"
+          "id": "proem",
+          "title": "The proem and the authority of a goddess"
         },
         {
-          "id": "paths",
-          "title": "The paths of inquiry"
+          "id": "ways",
+          "title": "The routes in fragments 2, 6, and 7"
         },
         {
-          "id": "being",
-          "title": "The signs of what-is"
+          "id": "signs",
+          "title": "The signs of what-is in fragment 8"
         },
         {
-          "id": "thought-and-being",
-          "title": "Thinking and being"
+          "id": "thought-being",
+          "title": "Thinking, speaking, and what-is"
         },
         {
-          "id": "opinion-cosmology",
-          "title": "The account of mortal opinion"
+          "id": "cosmology",
+          "title": "Mortal opinions and a real cosmological project"
         },
         {
-          "id": "relation-to-earlier-thinkers",
-          "title": "Parmenides against earlier natural philosophy"
+          "id": "interpretations",
+          "title": "Why “Parmenidean monism” is disputed"
         },
         {
-          "id": "zeno-and-eleatics",
-          "title": "Zeno and the Eleatic defense"
-        },
-        {
-          "id": "influence",
-          "title": "Influence on Plato, Aristotle, and the history of metaphysics"
+          "id": "responses",
+          "title": "Zeno, later Presocratics, Plato, and Aristotle"
         },
         {
           "id": "misunderstandings",
-          "title": "Misunderstandings and interpretive tensions"
+          "title": "What the fragments do not securely say"
         },
         {
-          "id": "reading-strategy",
-          "title": "How to read Parmenides well"
-        },
-        {
-          "id": "why-it-matters",
-          "title": "Why Parmenides is indispensable"
+          "id": "reading",
+          "title": "A source-conscious reading path"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "zeno-elea",
       "name": "Zeno of Elea",
       "sections": [
         {
-          "id": "overview",
-          "title": "Paradox as philosophical pressure"
+          "id": "orientation",
+          "title": "Arguments preserved inside other arguments"
         },
         {
-          "id": "historical-setting",
-          "title": "An Eleatic after Parmenides"
-        },
-        {
-          "id": "sources",
-          "title": "How the paradoxes survive"
+          "id": "life-book",
+          "title": "Approximate life and the lost collection"
         },
         {
           "id": "method",
-          "title": "Reductio and indirect defense"
+          "title": "Reductio, dialectic, and disputed targets"
         },
         {
-          "id": "dichotomy",
-          "title": "The dichotomy and infinite division"
+          "id": "plurality-number",
+          "title": "Many things: limited and unlimited"
         },
         {
-          "id": "achilles",
-          "title": "Achilles and the tortoise"
+          "id": "plurality-size",
+          "title": "No size and unlimited size"
+        },
+        {
+          "id": "dichotomy-achilles",
+          "title": "Dichotomy and Achilles"
         },
         {
           "id": "arrow",
-          "title": "The arrow and the instant"
+          "title": "The arrow and motion at an instant"
         },
         {
-          "id": "plurality",
-          "title": "Arguments against plurality"
+          "id": "moving-rows",
+          "title": "The Moving Rows and relative motion"
         },
         {
-          "id": "aristotle-response",
-          "title": "Aristotle and the answer through potential infinity"
+          "id": "place-millet",
+          "title": "Place, the millet seed, and other attributions"
         },
         {
-          "id": "later-influence",
-          "title": "Influence on logic, mathematics, and philosophy of time"
+          "id": "afterlives",
+          "title": "Ancient answers and modern mathematics"
         },
         {
-          "id": "misunderstandings",
-          "title": "Misunderstandings of Zeno"
-        },
-        {
-          "id": "reading-strategy",
-          "title": "How to read Zeno well"
-        },
-        {
-          "id": "why-it-matters",
-          "title": "Why Zeno remains essential"
+          "id": "reading",
+          "title": "How to reconstruct a paradox responsibly"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "leucippus",
       "name": "Leucippus",
       "sections": [
         {
-          "id": "overview",
-          "title": "The elusive founder of atomism"
+          "id": "orientation",
+          "title": "A founder whose profile is mostly a problem of attribution"
         },
         {
-          "id": "sources",
-          "title": "A name preserved through sparse and tangled evidence"
+          "id": "existence-life",
+          "title": "Existence, places, dates, and testimonia"
         },
         {
-          "id": "eleatic-background",
-          "title": "Parmenides and Zeno as the pressure behind atomism"
+          "id": "corpus",
+          "title": "The Great World System and one disputed sentence"
+        },
+        {
+          "id": "eleatic-response",
+          "title": "Saving change without generation from nothing"
         },
         {
           "id": "atoms-void",
-          "title": "Atoms and void as the two basic principles"
+          "title": "Full bodies, void, and indivisibility"
         },
         {
-          "id": "motion",
-          "title": "Motion, vortex, and the formation of worlds"
+          "id": "differences",
+          "title": "Shape, arrangement, and position"
         },
         {
-          "id": "necessity",
-          "title": "Necessity, chance, and causal explanation"
+          "id": "motion-necessity",
+          "title": "Motion, collision, and necessity"
         },
         {
-          "id": "democritus",
-          "title": "Leucippus and Democritus as a shared problem"
+          "id": "cosmology",
+          "title": "World formation in a late doxographical report"
         },
         {
-          "id": "rivals",
-          "title": "Rival solutions: Empedocles and Anaxagoras"
-        },
-        {
-          "id": "plato-aristotle",
-          "title": "Plato, Aristotle, and ancient criticism"
-        },
-        {
-          "id": "influence",
-          "title": "Influence through Democritus, Epicurus, and Lucretius"
+          "id": "attribution",
+          "title": "What belongs to Leucippus and what remains shared"
         },
         {
           "id": "misunderstandings",
-          "title": "Common misunderstandings and careful limits"
+          "title": "Modern atoms, empty biographies, and false certainty"
         },
         {
           "id": "reading",
-          "title": "How to read Leucippus"
+          "title": "How to study a nearly inaccessible thinker"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "democritus",
       "name": "Democritus",
       "sections": [
         {
-          "id": "overview",
-          "title": "Atomism expanded into a world-picture"
+          "id": "orientation",
+          "title": "A vast lost corpus behind a famous physical theory"
         },
         {
-          "id": "sources",
-          "title": "A prolific author preserved in fragments"
+          "id": "life-works",
+          "title": "Approximate chronology, anecdotes, and catalogue"
         },
         {
-          "id": "abdera-world",
-          "title": "Abdera, travel, and intellectual range"
+          "id": "attribution",
+          "title": "The Leucippus–Democritus boundary"
         },
         {
           "id": "atoms-void",
-          "title": "Atoms, void, and structural explanation"
+          "title": "Atoms, void, and compounds"
         },
         {
-          "id": "qualities",
-          "title": "Convention, reality, and the status of sensible qualities"
+          "id": "necessity-cosmos",
+          "title": "Necessity, vortices, and innumerable worlds"
         },
         {
-          "id": "perception",
-          "title": "Perception, images, and embodied knowing"
+          "id": "qualities-perception",
+          "title": "How sensible qualities arise"
         },
         {
-          "id": "soul-life",
-          "title": "Soul, life, and living bodies"
+          "id": "images-soul",
+          "title": "Images, soul atoms, and embodied thought"
+        },
+        {
+          "id": "knowledge",
+          "title": "Obscure and genuine knowing"
+        },
+        {
+          "id": "life-culture",
+          "title": "Living beings and cultural development"
         },
         {
           "id": "ethics",
-          "title": "Cheerfulness, measure, and ethical balance"
+          "title": "Cheerfulness and the uncertain ethical fragments"
         },
         {
-          "id": "culture",
-          "title": "Human culture, language, and development"
-        },
-        {
-          "id": "plato-aristotle",
-          "title": "Plato, Aristotle, and major disagreements"
-        },
-        {
-          "id": "influence",
-          "title": "Epicurus, Lucretius, and the long materialist inheritance"
+          "id": "reception",
+          "title": "Epicurus, Aristotle, skepticism, and the modern “atom”"
         },
         {
           "id": "reading",
-          "title": "How to read Democritus"
+          "title": "A reading path through fragments and witnesses"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "protagoras",
       "name": "Protagoras",
       "sections": [
         {
-          "id": "overview",
-          "title": "The sophist who made human judgment a philosophical problem"
+          "id": "recovery",
+          "title": "A famous sentence inside a lost body of work"
         },
         {
-          "id": "sources",
-          "title": "Lost works and hostile witnesses"
+          "id": "life-teaching",
+          "title": "Abdera, itinerant teaching, and cautious chronology"
         },
         {
-          "id": "sophist",
-          "title": "Sophist as educator, not merely trickster"
+          "id": "measure-wording",
+          "title": "What the measure sentence does—and does not—secure"
         },
         {
-          "id": "measure",
-          "title": "The measure doctrine and its interpretations"
+          "id": "better-worse",
+          "title": "Truth, benefit, and the possibility of expertise"
         },
         {
-          "id": "antilogy",
-          "title": "Two logoi, argument, and civic disagreement"
+          "id": "self-refutation",
+          "title": "The self-refutation problem"
+        },
+        {
+          "id": "argument",
+          "title": "Opposed logoi and the “weaker” case"
+        },
+        {
+          "id": "civic-education",
+          "title": "Civic virtue in Plato’s Great Speech"
+        },
+        {
+          "id": "language-poetry",
+          "title": "Language, speech acts, and poetic criticism"
         },
         {
           "id": "gods",
-          "title": "Agnosticism and the limits of human life"
-        },
-        {
-          "id": "language",
-          "title": "Language, correctness, and grammar"
-        },
-        {
-          "id": "law-convention",
-          "title": "Law, convention, and democratic education"
-        },
-        {
-          "id": "virtue",
-          "title": "Can virtue be taught?"
-        },
-        {
-          "id": "socrates-plato",
-          "title": "Socrates and Plato as critics and preservers"
-        },
-        {
-          "id": "influence-misreadings",
-          "title": "Influence, misunderstandings, and the word sophistry"
+          "title": "Agnostic wording and an unreliable persecution narrative"
         },
         {
           "id": "reading",
-          "title": "How to read Protagoras"
+          "title": "How to read a philosopher preserved by opponents"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "prodicus",
       "name": "Prodicus of Ceos",
       "sections": [
         {
-          "id": "overview",
-          "title": "Choosing well begins with naming well"
+          "id": "recovery",
+          "title": "A teacher visible through other authors"
         },
         {
-          "id": "sources",
-          "title": "A thinker reconstructed through partisan witnesses"
+          "id": "life-career",
+          "title": "Ceos, diplomacy, fees, and uncertain dates"
         },
         {
-          "id": "ceos-athens",
-          "title": "Ceos, diplomacy, fees, and higher education"
+          "id": "synonymy",
+          "title": "Near-synonyms as practical distinctions"
         },
         {
-          "id": "distinctions",
-          "title": "The discipline of verbal distinctions"
+          "id": "method-limits",
+          "title": "What Plato’s comedy can and cannot prove"
         },
         {
-          "id": "heracles",
-          "title": "The Choice of Heracles as ethical education"
+          "id": "heracles-source",
+          "title": "Whose words are in the Choice of Heracles?"
         },
         {
-          "id": "pleasure-effort",
-          "title": "Pleasure, effort, and the shape of a whole life"
+          "id": "heracles-argument",
+          "title": "Pleasure, effort, and the temporal shape of a life"
         },
         {
-          "id": "religion-civilization",
-          "title": "Religion and civilization: a cautious reconstruction"
+          "id": "attribution",
+          "title": "The absent ending and the danger of familiar retellings"
         },
         {
-          "id": "sophists-socrates",
-          "title": "Prodicus among Sophists and Socratic inquiry"
+          "id": "religion",
+          "title": "Useful things, culture heroes, and disputed atheism"
         },
         {
-          "id": "criticism",
-          "title": "Precision, persuasion, and their limits"
-        },
-        {
-          "id": "reception",
-          "title": "Later reception without an invented likeness"
+          "id": "relations-reception",
+          "title": "Prodicus among Sophists and Socratic authors"
         },
         {
           "id": "reading",
-          "title": "How to read Prodicus"
+          "title": "How to read Prodicus without inventing a corpus"
         }
       ],
       "hasSources": true
@@ -3235,55 +3179,47 @@
       "name": "Gorgias",
       "sections": [
         {
-          "id": "overview",
-          "title": "Rhetoric, paradox, and the power of speech"
+          "id": "recovery",
+          "title": "Two speeches, fragments, and a treatise known indirectly"
         },
         {
-          "id": "sources",
-          "title": "Surviving speeches and Plato shadow"
+          "id": "life-career",
+          "title": "Leontini, embassy, performance, and approximate longevity"
         },
         {
-          "id": "sicily-athens",
-          "title": "Leontini, embassy, and the world of display oratory"
+          "id": "helen-form",
+          "title": "The Encomium of Helen as argument and display"
         },
         {
-          "id": "nonbeing",
-          "title": "On What Is Not and the challenge to being"
-        },
-        {
-          "id": "knowledge-communication",
-          "title": "Knowledge, appearance, and communication"
-        },
-        {
-          "id": "helen",
-          "title": "The Encomium of Helen and responsibility under persuasion"
+          "id": "logos",
+          "title": "What speech can do to belief and feeling"
         },
         {
           "id": "palamedes",
-          "title": "Defense of Palamedes and argument from probability"
+          "title": "Probability and the Defense of Palamedes"
         },
         {
           "id": "style",
-          "title": "Style, sound, and the embodied force of logos"
+          "title": "Patterned prose is part of the reasoning"
         },
         {
-          "id": "sophists",
-          "title": "Gorgias among the sophists"
+          "id": "not-being-transmission",
+          "title": "On Not-Being through Sextus and anonymous MXG"
         },
         {
-          "id": "plato-aristotle",
-          "title": "Plato and Aristotle as critics of rhetoric"
+          "id": "not-being-interpretation",
+          "title": "Nihilism, parody, dialectic, or several things at once?"
         },
         {
-          "id": "influence-misreadings",
-          "title": "Influence, reputation, and common misreadings"
+          "id": "plato",
+          "title": "Plato’s Gorgias: indispensable critic, separate voice"
         },
         {
           "id": "reading",
-          "title": "How to read Gorgias"
+          "title": "How to read Gorgias across genres and witnesses"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "antisthenes",
