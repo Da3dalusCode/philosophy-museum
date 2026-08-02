@@ -165,8 +165,8 @@ const EXPECTED_LIVE_COUNTS = {
   'rationalism-mind-nature-system': {rooms: 3, exhibits: 5, template: 'sequence-3'},
   'empiricism-science-political-order': {rooms: 3, exhibits: 4, template: 'sequence-3'},
   'enlightenment-revolution-kant': {rooms: 5, exhibits: 6, template: 'crossroads-4'},
-  'german-idealism-afterlives': {rooms: 4, exhibits: 4, template: 'sequence-3'},
-  'utility-liberty-history-capital': {rooms: 4, exhibits: 3, template: 'sequence-3'},
+  'german-idealism-afterlives': {rooms: 4, exhibits: 5, template: 'sequence-3'},
+  'utility-liberty-history-capital': {rooms: 4, exhibits: 4, template: 'sequence-3'},
   'faith-pessimism-life-value': {rooms: 3, exhibits: 3, template: 'sequence-3'},
   'pragmatism-democratic-inquiry': {rooms: 4, exhibits: 4, template: 'sequence-3'},
   'critique-power-deconstruction': {rooms: 4, exhibits: 4, template: 'crossroads-4'},
@@ -175,14 +175,14 @@ const EXPECTED_LIVE_COUNTS = {
   'colonialism-race-liberation': {rooms: 3, exhibits: 3, template: 'sequence-3'},
 };
 const EXPECTED_LIVE_TIERS = {
-  'anchor-exhibit': 95,
+  'anchor-exhibit': 97,
   'standard-individual-exhibit': 79,
   'supporting-exhibit': 9,
   'thematic-cluster-participant': 5,
   'gallery-archive-or-study-wall-record': 1,
 };
 const EXPECTED_GLOBAL_TIERS = {
-  'anchor-exhibit': 95,
+  'anchor-exhibit': 97,
   'standard-individual-exhibit': 79,
   'supporting-exhibit': 9,
   'thematic-cluster-participant': 5,
@@ -212,11 +212,11 @@ const tierIds = program.tiers.map(({id}) => id);
 const templateById = new Map(program.templates.map((template) => [template.id, template]));
 
 check(philosophers.length === 146, `Approved program: expected 146 philosophers, found ${philosophers.length}`);
-check(branches.length === 43, `Approved program: expected 43 branches, found ${branches.length}`);
+check(branches.length === 45, `Approved program: expected 45 branches, found ${branches.length}`);
 check(unique(philosophers.map(({id}) => id)), 'Philosopher registry contains duplicate IDs');
 check(unique(branches.map(({id}) => id)), 'Branch registry contains duplicate IDs');
 check(philosopherAssignments.length === 146, `philosopher-assignments.csv: expected 146 rows, found ${philosopherAssignments.length}`);
-check(branchAssignments.length === 43, `branch-assignments.csv: expected 43 rows, found ${branchAssignments.length}`);
+check(branchAssignments.length === 45, `branch-assignments.csv: expected 45 rows, found ${branchAssignments.length}`);
 check(unique(philosopherAssignments.map(({id}) => id)), 'philosopher-assignments.csv contains duplicate IDs');
 check(unique(branchAssignments.map(({id}) => id)), 'branch-assignments.csv contains duplicate IDs');
 for (const philosopher of philosophers) check(philosopherAssignments.some(({id}) => id === philosopher.id), `Philosopher ${philosopher.id} has no primary assignment`);
@@ -237,7 +237,7 @@ check(unique(program.rooms.map(({id}) => id)), 'hall-program.json contains dupli
 check(unique(tierIds), 'hall-program.json contains duplicate tier IDs');
 check(unique(program.templates.map(({id}) => id)), 'hall-program.json contains duplicate template IDs');
 check(same(tierIds, MUSEUM_PRESENTATION_TIERS), 'Runtime presentation tiers do not match the approved masterplan order');
-check(same(program.assignmentCounts, {branches: 43, philosophers: 146, totalPrimaryRecords: 189}), 'Approved assignmentCounts must be 43 branches, 146 philosophers, and 189 total');
+check(same(program.assignmentCounts, {branches: 45, philosophers: 146, totalPrimaryRecords: 191}), 'Approved assignmentCounts must be 45 branches, 146 philosophers, and 191 total');
 
 const normalTemplateIds = ['standard-rect', 'sequence-3', 'crossroads-4'];
 check(normalTemplateIds.every((id) => templateById.has(id)), 'The approved normal template set is incomplete');
@@ -363,7 +363,7 @@ check(same(MUSEUM_CANONICAL_PROGRAM.map(({id}) => id), APPROVED_HALL_IDS), 'Cano
 const canonicalRooms = MUSEUM_CANONICAL_PROGRAM.flatMap((hall) => hall.rooms.map((room) => ({hall, room})));
 const canonicalExhibits = canonicalRooms.flatMap(({hall, room}) => room.exhibits.map((exhibit) => ({hall, room, exhibit})));
 check(canonicalRooms.length === 105, `Canonical live program must contain 105 rooms, found ${canonicalRooms.length}`);
-check(canonicalExhibits.length === 189, `Canonical live program must contain 189 primary exhibits, found ${canonicalExhibits.length}`);
+check(canonicalExhibits.length === 191, `Canonical live program must contain 191 primary exhibits, found ${canonicalExhibits.length}`);
 check(unique(canonicalRooms.map(({room}) => room.id)), 'Canonical live room IDs are not unique');
 check(unique(canonicalExhibits.map(({exhibit}) => exhibit.entityId)), 'A primary entity appears more than once in the live Museum');
 for (const hall of MUSEUM_CANONICAL_PROGRAM) {
@@ -399,12 +399,12 @@ for (const {hall, room, exhibit} of canonicalExhibits) {
   check(exhibit.question.trim().length >= 24, `Live exhibit ${exhibit.entityId} lacks a substantive framing question`);
 }
 const plannedLiveAssignments = allAssignments.filter(({primary_hall_id}) => APPROVED_HALL_IDS.includes(primary_hall_id));
-check(plannedLiveAssignments.length === 189, `Masterplan assigns ${plannedLiveAssignments.length}, not 189, primaries to the twenty-six live halls`);
+check(plannedLiveAssignments.length === 191, `Masterplan assigns ${plannedLiveAssignments.length}, not 191, primaries to the twenty-six live halls`);
 check(same(sorted(plannedLiveAssignments.map(({id}) => id)), sorted(canonicalExhibits.map(({exhibit}) => exhibit.entityId))), 'The canonical live roster is not the exact authoritative masterplan subset');
 const liveTierCounts = Object.fromEntries(MUSEUM_PRESENTATION_TIERS.map((tier) => [tier, canonicalExhibits.filter(({exhibit}) => exhibit.tier === tier).length]));
 check(same(liveTierCounts, EXPECTED_LIVE_TIERS), `Live presentation-tier counts changed: ${JSON.stringify(liveTierCounts)}`);
-check(MUSEUM_LIVE_PROGRAM_TOTALS.hallCount === 26 && MUSEUM_LIVE_PROGRAM_TOTALS.roomCount === 105 && MUSEUM_LIVE_PROGRAM_TOTALS.exhibitCount === 189, 'Exported live program totals are stale');
-check(MUSEUM_LIVE_PROGRAM_TOTALS.recordCapacity === 260 && MUSEUM_LIVE_PROGRAM_TOTALS.reserveCapacity === 71, 'Live program capacity totals must be 260 capacity / 71 reserve');
+check(MUSEUM_LIVE_PROGRAM_TOTALS.hallCount === 26 && MUSEUM_LIVE_PROGRAM_TOTALS.roomCount === 105 && MUSEUM_LIVE_PROGRAM_TOTALS.exhibitCount === 191, 'Exported live program totals are stale');
+check(MUSEUM_LIVE_PROGRAM_TOTALS.recordCapacity === 260 && MUSEUM_LIVE_PROGRAM_TOTALS.reserveCapacity === 69, 'Live program capacity totals must be 260 capacity / 69 reserve');
 check(same(MUSEUM_LIVE_PROGRAM_TOTALS.tierCounts, EXPECTED_LIVE_TIERS), 'Exported live tier totals are stale');
 check(MUSEUM_LIVE_HALL_TOTALS.length === 26, 'Exported live hall totals must contain twenty-six records');
 check(MUSEUM_LIVE_ROOM_TOTALS.length === 105, 'Exported live room totals must contain 105 records');
@@ -902,9 +902,9 @@ if (errors.length) {
 }
 
 console.log(`Museum masterplan validation passed (${checks} checks).`);
-console.log('  approved program: 10 wings · 26 halls · 105 rooms · 146 philosophers · 43 branches');
-console.log('  canonical live subset: 26 halls · 105 rooms · 189 primary exhibits · 260 capacity · 71 reserve');
-console.log('  tiers: 92 anchor · 79 standard · 9 supporting · 5 cluster · 1 archive');
+console.log('  approved program: 10 wings · 26 halls · 105 rooms · 146 philosophers · 45 branches');
+console.log('  canonical live subset: 26 halls · 105 rooms · 191 primary exhibits · 260 capacity · 69 reserve');
+console.log('  tiers: 97 anchor · 79 standard · 9 supporting · 5 cluster · 1 archive');
 console.log('  compatibility: 48 carried legacy routes · 0 not-installed handoffs');
 console.log('  active building: Continuous Enfilade · 26 galleries · 105 rooms · 26 curated/open · 0 planned/walkable');
 console.log('  circulation: Grand Entrance · 37-seam through-route · 10 m six-intersection crosscut · five turn courts · Final Return');

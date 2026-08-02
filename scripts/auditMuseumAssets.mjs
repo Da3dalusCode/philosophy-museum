@@ -813,13 +813,13 @@ check('Galleries 1–16 classify every textual-media candidate and cap plain pag
   assert.match(legacyImageDiversityPreparationSource, /--refresh-locks/);
 });
 
-check('the canonical twenty-six expose 189 primaries, 406 supplementals, and 595 interpreted stops with resolvable local media', () => {
+check('the canonical twenty-six expose 191 primaries, 406 supplementals, and 597 interpreted stops with resolvable local media', () => {
   assert.deepEqual(MUSEUM_HALLS.map(({id}) => id), ACTIVE_HALL_IDS);
   assert.equal(MUSEUM_HALLS.length, 26);
-  assert.equal(liveExhibits.length, 189);
+  assert.equal(liveExhibits.length, 191);
   assert.equal(supplementalReferencedIds.length, 406);
-  assert.equal(liveExhibits.length + supplementalReferencedIds.length, 595);
-  assert.equal(referencedIds.length, 610);
+  assert.equal(liveExhibits.length + supplementalReferencedIds.length, 597);
+  assert.equal(referencedIds.length, 612);
   assert(canonicalReferencedIds.length > 0, 'the live primary program references no local media');
   for (const {hall, exhibit} of liveExhibits) {
     assert(Array.isArray(exhibit.supportingAssetIds), `${hall.id}/${exhibit.id} has no supporting-asset array`);
@@ -1285,12 +1285,13 @@ check('Galleries 17 and 18 fill their approved rooms with 43 distinct physical m
   assert.equal(new Set(combinedPhysicalIds).size, 43, 'Galleries 17 and 18 reuse a physical asset across galleries');
 });
 
-check('Galleries 20 and 21 fill every room with six distinct standalone images and preserve the image-diversity gate', () => {
+check('Galleries 20 and 21 preserve distinct standalone images and the image-diversity gate', () => {
   const expected = new Map([
     ['utility-liberty-history-capital', {
-      primary: 3,
+      primary: 4,
       supplemental: 21,
-      physical: 24,
+      physical: 25,
+      roomInstallations: {'nineteenth-social-transformations': 7},
       roomIds: [
         'nineteenth-utilitarian-reform',
         'nineteenth-liberty-equality',
@@ -1347,8 +1348,9 @@ check('Galleries 20 and 21 fill every room with six distinct standalone images a
           .filter(({spatialCellId}) => spatialCellId === roomId)
           .map(({assetId}) => assetId),
       ];
-      assert.equal(roomAssetIds.length, 6, `${hallId}/${roomId} must retain six physical wall installations`);
-      assert.equal(new Set(roomAssetIds).size, 6, `${hallId}/${roomId} repeats an image`);
+      const expectedRoomCount = counts.roomInstallations?.[roomId] ?? 6;
+      assert.equal(roomAssetIds.length, expectedRoomCount, `${hallId}/${roomId} physical wall-installation count changed`);
+      assert.equal(new Set(roomAssetIds).size, expectedRoomCount, `${hallId}/${roomId} repeats an image`);
       for (const id of roomAssetIds) {
         const lock = galleries20And21ManifestAssets[id];
         assert(lock, `${hallId}/${roomId}/${id} lacks a Gallery 20/21 source lock`);
@@ -1365,13 +1367,17 @@ check('Galleries 20 and 21 fill every room with six distinct standalone images a
     );
     combinedPhysicalIds.push(...physicalIds);
   }
-  assert.equal(combinedPhysicalIds.length, 42);
-  assert.equal(new Set(combinedPhysicalIds).size, 42, 'Galleries 20 and 21 reuse a physical image across galleries');
+  assert.equal(combinedPhysicalIds.length, 43);
+  assert.equal(new Set(combinedPhysicalIds).size, 43, 'Galleries 20 and 21 reuse a physical image across galleries');
 });
 
-check('Galleries 19 and 22 fill every room with six new standalone images and preserve the image-diversity gate', () => {
+check('Galleries 19 and 22 preserve standalone images and the image-diversity gate', () => {
   const expected = new Map([
     ['german-idealism-afterlives', {
+      primary: 5,
+      supplemental: 20,
+      physical: 25,
+      roomInstallations: {'german-idealism-afterlives-room': 7},
       roomIds: [
         'german-idealism-orientation',
         'german-idealism-nature',
@@ -1380,6 +1386,10 @@ check('Galleries 19 and 22 fill every room with six new standalone images and pr
       ],
     }],
     ['pragmatism-democratic-inquiry', {
+      primary: 4,
+      supplemental: 20,
+      physical: 24,
+      roomInstallations: {},
       roomIds: [
         'pragmatism-peirce-inquiry',
         'pragmatism-james-experience',
@@ -1389,13 +1399,14 @@ check('Galleries 19 and 22 fill every room with six new standalone images and pr
     }],
   ]);
   const combinedPhysicalIds = [];
-  for (const [hallId, {roomIds}] of expected) {
+  for (const [hallId, counts] of expected) {
+    const {roomIds} = counts;
     const hall = MUSEUM_HALLS.find(({id}) => id === hallId);
     const group = physicalSupplementalGroups.find(({galleryId}) => galleryId === hallId);
     assert(hall && group, `${hallId} is absent from the physical asset audit`);
-    assert.equal(hall.exhibits.length, 4, `${hallId} primary count changed`);
-    assert.equal(group.records.length, 20, `${hallId} supplemental record count changed`);
-    assert.equal(group.layouts.length, 20, `${hallId} supplemental layout count changed`);
+    assert.equal(hall.exhibits.length, counts.primary, `${hallId} primary count changed`);
+    assert.equal(group.records.length, counts.supplemental, `${hallId} supplemental record count changed`);
+    assert.equal(group.layouts.length, counts.supplemental, `${hallId} supplemental layout count changed`);
     assert.deepEqual(
       group.layouts.map(({id}) => id).sort(),
       group.records.map(({id}) => id).sort(),
@@ -1407,8 +1418,8 @@ check('Galleries 19 and 22 fill every room with six new standalone images and pr
       return principalAssetId;
     });
     const physicalIds = [...primaryIds, ...group.layouts.map(({assetId}) => assetId)];
-    assert.equal(physicalIds.length, 24, `${hallId} physical media count changed`);
-    assert.equal(new Set(physicalIds).size, 24, `${hallId} repeats a physical asset`);
+    assert.equal(physicalIds.length, counts.physical, `${hallId} physical media count changed`);
+    assert.equal(new Set(physicalIds).size, counts.physical, `${hallId} repeats a physical asset`);
     assert.deepEqual(
       physicalIds.slice().sort(),
       Object.entries(galleries19And22ManifestAssets)
@@ -1426,8 +1437,9 @@ check('Galleries 19 and 22 fill every room with six new standalone images and pr
           .filter(({spatialCellId}) => spatialCellId === roomId)
           .map(({assetId}) => assetId),
       ];
-      assert.equal(roomAssetIds.length, 6, `${hallId}/${roomId} must retain six physical wall installations`);
-      assert.equal(new Set(roomAssetIds).size, 6, `${hallId}/${roomId} repeats an image`);
+      const expectedRoomCount = counts.roomInstallations[roomId] ?? 6;
+      assert.equal(roomAssetIds.length, expectedRoomCount, `${hallId}/${roomId} physical wall-installation count changed`);
+      assert.equal(new Set(roomAssetIds).size, expectedRoomCount, `${hallId}/${roomId} repeats an image`);
       for (const id of roomAssetIds) {
         const lock = galleries19And22ManifestAssets[id];
         assert(lock, `${hallId}/${roomId}/${id} lacks a Gallery 19/22 source lock`);
@@ -1444,8 +1456,8 @@ check('Galleries 19 and 22 fill every room with six new standalone images and pr
     );
     combinedPhysicalIds.push(...physicalIds);
   }
-  assert.equal(combinedPhysicalIds.length, 48);
-  assert.equal(new Set(combinedPhysicalIds).size, 48, 'Galleries 19 and 22 reuse a physical image across galleries');
+  assert.equal(combinedPhysicalIds.length, 49);
+  assert.equal(new Set(combinedPhysicalIds).size, 49, 'Galleries 19 and 22 reuse a physical image across galleries');
 });
 
 check('Galleries 23 and 24 fill every room with six new standalone images and preserve the image-diversity gate', () => {
@@ -1717,11 +1729,11 @@ check('every physical installation has a museum-wide unique asset, source page, 
   assert(unique(physicalAssets.map(({variants}) => sha256(exactCasePath(variants.panel.path)))), 'two physical installations reuse identical panel bytes');
 });
 
-check('the preserved asset registry contains 652 unique records and derivative paths', () => {
-  assert.equal(MUSEUM_ASSETS.length, 652);
-  assert.equal(assetById.size, 652);
+check('the preserved asset registry contains 654 unique records and derivative paths', () => {
+  assert.equal(MUSEUM_ASSETS.length, 654);
+  assert.equal(assetById.size, 654);
   const variantPaths = MUSEUM_ASSETS.flatMap(({variants}) => [variants.scene.path, variants.panel.path]);
-  assert.equal(variantPaths.length, 1304);
+  assert.equal(variantPaths.length, 1308);
   assert(unique(variantPaths), 'two asset variants share a derivative path');
   for (const id of NEW_CANONICAL_ASSET_IDS) assert(assetById.has(id), `new canonical asset ${id} is missing`);
   for (const id of MEDITERRANEAN_ASSET_IDS) assert(assetById.has(id), `Gallery 01 asset ${id} is missing`);
@@ -2210,11 +2222,11 @@ check('Galleries 17 and 18 preserve the approved visual-diversity limits', () =>
   }
 });
 
-check('the 42-source Galleries 20 and 21 lock reproduces every derivative without source or hash reuse', () => {
+check('the 43-source Galleries 20 and 21 lock reproduces every derivative without source or hash reuse', () => {
   assert.equal(galleries20And21Manifest.version, 1);
-  assert.equal(Object.keys(galleries20And21ManifestAssets).length, 42);
+  assert.equal(Object.keys(galleries20And21ManifestAssets).length, 43);
   assert.match(galleries20And21PreparationSource, /museumGalleries20And21AssetManifest\.json/);
-  assert.match(galleries20And21PreparationSource, /EXPECTED_ASSET_COUNT = 42/);
+  assert.match(galleries20And21PreparationSource, /EXPECTED_ASSET_COUNT = 43/);
   assert.match(galleries20And21PreparationSource, /assert_locked\(slug, "scene"/);
   assert.match(galleries20And21PreparationSource, /assert_locked\(slug, "panel"/);
   assert.match(galleries20And21PreparationSource, /"sha256": sha256\(destination\)/);
@@ -2282,21 +2294,21 @@ check('the 42-source Galleries 20 and 21 lock reproduces every derivative withou
       }
     }
   }
-  assert.equal(previouslyLockedIds.size + Object.keys(galleries20And21ManifestAssets).length, 498);
+  assert.equal(previouslyLockedIds.size + Object.keys(galleries20And21ManifestAssets).length, 499);
   assert(unique(sourcePages), 'Galleries 20 and 21 reuse an exact source page');
   assert(unique(sceneHashes), 'Galleries 20 and 21 reuse identical scene bytes');
   assert(unique(panelHashes), 'Galleries 20 and 21 reuse identical panel bytes');
   assert.deepEqual(Object.fromEntries([...countsByFolder].sort()), {
     'faith-pessimism-life-value': 18,
-    'utility-liberty-history-capital': 24,
+    'utility-liberty-history-capital': 25,
   });
 });
 
-check('the 48-source Galleries 19 and 22 lock reproduces every derivative without source or hash reuse', () => {
+check('the 49-source Galleries 19 and 22 lock reproduces every derivative without source or hash reuse', () => {
   assert.equal(galleries19And22Manifest.version, 1);
-  assert.equal(Object.keys(galleries19And22ManifestAssets).length, 48);
+  assert.equal(Object.keys(galleries19And22ManifestAssets).length, 49);
   assert.match(galleries19And22PreparationSource, /museumGalleries19And22AssetManifest\.json/);
-  assert.match(galleries19And22PreparationSource, /EXPECTED_ASSET_COUNT = 48/);
+  assert.match(galleries19And22PreparationSource, /EXPECTED_ASSET_COUNT = 49/);
   assert.match(galleries19And22PreparationSource, /assert_locked\(slug, "scene"/);
   assert.match(galleries19And22PreparationSource, /assert_locked\(slug, "panel"/);
   assert.match(galleries19And22PreparationSource, /"sha256": sha256\(destination\)/);
@@ -2313,7 +2325,7 @@ check('the 48-source Galleries 19 and 22 lock reproduces every derivative withou
     ...galleries20And21ManifestAssets,
   };
   const previouslyLockedIds = new Set(Object.keys(previousManifestAssets));
-  assert.equal(previouslyLockedIds.size, 498, 'The pre-Gallery-19/22 source-lock inventories overlap');
+  assert.equal(previouslyLockedIds.size, 499, 'The pre-Gallery-19/22 source-lock inventories overlap');
   const previousSourcePages = new Set(Object.values(previousManifestAssets).map(({sourcePageUrl}) => sourcePageUrl));
   const previousSceneHashes = new Set(Object.values(previousManifestAssets).map(({scene}) => scene.sha256));
   const previousPanelHashes = new Set(Object.values(previousManifestAssets).map(({panel}) => panel.sha256));
@@ -2365,12 +2377,12 @@ check('the 48-source Galleries 19 and 22 lock reproduces every derivative withou
       }
     }
   }
-  assert.equal(previouslyLockedIds.size + Object.keys(galleries19And22ManifestAssets).length, 546);
+  assert.equal(previouslyLockedIds.size + Object.keys(galleries19And22ManifestAssets).length, 548);
   assert(unique(sourcePages), 'Galleries 19 and 22 reuse an exact source page');
   assert(unique(sceneHashes), 'Galleries 19 and 22 reuse identical scene bytes');
   assert(unique(panelHashes), 'Galleries 19 and 22 reuse identical panel bytes');
   assert.deepEqual(Object.fromEntries([...countsByFolder].sort()), {
-    'german-idealism-afterlives': 24,
+    'german-idealism-afterlives': 25,
     'pragmatism-democratic-inquiry': 24,
   });
 });
@@ -2397,7 +2409,7 @@ check('the 48-source Galleries 23 and 24 lock reproduces every derivative withou
     ...galleries19And22ManifestAssets,
   };
   const previouslyLockedIds = new Set(Object.keys(previousManifestAssets));
-  assert.equal(previouslyLockedIds.size, 546, 'The pre-Gallery-23/24 source-lock inventories overlap');
+  assert.equal(previouslyLockedIds.size, 548, 'The pre-Gallery-23/24 source-lock inventories overlap');
   const previousSourcePages = new Set(Object.values(previousManifestAssets).map(({sourcePageUrl}) => sourcePageUrl));
   const previousSceneHashes = new Set(Object.values(previousManifestAssets).map(({scene}) => scene.sha256));
   const previousPanelHashes = new Set(Object.values(previousManifestAssets).map(({panel}) => panel.sha256));
@@ -2449,7 +2461,7 @@ check('the 48-source Galleries 23 and 24 lock reproduces every derivative withou
       }
     }
   }
-  assert.equal(previouslyLockedIds.size + Object.keys(galleries23And24ManifestAssets).length, 594);
+  assert.equal(previouslyLockedIds.size + Object.keys(galleries23And24ManifestAssets).length, 596);
   assert(unique(sourcePages), 'Galleries 23 and 24 reuse an exact source page');
   assert(unique(sceneHashes), 'Galleries 23 and 24 reuse identical scene bytes');
   assert(unique(panelHashes), 'Galleries 23 and 24 reuse identical panel bytes');
@@ -2484,7 +2496,7 @@ check('the 18-source Gallery 26 lock reproduces every derivative without source 
     ...galleries23And24ManifestAssets,
   };
   const previouslyLockedIds = new Set(Object.keys(previousManifestAssets));
-  assert.equal(previouslyLockedIds.size, 594, 'The pre-Gallery-26 source-lock inventories overlap');
+  assert.equal(previouslyLockedIds.size, 596, 'The pre-Gallery-26 source-lock inventories overlap');
   const previousSourcePages = new Set(Object.values(previousManifestAssets).map(({sourcePageUrl}) => sourcePageUrl));
   const previousSceneHashes = new Set(Object.values(previousManifestAssets).map(({scene}) => scene.sha256));
   const previousPanelHashes = new Set(Object.values(previousManifestAssets).map(({panel}) => panel.sha256));
@@ -2534,7 +2546,7 @@ check('the 18-source Gallery 26 lock reproduces every derivative without source 
       }
     }
   }
-  assert.equal(previouslyLockedIds.size + Object.keys(gallery26ManifestAssets).length, 612);
+  assert.equal(previouslyLockedIds.size + Object.keys(gallery26ManifestAssets).length, 614);
   assert.equal(visualCharacters.size >= 4, true, 'Gallery 26 has insufficient visual-character diversity');
   assert(unique(sourcePages), 'Gallery 26 reuses an exact source page');
   assert(unique(sceneHashes), 'Gallery 26 reuses identical scene bytes');
@@ -2560,7 +2572,7 @@ check('the 24-source Gallery 25 lock reproduces every derivative without source 
     ...gallery26ManifestAssets,
   };
   const previouslyLockedIds = new Set(Object.keys(previousManifestAssets));
-  assert.equal(previouslyLockedIds.size, 612, 'The pre-Gallery-25 source-lock inventories overlap');
+  assert.equal(previouslyLockedIds.size, 614, 'The pre-Gallery-25 source-lock inventories overlap');
   const previousSourcePages = new Set(Object.values(previousManifestAssets).map(({sourcePageUrl}) => sourcePageUrl));
   const previousSceneHashes = new Set(Object.values(previousManifestAssets).map(({scene}) => scene.sha256));
   const previousPanelHashes = new Set(Object.values(previousManifestAssets).map(({panel}) => panel.sha256));
@@ -2600,7 +2612,7 @@ check('the 24-source Gallery 25 lock reproduces every derivative without source 
       }
     }
   }
-  assert.equal(previouslyLockedIds.size + Object.keys(gallery25ManifestAssets).length, 636);
+  assert.equal(previouslyLockedIds.size + Object.keys(gallery25ManifestAssets).length, 638);
   assert(visualCharacters.size >= 4);
   assert(unique(sourcePages));
   assert(unique(sceneHashes));
@@ -2627,7 +2639,7 @@ check('Galleries 14–15 fill 43 unique physical installations without image reu
   }
 });
 
-check('the committed Museum inventory contains exactly the 1304 registered derivatives', () => {
+check('the committed Museum inventory contains exactly the 1308 registered derivatives', () => {
   const actual = walkFiles(museumMediaRoot).map(toPublicPath).sort();
   const expected = MUSEUM_ASSETS.flatMap(({variants}) => [variants.scene.path, variants.panel.path]).sort();
   assert.deepEqual(actual, expected);

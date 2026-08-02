@@ -1,6 +1,6 @@
 # Philosophy Atlas Museum masterplan
 
-**Status:** the 26-gallery intellectual program and the dimensioned single-level **Continuous Enfilade** are implemented together. [Accepted Decision 0001](../decisions/0001-museum-structure.md) locks the Continuous Enfilade as the permanent physical architecture unless the owner explicitly opens a new architecture redesign; the earlier Ring is superseded planning history. The production runtime contains all 26 galleries curated/open, all 105 named rooms, and two closed expansion reserves. Its live directory contains 189 primary exhibits and 406 supplemental/context installations, for 595 interpreted stops. The halls expose 260 primary-record capacity with 71 reserve slots. Compatibility routing retains all 48 carried legacy exhibit routes with no displaced-record handoff.
+**Status:** the 26-gallery intellectual program and the dimensioned single-level **Continuous Enfilade** are implemented together. [Accepted Decision 0001](../decisions/0001-museum-structure.md) locks the Continuous Enfilade as the permanent physical architecture unless the owner explicitly opens a new architecture redesign; the earlier Ring is superseded planning history. The production runtime contains all 26 galleries curated/open, all 105 named rooms, and two closed expansion reserves. Its live directory contains 191 primary exhibits and 406 supplemental/context installations, for 597 interpreted stops. The halls expose 260 primary-record capacity with 69 reserve slots. Compatibility routing retains all 48 carried legacy exhibit routes with no displaced-record handoff.
 
 ## Whole-building architectural control plan
 
@@ -26,7 +26,7 @@ The approved program gives historically and culturally situated traditions their
 | Braided Global Timeline | 6 | 25 | 88 | 228 | Parallel regional histories along a common chronology |
 | Questions and Methods Network | 7 | 25 | 86 | 240 | Thematic questions supported by historical context houses |
 
-“Record capacity” is a planning allowance for philosopher and branch records, not a promise of 260 full-size installations. The current Atlas contributes 189 primary records: **43 branches and 146 philosophers**. Every one has exactly one stable-ID primary assignment, a room or zone, a presentation tier, and a rationale. Secondary hall appearances are interpretive links, not duplicate primary exhibits.
+“Record capacity” is a planning allowance for philosopher and branch records, not a promise of 260 full-size installations. The current Atlas contributes 191 primary records: **45 branches and 146 philosophers**. Every one has exactly one stable-ID primary assignment, a room or zone, a presentation tier, and a rationale. Secondary hall appearances are interpretive links, not duplicate primary exhibits.
 
 ## Why this is the approved direction
 
@@ -73,7 +73,7 @@ Start with these documents, in order:
 The complete assignments are reviewable as spreadsheets:
 
 - [Philosopher assignments](./philosopher-assignments.csv) — 146 current philosopher IDs.
-- [Branch assignments](./branch-assignments.csv) — 43 current branch IDs.
+- [Branch assignments](./branch-assignments.csv) — 45 current branch IDs.
 
 The machine-readable planning contract is split deliberately:
 
@@ -135,4 +135,4 @@ The template contract treats accessibility as geometry, not decoration. Detailed
 
 ## Scope boundary
 
-This directory remains the long-term planning contract. Its CSV and JSON data assign all 189 Atlas records—146 philosophers and 43 branches—exactly once. The runtime installs the complete program across curated Galleries 01–26. The former 48-installation roster and Ring manifest are retained only as migration/rollback records. Runtime geometry, connections, residency, and visitor-map projection are compiled and audited in the Museum source layer.
+This directory remains the long-term planning contract. Its CSV and JSON data assign all 191 Atlas records—146 philosophers and 45 branches—exactly once. The runtime installs the complete program across curated Galleries 01–26. The former 48-installation roster and Ring manifest are retained only as migration/rollback records. Runtime geometry, connections, residency, and visitor-map projection are compiled and audited in the Museum source layer.

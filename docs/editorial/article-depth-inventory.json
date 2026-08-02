@@ -2340,8 +2340,8 @@
       "substantiveWordCount": 5373,
       "complianceStatus": "pass",
       "legacyDepthAuditIncluded": false,
-      "reusedInMuseum": false,
-      "museumPrimaryReuseCount": 0,
+      "reusedInMuseum": true,
+      "museumPrimaryReuseCount": 1,
       "museumSupplementalReuseCount": 0
     },
     {
@@ -2352,8 +2352,8 @@
       "substantiveWordCount": 5144,
       "complianceStatus": "pass",
       "legacyDepthAuditIncluded": false,
-      "reusedInMuseum": false,
-      "museumPrimaryReuseCount": 0,
+      "reusedInMuseum": true,
+      "museumPrimaryReuseCount": 1,
       "museumSupplementalReuseCount": 0
     },
     {
@@ -2486,8 +2486,8 @@
       "substantiveWordCount": 5373,
       "complianceStatus": "pass",
       "legacyDepthAuditIncluded": false,
-      "reusedInMuseum": false,
-      "museumPrimaryReuseCount": 0,
+      "reusedInMuseum": true,
+      "museumPrimaryReuseCount": 1,
       "museumSupplementalReuseCount": 0
     },
     {
@@ -2498,13 +2498,13 @@
       "substantiveWordCount": 5144,
       "complianceStatus": "pass",
       "legacyDepthAuditIncluded": false,
-      "reusedInMuseum": false,
-      "museumPrimaryReuseCount": 0,
+      "reusedInMuseum": true,
+      "museumPrimaryReuseCount": 1,
       "museumSupplementalReuseCount": 0
     }
   ],
   "museum": {
-    "primaryInterpretationCount": 189,
+    "primaryInterpretationCount": 191,
     "supplementalSurfaceCount": 406,
     "supplementalArticleBackingCount": 404,
     "supplementalWithoutArticleClaimCount": 2,
@@ -4442,6 +4442,18 @@
         "canonicalArticleComplianceStatus": "fail"
       },
       {
+        "surfaceId": "kantianism",
+        "title": "Kantianism",
+        "hallId": "german-idealism-afterlives",
+        "visitorEntryPoint": "#/museum/german-idealism-afterlives/exhibits/kantianism",
+        "surfaceKind": "museum-primary-exhibit",
+        "surfaceWords": 653,
+        "canonicalArticleKey": "philosophy:kantianism",
+        "canonicalArticleId": "kantianism",
+        "canonicalArticleWordCount": 5373,
+        "canonicalArticleComplianceStatus": "pass"
+      },
+      {
         "surfaceId": "bentham",
         "title": "Jeremy Bentham",
         "hallId": "utility-liberty-history-capital",
@@ -4475,6 +4487,18 @@
         "canonicalArticleKey": "philosopher:marx",
         "canonicalArticleId": "marx",
         "canonicalArticleWordCount": 4489,
+        "canonicalArticleComplianceStatus": "pass"
+      },
+      {
+        "surfaceId": "marxism",
+        "title": "Marxism",
+        "hallId": "utility-liberty-history-capital",
+        "visitorEntryPoint": "#/museum/utility-liberty-history-capital/exhibits/marxism",
+        "surfaceKind": "museum-primary-exhibit",
+        "surfaceWords": 667,
+        "canonicalArticleKey": "philosophy:marxism",
+        "canonicalArticleId": "marxism",
+        "canonicalArticleWordCount": 5144,
         "canonicalArticleComplianceStatus": "pass"
       },
       {

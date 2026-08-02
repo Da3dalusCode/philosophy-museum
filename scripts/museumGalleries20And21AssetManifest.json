@@ -1,6 +1,28 @@
 {
   "version": 1,
   "assets": {
+    "utility-marxism-zurich-congress-1893": {
+      "hallFolder": "utility-liberty-history-capital",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Zetkin_Engels_Bebel_at_International_Socialist_Workers_Congress_1893.png",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Zetkin_Engels_Bebel_at_International_Socialist_Workers_Congress_1893.png",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Zetkin_Engels_Bebel_at_International_Socialist_Workers_Congress_1893.png?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 384,
+        "bytes": 84790,
+        "sha256": "2feff780ade9d79e85c759eaf2cf3c2a9939a5b9411d747addf8d3c73ab79be5"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 768,
+        "bytes": 407872,
+        "sha256": "7c139099f188b0be690662129c976995ca8005cde97617eabfa5b403e539ff4e"
+      }
+    },
     "utility-bentham-frye-youth": {
       "hallFolder": "utility-liberty-history-capital",
       "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Jeremy_Bentham_by_Thomas_Frye.jpg",

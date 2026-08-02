@@ -14,14 +14,15 @@ export const GERMAN_IDEALISM_HALL_DIMENSIONS = Object.freeze({
 /**
  * Gallery 19 preserves its approved 24 × 56 metre, four-room shell. The branch
  * and Fichte share equal full-scale outer walls in the opening room; Schelling
- * and Hegel anchor the next two rooms; the final room remains a contextual
- * afterlives room without inventing additional primary assignments.
+ * and Hegel anchor the next two rooms; the final room gives Kantianism a
+ * distinct reception-family installation without displacing its afterlives.
  */
 export const GERMAN_IDEALISM_PRIMARY_PLACEMENTS = {
   'german-idealism': {x: -10.85, z: -21, rotationY: Math.PI / 2},
   fichte: {x: 10.85, z: -21, rotationY: -Math.PI / 2},
   schelling: {x: -10.85, z: -7, rotationY: Math.PI / 2},
   hegel: {x: -10.85, z: 7, rotationY: Math.PI / 2},
+  kantianism: {x: -10.85, z: 24.5, rotationY: Math.PI / 2},
 } as const;
 
 export const GERMAN_IDEALISM_ROOM_ENTRY_POSES = {
@@ -49,8 +50,8 @@ export const GERMAN_IDEALISM_ROOM_SIGN_COPY = {
   },
   'german-idealism-afterlives-room': {
     kicker: 'Room 04 · One system, divergent inheritances',
-    title: 'Romantic, Left-Hegelian, and Critical Afterlives',
-    subtitle: 'Hölderlin, Novalis, Romantic art, Young Hegelians, Feuerbach, and Strauss divide the inheritance; routes onward carry its problems to Marx, Kierkegaard, British Idealism, and later critique.',
+    title: 'Kantian, Romantic, and Left-Hegelian Afterlives',
+    subtitle: 'Kantianism remains a disputed reception family while Hölderlin, Novalis, Romantic art, Young Hegelians, Feuerbach, and Strauss divide adjacent inheritances and routes onward.',
   },
 } as const;
 

@@ -23,9 +23,9 @@ USER_AGENT = (
     "PhilosophyAtlasMuseum/1.0 "
     "(+https://github.com/Da3dalusCode/philosophy-museum; local educational asset preparation)"
 )
-EXPECTED_ASSET_COUNT = 42
+EXPECTED_ASSET_COUNT = 43
 EXPECTED_FOLDER_COUNTS = {
-    "utility-liberty-history-capital": 24,
+    "utility-liberty-history-capital": 25,
     "faith-pessimism-life-value": 18,
 }
 MAX_DERIVATIVE_BYTES = 600_000

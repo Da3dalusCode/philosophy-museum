@@ -8,6 +8,7 @@ import type {
 } from './museumAssetTypes';
 
 export type GermanIdealismGalleryAssetId =
+  | 'german-idealism-reinhold-rijksmuseum-1795'
   | 'german-idealism-fichte-bury-1801'
   | 'german-idealism-kant-claessens-portrait'
   | 'german-idealism-collegium-jenense'
@@ -33,7 +34,7 @@ export type GermanIdealismGalleryAssetId =
   | 'german-idealism-feuerbach-c1840'
   | 'german-idealism-strauss-rijksmuseum';
 
-type GermanIdealismEntityId = 'german-idealism' | 'fichte' | 'schelling' | 'hegel';
+type GermanIdealismEntityId = 'german-idealism' | 'kantianism' | 'fichte' | 'schelling' | 'hegel';
 type Rights = Pick<MuseumAssetRecord, 'license' | 'licenseUrl' | 'rightsKind'>;
 type AssetInput = {
   id: GermanIdealismGalleryAssetId;
@@ -115,6 +116,27 @@ const asset = ({
 });
 
 export const GERMAN_IDEALISM_GALLERY_ASSETS = [
+  asset({
+    id: 'german-idealism-reinhold-rijksmuseum-1795',
+    entityKind: 'branch',
+    entityId: 'kantianism',
+    role: 'identity',
+    mediaKind: 'engraving',
+    visualCharacter: 'portrait-or-figure',
+    title: 'Portrait of Karl Leonhard Reinhold',
+    creator: 'Johann Christian Benjamin Gottschick, after Johann Heinrich Lips; published by Johann Gottfried Dyck',
+    objectDate: '1795',
+    institution: 'Rijksmuseum, Amsterdam, RP-P-1912-1429',
+    sourcePageUrl: 'https://commons.wikimedia.org/wiki/File:Portret_van_Carl_Leonhard_Reinhold,_RP-P-1912-1429.jpg',
+    rights: cc0,
+    attribution: 'Johann Christian Benjamin Gottschick, after Johann Heinrich Lips, Portrait of Karl Leonhard Reinhold, 1795, Rijksmuseum. CC0.',
+    scene: [428, 640],
+    panel: [856, 1280],
+    alt: 'Karl Leonhard Reinhold appears in a formal engraved oval portrait above an identifying caption.',
+    caption: 'Reinhold helped make Kant’s critical philosophy a public program, then recast it in pursuit of a more unified foundation.',
+    historicalNote: 'Reinhold is a representative early mediator, not the founder or sole voice of Kantianism. Later Kantians disagreed over idealism, science, ethics, politics, religion, and the status of things in themselves.',
+    likenessStatus: 'lifetime-portrait',
+  }),
   asset({
     id: 'german-idealism-fichte-bury-1801',
     entityKind: 'philosopher',

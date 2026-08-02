@@ -4,7 +4,7 @@
 
 A canonical visitor-facing body of long-form educational article-section prose that explains a philosopher, philosophy, branch, school, tradition, movement, method, major framework, standalone work, text, argument, concept, or major exhibit in depth. Short labels, drawers, plaques, captions, and Museum interpretation panels that route to a canonical article are supporting surfaces, not additional full articles.
 
-The current authoritative registry contains philosopher and philosophy articles. It contains no standalone long-form work, text, argument, concept, or Museum-exhibit article. Wall work drawers, timeline entries, nested work/concept cards, 189 primary Museum interpretation panels, and 406 supplemental Museum surfaces are intentionally concise interfaces; when they claim article backing, their route is validated against one canonical article.
+The current authoritative registry contains philosopher and philosophy articles. It contains no standalone long-form work, text, argument, concept, or Museum-exhibit article. Wall work drawers, timeline entries, nested work/concept cards, 191 primary Museum interpretation panels, and 406 supplemental Museum surfaces are intentionally concise interfaces; when they claim article backing, their route is validated against one canonical article.
 
 ## Word-count method
 
@@ -343,13 +343,13 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | philosophy | medieval-scholasticism | Medieval Scholasticism | #/branches/medieval-scholasticism | 2081 | pass | yes | yes (1 primary; 5 supplemental) |
 | philosophy | rationalism | Rationalism | #/branches/rationalism | 5757 | pass | yes | yes (1 primary; 0 supplemental) |
 | philosophy | empiricism | Empiricism | #/branches/empiricism | 5228 | pass | yes | yes (1 primary; 1 supplemental) |
-| philosophy | kantianism | Kantianism | #/branches/kantianism | 5373 | pass | no | no |
-| philosophy | marxism | Marxism | #/branches/marxism | 5144 | pass | no | no |
+| philosophy | kantianism | Kantianism | #/branches/kantianism | 5373 | pass | no | yes (1 primary; 0 supplemental) |
+| philosophy | marxism | Marxism | #/branches/marxism | 5144 | pass | no | yes (1 primary; 0 supplemental) |
 | philosophy | german-idealism | German Idealism | #/branches/german-idealism | 2206 | pass | yes | yes (1 primary; 4 supplemental) |
 
 ## Museum article-backing audit
 
-- Primary Museum interpretations: 189; each maps one-to-one to a canonical philosopher or philosophy article.
+- Primary Museum interpretations: 191; each maps one-to-one to a canonical philosopher or philosophy article.
 - Supplemental Museum surfaces: 406; 404 claim a philosopher/philosophy article route and 2 explicitly do not.
 - Standalone Museum full articles discovered: 0.
 - Full per-surface mappings are recorded in `docs/editorial/article-depth-inventory.json`.

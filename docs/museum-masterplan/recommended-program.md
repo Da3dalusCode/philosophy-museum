@@ -12,10 +12,10 @@ This is the approved planning program and the intellectual authority for every g
 | Halls | **26** |
 | Rooms / zones | **105** |
 | Planned record capacity | **260** |
-| Current branch/tradition primary assignments | **43** |
+| Current branch/tradition primary assignments | **45** |
 | Current philosopher primary assignments | **146** |
-| Total current primary assignments | **189** |
-| Unallocated record capacity | **71** |
+| Total current primary assignments | **191** |
+| Unallocated record capacity | **69** |
 
 Here, **record capacity** means the number of Atlas records a room is planned to interpret at the appropriate presentation tier. It is not visitor occupancy, floor area, or the number of freestanding objects. A shared cluster may use less physical area than an anchor exhibit even though both records count toward assignment coverage.
 
@@ -33,16 +33,16 @@ Placements for living and recently deceased thinkers remain curatorial judgments
 
 ### Presentation tiers
 
-Tier expresses exhibit treatment, not philosophical worth. It prevents “complete coverage” from becoming 189 equally large monuments.
+Tier expresses exhibit treatment, not philosophical worth. It prevents “complete coverage” from becoming 191 equally large monuments.
 
 | Tier | Branches | Philosophers | Total | Intended physical treatment |
 | --- | ---: | ---: | ---: | --- |
-| Anchor exhibit | 37 | 58 | **95** | A major interpretive installation for a field, tradition, system, or thinker central to the room's argument |
+| Anchor exhibit | 39 | 58 | **97** | A major interpretive installation for a field, tradition, system, or thinker central to the room's argument |
 | Standard individual exhibit | 0 | 79 | **79** | A self-contained philosopher exhibit with context, contribution, works, and relationships |
 | Supporting exhibit | 4 | 5 | **9** | A compact but named exhibit that supports orientation, lineage, or transition |
 | Thematic cluster participant | 2 | 3 | **5** | A clearly identified record within a shared installation where separation would misstate the evidence or overstate certainty |
 | Gallery archive or study-wall record | 0 | 1 | **1** | A visible, searchable record with a defensible home but without a full installation at current depth |
-| **Total** | **43** | **146** | **189** | Complete current inventory |
+| **Total** | **45** | **146** | **191** | Complete current inventory |
 
 The lower-footprint assignments are deliberate and reviewable. The four supporting umbrella branches are Ancient Greek Philosophy, Indian Philosophy, Chinese Philosophy, and Continental Philosophy. The five thematic-cluster participants are Legalism, Buddhist Epistemology, Laozi, Pseudo-Dionysius, and Patañjali. Leucippus is the sole study-wall record. These assignments can be promoted later if source depth grows; their present tier never erases their primary home.
 
@@ -50,7 +50,7 @@ Tier balance is an operational review, not only a disclaimer. The final scholars
 
 ### Secondary associations
 
-Of the 189 records, 166 have at least one secondary hall association, producing 303 resolved **hall-route candidates**. Twenty-three have no secondary hall because a forced link would add noise rather than insight. A secondary association may produce:
+Of the 191 records, 168 have at least one secondary hall association, producing 308 resolved **hall-route candidates**. Twenty-three have no secondary hall because a forced link would add noise rather than insight. A secondary association may produce:
 
 - a linked comparison or reception panel;
 - a “continue this question” wayfinding route;
@@ -63,7 +63,7 @@ The semicolon-separated CSV fields establish destination coverage, not final int
 
 ## Coverage and reserve by wing
 
-The table below reconciles the 189 current primary assignments with the 260-slot program. “Reserve” is capacity not currently occupied by a primary assignment; it may still support orientation and secondary interpretation before new records are added.
+The table below reconciles the 191 current primary assignments with the 260-slot program. “Reserve” is capacity not currently occupied by a primary assignment; it may still support orientation and secondary interpretation before new records are added.
 
 | Wing | Halls | Rooms | Capacity | Current branches | Current philosophers | Current total | Reserve |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -74,10 +74,10 @@ The table below reconciles the 189 current primary assignments with the 260-slot
 | Chinese & East Asian Intellectual Worlds | 2 | 7 | 23 | 5 | 9 | 14 | 9 |
 | Connected Medieval & Post-Classical Intellectual Worlds | 3 | 11 | 33 | 2 | 20 | 22 | 11 |
 | Early Modern Europe & Enlightenments | 4 | 14 | 23 | 2 | 18 | 20 | 3 |
-| Nineteenth-Century Transformations | 3 | 11 | 15 | 1 | 9 | 10 | 5 |
+| Nineteenth-Century Transformations | 3 | 11 | 15 | 3 | 9 | 12 | 3 |
 | Modern Philosophical Traditions | 4 | 18 | 28 | 5 | 19 | 24 | 4 |
 | Ethics, Politics, and Social Thought | 4 | 14 | 25 | 6 | 13 | 19 | 6 |
-| **Total** | **26** | **105** | **260** | **43** | **146** | **189** | **71** |
+| **Total** | **26** | **105** | **260** | **45** | **146** | **191** | **69** |
 
 ## Wing and hall program
 
@@ -223,7 +223,7 @@ Rooms: Law and comparative institutions (1); Inequality, civic freedom, and educ
 
 ### 8. Nineteenth-Century Transformations
 
-**Program (`wing-nineteenth-transformations`):** 3 halls, 11 rooms, capacity 15; 10 current assignments, 5 reserve slots.
+**Program (`wing-nineteenth-transformations`):** 3 halls, 11 rooms, capacity 15; 12 current assignments, 3 reserve slots.
 
 The wing makes three simultaneous transformations legible: post-Kantian system building; arguments about utility, liberty, history, labor, and capital; and challenges organized around faith, suffering, life, and value. It avoids treating all nineteenth-century thought as a single march toward one twentieth-century school.
 
@@ -231,13 +231,13 @@ The current production state includes all Galleries 01–26 as curated/open in t
 
 #### German Idealism & Romantic Afterlives
 
-`german-idealism-afterlives` · sequential template · 4 rooms · capacity 7 · 4 assigned · 3 reserve
+`german-idealism-afterlives` · sequential template · 4 rooms · capacity 7 · 5 assigned · 2 reserve
 
 Rooms: Post-Kantian self, activity, and freedom (3); Nature, identity, art, and freedom (1); History, recognition, social freedom, and system (1); Divergent receptions and later arguments (2).
 
 #### Utility, Liberty, History, and Capital
 
-`utility-liberty-history-capital` · sequential template · 4 rooms · capacity 5 · 3 assigned · 2 reserve
+`utility-liberty-history-capital` · sequential template · 4 rooms · capacity 5 · 4 assigned · 1 reserve
 
 Rooms: Utility, law, reform, and individuality (2); Liberty, equality, and experiments in living (1); Labor, capital, class, and historical critique (1); Political economy and social transformations (1).
 
@@ -341,7 +341,7 @@ The program is culturally safeguarded only if these are treated as implementatio
 
 ## Reserved contexts, collection gaps, and capacity pressure
 
-The 71-slot reserve consists of 21 slots in 12 rooms with no current primary assignment and 50 open slots within partly assigned rooms. “No primary assignment” does not mean an empty gallery: portals, timelines, secondary appearances, maps, and context installations may occupy it before the Atlas gains new primary records.
+The 69-slot reserve consists of 18 slots in 10 rooms with no current primary assignment and 51 open slots within partly assigned rooms. “No primary assignment” does not mean an empty gallery: portals, timelines, secondary appearances, maps, and context installations may occupy it before the Atlas gains new primary records.
 
 | Wing | Room with no current primary assignment | Capacity |
 | --- | --- | ---: |
@@ -351,13 +351,11 @@ The 71-slot reserve consists of 21 slots in 12 rooms with no current primary ass
 | Buddhist Traditions Across Asia | Translation and transformation across Asia | 2 |
 | Chinese & East Asian Intellectual Worlds | Buddhist translation, Daoist institutions, and the Three Teachings | 2 |
 | Chinese & East Asian Intellectual Worlds | Korea, Japan, Vietnam, and modern continuities | 2 |
-| Nineteenth-Century Transformations | Divergent receptions and later arguments | 2 |
 | Nineteenth-Century Transformations | Liberty, equality, and experiments in living | 1 |
-| Nineteenth-Century Transformations | Political economy and social transformations | 1 |
 | Modern Philosophical Traditions | Later pragmatist continuities and omissions | 2 |
 | Ethics, Politics, and Social Thought | Early-modern education, marriage, virtue, and citizenship | 1 |
 | Ethics, Politics, and Social Thought | Anticolonial, postcolonial, Africana, and decolonial continuities | 2 |
-| **Total** | **12 rooms** | **21** |
+| **Total** | **10 rooms** | **18** |
 
 Named reserve contexts should guide research without predetermining new records. The present Atlas remains especially thin in South Asian schools beyond the current Jain, Yoga, category/realist, and Vedānta materials; Buddhist transmission beyond its present classical Indian-centered roster; Korean, Japanese, Vietnamese, and modern East Asian continuities; early-modern and later Jewish philosophy; later pragmatisms; feminist genealogies between the early-modern and contemporary anchors; and broader anticolonial, postcolonial, Africana, Indigenous, Latin American, and decolonial histories. These are not interchangeable “global” gaps. Each requires its own specialist review, sources, and—where necessary—new hall capacity.
 
@@ -367,11 +365,11 @@ Four halls are already at their planned primary-record capacity: Empiricism, Enl
 
 This approved intellectual program governs the production Continuous Enfilade under all of the following conditions:
 
-- one primary assignment for each of the 43 branch IDs and 146 philosopher IDs;
+- one primary assignment for each of the 45 branch IDs and 146 philosopher IDs;
 - capacity is treated as record-planning capacity rather than visitor or architectural occupancy;
 - secondary associations remain links and interpretive appearances, not duplicate homes;
 - cultural safeguards are carried into labels, thresholds, sightlines, and map routes;
 - reserve contexts remain visibly provisional until supported by researched Atlas records;
 - a full hall can expand rather than forcing future material into a misleading category.
 
-The program establishes what the Museum houses and the intellectual rules the production Continuous Enfilade must preserve. The complete building provides all 26 curated/open galleries and 105 named rooms. Completion of the runtime program does not change the locked totals of 189 assigned records, 260 capacity, or 71 reserve slots.
+The program establishes what the Museum houses and the intellectual rules the production Continuous Enfilade must preserve. The complete building provides all 26 curated/open galleries and 105 named rooms. Completion of the runtime program does not change the locked totals of 191 assigned records, 260 capacity, or 69 reserve slots.

@@ -8,6 +8,7 @@ import type {
 } from './museumAssetTypes';
 
 export type UtilityLibertyCapitalGalleryAssetId =
+  | 'utility-marxism-zurich-congress-1893'
   | 'utility-bentham-frye-youth'
   | 'utility-mill-watts-portrait'
   | 'utility-bentham-auto-icon'
@@ -36,7 +37,8 @@ export type UtilityLibertyCapitalGalleryAssetId =
 type Rights = Pick<MuseumAssetRecord, 'license' | 'licenseUrl' | 'rightsKind'>;
 type AssetInput = {
   id: UtilityLibertyCapitalGalleryAssetId;
-  entityId: 'bentham' | 'mill' | 'marx';
+  entityKind?: MuseumAssetRecord['entityKind'];
+  entityId: 'bentham' | 'mill' | 'marx' | 'marxism';
   role: MuseumAssetRecord['role'];
   mediaKind: MuseumMediaKind;
   visualCharacter: MuseumVisualCharacter;
@@ -81,17 +83,23 @@ const variant = (
   height: size[1],
 });
 
-const asset = ({id, rights, scene, panel, likenessStatus = 'not-applicable', ...input}: AssetInput): MuseumAssetRecord => ({
+const asset = ({id, rights, scene, panel, entityKind = 'philosopher', likenessStatus = 'not-applicable', ...input}: AssetInput): MuseumAssetRecord => ({
   ...input,
   ...rights,
   id: id as MuseumAssetId,
-  entityKind: 'philosopher',
+  entityKind,
   derivativeNotice,
   variants: {scene: variant(id, 'scene', scene), panel: variant(id, 'panel', panel)},
   likenessStatus,
 });
 
 export const UTILITY_LIBERTY_CAPITAL_GALLERY_ASSETS = [
+  asset({
+    id: 'utility-marxism-zurich-congress-1893', entityKind: 'branch', entityId: 'marxism', role: 'identity', mediaKind: 'photograph', visualCharacter: 'artwork-or-social-scene',
+    title: 'International Socialist Workers’ Congress participants in Zürich', creator: 'Herman Greulich', objectDate: '13 August 1893', institution: 'Wikimedia Commons reproduction', sourcePageUrl: 'https://commons.wikimedia.org/wiki/File:Zetkin_Engels_Bebel_at_International_Socialist_Workers_Congress_1893.png', rights: publicDomain,
+    attribution: 'Herman Greulich, participants associated with the 1893 Zürich International Socialist Workers’ Congress. Public domain.', scene: [640, 384], panel: [1280, 768],
+    alt: 'Clara Zetkin, Friedrich Engels, Julie and August Bebel, Eduard Bernstein, and companions pose outdoors after the 1893 Zürich congress.', caption: 'The group joins organizers and theorists whose shared Marxian inheritance already contained disputes over party, class, gender, strategy, and revision.', historicalNote: 'The photograph was taken the day after the congress closed and is not a complete delegate portrait. It visualizes one European socialist network, not Marxism’s full global history or a single agreed doctrine.', likenessStatus: 'lifetime-photograph',
+  }),
   asset({
     id: 'utility-bentham-frye-youth', entityId: 'bentham', role: 'context', mediaKind: 'painting', visualCharacter: 'portrait-or-figure',
     title: 'Jeremy Bentham as a young prodigy', creator: 'Thomas Frye', objectDate: 'c. 1760–1762', institution: 'National Portrait Gallery, London, NPG 196', sourcePageUrl: 'https://commons.wikimedia.org/wiki/File:Jeremy_Bentham_by_Thomas_Frye.jpg', rights: publicDomain,

@@ -2059,6 +2059,12 @@
       "searchText": "g. w. f. hegel: recognition, history, and social freedom how can freedom become actual through conflict, recognition, institutions, and the historical revision of inadequate forms of life? german idealism & romantic afterlives history, recognition, social freedom, and system"
     },
     {
+      "id": "kantianism",
+      "hallId": "german-idealism-afterlives",
+      "label": "Kantianism: A Contested Critical Inheritance",
+      "searchText": "kantianism: a contested critical inheritance how did kant’s critical project become rival programs in metaphysics, science, ethics, politics, religion, and theories of mind? german idealism & romantic afterlives divergent receptions and later arguments"
+    },
+    {
       "id": "bentham",
       "hallId": "utility-liberty-history-capital",
       "label": "Jeremy Bentham: Utility, Law, and Institutional Reform",
@@ -2075,6 +2081,12 @@
       "hallId": "utility-liberty-history-capital",
       "label": "Karl Marx: Labor, Capital, and Historical Transformation",
       "searchText": "karl marx: labor, capital, and historical transformation how do social relations created through labor confront people as commodities, capital, class power, and an apparently independent historical system? utility, liberty, history, and capital labor, capital, class, and historical critique"
+    },
+    {
+      "id": "marxism",
+      "hallId": "utility-liberty-history-capital",
+      "label": "Marxism: Interpretation, Organization, and Historical Dispute",
+      "searchText": "marxism: interpretation, organization, and historical dispute how did marx’s critique become competing theories, movements, parties, states, and emancipatory projects across radically different historical settings? utility, liberty, history, and capital political economy and social transformations"
     },
     {
       "id": "schopenhauer",

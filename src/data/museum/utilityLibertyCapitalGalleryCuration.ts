@@ -13,14 +13,14 @@ export const UTILITY_LIBERTY_CAPITAL_HALL_DIMENSIONS = Object.freeze({
 
 /**
  * Gallery 20 preserves the approved 24 × 56 metre shell as four equal rooms.
- * Every room uses the standard six-face contract; rooms without a canonical
- * primary are completed by full museum context installations rather than
- * invented primary assignments.
+ * Rooms retain their approved shell and full context program. The final room
+ * adds Marxism as a distinct post-Marx tradition on a divided side-wall run.
  */
 export const UTILITY_LIBERTY_CAPITAL_PRIMARY_PLACEMENTS = {
   bentham: {x: -10.85, z: -21, rotationY: Math.PI / 2},
   mill: {x: 10.85, z: -21, rotationY: -Math.PI / 2},
   marx: {x: -10.85, z: 7, rotationY: Math.PI / 2},
+  marxism: {x: -10.85, z: 24.5, rotationY: Math.PI / 2},
 } as const;
 
 export const UTILITY_LIBERTY_CAPITAL_ROOM_ENTRY_POSES = {
@@ -48,8 +48,8 @@ export const UTILITY_LIBERTY_CAPITAL_ROOM_SIGN_COPY = {
   },
   'nineteenth-social-transformations': {
     kicker: 'Room 04 · Organization, cities, and the world market',
-    title: 'Political Economy in Collective Life',
-    subtitle: 'Workers’ movements, urban poverty, international organization, colonial trade, and revolutionary experiments carry nineteenth-century critique beyond any isolated author.',
+    title: 'Marxism and Political Economy in Collective Life',
+    subtitle: 'Marxism develops through disputed parties, movements, revisions, and revolutions while urban labor, colonial trade, and the world market resist any single-author story.',
   },
 } as const;
 

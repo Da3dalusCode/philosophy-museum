@@ -21,6 +21,10 @@ A record below its flagship target remains valid migration backlog. The target i
 - A citation is required when prose refers to a specific artwork, map, diagram, visual reconstruction, or similarly identifiable object.
 - There is no fixed total source count. Source quantity follows the claims and risks of the article.
 
+## Canonical-record Museum integration gate
+
+Before creating a canonical philosopher or branch record, inspect its Museum representation, authoritative assignment, intended room density, physical installation and asset needs, and directly affected fixed-count contracts. The task must either include that integration work or stop before the record is added and document the missing integration scope; a canonical article may not silently enter the registry without a Museum preflight.
+
 ## Credibility states
 
 Depth, bibliography, source mapping, and claim review are separate states:

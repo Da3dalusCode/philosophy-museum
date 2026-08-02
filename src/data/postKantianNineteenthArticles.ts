@@ -158,6 +158,9 @@ export const postKantianNineteenthPhilosopherArticles:Record<string,ArticleSecti
       "For that reason, Kierkegaard is best read with pauses rather than as a list of positions. Ask what temptation each text exposes. Is the temptation aesthetic escape, ethical pride, religious imitation, public approval, or philosophical mastery? The works become clearer when they are treated as mirrors for evasions, not only as arguments about concepts."
     ],['existentialism','philosophy-of-religion','ethics'],['kierkegaard'],['Either/Or','Fear and Trembling','The Concept of Anxiety','Works of Love','The Sickness Unto Death'])
   ],
+  /* The legacy Marx article was superseded by marxFlagshipArticle. Keeping it out of
+     this registry prevents a duplicate canonical article key while preserving the
+     historical draft here until the broader module is intentionally decomposed.
   marx:[
     section('overview','Philosophy turned toward material social life',[
       "Marx changes philosophy by insisting that ideas, laws, politics, morality, and religion must be understood in relation to material social life. Human beings do not merely contemplate the world. They labor, produce, exchange, struggle, build institutions, and inherit relations they did not choose. Marx asks how these relations shape what people can think, want, and become. Philosophy becomes critique of social reality, not only interpretation of concepts.",
@@ -208,7 +211,7 @@ export const postKantianNineteenthPhilosopherArticles:Record<string,ArticleSecti
       "Begin with the Theses on Feuerbach and selected early writings on alienation, then read the Communist Manifesto as a polemical historical text rather than a complete theory. Move to Capital, especially chapters on the commodity, money, the working day, machinery, and primitive accumulation. Read slowly enough to distinguish value analysis from slogans about class. Keep Hegel in the background, but also read political economy and labor history. Marx is clearest when philosophy, economics, and social struggle are kept in one frame.",
       "The most common mistake is to turn Marx into either a moral preacher or a cold economic determinist. He is more unsettling than both. He asks how moral life is shaped by material dependence, and how impersonal systems are reproduced by ordinary actions. That means critique has to examine exploitation, but also the everyday forms of consent, necessity, fear, hope, and habit through which a social order continues. Concrete cases keep the critique from becoming only a vocabulary of suspicion."
     ],['political-philosophy','continental-philosophy'],['marx','hegel','mill'],['Theses on Feuerbach','Communist Manifesto','Capital'])
-  ],
+  ], */
   mill:[
     section('overview','Utility, liberty, and the education of individuality',[
       "John Stuart Mill is the most influential nineteenth-century defender of liberal liberty and one of the major revisers of utilitarianism. He inherits Bentham's project of evaluating institutions and actions by their consequences for happiness, but he gives that project a richer account of character, individuality, freedom of thought, education, and equality. Mill's philosophy asks how social arrangements can promote well-being without crushing the development of persons.",

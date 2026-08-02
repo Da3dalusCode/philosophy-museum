@@ -12967,6 +12967,10 @@
         {
           "id": "hegel",
           "displayName": "G. W. F. Hegel: Recognition, History, and Social Freedom"
+        },
+        {
+          "id": "kantianism",
+          "displayName": "Kantianism: A Contested Critical Inheritance"
         }
       ],
       "supplementalExhibits": [
@@ -13067,6 +13071,10 @@
         {
           "id": "marx",
           "displayName": "Karl Marx: Labor, Capital, and Historical Transformation"
+        },
+        {
+          "id": "marxism",
+          "displayName": "Marxism: Interpretation, Organization, and Historical Dispute"
         }
       ],
       "supplementalExhibits": [

@@ -893,7 +893,7 @@ export const GERMAN_IDEALISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     GERMAN_IDEALISM_PALETTE.romanticViolet,
   ),
 
-  // Room 04 has no invented primary. All six wall faces are contextual, and all join the guided tour after Hegel.
+  // Room 04 keeps all six contextual installations; Kantianism shares a divided west-wall run with Novalis.
   layout(
     'afterlives-holderlin',
     'german-idealism',
@@ -912,7 +912,7 @@ export const GERMAN_IDEALISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     'german-idealism',
     'hegel',
     'german-idealism-afterlives-room',
-    {x: -10.85, z: 21},
+    {x: -10.85, z: 17.5},
     Math.PI / 2,
     'german-idealism-novalis-eichens-1845',
     1.98,

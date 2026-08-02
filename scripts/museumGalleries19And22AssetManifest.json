@@ -1,6 +1,28 @@
 {
   "version": 1,
   "assets": {
+    "german-idealism-reinhold-rijksmuseum-1795": {
+      "hallFolder": "german-idealism-afterlives",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Portret_van_Carl_Leonhard_Reinhold,_RP-P-1912-1429.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Portret_van_Carl_Leonhard_Reinhold,_RP-P-1912-1429.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Portret_van_Carl_Leonhard_Reinhold,_RP-P-1912-1429.jpg?width=1600",
+      "visualCharacter": "portrait-or-figure",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 428,
+        "height": 640,
+        "bytes": 42826,
+        "sha256": "c6d473530d6e4e00d41ae91d6ea089c7e69db1eed109c118b52294a97b6e06ea"
+      },
+      "panel": {
+        "width": 856,
+        "height": 1280,
+        "bytes": 270218,
+        "sha256": "6f3b8933197d2d6edbba44b6fa83a78b79de7a4a2b2a32daea12c3c1aeda6420"
+      }
+    },
     "german-idealism-fichte-bury-1801": {
       "hallFolder": "german-idealism-afterlives",
       "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Friedrich_Bury_-_Johann_Gottlieb_Fichte_1801.jpg",

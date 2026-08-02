@@ -384,6 +384,14 @@ const collectionSource = (label: string, url: string): MuseumInterpretationSourc
  * writing; these links give visitors a route to the evidence and scholarship.
  */
 const CANONICAL_DIRECT_INTERPRETATION_SOURCES: Readonly<Record<string, readonly MuseumInterpretationSource[]>> = {
+  kantianism: [
+    academicSource('Stanford Encyclopedia of Philosophy — Neo-Kantianism', 'https://plato.stanford.edu/entries/neo-kantianism/'),
+    academicSource('Stanford Encyclopedia of Philosophy — Karl Leonhard Reinhold', 'https://plato.stanford.edu/entries/karl-reinhold/'),
+  ],
+  marxism: [
+    academicSource('Stanford Encyclopedia of Philosophy — Socialism', 'https://plato.stanford.edu/entries/socialism/'),
+    primarySource('Rosa Luxemburg — Reform or Revolution', 'https://www.marxists.org/archive/luxemburg/1900/reform-revolution/'),
+  ],
   antisthenes: [
     academicSource('Stanford Encyclopedia of Philosophy — Cynics', 'https://plato.stanford.edu/entries/cynics/'),
     academicSource('Internet Encyclopedia of Philosophy — Cynics', 'https://iep.utm.edu/cynics/'),

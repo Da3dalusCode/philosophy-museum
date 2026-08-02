@@ -872,7 +872,9 @@ export const MUSEUM_CANONICAL_PROGRAM = [
       {id: 'german-idealism-hegel', title: 'History, recognition, social freedom, and system', recordCapacity: 1, exhibits: [
         exhibit({id: 'hegel', entityKind: 'philosopher', entityId: 'hegel', displayName: 'G. W. F. Hegel: Recognition, History, and Social Freedom', tier: 'anchor-exhibit', question: 'How can freedom become actual through conflict, recognition, institutions, and the historical revision of inadequate forms of life?', secondaryHallIds: ['critique-power-deconstruction'], principalAssetId: 'german-idealism-hegel-schlesinger-1831'}),
       ]},
-      {id: 'german-idealism-afterlives-room', title: 'Divergent receptions and later arguments', recordCapacity: 2, exhibits: []},
+      {id: 'german-idealism-afterlives-room', title: 'Divergent receptions and later arguments', recordCapacity: 2, exhibits: [
+        exhibit({id: 'kantianism', entityKind: 'branch', entityId: 'kantianism', displayName: 'Kantianism: A Contested Critical Inheritance', tier: 'anchor-exhibit', question: 'How did Kant’s critical project become rival programs in metaphysics, science, ethics, politics, religion, and theories of mind?', secondaryHallIds: ['enlightenment-revolution-kant', 'core-questions-forum'], principalAssetId: 'german-idealism-reinhold-rijksmuseum-1795'}),
+      ]},
     ],
   },
   {
@@ -892,7 +894,9 @@ export const MUSEUM_CANONICAL_PROGRAM = [
       {id: 'nineteenth-labor-capital', title: 'Labor, capital, class, and historical critique', recordCapacity: 1, exhibits: [
         exhibit({id: 'marx', entityKind: 'philosopher', entityId: 'marx', displayName: 'Karl Marx: Labor, Capital, and Historical Transformation', tier: 'anchor-exhibit', question: 'How do social relations created through labor confront people as commodities, capital, class power, and an apparently independent historical system?', secondaryHallIds: ['critique-power-deconstruction', 'justice-democratic-reason'], formerHallId: 'modernity-freedom-critique', principalAssetId: 'utility-marx-1861-beard-portrait'}),
       ]},
-      {id: 'nineteenth-social-transformations', title: 'Political economy and social transformations', recordCapacity: 1, exhibits: []},
+      {id: 'nineteenth-social-transformations', title: 'Political economy and social transformations', recordCapacity: 1, exhibits: [
+        exhibit({id: 'marxism', entityKind: 'branch', entityId: 'marxism', displayName: 'Marxism: Interpretation, Organization, and Historical Dispute', tier: 'anchor-exhibit', question: 'How did Marx’s critique become competing theories, movements, parties, states, and emancipatory projects across radically different historical settings?', secondaryHallIds: ['critique-power-deconstruction', 'justice-democratic-reason', 'colonialism-race-liberation'], principalAssetId: 'utility-marxism-zurich-congress-1893'}),
+      ]},
     ],
   },
   {

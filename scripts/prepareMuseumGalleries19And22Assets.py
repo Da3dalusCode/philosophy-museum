@@ -23,9 +23,9 @@ USER_AGENT = (
     "PhilosophyAtlasMuseum/1.0 "
     "(+https://github.com/Da3dalusCode/philosophy-museum; local educational asset preparation)"
 )
-EXPECTED_ASSET_COUNT = 48
+EXPECTED_ASSET_COUNT = 49
 EXPECTED_FOLDER_COUNTS = {
-    "german-idealism-afterlives": 24,
+    "german-idealism-afterlives": 25,
     "pragmatism-democratic-inquiry": 24,
 }
 MAX_DERIVATIVE_BYTES = 600_000
