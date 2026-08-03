@@ -23,6 +23,7 @@ export type ModernClusterEditorialConfig = {
   patch: Omit<Partial<Philosopher>, 'id' | 'articleSections' | 'editorial'>;
   reviewNotePath: string;
   reviewLock: string;
+  reviewedOn?: string;
 };
 
 const serialize = (value: unknown): string =>
@@ -102,7 +103,7 @@ export const applyModernClusterEditorialConfig = (
       structuredClaims: structuredClaims(reviewed, config.evidence),
       review: {
         status: 'claim-reviewed',
-        reviewedOn: '2026-08-02',
+        reviewedOn: config.reviewedOn ?? '2026-08-02',
         method: 'Full page-level claim review of every article paragraph and claim-bearing structured field against named primary works, independent specialist references, critical-edition or publisher records, and explicit interpretive disputes; quotations, dates, attributions, priority language, politically or interpretively sensitive claims, and locator/source roles received a targeted final check before lock generation.',
         reviewNotePath: config.reviewNotePath,
         lock: config.reviewLock,

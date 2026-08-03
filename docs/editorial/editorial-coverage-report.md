@@ -1,6 +1,6 @@
 # Editorial coverage report
 
-Data as of: 2026-08-02
+Data as of: 2026-08-03
 
 This report distinguishes bibliographies, mapped evidence, completed claim review, and stale review locks. It also reports article depth, but the hard 2,000-word completeness requirement is a separate test: length does not establish accuracy, sourcing, or review status.
 
@@ -8,7 +8,7 @@ This report distinguishes bibliographies, mapped evidence, completed claim revie
 
 | Category | Total | Unreviewed | Bibliography only | Source mapped | Claim review current | Review out of date |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| Philosophers | 146 | 54 | 53 | 0 | 39 | 0 |
+| Philosophers | 146 | 45 | 53 | 0 | 48 | 0 |
 | Philosophies / branches / schools / traditions | 45 | 2 | 40 | 0 | 3 | 0 |
 | Standalone articles and major exhibits | 0 | 0 | 0 | 0 | 0 | 0 |
 
@@ -50,11 +50,11 @@ This report distinguishes bibliographies, mapped evidence, completed claim revie
 | philosopher | porphyry | Porphyry | claim-reviewed | 6 | 6 | 17 | 22 | 93 | 2058 | #/philosophers/porphyry |
 | philosopher | iamblichus | Iamblichus | claim-reviewed | 6 | 6 | 17 | 23 | 94 | 2073 | #/philosophers/iamblichus |
 | philosopher | proclus | Proclus | claim-reviewed | 7 | 7 | 17 | 23 | 107 | 2081 | #/philosophers/proclus |
-| philosopher | confucius | Confucius | unreviewed | 0 | 0 | 0 | 0 | 0 | 1958 | #/philosophers/confucius |
-| philosopher | laozi | Laozi | unreviewed | 0 | 0 | 0 | 0 | 0 | 1871 | #/philosophers/laozi |
-| philosopher | zhuangzi | Zhuangzi | unreviewed | 0 | 0 | 0 | 0 | 0 | 1855 | #/philosophers/zhuangzi |
-| philosopher | mencius | Mencius | unreviewed | 0 | 0 | 0 | 0 | 0 | 1902 | #/philosophers/mencius |
-| philosopher | xunzi | Xunzi | unreviewed | 0 | 0 | 0 | 0 | 0 | 1822 | #/philosophers/xunzi |
+| philosopher | confucius | Confucius | claim-reviewed | 5 | 5 | 17 | 22 | 74 | 2084 | #/philosophers/confucius |
+| philosopher | laozi | Laozi | claim-reviewed | 5 | 5 | 17 | 22 | 78 | 2228 | #/philosophers/laozi |
+| philosopher | zhuangzi | Zhuangzi | claim-reviewed | 6 | 6 | 17 | 24 | 87 | 2245 | #/philosophers/zhuangzi |
+| philosopher | mencius | Mencius | claim-reviewed | 5 | 5 | 17 | 22 | 76 | 2055 | #/philosophers/mencius |
+| philosopher | xunzi | Xunzi | claim-reviewed | 5 | 5 | 17 | 22 | 78 | 2060 | #/philosophers/xunzi |
 | philosopher | buddha | Siddhartha Gautama / the Buddha | bibliography-only | 0 | 0 | 0 | 0 | 0 | 4502 | #/philosophers/buddha |
 | philosopher | nagarjuna | Nāgārjuna | claim-reviewed | 6 | 5 | 7 | 38 | 98 | 3007 | #/philosophers/nagarjuna |
 | philosopher | vasubandhu | Vasubandhu | unreviewed | 0 | 0 | 0 | 0 | 0 | 1911 | #/philosophers/vasubandhu |
@@ -130,10 +130,10 @@ This report distinguishes bibliographies, mapped evidence, completed claim revie
 | philosopher | dignaga | Dignaga | unreviewed | 0 | 0 | 0 | 0 | 0 | 1862 | #/philosophers/dignaga |
 | philosopher | dharmakirti | Dharmakirti | unreviewed | 0 | 0 | 0 | 0 | 0 | 1842 | #/philosophers/dharmakirti |
 | philosopher | madhva | Madhva | unreviewed | 0 | 0 | 0 | 0 | 0 | 1840 | #/philosophers/madhva |
-| philosopher | mozi | Mozi | unreviewed | 0 | 0 | 0 | 0 | 0 | 1815 | #/philosophers/mozi |
-| philosopher | han-feizi | Han Feizi | unreviewed | 0 | 0 | 0 | 0 | 0 | 1842 | #/philosophers/han-feizi |
-| philosopher | zhu-xi | Zhu Xi | unreviewed | 0 | 0 | 0 | 0 | 0 | 1836 | #/philosophers/zhu-xi |
-| philosopher | wang-yangming | Wang Yangming | unreviewed | 0 | 0 | 0 | 0 | 0 | 1804 | #/philosophers/wang-yangming |
+| philosopher | mozi | Mozi | claim-reviewed | 6 | 6 | 6 | 22 | 69 | 2050 | #/philosophers/mozi |
+| philosopher | han-feizi | Han Feizi | claim-reviewed | 6 | 6 | 6 | 24 | 65 | 2154 | #/philosophers/han-feizi |
+| philosopher | zhu-xi | Zhu Xi | claim-reviewed | 6 | 6 | 17 | 24 | 84 | 2235 | #/philosophers/zhu-xi |
+| philosopher | wang-yangming | Wang Yangming | claim-reviewed | 6 | 6 | 17 | 24 | 85 | 2155 | #/philosophers/wang-yangming |
 | philosopher | mary-astell | Mary Astell | unreviewed | 0 | 0 | 0 | 0 | 0 | 1901 | #/philosophers/mary-astell |
 | philosopher | anne-conway | Anne Conway | unreviewed | 0 | 0 | 0 | 0 | 0 | 1895 | #/philosophers/anne-conway |
 | philosopher | montesquieu | Montesquieu | unreviewed | 0 | 0 | 0 | 0 | 0 | 1863 | #/philosophers/montesquieu |
@@ -212,7 +212,7 @@ This report distinguishes bibliographies, mapped evidence, completed claim revie
 
 The patterns below flag uncited legacy article paragraphs containing quotation-like text, exact dates, priority claims, influence/causation language, disputed attribution, or broad classifications. They are review-routing signals, not findings of error or padding. Proximity to the depth floor is not treated as evidence of padding.
 
-Total signals: **927**.
+Total signals: **906**.
 
 | Record | Current status | Signal | Location | Excerpt |
 | --- | --- | --- | --- | --- |
@@ -317,18 +317,6 @@ Total signals: **927**.
 | philosopher:plotinus | bibliography-only | priority-or-superlative | procession-return/paragraph-1 | Later readers often describe Plotinian reality through emanation. The term can be helpful if it indicates dependence that does not deplete its source, but it can mislead when it suggests material fluid spreading outward |
 | philosopher:plotinus | bibliography-only | priority-or-superlative | evil-matter/paragraph-1 | Plotinus refuses to make evil an independent power equal to the Good. Evil is associated with privation, deficiency, disorder, and the extreme limit represented by matter without form. This account protects the priority |
 | philosopher:plotinus | bibliography-only | priority-or-superlative | practice/paragraph-2 | Union is often called mystical, a useful term if it marks an experience that exceeds discursive thought. It becomes misleading when it suggests irrational feeling, private revelation detached from argument, or permanent |
-| philosopher:confucius | unreviewed | exact-date | historical-world/paragraph-1 | Confucius is traditionally dated 551 to 479 BCE, during the late Spring and Autumn period of ancient China. Those dates are more secure than many details of the later legends, but the world around him still requires care |
-| philosopher:confucius | unreviewed | priority-or-superlative | family-and-government/paragraph-1 | Filial piety is central to Confucian thought, but it should not be reduced to blind obedience. In the Analects, family reverence includes care, mourning, gratitude, continuity with ancestors, and the discipline of servin |
-| philosopher:confucius | unreviewed | priority-or-superlative | reading-strategy/paragraph-2 | After the Analects, read selections from Mencius and Xunzi to see how later Confucians build rival philosophical architectures from Confucian materials. Keep three cautions in view. First, do not impose later imperial or |
-| philosopher:laozi | unreviewed | priority-or-superlative | overview/paragraph-1 | Laozi names both a legendary sage and the authority associated with the Daodejing, one of the most influential texts in Chinese philosophy. The figure is traditionally portrayed as an older contemporary or critic of Conf |
-| philosopher:laozi | unreviewed | disputed-attribution | overview/paragraph-1 | Laozi names both a legendary sage and the authority associated with the Daodejing, one of the most influential texts in Chinese philosophy. The figure is traditionally portrayed as an older contemporary or critic of Conf |
-| philosopher:laozi | unreviewed | broad-classification | overview/paragraph-1 | Laozi names both a legendary sage and the authority associated with the Daodejing, one of the most influential texts in Chinese philosophy. The figure is traditionally portrayed as an older contemporary or critic of Conf |
-| philosopher:laozi | unreviewed | broad-classification | relation-to-confucianism/paragraph-2 | Yet the relationship is not only opposition. Both traditions worry about disorder, bad rulers, false prestige, and the deformation of desire. Both ask how a person can be formed beyond appetite and ambition. The differen |
-| philosopher:laozi | unreviewed | priority-or-superlative | reading-strategy/paragraph-2 | Keep the historical and textual cautions near the surface. Laozi as a named sage, Laozi as a legendary critic of Confucius, and Laozi as the authority of a layered text are not identical. Read beside selections from the |
-| philosopher:laozi | unreviewed | disputed-attribution | reading-strategy/paragraph-2 | Keep the historical and textual cautions near the surface. Laozi as a named sage, Laozi as a legendary critic of Confucius, and Laozi as the authority of a layered text are not identical. Read beside selections from the |
-| philosopher:zhuangzi | unreviewed | influence-or-causation | influence-and-reception/paragraph-1 | The Zhuangzi influenced Daoist religion, Chinese Buddhism, Chan and Zen traditions, poetry, painting, literary theory, and later philosophical reflection on freedom, language, and nature. Buddhist readers found resonance |
-| philosopher:mencius | unreviewed | broad-classification | school-relationships/paragraph-2 | Mencius also argues against Mohist impartial concern, which he sees as neglecting the graded affections rooted in family life, and against Yangist self-regard as he understands it. Daoist texts challenge the Confucian co |
-| philosopher:mencius | unreviewed | priority-or-superlative | reading-strategy/paragraph-2 | A strong path is to read the Analects first, then Mencius, then selections from Xunzi. That sequence shows how early Confucianism develops into rival explanations of cultivation. Add Mozi to understand the challenge of i |
 | philosopher:buddha | bibliography-only | quotation | encountering-the-buddha/paragraph-1 | Siddhartha Gautama, conventionally called the Buddha or “awakened one,” is among history’s most consequential teachers and one of its most difficult to reconstruct. Communities across Asia remember him as the human teach |
 | philosopher:buddha | bibliography-only | exact-date | chronology-and-setting/paragraph-1 | Older handbooks often gave the Buddha exact dates such as 563–483 BCE. Current scholarship is more cautious, commonly locating his activity around the fifth century BCE while disagreeing about narrower chronologies. The |
 | philosopher:buddha | bibliography-only | quotation | chronology-and-setting/paragraph-2 | The setting was marked by growing towns, competing kingdoms and republic-like clans, trade networks, sacrificial and household traditions, wandering renunciants, and debate over action, rebirth, discipline, knowledge, an |
@@ -690,15 +678,6 @@ Total signals: **927**.
 | philosopher:madhva | unreviewed | exact-date | overview/paragraph-1 | Madhva is the major systematizer of Dvaita Vedanta, a dualist or realist Vedanta tradition that insists on the real difference between God, souls, and the world. Conventionally dated 1238 to 1317 CE, he interprets the Br |
 | philosopher:madhva | unreviewed | priority-or-superlative | influence/paragraph-1 | Madhva founded or systematized a durable Dvaita Vedanta lineage with monastic institutions, commentarial traditions, and devotional communities. Later Dvaita thinkers developed his arguments in great detail, especially a |
 | philosopher:madhva | unreviewed | broad-classification | influence/paragraph-2 | For the atlas, his influence is corrective. Readers who assume Indian philosophy culminates in nondualism need Madhva as a counterweight. He shows that the same scriptural inheritance can produce a passionate defense of |
-| philosopher:mozi | unreviewed | broad-classification | historical-world/paragraph-2 | Mohism also appears to have been an organized movement, not only a set of texts. Later sources portray Mohists as disciplined, technically skilled, and committed to defensive warfare against aggression. We should handle |
-| philosopher:mozi | unreviewed | broad-classification | school-relationships/paragraph-2 | Later Mohist materials also contributed to logic, disputation, optics, mechanics, and technical thought, although these layers should not be simply read back into Mozi as an individual. The broader Mohist tradition shows |
-| philosopher:han-feizi | unreviewed | priority-or-superlative | overview/paragraph-2 | Legalism is a later label for several currents rather than a single school with one founder, so Han Feizi should be read carefully. He draws on earlier thinkers concerned with law, technique, standards, and statecraft, a |
-| philosopher:han-feizi | unreviewed | priority-or-superlative | text-and-style/paragraph-2 | The style can be sharp, ironic, and severe. Han Feizi is interested in how language is used strategically. Ministers praise virtue when virtue language helps them; advisers invoke antiquity when it serves their position; |
-| philosopher:han-feizi | unreviewed | priority-or-superlative | shu-technique/paragraph-2 | This makes Han Feizi political theory intensely bureaucratic. The greatest threat to the ruler is not always popular rebellion; it may be the minister who uses office for private advantage. Moral language cannot solve th |
-| philosopher:zhu-xi | unreviewed | priority-or-superlative | overview/paragraph-1 | Zhu Xi is the central systematizer of Song dynasty Neo-Confucianism and one of the most influential philosophers in later East Asian intellectual history. He gathered earlier Confucian, cosmological, ethical, and metaphy |
-| philosopher:wang-yangming | unreviewed | priority-or-superlative | overview/paragraph-1 | Wang Yangming is the major Ming dynasty Neo-Confucian thinker associated with innate moral knowing and the unity of knowledge and action. He is often read as the great internal challenger to Zhu Xi orthodoxy. His central |
-| philosopher:wang-yangming | unreviewed | influence-or-causation | influence-and-reception/paragraph-1 | Wang Yangming inspired a major school of thought that influenced later Chinese, Japanese, and Korean intellectual life in diverse ways. His emphasis on innate knowing, sincerity, and action could encourage moral confiden |
-| philosopher:wang-yangming | unreviewed | disputed-attribution | misunderstandings/paragraph-2 | The tensions are serious. How can a person tell innate knowing from rationalized preference? How much external study is needed to correct self-deception? Can moral immediacy handle complex political situations where outc |
 | philosopher:mary-astell | unreviewed | priority-or-superlative | life-and-works/paragraph-2 | Her most famous texts are A Serious Proposal to the Ladies and Some Reflections upon Marriage. The first proposes a community of female study and religious discipline; the second criticizes the conditions under which mar |
 | philosopher:anne-conway | unreviewed | influence-or-causation | monads-and-leibniz/paragraph-1 | Conway is often discussed in relation to Leibniz because both reject dead matter and imagine reality through active, perception-like individuals rather than inert blocks. The historical relation is debated, but there are |
 | philosopher:anne-conway | unreviewed | influence-or-causation | controversies/paragraph-2 | Scholars also debate the influence of Kabbalistic material, the role of van Helmont, the extent of Conway's influence on Leibniz, and the best way to understand her relation to Cambridge Platonism. These debates are not |

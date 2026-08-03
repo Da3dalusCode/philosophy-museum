@@ -1,5 +1,5 @@
 {
-  "dataAsOf": "2026-08-02",
+  "dataAsOf": "2026-08-03",
   "policy": {
     "articleMinimum": 2000,
     "statusAndDepthAreIndependent": true,
@@ -597,75 +597,95 @@
       "title": "Confucius",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/confucius",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 5,
+      "citedSourceCount": 5,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1958
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 22,
+      "citationCount": 74,
+      "substantiveArticleWordCount": 2084,
+      "reviewNotePath": "docs/editorial/reviews/confucius.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:ae99257db7b84bd0",
+      "currentReviewLock": "fnv1a64:ae99257db7b84bd0"
     },
     {
       "id": "laozi",
       "title": "Laozi",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/laozi",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 5,
+      "citedSourceCount": 5,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1871
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 22,
+      "citationCount": 78,
+      "substantiveArticleWordCount": 2228,
+      "reviewNotePath": "docs/editorial/reviews/laozi.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:8ce4e6dedaa79d80",
+      "currentReviewLock": "fnv1a64:8ce4e6dedaa79d80"
     },
     {
       "id": "zhuangzi",
       "title": "Zhuangzi",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/zhuangzi",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 6,
+      "citedSourceCount": 6,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1855
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 24,
+      "citationCount": 87,
+      "substantiveArticleWordCount": 2245,
+      "reviewNotePath": "docs/editorial/reviews/zhuangzi.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:502966150e91b794",
+      "currentReviewLock": "fnv1a64:502966150e91b794"
     },
     {
       "id": "mencius",
       "title": "Mencius",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/mencius",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 5,
+      "citedSourceCount": 5,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1902
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 22,
+      "citationCount": 76,
+      "substantiveArticleWordCount": 2055,
+      "reviewNotePath": "docs/editorial/reviews/mencius.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:3e1736da5b7b227b",
+      "currentReviewLock": "fnv1a64:3e1736da5b7b227b"
     },
     {
       "id": "xunzi",
       "title": "Xunzi",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/xunzi",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 5,
+      "citedSourceCount": 5,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1822
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 22,
+      "citationCount": 78,
+      "substantiveArticleWordCount": 2060,
+      "reviewNotePath": "docs/editorial/reviews/xunzi.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:42c42a78725f55ff",
+      "currentReviewLock": "fnv1a64:42c42a78725f55ff"
     },
     {
       "id": "buddha",
@@ -1845,60 +1865,76 @@
       "title": "Mozi",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/mozi",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 6,
+      "citedSourceCount": 6,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1815
+      "structuredClaimCount": 6,
+      "structuredParagraphCount": 22,
+      "citationCount": 69,
+      "substantiveArticleWordCount": 2050,
+      "reviewNotePath": "docs/editorial/reviews/mozi.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:965d28e9bb3e07a3",
+      "currentReviewLock": "fnv1a64:965d28e9bb3e07a3"
     },
     {
       "id": "han-feizi",
       "title": "Han Feizi",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/han-feizi",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 6,
+      "citedSourceCount": 6,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1842
+      "structuredClaimCount": 6,
+      "structuredParagraphCount": 24,
+      "citationCount": 65,
+      "substantiveArticleWordCount": 2154,
+      "reviewNotePath": "docs/editorial/reviews/han-feizi.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:668e61ddacc85a33",
+      "currentReviewLock": "fnv1a64:668e61ddacc85a33"
     },
     {
       "id": "zhu-xi",
       "title": "Zhu Xi",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/zhu-xi",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 6,
+      "citedSourceCount": 6,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1836
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 24,
+      "citationCount": 84,
+      "substantiveArticleWordCount": 2235,
+      "reviewNotePath": "docs/editorial/reviews/zhu-xi.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:99fd79cab19902b6",
+      "currentReviewLock": "fnv1a64:99fd79cab19902b6"
     },
     {
       "id": "wang-yangming",
       "title": "Wang Yangming",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/wang-yangming",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 6,
+      "citedSourceCount": 6,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1804
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 24,
+      "citationCount": 85,
+      "substantiveArticleWordCount": 2155,
+      "reviewNotePath": "docs/editorial/reviews/wang-yangming.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:171b5e9990fa8920",
+      "currentReviewLock": "fnv1a64:171b5e9990fa8920"
     },
     {
       "id": "mary-astell",
@@ -3747,90 +3783,6 @@
       "signal": "priority-or-superlative",
       "location": "practice/paragraph-2",
       "excerpt": "Union is often called mystical, a useful term if it marks an experience that exceeds discursive thought. It becomes misleading when it suggests irrational feeling, private revelation detached from argument, or permanent"
-    },
-    {
-      "recordKey": "philosopher:confucius",
-      "status": "unreviewed",
-      "signal": "exact-date",
-      "location": "historical-world/paragraph-1",
-      "excerpt": "Confucius is traditionally dated 551 to 479 BCE, during the late Spring and Autumn period of ancient China. Those dates are more secure than many details of the later legends, but the world around him still requires care"
-    },
-    {
-      "recordKey": "philosopher:confucius",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "family-and-government/paragraph-1",
-      "excerpt": "Filial piety is central to Confucian thought, but it should not be reduced to blind obedience. In the Analects, family reverence includes care, mourning, gratitude, continuity with ancestors, and the discipline of servin"
-    },
-    {
-      "recordKey": "philosopher:confucius",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "reading-strategy/paragraph-2",
-      "excerpt": "After the Analects, read selections from Mencius and Xunzi to see how later Confucians build rival philosophical architectures from Confucian materials. Keep three cautions in view. First, do not impose later imperial or"
-    },
-    {
-      "recordKey": "philosopher:laozi",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "overview/paragraph-1",
-      "excerpt": "Laozi names both a legendary sage and the authority associated with the Daodejing, one of the most influential texts in Chinese philosophy. The figure is traditionally portrayed as an older contemporary or critic of Conf"
-    },
-    {
-      "recordKey": "philosopher:laozi",
-      "status": "unreviewed",
-      "signal": "disputed-attribution",
-      "location": "overview/paragraph-1",
-      "excerpt": "Laozi names both a legendary sage and the authority associated with the Daodejing, one of the most influential texts in Chinese philosophy. The figure is traditionally portrayed as an older contemporary or critic of Conf"
-    },
-    {
-      "recordKey": "philosopher:laozi",
-      "status": "unreviewed",
-      "signal": "broad-classification",
-      "location": "overview/paragraph-1",
-      "excerpt": "Laozi names both a legendary sage and the authority associated with the Daodejing, one of the most influential texts in Chinese philosophy. The figure is traditionally portrayed as an older contemporary or critic of Conf"
-    },
-    {
-      "recordKey": "philosopher:laozi",
-      "status": "unreviewed",
-      "signal": "broad-classification",
-      "location": "relation-to-confucianism/paragraph-2",
-      "excerpt": "Yet the relationship is not only opposition. Both traditions worry about disorder, bad rulers, false prestige, and the deformation of desire. Both ask how a person can be formed beyond appetite and ambition. The differen"
-    },
-    {
-      "recordKey": "philosopher:laozi",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "reading-strategy/paragraph-2",
-      "excerpt": "Keep the historical and textual cautions near the surface. Laozi as a named sage, Laozi as a legendary critic of Confucius, and Laozi as the authority of a layered text are not identical. Read beside selections from the"
-    },
-    {
-      "recordKey": "philosopher:laozi",
-      "status": "unreviewed",
-      "signal": "disputed-attribution",
-      "location": "reading-strategy/paragraph-2",
-      "excerpt": "Keep the historical and textual cautions near the surface. Laozi as a named sage, Laozi as a legendary critic of Confucius, and Laozi as the authority of a layered text are not identical. Read beside selections from the"
-    },
-    {
-      "recordKey": "philosopher:zhuangzi",
-      "status": "unreviewed",
-      "signal": "influence-or-causation",
-      "location": "influence-and-reception/paragraph-1",
-      "excerpt": "The Zhuangzi influenced Daoist religion, Chinese Buddhism, Chan and Zen traditions, poetry, painting, literary theory, and later philosophical reflection on freedom, language, and nature. Buddhist readers found resonance"
-    },
-    {
-      "recordKey": "philosopher:mencius",
-      "status": "unreviewed",
-      "signal": "broad-classification",
-      "location": "school-relationships/paragraph-2",
-      "excerpt": "Mencius also argues against Mohist impartial concern, which he sees as neglecting the graded affections rooted in family life, and against Yangist self-regard as he understands it. Daoist texts challenge the Confucian co"
-    },
-    {
-      "recordKey": "philosopher:mencius",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "reading-strategy/paragraph-2",
-      "excerpt": "A strong path is to read the Analects first, then Mencius, then selections from Xunzi. That sequence shows how early Confucianism develops into rival explanations of cultivation. Add Mozi to understand the challenge of i"
     },
     {
       "recordKey": "philosopher:buddha",
@@ -6358,69 +6310,6 @@
       "signal": "broad-classification",
       "location": "influence/paragraph-2",
       "excerpt": "For the atlas, his influence is corrective. Readers who assume Indian philosophy culminates in nondualism need Madhva as a counterweight. He shows that the same scriptural inheritance can produce a passionate defense of"
-    },
-    {
-      "recordKey": "philosopher:mozi",
-      "status": "unreviewed",
-      "signal": "broad-classification",
-      "location": "historical-world/paragraph-2",
-      "excerpt": "Mohism also appears to have been an organized movement, not only a set of texts. Later sources portray Mohists as disciplined, technically skilled, and committed to defensive warfare against aggression. We should handle"
-    },
-    {
-      "recordKey": "philosopher:mozi",
-      "status": "unreviewed",
-      "signal": "broad-classification",
-      "location": "school-relationships/paragraph-2",
-      "excerpt": "Later Mohist materials also contributed to logic, disputation, optics, mechanics, and technical thought, although these layers should not be simply read back into Mozi as an individual. The broader Mohist tradition shows"
-    },
-    {
-      "recordKey": "philosopher:han-feizi",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "overview/paragraph-2",
-      "excerpt": "Legalism is a later label for several currents rather than a single school with one founder, so Han Feizi should be read carefully. He draws on earlier thinkers concerned with law, technique, standards, and statecraft, a"
-    },
-    {
-      "recordKey": "philosopher:han-feizi",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "text-and-style/paragraph-2",
-      "excerpt": "The style can be sharp, ironic, and severe. Han Feizi is interested in how language is used strategically. Ministers praise virtue when virtue language helps them; advisers invoke antiquity when it serves their position;"
-    },
-    {
-      "recordKey": "philosopher:han-feizi",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "shu-technique/paragraph-2",
-      "excerpt": "This makes Han Feizi political theory intensely bureaucratic. The greatest threat to the ruler is not always popular rebellion; it may be the minister who uses office for private advantage. Moral language cannot solve th"
-    },
-    {
-      "recordKey": "philosopher:zhu-xi",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "overview/paragraph-1",
-      "excerpt": "Zhu Xi is the central systematizer of Song dynasty Neo-Confucianism and one of the most influential philosophers in later East Asian intellectual history. He gathered earlier Confucian, cosmological, ethical, and metaphy"
-    },
-    {
-      "recordKey": "philosopher:wang-yangming",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "overview/paragraph-1",
-      "excerpt": "Wang Yangming is the major Ming dynasty Neo-Confucian thinker associated with innate moral knowing and the unity of knowledge and action. He is often read as the great internal challenger to Zhu Xi orthodoxy. His central"
-    },
-    {
-      "recordKey": "philosopher:wang-yangming",
-      "status": "unreviewed",
-      "signal": "influence-or-causation",
-      "location": "influence-and-reception/paragraph-1",
-      "excerpt": "Wang Yangming inspired a major school of thought that influenced later Chinese, Japanese, and Korean intellectual life in diverse ways. His emphasis on innate knowing, sincerity, and action could encourage moral confiden"
-    },
-    {
-      "recordKey": "philosopher:wang-yangming",
-      "status": "unreviewed",
-      "signal": "disputed-attribution",
-      "location": "misunderstandings/paragraph-2",
-      "excerpt": "The tensions are serious. How can a person tell innate knowing from rationalized preference? How much external study is needed to correct self-deception? Can moral immediacy handle complex political situations where outc"
     },
     {
       "recordKey": "philosopher:mary-astell",
@@ -9535,10 +9424,10 @@
   "groupSummary": {
     "philosophers": {
       "total": 146,
-      "unreviewed": 54,
+      "unreviewed": 45,
       "bibliography-only": 53,
       "source-mapped": 0,
-      "claim-reviewed": 39,
+      "claim-reviewed": 48,
       "review-out-of-date": 0
     },
     "philosophies": {

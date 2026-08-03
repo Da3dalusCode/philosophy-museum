@@ -17,8 +17,8 @@
     {
       "label": "Philosophers",
       "total": 146,
-      "pass": 91,
-      "fail": 55,
+      "pass": 100,
+      "fail": 46,
       "missing": 0
     },
     {
@@ -38,8 +38,8 @@
   ],
   "universalSummary": {
     "total": 191,
-    "pass": 128,
-    "fail": 63,
+    "pass": 137,
+    "fail": 54,
     "missing": 0
   },
   "pilotChanges": [
@@ -489,8 +489,8 @@
       "title": "Confucius",
       "visitorEntryPoint": "#/philosophers/confucius",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1958,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2084,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -501,8 +501,8 @@
       "title": "Laozi",
       "visitorEntryPoint": "#/philosophers/laozi",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1871,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2228,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -513,8 +513,8 @@
       "title": "Zhuangzi",
       "visitorEntryPoint": "#/philosophers/zhuangzi",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1855,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2245,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -525,8 +525,8 @@
       "title": "Mencius",
       "visitorEntryPoint": "#/philosophers/mencius",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1902,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2055,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -537,8 +537,8 @@
       "title": "Xunzi",
       "visitorEntryPoint": "#/philosophers/xunzi",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1822,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2060,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -1449,8 +1449,8 @@
       "title": "Mozi",
       "visitorEntryPoint": "#/philosophers/mozi",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1815,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2050,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -1461,8 +1461,8 @@
       "title": "Han Feizi",
       "visitorEntryPoint": "#/philosophers/han-feizi",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1842,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2154,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -1473,8 +1473,8 @@
       "title": "Zhu Xi",
       "visitorEntryPoint": "#/philosophers/zhu-xi",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1836,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2235,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -1485,8 +1485,8 @@
       "title": "Wang Yangming",
       "visitorEntryPoint": "#/philosophers/wang-yangming",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1804,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2155,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -2635,7 +2635,7 @@
         "hallId": "mediterranean-beginnings-classical",
         "visitorEntryPoint": "#/museum/mediterranean-beginnings-classical/exhibits/heraclitus",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 1065,
+        "surfaceWords": 341,
         "canonicalArticleKey": "philosopher:heraclitus",
         "canonicalArticleId": "heraclitus",
         "canonicalArticleWordCount": 2180,
@@ -2647,7 +2647,7 @@
         "hallId": "mediterranean-beginnings-classical",
         "visitorEntryPoint": "#/museum/mediterranean-beginnings-classical/exhibits/empedocles",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 1054,
+        "surfaceWords": 337,
         "canonicalArticleKey": "philosopher:empedocles",
         "canonicalArticleId": "empedocles",
         "canonicalArticleWordCount": 2175,
@@ -2659,7 +2659,7 @@
         "hallId": "mediterranean-beginnings-classical",
         "visitorEntryPoint": "#/museum/mediterranean-beginnings-classical/exhibits/anaxagoras",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 1044,
+        "surfaceWords": 344,
         "canonicalArticleKey": "philosopher:anaxagoras",
         "canonicalArticleId": "anaxagoras",
         "canonicalArticleWordCount": 2147,
@@ -3487,11 +3487,11 @@
         "hallId": "classical-chinese-traditions",
         "visitorEntryPoint": "#/museum/classical-chinese-traditions/exhibits/confucius",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 287,
+        "surfaceWords": 325,
         "canonicalArticleKey": "philosopher:confucius",
         "canonicalArticleId": "confucius",
-        "canonicalArticleWordCount": 1958,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2084,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "mencius",
@@ -3499,11 +3499,11 @@
         "hallId": "classical-chinese-traditions",
         "visitorEntryPoint": "#/museum/classical-chinese-traditions/exhibits/mencius",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 286,
+        "surfaceWords": 322,
         "canonicalArticleKey": "philosopher:mencius",
         "canonicalArticleId": "mencius",
-        "canonicalArticleWordCount": 1902,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2055,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "xunzi",
@@ -3511,11 +3511,11 @@
         "hallId": "classical-chinese-traditions",
         "visitorEntryPoint": "#/museum/classical-chinese-traditions/exhibits/xunzi",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 287,
+        "surfaceWords": 339,
         "canonicalArticleKey": "philosopher:xunzi",
         "canonicalArticleId": "xunzi",
-        "canonicalArticleWordCount": 1822,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2060,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "daoism",
@@ -3535,11 +3535,11 @@
         "hallId": "classical-chinese-traditions",
         "visitorEntryPoint": "#/museum/classical-chinese-traditions/exhibits/laozi",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 303,
+        "surfaceWords": 330,
         "canonicalArticleKey": "philosopher:laozi",
         "canonicalArticleId": "laozi",
-        "canonicalArticleWordCount": 1871,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2228,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "zhuangzi",
@@ -3547,11 +3547,11 @@
         "hallId": "classical-chinese-traditions",
         "visitorEntryPoint": "#/museum/classical-chinese-traditions/exhibits/zhuangzi",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 278,
+        "surfaceWords": 324,
         "canonicalArticleKey": "philosopher:zhuangzi",
         "canonicalArticleId": "zhuangzi",
-        "canonicalArticleWordCount": 1855,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2245,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "mohism",
@@ -3583,11 +3583,11 @@
         "hallId": "classical-chinese-traditions",
         "visitorEntryPoint": "#/museum/classical-chinese-traditions/exhibits/mozi",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 295,
+        "surfaceWords": 339,
         "canonicalArticleKey": "philosopher:mozi",
         "canonicalArticleId": "mozi",
-        "canonicalArticleWordCount": 1815,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2050,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "han-feizi",
@@ -3595,11 +3595,11 @@
         "hallId": "classical-chinese-traditions",
         "visitorEntryPoint": "#/museum/classical-chinese-traditions/exhibits/han-feizi",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 307,
+        "surfaceWords": 328,
         "canonicalArticleKey": "philosopher:han-feizi",
         "canonicalArticleId": "han-feizi",
-        "canonicalArticleWordCount": 1842,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2154,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "islamic-philosophy",
@@ -3715,11 +3715,11 @@
         "hallId": "east-asian-continuities",
         "visitorEntryPoint": "#/museum/east-asian-continuities/exhibits/zhu-xi",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 822,
+        "surfaceWords": 330,
         "canonicalArticleKey": "philosopher:zhu-xi",
         "canonicalArticleId": "zhu-xi",
-        "canonicalArticleWordCount": 1836,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2235,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "wang-yangming",
@@ -3727,11 +3727,11 @@
         "hallId": "east-asian-continuities",
         "visitorEntryPoint": "#/museum/east-asian-continuities/exhibits/wang-yangming",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 787,
+        "surfaceWords": 330,
         "canonicalArticleKey": "philosopher:wang-yangming",
         "canonicalArticleId": "wang-yangming",
-        "canonicalArticleWordCount": 1804,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2155,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "saadia-gaon",
@@ -3907,7 +3907,7 @@
         "hallId": "hellenistic-roman-ways",
         "visitorEntryPoint": "#/museum/hellenistic-roman-ways/exhibits/antisthenes",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 1054,
+        "surfaceWords": 343,
         "canonicalArticleKey": "philosopher:antisthenes",
         "canonicalArticleId": "antisthenes",
         "canonicalArticleWordCount": 2081,
@@ -4075,7 +4075,7 @@
         "hallId": "hellenistic-roman-ways",
         "visitorEntryPoint": "#/museum/hellenistic-roman-ways/exhibits/arcesilaus",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 962,
+        "surfaceWords": 341,
         "canonicalArticleKey": "philosopher:arcesilaus",
         "canonicalArticleId": "arcesilaus",
         "canonicalArticleWordCount": 2060,
@@ -4087,7 +4087,7 @@
         "hallId": "hellenistic-roman-ways",
         "visitorEntryPoint": "#/museum/hellenistic-roman-ways/exhibits/carneades",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 948,
+        "surfaceWords": 349,
         "canonicalArticleKey": "philosopher:carneades",
         "canonicalArticleId": "carneades",
         "canonicalArticleWordCount": 2059,
@@ -4135,7 +4135,7 @@
         "hallId": "late-antiquity-inheritance",
         "visitorEntryPoint": "#/museum/late-antiquity-inheritance/exhibits/porphyry",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 994,
+        "surfaceWords": 329,
         "canonicalArticleKey": "philosopher:porphyry",
         "canonicalArticleId": "porphyry",
         "canonicalArticleWordCount": 2058,
@@ -4147,7 +4147,7 @@
         "hallId": "late-antiquity-inheritance",
         "visitorEntryPoint": "#/museum/late-antiquity-inheritance/exhibits/iamblichus",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 1009,
+        "surfaceWords": 336,
         "canonicalArticleKey": "philosopher:iamblichus",
         "canonicalArticleId": "iamblichus",
         "canonicalArticleWordCount": 2073,
@@ -4159,7 +4159,7 @@
         "hallId": "late-antiquity-inheritance",
         "visitorEntryPoint": "#/museum/late-antiquity-inheritance/exhibits/proclus",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 1024,
+        "surfaceWords": 331,
         "canonicalArticleKey": "philosopher:proclus",
         "canonicalArticleId": "proclus",
         "canonicalArticleWordCount": 2081,
@@ -4171,7 +4171,7 @@
         "hallId": "late-antiquity-inheritance",
         "visitorEntryPoint": "#/museum/late-antiquity-inheritance/exhibits/origen",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 1094,
+        "surfaceWords": 330,
         "canonicalArticleKey": "philosopher:origen",
         "canonicalArticleId": "origen",
         "canonicalArticleWordCount": 2136,
@@ -4195,7 +4195,7 @@
         "hallId": "late-antiquity-inheritance",
         "visitorEntryPoint": "#/museum/late-antiquity-inheritance/exhibits/gregory-nyssa",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 1085,
+        "surfaceWords": 322,
         "canonicalArticleKey": "philosopher:gregory-nyssa",
         "canonicalArticleId": "gregory-nyssa",
         "canonicalArticleWordCount": 2118,
@@ -4207,7 +4207,7 @@
         "hallId": "late-antiquity-inheritance",
         "visitorEntryPoint": "#/museum/late-antiquity-inheritance/exhibits/pseudo-dionysius",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 1064,
+        "surfaceWords": 334,
         "canonicalArticleKey": "philosopher:pseudo-dionysius",
         "canonicalArticleId": "pseudo-dionysius",
         "canonicalArticleWordCount": 2101,
@@ -4848,8 +4848,8 @@
         "canonicalArticleKey": "philosopher:mozi",
         "canonicalArticleId": "mozi",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1815,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2050,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "forum-avicenna-demonstration",
@@ -4880,8 +4880,8 @@
         "canonicalArticleKey": "philosopher:confucius",
         "canonicalArticleId": "confucius",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1958,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2084,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "forum-mencius-humane-rule",
@@ -4896,8 +4896,8 @@
         "canonicalArticleKey": "philosopher:mencius",
         "canonicalArticleId": "mencius",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1902,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2055,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "forum-al-farabi-virtuous-city",
@@ -4944,8 +4944,8 @@
         "canonicalArticleKey": "philosopher:confucius",
         "canonicalArticleId": "confucius",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1958,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2084,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "forum-al-ghazali-causation",
@@ -6862,8 +6862,8 @@
         "canonicalArticleKey": "philosopher:confucius",
         "canonicalArticleId": "confucius",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1958,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2084,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "china-guodian-laozi",
@@ -6878,8 +6878,8 @@
         "canonicalArticleKey": "philosopher:laozi",
         "canonicalArticleId": "laozi",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1871,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2228,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "china-writing-on-bamboo",
@@ -6926,8 +6926,8 @@
         "canonicalArticleKey": "philosopher:zhuangzi",
         "canonicalArticleId": "zhuangzi",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1855,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2245,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "china-zhuangzi-cook-ding",
@@ -6942,8 +6942,8 @@
         "canonicalArticleKey": "philosopher:zhuangzi",
         "canonicalArticleId": "zhuangzi",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1855,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2245,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "china-later-mohist-canons",
@@ -6958,8 +6958,8 @@
         "canonicalArticleKey": "philosopher:mozi",
         "canonicalArticleId": "mozi",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1815,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2050,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "china-mohist-siege-defense",
@@ -7326,8 +7326,8 @@
         "canonicalArticleKey": "philosopher:zhu-xi",
         "canonicalArticleId": "zhu-xi",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1836,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2235,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "eac-zhu-white-deer",
@@ -7342,8 +7342,8 @@
         "canonicalArticleKey": "philosopher:zhu-xi",
         "canonicalArticleId": "zhu-xi",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1836,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2235,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "eac-wang-letters",
@@ -7358,8 +7358,8 @@
         "canonicalArticleKey": "philosopher:wang-yangming",
         "canonicalArticleId": "wang-yangming",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1804,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2155,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "eac-taijitu-heartmind",

@@ -14,11 +14,11 @@ The hard floor is **2,000 substantive article-prose words**. The counter tokeniz
 
 | Category | Total | Pass | Fail | Missing article |
 | --- | ---: | ---: | ---: | ---: |
-| Philosophers | 146 | 91 | 55 | 0 |
+| Philosophers | 146 | 100 | 46 | 0 |
 | Philosophies, branches, schools, traditions, movements, methods, and frameworks | 45 | 37 | 8 | 0 |
 | Standalone works, texts, arguments, concepts, and article-backed exhibits | 0 | 0 | 0 | 0 |
 
-Universal total: **191** applicable articles; **128 pass**; **63 fail**; **0 are missing article prose**.
+Universal total: **191** applicable articles; **137 pass**; **54 fail**; **0 are missing article prose**.
 
 Current failures are migration backlog, not approved exceptions. The strict audit is intentionally separate from the ordinary build until that backlog reaches zero.
 
@@ -36,11 +36,6 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 
 | ID | Title | Category | Words | Status |
 | --- | --- | --- | ---: | --- |
-| confucius | Confucius | philosopher | 1958 | fail |
-| laozi | Laozi | philosopher | 1871 | fail |
-| zhuangzi | Zhuangzi | philosopher | 1855 | fail |
-| mencius | Mencius | philosopher | 1902 | fail |
-| xunzi | Xunzi | philosopher | 1822 | fail |
 | vasubandhu | Vasubandhu | philosopher | 1911 | fail |
 | shankara | Adi Shankara | philosopher | 1993 | fail |
 | ramanuja | Ramanuja | philosopher | 1877 | fail |
@@ -70,10 +65,6 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | dignaga | Dignaga | philosopher | 1862 | fail |
 | dharmakirti | Dharmakirti | philosopher | 1842 | fail |
 | madhva | Madhva | philosopher | 1840 | fail |
-| mozi | Mozi | philosopher | 1815 | fail |
-| han-feizi | Han Feizi | philosopher | 1842 | fail |
-| zhu-xi | Zhu Xi | philosopher | 1836 | fail |
-| wang-yangming | Wang Yangming | philosopher | 1804 | fail |
 | mary-astell | Mary Astell | philosopher | 1901 | fail |
 | anne-conway | Anne Conway | philosopher | 1895 | fail |
 | montesquieu | Montesquieu | philosopher | 1863 | fail |
@@ -154,11 +145,11 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | philosopher | porphyry | Porphyry | #/philosophers/porphyry | 2058 | pass | yes | yes (1 primary; 1 supplemental) |
 | philosopher | iamblichus | Iamblichus | #/philosophers/iamblichus | 2073 | pass | yes | yes (1 primary; 0 supplemental) |
 | philosopher | proclus | Proclus | #/philosophers/proclus | 2081 | pass | yes | yes (1 primary; 1 supplemental) |
-| philosopher | confucius | Confucius | #/philosophers/confucius | 1958 | fail | yes | yes (1 primary; 3 supplemental) |
-| philosopher | laozi | Laozi | #/philosophers/laozi | 1871 | fail | yes | yes (1 primary; 1 supplemental) |
-| philosopher | zhuangzi | Zhuangzi | #/philosophers/zhuangzi | 1855 | fail | yes | yes (1 primary; 2 supplemental) |
-| philosopher | mencius | Mencius | #/philosophers/mencius | 1902 | fail | yes | yes (1 primary; 1 supplemental) |
-| philosopher | xunzi | Xunzi | #/philosophers/xunzi | 1822 | fail | yes | yes (1 primary; 0 supplemental) |
+| philosopher | confucius | Confucius | #/philosophers/confucius | 2084 | pass | yes | yes (1 primary; 3 supplemental) |
+| philosopher | laozi | Laozi | #/philosophers/laozi | 2228 | pass | yes | yes (1 primary; 1 supplemental) |
+| philosopher | zhuangzi | Zhuangzi | #/philosophers/zhuangzi | 2245 | pass | yes | yes (1 primary; 2 supplemental) |
+| philosopher | mencius | Mencius | #/philosophers/mencius | 2055 | pass | yes | yes (1 primary; 1 supplemental) |
+| philosopher | xunzi | Xunzi | #/philosophers/xunzi | 2060 | pass | yes | yes (1 primary; 0 supplemental) |
 | philosopher | buddha | Siddhartha Gautama / the Buddha | #/philosophers/buddha | 4502 | pass | yes | yes (1 primary; 2 supplemental) |
 | philosopher | nagarjuna | Nāgārjuna | #/philosophers/nagarjuna | 3007 | pass | yes | yes (1 primary; 5 supplemental) |
 | philosopher | vasubandhu | Vasubandhu | #/philosophers/vasubandhu | 1911 | fail | yes | yes (1 primary; 5 supplemental) |
@@ -234,10 +225,10 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | philosopher | dignaga | Dignaga | #/philosophers/dignaga | 1862 | fail | yes | yes (1 primary; 2 supplemental) |
 | philosopher | dharmakirti | Dharmakirti | #/philosophers/dharmakirti | 1842 | fail | yes | yes (1 primary; 1 supplemental) |
 | philosopher | madhva | Madhva | #/philosophers/madhva | 1840 | fail | yes | yes (1 primary; 1 supplemental) |
-| philosopher | mozi | Mozi | #/philosophers/mozi | 1815 | fail | yes | yes (1 primary; 2 supplemental) |
-| philosopher | han-feizi | Han Feizi | #/philosophers/han-feizi | 1842 | fail | yes | yes (1 primary; 0 supplemental) |
-| philosopher | zhu-xi | Zhu Xi | #/philosophers/zhu-xi | 1836 | fail | yes | yes (1 primary; 2 supplemental) |
-| philosopher | wang-yangming | Wang Yangming | #/philosophers/wang-yangming | 1804 | fail | yes | yes (1 primary; 1 supplemental) |
+| philosopher | mozi | Mozi | #/philosophers/mozi | 2050 | pass | yes | yes (1 primary; 2 supplemental) |
+| philosopher | han-feizi | Han Feizi | #/philosophers/han-feizi | 2154 | pass | yes | yes (1 primary; 0 supplemental) |
+| philosopher | zhu-xi | Zhu Xi | #/philosophers/zhu-xi | 2235 | pass | yes | yes (1 primary; 2 supplemental) |
+| philosopher | wang-yangming | Wang Yangming | #/philosophers/wang-yangming | 2155 | pass | yes | yes (1 primary; 1 supplemental) |
 | philosopher | mary-astell | Mary Astell | #/philosophers/mary-astell | 1901 | fail | yes | yes (1 primary; 2 supplemental) |
 | philosopher | anne-conway | Anne Conway | #/philosophers/anne-conway | 1895 | fail | yes | yes (1 primary; 2 supplemental) |
 | philosopher | montesquieu | Montesquieu | #/philosophers/montesquieu | 1863 | fail | yes | yes (1 primary; 5 supplemental) |

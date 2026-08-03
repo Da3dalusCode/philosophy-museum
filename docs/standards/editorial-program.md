@@ -37,6 +37,8 @@ Paragraph-based interpretation without visible section headings is valid and pre
 
 After a canonical page completes claim review, reconcile its primary Museum exhibit before deployment. The review record must state whether the Museum interpretation was inside the formal review boundary or was reconciled separately; never imply that an article lock covers separate Museum copy when it does not.
 
+The canonical-title, direct-explanation, paragraph-based Museum pattern is an established routine pattern. Related content batches that do not change shared UI, CSS, geometry, assets, or rendering behavior should normally complete article review and primary Museum reconciliation in the same branch and run. Conforming Museum-copy changes require the focused deterministic editorial and Museum audits, not a repeated desktop/mobile browser matrix, screenshot review, or separate owner visual review. The GitHub Pages workflow remains the single complete release gate after focused feature checks pass. Expanded browser or owner review is required when shared layout or rendering changes, geometry or assets change, an exhibit is a meaningful visual outlier, Codex detects clipping or hierarchy problems, or the owner explicitly requests it.
+
 As normal guidance rather than inflexible counters, aim for a 25–45-word direct wall-plaque invitation beneath the canonical title, a 45–90-word object identification and caption, a 250–400-word main interpretation arranged in three or four coherent paragraphs or genuinely useful sections, and no more than five or six compact orientation items. Subject, object, layout, and accessibility may justify proportionate variation.
 
 ## Credibility states

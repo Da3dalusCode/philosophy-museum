@@ -23,6 +23,7 @@ import {SCHOLASTIC_RATIONALIST_PRIMARY_INTERPRETATION_ENRICHMENT} from './schola
 import {EMPIRICISM_ENLIGHTENMENT_PRIMARY_INTERPRETATION_ENRICHMENT} from './empiricismEnlightenmentPrimaryInterpretationEnrichment';
 import {NINETEENTH_PRIMARY_INTERPRETATION_ENRICHMENT} from './nineteenthPrimaryInterpretationEnrichment';
 import {CONCISE_PRIMARY_INTERPRETATIONS} from './concisePrimaryInterpretations';
+import {EAST_ASIAN_PRIMARY_INTERPRETATIONS} from './eastAsianPrimaryInterpretations';
 
 export type MuseumInterpretationSource = {
   label: string;
@@ -1360,6 +1361,7 @@ const PRIMARY_INTERPRETATION_ENRICHMENT = {
   ...EMPIRICISM_ENLIGHTENMENT_PRIMARY_INTERPRETATION_ENRICHMENT,
   ...NINETEENTH_PRIMARY_INTERPRETATION_ENRICHMENT,
   ...CONCISE_PRIMARY_INTERPRETATIONS,
+  ...EAST_ASIAN_PRIMARY_INTERPRETATIONS,
 };
 
 const applyPrimaryInterpretationEnrichment = (
