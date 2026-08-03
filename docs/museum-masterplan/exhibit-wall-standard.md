@@ -29,6 +29,16 @@ Only an actual live side portal or fixed architectural obstruction removes a wal
 - Complete meaning and readable type take priority over preserving blank space. Keep the existing frame, physical dimensions, and left alignment while vertically balancing the two blocks.
 - Canonical-title exactness and physical plaque legibility are separate mandatory contracts. Exceptions require explicit owner approval; room signs, gallery signs, object labels, supplemental surfaces, and other non-primary labels retain their own contracts.
 
+## Supplemental wall-plaque contract
+
+- Every physical supplemental plaque contains only a factual title for its specific subject and one complete invitation that explains the subject’s significance and authoritative relationship to a canonical philosopher, philosophy, school, or tradition.
+- Do not render a generic or classificatory kicker. Parent names, author-plus-work labels, concept lists, reception categories, period labels, and curatorial subtitles belong in the invitation, room context, or interpretation panel—not above the factual title.
+- Work and text plaques use the accepted work title without a prepended author or generated thesis. Concept and diagram plaques use the established name. Paired or grouped figures use names or an accepted group name. Objects, manuscripts, sites, reception histories, events, and institutional contexts use factual descriptions supported by existing metadata rather than slogans.
+- Titles and invitations wrap and fit independently, remain complete, never ellipsize, preserve title dominance, meet geometry-aware readable minimums, and stay within browser-canvas glyph bounds for the production safe rectangle. Existing frames, physical dimensions, placements, and room density do not change to solve copy fitting.
+- The factual taxonomy remains non-visible implementation and audit metadata. Primary plaques retain their separate exact-canonical-title contract.
+- Examples such as *Elements of Theology*, *The Porphyrian Tree*, or *Hipparchia and Crates* illustrate the hierarchy; they do not authorize hardcoded production copy or weaken the requirement for repository-supported titles and relationships.
+- Any exception requires an explicit repository decision. One-off renderer copy is not an exception mechanism.
+
 ## Media and review
 
 - Every installation uses unique, relevant imagery with truthful source, credit, and license metadata. Do not use graves, filler images, or an unrelated visual merely to complete a wall.

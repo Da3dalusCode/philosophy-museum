@@ -15,7 +15,7 @@ export type PlaqueTextureOptions = {
   height?: number;
   theme?: 'dark' | 'mediterranean';
   subtitleMaxLines?: 1 | 2 | 3 | 4;
-  contentKind?: 'standard' | 'primary';
+  contentKind?: 'standard' | 'primary' | 'supplemental';
 };
 
 export type PlaqueSafeRect = {
@@ -47,7 +47,7 @@ export type PlaqueTextLineLayout = {
 };
 
 export type PlaqueTextLayout = {
-  contentKind: 'standard' | 'primary';
+  contentKind: 'standard' | 'primary' | 'supplemental';
   width: number;
   height: number;
   safeRect: PlaqueSafeRect;
@@ -91,6 +91,10 @@ type PreparedBlock = {
 };
 
 export const PRIMARY_PLAQUE_INVITATION_MAX_LINES = 4;
+export const SUPPLEMENTAL_PLAQUE_INVITATION_MAX_LINES = 5;
+
+export const supplementalPlaqueSupportedInvitationLines = (width: number, height: number): number =>
+  height >= width * .45 ? SUPPLEMENTAL_PLAQUE_INVITATION_MAX_LINES : 4;
 
 export const primaryPlaqueReadableMinimums = (height: number): {
   title: number;
@@ -98,6 +102,14 @@ export const primaryPlaqueReadableMinimums = (height: number): {
 } => ({
   title: Math.min(36, Math.max(18, Math.round(height * .155))),
   subtitle: Math.min(24, Math.max(13, Math.round(height * .095))),
+});
+
+export const supplementalPlaqueReadableMinimums = (height: number): {
+  title: number;
+  subtitle: number;
+} => ({
+  title: Math.min(32, Math.max(15, Math.round(height * .13))),
+  subtitle: Math.min(19, Math.max(10, Math.round(height * .07))),
 });
 
 const finiteMetric = (value: number | undefined, fallback: number): number =>
@@ -274,7 +286,7 @@ const placePreparedBlocks = (
   safeRect: PlaqueSafeRect,
   blocks: readonly PreparedBlock[],
   blockGap: number,
-  contentKind: 'standard' | 'primary',
+  contentKind: 'standard' | 'primary' | 'supplemental',
 ): PlaqueTextLayout => {
   const totalHeight = blocks.reduce((sum, block) => sum + block.height, 0)
     + Math.max(0, blocks.length - 1) * blockGap;
@@ -392,6 +404,75 @@ const layoutPrimaryPlaqueText = (
   return placePreparedBlocks(width, height, safeRect, selected, blockGap, 'primary');
 };
 
+const layoutSupplementalPlaqueText = (
+  context: CanvasRenderingContext2D,
+  {
+    title,
+    subtitle = '',
+    width = MUSEUM_TEXTURE_SPECS.plaque.width,
+    height = MUSEUM_TEXTURE_SPECS.plaque.height,
+    theme = 'dark',
+  }: PlaqueTextureOptions,
+  safeRect: PlaqueSafeRect,
+): PlaqueTextLayout => {
+  const minimums = supplementalPlaqueReadableMinimums(height);
+  const titleStyle: TextStyle = {
+    role: 'title',
+    weight: 600,
+    family: 'Georgia, serif',
+    color: theme === 'mediterranean' ? '#17313a' : '#f3ead8',
+    startingSize: Math.min(58, Math.max(minimums.title, Math.round(height * .22))),
+    minimumSize: minimums.title,
+    maxLines: Math.min(3, plaqueSupportedTitleLines(width, height)),
+  };
+  const invitationStyle: TextStyle = {
+    role: 'subtitle',
+    weight: 400,
+    family: 'system-ui, sans-serif',
+    color: theme === 'mediterranean' ? '#5e5549' : '#c7bda9',
+    startingSize: Math.min(25, Math.max(minimums.subtitle, Math.round(height * .105))),
+    minimumSize: minimums.subtitle,
+    maxLines: supplementalPlaqueSupportedInvitationLines(width, height),
+  };
+  const blockGap = Math.max(3, Math.round(height * .022));
+  let selected: readonly PreparedBlock[] | undefined;
+
+  for (let titleSize = titleStyle.startingSize; titleSize >= titleStyle.minimumSize && !selected; titleSize -= 1) {
+    const titleBlock = prepareCompleteBlock(context, title, titleStyle, titleSize, safeRect.width);
+    if (!titleBlock.lines.length || titleBlock.lines.length > titleStyle.maxLines) continue;
+    for (
+      let invitationSize = invitationStyle.startingSize;
+      invitationSize >= invitationStyle.minimumSize;
+      invitationSize -= 1
+    ) {
+      if (titleSize <= invitationSize) continue;
+      const invitationBlock = prepareCompleteBlock(
+        context,
+        subtitle,
+        invitationStyle,
+        invitationSize,
+        safeRect.width,
+      );
+      if (!invitationBlock.lines.length || invitationBlock.lines.length > invitationStyle.maxLines) continue;
+      const totalHeight = titleBlock.height + blockGap + invitationBlock.height;
+      const widestLine = [...titleBlock.lines, ...invitationBlock.lines]
+        .reduce((maximum, line) => Math.max(maximum, line.left + line.right), 0);
+      if (totalHeight <= safeRect.height && widestLine <= safeRect.width) {
+        selected = [titleBlock, invitationBlock];
+        break;
+      }
+    }
+  }
+
+  if (!selected) {
+    selected = [
+      prepareCompleteBlock(context, title, titleStyle, titleStyle.minimumSize, safeRect.width),
+      prepareCompleteBlock(context, subtitle, invitationStyle, invitationStyle.minimumSize, safeRect.width),
+    ];
+  }
+  return placePreparedBlocks(width, height, safeRect, selected, blockGap, 'supplemental');
+};
+
 /**
  * Deterministically measures, wraps, fits, and positions all plaque text. Its
  * returned glyph boxes are the browser canvas metrics used for the actual draw.
@@ -415,10 +496,11 @@ export const layoutPlaqueText = (
 
   const shortEdge = Math.min(width, height);
   const innerFrameInset = Math.max(10, Math.round(shortEdge * .09));
-  const safeX = contentKind === 'primary'
+  const twoLevelContent = contentKind === 'primary' || contentKind === 'supplemental';
+  const safeX = twoLevelContent
     ? Math.max(innerFrameInset + 5, Math.round(width * .035))
     : Math.max(innerFrameInset + 8, Math.round(width * .04));
-  const safeY = contentKind === 'primary'
+  const safeY = twoLevelContent
     ? Math.max(innerFrameInset + 3, Math.round(height * .08))
     : Math.max(innerFrameInset + 5, Math.round(height * .11));
   const safeRect = {
@@ -431,6 +513,13 @@ export const layoutPlaqueText = (
     return layoutPrimaryPlaqueText(
       context,
       {title, subtitle, accent, width, height, theme, contentKind},
+      safeRect,
+    );
+  }
+  if (contentKind === 'supplemental') {
+    return layoutSupplementalPlaqueText(
+      context,
+      {title, subtitle, width, height, theme, contentKind},
       safeRect,
     );
   }

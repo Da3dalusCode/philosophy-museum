@@ -6,13 +6,12 @@ import {
   MUSEUM_GALLERY_02_EXHIBIT_BACKING_MATERIAL,
   MUSEUM_GALLERY_02_EXHIBIT_PLINTH_MATERIAL,
 } from '../../data/museum/museumArchitectureMaterials';
-import {MUSEUM_TEXTURE_SPECS, museumTextureDimensionsForPlane} from '../../data/museum/museumTexturePolicy';
 import type {
   MuseumSupplementalExhibitId,
   MuseumSupplementalExhibitLayout,
 } from '../../data/museum/museumWorldTypes';
 import {MuseumSceneMedia} from './MuseumSceneMedia';
-import {usePlaqueTexture} from './plaqueTextures';
+import {useSupplementalPlaqueTexture} from './supplementalPlaqueContract';
 
 function ExhibitSurfaceMaterial({kind}: {kind: 'backing' | 'plinth'}) {
   return kind === 'backing'
@@ -22,20 +21,7 @@ function ExhibitSurfaceMaterial({kind}: {kind: 'backing' | 'plinth'}) {
 
 function ExhibitLabel({layout}: {layout: MuseumSupplementalExhibitLayout}) {
   const record = getRenaissanceSupplementalExhibit(layout.id);
-  const textureSize = museumTextureDimensionsForPlane(
-    layout.label.width,
-    layout.label.height,
-    MUSEUM_TEXTURE_SPECS.platoSupplementalLabel,
-  );
-  const texture = usePlaqueTexture({
-    title: record.shortTitle,
-    kicker: record.workLabel,
-    subtitle: record.frontSubtitle,
-    accent: layout.accent,
-    width: textureSize.width,
-    height: textureSize.height,
-    theme: 'dark',
-  });
+  const texture = useSupplementalPlaqueTexture(record, layout);
   return <group position={layout.label.position}>
     <mesh position={[0, 0, -.045]}>
       <boxGeometry args={[layout.label.width + .14, layout.label.height + .12, .1]}/>

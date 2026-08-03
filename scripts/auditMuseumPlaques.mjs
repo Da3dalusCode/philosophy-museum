@@ -68,13 +68,16 @@ try {
   const report = JSON.parse(decodeHtml(match[1]));
   if (report.fatal) throw new Error(report.fatal);
   if (!report.ok) {
-    console.error(`Primary plaque audit failed with ${report.failures.length} contract violation(s):`);
+    console.error(`Museum wall-plaque audit failed with ${report.failures.length} contract violation(s):`);
     for (const failure of report.failures) {
       console.error(
         `- ${failure.hall} | ${failure.room} | ${failure.exhibitId} | ${failure.title} | role=${failure.offendingRole}`
+        + ` | type=${failure.plaqueType} | contexts=${failure.canonicalContexts}`
         + ` | lines=${failure.finalLineCount} | font=${failure.finalFontSize}px`
         + ` | truncation=${failure.truncation} | overflow=${failure.overflow}`
-        + ` | minimum-size=${failure.minimumSizeFailure} | ${failure.message}`,
+        + ` | minimum-size=${failure.minimumSizeFailure}`
+        + ` | relationship=${failure.relationshipFailure} | hierarchy=${failure.hierarchyFailure}`
+        + ` | ${failure.message}`,
       );
     }
     process.exitCode = 1;
@@ -91,6 +94,24 @@ try {
     console.log('  representatives:');
     for (const item of report.representatives) {
       console.log(`    ${item.exhibitId}: ${item.titleLineCount} title line(s) at ${item.titleFontSize}px; ${item.invitationLineCount} invitation line(s) at ${item.invitationFontSize}px`);
+    }
+    const supplementalTitleSizes = report.supplementalResults.map(({titleFontSize}) => titleFontSize);
+    const supplementalInvitationSizes = report.supplementalResults.map(({invitationFontSize}) => invitationFontSize);
+    const supplementalTitleLines = report.supplementalResults.map(({titleLineCount}) => titleLineCount);
+    const supplementalInvitationLines = report.supplementalResults.map(({invitationLineCount}) => invitationLineCount);
+    const summary = report.supplementalSummary;
+    console.log(`✓ all ${summary.physicalWallPlaques} physical supplemental wall plaques use a factual title, complete invitation, and no kicker`);
+    console.log('✓ every supplemental canonical context resolves and every browser-canvas glyph remains inside its production safe rectangle');
+    console.log(`  records/installations/plaques: ${summary.totalRecords}/${summary.physicalInstallations}/${summary.physicalWallPlaques}`);
+    console.log(`  requiring changes: ${summary.numberRequiringChanges}; kickers removed: ${summary.genericKickersRemoved}; titles changed: ${summary.titlesChanged}; invitations revised: ${summary.invitationsRevised}`);
+    console.log(`  semantic context corrections: ${summary.canonicalRelationshipCorrections}`);
+    console.log(`  current title patterns: ${JSON.stringify(summary.currentTitlePatternCounts)}`);
+    console.log(`  taxonomy: ${JSON.stringify(summary.taxonomyCounts)}`);
+    console.log(`  title fonts: ${Math.min(...supplementalTitleSizes)}–${Math.max(...supplementalTitleSizes)}px; maximum lines: ${Math.max(...supplementalTitleLines)}`);
+    console.log(`  invitation fonts: ${Math.min(...supplementalInvitationSizes)}–${Math.max(...supplementalInvitationSizes)}px; maximum lines: ${Math.max(...supplementalInvitationLines)}`);
+    console.log('  supplemental representatives:');
+    for (const item of report.supplementalRepresentatives) {
+      console.log(`    ${item.exhibitId}: "${item.title}"; ${item.titleLineCount} title line(s) at ${item.titleFontSize}px; ${item.invitationLineCount} invitation line(s) at ${item.invitationFontSize}px`);
     }
   }
 } finally {

@@ -13,28 +13,14 @@ import {
   MUSEUM_CANONICAL_EXHIBIT_PLINTH_GEOMETRY,
   MUSEUM_CANONICAL_EXHIBIT_PLINTH_MATERIAL,
 } from '../../data/museum/museumArchitectureMaterials';
-import {MUSEUM_TEXTURE_SPECS, museumTextureDimensionsForPlane} from '../../data/museum/museumTexturePolicy';
 import {MuseumSceneMedia} from './MuseumSceneMedia';
-import {usePlaqueTexture} from './plaqueTextures';
+import {useSupplementalPlaqueTexture} from './supplementalPlaqueContract';
 
 const GALLERY_FRAME_BRONZE = '#675039';
 
 function ExhibitLabel({layout}: {layout: MuseumSupplementalExhibitLayout}) {
   const record = getPlatoSupplementalExhibit(layout.id);
-  const textureSize = museumTextureDimensionsForPlane(
-    layout.label.width,
-    layout.label.height,
-    MUSEUM_TEXTURE_SPECS.platoSupplementalLabel,
-  );
-  const texture = usePlaqueTexture({
-    title: record.shortTitle,
-    kicker: record.workLabel,
-    subtitle: record.frontSubtitle,
-    accent: layout.accent,
-    width: textureSize.width,
-    height: textureSize.height,
-    theme: 'mediterranean',
-  });
+  const texture = useSupplementalPlaqueTexture(record, layout);
   return <group position={layout.label.position}>
     <mesh position={[0, 0, -.04]}>
       <boxGeometry args={[layout.label.width + .14, layout.label.height + .12, .09]}/>

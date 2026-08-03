@@ -29,6 +29,31 @@ export type MuseumSupplementalExhibitPresentation = {
   cautionsLabel?: string;
 };
 
+export type MuseumSupplementalPlaqueType =
+  | 'work-or-text'
+  | 'concept-argument-diagram-or-method'
+  | 'paired-or-grouped-historical-figures'
+  | 'object-manuscript-site-or-archaeological-context'
+  | 'reception-or-transmission-history'
+  | 'historical-event-or-institutional-context'
+  | 'other';
+
+export type MuseumCanonicalContextRef = {
+  kind: 'philosopher' | 'branch';
+  id: string;
+};
+
+export type MuseumSupplementalWallPlaque = {
+  /** Factual subject category used by the renderer and deterministic audit, never as visible copy. */
+  type?: MuseumSupplementalPlaqueType;
+  /** Focused factual override when the existing concise title remains curatorial or ambiguous. */
+  title?: string;
+  /** Focused complete-sentence override when the existing lead cannot supply concise wall copy. */
+  invitation?: string;
+  /** Explicit semantic contexts; supports genuine comparison without relying on title parsing. */
+  canonicalContexts?: readonly MuseumCanonicalContextRef[];
+};
+
 export type MuseumSupplementalExhibit = {
   id: MuseumSupplementalExhibitId;
   displayName: string;
@@ -48,6 +73,8 @@ export type MuseumSupplementalExhibit = {
   articleRoute?: NavigableAppRoute;
   /** Gallery-specific copy; omitted here so Gallery 01 retains its exact output. */
   presentation?: MuseumSupplementalExhibitPresentation;
+  /** Wall-only presentation metadata. Modal and article copy remain independent. */
+  wallPlaque?: MuseumSupplementalWallPlaque;
 };
 
 export type PlatoSupplementalExhibit = MuseumSupplementalExhibit;

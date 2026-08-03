@@ -37,6 +37,17 @@ The accepted architecture lock is recorded in [Decision 0001](../decisions/0001-
 - This contract applies to all primary canonical exhibits and does not automatically govern room signs, gallery signs, navigation signs, object labels, supplemental surfaces, or noncanonical architectural labels.
 - Exceptions require explicit owner approval and a durable repository decision. There are currently no implicit exceptions.
 
+## Supplemental wall-plaque contract
+
+- Every physical supplemental Museum wall plaque uses exactly two visible text levels: a clear factual title for the supplemental subject and one complete visitor invitation explaining what it is, why it matters, and how it relates to at least one authoritative canonical philosopher, philosophy, school, or tradition.
+- The title identifies the supplemental work, text, concept, argument, diagram, method, people, object, manuscript, site, reception history, event, or institutional context. It must not combine a parent entity with a generated curatorial thesis or subtitle. Standard work titles and established concept or diagram names are preferred; paired or grouped figures normally use their names; material and historical exhibits use factual descriptions supported by repository metadata.
+- The canonical relationship belongs in the invitation, not in a generic kicker. Author-plus-work headings, category labels, period labels that duplicate the room, lists of concepts, and phrases such as “logic and reception,” “work and afterlives,” or “philosopher and historical context” are prohibited as visible kickers.
+- Supplemental titles and invitations must be fitted independently, remain complete, and never be clipped, shortened, or ellipsized. Wrapping precedes font reduction; both roles must satisfy geometry-aware readable minimums and remain inside the measured safe rectangle without changing the existing plaque frame, dimensions, or installation position.
+- The supplemental taxonomy is data, audit, and governance support only. It must not appear as a third heading level on the plaque.
+- Representative patterns include a work titled *Elements of Theology* with Proclus and its axiomatic form explained in the invitation; a diagram titled *The Porphyrian Tree* with Porphyry and later logic explained beneath it; and a paired-figures title such as *Hipparchia and Crates* with their Cynic relationship explained beneath it. These are patterns, not mandatory production strings.
+- Correct primary canonical plaques remain governed by the independent primary title and legibility contracts and must not regress during supplemental work.
+- Exceptions require an explicit owner-approved repository decision rather than ad hoc copy. There are currently no implicit exceptions.
+
 ## Owner-facing quality
 
 - Major visual work requires owner visual review before it is treated as accepted, even when automated checks pass.
