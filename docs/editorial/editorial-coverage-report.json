@@ -11,165 +11,209 @@
       "title": "Thales",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/thales",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 4,
+      "citedSourceCount": 4,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1967
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 22,
+      "citationCount": 58,
+      "substantiveArticleWordCount": 2087,
+      "reviewNotePath": "docs/editorial/reviews/thales.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:3f46b8dc03c830b7",
+      "currentReviewLock": "fnv1a64:3f46b8dc03c830b7"
     },
     {
       "id": "anaximander",
       "title": "Anaximander",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/anaximander",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 5,
+      "citedSourceCount": 5,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1952
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 23,
+      "citationCount": 70,
+      "substantiveArticleWordCount": 2081,
+      "reviewNotePath": "docs/editorial/reviews/anaximander.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:e0b2f2e477c1e962",
+      "currentReviewLock": "fnv1a64:e0b2f2e477c1e962"
     },
     {
       "id": "anaximenes",
       "title": "Anaximenes",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/anaximenes",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 5,
+      "citedSourceCount": 5,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1800
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 24,
+      "citationCount": 81,
+      "substantiveArticleWordCount": 2082,
+      "reviewNotePath": "docs/editorial/reviews/anaximenes.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:c2b251244091abd7",
+      "currentReviewLock": "fnv1a64:c2b251244091abd7"
     },
     {
       "id": "pythagoras",
       "title": "Pythagoras",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/pythagoras",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 5,
+      "citedSourceCount": 5,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1956
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 25,
+      "citationCount": 91,
+      "substantiveArticleWordCount": 2101,
+      "reviewNotePath": "docs/editorial/reviews/pythagoras.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:3e81058ae7d9bb93",
+      "currentReviewLock": "fnv1a64:3e81058ae7d9bb93"
     },
     {
       "id": "philolaus",
       "title": "Philolaus",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/philolaus",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 5,
+      "citedSourceCount": 5,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1905
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 24,
+      "citationCount": 90,
+      "substantiveArticleWordCount": 2070,
+      "reviewNotePath": "docs/editorial/reviews/philolaus.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:bc282ae84f573722",
+      "currentReviewLock": "fnv1a64:bc282ae84f573722"
     },
     {
       "id": "parmenides",
       "title": "Parmenides",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/parmenides",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 5,
+      "citedSourceCount": 5,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1979
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 22,
+      "citationCount": 87,
+      "substantiveArticleWordCount": 2277,
+      "reviewNotePath": "docs/editorial/reviews/parmenides.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:9058faec48ea5526",
+      "currentReviewLock": "fnv1a64:9058faec48ea5526"
     },
     {
       "id": "zeno-elea",
       "title": "Zeno of Elea",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/zeno-elea",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 6,
+      "citedSourceCount": 6,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1976
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 22,
+      "citationCount": 97,
+      "substantiveArticleWordCount": 2257,
+      "reviewNotePath": "docs/editorial/reviews/zeno-elea.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:654019f1a2873004",
+      "currentReviewLock": "fnv1a64:654019f1a2873004"
     },
     {
       "id": "leucippus",
       "title": "Leucippus",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/leucippus",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 5,
+      "citedSourceCount": 5,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1813
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 22,
+      "citationCount": 98,
+      "substantiveArticleWordCount": 2068,
+      "reviewNotePath": "docs/editorial/reviews/leucippus.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:727a4e0ee8454378",
+      "currentReviewLock": "fnv1a64:727a4e0ee8454378"
     },
     {
       "id": "democritus",
       "title": "Democritus",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/democritus",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 6,
+      "citedSourceCount": 6,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1805
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 24,
+      "citationCount": 111,
+      "substantiveArticleWordCount": 2203,
+      "reviewNotePath": "docs/editorial/reviews/democritus.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:2228ca66dc4093c7",
+      "currentReviewLock": "fnv1a64:2228ca66dc4093c7"
     },
     {
       "id": "protagoras",
       "title": "Protagoras",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/protagoras",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 5,
+      "citedSourceCount": 5,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1800
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 21,
+      "citationCount": 80,
+      "substantiveArticleWordCount": 2051,
+      "reviewNotePath": "docs/editorial/reviews/protagoras.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:5e4a5d41d7b77533",
+      "currentReviewLock": "fnv1a64:5e4a5d41d7b77533"
     },
     {
       "id": "prodicus",
       "title": "Prodicus of Ceos",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/prodicus",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 6,
+      "citedSourceCount": 6,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1988
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 22,
+      "citationCount": 103,
+      "substantiveArticleWordCount": 2050,
+      "reviewNotePath": "docs/editorial/reviews/prodicus.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:b1bab9905e5d82b4",
+      "currentReviewLock": "fnv1a64:b1bab9905e5d82b4"
     },
     {
       "id": "hippias-of-elis",
@@ -191,30 +235,38 @@
       "title": "Gorgias",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/gorgias",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 6,
+      "citedSourceCount": 6,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1807
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 23,
+      "citationCount": 84,
+      "substantiveArticleWordCount": 2058,
+      "reviewNotePath": "docs/editorial/reviews/gorgias.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:0ad3d00afcfdb14f",
+      "currentReviewLock": "fnv1a64:0ad3d00afcfdb14f"
     },
     {
       "id": "antisthenes",
       "title": "Antisthenes",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/antisthenes",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 6,
+      "citedSourceCount": 6,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1919
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 22,
+      "citationCount": 105,
+      "substantiveArticleWordCount": 2081,
+      "reviewNotePath": "docs/editorial/reviews/antisthenes.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:88d78a5dd6cad935",
+      "currentReviewLock": "fnv1a64:88d78a5dd6cad935"
     },
     {
       "id": "lucretius",
@@ -375,30 +427,38 @@
       "title": "Arcesilaus",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/arcesilaus",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 7,
+      "citedSourceCount": 7,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1856
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 24,
+      "citationCount": 97,
+      "substantiveArticleWordCount": 2060,
+      "reviewNotePath": "docs/editorial/reviews/arcesilaus.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:61f6e3ccab832eda",
+      "currentReviewLock": "fnv1a64:61f6e3ccab832eda"
     },
     {
       "id": "carneades",
       "title": "Carneades",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/carneades",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 7,
+      "citedSourceCount": 7,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1883
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 24,
+      "citationCount": 102,
+      "substantiveArticleWordCount": 2059,
+      "reviewNotePath": "docs/editorial/reviews/carneades.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:a5d363dfd8daadde",
+      "currentReviewLock": "fnv1a64:a5d363dfd8daadde"
     },
     {
       "id": "epictetus",
@@ -480,45 +540,57 @@
       "title": "Porphyry",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/porphyry",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 6,
+      "citedSourceCount": 6,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1838
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 22,
+      "citationCount": 93,
+      "substantiveArticleWordCount": 2058,
+      "reviewNotePath": "docs/editorial/reviews/porphyry.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:c2ea0cfe595b2760",
+      "currentReviewLock": "fnv1a64:c2ea0cfe595b2760"
     },
     {
       "id": "iamblichus",
       "title": "Iamblichus",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/iamblichus",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 6,
+      "citedSourceCount": 6,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1816
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 23,
+      "citationCount": 94,
+      "substantiveArticleWordCount": 2073,
+      "reviewNotePath": "docs/editorial/reviews/iamblichus.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:aa62c4ae4038c95f",
+      "currentReviewLock": "fnv1a64:aa62c4ae4038c95f"
     },
     {
       "id": "proclus",
       "title": "Proclus",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/proclus",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 7,
+      "citedSourceCount": 7,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1813
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 23,
+      "citationCount": 107,
+      "substantiveArticleWordCount": 2081,
+      "reviewNotePath": "docs/editorial/reviews/proclus.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:b25c261257f7eb80",
+      "currentReviewLock": "fnv1a64:b25c261257f7eb80"
     },
     {
       "id": "confucius",
@@ -1434,90 +1506,114 @@
       "title": "Heraclitus",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/heraclitus",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 6,
+      "citedSourceCount": 6,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1839
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 22,
+      "citationCount": 106,
+      "substantiveArticleWordCount": 2180,
+      "reviewNotePath": "docs/editorial/reviews/heraclitus.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:a39293b470e7c26f",
+      "currentReviewLock": "fnv1a64:a39293b470e7c26f"
     },
     {
       "id": "empedocles",
       "title": "Empedocles",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/empedocles",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 7,
+      "citedSourceCount": 7,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1841
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 22,
+      "citationCount": 112,
+      "substantiveArticleWordCount": 2175,
+      "reviewNotePath": "docs/editorial/reviews/empedocles.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:d3c42df0667e8e64",
+      "currentReviewLock": "fnv1a64:d3c42df0667e8e64"
     },
     {
       "id": "anaxagoras",
       "title": "Anaxagoras",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/anaxagoras",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 6,
+      "citedSourceCount": 6,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1844
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 22,
+      "citationCount": 116,
+      "substantiveArticleWordCount": 2147,
+      "reviewNotePath": "docs/editorial/reviews/anaxagoras.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:390d24af5c2e8cdb",
+      "currentReviewLock": "fnv1a64:390d24af5c2e8cdb"
     },
     {
       "id": "origen",
       "title": "Origen",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/origen",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 7,
+      "citedSourceCount": 7,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1812
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 21,
+      "citationCount": 119,
+      "substantiveArticleWordCount": 2136,
+      "reviewNotePath": "docs/editorial/reviews/origen.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:471220f27f3b5d0a",
+      "currentReviewLock": "fnv1a64:471220f27f3b5d0a"
     },
     {
       "id": "gregory-nyssa",
       "title": "Gregory of Nyssa",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/gregory-nyssa",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 8,
+      "citedSourceCount": 8,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1932
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 21,
+      "citationCount": 117,
+      "substantiveArticleWordCount": 2118,
+      "reviewNotePath": "docs/editorial/reviews/gregory-nyssa.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:383f75618aa90688",
+      "currentReviewLock": "fnv1a64:383f75618aa90688"
     },
     {
       "id": "pseudo-dionysius",
       "title": "Pseudo-Dionysius",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/pseudo-dionysius",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 8,
+      "citedSourceCount": 8,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1812
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 22,
+      "citationCount": 122,
+      "substantiveArticleWordCount": 2101,
+      "reviewNotePath": "docs/editorial/reviews/pseudo-dionysius.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:1aac66249790636e",
+      "currentReviewLock": "fnv1a64:1aac66249790636e"
     },
     {
       "id": "eriugena",
@@ -2946,475 +3042,6 @@
   ],
   "warnings": [
     {
-      "recordKey": "philosopher:thales",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "overview/paragraph-1",
-      "excerpt": "Thales of Miletus is usually introduced as the first Greek philosopher, but that phrase should be handled with care. It is less a secure biographical fact than a later way of marking a change in the style of explanation."
-    },
-    {
-      "recordKey": "philosopher:thales",
-      "status": "unreviewed",
-      "signal": "disputed-attribution",
-      "location": "sources/paragraph-1",
-      "excerpt": "No writing by Thales survives, and it is uncertain whether he wrote a philosophical text at all. Most of what modern readers know comes from later authors such as Aristotle, Theophrastus through later doxographical tradi"
-    },
-    {
-      "recordKey": "philosopher:thales",
-      "status": "unreviewed",
-      "signal": "disputed-attribution",
-      "location": "sources/paragraph-2",
-      "excerpt": "This source problem should shape the profile from the beginning. We should distinguish the historical Thales, the Thales of later philosophical historiography, and the legendary sage who appears in stories about cleverne"
-    },
-    {
-      "recordKey": "philosopher:thales",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "water/paragraph-1",
-      "excerpt": "The claim most closely associated with Thales is that water is the arche, the first principle or originating stuff of things. Aristotle suggests that Thales may have been guided by observations that nourishment is moist,"
-    },
-    {
-      "recordKey": "philosopher:thales",
-      "status": "unreviewed",
-      "signal": "disputed-attribution",
-      "location": "water/paragraph-1",
-      "excerpt": "The claim most closely associated with Thales is that water is the arche, the first principle or originating stuff of things. Aristotle suggests that Thales may have been guided by observations that nourishment is moist,"
-    },
-    {
-      "recordKey": "philosopher:thales",
-      "status": "unreviewed",
-      "signal": "disputed-attribution",
-      "location": "mathematics-and-astronomy/paragraph-2",
-      "excerpt": "Even if the details are uncertain, the association with measurement and astronomy is philosophically revealing. Thales represents a type of wisdom that connects theory with practice: measuring heights through shadows, re"
-    },
-    {
-      "recordKey": "philosopher:thales",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "milesian-sequence/paragraph-2",
-      "excerpt": "This sequence matters because early philosophy already contains disagreement and revision. Thales is not the first entry in a list of guesses, followed by more guesses. He establishes a problem that successors refine. An"
-    },
-    {
-      "recordKey": "philosopher:thales",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "influence/paragraph-1",
-      "excerpt": "Thales influence is unusual because it operates less through surviving texts than through the place later authors assign him. Aristotle uses him as an early example of the search for material causes. Doxographical tradit"
-    },
-    {
-      "recordKey": "philosopher:thales",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "influence/paragraph-2",
-      "excerpt": "That remembered beginning influenced how philosophy tells stories about itself. If Thales is first because he looks for a natural principle, then philosophy begins as an inquiry into nature. If he is first because he com"
-    },
-    {
-      "recordKey": "philosopher:thales",
-      "status": "unreviewed",
-      "signal": "influence-or-causation",
-      "location": "influence/paragraph-2",
-      "excerpt": "That remembered beginning influenced how philosophy tells stories about itself. If Thales is first because he looks for a natural principle, then philosophy begins as an inquiry into nature. If he is first because he com"
-    },
-    {
-      "recordKey": "philosopher:thales",
-      "status": "unreviewed",
-      "signal": "disputed-attribution",
-      "location": "misunderstandings/paragraph-1",
-      "excerpt": "The most common misunderstanding is that Thales is important because he happened to choose water and was therefore wrong. That turns an origin of inquiry into a trivia answer. Another misunderstanding treats him as a mod"
-    },
-    {
-      "recordKey": "philosopher:thales",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "misunderstandings/paragraph-2",
-      "excerpt": "Better questions begin elsewhere. What does it mean to explain many things through one principle? Why would water seem like a plausible source of life and change? How did practical techniques of measurement and predictio"
-    },
-    {
-      "recordKey": "philosopher:thales",
-      "status": "unreviewed",
-      "signal": "disputed-attribution",
-      "location": "misunderstandings/paragraph-2",
-      "excerpt": "Better questions begin elsewhere. What does it mean to explain many things through one principle? Why would water seem like a plausible source of life and change? How did practical techniques of measurement and predictio"
-    },
-    {
-      "recordKey": "philosopher:anaximander",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "life-and-origins/paragraph-1",
-      "excerpt": "Anaximander is also associated with early speculation about the origin of living beings and human beings. Later reports say he thought life first arose in moisture and that humans developed from other living creatures, b"
-    },
-    {
-      "recordKey": "philosopher:anaximander",
-      "status": "unreviewed",
-      "signal": "influence-or-causation",
-      "location": "life-and-origins/paragraph-1",
-      "excerpt": "Anaximander is also associated with early speculation about the origin of living beings and human beings. Later reports say he thought life first arose in moisture and that humans developed from other living creatures, b"
-    },
-    {
-      "recordKey": "philosopher:anaximander",
-      "status": "unreviewed",
-      "signal": "disputed-attribution",
-      "location": "life-and-origins/paragraph-1",
-      "excerpt": "Anaximander is also associated with early speculation about the origin of living beings and human beings. Later reports say he thought life first arose in moisture and that humans developed from other living creatures, b"
-    },
-    {
-      "recordKey": "philosopher:anaximander",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "relation-to-thales/paragraph-2",
-      "excerpt": "This relationship shows that early philosophy is already argumentative. The move from water to the boundless is not just a new guess. It is a conceptual correction. It asks what a first principle must be like in order to"
-    },
-    {
-      "recordKey": "philosopher:anaximander",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "reading-strategy/paragraph-2",
-      "excerpt": "Read Anaximander after Thales and before Anaximenes. This sequence reveals a genuine debate about what kind of first principle can explain the world. Then place him beside Pythagorean limit and unlimited, Heraclitean con"
-    },
-    {
-      "recordKey": "philosopher:anaximenes",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "overview/paragraph-1",
-      "excerpt": "Anaximenes of Miletus is often placed after Thales and Anaximander as the third major Milesian. At first glance he can seem less daring than Anaximander because he returns from the boundless to a familiar principle: air."
-    },
-    {
-      "recordKey": "philosopher:anaximenes",
-      "status": "unreviewed",
-      "signal": "disputed-attribution",
-      "location": "historical-place/paragraph-1",
-      "excerpt": "Anaximenes is usually dated to the sixth century BCE and associated with Miletus, though exact chronology is uncertain. He likely worked after Anaximander and before the Persian destruction and political disruptions that"
-    },
-    {
-      "recordKey": "philosopher:anaximenes",
-      "status": "unreviewed",
-      "signal": "disputed-attribution",
-      "location": "air/paragraph-1",
-      "excerpt": "Air is a compelling early principle because it is both near and elusive. It is felt in breathing and wind, but it is not always seen. It surrounds living beings, moves without a fixed shape, and appears capable of becomi"
-    },
-    {
-      "recordKey": "philosopher:anaximenes",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "air/paragraph-2",
-      "excerpt": "Air therefore differs from water as a first principle. Water is visible, tangible, and life-sustaining, but air more easily explains the invisible continuity surrounding things. It can be imagined as the medium in which"
-    },
-    {
-      "recordKey": "philosopher:anaximenes",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "rarefaction-condensation/paragraph-2",
-      "excerpt": "This is a major step beyond simply naming a first principle. A principle must explain how the many arise from the one. Anaximenes offers a bridge: variation in density produces variation in appearance and behavior. Later"
-    },
-    {
-      "recordKey": "philosopher:anaximenes",
-      "status": "unreviewed",
-      "signal": "influence-or-causation",
-      "location": "later-influence/paragraph-1",
-      "excerpt": "Anaximenes influenced later thinkers less through a preserved school than through a model of transformation. Explaining qualitative difference by changes in density anticipates later strategies that reduce visible qualit"
-    },
-    {
-      "recordKey": "philosopher:pythagoras",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "overview/paragraph-1",
-      "excerpt": "Pythagoras is one of the most famous and least recoverable figures in early Greek philosophy. The name evokes mathematics, harmony, transmigration of souls, disciplined community, and secret teaching, but the historical"
-    },
-    {
-      "recordKey": "philosopher:pythagoras",
-      "status": "unreviewed",
-      "signal": "disputed-attribution",
-      "location": "life-and-movement/paragraph-2",
-      "excerpt": "The southern Italian setting matters because Pythagorean groups became socially and politically significant. Ancient reports connect them with elite influence, communal rules, and eventual violent opposition. The details"
-    },
-    {
-      "recordKey": "philosopher:pythagoras",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "sources/paragraph-1",
-      "excerpt": "The source problem for Pythagoras is severe. Early evidence is sparse, and later biographies by authors such as Porphyry and Iamblichus are separated by many centuries and shaped by Neoplatonic interests. Aristotle discu"
-    },
-    {
-      "recordKey": "philosopher:pythagoras",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "sources/paragraph-2",
-      "excerpt": "Because of this, it is often better to speak of early Pythagorean traditions rather than confidently attributing every doctrine to Pythagoras. The caution does not make the tradition unimportant. It helps us see how phil"
-    },
-    {
-      "recordKey": "philosopher:pythagoras",
-      "status": "unreviewed",
-      "signal": "disputed-attribution",
-      "location": "soul/paragraph-1",
-      "excerpt": "Pythagoras is strongly associated with the transmigration of souls, the idea that the soul passes through different lives. Ancient reports link him with remembering previous lives and with practices meant to purify the s"
-    },
-    {
-      "recordKey": "philosopher:pythagoras",
-      "status": "unreviewed",
-      "signal": "disputed-attribution",
-      "location": "community/paragraph-1",
-      "excerpt": "Ancient reports describe Pythagorean communities as governed by rules concerning silence, diet, property, friendship, ritual conduct, and modes of teaching. Some details are legendary or symbolic, including the famous pr"
-    },
-    {
-      "recordKey": "philosopher:pythagoras",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "mathematics/paragraph-2",
-      "excerpt": "This caution protects the achievement rather than diminishing it. The Pythagorean legacy is not that one man discovered a schoolroom formula. It is that mathematical structure came to seem like a path to what is most rea"
-    },
-    {
-      "recordKey": "philosopher:pythagoras",
-      "status": "unreviewed",
-      "signal": "influence-or-causation",
-      "location": "later-influence/paragraph-1",
-      "excerpt": "Pythagorean influence on Plato is complex and debated, but unmistakably important. Plato's dialogues repeatedly connect mathematics with education, order, the soul, and the ascent beyond ordinary opinion. The Republic's"
-    },
-    {
-      "recordKey": "philosopher:pythagoras",
-      "status": "unreviewed",
-      "signal": "disputed-attribution",
-      "location": "misunderstandings/paragraph-1",
-      "excerpt": "One misunderstanding treats Pythagoras as simply a mathematician who happened to have odd religious beliefs. Another treats him as a mystical guru and ignores the mathematical seriousness of the tradition. A third attrib"
-    },
-    {
-      "recordKey": "philosopher:pythagoras",
-      "status": "unreviewed",
-      "signal": "disputed-attribution",
-      "location": "misunderstandings/paragraph-2",
-      "excerpt": "Another common mistake is to mock Pythagorean rules as mere superstition. Some reports may indeed be legendary, symbolic, or polemically distorted. But practices around food, silence, memory, and communal conduct can exp"
-    },
-    {
-      "recordKey": "philosopher:pythagoras",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "reading-strategy/paragraph-1",
-      "excerpt": "Begin with caution about sources. Read early evidence collected in Presocratic sourcebooks, then compare Aristotle's reports about Pythagoreans with later biographies by Porphyry and Iamblichus. Ask which claims are earl"
-    },
-    {
-      "recordKey": "philosopher:pythagoras",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "why-it-matters/paragraph-1",
-      "excerpt": "Pythagoras remains central because he gives philosophy one of its deepest temptations and one of its greatest insights. The insight is that reality may be structured mathematically and that understanding structure can tr"
-    },
-    {
-      "recordKey": "philosopher:philolaus",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "overview/paragraph-1",
-      "excerpt": "Philolaus is one of the most important figures for understanding Pythagorean philosophy because he is associated with written fragments and doctrines that are more historically accessible than the legends surrounding Pyt"
-    },
-    {
-      "recordKey": "philosopher:philolaus",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "historical-setting/paragraph-1",
-      "excerpt": "Philolaus likely lived after Pythagoras and belongs to a period when Pythagorean communities had already developed doctrines, practices, and political reputations. Ancient testimonies connect him with Croton, Thebes, and"
-    },
-    {
-      "recordKey": "philosopher:philolaus",
-      "status": "unreviewed",
-      "signal": "disputed-attribution",
-      "location": "historical-setting/paragraph-1",
-      "excerpt": "Philolaus likely lived after Pythagoras and belongs to a period when Pythagorean communities had already developed doctrines, practices, and political reputations. Ancient testimonies connect him with Croton, Thebes, and"
-    },
-    {
-      "recordKey": "philosopher:philolaus",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "historical-setting/paragraph-2",
-      "excerpt": "This historical placement is important for interpretation. We should not automatically treat Philolaus as a direct transcript of Pythagoras. He is a creative figure within a tradition. He inherits concerns about number,"
-    },
-    {
-      "recordKey": "philosopher:philolaus",
-      "status": "unreviewed",
-      "signal": "disputed-attribution",
-      "location": "sources/paragraph-1",
-      "excerpt": "The fragments attributed to Philolaus have generated extensive scholarly debate. Some are widely treated as important evidence for early Pythagorean thought, while others have been suspected, defended, or reinterpreted."
-    },
-    {
-      "recordKey": "philosopher:philolaus",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "relation-to-pythagoras/paragraph-1",
-      "excerpt": "Philolaus should be read as an heir to Pythagoras, not as a transparent report of the founder. The Pythagorean tradition associated philosophy with number, harmony, purification, and community. Philolaus gives that inher"
-    },
-    {
-      "recordKey": "philosopher:philolaus",
-      "status": "unreviewed",
-      "signal": "disputed-attribution",
-      "location": "reading-strategy/paragraph-1",
-      "excerpt": "Start with a reliable collection of Presocratic fragments and testimonia. Separate the fragments attributed to Philolaus from later reports about Pythagoreans in general. Track the recurring terms: limit, unlimited, harm"
-    },
-    {
-      "recordKey": "philosopher:philolaus",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "why-it-matters/paragraph-1",
-      "excerpt": "Philolaus deserves depth because he makes a central Pythagorean idea philosophically legible: order is produced when limit gives structure to the unlimited. That idea is simple enough for beginners and deep enough to sha"
-    },
-    {
-      "recordKey": "philosopher:parmenides",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "being/paragraph-2",
-      "excerpt": "Beginners often find the conclusion absurd, but the route is more important than the first reaction. Parmenides asks whether change and plurality can be explained without contradiction. If something comes to be, from wha"
-    },
-    {
-      "recordKey": "philosopher:parmenides",
-      "status": "unreviewed",
-      "signal": "influence-or-causation",
-      "location": "influence/paragraph-1",
-      "excerpt": "Parmenides influence on Plato is profound. Plato names a dialogue after him and repeatedly wrestles with the relation between being, nonbeing, forms, difference, and appearance. The Sophist develops an account of not-bei"
-    },
-    {
-      "recordKey": "philosopher:parmenides",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "reading-strategy/paragraph-1",
-      "excerpt": "Begin with a good translation of the fragments, especially the proem, the paths of inquiry, and the signs of what-is. Read the poem aloud if possible, because its authority and strangeness matter. Then paraphrase the arg"
-    },
-    {
-      "recordKey": "philosopher:zeno-elea",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "overview/paragraph-2",
-      "excerpt": "His importance lies in making ordinary assumptions answerable to rigorous argument. Everyone sees motion, counts many things, and divides distances. Zeno asks whether the concepts involved in those practices can survive"
-    },
-    {
-      "recordKey": "philosopher:zeno-elea",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "dichotomy/paragraph-1",
-      "excerpt": "The dichotomy paradox argues that to traverse a distance, a mover must first traverse half of it, then half of what remains, and so on without end. If infinitely many tasks must be completed before arrival, motion seems"
-    },
-    {
-      "recordKey": "philosopher:zeno-elea",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "achilles/paragraph-1",
-      "excerpt": "The Achilles paradox imagines a fast runner pursuing a slower runner who has a head start. Achilles must first reach the point where the tortoise began; by then the tortoise has moved farther. Achilles must then reach th"
-    },
-    {
-      "recordKey": "philosopher:zeno-elea",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "aristotle-response/paragraph-1",
-      "excerpt": "Aristotle gives the most influential ancient response to Zeno. He distinguishes actual and potential infinity, argues that a continuum is divisible without being actually divided into completed infinite parts, and analyz"
-    },
-    {
-      "recordKey": "philosopher:leucippus",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "overview/paragraph-1",
-      "excerpt": "Leucippus is traditionally treated as the founder of Greek atomism, but he is among the most elusive figures in ancient philosophy. Little is securely known about his life, dates, birthplace, writings, or exact contribut"
-    },
-    {
-      "recordKey": "philosopher:leucippus",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "overview/paragraph-2",
-      "excerpt": "His importance lies in a decisive answer to the Eleatic problem. If Parmenides and Zeno make motion, plurality, and change difficult to understand, Leucippus proposes indivisible bodies moving in void. What appears to co"
-    },
-    {
-      "recordKey": "philosopher:leucippus",
-      "status": "unreviewed",
-      "signal": "disputed-attribution",
-      "location": "sources/paragraph-1",
-      "excerpt": "The evidence for Leucippus is exceptionally thin. He is variously associated with Miletus, Elea, or Abdera. His dates are not fixed beyond the fifth century BCE. Ancient reports sometimes call him a student of Zeno, but"
-    },
-    {
-      "recordKey": "philosopher:leucippus",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "influence/paragraph-1",
-      "excerpt": "Leucippus influenced later philosophy chiefly through the atomist tradition he is said to have founded. Democritus develops it; Epicurus revises it for an ethical project centered on freedom from fear; Lucretius turns Ep"
-    },
-    {
-      "recordKey": "philosopher:leucippus",
-      "status": "unreviewed",
-      "signal": "influence-or-causation",
-      "location": "influence/paragraph-1",
-      "excerpt": "Leucippus influenced later philosophy chiefly through the atomist tradition he is said to have founded. Democritus develops it; Epicurus revises it for an ethical project centered on freedom from fear; Lucretius turns Ep"
-    },
-    {
-      "recordKey": "philosopher:leucippus",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "misunderstandings/paragraph-1",
-      "excerpt": "The first misunderstanding is to treat Leucippus as a fully recoverable author whose precise system can be cleanly separated from Democritus. The evidence does not allow that. The second is to deny his importance because"
-    },
-    {
-      "recordKey": "philosopher:leucippus",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "misunderstandings/paragraph-2",
-      "excerpt": "The central interpretive discipline is proportionality. Say that Leucippus is traditionally the founder of atomism, that Aristotle ascribes that role to him, and that his specific views are hard to distinguish from Democ"
-    },
-    {
-      "recordKey": "philosopher:leucippus",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "reading/paragraph-1",
-      "excerpt": "Begin by reading him together with Democritus and with a guide to ancient atomism. Do not expect a personal voice like Heraclitus or Empedocles. Instead, reconstruct the philosophical problem. Read Parmenides and Zeno fi"
-    },
-    {
-      "recordKey": "philosopher:democritus",
-      "status": "unreviewed",
-      "signal": "disputed-attribution",
-      "location": "sources/paragraph-1",
-      "excerpt": "Ancient catalogues attribute many works to Democritus on physics, cosmology, mathematics, music, language, ethics, and technical subjects. None survive complete. We know him through fragments, testimonies, Aristotle disc"
-    },
-    {
-      "recordKey": "philosopher:democritus",
-      "status": "unreviewed",
-      "signal": "influence-or-causation",
-      "location": "perception/paragraph-1",
-      "excerpt": "Democritus explains perception materially. Objects emit films or effluences that interact with the sense organs, producing appearances. Vision, taste, smell, and other senses are bodily events, not immaterial contacts wi"
-    },
-    {
-      "recordKey": "philosopher:protagoras",
-      "status": "unreviewed",
-      "signal": "disputed-attribution",
-      "location": "sources/paragraph-2",
-      "excerpt": "Ancient biography adds stories about wealth, fame, exile, book burning, and death at sea. Some are uncertain or likely colored by later anti-sophistic memory. Even the connection to Democritus as teacher is improbable if"
-    },
-    {
-      "recordKey": "philosopher:protagoras",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "socrates-plato/paragraph-1",
-      "excerpt": "Socrates and Plato are Protagoras greatest critics and also the reason he remains central. Plato shows Socrates questioning whether Protagoras can define virtue, defend relativism, and distinguish persuasion from knowled"
-    },
-    {
-      "recordKey": "philosopher:protagoras",
-      "status": "unreviewed",
-      "signal": "influence-or-causation",
-      "location": "influence-misreadings/paragraph-1",
-      "excerpt": "Protagoras influenced later debates about relativism, democracy, rhetoric, law, education, and religion. Aristotle discusses his measure doctrine and linguistic interests. Later skeptics and relativists found resources o"
-    },
-    {
-      "recordKey": "philosopher:prodicus",
-      "status": "bibliography-only",
-      "signal": "disputed-attribution",
-      "location": "distinctions/paragraph-1",
-      "excerpt": "Plato associates Prodicus with separating words that ordinary speakers treat as interchangeable: impartial and equal, praise and approval, enjoyment of mind and pleasure of body, courage and mere fearlessness. The exact"
-    },
-    {
-      "recordKey": "philosopher:prodicus",
-      "status": "bibliography-only",
-      "signal": "disputed-attribution",
-      "location": "criticism/paragraph-1",
-      "excerpt": "Plato’s comic portrait raises a real criticism: a speaker can multiply distinctions without increasing understanding. Precision may become a performance of expertise, especially when the expert controls the terms and cha"
-    },
-    {
-      "recordKey": "philosopher:prodicus",
-      "status": "bibliography-only",
-      "signal": "disputed-attribution",
-      "location": "reception/paragraph-1",
-      "excerpt": "The Choice of Heracles became a durable subject in moral education and European art. Later paintings place the hero between personified paths and turn an attributed Sophistic performance into a visible drama of decision."
-    },
-    {
       "recordKey": "philosopher:hippias-of-elis",
       "status": "bibliography-only",
       "signal": "disputed-attribution",
@@ -3448,76 +3075,6 @@
       "signal": "disputed-attribution",
       "location": "reading/paragraph-1",
       "excerpt": "Begin with the Olympia and handmade-object passages in Hippias Minor, then read the brief speech about nature and convention in Protagoras. Treat both as Platonic scenes: ask what historical reputation they presuppose an"
-    },
-    {
-      "recordKey": "philosopher:gorgias",
-      "status": "unreviewed",
-      "signal": "disputed-attribution",
-      "location": "sicily-athens/paragraph-1",
-      "excerpt": "Gorgias came from Leontini in Sicily and reportedly arrived in Athens as part of an embassy seeking help against Syracuse. Ancient sources remember his speaking as astonishing to Athenian audiences. He traveled, taught,"
-    },
-    {
-      "recordKey": "philosopher:gorgias",
-      "status": "unreviewed",
-      "signal": "disputed-attribution",
-      "location": "knowledge-communication/paragraph-1",
-      "excerpt": "Gorgias invites readers to ask whether knowledge can be transferred through speech. A speaker does not place the object itself into the hearer mind. The speaker produces words, sounds, rhythms, and arguments that cause b"
-    },
-    {
-      "recordKey": "philosopher:gorgias",
-      "status": "unreviewed",
-      "signal": "influence-or-causation",
-      "location": "influence-misreadings/paragraph-1",
-      "excerpt": "Gorgias influenced the history of rhetoric, literary style, skepticism, and philosophy of language. His display speeches became examples of what verbal artistry can do. His arguments about nonbeing and communication cont"
-    },
-    {
-      "recordKey": "philosopher:antisthenes",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "overview/paragraph-1",
-      "excerpt": "Antisthenes of Athens was a follower of Socrates, a writer of dialogues and rhetorical works, and a crucial precursor or founder figure for Cynicism. Ancient tradition connects him with virtue, self-sufficiency, enduranc"
-    },
-    {
-      "recordKey": "philosopher:antisthenes",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "sources/paragraph-1",
-      "excerpt": "The evidence for Antisthenes is difficult. Ancient catalogues attribute many works to him, including dialogues and writings on language, ethics, and literature, but only fragments and reports survive. Xenophon presents h"
-    },
-    {
-      "recordKey": "philosopher:antisthenes",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "sources/paragraph-2",
-      "excerpt": "The central historical dispute concerns whether Antisthenes should be called the founder of Cynicism. Some scholars treat that as a later construction designed to give Cynicism and Stoicism a respectable Socratic pedigre"
-    },
-    {
-      "recordKey": "philosopher:antisthenes",
-      "status": "unreviewed",
-      "signal": "disputed-attribution",
-      "location": "life/paragraph-1",
-      "excerpt": "Antisthenes was an Athenian, traditionally said to have had a non-Athenian mother, a detail that later writers connected with his association with Cynosarges, a gymnasium linked to citizens of mixed status. The biographi"
-    },
-    {
-      "recordKey": "philosopher:antisthenes",
-      "status": "unreviewed",
-      "signal": "disputed-attribution",
-      "location": "plato/paragraph-1",
-      "excerpt": "Antisthenes and Plato can be read as rival heirs of Socrates. Plato turns Socratic questioning toward Forms, dialectic, the Academy, and a vast literary-philosophical project. Antisthenes turns Socratic ethics toward vir"
-    },
-    {
-      "recordKey": "philosopher:antisthenes",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "cynicism/paragraph-1",
-      "excerpt": "Later tradition often makes Antisthenes the first Cynic or the teacher of Diogenes. The exact historical relation is debated, and some ancient succession stories may have been shaped by Stoic interests in tracing their l"
-    },
-    {
-      "recordKey": "philosopher:antisthenes",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "cynicism/paragraph-2",
-      "excerpt": "The difference is style and intensity. Diogenes turns these themes into public performance, shamelessness, homelessness, and confrontation with power. Antisthenes appears more recognizably Socratic, more connected to dis"
     },
     {
       "recordKey": "philosopher:lucretius",
@@ -3968,55 +3525,6 @@
       "excerpt": "The theory does not imply that every feeling is consciously chosen or that a wise person becomes numb. Stoics distinguish first movements and unavoidable reactions from full assent, and they describe good emotions ground"
     },
     {
-      "recordKey": "philosopher:arcesilaus",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "academy/paragraph-1",
-      "excerpt": "Plato founded the Academy as a community of inquiry rather than a church organized around one creed. After his death, successive leaders interpreted mathematical, ethical, metaphysical, and political dimensions of the di"
-    },
-    {
-      "recordKey": "philosopher:arcesilaus",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "stoic-target/paragraph-2",
-      "excerpt": "Arcesilaus attacks the decisive condition. For any allegedly cognitive impression, could there be a false impression indistinguishable from it? Dreams, madness, perceptual resemblance, and cases of mistaken identity crea"
-    },
-    {
-      "recordKey": "philosopher:arcesilaus",
-      "status": "bibliography-only",
-      "signal": "disputed-attribution",
-      "location": "suspension/paragraph-1",
-      "excerpt": "Suspension, epoché, follows from the demand that assent be proportionate to a defensible criterion. Arcesilaus is reported to have advocated suspension about everything, but the force of this report is disputed. It may d"
-    },
-    {
-      "recordKey": "philosopher:arcesilaus",
-      "status": "bibliography-only",
-      "signal": "disputed-attribution",
-      "location": "sources/paragraph-2",
-      "excerpt": "Responsible reconstruction therefore marks levels of confidence. The conflict with Stoic cognition, the centrality of dialectical opposition, and the Academy’s skeptical turn are secure in broad outline. Precise claims a"
-    },
-    {
-      "recordKey": "philosopher:carneades",
-      "status": "bibliography-only",
-      "signal": "disputed-attribution",
-      "location": "overview/paragraph-2",
-      "excerpt": "His skepticism is especially associated with the persuasive or plausible impression, a fallible guide that helps explain inquiry and action without Stoic cognitive certainty. That proposal makes Carneades more than a des"
-    },
-    {
-      "recordKey": "philosopher:carneades",
-      "status": "bibliography-only",
-      "signal": "exact-date",
-      "location": "rome/paragraph-1",
-      "excerpt": "In 155 BCE, Carneades traveled to Rome as part of an Athenian embassy with the Stoic Diogenes of Babylon and the Peripatetic Critolaus. Reports say Carneades delivered public arguments about justice, defending it on one"
-    },
-    {
-      "recordKey": "philosopher:carneades",
-      "status": "bibliography-only",
-      "signal": "influence-or-causation",
-      "location": "ethical-ends/paragraph-2",
-      "excerpt": "Classification serves skeptical criticism because it exposes choices that a school can otherwise treat as necessary. Why elevate this candidate rather than another? Does a theory describe what people seek, what they ough"
-    },
-    {
       "recordKey": "philosopher:epictetus",
       "status": "bibliography-only",
       "signal": "exact-date",
@@ -4239,62 +3747,6 @@
       "signal": "priority-or-superlative",
       "location": "practice/paragraph-2",
       "excerpt": "Union is often called mystical, a useful term if it marks an experience that exceeds discursive thought. It becomes misleading when it suggests irrational feeling, private revelation detached from argument, or permanent"
-    },
-    {
-      "recordKey": "philosopher:porphyry",
-      "status": "bibliography-only",
-      "signal": "disputed-attribution",
-      "location": "isagoge/paragraph-2",
-      "excerpt": "Medieval readers turned those postponed questions into the problem of universals. Realists, nominalists, and conceptualists disputed what shared natures are and how language and thought connect to reality. Porphyry’s com"
-    },
-    {
-      "recordKey": "philosopher:porphyry",
-      "status": "bibliography-only",
-      "signal": "influence-or-causation",
-      "location": "aristotle/paragraph-2",
-      "excerpt": "That arrangement influenced later Neoplatonic commentary and, through translation and adaptation, Islamic and medieval Latin philosophy. Students learned categories and predication before approaching more demanding quest"
-    },
-    {
-      "recordKey": "philosopher:porphyry",
-      "status": "bibliography-only",
-      "signal": "disputed-attribution",
-      "location": "christianity/paragraph-1",
-      "excerpt": "Porphyry wrote a substantial work Against the Christians, surviving only through fragments and responses by Christian authors. He challenged scriptural interpretation, chronology, prophecy, and claims to religious author"
-    },
-    {
-      "recordKey": "philosopher:iamblichus",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "porphyry-dispute/paragraph-2",
-      "excerpt": "The disagreement concerns agency. If ascent is achieved by the philosopher’s own understanding, salvation risks becoming an elite accomplishment. If divine symbols and rites work because gods graciously establish them, r"
-    },
-    {
-      "recordKey": "philosopher:iamblichus",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "influence/paragraph-2",
-      "excerpt": "Influence does not mean agreement. Christian creation and liturgy, Islamic accounts of divine unity, and Renaissance projects revise the metaphysical meaning of ritual and hierarchy. Iamblichus matters because he makes i"
-    },
-    {
-      "recordKey": "philosopher:proclus",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "elements/paragraph-2",
-      "excerpt": "The method gives readers unusual access to late Neoplatonic reasoning. It also raises questions about whether first principles can truly be demonstrated from such starting points and whether systematic clarity conceals i"
-    },
-    {
-      "recordKey": "philosopher:proclus",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "henads/paragraph-1",
-      "excerpt": "The One is beyond being and cannot itself contain differentiated plurality. Proclus introduces henads, divine unities through which the first principle’s causality is participated in distinct series. Henads help explain"
-    },
-    {
-      "recordKey": "philosopher:proclus",
-      "status": "bibliography-only",
-      "signal": "influence-or-causation",
-      "location": "participation/paragraph-2",
-      "excerpt": "The account influenced later debates about universals, divine ideas, causality, and hierarchy. It also invites objections. Multiplying mediating terms can seem to postpone explanation, and claims about unparticipated cau"
     },
     {
       "recordKey": "philosopher:confucius",
@@ -6388,153 +5840,6 @@
       "signal": "influence-or-causation",
       "location": "derrida-criticism-legacy/paragraph-2",
       "excerpt": "Derrida influenced literary theory, philosophy, legal studies, architecture, theology, postcolonial thought, feminism, queer theory, and debates about animals and technology. Judith Butler develops iterability in an acco"
-    },
-    {
-      "recordKey": "philosopher:heraclitus",
-      "status": "unreviewed",
-      "signal": "disputed-attribution",
-      "location": "ephesus/paragraph-1",
-      "excerpt": "Heraclitus came from Ephesus, an Ionian Greek city connected to trade, empire, religious practice, and political conflict. The details of his civic life are uncertain, but the fragments show a sharp critic of public igno"
-    },
-    {
-      "recordKey": "philosopher:heraclitus",
-      "status": "unreviewed",
-      "signal": "influence-or-causation",
-      "location": "influence/paragraph-1",
-      "excerpt": "Heraclitus influenced ancient Stoicism through themes of logos, fire, fate, and cosmic order, though Stoic doctrine should not be read back into him unchanged. He also became an ancestor for later thinkers interested in"
-    },
-    {
-      "recordKey": "philosopher:heraclitus",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "reading/paragraph-2",
-      "excerpt": "After the fragments, read a guided secondary account and then compare Plato and Aristotle on Heraclitus. Notice where later authors use him as a representative of flux and where the fragments resist that role. The centra"
-    },
-    {
-      "recordKey": "philosopher:empedocles",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "roots/paragraph-2",
-      "excerpt": "The explanatory achievement is considerable. Instead of asking which single stuff everything is, Empedocles argues that plurality belongs at the foundation. Different mixtures account for different bodies and qualities."
-    },
-    {
-      "recordKey": "philosopher:empedocles",
-      "status": "unreviewed",
-      "signal": "influence-or-causation",
-      "location": "influence/paragraph-2",
-      "excerpt": "Empedocles also influenced later thinking about cycles, attraction and repulsion, cosmic conflict, and the kinship of life. Modern readers have seen in him an early ecological imagination, but that must be handled carefu"
-    },
-    {
-      "recordKey": "philosopher:empedocles",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "reading/paragraph-1",
-      "excerpt": "Begin with the fragments in an edition that distinguishes direct quotation, paraphrase, and later testimony. Do not read the physical fragments first and treat the purification material as embarrassing residue. Track rec"
-    },
-    {
-      "recordKey": "philosopher:anaxagoras",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "overview/paragraph-1",
-      "excerpt": "Anaxagoras of Clazomenae brought Ionian natural philosophy into close contact with Athens and gave Greek thought one of its most famous ordering principles: nous, or mind. He explains the world through an original mixtur"
-    },
-    {
-      "recordKey": "philosopher:anaxagoras",
-      "status": "unreviewed",
-      "signal": "influence-or-causation",
-      "location": "overview/paragraph-2",
-      "excerpt": "He matters for several reasons at once. He helped make Athens a center of philosophical inquiry before Socrates and Plato. He offered natural explanations of celestial and meteorological phenomena that could appear impio"
-    },
-    {
-      "recordKey": "philosopher:anaxagoras",
-      "status": "unreviewed",
-      "signal": "disputed-attribution",
-      "location": "sources/paragraph-2",
-      "excerpt": "The impiety story is especially important and especially delicate. Anaxagoras reportedly described the sun as a fiery stone and the moon as earthy or reflective, claims that could conflict with traditional divine images."
-    },
-    {
-      "recordKey": "philosopher:anaxagoras",
-      "status": "unreviewed",
-      "signal": "influence-or-causation",
-      "location": "influence/paragraph-1",
-      "excerpt": "Anaxagoras influenced ancient natural philosophy, Athenian intellectual history, and later debates about mind and nature. He was remembered as a daring cosmologist, a teacher or associate of Pericles, and a philosopher w"
-    },
-    {
-      "recordKey": "philosopher:origen",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "sources-and-caution/paragraph-2",
-      "excerpt": "This caution is especially important for On First Principles. The work is foundational for Christian speculative theology, but parts survive through Rufinus's Latin translation, which may soften or adjust difficult passa"
-    },
-    {
-      "recordKey": "philosopher:origen",
-      "status": "unreviewed",
-      "signal": "disputed-attribution",
-      "location": "creation-freedom-souls/paragraph-2",
-      "excerpt": "The philosophical pressure is clear even when the solution is disputed. Origen wants to defend God's justice and goodness without making created inequality arbitrary. If rational creatures are free, then their condition"
-    },
-    {
-      "recordKey": "philosopher:origen",
-      "status": "unreviewed",
-      "signal": "disputed-attribution",
-      "location": "evil-and-restoration/paragraph-2",
-      "excerpt": "The question of universal restoration, often called apokatastasis, is one of the most disputed elements in Origen's legacy. Some texts seem to hope for the eventual restoration of all rational beings; other passages are"
-    },
-    {
-      "recordKey": "philosopher:origen",
-      "status": "unreviewed",
-      "signal": "influence-or-causation",
-      "location": "influence/paragraph-1",
-      "excerpt": "Origen influenced Greek and Latin Christianity directly and indirectly. Gregory of Nyssa inherits a world in which spiritual ascent, purification, and scriptural depth are already central. Evagrius, monastic theology, th"
-    },
-    {
-      "recordKey": "philosopher:origen",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "misunderstandings/paragraph-1",
-      "excerpt": "The first misunderstanding is that Origen simply imported Platonism into Christianity. He did use Platonist tools, but he reworked them around Scripture, Christ, freedom, and ecclesial teaching. The second is that he was"
-    },
-    {
-      "recordKey": "philosopher:origen",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "reading-path/paragraph-1",
-      "excerpt": "Begin with a short selection from Contra Celsum to see Origen defending Christian belief in public argument. Then read homilies or commentary passages where his spiritual exegesis is visible in practice. Only after that"
-    },
-    {
-      "recordKey": "philosopher:pseudo-dionysius",
-      "status": "bibliography-only",
-      "signal": "disputed-attribution",
-      "location": "overview/paragraph-2",
-      "excerpt": "Modern scholarship recognizes the pseudonymous identity partly because the texts depend on late Neoplatonic thought, especially Proclus. The discovery changes historical interpretation without making the works philosophi"
-    },
-    {
-      "recordKey": "philosopher:pseudo-dionysius",
-      "status": "bibliography-only",
-      "signal": "disputed-attribution",
-      "location": "identity/paragraph-2",
-      "excerpt": "Pseudonymity raises ethical and interpretive questions. Ancient and late antique pseudonymous writing could claim a lineage or voice rather than function exactly like modern forgery, yet the assumed identity clearly ampl"
-    },
-    {
-      "recordKey": "philosopher:pseudo-dionysius",
-      "status": "bibliography-only",
-      "signal": "influence-or-causation",
-      "location": "divine-names/paragraph-2",
-      "excerpt": "Symbolic theology extends this logic to images that appear unsuitable or even shocking. Material and scriptural symbols can redirect attention precisely because their inadequacy prevents a reader from confusing image wit"
-    },
-    {
-      "recordKey": "philosopher:pseudo-dionysius",
-      "status": "bibliography-only",
-      "signal": "disputed-attribution",
-      "location": "reception/paragraph-2",
-      "excerpt": "Meister Eckhart and other mystical traditions drew on Dionysian negation and return, while modern philosophy of religion continues to debate apophatic language. Reception was never uniform. Thinkers integrated the corpus"
-    },
-    {
-      "recordKey": "philosopher:pseudo-dionysius",
-      "status": "bibliography-only",
-      "signal": "disputed-attribution",
-      "location": "reading/paragraph-1",
-      "excerpt": "Read the Mystical Theology beside the Divine Names so negation is not mistaken for silence without affirmation. Read the two Hierarchies to see that mystical ascent is embedded in liturgy and institution. Compare key pas"
     },
     {
       "recordKey": "philosopher:eriugena",
@@ -10230,10 +9535,10 @@
   "groupSummary": {
     "philosophers": {
       "total": 146,
-      "unreviewed": 71,
-      "bibliography-only": 60,
+      "unreviewed": 54,
+      "bibliography-only": 53,
       "source-mapped": 0,
-      "claim-reviewed": 15,
+      "claim-reviewed": 39,
       "review-out-of-date": 0
     },
     "philosophies": {

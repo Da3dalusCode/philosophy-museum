@@ -14,11 +14,11 @@ The hard floor is **2,000 substantive article-prose words**. The counter tokeniz
 
 | Category | Total | Pass | Fail | Missing article |
 | --- | ---: | ---: | ---: | ---: |
-| Philosophers | 146 | 79 | 67 | 0 |
+| Philosophers | 146 | 91 | 55 | 0 |
 | Philosophies, branches, schools, traditions, movements, methods, and frameworks | 45 | 37 | 8 | 0 |
 | Standalone works, texts, arguments, concepts, and article-backed exhibits | 0 | 0 | 0 | 0 |
 
-Universal total: **191** applicable articles; **116 pass**; **75 fail**; **0 are missing article prose**.
+Universal total: **191** applicable articles; **128 pass**; **63 fail**; **0 are missing article prose**.
 
 Current failures are migration backlog, not approved exceptions. The strict audit is intentionally separate from the ordinary build until that backlog reaches zero.
 
@@ -36,12 +36,6 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 
 | ID | Title | Category | Words | Status |
 | --- | --- | --- | ---: | --- |
-| antisthenes | Antisthenes | philosopher | 1919 | fail |
-| arcesilaus | Arcesilaus | philosopher | 1856 | fail |
-| carneades | Carneades | philosopher | 1883 | fail |
-| porphyry | Porphyry | philosopher | 1838 | fail |
-| iamblichus | Iamblichus | philosopher | 1816 | fail |
-| proclus | Proclus | philosopher | 1813 | fail |
 | confucius | Confucius | philosopher | 1958 | fail |
 | laozi | Laozi | philosopher | 1871 | fail |
 | zhuangzi | Zhuangzi | philosopher | 1855 | fail |
@@ -64,12 +58,6 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | kierkegaard | Kierkegaard | philosopher | 1834 | fail |
 | mill | John Stuart Mill | philosopher | 1806 | fail |
 | anscombe | Elizabeth Anscombe | philosopher | 1898 | fail |
-| heraclitus | Heraclitus | philosopher | 1839 | fail |
-| empedocles | Empedocles | philosopher | 1841 | fail |
-| anaxagoras | Anaxagoras | philosopher | 1844 | fail |
-| origen | Origen | philosopher | 1812 | fail |
-| gregory-nyssa | Gregory of Nyssa | philosopher | 1932 | fail |
-| pseudo-dionysius | Pseudo-Dionysius | philosopher | 1812 | fail |
 | eriugena | John Scotus Eriugena | philosopher | 1874 | fail |
 | abelard | Peter Abelard | philosopher | 1805 | fail |
 | meister-eckhart | Meister Eckhart | philosopher | 1800 | fail |
@@ -145,7 +133,7 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | philosopher | prodicus | Prodicus of Ceos | #/philosophers/prodicus | 2050 | pass | yes | yes (1 primary; 0 supplemental) |
 | philosopher | hippias-of-elis | Hippias of Elis | #/philosophers/hippias-of-elis | 2063 | pass | yes | yes (1 primary; 0 supplemental) |
 | philosopher | gorgias | Gorgias | #/philosophers/gorgias | 2058 | pass | yes | yes (1 primary; 0 supplemental) |
-| philosopher | antisthenes | Antisthenes | #/philosophers/antisthenes | 1919 | fail | yes | yes (1 primary; 0 supplemental) |
+| philosopher | antisthenes | Antisthenes | #/philosophers/antisthenes | 2081 | pass | yes | yes (1 primary; 0 supplemental) |
 | philosopher | lucretius | Lucretius | #/philosophers/lucretius | 2003 | pass | yes | yes (1 primary; 0 supplemental) |
 | philosopher | pyrrho | Pyrrho | #/philosophers/pyrrho | 2022 | pass | yes | yes (1 primary; 0 supplemental) |
 | philosopher | socrates | Socrates | #/philosophers/socrates | 3010 | pass | yes | yes (1 primary; 0 supplemental) |
@@ -156,16 +144,16 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | philosopher | zeno | Zeno of Citium | #/philosophers/zeno | 2045 | pass | yes | yes (1 primary; 0 supplemental) |
 | philosopher | cleanthes | Cleanthes | #/philosophers/cleanthes | 2047 | pass | yes | yes (1 primary; 0 supplemental) |
 | philosopher | chrysippus | Chrysippus | #/philosophers/chrysippus | 2300 | pass | yes | yes (1 primary; 0 supplemental) |
-| philosopher | arcesilaus | Arcesilaus | #/philosophers/arcesilaus | 1856 | fail | yes | yes (1 primary; 0 supplemental) |
-| philosopher | carneades | Carneades | #/philosophers/carneades | 1883 | fail | yes | yes (1 primary; 0 supplemental) |
+| philosopher | arcesilaus | Arcesilaus | #/philosophers/arcesilaus | 2060 | pass | yes | yes (1 primary; 0 supplemental) |
+| philosopher | carneades | Carneades | #/philosophers/carneades | 2059 | pass | yes | yes (1 primary; 0 supplemental) |
 | philosopher | epictetus | Epictetus | #/philosophers/epictetus | 2011 | pass | yes | yes (1 primary; 0 supplemental) |
 | philosopher | seneca | Seneca | #/philosophers/seneca | 2019 | pass | yes | yes (1 primary; 0 supplemental) |
 | philosopher | marcus-aurelius | Marcus Aurelius | #/philosophers/marcus-aurelius | 2013 | pass | yes | yes (1 primary; 0 supplemental) |
 | philosopher | sextus-empiricus | Sextus Empiricus | #/philosophers/sextus-empiricus | 2030 | pass | yes | yes (1 primary; 1 supplemental) |
 | philosopher | plotinus | Plotinus | #/philosophers/plotinus | 2510 | pass | yes | yes (1 primary; 0 supplemental) |
-| philosopher | porphyry | Porphyry | #/philosophers/porphyry | 1838 | fail | yes | yes (1 primary; 1 supplemental) |
-| philosopher | iamblichus | Iamblichus | #/philosophers/iamblichus | 1816 | fail | yes | yes (1 primary; 0 supplemental) |
-| philosopher | proclus | Proclus | #/philosophers/proclus | 1813 | fail | yes | yes (1 primary; 1 supplemental) |
+| philosopher | porphyry | Porphyry | #/philosophers/porphyry | 2058 | pass | yes | yes (1 primary; 1 supplemental) |
+| philosopher | iamblichus | Iamblichus | #/philosophers/iamblichus | 2073 | pass | yes | yes (1 primary; 0 supplemental) |
+| philosopher | proclus | Proclus | #/philosophers/proclus | 2081 | pass | yes | yes (1 primary; 1 supplemental) |
 | philosopher | confucius | Confucius | #/philosophers/confucius | 1958 | fail | yes | yes (1 primary; 3 supplemental) |
 | philosopher | laozi | Laozi | #/philosophers/laozi | 1871 | fail | yes | yes (1 primary; 1 supplemental) |
 | philosopher | zhuangzi | Zhuangzi | #/philosophers/zhuangzi | 1855 | fail | yes | yes (1 primary; 2 supplemental) |
@@ -225,12 +213,12 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | philosopher | nozick | Robert Nozick | #/philosophers/nozick | 2392 | pass | yes | yes (1 primary; 2 supplemental) |
 | philosopher | foucault | Michel Foucault | #/philosophers/foucault | 2302 | pass | yes | yes (1 primary; 5 supplemental) |
 | philosopher | derrida | Jacques Derrida | #/philosophers/derrida | 2324 | pass | yes | yes (1 primary; 5 supplemental) |
-| philosopher | heraclitus | Heraclitus | #/philosophers/heraclitus | 1839 | fail | yes | yes (1 primary; 0 supplemental) |
-| philosopher | empedocles | Empedocles | #/philosophers/empedocles | 1841 | fail | yes | yes (1 primary; 0 supplemental) |
-| philosopher | anaxagoras | Anaxagoras | #/philosophers/anaxagoras | 1844 | fail | yes | yes (1 primary; 0 supplemental) |
-| philosopher | origen | Origen | #/philosophers/origen | 1812 | fail | yes | yes (1 primary; 0 supplemental) |
-| philosopher | gregory-nyssa | Gregory of Nyssa | #/philosophers/gregory-nyssa | 1932 | fail | yes | yes (1 primary; 0 supplemental) |
-| philosopher | pseudo-dionysius | Pseudo-Dionysius | #/philosophers/pseudo-dionysius | 1812 | fail | yes | yes (1 primary; 1 supplemental) |
+| philosopher | heraclitus | Heraclitus | #/philosophers/heraclitus | 2180 | pass | yes | yes (1 primary; 0 supplemental) |
+| philosopher | empedocles | Empedocles | #/philosophers/empedocles | 2175 | pass | yes | yes (1 primary; 0 supplemental) |
+| philosopher | anaxagoras | Anaxagoras | #/philosophers/anaxagoras | 2147 | pass | yes | yes (1 primary; 0 supplemental) |
+| philosopher | origen | Origen | #/philosophers/origen | 2136 | pass | yes | yes (1 primary; 0 supplemental) |
+| philosopher | gregory-nyssa | Gregory of Nyssa | #/philosophers/gregory-nyssa | 2118 | pass | yes | yes (1 primary; 0 supplemental) |
+| philosopher | pseudo-dionysius | Pseudo-Dionysius | #/philosophers/pseudo-dionysius | 2101 | pass | yes | yes (1 primary; 1 supplemental) |
 | philosopher | eriugena | John Scotus Eriugena | #/philosophers/eriugena | 1874 | fail | yes | yes (1 primary; 1 supplemental) |
 | philosopher | abelard | Peter Abelard | #/philosophers/abelard | 1805 | fail | yes | yes (1 primary; 1 supplemental) |
 | philosopher | meister-eckhart | Meister Eckhart | #/philosophers/meister-eckhart | 1800 | fail | yes | yes (1 primary; 1 supplemental) |
