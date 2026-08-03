@@ -606,7 +606,7 @@ check('document titles are exhaustive and section-aware', () => {
   );
   assert.equal(
     getRouteTitle({kind: 'museum', hallId: 'enlightenment-revolution-kant', exhibitId: 'kant'}),
-    'Immanuel Kant: The Conditions and Limits of Reason — Enlightenment, Revolution, and Kant’s Critical Turn | Philosophy Atlas',
+    'Immanuel Kant — Enlightenment, Revolution, and Kant’s Critical Turn | Philosophy Atlas',
   );
   assert.equal(
     getRouteTitle({kind: 'museum', hallId: 'phenomenology-existence-embodiment'}),
@@ -617,7 +617,7 @@ check('document titles are exhaustive and section-aware', () => {
     'Jean-Paul Sartre — Phenomenology, Existence, and Embodiment | Philosophy Atlas',
   );
   assert.equal(getRouteTitle({kind: 'museum', hallId: 'analytic-traditions'}), 'Analytic Traditions: Logic, Language, and Analysis | Philosophy Atlas');
-  assert.equal(getRouteTitle({kind: 'museum', hallId: 'analytic-traditions', exhibitId: 'wittgenstein'}), 'Wittgenstein — Analytic Traditions: Logic, Language, and Analysis | Philosophy Atlas');
+  assert.equal(getRouteTitle({kind: 'museum', hallId: 'analytic-traditions', exhibitId: 'wittgenstein'}), 'Ludwig Wittgenstein — Analytic Traditions: Logic, Language, and Analysis | Philosophy Atlas');
   assert.equal(
     getRouteTitle({kind: 'museum', hallId: 'analytic-traditions', exhibitId: 'wittgenstein-language-games'}),
     'Wittgenstein: Language-Games and Rule-Following — Analytic Traditions: Logic, Language, and Analysis | Philosophy Atlas',
@@ -635,7 +635,7 @@ check('document titles are exhaustive and section-aware', () => {
   );
   assert.equal(
     getRouteTitle({kind: 'museum', hallId: 'colonialism-race-liberation', exhibitId: 'fanon'}),
-    'Frantz Fanon: Colonial Embodiment, Violence, and Liberation — Colonialism, Race, and Liberation | Philosophy Atlas',
+    'Frantz Fanon — Colonialism, Race, and Liberation | Philosophy Atlas',
   );
   assert.equal(
     getRouteTitle({kind: 'museum', hallId: 'east-asian-continuities'}),

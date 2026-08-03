@@ -414,6 +414,7 @@ const {
   MUSEUM_BUILDING_GUIDED_STOPS,
   MUSEUM_FAST_WALK_SPEED,
   MUSEUM_HALLS,
+  getCanonicalMuseumEntityTitle,
   MUSEUM_HALL_TEMPLATE_REGISTRY,
   MUSEUM_INTERPRETATIONS,
   museumInterpretationFacts,
@@ -1348,6 +1349,70 @@ check('the public catalog is exactly the canonical twenty-six-hall, 105-room, 19
   }
   assert.equal(philosophers.length, 146);
   assert.equal(branches.length, 45);
+});
+
+check('all 191 primary wall and modal titles resolve through the canonical entity-title contract', () => {
+  const philosopherTitles = new Map(philosophers.map(({id, name}) => [id, name]));
+  const branchTitles = new Map(branches.map(({id, name}) => [id, name]));
+  const programById = new Map(MUSEUM_CANONICAL_PROGRAM.flatMap((hall) =>
+    hall.rooms.flatMap((room) => room.exhibits.map((exhibit) => [exhibit.id, exhibit]))));
+  const interpretationByRef = new Map(MUSEUM_INTERPRETATIONS.map((interpretation) =>
+    [`${interpretation.hallId}/${interpretation.id}`, interpretation]));
+  let audited = 0;
+
+  for (const hall of MUSEUM_HALLS) {
+    for (const exhibit of hall.exhibits) {
+      const philosopherTitle = philosopherTitles.get(exhibit.entityId);
+      const branchTitle = branchTitles.get(exhibit.entityId);
+      const resolvedTitles = [philosopherTitle, branchTitle].filter(Boolean);
+      assert.equal(
+        resolvedTitles.length,
+        1,
+        `${exhibit.id}: entity ${exhibit.entityId} resolves to ${resolvedTitles.length} canonical entities`,
+      );
+      const expectedTitle = getCanonicalMuseumEntityTitle(exhibit.entityKind, exhibit.entityId);
+      assert(expectedTitle, `${exhibit.id}: entity ${exhibit.entityId} has no canonical ${exhibit.entityKind} title`);
+      assert.equal(
+        exhibit.displayName,
+        expectedTitle,
+        `${exhibit.id}: rendered wall title "${exhibit.displayName}"; expected canonical title "${expectedTitle}"`,
+      );
+      const interpretation = interpretationByRef.get(`${hall.id}/${exhibit.id}`);
+      assert(interpretation, `${exhibit.id}: primary modal interpretation is missing`);
+      assert.equal(
+        interpretation.name,
+        expectedTitle,
+        `${exhibit.id}: rendered modal title "${interpretation.name}"; expected canonical title "${expectedTitle}"`,
+      );
+      assert.equal(
+        exhibit.curatorialDisplayName,
+        programById.get(exhibit.id)?.displayName,
+        `${exhibit.id}: descriptive program title was not preserved separately from the rendered canonical title`,
+      );
+      audited += 1;
+    }
+  }
+  assert.equal(audited, 191);
+
+  const representativeTitles = {
+    confucius: 'Confucius',
+    'han-feizi': 'Han Feizi',
+    mahavira: 'Mahāvīra',
+    dignaga: 'Dignāga',
+    'buddhist-epistemology': 'Buddhist Epistemology',
+    rawls: 'John Rawls',
+    buddha: 'Siddhartha Gautama / the Buddha',
+    shankara: 'Adi Shankara',
+  };
+  const exhibitsById = new Map(MUSEUM_HALLS.flatMap((hall) => hall.exhibits.map((exhibit) => [exhibit.id, exhibit])));
+  for (const [id, expectedTitle] of Object.entries(representativeTitles)) {
+    assert.equal(exhibitsById.get(id)?.displayName, expectedTitle, `${id}: representative canonical-title regression`);
+  }
+
+  assert.match(canonicalExhibitsSource, /const title = catalog\.displayName;/u, 'primary wall title bypasses the canonical catalog title');
+  assert.doesNotMatch(canonicalExhibitsSource, /frontTitle\s*\?\?\s*catalog\.displayName/u, 'curatorial copy can still replace a primary wall title');
+  assert.match(interpretationPanelSource, /const canonicalTitle = exhibit\.displayName;/u, 'primary modal title bypasses the canonical catalog title');
+  assert.match(interpretationPanelSource, /<h2 id=\{titleId\} tabIndex=\{-1\}>\{canonicalTitle\}<\/h2>/u, 'primary modal heading does not render the canonical title');
 });
 
 check('curated halls and persistent Continuous Enfilade architecture use the canonical wall material', () => {

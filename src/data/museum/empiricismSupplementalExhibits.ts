@@ -266,7 +266,7 @@ export const EMPIRICISM_SUPPLEMENTAL_EXHIBITS = [
     dateLabel: 'Charter secured 1725 · Rhode Island residence, 1729–1731',
     question: 'What does Berkeley’s failed college scheme reveal about the institutional, religious, and imperial settings of a philosopher often reduced to one metaphysical slogan?',
     frontSubtitle: 'Education, mission, patronage, household, money, migration, Rhode Island, Bermuda, colonial hierarchy, and failure',
-    lead: 'Berkeley secured a charter and expected parliamentary funding for a college intended to educate clergy and support missionary work connected with the Americas. He traveled with family and associates to Newport, Rhode Island, and waited from 1729 to 1731, but political support and funding collapsed. Smibert’s group portrait preserves that collective venture. It also requires critical framing: education and benevolence were imagined inside British Atlantic structures rather than outside colonial power.',
+    lead: 'Berkeley secured a charter and expected parliamentary funding for a college intended to educate clergy and support missionary work connected with the Americas. He traveled with family and associates to Newport, Rhode Island, and waited from 1729 to 1731, but political support and funding collapsed. Smibert’s group portrait preserves that collective venture. It also requires critical framing: education and benevolence were imagined inside British Atlantic structures, while records connect Berkeley’s Whitehall household to the ownership of enslaved people.',
     keyIdeas: [
       'Philosophy travels through patrons, households, churches, money, and institutions.',
       'The project connects Berkeley’s theology and reform ambitions to Atlantic geography.',
@@ -274,17 +274,18 @@ export const EMPIRICISM_SUPPLEMENTAL_EXHIBITS = [
     ],
     cautions: [
       'The college was planned for Bermuda but never built.',
-      'Do not romanticize the Rhode Island interval or let the portrait erase colonial hierarchy and contested scholarship about Berkeley’s slaveholding.',
+      'Do not romanticize the Rhode Island interval or let the portrait erase the project’s missionary colonial hierarchy or the documented slaveholding in Berkeley’s Whitehall household.',
     ],
     sections: [
       {heading: 'A system sought an institution', paragraph: 'Berkeley’s concern with religion, education, and social reform extended beyond the Principles. The college scheme aimed to reproduce teachers and clergy, not merely to house abstract debate.'},
       {heading: 'Waiting became an intellectual episode', paragraph: 'Newport provided time for writing, conversation, and collecting while the promised grant receded. The venture’s material dependence contrasts with the apparent self-sufficiency of philosophical argument.'},
-      {heading: 'Atlantic movement carries power', paragraph: 'People, portraits, libraries, land, and missionary plans moved within empire. The exhibit names that structure without reducing every participant to one motive or presenting the failed plan as harmless idealism.'},
+      {heading: 'Atlantic movement carries power', paragraph: 'People, portraits, libraries, land, missionary plans, and coerced labor moved within empire. Naming Berkeley’s slaveholding and the project’s plan to educate and convert Indigenous students does not refute immaterialism by association; it restores the institutions of power in which his reform ideals operated.'},
     ],
     sources: [
       image('Yale University Art Gallery / Wikimedia Commons — Smibert, The Bermuda Group', 'https://commons.wikimedia.org/wiki/File:John_Smibert_-_The_Bermuda_Group_(Dean_Berkeley_and_His_Entourage)_-_1808.1_-_Yale_University_Art_Gallery.jpg'),
       academic('Stanford Encyclopedia of Philosophy — George Berkeley', 'https://plato.stanford.edu/entries/berkeley/'),
       academic('Yale University Art Gallery — The Bermuda Group, accession 1808.1', 'https://artgallery.yale.edu/collections/objects/21'),
+      academic('Trinity College Dublin — George Berkeley and Slavery: Reviewing the Evidence', 'https://www.tcd.ie/seniordean/legacies/berkeleyTLRWGworkingpaper.pdf'),
     ],
     articleRoute: {kind: 'philosopher', philosopherId: 'berkeley'},
     entityKind: 'philosopher',

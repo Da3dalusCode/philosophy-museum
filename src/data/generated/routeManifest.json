@@ -5703,204 +5703,188 @@
       "name": "Marsilio Ficino",
       "sections": [
         {
-          "id": "overview",
-          "title": "Recovery as a form of philosophical creation"
+          "id": "approach",
+          "title": "A translator-philosopher, not a one-line founder"
         },
         {
-          "id": "historical-setting",
-          "title": "Florence, Greek learning, and the politics of patronage"
+          "id": "life-network",
+          "title": "Florence, patronage, priesthood, and intellectual friendship"
         },
         {
-          "id": "life-and-work",
-          "title": "A life organized around texts, care, and correspondence"
-        },
-        {
-          "id": "translation-and-commentary",
-          "title": "What translation changes"
-        },
-        {
-          "id": "soul-and-cosmos",
-          "title": "The soul as the bond of the universe"
-        },
-        {
-          "id": "love-and-beauty",
-          "title": "Love, beauty, and ascent"
+          "id": "translation",
+          "title": "Recovering Plato and Plotinus through interpretive translation"
         },
         {
           "id": "ancient-theology",
-          "title": "Ancient theology and Christian Platonism"
+          "title": "Prisca theologia as a history of convergent revelation"
         },
         {
-          "id": "medicine-music-astrology",
-          "title": "Care of embodied scholars"
+          "id": "soul",
+          "title": "Soul as the bond of a living hierarchy"
         },
         {
-          "id": "influence-and-tensions",
-          "title": "A powerful recovery with visible limits"
+          "id": "love",
+          "title": "Love, beauty, friendship, and ascent"
         },
         {
-          "id": "reading-strategy",
-          "title": "How to read Ficino"
+          "id": "astrology-magic",
+          "title": "Astrology, medicine, spirit, and natural magic"
+        },
+        {
+          "id": "tensions",
+          "title": "Orthodoxy, pagan materials, and interpretive tensions"
+        },
+        {
+          "id": "legacy-reading",
+          "title": "How to read Ficino now"
+        },
+        {
+          "id": "why-matters",
+          "title": "Why Ficino belongs in an atlas of development"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "machiavelli",
-      "name": "Machiavelli",
+      "name": "Niccolò Machiavelli",
       "sections": [
         {
-          "id": "overview",
-          "title": "Politics after the collapse of comforting pictures"
+          "id": "problem",
+          "title": "The thinker behind the adjective"
         },
         {
-          "id": "historical-setting",
-          "title": "Florence, Italy, and the crisis of city-state politics"
+          "id": "life-office",
+          "title": "Republican office, diplomacy, defeat, and writing"
         },
         {
-          "id": "life-and-source-caution",
-          "title": "Life, genre, and the danger of reading one book alone"
-        },
-        {
-          "id": "central-question",
-          "title": "Can political order survive ordinary human motives?"
+          "id": "prince",
+          "title": "The Prince: acquisition, preservation, and exposed judgment"
         },
         {
           "id": "virtu-fortuna",
-          "title": "Virtu, fortuna, and political agency"
+          "title": "Virtù, fortuna, necessity, and timing"
         },
         {
-          "id": "morality-and-necessity",
-          "title": "Necessity, cruelty, and the moral scandal"
+          "id": "republic",
+          "title": "Republican liberty and the political value of conflict"
         },
         {
-          "id": "republican-liberty",
-          "title": "Republican liberty, conflict, and Rome"
+          "id": "corruption-renewal",
+          "title": "Corruption, founding, law, and periodic renewal"
         },
         {
-          "id": "arms-and-institutions",
-          "title": "Arms, dependence, and institutional strength"
+          "id": "arms-empire",
+          "title": "Citizen arms, mercenaries, expansion, and imperial costs"
         },
         {
-          "id": "religion-and-civic-imagination",
-          "title": "Religion, appearance, and civic imagination"
+          "id": "religion-rhetoric",
+          "title": "Religion, rhetoric, gender, and moral controversy"
         },
         {
-          "id": "influence-and-controversy",
-          "title": "Influence, republican recovery, and the Machiavellian label"
+          "id": "legacy-reading",
+          "title": "Reception and a responsible reading path"
         },
         {
-          "id": "misunderstandings",
-          "title": "Common misunderstandings"
-        },
-        {
-          "id": "reading-strategy",
-          "title": "How to read Machiavelli"
+          "id": "why-matters",
+          "title": "Political judgment without a comforting guarantee"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "bacon",
       "name": "Francis Bacon",
       "sections": [
         {
-          "id": "overview",
-          "title": "Method, experiment, and the reform of knowledge"
+          "id": "myth-method",
+          "title": "A reformer of inquiry, not inventor of one scientific method"
         },
         {
-          "id": "historical-setting",
-          "title": "Renaissance learning and early modern power"
+          "id": "life-politics",
+          "title": "Law, court politics, office, disgrace, and writing"
         },
         {
-          "id": "life-and-caution",
-          "title": "Life, ambition, and source cautions"
-        },
-        {
-          "id": "central-question",
-          "title": "How can inquiry escape inherited error?"
+          "id": "instauration",
+          "title": "The Great Instauration as an unfinished architecture"
         },
         {
           "id": "idols",
-          "title": "The idols of the mind"
+          "title": "The idols: recurring distortions of inquiry"
         },
         {
-          "id": "induction-and-experiment",
-          "title": "Induction, exclusion, and experiment"
+          "id": "induction",
+          "title": "Induction, tables, exclusions, and ascending axioms"
         },
         {
-          "id": "science-and-use",
-          "title": "Knowledge, power, and human relief"
+          "id": "history-experiment",
+          "title": "Natural history, experiment, and learned experience"
         },
         {
-          "id": "new-atlantis",
-          "title": "New Atlantis and the institution of research"
+          "id": "matter-cause",
+          "title": "Forms, matter, motion, and the limits of the empiricist label"
         },
         {
-          "id": "branch-connections",
-          "title": "Empiricism, method, and political reform"
+          "id": "institution-power",
+          "title": "Salomon’s House, collaboration, secrecy, and technological power"
         },
         {
-          "id": "influence-and-limits",
-          "title": "Influence, exaggerations, and limits"
+          "id": "legacy-reading",
+          "title": "Political tensions, legacy, and a reading path"
         },
         {
-          "id": "misunderstandings",
-          "title": "Common misunderstandings"
-        },
-        {
-          "id": "reading-strategy",
-          "title": "How to read Bacon"
+          "id": "why-matters",
+          "title": "Inquiry as designed collective responsibility"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "galileo",
       "name": "Galileo Galilei",
       "sections": [
         {
-          "id": "overview",
-          "title": "Instruments, mathematics, and the authority of evidence"
+          "id": "many-practices",
+          "title": "Mathematics, instruments, experiments, and argument"
         },
         {
-          "id": "historical-setting",
-          "title": "Natural philosophy before a simple revolution story"
+          "id": "life-career",
+          "title": "Pisa, Padua, Florence, and courtly natural philosophy"
         },
         {
-          "id": "life-and-career",
-          "title": "From mathematical lecturer to court philosopher"
+          "id": "motion",
+          "title": "From falling bodies to a mathematical science of motion"
         },
         {
-          "id": "telescope-and-moon",
-          "title": "A rough Moon becomes an argument"
+          "id": "telescope",
+          "title": "The telescope as instrument, practice, and public evidence"
         },
         {
-          "id": "instrumental-trust",
-          "title": "When may a device extend the senses?"
+          "id": "mathematics-nature",
+          "title": "Mathematics and the authority to describe physical nature"
         },
         {
-          "id": "motion-and-mathematics",
-          "title": "Idealization, experiment, and local motion"
+          "id": "dialogue",
+          "title": "The Dialogue: systems, relativity, rhetoric, and a failed tide proof"
         },
         {
-          "id": "cosmology-and-dialogue",
-          "title": "The heavens staged as a debate"
+          "id": "scripture-1616",
+          "title": "Scriptural interpretation and the 1616 boundary"
         },
         {
-          "id": "authority-and-trial",
-          "title": "Scripture, institutions, and the limits of jurisdiction"
+          "id": "trial",
+          "title": "The 1633 trial: evidence, procedure, politics, and coercion"
         },
         {
-          "id": "influence-and-misunderstandings",
-          "title": "What Galileo changed—and what he did not do alone"
+          "id": "legacy-reading",
+          "title": "Legacy and a route through the evidence"
         },
         {
-          "id": "reading-strategy",
-          "title": "How to read Galileo"
+          "id": "why-matters",
+          "title": "A durable lesson about evidence and authority"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "descartes",
@@ -5990,55 +5974,47 @@
       "name": "Thomas Hobbes",
       "sections": [
         {
-          "id": "overview",
-          "title": "Order, fear, and the artificial person of the state"
+          "id": "orientation",
+          "title": "A philosophy of bodies, words, and public authority"
         },
         {
-          "id": "historical-setting",
-          "title": "Civil war and the search for peace"
+          "id": "life-context",
+          "title": "Civil war, exile, controversy, and a long intellectual life"
         },
         {
-          "id": "life-and-source-caution",
-          "title": "Life, exile, controversy, and cautious reading"
+          "id": "materialism-mind",
+          "title": "Materialism without a crude machine metaphor"
         },
         {
-          "id": "human-nature",
-          "title": "Human nature, desire, and equality"
+          "id": "language-science",
+          "title": "Names, reckoning, and the ambition of science"
         },
         {
-          "id": "state-of-nature",
-          "title": "The state of nature and the logic of insecurity"
+          "id": "state-nature",
+          "title": "The state of nature as analytical condition, partial history, and recurring danger"
         },
         {
-          "id": "natural-law-covenant",
-          "title": "Natural right, laws of nature, and covenant"
+          "id": "law-covenant",
+          "title": "Fear, natural right, law of nature, and covenant"
         },
         {
-          "id": "sovereignty",
-          "title": "Sovereignty, representation, and law"
+          "id": "authorization-sovereignty",
+          "title": "Authorization, representation, and undivided sovereignty"
         },
         {
-          "id": "religion-and-doctrine",
-          "title": "Religion, interpretation, and public peace"
+          "id": "obligation-limits",
+          "title": "What subjects owe—and what they never gave away"
         },
         {
-          "id": "science-and-materialism",
-          "title": "Science, language, and materialist ambition"
+          "id": "religion",
+          "title": "Scripture, prophecy, church power, and contested sincerity"
         },
         {
-          "id": "influence-and-criticism",
-          "title": "Influence, liberal replies, and authoritarian worries"
-        },
-        {
-          "id": "misunderstandings",
-          "title": "Common misunderstandings"
-        },
-        {
-          "id": "reading-strategy",
-          "title": "How to read Hobbes"
+          "id": "reception-reading",
+          "title": "What Hobbes changes, and how to read him without slogans"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "spinoza",
@@ -6223,58 +6199,50 @@
     },
     {
       "id": "berkeley",
-      "name": "Berkeley",
+      "name": "George Berkeley",
       "sections": [
         {
-          "id": "overview",
-          "title": "Empiricism turned into immaterialist idealism"
+          "id": "orientation",
+          "title": "Immaterialism as a defense of the ordinary world"
         },
         {
-          "id": "historical-setting",
-          "title": "Locke, skepticism, and religious anxiety"
+          "id": "life-works",
+          "title": "Ireland, Trinity College, the church, and an unusually wide corpus"
         },
         {
-          "id": "life-and-source-caution",
-          "title": "Life, works, and how not to caricature him"
+          "id": "abstraction",
+          "title": "The attack on abstract ideas and misleading words"
         },
         {
-          "id": "central-question",
-          "title": "What is actually given in experience?"
+          "id": "ideas-objects",
+          "title": "Ideas, ordinary objects, and what “to be is to be perceived” means"
         },
         {
-          "id": "abstract-ideas",
-          "title": "The attack on abstract ideas"
+          "id": "spirits-god",
+          "title": "Active spirits, notions, and divine causation"
         },
         {
-          "id": "esse-percipi",
-          "title": "Esse est percipi and the reality of ordinary objects"
+          "id": "vision-signs",
+          "title": "Learning to see distance and reading nature as language"
         },
         {
-          "id": "god-and-nature",
-          "title": "God, laws of nature, and the language of perception"
+          "id": "science",
+          "title": "Science after matter: laws, mechanisms, and useful prediction"
         },
         {
-          "id": "science-and-common-sense",
-          "title": "Science without matter"
+          "id": "common-sense",
+          "title": "Idealism, realism, and the common-sense dispute"
         },
         {
-          "id": "vision-and-perception",
-          "title": "Vision, distance, and learned perception"
+          "id": "colonial-context",
+          "title": "The Bermuda project, slaveholding, and institutional context"
         },
         {
-          "id": "influence-and-controversies",
-          "title": "Influence, Hume, and the problem of skepticism"
-        },
-        {
-          "id": "misunderstandings",
-          "title": "Common misunderstandings"
-        },
-        {
-          "id": "reading-strategy",
-          "title": "How to read Berkeley"
+          "id": "reception-reading",
+          "title": "A disciplined route through Berkeley’s arguments and afterlives"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "hume",
@@ -6361,58 +6329,94 @@
     },
     {
       "id": "rousseau",
-      "name": "Rousseau",
+      "name": "Jean-Jacques Rousseau",
       "sections": [
         {
           "id": "overview",
-          "title": "Freedom, inequality, and the wound of social comparison"
+          "title": "Freedom inside dependence"
         },
         {
-          "id": "historical-setting",
-          "title": "Enlightenment promise and its discontents"
+          "id": "life-geneva-exile",
+          "title": "Geneva, Paris, and the outsider’s posture"
         },
         {
-          "id": "life-and-source-caution",
-          "title": "Life, confession, and interpretive caution"
+          "id": "first-discourse",
+          "title": "The First Discourse: culture without virtue"
         },
         {
-          "id": "state-of-nature",
-          "title": "The state of nature and natural goodness"
-        },
-        {
-          "id": "inequality-and-property",
-          "title": "Inequality, property, and dependence"
+          "id": "inequality-history",
+          "title": "The Discourse on Inequality: a conjectural history"
         },
         {
           "id": "amour-propre",
-          "title": "Amour de soi, amour-propre, and recognition"
+          "title": "Amour-propre, comparison, and recognition"
+        },
+        {
+          "id": "property-inequality",
+          "title": "Property, domination, and political economy"
+        },
+        {
+          "id": "freedom-forms",
+          "title": "Natural, civil, and moral freedom"
+        },
+        {
+          "id": "social-contract",
+          "title": "The Social Contract: a standard of legitimacy"
         },
         {
           "id": "general-will",
-          "title": "The general will and political freedom"
+          "title": "General will and common interest"
         },
         {
-          "id": "lawgiver-and-religion",
-          "title": "The lawgiver, civil religion, and civic formation"
+          "id": "sovereignty-government",
+          "title": "Sovereignty, representation, and institutions"
         },
         {
-          "id": "education-and-emile",
-          "title": "Education, nature, and negative education"
+          "id": "civil-religion",
+          "title": "Religion, conscience, and civic unity"
         },
         {
-          "id": "influence-and-controversy",
-          "title": "Influence, revolution, democracy, and critique of modernity"
+          "id": "emile-education",
+          "title": "Émile: education through arranged independence"
         },
         {
-          "id": "misunderstandings",
-          "title": "Common misunderstandings"
+          "id": "emile-citizenship",
+          "title": "Émile between person and citizen"
         },
         {
-          "id": "reading-strategy",
-          "title": "How to read Rousseau"
+          "id": "gender-sophie",
+          "title": "Sophie, gender, and the boundary of equality"
+        },
+        {
+          "id": "julie",
+          "title": "Julie: desire, household, and moral authority"
+        },
+        {
+          "id": "nature-solitude",
+          "title": "Nature, solitude, and attention"
+        },
+        {
+          "id": "music-language-theater",
+          "title": "Music, language, theater, and representation"
+        },
+        {
+          "id": "autobiography",
+          "title": "Confessions, Dialogues, and Reveries"
+        },
+        {
+          "id": "contradictions",
+          "title": "Contradictions that interpretation must preserve"
+        },
+        {
+          "id": "reception",
+          "title": "Revolution, Romanticism, democracy, and authoritarian readings"
+        },
+        {
+          "id": "reading-path",
+          "title": "A reading path through distinct works"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "bentham",
@@ -9277,118 +9281,94 @@
       "name": "Mary Astell",
       "sections": [
         {
-          "id": "overview",
-          "title": "Rational freedom in a world that denied women education"
+          "id": "orientation",
+          "title": "Reason, education, and freedom inside a hierarchical world"
         },
         {
-          "id": "historical-setting",
-          "title": "Restoration England, Anglican politics, and learned exclusion"
+          "id": "life-network",
+          "title": "Newcastle, Chelsea, print, friendship, and patronage"
         },
         {
-          "id": "life-and-works",
-          "title": "A life of study, friendship, and public argument"
+          "id": "rational-soul",
+          "title": "The rational soul and the argument against natural inferiority"
         },
         {
-          "id": "central-question",
-          "title": "Can a rational soul be kept dependent without contradiction?"
+          "id": "education-institution",
+          "title": "The female religious retirement as school, refuge, and community"
         },
         {
-          "id": "education",
-          "title": "Education as moral and intellectual liberation"
+          "id": "method",
+          "title": "Attention, clear ideas, definition, and the practice of reasoning"
         },
         {
-          "id": "marriage",
-          "title": "Marriage, consent, and domestic power"
+          "id": "freedom-virtue",
+          "title": "Freedom as rational self-command and orientation to the good"
         },
         {
-          "id": "reason-and-religion",
-          "title": "Reason, faith, and the discipline of self-command"
+          "id": "marriage-consent",
+          "title": "Consent under custom and the hazards of an irrevocable choice"
         },
         {
-          "id": "relations-to-rationalism",
-          "title": "Cartesian inheritance without simple imitation"
+          "id": "authority-politics",
+          "title": "High Church Tory obedience and the anti-Lockean problem"
         },
         {
-          "id": "influence",
-          "title": "Astell, Wollstonecraft, and feminist political thought"
+          "id": "religion-tensions",
+          "title": "Reasoned faith, church authority, and the limits of emancipation"
         },
         {
-          "id": "controversies",
-          "title": "Conservative radicalism and interpretive tension"
-        },
-        {
-          "id": "branch-connections",
-          "title": "How Astell connects branches of philosophy"
-        },
-        {
-          "id": "misunderstandings",
-          "title": "Common misunderstandings"
-        },
-        {
-          "id": "reading-strategy",
-          "title": "How to read Astell"
+          "id": "reception-reading",
+          "title": "Early feminist recovery and a reading path through the tensions"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "anne-conway",
       "name": "Anne Conway",
       "sections": [
         {
-          "id": "overview",
-          "title": "A vitalist metaphysics against dead mechanism"
+          "id": "orientation",
+          "title": "A living creation against inert matter and mind–body division"
         },
         {
-          "id": "historical-setting",
-          "title": "Women, correspondence, and early modern metaphysical debate"
+          "id": "life-network",
+          "title": "Philosophy through correspondence, household, illness, and friendship"
         },
         {
-          "id": "life-and-text",
-          "title": "A posthumous book with a complicated transmission"
+          "id": "text-mediation",
+          "title": "One posthumous treatise and a difficult chain of transmission"
         },
         {
-          "id": "central-question",
-          "title": "How can created reality be alive, ordered, and transformable?"
+          "id": "three-species",
+          "title": "God, Christ or middle nature, and creatures"
         },
         {
-          "id": "anti-cartesianism",
-          "title": "Critique of Cartesian dualism"
+          "id": "created-substance",
+          "title": "Spiritual substance, individuality, and unity in multiplicity"
         },
         {
-          "id": "substance-and-creatures",
-          "title": "God, Christ, and created substances"
+          "id": "body-change",
+          "title": "Body as condensed spirit and transformation as real process"
         },
         {
-          "id": "monads-and-leibniz",
-          "title": "Conway, Leibniz, and living individuals"
+          "id": "evil-suffering",
+          "title": "Evil, pain, justice, and the possibility of restoration"
         },
         {
-          "id": "evil-suffering-transformation",
-          "title": "Evil, suffering, and moral transformation"
+          "id": "religious-sources",
+          "title": "Platonism, Origen, Kabbalah, Quakerism, and disciplined influence claims"
         },
         {
-          "id": "feminist-significance",
-          "title": "Why Conway matters for feminist history of philosophy"
+          "id": "rivals-leibniz",
+          "title": "Descartes, More, Hobbes, Spinoza—and the Leibniz comparison"
         },
         {
-          "id": "controversies",
-          "title": "Speculation, sources, and caution"
-        },
-        {
-          "id": "branch-connections",
-          "title": "Why Conway belongs in several philosophical maps"
-        },
-        {
-          "id": "misunderstandings",
-          "title": "Common misunderstandings"
-        },
-        {
-          "id": "reading-strategy",
-          "title": "How to read Conway"
+          "id": "reception-reading",
+          "title": "Recovery, interpretive disputes, and a reading path"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "montesquieu",
@@ -9396,58 +9376,54 @@
       "sections": [
         {
           "id": "overview",
-          "title": "Law, liberty, and the conditions of political life"
+          "title": "Laws in relation"
         },
         {
-          "id": "historical-setting",
-          "title": "France, empire, commerce, and Enlightenment comparison"
+          "id": "life-office-travel",
+          "title": "Magistrate, traveler, and author"
         },
         {
-          "id": "life-and-works",
-          "title": "From satire to institutional analysis"
+          "id": "persian-letters",
+          "title": "Persian Letters and the foreign gaze"
         },
         {
-          "id": "central-question",
-          "title": "How can power be arranged so liberty survives?"
+          "id": "comparative-method",
+          "title": "Comparison, causes, and the spirit of laws"
         },
         {
-          "id": "forms-of-government",
-          "title": "Republic, monarchy, despotism, and animating principles"
+          "id": "government-principles",
+          "title": "Forms, principles, and corruption"
         },
         {
-          "id": "separation-of-powers",
-          "title": "Separation of powers and moderation"
+          "id": "liberty-powers",
+          "title": "Liberty, security, and distributed power"
         },
         {
-          "id": "law-and-social-context",
-          "title": "The spirit of laws as relational explanation"
+          "id": "criminal-law",
+          "title": "Moderation in criminal law"
         },
         {
-          "id": "commerce-and-manners",
-          "title": "Commerce, gentleness, and dependence"
+          "id": "climate",
+          "title": "Climate, geography, and human agency"
         },
         {
-          "id": "slavery-and-empire",
-          "title": "Slavery, empire, and moral limitation"
+          "id": "commerce",
+          "title": "Commerce, manners, and political economy"
         },
         {
-          "id": "influence",
-          "title": "Constitutionalism and modern political science"
+          "id": "slavery",
+          "title": "Slavery: condemnation and compromise"
         },
         {
-          "id": "method-and-limits",
-          "title": "Comparative method and its limits"
+          "id": "empire-romans",
+          "title": "Rome, conquest, and empire"
         },
         {
-          "id": "misunderstandings",
-          "title": "Common misunderstandings"
-        },
-        {
-          "id": "reading-strategy",
-          "title": "How to read Montesquieu"
+          "id": "reception-reading",
+          "title": "Moderate enlightenment and a careful reading path"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "adam-smith",
@@ -9455,58 +9431,54 @@
       "sections": [
         {
           "id": "overview",
-          "title": "Moral sentiment before market mythology"
+          "title": "Moral judgment and commercial society"
         },
         {
-          "id": "historical-setting",
-          "title": "The Scottish Enlightenment and commercial society"
-        },
-        {
-          "id": "life-and-works",
-          "title": "Professor, moralist, and political economist"
-        },
-        {
-          "id": "central-question",
-          "title": "How can self-interested beings live in a moral society?"
+          "id": "life-context",
+          "title": "Kirkcaldy, Glasgow, and the Scottish Enlightenment"
         },
         {
           "id": "sympathy",
-          "title": "Sympathy and moral imagination"
+          "title": "Sympathy as imaginative fellow-feeling"
         },
         {
           "id": "impartial-spectator",
           "title": "The impartial spectator and self-command"
         },
         {
-          "id": "justice",
-          "title": "Justice as the foundation of social order"
+          "id": "virtue-justice",
+          "title": "Virtue, resentment, and the grammar of justice"
         },
         {
-          "id": "division-of-labor",
-          "title": "Division of labor and its moral cost"
+          "id": "wealth-labor",
+          "title": "Labor, specialization, and opulence"
         },
         {
-          "id": "invisible-hand",
-          "title": "The invisible hand and unintended order"
+          "id": "prices-markets",
+          "title": "Prices, competition, and institutional order"
         },
         {
           "id": "commercial-society",
-          "title": "Commercial society, inequality, and moral corruption"
+          "title": "Commercial society and independence"
         },
         {
-          "id": "influence-and-controversy",
-          "title": "Influence, appropriation, and the Adam Smith problem"
+          "id": "empire",
+          "title": "Mercantilism, colonies, and empire"
         },
         {
-          "id": "branch-connections",
-          "title": "Smith between ethics, politics, and social explanation"
+          "id": "state-functions",
+          "title": "Justice, public works, education, and revenue"
         },
         {
-          "id": "reading-strategy",
-          "title": "How to read Smith"
+          "id": "unity-tensions",
+          "title": "One Smith, without forced harmony"
+        },
+        {
+          "id": "reception-reading",
+          "title": "From moral philosophy to modern economics"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "wollstonecraft",
@@ -9514,58 +9486,54 @@
       "sections": [
         {
           "id": "overview",
-          "title": "Equality, education, and the unfinished Enlightenment"
+          "title": "Rights require independent virtue"
         },
         {
-          "id": "historical-setting",
-          "title": "Revolution, rights, and gendered citizenship"
+          "id": "life-literary-work",
+          "title": "Making a life through education and print"
         },
         {
-          "id": "life-and-works",
-          "title": "A writer across genres and crises"
+          "id": "rights-men-revolution",
+          "title": "Rights of Men and the Revolution controversy"
         },
         {
-          "id": "central-question",
-          "title": "What would women become under equal education?"
+          "id": "rights-woman",
+          "title": "Rights of Woman: one moral standard"
         },
         {
-          "id": "reason-and-virtue",
-          "title": "Reason, virtue, and moral equality"
+          "id": "education",
+          "title": "Education as civic reconstruction"
         },
         {
-          "id": "education-and-dependence",
-          "title": "Education as the manufacture of dependency"
+          "id": "virtue-dependence",
+          "title": "Virtue, reason, and dependence"
         },
         {
-          "id": "rousseau",
-          "title": "Argument with Rousseau and separate-spheres education"
+          "id": "marriage-family",
+          "title": "Marriage, friendship, and the family"
         },
         {
-          "id": "marriage-family-citizenship",
-          "title": "Marriage, family, and citizenship"
+          "id": "class-labor",
+          "title": "Class, labor, and commercial modernity"
         },
         {
-          "id": "sensibility-and-emotion",
-          "title": "Critique of sensibility without contempt for feeling"
+          "id": "empire-civilization",
+          "title": "Empire, civilization, and historical limits"
         },
         {
-          "id": "influence",
-          "title": "Legacy in liberal, republican, and feminist thought"
+          "id": "literary-context",
+          "title": "Reviews, fiction, travel, and sensibility"
         },
         {
-          "id": "misunderstandings",
-          "title": "Common misunderstandings"
+          "id": "tensions-reception",
+          "title": "Tensions and contested inheritances"
         },
         {
-          "id": "agency-and-limits",
-          "title": "Agency, class, empire, and unfinished equality"
-        },
-        {
-          "id": "reading-strategy",
-          "title": "How to read Wollstonecraft"
+          "id": "reading-path",
+          "title": "A historically situated reading path"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "peirce",
@@ -10923,7 +10891,7 @@
     {
       "id": "metaphysics",
       "title": "Understand Metaphysics",
-      "stepCount": 2
+      "stepCount": 4
     },
     {
       "id": "knowledge",
@@ -10933,7 +10901,7 @@
     {
       "id": "politics",
       "title": "Understand Political Philosophy",
-      "stepCount": 2
+      "stepCount": 6
     },
     {
       "id": "existential",
@@ -11062,11 +11030,11 @@
       "primaryExhibits": [
         {
           "id": "machiavelli",
-          "displayName": "Machiavelli"
+          "displayName": "Niccolò Machiavelli"
         },
         {
           "id": "ficino",
-          "displayName": "Marsilio Ficino and the Work of Recovery"
+          "displayName": "Marsilio Ficino"
         },
         {
           "id": "bacon",
@@ -11074,7 +11042,7 @@
         },
         {
           "id": "galileo",
-          "displayName": "Galileo: Instruments, Evidence, and Authority"
+          "displayName": "Galileo Galilei"
         },
         {
           "id": "hobbes",
@@ -11282,7 +11250,7 @@
         },
         {
           "id": "wittgenstein",
-          "displayName": "Wittgenstein"
+          "displayName": "Ludwig Wittgenstein"
         },
         {
           "id": "quine",
@@ -11578,39 +11546,39 @@
       "primaryExhibits": [
         {
           "id": "indian-philosophy",
-          "displayName": "Indian Philosophy: Many Schools, Contested Canons"
+          "displayName": "Indian Philosophy"
         },
         {
           "id": "jainism",
-          "displayName": "Jain Philosophy"
+          "displayName": "Jainism"
         },
         {
           "id": "mahavira",
-          "displayName": "Mahāvīra and the Jina Lineage"
+          "displayName": "Mahāvīra"
         },
         {
           "id": "kanada",
-          "displayName": "Kaṇāda and the Vaiśeṣika Tradition"
+          "displayName": "Kaṇāda"
         },
         {
           "id": "patanjali",
-          "displayName": "Patañjali and the Yoga Sūtra Tradition"
+          "displayName": "Patañjali"
         },
         {
           "id": "vedanta",
-          "displayName": "Vedānta: Rival Interpretations"
+          "displayName": "Vedanta"
         },
         {
           "id": "shankara",
-          "displayName": "Śaṅkara and Advaita Vedānta"
+          "displayName": "Adi Shankara"
         },
         {
           "id": "ramanuja",
-          "displayName": "Rāmānuja and Viśiṣṭādvaita"
+          "displayName": "Ramanuja"
         },
         {
           "id": "madhva",
-          "displayName": "Madhva and Dvaita Vedānta"
+          "displayName": "Madhva"
         }
       ],
       "supplementalExhibits": [
@@ -11706,31 +11674,31 @@
       "primaryExhibits": [
         {
           "id": "buddhist-philosophy",
-          "displayName": "Buddhist Philosophy: Many Paths of Liberation"
+          "displayName": "Buddhist Philosophy"
         },
         {
           "id": "buddha",
-          "displayName": "The Buddha and the Early Discourses"
+          "displayName": "Siddhartha Gautama / the Buddha"
         },
         {
           "id": "nagarjuna",
-          "displayName": "Nāgārjuna and the Madhyamaka Tradition"
+          "displayName": "Nāgārjuna"
         },
         {
           "id": "vasubandhu",
-          "displayName": "Vasubandhu: Abhidharma and Yogācāra Debates"
+          "displayName": "Vasubandhu"
         },
         {
           "id": "buddhist-epistemology",
-          "displayName": "Buddhist Epistemology: Perception and Inference"
+          "displayName": "Buddhist Epistemology"
         },
         {
           "id": "dignaga",
-          "displayName": "Dignāga: Foundations of Buddhist Logic"
+          "displayName": "Dignāga"
         },
         {
           "id": "dharmakirti",
-          "displayName": "Dharmakīrti: Reliable Cognition and Proof"
+          "displayName": "Dharmakīrti"
         }
       ],
       "supplementalExhibits": [
@@ -11834,51 +11802,51 @@
       "primaryExhibits": [
         {
           "id": "chinese-philosophy",
-          "displayName": "Classical Chinese Philosophy: Many Ways, Rival Standards"
+          "displayName": "Chinese Philosophy"
         },
         {
           "id": "confucianism",
-          "displayName": "Confucian Traditions: Ritual, Learning, and Cultivation"
+          "displayName": "Confucianism"
         },
         {
           "id": "confucius",
-          "displayName": "Confucius and the Analects Tradition"
+          "displayName": "Confucius"
         },
         {
           "id": "mencius",
-          "displayName": "Mencius: Moral Sprouts and Humane Government"
+          "displayName": "Mencius"
         },
         {
           "id": "xunzi",
-          "displayName": "Xunzi: Deliberate Effort, Ritual, and Human Nature"
+          "displayName": "Xunzi"
         },
         {
           "id": "daoism",
-          "displayName": "Daoist Traditions: Way, Transformation, and Skilled Living"
+          "displayName": "Daoism"
         },
         {
           "id": "laozi",
-          "displayName": "Laozi and the Daodejing Textual Persona"
+          "displayName": "Laozi"
         },
         {
           "id": "zhuangzi",
-          "displayName": "Zhuangzi: Perspective, Skill, and Transformation"
+          "displayName": "Zhuangzi"
         },
         {
           "id": "mohism",
-          "displayName": "Mohism: Impartial Concern, Standards, and Argument"
+          "displayName": "Mohism"
         },
         {
           "id": "legalism",
-          "displayName": "Fa, Standards, and Statecraft—Later Grouped as “Legalism”"
+          "displayName": "Legalism"
         },
         {
           "id": "mozi",
-          "displayName": "Mozi and the Mohist Community"
+          "displayName": "Mozi"
         },
         {
           "id": "han-feizi",
-          "displayName": "Han Feizi: Fa, Administrative Technique, and Authority"
+          "displayName": "Han Feizi"
         }
       ],
       "supplementalExhibits": [
@@ -11938,39 +11906,39 @@
       "primaryExhibits": [
         {
           "id": "islamic-philosophy",
-          "displayName": "Arabic & Islamic Philosophy: Many Languages, Arguments, and Communities"
+          "displayName": "Islamic Philosophy"
         },
         {
           "id": "al-kindi",
-          "displayName": "Al-Kindi: Philosophy in an Arabic Intellectual World"
+          "displayName": "Al-Kindi"
         },
         {
           "id": "al-farabi",
-          "displayName": "Al-Farabi: Demonstration, Classification, and the Virtuous City"
+          "displayName": "Al-Farabi"
         },
         {
           "id": "avicenna",
-          "displayName": "Avicenna: An Avicennian System of Knowledge"
+          "displayName": "Ibn Sina / Avicenna"
         },
         {
           "id": "al-ghazali",
-          "displayName": "Al-Ghazali: Understanding Philosophy Before Critique"
+          "displayName": "Al-Ghazali"
         },
         {
           "id": "averroes",
-          "displayName": "Averroes (Ibn Rushd): Demonstration and Interpretation"
+          "displayName": "Ibn Rushd / Averroes"
         },
         {
           "id": "ibn-tufayl",
-          "displayName": "Ibn Tufayl: Hayy ibn Yaqzan and the Education of Reason"
+          "displayName": "Ibn Tufayl"
         },
         {
           "id": "suhrawardi",
-          "displayName": "Suhrawardi: The Philosophy of Illumination"
+          "displayName": "Suhrawardi"
         },
         {
           "id": "mulla-sadra",
-          "displayName": "Mulla Sadra: Existence and Substantial Motion in Safavid Iran"
+          "displayName": "Mulla Sadra"
         }
       ],
       "supplementalExhibits": [
@@ -12066,11 +12034,11 @@
       "primaryExhibits": [
         {
           "id": "zhu-xi",
-          "displayName": "Zhu Xi: Pattern, Material Force, and the Architecture of Learning"
+          "displayName": "Zhu Xi"
         },
         {
           "id": "wang-yangming",
-          "displayName": "Wang Yangming: Innate Knowing and the Unity of Knowledge and Action"
+          "displayName": "Wang Yangming"
         }
       ],
       "supplementalExhibits": [
@@ -12146,15 +12114,15 @@
       "primaryExhibits": [
         {
           "id": "saadia-gaon",
-          "displayName": "Saadia Gaon: Reason, Revelation, and Jewish Kalām"
+          "displayName": "Saadia Gaon"
         },
         {
           "id": "judah-halevi",
-          "displayName": "Judah Halevi: Poetry, Philosophy, and Covenant"
+          "displayName": "Judah Halevi"
         },
         {
           "id": "maimonides",
-          "displayName": "Maimonides: Law, Negative Theology, and Aristotelian Argument"
+          "displayName": "Maimonides"
         }
       ],
       "supplementalExhibits": [
@@ -12202,43 +12170,43 @@
       "primaryExhibits": [
         {
           "id": "boethius",
-          "displayName": "Boethius: Logic, Fortune, and a Double Transmission"
+          "displayName": "Boethius"
         },
         {
           "id": "eriugena",
-          "displayName": "John Scotus Eriugena: Translation, Nature, and Return"
+          "displayName": "John Scotus Eriugena"
         },
         {
           "id": "medieval-scholasticism",
-          "displayName": "Scholasticism: Reading, Questioning, and Disputation"
+          "displayName": "Medieval Scholasticism"
         },
         {
           "id": "anselm",
-          "displayName": "Anselm: Faith Seeking Understanding"
+          "displayName": "Anselm"
         },
         {
           "id": "abelard",
-          "displayName": "Peter Abelard: Dialectic, Intention, and Conflicting Authorities"
+          "displayName": "Peter Abelard"
         },
         {
           "id": "aquinas",
-          "displayName": "Thomas Aquinas: Creation, Causation, Virtue, and Law"
+          "displayName": "Thomas Aquinas"
         },
         {
           "id": "duns-scotus",
-          "displayName": "Duns Scotus: Univocity, Individuation, and Freedom"
+          "displayName": "Duns Scotus"
         },
         {
           "id": "ockham",
-          "displayName": "William of Ockham: Mental Language, Signs, and Economy"
+          "displayName": "William of Ockham"
         },
         {
           "id": "meister-eckhart",
-          "displayName": "Meister Eckhart: Intellect, Detachment, and Divine Birth"
+          "displayName": "Meister Eckhart"
         },
         {
           "id": "marsilius-padua",
-          "displayName": "Marsilius of Padua: Peace, Law, and Political Authority"
+          "displayName": "Marsilius of Padua"
         }
       ],
       "supplementalExhibits": [
@@ -12306,7 +12274,7 @@
       "primaryExhibits": [
         {
           "id": "cynicism",
-          "displayName": "Cynicism: Freedom Against Convention"
+          "displayName": "Cynicism"
         },
         {
           "id": "antisthenes",
@@ -12314,55 +12282,55 @@
         },
         {
           "id": "diogenes",
-          "displayName": "Diogenes: Philosophy Performed in Public"
+          "displayName": "Diogenes"
         },
         {
           "id": "epicureanism",
-          "displayName": "Epicureanism: Pleasure Without Excess"
+          "displayName": "Epicureanism"
         },
         {
           "id": "epicurus",
-          "displayName": "Epicurus: Friendship, Nature, and Tranquility"
+          "displayName": "Epicurus"
         },
         {
           "id": "lucretius",
-          "displayName": "Lucretius: Epicurean Nature in Latin Verse"
+          "displayName": "Lucretius"
         },
         {
           "id": "stoicism",
-          "displayName": "Stoicism: Logic, Nature, and the Work of Assent"
+          "displayName": "Stoicism"
         },
         {
           "id": "zeno",
-          "displayName": "Zeno of Citium: Beginning at the Stoa"
+          "displayName": "Zeno of Citium"
         },
         {
           "id": "cleanthes",
-          "displayName": "Cleanthes: Labor, Logos, and Cosmic Order"
+          "displayName": "Cleanthes"
         },
         {
           "id": "chrysippus",
-          "displayName": "Chrysippus: Building the Stoic System"
+          "displayName": "Chrysippus"
         },
         {
           "id": "epictetus",
-          "displayName": "Epictetus: Training Judgment and Desire"
+          "displayName": "Epictetus"
         },
         {
           "id": "seneca",
-          "displayName": "Seneca: Practicing Amid Wealth, Power, and Loss"
+          "displayName": "Seneca"
         },
         {
           "id": "marcus-aurelius",
-          "displayName": "Marcus Aurelius: Private Exercises in Public Duty"
+          "displayName": "Marcus Aurelius"
         },
         {
           "id": "skepticism",
-          "displayName": "Ancient Skepticism: Rival Ways of Withholding Assent"
+          "displayName": "Skepticism"
         },
         {
           "id": "pyrrho",
-          "displayName": "Pyrrho: A Life Reconstructed Through Later Reports"
+          "displayName": "Pyrrho"
         },
         {
           "id": "arcesilaus",
@@ -12374,7 +12342,7 @@
         },
         {
           "id": "sextus-empiricus",
-          "displayName": "Sextus Empiricus: Pyrrhonian Practice Preserved"
+          "displayName": "Sextus Empiricus"
         }
       ],
       "supplementalExhibits": [
@@ -12414,11 +12382,11 @@
       "primaryExhibits": [
         {
           "id": "neoplatonism",
-          "displayName": "Neoplatonism: A Modern Name for Late-Antique Platonisms"
+          "displayName": "Neoplatonism"
         },
         {
           "id": "plotinus",
-          "displayName": "Plotinus: The One, Intellect, Soul, and Return"
+          "displayName": "Plotinus"
         },
         {
           "id": "porphyry",
@@ -12438,7 +12406,7 @@
         },
         {
           "id": "augustine",
-          "displayName": "Augustine: Inwardness, Will, Evil, and Time"
+          "displayName": "Augustine"
         },
         {
           "id": "gregory-nyssa",
@@ -12494,23 +12462,23 @@
       "primaryExhibits": [
         {
           "id": "rationalism",
-          "displayName": "Rationalism: A Later Family Name"
+          "displayName": "Rationalism"
         },
         {
           "id": "descartes",
-          "displayName": "René Descartes: Method, Mind, and Mechanized Nature"
+          "displayName": "René Descartes"
         },
         {
           "id": "spinoza",
-          "displayName": "Baruch Spinoza: Substance, Affects, and Freedom"
+          "displayName": "Spinoza"
         },
         {
           "id": "anne-conway",
-          "displayName": "Anne Conway: Living Substance Against Dualism"
+          "displayName": "Anne Conway"
         },
         {
           "id": "leibniz",
-          "displayName": "Gottfried Wilhelm Leibniz: Monads, Reasons, and Possible Worlds"
+          "displayName": "Leibniz"
         }
       ],
       "supplementalExhibits": [
@@ -12574,19 +12542,19 @@
       "primaryExhibits": [
         {
           "id": "empiricism",
-          "displayName": "Empiricism: Experience, Experiment, and Their Limits"
+          "displayName": "Empiricism"
         },
         {
           "id": "locke",
-          "displayName": "John Locke: Ideas, Persons, Rights, and Authority"
+          "displayName": "Locke"
         },
         {
           "id": "berkeley",
-          "displayName": "George Berkeley: Vision, Ideas, Spirits, and Immaterialism"
+          "displayName": "George Berkeley"
         },
         {
           "id": "hume",
-          "displayName": "David Hume: Habit, Sentiment, and the Limits of Experience"
+          "displayName": "David Hume"
         }
       ],
       "supplementalExhibits": [
@@ -12654,27 +12622,27 @@
       "primaryExhibits": [
         {
           "id": "montesquieu",
-          "displayName": "Montesquieu: Law, Comparison, and Institutional Power"
+          "displayName": "Montesquieu"
         },
         {
           "id": "rousseau",
-          "displayName": "Jean-Jacques Rousseau: Inequality, Civic Freedom, and Education"
+          "displayName": "Jean-Jacques Rousseau"
         },
         {
           "id": "adam-smith",
-          "displayName": "Adam Smith: Sympathy, Judgment, Labor, and Commercial Society"
+          "displayName": "Adam Smith"
         },
         {
           "id": "mary-astell",
-          "displayName": "Mary Astell: Reason, Education, and Freedom in Marriage"
+          "displayName": "Mary Astell"
         },
         {
           "id": "wollstonecraft",
-          "displayName": "Mary Wollstonecraft: Education, Citizenship, and Manufactured Inequality"
+          "displayName": "Mary Wollstonecraft"
         },
         {
           "id": "kant",
-          "displayName": "Immanuel Kant: The Conditions and Limits of Reason"
+          "displayName": "Immanuel Kant"
         }
       ],
       "supplementalExhibits": [
@@ -12762,19 +12730,19 @@
       "primaryExhibits": [
         {
           "id": "german-idealism",
-          "displayName": "German Idealism: Critique Becomes System"
+          "displayName": "German Idealism"
         },
         {
           "id": "fichte",
-          "displayName": "Johann Gottlieb Fichte: Activity, Self-Positing, and Freedom"
+          "displayName": "Fichte"
         },
         {
           "id": "schelling",
-          "displayName": "F. W. J. Schelling: Nature, Art, Identity, and Freedom"
+          "displayName": "Schelling"
         },
         {
           "id": "hegel",
-          "displayName": "G. W. F. Hegel: Recognition, History, and Social Freedom"
+          "displayName": "Hegel"
         },
         {
           "id": "kantianism",
@@ -12870,15 +12838,15 @@
       "primaryExhibits": [
         {
           "id": "bentham",
-          "displayName": "Jeremy Bentham: Utility, Law, and Institutional Reform"
+          "displayName": "Jeremy Bentham"
         },
         {
           "id": "mill",
-          "displayName": "John Stuart Mill: Liberty, Character, and Social Progress"
+          "displayName": "John Stuart Mill"
         },
         {
           "id": "marx",
-          "displayName": "Karl Marx: Labor, Capital, and Historical Transformation"
+          "displayName": "Karl Marx"
         },
         {
           "id": "marxism",
@@ -12978,15 +12946,15 @@
       "primaryExhibits": [
         {
           "id": "schopenhauer",
-          "displayName": "Arthur Schopenhauer: Representation, Will, and Compassion"
+          "displayName": "Schopenhauer"
         },
         {
           "id": "kierkegaard",
-          "displayName": "Søren Kierkegaard: Choice, Anxiety, Faith, and the Self"
+          "displayName": "Kierkegaard"
         },
         {
           "id": "nietzsche",
-          "displayName": "Friedrich Nietzsche: Genealogy, Nihilism, and Affirmation"
+          "displayName": "Friedrich Nietzsche"
         }
       ],
       "supplementalExhibits": [
@@ -13058,19 +13026,19 @@
       "primaryExhibits": [
         {
           "id": "pragmatism",
-          "displayName": "Pragmatism: Meaning Through Consequences and Inquiry"
+          "displayName": "Pragmatism"
         },
         {
           "id": "peirce",
-          "displayName": "Charles Sanders Peirce: Signs, Abduction, and Fallibilism"
+          "displayName": "Charles Sanders Peirce"
         },
         {
           "id": "william-james",
-          "displayName": "William James: Experience, Pluralism, and the Will to Believe"
+          "displayName": "William James"
         },
         {
           "id": "dewey",
-          "displayName": "John Dewey: Inquiry, Education, and Democracy as a Way of Life"
+          "displayName": "John Dewey"
         }
       ],
       "supplementalExhibits": [
@@ -13162,19 +13130,19 @@
       "primaryExhibits": [
         {
           "id": "continental-philosophy",
-          "displayName": "Continental Philosophy: A Retrospective and Contested Family"
+          "displayName": "Continental Philosophy"
         },
         {
           "id": "foucault",
-          "displayName": "Michel Foucault: Knowledge, Power, and the Formation of Subjects"
+          "displayName": "Michel Foucault"
         },
         {
           "id": "derrida",
-          "displayName": "Jacques Derrida: Writing, Difference, and Deconstruction"
+          "displayName": "Jacques Derrida"
         },
         {
           "id": "habermas",
-          "displayName": "Jürgen Habermas: Public Reason, Communication, and Modernity"
+          "displayName": "Jürgen Habermas"
         }
       ],
       "supplementalExhibits": [
@@ -13266,35 +13234,35 @@
       "primaryExhibits": [
         {
           "id": "ethics",
-          "displayName": "Ethics: Reasons, Relationships, Practices, and Ways of Living"
+          "displayName": "Ethics"
         },
         {
           "id": "virtue-ethics",
-          "displayName": "Virtue Ethics: Character, Practice, and Human Flourishing"
+          "displayName": "Virtue Ethics"
         },
         {
           "id": "iris-murdoch",
-          "displayName": "Iris Murdoch: Attention, Moral Vision, and the Sovereignty of Good"
+          "displayName": "Iris Murdoch"
         },
         {
           "id": "philippa-foot",
-          "displayName": "Philippa Foot: Virtue, Natural Goodness, and Moral Reasons"
+          "displayName": "Philippa Foot"
         },
         {
           "id": "deontology",
-          "displayName": "Deontology: Duty, Respect, and the Constraints on Action"
+          "displayName": "Deontology"
         },
         {
           "id": "utilitarianism",
-          "displayName": "Utilitarianism: Consequences, Welfare, and Impartial Concern"
+          "displayName": "Utilitarianism"
         },
         {
           "id": "judith-thomson",
-          "displayName": "Judith Jarvis Thomson: Rights, Permissibility, and Hard Cases"
+          "displayName": "Judith Jarvis Thomson"
         },
         {
           "id": "derek-parfit",
-          "displayName": "Derek Parfit: Persons, Reasons, and Future Generations"
+          "displayName": "Derek Parfit"
         }
       ],
       "supplementalExhibits": [
@@ -13370,15 +13338,15 @@
       "primaryExhibits": [
         {
           "id": "feminist-philosophy",
-          "displayName": "Feminist Philosophy: Plural Genealogies, Methods, and Subjects"
+          "displayName": "Feminist Philosophy"
         },
         {
           "id": "beauvoir",
-          "displayName": "Simone de Beauvoir: Situated Freedom, Otherness, and Social Becoming"
+          "displayName": "Simone de Beauvoir"
         },
         {
           "id": "judith-butler",
-          "displayName": "Judith Butler: Performativity, Livability, and Bodies in Alliance"
+          "displayName": "Judith Butler"
         }
       ],
       "supplementalExhibits": [
@@ -13474,15 +13442,15 @@
       "primaryExhibits": [
         {
           "id": "fanon",
-          "displayName": "Frantz Fanon: Colonial Embodiment, Violence, and Liberation"
+          "displayName": "Frantz Fanon"
         },
         {
           "id": "angela-davis",
-          "displayName": "Angela Davis: Abolition, Black Feminism, and Collective Freedom"
+          "displayName": "Angela Davis"
         },
         {
           "id": "bell-hooks",
-          "displayName": "bell hooks: Engaged Pedagogy, Cultural Criticism, and Love"
+          "displayName": "bell hooks"
         }
       ],
       "supplementalExhibits": [

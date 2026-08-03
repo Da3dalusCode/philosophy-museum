@@ -511,22 +511,22 @@
     {
       "id": "ficino",
       "label": "Marsilio Ficino",
-      "searchText": "marsilio ficino translation as interpretation the soul as a mediating bond platonic love platonic theology commentary on plato’s symposium three books on life renaissance platonism"
+      "searchText": "marsilio ficino translation as philosophical interpretation soul as the bond of reality prisca theologia love as ascent through beauty living ensouled cosmos astrology and natural magic platonic theology platonis opera omnia commentary on plato’s symposium on love three books on life letters renaissance christian platonism"
     },
     {
       "id": "machiavelli",
-      "label": "Machiavelli",
-      "searchText": "machiavelli power political necessity the prince renaissance"
+      "label": "Niccolò Machiavelli",
+      "searchText": "niccolò machiavelli virtù and fortuna effectual political truth republican liberty productive social conflict corruption and renewal one’s own arms the prince discourses on livy the art of war florentine histories mandragola florentine republican and renaissance political thought"
     },
     {
       "id": "bacon",
       "label": "Francis Bacon",
-      "searchText": "francis bacon induction idols novum organum early modern francis bacon on organized inquiry early modern europe and new experimental programs a live route to the historical reform of method without treating later philosophy of science as its inevitable destination. core questions forum science"
+      "searchText": "francis bacon great instauration idols of the mind eliminative and ascending induction natural and experimental history collaborative inquiry knowledge and technological power the advancement of learning novum organum natural and experimental histories new atlantis essays early modern reform of learning and natural philosophy francis bacon on organized inquiry early modern europe and new experimental programs a live route to the historical reform of method without treating later philosophy of science as its inevitable destination. core questions forum science"
     },
     {
       "id": "galileo",
       "label": "Galileo Galilei",
-      "searchText": "galileo galilei instrument-mediated evidence mathematization of nature motion and experiment sidereus nuncius dialogue concerning the two chief world systems two new sciences early modern natural philosophy"
+      "searchText": "galileo galilei mathematization of motion instrument-mediated evidence experimental idealization relativity of shared motion physical copernicanism scripture and natural demonstration sidereus nuncius letters on sunspots the assayer dialogue concerning the two chief world systems two new sciences early modern mathematical natural philosophy"
     },
     {
       "id": "descartes",
@@ -536,7 +536,7 @@
     {
       "id": "hobbes",
       "label": "Thomas Hobbes",
-      "searchText": "thomas hobbes social contract leviathan early modern"
+      "searchText": "thomas hobbes materialism and motion language and nominalism state of nature laws of nature authorization and representation sovereignty protection and obligation civil authority over public religion the elements of law de cive leviathan de corpore de homine early modern materialism and political philosophy"
     },
     {
       "id": "spinoza",
@@ -555,8 +555,8 @@
     },
     {
       "id": "berkeley",
-      "label": "Berkeley",
-      "searchText": "berkeley idealism three dialogues empiricist"
+      "label": "George Berkeley",
+      "searchText": "george berkeley immaterialism ideas and spirits anti-abstractionism ordinary objects as collections of ideas visual language natural laws as signs and regularities divine causation an essay towards a new theory of vision a treatise concerning the principles of human knowledge three dialogues between hylas and philonous de motu alciphron the analyst siris early modern immaterialism, empiricism, and anglican philosophy"
     },
     {
       "id": "hume",
@@ -565,8 +565,8 @@
     },
     {
       "id": "rousseau",
-      "label": "Rousseau",
-      "searchText": "rousseau general will the social contract enlightenment"
+      "label": "Jean-Jacques Rousseau",
+      "searchText": "jean-jacques rousseau amour de soi and amour-propre perfectibility and conjectural history dependence and inequality general will and popular sovereignty civil and moral freedom negative education nature, voice, and authenticity discourse on the sciences and arts discourse on inequality julie, or the new heloise the social contract émile confessions reveries of the solitary walker genevan / french enlightenment"
     },
     {
       "id": "bentham",
@@ -821,27 +821,27 @@
     {
       "id": "mary-astell",
       "label": "Mary Astell",
-      "searchText": "mary astell education freedom a serious proposal to the ladies early modern feminist"
+      "searchText": "mary astell rational equality of souls women’s education regulation of attention freedom as rational self-command female intellectual friendship consent and domination in marriage passive obedience and religious authority a serious proposal to the ladies letters concerning the love of god some reflections upon marriage the christian religion a fair way with the dissenters and their patrons an impartial enquiry into the causes of rebellion early modern rationalist, anglican, and women’s educational philosophy"
     },
     {
       "id": "anne-conway",
       "label": "Anne Conway",
-      "searchText": "anne conway vital substance mind and body principles of the most ancient and modern philosophy early modern metaphysician"
+      "searchText": "anne conway three species of being living spiritual substance unity in multiplicity body as grosser spirit creaturely transformation purgative suffering and restoration christ as middle nature the principles of the most ancient and modern philosophy early modern vitalist metaphysics and cambridge platonist networks"
     },
     {
       "id": "montesquieu",
       "label": "Montesquieu",
-      "searchText": "montesquieu separation of powers comparative institutions the spirit of the laws enlightenment political"
+      "searchText": "montesquieu spirit of laws as relations governmental nature and principle moderation liberty as security distributed power climate and moral causes commerce and manners persian letters considerations on the romans the spirit of the laws french enlightenment political and legal thought"
     },
     {
       "id": "adam-smith",
       "label": "Adam Smith",
-      "searchText": "adam smith sympathy commercial society the theory of moral sentiments scottish enlightenment"
+      "searchText": "adam smith sympathy impartial spectator justice and resentment division of labor commercial society natural liberty within institutions critique of mercantilism and empire the theory of moral sentiments the wealth of nations lectures on jurisprudence scottish enlightenment moral philosophy and political economy"
     },
     {
       "id": "wollstonecraft",
       "label": "Mary Wollstonecraft",
-      "searchText": "mary wollstonecraft equality education a vindication of the rights of woman feminist / enlightenment"
+      "searchText": "mary wollstonecraft equal capacity for virtue rational and affective education independence versus arbitrary dependence marriage as friendship critique of rank and luxury rights in revolution commercial modernity and literary form a vindication of the rights of men a vindication of the rights of woman letters written in sweden, norway, and denmark maria; or, the wrongs of woman british enlightenment moral and political thought"
     },
     {
       "id": "peirce",
@@ -1096,1147 +1096,1147 @@
       "id": "ancient-greek",
       "hallId": "mediterranean-beginnings-classical",
       "label": "Ancient Greek Philosophy",
-      "searchText": "ancient greek philosophy how should this particular mediterranean history be situated without treating it as philosophy’s universal beginning? mediterranean beginnings & classical athens orientation, ionia, and natural explanation"
+      "searchText": "ancient greek philosophy ancient greek philosophy how should this particular mediterranean history be situated without treating it as philosophy’s universal beginning? mediterranean beginnings & classical athens orientation, ionia, and natural explanation"
     },
     {
       "id": "thales",
       "hallId": "mediterranean-beginnings-classical",
       "label": "Thales",
-      "searchText": "thales thales is remembered through later reports as a milesian thinker who sought natural explanations and treated water as a basic principle. enter to examine what the evidence supports and why later histories made him foundational. mediterranean beginnings & classical athens orientation, ionia, and natural explanation"
+      "searchText": "thales thales thales is remembered through later reports as a milesian thinker who sought natural explanations and treated water as a basic principle. enter to examine what the evidence supports and why later histories made him foundational. mediterranean beginnings & classical athens orientation, ionia, and natural explanation"
     },
     {
       "id": "anaximander",
       "hallId": "mediterranean-beginnings-classical",
       "label": "Anaximander",
-      "searchText": "anaximander anaximander is credited with explaining cosmic order through the indefinite or boundless. enter to distinguish one surviving fragment from later reports about worlds, opposites, geography, weather, and life. mediterranean beginnings & classical athens orientation, ionia, and natural explanation"
+      "searchText": "anaximander anaximander anaximander is credited with explaining cosmic order through the indefinite or boundless. enter to distinguish one surviving fragment from later reports about worlds, opposites, geography, weather, and life. mediterranean beginnings & classical athens orientation, ionia, and natural explanation"
     },
     {
       "id": "anaximenes",
       "hallId": "mediterranean-beginnings-classical",
       "label": "Anaximenes",
-      "searchText": "anaximenes anaximenes is remembered for making air the underlying principle and rarefaction and condensation the processes of change. enter to see how later testimony preserves this economical model and limits what can be claimed. mediterranean beginnings & classical athens orientation, ionia, and natural explanation"
+      "searchText": "anaximenes anaximenes anaximenes is remembered for making air the underlying principle and rarefaction and condensation the processes of change. enter to see how later testimony preserves this economical model and limits what can be claimed. mediterranean beginnings & classical athens orientation, ionia, and natural explanation"
     },
     {
       "id": "pythagoras",
       "hallId": "mediterranean-beginnings-classical",
       "label": "Pythagoras",
-      "searchText": "pythagoras pythagoras became the founding figure of communities joining a disciplined way of life to teachings about soul and cosmic order. enter to separate the elusive teacher from later pythagorean mathematics, doctrine, and legend. mediterranean beginnings & classical athens number, being, change, plurality, and atomism"
+      "searchText": "pythagoras pythagoras pythagoras became the founding figure of communities joining a disciplined way of life to teachings about soul and cosmic order. enter to separate the elusive teacher from later pythagorean mathematics, doctrine, and legend. mediterranean beginnings & classical athens number, being, change, plurality, and atomism"
     },
     {
       "id": "philolaus",
       "hallId": "mediterranean-beginnings-classical",
       "label": "Philolaus",
-      "searchText": "philolaus philolaus gave a distinctive account of limiters, unlimiteds, harmony, and number. enter to see what his fragments support, what later testimony adds, and why his thought cannot simply be assigned to pythagoras. mediterranean beginnings & classical athens number, being, change, plurality, and atomism"
+      "searchText": "philolaus philolaus philolaus gave a distinctive account of limiters, unlimiteds, harmony, and number. enter to see what his fragments support, what later testimony adds, and why his thought cannot simply be assigned to pythagoras. mediterranean beginnings & classical athens number, being, change, plurality, and atomism"
     },
     {
       "id": "parmenides",
       "hallId": "mediterranean-beginnings-classical",
       "label": "Parmenides",
-      "searchText": "parmenides parmenides used a fragmentary philosophical poem to test what coherent inquiry can think and say about what-is. enter to explore its challenge to accounts of generation, difference, and change without reducing it to a slogan. mediterranean beginnings & classical athens number, being, change, plurality, and atomism"
+      "searchText": "parmenides parmenides parmenides used a fragmentary philosophical poem to test what coherent inquiry can think and say about what-is. enter to explore its challenge to accounts of generation, difference, and change without reducing it to a slogan. mediterranean beginnings & classical athens number, being, change, plurality, and atomism"
     },
     {
       "id": "zeno-elea",
       "hallId": "mediterranean-beginnings-classical",
       "label": "Zeno of Elea",
-      "searchText": "zeno of elea zeno of elea used paradoxical arguments to expose hidden commitments in ordinary accounts of plurality, magnitude, motion, place, and time. enter to reconstruct arguments preserved through several later witnesses. mediterranean beginnings & classical athens number, being, change, plurality, and atomism"
+      "searchText": "zeno of elea zeno of elea zeno of elea used paradoxical arguments to expose hidden commitments in ordinary accounts of plurality, magnitude, motion, place, and time. enter to reconstruct arguments preserved through several later witnesses. mediterranean beginnings & classical athens number, being, change, plurality, and atomism"
     },
     {
       "id": "leucippus",
       "hallId": "mediterranean-beginnings-classical",
       "label": "Leucippus",
-      "searchText": "leucippus leucippus is the earliest named greek atomist in the main ancient tradition. enter to examine how atoms and void answer problems of change—and why his contribution remains difficult to separate from democritus. mediterranean beginnings & classical athens number, being, change, plurality, and atomism"
+      "searchText": "leucippus leucippus leucippus is the earliest named greek atomist in the main ancient tradition. enter to examine how atoms and void answer problems of change—and why his contribution remains difficult to separate from democritus. mediterranean beginnings & classical athens number, being, change, plurality, and atomism"
     },
     {
       "id": "democritus",
       "hallId": "mediterranean-beginnings-classical",
       "label": "Democritus",
-      "searchText": "democritus democritus developed atomist inquiry across nature, perception, knowledge, culture, and ethics. enter to explore this lost corpus through fragments and testimony while keeping ancient atoms distinct from modern science. mediterranean beginnings & classical athens number, being, change, plurality, and atomism"
+      "searchText": "democritus democritus democritus developed atomist inquiry across nature, perception, knowledge, culture, and ethics. enter to explore this lost corpus through fragments and testimony while keeping ancient atoms distinct from modern science. mediterranean beginnings & classical athens number, being, change, plurality, and atomism"
     },
     {
       "id": "heraclitus",
       "hallId": "mediterranean-beginnings-classical",
       "label": "Heraclitus",
-      "searchText": "heraclitus heraclitus survives in fragments and later reports, not in the slogan “everything flows.” enter to explore how logos, fire, opposition, and measured change make conflict part of an intelligible world without forcing one uncontested system. mediterranean beginnings & classical athens number, being, change, plurality, and atomism"
+      "searchText": "heraclitus heraclitus heraclitus survives in fragments and later reports, not in the slogan “everything flows.” enter to explore how logos, fire, opposition, and measured change make conflict part of an intelligible world without forcing one uncontested system. mediterranean beginnings & classical athens number, being, change, plurality, and atomism"
     },
     {
       "id": "empedocles",
       "hallId": "mediterranean-beginnings-classical",
       "label": "Empedocles",
-      "searchText": "empedocles empedocles joined four enduring roots with love and strife, perception, and religious purification. enter to see how surviving verse supports this remarkable project—and why its poem structure and cosmic cycle remain disputed. mediterranean beginnings & classical athens number, being, change, plurality, and atomism"
+      "searchText": "empedocles empedocles empedocles joined four enduring roots with love and strife, perception, and religious purification. enter to see how surviving verse supports this remarkable project—and why its poem structure and cosmic cycle remain disputed. mediterranean beginnings & classical athens number, being, change, plurality, and atomism"
     },
     {
       "id": "anaxagoras",
       "hallId": "mediterranean-beginnings-classical",
       "label": "Anaxagoras",
-      "searchText": "anaxagoras anaxagoras explained differentiated things through universal mixture and relative separation, with an unmixed nous beginning cosmic rotation. enter to distinguish his fragments from later testimony and explore how much ordering mind actually provides. mediterranean beginnings & classical athens number, being, change, plurality, and atomism"
+      "searchText": "anaxagoras anaxagoras anaxagoras explained differentiated things through universal mixture and relative separation, with an unmixed nous beginning cosmic rotation. enter to distinguish his fragments from later testimony and explore how much ordering mind actually provides. mediterranean beginnings & classical athens number, being, change, plurality, and atomism"
     },
     {
       "id": "protagoras",
       "hallId": "mediterranean-beginnings-classical",
       "label": "Protagoras",
-      "searchText": "protagoras protagoras made human judgment, education, language, and civic competence central philosophical problems. enter to distinguish his surviving formulations from the influential theories and speeches plato builds around them. mediterranean beginnings & classical athens sophists, civic speech, and socratic inquiry"
+      "searchText": "protagoras protagoras protagoras made human judgment, education, language, and civic competence central philosophical problems. enter to distinguish his surviving formulations from the influential theories and speeches plato builds around them. mediterranean beginnings & classical athens sophists, civic speech, and socratic inquiry"
     },
     {
       "id": "prodicus",
       "hallId": "mediterranean-beginnings-classical",
       "label": "Prodicus of Ceos",
-      "searchText": "prodicus of ceos prodicus of ceos was known for verbal distinctions and an ethical performance about heracles choosing a life. enter to see how plato, xenophon, and later witnesses preserve—and reshape—his teaching. mediterranean beginnings & classical athens sophists, civic speech, and socratic inquiry"
+      "searchText": "prodicus of ceos prodicus of ceos prodicus of ceos was known for verbal distinctions and an ethical performance about heracles choosing a life. enter to see how plato, xenophon, and later witnesses preserve—and reshape—his teaching. mediterranean beginnings & classical athens sophists, civic speech, and socratic inquiry"
     },
     {
       "id": "hippias-of-elis",
       "hallId": "mediterranean-beginnings-classical",
       "label": "Hippias of Elis",
-      "searchText": "hippias of elis can broad learning and practical skill make a person self-sufficient? mediterranean beginnings & classical athens sophists, civic speech, and socratic inquiry"
+      "searchText": "hippias of elis hippias of elis can broad learning and practical skill make a person self-sufficient? mediterranean beginnings & classical athens sophists, civic speech, and socratic inquiry"
     },
     {
       "id": "gorgias",
       "hallId": "mediterranean-beginnings-classical",
       "label": "Gorgias",
-      "searchText": "gorgias gorgias of leontini explored how speech shapes belief, feeling, evidence, and responsibility. enter to compare his surviving speeches, the later summaries of on not-being, and plato’s separate dramatic portrait. mediterranean beginnings & classical athens sophists, civic speech, and socratic inquiry"
+      "searchText": "gorgias gorgias gorgias of leontini explored how speech shapes belief, feeling, evidence, and responsibility. enter to compare his surviving speeches, the later summaries of on not-being, and plato’s separate dramatic portrait. mediterranean beginnings & classical athens sophists, civic speech, and socratic inquiry"
     },
     {
       "id": "socrates",
       "hallId": "mediterranean-beginnings-classical",
       "label": "Socrates",
-      "searchText": "socrates what does an examined life demand of us? mediterranean beginnings & classical athens sophists, civic speech, and socratic inquiry"
+      "searchText": "socrates socrates what does an examined life demand of us? mediterranean beginnings & classical athens sophists, civic speech, and socratic inquiry"
     },
     {
       "id": "platonism",
       "hallId": "mediterranean-beginnings-classical",
       "label": "Platonism",
-      "searchText": "platonism how did plato’s dialogues and academy establish a changing philosophical lineage? mediterranean beginnings & classical athens plato, aristotle, academy, and lyceum"
+      "searchText": "platonism platonism how did plato’s dialogues and academy establish a changing philosophical lineage? mediterranean beginnings & classical athens plato, aristotle, academy, and lyceum"
     },
     {
       "id": "aristotelianism",
       "hallId": "mediterranean-beginnings-classical",
       "label": "Aristotelianism",
-      "searchText": "aristotelianism how did aristotle’s methods become resources for many later intellectual worlds? mediterranean beginnings & classical athens plato, aristotle, academy, and lyceum"
+      "searchText": "aristotelianism aristotelianism how did aristotle’s methods become resources for many later intellectual worlds? mediterranean beginnings & classical athens plato, aristotle, academy, and lyceum"
     },
     {
       "id": "plato",
       "hallId": "mediterranean-beginnings-classical",
       "label": "Plato",
-      "searchText": "plato how can dialogue reorient knowledge, desire, and political judgment? mediterranean beginnings & classical athens plato, aristotle, academy, and lyceum"
+      "searchText": "plato plato how can dialogue reorient knowledge, desire, and political judgment? mediterranean beginnings & classical athens plato, aristotle, academy, and lyceum"
     },
     {
       "id": "aristotle",
       "hallId": "mediterranean-beginnings-classical",
       "label": "Aristotle",
-      "searchText": "aristotle how do causes, purposes, and habits make a life intelligible? mediterranean beginnings & classical athens plato, aristotle, academy, and lyceum"
+      "searchText": "aristotle aristotle how do causes, purposes, and habits make a life intelligible? mediterranean beginnings & classical athens plato, aristotle, academy, and lyceum"
     },
     {
       "id": "machiavelli",
       "hallId": "renaissance-humanism-new-method",
-      "label": "Machiavelli",
-      "searchText": "machiavelli what does political judgment require when ideals and power diverge? renaissance, political order, and new science civic power and statecraft"
+      "label": "Niccolò Machiavelli",
+      "searchText": "niccolò machiavelli machiavelli what does political judgment require when ideals and power diverge? renaissance, political order, and new science civic power and statecraft"
     },
     {
       "id": "ficino",
       "hallId": "renaissance-humanism-new-method",
-      "label": "Marsilio Ficino and the Work of Recovery",
-      "searchText": "marsilio ficino and the work of recovery how does translation become a philosophical act that changes what a culture can think? renaissance, political order, and new science civic power and statecraft"
+      "label": "Marsilio Ficino",
+      "searchText": "marsilio ficino marsilio ficino and the work of recovery how does translation become a philosophical act that changes what a culture can think? renaissance, political order, and new science civic power and statecraft"
     },
     {
       "id": "bacon",
       "hallId": "renaissance-humanism-new-method",
       "label": "Francis Bacon",
-      "searchText": "francis bacon how should organized observation and experiment reform inquiry? renaissance, political order, and new science experiment, method, and organized inquiry"
+      "searchText": "francis bacon francis bacon how should organized observation and experiment reform inquiry? renaissance, political order, and new science experiment, method, and organized inquiry"
     },
     {
       "id": "galileo",
       "hallId": "renaissance-humanism-new-method",
-      "label": "Galileo: Instruments, Evidence, and Authority",
-      "searchText": "galileo: instruments, evidence, and authority how can instrument-mediated observations earn authority when the instrument itself is disputed? renaissance, political order, and new science experiment, method, and organized inquiry"
+      "label": "Galileo Galilei",
+      "searchText": "galileo galilei galileo: instruments, evidence, and authority how can instrument-mediated observations earn authority when the instrument itself is disputed? renaissance, political order, and new science experiment, method, and organized inquiry"
     },
     {
       "id": "hobbes",
       "hallId": "renaissance-humanism-new-method",
       "label": "Thomas Hobbes",
-      "searchText": "thomas hobbes why would free people authorize a sovereign power? renaissance, political order, and new science sovereignty, covenant, and materialism"
+      "searchText": "thomas hobbes thomas hobbes why would free people authorize a sovereign power? renaissance, political order, and new science sovereignty, covenant, and materialism"
     },
     {
       "id": "phenomenology",
       "hallId": "phenomenology-existence-embodiment",
       "label": "Phenomenology",
-      "searchText": "phenomenology how can disciplined description disclose the structures of experience? phenomenology, existence, and embodiment intentionality, reduction, and lifeworld"
+      "searchText": "phenomenology phenomenology how can disciplined description disclose the structures of experience? phenomenology, existence, and embodiment intentionality, reduction, and lifeworld"
     },
     {
       "id": "husserl",
       "hallId": "phenomenology-existence-embodiment",
       "label": "Husserl",
-      "searchText": "husserl how can careful description disclose the structures by which consciousness is directed toward a world? phenomenology, existence, and embodiment intentionality, reduction, and lifeworld"
+      "searchText": "husserl husserl how can careful description disclose the structures by which consciousness is directed toward a world? phenomenology, existence, and embodiment intentionality, reduction, and lifeworld"
     },
     {
       "id": "heidegger",
       "hallId": "phenomenology-existence-embodiment",
       "label": "Heidegger",
-      "searchText": "heidegger what does our practical involvement disclose about being? phenomenology, existence, and embodiment being-in-the-world, perception, and embodiment"
+      "searchText": "heidegger heidegger what does our practical involvement disclose about being? phenomenology, existence, and embodiment being-in-the-world, perception, and embodiment"
     },
     {
       "id": "merleau-ponty",
       "hallId": "phenomenology-existence-embodiment",
       "label": "Maurice Merleau-Ponty",
-      "searchText": "maurice merleau-ponty how does the lived body open a meaningful world before reflective thought? phenomenology, existence, and embodiment being-in-the-world, perception, and embodiment"
+      "searchText": "maurice merleau-ponty maurice merleau-ponty how does the lived body open a meaningful world before reflective thought? phenomenology, existence, and embodiment being-in-the-world, perception, and embodiment"
     },
     {
       "id": "existentialism",
       "hallId": "phenomenology-existence-embodiment",
       "label": "Existentialism",
-      "searchText": "existentialism how do freedom and responsibility take shape within concrete situations? phenomenology, existence, and embodiment existentialism: freedom, facticity, and bad faith"
+      "searchText": "existentialism existentialism how do freedom and responsibility take shape within concrete situations? phenomenology, existence, and embodiment existentialism: freedom, facticity, and bad faith"
     },
     {
       "id": "sartre",
       "hallId": "phenomenology-existence-embodiment",
       "label": "Jean-Paul Sartre",
-      "searchText": "jean-paul sartre what responsibility follows from freedom without a fixed essence? phenomenology, existence, and embodiment existentialism: freedom, facticity, and bad faith"
+      "searchText": "jean-paul sartre jean-paul sartre what responsibility follows from freedom without a fixed essence? phenomenology, existence, and embodiment existentialism: freedom, facticity, and bad faith"
     },
     {
       "id": "camus",
       "hallId": "phenomenology-existence-embodiment",
       "label": "Albert Camus",
-      "searchText": "albert camus how can revolt answer a world that offers no final guarantee? phenomenology, existence, and embodiment situated freedom, ambiguity, the absurd, and revolt"
+      "searchText": "albert camus albert camus how can revolt answer a world that offers no final guarantee? phenomenology, existence, and embodiment situated freedom, ambiguity, the absurd, and revolt"
     },
     {
       "id": "levinas",
       "hallId": "phenomenology-existence-embodiment",
       "label": "Emmanuel Levinas",
-      "searchText": "emmanuel levinas what ethical demand arrives in the encounter with another person? phenomenology, existence, and embodiment interpretation, tradition, alterity, and responsibility"
+      "searchText": "emmanuel levinas emmanuel levinas what ethical demand arrives in the encounter with another person? phenomenology, existence, and embodiment interpretation, tradition, alterity, and responsibility"
     },
     {
       "id": "gadamer",
       "hallId": "phenomenology-existence-embodiment",
       "label": "Hans-Georg Gadamer",
-      "searchText": "hans-georg gadamer how do language, history, and tradition shape understanding? phenomenology, existence, and embodiment interpretation, tradition, alterity, and responsibility"
+      "searchText": "hans-georg gadamer hans-georg gadamer how do language, history, and tradition shape understanding? phenomenology, existence, and embodiment interpretation, tradition, alterity, and responsibility"
     },
     {
       "id": "analytic-philosophy",
       "hallId": "analytic-traditions",
       "label": "Analytic Philosophy",
-      "searchText": "analytic philosophy how did logic and analysis become a diverse modern philosophical family? analytic traditions: logic, language, and analysis origins in logic, analysis, and reference"
+      "searchText": "analytic philosophy analytic philosophy how did logic and analysis become a diverse modern philosophical family? analytic traditions: logic, language, and analysis origins in logic, analysis, and reference"
     },
     {
       "id": "russell",
       "hallId": "analytic-traditions",
       "label": "Bertrand Russell",
-      "searchText": "bertrand russell can logical analysis reveal what our sentences commit us to? analytic traditions: logic, language, and analysis origins in logic, analysis, and reference"
+      "searchText": "bertrand russell bertrand russell can logical analysis reveal what our sentences commit us to? analytic traditions: logic, language, and analysis origins in logic, analysis, and reference"
     },
     {
       "id": "frege",
       "hallId": "analytic-traditions",
       "label": "Gottlob Frege",
-      "searchText": "gottlob frege how can logical form clarify number, reference, and the difference between sense and object? analytic traditions: logic, language, and analysis origins in logic, analysis, and reference"
+      "searchText": "gottlob frege gottlob frege how can logical form clarify number, reference, and the difference between sense and object? analytic traditions: logic, language, and analysis origins in logic, analysis, and reference"
     },
     {
       "id": "g-e-moore",
       "hallId": "analytic-traditions",
       "label": "G. E. Moore",
-      "searchText": "g. e. moore can analysis defend common sense and resist reducing goodness to a natural property? analytic traditions: logic, language, and analysis common sense, realism, and metaethics"
+      "searchText": "g. e. moore g. e. moore can analysis defend common sense and resist reducing goodness to a natural property? analytic traditions: logic, language, and analysis common sense, realism, and metaethics"
     },
     {
       "id": "wittgenstein",
       "hallId": "analytic-traditions",
-      "label": "Wittgenstein",
-      "searchText": "wittgenstein how do logical form and later language-games change the work of philosophy? analytic traditions: logic, language, and analysis wittgenstein: logical form, use, and therapy"
+      "label": "Ludwig Wittgenstein",
+      "searchText": "ludwig wittgenstein wittgenstein how do logical form and later language-games change the work of philosophy? analytic traditions: logic, language, and analysis wittgenstein: logical form, use, and therapy"
     },
     {
       "id": "quine",
       "hallId": "analytic-traditions",
       "label": "W. V. O. Quine",
-      "searchText": "w. v. o. quine what changes when beliefs confront experience as an interconnected web? analytic traditions: logic, language, and analysis holism, naturalism, and ontology"
+      "searchText": "w. v. o. quine w. v. o. quine what changes when beliefs confront experience as an interconnected web? analytic traditions: logic, language, and analysis holism, naturalism, and ontology"
     },
     {
       "id": "anscombe",
       "hallId": "analytic-traditions",
       "label": "Elizabeth Anscombe",
-      "searchText": "elizabeth anscombe what distinguishes an intentional action from an event that merely happens through us? analytic traditions: logic, language, and analysis action, intention, and ordinary language"
+      "searchText": "elizabeth anscombe elizabeth anscombe what distinguishes an intentional action from an event that merely happens through us? analytic traditions: logic, language, and analysis action, intention, and ordinary language"
     },
     {
       "id": "political-philosophy",
       "hallId": "justice-democratic-reason",
       "label": "Political Philosophy",
-      "searchText": "political philosophy what makes political power legitimate, contestable, and answerable to a public? political action, justice, and democratic reason political philosophy, authority, and public action"
+      "searchText": "political philosophy political philosophy what makes political power legitimate, contestable, and answerable to a public? political action, justice, and democratic reason political philosophy, authority, and public action"
     },
     {
       "id": "arendt",
       "hallId": "justice-democratic-reason",
       "label": "Hannah Arendt",
-      "searchText": "hannah arendt what forms of public action, judgment, and shared world make political freedom possible? political action, justice, and democratic reason political philosophy, authority, and public action"
+      "searchText": "hannah arendt hannah arendt what forms of public action, judgment, and shared world make political freedom possible? political action, justice, and democratic reason political philosophy, authority, and public action"
     },
     {
       "id": "rawls",
       "hallId": "justice-democratic-reason",
       "label": "John Rawls",
-      "searchText": "john rawls which principles would fairly situated citizens choose for their basic institutions? political action, justice, and democratic reason justice, distribution, rights, and the state"
+      "searchText": "john rawls john rawls which principles would fairly situated citizens choose for their basic institutions? political action, justice, and democratic reason justice, distribution, rights, and the state"
     },
     {
       "id": "nozick",
       "hallId": "justice-democratic-reason",
       "label": "Robert Nozick",
-      "searchText": "robert nozick when do individual rights constrain redistribution and the purposes of the state? political action, justice, and democratic reason justice, distribution, rights, and the state"
+      "searchText": "robert nozick robert nozick when do individual rights constrain redistribution and the purposes of the state? political action, justice, and democratic reason justice, distribution, rights, and the state"
     },
     {
       "id": "martha-nussbaum",
       "hallId": "justice-democratic-reason",
       "label": "Martha Nussbaum",
-      "searchText": "martha nussbaum what capabilities and conditions does a life of human dignity require? political action, justice, and democratic reason capabilities, dignity, democracy, and public reason"
+      "searchText": "martha nussbaum martha nussbaum what capabilities and conditions does a life of human dignity require? political action, justice, and democratic reason capabilities, dignity, democracy, and public reason"
     },
     {
       "id": "metaphysics",
       "hallId": "core-questions-forum",
       "label": "Metaphysics",
-      "searchText": "metaphysics what kinds of reality and explanation do philosophical systems propose? core questions forum reality & being"
+      "searchText": "metaphysics metaphysics what kinds of reality and explanation do philosophical systems propose? core questions forum reality & being"
     },
     {
       "id": "ontology",
       "hallId": "core-questions-forum",
       "label": "Ontology",
-      "searchText": "ontology what does it mean to inquire into being without assigning that inquiry a single origin? core questions forum reality & being"
+      "searchText": "ontology ontology what does it mean to inquire into being without assigning that inquiry a single origin? core questions forum reality & being"
     },
     {
       "id": "whitehead",
       "hallId": "core-questions-forum",
       "label": "Alfred North Whitehead",
-      "searchText": "alfred north whitehead what if reality is better understood through processes and relations than static substances? core questions forum reality & being"
+      "searchText": "alfred north whitehead alfred north whitehead what if reality is better understood through processes and relations than static substances? core questions forum reality & being"
     },
     {
       "id": "epistemology",
       "hallId": "core-questions-forum",
       "label": "Epistemology",
-      "searchText": "epistemology what makes cognition, testimony, inference, or experience warrant belief? core questions forum knowledge"
+      "searchText": "epistemology epistemology what makes cognition, testimony, inference, or experience warrant belief? core questions forum knowledge"
     },
     {
       "id": "philosophy-of-mind",
       "hallId": "core-questions-forum",
       "label": "Philosophy of Mind",
-      "searchText": "philosophy of mind how should mind, consciousness, embodiment, and selfhood be investigated? core questions forum mind & self"
+      "searchText": "philosophy of mind philosophy of mind how should mind, consciousness, embodiment, and selfhood be investigated? core questions forum mind & self"
     },
     {
       "id": "thomas-nagel",
       "hallId": "core-questions-forum",
       "label": "Thomas Nagel",
-      "searchText": "thomas nagel why can an objective account leave out what an experience is like for its subject? core questions forum mind & self"
+      "searchText": "thomas nagel thomas nagel why can an objective account leave out what an experience is like for its subject? core questions forum mind & self"
     },
     {
       "id": "jiddu-krishnamurti",
       "hallId": "core-questions-forum",
       "label": "Jiddu Krishnamurti",
-      "searchText": "jiddu krishnamurti can attention disclose conditioning and psychological fear without relying on authority or a fixed path? core questions forum mind & self"
+      "searchText": "jiddu krishnamurti jiddu krishnamurti can attention disclose conditioning and psychological fear without relying on authority or a fixed path? core questions forum mind & self"
     },
     {
       "id": "logic",
       "hallId": "core-questions-forum",
       "label": "Logic",
-      "searchText": "logic how do different traditions distinguish valid inference from error? core questions forum logic & language"
+      "searchText": "logic logic how do different traditions distinguish valid inference from error? core questions forum logic & language"
     },
     {
       "id": "philosophy-of-language",
       "hallId": "core-questions-forum",
       "label": "Philosophy of Language",
-      "searchText": "philosophy of language how do words, signs, practices, and interpretations make meaning possible? core questions forum logic & language"
+      "searchText": "philosophy of language philosophy of language how do words, signs, practices, and interpretations make meaning possible? core questions forum logic & language"
     },
     {
       "id": "philosophy-of-science",
       "hallId": "core-questions-forum",
       "label": "Philosophy of Science",
-      "searchText": "philosophy of science how do methods, evidence, models, criticism, and historical change shape science? core questions forum science"
+      "searchText": "philosophy of science philosophy of science how do methods, evidence, models, criticism, and historical change shape science? core questions forum science"
     },
     {
       "id": "carnap",
       "hallId": "core-questions-forum",
       "label": "Rudolf Carnap",
-      "searchText": "rudolf carnap which disputes can be clarified by choosing and constructing explicit linguistic frameworks? core questions forum science"
+      "searchText": "rudolf carnap rudolf carnap which disputes can be clarified by choosing and constructing explicit linguistic frameworks? core questions forum science"
     },
     {
       "id": "popper",
       "hallId": "core-questions-forum",
       "label": "Karl Popper",
-      "searchText": "karl popper how can bold theories remain answerable to tests that might refute them? core questions forum science"
+      "searchText": "karl popper karl popper how can bold theories remain answerable to tests that might refute them? core questions forum science"
     },
     {
       "id": "kuhn",
       "hallId": "core-questions-forum",
       "label": "Thomas Kuhn",
-      "searchText": "thomas kuhn how do scientific communities move between normal inquiry and revolutionary change? core questions forum science"
+      "searchText": "thomas kuhn thomas kuhn how do scientific communities move between normal inquiry and revolutionary change? core questions forum science"
     },
     {
       "id": "aesthetics",
       "hallId": "core-questions-forum",
       "label": "Aesthetics",
-      "searchText": "aesthetics how do art, beauty, form, expression, and judgment shape experience? core questions forum aesthetics"
+      "searchText": "aesthetics aesthetics how do art, beauty, form, expression, and judgment shape experience? core questions forum aesthetics"
     },
     {
       "id": "philosophy-of-religion",
       "hallId": "core-questions-forum",
       "label": "Philosophy of Religion",
-      "searchText": "philosophy of religion how should philosophical inquiry approach religious belief, practice, experience, and authority? core questions forum philosophy of religion"
+      "searchText": "philosophy of religion philosophy of religion how should philosophical inquiry approach religious belief, practice, experience, and authority? core questions forum philosophy of religion"
     },
     {
       "id": "indian-philosophy",
       "hallId": "classical-south-asian-worlds",
-      "label": "Indian Philosophy: Many Schools, Contested Canons",
-      "searchText": "indian philosophy: many schools, contested canons how can a gallery orient visitors across many south asian traditions without pretending to contain them all? classical south asia: jain, yoga, and brahmanical systems many schools, shared questions, and missing traditions"
+      "label": "Indian Philosophy",
+      "searchText": "indian philosophy indian philosophy: many schools, contested canons how can a gallery orient visitors across many south asian traditions without pretending to contain them all? classical south asia: jain, yoga, and brahmanical systems many schools, shared questions, and missing traditions"
     },
     {
       "id": "jainism",
       "hallId": "classical-south-asian-worlds",
-      "label": "Jain Philosophy",
-      "searchText": "jain philosophy how do living souls become bound by karma, and how can disciplined nonviolence lead toward liberation? classical south asia: jain, yoga, and brahmanical systems jain worlds: soul, karma, nonviolence, and knowing"
+      "label": "Jainism",
+      "searchText": "jainism jain philosophy how do living souls become bound by karma, and how can disciplined nonviolence lead toward liberation? classical south asia: jain, yoga, and brahmanical systems jain worlds: soul, karma, nonviolence, and knowing"
     },
     {
       "id": "mahavira",
       "hallId": "classical-south-asian-worlds",
-      "label": "Mahāvīra and the Jina Lineage",
-      "searchText": "mahāvīra and the jina lineage how did mahāvīra reform and transmit a path whose lineage jain traditions place before him? classical south asia: jain, yoga, and brahmanical systems jain worlds: soul, karma, nonviolence, and knowing"
+      "label": "Mahāvīra",
+      "searchText": "mahāvīra mahāvīra and the jina lineage how did mahāvīra reform and transmit a path whose lineage jain traditions place before him? classical south asia: jain, yoga, and brahmanical systems jain worlds: soul, karma, nonviolence, and knowing"
     },
     {
       "id": "kanada",
       "hallId": "classical-south-asian-worlds",
-      "label": "Kaṇāda and the Vaiśeṣika Tradition",
-      "searchText": "kaṇāda and the vaiśeṣika tradition can categories of substance, quality, motion, and relation explain a world composed from enduring atoms? classical south asia: jain, yoga, and brahmanical systems categories, atoms, and realist debate"
+      "label": "Kaṇāda",
+      "searchText": "kaṇāda kaṇāda and the vaiśeṣika tradition can categories of substance, quality, motion, and relation explain a world composed from enduring atoms? classical south asia: jain, yoga, and brahmanical systems categories, atoms, and realist debate"
     },
     {
       "id": "patanjali",
       "hallId": "classical-south-asian-worlds",
-      "label": "Patañjali and the Yoga Sūtra Tradition",
-      "searchText": "patañjali and the yoga sūtra tradition how can disciplined practice still the fluctuations of mind and loosen the causes of suffering? classical south asia: jain, yoga, and brahmanical systems yoga, mind, discipline, and liberation"
+      "label": "Patañjali",
+      "searchText": "patañjali patañjali and the yoga sūtra tradition how can disciplined practice still the fluctuations of mind and loosen the causes of suffering? classical south asia: jain, yoga, and brahmanical systems yoga, mind, discipline, and liberation"
     },
     {
       "id": "vedanta",
       "hallId": "classical-south-asian-worlds",
-      "label": "Vedānta: Rival Interpretations",
-      "searchText": "vedānta: rival interpretations how should upaniṣadic claims about self, world, and brahman be interpreted—and why do vedānta schools disagree? classical south asia: jain, yoga, and brahmanical systems vedānta: rival readings of self, world, and brahman"
+      "label": "Vedanta",
+      "searchText": "vedanta vedānta: rival interpretations how should upaniṣadic claims about self, world, and brahman be interpreted—and why do vedānta schools disagree? classical south asia: jain, yoga, and brahmanical systems vedānta: rival readings of self, world, and brahman"
     },
     {
       "id": "shankara",
       "hallId": "classical-south-asian-worlds",
-      "label": "Śaṅkara and Advaita Vedānta",
-      "searchText": "śaṅkara and advaita vedānta how can nondual brahman be the deepest reality while ordinary plurality remains experientially powerful? classical south asia: jain, yoga, and brahmanical systems vedānta: rival readings of self, world, and brahman"
+      "label": "Adi Shankara",
+      "searchText": "adi shankara śaṅkara and advaita vedānta how can nondual brahman be the deepest reality while ordinary plurality remains experientially powerful? classical south asia: jain, yoga, and brahmanical systems vedānta: rival readings of self, world, and brahman"
     },
     {
       "id": "ramanuja",
       "hallId": "classical-south-asian-worlds",
-      "label": "Rāmānuja and Viśiṣṭādvaita",
-      "searchText": "rāmānuja and viśiṣṭādvaita how can selves and the world be real modes of a unified brahman rather than mere appearance? classical south asia: jain, yoga, and brahmanical systems vedānta: rival readings of self, world, and brahman"
+      "label": "Ramanuja",
+      "searchText": "ramanuja rāmānuja and viśiṣṭādvaita how can selves and the world be real modes of a unified brahman rather than mere appearance? classical south asia: jain, yoga, and brahmanical systems vedānta: rival readings of self, world, and brahman"
     },
     {
       "id": "madhva",
       "hallId": "classical-south-asian-worlds",
-      "label": "Madhva and Dvaita Vedānta",
-      "searchText": "madhva and dvaita vedānta what follows if god, individual selves, and matter are irreducibly distinct? classical south asia: jain, yoga, and brahmanical systems vedānta: rival readings of self, world, and brahman"
+      "label": "Madhva",
+      "searchText": "madhva madhva and dvaita vedānta what follows if god, individual selves, and matter are irreducibly distinct? classical south asia: jain, yoga, and brahmanical systems vedānta: rival readings of self, world, and brahman"
     },
     {
       "id": "buddhist-philosophy",
       "hallId": "buddhist-philosophies",
-      "label": "Buddhist Philosophy: Many Paths of Liberation",
-      "searchText": "buddhist philosophy: many paths of liberation how do suffering, impermanence, no-self, ethical discipline, meditation, and insight fit together across diverse buddhist traditions? buddhist philosophies of liberation and knowledge many buddhist paths and early discourses"
+      "label": "Buddhist Philosophy",
+      "searchText": "buddhist philosophy buddhist philosophy: many paths of liberation how do suffering, impermanence, no-self, ethical discipline, meditation, and insight fit together across diverse buddhist traditions? buddhist philosophies of liberation and knowledge many buddhist paths and early discourses"
     },
     {
       "id": "buddha",
       "hallId": "buddhist-philosophies",
-      "label": "The Buddha and the Early Discourses",
-      "searchText": "the buddha and the early discourses how can suffering cease through a path of ethical, meditative, and cognitive transformation? buddhist philosophies of liberation and knowledge many buddhist paths and early discourses"
+      "label": "Siddhartha Gautama / the Buddha",
+      "searchText": "siddhartha gautama / the buddha the buddha and the early discourses how can suffering cease through a path of ethical, meditative, and cognitive transformation? buddhist philosophies of liberation and knowledge many buddhist paths and early discourses"
     },
     {
       "id": "nagarjuna",
       "hallId": "buddhist-philosophies",
-      "label": "Nāgārjuna and the Madhyamaka Tradition",
-      "searchText": "nāgārjuna and the madhyamaka tradition what follows if things arise dependently and therefore lack an independent essence? buddhist philosophies of liberation and knowledge madhyamaka: emptiness and dependence"
+      "label": "Nāgārjuna",
+      "searchText": "nāgārjuna nāgārjuna and the madhyamaka tradition what follows if things arise dependently and therefore lack an independent essence? buddhist philosophies of liberation and knowledge madhyamaka: emptiness and dependence"
     },
     {
       "id": "vasubandhu",
       "hallId": "buddhist-philosophies",
-      "label": "Vasubandhu: Abhidharma and Yogācāra Debates",
-      "searchText": "vasubandhu: abhidharma and yogācāra debates how should experience, cognition, continuity, and the apparent self be analyzed? buddhist philosophies of liberation and knowledge abhidharma to yogacara"
+      "label": "Vasubandhu",
+      "searchText": "vasubandhu vasubandhu: abhidharma and yogācāra debates how should experience, cognition, continuity, and the apparent self be analyzed? buddhist philosophies of liberation and knowledge abhidharma to yogacara"
     },
     {
       "id": "buddhist-epistemology",
       "hallId": "buddhist-philosophies",
-      "label": "Buddhist Epistemology: Perception and Inference",
-      "searchText": "buddhist epistemology: perception and inference what makes cognition reliable, and how do perception, inference, and language differ? buddhist philosophies of liberation and knowledge pramāṇa, perception, inference, and language"
+      "label": "Buddhist Epistemology",
+      "searchText": "buddhist epistemology buddhist epistemology: perception and inference what makes cognition reliable, and how do perception, inference, and language differ? buddhist philosophies of liberation and knowledge pramāṇa, perception, inference, and language"
     },
     {
       "id": "dignaga",
       "hallId": "buddhist-philosophies",
-      "label": "Dignāga: Foundations of Buddhist Logic",
-      "searchText": "dignāga: foundations of buddhist logic how can perception and inference become a disciplined account of reliable cognition? buddhist philosophies of liberation and knowledge pramāṇa, perception, inference, and language"
+      "label": "Dignāga",
+      "searchText": "dignāga dignāga: foundations of buddhist logic how can perception and inference become a disciplined account of reliable cognition? buddhist philosophies of liberation and knowledge pramāṇa, perception, inference, and language"
     },
     {
       "id": "dharmakirti",
       "hallId": "buddhist-philosophies",
-      "label": "Dharmakīrti: Reliable Cognition and Proof",
-      "searchText": "dharmakīrti: reliable cognition and proof how do cognition, inference, language, and practical success bear on knowledge? buddhist philosophies of liberation and knowledge pramāṇa, perception, inference, and language"
+      "label": "Dharmakīrti",
+      "searchText": "dharmakīrti dharmakīrti: reliable cognition and proof how do cognition, inference, language, and practical success bear on knowledge? buddhist philosophies of liberation and knowledge pramāṇa, perception, inference, and language"
     },
     {
       "id": "chinese-philosophy",
       "hallId": "classical-chinese-traditions",
-      "label": "Classical Chinese Philosophy: Many Ways, Rival Standards",
-      "searchText": "classical chinese philosophy: many ways, rival standards how did argument, teaching, ritual, warfare, and political change generate rival ways of ordering life and government? warring states & classical chinese traditions many ways in early china"
+      "label": "Chinese Philosophy",
+      "searchText": "chinese philosophy classical chinese philosophy: many ways, rival standards how did argument, teaching, ritual, warfare, and political change generate rival ways of ordering life and government? warring states & classical chinese traditions many ways in early china"
     },
     {
       "id": "confucianism",
       "hallId": "classical-chinese-traditions",
-      "label": "Confucian Traditions: Ritual, Learning, and Cultivation",
-      "searchText": "confucian traditions: ritual, learning, and cultivation how can ritual, music, learning, and relationships cultivate humane persons and legitimate political order? warring states & classical chinese traditions ritual, humaneness, cultivation, and human nature"
+      "label": "Confucianism",
+      "searchText": "confucianism confucian traditions: ritual, learning, and cultivation how can ritual, music, learning, and relationships cultivate humane persons and legitimate political order? warring states & classical chinese traditions ritual, humaneness, cultivation, and human nature"
     },
     {
       "id": "confucius",
       "hallId": "classical-chinese-traditions",
-      "label": "Confucius and the Analects Tradition",
-      "searchText": "confucius and the analects tradition how can ritual practice, learning, and humane attention transform persons and communities? warring states & classical chinese traditions ritual, humaneness, cultivation, and human nature"
+      "label": "Confucius",
+      "searchText": "confucius confucius and the analects tradition how can ritual practice, learning, and humane attention transform persons and communities? warring states & classical chinese traditions ritual, humaneness, cultivation, and human nature"
     },
     {
       "id": "mencius",
       "hallId": "classical-chinese-traditions",
-      "label": "Mencius: Moral Sprouts and Humane Government",
-      "searchText": "mencius: moral sprouts and humane government what capacities for goodness require cultivation, and what does government owe the people? warring states & classical chinese traditions ritual, humaneness, cultivation, and human nature"
+      "label": "Mencius",
+      "searchText": "mencius mencius: moral sprouts and humane government what capacities for goodness require cultivation, and what does government owe the people? warring states & classical chinese traditions ritual, humaneness, cultivation, and human nature"
     },
     {
       "id": "xunzi",
       "hallId": "classical-chinese-traditions",
-      "label": "Xunzi: Deliberate Effort, Ritual, and Human Nature",
-      "searchText": "xunzi: deliberate effort, ritual, and human nature how can deliberate learning and ritual reshape unruly dispositions into ethical and political order? warring states & classical chinese traditions ritual, humaneness, cultivation, and human nature"
+      "label": "Xunzi",
+      "searchText": "xunzi xunzi: deliberate effort, ritual, and human nature how can deliberate learning and ritual reshape unruly dispositions into ethical and political order? warring states & classical chinese traditions ritual, humaneness, cultivation, and human nature"
     },
     {
       "id": "daoism",
       "hallId": "classical-chinese-traditions",
-      "label": "Daoist Traditions: Way, Transformation, and Skilled Living",
-      "searchText": "daoist traditions: way, transformation, and skilled living how do texts associated with daoist traditions unsettle fixed distinctions, coercive action, and rigid accounts of the good life? warring states & classical chinese traditions daodejing, zhuangzi, and the way"
+      "label": "Daoism",
+      "searchText": "daoism daoist traditions: way, transformation, and skilled living how do texts associated with daoist traditions unsettle fixed distinctions, coercive action, and rigid accounts of the good life? warring states & classical chinese traditions daodejing, zhuangzi, and the way"
     },
     {
       "id": "laozi",
       "hallId": "classical-chinese-traditions",
-      "label": "Laozi and the Daodejing Textual Persona",
-      "searchText": "laozi and the daodejing textual persona how should a layered text and uncertain authorial persona guide reflection on the way, noncoercive action, and political order? warring states & classical chinese traditions daodejing, zhuangzi, and the way"
+      "label": "Laozi",
+      "searchText": "laozi laozi and the daodejing textual persona how should a layered text and uncertain authorial persona guide reflection on the way, noncoercive action, and political order? warring states & classical chinese traditions daodejing, zhuangzi, and the way"
     },
     {
       "id": "zhuangzi",
       "hallId": "classical-chinese-traditions",
-      "label": "Zhuangzi: Perspective, Skill, and Transformation",
-      "searchText": "zhuangzi: perspective, skill, and transformation what changes when language, identity, knowledge, and death are viewed through shifting perspectives? warring states & classical chinese traditions daodejing, zhuangzi, and the way"
+      "label": "Zhuangzi",
+      "searchText": "zhuangzi zhuangzi: perspective, skill, and transformation what changes when language, identity, knowledge, and death are viewed through shifting perspectives? warring states & classical chinese traditions daodejing, zhuangzi, and the way"
     },
     {
       "id": "mohism",
       "hallId": "classical-chinese-traditions",
-      "label": "Mohism: Impartial Concern, Standards, and Argument",
-      "searchText": "mohism: impartial concern, standards, and argument how can public standards test claims, guide action, oppose aggressive war, and promote inclusive concern? warring states & classical chinese traditions mohist debate and fa/statecraft currents"
+      "label": "Mohism",
+      "searchText": "mohism mohism: impartial concern, standards, and argument how can public standards test claims, guide action, oppose aggressive war, and promote inclusive concern? warring states & classical chinese traditions mohist debate and fa/statecraft currents"
     },
     {
       "id": "legalism",
       "hallId": "classical-chinese-traditions",
-      "label": "Fa, Standards, and Statecraft—Later Grouped as “Legalism”",
-      "searchText": "fa, standards, and statecraft—later grouped as “legalism” how did distinct arguments about law, administrative technique, authority, and power become retrospectively grouped under one label? warring states & classical chinese traditions mohist debate and fa/statecraft currents"
+      "label": "Legalism",
+      "searchText": "legalism fa, standards, and statecraft—later grouped as “legalism” how did distinct arguments about law, administrative technique, authority, and power become retrospectively grouped under one label? warring states & classical chinese traditions mohist debate and fa/statecraft currents"
     },
     {
       "id": "mozi",
       "hallId": "classical-chinese-traditions",
-      "label": "Mozi and the Mohist Community",
-      "searchText": "mozi and the mohist community why should benefit, practical standards, inclusive care, and opposition to aggression guide ethical and political judgment? warring states & classical chinese traditions mohist debate and fa/statecraft currents"
+      "label": "Mozi",
+      "searchText": "mozi mozi and the mohist community why should benefit, practical standards, inclusive care, and opposition to aggression guide ethical and political judgment? warring states & classical chinese traditions mohist debate and fa/statecraft currents"
     },
     {
       "id": "han-feizi",
       "hallId": "classical-chinese-traditions",
-      "label": "Han Feizi: Fa, Administrative Technique, and Authority",
-      "searchText": "han feizi: fa, administrative technique, and authority how can institutions and publicly knowable standards constrain unreliable motives while strengthening rule? warring states & classical chinese traditions mohist debate and fa/statecraft currents"
+      "label": "Han Feizi",
+      "searchText": "han feizi han feizi: fa, administrative technique, and authority how can institutions and publicly knowable standards constrain unreliable motives while strengthening rule? warring states & classical chinese traditions mohist debate and fa/statecraft currents"
     },
     {
       "id": "islamic-philosophy",
       "hallId": "islamic-philosophical-worlds",
-      "label": "Arabic & Islamic Philosophy: Many Languages, Arguments, and Communities",
-      "searchText": "arabic & islamic philosophy: many languages, arguments, and communities how did translation, commentary, theology, science, and political life generate new philosophical arguments in arabic and other languages? arabic & islamic philosophical worlds translation-era falsafa and classification of knowledge"
+      "label": "Islamic Philosophy",
+      "searchText": "islamic philosophy arabic & islamic philosophy: many languages, arguments, and communities how did translation, commentary, theology, science, and political life generate new philosophical arguments in arabic and other languages? arabic & islamic philosophical worlds translation-era falsafa and classification of knowledge"
     },
     {
       "id": "al-kindi",
       "hallId": "islamic-philosophical-worlds",
-      "label": "Al-Kindi: Philosophy in an Arabic Intellectual World",
-      "searchText": "al-kindi: philosophy in an arabic intellectual world how can inherited sciences be translated, tested, and redirected toward new questions? arabic & islamic philosophical worlds translation-era falsafa and classification of knowledge"
+      "label": "Al-Kindi",
+      "searchText": "al-kindi al-kindi: philosophy in an arabic intellectual world how can inherited sciences be translated, tested, and redirected toward new questions? arabic & islamic philosophical worlds translation-era falsafa and classification of knowledge"
     },
     {
       "id": "al-farabi",
       "hallId": "islamic-philosophical-worlds",
-      "label": "Al-Farabi: Demonstration, Classification, and the Virtuous City",
-      "searchText": "al-farabi: demonstration, classification, and the virtuous city how do logic, metaphysics, and political philosophy fit within an ordered account of knowledge and human flourishing? arabic & islamic philosophical worlds translation-era falsafa and classification of knowledge"
+      "label": "Al-Farabi",
+      "searchText": "al-farabi al-farabi: demonstration, classification, and the virtuous city how do logic, metaphysics, and political philosophy fit within an ordered account of knowledge and human flourishing? arabic & islamic philosophical worlds translation-era falsafa and classification of knowledge"
     },
     {
       "id": "avicenna",
       "hallId": "islamic-philosophical-worlds",
-      "label": "Avicenna: An Avicennian System of Knowledge",
-      "searchText": "avicenna: an avicennian system of knowledge how can essence and existence, necessity and possibility, soul and body, and demonstration form one philosophical system? arabic & islamic philosophical worlds avicennian system: being, soul, logic, and science"
+      "label": "Ibn Sina / Avicenna",
+      "searchText": "ibn sina / avicenna avicenna: an avicennian system of knowledge how can essence and existence, necessity and possibility, soul and body, and demonstration form one philosophical system? arabic & islamic philosophical worlds avicennian system: being, soul, logic, and science"
     },
     {
       "id": "al-ghazali",
       "hallId": "islamic-philosophical-worlds",
-      "label": "Al-Ghazali: Understanding Philosophy Before Critique",
-      "searchText": "al-ghazali: understanding philosophy before critique how can philosophical methods be appropriated while selected metaphysical conclusions are challenged? arabic & islamic philosophical worlds kalām, critique, and philosophical appropriation"
+      "label": "Al-Ghazali",
+      "searchText": "al-ghazali al-ghazali: understanding philosophy before critique how can philosophical methods be appropriated while selected metaphysical conclusions are challenged? arabic & islamic philosophical worlds kalām, critique, and philosophical appropriation"
     },
     {
       "id": "averroes",
       "hallId": "islamic-philosophical-worlds",
-      "label": "Averroes (Ibn Rushd): Demonstration and Interpretation",
-      "searchText": "averroes (ibn rushd): demonstration and interpretation how should demonstrative philosophy, law, scripture, medicine, and aristotle’s texts be interpreted together? arabic & islamic philosophical worlds al-andalus: philosophy, law, medicine, and commentary"
+      "label": "Ibn Rushd / Averroes",
+      "searchText": "ibn rushd / averroes averroes (ibn rushd): demonstration and interpretation how should demonstrative philosophy, law, scripture, medicine, and aristotle’s texts be interpreted together? arabic & islamic philosophical worlds al-andalus: philosophy, law, medicine, and commentary"
     },
     {
       "id": "ibn-tufayl",
       "hallId": "islamic-philosophical-worlds",
-      "label": "Ibn Tufayl: Hayy ibn Yaqzan and the Education of Reason",
-      "searchText": "ibn tufayl: hayy ibn yaqzan and the education of reason what might an isolated human discover through experience, reflection, and disciplined transformation? arabic & islamic philosophical worlds al-andalus: philosophy, law, medicine, and commentary"
+      "label": "Ibn Tufayl",
+      "searchText": "ibn tufayl ibn tufayl: hayy ibn yaqzan and the education of reason what might an isolated human discover through experience, reflection, and disciplined transformation? arabic & islamic philosophical worlds al-andalus: philosophy, law, medicine, and commentary"
     },
     {
       "id": "suhrawardi",
       "hallId": "islamic-philosophical-worlds",
-      "label": "Suhrawardi: The Philosophy of Illumination",
-      "searchText": "suhrawardi: the philosophy of illumination how can presence, light, and visionary knowledge redirect avicennian philosophical questions? arabic & islamic philosophical worlds illumination and post-avicennian safavid continuities"
+      "label": "Suhrawardi",
+      "searchText": "suhrawardi suhrawardi: the philosophy of illumination how can presence, light, and visionary knowledge redirect avicennian philosophical questions? arabic & islamic philosophical worlds illumination and post-avicennian safavid continuities"
     },
     {
       "id": "mulla-sadra",
       "hallId": "islamic-philosophical-worlds",
-      "label": "Mulla Sadra: Existence and Substantial Motion in Safavid Iran",
-      "searchText": "mulla sadra: existence and substantial motion in safavid iran what changes if existence is primary and substances themselves unfold through motion? arabic & islamic philosophical worlds illumination and post-avicennian safavid continuities"
+      "label": "Mulla Sadra",
+      "searchText": "mulla sadra mulla sadra: existence and substantial motion in safavid iran what changes if existence is primary and substances themselves unfold through motion? arabic & islamic philosophical worlds illumination and post-avicennian safavid continuities"
     },
     {
       "id": "zhu-xi",
       "hallId": "east-asian-continuities",
-      "label": "Zhu Xi: Pattern, Material Force, and the Architecture of Learning",
-      "searchText": "zhu xi: pattern, material force, and the architecture of learning how can study, investigation, ritual, and self-cultivation disclose an intelligible moral order? confucian renewal & east asian continuities song-ming confucian reconstructions"
+      "label": "Zhu Xi",
+      "searchText": "zhu xi zhu xi: pattern, material force, and the architecture of learning how can study, investigation, ritual, and self-cultivation disclose an intelligible moral order? confucian renewal & east asian continuities song-ming confucian reconstructions"
     },
     {
       "id": "wang-yangming",
       "hallId": "east-asian-continuities",
-      "label": "Wang Yangming: Innate Knowing and the Unity of Knowledge and Action",
-      "searchText": "wang yangming: innate knowing and the unity of knowledge and action what changes when moral knowledge is understood as already active within responsible judgment? confucian renewal & east asian continuities song-ming confucian reconstructions"
+      "label": "Wang Yangming",
+      "searchText": "wang yangming wang yangming: innate knowing and the unity of knowledge and action what changes when moral knowledge is understood as already active within responsible judgment? confucian renewal & east asian continuities song-ming confucian reconstructions"
     },
     {
       "id": "saadia-gaon",
       "hallId": "jewish-philosophy",
-      "label": "Saadia Gaon: Reason, Revelation, and Jewish Kalām",
-      "searchText": "saadia gaon: reason, revelation, and jewish kalām how can reasoned inquiry, transmitted revelation, law, language, and communal responsibility belong to one jewish intellectual project? jewish philosophy in arabic-speaking & mediterranean worlds jewish kalām, poetry, law, reason, and revelation"
+      "label": "Saadia Gaon",
+      "searchText": "saadia gaon saadia gaon: reason, revelation, and jewish kalām how can reasoned inquiry, transmitted revelation, law, language, and communal responsibility belong to one jewish intellectual project? jewish philosophy in arabic-speaking & mediterranean worlds jewish kalām, poetry, law, reason, and revelation"
     },
     {
       "id": "judah-halevi",
       "hallId": "jewish-philosophy",
-      "label": "Judah Halevi: Poetry, Philosophy, and Covenant",
-      "searchText": "judah halevi: poetry, philosophy, and covenant what can poetry, embodied practice, transmitted history, and revelation show that demonstration alone cannot? jewish philosophy in arabic-speaking & mediterranean worlds jewish kalām, poetry, law, reason, and revelation"
+      "label": "Judah Halevi",
+      "searchText": "judah halevi judah halevi: poetry, philosophy, and covenant what can poetry, embodied practice, transmitted history, and revelation show that demonstration alone cannot? jewish philosophy in arabic-speaking & mediterranean worlds jewish kalām, poetry, law, reason, and revelation"
     },
     {
       "id": "maimonides",
       "hallId": "jewish-philosophy",
-      "label": "Maimonides: Law, Negative Theology, and Aristotelian Argument",
-      "searchText": "maimonides: law, negative theology, and aristotelian argument how can law, disciplined interpretation, philosophical demonstration, and limits on divine language guide a perplexed reader? jewish philosophy in arabic-speaking & mediterranean worlds maimonides: law, negative theology, and aristotelian argument"
+      "label": "Maimonides",
+      "searchText": "maimonides maimonides: law, negative theology, and aristotelian argument how can law, disciplined interpretation, philosophical demonstration, and limits on divine language guide a perplexed reader? jewish philosophy in arabic-speaking & mediterranean worlds maimonides: law, negative theology, and aristotelian argument"
     },
     {
       "id": "boethius",
       "hallId": "latin-christian-scholastic",
-      "label": "Boethius: Logic, Fortune, and a Double Transmission",
-      "searchText": "boethius: logic, fortune, and a double transmission how could one author reshape greek logical learning in latin and stage philosophy as a guide through fortune, providence, and freedom? latin christian & scholastic traditions late-antique transmission and carolingian reception"
+      "label": "Boethius",
+      "searchText": "boethius boethius: logic, fortune, and a double transmission how could one author reshape greek logical learning in latin and stage philosophy as a guide through fortune, providence, and freedom? latin christian & scholastic traditions late-antique transmission and carolingian reception"
     },
     {
       "id": "eriugena",
       "hallId": "latin-christian-scholastic",
-      "label": "John Scotus Eriugena: Translation, Nature, and Return",
-      "searchText": "john scotus eriugena: translation, nature, and return how can translation, negative theology, and a dialogue about nature reconstruct greek christian sources in a carolingian setting? latin christian & scholastic traditions late-antique transmission and carolingian reception"
+      "label": "John Scotus Eriugena",
+      "searchText": "john scotus eriugena john scotus eriugena: translation, nature, and return how can translation, negative theology, and a dialogue about nature reconstruct greek christian sources in a carolingian setting? latin christian & scholastic traditions late-antique transmission and carolingian reception"
     },
     {
       "id": "medieval-scholasticism",
       "hallId": "latin-christian-scholastic",
-      "label": "Scholasticism: Reading, Questioning, and Disputation",
-      "searchText": "scholasticism: reading, questioning, and disputation how did shared practices of reading authorities, posing questions, making distinctions, and disputing objections organize several rival intellectual projects? latin christian & scholastic traditions monastic reason, dialectic, and early scholastic practice"
+      "label": "Medieval Scholasticism",
+      "searchText": "medieval scholasticism scholasticism: reading, questioning, and disputation how did shared practices of reading authorities, posing questions, making distinctions, and disputing objections organize several rival intellectual projects? latin christian & scholastic traditions monastic reason, dialectic, and early scholastic practice"
     },
     {
       "id": "anselm",
       "hallId": "latin-christian-scholastic",
-      "label": "Anselm: Faith Seeking Understanding",
-      "searchText": "anselm: faith seeking understanding how can prayer, conceptual analysis, freedom, truth, and reflection on divine necessity belong to one inquiry? latin christian & scholastic traditions monastic reason, dialectic, and early scholastic practice"
+      "label": "Anselm",
+      "searchText": "anselm anselm: faith seeking understanding how can prayer, conceptual analysis, freedom, truth, and reflection on divine necessity belong to one inquiry? latin christian & scholastic traditions monastic reason, dialectic, and early scholastic practice"
     },
     {
       "id": "abelard",
       "hallId": "latin-christian-scholastic",
-      "label": "Peter Abelard: Dialectic, Intention, and Conflicting Authorities",
-      "searchText": "peter abelard: dialectic, intention, and conflicting authorities what can disciplined contradiction reveal about language, universals, moral intention, and the interpretation of authorities? latin christian & scholastic traditions monastic reason, dialectic, and early scholastic practice"
+      "label": "Peter Abelard",
+      "searchText": "peter abelard peter abelard: dialectic, intention, and conflicting authorities what can disciplined contradiction reveal about language, universals, moral intention, and the interpretation of authorities? latin christian & scholastic traditions monastic reason, dialectic, and early scholastic practice"
     },
     {
       "id": "aquinas",
       "hallId": "latin-christian-scholastic",
-      "label": "Thomas Aquinas: Creation, Causation, Virtue, and Law",
-      "searchText": "thomas aquinas: creation, causation, virtue, and law how can aristotelian philosophy, christian theology, and arguments inherited through arabic and jewish thinkers be transformed within a university synthesis? latin christian & scholastic traditions high university synthesis and contest"
+      "label": "Thomas Aquinas",
+      "searchText": "thomas aquinas thomas aquinas: creation, causation, virtue, and law how can aristotelian philosophy, christian theology, and arguments inherited through arabic and jewish thinkers be transformed within a university synthesis? latin christian & scholastic traditions high university synthesis and contest"
     },
     {
       "id": "duns-scotus",
       "hallId": "latin-christian-scholastic",
-      "label": "Duns Scotus: Univocity, Individuation, and Freedom",
-      "searchText": "duns scotus: univocity, individuation, and freedom how can common concepts apply to god and creatures while each individual remains irreducibly this one? latin christian & scholastic traditions late scholastic alternatives, mysticism, and political conflict"
+      "label": "Duns Scotus",
+      "searchText": "duns scotus duns scotus: univocity, individuation, and freedom how can common concepts apply to god and creatures while each individual remains irreducibly this one? latin christian & scholastic traditions late scholastic alternatives, mysticism, and political conflict"
     },
     {
       "id": "ockham",
       "hallId": "latin-christian-scholastic",
-      "label": "William of Ockham: Mental Language, Signs, and Economy",
-      "searchText": "william of ockham: mental language, signs, and economy how can theories of signs, supposition, cognition, and divine freedom work without multiplying explanatory entities? latin christian & scholastic traditions late scholastic alternatives, mysticism, and political conflict"
+      "label": "William of Ockham",
+      "searchText": "william of ockham william of ockham: mental language, signs, and economy how can theories of signs, supposition, cognition, and divine freedom work without multiplying explanatory entities? latin christian & scholastic traditions late scholastic alternatives, mysticism, and political conflict"
     },
     {
       "id": "meister-eckhart",
       "hallId": "latin-christian-scholastic",
-      "label": "Meister Eckhart: Intellect, Detachment, and Divine Birth",
-      "searchText": "meister eckhart: intellect, detachment, and divine birth how do scholastic argument and vernacular preaching pursue detachment, intellect, and the relation between god and creatures? latin christian & scholastic traditions late scholastic alternatives, mysticism, and political conflict"
+      "label": "Meister Eckhart",
+      "searchText": "meister eckhart meister eckhart: intellect, detachment, and divine birth how do scholastic argument and vernacular preaching pursue detachment, intellect, and the relation between god and creatures? latin christian & scholastic traditions late scholastic alternatives, mysticism, and political conflict"
     },
     {
       "id": "marsilius-padua",
       "hallId": "latin-christian-scholastic",
-      "label": "Marsilius of Padua: Peace, Law, and Political Authority",
-      "searchText": "marsilius of padua: peace, law, and political authority who has authority to legislate, coerce, appoint, and interpret when civic peace and claims of papal plenitude collide? latin christian & scholastic traditions late scholastic alternatives, mysticism, and political conflict"
+      "label": "Marsilius of Padua",
+      "searchText": "marsilius of padua marsilius of padua: peace, law, and political authority who has authority to legislate, coerce, appoint, and interpret when civic peace and claims of papal plenitude collide? latin christian & scholastic traditions late scholastic alternatives, mysticism, and political conflict"
     },
     {
       "id": "cynicism",
       "hallId": "hellenistic-roman-ways",
-      "label": "Cynicism: Freedom Against Convention",
-      "searchText": "cynicism: freedom against convention how much convention, property, reputation, and comfort must be refused to live freely? hellenistic & roman ways of life cynic challenge"
+      "label": "Cynicism",
+      "searchText": "cynicism cynicism: freedom against convention how much convention, property, reputation, and comfort must be refused to live freely? hellenistic & roman ways of life cynic challenge"
     },
     {
       "id": "antisthenes",
       "hallId": "hellenistic-roman-ways",
       "label": "Antisthenes",
-      "searchText": "antisthenes antisthenes was a socratic writer whose evidence spans ethics, literature, language, and logic. enter to distinguish that varied record from the later, disputed story that made him the founder of cynicism and teacher of diogenes. hellenistic & roman ways of life cynic challenge"
+      "searchText": "antisthenes antisthenes antisthenes was a socratic writer whose evidence spans ethics, literature, language, and logic. enter to distinguish that varied record from the later, disputed story that made him the founder of cynicism and teacher of diogenes. hellenistic & roman ways of life cynic challenge"
     },
     {
       "id": "diogenes",
       "hallId": "hellenistic-roman-ways",
-      "label": "Diogenes: Philosophy Performed in Public",
-      "searchText": "diogenes: philosophy performed in public what can shameless practice and frank speech expose about a city’s accepted values? hellenistic & roman ways of life cynic challenge"
+      "label": "Diogenes",
+      "searchText": "diogenes diogenes: philosophy performed in public what can shameless practice and frank speech expose about a city’s accepted values? hellenistic & roman ways of life cynic challenge"
     },
     {
       "id": "epicureanism",
       "hallId": "hellenistic-roman-ways",
-      "label": "Epicureanism: Pleasure Without Excess",
-      "searchText": "epicureanism: pleasure without excess which desires, friendships, and explanations of nature free a life from needless disturbance? hellenistic & roman ways of life epicurean garden and roman transmission"
+      "label": "Epicureanism",
+      "searchText": "epicureanism epicureanism: pleasure without excess which desires, friendships, and explanations of nature free a life from needless disturbance? hellenistic & roman ways of life epicurean garden and roman transmission"
     },
     {
       "id": "epicurus",
       "hallId": "hellenistic-roman-ways",
-      "label": "Epicurus: Friendship, Nature, and Tranquility",
-      "searchText": "epicurus: friendship, nature, and tranquility how can modest pleasure and understanding nature loosen fear of gods and death? hellenistic & roman ways of life epicurean garden and roman transmission"
+      "label": "Epicurus",
+      "searchText": "epicurus epicurus: friendship, nature, and tranquility how can modest pleasure and understanding nature loosen fear of gods and death? hellenistic & roman ways of life epicurean garden and roman transmission"
     },
     {
       "id": "lucretius",
       "hallId": "hellenistic-roman-ways",
-      "label": "Lucretius: Epicurean Nature in Latin Verse",
-      "searchText": "lucretius: epicurean nature in latin verse how can poetry make atomism a practical therapy against fear and superstition? hellenistic & roman ways of life epicurean garden and roman transmission"
+      "label": "Lucretius",
+      "searchText": "lucretius lucretius: epicurean nature in latin verse how can poetry make atomism a practical therapy against fear and superstition? hellenistic & roman ways of life epicurean garden and roman transmission"
     },
     {
       "id": "stoicism",
       "hallId": "hellenistic-roman-ways",
-      "label": "Stoicism: Logic, Nature, and the Work of Assent",
-      "searchText": "stoicism: logic, nature, and the work of assent how can reasoned judgment and social duty make freedom possible inside a causal world? hellenistic & roman ways of life early system and roman stoa"
+      "label": "Stoicism",
+      "searchText": "stoicism stoicism: logic, nature, and the work of assent how can reasoned judgment and social duty make freedom possible inside a causal world? hellenistic & roman ways of life early system and roman stoa"
     },
     {
       "id": "zeno",
       "hallId": "hellenistic-roman-ways",
-      "label": "Zeno of Citium: Beginning at the Stoa",
-      "searchText": "zeno of citium: beginning at the stoa how can virtue, nature, reason, and cosmopolitan community form one way of life? hellenistic & roman ways of life early system and roman stoa"
+      "label": "Zeno of Citium",
+      "searchText": "zeno of citium zeno of citium: beginning at the stoa how can virtue, nature, reason, and cosmopolitan community form one way of life? hellenistic & roman ways of life early system and roman stoa"
     },
     {
       "id": "cleanthes",
       "hallId": "hellenistic-roman-ways",
-      "label": "Cleanthes: Labor, Logos, and Cosmic Order",
-      "searchText": "cleanthes: labor, logos, and cosmic order what does it mean to consent responsibly to an ordered cosmos? hellenistic & roman ways of life early system and roman stoa"
+      "label": "Cleanthes",
+      "searchText": "cleanthes cleanthes: labor, logos, and cosmic order what does it mean to consent responsibly to an ordered cosmos? hellenistic & roman ways of life early system and roman stoa"
     },
     {
       "id": "chrysippus",
       "hallId": "hellenistic-roman-ways",
-      "label": "Chrysippus: Building the Stoic System",
-      "searchText": "chrysippus: building the stoic system how can logic, fate, responsibility, psychology, and ethics hold together? hellenistic & roman ways of life early system and roman stoa"
+      "label": "Chrysippus",
+      "searchText": "chrysippus chrysippus: building the stoic system how can logic, fate, responsibility, psychology, and ethics hold together? hellenistic & roman ways of life early system and roman stoa"
     },
     {
       "id": "epictetus",
       "hallId": "hellenistic-roman-ways",
-      "label": "Epictetus: Training Judgment and Desire",
-      "searchText": "epictetus: training judgment and desire which judgments and commitments belong to us even when outcomes do not? hellenistic & roman ways of life early system and roman stoa"
+      "label": "Epictetus",
+      "searchText": "epictetus epictetus: training judgment and desire which judgments and commitments belong to us even when outcomes do not? hellenistic & roman ways of life early system and roman stoa"
     },
     {
       "id": "seneca",
       "hallId": "hellenistic-roman-ways",
-      "label": "Seneca: Practicing Amid Wealth, Power, and Loss",
-      "searchText": "seneca: practicing amid wealth, power, and loss can an imperfect person practice philosophy within political compromise, anger, grief, and privilege? hellenistic & roman ways of life early system and roman stoa"
+      "label": "Seneca",
+      "searchText": "seneca seneca: practicing amid wealth, power, and loss can an imperfect person practice philosophy within political compromise, anger, grief, and privilege? hellenistic & roman ways of life early system and roman stoa"
     },
     {
       "id": "marcus-aurelius",
       "hallId": "hellenistic-roman-ways",
-      "label": "Marcus Aurelius: Private Exercises in Public Duty",
-      "searchText": "marcus aurelius: private exercises in public duty how can attention to mortality, judgment, and common humanity guide action under pressure? hellenistic & roman ways of life early system and roman stoa"
+      "label": "Marcus Aurelius",
+      "searchText": "marcus aurelius marcus aurelius: private exercises in public duty how can attention to mortality, judgment, and common humanity guide action under pressure? hellenistic & roman ways of life early system and roman stoa"
     },
     {
       "id": "skepticism",
       "hallId": "hellenistic-roman-ways",
-      "label": "Ancient Skepticism: Rival Ways of Withholding Assent",
-      "searchText": "ancient skepticism: rival ways of withholding assent how can disciplined opposition and suspension test dogmatism without becoming one more dogma? hellenistic & roman ways of life academic and pyrrhonian skeptical lineages"
+      "label": "Skepticism",
+      "searchText": "skepticism ancient skepticism: rival ways of withholding assent how can disciplined opposition and suspension test dogmatism without becoming one more dogma? hellenistic & roman ways of life academic and pyrrhonian skeptical lineages"
     },
     {
       "id": "pyrrho",
       "hallId": "hellenistic-roman-ways",
-      "label": "Pyrrho: A Life Reconstructed Through Later Reports",
-      "searchText": "pyrrho: a life reconstructed through later reports what can later testimony responsibly tell us about an early skeptical practice? hellenistic & roman ways of life academic and pyrrhonian skeptical lineages"
+      "label": "Pyrrho",
+      "searchText": "pyrrho pyrrho: a life reconstructed through later reports what can later testimony responsibly tell us about an early skeptical practice? hellenistic & roman ways of life academic and pyrrhonian skeptical lineages"
     },
     {
       "id": "arcesilaus",
       "hallId": "hellenistic-roman-ways",
       "label": "Arcesilaus",
-      "searchText": "arcesilaus arcesilaus left no writings but made skeptical dialectic central to plato’s academy. enter to see how he challenged stoic certainty—and why reported arguments, suspension, and practical criteria do not form one secure personal doctrine. hellenistic & roman ways of life academic and pyrrhonian skeptical lineages"
+      "searchText": "arcesilaus arcesilaus arcesilaus left no writings but made skeptical dialectic central to plato’s academy. enter to see how he challenged stoic certainty—and why reported arguments, suspension, and practical criteria do not form one secure personal doctrine. hellenistic & roman ways of life academic and pyrrhonian skeptical lineages"
     },
     {
       "id": "carneades",
       "hallId": "hellenistic-roman-ways",
       "label": "Carneades",
-      "searchText": "carneades carneades wrote nothing yet transformed skeptical argument across knowledge, ethics, theology, fate, and justice. enter to explore persuasive appearances, action without certainty, and the difference between constructing a position and personally assenting to it. hellenistic & roman ways of life academic and pyrrhonian skeptical lineages"
+      "searchText": "carneades carneades carneades wrote nothing yet transformed skeptical argument across knowledge, ethics, theology, fate, and justice. enter to explore persuasive appearances, action without certainty, and the difference between constructing a position and personally assenting to it. hellenistic & roman ways of life academic and pyrrhonian skeptical lineages"
     },
     {
       "id": "sextus-empiricus",
       "hallId": "hellenistic-roman-ways",
-      "label": "Sextus Empiricus: Pyrrhonian Practice Preserved",
-      "searchText": "sextus empiricus: pyrrhonian practice preserved how do equipollence and suspension change a person’s relation to unsettled claims? hellenistic & roman ways of life academic and pyrrhonian skeptical lineages"
+      "label": "Sextus Empiricus",
+      "searchText": "sextus empiricus sextus empiricus: pyrrhonian practice preserved how do equipollence and suspension change a person’s relation to unsettled claims? hellenistic & roman ways of life academic and pyrrhonian skeptical lineages"
     },
     {
       "id": "neoplatonism",
       "hallId": "late-antiquity-inheritance",
-      "label": "Neoplatonism: A Modern Name for Late-Antique Platonisms",
-      "searchText": "neoplatonism: a modern name for late-antique platonisms how can plurality depend on unity, and how can a soul return toward its source? late antiquity & neoplatonic inheritance plotinus and later pagan platonisms"
+      "label": "Neoplatonism",
+      "searchText": "neoplatonism neoplatonism: a modern name for late-antique platonisms how can plurality depend on unity, and how can a soul return toward its source? late antiquity & neoplatonic inheritance plotinus and later pagan platonisms"
     },
     {
       "id": "plotinus",
       "hallId": "late-antiquity-inheritance",
-      "label": "Plotinus: The One, Intellect, Soul, and Return",
-      "searchText": "plotinus: the one, intellect, soul, and return how can all reality depend on a source beyond ordinary being and thought? late antiquity & neoplatonic inheritance plotinus and later pagan platonisms"
+      "label": "Plotinus",
+      "searchText": "plotinus plotinus: the one, intellect, soul, and return how can all reality depend on a source beyond ordinary being and thought? late antiquity & neoplatonic inheritance plotinus and later pagan platonisms"
     },
     {
       "id": "porphyry",
       "hallId": "late-antiquity-inheritance",
       "label": "Porphyry",
-      "searchText": "porphyry porphyry was a philosopher, editor, commentator, teacher, and practical writer with an unevenly surviving corpus. enter to encounter more than plotinus’s editor or christianity’s opponent: a platonist who reordered several fields of inquiry. late antiquity & neoplatonic inheritance plotinus and later pagan platonisms"
+      "searchText": "porphyry porphyry porphyry was a philosopher, editor, commentator, teacher, and practical writer with an unevenly surviving corpus. enter to encounter more than plotinus’s editor or christianity’s opponent: a platonist who reordered several fields of inquiry. late antiquity & neoplatonic inheritance plotinus and later pagan platonisms"
     },
     {
       "id": "iamblichus",
       "hallId": "late-antiquity-inheritance",
       "label": "Iamblichus",
-      "searchText": "iamblichus iamblichus joined metaphysics, pedagogy, mathematics, pythagorean formation, and theurgy. enter to see why embodied souls might require divinely grounded ritual—and how the abamon persona and fragmented transmission shape what can be reconstructed. late antiquity & neoplatonic inheritance plotinus and later pagan platonisms"
+      "searchText": "iamblichus iamblichus iamblichus joined metaphysics, pedagogy, mathematics, pythagorean formation, and theurgy. enter to see why embodied souls might require divinely grounded ritual—and how the abamon persona and fragmented transmission shape what can be reconstructed. late antiquity & neoplatonic inheritance plotinus and later pagan platonisms"
     },
     {
       "id": "proclus",
       "hallId": "late-antiquity-inheritance",
       "label": "Proclus",
-      "searchText": "proclus proclus integrated systematic metaphysics with commentary, teaching, mathematics, hymns, prayer, and ritual. enter to move beyond the elements of theology and see remaining, procession, and return within a complete philosophical way of life. late antiquity & neoplatonic inheritance plotinus and later pagan platonisms"
+      "searchText": "proclus proclus proclus integrated systematic metaphysics with commentary, teaching, mathematics, hymns, prayer, and ritual. enter to move beyond the elements of theology and see remaining, procession, and return within a complete philosophical way of life. late antiquity & neoplatonic inheritance plotinus and later pagan platonisms"
     },
     {
       "id": "origen",
       "hallId": "late-antiquity-inheritance",
       "label": "Origen",
-      "searchText": "origen origen joined scriptural scholarship with philosophical inquiry into god, freedom, embodiment, and restoration. enter to trace a corpus divided among greek originals, latin translations, fragments, and hostile reports without confusing it with later origenism. late antiquity & neoplatonic inheritance christian transformations of platonism"
+      "searchText": "origen origen origen joined scriptural scholarship with philosophical inquiry into god, freedom, embodiment, and restoration. enter to trace a corpus divided among greek originals, latin translations, fragments, and hostile reports without confusing it with later origenism. late antiquity & neoplatonic inheritance christian transformations of platonism"
     },
     {
       "id": "augustine",
       "hallId": "late-antiquity-inheritance",
-      "label": "Augustine: Inwardness, Will, Evil, and Time",
-      "searchText": "augustine: inwardness, will, evil, and time how do memory, desire, creation, grace, and responsibility transform platonist ascent? late antiquity & neoplatonic inheritance christian transformations of platonism"
+      "label": "Augustine",
+      "searchText": "augustine augustine: inwardness, will, evil, and time how do memory, desire, creation, grace, and responsibility transform platonist ascent? late antiquity & neoplatonic inheritance christian transformations of platonism"
     },
     {
       "id": "gregory-nyssa",
       "hallId": "late-antiquity-inheritance",
       "label": "Gregory of Nyssa",
-      "searchText": "gregory of nyssa gregory of nyssa connected divine infinity with embodied freedom and perpetual transformation toward the good. enter to explore body, soul, virtue, resurrection, and the genuine dispute over whether his eschatology culminates in universal restoration. late antiquity & neoplatonic inheritance christian transformations of platonism"
+      "searchText": "gregory of nyssa gregory of nyssa gregory of nyssa connected divine infinity with embodied freedom and perpetual transformation toward the good. enter to explore body, soul, virtue, resurrection, and the genuine dispute over whether his eschatology culminates in universal restoration. late antiquity & neoplatonic inheritance christian transformations of platonism"
     },
     {
       "id": "pseudo-dionysius",
       "hallId": "late-antiquity-inheritance",
       "label": "Pseudo-Dionysius",
-      "searchText": "pseudo-dionysius pseudo-dionysius was an anonymous late-antique christian, not the biblical convert whose name the author adopted. enter to explore divine names, hierarchy, procession and return, apophatic unknowing, and the corpus’s transformed byzantine and latin afterlives. late antiquity & neoplatonic inheritance christian transformations of platonism"
+      "searchText": "pseudo-dionysius pseudo-dionysius pseudo-dionysius was an anonymous late-antique christian, not the biblical convert whose name the author adopted. enter to explore divine names, hierarchy, procession and return, apophatic unknowing, and the corpus’s transformed byzantine and latin afterlives. late antiquity & neoplatonic inheritance christian transformations of platonism"
     },
     {
       "id": "rationalism",
       "hallId": "rationalism-mind-nature-system",
-      "label": "Rationalism: A Later Family Name",
-      "searchText": "rationalism: a later family name what unites—and what separates—early-modern projects that gave reason, intelligible structure, and systematic explanation unusually ambitious roles? rationalism: mind, nature, and system cartesian foundations and dualism"
+      "label": "Rationalism",
+      "searchText": "rationalism rationalism: a later family name what unites—and what separates—early-modern projects that gave reason, intelligible structure, and systematic explanation unusually ambitious roles? rationalism: mind, nature, and system cartesian foundations and dualism"
     },
     {
       "id": "descartes",
       "hallId": "rationalism-mind-nature-system",
-      "label": "René Descartes: Method, Mind, and Mechanized Nature",
-      "searchText": "rené descartes: method, mind, and mechanized nature can methodic doubt secure a thinking self and a mathematical science of nature without leaving mind and body unintelligibly divided? rationalism: mind, nature, and system cartesian foundations and dualism"
+      "label": "René Descartes",
+      "searchText": "rené descartes rené descartes: method, mind, and mechanized nature can methodic doubt secure a thinking self and a mathematical science of nature without leaving mind and body unintelligibly divided? rationalism: mind, nature, and system cartesian foundations and dualism"
     },
     {
       "id": "spinoza",
       "hallId": "rationalism-mind-nature-system",
-      "label": "Baruch Spinoza: Substance, Affects, and Freedom",
-      "searchText": "baruch spinoza: substance, affects, and freedom what becomes of mind, body, god, nature, ethics, and freedom if there is only one infinite substance? rationalism: mind, nature, and system substance, vitality, god/nature, and freedom"
+      "label": "Spinoza",
+      "searchText": "spinoza baruch spinoza: substance, affects, and freedom what becomes of mind, body, god, nature, ethics, and freedom if there is only one infinite substance? rationalism: mind, nature, and system substance, vitality, god/nature, and freedom"
     },
     {
       "id": "anne-conway",
       "hallId": "rationalism-mind-nature-system",
-      "label": "Anne Conway: Living Substance Against Dualism",
-      "searchText": "anne conway: living substance against dualism can an entire created world be living, changeable, and spiritually continuous without collapsing creator and creatures? rationalism: mind, nature, and system substance, vitality, god/nature, and freedom"
+      "label": "Anne Conway",
+      "searchText": "anne conway anne conway: living substance against dualism can an entire created world be living, changeable, and spiritually continuous without collapsing creator and creatures? rationalism: mind, nature, and system substance, vitality, god/nature, and freedom"
     },
     {
       "id": "leibniz",
       "hallId": "rationalism-mind-nature-system",
-      "label": "Gottfried Wilhelm Leibniz: Monads, Reasons, and Possible Worlds",
-      "searchText": "gottfried wilhelm leibniz: monads, reasons, and possible worlds how can simple perceiving substances, complete concepts, sufficient reasons, and divine choice explain unity, change, and contingency? rationalism: mind, nature, and system monads, sufficient reason, and possible worlds"
+      "label": "Leibniz",
+      "searchText": "leibniz gottfried wilhelm leibniz: monads, reasons, and possible worlds how can simple perceiving substances, complete concepts, sufficient reasons, and divine choice explain unity, change, and contingency? rationalism: mind, nature, and system monads, sufficient reason, and possible worlds"
     },
     {
       "id": "empiricism",
       "hallId": "empiricism-science-political-order",
-      "label": "Empiricism: Experience, Experiment, and Their Limits",
-      "searchText": "empiricism: experience, experiment, and their limits how did experience become an early-modern source and test of ideas without making observation a simple, neutral transcript of the world? empiricism, science, and political order ideas, experience, identity, and rights"
+      "label": "Empiricism",
+      "searchText": "empiricism empiricism: experience, experiment, and their limits how did experience become an early-modern source and test of ideas without making observation a simple, neutral transcript of the world? empiricism, science, and political order ideas, experience, identity, and rights"
     },
     {
       "id": "locke",
       "hallId": "empiricism-science-political-order",
-      "label": "John Locke: Ideas, Persons, Rights, and Authority",
-      "searchText": "john locke: ideas, persons, rights, and authority how can experience ground knowledge while memory, toleration, property, government, and colonial power define—and strain—the boundaries of freedom? empiricism, science, and political order ideas, experience, identity, and rights"
+      "label": "Locke",
+      "searchText": "locke john locke: ideas, persons, rights, and authority how can experience ground knowledge while memory, toleration, property, government, and colonial power define—and strain—the boundaries of freedom? empiricism, science, and political order ideas, experience, identity, and rights"
     },
     {
       "id": "berkeley",
       "hallId": "empiricism-science-political-order",
-      "label": "George Berkeley: Vision, Ideas, Spirits, and Immaterialism",
-      "searchText": "george berkeley: vision, ideas, spirits, and immaterialism if sensible objects are collections of perceived ideas, what remains of matter, abstraction, causation, other minds, and an ordered world? empiricism, science, and political order perception and immaterialism"
+      "label": "George Berkeley",
+      "searchText": "george berkeley george berkeley: vision, ideas, spirits, and immaterialism if sensible objects are collections of perceived ideas, what remains of matter, abstraction, causation, other minds, and an ordered world? empiricism, science, and political order perception and immaterialism"
     },
     {
       "id": "hume",
       "hallId": "empiricism-science-political-order",
-      "label": "David Hume: Habit, Sentiment, and the Limits of Experience",
-      "searchText": "david hume: habit, sentiment, and the limits of experience what justifies causal inference, personal identity, moral judgment, and religious belief when experience never displays necessary connection itself? empiricism, science, and political order causation, habit, sentiment, and mitigated skepticism"
+      "label": "David Hume",
+      "searchText": "david hume david hume: habit, sentiment, and the limits of experience what justifies causal inference, personal identity, moral judgment, and religious belief when experience never displays necessary connection itself? empiricism, science, and political order causation, habit, sentiment, and mitigated skepticism"
     },
     {
       "id": "montesquieu",
       "hallId": "enlightenment-revolution-kant",
-      "label": "Montesquieu: Law, Comparison, and Institutional Power",
-      "searchText": "montesquieu: law, comparison, and institutional power how do laws and political forms depend on institutions, economy, custom, history, and place—and how can power be made to check power? enlightenment, revolution, and kant’s critical turn law and comparative institutions"
+      "label": "Montesquieu",
+      "searchText": "montesquieu montesquieu: law, comparison, and institutional power how do laws and political forms depend on institutions, economy, custom, history, and place—and how can power be made to check power? enlightenment, revolution, and kant’s critical turn law and comparative institutions"
     },
     {
       "id": "rousseau",
       "hallId": "enlightenment-revolution-kant",
-      "label": "Jean-Jacques Rousseau: Inequality, Civic Freedom, and Education",
-      "searchText": "jean-jacques rousseau: inequality, civic freedom, and education can people become free by obeying laws they prescribe together when social dependence and unequal institutions have already formed their desires? enlightenment, revolution, and kant’s critical turn inequality, civic freedom, and education"
+      "label": "Jean-Jacques Rousseau",
+      "searchText": "jean-jacques rousseau jean-jacques rousseau: inequality, civic freedom, and education can people become free by obeying laws they prescribe together when social dependence and unequal institutions have already formed their desires? enlightenment, revolution, and kant’s critical turn inequality, civic freedom, and education"
     },
     {
       "id": "adam-smith",
       "hallId": "enlightenment-revolution-kant",
-      "label": "Adam Smith: Sympathy, Judgment, Labor, and Commercial Society",
-      "searchText": "adam smith: sympathy, judgment, labor, and commercial society how do spectatorship, institutions, labor, exchange, inequality, and empire shape both moral judgment and commercial life? enlightenment, revolution, and kant’s critical turn moral sentiments and commercial society"
+      "label": "Adam Smith",
+      "searchText": "adam smith adam smith: sympathy, judgment, labor, and commercial society how do spectatorship, institutions, labor, exchange, inequality, and empire shape both moral judgment and commercial life? enlightenment, revolution, and kant’s critical turn moral sentiments and commercial society"
     },
     {
       "id": "mary-astell",
       "hallId": "enlightenment-revolution-kant",
-      "label": "Mary Astell: Reason, Education, and Freedom in Marriage",
-      "searchText": "mary astell: reason, education, and freedom in marriage if women possess rational souls, how can denied education and subordination in marriage be defended without contradicting the era’s own standards of reason and freedom? enlightenment, revolution, and kant’s critical turn education, gender, and excluded universalism"
+      "label": "Mary Astell",
+      "searchText": "mary astell mary astell: reason, education, and freedom in marriage if women possess rational souls, how can denied education and subordination in marriage be defended without contradicting the era’s own standards of reason and freedom? enlightenment, revolution, and kant’s critical turn education, gender, and excluded universalism"
     },
     {
       "id": "wollstonecraft",
       "hallId": "enlightenment-revolution-kant",
-      "label": "Mary Wollstonecraft: Education, Citizenship, and Manufactured Inequality",
-      "searchText": "mary wollstonecraft: education, citizenship, and manufactured inequality what becomes of universal rights when education and social expectations train women for dependence, appearance, and obedience rather than citizenship? enlightenment, revolution, and kant’s critical turn education, gender, and excluded universalism"
+      "label": "Mary Wollstonecraft",
+      "searchText": "mary wollstonecraft mary wollstonecraft: education, citizenship, and manufactured inequality what becomes of universal rights when education and social expectations train women for dependence, appearance, and obedience rather than citizenship? enlightenment, revolution, and kant’s critical turn education, gender, and excluded universalism"
     },
     {
       "id": "kant",
       "hallId": "enlightenment-revolution-kant",
-      "label": "Immanuel Kant: The Conditions and Limits of Reason",
-      "searchText": "immanuel kant: the conditions and limits of reason what must cognition contribute for experience to be possible, and how can critique delimit knowledge while defending autonomy, obligation, and public reason? enlightenment, revolution, and kant’s critical turn kant: critical philosophy as threshold"
+      "label": "Immanuel Kant",
+      "searchText": "immanuel kant immanuel kant: the conditions and limits of reason what must cognition contribute for experience to be possible, and how can critique delimit knowledge while defending autonomy, obligation, and public reason? enlightenment, revolution, and kant’s critical turn kant: critical philosophy as threshold"
     },
     {
       "id": "german-idealism",
       "hallId": "german-idealism-afterlives",
-      "label": "German Idealism: Critique Becomes System",
-      "searchText": "german idealism: critique becomes system how did post-kantian thinkers turn the limits of critique into competing systems of self, nature, freedom, reason, and history? german idealism & romantic afterlives post-kantian self, activity, and freedom"
+      "label": "German Idealism",
+      "searchText": "german idealism german idealism: critique becomes system how did post-kantian thinkers turn the limits of critique into competing systems of self, nature, freedom, reason, and history? german idealism & romantic afterlives post-kantian self, activity, and freedom"
     },
     {
       "id": "fichte",
       "hallId": "german-idealism-afterlives",
-      "label": "Johann Gottlieb Fichte: Activity, Self-Positing, and Freedom",
-      "searchText": "johann gottlieb fichte: activity, self-positing, and freedom what if self-consciousness is not a thing we discover but an activity through which a world of obligation, resistance, and freedom becomes intelligible? german idealism & romantic afterlives post-kantian self, activity, and freedom"
+      "label": "Fichte",
+      "searchText": "fichte johann gottlieb fichte: activity, self-positing, and freedom what if self-consciousness is not a thing we discover but an activity through which a world of obligation, resistance, and freedom becomes intelligible? german idealism & romantic afterlives post-kantian self, activity, and freedom"
     },
     {
       "id": "schelling",
       "hallId": "german-idealism-afterlives",
-      "label": "F. W. J. Schelling: Nature, Art, Identity, and Freedom",
-      "searchText": "f. w. j. schelling: nature, art, identity, and freedom can nature be understood as productive and self-organizing rather than as inert material—and can freedom include the real possibility of evil? german idealism & romantic afterlives nature, identity, art, and freedom"
+      "label": "Schelling",
+      "searchText": "schelling f. w. j. schelling: nature, art, identity, and freedom can nature be understood as productive and self-organizing rather than as inert material—and can freedom include the real possibility of evil? german idealism & romantic afterlives nature, identity, art, and freedom"
     },
     {
       "id": "hegel",
       "hallId": "german-idealism-afterlives",
-      "label": "G. W. F. Hegel: Recognition, History, and Social Freedom",
-      "searchText": "g. w. f. hegel: recognition, history, and social freedom how can freedom become actual through conflict, recognition, institutions, and the historical revision of inadequate forms of life? german idealism & romantic afterlives history, recognition, social freedom, and system"
+      "label": "Hegel",
+      "searchText": "hegel g. w. f. hegel: recognition, history, and social freedom how can freedom become actual through conflict, recognition, institutions, and the historical revision of inadequate forms of life? german idealism & romantic afterlives history, recognition, social freedom, and system"
     },
     {
       "id": "kantianism",
       "hallId": "german-idealism-afterlives",
       "label": "Kantianism",
-      "searchText": "kantianism kantianism examines the powers and limits of human reason, the conditions of knowledge, the basis of moral freedom, and the demands of judgment. enter to see how those questions became a diverse philosophical tradition. german idealism & romantic afterlives divergent receptions and later arguments"
+      "searchText": "kantianism kantianism kantianism examines the powers and limits of human reason, the conditions of knowledge, the basis of moral freedom, and the demands of judgment. enter to see how those questions became a diverse philosophical tradition. german idealism & romantic afterlives divergent receptions and later arguments"
     },
     {
       "id": "bentham",
       "hallId": "utility-liberty-history-capital",
-      "label": "Jeremy Bentham: Utility, Law, and Institutional Reform",
-      "searchText": "jeremy bentham: utility, law, and institutional reform can public institutions be judged and redesigned by the consequences they produce for pleasure, pain, security, and well-being? utility, liberty, history, and capital utility, law, reform, and individuality"
+      "label": "Jeremy Bentham",
+      "searchText": "jeremy bentham jeremy bentham: utility, law, and institutional reform can public institutions be judged and redesigned by the consequences they produce for pleasure, pain, security, and well-being? utility, liberty, history, and capital utility, law, reform, and individuality"
     },
     {
       "id": "mill",
       "hallId": "utility-liberty-history-capital",
-      "label": "John Stuart Mill: Liberty, Character, and Social Progress",
-      "searchText": "john stuart mill: liberty, character, and social progress how can a consequentialist ethics defend individuality, qualitative goods, free discussion, equality, and experiments in living? utility, liberty, history, and capital utility, law, reform, and individuality"
+      "label": "John Stuart Mill",
+      "searchText": "john stuart mill john stuart mill: liberty, character, and social progress how can a consequentialist ethics defend individuality, qualitative goods, free discussion, equality, and experiments in living? utility, liberty, history, and capital utility, law, reform, and individuality"
     },
     {
       "id": "marx",
       "hallId": "utility-liberty-history-capital",
-      "label": "Karl Marx: Labor, Capital, and Historical Transformation",
-      "searchText": "karl marx: labor, capital, and historical transformation how do social relations created through labor confront people as commodities, capital, class power, and an apparently independent historical system? utility, liberty, history, and capital labor, capital, class, and historical critique"
+      "label": "Karl Marx",
+      "searchText": "karl marx karl marx: labor, capital, and historical transformation how do social relations created through labor confront people as commodities, capital, class power, and an apparently independent historical system? utility, liberty, history, and capital labor, capital, class, and historical critique"
     },
     {
       "id": "marxism",
       "hallId": "utility-liberty-history-capital",
       "label": "Marxism",
-      "searchText": "marxism marxism analyzes capitalism through labor, class, exploitation, and historical change while asking how collective action might transform social life. enter to explore why its theories, movements, and political forms remain deeply contested. utility, liberty, history, and capital political economy and social transformations"
+      "searchText": "marxism marxism marxism analyzes capitalism through labor, class, exploitation, and historical change while asking how collective action might transform social life. enter to explore why its theories, movements, and political forms remain deeply contested. utility, liberty, history, and capital political economy and social transformations"
     },
     {
       "id": "schopenhauer",
       "hallId": "faith-pessimism-life-value",
-      "label": "Arthur Schopenhauer: Representation, Will, and Compassion",
-      "searchText": "arthur schopenhauer: representation, will, and compassion what if the ordered world of experience is representation while embodied striving discloses a restless will beneath it? faith, pessimism, life, and value will, representation, suffering, and reception"
+      "label": "Schopenhauer",
+      "searchText": "schopenhauer arthur schopenhauer: representation, will, and compassion what if the ordered world of experience is representation while embodied striving discloses a restless will beneath it? faith, pessimism, life, and value will, representation, suffering, and reception"
     },
     {
       "id": "kierkegaard",
       "hallId": "faith-pessimism-life-value",
-      "label": "Søren Kierkegaard: Choice, Anxiety, Faith, and the Self",
-      "searchText": "søren kierkegaard: choice, anxiety, faith, and the self how can a person become a self through choices and commitments that no detached philosophical system can make on that person’s behalf? faith, pessimism, life, and value faith, subjectivity, anxiety, and becoming a self"
+      "label": "Kierkegaard",
+      "searchText": "kierkegaard søren kierkegaard: choice, anxiety, faith, and the self how can a person become a self through choices and commitments that no detached philosophical system can make on that person’s behalf? faith, pessimism, life, and value faith, subjectivity, anxiety, and becoming a self"
     },
     {
       "id": "nietzsche",
       "hallId": "faith-pessimism-life-value",
-      "label": "Friedrich Nietzsche: Genealogy, Nihilism, and Affirmation",
-      "searchText": "friedrich nietzsche: genealogy, nihilism, and affirmation what histories of power, embodiment, resentment, and interpretation lie behind moral values—and what could it mean to create values after their authority collapses? faith, pessimism, life, and value genealogy, nihilism, life, and value creation"
+      "label": "Friedrich Nietzsche",
+      "searchText": "friedrich nietzsche friedrich nietzsche: genealogy, nihilism, and affirmation what histories of power, embodiment, resentment, and interpretation lie behind moral values—and what could it mean to create values after their authority collapses? faith, pessimism, life, and value genealogy, nihilism, life, and value creation"
     },
     {
       "id": "pragmatism",
       "hallId": "pragmatism-democratic-inquiry",
-      "label": "Pragmatism: Meaning Through Consequences and Inquiry",
-      "searchText": "pragmatism: meaning through consequences and inquiry how can ideas earn meaning and credibility through their conceivable consequences, disciplined testing, and exposure to future correction? pragmatism, science, and democratic inquiry peirce: signs, fallibilism, and public inquiry"
+      "label": "Pragmatism",
+      "searchText": "pragmatism pragmatism: meaning through consequences and inquiry how can ideas earn meaning and credibility through their conceivable consequences, disciplined testing, and exposure to future correction? pragmatism, science, and democratic inquiry peirce: signs, fallibilism, and public inquiry"
     },
     {
       "id": "peirce",
       "hallId": "pragmatism-democratic-inquiry",
-      "label": "Charles Sanders Peirce: Signs, Abduction, and Fallibilism",
-      "searchText": "charles sanders peirce: signs, abduction, and fallibilism how can a community of inquiry move from real doubt through hypothesis and testing without claiming final certainty? pragmatism, science, and democratic inquiry peirce: signs, fallibilism, and public inquiry"
+      "label": "Charles Sanders Peirce",
+      "searchText": "charles sanders peirce charles sanders peirce: signs, abduction, and fallibilism how can a community of inquiry move from real doubt through hypothesis and testing without claiming final certainty? pragmatism, science, and democratic inquiry peirce: signs, fallibilism, and public inquiry"
     },
     {
       "id": "william-james",
       "hallId": "pragmatism-democratic-inquiry",
-      "label": "William James: Experience, Pluralism, and the Will to Believe",
-      "searchText": "william james: experience, pluralism, and the will to believe how should belief and truth be understood when inquiry occurs within a plural, unfinished world and some choices cannot wait for certainty? pragmatism, science, and democratic inquiry james: experience, belief, and pluralism"
+      "label": "William James",
+      "searchText": "william james william james: experience, pluralism, and the will to believe how should belief and truth be understood when inquiry occurs within a plural, unfinished world and some choices cannot wait for certainty? pragmatism, science, and democratic inquiry james: experience, belief, and pluralism"
     },
     {
       "id": "dewey",
       "hallId": "pragmatism-democratic-inquiry",
-      "label": "John Dewey: Inquiry, Education, and Democracy as a Way of Life",
-      "searchText": "john dewey: inquiry, education, and democracy as a way of life how can inquiry reconstruct problematic situations, and what institutions help people learn the habits of shared democratic intelligence? pragmatism, science, and democratic inquiry dewey: inquiry, education, and experimental democracy"
+      "label": "John Dewey",
+      "searchText": "john dewey john dewey: inquiry, education, and democracy as a way of life how can inquiry reconstruct problematic situations, and what institutions help people learn the habits of shared democratic intelligence? pragmatism, science, and democratic inquiry dewey: inquiry, education, and experimental democracy"
     },
     {
       "id": "continental-philosophy",
       "hallId": "critique-power-deconstruction",
-      "label": "Continental Philosophy: A Retrospective and Contested Family",
-      "searchText": "continental philosophy: a retrospective and contested family what does the label “continental philosophy” illuminate, and what histories or disagreements does it risk flattening? critique, power, and deconstruction continental philosophy as a retrospective family"
+      "label": "Continental Philosophy",
+      "searchText": "continental philosophy continental philosophy: a retrospective and contested family what does the label “continental philosophy” illuminate, and what histories or disagreements does it risk flattening? critique, power, and deconstruction continental philosophy as a retrospective family"
     },
     {
       "id": "foucault",
       "hallId": "critique-power-deconstruction",
-      "label": "Michel Foucault: Knowledge, Power, and the Formation of Subjects",
-      "searchText": "michel foucault: knowledge, power, and the formation of subjects how do historically specific practices, institutions, and regimes of truth make subjects and fields of knowledge possible? critique, power, and deconstruction archaeology, genealogy, institutions, and subject formation"
+      "label": "Michel Foucault",
+      "searchText": "michel foucault michel foucault: knowledge, power, and the formation of subjects how do historically specific practices, institutions, and regimes of truth make subjects and fields of knowledge possible? critique, power, and deconstruction archaeology, genealogy, institutions, and subject formation"
     },
     {
       "id": "derrida",
       "hallId": "critique-power-deconstruction",
-      "label": "Jacques Derrida: Writing, Difference, and Deconstruction",
-      "searchText": "jacques derrida: writing, difference, and deconstruction how can close reading expose the exclusions and instabilities through which texts, concepts, and institutions organize meaning? critique, power, and deconstruction writing, difference, institution, and justice"
+      "label": "Jacques Derrida",
+      "searchText": "jacques derrida jacques derrida: writing, difference, and deconstruction how can close reading expose the exclusions and instabilities through which texts, concepts, and institutions organize meaning? critique, power, and deconstruction writing, difference, institution, and justice"
     },
     {
       "id": "habermas",
       "hallId": "critique-power-deconstruction",
-      "label": "Jürgen Habermas: Public Reason, Communication, and Modernity",
-      "searchText": "jürgen habermas: public reason, communication, and modernity what social conditions allow reasons to be tested through communication rather than imposed through force, status, or administrative power? critique, power, and deconstruction critical theory, public sphere, and communicative reason"
+      "label": "Jürgen Habermas",
+      "searchText": "jürgen habermas jürgen habermas: public reason, communication, and modernity what social conditions allow reasons to be tested through communication rather than imposed through force, status, or administrative power? critique, power, and deconstruction critical theory, public sphere, and communicative reason"
     },
     {
       "id": "ethics",
       "hallId": "moral-life-practical-reason",
-      "label": "Ethics: Reasons, Relationships, Practices, and Ways of Living",
-      "searchText": "ethics: reasons, relationships, practices, and ways of living how should reasons, relationships, character, consequences, practices, and forms of life guide what we do and become? moral life & practical reason ethics: reasons, relationships, practices, and ways of living"
+      "label": "Ethics",
+      "searchText": "ethics ethics: reasons, relationships, practices, and ways of living how should reasons, relationships, character, consequences, practices, and forms of life guide what we do and become? moral life & practical reason ethics: reasons, relationships, practices, and ways of living"
     },
     {
       "id": "virtue-ethics",
       "hallId": "moral-life-practical-reason",
-      "label": "Virtue Ethics: Character, Practice, and Human Flourishing",
-      "searchText": "virtue ethics: character, practice, and human flourishing what traits, practices, relationships, and forms of attention help a person live and act well across changing situations? moral life & practical reason character, flourishing, attention, and virtue revival"
+      "label": "Virtue Ethics",
+      "searchText": "virtue ethics virtue ethics: character, practice, and human flourishing what traits, practices, relationships, and forms of attention help a person live and act well across changing situations? moral life & practical reason character, flourishing, attention, and virtue revival"
     },
     {
       "id": "iris-murdoch",
       "hallId": "moral-life-practical-reason",
-      "label": "Iris Murdoch: Attention, Moral Vision, and the Sovereignty of Good",
-      "searchText": "iris murdoch: attention, moral vision, and the sovereignty of good how can just and loving attention transform the moral world we are able to see before a choice is made? moral life & practical reason character, flourishing, attention, and virtue revival"
+      "label": "Iris Murdoch",
+      "searchText": "iris murdoch iris murdoch: attention, moral vision, and the sovereignty of good how can just and loving attention transform the moral world we are able to see before a choice is made? moral life & practical reason character, flourishing, attention, and virtue revival"
     },
     {
       "id": "philippa-foot",
       "hallId": "moral-life-practical-reason",
-      "label": "Philippa Foot: Virtue, Natural Goodness, and Moral Reasons",
-      "searchText": "philippa foot: virtue, natural goodness, and moral reasons can evaluations of human action be grounded in the forms of life, needs, and practical rationality of human beings? moral life & practical reason character, flourishing, attention, and virtue revival"
+      "label": "Philippa Foot",
+      "searchText": "philippa foot philippa foot: virtue, natural goodness, and moral reasons can evaluations of human action be grounded in the forms of life, needs, and practical rationality of human beings? moral life & practical reason character, flourishing, attention, and virtue revival"
     },
     {
       "id": "deontology",
       "hallId": "moral-life-practical-reason",
-      "label": "Deontology: Duty, Respect, and the Constraints on Action",
-      "searchText": "deontology: duty, respect, and the constraints on action which duties, rights, or forms of respect constrain what we may do even when violating them could improve the outcome? moral life & practical reason duty, respect, consequences, and welfare"
+      "label": "Deontology",
+      "searchText": "deontology deontology: duty, respect, and the constraints on action which duties, rights, or forms of respect constrain what we may do even when violating them could improve the outcome? moral life & practical reason duty, respect, consequences, and welfare"
     },
     {
       "id": "utilitarianism",
       "hallId": "moral-life-practical-reason",
-      "label": "Utilitarianism: Consequences, Welfare, and Impartial Concern",
-      "searchText": "utilitarianism: consequences, welfare, and impartial concern how should the well-being of everyone affected guide action, and what might aggregate judgment leave out? moral life & practical reason duty, respect, consequences, and welfare"
+      "label": "Utilitarianism",
+      "searchText": "utilitarianism utilitarianism: consequences, welfare, and impartial concern how should the well-being of everyone affected guide action, and what might aggregate judgment leave out? moral life & practical reason duty, respect, consequences, and welfare"
     },
     {
       "id": "judith-thomson",
       "hallId": "moral-life-practical-reason",
-      "label": "Judith Jarvis Thomson: Rights, Permissibility, and Hard Cases",
-      "searchText": "judith jarvis thomson: rights, permissibility, and hard cases what can carefully designed cases reveal about rights, bodily authority, intention, and the moral limits of harming? moral life & practical reason rights, persons, hard cases, and future generations"
+      "label": "Judith Jarvis Thomson",
+      "searchText": "judith jarvis thomson judith jarvis thomson: rights, permissibility, and hard cases what can carefully designed cases reveal about rights, bodily authority, intention, and the moral limits of harming? moral life & practical reason rights, persons, hard cases, and future generations"
     },
     {
       "id": "derek-parfit",
       "hallId": "moral-life-practical-reason",
-      "label": "Derek Parfit: Persons, Reasons, and Future Generations",
-      "searchText": "derek parfit: persons, reasons, and future generations how do personal identity, impartial reasons, and the existence of future people transform what morality asks of us? moral life & practical reason rights, persons, hard cases, and future generations"
+      "label": "Derek Parfit",
+      "searchText": "derek parfit derek parfit: persons, reasons, and future generations how do personal identity, impartial reasons, and the existence of future people transform what morality asks of us? moral life & practical reason rights, persons, hard cases, and future generations"
     },
     {
       "id": "feminist-philosophy",
       "hallId": "feminist-philosophies",
-      "label": "Feminist Philosophy: Plural Genealogies, Methods, and Subjects",
-      "searchText": "feminist philosophy: plural genealogies, methods, and subjects how do gender, race, class, sexuality, disability, coloniality, labor, and knowledge reorganize philosophical questions rather than merely add neglected examples? feminist philosophies feminist philosophy and plural genealogies"
+      "label": "Feminist Philosophy",
+      "searchText": "feminist philosophy feminist philosophy: plural genealogies, methods, and subjects how do gender, race, class, sexuality, disability, coloniality, labor, and knowledge reorganize philosophical questions rather than merely add neglected examples? feminist philosophies feminist philosophy and plural genealogies"
     },
     {
       "id": "beauvoir",
       "hallId": "feminist-philosophies",
-      "label": "Simone de Beauvoir: Situated Freedom, Otherness, and Social Becoming",
-      "searchText": "simone de beauvoir: situated freedom, otherness, and social becoming how can freedom be embodied and socially constrained without becoming either a fixed destiny or an abstract power of choice? feminist philosophies situated freedom, embodiment, and otherness"
+      "label": "Simone de Beauvoir",
+      "searchText": "simone de beauvoir simone de beauvoir: situated freedom, otherness, and social becoming how can freedom be embodied and socially constrained without becoming either a fixed destiny or an abstract power of choice? feminist philosophies situated freedom, embodiment, and otherness"
     },
     {
       "id": "judith-butler",
       "hallId": "feminist-philosophies",
-      "label": "Judith Butler: Performativity, Livability, and Bodies in Alliance",
-      "searchText": "judith butler: performativity, livability, and bodies in alliance how do norms make genders and lives recognizable, and how can repeated embodied action contest the terms of recognition? feminist philosophies gender, norms, performativity, and social ontology"
+      "label": "Judith Butler",
+      "searchText": "judith butler judith butler: performativity, livability, and bodies in alliance how do norms make genders and lives recognizable, and how can repeated embodied action contest the terms of recognition? feminist philosophies gender, norms, performativity, and social ontology"
     },
     {
       "id": "fanon",
       "hallId": "colonialism-race-liberation",
-      "label": "Frantz Fanon: Colonial Embodiment, Violence, and Liberation",
-      "searchText": "frantz fanon: colonial embodiment, violence, and liberation how does colonial domination enter bodies, identities, institutions, and struggles for liberation? colonialism, race, and liberation colonial embodiment, violence, psychiatry, and liberation"
+      "label": "Frantz Fanon",
+      "searchText": "frantz fanon frantz fanon: colonial embodiment, violence, and liberation how does colonial domination enter bodies, identities, institutions, and struggles for liberation? colonialism, race, and liberation colonial embodiment, violence, psychiatry, and liberation"
     },
     {
       "id": "angela-davis",
       "hallId": "colonialism-race-liberation",
-      "label": "Angela Davis: Abolition, Black Feminism, and Collective Freedom",
-      "searchText": "angela davis: abolition, black feminism, and collective freedom how do prisons, policing, racial capitalism, gender, and organized struggle shape what freedom can mean beyond reform? colonialism, race, and liberation black feminism, abolition, education, culture, and love"
+      "label": "Angela Davis",
+      "searchText": "angela davis angela davis: abolition, black feminism, and collective freedom how do prisons, policing, racial capitalism, gender, and organized struggle shape what freedom can mean beyond reform? colonialism, race, and liberation black feminism, abolition, education, culture, and love"
     },
     {
       "id": "bell-hooks",
       "hallId": "colonialism-race-liberation",
-      "label": "bell hooks: Engaged Pedagogy, Cultural Criticism, and Love",
-      "searchText": "bell hooks: engaged pedagogy, cultural criticism, and love how can education, cultural criticism, and an ethic of love resist interlocking structures of race, class, and gender? colonialism, race, and liberation black feminism, abolition, education, culture, and love"
+      "label": "bell hooks",
+      "searchText": "bell hooks bell hooks: engaged pedagogy, cultural criticism, and love how can education, cultural criticism, and an ethic of love resist interlocking structures of race, class, and gender? colonialism, race, and liberation black feminism, abolition, education, culture, and love"
     },
     {
       "id": "forum-mulla-sadra-existence",

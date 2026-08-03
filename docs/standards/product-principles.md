@@ -19,6 +19,13 @@ The accepted architecture lock is recorded in [Decision 0001](../decisions/0001-
 - Cross-cultural routes must identify transmission, translation, institutions, contest, or reception rather than imply vague influence.
 - Uncertainty, retrospective labels, disputed memberships, and attribution problems must remain visible.
 
+## Primary canonical exhibit title contract
+
+- Every primary canonical Museum exhibit must render the exact canonical philosopher or philosophy article title as both its prominent wall-plaque title and its modal title.
+- Contextual or thematic subtitles, doctrinal summaries, historical framing, object hooks, and curatorial theses must never be concatenated into or substituted for that prominent title. They belong in the smaller invitation, deck, orientation information, interpretation prose, room title, or gallery title.
+- The runtime title must derive from the canonical philosopher or philosophy registry. Descriptive program text may be retained separately for search or secondary curatorial context, but it must not silently replace the canonical wall or modal title.
+- Exceptions require an explicit owner-approved repository decision. There are currently no implicit exceptions.
+
 ## Owner-facing quality
 
 - Major visual work requires owner visual review before it is treated as accepted, even when automated checks pass.

@@ -14,7 +14,7 @@ import {
   type MuseumPresentationTier,
 } from './museumCanonicalProgram';
 import {museumAssetById} from './museumAssets';
-import type {ArticleSection, Branch, Philosopher, ReadingEntry, SourceLink} from '../../types/philosophy';
+import type {ArticleSection, Branch, EditorialSource, Philosopher, ReadingEntry, SourceLink} from '../../types/philosophy';
 import {EARLY_MODERN_MUSEUM_INTERPRETATIONS} from './renaissanceReasonRevolutionInterpretations';
 import {MODERNITY_MUSEUM_INTERPRETATIONS} from './modernityFreedomCritiqueInterpretations';
 import {MUSEUM_EXPANSION_INTERPRETATIONS} from './museumExpansionInterpretations';
@@ -25,6 +25,7 @@ import {NINETEENTH_PRIMARY_INTERPRETATION_ENRICHMENT} from './nineteenthPrimaryI
 import {CONCISE_PRIMARY_INTERPRETATIONS} from './concisePrimaryInterpretations';
 import {EAST_ASIAN_PRIMARY_INTERPRETATIONS} from './eastAsianPrimaryInterpretations';
 import {SOUTH_ASIAN_PRIMARY_INTERPRETATIONS} from './southAsianPrimaryInterpretations';
+import {EARLY_MODERN_ENLIGHTENMENT_PRIMARY_INTERPRETATIONS} from './earlyModernEnlightenmentPrimaryInterpretations';
 
 export type MuseumInterpretationSource = {
   label: string;
@@ -922,6 +923,7 @@ const interpretationSources = (
   sourceLinks: readonly SourceLink[] = [],
   readings: readonly ReadingEntry[] = [],
   principalAssetId?: string,
+  editorialSources: readonly EditorialSource[] = [],
 ): readonly MuseumInterpretationSource[] => {
   const principalAsset = principalAssetId
     ? museumAssetById.get(principalAssetId as MuseumAssetId)
@@ -938,6 +940,11 @@ const interpretationSources = (
       url: principalAsset.objectPageUrl ?? principalAsset.sourcePageUrl,
       kind: 'collection-record' as const,
     }] : []),
+    ...editorialSources.map((source) => ({
+      label: `${source.authors.join(', ')} — ${source.title}`,
+      url: source.url,
+      kind: source.type === 'primary-text' ? 'primary-text' as const : 'academic-reference' as const,
+    })),
   ];
   for (const reading of readings) {
     const url = reading.publicDomainUrl ?? reading.sourceUrl;
@@ -1268,7 +1275,7 @@ const philosopherInterpretation = (
       },
     ],
     objectInterpretations: assetInterpretations(location),
-    sources: interpretationSources(record.id, record.sourceLinks, readings, location.exhibit.principalAssetId),
+    sources: interpretationSources(record.id, record.sourceLinks, readings, location.exhibit.principalAssetId, record.editorial?.sources),
     relatedExhibits: related,
     connections: interpretiveConnections(location, related),
     articleRoute: {kind: 'philosopher', philosopherId: record.id},
@@ -1350,7 +1357,7 @@ const branchInterpretation = (
       ])]},
     ],
     objectInterpretations: assetInterpretations(location),
-    sources: interpretationSources(record.id, record.sourceLinks, readings, location.exhibit.principalAssetId),
+    sources: interpretationSources(record.id, record.sourceLinks, readings, location.exhibit.principalAssetId, record.editorial?.sources),
     relatedExhibits: related,
     connections: interpretiveConnections(location, related),
     articleRoute: {kind: 'branch', branchId: record.id},
@@ -1364,6 +1371,7 @@ const PRIMARY_INTERPRETATION_ENRICHMENT = {
   ...CONCISE_PRIMARY_INTERPRETATIONS,
   ...EAST_ASIAN_PRIMARY_INTERPRETATIONS,
   ...SOUTH_ASIAN_PRIMARY_INTERPRETATIONS,
+  ...EARLY_MODERN_ENLIGHTENMENT_PRIMARY_INTERPRETATIONS,
 };
 
 const applyPrimaryInterpretationEnrichment = (
@@ -1450,7 +1458,14 @@ const canonicalInterpretation = (location: CanonicalProgramLocation): MuseumInte
     if (!record) throw new Error(`Canonical Museum branch ${location.exhibit.entityId} is missing.`);
     interpretation = branchInterpretation(location, record, related);
   }
-  return applyPrimaryInterpretationEnrichment(location.exhibit.entityId, interpretation);
+  const canonicalTitle = location.exhibit.entityKind === 'philosopher'
+    ? philosopherById.get(location.exhibit.entityId)?.name
+    : branchById.get(location.exhibit.entityId)?.name;
+  if (!canonicalTitle) throw new Error(`Canonical Museum title ${location.exhibit.entityId} is missing.`);
+  return {
+    ...applyPrimaryInterpretationEnrichment(location.exhibit.entityId, interpretation),
+    name: canonicalTitle,
+  };
 };
 
 export const MUSEUM_INTERPRETATIONS: readonly MuseumInterpretation[] = canonicalLocations.map(canonicalInterpretation);

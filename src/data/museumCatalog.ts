@@ -1,4 +1,6 @@
 import type {MuseumAssetId} from './museum/museumAssetTypes';
+import {branches} from './branches';
+import {philosophers} from './philosophers';
 import {
   MUSEUM_CANONICAL_PROGRAM,
   MUSEUM_HALL_ROUTE_ALIASES,
@@ -316,6 +318,8 @@ export type MuseumCanonicalExhibitCatalog = Omit<
   tier: MuseumPresentationTier;
   principalAssetId?: MuseumAssetId;
   supportingAssetIds: readonly MuseumAssetId[];
+  /** Descriptive program copy retained for search and secondary curatorial context. */
+  curatorialDisplayName: string;
 };
 
 export type MuseumExhibitCatalog = LegacyMuseumExhibitCatalog | MuseumCanonicalExhibitCatalog;
@@ -406,16 +410,32 @@ const LEGACY_MUSEUM_HALLS = [
   },
 ] as const satisfies readonly MuseumHallCatalog[];
 
+const philosopherTitleById = new Map(philosophers.map(({id, name}) => [id, name]));
+const branchTitleById = new Map(branches.map(({id, name}) => [id, name]));
+
+/** The sole runtime title resolver for every primary canonical Museum exhibit. */
+export const getCanonicalMuseumEntityTitle = (
+  entityKind: MuseumCanonicalEntityKind,
+  entityId: string,
+): string | undefined => entityKind === 'philosopher'
+  ? philosopherTitleById.get(entityId)
+  : branchTitleById.get(entityId);
+
 const toCanonicalCatalogExhibit = (
   record: MuseumCanonicalProgramExhibit,
   roomId: MuseumCanonicalRoomId,
-): MuseumCanonicalExhibitCatalog => ({
-  ...record,
-  roomId,
-  zoneId: roomId,
-  principalAssetId: ('principalAssetId' in record ? record.principalAssetId : undefined) as MuseumAssetId | undefined,
-  supportingAssetIds: (record.supportingAssetIds ?? []) as readonly MuseumAssetId[],
-});
+): MuseumCanonicalExhibitCatalog => {
+  const canonicalTitle = getCanonicalMuseumEntityTitle(record.entityKind, record.entityId);
+  return {
+    ...record,
+    displayName: canonicalTitle ?? record.displayName,
+    curatorialDisplayName: record.displayName,
+    roomId,
+    zoneId: roomId,
+    principalAssetId: ('principalAssetId' in record ? record.principalAssetId : undefined) as MuseumAssetId | undefined,
+    supportingAssetIds: (record.supportingAssetIds ?? []) as readonly MuseumAssetId[],
+  };
+};
 
 export const MUSEUM_HALLS = MUSEUM_CANONICAL_PROGRAM.map((hall, index) => {
   const exhibits = hall.rooms.flatMap((room) => room.exhibits.map((record) =>

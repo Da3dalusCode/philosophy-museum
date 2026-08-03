@@ -17,8 +17,8 @@
     {
       "label": "Philosophers",
       "total": 146,
-      "pass": 109,
-      "fail": 37,
+      "pass": 121,
+      "fail": 25,
       "missing": 0
     },
     {
@@ -38,8 +38,8 @@
   ],
   "universalSummary": {
     "total": 191,
-    "pass": 149,
-    "fail": 42,
+    "pass": 161,
+    "fail": 30,
     "missing": 0
   },
   "pilotChanges": [
@@ -753,8 +753,8 @@
       "title": "Marsilio Ficino",
       "visitorEntryPoint": "#/philosophers/ficino",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1819,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2146,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": false,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -762,11 +762,11 @@
     },
     {
       "canonicalId": "machiavelli",
-      "title": "Machiavelli",
+      "title": "Niccolò Machiavelli",
       "visitorEntryPoint": "#/philosophers/machiavelli",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1920,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2091,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -777,8 +777,8 @@
       "title": "Francis Bacon",
       "visitorEntryPoint": "#/philosophers/bacon",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1888,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2115,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -789,8 +789,8 @@
       "title": "Galileo Galilei",
       "visitorEntryPoint": "#/philosophers/galileo",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1803,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2121,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": false,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -813,8 +813,8 @@
       "title": "Thomas Hobbes",
       "visitorEntryPoint": "#/philosophers/hobbes",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1886,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2056,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -858,11 +858,11 @@
     },
     {
       "canonicalId": "berkeley",
-      "title": "Berkeley",
+      "title": "George Berkeley",
       "visitorEntryPoint": "#/philosophers/berkeley",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1903,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2053,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -882,11 +882,11 @@
     },
     {
       "canonicalId": "rousseau",
-      "title": "Rousseau",
+      "title": "Jean-Jacques Rousseau",
       "visitorEntryPoint": "#/philosophers/rousseau",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1836,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 4119,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -1497,8 +1497,8 @@
       "title": "Mary Astell",
       "visitorEntryPoint": "#/philosophers/mary-astell",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1901,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2056,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -1509,8 +1509,8 @@
       "title": "Anne Conway",
       "visitorEntryPoint": "#/philosophers/anne-conway",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1895,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2057,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -1521,8 +1521,8 @@
       "title": "Montesquieu",
       "visitorEntryPoint": "#/philosophers/montesquieu",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1863,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2144,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -1533,8 +1533,8 @@
       "title": "Adam Smith",
       "visitorEntryPoint": "#/philosophers/adam-smith",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1844,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2111,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -1545,8 +1545,8 @@
       "title": "Mary Wollstonecraft",
       "visitorEntryPoint": "#/philosophers/wollstonecraft",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1800,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2053,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -2375,8 +2375,8 @@
       "title": "Marsilio Ficino",
       "visitorEntryPoint": "#/philosophers/ficino",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1819,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2146,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": false,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -2387,8 +2387,8 @@
       "title": "Galileo Galilei",
       "visitorEntryPoint": "#/philosophers/galileo",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1803,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2121,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": false,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -2779,11 +2779,11 @@
         "hallId": "renaissance-humanism-new-method",
         "visitorEntryPoint": "#/museum/renaissance-humanism-new-method/exhibits/machiavelli",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 329,
+        "surfaceWords": 384,
         "canonicalArticleKey": "philosopher:machiavelli",
         "canonicalArticleId": "machiavelli",
-        "canonicalArticleWordCount": 1920,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2091,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "ficino",
@@ -2791,11 +2791,11 @@
         "hallId": "renaissance-humanism-new-method",
         "visitorEntryPoint": "#/museum/renaissance-humanism-new-method/exhibits/ficino",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 940,
+        "surfaceWords": 375,
         "canonicalArticleKey": "philosopher:ficino",
         "canonicalArticleId": "ficino",
-        "canonicalArticleWordCount": 1819,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2146,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "bacon",
@@ -2803,11 +2803,11 @@
         "hallId": "renaissance-humanism-new-method",
         "visitorEntryPoint": "#/museum/renaissance-humanism-new-method/exhibits/bacon",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 888,
+        "surfaceWords": 394,
         "canonicalArticleKey": "philosopher:bacon",
         "canonicalArticleId": "bacon",
-        "canonicalArticleWordCount": 1888,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2115,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "galileo",
@@ -2815,11 +2815,11 @@
         "hallId": "renaissance-humanism-new-method",
         "visitorEntryPoint": "#/museum/renaissance-humanism-new-method/exhibits/galileo",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 936,
+        "surfaceWords": 381,
         "canonicalArticleKey": "philosopher:galileo",
         "canonicalArticleId": "galileo",
-        "canonicalArticleWordCount": 1803,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2121,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "hobbes",
@@ -2827,11 +2827,11 @@
         "hallId": "renaissance-humanism-new-method",
         "visitorEntryPoint": "#/museum/renaissance-humanism-new-method/exhibits/hobbes",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 331,
+        "surfaceWords": 394,
         "canonicalArticleKey": "philosopher:hobbes",
         "canonicalArticleId": "hobbes",
-        "canonicalArticleWordCount": 1886,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2056,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "phenomenology",
@@ -2847,7 +2847,7 @@
       },
       {
         "surfaceId": "husserl",
-        "title": "Edmund Husserl",
+        "title": "Husserl",
         "hallId": "phenomenology-existence-embodiment",
         "visitorEntryPoint": "#/museum/phenomenology-existence-embodiment/exhibits/husserl",
         "surfaceKind": "museum-primary-exhibit",
@@ -2859,7 +2859,7 @@
       },
       {
         "surfaceId": "heidegger",
-        "title": "Martin Heidegger",
+        "title": "Heidegger",
         "hallId": "phenomenology-existence-embodiment",
         "visitorEntryPoint": "#/museum/phenomenology-existence-embodiment/exhibits/heidegger",
         "surfaceKind": "museum-primary-exhibit",
@@ -3015,7 +3015,7 @@
       },
       {
         "surfaceId": "anscombe",
-        "title": "G. E. M. Anscombe",
+        "title": "Elizabeth Anscombe",
         "hallId": "analytic-traditions",
         "visitorEntryPoint": "#/museum/analytic-traditions/exhibits/anscombe",
         "surfaceKind": "museum-primary-exhibit",
@@ -4047,7 +4047,7 @@
       },
       {
         "surfaceId": "skepticism",
-        "title": "Ancient Skepticism",
+        "title": "Skepticism",
         "hallId": "hellenistic-roman-ways",
         "visitorEntryPoint": "#/museum/hellenistic-roman-ways/exhibits/skepticism",
         "surfaceKind": "museum-primary-exhibit",
@@ -4239,7 +4239,7 @@
       },
       {
         "surfaceId": "spinoza",
-        "title": "Baruch Spinoza",
+        "title": "Spinoza",
         "hallId": "rationalism-mind-nature-system",
         "visitorEntryPoint": "#/museum/rationalism-mind-nature-system/exhibits/spinoza",
         "surfaceKind": "museum-primary-exhibit",
@@ -4255,11 +4255,11 @@
         "hallId": "rationalism-mind-nature-system",
         "visitorEntryPoint": "#/museum/rationalism-mind-nature-system/exhibits/anne-conway",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 319,
+        "surfaceWords": 406,
         "canonicalArticleKey": "philosopher:anne-conway",
         "canonicalArticleId": "anne-conway",
-        "canonicalArticleWordCount": 1895,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2057,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "leibniz",
@@ -4287,7 +4287,7 @@
       },
       {
         "surfaceId": "locke",
-        "title": "John Locke",
+        "title": "Locke",
         "hallId": "empiricism-science-political-order",
         "visitorEntryPoint": "#/museum/empiricism-science-political-order/exhibits/locke",
         "surfaceKind": "museum-primary-exhibit",
@@ -4299,15 +4299,15 @@
       },
       {
         "surfaceId": "berkeley",
-        "title": "Berkeley",
+        "title": "George Berkeley",
         "hallId": "empiricism-science-political-order",
         "visitorEntryPoint": "#/museum/empiricism-science-political-order/exhibits/berkeley",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 385,
+        "surfaceWords": 408,
         "canonicalArticleKey": "philosopher:berkeley",
         "canonicalArticleId": "berkeley",
-        "canonicalArticleWordCount": 1903,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2053,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "hume",
@@ -4327,11 +4327,11 @@
         "hallId": "enlightenment-revolution-kant",
         "visitorEntryPoint": "#/museum/enlightenment-revolution-kant/exhibits/montesquieu",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 373,
+        "surfaceWords": 386,
         "canonicalArticleKey": "philosopher:montesquieu",
         "canonicalArticleId": "montesquieu",
-        "canonicalArticleWordCount": 1863,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2144,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "rousseau",
@@ -4339,11 +4339,11 @@
         "hallId": "enlightenment-revolution-kant",
         "visitorEntryPoint": "#/museum/enlightenment-revolution-kant/exhibits/rousseau",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 325,
+        "surfaceWords": 420,
         "canonicalArticleKey": "philosopher:rousseau",
         "canonicalArticleId": "rousseau",
-        "canonicalArticleWordCount": 1836,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 4119,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "adam-smith",
@@ -4351,11 +4351,11 @@
         "hallId": "enlightenment-revolution-kant",
         "visitorEntryPoint": "#/museum/enlightenment-revolution-kant/exhibits/adam-smith",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 377,
+        "surfaceWords": 406,
         "canonicalArticleKey": "philosopher:adam-smith",
         "canonicalArticleId": "adam-smith",
-        "canonicalArticleWordCount": 1844,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2111,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "mary-astell",
@@ -4363,11 +4363,11 @@
         "hallId": "enlightenment-revolution-kant",
         "visitorEntryPoint": "#/museum/enlightenment-revolution-kant/exhibits/mary-astell",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 398,
+        "surfaceWords": 416,
         "canonicalArticleKey": "philosopher:mary-astell",
         "canonicalArticleId": "mary-astell",
-        "canonicalArticleWordCount": 1901,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2056,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "wollstonecraft",
@@ -4375,11 +4375,11 @@
         "hallId": "enlightenment-revolution-kant",
         "visitorEntryPoint": "#/museum/enlightenment-revolution-kant/exhibits/wollstonecraft",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 336,
+        "surfaceWords": 382,
         "canonicalArticleKey": "philosopher:wollstonecraft",
         "canonicalArticleId": "wollstonecraft",
-        "canonicalArticleWordCount": 1800,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2053,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "kant",
@@ -4515,7 +4515,7 @@
       },
       {
         "surfaceId": "kierkegaard",
-        "title": "Søren Kierkegaard",
+        "title": "Kierkegaard",
         "hallId": "faith-pessimism-life-value",
         "visitorEntryPoint": "#/museum/faith-pessimism-life-value/exhibits/kierkegaard",
         "surfaceKind": "museum-primary-exhibit",
@@ -5006,8 +5006,8 @@
         "canonicalArticleKey": "philosopher:ficino",
         "canonicalArticleId": "ficino",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1819,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2146,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "machiavelli-prince",
@@ -5022,8 +5022,8 @@
         "canonicalArticleKey": "philosopher:machiavelli",
         "canonicalArticleId": "machiavelli",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1920,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2091,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "machiavelli-discourses",
@@ -5038,8 +5038,8 @@
         "canonicalArticleKey": "philosopher:machiavelli",
         "canonicalArticleId": "machiavelli",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1920,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2091,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "ficino-enneads",
@@ -5054,8 +5054,8 @@
         "canonicalArticleKey": "philosopher:ficino",
         "canonicalArticleId": "ficino",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1819,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2146,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "bacon-great-instauration",
@@ -5070,8 +5070,8 @@
         "canonicalArticleKey": "philosopher:bacon",
         "canonicalArticleId": "bacon",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1888,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2115,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "bacon-novum-organum",
@@ -5086,8 +5086,8 @@
         "canonicalArticleKey": "philosopher:bacon",
         "canonicalArticleId": "bacon",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1888,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2115,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "galileo-moon",
@@ -5102,8 +5102,8 @@
         "canonicalArticleKey": "philosopher:galileo",
         "canonicalArticleId": "galileo",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1803,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2121,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "galileo-telescopes",
@@ -5118,8 +5118,8 @@
         "canonicalArticleKey": "philosopher:galileo",
         "canonicalArticleId": "galileo",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1803,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2121,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "putney-debates",
@@ -5134,8 +5134,8 @@
         "canonicalArticleKey": "philosopher:hobbes",
         "canonicalArticleId": "hobbes",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1886,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2056,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "hobbes-leviathan",
@@ -5150,8 +5150,8 @@
         "canonicalArticleKey": "philosopher:hobbes",
         "canonicalArticleId": "hobbes",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1886,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2056,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "hobbes-de-cive",
@@ -5166,8 +5166,8 @@
         "canonicalArticleKey": "philosopher:hobbes",
         "canonicalArticleId": "hobbes",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1886,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2056,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "english-civil-war",
@@ -5182,8 +5182,8 @@
         "canonicalArticleKey": "philosopher:hobbes",
         "canonicalArticleId": "hobbes",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1886,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2056,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "hobbes-materialism-motion",
@@ -5198,8 +5198,8 @@
         "canonicalArticleKey": "philosopher:hobbes",
         "canonicalArticleId": "hobbes",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1886,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2056,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "phenomenology-intentionality",
@@ -8292,8 +8292,8 @@
         "canonicalArticleKey": "philosopher:anne-conway",
         "canonicalArticleId": "anne-conway",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1895,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2057,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "conway-intellectual-network",
@@ -8308,8 +8308,8 @@
         "canonicalArticleKey": "philosopher:anne-conway",
         "canonicalArticleId": "anne-conway",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1895,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2057,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "leibniz-monadology-perception",
@@ -8468,8 +8468,8 @@
         "canonicalArticleKey": "philosopher:berkeley",
         "canonicalArticleId": "berkeley",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1903,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2053,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "berkeley-perception-and-object",
@@ -8484,8 +8484,8 @@
         "canonicalArticleKey": "philosopher:berkeley",
         "canonicalArticleId": "berkeley",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1903,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2053,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "berkeley-bermuda-college-project",
@@ -8494,14 +8494,14 @@
         "visitorEntryPoint": "#/museum/empiricism-science-political-order/exhibits/berkeley-bermuda-college-project",
         "surfaceKind": "museum-supplemental-exhibit",
         "workLabel": "BERKELEY · COLLEGE SCHEME, NEWPORT, RELIGION, AND EMPIRE",
-        "surfaceWords": 153,
+        "surfaceWords": 173,
         "claimsArticleBacking": true,
         "articleActionLabel": "Open the philosopher in the Atlas",
         "canonicalArticleKey": "philosopher:berkeley",
         "canonicalArticleId": "berkeley",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1903,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2053,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "berkeley-camera-obscura-signs",
@@ -8516,8 +8516,8 @@
         "canonicalArticleKey": "philosopher:berkeley",
         "canonicalArticleId": "berkeley",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1903,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2053,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "berkeley-siris-tar-water-chain",
@@ -8532,8 +8532,8 @@
         "canonicalArticleKey": "philosopher:berkeley",
         "canonicalArticleId": "berkeley",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1903,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2053,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "hume-causation-billiard-table",
@@ -8628,8 +8628,8 @@
         "canonicalArticleKey": "philosopher:montesquieu",
         "canonicalArticleId": "montesquieu",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1863,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2144,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "enlightenment-comparison-map",
@@ -8644,8 +8644,8 @@
         "canonicalArticleKey": "philosopher:montesquieu",
         "canonicalArticleId": "montesquieu",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1863,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2144,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "enlightenment-power-checks-power",
@@ -8660,8 +8660,8 @@
         "canonicalArticleKey": "philosopher:montesquieu",
         "canonicalArticleId": "montesquieu",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1863,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2144,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "enlightenment-law-lived-institution",
@@ -8676,8 +8676,8 @@
         "canonicalArticleKey": "philosopher:montesquieu",
         "canonicalArticleId": "montesquieu",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1863,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2144,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "enlightenment-liberty-slavery-contradiction",
@@ -8692,8 +8692,8 @@
         "canonicalArticleKey": "philosopher:montesquieu",
         "canonicalArticleId": "montesquieu",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1863,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2144,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "enlightenment-geneva-citizenship",
@@ -8708,8 +8708,8 @@
         "canonicalArticleKey": "philosopher:rousseau",
         "canonicalArticleId": "rousseau",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1836,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 4119,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "enlightenment-luxury-amour-propre",
@@ -8724,8 +8724,8 @@
         "canonicalArticleKey": "philosopher:rousseau",
         "canonicalArticleId": "rousseau",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1836,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 4119,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "enlightenment-education-forms-person",
@@ -8740,8 +8740,8 @@
         "canonicalArticleKey": "philosopher:rousseau",
         "canonicalArticleId": "rousseau",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1836,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 4119,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "enlightenment-general-will",
@@ -8756,8 +8756,8 @@
         "canonicalArticleKey": "philosopher:rousseau",
         "canonicalArticleId": "rousseau",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1836,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 4119,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "enlightenment-rousseau-botany",
@@ -8772,8 +8772,8 @@
         "canonicalArticleKey": "philosopher:rousseau",
         "canonicalArticleId": "rousseau",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1836,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 4119,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "enlightenment-sympathy-judgment",
@@ -8788,8 +8788,8 @@
         "canonicalArticleKey": "philosopher:adam-smith",
         "canonicalArticleId": "adam-smith",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1844,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2111,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "enlightenment-division-labor",
@@ -8804,8 +8804,8 @@
         "canonicalArticleKey": "philosopher:adam-smith",
         "canonicalArticleId": "adam-smith",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1844,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2111,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "enlightenment-commerce-social-world",
@@ -8820,8 +8820,8 @@
         "canonicalArticleKey": "philosopher:adam-smith",
         "canonicalArticleId": "adam-smith",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1844,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2111,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "enlightenment-chartered-monopoly",
@@ -8836,8 +8836,8 @@
         "canonicalArticleKey": "philosopher:adam-smith",
         "canonicalArticleId": "adam-smith",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1844,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2111,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "enlightenment-industry-public-judgment",
@@ -8852,8 +8852,8 @@
         "canonicalArticleKey": "philosopher:adam-smith",
         "canonicalArticleId": "adam-smith",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1844,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2111,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "enlightenment-marriage-domestic-government",
@@ -8868,8 +8868,8 @@
         "canonicalArticleKey": "philosopher:mary-astell",
         "canonicalArticleId": "mary-astell",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1901,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2056,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "enlightenment-women-public-intellectuals",
@@ -8884,8 +8884,8 @@
         "canonicalArticleKey": "philosopher:mary-astell",
         "canonicalArticleId": "mary-astell",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1901,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2056,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "enlightenment-access-to-knowledge",
@@ -8900,8 +8900,8 @@
         "canonicalArticleKey": "philosopher:wollstonecraft",
         "canonicalArticleId": "wollstonecraft",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1800,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2053,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "enlightenment-revolution-from-street",
@@ -8916,8 +8916,8 @@
         "canonicalArticleKey": "philosopher:wollstonecraft",
         "canonicalArticleId": "wollstonecraft",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1800,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2053,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "idealism-jena-system-labor",

@@ -963,60 +963,76 @@
       "title": "Marsilio Ficino",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/ficino",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 6,
+      "citedSourceCount": 6,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1819
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 20,
+      "citationCount": 85,
+      "substantiveArticleWordCount": 2146,
+      "reviewNotePath": "docs/editorial/reviews/ficino.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:e7bb7d07babda6d5",
+      "currentReviewLock": "fnv1a64:e7bb7d07babda6d5"
     },
     {
       "id": "machiavelli",
-      "title": "Machiavelli",
+      "title": "Niccolò Machiavelli",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/machiavelli",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 6,
+      "citedSourceCount": 6,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1920
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 20,
+      "citationCount": 90,
+      "substantiveArticleWordCount": 2091,
+      "reviewNotePath": "docs/editorial/reviews/machiavelli.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:fa828f7950a9b89d",
+      "currentReviewLock": "fnv1a64:fa828f7950a9b89d"
     },
     {
       "id": "bacon",
       "title": "Francis Bacon",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/bacon",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 6,
+      "citedSourceCount": 6,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1888
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 20,
+      "citationCount": 87,
+      "substantiveArticleWordCount": 2115,
+      "reviewNotePath": "docs/editorial/reviews/bacon.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:7ff7054c4b29aae5",
+      "currentReviewLock": "fnv1a64:7ff7054c4b29aae5"
     },
     {
       "id": "galileo",
       "title": "Galileo Galilei",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/galileo",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 6,
+      "citedSourceCount": 6,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1803
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 21,
+      "citationCount": 88,
+      "substantiveArticleWordCount": 2121,
+      "reviewNotePath": "docs/editorial/reviews/galileo.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:9431849864306d85",
+      "currentReviewLock": "fnv1a64:9431849864306d85"
     },
     {
       "id": "descartes",
@@ -1038,15 +1054,19 @@
       "title": "Thomas Hobbes",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/hobbes",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 6,
+      "citedSourceCount": 6,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1886
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 21,
+      "citationCount": 93,
+      "substantiveArticleWordCount": 2056,
+      "reviewNotePath": "docs/editorial/reviews/hobbes.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:ce59b86f225ef7a2",
+      "currentReviewLock": "fnv1a64:ce59b86f225ef7a2"
     },
     {
       "id": "spinoza",
@@ -1095,18 +1115,22 @@
     },
     {
       "id": "berkeley",
-      "title": "Berkeley",
+      "title": "George Berkeley",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/berkeley",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 7,
+      "citedSourceCount": 7,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1903
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 21,
+      "citationCount": 96,
+      "substantiveArticleWordCount": 2053,
+      "reviewNotePath": "docs/editorial/reviews/berkeley.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:4228c15adffd0c89",
+      "currentReviewLock": "fnv1a64:4228c15adffd0c89"
     },
     {
       "id": "hume",
@@ -1125,18 +1149,22 @@
     },
     {
       "id": "rousseau",
-      "title": "Rousseau",
+      "title": "Jean-Jacques Rousseau",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/rousseau",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 7,
+      "citedSourceCount": 7,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1836
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 42,
+      "citationCount": 155,
+      "substantiveArticleWordCount": 4119,
+      "reviewNotePath": "docs/editorial/reviews/rousseau.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:3df4a66e1438c29c",
+      "currentReviewLock": "fnv1a64:3df4a66e1438c29c"
     },
     {
       "id": "bentham",
@@ -1977,75 +2005,95 @@
       "title": "Mary Astell",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/mary-astell",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 6,
+      "citedSourceCount": 6,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1901
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 21,
+      "citationCount": 104,
+      "substantiveArticleWordCount": 2056,
+      "reviewNotePath": "docs/editorial/reviews/mary-astell.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:f695b3e753136e0c",
+      "currentReviewLock": "fnv1a64:f695b3e753136e0c"
     },
     {
       "id": "anne-conway",
       "title": "Anne Conway",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/anne-conway",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 6,
+      "citedSourceCount": 6,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1895
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 21,
+      "citationCount": 85,
+      "substantiveArticleWordCount": 2057,
+      "reviewNotePath": "docs/editorial/reviews/anne-conway.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:04bf9470d35d25b9",
+      "currentReviewLock": "fnv1a64:04bf9470d35d25b9"
     },
     {
       "id": "montesquieu",
       "title": "Montesquieu",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/montesquieu",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 6,
+      "citedSourceCount": 6,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1863
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 24,
+      "citationCount": 98,
+      "substantiveArticleWordCount": 2144,
+      "reviewNotePath": "docs/editorial/reviews/montesquieu.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:fc375fcc8ca04062",
+      "currentReviewLock": "fnv1a64:fc375fcc8ca04062"
     },
     {
       "id": "adam-smith",
       "title": "Adam Smith",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/adam-smith",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 7,
+      "citedSourceCount": 7,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1844
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 24,
+      "citationCount": 106,
+      "substantiveArticleWordCount": 2111,
+      "reviewNotePath": "docs/editorial/reviews/adam-smith.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:c061e57fb4835f5c",
+      "currentReviewLock": "fnv1a64:c061e57fb4835f5c"
     },
     {
       "id": "wollstonecraft",
       "title": "Mary Wollstonecraft",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/wollstonecraft",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 7,
+      "citedSourceCount": 7,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1800
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 24,
+      "citationCount": 106,
+      "substantiveArticleWordCount": 2053,
+      "reviewNotePath": "docs/editorial/reviews/wollstonecraft.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:c796acad3a195a78",
+      "currentReviewLock": "fnv1a64:c796acad3a195a78"
     },
     {
       "id": "peirce",
@@ -4491,146 +4539,6 @@
       "excerpt": "Ockham is a central figure in medieval nominalism, though the label needs care. He denies that universals exist as common natures outside the mind. Only individual things exist in the world. Generality belongs to signs,"
     },
     {
-      "recordKey": "philosopher:ficino",
-      "status": "unreviewed",
-      "signal": "quotation",
-      "location": "historical-setting/paragraph-2",
-      "excerpt": "Cosimo de’ Medici supported Ficino and gave him property at Careggi, while later Medici patrons and a wide network of correspondents sustained his work. Patronage created time, books, and audiences, but it also tied scho"
-    },
-    {
-      "recordKey": "philosopher:ficino",
-      "status": "unreviewed",
-      "signal": "quotation",
-      "location": "translation-and-commentary/paragraph-2",
-      "excerpt": "The annotated manuscript of Plotinus’s Enneads makes this labor visible. Corrections and marginal notes show a reader testing language before presenting a finished Latin work. Such a page prevents “recovery” from becomin"
-    },
-    {
-      "recordKey": "philosopher:ficino",
-      "status": "unreviewed",
-      "signal": "quotation",
-      "location": "love-and-beauty/paragraph-1",
-      "excerpt": "Ficino’s Commentary on Plato’s Symposium helped shape the later language of “Platonic love.” For him, love is not merely affection without sexuality. It is desire awakened by beauty and capable of moving the soul from se"
-    },
-    {
-      "recordKey": "philosopher:ficino",
-      "status": "unreviewed",
-      "signal": "quotation",
-      "location": "ancient-theology/paragraph-1",
-      "excerpt": "Ficino believed that a sequence of ancient sages had progressively disclosed a wisdom compatible with Christianity. This “ancient theology” linked figures and texts that modern historical scholarship separates more sharp"
-    },
-    {
-      "recordKey": "philosopher:ficino",
-      "status": "unreviewed",
-      "signal": "disputed-attribution",
-      "location": "ancient-theology/paragraph-1",
-      "excerpt": "Ficino believed that a sequence of ancient sages had progressively disclosed a wisdom compatible with Christianity. This “ancient theology” linked figures and texts that modern historical scholarship separates more sharp"
-    },
-    {
-      "recordKey": "philosopher:ficino",
-      "status": "unreviewed",
-      "signal": "disputed-attribution",
-      "location": "medicine-music-astrology/paragraph-2",
-      "excerpt": "The astrological and talismanic dimensions are among the most contested parts of Ficino’s work. They should not be modernized into experimental medicine or caricatured as irrational decoration. Learned astrology belonged"
-    },
-    {
-      "recordKey": "philosopher:ficino",
-      "status": "unreviewed",
-      "signal": "influence-or-causation",
-      "location": "influence-and-tensions/paragraph-1",
-      "excerpt": "Ficino’s translations, commentaries, letters, and philosophical syntheses shaped Renaissance Platonism and later European discussions of love, beauty, soul, melancholy, music, and ancient wisdom. Readers across confessio"
-    },
-    {
-      "recordKey": "philosopher:ficino",
-      "status": "unreviewed",
-      "signal": "quotation",
-      "location": "influence-and-tensions/paragraph-2",
-      "excerpt": "Several cautions guard against a heroic story. Ficino did not single-handedly recover Plato; Greek and non-Latin communities had preserved, copied, debated, and transmitted ancient learning for centuries. Medici Florence"
-    },
-    {
-      "recordKey": "philosopher:machiavelli",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "overview/paragraph-1",
-      "excerpt": "Machiavelli is often treated as the scandalous founder of modern political realism because he describes power without first wrapping it in moral consolation. That reputation is partly earned and partly misleading. He did"
-    },
-    {
-      "recordKey": "philosopher:machiavelli",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "central-question/paragraph-1",
-      "excerpt": "The central Machiavellian question is not whether human beings are evil in a theological sense. It is whether political order can be built on the assumption that people will reliably act from gratitude, justice, courage,"
-    },
-    {
-      "recordKey": "philosopher:machiavelli",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "central-question/paragraph-2",
-      "excerpt": "This does not mean institutions are pointless. In the republican writings, institutions are precisely what can turn conflict, ambition, and fear into public strength. Laws, offices, accusations, military discipline, and"
-    },
-    {
-      "recordKey": "philosopher:machiavelli",
-      "status": "unreviewed",
-      "signal": "influence-or-causation",
-      "location": "influence-and-controversy/paragraph-1",
-      "excerpt": "Machiavelli influenced political realism, republican theory, reason-of-state writing, military thought, and later debates about liberty and founding. The adjective Machiavellian often means manipulative or unscrupulous,"
-    },
-    {
-      "recordKey": "philosopher:machiavelli",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "misunderstandings/paragraph-1",
-      "excerpt": "The first misunderstanding is that Machiavelli simply teaches people to be evil. He does teach that rulers sometimes use evil means, but his measure is political necessity, not delight in wrongdoing. The second misunders"
-    },
-    {
-      "recordKey": "philosopher:machiavelli",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "reading-strategy/paragraph-1",
-      "excerpt": "Begin with The Prince, but resist treating it as the whole story. Track the practical problem of each chapter: new principalities, arms, reputation, fear, fortune, ministers, and Italian liberation. Ask whether the advic"
-    },
-    {
-      "recordKey": "philosopher:bacon",
-      "status": "unreviewed",
-      "signal": "influence-or-causation",
-      "location": "influence-and-limits/paragraph-1",
-      "excerpt": "Bacon influenced the rhetoric and self-understanding of experimental science, especially in England. Later scientific societies could see themselves as Baconian in spirit: cooperative, experimental, useful, and cautious"
-    },
-    {
-      "recordKey": "philosopher:bacon",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "reading-strategy/paragraph-2",
-      "excerpt": "Keep three questions in view. First, what specific weakness of the human mind or intellectual culture is Bacon trying to correct? Second, what practice or institution would correct it? Third, what good is knowledge suppo"
-    },
-    {
-      "recordKey": "philosopher:galileo",
-      "status": "unreviewed",
-      "signal": "quotation",
-      "location": "historical-setting/paragraph-1",
-      "excerpt": "Galileo was born in Pisa in 1564 and studied in a world shaped by Aristotelian natural philosophy, university medicine, practical mathematics, astronomy, engineering, instrument making, and Renaissance humanism. “Aristot"
-    },
-    {
-      "recordKey": "philosopher:galileo",
-      "status": "unreviewed",
-      "signal": "influence-or-causation",
-      "location": "life-and-career/paragraph-2",
-      "excerpt": "Galileo’s later career combined research with escalating controversy. Observations of Venus and sunspots entered debates over cosmic order. His 1615 letter to Christina of Lorraine discussed how scriptural interpretation"
-    },
-    {
-      "recordKey": "philosopher:galileo",
-      "status": "unreviewed",
-      "signal": "influence-or-causation",
-      "location": "influence-and-misunderstandings/paragraph-1",
-      "excerpt": "Galileo influenced mechanics, astronomy, experimental culture, scientific rhetoric, and later accounts of mathematical nature. Descartes, Hobbes, Huygens, Newton, and many others worked in a field reshaped by problems he"
-    },
-    {
-      "recordKey": "philosopher:galileo",
-      "status": "unreviewed",
-      "signal": "quotation",
-      "location": "reading-strategy/paragraph-2",
-      "excerpt": "Next read selected days from the Dialogue, comparing the strong telescopic and mechanical arguments with the failed tidal argument. Finish with selections from Two New Sciences on acceleration and projectile motion, payi"
-    },
-    {
       "recordKey": "philosopher:descartes",
       "status": "bibliography-only",
       "signal": "priority-or-superlative",
@@ -4729,20 +4637,6 @@
       "excerpt": "Historians also reassess the story of heroic modern rupture. Descartes criticized scholasticism while using its training and vocabulary; pursued universal reason through elite learned networks; and was shaped by women co"
     },
     {
-      "recordKey": "philosopher:hobbes",
-      "status": "unreviewed",
-      "signal": "disputed-attribution",
-      "location": "human-nature/paragraph-1",
-      "excerpt": "Hobbes describes human beings as moved by appetites and aversions. Good and evil, in much ordinary use, name what people desire or avoid rather than objective forms perceived by reason. People seek preservation, power af"
-    },
-    {
-      "recordKey": "philosopher:hobbes",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "influence-and-criticism/paragraph-2",
-      "excerpt": "The major criticism is that Hobbes secures peace at the cost of too much liberty. If the sovereign controls doctrine, law, and force, what protects subjects from abuse? Hobbes preserves an inalienable right of self-prese"
-    },
-    {
       "recordKey": "philosopher:spinoza",
       "status": "unreviewed",
       "signal": "quotation",
@@ -4839,27 +4733,6 @@
       "signal": "priority-or-superlative",
       "location": "reading-strategy/paragraph-1",
       "excerpt": "Begin the Essay with its purpose in mind: Locke is mapping the limits of understanding so that belief can become more responsible. Read Book I on innate ideas, Book II on ideas and qualities, Book II chapter 27 on identi"
-    },
-    {
-      "recordKey": "philosopher:berkeley",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "overview/paragraph-2",
-      "excerpt": "This position can sound like fantasy when first encountered. Berkeley is not denying that tables, trees, colors, sounds, and bodies are real in ordinary life. He denies that their reality consists in an unperceived mater"
-    },
-    {
-      "recordKey": "philosopher:berkeley",
-      "status": "unreviewed",
-      "signal": "influence-or-causation",
-      "location": "vision-and-perception/paragraph-2",
-      "excerpt": "This work also shows Berkeley as a careful philosopher of perception, not only a metaphysical provocateur. He studies how different senses relate and how experience teaches expectation. The theory influenced later debate"
-    },
-    {
-      "recordKey": "philosopher:berkeley",
-      "status": "unreviewed",
-      "signal": "influence-or-causation",
-      "location": "influence-and-controversies/paragraph-1",
-      "excerpt": "Berkeley influenced later empiricism most dramatically through Hume. By attacking material substance, abstract ideas, and hidden supports, Berkeley showed how strict empiricism could dissolve inherited metaphysics. Hume"
     },
     {
       "recordKey": "philosopher:hume",
@@ -5028,27 +4901,6 @@
       "signal": "quotation",
       "location": "reading-path/paragraph-3",
       "excerpt": "Finish with the Natural History of Religion and Dialogues Concerning Natural Religion, keeping genre and posthumous publication in view. Read “Of National Characters” with scholarship on Hume and race, not as a detachabl"
-    },
-    {
-      "recordKey": "philosopher:rousseau",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "lawgiver-and-religion/paragraph-1",
-      "excerpt": "Rousseau knows that good laws require citizens capable of willing the common good, but citizens are partly formed by laws. This circular problem explains the figure of the lawgiver, an extraordinary founder who helps sha"
-    },
-    {
-      "recordKey": "philosopher:rousseau",
-      "status": "unreviewed",
-      "signal": "influence-or-causation",
-      "location": "influence-and-controversy/paragraph-1",
-      "excerpt": "Rousseau influenced Kant, German Idealism, Romanticism, democratic theory, republicanism, educational thought, critiques of inequality, and modern debates about authenticity. Kant credited Rousseau with teaching him to r"
-    },
-    {
-      "recordKey": "philosopher:rousseau",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "misunderstandings/paragraph-1",
-      "excerpt": "The first misunderstanding is that Rousseau simply says primitive life is perfect and civilization is bad. His view is more complex. Human development creates reason, morality, language, and political possibility, but al"
     },
     {
       "recordKey": "philosopher:bentham",
@@ -6113,97 +5965,6 @@
       "signal": "broad-classification",
       "location": "misunderstandings-reading/paragraph-1",
       "excerpt": "One misunderstanding treats the primacy of existence as the trivial observation that things exist. It is instead a claim about what is extra-mental and how essences function in thought. Another treats substantial motion"
-    },
-    {
-      "recordKey": "philosopher:mary-astell",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "life-and-works/paragraph-2",
-      "excerpt": "Her most famous texts are A Serious Proposal to the Ladies and Some Reflections upon Marriage. The first proposes a community of female study and religious discipline; the second criticizes the conditions under which mar"
-    },
-    {
-      "recordKey": "philosopher:anne-conway",
-      "status": "unreviewed",
-      "signal": "influence-or-causation",
-      "location": "monads-and-leibniz/paragraph-1",
-      "excerpt": "Conway is often discussed in relation to Leibniz because both reject dead matter and imagine reality through active, perception-like individuals rather than inert blocks. The historical relation is debated, but there are"
-    },
-    {
-      "recordKey": "philosopher:anne-conway",
-      "status": "unreviewed",
-      "signal": "influence-or-causation",
-      "location": "controversies/paragraph-2",
-      "excerpt": "Scholars also debate the influence of Kabbalistic material, the role of van Helmont, the extent of Conway's influence on Leibniz, and the best way to understand her relation to Cambridge Platonism. These debates are not"
-    },
-    {
-      "recordKey": "philosopher:anne-conway",
-      "status": "unreviewed",
-      "signal": "influence-or-causation",
-      "location": "misunderstandings/paragraph-1",
-      "excerpt": "One misunderstanding is to call Conway simply a mystic and stop there. Her work is religious and speculative, but it also contains precise arguments against dualism, dead matter, and metaphysical discontinuity. Another m"
-    },
-    {
-      "recordKey": "philosopher:montesquieu",
-      "status": "unreviewed",
-      "signal": "influence-or-causation",
-      "location": "commerce-and-manners/paragraph-1",
-      "excerpt": "Montesquieu often suggests that commerce can soften manners by making people mutually dependent, interested in peace, and attentive to exchange rather than conquest. Commercial society may weaken certain forms of martial"
-    },
-    {
-      "recordKey": "philosopher:montesquieu",
-      "status": "unreviewed",
-      "signal": "influence-or-causation",
-      "location": "influence/paragraph-1",
-      "excerpt": "Montesquieu influenced constitutional design, liberal political thought, sociology, comparative law, and what later became political science. The separation of powers became especially important in debates over constitut"
-    },
-    {
-      "recordKey": "philosopher:montesquieu",
-      "status": "unreviewed",
-      "signal": "influence-or-causation",
-      "location": "influence/paragraph-2",
-      "excerpt": "His influence on later thinkers is not one-directional agreement. Rousseau admired and criticized him; Smith shares some interest in manners and commerce while developing a different moral psychology; later liberal const"
-    },
-    {
-      "recordKey": "philosopher:montesquieu",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "misunderstandings/paragraph-1",
-      "excerpt": "The first misunderstanding is to reduce Montesquieu to the phrase separation of powers. That doctrine is central, but it sits inside a larger theory of law, society, and political moderation. The second misunderstanding"
-    },
-    {
-      "recordKey": "philosopher:adam-smith",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "overview/paragraph-1",
-      "excerpt": "Adam Smith is often remembered as the father of economics, but he was first a moral philosopher of the Scottish Enlightenment. His two great works, The Theory of Moral Sentiments and The Wealth of Nations, belong togethe"
-    },
-    {
-      "recordKey": "philosopher:adam-smith",
-      "status": "unreviewed",
-      "signal": "influence-or-causation",
-      "location": "influence-and-controversy/paragraph-1",
-      "excerpt": "Smith influenced economics, liberal political thought, moral philosophy, sociology, and debates over markets and state power. Later readers often separated The Wealth of Nations from The Theory of Moral Sentiments, creat"
-    },
-    {
-      "recordKey": "philosopher:adam-smith",
-      "status": "unreviewed",
-      "signal": "influence-or-causation",
-      "location": "reading-strategy/paragraph-1",
-      "excerpt": "Begin with The Theory of Moral Sentiments, especially sympathy, the impartial spectator, self-command, justice, and the corruption caused by admiration for the wealthy. Then read selected books of The Wealth of Nations o"
-    },
-    {
-      "recordKey": "philosopher:wollstonecraft",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "marriage-family-citizenship/paragraph-2",
-      "excerpt": "This domestic argument is also political. Children learn citizenship in households. If homes are organized around tyranny, flattery, and dependency, public virtue is weakened. Wollstonecraft therefore refuses to separate"
-    },
-    {
-      "recordKey": "philosopher:wollstonecraft",
-      "status": "unreviewed",
-      "signal": "influence-or-causation",
-      "location": "influence/paragraph-1",
-      "excerpt": "Wollstonecraft influenced later feminism, liberal political thought, debates over women's education, and critiques of marriage and domestic dependence. Her legacy is not simple. Later feminists have admired her insistenc"
     },
     {
       "recordKey": "philosopher:merleau-ponty",
@@ -9073,10 +8834,10 @@
   "groupSummary": {
     "philosophers": {
       "total": 146,
-      "unreviewed": 36,
+      "unreviewed": 24,
       "bibliography-only": 53,
       "source-mapped": 0,
-      "claim-reviewed": 57,
+      "claim-reviewed": 69,
       "review-out-of-date": 0
     },
     "philosophies": {

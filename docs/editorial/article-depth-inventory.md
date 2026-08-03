@@ -14,11 +14,11 @@ The hard floor is **2,000 substantive article-prose words**. The counter tokeniz
 
 | Category | Total | Pass | Fail | Missing article |
 | --- | ---: | ---: | ---: | ---: |
-| Philosophers | 146 | 109 | 37 | 0 |
+| Philosophers | 146 | 121 | 25 | 0 |
 | Philosophies, branches, schools, traditions, movements, methods, and frameworks | 45 | 40 | 5 | 0 |
 | Standalone works, texts, arguments, concepts, and article-backed exhibits | 0 | 0 | 0 | 0 |
 
-Universal total: **191** applicable articles; **149 pass**; **42 fail**; **0 are missing article prose**.
+Universal total: **191** applicable articles; **161 pass**; **30 fail**; **0 are missing article prose**.
 
 Current failures are migration backlog, not approved exceptions. The strict audit is intentionally separate from the ordinary build until that backlog reaches zero.
 
@@ -36,13 +36,6 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 
 | ID | Title | Category | Words | Status |
 | --- | --- | --- | ---: | --- |
-| ficino | Marsilio Ficino | philosopher | 1819 | fail |
-| machiavelli | Machiavelli | philosopher | 1920 | fail |
-| bacon | Francis Bacon | philosopher | 1888 | fail |
-| galileo | Galileo Galilei | philosopher | 1803 | fail |
-| hobbes | Thomas Hobbes | philosopher | 1886 | fail |
-| berkeley | Berkeley | philosopher | 1903 | fail |
-| rousseau | Rousseau | philosopher | 1836 | fail |
 | bentham | Jeremy Bentham | philosopher | 1976 | fail |
 | schelling | Schelling | philosopher | 1998 | fail |
 | hegel | Hegel | philosopher | 1808 | fail |
@@ -56,11 +49,6 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | marsilius-padua | Marsilius of Padua | philosopher | 1856 | fail |
 | ibn-tufayl | Ibn Tufayl | philosopher | 1830 | fail |
 | suhrawardi | Suhrawardi | philosopher | 1824 | fail |
-| mary-astell | Mary Astell | philosopher | 1901 | fail |
-| anne-conway | Anne Conway | philosopher | 1895 | fail |
-| montesquieu | Montesquieu | philosopher | 1863 | fail |
-| adam-smith | Adam Smith | philosopher | 1844 | fail |
-| wollstonecraft | Mary Wollstonecraft | philosopher | 1800 | fail |
 | merleau-ponty | Maurice Merleau-Ponty | philosopher | 1824 | fail |
 | levinas | Emmanuel Levinas | philosopher | 1808 | fail |
 | gadamer | Hans-Georg Gadamer | philosopher | 1814 | fail |
@@ -83,8 +71,8 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 
 | ID | Title | Category | Words | Status |
 | --- | --- | --- | ---: | --- |
-| ficino | Marsilio Ficino | philosopher | 1819 | fail |
-| galileo | Galileo Galilei | philosopher | 1803 | fail |
+| ficino | Marsilio Ficino | philosopher | 2146 | pass |
+| galileo | Galileo Galilei | philosopher | 2121 | pass |
 | kant | Immanuel Kant | philosopher | 4511 | pass |
 | nietzsche | Friedrich Nietzsche | philosopher | 4336 | pass |
 | wittgenstein | Ludwig Wittgenstein | philosopher | 4790 | pass |
@@ -155,18 +143,18 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | philosopher | aquinas | Thomas Aquinas | #/philosophers/aquinas | 2152 | pass | yes | yes (1 primary; 3 supplemental) |
 | philosopher | duns-scotus | Duns Scotus | #/philosophers/duns-scotus | 2204 | pass | yes | yes (1 primary; 1 supplemental) |
 | philosopher | ockham | William of Ockham | #/philosophers/ockham | 2253 | pass | yes | yes (1 primary; 0 supplemental) |
-| philosopher | ficino | Marsilio Ficino | #/philosophers/ficino | 1819 | fail | no | yes (1 primary; 2 supplemental) |
-| philosopher | machiavelli | Machiavelli | #/philosophers/machiavelli | 1920 | fail | yes | yes (1 primary; 2 supplemental) |
-| philosopher | bacon | Francis Bacon | #/philosophers/bacon | 1888 | fail | yes | yes (1 primary; 2 supplemental) |
-| philosopher | galileo | Galileo Galilei | #/philosophers/galileo | 1803 | fail | no | yes (1 primary; 2 supplemental) |
+| philosopher | ficino | Marsilio Ficino | #/philosophers/ficino | 2146 | pass | no | yes (1 primary; 2 supplemental) |
+| philosopher | machiavelli | Niccolò Machiavelli | #/philosophers/machiavelli | 2091 | pass | yes | yes (1 primary; 2 supplemental) |
+| philosopher | bacon | Francis Bacon | #/philosophers/bacon | 2115 | pass | yes | yes (1 primary; 2 supplemental) |
+| philosopher | galileo | Galileo Galilei | #/philosophers/galileo | 2121 | pass | no | yes (1 primary; 2 supplemental) |
 | philosopher | descartes | René Descartes | #/philosophers/descartes | 4687 | pass | yes | yes (1 primary; 4 supplemental) |
-| philosopher | hobbes | Thomas Hobbes | #/philosophers/hobbes | 1886 | fail | yes | yes (1 primary; 5 supplemental) |
+| philosopher | hobbes | Thomas Hobbes | #/philosophers/hobbes | 2056 | pass | yes | yes (1 primary; 5 supplemental) |
 | philosopher | spinoza | Spinoza | #/philosophers/spinoza | 2350 | pass | yes | yes (1 primary; 3 supplemental) |
 | philosopher | leibniz | Leibniz | #/philosophers/leibniz | 2303 | pass | yes | yes (1 primary; 5 supplemental) |
 | philosopher | locke | Locke | #/philosophers/locke | 2360 | pass | yes | yes (1 primary; 3 supplemental) |
-| philosopher | berkeley | Berkeley | #/philosophers/berkeley | 1903 | fail | yes | yes (1 primary; 5 supplemental) |
+| philosopher | berkeley | George Berkeley | #/philosophers/berkeley | 2053 | pass | yes | yes (1 primary; 5 supplemental) |
 | philosopher | hume | David Hume | #/philosophers/hume | 4800 | pass | yes | yes (1 primary; 5 supplemental) |
-| philosopher | rousseau | Rousseau | #/philosophers/rousseau | 1836 | fail | yes | yes (1 primary; 5 supplemental) |
+| philosopher | rousseau | Jean-Jacques Rousseau | #/philosophers/rousseau | 4119 | pass | yes | yes (1 primary; 5 supplemental) |
 | philosopher | bentham | Jeremy Bentham | #/philosophers/bentham | 1976 | fail | yes | yes (1 primary; 4 supplemental) |
 | philosopher | kant | Immanuel Kant | #/philosophers/kant | 4511 | pass | no | yes (1 primary; 0 supplemental) |
 | philosopher | fichte | Fichte | #/philosophers/fichte | 2026 | pass | yes | yes (1 primary; 3 supplemental) |
@@ -217,11 +205,11 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | philosopher | han-feizi | Han Feizi | #/philosophers/han-feizi | 2154 | pass | yes | yes (1 primary; 0 supplemental) |
 | philosopher | zhu-xi | Zhu Xi | #/philosophers/zhu-xi | 2235 | pass | yes | yes (1 primary; 2 supplemental) |
 | philosopher | wang-yangming | Wang Yangming | #/philosophers/wang-yangming | 2155 | pass | yes | yes (1 primary; 1 supplemental) |
-| philosopher | mary-astell | Mary Astell | #/philosophers/mary-astell | 1901 | fail | yes | yes (1 primary; 2 supplemental) |
-| philosopher | anne-conway | Anne Conway | #/philosophers/anne-conway | 1895 | fail | yes | yes (1 primary; 2 supplemental) |
-| philosopher | montesquieu | Montesquieu | #/philosophers/montesquieu | 1863 | fail | yes | yes (1 primary; 5 supplemental) |
-| philosopher | adam-smith | Adam Smith | #/philosophers/adam-smith | 1844 | fail | yes | yes (1 primary; 5 supplemental) |
-| philosopher | wollstonecraft | Mary Wollstonecraft | #/philosophers/wollstonecraft | 1800 | fail | yes | yes (1 primary; 2 supplemental) |
+| philosopher | mary-astell | Mary Astell | #/philosophers/mary-astell | 2056 | pass | yes | yes (1 primary; 2 supplemental) |
+| philosopher | anne-conway | Anne Conway | #/philosophers/anne-conway | 2057 | pass | yes | yes (1 primary; 2 supplemental) |
+| philosopher | montesquieu | Montesquieu | #/philosophers/montesquieu | 2144 | pass | yes | yes (1 primary; 5 supplemental) |
+| philosopher | adam-smith | Adam Smith | #/philosophers/adam-smith | 2111 | pass | yes | yes (1 primary; 5 supplemental) |
+| philosopher | wollstonecraft | Mary Wollstonecraft | #/philosophers/wollstonecraft | 2053 | pass | yes | yes (1 primary; 2 supplemental) |
 | philosopher | peirce | Charles Sanders Peirce | #/philosophers/peirce | 2123 | pass | yes | yes (1 primary; 4 supplemental) |
 | philosopher | william-james | William James | #/philosophers/william-james | 2092 | pass | yes | yes (1 primary; 5 supplemental) |
 | philosopher | frege | Gottlob Frege | #/philosophers/frege | 2150 | pass | yes | yes (1 primary; 1 supplemental) |

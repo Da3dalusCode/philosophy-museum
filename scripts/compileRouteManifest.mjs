@@ -153,6 +153,7 @@ const searchIndex = {
       label: exhibit.displayName,
       searchText: searchable([
         exhibit.displayName,
+        exhibit.curatorialDisplayName,
         exhibit.question,
         hall.title,
         hall.zones.find(({id}) => id === exhibit.zoneId)?.title ?? '',

@@ -91,6 +91,7 @@ export function MuseumInterpretationPanel({
   });
   const concise = content.presentation?.mode === 'concise';
   const facts = content.presentation?.orientation ?? museumInterpretationFacts(content);
+  const canonicalTitle = exhibit.displayName;
 
   useEffect(() => {
     const frame = window.requestAnimationFrame(() => document.getElementById(titleId)?.focus({preventScroll: true}));
@@ -150,8 +151,8 @@ export function MuseumInterpretationPanel({
       onKeyDown={handleKeyDown}
     >
       <header className="museum-panel-header">
-        <div>{!concise && <p className="museum-panel-kicker">{content.entityType} · {content.dateLabel}</p>}<h2 id={titleId} tabIndex={-1}>{content.name}</h2></div>
-        <button className="museum-icon-button" type="button" onClick={() => onClose('gesture')} aria-label={`Close ${content.name} exhibit`}><X/></button>
+        <div>{!concise && <p className="museum-panel-kicker">{content.entityType} · {content.dateLabel}</p>}<h2 id={titleId} tabIndex={-1}>{canonicalTitle}</h2></div>
+        <button className="museum-icon-button" type="button" onClick={() => onClose('gesture')} aria-label={`Close ${canonicalTitle} exhibit`}><X/></button>
       </header>
 
       <div className="museum-panel-scroll">
