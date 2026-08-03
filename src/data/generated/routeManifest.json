@@ -4361,275 +4361,247 @@
       "name": "Confucius",
       "sections": [
         {
-          "id": "overview",
-          "title": "A teacher of humane order in a broken political world"
+          "id": "evidence",
+          "title": "A historical teacher behind many remembered figures"
         },
         {
-          "id": "historical-world",
-          "title": "Late Zhou fragmentation and the need for cultivated rule"
+          "id": "analects",
+          "title": "The Analects as a formed and transmitted collection"
         },
         {
-          "id": "sources-and-chronology",
-          "title": "The Analects and the problem of access"
+          "id": "learning",
+          "title": "Learning as repeated, social practice"
         },
         {
-          "id": "ren-and-li",
-          "title": "Humaneness and ritual as mutually forming practices"
+          "id": "ren-li",
+          "title": "Humaneness and ritual are mutually forming"
         },
         {
-          "id": "learning-and-character",
-          "title": "Learning as lifelong self-cultivation"
+          "id": "family",
+          "title": "Family roles, reciprocity, and their limits"
         },
         {
-          "id": "names-and-roles",
-          "title": "The rectification of names and truthful social language"
+          "id": "government",
+          "title": "Government by exemplary power and corrected roles"
         },
         {
-          "id": "family-and-government",
-          "title": "Family feeling and public responsibility"
+          "id": "tian",
+          "title": "Heaven, fate, spirits, and practical reverence"
         },
         {
-          "id": "heaven-and-moral-limits",
-          "title": "Heaven, fate, and the limits of human control"
+          "id": "music-poetry",
+          "title": "Music, poetry, emotion, and cultivated judgment"
         },
         {
-          "id": "earlier-traditions",
-          "title": "A transmitter in conversation with Zhou culture"
+          "id": "afterlives",
+          "title": "A source repeatedly remade by later traditions"
         },
         {
-          "id": "later-confucians",
-          "title": "Mencius, Xunzi, and the growth of Confucian philosophy"
-        },
-        {
-          "id": "misunderstandings-and-tensions",
-          "title": "Common misunderstandings and real tensions"
-        },
-        {
-          "id": "reading-strategy",
-          "title": "How to read Confucius well"
+          "id": "reading",
+          "title": "A reading path that preserves textual difficulty"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "laozi",
       "name": "Laozi",
       "sections": [
         {
-          "id": "overview",
-          "title": "The Dao as the source and correction of human striving"
+          "id": "persona-text",
+          "title": "An Old Master, an attributed voice, and a classic"
         },
         {
-          "id": "legend-and-chronology",
-          "title": "Legendary biography and uncertain composition"
+          "id": "formation-manuscripts",
+          "title": "A layered work before the received eighty-one chapters"
         },
         {
-          "id": "dao-and-naming",
-          "title": "The way that cannot be captured by names"
+          "id": "warring-states",
+          "title": "Counsel amid Warring States competition"
         },
         {
-          "id": "de-and-power",
-          "title": "De as power, potency, and unforced presence"
+          "id": "dao-naming",
+          "title": "Dao, naming, and the limits of a fixed account"
         },
         {
-          "id": "wuwei",
-          "title": "Wuwei and the discipline of noncoercive action"
+          "id": "de-wu-you",
+          "title": "De, absence, and presence"
         },
         {
-          "id": "simplicity-and-desire",
-          "title": "Simplicity, desire, and the uncarved block"
+          "id": "wuwei-ziran",
+          "title": "Wuwei and ziran: action without coercive forcing"
         },
         {
-          "id": "politics-and-war",
-          "title": "Small states, low rule, and suspicion of war"
+          "id": "images-reversal",
+          "title": "Water, softness, and reversal as philosophical method"
         },
         {
-          "id": "relation-to-confucianism",
-          "title": "Laozi and the Confucian challenge"
+          "id": "politics-war",
+          "title": "Low-profile rule, livelihood, and the danger of weapons"
         },
         {
-          "id": "textual-style",
-          "title": "Paradox, image, and textual layers"
+          "id": "comparison-reception",
+          "title": "Not one doctrine: Confucian comparison and later readings"
         },
         {
-          "id": "later-daoism",
-          "title": "Later Daoist transformations"
+          "id": "misreadings",
+          "title": "Productive disagreements and common misreadings"
         },
         {
-          "id": "misunderstandings-and-tensions",
-          "title": "Common misunderstandings and interpretive risks"
-        },
-        {
-          "id": "reading-strategy",
-          "title": "How to read Laozi without turning it into slogans"
+          "id": "reading-path",
+          "title": "A source-conscious route through the Daodejing"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "zhuangzi",
       "name": "Zhuangzi",
       "sections": [
         {
-          "id": "overview",
-          "title": "Freedom through transformation of perspective"
+          "id": "person-collection",
+          "title": "Master Zhuang and a book larger than one author"
         },
         {
-          "id": "context-and-person",
-          "title": "Warring States pressure and an elusive author"
+          "id": "text-history",
+          "title": "Inner, Outer, and Miscellaneous chapters"
         },
         {
-          "id": "text-and-style",
-          "title": "Stories as philosophical instruments"
+          "id": "warring-states-label",
+          "title": "A Warring States intervention before “Daoism”"
         },
         {
-          "id": "perspective-and-relativity",
-          "title": "Perspectival limits without simple relativism"
+          "id": "literary-method",
+          "title": "Parable, humor, and voices that refuse a final perch"
         },
         {
-          "id": "language-and-disputation",
-          "title": "Language, disputation, and the limits of winning"
+          "id": "perspectives-language",
+          "title": "Perspectives, distinctions, and the pivot of dao"
         },
         {
-          "id": "spontaneity-and-skill",
-          "title": "Skill, spontaneity, and following the grain"
+          "id": "knowledge-skill",
+          "title": "Knowing how: Cook Ding and trained responsiveness"
         },
         {
-          "id": "usefulness-and-uselessness",
-          "title": "The usefulness of uselessness"
+          "id": "self-transformation",
+          "title": "Fasting the heart-mind and loosening a fixed self"
         },
         {
-          "id": "life-death-and-transformation",
-          "title": "Life, death, and transformation"
+          "id": "death-dream",
+          "title": "Butterfly, mourning, and the transformation of things"
         },
         {
-          "id": "politics-and-withdrawal",
-          "title": "Office, power, and the refusal to be trapped"
+          "id": "use-disability",
+          "title": "Uselessness, survival, and resistance to social measurement"
         },
         {
-          "id": "relation-to-laozi-and-confucius",
-          "title": "Relations to Laozi, Confucius, and rival schools"
+          "id": "politics-ethics",
+          "title": "Withdrawal, improvisation, and political responsibility"
         },
         {
-          "id": "influence-and-reception",
-          "title": "Influence in Chinese and global thought"
+          "id": "reception-modern",
+          "title": "Laozi, Chan, and modern appropriations"
         },
         {
-          "id": "reading-strategy",
-          "title": "How to read Zhuangzi without pinning it down too fast"
+          "id": "reading-path",
+          "title": "Reading the voices without forcing them into one system"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "mencius",
       "name": "Mencius",
       "sections": [
         {
-          "id": "overview",
-          "title": "A Confucian defense of humane government and moral beginnings"
+          "id": "life-text",
+          "title": "A Warring States persuader known through a named book"
         },
         {
-          "id": "historical-world",
-          "title": "The Warring States setting and the search for legitimacy"
+          "id": "nature",
+          "title": "What it means to say human nature is good"
         },
         {
-          "id": "text-and-voice",
-          "title": "The Mencius as dialogue, memory, and school argument"
+          "id": "sprouts",
+          "title": "Four beginnings as affective judgments"
         },
         {
-          "id": "human-nature",
-          "title": "Human nature, sprouts, and the possibility of virtue"
+          "id": "cultivation",
+          "title": "Nourishment, reflection, and the danger of forced growth"
         },
         {
-          "id": "heart-mind",
-          "title": "The heart-mind and moral attention"
+          "id": "yi-desire",
+          "title": "Rightness, benefit, desire, and integrity"
         },
         {
-          "id": "righteousness-and-benefit",
-          "title": "Righteousness against the politics of mere profit"
+          "id": "argument",
+          "title": "Analogies, dilemmas, and moral attention"
         },
         {
-          "id": "benevolent-government",
-          "title": "Benevolent government and the conditions of moral life"
+          "id": "politics",
+          "title": "Humane government and the material basis of virtue"
         },
         {
-          "id": "education-and-cultivation",
-          "title": "Nourishing the sprouts through learning and practice"
+          "id": "rivals",
+          "title": "Gaozi, Mohists, Yang Zhu, and Xunzi"
         },
         {
-          "id": "school-relationships",
-          "title": "Confucius, Xunzi, Mohism, Daoism, and Legalism"
+          "id": "reception",
+          "title": "Canonization and interpretive plurality"
         },
         {
-          "id": "influence-and-reception",
-          "title": "From early Confucianism to Neo-Confucian revival"
-        },
-        {
-          "id": "misunderstandings",
-          "title": "Common misunderstandings and live tensions"
-        },
-        {
-          "id": "reading-strategy",
-          "title": "How to read Mencius well"
+          "id": "reading",
+          "title": "Reading beyond the four-sprouts slogan"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "xunzi",
       "name": "Xunzi",
       "sections": [
         {
-          "id": "overview",
-          "title": "A Confucian theory of deliberate cultivation and ritual order"
+          "id": "life-text",
+          "title": "A teacher and a layered argumentative collection"
         },
         {
-          "id": "historical-world",
-          "title": "Late Warring States pressure and the demand for order"
+          "id": "learning",
+          "title": "Learning changes what spontaneous life alone cannot"
         },
         {
-          "id": "text-and-method",
-          "title": "The Xunzi as essay, argument, and school synthesis"
+          "id": "nature",
+          "title": "“Human nature is bad” as an argument, not a verdict of depravity"
         },
         {
-          "id": "human-nature",
-          "title": "Human nature as raw material, not moral completion"
+          "id": "desire",
+          "title": "Desires require ordering, not annihilation"
         },
         {
-          "id": "ritual-and-artifice",
-          "title": "Ritual as the human art that transforms desire"
+          "id": "ritual",
+          "title": "Ritual as a human answer to scarcity and feeling"
         },
         {
-          "id": "heaven-and-nature",
-          "title": "Heaven, natural order, and human responsibility"
+          "id": "heaven",
+          "title": "Heaven and the division between cosmos and human work"
         },
         {
-          "id": "language-and-names",
-          "title": "Correct names, standards, and public intelligibility"
+          "id": "language",
+          "title": "Names, distinctions, and the public conditions of reasoning"
         },
         {
-          "id": "music-learning-and-sages",
-          "title": "Music, learning, and the authority of the sages"
+          "id": "politics",
+          "title": "Institutions, hierarchy, and the work of government"
         },
         {
-          "id": "political-order",
-          "title": "Government, hierarchy, and cultivated administration"
+          "id": "rivals-reception",
+          "title": "A synthetic critic later placed behind Mencius"
         },
         {
-          "id": "school-relationships",
-          "title": "Mencius, Mohism, Daoism, and Legalist afterlives"
-        },
-        {
-          "id": "misunderstandings",
-          "title": "Common misunderstandings and real tensions"
-        },
-        {
-          "id": "reading-strategy",
-          "title": "How to read Xunzi well"
+          "id": "reading",
+          "title": "Reading Xunzi as more than chapter 23"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "buddha",
@@ -9113,220 +9085,216 @@
       "name": "Mozi",
       "sections": [
         {
-          "id": "overview",
-          "title": "A Mohist challenge to partiality, extravagance, and inherited privilege"
+          "id": "orientation",
+          "title": "A master known through a movement"
         },
         {
-          "id": "historical-world",
-          "title": "Warring States competition and practical reform"
+          "id": "corpus",
+          "title": "The layered Mozi corpus"
         },
         {
-          "id": "text-and-layers",
-          "title": "The Mozi as layered school text"
+          "id": "benefit-standards",
+          "title": "Benefit and public standards"
         },
         {
           "id": "impartial-concern",
-          "title": "Impartial concern and the critique of graded partiality"
+          "title": "Inclusive or impartial concern"
         },
         {
-          "id": "benefit-and-standards",
-          "title": "Benefit, standards, and public reasoning"
+          "id": "war",
+          "title": "Against aggression, not every use of force"
         },
         {
-          "id": "against-offensive-war",
-          "title": "The attack on offensive war"
+          "id": "heaven-ghosts",
+          "title": "Heaven, ghosts, and moral enforcement"
         },
         {
-          "id": "frugality-and-ritual-critique",
-          "title": "Frugality, funerals, music, and the Confucian dispute"
+          "id": "frugality-fatalism",
+          "title": "Frugality, ritual criticism, and agency"
         },
         {
-          "id": "heaven-spirits-and-fatalism",
-          "title": "Heaven, spirits, and the rejection of fatalism"
+          "id": "government",
+          "title": "Merit and conformity in Mohist government"
         },
         {
-          "id": "merit-and-government",
-          "title": "Merit, hierarchy, and political organization"
+          "id": "later-mohists",
+          "title": "Later Mohist language, knowledge, and argument"
         },
         {
-          "id": "school-relationships",
-          "title": "Confucians, Daoists, Legalists, and later Mohists"
+          "id": "reception",
+          "title": "Rivals, decline, and continuing questions"
         },
         {
-          "id": "misunderstandings",
-          "title": "Common misunderstandings and live tensions"
-        },
-        {
-          "id": "reading-strategy",
-          "title": "How to read Mozi well"
+          "id": "reading",
+          "title": "A reading path through layers"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "han-feizi",
       "name": "Han Feizi",
       "sections": [
         {
-          "id": "overview",
-          "title": "A Legalist theory of law, technique, and political power"
+          "id": "orientation",
+          "title": "A late Warring States political thinker"
         },
         {
-          "id": "historical-world",
-          "title": "Late Warring States crisis and the rise of administrative statecraft"
+          "id": "text",
+          "title": "The composite Han Feizi"
         },
         {
-          "id": "text-and-style",
-          "title": "The Han Feizi as argument, anecdote, and warning manual"
+          "id": "label",
+          "title": "Why “Legalism” needs qualification"
         },
         {
-          "id": "fa-law-and-standards",
-          "title": "Fa, law, and the public standard"
+          "id": "fa",
+          "title": "Fa: standards, laws, and institutions"
         },
         {
-          "id": "shu-technique",
-          "title": "Shu, administrative technique, and control of officials"
+          "id": "shu",
+          "title": "Shu: administrative technique"
         },
         {
-          "id": "shi-power-position",
-          "title": "Shi and the power of position"
+          "id": "shi",
+          "title": "Shi: positional power"
         },
         {
-          "id": "human-nature-and-incentives",
-          "title": "Interest, incentives, and the limits of moral appeal"
+          "id": "psychology",
+          "title": "Interest, incentives, and distrust"
         },
         {
-          "id": "critique-of-confucians",
-          "title": "The critique of Confucians, Mohists, and wandering persuaders"
+          "id": "xunzi",
+          "title": "Xunzi: a relationship, not a simple derivation"
         },
         {
-          "id": "daoist-elements",
-          "title": "Daoist language and Legalist statecraft"
+          "id": "history-culture",
+          "title": "Changing times and attacks on independent authority"
         },
         {
-          "id": "influence-and-reception",
-          "title": "Influence, Qin associations, and later suspicion"
+          "id": "ruler-paradox",
+          "title": "The ruler’s institutional paradox"
         },
         {
-          "id": "misunderstandings",
-          "title": "Common misunderstandings and ethical dangers"
+          "id": "reception",
+          "title": "Imperial reception and modern analogies"
         },
         {
-          "id": "reading-strategy",
-          "title": "How to read Han Feizi well"
+          "id": "reading",
+          "title": "A chapter-based reading path"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "zhu-xi",
       "name": "Zhu Xi",
       "sections": [
         {
-          "id": "overview",
-          "title": "The great Neo-Confucian systematizer of principle and cultivation"
+          "id": "orientation-label",
+          "title": "Zhu Xi and the later map called “Neo-Confucianism”"
         },
         {
-          "id": "historical-world",
-          "title": "Song dynasty renewal after Buddhism and Daoism"
+          "id": "life-song-world",
+          "title": "A learned life in a fractured Song world"
         },
         {
-          "id": "texts-and-commentary",
-          "title": "Commentary as philosophical construction"
+          "id": "canon-commentary",
+          "title": "Commentary, curriculum, and the Four Books"
         },
         {
-          "id": "li-principle",
-          "title": "Li as principle, pattern, and normative order"
+          "id": "li-qi",
+          "title": "Li and qi: pattern in concrete existence"
         },
         {
-          "id": "qi-and-human-nature",
-          "title": "Qi, endowment, and moral obscuration"
+          "id": "mind-nature-emotions",
+          "title": "Heart-mind, nature, emotions, and desire"
         },
         {
-          "id": "heart-mind-and-emotions",
-          "title": "The heart-mind, feelings, and disciplined clarity"
+          "id": "cosmic-synthesis",
+          "title": "The Great Ultimate and a moral cosmos"
         },
         {
-          "id": "investigation-of-things",
-          "title": "Investigation of things and the extension of knowledge"
+          "id": "investigation",
+          "title": "Investigating things and extending knowledge"
         },
         {
-          "id": "self-cultivation",
-          "title": "Reverent attentiveness, study, and everyday practice"
+          "id": "knowledge-action",
+          "title": "Knowledge, action, and reverent attentiveness"
         },
         {
-          "id": "buddhist-and-daoist-context",
-          "title": "Critique and borrowing in relation to Buddhism and Daoism"
+          "id": "buddhism-daoism",
+          "title": "Learning through criticism of Buddhism and Daoism"
         },
         {
-          "id": "influence-and-orthodoxy",
-          "title": "Canon, examinations, and East Asian influence"
+          "id": "institutional-authority",
+          "title": "From contested teacher to examination authority"
         },
         {
-          "id": "misunderstandings",
-          "title": "Common misunderstandings and live tensions"
+          "id": "disputes-legacy",
+          "title": "A synthesis criticized from within Confucian learning"
         },
         {
-          "id": "reading-strategy",
-          "title": "How to read Zhu Xi well"
+          "id": "reading-path",
+          "title": "A reading path through text, commentary, and reception"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "wang-yangming",
       "name": "Wang Yangming",
       "sections": [
         {
-          "id": "overview",
-          "title": "Innate knowing and the unity of knowledge and action"
+          "id": "orientation-name-label",
+          "title": "Wang Shouren, called Yangming, on a later philosophical map"
         },
         {
-          "id": "historical-world",
-          "title": "Ming dynasty service, crisis, and lived philosophy"
+          "id": "life-public-power",
+          "title": "Exile, teaching, and morally ambiguous public power"
         },
         {
-          "id": "texts-and-teaching",
-          "title": "Dialogues, letters, and practical instruction"
+          "id": "texts-teaching",
+          "title": "Records of teaching rather than one finished system"
         },
         {
-          "id": "liangzhi",
-          "title": "Liangzhi, innate moral knowing, and the heart-mind"
+          "id": "mind-pattern-one-body",
+          "title": "The heart-mind as pattern in a relational world"
         },
         {
-          "id": "knowledge-and-action",
-          "title": "The unity of knowledge and action"
+          "id": "innate-knowing",
+          "title": "Liangzhi: pure knowing without private infallibility"
         },
         {
-          "id": "critique-of-zhu-xi",
-          "title": "The critique of externalized investigation"
+          "id": "knowledge-action",
+          "title": "The unity of knowing and acting"
         },
         {
-          "id": "selfish-desire",
-          "title": "Selfish desire, sincerity, and moral obscuration"
+          "id": "great-learning-gewu",
+          "title": "The Great Learning and rectifying affairs"
         },
         {
-          "id": "practice-in-affairs",
-          "title": "Practice in affairs and morally engaged life"
+          "id": "cultivation-affairs",
+          "title": "Cultivation amid family, office, danger, and routine"
         },
         {
-          "id": "school-relationships",
-          "title": "Mencian roots, Zhu Xi debate, Buddhism, and Chan resonances"
+          "id": "four-sentences",
+          "title": "The Four Sentences and the Tianquan dispute"
         },
         {
-          "id": "influence-and-reception",
-          "title": "The Yangming school and later moral activism"
+          "id": "zhu-buddhist-labels",
+          "title": "Zhu Xi, Lu Jiuyuan, and Buddhist comparison"
         },
         {
-          "id": "misunderstandings",
-          "title": "Common misunderstandings and live tensions"
+          "id": "reception-political-risk",
+          "title": "Diverse receptions and the politics of moral certainty"
         },
         {
-          "id": "reading-strategy",
-          "title": "How to read Wang Yangming well"
+          "id": "reading-path",
+          "title": "A reading path from practice to contested legacy"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "mary-astell",
