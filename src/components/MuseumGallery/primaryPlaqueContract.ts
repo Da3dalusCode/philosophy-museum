@@ -36,8 +36,12 @@ export type PrimaryPlaqueConfiguration = PlaqueTextureOptions & {
 export const PRIMARY_PLAQUE_INVITATION_OVERRIDES = {
   leucippus: 'How did atoms and void answer the problem of change, and why is Leucippus’s contribution so difficult to separate from the later work of Democritus?',
   iamblichus: 'Why might embodied souls require divinely grounded ritual, and how do the Abamon persona and fragmented transmission shape what we can reconstruct from Iamblichus today?',
+  porphyry: 'How did Porphyry reshape Platonism through editing, commentary, teaching, and practical inquiry?',
+  proclus: 'How did Proclus unite metaphysics, commentary, mathematics, prayer, and ritual within a philosophical way of life?',
   origen: 'How did Origen join scriptural scholarship to questions of God, freedom, embodiment, and restoration across a corpus preserved in originals, translations, fragments, and hostile reports?',
+  'gregory-nyssa': 'How did Gregory of Nyssa connect divine infinity, embodied freedom, virtue, resurrection, and transformation toward the good?',
   'pseudo-dionysius': 'How did an anonymous late-antique Christian transform divine names, hierarchy, procession, return, and apophatic unknowing across a corpus later received in Byzantine and Latin worlds?',
+  marxism: 'How does Marxism connect labor, class, exploitation, historical change, collective action, and enduring political dispute?',
 } as const satisfies Readonly<Record<string, string>>;
 
 export const museumHallUsesPrimaryEmphasis = (
