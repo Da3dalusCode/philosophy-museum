@@ -21,6 +21,14 @@ Only an actual live side portal or fixed architectural obstruction removes a wal
 - Never place two installations on one wall face while another usable face is blank.
 - A room without a canonical primary still fills all usable faces; its strongest contextual anchors take the outer walls.
 
+## Primary wall-plaque legibility contract
+
+- Every canonical primary plaque contains only the exact canonical entity title and one complete visitor invitation beneath it. Generic kickers, eyebrows, entity-type labels, and date or location headings are prohibited.
+- Titles and invitations must never be clipped or ellipsized. Wrap before reducing type, support up to four invitation lines when necessary, and fit the title and invitation independently rather than shrinking the entire composition together.
+- The title remains clearly larger than the invitation. Both roles must meet the readable minimum enforced for the actual production texture, and all glyph bounds must remain inside the framed safe rectangle.
+- Complete meaning and readable type take priority over preserving blank space. Keep the existing frame, physical dimensions, and left alignment while vertically balancing the two blocks.
+- Canonical-title exactness and physical plaque legibility are separate mandatory contracts. Exceptions require explicit owner approval; room signs, gallery signs, object labels, supplemental surfaces, and other non-primary labels retain their own contracts.
+
 ## Media and review
 
 - Every installation uses unique, relevant imagery with truthful source, credit, and license metadata. Do not use graves, filler images, or an unrelated visual merely to complete a wall.

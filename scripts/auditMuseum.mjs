@@ -26,6 +26,8 @@ const buildingArchitectureSource = source('src/components/MuseumGallery/MuseumBu
 const grandEntranceArchitectureSource = source('src/components/MuseumGallery/MuseumGrandEntranceArchitecture.tsx');
 const canonicalSceneSource = source('src/components/MuseumGallery/CanonicalMuseumHallScene.tsx');
 const canonicalExhibitsSource = source('src/components/MuseumGallery/CanonicalMuseumExhibits.tsx');
+const primaryPlaqueContractSource = source('src/components/MuseumGallery/primaryPlaqueContract.ts');
+const plaqueTexturesSource = source('src/components/MuseumGallery/plaqueTextures.ts');
 const primaryExhibitStructureSource = source('src/components/MuseumGallery/MuseumPrimaryExhibitStructure.tsx');
 const mediterraneanMediaSource = source('src/components/MuseumGallery/MediterraneanExhibitMedia.tsx');
 const mediterraneanCurationSource = source('src/components/MuseumGallery/MediterraneanGalleryCuration.tsx');
@@ -1409,8 +1411,13 @@ check('all 191 primary wall and modal titles resolve through the canonical entit
     assert.equal(exhibitsById.get(id)?.displayName, expectedTitle, `${id}: representative canonical-title regression`);
   }
 
-  assert.match(canonicalExhibitsSource, /const title = catalog\.displayName;/u, 'primary wall title bypasses the canonical catalog title');
-  assert.doesNotMatch(canonicalExhibitsSource, /frontTitle\s*\?\?\s*catalog\.displayName/u, 'curatorial copy can still replace a primary wall title');
+  assert.match(canonicalExhibitsSource, /resolvePrimaryPlaqueConfiguration\(definition, layout\)/u, 'primary renderer bypasses the shared plaque configuration path');
+  assert.match(primaryPlaqueContractSource, /title: catalog\.displayName/u, 'primary wall title bypasses the canonical catalog title');
+  assert.match(primaryPlaqueContractSource, /contentKind: 'primary'/u, 'primary wall plaque does not select the primary fitting contract');
+  assert.match(primaryPlaqueContractSource, /kicker: ''/u, 'primary wall plaque can still render a generic kicker');
+  assert.doesNotMatch(canonicalExhibitsSource, /Philosopher · question and historical context|School and interpretive tradition/u, 'primary renderer retains a generic kicker');
+  assert.match(plaqueTexturesSource, /layoutPrimaryPlaqueText/u, 'primary renderer lacks its independent title-and-invitation fitting path');
+  assert.match(plaqueTexturesSource, /PRIMARY_PLAQUE_INVITATION_MAX_LINES = 4/u, 'primary invitation capacity is not four lines');
   assert.match(interpretationPanelSource, /const canonicalTitle = exhibit\.displayName;/u, 'primary modal title bypasses the canonical catalog title');
   assert.match(interpretationPanelSource, /<h2 id=\{titleId\} tabIndex=\{-1\}>\{canonicalTitle\}<\/h2>/u, 'primary modal heading does not render the canonical title');
 });
@@ -2653,11 +2660,11 @@ check('Gallery 03 onward makes every primary at least as large as its biggest se
     'Fully built Galleries 03–26 should enforce the completed-gallery hierarchy',
   );
   assert(
-    canonicalExhibitsSource.includes('primaryEmphasis ? .72 : .42'),
+    primaryPlaqueContractSource.includes('primaryEmphasis ? .72 : .42'),
     'Full-scale primary exhibits must retain secondary-scale name strips',
   );
   assert(
-    canonicalExhibitsSource.includes('? backing.size.height - .16'),
+    primaryPlaqueContractSource.includes('? backing.size.height - .16'),
     'Full-scale philosophy exhibits without media must fill their gallery-scale backing',
   );
 });

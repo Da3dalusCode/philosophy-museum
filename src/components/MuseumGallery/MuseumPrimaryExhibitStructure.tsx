@@ -9,6 +9,7 @@ import type {
   MuseumHallDefinition,
   MuseumSceneVolume,
 } from '../../data/museum/museumWorldTypes';
+import {museumHallUsesPrimaryEmphasis} from './primaryPlaqueContract';
 
 const MEDITERRANEAN_GALLERY_ID = 'mediterranean-beginnings-classical';
 const RENAISSANCE_GALLERY_ID = 'renaissance-humanism-new-method';
@@ -47,26 +48,6 @@ function StructureBox({volume, kind, canonical, renaissance}: {
       />}
   </mesh>;
 }
-
-export const museumHallUsesPrimaryEmphasis = (
-  definition: MuseumHallDefinition,
-): boolean => {
-  const supplementalLayouts = definition.layout.supplementalExhibits ?? [];
-  const largestSupplementalWidth = Math.max(
-    0,
-    ...supplementalLayouts.map(({footprint}) => footprint.width),
-  );
-  const largestSupplementalHeight = Math.max(
-    0,
-    ...supplementalLayouts.map(({footprint}) => footprint.height),
-  );
-  return definition.id !== MEDITERRANEAN_GALLERY_ID
-    && definition.id !== RENAISSANCE_GALLERY_ID
-    && supplementalLayouts.length > 0
-    && definition.layout.exhibits.every(({scene}) =>
-      scene.footprint.width >= largestSupplementalWidth - .001
-      && scene.footprint.height >= largestSupplementalHeight - .001);
-};
 
 export function MuseumPrimaryExhibitStructure({layout, definition, canonical}: {
   layout: MuseumExhibitLayout;

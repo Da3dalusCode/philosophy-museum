@@ -12,7 +12,7 @@ import {
   type MediterraneanExhibitCuration,
   type MediterraneanExhibitId,
 } from '../../data/museum/mediterraneanGalleryCuration';
-import {getMuseumHallCatalog, type MuseumExhibitId} from '../../data/museumCatalog';
+import type {MuseumExhibitId} from '../../data/museumCatalog';
 import {
   RENAISSANCE_EXHIBIT_CURATION,
   RENAISSANCE_GALLERY_ID,
@@ -21,11 +21,15 @@ import {
   type RenaissanceExhibitCuration,
   type RenaissancePrimaryExhibitId,
 } from '../../data/museum/renaissanceGalleryCuration';
-import {MuseumPrimaryExhibitStructure, museumHallUsesPrimaryEmphasis} from './MuseumPrimaryExhibitStructure';
+import {MuseumPrimaryExhibitStructure} from './MuseumPrimaryExhibitStructure';
 import {MUSEUM_TEXTURE_SPECS, museumTextureDimensionsForPlane} from '../../data/museum/museumTexturePolicy';
 import {MuseumSceneMedia} from './MuseumSceneMedia';
 import {usePlaqueTexture} from './plaqueTextures';
-import {CONCISE_PRIMARY_INTERPRETATIONS} from '../../data/museum/concisePrimaryInterpretations';
+import {
+  museumHallUsesPrimaryEmphasis,
+  resolvePrimaryPlaqueConfiguration,
+  type PrimaryPlaqueConfiguration,
+} from './primaryPlaqueContract';
 
 const ACCENTS = ['#8d6947', '#4f7480', '#755f88', '#897241', '#546f67', '#825861', '#556f8a', '#8b654b', '#657153'];
 
@@ -56,51 +60,21 @@ function Box({volume, color, roughness = .9, metalness, gallery02Surface}: {
   </mesh>;
 }
 
-function InterpretationFace({layout, title, question, kicker, accent, mediterranean, renaissance, primaryEmphasis, subtitleMaxLines}: {
+function InterpretationFace({layout, plaque, accent}: {
   layout: MuseumExhibitLayout;
-  title: string;
-  question: string;
-  kicker: string;
+  plaque: PrimaryPlaqueConfiguration;
   accent: string;
-  mediterranean: boolean;
-  renaissance: boolean;
-  primaryEmphasis: boolean;
-  subtitleMaxLines?: 1 | 2 | 3 | 4;
 }) {
   const backing = layout.scene.objectBounds.find(({id}) => id.endsWith('-backing'))!;
   const hasMedia = layout.scene.mediaMounts.length > 0;
-  const width = backing.size.width - .16;
-  const height = mediterranean
-    ? .7
-    : hasMedia
-      ? primaryEmphasis ? .72 : .42
-      : primaryEmphasis
-        ? backing.size.height - .16
-        : Math.min(1.55, backing.size.height - .48);
+  const width = plaque.physicalWidth;
+  const height = plaque.physicalHeight;
   const centerY = hasMedia
     ? backing.center.y + backing.size.height / 2 - .28
     : backing.center.y;
-  const textureSize = museumTextureDimensionsForPlane(
-    width,
-    height,
-    mediterranean
-      ? MUSEUM_TEXTURE_SPECS.mediterraneanNameStrip
-      : primaryEmphasis && hasMedia
-        ? MUSEUM_TEXTURE_SPECS.platoSupplementalLabel
-        : MUSEUM_TEXTURE_SPECS.contemporaryNameStrip,
-  );
-  const texture = usePlaqueTexture({
-    title,
-    kicker,
-    subtitle: question,
-    accent,
-    width: textureSize.width,
-    height: textureSize.height,
-    theme: mediterranean ? 'mediterranean' : 'dark',
-    subtitleMaxLines,
-  });
+  const texture = usePlaqueTexture({...plaque, accent});
   return <group position={[0, centerY, backing.center.z + backing.size.depth / 2 + .012]}>
-    <mesh position={[0, 0, -.035]}><boxGeometry args={[width + .12, height + .1, .07]}/><meshStandardMaterial color={mediterranean ? accent : renaissance ? RENAISSANCE_PALETTE.walnutEdge : '#202324'} roughness={.62}/></mesh>
+    <mesh position={[0, 0, -.035]}><boxGeometry args={[width + .12, height + .1, .07]}/><meshStandardMaterial color={plaque.theme === 'mediterranean' ? accent : plaque.renaissance ? RENAISSANCE_PALETTE.walnutEdge : '#202324'} roughness={.62}/></mesh>
     <mesh position={[0, 0, .005]}><planeGeometry args={[width, height]}/><meshBasicMaterial map={texture} toneMapped={false}/></mesh>
   </group>;
 }
@@ -164,12 +138,10 @@ function RenaissanceFinishedBack({backing, accent}: {
   </group>;
 }
 
-function Installation({definition, layout, title, question, kicker, accent, nearby, curation, renaissanceCuration, primaryEmphasis, includeStructure}: {
+function Installation({definition, layout, plaque, accent, nearby, curation, renaissanceCuration, primaryEmphasis, includeStructure}: {
   definition: MuseumHallDefinition;
   layout: MuseumExhibitLayout;
-  title: string;
-  question: string;
-  kicker: string;
+  plaque: PrimaryPlaqueConfiguration;
   accent: string;
   nearby: boolean;
   curation?: MediterraneanExhibitCuration;
@@ -181,7 +153,6 @@ function Installation({definition, layout, title, question, kicker, accent, near
   const motif = layout.scene.objectBounds.find(({id}) => id.endsWith('-concept'))!;
   const interaction = layout.scene.interactionBounds;
   const canonicalConstruction = Boolean(curation || renaissanceCuration || primaryEmphasis);
-  const subtitleMaxLines = CONCISE_PRIMARY_INTERPRETATIONS[layout.id]?.presentation?.plaqueSubtitleLines;
   return <group>
     {includeStructure && <MuseumPrimaryExhibitStructure
       layout={layout}
@@ -195,14 +166,8 @@ function Installation({definition, layout, title, question, kicker, accent, near
         : <Box volume={motif} color={nearby ? accent : '#4a4d4e'}/>}
     <InterpretationFace
       layout={layout}
-      title={title}
-      question={question}
-      kicker={kicker}
+      plaque={plaque}
       accent={accent}
-      mediterranean={Boolean(curation)}
-      renaissance={Boolean(renaissanceCuration)}
-      primaryEmphasis={primaryEmphasis}
-      subtitleMaxLines={subtitleMaxLines}
     />
     {layout.scene.mediaMounts.map((mount) => <MuseumSceneMedia key={mount.id} mount={mount} nearby={nearby} accent={accent}/>)}
     <mesh position={[interaction.center.x, interaction.center.y, interaction.center.z]} userData={{interactionFor: layout.id}}>
@@ -220,15 +185,12 @@ export function CanonicalMuseumExhibits({definition, nearbyId, visibleExhibitIds
   includeStructure?: boolean;
   onSelectExhibit: (id: MuseumExhibitId) => void;
 }) {
-  const hall = getMuseumHallCatalog(definition.id);
-  if (!hall) return null;
   const primaryEmphasis = museumHallUsesPrimaryEmphasis(definition);
   return <group>{definition.layout.exhibits
     .filter(({id}) => !visibleExhibitIds || visibleExhibitIds.includes(id))
     .map((layout) => {
-      const catalog = hall.exhibits.find(({id}) => id === layout.id);
-      if (!catalog) return null;
-      const roomIndex = hall.zones.findIndex(({id}) => id === layout.zoneId);
+      const plaque = resolvePrimaryPlaqueConfiguration(definition, layout);
+      const roomIndex = plaque.roomIndex;
       const curation: MediterraneanExhibitCuration | undefined = definition.id === MEDITERRANEAN_GALLERY_ID
         ? MEDITERRANEAN_EXHIBIT_CURATION[layout.id as MediterraneanExhibitId]
         : undefined;
@@ -240,14 +202,6 @@ export function CanonicalMuseumExhibits({definition, nearbyId, visibleExhibitIds
         : renaissanceCuration
           ? RENAISSANCE_ROOM_ACCENTS[Math.max(0, roomIndex) % RENAISSANCE_ROOM_ACCENTS.length]
         : ACCENTS[Math.max(0, roomIndex) % ACCENTS.length];
-      const concisePresentation = CONCISE_PRIMARY_INTERPRETATIONS[layout.id]?.presentation;
-      const title = catalog.displayName;
-      const kicker = concisePresentation?.plaqueKicker ?? (curation?.publicKicker
-        ?? renaissanceCuration?.publicKicker
-        ?? (catalog.entityKind === 'philosopher'
-          ? 'Philosopher · question and historical context'
-          : 'School and interpretive tradition'));
-      const question = curation?.frontTitle ?? catalog.question;
       const activate = (event: ThreeEvent<MouseEvent>) => {
         event.stopPropagation();
         if (event.delta <= 7) onSelectExhibit(layout.id);
@@ -256,9 +210,7 @@ export function CanonicalMuseumExhibits({definition, nearbyId, visibleExhibitIds
         <Installation
           definition={definition}
           layout={layout}
-          title={title}
-          question={question}
-          kicker={kicker}
+          plaque={plaque}
           accent={accent}
           nearby={nearbyId === layout.id}
           curation={curation}
