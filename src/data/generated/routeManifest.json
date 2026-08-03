@@ -3226,59 +3226,47 @@
       "name": "Antisthenes",
       "sections": [
         {
-          "id": "overview",
-          "title": "A Socratic route toward Cynic freedom"
+          "id": "recovery",
+          "title": "A prolific Socratic recovered from other people’s books"
         },
         {
-          "id": "sources",
-          "title": "Fragments, anecdotes, and contested founder status"
+          "id": "life-socrates",
+          "title": "Athens, Socrates, and uncertain biography"
         },
         {
-          "id": "life",
-          "title": "Athens, Gorgias, Socrates, and Cynosarges"
+          "id": "xenophon",
+          "title": "What Xenophon’s Antisthenes can responsibly show"
         },
         {
-          "id": "virtue",
-          "title": "Virtue as teachable and sufficient for happiness"
-        },
-        {
-          "id": "askesis",
-          "title": "Askesis and the training of freedom"
-        },
-        {
-          "id": "pleasure-poverty",
-          "title": "Pleasure, poverty, and self-sufficiency"
-        },
-        {
-          "id": "law-convention",
-          "title": "Virtue against convention and legal respectability"
+          "id": "ethics",
+          "title": "Virtue, training, and freedom from domination"
         },
         {
           "id": "language",
-          "title": "Language, definition, and the problem of predication"
+          "title": "Names, predication, and the danger of a single “logic”"
         },
         {
-          "id": "plato",
-          "title": "Antisthenes, Plato, and rival Socratic inheritances"
+          "id": "literature",
+          "title": "Ajax, Odysseus, and philosophical reading of poetry"
         },
         {
           "id": "cynicism",
-          "title": "Antisthenes and the birth of Cynicism"
+          "title": "Founder, precursor, or retrospectively adopted ancestor?"
         },
         {
-          "id": "stoicism",
-          "title": "Influence on Stoic ethics and later moral philosophy"
+          "id": "politics",
+          "title": "Convention, reputation, and civic life"
         },
         {
-          "id": "misunderstandings",
-          "title": "Common misunderstandings and real tensions"
+          "id": "rival-inheritances",
+          "title": "Plato, Isocrates, and rival forms of education"
         },
         {
           "id": "reading",
-          "title": "How to read Antisthenes"
+          "title": "How to read an author who survives as a dossier"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "lucretius",
@@ -3859,52 +3847,44 @@
       "name": "Arcesilaus",
       "sections": [
         {
-          "id": "overview",
-          "title": "The Academy turns skeptical without abandoning Plato"
+          "id": "recovery",
+          "title": "A philosophical career without surviving writings"
         },
         {
           "id": "academy",
-          "title": "The Academy after Plato"
+          "title": "From Pitane to the leadership of Plato’s Academy"
         },
         {
-          "id": "socratic-roots",
-          "title": "Socratic ignorance and Platonic dialectic"
+          "id": "method",
+          "title": "Dialectic before doctrine"
         },
         {
-          "id": "stoic-target",
-          "title": "The Stoic cognitive impression as the central target"
+          "id": "stoic-criterion",
+          "title": "The Stoic cognitive impression under pressure"
         },
         {
           "id": "suspension",
-          "title": "Suspension of judgment in an Academic setting"
+          "title": "From inapprehensibility to suspension of assent"
         },
         {
           "id": "action",
-          "title": "Can a skeptic act without assent?"
+          "title": "Can someone act without assent?"
         },
         {
-          "id": "dialectician",
-          "title": "Dialectician rather than doctrine-builder"
+          "id": "plato-socrates",
+          "title": "A skeptical Plato or a Socratic practice inside the Academy?"
         },
         {
-          "id": "sources",
-          "title": "A thinker reconstructed from interested witnesses"
+          "id": "pyrrho",
+          "title": "Academic and Pyrrhonian skepticism are not interchangeable"
         },
         {
-          "id": "pyrrhonism",
-          "title": "Academic Skepticism and later Pyrrhonism"
+          "id": "legacy",
+          "title": "Carneades and the problem of an Academic tradition"
         },
         {
-          "id": "carneades",
-          "title": "From Arcesilaus to Carneades"
-        },
-        {
-          "id": "modern-resonance",
-          "title": "Why a philosophy of disciplined opposition still matters"
-        },
-        {
-          "id": "legacy-reading",
-          "title": "Legacy and how to read Arcesilaus"
+          "id": "reading",
+          "title": "Reading Arcesilaus by levels of attribution"
         }
       ],
       "hasSources": true
@@ -3914,52 +3894,44 @@
       "name": "Carneades",
       "sections": [
         {
-          "id": "overview",
-          "title": "The most formidable critic of Hellenistic certainty"
+          "id": "recovery",
+          "title": "An oral philosopher behind layers of interpretation"
         },
         {
-          "id": "new-academy",
-          "title": "The New Academy and an inherited skeptical practice"
+          "id": "life-academy",
+          "title": "Cyrene, Athens, and leadership of the Academy"
         },
         {
           "id": "rome",
-          "title": "The embassy to Rome and the scandal of arguing both sides"
+          "title": "The embassy to Rome and the unstable story of justice"
         },
         {
           "id": "cognition",
-          "title": "Against the Stoic cognitive impression"
+          "title": "Continuing the attack on cognitive impressions"
         },
         {
           "id": "persuasive",
-          "title": "The persuasive impression and graded practical confidence"
+          "title": "Pithanon: persuasive, plausible, or “probable”?"
         },
         {
-          "id": "theology",
-          "title": "Providence, divination, and natural theology under pressure"
+          "id": "assent",
+          "title": "Approval, assent, and disagreement among his students"
         },
         {
-          "id": "justice",
-          "title": "Justice, convention, and political advantage"
+          "id": "ethics",
+          "title": "Arguments over the human end"
         },
         {
-          "id": "ethical-ends",
-          "title": "Competing ethical ends and the method of classification"
+          "id": "fate-theology",
+          "title": "Fate, divination, and the gods as dialectical targets"
         },
         {
-          "id": "method",
-          "title": "Arguing against dogmatism without becoming dogmatic"
+          "id": "method-legacy",
+          "title": "Argument on both sides without indifference to truth"
         },
         {
-          "id": "pyrrhonism",
-          "title": "Carneades, the Academy, and Pyrrhonism"
-        },
-        {
-          "id": "cicero",
-          "title": "Cicero and the transmission of Academic skepticism"
-        },
-        {
-          "id": "legacy-reading",
-          "title": "Legacy and how to read Carneades"
+          "id": "reading",
+          "title": "How to read Carneades without assigning every argument to him"
         }
       ],
       "hasSources": true
@@ -4240,60 +4212,44 @@
       "name": "Porphyry",
       "sections": [
         {
-          "id": "overview",
-          "title": "The organizer who made philosophical inheritance usable"
+          "id": "evidence",
+          "title": "A major philosopher recovered from an uneven corpus"
         },
         {
-          "id": "context",
-          "title": "A late antique world of schools, texts, and religious rivalry"
+          "id": "life-circle",
+          "title": "Tyre, Athens, Rome, and the Plotinian circle"
         },
         {
-          "id": "plotinus",
-          "title": "Student, critic, and interpreter of Plotinus"
+          "id": "edition",
+          "title": "The Life of Plotinus as biography and editorial argument"
         },
         {
-          "id": "enneads",
-          "title": "Editing the Enneads"
+          "id": "logic",
+          "title": "The Isagoge: elementary distinctions with a long afterlife"
         },
         {
-          "id": "isagoge",
-          "title": "The Isagoge and the problem of universals"
+          "id": "soul-practice",
+          "title": "Soul, virtue, and philosophy as practiced separation"
         },
         {
-          "id": "aristotle",
-          "title": "Transmitting Aristotle within a Platonic curriculum"
+          "id": "abstinence",
+          "title": "Animals, sacrifice, and the discipline of appetite"
         },
         {
-          "id": "purification",
-          "title": "Vegetarianism, asceticism, and purification"
+          "id": "religion",
+          "title": "Oracles, ritual limits, and disagreement with Iamblichus"
         },
         {
-          "id": "christianity",
-          "title": "Religious controversy and Christianity"
+          "id": "polemics",
+          "title": "Against the Christians and the hazards of hostile preservation"
         },
         {
-          "id": "iamblichus",
-          "title": "Porphyry and Iamblichus on the limits of intellect"
-        },
-        {
-          "id": "soul",
-          "title": "Soul, embodiment, and the work of return"
-        },
-        {
-          "id": "commentary-method",
-          "title": "Commentary, allegory, and disciplined interpretation"
-        },
-        {
-          "id": "ethics-community",
-          "title": "Ethical formation, community, and philosophical authority"
-        },
-        {
-          "id": "philosophical-mediation",
-          "title": "Why mediation is itself a philosophical achievement"
+          "id": "interpretation",
+          "title": "Allegory, commentary, and authority"
         },
         {
           "id": "legacy-reading",
-          "title": "Medieval transmission and how to read Porphyry"
+          "title": "A mediator whose losses demand disciplined reading"
         }
       ],
       "hasSources": true
@@ -4303,60 +4259,48 @@
       "name": "Iamblichus",
       "sections": [
         {
-          "id": "overview",
-          "title": "Neoplatonism becomes ritual, hierarchical, and embodied"
+          "id": "evidence",
+          "title": "Iamblichus without a single surviving system"
         },
         {
-          "id": "after-plotinus",
-          "title": "Neoplatonism after Plotinus and Porphyry"
+          "id": "life-school",
+          "title": "A Syrian teacher and a discontinuous genealogy"
         },
         {
-          "id": "porphyry-dispute",
-          "title": "The dispute with Porphyry"
+          "id": "abamon",
+          "title": "Abamon answers a letter we no longer possess"
+        },
+        {
+          "id": "divine-causation",
+          "title": "Why knowledge does not initiate contact with the gods"
         },
         {
           "id": "theurgy",
-          "title": "Theurgy as divine action rather than mere magic"
-        },
-        {
-          "id": "hierarchy",
-          "title": "Divine hierarchy and metaphysical mediation"
+          "title": "Theurgy as divinely grounded ritual action"
         },
         {
           "id": "soul",
-          "title": "Soul, embodiment, and limited self-sufficiency"
+          "title": "Embodiment, soul, and the limits of Plotinian ascent"
         },
         {
-          "id": "pythagoreanism",
-          "title": "Pythagoras, education, and a sacred philosophical lineage"
+          "id": "pythagorean-project",
+          "title": "Pythagoras as a program for philosophical formation"
         },
         {
-          "id": "plato-practice",
-          "title": "Plato, curriculum, and religious interpretation"
+          "id": "exegesis",
+          "title": "Commentary, curriculum, and reconstructing lost teaching"
         },
         {
-          "id": "influence",
-          "title": "Influence on Proclus and later religious Platonisms"
-        },
-        {
-          "id": "knowledge",
-          "title": "Knowledge, revelation, and the limits of human reasoning"
-        },
-        {
-          "id": "symbols",
-          "title": "Symbols, material things, and divine presence"
+          "id": "metaphysics-mathematics",
+          "title": "Multiplicity above and mathematics between"
         },
         {
           "id": "ethics-community",
-          "title": "Virtue, education, and the philosophical community"
+          "title": "Virtue, friendship, and political counsel"
         },
         {
-          "id": "embodied-agency",
-          "title": "What the embodied soul can and cannot do"
-        },
-        {
-          "id": "reading",
-          "title": "How to read Iamblichus"
+          "id": "reception-reading",
+          "title": "A plural legacy and a cautious route into it"
         }
       ],
       "hasSources": true
@@ -4366,60 +4310,48 @@
       "name": "Proclus",
       "sections": [
         {
-          "id": "overview",
-          "title": "The great systematizer of late Neoplatonism"
+          "id": "evidence",
+          "title": "Systematic works inside a larger teaching practice"
         },
         {
-          "id": "athens",
-          "title": "The Athenian school and philosophy as a complete life"
+          "id": "life-school",
+          "title": "From Lycia and Alexandria to the Athenian school"
         },
         {
-          "id": "inheritance",
-          "title": "Plotinus, Iamblichus, and the inherited problem"
+          "id": "elements-method",
+          "title": "What the Elements demonstrates—and what it omits"
         },
         {
-          "id": "elements",
-          "title": "The Elements of Theology and geometrical exposition"
-        },
-        {
-          "id": "remaining",
+          "id": "causation",
           "title": "Remaining, procession, and return"
         },
         {
-          "id": "henads",
-          "title": "Henads, the One, and divine plurality"
-        },
-        {
-          "id": "participation",
-          "title": "Participation, causality, and mediation"
+          "id": "one-henads",
+          "title": "The One, henads, and polytheistic theology"
         },
         {
           "id": "commentary",
-          "title": "Commentaries, mathematics, and reading Plato systematically"
+          "title": "Plato read in the classroom"
         },
         {
-          "id": "reception",
-          "title": "From Pseudo-Dionysius to medieval and modern metaphysics"
-        },
-        {
-          "id": "dialectic",
-          "title": "Dialectic, demonstration, and the architecture of a system"
+          "id": "soul-learning",
+          "title": "Soul, divided thought, and the work of education"
         },
         {
           "id": "evil-providence",
-          "title": "Evil, providence, and freedom within an ordered cosmos"
+          "title": "Providence, freedom, and evil without an evil principle"
         },
         {
-          "id": "soul-time",
-          "title": "Soul, time, and the movement between worlds"
+          "id": "hymns-theurgy",
+          "title": "Prayer, hymns, and theurgic unification"
         },
         {
-          "id": "religious-practice",
-          "title": "Prayer, theurgy, and philosophical life"
+          "id": "reception",
+          "title": "Greek, Arabic, Latin, Byzantine, and Renaissance Proclus"
         },
         {
           "id": "reading",
-          "title": "Why Proclus matters and how to read him"
+          "title": "How to read the architecture without flattening it"
         }
       ],
       "hasSources": true
@@ -8054,339 +7986,291 @@
       "name": "Heraclitus",
       "sections": [
         {
-          "id": "overview",
-          "title": "Change, logos, and the hidden order of conflict"
+          "id": "orientation",
+          "title": "An ordered world recovered from scattered words"
         },
         {
-          "id": "sources",
-          "title": "Fragments, reports, and the problem of an elusive author"
+          "id": "transmission",
+          "title": "Quotation, paraphrase, and edition-dependent fragments"
         },
         {
-          "id": "ephesus",
-          "title": "Ephesus, aristocratic disdain, and public disorder"
+          "id": "life-ephesus",
+          "title": "Ephesus, chronology, and a biography made from sayings"
         },
         {
           "id": "logos",
-          "title": "Logos as common measure, speech, and intelligible order"
+          "title": "Logos between speech, account, proportion, and reality"
         },
         {
-          "id": "flux",
-          "title": "Flux without simple chaos"
+          "id": "flux-rivers",
+          "title": "Rivers, change, and the afterlife of “everything flows”"
         },
         {
           "id": "opposites",
-          "title": "The unity and tension of opposites"
+          "title": "Opposites connected without careless contradiction"
         },
         {
-          "id": "fire",
-          "title": "Fire, exchange, and cosmic measure"
+          "id": "fire-measure",
+          "title": "Fire, exchange, and a cosmos governed by measures"
         },
         {
-          "id": "soul-ethics",
-          "title": "Soul, character, and the ethical edge of metaphysics"
+          "id": "knowledge-soul",
+          "title": "Learning, soul, and the discipline of attention"
         },
         {
-          "id": "rivals",
-          "title": "Against poets, polymathy, and private wisdom"
+          "id": "divine-law",
+          "title": "God, law, justice, and human perspective"
         },
         {
-          "id": "plato-aristotle",
-          "title": "Plato, Aristotle, and the later construction of Heraclitus"
-        },
-        {
-          "id": "influence",
-          "title": "Influence on Stoics, process thought, and modern readers"
+          "id": "reception",
+          "title": "Plato, Aristotle, Stoics, and competing Heraclitean portraits"
         },
         {
           "id": "reading",
-          "title": "How to read Heraclitus without flattening him"
+          "title": "A method for reading without flattening the fragments"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "empedocles",
       "name": "Empedocles",
       "sections": [
         {
-          "id": "overview",
-          "title": "Four roots, two forces, and a cosmic drama of mixture"
+          "id": "orientation",
+          "title": "A poetic inquiry spanning cosmos and conduct"
         },
         {
-          "id": "sources",
-          "title": "Poems, fragments, and uncertain reconstruction"
+          "id": "transmission-poems",
+          "title": "Fragments, papyri, and the one-poem/two-poem problem"
         },
         {
-          "id": "sicily",
-          "title": "Acragas, western Greek culture, and public authority"
+          "id": "life-acragas",
+          "title": "Acragas and the invention of an extraordinary life"
         },
         {
-          "id": "eleatic-problem",
-          "title": "Answering Parmenides without abolishing the world"
-        },
-        {
-          "id": "roots",
-          "title": "The four roots as enduring constituents"
+          "id": "roots-generation",
+          "title": "Four roots and the redescription of birth and death"
         },
         {
           "id": "love-strife",
-          "title": "Love and Strife as cosmic forces"
+          "title": "Love and Strife as powers, divinities, and explanatory causes"
         },
         {
-          "id": "cosmic-cycle",
-          "title": "The cycle, the Sphere, and changing worlds"
+          "id": "cycle",
+          "title": "The Sphere, separation, and disputed cosmic histories"
         },
         {
-          "id": "biology-perception",
-          "title": "Biology, perception, and like knowing like"
+          "id": "biology",
+          "title": "Bodies, organs, and experiments in natural explanation"
         },
         {
-          "id": "purification",
-          "title": "Transmigration, pollution, and the ethics of kinship"
+          "id": "perception",
+          "title": "Pores, effluences, likeness, and the limits of cognition"
         },
         {
-          "id": "rivals",
-          "title": "Anaxagoras, atomists, and Aristotle as rivals"
+          "id": "daimones-ethics",
+          "title": "Exile, transmigration, sacrifice, and living kinship"
         },
         {
-          "id": "influence",
-          "title": "Influence on elements, medicine, poetry, and later thought"
+          "id": "unity-tensions",
+          "title": "How far physics and purification belong together"
         },
         {
-          "id": "reading",
-          "title": "How to read Empedocles well"
+          "id": "reception-reading",
+          "title": "Aristotle, later elemental theory, and a careful reading path"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "anaxagoras",
       "name": "Anaxagoras",
       "sections": [
         {
-          "id": "overview",
-          "title": "Mind, mixture, and the first great philosopher at Athens"
+          "id": "orientation",
+          "title": "Mixture ordered by mind, known through mediated remains"
         },
         {
-          "id": "sources",
-          "title": "Fragments, testimonies, and cautious biography"
+          "id": "transmission",
+          "title": "One lost book, fragments, and testimony"
         },
         {
-          "id": "ionia-athens",
-          "title": "From Ionian inquiry to Athenian intellectual life"
+          "id": "life-athens",
+          "title": "Clazomenae, Athens, Lampsacus, and uncertain chronology"
         },
         {
-          "id": "eleatic-pressure",
-          "title": "No coming-to-be, only mixture and separation"
+          "id": "no-generation",
+          "title": "No absolute birth or death: mixture and separation"
         },
         {
-          "id": "everything",
-          "title": "Everything in everything and the logic of ingredients"
+          "id": "ingredients",
+          "title": "Everything in everything: stuffs, qualities, and seeds"
+        },
+        {
+          "id": "division-dominance",
+          "title": "No smallest, no purity, and the rule of predominance"
         },
         {
           "id": "nous",
-          "title": "Nous as pure, independent, and ordering mind"
+          "title": "Nous as unmixed knower and initiator of rotation"
         },
         {
-          "id": "cosmology",
-          "title": "Cosmic rotation, astronomy, and natural explanation"
+          "id": "cosmogony",
+          "title": "Rotation, separation, and a still-expanding cosmos"
         },
         {
-          "id": "perception",
-          "title": "Perception, knowledge, and the limits of human access"
+          "id": "life-perception",
+          "title": "Living beings, perception by contrast, and cognitive limits"
         },
         {
-          "id": "socrates-plato",
-          "title": "Socrates, Plato, and disappointment in mind"
+          "id": "plato-aristotle",
+          "title": "The teleological disappointment and its limits"
         },
         {
-          "id": "aristotle-rivals",
-          "title": "Aristotle, pluralists, and rival explanations"
-        },
-        {
-          "id": "influence",
-          "title": "Influence and common misunderstandings"
-        },
-        {
-          "id": "reading",
-          "title": "How to read Anaxagoras"
+          "id": "rivals-reading",
+          "title": "Pluralist alternatives and a source-layered reading path"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "origen",
       "name": "Origen",
       "sections": [
         {
-          "id": "overview",
-          "title": "A speculative Christian Platonist under pressure from Scripture"
+          "id": "evidence",
+          "title": "A large achievement in a damaged archive"
         },
         {
-          "id": "historical-setting",
-          "title": "Alexandria, Caesarea, and a contested intellectual world"
+          "id": "life",
+          "title": "Alexandria, Caesarea, and the making of a Christian scholar"
         },
         {
-          "id": "sources-and-caution",
-          "title": "Reading a damaged and controversial corpus"
+          "id": "scripture",
+          "title": "Scripture as a many-leveled field of education"
         },
         {
-          "id": "central-question",
-          "title": "How can a rational soul learn to read divine pedagogy?"
+          "id": "god-logos",
+          "title": "Father, Logos, Spirit, and the danger of later vocabularies"
         },
         {
-          "id": "god-and-logos",
-          "title": "God, Logos, and intelligible order"
+          "id": "creation-freedom",
+          "title": "Creation, rational creatures, and moral difference"
         },
         {
-          "id": "creation-freedom-souls",
-          "title": "Creation, freedom, and the drama of rational beings"
+          "id": "salvation",
+          "title": "Christ, pedagogy, punishment, and disputed restoration"
         },
         {
-          "id": "evil-and-restoration",
-          "title": "Evil, punishment, and the hope of restoration"
+          "id": "celsus",
+          "title": "Philosophical argument in a religiously plural empire"
         },
         {
-          "id": "scripture-method",
-          "title": "Literal, moral, and spiritual interpretation"
+          "id": "practice",
+          "title": "Prayer, ascetic attention, and spiritual senses"
         },
         {
-          "id": "controversies",
-          "title": "Orthodoxy, heterodoxy, and later Origenism"
+          "id": "condemnations",
+          "title": "Origen, Origenists, and the politics of a legacy"
         },
         {
-          "id": "influence",
-          "title": "Influence on Christian Platonism, monastic reading, and medieval thought"
-        },
-        {
-          "id": "misunderstandings",
-          "title": "Common misunderstandings"
-        },
-        {
-          "id": "reading-path",
-          "title": "How to read Origen without getting lost"
+          "id": "reading",
+          "title": "A source-conscious route through Origen"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "gregory-nyssa",
       "name": "Gregory of Nyssa",
       "sections": [
         {
-          "id": "overview",
-          "title": "Infinity, transformation, and the soul drawn beyond itself"
+          "id": "context",
+          "title": "A philosophical bishop in a contested Christian empire"
         },
         {
-          "id": "historical-setting",
-          "title": "Cappadocia, Nicene theology, and imperial Christianity"
+          "id": "life",
+          "title": "Family, episcopacy, loss, and uncertain chronology"
         },
         {
-          "id": "sources-and-genre",
-          "title": "Treatises, sermons, exegesis, and spiritual drama"
+          "id": "knowledge",
+          "title": "Why an infinite God exceeds every definition"
         },
         {
-          "id": "divine-infinity",
-          "title": "Divine infinity and the refusal of mastery"
+          "id": "creation",
+          "title": "Creation is good, contingent, and ordered toward transformation"
         },
         {
-          "id": "image-of-god",
-          "title": "Human beings, freedom, and the image of God"
+          "id": "embodiment",
+          "title": "Image, body, sex, and the whole human creature"
         },
         {
-          "id": "evil-and-restoration",
-          "title": "Evil, healing, and the disputed hope of restoration"
+          "id": "freedom-evil",
+          "title": "Freedom, habit, and evil without substance"
         },
         {
-          "id": "life-of-moses",
-          "title": "The Life of Moses and ascent into darkness"
+          "id": "progress",
+          "title": "Perpetual progress toward inexhaustible goodness"
         },
         {
-          "id": "gender-slavery-and-social-vision",
-          "title": "Dignity, social criticism, and historical limits"
+          "id": "eschatology",
+          "title": "Resurrection, purification, and the universal-restoration dispute"
         },
         {
-          "id": "school-relationships",
-          "title": "Origen, Platonism, and later negative theology"
+          "id": "social-ethics",
+          "title": "Likeness to God in economic and communal life"
         },
         {
-          "id": "controversies-and-reception",
-          "title": "Orthodoxy, speculation, and reception"
-        },
-        {
-          "id": "why-it-matters",
-          "title": "Why Gregory still matters philosophically"
-        },
-        {
-          "id": "misunderstandings",
-          "title": "Common misunderstandings"
-        },
-        {
-          "id": "reading-path",
-          "title": "How to enter Gregory of Nyssa"
+          "id": "reading",
+          "title": "How to follow Gregory without flattening the corpus"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "pseudo-dionysius",
       "name": "Pseudo-Dionysius",
       "sections": [
         {
-          "id": "overview",
-          "title": "Christian Neoplatonism under apostolic authority"
+          "id": "persona",
+          "title": "An apostolic voice written around the year 500"
         },
         {
-          "id": "identity",
-          "title": "The identity problem and the force of pseudonymity"
-        },
-        {
-          "id": "christian-neoplatonism",
-          "title": "A Christian transformation of late Neoplatonism"
-        },
-        {
-          "id": "negative-theology",
-          "title": "Apophatic theology and the limits of language"
-        },
-        {
-          "id": "divine-names",
-          "title": "Divine names, symbols, and participation"
-        },
-        {
-          "id": "hierarchy",
-          "title": "Hierarchy as mediated illumination"
+          "id": "corpus",
+          "title": "Four treatises, ten letters, and conspicuous missing books"
         },
         {
           "id": "procession-return",
-          "title": "Procession, return, and mystical ascent"
+          "title": "Goodness goes forth and gathers creatures back"
         },
         {
-          "id": "creation",
-          "title": "Creation, causality, and the Christian difference"
+          "id": "names",
+          "title": "True divine names that never capture their source"
         },
         {
-          "id": "love-beauty",
-          "title": "Divine eros, beauty, and ecstatic movement"
+          "id": "apophasis",
+          "title": "Affirmation, negation, and the negation of negation"
         },
         {
-          "id": "liturgy-politics",
-          "title": "Liturgy, institution, and the politics of mediation"
+          "id": "symbols",
+          "title": "Why unlike images can disclose better than attractive ones"
         },
         {
-          "id": "knowledge-unknowing",
-          "title": "Knowing through unknowing"
+          "id": "hierarchy",
+          "title": "Sacred order as purification, illumination, and perfection"
         },
         {
-          "id": "proclus",
-          "title": "Proclus and the transformation of late Neoplatonism"
+          "id": "liturgy",
+          "title": "Bodies, rites, and contemplation in public"
         },
         {
-          "id": "reception",
-          "title": "From Maximus and Eriugena to scholasticism and mysticism"
+          "id": "evil",
+          "title": "Evil as privation within providential order"
         },
         {
-          "id": "reading",
-          "title": "Interpretive tensions and how to read the corpus"
+          "id": "reception-reading",
+          "title": "A corpus repeatedly translated into new authorities"
         }
       ],
       "hasSources": true
@@ -12482,7 +12366,7 @@
         },
         {
           "id": "antisthenes",
-          "displayName": "Antisthenes: A Disputed Cynic Beginning"
+          "displayName": "Antisthenes"
         },
         {
           "id": "diogenes",
@@ -12538,11 +12422,11 @@
         },
         {
           "id": "arcesilaus",
-          "displayName": "Arcesilaus: The Academy Turns Against Certainty"
+          "displayName": "Arcesilaus"
         },
         {
           "id": "carneades",
-          "displayName": "Carneades: Argument on Both Sides"
+          "displayName": "Carneades"
         },
         {
           "id": "sextus-empiricus",
@@ -12594,19 +12478,19 @@
         },
         {
           "id": "porphyry",
-          "displayName": "Porphyry: Editing Plotinus and Ordering Inquiry"
+          "displayName": "Porphyry"
         },
         {
           "id": "iamblichus",
-          "displayName": "Iamblichus: Theurgy and Divine Causation"
+          "displayName": "Iamblichus"
         },
         {
           "id": "proclus",
-          "displayName": "Proclus: Participation, Procession, and Return"
+          "displayName": "Proclus"
         },
         {
           "id": "origen",
-          "displayName": "Origen: Scripture, Freedom, and First Principles"
+          "displayName": "Origen"
         },
         {
           "id": "augustine",
@@ -12614,11 +12498,11 @@
         },
         {
           "id": "gregory-nyssa",
-          "displayName": "Gregory of Nyssa: Infinity and Transformative Ascent"
+          "displayName": "Gregory of Nyssa"
         },
         {
           "id": "pseudo-dionysius",
-          "displayName": "Pseudo-Dionysius: Divine Names and Unknowing"
+          "displayName": "Pseudo-Dionysius"
         }
       ],
       "supplementalExhibits": [

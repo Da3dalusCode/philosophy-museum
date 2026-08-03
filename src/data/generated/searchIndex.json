@@ -296,7 +296,7 @@
     {
       "id": "antisthenes",
       "label": "Antisthenes",
-      "searchText": "antisthenes virtue self-sufficiency fragments and later reports cynic"
+      "searchText": "antisthenes virtue as practiced capability self-sufficiency and freedom training against dependence names and predication (reconstruction disputed) ethical reading of poetry ajax odysseus lost socratic dialogues and treatises on education or on names (lost) heracles works (lost) socratic writer; disputed cynic precursor"
     },
     {
       "id": "lucretius",
@@ -351,12 +351,12 @@
     {
       "id": "arcesilaus",
       "label": "Arcesilaus",
-      "searchText": "arcesilaus suspension of judgment dialectical opposition reports preserved by later writers academic skeptic"
+      "searchText": "arcesilaus dialectical opposition critique of cognitive impressions inapprehensibility as reported conclusion suspension of assent the reasonable as a disputed practical criterion no surviving or securely attested philosophical writings arguments preserved in cicero, sextus empiricus, and plutarch leader of the skeptical academy"
     },
     {
       "id": "carneades",
       "label": "Carneades",
-      "searchText": "carneades persuasive impression argument on both sides reports preserved by cicero and later writers academic skeptic"
+      "searchText": "carneades critique of cognitive impressions persuasive or plausible appearance graded scrutiny argument on both sides qualified action without certainty no writings arguments preserved chiefly by cicero and sextus empiricus disputed reports of speeches on justice leader of the skeptical academy"
     },
     {
       "id": "epictetus",
@@ -386,17 +386,17 @@
     {
       "id": "porphyry",
       "label": "Porphyry",
-      "searchText": "porphyry universals philosophical purification isagoge life of plotinus neoplatonist"
+      "searchText": "porphyry philosophy as purification predicables and logical preparation transmission as interpretation plato–aristotle concord as exegetical program qualified approaches to ritual and sacrifice life of plotinus isagoge sentences on abstinence letter to marcella on the cave of the nymphs against the christians (lost; fragments and reports) late platonist / early neoplatonist"
     },
     {
       "id": "iamblichus",
       "label": "Iamblichus",
-      "searchText": "iamblichus theurgy divine hierarchy on the mysteries life of pythagoras neoplatonist"
+      "searchText": "iamblichus theurgy grounded in divine action full descent of the human soul metaphysical mediation single-skopos exegesis pythagorean philosophical curriculum reply to porphyry (on the mysteries) on the pythagorean way of life protrepticus on general mathematical science on the soul (excerpts) lost commentaries on plato and aristotle syrian late platonist / neoplatonist"
     },
     {
       "id": "proclus",
       "label": "Proclus",
-      "searchText": "proclus henads procession and return elements of theology platonic theology neoplatonist"
+      "searchText": "proclus remaining, procession, and return participation and causal series the one and divine henads soul as discursive intermediary platonic exegesis as theology theurgic unification elements of theology platonic theology commentary on the timaeus commentary on the parmenides commentary on euclid on the existence of evils hymns athenian late platonist / neoplatonist"
     },
     {
       "id": "confucius",
@@ -696,32 +696,32 @@
     {
       "id": "heraclitus",
       "label": "Heraclitus",
-      "searchText": "heraclitus change logos fragments pre-socratic"
+      "searchText": "heraclitus common logos measured transformation relational unity of opposites fire and exchange inquiry and wakeful understanding lost composition represented by quotations, paraphrases, and testimonia; traditional title on nature is not securely authorial early ionian / presocratic"
     },
     {
       "id": "empedocles",
       "label": "Empedocles",
-      "searchText": "empedocles four roots love and strife fragments pre-socratic"
+      "searchText": "empedocles four enduring roots love and strife cyclical mixture and separation pores, effluences, and like-by-like perception daimonic exile, kinship, and purification physical poem conventionally on nature purifications strasbourg papyrus portions cairo papyrus p. fouad inv. 218 western greek presocratic / pluralist poet"
     },
     {
       "id": "anaxagoras",
       "label": "Anaxagoras",
-      "searchText": "anaxagoras nous mixture fragments pre-socratic"
+      "searchText": "anaxagoras everything in everything no smallest portion predominance unmixed nous cosmic rotation and relative separation one lost prose work represented by fragments and testimonia ionian presocratic / pluralist"
     },
     {
       "id": "origen",
       "label": "Origen",
-      "searchText": "origen interpretation creation and freedom on first principles early christian"
+      "searchText": "origen scripture’s literal, moral, and spiritual senses the eternal logos as divine wisdom and teacher created rational freedom providence as moral pedagogy embodied resurrection and transformation purification and disputed universal restoration on first principles against celsus commentary on john on prayer homilies hexapla early christian exegete and philosophical theologian"
     },
     {
       "id": "gregory-nyssa",
       "label": "Gregory of Nyssa",
-      "searchText": "gregory of nyssa infinity spiritual development life of moses early christian"
+      "searchText": "gregory of nyssa divine infinity and incomprehensibility humanity as the image of god created mutability and freedom body-soul unity and resurrection perpetual progress in the good purificatory judgment and disputed universal restoration against eunomius on the making of man on the soul and the resurrection the great catechism the life of moses homilies on the song of songs life of macrina cappadocian christian philosophical theology"
     },
     {
       "id": "pseudo-dionysius",
       "label": "Pseudo-Dionysius",
-      "searchText": "pseudo-dionysius negative theology hierarchy mystical theology christian neoplatonist"
+      "searchText": "pseudo-dionysius pseudonymous apostolic persona procession and return divine names and causal manifestation apophatic theology beyond affirmation and negation celestial and ecclesiastical hierarchy liturgical and symbolic participation divine names mystical theology celestial hierarchy ecclesiastical hierarchy letters late-antique christian platonist / dionysian corpus"
     },
     {
       "id": "eriugena",
@@ -1156,19 +1156,19 @@
       "id": "heraclitus",
       "hallId": "mediterranean-beginnings-classical",
       "label": "Heraclitus",
-      "searchText": "heraclitus how can conflict and transformation belong to an intelligible order? mediterranean beginnings & classical athens number, being, change, plurality, and atomism"
+      "searchText": "heraclitus heraclitus survives in fragments and later reports, not in the slogan “everything flows.” enter to explore how logos, fire, opposition, and measured change make conflict part of an intelligible world without forcing one uncontested system. mediterranean beginnings & classical athens number, being, change, plurality, and atomism"
     },
     {
       "id": "empedocles",
       "hallId": "mediterranean-beginnings-classical",
       "label": "Empedocles",
-      "searchText": "empedocles can stable elements and opposing forces account for cosmic change? mediterranean beginnings & classical athens number, being, change, plurality, and atomism"
+      "searchText": "empedocles empedocles joined four enduring roots with love and strife, perception, and religious purification. enter to see how surviving verse supports this remarkable project—and why its poem structure and cosmic cycle remain disputed. mediterranean beginnings & classical athens number, being, change, plurality, and atomism"
     },
     {
       "id": "anaxagoras",
       "hallId": "mediterranean-beginnings-classical",
       "label": "Anaxagoras",
-      "searchText": "anaxagoras what role could mind play in ordering an indefinitely mixed cosmos? mediterranean beginnings & classical athens number, being, change, plurality, and atomism"
+      "searchText": "anaxagoras anaxagoras explained differentiated things through universal mixture and relative separation, with an unmixed nous beginning cosmic rotation. enter to distinguish his fragments from later testimony and explore how much ordering mind actually provides. mediterranean beginnings & classical athens number, being, change, plurality, and atomism"
     },
     {
       "id": "protagoras",
@@ -1791,8 +1791,8 @@
     {
       "id": "antisthenes",
       "hallId": "hellenistic-roman-ways",
-      "label": "Antisthenes: A Disputed Cynic Beginning",
-      "searchText": "antisthenes: a disputed cynic beginning how did socratic virtue become a demand for self-sufficiency without inventing a tidy founder story? hellenistic & roman ways of life cynic challenge"
+      "label": "Antisthenes",
+      "searchText": "antisthenes antisthenes was a socratic writer whose evidence spans ethics, literature, language, and logic. enter to distinguish that varied record from the later, disputed story that made him the founder of cynicism and teacher of diogenes. hellenistic & roman ways of life cynic challenge"
     },
     {
       "id": "diogenes",
@@ -1875,14 +1875,14 @@
     {
       "id": "arcesilaus",
       "hallId": "hellenistic-roman-ways",
-      "label": "Arcesilaus: The Academy Turns Against Certainty",
-      "searchText": "arcesilaus: the academy turns against certainty can socratic and platonic inquiry undermine every claimed criterion of secure cognition? hellenistic & roman ways of life academic and pyrrhonian skeptical lineages"
+      "label": "Arcesilaus",
+      "searchText": "arcesilaus arcesilaus left no writings but made skeptical dialectic central to plato’s academy. enter to see how he challenged stoic certainty—and why reported arguments, suspension, and practical criteria do not form one secure personal doctrine. hellenistic & roman ways of life academic and pyrrhonian skeptical lineages"
     },
     {
       "id": "carneades",
       "hallId": "hellenistic-roman-ways",
-      "label": "Carneades: Argument on Both Sides",
-      "searchText": "carneades: argument on both sides how can action proceed through persuasive appearances without claiming certainty? hellenistic & roman ways of life academic and pyrrhonian skeptical lineages"
+      "label": "Carneades",
+      "searchText": "carneades carneades wrote nothing yet transformed skeptical argument across knowledge, ethics, theology, fate, and justice. enter to explore persuasive appearances, action without certainty, and the difference between constructing a position and personally assenting to it. hellenistic & roman ways of life academic and pyrrhonian skeptical lineages"
     },
     {
       "id": "sextus-empiricus",
@@ -1905,26 +1905,26 @@
     {
       "id": "porphyry",
       "hallId": "late-antiquity-inheritance",
-      "label": "Porphyry: Editing Plotinus and Ordering Inquiry",
-      "searchText": "porphyry: editing plotinus and ordering inquiry how do editorial form, logic, interpretation, and philosophical purification shape a tradition? late antiquity & neoplatonic inheritance plotinus and later pagan platonisms"
+      "label": "Porphyry",
+      "searchText": "porphyry porphyry was a philosopher, editor, commentator, teacher, and practical writer with an unevenly surviving corpus. enter to encounter more than plotinus’s editor or christianity’s opponent: a platonist who reordered several fields of inquiry. late antiquity & neoplatonic inheritance plotinus and later pagan platonisms"
     },
     {
       "id": "iamblichus",
       "hallId": "late-antiquity-inheritance",
-      "label": "Iamblichus: Theurgy and Divine Causation",
-      "searchText": "iamblichus: theurgy and divine causation why might rational contemplation require ritual participation in a divine order? late antiquity & neoplatonic inheritance plotinus and later pagan platonisms"
+      "label": "Iamblichus",
+      "searchText": "iamblichus iamblichus joined metaphysics, pedagogy, mathematics, pythagorean formation, and theurgy. enter to see why embodied souls might require divinely grounded ritual—and how the abamon persona and fragmented transmission shape what can be reconstructed. late antiquity & neoplatonic inheritance plotinus and later pagan platonisms"
     },
     {
       "id": "proclus",
       "hallId": "late-antiquity-inheritance",
-      "label": "Proclus: Participation, Procession, and Return",
-      "searchText": "proclus: participation, procession, and return how can a systematic metaphysics preserve both causal dependence and structured plurality? late antiquity & neoplatonic inheritance plotinus and later pagan platonisms"
+      "label": "Proclus",
+      "searchText": "proclus proclus integrated systematic metaphysics with commentary, teaching, mathematics, hymns, prayer, and ritual. enter to move beyond the elements of theology and see remaining, procession, and return within a complete philosophical way of life. late antiquity & neoplatonic inheritance plotinus and later pagan platonisms"
     },
     {
       "id": "origen",
       "hallId": "late-antiquity-inheritance",
-      "label": "Origen: Scripture, Freedom, and First Principles",
-      "searchText": "origen: scripture, freedom, and first principles how can philosophical argument and layered scriptural interpretation belong to one christian inquiry? late antiquity & neoplatonic inheritance christian transformations of platonism"
+      "label": "Origen",
+      "searchText": "origen origen joined scriptural scholarship with philosophical inquiry into god, freedom, embodiment, and restoration. enter to trace a corpus divided among greek originals, latin translations, fragments, and hostile reports without confusing it with later origenism. late antiquity & neoplatonic inheritance christian transformations of platonism"
     },
     {
       "id": "augustine",
@@ -1935,14 +1935,14 @@
     {
       "id": "gregory-nyssa",
       "hallId": "late-antiquity-inheritance",
-      "label": "Gregory of Nyssa: Infinity and Transformative Ascent",
-      "searchText": "gregory of nyssa: infinity and transformative ascent what if flourishing toward the divine has no final intellectual stopping point? late antiquity & neoplatonic inheritance christian transformations of platonism"
+      "label": "Gregory of Nyssa",
+      "searchText": "gregory of nyssa gregory of nyssa connected divine infinity with embodied freedom and perpetual transformation toward the good. enter to explore body, soul, virtue, resurrection, and the genuine dispute over whether his eschatology culminates in universal restoration. late antiquity & neoplatonic inheritance christian transformations of platonism"
     },
     {
       "id": "pseudo-dionysius",
       "hallId": "late-antiquity-inheritance",
-      "label": "Pseudo-Dionysius: Divine Names and Unknowing",
-      "searchText": "pseudo-dionysius: divine names and unknowing how can affirmative and negative language lead thought toward what exceeds every name? late antiquity & neoplatonic inheritance christian transformations of platonism"
+      "label": "Pseudo-Dionysius",
+      "searchText": "pseudo-dionysius pseudo-dionysius was an anonymous late-antique christian, not the biblical convert whose name the author adopted. enter to explore divine names, hierarchy, procession and return, apophatic unknowing, and the corpus’s transformed byzantine and latin afterlives. late antiquity & neoplatonic inheritance christian transformations of platonism"
     },
     {
       "id": "rationalism",
