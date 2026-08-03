@@ -3,7 +3,7 @@
 - Canonical ID: `schopenhauer`
 - Visitor route: `#/philosophers/schopenhauer`
 - Review date and status: 2026-08-03; `claim-reviewed`
-- Stored review lock: `fnv1a64:a123a41d0b36ef10`
+- Stored review lock: `fnv1a64:e6679c58d230f518`
 - Coverage: 15 sections; 32 citation-bearing paragraphs; 17 structured claim groups; 86 citation references
 - Evidence: 7 registered and cited sources; every paragraph and structured claim mapped in `modernGermanIdealistReactionsEditorial.ts`
 - Article depth: 2,335 final substantive words

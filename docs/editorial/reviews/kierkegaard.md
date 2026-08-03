@@ -3,7 +3,7 @@
 - Canonical ID: `kierkegaard`
 - Visitor route: `#/philosophers/kierkegaard`
 - Review date and status: 2026-08-03; `claim-reviewed`
-- Stored review lock: `fnv1a64:2ee6e83ef0f1e3b0`
+- Stored review lock: `fnv1a64:d23d163a8cb1e6c8`
 - Coverage: 15 sections; 32 citation-bearing paragraphs; 17 structured claim groups; 86 citation references
 - Evidence: 8 registered and cited sources; every paragraph and structured claim mapped in `modernGermanIdealistReactionsEditorial.ts`
 - Article depth: 2,351 final substantive words

@@ -122,7 +122,7 @@ const schellingConfig: ModernClusterEditorialConfig = {
     historicalContext: 'Schelling wrote amid the French Revolution and Napoleonic aftermath, post-Kantian arguments over freedom and the thing in itself, Jena Romanticism, Spinoza’s contested revival, changing sciences of life and matter, and nineteenth-century disputes over Christianity and historical revelation.',
     contributionSummary: 'Developed changing systems of nature, transcendental idealism, identity, freedom, mythology, revelation, and positive philosophy that seek unity without reducing nature to inert matter or existence to conceptual necessity.',
     beginnerExplanation: 'Schelling asks how mind can arise within nature and still be free. His answer changes: early texts describe nature and consciousness as complementary forms of productivity; the Freedom Essay makes evil a real possibility; later lectures argue that logic cannot deduce that anything exists. Always date the claim before calling it “Schelling’s system.”',
-    dateDisplay: '1775–1854', dateConfidence: 'high', dateNote: 'Birth and death dates are secure. Dates and genres of individual texts are essential because the positions change, the Ages project exists in several drafts, and major late materials derive from lectures published posthumously.',
+    dateDisplay: '1775 CE–1854 CE', dateConfidence: 'high', dateNote: 'Birth and death dates are secure. Dates and genres of individual texts are essential because the positions change, the Ages project exists in several drafts, and major late materials derive from lectures published posthumously.',
     centralQuestions: [
       'How can nature generate self-conscious and free beings without becoming dead mechanism?',
       'How can identity preserve real difference, personality, and the possibility of evil?',
@@ -189,7 +189,7 @@ const schellingConfig: ModernClusterEditorialConfig = {
     ],
   },
   reviewNotePath: 'docs/editorial/reviews/schelling.md',
-  reviewLock: 'fnv1a64:73ce9ec7668a32c7',
+  reviewLock: 'fnv1a64:6443b88ff19d4ab3',
 };
 
 const hegelSources: EditorialSource[] = [
@@ -342,7 +342,7 @@ const hegelConfig: ModernClusterEditorialConfig = {
     historicalContext: 'Hegel wrote after Kant’s critical philosophy and amid German Idealist and Romantic debates, the French and Haitian Revolutions, Napoleonic conquest, restoration politics, industrializing civil society, Christian theological controversy, European colonial expansion, and new historical and natural sciences.',
     contributionSummary: 'Developed a systematic account of logic, nature, consciousness, social life, history, art, religion, and philosophy in which freedom becomes concrete through self-critical concepts, mutual recognition, and institutions.',
     beginnerExplanation: 'Hegel tests a claim by asking whether its own practice supports what it says. When a view of freedom, knowledge, or society proves one-sided, its failure points toward a richer account. This is dialectical development, not a universal thesis–antithesis–synthesis recipe and not a promise that history automatically improves.',
-    dateDisplay: '1770–1831', dateConfidence: 'high', dateNote: 'Birth and death dates are secure. Individual lecture claims require dates and edition notes because many familiar volumes on history, art, and religion were constructed posthumously from manuscripts and student transcripts.',
+    dateDisplay: '1770 CE–1831 CE', dateConfidence: 'high', dateNote: 'Birth and death dates are secure. Individual lecture claims require dates and edition notes because many familiar volumes on history, art, and religion were constructed posthumously from manuscripts and student transcripts.',
     centralQuestions: [
       'How can thought criticize its own categories without appealing to an external foundation?',
       'How do self-consciousness and freedom depend on recognition, labor, law, and social institutions?',
@@ -416,7 +416,7 @@ const hegelConfig: ModernClusterEditorialConfig = {
     ],
   },
   reviewNotePath: 'docs/editorial/reviews/hegel.md',
-  reviewLock: 'fnv1a64:831c3ce936d31eff',
+  reviewLock: 'fnv1a64:64440047f4813d8f',
 };
 
 const schopenhauerSources: EditorialSource[] = [
@@ -516,7 +516,7 @@ const schopenhauerConfig: ModernClusterEditorialConfig = {
     historicalContext: 'Schopenhauer wrote after Kant and against post-Kantian idealist systems, amid Romantic aesthetics, nineteenth-century physiology and natural science, European Orientalist scholarship, new translations of South Asian texts, and a public culture increasingly receptive to pessimism and psychological accounts of unconscious motivation.',
     contributionSummary: 'Recast the experienced world as representation and its embodied inner aspect as will, then connected striving and suffering to aesthetics, compassion, and ascetic denial.',
     beginnerExplanation: 'The world you know is always presented to a subject through space, time, and causation. Your body is also lived from within as effort and desire; Schopenhauer generalizes this striving as will. Art can suspend wanting, compassion can cross apparent separateness, and asceticism seeks a deeper quieting—but every step of that system can be challenged.',
-    dateDisplay: '1788–1860', dateConfidence: 'high', dateNote: 'Birth and death dates are secure. The major work appeared in late 1818 with an 1819 title-page date; its 1844 second edition added a full supplementary volume, and the Fourfold Root was substantially revised in 1847.',
+    dateDisplay: '1788 CE–1860 CE', dateConfidence: 'high', dateNote: 'Birth and death dates are secure. The major work appeared in late 1818 with an 1819 title-page date; its 1844 second edition added a full supplementary volume, and the Fourfold Root was substantially revised in 1847.',
     centralQuestions: [
       'How is the world structured as representation for a knowing subject?',
       'Does lived embodiment justify identifying reality in itself with blind striving will?',
@@ -585,7 +585,7 @@ const schopenhauerConfig: ModernClusterEditorialConfig = {
     ],
   },
   reviewNotePath: 'docs/editorial/reviews/schopenhauer.md',
-  reviewLock: 'fnv1a64:a123a41d0b36ef10',
+  reviewLock: 'fnv1a64:e6679c58d230f518',
 };
 
 const kierkegaardSources: EditorialSource[] = [
@@ -691,7 +691,7 @@ const kierkegaardConfig: ModernClusterEditorialConfig = {
     historicalContext: 'Kierkegaard wrote within Lutheran Danish Christendom, Copenhagen press and theater culture, Golden Age theology and literature, post-Hegelian debate, 1848 political upheaval, and changing forms of publicity. His “single individual” addresses both speculative system and social evasion, not an abstract human isolated from every relation.',
     contributionSummary: 'Used pseudonymous and signed forms to investigate anxiety, despair, inwardness, choice, repetition, love, faith, and the task of becoming a self before God.',
     beginnerExplanation: 'Kierkegaard does not hand every conclusion to the reader in his own voice. Pseudonyms stage ways of living, signed discourses address religious formation, and late polemics confront Christendom directly. Ask who speaks, what evasion the text exposes, and how truth would have to be lived—not only whether a slogan sounds inspiring.',
-    dateDisplay: '1813–1855', dateConfidence: 'high', dateNote: 'Birth and death dates are secure. Authorial attribution requires genre-level confidence: pseudonymous works, signed works, journals, posthumous texts, and late polemics have different evidential roles.',
+    dateDisplay: '1813 CE–1855 CE', dateConfidence: 'high', dateNote: 'Birth and death dates are secure. Authorial attribution requires genre-level confidence: pseudonymous works, signed works, journals, posthumous texts, and late polemics have different evidential roles.',
     centralQuestions: [
       'How does an existing individual appropriate truth rather than merely possess correct propositions?',
       'How do anxiety, despair, choice, repetition, and love shape the task of becoming a self?',
@@ -763,7 +763,7 @@ const kierkegaardConfig: ModernClusterEditorialConfig = {
     ],
   },
   reviewNotePath: 'docs/editorial/reviews/kierkegaard.md',
-  reviewLock: 'fnv1a64:2ee6e83ef0f1e3b0',
+  reviewLock: 'fnv1a64:d23d163a8cb1e6c8',
 };
 
 const configs: Record<string, ModernClusterEditorialConfig> = {

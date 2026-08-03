@@ -4,7 +4,7 @@
 - Visitor route: `#/philosophers/iris-murdoch`
 - Editorial submission date: 2026-08-03
 - Effective status: `claim-reviewed`
-- Deterministic lock: `fnv1a64:c903e4366cb8269c`
+- Deterministic lock: `fnv1a64:9650d6c18046fa50`
 - Coverage: 13 sections; 30 citation-bearing paragraphs; 17 structured claims; 86 citation references
 - Evidence set: 8 registered and cited sources, including three primary-work records, an institutional archive, and four independent scholarly resources
 - Depth: 2,097 final substantive words

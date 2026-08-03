@@ -4,7 +4,7 @@
 - Visitor route: `#/philosophers/mill`
 - Editorial submission date: 2026-08-03
 - Effective status: `claim-reviewed`
-- Deterministic lock: `fnv1a64:aa8e7f27fc8adef2`
+- Deterministic lock: `fnv1a64:6e91db417cbab2f2`
 - Coverage: 13 sections; 29 citation-bearing paragraphs; 17 structured claims; 72 citation references
 - Evidence set: 8 registered and cited sources, including five primary-text/corpus records and three independent specialist resources
 - Depth: 2,089 final substantive words

@@ -4,7 +4,7 @@
 - Visitor route: `#/philosophers/bentham`
 - Editorial submission date: 2026-08-03
 - Effective status: `claim-reviewed`
-- Deterministic lock: `fnv1a64:9ad4d691577ad134`
+- Deterministic lock: `fnv1a64:960145287e85e988`
 - Coverage: 14 sections; 29 citation-bearing paragraphs; 17 structured claims; 80 citation references
 - Evidence set: 8 registered and cited sources, including four primary/critical-edition records and three independent scholarly or institutional domains
 - Depth: 2,257 final substantive words

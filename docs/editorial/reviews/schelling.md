@@ -3,7 +3,7 @@
 - Canonical ID: `schelling`
 - Visitor route: `#/philosophers/schelling`
 - Review date and status: 2026-08-03; `claim-reviewed`
-- Stored review lock: `fnv1a64:73ce9ec7668a32c7`
+- Stored review lock: `fnv1a64:6443b88ff19d4ab3`
 - Coverage: 13 sections; 26 citation-bearing paragraphs; 17 structured claim groups; 64 citation references
 - Evidence: 7 registered and cited sources; every paragraph and structured claim mapped in `modernGermanIdealistReactionsEditorial.ts`
 - Article depth: 2,175 final substantive words

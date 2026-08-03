@@ -3,7 +3,7 @@
 - Canonical ID: `hegel`
 - Visitor route: `#/philosophers/hegel`
 - Review date and status: 2026-08-03; `claim-reviewed`
-- Stored review lock: `fnv1a64:831c3ce936d31eff`
+- Stored review lock: `fnv1a64:64440047f4813d8f`
 - Coverage: 24 sections; 51 citation-bearing paragraphs; 17 structured claim groups; 120 citation references
 - Evidence: 8 registered and cited sources; every paragraph and structured claim mapped in `modernGermanIdealistReactionsEditorial.ts`
 - Article depth: 4,111 final substantive words; thinker flagship target met

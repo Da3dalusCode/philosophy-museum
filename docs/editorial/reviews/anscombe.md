@@ -5,7 +5,7 @@
 - Visitor route: `#/philosophers/anscombe`
 - Editorial submission date: 2026-08-03
 - Effective status: `claim-reviewed`
-- Deterministic lock: `fnv1a64:454368017127b889`
+- Deterministic lock: `fnv1a64:b90f7daea8dd6309`
 - Coverage: 14 sections; 29 citation-bearing paragraphs; 17 structured claims; 88 citation references
 - Evidence set: 8 registered and cited sources, including four primary-work records, a biographical archive, and three independent specialist sources
 - Depth: 2,187 final substantive words
