@@ -52,6 +52,9 @@ const INVITATION_OVERRIDES = {
   'skeptical-arguments-preserved': 'The writings of Sextus Empiricus preserved Pyrrhonian modes and opposed arguments, while print and translation repeatedly reframed skepticism for later debates about method, religion, and certainty.',
   'porphyrian-tree-classification': 'Later diagrams turned Porphyry’s account of genus, species, and difference into a visual framework that influenced medieval and early modern logic.',
   'proclus-elements-afterlife': 'Proclus organized metaphysical propositions into an axiomatic sequence exploring unity, causation, procession, and return, a form that shaped later philosophical traditions.',
+  'enlightenment-access-to-knowledge': 'At Sceaux, privileged access to books and instruments made women’s rational capacity visible while exposing the unequal education criticized by Mary Wollstonecraft.',
+  'enlightenment-revolution-from-street': 'The Women’s March to Versailles shows collective political agency beyond formal citizenship, the exclusion Mary Wollstonecraft challenged in revolutionary rights discourse.',
+  'continental-freiburg-phenomenological-line': 'Freiburg’s institutional history links Husserl and Heidegger while showing why Continental Philosophy cannot treat phenomenological inheritance as politically innocent.',
 } as const satisfies Readonly<Record<string, string>>;
 
 const TYPE_OVERRIDES = {
