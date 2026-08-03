@@ -17,15 +17,15 @@
     {
       "label": "Philosophers",
       "total": 146,
-      "pass": 121,
-      "fail": 25,
+      "pass": 129,
+      "fail": 17,
       "missing": 0
     },
     {
       "label": "Philosophies, branches, schools, traditions, movements, methods, and frameworks",
       "total": 45,
-      "pass": 40,
-      "fail": 5,
+      "pass": 44,
+      "fail": 1,
       "missing": 0
     },
     {
@@ -38,8 +38,8 @@
   ],
   "universalSummary": {
     "total": 191,
-    "pass": 161,
-    "fail": 30,
+    "pass": 173,
+    "fail": 18,
     "missing": 0
   },
   "pilotChanges": [
@@ -897,8 +897,8 @@
       "title": "Jeremy Bentham",
       "visitorEntryPoint": "#/philosophers/bentham",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1976,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2257,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -933,8 +933,8 @@
       "title": "Schelling",
       "visitorEntryPoint": "#/philosophers/schelling",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1998,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2175,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -945,8 +945,8 @@
       "title": "Hegel",
       "visitorEntryPoint": "#/philosophers/hegel",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1808,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 4111,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -957,8 +957,8 @@
       "title": "Schopenhauer",
       "visitorEntryPoint": "#/philosophers/schopenhauer",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1830,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2335,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -969,8 +969,8 @@
       "title": "Kierkegaard",
       "visitorEntryPoint": "#/philosophers/kierkegaard",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1834,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2351,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -993,8 +993,8 @@
       "title": "John Stuart Mill",
       "visitorEntryPoint": "#/philosophers/mill",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1806,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2089,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -1137,8 +1137,8 @@
       "title": "Elizabeth Anscombe",
       "visitorEntryPoint": "#/philosophers/anscombe",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1898,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2187,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -1713,8 +1713,8 @@
       "title": "Iris Murdoch",
       "visitorEntryPoint": "#/philosophers/iris-murdoch",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1813,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2097,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -1893,8 +1893,8 @@
       "title": "Ontology",
       "visitorEntryPoint": "#/branches/ontology",
       "contentCategory": "philosophy",
-      "substantiveWordCount": 1975,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2189,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -2001,8 +2001,8 @@
       "title": "Political Philosophy",
       "visitorEntryPoint": "#/branches/political-philosophy",
       "contentCategory": "philosophy",
-      "substantiveWordCount": 1948,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2104,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -2037,8 +2037,8 @@
       "title": "Philosophy of Mind",
       "visitorEntryPoint": "#/branches/philosophy-of-mind",
       "contentCategory": "philosophy",
-      "substantiveWordCount": 1920,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 5108,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -2049,8 +2049,8 @@
       "title": "Philosophy of Science",
       "visitorEntryPoint": "#/branches/philosophy-of-science",
       "contentCategory": "philosophy",
-      "substantiveWordCount": 1962,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2191,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -3022,8 +3022,8 @@
         "surfaceWords": 349,
         "canonicalArticleKey": "philosopher:anscombe",
         "canonicalArticleId": "anscombe",
-        "canonicalArticleWordCount": 1898,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2187,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "political-philosophy",
@@ -3031,11 +3031,11 @@
         "hallId": "justice-democratic-reason",
         "visitorEntryPoint": "#/museum/justice-democratic-reason/exhibits/political-philosophy",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 441,
+        "surfaceWords": 324,
         "canonicalArticleKey": "philosophy:political-philosophy",
         "canonicalArticleId": "political-philosophy",
-        "canonicalArticleWordCount": 1948,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2104,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "arendt",
@@ -3103,11 +3103,11 @@
         "hallId": "core-questions-forum",
         "visitorEntryPoint": "#/museum/core-questions-forum/exhibits/ontology",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 450,
+        "surfaceWords": 332,
         "canonicalArticleKey": "philosophy:ontology",
         "canonicalArticleId": "ontology",
-        "canonicalArticleWordCount": 1975,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2189,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "whitehead",
@@ -3139,11 +3139,11 @@
         "hallId": "core-questions-forum",
         "visitorEntryPoint": "#/museum/core-questions-forum/exhibits/philosophy-of-mind",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 466,
+        "surfaceWords": 326,
         "canonicalArticleKey": "philosophy:philosophy-of-mind",
         "canonicalArticleId": "philosophy-of-mind",
-        "canonicalArticleWordCount": 1920,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 5108,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "thomas-nagel",
@@ -3199,11 +3199,11 @@
         "hallId": "core-questions-forum",
         "visitorEntryPoint": "#/museum/core-questions-forum/exhibits/philosophy-of-science",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 410,
+        "surfaceWords": 336,
         "canonicalArticleKey": "philosophy:philosophy-of-science",
         "canonicalArticleId": "philosophy-of-science",
-        "canonicalArticleWordCount": 1962,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2191,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "carnap",
@@ -4423,11 +4423,11 @@
         "hallId": "german-idealism-afterlives",
         "visitorEntryPoint": "#/museum/german-idealism-afterlives/exhibits/schelling",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 897,
+        "surfaceWords": 321,
         "canonicalArticleKey": "philosopher:schelling",
         "canonicalArticleId": "schelling",
-        "canonicalArticleWordCount": 1998,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2175,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "hegel",
@@ -4435,11 +4435,11 @@
         "hallId": "german-idealism-afterlives",
         "visitorEntryPoint": "#/museum/german-idealism-afterlives/exhibits/hegel",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 816,
+        "surfaceWords": 335,
         "canonicalArticleKey": "philosopher:hegel",
         "canonicalArticleId": "hegel",
-        "canonicalArticleWordCount": 1808,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 4111,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "kantianism",
@@ -4462,8 +4462,8 @@
         "surfaceWords": 347,
         "canonicalArticleKey": "philosopher:bentham",
         "canonicalArticleId": "bentham",
-        "canonicalArticleWordCount": 1976,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2257,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "mill",
@@ -4474,8 +4474,8 @@
         "surfaceWords": 342,
         "canonicalArticleKey": "philosopher:mill",
         "canonicalArticleId": "mill",
-        "canonicalArticleWordCount": 1806,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2089,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "marx",
@@ -4510,8 +4510,8 @@
         "surfaceWords": 387,
         "canonicalArticleKey": "philosopher:schopenhauer",
         "canonicalArticleId": "schopenhauer",
-        "canonicalArticleWordCount": 1830,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2335,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "kierkegaard",
@@ -4519,11 +4519,11 @@
         "hallId": "faith-pessimism-life-value",
         "visitorEntryPoint": "#/museum/faith-pessimism-life-value/exhibits/kierkegaard",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 366,
+        "surfaceWords": 329,
         "canonicalArticleKey": "philosopher:kierkegaard",
         "canonicalArticleId": "kierkegaard",
-        "canonicalArticleWordCount": 1834,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2351,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "nietzsche",
@@ -4663,11 +4663,11 @@
         "hallId": "moral-life-practical-reason",
         "visitorEntryPoint": "#/museum/moral-life-practical-reason/exhibits/iris-murdoch",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 804,
+        "surfaceWords": 333,
         "canonicalArticleKey": "philosopher:iris-murdoch",
         "canonicalArticleId": "iris-murdoch",
-        "canonicalArticleWordCount": 1813,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2097,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "philippa-foot",
@@ -5806,8 +5806,8 @@
         "canonicalArticleKey": "philosopher:anscombe",
         "canonicalArticleId": "anscombe",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1898,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2187,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "anscombe-practical-knowledge",
@@ -5822,8 +5822,8 @@
         "canonicalArticleKey": "philosopher:anscombe",
         "canonicalArticleId": "anscombe",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1898,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2187,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "anscombe-modern-moral-philosophy",
@@ -5838,8 +5838,8 @@
         "canonicalArticleKey": "philosopher:anscombe",
         "canonicalArticleId": "anscombe",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1898,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2187,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "anscombe-truman-degree",
@@ -5854,8 +5854,8 @@
         "canonicalArticleKey": "philosopher:anscombe",
         "canonicalArticleId": "anscombe",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1898,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2187,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "anscombe-causality",
@@ -5870,8 +5870,8 @@
         "canonicalArticleKey": "philosopher:anscombe",
         "canonicalArticleId": "anscombe",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1898,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2187,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "political-authority-legitimacy",
@@ -5886,8 +5886,8 @@
         "canonicalArticleKey": "philosophy:political-philosophy",
         "canonicalArticleId": "political-philosophy",
         "canonicalArticleCategory": "philosophy",
-        "canonicalArticleWordCount": 1948,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2104,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "public-action-civil-disobedience",
@@ -5902,8 +5902,8 @@
         "canonicalArticleKey": "philosophy:political-philosophy",
         "canonicalArticleId": "political-philosophy",
         "canonicalArticleCategory": "philosophy",
-        "canonicalArticleWordCount": 1948,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2104,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "arendt-human-condition",
@@ -6046,8 +6046,8 @@
         "canonicalArticleKey": "philosophy:political-philosophy",
         "canonicalArticleId": "political-philosophy",
         "canonicalArticleCategory": "philosophy",
-        "canonicalArticleWordCount": 1948,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2104,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "habermas-public-sphere",
@@ -6078,8 +6078,8 @@
         "canonicalArticleKey": "philosophy:political-philosophy",
         "canonicalArticleId": "political-philosophy",
         "canonicalArticleCategory": "philosophy",
-        "canonicalArticleWordCount": 1948,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2104,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "south-sarva-darsana-compendium",
@@ -8996,8 +8996,8 @@
         "canonicalArticleKey": "philosopher:schelling",
         "canonicalArticleId": "schelling",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1998,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2175,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "nature-romantic-beholder",
@@ -9012,8 +9012,8 @@
         "canonicalArticleKey": "philosopher:schelling",
         "canonicalArticleId": "schelling",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1998,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2175,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "nature-goethe-color",
@@ -9028,8 +9028,8 @@
         "canonicalArticleKey": "philosopher:schelling",
         "canonicalArticleId": "schelling",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1998,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2175,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "nature-galvani-living-force",
@@ -9044,8 +9044,8 @@
         "canonicalArticleKey": "philosopher:schelling",
         "canonicalArticleId": "schelling",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1998,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2175,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "nature-voltaic-pile",
@@ -9060,8 +9060,8 @@
         "canonicalArticleKey": "philosopher:schelling",
         "canonicalArticleId": "schelling",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1998,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2175,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "hegel-lecture-room",
@@ -9076,8 +9076,8 @@
         "canonicalArticleKey": "philosopher:hegel",
         "canonicalArticleId": "hegel",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1808,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 4111,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "hegel-napoleon-jena",
@@ -9092,8 +9092,8 @@
         "canonicalArticleKey": "philosopher:hegel",
         "canonicalArticleId": "hegel",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1808,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 4111,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "hegel-birthplace-stuttgart",
@@ -9108,8 +9108,8 @@
         "canonicalArticleKey": "philosopher:hegel",
         "canonicalArticleId": "hegel",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1808,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 4111,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "hegel-berlin-institution",
@@ -9124,8 +9124,8 @@
         "canonicalArticleKey": "philosopher:hegel",
         "canonicalArticleId": "hegel",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1808,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 4111,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "hegel-haiti-recognition-debate",
@@ -9140,8 +9140,8 @@
         "canonicalArticleKey": "philosopher:hegel",
         "canonicalArticleId": "hegel",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1808,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 4111,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "afterlives-holderlin",
@@ -9204,8 +9204,8 @@
         "canonicalArticleKey": "philosopher:hegel",
         "canonicalArticleId": "hegel",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1808,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 4111,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "afterlives-feuerbach",
@@ -9220,8 +9220,8 @@
         "canonicalArticleKey": "philosopher:hegel",
         "canonicalArticleId": "hegel",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1808,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 4111,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "afterlives-strauss",
@@ -9236,8 +9236,8 @@
         "canonicalArticleKey": "philosopher:hegel",
         "canonicalArticleId": "hegel",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1808,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 4111,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "utility-bentham-young-reformer",
@@ -9252,8 +9252,8 @@
         "canonicalArticleKey": "philosopher:bentham",
         "canonicalArticleId": "bentham",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1976,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2257,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "utility-penitentiary-reform",
@@ -9268,8 +9268,8 @@
         "canonicalArticleKey": "philosopher:bentham",
         "canonicalArticleId": "bentham",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1976,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2257,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "utility-law-public-judgment",
@@ -9284,8 +9284,8 @@
         "canonicalArticleKey": "philosopher:bentham",
         "canonicalArticleId": "bentham",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1976,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2257,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "utility-suffering-moral-standing",
@@ -9300,8 +9300,8 @@
         "canonicalArticleKey": "philosopher:bentham",
         "canonicalArticleId": "bentham",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1976,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2257,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "liberty-romantic-formation",
@@ -9316,8 +9316,8 @@
         "canonicalArticleKey": "philosopher:mill",
         "canonicalArticleId": "mill",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1806,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2089,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "liberty-harriet-collaboration",
@@ -9332,8 +9332,8 @@
         "canonicalArticleKey": "philosopher:mill",
         "canonicalArticleId": "mill",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1806,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2089,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "liberty-cooperative-experiments",
@@ -9348,8 +9348,8 @@
         "canonicalArticleKey": "philosopher:mill",
         "canonicalArticleId": "mill",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1806,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2089,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "liberty-public-assembly",
@@ -9364,8 +9364,8 @@
         "canonicalArticleKey": "philosopher:mill",
         "canonicalArticleId": "mill",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1806,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2089,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "liberty-womens-suffrage",
@@ -9380,8 +9380,8 @@
         "canonicalArticleKey": "philosopher:mill",
         "canonicalArticleId": "mill",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1806,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2089,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "liberty-imperial-exception",
@@ -9396,8 +9396,8 @@
         "canonicalArticleKey": "philosopher:mill",
         "canonicalArticleId": "mill",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1806,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2089,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "capital-feuerbach-inversion",
@@ -9588,8 +9588,8 @@
         "canonicalArticleKey": "philosopher:schopenhauer",
         "canonicalArticleId": "schopenhauer",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1830,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2335,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "schopenhauer-frankfurt-work",
@@ -9604,8 +9604,8 @@
         "canonicalArticleKey": "philosopher:schopenhauer",
         "canonicalArticleId": "schopenhauer",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1830,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2335,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "schopenhauer-music-and-wagner",
@@ -9620,8 +9620,8 @@
         "canonicalArticleKey": "philosopher:schopenhauer",
         "canonicalArticleId": "schopenhauer",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1830,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2335,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "schopenhauer-oupnekhat-route",
@@ -9636,8 +9636,8 @@
         "canonicalArticleKey": "philosopher:schopenhauer",
         "canonicalArticleId": "schopenhauer",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1830,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2335,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "schopenhauer-pessimism-afterlife",
@@ -9652,8 +9652,8 @@
         "canonicalArticleKey": "philosopher:schopenhauer",
         "canonicalArticleId": "schopenhauer",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1830,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2335,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "kierkegaard-indirect-communication",
@@ -9668,8 +9668,8 @@
         "canonicalArticleKey": "philosopher:kierkegaard",
         "canonicalArticleId": "kierkegaard",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1834,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2351,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "kierkegaard-fear-trembling",
@@ -9684,8 +9684,8 @@
         "canonicalArticleKey": "philosopher:kierkegaard",
         "canonicalArticleId": "kierkegaard",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1834,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2351,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "kierkegaard-christendom-attack",
@@ -9700,8 +9700,8 @@
         "canonicalArticleKey": "philosopher:kierkegaard",
         "canonicalArticleId": "kierkegaard",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1834,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2351,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "kierkegaard-corsair-public",
@@ -9716,8 +9716,8 @@
         "canonicalArticleKey": "philosopher:kierkegaard",
         "canonicalArticleId": "kierkegaard",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1834,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2351,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "kierkegaard-regine-legend",
@@ -9732,8 +9732,8 @@
         "canonicalArticleKey": "philosopher:kierkegaard",
         "canonicalArticleId": "kierkegaard",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1834,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2351,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "nietzsche-birth-tragedy",
@@ -10564,8 +10564,8 @@
         "canonicalArticleKey": "philosopher:iris-murdoch",
         "canonicalArticleId": "iris-murdoch",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1813,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2097,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "foot-natural-goodness",

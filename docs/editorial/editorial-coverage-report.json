@@ -1171,15 +1171,19 @@
       "title": "Jeremy Bentham",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/bentham",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 8,
+      "citedSourceCount": 8,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1976
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 29,
+      "citationCount": 118,
+      "substantiveArticleWordCount": 2257,
+      "reviewNotePath": "docs/editorial/reviews/bentham.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:9ad4d691577ad134",
+      "currentReviewLock": "fnv1a64:9ad4d691577ad134"
     },
     {
       "id": "kant",
@@ -1220,60 +1224,76 @@
       "title": "Schelling",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/schelling",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 7,
+      "citedSourceCount": 7,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1998
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 26,
+      "citationCount": 106,
+      "substantiveArticleWordCount": 2175,
+      "reviewNotePath": "docs/editorial/reviews/schelling.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:73ce9ec7668a32c7",
+      "currentReviewLock": "fnv1a64:73ce9ec7668a32c7"
     },
     {
       "id": "hegel",
       "title": "Hegel",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/hegel",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 8,
+      "citedSourceCount": 8,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1808
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 51,
+      "citationCount": 164,
+      "substantiveArticleWordCount": 4111,
+      "reviewNotePath": "docs/editorial/reviews/hegel.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:831c3ce936d31eff",
+      "currentReviewLock": "fnv1a64:831c3ce936d31eff"
     },
     {
       "id": "schopenhauer",
       "title": "Schopenhauer",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/schopenhauer",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 7,
+      "citedSourceCount": 7,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1830
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 32,
+      "citationCount": 128,
+      "substantiveArticleWordCount": 2335,
+      "reviewNotePath": "docs/editorial/reviews/schopenhauer.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:a123a41d0b36ef10",
+      "currentReviewLock": "fnv1a64:a123a41d0b36ef10"
     },
     {
       "id": "kierkegaard",
       "title": "Kierkegaard",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/kierkegaard",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 8,
+      "citedSourceCount": 8,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1834
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 32,
+      "citationCount": 130,
+      "substantiveArticleWordCount": 2351,
+      "reviewNotePath": "docs/editorial/reviews/kierkegaard.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:2ee6e83ef0f1e3b0",
+      "currentReviewLock": "fnv1a64:2ee6e83ef0f1e3b0"
     },
     {
       "id": "marx",
@@ -1299,15 +1319,19 @@
       "title": "John Stuart Mill",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/mill",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 8,
+      "citedSourceCount": 8,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1806
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 29,
+      "citationCount": 114,
+      "substantiveArticleWordCount": 2089,
+      "reviewNotePath": "docs/editorial/reviews/mill.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:aa8e7f27fc8adef2",
+      "currentReviewLock": "fnv1a64:aa8e7f27fc8adef2"
     },
     {
       "id": "nietzsche",
@@ -1491,15 +1515,19 @@
       "title": "Elizabeth Anscombe",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/anscombe",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 8,
+      "citedSourceCount": 8,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1898
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 29,
+      "citationCount": 127,
+      "substantiveArticleWordCount": 2187,
+      "reviewNotePath": "docs/editorial/reviews/anscombe.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:454368017127b889",
+      "currentReviewLock": "fnv1a64:454368017127b889"
     },
     {
       "id": "rawls",
@@ -2327,15 +2355,19 @@
       "title": "Iris Murdoch",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/iris-murdoch",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 8,
+      "citedSourceCount": 8,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1813
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 30,
+      "citationCount": 128,
+      "substantiveArticleWordCount": 2097,
+      "reviewNotePath": "docs/editorial/reviews/iris-murdoch.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:c903e4366cb8269c",
+      "currentReviewLock": "fnv1a64:c903e4366cb8269c"
     },
     {
       "id": "philippa-foot",
@@ -2552,15 +2584,19 @@
       "title": "Ontology",
       "category": "philosophy",
       "visitorEntryPoint": "#/branches/ontology",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 11,
+      "citedSourceCount": 11,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1975
+      "structuredClaimCount": 19,
+      "structuredParagraphCount": 23,
+      "citationCount": 108,
+      "substantiveArticleWordCount": 2189,
+      "reviewNotePath": "docs/editorial/reviews/ontology.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:f6fc3525c84fed79",
+      "currentReviewLock": "fnv1a64:f6fc3525c84fed79"
     },
     {
       "id": "epistemology",
@@ -2687,15 +2723,19 @@
       "title": "Political Philosophy",
       "category": "philosophy",
       "visitorEntryPoint": "#/branches/political-philosophy",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 13,
+      "citedSourceCount": 13,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1948
+      "structuredClaimCount": 19,
+      "structuredParagraphCount": 23,
+      "citationCount": 131,
+      "substantiveArticleWordCount": 2104,
+      "reviewNotePath": "docs/editorial/reviews/political-philosophy.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:bf0a3cfc12a529d8",
+      "currentReviewLock": "fnv1a64:bf0a3cfc12a529d8"
     },
     {
       "id": "logic",
@@ -2732,30 +2772,38 @@
       "title": "Philosophy of Mind",
       "category": "philosophy",
       "visitorEntryPoint": "#/branches/philosophy-of-mind",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 19,
+      "citedSourceCount": 19,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1920
+      "structuredClaimCount": 19,
+      "structuredParagraphCount": 55,
+      "citationCount": 250,
+      "substantiveArticleWordCount": 5108,
+      "reviewNotePath": "docs/editorial/reviews/philosophy-of-mind.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:f8b12a3aa2f779e6",
+      "currentReviewLock": "fnv1a64:f8b12a3aa2f779e6"
     },
     {
       "id": "philosophy-of-science",
       "title": "Philosophy of Science",
       "category": "philosophy",
       "visitorEntryPoint": "#/branches/philosophy-of-science",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 14,
+      "citedSourceCount": 14,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1962
+      "structuredClaimCount": 19,
+      "structuredParagraphCount": 24,
+      "citationCount": 129,
+      "substantiveArticleWordCount": 2191,
+      "reviewNotePath": "docs/editorial/reviews/philosophy-of-science.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:5cdff89068223970",
+      "currentReviewLock": "fnv1a64:5cdff89068223970"
     },
     {
       "id": "aesthetics",
@@ -4903,20 +4951,6 @@
       "excerpt": "Finish with the Natural History of Religion and Dialogues Concerning Natural Religion, keeping genre and posthumous publication in view. Read “Of National Characters” with scholarship on Hume and race, not as a detachabl"
     },
     {
-      "recordKey": "philosopher:bentham",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "historical-setting/paragraph-1",
-      "excerpt": "Bentham wrote in eighteenth- and early nineteenth-century Britain, where criminal law, representation, prisons, poor relief, empire, and administration were subjects of intense argument. The legal system contained techni"
-    },
-    {
-      "recordKey": "philosopher:bentham",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "principle-of-utility/paragraph-2",
-      "excerpt": "This principle is both simple and demanding. It asks decision makers to count everyone affected, not only nobles, clergy, property holders, or officials. It also asks them to examine real consequences rather than noble l"
-    },
-    {
       "recordKey": "philosopher:fichte",
       "status": "bibliography-only",
       "signal": "priority-or-superlative",
@@ -4950,132 +4984,6 @@
       "signal": "influence-or-causation",
       "location": "religion-later/paragraph-2",
       "excerpt": "Later presentations complicate the impression that finite consciousness creates everything. They describe knowledge as an image or manifestation of an absolute being or life that cannot itself be grasped as an object. Sc"
-    },
-    {
-      "recordKey": "philosopher:schelling",
-      "status": "bibliography-only",
-      "signal": "disputed-attribution",
-      "location": "setting-life/paragraph-1",
-      "excerpt": "Born in 1775 in Leonberg, Schelling entered the Tubingen theological seminary while still young and studied alongside Hegel. The French Revolution, Kant's critical philosophy, Fichte's Wissenschaftslehre, Spinoza's dispu"
-    },
-    {
-      "recordKey": "philosopher:schelling",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "reading-path/paragraph-1",
-      "excerpt": "Begin with the 1809 Philosophical Investigations into the Essence of Human Freedom. It is demanding but relatively self-contained and introduces freedom, evil, ground, personality, and love. Then read selected passages f"
-    },
-    {
-      "recordKey": "philosopher:hegel",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "dialectic/paragraph-1",
-      "excerpt": "Hegel is often reduced to thesis, antithesis, synthesis, but that formula is not a reliable guide to his method. Dialectic is better understood as the self-examination of a position whose own commitments generate pressur"
-    },
-    {
-      "recordKey": "philosopher:hegel",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "recognition/paragraph-1",
-      "excerpt": "One of Hegel's most influential arguments concerns recognition. Self-consciousness does not become fully itself by staring inward. It needs another self-conscious being who can recognize it as free, responsible, and answ"
-    },
-    {
-      "recordKey": "philosopher:schopenhauer",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "will-body/paragraph-1",
-      "excerpt": "Schopenhauer's most famous argument turns on the body. If I knew my body only as an object among objects, I would never escape the standpoint of representation. But I also experience my body as willing: reaching, hungeri"
-    },
-    {
-      "recordKey": "philosopher:schopenhauer",
-      "status": "unreviewed",
-      "signal": "influence-or-causation",
-      "location": "aesthetics/paragraph-2",
-      "excerpt": "Music receives the highest place because Schopenhauer thinks it does not merely copy appearances. It expresses the movement of will more directly than the visual arts. This claim deeply influenced later artists and compo"
-    },
-    {
-      "recordKey": "philosopher:schopenhauer",
-      "status": "unreviewed",
-      "signal": "broad-classification",
-      "location": "religion-east-west/paragraph-1",
-      "excerpt": "Schopenhauer admired the Upanishads and Buddhist ideas as available to him through nineteenth-century European translations and scholarship. He believed they confirmed insights about appearance, desire, suffering, and re"
-    },
-    {
-      "recordKey": "philosopher:schopenhauer",
-      "status": "unreviewed",
-      "signal": "influence-or-causation",
-      "location": "influence/paragraph-2",
-      "excerpt": "He also influenced debates in ethics, aesthetics, animal suffering, and pessimism. Contemporary readers sometimes return to him through questions about antinatalism, environmental exhaustion, consumer desire, and the gap"
-    },
-    {
-      "recordKey": "philosopher:schopenhauer",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "misreadings-reading/paragraph-2",
-      "excerpt": "A good reading strategy begins with the dissertation only if one wants the technical background. Most readers should start with the first volume of The World as Will and Representation, moving slowly through representati"
-    },
-    {
-      "recordKey": "philosopher:schopenhauer",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "misreadings-reading/paragraph-3",
-      "excerpt": "Read him with two kinds of resistance. First, resist the temptation to dismiss him because the conclusions are bleak or the tone is abrasive. Second, resist the temptation to admire the bleakness as if severity itself pr"
-    },
-    {
-      "recordKey": "philosopher:kierkegaard",
-      "status": "unreviewed",
-      "signal": "influence-or-causation",
-      "location": "faith-abraham/paragraph-2",
-      "excerpt": "The phrase teleological suspension of the ethical has caused lasting debate. Kierkegaard is not giving everyone permission to break moral law in the name of inner certainty. He is dramatizing the paradox that biblical fa"
-    },
-    {
-      "recordKey": "philosopher:kierkegaard",
-      "status": "unreviewed",
-      "signal": "disputed-attribution",
-      "location": "authorship/paragraph-1",
-      "excerpt": "Kierkegaard described his authorship as a religious project, though it includes aesthetic literature, philosophical satire, psychological analysis, sermons, polemics, and devotional writings. The early pseudonymous works"
-    },
-    {
-      "recordKey": "philosopher:kierkegaard",
-      "status": "unreviewed",
-      "signal": "disputed-attribution",
-      "location": "authorship/paragraph-2",
-      "excerpt": "The unity of the authorship remains disputed. Some readers emphasize its Christian aim from beginning to end. Others stress literary multiplicity, irony, and resistance to final interpretation. Both capture something imp"
-    },
-    {
-      "recordKey": "philosopher:kierkegaard",
-      "status": "unreviewed",
-      "signal": "influence-or-causation",
-      "location": "legacy/paragraph-1",
-      "excerpt": "Kierkegaard influenced existentialism, Protestant theology, phenomenology, psychology, literary modernism, and critiques of mass society. Heidegger drew on anxiety and existence while transforming them outside Kierkegaar"
-    },
-    {
-      "recordKey": "philosopher:kierkegaard",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "misreadings-reading/paragraph-3",
-      "excerpt": "It also helps to read Kierkegaard slowly enough to notice his humor. The elaborate titles, invented editors, seducers, judges, and anti-systematic performances are not decorations around a doctrine. They are part of the"
-    },
-    {
-      "recordKey": "philosopher:mill",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "overview/paragraph-1",
-      "excerpt": "John Stuart Mill is the most influential nineteenth-century defender of liberal liberty and one of the major revisers of utilitarianism. He inherits Bentham's project of evaluating institutions and actions by their conse"
-    },
-    {
-      "recordKey": "philosopher:mill",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "overview/paragraph-2",
-      "excerpt": "He is often read as two philosophers at once: a utilitarian who wants the greatest happiness and a liberal who protects individual liberty against majority pressure. Mill himself thought these belonged together. A societ"
-    },
-    {
-      "recordKey": "philosopher:mill",
-      "status": "unreviewed",
-      "signal": "influence-or-causation",
-      "location": "women-equality/paragraph-2",
-      "excerpt": "The work was shaped by Mill's long intellectual partnership with Harriet Taylor Mill, whose influence on his thought remains important and sometimes difficult to specify precisely. Mill's argument joins justice and utili"
     },
     {
       "recordKey": "philosopher:nietzsche",
@@ -5517,41 +5425,6 @@
       "signal": "influence-or-causation",
       "location": "legacy-criticism/paragraph-1",
       "excerpt": "Arendt has influenced democratic theory, refugee studies, political theology, feminist theory, human rights, memory studies, and analyses of civil disobedience. Her concepts of natality, plurality, public space, worldly"
-    },
-    {
-      "recordKey": "philosopher:anscombe",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "wittgenstein/paragraph-2",
-      "excerpt": "Her reading of Wittgenstein helped shape English-language reception of both the early and later work. She understood that philosophical confusion often arises from forcing concepts into misleading pictures: mind as an in"
-    },
-    {
-      "recordKey": "philosopher:anscombe",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "practical-knowledge/paragraph-1",
-      "excerpt": "One of Anscombe's most influential claims is that intentional action involves practical knowledge. When an agent intentionally does something, she normally knows what she is doing without observing herself in the way an"
-    },
-    {
-      "recordKey": "philosopher:anscombe",
-      "status": "unreviewed",
-      "signal": "influence-or-causation",
-      "location": "practical-knowledge/paragraph-2",
-      "excerpt": "Practical knowledge reverses a familiar picture. We often think knowledge must be caused by the facts known. Anscombe suggests that in intentional action, knowledge can be the cause of what it understands: the order is p"
-    },
-    {
-      "recordKey": "philosopher:anscombe",
-      "status": "unreviewed",
-      "signal": "disputed-attribution",
-      "location": "modern-moral-philosophy/paragraph-2",
-      "excerpt": "The essay helped revive virtue ethics, though Anscombe herself did not simply offer a ready-made virtue theory. Her point was historical and conceptual: if one no longer believes in a divine lawgiver or comparable source"
-    },
-    {
-      "recordKey": "philosopher:anscombe",
-      "status": "unreviewed",
-      "signal": "influence-or-causation",
-      "location": "influence/paragraph-1",
-      "excerpt": "Anscombe's influence on philosophy of action is difficult to overstate. Donald Davidson, Michael Thompson, Jennifer Hornsby, John McDowell, Elizabeth Anscombe's own students and critics, and many others developed or cont"
     },
     {
       "recordKey": "philosopher:rawls",
@@ -6093,20 +5966,6 @@
       "excerpt": "Fanon influenced anticolonial movements, Black studies, postcolonial theory, critical race philosophy, liberation psychology, psychiatry, feminism, and political theology. His account of the racialized body anticipates s"
     },
     {
-      "recordKey": "philosopher:iris-murdoch",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "reading-strategy/paragraph-4",
-      "excerpt": "A good classroom pairing is Murdoch with a concrete moral case that seems at first to demand only a rule. Ask how the people in the case are being imagined, which details are ignored, and which descriptions already favor"
-    },
-    {
-      "recordKey": "philosopher:iris-murdoch",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "reading-strategy/paragraph-5",
-      "excerpt": "Her essays also reward rereading after some life experience. A reader may first notice the metaphysics of the good, then later notice the accuracy of her descriptions of jealousy, fantasy, vanity, and care. Murdoch is no"
-    },
-    {
       "recordKey": "philosopher:philippa-foot",
       "status": "bibliography-only",
       "signal": "influence-or-causation",
@@ -6527,20 +6386,6 @@
       "excerpt": "Begin with problems rather than with a promise to master one total system. Read selections from Plato on change and Forms, then Aristotle’s Categories and central books of the Metaphysics with a guide to substance, form,"
     },
     {
-      "recordKey": "philosophy:ontology",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "figures-works/paragraph-2",
-      "excerpt": "Kant changes the terms by arguing that categories such as substance and causality structure possible experience rather than describe things as they are independently of our cognitive conditions. The categories are neithe"
-    },
-    {
-      "recordKey": "philosophy:ontology",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "misunderstandings/paragraph-1",
-      "excerpt": "The first misunderstanding is that ontology merely lists everything that exists. A list without criteria cannot explain whether properties, persons, species, or institutions are basic, derivative, conventional, or reduci"
-    },
-    {
       "recordKey": "philosophy:epistemology",
       "status": "bibliography-only",
       "signal": "priority-or-superlative",
@@ -6905,27 +6750,6 @@
       "excerpt": "Continue with selections from Sidgwick’s Methods of Ethics on utilitarianism and common-sense morality, then compare a clear defense of act consequentialism with an account of rule consequentialism. Build a table separat"
     },
     {
-      "recordKey": "philosophy:political-philosophy",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "figures-works/paragraph-1",
-      "excerpt": "Plato’s Republic asks whether justice benefits the just person and constructs a provocative educational and political order. Aristotle’s Politics studies constitutions and citizenship while excluding women, enslaved peop"
-    },
-    {
-      "recordKey": "philosophy:political-philosophy",
-      "status": "bibliography-only",
-      "signal": "broad-classification",
-      "location": "neighbors/paragraph-3",
-      "excerpt": "History and social science inform which institutions exist and how they work; normative argument clarifies why evidence matters and what should change. Chinese, Islamic, Indian, African, Indigenous, and other traditions"
-    },
-    {
-      "recordKey": "philosophy:political-philosophy",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "misconceptions/paragraph-2",
-      "excerpt": "The field is not exhausted by Hobbes, Locke, Rousseau, Rawls, and Nozick. Social contract and distributive justice are central, but republicanism, Marxism, anarchism, feminism, anticolonial thought, capabilities, critica"
-    },
-    {
       "recordKey": "philosophy:logic",
       "status": "bibliography-only",
       "signal": "quotation",
@@ -7106,76 +6930,6 @@
       "signal": "disputed-attribution",
       "location": "reading-path/paragraph-2",
       "excerpt": "Next read Austin’s How to Do Things with Words and Grice’s “Logic and Conversation.” For ordinary examples, separate sentence meaning, reference, speaker meaning, presupposition, implicature, illocutionary act, and perlo"
-    },
-    {
-      "recordKey": "philosophy:philosophy-of-mind",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "overview/paragraph-1",
-      "excerpt": "Philosophy of mind investigates consciousness, thought, perception, emotion, agency, memory, selfhood, and the relation between minded life and bodies. The central mind-body question asks how mental events and capacities"
-    },
-    {
-      "recordKey": "philosophy:philosophy-of-mind",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "misunderstandings/paragraph-2",
-      "excerpt": "It is equally misleading to treat introspection as infallible. People can be uncertain about motives, misdescribe emotions, and change reports under attention or expectation, although first-person evidence cannot simply"
-    },
-    {
-      "recordKey": "philosophy:philosophy-of-mind",
-      "status": "bibliography-only",
-      "signal": "disputed-attribution",
-      "location": "misunderstandings/paragraph-2",
-      "excerpt": "It is equally misleading to treat introspection as infallible. People can be uncertain about motives, misdescribe emotions, and change reports under attention or expectation, although first-person evidence cannot simply"
-    },
-    {
-      "recordKey": "philosophy:philosophy-of-mind",
-      "status": "bibliography-only",
-      "signal": "disputed-attribution",
-      "location": "modern-relevance/paragraph-1",
-      "excerpt": "Artificial intelligence renews classical questions without answering them by engineering success alone. A system can classify, predict, converse, or plan, but which capacities indicate understanding, intentionality, agen"
-    },
-    {
-      "recordKey": "philosophy:philosophy-of-science",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "overview/paragraph-1",
-      "excerpt": "Philosophy of science asks what makes scientific inquiry reliable, explanatory, and distinct without assuming that all sciences use one timeless method. It studies observation, experiment, measurement, models, laws, caus"
-    },
-    {
-      "recordKey": "philosophy:philosophy-of-science",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "development/paragraph-2",
-      "excerpt": "Nineteenth- and early twentieth-century debates examined induction, laws, measurement, and explanation. Logical empiricists such as Carnap used logic and probability to clarify scientific language and confirmation while"
-    },
-    {
-      "recordKey": "philosophy:philosophy-of-science",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "figures-works/paragraph-3",
-      "excerpt": "Kuhn’s Structure of Scientific Revolutions studies how paradigms guide puzzle-solving and how standards can change during revolutions. “Paradigm” has several related uses in the book, a source of later clarification. Kuh"
-    },
-    {
-      "recordKey": "philosophy:philosophy-of-science",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "debates/paragraph-2",
-      "excerpt": "Simplistic falsification ignores that a prediction follows from a theory together with auxiliary assumptions about instruments, initial conditions, and background knowledge. A failed prediction does not logically identif"
-    },
-    {
-      "recordKey": "philosophy:philosophy-of-science",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "misconceptions/paragraph-3",
-      "excerpt": "Kuhn did not prove that science is irrational or that facts are whatever a community votes them to be. Paradigms organize attention and standards, but nature can produce persistent anomalies, and revolutions can increase"
-    },
-    {
-      "recordKey": "philosophy:philosophy-of-science",
-      "status": "bibliography-only",
-      "signal": "disputed-attribution",
-      "location": "modern-relevance/paragraph-1",
-      "excerpt": "Public controversies about climate, pandemics, nutrition, and environmental risk require reasoning from models, uncertain data, and expert testimony. Philosophy of science clarifies why uncertainty does not imply ignoran"
     },
     {
       "recordKey": "philosophy:aesthetics",
@@ -8834,18 +8588,18 @@
   "groupSummary": {
     "philosophers": {
       "total": 146,
-      "unreviewed": 24,
-      "bibliography-only": 53,
+      "unreviewed": 19,
+      "bibliography-only": 50,
       "source-mapped": 0,
-      "claim-reviewed": 69,
+      "claim-reviewed": 77,
       "review-out-of-date": 0
     },
     "philosophies": {
       "total": 45,
       "unreviewed": 2,
-      "bibliography-only": 37,
+      "bibliography-only": 33,
       "source-mapped": 0,
-      "claim-reviewed": 6,
+      "claim-reviewed": 10,
       "review-out-of-date": 0
     },
     "standalone": {

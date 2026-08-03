@@ -29,7 +29,7 @@
     {
       "id": "ontology",
       "label": "Ontology",
-      "searchText": "ontology studies being and the categories of existence. what kinds of things exist? method central question"
+      "searchText": "ontology investigates being, existence, categories, identity, modality, dependence, and what theories commit us to, while preserving historically different projects that do not share one vocabulary. what is it for something to be or exist? which categories—objects, properties, events, processes, relations, or others—are real? what makes something the same through change, and when do parts compose a whole? how do possibility, essence, dependence, grounding, and fundamentality relate? how do social categories and institutions exist? when are ontological disputes about the world, language, or rival purposes? being and existence categories universals and particulars identity and persistence composition modality grounding and dependence social ontology metaontology ontological commitment"
     },
     {
       "id": "epistemology",
@@ -74,7 +74,7 @@
     {
       "id": "political-philosophy",
       "label": "Political Philosophy",
-      "searchText": "political philosophy examines justice, liberty, authority, rights, and the state. when is political power legitimate? legitimacy liberty justice"
+      "searchText": "political philosophy examines authority, legitimacy, liberty, equality, justice, rights, property, power, citizenship, violence, resistance, and the institutions through which people govern shared life. when, if ever, does an institution have authority and generate political obligations? which forms of liberty, equality, justice, rights, and property are defensible? why value democracy, and who belongs to the people entitled to rule? how do race, gender, class, disability, empire, and colonial history structure power? when are disobedience, resistance, revolution, or abolition justified? what do borders, climate, migration, and global interdependence require? authority legitimacy liberty equality justice democracy power and domination resistance citizenship property"
     },
     {
       "id": "logic",
@@ -89,12 +89,12 @@
     {
       "id": "philosophy-of-mind",
       "label": "Philosophy of Mind",
-      "searchText": "philosophy of mind studies consciousness, identity, thought, and mind–body relations. what is consciousness? method central question"
+      "searchText": "philosophy of mind studies consciousness, intentionality, perception, embodiment, action, emotion, self, agency, memory, cognition, mental causation, other minds, and minded beings. what is consciousness, and why is there subjective experience? how can thought and perception be about the world? how do body, brain, action, tools, environments, and social life constitute or support mind? what makes someone an agent or the same person over time? how do mental states cause action and fit into physical explanation? how can we know animal, human, and possible artificial minds? how do mental classifications distribute authority, care, and moral status? consciousness intentionality mental representation embodiment extended cognition agency self-consciousness personal identity mental causation other minds social cognition cognition memory"
     },
     {
       "id": "philosophy-of-science",
       "label": "Philosophy of Science",
-      "searchText": "philosophy of science examines scientific explanation, evidence, and change. what makes science reliable? method central question"
+      "searchText": "philosophy of science examines how scientific practices use observation, experiment, measurement, models, explanation, confirmation, criticism, institutions, and values to produce revisable knowledge. how does evidence confirm, disconfirm, or test scientific claims? what makes an explanation causal, mechanistic, unifying, mathematical, or otherwise informative? how do models, idealizations, simulations, measurements, and instruments represent? should we believe in unobservable entities posited by successful theories? how do theories and classifications change, and what remains rational across change? how do values, funding, institutions, labor, and criticism shape objectivity? when and why should publics trust scientific expertise? confirmation induction scientific explanation causation and mechanism models and idealization measurement observation and experiment scientific realism values and objectivity expertise and trust underdetermination"
     },
     {
       "id": "aesthetics",
@@ -571,7 +571,7 @@
     {
       "id": "bentham",
       "label": "Jeremy Bentham",
-      "searchText": "jeremy bentham utility greatest happiness an introduction to the principles of morals and legislation utilitarian"
+      "searchText": "jeremy bentham principle of utility pleasure and pain as legislative standards codification and publicity punishment as an evil requiring preventive justification artificial legal rights institutional inspection and accountability a fragment on government an introduction to the principles of morals and legislation panopticon writings rationale of judicial evidence constitutional code of sexual irregularities utilitarian"
     },
     {
       "id": "kant",
@@ -586,22 +586,22 @@
     {
       "id": "schelling",
       "label": "Schelling",
-      "searchText": "schelling nature and spirit philosophical investigations into the essence of human freedom german idealist"
+      "searchText": "schelling nature as productivity transcendental and natural philosophy identity and difference freedom for good and evil negative and positive philosophy first outline of a system of the philosophy of nature system of transcendental idealism presentation of my system of philosophy philosophical investigations into the essence of human freedom the ages of the world the grounding of positive philosophy german idealist"
     },
     {
       "id": "hegel",
       "label": "Hegel",
-      "searchText": "hegel dialectic recognition phenomenology of spirit german idealist"
+      "searchText": "hegel immanent dialectical development recognition and social freedom logic as self-critical metaphysics ethical life and institutions history and absolute spirit phenomenology of spirit science of logic encyclopedia of the philosophical sciences elements of the philosophy of right lectures on aesthetics lectures on the philosophy of religion lectures on the philosophy of world history german idealist"
     },
     {
       "id": "schopenhauer",
       "label": "Schopenhauer",
-      "searchText": "schopenhauer will suffering the world as will and representation nineteenth century"
+      "searchText": "schopenhauer principle of sufficient reason world as representation embodied will pessimism and individuation aesthetic contemplation compassion and denial of will on the fourfold root of the principle of sufficient reason the world as will and representation, volume 1 on the will in nature the two fundamental problems of ethics the world as will and representation, volume 2 parerga and paralipomena nineteenth century"
     },
     {
       "id": "kierkegaard",
       "label": "Kierkegaard",
-      "searchText": "kierkegaard anxiety choice fear and trembling existential"
+      "searchText": "kierkegaard indirect communication inwardness and subjective truth anxiety and possibility despair and the relational self choice and repetition faith and offense neighbor-love either/or fear and trembling repetition the concept of anxiety philosophical fragments concluding unscientific postscript works of love the sickness unto death the moment existential"
     },
     {
       "id": "marx",
@@ -611,7 +611,7 @@
     {
       "id": "mill",
       "label": "John Stuart Mill",
-      "searchText": "john stuart mill utility liberty utilitarianism on liberty utilitarian"
+      "searchText": "john stuart mill greatest happiness with qualitative pleasures liberty and the harm principle experiments in living fallibility and free discussion representative participation and competence gender equality induction and social science a system of logic principles of political economy on liberty utilitarianism considerations on representative government the subjection of women autobiography three essays on religion utilitarian"
     },
     {
       "id": "nietzsche",
@@ -671,7 +671,7 @@
     {
       "id": "anscombe",
       "label": "Elizabeth Anscombe",
-      "searchText": "elizabeth anscombe intention modern moral philosophy analytic"
+      "searchText": "elizabeth anscombe intention under a description the question why practical knowledge without observation first-person authority without infallibility practical reasoning causal plurality critique of consequentialism and law-like moral obligation intention modern moral philosophy an introduction to wittgenstein’s tractatus causality and determination ethics, religion and politics analytic"
     },
     {
       "id": "rawls",
@@ -911,7 +911,7 @@
     {
       "id": "iris-murdoch",
       "label": "Iris Murdoch",
-      "searchText": "iris murdoch attention the good the sovereignty of good moral philosopher"
+      "searchText": "iris murdoch just and loving attention moral vision and description fantasy and the ego unselfing the sovereignty of good freedom as truthful responsiveness art and literature as disciplines of attention sartre: romantic rationalist the sovereignty of good the fire and the sun metaphysics as a guide to morals existentialists and mystics moral philosopher"
     },
     {
       "id": "philippa-foot",

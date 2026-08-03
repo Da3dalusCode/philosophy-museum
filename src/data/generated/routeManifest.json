@@ -313,40 +313,44 @@
       "name": "Ontology",
       "sections": [
         {
-          "id": "overview",
-          "title": "Being, existence, categories, and what there is"
+          "id": "orientation",
+          "title": "Being, existence, and an unsettled field boundary"
         },
         {
-          "id": "historical-development",
-          "title": "From being and change to layered medieval worlds"
+          "id": "existence",
+          "title": "Existence, quantification, and commitment"
         },
         {
-          "id": "key-concepts",
-          "title": "Existence, categories, universals, and commitment"
+          "id": "categories",
+          "title": "Categories, particulars, properties, and universals"
         },
         {
-          "id": "figures-works",
-          "title": "Early modern inventories and idealist transformations"
+          "id": "identity-composition",
+          "title": "Identity, persistence, parts, and wholes"
         },
         {
-          "id": "internal-debates",
-          "title": "One world, many categories, or plural practices"
+          "id": "events-processes",
+          "title": "Events, processes, causation, and change"
         },
         {
-          "id": "neighbors",
-          "title": "Phenomenology, language, science, and cross-cultural comparison"
+          "id": "modality-grounding",
+          "title": "Possibility, necessity, dependence, and grounding"
         },
         {
-          "id": "misunderstandings",
-          "title": "Why ontology is more than making a list"
+          "id": "social",
+          "title": "Social ontology, classification, and power"
         },
         {
-          "id": "modern-relevance",
-          "title": "Data objects, social reality, ecology, and identity"
+          "id": "comparative",
+          "title": "Comparison without equivalence"
         },
         {
-          "id": "reading-path",
-          "title": "A staged path from categories to commitment"
+          "id": "metaontology",
+          "title": "Metaontology: what is an ontological dispute?"
+        },
+        {
+          "id": "reading",
+          "title": "A reading path through rival ontological projects"
         }
       ],
       "hasSources": true
@@ -748,40 +752,44 @@
       "name": "Political Philosophy",
       "sections": [
         {
-          "id": "overview",
-          "title": "The justification and organization of shared power"
+          "id": "orientation",
+          "title": "The justification, organization, and contestation of power"
         },
         {
-          "id": "development",
-          "title": "Many histories of political argument"
+          "id": "authority",
+          "title": "Authority, legitimacy, obligation, and law"
         },
         {
-          "id": "concepts",
-          "title": "Legitimacy, liberty, equality, justice, and power"
+          "id": "liberty-equality",
+          "title": "Liberty, equality, rights, and domination"
         },
         {
-          "id": "figures-works",
-          "title": "Canonical arguments and challenges to the canon"
+          "id": "justice-property-class",
+          "title": "Justice, property, labor, and class"
         },
         {
-          "id": "debates",
-          "title": "Authority, distribution, democracy, and nonideal justice"
+          "id": "democracy",
+          "title": "Democracy, representation, expertise, and citizenship"
         },
         {
-          "id": "neighbors",
-          "title": "Ethics, economics, law, and social critique"
+          "id": "power-violence",
+          "title": "Power, violence, resistance, and nonideal theory"
         },
         {
-          "id": "misconceptions",
-          "title": "What political philosophy is not"
+          "id": "empire-race-gender",
+          "title": "Empire, race, gender, and the limits of canonical universals"
         },
         {
-          "id": "modern-relevance",
-          "title": "Institutions that govern contemporary life"
+          "id": "global",
+          "title": "Borders, global justice, ecology, and future generations"
         },
         {
-          "id": "reading-path",
-          "title": "Build a comparative map of political questions"
+          "id": "plural-genealogies",
+          "title": "Plural genealogies and responsible comparison"
+        },
+        {
+          "id": "reading",
+          "title": "Reading institutions as well as ideals"
         }
       ],
       "hasSources": true
@@ -877,40 +885,88 @@
       "name": "Philosophy of Mind",
       "sections": [
         {
-          "id": "overview",
-          "title": "What minds are and how minded life is possible"
+          "id": "orientation",
+          "title": "Mind is not one problem"
         },
         {
-          "id": "historical-development",
-          "title": "Ancient souls, embodied capacities, and cross-cultural debates"
+          "id": "histories",
+          "title": "Many histories of mind and person"
         },
         {
-          "id": "key-concepts",
-          "title": "Consciousness, intentionality, perception, and self"
+          "id": "consciousness",
+          "title": "Consciousness and subjective character"
         },
         {
-          "id": "figures-works",
-          "title": "Dualism, materialism, empiricism, and critical turns"
+          "id": "intentionality",
+          "title": "Intentionality, content, and representation"
         },
         {
-          "id": "internal-debates",
-          "title": "Physicalism, dualism, functionalism, and emergence"
+          "id": "perception",
+          "title": "Perception, sensation, and the world"
         },
         {
-          "id": "neighbors",
-          "title": "Language, embodiment, society, and cognitive science"
+          "id": "embodiment",
+          "title": "Embodiment, enactivism, and extended cognition"
         },
         {
-          "id": "misunderstandings",
-          "title": "Beyond brains versus souls"
+          "id": "action",
+          "title": "Action, intention, agency, and practical knowledge"
         },
         {
-          "id": "modern-relevance",
-          "title": "AI, medicine, animals, and changing cognitive environments"
+          "id": "emotion",
+          "title": "Emotion, feeling, appraisal, and social meaning"
         },
         {
-          "id": "reading-path",
-          "title": "A staged route through mind and experience"
+          "id": "memory",
+          "title": "Memory, imagination, and temporal cognition"
+        },
+        {
+          "id": "self",
+          "title": "Self, self-consciousness, and first-person authority"
+        },
+        {
+          "id": "personal-identity",
+          "title": "Persons and identity across time"
+        },
+        {
+          "id": "cognition",
+          "title": "Cognition, concepts, computation, and learning"
+        },
+        {
+          "id": "causation",
+          "title": "Mental causation and explanatory levels"
+        },
+        {
+          "id": "other-minds",
+          "title": "Other minds, empathy, and social cognition"
+        },
+        {
+          "id": "animal-minds",
+          "title": "Animal minds and comparative cognition"
+        },
+        {
+          "id": "artificial-systems",
+          "title": "Artificial systems, intelligence, and consciousness"
+        },
+        {
+          "id": "taxonomies",
+          "title": "Dualism, physicalism, behaviorism, identity, and functionalism"
+        },
+        {
+          "id": "alternatives",
+          "title": "Phenomenology, enactivism, eliminativism, and plural explanation"
+        },
+        {
+          "id": "ethics-politics",
+          "title": "Mental difference, institutions, and moral status"
+        },
+        {
+          "id": "open-problems",
+          "title": "Why the central problems remain open"
+        },
+        {
+          "id": "reading",
+          "title": "A comprehensive route through mind"
         }
       ],
       "hasSources": true
@@ -920,40 +976,52 @@
       "name": "Philosophy of Science",
       "sections": [
         {
-          "id": "overview",
-          "title": "How scientific inquiry earns and revises authority"
+          "id": "orientation",
+          "title": "Inquiry without one universal method"
         },
         {
-          "id": "development",
-          "title": "From experimental reform to historical models"
+          "id": "historical",
+          "title": "From natural philosophy to organized sciences"
         },
         {
-          "id": "concepts",
-          "title": "Evidence, confirmation, explanation, and theory"
+          "id": "induction-confirmation",
+          "title": "Induction, confirmation, and severe testing"
         },
         {
-          "id": "figures-works",
-          "title": "Bacon, Hume, Popper, Kuhn, and their contexts"
+          "id": "explanation",
+          "title": "Explanation, causation, laws, and mechanisms"
         },
         {
-          "id": "debates",
-          "title": "Demarcation, falsification, realism, and change"
+          "id": "models",
+          "title": "Models, idealization, simulation, and representation"
         },
         {
-          "id": "neighbors",
-          "title": "Empiricism, pragmatism, logic, and social inquiry"
+          "id": "measurement",
+          "title": "Measurement, observation, experiment, and instruments"
         },
         {
-          "id": "misconceptions",
-          "title": "No single mechanical scientific method"
+          "id": "realism",
+          "title": "Realism, instrumentalism, and underdetermination"
         },
         {
-          "id": "modern-relevance",
-          "title": "Trust, models, crises, and public evidence"
+          "id": "reduction-emergence",
+          "title": "Reduction, emergence, and unity across sciences"
         },
         {
-          "id": "reading-path",
-          "title": "From induction to contemporary practice"
+          "id": "change",
+          "title": "Scientific change, paradigms, and historical contingency"
+        },
+        {
+          "id": "values-objectivity",
+          "title": "Values, objectivity, feminist and decolonial critique"
+        },
+        {
+          "id": "organization-trust",
+          "title": "Institutions, expertise, funding, and public trust"
+        },
+        {
+          "id": "reading",
+          "title": "Reading science through arguments and practices"
         }
       ],
       "hasSources": true
@@ -6473,9 +6541,13 @@
         {
           "id": "reading-strategy",
           "title": "How to read Bentham"
+        },
+        {
+          "id": "evidence-poverty-sexuality-empire",
+          "title": "Evidence, poverty, sexuality, and the reach of administration"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "kant",
@@ -6636,6 +6708,10 @@
           "title": "A prodigy across revolution, Romanticism, and restoration"
         },
         {
+          "id": "corpus-and-publication",
+          "title": "Published books, lecture courses, and an unfinished late corpus"
+        },
+        {
           "id": "phases",
           "title": "Distinct phases without a simple ladder"
         },
@@ -6727,6 +6803,54 @@
           "title": "Marx, existentialism, critical theory, and analytic suspicion"
         },
         {
+          "id": "corpus-publication",
+          "title": "A system distributed across books, outlines, and lecture archives"
+        },
+        {
+          "id": "phenomenology-social-world",
+          "title": "Consciousness learns through a social and historical world"
+        },
+        {
+          "id": "lordship-bondage-reception",
+          "title": "Lordship and bondage, recognition, labor, and later traditions"
+        },
+        {
+          "id": "logic-metaphysics-dispute",
+          "title": "What kind of logic, and what kind of metaphysics?"
+        },
+        {
+          "id": "nature-subjective-spirit",
+          "title": "Nature, embodiment, mind, and the return to spirit"
+        },
+        {
+          "id": "institutions-and-state",
+          "title": "Freedom in family, civil society, law, and political institutions"
+        },
+        {
+          "id": "gender-family-exclusion",
+          "title": "Gender, family, and the contradiction inside universal freedom"
+        },
+        {
+          "id": "history-race-colonialism",
+          "title": "World history, freedom, race, and colonial domination"
+        },
+        {
+          "id": "art-religion-lecture-status",
+          "title": "Art, religion, and philosophy without a simple “end of art”"
+        },
+        {
+          "id": "reception-schools",
+          "title": "Hegel’s afterlives are not Hegel’s own text"
+        },
+        {
+          "id": "freedom-action-responsibility",
+          "title": "Action, intention, conscience, and the actuality of freedom"
+        },
+        {
+          "id": "religion-theology-dispute",
+          "title": "Christian form, philosophical concept, and the theology dispute"
+        },
+        {
           "id": "reading-strategy",
           "title": "How to read Hegel without giving up"
         }
@@ -6782,11 +6906,23 @@
           "title": "From Nietzsche to modern suspicion"
         },
         {
+          "id": "editions-and-system",
+          "title": "The first edition, later supplements, and a revised foundation"
+        },
+        {
+          "id": "causation-individuation",
+          "title": "Grounds, causation, individuation, and the limits of explanation"
+        },
+        {
+          "id": "prejudice-corpus",
+          "title": "Women, race, culture, and the ethical contradiction in the corpus"
+        },
+        {
           "id": "misreadings-reading",
           "title": "Misunderstandings and how to read Schopenhauer"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "kierkegaard",
@@ -6837,11 +6973,23 @@
           "title": "Existentialism, theology, psychology, and modern selfhood"
         },
         {
+          "id": "genres-corpus",
+          "title": "Signed works, pseudonyms, journals, discourses, and late polemic"
+        },
+        {
+          "id": "repetition-choice-ethics",
+          "title": "Repetition, choice, ethical continuity, and love"
+        },
+        {
+          "id": "politics-hierarchy-gender",
+          "title": "The single individual, politics, social hierarchy, and gender"
+        },
+        {
           "id": "misreadings-reading",
           "title": "Misunderstandings and how to read Kierkegaard"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "marx",
@@ -7001,9 +7149,13 @@
         {
           "id": "legacy-reading",
           "title": "Influence, tensions, and how to read Mill"
+        },
+        {
+          "id": "religion-empire-and-qualified-liberty",
+          "title": "Religion, empire, and the boundaries of liberty"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "nietzsche",
@@ -7713,9 +7865,13 @@
         {
           "id": "reading-strategy",
           "title": "How to read Anscombe"
+        },
+        {
+          "id": "prediction-desire-first-person-religion",
+          "title": "Prediction, desire, first-person authority, and contested moral commitments"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "rawls",
@@ -10337,6 +10493,10 @@
         {
           "id": "reading-strategy",
           "title": "How to read Murdoch"
+        },
+        {
+          "id": "love-politics-gender-and-later-development",
+          "title": "Love, politics, gender, and a changing moral philosophy"
         }
       ],
       "hasSources": true
@@ -10886,7 +11046,7 @@
     {
       "id": "ethics",
       "title": "Understand Ethics",
-      "stepCount": 4
+      "stepCount": 6
     },
     {
       "id": "metaphysics",
@@ -10896,22 +11056,22 @@
     {
       "id": "knowledge",
       "title": "Understand Epistemology",
-      "stepCount": 5
+      "stepCount": 6
     },
     {
       "id": "politics",
       "title": "Understand Political Philosophy",
-      "stepCount": 6
+      "stepCount": 7
     },
     {
       "id": "existential",
       "title": "Understand Existentialism",
-      "stepCount": 2
+      "stepCount": 4
     },
     {
       "id": "mind",
       "title": "Understand Philosophy of Mind",
-      "stepCount": 2
+      "stepCount": 6
     },
     {
       "id": "traditions",

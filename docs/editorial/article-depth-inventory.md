@@ -14,11 +14,11 @@ The hard floor is **2,000 substantive article-prose words**. The counter tokeniz
 
 | Category | Total | Pass | Fail | Missing article |
 | --- | ---: | ---: | ---: | ---: |
-| Philosophers | 146 | 121 | 25 | 0 |
-| Philosophies, branches, schools, traditions, movements, methods, and frameworks | 45 | 40 | 5 | 0 |
+| Philosophers | 146 | 129 | 17 | 0 |
+| Philosophies, branches, schools, traditions, movements, methods, and frameworks | 45 | 44 | 1 | 0 |
 | Standalone works, texts, arguments, concepts, and article-backed exhibits | 0 | 0 | 0 | 0 |
 
-Universal total: **191** applicable articles; **161 pass**; **30 fail**; **0 are missing article prose**.
+Universal total: **191** applicable articles; **173 pass**; **18 fail**; **0 are missing article prose**.
 
 Current failures are migration backlog, not approved exceptions. The strict audit is intentionally separate from the ordinary build until that backlog reaches zero.
 
@@ -36,13 +36,6 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 
 | ID | Title | Category | Words | Status |
 | --- | --- | --- | ---: | --- |
-| bentham | Jeremy Bentham | philosopher | 1976 | fail |
-| schelling | Schelling | philosopher | 1998 | fail |
-| hegel | Hegel | philosopher | 1808 | fail |
-| schopenhauer | Schopenhauer | philosopher | 1830 | fail |
-| kierkegaard | Kierkegaard | philosopher | 1834 | fail |
-| mill | John Stuart Mill | philosopher | 1806 | fail |
-| anscombe | Elizabeth Anscombe | philosopher | 1898 | fail |
 | eriugena | John Scotus Eriugena | philosopher | 1874 | fail |
 | abelard | Peter Abelard | philosopher | 1805 | fail |
 | meister-eckhart | Meister Eckhart | philosopher | 1800 | fail |
@@ -52,7 +45,6 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | merleau-ponty | Maurice Merleau-Ponty | philosopher | 1824 | fail |
 | levinas | Emmanuel Levinas | philosopher | 1808 | fail |
 | gadamer | Hans-Georg Gadamer | philosopher | 1814 | fail |
-| iris-murdoch | Iris Murdoch | philosopher | 1813 | fail |
 | philippa-foot | Philippa Foot | philosopher | 1805 | fail |
 | judith-thomson | Judith Jarvis Thomson | philosopher | 1807 | fail |
 | thomas-nagel | Thomas Nagel | philosopher | 1805 | fail |
@@ -61,10 +53,6 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | judith-butler | Judith Butler | philosopher | 1836 | fail |
 | angela-davis | Angela Davis | philosopher | 1801 | fail |
 | bell-hooks | bell hooks | philosopher | 1883 | fail |
-| ontology | Ontology | philosophy | 1975 | fail |
-| political-philosophy | Political Philosophy | philosophy | 1948 | fail |
-| philosophy-of-mind | Philosophy of Mind | philosophy | 1920 | fail |
-| philosophy-of-science | Philosophy of Science | philosophy | 1962 | fail |
 | islamic-philosophy | Islamic Philosophy | philosophy | 1834 | fail |
 
 ## Records omitted by the former manual target list
@@ -155,15 +143,15 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | philosopher | berkeley | George Berkeley | #/philosophers/berkeley | 2053 | pass | yes | yes (1 primary; 5 supplemental) |
 | philosopher | hume | David Hume | #/philosophers/hume | 4800 | pass | yes | yes (1 primary; 5 supplemental) |
 | philosopher | rousseau | Jean-Jacques Rousseau | #/philosophers/rousseau | 4119 | pass | yes | yes (1 primary; 5 supplemental) |
-| philosopher | bentham | Jeremy Bentham | #/philosophers/bentham | 1976 | fail | yes | yes (1 primary; 4 supplemental) |
+| philosopher | bentham | Jeremy Bentham | #/philosophers/bentham | 2257 | pass | yes | yes (1 primary; 4 supplemental) |
 | philosopher | kant | Immanuel Kant | #/philosophers/kant | 4511 | pass | no | yes (1 primary; 0 supplemental) |
 | philosopher | fichte | Fichte | #/philosophers/fichte | 2026 | pass | yes | yes (1 primary; 3 supplemental) |
-| philosopher | schelling | Schelling | #/philosophers/schelling | 1998 | fail | yes | yes (1 primary; 5 supplemental) |
-| philosopher | hegel | Hegel | #/philosophers/hegel | 1808 | fail | yes | yes (1 primary; 8 supplemental) |
-| philosopher | schopenhauer | Schopenhauer | #/philosophers/schopenhauer | 1830 | fail | yes | yes (1 primary; 5 supplemental) |
-| philosopher | kierkegaard | Kierkegaard | #/philosophers/kierkegaard | 1834 | fail | yes | yes (1 primary; 5 supplemental) |
+| philosopher | schelling | Schelling | #/philosophers/schelling | 2175 | pass | yes | yes (1 primary; 5 supplemental) |
+| philosopher | hegel | Hegel | #/philosophers/hegel | 4111 | pass | yes | yes (1 primary; 8 supplemental) |
+| philosopher | schopenhauer | Schopenhauer | #/philosophers/schopenhauer | 2335 | pass | yes | yes (1 primary; 5 supplemental) |
+| philosopher | kierkegaard | Kierkegaard | #/philosophers/kierkegaard | 2351 | pass | yes | yes (1 primary; 5 supplemental) |
 | philosopher | marx | Karl Marx | #/philosophers/marx | 4489 | pass | yes | yes (1 primary; 11 supplemental) |
-| philosopher | mill | John Stuart Mill | #/philosophers/mill | 1806 | fail | yes | yes (1 primary; 6 supplemental) |
+| philosopher | mill | John Stuart Mill | #/philosophers/mill | 2089 | pass | yes | yes (1 primary; 6 supplemental) |
 | philosopher | nietzsche | Friedrich Nietzsche | #/philosophers/nietzsche | 4336 | pass | no | yes (1 primary; 5 supplemental) |
 | philosopher | husserl | Husserl | #/philosophers/husserl | 2046 | pass | yes | yes (1 primary; 3 supplemental) |
 | philosopher | heidegger | Heidegger | #/philosophers/heidegger | 2284 | pass | yes | yes (1 primary; 2 supplemental) |
@@ -175,7 +163,7 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | philosopher | beauvoir | Simone de Beauvoir | #/philosophers/beauvoir | 2294 | pass | yes | yes (1 primary; 7 supplemental) |
 | philosopher | camus | Albert Camus | #/philosophers/camus | 2285 | pass | yes | yes (1 primary; 2 supplemental) |
 | philosopher | arendt | Hannah Arendt | #/philosophers/arendt | 2445 | pass | yes | yes (1 primary; 2 supplemental) |
-| philosopher | anscombe | Elizabeth Anscombe | #/philosophers/anscombe | 1898 | fail | yes | yes (1 primary; 5 supplemental) |
+| philosopher | anscombe | Elizabeth Anscombe | #/philosophers/anscombe | 2187 | pass | yes | yes (1 primary; 5 supplemental) |
 | philosopher | rawls | John Rawls | #/philosophers/rawls | 2519 | pass | yes | yes (1 primary; 2 supplemental) |
 | philosopher | nozick | Robert Nozick | #/philosophers/nozick | 2392 | pass | yes | yes (1 primary; 2 supplemental) |
 | philosopher | foucault | Michel Foucault | #/philosophers/foucault | 2302 | pass | yes | yes (1 primary; 5 supplemental) |
@@ -223,7 +211,7 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | philosopher | gadamer | Hans-Georg Gadamer | #/philosophers/gadamer | 1814 | fail | yes | yes (1 primary; 2 supplemental) |
 | philosopher | habermas | Jürgen Habermas | #/philosophers/habermas | 2067 | pass | yes | yes (1 primary; 6 supplemental) |
 | philosopher | fanon | Frantz Fanon | #/philosophers/fanon | 2178 | pass | yes | yes (1 primary; 10 supplemental) |
-| philosopher | iris-murdoch | Iris Murdoch | #/philosophers/iris-murdoch | 1813 | fail | yes | yes (1 primary; 1 supplemental) |
+| philosopher | iris-murdoch | Iris Murdoch | #/philosophers/iris-murdoch | 2097 | pass | yes | yes (1 primary; 1 supplemental) |
 | philosopher | philippa-foot | Philippa Foot | #/philosophers/philippa-foot | 1805 | fail | yes | yes (1 primary; 1 supplemental) |
 | philosopher | judith-thomson | Judith Jarvis Thomson | #/philosophers/judith-thomson | 1807 | fail | yes | yes (1 primary; 2 supplemental) |
 | philosopher | thomas-nagel | Thomas Nagel | #/philosophers/thomas-nagel | 1805 | fail | yes | yes (1 primary; 0 supplemental) |
@@ -238,7 +226,7 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | philosophy | aristotelianism | Aristotelianism | #/branches/aristotelianism | 2134 | pass | yes | yes (1 primary; 0 supplemental) |
 | philosophy | neoplatonism | Neoplatonism | #/branches/neoplatonism | 2130 | pass | yes | yes (1 primary; 5 supplemental) |
 | philosophy | metaphysics | Metaphysics | #/branches/metaphysics | 2027 | pass | yes | yes (1 primary; 0 supplemental) |
-| philosophy | ontology | Ontology | #/branches/ontology | 1975 | fail | yes | yes (1 primary; 0 supplemental) |
+| philosophy | ontology | Ontology | #/branches/ontology | 2189 | pass | yes | yes (1 primary; 0 supplemental) |
 | philosophy | epistemology | Epistemology | #/branches/epistemology | 2615 | pass | no | yes (1 primary; 0 supplemental) |
 | philosophy | ethics | Ethics | #/branches/ethics | 2900 | pass | no | yes (1 primary; 5 supplemental) |
 | philosophy | virtue-ethics | Virtue Ethics | #/branches/virtue-ethics | 2760 | pass | yes | yes (1 primary; 1 supplemental) |
@@ -247,11 +235,11 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | philosophy | skepticism | Skepticism | #/branches/skepticism | 2031 | pass | yes | yes (1 primary; 0 supplemental) |
 | philosophy | deontology | Deontology | #/branches/deontology | 2662 | pass | yes | yes (1 primary; 1 supplemental) |
 | philosophy | utilitarianism | Utilitarianism | #/branches/utilitarianism | 2625 | pass | yes | yes (1 primary; 3 supplemental) |
-| philosophy | political-philosophy | Political Philosophy | #/branches/political-philosophy | 1948 | fail | yes | yes (1 primary; 4 supplemental) |
+| philosophy | political-philosophy | Political Philosophy | #/branches/political-philosophy | 2104 | pass | yes | yes (1 primary; 4 supplemental) |
 | philosophy | logic | Logic | #/branches/logic | 2826 | pass | yes | yes (1 primary; 0 supplemental) |
 | philosophy | philosophy-of-language | Philosophy of Language | #/branches/philosophy-of-language | 2433 | pass | yes | yes (1 primary; 0 supplemental) |
-| philosophy | philosophy-of-mind | Philosophy of Mind | #/branches/philosophy-of-mind | 1920 | fail | yes | yes (1 primary; 0 supplemental) |
-| philosophy | philosophy-of-science | Philosophy of Science | #/branches/philosophy-of-science | 1962 | fail | yes | yes (1 primary; 0 supplemental) |
+| philosophy | philosophy-of-mind | Philosophy of Mind | #/branches/philosophy-of-mind | 5108 | pass | yes | yes (1 primary; 0 supplemental) |
+| philosophy | philosophy-of-science | Philosophy of Science | #/branches/philosophy-of-science | 2191 | pass | yes | yes (1 primary; 0 supplemental) |
 | philosophy | aesthetics | Aesthetics | #/branches/aesthetics | 2838 | pass | yes | yes (1 primary; 0 supplemental) |
 | philosophy | existentialism | Existentialism | #/branches/existentialism | 2056 | pass | yes | yes (1 primary; 1 supplemental) |
 | philosophy | phenomenology | Phenomenology | #/branches/phenomenology | 2022 | pass | yes | yes (1 primary; 1 supplemental) |
