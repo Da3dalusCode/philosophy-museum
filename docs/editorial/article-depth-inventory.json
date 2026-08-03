@@ -17,15 +17,15 @@
     {
       "label": "Philosophers",
       "total": 146,
-      "pass": 129,
-      "fail": 17,
+      "pass": 138,
+      "fail": 8,
       "missing": 0
     },
     {
       "label": "Philosophies, branches, schools, traditions, movements, methods, and frameworks",
       "total": 45,
-      "pass": 44,
-      "fail": 1,
+      "pass": 45,
+      "fail": 0,
       "missing": 0
     },
     {
@@ -38,8 +38,8 @@
   ],
   "universalSummary": {
     "total": 191,
-    "pass": 173,
-    "fail": 18,
+    "pass": 183,
+    "fail": 8,
     "missing": 0
   },
   "pilotChanges": [
@@ -1269,8 +1269,8 @@
       "title": "John Scotus Eriugena",
       "visitorEntryPoint": "#/philosophers/eriugena",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1874,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2210,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -1281,8 +1281,8 @@
       "title": "Peter Abelard",
       "visitorEntryPoint": "#/philosophers/abelard",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1805,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2151,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -1293,8 +1293,8 @@
       "title": "Meister Eckhart",
       "visitorEntryPoint": "#/philosophers/meister-eckhart",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1800,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2112,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -1305,8 +1305,8 @@
       "title": "Marsilius of Padua",
       "visitorEntryPoint": "#/philosophers/marsilius-padua",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1856,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2160,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -1341,8 +1341,8 @@
       "title": "Ibn Tufayl",
       "visitorEntryPoint": "#/philosophers/ibn-tufayl",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1830,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2219,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -1353,8 +1353,8 @@
       "title": "Suhrawardi",
       "visitorEntryPoint": "#/philosophers/suhrawardi",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1824,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2161,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -1653,8 +1653,8 @@
       "title": "Maurice Merleau-Ponty",
       "visitorEntryPoint": "#/philosophers/merleau-ponty",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1824,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2159,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -1665,8 +1665,8 @@
       "title": "Emmanuel Levinas",
       "visitorEntryPoint": "#/philosophers/levinas",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1808,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2130,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -1677,8 +1677,8 @@
       "title": "Hans-Georg Gadamer",
       "visitorEntryPoint": "#/philosophers/gadamer",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1814,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2155,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -2289,8 +2289,8 @@
       "title": "Islamic Philosophy",
       "visitorEntryPoint": "#/branches/islamic-philosophy",
       "contentCategory": "philosophy",
-      "substantiveWordCount": 1834,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2083,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -2878,8 +2878,8 @@
         "surfaceWords": 357,
         "canonicalArticleKey": "philosopher:merleau-ponty",
         "canonicalArticleId": "merleau-ponty",
-        "canonicalArticleWordCount": 1824,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2159,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "existentialism",
@@ -2923,11 +2923,11 @@
         "hallId": "phenomenology-existence-embodiment",
         "visitorEntryPoint": "#/museum/phenomenology-existence-embodiment/exhibits/levinas",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 804,
+        "surfaceWords": 300,
         "canonicalArticleKey": "philosopher:levinas",
         "canonicalArticleId": "levinas",
-        "canonicalArticleWordCount": 1808,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2130,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "gadamer",
@@ -2935,11 +2935,11 @@
         "hallId": "phenomenology-existence-embodiment",
         "visitorEntryPoint": "#/museum/phenomenology-existence-embodiment/exhibits/gadamer",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 742,
+        "surfaceWords": 295,
         "canonicalArticleKey": "philosopher:gadamer",
         "canonicalArticleId": "gadamer",
-        "canonicalArticleWordCount": 1814,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2155,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "analytic-philosophy",
@@ -3031,7 +3031,7 @@
         "hallId": "justice-democratic-reason",
         "visitorEntryPoint": "#/museum/justice-democratic-reason/exhibits/political-philosophy",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 324,
+        "surfaceWords": 328,
         "canonicalArticleKey": "philosophy:political-philosophy",
         "canonicalArticleId": "political-philosophy",
         "canonicalArticleWordCount": 2104,
@@ -3607,11 +3607,11 @@
         "hallId": "islamic-philosophical-worlds",
         "visitorEntryPoint": "#/museum/islamic-philosophical-worlds/exhibits/islamic-philosophy",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 403,
+        "surfaceWords": 275,
         "canonicalArticleKey": "philosophy:islamic-philosophy",
         "canonicalArticleId": "islamic-philosophy",
-        "canonicalArticleWordCount": 1834,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2083,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "al-kindi",
@@ -3679,11 +3679,11 @@
         "hallId": "islamic-philosophical-worlds",
         "visitorEntryPoint": "#/museum/islamic-philosophical-worlds/exhibits/ibn-tufayl",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 289,
+        "surfaceWords": 294,
         "canonicalArticleKey": "philosopher:ibn-tufayl",
         "canonicalArticleId": "ibn-tufayl",
-        "canonicalArticleWordCount": 1830,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2219,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "suhrawardi",
@@ -3691,11 +3691,11 @@
         "hallId": "islamic-philosophical-worlds",
         "visitorEntryPoint": "#/museum/islamic-philosophical-worlds/exhibits/suhrawardi",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 295,
+        "surfaceWords": 280,
         "canonicalArticleKey": "philosopher:suhrawardi",
         "canonicalArticleId": "suhrawardi",
-        "canonicalArticleWordCount": 1824,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2161,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "mulla-sadra",
@@ -3790,8 +3790,8 @@
         "surfaceWords": 317,
         "canonicalArticleKey": "philosopher:eriugena",
         "canonicalArticleId": "eriugena",
-        "canonicalArticleWordCount": 1874,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2210,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "medieval-scholasticism",
@@ -3826,8 +3826,8 @@
         "surfaceWords": 324,
         "canonicalArticleKey": "philosopher:abelard",
         "canonicalArticleId": "abelard",
-        "canonicalArticleWordCount": 1805,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2151,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "aquinas",
@@ -3874,8 +3874,8 @@
         "surfaceWords": 341,
         "canonicalArticleKey": "philosopher:meister-eckhart",
         "canonicalArticleId": "meister-eckhart",
-        "canonicalArticleWordCount": 1800,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2112,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "marsilius-padua",
@@ -3886,8 +3886,8 @@
         "surfaceWords": 320,
         "canonicalArticleKey": "philosopher:marsilius-padua",
         "canonicalArticleId": "marsilius-padua",
-        "canonicalArticleWordCount": 1856,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2160,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "cynicism",
@@ -4423,7 +4423,7 @@
         "hallId": "german-idealism-afterlives",
         "visitorEntryPoint": "#/museum/german-idealism-afterlives/exhibits/schelling",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 321,
+        "surfaceWords": 331,
         "canonicalArticleKey": "philosopher:schelling",
         "canonicalArticleId": "schelling",
         "canonicalArticleWordCount": 2175,
@@ -4663,7 +4663,7 @@
         "hallId": "moral-life-practical-reason",
         "visitorEntryPoint": "#/museum/moral-life-practical-reason/exhibits/iris-murdoch",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 333,
+        "surfaceWords": 336,
         "canonicalArticleKey": "philosopher:iris-murdoch",
         "canonicalArticleId": "iris-murdoch",
         "canonicalArticleWordCount": 2097,
@@ -5262,8 +5262,8 @@
         "canonicalArticleKey": "philosopher:merleau-ponty",
         "canonicalArticleId": "merleau-ponty",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1824,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2159,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "existentialism-facticity-freedom",
@@ -5358,8 +5358,8 @@
         "canonicalArticleKey": "philosopher:levinas",
         "canonicalArticleId": "levinas",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1808,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2130,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "gadamer-truth-method",
@@ -5374,8 +5374,8 @@
         "canonicalArticleKey": "philosopher:gadamer",
         "canonicalArticleId": "gadamer",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1814,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2155,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "husserl-epoche-reduction",
@@ -5438,8 +5438,8 @@
         "canonicalArticleKey": "philosopher:merleau-ponty",
         "canonicalArticleId": "merleau-ponty",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1824,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2159,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "beauvoir-second-sex",
@@ -5502,8 +5502,8 @@
         "canonicalArticleKey": "philosopher:levinas",
         "canonicalArticleId": "levinas",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1808,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2130,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "gadamer-art-play-truth",
@@ -5518,8 +5518,8 @@
         "canonicalArticleKey": "philosopher:gadamer",
         "canonicalArticleId": "gadamer",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1814,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2155,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "frege-sense-reference",
@@ -6990,8 +6990,8 @@
         "canonicalArticleKey": "philosophy:islamic-philosophy",
         "canonicalArticleId": "islamic-philosophy",
         "canonicalArticleCategory": "philosophy",
-        "canonicalArticleWordCount": 1834,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2083,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "islamic-aristotle-arabic-reception",
@@ -7006,8 +7006,8 @@
         "canonicalArticleKey": "philosophy:islamic-philosophy",
         "canonicalArticleId": "islamic-philosophy",
         "canonicalArticleCategory": "philosophy",
-        "canonicalArticleWordCount": 1834,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2083,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "islamic-ishaq-euclid-arabic",
@@ -7022,8 +7022,8 @@
         "canonicalArticleKey": "philosophy:islamic-philosophy",
         "canonicalArticleId": "islamic-philosophy",
         "canonicalArticleCategory": "philosophy",
-        "canonicalArticleWordCount": 1834,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2083,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "avicenna-metaphysics-necessity",
@@ -7246,8 +7246,8 @@
         "canonicalArticleKey": "philosophy:islamic-philosophy",
         "canonicalArticleId": "islamic-philosophy",
         "canonicalArticleCategory": "philosophy",
-        "canonicalArticleWordCount": 1834,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2083,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "suhrawardi-ishraq-opening",
@@ -7262,8 +7262,8 @@
         "canonicalArticleKey": "philosopher:suhrawardi",
         "canonicalArticleId": "suhrawardi",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1824,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2161,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "suhrawardi-ishraq-annotated",
@@ -7278,8 +7278,8 @@
         "canonicalArticleKey": "philosopher:suhrawardi",
         "canonicalArticleId": "suhrawardi",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1824,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2161,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "mulla-sadra-kahak-withdrawal",
@@ -7310,8 +7310,8 @@
         "canonicalArticleKey": "philosophy:islamic-philosophy",
         "canonicalArticleId": "islamic-philosophy",
         "canonicalArticleCategory": "philosophy",
-        "canonicalArticleWordCount": 1834,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2083,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "eac-zhu-four-books",
@@ -7764,8 +7764,8 @@
         "canonicalArticleKey": "philosopher:eriugena",
         "canonicalArticleId": "eriugena",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1874,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2210,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "latin-sic-et-non-dialectic",
@@ -7780,8 +7780,8 @@
         "canonicalArticleKey": "philosopher:abelard",
         "canonicalArticleId": "abelard",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1805,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2151,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "latin-heloise-love-intention-rule",
@@ -7924,8 +7924,8 @@
         "canonicalArticleKey": "philosopher:meister-eckhart",
         "canonicalArticleId": "meister-eckhart",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1800,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2112,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "cynic-frank-speech-in-public",

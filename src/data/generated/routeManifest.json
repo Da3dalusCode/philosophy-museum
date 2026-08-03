@@ -2114,6 +2114,10 @@
         {
           "id": "reading-path",
           "title": "Where to begin and how to continue"
+        },
+        {
+          "id": "scope-languages-and-later-continuities",
+          "title": "Names, languages, labor, and later continuities"
         }
       ],
       "hasSources": true
@@ -8462,9 +8466,17 @@
         {
           "id": "reading-path",
           "title": "How to approach Eriugena"
+        },
+        {
+          "id": "translation-and-mediated-sources",
+          "title": "Translation as philosophical reconstruction"
+        },
+        {
+          "id": "being-and-nonbeing",
+          "title": "Five modes of being and nonbeing"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "abelard",
@@ -8517,9 +8529,17 @@
         {
           "id": "reading-path",
           "title": "How to read Abelard"
+        },
+        {
+          "id": "language-mind-and-logic",
+          "title": "Language, mind, and logical consequence"
+        },
+        {
+          "id": "atonement-and-transforming-love",
+          "title": "Atonement, divine love, and interpretive restraint"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "meister-eckhart",
@@ -8572,9 +8592,17 @@
         {
           "id": "reading-path",
           "title": "How to read Eckhart responsibly"
+        },
+        {
+          "id": "corpus-authentication-and-genre",
+          "title": "Corpus, authentication, and genre"
+        },
+        {
+          "id": "being-intellect-and-creation",
+          "title": "Being, intellect, and creaturely dependence"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "marsilius-padua",
@@ -8631,9 +8659,17 @@
         {
           "id": "reading-path",
           "title": "How to read Marsilius"
+        },
+        {
+          "id": "works-structure-and-authorship",
+          "title": "Works, structure, and authorship"
+        },
+        {
+          "id": "collective-prudence-and-prevailing-part",
+          "title": "Collective prudence and the prevailing part"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "saadia-gaon",
@@ -8784,6 +8820,14 @@
         {
           "id": "misunderstandings-reading",
           "title": "Common misunderstandings and a staged reading path"
+        },
+        {
+          "id": "narrative-test-and-embodied-inquiry",
+          "title": "Narrative design and embodied inquiry"
+        },
+        {
+          "id": "pedagogy-and-documented-reception",
+          "title": "Pedagogy, failed communication, and documented reception"
         }
       ],
       "hasSources": true
@@ -8835,6 +8879,14 @@
         {
           "id": "misunderstandings-reading",
           "title": "Misunderstandings and a staged reading path"
+        },
+        {
+          "id": "logic-corpus-and-development",
+          "title": "Logic, corpus, and an uneven chronology"
+        },
+        {
+          "id": "essence-images-and-school",
+          "title": "Essence, the world of images, and the later school"
         }
       ],
       "hasSources": true
@@ -10222,9 +10274,17 @@
         {
           "id": "reading-strategy",
           "title": "How to read Merleau-Ponty"
+        },
+        {
+          "id": "motor-intentionality",
+          "title": "Motor intentionality, body schema, and the “I can”"
+        },
+        {
+          "id": "nature-institution",
+          "title": "Nature, institution, and the road to ontology"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "levinas",
@@ -10277,9 +10337,17 @@
         {
           "id": "reading-strategy",
           "title": "How to read Levinas"
+        },
+        {
+          "id": "early-works",
+          "title": "From existence and escape to ethical transcendence"
+        },
+        {
+          "id": "two-major-works",
+          "title": "Two major works, two routes beyond self-sovereignty"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "gadamer",
@@ -10332,9 +10400,17 @@
         {
           "id": "reading-strategy",
           "title": "How to read Gadamer"
+        },
+        {
+          "id": "life-political-dispute",
+          "title": "A long career under disputed political conditions"
+        },
+        {
+          "id": "effective-history",
+          "title": "Historically effected consciousness and the limits of self-knowledge"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "habermas",

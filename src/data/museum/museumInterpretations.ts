@@ -907,11 +907,11 @@ const GALLERY_09_10_PHILOSOPHER_ENRICHMENT: Readonly<Record<string, {
   },
   'ibn-tufayl': {
     lead: 'In Hayy ibn Yaqzan, Ibn Tufayl turns philosophical development into narrative experiment. A person raised without society studies nature, discovers ordered causes, and pursues contemplative knowledge; contact with civilization then tests whether demonstrative insight, symbolic religion, and public life can be reconciled.',
-    historicalFrame: 'Ibn Tufayl was an Andalusian physician, philosopher, court official, and patron whose biography survives less fully than his famous tale. Working under the Almohads, he helped introduce Averroes at court. Hayy later traveled through Hebrew, Latin, and European vernacular translations.',
+    historicalFrame: 'Ibn Tufayl was an Andalusian physician, philosopher, and court official whose biography survives less fully than his famous tale. A later report associates him with presenting Ibn Rushd at the Almohad court, but it does not establish discipleship. Hayy later traveled through Hebrew, Latin, and European vernacular translations.',
   },
   suhrawardi: {
     lead: 'Suhrawardi reworks Avicennian philosophy through a language of light, manifestation, and knowledge by presence. Demonstration remains necessary, yet discursive proof must be joined to trained perception and direct awareness. His illuminationism opens a powerful post-Avicennian alternative rather than abandoning rational inquiry.',
-    historicalFrame: 'Born in northwestern Iran, Suhrawardi studied and traveled through several learned centers before entering the court at Aleppo. He was executed while still young under circumstances and charges that remain disputed. Early annotated manuscripts show his work becoming a living commentary tradition almost immediately.',
+    historicalFrame: 'Born in northwestern Iran, Suhrawardi studied and traveled through several learned centers before entering the court at Aleppo. He was executed while still young under circumstances and charges that remain disputed. An annotated copy produced within three decades of his death shows his work becoming a living commentary tradition.',
   },
   'mulla-sadra': {
     lead: 'Mulla Sadra makes existence, not fixed essence, the dynamic center of metaphysics. Through gradation of being, substantial motion, and the unity of knower and known, he synthesizes Avicennian argument, Suhrawardian illumination, mystical interpretation, theology, and scriptural exegesis without erasing their tensions.',

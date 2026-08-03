@@ -1708,60 +1708,76 @@
       "title": "John Scotus Eriugena",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/eriugena",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 5,
+      "citedSourceCount": 5,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1874
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 30,
+      "citationCount": 148,
+      "substantiveArticleWordCount": 2210,
+      "reviewNotePath": "docs/editorial/reviews/eriugena.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:56995f742d637487",
+      "currentReviewLock": "fnv1a64:56995f742d637487"
     },
     {
       "id": "abelard",
       "title": "Peter Abelard",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/abelard",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 5,
+      "citedSourceCount": 5,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1805
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 30,
+      "citationCount": 150,
+      "substantiveArticleWordCount": 2151,
+      "reviewNotePath": "docs/editorial/reviews/abelard.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:02c5bb328f7562b3",
+      "currentReviewLock": "fnv1a64:02c5bb328f7562b3"
     },
     {
       "id": "meister-eckhart",
       "title": "Meister Eckhart",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/meister-eckhart",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 5,
+      "citedSourceCount": 5,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1800
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 30,
+      "citationCount": 118,
+      "substantiveArticleWordCount": 2112,
+      "reviewNotePath": "docs/editorial/reviews/meister-eckhart.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:7a127a923d5939c2",
+      "currentReviewLock": "fnv1a64:7a127a923d5939c2"
     },
     {
       "id": "marsilius-padua",
       "title": "Marsilius of Padua",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/marsilius-padua",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 5,
+      "citedSourceCount": 5,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1856
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 32,
+      "citationCount": 187,
+      "substantiveArticleWordCount": 2160,
+      "reviewNotePath": "docs/editorial/reviews/marsilius-padua.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:033adb9d7b5c3ca1",
+      "currentReviewLock": "fnv1a64:033adb9d7b5c3ca1"
     },
     {
       "id": "saadia-gaon",
@@ -1798,30 +1814,38 @@
       "title": "Ibn Tufayl",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/ibn-tufayl",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 6,
+      "citedSourceCount": 6,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1830
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 26,
+      "citationCount": 110,
+      "substantiveArticleWordCount": 2219,
+      "reviewNotePath": "docs/editorial/reviews/ibn-tufayl.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:49e4fe22d43169bd",
+      "currentReviewLock": "fnv1a64:49e4fe22d43169bd"
     },
     {
       "id": "suhrawardi",
       "title": "Suhrawardi",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/suhrawardi",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 6,
+      "citedSourceCount": 6,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1824
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 26,
+      "citationCount": 108,
+      "substantiveArticleWordCount": 2161,
+      "reviewNotePath": "docs/editorial/reviews/suhrawardi.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:957527cc0d333656",
+      "currentReviewLock": "fnv1a64:957527cc0d333656"
     },
     {
       "id": "mulla-sadra",
@@ -2280,45 +2304,57 @@
       "title": "Maurice Merleau-Ponty",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/merleau-ponty",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 6,
+      "citedSourceCount": 6,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1824
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 29,
+      "citationCount": 119,
+      "substantiveArticleWordCount": 2159,
+      "reviewNotePath": "docs/editorial/reviews/merleau-ponty.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:e5b4333911061d98",
+      "currentReviewLock": "fnv1a64:e5b4333911061d98"
     },
     {
       "id": "levinas",
       "title": "Emmanuel Levinas",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/levinas",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 6,
+      "citedSourceCount": 6,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1808
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 30,
+      "citationCount": 136,
+      "substantiveArticleWordCount": 2130,
+      "reviewNotePath": "docs/editorial/reviews/levinas.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:cfaaa0a690759c4a",
+      "currentReviewLock": "fnv1a64:cfaaa0a690759c4a"
     },
     {
       "id": "gadamer",
       "title": "Hans-Georg Gadamer",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/gadamer",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 6,
+      "citedSourceCount": 6,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1814
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 32,
+      "citationCount": 132,
+      "substantiveArticleWordCount": 2155,
+      "reviewNotePath": "docs/editorial/reviews/gadamer.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:ea1600b8767e0ad5",
+      "currentReviewLock": "fnv1a64:ea1600b8767e0ad5"
     },
     {
       "id": "habermas",
@@ -3111,15 +3147,19 @@
       "title": "Islamic Philosophy",
       "category": "philosophy",
       "visitorEntryPoint": "#/branches/islamic-philosophy",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 8,
+      "citedSourceCount": 8,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1834
+      "structuredClaimCount": 19,
+      "structuredParagraphCount": 22,
+      "citationCount": 159,
+      "substantiveArticleWordCount": 2083,
+      "reviewNotePath": "docs/editorial/reviews/islamic-philosophy.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:2e4b500127efafe5",
+      "currentReviewLock": "fnv1a64:2e4b500127efafe5"
     },
     {
       "id": "medieval-scholasticism",
@@ -5532,76 +5572,6 @@
       "excerpt": "Derrida influenced literary theory, philosophy, legal studies, architecture, theology, postcolonial thought, feminism, queer theory, and debates about animals and technology. Judith Butler develops iterability in an acco"
     },
     {
-      "recordKey": "philosopher:eriugena",
-      "status": "unreviewed",
-      "signal": "disputed-attribution",
-      "location": "historical-setting/paragraph-1",
-      "excerpt": "Eriugena worked in the intellectual world of the Carolingian court, especially under Charles the Bald. This period valued education, textual correction, theological debate, and the recovery of learning as part of imperia"
-    },
-    {
-      "recordKey": "philosopher:eriugena",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "authority-and-reason/paragraph-2",
-      "excerpt": "The stance is powerful and risky. It lets Eriugena reconcile difficult texts, correct crude readings, and seek the intelligible order behind theological language. But it also makes later readers nervous, because reason c"
-    },
-    {
-      "recordKey": "philosopher:eriugena",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "division-of-nature/paragraph-2",
-      "excerpt": "This scheme is not a map of four separate objects. It is a way of describing procession and return. All things come from God through intelligible causes, appear in created effects, and return to God as end. The first and"
-    },
-    {
-      "recordKey": "philosopher:eriugena",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "controversies/paragraph-1",
-      "excerpt": "Eriugena first became controversial through his involvement in the ninth-century predestination debate. He opposed a harsh double predestination view and emphasized divine goodness, human freedom, and the intelligible or"
-    },
-    {
-      "recordKey": "philosopher:eriugena",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "misunderstandings/paragraph-1",
-      "excerpt": "The first misunderstanding is that Eriugena is simply a pantheist. His language can sound that way, but he also insists that God transcends every created determination. A better starting point is theophany: creatures man"
-    },
-    {
-      "recordKey": "philosopher:abelard",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "ethics-intention/paragraph-2",
-      "excerpt": "The view is powerful because it makes moral evaluation inward and rationally precise. Two outwardly similar acts can differ morally if intentions and understanding differ. But it also raises hard questions. Can inward in"
-    },
-    {
-      "recordKey": "philosopher:meister-eckhart",
-      "status": "unreviewed",
-      "signal": "influence-or-causation",
-      "location": "historical-setting/paragraph-1",
-      "excerpt": "Eckhart lived in the late thirteenth and early fourteenth centuries, within the Dominican order and the university-shaped world of scholastic theology. He studied and taught in contexts influenced by Albert the Great and"
-    },
-    {
-      "recordKey": "philosopher:meister-eckhart",
-      "status": "unreviewed",
-      "signal": "influence-or-causation",
-      "location": "influence/paragraph-1",
-      "excerpt": "Eckhart influenced later Rhineland and German mystical writers, including Johannes Tauler and Henry Suso, though each receives him in a distinct way. His themes of detachment, inward ground, divine birth, and negative th"
-    },
-    {
-      "recordKey": "philosopher:marsilius-padua",
-      "status": "unreviewed",
-      "signal": "disputed-attribution",
-      "location": "historical-setting/paragraph-1",
-      "excerpt": "Marsilius wrote in the early fourteenth century, when conflicts between papal authority, imperial power, city politics, and emerging legal institutions were intense. The papacy had developed strong claims about plenitude"
-    },
-    {
-      "recordKey": "philosopher:marsilius-padua",
-      "status": "unreviewed",
-      "signal": "influence-or-causation",
-      "location": "influence/paragraph-1",
-      "excerpt": "Marsilius influenced later conciliar and anti-papal arguments, even when later thinkers did not accept his whole system. His insistence that the church can be represented by a council rather than ruled absolutely by the"
-    },
-    {
       "recordKey": "philosopher:saadia-gaon",
       "status": "bibliography-only",
       "signal": "priority-or-superlative",
@@ -5665,118 +5635,6 @@
       "excerpt": "This position shaped later Jewish thought as both resource and provocation. Maimonides shared Halevi’s commitment to Jewish law and revelation but gave Aristotelian demonstration a different role, making comparison betwe"
     },
     {
-      "recordKey": "philosopher:ibn-tufayl",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "natural-inquiry/paragraph-1",
-      "excerpt": "Hayy’s education begins with needs, perception, imitation of animals, and practical experimentation. He learns to protect and feed himself before he possesses an abstract vocabulary. The death of the gazelle who raised h"
-    },
-    {
-      "recordKey": "philosopher:ibn-tufayl",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "natural-inquiry/paragraph-2",
-      "excerpt": "From living things Hayy studies elements, generation, motion, celestial order, and causal dependence. His inquiry resembles philosophical science rather than mere accumulation of observations. He classifies similarities"
-    },
-    {
-      "recordKey": "philosopher:ibn-tufayl",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "demonstration-metaphysics/paragraph-1",
-      "excerpt": "As Hayy studies the heavens, he confronts disputes familiar from medieval philosophy. Is the cosmos temporally originated, or does its ordered motion have no beginning in time? Ibn Tufayl does not make the narrative sett"
-    },
-    {
-      "recordKey": "philosopher:ibn-tufayl",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "demonstration-metaphysics/paragraph-2",
-      "excerpt": "This reasoning leads toward a necessary, nonbodily source that cannot be represented as one object among others. Demonstration purifies Hayy’s understanding by exposing the inadequacy of spatial images and material cause"
-    },
-    {
-      "recordKey": "philosopher:ibn-tufayl",
-      "status": "bibliography-only",
-      "signal": "influence-or-causation",
-      "location": "works-form/paragraph-2",
-      "excerpt": "The work also exists within a longer history of the name Hayy ibn Yaqzan. Avicenna had written an allegorical narrative with that title, and later translations of Ibn Tufayl’s tale influenced European discussions of educ"
-    },
-    {
-      "recordKey": "philosopher:suhrawardi",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "overview/paragraph-2",
-      "excerpt": "His central question is how knowledge becomes present rather than merely represented. A definition or syllogism can order what a knower already encounters, but Suhrawardi argues that some basic awareness cannot be explai"
-    },
-    {
-      "recordKey": "philosopher:suhrawardi",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "knowledge-presence/paragraph-1",
-      "excerpt": "Knowledge by presence is Suhrawardi’s most influential epistemic idea. In ordinary representational knowledge, a form or concept stands for an object. In presentational knowledge, the known reality is available without s"
-    },
-    {
-      "recordKey": "philosopher:suhrawardi",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "knowledge-presence/paragraph-2",
-      "excerpt": "Suhrawardi extends this model to relations among immaterial knowers and to illumination itself. Knowledge depends on degrees of presence, absence, domination, and receptivity rather than on a single mechanism of copying"
-    },
-    {
-      "recordKey": "philosopher:suhrawardi",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "light-metaphysics/paragraph-2",
-      "excerpt": "This hierarchy is elaborate, including dominating lights, governing lights associated with souls, celestial orders, and the world of bodies. Its imagery can sound poetic, but it carries explanatory commitments about caus"
-    },
-    {
-      "recordKey": "philosopher:suhrawardi",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "imaginal-symbolic/paragraph-1",
-      "excerpt": "Suhrawardi’s cosmology helped articulate an intermediate imaginal realm, often described as a world of suspended images. “Imaginal” does not mean merely imaginary in the sense of invented or unreal. It names a level at w"
-    },
-    {
-      "recordKey": "philosopher:suhrawardi",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "imaginal-symbolic/paragraph-1",
-      "excerpt": "Suhrawardi’s cosmology helped articulate an intermediate imaginal realm, often described as a world of suspended images. “Imaginal” does not mean merely imaginary in the sense of invented or unreal. It names a level at w"
-    },
-    {
-      "recordKey": "philosopher:suhrawardi",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "ancient-wisdom/paragraph-2",
-      "excerpt": "Modern readers must avoid turning this appeal into either nationalism or a claim that Suhrawardi possessed an unchanged primordial doctrine. His “eastern” orientation marks illumination, presence, and the rising of intel"
-    },
-    {
-      "recordKey": "philosopher:suhrawardi",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "reception-controversies/paragraph-2",
-      "excerpt": "Interpretive controversies concern how “mystical,” Platonic, Persian, or Avicennian the system is; whether the light language is literal, analogical, or methodological; and how the imaginal realm should be understood. Hi"
-    },
-    {
-      "recordKey": "philosopher:suhrawardi",
-      "status": "bibliography-only",
-      "signal": "broad-classification",
-      "location": "reception-controversies/paragraph-2",
-      "excerpt": "Interpretive controversies concern how “mystical,” Platonic, Persian, or Avicennian the system is; whether the light language is literal, analogical, or methodological; and how the imaginal realm should be understood. Hi"
-    },
-    {
-      "recordKey": "philosopher:suhrawardi",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "misunderstandings-reading/paragraph-1",
-      "excerpt": "Three misunderstandings recur. First, illumination is not a rejection of logic; Suhrawardi’s mature work makes logical critique part of its opening movement. Second, light is not simply a decorative synonym for God, sinc"
-    },
-    {
-      "recordKey": "philosopher:suhrawardi",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "misunderstandings-reading/paragraph-2",
-      "excerpt": "Begin with a reliable overview of Avicenna’s metaphysics and psychology so Suhrawardi’s revisions have a clear target. Then read selected logical and methodological passages from The Philosophy of Illumination before its"
-    },
-    {
       "recordKey": "philosopher:mulla-sadra",
       "status": "bibliography-only",
       "signal": "quotation",
@@ -5838,104 +5696,6 @@
       "signal": "broad-classification",
       "location": "misunderstandings-reading/paragraph-1",
       "excerpt": "One misunderstanding treats the primacy of existence as the trivial observation that things exist. It is instead a claim about what is extra-mental and how essences function in thought. Another treats substantial motion"
-    },
-    {
-      "recordKey": "philosopher:merleau-ponty",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "overview/paragraph-2",
-      "excerpt": "This starting point matters for ethics because it changes what a person is. A human being is not first an isolated mind that later receives bodily signals. The body is not merely a machine owned by a mind. It is the live"
-    },
-    {
-      "recordKey": "philosopher:merleau-ponty",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "body-subject/paragraph-1",
-      "excerpt": "A central phrase in Merleau-Ponty is the lived body. The body can of course be studied as an object by medicine, anatomy, and physiology. But in ordinary experience I do not encounter my body first as a thing located in"
-    },
-    {
-      "recordKey": "philosopher:merleau-ponty",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "perception/paragraph-1",
-      "excerpt": "For Merleau-Ponty, perception is not a low-grade belief waiting to be corrected by science. It is the field in which objects, space, time, and other people first show up as meaningful. A room appears as enterable, a tool"
-    },
-    {
-      "recordKey": "philosopher:merleau-ponty",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "perception/paragraph-2",
-      "excerpt": "This helps explain why perception is ambiguous without being chaotic. A thing is seen from one angle but meant as having hidden sides. A melody is heard through temporal flow rather than as isolated notes. A person appea"
-    },
-    {
-      "recordKey": "philosopher:merleau-ponty",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "others-expression/paragraph-1",
-      "excerpt": "Merleau-Ponty resists the idea that other minds are hidden inner objects inferred from external movements. In everyday life, anger, shyness, grief, attention, and affection are often perceived in faces, gestures, speech,"
-    },
-    {
-      "recordKey": "philosopher:levinas",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "overview/paragraph-1",
-      "excerpt": "Emmanuel Levinas is famous for claiming that ethics is first philosophy. He does not mean that moral rules are the first chapter in a textbook. He means that responsibility to another person interrupts the self before th"
-    },
-    {
-      "recordKey": "philosopher:levinas",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "face/paragraph-2",
-      "excerpt": "This demand is prior to contract or calculation. I do not first decide that the other has value because of a theory and then become responsible. The face interrupts me before I justify myself. Yet this priority is not ea"
-    },
-    {
-      "recordKey": "philosopher:levinas",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "responsibility/paragraph-1",
-      "excerpt": "Levinas radicalizes responsibility by saying that I am responsible before I choose to be. This sounds unfair if responsibility means blame for voluntary actions. Levinas has something more basic in mind. The presence of"
-    },
-    {
-      "recordKey": "philosopher:levinas",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "same-other/paragraph-2",
-      "excerpt": "This is why Levinas is suspicious of ethical theories that make the other a route to my flourishing, recognition, or self-realization. Those themes may be important, but they can still make the self the center. Levinas w"
-    },
-    {
-      "recordKey": "philosopher:levinas",
-      "status": "unreviewed",
-      "signal": "influence-or-causation",
-      "location": "influence/paragraph-1",
-      "excerpt": "Levinas influenced deconstruction, theology, political theory, ethics, feminist philosophy, post-Holocaust thought, and discussions of hospitality and human rights. Derrida's early essay Violence and Metaphysics helped m"
-    },
-    {
-      "recordKey": "philosopher:levinas",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "misunderstandings/paragraph-1",
-      "excerpt": "The first misunderstanding is to think Levinas says ethics is a warm feeling of kindness. His ethics is more demanding and more unsettling. The other interrupts my freedom; responsibility is not a mood. The second misund"
-    },
-    {
-      "recordKey": "philosopher:levinas",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "reading-strategy/paragraph-1",
-      "excerpt": "A beginner should not start by trying to master every technical term. Begin with the problem: what happens if another person is not first an object of knowledge but someone to whom I am responsible? Then read selected es"
-    },
-    {
-      "recordKey": "philosopher:gadamer",
-      "status": "unreviewed",
-      "signal": "influence-or-causation",
-      "location": "influence/paragraph-1",
-      "excerpt": "Gadamer influenced philosophy, literary theory, theology, legal theory, history, education, medicine, and the social sciences. In medicine, for example, his account of understanding helps explain why clinical judgment re"
-    },
-    {
-      "recordKey": "philosopher:gadamer",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "reading-strategy/paragraph-3",
-      "excerpt": "A practical exercise is to choose one old text, one legal or public controversy, and one artwork, then ask how your first assumptions shape what you notice. Gadamer's point is not that you should discard those assumption"
     },
     {
       "recordKey": "philosopher:habermas",
@@ -8122,97 +7882,6 @@
       "excerpt": "Buddhist accounts of attention, self-construction, emotion, and consciousness now enter dialogue with philosophy of mind, neuroscience, phenomenology, and cognitive science. Contemplative training may offer disciplined f"
     },
     {
-      "recordKey": "philosophy:islamic-philosophy",
-      "status": "bibliography-only",
-      "signal": "broad-classification",
-      "location": "overview/paragraph-1",
-      "excerpt": "Islamic philosophy names many philosophical conversations conducted in societies shaped by Islam, often in Arabic but also in Persian and other languages, by Muslim, Christian, Jewish, and other thinkers. It includes fal"
-    },
-    {
-      "recordKey": "philosophy:islamic-philosophy",
-      "status": "bibliography-only",
-      "signal": "broad-classification",
-      "location": "overview/paragraph-2",
-      "excerpt": "Translation was indispensable, yet the familiar story that Islamic thinkers merely preserved Greek books is historically and philosophically false. Translators, patrons, and scholars selected texts, created technical voc"
-    },
-    {
-      "recordKey": "philosophy:islamic-philosophy",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "historical-development/paragraph-1",
-      "excerpt": "From the eighth through tenth centuries, translation movements centered especially in Abbasid Baghdad made works of Aristotle, commentators, medicine, mathematics, and other sciences available in Arabic. Many translators"
-    },
-    {
-      "recordKey": "philosophy:islamic-philosophy",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "historical-development/paragraph-2",
-      "excerpt": "Avicenna became the decisive system-builder of the eastern tradition, reshaping logic, psychology, natural philosophy, and metaphysics. Al-Ghazali later criticized a defined set of philosophical theses while adopting log"
-    },
-    {
-      "recordKey": "philosophy:islamic-philosophy",
-      "status": "bibliography-only",
-      "signal": "broad-classification",
-      "location": "historical-development/paragraph-2",
-      "excerpt": "Avicenna became the decisive system-builder of the eastern tradition, reshaping logic, psychology, natural philosophy, and metaphysics. Al-Ghazali later criticized a defined set of philosophical theses while adopting log"
-    },
-    {
-      "recordKey": "philosophy:islamic-philosophy",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "figures-works/paragraph-1",
-      "excerpt": "Al-Kindi’s On First Philosophy argues that receiving truth from earlier peoples does not diminish its value and develops a first-cause metaphysics in a new setting. Al-Farabi’s Enumeration of the Sciences and Virtuous Ci"
-    },
-    {
-      "recordKey": "philosophy:islamic-philosophy",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "figures-works/paragraph-2",
-      "excerpt": "Ibn Tufayl’s Hayy ibn Yaqzan dramatizes a person developing knowledge through observation, reason, and contemplation outside ordinary society. Averroes’ Decisive Treatise relates philosophy to revealed law, while his com"
-    },
-    {
-      "recordKey": "philosophy:islamic-philosophy",
-      "status": "bibliography-only",
-      "signal": "broad-classification",
-      "location": "neighbors/paragraph-1",
-      "excerpt": "Islamic philosophy overlaps with philosophy of religion but should not be reduced to arguments about God. Logic, medicine, optics, astronomy, mathematics, psychology, language, ethics, and political philosophy were conne"
-    },
-    {
-      "recordKey": "philosophy:islamic-philosophy",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "misunderstandings/paragraph-1",
-      "excerpt": "The first misunderstanding is that Islamic philosophy merely preserved Greek philosophy until Europe was ready to recover it. Translation mattered, but translation itself required interpretation, and the resulting system"
-    },
-    {
-      "recordKey": "philosophy:islamic-philosophy",
-      "status": "bibliography-only",
-      "signal": "broad-classification",
-      "location": "misunderstandings/paragraph-1",
-      "excerpt": "The first misunderstanding is that Islamic philosophy merely preserved Greek philosophy until Europe was ready to recover it. Translation mattered, but translation itself required interpretation, and the resulting system"
-    },
-    {
-      "recordKey": "philosophy:islamic-philosophy",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "misunderstandings/paragraph-2",
-      "excerpt": "It is also misleading to treat reason and revelation as two armies or to identify philosophy with secular unbelief. Participants held different views about prophecy, interpretation, and demonstration while working within"
-    },
-    {
-      "recordKey": "philosophy:islamic-philosophy",
-      "status": "bibliography-only",
-      "signal": "broad-classification",
-      "location": "modern-relevance/paragraph-1",
-      "excerpt": "Islamic philosophy changes the map of philosophy. It reveals that problems often taught as exclusively European—modality, intentionality, the relation of essence and existence, skepticism about causation, theories of int"
-    },
-    {
-      "recordKey": "philosophy:islamic-philosophy",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "reading-path/paragraph-1",
-      "excerpt": "Begin with al-Kindi’s compact On First Philosophy and selections from al-Farabi on the sciences or the virtuous city. Then read Avicenna on essence, existence, and necessary being with a guide that explains his logical a"
-    },
-    {
       "recordKey": "philosophy:medieval-scholasticism",
       "status": "unreviewed",
       "signal": "disputed-attribution",
@@ -8588,18 +8257,18 @@
   "groupSummary": {
     "philosophers": {
       "total": 146,
-      "unreviewed": 19,
-      "bibliography-only": 50,
+      "unreviewed": 12,
+      "bibliography-only": 48,
       "source-mapped": 0,
-      "claim-reviewed": 77,
+      "claim-reviewed": 86,
       "review-out-of-date": 0
     },
     "philosophies": {
       "total": 45,
       "unreviewed": 2,
-      "bibliography-only": 33,
+      "bibliography-only": 32,
       "source-mapped": 0,
-      "claim-reviewed": 10,
+      "claim-reviewed": 11,
       "review-out-of-date": 0
     },
     "standalone": {

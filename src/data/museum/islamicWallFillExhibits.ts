@@ -62,8 +62,8 @@ const wallFill = (input: WallFillInput): MuseumSupplementalExhibit => ({
 });
 
 const islamicReference = {
-  label: 'Stanford Encyclopedia of Philosophy — Arabic and Islamic Philosophy',
-  url: 'https://plato.stanford.edu/entries/arabic-islamic-phil/',
+  label: 'Stanford Encyclopedia of Philosophy — Greek Sources in Arabic and Islamic Philosophy',
+  url: 'https://plato.stanford.edu/entries/arabic-islamic-greek/',
 } as const;
 const ghazaliReference = {
   label: 'Stanford Encyclopedia of Philosophy — Al-Ghazali',
@@ -292,7 +292,7 @@ export const ISLAMIC_WALL_FILL_EXHIBITS = [
     displayName: 'Suhrawardi’s Philosophy of Illumination: Demonstration and Presence',
     shortTitle: 'Suhrawardi: Philosophy of Illumination',
     workLabel: 'SUHRAWARDI · ḤIKMAT AL-ISHRĀQ',
-    dateLabel: 'Work completed before 1191 · illuminated copy of 1477–1478',
+    dateLabel: 'Work completed in 1186 · illuminated copy of 1477–1478',
     question: 'Can rigorous demonstration prepare a knowledge that is also directly present?',
     frontSubtitle: 'Light, self-awareness, knowledge by presence, hierarchy, demonstration, and visionary disclosure',
     lead: 'The Philosophy of Illumination combines criticism of Peripatetic categories with a philosophy of light, self-awareness, and knowledge by presence. Suhrawardi does not simply replace argument with vision. He expects intellectual preparation and demonstration while claiming that some realities must also become directly manifest to the knower.',

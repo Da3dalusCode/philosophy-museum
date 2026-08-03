@@ -14,11 +14,11 @@ The hard floor is **2,000 substantive article-prose words**. The counter tokeniz
 
 | Category | Total | Pass | Fail | Missing article |
 | --- | ---: | ---: | ---: | ---: |
-| Philosophers | 146 | 129 | 17 | 0 |
-| Philosophies, branches, schools, traditions, movements, methods, and frameworks | 45 | 44 | 1 | 0 |
+| Philosophers | 146 | 138 | 8 | 0 |
+| Philosophies, branches, schools, traditions, movements, methods, and frameworks | 45 | 45 | 0 | 0 |
 | Standalone works, texts, arguments, concepts, and article-backed exhibits | 0 | 0 | 0 | 0 |
 
-Universal total: **191** applicable articles; **173 pass**; **18 fail**; **0 are missing article prose**.
+Universal total: **191** applicable articles; **183 pass**; **8 fail**; **0 are missing article prose**.
 
 Current failures are migration backlog, not approved exceptions. The strict audit is intentionally separate from the ordinary build until that backlog reaches zero.
 
@@ -36,15 +36,6 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 
 | ID | Title | Category | Words | Status |
 | --- | --- | --- | ---: | --- |
-| eriugena | John Scotus Eriugena | philosopher | 1874 | fail |
-| abelard | Peter Abelard | philosopher | 1805 | fail |
-| meister-eckhart | Meister Eckhart | philosopher | 1800 | fail |
-| marsilius-padua | Marsilius of Padua | philosopher | 1856 | fail |
-| ibn-tufayl | Ibn Tufayl | philosopher | 1830 | fail |
-| suhrawardi | Suhrawardi | philosopher | 1824 | fail |
-| merleau-ponty | Maurice Merleau-Ponty | philosopher | 1824 | fail |
-| levinas | Emmanuel Levinas | philosopher | 1808 | fail |
-| gadamer | Hans-Georg Gadamer | philosopher | 1814 | fail |
 | philippa-foot | Philippa Foot | philosopher | 1805 | fail |
 | judith-thomson | Judith Jarvis Thomson | philosopher | 1807 | fail |
 | thomas-nagel | Thomas Nagel | philosopher | 1805 | fail |
@@ -53,7 +44,6 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | judith-butler | Judith Butler | philosopher | 1836 | fail |
 | angela-davis | Angela Davis | philosopher | 1801 | fail |
 | bell-hooks | bell hooks | philosopher | 1883 | fail |
-| islamic-philosophy | Islamic Philosophy | philosophy | 1834 | fail |
 
 ## Records omitted by the former manual target list
 
@@ -174,14 +164,14 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | philosopher | origen | Origen | #/philosophers/origen | 2136 | pass | yes | yes (1 primary; 0 supplemental) |
 | philosopher | gregory-nyssa | Gregory of Nyssa | #/philosophers/gregory-nyssa | 2118 | pass | yes | yes (1 primary; 0 supplemental) |
 | philosopher | pseudo-dionysius | Pseudo-Dionysius | #/philosophers/pseudo-dionysius | 2101 | pass | yes | yes (1 primary; 1 supplemental) |
-| philosopher | eriugena | John Scotus Eriugena | #/philosophers/eriugena | 1874 | fail | yes | yes (1 primary; 1 supplemental) |
-| philosopher | abelard | Peter Abelard | #/philosophers/abelard | 1805 | fail | yes | yes (1 primary; 1 supplemental) |
-| philosopher | meister-eckhart | Meister Eckhart | #/philosophers/meister-eckhart | 1800 | fail | yes | yes (1 primary; 1 supplemental) |
-| philosopher | marsilius-padua | Marsilius of Padua | #/philosophers/marsilius-padua | 1856 | fail | yes | yes (1 primary; 0 supplemental) |
+| philosopher | eriugena | John Scotus Eriugena | #/philosophers/eriugena | 2210 | pass | yes | yes (1 primary; 1 supplemental) |
+| philosopher | abelard | Peter Abelard | #/philosophers/abelard | 2151 | pass | yes | yes (1 primary; 1 supplemental) |
+| philosopher | meister-eckhart | Meister Eckhart | #/philosophers/meister-eckhart | 2112 | pass | yes | yes (1 primary; 1 supplemental) |
+| philosopher | marsilius-padua | Marsilius of Padua | #/philosophers/marsilius-padua | 2160 | pass | yes | yes (1 primary; 0 supplemental) |
 | philosopher | saadia-gaon | Saadia Gaon | #/philosophers/saadia-gaon | 2019 | pass | yes | yes (1 primary; 1 supplemental) |
 | philosopher | judah-halevi | Judah Halevi | #/philosophers/judah-halevi | 2095 | pass | yes | yes (1 primary; 2 supplemental) |
-| philosopher | ibn-tufayl | Ibn Tufayl | #/philosophers/ibn-tufayl | 1830 | fail | yes | yes (1 primary; 0 supplemental) |
-| philosopher | suhrawardi | Suhrawardi | #/philosophers/suhrawardi | 1824 | fail | yes | yes (1 primary; 2 supplemental) |
+| philosopher | ibn-tufayl | Ibn Tufayl | #/philosophers/ibn-tufayl | 2219 | pass | yes | yes (1 primary; 0 supplemental) |
+| philosopher | suhrawardi | Suhrawardi | #/philosophers/suhrawardi | 2161 | pass | yes | yes (1 primary; 2 supplemental) |
 | philosopher | mulla-sadra | Mulla Sadra | #/philosophers/mulla-sadra | 2178 | pass | yes | yes (1 primary; 2 supplemental) |
 | philosopher | mahavira | Mahāvīra | #/philosophers/mahavira | 2051 | pass | yes | yes (1 primary; 1 supplemental) |
 | philosopher | kanada | Kaṇāda | #/philosophers/kanada | 2072 | pass | yes | yes (1 primary; 5 supplemental) |
@@ -206,9 +196,9 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | philosopher | quine | W. V. O. Quine | #/philosophers/quine | 2174 | pass | yes | yes (1 primary; 4 supplemental) |
 | philosopher | popper | Karl Popper | #/philosophers/popper | 2082 | pass | yes | yes (1 primary; 0 supplemental) |
 | philosopher | kuhn | Thomas Kuhn | #/philosophers/kuhn | 2050 | pass | yes | yes (1 primary; 0 supplemental) |
-| philosopher | merleau-ponty | Maurice Merleau-Ponty | #/philosophers/merleau-ponty | 1824 | fail | yes | yes (1 primary; 2 supplemental) |
-| philosopher | levinas | Emmanuel Levinas | #/philosophers/levinas | 1808 | fail | yes | yes (1 primary; 2 supplemental) |
-| philosopher | gadamer | Hans-Georg Gadamer | #/philosophers/gadamer | 1814 | fail | yes | yes (1 primary; 2 supplemental) |
+| philosopher | merleau-ponty | Maurice Merleau-Ponty | #/philosophers/merleau-ponty | 2159 | pass | yes | yes (1 primary; 2 supplemental) |
+| philosopher | levinas | Emmanuel Levinas | #/philosophers/levinas | 2130 | pass | yes | yes (1 primary; 2 supplemental) |
+| philosopher | gadamer | Hans-Georg Gadamer | #/philosophers/gadamer | 2155 | pass | yes | yes (1 primary; 2 supplemental) |
 | philosopher | habermas | Jürgen Habermas | #/philosophers/habermas | 2067 | pass | yes | yes (1 primary; 6 supplemental) |
 | philosopher | fanon | Frantz Fanon | #/philosophers/fanon | 2178 | pass | yes | yes (1 primary; 10 supplemental) |
 | philosopher | iris-murdoch | Iris Murdoch | #/philosophers/iris-murdoch | 2097 | pass | yes | yes (1 primary; 1 supplemental) |
@@ -259,7 +249,7 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | philosophy | vedanta | Vedanta | #/branches/vedanta | 2126 | pass | yes | yes (1 primary; 0 supplemental) |
 | philosophy | buddhist-philosophy | Buddhist Philosophy | #/branches/buddhist-philosophy | 5502 | pass | yes | yes (1 primary; 11 supplemental) |
 | philosophy | buddhist-epistemology | Buddhist Epistemology | #/branches/buddhist-epistemology | 2052 | pass | yes | yes (1 primary; 1 supplemental) |
-| philosophy | islamic-philosophy | Islamic Philosophy | #/branches/islamic-philosophy | 1834 | fail | yes | yes (1 primary; 5 supplemental) |
+| philosophy | islamic-philosophy | Islamic Philosophy | #/branches/islamic-philosophy | 2083 | pass | yes | yes (1 primary; 5 supplemental) |
 | philosophy | medieval-scholasticism | Medieval Scholasticism | #/branches/medieval-scholasticism | 2081 | pass | yes | yes (1 primary; 5 supplemental) |
 | philosophy | rationalism | Rationalism | #/branches/rationalism | 5757 | pass | yes | yes (1 primary; 0 supplemental) |
 | philosophy | empiricism | Empiricism | #/branches/empiricism | 5228 | pass | yes | yes (1 primary; 1 supplemental) |

@@ -189,8 +189,8 @@ const exhibit = (input: MainExhibitInput): MuseumSupplementalExhibit => ({
 });
 
 const islamicReference = {
-  label: 'Stanford Encyclopedia of Philosophy — Arabic and Islamic Philosophy',
-  url: 'https://plato.stanford.edu/entries/arabic-islamic-phil/',
+  label: 'The Cambridge Companion to Arabic Philosophy',
+  url: 'https://www.cambridge.org/core/books/cambridge-companion-to-arabic-philosophy/BB1B390ECB024E88FC807FF471EE80EB',
 } as const;
 const greekArabicReference = {
   label: 'Stanford Encyclopedia of Philosophy — Greek Sources in Arabic and Islamic Philosophy',
