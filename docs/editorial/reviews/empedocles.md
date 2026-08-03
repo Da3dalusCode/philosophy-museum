@@ -12,7 +12,7 @@
 
 The article and structured profile were reviewed together against two independent editions/commentaries, specialist synthesis, Aristotelian and Plutarchan evidence, the Strasbourg papyrus edition, and the University of Liège record of the 2026 Cairo publication. Verse, papyrus sequence, testimony, and modern reconstruction remain distinct. Traditional DK references are used only as concordance-friendly locators; Strasbourg ensemble and Cairo inventory designations are named where relevant.
 
-The primary Museum interpretation was outside the review boundary and is not covered by the review lock. No Museum copy, visual, asset, timeline, relationship, or interface surface was changed. Separate Museum reconciliation against the locked article is required before deployment.
+The primary Museum interpretation was outside this formal article review and is not hashed by the review lock. Its separate wall invitation, object reading, compact orientation, and heading-free prose interpretation were reconciled against the locked article and reviewed evidence set on 2026-08-02. Assets, geometry, timelines, relationships, and other reuse surfaces remain outside this lock; future Museum-copy changes require their own reconciliation and do not renew the article review.
 
 ## Sources consulted
 

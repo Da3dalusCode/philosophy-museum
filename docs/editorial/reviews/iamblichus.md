@@ -12,7 +12,7 @@
 
 The visitor article and structured philosopher profile were reviewed together. The complete *Reply to Porphyry*, the Pythagorean works, Stobaean excerpts, later quotations of lost commentaries, and modern reconstruction are treated as different evidence classes. Citations use book-chapter divisions, conventional section numbers, or identified specialist chapters. Exact English quotations are avoided. The Abamon persona, missing *Letter to Anebo*, school genealogy, soul doctrine, ritual efficacy, reuse of earlier Pythagorean materials, and later reconstruction received targeted review.
 
-The primary Museum interpretation was outside the authorized scope and is not included in this formal article review or its eventual lock. No Museum copy, assets, geometry, timelines, relationships, or other reuse surfaces were changed. Separate Museum reconciliation is required before deployment.
+The primary Museum interpretation was outside this formal article review and is not hashed by the review lock. Its separate wall invitation, object reading, compact orientation, and heading-free prose interpretation were reconciled against the locked article and reviewed evidence set on 2026-08-02. Assets, geometry, timelines, relationships, and other reuse surfaces remain outside this lock; future Museum-copy changes require their own reconciliation and do not renew the article review.
 
 ## Sources consulted
 

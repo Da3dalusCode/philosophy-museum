@@ -12,7 +12,7 @@
 
 The article and structured profile were reviewed together against four primary works in contrasting genres and independent modern scholarship on philosophy, anthropology, embodiment, development, and eschatology. Citations identify book sections, chapters, topical divisions, or named specialist chapters. Exact English quotations are avoided. Biographical chronology, Eunomian context, divine naming, creation, universal human nature, sex and embodiment, body-soul identity, freedom, perpetual progress, slavery, punishment, and universal restoration received targeted review.
 
-The primary Museum interpretation was outside the authorized review boundary and was not reconciled in this task. It is not covered by this article review or its eventual lock. No Museum copy, geometry, assets, timelines, relationships, or other reuse surfaces were changed. Museum interpretation requires separate reconciliation against the locked article before deployment under the editorial standard.
+The primary Museum interpretation was outside this formal article review and is not hashed by the review lock. Its separate wall invitation, object reading, compact orientation, and heading-free prose interpretation were reconciled against the locked article and reviewed evidence set on 2026-08-02. Assets, geometry, timelines, relationships, and other reuse surfaces remain outside this lock; future Museum-copy changes require their own reconciliation and do not renew the article review.
 
 ## Sources consulted
 

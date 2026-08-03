@@ -12,7 +12,7 @@
 
 The article and structured profile patch were reviewed together. Curd’s edition distinguishes the conventionally numbered fragments and testimonia; Simplicius is identified as the late transmitter of most verbatim fragments; Plato and Aristotle are treated as early, philosophically interested reception; Diogenes is treated as late biography. Citation locators use DK fragment numbers, Stephanus divisions, Bekker divisions, and numbered biographical sections rather than uninspectable topic-only references.
 
-The primary Museum interpretation was outside the formal review boundary and is not covered by the review lock. Museum copy, assets, geometry, timelines, relationships, and other integrations were not changed. Separate Museum reconciliation against the locked article is required before deployment.
+The primary Museum interpretation was outside this formal article review and is not hashed by the review lock. Its separate wall invitation, object reading, compact orientation, and heading-free prose interpretation were reconciled against the locked article and reviewed evidence set on 2026-08-02. Assets, geometry, timelines, relationships, and other reuse surfaces remain outside this lock; future Museum-copy changes require their own reconciliation and do not renew the article review.
 
 ## Sources consulted
 

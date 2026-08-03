@@ -12,7 +12,7 @@
 
 The article and structured philosopher profile were reviewed together against continuous Greek works, a modern edition of *On First Principles* attentive to Rufinus and the Greek witnesses, Eusebius’s late biographical report, and independent specialist studies. The review distinguishes originals, Latin translations, fragments, excerpts, hostile reports, and later doctrinal reconstructions. Exact English quotations are avoided. Dates, ordination and persecution stories, work survival, Trinitarian vocabulary, preexistence, embodiment, transmigration, restoration, the sixth-century condemnations, and every claim that could collapse Origen into Origenism received targeted attention.
 
-The primary Museum interpretation was outside the authorized review boundary and was not reconciled in this task. It is not covered by this article review or its eventual lock. No Museum copy, geometry, assets, timelines, relationships, or other reuse surfaces were changed. Museum interpretation requires separate reconciliation against the locked article before deployment under the editorial standard.
+The primary Museum interpretation was outside this formal article review and is not hashed by the review lock. Its separate wall invitation, object reading, compact orientation, and heading-free prose interpretation were reconciled against the locked article and reviewed evidence set on 2026-08-02. Assets, geometry, timelines, relationships, and other reuse surfaces remain outside this lock; future Museum-copy changes require their own reconciliation and do not renew the article review.
 
 ## Sources consulted
 

@@ -12,7 +12,7 @@
 
 The visitor article and structured philosopher profile were reviewed together. Directly surviving works, Porphyry’s retrospective first-person testimony, later reports, hostile fragment preservation, and modern reconstruction are kept distinct. Citations use conventional chapters, book divisions, topical divisions, or identified scholarly chapters. Exact English quotations are avoided. Dates, work survival, attribution, editorial intervention, ritual claims, anti-Christian polemic, and reception received targeted review.
 
-The primary Museum interpretation was outside the authorized scope and is not included in this formal article review or its eventual lock. No Museum copy, assets, geometry, timelines, relationships, or other reuse surfaces were changed. The Museum interpretation requires separate reconciliation against the locked article before deployment under the editorial standard.
+The primary Museum interpretation was outside this formal article review and is not hashed by the review lock. Its separate wall invitation, object reading, compact orientation, and heading-free prose interpretation were reconciled against the locked article and reviewed evidence set on 2026-08-02. Assets, geometry, timelines, relationships, and other reuse surfaces remain outside this lock; future Museum-copy changes require their own reconciliation and do not renew the article review.
 
 ## Sources consulted
 

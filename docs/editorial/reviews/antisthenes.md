@@ -12,7 +12,7 @@
 
 The visitor article and comprehensive structured profile were reviewed together. Evidence was separated into continuous works transmitted under Antisthenes’ name, Xenophon’s near-contemporary Socratic representation, Aristotelian or later reports, Diogenes Laertius’s catalogue and doxography, and modern reconstruction. Dates, teacher chains, founder language, school membership, lost-work contents, and links among ethics, literature, language, and logic received targeted review.
 
-The primary Museum interpretation was outside this formal article review and is not covered by the review lock. Assets, geometry, timelines, relationships, and other reuse surfaces also remain outside the review boundary. Separate Museum reconciliation against the locked article is required before deployment.
+The primary Museum interpretation was outside this formal article review and is not hashed by the review lock. Its separate wall invitation, object reading, compact orientation, and heading-free prose interpretation were reconciled against the locked article and reviewed evidence set on 2026-08-02. Assets, geometry, timelines, relationships, and other reuse surfaces remain outside this lock; future Museum-copy changes require their own reconciliation and do not renew the article review.
 
 ## Sources consulted
 
