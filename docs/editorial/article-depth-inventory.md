@@ -14,11 +14,11 @@ The hard floor is **2,000 substantive article-prose words**. The counter tokeniz
 
 | Category | Total | Pass | Fail | Missing article |
 | --- | ---: | ---: | ---: | ---: |
-| Philosophers | 146 | 100 | 46 | 0 |
-| Philosophies, branches, schools, traditions, movements, methods, and frameworks | 45 | 37 | 8 | 0 |
+| Philosophers | 146 | 109 | 37 | 0 |
+| Philosophies, branches, schools, traditions, movements, methods, and frameworks | 45 | 40 | 5 | 0 |
 | Standalone works, texts, arguments, concepts, and article-backed exhibits | 0 | 0 | 0 | 0 |
 
-Universal total: **191** applicable articles; **137 pass**; **54 fail**; **0 are missing article prose**.
+Universal total: **191** applicable articles; **149 pass**; **42 fail**; **0 are missing article prose**.
 
 Current failures are migration backlog, not approved exceptions. The strict audit is intentionally separate from the ordinary build until that backlog reaches zero.
 
@@ -36,9 +36,6 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 
 | ID | Title | Category | Words | Status |
 | --- | --- | --- | ---: | --- |
-| vasubandhu | Vasubandhu | philosopher | 1911 | fail |
-| shankara | Adi Shankara | philosopher | 1993 | fail |
-| ramanuja | Ramanuja | philosopher | 1877 | fail |
 | ficino | Marsilio Ficino | philosopher | 1819 | fail |
 | machiavelli | Machiavelli | philosopher | 1920 | fail |
 | bacon | Francis Bacon | philosopher | 1888 | fail |
@@ -59,12 +56,6 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | marsilius-padua | Marsilius of Padua | philosopher | 1856 | fail |
 | ibn-tufayl | Ibn Tufayl | philosopher | 1830 | fail |
 | suhrawardi | Suhrawardi | philosopher | 1824 | fail |
-| mahavira | Mahavira | philosopher | 1931 | fail |
-| kanada | Kanada | philosopher | 1863 | fail |
-| patanjali | Patanjali | philosopher | 1911 | fail |
-| dignaga | Dignaga | philosopher | 1862 | fail |
-| dharmakirti | Dharmakirti | philosopher | 1842 | fail |
-| madhva | Madhva | philosopher | 1840 | fail |
 | mary-astell | Mary Astell | philosopher | 1901 | fail |
 | anne-conway | Anne Conway | philosopher | 1895 | fail |
 | montesquieu | Montesquieu | philosopher | 1863 | fail |
@@ -86,9 +77,6 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | political-philosophy | Political Philosophy | philosophy | 1948 | fail |
 | philosophy-of-mind | Philosophy of Mind | philosophy | 1920 | fail |
 | philosophy-of-science | Philosophy of Science | philosophy | 1962 | fail |
-| jainism | Jainism | philosophy | 1961 | fail |
-| vedanta | Vedanta | philosophy | 1980 | fail |
-| buddhist-epistemology | Buddhist Epistemology | philosophy | 1804 | fail |
 | islamic-philosophy | Islamic Philosophy | philosophy | 1834 | fail |
 
 ## Records omitted by the former manual target list
@@ -152,9 +140,9 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | philosopher | xunzi | Xunzi | #/philosophers/xunzi | 2060 | pass | yes | yes (1 primary; 0 supplemental) |
 | philosopher | buddha | Siddhartha Gautama / the Buddha | #/philosophers/buddha | 4502 | pass | yes | yes (1 primary; 2 supplemental) |
 | philosopher | nagarjuna | Nāgārjuna | #/philosophers/nagarjuna | 3007 | pass | yes | yes (1 primary; 5 supplemental) |
-| philosopher | vasubandhu | Vasubandhu | #/philosophers/vasubandhu | 1911 | fail | yes | yes (1 primary; 5 supplemental) |
-| philosopher | shankara | Adi Shankara | #/philosophers/shankara | 1993 | fail | yes | yes (1 primary; 1 supplemental) |
-| philosopher | ramanuja | Ramanuja | #/philosophers/ramanuja | 1877 | fail | yes | yes (1 primary; 0 supplemental) |
+| philosopher | vasubandhu | Vasubandhu | #/philosophers/vasubandhu | 2052 | pass | yes | yes (1 primary; 5 supplemental) |
+| philosopher | shankara | Adi Shankara | #/philosophers/shankara | 2068 | pass | yes | yes (1 primary; 1 supplemental) |
+| philosopher | ramanuja | Ramanuja | #/philosophers/ramanuja | 2059 | pass | yes | yes (1 primary; 0 supplemental) |
 | philosopher | al-kindi | Al-Kindi | #/philosophers/al-kindi | 2157 | pass | yes | yes (1 primary; 0 supplemental) |
 | philosopher | al-farabi | Al-Farabi | #/philosophers/al-farabi | 2076 | pass | yes | yes (1 primary; 1 supplemental) |
 | philosopher | avicenna | Ibn Sina / Avicenna | #/philosophers/avicenna | 2091 | pass | yes | yes (1 primary; 6 supplemental) |
@@ -219,12 +207,12 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | philosopher | ibn-tufayl | Ibn Tufayl | #/philosophers/ibn-tufayl | 1830 | fail | yes | yes (1 primary; 0 supplemental) |
 | philosopher | suhrawardi | Suhrawardi | #/philosophers/suhrawardi | 1824 | fail | yes | yes (1 primary; 2 supplemental) |
 | philosopher | mulla-sadra | Mulla Sadra | #/philosophers/mulla-sadra | 2178 | pass | yes | yes (1 primary; 2 supplemental) |
-| philosopher | mahavira | Mahavira | #/philosophers/mahavira | 1931 | fail | yes | yes (1 primary; 1 supplemental) |
-| philosopher | kanada | Kanada | #/philosophers/kanada | 1863 | fail | yes | yes (1 primary; 5 supplemental) |
-| philosopher | patanjali | Patanjali | #/philosophers/patanjali | 1911 | fail | yes | yes (1 primary; 5 supplemental) |
-| philosopher | dignaga | Dignaga | #/philosophers/dignaga | 1862 | fail | yes | yes (1 primary; 2 supplemental) |
-| philosopher | dharmakirti | Dharmakirti | #/philosophers/dharmakirti | 1842 | fail | yes | yes (1 primary; 1 supplemental) |
-| philosopher | madhva | Madhva | #/philosophers/madhva | 1840 | fail | yes | yes (1 primary; 1 supplemental) |
+| philosopher | mahavira | Mahāvīra | #/philosophers/mahavira | 2051 | pass | yes | yes (1 primary; 1 supplemental) |
+| philosopher | kanada | Kaṇāda | #/philosophers/kanada | 2072 | pass | yes | yes (1 primary; 5 supplemental) |
+| philosopher | patanjali | Patañjali | #/philosophers/patanjali | 2079 | pass | yes | yes (1 primary; 5 supplemental) |
+| philosopher | dignaga | Dignāga | #/philosophers/dignaga | 2059 | pass | yes | yes (1 primary; 2 supplemental) |
+| philosopher | dharmakirti | Dharmakīrti | #/philosophers/dharmakirti | 2058 | pass | yes | yes (1 primary; 1 supplemental) |
+| philosopher | madhva | Madhva | #/philosophers/madhva | 2069 | pass | yes | yes (1 primary; 1 supplemental) |
 | philosopher | mozi | Mozi | #/philosophers/mozi | 2050 | pass | yes | yes (1 primary; 2 supplemental) |
 | philosopher | han-feizi | Han Feizi | #/philosophers/han-feizi | 2154 | pass | yes | yes (1 primary; 0 supplemental) |
 | philosopher | zhu-xi | Zhu Xi | #/philosophers/zhu-xi | 2235 | pass | yes | yes (1 primary; 2 supplemental) |
@@ -291,10 +279,10 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | philosophy | mohism | Mohism | #/branches/mohism | 2385 | pass | yes | yes (1 primary; 1 supplemental) |
 | philosophy | legalism | Legalism | #/branches/legalism | 2323 | pass | yes | yes (1 primary; 0 supplemental) |
 | philosophy | indian-philosophy | Indian Philosophy | #/branches/indian-philosophy | 2077 | pass | yes | yes (1 primary; 5 supplemental) |
-| philosophy | jainism | Jainism | #/branches/jainism | 1961 | fail | yes | yes (1 primary; 3 supplemental) |
-| philosophy | vedanta | Vedanta | #/branches/vedanta | 1980 | fail | yes | yes (1 primary; 0 supplemental) |
+| philosophy | jainism | Jainism | #/branches/jainism | 2051 | pass | yes | yes (1 primary; 3 supplemental) |
+| philosophy | vedanta | Vedanta | #/branches/vedanta | 2126 | pass | yes | yes (1 primary; 0 supplemental) |
 | philosophy | buddhist-philosophy | Buddhist Philosophy | #/branches/buddhist-philosophy | 5502 | pass | yes | yes (1 primary; 11 supplemental) |
-| philosophy | buddhist-epistemology | Buddhist Epistemology | #/branches/buddhist-epistemology | 1804 | fail | yes | yes (1 primary; 1 supplemental) |
+| philosophy | buddhist-epistemology | Buddhist Epistemology | #/branches/buddhist-epistemology | 2052 | pass | yes | yes (1 primary; 1 supplemental) |
 | philosophy | islamic-philosophy | Islamic Philosophy | #/branches/islamic-philosophy | 1834 | fail | yes | yes (1 primary; 5 supplemental) |
 | philosophy | medieval-scholasticism | Medieval Scholasticism | #/branches/medieval-scholasticism | 2081 | pass | yes | yes (1 primary; 5 supplemental) |
 | philosophy | rationalism | Rationalism | #/branches/rationalism | 5757 | pass | yes | yes (1 primary; 0 supplemental) |

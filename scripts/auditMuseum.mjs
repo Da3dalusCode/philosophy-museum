@@ -4445,6 +4445,7 @@ check('Gallery 26 is a complete three-room, 18-installation colonialism, race, a
   assert(davisInterpretation, 'Gallery 26 Angela Davis primary interpretation is missing');
   const davisFactLabels = museumInterpretationFacts(davisInterpretation).map(({label}) => label);
   assert(davisFactLabels.includes('Born'), 'Gallery 26 Angela Davis drawer must label her 1944 life event as Born');
+  assert(!davisFactLabels.includes('Approx dates'), 'A meaningful exact modern biography must retain Born/Died labels');
   assert(
     davisFactLabels.includes('Evidence / interpretive cautions'),
     'Gallery 26 primary drawer must use the accurate evidence-and-cautions fact label',
@@ -4452,6 +4453,34 @@ check('Gallery 26 is a complete three-room, 18-installation colonialism, race, a
   assert(
     !davisFactLabels.includes('Surviving evidence'),
     'Gallery 26 primary drawer retains the misleading Surviving evidence fact label',
+  );
+  const mahaviraInterpretation = MUSEUM_INTERPRETATIONS.find(({id}) => id === 'mahavira');
+  assert(mahaviraInterpretation, 'Mahavira primary interpretation is missing');
+  assert.deepEqual(
+    museumInterpretationFacts(mahaviraInterpretation).filter(({label}) => /dates|born|died/i.test(label)).map(({label}) => label),
+    ['Traditional dates'],
+    'Mahavira must not turn disputed traditional chronology into definitive Born/Died facts',
+  );
+  const patanjaliInterpretation = MUSEUM_INTERPRETATIONS.find(({id}) => id === 'patanjali');
+  assert(patanjaliInterpretation, 'Patanjali primary interpretation is missing');
+  assert.deepEqual(
+    museumInterpretationFacts(patanjaliInterpretation).filter(({label}) => /active|dates|born|died/i.test(label)).map(({label}) => label),
+    ['Active'],
+    'Patanjali must present the authoritative floruit instead of invented Born/Died facts',
+  );
+  const kanadaInterpretation = MUSEUM_INTERPRETATIONS.find(({id}) => id === 'kanada');
+  assert(kanadaInterpretation, 'Kanada primary interpretation is missing');
+  assert.deepEqual(
+    museumInterpretationFacts(kanadaInterpretation).filter(({label}) => /context|dates|born|died/i.test(label)).map(({label}) => label),
+    ['Date context'],
+    'Kanada must present uncertain attributed authorship as date context rather than a lifespan',
+  );
+  const dignagaInterpretation = MUSEUM_INTERPRETATIONS.find(({id}) => id === 'dignaga');
+  assert(dignagaInterpretation, 'Dignaga primary interpretation is missing');
+  assert.deepEqual(
+    museumInterpretationFacts(dignagaInterpretation).filter(({label}) => /dates|born|died/i.test(label)).map(({label}) => label),
+    ['Approx dates'],
+    'Dignaga must present a conventional low-confidence lifespan as approximate dates',
   );
   assert.equal(runtimeNode.routePortals.entry, 'N0', 'Gallery 26 must preserve its approved N0 entry');
   assert.equal(runtimeNode.routePortals.exit, 'S0', 'Gallery 26 must preserve its approved S0 exit');

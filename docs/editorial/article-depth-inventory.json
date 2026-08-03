@@ -17,15 +17,15 @@
     {
       "label": "Philosophers",
       "total": 146,
-      "pass": 100,
-      "fail": 46,
+      "pass": 109,
+      "fail": 37,
       "missing": 0
     },
     {
       "label": "Philosophies, branches, schools, traditions, movements, methods, and frameworks",
       "total": 45,
-      "pass": 37,
-      "fail": 8,
+      "pass": 40,
+      "fail": 5,
       "missing": 0
     },
     {
@@ -38,8 +38,8 @@
   ],
   "universalSummary": {
     "total": 191,
-    "pass": 137,
-    "fail": 54,
+    "pass": 149,
+    "fail": 42,
     "missing": 0
   },
   "pilotChanges": [
@@ -573,8 +573,8 @@
       "title": "Vasubandhu",
       "visitorEntryPoint": "#/philosophers/vasubandhu",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1911,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2052,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -585,8 +585,8 @@
       "title": "Adi Shankara",
       "visitorEntryPoint": "#/philosophers/shankara",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1993,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2068,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -597,8 +597,8 @@
       "title": "Ramanuja",
       "visitorEntryPoint": "#/philosophers/ramanuja",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1877,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2059,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -1374,11 +1374,11 @@
     },
     {
       "canonicalId": "mahavira",
-      "title": "Mahavira",
+      "title": "Mahāvīra",
       "visitorEntryPoint": "#/philosophers/mahavira",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1931,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2051,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -1386,11 +1386,11 @@
     },
     {
       "canonicalId": "kanada",
-      "title": "Kanada",
+      "title": "Kaṇāda",
       "visitorEntryPoint": "#/philosophers/kanada",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1863,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2072,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -1398,11 +1398,11 @@
     },
     {
       "canonicalId": "patanjali",
-      "title": "Patanjali",
+      "title": "Patañjali",
       "visitorEntryPoint": "#/philosophers/patanjali",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1911,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2079,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -1410,11 +1410,11 @@
     },
     {
       "canonicalId": "dignaga",
-      "title": "Dignaga",
+      "title": "Dignāga",
       "visitorEntryPoint": "#/philosophers/dignaga",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1862,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2059,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -1422,11 +1422,11 @@
     },
     {
       "canonicalId": "dharmakirti",
-      "title": "Dharmakirti",
+      "title": "Dharmakīrti",
       "visitorEntryPoint": "#/philosophers/dharmakirti",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1842,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2058,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -1437,8 +1437,8 @@
       "title": "Madhva",
       "visitorEntryPoint": "#/philosophers/madhva",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1840,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2069,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -2241,8 +2241,8 @@
       "title": "Jainism",
       "visitorEntryPoint": "#/branches/jainism",
       "contentCategory": "philosophy",
-      "substantiveWordCount": 1961,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2051,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -2253,8 +2253,8 @@
       "title": "Vedanta",
       "visitorEntryPoint": "#/branches/vedanta",
       "contentCategory": "philosophy",
-      "substantiveWordCount": 1980,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2126,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -2277,8 +2277,8 @@
       "title": "Buddhist Epistemology",
       "visitorEntryPoint": "#/branches/buddhist-epistemology",
       "contentCategory": "philosophy",
-      "substantiveWordCount": 1804,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2052,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -3283,35 +3283,35 @@
         "hallId": "classical-south-asian-worlds",
         "visitorEntryPoint": "#/museum/classical-south-asian-worlds/exhibits/jainism",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 498,
+        "surfaceWords": 375,
         "canonicalArticleKey": "philosophy:jainism",
         "canonicalArticleId": "jainism",
-        "canonicalArticleWordCount": 1961,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2051,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "mahavira",
-        "title": "Mahavira",
+        "title": "Mahāvīra",
         "hallId": "classical-south-asian-worlds",
         "visitorEntryPoint": "#/museum/classical-south-asian-worlds/exhibits/mahavira",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 319,
+        "surfaceWords": 385,
         "canonicalArticleKey": "philosopher:mahavira",
         "canonicalArticleId": "mahavira",
-        "canonicalArticleWordCount": 1931,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2051,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "kanada",
-        "title": "Kanada",
+        "title": "Kaṇāda",
         "hallId": "classical-south-asian-worlds",
         "visitorEntryPoint": "#/museum/classical-south-asian-worlds/exhibits/kanada",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 305,
+        "surfaceWords": 380,
         "canonicalArticleKey": "philosopher:kanada",
         "canonicalArticleId": "kanada",
-        "canonicalArticleWordCount": 1863,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2072,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "patanjali",
@@ -3319,11 +3319,11 @@
         "hallId": "classical-south-asian-worlds",
         "visitorEntryPoint": "#/museum/classical-south-asian-worlds/exhibits/patanjali",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 332,
+        "surfaceWords": 366,
         "canonicalArticleKey": "philosopher:patanjali",
         "canonicalArticleId": "patanjali",
-        "canonicalArticleWordCount": 1911,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2079,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "vedanta",
@@ -3331,11 +3331,11 @@
         "hallId": "classical-south-asian-worlds",
         "visitorEntryPoint": "#/museum/classical-south-asian-worlds/exhibits/vedanta",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 512,
+        "surfaceWords": 365,
         "canonicalArticleKey": "philosophy:vedanta",
         "canonicalArticleId": "vedanta",
-        "canonicalArticleWordCount": 1980,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2126,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "shankara",
@@ -3343,11 +3343,11 @@
         "hallId": "classical-south-asian-worlds",
         "visitorEntryPoint": "#/museum/classical-south-asian-worlds/exhibits/shankara",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 286,
+        "surfaceWords": 373,
         "canonicalArticleKey": "philosopher:shankara",
         "canonicalArticleId": "shankara",
-        "canonicalArticleWordCount": 1993,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2068,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "ramanuja",
@@ -3355,11 +3355,11 @@
         "hallId": "classical-south-asian-worlds",
         "visitorEntryPoint": "#/museum/classical-south-asian-worlds/exhibits/ramanuja",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 312,
+        "surfaceWords": 353,
         "canonicalArticleKey": "philosopher:ramanuja",
         "canonicalArticleId": "ramanuja",
-        "canonicalArticleWordCount": 1877,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2059,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "madhva",
@@ -3367,11 +3367,11 @@
         "hallId": "classical-south-asian-worlds",
         "visitorEntryPoint": "#/museum/classical-south-asian-worlds/exhibits/madhva",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 308,
+        "surfaceWords": 369,
         "canonicalArticleKey": "philosopher:madhva",
         "canonicalArticleId": "madhva",
-        "canonicalArticleWordCount": 1840,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2069,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "buddhist-philosophy",
@@ -3415,11 +3415,11 @@
         "hallId": "buddhist-philosophies",
         "visitorEntryPoint": "#/museum/buddhist-philosophies/exhibits/vasubandhu",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 323,
+        "surfaceWords": 370,
         "canonicalArticleKey": "philosopher:vasubandhu",
         "canonicalArticleId": "vasubandhu",
-        "canonicalArticleWordCount": 1911,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2052,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "buddhist-epistemology",
@@ -3427,35 +3427,35 @@
         "hallId": "buddhist-philosophies",
         "visitorEntryPoint": "#/museum/buddhist-philosophies/exhibits/buddhist-epistemology",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 377,
+        "surfaceWords": 382,
         "canonicalArticleKey": "philosophy:buddhist-epistemology",
         "canonicalArticleId": "buddhist-epistemology",
-        "canonicalArticleWordCount": 1804,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2052,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "dignaga",
-        "title": "Dignaga",
+        "title": "Dignāga",
         "hallId": "buddhist-philosophies",
         "visitorEntryPoint": "#/museum/buddhist-philosophies/exhibits/dignaga",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 785,
+        "surfaceWords": 362,
         "canonicalArticleKey": "philosopher:dignaga",
         "canonicalArticleId": "dignaga",
-        "canonicalArticleWordCount": 1862,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2059,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "dharmakirti",
-        "title": "Dharmakirti",
+        "title": "Dharmakīrti",
         "hallId": "buddhist-philosophies",
         "visitorEntryPoint": "#/museum/buddhist-philosophies/exhibits/dharmakirti",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 764,
+        "surfaceWords": 359,
         "canonicalArticleKey": "philosopher:dharmakirti",
         "canonicalArticleId": "dharmakirti",
-        "canonicalArticleWordCount": 1842,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2058,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "chinese-philosophy",
@@ -4832,8 +4832,8 @@
         "canonicalArticleKey": "philosopher:dignaga",
         "canonicalArticleId": "dignaga",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1862,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2059,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "forum-mozi-standards",
@@ -6126,8 +6126,8 @@
         "canonicalArticleKey": "philosopher:mahavira",
         "canonicalArticleId": "mahavira",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1931,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2051,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "kanada-atomism-dyads",
@@ -6142,8 +6142,8 @@
         "canonicalArticleKey": "philosopher:kanada",
         "canonicalArticleId": "kanada",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1863,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2072,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "vaiseshika-pramana",
@@ -6158,8 +6158,8 @@
         "canonicalArticleKey": "philosopher:kanada",
         "canonicalArticleId": "kanada",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1863,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2072,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "patanjali-yogasutra-manuscript",
@@ -6168,14 +6168,14 @@
         "visitorEntryPoint": "#/museum/classical-south-asian-worlds/exhibits/patanjali-yogasutra-manuscript",
         "surfaceKind": "museum-supplemental-exhibit",
         "workLabel": "PATAÑJALI · YOGA SŪTRA TRANSMISSION",
-        "surfaceWords": 145,
+        "surfaceWords": 144,
         "claimsArticleBacking": true,
         "articleActionLabel": "Open Patañjali in the Atlas",
         "canonicalArticleKey": "philosopher:patanjali",
         "canonicalArticleId": "patanjali",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1911,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2079,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "patanjali-samkhya-yoga-pramana",
@@ -6190,8 +6190,8 @@
         "canonicalArticleKey": "philosopher:patanjali",
         "canonicalArticleId": "patanjali",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1911,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2079,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "shankara-aitareya-bhasya",
@@ -6206,8 +6206,8 @@
         "canonicalArticleKey": "philosopher:shankara",
         "canonicalArticleId": "shankara",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1993,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2068,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "madhva-udupi-matha",
@@ -6222,8 +6222,8 @@
         "canonicalArticleKey": "philosopher:madhva",
         "canonicalArticleId": "madhva",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1840,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2069,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "south-ibadat-khana-plurality",
@@ -6286,8 +6286,8 @@
         "canonicalArticleKey": "philosophy:jainism",
         "canonicalArticleId": "jainism",
         "canonicalArticleCategory": "philosophy",
-        "canonicalArticleWordCount": 1961,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2051,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "jain-samavasarana-open-assembly",
@@ -6302,8 +6302,8 @@
         "canonicalArticleKey": "philosophy:jainism",
         "canonicalArticleId": "jainism",
         "canonicalArticleCategory": "philosophy",
-        "canonicalArticleWordCount": 1961,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2051,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "jain-tirthankara-stillness",
@@ -6318,8 +6318,8 @@
         "canonicalArticleKey": "philosophy:jainism",
         "canonicalArticleId": "jainism",
         "canonicalArticleCategory": "philosophy",
-        "canonicalArticleWordCount": 1961,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2051,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "nyaya-argument-before-authority",
@@ -6334,8 +6334,8 @@
         "canonicalArticleKey": "philosopher:kanada",
         "canonicalArticleId": "kanada",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1863,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2072,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "nyaya-spitzer-philosophy-fragments",
@@ -6350,8 +6350,8 @@
         "canonicalArticleKey": "philosopher:kanada",
         "canonicalArticleId": "kanada",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1863,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2072,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "nyaya-smoke-fire-inference",
@@ -6366,8 +6366,8 @@
         "canonicalArticleKey": "philosopher:kanada",
         "canonicalArticleId": "kanada",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1863,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2072,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "yoga-six-yogis-banyan",
@@ -6382,8 +6382,8 @@
         "canonicalArticleKey": "philosopher:patanjali",
         "canonicalArticleId": "patanjali",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1911,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2079,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "yoga-posture-inner-heat",
@@ -6398,8 +6398,8 @@
         "canonicalArticleKey": "philosopher:patanjali",
         "canonicalArticleId": "patanjali",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1911,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2079,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "yoga-asavari-ascetic-princess",
@@ -6414,8 +6414,8 @@
         "canonicalArticleKey": "philosopher:patanjali",
         "canonicalArticleId": "patanjali",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1911,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2079,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "buddhist-early-discourse-scrolls",
@@ -6478,8 +6478,8 @@
         "canonicalArticleKey": "philosopher:vasubandhu",
         "canonicalArticleId": "vasubandhu",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1911,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2052,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "vasubandhu-mere-ideation",
@@ -6494,8 +6494,8 @@
         "canonicalArticleKey": "philosopher:vasubandhu",
         "canonicalArticleId": "vasubandhu",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1911,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2052,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "buddhist-xuanzang-translation",
@@ -6654,8 +6654,8 @@
         "canonicalArticleKey": "philosopher:vasubandhu",
         "canonicalArticleId": "vasubandhu",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1911,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2052,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "abhidharma-cosmology-mount-meru",
@@ -6670,8 +6670,8 @@
         "canonicalArticleKey": "philosopher:vasubandhu",
         "canonicalArticleId": "vasubandhu",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1911,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2052,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "asanga-yogacara-transmission",
@@ -6686,8 +6686,8 @@
         "canonicalArticleKey": "philosopher:vasubandhu",
         "canonicalArticleId": "vasubandhu",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1911,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2052,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "buddhist-pramana-two-sources",
@@ -6702,8 +6702,8 @@
         "canonicalArticleKey": "philosophy:buddhist-epistemology",
         "canonicalArticleId": "buddhist-epistemology",
         "canonicalArticleCategory": "philosophy",
-        "canonicalArticleWordCount": 1804,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2052,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "nalanda-scholastic-institution",
@@ -6718,8 +6718,8 @@
         "canonicalArticleKey": "philosopher:dignaga",
         "canonicalArticleId": "dignaga",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1862,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2059,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "dharmakirti-pramanavarttika-reception",
@@ -6734,8 +6734,8 @@
         "canonicalArticleKey": "philosopher:dharmakirti",
         "canonicalArticleId": "dharmakirti",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1842,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2058,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "kumarajiva-madhyamaka-translation",

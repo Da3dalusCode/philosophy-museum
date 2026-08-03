@@ -24,6 +24,7 @@ import {EMPIRICISM_ENLIGHTENMENT_PRIMARY_INTERPRETATION_ENRICHMENT} from './empi
 import {NINETEENTH_PRIMARY_INTERPRETATION_ENRICHMENT} from './nineteenthPrimaryInterpretationEnrichment';
 import {CONCISE_PRIMARY_INTERPRETATIONS} from './concisePrimaryInterpretations';
 import {EAST_ASIAN_PRIMARY_INTERPRETATIONS} from './eastAsianPrimaryInterpretations';
+import {SOUTH_ASIAN_PRIMARY_INTERPRETATIONS} from './southAsianPrimaryInterpretations';
 
 export type MuseumInterpretationSource = {
   label: string;
@@ -1362,6 +1363,7 @@ const PRIMARY_INTERPRETATION_ENRICHMENT = {
   ...NINETEENTH_PRIMARY_INTERPRETATION_ENRICHMENT,
   ...CONCISE_PRIMARY_INTERPRETATIONS,
   ...EAST_ASIAN_PRIMARY_INTERPRETATIONS,
+  ...SOUTH_ASIAN_PRIMARY_INTERPRETATIONS,
 };
 
 const applyPrimaryInterpretationEnrichment = (
@@ -1463,13 +1465,45 @@ export const getMuseumInterpretation = ({hallId, exhibitId}: MuseumExhibitRef): 
 
 export type MuseumFact = {label: string; value: string};
 
+const philosopherDateFacts = (record: MuseumPhilosopherInterpretation): MuseumFact[] => {
+  const philosopherId = record.articleRoute.kind === 'philosopher'
+    ? record.articleRoute.philosopherId
+    : undefined;
+  const canonical = philosopherId ? philosopherById.get(philosopherId) : undefined;
+  const biography = record.biography;
+
+  const hasExplicitExactBiography = canonical?.dateConfidence === 'high'
+    || (canonical?.dateConfidence === undefined && Boolean(biography.born) && !biography.born?.startsWith('Chronology:'));
+  if (hasExplicitExactBiography) {
+    return [
+      biography.born ? {label: 'Born', value: biography.born.replace(/^Chronology:\s*/, '')} : undefined,
+      biography.died ? {label: 'Died', value: biography.died} : undefined,
+    ].filter((fact): fact is MuseumFact => Boolean(fact));
+  }
+
+  const value = canonical?.dateDisplay ?? canonical?.lifespan ?? record.dateLabel;
+  const normalized = value.trim().toLocaleLowerCase();
+  const label = canonical?.dateConfidence === 'legendary' || normalized.startsWith('traditional') || normalized.startsWith('legendary')
+    ? 'Traditional dates'
+    : normalized.startsWith('fl.') || normalized.startsWith('active')
+      ? 'Active'
+      : canonical?.dateConfidence === 'pseudonymous'
+        || normalized.startsWith('chronology')
+        || normalized.startsWith('authorship')
+        || normalized.startsWith('identity')
+        ? 'Date context'
+        : canonical?.dateConfidence === 'medium' || canonical?.dateConfidence === 'low'
+          ? 'Approx dates'
+          : 'Date context';
+  return [{label, value}];
+};
+
 export const museumInterpretationFacts = (record: MuseumInterpretation): MuseumFact[] => {
   if (record.kind === 'philosopher') {
     const biography = record.biography;
     return [
       record.originalName ? {label: 'Original name', value: record.originalName} : undefined,
-      biography.born ? {label: biography.born.startsWith('Chronology:') ? 'Chronology' : 'Born', value: biography.born.replace(/^Chronology:\s*/, '')} : undefined,
-      biography.died ? {label: 'Died', value: biography.died} : undefined,
+      ...philosopherDateFacts(record),
       {label: 'Associated places', value: biography.associatedPlaces.join(' · ')},
       {label: 'Era', value: biography.era},
       {label: 'School / setting', value: biography.affiliations.join(' · ')},

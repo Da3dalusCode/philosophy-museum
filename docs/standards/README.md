@@ -28,6 +28,7 @@ An owner override is task-local unless it explicitly makes standards maintenance
 
 - [`product-principles.md`](./product-principles.md) — permanent product and Museum principles.
 - [`editorial-program.md`](./editorial-program.md) — depth, flagship, research, and review rules.
+- [`entity-complete-editorial-migration.md`](./entity-complete-editorial-migration.md) — canonical entity-complete migration scope and reconciliation rules.
 - [`validation-matrix.md`](./validation-matrix.md) — risk-proportionate verification by task category.
 - [`../decisions/README.md`](../decisions/README.md) — accepted decisions and reopening conditions.
 

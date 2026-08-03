@@ -726,45 +726,57 @@
       "title": "Vasubandhu",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/vasubandhu",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 6,
+      "citedSourceCount": 6,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1911
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 23,
+      "citationCount": 89,
+      "substantiveArticleWordCount": 2052,
+      "reviewNotePath": "docs/editorial/reviews/vasubandhu.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:f36b18356a289831",
+      "currentReviewLock": "fnv1a64:f36b18356a289831"
     },
     {
       "id": "shankara",
       "title": "Adi Shankara",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/shankara",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 6,
+      "citedSourceCount": 6,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1993
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 24,
+      "citationCount": 88,
+      "substantiveArticleWordCount": 2068,
+      "reviewNotePath": "docs/editorial/reviews/shankara.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:e861168eb3037bde",
+      "currentReviewLock": "fnv1a64:e861168eb3037bde"
     },
     {
       "id": "ramanuja",
       "title": "Ramanuja",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/ramanuja",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 6,
+      "citedSourceCount": 6,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1877
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 24,
+      "citationCount": 86,
+      "substantiveArticleWordCount": 2059,
+      "reviewNotePath": "docs/editorial/reviews/ramanuja.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:51c44bf17fc72fe6",
+      "currentReviewLock": "fnv1a64:51c44bf17fc72fe6"
     },
     {
       "id": "al-kindi",
@@ -1772,93 +1784,117 @@
     },
     {
       "id": "mahavira",
-      "title": "Mahavira",
+      "title": "Mahāvīra",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/mahavira",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 6,
+      "citedSourceCount": 6,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1931
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 22,
+      "citationCount": 93,
+      "substantiveArticleWordCount": 2051,
+      "reviewNotePath": "docs/editorial/reviews/mahavira.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:1b627e8d4a402bdd",
+      "currentReviewLock": "fnv1a64:1b627e8d4a402bdd"
     },
     {
       "id": "kanada",
-      "title": "Kanada",
+      "title": "Kaṇāda",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/kanada",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 5,
+      "citedSourceCount": 5,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1863
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 24,
+      "citationCount": 82,
+      "substantiveArticleWordCount": 2072,
+      "reviewNotePath": "docs/editorial/reviews/kanada.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:ba2b7f44a95dbefb",
+      "currentReviewLock": "fnv1a64:ba2b7f44a95dbefb"
     },
     {
       "id": "patanjali",
-      "title": "Patanjali",
+      "title": "Patañjali",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/patanjali",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 5,
+      "citedSourceCount": 5,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1911
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 24,
+      "citationCount": 95,
+      "substantiveArticleWordCount": 2079,
+      "reviewNotePath": "docs/editorial/reviews/patanjali.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:3d2d623dce0e3416",
+      "currentReviewLock": "fnv1a64:3d2d623dce0e3416"
     },
     {
       "id": "dignaga",
-      "title": "Dignaga",
+      "title": "Dignāga",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/dignaga",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 7,
+      "citedSourceCount": 7,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1862
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 23,
+      "citationCount": 94,
+      "substantiveArticleWordCount": 2059,
+      "reviewNotePath": "docs/editorial/reviews/dignaga.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:b5076a327b2b4fb9",
+      "currentReviewLock": "fnv1a64:b5076a327b2b4fb9"
     },
     {
       "id": "dharmakirti",
-      "title": "Dharmakirti",
+      "title": "Dharmakīrti",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/dharmakirti",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 7,
+      "citedSourceCount": 7,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1842
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 23,
+      "citationCount": 87,
+      "substantiveArticleWordCount": 2058,
+      "reviewNotePath": "docs/editorial/reviews/dharmakirti.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:2baa6cfb4a2419ca",
+      "currentReviewLock": "fnv1a64:2baa6cfb4a2419ca"
     },
     {
       "id": "madhva",
       "title": "Madhva",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/madhva",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 6,
+      "citedSourceCount": 6,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1840
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 24,
+      "citationCount": 88,
+      "substantiveArticleWordCount": 2069,
+      "reviewNotePath": "docs/editorial/reviews/madhva.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:6ac899e6a38c133a",
+      "currentReviewLock": "fnv1a64:6ac899e6a38c133a"
     },
     {
       "id": "mozi",
@@ -2907,30 +2943,38 @@
       "title": "Jainism",
       "category": "philosophy",
       "visitorEntryPoint": "#/branches/jainism",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 6,
+      "citedSourceCount": 6,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1961
+      "structuredClaimCount": 16,
+      "structuredParagraphCount": 22,
+      "citationCount": 101,
+      "substantiveArticleWordCount": 2051,
+      "reviewNotePath": "docs/editorial/reviews/jainism.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:345482785cc2fdd8",
+      "currentReviewLock": "fnv1a64:345482785cc2fdd8"
     },
     {
       "id": "vedanta",
       "title": "Vedanta",
       "category": "philosophy",
       "visitorEntryPoint": "#/branches/vedanta",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 7,
+      "citedSourceCount": 7,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1980
+      "structuredClaimCount": 16,
+      "structuredParagraphCount": 26,
+      "citationCount": 92,
+      "substantiveArticleWordCount": 2126,
+      "reviewNotePath": "docs/editorial/reviews/vedanta.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:75f3fb91c0191b63",
+      "currentReviewLock": "fnv1a64:75f3fb91c0191b63"
     },
     {
       "id": "buddhist-philosophy",
@@ -2952,15 +2996,19 @@
       "title": "Buddhist Epistemology",
       "category": "philosophy",
       "visitorEntryPoint": "#/branches/buddhist-epistemology",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 10,
+      "citedSourceCount": 10,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 1804
+      "structuredClaimCount": 15,
+      "structuredParagraphCount": 23,
+      "citationCount": 93,
+      "substantiveArticleWordCount": 2052,
+      "reviewNotePath": "docs/editorial/reviews/buddhist-epistemology.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:6039d595b785a32a",
+      "currentReviewLock": "fnv1a64:6039d595b785a32a"
     },
     {
       "id": "islamic-philosophy",
@@ -3951,41 +3999,6 @@
       "signal": "priority-or-superlative",
       "location": "legacy-reading/paragraph-2",
       "excerpt": "Begin with short early discourses in a translation that explains textual parallels: the first-sermon tradition, the not-self discourse, the noble-search narrative, teachings on loving-kindness, and selections on dependen"
-    },
-    {
-      "recordKey": "philosopher:vasubandhu",
-      "status": "unreviewed",
-      "signal": "influence-or-causation",
-      "location": "influence/paragraph-1",
-      "excerpt": "Vasubandhu influenced later Buddhist philosophy enormously. Dignaga is often presented as developing epistemology after Vasubandhu, and later thinkers in India and Tibet read Vasubandhu as a central authority. East Asian"
-    },
-    {
-      "recordKey": "philosopher:shankara",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "overview/paragraph-1",
-      "excerpt": "Shankara, often called Adi Shankara, is the most influential classical philosopher associated with Advaita Vedanta. His central teaching is nonduality: the ultimate reality, Brahman, is not one object among others, and t"
-    },
-    {
-      "recordKey": "philosopher:shankara",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "biography-and-legend/paragraph-1",
-      "excerpt": "Traditional biographies portray Shankara as a brilliant renunciant who traveled across India, debated rival teachers, wrote major commentaries, established monastic centers, and died young. These narratives are important"
-    },
-    {
-      "recordKey": "philosopher:shankara",
-      "status": "unreviewed",
-      "signal": "disputed-attribution",
-      "location": "biography-and-legend/paragraph-1",
-      "excerpt": "Traditional biographies portray Shankara as a brilliant renunciant who traveled across India, debated rival teachers, wrote major commentaries, established monastic centers, and died young. These narratives are important"
-    },
-    {
-      "recordKey": "philosopher:ramanuja",
-      "status": "unreviewed",
-      "signal": "exact-date",
-      "location": "historical-context/paragraph-1",
-      "excerpt": "Ramanuja is conventionally dated 1017 to 1137 CE, though as with many medieval figures, details of biography are shaped by hagiography and later community memory. He belongs to the Sri Vaishnava world of South India, whe"
     },
     {
       "recordKey": "philosopher:al-kindi",
@@ -6100,216 +6113,6 @@
       "signal": "broad-classification",
       "location": "misunderstandings-reading/paragraph-1",
       "excerpt": "One misunderstanding treats the primacy of existence as the trivial observation that things exist. It is instead a claim about what is extra-mental and how essences function in thought. Another treats substantial motion"
-    },
-    {
-      "recordKey": "philosopher:mahavira",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "overview/paragraph-1",
-      "excerpt": "Mahavira is the canonical Jain teacher most closely associated with the form of Jain philosophy that became historically visible in northern India. Jain tradition counts him as the twenty fourth tirthankara, a ford maker"
-    },
-    {
-      "recordKey": "philosopher:mahavira",
-      "status": "unreviewed",
-      "signal": "exact-date",
-      "location": "chronology-and-tradition/paragraph-1",
-      "excerpt": "The traditional dates for Mahavira are usually given as 599 to 527 BCE, but modern scholarship treats early Jain chronology with caution. He is often placed near the Buddha in the wider sramana world of renouncers, wande"
-    },
-    {
-      "recordKey": "philosopher:mahavira",
-      "status": "unreviewed",
-      "signal": "disputed-attribution",
-      "location": "chronology-and-tradition/paragraph-1",
-      "excerpt": "The traditional dates for Mahavira are usually given as 599 to 527 BCE, but modern scholarship treats early Jain chronology with caution. He is often placed near the Buddha in the wider sramana world of renouncers, wande"
-    },
-    {
-      "recordKey": "philosopher:mahavira",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "jiva-ajiva-and-karma/paragraph-2",
-      "excerpt": "Karma in this framework is often described more materially than in many other Indian traditions. It is not only a moral law or divine record. Karmic particles adhere to the soul because of activity joined with passions s"
-    },
-    {
-      "recordKey": "philosopher:mahavira",
-      "status": "unreviewed",
-      "signal": "disputed-attribution",
-      "location": "many-sidedness/paragraph-1",
-      "excerpt": "Later Jain philosophy became famous for anekantavada, the doctrine that reality is many-sided, and syadvada, the discipline of conditional predication. These terms are not simply slogans for tolerance, and they should no"
-    },
-    {
-      "recordKey": "philosopher:mahavira",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "misunderstandings/paragraph-1",
-      "excerpt": "One misunderstanding is that Mahavira founded Jainism in the same way a modern author founds a theory. Jain tradition treats him as a tirthankara in a longer cosmic and teaching sequence, and historical evidence points t"
-    },
-    {
-      "recordKey": "philosopher:mahavira",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "reading-strategy/paragraph-2",
-      "excerpt": "Keep three questions open while reading. First, how does nonviolence change when it is grounded in metaphysics rather than only sympathy? Second, how does many-sidedness avoid both dogmatism and relativism? Third, how do"
-    },
-    {
-      "recordKey": "philosopher:kanada",
-      "status": "unreviewed",
-      "signal": "broad-classification",
-      "location": "overview/paragraph-1",
-      "excerpt": "Kanada is the traditional name associated with the Vaisheshika Sutra and with one of the major realist systems of Indian philosophy. His profile must be handled cautiously because the historical person, the formation of"
-    },
-    {
-      "recordKey": "philosopher:kanada",
-      "status": "unreviewed",
-      "signal": "disputed-attribution",
-      "location": "chronology-and-attribution/paragraph-1",
-      "excerpt": "Kanada is often placed before the common era, but the dates are uncertain and should not be treated as biographical precision. The Vaisheshika Sutra itself likely reflects a textual tradition rather than a single moment"
-    },
-    {
-      "recordKey": "philosopher:kanada",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "central-question/paragraph-1",
-      "excerpt": "The central Vaisheshika question is categorical: what kinds of things must exist for the world we experience to be possible? The tradition answers by identifying padarthas, knowable or nameable categories. Classical list"
-    },
-    {
-      "recordKey": "philosopher:kanada",
-      "status": "unreviewed",
-      "signal": "broad-classification",
-      "location": "knowledge-and-nyaya/paragraph-2",
-      "excerpt": "For beginners, this connection prevents a false split between metaphysics and logic. Kanada is not only asking what exists; the tradition must also ask how perception, inference, testimony, and debate can put us in touch"
-    },
-    {
-      "recordKey": "philosopher:kanada",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "influence/paragraph-2",
-      "excerpt": "For the broader atlas, Kanada widens the image of Indian philosophy. Readers often first encounter Indian thought through liberation, meditation, nonviolence, or nonduality. Vaisheshika shows another face: classification"
-    },
-    {
-      "recordKey": "philosopher:kanada",
-      "status": "unreviewed",
-      "signal": "broad-classification",
-      "location": "influence/paragraph-2",
-      "excerpt": "For the broader atlas, Kanada widens the image of Indian philosophy. Readers often first encounter Indian thought through liberation, meditation, nonviolence, or nonduality. Vaisheshika shows another face: classification"
-    },
-    {
-      "recordKey": "philosopher:patanjali",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "overview/paragraph-1",
-      "excerpt": "Patanjali is the traditional author associated with the Yoga Sutra, one of the most influential texts on disciplined attention, mental transformation, and liberation in Indian philosophy. The historical picture is comple"
-    },
-    {
-      "recordKey": "philosopher:patanjali",
-      "status": "unreviewed",
-      "signal": "broad-classification",
-      "location": "overview/paragraph-1",
-      "excerpt": "Patanjali is the traditional author associated with the Yoga Sutra, one of the most influential texts on disciplined attention, mental transformation, and liberation in Indian philosophy. The historical picture is comple"
-    },
-    {
-      "recordKey": "philosopher:patanjali",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "chronology-and-authorship/paragraph-1",
-      "excerpt": "The Yoga Sutra is difficult to date with precision and is often placed somewhere between the late centuries BCE and the early centuries CE, though scholarly estimates vary. The text likely draws on older practices, Samkh"
-    },
-    {
-      "recordKey": "philosopher:patanjali",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "rival-debates/paragraph-2",
-      "excerpt": "Modern yoga reception adds another debate. Many people first meet yoga through posture, breath, stress reduction, or physical culture. Those practices can be valuable, but classical Yoga has a more radical goal. It aims"
-    },
-    {
-      "recordKey": "philosopher:dignaga",
-      "status": "unreviewed",
-      "signal": "exact-date",
-      "location": "chronology-and-context/paragraph-1",
-      "excerpt": "Dignaga is commonly dated to about 480 to 540 CE, though exact dates are approximate. Traditional accounts often connect him to Vasubandhu, and his work stands before the great systematization of Dharmakirti. Whether eve"
-    },
-    {
-      "recordKey": "philosopher:dignaga",
-      "status": "unreviewed",
-      "signal": "broad-classification",
-      "location": "debate-culture/paragraph-1",
-      "excerpt": "Dignaga also matters because Indian philosophy was a public culture of argument. Schools did not only preserve doctrines internally; they tested them against opponents through formal debate, commentary, and refutation. A"
-    },
-    {
-      "recordKey": "philosopher:dignaga",
-      "status": "unreviewed",
-      "signal": "influence-or-causation",
-      "location": "influence/paragraph-1",
-      "excerpt": "Dignaga influenced Dharmakirti so deeply that the two are often paired as the founders of the Buddhist epistemological tradition. Dharmakirti revises, sharpens, and expands Dignaga, but he works in a field Dignaga made p"
-    },
-    {
-      "recordKey": "philosopher:dignaga",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "reading-strategy/paragraph-1",
-      "excerpt": "Start with a secondary introduction to Buddhist epistemology before reading Dignaga directly. The Pramanasamuccaya is difficult and often encountered through translations, reconstructions, and later commentary. Learn the"
-    },
-    {
-      "recordKey": "philosopher:dignaga",
-      "status": "unreviewed",
-      "signal": "broad-classification",
-      "location": "reading-strategy/paragraph-2",
-      "excerpt": "Compare Dignaga with Vasubandhu on cognition, Kanada on realism, and Dharmakirti on later development. Keep asking one guiding question: how can reliable knowledge function if only particulars are ultimately real and gen"
-    },
-    {
-      "recordKey": "philosopher:dharmakirti",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "overview/paragraph-1",
-      "excerpt": "Dharmakirti is one of the most influential philosophers in the Buddhist epistemological tradition. Usually placed in the seventh century, though exact dates are debated, he develops the framework inherited from Dignaga i"
-    },
-    {
-      "recordKey": "philosopher:dharmakirti",
-      "status": "unreviewed",
-      "signal": "exact-date",
-      "location": "chronology-and-works/paragraph-1",
-      "excerpt": "Dharmakirti is commonly placed around 600 to 660 CE, but the chronology is approximate. He stands after Dignaga and before later Indian and Tibetan traditions that made his works central to philosophical education. His m"
-    },
-    {
-      "recordKey": "philosopher:dharmakirti",
-      "status": "unreviewed",
-      "signal": "disputed-attribution",
-      "location": "chronology-and-works/paragraph-1",
-      "excerpt": "Dharmakirti is commonly placed around 600 to 660 CE, but the chronology is approximate. He stands after Dignaga and before later Indian and Tibetan traditions that made his works central to philosophical education. His m"
-    },
-    {
-      "recordKey": "philosopher:dharmakirti",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "chronology-and-works/paragraph-2",
-      "excerpt": "A beginner should know that Dharmakirti is not an easy first primary-text author. His arguments presuppose earlier Indian logic, Buddhist doctrine, and rival school positions. Yet his themes are accessible when introduce"
-    },
-    {
-      "recordKey": "philosopher:dharmakirti",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "reading-strategy/paragraph-1",
-      "excerpt": "Do not begin Dharmakirti cold. First learn Dignaga on perception, inference, and apoha. Then study a clear introduction to Buddhist epistemology and only then approach selected passages from the Pramanavarttika or shorte"
-    },
-    {
-      "recordKey": "philosopher:madhva",
-      "status": "unreviewed",
-      "signal": "exact-date",
-      "location": "overview/paragraph-1",
-      "excerpt": "Madhva is the major systematizer of Dvaita Vedanta, a dualist or realist Vedanta tradition that insists on the real difference between God, souls, and the world. Conventionally dated 1238 to 1317 CE, he interprets the Br"
-    },
-    {
-      "recordKey": "philosopher:madhva",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "influence/paragraph-1",
-      "excerpt": "Madhva founded or systematized a durable Dvaita Vedanta lineage with monastic institutions, commentarial traditions, and devotional communities. Later Dvaita thinkers developed his arguments in great detail, especially a"
-    },
-    {
-      "recordKey": "philosopher:madhva",
-      "status": "unreviewed",
-      "signal": "broad-classification",
-      "location": "influence/paragraph-2",
-      "excerpt": "For the atlas, his influence is corrective. Readers who assume Indian philosophy culminates in nondualism need Madhva as a counterweight. He shows that the same scriptural inheritance can produce a passionate defense of"
     },
     {
       "recordKey": "philosopher:mary-astell",
@@ -8685,97 +8488,6 @@
       "excerpt": "At the intermediate stage, follow one controversy across schools. For selfhood, compare Buddhist no-self arguments, Nyāya defenses of an enduring knower, Jain soul theory, and Vedānta interpretations of atman. For langua"
     },
     {
-      "recordKey": "philosophy:jainism",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "overview/paragraph-2",
-      "excerpt": "Mahavira is revered as the twenty-fourth tirthankara, a teacher who renews and transmits a path rather than inventing it as a modern founder would. Jain accounts place him within an immense cosmic history and preserve a"
-    },
-    {
-      "recordKey": "philosophy:jainism",
-      "status": "bibliography-only",
-      "signal": "disputed-attribution",
-      "location": "overview/paragraph-2",
-      "excerpt": "Mahavira is revered as the twenty-fourth tirthankara, a teacher who renews and transmits a path rather than inventing it as a modern founder would. Jain accounts place him within an immense cosmic history and preserve a"
-    },
-    {
-      "recordKey": "philosophy:jainism",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "historical-development/paragraph-1",
-      "excerpt": "Jain tradition situates Mahavira within a lineage of twenty-four ford-makers who show beings a passage across rebirth. Historical scholarship usually places Jain and Buddhist renunciant communities within the social and"
-    },
-    {
-      "recordKey": "philosophy:jainism",
-      "status": "bibliography-only",
-      "signal": "disputed-attribution",
-      "location": "historical-development/paragraph-2",
-      "excerpt": "The Digambara and Svetambara traditions preserve different accounts of the canon and the circumstances of division. The Svetambara Agamas and Digambara claims about the loss of original scripture cannot be merged into on"
-    },
-    {
-      "recordKey": "philosophy:jainism",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "nonviolence/paragraph-2",
-      "excerpt": "Nonviolence is connected to truthfulness, non-stealing, sexual restraint, and non-possession. Speech can injure, possessiveness can intensify passion, and consumption can enlist a person in dispersed harm. Jain ethical r"
-    },
-    {
-      "recordKey": "philosophy:jainism",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "conditional-predication/paragraph-1",
-      "excerpt": "Syādvāda is commonly explained through seven forms of conditional predication. The particle syat marks that a statement is asserted “in some respect” or under appropriate conditions. One may say that something is, is not"
-    },
-    {
-      "recordKey": "philosophy:jainism",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "internal-debates-and-neighbors/paragraph-2",
-      "excerpt": "Jain thinkers contest Buddhist accounts of momentariness and no-self, defending persistent souls and a reality with enduring and changing aspects. They dispute Vedānta accounts of an ultimate brahman and criticize creato"
-    },
-    {
-      "recordKey": "philosophy:vedanta",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "overview/paragraph-1",
-      "excerpt": "Vedānta names a family of traditions that interpret the Upanishads, Brahma Sutra, Bhagavad Gita, and related scriptures in order to explain ultimate reality, selfhood, world, bondage, and liberation. The word evokes the"
-    },
-    {
-      "recordKey": "philosophy:vedanta",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "overview/paragraph-2",
-      "excerpt": "Shankara, Ramanuja, and Madhva are major commentators and systematizers, not founders of Vedānta itself. Each inherits earlier exegetical debates and establishes a lineage whose later thinkers refine or contest his posit"
-    },
-    {
-      "recordKey": "philosophy:vedanta",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "shared-problems/paragraph-1",
-      "excerpt": "Vedānta schools ask how brahman, the ultimate source and ground discussed in scripture, relates to individual selves and the experienced world. They also ask how bondage is possible, what ignorance or karma does, and wha"
-    },
-    {
-      "recordKey": "philosophy:vedanta",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "advaita/paragraph-2",
-      "excerpt": "Advaita distinguishes levels or orders of discourse so that everyday and scriptural practices are not treated as simply nonexistent. The empirical world is not absolute reality, but it functions within experience and mus"
-    },
-    {
-      "recordKey": "philosophy:vedanta",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "neighbors-and-debates/paragraph-1",
-      "excerpt": "Vedānta develops within a dense Indian field. Its authors dispute Buddhist accounts of no-self, momentariness, and emptiness, but “Buddhist opponent” covers multiple schools and sometimes a stylized position inherited fr"
-    },
-    {
-      "recordKey": "philosophy:vedanta",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "misunderstandings-and-relevance/paragraph-1",
-      "excerpt": "Vedānta is not synonymous with Advaita, and Advaita is not the claim that an individual ego can manifest whatever it wants. Maya does not simply mean the physical world is fake. Ramanuja and Madhva are not incomplete ste"
-    },
-    {
       "recordKey": "philosophy:buddhist-philosophy",
       "status": "bibliography-only",
       "signal": "disputed-attribution",
@@ -8893,69 +8605,6 @@
       "signal": "priority-or-superlative",
       "location": "contemporary-questions/paragraph-1",
       "excerpt": "Buddhist accounts of attention, self-construction, emotion, and consciousness now enter dialogue with philosophy of mind, neuroscience, phenomenology, and cognitive science. Contemplative training may offer disciplined f"
-    },
-    {
-      "recordKey": "philosophy:buddhist-epistemology",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "overview/paragraph-1",
-      "excerpt": "Buddhist epistemology is a focused scholastic development within a much longer history. It is especially associated with Dignāga, conventionally dated about 480–540 CE, and Dharmakīrti, usually placed in the sixth or sev"
-    },
-    {
-      "recordKey": "philosophy:buddhist-epistemology",
-      "status": "bibliography-only",
-      "signal": "exact-date",
-      "location": "overview/paragraph-1",
-      "excerpt": "Buddhist epistemology is a focused scholastic development within a much longer history. It is especially associated with Dignāga, conventionally dated about 480–540 CE, and Dharmakīrti, usually placed in the sixth or sev"
-    },
-    {
-      "recordKey": "philosophy:buddhist-epistemology",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "perception/paragraph-1",
-      "excerpt": "Dignāga characterizes perception as free from conceptual construction. On influential readings, perception encounters a unique particular without classifying it as “blue,” “cow,” or “mine”; conceptual cognition adds name"
-    },
-    {
-      "recordKey": "philosophy:buddhist-epistemology",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "apoha/paragraph-1",
-      "excerpt": "Apoha theory asks how “cow” or another general term functions if no one universal cow-nature exists in each animal. Dignāga proposes classification through exclusion, roughly excluding what is other than the relevant cla"
-    },
-    {
-      "recordKey": "philosophy:buddhist-epistemology",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "figures-texts/paragraph-1",
-      "excerpt": "Dignāga is a foundational systematizer of Buddhist epistemology, not the founder of Buddhist philosophy. His Compendium synthesizes and redirects earlier discussions of perception, inference, proof, and apoha. Textual tr"
-    },
-    {
-      "recordKey": "philosophy:buddhist-epistemology",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "figures-texts/paragraph-2",
-      "excerpt": "Their relationship is not a simple story in which Dignāga invented logic and Dharmakīrti completed it. Dharmakīrti changes definitions and arguments, while later Indian and Tibetan commentators make further choices about"
-    },
-    {
-      "recordKey": "philosophy:buddhist-epistemology",
-      "status": "bibliography-only",
-      "signal": "disputed-attribution",
-      "location": "figures-texts/paragraph-2",
-      "excerpt": "Their relationship is not a simple story in which Dignāga invented logic and Dharmakīrti completed it. Dharmakīrti changes definitions and arguments, while later Indian and Tibetan commentators make further choices about"
-    },
-    {
-      "recordKey": "philosophy:buddhist-epistemology",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "debates/paragraph-1",
-      "excerpt": "Reflexive awareness asks whether cognition is aware of itself as well as its object. Supporters use it to explain memory and experience without a permanent subject; critics ask whether one event can be both subject and o"
-    },
-    {
-      "recordKey": "philosophy:buddhist-epistemology",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "misunderstandings/paragraph-1",
-      "excerpt": "Buddhist epistemology is not “Eastern empiricism” because it prioritizes perception, nor “Eastern rationalism” because it develops inference. Those labels divide problems according to other histories. Perception here con"
     },
     {
       "recordKey": "philosophy:islamic-philosophy",
@@ -9424,18 +9073,18 @@
   "groupSummary": {
     "philosophers": {
       "total": 146,
-      "unreviewed": 45,
+      "unreviewed": 36,
       "bibliography-only": 53,
       "source-mapped": 0,
-      "claim-reviewed": 48,
+      "claim-reviewed": 57,
       "review-out-of-date": 0
     },
     "philosophies": {
       "total": 45,
       "unreviewed": 2,
-      "bibliography-only": 40,
+      "bibliography-only": 37,
       "source-mapped": 0,
-      "claim-reviewed": 3,
+      "claim-reviewed": 6,
       "review-out-of-date": 0
     },
     "standalone": {

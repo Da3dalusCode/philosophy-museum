@@ -174,12 +174,12 @@
     {
       "id": "jainism",
       "label": "Jainism",
-      "searchText": "jainism a tradition of nonviolence, discipline, many-sidedness, karma, and liberation, with mahavira as a canonical teacher rather than a clean modern founder. how can nonviolence and disciplined perception support liberation? method central question"
+      "searchText": "jainism a diverse south asian tradition of jinas, nonviolence, plural conscious selves, material karma, disciplined knowledge and conduct, and liberation without a creator god. how can a conscious self stop karmic influx and become free? what does nonviolence require in a world where embodied life inevitably causes some harm? how can reality persist and change through many aspects? how should mendicant and household disciplines relate? how do śvetāmbara and digambara traditions share and contest authority? ahiṃsā jīva and karma three jewels anekāntavāda naya and syādvāda great and limited vows"
     },
     {
       "id": "vedanta",
       "label": "Vedanta",
-      "searchText": "vedanta a family of upanishadic and brahma sutra interpretation developed by later commentators such as shankara, ramanuja, and madhva. how are self, world, liberation, and ultimate reality related? method central question"
+      "searchText": "vedanta a plural family of traditions interpreting the upaniṣads and, centrally for many schools, the bhagavad gītā and brahma sūtra through rival accounts of brahman, self, world, knowledge, devotion, and liberation. what is brahman, and how—if at all—is the self related to it? is the world ultimately real, dependently real, transformed, or sublated? how can scripture and reasoning disclose what ordinary perception cannot settle? how do knowledge, action, devotion, surrender, discipline, and grace relate to liberation? brahman ātman or self hermeneutics knowledge, bhakti, and grace dependence and difference"
     },
     {
       "id": "buddhist-philosophy",
@@ -189,7 +189,7 @@
     {
       "id": "buddhist-epistemology",
       "label": "Buddhist Epistemology",
-      "searchText": "buddhist epistemology develops buddhist accounts of perception, inference, language, and reliable cognition through dignaga and dharmakirti. what makes cognition reliable, and how do perception and inference work? method central question"
+      "searchText": "buddhist epistemology a diverse history of buddhist arguments about reliable cognition, perception, inference, concepts, language, proof, and authority, especially but not exclusively in dignāga–dharmakīrti lineages. what makes cognition reliable, and how do perception and inference work? method central question"
     },
     {
       "id": "islamic-philosophy",
@@ -436,17 +436,17 @@
     {
       "id": "vasubandhu",
       "label": "Vasubandhu",
-      "searchText": "vasubandhu consciousness experience twenty verses buddhist vasubandhu on cognition and self buddhist abhidharma and yogācāra debates a route to buddhist arguments about cognition and continuity that preserves their liberation-oriented and scholastic contexts. core questions forum mind & self"
+      "searchText": "vasubandhu abhidharma analysis no-self and causal continuity appearance only three natures scriptural interpretation abhidharmakośabhāṣya twenty verses with auto-commentary thirty verses buddhist abhidharma and yogācāra; corpus and school trajectory disputed vasubandhu on cognition and self buddhist abhidharma and yogācāra debates a route to buddhist arguments about cognition and continuity that preserves their liberation-oriented and scholastic contexts. core questions forum mind & self"
     },
     {
       "id": "shankara",
       "label": "Adi Shankara",
-      "searchText": "adi shankara nonduality commentaries advaita vedanta"
+      "searchText": "adi shankara nondual brahman and self superimposition and ignorance self-revealing consciousness orders of reality liberation through knowledge brahma sūtra bhāṣya upadeśasāhasrī bhagavad gītā bhāṣya principal upaniṣad commentaries advaita vedānta; later śaṅkara and daśanāmī lineages"
     },
     {
       "id": "ramanuja",
       "label": "Ramanuja",
-      "searchText": "ramanuja devotion qualified nonduality sri bhashya vishishtadvaita"
+      "searchText": "ramanuja qualified nonduality world and souls as god’s body attributive consciousness bhakti and grace realism about difference and value śrī bhāṣya vedārthasaṅgraha bhagavad gītā bhāṣya gadyatraya viśiṣṭādvaita vedānta and śrī vaiṣṇavism"
     },
     {
       "id": "al-kindi",
@@ -770,33 +770,33 @@
     },
     {
       "id": "mahavira",
-      "label": "Mahavira",
-      "searchText": "mahavira nonviolence many-sidedness jain canonical traditions jain"
+      "label": "Mahāvīra",
+      "searchText": "mahāvīra ahiṃsā (noninjury) five great vows karmic purification jina and tīrthaṃkara lineage liberation through restraint and knowledge ācārāṅga sūtra (later śvetāmbara canonical witness) jain āgama traditions (transmitted, layered, and sectarian) jain / nirgrantha renunciant lineage"
     },
     {
       "id": "kanada",
-      "label": "Kanada",
-      "searchText": "kanada atoms categories vaisheshika sutra vaisheshika kaṇāda and vaiśeṣika categories classical south asian intellectual worlds a named south asian route to categories, substances, qualities, motion, and atomism without absorbing vaiśeṣika into a modern western field. core questions forum reality & being"
+      "label": "Kaṇāda",
+      "searchText": "kaṇāda padārtha categories atomism substance, quality, and action universals and particularizers inherence dharma and liberation vaiśeṣika sūtra (traditional attribution; layered received text) vaiśeṣika (traditional attribution) kaṇāda and vaiśeṣika categories classical south asian intellectual worlds a named south asian route to categories, substances, qualities, motion, and atomism without absorbing vaiśeṣika into a modern western field. core questions forum reality & being"
     },
     {
       "id": "patanjali",
-      "label": "Patanjali",
-      "searchText": "patanjali mental discipline liberation yoga sutra yoga patañjali and the yoga sūtra tradition classical south asian yoga traditions a route to disciplined analyses of mind, affliction, practice, and liberation in a disputed textual and historical lineage—not membership for krishnamurti or a generic wellness analogy. core questions forum mind & self"
+      "label": "Patañjali",
+      "searchText": "patañjali citta-vṛtti-nirodha practice and dispassion five afflictions eight limbs of yoga īśvara-praṇidhāna discriminative discernment kaivalya yoga sūtra / pātañjalayogaśāstra (authorship model disputed) pātañjala yoga / sāṃkhya-yoga patañjali and the yoga sūtra tradition classical south asian yoga traditions a route to disciplined analyses of mind, affliction, practice, and liberation in a disputed textual and historical lineage—not membership for krishnamurti or a generic wellness analogy. core questions forum mind & self"
     },
     {
       "id": "dignaga",
-      "label": "Dignaga",
-      "searchText": "dignaga perception inference compendium of the means of knowledge buddhist epistemologist dignāga on perception and inference buddhist pramāṇa traditions in south asia a route to buddhist debates over reliable cognition whose categories should not be treated as a local example of modern epistemology. core questions forum knowledge dignāga on inference and exclusion buddhist pramāṇa traditions in south asia a route to inference and theories of meaning in buddhist scholastic debate, not an assertion that dignāga was an analytic philosopher. core questions forum logic & language"
+      "label": "Dignāga",
+      "searchText": "dignāga two pramāṇas nonconceptual perception three characteristics of a reason inference for another apoha pramāṇasamuccaya investigation of the percept wheel of reasons buddhist pramāṇa and yogācāra contexts dignāga on perception and inference buddhist pramāṇa traditions in south asia a route to buddhist debates over reliable cognition whose categories should not be treated as a local example of modern epistemology. core questions forum knowledge dignāga on inference and exclusion buddhist pramāṇa traditions in south asia a route to inference and theories of meaning in buddhist scholastic debate, not an assertion that dignāga was an analytic philosopher. core questions forum logic & language"
     },
     {
       "id": "dharmakirti",
-      "label": "Dharmakirti",
-      "searchText": "dharmakirti reliable cognition inference commentary on the means of knowledge buddhist epistemologist dharmakīrti on reliable cognition buddhist scholastic philosophy a named route to dharmakīrti’s arguments about perception, inference, language, and proof in the pramāṇa lineage. core questions forum knowledge"
+      "label": "Dharmakīrti",
+      "searchText": "dharmakīrti reliable cognition causal efficacy momentariness good reasons and non-deviation causal apoha reliable guide pramāṇavārttika pramāṇaviniścaya nyāyabindu hetubindu vādanyāya buddhist pramāṇa; later dignāga–dharmakīrti tradition dharmakīrti on reliable cognition buddhist scholastic philosophy a named route to dharmakīrti’s arguments about perception, inference, language, and proof in the pramāṇa lineage. core questions forum knowledge"
     },
     {
       "id": "madhva",
       "label": "Madhva",
-      "searchText": "madhva difference devotion commentaries dvaita vedanta"
+      "searchText": "madhva independent and dependent reality five real differences viṣṇu’s supremacy realist epistemology graded selves and liberation brahma sūtra bhāṣya anuvyākhyāna viṣṇutattvanirṇaya mahābhāratatātparyanirṇaya dvaita vedānta and mādhva vaiṣṇavism"
     },
     {
       "id": "mozi",
@@ -2752,7 +2752,7 @@
       "id": "patanjali-yogasutra-manuscript",
       "hallId": "classical-south-asian-worlds",
       "label": "Patañjali: The Yoga Sūtra Manuscript Tradition",
-      "searchText": "patañjali: the yoga sūtra manuscript tradition patañjali · yoga sūtra transmission what can a late manuscript witness tell us about a much older and disputed textual lineage? aphorism, commentary, copying, authorship, and uncertain chronology the yoga sūtras organize practice, affliction, concentration, cognition, and liberation. aphoristic text and commentary are historically intertwined. the proposed floruit from roughly the 2nd century bce to 4th century ce is an authorship range, not a lifespan. classical south asia: jain, yoga, and brahmanical systems yoga, mind, discipline, and liberation"
+      "searchText": "patañjali: the yoga sūtra manuscript tradition patañjali · yoga sūtra transmission what can a late manuscript witness tell us about a much older and disputed textual lineage? aphorism, commentary, copying, authorship, and uncertain chronology the yoga sūtras organize practice, affliction, concentration, cognition, and liberation. aphoristic text and commentary are historically intertwined. recent integrated-text scholarship often places the pātañjalayogaśāstra around the fourth century ce, while earlier proposals remain debated. classical south asia: jain, yoga, and brahmanical systems yoga, mind, discipline, and liberation"
     },
     {
       "id": "patanjali-samkhya-yoga-pramana",

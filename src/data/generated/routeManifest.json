@@ -1732,44 +1732,48 @@
       "name": "Jainism",
       "sections": [
         {
-          "id": "overview",
-          "title": "Liberation through nonviolence, discipline, and careful knowing"
+          "id": "orientation",
+          "title": "A tradition without a single historical beginning"
         },
         {
-          "id": "historical-development",
-          "title": "Tirthankara lineages, communities, councils, and scholastic systems"
+          "id": "history",
+          "title": "From early renunciants to durable communities"
         },
         {
-          "id": "nonviolence",
-          "title": "Ahimsa as attention to living beings and the causes of harm"
+          "id": "scriptures",
+          "title": "Canons, losses, and commentarial authority"
         },
         {
-          "id": "karma-and-liberation",
-          "title": "Soul, bondage, restraint, and release"
+          "id": "reality",
+          "title": "Living selves in an uncreated cosmos"
+        },
+        {
+          "id": "karma",
+          "title": "Karma as bondage, influx, stoppage, and shedding"
+        },
+        {
+          "id": "path",
+          "title": "Three jewels and graded discipline"
+        },
+        {
+          "id": "ahimsa",
+          "title": "Nonviolence as vow, perception, and social problem"
         },
         {
           "id": "many-sidedness",
-          "title": "Anekāntavāda, viewpoints, and epistemic humility"
+          "title": "Many-sided objects and disciplined assertion"
         },
         {
-          "id": "conditional-predication",
-          "title": "Syādvāda and the discipline of qualified assertion"
+          "id": "sects-gender",
+          "title": "Śvetāmbara and Digambara plurality"
         },
         {
-          "id": "figures-and-texts",
-          "title": "Canonical teachers and a long scholastic conversation"
+          "id": "worship-modernity",
+          "title": "Devotion, reform, and contemporary relevance"
         },
         {
-          "id": "internal-debates-and-neighbors",
-          "title": "Sectarian difference and philosophical contest"
-        },
-        {
-          "id": "misunderstandings-and-relevance",
-          "title": "Beyond harmlessness, relativism, and a founder story"
-        },
-        {
-          "id": "reading-path",
-          "title": "From ethical orientation to metaphysics and debate"
+          "id": "reading",
+          "title": "Reading across practice, doctrine, and disagreement"
         }
       ],
       "hasSources": true
@@ -1779,44 +1783,56 @@
       "name": "Vedanta",
       "sections": [
         {
-          "id": "overview",
-          "title": "A family of arguments over the end and meaning of the Veda"
+          "id": "orientation",
+          "title": "A family of rival readings, not one doctrine"
         },
         {
-          "id": "historical-development",
-          "title": "From diverse Upanishads to rival commentarial lineages"
+          "id": "layered-archive",
+          "title": "The layered archive before the schools"
         },
         {
-          "id": "shared-problems",
-          "title": "Brahman, atman, world, bondage, and liberating knowledge"
+          "id": "early-plurality",
+          "title": "Vedānta before the famous three"
+        },
+        {
+          "id": "commentary-method",
+          "title": "Metaphysics made through commentary"
         },
         {
           "id": "advaita",
-          "title": "Advaita: nonduality, ignorance, and levels of discourse"
+          "title": "Advaita: nonduality and the removal of misidentification"
         },
         {
-          "id": "vishishtadvaita",
-          "title": "Vishishtadvaita: unity qualified by real souls and world"
+          "id": "visistadvaita",
+          "title": "Viśiṣṭādvaita: one differentiated divine reality"
         },
         {
           "id": "dvaita",
-          "title": "Dvaita: real difference, dependence, and divine supremacy"
+          "title": "Dvaita: real plurality under one independent Lord"
         },
         {
-          "id": "interpretation-and-practice",
-          "title": "Why exegesis, reasoning, devotion, and discipline belong together"
+          "id": "other-vedantas",
+          "title": "Other Vaiṣṇava and Śaiva Vedāntas"
         },
         {
-          "id": "neighbors-and-debates",
-          "title": "Buddhist, Jain, Nyāya, Mīmāṃsā, and intra-Vedānta arguments"
+          "id": "shared-questions",
+          "title": "Shared questions without a common answer"
         },
         {
-          "id": "misunderstandings-and-relevance",
-          "title": "Against the idea that Vedānta is one modern perennial philosophy"
+          "id": "practice-social-world",
+          "title": "Paths, institutions, and unequal access"
+        },
+        {
+          "id": "modern-reception",
+          "title": "Modern Vedānta, Hindu unity, and global translation"
+        },
+        {
+          "id": "method-misunderstanding",
+          "title": "How to compare without building a winner’s podium"
         },
         {
           "id": "reading-path",
-          "title": "Reading shared sources through genuinely rival commentaries"
+          "title": "A comparative reading path through the archive"
         }
       ],
       "hasSources": true
@@ -1945,44 +1961,48 @@
       "name": "Buddhist Epistemology",
       "sections": [
         {
-          "id": "overview",
-          "title": "Reliable cognition inside a Buddhist project"
+          "id": "orientation",
+          "title": "A varied pramāṇa tradition inside Buddhist philosophy"
         },
         {
-          "id": "development",
-          "title": "Predecessors, systematizers, and reception"
+          "id": "before-dignaga",
+          "title": "Cognition and debate before the famous synthesis"
         },
         {
-          "id": "pramana",
-          "title": "Reliability, novelty, and successful engagement"
+          "id": "two-sources",
+          "title": "Perception and inference, with testimony reclassified"
         },
         {
           "id": "perception",
-          "title": "Nonconceptual presentation and error"
+          "title": "Nonconceptuality, reflexive awareness, and error"
         },
         {
-          "id": "inference",
-          "title": "Reasons, pervasion, and proof"
+          "id": "inference-proof",
+          "title": "Reasons, pervasion, and an interlocutor’s understanding"
         },
         {
-          "id": "apoha",
-          "title": "Exclusion, concepts, and linguistic meaning"
+          "id": "language",
+          "title": "Apoha and the usefulness of constructed kinds"
         },
         {
-          "id": "figures-texts",
-          "title": "Dignāga and Dharmakīrti without a founder myth"
+          "id": "reliability",
+          "title": "Truth, justification, route, and successful activity"
         },
         {
-          "id": "debates",
-          "title": "Awareness, objects, Madhyamaka, and authority"
+          "id": "buddhist-ends",
+          "title": "Liberation, compassion, and conditional authority"
         },
         {
-          "id": "misunderstandings",
-          "title": "Neither Western camp nor timeless consensus"
+          "id": "institutions-criticism",
+          "title": "Debate, curriculum, and disciplined disagreement"
         },
         {
-          "id": "relevance-reading",
-          "title": "Classification, testimony, and disciplined study"
+          "id": "transmission",
+          "title": "Sanskrit loss, Tibetan expansion, and Chinese difference"
+        },
+        {
+          "id": "reading-path",
+          "title": "Study a debate, then follow its transformations"
         }
       ],
       "hasSources": true
@@ -4782,177 +4802,161 @@
       "name": "Vasubandhu",
       "sections": [
         {
-          "id": "overview",
-          "title": "A Buddhist analyst of mind, experience, and scholastic systems"
+          "id": "orientation",
+          "title": "One name at an Abhidharma–Yogācāra crossroads"
         },
         {
-          "id": "chronology-and-identity",
-          "title": "Dating, biography, and the one-or-two Vasubandhu question"
-        },
-        {
-          "id": "central-question",
-          "title": "What is experience made of, and how does error arise"
+          "id": "authorship",
+          "title": "One Vasubandhu, two Vasubandhus, and an uneven corpus"
         },
         {
           "id": "abhidharma",
-          "title": "The Abhidharmakosha and Buddhist analytical realism"
+          "title": "The Treasury as summary, criticism, and argument"
         },
         {
-          "id": "no-self-and-persons",
-          "title": "Persons as useful designation rather than permanent selves"
+          "id": "persons-continuity",
+          "title": "No permanent owner, but causal and ethical continuity"
         },
         {
-          "id": "yogacara",
-          "title": "Yogacara, representation, and consciousness-only language"
+          "id": "appearance-only",
+          "title": "What “appearance only” does and does not settle"
+        },
+        {
+          "id": "perception-objects",
+          "title": "Atoms, wholes, and the object of perception"
         },
         {
           "id": "three-natures",
-          "title": "The three natures and the transformation of perception"
+          "title": "Construction, dependence, and nonduality"
         },
         {
-          "id": "storehouse-consciousness",
-          "title": "Seeds, continuity, and storehouse consciousness"
+          "id": "language-scripture",
+          "title": "Reasoning with scripture rather than repeating it"
         },
         {
-          "id": "debates-with-realists",
-          "title": "External objects, atoms, and realist opponents"
+          "id": "method-practice",
+          "title": "Analysis as a practice of correction"
         },
         {
-          "id": "practice-and-transformation",
-          "title": "Analysis as a path of cognitive transformation"
+          "id": "reception",
+          "title": "Sanskrit fragments, translations, and many Vasubandhus"
         },
         {
-          "id": "influence",
-          "title": "A bridge to Buddhist epistemology and East Asian traditions"
-        },
-        {
-          "id": "misunderstandings",
-          "title": "Avoiding easy labels for Vasubandhu"
-        },
-        {
-          "id": "reading-strategy",
-          "title": "How to enter Vasubandhu without getting lost"
+          "id": "reading-path",
+          "title": "A reading path that keeps the disputes open"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "shankara",
       "name": "Adi Shankara",
       "sections": [
         {
-          "id": "overview",
-          "title": "Nondual Vedanta and the knowledge of Brahman"
+          "id": "orientation",
+          "title": "Nonduality argued through teaching and commentary"
         },
         {
-          "id": "historical-context",
-          "title": "Early medieval India and contested Vedanta"
+          "id": "life-history",
+          "title": "A historical author behind later sacred biographies"
         },
         {
-          "id": "biography-and-legend",
-          "title": "Biography, monastic memory, and legendary expansion"
+          "id": "corpus",
+          "title": "The secure corpus and the problem of attribution"
         },
         {
-          "id": "works-and-attribution",
-          "title": "Commentaries and attribution cautions"
+          "id": "superimposition",
+          "title": "Superimposition and beginningless ignorance"
         },
         {
-          "id": "brahman-and-atman",
-          "title": "Brahman, atman, and nonduality"
+          "id": "reality-causation",
+          "title": "Brahman, appearance, and orders of reality"
         },
         {
-          "id": "avidya-and-superimposition",
-          "title": "Ignorance, superimposition, and error"
+          "id": "consciousness",
+          "title": "Witnessing consciousness and the changing mind"
         },
         {
-          "id": "maya-and-reality-levels",
-          "title": "Maya and levels of reality"
+          "id": "language",
+          "title": "How words can disclose what is not an object"
         },
         {
-          "id": "scripture-and-reason",
-          "title": "Scripture, reason, and liberating knowledge"
+          "id": "practice",
+          "title": "Knowledge, action, devotion, and preparedness"
         },
         {
-          "id": "knowledge-action-and-liberation",
-          "title": "Knowledge, action, and liberation"
+          "id": "isvara-ethics",
+          "title": "Īśvara, moral order, and the problem of flattening devotion"
         },
         {
-          "id": "debates-with-rivals",
-          "title": "Debates with Buddhist and Brahmanical rivals"
+          "id": "opponents",
+          "title": "Arguments among Indian schools, not “East versus West”"
         },
         {
-          "id": "devotion-ethics-and-practice",
-          "title": "Devotion, ethics, and the lived Advaita path"
+          "id": "reception",
+          "title": "From early Advaita to modern global Vedānta"
         },
         {
-          "id": "influence-and-contestation",
-          "title": "Influence, Ramanuja, and later Vedanta"
-        },
-        {
-          "id": "misunderstandings-reading",
-          "title": "Misunderstandings and a reading strategy"
+          "id": "reading-path",
+          "title": "A reading path that preserves argument and uncertainty"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "ramanuja",
       "name": "Ramanuja",
       "sections": [
         {
-          "id": "overview",
-          "title": "The Vedanta theologian of qualified nondualism and devotion"
+          "id": "orientation",
+          "title": "A qualified whole of God, selves, and world"
         },
         {
-          "id": "historical-context",
-          "title": "Sri Vaishnava tradition and the commentarial world"
+          "id": "history-memory",
+          "title": "Chronology, community memory, and the limits of biography"
         },
         {
-          "id": "central-question",
-          "title": "How can ultimate unity include real difference"
+          "id": "context",
+          "title": "Sanskrit Vedānta in a Tamil devotional world"
         },
         {
-          "id": "body-soul-relation",
-          "title": "The world and souls as the body of God"
+          "id": "works",
+          "title": "A corpus of commentary, synthesis, and devotion"
         },
         {
-          "id": "critique-of-advaita",
-          "title": "Ramanuja against Shankara and impersonal nonduality"
+          "id": "realism-consciousness",
+          "title": "Consciousness belongs to enduring knowers"
         },
         {
-          "id": "souls-and-liberation",
-          "title": "Individual selves, grace, and service"
+          "id": "body-self",
+          "title": "The world as the body of brahman"
         },
         {
-          "id": "bhakti-and-prapatti",
-          "title": "Devotion, surrender, and the path to God"
+          "id": "language",
+          "title": "Reading identity sentences without erasing difference"
         },
         {
-          "id": "community-and-worship",
-          "title": "Temple, community, and embodied devotion"
+          "id": "god-sri",
+          "title": "Nārāyaṇa, Śrī, and auspicious qualities"
         },
         {
-          "id": "scripture-and-reason",
-          "title": "Hermeneutics as philosophy"
+          "id": "path",
+          "title": "Action, knowledge, bhakti, surrender, and grace"
         },
         {
-          "id": "rival-debates",
-          "title": "Buddhists, Advaitins, and later dualists"
+          "id": "ethics-access",
+          "title": "Duty, moral realism, and contested social access"
         },
         {
-          "id": "influence",
-          "title": "A major architect of Vishishtadvaita and devotional Vedanta"
+          "id": "debate-reception",
+          "title": "A living tradition shaped after Rāmānuja"
         },
         {
-          "id": "misunderstandings",
-          "title": "Common mistakes and live tensions"
-        },
-        {
-          "id": "reading-strategy",
-          "title": "How to read Ramanuja well"
+          "id": "reading-path",
+          "title": "Reading a scholastic and devotional synthesis"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "al-kindi",
@@ -8736,349 +8740,321 @@
     },
     {
       "id": "mahavira",
-      "name": "Mahavira",
+      "name": "Mahāvīra",
       "sections": [
         {
-          "id": "overview",
-          "title": "A Jain teacher of liberation through nonviolence and discipline"
+          "id": "evidence",
+          "title": "A teacher recoverable through competing memories"
         },
         {
-          "id": "chronology-and-tradition",
-          "title": "Disputed dates and the tirthankara framework"
+          "id": "lineage",
+          "title": "The twenty-fourth Jina, not a simple founder"
         },
         {
-          "id": "central-question",
-          "title": "How can a soul stop harming and become free"
+          "id": "lives",
+          "title": "Sacred biography and sectarian difference"
         },
         {
-          "id": "jiva-ajiva-and-karma",
-          "title": "Soul, non-soul, and karma as bondage"
+          "id": "asceticism",
+          "title": "Renunciation as transformation of action and attention"
         },
         {
           "id": "ahimsa",
-          "title": "Nonviolence as a complete philosophical discipline"
+          "title": "Nonviolence begins with a densely living world"
         },
         {
-          "id": "many-sidedness",
-          "title": "Anekantavada, syadvada, and intellectual humility"
+          "id": "vows",
+          "title": "Five restraints and the passions beneath action"
         },
         {
-          "id": "practice-and-community",
-          "title": "Monastics, lay vows, austerity, and support"
+          "id": "self-karma",
+          "title": "A conscious self bound by material karma"
         },
         {
-          "id": "rival-debates",
-          "title": "Buddhists, Brahmanical schools, and competing liberation paths"
+          "id": "knowledge",
+          "title": "Knowledge, perspective, and later systematization"
         },
         {
-          "id": "influence",
-          "title": "Long influence on Indian ethics and religious life"
+          "id": "community",
+          "title": "Teaching through a fourfold community"
         },
         {
-          "id": "liberation-and-everyday-life",
-          "title": "Why the highest ideal still changes ordinary life"
+          "id": "death-reception",
+          "title": "Liberation, memory, and political afterlives"
         },
         {
-          "id": "misunderstandings",
-          "title": "Common mistakes and real tensions"
-        },
-        {
-          "id": "reading-strategy",
-          "title": "How to read Mahavira and early Jain thought"
+          "id": "reading",
+          "title": "A reading path that keeps traditions distinct"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "kanada",
-      "name": "Kanada",
+      "name": "Kaṇāda",
       "sections": [
         {
-          "id": "overview",
-          "title": "The Vaisheshika thinker of categories, atoms, and difference"
+          "id": "evidence",
+          "title": "A name attached to a layered school text"
         },
         {
-          "id": "chronology-and-attribution",
-          "title": "A name at the edge of historical reconstruction"
-        },
-        {
-          "id": "central-question",
-          "title": "What are the basic kinds of reality"
+          "id": "sutra",
+          "title": "How to read an aphoristic teaching instrument"
         },
         {
           "id": "categories",
-          "title": "Substance, quality, motion, universal, particular, inherence"
+          "title": "Padārtha as a map of what can be known and said"
+        },
+        {
+          "id": "substances",
+          "title": "Nine substances and a plural realist world"
         },
         {
           "id": "atomism",
-          "title": "Atoms, compounds, and the structure of material things"
+          "title": "Atoms, compounds, and wholes"
         },
         {
-          "id": "knowledge-and-nyaya",
-          "title": "Vaisheshika and the Nyaya alliance"
+          "id": "universals",
+          "title": "Universals, particularizers, and inherence"
         },
         {
-          "id": "self-and-liberation",
-          "title": "Real selves and liberation through discriminating knowledge"
+          "id": "causation",
+          "title": "Production, absence, motion, and unseen conditions"
         },
         {
-          "id": "rival-debates",
-          "title": "Buddhist momentariness, Jain plurality, and Vedanta nonduality"
+          "id": "knowledge",
+          "title": "Perception, inference, and knowing imperceptibles"
         },
         {
-          "id": "causation-and-inherence",
-          "title": "Causation, wholes, parts, and the problem of relation"
+          "id": "dharma",
+          "title": "Classification in the service of liberation"
         },
         {
-          "id": "influence",
-          "title": "A durable realist counterweight in Indian philosophy"
+          "id": "reception",
+          "title": "Praśastapāda and the Nyāya–Vaiśeṣika inheritance"
         },
         {
-          "id": "misunderstandings",
-          "title": "What not to assume about Kanada"
+          "id": "comparison",
+          "title": "Comparison without “ancient modern science”"
         },
         {
-          "id": "reading-strategy",
-          "title": "How to read Vaisheshika without flattening it"
+          "id": "reading",
+          "title": "Reading from sūtra to system and criticism"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "patanjali",
-      "name": "Patanjali",
+      "name": "Patañjali",
       "sections": [
         {
-          "id": "overview",
-          "title": "The Yoga Sutra systematizer of mind, practice, and liberation"
+          "id": "evidence",
+          "title": "Patañjali as an authorship and textual-history problem"
         },
         {
-          "id": "chronology-and-authorship",
-          "title": "A disputed author and a layered yoga tradition"
+          "id": "text",
+          "title": "Sūtra, bhāṣya, and a possible unified work"
         },
         {
-          "id": "central-question",
-          "title": "How can the movements of mind cease to bind consciousness"
+          "id": "before",
+          "title": "Yoga before and beyond Patañjali"
         },
         {
-          "id": "samkhya-background",
-          "title": "Purusha, prakriti, and the Samkhya inheritance"
+          "id": "definition",
+          "title": "Stilling the activities of citta"
         },
         {
-          "id": "afflictions-and-karma",
-          "title": "Ignorance, affliction, habit, and suffering"
+          "id": "samkhya",
+          "title": "A Sāṃkhya-related metaphysics with distinctive commitments"
+        },
+        {
+          "id": "afflictions",
+          "title": "Affliction, karma, and the construction of suffering"
         },
         {
           "id": "eight-limbs",
-          "title": "The eight limbs as ethical and contemplative training"
+          "title": "Eight limbs as an integrated discipline"
+        },
+        {
+          "id": "knowledge",
+          "title": "Reliable cognition and extraordinary knowing"
         },
         {
           "id": "isvara",
-          "title": "Ishvara, devotion, and the special purusha"
+          "title": "Īśvara, oṃ, and the limits of the “atheistic yoga” label"
         },
         {
-          "id": "knowledge-and-samadhi",
-          "title": "Concentration, samadhi, and discriminating insight"
+          "id": "liberation",
+          "title": "Discriminative discernment and kaivalya"
         },
         {
-          "id": "rival-debates",
-          "title": "Buddhist, Vedanta, Jain, and modern yoga comparisons"
+          "id": "reception",
+          "title": "Commentaries, eclipse, revival, and global yoga"
         },
         {
-          "id": "body-breath-and-attention",
-          "title": "Why embodied practice is not secondary"
-        },
-        {
-          "id": "influence",
-          "title": "The long afterlife of the Yoga Sutra"
-        },
-        {
-          "id": "misunderstandings",
-          "title": "Common mistakes and interpretive tensions"
-        },
-        {
-          "id": "reading-strategy",
-          "title": "How to read Patanjali well"
+          "id": "reading",
+          "title": "Reading a terse text through explicit lenses"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "dignaga",
-      "name": "Dignaga",
+      "name": "Dignāga",
       "sections": [
         {
-          "id": "overview",
-          "title": "The Buddhist founder of a new epistemological style"
+          "id": "orientation",
+          "title": "A systematizer, not the inventor of Buddhist reasoning"
         },
         {
-          "id": "chronology-and-context",
-          "title": "After Vasubandhu, before Dharmakirti"
-        },
-        {
-          "id": "central-question",
-          "title": "What makes a cognition reliable"
+          "id": "texts-transmission",
+          "title": "A foundational work reconstructed across languages"
         },
         {
           "id": "two-pramanas",
-          "title": "Perception and inference as two reliable means"
+          "title": "Why perception and inference exhaust the basic sources"
         },
         {
           "id": "perception",
-          "title": "Perception as nonconceptual awareness of the particular"
-        },
-        {
-          "id": "inference-and-signs",
-          "title": "Inference, the logical sign, and structured reasoning"
-        },
-        {
-          "id": "apoha",
-          "title": "Meaning through exclusion rather than real universals"
-        },
-        {
-          "id": "relation-to-yogacara",
-          "title": "Cognition, representation, and Yogacara background"
-        },
-        {
-          "id": "debates-with-realists",
-          "title": "Nyaya-Vaisheshika and the battle over universals"
-        },
-        {
-          "id": "debate-culture",
-          "title": "Public reasoning and the discipline of argument"
-        },
-        {
-          "id": "influence",
-          "title": "The foundation for Dharmakirti and later Buddhist logic"
-        },
-        {
-          "id": "misunderstandings",
-          "title": "What Dignaga is not saying"
-        },
-        {
-          "id": "reading-strategy",
-          "title": "How to begin with Dignaga"
-        }
-      ],
-      "hasSources": false
-    },
-    {
-      "id": "dharmakirti",
-      "name": "Dharmakirti",
-      "sections": [
-        {
-          "id": "overview",
-          "title": "The great systematizer of Buddhist epistemology after Dignaga"
-        },
-        {
-          "id": "chronology-and-works",
-          "title": "Approximate dates and a demanding textual corpus"
-        },
-        {
-          "id": "central-question",
-          "title": "How can knowledge work in a momentary world"
-        },
-        {
-          "id": "perception",
-          "title": "Perception, particulars, and freedom from conceptual construction"
+          "title": "Nonconceptual perception and the constructed report"
         },
         {
           "id": "inference",
-          "title": "Inference, pervasion, and proof"
+          "title": "The three characteristics of a good reason"
         },
         {
-          "id": "apoha-and-language",
-          "title": "Language, exclusion, and useful fiction"
+          "id": "public-proof",
+          "title": "Inference for oneself and argument for another"
         },
         {
-          "id": "momentariness",
-          "title": "Momentariness and causal efficacy"
+          "id": "apoha",
+          "title": "Exclusion without a real universal"
         },
         {
-          "id": "religious-knowledge",
-          "title": "The Buddha as reliable guide"
+          "id": "yogacara-status",
+          "title": "Yogācāra context without a frozen school identity"
         },
         {
-          "id": "compassion-and-reason",
-          "title": "Why logic serves a liberating compassion"
+          "id": "limits-criticism",
+          "title": "What the architecture leaves contested"
         },
         {
-          "id": "rival-debates",
-          "title": "Realists, ritualists, Jains, and Vedantins"
+          "id": "reception",
+          "title": "Dharmakīrti, rivals, and divergent afterlives"
         },
         {
-          "id": "influence",
-          "title": "A central authority for Tibetan and Indian scholasticism"
-        },
-        {
-          "id": "misunderstandings",
-          "title": "What beginners often miss"
-        },
-        {
-          "id": "reading-strategy",
-          "title": "How to approach Dharmakirti"
+          "id": "reading-path",
+          "title": "Read arguments, witnesses, and revisions together"
         }
       ],
-      "hasSources": false
+      "hasSources": true
+    },
+    {
+      "id": "dharmakirti",
+      "name": "Dharmakīrti",
+      "sections": [
+        {
+          "id": "orientation",
+          "title": "A powerful philosophy with an uncertain century"
+        },
+        {
+          "id": "corpus",
+          "title": "Seven works, commentaries, and incomplete translations"
+        },
+        {
+          "id": "reality-causality",
+          "title": "Particulars, causal efficacy, and momentariness"
+        },
+        {
+          "id": "pramana-justification",
+          "title": "Reliable cognition is more than a lucky success"
+        },
+        {
+          "id": "perception",
+          "title": "Perception, error, and cultivated cognition"
+        },
+        {
+          "id": "inference",
+          "title": "Good reasons, natural connections, and induction"
+        },
+        {
+          "id": "apoha-language",
+          "title": "Causal contact and exclusion in language"
+        },
+        {
+          "id": "religion-authority",
+          "title": "Reason, scripture, compassion, and the Buddha"
+        },
+        {
+          "id": "other-minds-ethics",
+          "title": "Other minds, reasons, and ethical stakes"
+        },
+        {
+          "id": "reception",
+          "title": "Indian contest and Tibetan transformation"
+        },
+        {
+          "id": "reading-path",
+          "title": "A route through arguments rather than slogans"
+        }
+      ],
+      "hasSources": true
     },
     {
       "id": "madhva",
       "name": "Madhva",
       "sections": [
         {
-          "id": "overview",
-          "title": "The Dvaita Vedanta defender of real difference"
+          "id": "orientation",
+          "title": "Difference, dependence, and a real world"
         },
         {
-          "id": "historical-context",
-          "title": "A medieval Vedantin in a competitive commentarial field"
+          "id": "life-hagiography",
+          "title": "A remembered incarnation and a difficult chronology"
         },
         {
-          "id": "central-question",
-          "title": "Why is difference ultimately real"
+          "id": "corpus",
+          "title": "A prolific corpus before later systematization"
         },
         {
-          "id": "god-and-dependence",
-          "title": "Vishnu as independent reality and all else as dependent"
+          "id": "independent-dependent",
+          "title": "Viṣṇu alone is independent"
         },
         {
-          "id": "critique-of-advaita",
-          "title": "Madhva against nondual illusionism"
+          "id": "five-differences",
+          "title": "The five differences are not temporary mistakes"
         },
         {
-          "id": "souls-and-hierarchy",
-          "title": "Plural souls, dependence, and difficult hierarchy claims"
+          "id": "knowledge",
+          "title": "Perception, inference, and reliable scripture"
         },
         {
-          "id": "knowledge-and-devotion",
-          "title": "Right knowledge as the basis of bhakti"
+          "id": "language-hermeneutics",
+          "title": "Reading the whole canon for divine supremacy"
         },
         {
-          "id": "world-affirmation",
-          "title": "Realism about the world as a devotional claim"
+          "id": "self-liberation",
+          "title": "Distinct selves, devotion, grace, and liberation"
         },
         {
-          "id": "scriptural-interpretation",
-          "title": "Reading Vedanta through difference"
+          "id": "hierarchy-destiny",
+          "title": "Tāratamya and the disturbing doctrine of unequal destinies"
         },
         {
-          "id": "rival-debates",
-          "title": "Advaita, Vishishtadvaita, Buddhism, and realism"
+          "id": "polemics",
+          "title": "Debate with Advaita and other Indian philosophies"
         },
         {
-          "id": "influence",
-          "title": "Dvaita Vedanta and later devotional thought"
+          "id": "transmission",
+          "title": "From Uḍupi lineages to early modern realism"
         },
         {
-          "id": "misunderstandings",
-          "title": "Avoiding caricatures of Dvaita"
-        },
-        {
-          "id": "reading-strategy",
-          "title": "How to read Madhva fairly"
+          "id": "reading-path",
+          "title": "A reading path through argument and lineage"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "mozi",
