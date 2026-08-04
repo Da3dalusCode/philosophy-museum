@@ -39,7 +39,7 @@ export function EditorialMethodology() {
 
     <section className="methodology-section">
       <h2>Phased review</h2>
-      <p>The atlas contains a large local corpus. Most pages therefore begin as unreviewed or bibliography-only material, and many existing articles remain below the universal depth floor during a documented migration. Review proceeds in globally diverse batches, with high-risk biography, quotation, chronology, influence, origin, and cross-cultural claims prioritized. The public status on each page—not the presence of polished or lengthy prose—indicates how far claim review has progressed.</p>
+      <p>The atlas contains a large local corpus. The universal depth migration is complete, but depth is not formal claim review: many pages remain unreviewed or bibliography-only. Review proceeds in globally diverse batches, with high-risk biography, quotation, chronology, influence, origin, and cross-cultural claims prioritized. The public status on each page—not the presence of polished or lengthy prose—indicates how far claim review has progressed.</p>
     </section>
   </div>;
 }
