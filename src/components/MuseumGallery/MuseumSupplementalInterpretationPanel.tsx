@@ -52,6 +52,10 @@ export function MuseumSupplementalInterpretationPanel({
     articleActionLabel: 'Open Plato’s full Atlas article',
     entityKind: 'philosopher' as const,
   };
+  // Supplemental records predate route-order public numbering. Their canonical
+  // hall is supplied by the scene, not stored on the record, so avoid exposing
+  // a stale number while retaining the visitor-facing exhibit role.
+  const publicPanelKicker = presentation.panelKicker.replace(/^Gallery \d{2}\s+/, '');
 
   useEffect(() => {
     const frame = window.requestAnimationFrame(() => document.getElementById(titleId)?.focus({preventScroll: true}));
@@ -103,7 +107,7 @@ export function MuseumSupplementalInterpretationPanel({
     >
       <header className="museum-panel-header">
         <div>
-          <p className="museum-panel-kicker">{presentation.panelKicker} · {exhibit.dateLabel}</p>
+          <p className="museum-panel-kicker">{publicPanelKicker} · {exhibit.dateLabel}</p>
           <h2 id={titleId} tabIndex={-1}>{exhibit.displayName}</h2>
         </div>
         <button className="museum-icon-button" type="button" onClick={() => onClose('gesture')} aria-label={`Close ${exhibit.displayName} exhibit`}><X/></button>

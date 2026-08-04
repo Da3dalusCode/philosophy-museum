@@ -13,6 +13,14 @@ Philosophy Atlas is an interactive museum and atlas of philosophical development
 
 The accepted architecture lock is recorded in [Decision 0001](../decisions/0001-museum-structure.md). “Worlds with a Questions Forum” is an intellectual and curatorial principle; it does not require Ring geometry.
 
+## Permanent Museum wayfinding and interaction
+
+- Public Gallery 01–26 numbers follow the recommended physical visitor route. The route sequence is the single numbering authority; stable hall IDs remain the durable software identity and are not exposed as visitor-facing identifiers.
+- Visitor maps describe how to move through the Museum. They do not expose collection-planning, manifest, construction-state, or release-tracking metadata.
+- When walking and looking require a click to resume, the Museum presents one centered, prominent **Resume Visit** interaction overlay derived from the actual input-capture state. It stays hidden while another interface is intentionally open.
+- The recommended route is marked by one continuous, flush, noncolliding floor inlay from the Main Entrance through Gallery 26 to the final return and exit. Crosscut and shortcut branches use a quieter related treatment.
+- Gallery 01 follows the same deliberate exhibit-placement standard as the strongest later galleries: authored room assignments remain fixed, wall compositions are balanced, focal anchors read first, and doorway, sightline, circulation, and route-inlay clearances remain open.
+
 ## Cultural and editorial integrity
 
 - Europe is not the default frame into which other traditions are inserted. Primary homes must follow historical and cultural formation, documented intellectual identity, contribution, and continuity of argument.

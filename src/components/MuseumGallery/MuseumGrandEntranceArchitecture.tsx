@@ -15,36 +15,7 @@ const LIMESTONE = {
   roughness: .9,
   metalness: .02,
 } as const;
-const DARK_STONE = {
-  color: '#282824',
-  roughness: .82,
-  metalness: .03,
-} as const;
 const DAYLIGHT = '#fff1d2';
-
-type FloorPoint = readonly [number, number];
-
-function BrassRouteSegment({
-  from,
-  to,
-  width = .1,
-}: {
-  from: FloorPoint;
-  to: FloorPoint;
-  width?: number;
-}) {
-  const dx = to[0] - from[0];
-  const dz = to[1] - from[1];
-  const length = Math.hypot(dx, dz);
-  const rotationY = -Math.atan2(dz, dx);
-  return <mesh
-    position={[(from[0] + to[0]) / 2, .018, (from[1] + to[1]) / 2]}
-    rotation={[0, rotationY, 0]}
-  >
-    <boxGeometry args={[length, .028, width]}/>
-    <meshStandardMaterial {...BRONZE}/>
-  </mesh>;
-}
 
 function WallPilaster({x, z, inward}: {x: number; z: number; inward: 1 | -1}) {
   return <group position={[x, 0, z]}>
@@ -210,64 +181,6 @@ function ExteriorArrival({x, z}: {x: number; z: number}) {
   </group>;
 }
 
-function OrientationFloor() {
-  const routeOrigin: FloorPoint = [18.8, 0];
-  const compassCenter: FloorPoint = [6.8, 0];
-  const routeTurn: FloorPoint = [-1.2, 3.9];
-  const galleryPortal: FloorPoint = [-19.2, 14];
-  return <group userData={{museumEntranceFeature: 'arrival-axis'}}>
-    <mesh position={[13.2, .012, 0]}>
-      <boxGeometry args={[11.2, .025, 3.7]}/>
-      <meshStandardMaterial color="#716b61" roughness={.9}/>
-    </mesh>
-    {[-1.92, 1.92].map((offset) => <mesh key={offset} position={[13.2, .028, offset]}>
-      <boxGeometry args={[11.25, .035, .09]}/>
-      <meshStandardMaterial {...BRONZE}/>
-    </mesh>)}
-    <BrassRouteSegment from={routeOrigin} to={compassCenter} width={.14}/>
-    <BrassRouteSegment from={compassCenter} to={routeTurn} width={.14}/>
-    <BrassRouteSegment from={routeTurn} to={galleryPortal} width={.14}/>
-
-    <group position={[compassCenter[0], .026, compassCenter[1]]}>
-      <mesh>
-        <cylinderGeometry args={[3.65, 3.65, .035, 64]}/>
-        <meshStandardMaterial {...DARK_STONE}/>
-      </mesh>
-      {[3.22, 2.2].map((radius) => <mesh key={radius} rotation={[Math.PI / 2, 0, 0]}>
-        <torusGeometry args={[radius, radius === 3.22 ? .075 : .035, 10, 64]}/>
-        <meshStandardMaterial {...BRONZE}/>
-      </mesh>)}
-      <mesh position={[0, .026, 0]}>
-        <boxGeometry args={[6.3, .035, .08]}/>
-        <meshStandardMaterial {...BRONZE}/>
-      </mesh>
-      <mesh position={[0, .027, 0]} rotation={[0, Math.PI / 2, 0]}>
-        <boxGeometry args={[6.3, .035, .08]}/>
-        <meshStandardMaterial {...BRONZE}/>
-      </mesh>
-      <mesh position={[0, .06, 0]}>
-        <cylinderGeometry args={[.22, .22, .09, 32]}/>
-        <meshStandardMaterial
-          color="#f0bf77"
-          emissive="#a6642f"
-          emissiveIntensity={.6}
-          roughness={.3}
-          metalness={.62}
-        />
-      </mesh>
-    </group>
-
-    {[.2, .4, .6, .8].map((progress) => {
-      const x = routeTurn[0] + (galleryPortal[0] - routeTurn[0]) * progress;
-      const z = routeTurn[1] + (galleryPortal[1] - routeTurn[1]) * progress;
-      return <mesh key={progress} position={[x, .035, z]} rotation={[0, -.51, 0]}>
-        <boxGeometry args={[.08, .04, 1.7]}/>
-        <meshStandardMaterial {...BRONZE}/>
-      </mesh>;
-    })}
-  </group>;
-}
-
 function OrientationOculus() {
   return <group
     position={[10, 3, -27.55]}
@@ -354,7 +267,6 @@ export function MuseumGrandEntranceArchitecture({node}: {node: MuseumRuntimeNode
   return <group userData={{museumEntrance: 'ceremonial-threshold-sequence'}}>
     <CofferedCeiling/>
     <ExteriorArrival x={publicEntry.position.x} z={publicEntry.position.z}/>
-    <OrientationFloor/>
     <OrientationOculus/>
     <GalleryOnePortal x={throughRoute.position.x} z={throughRoute.position.z}/>
     {[-13, -3, 7, 17].flatMap((x) => [

@@ -26,6 +26,32 @@ export const MUSEUM_CANONICAL_CEILING_MATERIAL = Object.freeze({
   metalness: 0,
 }) satisfies MuseumWallMaterialSpec;
 
+export const MUSEUM_ROUTE_INLAY_MATERIALS = Object.freeze({
+  mainBorder: Object.freeze({
+    color: '#3c2a1d',
+    roughness: .5,
+    metalness: .58,
+  }),
+  mainCore: Object.freeze({
+    color: '#bd8a4f',
+    roughness: .34,
+    metalness: .72,
+  }),
+  crosscutBorder: Object.freeze({
+    color: '#40362d',
+    roughness: .6,
+    metalness: .42,
+  }),
+  crosscutCore: Object.freeze({
+    color: '#846e56',
+    roughness: .56,
+    metalness: .46,
+  }),
+});
+
+/** Render separation only; the inlay is a zero-thickness plane at floor level. */
+export const MUSEUM_ROUTE_INLAY_RENDER_OFFSET = .004;
+
 /** Shared structural finish for exposed exhibit backing panels in Galleries 01–02. */
 export const MUSEUM_CANONICAL_EXHIBIT_BACKING_MATERIAL = Object.freeze({
   color: '#d8d1c3',

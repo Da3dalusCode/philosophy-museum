@@ -1,4 +1,10 @@
 import type {MuseumFurnishingDefinition} from './museumWorldTypes';
+import {
+  GALLERY_01_ORIENTATION_PLACEMENT,
+  GALLERY_01_PRIMARY_PLACEMENTS,
+  type Gallery01PrimaryExhibitId,
+  type Gallery01RoomId,
+} from './gallery01Placement';
 
 export const MEDITERRANEAN_GALLERY_ID = 'mediterranean-beginnings-classical' as const;
 
@@ -20,29 +26,7 @@ export const MEDITERRANEAN_ROOM_ACCENTS = [
   '#8d5a3d',
 ] as const;
 
-export type MediterraneanExhibitId =
-  | 'ancient-greek'
-  | 'thales'
-  | 'anaximander'
-  | 'anaximenes'
-  | 'pythagoras'
-  | 'philolaus'
-  | 'parmenides'
-  | 'zeno-elea'
-  | 'leucippus'
-  | 'democritus'
-  | 'heraclitus'
-  | 'empedocles'
-  | 'anaxagoras'
-  | 'protagoras'
-  | 'prodicus'
-  | 'hippias-of-elis'
-  | 'gorgias'
-  | 'socrates'
-  | 'platonism'
-  | 'plato'
-  | 'aristotelianism'
-  | 'aristotle';
+export type MediterraneanExhibitId = Gallery01PrimaryExhibitId;
 
 export type MediterraneanVisualKind =
   | 'water'
@@ -75,139 +59,139 @@ export type MediterraneanExhibitCuration = {
 /** Authored Gallery 01 placement and public interpretation, independent of runtime tier names. */
 export const MEDITERRANEAN_EXHIBIT_CURATION = {
   'ancient-greek': {
-    authored: {x: 10.85, z: -24.1, rotationY: -Math.PI / 2},
+    authored: GALLERY_01_PRIMARY_PLACEMENTS['ancient-greek'],
     publicKicker: 'Aegean and Mediterranean worlds',
     visualKind: 'portrait',
     groupLabel: 'One beginning among many',
     frontTitle: 'One Mediterranean beginning among many',
   },
   thales: {
-    authored: {x: -10.85, z: -23.4, rotationY: Math.PI / 2},
+    authored: GALLERY_01_PRIMARY_PLACEMENTS.thales,
     publicKicker: 'Miletus · late 7th–6th century BCE',
     visualKind: 'water',
     groupLabel: 'Milesian natural explanation',
     frontTitle: 'Could nature explain nature?',
   },
   anaximander: {
-    authored: {x: 10.85, z: -17.4, rotationY: -Math.PI / 2},
+    authored: GALLERY_01_PRIMARY_PLACEMENTS.anaximander,
     publicKicker: 'Miletus · early–mid 6th century BCE',
     visualKind: 'boundless',
     groupLabel: 'Milesian natural explanation',
     frontTitle: 'What if no familiar substance is enough?',
   },
   anaximenes: {
-    authored: {x: -10.85, z: -17.4, rotationY: Math.PI / 2},
+    authored: GALLERY_01_PRIMARY_PLACEMENTS.anaximenes,
     publicKicker: 'Miletus · mid-6th century BCE; dates uncertain',
     visualKind: 'air',
     groupLabel: 'Milesian natural explanation',
     frontTitle: 'How could air become many things?',
   },
   pythagoras: {
-    authored: {x: -10.85, z: -11.3, rotationY: Math.PI / 2},
+    authored: GALLERY_01_PRIMARY_PLACEMENTS.pythagoras,
     publicKicker: 'Samos and Croton · c. 570–c. 495 BCE',
     visualKind: 'number',
     groupLabel: 'Pythagorean order and practice',
   },
   philolaus: {
-    authored: {x: -10.85, z: -7, rotationY: Math.PI / 2},
+    authored: GALLERY_01_PRIMARY_PLACEMENTS.philolaus,
     publicKicker: 'Greek world · late 5th century BCE; dates uncertain',
     visualKind: 'harmony',
     groupLabel: 'Pythagorean order and practice',
   },
   parmenides: {
-    authored: {x: 10.85, z: -11.3, rotationY: -Math.PI / 2},
+    authored: GALLERY_01_PRIMARY_PLACEMENTS.parmenides,
     publicKicker: 'Elea · early 5th century BCE; chronology debated',
     visualKind: 'being',
     groupLabel: 'The Eleatic challenge',
   },
   'zeno-elea': {
-    authored: {x: 10.85, z: -7, rotationY: -Math.PI / 2},
+    authored: GALLERY_01_PRIMARY_PLACEMENTS['zeno-elea'],
     publicKicker: 'Elea · c. 490–c. 430 BCE',
     visualKind: 'paradox',
     groupLabel: 'The Eleatic challenge',
   },
   leucippus: {
-    authored: {x: 6, z: -5.7, rotationY: -Math.PI / 2},
+    authored: GALLERY_01_PRIMARY_PLACEMENTS.leucippus,
     publicKicker: 'Greek world · 5th century BCE; biography uncertain',
     visualKind: 'atoms-archive',
     groupLabel: 'Atomists: bodies and void',
   },
   democritus: {
-    authored: {x: -10.85, z: -3.8, rotationY: Math.PI / 2},
+    authored: GALLERY_01_PRIMARY_PLACEMENTS.democritus,
     publicKicker: 'Abdera · c. 460–c. 370 BCE',
     visualKind: 'atoms',
     groupLabel: 'Atomists: bodies and void',
   },
   heraclitus: {
-    authored: {x: 10.85, z: -3.8, rotationY: -Math.PI / 2},
+    authored: GALLERY_01_PRIMARY_PLACEMENTS.heraclitus,
     publicKicker: 'Ephesus · fl. c. 500 BCE; dates uncertain',
     visualKind: 'change',
     groupLabel: 'Rival accounts of change and order',
   },
   empedocles: {
-    authored: {x: 5.8, z: -1.15, rotationY: Math.PI},
+    authored: GALLERY_01_PRIMARY_PLACEMENTS.empedocles,
     publicKicker: 'Akragas, Sicily · c. 494–c. 434 BCE',
     visualKind: 'elements',
     groupLabel: 'Rival accounts of change and order',
   },
   anaxagoras: {
-    authored: {x: -5.8, z: -1.15, rotationY: Math.PI},
+    authored: GALLERY_01_PRIMARY_PLACEMENTS.anaxagoras,
     publicKicker: 'Klazomenai and Athens · c. 500–c. 428 BCE',
     visualKind: 'ordering-mind',
     groupLabel: 'Rival accounts of change and order',
   },
   protagoras: {
-    authored: {x: -10.85, z: 4.2, rotationY: Math.PI / 2},
+    authored: GALLERY_01_PRIMARY_PLACEMENTS.protagoras,
     publicKicker: 'Abdera and Athens · c. 490–c. 420 BCE',
     visualKind: 'civic-speech',
     groupLabel: 'Speech, education, and civic judgment',
   },
   prodicus: {
-    authored: {x: -6.3, z: 1.15, rotationY: 0},
+    authored: GALLERY_01_PRIMARY_PLACEMENTS.prodicus,
     publicKicker: 'Ceos and Athens · late 5th century BCE; dates uncertain',
     visualKind: 'civic-speech',
     groupLabel: 'Sophists: language, education, and civic performance',
     frontTitle: 'Can careful words guide a life?',
   },
   'hippias-of-elis': {
-    authored: {x: -9.4, z: 12.85, rotationY: Math.PI},
+    authored: GALLERY_01_PRIMARY_PLACEMENTS['hippias-of-elis'],
     publicKicker: 'Elis and Olympia · c. 460–after 399 BCE; dates uncertain',
     visualKind: 'civic-speech',
     groupLabel: 'Sophists: language, education, and civic performance',
     frontTitle: 'Can learning make a person self-sufficient?',
   },
   gorgias: {
-    authored: {x: 10.85, z: 5.1, rotationY: -Math.PI / 2},
+    authored: GALLERY_01_PRIMARY_PLACEMENTS.gorgias,
     publicKicker: 'Leontinoi and Athens · c. 485–c. 380 BCE',
     visualKind: 'civic-speech',
     groupLabel: 'Speech, education, and civic judgment',
   },
   socrates: {
-    authored: {x: 6, z: 12.85, rotationY: Math.PI},
+    authored: GALLERY_01_PRIMARY_PLACEMENTS.socrates,
     publicKicker: 'Athens · c. 470–399 BCE',
     visualKind: 'examined-life',
     groupLabel: 'The examined life',
   },
   platonism: {
-    authored: {x: -10.85, z: 18, rotationY: Math.PI / 2},
+    authored: GALLERY_01_PRIMARY_PLACEMENTS.platonism,
     publicKicker: 'The Academy, Athens · from the 4th century BCE',
     visualKind: 'academy',
     groupLabel: 'Plato and the Academy',
   },
   plato: {
-    authored: {x: -10.85, z: 24, rotationY: Math.PI / 2},
+    authored: GALLERY_01_PRIMARY_PLACEMENTS.plato,
     publicKicker: 'Athens · c. 429/427–347 BCE',
     visualKind: 'portrait',
     groupLabel: 'Plato and the Academy',
   },
   aristotelianism: {
-    authored: {x: 10.85, z: 18, rotationY: -Math.PI / 2},
+    authored: GALLERY_01_PRIMARY_PLACEMENTS.aristotelianism,
     publicKicker: 'The Lyceum, Athens · founded c. 335 BCE',
     visualKind: 'lyceum',
     groupLabel: 'Aristotle and the Lyceum',
   },
   aristotle: {
-    authored: {x: 10.85, z: 24, rotationY: -Math.PI / 2},
+    authored: GALLERY_01_PRIMARY_PLACEMENTS.aristotle,
     publicKicker: 'Stagira and Athens · 384–322 BCE',
     visualKind: 'portrait',
     groupLabel: 'Aristotle and the Lyceum',
@@ -218,17 +202,11 @@ export const MEDITERRANEAN_EXHIBIT_CURATION = {
 export const MEDITERRANEAN_ORIENTATION_DISPLAY = {
   id: 'mediterranean-orientation-display',
   kind: 'orientation-plinth',
-  center: {x: 4.65, z: -21.1},
-  size: {width: 5.8, depth: .55},
-  rotation: 0,
+  ...GALLERY_01_ORIENTATION_PLACEMENT,
   height: 3.15,
 } as const satisfies MuseumFurnishingDefinition;
 
-export type MediterraneanRoomId =
-  | 'med-orientation-nature'
-  | 'med-being-change-plurality'
-  | 'med-sophists-socratic'
-  | 'med-plato-aristotle';
+export type MediterraneanRoomId = Gallery01RoomId;
 
 export type MediterraneanRoomSignCopy = {
   title: string;

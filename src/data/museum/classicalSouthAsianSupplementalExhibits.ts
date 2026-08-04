@@ -157,7 +157,7 @@ const exhibits = [
     cautions: ['The text is not a neutral census of South Asian thought.', 'The plain modern cover documents transmission, not the appearance of a medieval manuscript.'],
     sections: [
       {heading: 'Ordering is interpretation', paragraphs: ['A survey decides where to begin, which opponents deserve chapters, and how one position leads to another. Those choices help readers navigate but can make one later perspective look like the natural map of the field.']},
-      {heading: 'The gallery keeps an open edge', paragraphs: ['Gallery 07 does not attempt civilizational completeness. Its opening label sends visitors onward to dedicated Buddhist and future comparative halls, while the chosen cases remain historically and doctrinally specific.']},
+      {heading: 'The gallery keeps an open edge', paragraphs: ['Gallery 04 does not attempt civilizational completeness. Its opening label sends visitors onward to dedicated Buddhist and future comparative halls, while the chosen cases remain historically and doctrinally specific.']},
       {heading: 'Absence is part of the label', paragraphs: ['Materialist, Buddhist, devotional, vernacular, and many regional arguments exceed this sequence. Naming those absences keeps selection from masquerading as completeness. It also turns the last word of the room into a route outward rather than a claim of closure.']},
     ],
     sources: [

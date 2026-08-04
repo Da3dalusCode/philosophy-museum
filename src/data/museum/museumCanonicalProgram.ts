@@ -5,6 +5,18 @@
  * authored geometry, interpretations, and media provenance live in their own contracts.
  */
 
+import {
+  formatMuseumPublicGalleryNumber,
+  getMuseumPublicGalleryNumber,
+  MUSEUM_PUBLIC_GALLERY_NUMBERS,
+} from './museumPublicRoute';
+
+export {
+  formatMuseumPublicGalleryNumber,
+  getMuseumPublicGalleryNumber,
+  MUSEUM_PUBLIC_GALLERY_NUMBERS,
+};
+
 export const MUSEUM_PRESENTATION_TIERS = [
   'anchor-exhibit',
   'standard-individual-exhibit',
@@ -265,39 +277,6 @@ export type MuseumCanonicalHall = {
   recordCapacity: number;
   rooms: readonly MuseumCanonicalRoom[];
 };
-
-/**
- * Gallery numbers are stable release identities, not array indexes or physical
- * visit positions.
- */
-export const MUSEUM_PUBLIC_GALLERY_NUMBERS = {
-  'mediterranean-beginnings-classical': 1,
-  'renaissance-humanism-new-method': 2,
-  'phenomenology-existence-embodiment': 3,
-  'analytic-traditions': 4,
-  'justice-democratic-reason': 5,
-  'core-questions-forum': 6,
-  'classical-south-asian-worlds': 7,
-  'buddhist-philosophies': 8,
-  'classical-chinese-traditions': 9,
-  'islamic-philosophical-worlds': 10,
-  'east-asian-continuities': 11,
-  'jewish-philosophy': 12,
-  'latin-christian-scholastic': 13,
-  'hellenistic-roman-ways': 14,
-  'late-antiquity-inheritance': 15,
-  'rationalism-mind-nature-system': 16,
-  'empiricism-science-political-order': 17,
-  'enlightenment-revolution-kant': 18,
-  'german-idealism-afterlives': 19,
-  'utility-liberty-history-capital': 20,
-  'faith-pessimism-life-value': 21,
-  'pragmatism-democratic-inquiry': 22,
-  'critique-power-deconstruction': 23,
-  'moral-life-practical-reason': 24,
-  'feminist-philosophies': 25,
-  'colonialism-race-liberation': 26,
-} as const satisfies Readonly<Record<MuseumCanonicalHallId, number>>;
 
 const exhibit = <const Record extends MuseumCanonicalExhibit>(record: Record) => ({
   ...record,

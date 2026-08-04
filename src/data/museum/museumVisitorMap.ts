@@ -1,5 +1,8 @@
 import type {MuseumPublicHallId as MuseumHallId} from '../museumCatalog';
-import type {MuseumPlannedHallId} from './museumCanonicalProgram';
+import {
+  type MuseumPlannedHallId,
+} from './museumCanonicalProgram';
+import {MUSEUM_PUBLIC_GALLERY_NUMBERS} from './museumPublicRoute';
 import manifestJson from './museumContinuousEnfiladeManifest.json';
 import {
   MUSEUM_VISITOR_MAP_KIOSK,
@@ -142,8 +145,21 @@ export type MuseumVisitorMapManifest = {
  * Lightweight public-plan source for the map and kiosk. It contains no scene,
  * interpretation, supplemental-exhibit, image, or texture registrations.
  */
-export const MUSEUM_VISITOR_MAP_MANIFEST =
-  manifestJson as unknown as MuseumVisitorMapManifest;
+const sourceVisitorMapManifest = manifestJson as unknown as MuseumVisitorMapManifest;
+
+export const MUSEUM_VISITOR_MAP_MANIFEST: MuseumVisitorMapManifest = {
+  ...sourceVisitorMapManifest,
+  nodes: sourceVisitorMapManifest.nodes.map((node) => node.programHallId
+    ? {
+        ...node,
+        publicGalleryNumber: MUSEUM_PUBLIC_GALLERY_NUMBERS[node.programHallId],
+        map: {
+          ...node.map,
+          label: `Gallery ${String(MUSEUM_PUBLIC_GALLERY_NUMBERS[node.programHallId]).padStart(2, '0')} · ${node.title}`,
+        },
+      }
+    : node),
+};
 
 export type MuseumVisitorMapDestination =
   | {kind: 'spawn'}
@@ -213,6 +229,7 @@ const curatedDestinations = MUSEUM_VISITOR_MAP_NODES.filter(({fastTravelEligible
 if (
   MUSEUM_VISITOR_MAP_NODES.length !== 26
   || publicNumbers.size !== 26
+  || MUSEUM_VISITOR_MAP_NODES.some(({publicGalleryNumber, visitSequence}) => publicGalleryNumber !== visitSequence)
   || programIds.size !== 26
   || roomIds.length !== 105
   || new Set(roomIds).size !== 105

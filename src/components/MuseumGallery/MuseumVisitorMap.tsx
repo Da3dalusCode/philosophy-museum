@@ -1,4 +1,4 @@
-import {LocateFixed, MapPinned, Navigation, X} from 'lucide-react';
+import {LocateFixed, Navigation, X} from 'lucide-react';
 import {useId, useState} from 'react';
 import type {KeyboardEvent as ReactKeyboardEvent} from 'react';
 import type {MuseumPublicHallId as MuseumHallId} from '../../data/museumCatalog';
@@ -12,8 +12,6 @@ import {
   MUSEUM_VISITOR_MAP_NODE_PROJECTIONS,
   MUSEUM_VISITOR_MAP_PROJECTION,
   MUSEUM_VISITOR_MAP_RESERVATIONS,
-  MUSEUM_VISITOR_MAP_TURN_COURTS,
-  MUSEUM_VISITOR_MAP_VIEWBOX,
   projectMuseumVisitorMapHeading,
   projectMuseumVisitorMapPoint,
   type MuseumVisitorMapPoint,
@@ -36,20 +34,31 @@ const physicalNodeById = new Map(
   MUSEUM_VISITOR_MAP_NODE_PROJECTIONS.map((node) => [node.id, node]),
 );
 
-const galleriesByPublicNumber = [...MUSEUM_VISITOR_MAP_PROJECTION]
+const galleriesByRoute = [...MUSEUM_VISITOR_MAP_PROJECTION]
   .sort((first, second) =>
-    first.hall.publicGalleryNumber - second.hall.publicGalleryNumber);
+    first.hall.visitSequence - second.hall.visitSequence);
 
-const curatedCount = MUSEUM_VISITOR_MAP_PROJECTION.filter(
-  ({hall}) => hall.galleryState === 'curated-open',
-).length;
-const plannedCount = MUSEUM_VISITOR_MAP_PROJECTION.length - curatedCount;
+const publicMapExtents = [
+  ...MUSEUM_VISITOR_MAP_NODE_PROJECTIONS.flatMap(({cells}) =>
+    cells.flatMap(({points}) => points)),
+  ...MUSEUM_VISITOR_MAP_DOORWAYS.flatMap(({start, end}) => [start, end]),
+  ...MUSEUM_VISITOR_MAP_RESERVATIONS.flatMap(({points}) => points),
+  MUSEUM_VISITOR_MAP_KIOSK_MARKER.point,
+];
+const publicMapPadding = 8;
+const PUBLIC_MAP_VIEWBOX = {
+  minX: Math.min(...publicMapExtents.map(({x}) => x)) - publicMapPadding,
+  minY: Math.min(...publicMapExtents.map(({y}) => y)) - publicMapPadding,
+  width: Math.max(...publicMapExtents.map(({x}) => x))
+    - Math.min(...publicMapExtents.map(({x}) => x))
+    + publicMapPadding * 2,
+  height: Math.max(...publicMapExtents.map(({y}) => y))
+    - Math.min(...publicMapExtents.map(({y}) => y))
+    + publicMapPadding * 2,
+};
 
 const svgPoints = (points: readonly MuseumVisitorMapPoint[]): string =>
   points.map(({x, y}) => `${x},${y}`).join(' ');
-
-const stateLabel = (state: 'curated-open' | 'planned-walkable'): string =>
-  state === 'curated-open' ? 'Curated / open' : 'Planned / walkable';
 
 export function MuseumVisitorMap({
   currentHallId,
@@ -91,13 +100,13 @@ export function MuseumVisitorMap({
   if (!selected) return null;
 
   const selectedNodeIsCurrent = selected.node.physicalNodeId === currentNodeId;
-  const viewBox = MUSEUM_VISITOR_MAP_VIEWBOX;
+  const viewBox = PUBLIC_MAP_VIEWBOX;
   const entrance = MUSEUM_VISITOR_MAP_ENTRANCE;
   const crosscutPoints = [...MUSEUM_VISITOR_MAP_CROSSCUT_INTERSECTIONS]
     .sort((first, second) => second.point.y - first.point.y)
     .map(({point}) => point);
   const crosscutLabelPoint = crosscutPoints[Math.floor(crosscutPoints.length / 2)];
-  const routeSummary = `The Continuous Enfilade is a single-level, 26-gallery museum. The chronological through-route passes every gallery in sequence and uses five turn courts. A 10 metre north–south crosscut has six truthful intersections, including the Core Questions Forum. All twenty-six curated galleries are open for fast travel. Two northern capacity reserves remain closed and are not routes.`;
+  const routeSummary = 'The numbered route connects all 26 galleries in order. The central crosscut links six points along the route, including the Core Questions Forum. Your marker shows your current position and facing direction.';
 
   const selectGallery = (programHallId: MuseumPlannedHallId) =>
     setSelectedProgramHallId(programHallId);
@@ -111,13 +120,10 @@ export function MuseumVisitorMap({
   >
     <div className="museum-overlay-head museum-visitor-map-head">
       <div>
-        <p className="eyebrow"><MapPinned size={14}/> Physical visitor map · Level 0</p>
-        <div className="museum-visitor-map-title-row">
-          <h2 id={titleId}>Continuous Enfilade</h2>
-          <span>{curatedCount} curated / open · {plannedCount} planned / walkable</span>
-        </div>
+        <p className="eyebrow">VISITOR MAP · MAIN LEVEL</p>
+        <h2 id={titleId}>Museum Map</h2>
         <p id={descriptionId} className="museum-visitor-map-lead">
-          One chronological route, a six-intersection crosscut, and your live facing direction.
+          Follow the numbered route or use the central crosscut to explore freely.
         </p>
       </div>
       <button
@@ -132,23 +138,9 @@ export function MuseumVisitorMap({
     <div className="museum-visitor-map-layout">
       <section
         className="museum-visitor-map-plot"
-        aria-label="Continuous Enfilade main-level visitor plan"
+        aria-label="Museum Map main-level visitor plan"
         aria-describedby={routeSummaryId}
       >
-        <div className="museum-visitor-map-program" aria-label="Complete 26-gallery program">
-          <div>
-            <strong>26-gallery collection plan</strong>
-            <span><b>{curatedCount} curated</b> · {plannedCount} installations planned · 105 rooms</span>
-          </div>
-          <div className="museum-visitor-map-program-rail" aria-hidden="true">
-            {galleriesByPublicNumber.map(({hall}) => <i
-              key={hall.id}
-              data-status={hall.galleryState}
-              title={`${hall.galleryNumber} · ${hall.title} · ${stateLabel(hall.galleryState)}`}
-            />)}
-          </div>
-        </div>
-
         <div className="museum-visitor-map-scroll">
           <svg
             className="museum-visitor-map-plan"
@@ -157,29 +149,18 @@ export function MuseumVisitorMap({
             role="img"
             aria-labelledby={`${mapTitleId} ${mapDescriptionId}`}
           >
-            <title id={mapTitleId}>Continuous Enfilade physical plan</title>
+            <title id={mapTitleId}>Museum Map main-level plan</title>
             <desc id={mapDescriptionId}>{routeSummary}</desc>
-            <defs>
-              <pattern
-                id="museum-map-future-hatch"
-                width="3"
-                height="3"
-                patternUnits="userSpaceOnUse"
-                patternTransform="rotate(45)"
-              >
-                <line className="museum-visitor-map-hatch-line" x1="0" y1="0" x2="0" y2="3"/>
-              </pattern>
-              <pattern
-                id="museum-map-planned-hatch"
-                width="4"
-                height="4"
-                patternUnits="userSpaceOnUse"
-                patternTransform="rotate(45)"
-              >
-                <line className="museum-visitor-map-planned-hatch-line" x1="0" y1="0" x2="0" y2="4"/>
-              </pattern>
-            </defs>
-
+            <g className="museum-visitor-map-reserves" aria-label="Closed reserves">
+              {MUSEUM_VISITOR_MAP_RESERVATIONS.map((reservation) => <g key={reservation.id}>
+                <polygon points={svgPoints(reservation.points)}/>
+                <text
+                  x={reservation.labelPoint.x}
+                  y={reservation.labelPoint.y}
+                  textAnchor="middle"
+                >CLOSED RESERVE</text>
+              </g>)}
+            </g>
             <g className="museum-visitor-map-footprints">
               {MUSEUM_VISITOR_MAP_NODE_PROJECTIONS.map((node) => {
                 const gallery = node.programHallId
@@ -221,7 +202,7 @@ export function MuseumVisitorMap({
                     />)}
                   </g>
                   {selectable && <title>
-                    {gallery.hall.galleryNumber} · {gallery.hall.title} · {stateLabel(gallery.hall.galleryState)}
+                    {gallery.hall.galleryNumber} · {gallery.hall.title}
                   </title>}
                 </g>;
               })}
@@ -264,18 +245,6 @@ export function MuseumVisitorMap({
               />)}
             </g>
 
-            <g className="museum-visitor-map-reservations" aria-hidden="true">
-              {MUSEUM_VISITOR_MAP_RESERVATIONS.map((reservation) => <g key={reservation.id}>
-                <polygon
-                  points={svgPoints(reservation.points)}
-                  data-reservation={reservation.reservationType}
-                />
-                <text x={reservation.labelPoint.x} y={reservation.labelPoint.y} textAnchor="middle">
-                  CLOSED RESERVE
-                </text>
-              </g>)}
-            </g>
-
             <g className="museum-visitor-map-labels" aria-hidden="true">
               {MUSEUM_VISITOR_MAP_NODE_PROJECTIONS.map((node) => {
                 const gallery = node.programHallId
@@ -291,11 +260,8 @@ export function MuseumVisitorMap({
                     y={node.labelPoint.y}
                     textAnchor="middle"
                   >
-                    <tspan x={node.labelPoint.x} dy="-.15em">
+                    <tspan x={node.labelPoint.x} dy=".35em">
                       {String(gallery.hall.publicGalleryNumber).padStart(2, '0')}
-                    </tspan>
-                    <tspan x={node.labelPoint.x} dy="1.15em">
-                      {gallery.hall.galleryState === 'curated-open' ? 'OPEN' : 'PLANNED'}
                     </tspan>
                   </text>;
                 }
@@ -372,36 +338,28 @@ export function MuseumVisitorMap({
 
         <div className="museum-visitor-map-compass" aria-hidden="true"><span>N</span><i/></div>
         <div className="museum-visitor-map-legend" aria-label="Map legend">
-          <span><i data-legend="curated"/>Curated / open</span>
-          <span><i data-legend="planned"/>Planned / walkable</span>
-          <span><i data-legend="through-route"/>Chronological route</span>
-          <span><i data-legend="crosscut"/>10 m crosscut</span>
-          <span><i data-legend="turn-court"/>Turn court · {MUSEUM_VISITOR_MAP_TURN_COURTS.length}</span>
-          <span><i data-legend="current"/>You + facing</span>
-          <span><i data-legend="reserve"/>Closed reserve · {MUSEUM_VISITOR_MAP_RESERVATIONS.length}</span>
+          <span><i data-legend="gallery"/>Gallery</span>
+          <span><i data-legend="through-route"/>Recommended route</span>
+          <span><i data-legend="crosscut"/>Central crosscut</span>
+          <span><i data-legend="turn-court"/>Turn court</span>
+          <span><i data-legend="current"/>You are here</span>
+          <span><i data-legend="reserve"/>Closed reserve</span>
         </div>
       </section>
 
       <aside className="museum-visitor-map-detail" aria-live="polite">
         <strong className="museum-visitor-map-current">
           <LocateFixed size={14}/>
-          You are in {currentPhysicalNode?.label ?? 'the Continuous Enfilade'}
+          You are in {currentPhysicalNode?.label ?? 'the Museum'}
         </strong>
         <div className="museum-visitor-map-selection">
-          <p className="eyebrow">
-            {selected.hall.galleryNumber} · Route {String(selected.hall.visitSequence).padStart(2, '0')}
-          </p>
-          <div className="museum-visitor-map-selection-status">
-            <span data-state={selected.hall.galleryState}>{stateLabel(selected.hall.galleryState)}</span>
-            {selectedNodeIsCurrent && <strong className="museum-visitor-map-selected-current">
-              <LocateFixed size={13}/> Current location
-            </strong>}
-          </div>
+          <p className="eyebrow">{selected.hall.galleryNumber}</p>
+          {selectedNodeIsCurrent && <strong className="museum-visitor-map-selected-current">
+            <LocateFixed size={13}/> Current location
+          </strong>}
           <h3>{selected.hall.title}</h3>
-          <p>{selected.hall.description}</p>
           <div className="museum-visitor-map-room-heading">
             <strong>{selected.hall.roomCount} named rooms</strong>
-            <span>Manifest IDs</span>
           </div>
           <ul
             className="museum-visitor-map-rooms"
@@ -409,7 +367,6 @@ export function MuseumVisitorMap({
           >
             {selected.hall.rooms.map((room) => <li key={room.id}>
               <span>{room.title}</span>
-              <code>{room.id}</code>
             </li>)}
           </ul>
         </div>
@@ -423,19 +380,15 @@ export function MuseumVisitorMap({
             >
               <Navigation size={16}/>Fast travel to {selected.hall.galleryNumber}
             </button>
-            : <div className="museum-visitor-map-walk-only">
-              <strong>Walkable gallery shell</strong>
-              <span>Installations are planned. Enter from the chronological route or crosscut; fast travel is unavailable.</span>
-            </div>}
-          <small>Fast travel is available for all 26 curated/open galleries.</small>
+            : null}
         </div>
 
         <div className="museum-visitor-map-destination-row">
-          <p className="museum-visitor-map-destination-heading">Complete gallery directory</p>
-          <span>{curatedCount} fast travel</span>
+          <p className="museum-visitor-map-destination-heading">Gallery route</p>
+          <span>01–26</span>
         </div>
         <div className="museum-visitor-map-destinations" aria-label="Select any gallery">
-          {galleriesByPublicNumber.map(({hall, node}) => {
+          {galleriesByRoute.map(({hall, node}) => {
             const current = node.physicalNodeId === currentNodeId;
             const isSelected = hall.id === selected.hall.id;
             return <button
@@ -449,9 +402,8 @@ export function MuseumVisitorMap({
               aria-pressed={isSelected}
               onClick={() => selectGallery(hall.id)}
             >
-              <span>G{String(hall.publicGalleryNumber).padStart(2, '0')}</span>
+              <span>{String(hall.publicGalleryNumber).padStart(2, '0')}</span>
               <b>{hall.title}</b>
-              <small>{hall.galleryState === 'curated-open' ? 'Open' : 'Walk only'}</small>
             </button>;
           })}
         </div>

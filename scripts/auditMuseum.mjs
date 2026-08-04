@@ -104,6 +104,8 @@ const result = await build({
       export * from '/src/data/museum/museumHallTemplates.ts';
       export * from '/src/data/museum/museumArchitectureMaterials.ts';
       export * from '/src/data/museum/mediterraneanGalleryCuration.ts';
+      export * from '/src/data/museum/gallery01Placement.ts';
+      export * from '/src/data/museum/museumPublicRoute.ts';
       export * from '/src/data/museum/museumVisitorMap.ts';
       export * from '/src/data/museum/museumVisitorMapProjection.ts';
       export * from '/src/data/museum/museumAssets.ts';
@@ -431,6 +433,8 @@ const {
   MEDITERRANEAN_GALLERY_ID,
   MEDITERRANEAN_ORIENTATION_DISPLAY,
   MEDITERRANEAN_ROOM_SIGN_COPY,
+  GALLERY_01_PRIMARY_PLACEMENTS,
+  MUSEUM_PUBLIC_GALLERY_NUMBERS,
   MUSEUM_PLANNED_HALL_TITLES,
   ContemporaryHallArchitecture,
   ContemporaryHallSignFaces,
@@ -578,34 +582,10 @@ const EXPECTED_COUNTS = {
   'feminist-philosophies': {rooms: 4, exhibits: 3, template: 'crossroads-4'},
   'colonialism-race-liberation': {rooms: 3, exhibits: 3, template: 'sequence-3'},
 };
-const EXPECTED_MAP_LABELS = {
-  'mediterranean-beginnings-classical': 'Gallery 01 · Mediterranean Beginnings & Classical Athens',
-  'renaissance-humanism-new-method': 'Gallery 02 · Renaissance, Political Order, and New Science',
-  'phenomenology-existence-embodiment': 'Gallery 03 · Phenomenology, Existence, and Embodiment',
-  'analytic-traditions': 'Gallery 04 · Analytic Traditions: Logic, Language, and Analysis',
-  'justice-democratic-reason': 'Gallery 05 · Political Action, Justice, and Democratic Reason',
-  'core-questions-forum': 'Gallery 06 · Core Questions Forum',
-  'classical-south-asian-worlds': 'Gallery 07 · Classical South Asia: Jain, Yoga, and Brahmanical Systems',
-  'buddhist-philosophies': 'Gallery 08 · Buddhist Philosophies of Liberation and Knowledge',
-  'classical-chinese-traditions': 'Gallery 09 · Warring States & Classical Chinese Traditions',
-  'islamic-philosophical-worlds': 'Gallery 10 · Arabic & Islamic Philosophical Worlds',
-  'east-asian-continuities': 'Gallery 11 · Confucian Renewal & East Asian Continuities',
-  'jewish-philosophy': 'Gallery 12 · Jewish Philosophy in Arabic-Speaking & Mediterranean Worlds',
-  'latin-christian-scholastic': 'Gallery 13 · Latin Christian & Scholastic Traditions',
-  'hellenistic-roman-ways': 'Gallery 14 · Hellenistic & Roman Ways of Life',
-  'late-antiquity-inheritance': 'Gallery 15 · Late Antiquity & Neoplatonic Inheritance',
-  'rationalism-mind-nature-system': 'Gallery 16 · Rationalism: Mind, Nature, and System',
-  'empiricism-science-political-order': 'Gallery 17 · Empiricism, Science, and Political Order',
-  'enlightenment-revolution-kant': 'Gallery 18 · Enlightenment, Revolution, and Kant’s Critical Turn',
-  'german-idealism-afterlives': 'Gallery 19 · German Idealism & Romantic Afterlives',
-  'utility-liberty-history-capital': 'Gallery 20 · Utility, Liberty, History, and Capital',
-  'faith-pessimism-life-value': 'Gallery 21 · Faith, Pessimism, Life, and Value',
-  'pragmatism-democratic-inquiry': 'Gallery 22 · Pragmatism, Science, and Democratic Inquiry',
-  'critique-power-deconstruction': 'Gallery 23 · Critique, Power, and Deconstruction',
-  'moral-life-practical-reason': 'Gallery 24 · Moral Life & Practical Reason',
-  'feminist-philosophies': 'Gallery 25 · Feminist Philosophies',
-  'colonialism-race-liberation': 'Gallery 26 · Colonialism, Race, and Liberation',
-};
+const EXPECTED_MAP_LABELS = Object.fromEntries(MUSEUM_HALLS.map((hall) => [
+  hall.id,
+  `Gallery ${String(MUSEUM_PUBLIC_GALLERY_NUMBERS[hall.id]).padStart(2, '0')} · ${hall.title}`,
+]));
 const TIER_RUNTIME = {
   'anchor-exhibit': {tier: 'anchor', treatment: 'anchor-bay'},
   'standard-individual-exhibit': {tier: 'standard', treatment: 'standard-bay'},
@@ -1989,7 +1969,6 @@ check('Grand Entrance is a legible ceremonial threshold rather than an undecorat
   assert.match(buildingArchitectureSource, /<MuseumGrandEntranceArchitecture node=\{node\}\/>/u, 'Grand Entrance set piece is not mounted in persistent architecture');
   for (const feature of [
     'public-threshold',
-    'arrival-axis',
     'orientation-oculus',
     'gallery-one-portal',
     'coffered-ceiling',
@@ -2001,6 +1980,7 @@ check('Grand Entrance is a legible ceremonial threshold rather than an undecorat
     );
   }
   assert.match(grandEntranceArchitectureSource, /museumEntrance: 'ceremonial-threshold-sequence'/u, 'Grand Entrance has no authored arrival sequence');
+  assert.match(buildingArchitectureSource, /<MuseumRouteInlay/u, 'Grand Entrance arrival axis is not continued by the Museum-wide route inlay');
   assert.doesNotMatch(grandEntranceArchitectureSource, /\bonClick\b|\bonPointer/u, 'Static entrance architecture masquerades as an interactive control');
   assert.match(buildingArchitectureSource, /Gallery 01 · Mediterranean beginnings/u, 'Grand Entrance does not identify the first chronological threshold');
 });
@@ -2136,10 +2116,10 @@ check('Plato’s Cave and Republic form a substantial supplemental U without ent
   assert(!definition.layout.guidedOrder.some((id) => stableIds.includes(id)), 'A supplemental Plato work entered the canonical guided order');
   assert(!MUSEUM_INTERPRETATIONS.some(({id}) => stableIds.includes(id)), 'A supplemental Plato work entered the primary interpretation registry');
 
-  assert.deepEqual(MEDITERRANEAN_EXHIBIT_CURATION.platonism.authored, {x: -10.85, z: 18, rotationY: Math.PI / 2}, 'The principal Platonism wall moved');
-  assert.deepEqual(MEDITERRANEAN_EXHIBIT_CURATION.plato.authored, {x: -10.85, z: 24, rotationY: Math.PI / 2}, 'The principal Plato wall moved');
-  assert.deepEqual(MEDITERRANEAN_EXHIBIT_CURATION.aristotelianism.authored, {x: 10.85, z: 18, rotationY: -Math.PI / 2}, 'The Aristotle half-room moved');
-  assert.deepEqual(MEDITERRANEAN_EXHIBIT_CURATION.aristotle.authored, {x: 10.85, z: 24, rotationY: -Math.PI / 2}, 'The Aristotle half-room moved');
+  assert.deepEqual(MEDITERRANEAN_EXHIBIT_CURATION.platonism.authored, GALLERY_01_PRIMARY_PLACEMENTS.platonism, 'The principal Platonism wall left the Gallery 01 placement contract');
+  assert.deepEqual(MEDITERRANEAN_EXHIBIT_CURATION.plato.authored, GALLERY_01_PRIMARY_PLACEMENTS.plato, 'The principal Plato wall left the Gallery 01 placement contract');
+  assert.deepEqual(MEDITERRANEAN_EXHIBIT_CURATION.aristotelianism.authored, GALLERY_01_PRIMARY_PLACEMENTS.aristotelianism, 'The Aristotelianism wall left the Gallery 01 placement contract');
+  assert.deepEqual(MEDITERRANEAN_EXHIBIT_CURATION.aristotle.authored, GALLERY_01_PRIMARY_PLACEMENTS.aristotle, 'The Aristotle wall left the Gallery 01 placement contract');
 
   const byId = new Map(supplemental.map((layout) => [layout.id, layout]));
   const republic = byId.get('plato-republic');
@@ -2584,13 +2564,14 @@ check('Gallery 05 fills its exact eighteen-wall civic sequence with clear hierar
   assert.match(justiceSupplementalSceneSource, /MUSEUM_CANONICAL_EXHIBIT_BACKING_MATERIAL/u, 'Gallery 05 renderer bypasses the canonical primary/secondary hierarchy material');
 });
 
-check('Gallery 03 onward makes every primary at least as large as its biggest secondary installation', () => {
-  const candidateGalleryIds = Object.entries(EXPECTED_MAP_LABELS)
-    .filter(([, label]) => {
-      const match = /^Gallery (\d+)/u.exec(label);
-      return match && Number(match[1]) >= 3;
-    })
-    .map(([hallId]) => hallId);
+check('the established full-scale halls make every primary at least as large as their biggest secondary installation', () => {
+  // This visual-depth cohort predates route-order public numbering. Keep its
+  // semantic hall membership stable instead of inferring it from mutable labels.
+  const candidateGalleryIds = Object.keys(EXPECTED_MAP_LABELS)
+    .filter((hallId) => ![
+      'mediterranean-beginnings-classical',
+      'renaissance-humanism-new-method',
+    ].includes(hallId));
   const enforcedGalleryIds = [];
 
   for (const hallId of candidateGalleryIds) {
@@ -3233,8 +3214,8 @@ check('Gallery 12 fills exactly twelve wall faces with three philosopher primari
   const spinozaThreshold = JEWISH_SUPPLEMENTAL_EXHIBITS.find(({id}) => id === 'spinoza-formation-rupture-threshold');
   assert.deepEqual(spinozaThreshold?.articleRoute, {kind: 'philosopher', philosopherId: 'spinoza'});
   const spinozaThresholdCopy = `${spinozaThreshold?.lead} ${spinozaThreshold?.cautions.join(' ')}`;
-  assert.match(spinozaThresholdCopy, /secondary here[\s\S]*primary[\s\S]*(?:Gallery 16|Rationalism gallery)/iu, 'Spinoza is not clearly secondary in Gallery 12 and primary in Gallery 16');
-  assert.doesNotMatch(spinozaThresholdCopy, /future Rationalism gallery/iu, 'Gallery 12 still describes open Gallery 16 as future');
+  assert.match(spinozaThresholdCopy, /secondary here[\s\S]*primary[\s\S]*(?:Gallery 13|Rationalism gallery)/iu, 'Spinoza is not clearly secondary in the Jewish gallery and primary in Gallery 13');
+  assert.doesNotMatch(spinozaThresholdCopy, /future Rationalism gallery/iu, 'The Jewish gallery still describes open Gallery 13 as future');
   const rationalismHall = hallById.get('rationalism-mind-nature-system');
   const rationalismNode = MUSEUM_RUNTIME_NODES.find(({publicHallId}) => publicHallId === 'rationalism-mind-nature-system');
   assert(rationalismHall?.exhibits.some(({id, roomId}) => id === 'spinoza' && roomId === 'rationalism-spinoza-conway'), 'Spinoza is not a canonical Gallery 16 primary');
@@ -4995,8 +4976,8 @@ check('Gallery 06 is a compact four-bay Forum with 25 named wall slots and a cle
   assert(forumEntranceSign, 'Gallery 06 lacks its entrance and crosscut orientation sign');
   assert.match(forumEntranceSign.kicker, /↑ North/u);
   assert.match(forumEntranceSign.kicker, /Visitor map \(M\)/u);
-  assert.match(forumEntranceSign.subtitle, /West: Gallery 13/u);
-  assert.match(forumEntranceSign.subtitle, /East: Gallery 02/u);
+  assert.match(forumEntranceSign.subtitle, /West: Gallery 10/u);
+  assert.match(forumEntranceSign.subtitle, /East: Gallery 12/u);
   assert.match(exhibitWallStandardSource, /6\/6\/7\/6/u, 'The Gallery 06 compact wall-slot rhythm is not recorded for future work');
 });
 
@@ -6319,12 +6300,14 @@ check('the React implementation uses one persistent Canvas, one shared canonical
     architectureSource,
     /function PhysicalSignFace[\s\S]*museumSignFaceId[\s\S]*<planeGeometry/,
   );
-  assert.match(visitorMapSource, /The Continuous Enfilade is a single-level, 26-gallery museum/);
-  assert.match(visitorMapSource, /26-gallery collection plan/);
-  assert.match(visitorMapSource, /10 metre north–south crosscut has six truthful intersections/);
-  assert.match(visitorMapSource, /All twenty-six curated galleries are open for fast travel/);
+  assert.match(visitorMapSource, /VISITOR MAP · MAIN LEVEL/);
+  assert.match(visitorMapSource, /<h2 id=\{titleId\}>Museum Map<\/h2>/);
+  assert.match(visitorMapSource, /Follow the numbered route or use the central crosscut to explore freely\./);
+  assert.match(visitorMapSource, /The numbered route connects all 26 galleries in order/);
+  assert.match(visitorMapSource, /central crosscut links six points along the route/);
   assert.match(visitorMapSource, /projectMuseumVisitorMapHeading/);
-  assert.match(visitorMapSource, /Fast travel is available for all 26 curated\/open galleries/);
+  assert.match(visitorMapSource, /Fast travel to \{selected\.hall\.galleryNumber\}/);
+  assert.doesNotMatch(visitorMapSource, /Continuous Enfilade|collection plan|curated\s*\/\s*open|planned\s*\/\s*walkable|Manifest IDs/);
   assert.doesNotMatch(visitorMapSource, /Ring of Wings|Permanent construction stage|registered hall’s authored safe spawn/);
   assert.match(visitorMapSource, /MUSEUM_VISITOR_MAP_RESERVATIONS/);
   assert.match(visitorMapSource, /selected\.hall\.rooms\.map/);
@@ -6361,7 +6344,7 @@ check('the React implementation uses one persistent Canvas, one shared canonical
   assert.match(museumModalSource, /document\.body\.style\.overflow = 'hidden'/);
   assert.match(museumCssSource, /\.museum-visitor-map-panel\{[^}]*height:100%[^}]*overflow:hidden/);
   assert.match(museumCssSource, /@media\(min-width:901px\) and \(max-height:820px\)/);
-  assert.match(museumCssSource, /museum-visitor-map-reservations/);
+  assert.match(museumCssSource, /museum-visitor-map-reserves/);
 });
 
 assert.deepEqual(unsafeExhibitViewpoints, [], `unsafe exhibit viewpoints:\n${unsafeExhibitViewpoints.join('\n')}`);

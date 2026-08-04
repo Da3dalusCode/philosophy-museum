@@ -37,9 +37,18 @@
     "additionalGalleryReservations": 2
   },
   "numberingPolicy": {
-    "publicGalleryNumber": "Stable release number. Existing Gallery 01–26 numbers do not change when a planned shell is promoted.",
-    "visitSequence": "Physical through-route order. This is independent of public release numbering.",
+    "publicGalleryNumber": "Recommended physical visitor-route order. This route sequence is the single public numbering authority.",
+    "visitSequence": "Physical through-route order and public Gallery 01–26 number.",
+    "stableIdentity": "Internal hall IDs remain the durable software identity and are not exposed as a secondary visitor-facing number.",
     "futureReleaseOrder": []
+  },
+  "visitorWayfindingContract": {
+    "mapTitle": "Museum Map",
+    "mapDescription": "Follow the numbered route or use the central crosscut to explore freely.",
+    "publicMetadataRule": "Do not expose collection-planning, construction-state, manifest, release-tracking, or redundant open-state metadata.",
+    "resumeInteraction": "When input capture is the only required next action, show one centered Resume Visit overlay derived from actual input state and hide it while another interface remains open.",
+    "recommendedRouteInlay": "One continuous flush, noncolliding warm-brass or bronze inlay connects the Main Entrance, Gallery 01–26 thresholds and turn courts, final return, and exit.",
+    "alternativeRouteInlay": "Crosscut and shortcut branches connect with a narrower, quieter related treatment."
   },
   "physicalContract": {
     "mainGalleryBlock": {
@@ -135,7 +144,7 @@
     "depth": 56,
     "ceilingTreatment": "double-height visual volume on the single public level",
     "publicFunctions": [
-      "collection map and directory",
+      "Museum map and directory",
       "resume last visit",
       "choose chronological route, crosscut, guided visit, or fast travel",
       "one permanent orientation landmark"
@@ -161,7 +170,7 @@
     "routeSourceHallId": "colonialism-race-liberation",
     "actions": [
       "return to Grand Entrance",
-      "open collection map",
+      "open Museum map",
       "end guided visit"
     ]
   },
@@ -282,7 +291,7 @@
     {
       "id": "hellenistic-roman-ways",
       "title": "Hellenistic & Roman Ways of Life",
-      "publicGalleryNumber": 14,
+      "publicGalleryNumber": 2,
       "visitSequence": 2,
       "templateId": "crossroads-4",
       "roomIds": [
@@ -307,7 +316,7 @@
     {
       "id": "late-antiquity-inheritance",
       "title": "Late Antiquity & Neoplatonic Inheritance",
-      "publicGalleryNumber": 15,
+      "publicGalleryNumber": 3,
       "visitSequence": 3,
       "templateId": "sequence-3",
       "roomIds": [
@@ -331,7 +340,7 @@
     {
       "id": "classical-south-asian-worlds",
       "title": "Classical South Asia: Jain, Yoga, and Brahmanical Systems",
-      "publicGalleryNumber": 7,
+      "publicGalleryNumber": 4,
       "visitSequence": 4,
       "templateId": "sequence-3",
       "roomIds": [
@@ -357,7 +366,7 @@
     {
       "id": "buddhist-philosophies",
       "title": "Buddhist Philosophies of Liberation and Knowledge",
-      "publicGalleryNumber": 8,
+      "publicGalleryNumber": 5,
       "visitSequence": 5,
       "templateId": "sequence-3",
       "roomIds": [
@@ -383,7 +392,7 @@
     {
       "id": "classical-chinese-traditions",
       "title": "Warring States & Classical Chinese Traditions",
-      "publicGalleryNumber": 9,
+      "publicGalleryNumber": 6,
       "visitSequence": 6,
       "templateId": "crossroads-4",
       "roomIds": [
@@ -408,7 +417,7 @@
     {
       "id": "east-asian-continuities",
       "title": "Confucian Renewal & East Asian Continuities",
-      "publicGalleryNumber": 11,
+      "publicGalleryNumber": 7,
       "visitSequence": 7,
       "templateId": "sequence-3",
       "roomIds": [
@@ -432,7 +441,7 @@
     {
       "id": "islamic-philosophical-worlds",
       "title": "Arabic & Islamic Philosophical Worlds",
-      "publicGalleryNumber": 10,
+      "publicGalleryNumber": 8,
       "visitSequence": 8,
       "templateId": "sequence-3",
       "roomIds": [
@@ -458,7 +467,7 @@
     {
       "id": "jewish-philosophy",
       "title": "Jewish Philosophy in Arabic-Speaking & Mediterranean Worlds",
-      "publicGalleryNumber": 12,
+      "publicGalleryNumber": 9,
       "visitSequence": 9,
       "templateId": "standard-rect",
       "roomIds": [
@@ -481,7 +490,7 @@
     {
       "id": "latin-christian-scholastic",
       "title": "Latin Christian & Scholastic Traditions",
-      "publicGalleryNumber": 13,
+      "publicGalleryNumber": 10,
       "visitSequence": 10,
       "templateId": "sequence-3",
       "roomIds": [
@@ -506,7 +515,7 @@
     {
       "id": "core-questions-forum",
       "title": "Core Questions Forum",
-      "publicGalleryNumber": 6,
+      "publicGalleryNumber": 11,
       "visitSequence": 11,
       "templateId": "crossroads-4",
       "roomIds": [
@@ -538,7 +547,7 @@
     {
       "id": "renaissance-humanism-new-method",
       "title": "Renaissance, Political Order, and New Science",
-      "publicGalleryNumber": 2,
+      "publicGalleryNumber": 12,
       "visitSequence": 12,
       "templateId": "sequence-3",
       "roomIds": [
@@ -562,7 +571,7 @@
     {
       "id": "rationalism-mind-nature-system",
       "title": "Rationalism: Mind, Nature, and System",
-      "publicGalleryNumber": 16,
+      "publicGalleryNumber": 13,
       "visitSequence": 13,
       "templateId": "sequence-3",
       "roomIds": [
@@ -586,7 +595,7 @@
     {
       "id": "empiricism-science-political-order",
       "title": "Empiricism, Science, and Political Order",
-      "publicGalleryNumber": 17,
+      "publicGalleryNumber": 14,
       "visitSequence": 14,
       "templateId": "sequence-3",
       "roomIds": [
@@ -610,7 +619,7 @@
     {
       "id": "enlightenment-revolution-kant",
       "title": "Enlightenment, Revolution, and Kant’s Critical Turn",
-      "publicGalleryNumber": 18,
+      "publicGalleryNumber": 15,
       "visitSequence": 15,
       "templateId": "crossroads-4",
       "roomIds": [
@@ -636,7 +645,7 @@
     {
       "id": "german-idealism-afterlives",
       "title": "German Idealism & Romantic Afterlives",
-      "publicGalleryNumber": 19,
+      "publicGalleryNumber": 16,
       "visitSequence": 16,
       "templateId": "sequence-3",
       "roomIds": [
@@ -661,7 +670,7 @@
     {
       "id": "utility-liberty-history-capital",
       "title": "Utility, Liberty, History, and Capital",
-      "publicGalleryNumber": 20,
+      "publicGalleryNumber": 17,
       "visitSequence": 17,
       "templateId": "sequence-3",
       "roomIds": [
@@ -686,7 +695,7 @@
     {
       "id": "faith-pessimism-life-value",
       "title": "Faith, Pessimism, Life, and Value",
-      "publicGalleryNumber": 21,
+      "publicGalleryNumber": 18,
       "visitSequence": 18,
       "templateId": "sequence-3",
       "roomIds": [
@@ -710,7 +719,7 @@
     {
       "id": "pragmatism-democratic-inquiry",
       "title": "Pragmatism, Science, and Democratic Inquiry",
-      "publicGalleryNumber": 22,
+      "publicGalleryNumber": 19,
       "visitSequence": 19,
       "templateId": "sequence-3",
       "roomIds": [
@@ -735,7 +744,7 @@
     {
       "id": "analytic-traditions",
       "title": "Analytic Traditions: Logic, Language, and Analysis",
-      "publicGalleryNumber": 4,
+      "publicGalleryNumber": 20,
       "visitSequence": 20,
       "templateId": "sequence-3",
       "roomIds": [
@@ -761,7 +770,7 @@
     {
       "id": "phenomenology-existence-embodiment",
       "title": "Phenomenology, Existence, and Embodiment",
-      "publicGalleryNumber": 3,
+      "publicGalleryNumber": 21,
       "visitSequence": 21,
       "templateId": "sequence-3",
       "roomIds": [
@@ -787,7 +796,7 @@
     {
       "id": "critique-power-deconstruction",
       "title": "Critique, Power, and Deconstruction",
-      "publicGalleryNumber": 23,
+      "publicGalleryNumber": 22,
       "visitSequence": 22,
       "templateId": "crossroads-4",
       "roomIds": [
@@ -812,7 +821,7 @@
     {
       "id": "moral-life-practical-reason",
       "title": "Moral Life & Practical Reason",
-      "publicGalleryNumber": 24,
+      "publicGalleryNumber": 23,
       "visitSequence": 23,
       "templateId": "crossroads-4",
       "roomIds": [
@@ -837,7 +846,7 @@
     {
       "id": "justice-democratic-reason",
       "title": "Political Action, Justice, and Democratic Reason",
-      "publicGalleryNumber": 5,
+      "publicGalleryNumber": 24,
       "visitSequence": 24,
       "templateId": "sequence-3",
       "roomIds": [

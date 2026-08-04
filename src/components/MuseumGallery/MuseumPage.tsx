@@ -38,6 +38,7 @@ import {
   getMuseumRuntimeNode,
 } from '../../data/museum/museumBuildingRuntime';
 import {MUSEUM_BUILDING_MANIFEST} from '../../data/museum/museumBuildingManifest';
+import {getMuseumPublicGalleryNumber} from '../../data/museum/museumPublicRoute';
 import {MUSEUM_PERMANENT_STRUCTURAL_HALL_IDS} from '../../data/museum/museumStructuralResidency';
 import {getMuseumInterpretation} from '../../data/museum/museumInterpretations';
 import {
@@ -130,6 +131,7 @@ import {
   parseMuseumExhibitVisitContext,
   resolveMuseumCloseResumeStrategy,
   resolveMuseumExitPolicy,
+  shouldShowMuseumResumeVisit,
   transitionMuseumVisitPhase,
   type MuseumExhibitOrigin,
   type MuseumExhibitVisitContext,
@@ -143,6 +145,9 @@ const createLazyMuseumWorldScene = () => lazy(() => import('./MuseumWorldScene')
 ));
 
 type Overlay = 'directory' | 'help' | 'visitor-map' | null;
+
+const MUSEUM_HALLS_IN_ROUTE_ORDER = [...MUSEUM_HALLS].sort((first, second) =>
+  getMuseumPublicGalleryNumber(first.id) - getMuseumPublicGalleryNumber(second.id));
 
 const MUSEUM_PILOT_CAMERA_KEYS: Readonly<Record<string, MuseumPilotCameraRequest>> = {
   '1': {position: [97, 1.7, -70], target: [89, 1.7, -70]},
@@ -357,7 +362,7 @@ function Directory({route, href, push, returnFocus, onClose, onGuidedStart, onHa
   const descriptionId = useId();
   const [selectedHallId, setSelectedHallId] = useState<MuseumHallId>(route.hallId);
   const selectedHall = getMuseumHallCatalog(selectedHallId)!;
-  const interpretedStopCount = MUSEUM_HALLS.reduce((total, hall) => total + hall.exhibits.length, 0)
+  const interpretedStopCount = MUSEUM_HALLS_IN_ROUTE_ORDER.reduce((total, hall) => total + hall.exhibits.length, 0)
     + MUSEUM_SUPPLEMENTAL_EXHIBITS.length;
   return <MuseumModal labelledBy={titleId} describedBy={descriptionId} returnFocus={returnFocus} onClose={onClose}>
     <div className="museum-overlay-head">
@@ -376,11 +381,11 @@ function Directory({route, href, push, returnFocus, onClose, onGuidedStart, onHa
           value={selectedHallId}
           onChange={(event) => setSelectedHallId(event.currentTarget.value as MuseumHallId)}
         >
-          {MUSEUM_HALLS.map((item) => <option key={item.id} value={item.id}>{item.galleryNumber} · {item.title}</option>)}
+          {MUSEUM_HALLS_IN_ROUTE_ORDER.map((item) => <option key={item.id} value={item.id}>{item.galleryNumber} · {item.title}</option>)}
         </select>
       </label>
       <div className="museum-directory-halls" role="group" aria-label="Choose a Museum gallery">
-        {MUSEUM_HALLS.map((item) => <button key={item.id} type="button" aria-pressed={selectedHallId === item.id} className={selectedHallId === item.id ? 'is-selected' : ''} onClick={() => setSelectedHallId(item.id)}>
+        {MUSEUM_HALLS_IN_ROUTE_ORDER.map((item) => <button key={item.id} type="button" aria-pressed={selectedHallId === item.id} className={selectedHallId === item.id ? 'is-selected' : ''} onClick={() => setSelectedHallId(item.id)}>
           <span>{item.galleryNumber}</span><b>{item.title}</b><small>{item.period}</small>
         </button>)}
       </div>
@@ -447,7 +452,7 @@ function MuseumFallback({route, href, push, onRetry, onReload, immersive, fullsc
       {fullscreen && <button className="btn" type="button" onClick={onToggleFullscreen}>Exit fullscreen</button>}
       <a className="btn" href={href({kind: 'history'})}>Return to Big History</a>
     </div>
-    <div className="museum-fallback-halls">{MUSEUM_HALLS.map((hall) => <section key={hall.id}>
+    <div className="museum-fallback-halls">{MUSEUM_HALLS_IN_ROUTE_ORDER.map((hall) => <section key={hall.id}>
       <p className="eyebrow">{hall.galleryNumber} · {hall.period}</p><h2>{hall.title}</h2><p>{hall.description}</p>
       <DirectoryContents route={route} hallId={hall.id} href={href} push={push} showSummaries exhibitOrigin="paused-hall"/>
     </section>)}</div>
@@ -504,6 +509,7 @@ export function MuseumPage({route, href, push, replace}: {
   const backgroundRef = useRef<HTMLDivElement>(null);
   const sceneCanvasRef = useRef<HTMLCanvasElement | null>(null);
   const overlayOpenerRef = useRef<HTMLElement | null>(null);
+  const resumeButtonRef = useRef<HTMLButtonElement | null>(null);
   const overlayReturnFocusPendingRef = useRef(false);
   const visitorMapResumeRef = useRef(false);
   const travelResumeModeRef = useRef<'locked' | 'drag-look'>('drag-look');
@@ -1346,11 +1352,12 @@ export function MuseumPage({route, href, push, replace}: {
     setVisitPhase((phase) => transitionMuseumVisitPhase(phase, 'enter'));
     controls.beginExploring();
   };
-  const resumeVisitOffered = visitPhase !== 'unentered'
-    && controls.mode !== 'locked'
-    && !sceneError
-    && !activeHallLoading
-    && !activeHallLoadFailed;
+  const resumeVisitOffered = shouldShowMuseumResumeVisit({
+    phase: visitPhase,
+    controlMode: controls.mode,
+    interfaceOpen: modalOpen || atGrandEntrance || atFinalThreshold,
+    unavailable: Boolean(sceneError) || activeHallLoading || activeHallLoadFailed,
+  });
   const resumeVisit = () => {
     if (focusSuspended || exploring) {
       controls.handleSceneGesture();
@@ -1554,6 +1561,24 @@ export function MuseumPage({route, href, push, replace}: {
     if (!modalOpen) return;
     experience.clearError();
   }, [experience.clearError, modalOpen]);
+
+  useEffect(() => {
+    if (!resumeVisitOffered) return;
+    let frame = 0;
+    const focusResume = () => {
+      if (document.hidden) return;
+      window.cancelAnimationFrame(frame);
+      frame = window.requestAnimationFrame(() => resumeButtonRef.current?.focus({preventScroll: true}));
+    };
+    focusResume();
+    window.addEventListener('focus', focusResume);
+    document.addEventListener('visibilitychange', focusResume);
+    return () => {
+      window.cancelAnimationFrame(frame);
+      window.removeEventListener('focus', focusResume);
+      document.removeEventListener('visibilitychange', focusResume);
+    };
+  }, [resumeVisitOffered]);
 
   useEffect(() => {
     if (!modalOpen && overlayReturnFocusPendingRef.current) {
@@ -2147,15 +2172,15 @@ export function MuseumPage({route, href, push, replace}: {
                 ? 'Planned gallery · architectural shell open for walking'
                 : activeNode.kind === 'entrance'
                   ? 'Grand Entrance · collection orientation'
-                  : 'Continuous Enfilade circulation'}</p>
+                  : 'Main-level circulation'}</p>
             {!atCuratedHall && <p className="museum-masthead-location">Current location · {activeNode.mapLabel}</p>}
             {atCuratedHall && <p className="museum-masthead-sweep">{hall.sweep.map((item, index) => <span key={item}>{index > 0 && <i aria-hidden="true">→</i>}{item}</span>)}</p>}
-            <div className="museum-entry-row">
+            {!resumeVisitOffered && <div className="museum-entry-row">
               <button
                 id="museum-enter-button"
-                className={`museum-enter-button${resumeVisitOffered ? ' is-resume' : ''}`}
+                className="museum-enter-button"
                 type="button"
-                onClick={resumeVisitOffered ? resumeVisit : beginExploring}
+                onClick={beginExploring}
                 disabled={Boolean(sceneError) || activeHallLoading || activeHallLoadFailed}
               >
                 <DoorOpen size={17}/>
@@ -2163,16 +2188,14 @@ export function MuseumPage({route, href, push, replace}: {
                   ? 'Gallery unavailable'
                   : activeHallLoading
                     ? 'Preparing gallery'
-                    : resumeVisitOffered
-                      ? 'Resume visit'
-                      : exploring
+                    : exploring
                         ? 'Visit active'
                         : atGrandEntrance
                           ? 'Explore entrance freely'
                           : 'Enter museum'}
               </button>
               <span>{activeIntent ? controls.mode.replace('-', ' ') : 'WASD · arrows · touch'}</span>
-            </div>
+            </div>}
           </header>
 
           <nav className="museum-utility-bar" aria-label="Museum display and navigation controls">
@@ -2184,6 +2207,20 @@ export function MuseumPage({route, href, push, replace}: {
             {experience.fullscreenSupported && <button className="museum-control-fullscreen" type="button" onClick={() => void experience.toggleFullscreen()} aria-pressed={experience.fullscreen} aria-label={experience.fullscreen ? 'Exit browser fullscreen' : 'Enter browser fullscreen'} title={experience.fullscreen ? 'Exit fullscreen' : 'Enter fullscreen'}>{experience.fullscreen ? <Minimize2 size={16}/> : <Maximize2 size={16}/>}<span>{experience.fullscreen ? 'Exit fullscreen' : 'Fullscreen'}</span></button>}
             {exploring && <button className="museum-pause-button" type="button" onClick={controls.pauseExploring} aria-label="Pause Museum visit">Pause visit</button>}
           </nav>
+
+          {resumeVisitOffered && <section
+            className="museum-resume-visit"
+            aria-labelledby="museum-resume-visit-title"
+          >
+            <div className="museum-resume-visit-card">
+              <p className="eyebrow">Visitor controls</p>
+              <h2 id="museum-resume-visit-title">Resume Visit</h2>
+              <p className="museum-resume-visit-support">Click to continue walking and looking around.</p>
+              <button ref={resumeButtonRef} type="button" onClick={resumeVisit}>
+                <DoorOpen size={20}/> Resume Visit
+              </button>
+            </div>
+          </section>}
 
           {atGrandEntrance && !activeIntent && overlay === null && <aside className="museum-route-choice-card" aria-label="Choose how to begin your Museum visit">
             <div>

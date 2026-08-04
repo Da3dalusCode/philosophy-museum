@@ -209,7 +209,7 @@ export const EAST_ASIAN_SUPPLEMENTAL_EXHIBITS = [
       'Japanese commemoration is reception evidence, not a portrait made from life.',
     ],
     cautions: [
-      'Xuanzang remains a secondary transmission figure here; Gallery 08 retains Buddhist canonical primaries.',
+      'Xuanzang remains a secondary transmission figure here; Gallery 05 retains Buddhist canonical primaries.',
       '“East Asian Buddhism” includes many schools and languages, not one unified doctrine.',
     ],
     sections: [
@@ -233,7 +233,7 @@ export const EAST_ASIAN_SUPPLEMENTAL_EXHIBITS = [
     dateLabel: 'Chinese ritual robe dated 1820',
     question: 'What disappears when Daoism is reduced to two early philosophical books?',
     frontSubtitle: 'Priesthood, transmitted registers, canon, liturgy, patrons, temples, and ritual cosmology',
-    lead: 'An embroidered Daoist priest’s robe makes institutional Daoism visible. Ordination lineages, transmitted registers, ritual offices, temples, patrons, and expanding canons developed over centuries alongside the early texts foregrounded in Gallery 09.',
+    lead: 'An embroidered Daoist priest’s robe makes institutional Daoism visible. Ordination lineages, transmitted registers, ritual offices, temples, patrons, and expanding canons developed over centuries alongside the early texts foregrounded in Gallery 06.',
     keyIdeas: [
       'Ritual garments locate authority in trained roles and transmitted institutions.',
       'Daoist canons preserve diverse revelations, liturgies, biographies, commentaries, and technical works.',

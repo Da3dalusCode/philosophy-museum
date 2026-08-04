@@ -788,7 +788,7 @@ const turnCourtNodes = plan.turnCourts.map((turn) => {
     id: `sign:turn-wayfinding:${turn.id}`,
     kind: 'wayfinding',
     title: `Next · Gallery ${galleryNumber(targetHall.publicGalleryNumber)}`,
-    kicker: 'Continuous Enfilade · Turn court',
+    kicker: 'Recommended route · Turn court',
     subtitle: targetHall.title,
     position: {
       x: round(spineMidpoint.x + signSideNormal.x * (halfWidth - .2)),

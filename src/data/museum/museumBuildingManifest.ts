@@ -12,7 +12,10 @@ import type {
   MuseumSignDefinition,
   MuseumWorldTransform,
 } from './museumWorldTypes';
-import type {MuseumPlannedHallId} from './museumCanonicalProgram';
+import {
+  type MuseumPlannedHallId,
+} from './museumCanonicalProgram';
+import {MUSEUM_PUBLIC_GALLERY_NUMBERS} from './museumPublicRoute';
 import type {MuseumPublicHallId} from '../museumCatalog';
 
 export type MuseumManifestDoorwaySlot = {
@@ -192,7 +195,25 @@ export type MuseumBuildingManifest = {
   };
 };
 
-const manifest = continuousEnfiladeJson as unknown as MuseumBuildingManifest;
+const sourceManifest = continuousEnfiladeJson as unknown as MuseumBuildingManifest;
+
+/**
+ * Keep the generated geometry immutable while presenting the one public route
+ * sequence. Stable hall IDs remain the authority for runtime and persistence.
+ */
+const manifest: MuseumBuildingManifest = {
+  ...sourceManifest,
+  nodes: sourceManifest.nodes.map((node) => node.programHallId
+    ? {
+        ...node,
+        publicGalleryNumber: MUSEUM_PUBLIC_GALLERY_NUMBERS[node.programHallId],
+        map: {
+          ...node.map,
+          label: `Gallery ${String(MUSEUM_PUBLIC_GALLERY_NUMBERS[node.programHallId]).padStart(2, '0')} · ${node.title}`,
+        },
+      }
+    : node),
+};
 
 const assertApprovedManifest = (candidate: MuseumBuildingManifest): void => {
   if (
@@ -208,12 +229,14 @@ const assertApprovedManifest = (candidate: MuseumBuildingManifest): void => {
   const curated = halls.filter(({galleryState}) => galleryState === 'curated-open');
   const planned = halls.filter(({galleryState}) => galleryState === 'planned-walkable');
   const roomIds = halls.flatMap(({roomIds: ids}) => ids ?? []);
+  const publicGalleryNumbers = halls.map(({publicGalleryNumber}) => publicGalleryNumber);
   if (
     halls.length !== 26
     || curated.length !== 26
     || planned.length !== 0
     || roomIds.length !== 105
     || new Set(roomIds).size !== 105
+    || new Set(publicGalleryNumbers).size !== 26
     || candidate.reserves.length !== 2
   ) throw new Error('The Continuous Enfilade must expose 26 halls, 105 rooms, 26 curated galleries, no planned shells, and two reserves.');
   if (candidate.crosscut.intersections.length !== 6 || candidate.throughRoute.hallOrder.length !== 26) {
@@ -232,6 +255,7 @@ const assertApprovedManifest = (candidate: MuseumBuildingManifest): void => {
       !hall.programHallId
       || !hall.publicGalleryNumber
       || !hall.visitSequence
+      || hall.publicGalleryNumber !== hall.visitSequence
       || !hall.roomIds?.length
       || !hall.templateId
     ) throw new Error(`Museum hall node ${hall.id} lacks stable program metadata.`);

@@ -149,10 +149,15 @@ check('template mix and exact physical embedding match the approved program', ()
   assert.equal(plan.physicalContract.bandCount, 6);
 });
 
-check('stable public numbers and physical visit sequence are independent and complete', () => {
+check('public gallery numbers derive from the complete recommended physical route', () => {
   assert.deepEqual(plan.halls.map(({publicGalleryNumber}) => publicGalleryNumber).sort((a, b) => a - b), Array.from({length: 26}, (_, index) => index + 1));
   assert.deepEqual(plan.halls.map(({visitSequence}) => visitSequence).sort((a, b) => a - b), Array.from({length: 26}, (_, index) => index + 1));
   assert.deepEqual(plan.throughRoute.hallOrder, [...plan.halls].sort((a, b) => a.visitSequence - b.visitSequence).map(({id}) => id));
+  for (const [index, hallId] of plan.throughRoute.hallOrder.entries()) {
+    const hall = hallById.get(hallId);
+    assert.equal(hall.publicGalleryNumber, index + 1);
+    assert.equal(hall.visitSequence, index + 1);
+  }
   assert.deepEqual(
     plan.numberingPolicy.futureReleaseOrder,
     [...plan.halls]
@@ -162,35 +167,8 @@ check('stable public numbers and physical visit sequence are independent and com
   );
 });
 
-check('all twenty-six populated galleries retain their stable public numbers', () => {
-  const expectedNumbers = new Map([
-    ['mediterranean-beginnings-classical', 1],
-    ['renaissance-humanism-new-method', 2],
-    ['phenomenology-existence-embodiment', 3],
-    ['analytic-traditions', 4],
-    ['justice-democratic-reason', 5],
-    ['core-questions-forum', 6],
-    ['classical-south-asian-worlds', 7],
-    ['buddhist-philosophies', 8],
-    ['classical-chinese-traditions', 9],
-    ['islamic-philosophical-worlds', 10],
-    ['east-asian-continuities', 11],
-    ['jewish-philosophy', 12],
-    ['latin-christian-scholastic', 13],
-    ['hellenistic-roman-ways', 14],
-    ['late-antiquity-inheritance', 15],
-    ['rationalism-mind-nature-system', 16],
-    ['empiricism-science-political-order', 17],
-    ['enlightenment-revolution-kant', 18],
-    ['german-idealism-afterlives', 19],
-    ['utility-liberty-history-capital', 20],
-    ['faith-pessimism-life-value', 21],
-    ['pragmatism-democratic-inquiry', 22],
-    ['critique-power-deconstruction', 23],
-    ['moral-life-practical-reason', 24],
-    ['feminist-philosophies', 25],
-    ['colonialism-race-liberation', 26],
-  ]);
+check('all twenty-six populated galleries use their route-derived public numbers', () => {
+  const expectedNumbers = new Map(plan.throughRoute.hallOrder.map((id, index) => [id, index + 1]));
   const migrating = plan.halls.filter(({migrationState}) => migrationState === 'migrate-populated');
   const planned = plan.halls.filter(({migrationState}) => migrationState === 'construct-planned-walkable-shell');
   assert.equal(migrating.length, 26);

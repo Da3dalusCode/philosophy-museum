@@ -163,7 +163,7 @@ export const LATE_ANTIQUITY_SUPPLEMENTAL_EXHIBITS = [
     sections: [
       {heading: 'A network replaces a relay race', paragraph: 'Texts could be translated more than once, checked against other copies, revised, summarized, or commented upon. Patrons, libraries, physicians, Christians, Muslims, and multilingual families shaped the work.'},
       {heading: 'Terminology carries arguments', paragraph: 'Choosing an Arabic or Syriac equivalent can clarify one distinction while introducing another association. Glossaries and revisions therefore belong to philosophy, not only philology.'},
-      {heading: 'The next galleries are inheritances, not endpoints', paragraph: 'Islamic philosophical worlds, Jewish philosophy, and Latin scholastic traditions engage late-antique materials through distinct institutions and commitments. Gallery 15 points toward those rooms without treating any as a passive recipient. Each community selected, criticized, combined, and extended sources according to questions generated in its own intellectual setting.'},
+      {heading: 'The next galleries are inheritances, not endpoints', paragraph: 'Islamic philosophical worlds, Jewish philosophy, and Latin scholastic traditions engage late-antique materials through distinct institutions and commitments. Gallery 03 points toward those rooms without treating any as a passive recipient. Each community selected, criticized, combined, and extended sources according to questions generated in its own intellectual setting.'},
     ],
     sources: [
       image('British Library / Wikimedia Commons — Aristotle instructing a pupil', 'https://commons.wikimedia.org/wiki/File:Aristotle_instructs_a_pupil_in_the_%22Kitab_na%E2%80%98t_al-hayawan%22.jpg'),
@@ -203,7 +203,7 @@ export const LATE_ANTIQUITY_SUPPLEMENTAL_EXHIBITS = [
     sections: [
       {heading: 'A translator chooses a tradition', paragraph: 'Vocabulary, prefaces, ordering, and commentary tell readers how texts belong together. Translation therefore makes a canon while making individual works newly legible.'},
       {heading: 'Compatibility is argued', paragraph: 'Ficino sought relations among Platonism, Christianity, and prisca theologia while also negotiating texts that resisted easy harmonization. Revival depends on selective agreement and correction.'},
-      {heading: 'The route returns to Gallery 02', paragraph: 'The installation closes a long loop to the Renaissance gallery. Physical adjacency is unnecessary because the museum map and related routes make reception across centuries navigable. That return also reveals Renaissance humanism as a selective encounter with late antiquity, not an unmediated recovery of classical Greece.'},
+      {heading: 'The route returns to Gallery 12', paragraph: 'The installation closes a long loop to the Renaissance gallery. Physical adjacency is unnecessary because the museum map and related routes make reception across centuries navigable. That return also reveals Renaissance humanism as a selective encounter with late antiquity, not an unmediated recovery of classical Greece.'},
     ],
     sources: [
       image('Biblioteca Medicea Laurenziana / Wikimedia Commons — Ficino, De mysteriis Aegyptiorum', 'https://commons.wikimedia.org/wiki/File:Ficino,_De_mysteriis_Aegyptiorum.jpg'),

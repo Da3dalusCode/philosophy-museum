@@ -22,6 +22,19 @@ The intellectual program protects historical and cultural context while enabling
 - Ring documents and diagrams may be preserved as historical evidence but must be labeled superseded.
 - This governance task changes no Museum geometry, gallery arrangement, manifest, routing, or implementation.
 
+## Accepted wayfinding amendment — 2026-08-03
+
+The locked architecture remains unchanged, but its public wayfinding contract is clarified:
+
+- Public Gallery 01–26 numbers are the recommended physical visitor-route order. Stable internal hall IDs remain the durable software identity and are nonpublic.
+- Visitor maps omit collection-planning, construction-state, manifest, and release-tracking metadata.
+- A required click to restore walking and looking uses one centered **Resume Visit** overlay derived from the actual input-capture state.
+- The recommended route is a continuous, flush, noncolliding architectural floor inlay; the crosscut and shortcuts use quieter connected branches.
+- Gallery 01 is governed by the established exhibit-placement standard without changing its four room identities or canonical content assignments.
+- Doorway or distant-room rendering, gallery residency, and transition-hitch optimization were not reopened by this amendment.
+
+This amendment changes presentation, interaction, and hall-local placement only. It does not reopen the 10-wing, 26-gallery, 105-room architecture, physical route, crosscut, turn courts, reserves, stable IDs, or content assignments.
+
 ## Reopening conditions
 
 Reopen only when the owner explicitly opens a new Museum-architecture redesign. Ordinary Museum maintenance, gallery curation, content work, suggestions, and historical Ring references do not reopen this decision.

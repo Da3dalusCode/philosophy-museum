@@ -9,7 +9,7 @@
       "path": "docs/museum-masterplan/single-level-building-plan.json",
       "planId": "continuous-enfilade-single-level-v1",
       "schemaVersion": 2,
-      "sha256": "433d3d09b8cbcdfc15ad0a7078c92e0c6b8b98b7a01cd35e7573c326536d2214"
+      "sha256": "4af26733d88c18f7895d1c955ddd73aca8541f44e93c33d41ce40a807df7cc08"
     },
     "program": {
       "path": "docs/museum-masterplan/hall-program.json",
@@ -650,7 +650,7 @@
       "publicHallId": "hellenistic-roman-ways",
       "title": "Hellenistic & Roman Ways of Life",
       "galleryState": "curated-open",
-      "publicGalleryNumber": 14,
+      "publicGalleryNumber": 2,
       "visitSequence": 2,
       "bandId": "band-01-south",
       "roomIds": [
@@ -713,7 +713,7 @@
         "exit": "E0"
       },
       "map": {
-        "label": "Gallery 14 · Hellenistic & Roman Ways of Life",
+        "label": "Gallery 02 · Hellenistic & Roman Ways of Life",
         "status": "open"
       },
       "doorwaySlots": [
@@ -949,7 +949,7 @@
       "publicHallId": "late-antiquity-inheritance",
       "title": "Late Antiquity & Neoplatonic Inheritance",
       "galleryState": "curated-open",
-      "publicGalleryNumber": 15,
+      "publicGalleryNumber": 3,
       "visitSequence": 3,
       "bandId": "band-01-south",
       "roomIds": [
@@ -1007,7 +1007,7 @@
         "exit": "N0"
       },
       "map": {
-        "label": "Gallery 15 · Late Antiquity & Neoplatonic Inheritance",
+        "label": "Gallery 03 · Late Antiquity & Neoplatonic Inheritance",
         "status": "open"
       },
       "doorwaySlots": [
@@ -1169,7 +1169,7 @@
       "publicHallId": "classical-south-asian-worlds",
       "title": "Classical South Asia: Jain, Yoga, and Brahmanical Systems",
       "galleryState": "curated-open",
-      "publicGalleryNumber": 7,
+      "publicGalleryNumber": 4,
       "visitSequence": 4,
       "bandId": "band-01-south",
       "roomIds": [
@@ -1237,7 +1237,7 @@
         "exit": "N0"
       },
       "map": {
-        "label": "Gallery 07 · Classical South Asia: Jain, Yoga, and Brahmanical Systems",
+        "label": "Gallery 04 · Classical South Asia: Jain, Yoga, and Brahmanical Systems",
         "status": "open"
       },
       "doorwaySlots": [
@@ -1399,7 +1399,7 @@
       "publicHallId": "buddhist-philosophies",
       "title": "Buddhist Philosophies of Liberation and Knowledge",
       "galleryState": "curated-open",
-      "publicGalleryNumber": 8,
+      "publicGalleryNumber": 5,
       "visitSequence": 5,
       "bandId": "band-02-asia-connected-worlds",
       "roomIds": [
@@ -1467,7 +1467,7 @@
         "exit": "S0"
       },
       "map": {
-        "label": "Gallery 08 · Buddhist Philosophies of Liberation and Knowledge",
+        "label": "Gallery 05 · Buddhist Philosophies of Liberation and Knowledge",
         "status": "open"
       },
       "doorwaySlots": [
@@ -1629,7 +1629,7 @@
       "publicHallId": "classical-chinese-traditions",
       "title": "Warring States & Classical Chinese Traditions",
       "galleryState": "curated-open",
-      "publicGalleryNumber": 9,
+      "publicGalleryNumber": 6,
       "visitSequence": 6,
       "bandId": "band-02-asia-connected-worlds",
       "roomIds": [
@@ -1692,7 +1692,7 @@
         "exit": "W0"
       },
       "map": {
-        "label": "Gallery 09 · Warring States & Classical Chinese Traditions",
+        "label": "Gallery 06 · Warring States & Classical Chinese Traditions",
         "status": "open"
       },
       "doorwaySlots": [
@@ -1928,7 +1928,7 @@
       "publicHallId": "east-asian-continuities",
       "title": "Confucian Renewal & East Asian Continuities",
       "galleryState": "curated-open",
-      "publicGalleryNumber": 11,
+      "publicGalleryNumber": 7,
       "visitSequence": 7,
       "bandId": "band-02-asia-connected-worlds",
       "roomIds": [
@@ -1986,7 +1986,7 @@
         "exit": "S0"
       },
       "map": {
-        "label": "Gallery 11 · Confucian Renewal & East Asian Continuities",
+        "label": "Gallery 07 · Confucian Renewal & East Asian Continuities",
         "status": "open"
       },
       "doorwaySlots": [
@@ -2148,7 +2148,7 @@
       "publicHallId": "islamic-philosophical-worlds",
       "title": "Arabic & Islamic Philosophical Worlds",
       "galleryState": "curated-open",
-      "publicGalleryNumber": 10,
+      "publicGalleryNumber": 8,
       "visitSequence": 8,
       "bandId": "band-02-asia-connected-worlds",
       "roomIds": [
@@ -2216,7 +2216,7 @@
         "exit": "S0"
       },
       "map": {
-        "label": "Gallery 10 · Arabic & Islamic Philosophical Worlds",
+        "label": "Gallery 08 · Arabic & Islamic Philosophical Worlds",
         "status": "open"
       },
       "doorwaySlots": [
@@ -2378,7 +2378,7 @@
       "publicHallId": "jewish-philosophy",
       "title": "Jewish Philosophy in Arabic-Speaking & Mediterranean Worlds",
       "galleryState": "curated-open",
-      "publicGalleryNumber": 12,
+      "publicGalleryNumber": 9,
       "visitSequence": 9,
       "bandId": "band-03-forum",
       "roomIds": [
@@ -2431,7 +2431,7 @@
         "exit": "N0"
       },
       "map": {
-        "label": "Gallery 12 · Jewish Philosophy in Arabic-Speaking & Mediterranean Worlds",
+        "label": "Gallery 09 · Jewish Philosophy in Arabic-Speaking & Mediterranean Worlds",
         "status": "open"
       },
       "doorwaySlots": [
@@ -2593,7 +2593,7 @@
       "publicHallId": "latin-christian-scholastic",
       "title": "Latin Christian & Scholastic Traditions",
       "galleryState": "curated-open",
-      "publicGalleryNumber": 13,
+      "publicGalleryNumber": 10,
       "visitSequence": 10,
       "bandId": "band-03-forum",
       "roomIds": [
@@ -2656,7 +2656,7 @@
         "exit": "N0"
       },
       "map": {
-        "label": "Gallery 13 · Latin Christian & Scholastic Traditions",
+        "label": "Gallery 10 · Latin Christian & Scholastic Traditions",
         "status": "open"
       },
       "doorwaySlots": [
@@ -2818,7 +2818,7 @@
       "publicHallId": "core-questions-forum",
       "title": "Core Questions Forum",
       "galleryState": "curated-open",
-      "publicGalleryNumber": 6,
+      "publicGalleryNumber": 11,
       "visitSequence": 11,
       "bandId": "band-03-forum",
       "roomIds": [
@@ -2908,7 +2908,7 @@
         "crosscutSouth": "S0"
       },
       "map": {
-        "label": "Gallery 06 · Core Questions Forum",
+        "label": "Gallery 11 · Core Questions Forum",
         "status": "open"
       },
       "doorwaySlots": [
@@ -3144,7 +3144,7 @@
       "publicHallId": "renaissance-humanism-new-method",
       "title": "Renaissance, Political Order, and New Science",
       "galleryState": "curated-open",
-      "publicGalleryNumber": 2,
+      "publicGalleryNumber": 12,
       "visitSequence": 12,
       "bandId": "band-03-forum",
       "roomIds": [
@@ -3202,7 +3202,7 @@
         "exit": "N0"
       },
       "map": {
-        "label": "Gallery 02 · Renaissance, Political Order, and New Science",
+        "label": "Gallery 12 · Renaissance, Political Order, and New Science",
         "status": "open"
       },
       "doorwaySlots": [
@@ -3364,7 +3364,7 @@
       "publicHallId": "rationalism-mind-nature-system",
       "title": "Rationalism: Mind, Nature, and System",
       "galleryState": "curated-open",
-      "publicGalleryNumber": 16,
+      "publicGalleryNumber": 13,
       "visitSequence": 13,
       "bandId": "band-03-forum",
       "roomIds": [
@@ -3422,7 +3422,7 @@
         "exit": "N0"
       },
       "map": {
-        "label": "Gallery 16 · Rationalism: Mind, Nature, and System",
+        "label": "Gallery 13 · Rationalism: Mind, Nature, and System",
         "status": "open"
       },
       "doorwaySlots": [
@@ -3584,7 +3584,7 @@
       "publicHallId": "empiricism-science-political-order",
       "title": "Empiricism, Science, and Political Order",
       "galleryState": "curated-open",
-      "publicGalleryNumber": 17,
+      "publicGalleryNumber": 14,
       "visitSequence": 14,
       "bandId": "band-04-nineteenth-transformations",
       "roomIds": [
@@ -3642,7 +3642,7 @@
         "exit": "S0"
       },
       "map": {
-        "label": "Gallery 17 · Empiricism, Science, and Political Order",
+        "label": "Gallery 14 · Empiricism, Science, and Political Order",
         "status": "open"
       },
       "doorwaySlots": [
@@ -3804,7 +3804,7 @@
       "publicHallId": "enlightenment-revolution-kant",
       "title": "Enlightenment, Revolution, and Kant’s Critical Turn",
       "galleryState": "curated-open",
-      "publicGalleryNumber": 18,
+      "publicGalleryNumber": 15,
       "visitSequence": 15,
       "bandId": "band-04-nineteenth-transformations",
       "roomIds": [
@@ -3872,7 +3872,7 @@
         "exit": "W0"
       },
       "map": {
-        "label": "Gallery 18 · Enlightenment, Revolution, and Kant’s Critical Turn",
+        "label": "Gallery 15 · Enlightenment, Revolution, and Kant’s Critical Turn",
         "status": "open"
       },
       "doorwaySlots": [
@@ -4108,7 +4108,7 @@
       "publicHallId": "german-idealism-afterlives",
       "title": "German Idealism & Romantic Afterlives",
       "galleryState": "curated-open",
-      "publicGalleryNumber": 19,
+      "publicGalleryNumber": 16,
       "visitSequence": 16,
       "bandId": "band-04-nineteenth-transformations",
       "roomIds": [
@@ -4171,7 +4171,7 @@
         "exit": "S0"
       },
       "map": {
-        "label": "Gallery 19 · German Idealism & Romantic Afterlives",
+        "label": "Gallery 16 · German Idealism & Romantic Afterlives",
         "status": "open"
       },
       "doorwaySlots": [
@@ -4333,7 +4333,7 @@
       "publicHallId": "utility-liberty-history-capital",
       "title": "Utility, Liberty, History, and Capital",
       "galleryState": "curated-open",
-      "publicGalleryNumber": 20,
+      "publicGalleryNumber": 17,
       "visitSequence": 17,
       "bandId": "band-04-nineteenth-transformations",
       "roomIds": [
@@ -4396,7 +4396,7 @@
         "exit": "S0"
       },
       "map": {
-        "label": "Gallery 20 · Utility, Liberty, History, and Capital",
+        "label": "Gallery 17 · Utility, Liberty, History, and Capital",
         "status": "open"
       },
       "doorwaySlots": [
@@ -4558,7 +4558,7 @@
       "publicHallId": "faith-pessimism-life-value",
       "title": "Faith, Pessimism, Life, and Value",
       "galleryState": "curated-open",
-      "publicGalleryNumber": 21,
+      "publicGalleryNumber": 18,
       "visitSequence": 18,
       "bandId": "band-04-nineteenth-transformations",
       "roomIds": [
@@ -4616,7 +4616,7 @@
         "exit": "S0"
       },
       "map": {
-        "label": "Gallery 21 · Faith, Pessimism, Life, and Value",
+        "label": "Gallery 18 · Faith, Pessimism, Life, and Value",
         "status": "open"
       },
       "doorwaySlots": [
@@ -4778,7 +4778,7 @@
       "publicHallId": "pragmatism-democratic-inquiry",
       "title": "Pragmatism, Science, and Democratic Inquiry",
       "galleryState": "curated-open",
-      "publicGalleryNumber": 22,
+      "publicGalleryNumber": 19,
       "visitSequence": 19,
       "bandId": "band-05-modern-traditions",
       "roomIds": [
@@ -4841,7 +4841,7 @@
         "exit": "N0"
       },
       "map": {
-        "label": "Gallery 22 · Pragmatism, Science, and Democratic Inquiry",
+        "label": "Gallery 19 · Pragmatism, Science, and Democratic Inquiry",
         "status": "open"
       },
       "doorwaySlots": [
@@ -5003,7 +5003,7 @@
       "publicHallId": "analytic-traditions",
       "title": "Analytic Traditions: Logic, Language, and Analysis",
       "galleryState": "curated-open",
-      "publicGalleryNumber": 4,
+      "publicGalleryNumber": 20,
       "visitSequence": 20,
       "bandId": "band-05-modern-traditions",
       "roomIds": [
@@ -5071,7 +5071,7 @@
         "exit": "N0"
       },
       "map": {
-        "label": "Gallery 04 · Analytic Traditions: Logic, Language, and Analysis",
+        "label": "Gallery 20 · Analytic Traditions: Logic, Language, and Analysis",
         "status": "open"
       },
       "doorwaySlots": [
@@ -5233,7 +5233,7 @@
       "publicHallId": "phenomenology-existence-embodiment",
       "title": "Phenomenology, Existence, and Embodiment",
       "galleryState": "curated-open",
-      "publicGalleryNumber": 3,
+      "publicGalleryNumber": 21,
       "visitSequence": 21,
       "bandId": "band-05-modern-traditions",
       "roomIds": [
@@ -5301,7 +5301,7 @@
         "exit": "N0"
       },
       "map": {
-        "label": "Gallery 03 · Phenomenology, Existence, and Embodiment",
+        "label": "Gallery 21 · Phenomenology, Existence, and Embodiment",
         "status": "open"
       },
       "doorwaySlots": [
@@ -5463,7 +5463,7 @@
       "publicHallId": "critique-power-deconstruction",
       "title": "Critique, Power, and Deconstruction",
       "galleryState": "curated-open",
-      "publicGalleryNumber": 23,
+      "publicGalleryNumber": 22,
       "visitSequence": 22,
       "bandId": "band-05-modern-traditions",
       "roomIds": [
@@ -5526,7 +5526,7 @@
         "exit": "E0"
       },
       "map": {
-        "label": "Gallery 23 · Critique, Power, and Deconstruction",
+        "label": "Gallery 22 · Critique, Power, and Deconstruction",
         "status": "open"
       },
       "doorwaySlots": [
@@ -5762,7 +5762,7 @@
       "publicHallId": "moral-life-practical-reason",
       "title": "Moral Life & Practical Reason",
       "galleryState": "curated-open",
-      "publicGalleryNumber": 24,
+      "publicGalleryNumber": 23,
       "visitSequence": 23,
       "bandId": "band-06-ethics-politics-society",
       "roomIds": [
@@ -5825,7 +5825,7 @@
         "exit": "W0"
       },
       "map": {
-        "label": "Gallery 24 · Moral Life & Practical Reason",
+        "label": "Gallery 23 · Moral Life & Practical Reason",
         "status": "open"
       },
       "doorwaySlots": [
@@ -6061,7 +6061,7 @@
       "publicHallId": "justice-democratic-reason",
       "title": "Political Action, Justice, and Democratic Reason",
       "galleryState": "curated-open",
-      "publicGalleryNumber": 5,
+      "publicGalleryNumber": 24,
       "visitSequence": 24,
       "bandId": "band-06-ethics-politics-society",
       "roomIds": [
@@ -6119,7 +6119,7 @@
         "exit": "S0"
       },
       "map": {
-        "label": "Gallery 05 · Political Action, Justice, and Democratic Reason",
+        "label": "Gallery 24 · Political Action, Justice, and Democratic Reason",
         "status": "open"
       },
       "doorwaySlots": [
@@ -6916,7 +6916,7 @@
       "depth": 56,
       "ceilingTreatment": "double-height visual volume on the single public level",
       "publicFunctions": [
-        "collection map and directory",
+        "Museum map and directory",
         "resume last visit",
         "choose chronological route, crosscut, guided visit, or fast travel",
         "one permanent orientation landmark"
@@ -7128,7 +7128,7 @@
           {
             "id": "sign:crosscut-wayfinding:crossing:band-01",
             "kind": "wayfinding",
-            "title": "West · Gallery 14 | East · Gallery 15",
+            "title": "West · Gallery 02 | East · Gallery 03",
             "kicker": "North–South crosscut · ↑ North",
             "subtitle": "Hellenistic & Roman Ways of Life ↔ Late Antiquity & Neoplatonic Inheritance · Visitor map: M",
             "position": {
@@ -7341,7 +7341,7 @@
           {
             "id": "sign:crosscut-wayfinding:crossing:band-02",
             "kind": "wayfinding",
-            "title": "West · Gallery 11 | East · Gallery 09",
+            "title": "West · Gallery 07 | East · Gallery 06",
             "kicker": "North–South crosscut · ↑ North",
             "subtitle": "Confucian Renewal & East Asian Continuities ↔ Warring States & Classical Chinese Traditions · Visitor map: M",
             "position": {
@@ -7554,7 +7554,7 @@
           {
             "id": "sign:crosscut-wayfinding:crossing:band-04",
             "kind": "wayfinding",
-            "title": "West · Gallery 20 | East · Gallery 19",
+            "title": "West · Gallery 17 | East · Gallery 16",
             "kicker": "North–South crosscut · ↑ North",
             "subtitle": "Utility, Liberty, History, and Capital ↔ German Idealism & Romantic Afterlives · Visitor map: M",
             "position": {
@@ -7767,7 +7767,7 @@
           {
             "id": "sign:crosscut-wayfinding:crossing:band-05",
             "kind": "wayfinding",
-            "title": "West · Gallery 04 | East · Gallery 03",
+            "title": "West · Gallery 20 | East · Gallery 21",
             "kicker": "North–South crosscut · ↑ North",
             "subtitle": "Analytic Traditions: Logic, Language, and Analysis ↔ Phenomenology, Existence, and Embodiment · Visitor map: M",
             "position": {
@@ -7980,7 +7980,7 @@
           {
             "id": "sign:crosscut-wayfinding:crossing:band-06",
             "kind": "wayfinding",
-            "title": "West · Gallery 25 | East · Gallery 05",
+            "title": "West · Gallery 25 | East · Gallery 24",
             "kicker": "North–South crosscut · ↑ North",
             "subtitle": "Feminist Philosophies ↔ Political Action, Justice, and Democratic Reason · Visitor map: M",
             "position": {
@@ -8022,7 +8022,7 @@
       },
       "boundsKind": "constructed-circulation-envelope",
       "map": {
-        "label": "Turn court · Galleries 07–08",
+        "label": "Turn court · Galleries 04–05",
         "status": "orientation-open"
       },
       "doorwaySlots": [
@@ -8225,8 +8225,8 @@
           {
             "id": "sign:turn-wayfinding:turn:band-01-to-02",
             "kind": "wayfinding",
-            "title": "Next · Gallery 08",
-            "kicker": "Continuous Enfilade · Turn court",
+            "title": "Next · Gallery 05",
+            "kicker": "Recommended route · Turn court",
             "subtitle": "Buddhist Philosophies of Liberation and Knowledge",
             "position": {
               "x": -128.8,
@@ -8263,7 +8263,7 @@
       },
       "boundsKind": "constructed-circulation-envelope",
       "map": {
-        "label": "Turn court · Galleries 10–12",
+        "label": "Turn court · Galleries 08–09",
         "status": "orientation-open"
       },
       "doorwaySlots": [
@@ -8466,8 +8466,8 @@
           {
             "id": "sign:turn-wayfinding:turn:band-02-to-03",
             "kind": "wayfinding",
-            "title": "Next · Gallery 12",
-            "kicker": "Continuous Enfilade · Turn court",
+            "title": "Next · Gallery 09",
+            "kicker": "Recommended route · Turn court",
             "subtitle": "Jewish Philosophy in Arabic-Speaking & Mediterranean Worlds",
             "position": {
               "x": 121.2,
@@ -8504,7 +8504,7 @@
       },
       "boundsKind": "constructed-circulation-envelope",
       "map": {
-        "label": "Turn court · Galleries 16–17",
+        "label": "Turn court · Galleries 13–14",
         "status": "orientation-open"
       },
       "doorwaySlots": [
@@ -8678,8 +8678,8 @@
           {
             "id": "sign:turn-wayfinding:turn:band-03-to-04",
             "kind": "wayfinding",
-            "title": "Next · Gallery 17",
-            "kicker": "Continuous Enfilade · Turn court",
+            "title": "Next · Gallery 14",
+            "kicker": "Recommended route · Turn court",
             "subtitle": "Empiricism, Science, and Political Order",
             "position": {
               "x": -152.8,
@@ -8716,7 +8716,7 @@
       },
       "boundsKind": "constructed-circulation-envelope",
       "map": {
-        "label": "Turn court · Galleries 21–22",
+        "label": "Turn court · Galleries 18–19",
         "status": "orientation-open"
       },
       "doorwaySlots": [
@@ -8919,8 +8919,8 @@
           {
             "id": "sign:turn-wayfinding:turn:band-04-to-05",
             "kind": "wayfinding",
-            "title": "Next · Gallery 22",
-            "kicker": "Continuous Enfilade · Turn court",
+            "title": "Next · Gallery 19",
+            "kicker": "Recommended route · Turn court",
             "subtitle": "Pragmatism, Science, and Democratic Inquiry",
             "position": {
               "x": 121.2,
@@ -8957,7 +8957,7 @@
       },
       "boundsKind": "constructed-circulation-envelope",
       "map": {
-        "label": "Turn court · Galleries 23–24",
+        "label": "Turn court · Galleries 22–23",
         "status": "orientation-open"
       },
       "doorwaySlots": [
@@ -9160,8 +9160,8 @@
           {
             "id": "sign:turn-wayfinding:turn:band-05-to-06",
             "kind": "wayfinding",
-            "title": "Next · Gallery 24",
-            "kicker": "Continuous Enfilade · Turn court",
+            "title": "Next · Gallery 23",
+            "kicker": "Recommended route · Turn court",
             "subtitle": "Moral Life & Practical Reason",
             "position": {
               "x": -100.8,
@@ -9301,7 +9301,7 @@
       "routeSourceProgramHallId": "colonialism-race-liberation",
       "actions": [
         "return to Grand Entrance",
-        "open collection map",
+        "open Museum map",
         "end guided visit"
       ]
     },

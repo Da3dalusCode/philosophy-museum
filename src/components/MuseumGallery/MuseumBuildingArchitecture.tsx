@@ -27,6 +27,7 @@ import {
 import {MUSEUM_VISITOR_MAP_KIOSK} from '../../data/museum/museumVisitorMapKioskDefinition';
 import {MuseumGrandEntranceArchitecture} from './MuseumGrandEntranceArchitecture';
 import {MuseumPermanentHallStructure} from './MuseumPermanentHallStructure';
+import {MuseumRouteInlay} from './MuseumRouteInlay';
 import {MuseumVisitorMapKiosk} from './MuseumVisitorMapKiosk';
 import {usePlaqueTexture} from './plaqueTextures';
 
@@ -270,6 +271,7 @@ export function MuseumBuildingArchitecture({
       activeHallId={activeHallId}
       onSceneGesture={onSceneGesture}
     />
+    <MuseumRouteInlay/>
     {kioskHost && <group
       position={[kioskHost.worldTransform.x, 0, kioskHost.worldTransform.z]}
       rotation={[0, kioskHost.worldTransform.yaw, 0]}

@@ -27,6 +27,7 @@ import type {
   MuseumHallDefinition,
   MuseumHallEntrance,
   MuseumNavigationLayout,
+  MuseumPoint,
   MuseumPhysicalNodeId,
   MuseumPilotRole,
   MuseumRuntimeNodeDefinition,
@@ -572,3 +573,16 @@ export const getMuseumNodeConnections = (nodeId: MuseumPhysicalNodeId): readonly
 export const getMuseumConnectionTargetHallId = (
   connection: Pick<MuseumDirectedConnection, 'targetNodeId'>,
 ): MuseumPublicHallId | undefined => getMuseumRuntimeNode(connection.targetNodeId)?.publicHallId;
+
+/** The single runtime transform used by architecture derived from node-local geometry. */
+export const museumRuntimePointToWorld = (
+  node: Pick<MuseumRuntimeNodeDefinition, 'worldTransform'>,
+  point: MuseumPoint,
+): MuseumPoint => {
+  const cosine = Math.cos(node.worldTransform.yaw);
+  const sine = Math.sin(node.worldTransform.yaw);
+  return {
+    x: node.worldTransform.x + point.x * cosine + point.z * sine,
+    z: node.worldTransform.z - point.x * sine + point.z * cosine,
+  };
+};

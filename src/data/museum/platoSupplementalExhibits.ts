@@ -6,6 +6,7 @@ import type {
   MuseumSupplementalExhibitId,
   MuseumSupplementalExhibitLayout,
 } from './museumWorldTypes';
+import {GALLERY_01_PLATO_SUPPLEMENTAL_PLACEMENTS} from './gallery01Placement';
 
 export type MuseumSupplementalInterpretationSource = {
   label: string;
@@ -220,11 +221,11 @@ export const PLATO_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     parentExhibitId: 'plato',
     zoneId: 'med-plato-aristotle',
     spatialCellId: 'med-plato-aristotle',
-    position: {x: -6.45, z: 15.12},
-    rotationY: 0,
+    position: GALLERY_01_PLATO_SUPPLEMENTAL_PLACEMENTS['plato-republic'].position,
+    rotationY: GALLERY_01_PLATO_SUPPLEMENTAL_PLACEMENTS['plato-republic'].rotationY,
     interactionRadius: 3.5,
-    collider: {id: `supplemental:${REPUBLIC_ID}`, center: {x: -6.45, z: 15.12}, size: {width: 4.75, depth: 1.08}, rotation: 0},
-    viewpoint: {x: -6.45, z: 18.28, yaw: 0, pitch: -.08},
+    collider: {id: `supplemental:${REPUBLIC_ID}`, center: GALLERY_01_PLATO_SUPPLEMENTAL_PLACEMENTS['plato-republic'].position, size: {width: 4.75, depth: 1.08}, rotation: GALLERY_01_PLATO_SUPPLEMENTAL_PLACEMENTS['plato-republic'].rotationY},
+    viewpoint: GALLERY_01_PLATO_SUPPLEMENTAL_PLACEMENTS['plato-republic'].viewpoint,
     assetId: 'plato-republic-justice-ideal-city',
     mediaMount: mediaMount(REPUBLIC_ID, 'plato-republic-justice-ideal-city', 2.55, 3.4, 1.82),
     label: {position: [0, 4.03, -.31], width: 4.18, height: .84},
@@ -237,11 +238,11 @@ export const PLATO_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     parentExhibitId: 'plato',
     zoneId: 'med-plato-aristotle',
     spatialCellId: 'med-plato-aristotle',
-    position: {x: -6.45, z: 26.88},
-    rotationY: Math.PI,
+    position: GALLERY_01_PLATO_SUPPLEMENTAL_PLACEMENTS['plato-cave-book-vii'].position,
+    rotationY: GALLERY_01_PLATO_SUPPLEMENTAL_PLACEMENTS['plato-cave-book-vii'].rotationY,
     interactionRadius: 3.55,
-    collider: {id: `supplemental:${CAVE_ID}`, center: {x: -6.45, z: 26.88}, size: {width: 4.75, depth: 1.08}, rotation: Math.PI},
-    viewpoint: {x: -6.45, z: 23.72, yaw: Math.PI, pitch: -.08},
+    collider: {id: `supplemental:${CAVE_ID}`, center: GALLERY_01_PLATO_SUPPLEMENTAL_PLACEMENTS['plato-cave-book-vii'].position, size: {width: 4.75, depth: 1.08}, rotation: GALLERY_01_PLATO_SUPPLEMENTAL_PLACEMENTS['plato-cave-book-vii'].rotationY},
+    viewpoint: GALLERY_01_PLATO_SUPPLEMENTAL_PLACEMENTS['plato-cave-book-vii'].viewpoint,
     assetId: 'plato-cave-interpretive-illustration',
     mediaMount: mediaMount(CAVE_ID, 'plato-cave-interpretive-illustration', 2.72, 3.4, 1.82),
     label: {position: [0, 4.03, -.31], width: 4.18, height: .84},

@@ -19,6 +19,11 @@ import {
   MUSEUM_TEXTURE_SPECS,
   museumTextureDimensionsForPlane,
 } from '../../data/museum/museumTexturePolicy';
+import {
+  MUSEUM_PUBLIC_GALLERY_NUMBERS,
+  formatMuseumPublicGalleryNumber,
+} from '../../data/museum/museumPublicRoute';
+import type {MuseumPlannedHallId} from '../../data/museum/museumCanonicalProgram';
 import {MuseumTemplateInterfaces} from './MuseumTemplateInterfaces';
 import {usePlaqueTexture} from './plaqueTextures';
 
@@ -247,6 +252,13 @@ export function HallArchitecture({definition, onSceneGesture}: {
   onSceneGesture: () => void;
 }) {
   const {layout} = definition;
+  const publicHallId = definition.id as MuseumPlannedHallId;
+  const publicGalleryLabel = Object.hasOwn(MUSEUM_PUBLIC_GALLERY_NUMBERS, publicHallId)
+    ? formatMuseumPublicGalleryNumber(publicHallId)
+    : undefined;
+  const publicKicker = (kicker: string) => publicGalleryLabel
+    ? kicker.replace(/^Gallery \d{2}/, publicGalleryLabel)
+    : kicker;
   const wallMaterial = resolveMuseumWallMaterial(definition.id);
   const activateScene = (event: ThreeEvent<MouseEvent>) => {
     if (event.delta > 7) return;
@@ -264,7 +276,7 @@ export function HallArchitecture({definition, onSceneGesture}: {
     {layout.signs?.map((sign) => <GallerySign
       key={sign.id}
       title={sign.title}
-      kicker={sign.kicker}
+      kicker={publicKicker(sign.kicker)}
       subtitle={sign.subtitle}
       position={[sign.position.x, sign.position.y, sign.position.z]}
       rotationY={sign.rotationY}

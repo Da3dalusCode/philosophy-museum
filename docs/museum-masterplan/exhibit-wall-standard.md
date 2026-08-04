@@ -46,6 +46,19 @@ Only an actual live side portal or fixed architectural obstruction removes a wal
 - Before release, inspect both half-rooms in every changed room from visitor eye level. Confirm all three walls are filled, the primary reads first, no installation is cramped or clipped, and movement remains clear.
 - The Museum audit must encode the expected wall-slot set so a future build cannot silently regress to three exhibits per full room.
 
+## Gallery 01 placement contract
+
+Gallery 01 preserves its four canonical room identities, entity-to-room assignments, authored Mediterranean assets, architecture, and doorways. Its installations follow the same deliberate spatial standard as the strongest later galleries:
+
+- establish a readable entrance composition and terminal view in every room;
+- use anchor exhibits as focal points and supporting records to complete, rather than compete with, the composition;
+- balance usable wall faces without mechanical uniformity, using roughly three installations per half-room only where the authored count and wall length support that rhythm;
+- preserve consistent visitor setbacks, plaque and image visibility, doorway approaches, exit sightlines, and the Gallery 01–02 transition;
+- keep the central walking route and Museum route inlay free of plinths, exhibit bounds, and visitor viewpoints; and
+- reject duplicate placements, room-bound escapes, wall or doorway intersections, installation overlaps, and implausible facing directions through deterministic spatial checks.
+
+Placement defects are corrected inside the assigned room. Moving an entity to another canonical room merely to equalize counts is prohibited.
+
 ## Core Questions Forum exception
 
 Gallery 06 is a crossroads, not a sequential two-half-room gallery. Its approved program is the governing count: **15 compact primaries plus 10 compact physical comparative lenses, for 25 installations across nine intellectual routes**.

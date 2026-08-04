@@ -763,10 +763,10 @@ check(activeCuratedNodes.length === 26, `Active manifest exposes ${activeCurated
 check(activePlannedNodes.length === 0, `Active manifest exposes ${activePlannedNodes.length}, not 0, planned shells`);
 check(same(sorted(activeCuratedNodes.map(({publicHallId}) => publicHallId)), sorted(APPROVED_HALL_IDS)), 'Active curated roster differs from the canonical twenty-six');
 check(activePlannedNodes.every(({publicHallId, fastTravelEligible}) => publicHallId === undefined && fastTravelEligible !== true), 'A planned shell exposes curated content or fast travel');
-check(activeHallByProgramId.get('german-idealism-afterlives')?.galleryState === 'curated-open', 'Gallery 19 must be curated/open');
-check(activeHallByProgramId.get('pragmatism-democratic-inquiry')?.galleryState === 'curated-open', 'Gallery 22 must be curated/open');
-check(activeHallByProgramId.get('critique-power-deconstruction')?.galleryState === 'curated-open', 'Gallery 23 must be curated/open');
-check(activeHallByProgramId.get('moral-life-practical-reason')?.galleryState === 'curated-open', 'Gallery 24 must be curated/open');
+check(activeHallByProgramId.get('german-idealism-afterlives')?.galleryState === 'curated-open', 'Gallery 16 must be curated/open');
+check(activeHallByProgramId.get('pragmatism-democratic-inquiry')?.galleryState === 'curated-open', 'Gallery 19 must be curated/open');
+check(activeHallByProgramId.get('critique-power-deconstruction')?.galleryState === 'curated-open', 'Gallery 22 must be curated/open');
+check(activeHallByProgramId.get('moral-life-practical-reason')?.galleryState === 'curated-open', 'Gallery 23 must be curated/open');
 check(activeHallByProgramId.get('feminist-philosophies')?.galleryState === 'curated-open', 'Gallery 25 must be curated/open');
 check(activeHallByProgramId.get('colonialism-race-liberation')?.galleryState === 'curated-open', 'Gallery 26 must be curated/open');
 
@@ -779,8 +779,8 @@ for (const plannedHall of singleLevelPlan.halls) {
   const node = activeHallByProgramId.get(plannedHall.id);
   check(Boolean(node), `Active manifest omits ${plannedHall.id}`);
   if (!node) continue;
-  check(node.publicGalleryNumber === plannedHall.publicGalleryNumber, `${plannedHall.id} stable public number changed`);
-  check(node.visitSequence === plannedHall.visitSequence, `${plannedHall.id} visit sequence changed`);
+  check(node.publicGalleryNumber === plannedHall.publicGalleryNumber, `${plannedHall.id} route-derived public number changed`);
+  check(node.visitSequence === plannedHall.visitSequence, `${plannedHall.id} recommended-route position changed`);
   check(node.templateId === plannedHall.templateId, `${plannedHall.id} template changed`);
   check(node.bandId === plannedHall.bandId, `${plannedHall.id} structural band changed`);
   check(same(node.roomIds, plannedHall.roomIds), `${plannedHall.id} room binding changed`);

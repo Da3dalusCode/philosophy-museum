@@ -1,4 +1,5 @@
 import type {MuseumHallId} from '../../data/museumCatalog';
+import type {MuseumControlMode} from './museumRuntime';
 
 export const MUSEUM_VISIT_CONTEXT_VERSION = 2 as const;
 export const MUSEUM_HALL_TRAVEL_CONTEXT_VERSION = 1 as const;
@@ -62,6 +63,23 @@ export type MuseumVisitEvent =
 
 export const museumPhaseHasActiveIntent = (phase: MuseumVisitPhase): boolean =>
   phase === 'active' || phase === 'focus-suspended';
+
+export const shouldShowMuseumResumeVisit = ({
+  phase,
+  controlMode,
+  interfaceOpen,
+  unavailable,
+}: {
+  phase: MuseumVisitPhase;
+  controlMode: MuseumControlMode;
+  interfaceOpen: boolean;
+  unavailable: boolean;
+}): boolean => (
+  !interfaceOpen
+  && !unavailable
+  && (phase === 'unentered' || phase === 'focus-suspended' || phase === 'explicitly-paused')
+  && (controlMode === 'suspended' || controlMode === 'paused' || controlMode === 'idle')
+);
 
 export const transitionMuseumVisitPhase = (
   phase: MuseumVisitPhase,

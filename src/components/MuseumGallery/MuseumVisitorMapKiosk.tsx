@@ -74,14 +74,14 @@ const useVisitorMapScreenTexture = (): CanvasTexture => {
 
     context.fillStyle = '#d4a76f';
     context.font = '700 24px system-ui, sans-serif';
-    context.fillText('PHILOSOPHY ATLAS · CONTINUOUS ENFILADE', 54, 58);
+    context.fillText('PHILOSOPHY ATLAS · VISITOR MAP', 54, 58);
     context.fillStyle = '#f3eadb';
     context.font = '600 52px Georgia, serif';
-    context.fillText('Single-level collection plan', 54, 120);
+    context.fillText('Museum Map', 54, 120);
     context.fillStyle = '#b8b2a8';
     context.font = '500 20px system-ui, sans-serif';
     context.fillText(
-      '26 galleries · 105 rooms · chronological route · 10 m north–south crosscut',
+      'Gallery 01–26 · recommended route · central crosscut',
       56,
       157,
     );
@@ -105,29 +105,24 @@ const useVisitorMapScreenTexture = (): CanvasTexture => {
 
     MUSEUM_VISITOR_MAP_NODE_PROJECTIONS.forEach((node) => {
       const isEntrance = node.id === MUSEUM_VISITOR_MAP_KIOSK.nodeId;
-      const isPlanned = node.galleryState === 'planned-walkable';
       context.fillStyle = isEntrance
         ? '#3d3425'
-        : node.galleryState === 'curated-open'
+        : node.kind === 'hall'
           ? '#2b3940'
-          : isPlanned
-            ? '#1a2429'
-            : node.kind === 'turn-court'
+          : node.kind === 'turn-court'
               ? '#353127'
               : node.pilotRole === 'north-south-crosscut'
                 ? '#203438'
                 : '#182328';
       context.strokeStyle = isEntrance
         ? '#e0b475'
-        : node.galleryState === 'curated-open'
+        : node.kind === 'hall'
           ? '#a3845e'
-          : isPlanned
-            ? '#6d797b'
-            : node.kind === 'turn-court'
+          : node.kind === 'turn-court'
               ? '#9d815d'
               : '#56676d';
       context.lineWidth = isEntrance ? 4 : node.kind === 'hall' ? 2.2 : 1.6;
-      context.setLineDash(isPlanned ? [5, 4] : []);
+      context.setLineDash([]);
       node.cells.forEach((cell) => {
         context.beginPath();
         tracePolygon(context, cell.points, point);
@@ -210,16 +205,15 @@ const useVisitorMapScreenTexture = (): CanvasTexture => {
         throw new Error(`The kiosk map has no projection for ${physicalNode.id}.`);
       }
       const mapped = point(nodeProjection.labelPoint);
-      const curated = hall.galleryState === 'curated-open';
       context.beginPath();
-      context.arc(mapped.x, mapped.y, curated ? 12 : 10, 0, Math.PI * 2);
-      context.fillStyle = curated ? '#d2a76f' : '#202b30';
+      context.arc(mapped.x, mapped.y, 12, 0, Math.PI * 2);
+      context.fillStyle = '#d2a76f';
       context.fill();
-      context.lineWidth = curated ? 3 : 2;
-      context.strokeStyle = curated ? '#fff0ce' : '#879295';
+      context.lineWidth = 3;
+      context.strokeStyle = '#fff0ce';
       context.stroke();
-      context.fillStyle = curated ? '#231d15' : '#ded7cb';
-      context.font = `700 ${curated ? 13 : 11}px system-ui, sans-serif`;
+      context.fillStyle = '#231d15';
+      context.font = '700 13px system-ui, sans-serif';
       context.textAlign = 'center';
       context.textBaseline = 'middle';
       context.fillText(String(hall.publicGalleryNumber).padStart(2, '0'), mapped.x, mapped.y + .5);
@@ -275,14 +269,13 @@ const useVisitorMapScreenTexture = (): CanvasTexture => {
       const row = Math.floor(index / 2);
       const x = keyX + column * 202;
       const y = 238 + row * 42;
-      const curated = hall.galleryState === 'curated-open';
-      context.fillStyle = curated ? '#e0b475' : '#839092';
+      context.fillStyle = '#e0b475';
       context.font = '700 13px system-ui, sans-serif';
       context.fillText(String(hall.publicGalleryNumber).padStart(2, '0'), x, y);
-      context.fillStyle = curated ? '#e7dfd3' : '#b4bdbd';
+      context.fillStyle = '#e7dfd3';
       context.font = '600 11px system-ui, sans-serif';
       context.fillText(fitCanvasText(context, hall.title, 164), x + 25, y);
-      context.strokeStyle = curated ? '#584a39' : '#344147';
+      context.strokeStyle = '#584a39';
       context.lineWidth = 1;
       context.beginPath();
       context.moveTo(x, y + 12);
@@ -290,21 +283,26 @@ const useVisitorMapScreenTexture = (): CanvasTexture => {
       context.stroke();
     });
 
-    const legendY = 796;
+    const legendY = 782;
     context.fillStyle = '#d4a76f';
     context.font = '700 13px system-ui, sans-serif';
-    context.fillText('ROUTES & STATUS', keyX, legendY);
+    context.fillText('MAP LEGEND', keyX, legendY);
     const legend = [
-      {label: 'Chronological through-route', color: '#c79558', dash: [] as number[]},
-      {label: '10 m crosscut · 6 intersections', color: '#8eb7b7', dash: [8, 5]},
-      {label: '26 curated/open galleries', color: '#879295', dash: [4, 3]},
-      {label: '2 closed capacity reserves', color: '#a77b5f', dash: [6, 5]},
+      {label: 'Gallery', color: '#d2a76f', dash: [] as number[]},
+      {label: 'Recommended route', color: '#c79558', dash: [] as number[]},
+      {label: 'Central crosscut', color: '#8eb7b7', dash: [8, 5]},
+      {label: 'Turn court', color: '#e0c49c', dash: [] as number[]},
+      {label: 'You are here', color: '#f2c681', dash: [] as number[]},
+      {label: 'Closed reserve', color: '#a77b5f', dash: [6, 5]},
     ];
     legend.forEach(({label, color, dash}, index) => {
-      const y = legendY + 25 + index * 19;
+      const column = index % 2;
+      const row = Math.floor(index / 2);
+      const x = keyX + column * 200;
+      const y = legendY + 25 + row * 21;
       context.beginPath();
-      context.moveTo(keyX, y - 4);
-      context.lineTo(keyX + 32, y - 4);
+      context.moveTo(x, y - 4);
+      context.lineTo(x + 26, y - 4);
       context.setLineDash(dash);
       context.strokeStyle = color;
       context.lineWidth = 3;
@@ -312,7 +310,7 @@ const useVisitorMapScreenTexture = (): CanvasTexture => {
       context.setLineDash([]);
       context.fillStyle = '#b8c0bf';
       context.font = '600 11px system-ui, sans-serif';
-      context.fillText(label, keyX + 42, y);
+      context.fillText(label, x + 34, y);
     });
 
     context.fillStyle = '#aeb5b5';

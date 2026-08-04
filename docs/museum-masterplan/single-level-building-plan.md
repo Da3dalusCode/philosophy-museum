@@ -41,38 +41,38 @@ Those margins are walls and building services. They are not public gaps and do n
 
 ## The complete physical route
 
-“Visit” below means architectural sequence. “Gallery” remains the stable public release number. During the completed staged rollout, Gallery 01–26 numbers and URLs did not change as shells moved from planned to curated/open; all 26 are now curated/open.
+The recommended physical route is the single authority for public Gallery 01–26 numbers. Stable hall IDs remain the durable software identity, so direct URLs and saved visits do not depend on a number. All 26 galleries are curated/open.
 
-| Visit | Public gallery | Full gallery title | Current production state |
+| Route order | Public gallery | Full gallery title | Current production state |
 | ---: | ---: | --- | --- |
 | 1 | Gallery 01 | Mediterranean Beginnings & Classical Athens | curated/open |
-| 2 | Gallery 14 | Hellenistic & Roman Ways of Life | curated/open |
-| 3 | Gallery 15 | Late Antiquity & Neoplatonic Inheritance | curated/open |
-| 4 | Gallery 07 | Classical South Asia: Jain, Yoga, and Brahmanical Systems | curated/open |
-| 5 | Gallery 08 | Buddhist Philosophies of Liberation and Knowledge | curated/open |
-| 6 | Gallery 09 | Warring States & Classical Chinese Traditions | curated/open |
-| 7 | Gallery 11 | Confucian Renewal & East Asian Continuities | curated/open |
-| 8 | Gallery 10 | Arabic & Islamic Philosophical Worlds | curated/open |
-| 9 | Gallery 12 | Jewish Philosophy in Arabic-Speaking & Mediterranean Worlds | curated/open |
-| 10 | Gallery 13 | Latin Christian & Scholastic Traditions | curated/open |
-| 11 | Gallery 06 | Core Questions Forum | curated/open |
-| 12 | Gallery 02 | Renaissance, Political Order, and New Science | curated/open |
-| 13 | Gallery 16 | Rationalism: Mind, Nature, and System | curated/open |
-| 14 | Gallery 17 | Empiricism, Science, and Political Order | curated/open |
-| 15 | Gallery 18 | Enlightenment, Revolution, and Kant’s Critical Turn | curated/open |
-| 16 | Gallery 19 | German Idealism & Romantic Afterlives | curated/open |
-| 17 | Gallery 20 | Utility, Liberty, History, and Capital | curated/open |
-| 18 | Gallery 21 | Faith, Pessimism, Life, and Value | curated/open |
-| 19 | Gallery 22 | Pragmatism, Science, and Democratic Inquiry | curated/open |
-| 20 | Gallery 04 | Analytic Traditions: Logic, Language, and Analysis | curated/open |
-| 21 | Gallery 03 | Phenomenology, Existence, and Embodiment | curated/open |
-| 22 | Gallery 23 | Critique, Power, and Deconstruction | curated/open |
-| 23 | Gallery 24 | Moral Life & Practical Reason | curated/open |
-| 24 | Gallery 05 | Political Action, Justice, and Democratic Reason | curated/open |
+| 2 | Gallery 02 | Hellenistic & Roman Ways of Life | curated/open |
+| 3 | Gallery 03 | Late Antiquity & Neoplatonic Inheritance | curated/open |
+| 4 | Gallery 04 | Classical South Asia: Jain, Yoga, and Brahmanical Systems | curated/open |
+| 5 | Gallery 05 | Buddhist Philosophies of Liberation and Knowledge | curated/open |
+| 6 | Gallery 06 | Warring States & Classical Chinese Traditions | curated/open |
+| 7 | Gallery 07 | Confucian Renewal & East Asian Continuities | curated/open |
+| 8 | Gallery 08 | Arabic & Islamic Philosophical Worlds | curated/open |
+| 9 | Gallery 09 | Jewish Philosophy in Arabic-Speaking & Mediterranean Worlds | curated/open |
+| 10 | Gallery 10 | Latin Christian & Scholastic Traditions | curated/open |
+| 11 | Gallery 11 | Core Questions Forum | curated/open |
+| 12 | Gallery 12 | Renaissance, Political Order, and New Science | curated/open |
+| 13 | Gallery 13 | Rationalism: Mind, Nature, and System | curated/open |
+| 14 | Gallery 14 | Empiricism, Science, and Political Order | curated/open |
+| 15 | Gallery 15 | Enlightenment, Revolution, and Kant’s Critical Turn | curated/open |
+| 16 | Gallery 16 | German Idealism & Romantic Afterlives | curated/open |
+| 17 | Gallery 17 | Utility, Liberty, History, and Capital | curated/open |
+| 18 | Gallery 18 | Faith, Pessimism, Life, and Value | curated/open |
+| 19 | Gallery 19 | Pragmatism, Science, and Democratic Inquiry | curated/open |
+| 20 | Gallery 20 | Analytic Traditions: Logic, Language, and Analysis | curated/open |
+| 21 | Gallery 21 | Phenomenology, Existence, and Embodiment | curated/open |
+| 22 | Gallery 22 | Critique, Power, and Deconstruction | curated/open |
+| 23 | Gallery 23 | Moral Life & Practical Reason | curated/open |
+| 24 | Gallery 24 | Political Action, Justice, and Democratic Reason | curated/open |
 | 25 | Gallery 25 | Feminist Philosophies | curated/open |
 | 26 | Gallery 26 | Colonialism, Race, and Liberation | curated/open |
 
-The curated sequence now includes Galleries 13–26 through the completed Scholastic, Hellenistic/Roman, Late Antiquity, Rationalist, Empiricist, Enlightenment/Kant, German Idealist, Utility/Liberty/Capital, Faith/Pessimism/Life/Value, Pragmatist, Critique/Power/Deconstruction, Moral Life, Feminist Philosophies, and Colonialism/Race/Liberation programs. Each promotion changed only its reviewed manifest state and content bundle: stable public numbers, visit positions, approved centers, rotations, and route transforms remain unchanged.
+The completed sequence includes all 26 programs. Public numbers follow that physical order; stable hall IDs preserve software identity, saved visits, and URLs independently of the visible number.
 
 ## Six bands and crosscut joints
 
@@ -99,6 +99,10 @@ It has four real jobs:
 2. resume the last stable gallery/room/exhibit location;
 3. choose the chronological route, north–south crosscut, guided visit, or labeled fast travel;
 4. establish the Museum with one permanent orientation landmark.
+
+When input capture is the only remaining action required to walk and look, one centered **Resume Visit** overlay says “Click to continue walking and looking around.” It is derived from actual input state, disappears immediately after a successful resume, and stays hidden while a map, directory, controls panel, exhibit modal, or other intentional interface remains open.
+
+The entrance floor treatment begins the Museum-wide recommended-route inlay. The warm brass or bronze line is rendered flush with no collision height, continues through all gallery thresholds and turn courts, and terminates at the final return and exit. Crosscut and shortcut branches use a narrower, quieter related treatment.
 
 It does not pretend that a virtual museum needs ticketing, lockers, a shop, a café, or a generic study lounge. A future study feature should be added only if it supports a real action such as saved comparisons, reading queues, or note export.
 
@@ -142,8 +146,10 @@ The crosscut gives six collection intersections in 168 m. The physical map and f
 - 26 curated/open states;
 - two closed expansion reserves outside the 26-gallery program;
 - the complete through route, crosscut, turn courts, entrance, final threshold, current position, and facing arrow;
-- stable Gallery 01–26 release numbers and separate visit sequence when useful;
+- one contiguous Gallery 01–26 sequence derived from the recommended physical route;
 - all list, current-gallery, and fast-travel controls at 1920 × 1080 without scrolling.
+
+The public title is **Museum Map**. Visitor-facing map surfaces omit “Continuous Enfilade,” level codes, manifest IDs, collection-plan progress, release-state counts, redundant open labels, and other construction or planning metadata.
 
 Existing direct gallery and exhibit URLs remain stable. Session persistence changes from world-coordinate authority to stable gallery, room, and exhibit IDs. A saved old coordinate resolves to a new safe arrival in the same stable location; it is never replayed blindly into the new world.
 
@@ -200,7 +206,7 @@ They begin as solid construction walls and do not appear as open map destination
 ### Phase D — atomic building integration
 
 1. Replace old corridor/spoke nodes with the through route, crosscut, and turn courts.
-2. Update directory and map states without renumbering any existing gallery.
+2. Update directory and map states from the route-derived public numbering contract while retaining stable hall IDs.
 3. Preserve Gallery 25’s curated records, room viewpoints, exhibit controls, and fast-travel destination.
 4. Migrate sessions by stable location IDs.
 5. Verify direct URLs, walking connections, guided visits, fast travel, reset, resume, and all adjacent-room transitions.
@@ -227,7 +233,7 @@ They begin as solid construction walls and do not appear as open map destination
 | Completed curation could break the walking sequence | Every curated hall preserves its approved portals and collision-free primary circulation. |
 | Building startup could eagerly initialize 26 halls | Existing three-subtree residency and lazy media preparation remain authoritative for all curated media bundles. |
 | Old URLs and saved visits could break | IDs remain stable and saved locations migrate by gallery/room/exhibit ID, never raw coordinates. |
-| Public numbers could become incoherent | Gallery number remains release identity; visit sequence is a separate field. |
+| Public numbers could become incoherent | The recommended physical route is the single numbering authority; stable hall IDs remain the separate software identity. |
 | A later extra hall could damage a curated wall | Two full reserves open from the crosscut extension, not through existing galleries. |
 
 ## Real limitations

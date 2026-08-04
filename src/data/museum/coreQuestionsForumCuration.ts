@@ -323,7 +323,7 @@ export const coreQuestionsForumSigns = (): readonly MuseumSignDefinition[] => [
     kind: 'entrance',
     title: 'Core Questions Forum',
     kicker: 'Four question bays · ↑ North · Visitor map (M)',
-    subtitle: 'West: Gallery 13 · Latin Christian & Scholastic Traditions | East: Gallery 02 · Renaissance, Political Order, and New Science',
+    subtitle: 'West: Gallery 10 · Latin Christian & Scholastic Traditions | East: Gallery 12 · Renaissance, Political Order, and New Science',
     position: {x: 0, y: 4.72, z: -13.78},
     rotationY: 0,
     width: 6.6,
