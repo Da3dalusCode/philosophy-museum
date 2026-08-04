@@ -17,6 +17,7 @@ import {
   MEDITERRANEAN_ROOM_SIGN_COPY,
 } from './mediterraneanGalleryCuration';
 import {GALLERY_01_SUPPLEMENTAL_EXHIBIT_LAYOUTS} from './gallery01SupplementalExhibits';
+import {GALLERY_01_ROOM_BOUNDS} from './gallery01Placement';
 import {
   RENAISSANCE_EXHIBIT_CURATION,
   RENAISSANCE_GALLERY_ID,
@@ -430,15 +431,24 @@ const tierContractFor = (
 ): TierContract => {
   const contract = TIER_CONTRACTS[record.tier];
   const anaxagorasFloor = TIER_CONTRACTS['standard-individual-exhibit'];
-  const hallAdjustedContract = Object.hasOwn(MEDITERRANEAN_EXHIBIT_CURATION, record.id)
+  const mediterraneanContract = Object.hasOwn(MEDITERRANEAN_EXHIBIT_CURATION, record.id)
     ? {
         ...contract,
         bayWidth: Math.max(contract.bayWidth, anaxagorasFloor.bayWidth),
         objectWidth: Math.max(contract.objectWidth, anaxagorasFloor.objectWidth),
         objectDepth: Math.max(contract.objectDepth, anaxagorasFloor.objectDepth),
         objectHeight: Math.max(contract.objectHeight, anaxagorasFloor.objectHeight),
-      }
+    }
     : contract;
+  const hallAdjustedContract = record.id === 'prodicus'
+    ? {
+        ...mediterraneanContract,
+        bayWidth: Math.max(mediterraneanContract.bayWidth, 4.05),
+        objectWidth: Math.max(mediterraneanContract.objectWidth, 3.55),
+        objectDepth: Math.max(mediterraneanContract.objectDepth, 1.95),
+        objectHeight: Math.max(mediterraneanContract.objectHeight, 3.45),
+      }
+    : mediterraneanContract;
   if (!primaryScaleFloor) return hallAdjustedContract;
   return {
     ...hallAdjustedContract,
@@ -1246,6 +1256,8 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
       ? new Map(Object.entries(FEMINIST_PHILOSOPHIES_ROOM_BOUNDS))
     : isEnlightenmentCrossroads
       ? new Map(Object.entries(ENLIGHTENMENT_ROOM_BOUNDS))
+    : hall.id === MEDITERRANEAN_GALLERY_ID
+      ? new Map(Object.entries(GALLERY_01_ROOM_BOUNDS))
     : isCoreForum ? roomBoundsForForum(hall.rooms) : roomBoundsForSequence(hall.rooms, width, depth);
   const orderedRooms = isClassicalChineseCrossroads
     ? CLASSICAL_CHINESE_ROOM_ORDER.map((id) => hall.rooms.find((room) => room.id === id)!)
@@ -1262,6 +1274,12 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
     : isCoreForum
       ? CORE_QUESTIONS_FORUM_ZONE_ORDER.map((id) => hall.rooms.find((room) => room.id === id)!)
       : [...hall.rooms];
+  // Sequence wall and threshold helpers operate in increasing local-z order.
+  // Gallery 01's visitor/editorial order runs in the opposite physical
+  // direction, from S0 (z = 28) to N0 (z = -28).
+  const spatiallyOrderedRooms = hall.id === MEDITERRANEAN_GALLERY_ID
+    ? [...orderedRooms].reverse()
+    : orderedRooms;
   const spatialConnections = isClassicalChineseCrossroads
     ? [...CLASSICAL_CHINESE_SPATIAL_CONNECTIONS]
     : isHellenisticRomanCrossroads
@@ -1276,7 +1294,7 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
       ? [...ENLIGHTENMENT_SPATIAL_CONNECTIONS]
     : isCoreForum
       ? [...CORE_QUESTIONS_FORUM_SPATIAL_CONNECTIONS]
-      : sequenceConnections(orderedRooms, roomBounds);
+      : sequenceConnections(spatiallyOrderedRooms, roomBounds);
   const node = getMuseumManifestHallNode(hall.id);
   if (!node) throw new Error(`Canonical hall ${hall.id} has no physical manifest node.`);
   const liveEndpointKeys = new Set(
@@ -1451,7 +1469,7 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
         ? [...enlightenmentInteriorWalls(), enlightenmentKantBaffle()]
       : isCoreForum
         ? forumPartitionWalls(hall.id)
-        : sequencePartitionWalls(orderedRooms, roomBounds, hall.id, width, ceiling)),
+        : sequencePartitionWalls(spatiallyOrderedRooms, roomBounds, hall.id, width, ceiling)),
   ];
   if (
     hall.id === CORE_QUESTIONS_FORUM_ID
@@ -1596,7 +1614,7 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
     ? exhibits.find(({spatialCellId}) => spatialCellId === orderedRooms[0]?.id)
     : undefined;
   const spawn = hall.id === MEDITERRANEAN_GALLERY_ID
-    ? {...defaultSpawn, yaw: 2.65, pitch: -.015}
+    ? {...defaultSpawn, yaw: 0, pitch: -.015}
     : southAsianEntryPrimary
       ? {...southAsianEntryPrimary.viewpoint}
       : defaultSpawn;
@@ -1746,14 +1764,14 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
           kind: 'entrance' as const,
           title: 'Mediterranean Beginnings & Classical Athens',
           kicker: 'Philosophy Atlas Museum · Gallery 01',
-          subtitle: 'Enter Room 04 · Plato, Aristotle, Academy, and Lyceum',
+          subtitle: 'Enter Room 01 · Miletus and the search for natural explanation',
           position: {x: 0, y: 4.52, z: 27.78},
           rotationY: Math.PI,
           width: 5.25,
           height: .82,
         },
         ...orderedRooms
-          .filter(({id}) => id !== 'med-plato-aristotle')
+          .filter(({id}) => id !== 'med-orientation-nature')
           .map((room) => {
             const copy = MEDITERRANEAN_ROOM_SIGN_COPY[room.id as keyof typeof MEDITERRANEAN_ROOM_SIGN_COPY];
             if (!copy) throw new Error(`Gallery 01 has no visitor-facing room copy for ${room.id}.`);
@@ -2396,8 +2414,10 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
           // Gallery 10 stages all three walls of the west half-room together.
           pose: authoredEntryPose
             ?? firstPrimary?.viewpoint
-            ?? (hall.id === MEDITERRANEAN_GALLERY_ID || hall.id === RENAISSANCE_GALLERY_ID
-              ? {x: 0, z: cell.bounds.minZ + .8, yaw: Math.PI, pitch: -.01}
+            ?? (hall.id === MEDITERRANEAN_GALLERY_ID
+              ? {x: 0, z: cell.bounds.maxZ - .8, yaw: 0, pitch: -.01}
+              : hall.id === RENAISSANCE_GALLERY_ID
+                ? {x: 0, z: cell.bounds.minZ + .8, yaw: Math.PI, pitch: -.01}
               : {x: Math.max(cell.bounds.minX + 2.8, Math.min(cell.bounds.maxX - 2.8, 0)), z: (cell.bounds.minZ + cell.bounds.maxZ) / 2, yaw: Math.PI, pitch: 0}),
           expectedVisibleExhibitIds: cell.exhibitIds,
         };
@@ -2423,7 +2443,9 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
           ? CORE_QUESTIONS_FORUM_PRIMARY_CIRCULATION
         : {
             id: `${hall.id}:primary-circulation`,
-            points: hall.id === BUDDHIST_GALLERY_ID
+            points: hall.id === MEDITERRANEAN_GALLERY_ID
+              ? [{x: 0, z: depth / 2 - 2}, {x: 0, z: 0}, {x: 0, z: -depth / 2 + 2}]
+              : hall.id === BUDDHIST_GALLERY_ID
                 ? [{x: 0, z: -26}, {x: 0, z: 0}, {x: 0, z: 24.4}]
                 : [{x: 0, z: -depth / 2 + 2}, {x: 0, z: 0}, {x: 0, z: depth / 2 - 2}],
             clearanceRadius: 1.25,

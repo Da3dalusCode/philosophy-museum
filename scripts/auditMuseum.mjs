@@ -2010,7 +2010,7 @@ check('Gallery 01 has bounded authored curation, minimum-scale exhibits, and a c
   assert.equal(definition.layout.exhibits.filter(({scene}) => scene.mediaMounts.length > 0).length, 22, 'Every Gallery 01 exhibit must retain provenance-backed scene media');
   assert.equal(definition.layout.exhibits.reduce((sum, {scene}) => sum + scene.mediaMounts.length, 0), 25, 'Gallery 01 media-placement count changed');
   assert.equal(curationEntries.filter(([, curation]) => curation.frontTitle).length, 6, 'Gallery 01 question-first hierarchy changed');
-  assert.deepEqual(MEDITERRANEAN_EXHIBIT_CURATION.anaxagoras.authored, {x: -7.5, z: -1.15, rotationY: Math.PI}, 'Anaxagoras left the centred south-west return wall');
+  assert.deepEqual(MEDITERRANEAN_EXHIBIT_CURATION.anaxagoras.authored, {x: 10.85, z: 7, rotationY: -Math.PI / 2}, 'Anaxagoras left the centred Room 02 east-wall sequence');
   const anaxagoras = exhibitLayoutById.get('anaxagoras');
   assert(anaxagoras, 'Anaxagoras has no physical Gallery 01 exhibit layout');
   for (const layout of exhibitLayoutById.values()) {
@@ -2089,17 +2089,17 @@ check('Gallery 01 has bounded authored curation, minimum-scale exhibits, and a c
   assert(entranceSign.title.trim() && entranceSign.kicker.trim() && entranceSign.subtitle.trim(), 'Gallery 01 entrance sign has a blank face');
   assert.match(buildingArchitectureSource, /twoSided=\{sign\.id === 'mediterranean-beginnings-classical:entrance-sign'\}/u, 'Gallery 01 entrance sign is blank from the room-side approach');
   assert.match(architectureSource, /twoSidedEntrance && <group position=\{\[0, 0, -\.08\]\} rotation=\{\[0, Math\.PI, 0\]\}/u, 'Gallery 01 permanent entrance sign lacks its room-side face');
-  assert(!definition.layout.signs.some(({id}) => id === 'med-plato-aristotle:room-sign'), 'Room 04 duplicates the Gallery 01 entrance sign');
-  assert.equal(definition.layout.signs.find(({id}) => id === 'med-orientation-nature:room-sign')?.position.z, -14.22, 'Room 01 sign is not centred above its threshold');
-  assert.equal(definition.layout.signs.find(({id}) => id === 'med-being-change-plurality:room-sign')?.position.z, -.22, 'Room 02 sign is not centred above its threshold');
-  assert.equal(definition.layout.signs.find(({id}) => id === 'med-sophists-socratic:room-sign')?.position.z, 13.78, 'Room 03 sign is not centred above its threshold');
-  const gallery01NaturalApproachZ = [-27.2, -13.2, .8, 14.8];
+  assert(!definition.layout.signs.some(({id}) => id === 'med-orientation-nature:room-sign'), 'Room 01 duplicates the Gallery 01 entrance sign');
+  assert.equal(definition.layout.signs.find(({id}) => id === 'med-being-change-plurality:room-sign')?.position.z, 13.78, 'Room 02 sign is not centred above its threshold');
+  assert.equal(definition.layout.signs.find(({id}) => id === 'med-sophists-socratic:room-sign')?.position.z, -.22, 'Room 03 sign is not centred above its threshold');
+  assert.equal(definition.layout.signs.find(({id}) => id === 'med-plato-aristotle:room-sign')?.position.z, -14.22, 'Room 04 sign is not centred above its threshold');
+  const gallery01NaturalApproachZ = [27.2, 13.2, -.8, -14.8];
   for (const [index, view] of definition.layout.entryViews.entries()) {
     const cell = definition.layout.spatialCells.find(({id}) => id === view.spatialCellId);
     assert(cell, `Gallery 01 entry view ${view.spatialCellId} has no room`);
     assert(Math.abs(view.pose.x) < .001, `${view.spatialCellId} no longer stages the central chronological route`);
     assert(Math.abs(view.pose.z - gallery01NaturalApproachZ[index]) < .001, `${view.spatialCellId} no longer stages its natural threshold approach`);
-    assert(Math.abs(view.pose.yaw - Math.PI) < .001, `${view.spatialCellId} no longer faces along the authored Gallery 01 route`);
+    assert(Math.abs(view.pose.yaw) < .001, `${view.spatialCellId} no longer faces along the authored Gallery 01 route`);
   }
   for (const sign of definition.layout.signs) {
     assert.doesNotMatch(`${sign.kicker} ${sign.title} ${sign.subtitle}`, forbiddenPublicLabels, `${sign.id} exposes internal presentation language`);
@@ -2114,7 +2114,7 @@ check('Gallery 01 has bounded authored curation, minimum-scale exhibits, and a c
   assert(entranceConnection?.accessible && entranceConnection.implementationStatus === 'live', 'Grand Entrance does not connect physically to Gallery 01');
 });
 
-check('Plato’s Cave and Republic form a substantial supplemental U without entering the primary program', () => {
+check('Plato’s Cave and Republic frame the final room without entering the primary program', () => {
   const definition = definitionById.get(MEDITERRANEAN_GALLERY_ID);
   const hall = hallById.get(MEDITERRANEAN_GALLERY_ID);
   assert(definition && hall);
@@ -2141,17 +2141,18 @@ check('Plato’s Cave and Republic form a substantial supplemental U without ent
   const republic = byId.get('plato-republic');
   const cave = byId.get('plato-cave-book-vii');
   assert(republic && cave);
-  approx(republic.position.x, 7.5, 'Republic north-east wall centre');
-  approx(cave.position.x, 7.5, 'Cave south-east wall centre');
-  assert(republic.position.z < 16 && cave.position.z > 26, 'The two work exhibits no longer bracket the Plato wall');
-  approx(republic.rotationY, 0, 'Republic inward-facing rotation');
+  approx(republic.position.x, 7.5, 'Republic south-east wall centre');
+  approx(cave.position.x, -7.5, 'Cave south-west wall centre');
+  approx(republic.position.z, -15.12, 'Republic final-room entry position');
+  approx(cave.position.z, -15.12, 'Cave final-room entry position');
+  approx(republic.rotationY, Math.PI, 'Republic inward-facing rotation');
   approx(cave.rotationY, Math.PI, 'Cave inward-facing rotation');
-  assert(distance(republic.position, cave.position) > 11, 'The opposing work exhibits collapsed into one wall');
+  assert(distance(republic.position, cave.position) > 14, 'The paired Plato works collapsed into the central doorway');
   for (const layout of supplemental) {
     assert.equal(layout.parentExhibitId, 'plato', `${layout.id} lost its supplemental Plato parent`);
     assert.equal(layout.zoneId, 'med-plato-aristotle', `${layout.id} left Room 04`);
     assert.equal(layout.spatialCellId, 'med-plato-aristotle', `${layout.id} left the Room 04 spatial cell`);
-    assert(layout.position.x - layout.footprint.width / 2 > 4, `${layout.id} intrudes into the central circulation/sightline`);
+    assert(Math.abs(layout.position.x) - layout.footprint.width / 2 > 4, `${layout.id} intrudes into the central circulation/sightline`);
     assert(layout.footprint.width >= 4.7 && layout.footprint.height >= 4.5, `${layout.id} is not visually substantial`);
     assert(layout.mediaMount.width >= 2 && layout.mediaMount.height >= 2.8, `${layout.id} media is too slight`);
     assert.equal(layout.mediaMount.assetId, layout.assetId, `${layout.id} media and prefetch assets differ`);

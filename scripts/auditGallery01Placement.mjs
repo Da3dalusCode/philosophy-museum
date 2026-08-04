@@ -46,6 +46,7 @@ const {
   CANONICAL_MUSEUM_HALL_DEFINITIONS,
   GALLERY_01_DOORWAY_CLEARANCES,
   GALLERY_01_CONTEXT_SUPPLEMENTAL_PLACEMENTS,
+  GALLERY_01_CURATORIAL_WALL_SEQUENCES,
   GALLERY_01_HALL_BOUNDS,
   GALLERY_01_ENTRANCE_ORIENTATION_PLACEMENT,
   GALLERY_01_PLATO_SUPPLEMENTAL_PLACEMENTS,
@@ -175,6 +176,7 @@ assert.deepEqual(
   {x: 0, z: 26},
   'Gallery 01 S0 arrival moved',
 );
+approx(gallery.layout.spawn.yaw, 0, 'Gallery 01 spawn must face north into Room 01');
 assert.deepEqual(
   {x: northExit.arrivalPose.x, z: northExit.arrivalPose.z},
   {x: 0, z: -26},
@@ -200,6 +202,10 @@ for (const layout of primaryById.values()) {
   assert(layout.scene.footprint.depth >= anaxagoras.scene.footprint.depth, `${layout.id} is shallower than the approved Anaxagoras minimum`);
   assert(layout.scene.footprint.height >= anaxagoras.scene.footprint.height, `${layout.id} is shorter than the approved Anaxagoras minimum`);
 }
+const prodicus = primaryById.get('prodicus');
+assert(prodicus, 'Prodicus is absent from Gallery 01');
+assert(prodicus.scene.footprint.width >= anaxagoras.scene.footprint.width + .7, 'Prodicus does not read materially wider than Anaxagoras');
+assert(prodicus.scene.footprint.height >= anaxagoras.scene.footprint.height + .25, 'Prodicus does not read materially taller than Anaxagoras');
 
 for (const room of program.rooms) {
   const expectedIds = GALLERY_01_ROOM_PRIMARY_IDS[room.id];
@@ -353,6 +359,8 @@ for (const [roomId, anchorIds] of Object.entries(GALLERY_01_ROOM_ANCHORS)) {
   const roomInstallations = installations.filter((item) => item.roomId === roomId);
   const westCount = roomInstallations.filter(({bounds}) => (bounds.minX + bounds.maxX) / 2 < 0).length;
   const eastCount = roomInstallations.length - westCount;
+  assert(westCount >= 3, `${roomId} west half-room has fewer than three exhibits`);
+  assert(eastCount >= 3, `${roomId} east half-room has fewer than three exhibits`);
   assert(Math.abs(westCount - eastCount) <= 2, `${roomId} has an unbalanced ${westCount}/${eastCount} left-right composition`);
   const faceCounts = new Map();
   const faceInstallations = new Map();
@@ -390,6 +398,18 @@ for (const [roomId, anchorIds] of Object.entries(GALLERY_01_ROOM_ANCHORS)) {
   for (const face of ['north-east', 'south-east']) {
     approx(faceInstallations.get(face)[0].position.x, 7.5, `${roomId}/${face} wall centre`);
   }
+
+  for (const side of ['west', 'east']) {
+    const observedSequence = roomInstallations
+      .filter(({position}) => side === 'west' ? position.x < 0 : position.x > 0)
+      .sort((first, second) => second.position.z - first.position.z)
+      .map(({id}) => id);
+    assert.deepEqual(
+      observedSequence,
+      GALLERY_01_CURATORIAL_WALL_SEQUENCES[roomId][side],
+      `${roomId}/${side} intellectual sequence or adjacency changed`,
+    );
+  }
 }
 
 const entranceSign = gallery.layout.signs.find(({id}) => id === `${MEDITERRANEAN_GALLERY_ID}:entrance-sign`);
@@ -397,6 +417,7 @@ assert(entranceSign, 'Gallery 01 entrance sign is missing');
 assert.deepEqual(entranceSign.position, {x: 0, y: 4.52, z: 27.78}, 'Gallery 01 entrance sign left the S0 lintel');
 approx(entranceSign.rotationY, Math.PI, 'Gallery 01 entrance sign facing');
 assert(entranceSign.title.trim() && entranceSign.kicker.trim() && entranceSign.subtitle.trim(), 'Gallery 01 entrance sign has a blank face');
+assert.match(entranceSign.subtitle, /Room 01.*Miletus.*natural explanation/, 'Gallery 01 entrance sign no longer introduces the opening room');
 const roomSigns = gallery.layout.signs.filter(({kind}) => kind === 'zone');
 assert.equal(roomSigns.length, 3, 'Gallery 01 should use only the three internal threshold signs');
 for (const sign of roomSigns) {
@@ -407,15 +428,21 @@ for (const sign of roomSigns) {
 }
 
 const physicalRoomOrder = [
-  'med-plato-aristotle',
-  'med-sophists-socratic',
-  'med-being-change-plurality',
   'med-orientation-nature',
+  'med-being-change-plurality',
+  'med-sophists-socratic',
+  'med-plato-aristotle',
 ];
 assert.deepEqual(
   physicalRoomOrder,
-  [...program.rooms.map(({id}) => id)].reverse(),
-  'Gallery 01 physical S0-to-N0 order no longer reverses its canonical editorial array',
+  program.rooms.map(({id}) => id),
+  'Gallery 01 physical S0-to-N0 order diverges from its canonical editorial array',
+);
+assert.equal(physicalRoomOrder.at(-1), 'med-plato-aristotle', 'Plato and Aristotle are no longer in Gallery 01’s final room');
+assert.deepEqual(
+  gallery.layout.primaryCirculation.points,
+  [{x: 0, z: 26}, {x: 0, z: 0}, {x: 0, z: -26}],
+  'Gallery 01 primary circulation no longer follows the S0-to-N0 visitor sequence',
 );
 for (const roomId of physicalRoomOrder) {
   const bounds = GALLERY_01_ROOM_BOUNDS[roomId];

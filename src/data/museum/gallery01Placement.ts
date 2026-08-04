@@ -36,6 +36,13 @@ export type Gallery01PrimaryExhibitId =
   | 'aristotelianism'
   | 'aristotle';
 
+export type Gallery01InstallationId = Gallery01PrimaryExhibitId
+  | 'miletus-ionian-coast'
+  | 'greek-philosophy-reception'
+  | 'socrates-trial-death'
+  | 'plato-republic'
+  | 'plato-cave-book-vii';
+
 export type Gallery01Placement = Readonly<{
   x: number;
   z: number;
@@ -57,10 +64,10 @@ export const GALLERY_01_HALL_BOUNDS = Object.freeze({
 }) satisfies Gallery01Bounds;
 
 export const GALLERY_01_ROOM_BOUNDS = Object.freeze({
-  'med-orientation-nature': {minX: -12, maxX: 12, minZ: -28, maxZ: -14},
-  'med-being-change-plurality': {minX: -12, maxX: 12, minZ: -14, maxZ: 0},
-  'med-sophists-socratic': {minX: -12, maxX: 12, minZ: 0, maxZ: 14},
-  'med-plato-aristotle': {minX: -12, maxX: 12, minZ: 14, maxZ: 28},
+  'med-orientation-nature': {minX: -12, maxX: 12, minZ: 14, maxZ: 28},
+  'med-being-change-plurality': {minX: -12, maxX: 12, minZ: 0, maxZ: 14},
+  'med-sophists-socratic': {minX: -12, maxX: 12, minZ: -14, maxZ: 0},
+  'med-plato-aristotle': {minX: -12, maxX: 12, minZ: -28, maxZ: -14},
 }) satisfies Readonly<Record<Gallery01RoomId, Gallery01Bounds>>;
 
 export const GALLERY_01_ROOM_PRIMARY_IDS = Object.freeze({
@@ -87,31 +94,37 @@ export const GALLERY_01_ROOM_PRIMARY_IDS = Object.freeze({
  * contract, rather than a set of loose composition points.
  */
 export const GALLERY_01_PRIMARY_PLACEMENTS = Object.freeze({
-  'ancient-greek': {x: 10.85, z: -21, rotationY: -Math.PI / 2},
-  thales: {x: -10.85, z: -21, rotationY: Math.PI / 2},
-  anaximander: {x: -7.5, z: -26.85, rotationY: 0},
-  anaximenes: {x: -7.5, z: -15.15, rotationY: Math.PI},
+  // Room 01: a Milesian sequence on the west; place and reception on the east.
+  'ancient-greek': {x: 10.85, z: 21, rotationY: -Math.PI / 2},
+  thales: {x: -7.5, z: 26.85, rotationY: Math.PI},
+  anaximander: {x: -10.85, z: 21, rotationY: Math.PI / 2},
+  anaximenes: {x: -7.5, z: 15.15, rotationY: 0},
 
-  pythagoras: {x: 7.5, z: -12.85, rotationY: 0},
-  philolaus: {x: -10.85, z: -8.8, rotationY: Math.PI / 2},
-  democritus: {x: -10.85, z: -5.2, rotationY: Math.PI / 2},
-  parmenides: {x: 10.85, z: -10.5, rotationY: -Math.PI / 2},
-  'zeno-elea': {x: 10.85, z: -7, rotationY: -Math.PI / 2},
-  heraclitus: {x: 10.85, z: -3.5, rotationY: -Math.PI / 2},
-  leucippus: {x: -7.5, z: -12.85, rotationY: 0},
-  empedocles: {x: 7.5, z: -1.15, rotationY: Math.PI},
-  anaxagoras: {x: -7.5, z: -1.15, rotationY: Math.PI},
+  // Room 02: Pythagorean and Eleatic pairs to the west; change,
+  // pluralist responses, and the Atomists progress along the east.
+  pythagoras: {x: -7.5, z: 12.85, rotationY: Math.PI},
+  philolaus: {x: -10.85, z: 8.8, rotationY: Math.PI / 2},
+  parmenides: {x: -10.85, z: 5.2, rotationY: Math.PI / 2},
+  'zeno-elea': {x: -7.5, z: 1.15, rotationY: 0},
+  heraclitus: {x: 7.5, z: 12.85, rotationY: Math.PI},
+  empedocles: {x: 10.85, z: 10.5, rotationY: -Math.PI / 2},
+  anaxagoras: {x: 10.85, z: 7, rotationY: -Math.PI / 2},
+  democritus: {x: 10.85, z: 3.5, rotationY: -Math.PI / 2},
+  leucippus: {x: 7.5, z: 1.15, rotationY: 0},
 
-  protagoras: {x: -10.85, z: 7, rotationY: Math.PI / 2},
-  prodicus: {x: -7.5, z: 1.15, rotationY: 0},
-  'hippias-of-elis': {x: -7.5, z: 12.85, rotationY: Math.PI},
-  gorgias: {x: 10.85, z: 7, rotationY: -Math.PI / 2},
-  socrates: {x: 7.5, z: 12.85, rotationY: Math.PI},
+  // Room 03: the Sophists frame Protagoras; Socrates leads to the trial.
+  protagoras: {x: -10.85, z: -7, rotationY: Math.PI / 2},
+  prodicus: {x: -7.5, z: -12.85, rotationY: 0},
+  'hippias-of-elis': {x: -7.5, z: -1.15, rotationY: Math.PI},
+  gorgias: {x: 7.5, z: -1.15, rotationY: Math.PI},
+  socrates: {x: 10.85, z: -7, rotationY: -Math.PI / 2},
 
-  platonism: {x: -7.5, z: 15.15, rotationY: 0},
-  plato: {x: -10.85, z: 21, rotationY: Math.PI / 2},
-  aristotelianism: {x: -7.5, z: 26.85, rotationY: Math.PI},
-  aristotle: {x: 10.85, z: 21, rotationY: -Math.PI / 2},
+  // Room 04: Plato and Aristotle are the final anchors; their institutional
+  // afterlives terminate the gallery and point toward the successor galleries.
+  platonism: {x: -7.5, z: -26.85, rotationY: 0},
+  plato: {x: -10.85, z: -21, rotationY: Math.PI / 2},
+  aristotelianism: {x: 7.5, z: -26.85, rotationY: 0},
+  aristotle: {x: 10.85, z: -21, rotationY: -Math.PI / 2},
 }) satisfies Readonly<Record<Gallery01PrimaryExhibitId, Gallery01Placement>>;
 
 /** Freestanding orientation landmark in the Grand Entrance near Gallery 01. */
@@ -123,34 +136,61 @@ export const GALLERY_01_ENTRANCE_ORIENTATION_PLACEMENT = Object.freeze({
 
 export const GALLERY_01_PLATO_SUPPLEMENTAL_PLACEMENTS = Object.freeze({
   'plato-republic': {
-    position: {x: 7.5, z: 15.12},
-    rotationY: 0,
-    viewpoint: {x: 7.5, z: 18.28, yaw: 0, pitch: -.08},
+    position: {x: 7.5, z: -15.12},
+    rotationY: Math.PI,
+    viewpoint: {x: 7.5, z: -18.28, yaw: Math.PI, pitch: -.08},
   },
   'plato-cave-book-vii': {
-    position: {x: 7.5, z: 26.88},
+    position: {x: -7.5, z: -15.12},
     rotationY: Math.PI,
-    viewpoint: {x: 7.5, z: 23.72, yaw: Math.PI, pitch: -.08},
+    viewpoint: {x: -7.5, z: -18.28, yaw: Math.PI, pitch: -.08},
   },
 });
 
 export const GALLERY_01_CONTEXT_SUPPLEMENTAL_PLACEMENTS = Object.freeze({
   'miletus-ionian-coast': {
-    position: {x: 7.5, z: -26.88},
-    rotationY: 0,
-    viewpoint: {x: 7.5, z: -23.72, yaw: 0, pitch: -.08},
+    position: {x: 7.5, z: 26.88},
+    rotationY: Math.PI,
+    viewpoint: {x: 7.5, z: 23.72, yaw: Math.PI, pitch: -.08},
   },
   'greek-philosophy-reception': {
-    position: {x: 7.5, z: -15.12},
-    rotationY: Math.PI,
-    viewpoint: {x: 7.5, z: -18.28, yaw: Math.PI, pitch: -.08},
+    position: {x: 7.5, z: 15.12},
+    rotationY: 0,
+    viewpoint: {x: 7.5, z: 18.28, yaw: 0, pitch: -.08},
   },
   'socrates-trial-death': {
-    position: {x: 7.5, z: 1.12},
+    position: {x: 7.5, z: -12.88},
     rotationY: 0,
-    viewpoint: {x: 7.5, z: 4.28, yaw: 0, pitch: -.08},
+    viewpoint: {x: 7.5, z: -9.72, yaw: 0, pitch: -.08},
   },
 });
+
+/**
+ * The complete visitor-facing narrative on each side of the route, ordered
+ * from the south entrance toward the north exit. This keeps wall geometry and
+ * intellectual adjacency under one auditable contract.
+ */
+export const GALLERY_01_CURATORIAL_WALL_SEQUENCES = Object.freeze({
+  'med-orientation-nature': {
+    west: ['thales', 'anaximander', 'anaximenes'],
+    east: ['miletus-ionian-coast', 'ancient-greek', 'greek-philosophy-reception'],
+  },
+  'med-being-change-plurality': {
+    west: ['pythagoras', 'philolaus', 'parmenides', 'zeno-elea'],
+    east: ['heraclitus', 'empedocles', 'anaxagoras', 'democritus', 'leucippus'],
+  },
+  'med-sophists-socratic': {
+    west: ['hippias-of-elis', 'protagoras', 'prodicus'],
+    east: ['gorgias', 'socrates', 'socrates-trial-death'],
+  },
+  'med-plato-aristotle': {
+    west: ['plato-cave-book-vii', 'plato', 'platonism'],
+    east: ['plato-republic', 'aristotle', 'aristotelianism'],
+  },
+}) satisfies Readonly<Record<Gallery01RoomId, Readonly<{
+  west: readonly Gallery01InstallationId[];
+  east: readonly Gallery01InstallationId[];
+}>>>;
 
 /** Four-metre route plus a modest steering margin around the inlaid centerline. */
 export const GALLERY_01_ROUTE_HALF_WIDTH = 2.25;
@@ -166,7 +206,7 @@ export const GALLERY_01_DOORWAY_CLEARANCES = Object.freeze([
 ]);
 
 export const GALLERY_01_ROOM_ANCHORS = Object.freeze({
-  'med-orientation-nature': ['thales', 'ancient-greek'],
+  'med-orientation-nature': ['thales', 'anaximander', 'ancient-greek'],
   'med-being-change-plurality': ['pythagoras', 'parmenides', 'democritus', 'heraclitus'],
   'med-sophists-socratic': ['protagoras', 'gorgias', 'socrates'],
   'med-plato-aristotle': ['plato', 'aristotle'],
