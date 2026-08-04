@@ -14,11 +14,11 @@ The hard floor is **2,000 substantive article-prose words**. The counter tokeniz
 
 | Category | Total | Pass | Fail | Missing article |
 | --- | ---: | ---: | ---: | ---: |
-| Philosophers | 146 | 138 | 8 | 0 |
+| Philosophers | 146 | 146 | 0 | 0 |
 | Philosophies, branches, schools, traditions, movements, methods, and frameworks | 45 | 45 | 0 | 0 |
 | Standalone works, texts, arguments, concepts, and article-backed exhibits | 0 | 0 | 0 | 0 |
 
-Universal total: **191** applicable articles; **183 pass**; **8 fail**; **0 are missing article prose**.
+Universal total: **191** applicable articles; **191 pass**; **0 fail**; **0 are missing article prose**.
 
 Current failures are migration backlog, not approved exceptions. The strict audit is intentionally separate from the ordinary build until that backlog reaches zero.
 
@@ -36,14 +36,7 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 
 | ID | Title | Category | Words | Status |
 | --- | --- | --- | ---: | --- |
-| philippa-foot | Philippa Foot | philosopher | 1805 | fail |
-| judith-thomson | Judith Jarvis Thomson | philosopher | 1807 | fail |
-| thomas-nagel | Thomas Nagel | philosopher | 1805 | fail |
-| derek-parfit | Derek Parfit | philosopher | 1802 | fail |
-| martha-nussbaum | Martha Nussbaum | philosopher | 1803 | fail |
-| judith-butler | Judith Butler | philosopher | 1836 | fail |
-| angela-davis | Angela Davis | philosopher | 1801 | fail |
-| bell-hooks | bell hooks | philosopher | 1883 | fail |
+| — | — | — | — | — |
 
 ## Records omitted by the former manual target list
 
@@ -202,14 +195,14 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | philosopher | habermas | Jürgen Habermas | #/philosophers/habermas | 2067 | pass | yes | yes (1 primary; 6 supplemental) |
 | philosopher | fanon | Frantz Fanon | #/philosophers/fanon | 2178 | pass | yes | yes (1 primary; 10 supplemental) |
 | philosopher | iris-murdoch | Iris Murdoch | #/philosophers/iris-murdoch | 2097 | pass | yes | yes (1 primary; 1 supplemental) |
-| philosopher | philippa-foot | Philippa Foot | #/philosophers/philippa-foot | 1805 | fail | yes | yes (1 primary; 1 supplemental) |
-| philosopher | judith-thomson | Judith Jarvis Thomson | #/philosophers/judith-thomson | 1807 | fail | yes | yes (1 primary; 2 supplemental) |
-| philosopher | thomas-nagel | Thomas Nagel | #/philosophers/thomas-nagel | 1805 | fail | yes | yes (1 primary; 0 supplemental) |
-| philosopher | derek-parfit | Derek Parfit | #/philosophers/derek-parfit | 1802 | fail | yes | yes (1 primary; 2 supplemental) |
-| philosopher | martha-nussbaum | Martha Nussbaum | #/philosophers/martha-nussbaum | 1803 | fail | yes | yes (1 primary; 2 supplemental) |
-| philosopher | judith-butler | Judith Butler | #/philosophers/judith-butler | 1836 | fail | yes | yes (1 primary; 5 supplemental) |
-| philosopher | angela-davis | Angela Davis | #/philosophers/angela-davis | 1801 | fail | yes | yes (1 primary; 3 supplemental) |
-| philosopher | bell-hooks | bell hooks | #/philosophers/bell-hooks | 1883 | fail | yes | yes (1 primary; 3 supplemental) |
+| philosopher | philippa-foot | Philippa Foot | #/philosophers/philippa-foot | 2351 | pass | yes | yes (1 primary; 1 supplemental) |
+| philosopher | judith-thomson | Judith Jarvis Thomson | #/philosophers/judith-thomson | 2336 | pass | yes | yes (1 primary; 2 supplemental) |
+| philosopher | thomas-nagel | Thomas Nagel | #/philosophers/thomas-nagel | 2342 | pass | yes | yes (1 primary; 0 supplemental) |
+| philosopher | derek-parfit | Derek Parfit | #/philosophers/derek-parfit | 2258 | pass | yes | yes (1 primary; 2 supplemental) |
+| philosopher | martha-nussbaum | Martha Nussbaum | #/philosophers/martha-nussbaum | 2271 | pass | yes | yes (1 primary; 2 supplemental) |
+| philosopher | judith-butler | Judith Butler | #/philosophers/judith-butler | 2255 | pass | yes | yes (1 primary; 5 supplemental) |
+| philosopher | angela-davis | Angela Davis | #/philosophers/angela-davis | 2242 | pass | yes | yes (1 primary; 3 supplemental) |
+| philosopher | bell-hooks | bell hooks | #/philosophers/bell-hooks | 2331 | pass | yes | yes (1 primary; 3 supplemental) |
 | philosopher | jiddu-krishnamurti | Jiddu Krishnamurti | #/philosophers/jiddu-krishnamurti | 2720 | pass | no | yes (1 primary; 0 supplemental) |
 | philosophy | stoicism | Stoicism | #/branches/stoicism | 2062 | pass | yes | yes (1 primary; 0 supplemental) |
 | philosophy | platonism | Platonism | #/branches/platonism | 5558 | pass | yes | yes (1 primary; 0 supplemental) |

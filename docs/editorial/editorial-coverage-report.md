@@ -8,7 +8,7 @@ This report distinguishes bibliographies, mapped evidence, completed claim revie
 
 | Category | Total | Unreviewed | Bibliography only | Source mapped | Claim review current | Review out of date |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| Philosophers | 146 | 12 | 48 | 0 | 86 | 0 |
+| Philosophers | 146 | 9 | 43 | 0 | 94 | 0 |
 | Philosophies / branches / schools / traditions | 45 | 2 | 32 | 0 | 11 | 0 |
 | Standalone articles and major exhibits | 0 | 0 | 0 | 0 | 0 | 0 |
 
@@ -153,14 +153,14 @@ This report distinguishes bibliographies, mapped evidence, completed claim revie
 | philosopher | habermas | Jürgen Habermas | bibliography-only | 0 | 0 | 0 | 0 | 0 | 2067 | #/philosophers/habermas |
 | philosopher | fanon | Frantz Fanon | bibliography-only | 0 | 0 | 0 | 0 | 0 | 2178 | #/philosophers/fanon |
 | philosopher | iris-murdoch | Iris Murdoch | claim-reviewed | 8 | 8 | 17 | 30 | 128 | 2097 | #/philosophers/iris-murdoch |
-| philosopher | philippa-foot | Philippa Foot | bibliography-only | 0 | 0 | 0 | 0 | 0 | 1805 | #/philosophers/philippa-foot |
-| philosopher | judith-thomson | Judith Jarvis Thomson | bibliography-only | 0 | 0 | 0 | 0 | 0 | 1807 | #/philosophers/judith-thomson |
-| philosopher | thomas-nagel | Thomas Nagel | unreviewed | 0 | 0 | 0 | 0 | 0 | 1805 | #/philosophers/thomas-nagel |
-| philosopher | derek-parfit | Derek Parfit | unreviewed | 0 | 0 | 0 | 0 | 0 | 1802 | #/philosophers/derek-parfit |
-| philosopher | martha-nussbaum | Martha Nussbaum | unreviewed | 0 | 0 | 0 | 0 | 0 | 1803 | #/philosophers/martha-nussbaum |
-| philosopher | judith-butler | Judith Butler | bibliography-only | 0 | 0 | 0 | 0 | 0 | 1836 | #/philosophers/judith-butler |
-| philosopher | angela-davis | Angela Davis | bibliography-only | 0 | 0 | 0 | 0 | 0 | 1801 | #/philosophers/angela-davis |
-| philosopher | bell-hooks | bell hooks | bibliography-only | 0 | 0 | 0 | 0 | 0 | 1883 | #/philosophers/bell-hooks |
+| philosopher | philippa-foot | Philippa Foot | claim-reviewed | 8 | 8 | 17 | 32 | 137 | 2351 | #/philosophers/philippa-foot |
+| philosopher | judith-thomson | Judith Jarvis Thomson | claim-reviewed | 8 | 8 | 17 | 33 | 138 | 2336 | #/philosophers/judith-thomson |
+| philosopher | thomas-nagel | Thomas Nagel | claim-reviewed | 8 | 8 | 17 | 33 | 136 | 2342 | #/philosophers/thomas-nagel |
+| philosopher | derek-parfit | Derek Parfit | claim-reviewed | 8 | 8 | 17 | 33 | 131 | 2258 | #/philosophers/derek-parfit |
+| philosopher | martha-nussbaum | Martha Nussbaum | claim-reviewed | 8 | 8 | 17 | 34 | 143 | 2271 | #/philosophers/martha-nussbaum |
+| philosopher | judith-butler | Judith Butler | claim-reviewed | 8 | 8 | 17 | 34 | 138 | 2255 | #/philosophers/judith-butler |
+| philosopher | angela-davis | Angela Davis | claim-reviewed | 8 | 8 | 17 | 34 | 143 | 2242 | #/philosophers/angela-davis |
+| philosopher | bell-hooks | bell hooks | claim-reviewed | 8 | 8 | 17 | 36 | 144 | 2331 | #/philosophers/bell-hooks |
 | philosopher | jiddu-krishnamurti | Jiddu Krishnamurti | bibliography-only | 0 | 0 | 0 | 0 | 0 | 2720 | #/philosophers/jiddu-krishnamurti |
 | philosophy | stoicism | Stoicism | bibliography-only | 0 | 0 | 0 | 0 | 0 | 2062 | #/branches/stoicism |
 | philosophy | platonism | Platonism | bibliography-only | 0 | 0 | 0 | 0 | 0 | 5558 | #/branches/platonism |
@@ -212,7 +212,7 @@ This report distinguishes bibliographies, mapped evidence, completed claim revie
 
 The patterns below flag uncited legacy article paragraphs containing quotation-like text, exact dates, priority claims, influence/causation language, disputed attribution, or broad classifications. They are review-routing signals, not findings of error or padding. Proximity to the depth floor is not treated as evidence of padding.
 
-Total signals: **713**.
+Total signals: **700**.
 
 | Record | Current status | Signal | Location | Excerpt |
 | --- | --- | --- | --- | --- |
@@ -568,19 +568,6 @@ Total signals: **713**.
 | philosopher:habermas | bibliography-only | priority-or-superlative | misunderstandings-reading/paragraph-1 | A first misunderstanding says Habermas imagines a conflict-free or power-free society. He instead uses undistorted communication as a critical orientation and analyzes how actual communication is penetrated by power. A s |
 | philosopher:fanon | bibliography-only | priority-or-superlative | violence/paragraph-1 | Fanon's account of violence is his most contested theme. Settler colonialism is founded and maintained through military force, policing, dispossession, spatial segregation, and a social language that casts the colonized |
 | philosopher:fanon | bibliography-only | influence-or-causation | criticisms-influence/paragraph-1 | Fanon influenced anticolonial movements, Black studies, postcolonial theory, critical race philosophy, liberation psychology, psychiatry, feminism, and political theology. His account of the racialized body anticipates s |
-| philosopher:philippa-foot | bibliography-only | influence-or-causation | influence/paragraph-1 | Foot helped make virtue ethics intellectually serious again in analytic philosophy. Along with Anscombe, Murdoch, and later writers such as Rosalind Hursthouse, she shifted attention back to character, practical reason, |
-| philosopher:judith-thomson | bibliography-only | priority-or-superlative | overview/paragraph-1 | Judith Jarvis Thomson was one of the most influential analytic moral philosophers of the late twentieth century. She used carefully designed examples to test assumptions about rights, harm, killing, letting die, self-def |
-| philosopher:thomas-nagel | unreviewed | priority-or-superlative | view-nowhere/paragraph-1 | The View from Nowhere develops Nagel's central contrast between subjective and objective standpoints. Objectivity is achieved by stepping back from a particular perspective and seeing oneself as one part of a larger worl |
-| philosopher:thomas-nagel | unreviewed | priority-or-superlative | reading-strategy/paragraph-4 | A useful sequence is to read the bat essay first, then moral luck, then the absurd, and only afterward The View from Nowhere. The same structure will appear in different domains: step back, gain objectivity, and then dis |
-| philosopher:derek-parfit | unreviewed | priority-or-superlative | overview/paragraph-2 | Parfit is best known for Reasons and Persons, one of the most influential philosophy books of the late twentieth century. It changed debates about personal identity, rationality, population ethics, and consequentialism. |
-| philosopher:derek-parfit | unreviewed | disputed-attribution | reasons/paragraph-2 | This view places Parfit in debates about moral realism and non-naturalism. Critics ask how non-natural normative truths fit into the world and how we know them. Parfit replies that normative truths need not be causal obj |
-| philosopher:derek-parfit | unreviewed | priority-or-superlative | criticisms/paragraph-1 | Critics of Parfit argue that his cases are too remote from embodied, social, and historical life. Teletransportation and population puzzles may distort rather than reveal moral reality. Others object to his reductionist |
-| philosopher:derek-parfit | unreviewed | priority-or-superlative | reading-strategy/paragraph-1 | Start with Reasons and Persons rather than On What Matters. Read it in parts: first personal identity, then rationality and self-interest, then future generations and population ethics. Do not rush the examples. Ask what |
-| philosopher:judith-butler | bibliography-only | priority-or-superlative | overview/paragraph-1 | Judith Butler is one of the most influential contemporary philosophers of gender, embodiment, language, power, and social norms. Gender Trouble made Butler famous for the theory of gender performativity, but their work e |
-| philosopher:judith-butler | bibliography-only | influence-or-causation | influence-and-controversy/paragraph-1 | Butler's influence on feminist theory, queer theory, political theory, literary studies, philosophy, and gender studies is enormous. Concepts such as performativity, heteronormativity, intelligibility, and precarious lif |
-| philosopher:judith-butler | bibliography-only | priority-or-superlative | reading-strategy/paragraph-3 | A good reading practice is to separate three claims that are often blurred. First, norms form subjects before deliberate choice. Second, because norms require repetition, they can be repeated differently. Third, bodies a |
-| philosopher:bell-hooks | bibliography-only | priority-or-superlative | intersectional-analysis/paragraph-2 | Her analysis is especially attentive to how domination is learned emotionally and culturally. Beauty standards, romantic ideals, family roles, classroom authority, religious language, and media images all teach people wh |
-| philosopher:bell-hooks | bibliography-only | influence-or-causation | influence-and-controversy/paragraph-1 | hooks influenced feminist theory, Black studies, pedagogy, cultural studies, media criticism, masculinity studies, and public conversations about love. Her accessible style brought theoretical language to readers who mig |
 | philosopher:jiddu-krishnamurti | bibliography-only | priority-or-superlative | orientation/paragraph-2 | He did not present a conventional academic system. Most of the corpus consists of talks, dialogues, question-and-answer meetings, school conversations, notebooks, and books edited from spoken material. Recurring terms su |
 | philosopher:jiddu-krishnamurti | bibliography-only | priority-or-superlative | world-teacher-crisis/paragraph-2 | Nitya’s death from tuberculosis in 1925 was a decisive personal loss. Theosophical assurances had encouraged hope that he would survive, and the failure of those assurances intensified Krishnamurti’s distance from the mo |
 | philosopher:jiddu-krishnamurti | bibliography-only | quotation | dissolution-1929/paragraph-1 | On 3 August 1929, at the Star Camp in Ommen, Krishnamurti dissolved the Order before an audience of about three thousand. The event matters not only because an organization ended, but because the person installed at its |

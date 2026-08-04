@@ -10626,6 +10626,14 @@
           "title": "Common misunderstandings"
         },
         {
+          "id": "justice-benevolence-life",
+          "title": "Justice, benevolence, abortion, and human life"
+        },
+        {
+          "id": "development-reasons",
+          "title": "A changing account of reasons and rationality"
+        },
+        {
           "id": "reading-strategy",
           "title": "How to read Foot"
         }
@@ -10681,6 +10689,14 @@
           "title": "Common misunderstandings"
         },
         {
+          "id": "samaritans-consent-property",
+          "title": "Good Samaritans, consent, responsibility, and property"
+        },
+        {
+          "id": "revisions-over-decades",
+          "title": "Revising cases rather than freezing intuitions"
+        },
+        {
           "id": "reading-strategy",
           "title": "How to read Thomson"
         }
@@ -10728,19 +10744,27 @@
           "title": "Resistance to reduction in philosophy of mind"
         },
         {
-          "id": "controversies",
-          "title": "Controversies and criticisms"
-        },
-        {
           "id": "misunderstandings",
           "title": "Common misunderstandings"
+        },
+        {
+          "id": "war-massacre",
+          "title": "War, massacre, and moral constraint"
+        },
+        {
+          "id": "political-legitimacy-global-justice",
+          "title": "Political legitimacy, equality, and global justice"
+        },
+        {
+          "id": "mind-cosmos",
+          "title": "Mind and Cosmos: a disputed later naturalism"
         },
         {
           "id": "reading-strategy",
           "title": "How to read Nagel"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "derek-parfit",
@@ -10795,11 +10819,19 @@
           "title": "Common misunderstandings"
         },
         {
+          "id": "relation-r-branching",
+          "title": "Relation R, branching, and what matters in survival"
+        },
+        {
+          "id": "self-defeat-triple-theory",
+          "title": "Self-defeating moral theories and the later Triple Theory"
+        },
+        {
           "id": "reading-strategy",
           "title": "How to read Parfit"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "martha-nussbaum",
@@ -10854,11 +10886,19 @@
           "title": "Why Nussbaum crosses so many boundaries"
         },
         {
+          "id": "capabilities-functionings-sen",
+          "title": "Capabilities, functionings, and the relation to Sen"
+        },
+        {
+          "id": "frontiers-emotion-humanities",
+          "title": "Disability, animals, global justice, emotion, and the humanities"
+        },
+        {
           "id": "reading-strategy",
           "title": "How to read Nussbaum"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "judith-butler",
@@ -10911,6 +10951,14 @@
         {
           "id": "branch-connections",
           "title": "Butler across language, body, and politics"
+        },
+        {
+          "id": "ethical-relation-opacity",
+          "title": "Ethical relation, opacity, and responsibility"
+        },
+        {
+          "id": "war-assembly-nonviolence",
+          "title": "Grievability, assembly, Jewish ethics, and nonviolence"
         },
         {
           "id": "reading-strategy",
@@ -10970,6 +11018,14 @@
         {
           "id": "branch-connections",
           "title": "Davis as social philosophy, not only policy critique"
+        },
+        {
+          "id": "constructive-abolition",
+          "title": "The prison-industrial complex and constructive abolition"
+        },
+        {
+          "id": "communism-internationalism-genres",
+          "title": "Communism, internationalism, and different kinds of writing"
         },
         {
           "id": "reading-strategy",
@@ -11033,6 +11089,14 @@
         {
           "id": "branch-connections",
           "title": "hooks as ethical, political, and pedagogical thinker"
+        },
+        {
+          "id": "terminology-strategy",
+          "title": "Interlocking domination, intersectionality, and feminist strategy"
+        },
+        {
+          "id": "love-community-pedagogy",
+          "title": "Love, beloved community, and engaged pedagogy"
         },
         {
           "id": "reading-strategy",
@@ -13532,7 +13596,7 @@
         },
         {
           "id": "foot-natural-goodness",
-          "displayName": "Natural Goodness Without a Moral Ledger"
+          "displayName": "Natural Goodness"
         },
         {
           "id": "duty-kant-autonomy",
@@ -13552,19 +13616,19 @@
         },
         {
           "id": "thomson-violinist-bodily-rights",
-          "displayName": "The Violinist and Bodily Authority"
+          "displayName": "The Violinist"
         },
         {
           "id": "thomson-bodily-autonomy-context",
-          "displayName": "Bodily Authority in a Political Field"
+          "displayName": "Women’s Strike for Equality, 1970"
         },
         {
           "id": "parfit-psychological-continuity",
-          "displayName": "What Matters Across a Life?"
+          "displayName": "Psychological Continuity and Relation R"
         },
         {
           "id": "parfit-future-generations",
-          "displayName": "Reasons for People Who May Exist"
+          "displayName": "The Non-Identity Problem and Future Generations"
         }
       ]
     },
@@ -14442,7 +14506,7 @@
       "exhibitId": "derek-parfit",
       "entityKind": "philosopher",
       "entityId": "derek-parfit",
-      "displayName": "Derek Parfit: Persons, Reasons, and Future Generations",
+      "displayName": "Derek Parfit",
       "plannedHallId": "moral-life-practical-reason",
       "plannedHallTitle": "Moral Life & Practical Reason",
       "disposition": "live-primary",

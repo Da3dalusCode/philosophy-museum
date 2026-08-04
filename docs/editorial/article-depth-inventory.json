@@ -17,8 +17,8 @@
     {
       "label": "Philosophers",
       "total": 146,
-      "pass": 138,
-      "fail": 8,
+      "pass": 146,
+      "fail": 0,
       "missing": 0
     },
     {
@@ -38,8 +38,8 @@
   ],
   "universalSummary": {
     "total": 191,
-    "pass": 183,
-    "fail": 8,
+    "pass": 191,
+    "fail": 0,
     "missing": 0
   },
   "pilotChanges": [
@@ -1725,8 +1725,8 @@
       "title": "Philippa Foot",
       "visitorEntryPoint": "#/philosophers/philippa-foot",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1805,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2351,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -1737,8 +1737,8 @@
       "title": "Judith Jarvis Thomson",
       "visitorEntryPoint": "#/philosophers/judith-thomson",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1807,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2336,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -1749,8 +1749,8 @@
       "title": "Thomas Nagel",
       "visitorEntryPoint": "#/philosophers/thomas-nagel",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1805,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2342,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -1761,8 +1761,8 @@
       "title": "Derek Parfit",
       "visitorEntryPoint": "#/philosophers/derek-parfit",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1802,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2258,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -1773,8 +1773,8 @@
       "title": "Martha Nussbaum",
       "visitorEntryPoint": "#/philosophers/martha-nussbaum",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1803,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2271,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -1785,8 +1785,8 @@
       "title": "Judith Butler",
       "visitorEntryPoint": "#/philosophers/judith-butler",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1836,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2255,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -1797,8 +1797,8 @@
       "title": "Angela Davis",
       "visitorEntryPoint": "#/philosophers/angela-davis",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1801,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2242,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -1809,8 +1809,8 @@
       "title": "bell hooks",
       "visitorEntryPoint": "#/philosophers/bell-hooks",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 1883,
-      "complianceStatus": "fail",
+      "substantiveWordCount": 2331,
+      "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
@@ -2923,7 +2923,7 @@
         "hallId": "phenomenology-existence-embodiment",
         "visitorEntryPoint": "#/museum/phenomenology-existence-embodiment/exhibits/levinas",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 300,
+        "surfaceWords": 341,
         "canonicalArticleKey": "philosopher:levinas",
         "canonicalArticleId": "levinas",
         "canonicalArticleWordCount": 2130,
@@ -2935,7 +2935,7 @@
         "hallId": "phenomenology-existence-embodiment",
         "visitorEntryPoint": "#/museum/phenomenology-existence-embodiment/exhibits/gadamer",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 295,
+        "surfaceWords": 336,
         "canonicalArticleKey": "philosopher:gadamer",
         "canonicalArticleId": "gadamer",
         "canonicalArticleWordCount": 2155,
@@ -3079,11 +3079,11 @@
         "hallId": "justice-democratic-reason",
         "visitorEntryPoint": "#/museum/justice-democratic-reason/exhibits/martha-nussbaum",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 724,
+        "surfaceWords": 300,
         "canonicalArticleKey": "philosopher:martha-nussbaum",
         "canonicalArticleId": "martha-nussbaum",
-        "canonicalArticleWordCount": 1803,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2271,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "metaphysics",
@@ -3151,11 +3151,11 @@
         "hallId": "core-questions-forum",
         "visitorEntryPoint": "#/museum/core-questions-forum/exhibits/thomas-nagel",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 374,
+        "surfaceWords": 340,
         "canonicalArticleKey": "philosopher:thomas-nagel",
         "canonicalArticleId": "thomas-nagel",
-        "canonicalArticleWordCount": 1805,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2342,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "jiddu-krishnamurti",
@@ -3607,7 +3607,7 @@
         "hallId": "islamic-philosophical-worlds",
         "visitorEntryPoint": "#/museum/islamic-philosophical-worlds/exhibits/islamic-philosophy",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 275,
+        "surfaceWords": 332,
         "canonicalArticleKey": "philosophy:islamic-philosophy",
         "canonicalArticleId": "islamic-philosophy",
         "canonicalArticleWordCount": 2083,
@@ -3679,7 +3679,7 @@
         "hallId": "islamic-philosophical-worlds",
         "visitorEntryPoint": "#/museum/islamic-philosophical-worlds/exhibits/ibn-tufayl",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 294,
+        "surfaceWords": 347,
         "canonicalArticleKey": "philosopher:ibn-tufayl",
         "canonicalArticleId": "ibn-tufayl",
         "canonicalArticleWordCount": 2219,
@@ -3691,7 +3691,7 @@
         "hallId": "islamic-philosophical-worlds",
         "visitorEntryPoint": "#/museum/islamic-philosophical-worlds/exhibits/suhrawardi",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 280,
+        "surfaceWords": 333,
         "canonicalArticleKey": "philosopher:suhrawardi",
         "canonicalArticleId": "suhrawardi",
         "canonicalArticleWordCount": 2161,
@@ -4675,11 +4675,11 @@
         "hallId": "moral-life-practical-reason",
         "visitorEntryPoint": "#/museum/moral-life-practical-reason/exhibits/philippa-foot",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 830,
+        "surfaceWords": 321,
         "canonicalArticleKey": "philosopher:philippa-foot",
         "canonicalArticleId": "philippa-foot",
-        "canonicalArticleWordCount": 1805,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2351,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "deontology",
@@ -4711,11 +4711,11 @@
         "hallId": "moral-life-practical-reason",
         "visitorEntryPoint": "#/museum/moral-life-practical-reason/exhibits/judith-thomson",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 797,
+        "surfaceWords": 330,
         "canonicalArticleKey": "philosopher:judith-thomson",
         "canonicalArticleId": "judith-thomson",
-        "canonicalArticleWordCount": 1807,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2336,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "derek-parfit",
@@ -4723,11 +4723,11 @@
         "hallId": "moral-life-practical-reason",
         "visitorEntryPoint": "#/museum/moral-life-practical-reason/exhibits/derek-parfit",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 342,
+        "surfaceWords": 298,
         "canonicalArticleKey": "philosopher:derek-parfit",
         "canonicalArticleId": "derek-parfit",
-        "canonicalArticleWordCount": 1802,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2258,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "feminist-philosophy",
@@ -4759,11 +4759,11 @@
         "hallId": "feminist-philosophies",
         "visitorEntryPoint": "#/museum/feminist-philosophies/exhibits/judith-butler",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 726,
+        "surfaceWords": 294,
         "canonicalArticleKey": "philosopher:judith-butler",
         "canonicalArticleId": "judith-butler",
-        "canonicalArticleWordCount": 1836,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2255,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "fanon",
@@ -4783,11 +4783,11 @@
         "hallId": "colonialism-race-liberation",
         "visitorEntryPoint": "#/museum/colonialism-race-liberation/exhibits/angela-davis",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 994,
+        "surfaceWords": 293,
         "canonicalArticleKey": "philosopher:angela-davis",
         "canonicalArticleId": "angela-davis",
-        "canonicalArticleWordCount": 1801,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2242,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "bell-hooks",
@@ -4795,11 +4795,11 @@
         "hallId": "colonialism-race-liberation",
         "visitorEntryPoint": "#/museum/colonialism-race-liberation/exhibits/bell-hooks",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 927,
+        "surfaceWords": 296,
         "canonicalArticleKey": "philosopher:bell-hooks",
         "canonicalArticleId": "bell-hooks",
-        "canonicalArticleWordCount": 1883,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2331,
+        "canonicalArticleComplianceStatus": "pass"
       }
     ],
     "supplementalSurfaces": [
@@ -6014,8 +6014,8 @@
         "canonicalArticleKey": "philosopher:martha-nussbaum",
         "canonicalArticleId": "martha-nussbaum",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1803,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2271,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "nussbaum-frontiers-justice",
@@ -6030,8 +6030,8 @@
         "canonicalArticleKey": "philosopher:martha-nussbaum",
         "canonicalArticleId": "martha-nussbaum",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1803,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2271,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "amartya-sen-capability-development",
@@ -10569,7 +10569,7 @@
       },
       {
         "surfaceId": "foot-natural-goodness",
-        "title": "Natural Goodness Without a Moral Ledger",
+        "title": "Natural Goodness",
         "hallId": "moral-life-practical-reason",
         "visitorEntryPoint": "#/museum/moral-life-practical-reason/exhibits/foot-natural-goodness",
         "surfaceKind": "museum-supplemental-exhibit",
@@ -10580,8 +10580,8 @@
         "canonicalArticleKey": "philosopher:philippa-foot",
         "canonicalArticleId": "philippa-foot",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1805,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2351,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "duty-kant-autonomy",
@@ -10649,7 +10649,7 @@
       },
       {
         "surfaceId": "thomson-violinist-bodily-rights",
-        "title": "The Violinist and Bodily Authority",
+        "title": "The Violinist",
         "hallId": "moral-life-practical-reason",
         "visitorEntryPoint": "#/museum/moral-life-practical-reason/exhibits/thomson-violinist-bodily-rights",
         "surfaceKind": "museum-supplemental-exhibit",
@@ -10660,12 +10660,12 @@
         "canonicalArticleKey": "philosopher:judith-thomson",
         "canonicalArticleId": "judith-thomson",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1807,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2336,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "thomson-bodily-autonomy-context",
-        "title": "Bodily Authority in a Political Field",
+        "title": "Women’s Strike for Equality, 1970",
         "hallId": "moral-life-practical-reason",
         "visitorEntryPoint": "#/museum/moral-life-practical-reason/exhibits/thomson-bodily-autonomy-context",
         "surfaceKind": "museum-supplemental-exhibit",
@@ -10676,12 +10676,12 @@
         "canonicalArticleKey": "philosopher:judith-thomson",
         "canonicalArticleId": "judith-thomson",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1807,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2336,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "parfit-psychological-continuity",
-        "title": "What Matters Across a Life?",
+        "title": "Psychological Continuity and Relation R",
         "hallId": "moral-life-practical-reason",
         "visitorEntryPoint": "#/museum/moral-life-practical-reason/exhibits/parfit-psychological-continuity",
         "surfaceKind": "museum-supplemental-exhibit",
@@ -10692,12 +10692,12 @@
         "canonicalArticleKey": "philosopher:derek-parfit",
         "canonicalArticleId": "derek-parfit",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1802,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2258,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "parfit-future-generations",
-        "title": "Reasons for People Who May Exist",
+        "title": "The Non-Identity Problem and Future Generations",
         "hallId": "moral-life-practical-reason",
         "visitorEntryPoint": "#/museum/moral-life-practical-reason/exhibits/parfit-future-generations",
         "surfaceKind": "museum-supplemental-exhibit",
@@ -10708,8 +10708,8 @@
         "canonicalArticleKey": "philosopher:derek-parfit",
         "canonicalArticleId": "derek-parfit",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1802,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2258,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "feminist-cooper-voice-education",
@@ -10980,8 +10980,8 @@
         "canonicalArticleKey": "philosopher:judith-butler",
         "canonicalArticleId": "judith-butler",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1836,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2255,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "butler-trans-livability",
@@ -10996,8 +10996,8 @@
         "canonicalArticleKey": "philosopher:judith-butler",
         "canonicalArticleId": "judith-butler",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1836,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2255,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "butler-disability-dependency",
@@ -11012,8 +11012,8 @@
         "canonicalArticleKey": "philosopher:judith-butler",
         "canonicalArticleId": "judith-butler",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1836,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2255,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "butler-coalition-and-contestation",
@@ -11028,8 +11028,8 @@
         "canonicalArticleKey": "philosopher:judith-butler",
         "canonicalArticleId": "judith-butler",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1836,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2255,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "butler-assembly-precarity",
@@ -11044,8 +11044,8 @@
         "canonicalArticleKey": "philosopher:judith-butler",
         "canonicalArticleId": "judith-butler",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1836,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2255,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "fanon-racializing-gaze",
@@ -11140,8 +11140,8 @@
         "canonicalArticleKey": "philosopher:angela-davis",
         "canonicalArticleId": "angela-davis",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1801,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2242,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "davis-race-gender-class",
@@ -11156,8 +11156,8 @@
         "canonicalArticleKey": "philosopher:angela-davis",
         "canonicalArticleId": "angela-davis",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1801,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2242,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "hooks-margin-center",
@@ -11172,8 +11172,8 @@
         "canonicalArticleKey": "philosopher:bell-hooks",
         "canonicalArticleId": "bell-hooks",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1883,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2331,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "hooks-engaged-pedagogy-love",
@@ -11188,8 +11188,8 @@
         "canonicalArticleKey": "philosopher:bell-hooks",
         "canonicalArticleId": "bell-hooks",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1883,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2331,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "cesaire-colonialism-thingification",
@@ -11220,8 +11220,8 @@
         "canonicalArticleKey": "philosopher:angela-davis",
         "canonicalArticleId": "angela-davis",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1801,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2242,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "said-orientalism-representation",
@@ -11252,8 +11252,8 @@
         "canonicalArticleKey": "philosopher:bell-hooks",
         "canonicalArticleId": "bell-hooks",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 1883,
-        "canonicalArticleComplianceStatus": "fail"
+        "canonicalArticleWordCount": 2331,
+        "canonicalArticleComplianceStatus": "pass"
       },
       {
         "surfaceId": "ngugi-language-decolonization",

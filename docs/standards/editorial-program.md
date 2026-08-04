@@ -6,6 +6,8 @@ Every applicable canonical full educational article has a hard minimum of **2,00
 
 Below-floor records are migration backlog, not exceptions. Word count measures completeness only: shallow padding, repetition, generic biography, redundant summaries, and prose written to manipulate the counter are unacceptable.
 
+The initial universal-depth migration closed on 3 August 2026 with all 191 canonical articles meeting the floor. `npm run audit:articles` is therefore a permanent blocking GitHub Pages release invariant: future changes may not lower any canonical article below 2,000 substantive article-prose words. This invariant measures depth only. It neither completes formal claim review nor changes the separate flagship targets and backlog.
+
 ## Flagship program
 
 Flagships receive a higher depth target: **4,000 substantive words for thinkers** and **5,000 for philosophies, fields, schools, and traditions**. The exact owner-approved roster, canonical mapping, and approved-but-missing entries live in [`../editorial/flagship-program.json`](../editorial/flagship-program.json). Current counts are generated with `npm run report:flagships`; they are never stored in the manifest.

@@ -916,42 +916,42 @@
     {
       "id": "philippa-foot",
       "label": "Philippa Foot",
-      "searchText": "philippa foot virtue trolley problem virtues and vices moral philosopher"
+      "searchText": "philippa foot virtues and vices moral judgment and noncognitivism justice and benevolence natural goodness and life-form judgment practical rationality and reasons doing, allowing, and double effect the original runaway-trolley comparison moral beliefs virtues and vices morality as a system of hypothetical imperatives the problem of abortion and the doctrine of the double effect euthanasia natural goodness analytic moral philosophy and neo-aristotelian naturalism"
     },
     {
       "id": "judith-thomson",
       "label": "Judith Jarvis Thomson",
-      "searchText": "judith jarvis thomson rights trolley problem a defense of abortion analytic ethics"
+      "searchText": "judith jarvis thomson rights, claims, privileges, and powers bodily authority and the violinist argument good and minimally decent samaritan duties consent and responsibility doing and allowing harm self-defense and liability trolley cases and moral revision property and legitimate legal order a defense of abortion killing, letting die, and the trolley problem self-defense and rights the trolley problem the realm of rights self-defense turning the trolley normativity analytic moral philosophy and metaphysics"
     },
     {
       "id": "thomas-nagel",
       "label": "Thomas Nagel",
-      "searchText": "thomas nagel subjective experience view from nowhere what is it like to be a bat? analytic"
+      "searchText": "thomas nagel subjective character of experience subjective and objective standpoints death and absurdity altruism and objective reasons moral luck war and moral constraint equality, legitimacy, and partiality global justice later antireductionist naturalism the possibility of altruism mortal questions the view from nowhere equality and partiality the last word the myth of ownership the problem of global justice mind and cosmos analytic philosophy of mind, ethics, and political philosophy"
     },
     {
       "id": "derek-parfit",
       "label": "Derek Parfit",
-      "searchText": "derek parfit personal identity reasons reasons and persons moral philosopher"
+      "searchText": "derek parfit relation r and psychological continuity reductionism about persons identity versus what matters in survival self-defeating theories future persons and non-identity population ethics and the repugnant conclusion objective reasons triple theory and moral convergence reasons and persons on what matters, volume one on what matters, volume two on what matters, volume three analytic moral philosophy and personal identity"
     },
     {
       "id": "martha-nussbaum",
       "label": "Martha Nussbaum",
-      "searchText": "martha nussbaum capabilities emotions creating capabilities moral / political"
+      "searchText": "martha nussbaum capabilities and functionings human dignity and thresholds central capabilities list political liberalism emotion as evaluative appraisal tragedy, luck, and vulnerability feminism and development disability, animal, and global justice humanities and democratic education the fragility of goodness love’s knowledge women and human development upheavals of thought frontiers of justice not for profit creating capabilities political emotions ethics, political philosophy, classics, and philosophy of law"
     },
     {
       "id": "judith-butler",
       "label": "Judith Butler",
-      "searchText": "judith butler performativity precarity gender trouble feminist / continental"
+      "searchText": "judith butler gender performativity materialization of sexed bodies norms and recognizability ethical opacity and responsibility precarity and grievability kinship and livable life embodied assembly interdependency and nonviolence jewish ethics and cohabitation gender trouble bodies that matter excitable speech undoing gender precarious life giving an account of oneself frames of war notes toward a performative theory of assembly the force of nonviolence feminist, queer, continental, and political philosophy"
     },
     {
       "id": "angela-davis",
       "label": "Angela Davis",
-      "searchText": "angela davis prison abolition race, gender, class, and labor women, race & class are prisons obsolete? black radical / marxist feminist"
+      "searchText": "angela davis constructive prison abolition prison-industrial complex race, gender, class, and labor abolition democracy racial capitalism blues and black feminist cultural thought coalition and collective struggle internationalism and political prisoners if they come in the morning angela davis: an autobiography women, race & class blues legacies and black feminism are prisons obsolete? abolition democracy freedom is a constant struggle black radical, marxist feminist, abolitionist, and democratic thought"
     },
     {
       "id": "bell-hooks",
       "label": "bell hooks",
-      "searchText": "bell hooks oppositional gaze engaged pedagogy love as practice feminist theory: from margin to center teaching to transgress black feminist / cultural critic"
+      "searchText": "bell hooks feminism as opposition to sexist oppression margin and center interlocking race, class, and gender domination engaged pedagogy oppositional gaze and representation love as ethical practice patriarchy and masculinity beloved community ain’t i a woman feminist theory: from margin to center talking back black looks teaching to transgress all about love the will to change black feminist ethics, cultural criticism, and philosophy of education"
     },
     {
       "id": "jiddu-krishnamurti",
@@ -1414,7 +1414,7 @@
       "id": "thomas-nagel",
       "hallId": "core-questions-forum",
       "label": "Thomas Nagel",
-      "searchText": "thomas nagel thomas nagel why can an objective account leave out what an experience is like for its subject? core questions forum mind & self"
+      "searchText": "thomas nagel thomas nagel how can an objective account include the subjective character of experience, and how should personal and impersonal standpoints be negotiated in reasons, moral luck, equality, war, legitimacy, and the meaning of life? core questions forum mind & self"
     },
     {
       "id": "jiddu-krishnamurti",
@@ -2176,7 +2176,7 @@
       "id": "philippa-foot",
       "hallId": "moral-life-practical-reason",
       "label": "Philippa Foot",
-      "searchText": "philippa foot philippa foot: virtue, natural goodness, and moral reasons can evaluations of human action be grounded in the forms of life, needs, and practical rationality of human beings? moral life & practical reason character, flourishing, attention, and virtue revival"
+      "searchText": "philippa foot philippa foot how can virtues, practical reason, and judgments of natural goodness make moral evaluation objective without turning biological regularity, social convention, or one famous trolley case into a complete ethical theory? moral life & practical reason character, flourishing, attention, and virtue revival"
     },
     {
       "id": "deontology",
@@ -2194,13 +2194,13 @@
       "id": "judith-thomson",
       "hallId": "moral-life-practical-reason",
       "label": "Judith Jarvis Thomson",
-      "searchText": "judith jarvis thomson judith jarvis thomson: rights, permissibility, and hard cases what can carefully designed cases reveal about rights, bodily authority, intention, and the moral limits of harming? moral life & practical reason rights, persons, hard cases, and future generations"
+      "searchText": "judith jarvis thomson judith jarvis thomson how do rights, bodily use, consent, self-defense, and duties of aid shape what people may demand from one another—and why did thomson keep revising the trolley cases used to test those claims? moral life & practical reason rights, persons, hard cases, and future generations"
     },
     {
       "id": "derek-parfit",
       "hallId": "moral-life-practical-reason",
       "label": "Derek Parfit",
-      "searchText": "derek parfit derek parfit: persons, reasons, and future generations how do personal identity, impartial reasons, and the existence of future people transform what morality asks of us? moral life & practical reason rights, persons, hard cases, and future generations"
+      "searchText": "derek parfit derek parfit what matters in survival if identity is not a further fact, and what do we owe future people whose existence depends on our choices? moral life & practical reason rights, persons, hard cases, and future generations"
     },
     {
       "id": "feminist-philosophy",
@@ -2218,7 +2218,7 @@
       "id": "judith-butler",
       "hallId": "feminist-philosophies",
       "label": "Judith Butler",
-      "searchText": "judith butler judith butler: performativity, livability, and bodies in alliance how do norms make genders and lives recognizable, and how can repeated embodied action contest the terms of recognition? feminist philosophies gender, norms, performativity, and social ontology"
+      "searchText": "judith butler judith butler how do norms make genders and lives recognizable, and how can repeated embodied action contest the terms of recognition? feminist philosophies gender, norms, performativity, and social ontology"
     },
     {
       "id": "fanon",
@@ -2230,13 +2230,13 @@
       "id": "angela-davis",
       "hallId": "colonialism-race-liberation",
       "label": "Angela Davis",
-      "searchText": "angela davis angela davis: abolition, black feminism, and collective freedom how do prisons, policing, racial capitalism, gender, and organized struggle shape what freedom can mean beyond reform? colonialism, race, and liberation black feminism, abolition, education, culture, and love"
+      "searchText": "angela davis angela davis how do prisons, policing, racial capitalism, gender, and organized struggle shape what freedom can mean beyond reform? colonialism, race, and liberation black feminism, abolition, education, culture, and love"
     },
     {
       "id": "bell-hooks",
       "hallId": "colonialism-race-liberation",
       "label": "bell hooks",
-      "searchText": "bell hooks bell hooks: engaged pedagogy, cultural criticism, and love how can education, cultural criticism, and an ethic of love resist interlocking structures of race, class, and gender? colonialism, race, and liberation black feminism, abolition, education, culture, and love"
+      "searchText": "bell hooks bell hooks how can education, cultural criticism, and an ethic of love resist interlocking structures of race, class, and gender? colonialism, race, and liberation black feminism, abolition, education, culture, and love"
     },
     {
       "id": "forum-mulla-sadra-existence",
@@ -4407,8 +4407,8 @@
     {
       "id": "foot-natural-goodness",
       "hallId": "moral-life-practical-reason",
-      "label": "Natural Goodness Without a Moral Ledger",
-      "searchText": "natural goodness without a moral ledger foot · life-form, need, virtue, reason, and human good can judgments about human goodness be objective because they concern what humans characteristically need and do? can judgments about human goodness be objective because they concern what humans characteristically need and do? leaves, branch, and acorns appear as an organized living form rather than a pile of traits. we can ask whether a feature contributes to characteristic nourishment, reproduction, or persistence. foot extends this structure cautiously toward human beings, whose form of life includes language, reason, dependence, institutions, and chosen ends. her project develops across critiques of non-cognitivism, essays on virtues and reasons, and the later account of natural goodness. it belongs to the revival of virtue ethics but is not simply aristotle repeated. foot seeks standards that make moral judgment truth-apt while preserving the practical role of reasons. human variation, disability, culture, and oppressive uses of “nature” make this approach demanding. statistical normality is not moral goodness, and characteristic function cannot license ranking people by conformity. the view succeeds only if human dependency and rational agency are described without turning exclusion into nature. moral life & practical reason character, flourishing, attention, and virtue revival"
+      "label": "Natural Goodness",
+      "searchText": "natural goodness foot · life-form, need, virtue, reason, and human good foot’s 2001 book asks whether life-form judgments can ground evaluations of virtue and practical reason while distinguishing human goodness from statistical normality, evolutionary success, or a biological moral code. foot’s 2001 book asks whether life-form judgments can ground evaluations of virtue and practical reason while distinguishing human goodness from statistical normality, evolutionary success, or a biological moral code. leaves, branch, and acorns appear as an organized living form rather than a pile of traits. we can ask whether a feature contributes to characteristic nourishment, reproduction, or persistence. foot extends this structure cautiously toward human beings, whose form of life includes language, reason, dependence, institutions, and chosen ends. her project develops across critiques of non-cognitivism, essays on virtues and reasons, and the later account of natural goodness. it belongs to the revival of virtue ethics but is not simply aristotle repeated. foot seeks standards that make moral judgment truth-apt while preserving the practical role of reasons. human variation, disability, culture, and oppressive uses of “nature” make this approach demanding. statistical normality is not moral goodness, and characteristic function cannot license ranking people by conformity. the view succeeds only if human dependency and rational agency are described without turning exclusion into nature. moral life & practical reason character, flourishing, attention, and virtue revival"
     },
     {
       "id": "duty-kant-autonomy",
@@ -4437,26 +4437,26 @@
     {
       "id": "thomson-violinist-bodily-rights",
       "hallId": "moral-life-practical-reason",
-      "label": "The Violinist and Bodily Authority",
-      "searchText": "the violinist and bodily authority thomson · bodily rights, permission, dependence, responsibility, and abortion does another person’s need for one’s body automatically create a right to its continued use? does another person’s need for one’s body automatically create a right to its continued use? vallayer-coster’s violinist is composed, awake, and self-possessed—the opposite of thomson’s invented patient. that mismatch matters. a thought experiment selectively stipulates facts to isolate a principle, while any image adds gender, posture, class, history, and emotion that may pull judgment in unargued directions. thomson distinguishes what it would be kind or generous to permit from what another has a right to demand. her argument does not claim that every abortion is admirable or that dependency is morally irrelevant. it contests an inference from a right to life to an unlimited enforceable claim over another body. critics challenge the analogy through responsibility, parenthood, ordinary versus extraordinary aid, killing versus letting die, and the social conditions of pregnancy. those objections must be stated rather than replaced by intuition polling. cases clarify structure only when their disanalogies remain visible. moral life & practical reason rights, persons, hard cases, and future generations"
+      "label": "The Violinist",
+      "searchText": "the violinist thomson · bodily rights, permission, dependence, responsibility, and abortion thomson’s 1971 conditional argument asks whether a right to life includes a claim to another person’s bodily support, while leaving consent, responsibility, decency, and the analogy to pregnancy open to dispute. thomson’s 1971 conditional argument asks whether a right to life includes a claim to another person’s bodily support, while leaving consent, responsibility, decency, and the analogy to pregnancy open to dispute. vallayer-coster’s violinist is composed, awake, and self-possessed—the opposite of thomson’s invented patient. that mismatch matters. a thought experiment selectively stipulates facts to isolate a principle, while any image adds gender, posture, class, history, and emotion that may pull judgment in unargued directions. thomson distinguishes what it would be kind or generous to permit from what another has a right to demand. her argument does not claim that every abortion is admirable or that dependency is morally irrelevant. it contests an inference from a right to life to an unlimited enforceable claim over another body. critics challenge the analogy through responsibility, parenthood, ordinary versus extraordinary aid, killing versus letting die, and the social conditions of pregnancy. those objections must be stated rather than replaced by intuition polling. cases clarify structure only when their disanalogies remain visible. moral life & practical reason rights, persons, hard cases, and future generations"
     },
     {
       "id": "thomson-bodily-autonomy-context",
       "hallId": "moral-life-practical-reason",
-      "label": "Bodily Authority in a Political Field",
-      "searchText": "bodily authority in a political field rights in context · body, law, gender, movement, access, and power how do precisely framed rights cases change when bodily choices are structured by law, work, medicine, and unequal power? how do precisely framed rights cases change when bodily choices are structured by law, work, medicine, and unequal power? a moving crowd replaces the lone agent of a thought experiment. placards, streets, organizations, labor, and law show that bodily authority is exercised within collective conditions. formal permission matters differently when care, income, medical access, stigma, or safety are distributed unequally. thomson’s work is sometimes classified as feminist because of its influence on abortion ethics, but her philosophical method and the movement’s demands should not be collapsed. participants disagreed about sexuality, race, class, motherhood, employment, war, and legal strategy; one photograph cannot speak for all of them. abstract cases can expose hidden rights while social history reveals which cases institutions repeatedly impose. the productive relation is reciprocal: conceptual distinctions prevent slogans from doing all the work, and movement testimony tests whether supposedly neutral descriptions conceal patterned coercion. moral life & practical reason rights, persons, hard cases, and future generations"
+      "label": "Women’s Strike for Equality, 1970",
+      "searchText": "women’s strike for equality, 1970 rights in context · body, law, gender, movement, access, and power this 1970 washington march supplies political context—not causal proof—for thomson’s later abortion argument, showing how law, work, medicine, access, and unequal power shape the exercise of bodily rights. this 1970 washington march supplies political context—not causal proof—for thomson’s later abortion argument, showing how law, work, medicine, access, and unequal power shape the exercise of bodily rights. a moving crowd replaces the lone agent of a thought experiment. placards, streets, organizations, labor, and law show that bodily authority is exercised within collective conditions. formal permission matters differently when care, income, medical access, stigma, or safety are distributed unequally. thomson’s work is sometimes classified as feminist because of its influence on abortion ethics, but her philosophical method and the movement’s demands should not be collapsed. participants disagreed about sexuality, race, class, motherhood, employment, war, and legal strategy; one photograph cannot speak for all of them. abstract cases can expose hidden rights while social history reveals which cases institutions repeatedly impose. the productive relation is reciprocal: conceptual distinctions prevent slogans from doing all the work, and movement testimony tests whether supposedly neutral descriptions conceal patterned coercion. moral life & practical reason rights, persons, hard cases, and future generations"
     },
     {
       "id": "parfit-psychological-continuity",
       "hallId": "moral-life-practical-reason",
-      "label": "What Matters Across a Life?",
-      "searchText": "what matters across a life? parfit · identity, connectedness, continuity, branching, and survival if psychological continuity branches or weakens, must survival depend on one further all-or-nothing fact? if psychological continuity branches or weakens, must survival depend on one further all-or-nothing fact? the motion study gives continuity a visible direction while preserving gaps between exposures. ordinary lives also contain changing degrees of connectedness. parfit distinguishes direct psychological connections from continuity secured by overlapping chains and asks whether these relations, with the right kind of cause, matter more than identity itself. teletransportation, brain division, and duplication strip away familiar bodily cues. they do not prove that persons are unreal. parfit’s reductionism says that facts about persons consist in more particular physical and psychological facts without a further cartesian ego-fact. responsibility, promise, grief, and anticipation still require argument. branching cases pressure prudence and moral concern: if identity is less deep, concern for future selves and other people may be less sharply divided. yet the conclusion does not follow mechanically, and embodied, relational, narrative, and animalist accounts challenge parfit’s emphasis. the exhibit keeps metaphysics connected to practice. moral life & practical reason rights, persons, hard cases, and future generations"
+      "label": "Psychological Continuity and Relation R",
+      "searchText": "psychological continuity and relation r parfit · identity, connectedness, continuity, branching, and survival if psychological continuity branches or weakens, must survival depend on one further all-or-nothing fact? if psychological continuity branches or weakens, must survival depend on one further all-or-nothing fact? the motion study gives continuity a visible direction while preserving gaps between exposures. ordinary lives also contain changing degrees of connectedness. parfit distinguishes direct psychological connections from continuity secured by overlapping chains and asks whether these relations, with the right kind of cause, matter more than identity itself. teletransportation, brain division, and duplication strip away familiar bodily cues. they do not prove that persons are unreal. parfit’s reductionism says that facts about persons consist in more particular physical and psychological facts without a further cartesian ego-fact. responsibility, promise, grief, and anticipation still require argument. branching cases pressure prudence and moral concern: if identity is less deep, concern for future selves and other people may be less sharply divided. yet the conclusion does not follow mechanically, and embodied, relational, narrative, and animalist accounts challenge parfit’s emphasis. the exhibit keeps metaphysics connected to practice. moral life & practical reason rights, persons, hard cases, and future generations"
     },
     {
       "id": "parfit-future-generations",
       "hallId": "moral-life-practical-reason",
-      "label": "Reasons for People Who May Exist",
-      "searchText": "reasons for people who may exist parfit · non-identity, population, risk, aggregation, and the future how can a choice wrong future people when that same choice helps determine which people will ever exist? how can a choice wrong future people when that same choice helps determine which people will ever exist? the entrance projects from rock and snow, but preservation depends on governance, deposits, refrigeration, maintenance, duplication, and access. long-term benefit is not one heroic object. it is a chain of current obligations whose failure modes and distribution must be anticipated. parfit’s population ethics compares outcomes in which both the number and identity of people vary. the non-identity problem, mere-addition paradox, and repugnant conclusion expose tensions among total welfare, average welfare, equality, person-affecting claims, and the intuition that creating a worthwhile life need not benefit someone. future-oriented institutions can protect while reproducing present power. which crops are stored, whose knowledge governs access, and who remains exposed to climate or conflict are ethical questions now. uncertainty does not cancel responsibility; it changes what precaution, resilience, and fair representation require. moral life & practical reason rights, persons, hard cases, and future generations"
+      "label": "The Non-Identity Problem and Future Generations",
+      "searchText": "the non-identity problem and future generations parfit · non-identity, population, risk, aggregation, and the future how can a choice wrong future people when that same choice helps determine which people will ever exist? how can a choice wrong future people when that same choice helps determine which people will ever exist? the entrance projects from rock and snow, but preservation depends on governance, deposits, refrigeration, maintenance, duplication, and access. long-term benefit is not one heroic object. it is a chain of current obligations whose failure modes and distribution must be anticipated. parfit’s population ethics compares outcomes in which both the number and identity of people vary. the non-identity problem, mere-addition paradox, and repugnant conclusion expose tensions among total welfare, average welfare, equality, person-affecting claims, and the intuition that creating a worthwhile life need not benefit someone. future-oriented institutions can protect while reproducing present power. which crops are stored, whose knowledge governs access, and who remains exposed to climate or conflict are ethical questions now. uncertainty does not cancel responsibility; it changes what precaution, resilience, and fair representation require. moral life & practical reason rights, persons, hard cases, and future generations"
     },
     {
       "id": "feminist-cooper-voice-education",
