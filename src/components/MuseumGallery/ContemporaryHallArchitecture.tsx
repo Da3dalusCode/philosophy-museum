@@ -250,6 +250,7 @@ function PhysicalSign({definition, mediterranean, renaissance, includeFace}: {
   renaissance: boolean;
   includeFace: boolean;
 }) {
+  const twoSidedEntrance = mediterranean && definition.kind === 'entrance';
   return <group
     position={[definition.position.x, definition.position.y, definition.position.z]}
     rotation={[0, definition.rotationY, 0]}
@@ -264,11 +265,20 @@ function PhysicalSign({definition, mediterranean, renaissance, includeFace}: {
       mediterranean={mediterranean}
       renaissance={renaissance}
     />
-    {includeFace && <PhysicalSignFace
-      definition={definition}
-      mediterranean={mediterranean}
-      renaissance={renaissance}
-    />}
+    {includeFace && <>
+      <PhysicalSignFace
+        definition={definition}
+        mediterranean={mediterranean}
+        renaissance={renaissance}
+      />
+      {twoSidedEntrance && <group position={[0, 0, -.08]} rotation={[0, Math.PI, 0]}>
+        <PhysicalSignFace
+          definition={definition}
+          mediterranean={mediterranean}
+          renaissance={renaissance}
+        />
+      </group>}
+    </>}
   </group>;
 }
 

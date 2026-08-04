@@ -119,6 +119,7 @@ function BuildingSign({
   rotation = 0,
   width = 4.8,
   height = width * .27,
+  twoSided = false,
 }: {
   title: string;
   kicker: string;
@@ -127,6 +128,7 @@ function BuildingSign({
   rotation?: number;
   width?: number;
   height?: number;
+  twoSided?: boolean;
 }) {
   const textureSize = museumTextureDimensionsForPlane(
     width,
@@ -146,12 +148,14 @@ function BuildingSign({
     <mesh position={[0, 0, .005]}><planeGeometry args={[width, height]}/><meshBasicMaterial map={texture} toneMapped={false}/></mesh>
     <mesh position={[0, 0, -.072]} rotation={[0, Math.PI, 0]}>
       <planeGeometry args={[width, height]}/>
-      <meshStandardMaterial color={SIGN_REAR} roughness={.88} metalness={.02}/>
+      {twoSided
+        ? <meshBasicMaterial map={texture} toneMapped={false}/>
+        : <meshStandardMaterial color={SIGN_REAR} roughness={.88} metalness={.02}/>}
     </mesh>
-    <mesh position={[0, -height * .36, -.074]} rotation={[0, Math.PI, 0]}>
+    {!twoSided && <mesh position={[0, -height * .36, -.074]} rotation={[0, Math.PI, 0]}>
       <planeGeometry args={[width * .72, .026]}/>
       <meshStandardMaterial color={BRONZE} roughness={.42} metalness={.38}/>
-    </mesh>
+    </mesh>}
   </group>;
 }
 
@@ -164,6 +168,7 @@ function AuthoredBuildingSign({sign}: {sign: MuseumSignDefinition}) {
     rotation={sign.rotationY}
     width={sign.width}
     height={sign.height}
+    twoSided={sign.id === 'mediterranean-beginnings-classical:entrance-sign'}
   />;
 }
 
@@ -229,6 +234,7 @@ function CirculationNode({node}: {node: MuseumRuntimeNodeDefinition}) {
         subtitle="Twenty-six galleries · one unfolding conversation"
         position={[10, 3.05, entranceCell.bounds.minZ + .7]}
         width={6.7}
+        twoSided
       />
       <BuildingSign
         title="Begin the collection"
@@ -241,6 +247,7 @@ function CirculationNode({node}: {node: MuseumRuntimeNodeDefinition}) {
         ]}
         rotation={Math.PI / 2}
         width={4.8}
+        twoSided
       />
     </>}
   </group>;

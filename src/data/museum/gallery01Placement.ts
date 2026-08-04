@@ -81,54 +81,69 @@ export const GALLERY_01_ROOM_PRIMARY_IDS = Object.freeze({
 }) satisfies Readonly<Record<Gallery01RoomId, readonly Gallery01PrimaryExhibitId[]>>;
 
 /**
- * Outer-wall records align in opposed pairs. Return-wall records use the
- * established 1.15 m setback while remaining beyond the central route throat.
+ * Every room is split by the central route into two three-wall half-rooms.
+ * A single installation uses the geometric centre of its wall face; overflow
+ * stays symmetric on the longer outer walls. This is the Gallery 01 wall-slot
+ * contract, rather than a set of loose composition points.
  */
 export const GALLERY_01_PRIMARY_PLACEMENTS = Object.freeze({
-  'ancient-greek': {x: 10.85, z: -18.5, rotationY: -Math.PI / 2},
-  thales: {x: -10.85, z: -18.5, rotationY: Math.PI / 2},
-  anaximander: {x: 5.8, z: -26.85, rotationY: 0},
-  anaximenes: {x: -5.8, z: -15.15, rotationY: Math.PI},
+  'ancient-greek': {x: 10.85, z: -21, rotationY: -Math.PI / 2},
+  thales: {x: -10.85, z: -21, rotationY: Math.PI / 2},
+  anaximander: {x: -7.5, z: -26.85, rotationY: 0},
+  anaximenes: {x: -7.5, z: -15.15, rotationY: Math.PI},
 
-  pythagoras: {x: -10.85, z: -10.7, rotationY: Math.PI / 2},
-  philolaus: {x: -10.85, z: -7, rotationY: Math.PI / 2},
-  democritus: {x: -10.85, z: -3.3, rotationY: Math.PI / 2},
-  parmenides: {x: 10.85, z: -10.7, rotationY: -Math.PI / 2},
+  pythagoras: {x: 7.5, z: -12.85, rotationY: 0},
+  philolaus: {x: -10.85, z: -8.8, rotationY: Math.PI / 2},
+  democritus: {x: -10.85, z: -5.2, rotationY: Math.PI / 2},
+  parmenides: {x: 10.85, z: -10.5, rotationY: -Math.PI / 2},
   'zeno-elea': {x: 10.85, z: -7, rotationY: -Math.PI / 2},
-  heraclitus: {x: 10.85, z: -3.3, rotationY: -Math.PI / 2},
-  leucippus: {x: 5.8, z: -12.85, rotationY: 0},
-  empedocles: {x: 5.8, z: -1.15, rotationY: Math.PI},
-  anaxagoras: {x: -5.8, z: -1.15, rotationY: Math.PI},
+  heraclitus: {x: 10.85, z: -3.5, rotationY: -Math.PI / 2},
+  leucippus: {x: -7.5, z: -12.85, rotationY: 0},
+  empedocles: {x: 7.5, z: -1.15, rotationY: Math.PI},
+  anaxagoras: {x: -7.5, z: -1.15, rotationY: Math.PI},
 
-  protagoras: {x: -10.85, z: 5.1, rotationY: Math.PI / 2},
-  prodicus: {x: -5.8, z: 1.15, rotationY: 0},
-  'hippias-of-elis': {x: -5.8, z: 12.85, rotationY: Math.PI},
-  gorgias: {x: 10.85, z: 5.1, rotationY: -Math.PI / 2},
-  socrates: {x: 6, z: 12.85, rotationY: Math.PI},
+  protagoras: {x: -10.85, z: 7, rotationY: Math.PI / 2},
+  prodicus: {x: -7.5, z: 1.15, rotationY: 0},
+  'hippias-of-elis': {x: -7.5, z: 12.85, rotationY: Math.PI},
+  gorgias: {x: 10.85, z: 7, rotationY: -Math.PI / 2},
+  socrates: {x: 7.5, z: 12.85, rotationY: Math.PI},
 
-  platonism: {x: 6, z: 15.15, rotationY: 0},
+  platonism: {x: -7.5, z: 15.15, rotationY: 0},
   plato: {x: -10.85, z: 21, rotationY: Math.PI / 2},
-  aristotelianism: {x: 6, z: 26.85, rotationY: Math.PI},
+  aristotelianism: {x: -7.5, z: 26.85, rotationY: Math.PI},
   aristotle: {x: 10.85, z: 21, rotationY: -Math.PI / 2},
 }) satisfies Readonly<Record<Gallery01PrimaryExhibitId, Gallery01Placement>>;
 
-/** Kept off the route centerline while remaining the long-view Gallery 01 landmark. */
+/** Room 01's north-east contextual installation, centred on its return wall. */
 export const GALLERY_01_ORIENTATION_PLACEMENT = Object.freeze({
-  center: {x: 5.65, z: -21.1},
+  center: {x: 7.5, z: -26.85},
   rotation: 0,
   size: {width: 5.8, depth: .55},
 });
 
 export const GALLERY_01_PLATO_SUPPLEMENTAL_PLACEMENTS = Object.freeze({
   'plato-republic': {
-    position: {x: -6.45, z: 15.12},
+    position: {x: 7.5, z: 15.12},
     rotationY: 0,
-    viewpoint: {x: -6.45, z: 18.28, yaw: 0, pitch: -.08},
+    viewpoint: {x: 7.5, z: 18.28, yaw: 0, pitch: -.08},
   },
   'plato-cave-book-vii': {
-    position: {x: -6.45, z: 26.88},
+    position: {x: 7.5, z: 26.88},
     rotationY: Math.PI,
-    viewpoint: {x: -6.45, z: 23.72, yaw: Math.PI, pitch: -.08},
+    viewpoint: {x: 7.5, z: 23.72, yaw: Math.PI, pitch: -.08},
+  },
+});
+
+export const GALLERY_01_CONTEXT_SUPPLEMENTAL_PLACEMENTS = Object.freeze({
+  'greek-philosophy-reception': {
+    position: {x: 7.5, z: -15.12},
+    rotationY: Math.PI,
+    viewpoint: {x: 7.5, z: -18.28, yaw: Math.PI, pitch: -.08},
+  },
+  'socrates-trial-death': {
+    position: {x: 7.5, z: 1.12},
+    rotationY: 0,
+    viewpoint: {x: 7.5, z: 4.28, yaw: 0, pitch: -.08},
   },
 });
 

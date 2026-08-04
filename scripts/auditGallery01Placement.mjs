@@ -21,6 +21,7 @@ const result = await build({
       export * from '/src/data/museum/gallery01Placement.ts';
       export * from '/src/data/museum/mediterraneanGalleryCuration.ts';
       export * from '/src/data/museum/platoSupplementalExhibits.ts';
+      export * from '/src/data/museum/gallery01SupplementalExhibits.ts';
       export * from '/src/data/museum/museumArchitectureMaterials.ts';
       export * from '/src/data/museum/museumBuildingRuntime.ts';
       export * from '/src/data/museum/ancientGreekHall.ts';
@@ -44,6 +45,7 @@ const {
   ANCIENT_GREEK_HALL_DEFINITION,
   CANONICAL_MUSEUM_HALL_DEFINITIONS,
   GALLERY_01_DOORWAY_CLEARANCES,
+  GALLERY_01_CONTEXT_SUPPLEMENTAL_PLACEMENTS,
   GALLERY_01_HALL_BOUNDS,
   GALLERY_01_ORIENTATION_PLACEMENT,
   GALLERY_01_PLATO_SUPPLEMENTAL_PLACEMENTS,
@@ -53,6 +55,7 @@ const {
   GALLERY_01_ROOM_PRIMARY_IDS,
   GALLERY_01_ROUTE_HALF_WIDTH,
   GALLERY_01_ROUTE_STEERING_MARGIN,
+  GALLERY_01_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
   MEDITERRANEAN_GALLERY_ID,
   MEDITERRANEAN_ORIENTATION_DISPLAY,
   MUSEUM_CANONICAL_EXHIBIT_PLINTH_GEOMETRY,
@@ -145,10 +148,10 @@ const visibleFacing = (position, rotation, viewpoint, label) => {
 const wallFace = (position, rotation, roomBounds) => {
   if (Math.abs(position.x + 10.85) < .001 && Math.abs(rotation - Math.PI / 2) < .001) return 'outer-west';
   if (Math.abs(position.x - 10.85) < .001 && Math.abs(rotation + Math.PI / 2) < .001) return 'outer-east';
-  if (Math.abs(position.z - (roomBounds.minZ + 1.15)) < .001 && Math.abs(rotation) < .001) {
+  if (Math.abs(position.z - (roomBounds.minZ + 1.15)) < .05 && Math.abs(rotation) < .001) {
     return position.x < 0 ? 'north-west' : 'north-east';
   }
-  if (Math.abs(position.z - (roomBounds.maxZ - 1.15)) < .001 && Math.abs(rotation - Math.PI) < .001) {
+  if (Math.abs(position.z - (roomBounds.maxZ - 1.15)) < .05 && Math.abs(rotation - Math.PI) < .001) {
     return position.x < 0 ? 'south-west' : 'south-east';
   }
   return undefined;
@@ -185,7 +188,7 @@ assert.deepEqual(
 const primaryById = new Map(gallery.layout.exhibits.map((layout) => [layout.id, layout]));
 const supplementalById = new Map((gallery.layout.supplementalExhibits ?? []).map((layout) => [layout.id, layout]));
 assert.equal(primaryById.size, 22, 'Gallery 01 must retain 22 unique canonical primaries');
-assert.equal(supplementalById.size, 2, 'Gallery 01 must retain two unique Plato supplemental installations');
+assert.equal(supplementalById.size, 4, 'Gallery 01 must retain two context and two Plato supplemental installations');
 assert.equal(new Set(gallery.layout.obstacleColliders.map(({id}) => id)).size, gallery.layout.obstacleColliders.length, 'Gallery 01 has duplicate collider ids');
 
 for (const room of program.rooms) {
@@ -221,20 +224,37 @@ for (const [id, authored] of Object.entries(GALLERY_01_PRIMARY_PLACEMENTS)) {
   const plinth = layout.scene.objectBounds.find(({id: volumeId}) => volumeId.endsWith('-plinth'));
   assert(plinth, `${id} has no physical plinth`);
   approx(plinth.center.y - plinth.size.height / 2, 0, `${id} plinth floor contact`);
-  installations.push({id, roomId: layout.spatialCellId, kind: 'primary', bounds: physicalBounds, viewpoint: layout.viewpoint});
+  installations.push({
+    id,
+    roomId: layout.spatialCellId,
+    kind: 'primary',
+    position: layout.position,
+    rotationY: layout.rotationY,
+    bounds: physicalBounds,
+    viewpoint: layout.viewpoint,
+  });
 }
 
+const supplementalPlacementContracts = {
+  ...GALLERY_01_CONTEXT_SUPPLEMENTAL_PLACEMENTS,
+  ...GALLERY_01_PLATO_SUPPLEMENTAL_PLACEMENTS,
+};
 assert.deepEqual(
   sorted([...supplementalById.keys()]),
-  sorted(Object.keys(GALLERY_01_PLATO_SUPPLEMENTAL_PLACEMENTS)),
+  sorted(Object.keys(supplementalPlacementContracts)),
   'Gallery 01 supplemental roster changed',
 );
-assert.deepEqual(gallery.layout.supplementalExhibits, PLATO_SUPPLEMENTAL_EXHIBIT_LAYOUTS, 'Gallery 01 supplemental runtime is stale');
-for (const [id, authored] of Object.entries(GALLERY_01_PLATO_SUPPLEMENTAL_PLACEMENTS)) {
+assert.deepEqual(gallery.layout.supplementalExhibits, GALLERY_01_SUPPLEMENTAL_EXHIBIT_LAYOUTS, 'Gallery 01 supplemental runtime is stale');
+for (const [id, authored] of Object.entries(supplementalPlacementContracts)) {
   const layout = supplementalById.get(id);
   assert(layout, `${id} is absent from Gallery 01`);
-  assert.equal(layout.zoneId, 'med-plato-aristotle', `${id} left its canonical room`);
-  assert.equal(layout.spatialCellId, 'med-plato-aristotle', `${id} left its spatial room`);
+  const expectedRoomId = id === 'greek-philosophy-reception'
+    ? 'med-orientation-nature'
+    : id === 'socrates-trial-death'
+      ? 'med-sophists-socratic'
+      : 'med-plato-aristotle';
+  assert.equal(layout.zoneId, expectedRoomId, `${id} left its canonical room`);
+  assert.equal(layout.spatialCellId, expectedRoomId, `${id} left its spatial room`);
   assert.deepEqual(layout.position, authored.position, `${id} runtime position is stale`);
   approx(layout.rotationY, authored.rotationY, `${id} rotation`);
   assert.deepEqual(layout.viewpoint, authored.viewpoint, `${id} viewpoint is stale`);
@@ -242,8 +262,16 @@ for (const [id, authored] of Object.entries(GALLERY_01_PLATO_SUPPLEMENTAL_PLACEM
   approx(layout.collider.rotation, layout.rotationY, `${id} collider rotation`);
   visibleFacing(layout.position, layout.rotationY, layout.viewpoint, id);
   const physicalBounds = supplementalPhysicalBounds(layout);
-  assert(contains(GALLERY_01_ROOM_BOUNDS['med-plato-aristotle'], physicalBounds, .08), `${id} leaves Room 04`);
-  installations.push({id, roomId: layout.spatialCellId, kind: 'supplemental', bounds: physicalBounds, viewpoint: layout.viewpoint});
+  assert(contains(GALLERY_01_ROOM_BOUNDS[expectedRoomId], physicalBounds, .08), `${id} leaves ${expectedRoomId}`);
+  installations.push({
+    id,
+    roomId: layout.spatialCellId,
+    kind: 'supplemental',
+    position: layout.position,
+    rotationY: layout.rotationY,
+    bounds: physicalBounds,
+    viewpoint: layout.viewpoint,
+  });
 }
 
 assert.deepEqual(MEDITERRANEAN_ORIENTATION_DISPLAY.center, GALLERY_01_ORIENTATION_PLACEMENT.center, 'Orientation center is stale');
@@ -252,13 +280,15 @@ assert(contains(GALLERY_01_ROOM_BOUNDS['med-orientation-nature'], orientationPhy
 visibleFacing(
   MEDITERRANEAN_ORIENTATION_DISPLAY.center,
   MEDITERRANEAN_ORIENTATION_DISPLAY.rotation,
-  {x: 0, z: 26},
-  'Gallery 01 orientation terminal landmark',
+  {x: MEDITERRANEAN_ORIENTATION_DISPLAY.center.x, z: -23.7},
+  'Gallery 01 orientation installation',
 );
 installations.push({
   id: MEDITERRANEAN_ORIENTATION_DISPLAY.id,
   roomId: 'med-orientation-nature',
   kind: 'orientation',
+  position: MEDITERRANEAN_ORIENTATION_DISPLAY.center,
+  rotationY: MEDITERRANEAN_ORIENTATION_DISPLAY.rotation,
   bounds: orientationPhysicalBounds,
 });
 
@@ -298,18 +328,60 @@ for (const [roomId, anchorIds] of Object.entries(GALLERY_01_ROOM_ANCHORS)) {
   assert(anchors.every(Boolean), `${roomId} has a missing anchor`);
   assert(anchors.some(({position}) => position.x < -10), `${roomId} lacks a west outer-wall anchor`);
   assert(anchors.some(({position}) => position.x > 10), `${roomId} lacks an east outer-wall anchor`);
-  const roomInstallations = installations.filter((item) => item.roomId === roomId && item.kind !== 'orientation');
+  const roomInstallations = installations.filter((item) => item.roomId === roomId);
   const westCount = roomInstallations.filter(({bounds}) => (bounds.minX + bounds.maxX) / 2 < 0).length;
   const eastCount = roomInstallations.length - westCount;
   assert(Math.abs(westCount - eastCount) <= 2, `${roomId} has an unbalanced ${westCount}/${eastCount} left-right composition`);
   const faceCounts = new Map();
-  for (const id of GALLERY_01_ROOM_PRIMARY_IDS[roomId]) {
-    const layout = primaryById.get(id);
-    const face = wallFace(layout.position, layout.rotationY, GALLERY_01_ROOM_BOUNDS[roomId]);
+  const faceInstallations = new Map();
+  for (const installation of roomInstallations) {
+    const face = wallFace(installation.position, installation.rotationY, GALLERY_01_ROOM_BOUNDS[roomId]);
+    assert(face, `${roomId}/${installation.id} is not assigned to one of its six half-room wall faces`);
     faceCounts.set(face, (faceCounts.get(face) ?? 0) + 1);
+    faceInstallations.set(face, [...(faceInstallations.get(face) ?? []), installation]);
   }
+  const requiredFaces = ['outer-west', 'north-west', 'south-west', 'outer-east', 'north-east', 'south-east'];
+  assert.deepEqual(sorted([...faceCounts.keys()]), sorted(requiredFaces), `${roomId} leaves a usable half-room wall blank`);
+  assert.equal((faceCounts.get('north-west') ?? 0), 1, `${roomId} north-west return wall must have one centred exhibit`);
+  assert.equal((faceCounts.get('south-west') ?? 0), 1, `${roomId} south-west return wall must have one centred exhibit`);
+  assert.equal((faceCounts.get('north-east') ?? 0), 1, `${roomId} north-east return wall must have one centred exhibit`);
+  assert.equal((faceCounts.get('south-east') ?? 0), 1, `${roomId} south-east return wall must have one centred exhibit`);
   assert((faceCounts.get('outer-west') ?? 0) <= 3, `${roomId} overloads its west outer wall`);
   assert((faceCounts.get('outer-east') ?? 0) <= 3, `${roomId} overloads its east outer wall`);
+
+  const roomBounds = GALLERY_01_ROOM_BOUNDS[roomId];
+  const roomCenterZ = (roomBounds.minZ + roomBounds.maxZ) / 2;
+  for (const face of ['outer-west', 'outer-east']) {
+    const faceItems = faceInstallations.get(face);
+    assert(faceItems?.length, `${roomId}/${face} is blank`);
+    const zPositions = faceItems.map(({position}) => position.z).sort((a, b) => a - b);
+    approx(zPositions.reduce((sum, value) => sum + value, 0) / zPositions.length, roomCenterZ, `${roomId}/${face} group centre`);
+    if (zPositions.length > 2) {
+      const gaps = zPositions.slice(1).map((value, index) => value - zPositions[index]);
+      for (const gap of gaps.slice(1)) approx(gap, gaps[0], `${roomId}/${face} even spacing`, .05);
+    }
+  }
+
+  for (const face of ['north-west', 'south-west']) {
+    approx(faceInstallations.get(face)[0].position.x, -7.5, `${roomId}/${face} wall centre`);
+  }
+  for (const face of ['north-east', 'south-east']) {
+    approx(faceInstallations.get(face)[0].position.x, 7.5, `${roomId}/${face} wall centre`);
+  }
+}
+
+const entranceSign = gallery.layout.signs.find(({id}) => id === `${MEDITERRANEAN_GALLERY_ID}:entrance-sign`);
+assert(entranceSign, 'Gallery 01 entrance sign is missing');
+assert.deepEqual(entranceSign.position, {x: 0, y: 4.52, z: 27.78}, 'Gallery 01 entrance sign left the S0 lintel');
+approx(entranceSign.rotationY, Math.PI, 'Gallery 01 entrance sign facing');
+assert(entranceSign.title.trim() && entranceSign.kicker.trim() && entranceSign.subtitle.trim(), 'Gallery 01 entrance sign has a blank face');
+const roomSigns = gallery.layout.signs.filter(({kind}) => kind === 'zone');
+assert.equal(roomSigns.length, 3, 'Gallery 01 should use only the three internal threshold signs');
+for (const sign of roomSigns) {
+  approx(sign.position.x, 0, `${sign.id} threshold centre`);
+  approx(sign.position.y, 4.52, `${sign.id} lintel height`);
+  approx(sign.rotationY, Math.PI, `${sign.id} visitor-facing rotation`);
+  assert(sign.title.trim() && sign.kicker.trim() && sign.subtitle.trim(), `${sign.id} has a blank face`);
 }
 
 const physicalRoomOrder = [

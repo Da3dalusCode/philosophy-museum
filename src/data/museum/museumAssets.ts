@@ -61,6 +61,16 @@ const ANCIENT_MUSEUM_ASSETS = [
     historicalNote: 'Neoclassical reception art, not eyewitness documentation. David makes Plato elderly and present for dramatic purposes although Plato’s dialogue says he was absent.', likenessStatus: 'imagined',
   },
   {
+    id: 'socrates-trial-interpretive', entityKind: 'philosopher', entityId: 'socrates', role: 'context', mediaKind: 'drawing',
+    title: 'The Trial of Socrates — interpretive reconstruction', creator: 'Philosophy Atlas Museum with OpenAI image generation', objectDate: '2026', institution: 'Philosophy Atlas Museum',
+    sourcePageUrl: 'https://github.com/Da3dalusCode/philosophy-museum/blob/main/public/assets/museum/ancient-greek/socrates-trial-interpretive-panel.webp',
+    license: 'Original Philosophy Atlas Museum interpretive illustration', rightsKind: 'rights-status', derivativeNotice: 'Generated as an original interpretive illustration, then resized without cropping and converted to WebP for this installation.', attribution: 'Philosophy Atlas Museum interpretive illustration, created with OpenAI image generation, 2026.',
+    variants: {scene: assetPath('socrates-trial-interpretive', 'scene', 640, 427), panel: assetPath('socrates-trial-interpretive', 'panel', 1280, 853)},
+    alt: 'Interpretive reconstruction of an older philosopher standing before a semicircle of Athenian citizen jurors in a sunlit stone civic space.',
+    caption: 'A contemporary interpretive reconstruction of Socrates addressing an Athenian jury in 399 BCE.',
+    historicalNote: 'A contemporary interpretive illustration created for this exhibit—not an ancient image, authenticated portrait, courtroom plan, or eyewitness record.', likenessStatus: 'not-applicable', focalPoint: {x: .5, y: .48},
+  },
+  {
     id: 'plato-capitoline-bust', entityKind: 'philosopher', entityId: 'plato', role: 'identity', mediaKind: 'sculpture-photograph',
     title: 'Plato, after Silanion', creator: 'Unknown Roman sculptor, copying a portrait by Silanion', objectDate: '1st century CE; Greek model c. 370 BCE', imageCreator: 'Marie-Lan Nguyen', institution: 'Capitoline Museums / Centrale Montemartini, MC 1377',
     sourcePageUrl: 'https://commons.wikimedia.org/wiki/File:Plato_Silanion_Musei_Capitolini_MC1377.jpg',
@@ -79,6 +89,16 @@ const ANCIENT_MUSEUM_ASSETS = [
     alt: 'Raphael’s imagined assembly of ancient philosophers, with Plato and Aristotle walking at the center.',
     caption: 'Raphael, The School of Athens, 1509–1511. Vatican Museums.',
     historicalNote: 'Renaissance intellectual theater: its faces are imaginative or modeled on Renaissance contemporaries, not ancient documentary portraits.', likenessStatus: 'imagined',
+  },
+  {
+    id: 'greek-philosophy-reception-interpretive', entityKind: 'branch', entityId: 'ancient-greek', role: 'context', mediaKind: 'drawing',
+    title: 'Remembering an Ancient Conversation — interpretive illustration', creator: 'Philosophy Atlas Museum with OpenAI image generation', objectDate: '2026', institution: 'Philosophy Atlas Museum',
+    sourcePageUrl: 'https://github.com/Da3dalusCode/philosophy-museum/blob/main/public/assets/museum/ancient-greek/greek-philosophy-reception-interpretive-panel.webp',
+    license: 'Original Philosophy Atlas Museum interpretive illustration', rightsKind: 'rights-status', derivativeNotice: 'Generated as an original interpretive illustration, then resized without cropping and converted to WebP for this installation.', attribution: 'Philosophy Atlas Museum interpretive illustration, created with OpenAI image generation, 2026.',
+    variants: {scene: assetPath('greek-philosophy-reception-interpretive', 'scene', 640, 427), panel: assetPath('greek-philosophy-reception-interpretive', 'panel', 1280, 853)},
+    alt: 'Interpretive hall where anonymous robed thinkers from imagined eras gather in separate groups around maps, instruments, natural objects, and architectural fragments.',
+    caption: 'A contemporary interpretive image of later cultures assembling a canon of ancient Greek philosophical conversations.',
+    historicalNote: 'A contemporary interpretive illustration created for this exhibit—not a depiction of one historical meeting, an ancient interior, or identifiable portraits.', likenessStatus: 'not-applicable', focalPoint: {x: .5, y: .5},
   },
   {
     id: 'plato-cave-interpretive-illustration', entityKind: 'philosopher', entityId: 'plato', role: 'context', mediaKind: 'drawing',

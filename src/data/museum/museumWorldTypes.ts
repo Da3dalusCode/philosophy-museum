@@ -113,6 +113,8 @@ export type MuseumInstallationTreatment =
 
 /** Stable ids for interpreted work exhibits that do not consume a primary assignment. */
 export type MuseumSupplementalExhibitId =
+  | 'greek-philosophy-reception'
+  | 'socrates-trial-death'
   | 'plato-cave-book-vii'
   | 'plato-republic'
   | 'renaissance-texts-in-transit'
@@ -490,6 +492,7 @@ export type MuseumSupplementalExhibitId =
 export type MuseumSupplementalInstallationKind =
   | 'cave-ascent'
   | 'republic-altarpiece'
+  | 'mediterranean-context'
   | 'renaissance-work'
   | 'renaissance-context'
   | 'renaissance-observation'

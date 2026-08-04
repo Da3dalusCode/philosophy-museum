@@ -2,11 +2,11 @@ import type {
   MuseumExhibitId,
   MuseumPublicHallId,
 } from '../museumCatalog';
+import type {MuseumSupplementalExhibit} from './platoSupplementalExhibits';
 import {
-  PLATO_SUPPLEMENTAL_EXHIBITS,
-  PLATO_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
-  type MuseumSupplementalExhibit,
-} from './platoSupplementalExhibits';
+  GALLERY_01_SUPPLEMENTAL_EXHIBITS,
+  GALLERY_01_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
+} from './gallery01SupplementalExhibits';
 import {
   RENAISSANCE_SUPPLEMENTAL_EXHIBITS,
   RENAISSANCE_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
@@ -136,8 +136,8 @@ const COLLECTIONS = [
   },
   {
     hallId: 'mediterranean-beginnings-classical',
-    exhibits: PLATO_SUPPLEMENTAL_EXHIBITS,
-    layouts: PLATO_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
+    exhibits: GALLERY_01_SUPPLEMENTAL_EXHIBITS,
+    layouts: GALLERY_01_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
   },
   {
     hallId: 'renaissance-humanism-new-method',

@@ -17,7 +17,7 @@ import {
   MEDITERRANEAN_ORIENTATION_DISPLAY,
   MEDITERRANEAN_ROOM_SIGN_COPY,
 } from './mediterraneanGalleryCuration';
-import {PLATO_SUPPLEMENTAL_EXHIBIT_LAYOUTS} from './platoSupplementalExhibits';
+import {GALLERY_01_SUPPLEMENTAL_EXHIBIT_LAYOUTS} from './gallery01SupplementalExhibits';
 import {
   RENAISSANCE_EXHIBIT_CURATION,
   RENAISSANCE_GALLERY_ID,
@@ -353,7 +353,7 @@ const supplementalLayoutsForHall = (hallId: MuseumPublicHallId): readonly Museum
   hallId === CORE_QUESTIONS_FORUM_ID
     ? CORE_QUESTIONS_FORUM_SUPPLEMENTAL_LAYOUTS
     : hallId === MEDITERRANEAN_GALLERY_ID
-    ? PLATO_SUPPLEMENTAL_EXHIBIT_LAYOUTS
+    ? GALLERY_01_SUPPLEMENTAL_EXHIBIT_LAYOUTS
     : hallId === RENAISSANCE_GALLERY_ID
       ? RENAISSANCE_SUPPLEMENTAL_EXHIBIT_LAYOUTS
       : hallId === PHENOMENOLOGY_GALLERY_ID
@@ -1736,17 +1736,17 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
         {
           id: `${hall.id}:entrance-sign`,
           kind: 'entrance' as const,
-          title: 'PHILOSOPHY ATLAS MUSEUM',
-          kicker: '',
-          subtitle: 'Gallery 01 · Mediterranean Beginnings & Classical Athens',
-          position: {x: 0, y: 4.35, z: -18.2},
+          title: 'Mediterranean Beginnings & Classical Athens',
+          kicker: 'Philosophy Atlas Museum · Gallery 01',
+          subtitle: 'Enter Room 04 · Plato, Aristotle, Academy, and Lyceum',
+          position: {x: 0, y: 4.52, z: 27.78},
           rotationY: Math.PI,
-          width: 3.4,
-          height: .7,
+          width: 5.25,
+          height: .82,
         },
         ...orderedRooms
-          .filter(({id}) => id !== 'med-sophists-socratic')
-          .map((room, index) => {
+          .filter(({id}) => id !== 'med-plato-aristotle')
+          .map((room) => {
             const copy = MEDITERRANEAN_ROOM_SIGN_COPY[room.id as keyof typeof MEDITERRANEAN_ROOM_SIGN_COPY];
             if (!copy) throw new Error(`Gallery 01 has no visitor-facing room copy for ${room.id}.`);
             const bounds = roomBounds.get(room.id)!;
@@ -1756,14 +1756,10 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
               title: copy.title,
               kicker: copy.kicker,
               subtitle: copy.subtitle,
-              position: {
-                x: index === 0 ? 6 : -6,
-                y: 2.25,
-                z: index === 0 ? bounds.maxZ + .22 : bounds.minZ - .22,
-              },
-              rotationY: index === 0 ? 0 : Math.PI,
-              width: 3.9,
-              height: .88,
+              position: {x: 0, y: 4.52, z: bounds.maxZ - .22},
+              rotationY: Math.PI,
+              width: 5.05,
+              height: .82,
             };
           }),
       ]

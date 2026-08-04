@@ -11315,6 +11315,14 @@
       ],
       "supplementalExhibits": [
         {
+          "id": "greek-philosophy-reception",
+          "displayName": "Remembering an Ancient Conversation"
+        },
+        {
+          "id": "socrates-trial-death",
+          "displayName": "The Trial and Death of Socrates"
+        },
+        {
           "id": "plato-cave-book-vii",
           "displayName": "The Allegory of the Cave"
         },

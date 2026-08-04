@@ -75,6 +75,7 @@ const result = await build({
       export * from '/src/data/museum/museumMediaPolicy.ts';
       export * from '/src/data/museum/museumLegacyImageDiversity.ts';
       export * from '/src/data/museum/platoSupplementalExhibits.ts';
+      export * from '/src/data/museum/gallery01SupplementalExhibits.ts';
       export * from '/src/data/museum/renaissanceSupplementalExhibits.ts';
       export * from '/src/data/museum/phenomenologySupplementalExhibits.ts';
       export * from '/src/data/museum/analyticSupplementalExhibits.ts';
@@ -231,6 +232,8 @@ const {
   MUSEUM_MAXIMUM_TEXT_DOMINANT_OR_SINGLE_BOOK_PER_ROOM,
   PLATO_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
   PLATO_SUPPLEMENTAL_EXHIBITS,
+  GALLERY_01_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
+  GALLERY_01_SUPPLEMENTAL_EXHIBITS,
   PHENOMENOLOGY_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
   PHENOMENOLOGY_SUPPLEMENTAL_EXHIBITS,
   RENAISSANCE_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
@@ -348,6 +351,8 @@ const NEW_CANONICAL_ASSET_IDS = [
 ];
 const ORIGINAL_INTERPRETIVE_ASSET_IDS = new Set([
   'plato-cave-interpretive-illustration',
+  'greek-philosophy-reception-interpretive',
+  'socrates-trial-interpretive',
   'levinas-totality-infinity-2002',
   'phenomenology-intentionality-interpretive',
   'heidegger-being-time-interpretive',
@@ -465,6 +470,7 @@ const canonicalReferencedIds = liveExhibits.flatMap(({exhibit}) => [
   ...(exhibit.supportingAssetIds ?? []),
 ].filter(Boolean));
 const platoSupplementalReferencedIds = PLATO_SUPPLEMENTAL_EXHIBITS.map(({assetId}) => assetId);
+const gallery01SupplementalReferencedIds = GALLERY_01_SUPPLEMENTAL_EXHIBITS.map(({assetId}) => assetId);
 const renaissanceSupplementalReferencedIds = RENAISSANCE_SUPPLEMENTAL_EXHIBITS.map(({assetId}) => assetId);
 const phenomenologySupplementalReferencedIds = PHENOMENOLOGY_SUPPLEMENTAL_EXHIBITS.map(({assetId}) => assetId);
 const analyticSupplementalReferencedIds = ANALYTIC_SUPPLEMENTAL_EXHIBITS.map(({assetId}) => assetId);
@@ -495,7 +501,7 @@ const feministPhilosophiesSupplementalReferencedIds =
 const colonialismRaceLiberationSupplementalReferencedIds =
   COLONIALISM_RACE_LIBERATION_SUPPLEMENTAL_EXHIBITS.map(({assetId}) => assetId);
 const supplementalReferencedIds = [
-  ...platoSupplementalReferencedIds,
+  ...gallery01SupplementalReferencedIds,
   ...renaissanceSupplementalReferencedIds,
   ...phenomenologySupplementalReferencedIds,
   ...analyticSupplementalReferencedIds,
@@ -524,7 +530,7 @@ const supplementalReferencedIds = [
 ];
 const referencedIds = [...canonicalReferencedIds, ...supplementalReferencedIds];
 const physicalSupplementalGroups = [
-  {galleryId: 'mediterranean-beginnings-classical', records: PLATO_SUPPLEMENTAL_EXHIBITS, layouts: PLATO_SUPPLEMENTAL_EXHIBIT_LAYOUTS},
+  {galleryId: 'mediterranean-beginnings-classical', records: GALLERY_01_SUPPLEMENTAL_EXHIBITS, layouts: GALLERY_01_SUPPLEMENTAL_EXHIBIT_LAYOUTS},
   {galleryId: 'renaissance-humanism-new-method', records: RENAISSANCE_SUPPLEMENTAL_EXHIBITS, layouts: RENAISSANCE_SUPPLEMENTAL_EXHIBIT_LAYOUTS},
   {galleryId: 'phenomenology-existence-embodiment', records: PHENOMENOLOGY_SUPPLEMENTAL_EXHIBITS, layouts: PHENOMENOLOGY_SUPPLEMENTAL_EXHIBIT_LAYOUTS},
   {galleryId: 'analytic-traditions', records: ANALYTIC_SUPPLEMENTAL_EXHIBITS, layouts: ANALYTIC_SUPPLEMENTAL_EXHIBIT_LAYOUTS},
@@ -813,13 +819,13 @@ check('Galleries 1–16 classify every textual-media candidate and cap plain pag
   assert.match(legacyImageDiversityPreparationSource, /--refresh-locks/);
 });
 
-check('the canonical twenty-six expose 191 primaries, 406 supplementals, and 597 interpreted stops with resolvable local media', () => {
+check('the canonical twenty-six expose 191 primaries, 408 supplementals, and 599 interpreted stops with resolvable local media', () => {
   assert.deepEqual(MUSEUM_HALLS.map(({id}) => id), ACTIVE_HALL_IDS);
   assert.equal(MUSEUM_HALLS.length, 26);
   assert.equal(liveExhibits.length, 191);
-  assert.equal(supplementalReferencedIds.length, 406);
-  assert.equal(liveExhibits.length + supplementalReferencedIds.length, 597);
-  assert.equal(referencedIds.length, 612);
+  assert.equal(supplementalReferencedIds.length, 408);
+  assert.equal(liveExhibits.length + supplementalReferencedIds.length, 599);
+  assert.equal(referencedIds.length, 614);
   assert(canonicalReferencedIds.length > 0, 'the live primary program references no local media');
   for (const {hall, exhibit} of liveExhibits) {
     assert(Array.isArray(exhibit.supportingAssetIds), `${hall.id}/${exhibit.id} has no supporting-asset array`);
@@ -1729,11 +1735,11 @@ check('every physical installation has a museum-wide unique asset, source page, 
   assert(unique(physicalAssets.map(({variants}) => sha256(exactCasePath(variants.panel.path)))), 'two physical installations reuse identical panel bytes');
 });
 
-check('the preserved asset registry contains 654 unique records and derivative paths', () => {
-  assert.equal(MUSEUM_ASSETS.length, 654);
-  assert.equal(assetById.size, 654);
+check('the preserved asset registry contains 656 unique records and derivative paths', () => {
+  assert.equal(MUSEUM_ASSETS.length, 656);
+  assert.equal(assetById.size, 656);
   const variantPaths = MUSEUM_ASSETS.flatMap(({variants}) => [variants.scene.path, variants.panel.path]);
-  assert.equal(variantPaths.length, 1308);
+  assert.equal(variantPaths.length, 1312);
   assert(unique(variantPaths), 'two asset variants share a derivative path');
   for (const id of NEW_CANONICAL_ASSET_IDS) assert(assetById.has(id), `new canonical asset ${id} is missing`);
   for (const id of MEDITERRANEAN_ASSET_IDS) assert(assetById.has(id), `Gallery 01 asset ${id} is missing`);
@@ -2639,7 +2645,7 @@ check('Galleries 14–15 fill 43 unique physical installations without image reu
   }
 });
 
-check('the committed Museum inventory contains exactly the 1308 registered derivatives', () => {
+check('the committed Museum inventory contains exactly the 1312 registered derivatives', () => {
   const actual = walkFiles(museumMediaRoot).map(toPublicPath).sort();
   const expected = MUSEUM_ASSETS.flatMap(({variants}) => [variants.scene.path, variants.panel.path]).sort();
   assert.deepEqual(actual, expected);

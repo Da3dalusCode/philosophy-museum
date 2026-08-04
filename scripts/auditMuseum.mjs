@@ -113,6 +113,7 @@ const result = await build({
       export * from '/src/data/museum/museumTexturePolicy.ts';
       export * from '/src/data/museum/museumInterpretations.ts';
       export * from '/src/data/museum/platoSupplementalExhibits.ts';
+      export * from '/src/data/museum/gallery01SupplementalExhibits.ts';
       export * from '/src/data/museum/analyticSupplementalExhibits.ts';
       export * from '/src/data/museum/justiceGalleryCuration.ts';
       export * from '/src/data/museum/justiceSupplementalExhibits.ts';
@@ -465,6 +466,7 @@ const {
   MUSEUM_WORLD_DEFINITIONS,
   PLATO_SUPPLEMENTAL_EXHIBITS,
   PLATO_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
+  GALLERY_01_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
   advanceMuseumPhysicalFrame,
   branches,
   philosophers,
@@ -2008,7 +2010,7 @@ check('Gallery 01 has bounded authored curation, visitor-facing orientation, and
   assert.equal(definition.layout.exhibits.filter(({scene}) => scene.mediaMounts.length > 0).length, 22, 'Every Gallery 01 exhibit must retain provenance-backed scene media');
   assert.equal(definition.layout.exhibits.reduce((sum, {scene}) => sum + scene.mediaMounts.length, 0), 25, 'Gallery 01 media-placement count changed');
   assert.equal(curationEntries.filter(([, curation]) => curation.frontTitle).length, 6, 'Gallery 01 question-first hierarchy changed');
-  assert.deepEqual(MEDITERRANEAN_EXHIBIT_CURATION.anaxagoras.authored, {x: -5.8, z: -1.15, rotationY: Math.PI}, 'Anaxagoras returned to the crowded side-wall sightline');
+  assert.deepEqual(MEDITERRANEAN_EXHIBIT_CURATION.anaxagoras.authored, {x: -7.5, z: -1.15, rotationY: Math.PI}, 'Anaxagoras left the centred south-west return wall');
 
   const entranceNode = runtimeNodeById.get(MUSEUM_VISITOR_MAP_KIOSK.nodeId);
   const galleryNode = MUSEUM_RUNTIME_NODES.find(({publicHallId}) => publicHallId === MEDITERRANEAN_GALLERY_ID);
@@ -2073,10 +2075,15 @@ check('Gallery 01 has bounded authored curation, visitor-facing orientation, and
   );
   assert.equal(definition.layout.signs.length, 4, 'Gallery 01 must retain its entrance sign and the three approved physical room signs');
   const entranceSign = definition.layout.signs.find(({kind}) => kind === 'entrance');
-  assert(entranceSign && entranceSign.width === 3.4 && entranceSign.height === .7, 'Gallery 01 entrance sign returned to its oversized treatment');
-  assert(!definition.layout.signs.some(({id}) => id === 'med-sophists-socratic:room-sign'), 'The removed Room 03 physical sign returned');
-  assert.equal(definition.layout.signs.find(({id}) => id === 'med-being-change-plurality:room-sign')?.position.z, -14.22, 'Room 02 sign is not mounted on its Room 01 approach face');
-  assert.equal(definition.layout.signs.find(({id}) => id === 'med-plato-aristotle:room-sign')?.position.z, 13.78, 'Room 04 sign is not mounted on its Room 03 approach face');
+  assert(entranceSign && entranceSign.width === 5.25 && entranceSign.height === .82, 'Gallery 01 entrance sign left its readable S0 lintel treatment');
+  assert.deepEqual(entranceSign.position, {x: 0, y: 4.52, z: 27.78}, 'Gallery 01 entrance sign is not centred above the live S0 entrance');
+  assert(entranceSign.title.trim() && entranceSign.kicker.trim() && entranceSign.subtitle.trim(), 'Gallery 01 entrance sign has a blank face');
+  assert.match(buildingArchitectureSource, /twoSided=\{sign\.id === 'mediterranean-beginnings-classical:entrance-sign'\}/u, 'Gallery 01 entrance sign is blank from the room-side approach');
+  assert.match(architectureSource, /twoSidedEntrance && <group position=\{\[0, 0, -\.08\]\} rotation=\{\[0, Math\.PI, 0\]\}/u, 'Gallery 01 permanent entrance sign lacks its room-side face');
+  assert(!definition.layout.signs.some(({id}) => id === 'med-plato-aristotle:room-sign'), 'Room 04 duplicates the Gallery 01 entrance sign');
+  assert.equal(definition.layout.signs.find(({id}) => id === 'med-orientation-nature:room-sign')?.position.z, -14.22, 'Room 01 sign is not centred above its threshold');
+  assert.equal(definition.layout.signs.find(({id}) => id === 'med-being-change-plurality:room-sign')?.position.z, -.22, 'Room 02 sign is not centred above its threshold');
+  assert.equal(definition.layout.signs.find(({id}) => id === 'med-sophists-socratic:room-sign')?.position.z, 13.78, 'Room 03 sign is not centred above its threshold');
   const gallery01NaturalApproachZ = [-27.2, -13.2, .8, 14.8];
   for (const [index, view] of definition.layout.entryViews.entries()) {
     const cell = definition.layout.spatialCells.find(({id}) => id === view.spatialCellId);
@@ -2088,10 +2095,7 @@ check('Gallery 01 has bounded authored curation, visitor-facing orientation, and
   for (const sign of definition.layout.signs) {
     assert.doesNotMatch(`${sign.kicker} ${sign.title} ${sign.subtitle}`, forbiddenPublicLabels, `${sign.id} exposes internal presentation language`);
     const front = {x: Math.sin(sign.rotationY), z: Math.cos(sign.rotationY)};
-    const approach = {
-      x: sign.position.x,
-      z: sign.position.z + (sign.id === 'med-orientation-nature:room-sign' ? 2 : -2),
-    };
+    const approach = {x: sign.position.x, z: sign.position.z - 2};
     assert(front.x * (approach.x - sign.position.x) + front.z * (approach.z - sign.position.z) > 0, `${sign.id} does not face the forward visitor approach`);
   }
 
@@ -2105,9 +2109,12 @@ check('Plato’s Cave and Republic form a substantial supplemental U without ent
   const definition = definitionById.get(MEDITERRANEAN_GALLERY_ID);
   const hall = hallById.get(MEDITERRANEAN_GALLERY_ID);
   assert(definition && hall);
-  const supplemental = definition.layout.supplementalExhibits ?? [];
+  const allSupplemental = definition.layout.supplementalExhibits ?? [];
   const stableIds = ['plato-cave-book-vii', 'plato-republic'];
-  assert.equal(supplemental.length, 2, 'Gallery 01 must have exactly two supplemental Plato work exhibits');
+  const supplemental = allSupplemental.filter(({id}) => stableIds.includes(id));
+  assert.equal(allSupplemental.length, 4, 'Gallery 01 must have two contextual and two Plato supplemental exhibits');
+  assert.deepEqual(allSupplemental, GALLERY_01_SUPPLEMENTAL_EXHIBIT_LAYOUTS);
+  assert.equal(supplemental.length, 2, 'Gallery 01 must retain exactly two supplemental Plato work exhibits');
   assert.deepEqual(sorted(supplemental.map(({id}) => id)), stableIds);
   assert.deepEqual(supplemental, PLATO_SUPPLEMENTAL_EXHIBIT_LAYOUTS);
   assert.deepEqual(sorted(PLATO_SUPPLEMENTAL_EXHIBITS.map(({id}) => id)), stableIds);
@@ -2125,8 +2132,8 @@ check('Plato’s Cave and Republic form a substantial supplemental U without ent
   const republic = byId.get('plato-republic');
   const cave = byId.get('plato-cave-book-vii');
   assert(republic && cave);
-  approx(republic.position.x, -6.45, 'Republic side-wall x');
-  approx(cave.position.x, -6.45, 'Cave side-wall x');
+  approx(republic.position.x, 7.5, 'Republic north-east wall centre');
+  approx(cave.position.x, 7.5, 'Cave south-east wall centre');
   assert(republic.position.z < 16 && cave.position.z > 26, 'The two work exhibits no longer bracket the Plato wall');
   approx(republic.rotationY, 0, 'Republic inward-facing rotation');
   approx(cave.rotationY, Math.PI, 'Cave inward-facing rotation');
@@ -2135,7 +2142,7 @@ check('Plato’s Cave and Republic form a substantial supplemental U without ent
     assert.equal(layout.parentExhibitId, 'plato', `${layout.id} lost its supplemental Plato parent`);
     assert.equal(layout.zoneId, 'med-plato-aristotle', `${layout.id} left Room 04`);
     assert.equal(layout.spatialCellId, 'med-plato-aristotle', `${layout.id} left the Room 04 spatial cell`);
-    assert(layout.position.x + layout.footprint.width / 2 < -4, `${layout.id} intrudes into the central circulation/sightline`);
+    assert(layout.position.x - layout.footprint.width / 2 > 4, `${layout.id} intrudes into the central circulation/sightline`);
     assert(layout.footprint.width >= 4.7 && layout.footprint.height >= 4.5, `${layout.id} is not visually substantial`);
     assert(layout.mediaMount.width >= 2 && layout.mediaMount.height >= 2.8, `${layout.id} media is too slight`);
     assert.equal(layout.mediaMount.assetId, layout.assetId, `${layout.id} media and prefetch assets differ`);
@@ -2158,7 +2165,7 @@ check('Plato’s Cave and Republic form a substantial supplemental U without ent
   assert.match(PLATO_SUPPLEMENTAL_EXHIBITS.find(({id}) => id === 'plato-cave-book-vii').lead, /not merely saying that ordinary reality is an illusion/i);
   assert.match(PLATO_SUPPLEMENTAL_EXHIBITS.find(({id}) => id === 'plato-republic').cautions.join(' '), /hierarchy|censorship|concentrated power|coercive/i);
   assert.match(platoSupplementalDataSource, /outside the canonical program so the Museum retains a truthful primary roster/u);
-  assert.match(canonicalSceneSource, /<PlatoSupplementalExhibits/u, 'Gallery 01 does not mount the two work exhibits');
+  assert.match(canonicalSceneSource, /<Gallery01SupplementalExhibits/u, 'Gallery 01 does not mount its contextual and Plato exhibits');
   assert.match(platoSupplementalSceneSource, /onClick=\{activate\}/u, 'The supplemental installations lack normal mouse activation');
   assert.match(platoSupplementalSceneSource, /interactionForSupplemental/u, 'The supplemental installations lack stable interaction identity');
   assert.match(museumPageSource, /Press E or Enter to open the supplemental exhibit/u, 'The shared keyboard interaction does not announce the supplemental exhibits');
@@ -2168,10 +2175,10 @@ check('Plato’s Cave and Republic form a substantial supplemental U without ent
   assert.match(supplementalPanelSource, /event\.key === 'Escape'/u, 'The supplemental panel lacks its keyboard close path');
 });
 
-check('all 406 supplemental exhibits share route, directory, search, guided, and fallback contracts', () => {
-  assert.equal(MUSEUM_SUPPLEMENTAL_EXHIBITS.length, 406);
+check('all 408 supplemental exhibits share route, directory, search, guided, and fallback contracts', () => {
+  assert.equal(MUSEUM_SUPPLEMENTAL_EXHIBITS.length, 408);
   assert.equal(MUSEUM_INTERPRETATIONS.length, 191, 'Every canonical installation needs one interpretation');
-  assert.equal(MUSEUM_INTERPRETATIONS.length + MUSEUM_SUPPLEMENTAL_EXHIBITS.length, 597, 'The directory interpreted-stop count changed');
+  assert.equal(MUSEUM_INTERPRETATIONS.length + MUSEUM_SUPPLEMENTAL_EXHIBITS.length, 599, 'The directory interpreted-stop count changed');
   assert.equal(
     new Set(MUSEUM_SUPPLEMENTAL_EXHIBITS.map(({exhibit}) => exhibit.id)).size,
     MUSEUM_SUPPLEMENTAL_EXHIBITS.length,
@@ -6353,4 +6360,4 @@ assert.deepEqual(seamCrossingFailures, [], `collision-resolved seam failures:\n$
 assert.deepEqual(residencyAdmissionFailures, [], `approached-hall residency failures:\n${[...new Set(residencyAdmissionFailures)].join('\n')}`);
 assert.deepEqual(interpretationQualityFailures, [], `interpretation quality failures:\n${interpretationQualityFailures.join('\n')}`);
 
-console.log(`\nMuseum audit passed: ${checks} groups covering ${definitions.length} canonical halls, 105 rooms, 191 canonical exhibits, ${MUSEUM_SUPPLEMENTAL_EXHIBITS.length} supplemental exhibits, 597 interpreted stops, ${physicalMovementTrajectories} production-frame crossing trajectories over ${MUSEUM_DIRECTED_CONNECTIONS.length} directed crossings and ${MUSEUM_BUILDING_MANIFEST.connections.length} physical seams, 96 MiB bounded residency, and ${Math.round(museumModuleInitializationMs)}ms canonical-data initialization.`);
+console.log(`\nMuseum audit passed: ${checks} groups covering ${definitions.length} canonical halls, 105 rooms, 191 canonical exhibits, ${MUSEUM_SUPPLEMENTAL_EXHIBITS.length} supplemental exhibits, 599 interpreted stops, ${physicalMovementTrajectories} production-frame crossing trajectories over ${MUSEUM_DIRECTED_CONNECTIONS.length} directed crossings and ${MUSEUM_BUILDING_MANIFEST.connections.length} physical seams, 96 MiB bounded residency, and ${Math.round(museumModuleInitializationMs)}ms canonical-data initialization.`);
