@@ -88,6 +88,19 @@ export const GALLERY_01_CONTEXT_SUPPLEMENTAL_EXHIBITS = [
     assetId: 'greek-philosophy-reception-interpretive',
     panelAssetId: 'greek-philosophy-reception-interpretive',
     articleRoute: {kind: 'branch', branchId: 'ancient-greek'},
+    presentation: {
+      panelKicker: 'Gallery 01 reception and orientation exhibit',
+      proximityKicker: 'Reception and orientation',
+      factRows: [
+        {label: 'Focus', value: 'How later cultures assemble a philosophical canon'},
+        {label: 'Historical distance', value: 'Contemporary interpretive illustration · 2026'},
+        {label: 'Museum role', value: 'Reception history and curatorial self-critique; not ancient evidence'},
+      ],
+      articleActionLabel: 'Open Ancient Greek Philosophy in the Atlas',
+      entityKind: 'branch',
+      keyIdeasLabel: 'What the image organizes',
+      cautionsLabel: 'Historical cautions',
+    },
     wallPlaque: {
       type: 'reception-or-transmission-history',
       invitation: 'Raphael’s imagined assembly shows how the Renaissance reorganized the inheritance of ancient philosophy.',
@@ -136,6 +149,19 @@ export const GALLERY_01_CONTEXT_SUPPLEMENTAL_EXHIBITS = [
     assetId: 'socrates-trial-interpretive',
     panelAssetId: 'socrates-trial-interpretive',
     articleRoute: {kind: 'philosopher', philosopherId: 'socrates'},
+    presentation: {
+      panelKicker: 'Gallery 01 historical context exhibit',
+      proximityKicker: 'Historical context',
+      factRows: [
+        {label: 'Event', value: 'Trial and execution of Socrates'},
+        {label: 'Historical setting', value: 'Athens · 399 BCE'},
+        {label: 'Evidence', value: 'Later literary witnesses; contemporary interpretive illustration'},
+      ],
+      articleActionLabel: 'Open Socrates’ full Atlas article',
+      entityKind: 'philosopher',
+      keyIdeasLabel: 'Interpretive anchors',
+      cautionsLabel: 'Historical cautions',
+    },
     wallPlaque: {
       type: 'historical-event-or-institutional-context',
       invitation: 'The trial of 399 BCE made Socratic examination a test of civic judgment, law, and philosophical integrity.',

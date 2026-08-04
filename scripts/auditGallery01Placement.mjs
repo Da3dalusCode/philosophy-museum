@@ -55,6 +55,7 @@ const {
   GALLERY_01_ROOM_PRIMARY_IDS,
   GALLERY_01_ROUTE_HALF_WIDTH,
   GALLERY_01_ROUTE_STEERING_MARGIN,
+  GALLERY_01_CONTEXT_SUPPLEMENTAL_EXHIBITS,
   GALLERY_01_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
   MEDITERRANEAN_GALLERY_ID,
   MEDITERRANEAN_ORIENTATION_DISPLAY,
@@ -245,6 +246,11 @@ assert.deepEqual(
   'Gallery 01 supplemental roster changed',
 );
 assert.deepEqual(gallery.layout.supplementalExhibits, GALLERY_01_SUPPLEMENTAL_EXHIBIT_LAYOUTS, 'Gallery 01 supplemental runtime is stale');
+for (const exhibit of GALLERY_01_CONTEXT_SUPPLEMENTAL_EXHIBITS) {
+  assert(exhibit.presentation, `${exhibit.id} must provide context-specific presentation metadata`);
+  const presentationText = JSON.stringify(exhibit.presentation);
+  assert(!/Supplemental Plato|Author.*Plato|Plato.s full Atlas profile/i.test(presentationText), `${exhibit.id} inherited Plato-specific drawer metadata`);
+}
 for (const [id, authored] of Object.entries(supplementalPlacementContracts)) {
   const layout = supplementalById.get(id);
   assert(layout, `${id} is absent from Gallery 01`);
