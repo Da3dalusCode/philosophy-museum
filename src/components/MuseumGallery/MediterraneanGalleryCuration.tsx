@@ -6,7 +6,7 @@ import {
 } from '../../data/museum/mediterraneanGalleryCuration';
 import {MUSEUM_TEXTURE_SPECS} from '../../data/museum/museumTexturePolicy';
 import type {MuseumAssetId} from '../../data/museum/museumAssetTypes';
-import type {MuseumMediaMountDefinition, MuseumSceneVolume} from '../../data/museum/museumWorldTypes';
+import type {MuseumFurnishingDefinition, MuseumMediaMountDefinition, MuseumSceneVolume} from '../../data/museum/museumWorldTypes';
 import {MediterraneanOrientationStructure} from './MediterraneanOrientationStructure';
 import {MuseumSceneMedia} from './MuseumSceneMedia';
 
@@ -135,23 +135,27 @@ const FRONT_MEDIA = orientationMount(
 );
 
 /** A gallery-wide opening orientation with a finished structural reverse. */
-export function MediterraneanGalleryCuration({includeStructure = true}: {
+export function MediterraneanGalleryCuration({
+  includeStructure = true,
+  display = MEDITERRANEAN_ORIENTATION_DISPLAY,
+}: {
   includeStructure?: boolean;
+  display?: MuseumFurnishingDefinition;
 }) {
   const frontTexture = useMemo(createFrontTexture, []);
+  const frontMedia = useMemo(() => ({...FRONT_MEDIA, anchorId: display.id}), [display.id]);
   useEffect(() => () => {
     frontTexture.dispose();
   }, [frontTexture]);
-  const display = MEDITERRANEAN_ORIENTATION_DISPLAY;
   const panelHeight = 2.8;
   return <group userData={{galleryCuration: 'mediterranean-orientation-v2'}}>
-    {includeStructure && <MediterraneanOrientationStructure/>}
+    {includeStructure && <MediterraneanOrientationStructure display={display}/>}
     <group position={[display.center.x, 0, display.center.z]} rotation={[0, display.rotation, 0]}>
       <mesh position={[0, 1.72, .06]}>
         <planeGeometry args={[display.size.width, panelHeight]}/>
         <meshBasicMaterial map={frontTexture} toneMapped={false}/>
       </mesh>
-      <MuseumSceneMedia mount={FRONT_MEDIA} nearby={false} accent={MEDITERRANEAN_PALETTE.terracotta}/>
+      <MuseumSceneMedia mount={frontMedia} nearby={false} accent={MEDITERRANEAN_PALETTE.terracotta}/>
     </group>
   </group>;
 }

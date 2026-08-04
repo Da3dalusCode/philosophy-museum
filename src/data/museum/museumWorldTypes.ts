@@ -113,6 +113,7 @@ export type MuseumInstallationTreatment =
 
 /** Stable ids for interpreted work exhibits that do not consume a primary assignment. */
 export type MuseumSupplementalExhibitId =
+  | 'miletus-ionian-coast'
   | 'greek-philosophy-reception'
   | 'socrates-trial-death'
   | 'plato-cave-book-vii'

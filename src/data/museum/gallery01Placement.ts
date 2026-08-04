@@ -114,11 +114,11 @@ export const GALLERY_01_PRIMARY_PLACEMENTS = Object.freeze({
   aristotle: {x: 10.85, z: 21, rotationY: -Math.PI / 2},
 }) satisfies Readonly<Record<Gallery01PrimaryExhibitId, Gallery01Placement>>;
 
-/** Room 01's north-east contextual installation, centred on its return wall. */
-export const GALLERY_01_ORIENTATION_PLACEMENT = Object.freeze({
-  center: {x: 7.5, z: -26.85},
-  rotation: 0,
-  size: {width: 5.8, depth: .55},
+/** Freestanding orientation landmark in the Grand Entrance near Gallery 01. */
+export const GALLERY_01_ENTRANCE_ORIENTATION_PLACEMENT = Object.freeze({
+  center: {x: -13.2, z: 20.25},
+  rotation: Math.PI / 2,
+  size: {width: 5.8, depth: .62},
 });
 
 export const GALLERY_01_PLATO_SUPPLEMENTAL_PLACEMENTS = Object.freeze({
@@ -135,6 +135,11 @@ export const GALLERY_01_PLATO_SUPPLEMENTAL_PLACEMENTS = Object.freeze({
 });
 
 export const GALLERY_01_CONTEXT_SUPPLEMENTAL_PLACEMENTS = Object.freeze({
+  'miletus-ionian-coast': {
+    position: {x: 7.5, z: -26.88},
+    rotationY: 0,
+    viewpoint: {x: 7.5, z: -23.72, yaw: 0, pitch: -.08},
+  },
   'greek-philosophy-reception': {
     position: {x: 7.5, z: -15.12},
     rotationY: Math.PI,

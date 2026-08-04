@@ -327,14 +327,14 @@ try {
     });
   }
 
-  if (supplementalResults.length !== 408) {
+  if (supplementalResults.length !== 409) {
     failures.push({
       hall: 'Museum-wide', room: 'all supplemental rooms', exhibitId: 'supplemental-program', title: 'Supplemental program',
       offendingRole: 'contract', finalLineCount: 0, finalFontSize: 0,
       truncation: false, overflow: false, minimumSizeFailure: false,
       relationshipFailure: true, hierarchyFailure: false,
       plaqueType: 'supplemental-registry', canonicalContexts: 'Museum-wide supplemental registry',
-      message: `expected 408 physical supplemental wall plaques; audited ${supplementalResults.length}`,
+      message: `expected 409 physical supplemental wall plaques; audited ${supplementalResults.length}`,
     });
   }
 

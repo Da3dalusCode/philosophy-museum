@@ -1,6 +1,6 @@
 import type {MuseumFurnishingDefinition} from './museumWorldTypes';
 import {
-  GALLERY_01_ORIENTATION_PLACEMENT,
+  GALLERY_01_ENTRANCE_ORIENTATION_PLACEMENT,
   GALLERY_01_PRIMARY_PLACEMENTS,
   type Gallery01PrimaryExhibitId,
   type Gallery01RoomId,
@@ -198,11 +198,11 @@ export const MEDITERRANEAN_EXHIBIT_CURATION = {
   },
 } as const satisfies Record<MediterraneanExhibitId, MediterraneanExhibitCuration>;
 
-/** Central orientation wall; its footprint participates in collision and guided-route checks. */
+/** Grand Entrance landmark; its footprint participates in entrance collision checks. */
 export const MEDITERRANEAN_ORIENTATION_DISPLAY = {
   id: 'mediterranean-orientation-display',
   kind: 'orientation-plinth',
-  ...GALLERY_01_ORIENTATION_PLACEMENT,
+  ...GALLERY_01_ENTRANCE_ORIENTATION_PLACEMENT,
   height: 3.15,
 } as const satisfies MuseumFurnishingDefinition;
 

@@ -101,6 +101,16 @@ const ANCIENT_MUSEUM_ASSETS = [
     historicalNote: 'A contemporary interpretive illustration created for this exhibit—not a depiction of one historical meeting, an ancient interior, or identifiable portraits.', likenessStatus: 'not-applicable', focalPoint: {x: .5, y: .5},
   },
   {
+    id: 'miletus-ionian-coast-interpretive', entityKind: 'branch', entityId: 'ancient-greek', role: 'context', mediaKind: 'drawing',
+    title: 'Miletus and the Ionian Coast — interpretive illustration', creator: 'Philosophy Atlas Museum with OpenAI image generation', objectDate: '2026', institution: 'Philosophy Atlas Museum',
+    sourcePageUrl: 'https://github.com/Da3dalusCode/philosophy-museum/blob/main/public/assets/museum/ancient-greek/miletus-ionian-coast-interpretive-panel.webp',
+    license: 'Original Philosophy Atlas Museum interpretive illustration', rightsKind: 'rights-status', derivativeNotice: 'Generated as an original interpretive illustration, then resized without cropping and converted to WebP for this installation.', attribution: 'Philosophy Atlas Museum interpretive illustration, created with OpenAI image generation, 2026.',
+    variants: {scene: assetPath('miletus-ionian-coast-interpretive', 'scene', 640, 427), panel: assetPath('miletus-ionian-coast-interpretive', 'panel', 1280, 853)},
+    alt: 'Interpretive coastal view of an archaic Ionian harbor where anonymous residents observe the sea, sky, shoreline, vessels, and measuring tools.',
+    caption: 'A contemporary interpretive reconstruction of Miletus as a coastal setting for travel, observation, measurement, and competing explanations of nature.',
+    historicalNote: 'A contemporary interpretive illustration created for this exhibit—not an archaeological reconstruction, documented view, exact city plan, historical event, or portrait of a Milesian philosopher.', likenessStatus: 'not-applicable', focalPoint: {x: .55, y: .48},
+  },
+  {
     id: 'plato-cave-interpretive-illustration', entityKind: 'philosopher', entityId: 'plato', role: 'context', mediaKind: 'drawing',
     title: 'The Allegory of the Cave — interpretive illustration', creator: 'Philosophy Atlas Museum', objectDate: '2026', institution: 'Philosophy Atlas Museum',
     sourcePageUrl: 'https://github.com/Da3dalusCode/philosophy-museum/blob/main/public/assets/museum/ancient-greek/plato-cave-interpretive-illustration-panel.webp',

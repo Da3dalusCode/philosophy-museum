@@ -1984,10 +1984,10 @@ check('Grand Entrance is a legible ceremonial threshold rather than an undecorat
   assert.match(grandEntranceArchitectureSource, /museumEntrance: 'ceremonial-threshold-sequence'/u, 'Grand Entrance has no authored arrival sequence');
   assert.match(buildingArchitectureSource, /<MuseumRouteInlay/u, 'Grand Entrance arrival axis is not continued by the Museum-wide route inlay');
   assert.doesNotMatch(grandEntranceArchitectureSource, /\bonClick\b|\bonPointer/u, 'Static entrance architecture masquerades as an interactive control');
-  assert.match(buildingArchitectureSource, /Gallery 01 · Mediterranean beginnings/u, 'Grand Entrance does not identify the first chronological threshold');
+  assert.match(mediterraneanCurationSource, /GALLERY 01 · THE JOURNEY/u, 'Grand Entrance orientation does not identify the first chronological threshold');
 });
 
-check('Gallery 01 has bounded authored curation, visitor-facing orientation, and a clear first connector', () => {
+check('Gallery 01 has bounded authored curation, minimum-scale exhibits, and a clear first connector', () => {
   const hall = hallById.get(MEDITERRANEAN_GALLERY_ID);
   const definition = definitionById.get(MEDITERRANEAN_GALLERY_ID);
   const program = MUSEUM_CANONICAL_PROGRAM.find(({id}) => id === MEDITERRANEAN_GALLERY_ID);
@@ -2011,15 +2011,24 @@ check('Gallery 01 has bounded authored curation, visitor-facing orientation, and
   assert.equal(definition.layout.exhibits.reduce((sum, {scene}) => sum + scene.mediaMounts.length, 0), 25, 'Gallery 01 media-placement count changed');
   assert.equal(curationEntries.filter(([, curation]) => curation.frontTitle).length, 6, 'Gallery 01 question-first hierarchy changed');
   assert.deepEqual(MEDITERRANEAN_EXHIBIT_CURATION.anaxagoras.authored, {x: -7.5, z: -1.15, rotationY: Math.PI}, 'Anaxagoras left the centred south-west return wall');
+  const anaxagoras = exhibitLayoutById.get('anaxagoras');
+  assert(anaxagoras, 'Anaxagoras has no physical Gallery 01 exhibit layout');
+  for (const layout of exhibitLayoutById.values()) {
+    assert(layout.scene.footprint.width >= anaxagoras.scene.footprint.width, `${layout.id} is narrower than the Anaxagoras minimum`);
+    assert(layout.scene.footprint.depth >= anaxagoras.scene.footprint.depth, `${layout.id} is shallower than the Anaxagoras minimum`);
+    assert(layout.scene.footprint.height >= anaxagoras.scene.footprint.height, `${layout.id} is shorter than the Anaxagoras minimum`);
+  }
 
   const entranceNode = runtimeNodeById.get(MUSEUM_VISITOR_MAP_KIOSK.nodeId);
   const galleryNode = MUSEUM_RUNTIME_NODES.find(({publicHallId}) => publicHallId === MEDITERRANEAN_GALLERY_ID);
-  const orientation = definition.layout.furnishings.find(({id}) => id === MEDITERRANEAN_ORIENTATION_DISPLAY.id);
+  const orientation = entranceNode?.layout.furnishings.find(({id}) => id === MEDITERRANEAN_ORIENTATION_DISPLAY.id);
   assert(entranceNode, 'The Grand Entrance runtime node is absent');
   assert(galleryNode, 'Gallery 01 has no runtime building node');
   assert.equal(entranceNode.kind, 'entrance');
-  assert.deepEqual(orientation, MEDITERRANEAN_ORIENTATION_DISPLAY, 'Gallery 01 orientation display is absent or stale');
-  assert(definition.layout.obstacleColliders.some(({id}) => id === orientation.id), 'Gallery 01 orientation display is absent from collision');
+  assert.deepEqual(orientation, MEDITERRANEAN_ORIENTATION_DISPLAY, 'Grand Entrance orientation landmark is absent or stale');
+  assert(orientation);
+  assert(entranceNode.layout.obstacleColliders.some(({id}) => id === orientation.id), 'Grand Entrance orientation landmark is absent from collision');
+  assert(!definition.layout.furnishings.some(({id}) => id === orientation.id), 'Gallery 01 still owns the freestanding entrance landmark');
   assert(
     isValidMuseumPosition(
       MUSEUM_VISITOR_MAP_KIOSK.approachPose,
@@ -2030,12 +2039,10 @@ check('Gallery 01 has bounded authored curation, visitor-facing orientation, and
     ),
     'Grand Entrance map approach is unsafe',
   );
-  assert.deepEqual(definition.layout.spawnFocalPoint, MEDITERRANEAN_ORIENTATION_DISPLAY.center, 'Gallery 01 spawn does not focus its local orientation landmark');
-  const chronologicalEntry = galleryNode.entrances.find(({id}) => id === galleryNode.routePortals.entry);
-  assert(chronologicalEntry, 'Gallery 01 chronological route entry is absent');
+  assert.deepEqual(definition.layout.spawnFocalPoint, {x: 0, z: 21}, 'Gallery 01 spawn focal point left its central route');
   const entryVector = {
-    x: chronologicalEntry.arrivalPose.x - orientation.center.x,
-    z: chronologicalEntry.arrivalPose.z - orientation.center.z,
+    x: -9.8 - orientation.center.x,
+    z: orientation.center.z - orientation.center.z,
   };
   const entryDistance = Math.hypot(entryVector.x, entryVector.z);
   const orientationFront = {
@@ -2044,12 +2051,12 @@ check('Gallery 01 has bounded authored curation, visitor-facing orientation, and
   };
   assert(
     (orientationFront.x * entryVector.x + orientationFront.z * entryVector.z) / entryDistance > .9,
-    'Gallery 01 “From Nature to the Examined Life” sign faces away from the chronological entrance',
+    'The freestanding “From Nature to the Examined Life” landmark faces away from the Grand Entrance approach',
   );
   assert(
     Number.isFinite(definition.layout.spawnFocalPoint.x)
       && Number.isFinite(definition.layout.spawnFocalPoint.z),
-    'Gallery 01 local orientation focal point is invalid',
+    'Gallery 01 route focal point is invalid',
   );
 
   const forbiddenPublicLabels = /anchor[-\s]+exhibit|standard[-\s]+individual[-\s]+exhibit|supporting[-\s]+exhibit|thematic[-\s]+cluster[-\s]+participant|gallery[-\s]+archive[-\s]+or[-\s]+study[-\s]+wall[-\s]+record|(?:anchor|standard)[-\s]+bay|(?:supporting|cluster)[-\s]+panel|archive[-\s]+label|presentation\s+tier|gallery\s+installation/i;
@@ -2057,9 +2064,11 @@ check('Gallery 01 has bounded authored curation, visitor-facing orientation, and
   assert.doesNotMatch(museumPageSource, /item\.tier\.replaceAll/u, 'The public directory exposes internal exhibit tiers');
   assert.doesNotMatch(interpretationPanelSource, /content\.tier\.replaceAll/u, 'The interpretation panel exposes internal exhibit tiers');
   for (const interpretation of MUSEUM_INTERPRETATIONS) assert.doesNotMatch(interpretation.lead, forbiddenPublicLabels, `${interpretation.hallId}/${interpretation.id} lead exposes internal presentation language`);
-  assert.match(canonicalSceneSource, /<MediterraneanGalleryCuration[\s\S]*?\/>/u, 'Gallery 01 does not render its authored orientation display');
+  assert.doesNotMatch(canonicalSceneSource, /<MediterraneanGalleryCuration[\s\S]*?\/>/u, 'Gallery 01 still renders the freestanding orientation landmark on a wall');
   assert.doesNotMatch(canonicalSceneSource, /MuseumVisitorMapKiosk/u, 'The visitor map is still owned by Gallery 01 content');
   assert.match(buildingArchitectureSource, /<MuseumVisitorMapKiosk/u, 'The Grand Entrance does not own the persistent visitor map');
+  assert.match(buildingArchitectureSource, /<MediterraneanGalleryCuration display=\{MEDITERRANEAN_ORIENTATION_DISPLAY\}\s*\/>/u, 'The Grand Entrance does not render the freestanding orientation landmark');
+  assert.doesNotMatch(buildingArchitectureSource, /title="Begin the collection"/u, 'The obsolete wall-mounted entrance slogan remains');
   assert.doesNotMatch(canonicalExhibitsSource, /MediterraneanExhibitMedia/u, 'Gallery 01 still renders diagram substitutes');
   assert.match(canonicalExhibitsSource, /<MediterraneanFinishedBack/u, 'Gallery 01 exhibit backs are unfinished');
   assert.match(canonicalExhibitsSource, /theme:\s*'mediterranean'/u, 'Gallery 01 interpretation faces do not opt into their curatorial palette');
@@ -2112,7 +2121,7 @@ check('Plato’s Cave and Republic form a substantial supplemental U without ent
   const allSupplemental = definition.layout.supplementalExhibits ?? [];
   const stableIds = ['plato-cave-book-vii', 'plato-republic'];
   const supplemental = allSupplemental.filter(({id}) => stableIds.includes(id));
-  assert.equal(allSupplemental.length, 4, 'Gallery 01 must have two contextual and two Plato supplemental exhibits');
+  assert.equal(allSupplemental.length, 5, 'Gallery 01 must have three contextual and two Plato supplemental exhibits');
   assert.deepEqual(allSupplemental, GALLERY_01_SUPPLEMENTAL_EXHIBIT_LAYOUTS);
   assert.equal(supplemental.length, 2, 'Gallery 01 must retain exactly two supplemental Plato work exhibits');
   assert.deepEqual(sorted(supplemental.map(({id}) => id)), stableIds);
@@ -2175,10 +2184,10 @@ check('Plato’s Cave and Republic form a substantial supplemental U without ent
   assert.match(supplementalPanelSource, /event\.key === 'Escape'/u, 'The supplemental panel lacks its keyboard close path');
 });
 
-check('all 408 supplemental exhibits share route, directory, search, guided, and fallback contracts', () => {
-  assert.equal(MUSEUM_SUPPLEMENTAL_EXHIBITS.length, 408);
+check('all 409 supplemental exhibits share route, directory, search, guided, and fallback contracts', () => {
+  assert.equal(MUSEUM_SUPPLEMENTAL_EXHIBITS.length, 409);
   assert.equal(MUSEUM_INTERPRETATIONS.length, 191, 'Every canonical installation needs one interpretation');
-  assert.equal(MUSEUM_INTERPRETATIONS.length + MUSEUM_SUPPLEMENTAL_EXHIBITS.length, 599, 'The directory interpreted-stop count changed');
+  assert.equal(MUSEUM_INTERPRETATIONS.length + MUSEUM_SUPPLEMENTAL_EXHIBITS.length, 600, 'The directory interpreted-stop count changed');
   assert.equal(
     new Set(MUSEUM_SUPPLEMENTAL_EXHIBITS.map(({exhibit}) => exhibit.id)).size,
     MUSEUM_SUPPLEMENTAL_EXHIBITS.length,
@@ -6360,4 +6369,4 @@ assert.deepEqual(seamCrossingFailures, [], `collision-resolved seam failures:\n$
 assert.deepEqual(residencyAdmissionFailures, [], `approached-hall residency failures:\n${[...new Set(residencyAdmissionFailures)].join('\n')}`);
 assert.deepEqual(interpretationQualityFailures, [], `interpretation quality failures:\n${interpretationQualityFailures.join('\n')}`);
 
-console.log(`\nMuseum audit passed: ${checks} groups covering ${definitions.length} canonical halls, 105 rooms, 191 canonical exhibits, ${MUSEUM_SUPPLEMENTAL_EXHIBITS.length} supplemental exhibits, 599 interpreted stops, ${physicalMovementTrajectories} production-frame crossing trajectories over ${MUSEUM_DIRECTED_CONNECTIONS.length} directed crossings and ${MUSEUM_BUILDING_MANIFEST.connections.length} physical seams, 96 MiB bounded residency, and ${Math.round(museumModuleInitializationMs)}ms canonical-data initialization.`);
+console.log(`\nMuseum audit passed: ${checks} groups covering ${definitions.length} canonical halls, 105 rooms, 191 canonical exhibits, ${MUSEUM_SUPPLEMENTAL_EXHIBITS.length} supplemental exhibits, 600 interpreted stops, ${physicalMovementTrajectories} production-frame crossing trajectories over ${MUSEUM_DIRECTED_CONNECTIONS.length} directed crossings and ${MUSEUM_BUILDING_MANIFEST.connections.length} physical seams, 96 MiB bounded residency, and ${Math.round(museumModuleInitializationMs)}ms canonical-data initialization.`);

@@ -26,6 +26,7 @@ export type MuseumAssetId =
   | 'plato-capitoline-bust'
   | 'plato-school-of-athens'
   | 'greek-philosophy-reception-interpretive'
+  | 'miletus-ionian-coast-interpretive'
   | 'plato-cave-interpretive-illustration'
   | 'plato-republic-justice-ideal-city'
   | 'plato-republic-parisinus-1807'

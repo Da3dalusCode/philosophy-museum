@@ -189,10 +189,10 @@ assert.equal(
     (sum, hall) => sum + hall.primaryExhibits.length + hall.supplementalExhibits.length,
     0,
   ),
-  599,
-  'Route manifest must contain all 599 Museum stops.',
+  600,
+  'Route manifest must contain all 600 Museum stops.',
 );
-assert.equal(searchIndex.museumExhibits.length, 599, 'Search index must contain all 599 Museum stops.');
+assert.equal(searchIndex.museumExhibits.length, 600, 'Search index must contain all 600 Museum stops.');
 
 const serialize = (value) => `${JSON.stringify(value, null, 2)}\n`;
 const outputsToWrite = [

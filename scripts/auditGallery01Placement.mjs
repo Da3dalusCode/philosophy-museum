@@ -47,7 +47,7 @@ const {
   GALLERY_01_DOORWAY_CLEARANCES,
   GALLERY_01_CONTEXT_SUPPLEMENTAL_PLACEMENTS,
   GALLERY_01_HALL_BOUNDS,
-  GALLERY_01_ORIENTATION_PLACEMENT,
+  GALLERY_01_ENTRANCE_ORIENTATION_PLACEMENT,
   GALLERY_01_PLATO_SUPPLEMENTAL_PLACEMENTS,
   GALLERY_01_PRIMARY_PLACEMENTS,
   GALLERY_01_ROOM_ANCHORS,
@@ -129,10 +129,10 @@ const supplementalPhysicalBounds = (layout) => rotatedBounds(
   Math.max(layout.footprint.depth, MUSEUM_CANONICAL_EXHIBIT_PLINTH_GEOMETRY.largeDepth),
 );
 const orientationPhysicalBounds = rotatedBounds(
-  GALLERY_01_ORIENTATION_PLACEMENT.center,
-  GALLERY_01_ORIENTATION_PLACEMENT.rotation,
-  GALLERY_01_ORIENTATION_PLACEMENT.size.width + .18,
-  Math.max(GALLERY_01_ORIENTATION_PLACEMENT.size.depth, .24),
+  GALLERY_01_ENTRANCE_ORIENTATION_PLACEMENT.center,
+  GALLERY_01_ENTRANCE_ORIENTATION_PLACEMENT.rotation,
+  GALLERY_01_ENTRANCE_ORIENTATION_PLACEMENT.size.width + .18,
+  Math.max(GALLERY_01_ENTRANCE_ORIENTATION_PLACEMENT.size.depth, .24),
 );
 const circleIntersectsBounds = (point, radius, bounds) => {
   const nearestX = Math.max(bounds.minX, Math.min(bounds.maxX, point.x));
@@ -189,8 +189,17 @@ assert.deepEqual(
 const primaryById = new Map(gallery.layout.exhibits.map((layout) => [layout.id, layout]));
 const supplementalById = new Map((gallery.layout.supplementalExhibits ?? []).map((layout) => [layout.id, layout]));
 assert.equal(primaryById.size, 22, 'Gallery 01 must retain 22 unique canonical primaries');
-assert.equal(supplementalById.size, 4, 'Gallery 01 must retain two context and two Plato supplemental installations');
+assert.equal(supplementalById.size, 5, 'Gallery 01 must retain three context and two Plato supplemental installations');
 assert.equal(new Set(gallery.layout.obstacleColliders.map(({id}) => id)).size, gallery.layout.obstacleColliders.length, 'Gallery 01 has duplicate collider ids');
+assert(!gallery.layout.furnishings.some(({id}) => id === MEDITERRANEAN_ORIENTATION_DISPLAY.id), 'The freestanding orientation landmark remains mounted inside Gallery 01');
+
+const anaxagoras = primaryById.get('anaxagoras');
+assert(anaxagoras, 'Anaxagoras is absent from Gallery 01');
+for (const layout of primaryById.values()) {
+  assert(layout.scene.footprint.width >= anaxagoras.scene.footprint.width, `${layout.id} is narrower than the approved Anaxagoras minimum`);
+  assert(layout.scene.footprint.depth >= anaxagoras.scene.footprint.depth, `${layout.id} is shallower than the approved Anaxagoras minimum`);
+  assert(layout.scene.footprint.height >= anaxagoras.scene.footprint.height, `${layout.id} is shorter than the approved Anaxagoras minimum`);
+}
 
 for (const room of program.rooms) {
   const expectedIds = GALLERY_01_ROOM_PRIMARY_IDS[room.id];
@@ -256,6 +265,8 @@ for (const [id, authored] of Object.entries(supplementalPlacementContracts)) {
   assert(layout, `${id} is absent from Gallery 01`);
   const expectedRoomId = id === 'greek-philosophy-reception'
     ? 'med-orientation-nature'
+    : id === 'miletus-ionian-coast'
+      ? 'med-orientation-nature'
     : id === 'socrates-trial-death'
       ? 'med-sophists-socratic'
       : 'med-plato-aristotle';
@@ -280,23 +291,28 @@ for (const [id, authored] of Object.entries(supplementalPlacementContracts)) {
   });
 }
 
-assert.deepEqual(MEDITERRANEAN_ORIENTATION_DISPLAY.center, GALLERY_01_ORIENTATION_PLACEMENT.center, 'Orientation center is stale');
-approx(MEDITERRANEAN_ORIENTATION_DISPLAY.rotation, GALLERY_01_ORIENTATION_PLACEMENT.rotation, 'Orientation rotation');
-assert(contains(GALLERY_01_ROOM_BOUNDS['med-orientation-nature'], orientationPhysicalBounds, .08), 'Orientation structure leaves Room 01');
+assert.deepEqual(MEDITERRANEAN_ORIENTATION_DISPLAY.center, GALLERY_01_ENTRANCE_ORIENTATION_PLACEMENT.center, 'Entrance orientation center is stale');
+approx(MEDITERRANEAN_ORIENTATION_DISPLAY.rotation, GALLERY_01_ENTRANCE_ORIENTATION_PLACEMENT.rotation, 'Entrance orientation rotation');
+const entranceNode = MUSEUM_RUNTIME_NODES.find(({id}) => id === 'place:grand-entrance-orientation');
+assert(entranceNode, 'Grand Entrance runtime node is missing');
+assert(contains(entranceNode.layout.bounds, orientationPhysicalBounds, .08), 'Orientation landmark leaves the Grand Entrance');
+assert.deepEqual(
+  entranceNode.layout.furnishings.find(({id}) => id === MEDITERRANEAN_ORIENTATION_DISPLAY.id),
+  MEDITERRANEAN_ORIENTATION_DISPLAY,
+  'The Grand Entrance does not own the freestanding orientation landmark',
+);
+assert(
+  entranceNode.layout.obstacleColliders.some(({id}) => id === MEDITERRANEAN_ORIENTATION_DISPLAY.id),
+  'The freestanding entrance orientation landmark lacks collision',
+);
 visibleFacing(
   MEDITERRANEAN_ORIENTATION_DISPLAY.center,
   MEDITERRANEAN_ORIENTATION_DISPLAY.rotation,
-  {x: MEDITERRANEAN_ORIENTATION_DISPLAY.center.x, z: -23.7},
-  'Gallery 01 orientation installation',
+  {x: -9.8, z: MEDITERRANEAN_ORIENTATION_DISPLAY.center.z},
+  'Grand Entrance orientation landmark',
 );
-installations.push({
-  id: MEDITERRANEAN_ORIENTATION_DISPLAY.id,
-  roomId: 'med-orientation-nature',
-  kind: 'orientation',
-  position: MEDITERRANEAN_ORIENTATION_DISPLAY.center,
-  rotationY: MEDITERRANEAN_ORIENTATION_DISPLAY.rotation,
-  bounds: orientationPhysicalBounds,
-});
+const entranceRoute = {minX: -2.5, maxX: 2.5, minZ: entranceNode.layout.bounds.minZ, maxZ: entranceNode.layout.bounds.maxZ};
+assert(!overlaps(orientationPhysicalBounds, entranceRoute, .34), 'The entrance orientation landmark blocks the chronological route');
 
 const routeBounds = {
   minX: -GALLERY_01_ROUTE_HALF_WIDTH,

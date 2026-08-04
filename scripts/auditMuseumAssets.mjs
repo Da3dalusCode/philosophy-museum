@@ -351,6 +351,7 @@ const NEW_CANONICAL_ASSET_IDS = [
 ];
 const ORIGINAL_INTERPRETIVE_ASSET_IDS = new Set([
   'plato-cave-interpretive-illustration',
+  'miletus-ionian-coast-interpretive',
   'greek-philosophy-reception-interpretive',
   'socrates-trial-interpretive',
   'levinas-totality-infinity-2002',
@@ -819,13 +820,13 @@ check('Galleries 1–16 classify every textual-media candidate and cap plain pag
   assert.match(legacyImageDiversityPreparationSource, /--refresh-locks/);
 });
 
-check('the canonical twenty-six expose 191 primaries, 408 supplementals, and 599 interpreted stops with resolvable local media', () => {
+check('the canonical twenty-six expose 191 primaries, 409 supplementals, and 600 interpreted stops with resolvable local media', () => {
   assert.deepEqual(MUSEUM_HALLS.map(({id}) => id), ACTIVE_HALL_IDS);
   assert.equal(MUSEUM_HALLS.length, 26);
   assert.equal(liveExhibits.length, 191);
-  assert.equal(supplementalReferencedIds.length, 408);
-  assert.equal(liveExhibits.length + supplementalReferencedIds.length, 599);
-  assert.equal(referencedIds.length, 614);
+  assert.equal(supplementalReferencedIds.length, 409);
+  assert.equal(liveExhibits.length + supplementalReferencedIds.length, 600);
+  assert.equal(referencedIds.length, 615);
   assert(canonicalReferencedIds.length > 0, 'the live primary program references no local media');
   for (const {hall, exhibit} of liveExhibits) {
     assert(Array.isArray(exhibit.supportingAssetIds), `${hall.id}/${exhibit.id} has no supporting-asset array`);
@@ -1735,11 +1736,11 @@ check('every physical installation has a museum-wide unique asset, source page, 
   assert(unique(physicalAssets.map(({variants}) => sha256(exactCasePath(variants.panel.path)))), 'two physical installations reuse identical panel bytes');
 });
 
-check('the preserved asset registry contains 656 unique records and derivative paths', () => {
-  assert.equal(MUSEUM_ASSETS.length, 656);
-  assert.equal(assetById.size, 656);
+check('the preserved asset registry contains 657 unique records and derivative paths', () => {
+  assert.equal(MUSEUM_ASSETS.length, 657);
+  assert.equal(assetById.size, 657);
   const variantPaths = MUSEUM_ASSETS.flatMap(({variants}) => [variants.scene.path, variants.panel.path]);
-  assert.equal(variantPaths.length, 1312);
+  assert.equal(variantPaths.length, 1314);
   assert(unique(variantPaths), 'two asset variants share a derivative path');
   for (const id of NEW_CANONICAL_ASSET_IDS) assert(assetById.has(id), `new canonical asset ${id} is missing`);
   for (const id of MEDITERRANEAN_ASSET_IDS) assert(assetById.has(id), `Gallery 01 asset ${id} is missing`);
@@ -2645,7 +2646,7 @@ check('Galleries 14–15 fill 43 unique physical installations without image reu
   }
 });
 
-check('the committed Museum inventory contains exactly the 1312 registered derivatives', () => {
+check('the committed Museum inventory contains exactly the 1314 registered derivatives', () => {
   const actual = walkFiles(museumMediaRoot).map(toPublicPath).sort();
   const expected = MUSEUM_ASSETS.flatMap(({variants}) => [variants.scene.path, variants.panel.path]).sort();
   assert.deepEqual(actual, expected);

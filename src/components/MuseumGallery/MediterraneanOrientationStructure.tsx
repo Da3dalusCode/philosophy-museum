@@ -2,11 +2,15 @@ import {
   MEDITERRANEAN_ORIENTATION_DISPLAY,
   MEDITERRANEAN_PALETTE,
 } from '../../data/museum/mediterraneanGalleryCuration';
+import type {MuseumFurnishingDefinition} from '../../data/museum/museumWorldTypes';
 import {VISITOR_MAP_FRAME_MATERIAL} from './MuseumVisitorMapKiosk';
 
 /** The authored Gallery 01 orientation body without generated or scene media. */
-export function MediterraneanOrientationStructure() {
-  const display = MEDITERRANEAN_ORIENTATION_DISPLAY;
+export function MediterraneanOrientationStructure({
+  display = MEDITERRANEAN_ORIENTATION_DISPLAY,
+}: {
+  display?: MuseumFurnishingDefinition;
+}) {
   const panelHeight = 2.8;
   return <group
     position={[display.center.x, 0, display.center.z]}

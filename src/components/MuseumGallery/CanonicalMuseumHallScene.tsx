@@ -14,7 +14,6 @@ import {CoreQuestionsForumSupplementalExhibits} from './CoreQuestionsForumSupple
 import {EastAsianSupplementalExhibits} from './EastAsianSupplementalExhibits';
 import {IslamicSupplementalExhibits} from './IslamicSupplementalExhibits';
 import {JewishSupplementalExhibits} from './JewishSupplementalExhibits';
-import {MediterraneanGalleryCuration} from './MediterraneanGalleryCuration';
 import {Gallery01SupplementalExhibits} from './Gallery01SupplementalExhibits';
 import {MuseumHallSpatialRoot} from './MuseumHallSpatialRoot';
 import {MuseumResidentHallStructure} from './MuseumHallStructureLayers';
@@ -73,10 +72,6 @@ export function CanonicalMuseumHallContent({
         layouts={definition.layout.supplementalExhibits}
         nearbyId={nearbySupplemental?.hallId === definition.id ? nearbySupplemental.supplementalExhibitId : undefined}
         onSelect={(supplementalExhibitId) => onSelectSupplementalExhibit({hallId: definition.id, supplementalExhibitId})}
-      />}
-    {definition.id === 'mediterranean-beginnings-classical'
-      && <MediterraneanGalleryCuration
-        includeStructure={structurePolicy.residentContentOwnsStructure}
       />}
     {definition.id === 'core-questions-forum'
       && definition.layout.supplementalExhibits

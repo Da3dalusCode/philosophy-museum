@@ -41,12 +41,74 @@ const mediaMount = (
 
 const RECEPTION_ID = 'greek-philosophy-reception' as const;
 const SOCRATES_CONTEXT_ID = 'socrates-trial-death' as const;
+const MILETUS_CONTEXT_ID = 'miletus-ionian-coast' as const;
 
 /**
- * Two contextual installations complete the six-face rhythm in Rooms 01 and
- * 03 without pretending that either subject is another canonical philosopher.
+ * Three contextual installations complete the six-face rhythm without
+ * pretending that any subject is another canonical philosopher.
  */
 export const GALLERY_01_CONTEXT_SUPPLEMENTAL_EXHIBITS = [
+  {
+    id: MILETUS_CONTEXT_ID,
+    displayName: 'Miletus and the Ionian Coast',
+    shortTitle: 'Miletus and the Ionian Coast',
+    workLabel: 'MILETUS · IONIA · SIXTH CENTURY BCE CONTEXT',
+    dateLabel: 'Archaic setting · contemporary interpretive illustration, 2026',
+    question: 'How does a coastal city change the questions people can ask about nature?',
+    frontSubtitle: 'Port, observation, exchange, and the setting of Milesian inquiry',
+    lead: 'Thales, Anaximander, and Anaximenes are all associated with Miletus on the western coast of Anatolia. The city’s maritime setting connected local life to travel, trade, practical measurement, weather, and several intellectual traditions around the eastern Mediterranean. Those conditions help situate Milesian inquiry, but they do not mechanically explain why particular cosmological proposals emerged or prove every later story about the three thinkers.',
+    keyIdeas: [
+      'Miletus was a port city in Ionia, on the western coast of Anatolia.',
+      'The Milesians asked how diverse natural phenomena could belong to an intelligible order.',
+      'Later testimony connects their interests to astronomy, geography, measurement, and explanation.',
+      'Shared place does not make Thales, Anaximander, and Anaximenes one uniform school with a fixed doctrine.',
+    ],
+    cautions: [
+      'This image is a contemporary interpretive reconstruction, not a documented view of archaic Miletus.',
+      'Its buildings, instruments, harbor activity, and anonymous figures are plausible prompts rather than archaeological claims.',
+      'Trade and travel provide context; they should not be treated as a complete causal explanation of philosophy.',
+      'Most evidence for the Milesians survives through later reports, and exact biographies remain uncertain.',
+    ],
+    sections: [
+      {
+        heading: 'A city on several routes',
+        paragraphs: ['Miletus belonged to an Aegean and Anatolian world of seafaring, settlement, craft, political conflict, and exchange. A coastal setting made changing winds, water, stars, shorelines, and distance practically consequential while bringing different techniques and stories into contact.'],
+      },
+      {
+        heading: 'Three proposals, not one answer',
+        paragraphs: ['Thales is associated with water, Anaximander with the indefinite or boundless, and Anaximenes with air and transformations of density. The sequence is historically difficult to reconstruct, yet it records an important pattern: a shared problem could invite criticism and revision rather than compulsory agreement.'],
+      },
+      {
+        heading: 'What the picture cannot prove',
+        paragraphs: ['No surviving image shows these thinkers observing this harbor, and no complete Milesian treatise remains. The scene therefore functions as environmental orientation. The individual exhibits provide the fragments, testimonies, uncertainty, and philosophical differences that a single city view cannot contain.'],
+      },
+    ],
+    sources: [
+      {label: 'Stanford Encyclopedia of Philosophy: Presocratic Philosophy', url: 'https://plato.stanford.edu/entries/presocratics/', kind: 'academic-reference'},
+      {label: 'Internet Encyclopedia of Philosophy: Presocratics', url: 'https://iep.utm.edu/presocra/', kind: 'academic-reference'},
+    ],
+    assetId: 'miletus-ionian-coast-interpretive',
+    panelAssetId: 'miletus-ionian-coast-interpretive',
+    articleRoute: {kind: 'branch', branchId: 'ancient-greek'},
+    presentation: {
+      panelKicker: 'Gallery 01 historical setting exhibit',
+      proximityKicker: 'Historical setting',
+      factRows: [
+        {label: 'Place', value: 'Miletus · Ionia · western Anatolia'},
+        {label: 'Period', value: 'Sixth century BCE context'},
+        {label: 'Evidence', value: 'Later testimony and archaeology; contemporary interpretive illustration'},
+      ],
+      articleActionLabel: 'Open Ancient Greek Philosophy in the Atlas',
+      entityKind: 'branch',
+      keyIdeasLabel: 'Interpretive anchors',
+      cautionsLabel: 'Historical cautions',
+    },
+    wallPlaque: {
+      type: 'historical-event-or-institutional-context',
+      invitation: 'The Ionian port of Miletus situates Thales, Anaximander, and Anaximenes within travel, observation, measurement, and competing explanations of nature.',
+      canonicalContexts: [{kind: 'branch', id: 'ancient-greek'}],
+    },
+  },
   {
     id: RECEPTION_ID,
     displayName: 'Remembering an Ancient Conversation',
@@ -171,6 +233,22 @@ export const GALLERY_01_CONTEXT_SUPPLEMENTAL_EXHIBITS = [
 ] as const satisfies readonly MuseumSupplementalExhibit[];
 
 export const GALLERY_01_CONTEXT_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
+  {
+    id: MILETUS_CONTEXT_ID,
+    parentExhibitId: 'ancient-greek',
+    guidedAfterExhibitId: 'anaximander',
+    zoneId: 'med-orientation-nature',
+    spatialCellId: 'med-orientation-nature',
+    ...GALLERY_01_CONTEXT_SUPPLEMENTAL_PLACEMENTS[MILETUS_CONTEXT_ID],
+    interactionRadius: 3.35,
+    collider: {id: `supplemental:${MILETUS_CONTEXT_ID}`, center: GALLERY_01_CONTEXT_SUPPLEMENTAL_PLACEMENTS[MILETUS_CONTEXT_ID].position, size: {width: 4.35, depth: 1.04}, rotation: GALLERY_01_CONTEXT_SUPPLEMENTAL_PLACEMENTS[MILETUS_CONTEXT_ID].rotationY},
+    assetId: 'miletus-ionian-coast-interpretive',
+    mediaMount: mediaMount(MILETUS_CONTEXT_ID, 'miletus-ionian-coast-interpretive', 3.35, 2.24),
+    label: {position: [0, 3.82, -.31], width: 4.05, height: .82},
+    footprint: {width: 4.35, height: 4.38, depth: 1.04},
+    installationKind: 'mediterranean-context',
+    accent: '#2f6f78',
+  },
   {
     id: RECEPTION_ID,
     parentExhibitId: 'ancient-greek',

@@ -14,7 +14,6 @@ import {MUSEUM_CANONICAL_EXHIBIT_PLINTH_GEOMETRY} from './museumArchitectureMate
 import {
   MEDITERRANEAN_EXHIBIT_CURATION,
   MEDITERRANEAN_GALLERY_ID,
-  MEDITERRANEAN_ORIENTATION_DISPLAY,
   MEDITERRANEAN_ROOM_SIGN_COPY,
 } from './mediterraneanGalleryCuration';
 import {GALLERY_01_SUPPLEMENTAL_EXHIBIT_LAYOUTS} from './gallery01SupplementalExhibits';
@@ -290,6 +289,7 @@ import type {
   MuseumBounds,
   MuseumCollider,
   MuseumExhibitLayout,
+  MuseumFurnishingDefinition,
   MuseumHallContentDefinition,
   MuseumInstallationSceneDefinition,
   MuseumInstallationTier,
@@ -429,12 +429,22 @@ const tierContractFor = (
   primaryScaleFloor?: PrimaryInstallationScaleFloor,
 ): TierContract => {
   const contract = TIER_CONTRACTS[record.tier];
-  if (!primaryScaleFloor) return contract;
+  const anaxagorasFloor = TIER_CONTRACTS['standard-individual-exhibit'];
+  const hallAdjustedContract = Object.hasOwn(MEDITERRANEAN_EXHIBIT_CURATION, record.id)
+    ? {
+        ...contract,
+        bayWidth: Math.max(contract.bayWidth, anaxagorasFloor.bayWidth),
+        objectWidth: Math.max(contract.objectWidth, anaxagorasFloor.objectWidth),
+        objectDepth: Math.max(contract.objectDepth, anaxagorasFloor.objectDepth),
+        objectHeight: Math.max(contract.objectHeight, anaxagorasFloor.objectHeight),
+      }
+    : contract;
+  if (!primaryScaleFloor) return hallAdjustedContract;
   return {
-    ...contract,
-    bayWidth: Math.max(contract.bayWidth, primaryScaleFloor.bayWidth),
-    objectWidth: Math.max(contract.objectWidth, primaryScaleFloor.objectWidth),
-    objectHeight: Math.max(contract.objectHeight, primaryScaleFloor.objectHeight),
+    ...hallAdjustedContract,
+    bayWidth: Math.max(hallAdjustedContract.bayWidth, primaryScaleFloor.bayWidth),
+    objectWidth: Math.max(hallAdjustedContract.objectWidth, primaryScaleFloor.objectWidth),
+    objectHeight: Math.max(hallAdjustedContract.objectHeight, primaryScaleFloor.objectHeight),
   };
 };
 
@@ -1280,9 +1290,7 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
     // remain full-height exhibit walls.
     .filter(({id}) => liveEndpointKeys.has(`${node.id}/${id}`))
     .map(({landingBounds}) => landingBounds);
-  const furnishings = hall.id === MEDITERRANEAN_GALLERY_ID
-    ? [MEDITERRANEAN_ORIENTATION_DISPLAY]
-    : [];
+  const furnishings: readonly MuseumFurnishingDefinition[] = [];
   const furnishingExclusions = furnishings.map((item) => colliderBounds(
     item.center,
     item.rotation,
@@ -2275,7 +2283,7 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
       cameraFar: 260,
       spawn,
       spawnFocalPoint: hall.id === MEDITERRANEAN_GALLERY_ID
-        ? {...MEDITERRANEAN_ORIENTATION_DISPLAY.center}
+        ? {x: 0, z: 21}
         : hall.id === RENAISSANCE_GALLERY_ID
           ? {...RENAISSANCE_EXHIBIT_CURATION.machiavelli.authored}
           : {x: 0, z: 0},

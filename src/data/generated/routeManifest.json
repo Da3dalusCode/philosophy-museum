@@ -11315,6 +11315,10 @@
       ],
       "supplementalExhibits": [
         {
+          "id": "miletus-ionian-coast",
+          "displayName": "Miletus and the Ionian Coast"
+        },
+        {
           "id": "greek-philosophy-reception",
           "displayName": "Remembering an Ancient Conversation"
         },

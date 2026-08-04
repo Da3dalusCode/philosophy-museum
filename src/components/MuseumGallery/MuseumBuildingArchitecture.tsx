@@ -25,6 +25,8 @@ import {
   museumTextureDimensionsForPlane,
 } from '../../data/museum/museumTexturePolicy';
 import {MUSEUM_VISITOR_MAP_KIOSK} from '../../data/museum/museumVisitorMapKioskDefinition';
+import {MEDITERRANEAN_ORIENTATION_DISPLAY} from '../../data/museum/mediterraneanGalleryCuration';
+import {MediterraneanGalleryCuration} from './MediterraneanGalleryCuration';
 import {MuseumGrandEntranceArchitecture} from './MuseumGrandEntranceArchitecture';
 import {MuseumPermanentHallStructure} from './MuseumPermanentHallStructure';
 import {MuseumRouteInlay} from './MuseumRouteInlay';
@@ -223,30 +225,18 @@ function CirculationNode({node}: {node: MuseumRuntimeNodeDefinition}) {
     {node.layout.spatialCells.map((cell) => <StructuralCell key={cell.id} cell={cell} forum={forum}/>)}
     {architectureWalls.map((wall) => <StructuralWall key={wall.id} wall={wall}/>)}
     {node.layout.furnishings
-      .filter(({kind}) => kind !== 'visitor-map-kiosk')
+      .filter(({kind}) => kind === 'bench')
       .map((item) => <StructuralBench key={item.id} item={item}/>)}
     {(node.layout.signs ?? []).map((sign) => <AuthoredBuildingSign key={sign.id} sign={sign}/>)}
     {entranceCell && <>
       <MuseumGrandEntranceArchitecture node={node}/>
+      <MediterraneanGalleryCuration display={MEDITERRANEAN_ORIENTATION_DISPLAY}/>
       <BuildingSign
         title="Welcome"
         kicker="Philosophy Atlas Museum · Grand Entrance"
         subtitle="Twenty-six galleries · one unfolding conversation"
         position={[10, 3.05, entranceCell.bounds.minZ + .7]}
         width={6.7}
-        twoSided
-      />
-      <BuildingSign
-        title="Begin the collection"
-        kicker="Gallery 01 · Mediterranean beginnings"
-        subtitle="Nature → argument → the examined life"
-        position={[
-          entranceCell.bounds.minX + .22,
-          4.6,
-          14,
-        ]}
-        rotation={Math.PI / 2}
-        width={4.8}
         twoSided
       />
     </>}

@@ -16,6 +16,7 @@ import {
   type MuseumPermanentStructuralHallId,
 } from './museumStructuralResidency';
 import {MUSEUM_VISITOR_MAP_KIOSK} from './museumVisitorMapKioskDefinition';
+import {MEDITERRANEAN_ORIENTATION_DISPLAY} from './mediterraneanGalleryCuration';
 import {
   museumWorldWallPlane,
   removeCoveredMuseumWallSurfaces,
@@ -344,6 +345,7 @@ const createNavigationLayout = (
   const furnishings = [
     ...(node.geometry?.furnishings ?? []),
     ...(node.id === MUSEUM_VISITOR_MAP_KIOSK.nodeId ? [MUSEUM_VISITOR_MAP_KIOSK] : []),
+    ...(node.id === MUSEUM_BUILDING_MANIFEST.mainEntrance.nodeId ? [MEDITERRANEAN_ORIENTATION_DISPLAY] : []),
   ];
   return {
     id: node.id,
