@@ -18,6 +18,7 @@ const registrySource = source('src/components/MuseumGallery/museumWorldRegistry.
 const museumPageSource = source('src/components/MuseumGallery/MuseumPage.tsx');
 const museumWorldSource = source('src/components/MuseumGallery/MuseumWorldScene.tsx');
 const museumControlsSource = source('src/components/MuseumGallery/useMuseumControls.ts');
+const museumTouchControlsSource = source('src/components/MuseumGallery/MuseumTouchControls.tsx');
 const museumModalSource = source('src/components/MuseumGallery/MuseumModal.tsx');
 const architectureSource = source('src/components/MuseumGallery/ContemporaryHallArchitecture.tsx');
 const permanentHallStructureSource = source('src/components/MuseumGallery/MuseumPermanentHallStructure.tsx');
@@ -418,6 +419,7 @@ const {
   MUSEUM_BUILDING_GUIDED_HALL_ORDER,
   MUSEUM_BUILDING_GUIDED_STOPS,
   MUSEUM_FAST_WALK_SPEED,
+  MUSEUM_MAX_MOVEMENT_SPEED,
   MUSEUM_HALLS,
   getCanonicalMuseumEntityTitle,
   MUSEUM_HALL_TEMPLATE_REGISTRY,
@@ -449,6 +451,9 @@ const {
   MUSEUM_READINESS_PRESENTATIONS,
   MUSEUM_RUNTIME_NODES,
   MUSEUM_STANDARD_WALK_SPEED,
+  MUSEUM_SLIDE_CANCEL_MOMENTUM_DURATION,
+  MUSEUM_SLIDE_DURATION,
+  MUSEUM_SLIDE_INITIAL_SPEED,
   MUSEUM_SUPPLEMENTAL_EXHIBITS,
   MUSEUM_VISITOR_MAP_DOORWAYS,
   MUSEUM_VISITOR_MAP_EDGES,
@@ -468,6 +473,7 @@ const {
   PLATO_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
   GALLERY_01_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
   advanceMuseumPhysicalFrame,
+  advanceMuseumArcadeMotion,
   branches,
   philosophers,
   circleIntersectsCollider,
@@ -476,6 +482,7 @@ const {
   createMuseumGuidedVisitContext,
   createMuseumHallTravelContext,
   createMuseumInputState,
+  createMuseumArcadeMotionState,
   estimateMuseumHallTextureResidency,
   hasMuseumBrowserModifier,
   getCommittedMuseumPoseOwner,
@@ -6015,12 +6022,12 @@ check('all 191 live canonical exhibits have substantial, sourced, route-aware in
   assert.deepEqual(Object.keys(krishnamurti.objectInterpretations).sort(), ['jiddu-krishnamurti-bain-portrait', 'jiddu-krishnamurti-besant-1927']);
 });
 
-check('Fast movement substeps cannot tunnel through walls, exhibits, barriers, or readiness thresholds', () => {
+check('Fast and sliding movement substeps cannot tunnel through walls, exhibits, barriers, or readiness thresholds', () => {
   assert.equal(clampFrameDelta(10), .05);
   const playerRadius = .32;
   const bounds = {minX: -5, maxX: 5, minZ: -5, maxZ: 5};
   const spatialCells = [{id: 'speed-audit', bounds, ceilingHeight: 4, lightingGroupId: 'audit'}];
-  const fastFrameDistance = MUSEUM_FAST_WALK_SPEED * clampFrameDelta(10);
+  const maximumFrameDistance = MUSEUM_MAX_MOVEMENT_SPEED * clampFrameDelta(10);
   for (const [label, collider] of [
     ['wall', {id: 'speed-wall', center: {x: 0, z: 0}, size: {width: 8, depth: .05}, rotation: 0}],
     ['exhibit', {id: 'speed-exhibit', center: {x: 0, z: 0}, size: {width: .7, depth: .7}, rotation: 0}],
@@ -6028,7 +6035,7 @@ check('Fast movement substeps cannot tunnel through walls, exhibits, barriers, o
   ]) {
     const next = moveWithCollisions(
       {x: 0, z: -1},
-      {x: 0, z: fastFrameDistance * 8},
+      {x: 0, z: maximumFrameDistance * 8},
       playerRadius,
       bounds,
       [collider],
@@ -6042,18 +6049,26 @@ check('Fast movement substeps cannot tunnel through walls, exhibits, barriers, o
       const thresholdDepth = Math.abs(entrance.inwardNormal.x) > .5
         ? entrance.transitionBounds.size.width
         : entrance.transitionBounds.size.depth;
-      assert(fastFrameDistance < thresholdDepth, `${node.id}/${entrance.id} readiness threshold can be skipped in one Fast frame`);
+      assert(maximumFrameDistance < thresholdDepth, `${node.id}/${entrance.id} readiness threshold can be skipped in one slide frame`);
     }
   }
 });
 
 check('sessions, walking pace, readiness, and travel contexts remain safe and hall-qualified', () => {
-  assert.equal(MUSEUM_STANDARD_WALK_SPEED, 3.75);
-  assert.equal(MUSEUM_FAST_WALK_SPEED, 6);
-  assert.equal(resolveMuseumWalkingSpeed('standard'), 3.75);
-  assert.equal(resolveMuseumWalkingSpeed('standard', true), 6);
-  assert.equal(resolveMuseumWalkingSpeed('fast', true), 6);
-  assert.deepEqual(createMuseumInputState(), {forward: 0, strafe: 0, walkingSpeed: 3.75, lookX: 0, lookY: 0});
+  assert.equal(MUSEUM_STANDARD_WALK_SPEED, 5.625);
+  assert.equal(MUSEUM_FAST_WALK_SPEED, 9);
+  assert.equal(resolveMuseumWalkingSpeed('standard'), 5.625);
+  assert.equal(resolveMuseumWalkingSpeed('standard', true), 9);
+  assert.equal(resolveMuseumWalkingSpeed('fast', true), 9);
+  assert.deepEqual(createMuseumInputState(), {
+    forward: 0,
+    strafe: 0,
+    walkingSpeed: 5.625,
+    jumpRequested: false,
+    slideRequested: false,
+    lookX: 0,
+    lookY: 0,
+  });
   assert.equal(hasMuseumBrowserModifier({altKey: false, ctrlKey: false, metaKey: false}), false);
   assert.equal(hasMuseumBrowserModifier({altKey: true, ctrlKey: false, metaKey: false}), true);
   assert.equal(hasMuseumBrowserModifier({altKey: false, ctrlKey: true, metaKey: false}), true);
@@ -6282,6 +6297,74 @@ check('sessions, walking pace, readiness, and travel contexts remain safe and ha
   }
 });
 
+check('jump, slide, and slide-cancel motion remain grounded, bounded, and deterministic', () => {
+  const still = {
+    forward: 0,
+    strafe: 0,
+    walkingSpeed: MUSEUM_STANDARD_WALK_SPEED,
+    jumpRequested: false,
+    slideRequested: false,
+  };
+  const moving = {...still, forward: 1};
+  const ignoredStandingSlide = advanceMuseumArcadeMotion(
+    createMuseumArcadeMotionState(),
+    {...still, slideRequested: true},
+    1 / 60,
+  );
+  assert.equal(ignoredStandingSlide.state.mode, 'grounded');
+
+  const firstJump = advanceMuseumArcadeMotion(
+    createMuseumArcadeMotionState(),
+    {...moving, jumpRequested: true},
+    1 / 60,
+  );
+  assert.equal(firstJump.state.mode, 'jumping');
+  assert(firstJump.cameraOffset > 0);
+  const repeatedJump = advanceMuseumArcadeMotion(
+    firstJump.state,
+    {...moving, jumpRequested: true},
+    1 / 60,
+  );
+  assert(repeatedJump.state.verticalVelocity < firstJump.state.verticalVelocity, 'airborne Space reset the jump velocity');
+  let landed = repeatedJump;
+  for (let frame = 0; frame < 120 && landed.active; frame += 1) {
+    landed = advanceMuseumArcadeMotion(landed.state, moving, 1 / 60);
+  }
+  assert.equal(landed.state.mode, 'grounded');
+  assert.equal(landed.cameraOffset, 0);
+
+  const firstSlide = advanceMuseumArcadeMotion(
+    createMuseumArcadeMotionState(),
+    {...moving, slideRequested: true},
+    1 / 60,
+  );
+  assert.equal(firstSlide.state.mode, 'sliding');
+  assert(firstSlide.cameraOffset < 0);
+  assert(firstSlide.walkingSpeed <= MUSEUM_SLIDE_INITIAL_SPEED);
+  assert(firstSlide.walkingSpeed > MUSEUM_FAST_WALK_SPEED);
+  let sliding = firstSlide;
+  for (let frame = 0; frame < 6; frame += 1) {
+    sliding = advanceMuseumArcadeMotion(sliding.state, still, 1 / 60);
+  }
+  assert.equal(sliding.state.mode, 'sliding');
+  assert.equal(sliding.forward, 1, 'a slide lost its captured direction after movement input was released');
+  const cancelled = advanceMuseumArcadeMotion(
+    sliding.state,
+    {...still, jumpRequested: true},
+    1 / 60,
+  );
+  assert.equal(cancelled.state.mode, 'jumping');
+  assert(cancelled.walkingSpeed > MUSEUM_FAST_WALK_SPEED);
+  assert(cancelled.state.momentumRemaining < MUSEUM_SLIDE_CANCEL_MOMENTUM_DURATION);
+  let settled = cancelled;
+  for (let frame = 0; frame < 180 && settled.active; frame += 1) {
+    settled = advanceMuseumArcadeMotion(settled.state, still, 1 / 60);
+  }
+  assert.equal(settled.state.mode, 'grounded');
+  assert.equal(settled.cameraOffset, 0);
+  assert(MUSEUM_SLIDE_DURATION < 1, 'the arcade slide became an extended traversal mode');
+});
+
 check('the React implementation uses one persistent Canvas, one shared canonical renderer, truthful compatibility, and retryable readiness', () => {
   const tsxSources = readdirSync(galleryRoot).filter((file) => extname(file) === '.tsx').map((file) => readFileSync(resolve(galleryRoot, file), 'utf8'));
   const canvasCount = tsxSources.reduce((sum, text) => sum + [...text.matchAll(/<Canvas\b/g)].length, 0);
@@ -6353,6 +6436,14 @@ check('the React implementation uses one persistent Canvas, one shared canonical
   assert.match(buildingArchitectureSource, /MUSEUM_BUILDING_MANIFEST\.reserves/);
   assert.match(buildingArchitectureSource, /<MuseumVisitorMapKiosk/);
   assert.match(museumControlsSource, /event\.code === 'KeyM'[\s\S]{0,180}onOpenVisitorMap/);
+  assert.match(museumControlsSource, /jumpCodes = new Set\(\['Space'\]\)/);
+  assert.match(museumControlsSource, /slideCodes = new Set\(\['ControlLeft', 'ControlRight', 'KeyC'\]\)/);
+  assert.match(museumControlsSource, /jumpCodes\.has\(event\.code\)[\s\S]{0,160}requestJump\(\)/);
+  assert.match(museumControlsSource, /slideCodes\.has\(event\.code\)[\s\S]{0,160}requestSlide\(\)/);
+  assert.match(museumTouchControlsSource, /onClick=\{onJump\}[\s\S]{0,100}>Jump<\/button>/);
+  assert.match(museumTouchControlsSource, /onClick=\{onSlide\}[\s\S]{0,100}>Slide<\/button>/);
+  assert.match(museumPageSource, /onJump=\{controls\.requestJump\}/);
+  assert.match(museumPageSource, /onSlide=\{controls\.requestSlide\}/);
   assert.doesNotMatch(museumControlsSource, /event\.code === 'KeyD'/, 'D must remain movement-only');
   assert.doesNotMatch(museumControlsSource, /onOpenDirectory/, 'The keyboard controls still expose a Directory shortcut');
   assert.match(visitorMapSource, /panelClassName="museum-visitor-map-panel"/);

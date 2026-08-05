@@ -22,6 +22,8 @@ export type MuseumInputState = {
   forward: number;
   strafe: number;
   walkingSpeed: number;
+  jumpRequested: boolean;
+  slideRequested: boolean;
   lookX: number;
   lookY: number;
   requestFrame?: () => void;
@@ -282,6 +284,8 @@ export const createMuseumInputState = (): MuseumInputState => ({
   forward: 0,
   strafe: 0,
   walkingSpeed: resolveMuseumWalkingSpeed('standard'),
+  jumpRequested: false,
+  slideRequested: false,
   lookX: 0,
   lookY: 0,
 });

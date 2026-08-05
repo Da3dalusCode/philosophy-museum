@@ -10,7 +10,7 @@ import {getMuseumRuntimeNode} from '../../data/museum/museumBuildingRuntime';
 import {
   clampFrameDelta,
   isValidMuseumPosition,
-  MUSEUM_FAST_WALK_SPEED,
+  MUSEUM_MAX_MOVEMENT_SPEED,
   MUSEUM_STANDARD_WALK_SPEED,
   moveWithCollisions,
   normalizeMoveInput,
@@ -111,7 +111,7 @@ export const advanceMuseumPhysicalFrame = ({
   const previousPose = {...pose};
   const direction = normalizeMoveInput(input.strafe, input.forward);
   const walkingSpeed = Number.isFinite(input.walkingSpeed)
-    ? Math.min(MUSEUM_FAST_WALK_SPEED, Math.max(0, input.walkingSpeed))
+    ? Math.min(MUSEUM_MAX_MOVEMENT_SPEED, Math.max(0, input.walkingSpeed))
     : MUSEUM_STANDARD_WALK_SPEED;
   const displacement = setMuseumMovementDisplacement(
     {x: 0, z: 0},

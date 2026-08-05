@@ -417,9 +417,9 @@ function Help({returnFocus, onClose, walkingPace, onWalkingPaceChange}: {
   return <MuseumModal labelledBy={titleId} returnFocus={returnFocus} onClose={onClose}>
     <div className="museum-overlay-head"><div><p className="eyebrow">Controls & access</p><h2 id={titleId}>Explore at your pace</h2></div><button className="museum-icon-button" type="button" onClick={onClose} aria-label="Close Museum help"><X/></button></div>
     <div className="museum-help-grid">
-      <section><h3>Keyboard & mouse</h3><p>Choose Enter museum, then use W A S D or the arrow keys. Hold Shift while moving for a temporary faster pace. Look with the mouse. Press E or Enter near an exhibit, R to reset, and M for the visitor map. Escape releases mouse capture; in drag-look it pauses. The Directory remains click-only because D is a movement key.</p></section>
+      <section><h3>Keyboard & mouse</h3><p>Choose Enter museum, then use W A S D or the arrow keys. Hold Shift for Fast, press Space to jump, and press Ctrl or C while moving to slide. Jump during a slide to cancel it into an airborne momentum boost. Look with the mouse. Press E or Enter near an exhibit, R to reset, and M for the visitor map. Escape releases mouse capture; in drag-look it pauses. The Directory remains click-only because D is a movement key.</p></section>
       <section><h3>Immersive viewing</h3><p>Immersive mode hides Atlas chrome. Fullscreen uses the browser’s real Fullscreen API; press F when no panel is open. Native Escape exits browser fullscreen.</p></section>
-      <section><h3>Touch</h3><p>Use the left movement control and separate right look area. The Speed button switches between Standard and Fast. A contextual Interact action appears when an exhibit is near.</p></section>
+      <section><h3>Touch</h3><p>Use the left movement control and separate right look area. Speed switches between Standard and Fast; Jump and Slide provide the same arcade movement as the keyboard. Tap Jump during a slide to cancel it. A contextual Interact action appears when an exhibit is near.</p></section>
       <section><h3>Without free movement</h3><p>The directory contains every exhibit and native article link. Guided mode moves between safe viewpoints without requiring manual movement.</p></section>
       <fieldset className="museum-walking-pace">
         <legend>Preferred walking speed</legend>
@@ -2290,6 +2290,8 @@ export function MuseumPage({route, href, push, replace}: {
           lookBindings={controls.lookBindings}
           walkingPace={controls.walkingPace}
           onWalkingPaceChange={controls.setWalkingPace}
+          onJump={controls.requestJump}
+          onSlide={controls.requestSlide}
           onInteract={interactNearby}
           onPause={controls.pauseExploring}
           onReset={resetPosition}

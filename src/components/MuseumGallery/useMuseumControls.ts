@@ -32,6 +32,8 @@ const JOYSTICK_RADIUS = 52;
 const JOYSTICK_DEAD_ZONE = .12;
 const movementCodes = new Set(['KeyW', 'KeyA', 'KeyS', 'KeyD', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight']);
 const temporaryFastCodes = new Set(['ShiftLeft', 'ShiftRight']);
+const jumpCodes = new Set(['Space']);
+const slideCodes = new Set(['ControlLeft', 'ControlRight', 'KeyC']);
 
 type PointerSlot = {
   id: number;
@@ -79,6 +81,8 @@ export type MuseumControls = {
   pauseExploring: () => void;
   clearInput: () => void;
   setWalkingPace: (pace: MuseumWalkingPace) => void;
+  requestJump: () => void;
+  requestSlide: () => void;
   movementBindings: MuseumPointerBindings;
   lookBindings: MuseumPointerBindings;
   shouldSuppressActivation: () => boolean;
@@ -167,6 +171,8 @@ export function useMuseumControls(options: UseMuseumControlsOptions): MuseumCont
     inputRef.current.forward = 0;
     inputRef.current.strafe = 0;
     inputRef.current.walkingSpeed = resolveMuseumWalkingSpeed(walkingPaceRef.current);
+    inputRef.current.jumpRequested = false;
+    inputRef.current.slideRequested = false;
     inputRef.current.lookX = 0;
     inputRef.current.lookY = 0;
     inputRef.current.requestFrame?.();
@@ -182,6 +188,18 @@ export function useMuseumControls(options: UseMuseumControlsOptions): MuseumCont
     activeRef.current
     && !blockedRef.current
     && (modeRef.current === 'locked' || modeRef.current === 'drag-look'), []);
+
+  const requestJump = useCallback(() => {
+    if (!canControl()) return;
+    inputRef.current.jumpRequested = true;
+    inputRef.current.requestFrame?.();
+  }, [canControl]);
+
+  const requestSlide = useCallback(() => {
+    if (!canControl()) return;
+    inputRef.current.slideRequested = true;
+    inputRef.current.requestFrame?.();
+  }, [canControl]);
 
   const rejectPointerLock = useCallback((requestId: number) => {
     if (canvas && document.pointerLockElement === canvas) return;
@@ -395,6 +413,16 @@ export function useMuseumControls(options: UseMuseumControlsOptions): MuseumCont
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
       if (isEditableTarget(event.target)) return;
+      if (!event.repeat && jumpCodes.has(event.code) && canControl()) {
+        event.preventDefault();
+        requestJump();
+        return;
+      }
+      if (!event.repeat && slideCodes.has(event.code) && canControl()) {
+        event.preventDefault();
+        requestSlide();
+        return;
+      }
       if (hasMuseumBrowserModifier(event)) return;
       if (temporaryFastCodes.has(event.code)) {
         if (!canControl()) return;
@@ -440,7 +468,7 @@ export function useMuseumControls(options: UseMuseumControlsOptions): MuseumCont
       window.removeEventListener('keydown', onKeyDown);
       window.removeEventListener('keyup', onKeyUp);
     };
-  }, [canControl, clearInput, pauseExploring, updateMovement]);
+  }, [canControl, clearInput, pauseExploring, requestJump, requestSlide, updateMovement]);
 
   useEffect(() => {
     const onVisibility = () => document.hidden && suspendForFocusLoss();
@@ -592,6 +620,8 @@ export function useMuseumControls(options: UseMuseumControlsOptions): MuseumCont
     pauseExploring,
     clearInput,
     setWalkingPace,
+    requestJump,
+    requestSlide,
     movementBindings,
     lookBindings,
     shouldSuppressActivation: () => performance.now() < suppressUntilRef.current,

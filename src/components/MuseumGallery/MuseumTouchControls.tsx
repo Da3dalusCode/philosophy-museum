@@ -15,6 +15,8 @@ export type MuseumTouchControlsProps = {
   onMap: () => void;
   onDirectory: () => void;
   onWalkingPaceChange: (pace: MuseumWalkingPace) => void;
+  onJump: () => void;
+  onSlide: () => void;
 };
 
 const buttonStyle = {minWidth: 44, minHeight: 44} as const;
@@ -34,6 +36,8 @@ export function MuseumTouchControls({
   onMap,
   onDirectory,
   onWalkingPaceChange,
+  onJump,
+  onSlide,
 }: MuseumTouchControlsProps) {
   const enabled = active && !blocked;
   return <div
@@ -63,6 +67,22 @@ export function MuseumTouchControls({
         onClick={() => onWalkingPaceChange(walkingPace === 'fast' ? 'standard' : 'fast')}
         style={buttonStyle}
       >{walkingPace === 'fast' ? 'Fast' : 'Std'}</button>
+      <button
+        className="museum-touch-jump"
+        type="button"
+        disabled={!enabled}
+        aria-label="Jump"
+        onClick={onJump}
+        style={buttonStyle}
+      >Jump</button>
+      <button
+        className="museum-touch-slide"
+        type="button"
+        disabled={!enabled}
+        aria-label="Slide"
+        onClick={onSlide}
+        style={buttonStyle}
+      >Slide</button>
       <button
         className="museum-touch-interact"
         type="button"
