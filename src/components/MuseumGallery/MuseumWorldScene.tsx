@@ -37,9 +37,12 @@ import {visitorMapInteractionAtPose} from '../../data/museum/museumVisitorMap';
 import {MUSEUM_TEXTURE_SPECS} from '../../data/museum/museumTexturePolicy';
 import {getMuseumHallCatalog, type MuseumPublicHallId} from '../../data/museumCatalog';
 import {
+  advanceMuseumArcadeMotion,
   clampPitch,
+  createMuseumArcadeMotionState,
   nearestInteractableItem,
   normalizeYaw,
+  resolveMuseumArcadeCameraOffset,
 } from './museumMovement';
 import {
   museumHallContentIsActive,
@@ -176,6 +179,7 @@ function MuseumPlayerRig({
   active,
   blocked,
   poseRevision,
+  reducedMotion,
   inputRef,
   poseRef,
   onNearbyInteractionChange,
@@ -186,7 +190,7 @@ function MuseumPlayerRig({
   onApproachHall,
 }: Pick<
   MuseumSceneRuntimeProps,
-  'definition' | 'active' | 'blocked' | 'poseRevision' | 'inputRef' | 'poseRef' | 'onNearbyInteractionChange'
+  'definition' | 'active' | 'blocked' | 'poseRevision' | 'reducedMotion' | 'inputRef' | 'poseRef' | 'onNearbyInteractionChange'
   | 'readyHallEntryKeys' | 'onNodeTransition' | 'onNodeTransitionBlocked' | 'onApproachHall'
 > & {onNearbyVisualChange: (target: MuseumInteractionTarget | undefined) => void}) {
   const {camera, invalidate} = useThree();
@@ -197,6 +201,7 @@ function MuseumPlayerRig({
   const layout = definition.layout;
   const readyHallEntrySet = useMemo(() => new Set(readyHallEntryKeys), [readyHallEntryKeys]);
   const approachedHallRef = useRef<string | undefined>(undefined);
+  const arcadeMotionRef = useRef(createMuseumArcadeMotionState());
 
   useEffect(() => {
     const requestFrame = () => invalidate();
@@ -218,11 +223,15 @@ function MuseumPlayerRig({
   const applyPose = useCallback(() => {
     const pose = poseRef.current;
     const worldPose = museumPoseToWorld(definition, pose);
-    camera.position.set(worldPose.x, layout.eyeHeight, worldPose.z);
+    camera.position.set(
+      worldPose.x,
+      layout.eyeHeight + resolveMuseumArcadeCameraOffset(arcadeMotionRef.current, reducedMotion),
+      worldPose.z,
+    );
     camera.rotation.order = 'YXZ';
     camera.rotation.set(worldPose.pitch, worldPose.yaw, 0);
     camera.updateMatrixWorld();
-  }, [camera, definition, layout.eyeHeight, poseRef]);
+  }, [camera, definition, layout.eyeHeight, poseRef, reducedMotion]);
 
   const publishNearby = useCallback(() => {
     const hallId = definition.publicHallId;
@@ -252,6 +261,9 @@ function MuseumPlayerRig({
 
   useEffect(() => {
     void poseRevision;
+    arcadeMotionRef.current = createMuseumArcadeMotionState();
+    inputRef.current.jumpRequested = false;
+    inputRef.current.slideRequested = false;
     transitionLatchRef.current = undefined;
     blockedTransitionLatchRef.current = undefined;
     applyPose();
@@ -264,8 +276,11 @@ function MuseumPlayerRig({
     const input = inputRef.current;
     input.forward = 0;
     input.strafe = 0;
+    input.jumpRequested = false;
+    input.slideRequested = false;
     input.lookX = 0;
     input.lookY = 0;
+    arcadeMotionRef.current = createMuseumArcadeMotionState();
     applyPose();
     publishNearby();
     invalidate();
@@ -284,6 +299,11 @@ function MuseumPlayerRig({
     const pose = poseRef.current;
     let changed = false;
     let physicalFrame: ReturnType<typeof advanceMuseumPhysicalFrame> | undefined;
+    const arcadeFrame = advanceMuseumArcadeMotion(arcadeMotionRef.current, input, rawDelta);
+    arcadeMotionRef.current = arcadeFrame.state;
+    input.jumpRequested = false;
+    input.slideRequested = false;
+    if (arcadeFrame.changed) changed = true;
 
     if (input.lookX || input.lookY) {
       pose.yaw = normalizeYaw(pose.yaw - input.lookX * .00235);
@@ -293,11 +313,15 @@ function MuseumPlayerRig({
       changed = true;
     }
 
-    if (input.forward || input.strafe) {
+    if (arcadeFrame.forward || arcadeFrame.strafe) {
       physicalFrame = advanceMuseumPhysicalFrame({
         definition,
         pose,
-        input,
+        input: {
+          forward: arcadeFrame.forward,
+          strafe: arcadeFrame.strafe,
+          walkingSpeed: arcadeFrame.walkingSpeed,
+        },
         rawDelta,
         readyHallEntryKeys: readyHallEntrySet,
       });
@@ -327,7 +351,7 @@ function MuseumPlayerRig({
           pose.z = physicalFrame.previousPose.z;
           applyPose();
           publishNearby();
-          if (input.forward || input.strafe || input.lookX || input.lookY) invalidate();
+          if (arcadeFrame.forward || arcadeFrame.strafe || arcadeFrame.active || input.lookX || input.lookY) invalidate();
         }
       }
       return;
@@ -347,7 +371,7 @@ function MuseumPlayerRig({
     }
     applyPose();
     publishNearby();
-    if (input.forward || input.strafe || input.lookX || input.lookY) invalidate();
+    if (arcadeFrame.forward || arcadeFrame.strafe || arcadeFrame.active || input.lookX || input.lookY) invalidate();
   });
   return null;
 }
@@ -661,6 +685,7 @@ function MuseumWorldContents(props: MuseumSceneRuntimeProps) {
       active={props.active}
       blocked={props.blocked}
       poseRevision={props.poseRevision}
+      reducedMotion={props.reducedMotion}
       inputRef={props.inputRef}
       poseRef={props.poseRef}
       onNearbyInteractionChange={props.onNearbyInteractionChange}

@@ -15,8 +15,52 @@ const MAX_PITCH = Math.PI / 2 - .08;
 
 export type MuseumWalkingPace = 'standard' | 'fast';
 
-export const MUSEUM_STANDARD_WALK_SPEED = 3.75;
-export const MUSEUM_FAST_WALK_SPEED = 6;
+export type MuseumLocomotionMode = 'grounded' | 'jumping' | 'sliding';
+
+export type MuseumArcadeMotionState = {
+  mode: MuseumLocomotionMode;
+  verticalOffset: number;
+  verticalVelocity: number;
+  crouchOffset: number;
+  slideElapsed: number;
+  slideDirection: MuseumPoint;
+  momentumDirection: MuseumPoint;
+  momentumSpeed: number;
+  momentumRemaining: number;
+};
+
+export type MuseumArcadeMotionFrame = {
+  state: MuseumArcadeMotionState;
+  forward: number;
+  strafe: number;
+  walkingSpeed: number;
+  cameraOffset: number;
+  active: boolean;
+  changed: boolean;
+};
+
+export const MUSEUM_STANDARD_WALK_SPEED = 5.625;
+export const MUSEUM_FAST_WALK_SPEED = 9;
+export const MUSEUM_SLIDE_INITIAL_SPEED = 10.8;
+export const MUSEUM_SLIDE_END_SPEED = 5.85;
+export const MUSEUM_MAX_MOVEMENT_SPEED = MUSEUM_SLIDE_INITIAL_SPEED;
+export const MUSEUM_SLIDE_DURATION = .66;
+export const MUSEUM_JUMP_VELOCITY = 4.7;
+export const MUSEUM_JUMP_GRAVITY = 13.4;
+export const MUSEUM_SLIDE_CAMERA_DROP = .52;
+export const MUSEUM_SLIDE_CANCEL_MOMENTUM_DURATION = .24;
+
+export const createMuseumArcadeMotionState = (): MuseumArcadeMotionState => ({
+  mode: 'grounded',
+  verticalOffset: 0,
+  verticalVelocity: 0,
+  crouchOffset: 0,
+  slideElapsed: 0,
+  slideDirection: {x: 0, z: 0},
+  momentumDirection: {x: 0, z: 0},
+  momentumSpeed: 0,
+  momentumRemaining: 0,
+});
 
 /** Resolve one bounded walking speed; temporary fast movement never stacks. */
 export const resolveMuseumWalkingSpeed = (
@@ -64,6 +108,126 @@ export const clampFrameDelta = (delta: number, maxDelta = DEFAULT_MAX_DELTA): nu
   const safeMaximum = Number.isFinite(maxDelta) && maxDelta > 0 ? maxDelta : DEFAULT_MAX_DELTA;
   return Math.min(delta, safeMaximum);
 };
+
+const moveToward = (value: number, target: number, maximumDelta: number): number => {
+  if (value < target) return Math.min(target, value + maximumDelta);
+  if (value > target) return Math.max(target, value - maximumDelta);
+  return value;
+};
+
+export const resolveMuseumSlideSpeed = (elapsed: number): number => {
+  const progress = clamp(elapsed / MUSEUM_SLIDE_DURATION, 0, 1);
+  return MUSEUM_SLIDE_INITIAL_SPEED
+    + (MUSEUM_SLIDE_END_SPEED - MUSEUM_SLIDE_INITIAL_SPEED) * progress;
+};
+
+/**
+ * Advance the intentionally lightweight first-person movement layer. Vertical
+ * motion only changes eye height; horizontal travel continues through the same
+ * collision and doorway path used by ordinary walking.
+ */
+export const advanceMuseumArcadeMotion = (
+  previous: MuseumArcadeMotionState,
+  input: {
+    forward: number;
+    strafe: number;
+    walkingSpeed: number;
+    jumpRequested: boolean;
+    slideRequested: boolean;
+  },
+  rawDelta: number,
+): MuseumArcadeMotionFrame => {
+  const delta = clampFrameDelta(rawDelta);
+  const direction = normalizeMoveInput(input.strafe, input.forward);
+  const hasDirection = Math.hypot(direction.x, direction.z) > EPSILON;
+  const baseSpeed = Number.isFinite(input.walkingSpeed)
+    ? clamp(input.walkingSpeed, 0, MUSEUM_FAST_WALK_SPEED)
+    : MUSEUM_STANDARD_WALK_SPEED;
+  const state: MuseumArcadeMotionState = {
+    ...previous,
+    slideDirection: {...previous.slideDirection},
+    momentumDirection: {...previous.momentumDirection},
+  };
+
+  if (input.jumpRequested && state.mode !== 'jumping') {
+    if (state.mode === 'sliding') {
+      state.momentumDirection = {...state.slideDirection};
+      state.momentumSpeed = resolveMuseumSlideSpeed(state.slideElapsed);
+      state.momentumRemaining = MUSEUM_SLIDE_CANCEL_MOMENTUM_DURATION;
+    } else {
+      state.momentumDirection = {...direction};
+      state.momentumSpeed = 0;
+      state.momentumRemaining = 0;
+    }
+    state.mode = 'jumping';
+    state.verticalOffset = Math.max(0, state.verticalOffset);
+    state.verticalVelocity = MUSEUM_JUMP_VELOCITY;
+  } else if (input.slideRequested && state.mode === 'grounded' && hasDirection) {
+    state.mode = 'sliding';
+    state.slideElapsed = 0;
+    state.slideDirection = {...direction};
+  }
+
+  if (state.mode === 'jumping') {
+    state.verticalOffset += state.verticalVelocity * delta;
+    state.verticalVelocity -= MUSEUM_JUMP_GRAVITY * delta;
+    if (state.verticalOffset <= 0 && state.verticalVelocity <= 0) {
+      state.mode = 'grounded';
+      state.verticalOffset = 0;
+      state.verticalVelocity = 0;
+      state.momentumSpeed = 0;
+      state.momentumRemaining = 0;
+    }
+  } else {
+    state.verticalOffset = 0;
+    state.verticalVelocity = 0;
+  }
+
+  if (state.mode === 'sliding') {
+    state.slideElapsed += delta;
+    if (state.slideElapsed >= MUSEUM_SLIDE_DURATION) state.mode = 'grounded';
+  }
+
+  const crouchTarget = state.mode === 'sliding' ? -MUSEUM_SLIDE_CAMERA_DROP : 0;
+  state.crouchOffset = moveToward(state.crouchOffset, crouchTarget, delta * 6.5);
+
+  let frameDirection = direction;
+  let walkingSpeed = baseSpeed;
+  if (state.mode === 'sliding') {
+    frameDirection = state.slideDirection;
+    walkingSpeed = resolveMuseumSlideSpeed(state.slideElapsed);
+  } else if (state.mode === 'jumping' && state.momentumRemaining > 0) {
+    const momentumRatio = state.momentumRemaining / MUSEUM_SLIDE_CANCEL_MOMENTUM_DURATION;
+    frameDirection = hasDirection ? direction : state.momentumDirection;
+    walkingSpeed = Math.max(
+      baseSpeed,
+      baseSpeed + (state.momentumSpeed - baseSpeed) * momentumRatio,
+    );
+    state.momentumRemaining = Math.max(0, state.momentumRemaining - delta);
+  }
+
+  const active = state.mode !== 'grounded' || Math.abs(state.crouchOffset) > EPSILON;
+  const changed = input.jumpRequested
+    || input.slideRequested
+    || active
+    || previous.mode !== state.mode
+    || Math.abs(previous.verticalOffset - state.verticalOffset) > EPSILON
+    || Math.abs(previous.crouchOffset - state.crouchOffset) > EPSILON;
+  return {
+    state,
+    forward: frameDirection.z,
+    strafe: frameDirection.x,
+    walkingSpeed: clamp(walkingSpeed, 0, MUSEUM_MAX_MOVEMENT_SPEED),
+    cameraOffset: state.verticalOffset + state.crouchOffset,
+    active,
+    changed,
+  };
+};
+
+export const resolveMuseumArcadeCameraOffset = (
+  state: MuseumArcadeMotionState,
+  reducedMotion: boolean,
+): number => (state.verticalOffset + state.crouchOffset) * (reducedMotion ? .45 : 1);
 
 export const normalizeYaw = (yaw: number): number => {
   if (!Number.isFinite(yaw)) return 0;
