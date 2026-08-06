@@ -1460,7 +1460,7 @@
           "title": "A route from focused arguments to wider comparison"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "ancient-greek",
@@ -2163,7 +2163,7 @@
           "title": "How to enter a technical conversation"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "rationalism",
@@ -5091,7 +5091,7 @@
           "title": "How to read al-Kindi well"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "al-farabi",
@@ -5154,7 +5154,7 @@
           "title": "Misunderstandings and a reading strategy"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "avicenna",
@@ -5280,7 +5280,7 @@
           "title": "How to read al-Ghazali without the legend"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "averroes",
@@ -5343,7 +5343,7 @@
           "title": "How to read Averroes as more than a legend"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "augustine",
@@ -5705,7 +5705,7 @@
           "title": "A reading strategy for beginners"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "ockham",
@@ -5768,7 +5768,7 @@
           "title": "A reading strategy for Ockham"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "ficino",

@@ -4,7 +4,7 @@
 
 A canonical visitor-facing body of long-form educational article-section prose that explains a philosopher, philosophy, branch, school, tradition, movement, method, major framework, standalone work, text, argument, concept, or major exhibit in depth. Short labels, drawers, plaques, captions, and Museum interpretation panels that route to a canonical article are supporting surfaces, not additional full articles.
 
-The current authoritative registry contains philosopher and philosophy articles. It contains no standalone long-form work, text, argument, concept, or Museum-exhibit article. Wall work drawers, timeline entries, nested work/concept cards, 191 primary Museum interpretation panels, and 406 supplemental Museum surfaces are intentionally concise interfaces; when they claim article backing, their route is validated against one canonical article.
+The current authoritative registry contains philosopher and philosophy articles. It contains no standalone long-form work, text, argument, concept, or Museum-exhibit article. Wall work drawers, timeline entries, nested work/concept cards, 191 primary Museum interpretation panels, and 409 supplemental Museum surfaces are intentionally concise interfaces; when they claim article backing, their route is validated against one canonical article.
 
 ## Word-count method
 
@@ -74,7 +74,7 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | philosopher | antisthenes | Antisthenes | #/philosophers/antisthenes | 2081 | pass | yes | yes (1 primary; 0 supplemental) |
 | philosopher | lucretius | Lucretius | #/philosophers/lucretius | 2003 | pass | yes | yes (1 primary; 0 supplemental) |
 | philosopher | pyrrho | Pyrrho | #/philosophers/pyrrho | 2022 | pass | yes | yes (1 primary; 0 supplemental) |
-| philosopher | socrates | Socrates | #/philosophers/socrates | 3010 | pass | yes | yes (1 primary; 0 supplemental) |
+| philosopher | socrates | Socrates | #/philosophers/socrates | 3010 | pass | yes | yes (1 primary; 1 supplemental) |
 | philosopher | plato | Plato | #/philosophers/plato | 4900 | pass | yes | yes (1 primary; 2 supplemental) |
 | philosopher | aristotle | Aristotle | #/philosophers/aristotle | 2704 | pass | yes | yes (1 primary; 0 supplemental) |
 | philosopher | diogenes | Diogenes | #/philosophers/diogenes | 2236 | pass | yes | yes (1 primary; 1 supplemental) |
@@ -102,18 +102,18 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | philosopher | vasubandhu | Vasubandhu | #/philosophers/vasubandhu | 2052 | pass | yes | yes (1 primary; 5 supplemental) |
 | philosopher | shankara | Adi Shankara | #/philosophers/shankara | 2068 | pass | yes | yes (1 primary; 1 supplemental) |
 | philosopher | ramanuja | Ramanuja | #/philosophers/ramanuja | 2059 | pass | yes | yes (1 primary; 0 supplemental) |
-| philosopher | al-kindi | Al-Kindi | #/philosophers/al-kindi | 2157 | pass | yes | yes (1 primary; 0 supplemental) |
-| philosopher | al-farabi | Al-Farabi | #/philosophers/al-farabi | 2076 | pass | yes | yes (1 primary; 1 supplemental) |
-| philosopher | avicenna | Ibn Sina / Avicenna | #/philosophers/avicenna | 2091 | pass | yes | yes (1 primary; 6 supplemental) |
-| philosopher | al-ghazali | Al-Ghazali | #/philosophers/al-ghazali | 2023 | pass | yes | yes (1 primary; 6 supplemental) |
-| philosopher | averroes | Ibn Rushd / Averroes | #/philosophers/averroes | 2042 | pass | yes | yes (1 primary; 3 supplemental) |
-| philosopher | augustine | Augustine | #/philosophers/augustine | 2141 | pass | yes | yes (1 primary; 1 supplemental) |
-| philosopher | boethius | Boethius | #/philosophers/boethius | 2011 | pass | yes | yes (1 primary; 2 supplemental) |
-| philosopher | anselm | Anselm | #/philosophers/anselm | 2000 | pass | yes | yes (1 primary; 0 supplemental) |
-| philosopher | maimonides | Maimonides | #/philosophers/maimonides | 2020 | pass | yes | yes (1 primary; 4 supplemental) |
-| philosopher | aquinas | Thomas Aquinas | #/philosophers/aquinas | 2152 | pass | yes | yes (1 primary; 3 supplemental) |
-| philosopher | duns-scotus | Duns Scotus | #/philosophers/duns-scotus | 2204 | pass | yes | yes (1 primary; 1 supplemental) |
-| philosopher | ockham | William of Ockham | #/philosophers/ockham | 2253 | pass | yes | yes (1 primary; 0 supplemental) |
+| philosopher | al-kindi | Al-Kindi | #/philosophers/al-kindi | 2148 | pass | yes | yes (1 primary; 0 supplemental) |
+| philosopher | al-farabi | Al-Farabi | #/philosophers/al-farabi | 2078 | pass | yes | yes (1 primary; 1 supplemental) |
+| philosopher | avicenna | Ibn Sina / Avicenna | #/philosophers/avicenna | 2110 | pass | yes | yes (1 primary; 6 supplemental) |
+| philosopher | al-ghazali | Al-Ghazali | #/philosophers/al-ghazali | 2003 | pass | yes | yes (1 primary; 6 supplemental) |
+| philosopher | averroes | Ibn Rushd / Averroes | #/philosophers/averroes | 2044 | pass | yes | yes (1 primary; 3 supplemental) |
+| philosopher | augustine | Augustine | #/philosophers/augustine | 2137 | pass | yes | yes (1 primary; 1 supplemental) |
+| philosopher | boethius | Boethius | #/philosophers/boethius | 2005 | pass | yes | yes (1 primary; 2 supplemental) |
+| philosopher | anselm | Anselm | #/philosophers/anselm | 2010 | pass | yes | yes (1 primary; 0 supplemental) |
+| philosopher | maimonides | Maimonides | #/philosophers/maimonides | 2025 | pass | yes | yes (1 primary; 4 supplemental) |
+| philosopher | aquinas | Thomas Aquinas | #/philosophers/aquinas | 2143 | pass | yes | yes (1 primary; 3 supplemental) |
+| philosopher | duns-scotus | Duns Scotus | #/philosophers/duns-scotus | 2168 | pass | yes | yes (1 primary; 1 supplemental) |
+| philosopher | ockham | William of Ockham | #/philosophers/ockham | 2140 | pass | yes | yes (1 primary; 0 supplemental) |
 | philosopher | ficino | Marsilio Ficino | #/philosophers/ficino | 2146 | pass | no | yes (1 primary; 2 supplemental) |
 | philosopher | machiavelli | Niccolò Machiavelli | #/philosophers/machiavelli | 2091 | pass | yes | yes (1 primary; 2 supplemental) |
 | philosopher | bacon | Francis Bacon | #/philosophers/bacon | 2115 | pass | yes | yes (1 primary; 2 supplemental) |
@@ -161,11 +161,11 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | philosopher | abelard | Peter Abelard | #/philosophers/abelard | 2151 | pass | yes | yes (1 primary; 1 supplemental) |
 | philosopher | meister-eckhart | Meister Eckhart | #/philosophers/meister-eckhart | 2112 | pass | yes | yes (1 primary; 1 supplemental) |
 | philosopher | marsilius-padua | Marsilius of Padua | #/philosophers/marsilius-padua | 2160 | pass | yes | yes (1 primary; 0 supplemental) |
-| philosopher | saadia-gaon | Saadia Gaon | #/philosophers/saadia-gaon | 2019 | pass | yes | yes (1 primary; 1 supplemental) |
-| philosopher | judah-halevi | Judah Halevi | #/philosophers/judah-halevi | 2095 | pass | yes | yes (1 primary; 2 supplemental) |
+| philosopher | saadia-gaon | Saadia Gaon | #/philosophers/saadia-gaon | 2022 | pass | yes | yes (1 primary; 1 supplemental) |
+| philosopher | judah-halevi | Judah Halevi | #/philosophers/judah-halevi | 2043 | pass | yes | yes (1 primary; 2 supplemental) |
 | philosopher | ibn-tufayl | Ibn Tufayl | #/philosophers/ibn-tufayl | 2219 | pass | yes | yes (1 primary; 0 supplemental) |
 | philosopher | suhrawardi | Suhrawardi | #/philosophers/suhrawardi | 2161 | pass | yes | yes (1 primary; 2 supplemental) |
-| philosopher | mulla-sadra | Mulla Sadra | #/philosophers/mulla-sadra | 2178 | pass | yes | yes (1 primary; 2 supplemental) |
+| philosopher | mulla-sadra | Mulla Sadra | #/philosophers/mulla-sadra | 2143 | pass | yes | yes (1 primary; 2 supplemental) |
 | philosopher | mahavira | Mahāvīra | #/philosophers/mahavira | 2051 | pass | yes | yes (1 primary; 1 supplemental) |
 | philosopher | kanada | Kaṇāda | #/philosophers/kanada | 2072 | pass | yes | yes (1 primary; 5 supplemental) |
 | philosopher | patanjali | Patañjali | #/philosophers/patanjali | 2079 | pass | yes | yes (1 primary; 5 supplemental) |
@@ -230,8 +230,8 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | philosophy | analytic-philosophy | Analytic Philosophy | #/branches/analytic-philosophy | 2963 | pass | no | yes (1 primary; 0 supplemental) |
 | philosophy | continental-philosophy | Continental Philosophy | #/branches/continental-philosophy | 3093 | pass | yes | yes (1 primary; 5 supplemental) |
 | philosophy | feminist-philosophy | Feminist Philosophy | #/branches/feminist-philosophy | 3065 | pass | yes | yes (1 primary; 11 supplemental) |
-| philosophy | philosophy-of-religion | Philosophy of Religion | #/branches/philosophy-of-religion | 2388 | pass | yes | yes (1 primary; 0 supplemental) |
-| philosophy | ancient-greek | Ancient Greek Philosophy | #/branches/ancient-greek | 2717 | pass | yes | yes (1 primary; 0 supplemental) |
+| philosophy | philosophy-of-religion | Philosophy of Religion | #/branches/philosophy-of-religion | 2178 | pass | yes | yes (1 primary; 0 supplemental) |
+| philosophy | ancient-greek | Ancient Greek Philosophy | #/branches/ancient-greek | 2717 | pass | yes | yes (1 primary; 2 supplemental) |
 | philosophy | chinese-philosophy | Chinese Philosophy | #/branches/chinese-philosophy | 2287 | pass | yes | yes (1 primary; 6 supplemental) |
 | philosophy | confucianism | Confucianism | #/branches/confucianism | 2451 | pass | yes | yes (1 primary; 8 supplemental) |
 | philosophy | daoism | Daoism | #/branches/daoism | 2362 | pass | yes | yes (1 primary; 2 supplemental) |
@@ -243,7 +243,7 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | philosophy | buddhist-philosophy | Buddhist Philosophy | #/branches/buddhist-philosophy | 5502 | pass | yes | yes (1 primary; 11 supplemental) |
 | philosophy | buddhist-epistemology | Buddhist Epistemology | #/branches/buddhist-epistemology | 2052 | pass | yes | yes (1 primary; 1 supplemental) |
 | philosophy | islamic-philosophy | Islamic Philosophy | #/branches/islamic-philosophy | 2083 | pass | yes | yes (1 primary; 5 supplemental) |
-| philosophy | medieval-scholasticism | Medieval Scholasticism | #/branches/medieval-scholasticism | 2081 | pass | yes | yes (1 primary; 5 supplemental) |
+| philosophy | medieval-scholasticism | Medieval Scholasticism | #/branches/medieval-scholasticism | 2003 | pass | yes | yes (1 primary; 5 supplemental) |
 | philosophy | rationalism | Rationalism | #/branches/rationalism | 5757 | pass | yes | yes (1 primary; 0 supplemental) |
 | philosophy | empiricism | Empiricism | #/branches/empiricism | 5228 | pass | yes | yes (1 primary; 1 supplemental) |
 | philosophy | kantianism | Kantianism | #/branches/kantianism | 5373 | pass | no | yes (1 primary; 0 supplemental) |
@@ -253,7 +253,7 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 ## Museum article-backing audit
 
 - Primary Museum interpretations: 191; each maps one-to-one to a canonical philosopher or philosophy article.
-- Supplemental Museum surfaces: 406; 404 claim a philosopher/philosophy article route and 2 explicitly do not.
+- Supplemental Museum surfaces: 409; 407 claim a philosopher/philosophy article route and 2 explicitly do not.
 - Standalone Museum full articles discovered: 0.
 - Full per-surface mappings are recorded in `docs/editorial/article-depth-inventory.json`.
 

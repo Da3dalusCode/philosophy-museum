@@ -278,7 +278,7 @@
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
-      "museumSupplementalReuseCount": 0
+      "museumSupplementalReuseCount": 1
     },
     {
       "canonicalId": "plato",
@@ -609,7 +609,7 @@
       "title": "Al-Kindi",
       "visitorEntryPoint": "#/philosophers/al-kindi",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 2157,
+      "substantiveWordCount": 2148,
       "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
@@ -621,7 +621,7 @@
       "title": "Al-Farabi",
       "visitorEntryPoint": "#/philosophers/al-farabi",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 2076,
+      "substantiveWordCount": 2078,
       "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
@@ -633,7 +633,7 @@
       "title": "Ibn Sina / Avicenna",
       "visitorEntryPoint": "#/philosophers/avicenna",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 2091,
+      "substantiveWordCount": 2110,
       "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
@@ -645,7 +645,7 @@
       "title": "Al-Ghazali",
       "visitorEntryPoint": "#/philosophers/al-ghazali",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 2023,
+      "substantiveWordCount": 2003,
       "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
@@ -657,7 +657,7 @@
       "title": "Ibn Rushd / Averroes",
       "visitorEntryPoint": "#/philosophers/averroes",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 2042,
+      "substantiveWordCount": 2044,
       "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
@@ -669,7 +669,7 @@
       "title": "Augustine",
       "visitorEntryPoint": "#/philosophers/augustine",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 2141,
+      "substantiveWordCount": 2137,
       "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
@@ -681,7 +681,7 @@
       "title": "Boethius",
       "visitorEntryPoint": "#/philosophers/boethius",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 2011,
+      "substantiveWordCount": 2005,
       "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
@@ -693,7 +693,7 @@
       "title": "Anselm",
       "visitorEntryPoint": "#/philosophers/anselm",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 2000,
+      "substantiveWordCount": 2010,
       "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
@@ -705,7 +705,7 @@
       "title": "Maimonides",
       "visitorEntryPoint": "#/philosophers/maimonides",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 2020,
+      "substantiveWordCount": 2025,
       "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
@@ -717,7 +717,7 @@
       "title": "Thomas Aquinas",
       "visitorEntryPoint": "#/philosophers/aquinas",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 2152,
+      "substantiveWordCount": 2143,
       "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
@@ -729,7 +729,7 @@
       "title": "Duns Scotus",
       "visitorEntryPoint": "#/philosophers/duns-scotus",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 2204,
+      "substantiveWordCount": 2168,
       "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
@@ -741,7 +741,7 @@
       "title": "William of Ockham",
       "visitorEntryPoint": "#/philosophers/ockham",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 2253,
+      "substantiveWordCount": 2140,
       "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
@@ -1317,7 +1317,7 @@
       "title": "Saadia Gaon",
       "visitorEntryPoint": "#/philosophers/saadia-gaon",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 2019,
+      "substantiveWordCount": 2022,
       "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
@@ -1329,7 +1329,7 @@
       "title": "Judah Halevi",
       "visitorEntryPoint": "#/philosophers/judah-halevi",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 2095,
+      "substantiveWordCount": 2043,
       "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
@@ -1365,7 +1365,7 @@
       "title": "Mulla Sadra",
       "visitorEntryPoint": "#/philosophers/mulla-sadra",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 2178,
+      "substantiveWordCount": 2143,
       "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
@@ -2145,7 +2145,7 @@
       "title": "Philosophy of Religion",
       "visitorEntryPoint": "#/branches/philosophy-of-religion",
       "contentCategory": "philosophy",
-      "substantiveWordCount": 2388,
+      "substantiveWordCount": 2178,
       "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
@@ -2162,7 +2162,7 @@
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
       "museumPrimaryReuseCount": 1,
-      "museumSupplementalReuseCount": 0
+      "museumSupplementalReuseCount": 2
     },
     {
       "canonicalId": "chinese-philosophy",
@@ -2301,7 +2301,7 @@
       "title": "Medieval Scholasticism",
       "visitorEntryPoint": "#/branches/medieval-scholasticism",
       "contentCategory": "philosophy",
-      "substantiveWordCount": 2081,
+      "substantiveWordCount": 2003,
       "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
@@ -2505,8 +2505,8 @@
   ],
   "museum": {
     "primaryInterpretationCount": 191,
-    "supplementalSurfaceCount": 406,
-    "supplementalArticleBackingCount": 404,
+    "supplementalSurfaceCount": 409,
+    "supplementalArticleBackingCount": 407,
     "supplementalWithoutArticleClaimCount": 2,
     "primarySurfaces": [
       {
@@ -3259,10 +3259,10 @@
         "hallId": "core-questions-forum",
         "visitorEntryPoint": "#/museum/core-questions-forum/exhibits/philosophy-of-religion",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 1102,
+        "surfaceWords": 888,
         "canonicalArticleKey": "philosophy:philosophy-of-religion",
         "canonicalArticleId": "philosophy-of-religion",
-        "canonicalArticleWordCount": 2388,
+        "canonicalArticleWordCount": 2178,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -3619,10 +3619,10 @@
         "hallId": "islamic-philosophical-worlds",
         "visitorEntryPoint": "#/museum/islamic-philosophical-worlds/exhibits/al-kindi",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 274,
+        "surfaceWords": 802,
         "canonicalArticleKey": "philosopher:al-kindi",
         "canonicalArticleId": "al-kindi",
-        "canonicalArticleWordCount": 2157,
+        "canonicalArticleWordCount": 2148,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -3631,10 +3631,10 @@
         "hallId": "islamic-philosophical-worlds",
         "visitorEntryPoint": "#/museum/islamic-philosophical-worlds/exhibits/al-farabi",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 262,
+        "surfaceWords": 812,
         "canonicalArticleKey": "philosopher:al-farabi",
         "canonicalArticleId": "al-farabi",
-        "canonicalArticleWordCount": 2076,
+        "canonicalArticleWordCount": 2078,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -3643,10 +3643,10 @@
         "hallId": "islamic-philosophical-worlds",
         "visitorEntryPoint": "#/museum/islamic-philosophical-worlds/exhibits/avicenna",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 377,
+        "surfaceWords": 833,
         "canonicalArticleKey": "philosopher:avicenna",
         "canonicalArticleId": "avicenna",
-        "canonicalArticleWordCount": 2091,
+        "canonicalArticleWordCount": 2110,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -3655,10 +3655,10 @@
         "hallId": "islamic-philosophical-worlds",
         "visitorEntryPoint": "#/museum/islamic-philosophical-worlds/exhibits/al-ghazali",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 364,
+        "surfaceWords": 745,
         "canonicalArticleKey": "philosopher:al-ghazali",
         "canonicalArticleId": "al-ghazali",
-        "canonicalArticleWordCount": 2023,
+        "canonicalArticleWordCount": 2003,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -3667,10 +3667,10 @@
         "hallId": "islamic-philosophical-worlds",
         "visitorEntryPoint": "#/museum/islamic-philosophical-worlds/exhibits/averroes",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 401,
+        "surfaceWords": 812,
         "canonicalArticleKey": "philosopher:averroes",
         "canonicalArticleId": "averroes",
-        "canonicalArticleWordCount": 2042,
+        "canonicalArticleWordCount": 2044,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -3703,10 +3703,10 @@
         "hallId": "islamic-philosophical-worlds",
         "visitorEntryPoint": "#/museum/islamic-philosophical-worlds/exhibits/mulla-sadra",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 302,
+        "surfaceWords": 853,
         "canonicalArticleKey": "philosopher:mulla-sadra",
         "canonicalArticleId": "mulla-sadra",
-        "canonicalArticleWordCount": 2178,
+        "canonicalArticleWordCount": 2143,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -3739,10 +3739,10 @@
         "hallId": "jewish-philosophy",
         "visitorEntryPoint": "#/museum/jewish-philosophy/exhibits/saadia-gaon",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 992,
+        "surfaceWords": 937,
         "canonicalArticleKey": "philosopher:saadia-gaon",
         "canonicalArticleId": "saadia-gaon",
-        "canonicalArticleWordCount": 2019,
+        "canonicalArticleWordCount": 2022,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -3751,10 +3751,10 @@
         "hallId": "jewish-philosophy",
         "visitorEntryPoint": "#/museum/jewish-philosophy/exhibits/judah-halevi",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 1023,
+        "surfaceWords": 967,
         "canonicalArticleKey": "philosopher:judah-halevi",
         "canonicalArticleId": "judah-halevi",
-        "canonicalArticleWordCount": 2095,
+        "canonicalArticleWordCount": 2043,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -3763,10 +3763,10 @@
         "hallId": "jewish-philosophy",
         "visitorEntryPoint": "#/museum/jewish-philosophy/exhibits/maimonides",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 780,
+        "surfaceWords": 731,
         "canonicalArticleKey": "philosopher:maimonides",
         "canonicalArticleId": "maimonides",
-        "canonicalArticleWordCount": 2020,
+        "canonicalArticleWordCount": 2025,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -3778,7 +3778,7 @@
         "surfaceWords": 294,
         "canonicalArticleKey": "philosopher:boethius",
         "canonicalArticleId": "boethius",
-        "canonicalArticleWordCount": 2011,
+        "canonicalArticleWordCount": 2005,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -3802,7 +3802,7 @@
         "surfaceWords": 309,
         "canonicalArticleKey": "philosophy:medieval-scholasticism",
         "canonicalArticleId": "medieval-scholasticism",
-        "canonicalArticleWordCount": 2081,
+        "canonicalArticleWordCount": 2003,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -3814,7 +3814,7 @@
         "surfaceWords": 308,
         "canonicalArticleKey": "philosopher:anselm",
         "canonicalArticleId": "anselm",
-        "canonicalArticleWordCount": 2000,
+        "canonicalArticleWordCount": 2010,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -3835,10 +3835,10 @@
         "hallId": "latin-christian-scholastic",
         "visitorEntryPoint": "#/museum/latin-christian-scholastic/exhibits/aquinas",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 583,
+        "surfaceWords": 866,
         "canonicalArticleKey": "philosopher:aquinas",
         "canonicalArticleId": "aquinas",
-        "canonicalArticleWordCount": 2152,
+        "canonicalArticleWordCount": 2143,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -3850,7 +3850,7 @@
         "surfaceWords": 306,
         "canonicalArticleKey": "philosopher:duns-scotus",
         "canonicalArticleId": "duns-scotus",
-        "canonicalArticleWordCount": 2204,
+        "canonicalArticleWordCount": 2168,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -3862,7 +3862,7 @@
         "surfaceWords": 313,
         "canonicalArticleKey": "philosopher:ockham",
         "canonicalArticleId": "ockham",
-        "canonicalArticleWordCount": 2253,
+        "canonicalArticleWordCount": 2140,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -4186,7 +4186,7 @@
         "surfaceWords": 911,
         "canonicalArticleKey": "philosopher:augustine",
         "canonicalArticleId": "augustine",
-        "canonicalArticleWordCount": 2141,
+        "canonicalArticleWordCount": 2137,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -4816,7 +4816,7 @@
         "canonicalArticleKey": "philosopher:mulla-sadra",
         "canonicalArticleId": "mulla-sadra",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 2178,
+        "canonicalArticleWordCount": 2143,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -4864,7 +4864,7 @@
         "canonicalArticleKey": "philosopher:avicenna",
         "canonicalArticleId": "avicenna",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 2091,
+        "canonicalArticleWordCount": 2110,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -4912,7 +4912,7 @@
         "canonicalArticleKey": "philosopher:al-farabi",
         "canonicalArticleId": "al-farabi",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 2076,
+        "canonicalArticleWordCount": 2078,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -4928,7 +4928,7 @@
         "canonicalArticleKey": "philosopher:maimonides",
         "canonicalArticleId": "maimonides",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 2020,
+        "canonicalArticleWordCount": 2025,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -4960,7 +4960,55 @@
         "canonicalArticleKey": "philosopher:al-ghazali",
         "canonicalArticleId": "al-ghazali",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 2023,
+        "canonicalArticleWordCount": 2003,
+        "canonicalArticleComplianceStatus": "pass"
+      },
+      {
+        "surfaceId": "miletus-ionian-coast",
+        "title": "Miletus and the Ionian Coast",
+        "hallId": "mediterranean-beginnings-classical",
+        "visitorEntryPoint": "#/museum/mediterranean-beginnings-classical/exhibits/miletus-ionian-coast",
+        "surfaceKind": "museum-supplemental-exhibit",
+        "workLabel": "MILETUS · IONIA · SIXTH CENTURY BCE CONTEXT",
+        "surfaceWords": 183,
+        "claimsArticleBacking": true,
+        "articleActionLabel": "Open Ancient Greek Philosophy in the Atlas",
+        "canonicalArticleKey": "philosophy:ancient-greek",
+        "canonicalArticleId": "ancient-greek",
+        "canonicalArticleCategory": "philosophy",
+        "canonicalArticleWordCount": 2717,
+        "canonicalArticleComplianceStatus": "pass"
+      },
+      {
+        "surfaceId": "greek-philosophy-reception",
+        "title": "Remembering an Ancient Conversation",
+        "hallId": "mediterranean-beginnings-classical",
+        "visitorEntryPoint": "#/museum/mediterranean-beginnings-classical/exhibits/greek-philosophy-reception",
+        "surfaceKind": "museum-supplemental-exhibit",
+        "workLabel": "RECEPTION · HOW LATER AGES BUILD A CANON",
+        "surfaceWords": 146,
+        "claimsArticleBacking": true,
+        "articleActionLabel": "Open Ancient Greek Philosophy in the Atlas",
+        "canonicalArticleKey": "philosophy:ancient-greek",
+        "canonicalArticleId": "ancient-greek",
+        "canonicalArticleCategory": "philosophy",
+        "canonicalArticleWordCount": 2717,
+        "canonicalArticleComplianceStatus": "pass"
+      },
+      {
+        "surfaceId": "socrates-trial-death",
+        "title": "The Trial and Death of Socrates",
+        "hallId": "mediterranean-beginnings-classical",
+        "visitorEntryPoint": "#/museum/mediterranean-beginnings-classical/exhibits/socrates-trial-death",
+        "surfaceKind": "museum-supplemental-exhibit",
+        "workLabel": "ATHENS · 399 BCE · INTERPRETIVE RECONSTRUCTION",
+        "surfaceWords": 161,
+        "claimsArticleBacking": true,
+        "articleActionLabel": "Open Socrates’ full Atlas article",
+        "canonicalArticleKey": "philosopher:socrates",
+        "canonicalArticleId": "socrates",
+        "canonicalArticleCategory": "philosopher",
+        "canonicalArticleWordCount": 3010,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -7038,7 +7086,7 @@
         "canonicalArticleKey": "philosopher:avicenna",
         "canonicalArticleId": "avicenna",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 2091,
+        "canonicalArticleWordCount": 2110,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -7054,7 +7102,7 @@
         "canonicalArticleKey": "philosopher:avicenna",
         "canonicalArticleId": "avicenna",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 2091,
+        "canonicalArticleWordCount": 2110,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -7070,7 +7118,7 @@
         "canonicalArticleKey": "philosopher:avicenna",
         "canonicalArticleId": "avicenna",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 2091,
+        "canonicalArticleWordCount": 2110,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -7086,7 +7134,7 @@
         "canonicalArticleKey": "philosopher:avicenna",
         "canonicalArticleId": "avicenna",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 2091,
+        "canonicalArticleWordCount": 2110,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -7102,7 +7150,7 @@
         "canonicalArticleKey": "philosopher:avicenna",
         "canonicalArticleId": "avicenna",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 2091,
+        "canonicalArticleWordCount": 2110,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -7118,7 +7166,7 @@
         "canonicalArticleKey": "philosopher:al-ghazali",
         "canonicalArticleId": "al-ghazali",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 2023,
+        "canonicalArticleWordCount": 2003,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -7134,7 +7182,7 @@
         "canonicalArticleKey": "philosopher:al-ghazali",
         "canonicalArticleId": "al-ghazali",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 2023,
+        "canonicalArticleWordCount": 2003,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -7150,7 +7198,7 @@
         "canonicalArticleKey": "philosopher:al-ghazali",
         "canonicalArticleId": "al-ghazali",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 2023,
+        "canonicalArticleWordCount": 2003,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -7166,7 +7214,7 @@
         "canonicalArticleKey": "philosopher:al-ghazali",
         "canonicalArticleId": "al-ghazali",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 2023,
+        "canonicalArticleWordCount": 2003,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -7182,7 +7230,7 @@
         "canonicalArticleKey": "philosopher:al-ghazali",
         "canonicalArticleId": "al-ghazali",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 2023,
+        "canonicalArticleWordCount": 2003,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -7198,7 +7246,7 @@
         "canonicalArticleKey": "philosopher:averroes",
         "canonicalArticleId": "averroes",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 2042,
+        "canonicalArticleWordCount": 2044,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -7214,7 +7262,7 @@
         "canonicalArticleKey": "philosopher:averroes",
         "canonicalArticleId": "averroes",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 2042,
+        "canonicalArticleWordCount": 2044,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -7230,7 +7278,7 @@
         "canonicalArticleKey": "philosopher:averroes",
         "canonicalArticleId": "averroes",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 2042,
+        "canonicalArticleWordCount": 2044,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -7294,7 +7342,7 @@
         "canonicalArticleKey": "philosopher:mulla-sadra",
         "canonicalArticleId": "mulla-sadra",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 2178,
+        "canonicalArticleWordCount": 2143,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -7582,7 +7630,7 @@
         "canonicalArticleKey": "philosopher:saadia-gaon",
         "canonicalArticleId": "saadia-gaon",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 2019,
+        "canonicalArticleWordCount": 2022,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -7609,7 +7657,7 @@
         "canonicalArticleKey": "philosopher:judah-halevi",
         "canonicalArticleId": "judah-halevi",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 2095,
+        "canonicalArticleWordCount": 2043,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -7625,7 +7673,7 @@
         "canonicalArticleKey": "philosopher:judah-halevi",
         "canonicalArticleId": "judah-halevi",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 2095,
+        "canonicalArticleWordCount": 2043,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -7641,7 +7689,7 @@
         "canonicalArticleKey": "philosopher:maimonides",
         "canonicalArticleId": "maimonides",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 2020,
+        "canonicalArticleWordCount": 2025,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -7657,7 +7705,7 @@
         "canonicalArticleKey": "philosopher:maimonides",
         "canonicalArticleId": "maimonides",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 2020,
+        "canonicalArticleWordCount": 2025,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -7673,7 +7721,7 @@
         "canonicalArticleKey": "philosopher:maimonides",
         "canonicalArticleId": "maimonides",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 2020,
+        "canonicalArticleWordCount": 2025,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -7716,7 +7764,7 @@
         "canonicalArticleKey": "philosopher:boethius",
         "canonicalArticleId": "boethius",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 2011,
+        "canonicalArticleWordCount": 2005,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -7732,7 +7780,7 @@
         "canonicalArticleKey": "philosopher:boethius",
         "canonicalArticleId": "boethius",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 2011,
+        "canonicalArticleWordCount": 2005,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -7748,7 +7796,7 @@
         "canonicalArticleKey": "philosophy:medieval-scholasticism",
         "canonicalArticleId": "medieval-scholasticism",
         "canonicalArticleCategory": "philosophy",
-        "canonicalArticleWordCount": 2081,
+        "canonicalArticleWordCount": 2003,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -7796,7 +7844,7 @@
         "canonicalArticleKey": "philosophy:medieval-scholasticism",
         "canonicalArticleId": "medieval-scholasticism",
         "canonicalArticleCategory": "philosophy",
-        "canonicalArticleWordCount": 2081,
+        "canonicalArticleWordCount": 2003,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -7812,7 +7860,7 @@
         "canonicalArticleKey": "philosophy:medieval-scholasticism",
         "canonicalArticleId": "medieval-scholasticism",
         "canonicalArticleCategory": "philosophy",
-        "canonicalArticleWordCount": 2081,
+        "canonicalArticleWordCount": 2003,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -7828,7 +7876,7 @@
         "canonicalArticleKey": "philosophy:medieval-scholasticism",
         "canonicalArticleId": "medieval-scholasticism",
         "canonicalArticleCategory": "philosophy",
-        "canonicalArticleWordCount": 2081,
+        "canonicalArticleWordCount": 2003,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -7844,7 +7892,7 @@
         "canonicalArticleKey": "philosopher:aquinas",
         "canonicalArticleId": "aquinas",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 2152,
+        "canonicalArticleWordCount": 2143,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -7860,7 +7908,7 @@
         "canonicalArticleKey": "philosopher:aquinas",
         "canonicalArticleId": "aquinas",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 2152,
+        "canonicalArticleWordCount": 2143,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -7876,7 +7924,7 @@
         "canonicalArticleKey": "philosopher:aquinas",
         "canonicalArticleId": "aquinas",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 2152,
+        "canonicalArticleWordCount": 2143,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -7892,7 +7940,7 @@
         "canonicalArticleKey": "philosophy:medieval-scholasticism",
         "canonicalArticleId": "medieval-scholasticism",
         "canonicalArticleCategory": "philosophy",
-        "canonicalArticleWordCount": 2081,
+        "canonicalArticleWordCount": 2003,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -7908,7 +7956,7 @@
         "canonicalArticleKey": "philosopher:duns-scotus",
         "canonicalArticleId": "duns-scotus",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 2204,
+        "canonicalArticleWordCount": 2168,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -8068,7 +8116,7 @@
         "canonicalArticleKey": "philosopher:augustine",
         "canonicalArticleId": "augustine",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 2141,
+        "canonicalArticleWordCount": 2137,
         "canonicalArticleComplianceStatus": "pass"
       },
       {

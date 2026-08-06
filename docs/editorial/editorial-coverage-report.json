@@ -1,5 +1,5 @@
 {
-  "dataAsOf": "2026-08-03",
+  "dataAsOf": "2026-08-05",
   "policy": {
     "articleMinimum": 2000,
     "statusAndDepthAreIndependent": true,
@@ -783,180 +783,228 @@
       "title": "Al-Kindi",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/al-kindi",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 5,
+      "citedSourceCount": 5,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 2157
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 29,
+      "citationCount": 117,
+      "substantiveArticleWordCount": 2148,
+      "reviewNotePath": "docs/editorial/reviews/al-kindi.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:a943fadde7f5abe1",
+      "currentReviewLock": "fnv1a64:a943fadde7f5abe1"
     },
     {
       "id": "al-farabi",
       "title": "Al-Farabi",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/al-farabi",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 6,
+      "citedSourceCount": 6,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 2076
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 29,
+      "citationCount": 103,
+      "substantiveArticleWordCount": 2078,
+      "reviewNotePath": "docs/editorial/reviews/al-farabi.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:c31dc45bb86bdc6f",
+      "currentReviewLock": "fnv1a64:c31dc45bb86bdc6f"
     },
     {
       "id": "avicenna",
       "title": "Ibn Sina / Avicenna",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/avicenna",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 7,
+      "citedSourceCount": 7,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 2091
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 29,
+      "citationCount": 95,
+      "substantiveArticleWordCount": 2110,
+      "reviewNotePath": "docs/editorial/reviews/avicenna.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:e7109ece03440d5e",
+      "currentReviewLock": "fnv1a64:e7109ece03440d5e"
     },
     {
       "id": "al-ghazali",
       "title": "Al-Ghazali",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/al-ghazali",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 7,
+      "citedSourceCount": 7,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 2023
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 29,
+      "citationCount": 120,
+      "substantiveArticleWordCount": 2003,
+      "reviewNotePath": "docs/editorial/reviews/al-ghazali.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:61106882bf9e164b",
+      "currentReviewLock": "fnv1a64:61106882bf9e164b"
     },
     {
       "id": "averroes",
       "title": "Ibn Rushd / Averroes",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/averroes",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 6,
+      "citedSourceCount": 6,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 2042
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 29,
+      "citationCount": 94,
+      "substantiveArticleWordCount": 2044,
+      "reviewNotePath": "docs/editorial/reviews/averroes.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:7343a524467c1ca6",
+      "currentReviewLock": "fnv1a64:7343a524467c1ca6"
     },
     {
       "id": "augustine",
       "title": "Augustine",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/augustine",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 3,
+      "citedSourceCount": 3,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 2141
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 27,
+      "citationCount": 132,
+      "substantiveArticleWordCount": 2137,
+      "reviewNotePath": "docs/editorial/reviews/augustine.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:f30de6a64c90d6a5",
+      "currentReviewLock": "fnv1a64:f30de6a64c90d6a5"
     },
     {
       "id": "boethius",
       "title": "Boethius",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/boethius",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 3,
+      "citedSourceCount": 3,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 2011
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 27,
+      "citationCount": 132,
+      "substantiveArticleWordCount": 2005,
+      "reviewNotePath": "docs/editorial/reviews/boethius.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:bc73e56af6834d5e",
+      "currentReviewLock": "fnv1a64:bc73e56af6834d5e"
     },
     {
       "id": "anselm",
       "title": "Anselm",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/anselm",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 3,
+      "citedSourceCount": 3,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 2000
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 27,
+      "citationCount": 132,
+      "substantiveArticleWordCount": 2010,
+      "reviewNotePath": "docs/editorial/reviews/anselm.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:1fcc4f8a06f9e92c",
+      "currentReviewLock": "fnv1a64:1fcc4f8a06f9e92c"
     },
     {
       "id": "maimonides",
       "title": "Maimonides",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/maimonides",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 3,
+      "citedSourceCount": 3,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 2020
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 29,
+      "citationCount": 138,
+      "substantiveArticleWordCount": 2025,
+      "reviewNotePath": "docs/editorial/reviews/maimonides.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:e979683d643ff242",
+      "currentReviewLock": "fnv1a64:e979683d643ff242"
     },
     {
       "id": "aquinas",
       "title": "Thomas Aquinas",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/aquinas",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 3,
+      "citedSourceCount": 3,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 2152
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 29,
+      "citationCount": 138,
+      "substantiveArticleWordCount": 2143,
+      "reviewNotePath": "docs/editorial/reviews/aquinas.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:474f45751f61787c",
+      "currentReviewLock": "fnv1a64:474f45751f61787c"
     },
     {
       "id": "duns-scotus",
       "title": "Duns Scotus",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/duns-scotus",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 3,
+      "citedSourceCount": 3,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 2204
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 27,
+      "citationCount": 132,
+      "substantiveArticleWordCount": 2168,
+      "reviewNotePath": "docs/editorial/reviews/duns-scotus.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:3239e7033c4924a6",
+      "currentReviewLock": "fnv1a64:3239e7033c4924a6"
     },
     {
       "id": "ockham",
       "title": "William of Ockham",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/ockham",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 3,
+      "citedSourceCount": 3,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 2253
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 29,
+      "citationCount": 138,
+      "substantiveArticleWordCount": 2140,
+      "reviewNotePath": "docs/editorial/reviews/ockham.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:f40b27f0dfeef82a",
+      "currentReviewLock": "fnv1a64:f40b27f0dfeef82a"
     },
     {
       "id": "ficino",
@@ -1784,30 +1832,38 @@
       "title": "Saadia Gaon",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/saadia-gaon",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 3,
+      "citedSourceCount": 3,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 2019
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 23,
+      "citationCount": 120,
+      "substantiveArticleWordCount": 2022,
+      "reviewNotePath": "docs/editorial/reviews/saadia-gaon.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:1471b3f908bb1d59",
+      "currentReviewLock": "fnv1a64:1471b3f908bb1d59"
     },
     {
       "id": "judah-halevi",
       "title": "Judah Halevi",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/judah-halevi",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 3,
+      "citedSourceCount": 3,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 2095
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 23,
+      "citationCount": 120,
+      "substantiveArticleWordCount": 2043,
+      "reviewNotePath": "docs/editorial/reviews/judah-halevi.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:806cc9a455c9fd18",
+      "currentReviewLock": "fnv1a64:806cc9a455c9fd18"
     },
     {
       "id": "ibn-tufayl",
@@ -1852,15 +1908,19 @@
       "title": "Mulla Sadra",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/mulla-sadra",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 6,
+      "citedSourceCount": 6,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 2178
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 27,
+      "citationCount": 103,
+      "substantiveArticleWordCount": 2143,
+      "reviewNotePath": "docs/editorial/reviews/mulla-sadra.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:1f4696bc4533b7c7",
+      "currentReviewLock": "fnv1a64:1f4696bc4533b7c7"
     },
     {
       "id": "mahavira",
@@ -2987,15 +3047,19 @@
       "title": "Philosophy of Religion",
       "category": "philosophy",
       "visitorEntryPoint": "#/branches/philosophy-of-religion",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 3,
+      "citedSourceCount": 3,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 2388
+      "structuredClaimCount": 19,
+      "structuredParagraphCount": 27,
+      "citationCount": 138,
+      "substantiveArticleWordCount": 2178,
+      "reviewNotePath": "docs/editorial/reviews/philosophy-of-religion.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:7ea729df6133439e",
+      "currentReviewLock": "fnv1a64:7ea729df6133439e"
     },
     {
       "id": "ancient-greek",
@@ -3198,15 +3262,19 @@
       "title": "Medieval Scholasticism",
       "category": "philosophy",
       "visitorEntryPoint": "#/branches/medieval-scholasticism",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 3,
+      "citedSourceCount": 3,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 2081
+      "structuredClaimCount": 19,
+      "structuredParagraphCount": 27,
+      "citationCount": 138,
+      "substantiveArticleWordCount": 2003,
+      "reviewNotePath": "docs/editorial/reviews/medieval-scholasticism.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:b9c8c0af2cc205ee",
+      "currentReviewLock": "fnv1a64:b9c8c0af2cc205ee"
     },
     {
       "id": "rationalism",
@@ -4169,496 +4237,6 @@
       "excerpt": "Begin with short early discourses in a translation that explains textual parallels: the first-sermon tradition, the not-self discourse, the noble-search narrative, teachings on loving-kindness, and selections on dependen"
     },
     {
-      "recordKey": "philosopher:al-kindi",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "overview/paragraph-1",
-      "excerpt": "Al-Kindi is often called the first philosopher of the Arabs, not because no one before him asked speculative questions in Arabic, but because he helped make Greek philosophical inquiry speak in the language, institutions"
-    },
-    {
-      "recordKey": "philosopher:al-kindi",
-      "status": "unreviewed",
-      "signal": "quotation",
-      "location": "abbasid-context/paragraph-2",
-      "excerpt": "This setting explains why al-Kindi sometimes sounds like an Aristotelian, sometimes like a Platonist, and sometimes like a theologian using philosophical tools. The borders were not yet neat. Texts associated with Aristo"
-    },
-    {
-      "recordKey": "philosopher:al-kindi",
-      "status": "unreviewed",
-      "signal": "broad-classification",
-      "location": "philosophy-defense/paragraph-2",
-      "excerpt": "The defense also has a moral edge. If truth is valuable, then gratitude requires receiving and improving what previous thinkers discovered. Al-Kindi asks his readers to treat Greek learning neither as sacred authority no"
-    },
-    {
-      "recordKey": "philosopher:al-kindi",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "metaphysics-god/paragraph-1",
-      "excerpt": "In On First Philosophy, al-Kindi treats metaphysics as inquiry into the first cause and the deepest structure of being. He argues that the world is dependent and finite, and that the ultimate cause must be one, simple, a"
-    },
-    {
-      "recordKey": "philosopher:al-kindi",
-      "status": "unreviewed",
-      "signal": "quotation",
-      "location": "mathematics-science/paragraph-2",
-      "excerpt": "Modern readers sometimes separate \"science\" from \"philosophy\" so sharply that al-Kindi looks scattered. In his world, the sciences formed a hierarchy of disciplined approaches to reality. Optics studies how sight works;"
-    },
-    {
-      "recordKey": "philosopher:al-kindi",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "mathematics-science/paragraph-2",
-      "excerpt": "Modern readers sometimes separate \"science\" from \"philosophy\" so sharply that al-Kindi looks scattered. In his world, the sciences formed a hierarchy of disciplined approaches to reality. Optics studies how sight works;"
-    },
-    {
-      "recordKey": "philosopher:al-kindi",
-      "status": "unreviewed",
-      "signal": "quotation",
-      "location": "relation-greeks/paragraph-1",
-      "excerpt": "Al-Kindi revered Greek philosophy, especially Aristotle, but the Aristotle he received was mediated through translations, summaries, and late antique interpretive traditions. Some works circulating under Aristotelian aut"
-    },
-    {
-      "recordKey": "philosopher:al-kindi",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "revelation-and-reason/paragraph-2",
-      "excerpt": "The result is not a simple harmony in which reason and revelation automatically agree. It is a negotiated project. Al-Kindi must show that philosophical inquiry can honor divine transcendence without importing unacceptab"
-    },
-    {
-      "recordKey": "philosopher:al-kindi",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "reading-strategy/paragraph-1",
-      "excerpt": "Begin with On First Philosophy to see why metaphysics, divine unity, and the defense of philosophy stand together. Then read On the Intellect as a compact doorway into later debates about knowledge and immaterial underst"
-    },
-    {
-      "recordKey": "philosopher:al-farabi",
-      "status": "unreviewed",
-      "signal": "quotation",
-      "location": "overview/paragraph-1",
-      "excerpt": "Al-Farabi stands between al-Kindi's pioneering translation-era philosophy and the later systematic achievements of Avicenna and Averroes. Medieval readers called him the \"Second Teacher,\" with Aristotle as the first, bec"
-    },
-    {
-      "recordKey": "philosopher:al-farabi",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "overview/paragraph-1",
-      "excerpt": "Al-Farabi stands between al-Kindi's pioneering translation-era philosophy and the later systematic achievements of Avicenna and Averroes. Medieval readers called him the \"Second Teacher,\" with Aristotle as the first, bec"
-    },
-    {
-      "recordKey": "philosopher:al-farabi",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "context/paragraph-1",
-      "excerpt": "Al-Farabi lived in the tenth century, after the first great surge of translation had made many Greek works available in Arabic but before the later Avicennian synthesis dominated much of the field. The intellectual world"
-    },
-    {
-      "recordKey": "philosopher:al-farabi",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "metaphysics-being/paragraph-1",
-      "excerpt": "Al-Farabi's metaphysics explores being, causality, intellect, and the first principle in a way that prepares for Avicenna while remaining distinct from him. He inherits Aristotelian questions about substance, cause, and"
-    },
-    {
-      "recordKey": "philosopher:al-farabi",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "intellect-prophecy/paragraph-1",
-      "excerpt": "Al-Farabi's account of intellect and prophecy is one of his most influential achievements. Human beings possess rational capacities that can be perfected through study, moral discipline, and contact with higher intellect"
-    },
-    {
-      "recordKey": "philosopher:al-farabi",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "religion-philosophy/paragraph-1",
-      "excerpt": "Al-Farabi treats religion as a set of opinions and actions prescribed for a community by a founder or lawgiver. At its best, religion represents philosophical truths in imaginative and practical forms suited to public li"
-    },
-    {
-      "recordKey": "philosopher:avicenna",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "overview/paragraph-1",
-      "excerpt": "Ibn Sina, known in Latin as Avicenna, was one of the most influential philosophers of the medieval world. He was a physician, logician, scientist, psychologist, and metaphysician whose works traveled across Islamic, Jewi"
-    },
-    {
-      "recordKey": "philosopher:avicenna",
-      "status": "bibliography-only",
-      "signal": "broad-classification",
-      "location": "overview/paragraph-2",
-      "excerpt": "Avicenna’s distinction between essence and existence, his argument for the Necessary Existent, his account of emanation, and his psychology of the soul reshaped later debates. Latin scholasticism, Jewish philosophy, Isla"
-    },
-    {
-      "recordKey": "philosopher:avicenna",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "logic-science-medicine/paragraph-2",
-      "excerpt": "The range matters philosophically. Avicenna does not treat metaphysics as isolated speculation. Medicine studies embodied organisms; psychology studies soul, perception, imagination, and intellect; natural philosophy stu"
-    },
-    {
-      "recordKey": "philosopher:avicenna",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "necessary-existent/paragraph-1",
-      "excerpt": "Avicenna argues that because possible beings require causes, the chain of explanation must terminate in a Necessary Existent whose existence is not received from another. This is not merely the first item in a temporal s"
-    },
-    {
-      "recordKey": "philosopher:avicenna",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "emanation-cosmology/paragraph-1",
-      "excerpt": "Avicenna’s cosmology describes the ordered procession of intellects and celestial spheres from the Necessary Existent. The structure reflects Neoplatonic influence but is given an Avicennian metaphysical logic. From the"
-    },
-    {
-      "recordKey": "philosopher:avicenna",
-      "status": "bibliography-only",
-      "signal": "influence-or-causation",
-      "location": "soul-flying-man/paragraph-2",
-      "excerpt": "This argument belongs within a larger psychology of external senses, internal senses, imagination, estimation, memory, and intellect. Avicenna analyzes how humans move from sensory experience toward universal concepts an"
-    },
-    {
-      "recordKey": "philosopher:avicenna",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "works-canon-cure/paragraph-1",
-      "excerpt": "The Cure presents Avicenna’s philosophical system across logic, natural philosophy, mathematics, and metaphysics. It is one of the great encyclopedic works of medieval philosophy. Its metaphysical sections became especia"
-    },
-    {
-      "recordKey": "philosopher:avicenna",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "modality-contingency/paragraph-2",
-      "excerpt": "The framework changed later debates because contingency became a route to God and a way to analyze created dependence. A contingent being is not self-explanatory even if it has always existed in time; its existence remai"
-    },
-    {
-      "recordKey": "philosopher:avicenna",
-      "status": "bibliography-only",
-      "signal": "influence-or-causation",
-      "location": "influence-misunderstandings/paragraph-1",
-      "excerpt": "Avicenna influenced al-Ghazali, who criticized key metaphysical theses; Averroes, who often resisted Avicennian interpretations of Aristotle; Maimonides, who inherited parts of the philosophical environment he shaped; an"
-    },
-    {
-      "recordKey": "philosopher:avicenna",
-      "status": "bibliography-only",
-      "signal": "broad-classification",
-      "location": "influence-misunderstandings/paragraph-1",
-      "excerpt": "Avicenna influenced al-Ghazali, who criticized key metaphysical theses; Averroes, who often resisted Avicennian interpretations of Aristotle; Maimonides, who inherited parts of the philosophical environment he shaped; an"
-    },
-    {
-      "recordKey": "philosopher:al-ghazali",
-      "status": "unreviewed",
-      "signal": "broad-classification",
-      "location": "overview/paragraph-1",
-      "excerpt": "Al-Ghazali is often remembered as the great opponent of Islamic philosophy, especially because of The Incoherence of the Philosophers. That description is too simple. He was a jurist, theologian, logician, spiritual writ"
-    },
-    {
-      "recordKey": "philosopher:al-ghazali",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "philosophical-training/paragraph-1",
-      "excerpt": "Al-Ghazali's criticism of the philosophers depends on serious study. In The Doctrines of the Philosophers, he presents philosophical teachings with enough clarity that the work could be mistaken, especially in translatio"
-    },
-    {
-      "recordKey": "philosopher:al-ghazali",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "incoherence/paragraph-2",
-      "excerpt": "Its title is well chosen. The charge is incoherence: the philosophers claim demonstrative certainty but rely on assumptions, analogies, or necessities they have not proven. Al-Ghazali does not need to show that every alt"
-    },
-    {
-      "recordKey": "philosopher:al-ghazali",
-      "status": "unreviewed",
-      "signal": "disputed-attribution",
-      "location": "knowledge-skepticism/paragraph-2",
-      "excerpt": "His resolution involves divine illumination, disciplined inquiry, and spiritual transformation. The precise interpretation is disputed: some readers emphasize a rational restoration, others a mystical light beyond argume"
-    },
-    {
-      "recordKey": "philosopher:al-ghazali",
-      "status": "unreviewed",
-      "signal": "broad-classification",
-      "location": "relation-avicenna/paragraph-2",
-      "excerpt": "His relation to Avicenna is therefore more intimate than simple opposition. He borrows logical tools, studies philosophical classifications, and accepts some conclusions while rejecting others. In some areas, later Islam"
-    },
-    {
-      "recordKey": "philosopher:al-ghazali",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "reading-strategy/paragraph-1",
-      "excerpt": "A good reading path begins with Deliverance from Error, not because it is a simple autobiography, but because it introduces the problem of certainty, imitation, and spiritual sincerity. Then read The Doctrines of the Phi"
-    },
-    {
-      "recordKey": "philosopher:averroes",
-      "status": "unreviewed",
-      "signal": "quotation",
-      "location": "overview/paragraph-1",
-      "excerpt": "Averroes, or Ibn Rushd, is one of the most important Aristotelian philosophers of the medieval world. He was a jurist, physician, judge, commentator, and philosopher in twelfth-century al-Andalus and North Africa. His re"
-    },
-    {
-      "recordKey": "philosopher:averroes",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "decisive-treatise/paragraph-1",
-      "excerpt": "The Decisive Treatise argues that the study of philosophy is required for those capable of demonstrative reasoning because revelation commands reflection on beings as signs of the Creator. The argument is striking: philo"
-    },
-    {
-      "recordKey": "philosopher:averroes",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "metaphysics-cosmos/paragraph-1",
-      "excerpt": "Averroes' metaphysics is deeply Aristotelian. He resists accounts that make the world a temporal artifact produced after absolute nonbeing in a way he thinks conflicts with philosophical demonstration. For him, divine ca"
-    },
-    {
-      "recordKey": "philosopher:averroes",
-      "status": "unreviewed",
-      "signal": "quotation",
-      "location": "latin-legacy/paragraph-2",
-      "excerpt": "Jewish philosophers also engaged Averroes, often through Hebrew translations and commentaries. His impact varied across regions and traditions. In some Islamic contexts his legacy was less institutionally dominant than i"
-    },
-    {
-      "recordKey": "philosopher:averroes",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "misunderstandings/paragraph-1",
-      "excerpt": "One misunderstanding treats Averroes as a secular rationalist opposed to religion. The Decisive Treatise shows something more complicated: he defends philosophy through Islamic legal reasoning and insists that demonstrat"
-    },
-    {
-      "recordKey": "philosopher:averroes",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "reading-strategy/paragraph-1",
-      "excerpt": "Begin with the Decisive Treatise to understand why Averroes thinks philosophy can be a religious obligation for qualified inquirers. Then read selections from the Incoherence of the Incoherence beside al-Ghazali, so the"
-    },
-    {
-      "recordKey": "philosopher:augustine",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "overview/paragraph-1",
-      "excerpt": "Augustine stands at a crossing point where late Roman education, Christian scripture, Platonist metaphysics, pastoral controversy, and first-person self-examination become one philosophical project. He is not simply an a"
-    },
-    {
-      "recordKey": "philosopher:augustine",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "confessions-method/paragraph-2",
-      "excerpt": "The work’s form is part of its argument. Augustine does not first prove a theory of desire and then illustrate it with episodes. He lets memory search itself under divine address, exposing gaps, motives, self-deceptions,"
-    },
-    {
-      "recordKey": "philosopher:augustine",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "time-memory-self/paragraph-1",
-      "excerpt": "Book XI of the Confessions asks what time is and discovers the difficulty hidden in ordinary speech. The past no longer exists, the future is not yet, and the present seems to vanish as soon as one tries to measure it. A"
-    },
-    {
-      "recordKey": "philosopher:augustine",
-      "status": "bibliography-only",
-      "signal": "influence-or-causation",
-      "location": "city-of-god/paragraph-2",
-      "excerpt": "This political theology both limits and relativizes earthly politics. No empire can claim final sacred meaning, and no political victory can become salvation. Yet Augustine does not counsel indifference. Peace, law, judg"
-    },
-    {
-      "recordKey": "philosopher:boethius",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "bridge-misunderstandings/paragraph-2",
-      "excerpt": "Common misunderstandings reduce him either to a Christian martyr whose greatest work accidentally lacks Christian language or to a paganizing rationalist detached from faith. Both pictures simplify the late antique setti"
-    },
-    {
-      "recordKey": "philosopher:anselm",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "proslogion/paragraph-1",
-      "excerpt": "The Proslogion argument begins with God as that than which nothing greater can be thought. Anselm argues that even the fool who denies God understands this expression. If that than which nothing greater can be thought ex"
-    },
-    {
-      "recordKey": "philosopher:anselm",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "gaunilo/paragraph-1",
-      "excerpt": "Gaunilo, a monk contemporary with Anselm, responded on behalf of the fool. His famous island objection argues that similar reasoning could seem to prove the existence of a greatest conceivable island. If imagining a supr"
-    },
-    {
-      "recordKey": "philosopher:anselm",
-      "status": "bibliography-only",
-      "signal": "influence-or-causation",
-      "location": "reception/paragraph-1",
-      "excerpt": "Anselm influenced scholastic method by modeling close argument around received doctrine. Later thinkers did not simply repeat him. Aquinas rejected aspects of the ontological argument while sharing the conviction that re"
-    },
-    {
-      "recordKey": "philosopher:maimonides",
-      "status": "bibliography-only",
-      "signal": "broad-classification",
-      "location": "context/paragraph-1",
-      "excerpt": "Maimonides was born in Cordoba in 1138, lived through displacement under Almohad pressure, and eventually settled in Egypt. He wrote in Judeo-Arabic and Hebrew across legal, medical, communal, and philosophical genres. H"
-    },
-    {
-      "recordKey": "philosopher:maimonides",
-      "status": "bibliography-only",
-      "signal": "broad-classification",
-      "location": "islamic-relations/paragraph-1",
-      "excerpt": "Maimonides belongs to a Jewish tradition deeply engaged with Islamic philosophy. Avicennian themes of necessary existence, intellect, and metaphysical hierarchy form part of the background, even when Maimonides does not"
-    },
-    {
-      "recordKey": "philosopher:aquinas",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "overview/paragraph-2",
-      "excerpt": "Aquinas becomes decisive because he integrates sources that seemed difficult to reconcile: Aristotle, Augustine, Scripture, Arabic and Jewish philosophy, patristic theology, and university disputation. His method is pati"
-    },
-    {
-      "recordKey": "philosopher:aquinas",
-      "status": "bibliography-only",
-      "signal": "disputed-attribution",
-      "location": "university-context/paragraph-2",
-      "excerpt": "This context explains the form of his writings. The Summa Theologiae is organized for learners, not as a private notebook. Disputed questions respond to live academic problems. Commentaries read Aristotle closely as a ph"
-    },
-    {
-      "recordKey": "philosopher:aquinas",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "faith-reason/paragraph-1",
-      "excerpt": "Aquinas distinguishes truths accessible to natural reason from truths known only through revelation, but he does not treat the two as enemies. Reason can know many things about creatures, moral action, and even God as fi"
-    },
-    {
-      "recordKey": "philosopher:aquinas",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "five-ways/paragraph-1",
-      "excerpt": "The Five Ways in the Summa Theologiae are brief arguments that begin from motion, causation, contingency, degrees of perfection, and order. They are not intended as five isolated modern scientific proofs, and they do not"
-    },
-    {
-      "recordKey": "philosopher:aquinas",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "five-ways/paragraph-2",
-      "excerpt": "The First Way, for example, uses motion in the broad sense of change from potency to act. The contingency argument asks why beings that can fail to exist do in fact exist. The Fifth Way concerns directedness toward ends"
-    },
-    {
-      "recordKey": "philosopher:aquinas",
-      "status": "bibliography-only",
-      "signal": "influence-or-causation",
-      "location": "soul-action/paragraph-2",
-      "excerpt": "Human action likewise involves intellect, will, passions, habits, and circumstances. The will seeks the good as apprehended by reason, but ignorance, passion, habit, and social formation can distort judgment. Freedom is"
-    },
-    {
-      "recordKey": "philosopher:aquinas",
-      "status": "bibliography-only",
-      "signal": "disputed-attribution",
-      "location": "major-works/paragraph-2",
-      "excerpt": "His commentaries are equally important. Reading Aristotle line by line, Aquinas develops philosophical interpretation as a constructive discipline. The Disputed Questions allow more elaborate treatment of contested topic"
-    },
-    {
-      "recordKey": "philosopher:duns-scotus",
-      "status": "unreviewed",
-      "signal": "quotation",
-      "location": "univocity/paragraph-1",
-      "excerpt": "Scotus is famous for defending the univocity of being. The basic thought is that at least some concept of being applies to God and creatures in the same conceptual sense, even though God and creatures differ infinitely i"
-    },
-    {
-      "recordKey": "philosopher:duns-scotus",
-      "status": "unreviewed",
-      "signal": "quotation",
-      "location": "haecceity/paragraph-1",
-      "excerpt": "Scotus' account of haecceity, often glossed as \"thisness,\" addresses the problem of individuation. A shared nature explains what several things have in common: humanity in human beings, horseness in horses, and so on. Bu"
-    },
-    {
-      "recordKey": "philosopher:duns-scotus",
-      "status": "unreviewed",
-      "signal": "quotation",
-      "location": "haecceity/paragraph-2",
-      "excerpt": "This doctrine became one of Scotus' most influential and controversial contributions. It helps explain why later readers connect him with attention to singularity, personhood, and the irreducible \"this.\" Yet haecceity sh"
-    },
-    {
-      "recordKey": "philosopher:duns-scotus",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "haecceity/paragraph-2",
-      "excerpt": "This doctrine became one of Scotus' most influential and controversial contributions. It helps explain why later readers connect him with attention to singularity, personhood, and the irreducible \"this.\" Yet haecceity sh"
-    },
-    {
-      "recordKey": "philosopher:duns-scotus",
-      "status": "unreviewed",
-      "signal": "influence-or-causation",
-      "location": "knowledge-abstraction/paragraph-2",
-      "excerpt": "This distinction helped later medieval debates about cognition, certainty, and singulars. If philosophy only explained universal concepts, it would struggle to account for knowledge of existing individuals. If it focused"
-    },
-    {
-      "recordKey": "philosopher:duns-scotus",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "god-proof/paragraph-1",
-      "excerpt": "In works such as the Treatise on the First Principle, Scotus develops a complex argument for a first efficient cause, ultimate end, and most eminent nature. He is interested not only in proving that a first cause exists,"
-    },
-    {
-      "recordKey": "philosopher:duns-scotus",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "god-proof/paragraph-2",
-      "excerpt": "The argument also shows his philosophical temperament. Scotus thinks reason can reach genuine knowledge of God, but he does not pretend that a brief slogan will do the work. He distinguishes kinds of priority, causation,"
-    },
-    {
-      "recordKey": "philosopher:duns-scotus",
-      "status": "unreviewed",
-      "signal": "influence-or-causation",
-      "location": "god-proof/paragraph-2",
-      "excerpt": "The argument also shows his philosophical temperament. Scotus thinks reason can reach genuine knowledge of God, but he does not pretend that a brief slogan will do the work. He distinguishes kinds of priority, causation,"
-    },
-    {
-      "recordKey": "philosopher:duns-scotus",
-      "status": "unreviewed",
-      "signal": "quotation",
-      "location": "works-method/paragraph-1",
-      "excerpt": "Scotus' major writings include the Ordinatio, a revised commentary on Peter Lombard's Sentences, along with reports of lectures, quodlibetal questions, questions on Aristotle's Metaphysics, logical works, and the Treatis"
-    },
-    {
-      "recordKey": "philosopher:duns-scotus",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "works-method/paragraph-1",
-      "excerpt": "Scotus' major writings include the Ordinatio, a revised commentary on Peter Lombard's Sentences, along with reports of lectures, quodlibetal questions, questions on Aristotle's Metaphysics, logical works, and the Treatis"
-    },
-    {
-      "recordKey": "philosopher:duns-scotus",
-      "status": "unreviewed",
-      "signal": "disputed-attribution",
-      "location": "works-method/paragraph-1",
-      "excerpt": "Scotus' major writings include the Ordinatio, a revised commentary on Peter Lombard's Sentences, along with reports of lectures, quodlibetal questions, questions on Aristotle's Metaphysics, logical works, and the Treatis"
-    },
-    {
-      "recordKey": "philosopher:duns-scotus",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "works-method/paragraph-2",
-      "excerpt": "His method can feel slow because scholastic articles gather objections before reaching an answer. That slowness is intellectually honest. Scotus typically states rival positions strongly, identifies hidden assumptions, d"
-    },
-    {
-      "recordKey": "philosopher:duns-scotus",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "reading-strategy/paragraph-1",
-      "excerpt": "A beginner should not start by trying to master every Scotist distinction at once. Begin with the problems: how can we speak about God, what makes an individual individual, and why is creation contingent? Then read a rel"
-    },
-    {
-      "recordKey": "philosopher:ockham",
-      "status": "unreviewed",
-      "signal": "disputed-attribution",
-      "location": "life-setting/paragraph-2",
-      "excerpt": "The chronology of his career should be handled with care because several works and episodes are disputed in detail. Still, the broad arc is clear enough: university formation, theological controversy, Avignon, rupture, a"
-    },
-    {
-      "recordKey": "philosopher:ockham",
-      "status": "unreviewed",
-      "signal": "disputed-attribution",
-      "location": "razor/paragraph-1",
-      "excerpt": "Ockham's razor is best understood as a family of methodological cautions rather than a single magic formula. He frequently argues that explanations should not posit more things when fewer will do, especially when the ext"
-    },
-    {
-      "recordKey": "philosopher:ockham",
-      "status": "unreviewed",
-      "signal": "quotation",
-      "location": "nominalism/paragraph-1",
-      "excerpt": "Ockham is a central figure in medieval nominalism, though the label needs care. He denies that universals exist as common natures outside the mind. Only individual things exist in the world. Generality belongs to signs,"
-    },
-    {
       "recordKey": "philosopher:descartes",
       "status": "bibliography-only",
       "signal": "priority-or-superlative",
@@ -5602,132 +5180,6 @@
       "signal": "influence-or-causation",
       "location": "derrida-criticism-legacy/paragraph-2",
       "excerpt": "Derrida influenced literary theory, philosophy, legal studies, architecture, theology, postcolonial thought, feminism, queer theory, and debates about animals and technology. Judith Butler develops iterability in an acco"
-    },
-    {
-      "recordKey": "philosopher:saadia-gaon",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "overview/paragraph-2",
-      "excerpt": "That project makes Saadia pivotal without requiring the misleading title of first Jewish philosopher. Jewish philosophical reflection long predates him, and he worked among earlier traditions of biblical interpretation,"
-    },
-    {
-      "recordKey": "philosopher:saadia-gaon",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "misunderstandings-reading/paragraph-1",
-      "excerpt": "Three misunderstandings are especially distorting. Calling Saadia the first Jewish philosopher erases ancient Jewish philosophy and the intellectual labor surrounding him. Calling him a rationalist who makes revelation r"
-    },
-    {
-      "recordKey": "philosopher:judah-halevi",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "overview/paragraph-1",
-      "excerpt": "Judah Halevi asks whether the highest religious truth is best approached as a universal conclusion of speculative reason or as a relationship disclosed through events, practices, language, and a people’s memory. His answ"
-    },
-    {
-      "recordKey": "philosopher:judah-halevi",
-      "status": "bibliography-only",
-      "signal": "broad-classification",
-      "location": "andalusian-setting/paragraph-1",
-      "excerpt": "Halevi was born around 1075, probably in Tudela, then within the Muslim-ruled taifa of Zaragoza, and was formed within the wider culture of medieval Iberia. He wrote his major prose work in Judeo-Arabic and became one of"
-    },
-    {
-      "recordKey": "philosopher:judah-halevi",
-      "status": "bibliography-only",
-      "signal": "disputed-attribution",
-      "location": "life-voyage/paragraph-2",
-      "excerpt": "Late in life Halevi left Iberia and traveled through the Mediterranean toward the Land of Israel, spending time in Egypt around 1140 and 1141. Surviving evidence supports the journey and his intention, but whether he rea"
-    },
-    {
-      "recordKey": "philosopher:judah-halevi",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "history-testimony/paragraph-2",
-      "excerpt": "The argument is influential but contested. A tradition can preserve knowledge, yet communities also select memories, interpret texts, and reinforce authority through ritual repetition. Collective testimony does not autom"
-    },
-    {
-      "recordKey": "philosopher:judah-halevi",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "prophecy-divine-order/paragraph-2",
-      "excerpt": "The Kuzari uses language sometimes translated as the divine order or divine matter to mark this irreducible dimension. The phrase does not name a physical substance that can be neatly inserted into a scientific scheme. I"
-    },
-    {
-      "recordKey": "philosopher:judah-halevi",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "reason-science-influence/paragraph-1",
-      "excerpt": "Halevi criticizes specific ambitions of philosophy, not reasoning as such. The Kuzari discusses logic, cosmology, medicine, psychology, and competing demonstrations with considerable competence. He often grants philosoph"
-    },
-    {
-      "recordKey": "philosopher:judah-halevi",
-      "status": "bibliography-only",
-      "signal": "broad-classification",
-      "location": "reason-science-influence/paragraph-2",
-      "excerpt": "This position shaped later Jewish thought as both resource and provocation. Maimonides shared Halevi’s commitment to Jewish law and revelation but gave Aristotelian demonstration a different role, making comparison betwe"
-    },
-    {
-      "recordKey": "philosopher:mulla-sadra",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "overview/paragraph-1",
-      "excerpt": "Mulla Sadra, or Sadr al-Din al-Shirazi, built one of the most ambitious metaphysical systems of the early modern Islamic world. His “transcendent philosophy” joins demonstration, scriptural interpretation, philosophical"
-    },
-    {
-      "recordKey": "philosopher:mulla-sadra",
-      "status": "bibliography-only",
-      "signal": "disputed-attribution",
-      "location": "safavid-setting/paragraph-1",
-      "excerpt": "Mulla Sadra was born in Shiraz around 1571 or 1572 and worked during the Safavid period, when Twelver Shi‘i institutions, court patronage, jurisprudence, theology, philosophy, and forms of Sufism were being reorganized i"
-    },
-    {
-      "recordKey": "philosopher:mulla-sadra",
-      "status": "bibliography-only",
-      "signal": "broad-classification",
-      "location": "safavid-setting/paragraph-1",
-      "excerpt": "Mulla Sadra was born in Shiraz around 1571 or 1572 and worked during the Safavid period, when Twelver Shi‘i institutions, court patronage, jurisprudence, theology, philosophy, and forms of Sufism were being reorganized i"
-    },
-    {
-      "recordKey": "philosopher:mulla-sadra",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "primacy-existence/paragraph-1",
-      "excerpt": "The doctrine of the primacy of existence states that what is real outside the mind is existence, while quiddities or essences are the conceptual determinations through which intellect answers what a thing is. “Horse,” “h"
-    },
-    {
-      "recordKey": "philosopher:mulla-sadra",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "gradation-unity/paragraph-1",
-      "excerpt": "Existence is one in meaning yet graded in intensity, priority, perfection, and dependence. Mulla Sadra uses this “gradation of being” to avoid treating every existent as a member of one flat class. The existence of a mat"
-    },
-    {
-      "recordKey": "philosopher:mulla-sadra",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "divine-causality/paragraph-2",
-      "excerpt": "He also considers divine knowledge, attributes, creation, and providence through the claim that simplicity can contain perfections without composition. If the first principle is pure existence, divine knowledge of effect"
-    },
-    {
-      "recordKey": "philosopher:mulla-sadra",
-      "status": "bibliography-only",
-      "signal": "broad-classification",
-      "location": "reception-controversy/paragraph-1",
-      "excerpt": "Mulla Sadra became a central figure in later Iranian philosophical education, especially through commentaries, teaching lineages, and engagements in the Qajar and modern periods. His influence reaches contemporary Islami"
-    },
-    {
-      "recordKey": "philosopher:mulla-sadra",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "misunderstandings-reading/paragraph-1",
-      "excerpt": "One misunderstanding treats the primacy of existence as the trivial observation that things exist. It is instead a claim about what is extra-mental and how essences function in thought. Another treats substantial motion"
-    },
-    {
-      "recordKey": "philosopher:mulla-sadra",
-      "status": "bibliography-only",
-      "signal": "broad-classification",
-      "location": "misunderstandings-reading/paragraph-1",
-      "excerpt": "One misunderstanding treats the primacy of existence as the trivial observation that things exist. It is instead a claim about what is extra-mental and how essences function in thought. Another treats substantial motion"
     },
     {
       "recordKey": "philosopher:habermas",
@@ -7151,97 +6603,6 @@
       "excerpt": "At the intermediate stage, pair Sartre’s public account of freedom with Beauvoir’s Ethics of Ambiguity so that existentialism is not reduced to one voice. Read Gadamer on historically effected understanding, then compare"
     },
     {
-      "recordKey": "philosophy:philosophy-of-religion",
-      "status": "unreviewed",
-      "signal": "quotation",
-      "location": "overview/paragraph-2",
-      "excerpt": "A plural approach changes the starting point. Some traditions describe one personal creator; others speak of multiple divine powers, an impersonal ultimate, emptiness, sacred order, or practices of liberation that do not"
-    },
-    {
-      "recordKey": "philosophy:philosophy-of-religion",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "overview/paragraph-2",
-      "excerpt": "A plural approach changes the starting point. Some traditions describe one personal creator; others speak of multiple divine powers, an impersonal ultimate, emptiness, sacred order, or practices of liberation that do not"
-    },
-    {
-      "recordKey": "philosophy:philosophy-of-religion",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "historical-development/paragraph-1",
-      "excerpt": "Ancient Greek arguments about first causes, providence, soul, piety, and the good became important to later Jewish, Christian, and Islamic philosophy, but philosophical reflection on sacred order is much older and wider"
-    },
-    {
-      "recordKey": "philosophy:philosophy-of-religion",
-      "status": "unreviewed",
-      "signal": "disputed-attribution",
-      "location": "historical-development/paragraph-1",
-      "excerpt": "Ancient Greek arguments about first causes, providence, soul, piety, and the good became important to later Jewish, Christian, and Islamic philosophy, but philosophical reflection on sacred order is much older and wider"
-    },
-    {
-      "recordKey": "philosophy:philosophy-of-religion",
-      "status": "unreviewed",
-      "signal": "broad-classification",
-      "location": "historical-development/paragraph-1",
-      "excerpt": "Ancient Greek arguments about first causes, providence, soul, piety, and the good became important to later Jewish, Christian, and Islamic philosophy, but philosophical reflection on sacred order is much older and wider"
-    },
-    {
-      "recordKey": "philosophy:philosophy-of-religion",
-      "status": "unreviewed",
-      "signal": "quotation",
-      "location": "key-concepts/paragraph-1",
-      "excerpt": "Classical theism describes God as necessary, perfectly good, knowing, powerful, and the source of created reality. Each term generates philosophical pressure. If God is simple, how can distinct attributes be truly predic"
-    },
-    {
-      "recordKey": "philosophy:philosophy-of-religion",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "key-concepts/paragraph-2",
-      "excerpt": "Faith and reason are also families of relations. Faith may mean trust, loyalty, practical orientation, acceptance of testimony, hope, or assent beyond publicly decisive evidence. Reason may mean demonstration, probabilis"
-    },
-    {
-      "recordKey": "philosophy:philosophy-of-religion",
-      "status": "unreviewed",
-      "signal": "quotation",
-      "location": "figures-works/paragraph-3",
-      "excerpt": "Primary works should be read as interventions in particular disputes, not as interchangeable answers to “Does God exist?” Augustine’s Confessions joins memory, desire, time, evil, and conversion. Maimonides’ Guide for th"
-    },
-    {
-      "recordKey": "philosophy:philosophy-of-religion",
-      "status": "unreviewed",
-      "signal": "broad-classification",
-      "location": "neighboring-branches/paragraph-2",
-      "excerpt": "The field also shares territory with phenomenology and existentialism, which describe awe, guilt, anxiety, finitude, hope, and commitment without assuming that such experience proves a metaphysics. Political philosophy e"
-    },
-    {
-      "recordKey": "philosophy:philosophy-of-religion",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "misunderstandings/paragraph-1",
-      "excerpt": "The first misconception is that philosophy of religion is simply Christian apologetics. Christian debates have shaped much of the modern academic field, but Jewish, Islamic, Hindu, Buddhist, Jain, Chinese, Indigenous, an"
-    },
-    {
-      "recordKey": "philosophy:philosophy-of-religion",
-      "status": "unreviewed",
-      "signal": "quotation",
-      "location": "misunderstandings/paragraph-2",
-      "excerpt": "It is equally misleading to say that faith means believing without any reasons or that science automatically eliminates religious questions. Scientific explanations may undercut particular causal claims and illuminate ho"
-    },
-    {
-      "recordKey": "philosophy:philosophy-of-religion",
-      "status": "unreviewed",
-      "signal": "quotation",
-      "location": "reading-path/paragraph-1",
-      "excerpt": "Begin with a text that reveals how religious philosophy joins argument to a form of life. Augustine’s Confessions is accessible in episodes and connects desire, memory, time, and evil to conversion. Read Anselm’s short P"
-    },
-    {
-      "recordKey": "philosophy:philosophy-of-religion",
-      "status": "unreviewed",
-      "signal": "broad-classification",
-      "location": "reading-path/paragraph-1",
-      "excerpt": "Begin with a text that reveals how religious philosophy joins argument to a form of life. Augustine’s Confessions is accessible in episodes and connects desire, memory, time, and evil to conversion. Read Anselm’s short P"
-    },
-    {
       "recordKey": "philosophy:ancient-greek",
       "status": "bibliography-only",
       "signal": "quotation",
@@ -7823,125 +7184,6 @@
       "excerpt": "Buddhist accounts of attention, self-construction, emotion, and consciousness now enter dialogue with philosophy of mind, neuroscience, phenomenology, and cognitive science. Contemplative training may offer disciplined f"
     },
     {
-      "recordKey": "philosophy:medieval-scholasticism",
-      "status": "unreviewed",
-      "signal": "disputed-attribution",
-      "location": "overview/paragraph-1",
-      "excerpt": "Medieval scholasticism names a family of methods, institutions, and arguments rather than one doctrine. Scholastics organized inquiry around authoritative texts, sharply formulated questions, objections, distinctions, an"
-    },
-    {
-      "recordKey": "philosophy:medieval-scholasticism",
-      "status": "unreviewed",
-      "signal": "broad-classification",
-      "location": "overview/paragraph-2",
-      "excerpt": "The familiar Latin university tradition is only part of the story. It depended on Greek, Arabic, and Hebrew learning transmitted through translation, commentary, controversy, and teaching. Islamic falsafa and kalam, Jewi"
-    },
-    {
-      "recordKey": "philosophy:medieval-scholasticism",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "key-concepts/paragraph-1",
-      "excerpt": "The scholastic quaestio begins from a problem serious enough to support opposed reasons. A master states objections, often cites an authority on the other side, gives a considered answer, and responds to each objection."
-    },
-    {
-      "recordKey": "philosophy:medieval-scholasticism",
-      "status": "unreviewed",
-      "signal": "quotation",
-      "location": "key-concepts/paragraph-2",
-      "excerpt": "Universals provided a laboratory for logic and metaphysics. Do terms such as “humanity” correspond to common realities, concepts, or only linguistic signs? Realists and nominalists occupied many intermediate positions. T"
-    },
-    {
-      "recordKey": "philosophy:medieval-scholasticism",
-      "status": "unreviewed",
-      "signal": "disputed-attribution",
-      "location": "key-concepts/paragraph-3",
-      "excerpt": "Intentionality, mental language, supposition, analogy, and natural law show the breadth of the vocabulary. Theories of cognition ask how a form can be present to the mind without making the mind materially identical to i"
-    },
-    {
-      "recordKey": "philosophy:medieval-scholasticism",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "figures-works/paragraph-1",
-      "excerpt": "Boethius’ logical commentaries and Consolation of Philosophy helped frame Latin debates about universals and providence. Anselm’s Proslogion and works on freedom combine prayerful address with exact argument. Abelard’s S"
-    },
-    {
-      "recordKey": "philosophy:medieval-scholasticism",
-      "status": "unreviewed",
-      "signal": "disputed-attribution",
-      "location": "figures-works/paragraph-2",
-      "excerpt": "Maimonides’ Guide for the Perplexed addresses readers formed by Jewish law and philosophical science, emphasizing divine unity, negative theology, and careful interpretation. Aquinas’ Summa contra Gentiles, disputed ques"
-    },
-    {
-      "recordKey": "philosophy:medieval-scholasticism",
-      "status": "unreviewed",
-      "signal": "quotation",
-      "location": "figures-works/paragraph-3",
-      "excerpt": "These figures did not participate on equal institutional terms. Religious law, censorship, patronage, language, and access to schools shaped whose works circulated and how they were classified. Latin labels such as “Aver"
-    },
-    {
-      "recordKey": "philosophy:medieval-scholasticism",
-      "status": "unreviewed",
-      "signal": "quotation",
-      "location": "internal-debates/paragraph-1",
-      "excerpt": "Faith and reason were not two stable camps. Some truths were held to be demonstrable, others revealed, and still others accessible through both routes in different ways. Disagreement concerned where the boundaries lay, h"
-    },
-    {
-      "recordKey": "philosophy:medieval-scholasticism",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "internal-debates/paragraph-2",
-      "excerpt": "Divine foreknowledge, providence, and human freedom produced rival accounts of causation and will. If God knows future contingents infallibly, in what sense can they remain contingent? If God is the first cause of all be"
-    },
-    {
-      "recordKey": "philosophy:medieval-scholasticism",
-      "status": "unreviewed",
-      "signal": "broad-classification",
-      "location": "neighboring-branches/paragraph-2",
-      "excerpt": "Islamic philosophy is a neighbor and constitutive source, not an external preface to Latin achievement. Avicennian metaphysics, theories of intellect, medical learning, and Arabic commentary transformed the questions Lat"
-    },
-    {
-      "recordKey": "philosophy:medieval-scholasticism",
-      "status": "unreviewed",
-      "signal": "quotation",
-      "location": "neighboring-branches/paragraph-3",
-      "excerpt": "The relationship to early modern philosophy is equally porous. Descartes was educated in scholastic materials and defined parts of his project against them; Suárez and other later scholastics influenced metaphysics, law,"
-    },
-    {
-      "recordKey": "philosophy:medieval-scholasticism",
-      "status": "unreviewed",
-      "signal": "influence-or-causation",
-      "location": "neighboring-branches/paragraph-3",
-      "excerpt": "The relationship to early modern philosophy is equally porous. Descartes was educated in scholastic materials and defined parts of his project against them; Suárez and other later scholastics influenced metaphysics, law,"
-    },
-    {
-      "recordKey": "philosophy:medieval-scholasticism",
-      "status": "unreviewed",
-      "signal": "quotation",
-      "location": "misunderstandings/paragraph-2",
-      "excerpt": "It is also false that medieval philosophers only preserved ancient learning. Translation mattered, but Avicenna’s metaphysics, al-Ghazali’s causal criticism, Maimonides’ negative theology, Scotus’ individuation, and Ockh"
-    },
-    {
-      "recordKey": "philosophy:medieval-scholasticism",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "misunderstandings/paragraph-2",
-      "excerpt": "It is also false that medieval philosophers only preserved ancient learning. Translation mattered, but Avicenna’s metaphysics, al-Ghazali’s causal criticism, Maimonides’ negative theology, Scotus’ individuation, and Ockh"
-    },
-    {
-      "recordKey": "philosophy:medieval-scholasticism",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "reading-path/paragraph-1",
-      "excerpt": "Begin with Boethius’ Consolation of Philosophy for a literary encounter with providence, fortune, and freedom, then read a short Anselm text to see argument inside devotional address. Abelard’s prologue to Sic et Non int"
-    },
-    {
-      "recordKey": "philosophy:medieval-scholasticism",
-      "status": "unreviewed",
-      "signal": "broad-classification",
-      "location": "reading-path/paragraph-1",
-      "excerpt": "Begin with Boethius’ Consolation of Philosophy for a literary encounter with providence, fortune, and freedom, then read a short Anselm text to see argument inside devotional address. Abelard’s prologue to Sic et Non int"
-    },
-    {
       "recordKey": "philosophy:rationalism",
       "status": "bibliography-only",
       "signal": "quotation",
@@ -8198,18 +7440,18 @@
   "groupSummary": {
     "philosophers": {
       "total": 146,
-      "unreviewed": 9,
-      "bibliography-only": 43,
+      "unreviewed": 3,
+      "bibliography-only": 34,
       "source-mapped": 0,
-      "claim-reviewed": 94,
+      "claim-reviewed": 109,
       "review-out-of-date": 0
     },
     "philosophies": {
       "total": 45,
-      "unreviewed": 2,
+      "unreviewed": 0,
       "bibliography-only": 32,
       "source-mapped": 0,
-      "claim-reviewed": 11,
+      "claim-reviewed": 13,
       "review-out-of-date": 0
     },
     "standalone": {

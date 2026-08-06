@@ -134,7 +134,7 @@
     {
       "id": "philosophy-of-religion",
       "label": "Philosophy of Religion",
-      "searchText": "philosophy of religion examines faith, reason, divinity, evil, and religious experience. can religious claims be rationally assessed? method central question"
+      "searchText": "philosophy of religion examines contested claims, practices, experiences, and categories concerning gods, ultimacy, liberation, revelation, suffering, and religious life across multiple traditions. can religious claims be rationally assessed? method central question"
     },
     {
       "id": "ancient-greek",
@@ -199,7 +199,7 @@
     {
       "id": "medieval-scholasticism",
       "label": "Medieval Scholasticism",
-      "searchText": "medieval scholasticism uses structured argument to reconcile inherited authorities, reason, and theology. how can precise reasoning clarify faith and reality? method central question"
+      "searchText": "medieval scholasticism a plural family of medieval teaching, commentary, question, and disputation practices centered especially in latin schools and universities, connected to but not identical with islamic, jewish, and byzantine philosophical traditions. how can precise reasoning clarify faith and reality? method central question"
     },
     {
       "id": "rationalism",
@@ -451,27 +451,27 @@
     {
       "id": "al-kindi",
       "label": "Al-Kindi",
-      "searchText": "al-kindi reason and revelation on first philosophy islamic"
+      "searchText": "al-kindi first philosophy and divine unity intellect and the soul mathematical sciences philosophical therapy on first philosophy (incomplete) on the intellect on dispelling sorrows islamic"
     },
     {
       "id": "al-farabi",
       "label": "Al-Farabi",
-      "searchText": "al-farabi virtuous city the virtuous city islamic al-farabi on virtuous political order arabic and islamic philosophical worlds an islamic philosophical route to political knowledge, civic order, and the virtuous city. core questions forum political life portal"
+      "searchText": "al-farabi logic and the five argumentative arts classification of the sciences intellect and prophecy virtuous and imperfect cities religion and political representation enumeration of the sciences book of religion the principles of the opinions of the inhabitants of the virtuous city political regime islamic al-farabi on virtuous political order arabic and islamic philosophical worlds an islamic philosophical route to political knowledge, civic order, and the virtuous city. core questions forum political life portal"
     },
     {
       "id": "avicenna",
       "label": "Ibn Sina / Avicenna",
-      "searchText": "ibn sina / avicenna essence and existence the cure islamic avicenna on demonstration and natural inquiry arabic and islamic philosophical worlds a route to avicennian logic, demonstration, medicine, and natural philosophy in an islamic intellectual setting. core questions forum science"
+      "searchText": "ibn sina / avicenna quiddity, existence, and modality the necessary existent logic and demonstration soul and immediate self-awareness internal senses and prophecy the healing the canon of medicine pointers and reminders the salvation the book of knowledge for ala al-dawla islamic avicenna on demonstration and natural inquiry arabic and islamic philosophical worlds a route to avicennian logic, demonstration, medicine, and natural philosophy in an islamic intellectual setting. core questions forum science"
     },
     {
       "id": "al-ghazali",
       "label": "Al-Ghazali",
-      "searchText": "al-ghazali limits of reason incoherence of the philosophers islamic al-ghazali on reason, revelation, and critique islamic kalām, law, and philosophical reception an islamic route to critique and appropriation of philosophy within kalām, law, and religious practice. core questions forum philosophy of religion"
+      "searchText": "al-ghazali critique of claimed demonstration causation and divine agency logic in theology and law knowledge and spiritual discipline ethical purification the incoherence of the philosophers deliverance from error the revival of the religious sciences the niche of lights the aims of the philosophers ashari theologian, jurist, and sufi-oriented muslim thinker al-ghazali on reason, revelation, and critique islamic kalām, law, and philosophical reception an islamic route to critique and appropriation of philosophy within kalām, law, and religious practice. core questions forum philosophy of religion"
     },
     {
       "id": "averroes",
       "label": "Ibn Rushd / Averroes",
-      "searchText": "ibn rushd / averroes reason aristotelian interpretation decisive treatise islamic"
+      "searchText": "ibn rushd / averroes demonstration and revealed law interpretation and audience aristotelian commentary material and agent intellect causality and natural philosophy decisive treatise long commentary on aristotle’s de anima incoherence of the incoherence kulliyyat in medicine commentary or paraphrase on plato’s republic islamic"
     },
     {
       "id": "augustine",
@@ -766,7 +766,7 @@
     {
       "id": "mulla-sadra",
       "label": "Mulla Sadra",
-      "searchText": "mulla sadra primacy of existence substantial motion the four journeys islamic mulla sadra on existence and change safavid islamic philosophy a route to post-avicennian debates over the primacy of existence and substantial motion in their islamic philosophical setting. core questions forum reality & being"
+      "searchText": "mulla sadra primacy of existence gradation or modulation of being substantial motion knowledge by presence soul as bodily in origination and spiritual in survival imaginal bodily resurrection the four journeys metaphysical penetrations the wisdom of the throne commentary on the principles of al-kafi twelver shii and post-avicennian islamic philosophy mulla sadra on existence and change safavid islamic philosophy a route to post-avicennian debates over the primacy of existence and substantial motion in their islamic philosophical setting. core questions forum reality & being"
     },
     {
       "id": "mahavira",
