@@ -28,6 +28,7 @@ import {SOUTH_ASIAN_PRIMARY_INTERPRETATIONS} from './southAsianPrimaryInterpreta
 import {EARLY_MODERN_ENLIGHTENMENT_PRIMARY_INTERPRETATIONS} from './earlyModernEnlightenmentPrimaryInterpretations';
 import {MODERN_SYSTEMS_CORE_FIELDS_PRIMARY_INTERPRETATIONS} from './modernSystemsCoreFieldsPrimaryInterpretations';
 import {FINAL_UNIVERSAL_DEPTH_PRIMARY_INTERPRETATIONS} from './finalUniversalDepthPrimaryInterpretations';
+import {MEDIEVAL_CONNECTED_WORLDS_PRIMARY_INTERPRETATION_ENRICHMENT} from './medievalConnectedWorldsPrimaryInterpretationEnrichment';
 
 export type MuseumInterpretationSource = {
   label: string;
@@ -1383,6 +1384,7 @@ const PRIMARY_INTERPRETATION_ENRICHMENT = {
   ...EARLY_MODERN_ENLIGHTENMENT_PRIMARY_INTERPRETATIONS,
   ...MODERN_SYSTEMS_CORE_FIELDS_PRIMARY_INTERPRETATIONS,
   ...FINAL_UNIVERSAL_DEPTH_PRIMARY_INTERPRETATIONS,
+  ...MEDIEVAL_CONNECTED_WORLDS_PRIMARY_INTERPRETATION_ENRICHMENT,
 };
 
 const applyPrimaryInterpretationEnrichment = (
