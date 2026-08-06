@@ -15,6 +15,7 @@ import {
   museumHallHasPermanentStructure,
   type MuseumPermanentStructuralHallId,
 } from './museumStructuralResidency';
+import {MUSEUM_GRAND_ENTRANCE_FRONT_DESK} from './museumGrandEntranceFurnishings';
 import {MUSEUM_VISITOR_MAP_KIOSK} from './museumVisitorMapKioskDefinition';
 import {MEDITERRANEAN_ORIENTATION_DISPLAY} from './mediterraneanGalleryCuration';
 import {
@@ -345,7 +346,9 @@ const createNavigationLayout = (
   const furnishings = [
     ...(node.geometry?.furnishings ?? []),
     ...(node.id === MUSEUM_VISITOR_MAP_KIOSK.nodeId ? [MUSEUM_VISITOR_MAP_KIOSK] : []),
-    ...(node.id === MUSEUM_BUILDING_MANIFEST.mainEntrance.nodeId ? [MEDITERRANEAN_ORIENTATION_DISPLAY] : []),
+    ...(node.id === MUSEUM_BUILDING_MANIFEST.mainEntrance.nodeId
+      ? [MEDITERRANEAN_ORIENTATION_DISPLAY, MUSEUM_GRAND_ENTRANCE_FRONT_DESK]
+      : []),
   ];
   return {
     id: node.id,

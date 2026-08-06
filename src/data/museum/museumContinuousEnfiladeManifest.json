@@ -6845,7 +6845,7 @@
           "arrivalPose": {
             "x": 18,
             "z": 0,
-            "yaw": 0.726642340682,
+            "yaw": 1.923786714622,
             "pitch": 0
           },
           "openingState": "external-open",
@@ -6932,8 +6932,15 @@
       "orientationLandmark": {
         "id": "entrance-visitor-map-kiosk",
         "position": {
-          "x": 10,
-          "z": -9
+          "x": -11.4,
+          "z": 6.4
+        }
+      },
+      "arrivalFocalPoint": {
+        "id": "gallery-01-threshold",
+        "position": {
+          "x": -20,
+          "z": 14
         }
       }
     },

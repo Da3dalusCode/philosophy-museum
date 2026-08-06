@@ -51,7 +51,7 @@ export class RouteLoadBoundary extends Component<RouteLoadBoundaryProps, RouteLo
       <p>A deployment may have replaced an older cached module. Reload the atlas to request the current files.</p>
       <div className="route-load-actions">
         <button className="btn btn-primary" type="button" onClick={() => window.location.reload()}>Reload atlas</button>
-        <a className="btn" href={routeToHash(DEFAULT_ROUTES.history)}>Return to Big History</a>
+        <a className="btn" href={routeToHash(DEFAULT_ROUTES.museum)}>Return to Museum</a>
       </div>
     </section>;
   }

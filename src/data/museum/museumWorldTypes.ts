@@ -36,7 +36,7 @@ export type MuseumWallDefinition = MuseumCollider & {
 };
 
 export type MuseumFurnishingDefinition = MuseumCollider & {
-  kind: 'bench' | 'orientation-plinth' | 'translation-table' | 'threshold-marker' | 'visitor-map-kiosk';
+  kind: 'bench' | 'orientation-plinth' | 'reception-desk' | 'translation-table' | 'threshold-marker' | 'visitor-map-kiosk';
   height: number;
 };
 

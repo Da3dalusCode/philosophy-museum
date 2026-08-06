@@ -174,10 +174,11 @@ const createHistoryHarness = (initialHash = '') => {
   return {calls, emit, listeners, state, target};
 };
 
-check('empty and root hashes canonicalize to Big History', () => {
+check('empty and root hashes canonicalize to the Museum', () => {
   for (const hash of ['', '#', '#/']) {
-    const parsed = expectKind(hash, 'history');
-    assert.equal(parsed.canonicalHash, '#/history');
+    const parsed = expectKind(hash, 'museum');
+    assert.deepEqual(parsed.route, DEFAULT_ROUTES.museum);
+    assert.equal(parsed.canonicalHash, '#/museum');
     assert.equal(parsed.shouldReplace, true);
   }
 });

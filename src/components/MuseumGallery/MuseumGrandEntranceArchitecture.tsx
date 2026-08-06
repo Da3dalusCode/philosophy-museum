@@ -1,4 +1,5 @@
 import type {MuseumRuntimeNodeDefinition} from '../../data/museum/museumWorldTypes';
+import {MUSEUM_GRAND_ENTRANCE_FRONT_DESK} from '../../data/museum/museumGrandEntranceFurnishings';
 
 const BRONZE = {
   color: '#9d7546',
@@ -183,7 +184,7 @@ function ExteriorArrival({x, z}: {x: number; z: number}) {
 
 function OrientationOculus() {
   return <group
-    position={[10, 3, -27.55]}
+    position={[0, 3, -27.55]}
     userData={{museumEntranceFeature: 'orientation-oculus'}}
   >
     {[2.3, 2.04].map((radius) => <mesh key={radius} scale={[1.75, 1, 1]}>
@@ -206,6 +207,42 @@ function OrientationOculus() {
         emissiveIntensity={.72}
         roughness={.28}
         metalness={.64}
+      />
+    </mesh>
+  </group>;
+}
+
+function FrontDesk() {
+  const desk = MUSEUM_GRAND_ENTRANCE_FRONT_DESK;
+  return <group
+    position={[desk.center.x, 0, desk.center.z]}
+    rotation={[0, desk.rotation, 0]}
+    userData={{museumEntranceFeature: 'front-desk', furnishingId: desk.id}}
+  >
+    <mesh position={[0, .54, 0]}>
+      <boxGeometry args={[desk.size.width, 1.02, desk.size.depth]}/>
+      <meshStandardMaterial {...LIMESTONE}/>
+    </mesh>
+    <mesh position={[0, 1.09, 0]}>
+      <boxGeometry args={[desk.size.width + .24, .14, desk.size.depth + .16]}/>
+      <meshStandardMaterial {...DARK_BRONZE}/>
+    </mesh>
+    <mesh position={[0, .58, desk.size.depth / 2 + .025]}>
+      <boxGeometry args={[4.72, .55, .08]}/>
+      <meshStandardMaterial {...DARK_BRONZE}/>
+    </mesh>
+    {[-1.66, 0, 1.66].map((x) => <mesh key={x} position={[x, .58, desk.size.depth / 2 + .075]}>
+      <boxGeometry args={[.055, .42, .055]}/>
+      <meshStandardMaterial {...BRONZE}/>
+    </mesh>)}
+    <mesh position={[0, .58, desk.size.depth / 2 + .09]}>
+      <boxGeometry args={[1.05, .06, .04]}/>
+      <meshStandardMaterial
+        color="#e8b56d"
+        emissive="#9d5c2b"
+        emissiveIntensity={.68}
+        roughness={.3}
+        metalness={.6}
       />
     </mesh>
   </group>;
@@ -268,8 +305,9 @@ export function MuseumGrandEntranceArchitecture({node}: {node: MuseumRuntimeNode
     <CofferedCeiling/>
     <ExteriorArrival x={publicEntry.position.x} z={publicEntry.position.z}/>
     <OrientationOculus/>
+    <FrontDesk/>
     <GalleryOnePortal x={throughRoute.position.x} z={throughRoute.position.z}/>
-    {[-13, -3, 7, 17].flatMap((x) => [
+    {[-15, -7, 7, 15].flatMap((x) => [
       <WallPilaster key={`${x}:south`} x={x} z={-27.62} inward={1}/>,
       <WallPilaster key={`${x}:north`} x={x} z={27.62} inward={-1}/>,
     ])}

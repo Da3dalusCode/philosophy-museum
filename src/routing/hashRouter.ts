@@ -158,7 +158,7 @@ export const parseHashRoute = (hash: string): ParsedHashRoute => {
     return fail(hash, 'The route contains malformed percent encoding.');
   }
 
-  if (!pathPart || pathPart === '/') return finalize(DEFAULT_ROUTES.history, hash);
+  if (!pathPart || pathPart === '/') return finalize(DEFAULT_ROUTES.museum, hash);
   if (!pathPart.startsWith('/')) return fail(hash, 'Application routes must begin with “#/”.');
 
   const rawSegments = pathPart.slice(1).split('/');

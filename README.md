@@ -1,23 +1,23 @@
 # Philosophy Atlas
 
-**A free, interactive atlas of philosophy as a connected history of ideas.**
+**A free, walkable museum and interactive atlas of philosophy as a connected history of ideas.**
 
-[Explore the live site](https://da3daluscode.github.io/philosophy-museum/) · [Enter the walkable Museum](https://da3daluscode.github.io/philosophy-museum/#/museum) · [Read the editorial methodology](https://da3daluscode.github.io/philosophy-museum/#/methodology)
+[Enter the live Museum](https://da3daluscode.github.io/philosophy-museum/) · [Open Big History](https://da3daluscode.github.io/philosophy-museum/#/history) · [Read the editorial methodology](https://da3daluscode.github.io/philosophy-museum/#/methodology)
 
 ## What Philosophy Atlas is
 
-Philosophy Atlas is a browser-based educational project for exploring how philosophical questions, schools, thinkers, works, and disagreements develop across time and cultures. It presents philosophy as an evolving conversation rather than a list of isolated biographies.
+Philosophy Atlas is a browser-based educational project that welcomes visitors through a walkable Museum, then opens into timelines, maps, articles, comparisons, and learning paths showing how philosophical questions, schools, thinkers, works, and disagreements develop across time and cultures. It presents philosophy as an evolving conversation rather than a list of isolated biographies.
 
-The Atlas combines long-form articles, historical timelines, conceptual maps, comparisons, guided learning paths, search, and a walkable 3D Museum. It is static and local-first: there is no account, backend, advertising, subscription, or paid service requirement.
+The Museum is the default public entrance; every other Atlas tool remains directly available. The project is static and local-first: there is no account, backend, advertising, subscription, or paid service requirement.
 
 ## Highlights
 
 - **191 long-form canonical articles:** 146 philosopher profiles and 45 records covering philosophies, branches, schools, traditions, movements, methods, and frameworks.
+- **Walkable Museum:** the default visitor entrance, with 26 curated/open galleries and 105 rooms on one connected public level, guided travel, and a complete directory for visitors who prefer not to use free movement.
 - **[Big History](https://da3daluscode.github.io/philosophy-museum/#/history):** a filterable chronology connecting thinkers, traditions, works, and major historical developments.
 - **[Branch Explorer](https://da3daluscode.github.io/philosophy-museum/#/branches) and [Philosophy Map](https://da3daluscode.github.io/philosophy-museum/#/map):** complementary ways to follow concepts, disagreements, inheritance, opposition, and transformation.
 - **[Philosopher profiles](https://da3daluscode.github.io/philosophy-museum/#/philosophers), [Compare](https://da3daluscode.github.io/philosophy-museum/#/compare), and [Learning Paths](https://da3daluscode.github.io/philosophy-museum/#/paths):** focused reading, side-by-side study, and guided routes through major questions and periods.
 - **Global search:** coverage across philosophers, traditions, Museum galleries, and individual exhibits.
-- **Walkable Museum:** 26 curated/open galleries and 105 rooms on one connected public level, with guided travel and a complete directory for visitors who prefer not to use free movement.
 
 ## Editorial depth and sourcing
 
@@ -43,7 +43,7 @@ Visitors can walk freely, follow guided travel between safe viewpoints, or use t
 
 ## Controls
 
-- Choose **Enter museum**, then use **W A S D** or the arrow keys to move.
+- Choose **Begin Museum Visit**, then use **W A S D** or the arrow keys to move.
 - Choose **Standard** or **Fast** as the preferred pace; hold **Shift** for temporary Fast movement on desktop.
 - Press **Space** to jump.
 - Press **Ctrl** or **C** while moving to slide. Jump during a slide to cancel it into a brief airborne momentum boost.

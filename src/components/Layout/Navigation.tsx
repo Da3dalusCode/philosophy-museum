@@ -1,12 +1,12 @@
 import {useEffect, useId, useRef, useState, type MouseEvent} from 'react';
-import {BookOpen, Compass, GitCompareArrows, History, Landmark, Map, Menu, Route, Users, X} from 'lucide-react';
+import {Compass, GitCompareArrows, History, Landmark, Map, Menu, Route, Users, X} from 'lucide-react';
 import {subscribeToHashRoute} from '../../routing/hashHistory';
 import {DEFAULT_ROUTES, type NavigableAppRoute, type RouteHref} from '../../routing/routes';
 import type {ViewId} from '../../types/philosophy';
 
 const items: [ViewId, string, typeof History, NavigableAppRoute][] = [
-  ['history', 'Big History', History, DEFAULT_ROUTES.history],
   ['museum', 'Museum', Landmark, DEFAULT_ROUTES.museum],
+  ['history', 'Big History', History, DEFAULT_ROUTES.history],
   ['branches', 'Branch Explorer', Compass, DEFAULT_ROUTES.branch],
   ['map', 'Philosophy Map', Map, DEFAULT_ROUTES.map],
   ['philosophers', 'Philosophers', Users, DEFAULT_ROUTES.philosopher],
@@ -104,7 +104,7 @@ export function Navigation({view, href, onRouteIntent}: {
 
   return <nav className="primary-nav" aria-label="Primary navigation">
     <div className="nav-mast">
-      <a className="brand" aria-label="Philosophy Atlas — Big History" href={href(DEFAULT_ROUTES.history)} onClick={(event) => closeFromRouteActivation(event, view === 'history')}><BookOpen size={20}/><span>Philosophy <b>Atlas</b></span></a>
+      <a className="brand" aria-label="Philosophy Atlas — Museum" href={href(DEFAULT_ROUTES.museum)} onClick={(event) => closeFromRouteActivation(event, view === 'museum')}><Landmark size={20}/><span>Philosophy <b>Atlas</b></span></a>
       <button
         className="mobile-nav-toggle"
         ref={toggleRef}

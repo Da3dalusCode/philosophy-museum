@@ -68,6 +68,7 @@ export type MuseumManifestNode = {
   geometryAdapterId?: string;
   routePortals?: Readonly<Record<string, string>>;
   orientationLandmark?: {id: string; position: MuseumPoint};
+  arrivalFocalPoint?: {id: string; position: MuseumPoint};
   fastTravelEligible?: boolean;
   implementationStatus: MuseumImplementationStatus;
   levelId: 'L0';

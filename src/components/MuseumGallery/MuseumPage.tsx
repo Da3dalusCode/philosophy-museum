@@ -509,6 +509,7 @@ export function MuseumPage({route, href, push, replace}: {
   const backgroundRef = useRef<HTMLDivElement>(null);
   const sceneCanvasRef = useRef<HTMLCanvasElement | null>(null);
   const overlayOpenerRef = useRef<HTMLElement | null>(null);
+  const beginVisitButtonRef = useRef<HTMLButtonElement | null>(null);
   const resumeButtonRef = useRef<HTMLButtonElement | null>(null);
   const overlayReturnFocusPendingRef = useRef(false);
   const visitorMapResumeRef = useRef(false);
@@ -623,10 +624,17 @@ export function MuseumPage({route, href, push, replace}: {
   const [poseRevision, setPoseRevision] = useState(0);
   const LazyMuseumWorldScene = useMemo(createLazyMuseumWorldScene, [sceneEpoch]);
   const reducedMotion = useReducedMotion();
-  const modalOpen = Boolean(exhibit || supplementalExhibit || overlay);
+  const intentionalInterfaceOpen = Boolean(exhibit || supplementalExhibit || overlay);
   const activeHallLoadFailed = Boolean(activeNode.publicHallId) && hallLoadStatus[activeHallId] === 'failed';
   const activeHallLoading = Boolean(activeNode.publicHallId)
     && (hallLoadStatus[activeHallId] === 'idle' || hallLoadStatus[activeHallId] === 'loading');
+  const entranceStartOffered = atGrandEntrance
+    && visitPhase === 'unentered'
+    && !intentionalInterfaceOpen
+    && !sceneError
+    && !activeHallLoading
+    && !activeHallLoadFailed;
+  const modalOpen = intentionalInterfaceOpen || entranceStartOffered;
   const blocked = modalOpen || Boolean(sceneError) || activeHallLoading;
   const exploring = visitPhase === 'active';
   const focusSuspended = visitPhase === 'focus-suspended';
@@ -1563,6 +1571,12 @@ export function MuseumPage({route, href, push, replace}: {
   }, [experience.clearError, modalOpen]);
 
   useEffect(() => {
+    if (!entranceStartOffered) return;
+    const frame = window.requestAnimationFrame(() => beginVisitButtonRef.current?.focus({preventScroll: true}));
+    return () => window.cancelAnimationFrame(frame);
+  }, [entranceStartOffered]);
+
+  useEffect(() => {
     if (!resumeVisitOffered) return;
     let frame = 0;
     const focusResume = () => {
@@ -2175,7 +2189,7 @@ export function MuseumPage({route, href, push, replace}: {
                   : 'Main-level circulation'}</p>
             {!atCuratedHall && <p className="museum-masthead-location">Current location · {activeNode.mapLabel}</p>}
             {atCuratedHall && <p className="museum-masthead-sweep">{hall.sweep.map((item, index) => <span key={item}>{index > 0 && <i aria-hidden="true">→</i>}{item}</span>)}</p>}
-            {!resumeVisitOffered && <div className="museum-entry-row">
+            {!resumeVisitOffered && !entranceStartOffered && <div className="museum-entry-row">
               <button
                 id="museum-enter-button"
                 className="museum-enter-button"
@@ -2198,7 +2212,7 @@ export function MuseumPage({route, href, push, replace}: {
             </div>}
           </header>
 
-          <nav className="museum-utility-bar" aria-label="Museum display and navigation controls">
+          {!entranceStartOffered && <nav className="museum-utility-bar" aria-label="Museum display and navigation controls">
             <button className="museum-control-map" type="button" onClick={showVisitorMap} aria-expanded={overlay === 'visitor-map'} aria-label="Open Museum visitor map" title="Visitor map (M)"><MapIcon size={16}/><span>MAP (M)</span></button>
             <button className="museum-control-directory" type="button" onClick={() => pauseAndOpen('directory')} aria-expanded={overlay === 'directory'} aria-label="Open Museum directory" title="Directory"><MapPinned size={16}/><span>Directory</span></button>
             <button className="museum-control-help" type="button" onClick={() => pauseAndOpen('help')} aria-expanded={overlay === 'help'} aria-label="Open Museum controls and access help" title="Controls"><Info size={16}/><span>Controls</span></button>
@@ -2206,7 +2220,7 @@ export function MuseumPage({route, href, push, replace}: {
             <button className="museum-control-immersive" type="button" onClick={experience.toggleImmersive} aria-pressed={experience.immersive} aria-label={experience.immersive ? 'Exit immersive Museum mode' : 'Enter immersive Museum mode'} title={experience.immersive ? 'Exit immersive' : 'Enter immersive'}><Scan size={16}/><span>{experience.immersive ? 'Exit immersive' : 'Immersive'}</span></button>
             {experience.fullscreenSupported && <button className="museum-control-fullscreen" type="button" onClick={() => void experience.toggleFullscreen()} aria-pressed={experience.fullscreen} aria-label={experience.fullscreen ? 'Exit browser fullscreen' : 'Enter browser fullscreen'} title={experience.fullscreen ? 'Exit fullscreen' : 'Enter fullscreen'}>{experience.fullscreen ? <Minimize2 size={16}/> : <Maximize2 size={16}/>}<span>{experience.fullscreen ? 'Exit fullscreen' : 'Fullscreen'}</span></button>}
             {exploring && <button className="museum-pause-button" type="button" onClick={controls.pauseExploring} aria-label="Pause Museum visit">Pause visit</button>}
-          </nav>
+          </nav>}
 
           {resumeVisitOffered && <section
             className="museum-resume-visit"
@@ -2222,7 +2236,7 @@ export function MuseumPage({route, href, push, replace}: {
             </div>
           </section>}
 
-          {atGrandEntrance && !activeIntent && overlay === null && <aside className="museum-route-choice-card" aria-label="Choose how to begin your Museum visit">
+          {atGrandEntrance && !activeIntent && !entranceStartOffered && overlay === null && <aside className="museum-route-choice-card" aria-label="Choose how to begin your Museum visit">
             <div>
               <p className="eyebrow">Grand Entrance orientation</p>
               <h2>Start your visit</h2>
@@ -2300,6 +2314,30 @@ export function MuseumPage({route, href, push, replace}: {
         />
         <div className="museum-live-region sr-only" aria-live="polite" aria-atomic="true">{announcement}</div>
       </div>
+
+      {entranceStartOffered && <section
+        className="museum-first-visit"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="museum-first-visit-title"
+      >
+        <div className="museum-first-visit-card">
+          <p className="eyebrow">Your visit begins here</p>
+          <h2 id="museum-first-visit-title">Enter the Museum</h2>
+          <p className="museum-first-visit-support">Begin in the Grand Entrance facing Gallery 01, then follow the path through philosophy’s unfolding conversation.</p>
+          <button ref={beginVisitButtonRef} type="button" onClick={beginExploring} autoFocus>
+            <DoorOpen size={21}/> Begin Museum Visit
+          </button>
+          {canResumeLastMuseumVisit && <button
+            className="museum-first-visit-resume"
+            type="button"
+            onClick={resumeLastMuseumVisit}
+            title={savedMuseumHall ? `Resume in ${savedMuseumHall.title}` : 'Resume saved Museum visit'}
+          >
+            Resume saved visit
+          </button>}
+        </div>
+      </section>}
 
       {!modalOpen && experience.fullscreenError && <div className="museum-status-message" role="status"><span>{experience.fullscreenError}</span><button type="button" onClick={experience.clearError}>Dismiss</button></div>}
       {!modalOpen && activeHallLoading && !sceneError && <div className="museum-load-chip" role="status">Preparing {hall.title}…</div>}

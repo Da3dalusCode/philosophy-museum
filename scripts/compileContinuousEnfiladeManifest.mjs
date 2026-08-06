@@ -540,7 +540,7 @@ const rectangularNode = ({
 const entranceBounds = planBoundsToRuntime(plan.grandEntrance.bounds);
 const entranceOrientationLandmark = {
   id: 'entrance-visitor-map-kiosk',
-  position: {x: 10, z: -9},
+  position: {x: -11.4, z: 6.4},
 };
 const entranceNode = rectangularNode({
   id: plan.grandEntrance.id,
@@ -577,10 +577,16 @@ const entranceNode = rectangularNode({
   },
 });
 const publicEntrySlot = entranceNode.doorwaySlots.find(({id}) => id === 'public-entry');
+const throughRouteSlot = entranceNode.doorwaySlots.find(({id}) => id === 'through-route');
 assert(publicEntrySlot, 'The Grand Entrance public doorway is missing.');
+assert(throughRouteSlot, 'The Grand Entrance Gallery 01 doorway is missing.');
+entranceNode.arrivalFocalPoint = {
+  id: 'gallery-01-threshold',
+  position: clone(throughRouteSlot.position),
+};
 publicEntrySlot.arrivalPose.yaw = round(Math.atan2(
-  -(entranceOrientationLandmark.position.x - publicEntrySlot.arrivalPose.x),
-  -(entranceOrientationLandmark.position.z - publicEntrySlot.arrivalPose.z),
+  -(entranceNode.arrivalFocalPoint.position.x - publicEntrySlot.arrivalPose.x),
+  -(entranceNode.arrivalFocalPoint.position.z - publicEntrySlot.arrivalPose.z),
 ), 12);
 
 const crossingNodes = plan.crosscut.intersections
@@ -1505,8 +1511,8 @@ const validateManifest = (candidate) => {
       const expectedArrivalYaw = node.id === candidate.mainEntrance.nodeId
         && slot.id === candidate.mainEntrance.slotId
         ? round(Math.atan2(
-            -(node.orientationLandmark.position.x - slot.arrivalPose.x),
-            -(node.orientationLandmark.position.z - slot.arrivalPose.z),
+            -(node.arrivalFocalPoint.position.x - slot.arrivalPose.x),
+            -(node.arrivalFocalPoint.position.z - slot.arrivalPose.z),
           ), 12)
         : round(Math.atan2(-slot.inwardNormal.x, -slot.inwardNormal.z), 12);
       assert.equal(slot.arrivalPose.yaw, expectedArrivalYaw);

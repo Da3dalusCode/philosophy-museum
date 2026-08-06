@@ -8,7 +8,7 @@ import {
 import {parseHashRoute, serializeHashRoute} from './hashRouter';
 import type {AppRoute, NavigableAppRoute, RouteNavigationOptions, RouteNavigator} from './routes';
 
-const serverHash = '#/history';
+const serverHash = '#/museum';
 
 const currentHash = (): string =>
   typeof window === 'undefined' ? serverHash : window.location.hash;

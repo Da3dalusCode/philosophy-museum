@@ -24,6 +24,8 @@ const result = await build({
       export * from '/src/data/museum/gallery01SupplementalExhibits.ts';
       export * from '/src/data/museum/museumArchitectureMaterials.ts';
       export * from '/src/data/museum/museumBuildingRuntime.ts';
+      export * from '/src/data/museum/museumGrandEntranceFurnishings.ts';
+      export * from '/src/data/museum/museumVisitorMapKioskDefinition.ts';
       export * from '/src/data/museum/ancientGreekHall.ts';
     ` : undefined,
   }],
@@ -62,7 +64,9 @@ const {
   MEDITERRANEAN_ORIENTATION_DISPLAY,
   MUSEUM_CANONICAL_EXHIBIT_PLINTH_GEOMETRY,
   MUSEUM_CANONICAL_PROGRAM,
+  MUSEUM_GRAND_ENTRANCE_FRONT_DESK,
   MUSEUM_RUNTIME_NODES,
+  MUSEUM_VISITOR_MAP_KIOSK,
   PLATO_SUPPLEMENTAL_BACKING_WIDTH,
   PLATO_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
 } = museum;
@@ -146,6 +150,17 @@ const visibleFacing = (position, rotation, viewpoint, label) => {
   const length = Math.hypot(vector.x, vector.z);
   assert(length > .25, `${label} viewpoint collapses into its installation`);
   assert((front.x * vector.x + front.z * vector.z) / length > .98, `${label} viewpoint cannot see its front face`);
+};
+const distanceToSegment = (point, start, end) => {
+  const delta = {x: end.x - start.x, z: end.z - start.z};
+  const lengthSquared = delta.x ** 2 + delta.z ** 2;
+  const progress = lengthSquared === 0
+    ? 0
+    : Math.max(0, Math.min(1, ((point.x - start.x) * delta.x + (point.z - start.z) * delta.z) / lengthSquared));
+  return Math.hypot(
+    point.x - (start.x + delta.x * progress),
+    point.z - (start.z + delta.z * progress),
+  );
 };
 const wallFace = (position, rotation, roomBounds) => {
   if (Math.abs(position.x + 10.85) < .001 && Math.abs(rotation - Math.PI / 2) < .001) return 'outer-west';
@@ -301,6 +316,17 @@ assert.deepEqual(MEDITERRANEAN_ORIENTATION_DISPLAY.center, GALLERY_01_ENTRANCE_O
 approx(MEDITERRANEAN_ORIENTATION_DISPLAY.rotation, GALLERY_01_ENTRANCE_ORIENTATION_PLACEMENT.rotation, 'Entrance orientation rotation');
 const entranceNode = MUSEUM_RUNTIME_NODES.find(({id}) => id === 'place:grand-entrance-orientation');
 assert(entranceNode, 'Grand Entrance runtime node is missing');
+const publicEntry = entranceNode.entrances.find(({id}) => id === 'public-entry');
+const gallery01Threshold = entranceNode.entrances.find(({id}) => id === 'through-route');
+assert(publicEntry && gallery01Threshold, 'Grand Entrance route thresholds are missing');
+approx(
+  entranceNode.layout.spawn.yaw,
+  Math.atan2(
+    -(gallery01Threshold.position.x - entranceNode.layout.spawn.x),
+    -(gallery01Threshold.position.z - entranceNode.layout.spawn.z),
+  ),
+  'Grand Entrance spawn must face the Gallery 01 threshold',
+);
 assert(contains(entranceNode.layout.bounds, orientationPhysicalBounds, .08), 'Orientation landmark leaves the Grand Entrance');
 assert.deepEqual(
   entranceNode.layout.furnishings.find(({id}) => id === MEDITERRANEAN_ORIENTATION_DISPLAY.id),
@@ -319,6 +345,64 @@ visibleFacing(
 );
 const entranceRoute = {minX: -2.5, maxX: 2.5, minZ: entranceNode.layout.bounds.minZ, maxZ: entranceNode.layout.bounds.maxZ};
 assert(!overlaps(orientationPhysicalBounds, entranceRoute, .34), 'The entrance orientation landmark blocks the chronological route');
+const mapBounds = rotatedBounds(
+  MUSEUM_VISITOR_MAP_KIOSK.center,
+  MUSEUM_VISITOR_MAP_KIOSK.rotation,
+  MUSEUM_VISITOR_MAP_KIOSK.size.width,
+  MUSEUM_VISITOR_MAP_KIOSK.size.depth,
+);
+const deskBounds = rotatedBounds(
+  MUSEUM_GRAND_ENTRANCE_FRONT_DESK.center,
+  MUSEUM_GRAND_ENTRANCE_FRONT_DESK.rotation,
+  MUSEUM_GRAND_ENTRANCE_FRONT_DESK.size.width,
+  MUSEUM_GRAND_ENTRANCE_FRONT_DESK.size.depth,
+);
+for (const furnishing of [MUSEUM_VISITOR_MAP_KIOSK, MUSEUM_GRAND_ENTRANCE_FRONT_DESK]) {
+  assert.deepEqual(
+    entranceNode.layout.furnishings.find(({id}) => id === furnishing.id),
+    furnishing,
+    `${furnishing.id} is detached from the Grand Entrance runtime`,
+  );
+  assert(
+    entranceNode.layout.obstacleColliders.some(({id}) => id === furnishing.id),
+    `${furnishing.id} lacks movement collision`,
+  );
+}
+assert(contains(entranceNode.layout.bounds, mapBounds, .08), 'The Museum Map leaves the Grand Entrance');
+assert(contains(entranceNode.layout.bounds, deskBounds, .08), 'The front desk leaves the Grand Entrance');
+visibleFacing(
+  MUSEUM_VISITOR_MAP_KIOSK.center,
+  MUSEUM_VISITOR_MAP_KIOSK.rotation,
+  MUSEUM_VISITOR_MAP_KIOSK.approachPose,
+  'Museum Map orientation stop',
+);
+const sideOfGalleryRoute = (point) => {
+  const route = {
+    x: gallery01Threshold.position.x - entranceNode.layout.spawn.x,
+    z: gallery01Threshold.position.z - entranceNode.layout.spawn.z,
+  };
+  const offset = {x: point.x - entranceNode.layout.spawn.x, z: point.z - entranceNode.layout.spawn.z};
+  return route.x * offset.z - route.z * offset.x;
+};
+assert(sideOfGalleryRoute(MEDITERRANEAN_ORIENTATION_DISPLAY.center) < 0, 'The Gallery 01 orientation sign must remain left of the arrival route');
+assert(sideOfGalleryRoute(MUSEUM_VISITOR_MAP_KIOSK.center) > 0, 'The Museum Map must stand right of the arrival route');
+assert(
+  Math.hypot(
+    MUSEUM_VISITOR_MAP_KIOSK.center.x - gallery01Threshold.position.x,
+    MUSEUM_VISITOR_MAP_KIOSK.center.z - gallery01Threshold.position.z,
+  ) < 12,
+  'The Museum Map is not close enough to serve as a pre–Gallery 01 orientation stop',
+);
+assert(!overlaps(mapBounds, orientationPhysicalBounds, .5), 'The Museum Map crowds the Gallery 01 orientation sign');
+assert(!overlaps(mapBounds, deskBounds, .5), 'The Museum Map crowds the front desk');
+assert(
+  distanceToSegment(MUSEUM_VISITOR_MAP_KIOSK.center, entranceNode.layout.spawn, gallery01Threshold.position) > 3.2,
+  'The Museum Map blocks the direct Gallery 01 arrival path',
+);
+assert(
+  distanceToSegment(MUSEUM_GRAND_ENTRANCE_FRONT_DESK.center, entranceNode.layout.spawn, gallery01Threshold.position) > 5,
+  'The front desk blocks the direct Gallery 01 arrival path',
+);
 
 const routeBounds = {
   minX: -GALLERY_01_ROUTE_HALF_WIDTH,

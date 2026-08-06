@@ -235,7 +235,7 @@ function CirculationNode({node}: {node: MuseumRuntimeNodeDefinition}) {
         title="Welcome"
         kicker="Philosophy Atlas Museum · Grand Entrance"
         subtitle="Twenty-six galleries · one unfolding conversation"
-        position={[10, 3.05, entranceCell.bounds.minZ + .7]}
+        position={[0, 3.05, entranceCell.bounds.minZ + .7]}
         width={6.7}
         twoSided
       />
