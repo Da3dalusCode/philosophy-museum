@@ -20,7 +20,7 @@ The hard floor is **2,000 substantive article-prose words**. The counter tokeniz
 
 Universal total: **191** applicable articles; **191 pass**; **0 fail**; **0 are missing article prose**.
 
-Current failures are migration backlog, not approved exceptions. The strict audit is intentionally separate from the ordinary build until that backlog reaches zero.
+There are no current failures. Any future below-floor or missing canonical article is a release-blocking regression, not an approved exception.
 
 ## Pilot prose changes
 

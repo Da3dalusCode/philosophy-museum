@@ -1,6 +1,6 @@
 # Philosophy Atlas Museum masterplan
 
-**Status:** the 26-gallery intellectual program and the dimensioned single-level **Continuous Enfilade** are implemented together. [Accepted Decision 0001](../decisions/0001-museum-structure.md) locks the Continuous Enfilade as the permanent physical architecture unless the owner explicitly opens a new architecture redesign; the earlier Ring is superseded planning history. The production runtime contains all 26 galleries curated/open, all 105 named rooms, and two closed expansion reserves. Its live directory contains 191 primary exhibits and 406 supplemental/context installations, for 597 interpreted stops. The halls expose 260 primary-record capacity with 69 reserve slots. Compatibility routing retains all 48 carried legacy exhibit routes with no displaced-record handoff.
+**Status:** the 26-gallery intellectual program and the dimensioned single-level **Continuous Enfilade** are implemented together. [Accepted Decision 0001](../decisions/0001-museum-structure.md) locks the Continuous Enfilade as the permanent physical architecture unless the owner explicitly opens a new architecture redesign; the earlier Ring is superseded planning history. The production runtime contains all 26 galleries curated/open, all 105 named rooms, and two closed expansion reserves. Its live directory contains 191 primary exhibits and 409 supplemental/context installations, for 600 interpreted stops. The halls expose 260 primary-record capacity with 69 reserve slots. Compatibility routing retains all 48 carried legacy exhibit routes with no displaced-record handoff.
 
 ## Whole-building architectural control plan
 
@@ -35,7 +35,7 @@ The hybrid program best satisfies the project’s priority order:
 1. It does not reduce Islamic, Jewish, South Asian, Buddhist, Chinese, or East Asian philosophies to sidebars in a European chronology.
 2. It preserves historical development: visitors can still follow ancient, medieval, early-modern, nineteenth-century, and modern sequences.
 3. It handles philosophers important to several fields without duplicating them. Aristotle, Kant, Wittgenstein, Foucault, and others receive one physical home and strong secondary interpretation elsewhere.
-4. Its 71-record capacity margin supports new Atlas content and rotation without forcing an immediate new wing.
+4. Its 69-record capacity margin supports new Atlas content and rotation without forcing an immediate new wing.
 5. A small set of reusable gallery templates can realize the program gradually.
 
 The Continuous Enfilade is approved because it keeps the visitor moving through galleries instead of empty interstitial corridors, gives every gallery a far-side continuation, places the Forum in an independent full bay, creates a useful central crosscut without piercing exhibit rooms, and reserves two additional gallery bays without sacrificing an existing wall. The Braided Promenade, Pavilion Campus, and Ring remain archived design history.

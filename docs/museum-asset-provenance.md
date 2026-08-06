@@ -2,7 +2,7 @@
 
 > Current inventory and policy are stated first. The canonical-six and Phase 2 tables later in this file are preserved historical evidence, not the live roster. If a prose count drifts, `src/data/museum/museumAssets.ts` and `npm run audit:museum-assets` are authoritative.
 
-The current Museum registry contains **654 provenance records** and **1,308 committed local WebP derivatives**, with scene and panel variants for every registered source object. The complete 26-gallery Museum contains **597 interpreted stops**—191 primary exhibits and 406 supplemental/context exhibits—and resolves **612 live media placements**. Preparation manifests maintain **1,276 exact derivative hash locks**.
+The current Museum registry contains **657 provenance records** and **1,314 committed local WebP derivatives**, with scene and panel variants for every registered source object. The complete 26-gallery Museum contains **600 interpreted stops**—191 primary exhibits and 409 supplemental/context exhibits—and resolves **615 live media placements**. Preparation manifests maintain **1,276 exact derivative hash locks**.
 
 Typed records are assembled by `src/data/museum/museumAssets.ts` from the Ancient, modern, expansion, canonical, and gallery-specific registries. They preserve titles, creators, object dates, institutions, exact source pages, rights terms, attribution, transformation notices, dimensions, alt text, captions, focal points, and likeness cautions.
 
@@ -159,4 +159,4 @@ These two manifests are historical foundations of the lock system, not the whole
 - CC BY-SA 2.0, 3.0, and 4.0
 - Commons public-domain templates for anonymous European works, Portugal, and U.S. press material
 
-Run `npm run audit:museum-assets` to verify the current **654 records**, **1,308 local derivatives**, **1,276 exact hash locks**, **612 live media placements**, and media resolution across all **597 interpreted stops**. The audit also checks local path safety and case, WebP dimensions, rights-kind and license-URL consistency, derivative notices, attribution, alt text, likeness classification, manifest-to-typed-record agreement, byte and SHA-256 locks, runtime hotlink prevention, visual-diversity rules, and unexpected missing or orphaned files. It performs no network requests.
+Run `npm run audit:museum-assets` to verify the current **657 records**, **1,314 local derivatives**, **1,276 exact hash locks**, **615 live media placements**, and media resolution across all **600 interpreted stops**. The audit also checks local path safety and case, WebP dimensions, rights-kind and license-URL consistency, derivative notices, attribution, alt text, likeness classification, manifest-to-typed-record agreement, byte and SHA-256 locks, runtime hotlink prevention, visual-diversity rules, and unexpected missing or orphaned files. It performs no network requests.

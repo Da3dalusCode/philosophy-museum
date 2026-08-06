@@ -106,7 +106,7 @@ ${groupSummaries.map((group) => `| ${escapeCell(group.label)} | ${group.total} |
 
 Universal total: **${report.universalSummary.total}** applicable articles; **${report.universalSummary.pass} pass**; **${report.universalSummary.fail} fail**; **${report.universalSummary.missing} are missing article prose**.
 
-Current failures are migration backlog, not approved exceptions. The strict audit is intentionally separate from the ordinary build until that backlog reaches zero.
+There are no current failures. Any future below-floor or missing canonical article is a release-blocking regression, not an approved exception.
 
 ## Pilot prose changes
 
