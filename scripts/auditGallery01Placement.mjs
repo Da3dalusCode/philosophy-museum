@@ -65,6 +65,7 @@ const {
   MUSEUM_CANONICAL_EXHIBIT_PLINTH_GEOMETRY,
   MUSEUM_CANONICAL_PROGRAM,
   MUSEUM_GRAND_ENTRANCE_FRONT_DESK,
+  MUSEUM_GRAND_ENTRANCE_WELCOME_COMPOSITION,
   MUSEUM_RUNTIME_NODES,
   MUSEUM_VISITOR_MAP_KIOSK,
   PLATO_SUPPLEMENTAL_BACKING_WIDTH,
@@ -357,6 +358,53 @@ const deskBounds = rotatedBounds(
   MUSEUM_GRAND_ENTRANCE_FRONT_DESK.size.width,
   MUSEUM_GRAND_ENTRANCE_FRONT_DESK.size.depth,
 );
+const welcome = MUSEUM_GRAND_ENTRANCE_WELCOME_COMPOSITION;
+const runtimeEastWallX = gallery01Threshold.position.x;
+const entranceRenderBounds = entranceNode.layout.spatialCells[0].renderBounds
+  ?? entranceNode.layout.spatialCells[0].bounds;
+const runtimeSouthWallZ = entranceRenderBounds.minZ;
+assert.equal(welcome.wall, 'east', 'The welcome composition lost its authored east-wall identity');
+assert.equal(welcome.planWall, 'max-x', 'Plan east must remain the max-x Grand Entrance wall');
+assert.equal(welcome.runtimeWall, 'min-x', 'The plan reflection must map east to runtime min-x');
+approx(welcome.oculus.center.x, runtimeEastWallX + .45, 'The oculus must mount on the east wall');
+approx(welcome.welcomeSign.center.x, runtimeEastWallX + .7, 'The Welcome sign must mount on the east wall');
+approx(MUSEUM_GRAND_ENTRANCE_FRONT_DESK.center.x, runtimeEastWallX + 4.65, 'The desk must stand just inside the east wall');
+for (const [label, point] of [
+  ['oculus', welcome.oculus.center],
+  ['Welcome sign', welcome.welcomeSign.center],
+  ['front desk', MUSEUM_GRAND_ENTRANCE_FRONT_DESK.center],
+]) {
+  approx(point.z, welcome.centerlineZ, `${label} must share the east-wall centerline`);
+  assert(Math.abs(point.z - runtimeSouthWallZ) > 12, `${label} remains on the south wall`);
+}
+for (const [label, rotation] of [
+  ['oculus', welcome.oculus.rotation],
+  ['Welcome sign', welcome.welcomeSign.rotation],
+  ['front desk', MUSEUM_GRAND_ENTRANCE_FRONT_DESK.rotation],
+]) {
+  approx(rotation, welcome.inwardRotation, `${label} must face plan west into the Grand Entrance`);
+  assert(Math.sin(rotation) > .99, `${label} does not face runtime +x / plan west`);
+}
+assert(
+  MUSEUM_GRAND_ENTRANCE_FRONT_DESK.center.x > welcome.welcomeSign.center.x,
+  'The desk must stand in front of the wall-mounted sign and oculus',
+);
+const compositionHalfWidth = welcome.oculus.size.width / 2;
+const pilasterZs = welcome.framingPilasters.map(({z}) => z).sort((first, second) => first - second);
+assert.equal(pilasterZs.length, 2, 'The east-wall composition must have exactly two framing pilasters');
+assert(pilasterZs[0] < welcome.centerlineZ - compositionHalfWidth, 'The first east-wall pilaster overlaps the oculus');
+assert(pilasterZs[1] > welcome.centerlineZ + compositionHalfWidth, 'The second east-wall pilaster overlaps the oculus');
+for (const pilaster of welcome.framingPilasters) {
+  approx(pilaster.x, runtimeEastWallX + .38, 'An east-wall framing pilaster left its wall');
+  approx(pilaster.rotation, welcome.inwardRotation, 'An east-wall framing pilaster lost its wall orientation');
+  const pilasterBounds = rotatedBounds(
+    pilaster,
+    pilaster.rotation,
+    1.42,
+    .86,
+  );
+  assert(!overlaps(pilasterBounds, deskBounds, .2), 'An east-wall framing pilaster overlaps the front desk');
+}
 for (const furnishing of [MUSEUM_VISITOR_MAP_KIOSK, MUSEUM_GRAND_ENTRANCE_FRONT_DESK]) {
   assert.deepEqual(
     entranceNode.layout.furnishings.find(({id}) => id === furnishing.id),
@@ -395,6 +443,17 @@ assert(
 );
 assert(!overlaps(mapBounds, orientationPhysicalBounds, .5), 'The Museum Map crowds the Gallery 01 orientation sign');
 assert(!overlaps(mapBounds, deskBounds, .5), 'The Museum Map crowds the front desk');
+const gallery01ThresholdClearance = {
+  minX: gallery01Threshold.position.x,
+  maxX: gallery01Threshold.position.x + 6,
+  minZ: gallery01Threshold.position.z - 3,
+  maxZ: gallery01Threshold.position.z + 3,
+};
+assert(!overlaps(deskBounds, gallery01ThresholdClearance, .8), 'The east-wall desk crowds the Gallery 01 threshold');
+assert(
+  MUSEUM_GRAND_ENTRANCE_FRONT_DESK.center.z < MUSEUM_VISITOR_MAP_KIOSK.center.z - 10,
+  'The east-wall reception bay must remain beyond and clear of the Museum Map',
+);
 assert(
   distanceToSegment(MUSEUM_VISITOR_MAP_KIOSK.center, entranceNode.layout.spawn, gallery01Threshold.position) > 3.2,
   'The Museum Map blocks the direct Gallery 01 arrival path',

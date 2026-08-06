@@ -1,5 +1,8 @@
 import type {MuseumRuntimeNodeDefinition} from '../../data/museum/museumWorldTypes';
-import {MUSEUM_GRAND_ENTRANCE_FRONT_DESK} from '../../data/museum/museumGrandEntranceFurnishings';
+import {
+  MUSEUM_GRAND_ENTRANCE_FRONT_DESK,
+  MUSEUM_GRAND_ENTRANCE_WELCOME_COMPOSITION,
+} from '../../data/museum/museumGrandEntranceFurnishings';
 
 const BRONZE = {
   color: '#9d7546',
@@ -18,8 +21,18 @@ const LIMESTONE = {
 } as const;
 const DAYLIGHT = '#fff1d2';
 
-function WallPilaster({x, z, inward}: {x: number; z: number; inward: 1 | -1}) {
-  return <group position={[x, 0, z]}>
+function WallPilaster({
+  x,
+  z,
+  inward,
+  rotation = 0,
+}: {
+  x: number;
+  z: number;
+  inward: 1 | -1;
+  rotation?: number;
+}) {
+  return <group position={[x, 0, z]} rotation={[0, rotation, 0]}>
     <mesh position={[0, 2.48, 0]}>
       <boxGeometry args={[1.08, 4.96, .56]}/>
       <meshStandardMaterial {...LIMESTONE}/>
@@ -183,8 +196,10 @@ function ExteriorArrival({x, z}: {x: number; z: number}) {
 }
 
 function OrientationOculus() {
+  const {oculus} = MUSEUM_GRAND_ENTRANCE_WELCOME_COMPOSITION;
   return <group
-    position={[0, 3, -27.55]}
+    position={[oculus.center.x, oculus.center.y, oculus.center.z]}
+    rotation={[0, oculus.rotation, 0]}
     userData={{museumEntranceFeature: 'orientation-oculus'}}
   >
     {[2.3, 2.04].map((radius) => <mesh key={radius} scale={[1.75, 1, 1]}>
@@ -311,5 +326,12 @@ export function MuseumGrandEntranceArchitecture({node}: {node: MuseumRuntimeNode
       <WallPilaster key={`${x}:south`} x={x} z={-27.62} inward={1}/>,
       <WallPilaster key={`${x}:north`} x={x} z={27.62} inward={-1}/>,
     ])}
+    {MUSEUM_GRAND_ENTRANCE_WELCOME_COMPOSITION.framingPilasters.map((pilaster) => <WallPilaster
+      key={`east:${pilaster.z}`}
+      x={pilaster.x}
+      z={pilaster.z}
+      inward={1}
+      rotation={pilaster.rotation}
+    />)}
   </group>;
 }
