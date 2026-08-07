@@ -6,6 +6,8 @@
 
 Current release: **[v1.0.1 — first shared release](https://github.com/Da3dalusCode/philosophy-museum/releases/tag/v1.0.1)**
 
+![The walkable Philosophy Atlas Museum in Gallery 01, looking down the central aisle between the Republic and Allegory of the Cave exhibits.](public/assets/share/philosophy-atlas-classical-athens.png)
+
 ## What Philosophy Atlas is
 
 Philosophy Atlas is a browser-based educational project that welcomes visitors through a walkable Museum, then opens into timelines, maps, articles, comparisons, and learning paths showing how philosophical questions, schools, thinkers, works, and disagreements develop across time and cultures. It presents philosophy as an evolving conversation rather than a list of isolated biographies.
@@ -38,6 +40,8 @@ Bibliography-only and unreviewed records have not completed claim review, and th
 ## Walkable Museum
 
 The Museum turns the Atlas into a physical journey through 26 curated/open galleries and 105 named rooms or zones. Its collection contains **191 primary exhibits** and **409 supplemental/context exhibits**, for **600 interpreted stops** in total.
+
+![The Core Questions Forum, where visitors encounter exhibits on knowledge, reality, ontology, and metaphysics.](public/assets/share/philosophy-atlas-core-questions-forum.png)
 
 Public Gallery 01–26 numbering follows the chronological visitor route. A continuous flush route inlay runs from the Grand Entrance through every gallery to the Final Return and exit; quieter branches mark the central crosscut and shortcuts. The Museum Map is generated from the same compiled building manifest, tracks the visitor's position and facing, and supports fast travel across the complete public route.
 
