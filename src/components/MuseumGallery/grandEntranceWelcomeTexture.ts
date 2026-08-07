@@ -88,14 +88,14 @@ const createGrandEntranceWelcomeTexture = (width: number, height: number): Canva
   context.fillText(MUSEUM_GRAND_ENTRANCE_WELCOME_COPY.kicker, safeX, Math.round(height * .245));
 
   const titleParts = [
-    {text: `${MUSEUM_GRAND_ENTRANCE_WELCOME_COPY.titleLead} `, color: BRONZE, weight: 600},
+    {text: `${MUSEUM_GRAND_ENTRANCE_WELCOME_COPY.titleLead} `, color: IVORY, weight: 600},
     {text: MUSEUM_GRAND_ENTRANCE_WELCOME_COPY.titleRest, color: IVORY, weight: 600},
   ] as const;
   const titleSize = fittedSize(context, titleParts, 'Georgia, serif', safeWidth, Math.round(height * .29), 36);
   drawParts(context, titleParts, safeX, Math.round(height * .59), titleSize, 'Georgia, serif');
 
   const subtitleParts = [
-    {text: MUSEUM_GRAND_ENTRANCE_WELCOME_COPY.subtitleLead, color: BRONZE, weight: 700},
+    {text: MUSEUM_GRAND_ENTRANCE_WELCOME_COPY.subtitleLead, color: WARM_GRAY, weight: 700},
     {text: MUSEUM_GRAND_ENTRANCE_WELCOME_COPY.subtitleRest, color: WARM_GRAY, weight: 400},
   ] as const;
   const subtitleSize = fittedSize(context, subtitleParts, 'system-ui, sans-serif', safeWidth, Math.round(height * .106), 14);
