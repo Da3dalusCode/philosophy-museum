@@ -25,6 +25,7 @@ const permanentHallStructureSource = source('src/components/MuseumGallery/Museum
 const residentHallStructureSource = source('src/components/MuseumGallery/MuseumHallStructureLayers.tsx');
 const buildingArchitectureSource = source('src/components/MuseumGallery/MuseumBuildingArchitecture.tsx');
 const grandEntranceArchitectureSource = source('src/components/MuseumGallery/MuseumGrandEntranceArchitecture.tsx');
+const grandEntranceFurnishingsSource = source('src/data/museum/museumGrandEntranceFurnishings.ts');
 const canonicalSceneSource = source('src/components/MuseumGallery/CanonicalMuseumHallScene.tsx');
 const canonicalExhibitsSource = source('src/components/MuseumGallery/CanonicalMuseumExhibits.tsx');
 const primaryPlaqueContractSource = source('src/components/MuseumGallery/primaryPlaqueContract.ts');
@@ -6432,7 +6433,7 @@ check('the React implementation uses one persistent Canvas, one shared canonical
   assert.match(museumPageSource, /loadMuseumLastVisit/);
   assert.match(museumPageSource, /activeNodeRef\.current\.publicHallId && hallLoadStatus/);
   assert.doesNotMatch(museumPageSource, /tickets|lockers|generic study/i);
-  assert.match(buildingArchitectureSource, /Philosophy Atlas Museum · Grand Entrance/);
+  assert.match(grandEntranceFurnishingsSource, /PHILOSOPHY ATLAS MUSEUM · GRAND ENTRANCE/);
   assert.match(buildingArchitectureSource, /MUSEUM_BUILDING_MANIFEST\.reserves/);
   assert.match(buildingArchitectureSource, /<MuseumVisitorMapKiosk/);
   assert.match(museumControlsSource, /event\.code === 'KeyM'[\s\S]{0,180}onOpenVisitorMap/);

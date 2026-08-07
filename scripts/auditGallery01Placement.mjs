@@ -65,6 +65,8 @@ const {
   MUSEUM_CANONICAL_EXHIBIT_PLINTH_GEOMETRY,
   MUSEUM_CANONICAL_PROGRAM,
   MUSEUM_GRAND_ENTRANCE_FRONT_DESK,
+  MUSEUM_GRAND_ENTRANCE_PILASTER_SYSTEM,
+  MUSEUM_GRAND_ENTRANCE_WELCOME_COPY,
   MUSEUM_GRAND_ENTRANCE_WELCOME_COMPOSITION,
   MUSEUM_RUNTIME_NODES,
   MUSEUM_VISITOR_MAP_KIOSK,
@@ -390,20 +392,94 @@ assert(
   'The desk must stand in front of the wall-mounted sign and oculus',
 );
 const compositionHalfWidth = welcome.oculus.size.width / 2;
-const pilasterZs = welcome.framingPilasters.map(({z}) => z).sort((first, second) => first - second);
-assert.equal(pilasterZs.length, 2, 'The east-wall composition must have exactly two framing pilasters');
-assert(pilasterZs[0] < welcome.centerlineZ - compositionHalfWidth, 'The first east-wall pilaster overlaps the oculus');
-assert(pilasterZs[1] > welcome.centerlineZ + compositionHalfWidth, 'The second east-wall pilaster overlaps the oculus');
-for (const pilaster of welcome.framingPilasters) {
-  approx(pilaster.x, runtimeEastWallX + .38, 'An east-wall framing pilaster left its wall');
-  approx(pilaster.rotation, welcome.inwardRotation, 'An east-wall framing pilaster lost its wall orientation');
-  const pilasterBounds = rotatedBounds(
-    pilaster,
-    pilaster.rotation,
-    1.42,
-    .86,
+assert.equal(
+  `${MUSEUM_GRAND_ENTRANCE_WELCOME_COPY.titleLead} ${MUSEUM_GRAND_ENTRANCE_WELCOME_COPY.titleRest}`,
+  'ENTER THE CONVERSATION',
+  'The owner-selected Grand Entrance title drifted',
+);
+assert.equal(
+  `${MUSEUM_GRAND_ENTRANCE_WELCOME_COPY.subtitleLead}${MUSEUM_GRAND_ENTRANCE_WELCOME_COPY.subtitleRest}`,
+  '26 GALLERIES of questions, arguments, and changing ideas',
+  'The owner-selected Grand Entrance invitation drifted',
+);
+
+const pilasterSystem = MUSEUM_GRAND_ENTRANCE_PILASTER_SYSTEM;
+const pilasters = pilasterSystem.placements;
+const entranceCeilingHeight = entranceNode.layout.spatialCells[0].ceilingHeight;
+approx(pilasterSystem.ceilingHeight, entranceCeilingHeight, 'The pilaster order lost the Grand Entrance ceiling datum');
+approx(pilasterSystem.architecturalTop, entranceCeilingHeight - .1, 'The pilaster cornice must meet the ceiling');
+assert(pilasterSystem.shaftTop < pilasterSystem.architecturalTop, 'The pilaster order lost its capital zone');
+assert.equal(pilasters.length, 16, 'The Grand Entrance must keep its 16-support architectural order');
+assert.equal(new Set(pilasters.map(({id}) => id)).size, pilasters.length, 'Grand Entrance pilaster ids must be unique');
+
+const pilastersByWall = new Map(['south', 'north', 'west', 'east'].map((wall) => [
+  wall,
+  pilasters.filter((pilaster) => pilaster.wall === wall),
+]));
+for (const [wall, wallPilasters] of pilastersByWall) {
+  assert.equal(wallPilasters.length, 4, `The ${wall} wall lost its four-pilaster rhythm`);
+}
+const northSouthRhythm = [-16.5, -5.5, 5.5, 16.5];
+for (const wall of ['south', 'north']) {
+  assert.deepEqual(
+    pilastersByWall.get(wall).map(({x}) => x).sort((first, second) => first - second),
+    northSouthRhythm,
+    `The ${wall} wall pilasters no longer support the coffer rhythm`,
   );
-  assert(!overlaps(pilasterBounds, deskBounds, .2), 'An east-wall framing pilaster overlaps the front desk');
+}
+
+const welcomePilasters = pilasters.filter(({role}) => role === 'welcome-frame');
+const welcomePilasterZs = welcomePilasters.map(({z}) => z).sort((first, second) => first - second);
+assert.equal(welcomePilasters.length, 2, 'The east-wall Welcome composition must have two framing pilasters');
+assert(welcomePilasterZs[0] < welcome.centerlineZ - compositionHalfWidth, 'The first Welcome pilaster overlaps the oculus');
+assert(welcomePilasterZs[1] > welcome.centerlineZ + compositionHalfWidth, 'The second Welcome pilaster overlaps the oculus');
+
+const galleryFramePilasters = pilasters.filter(({role}) => role === 'gallery-01-frame');
+assert.equal(galleryFramePilasters.length, 2, 'Gallery 01 must have two full-height framing pilasters');
+approx(
+  galleryFramePilasters[0].z + galleryFramePilasters[1].z,
+  gallery01Threshold.position.z * 2,
+  'Gallery 01 pilasters must remain centered on the threshold',
+);
+const galleryFrameClearWidth = Math.abs(galleryFramePilasters[1].z - galleryFramePilasters[0].z) - 1.48;
+assert(
+  galleryFrameClearWidth >= gallery01Threshold.transitionBounds.size.width,
+  'Gallery 01 full-height pilasters narrow the clear opening',
+);
+
+const publicEntryPilasters = pilasters.filter(({role}) => role === 'public-entry-frame');
+assert.equal(publicEntryPilasters.length, 2, 'The public entrance must have two full-height framing pilasters');
+approx(
+  publicEntryPilasters[0].z + publicEntryPilasters[1].z,
+  publicEntry.position.z * 2,
+  'Public-entry pilasters must remain centered on the threshold',
+);
+const publicEntryClearWidth = Math.abs(publicEntryPilasters[1].z - publicEntryPilasters[0].z) - 1.48;
+assert(
+  publicEntryClearWidth >= publicEntry.transitionBounds.size.width,
+  'Public-entry pilasters narrow the clear opening',
+);
+
+for (const pilaster of pilasters) {
+  if (pilaster.wall === 'east') {
+    approx(pilaster.x, entranceRenderBounds.minX + .38, `${pilaster.id} left the east wall`);
+    approx(pilaster.rotation, Math.PI / 2, `${pilaster.id} lost its east-wall orientation`);
+    assert.equal(pilaster.inward, 1, `${pilaster.id} no longer faces into the room`);
+  } else if (pilaster.wall === 'west') {
+    approx(pilaster.x, entranceRenderBounds.maxX - .38, `${pilaster.id} left the west wall`);
+    approx(pilaster.rotation, Math.PI / 2, `${pilaster.id} lost its west-wall orientation`);
+    assert.equal(pilaster.inward, -1, `${pilaster.id} no longer faces into the room`);
+  } else {
+    const expectedZ = pilaster.wall === 'south'
+      ? entranceRenderBounds.minZ + .38
+      : entranceRenderBounds.maxZ - .38;
+    approx(pilaster.z, expectedZ, `${pilaster.id} left its wall`);
+    approx(pilaster.rotation, 0, `${pilaster.id} lost its north/south wall orientation`);
+    assert.equal(pilaster.inward, pilaster.wall === 'south' ? 1 : -1, `${pilaster.id} no longer faces into the room`);
+  }
+  const pilasterBounds = rotatedBounds(pilaster, pilaster.rotation, 1.48, .78);
+  assert(!overlaps(pilasterBounds, deskBounds, .2), `${pilaster.id} overlaps the front desk`);
+  assert(!overlaps(pilasterBounds, mapBounds, .2), `${pilaster.id} overlaps the Museum Map`);
 }
 for (const furnishing of [MUSEUM_VISITOR_MAP_KIOSK, MUSEUM_GRAND_ENTRANCE_FRONT_DESK]) {
   assert.deepEqual(

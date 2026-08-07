@@ -24,7 +24,6 @@ import {
   MUSEUM_TEXTURE_SPECS,
   museumTextureDimensionsForPlane,
 } from '../../data/museum/museumTexturePolicy';
-import {MUSEUM_GRAND_ENTRANCE_WELCOME_COMPOSITION} from '../../data/museum/museumGrandEntranceFurnishings';
 import {MUSEUM_VISITOR_MAP_KIOSK} from '../../data/museum/museumVisitorMapKioskDefinition';
 import {MEDITERRANEAN_ORIENTATION_DISPLAY} from '../../data/museum/mediterraneanGalleryCuration';
 import {MediterraneanGalleryCuration} from './MediterraneanGalleryCuration';
@@ -232,19 +231,6 @@ function CirculationNode({node}: {node: MuseumRuntimeNodeDefinition}) {
     {entranceCell && <>
       <MuseumGrandEntranceArchitecture node={node}/>
       <MediterraneanGalleryCuration display={MEDITERRANEAN_ORIENTATION_DISPLAY}/>
-      <BuildingSign
-        title="Welcome"
-        kicker="Philosophy Atlas Museum · Grand Entrance"
-        subtitle="Twenty-six galleries · one unfolding conversation"
-        position={[
-          MUSEUM_GRAND_ENTRANCE_WELCOME_COMPOSITION.welcomeSign.center.x,
-          MUSEUM_GRAND_ENTRANCE_WELCOME_COMPOSITION.welcomeSign.center.y,
-          MUSEUM_GRAND_ENTRANCE_WELCOME_COMPOSITION.welcomeSign.center.z,
-        ]}
-        rotation={MUSEUM_GRAND_ENTRANCE_WELCOME_COMPOSITION.welcomeSign.rotation}
-        width={6.7}
-        twoSided
-      />
     </>}
   </group>;
 }

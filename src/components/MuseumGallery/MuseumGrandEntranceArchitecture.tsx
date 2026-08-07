@@ -1,8 +1,14 @@
 import type {MuseumRuntimeNodeDefinition} from '../../data/museum/museumWorldTypes';
 import {
   MUSEUM_GRAND_ENTRANCE_FRONT_DESK,
+  MUSEUM_GRAND_ENTRANCE_PILASTER_SYSTEM,
   MUSEUM_GRAND_ENTRANCE_WELCOME_COMPOSITION,
 } from '../../data/museum/museumGrandEntranceFurnishings';
+import {
+  MUSEUM_TEXTURE_SPECS,
+  museumTextureDimensionsForPlane,
+} from '../../data/museum/museumTexturePolicy';
+import {useGrandEntranceWelcomeTexture} from './grandEntranceWelcomeTexture';
 
 const BRONZE = {
   color: '#9d7546',
@@ -33,27 +39,55 @@ function WallPilaster({
   rotation?: number;
 }) {
   return <group position={[x, 0, z]} rotation={[0, rotation, 0]}>
-    <mesh position={[0, 2.48, 0]}>
-      <boxGeometry args={[1.08, 4.96, .56]}/>
-      <meshStandardMaterial {...LIMESTONE}/>
-    </mesh>
-    <mesh position={[0, .18, inward * .15]}>
-      <boxGeometry args={[1.42, .36, .86]}/>
+    <mesh position={[0, .09, inward * .1]}>
+      <boxGeometry args={[1.48, .18, .78]}/>
       <meshStandardMaterial {...DARK_BRONZE}/>
     </mesh>
-    <mesh position={[0, 4.98, inward * .13]}>
-      <boxGeometry args={[1.46, .28, .82]}/>
+    <mesh position={[0, .31, inward * .075]}>
+      <boxGeometry args={[1.28, .28, .68]}/>
+      <meshStandardMaterial {...LIMESTONE}/>
+    </mesh>
+    <mesh position={[0, .5, inward * .09]}>
+      <boxGeometry args={[1.36, .1, .72]}/>
       <meshStandardMaterial {...BRONZE}/>
     </mesh>
-    <mesh position={[0, 2.52, inward * .295]}>
-      <boxGeometry args={[.08, 4.45, .025]}/>
-      <meshStandardMaterial
-        color="#d8a665"
-        emissive="#8a5425"
-        emissiveIntensity={.7}
-        roughness={.34}
-        metalness={.48}
-      />
+
+    <mesh position={[0, 2.72, 0]}>
+      <boxGeometry args={[1.04, 4.34, .48]}/>
+      <meshStandardMaterial {...LIMESTONE}/>
+    </mesh>
+    {[-.45, .45].map((railX) => <mesh key={railX} position={[railX, 2.72, inward * .252]}>
+      <boxGeometry args={[.055, 3.98, .025]}/>
+      <meshStandardMaterial {...DARK_BRONZE}/>
+    </mesh>)}
+    <mesh position={[0, 2.72, inward * .265]}>
+      <boxGeometry args={[.095, 3.72, .026]}/>
+      <meshStandardMaterial {...BRONZE}/>
+    </mesh>
+
+    <mesh position={[0, 4.96, inward * .025]}>
+      <boxGeometry args={[1.14, .14, .56]}/>
+      <meshStandardMaterial {...DARK_BRONZE}/>
+    </mesh>
+    <mesh position={[0, 5.1, inward * .055]}>
+      <boxGeometry args={[1.28, .14, .66]}/>
+      <meshStandardMaterial {...LIMESTONE}/>
+    </mesh>
+    <mesh position={[0, 5.23, inward * .08]}>
+      <boxGeometry args={[1.46, .12, .76]}/>
+      <meshStandardMaterial {...BRONZE}/>
+    </mesh>
+    <mesh position={[0, 5.39, inward * .1]}>
+      <boxGeometry args={[1.58, .2, .82]}/>
+      <meshStandardMaterial {...LIMESTONE}/>
+    </mesh>
+    <mesh position={[0, 5.53, inward * .11]}>
+      <boxGeometry args={[1.64, .08, .86]}/>
+      <meshStandardMaterial {...DARK_BRONZE}/>
+    </mesh>
+    <mesh position={[0, 5.64, inward * .095]}>
+      <boxGeometry args={[1.5, .12, .8]}/>
+      <meshStandardMaterial {...LIMESTONE}/>
     </mesh>
   </group>;
 }
@@ -146,16 +180,10 @@ function ExteriorArrival({x, z}: {x: number; z: number}) {
     </group>
 
     <group position={[x - .38, 0, z]}>
-      {[-2.75, 2.75].map((offset) => <group key={offset} position={[0, 0, offset]}>
-        <mesh position={[0, 1.82, 0]}>
-          <boxGeometry args={[.76, 3.64, 1.08]}/>
-          <meshStandardMaterial {...LIMESTONE}/>
-        </mesh>
-        <mesh position={[-.42, 1.82, -Math.sign(offset) * .32]}>
-          <boxGeometry args={[.08, 3.22, .16]}/>
-          <meshStandardMaterial {...BRONZE}/>
-        </mesh>
-      </group>)}
+      {[-2.05, 2.05].map((offset) => <mesh key={offset} position={[-.42, 1.62, offset]}>
+        <boxGeometry args={[.08, 3.24, .14]}/>
+        <meshStandardMaterial {...BRONZE}/>
+      </mesh>)}
       <mesh position={[0, 3.82, 0]}>
         <boxGeometry args={[.78, .54, 6.58]}/>
         <meshStandardMaterial {...DARK_BRONZE}/>
@@ -227,6 +255,34 @@ function OrientationOculus() {
   </group>;
 }
 
+function GrandEntranceWelcomeSign() {
+  const {welcomeSign} = MUSEUM_GRAND_ENTRANCE_WELCOME_COMPOSITION;
+  const textureSize = museumTextureDimensionsForPlane(
+    welcomeSign.size.width,
+    welcomeSign.size.height,
+    MUSEUM_TEXTURE_SPECS.buildingSign,
+  );
+  const texture = useGrandEntranceWelcomeTexture(textureSize.width, textureSize.height);
+  return <group
+    position={[welcomeSign.center.x, welcomeSign.center.y, welcomeSign.center.z]}
+    rotation={[0, welcomeSign.rotation, 0]}
+    userData={{museumEntranceFeature: 'enter-the-conversation-sign'}}
+  >
+    <mesh position={[0, 0, -.045]}>
+      <boxGeometry args={[welcomeSign.size.width + .16, welcomeSign.size.height + .16, .09]}/>
+      <meshStandardMaterial {...DARK_BRONZE}/>
+    </mesh>
+    <mesh position={[0, 0, .006]}>
+      <planeGeometry args={[welcomeSign.size.width, welcomeSign.size.height]}/>
+      <meshBasicMaterial map={texture} toneMapped={false}/>
+    </mesh>
+    <mesh position={[0, 0, -.096]} rotation={[0, Math.PI, 0]}>
+      <planeGeometry args={[welcomeSign.size.width, welcomeSign.size.height]}/>
+      <meshBasicMaterial map={texture} toneMapped={false}/>
+    </mesh>
+  </group>;
+}
+
 function FrontDesk() {
   const desk = MUSEUM_GRAND_ENTRANCE_FRONT_DESK;
   return <group
@@ -268,16 +324,10 @@ function GalleryOnePortal({x, z}: {x: number; z: number}) {
     position={[x + .34, 0, z]}
     userData={{museumEntranceFeature: 'gallery-one-portal'}}
   >
-    {[-2.72, 2.72].map((offset) => <group key={offset} position={[0, 0, offset]}>
-      <mesh position={[0, 1.82, 0]}>
-        <boxGeometry args={[.72, 3.64, 1.02]}/>
-        <meshStandardMaterial {...DARK_BRONZE}/>
-      </mesh>
-      <mesh position={[.39, 1.82, 0]}>
-        <boxGeometry args={[.075, 3.25, .78]}/>
-        <meshStandardMaterial {...BRONZE}/>
-      </mesh>
-    </group>)}
+    {[-2.05, 2.05].map((offset) => <mesh key={offset} position={[.39, 1.62, offset]}>
+      <boxGeometry args={[.075, 3.24, .14]}/>
+      <meshStandardMaterial {...BRONZE}/>
+    </mesh>)}
     <mesh position={[0, 3.82, 0]}>
       <boxGeometry args={[.72, .52, 6.46]}/>
       <meshStandardMaterial {...DARK_BRONZE}/>
@@ -320,17 +370,14 @@ export function MuseumGrandEntranceArchitecture({node}: {node: MuseumRuntimeNode
     <CofferedCeiling/>
     <ExteriorArrival x={publicEntry.position.x} z={publicEntry.position.z}/>
     <OrientationOculus/>
+    <GrandEntranceWelcomeSign/>
     <FrontDesk/>
     <GalleryOnePortal x={throughRoute.position.x} z={throughRoute.position.z}/>
-    {[-15, -7, 7, 15].flatMap((x) => [
-      <WallPilaster key={`${x}:south`} x={x} z={-27.62} inward={1}/>,
-      <WallPilaster key={`${x}:north`} x={x} z={27.62} inward={-1}/>,
-    ])}
-    {MUSEUM_GRAND_ENTRANCE_WELCOME_COMPOSITION.framingPilasters.map((pilaster) => <WallPilaster
-      key={`east:${pilaster.z}`}
+    {MUSEUM_GRAND_ENTRANCE_PILASTER_SYSTEM.placements.map((pilaster) => <WallPilaster
+      key={pilaster.id}
       x={pilaster.x}
       z={pilaster.z}
-      inward={1}
+      inward={pilaster.inward}
       rotation={pilaster.rotation}
     />)}
   </group>;
