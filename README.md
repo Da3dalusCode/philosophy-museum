@@ -4,6 +4,8 @@
 
 [Enter the live Museum](https://da3daluscode.github.io/philosophy-museum/) · [Open Big History](https://da3daluscode.github.io/philosophy-museum/#/history) · [Read the editorial methodology](https://da3daluscode.github.io/philosophy-museum/#/methodology)
 
+Current release: **[v1.0.1 — first shared release](https://github.com/Da3dalusCode/philosophy-museum/releases/tag/v1.0.1)**
+
 ## What Philosophy Atlas is
 
 Philosophy Atlas is a browser-based educational project that welcomes visitors through a walkable Museum, then opens into timelines, maps, articles, comparisons, and learning paths showing how philosophical questions, schools, thinkers, works, and disagreements develop across time and cultures. It presents philosophy as an evolving conversation rather than a list of isolated biographies.
@@ -23,7 +25,7 @@ The Museum is the default public entrance; every other Atlas tool remains direct
 
 Every one of the 191 canonical articles meets the universal minimum of 2,000 substantive words. The release gate enforces that floor for all 146 philosopher articles and all 45 philosophy, branch, school, tradition, movement, method, and framework articles. The [generated depth inventory](docs/editorial/article-depth-inventory.md) records the method and per-article results.
 
-Depth is not the same as evidence or completed editorial review. At v1.0.0, the [generated editorial coverage report](docs/editorial/editorial-coverage-report.md) records:
+Depth is not the same as evidence or completed editorial review. For v1.0.1, the [generated editorial coverage report](docs/editorial/editorial-coverage-report.md) records:
 
 - **122** current claim reviews;
 - **66** bibliography-only records;
@@ -101,7 +103,9 @@ The universal article-depth audit is a blocking release gate. It currently passe
 
 ## Project status
 
-**Philosophy Atlas v1.0.0 is the first formal public release of a substantially complete core product.** The long-form Atlas, timelines, maps, comparisons, learning paths, search, and complete 26-gallery Museum are published and usable without an account.
+**Philosophy Atlas v1.0.1 is the first release being actively shared outside the repository.** v1.0.0 established the first formal, substantially complete core-product milestone; this deliberately small public-share patch refines the Museum onboarding flow, Grand Entrance welcome composition, sign hierarchy, and room-wide architectural rhythm without changing the locked 26-gallery plan.
+
+The long-form Atlas, timelines, maps, comparisons, learning paths, search, and complete 26-gallery Museum are published and usable without an account.
 
 Ongoing work includes formal claim review for the remaining bibliography-only and unreviewed records, deeper claim-to-source coverage, relationship enrichment, maintenance, and targeted visual refinement. The Philosophy Map remains intentionally selective for readability, and the static local-first application does not provide accounts or durable cross-device progress.
 
