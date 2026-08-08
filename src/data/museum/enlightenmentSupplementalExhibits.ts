@@ -3,6 +3,7 @@ import type {MuseumAssetId} from './museumAssetTypes';
 import type {MuseumSupplementalExhibit} from './platoSupplementalExhibits';
 import {
   authorSupplementalExhibit,
+  authorSupplementalLayout,
   type SupplementalExhibitAuthoring,
 } from './museumSupplementalAuthoring';
 import {
@@ -13,9 +14,6 @@ import {
 } from './enlightenmentGalleryCuration';
 import type {EnlightenmentGalleryAssetId} from './enlightenmentGalleryAssets';
 import type {
-  MuseumMediaMountDefinition,
-  MuseumPoint,
-  MuseumSceneVolume,
   MuseumSupplementalExhibitId,
   MuseumSupplementalExhibitLayout,
   MuseumSupplementalInstallationKind,
@@ -37,7 +35,7 @@ export const ENLIGHTENMENT_PALETTE = Object.freeze({
 /**
  * Local final IDs keep this bundle isolated until the shared ID gate is updated
  * during integration. They are intentionally more descriptive than the
- * provisional Gallery 18 IDs.
+ * provisional Gallery 15 IDs.
  */
 export type EnlightenmentSupplementalExhibitId =
   | 'enlightenment-persian-mirror'
@@ -948,52 +946,6 @@ export const ENLIGHTENMENT_SUPPLEMENTAL_EXHIBITS = [
   }),
 ] as const satisfies readonly MuseumSupplementalExhibit[];
 
-const volume = (
-  id: string,
-  center: MuseumSceneVolume['center'],
-  size: MuseumSceneVolume['size'],
-): MuseumSceneVolume => ({id, role: 'media', center, size});
-
-const mediaMount = (
-  id: MuseumSupplementalExhibitId,
-  assetId: MuseumAssetId,
-  width: number,
-  height: number,
-): MuseumMediaMountDefinition => {
-  const y = 2.18;
-  return {
-    id: `${id}-hero-media`,
-    assetId,
-    kind: 'wall-frame',
-    position: [0, y, -.39],
-    rotation: [0, 0, 0],
-    width,
-    height,
-    frameDepth: .1,
-    supportHeight: 0,
-    anchorId: `${id}-backing`,
-    bounds: volume(
-      `${id}-media-bounds`,
-      {x: 0, y, z: -.39},
-      {width: width + .16, height: height + .16, depth: .2},
-    ),
-    supportBounds: volume(
-      `${id}-media-support`,
-      {x: 0, y, z: -.55},
-      {width: width * .72, height: height * .72, depth: .18},
-    ),
-  };
-};
-
-const cameraFor = (
-  position: MuseumPoint,
-  rotationY: number,
-  distance: number,
-): MuseumPoint => ({
-  x: position.x + Math.sin(rotationY) * distance,
-  z: position.z + Math.cos(rotationY) * distance,
-});
-
 export type EnlightenmentSupplementalExhibitLayout = MuseumSupplementalExhibitLayout & {
   /** Exact authored curation slot; retained for occupancy and wall-clearance audits. */
   slotId: string;
@@ -1022,52 +974,33 @@ const authoredSlotLayout = ({
   accent: string;
 }): EnlightenmentSupplementalExhibitLayout => {
   const slot = getEnlightenmentInstallationSlot(slotId);
-  const maximumMediaWidth = slot.width - .24;
-  if (mediaWidth > maximumMediaWidth) {
-    throw new Error(
-      `Gallery 18 media ${id} is ${mediaWidth}m wide but slot ${slotId} allows ${maximumMediaWidth}m.`,
-    );
-  }
-
   const idValue = supplementalId(id);
   const assetIdValue = museumAssetId(assetId);
   const position = {x: slot.x, z: slot.z};
-  const width = slot.width;
-  const isNarrowReturn = width < 2;
-  return {
+  const authored = authorSupplementalLayout({
     id: idValue,
     parentExhibitId,
     guidedAfterExhibitId,
-    zoneId: slot.spatialCellId as MuseumZoneId,
-    spatialCellId: slot.spatialCellId,
+    zoneId: slot.zoneId as MuseumZoneId,
     position,
     rotationY: slot.rotationY,
-    interactionRadius: isNarrowReturn ? 2.55 : 3.35,
-    collider: {
-      id: `supplemental:${idValue}`,
-      center: position,
-      size: {width, depth: isNarrowReturn ? .82 : 1.02},
-      rotation: slot.rotationY,
-    },
-    viewpoint: {
-      ...cameraFor(position, slot.rotationY, slot.supplementalViewpointDistance),
-      yaw: slot.rotationY,
-      pitch: -.05,
-    },
     assetId: assetIdValue,
-    mediaMount: mediaMount(idValue, assetIdValue, mediaWidth, mediaHeight),
-    label: {
-      position: [0, isNarrowReturn ? 3.64 : 3.9, -.3],
-      width: width - .28,
-      height: isNarrowReturn ? .62 : .7,
-    },
-    footprint: {
-      width,
-      height: isNarrowReturn ? 4.05 : 4.35,
-      depth: isNarrowReturn ? .82 : 1.02,
-    },
+    mediaWidth,
+    mediaHeight,
     installationKind: installationKind(kind),
     accent,
+    width: 3.58,
+  });
+  return {
+    ...authored,
+    spatialCellId: slot.spatialCellId,
+    interactionRadius: 3.3,
+    viewpoint: {
+      x: position.x + Math.sin(slot.rotationY) * slot.supplementalViewpointDistance,
+      z: position.z + Math.cos(slot.rotationY) * slot.supplementalViewpointDistance,
+      yaw: slot.rotationY,
+      pitch: -.055,
+    },
     slotId: slot.id,
     backingWallId: slot.backingWallId,
   };
@@ -1083,10 +1016,10 @@ export const ENLIGHTENMENT_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     id: 'enlightenment-persian-mirror',
     parentExhibitId: 'montesquieu',
     guidedAfterExhibitId: 'montesquieu',
-    slotId: 'enlightenment-law-institutions:north-east',
+    slotId: 'enlightenment-law-institutions:east-outer',
     assetId: 'enlightenment-persian-envoy-coypel',
-    mediaWidth: 2.12,
-    mediaHeight: 2.62,
+    mediaWidth: 2.18,
+    mediaHeight: 2.7,
     kind: 'enlightenment-context',
     accent: ENLIGHTENMENT_PALETTE.comparisonGold,
   }),
@@ -1094,10 +1027,10 @@ export const ENLIGHTENMENT_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     id: 'enlightenment-comparison-map',
     parentExhibitId: 'montesquieu',
     guidedAfterExhibitId: 'montesquieu',
-    slotId: 'enlightenment-law-institutions:west',
+    slotId: 'enlightenment-law-institutions:west-room-face',
     assetId: 'enlightenment-delisle-world-map-1720',
-    mediaWidth: 3.34,
-    mediaHeight: 2.28,
+    mediaWidth: 3.18,
+    mediaHeight: 2.17,
     kind: 'enlightenment-concept',
     accent: ENLIGHTENMENT_PALETTE.lawBlue,
   }),
@@ -1105,10 +1038,10 @@ export const ENLIGHTENMENT_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     id: 'enlightenment-power-checks-power',
     parentExhibitId: 'montesquieu',
     guidedAfterExhibitId: 'montesquieu',
-    slotId: 'enlightenment-law-institutions:east',
+    slotId: 'enlightenment-law-institutions:west-cross-face',
     assetId: 'enlightenment-house-commons-walpole',
-    mediaWidth: 2.08,
-    mediaHeight: 2.66,
+    mediaWidth: 2.11,
+    mediaHeight: 2.7,
     kind: 'enlightenment-concept',
     accent: ENLIGHTENMENT_PALETTE.civicRed,
   }),
@@ -1116,10 +1049,10 @@ export const ENLIGHTENMENT_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     id: 'enlightenment-law-lived-institution',
     parentExhibitId: 'montesquieu',
     guidedAfterExhibitId: 'montesquieu',
-    slotId: 'enlightenment-law-institutions:south-west',
+    slotId: 'enlightenment-law-institutions:south-room-face',
     assetId: 'enlightenment-hogarth-bench-1758',
-    mediaWidth: 1.78,
-    mediaHeight: 2.64,
+    mediaWidth: 1.82,
+    mediaHeight: 2.7,
     kind: 'enlightenment-context',
     accent: ENLIGHTENMENT_PALETTE.ink,
   }),
@@ -1127,10 +1060,10 @@ export const ENLIGHTENMENT_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     id: 'enlightenment-liberty-slavery-contradiction',
     parentExhibitId: 'montesquieu',
     guidedAfterExhibitId: 'montesquieu',
-    slotId: 'enlightenment-law-institutions:south-east',
+    slotId: 'enlightenment-law-institutions:south-cross-face',
     assetId: 'enlightenment-wedgwood-abolition-medallion',
-    mediaWidth: 2.44,
-    mediaHeight: 2.65,
+    mediaWidth: 2.49,
+    mediaHeight: 2.7,
     kind: 'enlightenment-context',
     accent: ENLIGHTENMENT_PALETTE.civicRed,
   }),
@@ -1138,10 +1071,10 @@ export const ENLIGHTENMENT_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     id: 'enlightenment-general-will',
     parentExhibitId: 'rousseau',
     guidedAfterExhibitId: 'rousseau',
-    slotId: 'enlightenment-society-freedom:south',
+    slotId: 'enlightenment-society-freedom:south-outer',
     assetId: 'enlightenment-thevenin-federation',
-    mediaWidth: 3.34,
-    mediaHeight: 2.26,
+    mediaWidth: 3.18,
+    mediaHeight: 2.15,
     kind: 'enlightenment-concept',
     accent: ENLIGHTENMENT_PALETTE.civicRed,
   }),
@@ -1149,10 +1082,10 @@ export const ENLIGHTENMENT_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     id: 'enlightenment-geneva-citizenship',
     parentExhibitId: 'rousseau',
     guidedAfterExhibitId: 'rousseau',
-    slotId: 'enlightenment-society-freedom:east-north-return',
+    slotId: 'enlightenment-society-freedom:west-room-face',
     assetId: 'enlightenment-geneva-gardelle-view',
-    mediaWidth: 1.28,
-    mediaHeight: .72,
+    mediaWidth: 3.18,
+    mediaHeight: 1.79,
     kind: 'enlightenment-context',
     accent: ENLIGHTENMENT_PALETTE.lawBlue,
   }),
@@ -1160,10 +1093,10 @@ export const ENLIGHTENMENT_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     id: 'enlightenment-luxury-amour-propre',
     parentExhibitId: 'rousseau',
     guidedAfterExhibitId: 'rousseau',
-    slotId: 'enlightenment-society-freedom:east-south-return',
+    slotId: 'enlightenment-society-freedom:west-cross-face',
     assetId: 'enlightenment-fragonard-swing',
-    mediaWidth: 1.18,
-    mediaHeight: 1.48,
+    mediaWidth: 2.15,
+    mediaHeight: 2.7,
     kind: 'enlightenment-concept',
     accent: ENLIGHTENMENT_PALETTE.comparisonGold,
   }),
@@ -1171,10 +1104,10 @@ export const ENLIGHTENMENT_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     id: 'enlightenment-education-forms-person',
     parentExhibitId: 'rousseau',
     guidedAfterExhibitId: 'rousseau',
-    slotId: 'enlightenment-society-freedom:west-north-return',
+    slotId: 'enlightenment-society-freedom:north-room-face',
     assetId: 'enlightenment-chardin-schoolmistress',
-    mediaWidth: 1.25,
-    mediaHeight: 1.16,
+    mediaWidth: 2.91,
+    mediaHeight: 2.7,
     kind: 'enlightenment-work',
     accent: ENLIGHTENMENT_PALETTE.societyGreen,
   }),
@@ -1182,10 +1115,10 @@ export const ENLIGHTENMENT_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     id: 'enlightenment-rousseau-botany',
     parentExhibitId: 'rousseau',
     guidedAfterExhibitId: 'rousseau',
-    slotId: 'enlightenment-society-freedom:west-south-return',
+    slotId: 'enlightenment-society-freedom:north-cross-face',
     assetId: 'enlightenment-rousseau-botanizing',
-    mediaWidth: 1.1,
-    mediaHeight: 1.46,
+    mediaWidth: 2.03,
+    mediaHeight: 2.7,
     kind: 'enlightenment-context',
     accent: ENLIGHTENMENT_PALETTE.societyGreen,
   }),
@@ -1193,10 +1126,10 @@ export const ENLIGHTENMENT_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     id: 'enlightenment-sympathy-judgment',
     parentExhibitId: 'adam-smith',
     guidedAfterExhibitId: 'adam-smith',
-    slotId: 'enlightenment-sentiment-commerce:south-east',
+    slotId: 'enlightenment-sentiment-commerce:west-outer',
     assetId: 'enlightenment-greuze-punished-son',
-    mediaWidth: 3.3,
-    mediaHeight: 2.64,
+    mediaWidth: 3.18,
+    mediaHeight: 2.54,
     kind: 'enlightenment-concept',
     accent: ENLIGHTENMENT_PALETTE.societyGreen,
   }),
@@ -1204,10 +1137,10 @@ export const ENLIGHTENMENT_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     id: 'enlightenment-division-labor',
     parentExhibitId: 'adam-smith',
     guidedAfterExhibitId: 'adam-smith',
-    slotId: 'enlightenment-sentiment-commerce:west',
+    slotId: 'enlightenment-sentiment-commerce:east-room-face',
     assetId: 'enlightenment-encyclopedie-pinmaking',
-    mediaWidth: 3.34,
-    mediaHeight: 2.28,
+    mediaWidth: 3.18,
+    mediaHeight: 2.17,
     kind: 'enlightenment-work',
     accent: ENLIGHTENMENT_PALETTE.commerceTeal,
   }),
@@ -1215,10 +1148,10 @@ export const ENLIGHTENMENT_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     id: 'enlightenment-commerce-social-world',
     parentExhibitId: 'adam-smith',
     guidedAfterExhibitId: 'adam-smith',
-    slotId: 'enlightenment-sentiment-commerce:east',
+    slotId: 'enlightenment-sentiment-commerce:east-cross-face',
     assetId: 'enlightenment-vernet-bordeaux-harbor',
-    mediaWidth: 3.34,
-    mediaHeight: 2.08,
+    mediaWidth: 3.18,
+    mediaHeight: 1.98,
     kind: 'enlightenment-context',
     accent: ENLIGHTENMENT_PALETTE.lawBlue,
   }),
@@ -1226,10 +1159,10 @@ export const ENLIGHTENMENT_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     id: 'enlightenment-chartered-monopoly',
     parentExhibitId: 'adam-smith',
     guidedAfterExhibitId: 'adam-smith',
-    slotId: 'enlightenment-sentiment-commerce:north-west',
+    slotId: 'enlightenment-sentiment-commerce:north-room-face',
     assetId: 'enlightenment-luny-hindostan',
-    mediaWidth: 3.34,
-    mediaHeight: 2.08,
+    mediaWidth: 3.18,
+    mediaHeight: 1.98,
     kind: 'enlightenment-context',
     accent: ENLIGHTENMENT_PALETTE.civicRed,
   }),
@@ -1237,10 +1170,10 @@ export const ENLIGHTENMENT_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     id: 'enlightenment-industry-public-judgment',
     parentExhibitId: 'adam-smith',
     guidedAfterExhibitId: 'adam-smith',
-    slotId: 'enlightenment-sentiment-commerce:north-east',
+    slotId: 'enlightenment-sentiment-commerce:north-cross-face',
     assetId: 'enlightenment-sandby-iron-forge',
-    mediaWidth: 3.28,
-    mediaHeight: 2.58,
+    mediaWidth: 3.18,
+    mediaHeight: 2.5,
     kind: 'enlightenment-concept',
     accent: ENLIGHTENMENT_PALETTE.ink,
   }),
@@ -1248,10 +1181,10 @@ export const ENLIGHTENMENT_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     id: 'enlightenment-marriage-domestic-government',
     parentExhibitId: 'mary-astell',
     guidedAfterExhibitId: 'mary-astell',
-    slotId: 'enlightenment-equality-education:west-north-return',
+    slotId: 'enlightenment-equality-education:east-room-face',
     assetId: 'enlightenment-hogarth-marriage-settlement',
-    mediaWidth: 1.25,
-    mediaHeight: .95,
+    mediaWidth: 3.18,
+    mediaHeight: 2.42,
     kind: 'enlightenment-concept',
     accent: ENLIGHTENMENT_PALETTE.equalityViolet,
   }),
@@ -1259,10 +1192,10 @@ export const ENLIGHTENMENT_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     id: 'enlightenment-women-public-intellectuals',
     parentExhibitId: 'mary-astell',
     guidedAfterExhibitId: 'mary-astell',
-    slotId: 'enlightenment-equality-education:west-south-return',
+    slotId: 'enlightenment-equality-education:east-cross-face',
     assetId: 'enlightenment-samuel-nine-muses',
-    mediaWidth: 1.24,
-    mediaHeight: 1.04,
+    mediaWidth: 3.18,
+    mediaHeight: 2.67,
     kind: 'enlightenment-context',
     accent: ENLIGHTENMENT_PALETTE.comparisonGold,
   }),
@@ -1270,10 +1203,10 @@ export const ENLIGHTENMENT_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     id: 'enlightenment-access-to-knowledge',
     parentExhibitId: 'wollstonecraft',
     guidedAfterExhibitId: 'wollstonecraft',
-    slotId: 'enlightenment-equality-education:east-north-return',
+    slotId: 'enlightenment-equality-education:south-room-face',
     assetId: 'enlightenment-duchesse-du-maine-astronomy-lesson',
-    mediaWidth: 1.26,
-    mediaHeight: .88,
+    mediaWidth: 3.18,
+    mediaHeight: 2.22,
     kind: 'enlightenment-context',
     accent: ENLIGHTENMENT_PALETTE.lawBlue,
   }),
@@ -1281,10 +1214,10 @@ export const ENLIGHTENMENT_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     id: 'enlightenment-revolution-from-street',
     parentExhibitId: 'wollstonecraft',
     guidedAfterExhibitId: 'wollstonecraft',
-    slotId: 'enlightenment-equality-education:east-south-return',
+    slotId: 'enlightenment-equality-education:south-cross-face',
     assetId: 'enlightenment-womens-march-versailles',
-    mediaWidth: 1.26,
-    mediaHeight: .88,
+    mediaWidth: 3.18,
+    mediaHeight: 2.22,
     kind: 'enlightenment-context',
     accent: ENLIGHTENMENT_PALETTE.civicRed,
   }),
@@ -1298,7 +1231,7 @@ export const getEnlightenmentSupplementalExhibit = (
   id: MuseumSupplementalExhibitId,
 ): MuseumSupplementalExhibit => {
   const recordValue = ENLIGHTENMENT_SUPPLEMENTAL_EXHIBITS.find((item) => item.id === id);
-  if (!recordValue) throw new Error(`Gallery 18 supplemental exhibit ${id} is missing.`);
+  if (!recordValue) throw new Error(`Gallery 15 supplemental exhibit ${id} is missing.`);
   return recordValue;
 };
 
@@ -1306,7 +1239,7 @@ export const getEnlightenmentSupplementalLayout = (
   id: MuseumSupplementalExhibitId,
 ): EnlightenmentSupplementalExhibitLayout => {
   const layout = ENLIGHTENMENT_SUPPLEMENTAL_EXHIBIT_LAYOUTS.find((item) => item.id === id);
-  if (!layout) throw new Error(`Gallery 18 supplemental layout ${id} is missing.`);
+  if (!layout) throw new Error(`Gallery 15 supplemental layout ${id} is missing.`);
   return layout;
 };
 

@@ -279,6 +279,7 @@ const {
   EMPIRICISM_SUPPLEMENTAL_EXHIBITS,
   EMPIRICISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
   empiricismInteriorLintels,
+  ENLIGHTENMENT_CELL_ORDER,
   ENLIGHTENMENT_CURATION_VALIDATION,
   ENLIGHTENMENT_GALLERY_ID,
   ENLIGHTENMENT_HALL_DIMENSIONS,
@@ -293,9 +294,8 @@ const {
   ENLIGHTENMENT_SPATIAL_CONNECTIONS,
   ENLIGHTENMENT_SUPPLEMENTAL_EXHIBITS,
   ENLIGHTENMENT_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
-  enlightenmentInteriorLintels,
   enlightenmentInteriorWalls,
-  enlightenmentKantBaffle,
+  getEnlightenmentCellIdForZone,
   UTILITY_LIBERTY_CAPITAL_GALLERY_ID,
   UTILITY_LIBERTY_CAPITAL_HALL_DIMENSIONS,
   UTILITY_LIBERTY_CAPITAL_PRIMARY_PLACEMENTS,
@@ -3636,7 +3636,7 @@ check('Gallery 17 is a complete three-room, 18-installation empiricist sequence 
   assert.match(empiricismSupplementalDataSource, /export const EMPIRICISM_SUPPLEMENTAL_EXHIBITS/u, 'Gallery 17 supplemental content is not exported');
 });
 
-check('Gallery 18 is a complete 25-installation Enlightenment crossroads with the approved Kant threshold', () => {
+check('Gallery 15 is a full-scale 25-installation open Enlightenment crossroads with Kant as the final semantic threshold', () => {
   const hall = hallById.get(ENLIGHTENMENT_GALLERY_ID);
   const program = MUSEUM_CANONICAL_PROGRAM.find(({id}) => id === ENLIGHTENMENT_GALLERY_ID);
   const definition = definitionById.get(ENLIGHTENMENT_GALLERY_ID);
@@ -3645,10 +3645,10 @@ check('Gallery 18 is a complete 25-installation Enlightenment crossroads with th
   assert.equal(runtimeNode.galleryState, 'curated-open');
   assert.equal(runtimeNode.fastTravelEligible, true);
   assert.deepEqual(ENLIGHTENMENT_CURATION_VALIDATION, {
-    roomCount: 5,
+    semanticRouteCount: 5,
+    physicalBayCount: 4,
     connectionCount: 4,
-    collisionWallCount: 8,
-    lintelCount: 4,
+    interiorWallCount: 8,
     installationCount: 25,
     primaryCount: 6,
     supplementalCount: 19,
@@ -3658,8 +3658,7 @@ check('Gallery 18 is a complete 25-installation Enlightenment crossroads with th
     depth: 28,
     ceilingHeight: 6.2,
     wallThickness: .36,
-    openingWidth: 4,
-    openingHeight: 3.2,
+    crossHalfWidth: 4,
   });
   assert.equal(definition.layout.floorArea, 784);
   assert.deepEqual(ENLIGHTENMENT_ROOM_ORDER, program.rooms.map(({id}) => id));
@@ -3668,15 +3667,15 @@ check('Gallery 18 is a complete 25-installation Enlightenment crossroads with th
       id,
       bounds: renderBounds ?? bounds,
     })),
-    ENLIGHTENMENT_ROOM_ORDER.map((id) => ({id, bounds: ENLIGHTENMENT_ROOM_BOUNDS[id]})),
-    'Gallery 18 runtime rooms drifted from the approved five-cell plan',
+    ENLIGHTENMENT_CELL_ORDER.map((id) => ({id, bounds: ENLIGHTENMENT_ROOM_BOUNDS[id]})),
+    'Gallery 15 runtime bays drifted from the approved four-bay open cross',
   );
-  const roomBounds = Object.values(ENLIGHTENMENT_ROOM_BOUNDS);
+  const roomBounds = ENLIGHTENMENT_CELL_ORDER.map((id) => ENLIGHTENMENT_ROOM_BOUNDS[id]);
   assert.equal(
     roomBounds.reduce((sum, bounds) =>
       sum + (bounds.maxX - bounds.minX) * (bounds.maxZ - bounds.minZ), 0),
     784,
-    'Gallery 18 rooms must tile the full 28 × 28 m shell',
+    'Gallery 15 physical bays must tile the full 28 × 28 m shell',
   );
   const strictBoundsOverlap = (first, second) => first.minX < second.maxX - 1e-5
     && first.maxX > second.minX + 1e-5
@@ -3684,9 +3683,14 @@ check('Gallery 18 is a complete 25-installation Enlightenment crossroads with th
     && first.maxZ > second.minZ + 1e-5;
   for (let first = 0; first < roomBounds.length; first += 1) {
     for (let second = first + 1; second < roomBounds.length; second += 1) {
-      assert(!strictBoundsOverlap(roomBounds[first], roomBounds[second]), 'Gallery 18 room bounds overlap');
+      assert(!strictBoundsOverlap(roomBounds[first], roomBounds[second]), 'Gallery 15 physical bay bounds overlap');
     }
   }
+  assert.deepEqual(
+    ENLIGHTENMENT_ROOM_BOUNDS['enlightenment-kant-critical'],
+    ENLIGHTENMENT_ROOM_BOUNDS['enlightenment-equality-education'],
+    'Kant must remain a distinct semantic route inside the final northwest bay',
+  );
 
   assert.deepEqual(definition.layout.spatialConnections, ENLIGHTENMENT_SPATIAL_CONNECTIONS);
   assert.equal(ENLIGHTENMENT_SPATIAL_CONNECTIONS.length, 4);
@@ -3695,53 +3699,26 @@ check('Gallery 18 is a complete 25-installation Enlightenment crossroads with th
       openingBounds.maxX - openingBounds.minX,
       openingBounds.maxZ - openingBounds.minZ,
     ].sort((first, second) => first - second);
-    assert(close(openingRuns[0], 1.2) && close(openingRuns[1], 4), 'Gallery 18 lost a four-metre central opening');
+    assert(close(openingRuns[0], .6) && close(openingRuns[1], 14), 'Gallery 15 lost an open quadrant seam');
   }
 
   const boundaryWalls = enlightenmentInteriorWalls();
-  const kantBaffle = enlightenmentKantBaffle();
-  assert.equal(boundaryWalls.length, 8, 'Gallery 18 must retain eight split central-boundary walls');
-  assert(boundaryWalls.every(({height}) => close(height, 6.2)), 'Gallery 18 has an unfinished central-boundary wall');
-  for (const wall of [...boundaryWalls, kantBaffle]) {
+  assert.equal(boundaryWalls.length, 8, 'Gallery 15 must retain eight repeated L-baffles');
+  assert(boundaryWalls.every(({height, size}) =>
+    close(height, 6.2)
+      && (close(size.width, 6) || close(size.depth, 6))), 'Gallery 15 has a nonstandard interior baffle');
+  for (const wall of boundaryWalls) {
     assert.deepEqual(
       definition.layout.wallColliders.find(({id}) => id === wall.id),
       wall,
-      `${wall.id} is missing from Gallery 18 collision architecture`,
+      `${wall.id} is missing from Gallery 15 collision architecture`,
     );
   }
-  assert.deepEqual(
-    kantBaffle,
-    {
-      id: `${ENLIGHTENMENT_GALLERY_ID}:enlightenment-kant-critical-baffle`,
-      center: {x: 0, z: -2.66},
-      size: {width: 4.4, depth: .08},
-      rotation: 0,
-      height: 6.2,
-    },
-    'Kant exhibit baffle drifted from the approved independent millwork',
-  );
-  const northBoundaryInnerFace = -4 + ENLIGHTENMENT_HALL_DIMENSIONS.wallThickness / 2;
-  const kantBaffleNorthFace = kantBaffle.center.z - kantBaffle.size.depth / 2;
   assert(
-    kantBaffleNorthFace - northBoundaryInnerFace
-      >= definition.layout.playerRadius * 2 + .4,
-    'Gallery 18 Kant baffle leaves less than 20 cm practical clearance on each side of the visitor',
+    !definition.architectureWalls.some(({id}) => id.includes('opening-lintel')),
+    'Gallery 15 must not retain central-room lintels',
   );
-
-  const lintels = enlightenmentInteriorLintels();
-  assert.equal(lintels.length, 4, 'Gallery 18 must retain four central-opening lintels');
-  assert(lintels.every(({bottom, height}) => close(bottom, 3.2) && close(height, 3)), 'Gallery 18 lintel heights drifted');
-  for (const lintel of lintels) {
-    assert.deepEqual(
-      definition.architectureWalls.find(({id}) => id === lintel.id),
-      lintel,
-      `${lintel.id} is absent from rendered architecture`,
-    );
-    assert(
-      !definition.layout.wallColliders.some(({id}) => id === lintel.id),
-      `${lintel.id} incorrectly closes a walkable central opening`,
-    );
-  }
+  assert(!definition.layout.wallColliders.some(({id}) => id.includes('kant-critical-baffle')), 'Gallery 15 still contains a central Kant baffle');
 
   assert.equal(program.rooms.length, 5);
   assert.equal(hall.exhibits.length, 6);
@@ -3749,7 +3726,7 @@ check('Gallery 18 is a complete 25-installation Enlightenment crossroads with th
   assert.equal(ENLIGHTENMENT_SUPPLEMENTAL_EXHIBIT_LAYOUTS.length, 19);
   assert.deepEqual(definition.layout.supplementalExhibits, ENLIGHTENMENT_SUPPLEMENTAL_EXHIBIT_LAYOUTS);
   assert.equal(ENLIGHTENMENT_INSTALLATION_SLOTS.length, 25);
-  assert(unique(ENLIGHTENMENT_INSTALLATION_SLOTS.map(({id}) => id)), 'Gallery 18 installation slot ids repeat');
+  assert(unique(ENLIGHTENMENT_INSTALLATION_SLOTS.map(({id}) => id)), 'Gallery 15 installation slot ids repeat');
   const primaryBySlotId = new Map(Object.entries(ENLIGHTENMENT_PRIMARY_PLACEMENTS).map(([id, authored]) => [
     authored.slotId,
     {
@@ -3767,13 +3744,14 @@ check('Gallery 18 is a complete 25-installation Enlightenment crossroads with th
   assert.deepEqual(
     sorted([...primaryBySlotId.keys(), ...supplementalBySlotId.keys()]),
     sorted(ENLIGHTENMENT_INSTALLATION_SLOTS.map(({id}) => id)),
-    'Gallery 18 does not use every approved installation slot exactly once',
+    'Gallery 15 does not use every approved installation slot exactly once',
   );
   for (const slot of ENLIGHTENMENT_INSTALLATION_SLOTS) {
     const installation = primaryBySlotId.get(slot.id) ?? supplementalBySlotId.get(slot.id);
     assert(installation?.layout, `${slot.id} has no physical installation`);
     assert.equal(installation.authored.backingWallId, slot.backingWallId, `${slot.id} backing-wall reference drifted`);
     assert.equal(installation.layout.spatialCellId, slot.spatialCellId, `${slot.id} moved to the wrong room`);
+    assert.equal(installation.layout.zoneId, slot.zoneId, `${slot.id} moved to the wrong semantic route`);
     assert.deepEqual(
       {
         x: installation.layout.position.x,
@@ -3789,7 +3767,11 @@ check('Gallery 18 is a complete 25-installation Enlightenment crossroads with th
     ...ENLIGHTENMENT_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
   ];
   assert.equal(allInstallations.length, 25);
-  assertInstallationsDoNotOverlap('Gallery 18', program.rooms, allInstallations);
+  assertInstallationsDoNotOverlap(
+    'Gallery 15',
+    ENLIGHTENMENT_CELL_ORDER.map((id) => ({id})),
+    allInstallations,
+  );
   const expectedRoomCounts = new Map([
     ['enlightenment-law-institutions', 6],
     ['enlightenment-society-freedom', 6],
@@ -3799,9 +3781,22 @@ check('Gallery 18 is a complete 25-installation Enlightenment crossroads with th
   ]);
   for (const room of program.rooms) {
     assert.equal(
-      allInstallations.filter(({spatialCellId}) => spatialCellId === room.id).length,
+      allInstallations.filter(({zoneId}) => zoneId === room.id).length,
       expectedRoomCounts.get(room.id),
-      `${room.id} does not retain its approved installation count`,
+      `${room.id} does not retain its approved semantic-route installation count`,
+    );
+  }
+  const expectedPhysicalBayCounts = new Map([
+    ['enlightenment-law-institutions', 6],
+    ['enlightenment-society-freedom', 6],
+    ['enlightenment-sentiment-commerce', 6],
+    ['enlightenment-equality-education', 7],
+  ]);
+  for (const cellId of ENLIGHTENMENT_CELL_ORDER) {
+    assert.equal(
+      allInstallations.filter(({spatialCellId}) => spatialCellId === cellId).length,
+      expectedPhysicalBayCounts.get(cellId),
+      `${cellId} does not retain its approved physical-bay installation count`,
     );
   }
 
@@ -3816,132 +3811,108 @@ check('Gallery 18 is a complete 25-installation Enlightenment crossroads with th
       maxZ: center.z + depth / 2,
     };
   };
-  const wallSupportsInstallation = (installation, wall) => {
-    const wallBounds = axisAlignedBounds(wall);
-    const installationBounds = axisAlignedBounds({
-      center: installation.position,
-      size: {width: installation.footprint.width, depth: installation.footprint.depth},
-      rotation: installation.rotationY,
-    });
-    const back = {
-      x: -Math.sin(installation.rotationY),
-      z: -Math.cos(installation.rotationY),
-    };
-    const widthRunsAlongX = Math.abs(Math.cos(installation.rotationY)) > .5;
-    const wallRun = widthRunsAlongX
-      ? wallBounds.maxX - wallBounds.minX
-      : wallBounds.maxZ - wallBounds.minZ;
-    if (wallRun < installation.footprint.width - .06) return false;
-    if (widthRunsAlongX && (
-      installationBounds.minX < wallBounds.minX - .06
-      || installationBounds.maxX > wallBounds.maxX + .06
-    )) return false;
-    if (!widthRunsAlongX && (
-      installationBounds.minZ < wallBounds.minZ - .06
-      || installationBounds.maxZ > wallBounds.maxZ + .06
-    )) return false;
-    for (let distanceBehind = .35; distanceBehind <= 1.6; distanceBehind += .05) {
-      const point = {
-        x: installation.position.x + back.x * distanceBehind,
-        z: installation.position.z + back.z * distanceBehind,
-      };
-      if (
-        point.x >= wallBounds.minX - .04
-        && point.x <= wallBounds.maxX + .04
-        && point.z >= wallBounds.minZ - .04
-        && point.z <= wallBounds.maxZ + .04
-      ) return true;
+  const wallSetSupportsInstallation = (installation, walls) => {
+    const tangent = {x: Math.cos(installation.rotationY), z: -Math.sin(installation.rotationY)};
+    const back = {x: -Math.sin(installation.rotationY), z: -Math.cos(installation.rotationY)};
+    const sampleCount = Math.max(2, Math.ceil(installation.footprint.width / .15));
+    for (let sampleIndex = 0; sampleIndex <= sampleCount; sampleIndex += 1) {
+      const across = -installation.footprint.width / 2
+        + installation.footprint.width * sampleIndex / sampleCount;
+      let supported = false;
+      for (let distanceBehind = .35; distanceBehind <= 1.6 && !supported; distanceBehind += .05) {
+        const point = {
+          x: installation.position.x + tangent.x * across + back.x * distanceBehind,
+          z: installation.position.z + tangent.z * across + back.z * distanceBehind,
+        };
+        supported = walls.some((wall) => {
+          const bounds = axisAlignedBounds(wall);
+          return point.x >= bounds.minX - .04
+            && point.x <= bounds.maxX + .04
+            && point.z >= bounds.minZ - .04
+            && point.z <= bounds.maxZ + .04;
+        });
+      }
+      if (!supported) return false;
     }
-    return false;
+    return true;
   };
   const physicalInstallations = [
     ...definition.layout.exhibits.map((layout) => ({
       id: layout.id,
+      backingWallId: ENLIGHTENMENT_PRIMARY_PLACEMENTS[layout.id]?.backingWallId,
       position: layout.position,
       rotationY: layout.rotationY,
       footprint: layout.scene.footprint,
     })),
     ...ENLIGHTENMENT_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
   ];
+  const renderedWalls = [
+    ...definition.architectureWalls,
+    ...definition.layout.wallColliders,
+  ];
   for (const installation of physicalInstallations) {
+    const usesOuterWall = /:(?:north|south|west|east)-wall$/u.test(installation.backingWallId);
+    const intendedBackingWalls = renderedWalls.filter(({id}) =>
+      id === installation.backingWallId
+      || id.startsWith(`${installation.backingWallId}:manifest-cut-`)
+      || (usesOuterWall && id.endsWith(':inactive-closure')));
+    assert(intendedBackingWalls.length > 0, `${installation.id} references a missing backing wall`);
     assert(
-      definition.layout.wallColliders.some((wall) => wallSupportsInstallation(installation, wall)),
-      `${installation.id} is not backed by an exhibit-sized Gallery 18 wall`,
+      wallSetSupportsInstallation(installation, intendedBackingWalls),
+      `${installation.id} is not continuously backed across its Gallery 15 wall`,
     );
   }
 
   assert.deepEqual(ENLIGHTENMENT_PRIMARY_SCALE_FLOOR, {
-    bayWidth: 3.8,
+    bayWidth: 4.6,
     objectWidth: 3.8,
     objectHeight: 3.55,
-    footprintHeight: 4.44,
+    footprintHeight: 3.71,
   });
   for (const layout of definition.layout.exhibits) {
     assert.equal(layout.scene.footprint.width, 3.8, `${layout.id} is no longer full-scale`);
     assert(layout.scene.mediaMounts.length >= 1, `${layout.id} lacks provenance-backed scene media`);
   }
+  for (const layout of ENLIGHTENMENT_SUPPLEMENTAL_EXHIBIT_LAYOUTS) {
+    assert.equal(layout.footprint.width, 3.58, `${layout.id} is no longer normal museum scale`);
+  }
   const kantPlacement = ENLIGHTENMENT_PRIMARY_PLACEMENTS.kant;
   const kant = definition.layout.exhibits.find(({id}) => id === 'kant');
-  const kantBacking = kant?.scene.objectBounds.find(({id}) => id === 'kant-backing');
-  assert(kant && kantBacking);
-  assert.equal(kantPlacement.slotId, 'enlightenment-kant-critical:critical-screen');
-  assert.equal(kantPlacement.backingWallId, kantBaffle.id);
-  assert.equal(kant.spatialCellId, 'enlightenment-kant-critical');
-  const cosine = Math.cos(kant.rotationY);
-  const sine = Math.sin(kant.rotationY);
-  const kantBackingBounds = axisAlignedBounds({
-    center: {
-      x: kant.position.x + cosine * kantBacking.center.x + sine * kantBacking.center.z,
-      z: kant.position.z - sine * kantBacking.center.x + cosine * kantBacking.center.z,
-    },
-    size: kantBacking.size,
-    rotation: kant.rotationY,
-  });
-  const kantBaffleBounds = axisAlignedBounds(kantBaffle);
-  assert(close(kantBackingBounds.minZ, kantBaffleBounds.maxZ, .001), 'Kant backing is not flush with its independent baffle');
-  assert(
-    kantBackingBounds.minX >= kantBaffleBounds.minX - .01
-      && kantBackingBounds.maxX <= kantBaffleBounds.maxX + .01,
-    'Kant backing overhangs its independent baffle',
+  assert(kant);
+  assert.equal(kantPlacement.slotId, 'enlightenment-kant-critical:west-exit-threshold');
+  assert.equal(kantPlacement.backingWallId, `${ENLIGHTENMENT_GALLERY_ID}:west-wall`);
+  assert.equal(kant.spatialCellId, 'enlightenment-equality-education');
+  assert.equal(kant.zoneId, 'enlightenment-kant-critical');
+  assert.deepEqual(
+    {x: kant.position.x, z: kant.position.z},
+    {x: -12.8, z: -7.25},
+    'Kant is no longer the final semantic stop beside W0',
   );
 
   assert.deepEqual(definition.layout.primaryCirculation, ENLIGHTENMENT_PRIMARY_CIRCULATION);
   assert.deepEqual(ENLIGHTENMENT_PRIMARY_CIRCULATION.points[0], {x: 12, z: 0});
   assert.deepEqual(ENLIGHTENMENT_PRIMARY_CIRCULATION.points.at(-1), {x: -12, z: 0});
-  assert(ENLIGHTENMENT_PRIMARY_CIRCULATION.points.every(({z}) => z === 0), 'Gallery 18 E0 → W0 route is no longer straight');
-  assert.equal(ENLIGHTENMENT_PRIMARY_CIRCULATION.clearanceRadius, .72);
-  const northToEastLeg = definition.layout.guidedWalkLegs.find(({fromExhibitId, toExhibitId}) =>
-    fromExhibitId === 'montesquieu' && toExhibitId === 'rousseau');
-  assert(northToEastLeg, 'Gallery 18 lacks its north-to-east guided leg');
-  const northBypassIndex = northToEastLeg.waypoints.findIndex(({x, z}) => x >= 3 && z <= -3);
-  const northBypass = northToEastLeg.waypoints[northBypassIndex];
-  const eastBypassIndex = northToEastLeg.waypoints.findIndex(
-    ({x, z}, index) => index > northBypassIndex && close(x, northBypass?.x ?? Number.NaN) && close(z, 0),
-  );
-  assert(
-    northBypassIndex >= 0 && eastBypassIndex > northBypassIndex,
-    `Gallery 18 north-to-east guided route no longer bypasses the Kant baffle on its east side: ${JSON.stringify(northToEastLeg.waypoints)}`,
-  );
-  const northDoorIndex = northToEastLeg.waypoints.findIndex(
-    ({x, z}) => Math.abs(x) <= .01 && z > -4 && z < -3,
-  );
-  assert(northDoorIndex >= 0 && northDoorIndex < northBypassIndex);
-  const comfortRadius = definition.layout.playerRadius + .16;
-  const gallery18Colliders = allColliders(definition.layout);
-  const comfortableCentralRoute = northToEastLeg.waypoints.slice(northDoorIndex, eastBypassIndex + 1);
-  for (let index = 1; index < comfortableCentralRoute.length; index += 1) {
-    sampleSegment(comfortableCentralRoute[index - 1], comfortableCentralRoute[index], .05, (point) => {
+  assert(ENLIGHTENMENT_PRIMARY_CIRCULATION.points.every(({z}) => z === 0), 'Gallery 15 E0 → W0 route is no longer straight');
+  assert.equal(ENLIGHTENMENT_PRIMARY_CIRCULATION.clearanceRadius, 1.25);
+  const gallery15Colliders = allColliders(definition.layout);
+  for (let index = 1; index < ENLIGHTENMENT_PRIMARY_CIRCULATION.points.length; index += 1) {
+    sampleSegment(
+      ENLIGHTENMENT_PRIMARY_CIRCULATION.points[index - 1],
+      ENLIGHTENMENT_PRIMARY_CIRCULATION.points[index],
+      .05,
+      (point) => {
       assert(
         isValidMuseumPosition(
           point,
-          comfortRadius,
+          ENLIGHTENMENT_PRIMARY_CIRCULATION.clearanceRadius,
           definition.layout.bounds,
-          gallery18Colliders,
+          gallery15Colliders,
           definition.layout.spatialCells,
         ),
-        `Gallery 18 north-to-east route loses its practical clearance near ${JSON.stringify(point)}`,
+        `Gallery 15 central route loses its approved clearance near ${JSON.stringify(point)}`,
       );
-    });
+      },
+    );
   }
 
   assert.deepEqual(sorted(Object.keys(ENLIGHTENMENT_ROOM_ENTRY_POSES)), sorted(ENLIGHTENMENT_ROOM_ORDER));
@@ -3953,9 +3924,14 @@ check('Gallery 18 is a complete 25-installation Enlightenment crossroads with th
       `${roomId} entry pose is outside its authored room`,
     );
     assert.deepEqual(
-      definition.layout.entryViews.find(({spatialCellId}) => spatialCellId === roomId)?.pose,
+      definition.layout.entryViews.find(({semanticZoneId}) => semanticZoneId === roomId)?.pose,
       pose,
       `${roomId} entry view drifted`,
+    );
+    assert.equal(
+      definition.layout.entryViews.find(({semanticZoneId}) => semanticZoneId === roomId)?.spatialCellId,
+      getEnlightenmentCellIdForZone(roomId),
+      `${roomId} entry view moved to the wrong physical bay`,
     );
     assert(validPose(definition, pose), `${roomId} entry pose is unsafe`);
     const sign = definition.layout.signs.find(({id}) => id === `${roomId}:room-sign`);
@@ -3965,8 +3941,8 @@ check('Gallery 18 is a complete 25-installation Enlightenment crossroads with th
       `${roomId} physical sign differs from its authored interpretation`,
     );
   }
-  assert.equal(definition.layout.signs.length, 6, 'Gallery 18 must retain one entrance sign and five room signs');
-  assert.equal(definition.layout.signs.filter(({kind}) => kind === 'planned-status').length, 0, 'Gallery 18 still renders a planned-status sign');
+  assert.equal(definition.layout.signs.length, 6, 'Gallery 15 must retain one entrance sign and five room signs');
+  assert.equal(definition.layout.signs.filter(({kind}) => kind === 'planned-status').length, 0, 'Gallery 15 still renders a planned-status sign');
   assert.equal(definition.layout.signs.find(({kind}) => kind === 'entrance')?.title, hall.title);
 
   assert.equal(runtimeNode.routePortals?.entry, 'E0');
@@ -3977,11 +3953,11 @@ check('Gallery 18 is a complete 25-installation Enlightenment crossroads with th
   );
   const eastEntrance = definition.entrances.find(({id}) => id === 'E0');
   assert(eastEntrance);
-  assert.deepEqual(definition.layout.spawn, eastEntrance.arrivalPose, 'Gallery 18 does not spawn from its E0 chronological entrance');
+  assert.deepEqual(definition.layout.spawn, eastEntrance.arrivalPose, 'Gallery 15 does not spawn from its E0 chronological entrance');
   for (const neighborNodeId of ['hall:empiricism-science-political-order', 'hall:german-idealism-afterlives']) {
     const connection = MUSEUM_BUILDING_MANIFEST.connections.find(({a, b}) =>
       [a.nodeId, b.nodeId].includes(runtimeNode.id) && [a.nodeId, b.nodeId].includes(neighborNodeId));
-    assert(connection?.accessible && connection.implementationStatus === 'live', `Gallery 18 lacks its live seam to ${neighborNodeId}`);
+    assert(connection?.accessible && connection.implementationStatus === 'live', `Gallery 15 lacks its live seam to ${neighborNodeId}`);
   }
 
   const imageIds = [
@@ -3989,12 +3965,12 @@ check('Gallery 18 is a complete 25-installation Enlightenment crossroads with th
     ...ENLIGHTENMENT_SUPPLEMENTAL_EXHIBIT_LAYOUTS.map(({assetId}) => assetId),
   ];
   assert.equal(imageIds.length, 25);
-  assert.equal(new Set(imageIds).size, 25, 'Gallery 18 repeats a physical-installation image');
-  assert.equal(getMuseumGuidedStops(hall.id, hall.guidedOrder).length, 25, 'Gallery 18 guided visit does not reach every installation');
-  assert.match(canonicalSceneSource, /<EnlightenmentSupplementalExhibits/u, 'Gallery 18 does not mount its supplemental renderer');
-  assert.match(successorSupplementalSceneSource, /export function EnlightenmentSupplementalExhibits/u, 'Gallery 18 supplemental renderer is absent');
-  assert.match(successorSupplementalSceneSource, /getEnlightenmentSupplementalExhibit/u, 'Gallery 18 renderer does not resolve authored visitor content');
-  assert.match(enlightenmentSupplementalDataSource, /export const ENLIGHTENMENT_SUPPLEMENTAL_EXHIBITS/u, 'Gallery 18 supplemental content is not exported');
+  assert.equal(new Set(imageIds).size, 25, 'Gallery 15 repeats a physical-installation image');
+  assert.equal(getMuseumGuidedStops(hall.id, hall.guidedOrder).length, 25, 'Gallery 15 guided visit does not reach every installation');
+  assert.match(canonicalSceneSource, /<EnlightenmentSupplementalExhibits/u, 'Gallery 15 does not mount its supplemental renderer');
+  assert.match(successorSupplementalSceneSource, /export function EnlightenmentSupplementalExhibits/u, 'Gallery 15 supplemental renderer is absent');
+  assert.match(successorSupplementalSceneSource, /getEnlightenmentSupplementalExhibit/u, 'Gallery 15 renderer does not resolve authored visitor content');
+  assert.match(enlightenmentSupplementalDataSource, /export const ENLIGHTENMENT_SUPPLEMENTAL_EXHIBITS/u, 'Gallery 15 supplemental content is not exported');
 });
 
 const assertSequenceGalleryLintels = (label, galleryId, expectedDimensions, lintels) => {
@@ -5200,7 +5176,10 @@ check('all twenty-six runtime halls are canonical, data-driven, and internally a
     assert.deepEqual(definition.resolvedTemplate.deviations, []);
     assert.equal(definition.resolvedTemplate.templateId, expected.template);
     assert.equal(definition.resolvedTemplate.exhibitSlots.length, expected.exhibits);
-    const expectedPhysicalRoomCount = definition.id === 'core-questions-forum' ? 4 : expected.rooms;
+    const expectedPhysicalRoomCount = definition.id === 'core-questions-forum'
+      || definition.id === ENLIGHTENMENT_GALLERY_ID
+      ? 4
+      : expected.rooms;
     assert.equal(definition.layout.spatialCells.filter(({kind}) => kind === 'room').length, expectedPhysicalRoomCount);
     const physicalCellIds = new Set(definition.layout.spatialCells.map(({id}) => id));
     for (const view of definition.layout.entryViews) {
@@ -5211,6 +5190,8 @@ check('all twenty-six runtime halls are canonical, data-driven, and internally a
     }
     if (definition.id === 'core-questions-forum') {
       assert.deepEqual(definition.layout.spatialCells.map(({id}) => id), CORE_QUESTIONS_FORUM_CELL_ORDER);
+    } else if (definition.id === ENLIGHTENMENT_GALLERY_ID) {
+      assert.deepEqual(definition.layout.spatialCells.map(({id}) => id), ENLIGHTENMENT_CELL_ORDER);
     } else {
       assert.deepEqual(sorted(definition.layout.spatialCells.map(({id}) => id)), sorted(hall.zones.map(({id}) => id)));
     }
@@ -5288,6 +5269,8 @@ check('all twenty-six runtime halls are canonical, data-driven, and internally a
         layout.spatialCellId,
         definition.id === 'core-questions-forum'
           ? CORE_QUESTIONS_FORUM_PRIMARY_PLACEMENTS[layout.id].spatialCellId
+          : definition.id === ENLIGHTENMENT_GALLERY_ID
+            ? ENLIGHTENMENT_PRIMARY_PLACEMENTS[layout.id].spatialCellId
           : catalog.zoneId,
         `${definition.id}/${layout.id} spatial cell drifted`,
       );

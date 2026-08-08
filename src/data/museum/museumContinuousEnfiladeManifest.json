@@ -9,7 +9,7 @@
       "path": "docs/museum-masterplan/single-level-building-plan.json",
       "planId": "continuous-enfilade-single-level-v1",
       "schemaVersion": 2,
-      "sha256": "4af26733d88c18f7895d1c955ddd73aca8541f44e93c33d41ce40a807df7cc08"
+      "sha256": "e1c3b67d9d43f21bc6083f4ae68d37228b0d4680716b2dc3814c97533e67115a"
     },
     "program": {
       "path": "docs/museum-masterplan/hall-program.json",
@@ -3836,7 +3836,7 @@
           "title": "Kant: critical philosophy as threshold"
         }
       ],
-      "roomLayoutStrategy": "crossroads-four-quadrants-with-central-kant-room",
+      "roomLayoutStrategy": "crossroads-four-bays-with-five-semantic-routes",
       "templateId": "crossroads-4",
       "implementationStatus": "live",
       "levelId": "L0",

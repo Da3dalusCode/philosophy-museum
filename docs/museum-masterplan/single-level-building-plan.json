@@ -630,7 +630,7 @@
         "enlightenment-kant-critical"
       ],
       "migrationState": "migrate-populated",
-      "roomLayoutStrategy": "crossroads-four-quadrants-with-central-kant-room",
+      "roomLayoutStrategy": "crossroads-four-bays-with-five-semantic-routes",
       "bandId": "band-04-nineteenth-transformations",
       "placement": {
         "x": 75,

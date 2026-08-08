@@ -153,6 +153,7 @@ import {
 import {
   ENLIGHTENMENT_GALLERY_ID,
   ENLIGHTENMENT_HALL_DIMENSIONS,
+  ENLIGHTENMENT_CELL_ORDER,
   ENLIGHTENMENT_PRIMARY_CIRCULATION,
   ENLIGHTENMENT_PRIMARY_PLACEMENTS,
   ENLIGHTENMENT_PRIMARY_SCALE_FLOOR,
@@ -161,9 +162,8 @@ import {
   ENLIGHTENMENT_ROOM_ORDER,
   ENLIGHTENMENT_ROOM_SIGN_COPY,
   ENLIGHTENMENT_SPATIAL_CONNECTIONS,
-  enlightenmentInteriorLintels,
   enlightenmentInteriorWalls,
-  enlightenmentKantBaffle,
+  getEnlightenmentCellIdForZone,
 } from './enlightenmentGalleryCuration';
 import {
   ENLIGHTENMENT_SUPPLEMENTAL_EXHIBIT_LAYOUTS,
@@ -948,94 +948,6 @@ const quadrantCrossroadsGuidedWaypoints = (
   return route;
 };
 
-const enlightenmentCrossroadsGuidedWaypoints = (
-  from: MuseumPoint,
-  to: MuseumPoint,
-  fromCellId: string,
-  toCellId: string,
-  roomBounds: ReadonlyMap<string, MuseumBounds>,
-  colliders: readonly MuseumCollider[],
-): readonly MuseumPoint[] => {
-  const kantCellId = 'enlightenment-kant-critical';
-  const doorwayByOuterCell = {
-    'enlightenment-law-institutions': {
-      outer: {x: 0, z: -4.55},
-      center: {x: 0, z: -3.26},
-    },
-    'enlightenment-society-freedom': {
-      outer: {x: 4.55, z: 0},
-      center: {x: 3.28, z: 0},
-    },
-    'enlightenment-sentiment-commerce': {
-      outer: {x: 0, z: 4.55},
-      center: {x: 0, z: 3.28},
-    },
-    'enlightenment-equality-education': {
-      outer: {x: -4.55, z: 0},
-      center: {x: -3.28, z: 0},
-    },
-  } as const;
-  type OuterCellId = keyof typeof doorwayByOuterCell;
-  const fromDoor = doorwayByOuterCell[fromCellId as OuterCellId];
-  const toDoor = doorwayByOuterCell[toCellId as OuterCellId];
-  if (fromCellId !== kantCellId && !fromDoor) {
-    throw new Error(`Unknown Gallery 18 guided cell ${fromCellId}.`);
-  }
-  if (toCellId !== kantCellId && !toDoor) {
-    throw new Error(`Unknown Gallery 18 guided cell ${toCellId}.`);
-  }
-
-  const startLeg = fromDoor
-    ? guidedWaypointsWithinRoom(
-        from,
-        fromDoor.outer,
-        roomBounds.get(fromCellId)!,
-        colliders,
-        true,
-      )
-    : [from];
-  const targetLeg = toDoor
-    ? guidedWaypointsWithinRoom(
-        toDoor.outer,
-        to,
-        roomBounds.get(toCellId)!,
-        colliders,
-        true,
-      )
-    : [to];
-  const centralFrom = fromDoor?.center ?? from;
-  const centralTo = toDoor?.center ?? to;
-  const centralCandidates: readonly MuseumPoint[][] = [
-    [centralFrom, centralTo],
-    [centralFrom, {x: centralFrom.x, z: centralTo.z}, centralTo],
-    [centralFrom, {x: centralTo.x, z: centralFrom.z}, centralTo],
-    [centralFrom, {x: 0, z: 0}, centralTo],
-    [centralFrom, {x: 3, z: centralFrom.z}, {x: 3, z: centralTo.z}, centralTo],
-    [centralFrom, {x: -3, z: centralFrom.z}, {x: -3, z: centralTo.z}, centralTo],
-    [centralFrom, {x: 3, z: centralFrom.z}, {x: 3, z: 0}, {x: centralTo.x, z: 0}, centralTo],
-    [centralFrom, {x: -3, z: centralFrom.z}, {x: -3, z: 0}, {x: centralTo.x, z: 0}, centralTo],
-  ];
-  const hallBounds: MuseumBounds = {minX: -14, maxX: 14, minZ: -14, maxZ: 14};
-  const obstacleBounds = guidedObstacleBounds(colliders);
-  const centralRoute = centralCandidates
-    .map((candidate) => compactRoute(candidate))
-    .filter((candidate) => guidedRouteIsClear(candidate, hallBounds, obstacleBounds))
-    .sort((first, second) => guidedRouteLength(first) - guidedRouteLength(second))[0];
-  if (!centralRoute) {
-    throw new Error(`No collision-free Gallery 18 central route exists between ${fromCellId} and ${toCellId}.`);
-  }
-  const route = compactRoute([
-    ...startLeg,
-    ...(fromDoor ? [fromDoor.center] : []),
-    ...centralRoute.slice(1),
-    ...(toDoor ? [toDoor.outer, ...targetLeg.slice(1)] : []),
-  ]);
-  if (!guidedRouteIsClear(route, hallBounds, obstacleBounds)) {
-    throw new Error(`No collision-free Gallery 18 route exists between ${fromCellId} and ${toCellId}.`);
-  }
-  return route;
-};
-
 const outerWalls = (width: number, depth: number, height: number, prefix: string): MuseumWallDefinition[] => [
   {id: `${prefix}:north-wall`, center: {x: 0, z: -depth / 2}, size: {width, depth: WALL}, rotation: 0, height},
   {id: `${prefix}:south-wall`, center: {x: 0, z: depth / 2}, size: {width, depth: WALL}, rotation: 0, height},
@@ -1422,6 +1334,18 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
           .map(({id}) => id),
         lightingGroupId: `lighting:${cellId}`,
       }))
+    : isEnlightenmentCrossroads
+      ? ENLIGHTENMENT_CELL_ORDER.map((cellId) => ({
+          id: cellId,
+          kind: 'room' as const,
+          title: hall.rooms.find(({id}) => id === cellId)!.title,
+          bounds: ENLIGHTENMENT_ROOM_BOUNDS[cellId],
+          ceilingHeight: ceiling,
+          exhibitIds: exhibits
+            .filter(({spatialCellId}) => spatialCellId === cellId)
+            .map(({id}) => id),
+          lightingGroupId: `lighting:${cellId}`,
+        }))
     : orderedRooms.map((room) => ({
         id: room.id,
         kind: 'room' as const,
@@ -1466,7 +1390,7 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
       : isFeministPhilosophiesCrossroads
         ? feministPhilosophiesInteriorWalls()
       : isEnlightenmentCrossroads
-        ? [...enlightenmentInteriorWalls(), enlightenmentKantBaffle()]
+        ? enlightenmentInteriorWalls()
       : isCoreForum
         ? forumPartitionWalls(hall.id)
         : sequencePartitionWalls(spatiallyOrderedRooms, roomBounds, hall.id, width, ceiling)),
@@ -1555,13 +1479,16 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
           'Gallery 06',
         )
       : isEnlightenmentCrossroads && layout.spatialCellId !== target.spatialCellId
-      ? enlightenmentCrossroadsGuidedWaypoints(
+      ? quadrantCrossroadsGuidedWaypoints(
           layout.viewpoint,
           target.viewpoint,
           layout.spatialCellId,
           target.spatialCellId,
           roomBounds,
           [...wallColliders, ...obstacleColliders],
+          ENLIGHTENMENT_ROOM_ENTRY_POSES,
+          ENLIGHTENMENT_HALL_DIMENSIONS,
+          'Gallery 15',
         )
       : isAuthoredQuadrantCrossroads && layout.spatialCellId !== target.spatialCellId
       ? quadrantCrossroadsGuidedWaypoints(
@@ -2198,9 +2125,9 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
                             id: `${hall.id}:entrance-sign`,
                             kind: 'entrance' as const,
                             title: hall.title,
-                            kicker: 'Gallery 18 · Four arguments, one critical threshold',
+                            kicker: 'Gallery 15 · Four arguments, one critical threshold',
                             subtitle: hall.period,
-                            position: {x: 14.22, y: 4.7, z: 0},
+                            position: {x: 13.78, y: 4.7, z: 0},
                             rotationY: Math.PI / 2,
                             width: 4.2,
                             height: .72,
@@ -2209,16 +2136,16 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
                             const copy = ENLIGHTENMENT_ROOM_SIGN_COPY[
                               room.id as keyof typeof ENLIGHTENMENT_ROOM_SIGN_COPY
                             ];
-                            if (!copy) throw new Error(`Gallery 18 has no visitor-facing orientation copy for ${room.id}.`);
+                            if (!copy) throw new Error(`Gallery 15 has no visitor-facing orientation copy for ${room.id}.`);
                             const placement = room.id === 'enlightenment-law-institutions'
-                              ? {x: 0, y: 5.2, z: -13.78, rotationY: 0}
+                              ? {x: 9, y: 5.2, z: -13.78, rotationY: 0}
                               : room.id === 'enlightenment-society-freedom'
-                                ? {x: 13.78, y: 4.7, z: 0, rotationY: -Math.PI / 2}
+                                ? {x: 13.78, y: 4.7, z: 9, rotationY: -Math.PI / 2}
                                 : room.id === 'enlightenment-sentiment-commerce'
-                                  ? {x: 0, y: 5.2, z: 13.78, rotationY: Math.PI}
+                                  ? {x: -9, y: 5.2, z: 13.78, rotationY: Math.PI}
                                   : room.id === 'enlightenment-equality-education'
-                                    ? {x: -13.78, y: 4.7, z: 0, rotationY: Math.PI / 2}
-                                    : {x: 0, y: 5.2, z: -2.6, rotationY: 0};
+                                    ? {x: -8.8, y: 5.2, z: -13.78, rotationY: 0}
+                                    : {x: -13.78, y: 4.7, z: -7.25, rotationY: Math.PI / 2};
                             return {
                               id: `${room.id}:room-sign`,
                               kind: 'zone' as const,
@@ -2264,7 +2191,7 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
     ...supplementalExhibits.map(({assetId}) => assetId),
   ])];
   const entrySceneAssetIds = [...new Set(Object.values(entrySceneAssetIdsByEntrance).flat())];
-  const entryViewRooms = isCoreForum
+  const entryViewRooms = isCoreForum || isEnlightenmentCrossroads
     ? orderedRooms.map((room) => ({
         id: room.id,
         bounds: roomBounds.get(room.id)!,
@@ -2276,8 +2203,6 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
     fallbackLabel: hall.title,
     ...(hall.id === EMPIRICISM_GALLERY_ID
       ? {architectureOnlyWalls: empiricismInteriorLintels()}
-      : hall.id === ENLIGHTENMENT_GALLERY_ID
-        ? {architectureOnlyWalls: enlightenmentInteriorLintels()}
       : hall.id === GERMAN_IDEALISM_GALLERY_ID
         ? {architectureOnlyWalls: germanIdealismInteriorLintels()}
       : hall.id === UTILITY_LIBERTY_CAPITAL_GALLERY_ID
@@ -2403,8 +2328,10 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
         return {
           spatialCellId: isCoreForum
             ? getCoreQuestionsForumCellIdForZone(cell.id)
-            : cell.id,
-          ...(isCoreForum ? {semanticZoneId: cell.id} : {}),
+            : isEnlightenmentCrossroads
+              ? getEnlightenmentCellIdForZone(cell.id)
+              : cell.id,
+          ...(isCoreForum || isEnlightenmentCrossroads ? {semanticZoneId: cell.id} : {}),
           // Gallery 01 is read as a chronological promenade. Stage its directory
           // views just inside each threshold so the visitor sees the room unfold
           // in the same direction as the authored route. Forum views prioritize
