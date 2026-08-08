@@ -438,6 +438,7 @@ const {
   MEDITERRANEAN_ORIENTATION_DISPLAY,
   MEDITERRANEAN_ROOM_SIGN_COPY,
   GALLERY_01_PRIMARY_PLACEMENTS,
+  GALLERY_01_TRANSVERSE_PILOT,
   MUSEUM_PUBLIC_GALLERY_NUMBERS,
   MUSEUM_PLANNED_HALL_TITLES,
   ContemporaryHallArchitecture,
@@ -2149,18 +2150,35 @@ check('Plato’s Cave and Republic frame the final room without entering the pri
   const republic = byId.get('plato-republic');
   const cave = byId.get('plato-cave-book-vii');
   assert(republic && cave);
-  approx(republic.position.x, 7.5, 'Republic south-east wall centre');
-  approx(cave.position.x, -7.5, 'Cave south-west wall centre');
+  const requiredInnerEdge = GALLERY_01_TRANSVERSE_PILOT.protectedRouteHalfWidth
+    + GALLERY_01_TRANSVERSE_PILOT.targetInnerEdgeGap;
+  approx(
+    republic.position.x,
+    GALLERY_01_TRANSVERSE_PILOT.centerXByInstallation['plato-republic'],
+    'Republic south-east wall centre',
+  );
+  approx(
+    cave.position.x,
+    -GALLERY_01_TRANSVERSE_PILOT.centerXByInstallation['plato-cave-book-vii'],
+    'Cave south-west wall centre',
+  );
   approx(republic.position.z, -15.12, 'Republic final-room entry position');
   approx(cave.position.z, -15.12, 'Cave final-room entry position');
   approx(republic.rotationY, Math.PI, 'Republic inward-facing rotation');
   approx(cave.rotationY, Math.PI, 'Cave inward-facing rotation');
-  assert(distance(republic.position, cave.position) > 14, 'The paired Plato works collapsed into the central doorway');
+  assert(
+    distance(republic.position, cave.position)
+      >= republic.footprint.width / 2 + cave.footprint.width / 2 + 2 * requiredInnerEdge,
+    'The paired Plato works collapsed into the central doorway',
+  );
   for (const layout of supplemental) {
     assert.equal(layout.parentExhibitId, 'plato', `${layout.id} lost its supplemental Plato parent`);
     assert.equal(layout.zoneId, 'med-plato-aristotle', `${layout.id} left Room 04`);
     assert.equal(layout.spatialCellId, 'med-plato-aristotle', `${layout.id} left the Room 04 spatial cell`);
-    assert(Math.abs(layout.position.x) - layout.footprint.width / 2 > 4, `${layout.id} intrudes into the central circulation/sightline`);
+    assert(
+      Math.abs(layout.position.x) - layout.footprint.width / 2 >= requiredInnerEdge,
+      `${layout.id} intrudes into the central circulation/sightline`,
+    );
     assert(layout.footprint.width >= 4.7 && layout.footprint.height >= 4.5, `${layout.id} is not visually substantial`);
     assert(layout.mediaMount.width >= 2 && layout.mediaMount.height >= 2.8, `${layout.id} media is too slight`);
     assert.equal(layout.mediaMount.assetId, layout.assetId, `${layout.id} media and prefetch assets differ`);
