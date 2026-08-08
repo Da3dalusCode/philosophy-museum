@@ -27,33 +27,30 @@ export type RenaissanceExhibitCuration = {
   groupLabel: string;
 };
 
-/**
- * Paired philosopher anchors occupy the forward wall where a room has two.
- * Orientation copy sits above the central threshold, leaving both bays clear.
- */
+/** Philosopher anchors occupy the centered outer walls of their half-rooms. */
 export const RENAISSANCE_EXHIBIT_CURATION = {
   machiavelli: {
-    authored: {x: -6.5, z: -10.48, rotationY: Math.PI},
+    authored: {x: -10.85, z: -18.6667, rotationY: Math.PI / 2},
     publicKicker: 'Florence · 1469–1527',
     groupLabel: 'Civic power, contingency, and political judgment',
   },
   ficino: {
-    authored: {x: 6.5, z: -10.48, rotationY: Math.PI},
+    authored: {x: 10.85, z: -18.6667, rotationY: -Math.PI / 2},
     publicKicker: 'Florence · 1433–1499',
     groupLabel: 'Translation, commentary, and Renaissance Platonism',
   },
   bacon: {
-    authored: {x: -6.5, z: 8.18, rotationY: Math.PI},
+    authored: {x: -10.85, z: 0, rotationY: Math.PI / 2},
     publicKicker: 'England · 1561–1626',
     groupLabel: 'Observation, experiment, and organized inquiry',
   },
   galileo: {
-    authored: {x: 6.5, z: 8.18, rotationY: Math.PI},
+    authored: {x: 10.85, z: 0, rotationY: -Math.PI / 2},
     publicKicker: 'Italy · 1564–1642',
     groupLabel: 'Instruments, evidence, and contested authority',
   },
   hobbes: {
-    authored: {x: -6.5, z: 26.85, rotationY: Math.PI},
+    authored: {x: -10.85, z: 18.6667, rotationY: Math.PI / 2},
     publicKicker: 'England and France · 1588–1679',
     groupLabel: 'Civil war, covenant, and sovereign authority',
   },
