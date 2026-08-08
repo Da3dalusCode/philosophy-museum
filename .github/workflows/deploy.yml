@@ -45,6 +45,7 @@ jobs:
         run: |
           npm run audit:routing
           npm run audit:museum
+          npm run audit:museum-mobile-controls
           npm run audit:museum-assets
           npm run audit:articles
           npm run audit:articles:reviewed

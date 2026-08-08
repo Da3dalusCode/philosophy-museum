@@ -26,10 +26,13 @@ import {
   type MuseumPointerLockEvent,
   type MuseumPointerLockTransition,
 } from './museumPointerLockState';
+import type {MuseumControlScheme} from './museumControlScheme';
+import {
+  canClaimMuseumTouchPointer,
+  resolveMuseumTouchAxes,
+} from './museumTouchInput';
 
 const DRAG_THRESHOLD = 7;
-const JOYSTICK_RADIUS = 52;
-const JOYSTICK_DEAD_ZONE = .12;
 const movementCodes = new Set(['KeyW', 'KeyA', 'KeyS', 'KeyD', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight']);
 const temporaryFastCodes = new Set(['ShiftLeft', 'ShiftRight']);
 const jumpCodes = new Set(['Space']);
@@ -57,6 +60,7 @@ export type UseMuseumControlsOptions = {
   active: boolean;
   suspended: boolean;
   blocked: boolean;
+  controlScheme: MuseumControlScheme;
   canInteract: boolean;
   onInteract: () => void;
   onReset: () => void;
@@ -115,6 +119,7 @@ export function useMuseumControls(options: UseMuseumControlsOptions): MuseumCont
   const activeRef = useRef(options.active);
   const suspendedRef = useRef(options.suspended);
   const blockedRef = useRef(options.blocked);
+  const controlSchemeRef = useRef(options.controlScheme);
   const canInteractRef = useRef(options.canInteract);
   const callbacksRef = useRef(options);
   const keysRef = useRef(new Set<string>());
@@ -128,6 +133,7 @@ export function useMuseumControls(options: UseMuseumControlsOptions): MuseumCont
   activeRef.current = options.active;
   suspendedRef.current = options.suspended;
   blockedRef.current = options.blocked;
+  controlSchemeRef.current = options.controlScheme;
   canInteractRef.current = options.canInteract;
   callbacksRef.current = options;
 
@@ -178,6 +184,10 @@ export function useMuseumControls(options: UseMuseumControlsOptions): MuseumCont
     inputRef.current.requestFrame?.();
     const movement = movePointerRef.current;
     const look = lookPointerRef.current;
+    if (movement?.target instanceof HTMLElement) {
+      movement.target.style.removeProperty('--museum-touch-x');
+      movement.target.style.removeProperty('--museum-touch-y');
+    }
     if (movement) release(movement.target, movement.id);
     if (look) release(look.target, look.id);
     movePointerRef.current = null;
@@ -250,13 +260,15 @@ export function useMuseumControls(options: UseMuseumControlsOptions): MuseumCont
   }, [advancePointerLock, canvas, clearInput, setMode]);
 
   const beginExploring = useCallback(() => {
-    if (blockedRef.current) return;
     activeRef.current = true;
     suspendedRef.current = false;
     clearInput();
     canvas?.focus({preventScroll: true});
-    requestPointerLock('entry');
-  }, [canvas, clearInput, requestPointerLock]);
+    if (controlSchemeRef.current === 'touch') {
+      advancePointerLock({type: 'cancel'});
+      setMode('drag-look');
+    } else requestPointerLock('entry');
+  }, [advancePointerLock, canvas, clearInput, requestPointerLock, setMode]);
 
   const handleSceneGesture = useCallback(() => {
     if (blockedRef.current || (canvas && document.pointerLockElement === canvas)) return;
@@ -266,21 +278,26 @@ export function useMuseumControls(options: UseMuseumControlsOptions): MuseumCont
       clearInput();
       callbacksRef.current.onReactivate?.();
       canvas?.focus({preventScroll: true});
-      requestPointerLock('scene');
+      if (controlSchemeRef.current === 'touch') setMode('drag-look');
+      else requestPointerLock('scene');
       return;
     }
     if (!activeRef.current || modeRef.current !== 'drag-look') return;
     clearInput();
     canvas?.focus({preventScroll: true});
-    requestPointerLock('scene');
-  }, [canvas, clearInput, requestPointerLock]);
+    if (controlSchemeRef.current === 'touch') setMode('drag-look');
+    else requestPointerLock('scene');
+  }, [canvas, clearInput, requestPointerLock, setMode]);
 
   const requestOverlayCloseResume = useCallback(() => {
     activeRef.current = true;
     suspendedRef.current = false;
     clearInput();
-    requestPointerLock('overlay-close');
-  }, [clearInput, requestPointerLock]);
+    if (controlSchemeRef.current === 'touch') {
+      advancePointerLock({type: 'cancel'});
+      setMode('drag-look');
+    } else requestPointerLock('overlay-close');
+  }, [advancePointerLock, clearInput, requestPointerLock, setMode]);
 
   const completeOverlayCloseResume = useCallback(() => {
     activeRef.current = true;
@@ -472,19 +489,25 @@ export function useMuseumControls(options: UseMuseumControlsOptions): MuseumCont
 
   useEffect(() => {
     const onVisibility = () => document.hidden && suspendForFocusLoss();
-    const onOrientation = () => clearInput();
+    const onViewportChange = () => clearInput();
     window.addEventListener('blur', suspendForFocusLoss);
-    window.addEventListener('orientationchange', onOrientation);
+    window.addEventListener('resize', onViewportChange);
+    window.addEventListener('orientationchange', onViewportChange);
     document.addEventListener('visibilitychange', onVisibility);
     return () => {
       window.removeEventListener('blur', suspendForFocusLoss);
-      window.removeEventListener('orientationchange', onOrientation);
+      window.removeEventListener('resize', onViewportChange);
+      window.removeEventListener('orientationchange', onViewportChange);
       document.removeEventListener('visibilitychange', onVisibility);
     };
   }, [clearInput, suspendForFocusLoss]);
 
   const startLook = useCallback((pointerId: number, clientX: number, clientY: number, target: Element) => {
-    if (!canControl() || lookPointerRef.current || movePointerRef.current?.id === pointerId) return;
+    if (!canControl() || !canClaimMuseumTouchPointer(
+      pointerId,
+      lookPointerRef.current?.id,
+      movePointerRef.current?.id,
+    )) return;
     lookPointerRef.current = {id: pointerId, startX: clientX, startY: clientY, lastX: clientX, lastY: clientY, dragged: false, target};
     capture(target, pointerId);
   }, [canControl]);
@@ -545,6 +568,14 @@ export function useMuseumControls(options: UseMuseumControlsOptions): MuseumCont
   }, [canvas, endLook, moveLook, options.active, options.blocked, startLook]);
 
   useEffect(() => {
+    if (options.controlScheme !== 'touch' || !canvas || document.pointerLockElement !== canvas) return;
+    advancePointerLock({type: 'expect-release'});
+    clearInput();
+    setMode('drag-look');
+    document.exitPointerLock?.();
+  }, [advancePointerLock, canvas, clearInput, options.controlScheme, setMode]);
+
+  useEffect(() => {
     const onMouseMove = (event: MouseEvent) => {
       if (modeRef.current !== 'locked' || !canControl()) return;
       inputRef.current.lookX += event.movementX;
@@ -562,23 +593,44 @@ export function useMuseumControls(options: UseMuseumControlsOptions): MuseumCont
   }, [advancePointerLock, canvas, clearInput]);
 
   const beginMove = useCallback((event: ReactPointerEvent<HTMLElement>) => {
-    if (!canControl() || movePointerRef.current || lookPointerRef.current?.id === event.pointerId) return;
+    if (!canControl() || !canClaimMuseumTouchPointer(
+      event.pointerId,
+      movePointerRef.current?.id,
+      lookPointerRef.current?.id,
+    )) return;
     event.preventDefault();
-    movePointerRef.current = {id: event.pointerId, startX: event.clientX, startY: event.clientY, lastX: event.clientX, lastY: event.clientY, dragged: false, target: event.currentTarget};
+    const bounds = event.currentTarget.getBoundingClientRect();
+    movePointerRef.current = {
+      id: event.pointerId,
+      startX: bounds.left + bounds.width / 2,
+      startY: bounds.top + bounds.height / 2,
+      lastX: event.clientX,
+      lastY: event.clientY,
+      dragged: false,
+      target: event.currentTarget,
+    };
     capture(event.currentTarget, event.pointerId);
-  }, [canControl]);
+    const axes = resolveMuseumTouchAxes(
+      movePointerRef.current.startX,
+      movePointerRef.current.startY,
+      event.clientX,
+      event.clientY,
+    );
+    touchMoveRef.current = axes;
+    event.currentTarget.style.setProperty('--museum-touch-x', `${axes.strafe * 18}px`);
+    event.currentTarget.style.setProperty('--museum-touch-y', `${-axes.forward * 18}px`);
+    updateMovement();
+  }, [canControl, updateMovement]);
   const moveJoystick = useCallback((event: ReactPointerEvent<HTMLElement>) => {
     const pointer = movePointerRef.current;
     if (!pointer || pointer.id !== event.pointerId || !canControl()) return;
     event.preventDefault();
-    const dx = event.clientX - pointer.startX;
-    const dy = event.clientY - pointer.startY;
-    const length = Math.hypot(dx, dy);
-    const scale = length > JOYSTICK_RADIUS ? JOYSTICK_RADIUS / length : 1;
-    let strafe = dx * scale / JOYSTICK_RADIUS;
-    let forward = -dy * scale / JOYSTICK_RADIUS;
-    if (Math.hypot(strafe, forward) < JOYSTICK_DEAD_ZONE) ({x: strafe, z: forward} = {x: 0, z: 0});
-    touchMoveRef.current = {strafe, forward};
+    const axes = resolveMuseumTouchAxes(pointer.startX, pointer.startY, event.clientX, event.clientY);
+    touchMoveRef.current = axes;
+    if (pointer.target instanceof HTMLElement) {
+      pointer.target.style.setProperty('--museum-touch-x', `${axes.strafe * 18}px`);
+      pointer.target.style.setProperty('--museum-touch-y', `${-axes.forward * 18}px`);
+    }
     updateMovement();
   }, [canControl, updateMovement]);
   const endMove = useCallback((event: ReactPointerEvent<HTMLElement>, releaseCapture: boolean) => {
@@ -587,8 +639,34 @@ export function useMuseumControls(options: UseMuseumControlsOptions): MuseumCont
     if (releaseCapture) release(pointer.target, pointer.id);
     movePointerRef.current = null;
     touchMoveRef.current = {strafe: 0, forward: 0};
+    if (pointer.target instanceof HTMLElement) {
+      pointer.target.style.removeProperty('--museum-touch-x');
+      pointer.target.style.removeProperty('--museum-touch-y');
+    }
     updateMovement();
   }, [updateMovement]);
+
+  useEffect(() => {
+    const finishPointer = (event: PointerEvent) => {
+      const movePointer = movePointerRef.current;
+      if (movePointer?.id === event.pointerId) {
+        movePointerRef.current = null;
+        touchMoveRef.current = {strafe: 0, forward: 0};
+        if (movePointer.target instanceof HTMLElement) {
+          movePointer.target.style.removeProperty('--museum-touch-x');
+          movePointer.target.style.removeProperty('--museum-touch-y');
+        }
+        updateMovement();
+      }
+      endLook(event.pointerId, false);
+    };
+    window.addEventListener('pointerup', finishPointer, true);
+    window.addEventListener('pointercancel', finishPointer, true);
+    return () => {
+      window.removeEventListener('pointerup', finishPointer, true);
+      window.removeEventListener('pointercancel', finishPointer, true);
+    };
+  }, [endLook, updateMovement]);
 
   const movementBindings: MuseumPointerBindings = {
     onPointerDown: beginMove,
