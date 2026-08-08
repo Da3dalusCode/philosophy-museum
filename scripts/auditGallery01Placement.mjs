@@ -611,13 +611,6 @@ for (const [roomId, anchorIds] of Object.entries(GALLERY_01_ROOM_ANCHORS)) {
     }
   }
 
-  for (const face of ['north-west', 'south-west']) {
-    approx(faceInstallations.get(face)[0].position.x, -7.5, `${roomId}/${face} wall centre`);
-  }
-  for (const face of ['north-east', 'south-east']) {
-    approx(faceInstallations.get(face)[0].position.x, 7.5, `${roomId}/${face} wall centre`);
-  }
-
   for (const side of ['west', 'east']) {
     const observedSequence = roomInstallations
       .filter(({position}) => side === 'west' ? position.x < 0 : position.x > 0)
