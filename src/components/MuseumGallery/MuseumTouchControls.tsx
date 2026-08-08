@@ -50,13 +50,13 @@ export function MuseumTouchControls({
       {...movementBindings}
       aria-hidden="true"
       style={{minWidth: 104, minHeight: 104, touchAction: enabled ? 'none' : 'auto', userSelect: 'none'}}
-    ><span aria-hidden="true">Move</span></div>
+    ><span aria-hidden="true"><b>Move</b></span><i aria-hidden="true"/></div>
     <div
       className="museum-touch-look"
       {...lookBindings}
       aria-hidden="true"
       style={{minWidth: 104, minHeight: 104, touchAction: enabled ? 'none' : 'auto', userSelect: 'none'}}
-    ><span aria-hidden="true">Look</span></div>
+    ><span aria-hidden="true"><b>Look</b><small>Drag to turn</small></span></div>
     <div className="museum-touch-actions">
       <button
         className="museum-touch-speed"

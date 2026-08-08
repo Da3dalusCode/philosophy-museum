@@ -84,6 +84,7 @@ import {
 } from './museumSession';
 import {useMuseumControls, type MuseumControls} from './useMuseumControls';
 import {useMuseumExperienceMode} from './useMuseumExperienceMode';
+import {useMuseumControlScheme} from './museumControlScheme';
 import {resolveMuseumHallResidency} from './museumResidency';
 import {getCommittedMuseumPoseOwner} from './museumRouteSync';
 import {
@@ -624,6 +625,7 @@ export function MuseumPage({route, href, push, replace}: {
   const [poseRevision, setPoseRevision] = useState(0);
   const LazyMuseumWorldScene = useMemo(createLazyMuseumWorldScene, [sceneEpoch]);
   const reducedMotion = useReducedMotion();
+  const controlScheme = useMuseumControlScheme();
   const intentionalInterfaceOpen = Boolean(exhibit || supplementalExhibit || overlay);
   const activeHallLoadFailed = Boolean(activeNode.publicHallId) && hallLoadStatus[activeHallId] === 'failed';
   const activeHallLoading = Boolean(activeNode.publicHallId)
@@ -976,6 +978,7 @@ export function MuseumPage({route, href, push, replace}: {
     active: exploring,
     suspended: focusSuspended,
     blocked,
+    controlScheme,
     canInteract: Boolean(nearbyId || nearbySupplementalId || visitorMapNearby),
     onInteract: interactNearby,
     onReset: resetPosition,
@@ -2084,6 +2087,7 @@ export function MuseumPage({route, href, push, replace}: {
     data-immersive={experience.immersive ? 'true' : 'false'}
     data-fullscreen={experience.fullscreen ? 'true' : 'false'}
     data-exploring={exploring ? 'true' : 'false'}
+    data-control-scheme={controlScheme}
     data-museum-pilot-debug={museumPilotDebugEnabled() ? 'true' : 'false'}
   >
     {museumPilotDebugEnabled() && <output id="museum-pilot-telemetry" hidden/>}
@@ -2095,7 +2099,7 @@ export function MuseumPage({route, href, push, replace}: {
       data-final-threshold={atFinalThreshold ? 'true' : 'false'}
       aria-describedby="museum-controls-description"
     >
-      <p className="sr-only" id="museum-controls-description">A first-person museum. Activate the main visit control before keyboard, mouse, or touch controls affect the scene. The complete directory and guided visit are available without free movement.</p>
+      <p className="sr-only" id="museum-controls-description">A first-person museum. Activate the main visit control before {controlScheme === 'touch' ? 'touch controls' : 'keyboard and mouse controls'} affect the scene. The complete directory and guided visit are available without free movement.</p>
 
       <div ref={backgroundRef} className="museum-stage-surface" data-museum-background>
         {sceneError ? <MuseumFallback
@@ -2229,7 +2233,7 @@ export function MuseumPage({route, href, push, replace}: {
             <div className="museum-resume-visit-card">
               <p className="eyebrow">Visitor controls</p>
               <h2 id="museum-resume-visit-title">Resume Visit</h2>
-              <p className="museum-resume-visit-support">Click to continue walking and looking around.</p>
+              <p className="museum-resume-visit-support">{controlScheme === 'touch' ? 'Tap to continue using the move, look, and interact controls.' : 'Click to continue walking and looking around.'}</p>
               <button ref={resumeButtonRef} type="button" onClick={resumeVisit}>
                 <DoorOpen size={20}/> Resume Visit
               </button>
@@ -2325,6 +2329,11 @@ export function MuseumPage({route, href, push, replace}: {
           <p className="eyebrow">Your visit begins here</p>
           <h2 id="museum-first-visit-title">Enter the Museum</h2>
           <p className="museum-first-visit-support">Begin in the Grand Entrance facing Gallery 01, then follow the path through philosophy’s unfolding conversation.</p>
+          <p className="museum-first-visit-controls">
+            {controlScheme === 'touch'
+              ? 'Drag the left control to move and strafe, drag the right control to look, and tap Interact near exhibits or signs. Use both controls together.'
+              : 'Use W A S D or the arrow keys to move, the mouse to look, and E or Enter to interact.'}
+          </p>
           <button ref={beginVisitButtonRef} type="button" onClick={beginExploring} autoFocus>
             <DoorOpen size={21}/> Begin Museum Visit
           </button>

@@ -14,6 +14,7 @@
     "validate:museum-building-plan": "node scripts/validateSingleLevelBuildingPlan.mjs",
     "audit:routing": "node scripts/auditRouting.mjs",
     "audit:museum": "node scripts/auditMuseum.mjs && node scripts/auditMuseumPlaques.mjs",
+    "audit:museum-mobile-controls": "node scripts/auditMuseumMobileControls.mjs",
     "audit:museum-plaques": "node scripts/auditMuseumPlaques.mjs",
     "audit:museum-assets": "node scripts/auditMuseumAssets.mjs",
     "audit:articles": "node scripts/auditArticleDepth.mjs",
