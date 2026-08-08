@@ -2431,6 +2431,12 @@
       "searchText": "merleau-ponty: phenomenology of perception merleau-ponty · phénoménologie de la perception how does the lived body open a meaningful world before reflective calculation? body schema, habit, perception, and expressive movement the body schema is an organized field of practical capacities, not a mental picture of body parts. habit reorganizes what the body can immediately perceive and do. perception is meaningful and structured before it is converted into explicit judgment. freedom is embodied and situated, neither mechanical determination nor pure choice. phenomenology, existence, and embodiment being-in-the-world, perception, and embodiment"
     },
     {
+      "id": "existentialism-kierkegaard-precursor",
+      "hallId": "phenomenology-existence-embodiment",
+      "label": "Kierkegaard: Anxiety, Possibility, and the Existing Individual",
+      "searchText": "kierkegaard: anxiety, possibility, and the existing individual kierkegaard · existential precursor why can possibility feel like freedom’s opening and its vertigo at once? choice, anxiety, inwardness, social judgment, and the limits of retrospective labels anxiety discloses possibility without dictating which possibility should be chosen. existing is a task performed in time, not a detached theory one can finish in advance. kierkegaard’s pseudonyms occupy distinct positions and cannot be collapsed into one direct doctrine. later existentialists inherit questions from kierkegaard while revising his religious and ethical frameworks. phenomenology, existence, and embodiment existentialism: freedom, facticity, and bad faith"
+    },
+    {
       "id": "existentialism-facticity-freedom",
       "hallId": "phenomenology-existence-embodiment",
       "label": "Existentialism: Freedom in a Situation",
@@ -3616,7 +3622,7 @@
       "id": "locke-molyneux-crossmodal-vision",
       "hallId": "empiricism-science-political-order",
       "label": "Molyneux’s Question: Can Touch Be Recognized at First Sight?",
-      "searchText": "molyneux’s question: can touch be recognized at first sight? molyneux’s question · touch, sight, and learned coordination if a person born blind learned a cube and sphere by touch, would restored vision identify them before touch connected the senses? cross-modal recognition, concepts, visual learning, surgery, experimental design, and patient care cross-modal recognition may depend on learned coordination rather than identical visual and tactile ideas. the phrase “at first sight” distinguishes immediate recognition from rapid learning. surgery and psychology alter the question as well as supplying evidence about it. empiricism, science, and political order ideas, experience, identity, and rights"
+      "searchText": "molyneux’s question: can touch be recognized at first sight? molyneux’s question · touch, sight, and learned coordination if a person born blind learned a cube and sphere by touch, would restored vision identify them before touch connected the senses? cross-modal recognition, concepts, visual learning, touch, sight, and experimental design cross-modal recognition may depend on learned coordination rather than identical visual and tactile ideas. the phrase “at first sight” distinguishes immediate recognition from rapid learning. restored-vision cases and psychology alter the question as well as supplying evidence about it. empiricism, science, and political order ideas, experience, identity, and rights"
     },
     {
       "id": "locke-consciousness-prince-cobbler",

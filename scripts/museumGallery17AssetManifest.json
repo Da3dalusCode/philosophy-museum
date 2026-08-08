@@ -45,26 +45,26 @@
         "sha256": "0a9c472fd33062545d48e60372bfe87b71ebdfe8a6ba03e3d400dc679c9fa49c"
       }
     },
-    "locke-molyneux-cataract-surgery": {
+    "locke-molyneux-ribera-touch": {
       "hallFolder": "empiricism-science-political-order",
-      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Cataract_surgery.jpg",
-      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Cataract_surgery.jpg",
-      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Cataract_surgery.jpg?width=1600",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Jos%C3%A9_de_Ribera_018.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a7/Jos%C3%A9_de_Ribera_018.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Jos%C3%A9_de_Ribera_018.jpg/960px-Jos%C3%A9_de_Ribera_018.jpg",
       "visualCharacter": "artwork-or-social-scene",
       "textDominantOrSingleBook": false,
       "sceneMaximum": 640,
       "panelMaximum": 1280,
       "scene": {
-        "width": 640,
-        "height": 480,
-        "bytes": 24682,
-        "sha256": "5801bcaf492de1622b1f1ec1fab20066f786b001f775e1379b5171ad62d51b50"
+        "width": 480,
+        "height": 640,
+        "bytes": 23424,
+        "sha256": "d8438ef1268925003fff1da0420c2591b8b52c5ddde17e57049a5a13adca174a"
       },
       "panel": {
-        "width": 1280,
-        "height": 961,
-        "bytes": 91386,
-        "sha256": "2d5b4ae083514223b0f22bfc14664894c5279b61bf2ef16a67c1c6e25fe9de65"
+        "width": 960,
+        "height": 1280,
+        "bytes": 183802,
+        "sha256": "435cdc88fbda77befcffce817de4f76aca8bc96ad5c3ec2ef070413853d338bc"
       }
     },
     "locke-cobbler-workshop-1671": {

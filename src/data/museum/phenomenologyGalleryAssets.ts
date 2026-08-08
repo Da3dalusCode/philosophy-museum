@@ -48,6 +48,15 @@ const generatedSource = (id: string) =>
 
 export const PHENOMENOLOGY_GALLERY_ASSETS = [
   galleryAsset({
+    id: 'phenomenology-cezanne-still-life', entityKind: 'branch', entityId: 'phenomenology', role: 'context', mediaKind: 'painting',
+    title: 'Still Life with Apples and a Pot of Primroses', creator: 'Paul Cézanne', objectDate: 'c. 1890', institution: 'The Metropolitan Museum of Art, 51.112.1',
+    sourcePageUrl: 'https://commons.wikimedia.org/wiki/File:Still_Life_with_Apples_and_a_Pot_of_Primroses_MET_DT47.jpg', objectPageUrl: 'https://www.metmuseum.org/art/collection/search/435882', ...cc0,
+    attribution: 'Paul Cézanne, Still Life with Apples and a Pot of Primroses, c. 1890, The Metropolitan Museum of Art, 51.112.1. CC0 1.0.', derivativeNotice: originalNotice,
+    scene: [640, 508], panel: [1280, 1016], alt: 'A potted primrose, apples, folded cloth, and vessels share a table whose edges and objects shift subtly across viewpoints.',
+    caption: 'Cézanne’s still life lets one scene appear through tensions among profile, depth, color, and point of view.',
+    historicalNote: 'The painting predates phenomenology as a named movement and was not made to illustrate Husserl. It is presented as a visual companion for sustained attention to how one world is given through partial and sometimes discordant appearances.', likenessStatus: 'not-applicable', focalPoint: {x: .5, y: .48},
+  }),
+  galleryAsset({
     id: 'phenomenology-intentionality-interpretive', entityKind: 'branch', entityId: 'phenomenology', role: 'context', mediaKind: 'drawing',
     title: 'Intentionality: object, profile, and horizon', creator: 'Philosophy Atlas Museum with OpenAI ImageGen', objectDate: '2026', institution: 'Philosophy Atlas Museum',
     sourcePageUrl: generatedSource('phenomenology-intentionality-interpretive'), license: 'Original Philosophy Atlas Museum interpretive illustration', rightsKind: 'rights-status',
@@ -91,6 +100,15 @@ export const PHENOMENOLOGY_GALLERY_ASSETS = [
     scene: [640, 445], panel: [1280, 889], alt: 'Edvard Munch painting of an evening crowd advancing along Karl Johan Street while one dark figure walks apart.',
     caption: 'Edvard Munch, Evening on Karl Johan Street, 1892: crowd, isolation, and an unsettled public world.',
     historicalNote: 'The painting predates existentialism as a named twentieth-century movement. It is presented as a visual companion to themes of anxiety, estrangement, and public existence, not as an illustration or definition of the school.', likenessStatus: 'not-applicable', focalPoint: {x: .5, y: .48},
+  }),
+  galleryAsset({
+    id: 'existentialism-kierkegaard-copenhagen-street', entityKind: 'philosopher', entityId: 'kierkegaard', role: 'context', mediaKind: 'painting',
+    title: 'View of a Street in Østerbro outside Copenhagen. Morning Light', creator: 'Christen Købke', objectDate: '1836', institution: 'Statens Museum for Kunst, Copenhagen (KMS844)',
+    sourcePageUrl: 'https://commons.wikimedia.org/wiki/File:Christen_K%C3%B8bke_-_View_of_a_Street_in_%C3%98sterbro_outside_Copenhagen._Morning_Light_-_Google_Art_Project.jpg', ...publicDomain,
+    attribution: 'Christen Købke, View of a Street in Østerbro outside Copenhagen. Morning Light, 1836. Statens Museum for Kunst, KMS844. Public Domain Mark 1.0.', derivativeNotice: originalNotice,
+    scene: [640, 421], panel: [1280, 841], alt: 'Morning light falls across a quiet street in Østerbro outside Copenhagen, with modest houses, trees, and a few people receding into the distance.',
+    caption: 'Købke’s 1836 Copenhagen street supplies the lived urban world in which Kierkegaard’s questions of choice, inwardness, and public judgment took shape.',
+    historicalNote: 'Købke’s painting is contemporary Copenhagen context, not a portrait of Kierkegaard or an illustration of The Concept of Anxiety. It locates the philosophical precursor within a particular social and urban world without collapsing later existentialisms into his project.', likenessStatus: 'not-applicable', focalPoint: {x: .52, y: .52},
   }),
   galleryAsset({
     id: 'sartre-ens-portrait-1924', entityKind: 'philosopher', entityId: 'sartre', role: 'identity', mediaKind: 'photograph',

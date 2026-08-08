@@ -136,6 +136,7 @@ export type MuseumSupplementalExhibitId =
   | 'heidegger-being-time'
   | 'merleau-phenomenology-perception'
   | 'existentialism-facticity-freedom'
+  | 'existentialism-kierkegaard-precursor'
   | 'sartre-bad-faith'
   | 'sartre-existentialism-humanism'
   | 'beauvoir-ethics-ambiguity'

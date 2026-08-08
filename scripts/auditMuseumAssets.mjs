@@ -820,13 +820,13 @@ check('Galleries 1–16 classify every textual-media candidate and cap plain pag
   assert.match(legacyImageDiversityPreparationSource, /--refresh-locks/);
 });
 
-check('the canonical twenty-six expose 191 primaries, 409 supplementals, and 600 interpreted stops with resolvable local media', () => {
+check('the canonical twenty-six expose 191 primaries, 410 supplementals, and 601 interpreted stops with resolvable local media', () => {
   assert.deepEqual(MUSEUM_HALLS.map(({id}) => id), ACTIVE_HALL_IDS);
   assert.equal(MUSEUM_HALLS.length, 26);
   assert.equal(liveExhibits.length, 191);
-  assert.equal(supplementalReferencedIds.length, 409);
-  assert.equal(liveExhibits.length + supplementalReferencedIds.length, 600);
-  assert.equal(referencedIds.length, 615);
+  assert.equal(supplementalReferencedIds.length, 410);
+  assert.equal(liveExhibits.length + supplementalReferencedIds.length, 601);
+  assert.equal(referencedIds.length, 617);
   assert(canonicalReferencedIds.length > 0, 'the live primary program references no local media');
   for (const {hall, exhibit} of liveExhibits) {
     assert(Array.isArray(exhibit.supportingAssetIds), `${hall.id}/${exhibit.id} has no supporting-asset array`);
@@ -864,8 +864,8 @@ check('Gallery 02 work, discovery, and context exhibits resolve thirteen distinc
 });
 
 check('Gallery 03 resolves every interpreted stop through unique, relevant local media', () => {
-  assert.equal(PHENOMENOLOGY_SUPPLEMENTAL_EXHIBITS.length, 20);
-  assert.equal(new Set(phenomenologySupplementalReferencedIds).size, 20);
+  assert.equal(PHENOMENOLOGY_SUPPLEMENTAL_EXHIBITS.length, 21);
+  assert.equal(new Set(phenomenologySupplementalReferencedIds).size, 21);
   for (const exhibit of PHENOMENOLOGY_SUPPLEMENTAL_EXHIBITS) {
     assert(assetById.has(exhibit.assetId), `${exhibit.id} references missing asset ${exhibit.assetId}`);
     assert(assetById.has(exhibit.panelAssetId), `${exhibit.id} panel references missing asset ${exhibit.panelAssetId}`);
@@ -877,17 +877,20 @@ check('Gallery 03 resolves every interpreted stop through unique, relevant local
     principalAssetId,
     ...supportingAssetIds,
   ].filter(Boolean));
-  assert.equal(primaryReferencedIds.length, 13);
+  assert.equal(primaryReferencedIds.length, 14);
   const galleryReferencedIds = [...primaryReferencedIds, ...phenomenologySupplementalReferencedIds];
-  assert.equal(galleryReferencedIds.length, 33);
-  assert.equal(new Set(galleryReferencedIds).size, 33, 'Gallery 03 repeats an image across primary or supplemental exhibits');
-  assert.equal(new Set(galleryReferencedIds.map((id) => assetById.get(id).sourcePageUrl)).size, 33, 'Gallery 03 repeats an underlying source image');
-  assert.equal(new Set(galleryReferencedIds.map((id) => sha256(exactCasePath(assetById.get(id).variants.panel.path)))).size, 33, 'Gallery 03 repeats identical panel bytes');
+  assert.equal(galleryReferencedIds.length, 35);
+  assert.equal(new Set(galleryReferencedIds).size, 35, 'Gallery 03 repeats an image across primary or supplemental exhibits');
+  assert.equal(new Set(galleryReferencedIds.map((id) => assetById.get(id).sourcePageUrl)).size, 35, 'Gallery 03 repeats an underlying source image');
+  assert.equal(new Set(galleryReferencedIds.map((id) => sha256(exactCasePath(assetById.get(id).variants.panel.path)))).size, 35, 'Gallery 03 repeats identical panel bytes');
   assert(!galleryReferencedIds.some((id) => /grave|plaque/.test(id)), 'Gallery 03 still routes through a grave or plaque image');
   const existentialism = hall.exhibits.find(({id}) => id === 'existentialism');
   assert.equal(existentialism?.principalAssetId, 'existentialism-munch-karl-johan', 'Existentialism lost its primary visual');
+  const phenomenology = hall.exhibits.find(({id}) => id === 'phenomenology');
+  assert.equal(phenomenology?.principalAssetId, 'phenomenology-cezanne-still-life', 'Phenomenology lost its primary visual');
   const requiredTitlePrefixes = new Map([
     ['phenomenology-intentionality', 'Husserl:'],
+    ['existentialism-kierkegaard-precursor', 'Kierkegaard:'],
     ['heidegger-being-time', 'Heidegger:'],
     ['merleau-phenomenology-perception', 'Merleau-Ponty:'],
     ['sartre-bad-faith', 'Sartre:'],
@@ -1736,11 +1739,11 @@ check('every physical installation has a museum-wide unique asset, source page, 
   assert(unique(physicalAssets.map(({variants}) => sha256(exactCasePath(variants.panel.path)))), 'two physical installations reuse identical panel bytes');
 });
 
-check('the preserved asset registry contains 657 unique records and derivative paths', () => {
-  assert.equal(MUSEUM_ASSETS.length, 657);
-  assert.equal(assetById.size, 657);
+check('the preserved asset registry contains 659 unique records and derivative paths', () => {
+  assert.equal(MUSEUM_ASSETS.length, 659);
+  assert.equal(assetById.size, 659);
   const variantPaths = MUSEUM_ASSETS.flatMap(({variants}) => [variants.scene.path, variants.panel.path]);
-  assert.equal(variantPaths.length, 1314);
+  assert.equal(variantPaths.length, 1318);
   assert(unique(variantPaths), 'two asset variants share a derivative path');
   for (const id of NEW_CANONICAL_ASSET_IDS) assert(assetById.has(id), `new canonical asset ${id} is missing`);
   for (const id of MEDITERRANEAN_ASSET_IDS) assert(assetById.has(id), `Gallery 01 asset ${id} is missing`);
@@ -1849,9 +1852,9 @@ check('every registered variant is exact-case local WebP media with locked dimen
   }
 });
 
-check('the 315-source modern-manifest subset excludes all separately locked Gallery 01 and Galleries 13–26 media', () => {
+check('the 317-source modern-manifest subset excludes all separately locked Gallery 01 and Galleries 13–26 media', () => {
   assert.equal(modernManifest.version, 1);
-  assert.equal(Object.keys(manifestAssets).length, 315);
+  assert.equal(Object.keys(manifestAssets).length, 317);
   const managedAssets = MUSEUM_ASSETS.filter(({variants}) =>
     !variants.scene.path.startsWith('assets/museum/ancient-greek/')
       && !variants.scene.path.startsWith('assets/museum/hellenistic-roman-ways/')
@@ -1868,10 +1871,10 @@ check('the 315-source modern-manifest subset excludes all separately locked Gall
       && !variants.scene.path.startsWith('assets/museum/moral-life-practical-reason/')
       && !variants.scene.path.startsWith('assets/museum/colonialism-race-liberation/')
       && !variants.scene.path.startsWith('assets/museum/feminist-philosophies/'));
-  assert.equal(managedAssets.length, 315);
+  assert.equal(managedAssets.length, 317);
   assert.deepEqual(Object.keys(manifestAssets).sort(), managedAssets.map(({id}) => id).sort());
   assert.match(preparationSource, /MANIFEST_PATH = ROOT \/ "scripts" \/ "museumModernAssetManifest\.json"/);
-  assert.match(preparationSource, /EXPECTED_ASSET_COUNT = 315/);
+  assert.match(preparationSource, /EXPECTED_ASSET_COUNT = 317/);
   for (const folder of MANAGED_HALL_FOLDERS) assert(preparationSource.includes(`"${folder}"`), `preparation pipeline omits ${folder}`);
   assert.match(preparationSource, /record\["selectedThumbnailUrl"\]/);
   assert.match(preparationSource, /assert_locked\(slug, "scene"/);
@@ -1944,13 +1947,13 @@ check('the 315-source modern-manifest subset excludes all separately locked Gall
     'logic-language-science': 16,
     'mind-consciousness-self': 16,
     'modernity-freedom-critique': 16,
-    'phenomenology-existence-embodiment': 23,
+    'phenomenology-existence-embodiment': 25,
     'renaissance-humanism-new-method': 13,
     'renaissance-reason-revolution': 16,
   }, 'preparation lock folder inventory changed');
 });
 
-check('all 630 managed derivatives match exact dimensions, bytes, and SHA-256 locks', () => {
+check('all 634 managed derivatives match exact dimensions, bytes, and SHA-256 locks', () => {
   for (const [id, lock] of Object.entries(manifestAssets)) {
     const asset = assetById.get(id);
     assert(asset, `${id} lock has no asset record`);
@@ -2056,11 +2059,11 @@ check('the 42-source Galleries 13 and 16 lock reproduces every curated derivativ
     ...Object.keys(mediterraneanManifestAssets),
     ...Object.keys(successorManifestAssets),
   ]);
-  assert.equal(previouslyLockedIds.size, 371, 'The pre-Gallery-13/16 source-lock inventories overlap');
+  assert.equal(previouslyLockedIds.size, 373, 'The pre-Gallery-13/16 source-lock inventories overlap');
   for (const id of Object.keys(galleries13And16ManifestAssets)) {
     assert(!previouslyLockedIds.has(id), `${id} is redundantly owned by an older preparation manifest`);
   }
-  assert.equal(previouslyLockedIds.size + Object.keys(galleries13And16ManifestAssets).length, 413);
+  assert.equal(previouslyLockedIds.size + Object.keys(galleries13And16ManifestAssets).length, 415);
   assert.match(galleries13And16PreparationSource, /museumGalleries13And16AssetManifest\.json/);
   assert.match(galleries13And16PreparationSource, /EXPECTED_ASSET_COUNT = 42/);
   assert.match(galleries13And16PreparationSource, /assert_locked\(slug, "scene"/);
@@ -2117,12 +2120,12 @@ check('the 43-source Galleries 17 and 18 locks reproduce every curated derivativ
   const previouslyLockedIds = new Set(Object.keys(previousManifestAssets));
   const newManifestAssets = {...gallery17ManifestAssets, ...gallery18ManifestAssets};
   const newManifestIds = Object.keys(newManifestAssets);
-  assert.equal(previouslyLockedIds.size, 413, 'The pre-Gallery-17/18 source-lock inventories overlap');
+  assert.equal(previouslyLockedIds.size, 415, 'The pre-Gallery-17/18 source-lock inventories overlap');
   assert.equal(newManifestIds.length, 43, 'The Gallery 17/18 source-lock inventories overlap');
   for (const id of newManifestIds) {
     assert(!previouslyLockedIds.has(id), `${id} is redundantly owned by an older preparation manifest`);
   }
-  assert.equal(previouslyLockedIds.size + newManifestIds.length, 456);
+  assert.equal(previouslyLockedIds.size + newManifestIds.length, 458);
 
   for (const [source, manifestName, count] of [
     [gallery17PreparationSource, 'museumGallery17AssetManifest.json', 18],
@@ -2192,6 +2195,14 @@ check('the 43-source Galleries 17 and 18 locks reproduce every curated derivativ
     'empiricism-science-political-order': 18,
     'enlightenment-revolution-kant': 25,
   });
+  const molyneuxAsset = assetById.get('locke-molyneux-ribera-touch');
+  assert.equal(molyneuxAsset?.mediaKind, 'painting', 'Molyneux still uses clinical photography');
+  assert.match(molyneuxAsset?.title ?? '', /Sense of Touch/u, 'Molyneux lost its tactile-visual companion');
+  assert.doesNotMatch(JSON.stringify(molyneuxAsset), /surgery|operation/iu, 'Molyneux still carries surgical imagery metadata');
+  const genevaLock = gallery18ManifestAssets['enlightenment-geneva-gardelle-view'];
+  assert.deepEqual(genevaLock.crop, {left: 0, top: 0, right: 1920, bottom: 823}, 'Geneva calibration-strip crop drifted');
+  assert.equal(genevaLock.panel.height, 549, 'Geneva panel no longer excludes the calibration strip');
+  assert.match(gallery18PreparationSource, /image = image\.crop\(box\)/u, 'Gallery 18 preparation does not reproduce the reviewed crop');
 });
 
 check('Galleries 17 and 18 preserve the approved visual-diversity limits', () => {
@@ -2249,7 +2260,7 @@ check('the 43-source Galleries 20 and 21 lock reproduces every derivative withou
     ...gallery18ManifestAssets,
   };
   const previouslyLockedIds = new Set(Object.keys(previousManifestAssets));
-  assert.equal(previouslyLockedIds.size, 456, 'The pre-Gallery-20/21 source-lock inventories overlap');
+  assert.equal(previouslyLockedIds.size, 458, 'The pre-Gallery-20/21 source-lock inventories overlap');
   const previousSourcePages = new Set(Object.values(previousManifestAssets).map(({sourcePageUrl}) => sourcePageUrl));
   const previousSceneHashes = new Set(Object.values(previousManifestAssets).map(({scene}) => scene.sha256));
   const previousPanelHashes = new Set(Object.values(previousManifestAssets).map(({panel}) => panel.sha256));
@@ -2301,7 +2312,7 @@ check('the 43-source Galleries 20 and 21 lock reproduces every derivative withou
       }
     }
   }
-  assert.equal(previouslyLockedIds.size + Object.keys(galleries20And21ManifestAssets).length, 499);
+  assert.equal(previouslyLockedIds.size + Object.keys(galleries20And21ManifestAssets).length, 501);
   assert(unique(sourcePages), 'Galleries 20 and 21 reuse an exact source page');
   assert(unique(sceneHashes), 'Galleries 20 and 21 reuse identical scene bytes');
   assert(unique(panelHashes), 'Galleries 20 and 21 reuse identical panel bytes');
@@ -2332,7 +2343,7 @@ check('the 49-source Galleries 19 and 22 lock reproduces every derivative withou
     ...galleries20And21ManifestAssets,
   };
   const previouslyLockedIds = new Set(Object.keys(previousManifestAssets));
-  assert.equal(previouslyLockedIds.size, 499, 'The pre-Gallery-19/22 source-lock inventories overlap');
+  assert.equal(previouslyLockedIds.size, 501, 'The pre-Gallery-19/22 source-lock inventories overlap');
   const previousSourcePages = new Set(Object.values(previousManifestAssets).map(({sourcePageUrl}) => sourcePageUrl));
   const previousSceneHashes = new Set(Object.values(previousManifestAssets).map(({scene}) => scene.sha256));
   const previousPanelHashes = new Set(Object.values(previousManifestAssets).map(({panel}) => panel.sha256));
@@ -2384,7 +2395,7 @@ check('the 49-source Galleries 19 and 22 lock reproduces every derivative withou
       }
     }
   }
-  assert.equal(previouslyLockedIds.size + Object.keys(galleries19And22ManifestAssets).length, 548);
+  assert.equal(previouslyLockedIds.size + Object.keys(galleries19And22ManifestAssets).length, 550);
   assert(unique(sourcePages), 'Galleries 19 and 22 reuse an exact source page');
   assert(unique(sceneHashes), 'Galleries 19 and 22 reuse identical scene bytes');
   assert(unique(panelHashes), 'Galleries 19 and 22 reuse identical panel bytes');
@@ -2416,7 +2427,7 @@ check('the 48-source Galleries 23 and 24 lock reproduces every derivative withou
     ...galleries19And22ManifestAssets,
   };
   const previouslyLockedIds = new Set(Object.keys(previousManifestAssets));
-  assert.equal(previouslyLockedIds.size, 548, 'The pre-Gallery-23/24 source-lock inventories overlap');
+  assert.equal(previouslyLockedIds.size, 550, 'The pre-Gallery-23/24 source-lock inventories overlap');
   const previousSourcePages = new Set(Object.values(previousManifestAssets).map(({sourcePageUrl}) => sourcePageUrl));
   const previousSceneHashes = new Set(Object.values(previousManifestAssets).map(({scene}) => scene.sha256));
   const previousPanelHashes = new Set(Object.values(previousManifestAssets).map(({panel}) => panel.sha256));
@@ -2468,7 +2479,7 @@ check('the 48-source Galleries 23 and 24 lock reproduces every derivative withou
       }
     }
   }
-  assert.equal(previouslyLockedIds.size + Object.keys(galleries23And24ManifestAssets).length, 596);
+  assert.equal(previouslyLockedIds.size + Object.keys(galleries23And24ManifestAssets).length, 598);
   assert(unique(sourcePages), 'Galleries 23 and 24 reuse an exact source page');
   assert(unique(sceneHashes), 'Galleries 23 and 24 reuse identical scene bytes');
   assert(unique(panelHashes), 'Galleries 23 and 24 reuse identical panel bytes');
@@ -2503,7 +2514,7 @@ check('the 18-source Gallery 26 lock reproduces every derivative without source 
     ...galleries23And24ManifestAssets,
   };
   const previouslyLockedIds = new Set(Object.keys(previousManifestAssets));
-  assert.equal(previouslyLockedIds.size, 596, 'The pre-Gallery-26 source-lock inventories overlap');
+  assert.equal(previouslyLockedIds.size, 598, 'The pre-Gallery-26 source-lock inventories overlap');
   const previousSourcePages = new Set(Object.values(previousManifestAssets).map(({sourcePageUrl}) => sourcePageUrl));
   const previousSceneHashes = new Set(Object.values(previousManifestAssets).map(({scene}) => scene.sha256));
   const previousPanelHashes = new Set(Object.values(previousManifestAssets).map(({panel}) => panel.sha256));
@@ -2553,7 +2564,7 @@ check('the 18-source Gallery 26 lock reproduces every derivative without source 
       }
     }
   }
-  assert.equal(previouslyLockedIds.size + Object.keys(gallery26ManifestAssets).length, 614);
+  assert.equal(previouslyLockedIds.size + Object.keys(gallery26ManifestAssets).length, 616);
   assert.equal(visualCharacters.size >= 4, true, 'Gallery 26 has insufficient visual-character diversity');
   assert(unique(sourcePages), 'Gallery 26 reuses an exact source page');
   assert(unique(sceneHashes), 'Gallery 26 reuses identical scene bytes');
@@ -2579,7 +2590,7 @@ check('the 24-source Gallery 25 lock reproduces every derivative without source 
     ...gallery26ManifestAssets,
   };
   const previouslyLockedIds = new Set(Object.keys(previousManifestAssets));
-  assert.equal(previouslyLockedIds.size, 614, 'The pre-Gallery-25 source-lock inventories overlap');
+  assert.equal(previouslyLockedIds.size, 616, 'The pre-Gallery-25 source-lock inventories overlap');
   const previousSourcePages = new Set(Object.values(previousManifestAssets).map(({sourcePageUrl}) => sourcePageUrl));
   const previousSceneHashes = new Set(Object.values(previousManifestAssets).map(({scene}) => scene.sha256));
   const previousPanelHashes = new Set(Object.values(previousManifestAssets).map(({panel}) => panel.sha256));
@@ -2619,7 +2630,7 @@ check('the 24-source Gallery 25 lock reproduces every derivative without source 
       }
     }
   }
-  assert.equal(previouslyLockedIds.size + Object.keys(gallery25ManifestAssets).length, 638);
+  assert.equal(previouslyLockedIds.size + Object.keys(gallery25ManifestAssets).length, 640);
   assert(visualCharacters.size >= 4);
   assert(unique(sourcePages));
   assert(unique(sceneHashes));
@@ -2646,7 +2657,7 @@ check('Galleries 14–15 fill 43 unique physical installations without image reu
   }
 });
 
-check('the committed Museum inventory contains exactly the 1314 registered derivatives', () => {
+check('the committed Museum inventory contains exactly the 1318 registered derivatives', () => {
   const actual = walkFiles(museumMediaRoot).map(toPublicPath).sort();
   const expected = MUSEUM_ASSETS.flatMap(({variants}) => [variants.scene.path, variants.panel.path]).sort();
   assert.deepEqual(actual, expected);

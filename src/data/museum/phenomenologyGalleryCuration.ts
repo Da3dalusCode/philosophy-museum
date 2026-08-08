@@ -1,8 +1,8 @@
 /**
  * Gallery 03 is composed of paired half-room bays around a clear centre aisle.
  * These authored placements reserve intact outer walls for primary exhibits.
- * Existentialism uses the north partition because its outer wall is interrupted
- * by the Gallery 03 doorway; Sartre retains the intact east primary wall.
+ * Existentialism uses the north partition so its adjacent intact west wall can
+ * carry a contextual precursor; Sartre retains the east primary wall.
  */
 export const PHENOMENOLOGY_PRIMARY_PLACEMENTS = {
   phenomenology: {x: -10.85, z: -22.4, rotationY: Math.PI / 2},

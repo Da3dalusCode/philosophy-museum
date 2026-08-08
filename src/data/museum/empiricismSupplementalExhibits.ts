@@ -99,21 +99,21 @@ export const EMPIRICISM_SUPPLEMENTAL_EXHIBITS = [
   }),
   record({
     id: 'locke-molyneux-crossmodal-vision',
-    assetId: 'locke-molyneux-cataract-surgery',
+    assetId: 'locke-molyneux-ribera-touch',
     displayName: 'Molyneux’s Question: Can Touch Be Recognized at First Sight?',
     shortTitle: 'Locke and Molyneux',
     workLabel: 'MOLYNEUX’S QUESTION · TOUCH, SIGHT, AND LEARNED COORDINATION',
     dateLabel: 'Posed to Locke in 1688 · printed in the Essay from 1694',
     question: 'If a person born blind learned a cube and sphere by touch, would restored vision identify them before touch connected the senses?',
-    frontSubtitle: 'Cross-modal recognition, concepts, visual learning, surgery, experimental design, and patient care',
-    lead: 'William Molyneux posed the problem to Locke, who printed it in later editions of the Essay. Its force lies in separating possession of a concept from the sensory route by which an object is presented. Berkeley, Leibniz, and later researchers gave competing answers. Cataract cases transformed a thought experiment into an ethically and medically difficult research tradition, but no single operation simply reproduces the stipulated case.',
+    frontSubtitle: 'Cross-modal recognition, concepts, visual learning, touch, sight, and experimental design',
+    lead: 'William Molyneux posed the problem to Locke, who printed it in later editions of the Essay. Its force lies in separating possession of a concept from the sensory route by which an object is presented. Ribera’s earlier painting of a blind man identifying sculptural form by touch while a painted face remains unavailable to him offers a historically appropriate visual companion. Berkeley, Leibniz, and later researchers gave competing answers; no single operation or study simply reproduces the stipulated case.',
     keyIdeas: [
       'Cross-modal recognition may depend on learned coordination rather than identical visual and tactile ideas.',
       'The phrase “at first sight” distinguishes immediate recognition from rapid learning.',
-      'Surgery and psychology alter the question as well as supplying evidence about it.',
+      'Restored-vision cases and psychology alter the question as well as supplying evidence about it.',
     ],
     cautions: [
-      'The displayed 2003 operation is not William Cheselden’s 1728 case.',
+      'Ribera’s painting predates Molyneux’s question and is a visual companion, not evidence for an answer.',
       'Restored vision is not a clean philosophical switch, and patients receiving care are not instruments for solving a puzzle.',
     ],
     sections: [
@@ -122,7 +122,7 @@ export const EMPIRICISM_SUPPLEMENTAL_EXHIBITS = [
       {heading: 'Experiment changes the burden', paragraph: 'Surgical and contemporary studies bring evidence, but congenital history, postoperative acuity, time to learn, and task design complicate interpretation. The responsible result is constrained inquiry, not a triumphal yes or no.'},
     ],
     sources: [
-      image('U.S. Navy / Wikimedia Commons — modern cataract operation, 2003', 'https://commons.wikimedia.org/wiki/File:Cataract_surgery.jpg'),
+      image('Norton Simon Museum / Wikimedia Commons — Jusepe de Ribera, The Sense of Touch', 'https://commons.wikimedia.org/wiki/File:Jos%C3%A9_de_Ribera_018.jpg'),
       academic('Stanford Encyclopedia of Philosophy — Molyneux’s Problem', 'https://plato.stanford.edu/entries/molyneux-problem/'),
       primary('Project Gutenberg — Locke, Essay Concerning Human Understanding', 'https://www.gutenberg.org/ebooks/10615'),
     ],
@@ -556,7 +556,7 @@ const supplementalLayout = (
  */
 export const EMPIRICISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
   supplementalLayout('empiricism-micrographia-enlarged-sight', 'empiricism', 'empiricism', 'empiricism-locke-ideas-rights', {x: -5.55, z: -26.88}, 0, 'empiricism-hooke-micrographia-flea', 3.16, 1.89, 'empiricism-context', EMPIRICISM_PALETTE.blue),
-  supplementalLayout('locke-molyneux-crossmodal-vision', 'locke', 'empiricism', 'empiricism-locke-ideas-rights', {x: -5.55, z: -10.45}, Math.PI, 'locke-molyneux-cataract-surgery', 2.96, 2.22, 'empiricism-concept', EMPIRICISM_PALETTE.indigo),
+  supplementalLayout('locke-molyneux-crossmodal-vision', 'locke', 'empiricism', 'empiricism-locke-ideas-rights', {x: -5.55, z: -10.45}, Math.PI, 'locke-molyneux-ribera-touch', 2.4, 3.2, 'empiricism-concept', EMPIRICISM_PALETTE.indigo),
   supplementalLayout('locke-consciousness-prince-cobbler', 'locke', 'locke', 'empiricism-locke-ideas-rights', {x: 5.55, z: -26.88}, 0, 'locke-cobbler-workshop-1671', 1.94, 2.7, 'empiricism-concept', EMPIRICISM_PALETTE.gold),
   supplementalLayout('locke-rights-property-carolina', 'locke', 'locke', 'empiricism-locke-ideas-rights', {x: 5.55, z: -10.45}, Math.PI, 'empiricism-locke-carolina-map', 3.08, 2.36, 'empiricism-context', EMPIRICISM_PALETTE.red),
   supplementalLayout('berkeley-vision-learned-distance', 'berkeley', 'berkeley', 'empiricism-berkeley-perception', {x: -5.55, z: -8.22}, 0, 'berkeley-perspective-instrument-1604', 2.96, 2.22, 'empiricism-concept', EMPIRICISM_PALETTE.blue),
