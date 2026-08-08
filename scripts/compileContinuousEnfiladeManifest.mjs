@@ -341,49 +341,14 @@ const crossroadsFourGeometry = (hall, template) => {
   return {bounds, cells, openings};
 };
 
-const crossroadsKantGeometry = (hall, template) => {
-  const bounds = localBounds(template.footprintMetres.width, template.footprintMetres.depth);
-  const [northId, eastId, southId, westId, kantId] = hall.roomIds;
-  const centerHalfSize = 4;
-  const cells = [
-    roomCell(northId, {
-      minX: bounds.minX, maxX: bounds.maxX,
-      minZ: bounds.minZ, maxZ: -centerHalfSize,
-    }, template.ceilingHeightMetres),
-    roomCell(eastId, {
-      minX: centerHalfSize, maxX: bounds.maxX,
-      minZ: -centerHalfSize, maxZ: centerHalfSize,
-    }, template.ceilingHeightMetres),
-    roomCell(southId, {
-      minX: bounds.minX, maxX: bounds.maxX,
-      minZ: centerHalfSize, maxZ: bounds.maxZ,
-    }, template.ceilingHeightMetres),
-    roomCell(westId, {
-      minX: bounds.minX, maxX: -centerHalfSize,
-      minZ: -centerHalfSize, maxZ: centerHalfSize,
-    }, template.ceilingHeightMetres),
-    roomCell(kantId, {
-      minX: -centerHalfSize, maxX: centerHalfSize,
-      minZ: -centerHalfSize, maxZ: centerHalfSize,
-    }, template.ceilingHeightMetres),
-  ];
-  const openings = [
-    interiorOpening(`opening:${hall.id}:${northId}->${kantId}`, {x: 0, z: -4}, {x: 0, z: 1}, northId, kantId),
-    interiorOpening(`opening:${hall.id}:${eastId}->${kantId}`, {x: 4, z: 0}, {x: -1, z: 0}, eastId, kantId),
-    interiorOpening(`opening:${hall.id}:${southId}->${kantId}`, {x: 0, z: 4}, {x: 0, z: -1}, southId, kantId),
-    interiorOpening(`opening:${hall.id}:${westId}->${kantId}`, {x: -4, z: 0}, {x: 1, z: 0}, westId, kantId),
-  ];
-  return {bounds, cells, openings};
-};
-
 const buildPlannedGeometry = (hall, template, entryPortalSpec) => {
   let compiled;
   if (hall.roomLayoutStrategy === 'sequence-equal-room-spans') {
     compiled = sequenceGeometry(hall, template);
   } else if (hall.roomLayoutStrategy === 'crossroads-four-quadrants') {
     compiled = crossroadsFourGeometry(hall, template);
-  } else if (hall.roomLayoutStrategy === 'crossroads-four-quadrants-with-central-kant-room') {
-    compiled = crossroadsKantGeometry(hall, template);
+  } else if (hall.roomLayoutStrategy === 'crossroads-four-bays-with-five-semantic-routes') {
+    compiled = crossroadsFourGeometry(hall, template);
   } else {
     throw new Error(`Unsupported planned-shell strategy ${hall.roomLayoutStrategy} for ${hall.id}.`);
   }

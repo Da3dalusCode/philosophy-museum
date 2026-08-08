@@ -121,7 +121,7 @@ At the architectural migration and through subsequent gallery promotions:
 - every interaction, article link, image, attribution, guided stop, and route is production-backed;
 - all 26 galleries are counted as curated/open and are available through walking and fast travel.
 
-Sequential galleries divide the 56 m long axis into authored named room spans. Ordinary four-room crossroads galleries use four independent quadrants. Enlightenment, Revolution, and Kant uses four perimeter rooms plus a distinct central Kant room. The Core Questions Forum preserves nine named semantic routes in the directory and guided visit while arranging its 25 installations inside four physical question bays around the open cardinal cross. The complete program therefore retains 105 named rooms or zones while the rendered galleries use 100 physical spatial cells.
+Sequential galleries divide the 56 m long axis into authored named room spans. Ordinary four-room crossroads galleries use four independent quadrants. Enlightenment, Revolution, and Kant preserves five named semantic routes while arranging its 25 full-scale installations inside four physical bays around an open cross; Kant is the final threshold route near the Gallery 16 exit. The Core Questions Forum likewise preserves nine named semantic routes in the directory and guided visit while arranging its 25 compact installations inside four physical question bays. The complete program therefore retains 105 named rooms or zones while the rendered galleries use 99 physical spatial cells.
 
 The staging state is complete: visitors can understand the final building and reach every curated hall on foot or by fast travel. The map must show **26 curated/open galleries**.
 

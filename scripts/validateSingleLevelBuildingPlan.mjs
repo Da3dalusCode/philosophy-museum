@@ -189,7 +189,7 @@ check('all twenty-six populated galleries use their route-derived public numbers
       roomCount: 5,
       primaryCount: 6,
       templateId: 'crossroads-4',
-      roomLayoutStrategy: 'crossroads-four-quadrants-with-central-kant-room',
+      roomLayoutStrategy: 'crossroads-four-bays-with-five-semantic-routes',
     }],
     ['german-idealism-afterlives', {
       roomCount: 4,
@@ -412,7 +412,7 @@ check('all released galleries retain honest authored-room strategies', () => {
   assert.match(plan.roomShellContract.wallAuditActivation, /curated-open/i);
   const approvedPromotedStrategies = new Map([
     ['empiricism-science-political-order', 'sequence-equal-room-spans'],
-    ['enlightenment-revolution-kant', 'crossroads-four-quadrants-with-central-kant-room'],
+    ['enlightenment-revolution-kant', 'crossroads-four-bays-with-five-semantic-routes'],
     ['utility-liberty-history-capital', 'sequence-equal-room-spans'],
     ['faith-pessimism-life-value', 'sequence-equal-room-spans'],
     ['german-idealism-afterlives', 'sequence-equal-room-spans'],

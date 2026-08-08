@@ -92,7 +92,7 @@ Gallery 25’s completed promotion retains its approved crossroads template and 
 
 - sequential rooms divide the long axis into equal named spans until curation supplies a reviewed override;
 - four-room crossroads galleries use four independent quadrants;
-- Enlightenment/Revolution/Kant uses four perimeter rooms plus a distinct central Kant room;
+- Enlightenment/Revolution/Kant uses four full-scale open-cross bays while preserving five stable semantic routes, with Kant as the final threshold near the Gallery 16 exit;
 - closed expansion reserves remain structure-only and never masquerade as curated galleries.
 
 This is why the migration remained bounded: populated content did not need to be individually reauthored, while building-level transforms, portals, map projection, safe arrivals, and saved sessions were rebuilt from the control manifest.
