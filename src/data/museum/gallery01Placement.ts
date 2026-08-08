@@ -56,6 +56,45 @@ export type Gallery01Bounds = Readonly<{
   maxZ: number;
 }>;
 
+/**
+ * Gallery 01-only pilot for the standard transverse-wall composition.
+ *
+ * The protected route edge is 2.55 m from the hall centreline. Gallery 21's
+ * completed sequence rooms leave .825 m between that edge and a standard
+ * 4.35 m installation, so Gallery 01 uses the same physical-bounds clearance
+ * while preserving every installation's size. The original authored lane was
+ * x = +/-7.5 m. Keeping this policy hall-local makes the pilot reversible and
+ * prevents it from silently changing another gallery.
+ */
+export const GALLERY_01_TRANSVERSE_PILOT = Object.freeze({
+  baselineCenterX: 7.5,
+  protectedRouteHalfWidth: 2.55,
+  targetInnerEdgeGap: .825,
+  centerXByInstallation: Object.freeze({
+    thales: 4.925,
+    anaximenes: 4.925,
+    pythagoras: 4.925,
+    'zeno-elea': 4.925,
+    heraclitus: 4.925,
+    leucippus: 4.925,
+    prodicus: 5.3,
+    'hippias-of-elis': 4.925,
+    gorgias: 5.425,
+    platonism: 5.425,
+    aristotelianism: 5.425,
+    'miletus-ionian-coast': 5.885,
+    'greek-philosophy-reception': 5.885,
+    'socrates-trial-death': 5.885,
+    'plato-republic': 5.885,
+    'plato-cave-book-vii': 5.885,
+  }),
+});
+
+const transverseX = (
+  id: keyof typeof GALLERY_01_TRANSVERSE_PILOT.centerXByInstallation,
+  side: 'west' | 'east',
+): number => GALLERY_01_TRANSVERSE_PILOT.centerXByInstallation[id] * (side === 'west' ? -1 : 1);
+
 export const GALLERY_01_HALL_BOUNDS = Object.freeze({
   minX: -12,
   maxX: 12,
@@ -89,41 +128,41 @@ export const GALLERY_01_ROOM_PRIMARY_IDS = Object.freeze({
 
 /**
  * Every room is split by the central route into two three-wall half-rooms.
- * A single installation uses the geometric centre of its wall face; overflow
- * stays symmetric on the longer outer walls. This is the Gallery 01 wall-slot
- * contract, rather than a set of loose composition points.
+ * Transverse installations use the Gallery 01 pilot's bounds-normalized inward
+ * lane; overflow stays symmetric on the longer outer walls. This is the
+ * Gallery 01 wall-slot contract, rather than a set of loose composition points.
  */
 export const GALLERY_01_PRIMARY_PLACEMENTS = Object.freeze({
   // Room 01: a Milesian sequence on the west; place and reception on the east.
   'ancient-greek': {x: 10.85, z: 21, rotationY: -Math.PI / 2},
-  thales: {x: -7.5, z: 26.85, rotationY: Math.PI},
+  thales: {x: transverseX('thales', 'west'), z: 26.85, rotationY: Math.PI},
   anaximander: {x: -10.85, z: 21, rotationY: Math.PI / 2},
-  anaximenes: {x: -7.5, z: 15.15, rotationY: 0},
+  anaximenes: {x: transverseX('anaximenes', 'west'), z: 15.15, rotationY: 0},
 
   // Room 02: Pythagorean and Eleatic pairs to the west; change,
   // pluralist responses, and the Atomists progress along the east.
-  pythagoras: {x: -7.5, z: 12.85, rotationY: Math.PI},
+  pythagoras: {x: transverseX('pythagoras', 'west'), z: 12.85, rotationY: Math.PI},
   philolaus: {x: -10.85, z: 8.8, rotationY: Math.PI / 2},
   parmenides: {x: -10.85, z: 5.2, rotationY: Math.PI / 2},
-  'zeno-elea': {x: -7.5, z: 1.15, rotationY: 0},
-  heraclitus: {x: 7.5, z: 12.85, rotationY: Math.PI},
+  'zeno-elea': {x: transverseX('zeno-elea', 'west'), z: 1.15, rotationY: 0},
+  heraclitus: {x: transverseX('heraclitus', 'east'), z: 12.85, rotationY: Math.PI},
   empedocles: {x: 10.85, z: 10.5, rotationY: -Math.PI / 2},
   anaxagoras: {x: 10.85, z: 7, rotationY: -Math.PI / 2},
   democritus: {x: 10.85, z: 3.5, rotationY: -Math.PI / 2},
-  leucippus: {x: 7.5, z: 1.15, rotationY: 0},
+  leucippus: {x: transverseX('leucippus', 'east'), z: 1.15, rotationY: 0},
 
   // Room 03: the Sophists frame Protagoras; Socrates leads to the trial.
   protagoras: {x: -10.85, z: -7, rotationY: Math.PI / 2},
-  prodicus: {x: -7.5, z: -12.85, rotationY: 0},
-  'hippias-of-elis': {x: -7.5, z: -1.15, rotationY: Math.PI},
-  gorgias: {x: 7.5, z: -1.15, rotationY: Math.PI},
+  prodicus: {x: transverseX('prodicus', 'west'), z: -12.85, rotationY: 0},
+  'hippias-of-elis': {x: transverseX('hippias-of-elis', 'west'), z: -1.15, rotationY: Math.PI},
+  gorgias: {x: transverseX('gorgias', 'east'), z: -1.15, rotationY: Math.PI},
   socrates: {x: 10.85, z: -7, rotationY: -Math.PI / 2},
 
   // Room 04: Plato and Aristotle are the final anchors; their institutional
   // afterlives terminate the gallery and point toward the successor galleries.
-  platonism: {x: -7.5, z: -26.85, rotationY: 0},
+  platonism: {x: transverseX('platonism', 'west'), z: -26.85, rotationY: 0},
   plato: {x: -10.85, z: -21, rotationY: Math.PI / 2},
-  aristotelianism: {x: 7.5, z: -26.85, rotationY: 0},
+  aristotelianism: {x: transverseX('aristotelianism', 'east'), z: -26.85, rotationY: 0},
   aristotle: {x: 10.85, z: -21, rotationY: -Math.PI / 2},
 }) satisfies Readonly<Record<Gallery01PrimaryExhibitId, Gallery01Placement>>;
 
@@ -136,32 +175,32 @@ export const GALLERY_01_ENTRANCE_ORIENTATION_PLACEMENT = Object.freeze({
 
 export const GALLERY_01_PLATO_SUPPLEMENTAL_PLACEMENTS = Object.freeze({
   'plato-republic': {
-    position: {x: 7.5, z: -15.12},
+    position: {x: transverseX('plato-republic', 'east'), z: -15.12},
     rotationY: Math.PI,
-    viewpoint: {x: 7.5, z: -18.28, yaw: Math.PI, pitch: -.08},
+    viewpoint: {x: transverseX('plato-republic', 'east'), z: -18.28, yaw: Math.PI, pitch: -.08},
   },
   'plato-cave-book-vii': {
-    position: {x: -7.5, z: -15.12},
+    position: {x: transverseX('plato-cave-book-vii', 'west'), z: -15.12},
     rotationY: Math.PI,
-    viewpoint: {x: -7.5, z: -18.28, yaw: Math.PI, pitch: -.08},
+    viewpoint: {x: transverseX('plato-cave-book-vii', 'west'), z: -18.28, yaw: Math.PI, pitch: -.08},
   },
 });
 
 export const GALLERY_01_CONTEXT_SUPPLEMENTAL_PLACEMENTS = Object.freeze({
   'miletus-ionian-coast': {
-    position: {x: 7.5, z: 26.88},
+    position: {x: transverseX('miletus-ionian-coast', 'east'), z: 26.88},
     rotationY: Math.PI,
-    viewpoint: {x: 7.5, z: 23.72, yaw: Math.PI, pitch: -.08},
+    viewpoint: {x: transverseX('miletus-ionian-coast', 'east'), z: 23.72, yaw: Math.PI, pitch: -.08},
   },
   'greek-philosophy-reception': {
-    position: {x: 7.5, z: 15.12},
+    position: {x: transverseX('greek-philosophy-reception', 'east'), z: 15.12},
     rotationY: 0,
-    viewpoint: {x: 7.5, z: 18.28, yaw: 0, pitch: -.08},
+    viewpoint: {x: transverseX('greek-philosophy-reception', 'east'), z: 18.28, yaw: 0, pitch: -.08},
   },
   'socrates-trial-death': {
-    position: {x: 7.5, z: -12.88},
+    position: {x: transverseX('socrates-trial-death', 'east'), z: -12.88},
     rotationY: 0,
-    viewpoint: {x: 7.5, z: -9.72, yaw: 0, pitch: -.08},
+    viewpoint: {x: transverseX('socrates-trial-death', 'east'), z: -9.72, yaw: 0, pitch: -.08},
   },
 });
 
