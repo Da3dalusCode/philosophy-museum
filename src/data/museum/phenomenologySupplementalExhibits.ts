@@ -353,6 +353,55 @@ export const PHENOMENOLOGY_SUPPLEMENTAL_EXHIBITS = [
     ], 'Open Merleau-Ponty’s full Atlas article'),
   },
   {
+    id: 'existentialism-kierkegaard-precursor',
+    displayName: 'Kierkegaard: Anxiety, Possibility, and the Existing Individual',
+    shortTitle: 'Kierkegaard: Anxiety and Choice',
+    workLabel: 'KIERKEGAARD · EXISTENTIAL PRECURSOR',
+    dateLabel: 'The Concept of Anxiety, 1844 · later existential reception',
+    question: 'Why can possibility feel like freedom’s opening and its vertigo at once?',
+    frontSubtitle: 'Choice, anxiety, inwardness, social judgment, and the limits of retrospective labels',
+    lead: 'Kierkegaard wrote before existentialism became a twentieth-century movement, yet his analyses of possibility, anxiety, choice, selfhood, and the task of existing decisively redirected later philosophy. Købke’s contemporary view of an Østerbro street keeps the apparently solitary individual inside a lived Copenhagen of homes, institutions, neighbors, movement, and judgment. This contextual route marks a major precursor without pretending that Kierkegaard’s Christian, pseudonymous authorship already contained Sartre, Beauvoir, or later existentialisms.',
+    keyIdeas: [
+      'Anxiety discloses possibility without dictating which possibility should be chosen.',
+      'Existing is a task performed in time, not a detached theory one can finish in advance.',
+      'Kierkegaard’s pseudonyms occupy distinct positions and cannot be collapsed into one direct doctrine.',
+      'Later existentialists inherit questions from Kierkegaard while revising his religious and ethical frameworks.',
+    ],
+    cautions: [
+      'Kierkegaard did not call himself an existentialist in the later school sense.',
+      'Købke’s street view is contextual evidence of 1836 Copenhagen, not an illustration of The Concept of Anxiety.',
+      'Anxiety is not treated here as a clinical diagnosis or romantic proof of authenticity.',
+    ],
+    sections: [
+      {
+        heading: 'Recognition: possibility has a cost',
+        paragraphs: ['A possibility can open action while also exposing that no completed system will make the choice in one’s place. Anxiety names this unstable relation to freedom, not fear of one determinate object.'],
+      },
+      {
+        heading: 'Orientation: the individual is socially situated',
+        paragraphs: ['Kierkegaard criticizes crowds, public abstraction, and inherited conformity, but the existing individual never materializes outside language, religion, neighborhoods, relationships, and judgment. Købke’s street makes that historically particular social field visible.'],
+      },
+      {
+        heading: 'Depth: precursor is not identity',
+        paragraphs: ['Heidegger, Sartre, Beauvoir, and others transform questions of anxiety, possibility, choice, and situation in divergent directions. Calling Kierkegaard a precursor clarifies influence while preserving the differences among Christian inwardness, ontology, atheistic freedom, and situated ethics.'],
+      },
+    ],
+    sources: [
+      {label: 'Stanford Encyclopedia of Philosophy — Søren Kierkegaard', url: 'https://plato.stanford.edu/entries/kierkegaard/', kind: 'academic-reference'},
+      {label: 'Internet Encyclopedia of Philosophy — Søren Kierkegaard', url: 'https://iep.utm.edu/kierkega/', kind: 'academic-reference'},
+      {label: 'Statens Museum for Kunst / Wikimedia Commons — Købke, View of a Street in Østerbro', url: 'https://commons.wikimedia.org/wiki/File:Christen_K%C3%B8bke_-_View_of_a_Street_in_%C3%98sterbro_outside_Copenhagen._Morning_Light_-_Google_Art_Project.jpg', kind: 'collection-record'},
+    ],
+    assetId: 'existentialism-kierkegaard-copenhagen-street',
+    panelAssetId: 'existentialism-kierkegaard-copenhagen-street',
+    articleRoute: {kind: 'philosopher', philosopherId: 'kierkegaard'},
+    presentation: presentation('Gallery 03 contextual exhibit', 'Existential precursor', [
+      {label: 'Philosopher', value: 'Søren Kierkegaard'},
+      {label: 'Problem', value: 'Possibility, anxiety, choice, and becoming a self'},
+      {label: 'Context', value: 'Copenhagen urban life, 1836'},
+      {label: 'Atlas route', value: 'Kierkegaard’s full profile'},
+    ], 'Open Kierkegaard’s full Atlas article'),
+  },
+  {
     id: 'existentialism-facticity-freedom',
     displayName: 'Existentialism: Freedom in a Situation',
     shortTitle: 'Existentialism: Freedom',
@@ -1144,6 +1193,7 @@ export const PHENOMENOLOGY_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
   layout({id: 'heidegger-being-time', parentExhibitId: 'heidegger', zoneId: 'phenomenology-being-embodiment', position: {x: -5.55, z: -6.22}, rotationY: Math.PI, assetId: 'heidegger-being-time-interpretive', mediaWidth: 2.1, mediaHeight: 3.2, installationKind: 'phenomenology-work', accent: PHENOMENOLOGY_PALETTE.midnight}),
   layout({id: 'merleau-phenomenology-perception', parentExhibitId: 'merleau-ponty', zoneId: 'phenomenology-being-embodiment', position: {x: 5.55, z: -6.22}, rotationY: Math.PI, assetId: 'merleau-perception-interpretive', mediaWidth: 2.1, mediaHeight: 3.2, installationKind: 'phenomenology-work', accent: PHENOMENOLOGY_PALETTE.flesh}),
   layout({id: 'existentialism-facticity-freedom', parentExhibitId: 'existentialism', zoneId: 'existentialism-freedom', position: {x: -5.55, z: 4.98}, rotationY: Math.PI, assetId: 'existentialism-situated-freedom-interpretive', mediaWidth: 2.55, mediaHeight: 3.19, installationKind: 'phenomenology-concept', accent: PHENOMENOLOGY_PALETTE.ambiguity}),
+  layout({id: 'existentialism-kierkegaard-precursor', parentExhibitId: 'existentialism', zoneId: 'existentialism-freedom', position: {x: -11.38, z: 0}, rotationY: Math.PI / 2, assetId: 'existentialism-kierkegaard-copenhagen-street', mediaWidth: 3.5, mediaHeight: 2.3, installationKind: 'phenomenology-context', accent: PHENOMENOLOGY_PALETTE.horizon}),
   layout({id: 'sartre-bad-faith', parentExhibitId: 'sartre', zoneId: 'existentialism-freedom', position: {x: 5.55, z: 4.98}, rotationY: Math.PI, assetId: 'sartre-bad-faith-look-interpretive', mediaWidth: 2.55, mediaHeight: 3.19, installationKind: 'phenomenology-work', accent: PHENOMENOLOGY_PALETTE.flesh}),
   layout({id: 'sartre-existentialism-humanism', parentExhibitId: 'sartre', zoneId: 'existentialism-freedom', position: {x: 5.55, z: -4.98}, rotationY: 0, assetId: 'sartre-ens-portrait-1924', mediaWidth: 2.78, mediaHeight: 3.18, installationKind: 'phenomenology-work', accent: PHENOMENOLOGY_PALETTE.flesh}),
   layout({id: 'beauvoir-ethics-ambiguity', parentExhibitId: 'camus', zoneId: 'existentialism-situated-absurd', position: {x: 5.55, z: 16.18}, rotationY: Math.PI, assetId: 'beauvoir-gpo-1967', mediaWidth: 2.42, mediaHeight: 3.22, installationKind: 'phenomenology-context', accent: PHENOMENOLOGY_PALETTE.ambiguity}),

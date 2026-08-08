@@ -418,11 +418,11 @@ export const ENLIGHTENMENT_GALLERY_ASSETS = [
     sourcePageUrl:
       'https://commons.wikimedia.org/wiki/File:Zentralbibliothek_Z%C3%BCrich_-_Vue_de_Geneve_du_cot%C3%A9_du_Couchant_-_991081642359705501.jpg',
     ...publicDomain,
-    derivativeNotice,
+    derivativeNotice: 'Calibration target below the reproduction removed; the complete engraving and lettered key are retained, resized, and converted to WebP by Philosophy Atlas.',
     attribution:
       'Robert Gardelle, Vue de Genève du côté du Couchant, c. 1720–1750, Zentralbibliothek Zürich. Public Domain Mark 1.0.',
-    scene: [640, 362],
-    panel: [1280, 724],
+    scene: [640, 274],
+    panel: [1280, 549],
     alt: 'A wide engraved prospect shows Geneva behind its walls with roads and figures in the foreground.',
     caption: 'The bounded city of Geneva gives Rousseau’s language of citizenship a material horizon.',
     historicalNote:

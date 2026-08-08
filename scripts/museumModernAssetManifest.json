@@ -1765,6 +1765,42 @@
         "sha256": "c1cc0e70b7db4b268728ec50cd61a1586b1ebb105eb798bb080259ec3bcf06d3"
       }
     },
+    "phenomenology-cezanne-still-life": {
+      "hallFolder": "phenomenology-existence-embodiment",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Still_Life_with_Apples_and_a_Pot_of_Primroses_MET_DT47.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Still_Life_with_Apples_and_a_Pot_of_Primroses_MET_DT47.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Still_Life_with_Apples_and_a_Pot_of_Primroses_MET_DT47.jpg/1280px-Still_Life_with_Apples_and_a_Pot_of_Primroses_MET_DT47.jpg",
+      "scene": {
+        "width": 640,
+        "height": 508,
+        "bytes": 46948,
+        "sha256": "1d5fbf2845208224f081b715746c75d8d1137b8ffed3a8eb5b337f708cbb9b43"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 1016,
+        "bytes": 293140,
+        "sha256": "c4a6183461ce437cbaa457dea7df6be7ade3758a2ad4ccf7890d1e357367ffbc"
+      }
+    },
+    "existentialism-kierkegaard-copenhagen-street": {
+      "hallFolder": "phenomenology-existence-embodiment",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Christen_K%C3%B8bke_-_View_of_a_Street_in_%C3%98sterbro_outside_Copenhagen._Morning_Light_-_Google_Art_Project.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9f/Christen_K%C3%B8bke_-_View_of_a_Street_in_%C3%98sterbro_outside_Copenhagen._Morning_Light_-_Google_Art_Project.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Christen_K%C3%B8bke_-_View_of_a_Street_in_%C3%98sterbro_outside_Copenhagen._Morning_Light_-_Google_Art_Project.jpg/1280px-Christen_K%C3%B8bke_-_View_of_a_Street_in_%C3%98sterbro_outside_Copenhagen._Morning_Light_-_Google_Art_Project.jpg",
+      "scene": {
+        "width": 640,
+        "height": 421,
+        "bytes": 43030,
+        "sha256": "e22ab22c7024594fcd22884331ed6ebc12594794bcb1027ff0a824cc7d944770"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 841,
+        "bytes": 276982,
+        "sha256": "0891319fa9071c886db191a98b9e0d741ac940bb354286f967028b0300b83e4f"
+      }
+    },
     "phenomenology-intentionality-interpretive": {
       "hallFolder": "phenomenology-existence-embodiment",
       "sourceKind": "owner-approved-original-illustration",

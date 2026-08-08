@@ -377,7 +377,7 @@ export const MUSEUM_CANONICAL_PROGRAM = [
     recordCapacity: 10,
     rooms: [
       {id: 'phenomenology-method', title: 'Intentionality, reduction, and lifeworld', recordCapacity: 2, exhibits: [
-        exhibit({id: 'phenomenology', entityKind: 'branch', entityId: 'phenomenology', displayName: 'Phenomenology', tier: 'anchor-exhibit', question: 'How can disciplined description disclose the structures of experience?', secondaryHallIds: ['critique-power-deconstruction']}),
+        exhibit({id: 'phenomenology', entityKind: 'branch', entityId: 'phenomenology', displayName: 'Phenomenology', tier: 'anchor-exhibit', question: 'How can disciplined description disclose the structures of experience?', secondaryHallIds: ['critique-power-deconstruction'], principalAssetId: 'phenomenology-cezanne-still-life'}),
         exhibit({id: 'husserl', entityKind: 'philosopher', entityId: 'husserl', displayName: 'Husserl', tier: 'anchor-exhibit', question: 'How can careful description disclose the structures by which consciousness is directed toward a world?', secondaryHallIds: [], formerHallId: 'mind-consciousness-self', principalAssetId: 'husserl-portrait', supportingAssetIds: ['husserl-grossmann-seated-1920s']}),
       ]},
       {id: 'phenomenology-being-embodiment', title: 'Being-in-the-world, perception, and embodiment', recordCapacity: 2, exhibits: [

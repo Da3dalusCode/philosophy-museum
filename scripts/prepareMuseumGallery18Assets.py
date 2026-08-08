@@ -96,6 +96,14 @@ def load_manifest(refresh_locks: bool) -> dict[str, dict[str, object]]:
                 "Gallery 18 requires one reviewed source page per asset."
             )
         seen_urls[page_url] = slug
+        crop = record.get("crop")
+        if crop is not None:
+            if not isinstance(crop, dict) or set(crop) != {"left", "top", "right", "bottom"}:
+                raise RuntimeError(f"{slug}.crop must contain left, top, right, and bottom.")
+            if not all(isinstance(crop[field], int) for field in crop):
+                raise RuntimeError(f"{slug}.crop values must be integers.")
+            if crop["left"] < 0 or crop["top"] < 0 or crop["right"] <= crop["left"] or crop["bottom"] <= crop["top"]:
+                raise RuntimeError(f"{slug}.crop is not a valid image box.")
         if not refresh_locks:
             for variant_name in ("scene", "panel"):
                 if not isinstance(record.get(variant_name), dict):
@@ -259,6 +267,12 @@ def main() -> None:
             print(f"[{index:02d}/{len(assets)}] {slug}", flush=True)
             download(str(record["selectedThumbnailUrl"]), source)
             image = rgb_image(source)
+            crop = record.get("crop")
+            if isinstance(crop, dict):
+                box = (int(crop["left"]), int(crop["top"]), int(crop["right"]), int(crop["bottom"]))
+                if box[2] > image.width or box[3] > image.height:
+                    raise RuntimeError(f"{slug}.crop exceeds the downloaded image bounds {image.size}.")
+                image = image.crop(box)
             scene_lock = save_variant(
                 image,
                 candidate_scene,

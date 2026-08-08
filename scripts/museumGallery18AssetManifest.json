@@ -250,19 +250,25 @@
       "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Zentralbibliothek_Z%C3%BCrich_-_Vue_de_Geneve_du_cot%C3%A9_du_Couchant_-_991081642359705501.jpg",
       "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Zentralbibliothek_Z%C3%BCrich_-_Vue_de_Geneve_du_cot%C3%A9_du_Couchant_-_991081642359705501.jpg",
       "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Zentralbibliothek_Z%C3%BCrich_-_Vue_de_Geneve_du_cot%C3%A9_du_Couchant_-_991081642359705501.jpg?width=1600",
+      "crop": {
+        "left": 0,
+        "top": 0,
+        "right": 1920,
+        "bottom": 823
+      },
       "sceneMaximum": 640,
       "panelMaximum": 1280,
       "scene": {
         "width": 640,
-        "height": 362,
-        "bytes": 43832,
-        "sha256": "e3682389e49d953d38b32000d476741e9d3884f4a024aa73ecff0ddb81bf534f"
+        "height": 274,
+        "bytes": 38470,
+        "sha256": "48388806cb29c226a16203d13fc9b4188a22edc8e3e8b173cc6df6ad23f1ef1e"
       },
       "panel": {
         "width": 1280,
-        "height": 724,
-        "bytes": 301814,
-        "sha256": "031e35edf1cbcbb8a4383a5fd463e1b03a31316e096c5222f212d14b26cedfe5"
+        "height": 549,
+        "bytes": 267128,
+        "sha256": "20b094d7a83e3456cd49b7f12a3c10540e2576c9f5d92d32ced3bf77ae8344c0"
       }
     },
     "enlightenment-fragonard-swing": {

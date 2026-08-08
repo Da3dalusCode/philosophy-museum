@@ -12,7 +12,7 @@ import type {
 export type EmpiricismGalleryAssetId =
   | 'empiricism-hooke-micrographia-flea'
   | 'empiricism-orrery-lecture-1766'
-  | 'locke-molyneux-cataract-surgery'
+  | 'locke-molyneux-ribera-touch'
   | 'locke-cobbler-workshop-1671'
   | 'empiricism-locke-greenhill-portrait'
   | 'empiricism-locke-carolina-map'
@@ -96,13 +96,13 @@ export const EMPIRICISM_GALLERY_ASSETS = [
     likenessStatus: 'not-applicable', focalPoint: {x: .51, y: .49},
   }),
   asset({
-    id: 'locke-molyneux-cataract-surgery', entityKind: 'philosopher', entityId: 'locke', role: 'context', mediaKind: 'photograph', visualCharacter: 'artwork-or-social-scene',
-    title: 'Cataract surgery at Naval Medical Center Portsmouth', creator: 'U.S. Navy', imageCreator: 'Journalist 2nd Class Sarah Langdon', objectDate: '20 June 2003', institution: 'Naval Medical Center Portsmouth', sourcePageUrl: 'https://commons.wikimedia.org/wiki/File:Cataract_surgery.jpg', ...publicDomain, derivativeNotice,
-    attribution: 'Sarah Langdon, U.S. Navy, cataract surgery at Naval Medical Center Portsmouth, 2003. Public-domain U.S. government work.', scene: [640, 480], panel: [1280, 961],
-    alt: 'A surgeon works through a microscope while inserting a synthetic lens during a modern cataract operation.',
-    caption: 'A modern operation marks the continuing medical and experimental afterlife of Molyneux’s cross-modal question.',
-    historicalNote: 'This is a 2003 operation, not William Cheselden’s 1728 case, and it does not reproduce the clean conditions stipulated in Molyneux’s thought experiment. The patient is receiving care, not serving as an illustration of an eighteenth-century event.',
-    likenessStatus: 'not-applicable', focalPoint: {x: .5, y: .5},
+    id: 'locke-molyneux-ribera-touch', entityKind: 'philosopher', entityId: 'locke', role: 'context', mediaKind: 'painting', visualCharacter: 'artwork-or-social-scene',
+    title: 'The Sense of Touch', creator: 'Jusepe de Ribera', objectDate: 'c. 1615–1616', institution: 'Norton Simon Museum, F.1965.1.052.P', sourcePageUrl: 'https://commons.wikimedia.org/wiki/File:Jos%C3%A9_de_Ribera_018.jpg', objectPageUrl: 'https://www.nortonsimon.org/art/detail/F.1965.1.052.P/', ...publicDomain, derivativeNotice,
+    attribution: 'Jusepe de Ribera, The Sense of Touch, c. 1615–1616, Norton Simon Museum. Public Domain Mark 1.0 reproduction via Wikimedia Commons.', scene: [480, 640], panel: [960, 1280],
+    alt: 'A blind man thoughtfully explores a sculpted head with both hands while a painted portrait rests unseen beside him.',
+    caption: 'Ribera’s tactile encounter separates recognizing form by touch from recognizing a painted appearance by sight.',
+    historicalNote: 'Painted before Molyneux posed his question, the work is a period visual companion rather than an illustration of Locke, Molyneux, Cheselden, or a restored-vision experiment. Ribera’s comparison of sculpture and painting makes the distinction between tactile and visual access materially legible.',
+    likenessStatus: 'not-applicable', focalPoint: {x: .5, y: .48},
   }),
   asset({
     id: 'locke-cobbler-workshop-1671', entityKind: 'philosopher', entityId: 'locke', role: 'context', mediaKind: 'painting', visualCharacter: 'artwork-or-social-scene',

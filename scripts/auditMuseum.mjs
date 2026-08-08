@@ -2211,10 +2211,10 @@ check('Plato’s Cave and Republic frame the final room without entering the pri
   assert.match(supplementalPanelSource, /event\.key === 'Escape'/u, 'The supplemental panel lacks its keyboard close path');
 });
 
-check('all 409 supplemental exhibits share route, directory, search, guided, and fallback contracts', () => {
-  assert.equal(MUSEUM_SUPPLEMENTAL_EXHIBITS.length, 409);
+check('all 410 supplemental exhibits share route, directory, search, guided, and fallback contracts', () => {
+  assert.equal(MUSEUM_SUPPLEMENTAL_EXHIBITS.length, 410);
   assert.equal(MUSEUM_INTERPRETATIONS.length, 191, 'Every canonical installation needs one interpretation');
-  assert.equal(MUSEUM_INTERPRETATIONS.length + MUSEUM_SUPPLEMENTAL_EXHIBITS.length, 600, 'The directory interpreted-stop count changed');
+  assert.equal(MUSEUM_INTERPRETATIONS.length + MUSEUM_SUPPLEMENTAL_EXHIBITS.length, 601, 'The directory interpreted-stop count changed');
   assert.equal(
     new Set(MUSEUM_SUPPLEMENTAL_EXHIBITS.map(({exhibit}) => exhibit.id)).size,
     MUSEUM_SUPPLEMENTAL_EXHIBITS.length,
@@ -2277,8 +2277,8 @@ check('Gallery 03 gives every unobstructed half-room wall one substantial exhibi
   assert(hall && definition);
   const supplemental = MUSEUM_SUPPLEMENTAL_EXHIBITS.filter((entry) => entry.hallId === hallId);
   assert.equal(hall.exhibits.length, 9, 'Gallery 03 primary catalog changed');
-  assert.equal(supplemental.length, 20, 'Gallery 03 must have twenty bounded supplemental stops');
-  assert.equal(definition.layout.supplementalExhibits?.length, 20, 'Gallery 03 scene layout is missing supplemental stops');
+  assert.equal(supplemental.length, 21, 'Gallery 03 must have twenty-one bounded supplemental stops');
+  assert.equal(definition.layout.supplementalExhibits?.length, 21, 'Gallery 03 scene layout is missing supplemental stops');
 
   const expectedPrimaryCounts = new Map([
     ['phenomenology-method', 2],
@@ -2290,14 +2290,14 @@ check('Gallery 03 gives every unobstructed half-room wall one substantial exhibi
   const expectedSupplementalCounts = new Map([
     ['phenomenology-method', 4],
     ['phenomenology-being-embodiment', 4],
-    ['existentialism-freedom', 3],
+    ['existentialism-freedom', 4],
     ['existentialism-situated-absurd', 5],
     ['phenomenology-interpretation-alterity', 4],
   ]);
   const expectedWallSlots = new Map([
     ['phenomenology-method', ['north-west', 'outer-west', 'south-west', 'north-east', 'outer-east', 'south-east']],
     ['phenomenology-being-embodiment', ['north-west', 'outer-west', 'south-west', 'north-east', 'outer-east', 'south-east']],
-    ['existentialism-freedom', ['north-west', 'south-west', 'north-east', 'outer-east', 'south-east']],
+    ['existentialism-freedom', ['north-west', 'outer-west', 'south-west', 'north-east', 'outer-east', 'south-east']],
     ['existentialism-situated-absurd', ['north-west', 'outer-west', 'south-west', 'north-east', 'outer-east', 'south-east']],
     ['phenomenology-interpretation-alterity', ['north-west', 'outer-west', 'south-west', 'north-east', 'outer-east', 'south-east']],
   ]);
@@ -2337,10 +2337,13 @@ check('Gallery 03 gives every unobstructed half-room wall one substantial exhibi
 
   const existentialism = definition.layout.exhibits.find(({id}) => id === 'existentialism');
   const sartre = definition.layout.exhibits.find(({id}) => id === 'sartre');
+  const kierkegaard = supplemental.find(({exhibit}) => exhibit.id === 'existentialism-kierkegaard-precursor');
   const sartreHumanism = supplemental.find(({exhibit}) => exhibit.id === 'sartre-existentialism-humanism');
-  assert(existentialism && sartre && sartreHumanism, 'The Existentialism/Sartre room hierarchy is incomplete');
-  assert.deepEqual(existentialism.position, {x: -6, z: -4.45}, 'Existentialism moved despite the doorway exception');
-  assert.equal(wallSlotFor(existentialism), 'north-west', 'Existentialism no longer uses its doorway-exception wall');
+  assert(existentialism && sartre && kierkegaard && sartreHumanism, 'The Existentialism/Sartre room hierarchy is incomplete');
+  assert.deepEqual(existentialism.position, {x: -6, z: -4.45}, 'Existentialism moved from its established north partition');
+  assert.equal(wallSlotFor(existentialism), 'north-west', 'Existentialism no longer uses its established north partition');
+  assert.equal(wallSlotFor(kierkegaard.layout), 'outer-west', 'The usable wall left of Existentialism is still empty');
+  assert.match(kierkegaard.exhibit.displayName, /^Kierkegaard:/, 'The new precursor does not clearly name Kierkegaard');
   assert.equal(wallSlotFor(sartre), 'outer-east', 'Sartre is not on the intact primary wall');
   assert.equal(wallSlotFor(sartreHumanism.layout), 'north-east', 'Sartre’s former wall lacks its secondary exhibit');
   assert.match(sartreHumanism.exhibit.displayName, /^Sartre:/, 'The new secondary does not clearly belong to Sartre');
@@ -6463,4 +6466,4 @@ assert.deepEqual(seamCrossingFailures, [], `collision-resolved seam failures:\n$
 assert.deepEqual(residencyAdmissionFailures, [], `approached-hall residency failures:\n${[...new Set(residencyAdmissionFailures)].join('\n')}`);
 assert.deepEqual(interpretationQualityFailures, [], `interpretation quality failures:\n${interpretationQualityFailures.join('\n')}`);
 
-console.log(`\nMuseum audit passed: ${checks} groups covering ${definitions.length} canonical halls, 105 rooms, 191 canonical exhibits, ${MUSEUM_SUPPLEMENTAL_EXHIBITS.length} supplemental exhibits, 600 interpreted stops, ${physicalMovementTrajectories} production-frame crossing trajectories over ${MUSEUM_DIRECTED_CONNECTIONS.length} directed crossings and ${MUSEUM_BUILDING_MANIFEST.connections.length} physical seams, 96 MiB bounded residency, and ${Math.round(museumModuleInitializationMs)}ms canonical-data initialization.`);
+console.log(`\nMuseum audit passed: ${checks} groups covering ${definitions.length} canonical halls, 105 rooms, 191 canonical exhibits, ${MUSEUM_SUPPLEMENTAL_EXHIBITS.length} supplemental exhibits, 601 interpreted stops, ${physicalMovementTrajectories} production-frame crossing trajectories over ${MUSEUM_DIRECTED_CONNECTIONS.length} directed crossings and ${MUSEUM_BUILDING_MANIFEST.connections.length} physical seams, 96 MiB bounded residency, and ${Math.round(museumModuleInitializationMs)}ms canonical-data initialization.`);
