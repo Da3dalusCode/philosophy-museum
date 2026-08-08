@@ -2,15 +2,15 @@
 
 ## Scope and finding
 
-This inventory reviews the existing Gallery 01–26 layout configuration for the transverse-wall pattern visible from the central walkway. It is a planning record for the Gallery 01 pilot, not a global placement switch.
+This inventory records the completed review of Gallery 01–26 for the transverse-wall pattern visible from the central walkway and for the six-face half-room rule.
 
 Gallery 01 and Gallery 21 share a 24 m-wide sequence shell, but Gallery 01 originally placed every transverse-wall exhibit at `x = +/-7.500 m`. Gallery 21 normally uses `x = +/-5.550 m` for 4.35 m installations and `x = +/-6.000 m` for wider primaries. Gallery 01's unequal physical spans therefore left roughly 2.440–3.400 m between their inner bounds and the protected walkway, versus roughly 0.675–1.125 m in Gallery 21. Gallery 01's 14 m rooms are deeper than Gallery 21's 11.2 m rooms, which strengthens the visual effect, but the lateral bounds setback is the actual placement difference.
 
-The later full-pass rule should preserve the central route, then translate each transverse-wall exhibit or authored multi-exhibit group inward as one unit until its innermost physical bound is about 0.825 m outside the protected route edge. Existing order and spacing stay fixed. Outer-wall groups remain centered and unchanged. Compact or crossroads geometry requires separate review.
+The completed rule preserves the central route, then places each transverse-wall exhibit or authored multi-exhibit group so its innermost physical bound is about 0.825 m outside the protected route edge. Each half-room uses its three usable faces before a wall is shared. Existing order and intentional group spacing stay fixed. Outer-wall exhibits or groups remain centered. Compact and crossroads geometry is reviewed separately rather than normalized mechanically.
 
 ## Classification
 
-### Standard galleries that appear to match the inward pattern
+### Standard galleries retained without change
 
 - Gallery 03 — Late Antiquity & Neoplatonic Inheritance
 - Gallery 04 — Classical South Asia: Jain, Yoga, and Brahmanical Systems
@@ -29,14 +29,19 @@ The later full-pass rule should preserve the central route, then translate each 
 - Gallery 24 — Political Action, Justice, and Democratic Reason
 - Gallery 26 — Colonialism, Race, and Liberation
 
-These galleries use the repeating half-room architecture and already place their transverse installations close to the Gallery 21 reference band.
+These galleries already use every usable half-room face, preserve their documented doorway or authored-group exceptions, and place transverse installations in the approved bounds band. Gallery 03 was also spot-checked by the owner as the correct result.
 
-### Standard galleries that appear to need adjustment
+### Standard gallery corrected
 
-- Gallery 01 — Mediterranean Beginnings & Classical Athens. This release implements the pilot described below.
-- Gallery 12 — Renaissance, Political Order, and New Science. Its transverse primaries remain at `x = +/-6.500 m`, leaving them visibly farther from the walkway than the later sequence pattern. Directly configured candidates are Machiavelli, Marsilio Ficino and the Work of Recovery, Francis Bacon, Galileo: Instruments, Evidence, and Authority, and Thomas Hobbes.
+- Gallery 12 — Renaissance, Political Order, and New Science. All three rooms had six installations but used only three or four of their six wall roles: philosopher anchors were paired on one transverse wall while two or three works shared each outer wall. Machiavelli, Ficino, Bacon, Galileo, and Hobbes now occupy centered outer walls. *Leviathan* is the second centered outer-wall anchor in the Hobbes room. Twelve of the thirteen existing work and context exhibits fill the remaining transverse faces at `x = +/-5.550 m`, except the 4.40 m telescope installation at `x = 5.575 m` and the 4.85 m materialism installation at `x = 5.800 m`.
 
-Gallery 12 remains untouched pending approval of a full pass.
+  - Room 01: Machiavelli and Ficino anchor the outer walls; *The Prince*, *Discourses on Livy*, *Texts in Transit*, and *Ficino's Annotated Enneads* occupy the four returns.
+  - Room 02: Bacon and Galileo anchor the outer walls; *The Great Instauration*, *Novum Organum*, *Galileo's Moon*, and *Galileo's Telescopes* occupy the four returns.
+  - Room 03: Hobbes and *Leviathan* anchor the outer walls; *The Crisis of Civil War*, *De Cive*, *The Putney Debates*, and *Materialism, Motion, and the Human Body* occupy the four returns.
+
+No other standard gallery required a data change. Galleries with seven installations in one room already use all six faces and retain an intentional centered two-installation outer-wall group.
+
+Representative corrected-room captures and the unchanged Gallery 16 control are stored in `docs/visual-validation/museum-wide-placement/`.
 
 ### Architecturally distinct galleries — leave untouched
 
@@ -48,9 +53,9 @@ Gallery 12 remains untouched pending approval of a full pass.
 - Gallery 23 — Moral Life & Practical Reason (authored L-baffle crossroads)
 - Gallery 25 — Feminist Philosophies (authored four-room crossroads)
 
-### Ambiguous case requiring manual review
+### Compact standard gallery reviewed without change
 
-- Gallery 09 — Jewish Philosophy in Arabic-Speaking & Mediterranean Worlds. It uses the two-half-room rhythm but a compact 20 m-wide `standard-rect` shell. Its transverse centres are already at `x = +/-4.550 m`, so the 24 m rule cannot be applied mechanically. Directly configured transverse exhibits are Saadia Gaon's *Book of Beliefs and Opinions*; Judeo-Arabic Law and Communal Reasoning in the Cairo Geniza; Judah Halevi's *Kuzari*; Judah Halevi's *Divan*; Maimonides's *Mishneh Torah*; Maimonides's *Guide*; Maimonides's *Guide* Across Arabic, Hebrew, and Latin; and Spinoza's *Theological-Political Treatise*: Formation and Rupture.
+- Gallery 09 — Jewish Philosophy in Arabic-Speaking & Mediterranean Worlds. Its 20 m-wide `standard-rect` shell already fills all six faces in both rooms. Its eight transverse exhibits remain at `x = +/-4.550 m`; moving them inward would reduce the compact hall's route clearance, while applying a 24 m coordinate would move them outward. It therefore remains unchanged.
 
 ## Gallery 01 pilot inventory
 
@@ -75,4 +80,4 @@ Only transverse-wall `x` positions and their matching authored viewpoints change
 | Plato, Aristotle, Academy, and Lyceum | east / north | Aristotelianism | 7.500 | 5.425 | 2.075 m |
 | Plato, Aristotle, Academy, and Lyceum | east / south | Plato's *Republic* | 7.500 | 5.885 | 1.615 m |
 
-The 11 Gallery 01 outer-wall installations remain at `x = +/-10.850 m`, including Ancient Greek Philosophy in the first room. No other gallery is changed.
+The 11 Gallery 01 outer-wall installations remain at `x = +/-10.850 m`, including Ancient Greek Philosophy in the first room. Gallery 01 remains the approved reference and is unchanged by the museum-wide completion.
