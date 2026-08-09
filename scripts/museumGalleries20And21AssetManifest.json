@@ -749,48 +749,48 @@
         "sha256": "5c4df880e969278d1cff2bf983326d7f8608523fcc43381d3a606196e3936681"
       }
     },
-    "value-kierkegaard-corsar-cartoon": {
+    "value-dostoevsky-perov-1872": {
       "hallFolder": "faith-pessimism-life-value",
-      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Kierkegaard_im_%27Corsar.jpg",
-      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kierkegaard_im_%27Corsar.jpg",
-      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kierkegaard_im_%27Corsar.jpg?width=1600",
-      "visualCharacter": "artwork-or-social-scene",
-      "textDominantOrSingleBook": false,
-      "sceneMaximum": 640,
-      "panelMaximum": 1280,
-      "scene": {
-        "width": 611,
-        "height": 640,
-        "bytes": 84382,
-        "sha256": "00d5486ae2713b5e61221dade45a8ded53807a10b7cf9232e4185f911a3fc93e"
-      },
-      "panel": {
-        "width": 1222,
-        "height": 1280,
-        "bytes": 373698,
-        "sha256": "6df70cda3e96abf9e7eafdfc263cddfa34681f4d429ce446e0db239f33fad336"
-      }
-    },
-    "value-regine-olsen-1870": {
-      "hallFolder": "faith-pessimism-life-value",
-      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Regine_Olsen_(1870).jpg",
-      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Regine_Olsen_(1870).jpg",
-      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Regine_Olsen_(1870).jpg?width=1600",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:%D0%94%D0%BE%D1%81%D1%82%D0%BE%D0%B5%D0%B2%D1%81%D0%BA%D0%B8%D0%B9_(%D0%9F%D0%B5%D1%80%D0%BE%D0%B2,_1872)_-_%D0%A2%D1%80%D0%B5%D1%82%D1%8C%D1%8F%D0%BA%D0%BE%D0%B2%D1%81%D0%BA%D0%B0%D1%8F.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/%D0%94%D0%BE%D1%81%D1%82%D0%BE%D0%B5%D0%B2%D1%81%D0%BA%D0%B8%D0%B9_(%D0%9F%D0%B5%D1%80%D0%BE%D0%B2,_1872)_-_%D0%A2%D1%80%D0%B5%D1%82%D1%8C%D1%8F%D0%BA%D0%BE%D0%B2%D1%81%D0%BA%D0%B0%D1%8F.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/%D0%94%D0%BE%D1%81%D1%82%D0%BE%D0%B5%D0%B2%D1%81%D0%BA%D0%B8%D0%B9_(%D0%9F%D0%B5%D1%80%D0%BE%D0%B2,_1872)_-_%D0%A2%D1%80%D0%B5%D1%82%D1%8C%D1%8F%D0%BA%D0%BE%D0%B2%D1%81%D0%BA%D0%B0%D1%8F.jpg?width=1600",
       "visualCharacter": "portrait-or-figure",
       "textDominantOrSingleBook": false,
       "sceneMaximum": 640,
       "panelMaximum": 1280,
       "scene": {
-        "width": 413,
+        "width": 512,
         "height": 640,
-        "bytes": 20012,
-        "sha256": "6b379bbf6471e35cc3d52505b14f7f3e6e3a299d260142f32328bcd71805030d"
+        "bytes": 14510,
+        "sha256": "96762a40118926c07c9c204901022a405d43f83add9521dfa61b6b1748cceb9e"
       },
       "panel": {
-        "width": 702,
-        "height": 1088,
-        "bytes": 46916,
-        "sha256": "f81a389112bbb6b8bd9acc6480a3445a05efef8f38e99da2a47d834ae20f95eb"
+        "width": 1024,
+        "height": 1280,
+        "bytes": 142592,
+        "sha256": "d6f431e0a19cd6f20feb071f2de1517db565661e553eb17b8d63ed1b0b4696bf"
+      }
+    },
+    "value-brothers-karamazov-contemplator": {
+      "hallFolder": "faith-pessimism-life-value",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Kramskoi_Meditator_1876.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kramskoi_Meditator_1876.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kramskoi_Meditator_1876.jpg?width=1600",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 428,
+        "height": 640,
+        "bytes": 72374,
+        "sha256": "c5986a51351db5348fbe6bc8da5712e217b4af17665e797b650c721d292eee10"
+      },
+      "panel": {
+        "width": 802,
+        "height": 1200,
+        "bytes": 307890,
+        "sha256": "31d0227f90c6a5ead857d3c84c58376027973d8259cdeca85c10ec0989c07c88"
       }
     },
     "value-kierkegaard-copenhagen-salon": {

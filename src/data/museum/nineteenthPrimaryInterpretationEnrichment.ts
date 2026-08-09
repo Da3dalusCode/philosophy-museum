@@ -61,6 +61,35 @@ Readonly<Record<string, MuseumPrimaryInterpretationEnrichment>> = {
       'value-kierkegaard-copenhagen-portrait': 'Luplau Janssen painted Kierkegaard at a high writing desk around 1902, nearly five decades after the philosopher’s death. The posthumous reconstruction fittingly foregrounds writing but must not be presented as a lifetime likeness or used to collapse the pseudonymous authors into one direct authorial voice.',
     },
   },
+  dostoevsky: {
+    lead: 'Dostoevsky turns philosophical positions into lived voices whose motives, consequences, and relations remain open to reply. The Underground Man revolts against rational determinism by choosing even self-harm rather than accept that agency can be calculated, yet his caprice hardens into spite and paralysis. Raskolnikov’s extraordinary-man theory makes murder a test of whether he stands above ordinary law, while guilt and self-deception expose the competing motives hidden by the theory. Demons follows ideology through secret groups, charismatic projections, fear, and diffused responsibility. In The Brothers Karamazov, Ivan rejects cosmic harmony purchased through innocent suffering and the Grand Inquisitor trades freedom for security; Zosima and Alyosha answer through responsibility and active love rather than a total explanation. Dostoevsky’s polyphonic method lets these voices retain real intellectual force. He is a major nineteenth-century precursor and influence on existentialism, not an anachronistic member of the later movement.',
+    keyIdeas: [
+      'Revolt against rational determinism: the Underground Man defends unpredictable agency while demonstrating how negative freedom can become self-imprisonment.',
+      'Extraordinary permission and guilt: Raskolnikov uses theory to test an exceptional identity, then discovers that persons cannot be reduced to material for that experiment.',
+      'Ideological possession: Demons shows doctrines acquiring force through groups, secrecy, vanity, institutional weakness, and surrendered responsibility.',
+      'Innocent suffering, freedom, and security: Ivan and the Grand Inquisitor challenge any harmony or authority purchased by sacrificing persons.',
+      'Polyphony and active love: independent voices remain answerable to one another, while Zosima and Alyosha make responsibility practical rather than explanatory.',
+    ],
+    keyWorks: ['Notes from Underground', 'Crime and Punishment', 'Demons', 'The Brothers Karamazov'],
+    sections: [
+      {
+        heading: 'Freedom tested by self-deception and relation',
+        paragraphs: [
+          'Dostoevsky’s characters rarely hold ideas as detached propositions. A theory can dignify humiliation, excuse violence, create group loyalty, or conceal a desire for recognition. The novels therefore test freedom through motives that agents only partly acknowledge. Exposure is not enough: confession can itself become a performance, and suffering does not automatically repair an injured relationship.',
+          'Mikhail Bakhtin’s account of polyphony helps explain the method. Dostoevsky composes encounters in which a major voice is not merely an object under a narrator’s final definition. That does not make the author neutral or every claim equal. It makes philosophical judgment dialogical: Ivan’s protest, Zosima’s practice, and the consequences of each must be heard without converting one character into a footnote to another.',
+        ],
+      },
+    ],
+    sectionCaution: 'Dostoevsky’s Orthodox commitments, Russian nationalism, imperial politics, and antisemitic journalism require critical attention. His later influence on existentialism is substantial, but the twentieth-century movement did not yet exist during his lifetime.',
+    sources: [
+      {label: 'Stanford Encyclopedia of Philosophy — Existentialism', url: 'https://plato.stanford.edu/entries/existentialism/', kind: 'academic-reference'},
+      {label: 'Project Gutenberg — Works by Fyodor Dostoevsky', url: 'https://www.gutenberg.org/ebooks/author/314', kind: 'primary-text'},
+      {label: 'University of Minnesota Press — Problems of Dostoevsky’s Poetics', url: 'https://www.upress.umn.edu/9780816612284/problems-of-dostoevskys-poetics/', kind: 'academic-reference'},
+    ],
+    objectInterpretations: {
+      'value-dostoevsky-perov-1872': 'Vasily Perov painted this lifetime portrait in 1872 while Dostoevsky was working on Demons. The clasped hands and concentrated downward gaze create a powerful public image, but posture and expression must not be treated as transparent evidence of guilt, illness, or philosophical character.',
+    },
+  },
   nietzsche: {
     objectInterpretations: {
       'value-nietzsche-1869-siebe-portrait': 'An unidentified photographer at the Gebrüder Siebe studio made this lifetime portrait in Leipzig on 25 August 1869. The young professor stands near the beginning of his Basel period and before The Birth of Tragedy. It should not be misdated 1875 or read backward as the face of a completed doctrine.',

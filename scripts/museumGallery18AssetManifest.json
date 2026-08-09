@@ -556,6 +556,28 @@
         "bytes": 303400,
         "sha256": "aaa789be7b69b04cc01dcb4beed142d7bea68d65a5c65cc5192f222cecf2b5c9"
       }
+    },
+    "enlightenment-kant-sublime-monk-sea": {
+      "hallFolder": "enlightenment-revolution-kant",
+      "visualCharacter": "artwork-or-social-scene",
+      "textDominantOrSingleBook": false,
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Caspar_David_Friedrich_-_Der_M%C3%B6nch_am_Meer_-_Google_Art_Project.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Caspar_David_Friedrich_-_Der_M%C3%B6nch_am_Meer_-_Google_Art_Project.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Caspar_David_Friedrich_-_Der_M%C3%B6nch_am_Meer_-_Google_Art_Project.jpg?width=1600",
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 640,
+        "height": 407,
+        "bytes": 19022,
+        "sha256": "00a202a1b740b4a40318b98d7f376549c650b5a5b5f2553e71d1975537b36f1b"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 814,
+        "bytes": 236482,
+        "sha256": "b3db362e38154db60097d6e1c862e043f2b05a8d9a9188112960b4ed08272940"
+      }
     }
   }
 }

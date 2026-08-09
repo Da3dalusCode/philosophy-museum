@@ -29,7 +29,8 @@ export type EnlightenmentGalleryAssetId =
   | 'enlightenment-hogarth-marriage-settlement'
   | 'enlightenment-samuel-nine-muses'
   | 'enlightenment-duchesse-du-maine-astronomy-lesson'
-  | 'enlightenment-womens-march-versailles';
+  | 'enlightenment-womens-march-versailles'
+  | 'enlightenment-kant-sublime-monk-sea';
 
 /**
  * Integration must apply these seven renames to the current provisional ID
@@ -768,5 +769,33 @@ export const ENLIGHTENMENT_GALLERY_ASSETS = [
     historicalNote:
       'The image is a designed contemporary print and later digital restoration, not a transparent eyewitness record. Its marchers must not be treated as portraits of Wollstonecraft or as one uniform political subject.',
     likenessStatus: 'not-applicable',
+  }),
+  asset({
+    id: 'enlightenment-kant-sublime-monk-sea',
+    folder: 'enlightenment-revolution-kant',
+    entityKind: 'philosopher',
+    entityId: 'kant',
+    role: 'context',
+    mediaKind: 'painting',
+    visualCharacter: 'artwork-or-social-scene',
+    title: 'The Monk by the Sea',
+    creator: 'Caspar David Friedrich',
+    objectDate: '1808–1810',
+    institution: 'Alte Nationalgalerie, Staatliche Museen zu Berlin, A I 516',
+    sourcePageUrl:
+      'https://commons.wikimedia.org/wiki/File:Caspar_David_Friedrich_-_Der_M%C3%B6nch_am_Meer_-_Google_Art_Project.jpg',
+    objectPageUrl: 'https://id.smb.museum/object/965511/',
+    ...publicDomain,
+    derivativeNotice,
+    attribution:
+      'Caspar David Friedrich, The Monk by the Sea, 1808–1810, Alte Nationalgalerie, Staatliche Museen zu Berlin, A I 516. Public Domain Mark 1.0.',
+    scene: [640, 407],
+    panel: [1280, 814],
+    alt: 'A tiny dark-robed monk stands before a vast, nearly empty sea and clouded sky.',
+    caption: 'Friedrich’s later painting offers an interpretive companion for reflecting on overwhelming scale, the limits of imagination, and the judging subject.',
+    historicalNote:
+      'Friedrich painted this work roughly two decades after Kant’s Critique of the Power of Judgment. It was neither commissioned nor endorsed by Kant and is not presented as a historical illustration of his text.',
+    likenessStatus: 'not-applicable',
+    focalPoint: {x: .5, y: .53},
   }),
 ] as const satisfies readonly EnlightenmentGalleryAssetRecord[];

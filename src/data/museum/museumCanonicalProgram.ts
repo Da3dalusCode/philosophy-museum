@@ -884,14 +884,15 @@ export const MUSEUM_CANONICAL_PROGRAM = [
     title: 'Faith, Pessimism, Life, and Value',
     templateId: 'sequence-3',
     period: '19th century',
-    description: 'Move from Schopenhauer’s metaphysics of representation and striving through Kierkegaard’s indirect communication and religious subjectivity to Nietzsche’s genealogy of values, nihilism, and experiments in affirmation.',
-    recordCapacity: 3,
+    description: 'Move from Schopenhauer’s metaphysics of representation and striving through Kierkegaard’s religious subjectivity and Dostoevsky’s polyphonic trials of freedom and responsibility to Nietzsche’s genealogy of values, nihilism, and experiments in affirmation.',
+    recordCapacity: 4,
     rooms: [
       {id: 'nineteenth-will-pessimism', title: 'Will, representation, suffering, and reception', recordCapacity: 1, exhibits: [
         exhibit({id: 'schopenhauer', entityKind: 'philosopher', entityId: 'schopenhauer', displayName: 'Arthur Schopenhauer: Representation, Will, and Compassion', tier: 'standard-individual-exhibit', question: 'What if the ordered world of experience is representation while embodied striving discloses a restless will beneath it?', secondaryHallIds: ['buddhist-philosophies', 'classical-south-asian-worlds', 'core-questions-forum'], principalAssetId: 'value-schopenhauer-schaefer-portrait'}),
       ]},
-      {id: 'nineteenth-faith-subjectivity', title: 'Faith, subjectivity, anxiety, and becoming a self', recordCapacity: 1, exhibits: [
+      {id: 'nineteenth-faith-subjectivity', title: 'Faith, subjectivity, freedom, and responsibility', recordCapacity: 2, exhibits: [
         exhibit({id: 'kierkegaard', entityKind: 'philosopher', entityId: 'kierkegaard', displayName: 'Søren Kierkegaard: Choice, Anxiety, Faith, and the Self', tier: 'standard-individual-exhibit', question: 'How can a person become a self through choices and commitments that no detached philosophical system can make on that person’s behalf?', secondaryHallIds: ['core-questions-forum', 'phenomenology-existence-embodiment'], formerHallId: 'modernity-freedom-critique', principalAssetId: 'value-kierkegaard-copenhagen-portrait'}),
+        exhibit({id: 'dostoevsky', entityKind: 'philosopher', entityId: 'dostoevsky', displayName: 'Fyodor Dostoevsky', tier: 'standard-individual-exhibit', question: 'What becomes of freedom when theories of rational necessity, exceptional permission, or historical destiny are inhabited by guilty and self-deceiving persons?', secondaryHallIds: ['phenomenology-existence-embodiment'], principalAssetId: 'value-dostoevsky-perov-1872'}),
       ]},
       {id: 'nineteenth-genealogy-value', title: 'Genealogy, nihilism, life, and value creation', recordCapacity: 1, exhibits: [
         exhibit({id: 'nietzsche', entityKind: 'philosopher', entityId: 'nietzsche', displayName: 'Friedrich Nietzsche: Genealogy, Nihilism, and Affirmation', tier: 'anchor-exhibit', question: 'What histories of power, embodiment, resentment, and interpretation lie behind moral values—and what could it mean to create values after their authority collapses?', secondaryHallIds: ['critique-power-deconstruction', 'phenomenology-existence-embodiment'], formerHallId: 'modernity-freedom-critique', principalAssetId: 'value-nietzsche-1869-siebe-portrait'}),

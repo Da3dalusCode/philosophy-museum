@@ -45,7 +45,7 @@ EXPECTED_HALLS = {
     "east-asian-continuities",
     "jewish-philosophy",
 }
-EXPECTED_ASSET_COUNT = 317
+EXPECTED_ASSET_COUNT = 318
 MAX_DERIVATIVE_BYTES = 600_000
 MIN_MUSEUM_SHORT_EDGE = 180
 

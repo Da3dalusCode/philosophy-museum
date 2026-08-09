@@ -56,7 +56,8 @@ export type EnlightenmentSupplementalExhibitId =
   | 'enlightenment-marriage-domestic-government'
   | 'enlightenment-women-public-intellectuals'
   | 'enlightenment-access-to-knowledge'
-  | 'enlightenment-revolution-from-street';
+  | 'enlightenment-revolution-from-street'
+  | 'enlightenment-kant-sublime';
 
 type EnlightenmentInstallationKind =
   | 'enlightenment-work'
@@ -97,7 +98,7 @@ const record = (input: EnlightenmentExhibitAuthoring): MuseumSupplementalExhibit
     ...input,
     id: supplementalId(input.id),
     assetId: museumAssetId(input.assetId),
-    panelKicker: 'Gallery 18 work and context exhibit',
+    panelKicker: 'Gallery 15 work and context exhibit',
   });
 
 const MONTESQUIEU_REFERENCE = academic(
@@ -944,6 +945,60 @@ export const ENLIGHTENMENT_SUPPLEMENTAL_EXHIBITS = [
     articleRoute: {kind: 'philosopher', philosopherId: 'wollstonecraft'},
     entityKind: 'philosopher',
   }),
+  record({
+    id: 'enlightenment-kant-sublime',
+    assetId: 'enlightenment-kant-sublime-monk-sea',
+    displayName: 'Kant’s Sublime',
+    shortTitle: 'Kant’s Sublime',
+    workLabel: 'MATHEMATICAL AND DYNAMICAL SUBLIME · IMAGINATION, REASON, AND JUDGMENT',
+    dateLabel: 'Critique of the Power of Judgment, 1790 · Friedrich painting, 1808–1810',
+    question: 'Why can overwhelming magnitude or might expose imagination’s limits yet awaken reason’s claim to a supersensible vocation?',
+    frontSubtitle: 'Magnitude, might, imagination’s failure, displeasure, reason, supersensible vocation, safety, and the judging subject',
+    lead: 'Kant distinguishes a mathematical sublime, occasioned by magnitude that defeats imagination’s effort to comprehend a whole, from a dynamical sublime, occasioned by nature’s might when we can contemplate it from safety. In both, an initial displeasure at imagination’s inadequacy gives way to an elevated awareness that reason demands ideas—such as totality and moral freedom—that sensible presentation cannot contain.',
+    keyIdeas: [
+      'The mathematical sublime concerns magnitude beyond imagination’s capacity to gather a sensible whole, not merely a very large measured quantity.',
+      'The dynamical sublime concerns overwhelming natural might contemplated without immediate danger; terror that simply overwhelms us does not yet produce the reflective judgment Kant describes.',
+      'The transition from displeasure to pleasure reveals, for Kant, a supersensible vocation of reason rather than a newly discovered property inside the object.',
+    ],
+    cautions: [
+      'Kant locates sublimity principally in the judging subject: nature supplies an occasion, but the mountain, storm, or sea is not sublime as an objective property in the same way it can be physically large or powerful.',
+      'Friedrich completed The Monk by the Sea after Kant’s 1790 book. The painting is an interpretive companion, not an illustration commissioned or endorsed by Kant.',
+    ],
+    sections: [
+      {
+        heading: 'When imagination cannot make a whole',
+        paragraph: 'In the mathematical sublime, imagination can keep apprehending successive parts yet fails to comprehend them together at the scale reason demands. The mismatch is felt as displeasure. Reflection then redirects attention from sensible mastery toward reason’s idea of totality, which no image can adequately present.',
+      },
+      {
+        heading: 'Might without submission',
+        paragraph: 'In the dynamical sublime, storms, cliffs, oceans, and other powers make bodily vulnerability vivid. When viewed from a position of safety, their might can reveal that physical nature does not exhaust the standards by which a rational and moral subject understands its vocation. This is not a claim that bodies become invulnerable.',
+      },
+      {
+        heading: 'The sublime belongs to judgment',
+        paragraph: 'The object occasions the experience, but sublimity names a reflective movement within the subject: imagination fails, reason’s demand becomes palpable, and displeasure turns into a distinct pleasure. Friedrich’s spare horizon can help viewers test this structure, provided the later painting is not mistaken for Kant’s own example or historical endorsement.',
+      },
+    ],
+    sources: [
+      collection(
+        'Alte Nationalgalerie / Wikimedia Commons — Caspar David Friedrich, The Monk by the Sea',
+        'https://commons.wikimedia.org/wiki/File:Caspar_David_Friedrich_-_Der_M%C3%B6nch_am_Meer_-_Google_Art_Project.jpg',
+      ),
+      collection(
+        'Staatliche Museen zu Berlin — The Monk by the Sea, object 965511',
+        'https://id.smb.museum/object/965511/',
+      ),
+      academic(
+        'Stanford Encyclopedia of Philosophy — Kant’s Aesthetics and Teleology',
+        'https://plato.stanford.edu/entries/kant-aesthetics/',
+      ),
+      academic(
+        'Project Gutenberg — Kant’s Critique of Judgement',
+        'https://www.gutenberg.org/ebooks/48433',
+      ),
+    ],
+    articleRoute: {kind: 'philosopher', philosopherId: 'kant'},
+    entityKind: 'philosopher',
+  }),
 ] as const satisfies readonly MuseumSupplementalExhibit[];
 
 export type EnlightenmentSupplementalExhibitLayout = MuseumSupplementalExhibitLayout & {
@@ -1007,7 +1062,7 @@ const authoredSlotLayout = ({
 };
 
 /**
- * These are the 19 curation slots left after the six primary exhibits occupy
+ * These are the 20 curation slots left after the six primary exhibits occupy
  * their authored bays. The slot lookup supplies position, rotation, wall,
  * footprint width, spatial cell, and the locally safe camera distance.
  */
@@ -1220,6 +1275,17 @@ export const ENLIGHTENMENT_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     mediaHeight: 2.22,
     kind: 'enlightenment-context',
     accent: ENLIGHTENMENT_PALETTE.civicRed,
+  }),
+  authoredSlotLayout({
+    id: 'enlightenment-kant-sublime',
+    parentExhibitId: 'kant',
+    guidedAfterExhibitId: 'kant',
+    slotId: 'enlightenment-kant-critical:north-outer',
+    assetId: 'enlightenment-kant-sublime-monk-sea',
+    mediaWidth: 3.18,
+    mediaHeight: 2.16,
+    kind: 'enlightenment-concept',
+    accent: ENLIGHTENMENT_PALETTE.ink,
   }),
 ] as const satisfies readonly EnlightenmentSupplementalExhibitLayout[];
 

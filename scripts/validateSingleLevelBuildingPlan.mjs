@@ -111,7 +111,7 @@ check('approved program totals and complete roster are unchanged', () => {
   assert.equal(plan.programContract.wingCount, 10);
   assert.equal(plan.programContract.hallCount, 26);
   assert.equal(plan.programContract.roomCount, 105);
-  assert.equal(plan.programContract.recordCapacity, 260);
+  assert.equal(plan.programContract.recordCapacity, 261);
   assert.equal(plan.halls.length, 26);
   assert(unique(plan.halls.map(({id}) => id)), 'building plan duplicates a hall id');
   assert.deepEqual(sorted(plan.halls.map(({id}) => id)), sorted(program.halls.map(({id}) => id)));
@@ -205,7 +205,7 @@ check('all twenty-six populated galleries use their route-derived public numbers
     }],
     ['faith-pessimism-life-value', {
       roomCount: 3,
-      primaryCount: 3,
+      primaryCount: 4,
       templateId: 'sequence-3',
       roomLayoutStrategy: 'sequence-equal-room-spans',
     }],

@@ -35,8 +35,7 @@ export type FaithPessimismValueSupplementalExhibitId =
   | 'kierkegaard-indirect-communication'
   | 'kierkegaard-fear-trembling'
   | 'kierkegaard-christendom-attack'
-  | 'kierkegaard-corsair-public'
-  | 'kierkegaard-regine-legend'
+  | 'dostoevsky-brothers-karamazov'
   | 'nietzsche-birth-tragedy'
   | 'nietzsche-lou-interlocutor'
   | 'nietzsche-writing-machine'
@@ -46,7 +45,7 @@ export type FaithPessimismValueSupplementalExhibitId =
 type CuratedInput = {
   id: FaithPessimismValueSupplementalExhibitId;
   assetId: FaithPessimismValueGalleryAssetId;
-  parent: 'schopenhauer' | 'kierkegaard' | 'nietzsche';
+  parent: 'schopenhauer' | 'kierkegaard' | 'dostoevsky' | 'nietzsche';
   displayName: string;
   shortTitle: string;
   focus: string;
@@ -62,6 +61,7 @@ const image = (url: string) => ({label: 'Wikimedia Commons — displayed object 
 const academicByParent = {
   schopenhauer: {label: 'Stanford Encyclopedia of Philosophy — Arthur Schopenhauer', url: 'https://plato.stanford.edu/entries/schopenhauer/', kind: 'academic-reference' as const},
   kierkegaard: {label: 'Stanford Encyclopedia of Philosophy — Søren Kierkegaard', url: 'https://plato.stanford.edu/entries/kierkegaard/', kind: 'academic-reference' as const},
+  dostoevsky: {label: 'Stanford Encyclopedia of Philosophy — Existentialism', url: 'https://plato.stanford.edu/entries/existentialism/', kind: 'academic-reference' as const},
   nietzsche: {label: 'Stanford Encyclopedia of Philosophy — Friedrich Nietzsche', url: 'https://plato.stanford.edu/entries/nietzsche/', kind: 'academic-reference' as const},
 };
 
@@ -85,7 +85,7 @@ const curated = (input: CuratedInput): MuseumSupplementalExhibit => authorSupple
   sources: [image(input.imageSource), academicByParent[input.parent]],
   articleRoute: {kind: 'philosopher', philosopherId: input.parent},
   entityKind: 'philosopher',
-  panelKicker: 'Gallery 21 work and context exhibit',
+  panelKicker: 'Gallery 18 work and context exhibit',
 });
 
 export const FAITH_PESSIMISM_VALUE_SUPPLEMENTAL_EXHIBITS = [
@@ -162,22 +162,13 @@ export const FAITH_PESSIMISM_VALUE_SUPPLEMENTAL_EXHIBITS = [
     imageSource: 'https://commons.wikimedia.org/wiki/File:Interieur_van_de_Vor_Frue_Kirke_in_Kopenhagen,_RP-F-F18138.jpg',
   }),
   curated({
-    id: 'kierkegaard-corsair-public', assetId: 'value-kierkegaard-corsar-cartoon', parent: 'kierkegaard',
-    displayName: 'The Public Makes a Spectacle', shortTitle: 'The Corsair Affair', focus: 'PUBLIC · RIDICULE, CROWD, LEVELING, AND MEDIA', dateLabel: 'Corsaren campaign, 1846–1847',
-    question: 'How can an anonymous public exert power when everyone participates but no one accepts individual responsibility?',
-    lead: 'Corsaren’s cartoons turned Kierkegaard’s body, uneven trouser legs, gait, and umbrella into recurring public entertainment. The confrontation followed P. L. Møller’s critical review of Stages on Life’s Way and Kierkegaard’s response under the pseudonym Frater Taciturnus, which dared the satirical weekly to identify him openly. Editor Meïr Aron Goldschmidt’s paper obliged. The months of ridicule sharpened Kierkegaard’s analysis of “the public” as an abstraction formed through circulation, spectatorship, and responsibility dispersed among readers.',
-    ideas: ['The cartoon surrounds one conspicuous figure with an environment of mockery rather than offering a neutral likeness. Repetition taught Copenhagen readers which bodily details to notice, so recognition itself became participation in the joke. The image demonstrates how visual caricature can make an interpretation socially automatic before anyone has read or assessed the target’s arguments.', 'Mass circulation coordinates judgment without face-to-face accountability. No single passerby needs to invent the insult or accept authorship of the campaign; each can cite what “everyone” already knows. In A Literary Review, written in the same period, Kierkegaard describes the public as an unreal abstraction sustained by a press whose reach exceeds the commitments of any concrete association.', 'His critique of “leveling” is not simply resentment that many people disliked him, nor a rejection of collective action as such. It targets a reflective age in which comparison, commentary, and anonymity drain decisions of passionate commitment. Kierkegaard also helped provoke the attack, and his account of the public is interested testimony rather than a complete media theory. Both agency and asymmetry remain visible.'],
-    cautions: ['One cartoon does not explain the philosophy or prove every claim about modern media.', 'Kierkegaard helped provoke the confrontation and should not be reduced to a passive victim.'],
-    imageSource: 'https://commons.wikimedia.org/wiki/File:Kierkegaard_im_%27Corsar.jpg',
-  }),
-  curated({
-    id: 'kierkegaard-regine-legend', assetId: 'value-regine-olsen-1870', parent: 'kierkegaard',
-    displayName: 'Regine after the Legend', shortTitle: 'Regine Olsen’s Independent Life', focus: 'BIOGRAPHY · ENGAGEMENT, MEMORY, AUTHORSHIP, AND LEGEND', dateLabel: 'Engagement broken 1841 · photograph 1870',
-    question: 'How can biography illuminate philosophical writing without turning another person into a symbol inside the philosopher’s story?',
-    lead: 'Regine Olsen’s later portrait interrupts a familiar biography that freezes her at a broken engagement. She and Kierkegaard became engaged in 1840; he ended the engagement in 1841 while constructing conflicting explanations of why marriage was impossible for him. The rupture mattered deeply to his journals and self-interpretation, but Olsen’s life did not stop there. She married Johan Frederik Schlegel in 1847, lived with him in the Danish West Indies during his governorship, and survived Kierkegaard by more than four decades.',
-    ideas: ['The 1870 photograph restores duration after the episode most often used to define Olsen. Its adult sitter cannot be collapsed into the young fiancée reconstructed from Kierkegaard’s journals, letters, and literary echoes. The image does not provide transparent access to her inner life, but it blocks a chronology in which her only historical purpose is to leave and thereby generate a philosopher’s books.', 'Biographical experience can shape authorship without becoming a cipher that decodes every work. Broken promises, sacrifice, secrecy, and erotic loss resonate across Kierkegaard’s writing, but pseudonymous speakers inhabit constructed genres and arguments. Treating every female figure as “really Regine” erases formal mediation and turns interpretive resemblance into unsupported causal certainty.', 'Ethical interpretation asks whose agency disappears when one life becomes material for another’s legend. Most surviving evidence was selected, narrated, or preserved within institutions interested in Kierkegaard. Olsen’s later choices and retrospective comments deserve attention without forcing her to validate his account. A responsible biography can acknowledge unequal archives, resist romantic myth, and still examine why he made the engagement central to his own vocation.'],
-    cautions: ['The portrait dates to 1870, fifteen years after Kierkegaard’s death.', 'Do not attribute Kierkegaard’s entire authorship to a rejected romance or erase Olsen’s later life.'],
-    imageSource: 'https://commons.wikimedia.org/wiki/File:Regine_Olsen_(1870).jpg',
+    id: 'dostoevsky-brothers-karamazov', assetId: 'value-brothers-karamazov-contemplator', parent: 'dostoevsky',
+    displayName: 'The Brothers Karamazov', shortTitle: 'The Brothers Karamazov', focus: 'IVAN · INNOCENT SUFFERING · FREEDOM, SECURITY, RESPONSIBILITY, AND ACTIVE LOVE', dateLabel: 'Novel serialized 1879–1880 · Kramskoi painting 1876',
+    question: 'Can any cosmic harmony justify innocent suffering, and can security purchased by surrendering freedom still respect the person?',
+    lead: 'Dostoevsky’s final novel places its largest questions inside a damaged family. Ivan refuses a cosmic harmony bought with the suffering of innocent children; his Grand Inquisitor argues that most people will trade unbearable freedom for miracle, authority, bread, and security. Zosima and Alyosha answer without explaining suffering away: responsibility and active love must become concrete practices of attention, service, confession, and forgiveness.',
+    ideas: ['Kramskoi’s solitary “contemplator” holds thought and possible action in suspension. Dostoevsky invokes this peasant type when characterizing Smerdyakov, but the painting is not a commissioned illustration or a portrait of the fictional character. Its stillness opens the novel’s question of when inward stories become evasions of responsibility.', 'Ivan does not merely offer a proof against God. He refuses to accept a final order that would make an abused child’s pain a necessary price. In the Grand Inquisitor poem, compassionate paternalism becomes domination: authority relieves people of freedom by treating them as too weak to bear it, exchanging responsible agency for managed contentment.', 'Zosima and Alyosha do not defeat Ivan with a total explanation. Active love responds locally and repeatedly to persons who cannot be reduced to examples in a system. Shared responsibility does not blame victims for their suffering; it asks each agent to answer for the relationships and institutions that indifference helps sustain.'],
+    cautions: ['The novel preserves Ivan’s protest as intellectually powerful; Zosima’s response should not be presented as a simple logical refutation.', 'Kramskoi’s 1876 painting is a documented interpretive companion, not an illustration commissioned or endorsed by Dostoevsky.'],
+    imageSource: 'https://commons.wikimedia.org/wiki/File:Kramskoi_Meditator_1876.jpg',
   }),
   curated({
     id: 'nietzsche-birth-tragedy', assetId: 'value-greek-tragedy-mask-taranto', parent: 'nietzsche',
@@ -229,7 +220,7 @@ export const FAITH_PESSIMISM_VALUE_SUPPLEMENTAL_EXHIBITS = [
 type InstallationKind = 'value-work' | 'value-context' | 'value-concept';
 const layout = (
   id: FaithPessimismValueSupplementalExhibitId,
-  parentExhibitId: 'schopenhauer' | 'kierkegaard' | 'nietzsche',
+  parentExhibitId: 'schopenhauer' | 'kierkegaard' | 'dostoevsky' | 'nietzsche',
   zoneId: 'nineteenth-will-pessimism' | 'nineteenth-faith-subjectivity' | 'nineteenth-genealogy-value',
   position: {x: number; z: number},
   rotationY: number,
@@ -261,8 +252,7 @@ export const FAITH_PESSIMISM_VALUE_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
   layout('kierkegaard-indirect-communication', 'kierkegaard', 'nineteenth-faith-subjectivity', {x: -5.55, z: -8.2133}, 0, 'value-kierkegaard-copenhagen-salon', 3.18, 2.38, 'value-concept', FAITH_PESSIMISM_VALUE_PALETTE.violet),
   layout('kierkegaard-fear-trembling', 'kierkegaard', 'nineteenth-faith-subjectivity', {x: -5.55, z: 8.2133}, Math.PI, 'value-caravaggio-sacrifice-isaac', 3.18, 2.45, 'value-work', FAITH_PESSIMISM_VALUE_PALETTE.wine),
   layout('kierkegaard-christendom-attack', 'kierkegaard', 'nineteenth-faith-subjectivity', {x: 5.55, z: -8.2133}, 0, 'value-church-our-lady-copenhagen', 2.08, 2.7, 'value-context', FAITH_PESSIMISM_VALUE_PALETTE.gold),
-  layout('kierkegaard-corsair-public', 'kierkegaard', 'nineteenth-faith-subjectivity', {x: 10.85, z: 0}, -Math.PI / 2, 'value-kierkegaard-corsar-cartoon', 2.58, 2.7, 'value-context', FAITH_PESSIMISM_VALUE_PALETTE.midnight),
-  layout('kierkegaard-regine-legend', 'kierkegaard', 'nineteenth-faith-subjectivity', {x: 5.55, z: 8.2133}, Math.PI, 'value-regine-olsen-1870', 1.74, 2.7, 'value-context', FAITH_PESSIMISM_VALUE_PALETTE.forest),
+  layout('dostoevsky-brothers-karamazov', 'dostoevsky', 'nineteenth-faith-subjectivity', {x: 5.55, z: 8.2133}, Math.PI, 'value-brothers-karamazov-contemplator', 1.71, 2.7, 'value-work', FAITH_PESSIMISM_VALUE_PALETTE.forest),
   layout('nietzsche-birth-tragedy', 'nietzsche', 'nineteenth-genealogy-value', {x: -5.55, z: 10.4533}, 0, 'value-greek-tragedy-mask-taranto', 3.18, 2.12, 'value-work', FAITH_PESSIMISM_VALUE_PALETTE.gold),
   layout('nietzsche-lou-interlocutor', 'nietzsche', 'nineteenth-genealogy-value', {x: -5.55, z: 26.88}, Math.PI, 'value-lou-andreas-salome-elvira-1897', 1.85, 2.7, 'value-context', FAITH_PESSIMISM_VALUE_PALETTE.wine),
   layout('nietzsche-writing-machine', 'nietzsche', 'nineteenth-genealogy-value', {x: 5.55, z: 10.4533}, 0, 'value-nietzsche-writing-ball', 3.18, 2.05, 'value-context', FAITH_PESSIMISM_VALUE_PALETTE.midnight),

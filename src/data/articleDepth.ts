@@ -10,6 +10,7 @@ import {crossCulturalCorePhilosopherArticles} from './crossCulturalCoreArticles'
 import {buddhaFlagshipArticle} from './buddhaFlagshipArticle';
 import {daoMohistLegalistBranchArticles} from './daoMohistLegalistBranchDepth';
 import {earlyModernCorePhilosopherArticles} from './earlyModernCoreArticles';
+import {dostoevskyArticle} from './dostoevskyArticle';
 import {descartesFlagshipArticle} from './descartesFlagshipArticle';
 import {humeFlagshipArticle} from './humeFlagshipArticle';
 import {kantianismBranchArticle} from './kantianismBranchDepth';
@@ -80,6 +81,7 @@ export const philosopherArticles:Record<string,ArticleSection[]>={
   ...earlyModernCorePhilosopherArticles,
   descartes:descartesFlagshipArticle,
   hume:humeFlagshipArticle,
+  dostoevsky:dostoevskyArticle,
   ...earlyModernPoliticalPhilosopherArticles,
   ...earlyStoicSystemPhilosopherArticles,
   ...feministSocialContinuationPhilosopherArticles,

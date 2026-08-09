@@ -207,9 +207,9 @@ check('Museum convenience, hall, and exhibit routes parse and serialize', () => 
     }
   }
   assert.equal(MUSEUM_HALLS.length, 26);
-  assert.equal(exhibitCount, 191);
-  assert.equal(MUSEUM_SUPPLEMENTAL_EXHIBITS.length, 410);
-  assert.equal(exhibitCount + MUSEUM_SUPPLEMENTAL_EXHIBITS.length, 601, 'The Museum directory must expose 601 interpreted stops');
+  assert.equal(exhibitCount, 192);
+  assert.equal(MUSEUM_SUPPLEMENTAL_EXHIBITS.length, 411);
+  assert.equal(exhibitCount + MUSEUM_SUPPLEMENTAL_EXHIBITS.length, 603, 'The Museum directory must expose 603 interpreted stops');
   for (const {hallId, exhibit} of MUSEUM_SUPPLEMENTAL_EXHIBITS) {
     expectRoundTrip({kind: 'museum', hallId, exhibitId: exhibit.id});
   }

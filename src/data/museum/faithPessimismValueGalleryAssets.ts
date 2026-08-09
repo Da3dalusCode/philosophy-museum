@@ -17,8 +17,8 @@ export type FaithPessimismValueGalleryAssetId =
   | 'value-kierkegaard-copenhagen-portrait'
   | 'value-church-our-lady-copenhagen'
   | 'value-caravaggio-sacrifice-isaac'
-  | 'value-kierkegaard-corsar-cartoon'
-  | 'value-regine-olsen-1870'
+  | 'value-dostoevsky-perov-1872'
+  | 'value-brothers-karamazov-contemplator'
   | 'value-kierkegaard-copenhagen-salon'
   | 'value-nietzsche-1869-siebe-portrait'
   | 'value-greek-tragedy-mask-taranto'
@@ -30,7 +30,7 @@ export type FaithPessimismValueGalleryAssetId =
 type Rights = Pick<MuseumAssetRecord, 'license' | 'licenseUrl' | 'rightsKind'>;
 type AssetInput = {
   id: FaithPessimismValueGalleryAssetId;
-  entityId: 'schopenhauer' | 'kierkegaard' | 'nietzsche';
+  entityId: 'schopenhauer' | 'kierkegaard' | 'dostoevsky' | 'nietzsche';
   role: MuseumAssetRecord['role'];
   mediaKind: MuseumMediaKind;
   visualCharacter: MuseumVisualCharacter;
@@ -132,16 +132,16 @@ export const FAITH_PESSIMISM_VALUE_GALLERY_ASSETS = [
     alt: 'An angel seizes Abraham’s arm as he presses a terrified Isaac toward the knife.', caption: 'The violent scene makes the incompatible ethical and religious readings staged by Fear and Trembling impossible to soften.', historicalNote: 'The 1843 book is voiced by Johannes de Silentio. Its “teleological suspension” is not a general institutional permission to override ethics.',
   }),
   asset({
-    id: 'value-kierkegaard-corsar-cartoon', entityId: 'kierkegaard', role: 'context', mediaKind: 'drawing', visualCharacter: 'artwork-or-social-scene',
-    title: 'Kierkegaard caricatured in Corsaren', creator: 'Unidentified cartoonist', objectDate: '1847', institution: 'Royal Danish Library context; Wikimedia Commons reproduction', sourcePageUrl: 'https://commons.wikimedia.org/wiki/File:Kierkegaard_im_%27Corsar.jpg', rights: publicDomain,
-    attribution: 'Unidentified cartoonist, Kierkegaard in Corsaren, 1847. Public domain.', scene: [611, 640], panel: [1222, 1280],
-    alt: 'A tiny Kierkegaard stands at the center of a circular field of mocking objects, faces, and symbols.', caption: 'Corsaren’s ridicule turned the philosopher into a public spectacle and sharpened his analysis of the crowd and “the public.”', historicalNote: 'One cartoon cannot explain Kierkegaard’s philosophy; it documents a sustained episode of public mockery and social exposure.',
+    id: 'value-dostoevsky-perov-1872', entityId: 'dostoevsky', role: 'identity', mediaKind: 'painting', visualCharacter: 'portrait-or-figure',
+    title: 'Portrait of Fyodor Dostoevsky', creator: 'Vasily Perov', objectDate: '1872', institution: 'State Tretyakov Gallery, Moscow, inv. 386', sourcePageUrl: 'https://commons.wikimedia.org/wiki/File:%D0%94%D0%BE%D1%81%D1%82%D0%BE%D0%B5%D0%B2%D1%81%D0%BA%D0%B8%D0%B9_(%D0%9F%D0%B5%D1%80%D0%BE%D0%B2,_1872)_-_%D0%A2%D1%80%D0%B5%D1%82%D1%8C%D1%8F%D0%BA%D0%BE%D0%B2%D1%81%D0%BA%D0%B0%D1%8F.jpg', rights: publicDomain,
+    attribution: 'Vasily Perov, Portrait of Fyodor Dostoevsky, 1872, State Tretyakov Gallery, inv. 386. Public domain.', scene: [512, 640], panel: [1024, 1280],
+    alt: 'Fyodor Dostoevsky sits against a dark ground with clasped hands, a brown coat, and an intent downward gaze.', caption: 'Perov’s 1872 lifetime portrait anchors a writer who tests freedom and responsibility through conflicting voices.', historicalNote: 'Perov painted Dostoevsky during the composition period of Demons. The concentrated pose is a constructed portrait, not transparent evidence of the sitter’s inner state.', likenessStatus: 'lifetime-portrait',
   }),
   asset({
-    id: 'value-regine-olsen-1870', entityId: 'kierkegaard', role: 'context', mediaKind: 'photograph', visualCharacter: 'portrait-or-figure',
-    title: 'Regine Olsen', creator: 'Unidentified photographer', objectDate: '1870', institution: 'Royal Danish Library', sourcePageUrl: 'https://commons.wikimedia.org/wiki/File:Regine_Olsen_(1870).jpg', rights: publicDomain,
-    attribution: 'Unidentified photographer, Regine Olsen, 1870, Royal Danish Library. Public domain.', scene: [413, 640], panel: [702, 1088],
-    alt: 'Regine Olsen faces the camera in a patterned dark dress with a white collar.', caption: 'Olsen appears as a historical person with an independent later life, not a code for decoding all of Kierkegaard’s writing.', historicalNote: 'The photograph was made fifteen years after Kierkegaard’s death. Their broken engagement matters, but biographical legend cannot substitute for reading the pseudonymous works.', likenessStatus: 'lifetime-photograph',
+    id: 'value-brothers-karamazov-contemplator', entityId: 'dostoevsky', role: 'context', mediaKind: 'painting', visualCharacter: 'artwork-or-social-scene',
+    title: 'The Contemplator', creator: 'Ivan Kramskoi', objectDate: '1876', institution: 'Kyiv National Art Gallery', sourcePageUrl: 'https://commons.wikimedia.org/wiki/File:Kramskoi_Meditator_1876.jpg', rights: publicDomain,
+    attribution: 'Ivan Kramskoi, The Contemplator, 1876, Kyiv National Art Gallery. Public domain.', scene: [428, 640], panel: [802, 1200],
+    alt: 'A solitary peasant in worn winter clothes stands in deep snow, motionless and absorbed in thought.', caption: 'Kramskoi’s “contemplator,” a type Dostoevsky evokes in The Brothers Karamazov, holds thought, passivity, and possible violence in unresolved tension.', historicalNote: 'The painting was not commissioned as a novel illustration. Dostoevsky refers to Kramskoi’s contemplative peasant type when characterizing Smerdyakov, so the work is used as a documented interpretive companion rather than as a portrait of the fictional character.',
   }),
   asset({
     id: 'value-kierkegaard-copenhagen-salon', entityId: 'kierkegaard', role: 'context', mediaKind: 'drawing', visualCharacter: 'artwork-or-social-scene',

@@ -12,13 +12,14 @@ export const FAITH_PESSIMISM_VALUE_HALL_DIMENSIONS = Object.freeze({
 });
 
 /**
- * Gallery 21 preserves the approved 24 × 56 metre three-room sequence. Each
- * room gives its canonical philosopher the west outer wall and completes the
- * other five faces with distinct work, context, and reception installations.
+ * Gallery 18 preserves the approved 24 × 56 metre three-room sequence. The
+ * middle room pairs Kierkegaard and Dostoevsky on opposing outer walls; the
+ * remaining faces hold distinct work, context, and reception installations.
  */
 export const FAITH_PESSIMISM_VALUE_PRIMARY_PLACEMENTS = {
   schopenhauer: {x: -10.85, z: -18.6667, rotationY: Math.PI / 2},
   kierkegaard: {x: -10.85, z: 0, rotationY: Math.PI / 2},
+  dostoevsky: {x: 10.85, z: 0, rotationY: -Math.PI / 2},
   nietzsche: {x: -10.85, z: 18.6667, rotationY: Math.PI / 2},
 } as const;
 
@@ -36,8 +37,8 @@ export const FAITH_PESSIMISM_VALUE_ROOM_SIGN_COPY = {
   },
   'nineteenth-faith-subjectivity': {
     kicker: 'Room 02 · Choosing without a system’s guarantee',
-    title: 'Kierkegaard: Anxiety, Faith, and Becoming a Self',
-    subtitle: 'Pseudonyms, irony, ethical commitment, anxiety, despair, faith, and the attack on Christendom force the reader to participate rather than inherit a doctrine.',
+    title: 'Kierkegaard and Dostoevsky: Freedom Put at Risk',
+    subtitle: 'Pseudonyms and polyphonic voices test anxiety, faith, rational revolt, guilt, innocent suffering, active love, and the difficult responsibility of becoming a self among others.',
   },
   'nineteenth-genealogy-value': {
     kicker: 'Room 03 · Values acquire histories',

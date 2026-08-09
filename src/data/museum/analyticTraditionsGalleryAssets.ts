@@ -194,6 +194,17 @@ export const ANALYTIC_TRADITIONS_GALLERY_ASSETS = [
     likenessStatus: 'not-applicable',
   }),
   galleryAsset({
+    id: 'wittgenstein-tractatus-first-page-1922', entityKind: 'philosopher', entityId: 'wittgenstein', role: 'primary-source', mediaKind: 'book-page',
+    title: 'First proposition page of the Tractatus Logico-Philosophicus', creator: 'Ludwig Wittgenstein; 1922 Harcourt edition', objectDate: '1922', institution: 'Wikimedia Commons',
+    sourcePageUrl: 'https://commons.wikimedia.org/wiki/File:Tractatus_first_page_1922_Harcourt.png', ...publicDomain,
+    attribution: 'Ludwig Wittgenstein, opening proposition page of Tractatus Logico-Philosophicus, 1922 Harcourt edition. Public domain.', derivativeNotice,
+    scene: [442, 640], panel: [828, 1198],
+    alt: 'Opening page of the 1922 Tractatus with numbered propositions beginning “The world is all that is the case.”',
+    caption: 'The opening propositions make the Tractatus’s nested, numbered architecture and its shift from things to facts directly visible.',
+    historicalNote: 'This is a primary-source page from the 1922 English edition. Its parallel German and English text records the early translation history; it is not a later teaching diagram.',
+    likenessStatus: 'not-applicable',
+  }),
+  galleryAsset({
     id: 'wittgenstein-truth-table-schema', entityKind: 'philosopher', entityId: 'wittgenstein', role: 'context', mediaKind: 'drawing',
     title: 'Schema of Wittgensteinian truth-table operations', creator: 'Wikimedia Commons user AlessandroDiCaro', objectDate: '2005', institution: 'Wikimedia Commons',
     sourcePageUrl: 'https://commons.wikimedia.org/wiki/File:Schema_tavole_di_verit%C3%A0.jpg', ...publicDomain,
