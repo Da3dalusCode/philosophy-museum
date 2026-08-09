@@ -3896,6 +3896,19 @@ check('Gallery 15 is a full-scale 26-installation open Enlightenment crossroads 
   assert.equal(sublime.slotId, 'enlightenment-kant-critical:north-outer');
   assert.equal(sublime.footprint.width, 3.58, 'Kant’s Sublime is not at normal museum scale');
   assert.equal(sublime.assetId, 'enlightenment-kant-sublime-monk-sea');
+  const northBaffleInnerFaces = {
+    left: -ENLIGHTENMENT_HALL_DIMENSIONS.crossHalfWidth + ENLIGHTENMENT_HALL_DIMENSIONS.wallThickness / 2,
+    right: ENLIGHTENMENT_HALL_DIMENSIONS.crossHalfWidth - ENLIGHTENMENT_HALL_DIMENSIONS.wallThickness / 2,
+  };
+  const sublimeHalfWidth = sublime.footprint.width / 2;
+  assert.equal(sublime.position.x, 0, 'Kant’s Sublime is not centered on the broad rear wall segment');
+  assert(
+    Math.abs(
+      (sublime.position.x - sublimeHalfWidth - northBaffleInnerFaces.left)
+      - (northBaffleInnerFaces.right - sublime.position.x - sublimeHalfWidth)
+    ) < 1e-5,
+    'Kant’s Sublime does not have equal rear-wall space on both sides',
+  );
 
   assert.deepEqual(definition.layout.primaryCirculation, ENLIGHTENMENT_PRIMARY_CIRCULATION);
   assert.deepEqual(ENLIGHTENMENT_PRIMARY_CIRCULATION.points[0], {x: 12, z: 0});
@@ -5440,6 +5453,7 @@ check('runtime seams are bidirectional, world-aligned, step-free, and crossable'
     walkingSpeed,
     retainedTargetActive,
     tangentOffset = 0,
+    rawDelta = 1 / 60,
   ) => {
     physicalMovementTrajectories += 1;
     const source = runtimeNodeById.get(connection.sourceNodeId);
@@ -5506,7 +5520,7 @@ check('runtime seams are bidirectional, world-aligned, step-free, and crossable'
         definition: currentNode,
         pose: currentPose,
         input: {forward: 1, strafe: 0, walkingSpeed},
-        rawDelta: 1 / 60,
+        rawDelta,
         readyHallEntryKeys,
       });
       assert.notEqual(
@@ -5581,7 +5595,9 @@ check('runtime seams are bidirectional, world-aligned, step-free, and crossable'
       - .08;
     assert(usableHalfWidth > 0, `${connection.id} has no usable doorway aperture`);
     runPhysicalCrossing(connection, MUSEUM_STANDARD_WALK_SPEED, false);
-    runPhysicalCrossing(connection, MUSEUM_FAST_WALK_SPEED, false);
+    const exactSprintThreshold = connection.sourceNodeId === 'turn:band-03-to-04'
+      && connection.targetNodeId === 'hall:empiricism-science-political-order';
+    runPhysicalCrossing(connection, MUSEUM_FAST_WALK_SPEED, false, 0, exactSprintThreshold ? .05 : 1 / 60);
     for (const fraction of [-1, -.5, .5, 1]) {
       runPhysicalCrossing(connection, MUSEUM_STANDARD_WALK_SPEED, false, usableHalfWidth * fraction);
     }
@@ -5696,6 +5712,21 @@ check('all five turn courts match map handedness and are walkable through both b
     const fromEntrance = runtimeNode.entrances.find(({id}) => id === 'from');
     const toEntrance = runtimeNode.entrances.find(({id}) => id === 'to');
     assert(fromEntrance && toEntrance, `${turn.id} lacks a terminal doorway`);
+    if (turn.id === 'turn:band-03-to-04') {
+      const targetSlot = manifestNode.doorwaySlots.find(({id}) => id === 'to');
+      const terminalCell = runtimeNode.layout.spatialCells.find(({id}) => id.endsWith(':turn-spine'));
+      assert(targetSlot && terminalCell?.renderBounds, `${turn.id} lacks its target navigation overlap`);
+      assert.equal(
+        terminalCell.bounds.maxX,
+        targetSlot.position.x + targetSlot.transitionDepth,
+        `${turn.id} target navigation does not cover the full sprint threshold`,
+      );
+      assert.equal(
+        terminalCell.renderBounds.maxX,
+        targetSlot.position.x,
+        `${turn.id} cosmetic wall seam moved with the collision overlap`,
+      );
+    }
     const colliders = [...runtimeNode.layout.wallColliders, ...runtimeNode.layout.obstacleColliders];
     const traverse = (start, waypoints, label) => {
       physicalMovementTrajectories += 1;

@@ -1432,10 +1432,20 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
         layout.collider.size.width,
         layout.collider.size.depth,
       );
-      const inside = footprint.minX >= cellBounds.minX + .08
-        && footprint.maxX <= cellBounds.maxX - .08
-        && footprint.minZ >= cellBounds.minZ + .08
-        && footprint.maxZ <= cellBounds.maxZ - .08;
+      // Kant's rear plane is the wall section between the two north baffles,
+      // not the northwest semantic bay that owns its interpretation.
+      const placementBounds = isEnlightenmentCrossroads && layout.id === 'enlightenment-kant-sublime'
+        ? {
+            minX: -ENLIGHTENMENT_HALL_DIMENSIONS.crossHalfWidth + ENLIGHTENMENT_HALL_DIMENSIONS.wallThickness / 2,
+            maxX: ENLIGHTENMENT_HALL_DIMENSIONS.crossHalfWidth - ENLIGHTENMENT_HALL_DIMENSIONS.wallThickness / 2,
+            minZ: -ENLIGHTENMENT_HALL_DIMENSIONS.depth / 2,
+            maxZ: -ENLIGHTENMENT_HALL_DIMENSIONS.crossHalfWidth * 2,
+          }
+        : cellBounds;
+      const inside = footprint.minX >= placementBounds.minX + .08
+        && footprint.maxX <= placementBounds.maxX - .08
+        && footprint.minZ >= placementBounds.minZ + .08
+        && footprint.maxZ <= placementBounds.maxZ - .08;
       const primaryBounds = exhibits
         .filter(({spatialCellId}) => spatialCellId === layout.spatialCellId)
         .map((item) => ({
@@ -1445,7 +1455,7 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
       const primaryOverlap = primaryBounds.find(({bounds}) => overlaps(footprint, bounds, .32));
       const violations = [
         ...(!inside ? ['room bounds'] : []),
-        ...(!viewpointFitsRoom(layout.viewpoint, cellBounds) ? ['viewpoint'] : []),
+        ...(!viewpointFitsRoom(layout.viewpoint, placementBounds) ? ['viewpoint'] : []),
         ...(doorwayExclusions.some((exclusion) => overlaps(footprint, exclusion, .28)) ? ['doorway'] : []),
         ...(primaryOverlap ? [`primary exhibit ${primaryOverlap.id}`] : []),
         ...(acceptedSupplementalBounds.some(

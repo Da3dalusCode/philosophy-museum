@@ -275,11 +275,17 @@ const unionBounds = (cells: readonly MuseumManifestGeometryCell[]): MuseumBounds
 });
 
 const toSpatialCells = (node: MuseumManifestNode): readonly MuseumSpatialCell[] => {
-  const seamOverlap = Math.max(.6, MUSEUM_BUILDING_MANIFEST.physicalContract.transitionDepth / 2);
+  const defaultSeamOverlap = Math.max(.6, MUSEUM_BUILDING_MANIFEST.physicalContract.transitionDepth / 2);
   const epsilon = .01;
   return (node.geometry?.cells ?? []).map((cell) => {
     const bounds = {...cell.bounds};
     for (const slot of node.doorwaySlots) {
+      // This turn ends after a half-width final arm, so its target threshold
+      // needs the complete portal depth in the collision union. Rendering
+      // continues to use the unchanged manifest cell bounds.
+      const seamOverlap = node.id === 'turn:band-03-to-04' && slot.id === 'to'
+        ? slot.transitionDepth
+        : defaultSeamOverlap;
       if (Math.abs(slot.position.x - cell.bounds.minX) <= epsilon && slot.inwardNormal.x > .5) bounds.minX -= seamOverlap;
       if (Math.abs(slot.position.x - cell.bounds.maxX) <= epsilon && slot.inwardNormal.x < -.5) bounds.maxX += seamOverlap;
       if (Math.abs(slot.position.z - cell.bounds.minZ) <= epsilon && slot.inwardNormal.z > .5) bounds.minZ -= seamOverlap;
