@@ -38,9 +38,9 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | Peter Abelard | claim-reviewed | standard-compliant | 32 | 292 | 3 | 3 | 4 | standard presentation |
 | Thomas Aquinas | claim-reviewed | standard-compliant | 32 | 294 | 3 | 3 | 5 | standard presentation |
 | Duns Scotus | claim-reviewed | standard-compliant | 32 | 297 | 3 | 3 | 4 | standard presentation |
-| William of Ockham | claim-reviewed | standard-compliant | 34 | 292 | 3 | 3 | 4 | standard presentation |
-| Meister Eckhart | claim-reviewed | standard-compliant | 35 | 295 | 3 | 3 | 4 | standard presentation |
-| Marsilius of Padua | claim-reviewed | standard-compliant | 34 | 294 | 3 | 3 | 4 | standard presentation |
+| William of Ockham | claim-reviewed | standard-compliant | 32 | 292 | 3 | 3 | 4 | standard presentation |
+| Meister Eckhart | claim-reviewed | standard-compliant | 32 | 295 | 3 | 3 | 4 | standard presentation |
+| Marsilius of Padua | claim-reviewed | standard-compliant | 32 | 294 | 3 | 3 | 4 | standard presentation |
 | Sextus Empiricus | claim-reviewed | standard-compliant | 32 | 268 | 3 | 4 | 7 | standard presentation |
 | Kantianism | claim-reviewed | standard-compliant | 34 | 254 | 3 | 3 | 7 | standard presentation |
 | Marxism | claim-reviewed | standard-compliant | 32 | 255 | 3 | 3 | 6 | standard presentation |

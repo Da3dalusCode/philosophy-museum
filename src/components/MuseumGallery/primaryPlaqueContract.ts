@@ -51,9 +51,9 @@ export const PRIMARY_PLAQUE_INVITATION_OVERRIDES = {
   abelard: 'Abelard set rival texts side by side and asked readers to test words and reasons. Follow his work on common terms and moral choice, and keep Héloïse’s own sharp claims in view.',
   aquinas: 'Aquinas tests objections, then answers questions on God, virtue, law, and human ends. Read his unfinished Summa, watch it join many sources, and ask why later fame is no proof by itself.',
   'duns-scotus': 'Scotus asks how one idea of being can join God and creatures yet keep them unlike, and what makes each person this one. Follow his sharp terms through layered texts with care.',
-  ockham: 'Ockham asks how signs, thought, and explanation work without adding entities needlessly. Explore why his famous razor is not a shortcut, and how logical arguments connect with disputes about poverty, law, power, and authority.',
-  'meister-eckhart': 'Eckhart’s university works and German sermons ask how detachment, intellect, and words about God may change a life. Read them by genre, manuscript, and the later ruling on selected claims rather than his whole voice.',
-  'marsilius-padua': 'Marsilius asks who may make law, punish, govern, and claim religious authority when civic peace is at risk. Explore the Defensor pacis’s challenge to papal power without mistaking its qualified citizens for modern democracy.',
+  ockham: 'Ockham asks how signs and thought work without adding things we do not need. Test his famed razor, then see how logic links to fights over wealth, law, power, and just rule.',
+  'meister-eckhart': 'Eckhart asks in school works and German sermons how a free heart, clear thought, and words about God may change a life. Read by genre, copies, and later church rulings with care.',
+  'marsilius-padua': 'Marsilius asks who may make law, use force, rule, and claim church power. Read his book on civic peace, and see why its chosen citizens do not make it a modern democracy.',
 } as const satisfies Readonly<Record<string, string>>;
 
 export const museumHallUsesPrimaryEmphasis = (
