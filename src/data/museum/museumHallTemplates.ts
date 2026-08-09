@@ -275,7 +275,12 @@ const extendNavigationThroughActivePortals = (
     const renderBounds = cell.renderBounds ?? cell.bounds;
     const bounds = {...cell.bounds};
     for (const slot of activeSlots) {
-      const seamOverlap = Math.max(.6, slot.transitionDepth / 2);
+      // This turn ends after a half-width final arm, so it has no separate
+      // target-arm cell. Give its target portal a full transition-depth
+      // navigation overlap while leaving the rendered seam unchanged.
+      const seamOverlap = node.id === 'turn:band-03-to-04' && slot.id === 'to'
+        ? slot.transitionDepth
+        : Math.max(.6, slot.transitionDepth / 2);
       const halfClearWidth = slot.clearWidth / 2;
       const doorwayOverlapsCellAlongX = renderBounds.maxX >= slot.position.x - halfClearWidth - epsilon
         && renderBounds.minX <= slot.position.x + halfClearWidth + epsilon;
