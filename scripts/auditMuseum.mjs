@@ -2266,7 +2266,9 @@ check('all 411 supplemental exhibits share route, directory, search, guided, and
   assert.match(museumPageSource, /getMuseumSupplementalExhibitsForHall/u, 'The directory/fallback does not enumerate supplemental exhibits');
   assert.match(museumPageSource, /MUSEUM_BUILDING_GUIDED_STOPS/u, 'Guided mode does not include the building-wide interpreted route');
   assert.match(globalSearchSource, /loadAtlasSearchIndex/u, 'Global search does not load the checked compact Museum index');
-  assert.match(supplementalPanelSource, /onClose\('history'\)/u, 'Supplemental Escape behavior does not use history-aware closing');
+  const escapeGestureClose = /event\.key === 'Escape'[\s\S]{0,180}onClose\('gesture'\)/u;
+  assert.match(interpretationPanelSource, escapeGestureClose, 'Primary Escape behavior cannot restore pointer lock from its trusted key gesture');
+  assert.match(supplementalPanelSource, escapeGestureClose, 'Supplemental Escape behavior cannot restore pointer lock from its trusted key gesture');
   assert.match(supplementalPanelSource, /museum-guided-controls/u, 'Supplemental panels lack guided navigation');
 });
 
