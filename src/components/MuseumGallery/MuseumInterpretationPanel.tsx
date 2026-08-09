@@ -144,10 +144,11 @@ export function MuseumInterpretationPanel({
       role="dialog"
       aria-modal="true"
       aria-labelledby={titleId}
-      aria-describedby={descriptionId}
+      aria-describedby={content.lead || !concise ? descriptionId : undefined}
       tabIndex={-1}
       data-entity-kind={exhibit.entityKind}
       data-presentation-mode={content.presentation?.mode ?? 'reference'}
+      data-exhibit-layout={content.presentation?.exhibitLayout ?? 'default'}
       onKeyDown={handleKeyDown}
     >
       <header className="museum-panel-header">
@@ -161,10 +162,10 @@ export function MuseumInterpretationPanel({
             <MuseumAssetImage asset={principal} priority/>
             <figcaption><strong>{principal.caption}</strong><span>{content.objectInterpretations[principal.id] ?? principal.historicalNote}</span></figcaption>
           </figure>}
-          <div className="museum-panel-opening-copy">
+          {(content.lead || !concise) && <div className="museum-panel-opening-copy">
             <p className={concise ? 'museum-panel-deck' : 'museum-exhibit-question'} id={descriptionId}>{concise ? content.lead : content.centralQuestion}</p>
             {!concise && <p className="museum-panel-lead">{content.lead}</p>}
-          </div>
+          </div>}
         </section>
 
         <dl className="museum-fact-grid" aria-label={concise ? 'Visitor orientation' : undefined}>

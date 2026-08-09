@@ -1,0 +1,3535 @@
+{
+  "dataAsOf": "2026-08-09",
+  "canonicalArticleBaseline": {
+    "total": 192,
+    "countsByEffectiveStatus": {
+      "unreviewed": 4,
+      "bibliography-only": 66,
+      "source-mapped": 0,
+      "claim-reviewed": 122,
+      "review-out-of-date": 0
+    }
+  },
+  "canonicalExhibitBaseline": {
+    "total": 192,
+    "countsByEffectiveStatus": {
+      "unreviewed": 187,
+      "reconciled": 1,
+      "standard-compliant": 4,
+      "out-of-date": 0
+    }
+  },
+  "articleRelationships": {
+    "counts": {
+      "matched": 192,
+      "unmatched": 0,
+      "ambiguous": 0
+    },
+    "blockers": []
+  },
+  "reviewedExhibits": 5,
+  "errors": [],
+  "entries": [
+    {
+      "hallId": "mediterranean-beginnings-classical",
+      "roomId": "med-orientation-nature",
+      "exhibitId": "ancient-greek",
+      "entityKind": "branch",
+      "entityId": "ancient-greek",
+      "canonicalTitle": "Ancient Greek Philosophy",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosophy",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "bibliography-only",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "mediterranean-beginnings-classical",
+      "roomId": "med-orientation-nature",
+      "exhibitId": "thales",
+      "entityKind": "philosopher",
+      "entityId": "thales",
+      "canonicalTitle": "Thales",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "mediterranean-beginnings-classical",
+      "roomId": "med-orientation-nature",
+      "exhibitId": "anaximander",
+      "entityKind": "philosopher",
+      "entityId": "anaximander",
+      "canonicalTitle": "Anaximander",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "mediterranean-beginnings-classical",
+      "roomId": "med-orientation-nature",
+      "exhibitId": "anaximenes",
+      "entityKind": "philosopher",
+      "entityId": "anaximenes",
+      "canonicalTitle": "Anaximenes",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "mediterranean-beginnings-classical",
+      "roomId": "med-being-change-plurality",
+      "exhibitId": "pythagoras",
+      "entityKind": "philosopher",
+      "entityId": "pythagoras",
+      "canonicalTitle": "Pythagoras",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "mediterranean-beginnings-classical",
+      "roomId": "med-being-change-plurality",
+      "exhibitId": "philolaus",
+      "entityKind": "philosopher",
+      "entityId": "philolaus",
+      "canonicalTitle": "Philolaus",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "mediterranean-beginnings-classical",
+      "roomId": "med-being-change-plurality",
+      "exhibitId": "parmenides",
+      "entityKind": "philosopher",
+      "entityId": "parmenides",
+      "canonicalTitle": "Parmenides",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "mediterranean-beginnings-classical",
+      "roomId": "med-being-change-plurality",
+      "exhibitId": "zeno-elea",
+      "entityKind": "philosopher",
+      "entityId": "zeno-elea",
+      "canonicalTitle": "Zeno of Elea",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "mediterranean-beginnings-classical",
+      "roomId": "med-being-change-plurality",
+      "exhibitId": "leucippus",
+      "entityKind": "philosopher",
+      "entityId": "leucippus",
+      "canonicalTitle": "Leucippus",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "mediterranean-beginnings-classical",
+      "roomId": "med-being-change-plurality",
+      "exhibitId": "democritus",
+      "entityKind": "philosopher",
+      "entityId": "democritus",
+      "canonicalTitle": "Democritus",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "mediterranean-beginnings-classical",
+      "roomId": "med-being-change-plurality",
+      "exhibitId": "heraclitus",
+      "entityKind": "philosopher",
+      "entityId": "heraclitus",
+      "canonicalTitle": "Heraclitus",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "mediterranean-beginnings-classical",
+      "roomId": "med-being-change-plurality",
+      "exhibitId": "empedocles",
+      "entityKind": "philosopher",
+      "entityId": "empedocles",
+      "canonicalTitle": "Empedocles",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "mediterranean-beginnings-classical",
+      "roomId": "med-being-change-plurality",
+      "exhibitId": "anaxagoras",
+      "entityKind": "philosopher",
+      "entityId": "anaxagoras",
+      "canonicalTitle": "Anaxagoras",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "mediterranean-beginnings-classical",
+      "roomId": "med-sophists-socratic",
+      "exhibitId": "protagoras",
+      "entityKind": "philosopher",
+      "entityId": "protagoras",
+      "canonicalTitle": "Protagoras",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "mediterranean-beginnings-classical",
+      "roomId": "med-sophists-socratic",
+      "exhibitId": "prodicus",
+      "entityKind": "philosopher",
+      "entityId": "prodicus",
+      "canonicalTitle": "Prodicus of Ceos",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "mediterranean-beginnings-classical",
+      "roomId": "med-sophists-socratic",
+      "exhibitId": "hippias-of-elis",
+      "entityKind": "philosopher",
+      "entityId": "hippias-of-elis",
+      "canonicalTitle": "Hippias of Elis",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "bibliography-only",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "mediterranean-beginnings-classical",
+      "roomId": "med-sophists-socratic",
+      "exhibitId": "gorgias",
+      "entityKind": "philosopher",
+      "entityId": "gorgias",
+      "canonicalTitle": "Gorgias",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "mediterranean-beginnings-classical",
+      "roomId": "med-sophists-socratic",
+      "exhibitId": "socrates",
+      "entityKind": "philosopher",
+      "entityId": "socrates",
+      "canonicalTitle": "Socrates",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "mediterranean-beginnings-classical",
+      "roomId": "med-plato-aristotle",
+      "exhibitId": "platonism",
+      "entityKind": "branch",
+      "entityId": "platonism",
+      "canonicalTitle": "Platonism",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosophy",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "bibliography-only",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "mediterranean-beginnings-classical",
+      "roomId": "med-plato-aristotle",
+      "exhibitId": "aristotelianism",
+      "entityKind": "branch",
+      "entityId": "aristotelianism",
+      "canonicalTitle": "Aristotelianism",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosophy",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "bibliography-only",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "mediterranean-beginnings-classical",
+      "roomId": "med-plato-aristotle",
+      "exhibitId": "plato",
+      "entityKind": "philosopher",
+      "entityId": "plato",
+      "canonicalTitle": "Plato",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "bibliography-only",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "mediterranean-beginnings-classical",
+      "roomId": "med-plato-aristotle",
+      "exhibitId": "aristotle",
+      "entityKind": "philosopher",
+      "entityId": "aristotle",
+      "canonicalTitle": "Aristotle",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "bibliography-only",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "renaissance-humanism-new-method",
+      "roomId": "early-statecraft-republic",
+      "exhibitId": "machiavelli",
+      "entityKind": "philosopher",
+      "entityId": "machiavelli",
+      "canonicalTitle": "Niccolò Machiavelli",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "renaissance-humanism-new-method",
+      "roomId": "early-statecraft-republic",
+      "exhibitId": "ficino",
+      "entityKind": "philosopher",
+      "entityId": "ficino",
+      "canonicalTitle": "Marsilio Ficino",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "renaissance-humanism-new-method",
+      "roomId": "early-experiment-method",
+      "exhibitId": "bacon",
+      "entityKind": "philosopher",
+      "entityId": "bacon",
+      "canonicalTitle": "Francis Bacon",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "renaissance-humanism-new-method",
+      "roomId": "early-experiment-method",
+      "exhibitId": "galileo",
+      "entityKind": "philosopher",
+      "entityId": "galileo",
+      "canonicalTitle": "Galileo Galilei",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "renaissance-humanism-new-method",
+      "roomId": "early-sovereignty-materialism",
+      "exhibitId": "hobbes",
+      "entityKind": "philosopher",
+      "entityId": "hobbes",
+      "canonicalTitle": "Thomas Hobbes",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "phenomenology-existence-embodiment",
+      "roomId": "phenomenology-method",
+      "exhibitId": "phenomenology",
+      "entityKind": "branch",
+      "entityId": "phenomenology",
+      "canonicalTitle": "Phenomenology",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosophy",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "bibliography-only",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "phenomenology-existence-embodiment",
+      "roomId": "phenomenology-method",
+      "exhibitId": "husserl",
+      "entityKind": "philosopher",
+      "entityId": "husserl",
+      "canonicalTitle": "Husserl",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "bibliography-only",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "phenomenology-existence-embodiment",
+      "roomId": "phenomenology-being-embodiment",
+      "exhibitId": "heidegger",
+      "entityKind": "philosopher",
+      "entityId": "heidegger",
+      "canonicalTitle": "Heidegger",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "bibliography-only",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "phenomenology-existence-embodiment",
+      "roomId": "phenomenology-being-embodiment",
+      "exhibitId": "merleau-ponty",
+      "entityKind": "philosopher",
+      "entityId": "merleau-ponty",
+      "canonicalTitle": "Maurice Merleau-Ponty",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "phenomenology-existence-embodiment",
+      "roomId": "existentialism-freedom",
+      "exhibitId": "existentialism",
+      "entityKind": "branch",
+      "entityId": "existentialism",
+      "canonicalTitle": "Existentialism",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosophy",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "bibliography-only",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "phenomenology-existence-embodiment",
+      "roomId": "existentialism-freedom",
+      "exhibitId": "sartre",
+      "entityKind": "philosopher",
+      "entityId": "sartre",
+      "canonicalTitle": "Jean-Paul Sartre",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "bibliography-only",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "phenomenology-existence-embodiment",
+      "roomId": "existentialism-situated-absurd",
+      "exhibitId": "camus",
+      "entityKind": "philosopher",
+      "entityId": "camus",
+      "canonicalTitle": "Albert Camus",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "bibliography-only",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "phenomenology-existence-embodiment",
+      "roomId": "phenomenology-interpretation-alterity",
+      "exhibitId": "levinas",
+      "entityKind": "philosopher",
+      "entityId": "levinas",
+      "canonicalTitle": "Emmanuel Levinas",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "phenomenology-existence-embodiment",
+      "roomId": "phenomenology-interpretation-alterity",
+      "exhibitId": "gadamer",
+      "entityKind": "philosopher",
+      "entityId": "gadamer",
+      "canonicalTitle": "Hans-Georg Gadamer",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "analytic-traditions",
+      "roomId": "analytic-origins-foundations",
+      "exhibitId": "analytic-philosophy",
+      "entityKind": "branch",
+      "entityId": "analytic-philosophy",
+      "canonicalTitle": "Analytic Philosophy",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosophy",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "bibliography-only",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "analytic-traditions",
+      "roomId": "analytic-origins-foundations",
+      "exhibitId": "russell",
+      "entityKind": "philosopher",
+      "entityId": "russell",
+      "canonicalTitle": "Bertrand Russell",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "analytic-traditions",
+      "roomId": "analytic-origins-foundations",
+      "exhibitId": "frege",
+      "entityKind": "philosopher",
+      "entityId": "frege",
+      "canonicalTitle": "Gottlob Frege",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "analytic-traditions",
+      "roomId": "analytic-common-sense-metaethics",
+      "exhibitId": "g-e-moore",
+      "entityKind": "philosopher",
+      "entityId": "g-e-moore",
+      "canonicalTitle": "G. E. Moore",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "analytic-traditions",
+      "roomId": "analytic-wittgenstein",
+      "exhibitId": "wittgenstein",
+      "entityKind": "philosopher",
+      "entityId": "wittgenstein",
+      "canonicalTitle": "Ludwig Wittgenstein",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "bibliography-only",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "analytic-traditions",
+      "roomId": "analytic-naturalism",
+      "exhibitId": "quine",
+      "entityKind": "philosopher",
+      "entityId": "quine",
+      "canonicalTitle": "W. V. O. Quine",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "analytic-traditions",
+      "roomId": "analytic-action-intention",
+      "exhibitId": "anscombe",
+      "entityKind": "philosopher",
+      "entityId": "anscombe",
+      "canonicalTitle": "Elizabeth Anscombe",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "justice-democratic-reason",
+      "roomId": "justice-political-orientation",
+      "exhibitId": "political-philosophy",
+      "entityKind": "branch",
+      "entityId": "political-philosophy",
+      "canonicalTitle": "Political Philosophy",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosophy",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "justice-democratic-reason",
+      "roomId": "justice-political-orientation",
+      "exhibitId": "arendt",
+      "entityKind": "philosopher",
+      "entityId": "arendt",
+      "canonicalTitle": "Hannah Arendt",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "bibliography-only",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "justice-democratic-reason",
+      "roomId": "justice-distribution-rights",
+      "exhibitId": "rawls",
+      "entityKind": "philosopher",
+      "entityId": "rawls",
+      "canonicalTitle": "John Rawls",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "bibliography-only",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "justice-democratic-reason",
+      "roomId": "justice-distribution-rights",
+      "exhibitId": "nozick",
+      "entityKind": "philosopher",
+      "entityId": "nozick",
+      "canonicalTitle": "Robert Nozick",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "bibliography-only",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "justice-democratic-reason",
+      "roomId": "justice-capabilities-democracy",
+      "exhibitId": "martha-nussbaum",
+      "entityKind": "philosopher",
+      "entityId": "martha-nussbaum",
+      "canonicalTitle": "Martha Nussbaum",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "core-questions-forum",
+      "roomId": "core-reality-being",
+      "exhibitId": "metaphysics",
+      "entityKind": "branch",
+      "entityId": "metaphysics",
+      "canonicalTitle": "Metaphysics",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosophy",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "bibliography-only",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "core-questions-forum",
+      "roomId": "core-reality-being",
+      "exhibitId": "ontology",
+      "entityKind": "branch",
+      "entityId": "ontology",
+      "canonicalTitle": "Ontology",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosophy",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "core-questions-forum",
+      "roomId": "core-reality-being",
+      "exhibitId": "whitehead",
+      "entityKind": "philosopher",
+      "entityId": "whitehead",
+      "canonicalTitle": "Alfred North Whitehead",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "core-questions-forum",
+      "roomId": "core-knowledge",
+      "exhibitId": "epistemology",
+      "entityKind": "branch",
+      "entityId": "epistemology",
+      "canonicalTitle": "Epistemology",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosophy",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "bibliography-only",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "core-questions-forum",
+      "roomId": "core-mind-self",
+      "exhibitId": "philosophy-of-mind",
+      "entityKind": "branch",
+      "entityId": "philosophy-of-mind",
+      "canonicalTitle": "Philosophy of Mind",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosophy",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "core-questions-forum",
+      "roomId": "core-mind-self",
+      "exhibitId": "thomas-nagel",
+      "entityKind": "philosopher",
+      "entityId": "thomas-nagel",
+      "canonicalTitle": "Thomas Nagel",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "core-questions-forum",
+      "roomId": "core-mind-self",
+      "exhibitId": "jiddu-krishnamurti",
+      "entityKind": "philosopher",
+      "entityId": "jiddu-krishnamurti",
+      "canonicalTitle": "Jiddu Krishnamurti",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "bibliography-only",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "core-questions-forum",
+      "roomId": "core-logic-language",
+      "exhibitId": "logic",
+      "entityKind": "branch",
+      "entityId": "logic",
+      "canonicalTitle": "Logic",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosophy",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "bibliography-only",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "core-questions-forum",
+      "roomId": "core-logic-language",
+      "exhibitId": "philosophy-of-language",
+      "entityKind": "branch",
+      "entityId": "philosophy-of-language",
+      "canonicalTitle": "Philosophy of Language",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosophy",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "bibliography-only",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "core-questions-forum",
+      "roomId": "core-science",
+      "exhibitId": "philosophy-of-science",
+      "entityKind": "branch",
+      "entityId": "philosophy-of-science",
+      "canonicalTitle": "Philosophy of Science",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosophy",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "core-questions-forum",
+      "roomId": "core-science",
+      "exhibitId": "carnap",
+      "entityKind": "philosopher",
+      "entityId": "carnap",
+      "canonicalTitle": "Rudolf Carnap",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "core-questions-forum",
+      "roomId": "core-science",
+      "exhibitId": "popper",
+      "entityKind": "philosopher",
+      "entityId": "popper",
+      "canonicalTitle": "Karl Popper",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "core-questions-forum",
+      "roomId": "core-science",
+      "exhibitId": "kuhn",
+      "entityKind": "philosopher",
+      "entityId": "kuhn",
+      "canonicalTitle": "Thomas Kuhn",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "core-questions-forum",
+      "roomId": "core-aesthetics",
+      "exhibitId": "aesthetics",
+      "entityKind": "branch",
+      "entityId": "aesthetics",
+      "canonicalTitle": "Aesthetics",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosophy",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "bibliography-only",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "core-questions-forum",
+      "roomId": "core-religion",
+      "exhibitId": "philosophy-of-religion",
+      "entityKind": "branch",
+      "entityId": "philosophy-of-religion",
+      "canonicalTitle": "Philosophy of Religion",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosophy",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "classical-south-asian-worlds",
+      "roomId": "south-orientation-many-schools",
+      "exhibitId": "indian-philosophy",
+      "entityKind": "branch",
+      "entityId": "indian-philosophy",
+      "canonicalTitle": "Indian Philosophy",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosophy",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "bibliography-only",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "classical-south-asian-worlds",
+      "roomId": "south-jain-worlds",
+      "exhibitId": "jainism",
+      "entityKind": "branch",
+      "entityId": "jainism",
+      "canonicalTitle": "Jainism",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosophy",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "classical-south-asian-worlds",
+      "roomId": "south-jain-worlds",
+      "exhibitId": "mahavira",
+      "entityKind": "philosopher",
+      "entityId": "mahavira",
+      "canonicalTitle": "Mahāvīra",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "classical-south-asian-worlds",
+      "roomId": "south-categories-realism",
+      "exhibitId": "kanada",
+      "entityKind": "philosopher",
+      "entityId": "kanada",
+      "canonicalTitle": "Kaṇāda",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "classical-south-asian-worlds",
+      "roomId": "south-yoga-mind-liberation",
+      "exhibitId": "patanjali",
+      "entityKind": "philosopher",
+      "entityId": "patanjali",
+      "canonicalTitle": "Patañjali",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "classical-south-asian-worlds",
+      "roomId": "south-vedanta-rival-readings",
+      "exhibitId": "vedanta",
+      "entityKind": "branch",
+      "entityId": "vedanta",
+      "canonicalTitle": "Vedanta",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosophy",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "classical-south-asian-worlds",
+      "roomId": "south-vedanta-rival-readings",
+      "exhibitId": "shankara",
+      "entityKind": "philosopher",
+      "entityId": "shankara",
+      "canonicalTitle": "Adi Shankara",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "classical-south-asian-worlds",
+      "roomId": "south-vedanta-rival-readings",
+      "exhibitId": "ramanuja",
+      "entityKind": "philosopher",
+      "entityId": "ramanuja",
+      "canonicalTitle": "Ramanuja",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "classical-south-asian-worlds",
+      "roomId": "south-vedanta-rival-readings",
+      "exhibitId": "madhva",
+      "entityKind": "philosopher",
+      "entityId": "madhva",
+      "canonicalTitle": "Madhva",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "buddhist-philosophies",
+      "roomId": "buddhist-many-paths",
+      "exhibitId": "buddhist-philosophy",
+      "entityKind": "branch",
+      "entityId": "buddhist-philosophy",
+      "canonicalTitle": "Buddhist Philosophy",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosophy",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "bibliography-only",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "buddhist-philosophies",
+      "roomId": "buddhist-many-paths",
+      "exhibitId": "buddha",
+      "entityKind": "philosopher",
+      "entityId": "buddha",
+      "canonicalTitle": "Siddhartha Gautama / the Buddha",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "bibliography-only",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "buddhist-philosophies",
+      "roomId": "buddhist-madhyamaka",
+      "exhibitId": "nagarjuna",
+      "entityKind": "philosopher",
+      "entityId": "nagarjuna",
+      "canonicalTitle": "Nāgārjuna",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-09",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 34,
+        "mainInterpretationWords": 263,
+        "paragraphCount": 3,
+        "orientationCount": 5,
+        "principalAssetId": "nagarjuna-sichuan-thangka",
+        "issues": []
+      }
+    },
+    {
+      "hallId": "buddhist-philosophies",
+      "roomId": "buddhist-abhidharma-yogacara",
+      "exhibitId": "vasubandhu",
+      "entityKind": "philosopher",
+      "entityId": "vasubandhu",
+      "canonicalTitle": "Vasubandhu",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "buddhist-philosophies",
+      "roomId": "buddhist-pramana",
+      "exhibitId": "buddhist-epistemology",
+      "entityKind": "branch",
+      "entityId": "buddhist-epistemology",
+      "canonicalTitle": "Buddhist Epistemology",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosophy",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "buddhist-philosophies",
+      "roomId": "buddhist-pramana",
+      "exhibitId": "dignaga",
+      "entityKind": "philosopher",
+      "entityId": "dignaga",
+      "canonicalTitle": "Dignāga",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "buddhist-philosophies",
+      "roomId": "buddhist-pramana",
+      "exhibitId": "dharmakirti",
+      "entityKind": "philosopher",
+      "entityId": "dharmakirti",
+      "canonicalTitle": "Dharmakīrti",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "classical-chinese-traditions",
+      "roomId": "china-many-ways",
+      "exhibitId": "chinese-philosophy",
+      "entityKind": "branch",
+      "entityId": "chinese-philosophy",
+      "canonicalTitle": "Chinese Philosophy",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosophy",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "bibliography-only",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "classical-chinese-traditions",
+      "roomId": "china-confucian-cultivation",
+      "exhibitId": "confucianism",
+      "entityKind": "branch",
+      "entityId": "confucianism",
+      "canonicalTitle": "Confucianism",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosophy",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "bibliography-only",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "classical-chinese-traditions",
+      "roomId": "china-confucian-cultivation",
+      "exhibitId": "confucius",
+      "entityKind": "philosopher",
+      "entityId": "confucius",
+      "canonicalTitle": "Confucius",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "classical-chinese-traditions",
+      "roomId": "china-confucian-cultivation",
+      "exhibitId": "mencius",
+      "entityKind": "philosopher",
+      "entityId": "mencius",
+      "canonicalTitle": "Mencius",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "classical-chinese-traditions",
+      "roomId": "china-confucian-cultivation",
+      "exhibitId": "xunzi",
+      "entityKind": "philosopher",
+      "entityId": "xunzi",
+      "canonicalTitle": "Xunzi",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "classical-chinese-traditions",
+      "roomId": "china-daoist-way",
+      "exhibitId": "daoism",
+      "entityKind": "branch",
+      "entityId": "daoism",
+      "canonicalTitle": "Daoism",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosophy",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "bibliography-only",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "classical-chinese-traditions",
+      "roomId": "china-daoist-way",
+      "exhibitId": "laozi",
+      "entityKind": "philosopher",
+      "entityId": "laozi",
+      "canonicalTitle": "Laozi",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "classical-chinese-traditions",
+      "roomId": "china-daoist-way",
+      "exhibitId": "zhuangzi",
+      "entityKind": "philosopher",
+      "entityId": "zhuangzi",
+      "canonicalTitle": "Zhuangzi",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "classical-chinese-traditions",
+      "roomId": "china-mohist-fa",
+      "exhibitId": "mohism",
+      "entityKind": "branch",
+      "entityId": "mohism",
+      "canonicalTitle": "Mohism",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosophy",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "bibliography-only",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "classical-chinese-traditions",
+      "roomId": "china-mohist-fa",
+      "exhibitId": "legalism",
+      "entityKind": "branch",
+      "entityId": "legalism",
+      "canonicalTitle": "Legalism",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosophy",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "bibliography-only",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "classical-chinese-traditions",
+      "roomId": "china-mohist-fa",
+      "exhibitId": "mozi",
+      "entityKind": "philosopher",
+      "entityId": "mozi",
+      "canonicalTitle": "Mozi",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "classical-chinese-traditions",
+      "roomId": "china-mohist-fa",
+      "exhibitId": "han-feizi",
+      "entityKind": "philosopher",
+      "entityId": "han-feizi",
+      "canonicalTitle": "Han Feizi",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "islamic-philosophical-worlds",
+      "roomId": "islamic-translation-falsafa",
+      "exhibitId": "islamic-philosophy",
+      "entityKind": "branch",
+      "entityId": "islamic-philosophy",
+      "canonicalTitle": "Islamic Philosophy",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosophy",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "islamic-philosophical-worlds",
+      "roomId": "islamic-translation-falsafa",
+      "exhibitId": "al-kindi",
+      "entityKind": "philosopher",
+      "entityId": "al-kindi",
+      "canonicalTitle": "Al-Kindi",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "islamic-philosophical-worlds",
+      "roomId": "islamic-translation-falsafa",
+      "exhibitId": "al-farabi",
+      "entityKind": "philosopher",
+      "entityId": "al-farabi",
+      "canonicalTitle": "Al-Farabi",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "islamic-philosophical-worlds",
+      "roomId": "islamic-avicennan-system",
+      "exhibitId": "avicenna",
+      "entityKind": "philosopher",
+      "entityId": "avicenna",
+      "canonicalTitle": "Ibn Sina / Avicenna",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "islamic-philosophical-worlds",
+      "roomId": "islamic-kalam-critique",
+      "exhibitId": "al-ghazali",
+      "entityKind": "philosopher",
+      "entityId": "al-ghazali",
+      "canonicalTitle": "Al-Ghazali",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "islamic-philosophical-worlds",
+      "roomId": "islamic-andalusian-worlds",
+      "exhibitId": "averroes",
+      "entityKind": "philosopher",
+      "entityId": "averroes",
+      "canonicalTitle": "Ibn Rushd / Averroes",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "islamic-philosophical-worlds",
+      "roomId": "islamic-andalusian-worlds",
+      "exhibitId": "ibn-tufayl",
+      "entityKind": "philosopher",
+      "entityId": "ibn-tufayl",
+      "canonicalTitle": "Ibn Tufayl",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "islamic-philosophical-worlds",
+      "roomId": "islamic-post-avicennian",
+      "exhibitId": "suhrawardi",
+      "entityKind": "philosopher",
+      "entityId": "suhrawardi",
+      "canonicalTitle": "Suhrawardi",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "islamic-philosophical-worlds",
+      "roomId": "islamic-post-avicennian",
+      "exhibitId": "mulla-sadra",
+      "entityKind": "philosopher",
+      "entityId": "mulla-sadra",
+      "canonicalTitle": "Mulla Sadra",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "east-asian-continuities",
+      "roomId": "east-song-ming-confucian",
+      "exhibitId": "zhu-xi",
+      "entityKind": "philosopher",
+      "entityId": "zhu-xi",
+      "canonicalTitle": "Zhu Xi",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "east-asian-continuities",
+      "roomId": "east-song-ming-confucian",
+      "exhibitId": "wang-yangming",
+      "entityKind": "philosopher",
+      "entityId": "wang-yangming",
+      "canonicalTitle": "Wang Yangming",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "jewish-philosophy",
+      "roomId": "jewish-reason-revelation",
+      "exhibitId": "saadia-gaon",
+      "entityKind": "philosopher",
+      "entityId": "saadia-gaon",
+      "canonicalTitle": "Saadia Gaon",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "jewish-philosophy",
+      "roomId": "jewish-reason-revelation",
+      "exhibitId": "judah-halevi",
+      "entityKind": "philosopher",
+      "entityId": "judah-halevi",
+      "canonicalTitle": "Judah Halevi",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "jewish-philosophy",
+      "roomId": "jewish-maimonidean-crossroads",
+      "exhibitId": "maimonides",
+      "entityKind": "philosopher",
+      "entityId": "maimonides",
+      "canonicalTitle": "Maimonides",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "latin-christian-scholastic",
+      "roomId": "latin-transmission-carolingian",
+      "exhibitId": "boethius",
+      "entityKind": "philosopher",
+      "entityId": "boethius",
+      "canonicalTitle": "Boethius",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-09",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 35,
+        "mainInterpretationWords": 268,
+        "paragraphCount": 3,
+        "orientationCount": 5,
+        "principalAssetId": "scholastic-boethius-miniature",
+        "issues": []
+      }
+    },
+    {
+      "hallId": "latin-christian-scholastic",
+      "roomId": "latin-transmission-carolingian",
+      "exhibitId": "eriugena",
+      "entityKind": "philosopher",
+      "entityId": "eriugena",
+      "canonicalTitle": "John Scotus Eriugena",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "latin-christian-scholastic",
+      "roomId": "latin-dialectic-early-scholastic",
+      "exhibitId": "medieval-scholasticism",
+      "entityKind": "branch",
+      "entityId": "medieval-scholasticism",
+      "canonicalTitle": "Medieval Scholasticism",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosophy",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "latin-christian-scholastic",
+      "roomId": "latin-dialectic-early-scholastic",
+      "exhibitId": "anselm",
+      "entityKind": "philosopher",
+      "entityId": "anselm",
+      "canonicalTitle": "Anselm",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "latin-christian-scholastic",
+      "roomId": "latin-dialectic-early-scholastic",
+      "exhibitId": "abelard",
+      "entityKind": "philosopher",
+      "entityId": "abelard",
+      "canonicalTitle": "Peter Abelard",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "latin-christian-scholastic",
+      "roomId": "latin-high-scholastic",
+      "exhibitId": "aquinas",
+      "entityKind": "philosopher",
+      "entityId": "aquinas",
+      "canonicalTitle": "Thomas Aquinas",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "latin-christian-scholastic",
+      "roomId": "latin-late-debates",
+      "exhibitId": "duns-scotus",
+      "entityKind": "philosopher",
+      "entityId": "duns-scotus",
+      "canonicalTitle": "Duns Scotus",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "latin-christian-scholastic",
+      "roomId": "latin-late-debates",
+      "exhibitId": "ockham",
+      "entityKind": "philosopher",
+      "entityId": "ockham",
+      "canonicalTitle": "William of Ockham",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "latin-christian-scholastic",
+      "roomId": "latin-late-debates",
+      "exhibitId": "meister-eckhart",
+      "entityKind": "philosopher",
+      "entityId": "meister-eckhart",
+      "canonicalTitle": "Meister Eckhart",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "latin-christian-scholastic",
+      "roomId": "latin-late-debates",
+      "exhibitId": "marsilius-padua",
+      "entityKind": "philosopher",
+      "entityId": "marsilius-padua",
+      "canonicalTitle": "Marsilius of Padua",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "hellenistic-roman-ways",
+      "roomId": "hell-cynic-way",
+      "exhibitId": "cynicism",
+      "entityKind": "branch",
+      "entityId": "cynicism",
+      "canonicalTitle": "Cynicism",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosophy",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "bibliography-only",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "hellenistic-roman-ways",
+      "roomId": "hell-cynic-way",
+      "exhibitId": "antisthenes",
+      "entityKind": "philosopher",
+      "entityId": "antisthenes",
+      "canonicalTitle": "Antisthenes",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "hellenistic-roman-ways",
+      "roomId": "hell-cynic-way",
+      "exhibitId": "diogenes",
+      "entityKind": "philosopher",
+      "entityId": "diogenes",
+      "canonicalTitle": "Diogenes",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "bibliography-only",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "hellenistic-roman-ways",
+      "roomId": "hell-epicurean-garden",
+      "exhibitId": "epicureanism",
+      "entityKind": "branch",
+      "entityId": "epicureanism",
+      "canonicalTitle": "Epicureanism",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosophy",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "bibliography-only",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "hellenistic-roman-ways",
+      "roomId": "hell-epicurean-garden",
+      "exhibitId": "epicurus",
+      "entityKind": "philosopher",
+      "entityId": "epicurus",
+      "canonicalTitle": "Epicurus",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "bibliography-only",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "hellenistic-roman-ways",
+      "roomId": "hell-epicurean-garden",
+      "exhibitId": "lucretius",
+      "entityKind": "philosopher",
+      "entityId": "lucretius",
+      "canonicalTitle": "Lucretius",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "bibliography-only",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "hellenistic-roman-ways",
+      "roomId": "hell-stoic-stoa",
+      "exhibitId": "stoicism",
+      "entityKind": "branch",
+      "entityId": "stoicism",
+      "canonicalTitle": "Stoicism",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosophy",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "bibliography-only",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "hellenistic-roman-ways",
+      "roomId": "hell-stoic-stoa",
+      "exhibitId": "zeno",
+      "entityKind": "philosopher",
+      "entityId": "zeno",
+      "canonicalTitle": "Zeno of Citium",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "bibliography-only",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "hellenistic-roman-ways",
+      "roomId": "hell-stoic-stoa",
+      "exhibitId": "cleanthes",
+      "entityKind": "philosopher",
+      "entityId": "cleanthes",
+      "canonicalTitle": "Cleanthes",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "bibliography-only",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "hellenistic-roman-ways",
+      "roomId": "hell-stoic-stoa",
+      "exhibitId": "chrysippus",
+      "entityKind": "philosopher",
+      "entityId": "chrysippus",
+      "canonicalTitle": "Chrysippus",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "bibliography-only",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "hellenistic-roman-ways",
+      "roomId": "hell-stoic-stoa",
+      "exhibitId": "epictetus",
+      "entityKind": "philosopher",
+      "entityId": "epictetus",
+      "canonicalTitle": "Epictetus",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "bibliography-only",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "hellenistic-roman-ways",
+      "roomId": "hell-stoic-stoa",
+      "exhibitId": "seneca",
+      "entityKind": "philosopher",
+      "entityId": "seneca",
+      "canonicalTitle": "Seneca",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "bibliography-only",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "hellenistic-roman-ways",
+      "roomId": "hell-stoic-stoa",
+      "exhibitId": "marcus-aurelius",
+      "entityKind": "philosopher",
+      "entityId": "marcus-aurelius",
+      "canonicalTitle": "Marcus Aurelius",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "bibliography-only",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "hellenistic-roman-ways",
+      "roomId": "hell-skeptical-lineages",
+      "exhibitId": "skepticism",
+      "entityKind": "branch",
+      "entityId": "skepticism",
+      "canonicalTitle": "Skepticism",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosophy",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "bibliography-only",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "hellenistic-roman-ways",
+      "roomId": "hell-skeptical-lineages",
+      "exhibitId": "pyrrho",
+      "entityKind": "philosopher",
+      "entityId": "pyrrho",
+      "canonicalTitle": "Pyrrho",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "bibliography-only",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "hellenistic-roman-ways",
+      "roomId": "hell-skeptical-lineages",
+      "exhibitId": "arcesilaus",
+      "entityKind": "philosopher",
+      "entityId": "arcesilaus",
+      "canonicalTitle": "Arcesilaus",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "hellenistic-roman-ways",
+      "roomId": "hell-skeptical-lineages",
+      "exhibitId": "carneades",
+      "entityKind": "philosopher",
+      "entityId": "carneades",
+      "canonicalTitle": "Carneades",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "hellenistic-roman-ways",
+      "roomId": "hell-skeptical-lineages",
+      "exhibitId": "sextus-empiricus",
+      "entityKind": "philosopher",
+      "entityId": "sextus-empiricus",
+      "canonicalTitle": "Sextus Empiricus",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "bibliography-only",
+      "exhibitAuthoredStatus": "reconciled",
+      "exhibitStatus": "reconciled",
+      "reviewedOn": "2026-08-09",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 33,
+        "mainInterpretationWords": 268,
+        "paragraphCount": 3,
+        "orientationCount": 5,
+        "principalAssetId": "skepticism-sextus-riedel",
+        "issues": []
+      }
+    },
+    {
+      "hallId": "late-antiquity-inheritance",
+      "roomId": "late-neoplatonic-systems",
+      "exhibitId": "neoplatonism",
+      "entityKind": "branch",
+      "entityId": "neoplatonism",
+      "canonicalTitle": "Neoplatonism",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosophy",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "bibliography-only",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "late-antiquity-inheritance",
+      "roomId": "late-neoplatonic-systems",
+      "exhibitId": "plotinus",
+      "entityKind": "philosopher",
+      "entityId": "plotinus",
+      "canonicalTitle": "Plotinus",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "bibliography-only",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "late-antiquity-inheritance",
+      "roomId": "late-neoplatonic-systems",
+      "exhibitId": "porphyry",
+      "entityKind": "philosopher",
+      "entityId": "porphyry",
+      "canonicalTitle": "Porphyry",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "late-antiquity-inheritance",
+      "roomId": "late-neoplatonic-systems",
+      "exhibitId": "iamblichus",
+      "entityKind": "philosopher",
+      "entityId": "iamblichus",
+      "canonicalTitle": "Iamblichus",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "late-antiquity-inheritance",
+      "roomId": "late-neoplatonic-systems",
+      "exhibitId": "proclus",
+      "entityKind": "philosopher",
+      "entityId": "proclus",
+      "canonicalTitle": "Proclus",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "late-antiquity-inheritance",
+      "roomId": "late-christian-platonisms",
+      "exhibitId": "origen",
+      "entityKind": "philosopher",
+      "entityId": "origen",
+      "canonicalTitle": "Origen",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "late-antiquity-inheritance",
+      "roomId": "late-christian-platonisms",
+      "exhibitId": "augustine",
+      "entityKind": "philosopher",
+      "entityId": "augustine",
+      "canonicalTitle": "Augustine",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "late-antiquity-inheritance",
+      "roomId": "late-christian-platonisms",
+      "exhibitId": "gregory-nyssa",
+      "entityKind": "philosopher",
+      "entityId": "gregory-nyssa",
+      "canonicalTitle": "Gregory of Nyssa",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "late-antiquity-inheritance",
+      "roomId": "late-christian-platonisms",
+      "exhibitId": "pseudo-dionysius",
+      "entityKind": "philosopher",
+      "entityId": "pseudo-dionysius",
+      "canonicalTitle": "Pseudo-Dionysius",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "rationalism-mind-nature-system",
+      "roomId": "rationalism-cartesian-foundations",
+      "exhibitId": "rationalism",
+      "entityKind": "branch",
+      "entityId": "rationalism",
+      "canonicalTitle": "Rationalism",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosophy",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "bibliography-only",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "rationalism-mind-nature-system",
+      "roomId": "rationalism-cartesian-foundations",
+      "exhibitId": "descartes",
+      "entityKind": "philosopher",
+      "entityId": "descartes",
+      "canonicalTitle": "René Descartes",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "bibliography-only",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "rationalism-mind-nature-system",
+      "roomId": "rationalism-spinoza-conway",
+      "exhibitId": "spinoza",
+      "entityKind": "philosopher",
+      "entityId": "spinoza",
+      "canonicalTitle": "Spinoza",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "unreviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "rationalism-mind-nature-system",
+      "roomId": "rationalism-spinoza-conway",
+      "exhibitId": "anne-conway",
+      "entityKind": "philosopher",
+      "entityId": "anne-conway",
+      "canonicalTitle": "Anne Conway",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "rationalism-mind-nature-system",
+      "roomId": "rationalism-leibniz-system",
+      "exhibitId": "leibniz",
+      "entityKind": "philosopher",
+      "entityId": "leibniz",
+      "canonicalTitle": "Leibniz",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "unreviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "empiricism-science-political-order",
+      "roomId": "empiricism-locke-ideas-rights",
+      "exhibitId": "empiricism",
+      "entityKind": "branch",
+      "entityId": "empiricism",
+      "canonicalTitle": "Empiricism",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosophy",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "bibliography-only",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "empiricism-science-political-order",
+      "roomId": "empiricism-locke-ideas-rights",
+      "exhibitId": "locke",
+      "entityKind": "philosopher",
+      "entityId": "locke",
+      "canonicalTitle": "Locke",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "unreviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "empiricism-science-political-order",
+      "roomId": "empiricism-berkeley-perception",
+      "exhibitId": "berkeley",
+      "entityKind": "philosopher",
+      "entityId": "berkeley",
+      "canonicalTitle": "George Berkeley",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "empiricism-science-political-order",
+      "roomId": "empiricism-hume-skepticism",
+      "exhibitId": "hume",
+      "entityKind": "philosopher",
+      "entityId": "hume",
+      "canonicalTitle": "David Hume",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "bibliography-only",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "enlightenment-revolution-kant",
+      "roomId": "enlightenment-law-institutions",
+      "exhibitId": "montesquieu",
+      "entityKind": "philosopher",
+      "entityId": "montesquieu",
+      "canonicalTitle": "Montesquieu",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "enlightenment-revolution-kant",
+      "roomId": "enlightenment-society-freedom",
+      "exhibitId": "rousseau",
+      "entityKind": "philosopher",
+      "entityId": "rousseau",
+      "canonicalTitle": "Jean-Jacques Rousseau",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "enlightenment-revolution-kant",
+      "roomId": "enlightenment-sentiment-commerce",
+      "exhibitId": "adam-smith",
+      "entityKind": "philosopher",
+      "entityId": "adam-smith",
+      "canonicalTitle": "Adam Smith",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "enlightenment-revolution-kant",
+      "roomId": "enlightenment-equality-education",
+      "exhibitId": "mary-astell",
+      "entityKind": "philosopher",
+      "entityId": "mary-astell",
+      "canonicalTitle": "Mary Astell",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "enlightenment-revolution-kant",
+      "roomId": "enlightenment-equality-education",
+      "exhibitId": "wollstonecraft",
+      "entityKind": "philosopher",
+      "entityId": "wollstonecraft",
+      "canonicalTitle": "Mary Wollstonecraft",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "enlightenment-revolution-kant",
+      "roomId": "enlightenment-kant-critical",
+      "exhibitId": "kant",
+      "entityKind": "philosopher",
+      "entityId": "kant",
+      "canonicalTitle": "Immanuel Kant",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "german-idealism-afterlives",
+      "roomId": "german-idealism-orientation",
+      "exhibitId": "german-idealism",
+      "entityKind": "branch",
+      "entityId": "german-idealism",
+      "canonicalTitle": "German Idealism",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosophy",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "bibliography-only",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "german-idealism-afterlives",
+      "roomId": "german-idealism-orientation",
+      "exhibitId": "fichte",
+      "entityKind": "philosopher",
+      "entityId": "fichte",
+      "canonicalTitle": "Fichte",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "bibliography-only",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "german-idealism-afterlives",
+      "roomId": "german-idealism-nature",
+      "exhibitId": "schelling",
+      "entityKind": "philosopher",
+      "entityId": "schelling",
+      "canonicalTitle": "Schelling",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "german-idealism-afterlives",
+      "roomId": "german-idealism-hegel",
+      "exhibitId": "hegel",
+      "entityKind": "philosopher",
+      "entityId": "hegel",
+      "canonicalTitle": "Hegel",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "german-idealism-afterlives",
+      "roomId": "german-idealism-afterlives-room",
+      "exhibitId": "kantianism",
+      "entityKind": "branch",
+      "entityId": "kantianism",
+      "canonicalTitle": "Kantianism",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosophy",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-09",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 34,
+        "mainInterpretationWords": 254,
+        "paragraphCount": 3,
+        "orientationCount": 5,
+        "principalAssetId": "german-idealism-reinhold-rijksmuseum-1795",
+        "issues": []
+      }
+    },
+    {
+      "hallId": "utility-liberty-history-capital",
+      "roomId": "nineteenth-utilitarian-reform",
+      "exhibitId": "bentham",
+      "entityKind": "philosopher",
+      "entityId": "bentham",
+      "canonicalTitle": "Jeremy Bentham",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "utility-liberty-history-capital",
+      "roomId": "nineteenth-utilitarian-reform",
+      "exhibitId": "mill",
+      "entityKind": "philosopher",
+      "entityId": "mill",
+      "canonicalTitle": "John Stuart Mill",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "utility-liberty-history-capital",
+      "roomId": "nineteenth-labor-capital",
+      "exhibitId": "marx",
+      "entityKind": "philosopher",
+      "entityId": "marx",
+      "canonicalTitle": "Karl Marx",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "utility-liberty-history-capital",
+      "roomId": "nineteenth-social-transformations",
+      "exhibitId": "marxism",
+      "entityKind": "branch",
+      "entityId": "marxism",
+      "canonicalTitle": "Marxism",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosophy",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-09",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 32,
+        "mainInterpretationWords": 255,
+        "paragraphCount": 3,
+        "orientationCount": 5,
+        "principalAssetId": "utility-marxism-zurich-congress-1893",
+        "issues": []
+      }
+    },
+    {
+      "hallId": "faith-pessimism-life-value",
+      "roomId": "nineteenth-will-pessimism",
+      "exhibitId": "schopenhauer",
+      "entityKind": "philosopher",
+      "entityId": "schopenhauer",
+      "canonicalTitle": "Schopenhauer",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "faith-pessimism-life-value",
+      "roomId": "nineteenth-faith-subjectivity",
+      "exhibitId": "kierkegaard",
+      "entityKind": "philosopher",
+      "entityId": "kierkegaard",
+      "canonicalTitle": "Kierkegaard",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "faith-pessimism-life-value",
+      "roomId": "nineteenth-faith-subjectivity",
+      "exhibitId": "dostoevsky",
+      "entityKind": "philosopher",
+      "entityId": "dostoevsky",
+      "canonicalTitle": "Fyodor Dostoevsky",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "unreviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "faith-pessimism-life-value",
+      "roomId": "nineteenth-genealogy-value",
+      "exhibitId": "nietzsche",
+      "entityKind": "philosopher",
+      "entityId": "nietzsche",
+      "canonicalTitle": "Friedrich Nietzsche",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "bibliography-only",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "pragmatism-democratic-inquiry",
+      "roomId": "pragmatism-peirce-inquiry",
+      "exhibitId": "pragmatism",
+      "entityKind": "branch",
+      "entityId": "pragmatism",
+      "canonicalTitle": "Pragmatism",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosophy",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "bibliography-only",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "pragmatism-democratic-inquiry",
+      "roomId": "pragmatism-peirce-inquiry",
+      "exhibitId": "peirce",
+      "entityKind": "philosopher",
+      "entityId": "peirce",
+      "canonicalTitle": "Charles Sanders Peirce",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "pragmatism-democratic-inquiry",
+      "roomId": "pragmatism-james-experience",
+      "exhibitId": "william-james",
+      "entityKind": "philosopher",
+      "entityId": "william-james",
+      "canonicalTitle": "William James",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "pragmatism-democratic-inquiry",
+      "roomId": "pragmatism-dewey-democracy",
+      "exhibitId": "dewey",
+      "entityKind": "philosopher",
+      "entityId": "dewey",
+      "canonicalTitle": "John Dewey",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "critique-power-deconstruction",
+      "roomId": "continental-orientation",
+      "exhibitId": "continental-philosophy",
+      "entityKind": "branch",
+      "entityId": "continental-philosophy",
+      "canonicalTitle": "Continental Philosophy",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosophy",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "bibliography-only",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "critique-power-deconstruction",
+      "roomId": "critique-genealogy-power",
+      "exhibitId": "foucault",
+      "entityKind": "philosopher",
+      "entityId": "foucault",
+      "canonicalTitle": "Michel Foucault",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "bibliography-only",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "critique-power-deconstruction",
+      "roomId": "critique-deconstruction",
+      "exhibitId": "derrida",
+      "entityKind": "philosopher",
+      "entityId": "derrida",
+      "canonicalTitle": "Jacques Derrida",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "bibliography-only",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "critique-power-deconstruction",
+      "roomId": "critique-critical-theory",
+      "exhibitId": "habermas",
+      "entityKind": "philosopher",
+      "entityId": "habermas",
+      "canonicalTitle": "Jürgen Habermas",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "bibliography-only",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "moral-life-practical-reason",
+      "roomId": "moral-ethics-orientation",
+      "exhibitId": "ethics",
+      "entityKind": "branch",
+      "entityId": "ethics",
+      "canonicalTitle": "Ethics",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosophy",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "bibliography-only",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "moral-life-practical-reason",
+      "roomId": "moral-character-virtue",
+      "exhibitId": "virtue-ethics",
+      "entityKind": "branch",
+      "entityId": "virtue-ethics",
+      "canonicalTitle": "Virtue Ethics",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosophy",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "bibliography-only",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "moral-life-practical-reason",
+      "roomId": "moral-character-virtue",
+      "exhibitId": "iris-murdoch",
+      "entityKind": "philosopher",
+      "entityId": "iris-murdoch",
+      "canonicalTitle": "Iris Murdoch",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "moral-life-practical-reason",
+      "roomId": "moral-character-virtue",
+      "exhibitId": "philippa-foot",
+      "entityKind": "philosopher",
+      "entityId": "philippa-foot",
+      "canonicalTitle": "Philippa Foot",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "moral-life-practical-reason",
+      "roomId": "moral-duty-consequence",
+      "exhibitId": "deontology",
+      "entityKind": "branch",
+      "entityId": "deontology",
+      "canonicalTitle": "Deontology",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosophy",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "bibliography-only",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "moral-life-practical-reason",
+      "roomId": "moral-duty-consequence",
+      "exhibitId": "utilitarianism",
+      "entityKind": "branch",
+      "entityId": "utilitarianism",
+      "canonicalTitle": "Utilitarianism",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosophy",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "bibliography-only",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "moral-life-practical-reason",
+      "roomId": "moral-rights-persons-futures",
+      "exhibitId": "judith-thomson",
+      "entityKind": "philosopher",
+      "entityId": "judith-thomson",
+      "canonicalTitle": "Judith Jarvis Thomson",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "moral-life-practical-reason",
+      "roomId": "moral-rights-persons-futures",
+      "exhibitId": "derek-parfit",
+      "entityKind": "philosopher",
+      "entityId": "derek-parfit",
+      "canonicalTitle": "Derek Parfit",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "feminist-philosophies",
+      "roomId": "feminist-orientation-genealogies",
+      "exhibitId": "feminist-philosophy",
+      "entityKind": "branch",
+      "entityId": "feminist-philosophy",
+      "canonicalTitle": "Feminist Philosophy",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosophy",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "feminist-philosophies",
+      "roomId": "feminist-situated-freedom",
+      "exhibitId": "beauvoir",
+      "entityKind": "philosopher",
+      "entityId": "beauvoir",
+      "canonicalTitle": "Simone de Beauvoir",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "bibliography-only",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "feminist-philosophies",
+      "roomId": "feminist-gender-norms",
+      "exhibitId": "judith-butler",
+      "entityKind": "philosopher",
+      "entityId": "judith-butler",
+      "canonicalTitle": "Judith Butler",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "colonialism-race-liberation",
+      "roomId": "colonial-embodiment-liberation",
+      "exhibitId": "fanon",
+      "entityKind": "philosopher",
+      "entityId": "fanon",
+      "canonicalTitle": "Frantz Fanon",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "bibliography-only",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "colonialism-race-liberation",
+      "roomId": "colonial-black-feminism-abolition",
+      "exhibitId": "angela-davis",
+      "entityKind": "philosopher",
+      "entityId": "angela-davis",
+      "canonicalTitle": "Angela Davis",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    },
+    {
+      "hallId": "colonialism-race-liberation",
+      "roomId": "colonial-black-feminism-abolition",
+      "exhibitId": "bell-hooks",
+      "entityKind": "philosopher",
+      "entityId": "bell-hooks",
+      "canonicalTitle": "bell hooks",
+      "articleRelationship": {
+        "status": "matched",
+        "expectedCategory": "philosopher",
+        "candidateCount": 1,
+        "routeMatches": true
+      },
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "unreviewed",
+      "exhibitStatus": "unreviewed",
+      "reviewedOn": null
+    }
+  ]
+}

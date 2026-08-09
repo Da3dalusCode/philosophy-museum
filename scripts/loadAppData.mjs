@@ -15,14 +15,22 @@ export const loadAppData = async () => {
       {canonicalArticles},
       {MUSEUM_INTERPRETATIONS},
       {MUSEUM_SUPPLEMENTAL_EXHIBITS},
+      {MUSEUM_CANONICAL_PROGRAM},
+      {MUSEUM_ASSETS},
+      {PRIMARY_PLAQUE_INVITATION_OVERRIDES},
       reviewLock,
+      exhibitReview,
     ] = await Promise.all([
       server.ssrLoadModule('/src/data/philosophers.ts'),
       server.ssrLoadModule('/src/data/branches.ts'),
       server.ssrLoadModule('/src/data/canonicalArticles.ts'),
       server.ssrLoadModule('/src/data/museum/museumInterpretations.ts'),
       server.ssrLoadModule('/src/data/museum/museumSupplementalExhibits.ts'),
+      server.ssrLoadModule('/src/data/museum/museumCanonicalProgram.ts'),
+      server.ssrLoadModule('/src/data/museum/museumAssets.ts'),
+      server.ssrLoadModule('/src/components/MuseumGallery/primaryPlaqueContract.ts'),
       server.ssrLoadModule('/src/editorial/reviewLock.ts'),
+      server.ssrLoadModule('/src/editorial/exhibitReview.ts'),
     ]);
     return {
       philosophers,
@@ -30,7 +38,11 @@ export const loadAppData = async () => {
       canonicalArticles,
       museumInterpretations: MUSEUM_INTERPRETATIONS,
       museumSupplementalExhibits: MUSEUM_SUPPLEMENTAL_EXHIBITS,
+      museumCanonicalProgram: MUSEUM_CANONICAL_PROGRAM,
+      museumAssets: MUSEUM_ASSETS,
+      primaryPlaqueInvitationOverrides: PRIMARY_PLAQUE_INVITATION_OVERRIDES,
       reviewLock,
+      exhibitReview,
     };
   } finally {
     await server.close();

@@ -1,3 +1,4 @@
+import type {MuseumExhibitReview} from '../../editorial/exhibitReview';
 import type {MuseumAssetId} from './museumAssetTypes';
 
 type PrimaryInterpretationSource = {
@@ -20,11 +21,14 @@ export type MuseumPrimaryInterpretationEnrichment = {
   readonly sectionCaution?: string;
   readonly sources?: readonly PrimaryInterpretationSource[];
   readonly objectInterpretations?: Readonly<Partial<Record<MuseumAssetId, string>>>;
+  readonly review?: MuseumExhibitReview;
   readonly presentation?: {
     readonly mode: 'concise';
     readonly orientation: readonly {readonly label: string; readonly value: string}[];
+    readonly orientationException?: string;
     readonly articleActionLabel: string;
     readonly bodyLayout: 'prose';
+    readonly exhibitLayout?: 'object-led';
     readonly plaqueKicker?: string;
     readonly plaqueSubtitleLines?: 1 | 2 | 3 | 4;
   };
@@ -43,23 +47,40 @@ export type ScholasticRationalistPrimaryInterpretationEnrichment =
 export const SCHOLASTIC_RATIONALIST_PRIMARY_INTERPRETATION_ENRICHMENT:
 Readonly<Record<string, ScholasticRationalistPrimaryInterpretationEnrichment>> = {
   boethius: {
-    lead: 'The two halves of Boethius’s career must be read together. His translations, commentaries, and textbooks helped make parts of Aristotelian logic usable in Latin, although his larger plan to translate both Plato and Aristotle was never completed. The Consolation is instead a prison dialogue in alternating prose and verse, where the figure of Philosophy tests claims about fortune, happiness, providence, foreknowledge, and contingent choice. Its silence about explicitly Christian consolation has generated interpretation, not a settled verdict about Boethius’s commitments. Later classrooms made “Boethius” into a curriculum through centuries of selective copying, glossing, and reorganization across changing institutional settings and audiences.',
-    keyIdeas: [
-      'Logical transmission: Boethius’s translations and commentaries supplied later Latin readers with terminology and problems inherited from Aristotle and Porphyry.',
-      'Fortune and happiness: the Consolation contrasts unstable external goods with a good that cannot be taken away by political reversal.',
-      'Providence and contingency: Book V distinguishes divine eternity from temporal prediction in order to preserve contingent choice.',
-    ],
-    keyWorks: ['Consolation of Philosophy', 'Commentaries on Porphyry’s Isagoge', 'De topicis differentiis', 'De institutione musica'],
+    lead: '',
+    keyIdeas: [],
+    keyWorks: [],
     sections: [
       {
-        heading: 'Two transmissions, one difficult final work',
+        heading: '',
         paragraphs: [
-          'Boethius did more than carry old conclusions forward. His logical writings organized vocabulary, problems, and argumentative techniques that later readers repeatedly reconstructed, especially through Porphyry and Aristotle. Yet the medieval “Boethian” curriculum was also the product of copying, excerpting, glossing, and teaching after his death; transmission is an institutional history, not a parcel passed unchanged from antiquity.',
-          'In the Consolation, Lady Philosophy first diagnoses the prisoner’s misplaced dependence on office, reputation, and fortune, then redirects inquiry toward the good. Book V’s account of divine eternity attempts to hold foreknowledge together with genuinely contingent events. The work should neither be reduced to autobiography nor detached from the violent Ostrogothic political setting in which Boethius was imprisoned and executed; the precise accusations and chronology remain historically contested.',
+          'Boethius was a late Roman logician, theologian, statesman, and author whose two inheritances should be read together without being collapsed. His translations, commentaries, and textbooks organized Latin vocabulary and argumentative techniques for reading Porphyry and Aristotle. He planned a wider translation and commentary project embracing Plato and Aristotle, but did not complete it. Medieval classrooms later made “Boethius” into a curriculum through selective copying, excerpting, glossing, and teaching. That transmission was an institutional reconstruction across centuries, not a finished ancient system passed forward unchanged.',
+          'The Consolation of Philosophy is instead a prison dialogue alternating prose and verse. Lady Philosophy diagnoses the prisoner’s dependence on office, reputation, wealth, and fortune, then redirects inquiry toward happiness and the highest good. External goods are unstable and cannot constitute that highest good, though they need not all be worthless. Book V’s account of divine eternity attempts to hold providential knowledge together with genuinely contingent choice. The argument remains contested, and the work’s silence about explicitly Christian consolation has generated interpretation rather than proving either the presence or absence of Boethius’s commitments.',
+          'The work emerged from the violent politics of Theoderic’s Ostrogothic court. After accusations that included conspiracy or treason, Boethius was imprisoned and executed, probably in 525 or 526; the precise charges and chronology are imperfectly recoverable. His theological tractates also differ in genre and attribution history, so they should not be treated as one uniform corpus. The displayed musical miniature was produced roughly six centuries later. It witnesses Boethius’s medieval authority in music and learning, not his appearance, prison surroundings, or membership in the later Scholastic institutions that inherited his work.',
         ],
       },
     ],
-    sectionCaution: 'The displayed musical miniature was produced roughly six centuries after Boethius and witnesses his medieval authority rather than his appearance. Neither that reception image nor the later curriculum should be mistaken for an uninterrupted survival of a finished ancient system.',
+    presentation: {
+      mode: 'concise',
+      orientation: [
+        {label: 'Historical setting', value: 'Late Roman Italy · c. 475/480–525/526 CE; chronology uncertain'},
+        {label: 'Logical project', value: 'Porphyry and Aristotle in Latin · larger plan unfinished'},
+        {label: 'Prison dialogue', value: 'Fortune · happiness · providence · contingent choice'},
+        {label: 'Corpus caution', value: 'Logical, theological, and literary works differ in form and attribution history'},
+        {label: 'Later reception', value: 'Medieval copying · glossing · teaching · music curriculum'},
+      ],
+      articleActionLabel: 'Read the full sourced Boethius article',
+      bodyLayout: 'prose',
+      exhibitLayout: 'object-led',
+      plaqueKicker: '',
+      plaqueSubtitleLines: 4,
+    },
+    review: {
+      status: 'standard-compliant',
+      reviewedOn: '2026-08-09',
+      method: 'Reconciled against the current claim-reviewed article and registered exhibit sources; presentation checked against the canonical primary-exhibit standard.',
+      lock: 'fnv1a64:f0013e0acc006c73',
+    },
     sources: [
       {label: 'Stanford Encyclopedia of Philosophy — Anicius Manlius Severinus Boethius', url: 'https://plato.stanford.edu/entries/boethius/', kind: 'academic-reference'},
       {label: 'Internet Encyclopedia of Philosophy — Boethius', url: 'https://iep.utm.edu/boethius/', kind: 'academic-reference'},

@@ -39,6 +39,27 @@ Only an actual live side portal or fixed architectural obstruction removes a wal
 - Examples such as *Elements of Theology*, *The Porphyrian Tree*, or *Hipparchia and Crates* illustrate the hierarchy; they do not authorize hardcoded production copy or weaken the requirement for repository-supported titles and relationships.
 - Any exception requires an explicit repository decision. One-off renderer copy is not an exception mechanism.
 
+## Primary exhibit-review contract
+
+This is the durable review standard for canonical primary interpretation panels. It extends the existing canonical article, exhibit program, asset, and interpretation registries; it does not create a second exhibit catalog.
+
+- The panel is predominantly single-column and object-led. The principal object appears first, followed by compact orientation, three untitled prose paragraphs, provenance/source detail, and the article action.
+- The wall invitation is roughly **32–35 words** beneath the exact canonical title. The production plaque may retain the broader physical fitting fallback only when readability requires it, but that record is not `standard-compliant` without an explicit reviewed exception.
+- The principal image or object has three distinct layers: a concise caption identifying what the visitor sees, provenance and rights metadata from the canonical asset registry, and an exhibit-specific interpretation explaining what the object can and cannot establish.
+- The main interpretation contains **250–268 words in exactly three untitled prose paragraphs**. It explains the subject directly, incorporates the object without allowing it to redefine the subject, and preserves material uncertainties and disputes from the canonical article.
+- Orientation normally contains **five** concise entries. Six may be retained only when the sixth is genuinely distinct and the interpretation records a specific exception reason.
+- The final action explicitly opens the full sourced canonical article.
+- Do not expose a duplicated lead, raw software IDs, route or inventory metadata, generated fact rows, metadata grids, or mechanical idea/work catalogs. These are implementation or article-reference structures, not visitor interpretation.
+
+Article credibility and exhibit status are separate:
+
+- `unreviewed` — no current exhibit reconciliation is recorded.
+- `reconciled` — the exhibit has been checked against its corresponding article and registered sources, and its exhibit lock is current, but one or more compliance gates remain open.
+- `standard-compliant` — the article relationship is unambiguous, the article is currently `claim-reviewed`, factual exhibit content is reconciled with that article and its sources, the exhibit lock is current, and the presentation satisfies every rule above.
+- `out-of-date` — a previously reconciled or compliant exhibit no longer matches the locked article/exhibit snapshot, or a claimed compliance prerequisite is no longer current.
+
+Authored exhibit-review metadata lives with the canonical primary interpretation. The generated [`exhibit-review ledger`](../editorial/exhibit-review-ledger.md) inventories every canonical exhibit, joins it to the live article registry, reports article and exhibit states independently, and identifies unmatched or ambiguous relationships. Regenerate with `npm run report:exhibits`; verify locks, relationships, and presentation gates with `npm run audit:exhibits`.
+
 ## Media and review
 
 - Every installation uses unique, relevant imagery with truthful source, credit, and license metadata. Do not use graves, filler images, or an unrelated visual merely to complete a wall.
@@ -134,5 +155,5 @@ Before a future hall, approved expansion, or substantially refitted gallery can 
 2. Every room is inspected in the running app from both directions; each half-room or crossroads bay is photographed or otherwise visually checked at visitor eye level.
 3. Every primary, supplemental panel, doorway, fast-travel destination, directory entry, and direct exhibit route works.
 4. The visitor map shows the affected hall, its real walking connection, and the visitor's directional arrow without requiring desktop scrolling.
-5. The production build and the focused Museum, routing, plan, and asset audits for the changed contracts pass locally; unchanged broad integrity, accuracy, and article suites may run in CI unless a release-specific risk justifies repeating them.
+5. The production build and the focused Museum, routing, plan, asset, and exhibit-review audits for the changed contracts pass locally; unchanged broad integrity, accuracy, and article suites may run in CI unless a release-specific risk justifies repeating them.
 6. The image-diversity audit classifies every textual-medium installation and rejects any curated room containing more than one plain page or isolated book. Every affected-gallery release must use at least four non-textual visual-character groups overall, with room-by-room visual review rejecting repetitive image selections even when the gallery total passes.

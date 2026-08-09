@@ -41,7 +41,6 @@ export const PRIMARY_PLAQUE_INVITATION_OVERRIDES = {
   origen: 'How did Origen join scriptural scholarship to questions of God, freedom, embodiment, and restoration across a corpus preserved in originals, translations, fragments, and hostile reports?',
   'gregory-nyssa': 'How did Gregory of Nyssa connect divine infinity, embodied freedom, virtue, resurrection, and transformation toward the good?',
   'pseudo-dionysius': 'How did an anonymous late-antique Christian transform divine names, hierarchy, procession, return, and apophatic unknowing across a corpus later received in Byzantine and Latin worlds?',
-  marxism: 'How does Marxism connect labor, class, exploitation, historical change, collective action, and enduring political dispute?',
 } as const satisfies Readonly<Record<string, string>>;
 
 export const museumHallUsesPrimaryEmphasis = (
@@ -66,7 +65,7 @@ export const museumHallUsesPrimaryEmphasis = (
 
 /**
  * Resolves the exact production inputs for one canonical wall plaque. The
- * renderer and the 191-plaque browser audit both consume this path.
+ * renderer and the canonical-plaque browser audit both consume this path.
  */
 export const resolvePrimaryPlaqueConfiguration = (
   definition: MuseumHallDefinition,

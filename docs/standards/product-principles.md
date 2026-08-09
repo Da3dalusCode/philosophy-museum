@@ -41,7 +41,7 @@ The accepted architecture lock is recorded in [Decision 0001](../decisions/0001-
 - Primary titles and invitations must never be clipped, shortened, or ellipsized. Wrapping is required before font reduction, and a complete invitation may use two, three, or when necessary four lines.
 - The title and invitation must be fitted independently. The canonical title remains clearly dominant, while both roles retain their explicit readable minimum for the production plaque texture.
 - Complete meaning and minimum readable sizing take priority over preserving blank space. The fitting path should use the safe rectangle and vertically balance both left-aligned blocks without changing the existing plaque frame or physical dimensions.
-- When a complete invitation cannot fit within the supported capacity at readable size, shorten only that wall invitation to a direct 25–45-word formulation. Never change the canonical title, modal interpretation, or canonical article to solve a plaque-layout failure.
+- Reviewed primary exhibits target a direct 32–35-word wall invitation. The broader 25–45-word physical fitting range remains an accessibility fallback for unreviewed or explicitly excepted plaques; using that fallback does not by itself earn `standard-compliant` exhibit status. Never change the canonical title, modal interpretation, or canonical article to solve a plaque-layout failure.
 - This contract applies to all primary canonical exhibits and does not automatically govern room signs, gallery signs, navigation signs, object labels, supplemental surfaces, or noncanonical architectural labels.
 - Exceptions require explicit owner approval and a durable repository decision. There are currently no implicit exceptions.
 

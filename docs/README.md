@@ -13,6 +13,7 @@ This index separates durable standards, current production authority, and histor
 - [`museum-masterplan/exhibit-wall-standard.md`](./museum-masterplan/exhibit-wall-standard.md) — current installation, clearance, hierarchy, and wall-use rules.
 - [`museum-structural-residency.md`](./museum-structural-residency.md) — current permanent-structure and content-residency contract.
 - [`museum-asset-provenance.md`](./museum-asset-provenance.md) — current media inventory, rights policy, lock pipeline, and preserved provenance history.
+- [`editorial/exhibit-review-ledger.md`](./editorial/exhibit-review-ledger.md) — generated canonical exhibit-to-article inventory and separate exhibit-review baseline.
 - [`editorial/flagship-program.json`](./editorial/flagship-program.json) — owner-approved flagship roster and targets; live progress is reported by `npm run report:flagships`.
 - [`content-roadmap.md`](./content-roadmap.md) — current editorial coverage and remaining depth work.
 

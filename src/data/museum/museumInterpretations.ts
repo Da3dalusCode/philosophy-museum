@@ -15,6 +15,7 @@ import {
 } from './museumCanonicalProgram';
 import {museumAssetById} from './museumAssets';
 import type {ArticleSection, Branch, EditorialSource, Philosopher, ReadingEntry, SourceLink} from '../../types/philosophy';
+import type {MuseumExhibitReview} from '../../editorial/exhibitReview';
 import {EARLY_MODERN_MUSEUM_INTERPRETATIONS} from './renaissanceReasonRevolutionInterpretations';
 import {MODERNITY_MUSEUM_INTERPRETATIONS} from './modernityFreedomCritiqueInterpretations';
 import {MUSEUM_EXPANSION_INTERPRETATIONS} from './museumExpansionInterpretations';
@@ -53,8 +54,10 @@ export type MuseumInterpretiveConnection = {
 export type MuseumPrimaryPresentation = {
   mode: 'concise';
   orientation: readonly {label: string; value: string}[];
+  orientationException?: string;
   articleActionLabel: string;
   bodyLayout: 'prose';
+  exhibitLayout?: 'object-led';
   plaqueKicker?: string;
   plaqueSubtitleLines?: 1 | 2 | 3 | 4;
 };
@@ -78,6 +81,7 @@ type MuseumInterpretationBase = {
   tier?: MuseumPresentationTier;
   connections?: readonly MuseumInterpretiveConnection[];
   presentation?: MuseumPrimaryPresentation;
+  review?: MuseumExhibitReview;
 };
 
 export type MuseumPhilosopherInterpretation = MuseumInterpretationBase & {
@@ -1419,6 +1423,7 @@ const applyPrimaryInterpretationEnrichment = (
     keyWorks: enrichment.keyWorks ?? interpretation.keyWorks,
     sections: enrichedSections ?? interpretation.sections,
     presentation: enrichment.presentation ?? interpretation.presentation,
+    review: enrichment.review ?? interpretation.review,
     objectInterpretations: {
       ...interpretation.objectInterpretations,
       ...enrichment.objectInterpretations,

@@ -4095,7 +4095,7 @@ check('Gallery 20 is a complete four-room, 25-installation utility, liberty, and
   assert.match(utilityLibertyCapitalSupplementalDataSource, /export const UTILITY_LIBERTY_CAPITAL_SUPPLEMENTAL_EXHIBITS/u, 'Gallery 20 supplemental content is not exported');
 });
 
-check('Kantianism and Marxism use the concise primary Museum interpretation contract', () => {
+check('the five exhibit-review pilots use the object-led primary interpretation contract', () => {
   const expected = [
     {
       id: 'kantianism',
@@ -4103,7 +4103,7 @@ check('Kantianism and Marxism use the concise primary Museum interpretation cont
       hallId: GERMAN_IDEALISM_GALLERY_ID,
       assetId: 'german-idealism-reinhold-rijksmuseum-1795',
       articleActionLabel: 'Read the full sourced Kantianism article',
-      requiredLabels: ['Reception landmark', 'Early reception', 'First transformations', 'Later reconstructions', 'Questions carried forward', 'Status'],
+      status: 'standard-compliant',
     },
     {
       id: 'marxism',
@@ -4111,7 +4111,31 @@ check('Kantianism and Marxism use the concise primary Museum interpretation cont
       hallId: UTILITY_LIBERTY_CAPITAL_GALLERY_ID,
       assetId: 'utility-marxism-zurich-congress-1893',
       articleActionLabel: 'Read the full sourced Marxism article',
-      requiredLabels: ['Post-Marx anchor', 'Formation', 'Political forms', 'Global revisions', 'Live disputes', 'Status'],
+      status: 'standard-compliant',
+    },
+    {
+      id: 'nagarjuna',
+      name: 'Nāgārjuna',
+      hallId: 'buddhist-philosophies',
+      assetId: 'nagarjuna-sichuan-thangka',
+      articleActionLabel: 'Read the full sourced Nāgārjuna article',
+      status: 'standard-compliant',
+    },
+    {
+      id: 'boethius',
+      name: 'Boethius',
+      hallId: 'latin-christian-scholastic',
+      assetId: 'scholastic-boethius-miniature',
+      articleActionLabel: 'Read the full sourced Boethius article',
+      status: 'standard-compliant',
+    },
+    {
+      id: 'sextus-empiricus',
+      name: 'Sextus Empiricus',
+      hallId: HELLENISTIC_ROMAN_GALLERY_ID,
+      assetId: 'skepticism-sextus-riedel',
+      articleActionLabel: 'Read the full sourced Sextus Empiricus article',
+      status: 'reconciled',
     },
   ];
   for (const spec of expected) {
@@ -4120,37 +4144,31 @@ check('Kantianism and Marxism use the concise primary Museum interpretation cont
     assert.equal(interpretation.presentation?.mode, 'concise');
     assert.equal(interpretation.presentation.articleActionLabel, spec.articleActionLabel);
     assert.equal(interpretation.presentation.bodyLayout, 'prose');
+    assert.equal(interpretation.presentation.exhibitLayout, 'object-led');
     assert.equal(interpretation.presentation.plaqueKicker, '');
-    assert.deepEqual(interpretation.presentation.orientation.map(({label}) => label), spec.requiredLabels);
-    assert.equal(interpretation.presentation.orientation.length, 6);
-    assert.match(interpretation.lead, new RegExp(`^${spec.name} is\\b`, 'u'));
-    assert(wordCount(interpretation.lead) >= 20 && wordCount(interpretation.lead) <= 50, `${spec.id} definition deck is ${wordCount(interpretation.lead)} words`);
+    assert.equal(interpretation.presentation.orientation.length, 5);
+    assert.equal(interpretation.lead, '');
+    assert.equal(interpretation.review?.status, spec.status);
     assert.equal(interpretation.sections.length, 1);
-    assert.equal(interpretation.sections[0].paragraphs.length, 4);
+    assert.equal(interpretation.sections[0].paragraphs.length, 3);
     assert(interpretation.sections.every(({heading}) => heading === ''), `${spec.id} prose interpretation exposes a section heading`);
     const mainWords = wordCount(interpretation.sections.flatMap(({paragraphs}) => paragraphs).join(' '));
-    assert(mainWords >= 250 && mainWords <= 350, `${spec.id} main interpretation is ${mainWords} words`);
+    assert(mainWords >= 250 && mainWords <= 268, `${spec.id} main interpretation is ${mainWords} words`);
     const asset = assetById.get(spec.assetId);
     assert(asset, `${spec.id} principal object is missing`);
-    const captionWords = wordCount(`${asset.caption} ${interpretation.objectInterpretations[spec.assetId]}`);
-    assert(captionWords >= 45 && captionWords <= 90, `${spec.id} object and caption are ${captionWords} words`);
+    assert(asset.caption && asset.attribution && asset.license && asset.sourcePageUrl, `${spec.id} object provenance is incomplete`);
+    assert(interpretation.objectInterpretations[spec.assetId], `${spec.id} object interpretation is missing`);
     const catalog = hallById.get(spec.hallId)?.exhibits.find(({id}) => id === spec.id);
     assert(catalog, `${spec.id} catalog exhibit is missing`);
-    assert.equal(catalog.displayName, spec.name);
+    assert.equal(interpretation.name, spec.name);
     const plaqueWords = wordCount(catalog.question);
-    assert(plaqueWords >= 25 && plaqueWords <= 45, `${spec.id} wall-plaque invitation is ${plaqueWords} words`);
-    const visitorCopy = [
-      interpretation.centralQuestion,
-      ...interpretation.presentation.orientation.flatMap(({label, value}) => [label, value]),
-      ...interpretation.sections.flatMap(({heading, paragraphs}) => [heading, ...paragraphs]),
-      interpretation.objectInterpretations[spec.assetId],
-    ].join(' ');
-    assert.doesNotMatch(visitorCopy, /\b(?:kant|fichte|schelling|hegel|schopenhauer|rawls|habermas|marx|fanon|angela-davis)\b/u, `${spec.id} exposes a raw canonical ID`);
+    assert(plaqueWords >= 32 && plaqueWords <= 35, `${spec.id} wall-plaque invitation is ${plaqueWords} words`);
   }
   assert.match(interpretationPanelSource, /content\.presentation\?\.orientation/u, 'shared primary renderer does not consume concise orientation');
   assert.match(interpretationPanelSource, /!concise && <div className="museum-idea-grid">/u, 'shared primary renderer still dumps article catalogs into concise exhibits');
   assert.match(interpretationPanelSource, /!concise && <p className="museum-panel-kicker">/u, 'concise primary modal still exposes a competing eyebrow');
-  assert.match(interpretationPanelSource, /concise \? content\.lead : content\.centralQuestion/u, 'concise primary modal does not lead with its direct definition');
+  assert.match(interpretationPanelSource, /data-exhibit-layout/u, 'shared primary renderer does not expose the object-led layout contract');
+  assert.match(interpretationPanelSource, /\(content\.lead \|\| !concise\)/u, 'shared primary renderer does not suppress the separate pilot lead');
   assert.match(interpretationPanelSource, /data-body-layout=\{content\.presentation\?\.bodyLayout/u, 'shared primary renderer does not expose the prose layout contract');
 });
 
