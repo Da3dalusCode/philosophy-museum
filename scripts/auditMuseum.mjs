@@ -4173,6 +4173,11 @@ check('the five exhibit-review pilots use the object-led primary interpretation 
   }
   assert.match(interpretationPanelSource, /visitorGuideSections\(content\.presentation\?\.orientation\)/u, 'shared primary renderer does not consume subject-specific visitor guides');
   assert.match(interpretationPanelSource, /className="museum-visitor-guide"/u, 'shared primary renderer does not render compact visitor-guide sections');
+  assert.match(interpretationPanelSource, /className="museum-primary-flow"/u, 'pilot renderer does not expose the responsive primary reading flow');
+  assert.match(interpretationPanelSource, /className="museum-primary-reference"/u, 'pilot renderer does not group the object and visitor guide as one reference block');
+  assert.match(museumCssSource, /\.museum-primary-reference\{[^}]*float:right/u, 'pilot desktop reference block is not floated');
+  assert.match(museumCssSource, /\.museum-primary-flow::after\{[^}]*clear:both/u, 'pilot records do not clear the floated primary content');
+  assert.match(museumCssSource, /@media\(max-width:760px\)[\s\S]*?\.museum-primary-reference\{display:contents\}[\s\S]*?\.museum-primary-flow>\.museum-interpretive-sections\[data-body-layout=prose\]\{order:2[^}]*\}[\s\S]*?\.museum-primary-reference \.museum-visitor-guide\{order:3/u, 'pilot narrow layout does not preserve object, prose, then visitor-guide order');
   assert.match(interpretationPanelSource, /!concise && <div className="museum-idea-grid">/u, 'shared primary renderer still dumps article catalogs into concise exhibits');
   assert.match(interpretationPanelSource, /!concise && <p className="museum-panel-kicker">/u, 'concise primary modal still exposes a competing eyebrow');
   assert.match(interpretationPanelSource, /data-exhibit-layout/u, 'shared primary renderer does not expose the object-led layout contract');

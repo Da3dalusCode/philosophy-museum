@@ -107,6 +107,27 @@ export function MuseumInterpretationPanel({
     ? []
     : content.presentation?.orientation ?? museumInterpretationFacts(content)) as readonly MuseumOrientationFact[];
   const canonicalTitle = exhibit.displayName;
+  const objectLed = content.presentation?.exhibitLayout === 'object-led';
+
+  const principalFigure = principal && <figure className="museum-object-hero">
+    <MuseumAssetImage asset={principal} priority/>
+    <figcaption><strong>{principal.caption}</strong><span>{content.objectInterpretations[principal.id] ?? principal.historicalNote}</span></figcaption>
+  </figure>;
+  const visitorGuide = guideSections && <div className="museum-visitor-guide" aria-label="Visitor guide">
+    {guideSections.map((section) => <section key={section.heading}>
+      <h3>{section.heading}</h3>
+      <ul>{section.items.map((item, index) => <li key={`${item.label}:${index}`}>
+        <strong>{item.label}</strong><span>{item.description}</span>
+      </li>)}</ul>
+    </section>)}
+  </div>;
+  const interpretationBody = <div className="museum-interpretive-sections" data-body-layout={content.presentation?.bodyLayout ?? 'sections'}>
+    {content.sections.map((section, index) => <section key={section.heading || index}>
+      {section.heading && <h3>{section.heading}</h3>}
+      {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+      {section.points && <ul>{section.points.map((point) => <li key={point}>{point}</li>)}</ul>}
+    </section>)}
+  </div>;
 
   useEffect(() => {
     const frame = window.requestAnimationFrame(() => document.getElementById(titleId)?.focus({preventScroll: true}));
@@ -172,40 +193,32 @@ export function MuseumInterpretationPanel({
       </header>
 
       <div className="museum-panel-scroll">
-        <section className="museum-panel-opening" data-has-object={principal ? 'true' : 'false'}>
-          {principal && <figure className="museum-object-hero">
-            <MuseumAssetImage asset={principal} priority/>
-            <figcaption><strong>{principal.caption}</strong><span>{content.objectInterpretations[principal.id] ?? principal.historicalNote}</span></figcaption>
-          </figure>}
-          {(content.lead || !concise) && <div className="museum-panel-opening-copy">
-            <p className={concise ? 'museum-panel-deck' : 'museum-exhibit-question'} id={descriptionId}>{concise ? content.lead : content.centralQuestion}</p>
-            {!concise && <p className="museum-panel-lead">{content.lead}</p>}
+        {objectLed ? <div className="museum-primary-flow">
+          <aside className="museum-primary-reference" aria-label="Object and visitor guide">
+            {principalFigure}
+            {visitorGuide}
+          </aside>
+          {interpretationBody}
+        </div> : <>
+          <section className="museum-panel-opening" data-has-object={principal ? 'true' : 'false'}>
+            {principalFigure}
+            {(content.lead || !concise) && <div className="museum-panel-opening-copy">
+              <p className={concise ? 'museum-panel-deck' : 'museum-exhibit-question'} id={descriptionId}>{concise ? content.lead : content.centralQuestion}</p>
+              {!concise && <p className="museum-panel-lead">{content.lead}</p>}
+            </div>}
+          </section>
+
+          {visitorGuide ?? <dl className="museum-fact-grid" aria-label={concise ? 'Visitor orientation' : undefined}>
+            {facts.map((fact) => <div key={fact.label}><dt>{fact.label}</dt><dd>{fact.value}</dd></div>)}
+          </dl>}
+
+          {!concise && <div className="museum-idea-grid">
+            <section><p className="museum-object-role">Key ideas</p><ul>{content.keyIdeas.map((idea) => <li key={idea}>{idea}</li>)}</ul></section>
+            <section><p className="museum-object-role">Works and witnesses</p><ul>{content.keyWorks.map((work) => <li key={work}>{work}</li>)}</ul></section>
           </div>}
-        </section>
 
-        {guideSections ? <div className="museum-visitor-guide" aria-label="Visitor guide">
-          {guideSections.map((section) => <section key={section.heading}>
-            <h3>{section.heading}</h3>
-            <ul>{section.items.map((item, index) => <li key={`${item.label}:${index}`}>
-              <strong>{item.label}</strong><span>{item.description}</span>
-            </li>)}</ul>
-          </section>)}
-        </div> : <dl className="museum-fact-grid" aria-label={concise ? 'Visitor orientation' : undefined}>
-          {facts.map((fact) => <div key={fact.label}><dt>{fact.label}</dt><dd>{fact.value}</dd></div>)}
-        </dl>}
-
-        {!concise && <div className="museum-idea-grid">
-          <section><p className="museum-object-role">Key ideas</p><ul>{content.keyIdeas.map((idea) => <li key={idea}>{idea}</li>)}</ul></section>
-          <section><p className="museum-object-role">Works and witnesses</p><ul>{content.keyWorks.map((work) => <li key={work}>{work}</li>)}</ul></section>
-        </div>}
-
-        <div className="museum-interpretive-sections" data-body-layout={content.presentation?.bodyLayout ?? 'sections'}>
-          {content.sections.map((section, index) => <section key={section.heading || index}>
-            {section.heading && <h3>{section.heading}</h3>}
-            {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
-            {section.points && <ul>{section.points.map((point) => <li key={point}>{point}</li>)}</ul>}
-          </section>)}
-        </div>
+          {interpretationBody}
+        </>}
 
         {supporting.map((asset) => <section className="museum-supporting-object" key={asset.id}>
           <div><p className="museum-object-role">{asset.role.replace('-', ' ')}</p><h3>{asset.title}</h3><p>{content.objectInterpretations[asset.id] ?? asset.caption}</p></div>
