@@ -16,7 +16,7 @@ Regenerate it with `npm run report:exhibits` and verify it with `npm run audit:e
 
 | Total | Unreviewed | Reconciled | Standard compliant | Out of date |
 | ---: | ---: | ---: | ---: | ---: |
-| 192 | 178 | 0 | 14 | 0 |
+| 192 | 163 | 0 | 29 | 0 |
 
 ## Article relationships
 
@@ -30,7 +30,22 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 
 | Exhibit | Article status | Exhibit status | Plaque words | Main words | Paragraphs | Guide sections | Guide items | Presentation |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | --- |
+| Jainism | claim-reviewed | standard-compliant | 32 | 302 | 3 | 3 | 6 | standard presentation |
+| Mahāvīra | claim-reviewed | standard-compliant | 32 | 311 | 3 | 3 | 6 | standard presentation |
+| Kaṇāda | claim-reviewed | standard-compliant | 32 | 307 | 3 | 3 | 5 | standard presentation |
+| Patañjali | claim-reviewed | standard-compliant | 32 | 312 | 3 | 3 | 6 | standard presentation |
+| Vedanta | claim-reviewed | standard-compliant | 32 | 304 | 3 | 3 | 6 | standard presentation |
+| Adi Shankara | claim-reviewed | standard-compliant | 32 | 320 | 3 | 3 | 6 | standard presentation |
+| Ramanuja | claim-reviewed | standard-compliant | 32 | 319 | 3 | 3 | 6 | standard presentation |
+| Madhva | claim-reviewed | standard-compliant | 32 | 320 | 3 | 3 | 6 | standard presentation |
 | Nāgārjuna | claim-reviewed | standard-compliant | 32 | 263 | 3 | 4 | 7 | standard presentation |
+| Confucius | claim-reviewed | standard-compliant | 34 | 299 | 3 | 3 | 5 | standard presentation |
+| Mencius | claim-reviewed | standard-compliant | 32 | 292 | 3 | 3 | 5 | standard presentation |
+| Xunzi | claim-reviewed | standard-compliant | 32 | 296 | 3 | 3 | 5 | standard presentation |
+| Laozi | claim-reviewed | standard-compliant | 33 | 290 | 3 | 3 | 5 | standard presentation |
+| Zhuangzi | claim-reviewed | standard-compliant | 32 | 294 | 3 | 3 | 5 | standard presentation |
+| Mozi | claim-reviewed | standard-compliant | 32 | 308 | 3 | 3 | 5 | standard presentation |
+| Han Feizi | claim-reviewed | standard-compliant | 32 | 298 | 3 | 3 | 5 | standard presentation |
 | Boethius | claim-reviewed | standard-compliant | 32 | 268 | 3 | 4 | 7 | standard presentation |
 | John Scotus Eriugena | claim-reviewed | standard-compliant | 32 | 297 | 3 | 3 | 4 | standard presentation |
 | Medieval Scholasticism | claim-reviewed | standard-compliant | 32 | 294 | 3 | 3 | 4 | standard presentation |
@@ -113,14 +128,14 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | core-questions-forum | core-aesthetics | aesthetics | branch:aesthetics | matched | bibliography-only | unreviewed |
 | core-questions-forum | core-religion | philosophy-of-religion | branch:philosophy-of-religion | matched | claim-reviewed | unreviewed |
 | classical-south-asian-worlds | south-orientation-many-schools | indian-philosophy | branch:indian-philosophy | matched | bibliography-only | unreviewed |
-| classical-south-asian-worlds | south-jain-worlds | jainism | branch:jainism | matched | claim-reviewed | unreviewed |
-| classical-south-asian-worlds | south-jain-worlds | mahavira | philosopher:mahavira | matched | claim-reviewed | unreviewed |
-| classical-south-asian-worlds | south-categories-realism | kanada | philosopher:kanada | matched | claim-reviewed | unreviewed |
-| classical-south-asian-worlds | south-yoga-mind-liberation | patanjali | philosopher:patanjali | matched | claim-reviewed | unreviewed |
-| classical-south-asian-worlds | south-vedanta-rival-readings | vedanta | branch:vedanta | matched | claim-reviewed | unreviewed |
-| classical-south-asian-worlds | south-vedanta-rival-readings | shankara | philosopher:shankara | matched | claim-reviewed | unreviewed |
-| classical-south-asian-worlds | south-vedanta-rival-readings | ramanuja | philosopher:ramanuja | matched | claim-reviewed | unreviewed |
-| classical-south-asian-worlds | south-vedanta-rival-readings | madhva | philosopher:madhva | matched | claim-reviewed | unreviewed |
+| classical-south-asian-worlds | south-jain-worlds | jainism | branch:jainism | matched | claim-reviewed | standard-compliant |
+| classical-south-asian-worlds | south-jain-worlds | mahavira | philosopher:mahavira | matched | claim-reviewed | standard-compliant |
+| classical-south-asian-worlds | south-categories-realism | kanada | philosopher:kanada | matched | claim-reviewed | standard-compliant |
+| classical-south-asian-worlds | south-yoga-mind-liberation | patanjali | philosopher:patanjali | matched | claim-reviewed | standard-compliant |
+| classical-south-asian-worlds | south-vedanta-rival-readings | vedanta | branch:vedanta | matched | claim-reviewed | standard-compliant |
+| classical-south-asian-worlds | south-vedanta-rival-readings | shankara | philosopher:shankara | matched | claim-reviewed | standard-compliant |
+| classical-south-asian-worlds | south-vedanta-rival-readings | ramanuja | philosopher:ramanuja | matched | claim-reviewed | standard-compliant |
+| classical-south-asian-worlds | south-vedanta-rival-readings | madhva | philosopher:madhva | matched | claim-reviewed | standard-compliant |
 | buddhist-philosophies | buddhist-many-paths | buddhist-philosophy | branch:buddhist-philosophy | matched | bibliography-only | unreviewed |
 | buddhist-philosophies | buddhist-many-paths | buddha | philosopher:buddha | matched | bibliography-only | unreviewed |
 | buddhist-philosophies | buddhist-madhyamaka | nagarjuna | philosopher:nagarjuna | matched | claim-reviewed | standard-compliant |
@@ -130,16 +145,16 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | buddhist-philosophies | buddhist-pramana | dharmakirti | philosopher:dharmakirti | matched | claim-reviewed | unreviewed |
 | classical-chinese-traditions | china-many-ways | chinese-philosophy | branch:chinese-philosophy | matched | bibliography-only | unreviewed |
 | classical-chinese-traditions | china-confucian-cultivation | confucianism | branch:confucianism | matched | bibliography-only | unreviewed |
-| classical-chinese-traditions | china-confucian-cultivation | confucius | philosopher:confucius | matched | claim-reviewed | unreviewed |
-| classical-chinese-traditions | china-confucian-cultivation | mencius | philosopher:mencius | matched | claim-reviewed | unreviewed |
-| classical-chinese-traditions | china-confucian-cultivation | xunzi | philosopher:xunzi | matched | claim-reviewed | unreviewed |
+| classical-chinese-traditions | china-confucian-cultivation | confucius | philosopher:confucius | matched | claim-reviewed | standard-compliant |
+| classical-chinese-traditions | china-confucian-cultivation | mencius | philosopher:mencius | matched | claim-reviewed | standard-compliant |
+| classical-chinese-traditions | china-confucian-cultivation | xunzi | philosopher:xunzi | matched | claim-reviewed | standard-compliant |
 | classical-chinese-traditions | china-daoist-way | daoism | branch:daoism | matched | bibliography-only | unreviewed |
-| classical-chinese-traditions | china-daoist-way | laozi | philosopher:laozi | matched | claim-reviewed | unreviewed |
-| classical-chinese-traditions | china-daoist-way | zhuangzi | philosopher:zhuangzi | matched | claim-reviewed | unreviewed |
+| classical-chinese-traditions | china-daoist-way | laozi | philosopher:laozi | matched | claim-reviewed | standard-compliant |
+| classical-chinese-traditions | china-daoist-way | zhuangzi | philosopher:zhuangzi | matched | claim-reviewed | standard-compliant |
 | classical-chinese-traditions | china-mohist-fa | mohism | branch:mohism | matched | bibliography-only | unreviewed |
 | classical-chinese-traditions | china-mohist-fa | legalism | branch:legalism | matched | bibliography-only | unreviewed |
-| classical-chinese-traditions | china-mohist-fa | mozi | philosopher:mozi | matched | claim-reviewed | unreviewed |
-| classical-chinese-traditions | china-mohist-fa | han-feizi | philosopher:han-feizi | matched | claim-reviewed | unreviewed |
+| classical-chinese-traditions | china-mohist-fa | mozi | philosopher:mozi | matched | claim-reviewed | standard-compliant |
+| classical-chinese-traditions | china-mohist-fa | han-feizi | philosopher:han-feizi | matched | claim-reviewed | standard-compliant |
 | islamic-philosophical-worlds | islamic-translation-falsafa | islamic-philosophy | branch:islamic-philosophy | matched | claim-reviewed | unreviewed |
 | islamic-philosophical-worlds | islamic-translation-falsafa | al-kindi | philosopher:al-kindi | matched | claim-reviewed | unreviewed |
 | islamic-philosophical-worlds | islamic-translation-falsafa | al-farabi | philosopher:al-farabi | matched | claim-reviewed | unreviewed |

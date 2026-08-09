@@ -2,6 +2,10 @@ import type {MuseumAssetId} from './museumAssetTypes';
 import type {MuseumPrimaryInterpretationEnrichment} from './scholasticRationalistPrimaryInterpretationEnrichment';
 
 type OrientationItem = {readonly label: string; readonly value: string};
+type OrientationSection = {
+  readonly heading: string;
+  readonly items: readonly {readonly label: string; readonly description: string}[];
+};
 
 const concise = (
   name: string,
@@ -26,140 +30,205 @@ const concise = (
   objectInterpretations: {[assetId]: objectText},
 });
 
+const standard = (
+  name: string,
+  paragraphs: readonly string[],
+  orientation: readonly OrientationSection[],
+  assetId: MuseumAssetId,
+  objectText: string,
+  lock: string,
+): MuseumPrimaryInterpretationEnrichment => ({
+  lead: '',
+  keyIdeas: [],
+  keyWorks: [],
+  sections: [{heading: '', paragraphs}],
+  presentation: {
+    mode: 'concise',
+    orientation,
+    articleActionLabel: `Read the full sourced ${name} article`,
+    bodyLayout: 'prose',
+    exhibitLayout: 'object-led',
+    plaqueKicker: '',
+    plaqueSubtitleLines: 4,
+  },
+  review: {
+    status: 'standard-compliant',
+    reviewedOn: '2026-08-09',
+    method: 'Reconciled against the current claim-reviewed article and registered exhibit sources; object-led presentation, subject-specific visitor guide, and principal-object provenance reviewed against the locked exhibit standard.',
+    lock,
+  },
+  objectInterpretations: {[assetId]: objectText},
+});
+
 export const EAST_ASIAN_PRIMARY_INTERPRETATIONS:
 Readonly<Record<string, MuseumPrimaryInterpretationEnrichment>> = {
-  confucius: concise(
+  confucius: standard(
     'Confucius',
-    'Confucius asks how learning, humane attention, ritual practice, and trustworthy conduct can transform relationships and public life.',
     [
-      'Confucius was a late Spring and Autumn teacher associated with the state of Lu. The familiar 551–479 BCE dates are traditional anchors, while many travels, offices, and encounters belong to later morally shaped biography. His importance rests less on a fully recoverable career than on remembered conversations about learning, ritual, music, family, language, and government that communities preserved and repeatedly reinterpreted.',
-      'The Analects is the central witness, but it is not a book written or dictated by Confucius. Its twenty received books contain sayings, dialogues, scenes, and descriptions formed and transmitted through more than one community. Within them, ren names a demanding relational humaneness, li names embodied practices that can educate feeling and coordinate conduct, and the junzi becomes exemplary through study and correction rather than inherited rank alone. These terms remain wider than any single English equivalent.',
-      'Political authority should earn trust through credible conduct, fitting roles, remonstrance, and humane practice, not coercion alone. Yet the tradition also raises hard questions about hierarchy, family loyalty, paternalism, and who may revise inherited forms. Later Confucian canons, state institutions, temples, commentaries, and global portraits are powerful receptions rather than one doctrine already complete in the historical teacher. The exhibit therefore joins practical cultivation to visible textual uncertainty.',
-      'Read the installation as an invitation to test forms of conduct, not to memorize a sage’s rules. Ask when repeated practice deepens attention, when a role earns trust, and when humane judgment should challenge the very ritual or hierarchy that trained it. Those questions keep cultivation active rather than ceremonial.',
+      'Confucius is a late Spring and Autumn teacher associated with Lu, conventionally dated 551–479 BCE. Those dates orient rather than document a fully recoverable career: many travels, offices, and encounters belong to later morally shaped biography. His importance rests in conversations about learning, ritual, music, family, language, and government that communities preserved and reinterpreted. The Analects is the central witness, yet its twenty received books are a layered collection of sayings, scenes, and dialogues, not a book written or dictated by one historical person. That uncertainty distinguishes a historical teacher from the many traditions that later made him exemplary.',
+      'Within that collection, ren names demanding relational humaneness, while li names embodied practices that can educate feeling and coordinate conduct. Learning involves study, rehearsal, reflection, and correction among others, not merely acquiring information. A junzi—often rendered “exemplary person”—becomes reliable through this work rather than inherited rank alone. These terms resist one-word English equivalents and do not yield a mechanical code. They ask how a person can make care, judgment, speech, and shared forms answerable to the particular relationships in which they matter. Music and poetry likewise belong to cultivation because attention is learned through practice, not declared by insight alone.',
+      'Confucius links public authority to credible conduct, fitting roles, remonstrance, and humane practice rather than coercion alone. That orientation also leaves hard questions about hierarchy, family loyalty, paternalism, and who may revise inherited forms. The Yuan portrait records a later visual canon of the sage, not a documented lifetime likeness; it makes reception visible without proving the teacher’s appearance or doctrine. Read the exhibit as an invitation to test whether repeated practice deepens attention, and when humane judgment should challenge the ritual or hierarchy that trained it. A role earns authority through conduct, not merely by bearing an inherited name.',
     ],
     [
-      {label: 'Historical setting', value: 'Lu and neighboring states · late Spring and Autumn period'},
-      {label: 'Chronology', value: 'Traditional 551–479 BCE · many life episodes uncertain'},
-      {label: 'Primary witness', value: 'Layered Analects · not a verbatim authored book'},
-      {label: 'Central practices', value: 'Learning · ren · li · music · exemplary conduct'},
-      {label: 'Open tension', value: 'Relational responsibility · hierarchy · humane criticism'},
+      {heading: 'Key ideas', items: [
+        {label: 'Humaneness (ren)', description: 'A demanding way of responding to other people with care, reciprocity, restraint, and situational judgment.'},
+        {label: 'Ritual practice (li)', description: 'Learned forms of conduct that can coordinate a community and educate feeling when they remain answerable to humane judgment.'},
+      ]},
+      {heading: 'How cultivation works', items: [
+        {label: 'Learning with others', description: 'Study, rehearsal, reflection, and correction turn inherited texts and practices into a continuing discipline.'},
+        {label: 'The exemplary person', description: 'A junzi is formed through reliable conduct and willingness to learn, not simply born into high rank.'},
+      ]},
+      {heading: 'Continuing question', items: [
+        {label: 'Authority and criticism', description: 'When do roles and rituals earn trust, and when should humane concern revise the hierarchies they preserve?'},
+      ]},
     ],
     'china-confucius-yuan-portrait',
     'This formal Yuan-dynasty album portrait was made roughly eighteen centuries after Confucius. It shows the durable visual canon through which later communities remembered a sage, not a documented lifetime likeness. The object identifies his reception while the layered Analects, rather than the painted face, supplies the exhibit’s main early textual evidence.',
+    'fnv1a64:f088ecf7490b481d',
   ),
-  mencius: concise(
+  mencius: standard(
     'Mencius',
-    'Mencius asks how fragile beginnings of moral concern can grow through reflection, practice, livelihood, and humane government.',
     [
-      'Mencius was a Warring States Confucian teacher conventionally placed around 372–289 BCE, though the exact chronology and court itinerary remain approximate. The received Mengzi presents exchanges with rulers, rivals, and students in a layered collection rather than a verbatim travel diary. Its later place among the Four Books made this one Confucian account of cultivation extraordinarily influential without erasing ancient competitors.',
-      'To say human nature is good does not mean that people are born morally complete or reliably choose well. Mencius identifies incipient responses—often called the four beginnings—that can develop into humaneness, rightness, ritual propriety, and wisdom. Compassion, shame, respect, and discrimination require nourishment, attention, reflection, extension, and supportive conditions. Xin, the heart-mind, joins feeling and judgment rather than reproducing a modern opposition between emotion and reason.',
-      'Humane government therefore includes material security, reduced destructive burdens, education, remonstrance, and limits on a ruler who harms the people. These arguments remain hierarchical and cannot simply be renamed modern democracy. Nor should the disagreement with Xunzi collapse into optimism versus pessimism: the two thinkers classify spontaneous tendencies, moral capacities, deliberate practice, and achieved goodness differently. The exhibit keeps that live conceptual dispute beside Mencius’s demanding claim that institutions help moral capacities flourish or fail.',
-      'The practical test is developmental: notice a morally salient response, examine what it demands beyond the vivid first case, and ask which habits or institutions help it endure. A beginning can guide criticism only if it grows into reliable action and remains answerable to people whose welfare a ruler or family might overlook.',
+      'Mencius was a Warring States Confucian teacher conventionally placed around 372–289 BCE, although his chronology and court itinerary remain approximate. The received Mengzi presents exchanges with rulers, rivals, and students in a layered collection, not a verbatim travel diary. Its later place among the Four Books made this account of cultivation unusually influential without erasing ancient competitors. The exhibit begins with a thinker and text in transmission, not a single transparent voice: later canonical authority should not make contested chronology or textual formation disappear. Its dialogues present arguments in particular political encounters rather than a detached psychology textbook.',
+      'Saying that human nature is good does not mean people begin morally complete or reliably choose well. Mencius identifies incipient responses—often called four beginnings—that can grow into humaneness, rightness, ritual propriety, and wisdom. Compassion, shame, respect, and discrimination need nourishment, attention, reflection, extension, and supportive conditions. Xin, or heart-mind, joins feeling and judgment rather than reproducing a modern split between emotion and reason. A first morally salient response matters only if cultivation carries it beyond the vivid immediate case into dependable action. Poverty, neglect, and coercion can damage the conditions under which that development is possible.',
+      'Humane government includes material security, reduced destructive burdens, education, remonstrance, and limits on rulers who harm the people. These arguments remain hierarchical and are not a modern democratic program. Nor is the disagreement with Xunzi merely optimism against pessimism: they classify spontaneous tendencies, moral capacities, deliberate practice, and achieved goodness differently. The Yuan portrait records Mencius’s later canonical commemoration rather than his appearance. It helps show how reception elevated the teacher while leaving visitors to ask which institutions let moral capacities flourish or fail. Those questions make moral growth a public problem as well as a private aspiration.',
     ],
     [
-      {label: 'Historical setting', value: 'Warring States courts · chronology approximate'},
-      {label: 'Text', value: 'Layered Mengzi dialogues and arguments'},
-      {label: 'Moral psychology', value: 'Beginnings · heart-mind · cultivation · extension'},
-      {label: 'Political claim', value: 'Livelihood and humane rule condition moral growth'},
-      {label: 'Open dispute', value: 'Human nature and achieved goodness beside Xunzi'},
+      {heading: 'Key ideas', items: [
+        {label: 'Moral beginnings', description: 'Early responses such as compassion can be cultivated into durable virtues; they are not proof that anyone is already good.'},
+        {label: 'Heart-mind (xin)', description: 'A single term for the capacity that feels, notices, judges, and can be educated.'},
+      ]},
+      {heading: 'Politics and practice', items: [
+        {label: 'Humane government', description: 'Rulers should reduce avoidable hardship and support conditions in which people can learn and act well.'},
+        {label: 'Extension', description: 'A response to one visible case must be reflected on and carried outward rather than stopping at personal sympathy.'},
+      ]},
+      {heading: 'Continuing debate', items: [
+        {label: 'Mencius and Xunzi', description: 'Their disagreement concerns how moral capacities, desire, learning, and achieved goodness relate—not a simple divide between cheerfulness and despair.'},
+      ]},
     ],
     'china-mencius-yuan-portrait',
     'This Yuan-dynasty portrait was produced many centuries after Mencius and records his later canonical commemoration, not his historical appearance. Its formal scholar-sage imagery helps explain how reception elevated Mencius, while the exhibit keeps that later authority distinct from the approximate Warring States biography and layered Mengzi text.',
+    'fnv1a64:3bebb6078e0e6bd3',
   ),
-  xunzi: concise(
+  xunzi: standard(
     'Xunzi',
-    'Xunzi asks how learning, ritual, language, and institutions can transform unruly tendencies into cultivated character and shared order.',
     [
-      'Xunzi was a late Warring States thinker conventionally dated around 310–235 BCE and associated by later sources with Zhao, Qi, and Chu. The received Xunzi offers unusually sustained essays, but its thirty-two chapters also reflect compositional and editorial layers. Later stories about offices, students, and influence are useful orientation only when kept distinct from secure authorship and chronology.',
-      'The famous claim that human nature is bad does not mean total depravity or an inability to become good. Spontaneous desires and dispositions do not by themselves create ethical order; goodness is achieved through deliberate effort, teachers, standards, practice, and ritual. Ritual coordinates scarce goods, shapes grief and desire, and creates intelligible roles. The heart-mind can distinguish and direct, but it can also become blinded by fixation. Xunzi orders desire rather than demanding its elimination.',
-      'Heaven follows constant patterns instead of adjusting events to reward virtue, leaving humans responsible for organizing their affairs. Public naming likewise uses shared conventions to stabilize distinctions and action without making language arbitrary private fiat. These resources can explain education and cooperation, yet they also raise questions about hierarchy, sage authority, and how inherited constructions can be criticized. Xunzi influenced later statecraft debates, but neither later students nor institutional concerns make him simply a Legalist or reduce his disagreement with Mencius to a slogan.',
-      'The exhibit’s final question concerns standards for construction. If ethical forms are deliberately made, their age alone cannot justify them. Visitors can compare whether a practice coordinates desire sustainably, permits correction, and serves more than entrenched rank. Xunzi supplies tools for formation while leaving the authority to redesign those tools contested.',
+      'Xunzi was a late Warring States thinker conventionally dated around 310–235 BCE and associated by later sources with Zhao, Qi, and Chu. The received Xunzi has unusually sustained essays, but its thirty-two chapters also reflect compositional and editorial layers. Stories about offices, students, and influence remain useful orientation only when separated from secure authorship and chronology. The exhibit therefore treats the text as a resource for arguments about education and order, not a transparent biography or a single timeless doctrine. Its force lies in explaining how human practices make ethical and political life possible.',
+      'His famous claim that human nature is bad does not mean total depravity or an inability to become good. Spontaneous desires and dispositions do not, by themselves, create ethical order; goodness is achieved through deliberate effort, teachers, standards, practice, and ritual. Ritual can coordinate scarce goods, shape grief and desire, and make roles intelligible. The heart-mind can distinguish and direct, but fixation can also blind it. Xunzi seeks to order desire rather than abolish it, making cultivation a demanding social and institutional practice. Study requires models and repeated correction, but that need does not settle whose models deserve authority.',
+      'Heaven follows constant patterns instead of adjusting events to reward virtue, leaving people responsible for organizing their affairs. Public naming uses shared conventions to stabilize distinctions and action without making language private whim. These resources explain education and cooperation while raising questions about hierarchy, sage authority, and criticism of inherited constructions. The Qing portrait is a much later commemorative image, not a Warring States likeness; it represents later reception, not proof of biography or doctrine. Xunzi’s standards matter most when visitors ask who may revise them and for whose benefit. His influence on later statecraft debates does not make him simply a Legalist.',
     ],
     [
-      {label: 'Historical setting', value: 'Late Warring States · exact career uncertain'},
-      {label: 'Text', value: 'Layered thirty-two-chapter Xunzi collection'},
-      {label: 'Cultivation', value: 'Learning · deliberate effort · ritual · music'},
-      {label: 'Public order', value: 'Names · institutions · coordinated desire'},
-      {label: 'Open tension', value: 'Constructed norms · hierarchy · critical revision'},
+      {heading: 'Key ideas', items: [
+        {label: 'Deliberate effort', description: 'Ethical character is made through learning, practice, teachers, and correction rather than simply uncovered inside us.'},
+        {label: 'Ritual', description: 'Shared forms can coordinate desire, grief, goods, and roles; they are social tools rather than empty ceremony.'},
+      ]},
+      {heading: 'How order is made', items: [
+        {label: 'Names and standards', description: 'Publicly shared distinctions can guide action, but their authority must remain open to critical examination.'},
+        {label: 'Constant Heaven', description: 'Natural patterns do not reward virtue, so human beings bear responsibility for their institutions.'},
+      ]},
+      {heading: 'Continuing debate', items: [
+        {label: 'Construction and hierarchy', description: 'If norms are made, when do they educate fairly and when do they preserve authority that needs revision?'},
+      ]},
     ],
     'china-xunzi-qing-portrait',
     'This Qing-dynasty painting is a much later traditional representation, not a Warring States likeness. Its official robes visualize Xunzi through later scholarly and political reception. The exhibit uses it for identification while refusing to let a commemorative image settle his uncertain biography, the layered collection, or his contested relationship to later statecraft.',
+    'fnv1a64:5203edd8ba26df71',
   ),
-  laozi: concise(
+  laozi: standard(
     'Laozi',
-    'Laozi names an attributed textual persona through whom the Daodejing explores the Way, potency, naming, and noncoercive action.',
     [
-      'No secure biography or numeric lifespan can be recovered for Laozi. Sima Qian preserves competing traditions about an archivist, a meeting with Confucius, and departure through a frontier pass; later religious and artistic traditions add further identities. The most responsible starting point is an attributed persona connected to a layered collection of terse verses, not a single documented founder who wrote one finished book.',
-      'Excavated Guodian and Mawangdui witnesses show Laozi-related materials in different selections, sequences, and physical forms before the familiar received arrangement of eighty-one chapters. This plurality does not make the text random, but it prevents a simple author-and-publication story. Dao can name way, course, or generative path; de can name virtue, potency, or efficacy; wu and you shift with context. No one English choice should silently turn these terms into a creator, substance, or creation from absolute nothing.',
-      'Wuwei recommends action without coercive display or self-assertion, not literal inactivity, while ziran concerns unforced being-so rather than mere impulse. Softness, reversal, desire, war, and rulership support competing therapeutic, political, mystical, and statecraft readings. “Daoism” is a retrospective label whose philosophical, religious, commentarial, and institutional histories cannot be reduced to this early text. The exhibit invites close comparison while leaving textual formation and political consequences genuinely open.',
-      'Approach each verse as a compressed intervention rather than a detachable slogan. Compare translations, ask what kind of action or ruler the passage addresses, and watch how apparent opposites change one another. The point is not to solve the Daodejing into one doctrine, but to make its disciplined resistance to force legible.',
+      'No secure biography or numerical lifespan can be recovered for Laozi. Sima Qian preserves competing stories about an archivist, a meeting with Confucius, and departure through a frontier pass; later religious and artistic traditions add further identities. The responsible starting point is an attributed textual persona connected to a layered collection of terse verses, not a documented founder who wrote a finished book. Excavated Guodian and Mawangdui witnesses preserve Laozi-related material in different selections and sequences before the familiar received arrangement of eighty-one chapters. They reveal a textual history before later readers supplied a stable biography and a single canonical order.',
+      'This plurality does not make the Daodejing random, but it blocks a simple author-and-publication story. Dao can name way, course, or generative path; de can name virtue, potency, or efficacy; wu and you change with context. One English word cannot quietly turn these terms into a creator, a substance, or creation from nothing. Wuwei recommends action without coercive display or self-assertion, not literal inactivity, while ziran concerns unforced being-so rather than mere impulse. Each verse needs its setting, translation choices, and argumentative pressure. A memorable line is not a detachable slogan whose meaning survives every context.',
+      'Softness, reversal, desire, war, and rulership support therapeutic, political, mystical, and statecraft readings that remain in tension. “Daoism” is a retrospective label, not one uniform identity for this text’s philosophical, religious, commentarial, and institutional histories. The Ming handscroll stages the later legend of Laozi transmitting the Daodejing at a pass; it cannot prove a single historical traveler composed the received text. It makes reception visible while inviting visitors to compare how apparent opposites reshape an argument about action and force. Its scene also warns against mistaking an influential legend for evidence of authorship.',
     ],
     [
-      {label: 'Identity', value: 'Attributed and legendary textual persona'},
-      {label: 'Textual witnesses', value: 'Guodian · Mawangdui · received Daodejing'},
-      {label: 'Translation-sensitive terms', value: 'dao · de · wu/you · wuwei · ziran'},
-      {label: 'Political problem', value: 'Noncoercive rule · withdrawal · possible quietism'},
-      {label: 'Classification', value: '“Daoism” is later and internally diverse'},
+      {heading: 'Text and identity', items: [
+        {label: 'An attributed persona', description: '“Laozi” connects several historical traditions to a text, not a securely documented author with a recoverable biography.'},
+        {label: 'Several witnesses', description: 'Excavated and received versions preserve different selections and orders, showing that the text has a transmission history.'},
+      ]},
+      {heading: 'Key ideas', items: [
+        {label: 'The Way (dao)', description: 'A flexible term for a course, way, or generative path; translation should not silently make it a Western-style creator or substance.'},
+        {label: 'Noncoercive action (wuwei)', description: 'Acting without forceful display or self-assertion, not doing nothing at all.'},
+      ]},
+      {heading: 'Continuing debate', items: [
+        {label: 'Politics and withdrawal', description: 'Does resistance to force guide careful rule, personal withdrawal, spiritual practice, or several competing possibilities?'},
+      ]},
     ],
     'china-laozi-daodejing-handscroll',
     'This Ming-period handscroll stages the later legend of Laozi transmitting the Daodejing at a frontier pass. It is not evidence that one historical traveler composed the received text in a single encounter. The object makes the biographical story visible precisely so the exhibit can distinguish reception, attributed persona, and layered textual witnesses.',
+    'fnv1a64:0e8281600d198ec0',
   ),
-  zhuangzi: concise(
+  zhuangzi: standard(
     'Zhuangzi',
-    'Zhuangzi uses stories, reversals, skill, and changing perspectives to test rigid claims about knowledge, usefulness, identity, and control.',
     [
-      'A probable later-fourth-century BCE thinker named Zhuang Zhou stands behind part of the tradition, but the person and received book are not identical. The thirty-three chapters preserved through Guo Xiang’s edition comprise seven Inner, fifteen Outer, and eleven Miscellaneous chapters. Inner Chapters are traditionally associated most closely with Zhuang Zhou, yet none is a signed manuscript and the later groups preserve diverse voices and developments.',
-      'The text moves among enormous birds, disputing friends, skilled craftspeople, altered bodies, dreamers, mourners, and refusals of office. These scenes reveal how language, training, social use, and standpoint shape judgment. Perspectival limits do not automatically make every belief equally true. Cook Ding’s responsive movement is trained, cautious skill rather than magical effortlessness, and accounts of uselessness can expose coercive social standards without guaranteeing that withdrawal always answers injustice.',
-      'Stories of bodily difference can overturn assumptions about normality while still using marked bodies for rhetorical surprise; death narratives can revise attachment without commanding the bereaved to suppress grief. Later philosophical Daoist, religious Daoist, literary, artistic, and Chan readers transformed the collection rather than uncovering one timeless system already present. The exhibit keeps the text’s humor and mobility alive while identifying chapter strata, editorial history, political ambiguity, and the risks of easy modern appropriation.',
-      'Let the stories change the scale of the question before extracting a principle. Ask what a judgment enables, whom a standard excludes, and whether trained responsiveness can remain critical of cruelty. That reading practice respects the anthology’s experiments without turning irony into a universal escape from argument or responsibility.',
+      'A probable later-fourth-century BCE thinker named Zhuang Zhou stands behind part of this tradition, but the person and received book are not identical. The thirty-three chapters preserved through Guo Xiang’s edition comprise seven Inner, fifteen Outer, and eleven Miscellaneous chapters. The Inner Chapters are traditionally associated most closely with Zhuang Zhou, yet none is a signed manuscript and the later groups preserve diverse voices and developments. The exhibit reads an anthology with an editorial history rather than extracting an unquestioned system from a familiar name. Its chapters make philosophical inquiry inseparable from genre, compilation, and later reception.',
+      'Its stories of enormous birds, disputing friends, skilled craftspeople, altered bodies, dreamers, mourners, and refusals of office test rigid habits of judgment. Language, training, social use, and standpoint shape what seems obvious, but perspectival limits do not make every belief equally true. Cook Ding’s responsive movement is trained and cautious skill, not magical effortlessness. Accounts of uselessness can expose coercive social standards without guaranteeing that withdrawal answers injustice. The stories change the scale of a question before they yield a lesson. Their humor is a philosophical method, not a license to avoid argument.',
+      'Accounts of bodily difference can overturn assumptions about normality while still using marked bodies for rhetorical surprise; death narratives can revise attachment without requiring suppressed grief. Later philosophical and religious Daoist, literary, artistic, and Chan readers transformed the collection rather than uncovering one timeless doctrine. Hua Zuli’s 1326 portrait gives that much later reception a face, not documentary access to Zhuang Zhou or the chapters’ authors. The guide asks visitors to notice whom a standard excludes and whether trained responsiveness can remain critical of cruelty. That remains a question rather than the text’s one final political instruction, demanding a reader willing to remain unsettled.',
     ],
     [
-      {label: 'Historical persona', value: 'Zhuang Zhou · later 4th century BCE, approximately'},
-      {label: 'Received text', value: '7 Inner · 15 Outer · 11 Miscellaneous chapters'},
-      {label: 'Methods', value: 'Story · irony · reversal · shifting scale'},
-      {label: 'Central problems', value: 'Perspective · language · skill · transformation'},
-      {label: 'Open dispute', value: 'Skepticism · relativism · politics · positive guidance'},
+      {heading: 'How the text works', items: [
+        {label: 'Stories and reversal', description: 'Parables, jokes, shifts in scale, and strange encounters unsettle quick judgments rather than simply state conclusions.'},
+        {label: 'A layered anthology', description: 'Inner, Outer, and Miscellaneous chapters preserve different voices and histories; none should automatically be assigned to one author.'},
+      ]},
+      {heading: 'Key ideas', items: [
+        {label: 'Perspective', description: 'Standpoint and language shape what seems natural, yet this does not mean every claim is equally good or true.'},
+        {label: 'Skilled responsiveness', description: 'Cook Ding models practice that is trained, attentive, and adaptive rather than effortless escape from responsibility.'},
+      ]},
+      {heading: 'Continuing question', items: [
+        {label: 'Freedom and criticism', description: 'Can loosening rigid standards expose cruelty without turning withdrawal or irony into an answer to every injustice?'},
+      ]},
     ],
     'china-zhuangzi-hua-zuli-1326',
     'Hua Zuli painted this traditional portrait in 1326, more than fifteen centuries after Zhuang Zhou’s probable lifetime. It gives later reception a memorable face but cannot identify the authors of the Inner, Outer, or Miscellaneous chapters. The exhibit treats the image as commemoration, not documentary access to the textual persona.',
+    'fnv1a64:e4e86fedf2d55db6',
   ),
-  mozi: concise(
+  mozi: standard(
     'Mozi',
-    'Mozi and the Mohists ask how inclusive concern, public standards, shared benefit, and opposition to aggression should reshape collective life.',
     [
-      'Mozi names an elusive early Warring States teacher and the founding authority claimed by an organized movement. Dependable biography is sparse, while followers trained advocates, served in offices, debated rivals, and developed expertise in defending threatened cities. The received Mozi is their layered anthology, not an autograph: doctrinal triads, dialogues, later Canons, anecdotes, and technical siege chapters differ in voice, date, and purpose.',
-      'Inclusive or impartial concern challenges the exclusion that lets people protect only their own family or state while discounting injury to outsiders. It need not require identical emotion or action toward everyone. Mohist benefit foregrounds material sufficiency, population, and order, making consequential comparison illuminating without turning the program into later hedonistic utilitarianism. Fa are teachable models or standards, often explained through crafts, that aim to make judgment more public than prestige or private impulse.',
-      'Opposition to aggressive war exposes the inconsistency of praising conquest while condemning smaller theft and murder, yet it does not reject every punishment, defense, or coercive institution. Heaven supplies morally charged authority, and ghosts provide both asserted religious accountability and political enforcement; neither should be edited out as decorative superstition. The anonymous later Canons extend Mohist work in language, inference, knowledge, and technical topics but must not be assigned directly to Mozi. Reformist impartiality and strict hierarchy remain in productive tension.',
-      'The visitor’s test is public and comparative: whose benefit is counted, which harms disappear behind rank or borders, and can the proposed standard be taught and checked? Apply that test to conquest, luxury, appointment, and punishment alike, while asking whether Mohist centralized enforcement reproduces the domination its impartial concern opposes.',
+      'Mozi names an elusive early Warring States teacher and the founding authority claimed by an organized movement. Dependable biography is sparse, while followers trained advocates, served in offices, debated rivals, and developed expertise in defending threatened cities. The received Mozi is their layered anthology, not an autograph: doctrinal triads, dialogues, later Canons, anecdotes, and technical siege chapters differ in voice, date, and purpose. That history keeps a remembered founder, a disciplined community, and a composite corpus from being treated as the same thing. It also prevents every later technical chapter from becoming a personal saying of Mozi.',
+      'Inclusive or impartial concern challenges the exclusion that lets people protect only their own family or state while discounting injury to outsiders. It need not demand identical emotion or action toward everyone. Mohist benefit foregrounds material sufficiency, population, and order, making comparison with consequential thinking illuminating without turning the program into later hedonistic utilitarianism. Fa are teachable models or standards, often explained through crafts, meant to make judgment more public than prestige or private impulse. The questions are practical: whose welfare counts, and can a proposed standard be taught and checked? Merit and economy make the comparison extend to appointment and luxury as well as warfare.',
+      'Opposition to aggressive war exposes the inconsistency of praising conquest while condemning smaller theft and murder, yet it does not reject every punishment, defense, or coercive institution. Heaven and ghosts supply both moral accountability and political enforcement; they are not decorative extras. The later Canons extend Mohist work on language, inference, knowledge, and technical matters but should not be assigned directly to Mozi. The Western Han bamboo slips witness copying, loss, and recovery rather than an autograph or a finished anthology, keeping reformist impartiality and strict hierarchy visibly in tension. Their fragmentary survival makes the material history of the movement’s texts part of the argument.',
     ],
     [
-      {label: 'Historical setting', value: 'Early Warring States teacher and organized movement'},
-      {label: 'Corpus', value: 'Layered Mozi · triads · dialogues · Canons · siege chapters'},
-      {label: 'Core programs', value: 'Inclusive concern · benefit · merit · economy'},
-      {label: 'War and religion', value: 'Anti-aggression · defense · Heaven · ghosts'},
-      {label: 'Open tension', value: 'Impartial welfare · hierarchy · coercive enforcement'},
+      {heading: 'Key ideas', items: [
+        {label: 'Inclusive concern', description: 'Injury to people outside one’s family or state should count morally rather than being dismissed as someone else’s loss.'},
+        {label: 'Shared benefit', description: 'Policies are judged by effects on sufficiency, population, and order, not simply status or inherited privilege.'},
+      ]},
+      {heading: 'Public standards', items: [
+        {label: 'Models (fa)', description: 'Teachable standards, often compared to craft tools, that make reasons and decisions more publicly testable.'},
+        {label: 'Against aggressive war', description: 'Conquest cannot be praised while analogous violence by ordinary people is condemned; defense remains a separate question.'},
+      ]},
+      {heading: 'Continuing tension', items: [
+        {label: 'Impartiality and enforcement', description: 'Can a movement oppose domination while relying on hierarchy, religious authority, and centralized discipline?'},
+      ]},
     ],
     'china-mozi-lost-article-slips',
     'These Western Han bamboo slips transmit a lost Mozi article and materially anchor a history of copying, loss, and recovery. They postdate Mozi and are neither an autograph nor proof that the anthology formed at once. Their fragmentary survival supports the exhibit’s distinction between remembered founder, organized movement, and layered corpus.',
+    'fnv1a64:97d252bcfda2ecdc',
   ),
-  'han-feizi': concise(
+  'han-feizi': standard(
     'Han Feizi',
-    'Han Feizi analyzes how standards, administrative technique, incentives, and positional power can govern officials—and endanger those they govern.',
     [
-      'Han Fei was a late Warring States thinker conventionally dated around 280–233 BCE. A later biography links him to Han’s ruling lineage, Xunzi, and death in Qin custody, but many details remain reconstructed. The received Han Feizi contains fifty-five chapters with stylistic and doctrinal variation. It is the principal source for his political project without being a transparently single-authored book.',
-      'Fa can mean laws, standards, models, or institutional criteria depending on context; it is broader than a single modern idea of law. Shu names techniques for assigning office, comparing claims with performance, concealing preferences, and monitoring ministers. Shi names power or strategic advantage attached to position rather than personal virtue. These concerns interact, but they are not three interchangeable tools. Rewards and punishments seek predictable alignment while concentrating the sovereign’s control.',
-      'The program responds sharply to hidden information, favoritism, bureaucratic capture, and unreliable virtue, yet it leaves a central vulnerability: who monitors a foolish, captured, or abusive ruler? Public standards can constrain ministers while serving censorship, coercion, and monarchical supremacy. “Legalism” or fajia is a later bibliographic umbrella for diverse thinkers, not Han Fei’s declared school. Connections to Xunzi and earlier fa-oriented figures require comparison, not a simple genealogy or the claim that institutional realism excuses authoritarian outcomes.',
-      'Use the exhibit as an institutional stress test rather than a management manual. Trace who possesses information, sets standards, judges performance, and controls sanctions. A design may reduce private favoritism while making public contest impossible. Han Feizi’s analytic force is clearest when the solution’s concentrated power remains as visible as the problem.',
+      'Han Fei was a late Warring States thinker conventionally dated around 280–233 BCE. A later biography links him to Han’s ruling lineage, Xunzi, and death in Qin custody, but many details remain reconstructed. The received Han Feizi contains fifty-five chapters with stylistic and doctrinal variation. It is the principal source for his political project without being transparently a single-authored book. The exhibit therefore treats its arguments as historically specific responses to problems of rule rather than an easy guide to bureaucracy or a biography fixed by later stories. Its political analysis begins from the dangers of delegation, competition, and self-interested reporting inside a state.',
+      'Fa can mean laws, standards, models, or institutional criteria depending on context; it is broader than one modern idea of law. Shu names techniques for assigning office, comparing claims with performance, concealing preferences, and monitoring ministers. Shi names power or strategic advantage attached to a position rather than personal virtue. These concerns interact but are not three interchangeable tools. Rewards and punishments seek predictable alignment while concentrating the sovereign’s control. They respond sharply to hidden information, favoritism, bureaucratic capture, and unreliable virtue. A ruler is urged to judge performance rather than trust persuasive appearances or personal affection.',
+      'That response leaves a central vulnerability: who monitors a foolish, captured, or abusive ruler? Public standards can constrain ministers while serving censorship, coercion, and monarchical supremacy. “Legalism,” or fajia, is a later bibliographic umbrella for diverse thinkers, not Han Fei’s declared school, and links to Xunzi require comparison rather than a simple genealogy. The modern commemorative statue makes later reception visible but cannot preserve Han Fei’s appearance or settle the text’s politics. Use it to trace who sets standards, judges performance, and controls sanctions. A design can reduce private favoritism while making public contest and correction impossible.',
     ],
     [
-      {label: 'Historical setting', value: 'Late Warring States · state of Han and Qin'},
-      {label: 'Corpus', value: 'Composite fifty-five-chapter Han Feizi'},
-      {label: 'Institutional terms', value: 'fa · shu · shi · rewards and punishments'},
-      {label: 'Central problem', value: 'Delegation · information · ministerial capture'},
-      {label: 'Open danger', value: 'Ruler supremacy · coercion · absent accountability'},
+      {heading: 'Institutional tools', items: [
+        {label: 'Standards (fa)', description: 'Public rules, models, or criteria for judging conduct; the term is broader than a single modern idea of law.'},
+        {label: 'Administrative technique (shu)', description: 'Methods for assigning office, checking claims against performance, and limiting ministerial manipulation.'},
+        {label: 'Positional power (shi)', description: 'Authority attached to an office rather than the moral excellence of the person occupying it.'},
+      ]},
+      {heading: 'Central problem', items: [
+        {label: 'Information and delegation', description: 'How can a ruler judge officials when praise, reports, and personal loyalty may hide failure or self-interest?'},
+      ]},
+      {heading: 'Continuing danger', items: [
+        {label: 'Who watches the ruler?', description: 'A system may curb private favoritism among ministers while leaving concentrated sovereign power without public accountability.'},
+      ]},
     ],
     'china-han-fei-modern-statue',
     'This modern commemorative statue does not preserve Han Fei’s appearance or an ancient sculptural tradition. Its monumental authority belongs to recent reception and can easily naturalize the ruler-centered power the text analyzes. The exhibit uses it as an identified later representation while keeping authorship, coercion, and accountability visible.',
+    'fnv1a64:1859ed4c9c5c5291',
   ),
   'zhu-xi': concise(
     'Zhu Xi',

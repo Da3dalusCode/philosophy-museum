@@ -13,9 +13,9 @@
   "canonicalExhibitBaseline": {
     "total": 192,
     "countsByEffectiveStatus": {
-      "unreviewed": 178,
+      "unreviewed": 163,
       "reconciled": 0,
-      "standard-compliant": 14,
+      "standard-compliant": 29,
       "out-of-date": 0
     }
   },
@@ -27,7 +27,7 @@
     },
     "blockers": []
   },
-  "reviewedExhibits": 14,
+  "reviewedExhibits": 29,
   "errors": [],
   "entries": [
     {
@@ -1196,9 +1196,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-09",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 32,
+        "mainInterpretationWords": 302,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 6,
+        "principalAssetId": "jain-lokapurusha-cosmology",
+        "issues": []
+      }
     },
     {
       "hallId": "classical-south-asian-worlds",
@@ -1214,9 +1224,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-09",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 32,
+        "mainInterpretationWords": 311,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 6,
+        "principalAssetId": "mahavira-chandigarh-bust",
+        "issues": []
+      }
     },
     {
       "hallId": "classical-south-asian-worlds",
@@ -1232,9 +1252,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-09",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 32,
+        "mainInterpretationWords": 307,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 5,
+        "principalAssetId": "kanada-vaisesika-sutra-1793",
+        "issues": []
+      }
     },
     {
       "hallId": "classical-south-asian-worlds",
@@ -1250,9 +1280,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-09",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 32,
+        "mainInterpretationWords": 312,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 6,
+        "principalAssetId": "patanjali-statue",
+        "issues": []
+      }
     },
     {
       "hallId": "classical-south-asian-worlds",
@@ -1268,9 +1308,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-09",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 32,
+        "mainInterpretationWords": 304,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 6,
+        "principalAssetId": "vedanta-telugu-manuscript",
+        "issues": []
+      }
     },
     {
       "hallId": "classical-south-asian-worlds",
@@ -1286,9 +1336,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-09",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 32,
+        "mainInterpretationWords": 320,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 6,
+        "principalAssetId": "shankara-ravi-varma",
+        "issues": []
+      }
     },
     {
       "hallId": "classical-south-asian-worlds",
@@ -1304,9 +1364,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-09",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 32,
+        "mainInterpretationWords": 319,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 6,
+        "principalAssetId": "ramanuja-statue-cc0",
+        "issues": []
+      }
     },
     {
       "hallId": "classical-south-asian-worlds",
@@ -1322,9 +1392,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-09",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 32,
+        "mainInterpretationWords": 320,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 6,
+        "principalAssetId": "madhva-pajaka-vigraha",
+        "issues": []
+      }
     },
     {
       "hallId": "buddhist-philosophies",
@@ -1512,9 +1592,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-09",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 34,
+        "mainInterpretationWords": 299,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 5,
+        "principalAssetId": "china-confucius-yuan-portrait",
+        "issues": []
+      }
     },
     {
       "hallId": "classical-chinese-traditions",
@@ -1530,9 +1620,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-09",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 32,
+        "mainInterpretationWords": 292,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 5,
+        "principalAssetId": "china-mencius-yuan-portrait",
+        "issues": []
+      }
     },
     {
       "hallId": "classical-chinese-traditions",
@@ -1548,9 +1648,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-09",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 32,
+        "mainInterpretationWords": 296,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 5,
+        "principalAssetId": "china-xunzi-qing-portrait",
+        "issues": []
+      }
     },
     {
       "hallId": "classical-chinese-traditions",
@@ -1584,9 +1694,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-09",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 33,
+        "mainInterpretationWords": 290,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 5,
+        "principalAssetId": "china-laozi-daodejing-handscroll",
+        "issues": []
+      }
     },
     {
       "hallId": "classical-chinese-traditions",
@@ -1602,9 +1722,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-09",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 32,
+        "mainInterpretationWords": 294,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 5,
+        "principalAssetId": "china-zhuangzi-hua-zuli-1326",
+        "issues": []
+      }
     },
     {
       "hallId": "classical-chinese-traditions",
@@ -1656,9 +1786,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-09",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 32,
+        "mainInterpretationWords": 308,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 5,
+        "principalAssetId": "china-mozi-lost-article-slips",
+        "issues": []
+      }
     },
     {
       "hallId": "classical-chinese-traditions",
@@ -1674,9 +1814,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-09",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 32,
+        "mainInterpretationWords": 298,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 5,
+        "principalAssetId": "china-han-fei-modern-statue",
+        "issues": []
+      }
     },
     {
       "hallId": "islamic-philosophical-worlds",

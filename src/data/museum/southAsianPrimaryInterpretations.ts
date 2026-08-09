@@ -2,6 +2,10 @@ import type {MuseumAssetId} from './museumAssetTypes';
 import type {MuseumPrimaryInterpretationEnrichment} from './scholasticRationalistPrimaryInterpretationEnrichment';
 
 type OrientationItem = {readonly label: string; readonly value: string};
+type VisitorGuideSection = {
+  readonly heading: string;
+  readonly items: readonly {readonly label: string; readonly description: string}[];
+};
 
 const concise = (
   name: string,
@@ -26,159 +30,236 @@ const concise = (
   objectInterpretations: {[assetId]: objectText},
 });
 
+const objectLed = (
+  name: string,
+  paragraphs: readonly string[],
+  orientation: readonly VisitorGuideSection[],
+  assetId: MuseumAssetId,
+  objectText: string,
+  lock: string,
+): MuseumPrimaryInterpretationEnrichment => ({
+  lead: '',
+  keyIdeas: [],
+  keyWorks: [],
+  sections: [{heading: '', paragraphs}],
+  presentation: {
+    mode: 'concise',
+    orientation,
+    articleActionLabel: `Read the full sourced ${name} article`,
+    bodyLayout: 'prose',
+    exhibitLayout: 'object-led',
+    plaqueKicker: '',
+    plaqueSubtitleLines: 4,
+  },
+  objectInterpretations: {[assetId]: objectText},
+  review: {
+    status: 'standard-compliant',
+    reviewedOn: '2026-08-09',
+    method: 'Reconciled against the current claim-reviewed article, registered sources, and principal-object provenance; object-led presentation and subject-specific visitor guide reviewed against the locked exhibit standard.',
+    lock,
+  },
+});
+
 export const SOUTH_ASIAN_PRIMARY_INTERPRETATIONS:
 Readonly<Record<string, MuseumPrimaryInterpretationEnrichment>> = {
-  mahavira: concise(
+  mahavira: objectLed(
     'Mahavira',
-    'Mahāvīra asks how disciplined nonviolence, restraint, and insight can free living selves from karmic bondage in practice without pretending that his traditional biography is modern documentation.',
     [
-      'Jain traditions remember Mahāvīra as the twenty-fourth tīrthaṅkara of the present cosmic cycle, not as the first person to discover an otherwise nonexistent path. Pārśva and earlier Jinas place him within an inherited lineage whose earliest history is difficult to recover. The familiar 599–527 BCE lifespan belongs to traditional chronology; scholars place the historical teacher more cautiously and cannot verify the detailed courtly, renunciant, and omniscience narratives as contemporary biography.',
-      'His philosophical importance lies in an exacting path of nonviolence, restraint, austerity, attention, and release. Living selves, jīvas, are distinct from nonliving realities and become bound through karma, understood in Jain analysis as more than a moral score: karmic matter adheres through action and passion, obscuring a self’s capacities. Liberation requires stopping new influx and removing accumulated bondage. Monastic great vows and lay vows differ in intensity, which keeps the tradition’s radical ethic connected to more than one form of life.',
-      'The surviving textual record is layered and sectarian. Śvetāmbara communities transmit an Āgama canon redacted long after Mahāvīra, while Digambara accounts hold that the original canon was lost and preserve doctrine through other authoritative works. Later thinkers developed sophisticated accounts of many-sided reality, conditional predication, and viewpoints. Those ideas belong to Jain intellectual history, but the exhibit does not place every mature formulation directly in Mahāvīra’s mouth or turn many-sidedness into the slogan that every opinion is equally true.',
-      'Stand before the exhibit as if entering a discipline of attention. Ask what forms of injury ordinary habits conceal, what self-control makes perception less possessive, and how a liberation ideal changes when plants, animals, humans, and minute living beings all make claims on conduct. The severity of the answer—and debates over asceticism, gender, embodiment, and authority—should remain visible rather than softened into a generic message of tolerance.',
+      'Jain traditions remember Mahāvīra as the twenty-fourth tīrthaṅkara, or ford-maker, in the present cosmic cycle. He is therefore not a simple founder who invented a path from nothing: Pārśva and earlier Jinas locate him within a lineage whose earliest history cannot be recovered as ordinary biography. The familiar 599–527 BCE lifespan belongs to Śvetāmbara traditional chronology; alternative chronologies and modern reconstructions differ. Early Buddhist references support an important ascetic teacher and community, but they are rival accounts rather than neutral dossiers. Jain scriptures and later lives preserve richer sacred narratives, whose courtly scenes, miracles, and omniscience claims must retain their genre rather than become modern documentation.',
+      'The teaching associated with Mahāvīra demands a disciplined account of harm. Living selves, jīvas, differ from nonliving realities and become bound by karma, understood as subtle matter attracted through action, passion, and carelessness. Restraint, austerity, attention, right understanding, and nonviolence work together to stop new bondage and shed accumulated karma. Ahiṃsā reaches thought, speech, and action in a densely living world. The five great vows organize the most demanding mendicant discipline, while lay communities take related but limited vows. This graded structure connects radical renunciation to difficult questions about food, work, possession, embodiment, and responsibility.',
+      'The historical Mahāvīra cannot bear every later Jain formulation. Śvetāmbara communities transmit an Āgama canon redacted long after him, while Digambara accounts hold that the original canon was lost and preserve doctrine through other authorities. Later thinkers developed technical accounts of many-sided reality and qualified assertion; these illuminate Jain intellectual history without making every mature theory his direct speech. The Chandigarh bust is a later devotional or commemorative recognition, not a lifetime portrait or evidence for disputed dates. Ask what habits conceal injury, and how a liberation project changes when minute living beings, animals, and people all make claims on conduct. Its severity should not be softened into generic tolerance.',
     ],
     [
-      {label: 'Identity', value: 'Twenty-fourth tīrthaṅkara in Jain tradition · not a modern founder'},
-      {label: 'Chronology', value: 'Traditional 599–527 BCE · historical dating disputed'},
-      {label: 'Transmission', value: 'Śvetāmbara Āgamas · Digambara accounts of canonical loss'},
-      {label: 'Path', value: 'Nonviolence · restraint · karma · liberation'},
-      {label: 'Historical caution', value: 'Later doctrine and hagiography are not lifetime transcripts'},
+      {heading: 'A remembered teacher', items: [
+        {label: 'Twenty-fourth ford-maker', description: 'Jain tradition places Mahāvīra within a much older lineage of teachers who show a path across rebirth; he is not simply its modern-style founder.'},
+        {label: 'History and sacred life', description: 'Traditional dates and detailed biographies matter to communities, but they are not equally secure as contemporary historical evidence.'},
+      ]},
+      {heading: 'The path', items: [
+        {label: 'Karma as bondage', description: 'Actions and passions draw subtle karmic matter to a living self, limiting its knowledge and freedom.'},
+        {label: 'Nonviolence in practice', description: 'Care in action, speech, and thought is part of release; monastic and lay vows pursue it with different degrees of rigor.'},
+      ]},
+      {heading: 'What developed later', items: [
+        {label: 'Different canons', description: 'Śvetāmbara and Digambara communities preserve different accounts of scripture and its loss, so no single text simply records the teacher unchanged.'},
+        {label: 'Many-sided reasoning', description: 'Later Jain thinkers developed careful ways to state partial truths without treating every claim as equally correct.'},
+      ]},
     ],
     'mahavira-chandigarh-bust',
-    'This museum bust is identified as Mahāvīra, but neither its file record nor the surviving historical evidence makes it a lifetime portrait. It offers a visible point of recognition for a teacher remembered through much later devotional, textual, and artistic traditions. The exhibit treats the sculpture as reception and keeps its uncertain date separate from Mahāvīra’s disputed traditional chronology.',
+    'This Chandigarh museum bust is identified as Mahāvīra, but its unrecorded sculpture date and the surviving evidence do not make it a lifetime portrait. It is a later devotional or commemorative recognition of a teacher remembered through textual and artistic traditions. The object makes reception visible while leaving traditional chronology, sacred biography, and the historical formation of Jain doctrine to the article and its sources.',
+    'fnv1a64:9c0a3d5e0990e747',
   ),
-  jainism: concise(
+  jainism: objectLed(
     'Jainism',
-    'Jain philosophy asks how innumerable living selves can understand a many-sided world, avoid injury, shed karmic bondage, and move toward liberation across a densely inhabited cosmos.',
     [
-      'Jainism is a long family of communities, texts, practices, and arguments rather than one doctrine authored at a single founding moment. Its traditions remember twenty-four tīrthaṅkaras in the present cycle, with Pārśva and Mahāvīra central to recoverable early history. The evidence does not support treating all earlier lineage narratives as ordinary biography, yet those narratives matter because they frame teaching as renewal and transmission rather than invention by one founder.',
-      'Jain accounts distinguish living selves, jīvas, from nonliving realities and describe karma as subtle material bondage produced through activity and passion. Knowledge, faith, conduct, vows, austerity, and careful attention work together to stop influx and remove accumulated karma. Ahimsa, nonviolence, reaches thought, speech, and action and extends moral concern across a densely inhabited world. Monastic and lay disciplines are related but not identical, and historical communities have debated bodily practice, possession, food, ritual, gender, and the possibility of liberation.',
-      'Many-sidedness, anekāntavāda, analyzes how finite statements capture aspects of complex things without exhausting them. Naya theories distinguish standpoints, while syādvāda organizes qualified predication. These are disciplined logical and metaphysical strategies developed across time, not permission to declare contradictions equally correct or to suspend ethical judgment. Jain thinkers used them in debates about permanence and change, substances and modes, knowledge, language, and rival Buddhist and Brahmanical positions.',
-      'The Śvetāmbara and Digambara traditions preserve different accounts of scripture, monastic conduct, Mahāvīra’s life, authoritative teachers, and liberation. Later regional, devotional, mercantile, artistic, and reform histories add further diversity. Read the cosmological object as one material witness to that inheritance, then follow the article into the disagreements. The practical invitation remains sharp: widen attention to lives ordinarily ignored while refusing the fantasy that one unqualified description can master a many-sided reality.',
+      'Jainism is a long family of South Asian communities, texts, practices, and arguments, not one doctrine authored at a single founding moment. Its traditions remember twenty-four tīrthaṅkaras in the present cosmic cycle, with Pārśva and Mahāvīra central to recoverable early history. Those lineage narratives frame teaching as renewal and transmission, even when historical inquiry cannot treat each one as ordinary biography. Jain thought joins metaphysical analysis to the disciplines and institutions that give it purpose: mendicant lineages, household communities, ritual, pilgrimage, literature, art, debate, commerce, reform, and diaspora.',
+      'Jain accounts distinguish living selves, jīvas, from nonliving realities and describe karma as subtle material bondage attracted through activity and passion. Right faith, knowledge, conduct, vows, austerity, and close attention work together to halt new influx and shed accumulated karma. Ahiṃsā, nonviolence, reaches thought, speech, and action because the cosmos is densely inhabited by life. It is neither effortless purity nor a rule that makes all choices easy. Monastic and lay disciplines are related but not identical, and communities have debated bodily practice, possession, food, ritual, gender, authority, and liberation. The resulting ethics asks what ordinary habits fail to notice.',
+      'Many-sidedness, anekāntavāda, explains why a finite statement can capture an aspect of a complex reality without exhausting it. Standpoint analysis and qualified assertion are disciplined strategies, not permission to call contradictions equally correct or to suspend judgment. Jain thinkers used them in debates about persistence and change, substances and modes, knowledge, language, and rival positions. Śvetāmbara and Digambara traditions preserve different accounts of scripture and conduct. The later Lokapuruṣa diagram maps an inhabited cosmos through a stylized human form. It is a material witness to one cosmological imagination, not anatomy or a complete Jain system. Let it widen attention to lives ordinarily ignored without pretending that one image or description masters a many-sided tradition.',
     ],
     [
-      {label: 'Historical form', value: 'Plural Jain traditions · no single authored founding moment'},
-      {label: 'Core distinction', value: 'Living selves · nonliving realities · karmic bondage'},
-      {label: 'Practice', value: 'Nonviolence · vows · restraint · knowledge · release'},
-      {label: 'Reasoning', value: 'Many-sidedness · standpoints · qualified predication'},
-      {label: 'Transmission', value: 'Śvetāmbara and Digambara canons and communities differ'},
+      {heading: 'Key ideas', items: [
+        {label: 'Living selves and karma', description: 'Each living self is capable of knowledge and liberation, yet becomes entangled through karmic matter drawn by action and passion.'},
+        {label: 'Many-sided reality', description: 'A claim may be partly right from one standpoint without giving a complete account of a complex thing.'},
+      ]},
+      {heading: 'Practice', items: [
+        {label: 'Nonviolence', description: 'Ahiṃsā extends careful attention to thought, speech, and action because life is more widespread and vulnerable than ordinary habits suggest.'},
+        {label: 'Graded vows', description: 'Mendicants take the most demanding restraints; householders adopt related commitments suited to another form of life.'},
+      ]},
+      {heading: 'Living traditions', items: [
+        {label: 'Different communities', description: 'Śvetāmbara and Digambara traditions differ over scripture, practice, and history while sharing many long-standing concerns.'},
+        {label: 'More than one inheritance', description: 'Temples, pilgrimage, trade, literature, art, reform, and diaspora show why Jainism cannot be reduced to a single abstract doctrine.'},
+      ]},
     ],
     'jain-lokapurusha-cosmology',
-    'This later Lokapuruṣa diagram maps the inhabited cosmos through a stylized human form. It is neither anatomy nor a complete chart of everything Jain communities teach. As one manuscript object within a diverse cosmological tradition, it helps visitors see how location, embodiment, rebirth, and the conditions of liberated and bound life were imagined materially without reducing Jain philosophy to this single visual scheme.',
+    'This c. sixteenth-century Lokapuruṣa diagram maps the inhabited cosmos through a stylized human form. It is neither anatomy nor a complete statement of Jain philosophy. As one later manuscript image within a diverse cosmological tradition, it shows how location, embodiment, rebirth, and the conditions of bound and liberated life could be imagined materially without representing every Jain community, doctrine, or practice.',
+    'fnv1a64:30a10a6f0509de6d',
   ),
-  kanada: concise(
+  kanada: objectLed(
     'Kanada',
-    'Kaṇāda names the traditional authority behind the Vaiśeṣika Sūtra, where careful classification asks what kinds of reality must exist for objects, change, and knowledge to be possible.',
     [
-      'No secure biography or exact lifespan can be assigned to Kaṇāda. The name is traditionally associated with the Vaiśeṣika Sūtra, but the text’s formation, date, and authorship remain disputed. The safest exhibit is therefore a history of an attributed textual system: early sūtras, later commentaries, and growing exchange with Nyāya transformed the categories and arguments across centuries. A placement before the common era is an atlas anchor, not a documented birth date.',
-      'Vaiśeṣika classifies reality through padārthas, categories or objects of warranted discourse. Substance, quality, motion, universal, particularity, and inherence became a classic list, while absence entered later systematic accounts. The categories are not a cabinet of arbitrary labels. They explain how qualities and motions belong to substances, how individuals share kinds yet remain distinct, and how wholes depend on parts. Inherence is introduced for relations judged too intimate to be ordinary conjunction.',
-      'The tradition’s atomism concerns eternal, imperceptible atoms of several material kinds, their combinations, and the production and dissolution of composite objects. It should not be converted into an anticipation of modern chemistry or particle physics. Ether, time, space, selves, and mind occupy different ontological roles, and later authors dispute combination, causation, unseen factors, and divine governance. Epistemology also changes as Vaiśeṣika and Nyāya increasingly share accounts of perception and inference.',
-      'Use the manuscript to slow down a tempting progress story. The value of Kaṇāda’s inheritance is not that an ancient sage guessed today’s science, but that a scholastic tradition made categories, dependence, identity, and explanation answerable to explicit distinctions. Ask which relations a theory takes as basic, how an unseen entity earns explanatory work, and whether a taxonomy reveals the world or merely organizes speech. Those remain live questions even when the historical answers differ from modern ones.',
+      'Kaṇāda is the traditional sage associated with the Vaiśeṣika Sūtra, but neither a secure biography nor exact life dates can be recovered. Later stories about his names and habits belong to reception, not documentary evidence. Even the sūtra collection’s formation, date, and authorship are disputed. The responsible subject is therefore an attributed textual tradition: terse aphorisms transmitted, arranged, interpreted, and perhaps altered over time; later commentaries; and eventually a close exchange with Nyāya. A pre-Common-Era placement is an atlas orientation, not a dated lifetime.',
+      'Vaiśeṣika asks what kinds of reality must be recognized if objects change, qualities belong to things, and knowledge can be warranted. Its padārthas are categories for disciplined discourse, not a cabinet of arbitrary labels. Substance, quality, motion, universal, particularity, and inherence explain how a quality or movement belongs to a thing, how individuals share a kind yet remain distinct, and why some connections are more intimate than ordinary contact. Absence enters later systematic accounts and should not be projected unchanged into every early passage. The tradition’s atomism likewise concerns eternal, imperceptible atoms, their combinations, and composite objects within a world that also includes time, space, selves, mind, and moral causation. It is not an early version of modern chemistry or particle physics.',
+      'Later authors debated wholes, causal production, unseen conditions, divine governance, and the basis of inference; Vaiśeṣika and Nyāya increasingly shared a vocabulary without becoming one timeless system. The contemporary Shaheedi Park bas-relief imagines Kaṇāda beside stylized natural forms. It records modern public commemoration, not ancient appearance, textual authorship, dates, or proof that Vaiśeṣika anticipated particle physics. The article instead follows arguments through sūtra, commentary, and criticism. The enduring question is methodological: which relations must a theory treat as basic, how does an unseen entity earn explanatory work, and does a taxonomy discover the world or organize how people speak about it?',
     ],
     [
-      {label: 'Identity', value: 'Attributed authority of the Vaiśeṣika Sūtra tradition'},
-      {label: 'Chronology', value: 'Highly uncertain · placement years are not a lifespan'},
-      {label: 'Categories', value: 'Substance · quality · motion · universal · particularity · inherence'},
-      {label: 'Material account', value: 'Imperceptible atoms and composite objects · not modern physics'},
-      {label: 'Development', value: 'Layered sūtra and commentary traditions · increasing Nyāya exchange'},
+      {heading: 'Reading the tradition', items: [
+        {label: 'An attributed author', description: 'Kaṇāda names the traditional authority of a layered sūtra and commentary tradition, not a securely documented individual biography.'},
+        {label: 'A changing system', description: 'Later interpreters and Nyāya interlocutors reshaped the arguments, so later clarity is not automatically the earliest teaching.'},
+      ]},
+      {heading: 'Key ideas', items: [
+        {label: 'Categories', description: 'The classic categories explain how things have qualities, move, share kinds, remain distinct, and stand in unusually close relations.'},
+        {label: 'Atoms and more', description: 'Imperceptible atoms help explain material compounds, but the system also recognizes selves, mind, time, space, and moral causation.'},
+      ]},
+      {heading: 'A useful caution', items: [
+        {label: 'Not modern physics', description: 'The questions overlap with explanation and matter, but Vaiśeṣika atomism uses a very different ontology and evidential setting.'},
+      ]},
     ],
     'kanada-vaisesika-sutra-1793',
-    'This 1793 Devanagari manuscript is a late witness to the Vaiśeṣika Sūtra tradition attributed to Kaṇāda. It is neither an autograph nor evidence for the attributed author’s date. Its value is material and transmissive: it shows a philosophical text continuing through copying and study while reminding visitors that the received system developed between an uncertain early composition and much later scholastic commentary.',
+    'This modern metal bas-relief in Shaheedi Park, Delhi, imagines Kaṇāda as a seated sage beside stylized natural forms. It is a contemporary commemoration, not an ancient portrait, manuscript witness, or evidence for the Vaiśeṣika Sūtra’s date and authorship. The object makes later public memory visible while refusing the familiar claim that Vaiśeṣika atomism was modern particle physics in advance.',
+    'fnv1a64:d63d73b6bc75d230',
   ),
-  patanjali: concise(
+  patanjali: objectLed(
     'Patanjali',
-    'Patañjali asks how ethical discipline, concentrated practice, and discriminating insight can still mental activity through sustained careful training and release consciousness from its habitual misidentification.',
     [
-      '“Patañjali” is more secure as the traditional name attached to the Yoga Sūtra than as a recoverable biography. Proposed dates range across centuries, identification with the grammarian remains disputed, and the sūtras are transmitted with the commentary attributed to Vyāsa. Scholars debate whether this Pātañjalayogaśāstra should be read as one authorial work, a sūtra-commentary unit, or a layered textual formation. The exhibit therefore presents an active period and tradition, not invented birth and death facts.',
-      'Classical Yoga defines its task through restraint of the fluctuations of citta. Citta is the changing apparatus of thought, memory, affect, and attention within material nature; puruṣa is consciousness and should not be casually equated with a Cartesian mind or an ordinary personality. Afflictions, karma, dispositions, and misidentification sustain bondage. Discriminative knowledge loosens that confusion so puruṣa no longer appears entangled in what it illuminates.',
-      'The eight limbs join nonviolence and other restraints with observance, posture, breath regulation, sensory withdrawal, concentration, meditation, and samādhi. Posture is one limb, not the whole system. The text also gives devotion to a special Lord, īśvara, a genuine role, though interpreters dispute how that element fits the Sāṃkhya-related metaphysics. Yoga draws on a wider ascetic and contemplative field while maintaining positions that differ from Buddhist and Jain accounts of self and liberation.',
-      'Later Yoga traditions transformed goals, bodies, techniques, theologies, institutions, and public meanings; modern global postural yoga is neither simply identical with nor wholly disconnected from this history. Let the statue display devotional reception and the manuscript display transmission. Then ask the practical question the text makes unavoidable: what must be trained before attention becomes reliable, and what metaphysical commitments enter when stillness is interpreted as freedom?',
+      '“Patañjali” is more secure as the traditional name attached to the Yoga Sūtra than as a recoverable biography. The identification with a grammarian or medical authority is disputed, and proposed dates range across centuries. The sūtras are transmitted with the commentary attributed to Vyāsa, and scholars disagree whether the Pātañjalayogaśāstra is one authorial work, a sūtra-commentary unit, or a layered formation. A commonly argued fourth-century textual horizon is useful but not a biography. The exhibit therefore follows a tradition of reading, commentary, and practice instead of inventing birth and death facts for a single polymath.',
+      'Classical Yoga defines its task as restraint of the fluctuations of citta: the changing field of thought, memory, feeling, and attention within material nature. Puruṣa is consciousness, not a modern Cartesian mind or ordinary personality. Afflictions, karma, dispositions, and misidentification sustain bondage; discriminative insight loosens the error by which consciousness seems entangled in what it illuminates. The eight limbs connect ethical restraints and observances with posture, breath regulation, withdrawal of the senses, concentration, meditation, and samādhi. Posture is one limb, not the whole system. The role of a special Lord, īśvara, remains contested within its Sāṃkhya-related metaphysics.',
+      'Patañjala Yoga developed within a broad South Asian field of ascetic, contemplative, Buddhist, Jain, and Brahmanical arguments; it should not be reduced either to generic wellness or to a timeless meditation manual. Later Yoga traditions changed goals, bodies, techniques, theologies, institutions, and public meanings, while modern global postural yoga is neither simply identical with nor wholly disconnected from that history. The many-hooded statue presents a later tradition that identifies Patañjali with Śeṣa. With no recorded maker, date, or location, it cannot depict the historical author or settle the text’s formation. It shows devotional reception. The question it can stage is practical and philosophical: what must be trained before attention becomes reliable, and what assumptions enter when stillness is called freedom?',
     ],
     [
-      {label: 'Identity', value: 'Traditional authority of the Yoga Sūtra tradition'},
-      {label: 'Active period', value: 'Uncertain · proposals span several centuries'},
-      {label: 'Textual question', value: 'Sūtras and Vyāsa commentary · unity and layering disputed'},
-      {label: 'Practice', value: 'Ethics · eight limbs · concentration · discriminating knowledge'},
-      {label: 'Open tension', value: 'Sāṃkhya relation · īśvara · later Yoga transformations'},
+      {heading: 'Text and history', items: [
+        {label: 'A disputed author', description: 'Patañjali is the traditional name of a Yoga textual tradition; the relation among its sūtras, commentary, and other same-named authors remains debated.'},
+        {label: 'A living reception', description: 'Later commentaries and practices are evidence of transmission, not noise that can simply be removed to reach an uncontested original.'},
+      ]},
+      {heading: 'Central ideas', items: [
+        {label: 'Still the changing mind', description: 'Yoga trains attention so consciousness is no longer confused with changing thoughts, memories, feelings, and habits.'},
+        {label: 'Eight connected limbs', description: 'Ethics, posture, breath, concentration, meditation, and samādhi form an integrated discipline; posture alone is not the system.'},
+      ]},
+      {heading: 'Continuing questions', items: [
+        {label: 'The role of īśvara', description: 'The text gives a special Lord a real place, yet interpreters disagree about how this fits its related metaphysics.'},
+        {label: 'Classical and modern yoga', description: 'Modern postural practice has historical connections to the tradition but cannot be treated as an unchanged copy of it.'},
+      ]},
     ],
     'patanjali-statue',
-    'This many-hooded devotional statue presents Patañjali through the later tradition that identifies him with Śeṣa. The file record supplies no sculptor, date, or location, and the image is not a historical likeness. It is useful precisely as reception: the iconography shows how a disputed textual authority acquired a sacred biography and recognizable form long after the uncertain composition of the Yoga work.',
+    'This traditional statue presents Patañjali through a later identification with Śeṣa. Its file record does not supply a sculptor, date, or location, and it is not a historical likeness of a securely documented author. The image shows how a disputed textual authority acquired sacred biography and recognizable iconography through reception, while leaving the formation, date, and authorship of the Yoga work to textual and historical evidence.',
+    'fnv1a64:390be2c49b474051',
   ),
-  vedanta: concise(
+  vedanta: objectLed(
     'Vedanta',
-    'Vedānta is a contested historical family of interpretations asking how Brahman, selves, world, knowledge, devotion, action, and liberation belong together across rival schools and communities.',
     [
-      'Vedānta did not begin as one school with one founder or one doctrine. The name gathers interpretive traditions oriented especially to the Upaniṣads, Bhagavad Gītā, and Brahma Sūtra, texts that differ in genre, date, and argument. Earlier exegesis and rival South Asian debates prepared the field; later commentaries, independent treatises, institutions, devotional communities, and vernacular traditions made its disagreements durable. “The end of the Veda” names both textual location and interpretive authority, not a single historical event.',
-      'Advaita associated with Śaṅkara argues that liberating knowledge discloses nondual Brahman and the deepest self beyond limiting superimpositions. Viśiṣṭādvaita associated with Rāmānuja treats selves and world as real, dependent modes or the body of a personal Brahman. Dvaita associated with Madhva defends enduring difference among God, souls, and matter. These thumbnail contrasts orient a room but cannot replace each school’s accounts of scripture, consciousness, causation, devotion, grace, action, and release.',
-      'Shared vocabulary does not guarantee shared meaning. Brahman may be discussed through impersonal and personal language; ātman, īśvara, māyā, difference, embodiment, and mokṣa function differently across arguments. Schools also disagree about which texts control interpretation, how sentences convey liberating knowledge, what perception and inference establish, and whether ritual, meditation, devotion, surrender, grace, or knowledge has decisive priority. Buddhist, Jain, Mīmāṃsā, Nyāya, and Sāṃkhya interlocutors helped shape the disputes rather than standing outside them.',
-      'The manuscript before you is one eighteenth-century witness in a multilingual, multi-regional history. Do not ask which exhibit supplies “the Vedānta answer.” Ask how each reading handles a stubborn cluster of claims about unity and plurality, dependence and reality, agency and grace. The room works when disagreement becomes clearer: later schools inherit common authorities while constructing genuinely incompatible accounts of what those authorities require.',
+      'Vedānta is not one school founded by one teacher or a single doctrine concealed inside a fixed archive. The name gathers rival traditions organized especially around the Upaniṣads and, in influential later formulations, the Bhagavad Gītā and Brahma Sūtra. “The end of the Veda” can name both a textual location and an asserted culmination of Vedic teaching; neither sense supplies a founding event. Commentaries, independent treatises, institutions, devotional communities, languages, and regional histories made the disagreements durable. Interpretation is where competing accounts of self, world, divine reality, knowledge, action, and liberation answer to shared authorities.',
+      'Advaita associated with Śaṅkara argues that liberating knowledge removes a mistake about nondual Brahman and the deepest self. Viśiṣṭādvaita associated with Rāmānuja holds that selves and world are real yet wholly dependent within a differentiated divine reality. Dvaita associated with Madhva defends enduring distinctions among God, souls, and matter. Bhedābheda and other Vedānta formations complicate any tidy three-school survey. These positions are not incomplete steps toward a winner. They disagree over whether plurality is appearance, a real qualification, a distinct dependent order, or something else; they also differ over what scripture, perception, inference, ritual, devotion, surrender, grace, meditation, and knowledge can accomplish. Shared Sanskrit words do not guarantee shared meanings.',
+      'Buddhist, Jain, Mīmāṃsā, Nyāya, and Sāṃkhya interlocutors helped shape these arguments rather than standing outside a sealed Hindu tradition. The eighteenth-century Sanskrit manuscript in Telugu script is one material witness to a multilingual South Indian history of copying and reading. It cannot represent an original edition, every school, or “the Vedānta answer.” Its palm-leaf form makes interpretation a practice with material conditions. Read the competing figures in this room not as a roster but as rival answers to a persistent problem: how can unity and plurality, dependence and reality, agency and grace, be related without merely relabeling one another?',
     ],
     [
-      {label: 'Historical form', value: 'Family of rival interpretive traditions · no single founder'},
-      {label: 'Shared authorities', value: 'Upaniṣads · Bhagavad Gītā · Brahma Sūtra'},
-      {label: 'Major readings', value: 'Advaita · Viśiṣṭādvaita · Dvaita · further Vedānta schools'},
-      {label: 'Central disputes', value: 'Brahman · selves · world · knowledge · devotion · liberation'},
-      {label: 'Transmission', value: 'Commentary · institutions · Sanskrit and vernacular communities'},
+      {heading: 'The shared archive', items: [
+        {label: 'Texts under interpretation', description: 'The Upaniṣads, Bhagavad Gītā, and Brahma Sūtra are central authorities, but they differ in genre, date, and argument.'},
+        {label: 'Commentary as philosophy', description: 'Reading scripture is where schools defend incompatible accounts of self, world, divine reality, and liberation.'},
+      ]},
+      {heading: 'Rival readings', items: [
+        {label: 'Advaita', description: 'Śaṅkara’s influential tradition treats liberating knowledge as removing a mistaken sense of ultimate separateness.'},
+        {label: 'Viśiṣṭādvaita and Dvaita', description: 'Rāmānuja and Madhva defend different accounts of real dependent selves and world rather than versions of one nondual view.'},
+      ]},
+      {heading: 'Why disagreement matters', items: [
+        {label: 'More than metaphysics', description: 'The disputes also concern interpretation, practice, devotion, grace, action, institutional authority, and who may pursue liberation.'},
+        {label: 'No single answer', description: 'Vedānta is not identical with Advaita, and later universal claims about one shared truth are contested receptions rather than a classical consensus.'},
+      ]},
     ],
     'vedanta-telugu-manuscript',
-    'This eighteenth-century Sanskrit manuscript in Telugu script is one material witness to Vedānta’s multilingual and regional transmission. It cannot stand for a single doctrine, original edition, or all schools. Its script, palm-leaf form, copying history, and South Indian setting help make interpretation visible as a lived textual practice rather than an abstract chain of disembodied doctrines.',
+    'This eighteenth-century Sanskrit Vedānta manuscript in Telugu script is a material witness to multilingual South Indian transmission. It cannot stand for an original edition, one doctrine, or every school. Its palm-leaf form, script, and copying history make interpretation visible as a lived textual practice, while its provenance does not authorize a claim that it represents the entire Vedānta archive or any single philosopher’s view.',
+    'fnv1a64:ee03bddb283017e2',
   ),
-  shankara: concise(
+  shankara: objectLed(
     'Adi Shankara',
-    'Śaṅkara asks how nondual Brahman can be the deepest reality without contradiction while plurality, action, devotion, language, and disciplined inquiry remain experientially and pedagogically necessary.',
     [
-      'Śaṅkara is usually placed around the eighth century CE, but exact dates remain debated and the familiar 788–820 span is traditional rather than documentary. Later conquest biographies describe prodigious travel, debate, monastery founding, and a short life; they shaped Advaita identity but were composed long after the philosopher. The strongest historical access comes through works judged authentic, especially major commentaries and the Upadeśasāhasrī, while attribution of many hymns and treatises remains disputed.',
-      'Advaita begins from superimposition: self and not-self are confused, so consciousness appears limited by body, mind, agency, and ownership. Upaniṣadic teaching removes ignorance by disclosing that ātman, understood as unobjectifiable consciousness, is not other than Brahman. This does not mean an individual ego secretly creates the world. Nor does it make ordinary experience sheer nothing. Empirical distinctions continue to organize action and teaching even though they do not possess independent ultimate reality.',
-      'Knowledge, not ritual action, directly removes ignorance, yet preparation matters: ethical discipline, discrimination, renunciation, attention, and scriptural inquiry shape the student capable of understanding. Language works indirectly and contextually, using negation and instruction to undo error rather than describing Brahman as one object among others. Śaṅkara also discusses devotion and a Lord within empirical religious life; later slogans that oppose pure knowledge to every practice flatten his pedagogy and the development of Advaita.',
-      'His arguments emerge through disagreement with Mīmāṃsā, Sāṃkhya, Nyāya-Vaiśeṣika, Buddhist philosophers, and other Vedāntins. Those opponents are not interchangeable, and later Advaita should not be projected backward unchanged. Let Ravi Varma’s image show modern devotional reception, then return to the commentarial question: what kind of mistake can be removed by knowledge, and how can words correct it without turning the nondual into another thing?',
+      'Śaṅkara is the most influential early systematizer of Advaita Vedānta, not Vedānta’s founder or a timeless “Hindu monism.” He is usually placed around the eighth century CE, but the 788–820 span is traditional rather than documentary. Later sacred biographies of travel, debate, monastery founding, and a short life shaped Advaita identity without providing a contemporary dossier. The strongest historical access comes through major commentaries and the Upadeśasāhasrī, while the attribution of many hymns and manuals remains disputed. His work enters an older contest over the Upaniṣads, Bhagavad Gītā, and Brahma Sūtra rather than presenting nonduality as a private mystical feeling.',
+      'Advaita begins from superimposition: consciousness appears limited by body, mind, agency, ownership, and biography because self and not-self are confused. Upaniṣadic teaching removes this ignorance by disclosing that ātman, understood as self-revealing consciousness, is not other than Brahman. This does not say an individual ego secretly creates the world, nor that tables, grief, duty, worship, teachers, and ethical action are simply nothing. They remain effective within ordinary experience, even if they lack independent ultimate reality. Knowledge rather than ritual action directly removes ignorance, but preparation matters: ethical discipline, discrimination, renunciation, attention, and inquiry form a student capable of understanding. Language works through instruction, negation, and context; it does not describe Brahman as one more object among others.',
+      'Śaṅkara’s arguments took shape through disagreement with Mīmāṃsā, Sāṃkhya, Nyāya-Vaiśeṣika, Buddhist philosophers, and other Vedāntins. He also discusses devotion and a Lord within empirical religious life, which makes the slogan “knowledge versus every practice” misleading. Raja Ravi Varma’s c. 1904 image of Śaṅkara teaching disciples is an influential modern devotional reception, made roughly a millennium later. It does not portray a historical event, journey, or face. It lets visitors see how a teacher and lineage were remembered before returning to the textual question: what kind of error can knowledge remove, and how can words correct it without making the nondual into another thing?',
     ],
     [
-      {label: 'Chronology', value: 'Usually 8th century CE · traditional 788–820 disputed'},
-      {label: 'Secure center', value: 'Major commentaries · Upadeśasāhasrī · wider corpus disputed'},
-      {label: 'Advaita claim', value: 'Nondual Brahman · ātman · superimposition · liberating knowledge'},
-      {label: 'Pedagogy', value: 'Preparation · scripture · reasoning · renunciation · devotion'},
-      {label: 'Historical caution', value: 'Later conquest lives and institutions are reception evidence'},
+      {heading: 'Key ideas', items: [
+        {label: 'Superimposition', description: 'We mistake changing body, mind, and social identity for the consciousness that makes experience possible.'},
+        {label: 'Nondual Brahman', description: 'Liberating knowledge denies that the deepest self is ultimately separate from Brahman; it does not make the personal ego all-powerful.'},
+      ]},
+      {heading: 'How the teaching works', items: [
+        {label: 'Commentary and reasoning', description: 'Śaṅkara argues through readings of shared texts, using reason to clarify how their words undo a mistake rather than name another object.'},
+        {label: 'Preparation and practice', description: 'Ethics, attention, renunciation, and devotion prepare understanding even though knowledge is said to remove ignorance directly.'},
+      ]},
+      {heading: 'Historical cautions', items: [
+        {label: 'A disputed corpus', description: 'Major commentaries and the Upadeśasāhasrī are stronger evidence than every hymn or manual later placed under Śaṅkara’s name.'},
+        {label: 'Later sacred biography', description: 'Stories of travel, debates, and institutions show Advaita reception but do not supply a simple contemporary life record.'},
+      ]},
     ],
     'shankara-ravi-varma',
-    'Raja Ravi Varma painted Śaṅkara teaching disciples around the start of the twentieth century, roughly a millennium after the philosopher. The scene has become influential in modern devotional and national reception, but it is not a lifetime likeness or evidence for a particular historical journey. It visualizes the teacher and lineage that later communities remembered while the exhibit grounds philosophical claims in the disputed textual corpus.',
+    'Raja Ravi Varma’s c. 1904 image shows Śaṅkara teaching disciples roughly a millennium after the philosopher’s likely lifetime. It is an influential modern devotional reception image, not a historical likeness or evidence for a particular journey, debate, or institution. The work visualizes a remembered teacher and lineage while the exhibit grounds chronology, corpus, and philosophy in the registered textual and scholarly sources.',
+    'fnv1a64:167dc6f072d59a83',
   ),
-  ramanuja: concise(
+  ramanuja: objectLed(
     'Ramanuja',
-    'Rāmānuja asks how reality can be one without erasing the genuine plurality of selves and world, and how knowledge, devotion, surrender, and grace lead toward liberation.',
     [
-      'Rāmānuja belongs to eleventh- and twelfth-century South India and is conventionally dated 1017–1137, though detailed biographies were shaped by later Śrī Vaiṣṇava memory. Accounts of teachers, temple conflicts, exile, conversions, and institutional reform illuminate community identity but cannot all be treated as contemporary records. The Śrī Bhāṣya, Vedārthasaṅgraha, and Gītā Bhāṣya provide firmer access to his philosophical and theological project.',
-      'Viśiṣṭādvaita is qualified nonduality, not a compromise produced by averaging nondualism and dualism. Brahman, identified with Nārāyaṇa, is one reality endowed with infinite auspicious qualities. Individual selves and the material world are real and irreducible, yet wholly dependent on Brahman. The body-soul analogy expresses this unity-in-dependence: the universe forms Brahman’s body while Brahman is its inner ruler. Difference remains real without making dependent beings self-sufficient.',
-      'Rāmānuja criticizes an Advaita account in which ignorance and limiting appearance seem to make plurality less than fully real. Scriptural sentences should disclose a qualified whole rather than cancel their own distinctions. Knowledge of dependence supports loving contemplation and service; karma-yoga, knowledge, bhakti, surrender, and divine grace receive different emphases across texts and later communities. Liberation preserves the self’s individuality and relation to God rather than dissolving it into featureless identity.',
-      'The tradition’s Sanskrit commentary belongs beside Tamil devotional poetry, temple practice, teacher lineages, and later disputes, but their relationship cannot be reduced to one simple synthesis or founder story. The displayed statue is devotional reception, not documentation. Ask instead what dependence means when the dependent is fully real, and whether unity becomes more intelligible when difference is preserved as a relation within the whole rather than dismissed as error.',
+      'Rāmānuja is an eleventh- and twelfth-century South Indian philosopher and a principal teacher of the Śrī Vaiṣṇava tradition, conventionally dated 1017–1137. Detailed accounts of teachers, temple conflict, exile, conversion, and institutional reform were shaped by later community memory and cannot all be treated as contemporary records. The Śrī Bhāṣya, Vedārthasaṅgraha, and Gītā Bhāṣya provide firmer access to his philosophical and theological project. Sanskrit commentary, Tamil devotional poetry, temple practice, and teacher lineages are connected without forming a simple founder story. His work gave one powerful account of how a differentiated world belongs to divine reality.',
+      'Viśiṣṭādvaita means qualified nonduality, not an average of nondualism and dualism. Brahman, identified with Nārāyaṇa and inseparable from Śrī, is one reality possessing limitless auspicious qualities. Individual selves and the material world are real and irreducible, yet wholly dependent on Brahman. The body–self analogy expresses this unity: the universe is Brahman’s body and Brahman its inner ruler. A body is not identical with its indwelling self in every respect, so the analogy does not absorb finite persons into God or treat the world as a deficiency that completes divinity. Difference remains real without making dependent beings self-sufficient. Scriptural interpretation should disclose this qualified whole rather than cancel its own distinctions.',
+      'Knowledge of dependence supports loving contemplation and service; action, knowledge, bhakti, surrender, and divine grace receive different emphases across texts and later communities. Liberation preserves a self’s individuality and relation to God rather than dissolving it into featureless identity. Questions about access, duty, and social hierarchy should remain visible rather than being converted into an uncomplicated modern egalitarianism. The displayed traditional sculpture is a devotional representation with no recorded maker, date, or location, not a lifetime likeness. Let it pose the philosophical question: what does dependence mean when the dependent is fully real, and can unity become more intelligible when difference is a relation within a whole rather than an error to be removed?',
     ],
     [
-      {label: 'Historical setting', value: '11th–12th-century South India · biography layered'},
-      {label: 'Key works', value: 'Śrī Bhāṣya · Vedārthasaṅgraha · Gītā Bhāṣya'},
-      {label: 'Viśiṣṭādvaita', value: 'Qualified nonduality · real selves and world dependent on Brahman'},
-      {label: 'Path', value: 'Knowledge · devotion · surrender · service · grace'},
-      {label: 'Community context', value: 'Śrī Vaiṣṇava Sanskrit, Tamil, temple, and lineage traditions'},
+      {heading: 'Core claim', items: [
+        {label: 'Qualified nonduality', description: 'God, selves, and world belong to one differentiated reality: the finite is real and dependent, not an illusion or an independent rival.'},
+        {label: 'The body–self analogy', description: 'The universe is related to Brahman as a body to its inner self, expressing dependence without saying that finite beings are identical with God.'},
+      ]},
+      {heading: 'A path of relation', items: [
+        {label: 'Devotion and grace', description: 'Knowledge, service, bhakti, surrender, and divine grace help explain liberation, though their balance varies across texts and later communities.'},
+        {label: 'Liberation', description: 'Freedom preserves the self’s distinct relation to Nārāyaṇa rather than eliminating individuality.'},
+      ]},
+      {heading: 'Works and community', items: [
+        {label: 'Major commentaries', description: 'The Śrī Bhāṣya and Vedārthasaṅgraha argue through the shared Vedānta archive instead of simply announcing a doctrine.'},
+        {label: 'Layered memory', description: 'Sanskrit scholarship, Tamil devotion, temple practice, and later biography are connected but must not be flattened into one historical voice.'},
+      ]},
     ],
     'ramanuja-statue-cc0',
-    'This traditional seated image identifies Rāmānuja through devotional iconography, but the file page does not document the sculpture’s maker, date, or location. It cannot function as a lifetime portrait. The object is best read as evidence that a philosopher of dependence and embodied relation became a continuing presence in worship, lineage, and institutional memory beyond the arguments preserved in his works.',
+    'This traditional sculptural representation identifies Rāmānuja through devotional iconography, but its file page does not record a maker, date, or location. It cannot function as a lifetime portrait. The object shows a continuing presence in worship, lineage, and institutional memory beyond the arguments preserved in his works, while leaving biography, chronology, and the history of Viśiṣṭādvaita to the article and its registered sources.',
+    'fnv1a64:91d8b2d04a0ce897',
   ),
-  madhva: concise(
+  madhva: objectLed(
     'Madhva',
-    'Madhva asks what devotion, agency, and liberation become within a devotional world when God, individual selves, and matter are real and their differences never disappear.',
     [
-      'Madhva, also known as Ānandatīrtha, worked in thirteenth-century coastal Karnataka and is conventionally dated around 1238–1317. Later biographies connect him with miraculous powers, journeys, debates, recovered texts, and divine identity. These narratives shaped the Dvaita community, while his commentaries and independent treatises provide the firmer basis for philosophical reconstruction. Udupi institutions preserve a powerful lineage without proving that every later doctrine or practice was complete in Madhva’s lifetime.',
-      'Dvaita insists that Viṣṇu is the independent reality and that souls and matter are real but dependent. Difference is not ignorance waiting to disappear. Later summaries organize the doctrine through five enduring differences—between God and souls, God and matter, one soul and another, souls and matter, and material things. That scheme is a useful orientation when read through Madhva’s texts and later school transmission rather than treated as an isolated slogan.',
-      'Knowledge depends on valid sources including perception, inference, and scripture, whose interpretation Madhva aligns with a realist theism. Liberation comes through correct knowledge of dependence, devotion, divine grace, and the soul’s proper relation to Viṣṇu; it does not abolish individuality. The tradition also develops a hierarchy among souls and difficult claims about differing destinies. Those positions should be presented directly rather than softened, because they raise enduring questions about justice, agency, grace, and exclusion.',
-      'Madhva disputes Advaita’s nondual identity and Rāmānuja’s qualified whole while drawing on the same broad scriptural authorities. Later commentators such as Jayatīrtha and Vyāsatīrtha sharpened the school’s epistemology and polemics. Let the Pajaka image mark devotional geography and reception, then ask the metaphysical question: can complete dependence coexist with irreducible difference, and what happens ethically when a hierarchy of souls becomes part of that answer?',
+      'Madhva, also known as Ānandatīrtha, worked in thirteenth-century coastal Karnataka and is conventionally dated around 1238–1317. Later biographies connect him to miracles, journeys, debates, and divine identity. These narratives shaped the Dvaita community, but his works provide firmer grounds for philosophical reconstruction. Udupi institutions preserve lineage without proving that every later doctrine was fixed in Madhva’s lifetime. Later figures including Jayatīrtha and Vyāsatīrtha systematized his corpus, so their technical refinements cannot simply be projected back onto a single author.',
+      'Dvaita begins with one independent reality, Viṣṇu, and a world of dependent but real souls, matter, time, space, and other realities. “Dualism” is convenient but incomplete: Madhva is not simply proposing two substances. Difference is not ignorance waiting to disappear. Later summaries name five enduring differences among God, souls, matter, and individual things; this is a useful orientation when read through texts and school transmission rather than as an isolated slogan. Perception, inference, and scripture all matter to a realist account of knowledge. Liberation comes through correct awareness of dependence, devotion, divine grace, and a soul’s proper relation to Viṣṇu; it perfects rather than abolishes individuality. Madhva’s reading of shared Vedānta authorities therefore contests both Śaṅkara’s ultimate non-difference and Rāmānuja’s body–self unity.',
+      'The tradition also develops a hierarchy among souls and difficult claims about differentiated destinies. Those positions should be stated rather than softened, because they raise persistent questions about justice, agency, grace, and exclusion. The image at Pajaka is a devotional object associated with Madhva’s remembered birthplace and institutional reception. It is not a documented likeness made from life, nor does it prove miraculous biography or settle how Dvaita developed. It makes sacred geography and lineage visible. Read it beside the arguments: can complete dependence coexist with irreducible difference, and what ethical pressure follows when a philosophy of devotion joins a hierarchy of souls to an account of divine governance? The answer cannot be supplied by a serene image alone.',
     ],
     [
-      {label: 'Historical setting', value: '13th-century Karnataka · conventional chronology'},
-      {label: 'Dvaita claim', value: 'Viṣṇu independent · souls and matter real and dependent'},
-      {label: 'Difference', value: 'Five enduring relations in later standard formulation'},
-      {label: 'Path', value: 'Knowledge · devotion · grace · preserved individuality'},
-      {label: 'Open tension', value: 'Soul hierarchy · destiny · agency · later school development'},
+      {heading: 'The Dvaita claim', items: [
+        {label: 'One independent reality', description: 'Viṣṇu alone is independent; souls and the world are real but depend completely on divine reality.'},
+        {label: 'Difference endures', description: 'God, souls, matter, and individual things remain distinct rather than becoming one at liberation.'},
+      ]},
+      {heading: 'Knowing and liberation', items: [
+        {label: 'Reliable sources', description: 'Perception, inference, and scripture work together in a realist account of how people can know their dependence.'},
+        {label: 'Devotion and grace', description: 'Liberation deepens a soul’s knowledge and relation to Viṣṇu without eliminating its individuality.'},
+      ]},
+      {heading: 'Continuing debates', items: [
+        {label: 'A hierarchy of souls', description: 'The tradition’s claims about unequal capacities and destinies raise difficult questions about justice, responsibility, and grace.'},
+        {label: 'Later development', description: 'Later thinkers sharpened Dvaita arguments, so their formulations cannot automatically be assigned to Madhva’s own corpus.'},
+      ]},
     ],
     'madhva-pajaka-vigraha',
-    'This devotional image at Pajaka connects Madhva to a remembered birthplace and continuing sacred geography. It is not a documented likeness made from life, and its institutional associations belong to later reception as well as historical lineage. The object helps identify a community that made philosophical difference spatial and devotional while leaving miraculous biography and the exact development of Dvaita claims open to evidence.',
+    'This traditional image at Pajaka connects Madhva to a remembered birthplace and continuing sacred geography. It is not a documented likeness made from life, and its institutional associations belong to later reception as well as historical lineage. The object makes a community’s devotional geography visible while leaving miraculous biography, exact chronology, and the development of Dvaita arguments open to the textual and scholarly evidence registered for the article.',
+    'fnv1a64:54ca29e2e5cec7f5',
   ),
   vasubandhu: concise(
     'Vasubandhu',
