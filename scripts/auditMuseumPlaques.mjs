@@ -12,6 +12,10 @@ const htmlEntities = new Map([
   ['&amp;', '&'], ['&quot;', '"'], ['&#39;', "'"], ['&lt;', '<'], ['&gt;', '>'],
 ]);
 const decodeHtml = (value) => value.replace(/&(amp|quot|#39|lt|gt);/gu, (entity) => htmlEntities.get(entity) ?? entity);
+const githubCommandValue = (value) => String(value)
+  .replaceAll('%', '%25')
+  .replaceAll('\r', '%0D')
+  .replaceAll('\n', '%0A');
 
 const executableCandidates = process.platform === 'win32'
   ? [
@@ -70,15 +74,17 @@ try {
   if (!report.ok) {
     console.error(`Museum wall-plaque audit failed with ${report.failures.length} contract violation(s):`);
     for (const failure of report.failures) {
-      console.error(
-        `- ${failure.hall} | ${failure.room} | ${failure.exhibitId} | ${failure.title} | role=${failure.offendingRole}`
+      const failureSummary = `${failure.hall} | ${failure.room} | ${failure.exhibitId} | ${failure.title} | role=${failure.offendingRole}`
         + ` | type=${failure.plaqueType} | contexts=${failure.canonicalContexts}`
         + ` | lines=${failure.finalLineCount} | font=${failure.finalFontSize}px`
         + ` | truncation=${failure.truncation} | overflow=${failure.overflow}`
         + ` | minimum-size=${failure.minimumSizeFailure}`
         + ` | relationship=${failure.relationshipFailure} | hierarchy=${failure.hierarchyFailure}`
-        + ` | ${failure.message}`,
-      );
+        + ` | ${failure.message}`;
+      console.error(`- ${failureSummary}`);
+      if (process.env.GITHUB_ACTIONS === 'true') {
+        console.error(`::error title=Museum plaque ${failure.exhibitId}::${githubCommandValue(failureSummary)}`);
+      }
     }
     process.exitCode = 1;
   } else {
