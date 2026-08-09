@@ -32,12 +32,12 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | --- |
 | Nāgārjuna | claim-reviewed | standard-compliant | 32 | 263 | 3 | 4 | 7 | standard presentation |
 | Boethius | claim-reviewed | standard-compliant | 32 | 268 | 3 | 4 | 7 | standard presentation |
-| John Scotus Eriugena | claim-reviewed | standard-compliant | 34 | 297 | 3 | 3 | 4 | standard presentation |
-| Medieval Scholasticism | claim-reviewed | standard-compliant | 33 | 294 | 3 | 3 | 4 | standard presentation |
+| John Scotus Eriugena | claim-reviewed | standard-compliant | 32 | 297 | 3 | 3 | 4 | standard presentation |
+| Medieval Scholasticism | claim-reviewed | standard-compliant | 32 | 294 | 3 | 3 | 4 | standard presentation |
 | Anselm | claim-reviewed | standard-compliant | 34 | 291 | 3 | 3 | 5 | standard presentation |
-| Peter Abelard | claim-reviewed | standard-compliant | 35 | 292 | 3 | 3 | 4 | standard presentation |
-| Thomas Aquinas | claim-reviewed | standard-compliant | 33 | 294 | 3 | 3 | 5 | standard presentation |
-| Duns Scotus | claim-reviewed | standard-compliant | 35 | 297 | 3 | 3 | 4 | standard presentation |
+| Peter Abelard | claim-reviewed | standard-compliant | 32 | 292 | 3 | 3 | 4 | standard presentation |
+| Thomas Aquinas | claim-reviewed | standard-compliant | 32 | 294 | 3 | 3 | 5 | standard presentation |
+| Duns Scotus | claim-reviewed | standard-compliant | 32 | 297 | 3 | 3 | 4 | standard presentation |
 | William of Ockham | claim-reviewed | standard-compliant | 34 | 292 | 3 | 3 | 4 | standard presentation |
 | Meister Eckhart | claim-reviewed | standard-compliant | 35 | 295 | 3 | 3 | 4 | standard presentation |
 | Marsilius of Padua | claim-reviewed | standard-compliant | 34 | 294 | 3 | 3 | 4 | standard presentation |
