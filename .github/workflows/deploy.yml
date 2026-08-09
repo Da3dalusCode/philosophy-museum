@@ -44,8 +44,14 @@ jobs:
       - name: Audit routes
         run: npm run audit:routing
 
-      - name: Audit Museum
-        run: npm run audit:museum
+      - name: Audit Museum geometry and runtime
+        run: node scripts/auditMuseum.mjs
+
+      - name: Audit Museum plaques
+        run: npm run audit:museum-plaques
+
+      - name: Audit exhibit reviews
+        run: npm run audit:exhibits
 
       - name: Audit Museum mobile controls
         run: npm run audit:museum-mobile-controls
