@@ -179,14 +179,14 @@ try {
     }
   }
 
-  if (results.length !== 191) {
+  if (results.length !== 192) {
     failures.push({
       hall: 'Museum-wide', room: 'all primary rooms', exhibitId: 'primary-program', title: 'Primary program',
       offendingRole: 'contract', finalLineCount: 0, finalFontSize: 0,
       truncation: false, overflow: false, minimumSizeFailure: false,
       relationshipFailure: false, hierarchyFailure: false,
       plaqueType: 'primary-canonical', canonicalContexts: 'Museum-wide primary registry',
-      message: `expected 191 production primary plaques; audited ${results.length}`,
+      message: `expected 192 production primary plaques; audited ${results.length}`,
     });
   }
 
@@ -327,14 +327,14 @@ try {
     });
   }
 
-  if (supplementalResults.length !== 410) {
+  if (supplementalResults.length !== 411) {
     failures.push({
       hall: 'Museum-wide', room: 'all supplemental rooms', exhibitId: 'supplemental-program', title: 'Supplemental program',
       offendingRole: 'contract', finalLineCount: 0, finalFontSize: 0,
       truncation: false, overflow: false, minimumSizeFailure: false,
       relationshipFailure: true, hierarchyFailure: false,
       plaqueType: 'supplemental-registry', canonicalContexts: 'Museum-wide supplemental registry',
-      message: `expected 410 physical supplemental wall plaques; audited ${supplementalResults.length}`,
+      message: `expected 411 physical supplemental wall plaques; audited ${supplementalResults.length}`,
     });
   }
 

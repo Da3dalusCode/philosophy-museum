@@ -6996,6 +6996,45 @@
       "hasSources": true
     },
     {
+      "id": "dostoevsky",
+      "name": "Fyodor Dostoevsky",
+      "sections": [
+        {
+          "id": "overview",
+          "title": "Ideas put on trial in lived voices"
+        },
+        {
+          "id": "life-and-context",
+          "title": "Life after catastrophe"
+        },
+        {
+          "id": "underground",
+          "title": "The Underground Man’s revolt against rational determinism"
+        },
+        {
+          "id": "raskolnikov",
+          "title": "Raskolnikov and the extraordinary-man theory"
+        },
+        {
+          "id": "demons",
+          "title": "Demons and ideological possession"
+        },
+        {
+          "id": "karamazov",
+          "title": "Ivan, the Grand Inquisitor, and active love"
+        },
+        {
+          "id": "polyphony",
+          "title": "Polyphony, guilt, and self-deception"
+        },
+        {
+          "id": "legacy-reading",
+          "title": "A precursor’s route into existentialism"
+        }
+      ],
+      "hasSources": false
+    },
+    {
       "id": "marx",
       "name": "Karl Marx",
       "sections": [
@@ -11615,6 +11654,10 @@
           "displayName": "Wittgenstein: Tractatus Logico-Philosophicus"
         },
         {
+          "id": "wittgenstein-tractatus-opening",
+          "displayName": "Wittgenstein: Tractatus Logico-Philosophicus — World and Facts"
+        },
+        {
           "id": "wittgenstein-truth-tables",
           "displayName": "Wittgenstein: Truth Tables and Logical Space"
         },
@@ -13037,6 +13080,10 @@
         {
           "id": "enlightenment-revolution-from-street",
           "displayName": "Revolution from the Street"
+        },
+        {
+          "id": "enlightenment-kant-sublime",
+          "displayName": "Kant’s Sublime"
         }
       ]
     },
@@ -13269,6 +13316,10 @@
           "displayName": "Kierkegaard"
         },
         {
+          "id": "dostoevsky",
+          "displayName": "Fyodor Dostoevsky"
+        },
+        {
           "id": "nietzsche",
           "displayName": "Friedrich Nietzsche"
         }
@@ -13307,12 +13358,8 @@
           "displayName": "Faith Inside—and Against—Christendom"
         },
         {
-          "id": "kierkegaard-corsair-public",
-          "displayName": "The Public Makes a Spectacle"
-        },
-        {
-          "id": "kierkegaard-regine-legend",
-          "displayName": "Regine after the Legend"
+          "id": "dostoevsky-brothers-karamazov",
+          "displayName": "The Brothers Karamazov"
         },
         {
           "id": "nietzsche-birth-tragedy",

@@ -9,12 +9,12 @@
       "path": "docs/museum-masterplan/single-level-building-plan.json",
       "planId": "continuous-enfilade-single-level-v1",
       "schemaVersion": 2,
-      "sha256": "e1c3b67d9d43f21bc6083f4ae68d37228b0d4680716b2dc3814c97533e67115a"
+      "sha256": "ba55cacf5dde934d6af587d0a10e02bad6569f6354a06160c5d132c2af5fff89"
     },
     "program": {
       "path": "docs/museum-masterplan/hall-program.json",
       "schemaVersion": 1,
-      "sha256": "3afae082f4c332500eb81cb846237070ecf672a075a385e0c0357f1b6c60db0f"
+      "sha256": "dedfc7a6fb1f59dd62027e8a6a1f9f5600a159117c0658046b2d26ad408dc415"
     }
   },
   "units": "metres",
@@ -4573,7 +4573,7 @@
         },
         {
           "id": "nineteenth-faith-subjectivity",
-          "title": "Faith, subjectivity, anxiety, and becoming a self"
+          "title": "Faith, subjectivity, freedom, and responsibility"
         },
         {
           "id": "nineteenth-genealogy-value",

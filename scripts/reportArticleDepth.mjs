@@ -92,7 +92,7 @@ const markdown = `# Universal article-depth inventory
 
 ${report.definition}
 
-The current authoritative registry contains philosopher and philosophy articles. It contains no standalone long-form work, text, argument, concept, or Museum-exhibit article. Wall work drawers, timeline entries, nested work/concept cards, 191 primary Museum interpretation panels, and 409 supplemental Museum surfaces are intentionally concise interfaces; when they claim article backing, their route is validated against one canonical article.
+The current authoritative registry contains philosopher and philosophy articles. It contains no standalone long-form work, text, argument, concept, or Museum-exhibit article. Wall work drawers, timeline entries, nested work/concept cards, 192 primary Museum interpretation panels, and 411 supplemental Museum surfaces are intentionally concise interfaces; when they claim article backing, their route is validated against one canonical article.
 
 ## Word-count method
 

@@ -2453,6 +2453,28 @@
         "sha256": "3a3be9050062fc1c254f59ac3d59ca066f86497dd8896aad3b39f48305222508"
       }
     },
+    "wittgenstein-tractatus-first-page-1922": {
+      "hallFolder": "analytic-traditions",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Tractatus_first_page_1922_Harcourt.png",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/96/Tractatus_first_page_1922_Harcourt.png",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/9/96/Tractatus_first_page_1922_Harcourt.png",
+      "visualCharacter": "text-or-diagram",
+      "textDominantOrSingleBook": true,
+      "sceneMaximum": 640,
+      "panelMaximum": 1280,
+      "scene": {
+        "width": 442,
+        "height": 640,
+        "bytes": 44276,
+        "sha256": "2d90056ba13eddae3374845ef6271fc937a4da5910bb9c05ba1199df25f7d43e"
+      },
+      "panel": {
+        "width": 828,
+        "height": 1198,
+        "bytes": 120878,
+        "sha256": "93dfd1d62afb2f239bf4baeaf733e47fdf0e36b3b0d2605e1d2e8895249ef985"
+      }
+    },
     "wittgenstein-truth-table-schema": {
       "hallFolder": "analytic-traditions",
       "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Schema_tavole_di_verit%C3%A0.jpg",

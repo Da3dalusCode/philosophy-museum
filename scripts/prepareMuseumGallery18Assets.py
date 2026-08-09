@@ -23,7 +23,7 @@ USER_AGENT = (
     "PhilosophyAtlasMuseum/1.0 "
     "(+https://github.com/Da3dalusCode/philosophy-museum; local educational asset preparation)"
 )
-EXPECTED_ASSET_COUNT = 25
+EXPECTED_ASSET_COUNT = 26
 MAX_DERIVATIVE_BYTES = 600_000
 MIN_DERIVATIVE_EDGE = 180
 VALID_HALL_FOLDERS = {"enlightenment-revolution-kant"}

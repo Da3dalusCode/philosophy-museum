@@ -4,8 +4,8 @@
   "recommendedOptionId": "worlds-with-questions-forum-expanded",
   "assignmentCounts": {
     "branches": 45,
-    "philosophers": 146,
-    "totalPrimaryRecords": 191
+    "philosophers": 147,
+    "totalPrimaryRecords": 192
   },
   "optionSummaries": [
     {
@@ -15,7 +15,7 @@
       "wingCount": 10,
       "hallCount": 26,
       "roomCount": 105,
-      "recordCapacity": 260
+      "recordCapacity": 261
     },
     {
       "id": "braided-global-timeline",
@@ -92,7 +92,7 @@
         "title": "Nineteenth-Century Transformations",
         "hallCount": 3,
         "roomCount": 11,
-        "recordCapacity": 15
+        "recordCapacity": 16
       },
       {
         "id": "wing-modern-traditions",
@@ -456,7 +456,7 @@
         "faith-pessimism-life-value"
       ],
       "roomCount": 11,
-      "recordCapacity": 15
+      "recordCapacity": 16
     },
     {
       "id": "wing-modern-traditions",
@@ -717,7 +717,7 @@
         "nineteenth-faith-subjectivity",
         "nineteenth-genealogy-value"
       ],
-      "recordCapacity": 3
+      "recordCapacity": 4
     },
     {
       "id": "pragmatism-democratic-inquiry",
@@ -1254,8 +1254,8 @@
     {
       "id": "nineteenth-faith-subjectivity",
       "hallId": "faith-pessimism-life-value",
-      "title": "Faith, subjectivity, anxiety, and becoming a self",
-      "recordCapacity": 1
+      "title": "Faith, subjectivity, freedom, and responsibility",
+      "recordCapacity": 2
     },
     {
       "id": "nineteenth-genealogy-value",

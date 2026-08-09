@@ -181,7 +181,7 @@ const searchIndex = {
 };
 
 assert.equal(routeManifest.branches.length, 45, 'Route manifest must contain 45 branches.');
-assert.equal(routeManifest.philosophers.length, 146, 'Route manifest must contain 146 philosophers.');
+assert.equal(routeManifest.philosophers.length, 147, 'Route manifest must contain 147 philosophers.');
 assert.equal(routeManifest.learningPaths.length, 8, 'Route manifest must contain 8 learning paths.');
 assert.equal(routeManifest.museumHalls.length, 26, 'Route manifest must contain 26 Museum halls.');
 assert.equal(
@@ -189,10 +189,10 @@ assert.equal(
     (sum, hall) => sum + hall.primaryExhibits.length + hall.supplementalExhibits.length,
     0,
   ),
-  601,
-  'Route manifest must contain all 601 Museum stops.',
+  603,
+  'Route manifest must contain all 603 Museum stops.',
 );
-assert.equal(searchIndex.museumExhibits.length, 601, 'Search index must contain all 601 Museum stops.');
+assert.equal(searchIndex.museumExhibits.length, 603, 'Search index must contain all 603 Museum stops.');
 
 const serialize = (value) => `${JSON.stringify(value, null, 2)}\n`;
 const outputsToWrite = [

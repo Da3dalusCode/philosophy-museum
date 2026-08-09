@@ -11,10 +11,10 @@ This is the approved planning program and the intellectual authority for every g
 | Wings | **10** |
 | Halls | **26** |
 | Rooms / zones | **105** |
-| Planned record capacity | **260** |
+| Planned record capacity | **261** |
 | Current branch/tradition primary assignments | **45** |
-| Current philosopher primary assignments | **146** |
-| Total current primary assignments | **191** |
+| Current philosopher primary assignments | **147** |
+| Total current primary assignments | **192** |
 | Unallocated record capacity | **69** |
 
 Here, **record capacity** means the number of Atlas records a room is planned to interpret at the appropriate presentation tier. It is not visitor occupancy, floor area, or the number of freestanding objects. A shared cluster may use less physical area than an anchor exhibit even though both records count toward assignment coverage.
@@ -33,16 +33,16 @@ Placements for living and recently deceased thinkers remain curatorial judgments
 
 ### Presentation tiers
 
-Tier expresses exhibit treatment, not philosophical worth. It prevents “complete coverage” from becoming 191 equally large monuments.
+Tier expresses exhibit treatment, not philosophical worth. It prevents “complete coverage” from becoming 192 equally large monuments.
 
 | Tier | Branches | Philosophers | Total | Intended physical treatment |
 | --- | ---: | ---: | ---: | --- |
 | Anchor exhibit | 39 | 58 | **97** | A major interpretive installation for a field, tradition, system, or thinker central to the room's argument |
-| Standard individual exhibit | 0 | 79 | **79** | A self-contained philosopher exhibit with context, contribution, works, and relationships |
+| Standard individual exhibit | 0 | 80 | **80** | A self-contained philosopher exhibit with context, contribution, works, and relationships |
 | Supporting exhibit | 4 | 5 | **9** | A compact but named exhibit that supports orientation, lineage, or transition |
 | Thematic cluster participant | 2 | 3 | **5** | A clearly identified record within a shared installation where separation would misstate the evidence or overstate certainty |
 | Gallery archive or study-wall record | 0 | 1 | **1** | A visible, searchable record with a defensible home but without a full installation at current depth |
-| **Total** | **45** | **146** | **191** | Complete current inventory |
+| **Total** | **45** | **147** | **192** | Complete current inventory |
 
 The lower-footprint assignments are deliberate and reviewable. The four supporting umbrella branches are Ancient Greek Philosophy, Indian Philosophy, Chinese Philosophy, and Continental Philosophy. The five thematic-cluster participants are Legalism, Buddhist Epistemology, Laozi, Pseudo-Dionysius, and Patañjali. Leucippus is the sole study-wall record. These assignments can be promoted later if source depth grows; their present tier never erases their primary home.
 
@@ -50,7 +50,7 @@ Tier balance is an operational review, not only a disclaimer. The final scholars
 
 ### Secondary associations
 
-Of the 191 records, 168 have at least one secondary hall association, producing 308 resolved **hall-route candidates**. Twenty-three have no secondary hall because a forced link would add noise rather than insight. A secondary association may produce:
+Of the 192 records, 169 have at least one secondary hall association, producing 309 resolved **hall-route candidates**. Twenty-three have no secondary hall because a forced link would add noise rather than insight. A secondary association may produce:
 
 - a linked comparison or reception panel;
 - a “continue this question” wayfinding route;
@@ -63,7 +63,7 @@ The semicolon-separated CSV fields establish destination coverage, not final int
 
 ## Coverage and reserve by wing
 
-The table below reconciles the 191 current primary assignments with the 260-slot program. “Reserve” is capacity not currently occupied by a primary assignment; it may still support orientation and secondary interpretation before new records are added.
+The table below reconciles the 192 current primary assignments with the 261-slot program. “Reserve” is capacity not currently occupied by a primary assignment; it may still support orientation and secondary interpretation before new records are added.
 
 | Wing | Halls | Rooms | Capacity | Current branches | Current philosophers | Current total | Reserve |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -74,10 +74,10 @@ The table below reconciles the 191 current primary assignments with the 260-slot
 | Chinese & East Asian Intellectual Worlds | 2 | 7 | 23 | 5 | 9 | 14 | 9 |
 | Connected Medieval & Post-Classical Intellectual Worlds | 3 | 11 | 33 | 2 | 20 | 22 | 11 |
 | Early Modern Europe & Enlightenments | 4 | 14 | 23 | 2 | 18 | 20 | 3 |
-| Nineteenth-Century Transformations | 3 | 11 | 15 | 3 | 9 | 12 | 3 |
+| Nineteenth-Century Transformations | 3 | 11 | 16 | 3 | 10 | 13 | 3 |
 | Modern Philosophical Traditions | 4 | 18 | 28 | 5 | 19 | 24 | 4 |
 | Ethics, Politics, and Social Thought | 4 | 14 | 25 | 6 | 13 | 19 | 6 |
-| **Total** | **26** | **105** | **260** | **45** | **146** | **191** | **69** |
+| **Total** | **26** | **105** | **261** | **45** | **147** | **192** | **69** |
 
 ## Wing and hall program
 
@@ -223,7 +223,7 @@ Rooms: Law and comparative institutions (1); Inequality, civic freedom, and educ
 
 ### 8. Nineteenth-Century Transformations
 
-**Program (`wing-nineteenth-transformations`):** 3 halls, 11 rooms, capacity 15; 12 current assignments, 3 reserve slots.
+**Program (`wing-nineteenth-transformations`):** 3 halls, 11 rooms, capacity 16; 13 current assignments, 3 reserve slots.
 
 The wing makes three simultaneous transformations legible: post-Kantian system building; arguments about utility, liberty, history, labor, and capital; and challenges organized around faith, suffering, life, and value. It avoids treating all nineteenth-century thought as a single march toward one twentieth-century school.
 
@@ -243,9 +243,9 @@ Rooms: Utility, law, reform, and individuality (2); Liberty, equality, and exper
 
 #### Faith, Pessimism, Life, and Value
 
-`faith-pessimism-life-value` · sequential template · 3 rooms · capacity 3 · 3 assigned · no reserve
+`faith-pessimism-life-value` · sequential template · 3 rooms · capacity 4 · 4 assigned · no reserve
 
-Rooms: Will, representation, suffering, and reception (1); Faith, subjectivity, anxiety, and becoming a self (1); Genealogy, nihilism, life, and value creation (1).
+Rooms: Will, representation, suffering, and reception (1); Faith, subjectivity, freedom, and responsibility (2); Genealogy, nihilism, life, and value creation (1).
 
 ### 9. Modern Philosophical Traditions
 
@@ -365,11 +365,11 @@ Four halls are already at their planned primary-record capacity: Empiricism, Enl
 
 This approved intellectual program governs the production Continuous Enfilade under all of the following conditions:
 
-- one primary assignment for each of the 45 branch IDs and 146 philosopher IDs;
+- one primary assignment for each of the 45 branch IDs and 147 philosopher IDs;
 - capacity is treated as record-planning capacity rather than visitor or architectural occupancy;
 - secondary associations remain links and interpretive appearances, not duplicate homes;
 - cultural safeguards are carried into labels, thresholds, sightlines, and map routes;
 - reserve contexts remain visibly provisional until supported by researched Atlas records;
 - a full hall can expand rather than forcing future material into a misleading category.
 
-The program establishes what the Museum houses and the intellectual rules the production Continuous Enfilade must preserve. The complete building provides all 26 curated/open galleries and 105 named rooms. Completion of the runtime program does not change the locked totals of 191 assigned records, 260 capacity, or 69 reserve slots.
+The program establishes what the Museum houses and the intellectual rules the production Continuous Enfilade must preserve. The complete building provides all 26 curated/open galleries and 105 named rooms. Completion of the runtime program does not change the locked totals of 192 assigned records, 261 capacity, or 69 reserve slots.

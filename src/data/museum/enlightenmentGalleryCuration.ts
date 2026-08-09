@@ -182,14 +182,15 @@ export const ENLIGHTENMENT_INSTALLATION_SLOTS = [
   slot('enlightenment-sentiment-commerce:north-room-face', 'enlightenment-sentiment-commerce', -11, 5.2, 0, baffleId('sw', 'horizontal')),
   slot('enlightenment-sentiment-commerce:north-cross-face', 'enlightenment-sentiment-commerce', -11, 3, Math.PI, baffleId('sw', 'horizontal'), 2.5),
 
-  // Northwest · equality/education plus Kant's final threshold · 7
+  // Northwest · equality/education plus Kant's final threshold · 8
   slot('enlightenment-equality-education:west-outer-north', 'enlightenment-equality-education', -12.8, -11.55, Math.PI / 2, outerWallId('west')),
-  slot('enlightenment-equality-education:north-outer', 'enlightenment-equality-education', -8.8, -12.8, 0, outerWallId('north')),
+  slot('enlightenment-equality-education:north-outer', 'enlightenment-equality-education', -9.4, -12.8, 0, outerWallId('north')),
   slot('enlightenment-equality-education:east-room-face', 'enlightenment-equality-education', -5.2, -11, -Math.PI / 2, baffleId('nw', 'vertical')),
-  slot('enlightenment-equality-education:east-cross-face', 'enlightenment-equality-education', -3, -11, Math.PI / 2, baffleId('nw', 'vertical'), 2.5),
+  slot('enlightenment-equality-education:east-cross-face', 'enlightenment-equality-education', -3, -10.1, Math.PI / 2, baffleId('nw', 'vertical'), 2.5),
   slot('enlightenment-equality-education:south-room-face', 'enlightenment-equality-education', -9.9, -5.2, Math.PI, baffleId('nw', 'horizontal')),
   slot('enlightenment-equality-education:south-cross-face', 'enlightenment-equality-education', -11, -3, 0, baffleId('nw', 'horizontal'), 2.5),
   slot('enlightenment-kant-critical:west-exit-threshold', 'enlightenment-kant-critical', -12.8, -7.25, Math.PI / 2, outerWallId('west')),
+  slot('enlightenment-kant-critical:north-outer', 'enlightenment-kant-critical', -1.95, -12.8, 0, outerWallId('north')),
 ] as const satisfies readonly EnlightenmentInstallationSlot[];
 
 const installationSlotById = new Map(ENLIGHTENMENT_INSTALLATION_SLOTS.map((item) => [item.id, item]));
@@ -301,11 +302,11 @@ export const validateEnlightenmentGalleryCuration = () => {
   assertCuration(ENLIGHTENMENT_CELL_ORDER.length === 4, 'the open crossroads must have four physical bays.');
   assertCuration(ENLIGHTENMENT_SPATIAL_CONNECTIONS.length === 4, 'all four physical bay seams must stay open.');
   assertCuration(enlightenmentInteriorWalls().length === 8, 'the open crossroads must have eight L-baffles.');
-  assertCuration(ENLIGHTENMENT_INSTALLATION_SLOTS.length === 25, 'the hall must have exactly 25 installations.');
-  assertCuration(new Set(ENLIGHTENMENT_INSTALLATION_SLOTS.map(({id}) => id)).size === 25, 'slot IDs must be unique.');
+  assertCuration(ENLIGHTENMENT_INSTALLATION_SLOTS.length === 26, 'the hall must have exactly 26 installations.');
+  assertCuration(new Set(ENLIGHTENMENT_INSTALLATION_SLOTS.map(({id}) => id)).size === 26, 'slot IDs must be unique.');
   assertCuration(Object.keys(ENLIGHTENMENT_PRIMARY_PLACEMENTS).length === 6, 'all six canonical primaries need authored placements.');
   for (const roomId of ENLIGHTENMENT_ROOM_ORDER) {
-    const expected = roomId === 'enlightenment-kant-critical' ? 1 : 6;
+    const expected = roomId === 'enlightenment-kant-critical' ? 2 : 6;
     assertCuration(
       ENLIGHTENMENT_INSTALLATION_SLOTS.filter(({zoneId}) => zoneId === roomId).length === expected,
       `${roomId} has an incorrect installation count.`,
@@ -316,9 +317,9 @@ export const validateEnlightenmentGalleryCuration = () => {
     physicalBayCount: 4,
     connectionCount: 4,
     interiorWallCount: 8,
-    installationCount: 25,
+    installationCount: 26,
     primaryCount: 6,
-    supplementalCount: 19,
+    supplementalCount: 20,
   });
 };
 
