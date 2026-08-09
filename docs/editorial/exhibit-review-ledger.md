@@ -28,13 +28,13 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 
 ## Reviewed exhibits
 
-| Exhibit | Article status | Exhibit status | Plaque words | Main words | Paragraphs | Orientation | Presentation |
-| --- | --- | --- | ---: | ---: | ---: | ---: | --- |
-| Nāgārjuna | claim-reviewed | standard-compliant | 32 | 263 | 3 | 5 | standard presentation |
-| Boethius | claim-reviewed | standard-compliant | 32 | 268 | 3 | 5 | standard presentation |
-| Sextus Empiricus | bibliography-only | reconciled | 32 | 268 | 3 | 5 | standard presentation |
-| Kantianism | claim-reviewed | standard-compliant | 34 | 254 | 3 | 5 | standard presentation |
-| Marxism | claim-reviewed | standard-compliant | 32 | 255 | 3 | 5 | standard presentation |
+| Exhibit | Article status | Exhibit status | Plaque words | Main words | Paragraphs | Guide sections | Guide items | Presentation |
+| --- | --- | --- | ---: | ---: | ---: | ---: | ---: | --- |
+| Nāgārjuna | claim-reviewed | standard-compliant | 32 | 263 | 3 | 4 | 7 | standard presentation |
+| Boethius | claim-reviewed | standard-compliant | 32 | 268 | 3 | 4 | 7 | standard presentation |
+| Sextus Empiricus | bibliography-only | reconciled | 32 | 268 | 3 | 4 | 7 | standard presentation |
+| Kantianism | claim-reviewed | standard-compliant | 34 | 254 | 3 | 3 | 7 | standard presentation |
+| Marxism | claim-reviewed | standard-compliant | 32 | 255 | 3 | 3 | 6 | standard presentation |
 
 ## Complete canonical inventory
 

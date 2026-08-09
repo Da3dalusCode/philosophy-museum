@@ -2,7 +2,12 @@ import {ArrowLeft, ArrowRight, ExternalLink, ImageOff, X} from 'lucide-react';
 import {useEffect, useId, useRef, useState, type CSSProperties, type KeyboardEvent, type MouseEvent} from 'react';
 import {getMuseumAsset, museumAssetUrl} from '../../data/museum/museumAssets';
 import type {MuseumAssetRecord} from '../../data/museum/museumAssetTypes';
-import {museumInterpretationFacts, type MuseumInterpretation} from '../../data/museum/museumInterpretations';
+import {
+  museumInterpretationFacts,
+  type MuseumInterpretation,
+  type MuseumOrientationFact,
+  type MuseumVisitorGuideSection,
+} from '../../data/museum/museumInterpretations';
 import type {MuseumExhibitRef} from '../../data/museum/museumWorldTypes';
 import {getMuseumExhibitCatalog, type MuseumExhibitCatalog, type MuseumPublicHallId} from '../../data/museumCatalog';
 import type {RouteHref} from '../../routing/routes';
@@ -12,6 +17,13 @@ const focusableSelector = 'a[href],button:not([disabled]),summary,input:not([dis
 
 const visibleFocusable = (root: HTMLElement): HTMLElement[] => [...root.querySelectorAll<HTMLElement>(focusableSelector)]
   .filter((item) => !item.closest('[inert],[aria-hidden="true"],[hidden]') && Boolean(item.offsetWidth || item.offsetHeight || item.getClientRects().length));
+
+const visitorGuideSections = (
+  orientation: readonly MuseumOrientationFact[] | readonly MuseumVisitorGuideSection[] | undefined,
+): readonly MuseumVisitorGuideSection[] | undefined => orientation?.length
+  && orientation.every((entry) => 'heading' in entry)
+  ? orientation as readonly MuseumVisitorGuideSection[]
+  : undefined;
 
 export function MuseumAssetImage({asset, priority = false}: {asset: MuseumAssetRecord; priority?: boolean}) {
   const [failed, setFailed] = useState(false);
@@ -90,7 +102,10 @@ export function MuseumInterpretationPanel({
     return relatedExhibit ? [{reference, exhibit: relatedExhibit}] : [];
   });
   const concise = content.presentation?.mode === 'concise';
-  const facts = content.presentation?.orientation ?? museumInterpretationFacts(content);
+  const guideSections = visitorGuideSections(content.presentation?.orientation);
+  const facts = (guideSections
+    ? []
+    : content.presentation?.orientation ?? museumInterpretationFacts(content)) as readonly MuseumOrientationFact[];
   const canonicalTitle = exhibit.displayName;
 
   useEffect(() => {
@@ -168,9 +183,16 @@ export function MuseumInterpretationPanel({
           </div>}
         </section>
 
-        <dl className="museum-fact-grid" aria-label={concise ? 'Visitor orientation' : undefined}>
+        {guideSections ? <div className="museum-visitor-guide" aria-label="Visitor guide">
+          {guideSections.map((section) => <section key={section.heading}>
+            <h3>{section.heading}</h3>
+            <ul>{section.items.map((item, index) => <li key={`${item.label}:${index}`}>
+              <strong>{item.label}</strong><span>{item.description}</span>
+            </li>)}</ul>
+          </section>)}
+        </div> : <dl className="museum-fact-grid" aria-label={concise ? 'Visitor orientation' : undefined}>
           {facts.map((fact) => <div key={fact.label}><dt>{fact.label}</dt><dd>{fact.value}</dd></div>)}
-        </dl>
+        </dl>}
 
         {!concise && <div className="museum-idea-grid">
           <section><p className="museum-object-role">Key ideas</p><ul>{content.keyIdeas.map((idea) => <li key={idea}>{idea}</li>)}</ul></section>

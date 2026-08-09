@@ -47,9 +47,9 @@ This is the durable review standard for canonical primary interpretation panels.
 - The wall invitation is roughly **32–35 words** beneath the exact canonical title. The production plaque may retain the broader physical fitting fallback only when readability requires it, but that record is not `standard-compliant` without an explicit reviewed exception.
 - The principal image or object has three distinct layers: a concise caption identifying what the visitor sees, provenance and rights metadata from the canonical asset registry, and an exhibit-specific interpretation explaining what the object can and cannot establish.
 - The main interpretation contains **250–268 words in exactly three untitled prose paragraphs**. It explains the subject directly, incorporates the object without allowing it to redefine the subject, and preserves material uncertainties and disputes from the canonical article.
-- Orientation normally contains **five** concise entries. Six may be retained only when the sixth is genuinely distinct and the interpretation records a specific exception reason.
+- Between the object-led opening and the prose, use a compact visitor guide divided into familiar, subject-appropriate sections such as **Key ideas**, **Central questions**, **Major works**, **Development**, **Influence**, or **Continuing debates**. There is no required section, item count, or shared category template. Each named concept, person, work, school, or tradition must be paired with a brief plain-language explanation rather than presented as an unexplained catalog. The guide should complement the prose, remain concise and scannable, and use restrained vertical spacing.
 - The final action explicitly opens the full sourced canonical article.
-- Do not expose a duplicated lead, raw software IDs, route or inventory metadata, generated fact rows, metadata grids, or mechanical idea/work catalogs. These are implementation or article-reference structures, not visitor interpretation.
+- Do not expose a duplicated lead, raw software IDs, route or inventory metadata, generated fact rows, metadata grids, or mechanical idea/work catalogs. Useful structured visitor guidance is welcome when it explains rather than inventories and does not repeat the prose or expand toward article-level coverage.
 
 Article credibility and exhibit status are separate:
 

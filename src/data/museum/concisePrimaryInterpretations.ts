@@ -459,17 +459,27 @@ Readonly<Record<string, MuseumPrimaryInterpretationEnrichment>> = {
       'The compact verses made commentary indispensable, and readers now meet them through Sanskrit witnesses, Tibetan and Chinese translations, Indian commentaries, and modern editions. The Mūlamadhyamakakārikā is the secure center of Nāgārjuna’s corpus; other attributed works carry different degrees of confidence. Buddhapālita, Bhāviveka, Candrakīrti, Tibetan scholastic traditions, Sanlun, and modern reconstructions developed distinct inheritances rather than one transparent system. The displayed Tibetan thangka belongs to that later reception and legendary biography. Its nāga imagery visualizes remembered transmission, not a lifetime likeness, an autograph, or proof that every later Madhyamaka classification was Nāgārjuna’s own.',
     ]}],
     presentation: {mode: 'concise', orientation: [
-      {label: 'Historical setting', value: 'India · approximately 150–250 CE; biography remains sparse'},
-      {label: 'Secure textual center', value: 'Mūlamadhyamakakārikā · other attributions vary in confidence'},
-      {label: 'Central argument', value: 'Dependent arising · emptiness · critique of self-established essence'},
-      {label: 'Interpretive caution', value: 'Emptiness is not sheer nonexistence or a final substance'},
-      {label: 'Reception', value: 'Indian commentaries · Tibetan traditions · Sanlun · modern reconstructions'},
+      {heading: 'Key ideas', items: [
+        {label: 'Dependent arising', description: 'Things exist through causes, conditions, relationships, and the ways people identify them—not through a self-sufficient core.'},
+        {label: 'Emptiness', description: 'To be empty is to lack that fixed core. It does not mean that nothing exists or that actions have no consequences.'},
+      ]},
+      {heading: 'Major work', items: [
+        {label: 'Root Verses on the Middle Way', description: 'The Mūlamadhyamakakārikā uses compact arguments to test claims about causation, motion, self, time, truth, and liberation.'},
+        {label: 'Other attributed texts', description: 'Several works circulate under Nāgārjuna’s name, but scholars do not assign all of them the same confidence.'},
+      ]},
+      {heading: 'Influence', items: [
+        {label: 'Commentarial traditions', description: 'Indian commentators disagreed about how his arguments work; Tibetan schools developed those disagreements into distinct approaches.'},
+        {label: 'East Asian readings', description: 'The Chinese Sanlun, or Three Treatise, tradition built a major interpretation around Nāgārjuna and related texts.'},
+      ]},
+      {heading: 'Continuing debate', items: [
+        {label: 'Truth without fixed essences', description: 'Readers still debate how everyday claims can be reliable when nothing possesses an independent, unchanging nature.'},
+      ]},
     ], articleActionLabel: 'Read the full sourced Nāgārjuna article', bodyLayout: 'prose', exhibitLayout: 'object-led', plaqueKicker: '', plaqueSubtitleLines: 4},
     review: {
       status: 'standard-compliant',
       reviewedOn: '2026-08-09',
-      method: 'Reconciled against the current claim-reviewed article and registered exhibit sources; presentation checked against the canonical primary-exhibit standard.',
-      lock: 'fnv1a64:79f5c0a643cdc0c3',
+      method: 'Reconciled against the current claim-reviewed article and registered exhibit sources; subject-specific visitor guide and retained object-led presentation reviewed against the corrected canonical standard.',
+      lock: 'fnv1a64:319a16aef600fa0c',
     },
   },
   'sextus-empiricus': {
@@ -482,17 +492,27 @@ Readonly<Record<string, MuseumPrimaryInterpretationEnrichment>> = {
       'A familiar objection asks whether skeptical argument refutes itself. Sustained writing appears to rely on stable meanings, inference, memory, and standards even while challenging theoretical certainty. Sextus answers by treating skeptical expressions as reports of how things presently appear and compares them to remedies that remove themselves with what they treat. The response remains contested, which is part of the exhibit’s point. The displayed 1801 engraving supplies an imagined face for a textual authority whose appearance is unknown. It records later reception, not an authenticated ancient portrait or independent evidence for Sextus’s biography.',
     ]}],
     presentation: {mode: 'concise', orientation: [
-      {label: 'Historical setting', value: 'Late 2nd or early 3rd century CE; biography uncertain'},
-      {label: 'Primary witnesses', value: 'Outlines of Pyrrhonism · Against the Mathematicians'},
-      {label: 'Skeptical practice', value: 'Opposition · equipollence · suspension · continuing inquiry'},
-      {label: 'Interpretive caution', value: 'Neither denial of truth nor endorsement of every borrowed premise'},
-      {label: 'Live problem', value: 'Can skeptical practice rely on standards without becoming dogmatic?'},
+      {heading: 'Key ideas', items: [
+        {label: 'Opposing arguments', description: 'Sextus places competing cases side by side to test whether either deserves assent.'},
+        {label: 'Suspending judgment', description: 'When rival cases have comparable force, the skeptic says “not yet” rather than declaring either one true or false.'},
+      ]},
+      {heading: 'Major works', items: [
+        {label: 'Outlines of Pyrrhonism', description: 'A practical introduction to skeptical inquiry, its recurring arguments, and its challenges to logic, nature, and ethics.'},
+        {label: 'Against the Mathematicians', description: 'A longer set of critiques aimed at teachers who claim secure foundations for specialized disciplines.'},
+      ]},
+      {heading: 'Central questions', items: [
+        {label: 'Inquiry without dogma', description: 'Can someone keep investigating and follow ordinary life without turning present appearances into a theory of reality?'},
+        {label: 'The self-refutation problem', description: 'Can skeptical writing use language, memory, and inference consistently while questioning the standards behind them?'},
+      ]},
+      {heading: 'Influence', items: [
+        {label: 'A record of lost debates', description: 'Sextus preserves arguments from earlier philosophers whose own writings no longer survive.'},
+      ]},
     ], articleActionLabel: 'Read the full sourced Sextus Empiricus article', bodyLayout: 'prose', exhibitLayout: 'object-led', plaqueKicker: '', plaqueSubtitleLines: 4},
     review: {
       status: 'reconciled',
       reviewedOn: '2026-08-09',
-      method: 'Reconciled against the current article and registered exhibit sources; presentation checked, but the article remains outside formal claim review.',
-      lock: 'fnv1a64:b759ef48f0a284ae',
+      method: 'Reconciled against the current bibliography-only article and registered exhibit sources; subject-specific visitor guide and retained object-led presentation reviewed, but the article remains outside formal claim review.',
+      lock: 'fnv1a64:72f81e48e3e7fe6f',
     },
   },
   kantianism: {
@@ -512,11 +532,19 @@ Readonly<Record<string, MuseumPrimaryInterpretationEnrichment>> = {
     presentation: {
       mode: 'concise',
       orientation: [
-        {label: 'Reception landmark', value: 'Reinhold’s Letters, 1786'},
-        {label: 'Early reception', value: 'Kant · Reinhold · Maimon'},
-        {label: 'First transformations', value: 'Fichte · Schelling · Hegel'},
-        {label: 'Later reconstructions', value: 'Neo-Kantianism · phenomenology · analytic philosophy · critical theory · contested reception family'},
-        {label: 'Questions carried forward', value: 'Objectivity · autonomy · judgment · public reason'},
+        {heading: 'Key ideas', items: [
+          {label: 'Critique', description: 'Kant’s method asks what human reason can justify and where its claims must stop.'},
+          {label: 'Autonomy', description: 'Moral freedom means acting from principles a person can rationally accept, not merely from impulse or command.'},
+        ]},
+        {heading: 'Development', items: [
+          {label: 'Reinhold', description: 'Karl Leonhard Reinhold made Kant’s difficult project accessible to new readers and argued that it needed a firmer starting point.'},
+          {label: 'German Idealism', description: 'Fichte, Schelling, and Hegel built rival systems from problems they believed Kant had left unresolved.'},
+          {label: 'Later revivals', description: 'Neo-Kantians renewed critique through science and culture; phenomenology studied experience, analytic philosophy tested concepts, and critical theory examined reason in society.'},
+        ]},
+        {heading: 'Continuing debates', items: [
+          {label: 'Experience and objectivity', description: 'Can the mind help organize experience without making the world a human invention?'},
+          {label: 'Reason and exclusion', description: 'Can universal claims confront the racial, colonial, gendered, and ableist exclusions within Kant’s legacy?'},
+        ]},
       ],
       articleActionLabel: 'Read the full sourced Kantianism article',
       bodyLayout: 'prose',
@@ -527,8 +555,8 @@ Readonly<Record<string, MuseumPrimaryInterpretationEnrichment>> = {
     review: {
       status: 'standard-compliant',
       reviewedOn: '2026-08-09',
-      method: 'Reconciled against the current claim-reviewed article and registered exhibit sources; presentation checked against the canonical primary-exhibit standard.',
-      lock: 'fnv1a64:811d5b60d5ce9f33',
+      method: 'Reconciled against the current claim-reviewed article and registered exhibit sources; subject-specific visitor guide and retained object-led presentation reviewed against the corrected canonical standard.',
+      lock: 'fnv1a64:1be965190a9d96a3',
     },
     objectInterpretations: objectInterpretation(
       'german-idealism-reinhold-rijksmuseum-1795',
@@ -557,11 +585,18 @@ Readonly<Record<string, MuseumPrimaryInterpretationEnrichment>> = {
     presentation: {
       mode: 'concise',
       orientation: [
-        {label: 'Post-Marx anchor', value: 'Marx’s death in 1883; no single birth date for the tradition'},
-        {label: 'Formation', value: 'Texts · editing · unions · councils · parties · movements · states'},
-        {label: 'Global revisions', value: 'Anticolonial · Black · feminist · ecological Marxisms'},
-        {label: 'Live disputes', value: 'Reform or rupture · party or self-emancipation · planning and democracy'},
-        {label: 'Status', value: 'Competing traditions, not one doctrine or one state history'},
+        {heading: 'Key ideas', items: [
+          {label: 'Capitalism', description: 'An economic order in which productive resources are largely privately controlled and most people must sell their labor for wages.'},
+          {label: 'Class and exploitation', description: 'Marxists study how ownership and work divide social power, and how profit can depend on workers producing more value than they receive.'},
+        ]},
+        {heading: 'Development', items: [
+          {label: 'From texts to movements', description: 'Marx’s collaborator Friedrich Engels helped edit and extend the work; unions, parties, councils, and states then interpreted it for competing political projects.'},
+          {label: 'Global revisions', description: 'Anticolonial thinkers examined empire, Black Marxists centered racial domination, feminists analyzed unpaid care, and ecological Marxists studied capitalism’s environmental costs.'},
+        ]},
+        {heading: 'Continuing debates', items: [
+          {label: 'Reform or revolution', description: 'Can democratic reforms overcome exploitation, or must ownership and political institutions be transformed more fundamentally?'},
+          {label: 'Democracy and state power', description: 'How can collective planning avoid one-party rule, censorship, coercion, and the concentration of authority?'},
+        ]},
       ],
       articleActionLabel: 'Read the full sourced Marxism article',
       bodyLayout: 'prose',
@@ -572,8 +607,8 @@ Readonly<Record<string, MuseumPrimaryInterpretationEnrichment>> = {
     review: {
       status: 'standard-compliant',
       reviewedOn: '2026-08-09',
-      method: 'Reconciled against the current claim-reviewed article and registered exhibit sources; presentation checked against the canonical primary-exhibit standard.',
-      lock: 'fnv1a64:5950a152ee94dc70',
+      method: 'Reconciled against the current claim-reviewed article and registered exhibit sources; subject-specific visitor guide and retained object-led presentation reviewed against the corrected canonical standard.',
+      lock: 'fnv1a64:022063bd9db84839',
     },
     objectInterpretations: objectInterpretation(
       'utility-marxism-zurich-congress-1893',

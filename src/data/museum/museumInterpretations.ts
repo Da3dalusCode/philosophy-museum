@@ -51,10 +51,16 @@ export type MuseumInterpretiveConnection = {
   route?: NavigableAppRoute;
 };
 
+export type MuseumOrientationFact = {label: string; value: string};
+export type MuseumVisitorGuideItem = {label: string; description: string};
+export type MuseumVisitorGuideSection = {
+  heading: string;
+  items: readonly MuseumVisitorGuideItem[];
+};
+
 export type MuseumPrimaryPresentation = {
   mode: 'concise';
-  orientation: readonly {label: string; value: string}[];
-  orientationException?: string;
+  orientation: readonly MuseumOrientationFact[] | readonly MuseumVisitorGuideSection[];
   articleActionLabel: string;
   bodyLayout: 'prose';
   exhibitLayout?: 'object-led';

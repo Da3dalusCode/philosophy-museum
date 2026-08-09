@@ -4146,7 +4146,14 @@ check('the five exhibit-review pilots use the object-led primary interpretation 
     assert.equal(interpretation.presentation.bodyLayout, 'prose');
     assert.equal(interpretation.presentation.exhibitLayout, 'object-led');
     assert.equal(interpretation.presentation.plaqueKicker, '');
-    assert.equal(interpretation.presentation.orientation.length, 5);
+    assert(interpretation.presentation.orientation.length > 0, `${spec.id} visitor guide is empty`);
+    for (const section of interpretation.presentation.orientation) {
+      assert('heading' in section && section.heading.trim(), `${spec.id} retains an opaque orientation row`);
+      assert(section.items.length > 0, `${spec.id}/${section.heading} visitor-guide section is empty`);
+      for (const item of section.items) {
+        assert(item.label.trim() && item.description.trim(), `${spec.id}/${section.heading} contains an unexplained guide item`);
+      }
+    }
     assert.equal(interpretation.lead, '');
     assert.equal(interpretation.review?.status, spec.status);
     assert.equal(interpretation.sections.length, 1);
@@ -4164,7 +4171,8 @@ check('the five exhibit-review pilots use the object-led primary interpretation 
     const plaqueWords = wordCount(catalog.question);
     assert(plaqueWords >= 32 && plaqueWords <= 35, `${spec.id} wall-plaque invitation is ${plaqueWords} words`);
   }
-  assert.match(interpretationPanelSource, /content\.presentation\?\.orientation/u, 'shared primary renderer does not consume concise orientation');
+  assert.match(interpretationPanelSource, /visitorGuideSections\(content\.presentation\?\.orientation\)/u, 'shared primary renderer does not consume subject-specific visitor guides');
+  assert.match(interpretationPanelSource, /className="museum-visitor-guide"/u, 'shared primary renderer does not render compact visitor-guide sections');
   assert.match(interpretationPanelSource, /!concise && <div className="museum-idea-grid">/u, 'shared primary renderer still dumps article catalogs into concise exhibits');
   assert.match(interpretationPanelSource, /!concise && <p className="museum-panel-kicker">/u, 'concise primary modal still exposes a competing eyebrow');
   assert.match(interpretationPanelSource, /data-exhibit-layout/u, 'shared primary renderer does not expose the object-led layout contract');
@@ -6117,7 +6125,7 @@ check('all 192 live canonical exhibits have substantial, sourced, route-aware in
       assert.equal(interpretation.sections.length, 1, `${interpretation.id} concise presentation must use one heading-free prose section`);
       assert(interpretation.sections[0].paragraphs.length >= 3 && interpretation.sections[0].paragraphs.length <= 4, `${interpretation.id} concise prose must contain three or four paragraphs`);
       assert(interpretation.sections.every(({heading}) => heading === ''), `${interpretation.id} concise prose must not expose section headings`);
-      assert(interpretation.presentation.orientation.length > 0 && interpretation.presentation.orientation.length <= 6, `${interpretation.id} concise orientation must contain one to six items`);
+      assert(interpretation.presentation.orientation.length > 0, `${interpretation.id} concise visitor orientation must not be empty`);
       assert.match(interpretation.presentation.articleActionLabel, /^Read the full sourced /u, `${interpretation.id} concise article action is unclear`);
     }
     if (interpretation.sources.length < 3) interpretationQualityFailures.push(`${interpretation.id}: ${interpretation.sources.length} < 3 sources`);

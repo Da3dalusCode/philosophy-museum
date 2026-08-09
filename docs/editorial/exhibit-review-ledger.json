@@ -1384,7 +1384,8 @@
         "plaqueWords": 32,
         "mainInterpretationWords": 263,
         "paragraphCount": 3,
-        "orientationCount": 5,
+        "guideSectionCount": 4,
+        "guideItemCount": 7,
         "principalAssetId": "nagarjuna-sichuan-thangka",
         "issues": []
       }
@@ -1951,7 +1952,8 @@
         "plaqueWords": 32,
         "mainInterpretationWords": 268,
         "paragraphCount": 3,
-        "orientationCount": 5,
+        "guideSectionCount": 4,
+        "guideItemCount": 7,
         "principalAssetId": "scholastic-boethius-miniature",
         "issues": []
       }
@@ -2446,7 +2448,8 @@
         "plaqueWords": 32,
         "mainInterpretationWords": 268,
         "paragraphCount": 3,
-        "orientationCount": 5,
+        "guideSectionCount": 4,
+        "guideItemCount": 7,
         "principalAssetId": "skepticism-sextus-riedel",
         "issues": []
       }
@@ -2977,7 +2980,8 @@
         "plaqueWords": 34,
         "mainInterpretationWords": 254,
         "paragraphCount": 3,
-        "orientationCount": 5,
+        "guideSectionCount": 3,
+        "guideItemCount": 7,
         "principalAssetId": "german-idealism-reinhold-rijksmuseum-1795",
         "issues": []
       }
@@ -3058,7 +3062,8 @@
         "plaqueWords": 32,
         "mainInterpretationWords": 255,
         "paragraphCount": 3,
-        "orientationCount": 5,
+        "guideSectionCount": 3,
+        "guideItemCount": 6,
         "principalAssetId": "utility-marxism-zurich-congress-1893",
         "issues": []
       }

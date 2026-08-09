@@ -18,7 +18,15 @@ const presentationReview = ({exhibit, interpretation, asset, plaqueInvitation}) 
   const presentation = interpretation?.presentation;
   const paragraphs = interpretation?.sections?.flatMap((section) => section.paragraphs) ?? [];
   const mainWords = countWords(paragraphs.join(' '));
-  const orientationCount = presentation?.orientation?.length ?? 0;
+  const orientation = presentation?.orientation ?? [];
+  const visitorGuideShape = orientation.length > 0 && orientation.every((section) =>
+    section
+    && typeof section === 'object'
+    && typeof section.heading === 'string'
+    && Array.isArray(section.items),
+  );
+  const guideSections = visitorGuideShape ? orientation : [];
+  const guideItemCount = guideSections.reduce((total, section) => total + section.items.length, 0);
   const provenanceFields = asset
     ? ['creator', 'objectDate', 'institution', 'sourcePageUrl', 'attribution', 'license', 'historicalNote']
       .filter((field) => !String(asset[field] ?? '').trim())
@@ -31,8 +39,13 @@ const presentationReview = ({exhibit, interpretation, asset, plaqueInvitation}) 
   if (interpretation?.sections?.length !== 1 || paragraphs.length !== 3) issues.push('not three prose paragraphs');
   if (interpretation?.sections?.some(({heading}) => heading.trim())) issues.push('visible section heading');
   if (mainWords < 250 || mainWords > 268) issues.push(`main interpretation ${mainWords} words`);
-  if (orientationCount !== 5 && !(orientationCount === 6 && presentation?.orientationException?.trim())) {
-    issues.push(`orientation count ${orientationCount} without a six-item exception`);
+  if (!visitorGuideShape) issues.push('missing subject-specific visitor-guide sections');
+  if (guideSections.some(({heading, items}) => !heading.trim() || items.length === 0)) {
+    issues.push('visitor-guide section lacks a heading or item');
+  }
+  if (guideSections.some(({items}) => items.some(({label, description}) =>
+    !String(label ?? '').trim() || !String(description ?? '').trim()))) {
+    issues.push('visitor-guide item lacks an explained label');
   }
   if (!presentation?.articleActionLabel?.startsWith('Read the full sourced ')) issues.push('missing full-article CTA');
   if ((interpretation?.keyIdeas?.length ?? 0) > 0 || (interpretation?.keyWorks?.length ?? 0) > 0) {
@@ -52,7 +65,8 @@ const presentationReview = ({exhibit, interpretation, asset, plaqueInvitation}) 
     plaqueWords,
     mainInterpretationWords: mainWords,
     paragraphCount: paragraphs.length,
-    orientationCount,
+    guideSectionCount: guideSections.length,
+    guideItemCount,
     principalAssetId: exhibit.principalAssetId ?? null,
     issues,
   };
@@ -204,9 +218,9 @@ ${relationshipBlockers.length ? relationshipBlockers.map((blocker) => `- ${block
 
 ## Reviewed exhibits
 
-| Exhibit | Article status | Exhibit status | Plaque words | Main words | Paragraphs | Orientation | Presentation |
-| --- | --- | --- | ---: | ---: | ---: | ---: | --- |
-${reviewedEntries.map((entry) => `| ${escapeCell(entry.canonicalTitle ?? entry.exhibitId)} | ${entry.articleReviewStatus} | ${entry.exhibitStatus} | ${entry.presentation.plaqueWords} | ${entry.presentation.mainInterpretationWords} | ${entry.presentation.paragraphCount} | ${entry.presentation.orientationCount} | ${entry.presentation.standardCompliant ? 'standard presentation' : escapeCell(entry.presentation.issues.join('; '))} |`).join('\n') || '| — | — | — | — | — | — | — | — |'}
+| Exhibit | Article status | Exhibit status | Plaque words | Main words | Paragraphs | Guide sections | Guide items | Presentation |
+| --- | --- | --- | ---: | ---: | ---: | ---: | ---: | --- |
+${reviewedEntries.map((entry) => `| ${escapeCell(entry.canonicalTitle ?? entry.exhibitId)} | ${entry.articleReviewStatus} | ${entry.exhibitStatus} | ${entry.presentation.plaqueWords} | ${entry.presentation.mainInterpretationWords} | ${entry.presentation.paragraphCount} | ${entry.presentation.guideSectionCount} | ${entry.presentation.guideItemCount} | ${entry.presentation.standardCompliant ? 'standard presentation' : escapeCell(entry.presentation.issues.join('; '))} |`).join('\n') || '| — | — | — | — | — | — | — | — | — |'}
 
 ## Complete canonical inventory
 

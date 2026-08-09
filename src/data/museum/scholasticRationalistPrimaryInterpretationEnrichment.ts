@@ -24,8 +24,12 @@ export type MuseumPrimaryInterpretationEnrichment = {
   readonly review?: MuseumExhibitReview;
   readonly presentation?: {
     readonly mode: 'concise';
-    readonly orientation: readonly {readonly label: string; readonly value: string}[];
-    readonly orientationException?: string;
+    readonly orientation:
+      | readonly {readonly label: string; readonly value: string}[]
+      | readonly {
+        readonly heading: string;
+        readonly items: readonly {readonly label: string; readonly description: string}[];
+      }[];
     readonly articleActionLabel: string;
     readonly bodyLayout: 'prose';
     readonly exhibitLayout?: 'object-led';
@@ -63,11 +67,21 @@ Readonly<Record<string, ScholasticRationalistPrimaryInterpretationEnrichment>> =
     presentation: {
       mode: 'concise',
       orientation: [
-        {label: 'Historical setting', value: 'Late Roman Italy · c. 475/480–525/526 CE; chronology uncertain'},
-        {label: 'Logical project', value: 'Porphyry and Aristotle in Latin · larger plan unfinished'},
-        {label: 'Prison dialogue', value: 'Fortune · happiness · providence · contingent choice'},
-        {label: 'Corpus caution', value: 'Logical, theological, and literary works differ in form and attribution history'},
-        {label: 'Later reception', value: 'Medieval copying · glossing · teaching · music curriculum'},
+        {heading: 'Major works', items: [
+          {label: 'The logical project', description: 'Boethius translated and explained Greek logic for Latin readers, especially works by Aristotle and his interpreter Porphyry; his larger plan remained unfinished.'},
+          {label: 'The Consolation of Philosophy', description: 'Written in prison, this dialogue uses prose and poetry to ask what happiness can survive the reversals of fortune.'},
+        ]},
+        {heading: 'Central questions', items: [
+          {label: 'Fortune and happiness', description: 'Can wealth, office, reputation, or pleasure provide a stable good when each can be lost?'},
+          {label: 'Providence and freedom', description: 'If divine knowledge sees every event, can human choices still be genuinely open and responsible?'},
+        ]},
+        {heading: 'Influence', items: [
+          {label: 'Medieval classrooms', description: 'Teachers preserved, excerpted, glossed, and reorganized Boethius’s works, making him a foundation of Latin education centuries after his death.'},
+          {label: 'More than one legacy', description: 'His logic, theology, prison dialogue, and writing on music entered different courses of study rather than one unchanged philosophical system.'},
+        ]},
+        {heading: 'Continuing debate', items: [
+          {label: 'Faith in the prison dialogue', description: 'Readers still disagree about why the Consolation relies on Lady Philosophy without offering explicitly Christian consolation.'},
+        ]},
       ],
       articleActionLabel: 'Read the full sourced Boethius article',
       bodyLayout: 'prose',
@@ -78,8 +92,8 @@ Readonly<Record<string, ScholasticRationalistPrimaryInterpretationEnrichment>> =
     review: {
       status: 'standard-compliant',
       reviewedOn: '2026-08-09',
-      method: 'Reconciled against the current claim-reviewed article and registered exhibit sources; presentation checked against the canonical primary-exhibit standard.',
-      lock: 'fnv1a64:f0013e0acc006c73',
+      method: 'Reconciled against the current claim-reviewed article and registered exhibit sources; subject-specific visitor guide and retained object-led presentation reviewed against the corrected canonical standard.',
+      lock: 'fnv1a64:60404728d57bb3d6',
     },
     sources: [
       {label: 'Stanford Encyclopedia of Philosophy — Anicius Manlius Severinus Boethius', url: 'https://plato.stanford.edu/entries/boethius/', kind: 'academic-reference'},
