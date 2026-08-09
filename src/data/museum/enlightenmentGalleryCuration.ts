@@ -190,7 +190,7 @@ export const ENLIGHTENMENT_INSTALLATION_SLOTS = [
   slot('enlightenment-equality-education:south-room-face', 'enlightenment-equality-education', -9.9, -5.2, Math.PI, baffleId('nw', 'horizontal')),
   slot('enlightenment-equality-education:south-cross-face', 'enlightenment-equality-education', -11, -3, 0, baffleId('nw', 'horizontal'), 2.5),
   slot('enlightenment-kant-critical:west-exit-threshold', 'enlightenment-kant-critical', -12.8, -7.25, Math.PI / 2, outerWallId('west')),
-  slot('enlightenment-kant-critical:north-outer', 'enlightenment-kant-critical', -1.88, -12.8, 0, outerWallId('north')),
+  slot('enlightenment-kant-critical:north-outer', 'enlightenment-kant-critical', 0, -12.8, 0, outerWallId('north')),
 ] as const satisfies readonly EnlightenmentInstallationSlot[];
 
 const installationSlotById = new Map(ENLIGHTENMENT_INSTALLATION_SLOTS.map((item) => [item.id, item]));
