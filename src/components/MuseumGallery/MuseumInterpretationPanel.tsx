@@ -111,7 +111,7 @@ export function MuseumInterpretationPanel({
     if (event.key === 'Escape') {
       event.preventDefault();
       event.stopPropagation();
-      onClose('history');
+      onClose('gesture');
       return;
     }
     if (event.key !== 'Tab' || !panelRef.current) return;
