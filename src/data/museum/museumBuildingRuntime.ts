@@ -108,6 +108,9 @@ const slotCutsEdge = (
 ): {interval: [number, number]; renderLintel: boolean} | undefined => {
   const epsilon = .01;
   const seamReach = slot.transitionDepth / 2 + epsilon;
+  // Open only the wall face crossed by travel. Perpendicular return walls
+  // must run cleanly to the aperture plane; trimming them by transition depth
+  // leaves full-height notches at every orthogonal bend.
   if (
     edge.axis === 'x'
     && Math.abs(slot.inwardNormal.z) > .5
@@ -120,32 +123,12 @@ const slotCutsEdge = (
   }
   if (
     edge.axis === 'z'
-    && Math.abs(slot.inwardNormal.z) > .5
-    && Math.abs(slot.position.x - edge.coordinate) <= slot.clearWidth / 2 + epsilon
-  ) {
-    return {
-      interval: [slot.position.z - seamReach, slot.position.z + seamReach],
-      renderLintel: false,
-    };
-  }
-  if (
-    edge.axis === 'z'
     && Math.abs(slot.inwardNormal.x) > .5
     && Math.abs(slot.position.x - edge.coordinate) <= seamReach
   ) {
     return {
       interval: [slot.position.z - slot.clearWidth / 2, slot.position.z + slot.clearWidth / 2],
       renderLintel: Math.abs(slot.position.x - edge.coordinate) <= epsilon,
-    };
-  }
-  if (
-    edge.axis === 'x'
-    && Math.abs(slot.inwardNormal.x) > .5
-    && Math.abs(slot.position.z - edge.coordinate) <= slot.clearWidth / 2 + epsilon
-  ) {
-    return {
-      interval: [slot.position.x - seamReach, slot.position.x + seamReach],
-      renderLintel: false,
     };
   }
   return undefined;

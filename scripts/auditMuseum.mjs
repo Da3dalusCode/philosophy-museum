@@ -5708,6 +5708,64 @@ check('all five turn courts match map handedness and are walkable through both b
     assert.equal(manifestNode.geometry.signs.length, 1, `${turn.id} lacks threshold wayfinding`);
     assert.equal(manifestNode.geometry.signs[0].kind, 'wayfinding', `${turn.id} has the wrong sign type`);
     assert(manifestNode.geometry.cells.every(({guidanceAxis}) => guidanceAxis === 'x' || guidanceAxis === 'z'), `${turn.id} has a transverse ceiling guide`);
+    const renderedTurnPlanes = (runtimeNode.architectureWalls ?? runtimeNode.layout.wallColliders)
+      .map((wall) => museumWorldWallPlane(runtimeNode.worldTransform, wall));
+    const wallOwnersAt = ({x, z, y}) => renderedTurnPlanes.filter((plane) => {
+      const normalCoordinate = x * plane.normal.x + z * plane.normal.z;
+      const runCoordinate = x * plane.tangent.x + z * plane.tangent.z;
+      return Math.abs(normalCoordinate - plane.coordinate) <= .012
+        && runCoordinate >= plane.start - .012
+        && runCoordinate <= plane.end + .012
+        && y >= plane.bottom - .012
+        && y <= plane.top + .012;
+    }).length;
+    for (const opening of manifestNode.geometry.interiorOpenings) {
+      const fromCell = manifestNode.geometry.cells.find(({id}) => id === opening.fromCellId);
+      const toCell = manifestNode.geometry.cells.find(({id}) => id === opening.toCellId);
+      assert(fromCell && toCell, `${turn.id}/${opening.id} references a missing bend cell`);
+      const alongX = Math.abs(opening.inwardNormal.x) > .5;
+      const openingAxis = alongX ? 'x' : 'z';
+      const boundaryCoordinate = alongX ? opening.position.x : opening.position.z;
+      const fromBoundaries = alongX
+        ? [fromCell.bounds.minX, fromCell.bounds.maxX]
+        : [fromCell.bounds.minZ, fromCell.bounds.maxZ];
+      const toBoundaries = alongX
+        ? [toCell.bounds.minX, toCell.bounds.maxX]
+        : [toCell.bounds.minZ, toCell.bounds.maxZ];
+      assert(fromBoundaries.some((coordinate) => close(coordinate, boundaryCoordinate)), `${turn.id}/${opening.id} misses its source ceiling edge`);
+      assert(toBoundaries.some((coordinate) => close(coordinate, boundaryCoordinate)), `${turn.id}/${opening.id} misses its target ceiling edge`);
+      const sharedStart = alongX
+        ? Math.max(fromCell.bounds.minZ, toCell.bounds.minZ)
+        : Math.max(fromCell.bounds.minX, toCell.bounds.minX);
+      const sharedEnd = alongX
+        ? Math.min(fromCell.bounds.maxZ, toCell.bounds.maxZ)
+        : Math.min(fromCell.bounds.maxX, toCell.bounds.maxX);
+      assert(close(sharedEnd - sharedStart, opening.clearWidth), `${turn.id}/${opening.id} leaves a floor or ceiling gap across the bend`);
+      assert.equal(fromCell.ceilingHeight, toCell.ceilingHeight, `${turn.id}/${opening.id} joins unequal ceiling planes`);
+
+      const fromIsArm = fromCell.guidanceAxis === openingAxis;
+      const toIsArm = toCell.guidanceAxis === openingAxis;
+      assert.notEqual(fromIsArm, toIsArm, `${turn.id}/${opening.id} does not join one arm to one spine`);
+      const armCell = fromIsArm ? fromCell : toCell;
+      const armInward = fromIsArm
+        ? {x: -opening.inwardNormal.x, z: -opening.inwardNormal.z}
+        : opening.inwardNormal;
+      const tangent = {x: -opening.inwardNormal.z, z: opening.inwardNormal.x};
+      const returnInset = Math.min(.3, opening.transitionDepth / 4);
+      for (const side of [-1, 1]) {
+        const returnPoint = {
+          x: opening.position.x + armInward.x * returnInset + tangent.x * opening.clearWidth / 2 * side,
+          z: opening.position.z + armInward.z * returnInset + tangent.z * opening.clearWidth / 2 * side,
+        };
+        for (const y of [.18, 1.7, armCell.ceilingHeight - .18]) {
+          assert.equal(
+            wallOwnersAt({...returnPoint, y}),
+            1,
+            `${turn.id}/${opening.id} side ${side} has an open or duplicated wall return at ${y.toFixed(2)} m`,
+          );
+        }
+      }
+    }
     const constructedArea = manifestNode.geometry.cells.reduce((sum, {bounds}) =>
       sum + (bounds.maxX - bounds.minX) * (bounds.maxZ - bounds.minZ), 0);
     approx(
