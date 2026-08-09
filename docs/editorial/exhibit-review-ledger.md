@@ -10,13 +10,13 @@ Regenerate it with `npm run report:exhibits` and verify it with `npm run audit:e
 
 | Total | Unreviewed | Bibliography only | Source mapped | Claim reviewed | Review out of date |
 | ---: | ---: | ---: | ---: | ---: | ---: |
-| 192 | 4 | 66 | 0 | 122 | 0 |
+| 192 | 4 | 65 | 0 | 123 | 0 |
 
 ## Exhibit baseline
 
 | Total | Unreviewed | Reconciled | Standard compliant | Out of date |
 | ---: | ---: | ---: | ---: | ---: |
-| 192 | 187 | 1 | 4 | 0 |
+| 192 | 178 | 0 | 14 | 0 |
 
 ## Article relationships
 
@@ -32,7 +32,16 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | --- |
 | Nāgārjuna | claim-reviewed | standard-compliant | 32 | 263 | 3 | 4 | 7 | standard presentation |
 | Boethius | claim-reviewed | standard-compliant | 32 | 268 | 3 | 4 | 7 | standard presentation |
-| Sextus Empiricus | bibliography-only | reconciled | 32 | 268 | 3 | 4 | 7 | standard presentation |
+| John Scotus Eriugena | claim-reviewed | standard-compliant | 34 | 297 | 3 | 3 | 4 | standard presentation |
+| Medieval Scholasticism | claim-reviewed | standard-compliant | 33 | 294 | 3 | 3 | 4 | standard presentation |
+| Anselm | claim-reviewed | standard-compliant | 34 | 291 | 3 | 3 | 5 | standard presentation |
+| Peter Abelard | claim-reviewed | standard-compliant | 35 | 292 | 3 | 3 | 4 | standard presentation |
+| Thomas Aquinas | claim-reviewed | standard-compliant | 33 | 294 | 3 | 3 | 5 | standard presentation |
+| Duns Scotus | claim-reviewed | standard-compliant | 35 | 297 | 3 | 3 | 4 | standard presentation |
+| William of Ockham | claim-reviewed | standard-compliant | 34 | 292 | 3 | 3 | 4 | standard presentation |
+| Meister Eckhart | claim-reviewed | standard-compliant | 35 | 295 | 3 | 3 | 4 | standard presentation |
+| Marsilius of Padua | claim-reviewed | standard-compliant | 34 | 294 | 3 | 3 | 4 | standard presentation |
+| Sextus Empiricus | claim-reviewed | standard-compliant | 32 | 268 | 3 | 4 | 7 | standard presentation |
 | Kantianism | claim-reviewed | standard-compliant | 34 | 254 | 3 | 3 | 7 | standard presentation |
 | Marxism | claim-reviewed | standard-compliant | 32 | 255 | 3 | 3 | 6 | standard presentation |
 
@@ -146,15 +155,15 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | jewish-philosophy | jewish-reason-revelation | judah-halevi | philosopher:judah-halevi | matched | claim-reviewed | unreviewed |
 | jewish-philosophy | jewish-maimonidean-crossroads | maimonides | philosopher:maimonides | matched | claim-reviewed | unreviewed |
 | latin-christian-scholastic | latin-transmission-carolingian | boethius | philosopher:boethius | matched | claim-reviewed | standard-compliant |
-| latin-christian-scholastic | latin-transmission-carolingian | eriugena | philosopher:eriugena | matched | claim-reviewed | unreviewed |
-| latin-christian-scholastic | latin-dialectic-early-scholastic | medieval-scholasticism | branch:medieval-scholasticism | matched | claim-reviewed | unreviewed |
-| latin-christian-scholastic | latin-dialectic-early-scholastic | anselm | philosopher:anselm | matched | claim-reviewed | unreviewed |
-| latin-christian-scholastic | latin-dialectic-early-scholastic | abelard | philosopher:abelard | matched | claim-reviewed | unreviewed |
-| latin-christian-scholastic | latin-high-scholastic | aquinas | philosopher:aquinas | matched | claim-reviewed | unreviewed |
-| latin-christian-scholastic | latin-late-debates | duns-scotus | philosopher:duns-scotus | matched | claim-reviewed | unreviewed |
-| latin-christian-scholastic | latin-late-debates | ockham | philosopher:ockham | matched | claim-reviewed | unreviewed |
-| latin-christian-scholastic | latin-late-debates | meister-eckhart | philosopher:meister-eckhart | matched | claim-reviewed | unreviewed |
-| latin-christian-scholastic | latin-late-debates | marsilius-padua | philosopher:marsilius-padua | matched | claim-reviewed | unreviewed |
+| latin-christian-scholastic | latin-transmission-carolingian | eriugena | philosopher:eriugena | matched | claim-reviewed | standard-compliant |
+| latin-christian-scholastic | latin-dialectic-early-scholastic | medieval-scholasticism | branch:medieval-scholasticism | matched | claim-reviewed | standard-compliant |
+| latin-christian-scholastic | latin-dialectic-early-scholastic | anselm | philosopher:anselm | matched | claim-reviewed | standard-compliant |
+| latin-christian-scholastic | latin-dialectic-early-scholastic | abelard | philosopher:abelard | matched | claim-reviewed | standard-compliant |
+| latin-christian-scholastic | latin-high-scholastic | aquinas | philosopher:aquinas | matched | claim-reviewed | standard-compliant |
+| latin-christian-scholastic | latin-late-debates | duns-scotus | philosopher:duns-scotus | matched | claim-reviewed | standard-compliant |
+| latin-christian-scholastic | latin-late-debates | ockham | philosopher:ockham | matched | claim-reviewed | standard-compliant |
+| latin-christian-scholastic | latin-late-debates | meister-eckhart | philosopher:meister-eckhart | matched | claim-reviewed | standard-compliant |
+| latin-christian-scholastic | latin-late-debates | marsilius-padua | philosopher:marsilius-padua | matched | claim-reviewed | standard-compliant |
 | hellenistic-roman-ways | hell-cynic-way | cynicism | branch:cynicism | matched | bibliography-only | unreviewed |
 | hellenistic-roman-ways | hell-cynic-way | antisthenes | philosopher:antisthenes | matched | claim-reviewed | unreviewed |
 | hellenistic-roman-ways | hell-cynic-way | diogenes | philosopher:diogenes | matched | bibliography-only | unreviewed |
@@ -172,7 +181,7 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | hellenistic-roman-ways | hell-skeptical-lineages | pyrrho | philosopher:pyrrho | matched | bibliography-only | unreviewed |
 | hellenistic-roman-ways | hell-skeptical-lineages | arcesilaus | philosopher:arcesilaus | matched | claim-reviewed | unreviewed |
 | hellenistic-roman-ways | hell-skeptical-lineages | carneades | philosopher:carneades | matched | claim-reviewed | unreviewed |
-| hellenistic-roman-ways | hell-skeptical-lineages | sextus-empiricus | philosopher:sextus-empiricus | matched | bibliography-only | reconciled |
+| hellenistic-roman-ways | hell-skeptical-lineages | sextus-empiricus | philosopher:sextus-empiricus | matched | claim-reviewed | standard-compliant |
 | late-antiquity-inheritance | late-neoplatonic-systems | neoplatonism | branch:neoplatonism | matched | bibliography-only | unreviewed |
 | late-antiquity-inheritance | late-neoplatonic-systems | plotinus | philosopher:plotinus | matched | bibliography-only | unreviewed |
 | late-antiquity-inheritance | late-neoplatonic-systems | porphyry | philosopher:porphyry | matched | claim-reviewed | unreviewed |

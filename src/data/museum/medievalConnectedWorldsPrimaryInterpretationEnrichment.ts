@@ -66,10 +66,31 @@ Readonly<Record<string, MuseumPrimaryInterpretationEnrichment>> = {
     sectionCaution: 'The pear theft is an inquiry with several proposed motives, the Platonist corpus is uncertain, and Augustine’s defense of coercion must remain visible as a troubling development.',
   },
   aquinas: {
-    lead: lead('Thomas Aquinas worked as Dominican theologian and philosopher across Paris, Cologne, and Italian study houses, writing commentaries, disputed questions, treatises, sermons, and an unfinished Summa. He transformed Aristotelian, Augustinian, Neoplatonic, Arabic-Latin, Jewish, patristic, and legal sources without producing an uncontested settlement. The exhibit keeps the Five Ways, analogy, natural law, cognition, and being inside their textual arguments.', 'Read the Summa’s objections, replies, and sequencing rather than extracting conclusions as isolated aphorisms. Arguments from effects open a longer inquiry into divine predication; essence and being explain created dependence; natural law belongs within action, habit, virtue, grace, and beatitude. Aquinas’s later authority is itself a contested reception history, not proof of medieval consensus.'),
-    keyIdeas: ['Sacred teaching, philosophy, and distinct sciences', 'Essence and received acts of being', 'Five compressed ways from effects', 'Analogical divine predication', 'Natural law, virtue, grace, and beatitude'],
-    keyWorks: ['Summa theologiae', 'Summa contra gentiles', 'On Being and Essence', 'Disputed Questions on Truth'],
-    sectionCaution: 'The Five Ways do not establish every divine attribute by themselves, and neither analogy nor natural law is a detachable slogan or a modern policy checklist.',
+    lead: '',
+    keyIdeas: [],
+    keyWorks: [],
+    sections: [{heading: '', paragraphs: [
+      'Thomas Aquinas worked as a Dominican theologian and philosopher across Paris, Cologne, and Italian study houses. He wrote commentaries, disputed questions, treatises, sermons, and an unfinished Summa while transforming Aristotelian, Augustinian, Neoplatonic, Arabic-Latin, Jewish, patristic, and legal sources. This is not a frictionless synthesis or a medieval consensus. The Summa’s form matters: objections, a response, and replies make disagreement visible within the argument. Famous claims about the Five Ways, analogy, natural law, cognition, and being lose force when detached from that sequence and from the distinct tasks Aquinas assigns to philosophy and sacred teaching.',
+      'The Five Ways begin from effects and open a longer inquiry; they do not by themselves establish every divine attribute. Aquinas’s distinction between essence and an act of being helps explain why creatures are dependent rather than self-explanatory. Analogical language allows statements about God without treating divine and creaturely predicates as simply identical or unrelated. Natural law belongs within a larger account of action, habit, virtue, grace, and beatitude, not within a modern policy checklist. Each of these ideas remains tied to arguments, genres, and interlocutors that later readers have selected, criticized, and adapted differently.',
+      'Crivelli’s 1476 altarpiece was painted about two centuries after Aquinas’s death. It presents a devotional and institutional Thomas holding a church and book, not an authenticated likeness or a map of the Summa’s arguments. The image makes later authority visible while warning against using canonization as philosophical proof. Aquinas’s real invitation is more demanding: follow how objections reshape a question, notice which sources have been transformed rather than merely borrowed, and keep the unfinished work, its institutional setting, and its contested reception inside the account of a thinker often made to look too settled. Those questions remain more useful than a monument to settled authority.',
+    ]}],
+    presentation: {mode: 'concise', orientation: [
+      {heading: 'How to read Aquinas', items: [
+        {label: 'Question and reply', description: 'The Summa stages objections and answers so its conclusions should not be lifted out as isolated slogans.'},
+        {label: 'Several sources', description: 'Aristotelian, Christian, Arabic-Latin, Jewish, and other inheritances are transformed within new arguments.'},
+      ]},
+      {heading: 'Key ideas', items: [
+        {label: 'Analogy', description: 'Words about God and creatures are related without having one flatly identical meaning.'},
+        {label: 'Natural law', description: 'Part of a wider account of action, virtue, grace, and human fulfillment—not a ready-made policy list.'},
+      ]},
+      {heading: 'Major work', items: [
+        {label: 'Summa theologiae', description: 'An unfinished, highly organized theological work built through questions, objections, replies, and distinctions.'},
+      ]},
+    ], articleActionLabel: 'Read the full sourced Aquinas article', bodyLayout: 'prose', exhibitLayout: 'object-led', plaqueKicker: '', plaqueSubtitleLines: 4},
+    objectInterpretations: {
+      'scholastic-aquinas-crivelli': 'Crivelli’s 1476 devotional panel was painted about two centuries after Aquinas’s death. It presents later institutional authority, not an authenticated likeness or an illustration of the Summa’s arguments; book and church should not be mistaken for a complete philosophical system.',
+    },
+    review: {status: 'standard-compliant', reviewedOn: '2026-08-09', method: 'Reconciled against the current claim-reviewed article, registered sources, and principal-object provenance; object-led presentation and visitor guide reviewed against the locked exhibit standard.', lock: 'fnv1a64:9a8037f0e8d6bb9e'},
   },
   'philosophy-of-religion': {
     lead: lead('Philosophy of religion studies arguments, testimony, experience, practice, interpretation, suffering, authority, and forms of ultimacy across internally diverse traditions. Classical theism is one family of views, not the field’s universal template. Comparison must therefore name texts and questions precisely while leaving room for naturalist, skeptical, feminist, postcolonial, phenomenological, genealogical, and tradition-rooted methods.', 'The gallery begins from specific disagreements: what counts as evidence, how testimony gains authority, whether suffering challenges an ultimate order, how language reaches beyond ordinary objects, and how practices form knowers. It then asks whether inherited categories illuminate or distort the comparison. Difference is preserved without declaring traditions incomparable or secretly identical.'),

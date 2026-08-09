@@ -102,23 +102,30 @@ Readonly<Record<string, ScholasticRationalistPrimaryInterpretationEnrichment>> =
     ],
   },
   eriugena: {
-    lead: 'Eriugena’s unusual access to Greek made translation itself a philosophical intervention at the court of Charles the Bald. He rendered Pseudo-Dionysius and works associated with Gregory of Nyssa and Maximus the Confessor into Latin, then composed the Periphyseon as a dialogue between teacher and student. Its “nature” includes what is and what is not, and its fourfold division maps procession from and return to God. That architecture must be read through Eriugena’s negative theology rather than flattened into a simple claim that God and the world are identical. Its later condemnations belong to reception history and do not remove the need to read its distinctions closely.',
-    keyIdeas: [
-      'Fourfold nature: the Periphyseon maps divine source, primordial causes, created effects, and the return of all things rather than four independent substances.',
-      'Negative theology: affirmative names disclose divine manifestation, while negation denies that any created category defines God.',
-      'Translation as argument: rendering Greek Christian texts into Latin changed the conceptual resources available to Carolingian readers.',
-    ],
-    keyWorks: ['Periphyseon (On the Division of Nature)', 'Translation of the Pseudo-Dionysian corpus', 'Homily on the Prologue to John'],
-    sections: [
-      {
-        heading: 'Greek sources, negative language, and the Periphyseon',
-        paragraphs: [
-          'The Periphyseon joins Latin authorities, especially Augustine, to Greek Christian sources that were rare in the Carolingian learned world. Its four divisions of nature are not four independent things. They are a dialectical scheme for thinking divine causality, primordial causes, created effects, and the return in which every finite description fails before the divine source. Eriugena can therefore affirm manifestations of God in creatures while also denying that any created category defines what God is.',
-          'This makes “pantheist” a poor shortcut. The language is deliberately daring, and later ecclesiastical condemnations belong to its reception, but the system repeatedly distinguishes creation from the divine essence and uses affirmative and negative predication in different ways. The gallery also separates Eriugena’s own writings from sources he translated: translation gave Latin readers new conceptual resources, while the synthesis and its tensions were his philosophical work.',
-        ],
-      },
-    ],
-    sectionCaution: 'Calling Eriugena simply a pantheist makes a disputed later category do the work of interpretation. The stained glass and later manuscript witnesses also document remembrance and transmission, not a contemporary portrait or an untouched authorial text.',
+    lead: '',
+    keyIdeas: [],
+    keyWorks: [],
+    sections: [{heading: '', paragraphs: [
+      'John Scotus Eriugena made translation into philosophical work at the Carolingian court of Charles the Bald. He rendered Greek Christian writings associated with Pseudo-Dionysius, Gregory of Nyssa, and Maximus the Confessor into Latin, then used those resources in the Periphyseon, a dialogue between teacher and student. Its unusually broad word “nature” includes both what is and what is not. The work’s four divisions trace a movement from divine source through primordial causes and created effects toward return, but they are not four independent kinds of thing. They provide a way of asking how creatures can manifest their source while no created category contains or defines God.',
+      'That tension explains Eriugena’s negative theology. Affirmative names such as goodness or being can say something true about divine manifestation; negative language denies that the divine is one more instance of any familiar category. Calling this simply pantheism skips the distinctions the dialogue keeps making between creation and divine essence. It also obscures the difference between sources Eriugena translated and the synthesis he composed. His access to Greek changed what Latin readers could ask, but translation was not passive transmission: choices of vocabulary, arrangement, and argument made a new Carolingian philosophical project.',
+      'The 1884 stained-glass figure is a useful warning about reception. It gives a nineteenth-century college chapel an imagined learned monk holding a book, not a contemporary likeness or a view of Eriugena’s court. Later condemnations also belong to the story, but they do not settle the argument in the Periphyseon by themselves. Reading it responsibly means holding together its daring language, its repeated refusals to define God through creaturely terms, and its later institutional afterlife. Eriugena matters because translation, metaphysics, and theological discipline become one inquiry without becoming one simple doctrine. Its difficulty is inseparable from its historical importance.',
+    ]}],
+    presentation: {mode: 'concise', orientation: [
+      {heading: 'Key ideas', items: [
+        {label: 'Fourfold nature', description: 'A map of divine source, primordial causes, created effects, and return—not four separate substances.'},
+        {label: 'Negative theology', description: 'Language can point toward God while also denying that any created category captures the divine.'},
+      ]},
+      {heading: 'Major work', items: [
+        {label: 'Periphyseon', description: 'A teacher-and-student dialogue that joins Latin and newly available Greek Christian sources.'},
+      ]},
+      {heading: 'Continuing debate', items: [
+        {label: '“Pantheism”', description: 'A later label that can hide Eriugena’s careful distinction between creatures and the divine essence.'},
+      ]},
+    ], articleActionLabel: 'Read the full sourced Eriugena article', bodyLayout: 'prose', exhibitLayout: 'object-led', plaqueKicker: '', plaqueSubtitleLines: 4},
+    objectInterpretations: {
+      'scholastic-eriugena-stained-glass': 'This 1884 chapel window imagines Eriugena as a learned medieval monk with a book. It records a much later institutional memory of a translator and teacher, not his appearance, clothing, courtly setting, or a direct picture of the Periphyseon’s argument.',
+    },
+    review: {status: 'standard-compliant', reviewedOn: '2026-08-09', method: 'Reconciled against the current claim-reviewed article, registered sources, and principal-object provenance; object-led presentation and visitor guide reviewed against the locked exhibit standard.', lock: 'fnv1a64:062a2ed4a687815a'},
     sources: [
       {label: 'Stanford Encyclopedia of Philosophy — John Scottus Eriugena', url: 'https://plato.stanford.edu/entries/scottus-eriugena/', kind: 'academic-reference'},
       {label: 'Open Library — Periphyseon: The Division of Nature', url: 'https://openlibrary.org/books/OL2117452M/Periphyseon', kind: 'collection-record'},
@@ -126,23 +133,30 @@ Readonly<Record<string, ScholasticRationalistPrimaryInterpretationEnrichment>> =
     ],
   },
   'medieval-scholasticism': {
-    lead: '“Scholasticism” names a changing family of learned practices, not one medieval doctrine. Close reading, the posing of questions, distinctions among meanings, formal disputation, and written determinations organized inquiry across monasteries, cathedral schools, and universities. Latin scholars worked with Christian authorities and with philosophy transmitted from Greek and Arabic, including arguments developed in Islamic and Jewish intellectual worlds. The result was not automatic synthesis: shared texts and procedures created durable disagreements about universals, knowledge, creation, law, freedom, and the proper relation between philosophy and theology. The category is therefore institutional and methodological before it is a checklist of conclusions or one canonical method.',
-    keyIdeas: [
-      'Lectio and commentary: authoritative texts became objects of grammatical, logical, and philosophical reconstruction.',
-      'Quaestio and disputation: objections and replies institutionalized disagreement instead of merely repeating inherited conclusions.',
-      'Connected transmission: Greek, Arabic, Hebrew, and Latin textual histories shaped the curriculum without becoming one undifferentiated tradition.',
-    ],
-    keyWorks: ['Peter Lombard, Sentences', 'Peter Abelard, Sic et Non', 'Thomas Aquinas, Summa theologiae', 'University disputations and commentaries on Aristotle'],
-    sections: [
-      {
-        heading: 'A practice, several institutions, many disagreements',
-        paragraphs: [
-          '“Scholasticism” is most useful here as a family of learned practices rather than a single creed. Lectio involved close reading of an authoritative text; a quaestio isolated a difficulty; disputation ordered objections, replies, and a master’s determination. Those forms could train agreement, but they also institutionalized conflict. Commentaries and sentence collections regularly became launch points for arguments their source authors had never posed.',
-          'The practices developed across monastic and cathedral schools and then universities, and they were never exclusively philosophical or exclusively theological. Latin scholars worked with materials translated from Greek and Arabic and with arguments developed in Islamic and Jewish intellectual worlds. That connected history does not make every participant a “scholastic” in the same institutional sense. The label should reveal textual labor, pedagogy, and contest—not turn several languages and religious traditions into one European school.',
-        ],
-      },
-    ],
-    sectionCaution: 'This gallery follows Latin Christian institutions without treating them as the whole of medieval philosophy. Islamic and Jewish thinkers retain their own primary settings; translation and argument connect the rooms without retroactively enrolling every contributor in one European school.',
+    lead: '',
+    keyIdeas: [],
+    keyWorks: [],
+    sections: [{heading: '', paragraphs: [
+      'Scholasticism is best understood as a changing family of learned practices, not a single medieval doctrine. In monasteries, cathedral schools, and later universities, readers worked slowly through authoritative texts, posed problems within them, distinguished several possible meanings, and tested objections in ordered argument. Lectio was close reading; a quaestio isolated a difficulty; a disputation arranged objections, replies, and a determination. These procedures did not merely repeat inherited conclusions. They made disagreement teachable. A commentary or collection of sentences could become the starting point for questions its source author had never considered.',
+      'The practices moved across institutions and depended on connected textual histories. Latin Christian scholars read patristic authorities and Aristotle while engaging materials translated from Greek and Arabic, as well as arguments developed in Islamic and Jewish intellectual worlds. That connection does not make every contributor a scholastic in the same institutional sense, or turn different languages and religious traditions into one European school. It identifies routes of translation, pedagogy, and dispute. Shared methods generated durable conflicts over universals, knowledge, creation, freedom, law, and the relation between philosophy and theology rather than an automatic synthesis.',
+      'The Bologna miniature stages an idealized university lecture, with a master raised above students who read, listen, and talk among themselves. It can make the social form of learned study visible, but it cannot document a particular class or show how every medieval school worked. Nor can a classroom image settle arguments that ran through many genres and places. Scholasticism matters because it names a way of making inherited texts answer new questions in public, with procedures that could discipline authority and intensify disagreement at the same time. Its procedures gave criticism a recognizable place within institutional life. They also gave students ways to expose ambiguity without ending disagreement.',
+    ]}],
+    presentation: {mode: 'concise', orientation: [
+      {heading: 'How it worked', items: [
+        {label: 'Close reading', description: 'Teachers and students treated authoritative texts as problems to interpret, not scripts to repeat.'},
+        {label: 'Disputation', description: 'A formal exchange of objections and replies that made disagreement part of learned practice.'},
+      ]},
+      {heading: 'Connected worlds', items: [
+        {label: 'Translation', description: 'Greek, Arabic, Hebrew, and Latin textual histories supplied different resources without becoming one tradition.'},
+      ]},
+      {heading: 'Central questions', items: [
+        {label: 'Authority and argument', description: 'How can inherited texts guide inquiry while remaining open to new distinctions and objections?'},
+      ]},
+    ], articleActionLabel: 'Read the full sourced Scholasticism article', bodyLayout: 'prose', exhibitLayout: 'object-led', plaqueKicker: '', plaqueSubtitleLines: 4},
+    objectInterpretations: {
+      'scholastic-university-lecture': 'This fourteenth-century Bologna miniature stages a university lecture with a conspicuous master and varied students. It is strong material context for the social form of learned study, but not a documentary record of one class, one discipline, or every medieval institution.',
+    },
+    review: {status: 'standard-compliant', reviewedOn: '2026-08-09', method: 'Reconciled against the current claim-reviewed article, registered sources, and principal-object provenance; object-led presentation and visitor guide reviewed against the locked exhibit standard.', lock: 'fnv1a64:ba95c47004fb990e'},
     sources: [
       {label: 'Stanford Encyclopedia of Philosophy — Medieval Philosophy', url: 'https://plato.stanford.edu/entries/medieval-philosophy/', kind: 'academic-reference'},
       {label: 'Stanford Encyclopedia of Philosophy — Literary Forms of Medieval Philosophy', url: 'https://plato.stanford.edu/entries/medieval-literary/', kind: 'academic-reference'},
@@ -150,23 +164,31 @@ Readonly<Record<string, ScholasticRationalistPrimaryInterpretationEnrichment>> =
     ],
   },
   anselm: {
-    lead: 'Anselm’s famous Proslogion reasoning belongs inside a larger monastic project rather than a free-standing modern proof exercise. Its address is prayerful, and its single-argument aspiration follows the Monologion’s more extended reasoning about the divine nature. Gaunilo’s contemporary reply and Anselm’s response show that the inference was disputed from the beginning. Works on truth, freedom of choice, the fall, and the harmony of foreknowledge and freedom reveal a philosopher of language and agency whose range is obscured when one chapter becomes the whole exhibit. His arguments were also written within Benedictine discipline and conflicts over ecclesiastical office, never outside institutional history.',
-    keyIdeas: [
-      'Faith seeking understanding: inquiry tests what follows from commitments rather than treating argument as decorative.',
-      'That than which nothing greater can be thought: the Proslogion’s reasoning belongs to a prayerful sequence and was contested immediately.',
-      'Freedom as rectitude: freedom concerns preserving rightness of will for its own sake, not merely unrestricted choice among alternatives.',
-    ],
-    keyWorks: ['Monologion', 'Proslogion and Reply to Gaunilo', 'De veritate', 'De libertate arbitrii', 'Cur Deus Homo'],
-    sections: [
-      {
-        heading: 'Prayer, argument, freedom, and necessity',
-        paragraphs: [
-          '“Faith seeking understanding” does not mean that argument is decorative. Anselm asks what follows when a believer tries to understand what is affirmed, using careful distinctions to expose contradictions and clarify divine predicates. In the Proslogion, the phrase concerning that than which nothing greater can be thought operates inside this disciplined meditation. Calling it the “ontological argument” is later and useful, but it can hide the work’s devotional voice, its sequence, and the immediate exchange with Gaunilo.',
-          'Anselm’s account of freedom is likewise broader than unrestricted choice between alternatives. Freedom concerns preserving rectitude of will for its own sake, while responsibility, grace, temptation, and foreknowledge require distinct analyses. Cur Deus Homo adds a dialogical inquiry into incarnation and satisfaction that has had enormous influence and substantial criticism. The gallery presents these works as arguments situated in Benedictine life and ecclesiastical conflict, not as one timeless theological formula.',
-        ],
-      },
-    ],
-    sectionCaution: '“Ontological argument” is a useful later label, not Anselm’s title for an isolated proof. Cur Deus Homo is likewise historically influential but contested; the exhibit presents its reasoning and reception without making its satisfaction account the only Christian view.',
+    lead: '',
+    keyIdeas: [],
+    keyWorks: [],
+    sections: [{heading: '', paragraphs: [
+      'Anselm’s famous Proslogion reasoning belongs to a wider monastic project, not to a free-standing modern proof exercise. “Faith seeking understanding” names disciplined inquiry into what a believer affirms; it does not make argument decorative. The Proslogion is addressed as prayer and follows the more extended Monologion. Its phrase about that than which nothing greater can be thought has often been extracted as the “ontological argument,” a later useful label that can hide its devotional sequence. Gaunilo’s contemporary reply and Anselm’s response show that the reasoning was disputed from the beginning rather than quietly accepted as a settled demonstration.',
+      'Anselm also writes about truth, freedom, the fall, and divine foreknowledge. For him freedom is not simply unrestricted choice between alternatives. It concerns preserving rectitude—rightness—of will for its own sake, while responsibility, grace, temptation, and knowledge of the future require different analyses. Cur Deus Homo asks, in dialogue form, how incarnation and satisfaction should be understood. It has been enormously influential and deeply criticized. These works share careful conceptual work, but they do not form one detached formula; their questions arose within Benedictine discipline and Anselm’s conflicts over ecclesiastical office.',
+      'The displayed twelfth-century page is a witness to the preface of Cur Deus Homo, not Anselm’s autograph. Its closeness in date cannot show that he supervised this particular copy, yet it makes manuscript transmission part of the exhibit rather than an invisible background. The page also resists reducing Anselm to one chapter of the Proslogion. His arguments travelled through copying, monastic reading, controversy, and later reception. The central invitation is to read prayer, logical precision, accounts of agency, and theological argument together without treating any one of them as the whole thinker. Their differences prevent the exhibit from turning inquiry into a slogan.',
+    ]}],
+    presentation: {mode: 'concise', orientation: [
+      {heading: 'Central questions', items: [
+        {label: 'Faith seeking understanding', description: 'A believer uses argument to clarify commitments and test what follows from them.'},
+        {label: 'Freedom', description: 'Freedom is preserving rightness of will for its own sake, not merely having many options.'},
+      ]},
+      {heading: 'Major works', items: [
+        {label: 'Proslogion', description: 'A prayerful meditation containing the reasoning later called the ontological argument.'},
+        {label: 'Cur Deus Homo', description: 'A dialogue about incarnation and satisfaction with a long, contested reception.'},
+      ]},
+      {heading: 'Continuing debate', items: [
+        {label: 'Gaunilo’s reply', description: 'A contemporary challenge that shows the Proslogion argument was controversial from the start.'},
+      ]},
+    ], articleActionLabel: 'Read the full sourced Anselm article', bodyLayout: 'prose', exhibitLayout: 'object-led', plaqueKicker: '', plaqueSubtitleLines: 4},
+    objectInterpretations: {
+      'scholastic-anselm-cur-deus-homo': 'This twelfth-century manuscript witnesses the preface to Cur Deus Homo, giving the work a material afterlife close to Anselm’s period. It remains a copy rather than his autograph, so it cannot establish his exact hand, final wording, or supervision of this manuscript.',
+    },
+    review: {status: 'standard-compliant', reviewedOn: '2026-08-09', method: 'Reconciled against the current claim-reviewed article, registered sources, and principal-object provenance; object-led presentation and visitor guide reviewed against the locked exhibit standard.', lock: 'fnv1a64:ea0b38058f30c0c2'},
     sources: [
       {label: 'Stanford Encyclopedia of Philosophy — Anselm of Canterbury', url: 'https://plato.stanford.edu/entries/anselm/', kind: 'academic-reference'},
       {label: 'Internet Encyclopedia of Philosophy — Anselm', url: 'https://iep.utm.edu/anselm/', kind: 'academic-reference'},
@@ -174,23 +196,30 @@ Readonly<Record<string, ScholasticRationalistPrimaryInterpretationEnrichment>> =
     ],
   },
   abelard: {
-    lead: 'Abelard’s method was not the mechanical celebration of contradiction. The Sic et Non arranges apparently conflicting authorities so that students must test wording, attribution, context, and distinctions before deciding whether a conflict is real. His logic treats universal terms without turning universals into shared things, while his ethics locates moral fault in consent and intention rather than in an external deed alone. Those positions remain debated, and neither Héloïse’s letters nor Abelard’s autobiographical Historia calamitatum should be reduced to background decoration for his philosophy. The exchange preserves more than a romance: Héloïse argues about intention, marriage, authority, and religious life.',
-    keyIdeas: [
-      'Dialectical reading: apparent contradictions require tests of wording, context, attribution, and conceptual distinction.',
-      'Universals and signification: universal terms can signify many individuals without a shared universal thing existing outside the mind.',
-      'Consent and moral fault: an act’s external description does not by itself settle the agent’s culpability.',
-    ],
-    keyWorks: ['Sic et Non', 'Logica Ingredientibus', 'Ethica (Scito te ipsum)', 'Historia calamitatum', 'Correspondence attributed to Abelard and Héloïse'],
-    sections: [
-      {
-        heading: 'Dialectic, moral intention, and contested voices',
-        paragraphs: [
-          'Abelard’s semantic approach to universals rejects both a separately existing universal thing and the idea that universal words are empty noise. His analyses of words, concepts, inference, identity, and difference grew from the limited logical corpus then available in Latin, before the complete recovery of Aristotle’s logical works. That chronology matters: his achievements belong to an early twelfth-century setting rather than to a finished thirteenth-century university syllabus.',
-          'In ethics, the act’s physical description does not by itself determine guilt; the agent’s consent to what is believed wrong is central. This does not make consequences irrelevant or supply a modern theory of private sincerity. The letters transmitted under Abelard’s and Héloïse’s names complicate the record further. Scholars continue to debate aspects of their textual history, while Héloïse’s arguments about intention, marriage, authority, and religious life demand interpretation as intellectual work in their own right.',
-        ],
-      },
-    ],
-    sectionCaution: 'The transmitted correspondence has a complex textual history, and its voices cannot be treated as stenographic records of private speech. Interpretive uncertainty does not license erasing Héloïse’s arguments or making her merely an episode in Abelard’s biography.',
+    lead: '',
+    keyIdeas: [],
+    keyWorks: [],
+    sections: [{heading: '', paragraphs: [
+      'Peter Abelard’s method was not a mechanical celebration of contradiction. Sic et Non places apparently conflicting authorities together so students must test wording, attribution, context, and conceptual distinctions before deciding whether a conflict is real. That discipline turns inherited texts into arguments rather than untouchable answers. Abelard’s logic likewise asks how words, concepts, identity, and inference work. His account of universal terms rejects both a separately existing universal thing and the thought that general words are mere noise. The chronology matters: this was early twelfth-century work with a limited Latin logical corpus, not a finished thirteenth-century university syllabus.',
+      'In ethics Abelard gives central weight to consent: the physical description of an act alone does not settle moral fault when an agent’s intention and belief matter. This does not make consequences irrelevant or produce a modern theory of private sincerity. The letters transmitted under Abelard’s and Héloïse’s names bring further questions about intention, marriage, authority, and religious life into view. Their textual history is complex, but uncertainty about transmission is not a reason to make Héloïse a mere romantic episode in Abelard’s biography. Her arguments require interpretation as intellectual work in their own right.',
+      'The displayed Roman de la Rose illumination was painted about two centuries after Abelard and Héloïse lived. It imagines them together as part of their literary reception, not as an eyewitness scene or a reliable portrait. That gap is instructive: later memory can preserve a compelling story while changing what readers notice. Abelard’s work asks visitors to slow down before choosing between authorities, before treating a universal as a thing, and before confusing an outward deed with the moral work of consent. The image reminds us that the familiar couple and the difficult corpus are related, but not interchangeable.',
+    ]}],
+    presentation: {mode: 'concise', orientation: [
+      {heading: 'Key ideas', items: [
+        {label: 'Dialectical reading', description: 'Apparent contradictions are tested through wording, context, attribution, and careful distinctions.'},
+        {label: 'Consent', description: 'Moral fault depends importantly on willing what one believes wrong, not on an act’s outward description alone.'},
+      ]},
+      {heading: 'Major work', items: [
+        {label: 'Sic et Non', description: 'A collection of conflicting authorities designed to train disciplined interpretation rather than easy agreement.'},
+      ]},
+      {heading: 'Héloïse and reception', items: [
+        {label: 'Transmitted letters', description: 'Their textual history is debated, while Héloïse’s arguments about marriage and authority remain philosophically important.'},
+      ]},
+    ], articleActionLabel: 'Read the full sourced Abelard article', bodyLayout: 'prose', exhibitLayout: 'object-led', plaqueKicker: '', plaqueSubtitleLines: 4},
+    objectInterpretations: {
+      'scholastic-abelard-heloise-manuscript': 'This fourteenth-century Roman de la Rose illumination imagines Abelard and Héloïse long after their lives. It records their literary reception, not a portrait, eyewitness encounter, or evidence that the manuscript correspondence gives transparent access to private speech.',
+    },
+    review: {status: 'standard-compliant', reviewedOn: '2026-08-09', method: 'Reconciled against the current claim-reviewed article, registered sources, and principal-object provenance; object-led presentation and visitor guide reviewed against the locked exhibit standard.', lock: 'fnv1a64:7628adb3233f47ff'},
     sources: [
       {label: 'Stanford Encyclopedia of Philosophy — Peter Abelard', url: 'https://plato.stanford.edu/entries/abelard/', kind: 'academic-reference'},
       {label: 'Internet Encyclopedia of Philosophy — Peter Abelard', url: 'https://iep.utm.edu/abelard/', kind: 'academic-reference'},
@@ -198,23 +227,30 @@ Readonly<Record<string, ScholasticRationalistPrimaryInterpretationEnrichment>> =
     ],
   },
   'duns-scotus': {
-    lead: 'Scotus’s univocity thesis does not claim that God and creatures possess being in the same finite mode. It argues that metaphysical reasoning needs a concept of being stable enough to function with the same meaning in premises about both, even though what falls under that concept differs infinitely. His account of individuation likewise makes haecceity a positive principle of being this individual, not a mysterious extra property pasted onto a generic nature. Formal distinction, cognition, natural theology, and a strongly self-determining will connect these positions across an unfinished and textually difficult corpus. The surviving record includes revisions, lecture reports, and later editorial decisions rather than one finished summa.',
-    keyIdeas: [
-      'Univocity of being: metaphysical inference requires a common concept even though infinite and finite beings differ radically in mode.',
-      'Haecceity or thisness: individuality has a positive intrinsic principle and is not merely a bundle of noticeable traits.',
-      'Formal distinction and freedom: inseparable realities can be formally distinct, while the will retains a strong power of self-determination.',
-    ],
-    keyWorks: ['Ordinatio', 'Lectura', 'Reportatio Parisiensis', 'Quaestiones quodlibetales'],
-    sections: [
-      {
-        heading: 'Conceptual unity without metaphysical flattening',
-        paragraphs: [
-          'Univocal predication answers an argumentative problem: if a central term changes meaning completely between premises, no demonstration concerning God can proceed. Scotus therefore defends a common concept while preserving the radical difference between infinite and finite modes of being. The formal distinction gives him another tool for articulating aspects that are inseparable in a thing yet not identical merely because thought separates them.',
-          'His theory of individuation distinguishes a shared common nature from the intrinsic principle by which Socrates is this individual. “Haecceity,” or thisness, should not be confused with a collection of noticeable traits. Scotus’s views survive through the Ordinatio, Lectura, reported Paris lectures, questions, and later editorial work whose chronology and authorship are not uniformly secure. Interpretation must track those textual layers instead of presenting every attributed formulation as one completed system.',
-        ],
-      },
-    ],
-    sectionCaution: '“Subtle Doctor” should not become an excuse to turn precise distinctions into obscurity for its own sake. Claims must be tied to a particular textual layer, because chronology, revision, reportatio, and disputed attribution affect how a Scotist position is reconstructed.',
+    lead: '',
+    keyIdeas: [],
+    keyWorks: [],
+    sections: [{heading: '', paragraphs: [
+      'John Duns Scotus asks how reasoning can use a common concept without flattening the difference between God and creatures. His thesis of univocity says that “being” must retain a stable enough meaning in an argument for premises about God and finite things to connect. It does not say that God and creatures exist in the same finite way. Their modes of being remain radically different. A related tool, the formal distinction, lets Scotus describe aspects that are inseparable in one thing yet not simply identical because the mind can distinguish them. These are technical answers to problems of argument and description, not invitations to make metaphysics mysterious.',
+      'His account of individuation asks what makes Socrates this individual rather than merely a member of a shared kind. Haecceity, often translated “thisness,” is an intrinsic principle of being this one, not a bundle of visible traits pasted onto a generic nature. Scotus also gives the will a strong power of self-determination and develops accounts of cognition and natural theology. But the corpus is not one completed summa. The Ordinatio, Lectura, reported Paris lectures, questions, revisions, and later editorial decisions preserve different textual layers whose chronology and authorship are not always secure.',
+      'The late-fifteenth-century Urbino panel places Scotus among illustrious men more than a century after his death. It shows Renaissance esteem for a reader in a learned gallery, not an authenticated likeness or a direct guide to every position called Scotist. The painting therefore helps separate reception from evidence. Scotus’s importance lies in the pressure he puts on familiar words—being, individual, freedom, distinction—to do precise work without losing their limits. Visitors can follow that pressure only by asking which text and which argumentative problem a claimed view belongs to. That vigilance keeps precision from becoming a performance of obscurity.',
+    ]}],
+    presentation: {mode: 'concise', orientation: [
+      {heading: 'Key ideas', items: [
+        {label: 'Univocity of being', description: '“Being” needs a common meaning for an argument, while God and creatures still differ infinitely in mode.'},
+        {label: 'Thisness', description: 'The intrinsic principle that makes an individual this one, not a list of noticeable traits.'},
+      ]},
+      {heading: 'Reading the corpus', items: [
+        {label: 'Several textual layers', description: 'Lecture reports, revisions, questions, and editions make it risky to treat every formulation as one finished system.'},
+      ]},
+      {heading: 'Central question', items: [
+        {label: 'Unity and difference', description: 'How can common concepts support reasoning while preserving what is irreducibly individual or divine?'},
+      ]},
+    ], articleActionLabel: 'Read the full sourced Duns Scotus article', bodyLayout: 'prose', exhibitLayout: 'object-led', plaqueKicker: '', plaqueSubtitleLines: 4},
+    objectInterpretations: {
+      'scholastic-scotus-urbino': 'This late-fifteenth-century Urbino panel places Duns Scotus in a Renaissance gallery of illustrious readers. It records later esteem and learned identity, not an authenticated likeness, a scene from his life, or a visual summary of the arguments preserved in his difficult corpus.',
+    },
+    review: {status: 'standard-compliant', reviewedOn: '2026-08-09', method: 'Reconciled against the current claim-reviewed article, registered sources, and principal-object provenance; object-led presentation and visitor guide reviewed against the locked exhibit standard.', lock: 'fnv1a64:0fc343fd4c9eef58'},
     sources: [
       {label: 'Stanford Encyclopedia of Philosophy — John Duns Scotus', url: 'https://plato.stanford.edu/entries/duns-scotus/', kind: 'academic-reference'},
       {label: 'Internet Encyclopedia of Philosophy — John Duns Scotus', url: 'https://iep.utm.edu/john-duns-scotus/', kind: 'academic-reference'},
@@ -222,24 +258,30 @@ Readonly<Record<string, ScholasticRationalistPrimaryInterpretationEnrichment>> =
     ],
   },
   ockham: {
-    lead: 'Ockham’s philosophy cannot be reduced to the modern slogan called his razor. His demand for explanatory economy operates inside detailed accounts of mental language, concepts, supposition, cognition, consequence, and scientific knowledge. He denies that a universal is one shared thing outside the mind, yet general terms still signify many individuals and support universal claims. His later political writings emerged from the Franciscan poverty controversy and conflict with Pope John XXII, where questions about property, rights, scripture, councils, and coercive authority became inseparable from logic and theology. The logical and political corpora also answer different occasions and should not be collapsed into one principle.',
-    keyIdeas: [
-      'Nominalism: universality belongs to signs and concepts rather than to one common entity existing in many individuals.',
-      'Mental language and supposition: logical analysis asks how terms signify and stand for things in propositions.',
-      'Economy with necessity: explanatory entities should not be multiplied without reason; the simplest-sounding answer is not automatically true.',
-      'Limits of office: political writings test papal and temporal authority through law, rights, councils, and the poverty controversy.',
-    ],
-    keyWorks: ['Summa logicae', 'Ordinatio', 'Quodlibetal Questions', 'Dialogus', 'Breviloquium de principatu tyrannico'],
-    sections: [
-      {
-        heading: 'Economy is a rule of argument, not a slogan against complexity',
-        paragraphs: [
-          'Ockham’s name is attached to the maxim that entities should not be multiplied without necessity, but no single modern wording exhausts his practice. Economy works inside detailed theories of mental language, concepts, supposition, intuitive and abstractive cognition, and logical consequence. His nominalism denies a shared universal entity outside the mind; it does not deny that general terms signify many individuals or that science can make universal claims.',
-          'His later political writings arose from the Franciscan poverty controversy and conflict with Pope John XXII. They ask how scripture, law, rights, councils, and coercive authority constrain officeholders. That history should not be compressed into a modern slogan about separating church and state. The logical and political corpora also have different genres and editorial histories, so the gallery treats “Ockham’s razor” as an invitation to examine explanatory work, not as permission to prefer whatever answer sounds simplest.',
-        ],
-      },
-    ],
-    sectionCaution: 'The familiar wording “entities must not be multiplied beyond necessity” is a later summary rather than a magic sentence that settles every problem. Economy constrains explanation only after the relevant evidence, distinctions, and explanatory tasks have been identified.',
+    lead: '',
+    keyIdeas: [],
+    keyWorks: [],
+    sections: [{heading: '', paragraphs: [
+      'William of Ockham cannot be reduced to the modern slogan called his razor. Explanatory economy works inside detailed accounts of mental language, concepts, supposition, cognition, logical consequence, and scientific knowledge. Supposition asks how a term stands for things in a proposition; mental language names the structured concepts through which thought can be analyzed. Ockham denies that a universal is one shared thing existing outside the mind, yet general terms still signify many individuals and support universal claims. Economy is therefore not a rule to prefer whatever sounds simple. It asks whether an explanation has earned the entities it introduces.',
+      'Ockham’s later political writing grew from the Franciscan poverty controversy and conflict with Pope John XXII. Questions about property, rights, scripture, councils, and coercive authority became inseparable from logic and theology. These works test how officeholders are constrained; they do not simply announce a modern separation of church and state. The logical and political corpora also answer different occasions and have different genres and editorial histories. Connecting them requires more than applying one razor-shaped slogan to every question, because a careful explanation can still be complex when the evidence and distinctions demand it.',
+      'A 1341 manuscript of the Summa logicae labels a small sketch “this is Brother Ockham.” The label makes the identification unusually direct, but the sketch’s maker and relation to Ockham remain unknown; it is not a verified portrait from life. The object instead points to the material circulation of logical writing and to the way an author’s name gathered around a text. Ockham’s lasting challenge is practical as well as technical: before multiplying causes, abstractions, or authorities, ask what explanatory task they perform and whether the evidence requires them. That discipline makes simplicity a result, never a substitute for inquiry.',
+    ]}],
+    presentation: {mode: 'concise', orientation: [
+      {heading: 'Key ideas', items: [
+        {label: 'Explanatory economy', description: 'Do not add entities without need—but only after identifying the evidence and the work an explanation must do.'},
+        {label: 'Nominalism', description: 'General terms can refer to many individuals without a single universal thing existing outside the mind.'},
+      ]},
+      {heading: 'How logic works', items: [
+        {label: 'Supposition', description: 'An analysis of how a term stands for things when it appears in a proposition.'},
+      ]},
+      {heading: 'Political writing', items: [
+        {label: 'Poverty controversy', description: 'Later works examine property, office, councils, and coercive authority amid conflict with Pope John XXII.'},
+      ]},
+    ], articleActionLabel: 'Read the full sourced Ockham article', bodyLayout: 'prose', exhibitLayout: 'object-led', plaqueKicker: '', plaqueSubtitleLines: 4},
+    objectInterpretations: {
+      'scholastic-ockham-logica': 'The 1341 Summa logicae manuscript identifies a small sketch as Brother Ockham, making the link unusually direct. Its unknown maker and uncertain relation to Ockham still prevent it from serving as a verified portrait; it better witnesses the circulation and named reception of logical work.',
+    },
+    review: {status: 'standard-compliant', reviewedOn: '2026-08-09', method: 'Reconciled against the current claim-reviewed article, registered sources, and principal-object provenance; object-led presentation and visitor guide reviewed against the locked exhibit standard.', lock: 'fnv1a64:4a81d0d54ab33468'},
     sources: [
       {label: 'Stanford Encyclopedia of Philosophy — William of Ockham', url: 'https://plato.stanford.edu/entries/ockham/', kind: 'academic-reference'},
       {label: 'Internet Encyclopedia of Philosophy — William of Ockham', url: 'https://iep.utm.edu/ockham/', kind: 'academic-reference'},
@@ -247,23 +289,30 @@ Readonly<Record<string, ScholasticRationalistPrimaryInterpretationEnrichment>> =
     ],
   },
   'meister-eckhart': {
-    lead: 'Eckhart was a Dominican master trained in the university practices displayed elsewhere in this gallery, not an isolated voice outside scholasticism. His Latin questions and commentaries and his Middle High German sermons address overlapping problems through different genres and audiences. Detachment, the “birth” of the Word in the soul, intellect, divine unity, and the ground of the soul therefore require attention to argumentative and pastoral context. Modern selections often detach startling sentences from both, while the medieval proceedings against propositions from his work demand equally careful textual discrimination. His reputation as a timeless mystic can obscure the university arguments and pastoral responsibilities within which that language worked.',
-    keyIdeas: [
-      'Detachment: release from possessive willing enables just action rather than indifference to other people.',
-      'Divine birth and the ground of the soul: preaching language explores how intellect and creaturely life relate to their source.',
-      'Affirmation and unknowing: statements about being, intellect, and unity are pressed beyond ordinary creaturely predication.',
-    ],
-    keyWorks: ['Latin Questions and Commentaries', 'Middle High German sermons', 'Book of Divine Consolation', 'Talks of Instruction'],
-    sections: [
-      {
-        heading: 'University master, vernacular preacher, censured propositions',
-        paragraphs: [
-          'Eckhart’s language presses distinctions to their limit: God can be discussed through being, intellect, unity, causation, and the soul’s relation to its source, yet the divine cannot be contained by a creaturely concept. Detachment is not apathy or flight from responsibility. It names a release from possessive willing that makes just action possible without treating God as an instrument for reward.',
-          'The German sermons are neither simplified transcripts of the Latin works nor unrestricted access to private mystical experience. They are crafted preaching in a manuscript tradition with difficult questions of authenticity and wording. In 1329, after Eckhart’s death, the papal bull In agro dominico condemned some propositions and characterized others as suspect while noting that Eckhart had professed submission. The ruling is essential reception history, but it cannot substitute for identifying what a particular work argues in context.',
-        ],
-      },
-    ],
-    sectionCaution: 'The 1329 bull judged selected propositions after Eckhart’s death; it is not a neutral summary of his entire corpus. Nor do modern anthologies supply an unmediated private experience: genre, manuscript attribution, vernacular wording, and Latin parallels remain part of the evidence. The linked Claud Field selection is a c. 1909 popular translation based on an older, noncritical textual tradition and should not settle authenticity or exact wording.',
+    lead: '',
+    keyIdeas: [],
+    keyWorks: [],
+    sections: [{heading: '', paragraphs: [
+      'Meister Eckhart was a Dominican master trained in university practice, not an isolated voice outside scholasticism. His Latin questions and commentaries and his Middle High German sermons address related problems through different genres and audiences. He presses language about being, intellect, unity, causation, and the soul’s relation to its source toward its limits, while denying that the divine can be contained by a creaturely concept. Detachment is not apathy or a flight from responsibility. It names release from possessive willing so that action need not treat God, other people, or the self as instruments of reward.',
+      'The “birth” of the Word in the soul and talk of the soul’s ground belong to this demanding conceptual and pastoral setting. German sermons are not simplified transcripts of the Latin works or an unfiltered record of private mystical experience. They are crafted preaching transmitted through manuscripts with difficult questions of wording and authenticity. In 1329, after Eckhart’s death, the bull In agro dominico condemned some propositions and called others suspect, while noting his profession of submission. The ruling is essential reception history, but it cannot replace the work of identifying what a particular text says in context.',
+      'The worn sermon fragment is an early witness to sermon 5b, not an autograph. Its survival makes a vernacular preaching tradition materially present, while the manuscript itself cannot settle dating, authorship, or the relation of every version to Eckhart. This distinction matters because modern anthologies often detach striking lines from their genre, and the condemnation is often treated as a summary of an entire corpus. Eckhart’s importance lies in the difficult meeting of scholastic argument, preaching, detachment, and divine language—one that requires readers to keep textual transmission and later judgment visible. That care keeps difficulty from becoming a timeless, placeless mysticism.',
+    ]}],
+    presentation: {mode: 'concise', orientation: [
+      {heading: 'Key ideas', items: [
+        {label: 'Detachment', description: 'Release from possessive willing, not indifference to other people or refusal of responsibility.'},
+        {label: 'Divine language', description: 'Words about being and intellect must be stretched and qualified because God is not one creaturely object.'},
+      ]},
+      {heading: 'Two kinds of writing', items: [
+        {label: 'Latin and German works', description: 'University arguments and vernacular sermons overlap, but their genres and audiences are not identical.'},
+      ]},
+      {heading: 'Continuing debate', items: [
+        {label: 'The 1329 condemnation', description: 'A later judgment of selected propositions, not a neutral summary of every work attributed to Eckhart.'},
+      ]},
+    ], articleActionLabel: 'Read the full sourced Meister Eckhart article', bodyLayout: 'prose', exhibitLayout: 'object-led', plaqueKicker: '', plaqueSubtitleLines: 4},
+    objectInterpretations: {
+      'scholastic-eckhart-fragment': 'This early witness to Eckhart’s sermon 5b makes a vernacular preaching tradition tangible. It is not an autograph, and neither its modern photograph nor the fragment alone can settle the sermon’s dating, wording, authorship, or relation to the larger Latin and German corpus.',
+    },
+    review: {status: 'standard-compliant', reviewedOn: '2026-08-09', method: 'Reconciled against the current claim-reviewed article, registered sources, and principal-object provenance; object-led presentation and visitor guide reviewed against the locked exhibit standard.', lock: 'fnv1a64:efd1156f2cc24e66'},
     sources: [
       {label: 'Stanford Encyclopedia of Philosophy — Meister Eckhart', url: 'https://plato.stanford.edu/archives/fall2025/entries/meister-eckhart/', kind: 'academic-reference'},
       {label: 'Christian Classics Ethereal Library — Claud Field trans., Meister Eckhart’s Sermons (c. 1909 popular, noncritical selection)', url: 'https://ccel.org/ccel/eckhart/sermons.all.html', kind: 'primary-text'},
@@ -271,24 +320,30 @@ Readonly<Record<string, ScholasticRationalistPrimaryInterpretationEnrichment>> =
     ],
   },
   'marsilius-padua': {
-    lead: 'Marsilius wrote the Defensor pacis amid conflict between imperial and papal claims, but its argument is broader than a partisan intervention. Peace requires a civic order in which coercive law derives from the human legislator—the citizens or their “weightier part”—and government executes rather than owns that authority. Divine law teaches what concerns salvation but does not authorize an independent clerical power of temporal punishment. These claims challenge papal plenitude of power without turning Marsilius into a modern secular democrat. Aristotelian civic analysis, scriptural interpretation, ecclesiology, and immediate polemic remain intertwined throughout the work and shape its account of civic peace.',
-    keyIdeas: [
-      'The human legislator: coercive civil law receives its authority from the body of citizens or its qualified “weightier part.”',
-      'Peace and civic functions: differentiated offices serve a sufficient common life when no part usurps coercive jurisdiction.',
-      'Divine and human law: spiritual teaching and temporal punishment belong to different kinds of authority.',
-      'Against plenitude of power: clergy possess no independent coercive jurisdiction simply by virtue of ecclesiastical office.',
-    ],
-    keyWorks: ['Defensor pacis', 'Defensor minor', 'De translatione imperii'],
-    sections: [
-      {
-        heading: 'The legislator, coercion, and the limits of papal power',
-        paragraphs: [
-          'The Defensor pacis begins from peace as a condition of a sufficient civic life and analyzes the community through differentiated functions. Its human legislator is the body of citizens, or its “weightier part,” as the primary source of coercive law. That qualification and Marsilius’s provisions for government prevent an easy equation with modern popular democracy, even while collective authorization and judgment are central to his argument.',
-          'Marsilius distinguishes divine law’s teaching about salvation from human law backed by temporal punishment. On that basis he rejects papal plenitude of power and denies clergy an independent coercive jurisdiction. Yet the work combines Aristotelian political reasoning, scriptural interpretation, ecclesiology, and immediate imperial-papal conflict; it is not a secular constitution dropped into the fourteenth century. Its claims about councils, rulers, citizenship, and religious authority remain radical precisely within that setting.',
-        ],
-      },
-    ],
-    sectionCaution: 'The “weightier part” is contested and prevents a direct equation between Marsilius and universal modern democracy. His denial of clerical coercion is radical in context, but it does not by itself establish contemporary religious liberty or a secular constitutional state. The linked Latin Wikisource preserves Discourse III only and does not identify its edition or source.',
+    lead: '',
+    keyIdeas: [],
+    keyWorks: [],
+    sections: [{heading: '', paragraphs: [
+      'Marsilius of Padua wrote Defensor pacis amid conflict between imperial and papal claims, but its argument reaches beyond a partisan intervention. Peace is the condition of a sufficient civic life, and the work analyzes a community through differentiated functions. Coercive human law derives from the human legislator: the body of citizens, or its qualified “weightier part.” Government executes that authority rather than owning it. The qualification matters. It prevents a quick equation with modern universal democracy even though collective authorization and public judgment are central to Marsilius’s account of civic order.',
+      'Marsilius distinguishes divine law, which teaches what concerns salvation, from human law backed by temporal punishment. On this basis he rejects papal plenitude of power and denies that clergy possess an independent coercive jurisdiction simply through ecclesiastical office. These claims were radical in their setting, but the Defensor is not a modern secular constitution dropped into the fourteenth century. Aristotelian civic analysis, scriptural interpretation, ecclesiology, and immediate imperial-papal conflict remain intertwined. Its arguments about councils, rulers, citizenship, and religious authority must be read with those limits in view.',
+      'The Tortosa manuscript page is an early witness to Defensor pacis, not Marsilius’s autograph. It gives material evidence for the work’s circulation while leaving its particular copyist, textual history, and authorial wording open to manuscript study. The page cannot tell us by itself how “weightier part” should be defined or whether Marsilius anticipates present-day religious liberty. Its value is to keep a political argument connected to the fragile transmission of a text whose challenge was made in a specific conflict, yet whose questions about law and coercion still demand careful comparison. That survival also makes loss, copying, and editorial choice part of political history. It makes civic peace an argument, not merely a medieval slogan.',
+    ]}],
+    presentation: {mode: 'concise', orientation: [
+      {heading: 'Central questions', items: [
+        {label: 'Who legislates?', description: 'Coercive human law originates with citizens or their qualified “weightier part,” not simply with rulers.'},
+        {label: 'What may clergy coerce?', description: 'Marsilius denies an independent clerical power of temporal punishment.'},
+      ]},
+      {heading: 'Major work', items: [
+        {label: 'Defensor pacis', description: 'A political argument linking civic peace, law, government, councils, and criticism of papal plenitude of power.'},
+      ]},
+      {heading: 'Interpretive limit', items: [
+        {label: 'Not a modern democracy', description: 'The contested “weightier part” and fourteenth-century setting block a simple modern identification.'},
+      ]},
+    ], articleActionLabel: 'Read the full sourced Marsilius of Padua article', bodyLayout: 'prose', exhibitLayout: 'object-led', plaqueKicker: '', plaqueSubtitleLines: 4},
+    objectInterpretations: {
+      'scholastic-marsilius-defensor': 'This early-fourteenth-century manuscript witnesses the circulation of Defensor pacis. It is not presented as Marsilius’s autograph, so it cannot by itself decide the work’s wording, define its “weightier part,” or turn a specific medieval political argument into a modern constitution.',
+    },
+    review: {status: 'standard-compliant', reviewedOn: '2026-08-09', method: 'Reconciled against the current claim-reviewed article, registered sources, and principal-object provenance; object-led presentation and visitor guide reviewed against the locked exhibit standard.', lock: 'fnv1a64:b614139e0339cad0'},
     sources: [
       {label: 'Stanford Encyclopedia of Philosophy — Marsilius of Padua', url: 'https://plato.stanford.edu/entries/marsilius-padua/', kind: 'academic-reference'},
       {label: 'Fordham Internet Medieval Sourcebook — Marsilius, Defensor pacis selections', url: 'https://sourcebooks.web.fordham.edu/source/marsiglio3.asp', kind: 'primary-text'},

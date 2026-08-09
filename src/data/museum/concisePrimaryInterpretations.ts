@@ -509,10 +509,10 @@ Readonly<Record<string, MuseumPrimaryInterpretationEnrichment>> = {
       ]},
     ], articleActionLabel: 'Read the full sourced Sextus Empiricus article', bodyLayout: 'prose', exhibitLayout: 'object-led', plaqueKicker: '', plaqueSubtitleLines: 4},
     review: {
-      status: 'reconciled',
+      status: 'standard-compliant',
       reviewedOn: '2026-08-09',
-      method: 'Reconciled against the current bibliography-only article and registered exhibit sources; subject-specific visitor guide and retained object-led presentation reviewed, but the article remains outside formal claim review.',
-      lock: 'fnv1a64:72f81e48e3e7fe6f',
+      method: 'Reconciled against the current claim-reviewed article and registered exhibit sources; subject-specific visitor guide and retained object-led presentation reviewed against the locked canonical standard.',
+      lock: 'fnv1a64:9565a6311d2d9b68',
     },
   },
   kantianism: {

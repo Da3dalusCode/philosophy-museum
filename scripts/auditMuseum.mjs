@@ -4135,7 +4135,7 @@ check('the five exhibit-review pilots use the object-led primary interpretation 
       hallId: HELLENISTIC_ROMAN_GALLERY_ID,
       assetId: 'skepticism-sextus-riedel',
       articleActionLabel: 'Read the full sourced Sextus Empiricus article',
-      status: 'reconciled',
+      status: 'standard-compliant',
     },
   ];
   for (const spec of expected) {

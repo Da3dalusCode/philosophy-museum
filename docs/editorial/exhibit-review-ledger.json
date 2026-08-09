@@ -4,18 +4,18 @@
     "total": 192,
     "countsByEffectiveStatus": {
       "unreviewed": 4,
-      "bibliography-only": 66,
+      "bibliography-only": 65,
       "source-mapped": 0,
-      "claim-reviewed": 122,
+      "claim-reviewed": 123,
       "review-out-of-date": 0
     }
   },
   "canonicalExhibitBaseline": {
     "total": 192,
     "countsByEffectiveStatus": {
-      "unreviewed": 187,
-      "reconciled": 1,
-      "standard-compliant": 4,
+      "unreviewed": 178,
+      "reconciled": 0,
+      "standard-compliant": 14,
       "out-of-date": 0
     }
   },
@@ -27,7 +27,7 @@
     },
     "blockers": []
   },
-  "reviewedExhibits": 5,
+  "reviewedExhibits": 14,
   "errors": [],
   "entries": [
     {
@@ -1972,9 +1972,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-09",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 34,
+        "mainInterpretationWords": 297,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 4,
+        "principalAssetId": "scholastic-eriugena-stained-glass",
+        "issues": []
+      }
     },
     {
       "hallId": "latin-christian-scholastic",
@@ -1990,9 +2000,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-09",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 33,
+        "mainInterpretationWords": 294,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 4,
+        "principalAssetId": "scholastic-university-lecture",
+        "issues": []
+      }
     },
     {
       "hallId": "latin-christian-scholastic",
@@ -2008,9 +2028,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-09",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 34,
+        "mainInterpretationWords": 291,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 5,
+        "principalAssetId": "scholastic-anselm-cur-deus-homo",
+        "issues": []
+      }
     },
     {
       "hallId": "latin-christian-scholastic",
@@ -2026,9 +2056,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-09",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 35,
+        "mainInterpretationWords": 292,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 4,
+        "principalAssetId": "scholastic-abelard-heloise-manuscript",
+        "issues": []
+      }
     },
     {
       "hallId": "latin-christian-scholastic",
@@ -2044,9 +2084,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-09",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 33,
+        "mainInterpretationWords": 294,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 5,
+        "principalAssetId": "scholastic-aquinas-crivelli",
+        "issues": []
+      }
     },
     {
       "hallId": "latin-christian-scholastic",
@@ -2062,9 +2112,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-09",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 35,
+        "mainInterpretationWords": 297,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 4,
+        "principalAssetId": "scholastic-scotus-urbino",
+        "issues": []
+      }
     },
     {
       "hallId": "latin-christian-scholastic",
@@ -2080,9 +2140,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-09",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 34,
+        "mainInterpretationWords": 292,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 4,
+        "principalAssetId": "scholastic-ockham-logica",
+        "issues": []
+      }
     },
     {
       "hallId": "latin-christian-scholastic",
@@ -2098,9 +2168,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-09",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 35,
+        "mainInterpretationWords": 295,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 4,
+        "principalAssetId": "scholastic-eckhart-fragment",
+        "issues": []
+      }
     },
     {
       "hallId": "latin-christian-scholastic",
@@ -2116,9 +2196,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-09",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 34,
+        "mainInterpretationWords": 294,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 4,
+        "principalAssetId": "scholastic-marsilius-defensor",
+        "issues": []
+      }
     },
     {
       "hallId": "hellenistic-roman-ways",
@@ -2439,9 +2529,9 @@
         "candidateCount": 1,
         "routeMatches": true
       },
-      "articleReviewStatus": "bibliography-only",
-      "exhibitAuthoredStatus": "reconciled",
-      "exhibitStatus": "reconciled",
+      "articleReviewStatus": "claim-reviewed",
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
       "reviewedOn": "2026-08-09",
       "presentation": {
         "standardCompliant": true,

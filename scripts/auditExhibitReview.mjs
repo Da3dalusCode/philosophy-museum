@@ -5,6 +5,13 @@ const LEDGER_JSON_URL = new URL('../docs/editorial/exhibit-review-ledger.json', 
 const LEDGER_MARKDOWN_URL = new URL('../docs/editorial/exhibit-review-ledger.md', import.meta.url);
 const ARTICLE_STATUSES = ['unreviewed', 'bibliography-only', 'source-mapped', 'claim-reviewed', 'review-out-of-date'];
 const EXHIBIT_STATUSES = ['unreviewed', 'reconciled', 'standard-compliant', 'out-of-date'];
+const ACCEPTED_PILOT_REFS = new Set([
+  'buddhist-philosophies:nagarjuna',
+  'german-idealism-afterlives:kantianism',
+  'hellenistic-roman-ways:sextus-empiricus',
+  'latin-christian-scholastic:boethius',
+  'utility-liberty-history-capital:marxism',
+]);
 const write = process.argv.includes('--write');
 
 const countWords = (value = '') => String(value).trim().split(/\s+/u).filter(Boolean).length;
@@ -13,7 +20,7 @@ const countsByStatus = (entries, key, statuses) => Object.fromEntries(
 );
 const escapeCell = (value) => String(value ?? '').replaceAll('|', '\\|').replaceAll('\n', ' ');
 
-const presentationReview = ({exhibit, interpretation, asset, plaqueInvitation}) => {
+const presentationReview = ({hallId, exhibit, interpretation, asset, plaqueInvitation}) => {
   const issues = [];
   const presentation = interpretation?.presentation;
   const paragraphs = interpretation?.sections?.flatMap((section) => section.paragraphs) ?? [];
@@ -31,14 +38,19 @@ const presentationReview = ({exhibit, interpretation, asset, plaqueInvitation}) 
     ? ['creator', 'objectDate', 'institution', 'sourcePageUrl', 'attribution', 'license', 'historicalNote']
       .filter((field) => !String(asset[field] ?? '').trim())
     : [];
+  const acceptedPilot = ACCEPTED_PILOT_REFS.has(`${hallId}:${exhibit.id}`);
 
   if (presentation?.mode !== 'concise') issues.push('not concise');
   if (presentation?.bodyLayout !== 'prose') issues.push('not prose-layout');
   if (presentation?.exhibitLayout !== 'object-led') issues.push('not object-led');
   if (String(interpretation?.lead ?? '').trim()) issues.push('duplicates a separate lead');
-  if (interpretation?.sections?.length !== 1 || paragraphs.length !== 3) issues.push('not three prose paragraphs');
+  if (interpretation?.sections?.length !== 1 || (acceptedPilot ? paragraphs.length !== 3 : ![3, 4].includes(paragraphs.length))) {
+    issues.push(acceptedPilot ? 'accepted pilot no longer has three prose paragraphs' : 'not three or four prose paragraphs');
+  }
   if (interpretation?.sections?.some(({heading}) => heading.trim())) issues.push('visible section heading');
-  if (mainWords < 250 || mainWords > 268) issues.push(`main interpretation ${mainWords} words`);
+  if (acceptedPilot ? mainWords < 250 || mainWords > 268 : mainWords < 280) {
+    issues.push(`main interpretation ${mainWords} words`);
+  }
   if (!visitorGuideShape) issues.push('missing subject-specific visitor-guide sections');
   if (guideSections.some(({heading, items}) => !heading.trim() || items.length === 0)) {
     issues.push('visitor-guide section lacks a heading or item');
@@ -110,6 +122,7 @@ const entries = programEntries.map(({hall, room, exhibit}) => {
     : authoredStatus === 'unreviewed' ? 'unreviewed' : 'out-of-date';
   const plaqueInvitation = data.primaryPlaqueInvitationOverrides[exhibit.id] ?? exhibit.question;
   const presentation = presentationReview({
+    hallId: hall.id,
     exhibit,
     interpretation,
     asset: exhibit.principalAssetId ? assetById.get(exhibit.principalAssetId) : undefined,
