@@ -30,9 +30,9 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 
 | Exhibit | Article status | Exhibit status | Plaque words | Main words | Paragraphs | Orientation | Presentation |
 | --- | --- | --- | ---: | ---: | ---: | ---: | --- |
-| Nāgārjuna | claim-reviewed | standard-compliant | 34 | 263 | 3 | 5 | standard presentation |
-| Boethius | claim-reviewed | standard-compliant | 35 | 268 | 3 | 5 | standard presentation |
-| Sextus Empiricus | bibliography-only | reconciled | 33 | 268 | 3 | 5 | standard presentation |
+| Nāgārjuna | claim-reviewed | standard-compliant | 32 | 263 | 3 | 5 | standard presentation |
+| Boethius | claim-reviewed | standard-compliant | 32 | 268 | 3 | 5 | standard presentation |
+| Sextus Empiricus | bibliography-only | reconciled | 32 | 268 | 3 | 5 | standard presentation |
 | Kantianism | claim-reviewed | standard-compliant | 34 | 254 | 3 | 5 | standard presentation |
 | Marxism | claim-reviewed | standard-compliant | 32 | 255 | 3 | 5 | standard presentation |
 

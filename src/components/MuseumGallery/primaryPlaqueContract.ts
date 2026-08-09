@@ -41,6 +41,9 @@ export const PRIMARY_PLAQUE_INVITATION_OVERRIDES = {
   origen: 'How did Origen join scriptural scholarship to questions of God, freedom, embodiment, and restoration across a corpus preserved in originals, translations, fragments, and hostile reports?',
   'gregory-nyssa': 'How did Gregory of Nyssa connect divine infinity, embodied freedom, virtue, resurrection, and transformation toward the good?',
   'pseudo-dionysius': 'How did an anonymous late-antique Christian transform divine names, hierarchy, procession, return, and apophatic unknowing across a corpus later received in Byzantine and Latin worlds?',
+  nagarjuna: 'See how Nāgārjuna links dependent arising and emptiness, tests claims of fixed essence, and guides later Madhyamaka debate while his life, texts, terms, and many lines of reception remain open to dispute.',
+  boethius: 'See how Boethius joined Greek logic to Latin teaching, wrote on fortune and freedom in prison, and gained two linked afterlives through an unfinished project, disputed final years, and centuries of study.',
+  'sextus-empiricus': 'See how Sextus tests rival claims, suspends judgment, and keeps inquiry open without denying truth, while his use of words, reasons, memory, and daily life leaves skeptical practice open to debate today.',
 } as const satisfies Readonly<Record<string, string>>;
 
 export const museumHallUsesPrimaryEmphasis = (
