@@ -1,17 +1,34 @@
 import type {MuseumAssetId} from './museumAssetTypes';
 import type {MuseumPrimaryInterpretationEnrichment} from './scholasticRationalistPrimaryInterpretationEnrichment';
+import type {MuseumExhibitReview} from '../../editorial/exhibitReview';
 
 type OrientationItem = {readonly label: string; readonly value: string};
+type VisitorGuideSection = {
+  readonly heading: string;
+  readonly items: readonly {readonly label: string; readonly description: string}[];
+};
+type ConciseOptions = {
+  readonly objectLed?: boolean;
+  readonly review?: MuseumExhibitReview;
+};
+
+const standardReview = (lock: string): MuseumExhibitReview => ({
+  status: 'standard-compliant',
+  reviewedOn: '2026-08-09',
+  method: 'Reconciled against the current claim-reviewed article, registered sources, and principal-object provenance; object-led presentation and subject-specific visitor guide reviewed against the locked exhibit standard.',
+  lock,
+});
 
 const concise = (
   name: string,
   lead: string,
   paragraphs: readonly string[],
-  orientation: readonly OrientationItem[],
+  orientation: readonly OrientationItem[] | readonly VisitorGuideSection[],
   assetId: MuseumAssetId,
   objectText: string,
+  options: ConciseOptions = {},
 ): MuseumPrimaryInterpretationEnrichment => ({
-  lead,
+  lead: options.objectLed ? '' : lead,
   keyIdeas: [],
   keyWorks: [],
   sections: [{heading: '', paragraphs}],
@@ -20,10 +37,12 @@ const concise = (
     orientation,
     articleActionLabel: `Read the full sourced ${name} article`,
     bodyLayout: 'prose',
+    ...(options.objectLed ? {exhibitLayout: 'object-led' as const} : {}),
     plaqueKicker: '',
     plaqueSubtitleLines: 4,
   },
   objectInterpretations: {[assetId]: objectText},
+  ...(options.review ? {review: options.review} : {}),
 });
 
 export const EARLY_MODERN_ENLIGHTENMENT_PRIMARY_INTERPRETATIONS:
@@ -125,22 +144,29 @@ Readonly<Record<string, MuseumPrimaryInterpretationEnrichment>> = {
   ),
   berkeley: concise(
     'George Berkeley',
-    'Test the room’s apparent solidity with Berkeley: he rejects material substance to defend sensible reality, active spirits, learned perception, scientific order, language, and God—not to trap each person in a private dream.',
+    '',
     [
-      'George Berkeley argues that sensible objects are collections of ideas perceived by minds, while spirits are active perceivers and agents rather than ideas among ideas. His famous principle that to be is to be perceived does not mean that ordinary objects disappear whenever one finite observer turns away. Their order, availability, and continuity depend on God, and other finite spirits are known through signs and effects rather than perceived as passive ideas. Berkeley presents immaterialism as a defense of common sense against an unknowable material substratum, even though many readers judge the reconstruction more revisionary than he admits.',
-      'A New Theory of Vision distinguishes what sight immediately presents from distance and spatial relations learned through correlations with touch and movement. The Principles attacks abstract ideas when abstraction is understood as forming an intrinsically impossible image, while allowing general signs used across many cases. Language often guides action rather than copying a hidden essence. Science can therefore discover regularities, laws, and useful mathematical relations without positing material causes behind experience; its explanatory scope is preserved but reinterpreted within a divine language of nature.',
-      'Berkeley’s religious aims belong inside the philosophy. He thought immaterialism answered skepticism and atheistic materialism, but disputes remain about causation, other minds, unperceived objects, divine perception, and how common-sense his view really is. His later Siris moves from tar-water through natural philosophy and Platonizing metaphysics; its obsolete medical advocacy must not become present advice or be ignored as irrelevant to the range of his thought.',
-      'His institutional and Atlantic history also matters. Berkeley traveled to Rhode Island while seeking funds for a Bermuda college intended to educate colonial settlers and convert Indigenous Americans. The unrealized project participated in missionary and colonial assumptions, and his plantation property and ownership of enslaved people are materially relevant to the life that supported his educational ideals. These facts neither refute immaterialism by association nor belong in a detached footnote; they test how philosophical accounts of order, improvement, and persons inhabit institutions of power.',
+      'George Berkeley argues that sensible objects are collections of ideas perceived by minds, while spirits are active perceivers and agents rather than ideas among ideas. His principle that to be is to be perceived does not mean a chair vanishes when one observer leaves. Its order, availability, and continuity depend on God; other finite spirits are known through their signs and effects. Berkeley presents immaterialism as a defense of sensible reality against an unknowable material substratum, even though critics find that defense more revisionary than his appeal to common sense suggests.',
+      'A New Theory of Vision separates what sight immediately presents from distance and spatial relations learned through touch and movement. The Principles attacks an impossible picture of abstract ideas while preserving general thought through signs. Language can guide action without copying a hidden essence. Science therefore still discovers regularities, laws, and useful mathematical relations, but it does not need material causes behind experience. Berkeley’s religious aim is structural, not an optional ornament: disputes remain over causation, other minds, divine perception, and how far this reconstruction can count as common sense.',
+      'The portrait also places the philosopher in institutions of power. Berkeley sought support for a Bermuda college intended to educate colonial settlers and convert Indigenous Americans; his Atlantic project, Rhode Island household, and slaveholding make improvement and personhood questions historically concrete. These facts neither deductively refute immaterialism nor belong in a detached footnote. They test how an account of orderly experience inhabits colonial and enslaving worlds. That connection matters because philosophy’s concepts of order and improvement acquire their reach through material arrangements, not only abstract philosophical premises. Smibert’s image identifies Berkeley as a cleric and public planner, not a visual proof of either his metaphysics or its moral adequacy.',
     ],
     [
-      {label: 'Metaphysics', value: 'Ideas · active spirits · God · no material substratum'},
-      {label: 'Perception', value: 'Visual distance learned through signs and experience'},
-      {label: 'Language and science', value: 'Generality · regularity · prediction · divine order'},
-      {label: 'Major works', value: 'New Theory of Vision · Principles · Three Dialogues · Siris'},
-      {label: 'Institutional context', value: 'Anglican office · Bermuda scheme · colonialism · enslavement'},
+      {heading: 'Key ideas', items: [
+        {label: 'Ideas and spirits', description: 'Ideas are the contents of experience; spirits are active perceivers and agents, so Berkeley does not treat persons as one more passive idea.'},
+        {label: 'Immaterialism', description: 'Ordinary things remain real and orderly, but Berkeley denies that an unknowable material substance is needed to explain them.'},
+      ]},
+      {heading: 'Works and method', items: [
+        {label: 'A New Theory of Vision', description: 'This work argues that distance and spatial depth are learned through recurring links among sight, touch, and movement.'},
+        {label: 'Principles of Human Knowledge', description: 'Berkeley’s central philosophical work challenges material substance while explaining general signs, science, and divine order.'},
+      ]},
+      {heading: 'Historical pressure', items: [
+        {label: 'Bermuda college project', description: 'Berkeley’s proposed missionary college joined education to colonial settlement rather than offering a politically neutral ideal of improvement.'},
+        {label: 'Whitehall household', description: 'The documented enslaving household connected with Berkeley’s Rhode Island residence makes the limits of his public ideals impossible to ignore.'},
+      ]},
     ],
     'empiricism-berkeley-smibert-portrait',
-    'John Smibert’s 1730 lifetime portrait shows Berkeley in clerical dress during the era of his Atlantic educational project. It identifies a philosopher, Anglican cleric, traveler, and planner; it does not visualize immaterialism or neutralize the missionary, colonial, and enslaving institutions connected to that project.',
+    'John Smibert’s 1730 lifetime portrait identifies Berkeley’s Anglican office and Atlantic educational ambitions. Its clerical dress, chair, and landscape do not demonstrate immaterialism or make his arguments merely apologetic; neither can the image neutralize the colonial and enslaving institutions entangled with his Bermuda project.',
+    {objectLed: true, review: standardReview('fnv1a64:70c26d6311e33fb3')},
   ),
   'anne-conway': concise(
     'Anne Conway',
@@ -182,78 +208,134 @@ Readonly<Record<string, MuseumPrimaryInterpretationEnrichment>> = {
   ),
   rousseau: concise(
     'Jean-Jacques Rousseau',
-    'Move among Rousseau’s incompatible-seeming voices—critic, legislator, tutor, novelist, musician, botanist, and autobiographer—without forcing inequality, freedom, nature, gender, religion, and selfhood into one slogan.',
+    '',
     [
-      'Jean-Jacques Rousseau was a Genevan citizen who became a writer through music, essays, novels, political works, educational theory, religious controversy, and autobiography. The Discourse on Inequality offers a conjectural history, not an archaeological report: relatively independent beings become comparative as property, labor, esteem, and institutions intensify dependence. Amour de soi names basic self-concern; amour-propre arises through comparison and can produce vanity, shame, domination, and resentment, though ordered civic recognition may also redirect it. “Nature” is a critical device as well as an environment, never a simple instruction to abandon society.',
-      'The Social Contract asks how people can remain free under law by becoming members of a sovereign people. The general will concerns common conditions and is not the sum of private preferences, an automatic majority, or whatever a leader declares. Sovereignty cannot simply be represented away, while government administers rather than owns it. These claims sustain democratic and republican readings but leave hard questions about scale, dissent, civil religion, censorship, exclusion, and the statement that a dissenter may be “forced to be free.” Neither democratic hero nor ancestor of totalitarianism captures the argument alone.',
-      'Émile stages an education designed to delay social vanity and cultivate judgment through carefully managed experience. Its tutor’s hidden control complicates the freedom it seeks, while Sophie’s education is explicitly organized around complementarity and male needs. Julie explores desire, domestic order, authenticity, and community through fiction; the Profession of Faith sets conscience and natural religion against dogmatic systems; Rousseau’s music writings and opera belong to his disputes over culture and expression. The works address connected pressures, but they do not supply one seamless doctrine.',
-      'The Confessions, Dialogues, and Reveries construct and defend a self under suspicion, mixing extraordinary disclosure with literary selection. Rousseau’s placement of five children in the foundling hospital creates a grave tension with Émile, but biography neither automatically refutes the educational arguments nor becomes irrelevant to evaluating the author’s self-presentation. Later revolutionary, Romantic, democratic, authoritarian, educational, literary, musical, and ecological receptions selected different Rousseaus. The exhibit asks visitors to preserve those contradictions rather than solve them by choosing one book or political verdict.',
+      'Jean-Jacques Rousseau made freedom a problem created by social relations rather than merely by bad rulers. The Discourse on Inequality gives a conjectural history, not archaeology: property, labor, esteem, and institutions make relatively independent beings dependent on comparison. Amour de soi is basic self-concern; amour-propre is the comparative concern for standing that can produce vanity, shame, resentment, and domination. “Nature” is therefore a critical contrast with corrupt social arrangements, never a simple instruction to abandon society or return to an imagined prehistoric condition.',
+      'The Social Contract asks how people can remain free under law by becoming members of a sovereign people. The general will concerns common conditions; it is not private preference added up, an automatic majority, or a leader’s claim to know the people’s true interest. Government administers but does not own sovereignty. That distinction supports republican and democratic readings while leaving severe questions about scale, dissent, civil religion, censorship, exclusion, and the claim that a dissenter may be “forced to be free.” Neither democratic hero nor totalitarian ancestor captures the argument by itself.',
+      'Émile stages education as a way to delay social vanity and cultivate judgment through managed experience, but its tutor’s concealed control and Sophie’s gendered formation expose the limits of its autonomy. The Confessions, Dialogues, and Reveries make a crafted self under suspicion; Rousseau’s abandonment of his children cannot automatically refute his educational argument, but it bears on that self-presentation. Allan Ramsay’s 1766 portrait records an artistic encounter during Rousseau’s British exile and his managed public visibility, not a natural self or a picture of the sovereign people. His contradictory corpus requires interpretation, not one verdict.',
+      'Revolutionary, Romantic, educational, and authoritarian readers have accordingly selected different Rousseaus rather than inherited one settled political program; no later reception resolves those tensions for us.',
     ],
     [
-      {label: 'Problem cluster', value: 'Inequality · dependence · freedom · formation · recognition'},
-      {label: 'Political works', value: 'Discourses · Social Contract · Geneva writings'},
-      {label: 'Other forms', value: 'Émile · Julie · music · botany · autobiography'},
-      {label: 'Major tensions', value: 'General will · civil religion · gender · educational control'},
-      {label: 'Reception caution', value: 'Neither democratic hero nor totalitarian ancestor alone'},
+      {heading: 'Key ideas', items: [
+        {label: 'Amour de soi and amour-propre', description: 'Basic self-concern differs from socially comparative concern for status, which can turn recognition into dependence and rivalry.'},
+        {label: 'General will', description: 'The people’s concern with shared conditions, not a ruler’s command or a simple total of private preferences.'},
+      ]},
+      {heading: 'Major works', items: [
+        {label: 'Discourse on Inequality', description: 'A conjectural account of how property, comparison, and dependence can reshape human relations.'},
+        {label: 'The Social Contract', description: 'An inquiry into legitimate law, popular sovereignty, government, and civic freedom.'},
+        {label: 'Émile', description: 'A staged educational narrative whose techniques of formation and gender roles complicate its appeal to freedom.'},
+      ]},
+      {heading: 'Continuing pressure', items: [
+        {label: 'Dissent and civic unity', description: 'Rousseau’s ideal of a common good raises the question of how political unity can avoid silencing plurality.'},
+      ]},
     ],
     'enlightenment-rousseau-ramsay-portrait',
-    'Allan Ramsay’s 1766 lifetime portrait shows Rousseau in Armenian-style dress during his British exile. The costume participated in the public presentation of philosophical simplicity and difference; it is not a transparent image of a natural self or a diagram of the Social Contract’s sovereign people.',
+    'Allan Ramsay’s 1766 lifetime portrait records Rousseau in Armenian-style dress during his British exile. The costume participates in a public presentation of simplicity and difference; it cannot disclose an unmediated natural self or diagram the sovereign people of The Social Contract.',
+    {objectLed: true, review: standardReview('fnv1a64:f76d711a49b2feff')},
   ),
   montesquieu: concise(
     'Montesquieu',
-    'Use comparison, not a three-branch mnemonic: Montesquieu asks how laws, institutions, climate, commerce, custom, slavery, empire, and historical scale combine to enable liberty or despotism.',
+    '',
     [
-      'Charles-Louis de Secondat, baron de Montesquieu, wrote as a magistrate, landowner, traveler, historian, satirist, and member of elite institutions in ancien-régime France. Persian Letters uses fictional foreign observers and the enclosed seraglio to make familiar authority strange; its multiple voices should not all be treated as direct authorial statements. Considerations on the Romans studies how the causes of expansion—discipline, conflict, incorporation, military organization—can become causes of decline when scale, wealth, command, and civic motive change.',
-      'The Spirit of the Laws defines laws through relations among political form, history, economy, religion, manners, terrain, population, and climate. Climate does real explanatory work in the book, but it does not function as an irresistible single cause, and its environmental generalizations often reproduce stereotypes and weak evidence. Montesquieu’s comparative method is historically important because institutions cannot be copied in isolation; it is also limited by the reports, classifications, and European imperial archive through which much comparison was made.',
-      'Political liberty is security under moderate government, not unrestricted choice. Montesquieu’s celebrated treatment of England distributes legislative, executive, and judicial functions so power checks power, but he does not hand modern readers a universally applicable three-branch diagram. Social estates, intermediary bodies, legal procedures, punishment, federal arrangements, commerce, and a wider balance of powers all matter. Commerce may soften manners and support peace while generating luxury, dependence, conquest, and monopoly; moderation is an institutional achievement, not an automatic result of markets.',
-      'His slavery analysis preserves a serious contradiction. The ironic list of supposed defenses exposes greed and racism and attacks natural-law justifications, yet other passages conditionally tolerate slavery under despotism or extreme climates and discuss its regulation. Calling Montesquieu an uncomplicated abolitionist erases those concessions; calling him simply a defender erases the force of the critique. His account of empire is similarly double-sided. Leave the exhibit asking which relations constrain domination—and when explanation of a practice becomes an excuse for it.',
+      'Charles-Louis de Secondat, baron de Montesquieu, wrote as a magistrate, landowner, traveler, historian, satirist, and member of elite institutions in ancien-régime France. Persian Letters uses fictional foreign observers and the enclosed seraglio to make familiar authority strange; its voices cannot all be treated as direct authorial statements. Considerations on the Romans follows how expansion, discipline, conflict, wealth, command, and civic motive can alter one another. Political causes are relational and historical, not ingredients that can be lifted unchanged from one society to another. His comparisons also test how scale and temporal change transform political arrangements.',
+      'The Spirit of the Laws asks how political form, history, economy, religion, manners, terrain, population, and climate condition laws. Climate has real explanatory work in the book, but it is not an irresistible single cause; its environmental generalizations often carry stereotypes and weak evidence. Comparison makes institutions visible as arrangements embedded in social worlds, yet the method also depends on reports, classifications, and an imperial archive whose limitations must remain visible. Explaining why a practice persists is not the same as demonstrating that it is justified.',
+      'Political liberty is security under moderate government, not unrestricted choice. Montesquieu’s English model distributes functions so power checks power, but it is not a universal three-branch diagram: social estates, intermediary bodies, law, procedure, commerce, and a wider balance matter. His slavery analysis compounds the problem. Ironic defenses expose greed and racism, while other passages allow conditional concessions under despotism or extreme climate. The point is neither a final label nor a pardon: institutional diagnosis must ask whom a law renders vulnerable, dependent, or disposable. This derivative Versailles likeness can identify a later public Montesquieu, but it cannot validate his comparative method, settle the contradiction, or turn him into an uncomplicated abolitionist.',
     ],
     [
-      {label: 'Method', value: 'Historical and institutional comparison'},
-      {label: 'Variables', value: 'Law · government · climate · custom · commerce · scale'},
-      {label: 'Liberty', value: 'Security through moderation and powers checking powers'},
-      {label: 'Major works', value: 'Persian Letters · Romans · Spirit of the Laws'},
-      {label: 'Open contradiction', value: 'Critique of slavery alongside conditional concessions'},
+      {heading: 'Method and liberty', items: [
+        {label: 'Comparative inquiry', description: 'Laws must be read alongside a society’s history, institutions, customs, economy, and scale rather than copied as detachable rules.'},
+        {label: 'Moderation', description: 'Political liberty is security under arrangements that prevent one power from becoming arbitrary.'},
+      ]},
+      {heading: 'Major works', items: [
+        {label: 'Persian Letters', description: 'A satirical novel whose fictional foreign observers make French authority and social practice unfamiliar.'},
+        {label: 'The Spirit of the Laws', description: 'Montesquieu’s wide comparative study of law, government, society, commerce, climate, and political restraint.'},
+      ]},
+      {heading: 'Necessary cautions', items: [
+        {label: 'England and separated powers', description: 'His admired constitutional model includes more than three sealed branches and is an interpretation of eighteenth-century Britain, not a neutral transcript.'},
+        {label: 'Slavery and empire', description: 'His forceful irony against slavery coexists with conditional concessions, so neither a simple abolitionist nor defender label is adequate.'},
+      ]},
     ],
     'enlightenment-montesquieu-versailles-portrait',
-    'This Versailles portrait was painted by an anonymous French artist after Jacques-Antoine Dassier’s medal, around or after the end of Montesquieu’s life. It is a derivative commemorative image, not an independent documented sitting and not a visual proof of his constitutional or comparative method.',
+    'This Versailles portrait derives from Jacques-Antoine Dassier’s medal through an anonymous French painter. As a derivative commemorative likeness, it identifies a later public Montesquieu; it is neither an independent documented sitting nor visual evidence for his constitutional or comparative arguments.',
+    {objectLed: true, review: standardReview('fnv1a64:9479aa56453f4ae9')},
   ),
   'adam-smith': concise(
     'Adam Smith',
-    'Read moral sentiments and political economy together: sympathy, the impartial spectator, justice, labor, exchange, institutions, monopoly, empire, education, and state functions belong to one unfinished inquiry into social life.',
+    '',
     [
-      'Adam Smith taught moral philosophy at Glasgow and wrote across ethics, jurisprudence, rhetoric, history, and political economy. The Theory of Moral Sentiments explains sympathy as imaginative fellow-feeling with another’s situation, not automatic benevolence or agreement. Agent and spectator adjust toward one another, while the impartial spectator names a disciplined standpoint from which a person tests conduct beyond immediate applause. Moral judgment is socially formed yet can criticize actual audiences, though rank, proximity, custom, and shared prejudice may still distort what spectators imagine.',
-      'Justice differs from beneficence because injury arouses resentment and can warrant coercive restraint; society cannot survive without security from harm. The Wealth of Nations then examines how division of labor, bargaining, prices, wages, profits, rents, capital, and law produce commercial opulence. Smith does not say selfishness is the only motive. Self-interest is especially relevant to exchange, while sympathy, prudence, vanity, resentment, public spirit, and the desire for approval operate elsewhere. The old “Adam Smith problem” misreads both sympathy and self-interest when it splits the books into opposing authors.',
-      'Specialization increases output but can narrow workers’ capacities for reasoning and citizenship, which is why public education belongs inside the political economy. Smith attacks mercantilist privilege, collusion, monopoly, and chartered companies exercising sovereign power. His rare “invisible hand” phrase is not a theorem that greed always produces public good. Markets depend on justice, money, infrastructure, security, information, and rules; powerful merchants can bend those rules toward themselves. Natural liberty is an institutional argument against particular privileges, not the absence of government.',
-      'The sovereign retains duties of defense, justice, public works, education, and revenue, with each institution requiring scrutiny against capture and complacency. Smith criticizes the cost and monopoly of empire and the East India Company’s government, yet he also considers reformed imperial union and does not supply modern decolonization or a complete abolitionist theory. His project is neither laissez-faire catechism nor contemporary welfare-state blueprint. Ask instead how institutions channel mixed motives, distribute dependence, and cultivate—or damage—the capacities of ordinary people.',
+      'Adam Smith taught moral philosophy at Glasgow and wrote across ethics, jurisprudence, rhetoric, history, and political economy. The Theory of Moral Sentiments explains sympathy as imaginative fellow-feeling with another’s situation, not automatic benevolence or agreement. Agent and spectator adjust toward one another; the impartial spectator is a disciplined standpoint for testing conduct beyond immediate applause. Moral judgment is socially formed yet can criticize actual audiences, although rank, proximity, custom, and shared prejudice may still distort what spectators are able to imagine.',
+      'Justice differs from beneficence because injury arouses resentment and warrants coercive restraint; society cannot survive without security from harm. The Wealth of Nations studies division of labor, bargaining, prices, wages, profits, rents, capital, and law. Self-interest matters especially in exchange, but it is never Smith’s whole psychology. Sympathy, prudence, vanity, resentment, public spirit, and the desire for approval do other work. Splitting moral philosophy from political economy into two incompatible Smiths obscures how institutions channel mixed motives and distribute dependence.',
+      'Specialization increases output but can narrow workers’ powers of reasoning and citizenship, making public education part of political economy. Smith attacks mercantilist privilege, collusion, monopoly, and chartered companies exercising sovereign power. His “invisible hand” is not a theorem that greed automatically benefits everyone; markets depend on justice, infrastructure, security, information, and rules that merchants can bend. The sovereign retains duties of defense, justice, public works, education, and revenue, all vulnerable to capture and complacency. This makes political economy a field of institutional judgment rather than a license to ignore democratic power. The 1787 Wedgwood medallion is a lifetime manufactured likeness, fitting evidence of commercial production without reducing Smith’s philosophy to commodity advocacy. His critique of empire and the East India Company also stops short of a modern decolonial or abolitionist program.',
     ],
     [
-      {label: 'Read together', value: 'Theory of Moral Sentiments · Wealth of Nations'},
-      {label: 'Moral psychology', value: 'Sympathy · impartial spectator · justice · self-command'},
-      {label: 'Political economy', value: 'Labor · exchange · bargaining · class · institutions'},
-      {label: 'State functions', value: 'Defense · justice · public works · education · revenue'},
-      {label: 'Critical contexts', value: 'Monopoly · chartered companies · empire · worker formation'},
+      {heading: 'Read together', items: [
+        {label: 'The Theory of Moral Sentiments', description: 'Smith’s account of sympathy, judgment, self-command, and the social formation of moral approval.'},
+        {label: 'The Wealth of Nations', description: 'His study of labor, exchange, prices, class, law, public functions, and the conditions of commercial prosperity.'},
+      ]},
+      {heading: 'Key concepts', items: [
+        {label: 'Impartial spectator', description: 'A disciplined standpoint for assessing conduct beyond immediate praise, not an infallible private oracle or public opinion poll.'},
+        {label: 'Natural liberty', description: 'An institutional argument against particular privileges, not a demand to abolish government or public responsibility.'},
+      ]},
+      {heading: 'Political pressure', items: [
+        {label: 'Division of labor', description: 'Specialization can raise productivity while damaging workers’ capacities, which is why Smith defends public education.'},
+        {label: 'Chartered empire', description: 'Smith criticized monopoly and East India Company rule, but his own proposed reforms do not amount to a complete modern anti-imperial program.'},
+      ]},
     ],
     'enlightenment-smith-wedgwood-medallion',
-    'The Wedgwood manufactory produced this portrait medallion in 1787 during Smith’s lifetime; the installation displays a 2016 photograph of the object. Its industrial manufacture suits a gallery on commercial society, but the likeness does not reduce Smith’s moral philosophy to commodity production or market advocacy.',
+    'The Wedgwood manufactory produced this portrait medallion in 1787 during Smith’s lifetime; the installation displays a 2016 photograph of the object. Its industrial manufacture makes commercial production visible, but the likeness cannot reduce Smith’s moral philosophy to commodity production or market advocacy.',
+    {objectLed: true, review: standardReview('fnv1a64:076bcb97355edc60')},
   ),
   wollstonecraft: concise(
     'Mary Wollstonecraft',
-    'Follow Wollstonecraft’s challenge from schoolroom and marriage into revolution, work, citizenship, fiction, and empire: dependence is manufactured by institutions, not revealed as women’s natural character.',
+    '',
     [
-      'Mary Wollstonecraft worked as a companion, teacher, school founder, governess, translator, reviewer, novelist, travel writer, and political polemicist before those roles became one canonical philosophical biography. A Vindication of the Rights of Men answers Burke’s attack on the French Revolution by criticizing inherited rank and ornamental inequality. A Vindication of the Rights of Woman turns claims of universal reason and virtue against an educational order that trains women for pleasing dependence and then treats the result as evidence of natural inferiority.',
-      'Her central standard is not that women should imitate every existing male privilege. Virtue must rest on reason, responsibility, and relative independence rather than sex-specific accomplishment. Equal, coeducational public schooling would prepare women for friendship in marriage, parenthood, useful work, and citizenship. Wollstonecraft’s attack on excessive sensibility is not contempt for feeling; it criticizes a commercial and literary culture that rewards theatrical delicacy while withholding the economic and intellectual conditions needed for responsible emotion and judgment.',
-      'Marriage and the family are political institutions because property, law, labor, sexual power, and dependency shape apparent consent. Maria; or, The Wrongs of Woman makes those constraints visible through fiction, while the Scandinavian Letters combine travel, commerce, landscape, loss, and reflective self-writing. Her revolutionary history and Paris experience show that rights language develops amid war, violence, subsistence crisis, and contested public action. Genre matters: treatise, novel, review, and travel letter make different evidence and arguments available.',
-      'Wollstonecraft’s significance should not erase her limits. She often privileges middle-class domestic independence, can disparage women formed by the system she attacks, and uses civilizational and imperial language later readers must criticize. “Feminist” names a consequential later genealogy, not her own complete category or the universal beginning of resistance to gendered power. Read her beside Astell, Rousseau, revolutionary actors, and later feminisms to preserve both the structural insight—institutions manufacture character—and the lives her proposed remedy leaves narrow.',
+      'Mary Wollstonecraft worked as a companion, teacher, school founder, governess, translator, reviewer, novelist, travel writer, and political polemicist before those roles were joined into one canonical philosophical biography. A Vindication of the Rights of Men answers Burke’s attack on the French Revolution by criticizing inherited rank and ornamental inequality. A Vindication of the Rights of Woman then turns universal reason and virtue against an education that trains women for pleasing dependence and mistakes the result for natural inferiority.',
+      'Her standard is not that women should imitate every existing male privilege. Virtue needs reason, responsibility, and relative independence rather than sex-specific accomplishment. Equal, coeducational public schooling would prepare women for friendship in marriage, parenthood, useful work, and citizenship. Her critique of excessive sensibility is not contempt for feeling; it targets a commercial and literary culture that rewards theatrical delicacy while withholding the economic and intellectual conditions for responsible emotion and judgment. Education is therefore a political condition, not a detached reform of manners.',
+      'Marriage and family are political institutions because property, law, labor, sexual power, and dependency shape apparent consent. Maria; or, The Wrongs of Woman uses fiction to show those constraints, while the Scandinavian Letters joins travel, commerce, landscape, loss, and reflective judgment. These genres show rights taking shape amid war, subsistence crisis, intimate vulnerability, commercial change, and contested public action rather than in an orderly theory divorced from circumstance. They make political philosophy responsive to lived conditions and literary form. Wollstonecraft also retains limits: she privileges middle-class domestic independence and uses civilizational and imperial language later readers must criticize. Heath’s 1798 engraving reproduces Opie’s lifetime likeness through a posthumous medium; it cannot stand in for her varied corpus or for the contested afterlife of “feminist” as a later genealogy.',
     ],
     [
-      {label: 'Core claim', value: 'Unequal education manufactures dependence and apparent inferiority'},
-      {label: 'Political vocabulary', value: 'Rights · virtue · independence · work · citizenship'},
-      {label: 'Genres', value: 'Vindications · education · fiction · reviews · travel letters'},
-      {label: 'Interlocutors', value: 'Rousseau · Burke · revolutionary rights debates'},
-      {label: 'Historical limits', value: 'Class · domesticity · civilizational hierarchy · empire'},
+      {heading: 'Central claim', items: [
+        {label: 'Manufactured dependence', description: 'Traits used to justify women’s subordination are produced by denied education, economic vulnerability, and social reward.'},
+        {label: 'Independent virtue', description: 'Reason, responsibility, and relative independence are conditions of moral development for women and men alike.'},
+      ]},
+      {heading: 'Works and genres', items: [
+        {label: 'A Vindication of the Rights of Woman', description: 'The 1792 argument joins education, work, marriage, citizenship, and universal standards of virtue.'},
+        {label: 'Maria; or, The Wrongs of Woman', description: 'An unfinished posthumous novel that makes marriage law, class, sexuality, and confinement politically legible.'},
+      ]},
+      {heading: 'Tensions and influence', items: [
+        {label: 'Rousseau', description: 'Wollstonecraft challenges his gendered education while sharing the larger Enlightenment concern with character, freedom, and civic formation.'},
+        {label: 'Class and empire', description: 'Her critique of domination supplies later feminist resources, yet her middling-class ideals and civilizational language require criticism rather than celebration alone.'},
+      ]},
     ],
     'enlightenment-wollstonecraft-heath-engraving',
-    'James Heath’s engraving, published in 1798, reproduces John Opie’s lifetime portrait for Godwin’s posthumous Memoirs. It preserves a likeness through a later reproductive medium rather than a separate sitting. The Memoirs also powerfully shaped Wollstonecraft’s early reception and cannot substitute for her own varied corpus.',
+    'James Heath’s 1798 engraving reproduces John Opie’s lifetime portrait for Godwin’s posthumous Memoirs. It preserves a likeness through a later reproductive medium rather than a separate sitting; the Memoirs’ influential reception cannot substitute for Wollstonecraft’s own varied corpus.',
+    {objectLed: true, review: standardReview('fnv1a64:28e27a6a8ef5bb80')},
+  ),
+  kant: concise(
+    'Immanuel Kant',
+    '',
+    [
+      'Kant’s critical philosophy asks what must be true for experience and knowledge to be possible before settling metaphysical claims. In the Critique of Pure Reason, forms of intuition and categories of understanding organize experience of appearances; they do not let the mind invent a world at will. We can know objects as they can be given under those conditions, not things as they may be independently of any possible experience. Critique therefore limits speculative metaphysics while defending objective natural knowledge. Whether this transcendental idealism requires one world understood under two aspects or two kinds of object remains disputed.',
+      'Those limits do not make reason passive. Kant’s practical philosophy asks how freedom and obligation can belong together when action is not merely impulse or external command. Autonomy means giving oneself a rationally defensible law, and the categorical imperative tests whether a maxim can be willed universally and whether persons are treated as ends. Kant’s moral thought also includes duties of right and virtue, cultivated feeling, and disputed postulates of practical reason. The Critique of the Power of Judgment extends critical inquiry to beauty, the sublime, teleology, and reflective judgment rather than supplying one master formula for every domain.',
+      'Kant’s universal language does not exempt his own claims from criticism. His racial hierarchy, gendered exclusions, colonial assumptions, and rational-capacity language create material questions about who can count as an equal moral subject. Scholars disagree over the reach of later revisions; neither a simple conversion story nor a timeless condemnation replaces the evidence. Critical problems also inform later accounts of science, law, politics, and culture without dictating them. This 1791 portrait provides a late likeness of Kant during the critical period, but its traditional attribution to Gottlieb Döbler is uncertain and its formal pose cannot prove critical philosophy, moral autonomy, or the adequacy of his universalism.',
+    ],
+    [
+      {heading: 'The critical project', items: [
+        {label: 'Transcendental idealism', description: 'Experience has conditions supplied by human cognition, so knowledge reaches appearances without becoming a private invention of reality.'},
+        {label: 'Critique', description: 'A method that tests what reason can legitimately claim and where speculation must stop.'},
+      ]},
+      {heading: 'Three Critiques', items: [
+        {label: 'Critique of Pure Reason', description: 'Examines the possibility and limits of knowledge, especially claims that reach beyond possible experience.'},
+        {label: 'Critique of Practical Reason', description: 'Investigates freedom, moral law, responsibility, and the practical commitments reason can justify.'},
+        {label: 'Critique of the Power of Judgment', description: 'Studies beauty, the sublime, purposiveness, art, and judgment where no fixed rule settles every case.'},
+      ]},
+      {heading: 'Continuing questions', items: [
+        {label: 'Autonomy', description: 'Moral self-government is not doing whatever one wants but acting from principles one can rationally defend.'},
+        {label: 'Universalism and exclusion', description: 'Kant’s commitment to equal dignity remains entangled with racial, gendered, colonial, and disability-related limits that later readers contest.'},
+      ]},
+    ],
+    'enlightenment-kant-doebler-portrait',
+    'This 1791 portrait is traditionally attributed to Gottlieb Döbler, though the attribution remains uncertain. It provides a late likeness of Kant during the critical period; its formal pose cannot establish the arguments of the Critiques or resolve the exclusions that test their universal claims.',
+    {objectLed: true, review: standardReview('fnv1a64:f4daf735f2ee8e43')},
   ),
 };

@@ -230,24 +230,30 @@ Readonly<Record<string, MuseumPrimaryInterpretationEnrichment>> = {
     'This modern commemorative statue does not preserve Han Fei’s appearance or an ancient sculptural tradition. Its monumental authority belongs to recent reception and can easily naturalize the ruler-centered power the text analyzes. The exhibit uses it as an identified later representation while keeping authorship, coercion, and accountability visible.',
     'fnv1a64:1859ed4c9c5c5291',
   ),
-  'zhu-xi': concise(
+  'zhu-xi': standard(
     'Zhu Xi',
-    'Zhu Xi coordinates pattern, material force, study, ritual, and self-cultivation into an influential architecture of learning.',
     [
-      'Zhu Xi lived from 1130 to 1200 in Southern Song China as a scholar, teacher, administrator, editor, and commentator. “Neo-Confucianism” is a modern umbrella, while later Cheng–Zhu labels organize a lineage retrospectively. Zhu’s synthesis was contested and at times officially condemned during his life; its later examination authority and broad East Asian influence should not be projected backward as immediate consensus.',
-      'Li names intelligible pattern or coherence, while qi names the concrete material-energetic stuff through which every thing exists. They are analytically distinguishable but never two separately existing worlds. Human nature is good as pattern, yet uneven qi, desire, habit, and circumstance help explain moral failure. Investigation of things, gewu, is broader than collecting external facts: study of texts, practices, relationships, and concrete affairs extends knowledge while reverent attentiveness, jing, steadies the learner.',
-      'Zhu did not author the Four Books. He selected, edited, coordinated, and commented on inherited Analects, Mencius, Great Learning, and Doctrine of the Mean materials, helping make them a curriculum later institutions amplified. His engagement with Buddhist and Daoist ideas combined borrowing, rivalry, and polemic rather than simple rejection or secret identity. The exhibit therefore joins metaphysical explanation to books, academies, ritual, governance, and institutional power, asking how a disciplined method becomes both an educational resource and an orthodoxy.',
-      'The installation asks visitors to follow a method across scales: investigate a concrete relation, refine attention, compare it with texts and practice, and revise conduct. Then examine the institutions that authorize the curriculum. A program of self-correction can become harder to correct when examinations and states make one commentary normative.',
+      'Zhu Xi lived from 1130 to 1200 in Southern Song China as a scholar, teacher, commentator, and official. His work joined classical interpretation, cultivation, inquiry, and institution building. “Neo-Confucianism” is a modern umbrella, while daoxue, Learning of the Way, and later Cheng–Zhu labels map changing intellectual associations rather than a single organization he founded. He worked amid academy building, print, political faction, debates with Buddhist and Daoist traditions, and the loss of northern Song territory. His proposals were contested and officially condemned late in his life. Later authority for his commentaries should not be projected backward as proof of consensus.',
+      'Li names pattern, order, or coherence, and qi names the psychophysical material force through which concrete things exist and change. They are analytically distinguishable but never two separate worlds: li is not a Platonic Form, and qi is not inert matter. Human nature is good as pattern, yet uneven qi, desire, habit, and circumstance can obscure fitting response. Gewu, investigation of things, is broader than gathering external facts or staring at bamboo; it joins reading, questioning, observing affairs, comparing cases, and correction. Jing, reverent attentiveness, steadies the heart-mind in ordinary duties. Zhu distinguishes knowing from acting, giving knowledge guidance and practice completion, so neither memorization nor unexamined energetic action counts as finished learning.',
+      'Zhu did not author the Four Books. He selected, edited, ordered, and commented on inherited Analects, Mencius, Great Learning, and Doctrine of the Mean materials, helping build a curriculum later academies and states amplified. Yuan examination policy privileged his interpretations in 1313, posthumously; that success is an afterlife, not proof of philosophical correctness. The displayed 19th- or early-20th-century portrait from a famous-men album is later commemoration. It makes a robed scholar-sage visible but cannot preserve Zhu Xi’s appearance, document his teaching, or settle the value of the curriculum. Together, text and image ask whether disciplined self-correction can educate judgment while authority turns one commentary into orthodoxy.',
     ],
     [
-      {label: 'Historical setting', value: 'Southern Song China · 1130–1200'},
-      {label: 'Metaphysical terms', value: 'li · qi · human nature · desire'},
-      {label: 'Cultivation', value: 'Investigation of things · study · jing · ritual'},
-      {label: 'Canon work', value: 'Selected, edited, coordinated, and commented on Four Books'},
-      {label: 'Reception', value: 'Contested in life · later examination and regional authority'},
+      {heading: 'Historical frame', items: [
+        {label: 'Learning of the Way (daoxue)', description: 'Zhu Xi’s preferred name for a Confucian project of learning and cultivation; “Neo-Confucianism” is a later umbrella, not one timeless school.'},
+        {label: 'Cheng–Zhu tradition', description: 'A retrospective lineage label that links Zhu Xi with the Cheng brothers while leaving real disagreements and changing institutions visible.'},
+      ]},
+      {heading: 'How cultivation works', items: [
+        {label: 'Pattern and material force (li and qi)', description: 'Complementary terms for intelligible coherence and the changing psychophysical stuff of concrete life, not two separately existing worlds.'},
+        {label: 'Investigation and reverent attention (gewu and jing)', description: 'A practice of studying texts, affairs, relationships, and conduct with gathered attention, rather than fact collection or private stillness alone.'},
+      ]},
+      {heading: 'Texts and authority', items: [
+        {label: 'The Four Books', description: 'Inherited Analects, Mencius, Great Learning, and Doctrine of the Mean texts that Zhu Xi selected, ordered, and commented on rather than authored.'},
+        {label: 'Examination authority', description: 'Later state privileging of Zhu’s interpretations, which spread a common curriculum but did not prove that it was uncontested or philosophically final.'},
+      ]},
     ],
     'zhu-xi-traditional-portrait',
-    'This traditional portrait was painted more than six centuries after Zhu Xi and belongs to his later commemorative canon. It is not a lifetime likeness. The object makes his institutional authority visible, while the exhibit distinguishes that later sage image from a career that included teaching, administration, controversy, and official condemnation.',
+    'This 19th- or early-20th-century portrait from a famous-men album belongs to Zhu Xi’s later commemorative tradition. It makes a scholar-sage image visible, but it is not a lifetime likeness, a record of his teaching, or evidence that his curriculum and interpretations were universally accepted.',
+    'fnv1a64:50ce3dbcf935357d',
   ),
   'wang-yangming': concise(
     'Wang Yangming',

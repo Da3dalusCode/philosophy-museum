@@ -16,7 +16,7 @@ Regenerate it with `npm run report:exhibits` and verify it with `npm run audit:e
 
 | Total | Unreviewed | Reconciled | Standard compliant | Out of date |
 | ---: | ---: | ---: | ---: | ---: |
-| 192 | 163 | 0 | 29 | 0 |
+| 192 | 148 | 0 | 44 | 0 |
 
 ## Article relationships
 
@@ -46,6 +46,15 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | Zhuangzi | claim-reviewed | standard-compliant | 32 | 294 | 3 | 3 | 5 | standard presentation |
 | Mozi | claim-reviewed | standard-compliant | 32 | 308 | 3 | 3 | 5 | standard presentation |
 | Han Feizi | claim-reviewed | standard-compliant | 32 | 298 | 3 | 3 | 5 | standard presentation |
+| Islamic Philosophy | claim-reviewed | standard-compliant | 32 | 352 | 3 | 3 | 5 | standard presentation |
+| Al-Kindi | claim-reviewed | standard-compliant | 32 | 363 | 3 | 3 | 5 | standard presentation |
+| Al-Farabi | claim-reviewed | standard-compliant | 32 | 340 | 3 | 3 | 5 | standard presentation |
+| Ibn Sina / Avicenna | claim-reviewed | standard-compliant | 33 | 352 | 3 | 3 | 6 | standard presentation |
+| Al-Ghazali | claim-reviewed | standard-compliant | 34 | 346 | 3 | 3 | 5 | standard presentation |
+| Ibn Rushd / Averroes | claim-reviewed | standard-compliant | 32 | 355 | 3 | 3 | 5 | standard presentation |
+| Suhrawardi | claim-reviewed | standard-compliant | 32 | 343 | 3 | 3 | 5 | standard presentation |
+| Mulla Sadra | claim-reviewed | standard-compliant | 32 | 347 | 3 | 3 | 6 | standard presentation |
+| Zhu Xi | claim-reviewed | standard-compliant | 34 | 319 | 3 | 3 | 6 | standard presentation |
 | Boethius | claim-reviewed | standard-compliant | 32 | 268 | 3 | 4 | 7 | standard presentation |
 | John Scotus Eriugena | claim-reviewed | standard-compliant | 32 | 297 | 3 | 3 | 4 | standard presentation |
 | Medieval Scholasticism | claim-reviewed | standard-compliant | 32 | 294 | 3 | 3 | 4 | standard presentation |
@@ -57,6 +66,12 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | Meister Eckhart | claim-reviewed | standard-compliant | 32 | 295 | 3 | 3 | 4 | standard presentation |
 | Marsilius of Padua | claim-reviewed | standard-compliant | 32 | 294 | 3 | 3 | 4 | standard presentation |
 | Sextus Empiricus | claim-reviewed | standard-compliant | 32 | 268 | 3 | 4 | 7 | standard presentation |
+| George Berkeley | claim-reviewed | standard-compliant | 32 | 290 | 3 | 3 | 6 | standard presentation |
+| Montesquieu | claim-reviewed | standard-compliant | 32 | 292 | 3 | 3 | 6 | standard presentation |
+| Jean-Jacques Rousseau | claim-reviewed | standard-compliant | 32 | 296 | 4 | 3 | 6 | standard presentation |
+| Adam Smith | claim-reviewed | standard-compliant | 33 | 292 | 3 | 3 | 6 | standard presentation |
+| Mary Wollstonecraft | claim-reviewed | standard-compliant | 33 | 290 | 3 | 3 | 6 | standard presentation |
+| Immanuel Kant | claim-reviewed | standard-compliant | 32 | 303 | 3 | 3 | 7 | standard presentation |
 | Kantianism | claim-reviewed | standard-compliant | 34 | 254 | 3 | 3 | 7 | standard presentation |
 | Marxism | claim-reviewed | standard-compliant | 32 | 255 | 3 | 3 | 6 | standard presentation |
 
@@ -155,16 +170,16 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | classical-chinese-traditions | china-mohist-fa | legalism | branch:legalism | matched | bibliography-only | unreviewed |
 | classical-chinese-traditions | china-mohist-fa | mozi | philosopher:mozi | matched | claim-reviewed | standard-compliant |
 | classical-chinese-traditions | china-mohist-fa | han-feizi | philosopher:han-feizi | matched | claim-reviewed | standard-compliant |
-| islamic-philosophical-worlds | islamic-translation-falsafa | islamic-philosophy | branch:islamic-philosophy | matched | claim-reviewed | unreviewed |
-| islamic-philosophical-worlds | islamic-translation-falsafa | al-kindi | philosopher:al-kindi | matched | claim-reviewed | unreviewed |
-| islamic-philosophical-worlds | islamic-translation-falsafa | al-farabi | philosopher:al-farabi | matched | claim-reviewed | unreviewed |
-| islamic-philosophical-worlds | islamic-avicennan-system | avicenna | philosopher:avicenna | matched | claim-reviewed | unreviewed |
-| islamic-philosophical-worlds | islamic-kalam-critique | al-ghazali | philosopher:al-ghazali | matched | claim-reviewed | unreviewed |
-| islamic-philosophical-worlds | islamic-andalusian-worlds | averroes | philosopher:averroes | matched | claim-reviewed | unreviewed |
+| islamic-philosophical-worlds | islamic-translation-falsafa | islamic-philosophy | branch:islamic-philosophy | matched | claim-reviewed | standard-compliant |
+| islamic-philosophical-worlds | islamic-translation-falsafa | al-kindi | philosopher:al-kindi | matched | claim-reviewed | standard-compliant |
+| islamic-philosophical-worlds | islamic-translation-falsafa | al-farabi | philosopher:al-farabi | matched | claim-reviewed | standard-compliant |
+| islamic-philosophical-worlds | islamic-avicennan-system | avicenna | philosopher:avicenna | matched | claim-reviewed | standard-compliant |
+| islamic-philosophical-worlds | islamic-kalam-critique | al-ghazali | philosopher:al-ghazali | matched | claim-reviewed | standard-compliant |
+| islamic-philosophical-worlds | islamic-andalusian-worlds | averroes | philosopher:averroes | matched | claim-reviewed | standard-compliant |
 | islamic-philosophical-worlds | islamic-andalusian-worlds | ibn-tufayl | philosopher:ibn-tufayl | matched | claim-reviewed | unreviewed |
-| islamic-philosophical-worlds | islamic-post-avicennian | suhrawardi | philosopher:suhrawardi | matched | claim-reviewed | unreviewed |
-| islamic-philosophical-worlds | islamic-post-avicennian | mulla-sadra | philosopher:mulla-sadra | matched | claim-reviewed | unreviewed |
-| east-asian-continuities | east-song-ming-confucian | zhu-xi | philosopher:zhu-xi | matched | claim-reviewed | unreviewed |
+| islamic-philosophical-worlds | islamic-post-avicennian | suhrawardi | philosopher:suhrawardi | matched | claim-reviewed | standard-compliant |
+| islamic-philosophical-worlds | islamic-post-avicennian | mulla-sadra | philosopher:mulla-sadra | matched | claim-reviewed | standard-compliant |
+| east-asian-continuities | east-song-ming-confucian | zhu-xi | philosopher:zhu-xi | matched | claim-reviewed | standard-compliant |
 | east-asian-continuities | east-song-ming-confucian | wang-yangming | philosopher:wang-yangming | matched | claim-reviewed | unreviewed |
 | jewish-philosophy | jewish-reason-revelation | saadia-gaon | philosopher:saadia-gaon | matched | claim-reviewed | unreviewed |
 | jewish-philosophy | jewish-reason-revelation | judah-halevi | philosopher:judah-halevi | matched | claim-reviewed | unreviewed |
@@ -213,14 +228,14 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | rationalism-mind-nature-system | rationalism-leibniz-system | leibniz | philosopher:leibniz | matched | unreviewed | unreviewed |
 | empiricism-science-political-order | empiricism-locke-ideas-rights | empiricism | branch:empiricism | matched | bibliography-only | unreviewed |
 | empiricism-science-political-order | empiricism-locke-ideas-rights | locke | philosopher:locke | matched | unreviewed | unreviewed |
-| empiricism-science-political-order | empiricism-berkeley-perception | berkeley | philosopher:berkeley | matched | claim-reviewed | unreviewed |
+| empiricism-science-political-order | empiricism-berkeley-perception | berkeley | philosopher:berkeley | matched | claim-reviewed | standard-compliant |
 | empiricism-science-political-order | empiricism-hume-skepticism | hume | philosopher:hume | matched | bibliography-only | unreviewed |
-| enlightenment-revolution-kant | enlightenment-law-institutions | montesquieu | philosopher:montesquieu | matched | claim-reviewed | unreviewed |
-| enlightenment-revolution-kant | enlightenment-society-freedom | rousseau | philosopher:rousseau | matched | claim-reviewed | unreviewed |
-| enlightenment-revolution-kant | enlightenment-sentiment-commerce | adam-smith | philosopher:adam-smith | matched | claim-reviewed | unreviewed |
+| enlightenment-revolution-kant | enlightenment-law-institutions | montesquieu | philosopher:montesquieu | matched | claim-reviewed | standard-compliant |
+| enlightenment-revolution-kant | enlightenment-society-freedom | rousseau | philosopher:rousseau | matched | claim-reviewed | standard-compliant |
+| enlightenment-revolution-kant | enlightenment-sentiment-commerce | adam-smith | philosopher:adam-smith | matched | claim-reviewed | standard-compliant |
 | enlightenment-revolution-kant | enlightenment-equality-education | mary-astell | philosopher:mary-astell | matched | claim-reviewed | unreviewed |
-| enlightenment-revolution-kant | enlightenment-equality-education | wollstonecraft | philosopher:wollstonecraft | matched | claim-reviewed | unreviewed |
-| enlightenment-revolution-kant | enlightenment-kant-critical | kant | philosopher:kant | matched | claim-reviewed | unreviewed |
+| enlightenment-revolution-kant | enlightenment-equality-education | wollstonecraft | philosopher:wollstonecraft | matched | claim-reviewed | standard-compliant |
+| enlightenment-revolution-kant | enlightenment-kant-critical | kant | philosopher:kant | matched | claim-reviewed | standard-compliant |
 | german-idealism-afterlives | german-idealism-orientation | german-idealism | branch:german-idealism | matched | bibliography-only | unreviewed |
 | german-idealism-afterlives | german-idealism-orientation | fichte | philosopher:fichte | matched | bibliography-only | unreviewed |
 | german-idealism-afterlives | german-idealism-nature | schelling | philosopher:schelling | matched | claim-reviewed | unreviewed |
