@@ -48,9 +48,9 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | dostoevsky | Fyodor Dostoevsky | philosopher | 2158 | pass |
 | nietzsche | Friedrich Nietzsche | philosopher | 4336 | pass |
 | wittgenstein | Ludwig Wittgenstein | philosopher | 4809 | pass |
-| jiddu-krishnamurti | Jiddu Krishnamurti | philosopher | 2720 | pass |
-| epistemology | Epistemology | philosophy | 2615 | pass |
-| ethics | Ethics | philosophy | 2900 | pass |
+| jiddu-krishnamurti | Jiddu Krishnamurti | philosopher | 2723 | pass |
+| epistemology | Epistemology | philosophy | 2627 | pass |
+| ethics | Ethics | philosophy | 2908 | pass |
 | analytic-philosophy | Analytic Philosophy | philosophy | 2963 | pass |
 | kantianism | Kantianism | philosophy | 5373 | pass |
 | marxism | Marxism | philosophy | 5144 | pass |
@@ -149,10 +149,10 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | philosopher | camus | Albert Camus | #/philosophers/camus | 2297 | pass | yes | yes (1 primary; 2 supplemental) |
 | philosopher | arendt | Hannah Arendt | #/philosophers/arendt | 2436 | pass | yes | yes (1 primary; 2 supplemental) |
 | philosopher | anscombe | Elizabeth Anscombe | #/philosophers/anscombe | 2187 | pass | yes | yes (1 primary; 5 supplemental) |
-| philosopher | rawls | John Rawls | #/philosophers/rawls | 2519 | pass | yes | yes (1 primary; 2 supplemental) |
-| philosopher | nozick | Robert Nozick | #/philosophers/nozick | 2392 | pass | yes | yes (1 primary; 2 supplemental) |
+| philosopher | rawls | John Rawls | #/philosophers/rawls | 2528 | pass | yes | yes (1 primary; 2 supplemental) |
+| philosopher | nozick | Robert Nozick | #/philosophers/nozick | 2401 | pass | yes | yes (1 primary; 2 supplemental) |
 | philosopher | foucault | Michel Foucault | #/philosophers/foucault | 2302 | pass | yes | yes (1 primary; 5 supplemental) |
-| philosopher | derrida | Jacques Derrida | #/philosophers/derrida | 2324 | pass | yes | yes (1 primary; 5 supplemental) |
+| philosopher | derrida | Jacques Derrida | #/philosophers/derrida | 2328 | pass | yes | yes (1 primary; 5 supplemental) |
 | philosopher | heraclitus | Heraclitus | #/philosophers/heraclitus | 2180 | pass | yes | yes (1 primary; 0 supplemental) |
 | philosopher | empedocles | Empedocles | #/philosophers/empedocles | 2175 | pass | yes | yes (1 primary; 0 supplemental) |
 | philosopher | anaxagoras | Anaxagoras | #/philosophers/anaxagoras | 2147 | pass | yes | yes (1 primary; 0 supplemental) |
@@ -195,7 +195,7 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | philosopher | levinas | Emmanuel Levinas | #/philosophers/levinas | 2130 | pass | yes | yes (1 primary; 2 supplemental) |
 | philosopher | gadamer | Hans-Georg Gadamer | #/philosophers/gadamer | 2155 | pass | yes | yes (1 primary; 2 supplemental) |
 | philosopher | habermas | Jürgen Habermas | #/philosophers/habermas | 2067 | pass | yes | yes (1 primary; 6 supplemental) |
-| philosopher | fanon | Frantz Fanon | #/philosophers/fanon | 2178 | pass | yes | yes (1 primary; 10 supplemental) |
+| philosopher | fanon | Frantz Fanon | #/philosophers/fanon | 2192 | pass | yes | yes (1 primary; 10 supplemental) |
 | philosopher | iris-murdoch | Iris Murdoch | #/philosophers/iris-murdoch | 2097 | pass | yes | yes (1 primary; 1 supplemental) |
 | philosopher | philippa-foot | Philippa Foot | #/philosophers/philippa-foot | 2351 | pass | yes | yes (1 primary; 1 supplemental) |
 | philosopher | judith-thomson | Judith Jarvis Thomson | #/philosophers/judith-thomson | 2336 | pass | yes | yes (1 primary; 2 supplemental) |
@@ -205,16 +205,16 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | philosopher | judith-butler | Judith Butler | #/philosophers/judith-butler | 2255 | pass | yes | yes (1 primary; 5 supplemental) |
 | philosopher | angela-davis | Angela Davis | #/philosophers/angela-davis | 2242 | pass | yes | yes (1 primary; 3 supplemental) |
 | philosopher | bell-hooks | bell hooks | #/philosophers/bell-hooks | 2331 | pass | yes | yes (1 primary; 3 supplemental) |
-| philosopher | jiddu-krishnamurti | Jiddu Krishnamurti | #/philosophers/jiddu-krishnamurti | 2720 | pass | no | yes (1 primary; 0 supplemental) |
-| philosophy | stoicism | Stoicism | #/branches/stoicism | 2062 | pass | yes | yes (1 primary; 0 supplemental) |
-| philosophy | platonism | Platonism | #/branches/platonism | 5558 | pass | yes | yes (1 primary; 0 supplemental) |
-| philosophy | aristotelianism | Aristotelianism | #/branches/aristotelianism | 2134 | pass | yes | yes (1 primary; 0 supplemental) |
-| philosophy | neoplatonism | Neoplatonism | #/branches/neoplatonism | 2130 | pass | yes | yes (1 primary; 5 supplemental) |
-| philosophy | metaphysics | Metaphysics | #/branches/metaphysics | 2027 | pass | yes | yes (1 primary; 0 supplemental) |
+| philosopher | jiddu-krishnamurti | Jiddu Krishnamurti | #/philosophers/jiddu-krishnamurti | 2723 | pass | no | yes (1 primary; 0 supplemental) |
+| philosophy | stoicism | Stoicism | #/branches/stoicism | 2077 | pass | yes | yes (1 primary; 0 supplemental) |
+| philosophy | platonism | Platonism | #/branches/platonism | 5601 | pass | yes | yes (1 primary; 0 supplemental) |
+| philosophy | aristotelianism | Aristotelianism | #/branches/aristotelianism | 2160 | pass | yes | yes (1 primary; 0 supplemental) |
+| philosophy | neoplatonism | Neoplatonism | #/branches/neoplatonism | 2160 | pass | yes | yes (1 primary; 5 supplemental) |
+| philosophy | metaphysics | Metaphysics | #/branches/metaphysics | 2026 | pass | yes | yes (1 primary; 0 supplemental) |
 | philosophy | ontology | Ontology | #/branches/ontology | 2189 | pass | yes | yes (1 primary; 0 supplemental) |
-| philosophy | epistemology | Epistemology | #/branches/epistemology | 2615 | pass | no | yes (1 primary; 0 supplemental) |
-| philosophy | ethics | Ethics | #/branches/ethics | 2900 | pass | no | yes (1 primary; 5 supplemental) |
-| philosophy | virtue-ethics | Virtue Ethics | #/branches/virtue-ethics | 2760 | pass | yes | yes (1 primary; 1 supplemental) |
+| philosophy | epistemology | Epistemology | #/branches/epistemology | 2627 | pass | no | yes (1 primary; 0 supplemental) |
+| philosophy | ethics | Ethics | #/branches/ethics | 2908 | pass | no | yes (1 primary; 5 supplemental) |
+| philosophy | virtue-ethics | Virtue Ethics | #/branches/virtue-ethics | 2763 | pass | yes | yes (1 primary; 1 supplemental) |
 | philosophy | epicureanism | Epicureanism | #/branches/epicureanism | 2022 | pass | yes | yes (1 primary; 3 supplemental) |
 | philosophy | cynicism | Cynicism | #/branches/cynicism | 2035 | pass | yes | yes (1 primary; 2 supplemental) |
 | philosophy | skepticism | Skepticism | #/branches/skepticism | 2031 | pass | yes | yes (1 primary; 0 supplemental) |

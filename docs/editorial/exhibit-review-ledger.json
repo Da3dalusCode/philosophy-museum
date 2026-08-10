@@ -4,9 +4,9 @@
     "total": 192,
     "countsByEffectiveStatus": {
       "unreviewed": 0,
-      "bibliography-only": 39,
+      "bibliography-only": 24,
       "source-mapped": 0,
-      "claim-reviewed": 153,
+      "claim-reviewed": 168,
       "review-out-of-date": 0
     }
   },
@@ -537,7 +537,7 @@
         "candidateCount": 1,
         "routeMatches": true
       },
-      "articleReviewStatus": "bibliography-only",
+      "articleReviewStatus": "claim-reviewed",
       "exhibitAuthoredStatus": "unreviewed",
       "exhibitStatus": "unreviewed",
       "reviewedOn": null
@@ -555,7 +555,7 @@
         "candidateCount": 1,
         "routeMatches": true
       },
-      "articleReviewStatus": "bibliography-only",
+      "articleReviewStatus": "claim-reviewed",
       "exhibitAuthoredStatus": "unreviewed",
       "exhibitStatus": "unreviewed",
       "reviewedOn": null
@@ -1243,7 +1243,7 @@
         "candidateCount": 1,
         "routeMatches": true
       },
-      "articleReviewStatus": "bibliography-only",
+      "articleReviewStatus": "claim-reviewed",
       "exhibitAuthoredStatus": "unreviewed",
       "exhibitStatus": "unreviewed",
       "reviewedOn": null
@@ -1261,7 +1261,7 @@
         "candidateCount": 1,
         "routeMatches": true
       },
-      "articleReviewStatus": "bibliography-only",
+      "articleReviewStatus": "claim-reviewed",
       "exhibitAuthoredStatus": "unreviewed",
       "exhibitStatus": "unreviewed",
       "reviewedOn": null
@@ -1307,7 +1307,7 @@
         "candidateCount": 1,
         "routeMatches": true
       },
-      "articleReviewStatus": "bibliography-only",
+      "articleReviewStatus": "claim-reviewed",
       "exhibitAuthoredStatus": "unreviewed",
       "exhibitStatus": "unreviewed",
       "reviewedOn": null
@@ -1381,7 +1381,7 @@
         "candidateCount": 1,
         "routeMatches": true
       },
-      "articleReviewStatus": "bibliography-only",
+      "articleReviewStatus": "claim-reviewed",
       "exhibitAuthoredStatus": "unreviewed",
       "exhibitStatus": "unreviewed",
       "reviewedOn": null
@@ -1455,7 +1455,7 @@
         "candidateCount": 1,
         "routeMatches": true
       },
-      "articleReviewStatus": "bibliography-only",
+      "articleReviewStatus": "claim-reviewed",
       "exhibitAuthoredStatus": "unreviewed",
       "exhibitStatus": "unreviewed",
       "reviewedOn": null
@@ -3191,7 +3191,7 @@
         "candidateCount": 1,
         "routeMatches": true
       },
-      "articleReviewStatus": "bibliography-only",
+      "articleReviewStatus": "claim-reviewed",
       "exhibitAuthoredStatus": "unreviewed",
       "exhibitStatus": "unreviewed",
       "reviewedOn": null
@@ -3507,7 +3507,7 @@
         "candidateCount": 1,
         "routeMatches": true
       },
-      "articleReviewStatus": "bibliography-only",
+      "articleReviewStatus": "claim-reviewed",
       "exhibitAuthoredStatus": "unreviewed",
       "exhibitStatus": "unreviewed",
       "reviewedOn": null
@@ -4613,7 +4613,7 @@
         "candidateCount": 1,
         "routeMatches": true
       },
-      "articleReviewStatus": "bibliography-only",
+      "articleReviewStatus": "claim-reviewed",
       "exhibitAuthoredStatus": "unreviewed",
       "exhibitStatus": "unreviewed",
       "reviewedOn": null
@@ -4631,7 +4631,7 @@
         "candidateCount": 1,
         "routeMatches": true
       },
-      "articleReviewStatus": "bibliography-only",
+      "articleReviewStatus": "claim-reviewed",
       "exhibitAuthoredStatus": "unreviewed",
       "exhibitStatus": "unreviewed",
       "reviewedOn": null
@@ -4649,7 +4649,7 @@
         "candidateCount": 1,
         "routeMatches": true
       },
-      "articleReviewStatus": "bibliography-only",
+      "articleReviewStatus": "claim-reviewed",
       "exhibitAuthoredStatus": "unreviewed",
       "exhibitStatus": "unreviewed",
       "reviewedOn": null
@@ -4667,7 +4667,7 @@
         "candidateCount": 1,
         "routeMatches": true
       },
-      "articleReviewStatus": "bibliography-only",
+      "articleReviewStatus": "claim-reviewed",
       "exhibitAuthoredStatus": "unreviewed",
       "exhibitStatus": "unreviewed",
       "reviewedOn": null
@@ -4685,7 +4685,7 @@
         "candidateCount": 1,
         "routeMatches": true
       },
-      "articleReviewStatus": "bibliography-only",
+      "articleReviewStatus": "claim-reviewed",
       "exhibitAuthoredStatus": "unreviewed",
       "exhibitStatus": "unreviewed",
       "reviewedOn": null
@@ -4935,7 +4935,7 @@
         "candidateCount": 1,
         "routeMatches": true
       },
-      "articleReviewStatus": "bibliography-only",
+      "articleReviewStatus": "claim-reviewed",
       "exhibitAuthoredStatus": "unreviewed",
       "exhibitStatus": "unreviewed",
       "reviewedOn": null

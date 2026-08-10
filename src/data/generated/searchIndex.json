@@ -4,27 +4,27 @@
     {
       "id": "stoicism",
       "label": "Stoicism",
-      "searchText": "stoicism stoicism is an ethics of virtue, reason, nature, discipline, and distinguishing what is in our control from what is not. what is under my control? what kind of person should i become? how should i respond to suffering, insult, loss, fear, and death? what does it mean to live according to nature? is virtue sufficient for a good life? virtue logos living according to nature dichotomy of control impressions assent apatheia preferred indifferents cosmopolitanism memento mori"
+      "searchText": "stoicism a hellenistic and roman system that joins logic, corporeal providential nature, and ethics of virtue, assent, value, and social roles; it cannot be reduced to a slogan about control. what is under my control? what kind of person should i become? how should i respond to suffering, insult, loss, fear, and death? what does it mean to live according to nature? is virtue sufficient for a good life? virtue logos living according to nature dichotomy of control impressions assent apatheia preferred indifferents cosmopolitanism memento mori"
     },
     {
       "id": "platonism",
       "label": "Platonism",
-      "searchText": "platonism a diverse reception tradition that repeatedly reconstructs plato around intelligible order, dialectic, soul, value, education, and return. what makes changing things answerable to stable intelligible structure? how should philosophical practice transform desire, judgment, and the soul? when does interpreting plato become a distinct platonist system? method central question"
+      "searchText": "platonism a diverse reception tradition that repeatedly reconstructs plato around intelligibility, dialectic, soul, value, education, and return; neither plato’s dialogues nor later platonisms form one timeless creed. what makes changing things answerable to stable intelligible structure? how should philosophical practice transform desire, judgment, and the soul? when does interpreting plato become a distinct platonist system? method central question"
     },
     {
       "id": "aristotelianism",
       "label": "Aristotelianism",
-      "searchText": "aristotelianism develops inquiry through causes, categories, logic, nature, virtue, and political life. how can distinct kinds of inquiry explain a structured natural world? how do habits and institutions support flourishing? method central question"
+      "searchText": "aristotelianism a diverse tradition built through aristotle’s layered corpus, later peripatetic work, commentary, translation, criticism, and adaptation across logic, nature, metaphysics, ethics, and politics. how can distinct kinds of inquiry explain a structured natural world? how do habits and institutions support flourishing? method central question"
     },
     {
       "id": "neoplatonism",
       "label": "Neoplatonism",
-      "searchText": "neoplatonism transforms platonism into a late antique metaphysics of unity, emanation, intellect, soul, and return. how can plurality depend on an ultimate unity? how does philosophical practice return the soul toward its source? method central question"
+      "searchText": "neoplatonism a modern umbrella label for varied late-antique platonist traditions that analyze unity, intellect, soul, participation, practice, and return without forming one self-named, uniform school. how can plurality depend on an ultimate unity? how does philosophical practice return the soul toward its source? method central question"
     },
     {
       "id": "metaphysics",
       "label": "Metaphysics",
-      "searchText": "metaphysics asks what reality is ultimately like. what exists, and what is it made of? substance causation identity over time"
+      "searchText": "metaphysics a contested field that asks about being, structure, identity, change, causation, possibility, dependence, and explanation; neither its boundary with ontology nor its historical genealogy is settled. what exists, and what is it made of? substance causation identity over time"
     },
     {
       "id": "ontology",
@@ -34,17 +34,17 @@
     {
       "id": "epistemology",
       "label": "Epistemology",
-      "searchText": "epistemology studies knowledge, understanding, rational belief, reliable cognition, and the social organization of inquiry. what can we know, understand, or reasonably believe—and why? justification skepticism testimony"
+      "searchText": "epistemology a plural field that studies knowledge, understanding, rational belief, reliable cognition, error, inquiry, testimony, and the social conditions that make epistemic success possible or difficult. what can we know, understand, or reasonably believe—and why? justification skepticism testimony"
     },
     {
       "id": "ethics",
       "label": "Ethics",
-      "searchText": "ethics studies action, character, value, obligation, relationship, responsibility, and the institutions that shape shared life. how should we act, live together, and become responsible to others? flourishing duty consequences"
+      "searchText": "ethics a plural field that studies reasons for action, values, character, relationships, obligations, consequences, moral psychology, and the institutions that shape shared life. how should we act, live together, and become responsible to others? flourishing duty consequences"
     },
     {
       "id": "virtue-ethics",
       "label": "Virtue Ethics",
-      "searchText": "virtue ethics centers ethics on character and human flourishing. what kind of person should i become? method central question"
+      "searchText": "virtue ethics a diverse family of approaches that gives character, practical wisdom, emotion, relationship, practice, and forms of flourishing explanatory importance in ethical life. what kind of person should i become? method central question"
     },
     {
       "id": "epicureanism",
@@ -681,22 +681,22 @@
     {
       "id": "rawls",
       "label": "John Rawls",
-      "searchText": "john rawls original position justice as fairness a theory of justice political"
+      "searchText": "john rawls justice as fairness basic structure original position and veil of ignorance equal basic liberties and fair equality of opportunity difference principle and primary goods reasonable pluralism and public reason a theory of justice political liberalism the law of peoples justice as fairness: a restatement liberal political philosophy and justice as fairness"
     },
     {
       "id": "nozick",
       "label": "Robert Nozick",
-      "searchText": "robert nozick entitlement minimal state anarchy, state, and utopia political"
+      "searchText": "robert nozick rights as side constraints separateness of persons minimal state entitlement theory acquisition, transfer, rectification, and the lockean proviso critique of patterns framework for utopia anarchy, state, and utopia philosophical explanations the examined life the nature of rationality invariances analytic political philosophy and libertarianism"
     },
     {
       "id": "foucault",
       "label": "Michel Foucault",
-      "searchText": "michel foucault power/knowledge discipline and punish continental"
+      "searchText": "michel foucault archaeology genealogy power/knowledge discipline and normalization biopower and governmentality sexuality and subjectivation ethics and parrhesia history of madness the birth of the clinic the order of things the archaeology of knowledge discipline and punish the history of sexuality, volume 1 the use of pleasure the care of the self historical critique, genealogy, and philosophy of power"
     },
     {
       "id": "derrida",
       "label": "Jacques Derrida",
-      "searchText": "jacques derrida deconstruction structure, sign and play continental"
+      "searchText": "jacques derrida deconstruction différance and temporal deferral writing and trace supplement iterability and context justice and responsibility hospitality and institutional responsibility speech and phenomena of grammatology writing and difference margins of philosophy limited inc specters of marx force of law of hospitality deconstruction, phenomenology, and philosophy of language"
     },
     {
       "id": "heraclitus",
@@ -906,12 +906,12 @@
     {
       "id": "habermas",
       "label": "Jürgen Habermas",
-      "searchText": "jürgen habermas communicative action public sphere the theory of communicative action critical theory"
+      "searchText": "jürgen habermas communicative rationality public sphere knowledge-constitutive interests system and lifeworld colonization of the lifeworld discourse ethics deliberative democracy and postnational politics the structural transformation of the public sphere knowledge and human interests the theory of communicative action moral consciousness and communicative action between facts and norms the inclusion of the other critical theory, discourse ethics, and deliberative democracy"
     },
     {
       "id": "fanon",
       "label": "Frantz Fanon",
-      "searchText": "frantz fanon colonial racialization sociogeny national liberation black skin, white masks the wretched of the earth anticolonial / africana"
+      "searchText": "frantz fanon colonial racialization language and recognition psychiatry and care violence and the colonial situation decolonization and organization national consciousness and culture internationalism and new humanism black skin, white masks a dying colonialism the wretched of the earth toward the african revolution alienation and freedom anticolonial philosophy, psychiatry, and critical phenomenology"
     },
     {
       "id": "iris-murdoch",
@@ -961,7 +961,7 @@
     {
       "id": "jiddu-krishnamurti",
       "label": "Jiddu Krishnamurti",
-      "searchText": "jiddu krishnamurti conditioning and thought psychological time and fear choiceless awareness observer and observed freedom in relationship freedom from the known the first and last freedom education and the significance of life the ending of time independent spiritual philosopher and educator"
+      "searchText": "jiddu krishnamurti psychological authority conditioning, memory, thought, and knowledge time, fear, and becoming attention and meditation without method observer and observed relationship, freedom, religion, and sacred education and inquiry dissolution speech the first and last freedom freedom from the known education and the significance of life krishnamurti’s notebook the ending of time philosophy of mind, education, and nonsectarian spiritual inquiry"
     }
   ],
   "museumHalls": [

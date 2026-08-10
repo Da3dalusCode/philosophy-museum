@@ -1721,60 +1721,76 @@
       "title": "John Rawls",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/rawls",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 6,
+      "citedSourceCount": 6,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 2519
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 28,
+      "citationCount": 92,
+      "substantiveArticleWordCount": 2528,
+      "reviewNotePath": "docs/editorial/reviews/rawls.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:2818f373174588eb",
+      "currentReviewLock": "fnv1a64:2818f373174588eb"
     },
     {
       "id": "nozick",
       "title": "Robert Nozick",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/nozick",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 5,
+      "citedSourceCount": 5,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 2392
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 26,
+      "citationCount": 88,
+      "substantiveArticleWordCount": 2401,
+      "reviewNotePath": "docs/editorial/reviews/nozick.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:59468b5e524954e0",
+      "currentReviewLock": "fnv1a64:59468b5e524954e0"
     },
     {
       "id": "foucault",
       "title": "Michel Foucault",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/foucault",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 6,
+      "citedSourceCount": 6,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 2302
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 26,
+      "citationCount": 93,
+      "substantiveArticleWordCount": 2302,
+      "reviewNotePath": "docs/editorial/reviews/foucault.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:715adcde5cdd09a4",
+      "currentReviewLock": "fnv1a64:715adcde5cdd09a4"
     },
     {
       "id": "derrida",
       "title": "Jacques Derrida",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/derrida",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 7,
+      "citedSourceCount": 7,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 2324
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 28,
+      "citationCount": 101,
+      "substantiveArticleWordCount": 2328,
+      "reviewNotePath": "docs/editorial/reviews/derrida.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:404dda83af1abf41",
+      "currentReviewLock": "fnv1a64:404dda83af1abf41"
     },
     {
       "id": "heraclitus",
@@ -2560,30 +2576,38 @@
       "title": "Jürgen Habermas",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/habermas",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 6,
+      "citedSourceCount": 6,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 2067
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 22,
+      "citationCount": 81,
+      "substantiveArticleWordCount": 2067,
+      "reviewNotePath": "docs/editorial/reviews/habermas.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:56d474a28e2e6dcb",
+      "currentReviewLock": "fnv1a64:56d474a28e2e6dcb"
     },
     {
       "id": "fanon",
       "title": "Frantz Fanon",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/fanon",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 6,
+      "citedSourceCount": 6,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 2178
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 24,
+      "citationCount": 88,
+      "substantiveArticleWordCount": 2192,
+      "reviewNotePath": "docs/editorial/reviews/fanon.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:ea360d2ae645205e",
+      "currentReviewLock": "fnv1a64:ea360d2ae645205e"
     },
     {
       "id": "iris-murdoch",
@@ -2761,90 +2785,114 @@
       "title": "Jiddu Krishnamurti",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/jiddu-krishnamurti",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 6,
+      "citedSourceCount": 6,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 2720
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 32,
+      "citationCount": 113,
+      "substantiveArticleWordCount": 2723,
+      "reviewNotePath": "docs/editorial/reviews/jiddu-krishnamurti.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:0f2ea5974f215106",
+      "currentReviewLock": "fnv1a64:0f2ea5974f215106"
     },
     {
       "id": "stoicism",
       "title": "Stoicism",
       "category": "philosophy",
       "visitorEntryPoint": "#/branches/stoicism",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 5,
+      "citedSourceCount": 5,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 2062
+      "structuredClaimCount": 16,
+      "structuredParagraphCount": 24,
+      "citationCount": 108,
+      "substantiveArticleWordCount": 2077,
+      "reviewNotePath": "docs/editorial/reviews/stoicism.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:cc9492e922ea2a3b",
+      "currentReviewLock": "fnv1a64:cc9492e922ea2a3b"
     },
     {
       "id": "platonism",
       "title": "Platonism",
       "category": "philosophy",
       "visitorEntryPoint": "#/branches/platonism",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 7,
+      "citedSourceCount": 7,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 5558
+      "structuredClaimCount": 16,
+      "structuredParagraphCount": 70,
+      "citationCount": 278,
+      "substantiveArticleWordCount": 5601,
+      "reviewNotePath": "docs/editorial/reviews/platonism.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:836c5c4e855b9cd9",
+      "currentReviewLock": "fnv1a64:836c5c4e855b9cd9"
     },
     {
       "id": "aristotelianism",
       "title": "Aristotelianism",
       "category": "philosophy",
       "visitorEntryPoint": "#/branches/aristotelianism",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 7,
+      "citedSourceCount": 7,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 2134
+      "structuredClaimCount": 16,
+      "structuredParagraphCount": 26,
+      "citationCount": 150,
+      "substantiveArticleWordCount": 2160,
+      "reviewNotePath": "docs/editorial/reviews/aristotelianism.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:0d5f84daf02b7dc2",
+      "currentReviewLock": "fnv1a64:0d5f84daf02b7dc2"
     },
     {
       "id": "neoplatonism",
       "title": "Neoplatonism",
       "category": "philosophy",
       "visitorEntryPoint": "#/branches/neoplatonism",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 8,
+      "citedSourceCount": 8,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 2130
+      "structuredClaimCount": 16,
+      "structuredParagraphCount": 26,
+      "citationCount": 150,
+      "substantiveArticleWordCount": 2160,
+      "reviewNotePath": "docs/editorial/reviews/neoplatonism.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:0840c0a05f78d0b5",
+      "currentReviewLock": "fnv1a64:0840c0a05f78d0b5"
     },
     {
       "id": "metaphysics",
       "title": "Metaphysics",
       "category": "philosophy",
       "visitorEntryPoint": "#/branches/metaphysics",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 7,
+      "citedSourceCount": 7,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 2027
+      "structuredClaimCount": 16,
+      "structuredParagraphCount": 18,
+      "citationCount": 102,
+      "substantiveArticleWordCount": 2026,
+      "reviewNotePath": "docs/editorial/reviews/metaphysics.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:227ed58347fa91ed",
+      "currentReviewLock": "fnv1a64:227ed58347fa91ed"
     },
     {
       "id": "ontology",
@@ -2870,45 +2918,57 @@
       "title": "Epistemology",
       "category": "philosophy",
       "visitorEntryPoint": "#/branches/epistemology",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 11,
+      "citedSourceCount": 11,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 2615
+      "structuredClaimCount": 16,
+      "structuredParagraphCount": 30,
+      "citationCount": 134,
+      "substantiveArticleWordCount": 2627,
+      "reviewNotePath": "docs/editorial/reviews/epistemology.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:911bda38b070ba18",
+      "currentReviewLock": "fnv1a64:911bda38b070ba18"
     },
     {
       "id": "ethics",
       "title": "Ethics",
       "category": "philosophy",
       "visitorEntryPoint": "#/branches/ethics",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 10,
+      "citedSourceCount": 10,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 2900
+      "structuredClaimCount": 16,
+      "structuredParagraphCount": 33,
+      "citationCount": 152,
+      "substantiveArticleWordCount": 2908,
+      "reviewNotePath": "docs/editorial/reviews/ethics.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:801b31f29b16825f",
+      "currentReviewLock": "fnv1a64:801b31f29b16825f"
     },
     {
       "id": "virtue-ethics",
       "title": "Virtue Ethics",
       "category": "philosophy",
       "visitorEntryPoint": "#/branches/virtue-ethics",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 7,
+      "citedSourceCount": 7,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 2760
+      "structuredClaimCount": 16,
+      "structuredParagraphCount": 26,
+      "citationCount": 156,
+      "substantiveArticleWordCount": 2763,
+      "reviewNotePath": "docs/editorial/reviews/virtue-ethics.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:6d609fb6327f80da",
+      "currentReviewLock": "fnv1a64:6d609fb6327f80da"
     },
     {
       "id": "epicureanism",
@@ -3500,594 +3560,6 @@
     }
   ],
   "warnings": [
-    {
-      "recordKey": "philosopher:rawls",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "orientation/paragraph-1",
-      "excerpt": "John Rawls asks which principles should regulate the major institutions of a democratic society when citizens regard one another as free and equal but disagree about religion, morality, success, and the good life. His an"
-    },
-    {
-      "recordKey": "philosopher:rawls",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "basic-structure/paragraph-1",
-      "excerpt": "Rawls calls the basic structure the main political, legal, economic, and social institutions and the way they fit into one system. Constitutions, property rules, markets, taxation, education, and the family shape life pr"
-    },
-    {
-      "recordKey": "philosopher:rawls",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "principles-priority/paragraph-1",
-      "excerpt": "Rawls's mature formulation gives each person an equal claim to a fully adequate scheme of basic liberties compatible with the same scheme for all. Political liberty, liberty of conscience, freedom of association, integri"
-    },
-    {
-      "recordKey": "philosopher:nozick",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "minimal-state/paragraph-1",
-      "excerpt": "The first part of Anarchy, State, and Utopia answers the anarchist claim that no state can arise without violating rights. Nozick begins with a Lockean state of nature in which individuals possess rights and may enforce"
-    },
-    {
-      "recordKey": "philosopher:nozick",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "acquisition-proviso/paragraph-1",
-      "excerpt": "Acquisition is the hardest foundation of entitlement theory. Voluntary exchange can move only what someone already has a right to transfer, so the first appropriation of land or resources requires justification. Nozick a"
-    },
-    {
-      "recordKey": "philosopher:nozick",
-      "status": "bibliography-only",
-      "signal": "influence-or-causation",
-      "location": "criticisms-influence/paragraph-1",
-      "excerpt": "Nozick's political philosophy influenced libertarian theory, law, economics, and debates about self-ownership, while provoking responses from egalitarians, republicans, communitarians, feminists, and left-libertarians. S"
-    },
-    {
-      "recordKey": "philosopher:foucault",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "foucault-archaeology/paragraph-1",
-      "excerpt": "In The Order of Things and The Archaeology of Knowledge, Foucault develops archaeology as a method for describing historical regularities in discourse. A discourse is more than a vocabulary or set of opinions. It include"
-    },
-    {
-      "recordKey": "philosopher:foucault",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "foucault-discipline/paragraph-2",
-      "excerpt": "The Panopticon supplies a diagram of asymmetrical visibility: people may regulate themselves because they can be observed without knowing when observation occurs. Foucault does not claim that every modern institution is"
-    },
-    {
-      "recordKey": "philosopher:foucault",
-      "status": "bibliography-only",
-      "signal": "influence-or-causation",
-      "location": "foucault-biopolitics/paragraph-1",
-      "excerpt": "Foucault distinguishes disciplinary attention to individual bodies from biopolitical management of populations. Statistics, public health, demography, insurance, policing, and economic policy treat birth, mortality, dise"
-    },
-    {
-      "recordKey": "philosopher:foucault",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "foucault-works-development/paragraph-1",
-      "excerpt": "Foucault's books differ in object, archive, and method. History of Madness and The Birth of the Clinic reconstruct forms of experience and perception; The Order of Things maps relations among modern human sciences; The A"
-    },
-    {
-      "recordKey": "philosopher:derrida",
-      "status": "bibliography-only",
-      "signal": "broad-classification",
-      "location": "derrida-deconstruction/paragraph-1",
-      "excerpt": "A deconstructive reading begins by reconstructing an argument accurately, including the hierarchy it relies upon. Western philosophy has often valued speech over writing because spoken words seem present to a speaker's i"
-    },
-    {
-      "recordKey": "philosopher:derrida",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "derrida-deconstruction/paragraph-2",
-      "excerpt": "This movement is sometimes described as a double reading. The first pass respects the text's dominant organization; the second tracks marginal examples, metaphors, footnotes, and conceptual dependencies that complicate i"
-    },
-    {
-      "recordKey": "philosopher:derrida",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "derrida-differance/paragraph-1",
-      "excerpt": "Derrida coins differance, spelled with an a in French, to name both differing and deferring. A sign signifies by differing from other signs, and its sense unfolds through references that cannot all become present at once"
-    },
-    {
-      "recordKey": "philosopher:derrida",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "derrida-hospitality/paragraph-1",
-      "excerpt": "Derrida often analyzes pairs such as conditional and unconditional hospitality. Conditional hospitality sets borders, names hosts and guests, and establishes rights and duties; without such institutions, welcome may rema"
-    },
-    {
-      "recordKey": "philosopher:derrida",
-      "status": "bibliography-only",
-      "signal": "influence-or-causation",
-      "location": "derrida-criticism-legacy/paragraph-2",
-      "excerpt": "Derrida influenced literary theory, philosophy, legal studies, architecture, theology, postcolonial thought, feminism, queer theory, and debates about animals and technology. Judith Butler develops iterability in an acco"
-    },
-    {
-      "recordKey": "philosopher:habermas",
-      "status": "bibliography-only",
-      "signal": "influence-or-causation",
-      "location": "criticisms-influence/paragraph-1",
-      "excerpt": "Habermas has shaped social theory, democratic theory, legal philosophy, media studies, bioethics, theology, and conflict resolution. His vocabulary helps analyze propaganda, platform power, expert authority, polarization"
-    },
-    {
-      "recordKey": "philosopher:habermas",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "misunderstandings-reading/paragraph-1",
-      "excerpt": "A first misunderstanding says Habermas imagines a conflict-free or power-free society. He instead uses undistorted communication as a critical orientation and analyzes how actual communication is penetrated by power. A s"
-    },
-    {
-      "recordKey": "philosopher:fanon",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "violence/paragraph-1",
-      "excerpt": "Fanon's account of violence is his most contested theme. Settler colonialism is founded and maintained through military force, policing, dispossession, spatial segregation, and a social language that casts the colonized"
-    },
-    {
-      "recordKey": "philosopher:fanon",
-      "status": "bibliography-only",
-      "signal": "influence-or-causation",
-      "location": "criticisms-influence/paragraph-1",
-      "excerpt": "Fanon influenced anticolonial movements, Black studies, postcolonial theory, critical race philosophy, liberation psychology, psychiatry, feminism, and political theology. His account of the racialized body anticipates s"
-    },
-    {
-      "recordKey": "philosopher:jiddu-krishnamurti",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "orientation/paragraph-2",
-      "excerpt": "He did not present a conventional academic system. Most of the corpus consists of talks, dialogues, question-and-answer meetings, school conversations, notebooks, and books edited from spoken material. Recurring terms su"
-    },
-    {
-      "recordKey": "philosopher:jiddu-krishnamurti",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "world-teacher-crisis/paragraph-2",
-      "excerpt": "Nitya’s death from tuberculosis in 1925 was a decisive personal loss. Theosophical assurances had encouraged hope that he would survive, and the failure of those assurances intensified Krishnamurti’s distance from the mo"
-    },
-    {
-      "recordKey": "philosopher:jiddu-krishnamurti",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "dissolution-1929/paragraph-1",
-      "excerpt": "On 3 August 1929, at the Star Camp in Ommen, Krishnamurti dissolved the Order before an audience of about three thousand. The event matters not only because an organization ended, but because the person installed at its"
-    },
-    {
-      "recordKey": "philosopher:jiddu-krishnamurti",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "dissolution-1929/paragraph-2",
-      "excerpt": "The speech also rejects the desire for disciples and the idea that numbers validate truth. That does not mean every organization is corrupt or that people must live without cooperation. Krishnamurti explicitly distinguis"
-    },
-    {
-      "recordKey": "philosopher:jiddu-krishnamurti",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "authority-and-no-method/paragraph-2",
-      "excerpt": "The same argument applies to fixed methods. A technique defines steps, measures progress, and places fulfillment at a later stage. Those features may be appropriate when learning a language or craft, yet Krishnamurti arg"
-    },
-    {
-      "recordKey": "philosopher:jiddu-krishnamurti",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "observer-observed-relationship/paragraph-1",
-      "excerpt": "When someone says “I am angry,” the grammar suggests an observer distinct from anger. Krishnamurti asks what composes that observer. If it consists of memories, judgments, names, and previous reactions, it belongs to the"
-    },
-    {
-      "recordKey": "philosopher:jiddu-krishnamurti",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "freedom-religion-sacred/paragraph-2",
-      "excerpt": "His use of “religious” is consequently double-edged. Organized belief, priestly status, sectarian allegiance, and ritual promises are frequent targets of criticism, yet he continues to speak of meditation, silence, compa"
-    },
-    {
-      "recordKey": "philosopher:jiddu-krishnamurti",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "criticism-cautions/paragraph-1",
-      "excerpt": "Critics can reasonably ask whether Krishnamurti’s universal language about “human consciousness” gives enough weight to colonialism, caste, race, gender, class, institutions, and political power. Fear and identity have p"
-    },
-    {
-      "recordKey": "philosopher:jiddu-krishnamurti",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "reading-path/paragraph-1",
-      "excerpt": "Begin with Freedom from the Known for a compact map of the mature vocabulary, then read the 1929 dissolution speech as a dated primary act rather than a timeless slogan. The First and Last Freedom broadens the inquiry in"
-    },
-    {
-      "recordKey": "philosopher:jiddu-krishnamurti",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "reading-path/paragraph-2",
-      "excerpt": "Next, use The Ending of Time to hear sustained dialogue and disagreement, and Krishnamurti’s Notebook to encounter first-person writing about landscape, silence, pain, and the sacred. Pair those primary works with Christ"
-    },
-    {
-      "recordKey": "philosophy:stoicism",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "founding/paragraph-1",
-      "excerpt": "Zeno of Citium began teaching in Athens around the start of the third century BCE. The school took its name from the Stoa Poikile, the Painted Porch where he taught, rather than from a private estate or founder’s name. Z"
-    },
-    {
-      "recordKey": "philosophy:stoicism",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "indifferents/paragraph-2",
-      "excerpt": "The distinction is subtle and often abused. Calling health indifferent does not mean medical care is pointless, nor does calling wealth preferred authorize accumulation without limit. A Stoic should pursue preferred outc"
-    },
-    {
-      "recordKey": "philosophy:stoicism",
-      "status": "bibliography-only",
-      "signal": "influence-or-causation",
-      "location": "fate-responsibility/paragraph-2",
-      "excerpt": "Determinism creates an immediate problem for responsibility. Chrysippus reportedly answered with examples distinguishing initiating causes from the character through which a response unfolds. An external push begins a cy"
-    },
-    {
-      "recordKey": "philosophy:stoicism",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "emotion-assent/paragraph-2",
-      "excerpt": "The ideal of apatheia means freedom from passions understood in this destructive sense, not numbness or inability to care. Stoics also recognize good feelings associated with correct judgment, including rational joy, cau"
-    },
-    {
-      "recordKey": "philosophy:platonism",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "academy-origins/paragraph-1",
-      "excerpt": "Platonism begins as interpretation because Plato’s dialogues do not present a creed in the author’s voice. They offer arguments in dramatic situations, use myths alongside demonstrations, and sometimes criticize proposal"
-    },
-    {
-      "recordKey": "philosophy:platonism",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "academy-origins/paragraph-3",
-      "excerpt": "Aristotle is both Platonism’s most famous critic and one of its formative heirs. He rejects separately existing Forms as inadequate explanations of sensible substances, yet retains the demand that knowledge grasp causes,"
-    },
-    {
-      "recordKey": "philosophy:platonism",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "universals-mathematics/paragraph-2",
-      "excerpt": "Mathematics makes the realist pressure especially vivid. Mathematical reasoning concerns exact triangles, infinite series, numbers, sets, and proofs that do not appear to depend on the imperfections of physical examples."
-    },
-    {
-      "recordKey": "philosophy:platonism",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "middle-neoplatonism/paragraph-1",
-      "excerpt": "From roughly the first century BCE through the second century CE, thinkers now called Middle Platonists sought to coordinate Plato’s dialogues into a more systematic philosophy. They interpreted the Timaeus, Republic, an"
-    },
-    {
-      "recordKey": "philosophy:platonism",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "debates/paragraph-1",
-      "excerpt": "Aristotle’s criticism of separate Forms is the most influential internal challenge. If Forms are separated from sensible things, he argues, they may duplicate rather than explain those things. Platonists answer by refini"
-    },
-    {
-      "recordKey": "philosophy:platonism",
-      "status": "bibliography-only",
-      "signal": "exact-date",
-      "location": "old-academy-disputes/paragraph-1",
-      "excerpt": "After Plato’s death in 347 BCE, leadership of the Academy passed to Speusippus rather than to Aristotle or to a custodian of a finished creed. Evidence for the early successors is fragmentary and often comes through crit"
-    },
-    {
-      "recordKey": "philosophy:platonism",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "academic-skepticism/paragraph-3",
-      "excerpt": "This history matters for the meaning of Platonism. A tradition founded on dialogues that expose ignorance, test their own hypotheses, and frequently stop without closure could identify fidelity with continued inquiry rat"
-    },
-    {
-      "recordKey": "philosophy:platonism",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "academic-skepticism/paragraph-3",
-      "excerpt": "This history matters for the meaning of Platonism. A tradition founded on dialogues that expose ignorance, test their own hypotheses, and frequently stop without closure could identify fidelity with continued inquiry rat"
-    },
-    {
-      "recordKey": "philosophy:platonism",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "hierarchy-participation-return/paragraph-3",
-      "excerpt": "Forms also change location and function. In many Middle and later Platonists they are understood as thoughts within divine Intellect rather than as a separately populated realm. This move connects universals to living in"
-    },
-    {
-      "recordKey": "philosophy:platonism",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "religious-plurality/paragraph-4",
-      "excerpt": "These traditions interacted. Jewish philosophers wrote in Arabic and drew on Muslim teachers and texts; works crossed into Hebrew and Latin; Christian authors in Arabic participated in translation and debate; and Latin s"
-    },
-    {
-      "recordKey": "philosophy:platonism",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "renaissance-cambridge-revivals/paragraph-1",
-      "excerpt": "Renaissance Platonism depended on philology, manuscript movement, patronage, translation, and religious controversy. Greek teachers and émigré scholars expanded access to Plato, while debates over Plato’s relation to Ari"
-    },
-    {
-      "recordKey": "philosophy:platonism",
-      "status": "bibliography-only",
-      "signal": "influence-or-causation",
-      "location": "renaissance-cambridge-revivals/paragraph-2",
-      "excerpt": "Other Renaissance Platonists made different selections. Giovanni Pico della Mirandola pursued concord among philosophical and religious traditions; Francesco Patrizi used Platonist resources against dominant Aristotelian"
-    },
-    {
-      "recordKey": "philosophy:aristotelianism",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "logic-categories/paragraph-2",
-      "excerpt": "Aristotelian logic was never only a mechanical rulebook. It raises questions about how language, thought, and reality correspond; what makes a premise explanatory rather than merely true; and how first principles can be"
-    },
-    {
-      "recordKey": "philosophy:aristotelianism",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "peripatetics-commentators/paragraph-1",
-      "excerpt": "After Aristotle, the Peripatetic school did not simply preserve a complete system unchanged. Theophrastus and other early successors extended natural inquiry, ethics, logic, and the study of character while debating the"
-    },
-    {
-      "recordKey": "philosophy:aristotelianism",
-      "status": "bibliography-only",
-      "signal": "disputed-attribution",
-      "location": "jewish-christian/paragraph-2",
-      "excerpt": "Aquinas likewise integrates Aristotelian form, matter, causation, act, potency, virtue, and natural law within Christian theology, while distinguishing philosophical argument from revealed doctrine. He rejects some inter"
-    },
-    {
-      "recordKey": "philosophy:aristotelianism",
-      "status": "bibliography-only",
-      "signal": "disputed-attribution",
-      "location": "scholastic-method/paragraph-1",
-      "excerpt": "Medieval universities made Aristotelian works central to advanced education, especially in logic and natural philosophy. Scholastic method organized inquiry through authoritative texts, disputed questions, objections, di"
-    },
-    {
-      "recordKey": "philosophy:aristotelianism",
-      "status": "bibliography-only",
-      "signal": "disputed-attribution",
-      "location": "scholastic-method/paragraph-2",
-      "excerpt": "Authority also created constraints and conflicts. Aristotelian conclusions could appear inconsistent with theological commitments, and condemnations or curricular rules shaped what could be taught. Different schools disp"
-    },
-    {
-      "recordKey": "philosophy:neoplatonism",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "overview/paragraph-1",
-      "excerpt": "Neoplatonism is the modern name for a late antique philosophical movement whose members usually understood themselves simply as Platonists. The label helps distinguish Plotinus, Porphyry, Iamblichus, Proclus, and related"
-    },
-    {
-      "recordKey": "philosophy:neoplatonism",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "plotinus-enneads/paragraph-2",
-      "excerpt": "Plotinus establishes several enduring Neoplatonic commitments while leaving questions later thinkers would elaborate differently. Procession does not diminish the source; return allows each level to become itself through"
-    },
-    {
-      "recordKey": "philosophy:neoplatonism",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "architecture/paragraph-2",
-      "excerpt": "Later Neoplatonists articulate additional levels and mediations, but the central problem remains stable: how can a first principle explain multiplicity without becoming internally multiple or making plurality unrelated t"
-    },
-    {
-      "recordKey": "philosophy:neoplatonism",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "participation/paragraph-1",
-      "excerpt": "Participation explains how a lower reality can possess a feature through dependence on a more fundamental source without becoming identical to it. A beautiful thing participates in form and unity; a living thing particip"
-    },
-    {
-      "recordKey": "philosophy:neoplatonism",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "plato-aristotle/paragraph-1",
-      "excerpt": "Neoplatonists regarded Plato as the highest philosophical authority, yet Aristotle became indispensable to education and argument. His logic, categories, psychology, and metaphysics supplied tools for clarifying question"
-    },
-    {
-      "recordKey": "philosophy:neoplatonism",
-      "status": "bibliography-only",
-      "signal": "disputed-attribution",
-      "location": "plato-aristotle/paragraph-2",
-      "excerpt": "Porphyry’s work on the Categories became especially influential, while later commentary traditions transmitted both philosophers together. This interaction shaped Islamic, Jewish, Christian, and scholastic thought, somet"
-    },
-    {
-      "recordKey": "philosophy:neoplatonism",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "islamic-jewish/paragraph-1",
-      "excerpt": "Neoplatonic materials entered Arabic philosophy through translations, adaptations, and texts attributed to Aristotle. Accounts of first principle, intellects, soul, causation, and return interacted with Aristotelian demo"
-    },
-    {
-      "recordKey": "philosophy:neoplatonism",
-      "status": "bibliography-only",
-      "signal": "disputed-attribution",
-      "location": "islamic-jewish/paragraph-1",
-      "excerpt": "Neoplatonic materials entered Arabic philosophy through translations, adaptations, and texts attributed to Aristotle. Accounts of first principle, intellects, soul, causation, and return interacted with Aristotelian demo"
-    },
-    {
-      "recordKey": "philosophy:neoplatonism",
-      "status": "bibliography-only",
-      "signal": "broad-classification",
-      "location": "islamic-jewish/paragraph-1",
-      "excerpt": "Neoplatonic materials entered Arabic philosophy through translations, adaptations, and texts attributed to Aristotle. Accounts of first principle, intellects, soul, causation, and return interacted with Aristotelian demo"
-    },
-    {
-      "recordKey": "philosophy:neoplatonism",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "islamic-jewish/paragraph-2",
-      "excerpt": "Jewish philosophers likewise adapted themes of unity, emanation, intellect, negative theology, and return within commitments to scripture, law, and community. Maimonides is often read primarily through Aristotelianism, y"
-    },
-    {
-      "recordKey": "philosophy:neoplatonism",
-      "status": "bibliography-only",
-      "signal": "influence-or-causation",
-      "location": "renaissance-modern/paragraph-1",
-      "excerpt": "Renaissance scholars and philosophers renewed access to Platonic and Neoplatonic texts, translating and interpreting Plotinus and later authors within new religious, artistic, and political settings. Themes of cosmic sym"
-    },
-    {
-      "recordKey": "philosophy:metaphysics",
-      "status": "bibliography-only",
-      "signal": "influence-or-causation",
-      "location": "overview/paragraph-1",
-      "excerpt": "Metaphysics asks what reality is fundamentally like and how its most general features fit together. It investigates substance and process, identity and change, possibility and necessity, causation, time, space, mind, fre"
-    },
-    {
-      "recordKey": "philosophy:metaphysics",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "historical-development/paragraph-1",
-      "excerpt": "Ancient Greek inquiry begins with disputes over change, plurality, and first principles. Milesian thinkers seek natural sources of order; Parmenides argues that rigorous thought places severe constraints on talk of comin"
-    },
-    {
-      "recordKey": "philosophy:metaphysics",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "internal-debates/paragraph-1",
-      "excerpt": "Metaphysicians disagree first about what counts as an adequate explanation. Some seek a fundamental level whose entities and laws explain everything else. Others argue for several irreducible kinds, layered dependence, o"
-    },
-    {
-      "recordKey": "philosophy:metaphysics",
-      "status": "bibliography-only",
-      "signal": "disputed-attribution",
-      "location": "internal-debates/paragraph-2",
-      "excerpt": "Freedom sharpens these disputes. If every event belongs to a causally ordered world, can an agent genuinely do otherwise or be the source of action? Compatibilists redefine freedom through responsive agency within causat"
-    },
-    {
-      "recordKey": "philosophy:metaphysics",
-      "status": "bibliography-only",
-      "signal": "broad-classification",
-      "location": "reading-path/paragraph-1",
-      "excerpt": "Begin with problems rather than with a promise to master one total system. Read selections from Plato on change and Forms, then Aristotle’s Categories and central books of the Metaphysics with a guide to substance, form,"
-    },
-    {
-      "recordKey": "philosophy:epistemology",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "sources/paragraph-2",
-      "excerpt": "Memory preserves knowledge and reasons across time, but it is not a neutral recording. Remembering can fade, reconstruct, combine, and be altered by later information. A person may retain knowledge after forgetting the e"
-    },
-    {
-      "recordKey": "philosophy:epistemology",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "testimony/paragraph-2",
-      "excerpt": "Expertise intensifies the problem because a layperson often cannot evaluate the expert’s first-order reasoning. Responsible deference can instead consider training, relevant track records, openness to criticism, agreemen"
-    },
-    {
-      "recordKey": "philosophy:epistemology",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "skepticism/paragraph-2",
-      "excerpt": "Responses reject different steps. Foundationalists permit some non-inferentially justified beliefs; contextualists argue that standards for “knows” vary with conversational purposes; relevant-alternatives views require r"
-    },
-    {
-      "recordKey": "philosophy:epistemology",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "structure/paragraph-3",
-      "excerpt": "Reliabilism proposes that beliefs gain positive status through processes that tend to produce truth, but the relevant process must be specified carefully. “Seeing” may be reliable while “judging red objects at dusk” is n"
-    },
-    {
-      "recordKey": "philosophy:ethics",
-      "status": "bibliography-only",
-      "signal": "disputed-attribution",
-      "location": "histories/paragraph-2",
-      "excerpt": "Classical Chinese traditions debate how ritual, humaneness, standards, cultivated emotion, social role, and government shape good conduct. Confucian thinkers disagree over human tendencies and the work of education; Mohi"
-    },
-    {
-      "recordKey": "philosophy:ethics",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "reasons-value/paragraph-1",
-      "excerpt": "A reason for action counts in favor of doing something, but philosophers disagree over what grounds reasons. Some begin with value: suffering gives reason to prevent it because suffering is bad. Reasons-first views expla"
-    },
-    {
-      "recordKey": "philosophy:ethics",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "reasons-value/paragraph-3",
-      "excerpt": "Ordinary judgment is neither raw intuition nor automatic application of theory. People notice salient features through habits, emotions, concepts, and social narratives. Particularists argue that a consideration’s moral"
-    },
-    {
-      "recordKey": "philosophy:ethics",
-      "status": "bibliography-only",
-      "signal": "disputed-attribution",
-      "location": "consequences/paragraph-3",
-      "excerpt": "Consequences remain unavoidable even for opponents of consequentialism. A rule followed without attention to predictable harm can become moral evasion, and institutions must compare policies under uncertainty. Conversely"
-    },
-    {
-      "recordKey": "philosophy:ethics",
-      "status": "bibliography-only",
-      "signal": "influence-or-causation",
-      "location": "institutions/paragraph-2",
-      "excerpt": "Collective responsibility is controversial because a corporation, state, or movement may act through decision procedures that no single member controls, while indiscriminate group blame can punish people who neither caus"
-    },
-    {
-      "recordKey": "philosophy:virtue-ethics",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "overview/paragraph-2",
-      "excerpt": "There is no single virtue-ethical formula. Aristotle offers the most influential Greek account of virtue and flourishing, but Platonic, Stoic, Confucian, Buddhist, Christian, humanist, feminist, and contemporary naturali"
-    },
-    {
-      "recordKey": "philosophy:virtue-ethics",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "historical-development/paragraph-2",
-      "excerpt": "Cultivation-centered ethics also developed outside Greece. Confucian traditions connect excellent character to humaneness, ritual practice, family and civic relationships, learning, and exemplary conduct. Confucius prese"
-    },
-    {
-      "recordKey": "philosophy:virtue-ethics",
-      "status": "bibliography-only",
-      "signal": "broad-classification",
-      "location": "historical-development/paragraph-2",
-      "excerpt": "Cultivation-centered ethics also developed outside Greece. Confucian traditions connect excellent character to humaneness, ritual practice, family and civic relationships, learning, and exemplary conduct. Confucius prese"
-    },
-    {
-      "recordKey": "philosophy:virtue-ethics",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "historical-development/paragraph-3",
-      "excerpt": "In twentieth-century Anglophone philosophy, G. E. M. Anscombe’s “Modern Moral Philosophy” challenged dominant ways of discussing obligation and helped inspire renewed attention to virtue, action, intention, and human lif"
-    },
-    {
-      "recordKey": "philosophy:virtue-ethics",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "figures-works/paragraph-1",
-      "excerpt": "Aristotle’s Nicomachean Ethics remains indispensable because it connects character, pleasure, friendship, deliberation, political life, and fortune within a systematic account of flourishing. Yet it should be read critic"
-    },
-    {
-      "recordKey": "philosophy:virtue-ethics",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "figures-works/paragraph-2",
-      "excerpt": "The modern revival is equally plural. Anscombe’s “Modern Moral Philosophy” is diagnostic rather than a complete virtue theory: it questions a dominant vocabulary of moral obligation and calls for better philosophy of psy"
-    },
-    {
-      "recordKey": "philosophy:virtue-ethics",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "internal-debates/paragraph-1",
-      "excerpt": "A persistent objection says virtue ethics describes admirable people but cannot tell an agent what to do. One response defines right action as what a virtuous person would characteristically do in the circumstances. Anot"
-    },
-    {
-      "recordKey": "philosophy:virtue-ethics",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "misunderstandings/paragraph-1",
-      "excerpt": "Virtue ethics is not the advice to “be a good person” with no account of goodness. Its major forms analyze practical wisdom, emotion, reasons, human goods, exemplars, social practices, and the structure of particular vir"
-    },
-    {
-      "recordKey": "philosophy:virtue-ethics",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "reading-path/paragraph-2",
-      "excerpt": "For the modern revival, read Anscombe’s “Modern Moral Philosophy” as a provocation, not as the final statement of virtue ethics. Follow it with essays from Foot’s Virtues and Vices and selections from Natural Goodness. M"
-    },
     {
       "recordKey": "philosophy:epicureanism",
       "status": "bibliography-only",
@@ -5865,17 +5337,17 @@
     "philosophers": {
       "total": 147,
       "unreviewed": 0,
-      "bibliography-only": 7,
+      "bibliography-only": 0,
       "source-mapped": 0,
-      "claim-reviewed": 140,
+      "claim-reviewed": 147,
       "review-out-of-date": 0
     },
     "philosophies": {
       "total": 45,
       "unreviewed": 0,
-      "bibliography-only": 32,
+      "bibliography-only": 24,
       "source-mapped": 0,
-      "claim-reviewed": 13,
+      "claim-reviewed": 21,
       "review-out-of-date": 0
     },
     "standalone": {

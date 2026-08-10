@@ -10,7 +10,7 @@ Regenerate it with `npm run report:exhibits` and verify it with `npm run audit:e
 
 | Total | Unreviewed | Bibliography only | Source mapped | Claim reviewed | Review out of date |
 | ---: | ---: | ---: | ---: | ---: | ---: |
-| 192 | 0 | 39 | 0 | 153 | 0 |
+| 192 | 0 | 24 | 0 | 168 | 0 |
 
 ## Exhibit baseline
 
@@ -204,8 +204,8 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | mediterranean-beginnings-classical | med-sophists-socratic | hippias-of-elis | philosopher:hippias-of-elis | matched | claim-reviewed | standard-compliant |
 | mediterranean-beginnings-classical | med-sophists-socratic | gorgias | philosopher:gorgias | matched | claim-reviewed | standard-compliant |
 | mediterranean-beginnings-classical | med-sophists-socratic | socrates | philosopher:socrates | matched | claim-reviewed | standard-compliant |
-| mediterranean-beginnings-classical | med-plato-aristotle | platonism | branch:platonism | matched | bibliography-only | unreviewed |
-| mediterranean-beginnings-classical | med-plato-aristotle | aristotelianism | branch:aristotelianism | matched | bibliography-only | unreviewed |
+| mediterranean-beginnings-classical | med-plato-aristotle | platonism | branch:platonism | matched | claim-reviewed | unreviewed |
+| mediterranean-beginnings-classical | med-plato-aristotle | aristotelianism | branch:aristotelianism | matched | claim-reviewed | unreviewed |
 | mediterranean-beginnings-classical | med-plato-aristotle | plato | philosopher:plato | matched | claim-reviewed | standard-compliant |
 | mediterranean-beginnings-classical | med-plato-aristotle | aristotle | philosopher:aristotle | matched | claim-reviewed | standard-compliant |
 | renaissance-humanism-new-method | early-statecraft-republic | machiavelli | philosopher:machiavelli | matched | claim-reviewed | standard-compliant |
@@ -231,16 +231,16 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | analytic-traditions | analytic-action-intention | anscombe | philosopher:anscombe | matched | claim-reviewed | standard-compliant |
 | justice-democratic-reason | justice-political-orientation | political-philosophy | branch:political-philosophy | matched | claim-reviewed | standard-compliant |
 | justice-democratic-reason | justice-political-orientation | arendt | philosopher:arendt | matched | claim-reviewed | standard-compliant |
-| justice-democratic-reason | justice-distribution-rights | rawls | philosopher:rawls | matched | bibliography-only | unreviewed |
-| justice-democratic-reason | justice-distribution-rights | nozick | philosopher:nozick | matched | bibliography-only | unreviewed |
+| justice-democratic-reason | justice-distribution-rights | rawls | philosopher:rawls | matched | claim-reviewed | unreviewed |
+| justice-democratic-reason | justice-distribution-rights | nozick | philosopher:nozick | matched | claim-reviewed | unreviewed |
 | justice-democratic-reason | justice-capabilities-democracy | martha-nussbaum | philosopher:martha-nussbaum | matched | claim-reviewed | standard-compliant |
-| core-questions-forum | core-reality-being | metaphysics | branch:metaphysics | matched | bibliography-only | unreviewed |
+| core-questions-forum | core-reality-being | metaphysics | branch:metaphysics | matched | claim-reviewed | unreviewed |
 | core-questions-forum | core-reality-being | ontology | branch:ontology | matched | claim-reviewed | standard-compliant |
 | core-questions-forum | core-reality-being | whitehead | philosopher:whitehead | matched | claim-reviewed | standard-compliant |
-| core-questions-forum | core-knowledge | epistemology | branch:epistemology | matched | bibliography-only | unreviewed |
+| core-questions-forum | core-knowledge | epistemology | branch:epistemology | matched | claim-reviewed | unreviewed |
 | core-questions-forum | core-mind-self | philosophy-of-mind | branch:philosophy-of-mind | matched | claim-reviewed | standard-compliant |
 | core-questions-forum | core-mind-self | thomas-nagel | philosopher:thomas-nagel | matched | claim-reviewed | standard-compliant |
-| core-questions-forum | core-mind-self | jiddu-krishnamurti | philosopher:jiddu-krishnamurti | matched | bibliography-only | unreviewed |
+| core-questions-forum | core-mind-self | jiddu-krishnamurti | philosopher:jiddu-krishnamurti | matched | claim-reviewed | unreviewed |
 | core-questions-forum | core-logic-language | logic | branch:logic | matched | bibliography-only | unreviewed |
 | core-questions-forum | core-logic-language | philosophy-of-language | branch:philosophy-of-language | matched | bibliography-only | unreviewed |
 | core-questions-forum | core-science | philosophy-of-science | branch:philosophy-of-science | matched | claim-reviewed | standard-compliant |
@@ -307,7 +307,7 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | hellenistic-roman-ways | hell-epicurean-garden | epicureanism | branch:epicureanism | matched | bibliography-only | unreviewed |
 | hellenistic-roman-ways | hell-epicurean-garden | epicurus | philosopher:epicurus | matched | claim-reviewed | standard-compliant |
 | hellenistic-roman-ways | hell-epicurean-garden | lucretius | philosopher:lucretius | matched | claim-reviewed | standard-compliant |
-| hellenistic-roman-ways | hell-stoic-stoa | stoicism | branch:stoicism | matched | bibliography-only | unreviewed |
+| hellenistic-roman-ways | hell-stoic-stoa | stoicism | branch:stoicism | matched | claim-reviewed | unreviewed |
 | hellenistic-roman-ways | hell-stoic-stoa | zeno | philosopher:zeno | matched | claim-reviewed | standard-compliant |
 | hellenistic-roman-ways | hell-stoic-stoa | cleanthes | philosopher:cleanthes | matched | claim-reviewed | standard-compliant |
 | hellenistic-roman-ways | hell-stoic-stoa | chrysippus | philosopher:chrysippus | matched | claim-reviewed | standard-compliant |
@@ -319,7 +319,7 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | hellenistic-roman-ways | hell-skeptical-lineages | arcesilaus | philosopher:arcesilaus | matched | claim-reviewed | standard-compliant |
 | hellenistic-roman-ways | hell-skeptical-lineages | carneades | philosopher:carneades | matched | claim-reviewed | standard-compliant |
 | hellenistic-roman-ways | hell-skeptical-lineages | sextus-empiricus | philosopher:sextus-empiricus | matched | claim-reviewed | standard-compliant |
-| late-antiquity-inheritance | late-neoplatonic-systems | neoplatonism | branch:neoplatonism | matched | bibliography-only | unreviewed |
+| late-antiquity-inheritance | late-neoplatonic-systems | neoplatonism | branch:neoplatonism | matched | claim-reviewed | unreviewed |
 | late-antiquity-inheritance | late-neoplatonic-systems | plotinus | philosopher:plotinus | matched | claim-reviewed | standard-compliant |
 | late-antiquity-inheritance | late-neoplatonic-systems | porphyry | philosopher:porphyry | matched | claim-reviewed | standard-compliant |
 | late-antiquity-inheritance | late-neoplatonic-systems | iamblichus | philosopher:iamblichus | matched | claim-reviewed | standard-compliant |
@@ -361,11 +361,11 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | pragmatism-democratic-inquiry | pragmatism-james-experience | william-james | philosopher:william-james | matched | claim-reviewed | standard-compliant |
 | pragmatism-democratic-inquiry | pragmatism-dewey-democracy | dewey | philosopher:dewey | matched | claim-reviewed | standard-compliant |
 | critique-power-deconstruction | continental-orientation | continental-philosophy | branch:continental-philosophy | matched | bibliography-only | unreviewed |
-| critique-power-deconstruction | critique-genealogy-power | foucault | philosopher:foucault | matched | bibliography-only | unreviewed |
-| critique-power-deconstruction | critique-deconstruction | derrida | philosopher:derrida | matched | bibliography-only | unreviewed |
-| critique-power-deconstruction | critique-critical-theory | habermas | philosopher:habermas | matched | bibliography-only | unreviewed |
-| moral-life-practical-reason | moral-ethics-orientation | ethics | branch:ethics | matched | bibliography-only | unreviewed |
-| moral-life-practical-reason | moral-character-virtue | virtue-ethics | branch:virtue-ethics | matched | bibliography-only | unreviewed |
+| critique-power-deconstruction | critique-genealogy-power | foucault | philosopher:foucault | matched | claim-reviewed | unreviewed |
+| critique-power-deconstruction | critique-deconstruction | derrida | philosopher:derrida | matched | claim-reviewed | unreviewed |
+| critique-power-deconstruction | critique-critical-theory | habermas | philosopher:habermas | matched | claim-reviewed | unreviewed |
+| moral-life-practical-reason | moral-ethics-orientation | ethics | branch:ethics | matched | claim-reviewed | unreviewed |
+| moral-life-practical-reason | moral-character-virtue | virtue-ethics | branch:virtue-ethics | matched | claim-reviewed | unreviewed |
 | moral-life-practical-reason | moral-character-virtue | iris-murdoch | philosopher:iris-murdoch | matched | claim-reviewed | standard-compliant |
 | moral-life-practical-reason | moral-character-virtue | philippa-foot | philosopher:philippa-foot | matched | claim-reviewed | standard-compliant |
 | moral-life-practical-reason | moral-duty-consequence | deontology | branch:deontology | matched | bibliography-only | unreviewed |
@@ -375,6 +375,6 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | feminist-philosophies | feminist-orientation-genealogies | feminist-philosophy | branch:feminist-philosophy | matched | claim-reviewed | standard-compliant |
 | feminist-philosophies | feminist-situated-freedom | beauvoir | philosopher:beauvoir | matched | claim-reviewed | standard-compliant |
 | feminist-philosophies | feminist-gender-norms | judith-butler | philosopher:judith-butler | matched | claim-reviewed | standard-compliant |
-| colonialism-race-liberation | colonial-embodiment-liberation | fanon | philosopher:fanon | matched | bibliography-only | unreviewed |
+| colonialism-race-liberation | colonial-embodiment-liberation | fanon | philosopher:fanon | matched | claim-reviewed | unreviewed |
 | colonialism-race-liberation | colonial-black-feminism-abolition | angela-davis | philosopher:angela-davis | matched | claim-reviewed | standard-compliant |
 | colonialism-race-liberation | colonial-black-feminism-abolition | bell-hooks | philosopher:bell-hooks | matched | claim-reviewed | standard-compliant |
