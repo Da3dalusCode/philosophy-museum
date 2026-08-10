@@ -91,8 +91,8 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | Zhu Xi | claim-reviewed | standard-compliant | 32 | 319 | 3 | 3 | 6 | standard presentation |
 | Wang Yangming | claim-reviewed | standard-compliant | 32 | 316 | 3 | 3 | 6 | standard presentation |
 | Saadia Gaon | claim-reviewed | standard-compliant | 32 | 308 | 3 | 3 | 6 | standard presentation |
-| Judah Halevi | claim-reviewed | standard-compliant | 33 | 318 | 3 | 3 | 6 | standard presentation |
-| Maimonides | claim-reviewed | standard-compliant | 34 | 318 | 3 | 3 | 6 | standard presentation |
+| Judah Halevi | claim-reviewed | standard-compliant | 32 | 318 | 3 | 3 | 6 | standard presentation |
+| Maimonides | claim-reviewed | standard-compliant | 32 | 318 | 3 | 3 | 6 | standard presentation |
 | Boethius | claim-reviewed | standard-compliant | 32 | 268 | 3 | 4 | 7 | standard presentation |
 | John Scotus Eriugena | claim-reviewed | standard-compliant | 32 | 297 | 3 | 3 | 4 | standard presentation |
 | Medieval Scholasticism | claim-reviewed | standard-compliant | 32 | 294 | 3 | 3 | 4 | standard presentation |
@@ -104,12 +104,12 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | Meister Eckhart | claim-reviewed | standard-compliant | 32 | 295 | 3 | 3 | 4 | standard presentation |
 | Marsilius of Padua | claim-reviewed | standard-compliant | 32 | 294 | 3 | 3 | 4 | standard presentation |
 | Sextus Empiricus | claim-reviewed | standard-compliant | 32 | 268 | 3 | 4 | 7 | standard presentation |
-| Porphyry | claim-reviewed | standard-compliant | 33 | 281 | 3 | 3 | 6 | standard presentation |
-| Iamblichus | claim-reviewed | standard-compliant | 33 | 294 | 3 | 3 | 6 | standard presentation |
-| Proclus | claim-reviewed | standard-compliant | 33 | 285 | 3 | 3 | 6 | standard presentation |
-| Origen | claim-reviewed | standard-compliant | 34 | 294 | 3 | 3 | 6 | standard presentation |
-| Augustine | claim-reviewed | standard-compliant | 33 | 319 | 3 | 3 | 6 | standard presentation |
-| Gregory of Nyssa | claim-reviewed | standard-compliant | 34 | 300 | 3 | 3 | 6 | standard presentation |
+| Porphyry | claim-reviewed | standard-compliant | 32 | 281 | 3 | 3 | 6 | standard presentation |
+| Iamblichus | claim-reviewed | standard-compliant | 32 | 294 | 3 | 3 | 6 | standard presentation |
+| Proclus | claim-reviewed | standard-compliant | 32 | 285 | 3 | 3 | 6 | standard presentation |
+| Origen | claim-reviewed | standard-compliant | 32 | 294 | 3 | 3 | 6 | standard presentation |
+| Augustine | claim-reviewed | standard-compliant | 32 | 319 | 3 | 3 | 6 | standard presentation |
+| Gregory of Nyssa | claim-reviewed | standard-compliant | 32 | 300 | 3 | 3 | 6 | standard presentation |
 | Pseudo-Dionysius | claim-reviewed | standard-compliant | 32 | 302 | 3 | 3 | 6 | standard presentation |
 | George Berkeley | claim-reviewed | standard-compliant | 32 | 290 | 3 | 3 | 6 | standard presentation |
 | Montesquieu | claim-reviewed | standard-compliant | 32 | 292 | 3 | 3 | 6 | standard presentation |
