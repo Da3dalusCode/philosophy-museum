@@ -34,7 +34,21 @@ export type PrimaryPlaqueConfiguration = PlaqueTextureOptions & {
 
 /** Wall-only copy overrides used only when the complete catalog invitation cannot fit legibly. */
 export const PRIMARY_PLAQUE_INVITATION_OVERRIDES = {
-  leucippus: 'How did atoms and void answer the problem of change, and why is Leucippus’s contribution so difficult to separate from the later work of Democritus?',
+  thales: 'Meet Thales through later reports, not a surviving book. Ask how water became an explanatory source, why “first philosopher” is a later honor, and what Renaissance portraits reveal about reception, not life.',
+  anaximander: 'Explore Anaximander through one mediated fragment and a lost map. Ask how the apeiron frames cosmic change, and why a modern diagram can clarify ancient testimony without becoming the original object itself.',
+  anaximenes: 'Meet Anaximenes through later reports of air, rarefaction, and condensation. Ask how one source can explain diverse things, and why an imagined portrait gives no access to his appearance or lost prose.',
+  pythagoras: 'Meet Pythagoras where soul, number, discipline, and community meet. Ask what early evidence supports, what later traditions added, and why Raphael’s ratio tablet cannot document the historical teacher or an ancient lesson.',
+  philolaus: 'Read Philolaus through fragments about limiters, unlimiteds, harmony, and number. Ask how relations make a cosmos knowable, and why a Renaissance musical scene cannot stand as evidence for his life or experiments.',
+  parmenides: 'Enter Parmenides’s fragmentary poem, where a goddess tests routes of inquiry. Ask what thought can say about what-is, and why Raphael’s disputed figure cannot settle either his appearance or his arguments today.',
+  'zeno-elea': 'Follow Zeno’s paradoxes of motion and plurality through later witnesses. Ask what division, time, and magnitude require, and why neither modern mathematics nor an imagined portrait can simply close his ancient challenges.',
+  leucippus: 'Meet Leucippus, the earliest named atomist in the main tradition. Ask how atoms and void answer change, and why shared sources, scarce biography, and a later painting cannot separate his work from Democritus.',
+  democritus: 'Read Democritus through a lost corpus. Ask how atoms and void explain change, how senses and ethics fit, and why ancient atomism is neither modern science nor one securely recovered system today.',
+  heraclitus: 'Read Heraclitus through fragments, not slogans. Ask how logos, fire, strife, and measure make change intelligible, and why no tale of flux can replace close study of his hard-won words and witnesses.',
+  empedocles: 'Meet Empedocles through roots, Love, Strife, verse, and rites. Ask how mixtures make bodies, why cosmic cycles remain disputed, and how the Etna legend can distort both his life and thought today.',
+  anaxagoras: 'Explore Anaxagoras through mixture and Nous. Ask how parts form visible things, how Mind starts cosmic motion, and why fragments, later reports, and Plato’s critique leave the scope of order in dispute.',
+  protagoras: 'Meet Protagoras through human measure, civic teaching, and skilled debate. Ask how judgments improve, and why Plato’s staged speeches cannot turn his few surviving words into a simple creed of relativism today.',
+  prodicus: 'Follow Prodicus through fine word choices and Heracles’ choice. Ask what Plato’s jokes and Xenophon’s outline preserve, and why later reports cannot yield his exact speech or complete theory of language today.',
+  gorgias: 'Listen to Gorgias on speech, proof, belief, and duty. Ask how Helen and Palamedes test persuasion, and why later summaries and Plato’s drama cannot make rhetoric mere deceit or nihilism for visitors.',
   iamblichus: 'Why might embodied souls require divinely grounded ritual, and how do the Abamon persona and fragmented transmission shape what we can reconstruct from Iamblichus today?',
   porphyry: 'How did Porphyry reshape Platonism through editing, commentary, teaching, and practical inquiry?',
   proclus: 'How did Proclus unite metaphysics, commentary, mathematics, prayer, and ritual within a philosophical way of life?',

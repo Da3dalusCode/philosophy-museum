@@ -16,7 +16,7 @@ Regenerate it with `npm run report:exhibits` and verify it with `npm run audit:e
 
 | Total | Unreviewed | Reconciled | Standard compliant | Out of date |
 | ---: | ---: | ---: | ---: | ---: |
-| 192 | 148 | 0 | 44 | 0 |
+| 192 | 133 | 0 | 59 | 0 |
 
 ## Article relationships
 
@@ -30,6 +30,21 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 
 | Exhibit | Article status | Exhibit status | Plaque words | Main words | Paragraphs | Guide sections | Guide items | Presentation |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | --- |
+| Thales | claim-reviewed | standard-compliant | 32 | 302 | 3 | 3 | 5 | standard presentation |
+| Anaximander | claim-reviewed | standard-compliant | 32 | 292 | 3 | 3 | 5 | standard presentation |
+| Anaximenes | claim-reviewed | standard-compliant | 32 | 297 | 3 | 3 | 5 | standard presentation |
+| Pythagoras | claim-reviewed | standard-compliant | 32 | 305 | 3 | 3 | 5 | standard presentation |
+| Philolaus | claim-reviewed | standard-compliant | 32 | 290 | 3 | 3 | 5 | standard presentation |
+| Parmenides | claim-reviewed | standard-compliant | 32 | 313 | 3 | 3 | 5 | standard presentation |
+| Zeno of Elea | claim-reviewed | standard-compliant | 32 | 309 | 3 | 3 | 5 | standard presentation |
+| Leucippus | claim-reviewed | standard-compliant | 33 | 317 | 3 | 3 | 5 | standard presentation |
+| Democritus | claim-reviewed | standard-compliant | 32 | 291 | 3 | 3 | 5 | standard presentation |
+| Heraclitus | claim-reviewed | standard-compliant | 32 | 290 | 3 | 3 | 5 | standard presentation |
+| Empedocles | claim-reviewed | standard-compliant | 32 | 296 | 3 | 3 | 5 | standard presentation |
+| Anaxagoras | claim-reviewed | standard-compliant | 32 | 297 | 3 | 3 | 5 | standard presentation |
+| Protagoras | claim-reviewed | standard-compliant | 32 | 293 | 3 | 3 | 5 | standard presentation |
+| Prodicus of Ceos | claim-reviewed | standard-compliant | 32 | 298 | 3 | 3 | 5 | standard presentation |
+| Gorgias | claim-reviewed | standard-compliant | 32 | 290 | 3 | 3 | 6 | standard presentation |
 | Jainism | claim-reviewed | standard-compliant | 32 | 302 | 3 | 3 | 6 | standard presentation |
 | Mahāvīra | claim-reviewed | standard-compliant | 32 | 311 | 3 | 3 | 6 | standard presentation |
 | Kaṇāda | claim-reviewed | standard-compliant | 32 | 307 | 3 | 3 | 5 | standard presentation |
@@ -80,22 +95,22 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | Hall | Room | Exhibit | Entity | Article relationship | Article status | Exhibit status |
 | --- | --- | --- | --- | --- | --- | --- |
 | mediterranean-beginnings-classical | med-orientation-nature | ancient-greek | branch:ancient-greek | matched | bibliography-only | unreviewed |
-| mediterranean-beginnings-classical | med-orientation-nature | thales | philosopher:thales | matched | claim-reviewed | unreviewed |
-| mediterranean-beginnings-classical | med-orientation-nature | anaximander | philosopher:anaximander | matched | claim-reviewed | unreviewed |
-| mediterranean-beginnings-classical | med-orientation-nature | anaximenes | philosopher:anaximenes | matched | claim-reviewed | unreviewed |
-| mediterranean-beginnings-classical | med-being-change-plurality | pythagoras | philosopher:pythagoras | matched | claim-reviewed | unreviewed |
-| mediterranean-beginnings-classical | med-being-change-plurality | philolaus | philosopher:philolaus | matched | claim-reviewed | unreviewed |
-| mediterranean-beginnings-classical | med-being-change-plurality | parmenides | philosopher:parmenides | matched | claim-reviewed | unreviewed |
-| mediterranean-beginnings-classical | med-being-change-plurality | zeno-elea | philosopher:zeno-elea | matched | claim-reviewed | unreviewed |
-| mediterranean-beginnings-classical | med-being-change-plurality | leucippus | philosopher:leucippus | matched | claim-reviewed | unreviewed |
-| mediterranean-beginnings-classical | med-being-change-plurality | democritus | philosopher:democritus | matched | claim-reviewed | unreviewed |
-| mediterranean-beginnings-classical | med-being-change-plurality | heraclitus | philosopher:heraclitus | matched | claim-reviewed | unreviewed |
-| mediterranean-beginnings-classical | med-being-change-plurality | empedocles | philosopher:empedocles | matched | claim-reviewed | unreviewed |
-| mediterranean-beginnings-classical | med-being-change-plurality | anaxagoras | philosopher:anaxagoras | matched | claim-reviewed | unreviewed |
-| mediterranean-beginnings-classical | med-sophists-socratic | protagoras | philosopher:protagoras | matched | claim-reviewed | unreviewed |
-| mediterranean-beginnings-classical | med-sophists-socratic | prodicus | philosopher:prodicus | matched | claim-reviewed | unreviewed |
+| mediterranean-beginnings-classical | med-orientation-nature | thales | philosopher:thales | matched | claim-reviewed | standard-compliant |
+| mediterranean-beginnings-classical | med-orientation-nature | anaximander | philosopher:anaximander | matched | claim-reviewed | standard-compliant |
+| mediterranean-beginnings-classical | med-orientation-nature | anaximenes | philosopher:anaximenes | matched | claim-reviewed | standard-compliant |
+| mediterranean-beginnings-classical | med-being-change-plurality | pythagoras | philosopher:pythagoras | matched | claim-reviewed | standard-compliant |
+| mediterranean-beginnings-classical | med-being-change-plurality | philolaus | philosopher:philolaus | matched | claim-reviewed | standard-compliant |
+| mediterranean-beginnings-classical | med-being-change-plurality | parmenides | philosopher:parmenides | matched | claim-reviewed | standard-compliant |
+| mediterranean-beginnings-classical | med-being-change-plurality | zeno-elea | philosopher:zeno-elea | matched | claim-reviewed | standard-compliant |
+| mediterranean-beginnings-classical | med-being-change-plurality | leucippus | philosopher:leucippus | matched | claim-reviewed | standard-compliant |
+| mediterranean-beginnings-classical | med-being-change-plurality | democritus | philosopher:democritus | matched | claim-reviewed | standard-compliant |
+| mediterranean-beginnings-classical | med-being-change-plurality | heraclitus | philosopher:heraclitus | matched | claim-reviewed | standard-compliant |
+| mediterranean-beginnings-classical | med-being-change-plurality | empedocles | philosopher:empedocles | matched | claim-reviewed | standard-compliant |
+| mediterranean-beginnings-classical | med-being-change-plurality | anaxagoras | philosopher:anaxagoras | matched | claim-reviewed | standard-compliant |
+| mediterranean-beginnings-classical | med-sophists-socratic | protagoras | philosopher:protagoras | matched | claim-reviewed | standard-compliant |
+| mediterranean-beginnings-classical | med-sophists-socratic | prodicus | philosopher:prodicus | matched | claim-reviewed | standard-compliant |
 | mediterranean-beginnings-classical | med-sophists-socratic | hippias-of-elis | philosopher:hippias-of-elis | matched | bibliography-only | unreviewed |
-| mediterranean-beginnings-classical | med-sophists-socratic | gorgias | philosopher:gorgias | matched | claim-reviewed | unreviewed |
+| mediterranean-beginnings-classical | med-sophists-socratic | gorgias | philosopher:gorgias | matched | claim-reviewed | standard-compliant |
 | mediterranean-beginnings-classical | med-sophists-socratic | socrates | philosopher:socrates | matched | claim-reviewed | unreviewed |
 | mediterranean-beginnings-classical | med-plato-aristotle | platonism | branch:platonism | matched | bibliography-only | unreviewed |
 | mediterranean-beginnings-classical | med-plato-aristotle | aristotelianism | branch:aristotelianism | matched | bibliography-only | unreviewed |
