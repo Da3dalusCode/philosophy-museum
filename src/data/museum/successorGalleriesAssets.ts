@@ -37,6 +37,11 @@ const cc0 = {
   licenseUrl: 'https://creativecommons.org/publicdomain/zero/1.0/',
   rightsKind: 'dedication' as const,
 };
+const pdSelf = {
+  license: 'Public-domain dedication (PD-self)',
+  licenseUrl: 'https://commons.wikimedia.org/wiki/Template:PD-self',
+  rightsKind: 'dedication' as const,
+};
 const ccBy4 = {
   license: 'CC BY 4.0',
   licenseUrl: 'https://creativecommons.org/licenses/by/4.0/',
@@ -70,33 +75,33 @@ export const SUCCESSOR_GALLERIES_ASSETS = [
   }),
   asset({
     id: 'cleanthes-olgiati-portrait', folder: 'hellenistic-roman-ways', entityKind: 'philosopher', entityId: 'cleanthes', role: 'identity', mediaKind: 'engraving',
-    title: 'Cleanthes Assius', creator: 'Girolamo Olgiati', objectDate: '1583', institution: 'Published in Illustrium philosophorum et sapientum effigies', sourcePageUrl: 'https://commons.wikimedia.org/wiki/File:Cleanthes_Assius_-_Illustrium_philosophorum_et_sapientum_effigies_ab_eorum_numistatibus_extractae.png', ...publicDomain,
-    attribution: 'Girolamo Olgiati, Cleanthes Assius, 1583. Public domain.', scene: [451, 640], panel: [670, 950],
-    alt: 'A sixteenth-century oval engraved profile labeled Cleanthes.', caption: 'Girolamo Olgiati’s retrospective Cleanthes, 1583.', historicalNote: 'A Renaissance imagined portrait, not an ancient or authenticated likeness; displayed as evidence of reception.', likenessStatus: 'later-traditional-representation', focalPoint: {x: .5, y: .4},
+    title: 'Cleanthes Assius', creator: 'Girolamo Olgiati', objectDate: '1580; reprinted 1583', institution: 'Illustrium philosophorum et sapientum effigies (Venice, 1580; reprinted 1583)', sourcePageUrl: 'https://commons.wikimedia.org/wiki/File:Cleanthes_Assius_-_Illustrium_philosophorum_et_sapientum_effigies_ab_eorum_numistatibus_extractae.png', ...publicDomain,
+    attribution: 'Girolamo Olgiati, Cleanthes Assius, first published 1580 and reprinted 1583. Public domain.', scene: [451, 640], panel: [670, 950],
+    alt: 'A rectangular sixteenth-century engraving presents Cleanthes in profile above a Latin name cartouche.', caption: 'Girolamo Olgiati’s retrospective profile of Cleanthes, first published in 1580 and reprinted in 1583.', historicalNote: 'This is a Renaissance imagined portrait, not an ancient or authenticated likeness. It documents early modern reception rather than Cleanthes’s appearance.', likenessStatus: 'later-traditional-representation', focalPoint: {x: .5, y: .4},
   }),
   asset({
     id: 'chrysippus-portrait-bust', folder: 'hellenistic-roman-ways', entityKind: 'philosopher', entityId: 'chrysippus', role: 'identity', mediaKind: 'sculpture-photograph',
-    title: 'Portrait bust identified as Chrysippus', creator: 'Unknown Roman sculptor after a Hellenistic original', objectDate: 'Roman copy after a portrait of about 200 BCE', institution: 'Antikensammlung, Berlin', sourcePageUrl: 'https://commons.wikimedia.org/wiki/File:Portrait-bust_of_Chrysippus.jpg', ...publicDomain, derivativeNotice,
-    attribution: 'Portrait bust identified as Chrysippus, Antikensammlung Berlin. Public domain.', scene: [393, 640], panel: [787, 1280],
-    alt: 'Marble bust of an elderly bearded philosopher with a deeply furrowed brow.', caption: 'Roman portrait type identified as Chrysippus, after a Hellenistic model.', historicalNote: 'The surviving sculpture is Roman and the portrait type is identified through comparison rather than an inscription on this bust.', likenessStatus: 'roman-copy', focalPoint: {x: .5, y: .4},
+    title: 'Bronze portrait bust identified as Chrysippus', creator: 'Unknown Roman bronze worker', objectDate: 'Flavian period, c. 75 CE', imageCreator: 'Szilas', institution: 'Museo dei Fori Imperiali, Rome, FN 5', sourcePageUrl: 'https://commons.wikimedia.org/wiki/File:Portrait-bust_of_Chrysippus.jpg', ...pdSelf, derivativeNotice,
+    attribution: 'Bronze portrait bust identified as Chrysippus, Museo dei Fori Imperiali, FN 5; photograph by Szilas, public-domain dedication.', scene: [393, 640], panel: [787, 1280],
+    alt: 'A small green-patinated bronze bust shows an elderly, bearded philosopher with a furrowed brow.', caption: 'Flavian bronze portrait bust identified as Chrysippus, c. 75 CE. Museo dei Fori Imperiali, Rome.', historicalNote: 'Excavated in the Templum Pacis in 1998–2000, the bust is a Roman reception object. Its identification as Chrysippus is scholarly rather than secured by an inscription on the bronze.', likenessStatus: 'attributed', focalPoint: {x: .5, y: .4},
   }),
   asset({
     id: 'epictetus-enchiridion-frontispiece', folder: 'hellenistic-roman-ways', entityKind: 'philosopher', entityId: 'epictetus', role: 'primary-source', mediaKind: 'engraving',
-    title: 'Frontispiece to Epicteti Enchiridion Latinis versibus adumbratum', creator: 'Michael Burghers after William Sonmans', objectDate: 'Oxford, 1715', institution: 'Digitized public-domain edition', sourcePageUrl: 'https://commons.wikimedia.org/wiki/File:Epicteti_Enchiridion_Latinis_versibus_adumbratum_(Oxford_1715)_frontispiece.jpg', ...publicDomain,
-    attribution: 'Michael Burghers after William Sonmans, Enchiridion frontispiece, Oxford, 1715. Public domain.', scene: [362, 640], panel: [724, 1280],
-    alt: 'An engraved frontispiece presents an imagined Epictetus above a Latin inscription.', caption: 'Frontispiece to a 1715 Latin verse adaptation of the Enchiridion.', historicalNote: 'The portrait is imagined and the edition is early modern; it documents Epictetus’s reception, not his appearance or an ancient text witness.', likenessStatus: 'imagined', focalPoint: {x: .5, y: .38},
+    title: 'Frontispiece to Epicteti Enchiridion Latinis versibus adumbratum', creator: 'Engraved by Michael Burghers, probably after William Sonmans', objectDate: 'Oxford, 1715', institution: 'John Adams Library, Boston Public Library; Edward Ivie, Epicteti Enchiridion Latinis versibus adumbratum (Oxford, 1715)', sourcePageUrl: 'https://commons.wikimedia.org/wiki/File:Epicteti_Enchiridion_Latinis_versibus_adumbratum_(Oxford_1715)_frontispiece.jpg', ...publicDomain,
+    attribution: 'Michael Burghers, probably after William Sonmans, Enchiridion frontispiece, Oxford, 1715; John Adams Library, Boston Public Library scan. Public domain.', scene: [362, 640], panel: [724, 1280],
+    alt: 'A 1715 frontispiece imagines Epictetus seated with a crutch and open book beneath a Greek epigram.', caption: 'Frontispiece to Edward Ivie’s 1715 Latin verse adaptation of the Enchiridion.', historicalNote: 'The disability, clothing, and scholarly setting are early modern visualizations, not documentary evidence. The print records reception of Epictetus through a Latin adaptation, not his appearance or an ancient textual witness.', likenessStatus: 'imagined', focalPoint: {x: .5, y: .38},
   }),
   asset({
     id: 'seneca-pseudo-seneca-bm', folder: 'hellenistic-roman-ways', entityKind: 'philosopher', entityId: 'seneca', role: 'identity', mediaKind: 'sculpture-photograph',
-    title: 'Pseudo-Seneca portrait head', creator: 'Unknown Roman sculptor', objectDate: 'Roman, 1st century BCE–1st century CE', institution: 'British Museum, 1962,0824.1', sourcePageUrl: 'https://commons.wikimedia.org/wiki/File:Pseudo-Seneca_BM_GR1962.8-24.1.jpg', ...publicDomain, derivativeNotice,
-    attribution: 'British Museum, Pseudo-Seneca portrait head. Public domain.', scene: [427, 640], panel: [853, 1280],
-    alt: 'A bronze portrait head shows an older man with tangled hair and an intensely lined face.', caption: 'The so-called Pseudo-Seneca type, once misidentified as Seneca.', historicalNote: 'This famous portrait type is no longer accepted as Seneca. Its use here makes the history of a mistaken identification explicit.', likenessStatus: 'uncertain', focalPoint: {x: .5, y: .4},
+    title: 'Pseudo-Seneca portrait head', creator: 'Unknown Roman sculptor after a lost Hellenistic original', objectDate: 'Roman marble copy after a 2nd-century BCE Hellenistic original', imageCreator: 'Marie-Lan Nguyen', institution: 'British Museum, GR 1962.8-24.1', sourcePageUrl: 'https://commons.wikimedia.org/wiki/File:Pseudo-Seneca_BM_GR1962.8-24.1.jpg', ...pdSelf, derivativeNotice,
+    attribution: 'British Museum Pseudo-Seneca marble head, GR 1962.8-24.1; photograph by Marie-Lan Nguyen, public-domain dedication.', scene: [427, 640], panel: [853, 1280],
+    alt: 'A white marble portrait head shows an older bearded man with forward-combed locks and a deeply lined face.', caption: 'Roman marble copy of the so-called Pseudo-Seneca type, after a 2nd-century BCE Hellenistic original.', historicalNote: 'The type was rejected as a portrait of Seneca after an inscribed portrait was found in 1813 and has also been proposed as Hesiod. The displayed head documents the history of a mistaken identification, not Seneca’s appearance.', likenessStatus: 'not-applicable', focalPoint: {x: .5, y: .4},
   }),
   asset({
     id: 'pyrrho-stanley-portrait', folder: 'hellenistic-roman-ways', entityKind: 'philosopher', entityId: 'pyrrho', role: 'identity', mediaKind: 'engraving',
-    title: 'Pyrrho in The History of Philosophy', creator: 'Unknown engraver for Thomas Stanley', objectDate: '17th-century publication tradition', institution: 'Thomas Stanley, The History of Philosophy', sourcePageUrl: 'https://commons.wikimedia.org/wiki/File:Pyrrho_in_Thomas_Stanley_History_of_Philosophy.jpg', ...publicDomain,
-    attribution: 'Pyrrho in Thomas Stanley’s History of Philosophy. Public domain.', scene: [417, 640], panel: [835, 1280],
-    alt: 'An oval retrospective engraving labels a bearded philosopher as Pyrrho.', caption: 'A later imagined Pyrrho from Thomas Stanley’s History of Philosophy.', historicalNote: 'No reliable portrait of Pyrrho survives. The image belongs to early modern reception and is not ancient evidence.', likenessStatus: 'imagined', focalPoint: {x: .5, y: .41},
+    title: 'Pyrrho in The History of Philosophy', creator: 'Unknown engraver for Thomas Stanley', objectDate: 'c. 1655', institution: 'Thomas Stanley, The History of Philosophy (London, 1655)', sourcePageUrl: 'https://commons.wikimedia.org/wiki/File:Pyrrho_in_Thomas_Stanley_History_of_Philosophy.jpg', ...publicDomain,
+    attribution: 'Unknown engraver, Pyrrho in Thomas Stanley’s History of Philosophy, c. 1655. Public domain.', scene: [417, 640], panel: [835, 1280],
+    alt: 'A seventeenth-century engraving imagines a full-length bearded Pyrrho standing in a landscape above his printed name.', caption: 'An imagined Pyrrho from Thomas Stanley’s History of Philosophy, c. 1655.', historicalNote: 'No reliable portrait of Pyrrho survives. This full-length figure belongs to early modern reception and is not ancient biographical or physiognomic evidence.', likenessStatus: 'imagined', focalPoint: {x: .5, y: .41},
   }),
   asset({
     id: 'arcesilaus-carneades-academica', folder: 'hellenistic-roman-ways', entityKind: 'philosopher', entityId: 'arcesilaus', role: 'material-history', mediaKind: 'engraving',

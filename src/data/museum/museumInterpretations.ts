@@ -38,6 +38,8 @@ import {CANONICAL_ORDER_PRIMARY_INTERPRETATIONS_A} from './canonicalOrderPrimary
 import {CANONICAL_ORDER_PRIMARY_INTERPRETATIONS_B} from './canonicalOrderPrimaryInterpretationsB';
 import {CANONICAL_ORDER_PRIMARY_INTERPRETATIONS_C} from './canonicalOrderPrimaryInterpretationsC';
 import {CANONICAL_ORDER_PRIMARY_INTERPRETATIONS_D} from './canonicalOrderPrimaryInterpretationsD';
+import {CLAIM_REVIEWED_PRIMARY_INTERPRETATIONS_NEXT_A} from './claimReviewedPrimaryInterpretationsNextA';
+import {CLAIM_REVIEWED_PRIMARY_INTERPRETATIONS_NEXT_B} from './claimReviewedPrimaryInterpretationsNextB';
 
 export type MuseumInterpretationSource = {
   label: string;
@@ -1411,6 +1413,8 @@ const PRIMARY_INTERPRETATION_ENRICHMENT = {
   ...CANONICAL_ORDER_PRIMARY_INTERPRETATIONS_B,
   ...CANONICAL_ORDER_PRIMARY_INTERPRETATIONS_C,
   ...CANONICAL_ORDER_PRIMARY_INTERPRETATIONS_D,
+  ...CLAIM_REVIEWED_PRIMARY_INTERPRETATIONS_NEXT_A,
+  ...CLAIM_REVIEWED_PRIMARY_INTERPRETATIONS_NEXT_B,
 };
 
 const applyPrimaryInterpretationEnrichment = (

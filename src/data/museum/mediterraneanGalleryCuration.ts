@@ -158,7 +158,7 @@ export const MEDITERRANEAN_EXHIBIT_CURATION = {
     publicKicker: 'Elis and Olympia · c. 460–after 399 BCE; dates uncertain',
     visualKind: 'civic-speech',
     groupLabel: 'Sophists: language, education, and civic performance',
-    frontTitle: 'Can learning make a person self-sufficient?',
+    frontTitle: 'Meet Hippias through Plato’s vivid but interested scenes. Ask how broad learning, memory, craft, and public performance claim authority, while a Greek strigil cannot prove his possessions, biography, or a complete doctrine of self-sufficiency.',
   },
   gorgias: {
     authored: GALLERY_01_PRIMARY_PLACEMENTS.gorgias,
