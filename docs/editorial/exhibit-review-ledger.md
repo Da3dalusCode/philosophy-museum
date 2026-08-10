@@ -50,11 +50,11 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | Al-Kindi | claim-reviewed | standard-compliant | 32 | 350 | 3 | 3 | 5 | standard presentation |
 | Al-Farabi | claim-reviewed | standard-compliant | 32 | 340 | 3 | 3 | 5 | standard presentation |
 | Ibn Sina / Avicenna | claim-reviewed | standard-compliant | 33 | 349 | 3 | 3 | 6 | standard presentation |
-| Al-Ghazali | claim-reviewed | standard-compliant | 34 | 346 | 3 | 3 | 5 | standard presentation |
+| Al-Ghazali | claim-reviewed | standard-compliant | 32 | 346 | 3 | 3 | 5 | standard presentation |
 | Ibn Rushd / Averroes | claim-reviewed | standard-compliant | 32 | 350 | 3 | 3 | 5 | standard presentation |
 | Suhrawardi | claim-reviewed | standard-compliant | 32 | 343 | 3 | 3 | 5 | standard presentation |
 | Mulla Sadra | claim-reviewed | standard-compliant | 32 | 347 | 3 | 3 | 6 | standard presentation |
-| Zhu Xi | claim-reviewed | standard-compliant | 34 | 319 | 3 | 3 | 6 | standard presentation |
+| Zhu Xi | claim-reviewed | standard-compliant | 32 | 319 | 3 | 3 | 6 | standard presentation |
 | Boethius | claim-reviewed | standard-compliant | 32 | 268 | 3 | 4 | 7 | standard presentation |
 | John Scotus Eriugena | claim-reviewed | standard-compliant | 32 | 297 | 3 | 3 | 4 | standard presentation |
 | Medieval Scholasticism | claim-reviewed | standard-compliant | 32 | 294 | 3 | 3 | 4 | standard presentation |
@@ -70,7 +70,7 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | Montesquieu | claim-reviewed | standard-compliant | 32 | 292 | 3 | 3 | 6 | standard presentation |
 | Jean-Jacques Rousseau | claim-reviewed | standard-compliant | 32 | 296 | 4 | 3 | 6 | standard presentation |
 | Adam Smith | claim-reviewed | standard-compliant | 33 | 292 | 3 | 3 | 6 | standard presentation |
-| Mary Wollstonecraft | claim-reviewed | standard-compliant | 33 | 290 | 3 | 3 | 6 | standard presentation |
+| Mary Wollstonecraft | claim-reviewed | standard-compliant | 32 | 290 | 3 | 3 | 6 | standard presentation |
 | Immanuel Kant | claim-reviewed | standard-compliant | 32 | 303 | 3 | 3 | 7 | standard presentation |
 | Kantianism | claim-reviewed | standard-compliant | 34 | 254 | 3 | 3 | 7 | standard presentation |
 | Marxism | claim-reviewed | standard-compliant | 32 | 255 | 3 | 3 | 6 | standard presentation |
