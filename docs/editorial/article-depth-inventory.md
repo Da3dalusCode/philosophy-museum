@@ -70,26 +70,26 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | philosopher | democritus | Democritus | #/philosophers/democritus | 2203 | pass | yes | yes (1 primary; 0 supplemental) |
 | philosopher | protagoras | Protagoras | #/philosophers/protagoras | 2051 | pass | yes | yes (1 primary; 0 supplemental) |
 | philosopher | prodicus | Prodicus of Ceos | #/philosophers/prodicus | 2050 | pass | yes | yes (1 primary; 0 supplemental) |
-| philosopher | hippias-of-elis | Hippias of Elis | #/philosophers/hippias-of-elis | 2063 | pass | yes | yes (1 primary; 0 supplemental) |
+| philosopher | hippias-of-elis | Hippias of Elis | #/philosophers/hippias-of-elis | 2039 | pass | yes | yes (1 primary; 0 supplemental) |
 | philosopher | gorgias | Gorgias | #/philosophers/gorgias | 2058 | pass | yes | yes (1 primary; 0 supplemental) |
 | philosopher | antisthenes | Antisthenes | #/philosophers/antisthenes | 2081 | pass | yes | yes (1 primary; 0 supplemental) |
-| philosopher | lucretius | Lucretius | #/philosophers/lucretius | 2003 | pass | yes | yes (1 primary; 0 supplemental) |
-| philosopher | pyrrho | Pyrrho | #/philosophers/pyrrho | 2022 | pass | yes | yes (1 primary; 0 supplemental) |
+| philosopher | lucretius | Lucretius | #/philosophers/lucretius | 2018 | pass | yes | yes (1 primary; 0 supplemental) |
+| philosopher | pyrrho | Pyrrho | #/philosophers/pyrrho | 2029 | pass | yes | yes (1 primary; 0 supplemental) |
 | philosopher | socrates | Socrates | #/philosophers/socrates | 3010 | pass | yes | yes (1 primary; 1 supplemental) |
 | philosopher | plato | Plato | #/philosophers/plato | 4900 | pass | yes | yes (1 primary; 2 supplemental) |
-| philosopher | aristotle | Aristotle | #/philosophers/aristotle | 2704 | pass | yes | yes (1 primary; 0 supplemental) |
-| philosopher | diogenes | Diogenes | #/philosophers/diogenes | 2236 | pass | yes | yes (1 primary; 1 supplemental) |
-| philosopher | epicurus | Epicurus | #/philosophers/epicurus | 2007 | pass | yes | yes (1 primary; 0 supplemental) |
-| philosopher | zeno | Zeno of Citium | #/philosophers/zeno | 2045 | pass | yes | yes (1 primary; 0 supplemental) |
-| philosopher | cleanthes | Cleanthes | #/philosophers/cleanthes | 2047 | pass | yes | yes (1 primary; 0 supplemental) |
-| philosopher | chrysippus | Chrysippus | #/philosophers/chrysippus | 2300 | pass | yes | yes (1 primary; 0 supplemental) |
+| philosopher | aristotle | Aristotle | #/philosophers/aristotle | 2719 | pass | yes | yes (1 primary; 0 supplemental) |
+| philosopher | diogenes | Diogenes | #/philosophers/diogenes | 2219 | pass | yes | yes (1 primary; 1 supplemental) |
+| philosopher | epicurus | Epicurus | #/philosophers/epicurus | 2002 | pass | yes | yes (1 primary; 0 supplemental) |
+| philosopher | zeno | Zeno of Citium | #/philosophers/zeno | 2029 | pass | yes | yes (1 primary; 0 supplemental) |
+| philosopher | cleanthes | Cleanthes | #/philosophers/cleanthes | 2053 | pass | yes | yes (1 primary; 0 supplemental) |
+| philosopher | chrysippus | Chrysippus | #/philosophers/chrysippus | 2264 | pass | yes | yes (1 primary; 0 supplemental) |
 | philosopher | arcesilaus | Arcesilaus | #/philosophers/arcesilaus | 2060 | pass | yes | yes (1 primary; 0 supplemental) |
 | philosopher | carneades | Carneades | #/philosophers/carneades | 2059 | pass | yes | yes (1 primary; 0 supplemental) |
-| philosopher | epictetus | Epictetus | #/philosophers/epictetus | 2011 | pass | yes | yes (1 primary; 0 supplemental) |
-| philosopher | seneca | Seneca | #/philosophers/seneca | 2019 | pass | yes | yes (1 primary; 0 supplemental) |
-| philosopher | marcus-aurelius | Marcus Aurelius | #/philosophers/marcus-aurelius | 2013 | pass | yes | yes (1 primary; 0 supplemental) |
+| philosopher | epictetus | Epictetus | #/philosophers/epictetus | 2064 | pass | yes | yes (1 primary; 0 supplemental) |
+| philosopher | seneca | Seneca | #/philosophers/seneca | 2024 | pass | yes | yes (1 primary; 0 supplemental) |
+| philosopher | marcus-aurelius | Marcus Aurelius | #/philosophers/marcus-aurelius | 2007 | pass | yes | yes (1 primary; 0 supplemental) |
 | philosopher | sextus-empiricus | Sextus Empiricus | #/philosophers/sextus-empiricus | 2030 | pass | yes | yes (1 primary; 1 supplemental) |
-| philosopher | plotinus | Plotinus | #/philosophers/plotinus | 2510 | pass | yes | yes (1 primary; 0 supplemental) |
+| philosopher | plotinus | Plotinus | #/philosophers/plotinus | 2478 | pass | yes | yes (1 primary; 0 supplemental) |
 | philosopher | porphyry | Porphyry | #/philosophers/porphyry | 2058 | pass | yes | yes (1 primary; 1 supplemental) |
 | philosopher | iamblichus | Iamblichus | #/philosophers/iamblichus | 2073 | pass | yes | yes (1 primary; 0 supplemental) |
 | philosopher | proclus | Proclus | #/philosophers/proclus | 2081 | pass | yes | yes (1 primary; 1 supplemental) |
@@ -98,7 +98,7 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | philosopher | zhuangzi | Zhuangzi | #/philosophers/zhuangzi | 2245 | pass | yes | yes (1 primary; 2 supplemental) |
 | philosopher | mencius | Mencius | #/philosophers/mencius | 2055 | pass | yes | yes (1 primary; 1 supplemental) |
 | philosopher | xunzi | Xunzi | #/philosophers/xunzi | 2060 | pass | yes | yes (1 primary; 0 supplemental) |
-| philosopher | buddha | Siddhartha Gautama / the Buddha | #/philosophers/buddha | 4502 | pass | yes | yes (1 primary; 2 supplemental) |
+| philosopher | buddha | Siddhartha Gautama / the Buddha | #/philosophers/buddha | 4420 | pass | yes | yes (1 primary; 2 supplemental) |
 | philosopher | nagarjuna | Nāgārjuna | #/philosophers/nagarjuna | 3007 | pass | yes | yes (1 primary; 5 supplemental) |
 | philosopher | vasubandhu | Vasubandhu | #/philosophers/vasubandhu | 2052 | pass | yes | yes (1 primary; 5 supplemental) |
 | philosopher | shankara | Adi Shankara | #/philosophers/shankara | 2068 | pass | yes | yes (1 primary; 1 supplemental) |

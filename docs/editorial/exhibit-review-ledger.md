@@ -10,7 +10,7 @@ Regenerate it with `npm run report:exhibits` and verify it with `npm run audit:e
 
 | Total | Unreviewed | Bibliography only | Source mapped | Claim reviewed | Review out of date |
 | ---: | ---: | ---: | ---: | ---: | ---: |
-| 192 | 4 | 65 | 0 | 123 | 0 |
+| 192 | 4 | 50 | 0 | 138 | 0 |
 
 ## Exhibit baseline
 
@@ -171,13 +171,13 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | mediterranean-beginnings-classical | med-being-change-plurality | anaxagoras | philosopher:anaxagoras | matched | claim-reviewed | standard-compliant |
 | mediterranean-beginnings-classical | med-sophists-socratic | protagoras | philosopher:protagoras | matched | claim-reviewed | standard-compliant |
 | mediterranean-beginnings-classical | med-sophists-socratic | prodicus | philosopher:prodicus | matched | claim-reviewed | standard-compliant |
-| mediterranean-beginnings-classical | med-sophists-socratic | hippias-of-elis | philosopher:hippias-of-elis | matched | bibliography-only | unreviewed |
+| mediterranean-beginnings-classical | med-sophists-socratic | hippias-of-elis | philosopher:hippias-of-elis | matched | claim-reviewed | unreviewed |
 | mediterranean-beginnings-classical | med-sophists-socratic | gorgias | philosopher:gorgias | matched | claim-reviewed | standard-compliant |
 | mediterranean-beginnings-classical | med-sophists-socratic | socrates | philosopher:socrates | matched | claim-reviewed | standard-compliant |
 | mediterranean-beginnings-classical | med-plato-aristotle | platonism | branch:platonism | matched | bibliography-only | unreviewed |
 | mediterranean-beginnings-classical | med-plato-aristotle | aristotelianism | branch:aristotelianism | matched | bibliography-only | unreviewed |
-| mediterranean-beginnings-classical | med-plato-aristotle | plato | philosopher:plato | matched | bibliography-only | unreviewed |
-| mediterranean-beginnings-classical | med-plato-aristotle | aristotle | philosopher:aristotle | matched | bibliography-only | unreviewed |
+| mediterranean-beginnings-classical | med-plato-aristotle | plato | philosopher:plato | matched | claim-reviewed | unreviewed |
+| mediterranean-beginnings-classical | med-plato-aristotle | aristotle | philosopher:aristotle | matched | claim-reviewed | unreviewed |
 | renaissance-humanism-new-method | early-statecraft-republic | machiavelli | philosopher:machiavelli | matched | claim-reviewed | standard-compliant |
 | renaissance-humanism-new-method | early-statecraft-republic | ficino | philosopher:ficino | matched | claim-reviewed | standard-compliant |
 | renaissance-humanism-new-method | early-experiment-method | bacon | philosopher:bacon | matched | claim-reviewed | standard-compliant |
@@ -229,7 +229,7 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | classical-south-asian-worlds | south-vedanta-rival-readings | ramanuja | philosopher:ramanuja | matched | claim-reviewed | standard-compliant |
 | classical-south-asian-worlds | south-vedanta-rival-readings | madhva | philosopher:madhva | matched | claim-reviewed | standard-compliant |
 | buddhist-philosophies | buddhist-many-paths | buddhist-philosophy | branch:buddhist-philosophy | matched | bibliography-only | unreviewed |
-| buddhist-philosophies | buddhist-many-paths | buddha | philosopher:buddha | matched | bibliography-only | unreviewed |
+| buddhist-philosophies | buddhist-many-paths | buddha | philosopher:buddha | matched | claim-reviewed | unreviewed |
 | buddhist-philosophies | buddhist-madhyamaka | nagarjuna | philosopher:nagarjuna | matched | claim-reviewed | standard-compliant |
 | buddhist-philosophies | buddhist-abhidharma-yogacara | vasubandhu | philosopher:vasubandhu | matched | claim-reviewed | standard-compliant |
 | buddhist-philosophies | buddhist-pramana | buddhist-epistemology | branch:buddhist-epistemology | matched | claim-reviewed | standard-compliant |
@@ -273,24 +273,24 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | latin-christian-scholastic | latin-late-debates | marsilius-padua | philosopher:marsilius-padua | matched | claim-reviewed | standard-compliant |
 | hellenistic-roman-ways | hell-cynic-way | cynicism | branch:cynicism | matched | bibliography-only | unreviewed |
 | hellenistic-roman-ways | hell-cynic-way | antisthenes | philosopher:antisthenes | matched | claim-reviewed | standard-compliant |
-| hellenistic-roman-ways | hell-cynic-way | diogenes | philosopher:diogenes | matched | bibliography-only | unreviewed |
+| hellenistic-roman-ways | hell-cynic-way | diogenes | philosopher:diogenes | matched | claim-reviewed | unreviewed |
 | hellenistic-roman-ways | hell-epicurean-garden | epicureanism | branch:epicureanism | matched | bibliography-only | unreviewed |
-| hellenistic-roman-ways | hell-epicurean-garden | epicurus | philosopher:epicurus | matched | bibliography-only | unreviewed |
-| hellenistic-roman-ways | hell-epicurean-garden | lucretius | philosopher:lucretius | matched | bibliography-only | unreviewed |
+| hellenistic-roman-ways | hell-epicurean-garden | epicurus | philosopher:epicurus | matched | claim-reviewed | unreviewed |
+| hellenistic-roman-ways | hell-epicurean-garden | lucretius | philosopher:lucretius | matched | claim-reviewed | unreviewed |
 | hellenistic-roman-ways | hell-stoic-stoa | stoicism | branch:stoicism | matched | bibliography-only | unreviewed |
-| hellenistic-roman-ways | hell-stoic-stoa | zeno | philosopher:zeno | matched | bibliography-only | unreviewed |
-| hellenistic-roman-ways | hell-stoic-stoa | cleanthes | philosopher:cleanthes | matched | bibliography-only | unreviewed |
-| hellenistic-roman-ways | hell-stoic-stoa | chrysippus | philosopher:chrysippus | matched | bibliography-only | unreviewed |
-| hellenistic-roman-ways | hell-stoic-stoa | epictetus | philosopher:epictetus | matched | bibliography-only | unreviewed |
-| hellenistic-roman-ways | hell-stoic-stoa | seneca | philosopher:seneca | matched | bibliography-only | unreviewed |
-| hellenistic-roman-ways | hell-stoic-stoa | marcus-aurelius | philosopher:marcus-aurelius | matched | bibliography-only | unreviewed |
+| hellenistic-roman-ways | hell-stoic-stoa | zeno | philosopher:zeno | matched | claim-reviewed | unreviewed |
+| hellenistic-roman-ways | hell-stoic-stoa | cleanthes | philosopher:cleanthes | matched | claim-reviewed | unreviewed |
+| hellenistic-roman-ways | hell-stoic-stoa | chrysippus | philosopher:chrysippus | matched | claim-reviewed | unreviewed |
+| hellenistic-roman-ways | hell-stoic-stoa | epictetus | philosopher:epictetus | matched | claim-reviewed | unreviewed |
+| hellenistic-roman-ways | hell-stoic-stoa | seneca | philosopher:seneca | matched | claim-reviewed | unreviewed |
+| hellenistic-roman-ways | hell-stoic-stoa | marcus-aurelius | philosopher:marcus-aurelius | matched | claim-reviewed | unreviewed |
 | hellenistic-roman-ways | hell-skeptical-lineages | skepticism | branch:skepticism | matched | bibliography-only | unreviewed |
-| hellenistic-roman-ways | hell-skeptical-lineages | pyrrho | philosopher:pyrrho | matched | bibliography-only | unreviewed |
+| hellenistic-roman-ways | hell-skeptical-lineages | pyrrho | philosopher:pyrrho | matched | claim-reviewed | unreviewed |
 | hellenistic-roman-ways | hell-skeptical-lineages | arcesilaus | philosopher:arcesilaus | matched | claim-reviewed | standard-compliant |
 | hellenistic-roman-ways | hell-skeptical-lineages | carneades | philosopher:carneades | matched | claim-reviewed | standard-compliant |
 | hellenistic-roman-ways | hell-skeptical-lineages | sextus-empiricus | philosopher:sextus-empiricus | matched | claim-reviewed | standard-compliant |
 | late-antiquity-inheritance | late-neoplatonic-systems | neoplatonism | branch:neoplatonism | matched | bibliography-only | unreviewed |
-| late-antiquity-inheritance | late-neoplatonic-systems | plotinus | philosopher:plotinus | matched | bibliography-only | unreviewed |
+| late-antiquity-inheritance | late-neoplatonic-systems | plotinus | philosopher:plotinus | matched | claim-reviewed | unreviewed |
 | late-antiquity-inheritance | late-neoplatonic-systems | porphyry | philosopher:porphyry | matched | claim-reviewed | standard-compliant |
 | late-antiquity-inheritance | late-neoplatonic-systems | iamblichus | philosopher:iamblichus | matched | claim-reviewed | standard-compliant |
 | late-antiquity-inheritance | late-neoplatonic-systems | proclus | philosopher:proclus | matched | claim-reviewed | standard-compliant |
