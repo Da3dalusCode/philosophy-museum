@@ -151,9 +151,9 @@ export const FAITH_PESSIMISM_VALUE_GALLERY_ASSETS = [
   }),
   asset({
     id: 'value-nietzsche-1869-siebe-portrait', entityId: 'nietzsche', role: 'identity', mediaKind: 'photograph', visualCharacter: 'portrait-or-figure',
-    title: 'Friedrich Nietzsche in Leipzig', creator: 'Unidentified photographer, Gebrüder Siebe studio', objectDate: '25 August 1869', institution: 'Goethe- und Schiller-Archiv copy', sourcePageUrl: 'https://commons.wikimedia.org/wiki/File:Nietzsche187c.jpg', rights: publicDomain,
-    attribution: 'Unidentified photographer, Gebrüder Siebe studio, Friedrich Nietzsche, 25 August 1869. Public domain.', scene: [426, 640], panel: [852, 1280],
-    alt: 'A young Friedrich Nietzsche faces the camera in spectacles, formal jacket, and broad mustache.', caption: 'The 1869 studio portrait anchors Nietzsche at the threshold of his Basel philology and early work on tragedy.', historicalNote: 'The studio is documented, but Commons does not identify the photographer; the image should not be misdated 1875.', likenessStatus: 'lifetime-photograph',
+    title: 'Friedrich Nietzsche in Leipzig', creator: 'Unidentified photographer, Gebrüder Siebe studio', objectDate: '25 August 1869', institution: 'Goethe- und Schiller-Archiv, Weimar, GSA 101/11 (copy)', sourcePageUrl: 'https://commons.wikimedia.org/wiki/File:Nietzsche187c.jpg', rights: publicDomain,
+    attribution: 'Unidentified photographer, Gebrüder Siebe studio, Friedrich Nietzsche, 25 August 1869; Goethe- und Schiller-Archiv copy, GSA 101/11. Public domain.', scene: [426, 640], panel: [852, 1280],
+    alt: 'A young Friedrich Nietzsche faces the camera in spectacles, bow tie, formal jacket, and broad mustache.', caption: 'Studio portrait of Friedrich Nietzsche, Gebrüder Siebe, Leipzig, 25 August 1869; a copy is held by the Goethe- und Schiller-Archiv, GSA 101/11.', historicalNote: 'The Gebrüder Siebe studio and date are documented, but the photographer is unidentified. The archive holds a copy as GSA 101/11, and the image should not be misdated 1875 or read backward as a portrait of Nietzsche’s later doctrines.', likenessStatus: 'lifetime-photograph',
   }),
   asset({
     id: 'value-greek-tragedy-mask-taranto', entityId: 'nietzsche', role: 'material-history', mediaKind: 'sculpture-photograph', visualCharacter: 'material-object',

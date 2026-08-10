@@ -13,9 +13,9 @@
   "canonicalExhibitBaseline": {
     "total": 192,
     "countsByEffectiveStatus": {
-      "unreviewed": 56,
+      "unreviewed": 41,
       "reconciled": 0,
-      "standard-compliant": 136,
+      "standard-compliant": 151,
       "out-of-date": 0
     }
   },
@@ -27,7 +27,7 @@
     },
     "blockers": []
   },
-  "reviewedExhibits": 136,
+  "reviewedExhibits": 151,
   "errors": [],
   "entries": [
     {
@@ -788,9 +788,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-10",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 32,
+        "mainInterpretationWords": 310,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 6,
+        "principalAssetId": "husserl-portrait",
+        "issues": []
+      }
     },
     {
       "hallId": "phenomenology-existence-embodiment",
@@ -806,9 +816,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-10",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 32,
+        "mainInterpretationWords": 319,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 7,
+        "principalAssetId": "heidegger-pragher-portrait-1960",
+        "issues": []
+      }
     },
     {
       "hallId": "phenomenology-existence-embodiment",
@@ -870,9 +890,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-10",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 35,
+        "mainInterpretationWords": 320,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 7,
+        "principalAssetId": "sartre-anefo-1965",
+        "issues": []
+      }
     },
     {
       "hallId": "phenomenology-existence-embodiment",
@@ -888,9 +918,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-10",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 35,
+        "mainInterpretationWords": 320,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 6,
+        "principalAssetId": "camus-loc-1957",
+        "issues": []
+      }
     },
     {
       "hallId": "phenomenology-existence-embodiment",
@@ -1064,9 +1104,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-10",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 32,
+        "mainInterpretationWords": 319,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 7,
+        "principalAssetId": "wittgenstein-naehr-1930",
+        "issues": []
+      }
     },
     {
       "hallId": "analytic-traditions",
@@ -1166,9 +1216,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-10",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 34,
+        "mainInterpretationWords": 320,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 7,
+        "principalAssetId": "arendt-portrait-1933",
+        "issues": []
+      }
     },
     {
       "hallId": "justice-democratic-reason",
@@ -3708,9 +3768,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-10",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 33,
+        "mainInterpretationWords": 303,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 5,
+        "principalAssetId": "rationalism-descartes-weenix",
+        "issues": []
+      }
     },
     {
       "hallId": "rationalism-mind-nature-system",
@@ -3726,9 +3796,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-10",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 33,
+        "mainInterpretationWords": 311,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 6,
+        "principalAssetId": "rationalism-spinoza-engraving",
+        "issues": []
+      }
     },
     {
       "hallId": "rationalism-mind-nature-system",
@@ -3772,9 +3852,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-10",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 33,
+        "mainInterpretationWords": 303,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 6,
+        "principalAssetId": "rationalism-leibniz-francke",
+        "issues": []
+      }
     },
     {
       "hallId": "empiricism-science-political-order",
@@ -3808,9 +3898,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-10",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 33,
+        "mainInterpretationWords": 310,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 6,
+        "principalAssetId": "empiricism-locke-greenhill-portrait",
+        "issues": []
+      }
     },
     {
       "hallId": "empiricism-science-political-order",
@@ -3854,9 +3954,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-10",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 32,
+        "mainInterpretationWords": 320,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 6,
+        "principalAssetId": "hume-ramsay-portrait-1754",
+        "issues": []
+      }
     },
     {
       "hallId": "enlightenment-revolution-kant",
@@ -4048,9 +4158,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-10",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 32,
+        "mainInterpretationWords": 314,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 6,
+        "principalAssetId": "german-idealism-fichte-bury-1801",
+        "issues": []
+      }
     },
     {
       "hallId": "german-idealism-afterlives",
@@ -4318,9 +4438,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-10",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 33,
+        "mainInterpretationWords": 312,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 6,
+        "principalAssetId": "value-dostoevsky-perov-1872",
+        "issues": []
+      }
     },
     {
       "hallId": "faith-pessimism-life-value",
@@ -4336,9 +4466,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-10",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 32,
+        "mainInterpretationWords": 315,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 6,
+        "principalAssetId": "value-nietzsche-1869-siebe-portrait",
+        "issues": []
+      }
     },
     {
       "hallId": "pragmatism-democratic-inquiry",
@@ -4740,9 +4880,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-10",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 34,
+        "mainInterpretationWords": 316,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 6,
+        "principalAssetId": "feminist-beauvoir-portrait",
+        "issues": []
+      }
     },
     {
       "hallId": "feminist-philosophies",

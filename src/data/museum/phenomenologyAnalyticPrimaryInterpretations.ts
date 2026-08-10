@@ -15,7 +15,7 @@ const standardReview = (lock: string): MuseumExhibitReview => ({
 });
 
 const STANDARD_REVIEW_BY_NAME: Readonly<Record<string, MuseumExhibitReview>> = {
-  'Maurice Merleau-Ponty': standardReview('fnv1a64:80681bc7e7b7a552'),
+  'Maurice Merleau-Ponty': standardReview('fnv1a64:4c46ae52ba4ca724'),
   'Emmanuel Levinas': standardReview('fnv1a64:c56cdd4003e222fb'),
   'Hans-Georg Gadamer': standardReview('fnv1a64:641b2c06ea41c38f'),
   'Bertrand Russell': standardReview('fnv1a64:bca8fcf167aa31ca'),

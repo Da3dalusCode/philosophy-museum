@@ -260,10 +260,10 @@ export const MUSEUM_EXPANSION_ASSETS = [
   }),
   expansionAsset({
     id: 'arendt-portrait-1933', hallFolder: 'ethics-justice-political-life', entityId: 'arendt', role: 'identity', mediaKind: 'photograph',
-    title: 'Hannah Arendt', creator: 'Unknown photographer', objectDate: '1933', institution: 'Reproduced in Elisabeth Young-Bruehl’s Hannah Arendt biography; original repository not identified on Commons',
-    sourcePageUrl: 'https://commons.wikimedia.org/wiki/File:Hannah_Arendt_1933.jpg', ...publicDomain('Public domain (anonymous work and U.S. no-notice determination)', 'https://commons.wikimedia.org/wiki/Template:PD-anon-70-EU'),
-    attribution: 'Unknown photographer, Hannah Arendt, 1933. Public-domain status asserted by Wikimedia Commons for an anonymous work and U.S. publication circumstances.', alt: 'Black-and-white 1933 portrait of a young Hannah Arendt looking directly toward the camera.',
-    caption: 'Hannah Arendt in 1933, the year she fled Nazi Germany.', historicalNote: 'The photographer and original repository are unidentified. Commons relies on anonymous-work and United States publication assumptions, so jurisdictional reuse deserves separate review.', likenessStatus: 'lifetime-photograph', focalPoint: {x: .5, y: .4},
+    title: 'Hannah Arendt', creator: 'Unknown photographer', objectDate: '1933', institution: 'Reproduced in Elisabeth Young-Bruehl, Hannah Arendt: For Love of the World (Yale University Press); original repository unknown',
+    sourcePageUrl: 'https://commons.wikimedia.org/wiki/File:Hannah_Arendt_1933.jpg', ...publicDomain('Public-domain status asserted by Wikimedia Commons under anonymous-work and U.S. publication assumptions; other-jurisdiction status is unverified', 'https://commons.wikimedia.org/wiki/File:Hannah_Arendt_1933.jpg'),
+    attribution: 'Unknown photographer, Hannah Arendt, 1933; reproduced in Elisabeth Young-Bruehl, Hannah Arendt: For Love of the World. Rights status is qualified by the Wikimedia Commons source.', alt: 'Black-and-white 1933 portrait of a young Hannah Arendt looking directly toward the camera.',
+    caption: 'An unidentified 1933 lifetime photograph of Hannah Arendt.', historicalNote: 'The photographer and original repository are unidentified. Commons relies on anonymous-work and United States publication assumptions, so jurisdictional reuse requires caution. The portrait cannot prove Arendt’s flight, exile, statelessness, judgment, or political theory.', likenessStatus: 'lifetime-photograph', focalPoint: {x: .5, y: .4},
   }),
   expansionAsset({
     id: 'arendt-grave-bard', hallFolder: 'ethics-justice-political-life', entityId: 'arendt', role: 'material-history', mediaKind: 'photograph',
@@ -372,10 +372,10 @@ export const MUSEUM_EXPANSION_ASSETS = [
   }),
   expansionAsset({
     id: 'husserl-portrait', hallFolder: 'mind-consciousness-self', entityId: 'husserl', role: 'identity', mediaKind: 'photograph',
-    title: 'Edmund Husserl', creator: 'Unknown photographer; associated with Mondadori Publishers', objectDate: '1910s', institution: 'Mondadori image reproduced through Getty Images',
-    sourcePageUrl: 'https://commons.wikimedia.org/wiki/File:Edmund_Husserl_1910s.jpg', ...publicDomain('Public domain in Italy as a simple photograph; anonymous-work status also asserted', 'https://commons.wikimedia.org/wiki/Template:PD-Italy'),
-    attribution: 'Unknown photographer, Edmund Husserl, 1910s, Mondadori. Public-domain status in Italy and for an anonymous work asserted by Wikimedia Commons.', alt: 'Black-and-white bust-length portrait of Edmund Husserl in the 1910s wearing round glasses.',
-    caption: 'Edmund Husserl in the 1910s.', historicalNote: 'The immediate source is a Getty/Mondadori reproduction and the photographer is unknown. Commons relies on Italy’s simple-photograph term and anonymous-work rules, while warning that countries without the rule of the shorter term—including some U.S. cases—may differ.', likenessStatus: 'lifetime-photograph', focalPoint: {x: .5, y: .39},
+    title: 'Edmund Husserl', creator: 'Unknown photographer', objectDate: '1910s', institution: 'Getty Images / Mondadori reproduction; photographer unknown',
+    sourcePageUrl: 'https://commons.wikimedia.org/wiki/File:Edmund_Husserl_1910s.jpg', ...publicDomain('Public-domain status in Italy and as an anonymous work is asserted by Wikimedia Commons; U.S. and other-jurisdiction status is unverified', 'https://commons.wikimedia.org/wiki/File:Edmund_Husserl_1910s.jpg'),
+    attribution: 'Unknown photographer, Edmund Husserl, 1910s, Getty Images / Mondadori reproduction. Rights status is qualified by the Wikimedia Commons source.', alt: 'Black-and-white bust-length portrait of Edmund Husserl in the 1910s wearing round glasses.',
+    caption: 'An unidentified 1910s lifetime photograph of Edmund Husserl.', historicalNote: 'The immediate source is a Getty/Mondadori reproduction and the photographer is unknown. Commons relies on Italy’s simple-photograph term and anonymous-work rules, while warning that United States and other jurisdictions may differ. The portrait cannot settle Husserl’s changing method or the status of his unfinished archive.', likenessStatus: 'lifetime-photograph', focalPoint: {x: .5, y: .39},
   }),
   expansionAsset({
     id: 'husserl-goettingen-plaque', hallFolder: 'mind-consciousness-self', entityId: 'husserl', role: 'context', mediaKind: 'photograph',

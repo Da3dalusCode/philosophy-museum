@@ -115,11 +115,11 @@ export const EMPIRICISM_GALLERY_ASSETS = [
   }),
   asset({
     id: 'empiricism-locke-greenhill-portrait', entityKind: 'philosopher', entityId: 'locke', role: 'identity', mediaKind: 'painting', visualCharacter: 'portrait-or-figure',
-    title: 'Portrait of John Locke', creator: 'John Greenhill', objectDate: 'Before Greenhill’s death in 1676', institution: 'National Portrait Gallery, London, NPG 3912', sourcePageUrl: 'https://commons.wikimedia.org/wiki/File:John_Locke_by_John_Greenhill.jpg', objectPageUrl: 'https://www.npg.org.uk/collections/search/portrait/mw03962', ...publicDomain, derivativeNotice,
-    attribution: 'John Greenhill, John Locke, before 1676, National Portrait Gallery, London. Public Domain Mark 1.0 via Wikimedia Commons.', scene: [526, 640], panel: [1053, 1280],
-    alt: 'A young John Locke turns toward the viewer in a dark draped garment against a deep brown background.',
-    caption: 'Greenhill’s portrait is a lifetime image made before 1676, distinct from the familiar later Kneller portrait.',
-    historicalNote: 'The underlying painting is public domain and Commons applies PD-Art, but the source page records a National Portrait Gallery digitization claim that may matter in some jurisdictions. A staged portrait establishes historical presence, not the consistency of Locke’s political commitments.',
+    title: 'Portrait of John Locke', creator: 'John Greenhill', objectDate: '1672', institution: 'National Portrait Gallery, London, NPG 3912', sourcePageUrl: 'https://commons.wikimedia.org/wiki/File:John_Locke_by_John_Greenhill.jpg', objectPageUrl: 'https://www.npg.org.uk/collections/search/portrait/mw03962', ...publicDomain, derivativeNotice,
+    attribution: 'John Greenhill, John Locke, 1672, National Portrait Gallery, London, NPG 3912. Public Domain Mark 1.0 via Wikimedia Commons.', scene: [526, 640], panel: [1053, 1280],
+    alt: 'A young John Locke turns toward the viewer in an oval oil portrait, with long dark curled hair, a dark draped garment, and a deep brown ground.',
+    caption: 'John Greenhill’s 1672 oil portrait of John Locke, National Portrait Gallery, London, NPG 3912.',
+    historicalNote: 'The 1672 painting is public domain and the displayed Commons reproduction is marked PD-Art. The National Portrait Gallery states separate terms for its own current digitization, which is not the displayed file. A staged portrait establishes historical presence, not the consistency of Locke’s political commitments.',
     likenessStatus: 'lifetime-portrait', focalPoint: {x: .5, y: .37},
   }),
   asset({
@@ -196,11 +196,11 @@ export const EMPIRICISM_GALLERY_ASSETS = [
   }),
   asset({
     id: 'hume-ramsay-portrait-1754', entityKind: 'philosopher', entityId: 'hume', role: 'identity', mediaKind: 'painting', visualCharacter: 'portrait-or-figure',
-    title: 'Portrait of David Hume', creator: 'Allan Ramsay', objectDate: '1754', institution: 'Scottish National Portrait Gallery, PG 3521', sourcePageUrl: 'https://commons.wikimedia.org/wiki/File:Painting_of_David_Hume.jpg', objectPageUrl: 'https://www.nationalgalleries.org/art-and-artists/60610', ...publicDomain, derivativeNotice,
-    attribution: 'Allan Ramsay, David Hume, 1754, Scottish National Portrait Gallery. Public Domain Mark 1.0.', scene: [522, 640], panel: [1044, 1280],
-    alt: 'David Hume appears seated in a red coat and pale waistcoat, one arm resting across his body against a dark background.',
-    caption: 'Ramsay’s 1754 lifetime portrait presents Hume as his reputation as essayist and historian was growing.',
-    historicalNote: 'This is a distinct composition from the later Ramsay portrait formerly installed elsewhere. Its assured public persona neither visualizes skeptical doubt nor excuses Hume’s racist claims and exclusions.',
+    title: 'Portrait of David Hume', creator: 'Allan Ramsay', objectDate: '1754', institution: 'National Galleries of Scotland, PG 3521', sourcePageUrl: 'https://commons.wikimedia.org/wiki/File:Painting_of_David_Hume.jpg', objectPageUrl: 'https://www.nationalgalleries.org/art-and-artists/60610', ...publicDomain, derivativeNotice,
+    attribution: 'Allan Ramsay, David Hume, 1754, National Galleries of Scotland, PG 3521. Public Domain Mark 1.0 via Wikimedia Commons.', scene: [522, 640], panel: [1044, 1280],
+    alt: 'David Hume appears in an oval portrait with a reddish turban, brown coat, and an embroidered gold-and-floral waistcoat against a warm brown ground.',
+    caption: 'Allan Ramsay, David Hume, 1754, oil on canvas, National Galleries of Scotland, PG 3521.',
+    historicalNote: 'The 1754 painting is public domain and the displayed Commons reproduction is marked as a public-domain reproduction. The National Galleries of Scotland states personal-use terms for its own current digital image, which is not the displayed file. The portrait’s polished public persona neither visualizes skeptical doubt nor excuses Hume’s racist claims and exclusions.',
     likenessStatus: 'lifetime-portrait', focalPoint: {x: .5, y: .35},
   }),
   asset({

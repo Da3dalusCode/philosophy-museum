@@ -40,6 +40,8 @@ import {CANONICAL_ORDER_PRIMARY_INTERPRETATIONS_C} from './canonicalOrderPrimary
 import {CANONICAL_ORDER_PRIMARY_INTERPRETATIONS_D} from './canonicalOrderPrimaryInterpretationsD';
 import {CLAIM_REVIEWED_PRIMARY_INTERPRETATIONS_NEXT_A} from './claimReviewedPrimaryInterpretationsNextA';
 import {CLAIM_REVIEWED_PRIMARY_INTERPRETATIONS_NEXT_B} from './claimReviewedPrimaryInterpretationsNextB';
+import {CLAIM_REVIEWED_PRIMARY_INTERPRETATIONS_FOLLOWING_A} from './claimReviewedPrimaryInterpretationsFollowingA';
+import {CLAIM_REVIEWED_PRIMARY_INTERPRETATIONS_FOLLOWING_B} from './claimReviewedPrimaryInterpretationsFollowingB';
 
 export type MuseumInterpretationSource = {
   label: string;
@@ -1416,6 +1418,23 @@ const PRIMARY_INTERPRETATION_ENRICHMENT = {
   ...CANONICAL_ORDER_PRIMARY_INTERPRETATIONS_D,
   ...CLAIM_REVIEWED_PRIMARY_INTERPRETATIONS_NEXT_A,
   ...CLAIM_REVIEWED_PRIMARY_INTERPRETATIONS_NEXT_B,
+  ...CLAIM_REVIEWED_PRIMARY_INTERPRETATIONS_FOLLOWING_A,
+  ...CLAIM_REVIEWED_PRIMARY_INTERPRETATIONS_FOLLOWING_B,
+};
+
+const PRIMARY_PHILOSOPHER_BIOGRAPHY_OVERRIDES:
+Readonly<Record<string, Partial<MuseumPhilosopherInterpretation['biography']>>> = {
+  wittgenstein: {
+    born: '26 April 1889, Vienna, Austria-Hungary',
+    died: '29 April 1951, Cambridge, England',
+    associatedPlaces: ['Vienna', 'Manchester', 'Cambridge', 'Norway'],
+    era: 'Late Habsburg Vienna, the First World War, and twentieth-century analytic philosophy',
+    affiliations: ['Trinity College, Cambridge', 'University of Cambridge', 'Austro-Hungarian Army', 'Primary-school teaching and architectural work in Austria'],
+    influencedBy: ['Gottlob Frege', 'Bertrand Russell', 'Heinrich Hertz', 'Arthur Schopenhauer', 'Leo Tolstoy'],
+    studentsOrFollowers: ['Vienna Circle (selective reception, not membership)', 'G. E. M. Anscombe', 'Ordinary-language philosophy', 'Therapeutic and practice-oriented traditions'],
+    sourceSituation: 'The Tractatus was his only book-length philosophical work published during his lifetime. Philosophical Investigations and other major later titles were constructed posthumously from manuscripts, typescripts, and lecture materials; continuity between phases remains disputed.',
+    knownFor: ['Tractatus Logico-Philosophicus', 'Logical form and saying/showing', 'Language-games and rule-following', 'Philosophical Investigations (posthumous)', 'On Certainty and hinge commitments'],
+  },
 };
 
 const applyPrimaryInterpretationEnrichment = (
@@ -1443,7 +1462,7 @@ const applyPrimaryInterpretationEnrichment = (
         },
       ]
     : enrichment.sections;
-  return {
+  const enriched = {
     ...interpretation,
     lead: enrichment.lead ?? interpretation.lead,
     keyIdeas: enrichment.keyIdeas ?? interpretation.keyIdeas,
@@ -1456,6 +1475,12 @@ const applyPrimaryInterpretationEnrichment = (
       ...enrichment.objectInterpretations,
     },
     sources: [...new Map(sources.map((source) => [source.url, source])).values()],
+  };
+  const biographyOverride = PRIMARY_PHILOSOPHER_BIOGRAPHY_OVERRIDES[entityId];
+  if (enriched.kind !== 'philosopher' || !biographyOverride) return enriched;
+  return {
+    ...enriched,
+    biography: {...enriched.biography, ...biographyOverride},
   };
 };
 

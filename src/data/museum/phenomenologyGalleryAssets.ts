@@ -151,9 +151,9 @@ export const PHENOMENOLOGY_GALLERY_ASSETS = [
     title: 'Martin Heidegger', creator: 'Willy Pragher', objectDate: '10 May 1960', institution: 'Landesarchiv Baden-Württemberg, W 134 Nr. 060678b',
     sourcePageUrl: 'https://commons.wikimedia.org/wiki/File:Heidegger_2_(1960).jpg', objectPageUrl: 'https://www.landesarchiv-bw.de/plink/?f=5-226344', ...licensed('CC BY-SA 3.0', 'https://creativecommons.org/licenses/by-sa/3.0/'),
     attribution: 'Willy Pragher, Martin Heidegger, 1960. Landesarchiv Baden-Württemberg, CC BY-SA 3.0.', derivativeNotice,
-    scene: [356, 502], panel: [356, 502], alt: 'Black-and-white press photograph of Martin Heidegger seated in a suit and looking to his left.',
-    caption: 'Willy Pragher, Martin Heidegger, 10 May 1960.',
-    historicalNote: 'A lifetime photograph. Heidegger’s philosophical influence must remain legible beside his Nazi Party membership, 1933 rectorship, and antisemitic notebook passages.', likenessStatus: 'lifetime-photograph', focalPoint: {x: .43, y: .4},
+    scene: [356, 502], panel: [356, 502], alt: 'Black-and-white cropped group photograph of Martin Heidegger seated in a suit among attendees at a 1960 Hausen ceremony, looking left.',
+    caption: 'Willy Pragher’s cropped detail from a 10 May 1960 Hausen ceremonial group photograph, showing Martin Heidegger.',
+    historicalNote: 'This is a crop from a public ceremony photograph, not a studio portrait or evidence for doctrine, disposition, or repentance. Heidegger’s influence must remain legible beside his Nazi Party membership, 1933–34 rectorship, and the antisemitic passages in the Black Notebooks.', likenessStatus: 'lifetime-photograph', focalPoint: {x: .43, y: .4},
   }),
   galleryAsset({
     id: 'merleau-marey-motion-study', entityKind: 'philosopher', entityId: 'merleau-ponty', role: 'context', mediaKind: 'document',

@@ -415,7 +415,7 @@ export const MUSEUM_CANONICAL_PROGRAM = [
         exhibit({id: 'g-e-moore', entityKind: 'philosopher', entityId: 'g-e-moore', displayName: 'G. E. Moore', tier: 'standard-individual-exhibit', question: 'Can analysis defend common sense and resist reducing goodness to a natural property?', secondaryHallIds: ['moral-life-practical-reason'], principalAssetId: 'moore-portrait-1914'}),
       ]},
       {id: 'analytic-wittgenstein', title: 'Wittgenstein: logical form, use, and therapy', recordCapacity: 1, exhibits: [
-        exhibit({id: 'wittgenstein', entityKind: 'philosopher', entityId: 'wittgenstein', displayName: 'Wittgenstein', tier: 'anchor-exhibit', question: 'How do logical form and later language-games change the work of philosophy?', secondaryHallIds: ['core-questions-forum', 'moral-life-practical-reason'], principalAssetId: 'wittgenstein-naehr-1930'}),
+        exhibit({id: 'wittgenstein', entityKind: 'philosopher', entityId: 'wittgenstein', displayName: 'Ludwig Wittgenstein', tier: 'anchor-exhibit', question: 'How do logical form and later language-games change the work of philosophy?', secondaryHallIds: ['core-questions-forum', 'moral-life-practical-reason'], principalAssetId: 'wittgenstein-naehr-1930'}),
       ]},
       {id: 'analytic-naturalism', title: 'Holism, naturalism, and ontology', recordCapacity: 1, exhibits: [
         exhibit({id: 'quine', entityKind: 'philosopher', entityId: 'quine', displayName: 'W. V. O. Quine', tier: 'standard-individual-exhibit', question: 'What changes when beliefs confront experience as an interconnected web?', secondaryHallIds: ['core-questions-forum'], formerHallId: 'logic-language-science', principalAssetId: 'quine-portrait', supportingAssetIds: ['quine-qualitative-sphere']}),
@@ -985,7 +985,7 @@ export const MUSEUM_CANONICAL_PROGRAM = [
       ]},
       {id: 'feminist-early-genealogies', title: 'Early-modern education, marriage, virtue, and citizenship', recordCapacity: 1, exhibits: []},
       {id: 'feminist-situated-freedom', title: 'Situated freedom, embodiment, and otherness', recordCapacity: 1, exhibits: [
-        exhibit({id: 'beauvoir', entityKind: 'philosopher', entityId: 'beauvoir', displayName: 'Simone de Beauvoir: Situated Freedom, Otherness, and Social Becoming', tier: 'anchor-exhibit', question: 'How can freedom be embodied and socially constrained without becoming either a fixed destiny or an abstract power of choice?', secondaryHallIds: ['phenomenology-existence-embodiment'], formerHallId: 'modernity-freedom-critique', principalAssetId: 'feminist-beauvoir-portrait'}),
+        exhibit({id: 'beauvoir', entityKind: 'philosopher', entityId: 'beauvoir', displayName: 'Simone de Beauvoir', tier: 'anchor-exhibit', question: 'How can freedom be embodied and socially constrained without becoming either a fixed destiny or an abstract power of choice?', secondaryHallIds: ['phenomenology-existence-embodiment'], formerHallId: 'modernity-freedom-critique', principalAssetId: 'feminist-beauvoir-portrait'}),
       ]},
       {id: 'feminist-gender-norms', title: 'Gender, norms, performativity, and social ontology', recordCapacity: 1, exhibits: [
         exhibit({id: 'judith-butler', entityKind: 'philosopher', entityId: 'judith-butler', displayName: 'Judith Butler', tier: 'anchor-exhibit', question: 'How do norms make genders and lives recognizable, and how can repeated embodied action contest the terms of recognition?', secondaryHallIds: ['critique-power-deconstruction'], principalAssetId: 'feminist-butler-portrait'}),

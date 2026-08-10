@@ -309,7 +309,7 @@ Readonly<Record<string, MuseumPrimaryInterpretationEnrichment>> = {
     ],
     'enlightenment-wollstonecraft-heath-engraving',
     'James Heath’s 1798 engraving reproduces John Opie’s lifetime portrait for Godwin’s posthumous Memoirs. It preserves a likeness through a later reproductive medium rather than a separate sitting; the Memoirs’ influential reception cannot substitute for Wollstonecraft’s own varied corpus.',
-    {objectLed: true, review: standardReview('fnv1a64:28e27a6a8ef5bb80')},
+    {objectLed: true, review: standardReview('fnv1a64:6f83bd44147e6d02')},
   ),
   kant: concise(
     'Immanuel Kant',

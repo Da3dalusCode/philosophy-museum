@@ -190,7 +190,7 @@ Readonly<Record<string, MuseumPrimaryInterpretationEnrichment>> = {
     ],
     'feminist-philosophy-procession',
     'This U.S. National Archives photograph records the opening of the Woman Suffrage Procession in Washington, D.C., in 1913. It shows a specific public action—marchers, a suffrage banner, crowd, vehicle, horse, and the Capitol—not a universal origin image for feminist philosophy. The photograph cannot represent every feminist tradition or participant’s view; racial exclusion and segregation within the event remain essential limits on what its visible unity can establish.',
-    'fnv1a64:78a35ba39ccebab9',
+    'fnv1a64:ce62328f3b7b663b',
   ),
   'judith-butler': objectLed(
     'Judith Butler',

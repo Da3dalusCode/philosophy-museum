@@ -234,11 +234,11 @@ export const MODERNITY_MUSEUM_ASSETS = [
   }),
   modernAsset({
     id: 'sartre-anefo-1965', hallFolder: 'modernity-freedom-critique', entityId: 'sartre', role: 'identity', mediaKind: 'photograph',
-    title: 'Jean-Paul Sartre', creator: 'Anefo / Dutch National Archives', objectDate: '12 July 1965', institution: 'Dutch National Archives, 2.24.01.05, 917-9600',
+    title: 'Jean-Paul Sartre', creator: 'Unknown photographer / Anefo', objectDate: '12 July 1965', institution: 'Nationaal Archief, Fotocollectie Anefo, 2.24.01.04, item 917-9600',
     sourcePageUrl: 'https://commons.wikimedia.org/wiki/File:Jean_Paul_Sartre_(kop),_Bestanddeelnr_917-9600.jpg', objectPageUrl: 'https://hdl.handle.net/10648/aab3e3ba-d0b4-102d-bcf8-003048976d84', ...cc0,
-    attribution: 'Anefo, Jean-Paul Sartre, 1965. Dutch National Archives, CC0.', derivativeNotice,
-    scene: [505, 640], panel: [1010, 1280], alt: 'Close black-and-white press photograph of Jean-Paul Sartre wearing glasses and looking to one side.',
-    caption: 'Anefo, Jean-Paul Sartre, 1965.', historicalNote: 'A lifetime press photograph from the year after Sartre refused the Nobel Prize in Literature.', likenessStatus: 'lifetime-photograph', focalPoint: {x: .5, y: .4},
+    attribution: 'Unknown Anefo photographer, Jean-Paul Sartre, 12 July 1965. Nationaal Archief, Fotocollectie Anefo, 2.24.01.04, item 917-9600, CC0.', derivativeNotice,
+    scene: [505, 640], panel: [1010, 1280], alt: 'Black-and-white mounted press photograph of Jean-Paul Sartre in glasses and a suit, looking left; the paper print and its worn board surround are visible.',
+    caption: 'An Anefo photograph of Jean-Paul Sartre, 12 July 1965.', historicalNote: 'The available archive description records the report series as unknown. The mounted paper print and worn board make media circulation visible; they do not disclose a doctrine, private disposition, or Sartre’s changing political judgments.', likenessStatus: 'lifetime-photograph', focalPoint: {x: .5, y: .4},
   }),
   modernAsset({
     id: 'sartre-beauvoir-balzac', hallFolder: 'modernity-freedom-critique', entityId: 'sartre', role: 'context', mediaKind: 'photograph',
@@ -266,11 +266,12 @@ export const MODERNITY_MUSEUM_ASSETS = [
   }),
   modernAsset({
     id: 'camus-loc-1957', hallFolder: 'modernity-freedom-critique', entityId: 'camus', role: 'identity', mediaKind: 'photograph',
-    title: 'Albert Camus after the Nobel Prize announcement', creator: 'United Press International', objectDate: '1957', institution: 'Library of Congress, Prints and Photographs Division, cph.3c08028',
-    sourcePageUrl: 'https://commons.wikimedia.org/wiki/File:Albert_Camus,_gagnant_de_prix_Nobel,_portrait_en_buste,_pos%C3%A9_au_bureau,_faisant_face_%C3%A0_gauche,_cigarette_de_tabagisme.jpg', objectPageUrl: 'https://www.loc.gov/pictures/item/2004671903/', ...publicDomain,
-    attribution: 'United Press International, Albert Camus, 1957. Library of Congress, public domain in the United States.', derivativeNotice,
-    scene: [533, 640], panel: [719, 863], alt: '1957 press photograph of Albert Camus seated at a desk with a cigarette.',
-    caption: 'United Press International, Albert Camus, 1957.', historicalNote: 'A lifetime press portrait from the Nobel year; Camus’s public celebrity should not erase his explicit resistance to the existentialist label.', likenessStatus: 'lifetime-photograph', focalPoint: {x: .5, y: .42},
+    title: 'Albert Camus after the Nobel Prize announcement', creator: 'United Press International', objectDate: '1957', institution: 'Library of Congress, New York World-Telegram and the Sun Newspaper Photograph Collection, cph.3c08028',
+    sourcePageUrl: 'https://commons.wikimedia.org/wiki/File:Albert_Camus,_gagnant_de_prix_Nobel,_portrait_en_buste,_pos%C3%A9_au_bureau,_faisant_face_%C3%A0_gauche,_cigarette_de_tabagisme.jpg', objectPageUrl: 'https://www.loc.gov/pictures/item/93507512/',
+    license: 'Publication may be restricted; see Library of Congress rights advisory', licenseUrl: 'https://www.loc.gov/rr/print/res/151_upi.html', rightsKind: 'rights-status',
+    attribution: 'United Press International, Albert Camus, 1957. Library of Congress, New York World-Telegram and the Sun Newspaper Photograph Collection, cph.3c08028.', derivativeNotice,
+    scene: [533, 640], panel: [719, 863], alt: 'Black-and-white 1957 portrait of Albert Camus seated at a desk, facing left and smoking a cigarette.',
+    caption: 'United Press International’s 1957 photograph of Albert Camus at a desk with a cigarette.', historicalNote: 'A lifetime press portrait from the Nobel year. The Library of Congress warns that publication may be restricted; Camus’s public celebrity neither establishes his philosophical positions nor erases his colonial political contradictions and resistance to the existentialist label.', likenessStatus: 'lifetime-photograph', focalPoint: {x: .5, y: .42},
   }),
   modernAsset({
     id: 'camus-combat-1943', hallFolder: 'modernity-freedom-critique', entityId: 'camus', role: 'material-history', mediaKind: 'document',

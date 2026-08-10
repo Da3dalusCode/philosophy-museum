@@ -48,6 +48,7 @@ type AssetInput = {
   objectDate: string;
   institution: string;
   sourcePageUrl: string;
+  objectPageUrl?: string;
   rights: Rights;
   attribution: string;
   scene: readonly [number, number];
@@ -147,15 +148,16 @@ export const GERMAN_IDEALISM_GALLERY_ASSETS = [
     title: 'Johann Gottlieb Fichte',
     creator: 'Friedrich Bury',
     objectDate: '1801',
-    institution: 'Holding institution not stated on the Commons file page',
+    institution: 'Friedrich Schiller University Jena (original charcoal drawing; documented by Stadtmuseum Jena)',
     sourcePageUrl: 'https://commons.wikimedia.org/wiki/File:Friedrich_Bury_-_Johann_Gottlieb_Fichte_1801.jpg',
+    objectPageUrl: 'https://www.museen.thueringen.de/Object/DE-MUS-873714/lido/dc00025814',
     rights: publicDomain,
     attribution: 'Friedrich Bury, Johann Gottlieb Fichte, 1801. Public domain.',
     scene: [509, 640],
     panel: [1018, 1280],
-    alt: 'Johann Gottlieb Fichte appears in a dark coat, looking outward with his head slightly turned.',
-    caption: 'Bury’s lifetime likeness anchors Fichte’s effort to reconstruct experience from self-conscious activity rather than a thing-like ego.',
-    historicalNote: 'The portrait identifies Fichte but does not illustrate self-positing, the Wissenschaftslehre, or any particular lecture.',
+    alt: 'A monochrome head-and-shoulders drawing shows Fichte in a dark high-collared coat, facing right.',
+    caption: 'Friedrich Bury, Johann Gottlieb Fichte, 1801, charcoal drawing; original held by Friedrich Schiller University Jena.',
+    historicalNote: 'The Stadtmuseum Jena object record identifies Bury’s original charcoal drawing at Friedrich Schiller University Jena as the model for a related engraving. The displayed Commons reproduction instead has an immediate print-source chain through Klaus Günzel’s 1995 Die deutschen Romantiker. The portrait cannot illustrate self-positing, the Wissenschaftslehre, or any particular lecture.',
     likenessStatus: 'lifetime-portrait',
   }),
   asset({

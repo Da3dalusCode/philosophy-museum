@@ -141,7 +141,7 @@ Readonly<Record<string, MuseumPrimaryInterpretationEnrichment>> = {
     ],
     'utility-marx-1861-beard-portrait',
     'Richard Beard’s May 1861 London photograph shows Karl Marx standing beside a chair before Capital’s first volume appeared in 1867. It is a lifetime likeness, distinct from the better-known 1875 Mayall portrait, and can situate a writer working through research, journalism, and political organization. It cannot picture value, exploitation, class, or historical materialism, supply a political blueprint, or make later regimes and movements direct evidence of Marx’s own doctrine.',
-    'fnv1a64:900a9c6967ee66c0',
+    'fnv1a64:016f278f4da74e02',
   ),
   schopenhauer: objectLed(
     'Schopenhauer',
