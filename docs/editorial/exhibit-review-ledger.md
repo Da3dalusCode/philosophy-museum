@@ -57,8 +57,8 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | Husserl | claim-reviewed | standard-compliant | 32 | 310 | 3 | 3 | 6 | standard presentation |
 | Heidegger | claim-reviewed | standard-compliant | 32 | 319 | 3 | 3 | 7 | standard presentation |
 | Maurice Merleau-Ponty | claim-reviewed | standard-compliant | 32 | 316 | 3 | 2 | 5 | standard presentation |
-| Jean-Paul Sartre | claim-reviewed | standard-compliant | 35 | 320 | 3 | 3 | 7 | standard presentation |
-| Albert Camus | claim-reviewed | standard-compliant | 35 | 320 | 3 | 3 | 6 | standard presentation |
+| Jean-Paul Sartre | claim-reviewed | standard-compliant | 32 | 320 | 3 | 3 | 7 | standard presentation |
+| Albert Camus | claim-reviewed | standard-compliant | 32 | 320 | 3 | 3 | 6 | standard presentation |
 | Emmanuel Levinas | claim-reviewed | standard-compliant | 32 | 313 | 3 | 2 | 5 | standard presentation |
 | Hans-Georg Gadamer | claim-reviewed | standard-compliant | 32 | 320 | 3 | 2 | 6 | standard presentation |
 | Bertrand Russell | claim-reviewed | standard-compliant | 32 | 312 | 3 | 2 | 6 | standard presentation |
@@ -68,7 +68,7 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | W. V. O. Quine | claim-reviewed | standard-compliant | 32 | 319 | 3 | 2 | 6 | standard presentation |
 | Elizabeth Anscombe | claim-reviewed | standard-compliant | 32 | 320 | 3 | 2 | 6 | standard presentation |
 | Political Philosophy | claim-reviewed | standard-compliant | 32 | 319 | 3 | 3 | 6 | standard presentation |
-| Hannah Arendt | claim-reviewed | standard-compliant | 34 | 320 | 3 | 3 | 7 | standard presentation |
+| Hannah Arendt | claim-reviewed | standard-compliant | 32 | 320 | 3 | 3 | 7 | standard presentation |
 | Martha Nussbaum | claim-reviewed | standard-compliant | 32 | 312 | 3 | 3 | 6 | standard presentation |
 | Ontology | claim-reviewed | standard-compliant | 32 | 320 | 3 | 3 | 6 | standard presentation |
 | Alfred North Whitehead | claim-reviewed | standard-compliant | 32 | 304 | 3 | 3 | 6 | standard presentation |
@@ -146,10 +146,10 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | Gregory of Nyssa | claim-reviewed | standard-compliant | 32 | 300 | 3 | 3 | 6 | standard presentation |
 | Pseudo-Dionysius | claim-reviewed | standard-compliant | 32 | 302 | 3 | 3 | 6 | standard presentation |
 | René Descartes | claim-reviewed | standard-compliant | 33 | 303 | 3 | 3 | 5 | standard presentation |
-| Spinoza | claim-reviewed | standard-compliant | 33 | 311 | 3 | 3 | 6 | standard presentation |
+| Spinoza | claim-reviewed | standard-compliant | 32 | 311 | 3 | 3 | 6 | standard presentation |
 | Anne Conway | claim-reviewed | standard-compliant | 32 | 318 | 3 | 3 | 6 | standard presentation |
-| Leibniz | claim-reviewed | standard-compliant | 33 | 303 | 3 | 3 | 6 | standard presentation |
-| Locke | claim-reviewed | standard-compliant | 33 | 310 | 3 | 3 | 6 | standard presentation |
+| Leibniz | claim-reviewed | standard-compliant | 32 | 303 | 3 | 3 | 6 | standard presentation |
+| Locke | claim-reviewed | standard-compliant | 32 | 310 | 3 | 3 | 6 | standard presentation |
 | George Berkeley | claim-reviewed | standard-compliant | 32 | 290 | 3 | 3 | 6 | standard presentation |
 | David Hume | claim-reviewed | standard-compliant | 32 | 320 | 3 | 3 | 6 | standard presentation |
 | Montesquieu | claim-reviewed | standard-compliant | 32 | 292 | 3 | 3 | 6 | standard presentation |
@@ -167,7 +167,7 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | Marxism | claim-reviewed | standard-compliant | 32 | 255 | 3 | 3 | 6 | standard presentation |
 | Schopenhauer | claim-reviewed | standard-compliant | 32 | 316 | 3 | 3 | 6 | standard presentation |
 | Kierkegaard | claim-reviewed | standard-compliant | 32 | 306 | 3 | 3 | 6 | standard presentation |
-| Fyodor Dostoevsky | claim-reviewed | standard-compliant | 33 | 312 | 3 | 3 | 6 | standard presentation |
+| Fyodor Dostoevsky | claim-reviewed | standard-compliant | 32 | 312 | 3 | 3 | 6 | standard presentation |
 | Friedrich Nietzsche | claim-reviewed | standard-compliant | 32 | 315 | 3 | 3 | 6 | standard presentation |
 | Charles Sanders Peirce | claim-reviewed | standard-compliant | 32 | 311 | 3 | 3 | 6 | standard presentation |
 | William James | claim-reviewed | standard-compliant | 32 | 320 | 3 | 3 | 6 | standard presentation |
