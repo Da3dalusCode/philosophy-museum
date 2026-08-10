@@ -16,7 +16,7 @@ Regenerate it with `npm run report:exhibits` and verify it with `npm run audit:e
 
 | Total | Unreviewed | Reconciled | Standard compliant | Out of date |
 | ---: | ---: | ---: | ---: | ---: |
-| 192 | 73 | 0 | 119 | 0 |
+| 192 | 71 | 0 | 121 | 0 |
 
 ## Article relationships
 
@@ -149,6 +149,8 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | Derek Parfit | claim-reviewed | standard-compliant | 33 | 325 | 3 | 3 | 6 | standard presentation |
 | Feminist Philosophy | claim-reviewed | standard-compliant | 34 | 336 | 3 | 3 | 6 | standard presentation |
 | Judith Butler | claim-reviewed | standard-compliant | 32 | 324 | 3 | 3 | 6 | standard presentation |
+| Angela Davis | claim-reviewed | standard-compliant | 32 | 297 | 3 | 3 | 6 | standard presentation |
+| bell hooks | claim-reviewed | standard-compliant | 32 | 312 | 3 | 3 | 6 | standard presentation |
 
 ## Complete canonical inventory
 
@@ -344,5 +346,5 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | feminist-philosophies | feminist-situated-freedom | beauvoir | philosopher:beauvoir | matched | bibliography-only | unreviewed |
 | feminist-philosophies | feminist-gender-norms | judith-butler | philosopher:judith-butler | matched | claim-reviewed | standard-compliant |
 | colonialism-race-liberation | colonial-embodiment-liberation | fanon | philosopher:fanon | matched | bibliography-only | unreviewed |
-| colonialism-race-liberation | colonial-black-feminism-abolition | angela-davis | philosopher:angela-davis | matched | claim-reviewed | unreviewed |
-| colonialism-race-liberation | colonial-black-feminism-abolition | bell-hooks | philosopher:bell-hooks | matched | claim-reviewed | unreviewed |
+| colonialism-race-liberation | colonial-black-feminism-abolition | angela-davis | philosopher:angela-davis | matched | claim-reviewed | standard-compliant |
+| colonialism-race-liberation | colonial-black-feminism-abolition | bell-hooks | philosopher:bell-hooks | matched | claim-reviewed | standard-compliant |
