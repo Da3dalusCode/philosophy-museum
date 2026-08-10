@@ -286,7 +286,7 @@
     {
       "id": "hippias-of-elis",
       "label": "Hippias of Elis",
-      "searchText": "hippias of elis polymathy self-sufficiency nature and convention fragments and testimonia plato, hippias minor sophist"
+      "searchText": "hippias of elis polymathy and versatile education memory and public performance nature and convention as a sophistic question caution about literary and hostile evidence plato, lesser hippias (dramatic witness) plato, protagoras (dramatic witness) fragments and later testimonia sophist"
     },
     {
       "id": "gorgias",
@@ -301,12 +301,12 @@
     {
       "id": "lucretius",
       "label": "Lucretius",
-      "searchText": "lucretius atoms freedom from fear on the nature of things epicurean"
+      "searchText": "lucretius atoms and void the swerve and contested agency mortality and freedom from fear poetry as epicurean therapy on the nature of things epicurean"
     },
     {
       "id": "pyrrho",
       "label": "Pyrrho",
-      "searchText": "pyrrho suspension of judgment tranquility reports preserved by later writers skeptic"
+      "searchText": "pyrrho uncertainty about how things are suspension and tranquility in later pyrrhonism therapeutic skepticism source-critical reading of anecdotes reports preserved by later writers skeptic"
     },
     {
       "id": "socrates",
@@ -316,37 +316,37 @@
     {
       "id": "plato",
       "label": "Plato",
-      "searchText": "plato dialogue and dialectic forms and intelligible explanation education of desire apology republic symposium theaetetus timaeus laws ancient greek"
+      "searchText": "plato dialectic and dramatic inquiry forms and intelligibility knowledge, true belief, and education justice in soul and city interpretive caution about dialogue voices apology republic symposium theaetetus timaeus laws ancient greek"
     },
     {
       "id": "aristotle",
       "label": "Aristotle",
-      "searchText": "aristotle flourishing virtue as habit nicomachean ethics metaphysics ancient greek aristotle on substance and cause classical athens and the lyceum a live historical route from modern field language to aristotle’s distinct account of substance, form, matter, and explanation. core questions forum reality & being"
+      "searchText": "aristotle explanation through causes substance, potentiality, and actuality syllogistic and demonstrative inquiry virtue as habituated practical judgment nature, ethics, and politics as connected inquiries nicomachean ethics metaphysics ancient greek aristotle on substance and cause classical athens and the lyceum a live historical route from modern field language to aristotle’s distinct account of substance, form, matter, and explanation. core questions forum reality & being"
     },
     {
       "id": "diogenes",
       "label": "Diogenes",
-      "searchText": "diogenes simplicity frank speech anecdotes preserved by later writers cynic"
+      "searchText": "diogenes askesis and reduced need frank speech before power nature and convention cosmopolitan provocation anecdotes as philosophically shaped evidence anecdotes preserved by later writers cynic"
     },
     {
       "id": "epicurus",
       "label": "Epicurus",
-      "searchText": "epicurus tranquility limited desire letter to menoeceus epicurean"
+      "searchText": "epicurus pleasure as stable freedom from pain and disturbance natural and empty desires atoms and void without providence criteria of sensation, preconception, and feeling friendship and shared philosophical practice letter to menoeceus epicurean"
     },
     {
       "id": "zeno",
       "label": "Zeno of Citium",
-      "searchText": "zeno of citium live according to nature virtue fragments and reports stoic"
+      "searchText": "zeno of citium living in accordance with nature virtue and ethical independence cynic inheritance and stoic transformation logic, physics, and ethics as later school architecture fragmentary evidence and cautious attribution fragments and reports stoic"
     },
     {
       "id": "cleanthes",
       "label": "Cleanthes",
-      "searchText": "cleanthes logos cosmic order hymn to zeus stoic"
+      "searchText": "cleanthes providential logos agreement with nature cosmic rational order ethical endurance philosophical theology hymn to zeus fragments and reports early stoic scholarch"
     },
     {
       "id": "chrysippus",
       "label": "Chrysippus",
-      "searchText": "chrysippus assent fate and responsibility fragments and reports stoic"
+      "searchText": "chrysippus propositional logic assent and impressions causal fate and responsibility passions as judgments virtue and preferred indifferents lost treatises and fragments arguments preserved by diogenes laertius, cicero, plutarch, galen, sextus empiricus, and others early stoic scholarch"
     },
     {
       "id": "arcesilaus",
@@ -361,17 +361,17 @@
     {
       "id": "epictetus",
       "label": "Epictetus",
-      "searchText": "epictetus control disciplined judgment enchiridion discourses roman stoic"
+      "searchText": "epictetus what is up to us prohairesis or volition use of impressions desire and aversion roles and social concern philosophy as training discourses (reported by arrian) encheiridion / handbook (arrian’s selection) fragments roman stoic teacher"
     },
     {
       "id": "seneca",
       "label": "Seneca",
-      "searchText": "seneca time anger moral practice letters from a stoic roman stoic"
+      "searchText": "seneca moral progress anger as evaluative error time and mortality wealth as a preferred indifferent benefits and social obligation philosophical therapy moral letters to lucilius on anger on the shortness of life on benefits on clemency natural questions tragedies roman stoic writer and statesman"
     },
     {
       "id": "marcus-aurelius",
       "label": "Marcus Aurelius",
-      "searchText": "marcus aurelius duty memento mori meditations roman stoic"
+      "searchText": "marcus aurelius testing impressions justice and social nature mortality and impermanence discipline of desire appropriate action humility under power meditations correspondence with fronto roman emperor and stoic practitioner"
     },
     {
       "id": "sextus-empiricus",
@@ -381,7 +381,7 @@
     {
       "id": "plotinus",
       "label": "Plotinus",
-      "searchText": "plotinus the one enneads neoplatonist"
+      "searchText": "plotinus the one or good intellect and forms soul and participation procession and return matter and evil beauty and intelligible form contemplative practice enneads porphyry, life of plotinus and order of his books late antique platonist"
     },
     {
       "id": "porphyry",
@@ -426,7 +426,7 @@
     {
       "id": "buddha",
       "label": "Siddhartha Gautama / the Buddha",
-      "searchText": "siddhartha gautama / the buddha four noble truths no-self early buddhist discourses buddhist"
+      "searchText": "siddhartha gautama / the buddha four truths as tasks dependent arising impermanence and aggregates not-self intentional karma and rebirth eightfold path nirvāṇa early buddhist discourses: sn 56.11 early buddhist discourses: sn 22.59 early buddhist discourses: mn 26 early buddhist discourses: dn 16 early buddhist teacher in received traditions"
     },
     {
       "id": "nagarjuna",
