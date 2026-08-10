@@ -13,9 +13,9 @@
   "canonicalExhibitBaseline": {
     "total": 192,
     "countsByEffectiveStatus": {
-      "unreviewed": 133,
+      "unreviewed": 118,
       "reconciled": 0,
-      "standard-compliant": 59,
+      "standard-compliant": 74,
       "out-of-date": 0
     }
   },
@@ -27,7 +27,7 @@
     },
     "blockers": []
   },
-  "reviewedExhibits": 59,
+  "reviewedExhibits": 74,
   "errors": [],
   "entries": [
     {
@@ -500,9 +500,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-09",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 32,
+        "mainInterpretationWords": 292,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 5,
+        "principalAssetId": "socrates-louvre-head",
+        "issues": []
+      }
     },
     {
       "hallId": "mediterranean-beginnings-classical",
@@ -590,9 +600,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-09",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 32,
+        "mainInterpretationWords": 305,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 5,
+        "principalAssetId": "machiavelli-santi-di-tito",
+        "issues": []
+      }
     },
     {
       "hallId": "renaissance-humanism-new-method",
@@ -608,9 +628,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-09",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 34,
+        "mainInterpretationWords": 310,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 5,
+        "principalAssetId": "ficino-nga-medal-1499",
+        "issues": []
+      }
     },
     {
       "hallId": "renaissance-humanism-new-method",
@@ -626,9 +656,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-09",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 33,
+        "mainInterpretationWords": 309,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 5,
+        "principalAssetId": "francis-bacon-portrait-1617",
+        "issues": []
+      }
     },
     {
       "hallId": "renaissance-humanism-new-method",
@@ -644,9 +684,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-09",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 32,
+        "mainInterpretationWords": 304,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 6,
+        "principalAssetId": "galileo-sustermans-portrait-1636",
+        "issues": []
+      }
     },
     {
       "hallId": "renaissance-humanism-new-method",
@@ -662,9 +712,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-09",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 32,
+        "mainInterpretationWords": 311,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 6,
+        "principalAssetId": "hobbes-wright-portrait",
+        "issues": []
+      }
     },
     {
       "hallId": "phenomenology-existence-embodiment",
@@ -734,9 +794,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-09",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 33,
+        "mainInterpretationWords": 316,
+        "paragraphCount": 3,
+        "guideSectionCount": 2,
+        "guideItemCount": 5,
+        "principalAssetId": "merleau-ponty-portrait",
+        "issues": []
+      }
     },
     {
       "hallId": "phenomenology-existence-embodiment",
@@ -806,9 +876,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-09",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 33,
+        "mainInterpretationWords": 313,
+        "paragraphCount": 3,
+        "guideSectionCount": 2,
+        "guideItemCount": 5,
+        "principalAssetId": "levinas-ettinger-portrait-1991",
+        "issues": []
+      }
     },
     {
       "hallId": "phenomenology-existence-embodiment",
@@ -824,9 +904,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-09",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 33,
+        "mainInterpretationWords": 320,
+        "paragraphCount": 3,
+        "guideSectionCount": 2,
+        "guideItemCount": 6,
+        "principalAssetId": "gadamer-ruuskanen-portrait-2000",
+        "issues": []
+      }
     },
     {
       "hallId": "analytic-traditions",
@@ -860,9 +950,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-09",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 32,
+        "mainInterpretationWords": 312,
+        "paragraphCount": 3,
+        "guideSectionCount": 2,
+        "guideItemCount": 6,
+        "principalAssetId": "russell-portrait-1894",
+        "issues": []
+      }
     },
     {
       "hallId": "analytic-traditions",
@@ -878,9 +978,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-09",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 33,
+        "mainInterpretationWords": 305,
+        "paragraphCount": 3,
+        "guideSectionCount": 2,
+        "guideItemCount": 6,
+        "principalAssetId": "frege-portrait",
+        "issues": []
+      }
     },
     {
       "hallId": "analytic-traditions",
@@ -896,9 +1006,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-09",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 32,
+        "mainInterpretationWords": 315,
+        "paragraphCount": 3,
+        "guideSectionCount": 2,
+        "guideItemCount": 6,
+        "principalAssetId": "moore-portrait-1914",
+        "issues": []
+      }
     },
     {
       "hallId": "analytic-traditions",
@@ -932,9 +1052,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-09",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 32,
+        "mainInterpretationWords": 319,
+        "paragraphCount": 3,
+        "guideSectionCount": 2,
+        "guideItemCount": 6,
+        "principalAssetId": "quine-portrait",
+        "issues": []
+      }
     },
     {
       "hallId": "analytic-traditions",
@@ -950,9 +1080,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-09",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 32,
+        "mainInterpretationWords": 320,
+        "paragraphCount": 3,
+        "guideSectionCount": 2,
+        "guideItemCount": 6,
+        "principalAssetId": "anscombe-portrait-interpretive",
+        "issues": []
+      }
     },
     {
       "hallId": "justice-democratic-reason",
@@ -968,9 +1108,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-09",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 32,
+        "mainInterpretationWords": 319,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 6,
+        "principalAssetId": "political-philosophy-good-government",
+        "issues": []
+      }
     },
     {
       "hallId": "justice-democratic-reason",
