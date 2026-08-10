@@ -71,6 +71,7 @@
 a:focus-visible{outline:2px solid #d99b5b;outline-offset:2px}
 .brand,.nav-scroll a,.search-results a,.branch-list a,.people-row a,.profile-list a,.path-list a,.preset-row a,.compare-controls a,.article-connections a,.branch-contribution-list a,.tag-clickable,.btn{text-decoration:none}
 .brand{color:inherit}
+footer a{color:inherit;text-underline-offset:3px}
 .nav-scroll a{border:0;background:transparent;color:#98a2b1;padding:10px 11px;border-radius:8px;display:flex;align-items:center;gap:6px;white-space:nowrap;font-size:13px}
 .nav-scroll a:hover,.nav-scroll a.active{color:#f5f4ef;background:#1b212d}
 .search-results a{width:100%;padding:10px;display:flex;justify-content:space-between;color:#eee}

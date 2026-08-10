@@ -1,136 +1,49 @@
 # Philosophy Atlas content roadmap
 
-This roadmap sequences current work; it does not change the durable [editorial program](./standards/editorial-program.md), [accepted depth decision](./decisions/0002-editorial-depth-and-flagship-scope.md), or [validation matrix](./standards/validation-matrix.md). Use `npm run report:depth` and `npm run report:flagships` for live counts.
+This roadmap summarizes the current editorial program and its remaining work. Durable requirements live in the [editorial program](./standards/editorial-program.md), [accepted decisions](./decisions/README.md), and [validation matrix](./standards/validation-matrix.md). Generated reports and executable audits are authoritative for live counts.
 
-## Current coverage
+## Current collection
 
-The atlas currently contains:
+Philosophy Atlas currently contains:
 
-- 146 philosopher records.
-- 43 branch and school records.
-- 28 sustained school bands on the Philosophy Wall.
-- 24 selected landmark works on the Philosophy Wall.
-- Article-grade coverage for all 146 philosopher records, measured by `npm run report:coverage`.
-- Article-grade coverage for all 43 branch and school records, measured by `npm run report:coverage`.
+- **192 canonical full articles:** 147 philosopher profiles and 45 articles on philosophies, branches, schools, traditions, movements, methods, and frameworks.
+- **192 canonical Museum exhibits:** one for each article-backed canonical entity.
+- **411 supplemental Museum exhibits:** works, objects, arguments, diagrams, events, and contextual installations.
+- **26 curated/open galleries and 105 rooms:** 603 interpreted stops on one connected public level.
 
-Coverage is strongest for ancient Greek philosophy, Pre-Socratic and Hellenistic schools, early modern European philosophy, medieval Christian/Islamic/scholastic philosophy, Chinese and Indian/Buddhist core traditions, analytic philosophy, pragmatism and philosophy of science, feminist/social philosophy, and late twentieth-century ethics.
+All 192 canonical full articles meet the 2,000-word substantive-prose floor. This closes the universal depth migration; it does not complete sourcing or review.
 
-The atlas now includes meaningful starting coverage for:
+## Editorial state
 
-- Greek, Roman, Christian, Jewish, Islamic, Indian, Buddhist, and Chinese traditions.
-- Metaphysics, epistemology, ethics, politics, mind, language, science, religion, and aesthetics.
-- Pragmatist, phenomenological, existentialist, analytic, continental, feminist, and critical traditions.
+The current editorial report records:
 
-## Article-first direction
+- **123 claim-reviewed articles** with current review locks;
+- **65 bibliography-only articles** whose references are not mapped as completed claim review;
+- **4 unreviewed articles**;
+- **0 source-mapped articles awaiting completed review**; and
+- **0 review-out-of-date articles**.
 
-Philosopher Profiles and Branch Explorer now use article-grade reference pages across the complete 146-philosopher and 43-branch roster. The model preserves concise structured fields for the Philosophy Wall, comparisons, quick reference, readings, and connections, while using `articleSections` as the primary depth layer. Article sections provide sustained paragraph prose, stable headings, a contents rail, and optional links to related branches, philosophers, and works.
+Museum exhibit review is separate. The generated exhibit ledger records **121 standard-compliant canonical exhibits** and **71 unreviewed canonical exhibits**, with no stale, unmatched, or ambiguous exhibit-to-article relationships.
 
-The renderer retains the earlier structured exhibit layout as a safe fallback for any future or incomplete record, but no current philosopher or branch depends on that fallback for core article coverage.
+Article depth, bibliography presence, claim review, and exhibit review are independent milestones. A long article is not necessarily claim-reviewed, and a claim-reviewed article does not by itself make the related Museum exhibit standard-compliant. Philosophy Atlas is not a peer-reviewed or independently reviewed academic publication.
 
-## Canonical article roster and universal depth migration
+## Current priorities
 
-Every philosopher and philosophy record below has canonical `articleSections`, but presence is not the same as completeness or editorial review. The permanent rule is one hard floor of 2,000 substantive article-prose words for every applicable full article, with no exemptions. `npm run report:depth` currently records 191 canonical articles: 93 pass and 98 fail. `npm run audit:articles` is the strict universal check and intentionally fails on that migration backlog; `npm run audit:articles:pilots` enforces the same rule for Socrates, Nāgārjuna, and Feminist Philosophy. Length remains separate from sourcing, accuracy, and the public editorial status.
+1. Complete claim review for the remaining bibliography-only and unreviewed articles, preserving uncertainty and disagreement.
+2. Complete the separate Museum exhibit review only after each related article and displayed object can be reconciled to the exhibit standard.
+3. Advance the approved flagship roster toward its higher depth targets without filler or weakened source discipline.
+4. Maintain source, image-rights, accessibility, chronology, classification, and relationship metadata as the collection evolves.
+5. Deepen comparison and learning routes selectively while keeping Big History and Philosophy Map readable.
 
-- Philosophers, ancient and Hellenistic: Thales, Anaximander, Anaximenes, Pythagoras, Philolaus, Parmenides, Zeno of Elea, Heraclitus, Empedocles, Anaxagoras, Leucippus, Democritus, Protagoras, Gorgias, Antisthenes, Plato, Socrates, Aristotle, Epicurus, Epictetus, Zeno of Citium, Seneca, Marcus Aurelius, Pyrrho, Sextus Empiricus, Lucretius, Diogenes, Cleanthes, Chrysippus, Arcesilaus, and Carneades.
-- Philosophers, late antique and medieval: Plotinus, Porphyry, Iamblichus, Proclus, Pseudo-Dionysius, Origen, Gregory of Nyssa, Augustine, Boethius, John Scotus Eriugena, Anselm, Peter Abelard, Thomas Aquinas, Ibn Sina / Avicenna, Maimonides, Al-Kindi, Al-Farabi, Al-Ghazali, Averroes, Duns Scotus, William of Ockham, Meister Eckhart, and Marsilius of Padua.
-- Philosophers, cross-cultural: Confucius, Laozi, Zhuangzi, Mencius, Xunzi, Mozi, Han Feizi, Zhu Xi, Wang Yangming, Siddhartha Gautama / the Buddha, Nagarjuna, Mahavira, Kanada, Patanjali, Vasubandhu, Dignaga, Dharmakirti, Adi Shankara, Ramanuja, and Madhva.
-- Philosophers, early modern and Enlightenment: Machiavelli, Francis Bacon, Descartes, Hobbes, Anne Conway, Spinoza, Locke, Berkeley, Leibniz, Hume, Montesquieu, Adam Smith, Rousseau, Mary Astell, Mary Wollstonecraft, Bentham, and John Stuart Mill.
-- Philosophers, nineteenth and twentieth century: Hegel, Schopenhauer, Kierkegaard, Marx, Frege, Bertrand Russell, G. E. Moore, Rudolf Carnap, W. V. O. Quine, Elizabeth Anscombe, Peirce, William James, Dewey, Whitehead, Jiddu Krishnamurti, Popper, Kuhn, Merleau-Ponty, Levinas, Gadamer, Iris Murdoch, Philippa Foot, Judith Jarvis Thomson, Thomas Nagel, Derek Parfit, Martha Nussbaum, Judith Butler, Angela Davis, and bell hooks.
-- Branches: Platonism, Ancient Greek Philosophy, Stoicism, Epicureanism, Skepticism, Cynicism, Aristotelianism, Neoplatonism, Epistemology, Ethics, Analytic Philosophy, Philosophy of Religion, Medieval Scholasticism, Islamic Philosophy, Rationalism, Empiricism, German Idealism, Existentialism, Phenomenology, Political Philosophy, Philosophy of Science, Metaphysics, Ontology, Virtue Ethics, Deontology, Utilitarianism, Logic, Philosophy of Language, Philosophy of Mind, Chinese Philosophy, Confucianism, Daoism, Mohism, Legalism, Indian Philosophy, Jainism, Vedanta, Buddhist Philosophy, Buddhist Epistemology, Aesthetics, Pragmatism, Continental Philosophy, and Feminist Philosophy.
+The Museum architecture, 26-gallery program, canonical assignments, and existing GitHub Pages deployment path remain fixed unless explicitly reopened under the project standards.
 
-These records define the canonical article roster, not a claim that every item already meets the depth or credibility standard. The generated inventory is authoritative for current compliance.
+## Live reports
 
-The medieval bridge and continuation passes now cover the Christian/Jewish/Islamic transition from late antiquity into scholastic and post-Avicennian debates, with special attention to faith and reason, divine language, law, grace, free will, necessary being, political order, mysticism, and philosophical interpretation.
+- `npm run report:coverage` — canonical article presence.
+- `npm run report:depth` — article-depth inventory.
+- `npm run report:editorial` — bibliography, evidence, review, and stale-lock coverage.
+- `npm run report:exhibits` — canonical exhibit-to-article review ledger.
+- `npm run report:flagships` — progress against the approved flagship roster.
+- `npm run audit:articles`, `npm run audit:editorial`, and `npm run audit:exhibits` — blocking checks for the relevant contracts.
 
-## Accuracy hardening pass
-
-The metadata layer now distinguishes rough placement anchors from display claims. Philosophers with uncertain, legendary, floruit, or pseudonymous chronology can carry `dateDisplay`, `dateConfidence`, and `dateNote` while preserving numeric years for sorting, wall placement, and timelines.
-
-Branch membership now supports a status vocabulary for disputed or historically indirect labels: founder, central, major, precursor, associated, critic, disputed, self-rejected-label, influence, and later-reception. This is especially important where shallow branch IDs would otherwise flatten Kant’s relation to German Idealism, Kierkegaard and Nietzsche’s relation to existentialism, Camus’ rejected existentialist label, Augustine’s reception of Platonism, and the distinction between Antisthenes and Diogenes in Cynicism.
-
-Founder integrity fixes now require branch origin metadata, major figure lists, timelines, and wall bands to represent canonical early figures where practical. The first locked checks cover Bentham and Mill for Utilitarianism, Peirce/James/Dewey for Pragmatism, Frege/Russell/Moore/Wittgenstein for Analytic Philosophy, and Antisthenes/Diogenes for Cynicism.
-
-The focused `npm run audit:accuracy` script checks these high-priority consistency rules. Remaining accuracy work should continue as fact-check packs: review ancient and cross-cultural chronologies, expand membership statuses to more branches, and compare branch origin stories against timeline and wall metadata before adding new article packs.
-
-The second accuracy pass extends those rules to ancient and cross-cultural chronology. Chinese, Indian, Buddhist, Jain, Daoist, Confucian, Mohist, Legalist, and Vedanta-related records should not imply modern exact dating where the evidence is traditional, approximate, legendary, or disputed. Broad tradition pages should distinguish canonical figures, critics, commentators, school systematizers, and later reception instead of treating every figure as a simple member of one school. Current locked checks cover Confucius, Laozi, Zhuangzi, Mahavira, Kanada, Patanjali, Shankara, Ramanuja, Dignaga, Dharmakirti, and the broad Chinese/Indian/Buddhist branch figure lists.
-
-The branch content-model pass splits named cross-cultural traditions out of over-broad umbrella records where the app already represents them. Chinese Philosophy remains an umbrella, while Confucianism, Daoism, Mohism, and Legalism are branch records with their own figure lists and relationship edges. Indian Philosophy remains an umbrella, while Jainism, Vedanta, Buddhist Philosophy, and Buddhist Epistemology carry their own branch records. These ten records now have dedicated article-grade prose and curated detail overlays while preserving the umbrella/subtradition distinctions.
-
-## Article-format coverage
-
-The philosopher records authored and rendered in the article-first format include every philosopher listed above. Kant, Nietzsche, Wittgenstein, and every other canonical article are included in the universal long-form audit; none is excluded from the floor.
-
-The branch records authored and rendered in the article-first format are:
-
-- Platonism, Ancient Greek Philosophy, Stoicism, Epicureanism, Skepticism, Cynicism, Aristotelianism, Neoplatonism
-- Epistemology
-- Ethics
-- Analytic Philosophy
-- Philosophy of Religion, Medieval Scholasticism, and Islamic Philosophy
-- Rationalism, Empiricism, German Idealism, Existentialism, Phenomenology, Political Philosophy, and Philosophy of Science
-- Metaphysics, Ontology, Virtue Ethics, Deontology, Utilitarianism, Logic, Philosophy of Language, and Philosophy of Mind
-- Chinese Philosophy, Confucianism, Daoism, Mohism, and Legalism
-- Indian Philosophy, Jainism, Vedanta, Buddhist Philosophy, and Buddhist Epistemology
-- Aesthetics, Pragmatism, Continental Philosophy, and Feminist Philosophy
-
-These records establish the editorial and UI pattern for future depth work: concise overview first, sustained historical and argumentative prose as the main body, and compact readings, sources, concepts, and atlas connections as supporting reference material. Branch article coverage is complete at 43 of 43, and philosopher article coverage is complete at 146 of 146. Every current atlas record now has article-grade `articleSections`.
-
-## Structured deep pack
-
-The original structured deep philosopher pack contains twelve profiles:
-
-- Plato, Aristotle, Augustine, Aquinas, Descartes, Hume, Kant, Nietzsche, Wittgenstein, Heidegger, Simone de Beauvoir, and Foucault.
-
-These profiles contain authored historical framing, multiple central questions, specifically explained ideas and works, named influence routes, interpretive disputes, staged reading paths, and stable reference links. Their structured metadata remains available as a supporting layer, and Heidegger, Simone de Beauvoir, and Foucault now also render through article-first coverage without losing that stronger structured material. Jiddu Krishnamurti has since received the same depth of authored structured treatment, with additional care around chronology, Theosophical formation, school membership, sources, and image provenance.
-
-The current audited article-grade branch pack is:
-
-- Platonism, Ancient Greek Philosophy, Aristotelianism, Neoplatonism, Stoicism, Epicureanism, Skepticism, Cynicism, Epistemology, Ethics, Analytic Philosophy, Philosophy of Religion, Medieval Scholasticism, Islamic Philosophy, Rationalism, Empiricism, German Idealism, Existentialism, Phenomenology, Political Philosophy, Philosophy of Science, Metaphysics, Ontology, Virtue Ethics, Deontology, Utilitarianism, Logic, Philosophy of Language, Philosophy of Mind, Chinese Philosophy, Confucianism, Daoism, Mohism, Legalism, Indian Philosophy, Jainism, Vedanta, Buddhist Philosophy, Buddhist Epistemology, Aesthetics, Pragmatism, Continental Philosophy, and Feminist Philosophy.
-
-These pages now contain specific origin stories, periodized development, concepts, major works, internal debates, modern relevance, misconceptions, reading paths, and reference links. All branch records now count as article-grade coverage.
-
-## Core article presence complete; depth migration open
-
-Branch article presence is complete at 43 of 43, and philosopher article presence is complete at 146 of 146. Compliance is not complete: the 109 records below 2,000 substantive words remain a measured migration category in [`editorial/article-depth-inventory.md`](./editorial/article-depth-inventory.md).
-
-Remaining editorial priorities include:
-
-- Raise every sub-2,000-word canonical article through useful, source-ready additions rather than filler, while keeping the strict universal audit unchanged.
-- Broader source provenance, primary-text links, and reference review across the full corpus.
-- Portrait/source metadata remains shallow. Most new article profiles still rely on fallback medallions until image rights and attribution can be verified.
-
-## Recommended future depth and provenance work
-
-1. Product architecture and interaction follow-through: routing, direct links, state restoration, and broader navigation QA while preserving Big History as the landing view.
-2. Performance and mobile follow-through: bundle splitting, small-screen usability, and dense-visualization testing without replacing the wall-chart model.
-3. Source and imagery provenance: expand stable references and add portraits only when creator, source, and reusable license metadata can be verified together.
-4. Analytic/topic follow-through: deepen comparison paths among Logic, Philosophy of Language, Philosophy of Mind, Philosophy of Science, Deontology, and Utilitarianism now that all are article-grade.
-5. Cross-cultural accuracy follow-through: continue checking terminology, chronology, translation choices, and relationship metadata now that all ten named Chinese, Indian, Jain, Vedanta, and Buddhist branch pages are article-grade.
-6. Image/source metadata pass: add verified image metadata only where public-domain or clearly reusable sources can be confirmed; otherwise keep fallback medallions.
-
-## Remaining product work
-
-- Continue routing, direct-link, browser-history, and state-restoration QA without changing Big History as the default landing view.
-- Improve small-screen and mobile usability while preserving the wall-chart model.
-- Split the production bundle; the current build remains functional but reports a large-chunk warning.
-- Deepen comparison content and interactions in a dedicated future pass.
-- Continue source-provenance and image-license verification beyond the current stable reference links.
-- Run broader interactive QA across navigation, drawers, filtering, comparisons, and responsive layouts.
-
-## Image and source strategy
-
-- Image metadata uses structured local fields for URL, alt text, source URL, credit, license, license URL, and notes.
-- Missing or uncertain images deliberately use the existing fallback medallion.
-- No image should be added until its source and reuse terms are confidently verified.
-- Source-link fields support SEP, IEP, Wikimedia, Wikidata, primary texts, public-domain texts, and other reliable references.
-- The article-grade pack adds a small set of stable SEP and Wikipedia reference links.
-- Portrait metadata remains intentionally deferred. Each candidate image still needs URL, source page, creator credit, license, and license URL verified together; profiles continue to use fallback medallions meanwhile.
-
-## Editorial standards
-
-- Keep explanations beginner-friendly without flattening disagreements.
-- Mark approximate dates where precision is uncertain.
-- Do not invent quotations, citations, image credits, or licenses.
-- Treat every tradition as an evolving argument rather than a single doctrine.
-- Prefer a small number of carefully structured additions over generic filler.
-- Use article prose for explanation and cards only where comparison, navigation, or quick reference genuinely benefits.
+These reports measure repository state. They do not replace historical or philosophical judgment, establish consensus, or confer peer review.

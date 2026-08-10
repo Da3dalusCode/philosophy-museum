@@ -14,6 +14,6 @@ export function AppShell({view, href, onRouteIntent, children}: {
   return <div className={museumRoute ? 'shell shell-museum' : 'shell'}>
     <header className="app-header"><Navigation view={view} href={href} onRouteIntent={onRouteIntent}/><GlobalSearch href={href}/></header>
     <main>{children}</main>
-    {!museumRoute && <footer><span>Philosophy Atlas · A local-first museum of questions</span><span>Explore arguments, not slogans.</span></footer>}
+    {!museumRoute && <footer><span>Philosophy Atlas · A local-first museum of questions</span><a href={href({kind: 'editorial-methodology'})}>About & editorial method</a></footer>}
   </div>;
 }

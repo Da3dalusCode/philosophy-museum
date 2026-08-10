@@ -4,7 +4,7 @@
 
 A canonical visitor-facing body of long-form educational article-section prose that explains a philosopher, philosophy, branch, school, tradition, movement, method, major framework, standalone work, text, argument, concept, or major exhibit in depth. Short labels, drawers, plaques, captions, and Museum interpretation panels that route to a canonical article are supporting surfaces, not additional full articles.
 
-The current authoritative registry contains philosopher and philosophy articles. It contains no standalone long-form work, text, argument, concept, or Museum-exhibit article. Wall work drawers, timeline entries, nested work/concept cards, 191 primary Museum interpretation panels, and 409 supplemental Museum surfaces are intentionally concise interfaces; when they claim article backing, their route is validated against one canonical article.
+The current authoritative registry contains philosopher and philosophy articles. It contains no standalone long-form work, text, argument, concept, or Museum-exhibit article. Wall work drawers, timeline entries, nested work/concept cards, 192 primary Museum interpretation panels, and 411 supplemental Museum surfaces are intentionally concise interfaces; when they claim article backing, their route is validated against one canonical article.
 
 ## Word-count method
 
@@ -14,11 +14,11 @@ The hard floor is **2,000 substantive article-prose words**. The counter tokeniz
 
 | Category | Total | Pass | Fail | Missing article |
 | --- | ---: | ---: | ---: | ---: |
-| Philosophers | 146 | 146 | 0 | 0 |
+| Philosophers | 147 | 147 | 0 | 0 |
 | Philosophies, branches, schools, traditions, movements, methods, and frameworks | 45 | 45 | 0 | 0 |
 | Standalone works, texts, arguments, concepts, and article-backed exhibits | 0 | 0 | 0 | 0 |
 
-Universal total: **191** applicable articles; **191 pass**; **0 fail**; **0 are missing article prose**.
+Universal total: **192** applicable articles; **192 pass**; **0 fail**; **0 are missing article prose**.
 
 There are no current failures. Any future below-floor or missing canonical article is a release-blocking regression, not an approved exception.
 
@@ -45,6 +45,7 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | ficino | Marsilio Ficino | philosopher | 2146 | pass |
 | galileo | Galileo Galilei | philosopher | 2121 | pass |
 | kant | Immanuel Kant | philosopher | 4511 | pass |
+| dostoevsky | Fyodor Dostoevsky | philosopher | 2131 | pass |
 | nietzsche | Friedrich Nietzsche | philosopher | 4336 | pass |
 | wittgenstein | Ludwig Wittgenstein | philosopher | 4790 | pass |
 | jiddu-krishnamurti | Jiddu Krishnamurti | philosopher | 2720 | pass |
@@ -127,18 +128,19 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | philosopher | hume | David Hume | #/philosophers/hume | 4800 | pass | yes | yes (1 primary; 5 supplemental) |
 | philosopher | rousseau | Jean-Jacques Rousseau | #/philosophers/rousseau | 4119 | pass | yes | yes (1 primary; 5 supplemental) |
 | philosopher | bentham | Jeremy Bentham | #/philosophers/bentham | 2257 | pass | yes | yes (1 primary; 4 supplemental) |
-| philosopher | kant | Immanuel Kant | #/philosophers/kant | 4511 | pass | no | yes (1 primary; 0 supplemental) |
+| philosopher | kant | Immanuel Kant | #/philosophers/kant | 4511 | pass | no | yes (1 primary; 1 supplemental) |
 | philosopher | fichte | Fichte | #/philosophers/fichte | 2026 | pass | yes | yes (1 primary; 3 supplemental) |
 | philosopher | schelling | Schelling | #/philosophers/schelling | 2175 | pass | yes | yes (1 primary; 5 supplemental) |
 | philosopher | hegel | Hegel | #/philosophers/hegel | 4111 | pass | yes | yes (1 primary; 8 supplemental) |
 | philosopher | schopenhauer | Schopenhauer | #/philosophers/schopenhauer | 2335 | pass | yes | yes (1 primary; 5 supplemental) |
-| philosopher | kierkegaard | Kierkegaard | #/philosophers/kierkegaard | 2351 | pass | yes | yes (1 primary; 5 supplemental) |
+| philosopher | kierkegaard | Kierkegaard | #/philosophers/kierkegaard | 2351 | pass | yes | yes (1 primary; 4 supplemental) |
+| philosopher | dostoevsky | Fyodor Dostoevsky | #/philosophers/dostoevsky | 2131 | pass | no | yes (1 primary; 1 supplemental) |
 | philosopher | marx | Karl Marx | #/philosophers/marx | 4489 | pass | yes | yes (1 primary; 11 supplemental) |
 | philosopher | mill | John Stuart Mill | #/philosophers/mill | 2089 | pass | yes | yes (1 primary; 6 supplemental) |
 | philosopher | nietzsche | Friedrich Nietzsche | #/philosophers/nietzsche | 4336 | pass | no | yes (1 primary; 5 supplemental) |
 | philosopher | husserl | Husserl | #/philosophers/husserl | 2046 | pass | yes | yes (1 primary; 3 supplemental) |
 | philosopher | heidegger | Heidegger | #/philosophers/heidegger | 2284 | pass | yes | yes (1 primary; 2 supplemental) |
-| philosopher | wittgenstein | Ludwig Wittgenstein | #/philosophers/wittgenstein | 4790 | pass | no | yes (1 primary; 4 supplemental) |
+| philosopher | wittgenstein | Ludwig Wittgenstein | #/philosophers/wittgenstein | 4790 | pass | no | yes (1 primary; 5 supplemental) |
 | philosopher | russell | Bertrand Russell | #/philosophers/russell | 2111 | pass | yes | yes (1 primary; 2 supplemental) |
 | philosopher | whitehead | Alfred North Whitehead | #/philosophers/whitehead | 2145 | pass | yes | yes (1 primary; 0 supplemental) |
 | philosopher | dewey | John Dewey | #/philosophers/dewey | 2118 | pass | yes | yes (1 primary; 5 supplemental) |
@@ -252,8 +254,8 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 
 ## Museum article-backing audit
 
-- Primary Museum interpretations: 191; each maps one-to-one to a canonical philosopher or philosophy article.
-- Supplemental Museum surfaces: 409; 407 claim a philosopher/philosophy article route and 2 explicitly do not.
+- Primary Museum interpretations: 192; each maps one-to-one to a canonical philosopher or philosophy article.
+- Supplemental Museum surfaces: 411; 409 claim a philosopher/philosophy article route and 2 explicitly do not.
 - Standalone Museum full articles discovered: 0.
 - Full per-surface mappings are recorded in `docs/editorial/article-depth-inventory.json`.
 

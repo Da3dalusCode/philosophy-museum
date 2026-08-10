@@ -15,7 +15,7 @@ This index separates durable standards, current production authority, and histor
 - [`museum-asset-provenance.md`](./museum-asset-provenance.md) — current media inventory, rights policy, lock pipeline, and preserved provenance history.
 - [`editorial/exhibit-review-ledger.md`](./editorial/exhibit-review-ledger.md) — generated canonical exhibit-to-article inventory and separate exhibit-review baseline.
 - [`editorial/flagship-program.json`](./editorial/flagship-program.json) — owner-approved flagship roster and targets; live progress is reported by `npm run report:flagships`.
-- [`content-roadmap.md`](./content-roadmap.md) — current editorial coverage and remaining depth work.
+- [`content-roadmap.md`](./content-roadmap.md) — current editorial coverage and remaining claim, exhibit, and flagship work.
 
 ## Executable production authorities
 

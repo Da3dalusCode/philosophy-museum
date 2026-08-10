@@ -72,7 +72,7 @@ export const getRouteTitle = (route: AppRoute): string => {
       title = 'Philosophy Map';
       break;
     case 'editorial-methodology':
-      title = 'Editorial Methodology';
+      title = 'About & Editorial Method';
       break;
     case 'branch': {
       const branch = getRouteArticleRecord('branch', route.branchId);

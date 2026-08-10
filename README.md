@@ -2,9 +2,9 @@
 
 **A free, walkable museum and interactive atlas of philosophy as a connected history of ideas.**
 
-[Enter the live Museum](https://da3daluscode.github.io/philosophy-museum/) · [Open Big History](https://da3daluscode.github.io/philosophy-museum/#/history) · [Read the editorial methodology](https://da3daluscode.github.io/philosophy-museum/#/methodology)
+[Enter the live Museum](https://da3daluscode.github.io/philosophy-museum/) · [Open Big History](https://da3daluscode.github.io/philosophy-museum/#/history) · [About & editorial method](https://da3daluscode.github.io/philosophy-museum/#/methodology)
 
-Current release: **[v1.0.1 — first shared release](https://github.com/Da3dalusCode/philosophy-museum/releases/tag/v1.0.1)**
+Current release: **[v1.0.2](https://github.com/Da3dalusCode/philosophy-museum/releases/tag/v1.0.2)**
 
 ![The walkable Philosophy Atlas Museum in Gallery 01, looking down the central aisle between the Republic and Allegory of the Cave exhibits.](public/assets/share/philosophy-atlas-classical-athens.png)
 
@@ -16,7 +16,7 @@ The Museum is the default public entrance; every other Atlas tool remains direct
 
 ## Highlights
 
-- **191 long-form canonical articles:** 146 philosopher profiles and 45 records covering philosophies, branches, schools, traditions, movements, methods, and frameworks.
+- **192 canonical full articles:** 147 philosopher profiles and 45 records covering philosophies, branches, schools, traditions, movements, methods, and frameworks.
 - **Walkable Museum:** the default visitor entrance, with 26 curated/open galleries and 105 rooms on one connected public level, guided travel, and a complete directory for visitors who prefer not to use free movement.
 - **[Big History](https://da3daluscode.github.io/philosophy-museum/#/history):** a filterable chronology connecting thinkers, traditions, works, and major historical developments.
 - **[Branch Explorer](https://da3daluscode.github.io/philosophy-museum/#/branches) and [Philosophy Map](https://da3daluscode.github.io/philosophy-museum/#/map):** complementary ways to follow concepts, disagreements, inheritance, opposition, and transformation.
@@ -25,21 +25,23 @@ The Museum is the default public entrance; every other Atlas tool remains direct
 
 ## Editorial depth and sourcing
 
-Every one of the 191 canonical articles meets the universal minimum of 2,000 substantive words. The release gate enforces that floor for all 146 philosopher articles and all 45 philosophy, branch, school, tradition, movement, method, and framework articles. The [generated depth inventory](docs/editorial/article-depth-inventory.md) records the method and per-article results.
+Every one of the 192 canonical full articles meets the universal minimum of 2,000 substantive words. The release gate enforces that floor for all 147 philosopher articles and all 45 philosophy, branch, school, tradition, movement, method, and framework articles. The [generated depth inventory](docs/editorial/article-depth-inventory.md) records the method and per-article results.
 
-Depth is not the same as evidence or completed editorial review. For v1.0.1, the [generated editorial coverage report](docs/editorial/editorial-coverage-report.md) records:
+Depth is not the same as evidence or completed editorial review. The current [generated editorial coverage report](docs/editorial/editorial-coverage-report.md) records:
 
-- **122** current claim reviews;
-- **66** bibliography-only records;
-- **3** unreviewed records;
+- **123** current claim-reviewed articles;
+- **65** bibliography-only articles;
+- **4** unreviewed articles;
 - **0** source-mapped records awaiting claim review; and
 - **0** stale review locks.
 
-Bibliography-only and unreviewed records have not completed claim review, and the corpus should not be described as fully claim-reviewed, fully sourced, independently fact-checked, or peer reviewed. The in-app [editorial methodology](https://da3daluscode.github.io/philosophy-museum/#/methodology) and repository [editorial model](docs/editorial/editorial-model.md) explain the review states, claim-to-source mappings, locators, and stale-review safeguards.
+Museum exhibit review is a separate milestone. Of 192 canonical exhibits, **121 are standard-compliant** and **71 remain unreviewed** under the exhibit standard. A long article is not necessarily claim-reviewed, and a claim-reviewed article does not by itself make its Museum exhibit standard-compliant.
+
+Bibliography-only and unreviewed articles have not completed claim review, and the corpus should not be described as fully claim-reviewed, fully sourced, independently fact-checked, or peer reviewed. The in-app [About & editorial method](https://da3daluscode.github.io/philosophy-museum/#/methodology), repository [editorial model](docs/editorial/editorial-model.md), and [exhibit-review ledger](docs/editorial/exhibit-review-ledger.md) explain these states and their limits.
 
 ## Walkable Museum
 
-The Museum turns the Atlas into a physical journey through 26 curated/open galleries and 105 named rooms or zones. Its collection contains **191 primary exhibits** and **409 supplemental/context exhibits**, for **600 interpreted stops** in total.
+The Museum turns the Atlas into a physical journey through 26 curated/open galleries and 105 named rooms or zones. Its collection contains **192 primary exhibits** and **411 supplemental/context exhibits**, for **603 interpreted stops** in total.
 
 ![The Core Questions Forum, where visitors encounter exhibits on knowledge, reality, ontology, and metaphysics.](public/assets/share/philosophy-atlas-core-questions-forum.png)
 
@@ -91,7 +93,10 @@ npm run check:route-manifest
 npm run validate:museum-masterplan
 npm run validate:museum-building-plan
 npm run audit:routing
-npm run audit:museum
+node scripts/auditMuseum.mjs
+npm run audit:museum-plaques
+npm run audit:exhibits
+npm run audit:museum-mobile-controls
 npm run audit:museum-assets
 npm run audit:articles
 npm run audit:articles:reviewed
@@ -103,15 +108,13 @@ npm run build
 npm run report:bundle
 ```
 
-The universal article-depth audit is a blocking release gate. It currently passes all 191 canonical articles; it is not an advisory check and no longer represents a migration backlog.
+The universal article-depth audit is a blocking release gate. It currently passes all 192 canonical full articles; it is not an advisory check and no longer represents a migration backlog.
 
 ## Project status
 
-**Philosophy Atlas v1.0.1 is the first release being actively shared outside the repository.** v1.0.0 established the first formal, substantially complete core-product milestone; this deliberately small public-share patch refines the Museum onboarding flow, Grand Entrance welcome composition, sign hierarchy, and room-wide architectural rhythm without changing the locked 26-gallery plan.
+**Philosophy Atlas v1.0.2 is the current published release.** The long-form Atlas, timelines, maps, comparisons, learning paths, search, and complete 26-gallery Museum are published and usable without an account.
 
-The long-form Atlas, timelines, maps, comparisons, learning paths, search, and complete 26-gallery Museum are published and usable without an account.
-
-Ongoing work includes formal claim review for the remaining bibliography-only and unreviewed records, deeper claim-to-source coverage, relationship enrichment, maintenance, and targeted visual refinement. The Philosophy Map remains intentionally selective for readability, and the static local-first application does not provide accounts or durable cross-device progress.
+The editorial program remains active: 123 of 192 articles have current claim review, and 121 of 192 canonical Museum exhibits have completed the separate standard-compliant exhibit review. Ongoing work includes the remaining article and exhibit reviews, relationship enrichment, maintenance, and targeted accessibility and visual refinement. The Philosophy Map remains intentionally selective for readability, and the static local-first application does not provide accounts or durable cross-device progress.
 
 ## License and media rights
 

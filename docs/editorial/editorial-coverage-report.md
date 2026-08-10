@@ -1,6 +1,6 @@
 # Editorial coverage report
 
-Data as of: 2026-08-05
+Data as of: 2026-08-09
 
 This report distinguishes bibliographies, mapped evidence, completed claim review, and stale review locks. It also reports article depth, but the hard 2,000-word completeness requirement is a separate test: length does not establish accuracy, sourcing, or review status.
 
@@ -8,7 +8,7 @@ This report distinguishes bibliographies, mapped evidence, completed claim revie
 
 | Category | Total | Unreviewed | Bibliography only | Source mapped | Claim review current | Review out of date |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| Philosophers | 146 | 3 | 34 | 0 | 109 | 0 |
+| Philosophers | 147 | 4 | 33 | 0 | 110 | 0 |
 | Philosophies / branches / schools / traditions | 45 | 0 | 32 | 0 | 13 | 0 |
 | Standalone articles and major exhibits | 0 | 0 | 0 | 0 | 0 | 0 |
 
@@ -45,7 +45,7 @@ This report distinguishes bibliographies, mapped evidence, completed claim revie
 | philosopher | epictetus | Epictetus | bibliography-only | 0 | 0 | 0 | 0 | 0 | 2011 | #/philosophers/epictetus |
 | philosopher | seneca | Seneca | bibliography-only | 0 | 0 | 0 | 0 | 0 | 2019 | #/philosophers/seneca |
 | philosopher | marcus-aurelius | Marcus Aurelius | bibliography-only | 0 | 0 | 0 | 0 | 0 | 2013 | #/philosophers/marcus-aurelius |
-| philosopher | sextus-empiricus | Sextus Empiricus | bibliography-only | 0 | 0 | 0 | 0 | 0 | 2030 | #/philosophers/sextus-empiricus |
+| philosopher | sextus-empiricus | Sextus Empiricus | claim-reviewed | 5 | 5 | 17 | 27 | 93 | 2030 | #/philosophers/sextus-empiricus |
 | philosopher | plotinus | Plotinus | bibliography-only | 0 | 0 | 0 | 0 | 0 | 2510 | #/philosophers/plotinus |
 | philosopher | porphyry | Porphyry | claim-reviewed | 6 | 6 | 17 | 22 | 93 | 2058 | #/philosophers/porphyry |
 | philosopher | iamblichus | Iamblichus | claim-reviewed | 6 | 6 | 17 | 23 | 94 | 2073 | #/philosophers/iamblichus |
@@ -91,6 +91,7 @@ This report distinguishes bibliographies, mapped evidence, completed claim revie
 | philosopher | hegel | Hegel | claim-reviewed | 8 | 8 | 17 | 51 | 164 | 4111 | #/philosophers/hegel |
 | philosopher | schopenhauer | Schopenhauer | claim-reviewed | 7 | 7 | 17 | 32 | 128 | 2335 | #/philosophers/schopenhauer |
 | philosopher | kierkegaard | Kierkegaard | claim-reviewed | 8 | 8 | 17 | 32 | 130 | 2351 | #/philosophers/kierkegaard |
+| philosopher | dostoevsky | Fyodor Dostoevsky | unreviewed | 0 | 0 | 0 | 0 | 0 | 2131 | #/philosophers/dostoevsky |
 | philosopher | marx | Karl Marx | claim-reviewed | 8 | 7 | 17 | 50 | 183 | 4489 | #/philosophers/marx |
 | philosopher | mill | John Stuart Mill | claim-reviewed | 8 | 8 | 17 | 29 | 114 | 2089 | #/philosophers/mill |
 | philosopher | nietzsche | Friedrich Nietzsche | bibliography-only | 0 | 0 | 0 | 0 | 0 | 4336 | #/philosophers/nietzsche |
@@ -212,7 +213,7 @@ This report distinguishes bibliographies, mapped evidence, completed claim revie
 
 The patterns below flag uncited legacy article paragraphs containing quotation-like text, exact dates, priority claims, influence/causation language, disputed attribution, or broad classifications. They are review-routing signals, not findings of error or padding. Proximity to the depth floor is not treated as evidence of padding.
 
-Total signals: **582**.
+Total signals: **584**.
 
 | Record | Current status | Signal | Location | Excerpt |
 | --- | --- | --- | --- | --- |
@@ -301,13 +302,6 @@ Total signals: **582**.
 | philosopher:marcus-aurelius | bibliography-only | priority-or-superlative | formation/paragraph-1 | Marcus was raised within the Roman elite and adopted into the succession planned by the emperor Antoninus Pius. His education included rhetoric, law, literature, and philosophy. In the first book of the Meditations, he n |
 | philosopher:marcus-aurelius | bibliography-only | influence-or-causation | epictetus/paragraph-1 | Epictetus is the most visible philosophical influence on the Meditations. Marcus thanks a teacher for introducing him to notes associated with Epictetus, and he repeatedly uses distinctions familiar from the Discourses: |
 | philosopher:marcus-aurelius | bibliography-only | quotation | power-humility/paragraph-2 | The tension is philosophically productive because Marcus recognizes several dangers of rule: theatricality, anger at opposition, dependence on praise, and the belief that office changes moral worth. He reminds himself no |
-| philosopher:sextus-empiricus | bibliography-only | quotation | overview/paragraph-2 | This distinction gives his writing unusual reflexivity. A skeptical argument must counter dogmatism without becoming another dogma; a formula such as “I suspend judgment” must describe a present condition without claimin |
-| philosopher:sextus-empiricus | bibliography-only | disputed-attribution | life-medicine/paragraph-1 | Little is securely known about Sextus’ life. He probably wrote in the late second or early third century CE and was associated with medicine, as the name Empiricus suggests. Ancient medical schools disputed how physician |
-| philosopher:sextus-empiricus | bibliography-only | quotation | outlines/paragraph-2 | The work is introductory but not simple. Sextus repeatedly marks the non-dogmatic force of his language, using phrases such as “it appears to me now” or “I determine nothing.” He assembles arguments whose assumptions may |
-| philosopher:sextus-empiricus | bibliography-only | disputed-attribution | against-learned/paragraph-2 | These works preserve extensive information about ancient positions that might otherwise be lost. Sextus is therefore a major historical source even when his presentation serves skeptical purposes. His arguments can expos |
-| philosopher:sextus-empiricus | bibliography-only | priority-or-superlative | equipollence-suspension/paragraph-1 | Sextus defines skepticism as an ability to set appearances and thoughts in opposition in any way, leading through equal persuasive force to suspension and then tranquility. Equipollence does not assert that arguments are |
-| philosopher:sextus-empiricus | bibliography-only | disputed-attribution | modes/paragraph-2 | The five modes associated with Agrippa focus on disagreement, infinite regress, relativity, hypothesis, and circular reasoning. A disputed claim needs support; support can provoke another demand; stopping at an unsupport |
-| philosopher:sextus-empiricus | bibliography-only | disputed-attribution | self-refutation/paragraph-3 | One productive reading distinguishes using a practice from giving a final theory of its authority. Sextus can reason, remember, and communicate as these activities presently function without claiming to have established |
 | philosopher:plotinus | bibliography-only | priority-or-superlative | overview/paragraph-2 | The resulting philosophy is both systematic and exploratory. Plotinus argues about causation, identity, thought, freedom, time, beauty, matter, evil, and the structure of living beings. He also describes rare experiences |
 | philosopher:plotinus | bibliography-only | priority-or-superlative | context/paragraph-2 | This context makes Plotinus’ philosophy an intervention rather than an isolated vision. He defends intelligible reality against materialism, but he also rejects a crude dualism that treats the physical cosmos as the evil |
 | philosopher:plotinus | bibliography-only | exact-date | life-school/paragraph-1 | Most biographical information comes from Porphyry’s Life of Plotinus, written by a devoted student who also edited the Enneads. Plotinus was born around 204 CE, studied in Alexandria with Ammonius Saccas, and later taugh |
@@ -398,6 +392,15 @@ Total signals: **582**.
 | philosopher:fichte | bibliography-only | priority-or-superlative | life-development/paragraph-2 | Fichte continued teaching in Berlin and wrote for different audiences: technical presentations of first philosophy, popular lectures on vocation, works on law and ethics, political interventions, and later religious text |
 | philosopher:fichte | bibliography-only | disputed-attribution | religion-later/paragraph-1 | The atheism controversy arose after Fichte described God not as a separate personal substance inferred behind the world but as the living moral order. Opponents heard denial of God; Fichte argued that making God into a f |
 | philosopher:fichte | bibliography-only | influence-or-causation | religion-later/paragraph-2 | Later presentations complicate the impression that finite consciousness creates everything. They describe knowledge as an image or manifestation of an absolute being or life that cannot itself be grasped as an object. Sc |
+| philosopher:dostoevsky | unreviewed | quotation | overview/paragraph-3 | This is why Dostoevsky belongs on a route toward existentialism while remaining historically distinct from the twentieth-century movement. Later existentialists recognized his investigations of freedom, anxiety, bad fait |
+| philosopher:dostoevsky | unreviewed | influence-or-causation | life-and-context/paragraph-1 | Dostoevsky was born in Moscow in 1821 and trained as a military engineer before turning to literature. His early novel Poor Folk brought rapid attention, but literary success did not stabilize his place in the volatile i |
+| philosopher:dostoevsky | unreviewed | quotation | underground/paragraph-1 | Notes from Underground opens with a narrator who attacks optimistic pictures of rationally organized human conduct. His targets include the claim that enlightened self-interest, scientific psychology, and properly design |
+| philosopher:dostoevsky | unreviewed | quotation | underground/paragraph-2 | The Underground Man is not Dostoevsky’s uncomplicated hero of freedom. His rebellion produces spite, paralysis, theatrical fantasy, and cruelty. He wants recognition but arranges situations that guarantee humiliation; he |
+| philosopher:dostoevsky | unreviewed | disputed-attribution | raskolnikov/paragraph-3 | Dostoevsky does not answer the theory only by showing that crime causes unpleasant feelings. Guilt is relational: Raskolnikov has treated persons as material for a private experiment and separated himself from a world of |
+| philosopher:dostoevsky | unreviewed | quotation | karamazov/paragraph-1 | The Brothers Karamazov gathers its philosophical conflict around a damaged family, so that theodicy, freedom, and responsibility are never merely speculative. Ivan refuses to accept a cosmic harmony whose final reconcili |
+| philosopher:dostoevsky | unreviewed | quotation | karamazov/paragraph-3 | Zosima and Alyosha do not refute Ivan by explaining why innocent suffering was secretly required. Their response is practical and relational: each person is responsible to and for others, and “active love” must take embo |
+| philosopher:dostoevsky | unreviewed | influence-or-causation | karamazov/paragraph-3 | Zosima and Alyosha do not refute Ivan by explaining why innocent suffering was secretly required. Their response is practical and relational: each person is responsible to and for others, and “active love” must take embo |
+| philosopher:dostoevsky | unreviewed | influence-or-causation | legacy-reading/paragraph-1 | Dostoevsky influenced later philosophy less by founding a school than by creating scenes future thinkers could not ignore. Nietzsche praised him as a psychologist from whom he could learn. Twentieth-century existentialis |
 | philosopher:nietzsche | bibliography-only | quotation | overview/paragraph-2 | Nietzsche’s work also changes enough that no handful of slogans can represent it. Scholars commonly distinguish early, middle, and later periods, but the boundaries and continuities are disputed. Greek tragedy, historica |
 | philosopher:nietzsche | bibliography-only | disputed-attribution | overview/paragraph-2 | Nietzsche’s work also changes enough that no handful of slogans can represent it. Scholars commonly distinguish early, middle, and later periods, but the boundaries and continuities are disputed. Greek tragedy, historica |
 | philosopher:nietzsche | bibliography-only | disputed-attribution | life-context/paragraph-2 | Persistent headaches, impaired vision, digestive illness, and periods of incapacity interrupted his teaching; their diagnosis remains contested and should not be turned into a key for decoding every text. Nietzsche resig |

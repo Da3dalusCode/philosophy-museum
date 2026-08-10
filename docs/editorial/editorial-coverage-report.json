@@ -1,5 +1,5 @@
 {
-  "dataAsOf": "2026-08-05",
+  "dataAsOf": "2026-08-09",
   "policy": {
     "articleMinimum": 2000,
     "statusAndDepthAreIndependent": true,
@@ -510,15 +510,19 @@
       "title": "Sextus Empiricus",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/sextus-empiricus",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 5,
+      "citedSourceCount": 5,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 2030
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 27,
+      "citationCount": 93,
+      "substantiveArticleWordCount": 2030,
+      "reviewNotePath": "docs/editorial/reviews/sextus-empiricus.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:ce3af75496a88610",
+      "currentReviewLock": "fnv1a64:ce3af75496a88610"
     },
     {
       "id": "plotinus",
@@ -1342,6 +1346,21 @@
       "reviewNoteExists": true,
       "storedReviewLock": "fnv1a64:d23d163a8cb1e6c8",
       "currentReviewLock": "fnv1a64:d23d163a8cb1e6c8"
+    },
+    {
+      "id": "dostoevsky",
+      "title": "Fyodor Dostoevsky",
+      "category": "philosopher",
+      "visitorEntryPoint": "#/philosophers/dostoevsky",
+      "authoredStatus": "unreviewed",
+      "effectiveStatus": "unreviewed",
+      "sourceCount": 0,
+      "citedSourceCount": 0,
+      "furtherReadingSourceCount": 0,
+      "structuredClaimCount": 0,
+      "structuredParagraphCount": 0,
+      "citationCount": 0,
+      "substantiveArticleWordCount": 2131
     },
     {
       "id": "marx",
@@ -3957,55 +3976,6 @@
       "excerpt": "The tension is philosophically productive because Marcus recognizes several dangers of rule: theatricality, anger at opposition, dependence on praise, and the belief that office changes moral worth. He reminds himself no"
     },
     {
-      "recordKey": "philosopher:sextus-empiricus",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "overview/paragraph-2",
-      "excerpt": "This distinction gives his writing unusual reflexivity. A skeptical argument must counter dogmatism without becoming another dogma; a formula such as “I suspend judgment” must describe a present condition without claimin"
-    },
-    {
-      "recordKey": "philosopher:sextus-empiricus",
-      "status": "bibliography-only",
-      "signal": "disputed-attribution",
-      "location": "life-medicine/paragraph-1",
-      "excerpt": "Little is securely known about Sextus’ life. He probably wrote in the late second or early third century CE and was associated with medicine, as the name Empiricus suggests. Ancient medical schools disputed how physician"
-    },
-    {
-      "recordKey": "philosopher:sextus-empiricus",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "outlines/paragraph-2",
-      "excerpt": "The work is introductory but not simple. Sextus repeatedly marks the non-dogmatic force of his language, using phrases such as “it appears to me now” or “I determine nothing.” He assembles arguments whose assumptions may"
-    },
-    {
-      "recordKey": "philosopher:sextus-empiricus",
-      "status": "bibliography-only",
-      "signal": "disputed-attribution",
-      "location": "against-learned/paragraph-2",
-      "excerpt": "These works preserve extensive information about ancient positions that might otherwise be lost. Sextus is therefore a major historical source even when his presentation serves skeptical purposes. His arguments can expos"
-    },
-    {
-      "recordKey": "philosopher:sextus-empiricus",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "equipollence-suspension/paragraph-1",
-      "excerpt": "Sextus defines skepticism as an ability to set appearances and thoughts in opposition in any way, leading through equal persuasive force to suspension and then tranquility. Equipollence does not assert that arguments are"
-    },
-    {
-      "recordKey": "philosopher:sextus-empiricus",
-      "status": "bibliography-only",
-      "signal": "disputed-attribution",
-      "location": "modes/paragraph-2",
-      "excerpt": "The five modes associated with Agrippa focus on disagreement, infinite regress, relativity, hypothesis, and circular reasoning. A disputed claim needs support; support can provoke another demand; stopping at an unsupport"
-    },
-    {
-      "recordKey": "philosopher:sextus-empiricus",
-      "status": "bibliography-only",
-      "signal": "disputed-attribution",
-      "location": "self-refutation/paragraph-3",
-      "excerpt": "One productive reading distinguishes using a practice from giving a final theory of its authority. Sextus can reason, remember, and communicate as these activities presently function without claiming to have established"
-    },
-    {
       "recordKey": "philosopher:plotinus",
       "status": "bibliography-only",
       "signal": "priority-or-superlative",
@@ -4634,6 +4604,69 @@
       "signal": "influence-or-causation",
       "location": "religion-later/paragraph-2",
       "excerpt": "Later presentations complicate the impression that finite consciousness creates everything. They describe knowledge as an image or manifestation of an absolute being or life that cannot itself be grasped as an object. Sc"
+    },
+    {
+      "recordKey": "philosopher:dostoevsky",
+      "status": "unreviewed",
+      "signal": "quotation",
+      "location": "overview/paragraph-3",
+      "excerpt": "This is why Dostoevsky belongs on a route toward existentialism while remaining historically distinct from the twentieth-century movement. Later existentialists recognized his investigations of freedom, anxiety, bad fait"
+    },
+    {
+      "recordKey": "philosopher:dostoevsky",
+      "status": "unreviewed",
+      "signal": "influence-or-causation",
+      "location": "life-and-context/paragraph-1",
+      "excerpt": "Dostoevsky was born in Moscow in 1821 and trained as a military engineer before turning to literature. His early novel Poor Folk brought rapid attention, but literary success did not stabilize his place in the volatile i"
+    },
+    {
+      "recordKey": "philosopher:dostoevsky",
+      "status": "unreviewed",
+      "signal": "quotation",
+      "location": "underground/paragraph-1",
+      "excerpt": "Notes from Underground opens with a narrator who attacks optimistic pictures of rationally organized human conduct. His targets include the claim that enlightened self-interest, scientific psychology, and properly design"
+    },
+    {
+      "recordKey": "philosopher:dostoevsky",
+      "status": "unreviewed",
+      "signal": "quotation",
+      "location": "underground/paragraph-2",
+      "excerpt": "The Underground Man is not Dostoevsky’s uncomplicated hero of freedom. His rebellion produces spite, paralysis, theatrical fantasy, and cruelty. He wants recognition but arranges situations that guarantee humiliation; he"
+    },
+    {
+      "recordKey": "philosopher:dostoevsky",
+      "status": "unreviewed",
+      "signal": "disputed-attribution",
+      "location": "raskolnikov/paragraph-3",
+      "excerpt": "Dostoevsky does not answer the theory only by showing that crime causes unpleasant feelings. Guilt is relational: Raskolnikov has treated persons as material for a private experiment and separated himself from a world of"
+    },
+    {
+      "recordKey": "philosopher:dostoevsky",
+      "status": "unreviewed",
+      "signal": "quotation",
+      "location": "karamazov/paragraph-1",
+      "excerpt": "The Brothers Karamazov gathers its philosophical conflict around a damaged family, so that theodicy, freedom, and responsibility are never merely speculative. Ivan refuses to accept a cosmic harmony whose final reconcili"
+    },
+    {
+      "recordKey": "philosopher:dostoevsky",
+      "status": "unreviewed",
+      "signal": "quotation",
+      "location": "karamazov/paragraph-3",
+      "excerpt": "Zosima and Alyosha do not refute Ivan by explaining why innocent suffering was secretly required. Their response is practical and relational: each person is responsible to and for others, and “active love” must take embo"
+    },
+    {
+      "recordKey": "philosopher:dostoevsky",
+      "status": "unreviewed",
+      "signal": "influence-or-causation",
+      "location": "karamazov/paragraph-3",
+      "excerpt": "Zosima and Alyosha do not refute Ivan by explaining why innocent suffering was secretly required. Their response is practical and relational: each person is responsible to and for others, and “active love” must take embo"
+    },
+    {
+      "recordKey": "philosopher:dostoevsky",
+      "status": "unreviewed",
+      "signal": "influence-or-causation",
+      "location": "legacy-reading/paragraph-1",
+      "excerpt": "Dostoevsky influenced later philosophy less by founding a school than by creating scenes future thinkers could not ignore. Nietzsche praised him as a psychologist from whom he could learn. Twentieth-century existentialis"
     },
     {
       "recordKey": "philosopher:nietzsche",
@@ -7439,11 +7472,11 @@
   "errors": [],
   "groupSummary": {
     "philosophers": {
-      "total": 146,
-      "unreviewed": 3,
-      "bibliography-only": 34,
+      "total": 147,
+      "unreviewed": 4,
+      "bibliography-only": 33,
       "source-mapped": 0,
-      "claim-reviewed": 109,
+      "claim-reviewed": 110,
       "review-out-of-date": 0
     },
     "philosophies": {

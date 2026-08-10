@@ -72,7 +72,7 @@ Start with these documents, in order:
 
 The complete assignments are reviewable as spreadsheets:
 
-- [Philosopher assignments](./philosopher-assignments.csv) — 146 current philosopher IDs.
+- [Philosopher assignments](./philosopher-assignments.csv) — 147 current philosopher IDs.
 - [Branch assignments](./branch-assignments.csv) — 45 current branch IDs.
 
 The machine-readable planning contract is split deliberately:

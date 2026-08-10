@@ -6,13 +6,13 @@
 
 The same collection can tell very different stories depending on what a visitor encounters first. A chronological museum makes sequence primary; a questions museum makes comparison primary; a cultural-historical museum makes situated intellectual traditions primary. This document treats those as genuinely different programs rather than as different labels on the same corridor.
 
-All three studies can house the Atlas's present inventory of 45 branch/tradition records and 146 philosopher records. A **record-capacity slot** is a planning allowance for one assigned Atlas record at some presentation tier. It is not a fire-code occupancy, a visitor count, or a promise that every record receives a room-sized installation. The approved option is the only one developed into stable wing, hall, and room IDs and a complete record-by-record assignment in the companion CSV files.
+All three studies can house the Atlas's present inventory of 45 branch/tradition records and 147 philosopher records. A **record-capacity slot** is a planning allowance for one assigned Atlas record at some presentation tier. It is not a fire-code occupancy, a visitor count, or a promise that every record receives a room-sized installation. The approved option is the only one developed into stable wing, hall, and room IDs and a complete record-by-record assignment in the companion CSV files.
 
-| Option | Primary organizing principle | Wings | Halls | Rooms / zones | Record capacity | Reserve above 191 current records |
+| Option | Primary organizing principle | Wings | Halls | Rooms / zones | Record capacity | Reserve above 192 current records |
 | --- | --- | ---: | ---: | ---: | ---: | ---: |
-| **Worlds with a Questions Forum — Expanded and Culturally Safeguarded** | Cultural-historical primary homes, joined by a shared questions forum and explicit secondary lenses | **10** | **26** | **105** | **260** | **69** |
-| **Braided Global Timeline** | Chronological eras containing simultaneous regional strands | **6** | **25** | **88** | **228** | **37** |
-| **Questions and Methods Network** | Thematic comparison wings, supported by separate historical context houses | **7** | **25** | **86** | **240** | **49** |
+| **Worlds with a Questions Forum — Expanded and Culturally Safeguarded** | Cultural-historical primary homes, joined by a shared questions forum and explicit secondary lenses | **10** | **26** | **105** | **260** | **68** |
+| **Braided Global Timeline** | Chronological eras containing simultaneous regional strands | **6** | **25** | **88** | **228** | **36** |
+| **Questions and Methods Network** | Thematic comparison wings, supported by separate historical context houses | **7** | **25** | **86** | **240** | **48** |
 
 The totals above are fixed program totals. The hall rosters below show how each option earns them.
 
