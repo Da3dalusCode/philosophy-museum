@@ -70,7 +70,7 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | Madhva | claim-reviewed | standard-compliant | 32 | 320 | 3 | 3 | 6 | standard presentation |
 | Nāgārjuna | claim-reviewed | standard-compliant | 32 | 263 | 3 | 4 | 7 | standard presentation |
 | Vasubandhu | claim-reviewed | standard-compliant | 32 | 314 | 3 | 3 | 6 | standard presentation |
-| Buddhist Epistemology | claim-reviewed | standard-compliant | 33 | 320 | 3 | 3 | 6 | standard presentation |
+| Buddhist Epistemology | claim-reviewed | standard-compliant | 32 | 320 | 3 | 3 | 6 | standard presentation |
 | Dignāga | claim-reviewed | standard-compliant | 32 | 310 | 3 | 3 | 6 | standard presentation |
 | Dharmakīrti | claim-reviewed | standard-compliant | 32 | 293 | 3 | 3 | 6 | standard presentation |
 | Confucius | claim-reviewed | standard-compliant | 34 | 299 | 3 | 3 | 5 | standard presentation |
@@ -89,7 +89,7 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | Suhrawardi | claim-reviewed | standard-compliant | 32 | 343 | 3 | 3 | 5 | standard presentation |
 | Mulla Sadra | claim-reviewed | standard-compliant | 32 | 347 | 3 | 3 | 6 | standard presentation |
 | Zhu Xi | claim-reviewed | standard-compliant | 32 | 319 | 3 | 3 | 6 | standard presentation |
-| Wang Yangming | claim-reviewed | standard-compliant | 33 | 316 | 3 | 3 | 6 | standard presentation |
+| Wang Yangming | claim-reviewed | standard-compliant | 32 | 316 | 3 | 3 | 6 | standard presentation |
 | Saadia Gaon | claim-reviewed | standard-compliant | 32 | 308 | 3 | 3 | 6 | standard presentation |
 | Judah Halevi | claim-reviewed | standard-compliant | 33 | 318 | 3 | 3 | 6 | standard presentation |
 | Maimonides | claim-reviewed | standard-compliant | 34 | 318 | 3 | 3 | 6 | standard presentation |
