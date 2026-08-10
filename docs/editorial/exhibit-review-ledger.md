@@ -118,13 +118,13 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | Meister Eckhart | claim-reviewed | standard-compliant | 32 | 295 | 3 | 3 | 4 | standard presentation |
 | Marsilius of Padua | claim-reviewed | standard-compliant | 32 | 294 | 3 | 3 | 4 | standard presentation |
 | Antisthenes | claim-reviewed | standard-compliant | 32 | 314 | 3 | 3 | 6 | standard presentation |
-| Diogenes | claim-reviewed | standard-compliant | 35 | 302 | 3 | 3 | 6 | standard presentation |
-| Epicurus | claim-reviewed | standard-compliant | 35 | 292 | 3 | 3 | 6 | standard presentation |
+| Diogenes | claim-reviewed | standard-compliant | 34 | 302 | 3 | 3 | 6 | standard presentation |
+| Epicurus | claim-reviewed | standard-compliant | 32 | 292 | 3 | 3 | 6 | standard presentation |
 | Lucretius | claim-reviewed | standard-compliant | 34 | 318 | 3 | 3 | 6 | standard presentation |
 | Zeno of Citium | claim-reviewed | standard-compliant | 35 | 311 | 3 | 3 | 6 | standard presentation |
 | Cleanthes | claim-reviewed | standard-compliant | 33 | 308 | 3 | 3 | 6 | standard presentation |
 | Chrysippus | claim-reviewed | standard-compliant | 32 | 318 | 3 | 3 | 6 | standard presentation |
-| Epictetus | claim-reviewed | standard-compliant | 34 | 309 | 3 | 3 | 6 | standard presentation |
+| Epictetus | claim-reviewed | standard-compliant | 32 | 309 | 3 | 3 | 6 | standard presentation |
 | Seneca | claim-reviewed | standard-compliant | 32 | 316 | 3 | 3 | 6 | standard presentation |
 | Marcus Aurelius | claim-reviewed | standard-compliant | 33 | 319 | 3 | 3 | 6 | standard presentation |
 | Pyrrho | claim-reviewed | standard-compliant | 33 | 310 | 3 | 3 | 6 | standard presentation |
