@@ -1151,15 +1151,19 @@
       "title": "René Descartes",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/descartes",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 5,
+      "citedSourceCount": 5,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 4687
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 57,
+      "citationCount": 148,
+      "substantiveArticleWordCount": 4720,
+      "reviewNotePath": "docs/editorial/reviews/descartes.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:7531593981fb764d",
+      "currentReviewLock": "fnv1a64:7531593981fb764d"
     },
     {
       "id": "hobbes",
@@ -1185,45 +1189,57 @@
       "title": "Spinoza",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/spinoza",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 5,
+      "citedSourceCount": 5,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 2350
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 26,
+      "citationCount": 86,
+      "substantiveArticleWordCount": 2353,
+      "reviewNotePath": "docs/editorial/reviews/spinoza.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:72c587f745f25eec",
+      "currentReviewLock": "fnv1a64:72c587f745f25eec"
     },
     {
       "id": "leibniz",
       "title": "Leibniz",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/leibniz",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 5,
+      "citedSourceCount": 5,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 2303
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 26,
+      "citationCount": 86,
+      "substantiveArticleWordCount": 2317,
+      "reviewNotePath": "docs/editorial/reviews/leibniz.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:08ffabf758beddbc",
+      "currentReviewLock": "fnv1a64:08ffabf758beddbc"
     },
     {
       "id": "locke",
       "title": "Locke",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/locke",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 6,
+      "citedSourceCount": 6,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 2360
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 28,
+      "citationCount": 90,
+      "substantiveArticleWordCount": 2387,
+      "reviewNotePath": "docs/editorial/reviews/locke.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:6927a4284f8e1f12",
+      "currentReviewLock": "fnv1a64:6927a4284f8e1f12"
     },
     {
       "id": "berkeley",
@@ -1249,15 +1265,19 @@
       "title": "David Hume",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/hume",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 6,
+      "citedSourceCount": 6,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 4800
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 55,
+      "citationCount": 155,
+      "substantiveArticleWordCount": 4802,
+      "reviewNotePath": "docs/editorial/reviews/hume.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:7755834c4119085e",
+      "currentReviewLock": "fnv1a64:7755834c4119085e"
     },
     {
       "id": "rousseau",
@@ -1321,15 +1341,19 @@
       "title": "Fichte",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/fichte",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 5,
+      "citedSourceCount": 5,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 2026
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 24,
+      "citationCount": 82,
+      "substantiveArticleWordCount": 2023,
+      "reviewNotePath": "docs/editorial/reviews/fichte.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:8a2df537665f15b1",
+      "currentReviewLock": "fnv1a64:8a2df537665f15b1"
     },
     {
       "id": "schelling",
@@ -1412,15 +1436,19 @@
       "title": "Fyodor Dostoevsky",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/dostoevsky",
-      "authoredStatus": "unreviewed",
-      "effectiveStatus": "unreviewed",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 6,
+      "citedSourceCount": 6,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 2131
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 25,
+      "citationCount": 90,
+      "substantiveArticleWordCount": 2158,
+      "reviewNotePath": "docs/editorial/reviews/dostoevsky.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:78e563610ae56cf0",
+      "currentReviewLock": "fnv1a64:78e563610ae56cf0"
     },
     {
       "id": "marx",
@@ -1465,60 +1493,76 @@
       "title": "Friedrich Nietzsche",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/nietzsche",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 7,
+      "citedSourceCount": 7,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 4336
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 45,
+      "citationCount": 124,
+      "substantiveArticleWordCount": 4336,
+      "reviewNotePath": "docs/editorial/reviews/nietzsche.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:ed38af59efb98ce4",
+      "currentReviewLock": "fnv1a64:ed38af59efb98ce4"
     },
     {
       "id": "husserl",
       "title": "Husserl",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/husserl",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 5,
+      "citedSourceCount": 5,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 2046
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 24,
+      "citationCount": 90,
+      "substantiveArticleWordCount": 2064,
+      "reviewNotePath": "docs/editorial/reviews/husserl.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:1b7b6c09e14d9949",
+      "currentReviewLock": "fnv1a64:1b7b6c09e14d9949"
     },
     {
       "id": "heidegger",
       "title": "Heidegger",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/heidegger",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 5,
+      "citedSourceCount": 5,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 2284
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 28,
+      "citationCount": 92,
+      "substantiveArticleWordCount": 2298,
+      "reviewNotePath": "docs/editorial/reviews/heidegger.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:928064d6255b2b4c",
+      "currentReviewLock": "fnv1a64:928064d6255b2b4c"
     },
     {
       "id": "wittgenstein",
       "title": "Ludwig Wittgenstein",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/wittgenstein",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 5,
+      "citedSourceCount": 5,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 4790
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 50,
+      "citationCount": 140,
+      "substantiveArticleWordCount": 4809,
+      "reviewNotePath": "docs/editorial/reviews/wittgenstein.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:5940e64fe215d421",
+      "currentReviewLock": "fnv1a64:5940e64fe215d421"
     },
     {
       "id": "russell",
@@ -1582,60 +1626,76 @@
       "title": "Jean-Paul Sartre",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/sartre",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 5,
+      "citedSourceCount": 5,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 2435
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 30,
+      "citationCount": 94,
+      "substantiveArticleWordCount": 2455,
+      "reviewNotePath": "docs/editorial/reviews/sartre.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:413679cff8fea77b",
+      "currentReviewLock": "fnv1a64:413679cff8fea77b"
     },
     {
       "id": "beauvoir",
       "title": "Simone de Beauvoir",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/beauvoir",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 5,
+      "citedSourceCount": 5,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 2294
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 30,
+      "citationCount": 94,
+      "substantiveArticleWordCount": 2307,
+      "reviewNotePath": "docs/editorial/reviews/beauvoir.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:fd03b426eb26167f",
+      "currentReviewLock": "fnv1a64:fd03b426eb26167f"
     },
     {
       "id": "camus",
       "title": "Albert Camus",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/camus",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 5,
+      "citedSourceCount": 5,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 2285
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 30,
+      "citationCount": 97,
+      "substantiveArticleWordCount": 2297,
+      "reviewNotePath": "docs/editorial/reviews/camus.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:a4778a8844113ac8",
+      "currentReviewLock": "fnv1a64:a4778a8844113ac8"
     },
     {
       "id": "arendt",
       "title": "Hannah Arendt",
       "category": "philosopher",
       "visitorEntryPoint": "#/philosophers/arendt",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 5,
+      "citedSourceCount": 5,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 2445
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 26,
+      "citationCount": 88,
+      "substantiveArticleWordCount": 2436,
+      "reviewNotePath": "docs/editorial/reviews/arendt.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:33b707c1b1ddfbc6",
+      "currentReviewLock": "fnv1a64:33b707c1b1ddfbc6"
     },
     {
       "id": "anscombe",
@@ -3440,909 +3500,6 @@
     }
   ],
   "warnings": [
-    {
-      "recordKey": "philosopher:descartes",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "project/paragraph-2",
-      "excerpt": "Calling Descartes the father of modern philosophy can identify his enormous influence, but it also hides continuities. He was educated in Jesuit scholastic philosophy, borrowed and transformed inherited concepts of subst"
-    },
-    {
-      "recordKey": "philosopher:descartes",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "doubt/paragraph-1",
-      "excerpt": "The first Meditation seeks grounds for overturning a structure of belief rather than refuting each belief separately. If principles learned through the senses have sometimes misled, they may not supply an absolutely secu"
-    },
-    {
-      "recordKey": "philosopher:descartes",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "cogito/paragraph-1",
-      "excerpt": "When Descartes considers that he may be deceived about everything, the deception itself discloses an activity that must exist while it occurs. The judgment that I am, I exist is necessarily true whenever it is thought. I"
-    },
-    {
-      "recordKey": "philosopher:descartes",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "cogito/paragraph-3",
-      "excerpt": "Interpretation remains contested. Some readers see an inference, others an intuition, others a self-verifying utterance, and still others a staged discovery whose certainty depends on attention. Another dispute asks whet"
-    },
-    {
-      "recordKey": "philosopher:descartes",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "ideas/paragraph-1",
-      "excerpt": "Descartes uses “idea” for modes of thought that present or represent objects. He distinguishes ideas that seem to arrive from outside, ideas constructed by the mind, and innate ideas arising from the mind’s own nature. T"
-    },
-    {
-      "recordKey": "philosopher:descartes",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "god-arguments/paragraph-2",
-      "excerpt": "The fifth Meditation offers an ontological argument. Descartes treats necessary existence as belonging to the clear and distinct idea of a supremely perfect being, much as certain properties belong to the essence of a tr"
-    },
-    {
-      "recordKey": "philosopher:descartes",
-      "status": "bibliography-only",
-      "signal": "influence-or-causation",
-      "location": "world-senses/paragraph-1",
-      "excerpt": "By the sixth Meditation, Descartes argues that material things exist. His strong inclination to believe that sensory ideas come from bodies must have a source; if God systematically caused that inclination while no bodie"
-    },
-    {
-      "recordKey": "philosopher:descartes",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "life-machines/paragraph-1",
-      "excerpt": "Descartes treated many functions traditionally assigned to a sensitive soul as bodily mechanisms. Digestion, circulation, reflex-like withdrawal, memory traces, locomotion, and sensory processing could be modeled through"
-    },
-    {
-      "recordKey": "philosopher:descartes",
-      "status": "bibliography-only",
-      "signal": "disputed-attribution",
-      "location": "life-machines/paragraph-2",
-      "excerpt": "Nonhuman animals became a test case. Descartes denied them rational souls and explained their behavior as highly organized bodily response. Language and flexible action were his main proposed signs of thought: no animal,"
-    },
-    {
-      "recordKey": "philosopher:descartes",
-      "status": "bibliography-only",
-      "signal": "influence-or-causation",
-      "location": "passions/paragraph-1",
-      "excerpt": "The Passions of the Soul approaches emotion as natural philosophy, moral psychology, and practical guidance. Passions are perceptions referred especially to the soul and caused, maintained, or strengthened by bodily proc"
-    },
-    {
-      "recordKey": "philosopher:descartes",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "reception/paragraph-1",
-      "excerpt": "Cartesianism became a movement that Descartes could not control. Dutch controversies involved theologians, university authorities, supporters, and former allies such as Henricus Regius. Followers developed occasionalism,"
-    },
-    {
-      "recordKey": "philosopher:descartes",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "reception/paragraph-2",
-      "excerpt": "Spinoza rejected two created substances in favor of one substance expressed through attributes, transforming mind and body into parallel ways of conceiving the same reality. Leibniz criticized Cartesian matter and motion"
-    },
-    {
-      "recordKey": "philosopher:descartes",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "reception/paragraph-3",
-      "excerpt": "Kant criticized the rational psychology that inferred a substantial, simple, enduring soul from the unity of thought, while keeping the first-person unity of apperception central to his own project. Later phenomenology c"
-    },
-    {
-      "recordKey": "philosopher:descartes",
-      "status": "bibliography-only",
-      "signal": "disputed-attribution",
-      "location": "disputes/paragraph-3",
-      "excerpt": "Historians also reassess the story of heroic modern rupture. Descartes criticized scholasticism while using its training and vocabulary; pursued universal reason through elite learned networks; and was shaped by women co"
-    },
-    {
-      "recordKey": "philosopher:spinoza",
-      "status": "unreviewed",
-      "signal": "quotation",
-      "location": "substance-attributes-modes/paragraph-2",
-      "excerpt": "This is not creation in time by divine choice. Spinoza's God does not decide among possible worlds like a monarch choosing a plan. Things follow from the necessity of divine nature. This necessity is one reason many read"
-    },
-    {
-      "recordKey": "philosopher:spinoza",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "knowledge-imagination-reason/paragraph-1",
-      "excerpt": "Spinoza distinguishes kinds of knowledge. The first kind, often linked to imagination, arises from sensory experience, signs, hearsay, and fragmentary encounters with things. It is not worthless, but it is the source of"
-    },
-    {
-      "recordKey": "philosopher:spinoza",
-      "status": "unreviewed",
-      "signal": "influence-or-causation",
-      "location": "conatus-affects/paragraph-2",
-      "excerpt": "Bondage occurs when we are governed by passive affects, emotions whose causes we do not adequately understand and whose direction is largely determined by external forces. A person can know abstractly that anger is destr"
-    },
-    {
-      "recordKey": "philosopher:spinoza",
-      "status": "unreviewed",
-      "signal": "quotation",
-      "location": "reception-misunderstandings/paragraph-2",
-      "excerpt": "Common misunderstandings flatten him. \"God or Nature\" does not mean simply that forests and stars are a personal deity. Determinism does not mean resignation. The denial of free will does not make ethics pointless. The c"
-    },
-    {
-      "recordKey": "philosopher:spinoza",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "reading-strategy/paragraph-1",
-      "excerpt": "Begin with the Appendix to Part I of the Ethics before trying to master the opening demonstrations. The Appendix attacks teleology, superstition, and the projection of human purposes onto nature, giving a clear sense of"
-    },
-    {
-      "recordKey": "philosopher:leibniz",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "truth-concepts/paragraph-1",
-      "excerpt": "Leibniz holds that in every true affirmative proposition, the predicate is contained in the subject. At first this can sound as if all truths are merely analytic and therefore necessary. Leibniz's actual position is subt"
-    },
-    {
-      "recordKey": "philosopher:leibniz",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "monads/paragraph-1",
-      "excerpt": "Leibniz's mature metaphysics replaces extended material substance with monads. A monad is a simple, non-extended substance with perception and appetite. Because it has no parts, it cannot be generated or destroyed by ord"
-    },
-    {
-      "recordKey": "philosopher:leibniz",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "best-world-theodicy/paragraph-1",
-      "excerpt": "Leibniz's claim that this is the best of all possible worlds is often caricatured as cheerful denial of suffering. His actual theodicy begins from divine wisdom, goodness, and power. God understands all possible worlds a"
-    },
-    {
-      "recordKey": "philosopher:leibniz",
-      "status": "unreviewed",
-      "signal": "influence-or-causation",
-      "location": "influence-misunderstandings/paragraph-1",
-      "excerpt": "Leibniz influenced Wolffian rationalism, German Enlightenment philosophy, Kant, later logic, metaphysics, philosophy of science, and theories of possible worlds. Kant's critical philosophy can be read partly as an attemp"
-    },
-    {
-      "recordKey": "philosopher:locke",
-      "status": "unreviewed",
-      "signal": "quotation",
-      "location": "freedom-will/paragraph-1",
-      "excerpt": "Locke rejects the question \"Is the will free?\" as confused. Freedom belongs to agents, not to the will considered as a separate faculty. A person is free when they have the power to do or forbear an action according to p"
-    },
-    {
-      "recordKey": "philosopher:locke",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "freedom-will/paragraph-2",
-      "excerpt": "Locke also argues that desire, especially uneasiness, moves the will. We are stirred to act by a felt lack or discomfort, not simply by abstract judgment of the greatest good. Yet human beings can suspend the prosecution"
-    },
-    {
-      "recordKey": "philosopher:locke",
-      "status": "unreviewed",
-      "signal": "influence-or-causation",
-      "location": "freedom-will/paragraph-2",
-      "excerpt": "Locke also argues that desire, especially uneasiness, moves the will. We are stirred to act by a felt lack or discomfort, not simply by abstract judgment of the greatest good. Yet human beings can suspend the prosecution"
-    },
-    {
-      "recordKey": "philosopher:locke",
-      "status": "unreviewed",
-      "signal": "disputed-attribution",
-      "location": "toleration-religion/paragraph-1",
-      "excerpt": "A Letter Concerning Toleration argues that civil government exists to secure civil interests such as life, liberty, health, and property, not to save souls by force. Genuine belief cannot be produced by coercion, and per"
-    },
-    {
-      "recordKey": "philosopher:locke",
-      "status": "unreviewed",
-      "signal": "priority-or-superlative",
-      "location": "reading-strategy/paragraph-1",
-      "excerpt": "Begin the Essay with its purpose in mind: Locke is mapping the limits of understanding so that belief can become more responsible. Read Book I on innate ideas, Book II on ideas and qualities, Book II chapter 27 on identi"
-    },
-    {
-      "recordKey": "philosopher:hume",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "project/paragraph-1",
-      "excerpt": "David Hume presents philosophy as an experimental inquiry into human nature. The word “experimental” does not mean that he ran laboratory trials, and it does not reduce thought to a stream of sensory reports. It signals"
-    },
-    {
-      "recordKey": "philosopher:hume",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "life-career/paragraph-1",
-      "excerpt": "Hume was born in Edinburgh in 1711 and grew up at Ninewells, his family’s estate near the Scottish border. He entered the University of Edinburgh unusually young, studied a broad humanist curriculum, and left without tak"
-    },
-    {
-      "recordKey": "philosopher:hume",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "texts-revisions/paragraph-1",
-      "excerpt": "The architecture of Hume’s corpus affects interpretation. The Treatise moves from understanding to passions and morals, making psychology the connective tissue of a system. The first Enquiry is shorter, more literary, an"
-    },
-    {
-      "recordKey": "philosopher:hume",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "texts-revisions/paragraph-2",
-      "excerpt": "Hume revised his essays across many editions. Titles, notes, arguments, and collections changed, so the date of first publication does not always identify the text of a familiar modern edition. The two Enquiries, essays,"
-    },
-    {
-      "recordKey": "philosopher:hume",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "texts-revisions/paragraph-2",
-      "excerpt": "Hume revised his essays across many editions. Titles, notes, arguments, and collections changed, so the date of first publication does not always identify the text of a familiar modern edition. The two Enquiries, essays,"
-    },
-    {
-      "recordKey": "philosopher:hume",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "perceptions-copy/paragraph-1",
-      "excerpt": "Hume calls the contents of the mind perceptions and divides them into impressions and ideas. Impressions include sensations, emotions, and passions in their first appearance; ideas are typically less forceful perceptions"
-    },
-    {
-      "recordKey": "philosopher:hume",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "causation/paragraph-2",
-      "excerpt": "Hume offers two definitions of cause, one emphasizing regular succession among objects and another emphasizing the mind’s inferential transition. Their relation is disputed. A regularity reading treats causal claims as c"
-    },
-    {
-      "recordKey": "philosopher:hume",
-      "status": "bibliography-only",
-      "signal": "disputed-attribution",
-      "location": "causation/paragraph-2",
-      "excerpt": "Hume offers two definitions of cause, one emphasizing regular succession among objects and another emphasizing the mind’s inferential transition. Their relation is disputed. A regularity reading treats causal claims as c"
-    },
-    {
-      "recordKey": "philosopher:hume",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "causation/paragraph-3",
-      "excerpt": "Hume does not deny that one event causes another in ordinary and scientific reasoning. He supplies rules for judging causes, distinguishes accidental conjunction from stable comparison, and treats causal inference as ind"
-    },
-    {
-      "recordKey": "philosopher:hume",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "induction-skepticism/paragraph-2",
-      "excerpt": "Hume’s “skeptical solution” does not provide a hidden deductive proof. Custom determines the mind to expect familiar outcomes after repeated conjunction, and this response is part of human nature. The solution is explana"
-    },
-    {
-      "recordKey": "philosopher:hume",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "self-identity/paragraph-3",
-      "excerpt": "In the Treatise Appendix Hume declares himself dissatisfied with his explanation. He cannot see how distinct perceptions are united in one mind while maintaining the principles on which the account relies. Scholars disag"
-    },
-    {
-      "recordKey": "philosopher:hume",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "morals/paragraph-2",
-      "excerpt": "The celebrated is–ought paragraph observes writers moving from propositions joined by “is” to propositions joined by “ought” without explaining the new relation. Hume does not formulate every modern version of a fact–val"
-    },
-    {
-      "recordKey": "philosopher:hume",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "sympathy-justice/paragraph-2",
-      "excerpt": "Natural virtues such as benevolence and generosity can attract approval without depending on an invented rule. Justice, fidelity to promises, and allegiance are artificial virtues: their value depends on conventions that"
-    },
-    {
-      "recordKey": "philosopher:hume",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "sympathy-justice/paragraph-2",
-      "excerpt": "Natural virtues such as benevolence and generosity can attract approval without depending on an invented rule. Justice, fidelity to promises, and allegiance are artificial virtues: their value depends on conventions that"
-    },
-    {
-      "recordKey": "philosopher:hume",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "religion/paragraph-2",
-      "excerpt": "The Dialogues Concerning Natural Religion stages Cleanthes’s empirical design argument, Demea’s more a priori and mystical theology, and Philo’s skeptical criticism. Analogy between the world and a machine may suggest in"
-    },
-    {
-      "recordKey": "philosopher:hume",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "religion/paragraph-3",
-      "excerpt": "The Natural History of Religion asks how religious belief arises in human life. Hope and fear under uncertainty, ignorance of causes, anthropomorphism, flattery, and social authority help generate and transform religious"
-    },
-    {
-      "recordKey": "philosopher:hume",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "history/paragraph-2",
-      "excerpt": "Hume sought distance from both Whig stories of ancient constitutional liberty and Tory defenses of royal authority, yet impartiality did not mean neutrality without commitments. His narrative choices, judgments of “civil"
-    },
-    {
-      "recordKey": "philosopher:hume",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "taste/paragraph-1",
-      "excerpt": "“Of the Standard of Taste” begins from an apparent conflict. Beauty depends on sentiment, yet critical practices distinguish informed judgment from superficial or prejudiced response. Hume does not solve the problem by m"
-    },
-    {
-      "recordKey": "philosopher:hume",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "race/paragraph-1",
-      "excerpt": "Hume’s essay “Of National Characters” often explains collective differences through political, social, historical, and economic circumstances rather than climate. Yet a notorious note asserts a natural hierarchy in which"
-    },
-    {
-      "recordKey": "philosopher:hume",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "race/paragraph-3",
-      "excerpt": "This failure bears directly on Humean epistemology and morals. Limited testimony, selective archives, colonial power, and a prejudiced “general point of view” can produce confidence without warranted impartiality. Sympat"
-    },
-    {
-      "recordKey": "philosopher:hume",
-      "status": "bibliography-only",
-      "signal": "disputed-attribution",
-      "location": "disputes-influence/paragraph-2",
-      "excerpt": "Causation divides regularity, projectivist, fictionalist, and skeptical-realist readings. Ethics divides sentimentalist realism, antirealism, response-dependence, virtue, and utilitarian interpretations. The self, libert"
-    },
-    {
-      "recordKey": "philosopher:hume",
-      "status": "bibliography-only",
-      "signal": "influence-or-causation",
-      "location": "disputes-influence/paragraph-3",
-      "excerpt": "Hume transformed Kant’s account of causality and metaphysical limits, influenced Smith and later political economy, supplied problems for theories of induction and scientific confirmation, and became a reference point fo"
-    },
-    {
-      "recordKey": "philosopher:hume",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "reading-path/paragraph-2",
-      "excerpt": "Next read An Enquiry concerning the Principles of Morals beside selected parts of Treatise Books 2 and 3. Follow passions, sympathy, the general point of view, utility, natural virtue, justice, and convention. Add “Of th"
-    },
-    {
-      "recordKey": "philosopher:hume",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "reading-path/paragraph-3",
-      "excerpt": "Finish with the Natural History of Religion and Dialogues Concerning Natural Religion, keeping genre and posthumous publication in view. Read “Of National Characters” with scholarship on Hume and race, not as a detachabl"
-    },
-    {
-      "recordKey": "philosopher:fichte",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "setting/paragraph-1",
-      "excerpt": "Fichte entered philosophy in the generation immediately after Kant. Kant had argued that the mind contributes forms and categories to experience while denying theoretical knowledge of things as they are independently of"
-    },
-    {
-      "recordKey": "philosopher:fichte",
-      "status": "bibliography-only",
-      "signal": "influence-or-causation",
-      "location": "life-development/paragraph-1",
-      "excerpt": "Born in 1762 in Rammenau in Saxony to a family of modest means, Fichte gained an education through patronage, studied theology, and worked as a tutor before encountering Kant's philosophy. His Attempt at a Critique of Al"
-    },
-    {
-      "recordKey": "philosopher:fichte",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "life-development/paragraph-2",
-      "excerpt": "Fichte continued teaching in Berlin and wrote for different audiences: technical presentations of first philosophy, popular lectures on vocation, works on law and ethics, political interventions, and later religious text"
-    },
-    {
-      "recordKey": "philosopher:fichte",
-      "status": "bibliography-only",
-      "signal": "disputed-attribution",
-      "location": "religion-later/paragraph-1",
-      "excerpt": "The atheism controversy arose after Fichte described God not as a separate personal substance inferred behind the world but as the living moral order. Opponents heard denial of God; Fichte argued that making God into a f"
-    },
-    {
-      "recordKey": "philosopher:fichte",
-      "status": "bibliography-only",
-      "signal": "influence-or-causation",
-      "location": "religion-later/paragraph-2",
-      "excerpt": "Later presentations complicate the impression that finite consciousness creates everything. They describe knowledge as an image or manifestation of an absolute being or life that cannot itself be grasped as an object. Sc"
-    },
-    {
-      "recordKey": "philosopher:dostoevsky",
-      "status": "unreviewed",
-      "signal": "quotation",
-      "location": "overview/paragraph-3",
-      "excerpt": "This is why Dostoevsky belongs on a route toward existentialism while remaining historically distinct from the twentieth-century movement. Later existentialists recognized his investigations of freedom, anxiety, bad fait"
-    },
-    {
-      "recordKey": "philosopher:dostoevsky",
-      "status": "unreviewed",
-      "signal": "influence-or-causation",
-      "location": "life-and-context/paragraph-1",
-      "excerpt": "Dostoevsky was born in Moscow in 1821 and trained as a military engineer before turning to literature. His early novel Poor Folk brought rapid attention, but literary success did not stabilize his place in the volatile i"
-    },
-    {
-      "recordKey": "philosopher:dostoevsky",
-      "status": "unreviewed",
-      "signal": "quotation",
-      "location": "underground/paragraph-1",
-      "excerpt": "Notes from Underground opens with a narrator who attacks optimistic pictures of rationally organized human conduct. His targets include the claim that enlightened self-interest, scientific psychology, and properly design"
-    },
-    {
-      "recordKey": "philosopher:dostoevsky",
-      "status": "unreviewed",
-      "signal": "quotation",
-      "location": "underground/paragraph-2",
-      "excerpt": "The Underground Man is not Dostoevsky’s uncomplicated hero of freedom. His rebellion produces spite, paralysis, theatrical fantasy, and cruelty. He wants recognition but arranges situations that guarantee humiliation; he"
-    },
-    {
-      "recordKey": "philosopher:dostoevsky",
-      "status": "unreviewed",
-      "signal": "disputed-attribution",
-      "location": "raskolnikov/paragraph-3",
-      "excerpt": "Dostoevsky does not answer the theory only by showing that crime causes unpleasant feelings. Guilt is relational: Raskolnikov has treated persons as material for a private experiment and separated himself from a world of"
-    },
-    {
-      "recordKey": "philosopher:dostoevsky",
-      "status": "unreviewed",
-      "signal": "quotation",
-      "location": "karamazov/paragraph-1",
-      "excerpt": "The Brothers Karamazov gathers its philosophical conflict around a damaged family, so that theodicy, freedom, and responsibility are never merely speculative. Ivan refuses to accept a cosmic harmony whose final reconcili"
-    },
-    {
-      "recordKey": "philosopher:dostoevsky",
-      "status": "unreviewed",
-      "signal": "quotation",
-      "location": "karamazov/paragraph-3",
-      "excerpt": "Zosima and Alyosha do not refute Ivan by explaining why innocent suffering was secretly required. Their response is practical and relational: each person is responsible to and for others, and “active love” must take embo"
-    },
-    {
-      "recordKey": "philosopher:dostoevsky",
-      "status": "unreviewed",
-      "signal": "influence-or-causation",
-      "location": "karamazov/paragraph-3",
-      "excerpt": "Zosima and Alyosha do not refute Ivan by explaining why innocent suffering was secretly required. Their response is practical and relational: each person is responsible to and for others, and “active love” must take embo"
-    },
-    {
-      "recordKey": "philosopher:dostoevsky",
-      "status": "unreviewed",
-      "signal": "influence-or-causation",
-      "location": "legacy-reading/paragraph-1",
-      "excerpt": "Dostoevsky influenced later philosophy less by founding a school than by creating scenes future thinkers could not ignore. Nietzsche praised him as a psychologist from whom he could learn. Twentieth-century existentialis"
-    },
-    {
-      "recordKey": "philosopher:nietzsche",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "overview/paragraph-2",
-      "excerpt": "Nietzsche’s work also changes enough that no handful of slogans can represent it. Scholars commonly distinguish early, middle, and later periods, but the boundaries and continuities are disputed. Greek tragedy, historica"
-    },
-    {
-      "recordKey": "philosopher:nietzsche",
-      "status": "bibliography-only",
-      "signal": "disputed-attribution",
-      "location": "overview/paragraph-2",
-      "excerpt": "Nietzsche’s work also changes enough that no handful of slogans can represent it. Scholars commonly distinguish early, middle, and later periods, but the boundaries and continuities are disputed. Greek tragedy, historica"
-    },
-    {
-      "recordKey": "philosopher:nietzsche",
-      "status": "bibliography-only",
-      "signal": "disputed-attribution",
-      "location": "life-context/paragraph-2",
-      "excerpt": "Persistent headaches, impaired vision, digestive illness, and periods of incapacity interrupted his teaching; their diagnosis remains contested and should not be turned into a key for decoding every text. Nietzsche resig"
-    },
-    {
-      "recordKey": "philosopher:nietzsche",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "tragedy-wagner/paragraph-1",
-      "excerpt": "The Birth of Tragedy (1872) interprets Greek tragedy through a productive tension between Apollonian image and form and Dionysian music, dissolution, and excess. Tragedy does not prove that suffering fits a benevolent or"
-    },
-    {
-      "recordKey": "philosopher:nietzsche",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "tragedy-wagner/paragraph-2",
-      "excerpt": "The early book joins Schopenhauer’s pessimism to hope in Richard Wagner’s musical drama and German cultural renewal. Nietzsche admired Schopenhauer’s challenge to rational optimism, but eventually rejected the conclusion"
-    },
-    {
-      "recordKey": "philosopher:nietzsche",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "free-spirit-period/paragraph-1",
-      "excerpt": "Human, All Too Human (1878), Daybreak (1881), and the first edition of The Gay Science (1882) mark what is often called the middle or free-spirit period. The change is stylistic and methodological. Short numbered section"
-    },
-    {
-      "recordKey": "philosopher:nietzsche",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "free-spirit-period/paragraph-2",
-      "excerpt": "This turn challenges stable essences, simple origins, and the “thing in itself,” but it does not yield one unambiguous naturalism. Some interpreters see a methodological naturalist who explains persons through physiology"
-    },
-    {
-      "recordKey": "philosopher:nietzsche",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "body-drives/paragraph-1",
-      "excerpt": "Nietzsche distrusts the picture of a transparent rational ego governing a passive body. Persons are changing organizations of drives and affects: patterns of attraction, aversion, attention, memory, interpretation, and b"
-    },
-    {
-      "recordKey": "philosopher:nietzsche",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "body-drives/paragraph-1",
-      "excerpt": "Nietzsche distrusts the picture of a transparent rational ego governing a passive body. Persons are changing organizations of drives and affects: patterns of attraction, aversion, attention, memory, interpretation, and b"
-    },
-    {
-      "recordKey": "philosopher:nietzsche",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "genealogy-method/paragraph-1",
-      "excerpt": "On the Genealogy of Morality (1887) asks what conditions produced moral values and what value those values now possess. Genealogy refuses a single pure origin. A practice such as punishment can persist while different po"
-    },
-    {
-      "recordKey": "philosopher:nietzsche",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "genealogy-method/paragraph-2",
-      "excerpt": "How historical Nietzsche intends the Genealogy to be is disputed. Some episodes function as deliberately schematic hypotheses rather than archival history, and many empirical claims invite correction. Interpreters variou"
-    },
-    {
-      "recordKey": "philosopher:nietzsche",
-      "status": "bibliography-only",
-      "signal": "disputed-attribution",
-      "location": "genealogy-method/paragraph-2",
-      "excerpt": "How historical Nietzsche intends the Genealogy to be is disputed. Some episodes function as deliberately schematic hypotheses rather than archival history, and many empirical claims invite correction. Interpreters variou"
-    },
-    {
-      "recordKey": "philosopher:nietzsche",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "master-slave/paragraph-1",
-      "excerpt": "The Genealogy’s first essay contrasts two patterns of evaluation. Noble valuation begins with a group’s affirmative sense of itself as good and labels what is common or low “bad.” Slave valuation begins reactively: it id"
-    },
-    {
-      "recordKey": "philosopher:nietzsche",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "master-slave/paragraph-1",
-      "excerpt": "The Genealogy’s first essay contrasts two patterns of evaluation. Noble valuation begins with a group’s affirmative sense of itself as good and labels what is common or low “bad.” Slave valuation begins reactively: it id"
-    },
-    {
-      "recordKey": "philosopher:nietzsche",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "master-slave/paragraph-2",
-      "excerpt": "Nietzsche’s account is diagnostic rather than a permanent caste chart, but it is not politically innocent. Individuals and cultures can combine active and reactive evaluations, and “master morality” is not simply his rec"
-    },
-    {
-      "recordKey": "philosopher:nietzsche",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "guilt-conscience/paragraph-2",
-      "excerpt": "Bad conscience emerges when aggressive tendencies that once discharged outward are forced inward by social organization. The internalized animal becomes capable of depth, memory, artistry, and self-formation, but also of"
-    },
-    {
-      "recordKey": "philosopher:nietzsche",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "ascetic-christianity/paragraph-2",
-      "excerpt": "Nietzsche’s attack on Christianity targets its moral interpretation of guilt, equality before God, pity, otherworldly hope, and the alleged freedom that makes sinners deserving of punishment. He does not merely offer an"
-    },
-    {
-      "recordKey": "philosopher:nietzsche",
-      "status": "bibliography-only",
-      "signal": "disputed-attribution",
-      "location": "death-god-nihilism/paragraph-2",
-      "excerpt": "Nihilism names the crisis in which highest values lose their authority, unattainable ideals condemn the actual world, or valuing itself seems groundless. Much of Nietzsche’s explicit taxonomy survives in notebooks, so it"
-    },
-    {
-      "recordKey": "philosopher:nietzsche",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "will-power/paragraph-1",
-      "excerpt": "Will to power appears in Nietzsche’s published works as a claim about psychology, living processes, interpretation, and the value of overcoming resistance. It need not mean a conscious wish to rule other people. A drive"
-    },
-    {
-      "recordKey": "philosopher:nietzsche",
-      "status": "bibliography-only",
-      "signal": "disputed-attribution",
-      "location": "will-power/paragraph-2",
-      "excerpt": "The scope of the idea remains fiercely disputed. Some passages invite a psychology of plural drives; others suggest biological or physical force-centers, and notebook fragments venture broader cosmological claims. Metaph"
-    },
-    {
-      "recordKey": "philosopher:nietzsche",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "overhuman-overcoming/paragraph-1",
-      "excerpt": "Zarathustra presents the Übermensch—often translated as overhuman or overman—as a future-facing figure after the death of God. Human beings are a passage rather than a finished essence, and self-overcoming names the capa"
-    },
-    {
-      "recordKey": "philosopher:nietzsche",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "politics/paragraph-2",
-      "excerpt": "At the same time, Nietzsche rejected German chauvinism, pan-German politics, and the antisemitic movements of his day, and his rupture with Wagner and Elisabeth involved those commitments. He praised aspects of Jewish en"
-    },
-    {
-      "recordKey": "philosopher:nietzsche",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "publication-history/paragraph-2",
-      "excerpt": "The Will to Power is not a book Nietzsche completed or authorized. Elisabeth Förster-Nietzsche, Heinrich Köselitz (Peter Gast), and other editors selected and rearranged notebook fragments for editions issued in 1901 and"
-    },
-    {
-      "recordKey": "philosopher:nietzsche",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "reception/paragraph-3",
-      "excerpt": "Elisabeth’s Nietzsche Archive shaped the public author through editions, access, photographs, ceremony, and nationalist networking. Fascist and Nazi readers then appropriated hierarchy, struggle, breeding, the Übermensch"
-    },
-    {
-      "recordKey": "philosopher:husserl",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "husserl-orientation/paragraph-1",
-      "excerpt": "Edmund Husserl founded phenomenology as a disciplined investigation of experience and its structures. His central question is not simply what happens inside a mind. It is how objects, truths, memories, other people, valu"
-    },
-    {
-      "recordKey": "philosopher:husserl",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "husserl-setting/paragraph-1",
-      "excerpt": "Husserl was trained in mathematics in the late nineteenth century, when new logics, non-Euclidean geometries, and disputes about the foundations of arithmetic were changing the intellectual landscape. He studied with the"
-    },
-    {
-      "recordKey": "philosopher:husserl",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "husserl-body-others/paragraph-1",
-      "excerpt": "Husserl is sometimes caricatured as studying a disembodied spectator, but his broader corpus gives the lived body a fundamental role. My body is both a physical thing that can be seen and touched and the bodily center fr"
-    },
-    {
-      "recordKey": "philosopher:husserl",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "husserl-tensions-legacy/paragraph-2",
-      "excerpt": "The movement Husserl founded quickly exceeded his own preferred formulations. Phenomenology now informs philosophy of mind, psychiatry, medicine, cognitive science, ethics, feminist thought, and studies of technology. It"
-    },
-    {
-      "recordKey": "philosopher:heidegger",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "heidegger-world/paragraph-1",
-      "excerpt": "Being-in-the-world names a unitary structure, not a subject located inside a large container. We first encounter many things as equipment within practical contexts: a hammer for fastening, a doorway for entering, a path"
-    },
-    {
-      "recordKey": "philosopher:heidegger",
-      "status": "bibliography-only",
-      "signal": "influence-or-causation",
-      "location": "heidegger-world/paragraph-2",
-      "excerpt": "The distinction does not say that science is false or that objects only exist when used. It shows that detached observation is one mode of access arising from a more basic practical involvement. A world is the meaningful"
-    },
-    {
-      "recordKey": "philosopher:wittgenstein",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "changing-problems/paragraph-2",
-      "excerpt": "The familiar contrast between an “early” and a “later” Wittgenstein is useful only if it does not erase the transitional work of the late 1920s and 1930s or the distinctive writings of his final years. He criticized cent"
-    },
-    {
-      "recordKey": "philosopher:wittgenstein",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "vienna-engineering-cambridge/paragraph-2",
-      "excerpt": "He first trained in mechanical engineering in Berlin and then pursued aeronautical research at Manchester, working on kites and propeller design. Problems in engineering drew him toward mathematics; questions about mathe"
-    },
-    {
-      "recordKey": "philosopher:wittgenstein",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "war-teaching-return/paragraph-1",
-      "excerpt": "When the First World War began, Wittgenstein volunteered for the Austro-Hungarian army. He continued philosophical work through military service and captivity, writing notebooks in which logical investigation stands besi"
-    },
-    {
-      "recordKey": "philosopher:wittgenstein",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "corpus-editors-form/paragraph-1",
-      "excerpt": "The form of the surviving corpus is philosophically important. The Tractatus was the only book-length philosophical work Wittgenstein published in his lifetime. He published the transitional paper “Some Remarks on Logica"
-    },
-    {
-      "recordKey": "philosopher:wittgenstein",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "corpus-editors-form/paragraph-1",
-      "excerpt": "The form of the surviving corpus is philosophically important. The Tractatus was the only book-length philosophical work Wittgenstein published in his lifetime. He published the transitional paper “Some Remarks on Logica"
-    },
-    {
-      "recordKey": "philosopher:wittgenstein",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "limits-ethics-mystical/paragraph-2",
-      "excerpt": "Ethics and aesthetics are called transcendental because value is not an item inside the totality of facts. No accumulation of descriptions establishes that life is absolutely good or reveals its meaning. The wartime note"
-    },
-    {
-      "recordKey": "philosopher:wittgenstein",
-      "status": "bibliography-only",
-      "signal": "disputed-attribution",
-      "location": "limits-ethics-mystical/paragraph-2",
-      "excerpt": "Ethics and aesthetics are called transcendental because value is not an item inside the totality of facts. No accumulation of descriptions establishes that life is absolutely good or reveals its meaning. The wartime note"
-    },
-    {
-      "recordKey": "philosopher:wittgenstein",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "limits-ethics-mystical/paragraph-3",
-      "excerpt": "The book’s ladder intensifies the problem. A reader who understands Wittgenstein is to recognize the elucidatory propositions as nonsensical and throw them away. Traditional or “ineffabilist” readings hold that the remar"
-    },
-    {
-      "recordKey": "philosopher:wittgenstein",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "use-games-life/paragraph-1",
-      "excerpt": "The Philosophical Investigations begins with a picture of language in which words name objects and sentences combine names. Wittgenstein does not claim that naming never occurs. He shows that one genuine use has been mis"
-    },
-    {
-      "recordKey": "philosopher:wittgenstein",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "use-games-life/paragraph-2",
-      "excerpt": "The remark that the meaning of a word is its use in the language is a methodological guide, not a dictionary theory saying that the most common behavior fixes every meaning. “Use” includes standards, circumstances, conse"
-    },
-    {
-      "recordKey": "philosopher:wittgenstein",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "rules-going-on/paragraph-3",
-      "excerpt": "Saul Kripke’s influential skeptical interpretation dramatizes a paradox: any finite history seems compatible with indefinitely many functions, so no past fact uniquely determines what a speaker meant. His proposed “skept"
-    },
-    {
-      "recordKey": "philosopher:wittgenstein",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "private-language-mind/paragraph-2",
-      "excerpt": "This does not deny consciousness, pain, privacy, or asymmetry between one’s own experience and another person’s. Wittgenstein repeatedly treats pain as real. He questions the model according to which a child learns psych"
-    },
-    {
-      "recordKey": "philosopher:wittgenstein",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "private-language-mind/paragraph-2",
-      "excerpt": "This does not deny consciousness, pain, privacy, or asymmetry between one’s own experience and another person’s. Wittgenstein repeatedly treats pain as real. He questions the model according to which a child learns psych"
-    },
-    {
-      "recordKey": "philosopher:wittgenstein",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "certainty-hinges/paragraph-1",
-      "excerpt": "The notes published as On Certainty were written in the last eighteen months of Wittgenstein’s life in response to G. E. Moore’s claims to know such things as that he has hands and that the earth existed long before his"
-    },
-    {
-      "recordKey": "philosopher:wittgenstein",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "certainty-hinges/paragraph-2",
-      "excerpt": "Doubt itself belongs to a practice. A doubt that treats every memory, perception, calculation, and word as simultaneously uncertain removes the background that would let doubting count as a meaningful activity. Some comm"
-    },
-    {
-      "recordKey": "philosopher:wittgenstein",
-      "status": "bibliography-only",
-      "signal": "disputed-attribution",
-      "location": "certainty-hinges/paragraph-2",
-      "excerpt": "Doubt itself belongs to a practice. A doubt that treats every memory, perception, calculation, and word as simultaneously uncertain removes the background that would let doubting count as a meaningful activity. Some comm"
-    },
-    {
-      "recordKey": "philosopher:wittgenstein",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "mathematics-psychology-aesthetics/paragraph-3",
-      "excerpt": "Remarks on Frazer’s Golden Bough criticize the assumption that ritual must be a failed scientific hypothesis. Description, comparison, and invented intermediate cases may reveal the human significance of a ceremony witho"
-    },
-    {
-      "recordKey": "philosopher:wittgenstein",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "ethics-religion-later/paragraph-2",
-      "excerpt": "Lectures on religious belief, preserved in student notes, explore differences between a believer’s and nonbeliever’s orientation to pictures such as Last Judgment. Interpreters disagree whether this yields noncognitivism"
-    },
-    {
-      "recordKey": "philosopher:wittgenstein",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "continuity-discontinuity/paragraph-2",
-      "excerpt": "Continuity readings point elsewhere. Both periods reject philosophy as a natural science that discovers new facts. Both ask how signs have sense, distinguish philosophical elucidation from theory, and use unusual writing"
-    },
-    {
-      "recordKey": "philosopher:wittgenstein",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "influence-criticism/paragraph-1",
-      "excerpt": "The Tractatus influenced the Vienna Circle, logical empiricism, theories of symbolism, and the development of analytic philosophy, although its readers often separated anti-metaphysical arguments from its ethical and mys"
-    },
-    {
-      "recordKey": "philosopher:wittgenstein",
-      "status": "bibliography-only",
-      "signal": "influence-or-causation",
-      "location": "influence-criticism/paragraph-1",
-      "excerpt": "The Tractatus influenced the Vienna Circle, logical empiricism, theories of symbolism, and the development of analytic philosophy, although its readers often separated anti-metaphysical arguments from its ethical and mys"
-    },
-    {
-      "recordKey": "philosopher:sartre",
-      "status": "bibliography-only",
-      "signal": "influence-or-causation",
-      "location": "history-marxism/paragraph-3",
-      "excerpt": "This vocabulary marks real development from the emphasis of Being and Nothingness, though not a simple abandonment of freedom. Sartre wants to show how freedom becomes collective and how collective achievements become co"
-    },
-    {
-      "recordKey": "philosopher:sartre",
-      "status": "bibliography-only",
-      "signal": "influence-or-causation",
-      "location": "legacy-reading/paragraph-1",
-      "excerpt": "Sartre influenced existential psychotherapy, literature, theology, political activism, anticolonial theory, and debates about agency. Beauvoir, Fanon, and later liberation thinkers transformed existential categories rath"
-    },
-    {
-      "recordKey": "philosopher:beauvoir",
-      "status": "bibliography-only",
-      "signal": "disputed-attribution",
-      "location": "controversies-legacy/paragraph-1",
-      "excerpt": "Debate about Beauvoir includes her relation to Sartre, her treatment of other women, and the ethics of her personal life. Presenting her as Sartre's disciple erases evidence and repeats the gender hierarchy her work diag"
-    },
-    {
-      "recordKey": "philosopher:beauvoir",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "misunderstandings-reading/paragraph-1",
-      "excerpt": "Several misunderstandings obstruct a first reading. Beauvoir does not say biology is unreal, that gender is chosen at will, or that every relation with another person is necessarily oppressive. Her ethics does not celebr"
-    },
-    {
-      "recordKey": "philosopher:camus",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "orientation/paragraph-2",
-      "excerpt": "His first answer emphasizes revolt, freedom, and passionate attention to finite life. His later work broadens revolt from an individual's defiance into solidarity with others and a politics of limits. To say no to humili"
-    },
-    {
-      "recordKey": "philosopher:camus",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "algerian-setting/paragraph-1",
-      "excerpt": "Camus was born in 1913 in French-ruled Algeria to a poor European settler family. His father died after being wounded in the First World War, and Camus grew up with his mother in working-class Algiers. A teacher helped h"
-    },
-    {
-      "recordKey": "philosopher:camus",
-      "status": "bibliography-only",
-      "signal": "disputed-attribution",
-      "location": "absurd/paragraph-2",
-      "excerpt": "This is why Camus resists both rationalist systems and religious or philosophical leaps that dissolve the conflict. He controversially accuses thinkers such as Kierkegaard of preserving the absurd only to escape it throu"
-    },
-    {
-      "recordKey": "philosopher:camus",
-      "status": "bibliography-only",
-      "signal": "disputed-attribution",
-      "location": "plague-solidarity/paragraph-1",
-      "excerpt": "The Plague depicts an epidemic in Oran through doctors, officials, volunteers, clergy, journalists, profiteers, victims, and survivors. It can be read in relation to fascism and resistance, but its allegorical force does"
-    },
-    {
-      "recordKey": "philosopher:camus",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "fall-exile/paragraph-2",
-      "excerpt": "Exile and the Kingdom gathers stories about isolation, failed connection, labor, landscape, and divided belonging. Their moral situations resist easy verdicts. The First Man, left unfinished at Camus' death, returns to c"
-    },
-    {
-      "recordKey": "philosopher:camus",
-      "status": "bibliography-only",
-      "signal": "disputed-attribution",
-      "location": "fall-exile/paragraph-2",
-      "excerpt": "Exile and the Kingdom gathers stories about isolation, failed connection, labor, landscape, and divided belonging. Their moral situations resist easy verdicts. The First Man, left unfinished at Camus' death, returns to c"
-    },
-    {
-      "recordKey": "philosopher:camus",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "misunderstandings-reading/paragraph-3",
-      "excerpt": "Continue with The Rebel alongside serious historical criticism, followed by The Just Assassins and essays in Resistance, Rebellion, and Death. Algerian Chronicles should be read with histories and Algerian voices that ex"
-    },
-    {
-      "recordKey": "philosopher:arendt",
-      "status": "bibliography-only",
-      "signal": "influence-or-causation",
-      "location": "legacy-criticism/paragraph-1",
-      "excerpt": "Arendt has influenced democratic theory, refugee studies, political theology, feminist theory, human rights, memory studies, and analyses of civil disobedience. Her concepts of natality, plurality, public space, worldly"
-    },
     {
       "recordKey": "philosopher:rawls",
       "status": "bibliography-only",
@@ -6707,10 +5864,10 @@
   "groupSummary": {
     "philosophers": {
       "total": 147,
-      "unreviewed": 4,
-      "bibliography-only": 18,
+      "unreviewed": 0,
+      "bibliography-only": 7,
       "source-mapped": 0,
-      "claim-reviewed": 125,
+      "claim-reviewed": 140,
       "review-out-of-date": 0
     },
     "philosophies": {

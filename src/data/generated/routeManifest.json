@@ -6145,7 +6145,7 @@
           "title": "A reading strategy for Spinoza"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "leibniz",
@@ -6204,7 +6204,7 @@
           "title": "A reading strategy for Leibniz"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "locke",
@@ -6267,7 +6267,7 @@
           "title": "A reading strategy for Locke"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "berkeley",
@@ -7032,7 +7032,7 @@
           "title": "A precursor’s route into existentialism"
         }
       ],
-      "hasSources": false
+      "hasSources": true
     },
     {
       "id": "marx",

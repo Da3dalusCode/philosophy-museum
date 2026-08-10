@@ -10,7 +10,7 @@ Regenerate it with `npm run report:exhibits` and verify it with `npm run audit:e
 
 | Total | Unreviewed | Bibliography only | Source mapped | Claim reviewed | Review out of date |
 | ---: | ---: | ---: | ---: | ---: | ---: |
-| 192 | 4 | 50 | 0 | 138 | 0 |
+| 192 | 0 | 39 | 0 | 153 | 0 |
 
 ## Exhibit baseline
 
@@ -199,23 +199,23 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | renaissance-humanism-new-method | early-experiment-method | galileo | philosopher:galileo | matched | claim-reviewed | standard-compliant |
 | renaissance-humanism-new-method | early-sovereignty-materialism | hobbes | philosopher:hobbes | matched | claim-reviewed | standard-compliant |
 | phenomenology-existence-embodiment | phenomenology-method | phenomenology | branch:phenomenology | matched | bibliography-only | unreviewed |
-| phenomenology-existence-embodiment | phenomenology-method | husserl | philosopher:husserl | matched | bibliography-only | unreviewed |
-| phenomenology-existence-embodiment | phenomenology-being-embodiment | heidegger | philosopher:heidegger | matched | bibliography-only | unreviewed |
+| phenomenology-existence-embodiment | phenomenology-method | husserl | philosopher:husserl | matched | claim-reviewed | unreviewed |
+| phenomenology-existence-embodiment | phenomenology-being-embodiment | heidegger | philosopher:heidegger | matched | claim-reviewed | unreviewed |
 | phenomenology-existence-embodiment | phenomenology-being-embodiment | merleau-ponty | philosopher:merleau-ponty | matched | claim-reviewed | standard-compliant |
 | phenomenology-existence-embodiment | existentialism-freedom | existentialism | branch:existentialism | matched | bibliography-only | unreviewed |
-| phenomenology-existence-embodiment | existentialism-freedom | sartre | philosopher:sartre | matched | bibliography-only | unreviewed |
-| phenomenology-existence-embodiment | existentialism-situated-absurd | camus | philosopher:camus | matched | bibliography-only | unreviewed |
+| phenomenology-existence-embodiment | existentialism-freedom | sartre | philosopher:sartre | matched | claim-reviewed | unreviewed |
+| phenomenology-existence-embodiment | existentialism-situated-absurd | camus | philosopher:camus | matched | claim-reviewed | unreviewed |
 | phenomenology-existence-embodiment | phenomenology-interpretation-alterity | levinas | philosopher:levinas | matched | claim-reviewed | standard-compliant |
 | phenomenology-existence-embodiment | phenomenology-interpretation-alterity | gadamer | philosopher:gadamer | matched | claim-reviewed | standard-compliant |
 | analytic-traditions | analytic-origins-foundations | analytic-philosophy | branch:analytic-philosophy | matched | bibliography-only | unreviewed |
 | analytic-traditions | analytic-origins-foundations | russell | philosopher:russell | matched | claim-reviewed | standard-compliant |
 | analytic-traditions | analytic-origins-foundations | frege | philosopher:frege | matched | claim-reviewed | standard-compliant |
 | analytic-traditions | analytic-common-sense-metaethics | g-e-moore | philosopher:g-e-moore | matched | claim-reviewed | standard-compliant |
-| analytic-traditions | analytic-wittgenstein | wittgenstein | philosopher:wittgenstein | matched | bibliography-only | unreviewed |
+| analytic-traditions | analytic-wittgenstein | wittgenstein | philosopher:wittgenstein | matched | claim-reviewed | unreviewed |
 | analytic-traditions | analytic-naturalism | quine | philosopher:quine | matched | claim-reviewed | standard-compliant |
 | analytic-traditions | analytic-action-intention | anscombe | philosopher:anscombe | matched | claim-reviewed | standard-compliant |
 | justice-democratic-reason | justice-political-orientation | political-philosophy | branch:political-philosophy | matched | claim-reviewed | standard-compliant |
-| justice-democratic-reason | justice-political-orientation | arendt | philosopher:arendt | matched | bibliography-only | unreviewed |
+| justice-democratic-reason | justice-political-orientation | arendt | philosopher:arendt | matched | claim-reviewed | unreviewed |
 | justice-democratic-reason | justice-distribution-rights | rawls | philosopher:rawls | matched | bibliography-only | unreviewed |
 | justice-democratic-reason | justice-distribution-rights | nozick | philosopher:nozick | matched | bibliography-only | unreviewed |
 | justice-democratic-reason | justice-capabilities-democracy | martha-nussbaum | philosopher:martha-nussbaum | matched | claim-reviewed | standard-compliant |
@@ -314,14 +314,14 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | late-antiquity-inheritance | late-christian-platonisms | gregory-nyssa | philosopher:gregory-nyssa | matched | claim-reviewed | standard-compliant |
 | late-antiquity-inheritance | late-christian-platonisms | pseudo-dionysius | philosopher:pseudo-dionysius | matched | claim-reviewed | standard-compliant |
 | rationalism-mind-nature-system | rationalism-cartesian-foundations | rationalism | branch:rationalism | matched | bibliography-only | unreviewed |
-| rationalism-mind-nature-system | rationalism-cartesian-foundations | descartes | philosopher:descartes | matched | bibliography-only | unreviewed |
-| rationalism-mind-nature-system | rationalism-spinoza-conway | spinoza | philosopher:spinoza | matched | unreviewed | unreviewed |
+| rationalism-mind-nature-system | rationalism-cartesian-foundations | descartes | philosopher:descartes | matched | claim-reviewed | unreviewed |
+| rationalism-mind-nature-system | rationalism-spinoza-conway | spinoza | philosopher:spinoza | matched | claim-reviewed | unreviewed |
 | rationalism-mind-nature-system | rationalism-spinoza-conway | anne-conway | philosopher:anne-conway | matched | claim-reviewed | standard-compliant |
-| rationalism-mind-nature-system | rationalism-leibniz-system | leibniz | philosopher:leibniz | matched | unreviewed | unreviewed |
+| rationalism-mind-nature-system | rationalism-leibniz-system | leibniz | philosopher:leibniz | matched | claim-reviewed | unreviewed |
 | empiricism-science-political-order | empiricism-locke-ideas-rights | empiricism | branch:empiricism | matched | bibliography-only | unreviewed |
-| empiricism-science-political-order | empiricism-locke-ideas-rights | locke | philosopher:locke | matched | unreviewed | unreviewed |
+| empiricism-science-political-order | empiricism-locke-ideas-rights | locke | philosopher:locke | matched | claim-reviewed | unreviewed |
 | empiricism-science-political-order | empiricism-berkeley-perception | berkeley | philosopher:berkeley | matched | claim-reviewed | standard-compliant |
-| empiricism-science-political-order | empiricism-hume-skepticism | hume | philosopher:hume | matched | bibliography-only | unreviewed |
+| empiricism-science-political-order | empiricism-hume-skepticism | hume | philosopher:hume | matched | claim-reviewed | unreviewed |
 | enlightenment-revolution-kant | enlightenment-law-institutions | montesquieu | philosopher:montesquieu | matched | claim-reviewed | standard-compliant |
 | enlightenment-revolution-kant | enlightenment-society-freedom | rousseau | philosopher:rousseau | matched | claim-reviewed | standard-compliant |
 | enlightenment-revolution-kant | enlightenment-sentiment-commerce | adam-smith | philosopher:adam-smith | matched | claim-reviewed | standard-compliant |
@@ -329,7 +329,7 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | enlightenment-revolution-kant | enlightenment-equality-education | wollstonecraft | philosopher:wollstonecraft | matched | claim-reviewed | standard-compliant |
 | enlightenment-revolution-kant | enlightenment-kant-critical | kant | philosopher:kant | matched | claim-reviewed | standard-compliant |
 | german-idealism-afterlives | german-idealism-orientation | german-idealism | branch:german-idealism | matched | bibliography-only | unreviewed |
-| german-idealism-afterlives | german-idealism-orientation | fichte | philosopher:fichte | matched | bibliography-only | unreviewed |
+| german-idealism-afterlives | german-idealism-orientation | fichte | philosopher:fichte | matched | claim-reviewed | unreviewed |
 | german-idealism-afterlives | german-idealism-nature | schelling | philosopher:schelling | matched | claim-reviewed | standard-compliant |
 | german-idealism-afterlives | german-idealism-hegel | hegel | philosopher:hegel | matched | claim-reviewed | standard-compliant |
 | german-idealism-afterlives | german-idealism-afterlives-room | kantianism | branch:kantianism | matched | claim-reviewed | standard-compliant |
@@ -339,8 +339,8 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | utility-liberty-history-capital | nineteenth-social-transformations | marxism | branch:marxism | matched | claim-reviewed | standard-compliant |
 | faith-pessimism-life-value | nineteenth-will-pessimism | schopenhauer | philosopher:schopenhauer | matched | claim-reviewed | standard-compliant |
 | faith-pessimism-life-value | nineteenth-faith-subjectivity | kierkegaard | philosopher:kierkegaard | matched | claim-reviewed | standard-compliant |
-| faith-pessimism-life-value | nineteenth-faith-subjectivity | dostoevsky | philosopher:dostoevsky | matched | unreviewed | unreviewed |
-| faith-pessimism-life-value | nineteenth-genealogy-value | nietzsche | philosopher:nietzsche | matched | bibliography-only | unreviewed |
+| faith-pessimism-life-value | nineteenth-faith-subjectivity | dostoevsky | philosopher:dostoevsky | matched | claim-reviewed | unreviewed |
+| faith-pessimism-life-value | nineteenth-genealogy-value | nietzsche | philosopher:nietzsche | matched | claim-reviewed | unreviewed |
 | pragmatism-democratic-inquiry | pragmatism-peirce-inquiry | pragmatism | branch:pragmatism | matched | bibliography-only | unreviewed |
 | pragmatism-democratic-inquiry | pragmatism-peirce-inquiry | peirce | philosopher:peirce | matched | claim-reviewed | standard-compliant |
 | pragmatism-democratic-inquiry | pragmatism-james-experience | william-james | philosopher:william-james | matched | claim-reviewed | standard-compliant |
@@ -358,7 +358,7 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | moral-life-practical-reason | moral-rights-persons-futures | judith-thomson | philosopher:judith-thomson | matched | claim-reviewed | standard-compliant |
 | moral-life-practical-reason | moral-rights-persons-futures | derek-parfit | philosopher:derek-parfit | matched | claim-reviewed | standard-compliant |
 | feminist-philosophies | feminist-orientation-genealogies | feminist-philosophy | branch:feminist-philosophy | matched | claim-reviewed | standard-compliant |
-| feminist-philosophies | feminist-situated-freedom | beauvoir | philosopher:beauvoir | matched | bibliography-only | unreviewed |
+| feminist-philosophies | feminist-situated-freedom | beauvoir | philosopher:beauvoir | matched | claim-reviewed | unreviewed |
 | feminist-philosophies | feminist-gender-norms | judith-butler | philosopher:judith-butler | matched | claim-reviewed | standard-compliant |
 | colonialism-race-liberation | colonial-embodiment-liberation | fanon | philosopher:fanon | matched | bibliography-only | unreviewed |
 | colonialism-race-liberation | colonial-black-feminism-abolition | angela-davis | philosopher:angela-davis | matched | claim-reviewed | standard-compliant |

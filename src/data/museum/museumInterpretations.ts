@@ -1084,6 +1084,7 @@ const MUSEUM_DEEP_ARTICLE_ENTITY_IDS = new Set([
   'levinas',
   'gadamer',
   'g-e-moore',
+  'wittgenstein',
   'martha-nussbaum',
   'whitehead',
   'philosophy-of-religion',

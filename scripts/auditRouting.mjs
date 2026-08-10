@@ -558,8 +558,15 @@ check('article route metadata uses real targets and conditional extras', () => {
   const philosopherWithoutSources = philosophers.find(
     ({sourceLinks, editorial}) => !(sourceLinks?.length || editorial?.sources?.length),
   );
-  assert(philosopherWithoutSources);
-  assert(!getArticleRouteEntries({kind: 'philosopher', philosopherId: philosopherWithoutSources.id}).some(({id}) => id === 'profile-sources'));
+  if (philosopherWithoutSources) {
+    assert(!getArticleRouteEntries({kind: 'philosopher', philosopherId: philosopherWithoutSources.id}).some(({id}) => id === 'profile-sources'));
+  } else {
+    assert(
+      philosophers.every(({id}) =>
+        getArticleRouteEntries({kind: 'philosopher', philosopherId: id}).some(({id: entryId}) => entryId === 'profile-sources'),
+      ),
+    );
+  }
 });
 
 check('document titles are exhaustive and section-aware', () => {

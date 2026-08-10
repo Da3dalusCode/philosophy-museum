@@ -490,7 +490,7 @@ export const ANALYTIC_SUPPLEMENTAL_EXHIBITS = [
     sources: [
       {label: 'Wittgenstein, Tractatus Logico-Philosophicus (Project Gutenberg)', url: 'https://www.gutenberg.org/ebooks/5740', kind: 'primary-text'},
       {label: 'Stanford Encyclopedia of Philosophy — Ludwig Wittgenstein', url: 'https://plato.stanford.edu/entries/wittgenstein/', kind: 'academic-reference'},
-      {label: 'Internet Encyclopedia of Philosophy — Ludwig Wittgenstein', url: 'https://iep.utm.edu/wittgenstein/', kind: 'academic-reference'},
+      {label: 'Internet Encyclopedia of Philosophy — Ludwig Wittgenstein', url: 'https://iep.utm.edu/wittgens/', kind: 'academic-reference'},
     ],
     assetId: 'wittgenstein-tractatus-1922',
     panelAssetId: 'wittgenstein-tractatus-1922',
@@ -588,7 +588,7 @@ export const ANALYTIC_SUPPLEMENTAL_EXHIBITS = [
     dateLabel: 'Published posthumously in 1953',
     question: 'What if philosophical confusion arises because language is forced into one misleading picture?',
     frontSubtitle: 'Use, grammar, reminders, cases, and philosophical therapy',
-    lead: 'Philosophical Investigations replaces the search for one essence of language with comparisons among varied uses: requesting, calculating, joking, promising, reporting, praying, and more. Meaning is often illuminated by use within a practice, not by locating a hidden object attached to every word. Wittgenstein’s remarks offer examples and reminders intended to loosen philosophical pictures rather than establish a new total system. The displayed first-edition cover is a publication artifact. Its presence beside Anscombe’s primary exhibit also matters because she translated the work, served as a literary executor, and helped secure its English reception.',
+    lead: 'Philosophical Investigations replaces the search for one essence of language with comparisons among varied uses: requesting, calculating, joking, promising, reporting, praying, and more. Meaning is often illuminated by use within a practice, not by locating a hidden object attached to every word. Wittgenstein’s remarks offer examples and reminders intended to loosen philosophical pictures rather than establish a new total system. Wittgenstein repeatedly drafted and rearranged material with publication in view but did not issue the book himself; G. E. M. Anscombe and Rush Rhees edited the first edition after his death in 1953. The displayed cover is therefore a publication artifact and part of an editorial history, not evidence of one author-final system.',
     keyIdeas: [
       'Words operate within diverse language-games rather than one universal representational function.',
       'Grammar concerns the rules and contrasts that organize meaningful use.',
@@ -597,16 +597,16 @@ export const ANALYTIC_SUPPLEMENTAL_EXHIBITS = [
     cautions: [
       '“Meaning is use” is an orientation, not the claim that dictionaries, reference, or truth never matter.',
       'Ordinary use can be contested, changing, specialized, and entangled with power.',
-      'The cover does not illustrate the arguments, and the book was assembled and published posthumously.',
+      'The cover does not illustrate the arguments, and later editions reconsidered the status of material once printed as Part II.',
     ],
     sections: [
       {heading: 'Against a single picture', paragraphs: ['The opening critique of Augustine challenges the idea that every word names an object and every sentence combines names. Wittgenstein multiplies examples to show how little one template explains.']},
       {heading: 'Description before theory', paragraphs: ['Rather than inventing ideal conditions, the method compares actual and imagined cases. A philosophical problem can dissolve when overlooked differences in use become visible.']},
-      {heading: 'An unfinished book', paragraphs: ['Editors prepared the posthumous text from Wittgenstein’s materials, and its dialogical remarks resist a simple sequence of theses. Reading requires tracking examples, voices, and changes of direction.']},
+      {heading: 'An unfinished book', paragraphs: ['Anscombe and Rhees prepared the 1953 posthumous text from manuscripts Wittgenstein had repeatedly selected and revised. The fourth revised edition treats the former Part II as Philosophy of Psychology—A Fragment, making edition and editorial history material to interpretation.']},
     ],
     sources: [
       {label: 'Stanford Encyclopedia of Philosophy — Ludwig Wittgenstein', url: 'https://plato.stanford.edu/entries/wittgenstein/', kind: 'academic-reference'},
-      {label: 'Internet Encyclopedia of Philosophy — Ludwig Wittgenstein', url: 'https://iep.utm.edu/wittgenstein/', kind: 'academic-reference'},
+      {label: 'Internet Encyclopedia of Philosophy — Ludwig Wittgenstein', url: 'https://iep.utm.edu/wittgens/', kind: 'academic-reference'},
       {label: 'Wittgenstein Archives at the University of Bergen', url: 'https://www.wittgensteinsource.org/', kind: 'collection-record'},
     ],
     assetId: 'anscombe-philosophical-investigations-1953',
@@ -624,7 +624,7 @@ export const ANALYTIC_SUPPLEMENTAL_EXHIBITS = [
     displayName: 'Wittgenstein: Language-Games and Rule-Following',
     shortTitle: 'Wittgenstein: Language-Games',
     workLabel: 'WITTGENSTEIN · USE, RULES, AND FORMS OF LIFE',
-    dateLabel: 'Developed in Philosophical Investigations, 1953',
+    dateLabel: 'Published posthumously in Philosophical Investigations, 1953',
     question: 'What makes an action count as following a rule rather than merely matching one interpretation?',
     frontSubtitle: 'Practice, training, agreement, normativity, and forms of life',
     lead: 'Wittgenstein uses “language-game” to direct attention to words woven into activities, training, tools, expectations, and forms of life. A rule does not carry every future application inside itself as a hidden rail. Its normative force appears through publicly learnable practices in which some moves count as correct, mistaken, revised, or disputed. The generated museum image combines tools, game pieces, and coordinated action to evoke that plurality. It is a contemporary interpretation, contains no historical scene, and should not make language-games look frivolous or sealed off from one another.',
@@ -646,7 +646,7 @@ export const ANALYTIC_SUPPLEMENTAL_EXHIBITS = [
     sources: [
       {label: 'Stanford Encyclopedia of Philosophy — Rule-Following and Intentionality', url: 'https://plato.stanford.edu/entries/rule-following/', kind: 'academic-reference'},
       {label: 'Stanford Encyclopedia of Philosophy — Ludwig Wittgenstein', url: 'https://plato.stanford.edu/entries/wittgenstein/', kind: 'academic-reference'},
-      {label: 'Internet Encyclopedia of Philosophy — Ludwig Wittgenstein', url: 'https://iep.utm.edu/wittgenstein/', kind: 'academic-reference'},
+      {label: 'Internet Encyclopedia of Philosophy — Ludwig Wittgenstein', url: 'https://iep.utm.edu/wittgens/', kind: 'academic-reference'},
     ],
     assetId: 'wittgenstein-language-games-interpretive',
     panelAssetId: 'wittgenstein-language-games-interpretive',

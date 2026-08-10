@@ -531,7 +531,7 @@
     {
       "id": "descartes",
       "label": "René Descartes",
-      "searchText": "rené descartes methodic doubt and ordered inquiry cogito and first-person certainty ideas and innateness mind-body distinction and union mechanical natural philosophy passions and generosity discourse on the method meditations on first philosophy principles of philosophy correspondence with princess elisabeth passions of the soul early modern philosophy and natural science"
+      "searchText": "rené descartes methodic doubt as a temporary reconstruction cogito and the thinking subject ideas, clarity, and judgment mind-body distinction and experienced union mechanical natural philosophy passions, generosity, and practical agency discourse on the method meditations on first philosophy with objections and replies principles of philosophy passions of the soul correspondence with princess elisabeth of bohemia early modern philosophy, mathematics, and natural science"
     },
     {
       "id": "hobbes",
@@ -541,17 +541,17 @@
     {
       "id": "spinoza",
       "label": "Spinoza",
-      "searchText": "spinoza substance freedom through understanding ethics rationalist"
+      "searchText": "spinoza god or nature and one infinite substance attributes, modes, and mind-body parallelism imagination, reason, and intuitive knowledge conatus, affects, bondage, and active power freedom through necessity and adequate understanding scriptural criticism, toleration, and political freedom ethics theological-political treatise political treatise short treatise on god, man and his well-being correspondence early modern dutch philosophy"
     },
     {
       "id": "leibniz",
       "label": "Leibniz",
-      "searchText": "leibniz monads sufficient reason monadology rationalist"
+      "searchText": "leibniz principles of contradiction and sufficient reason necessary, contingent, and complete truths monads, perception, and appetite pre-established harmony possible worlds, theodicy, and contingency innate dispositions and the critique of the blank slate force, space, time, and newtonian controversy discourse on metaphysics new essays on human understanding theodicy monadology leibniz–clarke correspondence early modern philosophy, logic, and natural science"
     },
     {
       "id": "locke",
       "label": "Locke",
-      "searchText": "locke experience rights essay concerning human understanding empiricist"
+      "searchText": "locke critique of innate principles and ideas sensation, reflection, simple and complex ideas primary and secondary qualities knowledge, probability, and reasonable judgment consciousness and personal identity freedom, uneasiness, and suspension of desire natural rights, consent, property, toleration, and resistance an essay concerning human understanding two treatises of government a letter concerning toleration some thoughts concerning education the reasonableness of christianity early modern english philosophy"
     },
     {
       "id": "berkeley",
@@ -561,7 +561,7 @@
     {
       "id": "hume",
       "label": "David Hume",
-      "searchText": "david hume copy principle causation and induction bundle account of self passions and motivation moral sentiment convention a treatise of human nature an enquiry concerning human understanding an enquiry concerning the principles of morals dialogues concerning natural religion the history of england scottish enlightenment / experimental philosophy"
+      "searchText": "david hume impressions, ideas, and the copy principle association, imagination, belief, and probability causation and induction personal identity and the appendix problem passions, liberty, and necessity moral sentiment, sympathy, justice, and convention religion, history, commerce, taste, and human science a treatise of human nature an enquiry concerning human understanding an enquiry concerning the principles of morals dialogues concerning natural religion the history of england scottish enlightenment / experimental philosophy"
     },
     {
       "id": "rousseau",
@@ -581,7 +581,7 @@
     {
       "id": "fichte",
       "label": "Fichte",
-      "searchText": "fichte self-positing introductions to the wissenschaftslehre german idealist"
+      "searchText": "fichte wissenschaftslehre as a changing doctrine of scientific knowledge self-positing activity and transcendental reflection the not-i, anstoss, finitude, and striving recognition, embodiment, and reciprocal right conscience, vocation, and moral action education, economy, nation, and contested political reception later absolute life and religious philosophy foundations of the entire wissenschaftslehre introductions to the wissenschaftslehre foundations of natural right the system of ethics the vocation of man addresses to the german nation german idealism"
     },
     {
       "id": "schelling",
@@ -606,7 +606,7 @@
     {
       "id": "dostoevsky",
       "label": "Fyodor Dostoevsky",
-      "searchText": "fyodor dostoevsky freedom and rational determinism guilt and self-deception polyphony active love notes from underground crime and punishment demons the brothers karamazov russian literature / philosophical novel"
+      "searchText": "fyodor dostoevsky freedom and revolt against rational determinism guilt, self-deception, and responsibility extraordinary permission and the irreducibility of persons ideological possession, groups, and violence innocent suffering, freedom, security, and theodicy polyphony and philosophically independent voices active love, relation, and contested religious response notes from underground crime and punishment demons the brothers karamazov the house of the dead a writer’s diary russian literature / philosophical novel"
     },
     {
       "id": "marx",
@@ -621,22 +621,22 @@
     {
       "id": "nietzsche",
       "label": "Friedrich Nietzsche",
-      "searchText": "friedrich nietzsche genealogy perspectivism nihilism and revaluation self-overcoming the gay science beyond good and evil on the genealogy of morality classical philology / cultural criticism"
+      "searchText": "friedrich nietzsche genealogy, historical meaning, and revaluation perspectivism and intellectual conscience drives, affects, embodiment, and self-formation master and slave moralities, ressentiment, guilt, and ascetic ideals death of god, nihilism, affirmation, and recurrence will to power and its disputed scope overhuman, hierarchy, politics, gender, and reception the birth of tragedy human, all too human the gay science thus spoke zarathustra beyond good and evil on the genealogy of morality classical philology / cultural criticism"
     },
     {
       "id": "husserl",
       "label": "Husserl",
-      "searchText": "husserl intentionality the idea of phenomenology phenomenologist"
+      "searchText": "husserl intentionality and fulfillment epoché and reduction noesis, noema, and horizons time-consciousness embodiment and intersubjectivity passive and genetic synthesis lifeworld and the crisis of science logical investigations ideas i cartesian meditations ideas ii the crisis of european sciences and transcendental phenomenology transcendental phenomenology"
     },
     {
       "id": "heidegger",
       "label": "Heidegger",
-      "searchText": "heidegger being-in-the-world being and time phenomenologist"
+      "searchText": "heidegger question of being and ontological difference being-in-the-world care, mood, understanding, and being-with authenticity, death, and temporality historical disclosure and language technology as enframing political responsibility and antisemitism as interpretive context being and time the origin of the work of art letter on humanism the question concerning technology black notebooks phenomenological ontology and the history of being"
     },
     {
       "id": "wittgenstein",
       "label": "Ludwig Wittgenstein",
-      "searchText": "ludwig wittgenstein picture theory showing and saying language-games rule-following hinge commitments tractatus logico-philosophicus philosophical investigations on certainty logic, language, and philosophical method"
+      "searchText": "ludwig wittgenstein logical form, showing, and saying sense, nonsense, and philosophical clarification language-games and meaning in use forms of life rule-following and public criteria psychological concepts and private language certainty and hinge commitments tractatus logico-philosophicus philosophical investigations the blue and brown books remarks on the foundations of mathematics on certainty logic, language, and philosophical method"
     },
     {
       "id": "russell",
@@ -656,22 +656,22 @@
     {
       "id": "sartre",
       "label": "Jean-Paul Sartre",
-      "searchText": "jean-paul sartre freedom bad faith existentialism is a humanism existentialist"
+      "searchText": "jean-paul sartre intentional consciousness and pre-reflective self-awareness for-itself, in-itself, and nothingness freedom and facticity bad faith and the fundamental project the look and conflict with others engaged literature praxis, groups, scarcity, and history the transcendence of the ego nausea being and nothingness existentialism is a humanism what is literature? search for a method critique of dialectical reason existential phenomenology and existential marxism"
     },
     {
       "id": "beauvoir",
       "label": "Simone de Beauvoir",
-      "searchText": "simone de beauvoir otherness situated freedom the ethics of ambiguity existentialist / feminist"
+      "searchText": "simone de beauvoir ambiguity: facticity and transcendence situated and reciprocal freedom oppression and blocked futures woman as socially made other embodiment without biological destiny immanence and transcendence aging, care, and social invisibility pyrrhus and cineas the ethics of ambiguity the second sex the blood of others the mandarins the coming of age existential phenomenology, feminist philosophy, and ethics"
     },
     {
       "id": "camus",
       "label": "Albert Camus",
-      "searchText": "albert camus absurd revolt the myth of sisyphus absurdist"
+      "searchText": "albert camus the absurd as a relation of demand and silence lucidity without appeal revolt, solidarity, and limits critique of ideological murder literature as philosophical exploration colonial algeria and divided belonging the stranger the myth of sisyphus the plague the rebel the fall algerian chronicles absurdity, revolt, and political essay"
     },
     {
       "id": "arendt",
       "label": "Hannah Arendt",
-      "searchText": "hannah arendt action public world the human condition political"
+      "searchText": "hannah arendt total domination, ideology, terror, and loneliness statelessness and the right to have rights labor, work, and action plurality, natality, promise, and forgiveness public world, appearance, and narrative power, violence, authority, and revolution thinking and reflective judgment the origins of totalitarianism the human condition between past and future on revolution eichmann in jerusalem on violence the life of the mind political theory and phenomenological political thought"
     },
     {
       "id": "anscombe",

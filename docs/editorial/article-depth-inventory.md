@@ -45,9 +45,9 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | ficino | Marsilio Ficino | philosopher | 2146 | pass |
 | galileo | Galileo Galilei | philosopher | 2121 | pass |
 | kant | Immanuel Kant | philosopher | 4511 | pass |
-| dostoevsky | Fyodor Dostoevsky | philosopher | 2131 | pass |
+| dostoevsky | Fyodor Dostoevsky | philosopher | 2158 | pass |
 | nietzsche | Friedrich Nietzsche | philosopher | 4336 | pass |
-| wittgenstein | Ludwig Wittgenstein | philosopher | 4790 | pass |
+| wittgenstein | Ludwig Wittgenstein | philosopher | 4809 | pass |
 | jiddu-krishnamurti | Jiddu Krishnamurti | philosopher | 2720 | pass |
 | epistemology | Epistemology | philosophy | 2615 | pass |
 | ethics | Ethics | philosophy | 2900 | pass |
@@ -119,35 +119,35 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | philosopher | machiavelli | Niccolò Machiavelli | #/philosophers/machiavelli | 2091 | pass | yes | yes (1 primary; 2 supplemental) |
 | philosopher | bacon | Francis Bacon | #/philosophers/bacon | 2115 | pass | yes | yes (1 primary; 2 supplemental) |
 | philosopher | galileo | Galileo Galilei | #/philosophers/galileo | 2121 | pass | no | yes (1 primary; 2 supplemental) |
-| philosopher | descartes | René Descartes | #/philosophers/descartes | 4687 | pass | yes | yes (1 primary; 4 supplemental) |
+| philosopher | descartes | René Descartes | #/philosophers/descartes | 4720 | pass | yes | yes (1 primary; 4 supplemental) |
 | philosopher | hobbes | Thomas Hobbes | #/philosophers/hobbes | 2056 | pass | yes | yes (1 primary; 5 supplemental) |
-| philosopher | spinoza | Spinoza | #/philosophers/spinoza | 2350 | pass | yes | yes (1 primary; 3 supplemental) |
-| philosopher | leibniz | Leibniz | #/philosophers/leibniz | 2303 | pass | yes | yes (1 primary; 5 supplemental) |
-| philosopher | locke | Locke | #/philosophers/locke | 2360 | pass | yes | yes (1 primary; 3 supplemental) |
+| philosopher | spinoza | Spinoza | #/philosophers/spinoza | 2353 | pass | yes | yes (1 primary; 3 supplemental) |
+| philosopher | leibniz | Leibniz | #/philosophers/leibniz | 2317 | pass | yes | yes (1 primary; 5 supplemental) |
+| philosopher | locke | Locke | #/philosophers/locke | 2387 | pass | yes | yes (1 primary; 3 supplemental) |
 | philosopher | berkeley | George Berkeley | #/philosophers/berkeley | 2053 | pass | yes | yes (1 primary; 5 supplemental) |
-| philosopher | hume | David Hume | #/philosophers/hume | 4800 | pass | yes | yes (1 primary; 5 supplemental) |
+| philosopher | hume | David Hume | #/philosophers/hume | 4802 | pass | yes | yes (1 primary; 5 supplemental) |
 | philosopher | rousseau | Jean-Jacques Rousseau | #/philosophers/rousseau | 4119 | pass | yes | yes (1 primary; 5 supplemental) |
 | philosopher | bentham | Jeremy Bentham | #/philosophers/bentham | 2257 | pass | yes | yes (1 primary; 4 supplemental) |
 | philosopher | kant | Immanuel Kant | #/philosophers/kant | 4511 | pass | no | yes (1 primary; 1 supplemental) |
-| philosopher | fichte | Fichte | #/philosophers/fichte | 2026 | pass | yes | yes (1 primary; 3 supplemental) |
+| philosopher | fichte | Fichte | #/philosophers/fichte | 2023 | pass | yes | yes (1 primary; 3 supplemental) |
 | philosopher | schelling | Schelling | #/philosophers/schelling | 2175 | pass | yes | yes (1 primary; 5 supplemental) |
 | philosopher | hegel | Hegel | #/philosophers/hegel | 4111 | pass | yes | yes (1 primary; 8 supplemental) |
 | philosopher | schopenhauer | Schopenhauer | #/philosophers/schopenhauer | 2335 | pass | yes | yes (1 primary; 5 supplemental) |
 | philosopher | kierkegaard | Kierkegaard | #/philosophers/kierkegaard | 2351 | pass | yes | yes (1 primary; 4 supplemental) |
-| philosopher | dostoevsky | Fyodor Dostoevsky | #/philosophers/dostoevsky | 2131 | pass | no | yes (1 primary; 1 supplemental) |
+| philosopher | dostoevsky | Fyodor Dostoevsky | #/philosophers/dostoevsky | 2158 | pass | no | yes (1 primary; 1 supplemental) |
 | philosopher | marx | Karl Marx | #/philosophers/marx | 4489 | pass | yes | yes (1 primary; 11 supplemental) |
 | philosopher | mill | John Stuart Mill | #/philosophers/mill | 2089 | pass | yes | yes (1 primary; 6 supplemental) |
 | philosopher | nietzsche | Friedrich Nietzsche | #/philosophers/nietzsche | 4336 | pass | no | yes (1 primary; 5 supplemental) |
-| philosopher | husserl | Husserl | #/philosophers/husserl | 2046 | pass | yes | yes (1 primary; 3 supplemental) |
-| philosopher | heidegger | Heidegger | #/philosophers/heidegger | 2284 | pass | yes | yes (1 primary; 2 supplemental) |
-| philosopher | wittgenstein | Ludwig Wittgenstein | #/philosophers/wittgenstein | 4790 | pass | no | yes (1 primary; 5 supplemental) |
+| philosopher | husserl | Husserl | #/philosophers/husserl | 2064 | pass | yes | yes (1 primary; 3 supplemental) |
+| philosopher | heidegger | Heidegger | #/philosophers/heidegger | 2298 | pass | yes | yes (1 primary; 2 supplemental) |
+| philosopher | wittgenstein | Ludwig Wittgenstein | #/philosophers/wittgenstein | 4809 | pass | no | yes (1 primary; 5 supplemental) |
 | philosopher | russell | Bertrand Russell | #/philosophers/russell | 2111 | pass | yes | yes (1 primary; 2 supplemental) |
 | philosopher | whitehead | Alfred North Whitehead | #/philosophers/whitehead | 2145 | pass | yes | yes (1 primary; 0 supplemental) |
 | philosopher | dewey | John Dewey | #/philosophers/dewey | 2118 | pass | yes | yes (1 primary; 5 supplemental) |
-| philosopher | sartre | Jean-Paul Sartre | #/philosophers/sartre | 2435 | pass | yes | yes (1 primary; 2 supplemental) |
-| philosopher | beauvoir | Simone de Beauvoir | #/philosophers/beauvoir | 2294 | pass | yes | yes (1 primary; 7 supplemental) |
-| philosopher | camus | Albert Camus | #/philosophers/camus | 2285 | pass | yes | yes (1 primary; 2 supplemental) |
-| philosopher | arendt | Hannah Arendt | #/philosophers/arendt | 2445 | pass | yes | yes (1 primary; 2 supplemental) |
+| philosopher | sartre | Jean-Paul Sartre | #/philosophers/sartre | 2455 | pass | yes | yes (1 primary; 2 supplemental) |
+| philosopher | beauvoir | Simone de Beauvoir | #/philosophers/beauvoir | 2307 | pass | yes | yes (1 primary; 7 supplemental) |
+| philosopher | camus | Albert Camus | #/philosophers/camus | 2297 | pass | yes | yes (1 primary; 2 supplemental) |
+| philosopher | arendt | Hannah Arendt | #/philosophers/arendt | 2436 | pass | yes | yes (1 primary; 2 supplemental) |
 | philosopher | anscombe | Elizabeth Anscombe | #/philosophers/anscombe | 2187 | pass | yes | yes (1 primary; 5 supplemental) |
 | philosopher | rawls | John Rawls | #/philosophers/rawls | 2519 | pass | yes | yes (1 primary; 2 supplemental) |
 | philosopher | nozick | Robert Nozick | #/philosophers/nozick | 2392 | pass | yes | yes (1 primary; 2 supplemental) |

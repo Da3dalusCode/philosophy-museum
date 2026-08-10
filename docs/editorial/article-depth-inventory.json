@@ -801,7 +801,7 @@
       "title": "René Descartes",
       "visitorEntryPoint": "#/philosophers/descartes",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 4687,
+      "substantiveWordCount": 4720,
       "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
@@ -825,7 +825,7 @@
       "title": "Spinoza",
       "visitorEntryPoint": "#/philosophers/spinoza",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 2350,
+      "substantiveWordCount": 2353,
       "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
@@ -837,7 +837,7 @@
       "title": "Leibniz",
       "visitorEntryPoint": "#/philosophers/leibniz",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 2303,
+      "substantiveWordCount": 2317,
       "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
@@ -849,7 +849,7 @@
       "title": "Locke",
       "visitorEntryPoint": "#/philosophers/locke",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 2360,
+      "substantiveWordCount": 2387,
       "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
@@ -873,7 +873,7 @@
       "title": "David Hume",
       "visitorEntryPoint": "#/philosophers/hume",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 4800,
+      "substantiveWordCount": 4802,
       "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
@@ -921,7 +921,7 @@
       "title": "Fichte",
       "visitorEntryPoint": "#/philosophers/fichte",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 2026,
+      "substantiveWordCount": 2023,
       "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
@@ -981,7 +981,7 @@
       "title": "Fyodor Dostoevsky",
       "visitorEntryPoint": "#/philosophers/dostoevsky",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 2131,
+      "substantiveWordCount": 2158,
       "complianceStatus": "pass",
       "legacyDepthAuditIncluded": false,
       "reusedInMuseum": true,
@@ -1029,7 +1029,7 @@
       "title": "Husserl",
       "visitorEntryPoint": "#/philosophers/husserl",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 2046,
+      "substantiveWordCount": 2064,
       "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
@@ -1041,7 +1041,7 @@
       "title": "Heidegger",
       "visitorEntryPoint": "#/philosophers/heidegger",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 2284,
+      "substantiveWordCount": 2298,
       "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
@@ -1053,7 +1053,7 @@
       "title": "Ludwig Wittgenstein",
       "visitorEntryPoint": "#/philosophers/wittgenstein",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 4790,
+      "substantiveWordCount": 4809,
       "complianceStatus": "pass",
       "legacyDepthAuditIncluded": false,
       "reusedInMuseum": true,
@@ -1101,7 +1101,7 @@
       "title": "Jean-Paul Sartre",
       "visitorEntryPoint": "#/philosophers/sartre",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 2435,
+      "substantiveWordCount": 2455,
       "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
@@ -1113,7 +1113,7 @@
       "title": "Simone de Beauvoir",
       "visitorEntryPoint": "#/philosophers/beauvoir",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 2294,
+      "substantiveWordCount": 2307,
       "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
@@ -1125,7 +1125,7 @@
       "title": "Albert Camus",
       "visitorEntryPoint": "#/philosophers/camus",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 2285,
+      "substantiveWordCount": 2297,
       "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
@@ -1137,7 +1137,7 @@
       "title": "Hannah Arendt",
       "visitorEntryPoint": "#/philosophers/arendt",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 2445,
+      "substantiveWordCount": 2436,
       "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
@@ -2423,7 +2423,7 @@
       "title": "Fyodor Dostoevsky",
       "visitorEntryPoint": "#/philosophers/dostoevsky",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 2131,
+      "substantiveWordCount": 2158,
       "complianceStatus": "pass",
       "legacyDepthAuditIncluded": false,
       "reusedInMuseum": true,
@@ -2447,7 +2447,7 @@
       "title": "Ludwig Wittgenstein",
       "visitorEntryPoint": "#/philosophers/wittgenstein",
       "contentCategory": "philosopher",
-      "substantiveWordCount": 4790,
+      "substantiveWordCount": 4809,
       "complianceStatus": "pass",
       "legacyDepthAuditIncluded": false,
       "reusedInMuseum": true,
@@ -2719,7 +2719,7 @@
         "hallId": "mediterranean-beginnings-classical",
         "visitorEntryPoint": "#/museum/mediterranean-beginnings-classical/exhibits/hippias-of-elis",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 923,
+        "surfaceWords": 379,
         "canonicalArticleKey": "philosopher:hippias-of-elis",
         "canonicalArticleId": "hippias-of-elis",
         "canonicalArticleWordCount": 2039,
@@ -2779,7 +2779,7 @@
         "hallId": "mediterranean-beginnings-classical",
         "visitorEntryPoint": "#/museum/mediterranean-beginnings-classical/exhibits/plato",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 316,
+        "surfaceWords": 409,
         "canonicalArticleKey": "philosopher:plato",
         "canonicalArticleId": "plato",
         "canonicalArticleWordCount": 4900,
@@ -2791,7 +2791,7 @@
         "hallId": "mediterranean-beginnings-classical",
         "visitorEntryPoint": "#/museum/mediterranean-beginnings-classical/exhibits/aristotle",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 315,
+        "surfaceWords": 413,
         "canonicalArticleKey": "philosopher:aristotle",
         "canonicalArticleId": "aristotle",
         "canonicalArticleWordCount": 2719,
@@ -2875,10 +2875,10 @@
         "hallId": "phenomenology-existence-embodiment",
         "visitorEntryPoint": "#/museum/phenomenology-existence-embodiment/exhibits/husserl",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 374,
+        "surfaceWords": 398,
         "canonicalArticleKey": "philosopher:husserl",
         "canonicalArticleId": "husserl",
-        "canonicalArticleWordCount": 2046,
+        "canonicalArticleWordCount": 2064,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -2890,7 +2890,7 @@
         "surfaceWords": 384,
         "canonicalArticleKey": "philosopher:heidegger",
         "canonicalArticleId": "heidegger",
-        "canonicalArticleWordCount": 2284,
+        "canonicalArticleWordCount": 2298,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -2926,7 +2926,7 @@
         "surfaceWords": 411,
         "canonicalArticleKey": "philosopher:sartre",
         "canonicalArticleId": "sartre",
-        "canonicalArticleWordCount": 2435,
+        "canonicalArticleWordCount": 2455,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -2938,7 +2938,7 @@
         "surfaceWords": 401,
         "canonicalArticleKey": "philosopher:camus",
         "canonicalArticleId": "camus",
-        "canonicalArticleWordCount": 2285,
+        "canonicalArticleWordCount": 2297,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -3019,10 +3019,10 @@
         "hallId": "analytic-traditions",
         "visitorEntryPoint": "#/museum/analytic-traditions/exhibits/wittgenstein",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 831,
+        "surfaceWords": 997,
         "canonicalArticleKey": "philosopher:wittgenstein",
         "canonicalArticleId": "wittgenstein",
-        "canonicalArticleWordCount": 4790,
+        "canonicalArticleWordCount": 4809,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -3067,10 +3067,10 @@
         "hallId": "justice-democratic-reason",
         "visitorEntryPoint": "#/museum/justice-democratic-reason/exhibits/arendt",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 331,
+        "surfaceWords": 367,
         "canonicalArticleKey": "philosopher:arendt",
         "canonicalArticleId": "arendt",
-        "canonicalArticleWordCount": 2445,
+        "canonicalArticleWordCount": 2436,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -3415,7 +3415,7 @@
         "hallId": "buddhist-philosophies",
         "visitorEntryPoint": "#/museum/buddhist-philosophies/exhibits/buddha",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 1049,
+        "surfaceWords": 394,
         "canonicalArticleKey": "philosopher:buddha",
         "canonicalArticleId": "buddha",
         "canonicalArticleWordCount": 4420,
@@ -3943,7 +3943,7 @@
         "hallId": "hellenistic-roman-ways",
         "visitorEntryPoint": "#/museum/hellenistic-roman-ways/exhibits/diogenes",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 982,
+        "surfaceWords": 372,
         "canonicalArticleKey": "philosopher:diogenes",
         "canonicalArticleId": "diogenes",
         "canonicalArticleWordCount": 2219,
@@ -3967,7 +3967,7 @@
         "hallId": "hellenistic-roman-ways",
         "visitorEntryPoint": "#/museum/hellenistic-roman-ways/exhibits/epicurus",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 995,
+        "surfaceWords": 365,
         "canonicalArticleKey": "philosopher:epicurus",
         "canonicalArticleId": "epicurus",
         "canonicalArticleWordCount": 2002,
@@ -3979,7 +3979,7 @@
         "hallId": "hellenistic-roman-ways",
         "visitorEntryPoint": "#/museum/hellenistic-roman-ways/exhibits/lucretius",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 839,
+        "surfaceWords": 385,
         "canonicalArticleKey": "philosopher:lucretius",
         "canonicalArticleId": "lucretius",
         "canonicalArticleWordCount": 2018,
@@ -4003,7 +4003,7 @@
         "hallId": "hellenistic-roman-ways",
         "visitorEntryPoint": "#/museum/hellenistic-roman-ways/exhibits/zeno",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 1028,
+        "surfaceWords": 386,
         "canonicalArticleKey": "philosopher:zeno",
         "canonicalArticleId": "zeno",
         "canonicalArticleWordCount": 2029,
@@ -4015,7 +4015,7 @@
         "hallId": "hellenistic-roman-ways",
         "visitorEntryPoint": "#/museum/hellenistic-roman-ways/exhibits/cleanthes",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 1004,
+        "surfaceWords": 373,
         "canonicalArticleKey": "philosopher:cleanthes",
         "canonicalArticleId": "cleanthes",
         "canonicalArticleWordCount": 2053,
@@ -4027,7 +4027,7 @@
         "hallId": "hellenistic-roman-ways",
         "visitorEntryPoint": "#/museum/hellenistic-roman-ways/exhibits/chrysippus",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 945,
+        "surfaceWords": 390,
         "canonicalArticleKey": "philosopher:chrysippus",
         "canonicalArticleId": "chrysippus",
         "canonicalArticleWordCount": 2264,
@@ -4039,7 +4039,7 @@
         "hallId": "hellenistic-roman-ways",
         "visitorEntryPoint": "#/museum/hellenistic-roman-ways/exhibits/epictetus",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 1012,
+        "surfaceWords": 380,
         "canonicalArticleKey": "philosopher:epictetus",
         "canonicalArticleId": "epictetus",
         "canonicalArticleWordCount": 2064,
@@ -4051,7 +4051,7 @@
         "hallId": "hellenistic-roman-ways",
         "visitorEntryPoint": "#/museum/hellenistic-roman-ways/exhibits/seneca",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 948,
+        "surfaceWords": 390,
         "canonicalArticleKey": "philosopher:seneca",
         "canonicalArticleId": "seneca",
         "canonicalArticleWordCount": 2024,
@@ -4063,7 +4063,7 @@
         "hallId": "hellenistic-roman-ways",
         "visitorEntryPoint": "#/museum/hellenistic-roman-ways/exhibits/marcus-aurelius",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 976,
+        "surfaceWords": 391,
         "canonicalArticleKey": "philosopher:marcus-aurelius",
         "canonicalArticleId": "marcus-aurelius",
         "canonicalArticleWordCount": 2007,
@@ -4087,7 +4087,7 @@
         "hallId": "hellenistic-roman-ways",
         "visitorEntryPoint": "#/museum/hellenistic-roman-ways/exhibits/pyrrho",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 858,
+        "surfaceWords": 375,
         "canonicalArticleKey": "philosopher:pyrrho",
         "canonicalArticleId": "pyrrho",
         "canonicalArticleWordCount": 2029,
@@ -4147,7 +4147,7 @@
         "hallId": "late-antiquity-inheritance",
         "visitorEntryPoint": "#/museum/late-antiquity-inheritance/exhibits/plotinus",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 972,
+        "surfaceWords": 388,
         "canonicalArticleKey": "philosopher:plotinus",
         "canonicalArticleId": "plotinus",
         "canonicalArticleWordCount": 2478,
@@ -4258,7 +4258,7 @@
         "surfaceWords": 395,
         "canonicalArticleKey": "philosopher:descartes",
         "canonicalArticleId": "descartes",
-        "canonicalArticleWordCount": 4687,
+        "canonicalArticleWordCount": 4720,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -4270,7 +4270,7 @@
         "surfaceWords": 375,
         "canonicalArticleKey": "philosopher:spinoza",
         "canonicalArticleId": "spinoza",
-        "canonicalArticleWordCount": 2350,
+        "canonicalArticleWordCount": 2353,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -4294,7 +4294,7 @@
         "surfaceWords": 317,
         "canonicalArticleKey": "philosopher:leibniz",
         "canonicalArticleId": "leibniz",
-        "canonicalArticleWordCount": 2303,
+        "canonicalArticleWordCount": 2317,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -4318,7 +4318,7 @@
         "surfaceWords": 343,
         "canonicalArticleKey": "philosopher:locke",
         "canonicalArticleId": "locke",
-        "canonicalArticleWordCount": 2360,
+        "canonicalArticleWordCount": 2387,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -4342,7 +4342,7 @@
         "surfaceWords": 347,
         "canonicalArticleKey": "philosopher:hume",
         "canonicalArticleId": "hume",
-        "canonicalArticleWordCount": 4800,
+        "canonicalArticleWordCount": 4802,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -4435,10 +4435,10 @@
         "hallId": "german-idealism-afterlives",
         "visitorEntryPoint": "#/museum/german-idealism-afterlives/exhibits/fichte",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 911,
+        "surfaceWords": 927,
         "canonicalArticleKey": "philosopher:fichte",
         "canonicalArticleId": "fichte",
-        "canonicalArticleWordCount": 2026,
+        "canonicalArticleWordCount": 2023,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -4558,7 +4558,7 @@
         "surfaceWords": 336,
         "canonicalArticleKey": "philosopher:dostoevsky",
         "canonicalArticleId": "dostoevsky",
-        "canonicalArticleWordCount": 2131,
+        "canonicalArticleWordCount": 2158,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -4567,7 +4567,7 @@
         "hallId": "faith-pessimism-life-value",
         "visitorEntryPoint": "#/museum/faith-pessimism-life-value/exhibits/nietzsche",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 385,
+        "surfaceWords": 398,
         "canonicalArticleKey": "philosopher:nietzsche",
         "canonicalArticleId": "nietzsche",
         "canonicalArticleWordCount": 4336,
@@ -4786,7 +4786,7 @@
         "surfaceWords": 357,
         "canonicalArticleKey": "philosopher:beauvoir",
         "canonicalArticleId": "beauvoir",
-        "canonicalArticleWordCount": 2294,
+        "canonicalArticleWordCount": 2307,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -5314,7 +5314,7 @@
         "canonicalArticleKey": "philosopher:husserl",
         "canonicalArticleId": "husserl",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 2046,
+        "canonicalArticleWordCount": 2064,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -5330,7 +5330,7 @@
         "canonicalArticleKey": "philosopher:heidegger",
         "canonicalArticleId": "heidegger",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 2284,
+        "canonicalArticleWordCount": 2298,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -5394,7 +5394,7 @@
         "canonicalArticleKey": "philosopher:sartre",
         "canonicalArticleId": "sartre",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 2435,
+        "canonicalArticleWordCount": 2455,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -5410,7 +5410,7 @@
         "canonicalArticleKey": "philosopher:sartre",
         "canonicalArticleId": "sartre",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 2435,
+        "canonicalArticleWordCount": 2455,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -5426,7 +5426,7 @@
         "canonicalArticleKey": "philosopher:beauvoir",
         "canonicalArticleId": "beauvoir",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 2294,
+        "canonicalArticleWordCount": 2307,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -5442,7 +5442,7 @@
         "canonicalArticleKey": "philosopher:camus",
         "canonicalArticleId": "camus",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 2285,
+        "canonicalArticleWordCount": 2297,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -5490,7 +5490,7 @@
         "canonicalArticleKey": "philosopher:husserl",
         "canonicalArticleId": "husserl",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 2046,
+        "canonicalArticleWordCount": 2064,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -5506,7 +5506,7 @@
         "canonicalArticleKey": "philosopher:husserl",
         "canonicalArticleId": "husserl",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 2046,
+        "canonicalArticleWordCount": 2064,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -5522,7 +5522,7 @@
         "canonicalArticleKey": "philosopher:heidegger",
         "canonicalArticleId": "heidegger",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 2284,
+        "canonicalArticleWordCount": 2298,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -5554,7 +5554,7 @@
         "canonicalArticleKey": "philosopher:beauvoir",
         "canonicalArticleId": "beauvoir",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 2294,
+        "canonicalArticleWordCount": 2307,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -5570,7 +5570,7 @@
         "canonicalArticleKey": "philosopher:camus",
         "canonicalArticleId": "camus",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 2285,
+        "canonicalArticleWordCount": 2297,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -5762,7 +5762,7 @@
         "canonicalArticleKey": "philosopher:wittgenstein",
         "canonicalArticleId": "wittgenstein",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 4790,
+        "canonicalArticleWordCount": 4809,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -5778,7 +5778,7 @@
         "canonicalArticleKey": "philosopher:wittgenstein",
         "canonicalArticleId": "wittgenstein",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 4790,
+        "canonicalArticleWordCount": 4809,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -5794,7 +5794,7 @@
         "canonicalArticleKey": "philosopher:wittgenstein",
         "canonicalArticleId": "wittgenstein",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 4790,
+        "canonicalArticleWordCount": 4809,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -5804,13 +5804,13 @@
         "visitorEntryPoint": "#/museum/analytic-traditions/exhibits/wittgenstein-investigations",
         "surfaceKind": "museum-supplemental-exhibit",
         "workLabel": "WITTGENSTEIN · PHILOSOPHICAL INVESTIGATIONS",
-        "surfaceWords": 172,
+        "surfaceWords": 205,
         "claimsArticleBacking": true,
         "articleActionLabel": "Open Wittgenstein’s full Atlas article",
         "canonicalArticleKey": "philosopher:wittgenstein",
         "canonicalArticleId": "wittgenstein",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 4790,
+        "canonicalArticleWordCount": 4809,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -5826,7 +5826,7 @@
         "canonicalArticleKey": "philosopher:wittgenstein",
         "canonicalArticleId": "wittgenstein",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 4790,
+        "canonicalArticleWordCount": 4809,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -6034,7 +6034,7 @@
         "canonicalArticleKey": "philosopher:arendt",
         "canonicalArticleId": "arendt",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 2445,
+        "canonicalArticleWordCount": 2436,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -6050,7 +6050,7 @@
         "canonicalArticleKey": "philosopher:arendt",
         "canonicalArticleId": "arendt",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 2445,
+        "canonicalArticleWordCount": 2436,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -7816,7 +7816,7 @@
         "canonicalArticleKey": "philosopher:spinoza",
         "canonicalArticleId": "spinoza",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 2350,
+        "canonicalArticleWordCount": 2353,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -8312,7 +8312,7 @@
         "canonicalArticleKey": "philosopher:descartes",
         "canonicalArticleId": "descartes",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 4687,
+        "canonicalArticleWordCount": 4720,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -8328,7 +8328,7 @@
         "canonicalArticleKey": "philosopher:descartes",
         "canonicalArticleId": "descartes",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 4687,
+        "canonicalArticleWordCount": 4720,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -8344,7 +8344,7 @@
         "canonicalArticleKey": "philosopher:descartes",
         "canonicalArticleId": "descartes",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 4687,
+        "canonicalArticleWordCount": 4720,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -8360,7 +8360,7 @@
         "canonicalArticleKey": "philosopher:descartes",
         "canonicalArticleId": "descartes",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 4687,
+        "canonicalArticleWordCount": 4720,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -8376,7 +8376,7 @@
         "canonicalArticleKey": "philosopher:spinoza",
         "canonicalArticleId": "spinoza",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 2350,
+        "canonicalArticleWordCount": 2353,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -8392,7 +8392,7 @@
         "canonicalArticleKey": "philosopher:spinoza",
         "canonicalArticleId": "spinoza",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 2350,
+        "canonicalArticleWordCount": 2353,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -8440,7 +8440,7 @@
         "canonicalArticleKey": "philosopher:leibniz",
         "canonicalArticleId": "leibniz",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 2303,
+        "canonicalArticleWordCount": 2317,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -8456,7 +8456,7 @@
         "canonicalArticleKey": "philosopher:leibniz",
         "canonicalArticleId": "leibniz",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 2303,
+        "canonicalArticleWordCount": 2317,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -8472,7 +8472,7 @@
         "canonicalArticleKey": "philosopher:leibniz",
         "canonicalArticleId": "leibniz",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 2303,
+        "canonicalArticleWordCount": 2317,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -8488,7 +8488,7 @@
         "canonicalArticleKey": "philosopher:leibniz",
         "canonicalArticleId": "leibniz",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 2303,
+        "canonicalArticleWordCount": 2317,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -8504,7 +8504,7 @@
         "canonicalArticleKey": "philosopher:leibniz",
         "canonicalArticleId": "leibniz",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 2303,
+        "canonicalArticleWordCount": 2317,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -8536,7 +8536,7 @@
         "canonicalArticleKey": "philosopher:locke",
         "canonicalArticleId": "locke",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 2360,
+        "canonicalArticleWordCount": 2387,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -8552,7 +8552,7 @@
         "canonicalArticleKey": "philosopher:locke",
         "canonicalArticleId": "locke",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 2360,
+        "canonicalArticleWordCount": 2387,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -8568,7 +8568,7 @@
         "canonicalArticleKey": "philosopher:locke",
         "canonicalArticleId": "locke",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 2360,
+        "canonicalArticleWordCount": 2387,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -8664,7 +8664,7 @@
         "canonicalArticleKey": "philosopher:hume",
         "canonicalArticleId": "hume",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 4800,
+        "canonicalArticleWordCount": 4802,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -8680,7 +8680,7 @@
         "canonicalArticleKey": "philosopher:hume",
         "canonicalArticleId": "hume",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 4800,
+        "canonicalArticleWordCount": 4802,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -8696,7 +8696,7 @@
         "canonicalArticleKey": "philosopher:hume",
         "canonicalArticleId": "hume",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 4800,
+        "canonicalArticleWordCount": 4802,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -8712,7 +8712,7 @@
         "canonicalArticleKey": "philosopher:hume",
         "canonicalArticleId": "hume",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 4800,
+        "canonicalArticleWordCount": 4802,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -8728,7 +8728,7 @@
         "canonicalArticleKey": "philosopher:hume",
         "canonicalArticleId": "hume",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 4800,
+        "canonicalArticleWordCount": 4802,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -9064,7 +9064,7 @@
         "canonicalArticleKey": "philosopher:fichte",
         "canonicalArticleId": "fichte",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 2026,
+        "canonicalArticleWordCount": 2023,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -9096,7 +9096,7 @@
         "canonicalArticleKey": "philosopher:fichte",
         "canonicalArticleId": "fichte",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 2026,
+        "canonicalArticleWordCount": 2023,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -9112,7 +9112,7 @@
         "canonicalArticleKey": "philosopher:fichte",
         "canonicalArticleId": "fichte",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 2026,
+        "canonicalArticleWordCount": 2023,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -9848,7 +9848,7 @@
         "canonicalArticleKey": "philosopher:dostoevsky",
         "canonicalArticleId": "dostoevsky",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 2131,
+        "canonicalArticleWordCount": 2158,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -11016,7 +11016,7 @@
         "canonicalArticleKey": "philosopher:beauvoir",
         "canonicalArticleId": "beauvoir",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 2294,
+        "canonicalArticleWordCount": 2307,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -11032,7 +11032,7 @@
         "canonicalArticleKey": "philosopher:beauvoir",
         "canonicalArticleId": "beauvoir",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 2294,
+        "canonicalArticleWordCount": 2307,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -11048,7 +11048,7 @@
         "canonicalArticleKey": "philosopher:beauvoir",
         "canonicalArticleId": "beauvoir",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 2294,
+        "canonicalArticleWordCount": 2307,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -11064,7 +11064,7 @@
         "canonicalArticleKey": "philosopher:beauvoir",
         "canonicalArticleId": "beauvoir",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 2294,
+        "canonicalArticleWordCount": 2307,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -11080,7 +11080,7 @@
         "canonicalArticleKey": "philosopher:beauvoir",
         "canonicalArticleId": "beauvoir",
         "canonicalArticleCategory": "philosopher",
-        "canonicalArticleWordCount": 2294,
+        "canonicalArticleWordCount": 2307,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
