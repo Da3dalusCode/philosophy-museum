@@ -124,7 +124,7 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | Augustine | claim-reviewed | standard-compliant | 32 | 319 | 3 | 3 | 6 | standard presentation |
 | Gregory of Nyssa | claim-reviewed | standard-compliant | 32 | 300 | 3 | 3 | 6 | standard presentation |
 | Pseudo-Dionysius | claim-reviewed | standard-compliant | 32 | 302 | 3 | 3 | 6 | standard presentation |
-| Anne Conway | claim-reviewed | standard-compliant | 33 | 318 | 3 | 3 | 6 | standard presentation |
+| Anne Conway | claim-reviewed | standard-compliant | 32 | 318 | 3 | 3 | 6 | standard presentation |
 | George Berkeley | claim-reviewed | standard-compliant | 32 | 290 | 3 | 3 | 6 | standard presentation |
 | Montesquieu | claim-reviewed | standard-compliant | 32 | 292 | 3 | 3 | 6 | standard presentation |
 | Jean-Jacques Rousseau | claim-reviewed | standard-compliant | 32 | 296 | 4 | 3 | 6 | standard presentation |
