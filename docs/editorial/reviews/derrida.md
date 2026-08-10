@@ -5,7 +5,7 @@
 - Review date and status: 2026-08-10; `claim-reviewed`
 - Article depth: 2,328 substantive words
 - Evidence inventory: 7 registered sources; all 28 article paragraphs and 17 structured claims are citation-mapped
-- Review lock: `fnv1a64:404dda83af1abf41`
+- Review lock: `fnv1a64:ad6a5cd980a705e5`
 
 ## Method and boundary
 

@@ -1732,8 +1732,8 @@
       "substantiveArticleWordCount": 2528,
       "reviewNotePath": "docs/editorial/reviews/rawls.md",
       "reviewNoteExists": true,
-      "storedReviewLock": "fnv1a64:2818f373174588eb",
-      "currentReviewLock": "fnv1a64:2818f373174588eb"
+      "storedReviewLock": "fnv1a64:0fa5d544f72fd87b",
+      "currentReviewLock": "fnv1a64:0fa5d544f72fd87b"
     },
     {
       "id": "nozick",
@@ -1751,8 +1751,8 @@
       "substantiveArticleWordCount": 2401,
       "reviewNotePath": "docs/editorial/reviews/nozick.md",
       "reviewNoteExists": true,
-      "storedReviewLock": "fnv1a64:59468b5e524954e0",
-      "currentReviewLock": "fnv1a64:59468b5e524954e0"
+      "storedReviewLock": "fnv1a64:79b3d27e84e96c36",
+      "currentReviewLock": "fnv1a64:79b3d27e84e96c36"
     },
     {
       "id": "foucault",
@@ -1770,8 +1770,8 @@
       "substantiveArticleWordCount": 2302,
       "reviewNotePath": "docs/editorial/reviews/foucault.md",
       "reviewNoteExists": true,
-      "storedReviewLock": "fnv1a64:715adcde5cdd09a4",
-      "currentReviewLock": "fnv1a64:715adcde5cdd09a4"
+      "storedReviewLock": "fnv1a64:f6882712a8d6dff7",
+      "currentReviewLock": "fnv1a64:f6882712a8d6dff7"
     },
     {
       "id": "derrida",
@@ -1789,8 +1789,8 @@
       "substantiveArticleWordCount": 2328,
       "reviewNotePath": "docs/editorial/reviews/derrida.md",
       "reviewNoteExists": true,
-      "storedReviewLock": "fnv1a64:404dda83af1abf41",
-      "currentReviewLock": "fnv1a64:404dda83af1abf41"
+      "storedReviewLock": "fnv1a64:ad6a5cd980a705e5",
+      "currentReviewLock": "fnv1a64:ad6a5cd980a705e5"
     },
     {
       "id": "heraclitus",
@@ -2587,8 +2587,8 @@
       "substantiveArticleWordCount": 2067,
       "reviewNotePath": "docs/editorial/reviews/habermas.md",
       "reviewNoteExists": true,
-      "storedReviewLock": "fnv1a64:56d474a28e2e6dcb",
-      "currentReviewLock": "fnv1a64:56d474a28e2e6dcb"
+      "storedReviewLock": "fnv1a64:dbfb00d0c1355c8f",
+      "currentReviewLock": "fnv1a64:dbfb00d0c1355c8f"
     },
     {
       "id": "fanon",
@@ -2606,8 +2606,8 @@
       "substantiveArticleWordCount": 2192,
       "reviewNotePath": "docs/editorial/reviews/fanon.md",
       "reviewNoteExists": true,
-      "storedReviewLock": "fnv1a64:ea360d2ae645205e",
-      "currentReviewLock": "fnv1a64:ea360d2ae645205e"
+      "storedReviewLock": "fnv1a64:a5a36a050fb6c015",
+      "currentReviewLock": "fnv1a64:a5a36a050fb6c015"
     },
     {
       "id": "iris-murdoch",
@@ -2796,8 +2796,8 @@
       "substantiveArticleWordCount": 2723,
       "reviewNotePath": "docs/editorial/reviews/jiddu-krishnamurti.md",
       "reviewNoteExists": true,
-      "storedReviewLock": "fnv1a64:0f2ea5974f215106",
-      "currentReviewLock": "fnv1a64:0f2ea5974f215106"
+      "storedReviewLock": "fnv1a64:97265bef152db3e2",
+      "currentReviewLock": "fnv1a64:97265bef152db3e2"
     },
     {
       "id": "stoicism",
