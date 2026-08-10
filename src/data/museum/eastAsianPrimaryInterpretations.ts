@@ -255,23 +255,29 @@ Readonly<Record<string, MuseumPrimaryInterpretationEnrichment>> = {
     'This 19th- or early-20th-century portrait from a famous-men album belongs to Zhu Xi’s later commemorative tradition. It makes a scholar-sage image visible, but it is not a lifetime likeness, a record of his teaching, or evidence that his curriculum and interpretations were universally accepted.',
     'fnv1a64:50ce3dbcf935357d',
   ),
-  'wang-yangming': concise(
+  'wang-yangming': standard(
     'Wang Yangming',
-    'Wang Yangming asks how moral knowing already active in the heart-mind becomes genuine only through responsible action.',
     [
-      'Wang Yangming, or Wang Shouren, lived from 1472 to 1529 and combined scholarship, teaching, administration, military command, exile, and political controversy. Later Lu–Wang, school-of-mind, and Neo-Confucian classifications identify important lineages without functioning as Wang’s simple self-description. His philosophy developed through letters, dialogues, records, and posthumous editing rather than one finished systematic treatise.',
-      'Mind is not a private container that invents reality; it is the morally responsive heart-mind through which pattern becomes present in concrete relations. Innate knowing, liangzhi, names an immediate capacity to recognize moral salience, not personal infallibility or permission to follow impulse. Selfish habits can obscure, rationalization can counterfeit, and social roles can distort judgment. The unity of knowledge and action means that genuine moral knowledge is already active and incomplete when conduct fails—not that every factual lesson must be performed instantly.',
-      'The later bamboo-investigation story dramatizes Wang’s criticism of one rigid reading of Zhu Xi but should not define either thinker. The Four Sentences, associated with the Tianquan Bridge exchange, generated disputes between Qian Dehong, Wang Ji, and later interpreters over original mind, good and evil, effort, and realization. Wang’s military and administrative service also complicates any purely inward image: moral agency operated within state coercion. The exhibit preserves practical urgency while keeping doctrine, lineage, and political power open to criticism.',
-      'Test innate knowing by its resistance to self-deception, not by the confidence of the speaker. Ask whether a judgment survives attention to relationships, consequences, correction, and action. This keeps moral immediacy from becoming private authority and keeps the unity of knowledge and action focused on responsibility rather than instant certainty.',
+      'Wang Shouren, conventionally known as Wang Yangming, lived from 1472 to 1529 as a Ming official, commander, teacher, and controversial public figure. The later labels “Neo-Confucian,” “school of mind,” and Lu–Wang identify meaningful comparisons but are not his simple self-description or proof of one unbroken institution. His mature teaching is preserved through letters, dialogues, records, and posthumous compilations. Longchang became a retrospective turning point. The setting matters: a philosophy of moral practice was developed in family obligations, office, exile, conflict, and coercive state power.',
+      'For Wang, the heart-mind is not a private ego that manufactures the external world. It is the relational site through which pattern becomes present in responsible judgment. *Liangzhi*, often rendered innate or pure knowing, names a capacity to recognize moral salience; it is neither an inborn rulebook nor the infallibility of sincere feeling. Selfish desire, social position, and rationalization can obscure it. The unity of knowledge and action therefore concerns ethically engaged knowing: a person who really sees what care requires has already begun to act, though deliberation, correction, and weakness of will remain real problems. Wang’s reinterpretation of investigating things as rectifying affairs asks learners to test intentions in concrete relationships rather than accumulate detached information.',
+      'The Four Sentences associated with the 1527 Tianquan Bridge exchange became a disputed reception node. Qian Dehong, Wang Ji, and later interpreters differ over original mind, good and evil, effort, and realization; no compact formula settles the disagreement. The displayed Ming portrait attributed to Shen Junhui offers a formal scholar-official image at Shaoxing Museum, but the record does not authorize a photographically exact likeness or a picture of innate knowing. It is an attributed visual reception of a public teacher. Set that composed face beside Wang’s administrative and military career, including coercive campaigns, and ask how moral confidence is checked when people disagree: not by private certainty, but by attention, relationships, consequences, correction, and action.',
     ],
     [
-      {label: 'Historical setting', value: 'Ming China · 1472–1529'},
-      {label: 'Central terms', value: 'Heart-mind · innate knowing · knowledge and action'},
-      {label: 'Practice', value: 'Attention · correction of selfish desire · responsible conduct'},
-      {label: 'Textual form', value: 'Dialogues · letters · records · posthumous editing'},
-      {label: 'Open dispute', value: 'Four Sentences · effort · realization · later lineages'},
+      {heading: 'Moral practice', items: [
+        {label: 'Heart-mind', description: 'The responsive center of feeling, thought, and judgment through which moral pattern is encountered in concrete relations.'},
+        {label: 'Innate knowing', description: '*Liangzhi* is a capacity for moral recognition that can be obscured; it does not make personal feeling infallible.'},
+      ]},
+      {heading: 'Knowing and acting', items: [
+        {label: 'Unity of knowledge and action', description: 'Ethically serious knowledge is already active in conduct, while still requiring deliberation, correction, and resistance to weakness of will.'},
+        {label: 'Rectifying affairs', description: 'Wang’s reinterpretation of investigation turns learning toward correcting intentions amid ordinary responsibilities rather than detached accumulation.'},
+      ]},
+      {heading: 'A contested inheritance', items: [
+        {label: 'Four Sentences', description: 'A late teaching associated with Tianquan Bridge whose wording and relation to effort or sudden realization remain disputed.'},
+        {label: 'Public power', description: 'Wang’s service as official and commander makes any account of decisive moral practice answerable to state coercion.'},
+      ]},
     ],
     'wang-yangming-traditional-portrait',
-    'This portrait tradition identifies Wang Yangming in formal Ming robes but should not be treated as photographically exact. It supports his public, administrative afterlife without representing innate knowing itself. The exhibit keeps the image beside surviving letters and a career in office, teaching, exile, and military command.',
+    'This Ming-dynasty hanging-scroll portrait is attributed to Shen Junhui and held by Shaoxing Museum. It is an attributed visual tradition, not a photographically exact likeness and not evidence for Wang’s doctrine or the episodes of his career. It makes later public remembrance of a scholar-official visible while surviving texts and historical sources ground the interpretation.',
+    'fnv1a64:fb417de4c4f1e265',
   ),
 };

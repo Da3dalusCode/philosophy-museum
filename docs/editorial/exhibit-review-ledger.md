@@ -16,7 +16,7 @@ Regenerate it with `npm run report:exhibits` and verify it with `npm run audit:e
 
 | Total | Unreviewed | Reconciled | Standard compliant | Out of date |
 | ---: | ---: | ---: | ---: | ---: |
-| 192 | 118 | 0 | 74 | 0 |
+| 192 | 103 | 0 | 89 | 0 |
 
 ## Article relationships
 
@@ -69,6 +69,10 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | Ramanuja | claim-reviewed | standard-compliant | 32 | 319 | 3 | 3 | 6 | standard presentation |
 | Madhva | claim-reviewed | standard-compliant | 32 | 320 | 3 | 3 | 6 | standard presentation |
 | Nāgārjuna | claim-reviewed | standard-compliant | 32 | 263 | 3 | 4 | 7 | standard presentation |
+| Vasubandhu | claim-reviewed | standard-compliant | 32 | 314 | 3 | 3 | 6 | standard presentation |
+| Buddhist Epistemology | claim-reviewed | standard-compliant | 33 | 320 | 3 | 3 | 6 | standard presentation |
+| Dignāga | claim-reviewed | standard-compliant | 32 | 310 | 3 | 3 | 6 | standard presentation |
+| Dharmakīrti | claim-reviewed | standard-compliant | 32 | 293 | 3 | 3 | 6 | standard presentation |
 | Confucius | claim-reviewed | standard-compliant | 34 | 299 | 3 | 3 | 5 | standard presentation |
 | Mencius | claim-reviewed | standard-compliant | 32 | 292 | 3 | 3 | 5 | standard presentation |
 | Xunzi | claim-reviewed | standard-compliant | 32 | 296 | 3 | 3 | 5 | standard presentation |
@@ -85,6 +89,10 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | Suhrawardi | claim-reviewed | standard-compliant | 32 | 343 | 3 | 3 | 5 | standard presentation |
 | Mulla Sadra | claim-reviewed | standard-compliant | 32 | 347 | 3 | 3 | 6 | standard presentation |
 | Zhu Xi | claim-reviewed | standard-compliant | 32 | 319 | 3 | 3 | 6 | standard presentation |
+| Wang Yangming | claim-reviewed | standard-compliant | 33 | 316 | 3 | 3 | 6 | standard presentation |
+| Saadia Gaon | claim-reviewed | standard-compliant | 32 | 308 | 3 | 3 | 6 | standard presentation |
+| Judah Halevi | claim-reviewed | standard-compliant | 33 | 318 | 3 | 3 | 6 | standard presentation |
+| Maimonides | claim-reviewed | standard-compliant | 34 | 318 | 3 | 3 | 6 | standard presentation |
 | Boethius | claim-reviewed | standard-compliant | 32 | 268 | 3 | 4 | 7 | standard presentation |
 | John Scotus Eriugena | claim-reviewed | standard-compliant | 32 | 297 | 3 | 3 | 4 | standard presentation |
 | Medieval Scholasticism | claim-reviewed | standard-compliant | 32 | 294 | 3 | 3 | 4 | standard presentation |
@@ -96,6 +104,13 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | Meister Eckhart | claim-reviewed | standard-compliant | 32 | 295 | 3 | 3 | 4 | standard presentation |
 | Marsilius of Padua | claim-reviewed | standard-compliant | 32 | 294 | 3 | 3 | 4 | standard presentation |
 | Sextus Empiricus | claim-reviewed | standard-compliant | 32 | 268 | 3 | 4 | 7 | standard presentation |
+| Porphyry | claim-reviewed | standard-compliant | 33 | 281 | 3 | 3 | 6 | standard presentation |
+| Iamblichus | claim-reviewed | standard-compliant | 33 | 294 | 3 | 3 | 6 | standard presentation |
+| Proclus | claim-reviewed | standard-compliant | 33 | 285 | 3 | 3 | 6 | standard presentation |
+| Origen | claim-reviewed | standard-compliant | 34 | 294 | 3 | 3 | 6 | standard presentation |
+| Augustine | claim-reviewed | standard-compliant | 33 | 319 | 3 | 3 | 6 | standard presentation |
+| Gregory of Nyssa | claim-reviewed | standard-compliant | 34 | 300 | 3 | 3 | 6 | standard presentation |
+| Pseudo-Dionysius | claim-reviewed | standard-compliant | 32 | 302 | 3 | 3 | 6 | standard presentation |
 | George Berkeley | claim-reviewed | standard-compliant | 32 | 290 | 3 | 3 | 6 | standard presentation |
 | Montesquieu | claim-reviewed | standard-compliant | 32 | 292 | 3 | 3 | 6 | standard presentation |
 | Jean-Jacques Rousseau | claim-reviewed | standard-compliant | 32 | 296 | 4 | 3 | 6 | standard presentation |
@@ -184,10 +199,10 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | buddhist-philosophies | buddhist-many-paths | buddhist-philosophy | branch:buddhist-philosophy | matched | bibliography-only | unreviewed |
 | buddhist-philosophies | buddhist-many-paths | buddha | philosopher:buddha | matched | bibliography-only | unreviewed |
 | buddhist-philosophies | buddhist-madhyamaka | nagarjuna | philosopher:nagarjuna | matched | claim-reviewed | standard-compliant |
-| buddhist-philosophies | buddhist-abhidharma-yogacara | vasubandhu | philosopher:vasubandhu | matched | claim-reviewed | unreviewed |
-| buddhist-philosophies | buddhist-pramana | buddhist-epistemology | branch:buddhist-epistemology | matched | claim-reviewed | unreviewed |
-| buddhist-philosophies | buddhist-pramana | dignaga | philosopher:dignaga | matched | claim-reviewed | unreviewed |
-| buddhist-philosophies | buddhist-pramana | dharmakirti | philosopher:dharmakirti | matched | claim-reviewed | unreviewed |
+| buddhist-philosophies | buddhist-abhidharma-yogacara | vasubandhu | philosopher:vasubandhu | matched | claim-reviewed | standard-compliant |
+| buddhist-philosophies | buddhist-pramana | buddhist-epistemology | branch:buddhist-epistemology | matched | claim-reviewed | standard-compliant |
+| buddhist-philosophies | buddhist-pramana | dignaga | philosopher:dignaga | matched | claim-reviewed | standard-compliant |
+| buddhist-philosophies | buddhist-pramana | dharmakirti | philosopher:dharmakirti | matched | claim-reviewed | standard-compliant |
 | classical-chinese-traditions | china-many-ways | chinese-philosophy | branch:chinese-philosophy | matched | bibliography-only | unreviewed |
 | classical-chinese-traditions | china-confucian-cultivation | confucianism | branch:confucianism | matched | bibliography-only | unreviewed |
 | classical-chinese-traditions | china-confucian-cultivation | confucius | philosopher:confucius | matched | claim-reviewed | standard-compliant |
@@ -210,10 +225,10 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | islamic-philosophical-worlds | islamic-post-avicennian | suhrawardi | philosopher:suhrawardi | matched | claim-reviewed | standard-compliant |
 | islamic-philosophical-worlds | islamic-post-avicennian | mulla-sadra | philosopher:mulla-sadra | matched | claim-reviewed | standard-compliant |
 | east-asian-continuities | east-song-ming-confucian | zhu-xi | philosopher:zhu-xi | matched | claim-reviewed | standard-compliant |
-| east-asian-continuities | east-song-ming-confucian | wang-yangming | philosopher:wang-yangming | matched | claim-reviewed | unreviewed |
-| jewish-philosophy | jewish-reason-revelation | saadia-gaon | philosopher:saadia-gaon | matched | claim-reviewed | unreviewed |
-| jewish-philosophy | jewish-reason-revelation | judah-halevi | philosopher:judah-halevi | matched | claim-reviewed | unreviewed |
-| jewish-philosophy | jewish-maimonidean-crossroads | maimonides | philosopher:maimonides | matched | claim-reviewed | unreviewed |
+| east-asian-continuities | east-song-ming-confucian | wang-yangming | philosopher:wang-yangming | matched | claim-reviewed | standard-compliant |
+| jewish-philosophy | jewish-reason-revelation | saadia-gaon | philosopher:saadia-gaon | matched | claim-reviewed | standard-compliant |
+| jewish-philosophy | jewish-reason-revelation | judah-halevi | philosopher:judah-halevi | matched | claim-reviewed | standard-compliant |
+| jewish-philosophy | jewish-maimonidean-crossroads | maimonides | philosopher:maimonides | matched | claim-reviewed | standard-compliant |
 | latin-christian-scholastic | latin-transmission-carolingian | boethius | philosopher:boethius | matched | claim-reviewed | standard-compliant |
 | latin-christian-scholastic | latin-transmission-carolingian | eriugena | philosopher:eriugena | matched | claim-reviewed | standard-compliant |
 | latin-christian-scholastic | latin-dialectic-early-scholastic | medieval-scholasticism | branch:medieval-scholasticism | matched | claim-reviewed | standard-compliant |
@@ -244,13 +259,13 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | hellenistic-roman-ways | hell-skeptical-lineages | sextus-empiricus | philosopher:sextus-empiricus | matched | claim-reviewed | standard-compliant |
 | late-antiquity-inheritance | late-neoplatonic-systems | neoplatonism | branch:neoplatonism | matched | bibliography-only | unreviewed |
 | late-antiquity-inheritance | late-neoplatonic-systems | plotinus | philosopher:plotinus | matched | bibliography-only | unreviewed |
-| late-antiquity-inheritance | late-neoplatonic-systems | porphyry | philosopher:porphyry | matched | claim-reviewed | unreviewed |
-| late-antiquity-inheritance | late-neoplatonic-systems | iamblichus | philosopher:iamblichus | matched | claim-reviewed | unreviewed |
-| late-antiquity-inheritance | late-neoplatonic-systems | proclus | philosopher:proclus | matched | claim-reviewed | unreviewed |
-| late-antiquity-inheritance | late-christian-platonisms | origen | philosopher:origen | matched | claim-reviewed | unreviewed |
-| late-antiquity-inheritance | late-christian-platonisms | augustine | philosopher:augustine | matched | claim-reviewed | unreviewed |
-| late-antiquity-inheritance | late-christian-platonisms | gregory-nyssa | philosopher:gregory-nyssa | matched | claim-reviewed | unreviewed |
-| late-antiquity-inheritance | late-christian-platonisms | pseudo-dionysius | philosopher:pseudo-dionysius | matched | claim-reviewed | unreviewed |
+| late-antiquity-inheritance | late-neoplatonic-systems | porphyry | philosopher:porphyry | matched | claim-reviewed | standard-compliant |
+| late-antiquity-inheritance | late-neoplatonic-systems | iamblichus | philosopher:iamblichus | matched | claim-reviewed | standard-compliant |
+| late-antiquity-inheritance | late-neoplatonic-systems | proclus | philosopher:proclus | matched | claim-reviewed | standard-compliant |
+| late-antiquity-inheritance | late-christian-platonisms | origen | philosopher:origen | matched | claim-reviewed | standard-compliant |
+| late-antiquity-inheritance | late-christian-platonisms | augustine | philosopher:augustine | matched | claim-reviewed | standard-compliant |
+| late-antiquity-inheritance | late-christian-platonisms | gregory-nyssa | philosopher:gregory-nyssa | matched | claim-reviewed | standard-compliant |
+| late-antiquity-inheritance | late-christian-platonisms | pseudo-dionysius | philosopher:pseudo-dionysius | matched | claim-reviewed | standard-compliant |
 | rationalism-mind-nature-system | rationalism-cartesian-foundations | rationalism | branch:rationalism | matched | bibliography-only | unreviewed |
 | rationalism-mind-nature-system | rationalism-cartesian-foundations | descartes | philosopher:descartes | matched | bibliography-only | unreviewed |
 | rationalism-mind-nature-system | rationalism-spinoza-conway | spinoza | philosopher:spinoza | matched | unreviewed | unreviewed |

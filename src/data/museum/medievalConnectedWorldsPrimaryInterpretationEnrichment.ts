@@ -1,7 +1,43 @@
+import type {MuseumAssetId} from './museumAssetTypes';
 import type {MuseumPrimaryInterpretationEnrichment} from './scholasticRationalistPrimaryInterpretationEnrichment';
+
+type VisitorGuideSection = {
+  readonly heading: string;
+  readonly items: readonly {readonly label: string; readonly description: string}[];
+};
 
 const lead = (historicalFrame: string, interpretiveStakes: string): string =>
   `${historicalFrame} ${interpretiveStakes}`;
+
+const standard = (
+  name: string,
+  paragraphs: readonly string[],
+  orientation: readonly VisitorGuideSection[],
+  assetId: MuseumAssetId,
+  objectText: string,
+  lock: string,
+): MuseumPrimaryInterpretationEnrichment => ({
+  lead: '',
+  keyIdeas: [],
+  keyWorks: [],
+  sections: [{heading: '', paragraphs}],
+  presentation: {
+    mode: 'concise',
+    orientation,
+    articleActionLabel: `Read the full sourced ${name} article`,
+    bodyLayout: 'prose',
+    exhibitLayout: 'object-led',
+    plaqueKicker: '',
+    plaqueSubtitleLines: 4,
+  },
+  review: {
+    status: 'standard-compliant',
+    reviewedOn: '2026-08-09',
+    method: 'Reconciled against the current claim-reviewed article, registered sources, and principal-object provenance; object-led presentation and subject-specific visitor guide reviewed against the locked exhibit standard.',
+    lock,
+  },
+  objectInterpretations: {[assetId]: objectText},
+});
 
 export const MEDIEVAL_CONNECTED_WORLDS_PRIMARY_INTERPRETATION_ENRICHMENT:
 Readonly<Record<string, MuseumPrimaryInterpretationEnrichment>> = {
@@ -223,30 +259,106 @@ Readonly<Record<string, MuseumPrimaryInterpretationEnrichment>> = {
       'mulla-sadra-modern-statue': 'This is a modern commemorative sculpture photographed in Shiraz. It documents contemporary memory of Mulla Sadra, not a seventeenth-century likeness, a record of his withdrawal or teaching, or evidence that any disputed Sadrian doctrine is true.',
     },
   },
-  'saadia-gaon': {
-    lead: lead('Saadia Gaon joined Judeo-Arabic kalām, scriptural interpretation, Hebrew philology, law, and communal leadership. His Book of Beliefs and Opinions coordinates sense perception, necessary reason, inference, and reliable report while distinguishing rational commandments from commands whose specific form is known through revelation. The exhibit treats those arguments in their Abbasid and rabbinic settings rather than as a simple transfer from Greek philosophy into Judaism.', 'The four sources of knowledge form an architecture for inquiry, not four isolated slogans. Reliable report has to be publicly warranted and coherent with the other sources, while revelation specifies practices reason alone does not determine. Creation, unity, law, soul, and resurrection consequently belong to one argument about responsible understanding and embodied action.'),
-    keyIdeas: ['Four sources of knowledge', 'Reliable report and public warrant', 'Creation and divine unity', 'Rational and heard commandments', 'Embodied soul and resurrection'],
-    keyWorks: ['Book of Beliefs and Opinions', 'Tafsir', 'Agron', 'Siddur', 'Commentary on Sefer Yetzirah'],
-    sectionCaution: 'Parallels with Muʿtazilite theology are substantial but selective and disputed; kalām should not be collapsed into falsafa or a direct dependence on al-Farabi.',
-  },
-  'judah-halevi': {
-    lead: lead('Judah Halevi’s Kuzari is a philosophically learned dialogue that uses skeptical arguments selectively while locating religious certainty in sensory signs, concurrent tradition, prophecy, and commanded practice. His poetry makes exile, Hebrew, and longing philosophical as well as literary. Documents show him sailing from Alexandria in May 1141; arrival and death in the Land of Israel are a current inference, while the Jerusalem-gate legend is unsupported.', 'Read the staged voices of the Kuzari rather than treating its opening philosopher as Halevi’s final position. Concurrent transmission, the Divine Thing, internal senses, ritual precision, language, and land construct a difficult alternative to demonstrative system. The poems and letters then show how that argument was lived through movement, danger, community, and desire.'),
-    keyIdeas: ['Concurrent tradition or tawātur', 'Selective skepticism and moderate fideism', 'The disputed “Divine Thing”', 'Prophecy, imagination, and preparation', 'Commandment, Hebrew, land, and poetry'],
-    keyWorks: ['Kuzari', 'Hebrew Dīwān'],
-    sectionCaution: 'The “Divine Thing” has no uncontested modern equivalent, and its hierarchical imagery should be examined rather than sanitized or converted into a neutral abstraction.',
-  },
-  maimonides: {
-    lead: lead('Maimonides wrote as jurist, communal leader, physician, and philosophical interpreter after displacement from Córdoba through Fez to Fustat. The Mishneh Torah and Guide for the Perplexed pursue different genres while linking law, negative theology, creation, prophecy, providence, and human perfection. Deliberate contradictions and pedagogical concealment prevent the exhibit from presenting one frictionless reconciliation of Judaism and philosophy.', 'Move between legal codification and the Guide’s carefully staged perplexities. Negative predicates discipline speech about God; creation marks limits of demonstration; prophecy joins intellect, imagination, character, and divine will; perfection raises tensions between contemplation and public action. Those tensions explain why esoteric, rationalist, traditionalist, and political readings continue to disagree about the work’s governing purpose.'),
-    keyIdeas: ['Law as ordered intellectual and ethical formation', 'Negative theology and controlled predication', 'Creation as an unresolved philosophical limit', 'Prophecy, intellect, imagination, and divine will', 'Perfection, imitation, and public action'],
-    keyWorks: ['Mishneh Torah', 'Guide for the Perplexed', 'Commentary on the Mishnah', 'Eight Chapters'],
-    sectionCaution: 'Al-Farabi and Avicenna are central interlocutors; direct dependence on Averroes should not be presumed, and competing esoteric readings of the Guide remain open.',
-  },
-  augustine: {
-    lead: lead('Augustine’s long North African career moves through rhetoric, Manichaeism, skepticism, Platonist reading, conversion, priesthood, and episcopal controversy. His arguments about divided will, grace, memory, time, signs, evil, and the two cities changed across works and disputes. Platonist inheritance is therefore a transformation inside Christian scripture and theology, not membership in a Neoplatonist school.', 'The Confessions places philosophical analysis inside prayer and narrated conversion; later polemics revise the balance of grace and freedom. City of God distinguishes two loves without mapping them neatly onto church and state, and Augustine’s letters disclose coercive consequences of episcopal power. The exhibit keeps intellectual achievement, doctrinal development, and political danger in the same frame.'),
-    keyIdeas: ['Divided will and developing accounts of grace', 'Memory, inwardness, and time as distension', 'Evil as privation and disordered willing', 'Signs, learning, and scriptural interpretation', 'Two cities, earthly peace, and coercion'],
-    keyWorks: ['Confessions', 'On Free Choice of the Will', 'On Christian Doctrine', 'The City of God', 'On the Trinity'],
-    sectionCaution: 'The pear theft is an inquiry with several proposed motives, the Platonist corpus is uncertain, and Augustine’s defense of coercion must remain visible as a troubling development.',
-  },
+  'saadia-gaon': standard(
+    'Saadia Gaon',
+    [
+      'Saadia Gaon worked in the Abbasid-era Jewish world as a Judeo-Arabic theologian, scriptural interpreter, Hebrew philologist, legal authority, liturgist, and communal leader. His *Book of Beliefs and Opinions* is a work of kalām: it argues with Arabic theological methods while reshaping Jewish scriptural and rabbinic materials. That setting should not be reduced to a simple pipeline from Greek philosophy into Judaism, nor should substantial but selective parallels with Muʿtazilite theology become direct dependence on al-Fārābī. Saadia joins creation, divine unity, law, soul, and resurrection to an account of responsible understanding and embodied action.',
+      'The book’s four sources of knowledge are sense perception, necessary or first rational knowledge, inferential knowledge, and reliable report or tradition. Reliable report is not sheer deference: public signs, transmission, and coherence with the other sources bear on its warrant. Revelation specifies practices whose particular form reason alone does not determine, while rational commandments concern good and bad that reason can apprehend. Both are divine gifts tied to discipline and reward, not one a regrettable substitute for the other. Saadia’s account of one created soul distinguishes appetitive, spirited, and rational functions and joins the soul to the body for moral action and resurrection. Its cosmology and physiology belong to historical argument, not modern science.',
+      'The displayed 2025 photograph shows the restored interior of Ben Ezra Synagogue in Cairo, the institution associated with the Cairo Geniza. It is not a view of Saadia’s tenth-century surroundings, an image of a specific manuscript, or evidence that he used this synagogue. Its relevance lies in the archive later recovered there: Geniza materials preserve Jewish intellectual, liturgical, legal, and communal life, including works by and connected with Saadia. The restored room should prompt questions about how buildings, ritual practice, storage, copying, and rediscovery shape survival. It anchors communal transmission without turning one modern interior into a reconstruction of Saadia’s world.',
+    ],
+    [
+      {heading: 'Four sources of knowledge', items: [
+        {label: 'Sense perception and first reason', description: 'Perception supplies experience, while necessary rational knowledge names basic truths reason can immediately grasp.'},
+        {label: 'Inference and reliable report', description: 'Reasoning extends knowledge from evidence; warranted tradition depends on public transmission and coherence, not blind acceptance.'},
+      ]},
+      {heading: 'Law and embodied life', items: [
+        {label: 'Rational and heard commandments', description: 'Reason can apprehend some moral goods, while revelation gives particular practices whose form it cannot determine alone.'},
+        {label: 'Created soul', description: 'One soul has distinguishable functions and is joined to the body for moral action and resurrection, in a historically situated cosmology.'},
+      ]},
+      {heading: 'A connected setting', items: [
+        {label: 'Jewish kalām', description: 'Saadia argues in an Arabic theological environment while reworking Jewish scriptural, legal, and linguistic materials.'},
+        {label: 'Textual practice', description: 'Prayer, commentary, lexicography, and law show that philosophical inquiry circulated through communal forms as well as treatises.'},
+      ]},
+    ],
+    'saadia-baqashah-geniza',
+    'Fahd Hashemi’s 2025 photograph shows the restored interior of Ben Ezra Synagogue in Cairo. The synagogue’s Geniza history connects it to later preservation of Jewish texts, including Saadian materials, but the modern interior is not Saadia’s tenth-century setting, a manuscript image, or proof that he used this synagogue. It makes the institutional afterlife of storage and recovery visible without reconstructing his surroundings.',
+    'fnv1a64:5aed16e0e017e762',
+  ),
+  'judah-halevi': standard(
+    'Judah Halevi',
+    [
+      'Judah Halevi was a Hebrew poet and Judeo-Arabic philosopher whose birth is placed probably in the 1070s or 1080s and whose death is dated 1141. His *Kuzari* is a learned dialogue, not a transcript of a historical Khazar debate or a transparent monologue in Halevi’s voice. It uses skeptical philosophical arguments selectively: reason remains valid in demonstrable domains and can test pretensions, but the distinctive certainty of revelation and commandment rests on sensory signs, prophecy, and concurrent, mass-transmitted tradition. That position is neither simple irrationalism nor a proof that tradition automatically warrants itself. The staged voices, poetry, language, land, and practice construct a deliberate alternative to an exclusively demonstrative system.',
+      'Halevi’s appeal to *tawātur* concerns public revelation and convergent transmission, more exact than “collective memory.” The Arabic *al-amr al-ilāhī*, often translated “Divine Thing,” has no uncontested modern equivalent: it can name divine presence, influence, or a supra-human prophetic aptitude. Its hierarchical and quasi-biological imagery should be examined, not cleaned into a neutral abstraction. Prophecy, imagination, commandment, Hebrew, and the Land of Israel are consequently tied to a difficult account of a prepared people and way of life. The *Kuzari* asks what demonstration misses, but it does not make every inherited claim immune to inquiry.',
+      'This worn Geniza letter is authentic primary evidence in Judah Halevi’s Judeo-Arabic hand, concerning ransom for a female prisoner in Toledo. It records one act of communal life and writing, not a portrait and not evidence for the later Jerusalem-gate legend. Documents do show Halevi sailing from Alexandria in May 1141; current scholarship infers that he arrived and died in the Land of Israel that summer, though direct documentation of arrival is absent. The object brings a much firmer kind of evidence into view: a person writing amid obligation, danger, and community. Let that material letter sharpen the exhibit’s question—what can public transmission, embodied practice, and lived responsibility show that abstract proof alone cannot?',
+    ],
+    [
+      {heading: 'How the dialogue argues', items: [
+        {label: 'Selective skepticism', description: 'Philosophical reasoning tests claims and remains valid in its domains, but does not supply revelation’s distinctive certainty for Halevi.'},
+        {label: 'Concurrent tradition', description: '*Tawātur* is a public, mass-transmitted tradition of revelation, offered as a contested epistemic argument rather than mere memory.'},
+      ]},
+      {heading: 'Terms that resist reduction', items: [
+        {label: 'The Divine Thing', description: '*Al-amr al-ilāhī* has no single modern equivalent; its imagery of divine influence and prophetic aptitude remains interpretively difficult.'},
+        {label: 'Commanded practice', description: 'Ritual, language, land, and communal history are not ornaments around doctrine but elements of the *Kuzari*’s account of knowing.'},
+      ]},
+      {heading: 'Reading a life carefully', items: [
+        {label: 'Kuzari and Dīwān', description: 'The dialogue and Hebrew poems use distinct genres; neither should be reduced to a slogan about faith against reason.'},
+        {label: 'The final journey', description: 'Sailing from Alexandria is documented; arrival and death in the Land of Israel are current inferences, while the Jerusalem legend lacks support.'},
+      ]},
+    ],
+    'judah-halevi-letter-geniza',
+    'This twelfth-century Judeo-Arabic Geniza letter, Cambridge University Library T-S 8J18.5, is an authentic letter by Judah Halevi concerning ransom for a female prisoner in Toledo. It is primary documentary evidence of his communal writing, not a portrait and not evidence for later travel or death legends. The object makes one situated act of responsibility visible without standing for his entire philosophical corpus.',
+    'fnv1a64:45562942cae851b7',
+  ),
+  maimonides: standard(
+    'Maimonides',
+    [
+      'Maimonides was born in Córdoba in 1138, displaced with his family after Almohad rule, lived in Fez and then Fustat, and worked as jurist, physician, communal leader, and philosophical interpreter in Judeo-Arabic and Hebrew. His *Mishneh Torah* and *Guide for the Perplexed* serve different genres and audiences. They do not yield a frictionless reconciliation of law, scripture, and philosophy. Rather, he reworks Jewish interpretation through Aristotelian and Arabic philosophical traditions while preserving limits, tensions, and pedagogical concealment. Aristotle as read through al-Fārābī and Avicenna is central; Averroes belongs to Maimonides’s contemporary environment and later comparison.',
+      'In the *Guide*, negative predication disciplines speech about God without saying nothing at all: action attributes and carefully controlled language still have roles. Creation marks a limit of demonstration. The account of prophecy links an overflow from the Active Intellect through perfected intellect and imagination, while allowing that God may withhold prophecy and treating Moses as exceptional; how naturalized or supernatural this theory is remains disputed. Maimonides’s account of perfection also resists a solitary-intellectual ending. In *Guide* III.54, intellectual apprehension is joined to the practical imitation of God through lovingkindness, righteousness, and justice in governance and action. His deliberate contradictions invite rival esoteric, pedagogical, rationalist, and political readings, not permission to invent a hidden doctrine at will.',
+      'The displayed Bodleian leaf is Maimonides’s autograph *Commentary on the Mishnah*, written in Egypt about 1167–68 and preserved as MS Pococke 295, folio 295a. Its revisions and diagram make a rare working page materially present: Judeo-Arabic writing, law, argument, and graphic explanation occur together in the author’s own hand. It is not a page of the *Guide* or *Mishneh Torah*, and one manuscript cannot settle every philosophical position in a varied corpus. Yet its authenticity gives the visitor a more exact encounter than a later imagined portrait. Ask how disciplined interpretation can coordinate law, intellectual humility, and public action while leaving real limits and disagreements visible.',
+    ],
+    [
+      {heading: 'Works and genres', items: [
+        {label: 'Mishneh Torah', description: 'A systematic Hebrew legal code whose comprehensiveness serves a different purpose from the *Guide*’s staged philosophical perplexities.'},
+        {label: 'Guide for the Perplexed', description: 'A Judeo-Arabic work for a perplexed reader that uses controlled indirection and creates enduring disputes about its pedagogy.'},
+      ]},
+      {heading: 'Questions under limits', items: [
+        {label: 'Negative theology', description: 'Language about God is disciplined through negation and qualified predication, rather than treated as simple silence or ordinary description.'},
+        {label: 'Prophecy and perfection', description: 'Intellect, imagination, divine will, ethical action, and governance are connected without a settled formula that removes their tensions.'},
+      ]},
+      {heading: 'Intellectual setting', items: [
+        {label: 'Arabic philosophical inheritances', description: 'Aristotle, al-Fārābī, and Avicenna are important interlocutors, while direct dependence on Averroes should not be presumed.'},
+        {label: 'Imitation in action', description: 'The culminating practical ideal includes lovingkindness, righteousness, and justice, even as the relation to contemplation remains contested.'},
+      ]},
+    ],
+    'maimonides-mishnah-autograph',
+    'This autograph Judeo-Arabic page from Maimonides’s *Commentary on the Mishnah*, Egypt about 1167–68, is Bodleian Libraries MS Pococke 295, folio 295a. Revisions and a diagram provide direct material evidence of his working hand. It is not a page of the *Guide* or *Mishneh Torah* and cannot settle every philosophical question raised by his larger corpus.',
+    'fnv1a64:90e5359883729255',
+  ),
+  augustine: standard(
+    'Augustine',
+    [
+      'Augustine of Hippo (354–430) reworked Christian doctrine through sustained arguments about will, memory, time, signs, evil, grace, and political community. His North African career moved through rhetoric, Manichaeism, Platonist reading, conversion, and episcopal controversy. The *Confessions* analyzes a divided will within prayer. Its pear theft is not a one-line love of disorder: Augustine distributes the motive among delight in transgression, distorted imitation of freedom, and companionship. The “Platonist books” were likely mediated Latin translations associated with Marius Victorinus, probably including Plotinus and possibly Porphyry, but the exact corpus remains uncertain. Christian appropriation and transformation are not membership in a Neoplatonist school.',
+      'Memory and time are inquiries into creaturely relation to God, not detached modern topics. Evil is privation joined to disordered willing; its explanatory force does not dissolve responsibility or suffering. Augustine’s account of freedom develops: early anti-Manichaean works emphasize voluntary responsibility, while later anti-Pelagian writings increasingly stress prevenient and healing grace. Scholars dispute how continuous that development is. In *City of God*, the two cities arise from two loves and do not simply map onto church and state; earthly peace remains mixed. Augustine’s later support for coercion against dissenters, in Letters 93 and 185, is a troubling development of episcopal practice that belongs inside.',
+      'The Lateran fresco is a sixth-century image associated with Augustine, made after his death and among the earliest surviving portraits of him. Its weathered face and book belong to early reception, not a likeness made from life or evidence for the claims of the *Confessions* and *City of God*. The painting makes an early authoritative memory visible while the texts and their changing controversies must carry the arguments. This gap between image and evidence is useful: an authoritative face can conceal transformation, disagreement, and political danger. Let the fresco prompt the harder question of how inward examination, grace, interpretation, and communal power can be held together without turning any one into a settled identity.',
+    ],
+    [
+      {heading: 'Reading the arguments', items: [
+        {label: 'Divided will and grace', description: 'Augustine analyzes conflicted agency, then develops a later account that gives prevenient and healing grace greater weight.'},
+        {label: 'Memory and time', description: 'The *Confessions* treats memory and time as theological-philosophical inquiries, including time as a distension of the mind.'},
+      ]},
+      {heading: 'Evil, signs, and community', items: [
+        {label: 'Privation and disordered love', description: 'Evil lacks independent substance but remains bound to distorted willing, responsibility, and difficult theodicy questions.'},
+        {label: 'Two cities and earthly peace', description: 'Two communities arise from opposed loves; they do not neatly identify church and state, and their historical peace is fragile.'},
+      ]},
+      {heading: 'Necessary cautions', items: [
+        {label: 'Platonist inheritances', description: 'Augustine transforms mediated Platonist materials through Christian thought; the precise books and authors he read remain uncertain.'},
+        {label: 'Coercion', description: 'His defense of coercion in later episcopal practice is a troubling development, not an incidental detail or harmless application.'},
+      ]},
+    ],
+    'augustine-lateran-fresco',
+    'This sixth-century Lateran fresco by an unknown artist is an early posthumous image associated with Augustine. Created after his death, it is reception rather than a portrait made from life and cannot establish his appearance, conversion story, or philosophical doctrine. The book-bearing bishop records early authority while the texts and their historical controversies remain the evidence for the exhibit’s claims.',
+    'fnv1a64:dc7ee0bf847acfab',
+  ),
   aquinas: {
     lead: '',
     keyIdeas: [],
