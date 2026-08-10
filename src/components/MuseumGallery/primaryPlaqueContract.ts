@@ -168,7 +168,7 @@ export const PRIMARY_PLAQUE_INVITATION_OVERRIDES = {
   seneca: 'Enter Seneca’s moral workshop, where anger, grief, time, wealth, friendship, clemency, and death test Stoic progress—and where literary self-scrutiny never removes the ethical strain of imperial power, violence, and privilege near Nero.',
   'marcus-aurelius': 'Read Marcus Aurelius’s private Stoic exercises beside the public burdens of empire: reminders about judgment, mortality, justice, and human kinship that discipline a ruler without making conquest, hierarchy, or coercion disappear from view.',
   plotinus: 'Enter Plotinus’s Platonism, where the One, Intellect, and Soul explain dependence without a creation in time, and ethical return needs argument, care, and change rather than flight from a world deemed worthless.',
-  buddha: 'Approach Gautama through the early traditions that diagnose dukkha, craving, and ignorance while training conduct, meditation, and insight—without treating later doctrines or handed-down texts as the directly recorded words of the teacher.',
+  buddha: 'Meet Gautama through early texts on dukkha, craving, ethics, meditation, and insight. Ask what they may preserve, while refusing to treat later doctrine or handed-down words as a transcript of one teacher.',
 } as const satisfies Readonly<Record<string, string>>;
 
 export const museumHallUsesPrimaryEmphasis = (
