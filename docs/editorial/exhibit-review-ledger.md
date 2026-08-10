@@ -46,12 +46,12 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | Zhuangzi | claim-reviewed | standard-compliant | 32 | 294 | 3 | 3 | 5 | standard presentation |
 | Mozi | claim-reviewed | standard-compliant | 32 | 308 | 3 | 3 | 5 | standard presentation |
 | Han Feizi | claim-reviewed | standard-compliant | 32 | 298 | 3 | 3 | 5 | standard presentation |
-| Islamic Philosophy | claim-reviewed | standard-compliant | 32 | 352 | 3 | 3 | 5 | standard presentation |
-| Al-Kindi | claim-reviewed | standard-compliant | 32 | 363 | 3 | 3 | 5 | standard presentation |
+| Islamic Philosophy | claim-reviewed | standard-compliant | 32 | 350 | 3 | 3 | 5 | standard presentation |
+| Al-Kindi | claim-reviewed | standard-compliant | 32 | 350 | 3 | 3 | 5 | standard presentation |
 | Al-Farabi | claim-reviewed | standard-compliant | 32 | 340 | 3 | 3 | 5 | standard presentation |
-| Ibn Sina / Avicenna | claim-reviewed | standard-compliant | 33 | 352 | 3 | 3 | 6 | standard presentation |
+| Ibn Sina / Avicenna | claim-reviewed | standard-compliant | 33 | 349 | 3 | 3 | 6 | standard presentation |
 | Al-Ghazali | claim-reviewed | standard-compliant | 34 | 346 | 3 | 3 | 5 | standard presentation |
-| Ibn Rushd / Averroes | claim-reviewed | standard-compliant | 32 | 355 | 3 | 3 | 5 | standard presentation |
+| Ibn Rushd / Averroes | claim-reviewed | standard-compliant | 32 | 350 | 3 | 3 | 5 | standard presentation |
 | Suhrawardi | claim-reviewed | standard-compliant | 32 | 343 | 3 | 3 | 5 | standard presentation |
 | Mulla Sadra | claim-reviewed | standard-compliant | 32 | 347 | 3 | 3 | 6 | standard presentation |
 | Zhu Xi | claim-reviewed | standard-compliant | 34 | 319 | 3 | 3 | 6 | standard presentation |
