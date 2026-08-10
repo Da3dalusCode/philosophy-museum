@@ -132,7 +132,7 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | Mary Wollstonecraft | claim-reviewed | standard-compliant | 32 | 290 | 3 | 3 | 6 | standard presentation |
 | Immanuel Kant | claim-reviewed | standard-compliant | 32 | 303 | 3 | 3 | 7 | standard presentation |
 | Schelling | claim-reviewed | standard-compliant | 32 | 316 | 3 | 3 | 6 | standard presentation |
-| Hegel | claim-reviewed | standard-compliant | 32 | 297 | 3 | 3 | 6 | standard presentation |
+| Hegel | claim-reviewed | standard-compliant | 33 | 297 | 3 | 3 | 6 | standard presentation |
 | Kantianism | claim-reviewed | standard-compliant | 34 | 254 | 3 | 3 | 7 | standard presentation |
 | Jeremy Bentham | claim-reviewed | standard-compliant | 32 | 294 | 3 | 3 | 6 | standard presentation |
 | John Stuart Mill | claim-reviewed | standard-compliant | 32 | 292 | 3 | 3 | 6 | standard presentation |
@@ -144,10 +144,10 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | William James | claim-reviewed | standard-compliant | 32 | 320 | 3 | 3 | 6 | standard presentation |
 | John Dewey | claim-reviewed | standard-compliant | 32 | 306 | 3 | 3 | 6 | standard presentation |
 | Iris Murdoch | claim-reviewed | standard-compliant | 32 | 327 | 3 | 3 | 6 | standard presentation |
-| Philippa Foot | claim-reviewed | standard-compliant | 32 | 314 | 3 | 3 | 6 | standard presentation |
+| Philippa Foot | claim-reviewed | standard-compliant | 33 | 314 | 3 | 3 | 6 | standard presentation |
 | Judith Jarvis Thomson | claim-reviewed | standard-compliant | 32 | 328 | 3 | 3 | 6 | standard presentation |
 | Derek Parfit | claim-reviewed | standard-compliant | 33 | 325 | 3 | 3 | 6 | standard presentation |
-| Feminist Philosophy | claim-reviewed | standard-compliant | 32 | 336 | 3 | 3 | 6 | standard presentation |
+| Feminist Philosophy | claim-reviewed | standard-compliant | 34 | 336 | 3 | 3 | 6 | standard presentation |
 | Judith Butler | claim-reviewed | standard-compliant | 32 | 324 | 3 | 3 | 6 | standard presentation |
 
 ## Complete canonical inventory
