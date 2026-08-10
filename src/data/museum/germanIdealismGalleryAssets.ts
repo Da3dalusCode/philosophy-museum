@@ -398,7 +398,7 @@ export const GERMAN_IDEALISM_GALLERY_ASSETS = [
     attribution: 'Jakob Schlesinger, Georg Wilhelm Friedrich Hegel, 1831, Alte Nationalgalerie. Public domain.',
     scene: [508, 640],
     panel: [1015, 1280],
-    alt: 'Georg Wilhelm Friedrich Hegel faces the viewer in a dark coat with papers held near his waist.',
+    alt: 'Close painted portrait of Georg Wilhelm Friedrich Hegel facing the viewer in a dark coat and white neckcloth.',
     caption: 'Schlesinger’s lifetime portrait anchors Hegel’s attempt to connect logic, consciousness, institutions, history, art, religion, and freedom.',
     historicalNote: 'Painted in the year Hegel died, the portrait identifies the philosopher but should not be used to suggest that his system was static or uncontested.',
     likenessStatus: 'lifetime-portrait',

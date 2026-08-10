@@ -36,6 +36,8 @@ import {PHENOMENOLOGY_ANALYTIC_PRIMARY_INTERPRETATIONS} from './phenomenologyAna
 import {MEDIEVAL_CONNECTED_WORLDS_PRIMARY_INTERPRETATION_ENRICHMENT} from './medievalConnectedWorldsPrimaryInterpretationEnrichment';
 import {CANONICAL_ORDER_PRIMARY_INTERPRETATIONS_A} from './canonicalOrderPrimaryInterpretationsA';
 import {CANONICAL_ORDER_PRIMARY_INTERPRETATIONS_B} from './canonicalOrderPrimaryInterpretationsB';
+import {CANONICAL_ORDER_PRIMARY_INTERPRETATIONS_C} from './canonicalOrderPrimaryInterpretationsC';
+import {CANONICAL_ORDER_PRIMARY_INTERPRETATIONS_D} from './canonicalOrderPrimaryInterpretationsD';
 
 export type MuseumInterpretationSource = {
   label: string;
@@ -1407,6 +1409,8 @@ const PRIMARY_INTERPRETATION_ENRICHMENT = {
   ...MEDIEVAL_CONNECTED_WORLDS_PRIMARY_INTERPRETATION_ENRICHMENT,
   ...CANONICAL_ORDER_PRIMARY_INTERPRETATIONS_A,
   ...CANONICAL_ORDER_PRIMARY_INTERPRETATIONS_B,
+  ...CANONICAL_ORDER_PRIMARY_INTERPRETATIONS_C,
+  ...CANONICAL_ORDER_PRIMARY_INTERPRETATIONS_D,
 };
 
 const applyPrimaryInterpretationEnrichment = (

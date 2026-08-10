@@ -16,7 +16,7 @@ Regenerate it with `npm run report:exhibits` and verify it with `npm run audit:e
 
 | Total | Unreviewed | Reconciled | Standard compliant | Out of date |
 | ---: | ---: | ---: | ---: | ---: |
-| 192 | 88 | 0 | 104 | 0 |
+| 192 | 73 | 0 | 119 | 0 |
 
 ## Article relationships
 
@@ -132,8 +132,23 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | Mary Wollstonecraft | claim-reviewed | standard-compliant | 32 | 290 | 3 | 3 | 6 | standard presentation |
 | Immanuel Kant | claim-reviewed | standard-compliant | 32 | 303 | 3 | 3 | 7 | standard presentation |
 | Schelling | claim-reviewed | standard-compliant | 32 | 316 | 3 | 3 | 6 | standard presentation |
+| Hegel | claim-reviewed | standard-compliant | 32 | 297 | 3 | 3 | 6 | standard presentation |
 | Kantianism | claim-reviewed | standard-compliant | 34 | 254 | 3 | 3 | 7 | standard presentation |
+| Jeremy Bentham | claim-reviewed | standard-compliant | 32 | 294 | 3 | 3 | 6 | standard presentation |
+| John Stuart Mill | claim-reviewed | standard-compliant | 32 | 292 | 3 | 3 | 6 | standard presentation |
+| Karl Marx | claim-reviewed | standard-compliant | 32 | 295 | 3 | 3 | 6 | standard presentation |
 | Marxism | claim-reviewed | standard-compliant | 32 | 255 | 3 | 3 | 6 | standard presentation |
+| Schopenhauer | claim-reviewed | standard-compliant | 32 | 316 | 3 | 3 | 6 | standard presentation |
+| Kierkegaard | claim-reviewed | standard-compliant | 32 | 306 | 3 | 3 | 6 | standard presentation |
+| Charles Sanders Peirce | claim-reviewed | standard-compliant | 32 | 311 | 3 | 3 | 6 | standard presentation |
+| William James | claim-reviewed | standard-compliant | 32 | 320 | 3 | 3 | 6 | standard presentation |
+| John Dewey | claim-reviewed | standard-compliant | 32 | 306 | 3 | 3 | 6 | standard presentation |
+| Iris Murdoch | claim-reviewed | standard-compliant | 32 | 327 | 3 | 3 | 6 | standard presentation |
+| Philippa Foot | claim-reviewed | standard-compliant | 32 | 314 | 3 | 3 | 6 | standard presentation |
+| Judith Jarvis Thomson | claim-reviewed | standard-compliant | 32 | 328 | 3 | 3 | 6 | standard presentation |
+| Derek Parfit | claim-reviewed | standard-compliant | 33 | 325 | 3 | 3 | 6 | standard presentation |
+| Feminist Philosophy | claim-reviewed | standard-compliant | 32 | 336 | 3 | 3 | 6 | standard presentation |
+| Judith Butler | claim-reviewed | standard-compliant | 32 | 324 | 3 | 3 | 6 | standard presentation |
 
 ## Complete canonical inventory
 
@@ -299,35 +314,35 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | german-idealism-afterlives | german-idealism-orientation | german-idealism | branch:german-idealism | matched | bibliography-only | unreviewed |
 | german-idealism-afterlives | german-idealism-orientation | fichte | philosopher:fichte | matched | bibliography-only | unreviewed |
 | german-idealism-afterlives | german-idealism-nature | schelling | philosopher:schelling | matched | claim-reviewed | standard-compliant |
-| german-idealism-afterlives | german-idealism-hegel | hegel | philosopher:hegel | matched | claim-reviewed | unreviewed |
+| german-idealism-afterlives | german-idealism-hegel | hegel | philosopher:hegel | matched | claim-reviewed | standard-compliant |
 | german-idealism-afterlives | german-idealism-afterlives-room | kantianism | branch:kantianism | matched | claim-reviewed | standard-compliant |
-| utility-liberty-history-capital | nineteenth-utilitarian-reform | bentham | philosopher:bentham | matched | claim-reviewed | unreviewed |
-| utility-liberty-history-capital | nineteenth-utilitarian-reform | mill | philosopher:mill | matched | claim-reviewed | unreviewed |
-| utility-liberty-history-capital | nineteenth-labor-capital | marx | philosopher:marx | matched | claim-reviewed | unreviewed |
+| utility-liberty-history-capital | nineteenth-utilitarian-reform | bentham | philosopher:bentham | matched | claim-reviewed | standard-compliant |
+| utility-liberty-history-capital | nineteenth-utilitarian-reform | mill | philosopher:mill | matched | claim-reviewed | standard-compliant |
+| utility-liberty-history-capital | nineteenth-labor-capital | marx | philosopher:marx | matched | claim-reviewed | standard-compliant |
 | utility-liberty-history-capital | nineteenth-social-transformations | marxism | branch:marxism | matched | claim-reviewed | standard-compliant |
-| faith-pessimism-life-value | nineteenth-will-pessimism | schopenhauer | philosopher:schopenhauer | matched | claim-reviewed | unreviewed |
-| faith-pessimism-life-value | nineteenth-faith-subjectivity | kierkegaard | philosopher:kierkegaard | matched | claim-reviewed | unreviewed |
+| faith-pessimism-life-value | nineteenth-will-pessimism | schopenhauer | philosopher:schopenhauer | matched | claim-reviewed | standard-compliant |
+| faith-pessimism-life-value | nineteenth-faith-subjectivity | kierkegaard | philosopher:kierkegaard | matched | claim-reviewed | standard-compliant |
 | faith-pessimism-life-value | nineteenth-faith-subjectivity | dostoevsky | philosopher:dostoevsky | matched | unreviewed | unreviewed |
 | faith-pessimism-life-value | nineteenth-genealogy-value | nietzsche | philosopher:nietzsche | matched | bibliography-only | unreviewed |
 | pragmatism-democratic-inquiry | pragmatism-peirce-inquiry | pragmatism | branch:pragmatism | matched | bibliography-only | unreviewed |
-| pragmatism-democratic-inquiry | pragmatism-peirce-inquiry | peirce | philosopher:peirce | matched | claim-reviewed | unreviewed |
-| pragmatism-democratic-inquiry | pragmatism-james-experience | william-james | philosopher:william-james | matched | claim-reviewed | unreviewed |
-| pragmatism-democratic-inquiry | pragmatism-dewey-democracy | dewey | philosopher:dewey | matched | claim-reviewed | unreviewed |
+| pragmatism-democratic-inquiry | pragmatism-peirce-inquiry | peirce | philosopher:peirce | matched | claim-reviewed | standard-compliant |
+| pragmatism-democratic-inquiry | pragmatism-james-experience | william-james | philosopher:william-james | matched | claim-reviewed | standard-compliant |
+| pragmatism-democratic-inquiry | pragmatism-dewey-democracy | dewey | philosopher:dewey | matched | claim-reviewed | standard-compliant |
 | critique-power-deconstruction | continental-orientation | continental-philosophy | branch:continental-philosophy | matched | bibliography-only | unreviewed |
 | critique-power-deconstruction | critique-genealogy-power | foucault | philosopher:foucault | matched | bibliography-only | unreviewed |
 | critique-power-deconstruction | critique-deconstruction | derrida | philosopher:derrida | matched | bibliography-only | unreviewed |
 | critique-power-deconstruction | critique-critical-theory | habermas | philosopher:habermas | matched | bibliography-only | unreviewed |
 | moral-life-practical-reason | moral-ethics-orientation | ethics | branch:ethics | matched | bibliography-only | unreviewed |
 | moral-life-practical-reason | moral-character-virtue | virtue-ethics | branch:virtue-ethics | matched | bibliography-only | unreviewed |
-| moral-life-practical-reason | moral-character-virtue | iris-murdoch | philosopher:iris-murdoch | matched | claim-reviewed | unreviewed |
-| moral-life-practical-reason | moral-character-virtue | philippa-foot | philosopher:philippa-foot | matched | claim-reviewed | unreviewed |
+| moral-life-practical-reason | moral-character-virtue | iris-murdoch | philosopher:iris-murdoch | matched | claim-reviewed | standard-compliant |
+| moral-life-practical-reason | moral-character-virtue | philippa-foot | philosopher:philippa-foot | matched | claim-reviewed | standard-compliant |
 | moral-life-practical-reason | moral-duty-consequence | deontology | branch:deontology | matched | bibliography-only | unreviewed |
 | moral-life-practical-reason | moral-duty-consequence | utilitarianism | branch:utilitarianism | matched | bibliography-only | unreviewed |
-| moral-life-practical-reason | moral-rights-persons-futures | judith-thomson | philosopher:judith-thomson | matched | claim-reviewed | unreviewed |
-| moral-life-practical-reason | moral-rights-persons-futures | derek-parfit | philosopher:derek-parfit | matched | claim-reviewed | unreviewed |
-| feminist-philosophies | feminist-orientation-genealogies | feminist-philosophy | branch:feminist-philosophy | matched | claim-reviewed | unreviewed |
+| moral-life-practical-reason | moral-rights-persons-futures | judith-thomson | philosopher:judith-thomson | matched | claim-reviewed | standard-compliant |
+| moral-life-practical-reason | moral-rights-persons-futures | derek-parfit | philosopher:derek-parfit | matched | claim-reviewed | standard-compliant |
+| feminist-philosophies | feminist-orientation-genealogies | feminist-philosophy | branch:feminist-philosophy | matched | claim-reviewed | standard-compliant |
 | feminist-philosophies | feminist-situated-freedom | beauvoir | philosopher:beauvoir | matched | bibliography-only | unreviewed |
-| feminist-philosophies | feminist-gender-norms | judith-butler | philosopher:judith-butler | matched | claim-reviewed | unreviewed |
+| feminist-philosophies | feminist-gender-norms | judith-butler | philosopher:judith-butler | matched | claim-reviewed | standard-compliant |
 | colonialism-race-liberation | colonial-embodiment-liberation | fanon | philosopher:fanon | matched | bibliography-only | unreviewed |
 | colonialism-race-liberation | colonial-black-feminism-abolition | angela-davis | philosopher:angela-davis | matched | claim-reviewed | unreviewed |
 | colonialism-race-liberation | colonial-black-feminism-abolition | bell-hooks | philosopher:bell-hooks | matched | claim-reviewed | unreviewed |

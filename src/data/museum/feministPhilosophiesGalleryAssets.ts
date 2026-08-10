@@ -129,7 +129,7 @@ export const FEMINIST_PHILOSOPHIES_GALLERY_ASSETS = [
     objectDate: '3 March 1913', institution: 'U.S. National Archives via Wikimedia Commons',
     sourcePageUrl: 'https://commons.wikimedia.org/wiki/File:Woman_Suffrage_Procession_1913_opening.jpg',
     rights: publicDomainUSGov, attribution: 'Unknown photographer, opening of the Woman Suffrage Procession, Washington, D.C., 3 March 1913. U.S. National Archives; U.S. public domain.',
-    scene: [640, 289], panel: [1280, 578], alt: 'A large woman suffrage procession advances along a broad Washington avenue before a dense crowd.',
+    scene: [640, 289], panel: [1280, 578], alt: 'Women dressed in white march beside a horse-drawn banner cart during the 1913 suffrage procession in Washington.',
     caption: 'Collective action opens the gallery, while the route immediately asks whose histories older suffrage narratives foregrounded or excluded.',
     historicalNote: 'The procession was internally diverse but did not represent every feminist tradition or woman. Racial exclusion and segregation within the event remain essential to interpreting it.',
   }),
