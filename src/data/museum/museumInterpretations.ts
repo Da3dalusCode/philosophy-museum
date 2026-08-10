@@ -34,6 +34,8 @@ import {FINAL_UNIVERSAL_DEPTH_PRIMARY_INTERPRETATIONS} from './finalUniversalDep
 import {MEDITERRANEAN_RENAISSANCE_JUSTICE_PRIMARY_INTERPRETATIONS} from './mediterraneanRenaissanceJusticePrimaryInterpretations';
 import {PHENOMENOLOGY_ANALYTIC_PRIMARY_INTERPRETATIONS} from './phenomenologyAnalyticPrimaryInterpretations';
 import {MEDIEVAL_CONNECTED_WORLDS_PRIMARY_INTERPRETATION_ENRICHMENT} from './medievalConnectedWorldsPrimaryInterpretationEnrichment';
+import {CANONICAL_ORDER_PRIMARY_INTERPRETATIONS_A} from './canonicalOrderPrimaryInterpretationsA';
+import {CANONICAL_ORDER_PRIMARY_INTERPRETATIONS_B} from './canonicalOrderPrimaryInterpretationsB';
 
 export type MuseumInterpretationSource = {
   label: string;
@@ -1403,6 +1405,8 @@ const PRIMARY_INTERPRETATION_ENRICHMENT = {
   ...MEDITERRANEAN_RENAISSANCE_JUSTICE_PRIMARY_INTERPRETATIONS,
   ...PHENOMENOLOGY_ANALYTIC_PRIMARY_INTERPRETATIONS,
   ...MEDIEVAL_CONNECTED_WORLDS_PRIMARY_INTERPRETATION_ENRICHMENT,
+  ...CANONICAL_ORDER_PRIMARY_INTERPRETATIONS_A,
+  ...CANONICAL_ORDER_PRIMARY_INTERPRETATIONS_B,
 };
 
 const applyPrimaryInterpretationEnrichment = (

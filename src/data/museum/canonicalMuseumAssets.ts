@@ -96,7 +96,7 @@ export const CANONICAL_MUSEUM_ASSETS = [
       scene: variant('justice-democratic-reason', 'martha-nussbaum-portrait-2010', 'scene', 354, 640),
       panel: variant('justice-democratic-reason', 'martha-nussbaum-portrait-2010', 'panel', 707, 1280),
     },
-    alt: 'Color lifetime portrait of Martha Nussbaum seated indoors, looking toward the camera and wearing a patterned dress.',
+    alt: 'Color lifetime portrait of Martha Nussbaum standing indoors, looking toward the camera and wearing a patterned dress.',
     caption: 'Sally Ryan, Martha C. Nussbaum, University of Chicago Law School, 24 August 2010.',
     historicalNote: 'A licensed lifetime institutional portrait. It identifies a living philosopher but does not itself represent the capabilities approach, its list of central capabilities, or debates over universalism, culture, disability, and political implementation.',
     likenessStatus: 'lifetime-photograph',

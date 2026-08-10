@@ -13,9 +13,9 @@
   "canonicalExhibitBaseline": {
     "total": 192,
     "countsByEffectiveStatus": {
-      "unreviewed": 103,
+      "unreviewed": 88,
       "reconciled": 0,
-      "standard-compliant": 89,
+      "standard-compliant": 104,
       "out-of-date": 0
     }
   },
@@ -27,7 +27,7 @@
     },
     "blockers": []
   },
-  "reviewedExhibits": 89,
+  "reviewedExhibits": 104,
   "errors": [],
   "entries": [
     {
@@ -1190,9 +1190,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-09",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 32,
+        "mainInterpretationWords": 312,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 6,
+        "principalAssetId": "martha-nussbaum-portrait-2010",
+        "issues": []
+      }
     },
     {
       "hallId": "core-questions-forum",
@@ -1226,9 +1236,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-09",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 32,
+        "mainInterpretationWords": 320,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 6,
+        "principalAssetId": "ontology-being-process-interpretive",
+        "issues": []
+      }
     },
     {
       "hallId": "core-questions-forum",
@@ -1244,9 +1264,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-09",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 32,
+        "mainInterpretationWords": 304,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 6,
+        "principalAssetId": "alfred-north-whitehead-portrait-1923",
+        "issues": []
+      }
     },
     {
       "hallId": "core-questions-forum",
@@ -1280,9 +1310,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-09",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 32,
+        "mainInterpretationWords": 310,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 6,
+        "principalAssetId": "philosophy-mind-subjective-objective-interpretive",
+        "issues": []
+      }
     },
     {
       "hallId": "core-questions-forum",
@@ -1298,9 +1338,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-09",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 32,
+        "mainInterpretationWords": 318,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 6,
+        "principalAssetId": "thomas-nagel-portrait",
+        "issues": []
+      }
     },
     {
       "hallId": "core-questions-forum",
@@ -1370,9 +1420,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-09",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 32,
+        "mainInterpretationWords": 316,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 6,
+        "principalAssetId": "science-air-pump-wright-1768",
+        "issues": []
+      }
     },
     {
       "hallId": "core-questions-forum",
@@ -1388,9 +1448,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-09",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 32,
+        "mainInterpretationWords": 306,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 6,
+        "principalAssetId": "carnap-portrait",
+        "issues": []
+      }
     },
     {
       "hallId": "core-questions-forum",
@@ -1406,9 +1476,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-09",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 32,
+        "mainInterpretationWords": 311,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 6,
+        "principalAssetId": "popper-portrait-1987",
+        "issues": []
+      }
     },
     {
       "hallId": "core-questions-forum",
@@ -1424,9 +1504,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-09",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 32,
+        "mainInterpretationWords": 307,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 6,
+        "principalAssetId": "kuhn-portrait-1977",
+        "issues": []
+      }
     },
     {
       "hallId": "core-questions-forum",
@@ -1460,9 +1550,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-09",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 32,
+        "mainInterpretationWords": 303,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 6,
+        "principalAssetId": "philosophy-religion-plural-inquiry-interpretive",
+        "issues": []
+      }
     },
     {
       "hallId": "classical-south-asian-worlds",
@@ -2862,9 +2962,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-09",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 32,
+        "mainInterpretationWords": 314,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 6,
+        "principalAssetId": "antisthenes-british-museum-bust",
+        "issues": []
+      }
     },
     {
       "hallId": "hellenistic-roman-ways",
@@ -3114,9 +3224,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-09",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 32,
+        "mainInterpretationWords": 320,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 6,
+        "principalAssetId": "arcesilaus-carneades-academica",
+        "issues": []
+      }
     },
     {
       "hallId": "hellenistic-roman-ways",
@@ -3132,9 +3252,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-09",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 32,
+        "mainInterpretationWords": 319,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 6,
+        "principalAssetId": "carneades-louvre-bust",
+        "issues": []
+      }
     },
     {
       "hallId": "hellenistic-roman-ways",
@@ -3464,9 +3594,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-09",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 33,
+        "mainInterpretationWords": 318,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 6,
+        "principalAssetId": "rationalism-conway-portrait",
+        "issues": []
+      }
     },
     {
       "hallId": "rationalism-mind-nature-system",
@@ -3776,9 +3916,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-09",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 32,
+        "mainInterpretationWords": 316,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 6,
+        "principalAssetId": "german-idealism-schelling-stieler-1835",
+        "issues": []
+      }
     },
     {
       "hallId": "german-idealism-afterlives",

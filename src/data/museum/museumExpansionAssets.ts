@@ -178,7 +178,7 @@ export const MUSEUM_EXPANSION_ASSETS = [
     id: 'popper-portrait-1987', hallFolder: 'logic-language-science', entityId: 'popper', role: 'identity', mediaKind: 'photograph',
     title: 'Karl Popper', creator: 'DorianKBandy', objectDate: '1987', institution: 'Contributor’s private photograph; Wikimedia Commons',
     sourcePageUrl: 'https://commons.wikimedia.org/wiki/File:Photo_of_Karl_Popper.jpg', ...licensed('CC BY-SA 4.0', 'https://creativecommons.org/licenses/by-sa/4.0/'),
-    attribution: 'DorianKBandy, photograph of Karl Popper, 1987, CC BY-SA 4.0.', alt: 'Late-life color portrait of Karl Popper seated indoors and facing the camera.',
+    attribution: 'DorianKBandy, photograph of Karl Popper, 1987, CC BY-SA 4.0.', alt: 'Late-life color portrait of Karl Popper smiling and looking to his left against a dark background.',
     caption: 'Karl Popper in 1987.', historicalNote: 'A contributor-supplied photograph made during Popper’s lifetime; Commons records the photographer under the username DorianKBandy.', likenessStatus: 'lifetime-photograph', focalPoint: {x: .5, y: .38},
   }),
   expansionAsset({
@@ -416,8 +416,8 @@ export const MUSEUM_EXPANSION_ASSETS = [
     id: 'thomas-nagel-portrait', hallFolder: 'mind-consciousness-self', entityId: 'thomas-nagel', role: 'identity', mediaKind: 'photograph',
     title: 'Thomas Nagel', creator: 'Wikimedia Commons user Nagelt', objectDate: '1978', institution: 'Contributor’s private photograph; Wikimedia Commons',
     sourcePageUrl: 'https://commons.wikimedia.org/wiki/File:Thomas_Nagel.jpg', ...licensed('CC BY-SA 4.0', 'https://creativecommons.org/licenses/by-sa/4.0/'),
-    attribution: 'Nagelt, photograph of Thomas Nagel, 1978, CC BY-SA 4.0.', alt: 'Color photograph of a young Thomas Nagel seated outdoors in 1978.',
-    caption: 'Thomas Nagel in 1978.', historicalNote: 'A contributor-claimed own-work photograph made during Nagel’s lifetime; Commons does not identify a separate institutional repository.', likenessStatus: 'lifetime-photograph', focalPoint: {x: .5, y: .42},
+    attribution: 'Nagelt, photograph of Thomas Nagel, 1978, CC BY-SA 4.0.', alt: 'Black-and-white head-and-shoulders portrait of a young Thomas Nagel in a suit, preserved within a marked photographic print.',
+    caption: 'Thomas Nagel in a marked photographic print, 15 March 1978.', historicalNote: 'A contributor-claimed own-work photograph made during Nagel’s lifetime. The source identifies it only as a portrait and names no institutional repository; the displayed uncropped print retains its border and blue crop annotations.', likenessStatus: 'lifetime-photograph', focalPoint: {x: .5, y: .42},
   }),
   expansionAsset({
     id: 'thomas-nagel-teaching', hallFolder: 'mind-consciousness-self', entityId: 'thomas-nagel', role: 'context', mediaKind: 'photograph',
