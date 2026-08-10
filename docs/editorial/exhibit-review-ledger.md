@@ -51,9 +51,9 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | Francis Bacon | claim-reviewed | standard-compliant | 33 | 309 | 3 | 3 | 5 | standard presentation |
 | Galileo Galilei | claim-reviewed | standard-compliant | 32 | 304 | 3 | 3 | 6 | standard presentation |
 | Thomas Hobbes | claim-reviewed | standard-compliant | 32 | 311 | 3 | 3 | 6 | standard presentation |
-| Maurice Merleau-Ponty | claim-reviewed | standard-compliant | 33 | 316 | 3 | 2 | 5 | standard presentation |
-| Emmanuel Levinas | claim-reviewed | standard-compliant | 33 | 313 | 3 | 2 | 5 | standard presentation |
-| Hans-Georg Gadamer | claim-reviewed | standard-compliant | 33 | 320 | 3 | 2 | 6 | standard presentation |
+| Maurice Merleau-Ponty | claim-reviewed | standard-compliant | 32 | 316 | 3 | 2 | 5 | standard presentation |
+| Emmanuel Levinas | claim-reviewed | standard-compliant | 32 | 313 | 3 | 2 | 5 | standard presentation |
+| Hans-Georg Gadamer | claim-reviewed | standard-compliant | 32 | 320 | 3 | 2 | 6 | standard presentation |
 | Bertrand Russell | claim-reviewed | standard-compliant | 32 | 312 | 3 | 2 | 6 | standard presentation |
 | Gottlob Frege | claim-reviewed | standard-compliant | 33 | 305 | 3 | 2 | 6 | standard presentation |
 | G. E. Moore | claim-reviewed | standard-compliant | 32 | 315 | 3 | 2 | 6 | standard presentation |
