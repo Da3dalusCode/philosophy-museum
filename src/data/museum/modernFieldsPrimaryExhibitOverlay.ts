@@ -77,7 +77,7 @@ Readonly<Record<ModernFieldExhibitId, BranchExhibitEditorialRecord>> = {
     gallery: 'Pragmatism, Science, and Democratic Inquiry',
     roomId: 'pragmatism-peirce-inquiry',
     roomTitle: 'Peirce: signs, fallibilism, and public inquiry',
-    plaqueInvitation: 'Trace Pragmatism from Peirce’s map of the earth to habits of inquiry. Ask how consequences clarify ideas, why evidence can correct belief, and how democratic experimentation must confront whose experience, harm, and voice count.',
+    plaqueInvitation: 'Use Peirce’s map to enter inquiry. Ask how acts test ideas, facts revise belief, and shared trials aid democracy—while asking whose pain and voice count when a group calls its own test fair.',
     principalAsset: {
       id: 'pragmatism-peirce-quincuncial-map-1879',
       title: 'Peirce’s quincuncial projection of the sphere',
@@ -185,7 +185,7 @@ Readonly<Record<ModernFieldExhibitId, BranchExhibitEditorialRecord>> = {
     gallery: 'Phenomenology, Existence, and Embodiment',
     roomId: 'existentialism-freedom',
     roomTitle: 'Existentialism: freedom, facticity, and bad faith',
-    plaqueInvitation: 'Enter Existentialism through Munch’s earlier crowd. Ask how freedom meets body, history, oppression, uncertainty, responsibility, solidarity, and revolt—without making one painting prove a doctrine or reducing lived existence to private choice or despair.',
+    plaqueInvitation: 'Enter Munch’s early crowd. Ask how freedom meets body, past, force, doubt, duty, and revolt—without making one scene a creed, blaming people for set limits, or turning life into lone choice or despair.',
     principalAsset: {
       id: 'existentialism-munch-karl-johan',
       title: 'Evening on Karl Johan Street',
@@ -293,7 +293,7 @@ Readonly<Record<ModernFieldExhibitId, BranchExhibitEditorialRecord>> = {
     gallery: 'Critique, Power, and Deconstruction',
     roomId: 'continental-orientation',
     roomTitle: 'Continental philosophy as a retrospective family',
-    plaqueInvitation: 'Use this map to question a label rather than locate a doctrine. Trace divergent work on history, embodiment, language, power, and critique, then ask how academic boundaries include, exclude, and simplify philosophical inheritances.',
+    plaqueInvitation: 'Use a map to test a label, not find a creed. Trace work on time, bodies, words, power, and critique—then ask how academic lines omit, divide, and blur the thought they sort.',
     principalAsset: {
       id: 'critique-continental-europe-orthographic',
       title: 'Europe in orthographic projection',

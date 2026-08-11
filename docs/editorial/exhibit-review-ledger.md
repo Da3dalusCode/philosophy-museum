@@ -107,7 +107,7 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | Buddhist Epistemology | claim-reviewed | standard-compliant | 32 | 320 | 3 | 3 | 6 | standard presentation |
 | Dignāga | claim-reviewed | standard-compliant | 32 | 310 | 3 | 3 | 6 | standard presentation |
 | Dharmakīrti | claim-reviewed | standard-compliant | 32 | 293 | 3 | 3 | 6 | standard presentation |
-| Chinese Philosophy | claim-reviewed | standard-compliant | 32 | 319 | 3 | 3 | 6 | standard presentation |
+| Chinese Philosophy | claim-reviewed | standard-compliant | 34 | 319 | 3 | 3 | 6 | standard presentation |
 | Confucius | claim-reviewed | standard-compliant | 34 | 299 | 3 | 3 | 5 | standard presentation |
 | Mencius | claim-reviewed | standard-compliant | 32 | 292 | 3 | 3 | 5 | standard presentation |
 | Xunzi | claim-reviewed | standard-compliant | 32 | 296 | 3 | 3 | 5 | standard presentation |
@@ -138,7 +138,7 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | William of Ockham | claim-reviewed | standard-compliant | 32 | 292 | 3 | 3 | 4 | standard presentation |
 | Meister Eckhart | claim-reviewed | standard-compliant | 32 | 295 | 3 | 3 | 4 | standard presentation |
 | Marsilius of Padua | claim-reviewed | standard-compliant | 32 | 294 | 3 | 3 | 4 | standard presentation |
-| Cynicism | claim-reviewed | standard-compliant | 32 | 316 | 3 | 3 | 6 | standard presentation |
+| Cynicism | claim-reviewed | standard-compliant | 34 | 316 | 3 | 3 | 6 | standard presentation |
 | Antisthenes | claim-reviewed | standard-compliant | 32 | 314 | 3 | 3 | 6 | standard presentation |
 | Diogenes | claim-reviewed | standard-compliant | 34 | 302 | 3 | 3 | 6 | standard presentation |
 | Epicureanism | claim-reviewed | standard-compliant | 32 | 315 | 3 | 3 | 6 | standard presentation |
@@ -151,7 +151,7 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | Epictetus | claim-reviewed | standard-compliant | 32 | 309 | 3 | 3 | 6 | standard presentation |
 | Seneca | claim-reviewed | standard-compliant | 32 | 316 | 3 | 3 | 6 | standard presentation |
 | Marcus Aurelius | claim-reviewed | standard-compliant | 33 | 319 | 3 | 3 | 6 | standard presentation |
-| Skepticism | claim-reviewed | standard-compliant | 33 | 315 | 3 | 3 | 6 | standard presentation |
+| Skepticism | claim-reviewed | standard-compliant | 32 | 315 | 3 | 3 | 6 | standard presentation |
 | Pyrrho | claim-reviewed | standard-compliant | 33 | 310 | 3 | 3 | 6 | standard presentation |
 | Arcesilaus | claim-reviewed | standard-compliant | 32 | 320 | 3 | 3 | 6 | standard presentation |
 | Carneades | claim-reviewed | standard-compliant | 32 | 319 | 3 | 3 | 6 | standard presentation |
@@ -189,11 +189,11 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | Kierkegaard | claim-reviewed | standard-compliant | 32 | 306 | 3 | 3 | 6 | standard presentation |
 | Fyodor Dostoevsky | claim-reviewed | standard-compliant | 32 | 312 | 3 | 3 | 6 | standard presentation |
 | Friedrich Nietzsche | claim-reviewed | standard-compliant | 32 | 315 | 3 | 3 | 6 | standard presentation |
-| Pragmatism | claim-reviewed | standard-compliant | 34 | 309 | 3 | 3 | 5 | standard presentation |
+| Pragmatism | claim-reviewed | standard-compliant | 33 | 309 | 3 | 3 | 5 | standard presentation |
 | Charles Sanders Peirce | claim-reviewed | standard-compliant | 32 | 311 | 3 | 3 | 6 | standard presentation |
 | William James | claim-reviewed | standard-compliant | 32 | 320 | 3 | 3 | 6 | standard presentation |
 | John Dewey | claim-reviewed | standard-compliant | 32 | 306 | 3 | 3 | 6 | standard presentation |
-| Continental Philosophy | claim-reviewed | standard-compliant | 33 | 317 | 3 | 3 | 5 | standard presentation |
+| Continental Philosophy | claim-reviewed | standard-compliant | 32 | 317 | 3 | 3 | 5 | standard presentation |
 | Michel Foucault | claim-reviewed | standard-compliant | 32 | 311 | 3 | 3 | 6 | standard presentation |
 | Jacques Derrida | claim-reviewed | standard-compliant | 32 | 320 | 3 | 3 | 6 | standard presentation |
 | Jürgen Habermas | claim-reviewed | standard-compliant | 32 | 320 | 3 | 3 | 6 | standard presentation |

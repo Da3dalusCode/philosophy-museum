@@ -157,7 +157,7 @@ Readonly<Record<string, FoundationsPrimaryExhibitEditorialRecord>> = {
     roomId: 'hell-epicurean-garden',
     roomTitle: 'Epicurean Garden and Roman transmission',
     tier: 'anchor-exhibit',
-    plaqueInvitation: 'Enter the Garden through a carbonized papyrus. Ask how atomism, mortality, desire, friendship, and prudence were joined into a therapy against fear—without mistaking measured pleasure for luxury, isolation, or careless, endless indulgence.',
+    plaqueInvitation: 'Enter the Garden by a charred roll. Ask how atoms, death, desire, friends, calm, and wise choice ease fear—without calling this roll Epicurus’s text or taking pleasure as wealth, excess, or retreat.',
     principalAsset: {
       id: 'epicurean-garden-herculaneum-papyrus',
       title: 'Herculaneum papyrus roll under imaging',
@@ -215,7 +215,7 @@ Readonly<Record<string, FoundationsPrimaryExhibitEditorialRecord>> = {
     roomId: 'hell-cynic-way',
     roomTitle: 'Cynic challenge',
     tier: 'anchor-exhibit',
-    plaqueInvitation: 'Confront a later scene of Diogenes and Alexander. Ask whether voluntary poverty, frank speech, bodily training, and cosmopolitan challenge can expose dependence on convention—while keeping disputed stories and radical ethics in view.',
+    plaqueInvitation: 'See later art pit Diogenes against Alexander. Ask how need, frank speech, hard training, and world ties test custom—without taking old tales as fact, this image as proof, or revolt as a full creed.',
     principalAsset: {
       id: 'cynicism-alexander-and-diogenes',
       title: 'Alexander and Diogenes',
@@ -273,7 +273,7 @@ Readonly<Record<string, FoundationsPrimaryExhibitEditorialRecord>> = {
     roomId: 'hell-skeptical-lineages',
     roomTitle: 'Academic and Pyrrhonian skeptical lineages',
     tier: 'anchor-exhibit',
-    plaqueInvitation: 'Open a Renaissance title page of Sextus Empiricus. Compare Academic and Pyrrhonian attempts to oppose arguments, withhold assent, and live amid uncertainty—without turning skepticism into dogmatic denial, passive indecision, or one uniform school.',
+    plaqueInvitation: 'Open a 1569 page of Sextus. Compare Academic tests with Pyrrhonian suspension, then ask how doubt guides life—without making a late print ancient, two paths one creed, or inquiry mere denial alone.',
     principalAsset: {
       id: 'skepticism-adversus-mathematicos',
       title: 'Adversus mathematicos, title page',
@@ -331,7 +331,7 @@ Readonly<Record<string, FoundationsPrimaryExhibitEditorialRecord>> = {
     roomId: 'china-many-ways',
     roomTitle: 'Many ways in early China',
     tier: 'supporting-exhibit',
-    plaqueInvitation: 'Enter a Warring States bronze world. Compare claims about ritual, learning, language, order, and rule—without making one vessel voice a school, one age define Chinese philosophy, or rival traditions seem harmonious today.',
+    plaqueInvitation: 'Use a bronze from Warring States China. Ask how rites, names, law, and rule faced debate—without making one vessel speak for a school, one age define all thought, or sharp rifts fade into calm.',
     principalAsset: {
       id: 'china-warring-states-bronze-vessel',
       title: 'Warring States bronze vessel',
