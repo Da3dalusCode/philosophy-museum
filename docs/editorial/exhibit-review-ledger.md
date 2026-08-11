@@ -93,7 +93,7 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | Thomas Kuhn | claim-reviewed | standard-compliant | 32 | 307 | 3 | 3 | 6 | standard presentation |
 | Aesthetics | claim-reviewed | standard-compliant | 32 | 319 | 3 | 3 | 6 | standard presentation |
 | Philosophy of Religion | claim-reviewed | standard-compliant | 32 | 303 | 3 | 3 | 6 | standard presentation |
-| Indian Philosophy | claim-reviewed | standard-compliant | 34 | 319 | 3 | 3 | 5 | standard presentation |
+| Indian Philosophy | claim-reviewed | standard-compliant | 32 | 319 | 3 | 3 | 5 | standard presentation |
 | Jainism | claim-reviewed | standard-compliant | 32 | 302 | 3 | 3 | 6 | standard presentation |
 | Mahāvīra | claim-reviewed | standard-compliant | 32 | 311 | 3 | 3 | 6 | standard presentation |
 | Kaṇāda | claim-reviewed | standard-compliant | 32 | 307 | 3 | 3 | 5 | standard presentation |

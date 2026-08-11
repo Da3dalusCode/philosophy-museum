@@ -71,7 +71,7 @@ Readonly<Record<FinalWorldTraditionId, BranchExhibitEditorialRecord>> = {
     gallery: 'Classical South Asia: Jain, Yoga, and Brahmanical Systems',
     roomId: 'south-orientation-many-schools',
     roomTitle: 'Many schools, shared questions, and missing traditions',
-    plaqueInvitation: 'Enter a plural South Asian field. Follow arguments about knowledge, language, action, self, reality, and liberation across rival traditions—while testing every map, canon, and category that pretends one region speaks with one philosophical voice.',
+    plaqueInvitation: 'Enter a plural South Asian field. Track views of knowledge, words, acts, self, world, and release across rival paths—while testing maps, canons, and labels that falsely give one region a single voice.',
     principalAsset: {
       id: 'south-many-schools-interpretive',
       title: 'Many schools, shared questions, unfinished routes',
@@ -125,7 +125,7 @@ Readonly<Record<FinalWorldTraditionId, BranchExhibitEditorialRecord>> = {
     gallery: 'Buddhist Philosophies of Liberation and Knowledge',
     roomId: 'buddhist-many-paths',
     roomTitle: 'Many Buddhist paths and early discourses',
-    plaqueInvitation: 'Begin with Buddhist paths, not one creed. Trace suffering, change, no-self, karma, discipline, meditation, and insight across communities—while texts, images, languages, and practices carry disputes, adaptations, and new liberating aims over time.',
+    plaqueInvitation: 'Begin with Buddhist paths, not one creed. Track pain, change, no-self, karma, study, practice, and insight across many communities—while texts, images, tongues, and rites carry disputes, aims, and new hopes for release.',
     principalAsset: {
       id: 'buddhist-wheel-life-dazu',
       title: 'Buddhist Wheel of Life at Baodingshan',
@@ -177,7 +177,7 @@ Readonly<Record<FinalWorldTraditionId, BranchExhibitEditorialRecord>> = {
     gallery: 'Rationalism: Mind, Nature, and System',
     roomId: 'rationalism-cartesian-foundations',
     roomTitle: 'Cartesian foundations and dualism',
-    plaqueInvitation: 'Use “rationalism” carefully. Compare early-modern accounts of reason, innateness, necessity, mind, nature, and system—while tracing conflicting answers, roles for experience, exchange, and a later label that never made thinkers one fixed school.',
+    plaqueInvitation: 'Use “rationalism” with care. Compare views of reason, innate ideas, necessity, mind, nature, and system—while tracking conflicts, roles for experience, debate, and a later label that never made thinkers one fixed school.',
     principalAsset: {
       id: 'rationalism-cartesian-vortices',
       title: 'Descartes’s mechanical universe of plenum and vortices',
@@ -283,7 +283,7 @@ Readonly<Record<FinalWorldTraditionId, BranchExhibitEditorialRecord>> = {
     gallery: 'German Idealism & Romantic Afterlives',
     roomId: 'german-idealism-orientation',
     roomTitle: 'Post-Kantian self, activity, and freedom',
-    plaqueInvitation: 'Step beyond Kant’s critical threshold. Compare post-Kantian arguments about self, nature, freedom, art, history, and reason—while questioning labels, incompatible systems, collaborators, and a portrait marking Kant as precursor but not a member.',
+    plaqueInvitation: 'Step beyond Kant’s threshold. Compare post-Kantian views of self, nature, freedom, art, time, and reason—while testing labels, rival systems, partners, and a portrait that shows Kant as precursor but never a member.',
     principalAsset: {
       id: 'german-idealism-kant-claessens-portrait',
       title: 'Portrait of Immanuel Kant',
