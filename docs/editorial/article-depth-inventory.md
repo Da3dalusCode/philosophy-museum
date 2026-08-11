@@ -235,22 +235,22 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | philosophy | philosophy-of-religion | Philosophy of Religion | #/branches/philosophy-of-religion | 2178 | pass | yes | yes (1 primary; 0 supplemental) |
 | philosophy | ancient-greek | Ancient Greek Philosophy | #/branches/ancient-greek | 2717 | pass | yes | yes (1 primary; 2 supplemental) |
 | philosophy | chinese-philosophy | Chinese Philosophy | #/branches/chinese-philosophy | 2282 | pass | yes | yes (1 primary; 6 supplemental) |
-| philosophy | confucianism | Confucianism | #/branches/confucianism | 2451 | pass | yes | yes (1 primary; 8 supplemental) |
-| philosophy | daoism | Daoism | #/branches/daoism | 2362 | pass | yes | yes (1 primary; 2 supplemental) |
-| philosophy | mohism | Mohism | #/branches/mohism | 2385 | pass | yes | yes (1 primary; 1 supplemental) |
-| philosophy | legalism | Legalism | #/branches/legalism | 2323 | pass | yes | yes (1 primary; 0 supplemental) |
-| philosophy | indian-philosophy | Indian Philosophy | #/branches/indian-philosophy | 2077 | pass | yes | yes (1 primary; 5 supplemental) |
+| philosophy | confucianism | Confucianism | #/branches/confucianism | 2469 | pass | yes | yes (1 primary; 8 supplemental) |
+| philosophy | daoism | Daoism | #/branches/daoism | 2417 | pass | yes | yes (1 primary; 2 supplemental) |
+| philosophy | mohism | Mohism | #/branches/mohism | 2472 | pass | yes | yes (1 primary; 1 supplemental) |
+| philosophy | legalism | Legalism | #/branches/legalism | 2403 | pass | yes | yes (1 primary; 0 supplemental) |
+| philosophy | indian-philosophy | Indian Philosophy | #/branches/indian-philosophy | 2096 | pass | yes | yes (1 primary; 5 supplemental) |
 | philosophy | jainism | Jainism | #/branches/jainism | 2051 | pass | yes | yes (1 primary; 3 supplemental) |
 | philosophy | vedanta | Vedanta | #/branches/vedanta | 2126 | pass | yes | yes (1 primary; 0 supplemental) |
-| philosophy | buddhist-philosophy | Buddhist Philosophy | #/branches/buddhist-philosophy | 5502 | pass | yes | yes (1 primary; 11 supplemental) |
+| philosophy | buddhist-philosophy | Buddhist Philosophy | #/branches/buddhist-philosophy | 5540 | pass | yes | yes (1 primary; 11 supplemental) |
 | philosophy | buddhist-epistemology | Buddhist Epistemology | #/branches/buddhist-epistemology | 2052 | pass | yes | yes (1 primary; 1 supplemental) |
 | philosophy | islamic-philosophy | Islamic Philosophy | #/branches/islamic-philosophy | 2083 | pass | yes | yes (1 primary; 5 supplemental) |
 | philosophy | medieval-scholasticism | Medieval Scholasticism | #/branches/medieval-scholasticism | 2003 | pass | yes | yes (1 primary; 5 supplemental) |
 | philosophy | rationalism | Rationalism | #/branches/rationalism | 5757 | pass | yes | yes (1 primary; 0 supplemental) |
-| philosophy | empiricism | Empiricism | #/branches/empiricism | 5228 | pass | yes | yes (1 primary; 1 supplemental) |
+| philosophy | empiricism | Empiricism | #/branches/empiricism | 5279 | pass | yes | yes (1 primary; 1 supplemental) |
 | philosophy | kantianism | Kantianism | #/branches/kantianism | 5373 | pass | no | yes (1 primary; 0 supplemental) |
 | philosophy | marxism | Marxism | #/branches/marxism | 5144 | pass | no | yes (1 primary; 0 supplemental) |
-| philosophy | german-idealism | German Idealism | #/branches/german-idealism | 2206 | pass | yes | yes (1 primary; 4 supplemental) |
+| philosophy | german-idealism | German Idealism | #/branches/german-idealism | 2240 | pass | yes | yes (1 primary; 4 supplemental) |
 
 ## Museum article-backing audit
 

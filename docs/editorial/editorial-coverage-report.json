@@ -3355,75 +3355,95 @@
       "title": "Confucianism",
       "category": "philosophy",
       "visitorEntryPoint": "#/branches/confucianism",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 10,
+      "citedSourceCount": 10,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 2451
+      "structuredClaimCount": 16,
+      "structuredParagraphCount": 22,
+      "citationCount": 114,
+      "substantiveArticleWordCount": 2469,
+      "reviewNotePath": "docs/editorial/reviews/confucianism.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:4b67540c305c26e3",
+      "currentReviewLock": "fnv1a64:4b67540c305c26e3"
     },
     {
       "id": "daoism",
       "title": "Daoism",
       "category": "philosophy",
       "visitorEntryPoint": "#/branches/daoism",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 8,
+      "citedSourceCount": 8,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 2362
+      "structuredClaimCount": 16,
+      "structuredParagraphCount": 27,
+      "citationCount": 139,
+      "substantiveArticleWordCount": 2417,
+      "reviewNotePath": "docs/editorial/reviews/daoism.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:464bf35a7bb9ff5b",
+      "currentReviewLock": "fnv1a64:464bf35a7bb9ff5b"
     },
     {
       "id": "mohism",
       "title": "Mohism",
       "category": "philosophy",
       "visitorEntryPoint": "#/branches/mohism",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 6,
+      "citedSourceCount": 6,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 2385
+      "structuredClaimCount": 16,
+      "structuredParagraphCount": 27,
+      "citationCount": 124,
+      "substantiveArticleWordCount": 2472,
+      "reviewNotePath": "docs/editorial/reviews/mohism.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:7d3ad7706d65b324",
+      "currentReviewLock": "fnv1a64:7d3ad7706d65b324"
     },
     {
       "id": "legalism",
       "title": "Legalism",
       "category": "philosophy",
       "visitorEntryPoint": "#/branches/legalism",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 6,
+      "citedSourceCount": 6,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 2323
+      "structuredClaimCount": 16,
+      "structuredParagraphCount": 27,
+      "citationCount": 121,
+      "substantiveArticleWordCount": 2403,
+      "reviewNotePath": "docs/editorial/reviews/legalism.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:a97f653ffd38efa7",
+      "currentReviewLock": "fnv1a64:a97f653ffd38efa7"
     },
     {
       "id": "indian-philosophy",
       "title": "Indian Philosophy",
       "category": "philosophy",
       "visitorEntryPoint": "#/branches/indian-philosophy",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 6,
+      "citedSourceCount": 6,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 2077
+      "structuredClaimCount": 16,
+      "structuredParagraphCount": 20,
+      "citationCount": 104,
+      "substantiveArticleWordCount": 2096,
+      "reviewNotePath": "docs/editorial/reviews/indian-philosophy.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:8fc473b6667e909b",
+      "currentReviewLock": "fnv1a64:8fc473b6667e909b"
     },
     {
       "id": "jainism",
@@ -3468,15 +3488,19 @@
       "title": "Buddhist Philosophy",
       "category": "philosophy",
       "visitorEntryPoint": "#/branches/buddhist-philosophy",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 6,
+      "citedSourceCount": 6,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 5502
+      "structuredClaimCount": 16,
+      "structuredParagraphCount": 60,
+      "citationCount": 228,
+      "substantiveArticleWordCount": 5540,
+      "reviewNotePath": "docs/editorial/reviews/buddhist-philosophy.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:f2495c0bdc6b50e3",
+      "currentReviewLock": "fnv1a64:f2495c0bdc6b50e3"
     },
     {
       "id": "buddhist-epistemology",
@@ -3540,30 +3564,38 @@
       "title": "Rationalism",
       "category": "philosophy",
       "visitorEntryPoint": "#/branches/rationalism",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 6,
+      "citedSourceCount": 6,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 5757
+      "structuredClaimCount": 16,
+      "structuredParagraphCount": 75,
+      "citationCount": 198,
+      "substantiveArticleWordCount": 5757,
+      "reviewNotePath": "docs/editorial/reviews/rationalism.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:e7d944b8a514c111",
+      "currentReviewLock": "fnv1a64:e7d944b8a514c111"
     },
     {
       "id": "empiricism",
       "title": "Empiricism",
       "category": "philosophy",
       "visitorEntryPoint": "#/branches/empiricism",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 6,
+      "citedSourceCount": 6,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 5228
+      "structuredClaimCount": 16,
+      "structuredParagraphCount": 66,
+      "citationCount": 197,
+      "substantiveArticleWordCount": 5279,
+      "reviewNotePath": "docs/editorial/reviews/empiricism.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:1a050bd1282cdcd7",
+      "currentReviewLock": "fnv1a64:1a050bd1282cdcd7"
     },
     {
       "id": "kantianism",
@@ -3608,705 +3640,22 @@
       "title": "German Idealism",
       "category": "philosophy",
       "visitorEntryPoint": "#/branches/german-idealism",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 6,
+      "citedSourceCount": 6,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 2206
+      "structuredClaimCount": 16,
+      "structuredParagraphCount": 27,
+      "citationCount": 129,
+      "substantiveArticleWordCount": 2240,
+      "reviewNotePath": "docs/editorial/reviews/german-idealism.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:89b46fe0dec01330",
+      "currentReviewLock": "fnv1a64:89b46fe0dec01330"
     }
   ],
-  "warnings": [
-    {
-      "recordKey": "philosophy:confucianism",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "overview/paragraph-1",
-      "excerpt": "Confucianism is a historically developing family of teachings about becoming humane within relationships, ritual practices, education, and political life. It takes its name in European languages from Confucius, but neith"
-    },
-    {
-      "recordKey": "philosophy:confucianism",
-      "status": "bibliography-only",
-      "signal": "exact-date",
-      "location": "confucius-context/paragraph-1",
-      "excerpt": "Confucius is traditionally dated 551–479 BCE, and the project preserves that conventional chronology while recognizing that the evidence comes through transmitted historical traditions. He lived during the late Spring an"
-    },
-    {
-      "recordKey": "philosophy:confucianism",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "ren-li-cultivation/paragraph-2",
-      "excerpt": "Cultivation begins from ordinary roles but aims to transform how they are inhabited. Family life receives special emphasis because dependence, gratitude, grief, conflict, and care first become concrete there. Filial resp"
-    },
-    {
-      "recordKey": "philosophy:confucianism",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "mencius-xunzi/paragraph-1",
-      "excerpt": "Mencius develops a powerful account of moral beginnings. Sudden concern for a child in danger illustrates a responsiveness not reducible to calculation or a desire for praise. Compassion, shame, deference, and discrimina"
-    },
-    {
-      "recordKey": "philosophy:confucianism",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "mencius-xunzi/paragraph-1",
-      "excerpt": "Mencius develops a powerful account of moral beginnings. Sudden concern for a child in danger illustrates a responsiveness not reducible to calculation or a desire for praise. Compassion, shame, deference, and discrimina"
-    },
-    {
-      "recordKey": "philosophy:confucianism",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "neo-confucian-development/paragraph-1",
-      "excerpt": "After centuries of imperial scholarship and sustained engagement with Buddhism and Daoism, Song thinkers fashioned new syntheses now commonly called Neo-Confucian. Zhu Xi organized the Four Books as an educational curric"
-    },
-    {
-      "recordKey": "philosophy:confucianism",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "internal-debates/paragraph-2",
-      "excerpt": "Relations with Buddhism and Daoism create further internal tensions. Neo-Confucians sometimes accuse Buddhist monastic and contemplative ideals of withdrawing from family responsibility, even as they adapt questions and"
-    },
-    {
-      "recordKey": "philosophy:confucianism",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "misunderstandings/paragraph-2",
-      "excerpt": "It is equally mistaken to identify the tradition with Confucius alone or to equate all later Confucianism with state orthodoxy. Mencius, Xunzi, Zhu Xi, and Wang Yangming build distinct philosophical projects, while many"
-    },
-    {
-      "recordKey": "philosophy:confucianism",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "reading-path/paragraph-1",
-      "excerpt": "Start with a complete modern translation of the Analects that explains textual layers and key terms. Track ren, li, yi, xiao, junzi, learning, government, and remonstrance rather than collecting favorite sayings. Next re"
-    },
-    {
-      "recordKey": "philosophy:confucianism",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "reading-path/paragraph-2",
-      "excerpt": "Then read the Great Learning and Doctrine of the Mean with guidance before studying Zhu Xi’s commentaries and writings on investigation, pattern, vital energy, and attentiveness. Compare Wang Yangming’s Instructions for"
-    },
-    {
-      "recordKey": "philosophy:daoism",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "overview/paragraph-1",
-      "excerpt": "Daoism names a historically diverse field of texts, practices, communities, and interpretations concerned with dao, the “way” or course through which lives and worlds unfold. Philosophical introductions often begin with"
-    },
-    {
-      "recordKey": "philosophy:daoism",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "historical-development/paragraph-1",
-      "excerpt": "The received Daodejing is traditionally associated with Laozi, but neither a securely recoverable biography nor a single date of composition can be assumed. Accounts of Laozi as an older contemporary of Confucius belong"
-    },
-    {
-      "recordKey": "philosophy:daoism",
-      "status": "bibliography-only",
-      "signal": "disputed-attribution",
-      "location": "historical-development/paragraph-1",
-      "excerpt": "The received Daodejing is traditionally associated with Laozi, but neither a securely recoverable biography nor a single date of composition can be assumed. Accounts of Laozi as an older contemporary of Confucius belong"
-    },
-    {
-      "recordKey": "philosophy:daoism",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "historical-development/paragraph-3",
-      "excerpt": "Later Daoism includes organized religious communities, revealed scriptures, ritual lineages, meditation, alchemical traditions, monastic institutions, popular practices, and ongoing philosophical commentary. “Philosophic"
-    },
-    {
-      "recordKey": "philosophy:daoism",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "key-concepts/paragraph-2",
-      "excerpt": "De is often translated as virtue or potency. In Daoist contexts it need not mean obedience to an external moral code; it can describe the effective character through which a being follows its course. Ziran, literally hav"
-    },
-    {
-      "recordKey": "philosophy:daoism",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "key-concepts/paragraph-2",
-      "excerpt": "De is often translated as virtue or potency. In Daoist contexts it need not mean obedience to an external moral code; it can describe the effective character through which a being follows its course. Ziran, literally hav"
-    },
-    {
-      "recordKey": "philosophy:daoism",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "thinkers-and-texts/paragraph-3",
-      "excerpt": "Commentators decisively shaped both texts. Wang Bi’s reading of the Daodejing emphasized nonbeing, structure, and the relation between fundamental pattern and manifest things, influencing later philosophical reception. G"
-    },
-    {
-      "recordKey": "philosophy:daoism",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "misunderstandings/paragraph-1",
-      "excerpt": "Wu wei does not mean laziness, resignation, or literally never acting. It evaluates how action occurs: whether it is responsive to the grain of a situation or driven by compulsive assertion. Ziran does not instruct peopl"
-    },
-    {
-      "recordKey": "philosophy:mohism",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "internal-debates/paragraph-2",
-      "excerpt": "A second tension lies between public reason and conformity. Mohists want standards that anyone can use and appointments based on ability rather than birth. Yet “exalting unity” can ask subordinates to align judgments thr"
-    },
-    {
-      "recordKey": "philosophy:mohism",
-      "status": "bibliography-only",
-      "signal": "broad-classification",
-      "location": "logic-and-disputation/paragraph-1",
-      "excerpt": "Later Mohist materials study how a name picks out a kind, how claims can be compared, and how reasons support conclusions. They distinguish forms of knowledge and analyze sameness, difference, possibility, and implicatio"
-    },
-    {
-      "recordKey": "philosophy:mohism",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "logic-and-disputation/paragraph-3",
-      "excerpt": "Mohist disputation intersects with conversations conventionally associated with the School of Names and with Zhuangzi’s critiques of debate. Questions about whether a “white horse” counts as a horse, how names divide rea"
-    },
-    {
-      "recordKey": "philosophy:mohism",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "misunderstandings/paragraph-1",
-      "excerpt": "Mohism is not identical with modern utilitarianism. Both can criticize partial privilege and assess consequences, but Mohist benefit is embedded in ancient debates about Heaven, spirits, hierarchy, population, family, an"
-    },
-    {
-      "recordKey": "philosophy:mohism",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "reading-path/paragraph-1",
-      "excerpt": "Begin with a historical overview and selections from “Impartial Concern,” “Condemning Aggressive War,” “Elevating the Worthy,” and “Against Fatalism.” For each essay, list the problem, proposed standard, evidence, expect"
-    },
-    {
-      "recordKey": "philosophy:legalism",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "overview/paragraph-1",
-      "excerpt": "“Legalism” is a later label for several early Chinese thinkers and texts concerned with state power, administrative standards, offices, incentives, and the control of officials. They did not necessarily identify themselv"
-    },
-    {
-      "recordKey": "philosophy:legalism",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "overview/paragraph-1",
-      "excerpt": "“Legalism” is a later label for several early Chinese thinkers and texts concerned with state power, administrative standards, offices, incentives, and the control of officials. They did not necessarily identify themselv"
-    },
-    {
-      "recordKey": "philosophy:legalism",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "historical-development/paragraph-3",
-      "excerpt": "Qin unification gave centralized reforms extraordinary reach, but the dynasty’s short duration and later Han judgments shaped Legalism’s reputation. Han political practice did not simply abandon administrative standards"
-    },
-    {
-      "recordKey": "philosophy:legalism",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "neighbors-and-rivals/paragraph-3",
-      "excerpt": "Han Feizi sometimes uses themes associated with the Daodejing, including emptiness, stillness, and a ruler who does not expose personal preferences. Similar words perform different work. In Daoist texts, non-forcing can"
-    },
-    {
-      "recordKey": "philosophy:legalism",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "reading-path/paragraph-1",
-      "excerpt": "Begin with a reliable overview that explains why “Legalism” is a retrospective category. Read selections from the Book of Lord Shang on institutional reform and state strength, marking which passages may belong to differ"
-    },
-    {
-      "recordKey": "philosophy:legalism",
-      "status": "bibliography-only",
-      "signal": "influence-or-causation",
-      "location": "reading-path/paragraph-2",
-      "excerpt": "Next compare the traditions these texts criticize or appropriate. Read Confucius or Xunzi on ritual and cultivated office, Mozi on merit and public benefit, and Daodejing passages on restrained rule. Avoid forcing a four"
-    },
-    {
-      "recordKey": "philosophy:indian-philosophy",
-      "status": "bibliography-only",
-      "signal": "broad-classification",
-      "location": "overview/paragraph-1",
-      "excerpt": "Indian philosophy names a long, multilingual field of argument rather than one religion, doctrine, or national essence. Its participants include Brahmanical, Buddhist, Jain, materialist, skeptical, devotional, and other"
-    },
-    {
-      "recordKey": "philosophy:indian-philosophy",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "overview/paragraph-2",
-      "excerpt": "Many classical authors treat philosophy as a disciplined practice with practical stakes. A mistaken account of self or action may sustain attachment and suffering; a reliable account may guide ethical conduct, contemplat"
-    },
-    {
-      "recordKey": "philosophy:indian-philosophy",
-      "status": "bibliography-only",
-      "signal": "broad-classification",
-      "location": "overview/paragraph-2",
-      "excerpt": "Many classical authors treat philosophy as a disciplined practice with practical stakes. A mistaken account of self or action may sustain attachment and suffering; a reliable account may guide ethical conduct, contemplat"
-    },
-    {
-      "recordKey": "philosophy:indian-philosophy",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "historical-development/paragraph-1",
-      "excerpt": "The earliest Vedic materials developed over many centuries and include hymns, ritual interpretation, speculation, and reflection on cosmic and human order. The Upanishads pursue questions about knowledge, personhood, dea"
-    },
-    {
-      "recordKey": "philosophy:indian-philosophy",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "historical-development/paragraph-2",
-      "excerpt": "Classical schools were not born fully formed at one date. Nyāya, Vaisheshika, Samkhya, Yoga, Mīmāṃsā, and Vedānta developed through layered texts and later systematization, while Buddhist and Jain philosophers participat"
-    },
-    {
-      "recordKey": "philosophy:indian-philosophy",
-      "status": "bibliography-only",
-      "signal": "broad-classification",
-      "location": "historical-development/paragraph-2",
-      "excerpt": "Classical schools were not born fully formed at one date. Nyāya, Vaisheshika, Samkhya, Yoga, Mīmāṃsā, and Vedānta developed through layered texts and later systematization, while Buddhist and Jain philosophers participat"
-    },
-    {
-      "recordKey": "philosophy:indian-philosophy",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "self-and-reality/paragraph-2",
-      "excerpt": "Ontological arguments extend far beyond selfhood. Vaisheshika classifies substances, qualities, motions, universals, particularities, and inherence; its atomism is embedded in its own theory of categories and should not"
-    },
-    {
-      "recordKey": "philosophy:indian-philosophy",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "language-and-reasoning/paragraph-2",
-      "excerpt": "Philosophy of language is equally central. Mīmāṃsā and grammarian traditions ask whether words primarily convey universals, individuals, actions, or sentence meaning; whether meaning is composed from independently connec"
-    },
-    {
-      "recordKey": "philosophy:indian-philosophy",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "language-and-reasoning/paragraph-2",
-      "excerpt": "Philosophy of language is equally central. Mīmāṃsā and grammarian traditions ask whether words primarily convey universals, individuals, actions, or sentence meaning; whether meaning is composed from independently connec"
-    },
-    {
-      "recordKey": "philosophy:indian-philosophy",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "figures-and-texts/paragraph-2",
-      "excerpt": "Mahavira is revered as the twenty-fourth tirthankara of the present Jain cycle, not a creator of Jain teaching from nothing. The Buddha anchors Buddhist lineages whose texts, schools, and philosophies developed across re"
-    },
-    {
-      "recordKey": "philosophy:indian-philosophy",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "misunderstandings/paragraph-1",
-      "excerpt": "The first misunderstanding is that Indian philosophy teaches that everything is one. That claim resembles some Advaita formulations only after substantial qualification, and it contradicts pluralist, dualist, realist, Ja"
-    },
-    {
-      "recordKey": "philosophy:indian-philosophy",
-      "status": "bibliography-only",
-      "signal": "broad-classification",
-      "location": "misunderstandings/paragraph-1",
-      "excerpt": "The first misunderstanding is that Indian philosophy teaches that everything is one. That claim resembles some Advaita formulations only after substantial qualification, and it contradicts pluralist, dualist, realist, Ja"
-    },
-    {
-      "recordKey": "philosophy:indian-philosophy",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "misunderstandings/paragraph-2",
-      "excerpt": "Another distortion calls the entire field mystical, timeless, or indifferent to ordinary life. Indian philosophers wrote about politics, law, medicine, grammar, perception, emotion, obligation, violence, and institutiona"
-    },
-    {
-      "recordKey": "philosophy:indian-philosophy",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "modern-relevance/paragraph-2",
-      "excerpt": "The history also helps contemporary epistemology. Accounts of testimony, disagreement, inference, absence, and linguistic understanding broaden the archive of theories without serving as exotic analogies for European deb"
-    },
-    {
-      "recordKey": "philosophy:indian-philosophy",
-      "status": "bibliography-only",
-      "signal": "disputed-attribution",
-      "location": "reading-path/paragraph-1",
-      "excerpt": "Begin with a historically guided selection of early Upanishads and several discourses attributed to the Buddha, then add portions of a Jain overview or the Tattvartha Sutra. Ask the same limited questions of each: what i"
-    },
-    {
-      "recordKey": "philosophy:indian-philosophy",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "reading-path/paragraph-2",
-      "excerpt": "At the intermediate stage, follow one controversy across schools. For selfhood, compare Buddhist no-self arguments, Nyāya defenses of an enduring knower, Jain soul theory, and Vedānta interpretations of atman. For langua"
-    },
-    {
-      "recordKey": "philosophy:buddhist-philosophy",
-      "status": "bibliography-only",
-      "signal": "disputed-attribution",
-      "location": "overview/paragraph-1",
-      "excerpt": "Buddhist philosophy is a historically developing family of rigorous inquiries across South, Central, East, and Southeast Asia and, more recently, the world. Its traditions share formative connections to teachings attribu"
-    },
-    {
-      "recordKey": "philosophy:buddhist-philosophy",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "figures-texts/paragraph-1",
-      "excerpt": "The Buddha is the foundational teacher represented by early discourses, not a securely dated author of modern transcripts. Those materials present arguments, similes, ethical instruction, and practical tests concerning c"
-    },
-    {
-      "recordKey": "philosophy:buddhist-philosophy",
-      "status": "bibliography-only",
-      "signal": "disputed-attribution",
-      "location": "figures-texts/paragraph-2",
-      "excerpt": "Dignāga’s Compendium reorganizes perception, inference, proof, and conceptual meaning. Dharmakīrti’s Commentary on Reliable Cognition develops cognition, inference, momentariness, other minds, compassion, and authority."
-    },
-    {
-      "recordKey": "philosophy:buddhist-philosophy",
-      "status": "bibliography-only",
-      "signal": "broad-classification",
-      "location": "relevance-reading/paragraph-3",
-      "excerpt": "Modern Buddhist philosophers also examine structural suffering, social identity, disability, gender, race, economics, and climate responsibility. These discussions show why personal cultivation cannot substitute automati"
-    },
-    {
-      "recordKey": "philosophy:buddhist-philosophy",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "canons-genres-classification/paragraph-1",
-      "excerpt": "Buddhist thought survives in multiple canons and languages rather than one universally shared Bible. The Pali canon is complete in one early Indian language; Chinese collections preserve translated discourses, disciplina"
-    },
-    {
-      "recordKey": "philosophy:buddhist-philosophy",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "canons-genres-classification/paragraph-2",
-      "excerpt": "Genre changes what a text is doing. Discourses stage instruction; monastic codes regulate communities through cases; Abhidharma works classify phenomena; philosophical treatises present objections and arguments; Mahāyāna"
-    },
-    {
-      "recordKey": "philosophy:buddhist-philosophy",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "abhidharma-analysis/paragraph-1",
-      "excerpt": "After the early community, Abhidharma traditions systematized teachings by listing and relating dharmas: factors, events, or phenomena considered in analysis. They distinguished physical and mental processes, wholesome a"
-    },
-    {
-      "recordKey": "philosophy:buddhist-philosophy",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "persons-continuity-time/paragraph-1",
-      "excerpt": "No-self does not end discussion of persons; it starts a difficult explanatory program. Memory, deliberation, promises, training, karmic consequence, and rebirth require continuity, while a permanent essence is rejected."
-    },
-    {
-      "recordKey": "philosophy:buddhist-philosophy",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "mahayana-bodhisattva/paragraph-1",
-      "excerpt": "Movements and texts later grouped as Mahāyāna emerged gradually within Indian Buddhist institutions rather than replacing an older “Hinayana” church in one event. New sūtras praise the bodhisattva path, expansive cosmolo"
-    },
-    {
-      "recordKey": "philosophy:buddhist-philosophy",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "yogacara-cognition/paragraph-2",
-      "excerpt": "The label “mind-only” invites the claim that Yogācāra is idealism and denies any external world. Some texts and arguments support robustly idealist readings; others can be read as bracketing inaccessible external objects"
-    },
-    {
-      "recordKey": "philosophy:buddhist-philosophy",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "theravada-worlds/paragraph-1",
-      "excerpt": "Theravāda traditions preserve the Pali canon and a vast commentarial, ritual, narrative, legal, and vernacular inheritance across Sri Lanka and Southeast Asia. They should not be equated without qualification with “origi"
-    },
-    {
-      "recordKey": "philosophy:buddhist-philosophy",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "theravada-worlds/paragraph-2",
-      "excerpt": "Colonial encounters, print, lay education, reform movements, nationalism, migration, and global insight meditation reshaped Theravāda presentations. Modern teachers sometimes foreground direct meditation and contrast it"
-    },
-    {
-      "recordKey": "philosophy:buddhist-philosophy",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "chan-pure-land/paragraph-1",
-      "excerpt": "Chan traditions emphasize lineage, meditation, embodied conduct, and direct realization, but the stereotype of wordless spontaneity hides extensive textual and institutional production. Encounter dialogues, kōan collecti"
-    },
-    {
-      "recordKey": "philosophy:buddhist-philosophy",
-      "status": "bibliography-only",
-      "signal": "broad-classification",
-      "location": "korea-japan-regional/paragraph-2",
-      "excerpt": "Japanese Buddhism includes Tendai and Shingon formations, multiple Zen lineages, Pure Land traditions, Nichiren movements, and many later philosophical reconstructions. Dōgen’s writings on practice, time, language, and B"
-    },
-    {
-      "recordKey": "philosophy:buddhist-philosophy",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "ethical-theories/paragraph-2",
-      "excerpt": "Difficult cases reveal internal plurality. Stories of compassionate deception or violence raise disputes about skillful means and whether an advanced bodhisattva may accept karmic cost to prevent greater harm. Monastic r"
-    },
-    {
-      "recordKey": "philosophy:buddhist-philosophy",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "modernism-globalization/paragraph-1",
-      "excerpt": "Modern presentations emerged from encounters among Asian reformers, colonial administrators, missionaries, scholars, nationalists, occultists, scientists, and converts. Buddhism was often reframed as rational, experienti"
-    },
-    {
-      "recordKey": "philosophy:buddhist-philosophy",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "contemporary-questions/paragraph-1",
-      "excerpt": "Buddhist accounts of attention, self-construction, emotion, and consciousness now enter dialogue with philosophy of mind, neuroscience, phenomenology, and cognitive science. Contemplative training may offer disciplined f"
-    },
-    {
-      "recordKey": "philosophy:rationalism",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "category/paragraph-2",
-      "excerpt": "Descartes, Spinoza, and Leibniz did not form a self-declared continental party with a common manifesto. They disagreed radically about substance, God, freedom, mind, matter, causation, and method. “Rationalism” became st"
-    },
-    {
-      "recordKey": "philosophy:rationalism",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "descartes/paragraph-1",
-      "excerpt": "Descartes gives rationalism its classic dramatic form. Methodic doubt suspends beliefs vulnerable to sensory error, dreams, or radical deception. The cogito survives because present thinking verifies existence in the act"
-    },
-    {
-      "recordKey": "philosophy:rationalism",
-      "status": "bibliography-only",
-      "signal": "disputed-attribution",
-      "location": "leibniz/paragraph-1",
-      "excerpt": "Leibniz builds another incompatible rationalist system. Reality consists not ultimately of extended matter but of simple substances conventionally called monads, each expressing the universe from a unique perspective. Co"
-    },
-    {
-      "recordKey": "philosophy:rationalism",
-      "status": "bibliography-only",
-      "signal": "disputed-attribution",
-      "location": "necessity/paragraph-2",
-      "excerpt": "The principle of sufficient reason demands that there be an adequate reason why something is so rather than otherwise. It can guide inquiry toward causes and explanations, but its scope is disputed. If every fact has a n"
-    },
-    {
-      "recordKey": "philosophy:rationalism",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "experience/paragraph-1",
-      "excerpt": "The slogan “reason rather than experience” fails most clearly in natural philosophy. Descartes used observations of refraction, anatomy, weather, magnets, and other phenomena; he recognized that several imperceptible mec"
-    },
-    {
-      "recordKey": "philosophy:rationalism",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "kant/paragraph-2",
-      "excerpt": "Hume’s challenge concerning causality becomes decisive. Repeated impressions cannot display necessity, yet Kant argues that causal order is a condition for experiencing objective succession rather than a habit projected"
-    },
-    {
-      "recordKey": "philosophy:rationalism",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "later/paragraph-3",
-      "excerpt": "Karl Popper’s “critical rationalism” names a different program centered on conjecture, criticism, and fallibility rather than classical certainty or innate concepts. Contemporary political uses of “rationalism” can mean"
-    },
-    {
-      "recordKey": "philosophy:rationalism",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "contemporary/paragraph-1",
-      "excerpt": "Contemporary epistemology still asks whether some justification is independent of particular sensory experience. Logic, mathematics, conceptual truths, modality, introspection, morality, and testimony generate different"
-    },
-    {
-      "recordKey": "philosophy:rationalism",
-      "status": "bibliography-only",
-      "signal": "disputed-attribution",
-      "location": "politics-ethics/paragraph-2",
-      "excerpt": "They can also conceal exclusion. Proclaiming a universal reason does not ensure equal education, authorship, legal standing, or credibility. Learned networks relied on social rank and imperial exchange. A philosophical c"
-    },
-    {
-      "recordKey": "philosophy:rationalism",
-      "status": "bibliography-only",
-      "signal": "broad-classification",
-      "location": "comparison-china/paragraph-2",
-      "excerpt": "Some comparisons are nevertheless illuminating. Leibniz engaged reports about China and interpreted the Yijing through his own mathematical and theological projects, but his reading does not make Chinese thought an antic"
-    },
-    {
-      "recordKey": "philosophy:rationalism",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "beginner/paragraph-1",
-      "excerpt": "Begin with three questions rather than a slogan. First, what does a knower contribute that sensory input alone cannot provide? Second, how can anyone know that something must be true rather than merely having happened re"
-    },
-    {
-      "recordKey": "philosophy:rationalism",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "beginner/paragraph-3",
-      "excerpt": "Finally restore experience. Rationalists learn contingent facts, observe bodies, communicate testimony, and test natural explanations. Their controversial claim is that experience cannot do every epistemic job. Empiricis"
-    },
-    {
-      "recordKey": "philosophy:empiricism",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "category/paragraph-1",
-      "excerpt": "Empiricism names a family of positions about the roles of experience, observation, experiment, and evidence. It does not mean simply that all knowledge comes from sensory experience. That slogan leaves almost every impor"
-    },
-    {
-      "recordKey": "philosophy:empiricism",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "historiography/paragraph-3",
-      "excerpt": "Recent scholarship on early modern experimental philosophy offers another map. Many writers contrasted experimental with speculative or hypothetical approaches, and those labels circulated within natural philosophy befor"
-    },
-    {
-      "recordKey": "philosophy:empiricism",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "bacon/paragraph-2",
-      "excerpt": "Bacon’s “induction” differs from simply counting confirming instances. Negative cases, comparative trials, and carefully chosen experiments can discriminate among possibilities. He valued experiments of light that reveal"
-    },
-    {
-      "recordKey": "philosophy:empiricism",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "hume/paragraph-3",
-      "excerpt": "Interpretation divides over whether Hume is primarily a skeptic, a naturalist, a regularity theorist, a projectivist, or a skeptical realist about causal powers. His racial hierarchy also reveals a decisive failure of em"
-    },
-    {
-      "recordKey": "philosophy:empiricism",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "kant/paragraph-2",
-      "excerpt": "The formula that cognition begins with experience but does not all arise from experience marks a new question: what a priori conditions make an experienced world possible for finite knowers? This critical project limits"
-    },
-    {
-      "recordKey": "philosophy:empiricism",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "nineteenth-century/paragraph-2",
-      "excerpt": "Positivist programs associated with Auguste Comte prioritized observable laws and the organization of sciences while criticizing speculative metaphysics. Later figures including Ernst Mach analyzed scientific concepts in"
-    },
-    {
-      "recordKey": "philosophy:empiricism",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "quine-naturalism/paragraph-1",
-      "excerpt": "Quine’s “Two Dogmas of Empiricism” challenges a principled analytic–synthetic boundary and the reductionist hope that each meaningful statement has its own confirming experiences. Statements face experience within an int"
-    },
-    {
-      "recordKey": "philosophy:empiricism",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "quine-naturalism/paragraph-2",
-      "excerpt": "Naturalized epistemology rejects the picture of philosophy first validating science from an external, non-scientific foundation. It studies how limited organisms form theories from sensory input using psychology, linguis"
-    },
-    {
-      "recordKey": "philosophy:empiricism",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "quine-naturalism/paragraph-3",
-      "excerpt": "Contemporary naturalism is broader than Quine and broader than empiricism. Cognitive science, evolutionary theory, social science, history, and formal methods can inform accounts of perception, reasoning, expertise, and"
-    },
-    {
-      "recordKey": "philosophy:empiricism",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "perception-concepts/paragraph-2",
-      "excerpt": "The “given” becomes a problem when raw experience is expected to justify belief without any conceptual or inferential role. If a sensation bears no relation to judgment, it cannot serve as a reason; if it is already prop"
-    },
-    {
-      "recordKey": "philosophy:empiricism",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "measurement-models/paragraph-3",
-      "excerpt": "Models deliberately simplify. Their idealizations can reveal structure, support prediction, or isolate mechanisms even though no model literally reproduces the whole target. Empirical adequacy, explanatory power, and tru"
-    },
-    {
-      "recordKey": "philosophy:empiricism",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "non-european/paragraph-1",
-      "excerpt": "Comparisons with non-European traditions can illuminate questions about perception and evidence, but “empiricism” is a European historical category with shifting modern uses. Classical Indian epistemologies organize deba"
-    },
-    {
-      "recordKey": "philosophy:empiricism",
-      "status": "bibliography-only",
-      "signal": "broad-classification",
-      "location": "non-european/paragraph-3",
-      "excerpt": "Classical Chinese thought includes close attention to observation, names, practical success, cultivated perception, and the relation between knowledge and action. Mohist texts appeal to standards that include reported mo"
-    },
-    {
-      "recordKey": "philosophy:empiricism",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "modern-practice/paragraph-1",
-      "excerpt": "Clinical evidence shows why empiricism cannot mean “trust the data” without qualification. Randomized trials estimate effects under specified inclusion criteria and protocols; observational studies may reveal longer-term"
-    },
-    {
-      "recordKey": "philosophy:empiricism",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "misunderstandings/paragraph-3",
-      "excerpt": "Finally, empiricism is not identical with science. Science uses mathematics, models, explanation, simulation, testimony, values, institutional norms, and sometimes highly speculative theory. Nor does every appeal to data"
-    },
-    {
-      "recordKey": "philosophy:empiricism",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "reading-path/paragraph-2",
-      "excerpt": "For early modern philosophy, read Locke’s Essay on innate principles, sensation and reflection, qualities, abstraction, knowledge, and probability. Follow with Berkeley’s New Theory of Vision, Principles, or Three Dialog"
-    },
-    {
-      "recordKey": "philosophy:empiricism",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "reading-path/paragraph-3",
-      "excerpt": "Then read Kant’s response to Hume before moving to Mill, James or Dewey, logical empiricism, Quine, and naturalized epistemology. Add a philosophy-of-science case on experiment or measurement and a social-epistemology ca"
-    },
-    {
-      "recordKey": "philosophy:german-idealism",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "development/paragraph-1",
-      "excerpt": "Kant’s Critique of Pure Reason appeared in 1781 and was substantially revised in 1787. It transformed debates between rationalism and empiricism by asking what makes experience and a priori knowledge possible. The later"
-    },
-    {
-      "recordKey": "philosophy:german-idealism",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "development/paragraph-2",
-      "excerpt": "In the 1790s Fichte recast critical philosophy around the activity of the I. His Wissenschaftslehre was repeatedly rewritten, so it should not be reduced to one slogan about the ego creating reality. The finite subject e"
-    },
-    {
-      "recordKey": "philosophy:german-idealism",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "concepts/paragraph-3",
-      "excerpt": "Dialectic names the movement by which a form of thought or life exposes tensions within its own standards and is reorganized into a more adequate form. Hegel did not generally employ the textbook formula “thesis, antithe"
-    },
-    {
-      "recordKey": "philosophy:german-idealism",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "figures-works/paragraph-1",
-      "excerpt": "Kant’s Critique of Pure Reason asks how mathematics, natural science, and metaphysical questioning are possible while restricting claims that outrun experience. The Groundwork and Critique of Practical Reason locate mora"
-    },
-    {
-      "recordKey": "philosophy:german-idealism",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "debates/paragraph-1",
-      "excerpt": "One dispute concerns whether Kant’s thing in itself protects realism and intellectual humility or introduces an unintelligible cause beyond possible knowledge. Fichte tries to derive objectivity from the structure of fin"
-    },
-    {
-      "recordKey": "philosophy:german-idealism",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "misconceptions/paragraph-2",
-      "excerpt": "Hegelian dialectic is not a three-step template into which any topic can be placed. Nor does “the rational is actual” mean that whatever happens is morally good. Hegel distinguishes actuality in a demanding sense from ba"
-    },
-    {
-      "recordKey": "philosophy:german-idealism",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "reading-path/paragraph-2",
-      "excerpt": "Approach Hegel through the Preface and Introduction to the Phenomenology of Spirit, but do not assume the Preface is easy because it comes first. A guided selection on sense-certainty, recognition, and spirit is more use"
-    }
-  ],
+  "warnings": [],
   "errors": [],
   "groupSummary": {
     "philosophers": {
@@ -4320,9 +3669,9 @@
     "philosophies": {
       "total": 45,
       "unreviewed": 0,
-      "bibliography-only": 9,
+      "bibliography-only": 0,
       "source-mapped": 0,
-      "claim-reviewed": 36,
+      "claim-reviewed": 45,
       "review-out-of-date": 0
     },
     "standalone": {

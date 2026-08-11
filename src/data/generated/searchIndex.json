@@ -149,27 +149,27 @@
     {
       "id": "confucianism",
       "label": "Confucianism",
-      "searchText": "confucianism a tradition of ritual, humaneness, moral cultivation, family responsibility, governance, and later neo-confucian renewal. how should cultivated persons sustain humane relationships and just order? method central question"
+      "searchText": "confucianism a historically layered family of ru learning, classical commentary, cultivation, ritual, relationship, and political argument associated with confucius but continually remade and disputed by later thinkers. how should cultivated persons sustain humane relationships and just order? method central question"
     },
     {
       "id": "daoism",
       "label": "Daoism",
-      "searchText": "daoism a tradition associated with laozi and zhuangzi that explores the way, non-forcing, spontaneity, and resistance to rigid order. how can life align with the way without forcing the world into fixed schemes? method central question"
+      "searchText": "daoism a diverse field of early texts, later commentaries, religious communities, and practices conventionally grouped as daoist; the label and its philosophical–religious division are historical tools, not ancient borders. how can life align with the way without forcing the world into fixed schemes? method central question"
     },
     {
       "id": "mohism",
       "label": "Mohism",
-      "searchText": "mohism a warring states movement associated with mozi, impartial concern, merit, frugality, and practical standards for public benefit. what policies and practices benefit people impartially? method central question"
+      "searchText": "mohism an influential warring states philosophical, social, and religious movement associated with mozi and a layered corpus that argues for inclusive concern, benefit, standards, worthy appointment, anti-aggression, and moral accountability. what policies and practices benefit people impartially? method central question"
     },
     {
       "id": "legalism",
       "label": "Legalism",
-      "searchText": "legalism a warring states approach to law, administrative technique, incentives, and state power, systematized most sharply by han feizi. how can institutions govern conduct through law, standards, and incentives? method central question"
+      "searchText": "legalism a retrospective grouping of warring states fa and statecraft arguments about standards, administrative technique, positional power, incentives, state strength, and ruler-centered authority—not one self-identified “legalist school.” how can institutions govern conduct through law, standards, and incentives? method central question"
     },
     {
       "id": "indian-philosophy",
       "label": "Indian Philosophy",
-      "searchText": "indian philosophy umbrella for hindu, jain, buddhist, and scholastic debates over self, knowledge, reality, liberation, discipline, and action. what is the self, and how is liberation possible? method central question"
+      "searchText": "indian philosophy a retrospective umbrella for multilingual philosophical traditions produced in and across south asia—including brahmanical, buddhist, jain, materialist, skeptical, devotional, and scholastic debates—rather than one religion, school, or national essence. what makes cognition reliable, and which sources of knowledge can warrant it? how do rival accounts of persons, causation, language, action, and reality shape ethical and liberative practice? how should a retrospective umbrella preserve disagreement among south asian traditions rather than substitute one slogan for them? method central question"
     },
     {
       "id": "jainism",
@@ -184,7 +184,7 @@
     {
       "id": "buddhist-philosophy",
       "label": "Buddhist Philosophy",
-      "searchText": "buddhist philosophy investigates suffering, impermanence, no-self, compassion, liberation, logic, and epistemology across multiple buddhist schools. why do we suffer and how can it cease? method central question"
+      "searchText": "buddhist philosophy a transregional family of buddhist philosophical traditions that develops teachings attributed to the buddha through contested canons, monastic and lay institutions, commentary, debate, translation, ritual, meditation, and ethical practice. how do suffering, craving, ignorance, action, and conditioned arising relate? what does no-self deny, and how can responsibility, memory, continuity, and liberation still be understood? how do different buddhist traditions assess scripture, reasoning, meditation, ritual, compassion, and institutional authority? method central question"
     },
     {
       "id": "buddhist-epistemology",
@@ -204,12 +204,12 @@
     {
       "id": "rationalism",
       "label": "Rationalism",
-      "searchText": "rationalism a contested later category for arguments about a priori warrant, innate structure, necessity, and the intelligibility of reality, not a rejection of experience or a self-declared early modern party. what must mind and reality contribute for experience to become knowledge? which truths, concepts, or principles—if any—have warrant that does not derive from particular sensory encounters? method central question"
+      "searchText": "rationalism a contested retrospective label for arguments about a priori warrant, innateness, necessity, explanation, and the intelligibility of reality; it neither names a self-declared seventeenth-century party nor rejects experience. what must mind and reality contribute for experience to become knowledge? which truths, concepts, or principles—if any—have warrant that does not derive from particular sensory encounters? method central question"
     },
     {
       "id": "empiricism",
       "label": "Empiricism",
-      "searchText": "empiricism a contested family of genetic, justificatory, and methodological views that make claims answerable to experience, observation, or experiment. what roles should experience, observation, experiment, testimony, and conceptual structure play in knowledge? method central question"
+      "searchText": "empiricism a varied family of genetic, justificatory, explanatory, and methodological positions that make claims answerable to experience, observation, experiment, evidence, and correction; it is not one sensory doctrine or the opposite of all reasoning. what roles should experience, observation, experiment, testimony, and conceptual structure play in knowledge? method central question"
     },
     {
       "id": "kantianism",
@@ -224,7 +224,7 @@
     {
       "id": "german-idealism",
       "label": "German Idealism",
-      "searchText": "german idealism develops from kant’s critical philosophy into post-kantian systems of mind, reason, history, and reality. how does the activity of mind shape experience and reality? method central question"
+      "searchText": "german idealism a retrospective movement label for rival late eighteenth- and early nineteenth-century german projects that inherit kant’s critical problems and attempt new accounts of objectivity, self-activity, nature, freedom, history, art, and systematic reason. how can finite knowers be answerable to an objective world while knowing it through conceptual, practical, and social capacities? are kant’s distinctions between appearances and things in themselves, nature and freedom, or receptivity and spontaneity stable limits or problems needing reconstruction? how can reason, recognition, institutions, art, nature, contingency, evil, and freedom belong to a system without being reduced to one another? method central question"
     }
   ],
   "philosophers": [
