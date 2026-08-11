@@ -131,7 +131,7 @@ Readonly<Record<ModernFieldExhibitId, BranchExhibitEditorialRecord>> = {
     gallery: 'Analytic Traditions: Logic, Language, and Analysis',
     roomId: 'analytic-origins-foundations',
     roomTitle: 'Origins in logic, analysis, and reference',
-    plaqueInvitation: 'Meet several analytic founders, then question the portrait collage’s tidy origin story. Follow changing practices of logic, conceptual clarification, language, science, and argument while asking who and what their inherited canon left outside.',
+    plaqueInvitation: 'Meet four analytic founders, then question a tidy collage. Follow changing uses of logic, language, science, analysis, and argument—while asking whose work one canon omits and why no portrait set defines a field.',
     principalAsset: {
       id: 'analytic-founders-collage',
       title: 'Founders of analytic philosophy',
@@ -185,7 +185,7 @@ Readonly<Record<ModernFieldExhibitId, BranchExhibitEditorialRecord>> = {
     gallery: 'Phenomenology, Existence, and Embodiment',
     roomId: 'existentialism-freedom',
     roomTitle: 'Existentialism: freedom, facticity, and bad faith',
-    plaqueInvitation: 'Enter Existentialism through a crowded street that predates the movement. Ask how freedom acts within body, history, oppression, and uncertainty, and why responsibility, absurdity, solidarity, and revolt cannot be reduced to private choice.',
+    plaqueInvitation: 'Enter Existentialism through Munch’s earlier crowd. Ask how freedom meets body, history, oppression, uncertainty, responsibility, solidarity, and revolt—without making one painting prove a doctrine or reducing lived existence to private choice or despair.',
     principalAsset: {
       id: 'existentialism-munch-karl-johan',
       title: 'Evening on Karl Johan Street',
@@ -239,7 +239,7 @@ Readonly<Record<ModernFieldExhibitId, BranchExhibitEditorialRecord>> = {
     gallery: 'Phenomenology, Existence, and Embodiment',
     roomId: 'phenomenology-method',
     roomTitle: 'Intentionality, reduction, and lifeworld',
-    plaqueInvitation: 'Study Cézanne’s shifting table scene, not as a phenomenological illustration, but as an invitation to describe appearance. Ask how objects, bodies, time, and shared worlds become meaningful before abstractions make them seem settled.',
+    plaqueInvitation: 'Study Cézanne’s earlier table scene as an invitation to describe appearance. Ask how objects, bodies, time, and shared worlds gain meaning—without treating one painting as proof or attentive description as theory-free sight.',
     principalAsset: {
       id: 'phenomenology-cezanne-still-life',
       title: 'Still Life with Apples and a Pot of Primroses',

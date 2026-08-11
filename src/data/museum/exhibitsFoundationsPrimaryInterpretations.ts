@@ -331,7 +331,7 @@ Readonly<Record<string, FoundationsPrimaryExhibitEditorialRecord>> = {
     roomId: 'china-many-ways',
     roomTitle: 'Many ways in early China',
     tier: 'supporting-exhibit',
-    plaqueInvitation: 'Enter a Warring States bronze vessel’s historical world. Compare rival arguments about cultivation, ritual, benefit, language, power, and change—without turning diverse texts, later transformations, or layered labels into a timeless harmonious worldview.',
+    plaqueInvitation: 'Enter a Warring States bronze world. Compare claims about ritual, learning, language, order, and rule—without making one vessel voice a school, one age define Chinese philosophy, or rival traditions seem harmonious today.',
     principalAsset: {
       id: 'china-warring-states-bronze-vessel',
       title: 'Warring States bronze vessel',
@@ -389,7 +389,7 @@ Readonly<Record<string, FoundationsPrimaryExhibitEditorialRecord>> = {
     roomId: 'core-logic-language',
     roomTitle: 'Logic & Language',
     tier: 'anchor-exhibit',
-    plaqueInvitation: 'Study a nineteenth-century page of Euler diagrams. Ask what valid inference requires, how formal systems clarify and limit reasoning, and why different traditions argue about logic—without making one European teaching page its universal origin.',
+    plaqueInvitation: 'Study Hamilton’s Euler diagrams. Ask how validity, truth, proof, and systems guide reasoning—without making one 1874 page logic’s origin, proof of true premises, or a universal map for all forms of thought.',
     principalAsset: {
       id: 'logic-hamilton-euler-diagrams-1874',
       title: 'Euler diagrams in Hamilton’s Lectures on Logic',
