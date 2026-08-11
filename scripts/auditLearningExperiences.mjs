@@ -139,7 +139,7 @@ for (const casefile of comparisonCasefiles) {
     assert(casefileKeys.has(followOnKey), `Comparison ${key} follow-on must resolve to authored casefile “${followOnKey}”.`);
   }
 }
-assert.equal(comparisonCasefiles.length, 59, 'Compare must expose the 59 authored casefiles completed through content-expansion run 4.');
+assert.equal(comparisonCasefiles.length, 60, 'Compare must expose the 60 authored casefiles completed through content-expansion run 5.');
 
 const coveredBranchIds = new Set();
 const coveredPhilosopherIds = new Set();
@@ -197,8 +197,8 @@ for (const path of learningPaths) {
   assert(readingKinds.has('primary') && readingKinds.has('secondary'), `Learning path ${path.id} needs both primary and secondary reading routes.`);
 }
 
-assert.equal(learningPaths.length, 22, 'Learning Paths must expose the 22-route curriculum.');
-assert.equal(stepCount, 88, 'Learning Paths must expose 88 developed steps.');
+assert.equal(learningPaths.length, 25, 'Learning Paths must expose the 25-route curriculum.');
+assert.equal(stepCount, 100, 'Learning Paths must expose 100 developed steps.');
 assert.equal(new Set(learningPaths.map(({id}) => id)).size, learningPaths.length, 'Learning path IDs must be unique.');
 assert.deepEqual(new Set(learningPaths.map(({level}) => level)), new Set(['foundation', 'intermediate', 'advanced']), 'Learning Paths must offer foundation, intermediate, and advanced routes.');
 

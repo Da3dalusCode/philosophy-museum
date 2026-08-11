@@ -11326,6 +11326,21 @@
       "id": "critique-power-colonialism",
       "title": "Critique, Power, and Colonialism",
       "stepCount": 4
+    },
+    {
+      "id": "philosophy-of-science",
+      "title": "Philosophy of Science",
+      "stepCount": 4
+    },
+    {
+      "id": "philosophy-of-religion",
+      "title": "Philosophy of Religion",
+      "stepCount": 4
+    },
+    {
+      "id": "buddhist-philosophy",
+      "title": "Buddhist Philosophy",
+      "stepCount": 4
     }
   ],
   "museumHalls": [

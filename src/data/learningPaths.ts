@@ -14,6 +14,7 @@ import {expansionRun1LearningPaths} from './learningPathsRun1';
 import {expansionRun2LearningPaths} from './learningPathsRun2';
 import {expansionRun3LearningPaths} from './learningPathsRun3';
 import {expansionRun4LearningPaths} from './learningPathsRun4';
+import {expansionRun5LearningPaths} from './learningPathsRun5';
 
 const branch = (id: string, reason: string): LearningPathArticleLink => ({kind: 'branch', id, reason});
 const thinker = (id: string, reason: string): LearningPathArticleLink => ({kind: 'philosopher', id, reason});
@@ -188,6 +189,7 @@ export const learningPaths: LearningPath[] = [
   ...expansionRun2LearningPaths,
   ...expansionRun3LearningPaths,
   ...expansionRun4LearningPaths,
+  ...expansionRun5LearningPaths,
 ];
 
 export const learningPathById = new Map(learningPaths.map((path) => [path.id, path]));
