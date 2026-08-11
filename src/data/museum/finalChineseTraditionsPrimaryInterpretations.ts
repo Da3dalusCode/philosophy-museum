@@ -240,7 +240,7 @@ Readonly<Record<FinalChineseTraditionId, BranchExhibitEditorialRecord>> = {
     gallery: 'Warring States & Classical Chinese Traditions',
     roomId: 'china-mohist-fa',
     roomTitle: 'Mohist debate and fa/statecraft currents',
-    plaqueInvitation: 'Approach Legalism through a Qin weight. Ask how fa, office, method, rank, reward, and command shaped rule—while rejecting one school, rule-of-law parallels, and tales that order made rulers accountable to all people.',
+    plaqueInvitation: 'See Legalism through a Qin weight. Ask how fa, posts, rank, pay, fear, and command shaped rule—while rejecting one school, rule-of-law claims, and myths that order made rulers answer to all people.',
     principalAsset: {
       id: 'china-qin-iron-weight',
       title: 'Qin iron standard weight, inscribed 221 BCE',

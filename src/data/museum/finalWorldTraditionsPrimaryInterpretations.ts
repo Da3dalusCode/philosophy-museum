@@ -177,7 +177,7 @@ Readonly<Record<FinalWorldTraditionId, BranchExhibitEditorialRecord>> = {
     gallery: 'Rationalism: Mind, Nature, and System',
     roomId: 'rationalism-cartesian-foundations',
     roomTitle: 'Cartesian foundations and dualism',
-    plaqueInvitation: 'Use “rationalism” with care. Compare views of reason, innate ideas, necessity, mind, nature, and system—while tracking conflicts, roles for experience, debate, and a later label that never made thinkers one fixed school.',
+    plaqueInvitation: 'Use “rationalism” with care. Compare reason, inborn ideas, necessity, mind, nature, and order—while tracking disputes, experience, debate, and the late label that never once made these thinkers one shared school at all.',
     principalAsset: {
       id: 'rationalism-cartesian-vortices',
       title: 'Descartes’s mechanical universe of plenum and vortices',
