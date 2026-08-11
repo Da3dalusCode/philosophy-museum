@@ -389,3 +389,68 @@ main{min-height:calc(100dvh - 120px)}
 @media(max-width:760px){.comparison-casefile-hero{grid-template-columns:1fr}.comparison-shared-question{order:2;text-align:left}.comparison-casefile-hero>.compare-participant:first-child{order:1}.comparison-casefile-hero>.compare-participant:last-child{order:3}.comparison-shared-question>svg{align-self:flex-start}.comparison-orientation,.comparison-terms>div,.comparison-reading>div,.comparison-arguments>div,.comparison-followons>div,.comparison-source-register ol,.comparison-fallback-grid{grid-template-columns:1fr}.comparison-axis{grid-template-columns:1fr}.comparison-axis-question,.comparison-contrast{grid-column:auto}.comparison-term-grid{grid-template-columns:1fr}.comparison-method{grid-template-columns:1fr}.compare-participant{padding:16px}.comparison-limits{padding:16px}}
 .path-readings article>a{position:static;display:inline-flex;align-items:center;gap:6px;margin-top:11px;border:0;border-radius:0;background:none;color:#d9ba83;padding:0;font-size:10px;font-weight:700;text-decoration:none}.path-readings article>a>svg{position:static;color:currentColor}.path-readings article>a:hover{border:0;background:none;color:#f0d39d}
 .path-step-goals{display:grid;grid-template-columns:1.4fr 1fr;gap:12px;margin:20px 0}.path-step-goals>div{border:1px solid #303a47;border-radius:8px;background:#141a23;padding:14px}.path-step-goals h2{margin:0 0 9px;color:#d7b77d;font-size:10px;letter-spacing:.1em;text-transform:uppercase}.path-step-goals ul{margin:0;padding-left:18px}.path-step-goals li{color:#b7c0ca;font-size:12px;line-height:1.5;margin:4px 0}.path-step-goals p{display:flex;flex-wrap:wrap;gap:6px;margin:0}.path-step-goals p span{border:1px solid #485566;border-radius:999px;color:#c8d0da;font-size:9px;padding:4px 7px;text-transform:capitalize}@media(max-width:700px){.path-step-goals{grid-template-columns:1fr}}
+
+/* Compare and Learning Paths layout refinement */
+.compare-page header,.paths-page header{position:static;top:auto;z-index:auto;padding:0;background:transparent;backdrop-filter:none;border-bottom:0}
+.compare-casefile-picker{display:flex;width:100%;min-width:0;flex-direction:column;gap:6px}
+.compare-casefile-picker>span{color:#9ba5b3;font-size:10px;text-transform:uppercase;letter-spacing:.09em}
+.compare-casefile-picker select{width:100%;max-width:none;min-width:0;min-height:42px;background:#171d27;border:1px solid #323b48;border-radius:7px;color:#dce0e5;padding:9px}
+.compare-page .comparison-casefile{margin-top:10px}
+.compare-page .comparison-casefile-hero{grid-template-columns:minmax(0,1fr) minmax(250px,.58fr) minmax(0,1fr);gap:10px}
+.compare-page .compare-participant,.compare-page .comparison-shared-question{padding:18px}
+.compare-page .comparison-orientation{gap:10px;margin:10px 0 26px}
+.compare-page .comparison-section{margin:32px 0;scroll-margin-top:calc(var(--app-header-offset) + 18px)}
+.compare-page .comparison-section>header{display:flex;align-items:baseline;gap:12px 22px;flex-wrap:wrap;margin-bottom:12px;padding:0 0 9px;border-bottom:1px solid #252d39}
+.compare-page .comparison-section>header h2{margin:0}
+.compare-page .comparison-section>header p{flex:1 1 420px;margin:0 0 0 auto}
+.compare-page .comparison-section>header:has(>svg){align-items:flex-start;gap:10px}
+.compare-page .comparison-section>header:has(>svg)>div{min-width:0}
+.compare-page .comparison-terms>div>article:only-child,.compare-page .comparison-followons>div>a:only-child{grid-column:1/-1}
+.compare-page .comparison-limits{margin:30px 0}
+.compare-page .comparison-followons{margin:26px 0}
+.paths-page .path-route-head{padding:0 0 14px;border-bottom:1px solid #252d39}
+.paths-page .path-detail{padding:22px 24px 26px}
+.paths-page .path-brief{margin:14px 0 20px;padding:16px}
+.paths-page .path-list{gap:3px}
+.paths-page .path-list a{padding:13px}
+.paths-page .path-list a.active{background:linear-gradient(115deg,#1d2532,#171e29)}
+.paths-page .path-list,.paths-page .path-level-filter{scrollbar-width:none}
+.paths-page .path-list::-webkit-scrollbar,.paths-page .path-level-filter::-webkit-scrollbar{display:none}
+
+@media(min-width:1051px){
+  .compare-page>.page-head{grid-template-columns:minmax(500px,.86fr) minmax(520px,1.14fr);column-gap:46px;align-items:center;max-width:none;margin-bottom:12px}
+  .compare-page>.page-head h1{font-size:clamp(42px,3vw,50px);line-height:.98}
+  .compare-page>.page-head p{max-width:700px}
+  .compare-page .compare-controls{grid-template-columns:auto minmax(250px,.8fr) minmax(220px,1fr) auto minmax(220px,1fr);gap:10px;padding:10px 12px}
+  .compare-page .compare-kind{align-self:end}
+  .paths-page .paths-layout{grid-template-columns:minmax(370px,400px) minmax(0,1fr);gap:16px;align-items:start}
+  .paths-page .path-list{position:static;display:grid;height:auto;min-height:0;max-height:none;overflow:visible;padding:7px}
+  .paths-page .path-list a{padding:10px 11px}
+  .paths-page .path-list b{font-size:14px;line-height:1.25}
+  .paths-page .path-list small{display:-webkit-box;overflow:hidden;-webkit-box-orient:vertical;-webkit-line-clamp:2;line-clamp:2;line-height:1.35}
+  .paths-page .path-list a>span>em{overflow:hidden;margin-top:4px;text-overflow:ellipsis;white-space:nowrap}
+}
+
+@media(min-width:761px) and (max-width:1050px){
+  .compare-page .compare-controls{grid-template-columns:minmax(220px,.85fr) minmax(0,1fr) auto minmax(0,1fr)}
+  .compare-page .compare-kind{grid-column:1}
+  .compare-page .compare-casefile-picker{grid-column:2/-1;grid-row:1}
+}
+
+@media(max-width:1050px){
+  .paths-page .path-list{gap:7px;scrollbar-width:none}
+  .paths-page .path-list::-webkit-scrollbar{display:none}
+}
+
+@media(max-width:760px){
+  .compare-page>.page-head{margin-bottom:12px}
+  .compare-page>.page-head h1{font-size:clamp(34px,10.5vw,44px);line-height:1.02}
+  .compare-page .compare-controls{grid-template-columns:1fr;padding:12px}
+  .compare-page .compare-casefile-picker{grid-column:auto;grid-row:auto}
+  .compare-page .comparison-casefile-hero{grid-template-columns:1fr}
+  .compare-page .comparison-section>header{display:flex;align-items:flex-start;gap:5px;flex-direction:column}
+  .compare-page .comparison-section>header:has(>svg){flex-direction:row}
+  .compare-page .comparison-section>header p{margin:0}
+  .paths-page .path-detail{padding:16px}
+  .paths-page .path-list a{padding:12px}
+}

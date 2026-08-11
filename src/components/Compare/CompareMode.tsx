@@ -48,6 +48,10 @@ export function CompareMode({route, href, onRouteChange}: {
   const left = kind === 'branch' ? branchById(route.leftId) : philosopherById(route.leftId);
   const right = kind === 'branch' ? branchById(route.rightId) : philosopherById(route.rightId);
   const casefile = getComparisonCasefile(kind, route.leftId, route.rightId);
+  const activePresetIndex = presets.findIndex(({route: preset}) => preset.kind === route.kind && (
+    (preset.leftId === route.leftId && preset.rightId === route.rightId)
+    || (preset.leftId === route.rightId && preset.rightId === route.leftId)
+  ));
   const reversed: ComparisonRoute = route.kind === 'compare-branches'
     ? {kind: 'compare-branches', leftId: route.rightId, rightId: route.leftId}
     : {kind: 'compare-philosophers', leftId: route.rightId, rightId: route.leftId};
@@ -59,12 +63,22 @@ export function CompareMode({route, href, onRouteChange}: {
 
   return <div className="page compare-page compact-content-page">
     <PageHead eyebrow="Difference reveals structure" title="Compare ideas without caricature" text="Use authored casefiles to study exact disagreements, shared premises, vocabulary, arguments, texts, history, and the limits of each comparison."/>
-    <div className="preset-rail" aria-label="Authored comparison casefiles"><span>Authored casefiles</span><div className="preset-row">{presets.map(({label, route: preset}) => <a href={href(preset)} key={label}>{label}</a>)}</div></div>
     <div className="compare-controls">
       <div className="compare-kind" aria-label="Comparison type">
         <a className={kind === 'branch' ? 'active' : ''} href={href(DEFAULT_ROUTES.compare)} aria-current={kind === 'branch' ? 'page' : undefined}>Philosophies</a>
         <a className={kind === 'philosopher' ? 'active' : ''} href={href(DEFAULT_ROUTES.comparePhilosophers)} aria-current={kind === 'philosopher' ? 'page' : undefined}>Philosophers</a>
       </div>
+      <label className="compare-casefile-picker"><span>Authored casefile</span><select
+        aria-label="Authored comparison casefile"
+        value={activePresetIndex < 0 ? '' : String(activePresetIndex)}
+        onChange={(event) => {
+          const preset = presets[Number(event.target.value)];
+          if (preset) onRouteChange(preset.route);
+        }}
+      >
+        <option value="" disabled>Choose a curated comparison</option>
+        {presets.map(({label}, index) => <option value={index} key={label}>{label}</option>)}
+      </select></label>
       <label className="compare-participant-picker"><span>First participant</span><select aria-label="First comparison participant" value={route.leftId} onChange={(event) => changeParticipant('left', event.target.value)}>
           {options.map((item) => <option value={item.id} key={item.id} disabled={item.id === route.rightId}>{item.name}</option>)}
         </select></label>
