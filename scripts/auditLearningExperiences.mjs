@@ -197,8 +197,11 @@ for (const path of learningPaths) {
   assert(readingKinds.has('primary') && readingKinds.has('secondary'), `Learning path ${path.id} needs both primary and secondary reading routes.`);
 }
 
-assert.equal(learningPaths.length, 25, 'Learning Paths must expose the 25-route curriculum.');
-assert.equal(stepCount, 100, 'Learning Paths must expose 100 developed steps.');
+assert.equal(learningPaths.length, 26, 'Learning Paths must expose the 26-route curriculum.');
+assert.equal(stepCount, 104, 'Learning Paths must expose 104 developed steps.');
+assert.equal(articleLinkCount, 208, 'Learning Paths must expose 208 canonical article links.');
+assert.equal(museumLinkCount, 104, 'Learning Paths must expose 104 primary-exhibit links.');
+assert.equal(readingCount, 208, 'Learning Paths must expose 208 annotated readings.');
 assert.equal(new Set(learningPaths.map(({id}) => id)).size, learningPaths.length, 'Learning path IDs must be unique.');
 assert.deepEqual(new Set(learningPaths.map(({level}) => level)), new Set(['foundation', 'intermediate', 'advanced']), 'Learning Paths must offer foundation, intermediate, and advanced routes.');
 
