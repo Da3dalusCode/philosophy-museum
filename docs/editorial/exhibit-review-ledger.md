@@ -16,7 +16,7 @@ Regenerate it with `npm run report:exhibits` and verify it with `npm run audit:e
 
 | Total | Unreviewed | Reconciled | Standard compliant | Out of date |
 | ---: | ---: | ---: | ---: | ---: |
-| 192 | 26 | 0 | 166 | 0 |
+| 192 | 11 | 0 | 181 | 0 |
 
 ## Article relationships
 
@@ -30,6 +30,7 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 
 | Exhibit | Article status | Exhibit status | Plaque words | Main words | Paragraphs | Guide sections | Guide items | Presentation |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | --- |
+| Ancient Greek Philosophy | claim-reviewed | standard-compliant | 32 | 318 | 3 | 3 | 6 | standard presentation |
 | Thales | claim-reviewed | standard-compliant | 32 | 302 | 3 | 3 | 5 | standard presentation |
 | Anaximander | claim-reviewed | standard-compliant | 32 | 292 | 3 | 3 | 5 | standard presentation |
 | Anaximenes | claim-reviewed | standard-compliant | 32 | 297 | 3 | 3 | 5 | standard presentation |
@@ -56,13 +57,16 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | Francis Bacon | claim-reviewed | standard-compliant | 33 | 309 | 3 | 3 | 5 | standard presentation |
 | Galileo Galilei | claim-reviewed | standard-compliant | 32 | 304 | 3 | 3 | 6 | standard presentation |
 | Thomas Hobbes | claim-reviewed | standard-compliant | 32 | 311 | 3 | 3 | 6 | standard presentation |
+| Phenomenology | claim-reviewed | standard-compliant | 33 | 316 | 3 | 3 | 5 | standard presentation |
 | Husserl | claim-reviewed | standard-compliant | 32 | 310 | 3 | 3 | 6 | standard presentation |
 | Heidegger | claim-reviewed | standard-compliant | 32 | 319 | 3 | 3 | 7 | standard presentation |
 | Maurice Merleau-Ponty | claim-reviewed | standard-compliant | 32 | 316 | 3 | 2 | 5 | standard presentation |
+| Existentialism | claim-reviewed | standard-compliant | 33 | 314 | 3 | 3 | 5 | standard presentation |
 | Jean-Paul Sartre | claim-reviewed | standard-compliant | 32 | 320 | 3 | 3 | 7 | standard presentation |
 | Albert Camus | claim-reviewed | standard-compliant | 32 | 320 | 3 | 3 | 6 | standard presentation |
 | Emmanuel Levinas | claim-reviewed | standard-compliant | 32 | 313 | 3 | 2 | 5 | standard presentation |
 | Hans-Georg Gadamer | claim-reviewed | standard-compliant | 32 | 320 | 3 | 2 | 6 | standard presentation |
+| Analytic Philosophy | claim-reviewed | standard-compliant | 33 | 320 | 3 | 3 | 5 | standard presentation |
 | Bertrand Russell | claim-reviewed | standard-compliant | 32 | 312 | 3 | 2 | 6 | standard presentation |
 | Gottlob Frege | claim-reviewed | standard-compliant | 33 | 305 | 3 | 2 | 6 | standard presentation |
 | G. E. Moore | claim-reviewed | standard-compliant | 32 | 315 | 3 | 2 | 6 | standard presentation |
@@ -81,10 +85,13 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | Philosophy of Mind | claim-reviewed | standard-compliant | 32 | 310 | 3 | 3 | 6 | standard presentation |
 | Thomas Nagel | claim-reviewed | standard-compliant | 32 | 318 | 3 | 3 | 6 | standard presentation |
 | Jiddu Krishnamurti | claim-reviewed | standard-compliant | 32 | 320 | 3 | 3 | 7 | standard presentation |
+| Logic | claim-reviewed | standard-compliant | 34 | 317 | 3 | 3 | 6 | standard presentation |
+| Philosophy of Language | claim-reviewed | standard-compliant | 33 | 316 | 3 | 3 | 6 | standard presentation |
 | Philosophy of Science | claim-reviewed | standard-compliant | 32 | 316 | 3 | 3 | 6 | standard presentation |
 | Rudolf Carnap | claim-reviewed | standard-compliant | 32 | 306 | 3 | 3 | 6 | standard presentation |
 | Karl Popper | claim-reviewed | standard-compliant | 32 | 311 | 3 | 3 | 6 | standard presentation |
 | Thomas Kuhn | claim-reviewed | standard-compliant | 32 | 307 | 3 | 3 | 6 | standard presentation |
+| Aesthetics | claim-reviewed | standard-compliant | 32 | 319 | 3 | 3 | 6 | standard presentation |
 | Philosophy of Religion | claim-reviewed | standard-compliant | 32 | 303 | 3 | 3 | 6 | standard presentation |
 | Jainism | claim-reviewed | standard-compliant | 32 | 302 | 3 | 3 | 6 | standard presentation |
 | Mahāvīra | claim-reviewed | standard-compliant | 32 | 311 | 3 | 3 | 6 | standard presentation |
@@ -100,6 +107,7 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | Buddhist Epistemology | claim-reviewed | standard-compliant | 32 | 320 | 3 | 3 | 6 | standard presentation |
 | Dignāga | claim-reviewed | standard-compliant | 32 | 310 | 3 | 3 | 6 | standard presentation |
 | Dharmakīrti | claim-reviewed | standard-compliant | 32 | 293 | 3 | 3 | 6 | standard presentation |
+| Chinese Philosophy | claim-reviewed | standard-compliant | 32 | 319 | 3 | 3 | 6 | standard presentation |
 | Confucius | claim-reviewed | standard-compliant | 34 | 299 | 3 | 3 | 5 | standard presentation |
 | Mencius | claim-reviewed | standard-compliant | 32 | 292 | 3 | 3 | 5 | standard presentation |
 | Xunzi | claim-reviewed | standard-compliant | 32 | 296 | 3 | 3 | 5 | standard presentation |
@@ -130,8 +138,10 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | William of Ockham | claim-reviewed | standard-compliant | 32 | 292 | 3 | 3 | 4 | standard presentation |
 | Meister Eckhart | claim-reviewed | standard-compliant | 32 | 295 | 3 | 3 | 4 | standard presentation |
 | Marsilius of Padua | claim-reviewed | standard-compliant | 32 | 294 | 3 | 3 | 4 | standard presentation |
+| Cynicism | claim-reviewed | standard-compliant | 32 | 316 | 3 | 3 | 6 | standard presentation |
 | Antisthenes | claim-reviewed | standard-compliant | 32 | 314 | 3 | 3 | 6 | standard presentation |
 | Diogenes | claim-reviewed | standard-compliant | 34 | 302 | 3 | 3 | 6 | standard presentation |
+| Epicureanism | claim-reviewed | standard-compliant | 32 | 315 | 3 | 3 | 6 | standard presentation |
 | Epicurus | claim-reviewed | standard-compliant | 32 | 292 | 3 | 3 | 6 | standard presentation |
 | Lucretius | claim-reviewed | standard-compliant | 34 | 318 | 3 | 3 | 6 | standard presentation |
 | Stoicism | claim-reviewed | standard-compliant | 34 | 319 | 3 | 3 | 6 | standard presentation |
@@ -141,6 +151,7 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | Epictetus | claim-reviewed | standard-compliant | 32 | 309 | 3 | 3 | 6 | standard presentation |
 | Seneca | claim-reviewed | standard-compliant | 32 | 316 | 3 | 3 | 6 | standard presentation |
 | Marcus Aurelius | claim-reviewed | standard-compliant | 33 | 319 | 3 | 3 | 6 | standard presentation |
+| Skepticism | claim-reviewed | standard-compliant | 33 | 315 | 3 | 3 | 6 | standard presentation |
 | Pyrrho | claim-reviewed | standard-compliant | 33 | 310 | 3 | 3 | 6 | standard presentation |
 | Arcesilaus | claim-reviewed | standard-compliant | 32 | 320 | 3 | 3 | 6 | standard presentation |
 | Carneades | claim-reviewed | standard-compliant | 32 | 319 | 3 | 3 | 6 | standard presentation |
@@ -178,9 +189,11 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | Kierkegaard | claim-reviewed | standard-compliant | 32 | 306 | 3 | 3 | 6 | standard presentation |
 | Fyodor Dostoevsky | claim-reviewed | standard-compliant | 32 | 312 | 3 | 3 | 6 | standard presentation |
 | Friedrich Nietzsche | claim-reviewed | standard-compliant | 32 | 315 | 3 | 3 | 6 | standard presentation |
+| Pragmatism | claim-reviewed | standard-compliant | 34 | 309 | 3 | 3 | 5 | standard presentation |
 | Charles Sanders Peirce | claim-reviewed | standard-compliant | 32 | 311 | 3 | 3 | 6 | standard presentation |
 | William James | claim-reviewed | standard-compliant | 32 | 320 | 3 | 3 | 6 | standard presentation |
 | John Dewey | claim-reviewed | standard-compliant | 32 | 306 | 3 | 3 | 6 | standard presentation |
+| Continental Philosophy | claim-reviewed | standard-compliant | 33 | 317 | 3 | 3 | 5 | standard presentation |
 | Michel Foucault | claim-reviewed | standard-compliant | 32 | 311 | 3 | 3 | 6 | standard presentation |
 | Jacques Derrida | claim-reviewed | standard-compliant | 32 | 320 | 3 | 3 | 6 | standard presentation |
 | Jürgen Habermas | claim-reviewed | standard-compliant | 32 | 320 | 3 | 3 | 6 | standard presentation |
@@ -188,6 +201,8 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | Virtue Ethics | claim-reviewed | standard-compliant | 32 | 289 | 3 | 3 | 8 | standard presentation |
 | Iris Murdoch | claim-reviewed | standard-compliant | 32 | 327 | 3 | 3 | 6 | standard presentation |
 | Philippa Foot | claim-reviewed | standard-compliant | 33 | 314 | 3 | 3 | 6 | standard presentation |
+| Deontology | claim-reviewed | standard-compliant | 35 | 312 | 3 | 3 | 5 | standard presentation |
+| Utilitarianism | claim-reviewed | standard-compliant | 32 | 312 | 3 | 3 | 6 | standard presentation |
 | Judith Jarvis Thomson | claim-reviewed | standard-compliant | 32 | 328 | 3 | 3 | 6 | standard presentation |
 | Derek Parfit | claim-reviewed | standard-compliant | 33 | 325 | 3 | 3 | 6 | standard presentation |
 | Feminist Philosophy | claim-reviewed | standard-compliant | 34 | 336 | 3 | 3 | 6 | standard presentation |
@@ -201,7 +216,7 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 
 | Hall | Room | Exhibit | Entity | Article relationship | Article status | Exhibit status |
 | --- | --- | --- | --- | --- | --- | --- |
-| mediterranean-beginnings-classical | med-orientation-nature | ancient-greek | branch:ancient-greek | matched | claim-reviewed | unreviewed |
+| mediterranean-beginnings-classical | med-orientation-nature | ancient-greek | branch:ancient-greek | matched | claim-reviewed | standard-compliant |
 | mediterranean-beginnings-classical | med-orientation-nature | thales | philosopher:thales | matched | claim-reviewed | standard-compliant |
 | mediterranean-beginnings-classical | med-orientation-nature | anaximander | philosopher:anaximander | matched | claim-reviewed | standard-compliant |
 | mediterranean-beginnings-classical | med-orientation-nature | anaximenes | philosopher:anaximenes | matched | claim-reviewed | standard-compliant |
@@ -228,16 +243,16 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | renaissance-humanism-new-method | early-experiment-method | bacon | philosopher:bacon | matched | claim-reviewed | standard-compliant |
 | renaissance-humanism-new-method | early-experiment-method | galileo | philosopher:galileo | matched | claim-reviewed | standard-compliant |
 | renaissance-humanism-new-method | early-sovereignty-materialism | hobbes | philosopher:hobbes | matched | claim-reviewed | standard-compliant |
-| phenomenology-existence-embodiment | phenomenology-method | phenomenology | branch:phenomenology | matched | claim-reviewed | unreviewed |
+| phenomenology-existence-embodiment | phenomenology-method | phenomenology | branch:phenomenology | matched | claim-reviewed | standard-compliant |
 | phenomenology-existence-embodiment | phenomenology-method | husserl | philosopher:husserl | matched | claim-reviewed | standard-compliant |
 | phenomenology-existence-embodiment | phenomenology-being-embodiment | heidegger | philosopher:heidegger | matched | claim-reviewed | standard-compliant |
 | phenomenology-existence-embodiment | phenomenology-being-embodiment | merleau-ponty | philosopher:merleau-ponty | matched | claim-reviewed | standard-compliant |
-| phenomenology-existence-embodiment | existentialism-freedom | existentialism | branch:existentialism | matched | claim-reviewed | unreviewed |
+| phenomenology-existence-embodiment | existentialism-freedom | existentialism | branch:existentialism | matched | claim-reviewed | standard-compliant |
 | phenomenology-existence-embodiment | existentialism-freedom | sartre | philosopher:sartre | matched | claim-reviewed | standard-compliant |
 | phenomenology-existence-embodiment | existentialism-situated-absurd | camus | philosopher:camus | matched | claim-reviewed | standard-compliant |
 | phenomenology-existence-embodiment | phenomenology-interpretation-alterity | levinas | philosopher:levinas | matched | claim-reviewed | standard-compliant |
 | phenomenology-existence-embodiment | phenomenology-interpretation-alterity | gadamer | philosopher:gadamer | matched | claim-reviewed | standard-compliant |
-| analytic-traditions | analytic-origins-foundations | analytic-philosophy | branch:analytic-philosophy | matched | claim-reviewed | unreviewed |
+| analytic-traditions | analytic-origins-foundations | analytic-philosophy | branch:analytic-philosophy | matched | claim-reviewed | standard-compliant |
 | analytic-traditions | analytic-origins-foundations | russell | philosopher:russell | matched | claim-reviewed | standard-compliant |
 | analytic-traditions | analytic-origins-foundations | frege | philosopher:frege | matched | claim-reviewed | standard-compliant |
 | analytic-traditions | analytic-common-sense-metaethics | g-e-moore | philosopher:g-e-moore | matched | claim-reviewed | standard-compliant |
@@ -256,13 +271,13 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | core-questions-forum | core-mind-self | philosophy-of-mind | branch:philosophy-of-mind | matched | claim-reviewed | standard-compliant |
 | core-questions-forum | core-mind-self | thomas-nagel | philosopher:thomas-nagel | matched | claim-reviewed | standard-compliant |
 | core-questions-forum | core-mind-self | jiddu-krishnamurti | philosopher:jiddu-krishnamurti | matched | claim-reviewed | standard-compliant |
-| core-questions-forum | core-logic-language | logic | branch:logic | matched | claim-reviewed | unreviewed |
-| core-questions-forum | core-logic-language | philosophy-of-language | branch:philosophy-of-language | matched | claim-reviewed | unreviewed |
+| core-questions-forum | core-logic-language | logic | branch:logic | matched | claim-reviewed | standard-compliant |
+| core-questions-forum | core-logic-language | philosophy-of-language | branch:philosophy-of-language | matched | claim-reviewed | standard-compliant |
 | core-questions-forum | core-science | philosophy-of-science | branch:philosophy-of-science | matched | claim-reviewed | standard-compliant |
 | core-questions-forum | core-science | carnap | philosopher:carnap | matched | claim-reviewed | standard-compliant |
 | core-questions-forum | core-science | popper | philosopher:popper | matched | claim-reviewed | standard-compliant |
 | core-questions-forum | core-science | kuhn | philosopher:kuhn | matched | claim-reviewed | standard-compliant |
-| core-questions-forum | core-aesthetics | aesthetics | branch:aesthetics | matched | claim-reviewed | unreviewed |
+| core-questions-forum | core-aesthetics | aesthetics | branch:aesthetics | matched | claim-reviewed | standard-compliant |
 | core-questions-forum | core-religion | philosophy-of-religion | branch:philosophy-of-religion | matched | claim-reviewed | standard-compliant |
 | classical-south-asian-worlds | south-orientation-many-schools | indian-philosophy | branch:indian-philosophy | matched | bibliography-only | unreviewed |
 | classical-south-asian-worlds | south-jain-worlds | jainism | branch:jainism | matched | claim-reviewed | standard-compliant |
@@ -280,7 +295,7 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | buddhist-philosophies | buddhist-pramana | buddhist-epistemology | branch:buddhist-epistemology | matched | claim-reviewed | standard-compliant |
 | buddhist-philosophies | buddhist-pramana | dignaga | philosopher:dignaga | matched | claim-reviewed | standard-compliant |
 | buddhist-philosophies | buddhist-pramana | dharmakirti | philosopher:dharmakirti | matched | claim-reviewed | standard-compliant |
-| classical-chinese-traditions | china-many-ways | chinese-philosophy | branch:chinese-philosophy | matched | claim-reviewed | unreviewed |
+| classical-chinese-traditions | china-many-ways | chinese-philosophy | branch:chinese-philosophy | matched | claim-reviewed | standard-compliant |
 | classical-chinese-traditions | china-confucian-cultivation | confucianism | branch:confucianism | matched | bibliography-only | unreviewed |
 | classical-chinese-traditions | china-confucian-cultivation | confucius | philosopher:confucius | matched | claim-reviewed | standard-compliant |
 | classical-chinese-traditions | china-confucian-cultivation | mencius | philosopher:mencius | matched | claim-reviewed | standard-compliant |
@@ -316,10 +331,10 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | latin-christian-scholastic | latin-late-debates | ockham | philosopher:ockham | matched | claim-reviewed | standard-compliant |
 | latin-christian-scholastic | latin-late-debates | meister-eckhart | philosopher:meister-eckhart | matched | claim-reviewed | standard-compliant |
 | latin-christian-scholastic | latin-late-debates | marsilius-padua | philosopher:marsilius-padua | matched | claim-reviewed | standard-compliant |
-| hellenistic-roman-ways | hell-cynic-way | cynicism | branch:cynicism | matched | claim-reviewed | unreviewed |
+| hellenistic-roman-ways | hell-cynic-way | cynicism | branch:cynicism | matched | claim-reviewed | standard-compliant |
 | hellenistic-roman-ways | hell-cynic-way | antisthenes | philosopher:antisthenes | matched | claim-reviewed | standard-compliant |
 | hellenistic-roman-ways | hell-cynic-way | diogenes | philosopher:diogenes | matched | claim-reviewed | standard-compliant |
-| hellenistic-roman-ways | hell-epicurean-garden | epicureanism | branch:epicureanism | matched | claim-reviewed | unreviewed |
+| hellenistic-roman-ways | hell-epicurean-garden | epicureanism | branch:epicureanism | matched | claim-reviewed | standard-compliant |
 | hellenistic-roman-ways | hell-epicurean-garden | epicurus | philosopher:epicurus | matched | claim-reviewed | standard-compliant |
 | hellenistic-roman-ways | hell-epicurean-garden | lucretius | philosopher:lucretius | matched | claim-reviewed | standard-compliant |
 | hellenistic-roman-ways | hell-stoic-stoa | stoicism | branch:stoicism | matched | claim-reviewed | standard-compliant |
@@ -329,7 +344,7 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | hellenistic-roman-ways | hell-stoic-stoa | epictetus | philosopher:epictetus | matched | claim-reviewed | standard-compliant |
 | hellenistic-roman-ways | hell-stoic-stoa | seneca | philosopher:seneca | matched | claim-reviewed | standard-compliant |
 | hellenistic-roman-ways | hell-stoic-stoa | marcus-aurelius | philosopher:marcus-aurelius | matched | claim-reviewed | standard-compliant |
-| hellenistic-roman-ways | hell-skeptical-lineages | skepticism | branch:skepticism | matched | claim-reviewed | unreviewed |
+| hellenistic-roman-ways | hell-skeptical-lineages | skepticism | branch:skepticism | matched | claim-reviewed | standard-compliant |
 | hellenistic-roman-ways | hell-skeptical-lineages | pyrrho | philosopher:pyrrho | matched | claim-reviewed | standard-compliant |
 | hellenistic-roman-ways | hell-skeptical-lineages | arcesilaus | philosopher:arcesilaus | matched | claim-reviewed | standard-compliant |
 | hellenistic-roman-ways | hell-skeptical-lineages | carneades | philosopher:carneades | matched | claim-reviewed | standard-compliant |
@@ -371,11 +386,11 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | faith-pessimism-life-value | nineteenth-faith-subjectivity | kierkegaard | philosopher:kierkegaard | matched | claim-reviewed | standard-compliant |
 | faith-pessimism-life-value | nineteenth-faith-subjectivity | dostoevsky | philosopher:dostoevsky | matched | claim-reviewed | standard-compliant |
 | faith-pessimism-life-value | nineteenth-genealogy-value | nietzsche | philosopher:nietzsche | matched | claim-reviewed | standard-compliant |
-| pragmatism-democratic-inquiry | pragmatism-peirce-inquiry | pragmatism | branch:pragmatism | matched | claim-reviewed | unreviewed |
+| pragmatism-democratic-inquiry | pragmatism-peirce-inquiry | pragmatism | branch:pragmatism | matched | claim-reviewed | standard-compliant |
 | pragmatism-democratic-inquiry | pragmatism-peirce-inquiry | peirce | philosopher:peirce | matched | claim-reviewed | standard-compliant |
 | pragmatism-democratic-inquiry | pragmatism-james-experience | william-james | philosopher:william-james | matched | claim-reviewed | standard-compliant |
 | pragmatism-democratic-inquiry | pragmatism-dewey-democracy | dewey | philosopher:dewey | matched | claim-reviewed | standard-compliant |
-| critique-power-deconstruction | continental-orientation | continental-philosophy | branch:continental-philosophy | matched | claim-reviewed | unreviewed |
+| critique-power-deconstruction | continental-orientation | continental-philosophy | branch:continental-philosophy | matched | claim-reviewed | standard-compliant |
 | critique-power-deconstruction | critique-genealogy-power | foucault | philosopher:foucault | matched | claim-reviewed | standard-compliant |
 | critique-power-deconstruction | critique-deconstruction | derrida | philosopher:derrida | matched | claim-reviewed | standard-compliant |
 | critique-power-deconstruction | critique-critical-theory | habermas | philosopher:habermas | matched | claim-reviewed | standard-compliant |
@@ -383,8 +398,8 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | moral-life-practical-reason | moral-character-virtue | virtue-ethics | branch:virtue-ethics | matched | claim-reviewed | standard-compliant |
 | moral-life-practical-reason | moral-character-virtue | iris-murdoch | philosopher:iris-murdoch | matched | claim-reviewed | standard-compliant |
 | moral-life-practical-reason | moral-character-virtue | philippa-foot | philosopher:philippa-foot | matched | claim-reviewed | standard-compliant |
-| moral-life-practical-reason | moral-duty-consequence | deontology | branch:deontology | matched | claim-reviewed | unreviewed |
-| moral-life-practical-reason | moral-duty-consequence | utilitarianism | branch:utilitarianism | matched | claim-reviewed | unreviewed |
+| moral-life-practical-reason | moral-duty-consequence | deontology | branch:deontology | matched | claim-reviewed | standard-compliant |
+| moral-life-practical-reason | moral-duty-consequence | utilitarianism | branch:utilitarianism | matched | claim-reviewed | standard-compliant |
 | moral-life-practical-reason | moral-rights-persons-futures | judith-thomson | philosopher:judith-thomson | matched | claim-reviewed | standard-compliant |
 | moral-life-practical-reason | moral-rights-persons-futures | derek-parfit | philosopher:derek-parfit | matched | claim-reviewed | standard-compliant |
 | feminist-philosophies | feminist-orientation-genealogies | feminist-philosophy | branch:feminist-philosophy | matched | claim-reviewed | standard-compliant |
