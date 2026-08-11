@@ -96,11 +96,12 @@ const statementRefs = (value, refs = []) => {
 const casefileKeys = new Set();
 const curatedBranchIds = new Set();
 const curatedPhilosopherIds = new Set();
+const comparisonKey = (kind, participantIds) => `${kind}:${[...participantIds].sort().join(':')}`;
 for (const casefile of comparisonCasefiles) {
   assert(['branch', 'philosopher'].includes(casefile.kind), 'Comparison casefiles must use one supported kind.');
   assert.equal(casefile.participantIds.length, 2, 'Comparison casefiles require exactly two participants.');
   assert.notEqual(casefile.participantIds[0], casefile.participantIds[1], 'Comparison participants must be distinct.');
-  const key = `${casefile.kind}:${[...casefile.participantIds].sort().join(':')}`;
+  const key = comparisonKey(casefile.kind, casefile.participantIds);
   assert(!casefileKeys.has(key), `Duplicate normalized comparison casefile “${key}”.`);
   casefileKeys.add(key);
   const participantSet = new Set(casefile.participantIds);
@@ -131,7 +132,14 @@ for (const casefile of comparisonCasefiles) {
     followOn.participantIds.forEach((id) => requireReviewedEntity(followOn.kind, id, `Comparison ${key} follow-on`));
   }
 }
-assert.equal(comparisonCasefiles.length, 47, 'Compare must expose the 47 authored casefiles completed through content-expansion run 3.');
+for (const casefile of comparisonCasefiles) {
+  const key = comparisonKey(casefile.kind, casefile.participantIds);
+  for (const followOn of casefile.followOns) {
+    const followOnKey = comparisonKey(followOn.kind, followOn.participantIds);
+    assert(casefileKeys.has(followOnKey), `Comparison ${key} follow-on must resolve to authored casefile “${followOnKey}”.`);
+  }
+}
+assert.equal(comparisonCasefiles.length, 59, 'Compare must expose the 59 authored casefiles completed through content-expansion run 4.');
 
 const coveredBranchIds = new Set();
 const coveredPhilosopherIds = new Set();
@@ -189,8 +197,8 @@ for (const path of learningPaths) {
   assert(readingKinds.has('primary') && readingKinds.has('secondary'), `Learning path ${path.id} needs both primary and secondary reading routes.`);
 }
 
-assert.equal(learningPaths.length, 20, 'Learning Paths must expose the 20-route curriculum.');
-assert.equal(stepCount, 80, 'Learning Paths must expose 80 developed steps.');
+assert.equal(learningPaths.length, 22, 'Learning Paths must expose the 22-route curriculum.');
+assert.equal(stepCount, 88, 'Learning Paths must expose 88 developed steps.');
 assert.equal(new Set(learningPaths.map(({id}) => id)).size, learningPaths.length, 'Learning path IDs must be unique.');
 assert.deepEqual(new Set(learningPaths.map(({level}) => level)), new Set(['foundation', 'intermediate', 'advanced']), 'Learning Paths must offer foundation, intermediate, and advanced routes.');
 

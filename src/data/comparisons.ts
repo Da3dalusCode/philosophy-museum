@@ -2,6 +2,7 @@ import {branchById} from './branches';
 import {philosopherById} from './philosophers';
 import {expansionRun2ComparisonCasefiles} from './comparisonsRun2';
 import {expansionRun3ComparisonCasefiles} from './comparisonsRun3';
+import {expansionRun4ComparisonCasefiles} from './comparisonsRun4';
 import type {
   ComparisonCasefile,
   ComparisonEntityKind,
@@ -729,6 +730,7 @@ export const comparisonCasefiles: readonly ComparisonCasefile[] = [
   }),
   ...expansionRun2ComparisonCasefiles,
   ...expansionRun3ComparisonCasefiles,
+  ...expansionRun4ComparisonCasefiles,
 ];
 
 export const comparisonCasefileKey = (kind: ComparisonKind, firstId: string, secondId: string): string =>

@@ -307,7 +307,7 @@ export const expansionRun3ComparisonCasefiles: readonly ComparisonCasefile[] = [
 
   philosopherCase(['william-james', 'dewey'], {
     sharedQuestion: philosopherStatement('How can experience become intelligent inquiry rather than a stream of impressions or a fixed method?', 'william-james', 'dewey'),
-    historicalRelationship: philosopherStatement('Dewey taught and learned from James’s psychology, then revised questions of habit, emotion, experience, and inquiry within his own naturalism and democratic philosophy.', 'william-james', 'dewey'),
+    historicalRelationship: philosopherStatement('Dewey drew on James’s psychology, then revised questions of habit, emotion, experience, and inquiry within his own naturalism and democratic philosophy.', 'william-james', 'dewey'),
     sharedAssumptions: [philosopherStatement('Both oppose spectator models of mind and treat cognition as active, selective, embodied, temporal, and answerable to consequences.', 'william-james', 'dewey')],
     axes: [
       {label: 'Shape of experience', question: philosopherStatement('How should continuity, relation, habit, and environment be described?', 'william-james', 'dewey'), positions: [
