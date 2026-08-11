@@ -13,9 +13,9 @@
   "canonicalExhibitBaseline": {
     "total": 192,
     "countsByEffectiveStatus": {
-      "unreviewed": 41,
+      "unreviewed": 26,
       "reconciled": 0,
-      "standard-compliant": 151,
+      "standard-compliant": 166,
       "out-of-date": 0
     }
   },
@@ -27,7 +27,7 @@
     },
     "blockers": []
   },
-  "reviewedExhibits": 151,
+  "reviewedExhibits": 166,
   "errors": [],
   "entries": [
     {
@@ -538,9 +538,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-10",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 33,
+        "mainInterpretationWords": 319,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 7,
+        "principalAssetId": "platonism-academy-mosaic",
+        "issues": []
+      }
     },
     {
       "hallId": "mediterranean-beginnings-classical",
@@ -556,9 +566,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-10",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 32,
+        "mainInterpretationWords": 318,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 7,
+        "principalAssetId": "aristotelianism-walters-teaching",
+        "issues": []
+      }
     },
     {
       "hallId": "mediterranean-beginnings-classical",
@@ -1244,9 +1264,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-10",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 33,
+        "mainInterpretationWords": 320,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 7,
+        "principalAssetId": "rawls-portrait",
+        "issues": []
+      }
     },
     {
       "hallId": "justice-democratic-reason",
@@ -1262,9 +1292,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-10",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 33,
+        "mainInterpretationWords": 313,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 7,
+        "principalAssetId": "nozick-portrait",
+        "issues": []
+      }
     },
     {
       "hallId": "justice-democratic-reason",
@@ -1308,9 +1348,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-10",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 33,
+        "mainInterpretationWords": 316,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 6,
+        "principalAssetId": "metaphysics-reality-layers-interpretive",
+        "issues": []
+      }
     },
     {
       "hallId": "core-questions-forum",
@@ -1382,9 +1432,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-10",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 33,
+        "mainInterpretationWords": 317,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 7,
+        "principalAssetId": "epistemology-evidence-lens-interpretive",
+        "issues": []
+      }
     },
     {
       "hallId": "core-questions-forum",
@@ -1456,9 +1516,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-10",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 33,
+        "mainInterpretationWords": 320,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 7,
+        "principalAssetId": "jiddu-krishnamurti-bain-portrait",
+        "issues": []
+      }
     },
     {
       "hallId": "core-questions-forum",
@@ -3192,9 +3262,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-10",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 34,
+        "mainInterpretationWords": 319,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 6,
+        "principalAssetId": "stoicism-stoa-attalos",
+        "issues": []
+      }
     },
     {
       "hallId": "hellenistic-roman-ways",
@@ -3508,9 +3588,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-10",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 33,
+        "mainInterpretationWords": 303,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 7,
+        "principalAssetId": "late-neoplatonic-reader-sarcophagus",
+        "issues": []
+      }
     },
     {
       "hallId": "late-antiquity-inheritance",
@@ -4614,9 +4704,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-10",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 32,
+        "mainInterpretationWords": 311,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 6,
+        "principalAssetId": "critique-foucault-watercolor-2013",
+        "issues": []
+      }
     },
     {
       "hallId": "critique-power-deconstruction",
@@ -4632,9 +4732,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-10",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 32,
+        "mainInterpretationWords": 320,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 6,
+        "principalAssetId": "critique-derrida-espinosa-drawing-2013",
+        "issues": []
+      }
     },
     {
       "hallId": "critique-power-deconstruction",
@@ -4650,9 +4760,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-10",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 32,
+        "mainInterpretationWords": 320,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 6,
+        "principalAssetId": "critique-habermas-critical-theory-heidelberg-1964",
+        "issues": []
+      }
     },
     {
       "hallId": "moral-life-practical-reason",
@@ -4668,9 +4788,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-10",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 32,
+        "mainInterpretationWords": 318,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 6,
+        "principalAssetId": "moral-ethics-seven-works-mercy",
+        "issues": []
+      }
     },
     {
       "hallId": "moral-life-practical-reason",
@@ -4686,9 +4816,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-10",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 32,
+        "mainInterpretationWords": 289,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 8,
+        "principalAssetId": "moral-virtue-aristotle-homer",
+        "issues": []
+      }
     },
     {
       "hallId": "moral-life-practical-reason",
@@ -4936,9 +5076,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-10",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 34,
+        "mainInterpretationWords": 319,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 6,
+        "principalAssetId": "colonial-fanon-portrait",
+        "issues": []
+      }
     },
     {
       "hallId": "colonialism-race-liberation",
