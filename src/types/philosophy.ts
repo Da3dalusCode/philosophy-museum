@@ -242,6 +242,107 @@ export type TimelineEvent = {
 };
 export type RelationshipType = 'influenced' | 'reacts-against' | 'overlaps-with' | 'sub-branch-of' | 'historical-predecessor' | 'modern-descendant' | 'disagreement' | 'synthesis' | 'contrast';
 export type Relationship = {id: string; sourceId: string; targetId: string; sourceType: 'branch' | 'philosopher'; targetType: 'branch' | 'philosopher'; relationshipType: RelationshipType};
-export type LearningPathStep = {id: string; title: string; explanation: string; branchIds: string[]; philosopherIds: string[]; conceptIds: string[]; checkpointQuestion: string; nextHint: string};
-export type LearningPath = {id: string; title: string; beginnerDescription: string; branchIds: string[]; philosopherIds: string[]; steps: LearningPathStep[]};
+export type LearningExperienceLevel = 'foundation' | 'intermediate' | 'advanced';
+export type LearningPathArticleLink = {
+  kind: 'branch' | 'philosopher';
+  id: string;
+  reason: string;
+};
+export type LearningPathMuseumLink = {
+  hallId: string;
+  exhibitId: string;
+  label: string;
+  reason: string;
+};
+export type LearningPathReading = {
+  title: string;
+  author: string;
+  kind: 'primary' | 'secondary';
+  whyThisStep: string;
+  sourceArticle: Pick<LearningPathArticleLink, 'kind' | 'id'>;
+};
+export type LearningPathStep = {
+  id: string;
+  title: string;
+  sequenceRationale: string;
+  explanation: string;
+  objectives: string[];
+  branchIds: string[];
+  philosopherIds: string[];
+  conceptIds: string[];
+  articleLinks: LearningPathArticleLink[];
+  museumLinks: LearningPathMuseumLink[];
+  readings: LearningPathReading[];
+  reflectionQuestions: [string, string];
+  checkpointQuestion: string;
+  nextHint: string;
+};
+export type LearningPath = {
+  id: string;
+  title: string;
+  beginnerDescription: string;
+  level: LearningExperienceLevel;
+  subjectTags: string[];
+  worldTags: string[];
+  estimatedMinutes: number;
+  prerequisites: string;
+  objectives: string[];
+  outcomes: string[];
+  branchIds: string[];
+  philosopherIds: string[];
+  steps: LearningPathStep[];
+};
+
+export type ComparisonEntityKind = 'branch' | 'philosopher';
+export type ComparisonEvidenceRef = {
+  entityKind: ComparisonEntityKind;
+  entityId: string;
+  sourceId: string;
+  locator?: CitationLocator;
+};
+export type ComparisonStatement = {text: string; evidence: ComparisonEvidenceRef[]};
+export type ComparisonAxis = {
+  label: string;
+  question: ComparisonStatement;
+  positions: {entityId: string; claim: ComparisonStatement}[];
+  contrast: ComparisonStatement;
+};
+export type ComparisonTerm = {
+  topic: string;
+  positions: {entityId: string; term: string; explanation: ComparisonStatement}[];
+  warning?: ComparisonStatement;
+};
+export type ComparisonArgument = {
+  entityId: string;
+  title: string;
+  summary: ComparisonStatement;
+  pressure?: ComparisonStatement;
+};
+export type ComparisonReading = {
+  entityId: string;
+  title: string;
+  author: string;
+  kind: 'primary' | 'secondary';
+  stage: string;
+  whyHere: ComparisonStatement;
+};
+export type ComparisonFollowOn = {
+  kind: ComparisonEntityKind;
+  participantIds: readonly [string, string];
+  label: string;
+  reason: ComparisonStatement;
+};
+export type ComparisonCasefile = {
+  kind: ComparisonEntityKind;
+  participantIds: readonly [string, string];
+  sharedQuestion: ComparisonStatement;
+  historicalRelationship: ComparisonStatement;
+  sharedAssumptions: ComparisonStatement[];
+  axes: ComparisonAxis[];
+  terminology: ComparisonTerm[];
+  arguments: ComparisonArgument[];
+  readings: ComparisonReading[];
+  interpretiveLimits: ComparisonStatement[];
+  followOns: ComparisonFollowOn[];
+};
 export type ViewId = 'history' | 'branches' | 'map' | 'philosophers' | 'compare' | 'paths' | 'museum';

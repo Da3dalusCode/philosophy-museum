@@ -32,6 +32,7 @@ const buildResult = await build({
           export {branches} from '/src/data/branches.ts';
           export {philosophers} from '/src/data/philosophers.ts';
           export {learningPaths} from '/src/data/learningPaths.ts';
+          export {comparisonCasefiles} from '/src/data/comparisons.ts';
         `;
       },
     },
@@ -66,6 +67,7 @@ const {
   DEFAULT_ROUTES,
   applyHashCanonicalization,
   branches,
+  comparisonCasefiles,
   DEFAULT_MUSEUM_HALL_ID,
   enableManualScrollRestoration,
   philosophers,
@@ -432,17 +434,13 @@ check('invalid learning-path steps and route shapes are rejected', () => {
   }
 });
 
-check('branch and philosopher comparisons round-trip', () => {
-  expectRoundTrip({
-    kind: 'compare-branches',
-    leftId: DEFAULT_ROUTES.compare.leftId,
-    rightId: DEFAULT_ROUTES.compare.rightId,
-  });
-  expectRoundTrip({
-    kind: 'compare-philosophers',
-    leftId: DEFAULT_ROUTES.comparePhilosophers.leftId,
-    rightId: DEFAULT_ROUTES.comparePhilosophers.rightId,
-  });
+check('all authored comparison casefiles and their reversed identities round-trip', () => {
+  for (const casefile of comparisonCasefiles) {
+    const kind = casefile.kind === 'branch' ? 'compare-branches' : 'compare-philosophers';
+    const [leftId, rightId] = casefile.participantIds;
+    expectRoundTrip({kind, leftId, rightId});
+    expectRoundTrip({kind, leftId: rightId, rightId: leftId});
+  }
 });
 
 check('unknown branch, philosopher, and learning-path IDs are rejected', () => {

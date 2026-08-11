@@ -11225,7 +11225,7 @@
     {
       "id": "ethics",
       "title": "Understand Ethics",
-      "stepCount": 6
+      "stepCount": 4
     },
     {
       "id": "metaphysics",
@@ -11235,12 +11235,12 @@
     {
       "id": "knowledge",
       "title": "Understand Epistemology",
-      "stepCount": 6
+      "stepCount": 4
     },
     {
       "id": "politics",
       "title": "Understand Political Philosophy",
-      "stepCount": 7
+      "stepCount": 4
     },
     {
       "id": "existential",
@@ -11250,12 +11250,32 @@
     {
       "id": "mind",
       "title": "Understand Philosophy of Mind",
-      "stepCount": 6
+      "stepCount": 4
     },
     {
       "id": "traditions",
-      "title": "Understand Analytic vs Continental Philosophy",
-      "stepCount": 3
+      "title": "Understand Analytic and Continental Philosophy",
+      "stepCount": 4
+    },
+    {
+      "id": "ancient-ways",
+      "title": "Ancient Arguments and Ways of Life",
+      "stepCount": 4
+    },
+    {
+      "id": "logic-language",
+      "title": "Logic and Language: Form, Meaning, Use",
+      "stepCount": 4
+    },
+    {
+      "id": "chinese-traditions",
+      "title": "Chinese Traditions: Cultivation, Way, Standards",
+      "stepCount": 4
+    },
+    {
+      "id": "south-asian",
+      "title": "South Asian Philosophies: Liberation, Self, Knowledge",
+      "stepCount": 4
     }
   ],
   "museumHalls": [

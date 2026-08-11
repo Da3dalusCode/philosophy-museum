@@ -13,6 +13,7 @@
     "validate:museum-masterplan": "node scripts/validateMuseumMasterplan.mjs",
     "validate:museum-building-plan": "node scripts/validateSingleLevelBuildingPlan.mjs",
     "audit:routing": "node scripts/auditRouting.mjs",
+    "audit:learning-experiences": "node scripts/auditLearningExperiences.mjs",
     "audit:museum": "node scripts/auditMuseum.mjs && node scripts/auditMuseumPlaques.mjs && node scripts/auditExhibitReview.mjs",
     "audit:museum-mobile-controls": "node scripts/auditMuseumMobileControls.mjs",
     "audit:museum-plaques": "node scripts/auditMuseumPlaques.mjs",
