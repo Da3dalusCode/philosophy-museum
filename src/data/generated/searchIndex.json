@@ -49,27 +49,27 @@
     {
       "id": "epicureanism",
       "label": "Epicureanism",
-      "searchText": "epicureanism seeks tranquility through modest pleasure, friendship, and freedom from fear. which desires actually lead to peace? method central question"
+      "searchText": "epicureanism a hellenistic school that joins atomist natural philosophy to a therapeutic ethics: pleasure is the good, chiefly as freedom from pain and disturbance, while friendship and limited desire support security. which desires actually lead to peace? method central question"
     },
     {
       "id": "cynicism",
       "label": "Cynicism",
-      "searchText": "cynicism begins from socratic anti-conventional ethics and becomes famous through diogenes’ radical simplicity. which social conventions keep us from living freely? method central question"
+      "searchText": "cynicism a contested ancient greek ethical way of life that uses askesis, self-sufficiency, frank speech, and public reversal of convention to test whether status and artificial needs make people unfree. which social conventions keep us from living freely? method central question"
     },
     {
       "id": "skepticism",
       "label": "Skepticism",
-      "searchText": "skepticism tests whether certainty is justified and sometimes suspends judgment. when should we withhold belief? method central question"
+      "searchText": "skepticism a family of ancient and modern practices and arguments that test claims to knowledge or justified assent, distinguish forms of uncertainty, and sometimes recommend suspension of judgment rather than a settled negative doctrine. when should we withhold belief? method central question"
     },
     {
       "id": "deontology",
       "label": "Deontology",
-      "searchText": "deontology judges actions through duties and principles, not only outcomes. what must i do regardless of consequences? method central question"
+      "searchText": "deontology a family of normative theories that treats some actions as required, forbidden, or permitted for reasons not exhausted by producing the best aggregate outcome, including duties, rights, constraints, special obligations, and justifiability to persons. what must i do regardless of consequences? method central question"
     },
     {
       "id": "utilitarianism",
       "label": "Utilitarianism",
-      "searchText": "utilitarianism begins with bentham’s utility principle and is revised by mill around liberty, quality of pleasures, and individuality. which action produces the best overall outcome? method central question"
+      "searchText": "utilitarianism a family of consequentialist theories that evaluates options by their effects on welfare or another specified account of well-being, gives each affected interest impartial consideration, and normally directs agents or institutions to promote the best available outcome. which action produces the best overall outcome? method central question"
     },
     {
       "id": "political-philosophy",
@@ -79,12 +79,12 @@
     {
       "id": "logic",
       "label": "Logic",
-      "searchText": "logic studies valid inference and the structure of argument. what makes reasoning valid? method central question"
+      "searchText": "logic a field that studies consequence, validity, proof, consistency, formal languages, and related norms of inference, while disputing which structures are genuinely logical and whether one logic or many are correct for different purposes. what makes reasoning valid? method central question"
     },
     {
       "id": "philosophy-of-language",
       "label": "Philosophy of Language",
-      "searchText": "philosophy of language studies meaning, reference, and what language lets us do. how do words mean? method central question"
+      "searchText": "philosophy of language a field that studies meaning, reference, truth, speech, interpretation, linguistic practice, and the social conditions under which words can represent, communicate, authorize, exclude, or mislead. how do words mean? method central question"
     },
     {
       "id": "philosophy-of-mind",
@@ -99,32 +99,32 @@
     {
       "id": "aesthetics",
       "label": "Aesthetics",
-      "searchText": "aesthetics studies art, beauty, taste, and interpretation. what makes something art or beautiful? method central question"
+      "searchText": "aesthetics a field that studies beauty, art, taste, form, representation, expression, aesthetic experience, interpretation, and value, together with the social histories and institutions that shape what becomes perceptible or counts as excellent. what makes something art or beautiful? method central question"
     },
     {
       "id": "existentialism",
       "label": "Existentialism",
-      "searchText": "existentialism explores freedom, anxiety, death, meaning, responsibility, and authenticity. how should i live when meaning is not guaranteed? authenticity bad faith the absurd"
+      "searchText": "existentialism a heterogeneous twentieth-century movement and wider family of projects that treats finite, situated existence, freedom, anxiety, responsibility, meaning, and relation to others as irreducible philosophical problems. how can finite, embodied people take responsibility for commitments whose outcome is uncertain? what do freedom and authenticity mean within facticity, social power, and relations with others? can existential freedom support ethics, solidarity, and political criticism without a pre-given moral script? situated freedom facticity the absurd"
     },
     {
       "id": "phenomenology",
       "label": "Phenomenology",
-      "searchText": "phenomenology carefully describes the structures of lived experience. how does the world appear in experience? intentionality lifeworld embodiment"
+      "searchText": "phenomenology a family of methods and historical projects that investigates the structures through which objects, others, bodies, time, and worlds become meaningful in experience. how are objects, others, time, body, and world given as meaningful in experience? what does phenomenological reduction suspend, and does it support realism, transcendental idealism, or neither? how do social power, history, embodiment, and interpretation shape what can appear or be described? intentionality epoché and reduction lifeworld"
     },
     {
       "id": "pragmatism",
       "label": "Pragmatism",
-      "searchText": "pragmatism peirce initiates pragmatism’s maxim, while james and dewey develop it into broader accounts of truth, inquiry, and democracy. what difference does an idea make in practice? method central question"
+      "searchText": "pragmatism a plural philosophical tradition that treats knowing as inseparable from agency, inquiry, experience, signs, habits, consequences, and correction within a world that resists wishful belief. how do a concept’s conceivable practical bearings clarify its meaning? how can fallible inquiry be publicly corrected without requiring infallible foundations? what makes attention to consequences responsible experimentation rather than short-term expediency? how do power and exclusion shape whose experience counts in communities of inquiry? pragmatic maxim fallibilism inquiry"
     },
     {
       "id": "analytic-philosophy",
       "label": "Analytic Philosophy",
-      "searchText": "analytic philosophy a contested modern family of lineages, institutions, methods, and problems shaped by logic, language, science, and explicit argument. what—if anything—unifies analytic philosophy across its changing methods and subjects? conceptual analysis reference language-game"
+      "searchText": "analytic philosophy a contested family of twentieth- and twenty-first-century philosophical lineages whose methods often emphasize explicit argument, logical or conceptual analysis, linguistic attention, and interaction with formal or empirical inquiry. what, if anything, unifies analytic philosophy beyond a changing family of methods and institutions? what can logical, conceptual, linguistic, formal, experimental, and historical analysis each clarify? how should precision, scope, empirical evidence, and ethical or political responsibility constrain philosophical argument? logical analysis conceptual analysis meaning and use"
     },
     {
       "id": "continental-philosophy",
       "label": "Continental Philosophy",
-      "searchText": "continental philosophy engages history, culture, experience, power, and critique through several movements. how do history and culture shape experience? method central question"
+      "searchText": "continental philosophy a retrospective umbrella for several distinct european and transnational lineages—including phenomenology, existentialism, hermeneutics, marxism, critical theory, structuralism, genealogy, post-structuralism, deconstruction, feminist, and decolonial critiques—rather than one doctrine or method. does this umbrella name a philosophical family or mainly an institutional contrast produced by curricula, language, and professional networks? how do history, embodiment, language, production, interpretation, and power shape what appears natural, rational, or possible? how can critique expose domination without simply assuming the universal standards it is testing? historicity critique power and subject formation"
     },
     {
       "id": "feminist-philosophy",
@@ -139,12 +139,12 @@
     {
       "id": "ancient-greek",
       "label": "Ancient Greek Philosophy",
-      "searchText": "ancient greek philosophy builds systematic inquiry into nature, knowledge, virtue, and politics. how can reason guide a flourishing life? method central question"
+      "searchText": "ancient greek philosophy a diverse body of greek-language philosophical practices from early cosmological and ethical inquiry through classical, hellenistic, roman, and late-antique schools, known largely through uneven textual transmission and later reception. what kinds of explanation can account for nature, change, cause, and being? how should inquiry, argument, perception, and education guide claims to knowledge? what makes a life, character, city, or political order good or just, and who was excluded from those questions? how did later schools turn philosophical argument into practices of therapy, community, and way of life? logos and reason-giving physis and nature eudaimonia"
     },
     {
       "id": "chinese-philosophy",
       "label": "Chinese Philosophy",
-      "searchText": "chinese philosophy umbrella for confucian, daoist, mohist, legalist, and neo-confucian debates rather than a single school with one founder. how can people and societies live in harmony? method central question"
+      "searchText": "chinese philosophy an umbrella for diverse philosophical traditions and debates that developed in chinese historical and linguistic contexts, including but not limited to confucian, daoist, mohist, legalist, buddhist, and song-ming confucian projects. how do learning, ritual, affect, family, role, and institutions shape ethical cultivation? should political order depend on exemplary character, impartial benefit, minimal interference, or public standards and administrative technique? how do names, distinctions, heart-mind, dao, qi, pattern, change, and practice make knowledge and action possible? how should later thinkers transform classical resources amid buddhism, empire, scholarship, colonialism, science, revolution, and transregional exchange? dao li: ritual and pattern xin: heart-mind"
     },
     {
       "id": "confucianism",

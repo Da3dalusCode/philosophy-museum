@@ -2975,75 +2975,95 @@
       "title": "Epicureanism",
       "category": "philosophy",
       "visitorEntryPoint": "#/branches/epicureanism",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 4,
+      "citedSourceCount": 4,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 2022
+      "structuredClaimCount": 16,
+      "structuredParagraphCount": 24,
+      "citationCount": 100,
+      "substantiveArticleWordCount": 2035,
+      "reviewNotePath": "docs/editorial/reviews/epicureanism.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:c7ae51e8397f48e0",
+      "currentReviewLock": "fnv1a64:c7ae51e8397f48e0"
     },
     {
       "id": "cynicism",
       "title": "Cynicism",
       "category": "philosophy",
       "visitorEntryPoint": "#/branches/cynicism",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 4,
+      "citedSourceCount": 4,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 2035
+      "structuredClaimCount": 16,
+      "structuredParagraphCount": 27,
+      "citationCount": 102,
+      "substantiveArticleWordCount": 2062,
+      "reviewNotePath": "docs/editorial/reviews/cynicism.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:759d32368819f315",
+      "currentReviewLock": "fnv1a64:759d32368819f315"
     },
     {
       "id": "skepticism",
       "title": "Skepticism",
       "category": "philosophy",
       "visitorEntryPoint": "#/branches/skepticism",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 5,
+      "citedSourceCount": 5,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 2031
+      "structuredClaimCount": 16,
+      "structuredParagraphCount": 26,
+      "citationCount": 119,
+      "substantiveArticleWordCount": 2036,
+      "reviewNotePath": "docs/editorial/reviews/skepticism.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:fe65280ad564667f",
+      "currentReviewLock": "fnv1a64:fe65280ad564667f"
     },
     {
       "id": "deontology",
       "title": "Deontology",
       "category": "philosophy",
       "visitorEntryPoint": "#/branches/deontology",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 4,
+      "citedSourceCount": 4,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 2662
+      "structuredClaimCount": 16,
+      "structuredParagraphCount": 26,
+      "citationCount": 99,
+      "substantiveArticleWordCount": 2652,
+      "reviewNotePath": "docs/editorial/reviews/deontology.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:665610053c3c5992",
+      "currentReviewLock": "fnv1a64:665610053c3c5992"
     },
     {
       "id": "utilitarianism",
       "title": "Utilitarianism",
       "category": "philosophy",
       "visitorEntryPoint": "#/branches/utilitarianism",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 5,
+      "citedSourceCount": 5,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 2625
+      "structuredClaimCount": 16,
+      "structuredParagraphCount": 26,
+      "citationCount": 99,
+      "substantiveArticleWordCount": 2592,
+      "reviewNotePath": "docs/editorial/reviews/utilitarianism.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:87e051f44614feca",
+      "currentReviewLock": "fnv1a64:87e051f44614feca"
     },
     {
       "id": "political-philosophy",
@@ -3069,30 +3089,38 @@
       "title": "Logic",
       "category": "philosophy",
       "visitorEntryPoint": "#/branches/logic",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 5,
+      "citedSourceCount": 5,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 2826
+      "structuredClaimCount": 16,
+      "structuredParagraphCount": 26,
+      "citationCount": 90,
+      "substantiveArticleWordCount": 2752,
+      "reviewNotePath": "docs/editorial/reviews/logic.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:7500ea51a88e3072",
+      "currentReviewLock": "fnv1a64:7500ea51a88e3072"
     },
     {
       "id": "philosophy-of-language",
       "title": "Philosophy of Language",
       "category": "philosophy",
       "visitorEntryPoint": "#/branches/philosophy-of-language",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 6,
+      "citedSourceCount": 6,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 2433
+      "structuredClaimCount": 16,
+      "structuredParagraphCount": 26,
+      "citationCount": 100,
+      "substantiveArticleWordCount": 2410,
+      "reviewNotePath": "docs/editorial/reviews/philosophy-of-language.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:3049645f3ca11034",
+      "currentReviewLock": "fnv1a64:3049645f3ca11034"
     },
     {
       "id": "philosophy-of-mind",
@@ -3137,90 +3165,114 @@
       "title": "Aesthetics",
       "category": "philosophy",
       "visitorEntryPoint": "#/branches/aesthetics",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 5,
+      "citedSourceCount": 5,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 2838
+      "structuredClaimCount": 16,
+      "structuredParagraphCount": 24,
+      "citationCount": 89,
+      "substantiveArticleWordCount": 2776,
+      "reviewNotePath": "docs/editorial/reviews/aesthetics.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:c366cb4e15edefa2",
+      "currentReviewLock": "fnv1a64:c366cb4e15edefa2"
     },
     {
       "id": "existentialism",
       "title": "Existentialism",
       "category": "philosophy",
       "visitorEntryPoint": "#/branches/existentialism",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 5,
+      "citedSourceCount": 5,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 2056
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 27,
+      "citationCount": 125,
+      "substantiveArticleWordCount": 2060,
+      "reviewNotePath": "docs/editorial/reviews/existentialism.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:881ec4b853f6c73e",
+      "currentReviewLock": "fnv1a64:881ec4b853f6c73e"
     },
     {
       "id": "phenomenology",
       "title": "Phenomenology",
       "category": "philosophy",
       "visitorEntryPoint": "#/branches/phenomenology",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 4,
+      "citedSourceCount": 4,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 2022
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 27,
+      "citationCount": 127,
+      "substantiveArticleWordCount": 2025,
+      "reviewNotePath": "docs/editorial/reviews/phenomenology.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:03cd9623d7e277f6",
+      "currentReviewLock": "fnv1a64:03cd9623d7e277f6"
     },
     {
       "id": "pragmatism",
       "title": "Pragmatism",
       "category": "philosophy",
       "visitorEntryPoint": "#/branches/pragmatism",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 5,
+      "citedSourceCount": 5,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 3473
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 32,
+      "citationCount": 135,
+      "substantiveArticleWordCount": 3471,
+      "reviewNotePath": "docs/editorial/reviews/pragmatism.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:f9b594c2730739db",
+      "currentReviewLock": "fnv1a64:f9b594c2730739db"
     },
     {
       "id": "analytic-philosophy",
       "title": "Analytic Philosophy",
       "category": "philosophy",
       "visitorEntryPoint": "#/branches/analytic-philosophy",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 4,
+      "citedSourceCount": 4,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 2963
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 36,
+      "citationCount": 120,
+      "substantiveArticleWordCount": 2963,
+      "reviewNotePath": "docs/editorial/reviews/analytic-philosophy.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:f7f31a1d6354759b",
+      "currentReviewLock": "fnv1a64:f7f31a1d6354759b"
     },
     {
       "id": "continental-philosophy",
       "title": "Continental Philosophy",
       "category": "philosophy",
       "visitorEntryPoint": "#/branches/continental-philosophy",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 4,
+      "citedSourceCount": 4,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 3093
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 28,
+      "citationCount": 100,
+      "substantiveArticleWordCount": 3093,
+      "reviewNotePath": "docs/editorial/reviews/continental-philosophy.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:ef74afb9a56fa5e5",
+      "currentReviewLock": "fnv1a64:ef74afb9a56fa5e5"
     },
     {
       "id": "feminist-philosophy",
@@ -3265,30 +3317,38 @@
       "title": "Ancient Greek Philosophy",
       "category": "philosophy",
       "visitorEntryPoint": "#/branches/ancient-greek",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 5,
+      "citedSourceCount": 5,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 2717
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 39,
+      "citationCount": 124,
+      "substantiveArticleWordCount": 2717,
+      "reviewNotePath": "docs/editorial/reviews/ancient-greek.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:9e7926250d960243",
+      "currentReviewLock": "fnv1a64:9e7926250d960243"
     },
     {
       "id": "chinese-philosophy",
       "title": "Chinese Philosophy",
       "category": "philosophy",
       "visitorEntryPoint": "#/branches/chinese-philosophy",
-      "authoredStatus": "bibliography-only",
-      "effectiveStatus": "bibliography-only",
-      "sourceCount": 0,
-      "citedSourceCount": 0,
+      "authoredStatus": "claim-reviewed",
+      "effectiveStatus": "claim-reviewed",
+      "sourceCount": 4,
+      "citedSourceCount": 4,
       "furtherReadingSourceCount": 0,
-      "structuredClaimCount": 0,
-      "structuredParagraphCount": 0,
-      "citationCount": 0,
-      "substantiveArticleWordCount": 2287
+      "structuredClaimCount": 17,
+      "structuredParagraphCount": 20,
+      "citationCount": 95,
+      "substantiveArticleWordCount": 2282,
+      "reviewNotePath": "docs/editorial/reviews/chinese-philosophy.md",
+      "reviewNoteExists": true,
+      "storedReviewLock": "fnv1a64:013c04c2f91e12bc",
+      "currentReviewLock": "fnv1a64:013c04c2f91e12bc"
     },
     {
       "id": "confucianism",
@@ -3560,1091 +3620,6 @@
     }
   ],
   "warnings": [
-    {
-      "recordKey": "philosophy:epicureanism",
-      "status": "bibliography-only",
-      "signal": "exact-date",
-      "location": "garden/paragraph-1",
-      "excerpt": "Epicurus founded the Garden in Athens around 306 BCE after teaching elsewhere in the Greek world. The school developed alongside Stoicism, Skepticism, Plato’s Academy, and Aristotle’s Lyceum, but established a distinctiv"
-    },
-    {
-      "recordKey": "philosophy:epicureanism",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "garden/paragraph-1",
-      "excerpt": "Epicurus founded the Garden in Athens around 306 BCE after teaching elsewhere in the Greek world. The school developed alongside Stoicism, Skepticism, Plato’s Academy, and Aristotle’s Lyceum, but established a distinctiv"
-    },
-    {
-      "recordKey": "philosophy:epicureanism",
-      "status": "bibliography-only",
-      "signal": "disputed-attribution",
-      "location": "atomism/paragraph-1",
-      "excerpt": "Epicurean physics adapts Democritean atomism. Everything bodily consists of atoms and void; compounds form, change, and dissolve, while the basic constituents persist. The soul is a particularly fine bodily compound and"
-    },
-    {
-      "recordKey": "philosophy:epicureanism",
-      "status": "bibliography-only",
-      "signal": "disputed-attribution",
-      "location": "atomism/paragraph-2",
-      "excerpt": "The atomic swerve, especially known through Lucretius, describes a minimal deviation that prevents atomic motion from being only parallel fall and collision determined from eternity. Its exact role in Epicurean accounts"
-    },
-    {
-      "recordKey": "philosophy:epicureanism",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "lucretius/paragraph-1",
-      "excerpt": "Lucretius’ De Rerum Natura is the fullest surviving presentation of Epicurean philosophy and one of its most consequential transformations. Written in Latin verse during the first century BCE, the poem explains atoms, vo"
-    },
-    {
-      "recordKey": "philosophy:epicureanism",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "misunderstandings-reading/paragraph-1",
-      "excerpt": "Three misunderstandings obscure Epicureanism. First, hedonism does not mean maximizing intense indulgence; it means organizing choice around stable pleasure and freedom from disturbance. Second, withdrawal from corrosive"
-    },
-    {
-      "recordKey": "philosophy:cynicism",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "sources-origins/paragraph-1",
-      "excerpt": "Cynicism’s origins are difficult to reconstruct because surviving sources are late and anecdotal. Antisthenes, a follower of Socrates, is often presented as a predecessor or founder, while Diogenes of Sinope becomes the"
-    },
-    {
-      "recordKey": "philosophy:cynicism",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "sources-origins/paragraph-2",
-      "excerpt": "The source problem does not make Cynicism unreal, but it changes how its philosophy is read. A story about Diogenes may have been invented or polished to express a Cynic stance. Repeated themes across anecdotes reveal a"
-    },
-    {
-      "recordKey": "philosophy:cynicism",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "antisthenes/paragraph-1",
-      "excerpt": "Antisthenes studied with Socrates and emphasized virtue, endurance, and independence from external goods. Surviving reports associate him with the claim that virtue can be taught and is sufficient for happiness, requirin"
-    },
-    {
-      "recordKey": "philosophy:cynicism",
-      "status": "bibliography-only",
-      "signal": "influence-or-causation",
-      "location": "cosmopolitanism/paragraph-2",
-      "excerpt": "The claim influenced Stoicism, which developed a more systematic account of rational beings sharing one moral community. Cynic cosmopolitanism remains sharper and less institutionally comfortable: if the world is the com"
-    },
-    {
-      "recordKey": "philosophy:cynicism",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "reception-misreadings/paragraph-1",
-      "excerpt": "Ancient Cynicism influenced Stoicism and remained visible through wandering preachers, satirists, and public moral critics. Some later figures adopted the costume and aggression without the discipline, prompting complain"
-    },
-    {
-      "recordKey": "philosophy:cynicism",
-      "status": "bibliography-only",
-      "signal": "influence-or-causation",
-      "location": "reception-misreadings/paragraph-1",
-      "excerpt": "Ancient Cynicism influenced Stoicism and remained visible through wandering preachers, satirists, and public moral critics. Some later figures adopted the costume and aggression without the discipline, prompting complain"
-    },
-    {
-      "recordKey": "philosophy:skepticism",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "academy/paragraph-1",
-      "excerpt": "Academic Skepticism arose within the institution founded by Plato. Arcesilaus, who led the Academy in the third century BCE, used Socratic and dialectical methods against claims to knowledge, especially the Stoic theory"
-    },
-    {
-      "recordKey": "philosophy:skepticism",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "sextus/paragraph-2",
-      "excerpt": "Sextus’ writing is therapeutic and adversarial. Arguments are used to counterbalance the confidence produced by other arguments, like remedies adjusted to the strength of a disturbance. A skeptical expression such as “no"
-    },
-    {
-      "recordKey": "philosophy:skepticism",
-      "status": "bibliography-only",
-      "signal": "disputed-attribution",
-      "location": "suspension/paragraph-2",
-      "excerpt": "Pyrrhonian modes organize routes toward this result. Arguments from disagreement ask why one disputed position deserves priority. Regress arguments ask for the support of each supporting reason. Relativity reveals how ap"
-    },
-    {
-      "recordKey": "philosophy:skepticism",
-      "status": "bibliography-only",
-      "signal": "influence-or-causation",
-      "location": "tranquility/paragraph-2",
-      "excerpt": "Sextus distinguishes disturbance caused by unavoidable feelings from the added torment of judgments. Pain still hurts, but the belief that pain is by nature an absolute evil can multiply suffering through fear, shame, an"
-    },
-    {
-      "recordKey": "philosophy:skepticism",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "early-modern/paragraph-2",
-      "excerpt": "Descartes radicalizes doubt methodically in order to discover a foundation immune to it, a goal unlike Pyrrhonian suspension. Hume develops skeptical arguments about causation, induction, self, and reason while emphasizi"
-    },
-    {
-      "recordKey": "philosophy:skepticism",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "misunderstandings-reading/paragraph-2",
-      "excerpt": "Begin with Sextus Empiricus’ Outlines of Pyrrhonism, especially the account of skepticism, the modes, and the response to inactivity. Read slowly enough to notice when Sextus reports an appearance rather than asserts a d"
-    },
-    {
-      "recordKey": "philosophy:deontology",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "historical-development/paragraph-1",
-      "excerpt": "Duties long predate the modern label “deontology.” Ancient, religious, natural-law, and social traditions all distinguish obligations, permissions, roles, and prohibitions, though they ground them differently. Modern deo"
-    },
-    {
-      "recordKey": "philosophy:deontology",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "historical-development/paragraph-2",
-      "excerpt": "Kantian ethics shaped later accounts of dignity, respect, autonomy, and the moral importance of reasons an agent can share with others. Yet twentieth-century deontology also took non-Kantian forms. W. D. Ross argued that"
-    },
-    {
-      "recordKey": "philosophy:deontology",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "key-concepts/paragraph-3",
-      "excerpt": "Permission is as important as prohibition. Many deontologists deny that morality always requires the act that produces the greatest good. Agent-centered prerogatives allow people to devote time and resources to friends,"
-    },
-    {
-      "recordKey": "philosophy:deontology",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "figures-works/paragraph-1",
-      "excerpt": "Kant’s Groundwork is the most influential entry point, but it is often caricatured. Kant is not simply saying “follow whatever rule you have.” A maxim includes an agent’s principle and purpose, and universalization tests"
-    },
-    {
-      "recordKey": "philosophy:deontology",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "figures-works/paragraph-1",
-      "excerpt": "Kant’s Groundwork is the most influential entry point, but it is often caricatured. Kant is not simply saying “follow whatever rule you have.” A maxim includes an agent’s principle and purpose, and universalization tests"
-    },
-    {
-      "recordKey": "philosophy:deontology",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "figures-works/paragraph-2",
-      "excerpt": "Ross’s The Right and the Good supplies a plural alternative. Fidelity matters because promises establish relations; reparation responds to one’s own wrongful acts; gratitude answers benefits received; justice concerns di"
-    },
-    {
-      "recordKey": "philosophy:deontology",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "figures-works/paragraph-3",
-      "excerpt": "Thomson’s essays on rights and trolley cases clarify distinctions among intending harm, redirecting a threat, using a person, and failing to aid. Nozick’s Anarchy, State, and Utopia gives rights powerful political force"
-    },
-    {
-      "recordKey": "philosophy:deontology",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "misunderstandings/paragraph-1",
-      "excerpt": "The first misconception is that deontology orders agents to follow rules regardless of context. Some deontologists defend absolutes, but others recognize defeasible duties, thresholds, permissions, role-based obligations"
-    },
-    {
-      "recordKey": "philosophy:deontology",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "modern-relevance/paragraph-2",
-      "excerpt": "Digital systems raise parallel questions. Privacy is not merely a preference to trade against efficiency; it can protect agency, association, and freedom from manipulation. Automated decisions may produce acceptable aver"
-    },
-    {
-      "recordKey": "philosophy:deontology",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "reading-path/paragraph-3",
-      "excerpt": "Finally compare Nozick, Rawls, and Scanlon without treating them as one contract tradition. Nozick tests the force and cost of rights as side constraints; Rawls asks what fair principles should govern basic institutions;"
-    },
-    {
-      "recordKey": "philosophy:utilitarianism",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "overview/paragraph-2",
-      "excerpt": "Jeremy Bentham is the canonical founder of classical utilitarianism in the atlas. John Stuart Mill is its major nineteenth-century developer and reviser, not a co-founder placed outside that historical sequence. Later ut"
-    },
-    {
-      "recordKey": "philosophy:utilitarianism",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "historical-development/paragraph-2",
-      "excerpt": "Mill’s Utilitarianism defends the greatest-happiness principle while revising the Benthamite inheritance. His distinction between higher and lower pleasures makes competent judges and quality relevant, inviting debate ab"
-    },
-    {
-      "recordKey": "philosophy:utilitarianism",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "misunderstandings/paragraph-1",
-      "excerpt": "Utilitarianism is not egoism. It requires impartial consideration of everyone’s welfare, so an agent’s convenience has no automatic priority over a stranger’s serious interest. Nor does it mean “the ends justify any mean"
-    },
-    {
-      "recordKey": "philosophy:utilitarianism",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "misunderstandings/paragraph-3",
-      "excerpt": "Finally, “greatest happiness” is not a settled unit of measurement. Pleasure, preference, objective goods, health, capabilities, and freedom can rank lives differently. Equal consideration does not itself say whether to"
-    },
-    {
-      "recordKey": "philosophy:utilitarianism",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "misunderstandings/paragraph-3",
-      "excerpt": "Finally, “greatest happiness” is not a settled unit of measurement. Pleasure, preference, objective goods, health, capabilities, and freedom can rank lives differently. Equal consideration does not itself say whether to"
-    },
-    {
-      "recordKey": "philosophy:utilitarianism",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "reading-path/paragraph-2",
-      "excerpt": "Continue with selections from Sidgwick’s Methods of Ethics on utilitarianism and common-sense morality, then compare a clear defense of act consequentialism with an account of rule consequentialism. Build a table separat"
-    },
-    {
-      "recordKey": "philosophy:logic",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "overview/paragraph-2",
-      "excerpt": "The field has never been one completed calculus. Aristotle systematized term relations and demonstrations; Megarian and Stoic thinkers investigated conditionals and whole propositions; Indian and Buddhist traditions deve"
-    },
-    {
-      "recordKey": "philosophy:logic",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "historical-development/paragraph-1",
-      "excerpt": "Ancient Greek logic grew from practices of proof, dialectical questioning, rhetoric, and scientific explanation. Aristotle’s Prior Analytics gave a systematic theory of syllogisms: arguments whose validity depends on rel"
-    },
-    {
-      "recordKey": "philosophy:logic",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "historical-development/paragraph-1",
-      "excerpt": "Ancient Greek logic grew from practices of proof, dialectical questioning, rhetoric, and scientific explanation. Aristotle’s Prior Analytics gave a systematic theory of syllogisms: arguments whose validity depends on rel"
-    },
-    {
-      "recordKey": "philosophy:logic",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "key-concepts/paragraph-2",
-      "excerpt": "Syntax and semantics offer two complementary perspectives. Syntax concerns well-formed expressions and transformations licensed by rules; a proof derives a conclusion through explicit steps. Semantics concerns interpreta"
-    },
-    {
-      "recordKey": "philosophy:logic",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "key-concepts/paragraph-3",
-      "excerpt": "Quantification represents generality and existence through expressions corresponding roughly to “for every” and “for some.” It made relations with several places—such as one person admiring another—formally tractable in"
-    },
-    {
-      "recordKey": "philosophy:logic",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "figures-works/paragraph-2",
-      "excerpt": "Ockham’s Summa of Logic develops terms, propositions, inference, and supposition within Latin scholastic debate. In modern Europe, Frege’s Begriffsschrift and “On Sense and Reference” join formal innovation to questions"
-    },
-    {
-      "recordKey": "philosophy:logic",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "figures-works/paragraph-3",
-      "excerpt": "Twentieth-century results also changed the field without ending its philosophical disputes. Gödel showed that first-order logic is semantically complete while any sufficiently expressive, consistent, effectively axiomati"
-    },
-    {
-      "recordKey": "philosophy:logic",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "figures-works/paragraph-3",
-      "excerpt": "Twentieth-century results also changed the field without ending its philosophical disputes. Gödel showed that first-order logic is semantically complete while any sufficiently expressive, consistent, effectively axiomati"
-    },
-    {
-      "recordKey": "philosophy:logic",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "misunderstandings/paragraph-1",
-      "excerpt": "The first misconception is that logic is a collection of symbols for mathematically gifted people. Notation can reduce ambiguity and display patterns, but the real work is understanding consequence, assumptions, and alte"
-    },
-    {
-      "recordKey": "philosophy:logic",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "misunderstandings/paragraph-2",
-      "excerpt": "It is equally misleading to say that Aristotle invented the only logic and Frege replaced it with the final logic. Aristotelian syllogistic, Stoic propositional reasoning, Indian inference, Arabic transformations, Latin"
-    },
-    {
-      "recordKey": "philosophy:logic",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "misunderstandings/paragraph-2",
-      "excerpt": "It is equally misleading to say that Aristotle invented the only logic and Frege replaced it with the final logic. Aristotelian syllogistic, Stoic propositional reasoning, Indian inference, Arabic transformations, Latin"
-    },
-    {
-      "recordKey": "philosophy:logic",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "reading-path/paragraph-2",
-      "excerpt": "Next learn propositional and first-order logic through a textbook with exercises. Practice truth tables, natural deduction, quantifiers, relations, and countermodels until notation becomes a tool rather than a barrier. R"
-    },
-    {
-      "recordKey": "philosophy:logic",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "reading-path/paragraph-2",
-      "excerpt": "Next learn propositional and first-order logic through a textbook with exercises. Practice truth tables, natural deduction, quantifiers, relations, and countermodels until notation becomes a tool rather than a barrier. R"
-    },
-    {
-      "recordKey": "philosophy:philosophy-of-language",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "overview/paragraph-1",
-      "excerpt": "Philosophy of language asks how meaningful expression is possible. How can a sound, mark, or gesture be about something beyond itself? How do names refer, sentences become true or false, speakers communicate more than th"
-    },
-    {
-      "recordKey": "philosophy:philosophy-of-language",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "key-concepts/paragraph-1",
-      "excerpt": "Reference is the relation through which an expression picks out an object, person, kind, place, or other subject of discourse. A proper name may refer through associated descriptions, through a historical chain of commun"
-    },
-    {
-      "recordKey": "philosophy:philosophy-of-language",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "key-concepts/paragraph-2",
-      "excerpt": "Meaning cannot simply be identical with reference. “The morning star” and “the evening star” refer to Venus but can present it under different cognitive routes; learning that they coincide can be informative. Sentence me"
-    },
-    {
-      "recordKey": "philosophy:philosophy-of-language",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "figures-works/paragraph-1",
-      "excerpt": "Frege’s “On Sense and Reference” frames enduring problems about identity, information, and indirect discourse. Russell’s “On Denoting” offers logical analysis as a way to handle descriptions, nonexistence, and apparent r"
-    },
-    {
-      "recordKey": "philosophy:philosophy-of-language",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "figures-works/paragraph-2",
-      "excerpt": "Carnap’s work on linguistic frameworks asks how choosing a language can organize ontological and scientific questions. Quine’s “Two Dogmas of Empiricism” attacks reductionism and the analytic-synthetic distinction, placi"
-    },
-    {
-      "recordKey": "philosophy:philosophy-of-language",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "figures-works/paragraph-3",
-      "excerpt": "Ordinary-language and continental work complicate a history centered only on formal semantics. Attention to actual usage can reveal distinctions that idealized notation misses, although “ordinary” language is neither pol"
-    },
-    {
-      "recordKey": "philosophy:philosophy-of-language",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "internal-debates/paragraph-2",
-      "excerpt": "A second dispute concerns truth and interpretation. Truth-conditional semantics provides a powerful account of sentence meaning, but deflationists, pragmatists, and use theorists question how much metaphysical work “trut"
-    },
-    {
-      "recordKey": "philosophy:philosophy-of-language",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "misunderstandings/paragraph-1",
-      "excerpt": "The first misconception is that words simply label objects already divided into obvious kinds. Some expressions refer, but others quantify, connect, modify, question, command, joke, or perform institutional acts. Even na"
-    },
-    {
-      "recordKey": "philosophy:philosophy-of-language",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "misunderstandings/paragraph-2",
-      "excerpt": "A second misconception is that later Wittgenstein proved “meaning is use” as a universal one-line definition. His discussions resist a single model of meaning and direct attention to the diversity of language-games, form"
-    },
-    {
-      "recordKey": "philosophy:philosophy-of-language",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "modern-relevance/paragraph-3",
-      "excerpt": "Generative AI renews foundational questions about meaning and communication. A model can produce fluent continuations, preserve reference across a dialogue, and perform recognizable speech acts for users, yet its outputs"
-    },
-    {
-      "recordKey": "philosophy:philosophy-of-language",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "reading-path/paragraph-1",
-      "excerpt": "Begin with Frege’s “On Sense and Reference” and Russell’s “On Denoting.” Diagram the expressions, what they refer to, and the logical form proposed. Then read selected propositions from Wittgenstein’s Tractatus before tu"
-    },
-    {
-      "recordKey": "philosophy:philosophy-of-language",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "reading-path/paragraph-2",
-      "excerpt": "Next read Austin’s How to Do Things with Words and Grice’s “Logic and Conversation.” For ordinary examples, separate sentence meaning, reference, speaker meaning, presupposition, implicature, illocutionary act, and perlo"
-    },
-    {
-      "recordKey": "philosophy:philosophy-of-language",
-      "status": "bibliography-only",
-      "signal": "disputed-attribution",
-      "location": "reading-path/paragraph-2",
-      "excerpt": "Next read Austin’s How to Do Things with Words and Grice’s “Logic and Conversation.” For ordinary examples, separate sentence meaning, reference, speaker meaning, presupposition, implicature, illocutionary act, and perlo"
-    },
-    {
-      "recordKey": "philosophy:aesthetics",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "historical-setting/paragraph-1",
-      "excerpt": "Greek philosophers discussed beauty, poetry, music, imitation, education, and emotional response long before aesthetics became the name of a European discipline. Plato’s dialogues offer several tensions rather than one v"
-    },
-    {
-      "recordKey": "philosophy:aesthetics",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "historical-setting/paragraph-2",
-      "excerpt": "The same caution applies cross-culturally. Many philosophical traditions contain rich reflection on poetry, performance, image, sound, craft, ritual, landscape, sensory cultivation, and standards of excellence, but their"
-    },
-    {
-      "recordKey": "philosophy:aesthetics",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "taste-and-judgment/paragraph-2",
-      "excerpt": "Kant’s Critique of the Power of Judgment describes a judgment of beauty as grounded in pleasure rather than a determinate concept, disinterested in the sense that it does not depend on possessing or using the object, and"
-    },
-    {
-      "recordKey": "philosophy:aesthetics",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "core-concepts/paragraph-2",
-      "excerpt": "Form concerns the organization of parts: rhythm, line, color, balance, sequence, contrast, genre, medium, and large-scale structure. Formalists emphasize how such relations direct attention, but strict formalism can igno"
-    },
-    {
-      "recordKey": "philosophy:aesthetics",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "nineteenth-century/paragraph-1",
-      "excerpt": "Nineteenth-century aesthetics enlarges the stakes of art. Hegel presents art as one way spirit gives sensible shape to self-understanding within history. His lectures organize symbolic, classical, and romantic forms in a"
-    },
-    {
-      "recordKey": "philosophy:aesthetics",
-      "status": "bibliography-only",
-      "signal": "disputed-attribution",
-      "location": "feminist-social/paragraph-1",
-      "excerpt": "Feminist and social aesthetics ask how standards of beauty, genius, autonomy, authorship, and artistic importance have been shaped by institutions and unequal power. Exclusion from academies, patronage, publishing, prope"
-    },
-    {
-      "recordKey": "philosophy:aesthetics",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "internal-debates/paragraph-1",
-      "excerpt": "Aesthetics contains recurring disagreements rather than one ladder of solved problems. Realists about aesthetic properties argue that elegance, balance, garishness, or expressive sadness genuinely characterize objects, p"
-    },
-    {
-      "recordKey": "philosophy:aesthetics",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "misunderstandings/paragraph-1",
-      "excerpt": "The first misunderstanding is that aesthetics is simply the study of prettiness. Ugliness, the sublime, the comic, horror, disgust, awkwardness, conceptual difficulty, and formal disruption all generate aesthetic questio"
-    },
-    {
-      "recordKey": "philosophy:aesthetics",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "misunderstandings/paragraph-1",
-      "excerpt": "The first misunderstanding is that aesthetics is simply the study of prettiness. Ugliness, the sublime, the comic, horror, disgust, awkwardness, conceptual difficulty, and formal disruption all generate aesthetic questio"
-    },
-    {
-      "recordKey": "philosophy:aesthetics",
-      "status": "bibliography-only",
-      "signal": "disputed-attribution",
-      "location": "misunderstandings/paragraph-1",
-      "excerpt": "The first misunderstanding is that aesthetics is simply the study of prettiness. Ugliness, the sublime, the comic, horror, disgust, awkwardness, conceptual difficulty, and formal disruption all generate aesthetic questio"
-    },
-    {
-      "recordKey": "philosophy:aesthetics",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "misunderstandings/paragraph-2",
-      "excerpt": "It is also misleading to assume that art has one essence discovered in ancient Greece. What receives the label art changes with technologies, practices, institutions, and translation, and many cultures organize relevant"
-    },
-    {
-      "recordKey": "philosophy:aesthetics",
-      "status": "bibliography-only",
-      "signal": "disputed-attribution",
-      "location": "modern-relevance/paragraph-1",
-      "excerpt": "Contemporary technologies make aesthetic theory operational. Recommendation systems shape exposure and can narrow the comparisons through which taste develops. Streaming formats and short-form platforms alter pacing, att"
-    },
-    {
-      "recordKey": "philosophy:existentialism",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "overview/paragraph-2",
-      "excerpt": "The label must be handled historically. Kierkegaard and Nietzsche wrote before existentialism existed as a named twentieth-century movement and are better treated as precursors or decisive influences. Heidegger’s analysi"
-    },
-    {
-      "recordKey": "philosophy:existentialism",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "development/paragraph-1",
-      "excerpt": "Kierkegaard’s nineteenth-century pseudonymous writings challenge attempts to convert existence into a completed system. They examine anxiety, despair, ethical commitment, faith, and the difficulty of becoming a self. Nie"
-    },
-    {
-      "recordKey": "philosophy:existentialism",
-      "status": "bibliography-only",
-      "signal": "disputed-attribution",
-      "location": "development/paragraph-1",
-      "excerpt": "Kierkegaard’s nineteenth-century pseudonymous writings challenge attempts to convert existence into a completed system. They examine anxiety, despair, ethical commitment, faith, and the difficulty of becoming a self. Nie"
-    },
-    {
-      "recordKey": "philosophy:existentialism",
-      "status": "bibliography-only",
-      "signal": "influence-or-causation",
-      "location": "figures-works/paragraph-2",
-      "excerpt": "Heidegger’s Being and Time is an ontological inquiry using human existence to reopen the question of being, not a self-help manual about facing death. Its account of everyday conformity, care, and temporality profoundly"
-    },
-    {
-      "recordKey": "philosophy:existentialism",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "debates/paragraph-2",
-      "excerpt": "A second debate asks whether existential freedom can support ethics. If values are not given as objective objects, why is one choice better than another? Sartre’s early formulations invite criticism that choice becomes a"
-    },
-    {
-      "recordKey": "philosophy:existentialism",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "misconceptions/paragraph-3",
-      "excerpt": "Finally, the roster requires label caution. Kierkegaard and Nietzsche are precursors rather than self-described existentialists. Heidegger resisted Sartre’s humanist interpretation. Camus explicitly rejected the existent"
-    },
-    {
-      "recordKey": "philosophy:existentialism",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "modern-relevance/paragraph-1",
-      "excerpt": "Existential questions recur when algorithms, institutions, or professional roles encourage people to describe decisions as automatic. Bad faith offers a vocabulary for the temptation to hide behind a role, a metric, or “"
-    },
-    {
-      "recordKey": "philosophy:existentialism",
-      "status": "bibliography-only",
-      "signal": "disputed-attribution",
-      "location": "modern-relevance/paragraph-2",
-      "excerpt": "Medicine and disability studies use existential and phenomenological resources to study how illness changes time, possibility, dependence, and identity. Climate anxiety similarly combines facts no individual controls wit"
-    },
-    {
-      "recordKey": "philosophy:existentialism",
-      "status": "bibliography-only",
-      "signal": "disputed-attribution",
-      "location": "reading-path/paragraph-3",
-      "excerpt": "Advanced reading should compare rather than homogenize. Study Kierkegaard’s pseudonymous authorship, Nietzsche’s genealogy, Heidegger’s ontology and politics, Sartre’s changing political commitments, Beauvoir’s phenomeno"
-    },
-    {
-      "recordKey": "philosophy:phenomenology",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "overview/paragraph-2",
-      "excerpt": "Husserl founded phenomenology as a rigorous philosophical project, but later figures transformed its starting point. Heidegger shifted from an analysis centered on consciousness to being-in-the-world and the question of"
-    },
-    {
-      "recordKey": "philosophy:phenomenology",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "development/paragraph-1",
-      "excerpt": "Husserl emerged from work on mathematics, logic, and psychology. The Logical Investigations criticized the reduction of logical validity to psychological events and developed analyses of intentionality. Ideas I introduce"
-    },
-    {
-      "recordKey": "philosophy:phenomenology",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "concepts/paragraph-2",
-      "excerpt": "The epoché brackets or suspends the ordinary “natural attitude” in which the world’s existence is simply taken for granted. This is not denial that the world exists. It redirects attention toward how claims, objects, and"
-    },
-    {
-      "recordKey": "philosophy:phenomenology",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "concepts/paragraph-3",
-      "excerpt": "The lifeworld is the meaningful world of everyday practice presupposed by scientific abstraction. Embodiment shows that access to this world occurs through capacities, habits, vulnerability, and orientation. Merleau-Pont"
-    },
-    {
-      "recordKey": "philosophy:phenomenology",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "debates/paragraph-1",
-      "excerpt": "Phenomenologists dispute whether reduction yields transcendental idealism, a refined realism, or a method that precedes this opposition. Husserl’s language of constitution can sound as if consciousness manufactures objec"
-    },
-    {
-      "recordKey": "philosophy:phenomenology",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "debates/paragraph-3",
-      "excerpt": "The politics of phenomenology includes both resources and failures. Heidegger’s political commitment to Nazism cannot be treated as irrelevant biography, yet neither can it be resolved by a one-line verdict about every c"
-    },
-    {
-      "recordKey": "philosophy:phenomenology",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "neighbors/paragraph-3",
-      "excerpt": "Hermeneutics argues that description is always shaped by language, history, and interpretation. Gadamer develops understanding through tradition and dialogue rather than a presuppositionless method. Ethics challenges any"
-    },
-    {
-      "recordKey": "philosophy:phenomenology",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "misconceptions/paragraph-1",
-      "excerpt": "Phenomenology is not a diary of private feelings. A phenomenologist may begin from first-person experience, but the goal is to identify structures, variations, horizons, and conditions that make a kind of experience poss"
-    },
-    {
-      "recordKey": "philosophy:phenomenology",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "misconceptions/paragraph-1",
-      "excerpt": "Phenomenology is not a diary of private feelings. A phenomenologist may begin from first-person experience, but the goal is to identify structures, variations, horizons, and conditions that make a kind of experience poss"
-    },
-    {
-      "recordKey": "philosophy:phenomenology",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "misconceptions/paragraph-3",
-      "excerpt": "Finally, there is no single procedure unchanged from Husserl to contemporary applied work. Heidegger transforms the starting point, Sartre and Beauvoir connect it to freedom and social relations, Merleau-Ponty centers em"
-    },
-    {
-      "recordKey": "philosophy:phenomenology",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "modern-relevance/paragraph-3",
-      "excerpt": "Critical phenomenologies analyze how racialization, gender, colonial history, and public space become lived orientations rather than merely external facts. They can show why formally identical environments offer unequal"
-    },
-    {
-      "recordKey": "philosophy:phenomenology",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "reading-path/paragraph-3",
-      "excerpt": "Advanced reading can return to Husserl’s Crisis, study time-consciousness and intersubjectivity, follow Heidegger beyond Being and Time, and compare Merleau-Ponty’s later ontology with his earlier perception. Pair canoni"
-    },
-    {
-      "recordKey": "philosophy:pragmatism",
-      "status": "bibliography-only",
-      "signal": "disputed-attribution",
-      "location": "overview/paragraph-1",
-      "excerpt": "Pragmatism is a family of philosophies that tests concepts by asking how they guide inquiry and what differences their truth would make in experience and action. It emerged in the United States in the late nineteenth cen"
-    },
-    {
-      "recordKey": "philosophy:pragmatism",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "overview/paragraph-2",
-      "excerpt": "A useful first orientation is methodological. Pragmatism redirects attention from an idea considered in isolation to the practices in which the idea has a role. To understand “hardness,” “freedom,” “truth,” or “democracy"
-    },
-    {
-      "recordKey": "philosophy:pragmatism",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "overview/paragraph-2",
-      "excerpt": "A useful first orientation is methodological. Pragmatism redirects attention from an idea considered in isolation to the practices in which the idea has a role. To understand “hardness,” “freedom,” “truth,” or “democracy"
-    },
-    {
-      "recordKey": "philosophy:pragmatism",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "historical-development/paragraph-1",
-      "excerpt": "Pragmatism took recognizable form in the 1870s around discussions later associated with the Metaphysical Club in Cambridge, Massachusetts. Peirce’s essays “The Fixation of Belief” and “How to Make Our Ideas Clear” connec"
-    },
-    {
-      "recordKey": "philosophy:pragmatism",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "historical-development/paragraph-1",
-      "excerpt": "Pragmatism took recognizable form in the 1870s around discussions later associated with the Metaphysical Club in Cambridge, Massachusetts. Peirce’s essays “The Fixation of Belief” and “How to Make Our Ideas Clear” connec"
-    },
-    {
-      "recordKey": "philosophy:pragmatism",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "historical-development/paragraph-3",
-      "excerpt": "Later renewals did not produce one neo-pragmatist creed. Richard Rorty criticized representationalism and redescribed inquiry through vocabulary, conversation, and solidarity; Hilary Putnam defended realism without a “Go"
-    },
-    {
-      "recordKey": "philosophy:pragmatism",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "pragmatic-maxim/paragraph-1",
-      "excerpt": "Peirce’s pragmatic maxim asks us to consider what practical effects we can conceive the object of a concept to have; our conception of those effects constitutes the intellectually significant content of the concept. The"
-    },
-    {
-      "recordKey": "philosophy:pragmatism",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "james/paragraph-1",
-      "excerpt": "William James broadened pragmatism from Peirce’s logical maxim into a way of approaching philosophical alternatives that appear interminable in abstraction. Ask what concrete difference it would make if one position rath"
-    },
-    {
-      "recordKey": "philosophy:pragmatism",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "james/paragraph-2",
-      "excerpt": "James’s account of truth emphasizes verification, successful leading, and an idea’s capacity to fit with experience and with other warranted beliefs. Critics heard the claim that any comforting belief becomes true if it"
-    },
-    {
-      "recordKey": "philosophy:pragmatism",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "concepts/paragraph-3",
-      "excerpt": "Pragmatism’s experimentalism is therefore an ethics of intellectual conduct as well as a method. Form hypotheses that expose themselves to risk, seek the observations that might defeat them, consult those who bear the co"
-    },
-    {
-      "recordKey": "philosophy:pragmatism",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "internal-debates/paragraph-3",
-      "excerpt": "Social and political criticism poses a particularly important test. Celebration of flexibility can serve powerful institutions if “what works” means what preserves their aims. Community inquiry is no safeguard when the c"
-    },
-    {
-      "recordKey": "philosophy:pragmatism",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "misunderstandings/paragraph-1",
-      "excerpt": "The most damaging shortcut defines pragmatism as “whatever works.” Works for whom, toward which end, over what interval, and under what evidential constraints? A fraudulent theory may enrich its promoter, a stereotype ma"
-    },
-    {
-      "recordKey": "philosophy:pragmatism",
-      "status": "bibliography-only",
-      "signal": "disputed-attribution",
-      "location": "misunderstandings/paragraph-2",
-      "excerpt": "Pragmatism is also not the view that abstract ideas are meaningless unless they produce instant physical action. Conceivable consequences may concern future observation, inferential commitments, patterns of feeling, or s"
-    },
-    {
-      "recordKey": "philosophy:pragmatism",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "modern-relevance/paragraph-1",
-      "excerpt": "Contemporary problems often combine uncertain evidence, contested values, and consequences distributed across institutions—the setting for which pragmatist methods are especially useful. In public health or climate polic"
-    },
-    {
-      "recordKey": "philosophy:pragmatism",
-      "status": "bibliography-only",
-      "signal": "disputed-attribution",
-      "location": "modern-relevance/paragraph-1",
-      "excerpt": "Contemporary problems often combine uncertain evidence, contested values, and consequences distributed across institutions—the setting for which pragmatist methods are especially useful. In public health or climate polic"
-    },
-    {
-      "recordKey": "philosophy:pragmatism",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "reading-path/paragraph-1",
-      "excerpt": "Begin with Peirce’s “The Fixation of Belief” and “How to Make Our Ideas Clear.” Track four terms—doubt, belief, inquiry, and habit—and write the pragmatic maxim in your own words without using “whatever works.” Ask how c"
-    },
-    {
-      "recordKey": "philosophy:pragmatism",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "reading-path/paragraph-3",
-      "excerpt": "Advanced readers can return to Peirce’s essays on pragmatism, signs, and scientific inquiry; read James’s The Meaning of Truth and Essays in Radical Empiricism; and study Dewey’s Experience and Nature, The Quest for Cert"
-    },
-    {
-      "recordKey": "philosophy:analytic-philosophy",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "category/paragraph-3",
-      "excerpt": "The category is therefore both descriptive and contested. Calling a work “analytic” can locate it within conversations, audiences, and standards, but it can also function as an honorific meaning rigorous philosophy, unfa"
-    },
-    {
-      "recordKey": "philosophy:analytic-philosophy",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "category/paragraph-3",
-      "excerpt": "The category is therefore both descriptive and contested. Calling a work “analytic” can locate it within conversations, audiences, and standards, but it can also function as an honorific meaning rigorous philosophy, unfa"
-    },
-    {
-      "recordKey": "philosophy:analytic-philosophy",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "contexts/paragraph-2",
-      "excerpt": "In Britain, Bertrand Russell and G. E. Moore broke with forms of idealism influential at Cambridge. Their revolt was not simply common sense defeating obscurity. British idealists themselves differed, and Russell’s and M"
-    },
-    {
-      "recordKey": "philosophy:analytic-philosophy",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "contexts/paragraph-2",
-      "excerpt": "In Britain, Bertrand Russell and G. E. Moore broke with forms of idealism influential at Cambridge. Their revolt was not simply common sense defeating obscurity. British idealists themselves differed, and Russell’s and M"
-    },
-    {
-      "recordKey": "philosophy:analytic-philosophy",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "ordinary-language/paragraph-2",
-      "excerpt": "Oxford ordinary-language philosophers such as J. L. Austin and Gilbert Ryle investigated distinctions embedded in what people do with words. Austin’s work on speech acts showed that utterances can promise, warn, name, ex"
-    },
-    {
-      "recordKey": "philosophy:analytic-philosophy",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "quine-and-after/paragraph-1",
-      "excerpt": "W. V. O. Quine challenged the analytic-synthetic distinction and reductionist pictures in which each meaningful statement receives confirmation separately from immediate experience. His holistic image treated beliefs as"
-    },
-    {
-      "recordKey": "philosophy:analytic-philosophy",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "quine-and-after/paragraph-3",
-      "excerpt": "Naturalism itself ranges from modest engagement with science to strong claims that philosophical questions should be reconstructed within scientific inquiry. Its critics worry about normativity, first-person knowledge, m"
-    },
-    {
-      "recordKey": "philosophy:analytic-philosophy",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "methods/paragraph-3",
-      "excerpt": "Even “clarity” requires interpretation. An argument may be syntactically explicit while its framing hides a contested social ontology; a historically rich argument may be clear without using numbered premises. Charity, p"
-    },
-    {
-      "recordKey": "philosophy:analytic-philosophy",
-      "status": "bibliography-only",
-      "signal": "influence-or-causation",
-      "location": "boundaries/paragraph-1",
-      "excerpt": "Relations with pragmatism are close and contested. Peirce’s logic and theory of inquiry, James’s account of experience, and Dewey’s naturalism influenced debates later housed in analytic departments, while Quine, Sellars"
-    },
-    {
-      "recordKey": "philosophy:analytic-philosophy",
-      "status": "bibliography-only",
-      "signal": "influence-or-causation",
-      "location": "boundaries/paragraph-2",
-      "excerpt": "Early analytic philosophy and phenomenology also developed from intersecting concerns about logic, meaning, intentionality, and psychologism. Frege and Husserl are often assigned to opposing traditions only retrospective"
-    },
-    {
-      "recordKey": "philosophy:analytic-philosophy",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "boundaries/paragraph-3",
-      "excerpt": "The analytic-continental divide is therefore an unreliable map of philosophical topic, rigor, politics, or geography. “Continental” groups disparate movements partly by what analytic institutions placed outside themselve"
-    },
-    {
-      "recordKey": "philosophy:analytic-philosophy",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "institutions-future/paragraph-3",
-      "excerpt": "Open questions concern both philosophy and its organization. Does “analytic” still identify a useful tradition, or has it become too broad? Can family resemblance avoid turning the label into praise for whatever its user"
-    },
-    {
-      "recordKey": "philosophy:continental-philosophy",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "overview/paragraph-2",
-      "excerpt": "The label is also institutionally shaped. It gained much of its present use in twentieth-century English-speaking universities, especially as departments, publishers, and curricula organized a contrast with “analytic phi"
-    },
-    {
-      "recordKey": "philosophy:continental-philosophy",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "historical-development/paragraph-2",
-      "excerpt": "A second line forms around phenomenology in the early twentieth century. Husserl seeks a rigorous investigation of intentional experience and its structures. Heidegger redirects phenomenology toward being-in-the-world, t"
-    },
-    {
-      "recordKey": "philosophy:continental-philosophy",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "idealism-marx-genealogy/paragraph-1",
-      "excerpt": "Hegel’s importance lies partly in refusing to treat reason, freedom, and self-consciousness as timeless possessions of isolated individuals. Recognition, law, work, family, civil society, religion, art, and politics are"
-    },
-    {
-      "recordKey": "philosophy:continental-philosophy",
-      "status": "bibliography-only",
-      "signal": "influence-or-causation",
-      "location": "existentialism/paragraph-1",
-      "excerpt": "Existentialism asks what it means to become a person when no impersonal system can make one’s choices in advance. Kierkegaard and Nietzsche are important precursors rather than members of a later self-identified school."
-    },
-    {
-      "recordKey": "philosophy:continental-philosophy",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "existentialism/paragraph-2",
-      "excerpt": "Beauvoir makes ambiguity ethically and politically decisive. Persons are at once subjects who project possibilities and objects exposed to other people and material conditions. Oppression restricts practical horizons and"
-    },
-    {
-      "recordKey": "philosophy:continental-philosophy",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "hermeneutics/paragraph-1",
-      "excerpt": "Hermeneutics developed from practices of interpreting texts, law, and scripture into a philosophy of understanding itself. Heidegger argues that interpretation is not a technique added after neutral perception; practical"
-    },
-    {
-      "recordKey": "philosophy:continental-philosophy",
-      "status": "bibliography-only",
-      "signal": "influence-or-causation",
-      "location": "hermeneutics/paragraph-1",
-      "excerpt": "Hermeneutics developed from practices of interpreting texts, law, and scripture into a philosophy of understanding itself. Heidegger argues that interpretation is not a technique added after neutral perception; practical"
-    },
-    {
-      "recordKey": "philosophy:continental-philosophy",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "neighbors/paragraph-1",
-      "excerpt": "Continental philosophy overlaps with metaphysics, ontology, epistemology, ethics, aesthetics, political philosophy, philosophy of mind, and philosophy of language. Heidegger’s being question is ontological; Husserl write"
-    },
-    {
-      "recordKey": "philosophy:continental-philosophy",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "neighbors/paragraph-2",
-      "excerpt": "The border with analytic philosophy is particularly porous. The traditions developed through institutions, languages, canons, styles, and professional networks, not from an eternal division between reason and literature."
-    },
-    {
-      "recordKey": "philosophy:continental-philosophy",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "misconceptions/paragraph-1",
-      "excerpt": "Continental philosophy is not one school, and “continental philosopher” is not a reliable claim about anyone’s self-description. The label does not mean every philosophy written in mainland Europe, nor merely whatever is"
-    },
-    {
-      "recordKey": "philosophy:continental-philosophy",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "reading-path/paragraph-1",
-      "excerpt": "Begin with the institutional history of the label, then study component movements separately. Read a guided selection from Hegel’s Phenomenology of Spirit on consciousness or recognition, followed by Marx’s concise writi"
-    },
-    {
-      "recordKey": "philosophy:continental-philosophy",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "reading-path/paragraph-2",
-      "excerpt": "At the intermediate stage, pair Sartre’s public account of freedom with Beauvoir’s Ethics of Ambiguity so that existentialism is not reduced to one voice. Read Gadamer on historically effected understanding, then compare"
-    },
-    {
-      "recordKey": "philosophy:ancient-greek",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "overview/paragraph-2",
-      "excerpt": "The tradition’s later prestige can hide how experimental it was. Early thinkers wrote poems, maxims, prose treatises, speeches, dialogues, lecture materials, and technical investigations. Much survives only through fragm"
-    },
-    {
-      "recordKey": "philosophy:ancient-greek",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "milesians/paragraph-1",
-      "excerpt": "Thales, Anaximander, and Anaximenes are conventionally described as the first Greek philosophers because they sought general explanations of the cosmos through principles within nature. The evidence is late and fragmenta"
-    },
-    {
-      "recordKey": "philosophy:ancient-greek",
-      "status": "bibliography-only",
-      "signal": "disputed-attribution",
-      "location": "transmission/paragraph-1",
-      "excerpt": "Syriac and Arabic translation movements made Greek philosophical and scientific works available within Islamic intellectual cultures, often together with late ancient commentaries and texts whose authorship was misunders"
-    },
-    {
-      "recordKey": "philosophy:chinese-philosophy",
-      "status": "bibliography-only",
-      "signal": "priority-or-superlative",
-      "location": "overview/paragraph-1",
-      "excerpt": "Chinese philosophy names a long, internally diverse field of argument rather than a doctrine founded by one person. Its participants have asked how human beings can cultivate character, order families and states, respond"
-    },
-    {
-      "recordKey": "philosophy:chinese-philosophy",
-      "status": "bibliography-only",
-      "signal": "broad-classification",
-      "location": "overview/paragraph-1",
-      "excerpt": "Chinese philosophy names a long, internally diverse field of argument rather than a doctrine founded by one person. Its participants have asked how human beings can cultivate character, order families and states, respond"
-    },
-    {
-      "recordKey": "philosophy:chinese-philosophy",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "warring-states/paragraph-2",
-      "excerpt": "The phrase “hundred schools” evokes this argumentative abundance, but it should not suggest neatly bounded institutions with fixed memberships. Labels such as Confucian, Daoist, and Legalist were often imposed or stabili"
-    },
-    {
-      "recordKey": "philosophy:chinese-philosophy",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "conceptual-vocabularies/paragraph-1",
-      "excerpt": "Dao, often translated as “way,” can name a path of conduct, a teaching, a course followed by a community, or the generative way of the world. Its meaning shifts by text: Confucian authors speak of a human and inherited w"
-    },
-    {
-      "recordKey": "philosophy:chinese-philosophy",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "conceptual-vocabularies/paragraph-2",
-      "excerpt": "Other vocabularies resist familiar Western containers. Qi names vital material energy or psychophysical stuff in many later accounts, but it is not simply “matter” opposed to mind. Yin and yang describe correlated phases"
-    },
-    {
-      "recordKey": "philosophy:chinese-philosophy",
-      "status": "bibliography-only",
-      "signal": "disputed-attribution",
-      "location": "figures-texts/paragraph-1",
-      "excerpt": "Confucius became the exemplary teacher of an educational and ritual tradition, but the Analects preserves multiple voices and strata rather than a book authored by him. Mencius argues that humans possess morally responsi"
-    },
-    {
-      "recordKey": "philosophy:chinese-philosophy",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "internal-debates/paragraph-2",
-      "excerpt": "Language creates another fault line. Some authors seek names that reliably distinguish roles and guide performance; others expose how conventional contrasts exclude possibilities or invite manipulation. Disputers associa"
-    },
-    {
-      "recordKey": "philosophy:chinese-philosophy",
-      "status": "bibliography-only",
-      "signal": "broad-classification",
-      "location": "internal-debates/paragraph-2",
-      "excerpt": "Language creates another fault line. Some authors seek names that reliably distinguish roles and guide performance; others expose how conventional contrasts exclude possibilities or invite manipulation. Disputers associa"
-    },
-    {
-      "recordKey": "philosophy:chinese-philosophy",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "historical-transformations/paragraph-2",
-      "excerpt": "Buddhism’s arrival and naturalization produced new Chinese philosophical formations rather than a simple import of unchanged Indian doctrines. Translation choices and debates about emptiness, Buddha-nature, mind, and pra"
-    },
-    {
-      "recordKey": "philosophy:chinese-philosophy",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "neighbors-comparison/paragraph-2",
-      "excerpt": "Comparison within East Asia also requires care. Confucian, Buddhist, and Daoist actors shared institutions and vocabulary while maintaining distinct lineages, practices, and soteriological goals. “The three teachings” so"
-    },
-    {
-      "recordKey": "philosophy:chinese-philosophy",
-      "status": "bibliography-only",
-      "signal": "disputed-attribution",
-      "location": "neighbors-comparison/paragraph-2",
-      "excerpt": "Comparison within East Asia also requires care. Confucian, Buddhist, and Daoist actors shared institutions and vocabulary while maintaining distinct lineages, practices, and soteriological goals. “The three teachings” so"
-    },
-    {
-      "recordKey": "philosophy:chinese-philosophy",
-      "status": "bibliography-only",
-      "signal": "broad-classification",
-      "location": "neighbors-comparison/paragraph-2",
-      "excerpt": "Comparison within East Asia also requires care. Confucian, Buddhist, and Daoist actors shared institutions and vocabulary while maintaining distinct lineages, practices, and soteriological goals. “The three teachings” so"
-    },
-    {
-      "recordKey": "philosophy:chinese-philosophy",
-      "status": "bibliography-only",
-      "signal": "disputed-attribution",
-      "location": "misunderstandings/paragraph-1",
-      "excerpt": "A common beginner mistake imagines Chinese philosophy as a single harmonious worldview concerned with balance rather than argument. Harmony is an important and disputed ideal, but authors disagree about whose practices c"
-    },
-    {
-      "recordKey": "philosophy:chinese-philosophy",
-      "status": "bibliography-only",
-      "signal": "broad-classification",
-      "location": "misunderstandings/paragraph-1",
-      "excerpt": "A common beginner mistake imagines Chinese philosophy as a single harmonious worldview concerned with balance rather than argument. Harmony is an important and disputed ideal, but authors disagree about whose practices c"
-    },
-    {
-      "recordKey": "philosophy:chinese-philosophy",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "misunderstandings/paragraph-2",
-      "excerpt": "The label “Chinese” can encourage an equally distorting timelessness. The philosophical world of a Warring States persuader differs from that of a Song academy teacher or a twentieth-century revolutionary. Concepts acqui"
-    },
-    {
-      "recordKey": "philosophy:chinese-philosophy",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "modern-relevance/paragraph-2",
-      "excerpt": "Environmental thinkers draw on relational, correlative, and Daoist resources, but ancient cosmologies should not be advertised as modern ecology before their differences are examined. Medical ethics can learn from relati"
-    },
-    {
-      "recordKey": "philosophy:chinese-philosophy",
-      "status": "bibliography-only",
-      "signal": "broad-classification",
-      "location": "modern-relevance/paragraph-2",
-      "excerpt": "Environmental thinkers draw on relational, correlative, and Daoist resources, but ancient cosmologies should not be advertised as modern ecology before their differences are examined. Medical ethics can learn from relati"
-    },
-    {
-      "recordKey": "philosophy:chinese-philosophy",
-      "status": "bibliography-only",
-      "signal": "quotation",
-      "location": "reading-path/paragraph-1",
-      "excerpt": "Begin with short, well-annotated selections rather than trying to absorb a unified worldview. Read the Analects as a layered record of teaching about learning, ritual, humaneness, and government. Then compare one sustain"
-    },
     {
       "recordKey": "philosophy:confucianism",
       "status": "bibliography-only",
@@ -5345,9 +4320,9 @@
     "philosophies": {
       "total": 45,
       "unreviewed": 0,
-      "bibliography-only": 24,
+      "bibliography-only": 9,
       "source-mapped": 0,
-      "claim-reviewed": 21,
+      "claim-reviewed": 36,
       "review-out-of-date": 0
     },
     "standalone": {

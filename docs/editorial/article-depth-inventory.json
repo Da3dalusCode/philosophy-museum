@@ -1953,7 +1953,7 @@
       "title": "Epicureanism",
       "visitorEntryPoint": "#/branches/epicureanism",
       "contentCategory": "philosophy",
-      "substantiveWordCount": 2022,
+      "substantiveWordCount": 2035,
       "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
@@ -1965,7 +1965,7 @@
       "title": "Cynicism",
       "visitorEntryPoint": "#/branches/cynicism",
       "contentCategory": "philosophy",
-      "substantiveWordCount": 2035,
+      "substantiveWordCount": 2062,
       "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
@@ -1977,7 +1977,7 @@
       "title": "Skepticism",
       "visitorEntryPoint": "#/branches/skepticism",
       "contentCategory": "philosophy",
-      "substantiveWordCount": 2031,
+      "substantiveWordCount": 2036,
       "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
@@ -1989,7 +1989,7 @@
       "title": "Deontology",
       "visitorEntryPoint": "#/branches/deontology",
       "contentCategory": "philosophy",
-      "substantiveWordCount": 2662,
+      "substantiveWordCount": 2652,
       "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
@@ -2001,7 +2001,7 @@
       "title": "Utilitarianism",
       "visitorEntryPoint": "#/branches/utilitarianism",
       "contentCategory": "philosophy",
-      "substantiveWordCount": 2625,
+      "substantiveWordCount": 2592,
       "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
@@ -2025,7 +2025,7 @@
       "title": "Logic",
       "visitorEntryPoint": "#/branches/logic",
       "contentCategory": "philosophy",
-      "substantiveWordCount": 2826,
+      "substantiveWordCount": 2752,
       "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
@@ -2037,7 +2037,7 @@
       "title": "Philosophy of Language",
       "visitorEntryPoint": "#/branches/philosophy-of-language",
       "contentCategory": "philosophy",
-      "substantiveWordCount": 2433,
+      "substantiveWordCount": 2410,
       "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
@@ -2073,7 +2073,7 @@
       "title": "Aesthetics",
       "visitorEntryPoint": "#/branches/aesthetics",
       "contentCategory": "philosophy",
-      "substantiveWordCount": 2838,
+      "substantiveWordCount": 2776,
       "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
@@ -2085,7 +2085,7 @@
       "title": "Existentialism",
       "visitorEntryPoint": "#/branches/existentialism",
       "contentCategory": "philosophy",
-      "substantiveWordCount": 2056,
+      "substantiveWordCount": 2060,
       "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
@@ -2097,7 +2097,7 @@
       "title": "Phenomenology",
       "visitorEntryPoint": "#/branches/phenomenology",
       "contentCategory": "philosophy",
-      "substantiveWordCount": 2022,
+      "substantiveWordCount": 2025,
       "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
@@ -2109,7 +2109,7 @@
       "title": "Pragmatism",
       "visitorEntryPoint": "#/branches/pragmatism",
       "contentCategory": "philosophy",
-      "substantiveWordCount": 3473,
+      "substantiveWordCount": 3471,
       "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
@@ -2181,7 +2181,7 @@
       "title": "Chinese Philosophy",
       "visitorEntryPoint": "#/branches/chinese-philosophy",
       "contentCategory": "philosophy",
-      "substantiveWordCount": 2287,
+      "substantiveWordCount": 2282,
       "complianceStatus": "pass",
       "legacyDepthAuditIncluded": true,
       "reusedInMuseum": true,
@@ -2539,7 +2539,7 @@
         "hallId": "mediterranean-beginnings-classical",
         "visitorEntryPoint": "#/museum/mediterranean-beginnings-classical/exhibits/ancient-greek",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 301,
+        "surfaceWords": 449,
         "canonicalArticleKey": "philosophy:ancient-greek",
         "canonicalArticleId": "ancient-greek",
         "canonicalArticleWordCount": 2717,
@@ -2755,7 +2755,7 @@
         "hallId": "mediterranean-beginnings-classical",
         "visitorEntryPoint": "#/museum/mediterranean-beginnings-classical/exhibits/platonism",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 563,
+        "surfaceWords": 359,
         "canonicalArticleKey": "philosophy:platonism",
         "canonicalArticleId": "platonism",
         "canonicalArticleWordCount": 5601,
@@ -2767,7 +2767,7 @@
         "hallId": "mediterranean-beginnings-classical",
         "visitorEntryPoint": "#/museum/mediterranean-beginnings-classical/exhibits/aristotelianism",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 486,
+        "surfaceWords": 357,
         "canonicalArticleKey": "philosophy:aristotelianism",
         "canonicalArticleId": "aristotelianism",
         "canonicalArticleWordCount": 2160,
@@ -2863,10 +2863,10 @@
         "hallId": "phenomenology-existence-embodiment",
         "visitorEntryPoint": "#/museum/phenomenology-existence-embodiment/exhibits/phenomenology",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 458,
+        "surfaceWords": 523,
         "canonicalArticleKey": "philosophy:phenomenology",
         "canonicalArticleId": "phenomenology",
-        "canonicalArticleWordCount": 2022,
+        "canonicalArticleWordCount": 2025,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -2911,10 +2911,10 @@
         "hallId": "phenomenology-existence-embodiment",
         "visitorEntryPoint": "#/museum/phenomenology-existence-embodiment/exhibits/existentialism",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 479,
+        "surfaceWords": 538,
         "canonicalArticleKey": "philosophy:existentialism",
         "canonicalArticleId": "existentialism",
-        "canonicalArticleWordCount": 2056,
+        "canonicalArticleWordCount": 2060,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -2971,7 +2971,7 @@
         "hallId": "analytic-traditions",
         "visitorEntryPoint": "#/museum/analytic-traditions/exhibits/analytic-philosophy",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 490,
+        "surfaceWords": 565,
         "canonicalArticleKey": "philosophy:analytic-philosophy",
         "canonicalArticleId": "analytic-philosophy",
         "canonicalArticleWordCount": 2963,
@@ -3079,7 +3079,7 @@
         "hallId": "justice-democratic-reason",
         "visitorEntryPoint": "#/museum/justice-democratic-reason/exhibits/rawls",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 342,
+        "surfaceWords": 375,
         "canonicalArticleKey": "philosopher:rawls",
         "canonicalArticleId": "rawls",
         "canonicalArticleWordCount": 2528,
@@ -3091,7 +3091,7 @@
         "hallId": "justice-democratic-reason",
         "visitorEntryPoint": "#/museum/justice-democratic-reason/exhibits/nozick",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 332,
+        "surfaceWords": 366,
         "canonicalArticleKey": "philosopher:nozick",
         "canonicalArticleId": "nozick",
         "canonicalArticleWordCount": 2401,
@@ -3115,7 +3115,7 @@
         "hallId": "core-questions-forum",
         "visitorEntryPoint": "#/museum/core-questions-forum/exhibits/metaphysics",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 559,
+        "surfaceWords": 357,
         "canonicalArticleKey": "philosophy:metaphysics",
         "canonicalArticleId": "metaphysics",
         "canonicalArticleWordCount": 2026,
@@ -3151,7 +3151,7 @@
         "hallId": "core-questions-forum",
         "visitorEntryPoint": "#/museum/core-questions-forum/exhibits/epistemology",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 521,
+        "surfaceWords": 360,
         "canonicalArticleKey": "philosophy:epistemology",
         "canonicalArticleId": "epistemology",
         "canonicalArticleWordCount": 2627,
@@ -3187,7 +3187,7 @@
         "hallId": "core-questions-forum",
         "visitorEntryPoint": "#/museum/core-questions-forum/exhibits/jiddu-krishnamurti",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 1225,
+        "surfaceWords": 419,
         "canonicalArticleKey": "philosopher:jiddu-krishnamurti",
         "canonicalArticleId": "jiddu-krishnamurti",
         "canonicalArticleWordCount": 2723,
@@ -3199,10 +3199,10 @@
         "hallId": "core-questions-forum",
         "visitorEntryPoint": "#/museum/core-questions-forum/exhibits/logic",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 443,
+        "surfaceWords": 562,
         "canonicalArticleKey": "philosophy:logic",
         "canonicalArticleId": "logic",
-        "canonicalArticleWordCount": 2826,
+        "canonicalArticleWordCount": 2752,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -3211,10 +3211,10 @@
         "hallId": "core-questions-forum",
         "visitorEntryPoint": "#/museum/core-questions-forum/exhibits/philosophy-of-language",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 464,
+        "surfaceWords": 573,
         "canonicalArticleKey": "philosophy:philosophy-of-language",
         "canonicalArticleId": "philosophy-of-language",
-        "canonicalArticleWordCount": 2433,
+        "canonicalArticleWordCount": 2410,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -3271,10 +3271,10 @@
         "hallId": "core-questions-forum",
         "visitorEntryPoint": "#/museum/core-questions-forum/exhibits/aesthetics",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 652,
+        "surfaceWords": 731,
         "canonicalArticleKey": "philosophy:aesthetics",
         "canonicalArticleId": "aesthetics",
-        "canonicalArticleWordCount": 2838,
+        "canonicalArticleWordCount": 2776,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -3487,10 +3487,10 @@
         "hallId": "classical-chinese-traditions",
         "visitorEntryPoint": "#/museum/classical-chinese-traditions/exhibits/chinese-philosophy",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 468,
+        "surfaceWords": 589,
         "canonicalArticleKey": "philosophy:chinese-philosophy",
         "canonicalArticleId": "chinese-philosophy",
-        "canonicalArticleWordCount": 2287,
+        "canonicalArticleWordCount": 2282,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -3922,7 +3922,7 @@
         "surfaceWords": 287,
         "canonicalArticleKey": "philosophy:cynicism",
         "canonicalArticleId": "cynicism",
-        "canonicalArticleWordCount": 2035,
+        "canonicalArticleWordCount": 2062,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -3958,7 +3958,7 @@
         "surfaceWords": 292,
         "canonicalArticleKey": "philosophy:epicureanism",
         "canonicalArticleId": "epicureanism",
-        "canonicalArticleWordCount": 2022,
+        "canonicalArticleWordCount": 2035,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -3991,7 +3991,7 @@
         "hallId": "hellenistic-roman-ways",
         "visitorEntryPoint": "#/museum/hellenistic-roman-ways/exhibits/stoicism",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 290,
+        "surfaceWords": 360,
         "canonicalArticleKey": "philosophy:stoicism",
         "canonicalArticleId": "stoicism",
         "canonicalArticleWordCount": 2077,
@@ -4078,7 +4078,7 @@
         "surfaceWords": 278,
         "canonicalArticleKey": "philosophy:skepticism",
         "canonicalArticleId": "skepticism",
-        "canonicalArticleWordCount": 2031,
+        "canonicalArticleWordCount": 2036,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -4135,7 +4135,7 @@
         "hallId": "late-antiquity-inheritance",
         "visitorEntryPoint": "#/museum/late-antiquity-inheritance/exhibits/neoplatonism",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 305,
+        "surfaceWords": 345,
         "canonicalArticleKey": "philosophy:neoplatonism",
         "canonicalArticleId": "neoplatonism",
         "canonicalArticleWordCount": 2160,
@@ -4579,10 +4579,10 @@
         "hallId": "pragmatism-democratic-inquiry",
         "visitorEntryPoint": "#/museum/pragmatism-democratic-inquiry/exhibits/pragmatism",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 615,
+        "surfaceWords": 668,
         "canonicalArticleKey": "philosophy:pragmatism",
         "canonicalArticleId": "pragmatism",
-        "canonicalArticleWordCount": 3473,
+        "canonicalArticleWordCount": 3471,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -4627,7 +4627,7 @@
         "hallId": "critique-power-deconstruction",
         "visitorEntryPoint": "#/museum/critique-power-deconstruction/exhibits/continental-philosophy",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 1195,
+        "surfaceWords": 1197,
         "canonicalArticleKey": "philosophy:continental-philosophy",
         "canonicalArticleId": "continental-philosophy",
         "canonicalArticleWordCount": 3093,
@@ -4639,7 +4639,7 @@
         "hallId": "critique-power-deconstruction",
         "visitorEntryPoint": "#/museum/critique-power-deconstruction/exhibits/foucault",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 364,
+        "surfaceWords": 360,
         "canonicalArticleKey": "philosopher:foucault",
         "canonicalArticleId": "foucault",
         "canonicalArticleWordCount": 2302,
@@ -4651,7 +4651,7 @@
         "hallId": "critique-power-deconstruction",
         "visitorEntryPoint": "#/museum/critique-power-deconstruction/exhibits/derrida",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 921,
+        "surfaceWords": 369,
         "canonicalArticleKey": "philosopher:derrida",
         "canonicalArticleId": "derrida",
         "canonicalArticleWordCount": 2328,
@@ -4663,7 +4663,7 @@
         "hallId": "critique-power-deconstruction",
         "visitorEntryPoint": "#/museum/critique-power-deconstruction/exhibits/habermas",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 319,
+        "surfaceWords": 372,
         "canonicalArticleKey": "philosopher:habermas",
         "canonicalArticleId": "habermas",
         "canonicalArticleWordCount": 2067,
@@ -4675,7 +4675,7 @@
         "hallId": "moral-life-practical-reason",
         "visitorEntryPoint": "#/museum/moral-life-practical-reason/exhibits/ethics",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 967,
+        "surfaceWords": 364,
         "canonicalArticleKey": "philosophy:ethics",
         "canonicalArticleId": "ethics",
         "canonicalArticleWordCount": 2908,
@@ -4687,7 +4687,7 @@
         "hallId": "moral-life-practical-reason",
         "visitorEntryPoint": "#/museum/moral-life-practical-reason/exhibits/virtue-ethics",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 1180,
+        "surfaceWords": 332,
         "canonicalArticleKey": "philosophy:virtue-ethics",
         "canonicalArticleId": "virtue-ethics",
         "canonicalArticleWordCount": 2763,
@@ -4723,10 +4723,10 @@
         "hallId": "moral-life-practical-reason",
         "visitorEntryPoint": "#/museum/moral-life-practical-reason/exhibits/deontology",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 1166,
+        "surfaceWords": 1156,
         "canonicalArticleKey": "philosophy:deontology",
         "canonicalArticleId": "deontology",
-        "canonicalArticleWordCount": 2662,
+        "canonicalArticleWordCount": 2652,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -4735,10 +4735,10 @@
         "hallId": "moral-life-practical-reason",
         "visitorEntryPoint": "#/museum/moral-life-practical-reason/exhibits/utilitarianism",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 1103,
+        "surfaceWords": 1070,
         "canonicalArticleKey": "philosophy:utilitarianism",
         "canonicalArticleId": "utilitarianism",
-        "canonicalArticleWordCount": 2625,
+        "canonicalArticleWordCount": 2592,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -4807,7 +4807,7 @@
         "hallId": "colonialism-race-liberation",
         "visitorEntryPoint": "#/museum/colonialism-race-liberation/exhibits/fanon",
         "surfaceKind": "museum-primary-exhibit",
-        "surfaceWords": 345,
+        "surfaceWords": 369,
         "canonicalArticleKey": "philosopher:fanon",
         "canonicalArticleId": "fanon",
         "canonicalArticleWordCount": 2192,
@@ -5298,7 +5298,7 @@
         "canonicalArticleKey": "philosophy:phenomenology",
         "canonicalArticleId": "phenomenology",
         "canonicalArticleCategory": "philosophy",
-        "canonicalArticleWordCount": 2022,
+        "canonicalArticleWordCount": 2025,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -5378,7 +5378,7 @@
         "canonicalArticleKey": "philosophy:existentialism",
         "canonicalArticleId": "existentialism",
         "canonicalArticleCategory": "philosophy",
-        "canonicalArticleWordCount": 2056,
+        "canonicalArticleWordCount": 2060,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -6914,7 +6914,7 @@
         "canonicalArticleKey": "philosophy:chinese-philosophy",
         "canonicalArticleId": "chinese-philosophy",
         "canonicalArticleCategory": "philosophy",
-        "canonicalArticleWordCount": 2287,
+        "canonicalArticleWordCount": 2282,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -6930,7 +6930,7 @@
         "canonicalArticleKey": "philosophy:chinese-philosophy",
         "canonicalArticleId": "chinese-philosophy",
         "canonicalArticleCategory": "philosophy",
-        "canonicalArticleWordCount": 2287,
+        "canonicalArticleWordCount": 2282,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -6946,7 +6946,7 @@
         "canonicalArticleKey": "philosophy:chinese-philosophy",
         "canonicalArticleId": "chinese-philosophy",
         "canonicalArticleCategory": "philosophy",
-        "canonicalArticleWordCount": 2287,
+        "canonicalArticleWordCount": 2282,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -6962,7 +6962,7 @@
         "canonicalArticleKey": "philosophy:chinese-philosophy",
         "canonicalArticleId": "chinese-philosophy",
         "canonicalArticleCategory": "philosophy",
-        "canonicalArticleWordCount": 2287,
+        "canonicalArticleWordCount": 2282,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -7010,7 +7010,7 @@
         "canonicalArticleKey": "philosophy:chinese-philosophy",
         "canonicalArticleId": "chinese-philosophy",
         "canonicalArticleCategory": "philosophy",
-        "canonicalArticleWordCount": 2287,
+        "canonicalArticleWordCount": 2282,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -7570,7 +7570,7 @@
         "canonicalArticleKey": "philosophy:chinese-philosophy",
         "canonicalArticleId": "chinese-philosophy",
         "canonicalArticleCategory": "philosophy",
-        "canonicalArticleWordCount": 2287,
+        "canonicalArticleWordCount": 2282,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -8072,7 +8072,7 @@
         "canonicalArticleKey": "philosophy:cynicism",
         "canonicalArticleId": "cynicism",
         "canonicalArticleCategory": "philosophy",
-        "canonicalArticleWordCount": 2035,
+        "canonicalArticleWordCount": 2062,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -8088,7 +8088,7 @@
         "canonicalArticleKey": "philosophy:cynicism",
         "canonicalArticleId": "cynicism",
         "canonicalArticleCategory": "philosophy",
-        "canonicalArticleWordCount": 2035,
+        "canonicalArticleWordCount": 2062,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -8104,7 +8104,7 @@
         "canonicalArticleKey": "philosophy:epicureanism",
         "canonicalArticleId": "epicureanism",
         "canonicalArticleCategory": "philosophy",
-        "canonicalArticleWordCount": 2022,
+        "canonicalArticleWordCount": 2035,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -8120,7 +8120,7 @@
         "canonicalArticleKey": "philosophy:epicureanism",
         "canonicalArticleId": "epicureanism",
         "canonicalArticleCategory": "philosophy",
-        "canonicalArticleWordCount": 2022,
+        "canonicalArticleWordCount": 2035,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -8136,7 +8136,7 @@
         "canonicalArticleKey": "philosophy:epicureanism",
         "canonicalArticleId": "epicureanism",
         "canonicalArticleCategory": "philosophy",
-        "canonicalArticleWordCount": 2022,
+        "canonicalArticleWordCount": 2035,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -10168,7 +10168,7 @@
         "canonicalArticleKey": "philosophy:pragmatism",
         "canonicalArticleId": "pragmatism",
         "canonicalArticleCategory": "philosophy",
-        "canonicalArticleWordCount": 3473,
+        "canonicalArticleWordCount": 3471,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -10184,7 +10184,7 @@
         "canonicalArticleKey": "philosophy:pragmatism",
         "canonicalArticleId": "pragmatism",
         "canonicalArticleCategory": "philosophy",
-        "canonicalArticleWordCount": 3473,
+        "canonicalArticleWordCount": 3471,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -10200,7 +10200,7 @@
         "canonicalArticleKey": "philosophy:pragmatism",
         "canonicalArticleId": "pragmatism",
         "canonicalArticleCategory": "philosophy",
-        "canonicalArticleWordCount": 3473,
+        "canonicalArticleWordCount": 3471,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -10216,7 +10216,7 @@
         "canonicalArticleKey": "philosophy:pragmatism",
         "canonicalArticleId": "pragmatism",
         "canonicalArticleCategory": "philosophy",
-        "canonicalArticleWordCount": 3473,
+        "canonicalArticleWordCount": 3471,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -10232,7 +10232,7 @@
         "canonicalArticleKey": "philosophy:pragmatism",
         "canonicalArticleId": "pragmatism",
         "canonicalArticleCategory": "philosophy",
-        "canonicalArticleWordCount": 3473,
+        "canonicalArticleWordCount": 3471,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -10248,7 +10248,7 @@
         "canonicalArticleKey": "philosophy:pragmatism",
         "canonicalArticleId": "pragmatism",
         "canonicalArticleCategory": "philosophy",
-        "canonicalArticleWordCount": 3473,
+        "canonicalArticleWordCount": 3471,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -10712,7 +10712,7 @@
         "canonicalArticleKey": "philosophy:deontology",
         "canonicalArticleId": "deontology",
         "canonicalArticleCategory": "philosophy",
-        "canonicalArticleWordCount": 2662,
+        "canonicalArticleWordCount": 2652,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -10728,7 +10728,7 @@
         "canonicalArticleKey": "philosophy:utilitarianism",
         "canonicalArticleId": "utilitarianism",
         "canonicalArticleCategory": "philosophy",
-        "canonicalArticleWordCount": 2625,
+        "canonicalArticleWordCount": 2592,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -10744,7 +10744,7 @@
         "canonicalArticleKey": "philosophy:utilitarianism",
         "canonicalArticleId": "utilitarianism",
         "canonicalArticleCategory": "philosophy",
-        "canonicalArticleWordCount": 2625,
+        "canonicalArticleWordCount": 2592,
         "canonicalArticleComplianceStatus": "pass"
       },
       {
@@ -10760,7 +10760,7 @@
         "canonicalArticleKey": "philosophy:utilitarianism",
         "canonicalArticleId": "utilitarianism",
         "canonicalArticleCategory": "philosophy",
-        "canonicalArticleWordCount": 2625,
+        "canonicalArticleWordCount": 2592,
         "canonicalArticleComplianceStatus": "pass"
       },
       {

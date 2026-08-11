@@ -215,26 +215,26 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | philosophy | epistemology | Epistemology | #/branches/epistemology | 2627 | pass | no | yes (1 primary; 0 supplemental) |
 | philosophy | ethics | Ethics | #/branches/ethics | 2908 | pass | no | yes (1 primary; 5 supplemental) |
 | philosophy | virtue-ethics | Virtue Ethics | #/branches/virtue-ethics | 2763 | pass | yes | yes (1 primary; 1 supplemental) |
-| philosophy | epicureanism | Epicureanism | #/branches/epicureanism | 2022 | pass | yes | yes (1 primary; 3 supplemental) |
-| philosophy | cynicism | Cynicism | #/branches/cynicism | 2035 | pass | yes | yes (1 primary; 2 supplemental) |
-| philosophy | skepticism | Skepticism | #/branches/skepticism | 2031 | pass | yes | yes (1 primary; 0 supplemental) |
-| philosophy | deontology | Deontology | #/branches/deontology | 2662 | pass | yes | yes (1 primary; 1 supplemental) |
-| philosophy | utilitarianism | Utilitarianism | #/branches/utilitarianism | 2625 | pass | yes | yes (1 primary; 3 supplemental) |
+| philosophy | epicureanism | Epicureanism | #/branches/epicureanism | 2035 | pass | yes | yes (1 primary; 3 supplemental) |
+| philosophy | cynicism | Cynicism | #/branches/cynicism | 2062 | pass | yes | yes (1 primary; 2 supplemental) |
+| philosophy | skepticism | Skepticism | #/branches/skepticism | 2036 | pass | yes | yes (1 primary; 0 supplemental) |
+| philosophy | deontology | Deontology | #/branches/deontology | 2652 | pass | yes | yes (1 primary; 1 supplemental) |
+| philosophy | utilitarianism | Utilitarianism | #/branches/utilitarianism | 2592 | pass | yes | yes (1 primary; 3 supplemental) |
 | philosophy | political-philosophy | Political Philosophy | #/branches/political-philosophy | 2104 | pass | yes | yes (1 primary; 4 supplemental) |
-| philosophy | logic | Logic | #/branches/logic | 2826 | pass | yes | yes (1 primary; 0 supplemental) |
-| philosophy | philosophy-of-language | Philosophy of Language | #/branches/philosophy-of-language | 2433 | pass | yes | yes (1 primary; 0 supplemental) |
+| philosophy | logic | Logic | #/branches/logic | 2752 | pass | yes | yes (1 primary; 0 supplemental) |
+| philosophy | philosophy-of-language | Philosophy of Language | #/branches/philosophy-of-language | 2410 | pass | yes | yes (1 primary; 0 supplemental) |
 | philosophy | philosophy-of-mind | Philosophy of Mind | #/branches/philosophy-of-mind | 5108 | pass | yes | yes (1 primary; 0 supplemental) |
 | philosophy | philosophy-of-science | Philosophy of Science | #/branches/philosophy-of-science | 2191 | pass | yes | yes (1 primary; 0 supplemental) |
-| philosophy | aesthetics | Aesthetics | #/branches/aesthetics | 2838 | pass | yes | yes (1 primary; 0 supplemental) |
-| philosophy | existentialism | Existentialism | #/branches/existentialism | 2056 | pass | yes | yes (1 primary; 1 supplemental) |
-| philosophy | phenomenology | Phenomenology | #/branches/phenomenology | 2022 | pass | yes | yes (1 primary; 1 supplemental) |
-| philosophy | pragmatism | Pragmatism | #/branches/pragmatism | 3473 | pass | yes | yes (1 primary; 6 supplemental) |
+| philosophy | aesthetics | Aesthetics | #/branches/aesthetics | 2776 | pass | yes | yes (1 primary; 0 supplemental) |
+| philosophy | existentialism | Existentialism | #/branches/existentialism | 2060 | pass | yes | yes (1 primary; 1 supplemental) |
+| philosophy | phenomenology | Phenomenology | #/branches/phenomenology | 2025 | pass | yes | yes (1 primary; 1 supplemental) |
+| philosophy | pragmatism | Pragmatism | #/branches/pragmatism | 3471 | pass | yes | yes (1 primary; 6 supplemental) |
 | philosophy | analytic-philosophy | Analytic Philosophy | #/branches/analytic-philosophy | 2963 | pass | no | yes (1 primary; 0 supplemental) |
 | philosophy | continental-philosophy | Continental Philosophy | #/branches/continental-philosophy | 3093 | pass | yes | yes (1 primary; 5 supplemental) |
 | philosophy | feminist-philosophy | Feminist Philosophy | #/branches/feminist-philosophy | 3065 | pass | yes | yes (1 primary; 11 supplemental) |
 | philosophy | philosophy-of-religion | Philosophy of Religion | #/branches/philosophy-of-religion | 2178 | pass | yes | yes (1 primary; 0 supplemental) |
 | philosophy | ancient-greek | Ancient Greek Philosophy | #/branches/ancient-greek | 2717 | pass | yes | yes (1 primary; 2 supplemental) |
-| philosophy | chinese-philosophy | Chinese Philosophy | #/branches/chinese-philosophy | 2287 | pass | yes | yes (1 primary; 6 supplemental) |
+| philosophy | chinese-philosophy | Chinese Philosophy | #/branches/chinese-philosophy | 2282 | pass | yes | yes (1 primary; 6 supplemental) |
 | philosophy | confucianism | Confucianism | #/branches/confucianism | 2451 | pass | yes | yes (1 primary; 8 supplemental) |
 | philosophy | daoism | Daoism | #/branches/daoism | 2362 | pass | yes | yes (1 primary; 2 supplemental) |
 | philosophy | mohism | Mohism | #/branches/mohism | 2385 | pass | yes | yes (1 primary; 1 supplemental) |
