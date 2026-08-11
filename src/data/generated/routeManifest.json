@@ -11276,6 +11276,21 @@
       "id": "south-asian",
       "title": "South Asian Philosophies: Liberation, Self, Knowledge",
       "stepCount": 4
+    },
+    {
+      "id": "islamic-philosophy",
+      "title": "Islamic Philosophy",
+      "stepCount": 4
+    },
+    {
+      "id": "rationalism-empiricism",
+      "title": "Rationalism and Empiricism",
+      "stepCount": 4
+    },
+    {
+      "id": "kant-german-idealism",
+      "title": "Kant and German Idealism",
+      "stepCount": 4
     }
   ],
   "museumHalls": [

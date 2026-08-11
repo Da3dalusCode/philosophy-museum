@@ -31,6 +31,11 @@ const sourceIds: Record<string, string> = {
   buddha: 'bud-suttas', nagarjuna: 'nag-sep',
   kant: 'kant-sep', hume: 'hum-enquiries', beauvoir: 'bdv-sep', sartre: 'srt-sep',
   'al-ghazali': 'ghazali-incoherence', averroes: 'averroes-decisive',
+  legalism: 'legalism-sep', platonism: 'pla-middle-sep', aristotelianism: 'ari-metaphysics-sep',
+  'chinese-philosophy': 'chi-lai', metaphysics: 'met-sep', ontology: 'ont-logic-sep',
+  'analytic-philosophy': 'ana-iep', 'continental-philosophy': 'con-companion',
+  'virtue-ethics': 'vir-sep', daoism: 'daoism-sep', jainism: 'jain-sep',
+  existentialism: 'exi-sep', phenomenology: 'phe-sep',
 };
 
 const statement = (kind: ComparisonKind, text: string, ...entityIds: string[]): ComparisonStatement => ({
@@ -82,6 +87,35 @@ export const comparisonCasefiles: readonly ComparisonCasefile[] = [
     interpretiveLimits: [branchStatement('Roman Stoic writers, Lucretius, and later popular receptions should not be treated as interchangeable with the early schools or with one another.', 'stoicism', 'epicureanism')],
     followOns: [{kind: 'branch', participantIds: ['stoicism', 'buddhist-philosophy'], label: 'Stoicism and Buddhist Philosophy', reason: branchStatement('Compare carefully how practices of desire and suffering can resemble one another while resting on distinct accounts of self and nature.', 'stoicism', 'buddhist-philosophy')}],
   }),
+  branchCase(['stoicism', 'buddhist-philosophy'], {
+    sharedQuestion: branchStatement('How can disciplined practice loosen the judgments, cravings, and attachments through which suffering gains control over a life?', 'stoicism', 'buddhist-philosophy'),
+    historicalRelationship: branchStatement('This is a retrospective philosophical comparison, not evidence of a direct ancient exchange: Stoicism formed in the Hellenistic Mediterranean, while Buddhist traditions developed from South Asian teachings and institutions with distinct textual histories.', 'stoicism', 'buddhist-philosophy'),
+    sharedAssumptions: [branchStatement('Both treat ethical transformation as trained practice rather than assent to a slogan, and both connect destructive distress to how a person understands and responds to experience.', 'stoicism', 'buddhist-philosophy')],
+    axes: [
+      {label: 'Self and agency', question: branchStatement('What kind of agent undertakes the work of liberation or ethical freedom?', 'stoicism', 'buddhist-philosophy'), positions: [
+        {entityId: 'stoicism', claim: branchStatement('Stoics address a rational and socially situated agent whose assent, impulse, and character can become virtuous within a causally ordered cosmos.', 'stoicism')},
+        {entityId: 'buddhist-philosophy', claim: branchStatement('Buddhist analyses deny an independent, permanent self and examine persons through changing aggregates, dependent conditions, karma, and paths of cultivation.', 'buddhist-philosophy')},
+      ], contrast: branchStatement('Stoic self-command strengthens rational agency; Buddhist non-self analysis questions the very attachment to an enduring controller, without erasing conventional agency or responsibility.', 'stoicism', 'buddhist-philosophy')},
+      {label: 'The source of distress', question: branchStatement('Which attachment or error must practice transform?', 'stoicism', 'buddhist-philosophy'), positions: [
+        {entityId: 'stoicism', claim: branchStatement('Stoic passions involve evaluative judgments that mistake externals for genuine goods or evils; correction aims at virtue, appropriate action, and freedom from destructive passion.', 'stoicism')},
+        {entityId: 'buddhist-philosophy', claim: branchStatement('Buddhist paths diagnose suffering through craving, ignorance, and dependent origination, while traditions disagree about the analysis of mind, reality, and awakening.', 'buddhist-philosophy')},
+      ], contrast: branchStatement('Both retrain response, but Stoic therapy is governed by virtue in a providentially ordered nature, whereas Buddhist liberation is organized around suffering, impermanence, non-self, and cessation.', 'stoicism', 'buddhist-philosophy')},
+    ],
+    terminology: [{topic: 'Release from disturbance', positions: [
+      {entityId: 'stoicism', term: 'apatheia', explanation: branchStatement('Apatheia is freedom from passions grounded in false value judgments, not indifference to other people or the absence of every feeling.', 'stoicism')},
+      {entityId: 'buddhist-philosophy', term: 'nirvāṇa', explanation: branchStatement('Nirvāṇa names the cessation of the conditions of suffering within Buddhist soteriology; accounts of its meaning and path vary across traditions.', 'buddhist-philosophy')},
+    ], warning: branchStatement('Apatheia and nirvāṇa are not translations of one another: their ethical, psychological, cosmological, and institutional settings differ.', 'stoicism', 'buddhist-philosophy')}],
+    arguments: [
+      {entityId: 'stoicism', title: 'Make the good resistant to fortune', summary: branchStatement('If virtue alone determines moral worth, loss and illness can wound a life without turning the sufferer into a bad person or removing the demand for just action.', 'stoicism'), pressure: branchStatement('The view must explain grief, dependency, and material injustice without treating external harms as ethically negligible.', 'stoicism')},
+      {entityId: 'buddhist-philosophy', title: 'Trace suffering through dependent conditions', summary: branchStatement('Buddhist analysis asks how craving and mistaken appropriation reproduce suffering, then tests practices that weaken those conditions rather than securing a permanent self.', 'buddhist-philosophy'), pressure: branchStatement('Comparison must preserve disagreements among early Buddhist, Madhyamaka, Yogācāra, Abhidharma, and later traditions.', 'buddhist-philosophy')},
+    ],
+    readings: [
+      {entityId: 'stoicism', title: 'Discourses, Book I', author: 'Epictetus', kind: 'primary', stage: 'Begin with assent and agency', whyHere: branchStatement('The Discourses place exercises of judgment inside a demanding account of character, role, and responsibility.', 'stoicism')},
+      {entityId: 'buddhist-philosophy', title: 'Anattalakkhaṇa Sutta (SN 22.59)', author: 'Early Buddhist traditions', kind: 'primary', stage: 'Test the non-self analysis', whyHere: branchStatement('Read the argument about the aggregates before importing a modern theory of identity or a Stoic ideal of self-mastery.', 'buddhist-philosophy')},
+    ],
+    interpretiveLimits: [branchStatement('Similar exercises do not establish a shared doctrine, and modern therapeutic receptions should not be projected backward as proof of historical equivalence.', 'stoicism', 'buddhist-philosophy')],
+    followOns: [{kind: 'branch', participantIds: ['buddhist-philosophy', 'jainism'], label: 'Buddhist Philosophy and Jainism', reason: branchStatement('Stay in South Asian debates and compare liberation, karma, nonviolence, and rival accounts of the living self.', 'buddhist-philosophy', 'jainism')}],
+  }),
   branchCase(['confucianism', 'mohism'], {
     sharedQuestion: branchStatement('How should ethical cultivation and public order respond to partiality, conflict, and material need?', 'confucianism', 'mohism'),
     historicalRelationship: branchStatement('Confucian and Mohist texts belong to the plural Warring States argument culture; the comparison concerns rival answers within that setting, not two timeless cultural essences.', 'confucianism', 'mohism'),
@@ -111,6 +145,93 @@ export const comparisonCasefiles: readonly ComparisonCasefile[] = [
     interpretiveLimits: [branchStatement('The received texts are layered and the identities and dates of their speakers are not transparent; neither tradition should be reduced to one founder’s modern doctrine.', 'confucianism', 'mohism')],
     followOns: [{kind: 'branch', participantIds: ['mohism', 'legalism'], label: 'Mohism and Legalism', reason: branchStatement('Ask how public standards can serve moral concern or state capacity, and why administrative clarity does not determine its own ends.', 'mohism', 'legalism')}],
   }),
+  branchCase(['mohism', 'legalism'], {
+    sharedQuestion: branchStatement('What public standards can end disorder when private advantage, inherited rank, and unreliable officials distort political judgment?', 'mohism', 'legalism'),
+    historicalRelationship: branchStatement('Mohist and fa-oriented texts arose in Warring States argument and statecraft, but “Legalism” is a later, imperfect grouping of distinct thinkers rather than the name of one contemporary school.', 'mohism', 'legalism'),
+    sharedAssumptions: [branchStatement('Both distrust rule by inherited prestige alone and seek publicly usable standards, offices, incentives, or tests that do not depend on a ruler simply recognizing private virtue.', 'mohism', 'legalism')],
+    axes: [
+      {label: 'The end of government', question: branchStatement('Whose good determines whether an institution succeeds?', 'mohism', 'legalism'), positions: [
+        {entityId: 'mohism', claim: branchStatement('Mohist texts judge policies by inclusive benefit, material sufficiency, population, order, and opposition to aggressive war, under an impartial Heaven.', 'mohism')},
+        {entityId: 'legalism', claim: branchStatement('Fa thinkers prioritize a strong, orderly state and ruler, using agriculture, warfare, law, office, and administrative control to channel self-interest.', 'legalism')},
+      ], contrast: branchStatement('Mohist standards claim a moral end in benefit to all under Heaven; fa statecraft makes institutional capacity and the security of rule central.', 'mohism', 'legalism')},
+      {label: 'How standards work', question: branchStatement('Should order depend on moral emulation or on impersonal administration?', 'mohism', 'legalism'), positions: [
+        {entityId: 'mohism', claim: branchStatement('Mohists combine models, argument, merit, upward conformity, rewards, and the intention of Heaven in a program meant to reform conduct and judgment.', 'mohism')},
+        {entityId: 'legalism', claim: branchStatement('Han Fei and related fa thinkers emphasize public laws, matching claims to performance, administrative technique, and the ruler’s control of reward and punishment.', 'legalism')},
+      ], contrast: branchStatement('Both value standards and incentives, but they justify and direct them toward different moral and political objects.', 'mohism', 'legalism')},
+    ],
+    terminology: [{topic: 'Standards', positions: [
+      {entityId: 'mohism', term: 'fa as models', explanation: branchStatement('Mohist fa can be models or standards used to distinguish acceptable claims and practices by accessible tests and consequences.', 'mohism')},
+      {entityId: 'legalism', term: 'fa as public norms', explanation: branchStatement('In fa statecraft, law-like standards join administrative techniques and positional power; the tradition cannot be reduced to statutes alone.', 'legalism')},
+    ], warning: branchStatement('The shared graph fa does not establish a shared political philosophy, and translating it simply as “law” hides its wider uses.', 'mohism', 'legalism')}],
+    arguments: [
+      {entityId: 'mohism', title: 'Judge rule by inclusive benefit', summary: branchStatement('Mohist argument exposes the public costs of partiality, lavish display, fatalism, and aggressive war, then asks institutions to benefit ordinary people.', 'mohism'), pressure: branchStatement('Its program must explain coercive conformity, the authority assigned to Heaven, and how plural goods should be weighed.', 'mohism')},
+      {entityId: 'legalism', title: 'Design for predictable incentives', summary: branchStatement('Fa arguments press the problem that moral exhortation cannot reliably control ministers, succession, taxation, military competition, or official performance.', 'legalism'), pressure: branchStatement('Administrative effectiveness does not by itself justify the ruler’s ends or protect subjects from domination and punishment.', 'legalism')},
+    ],
+    readings: [
+      {entityId: 'mohism', title: 'Mozi, “Impartial Concern” and “Condemning Aggressive War”', author: 'Mohist communities', kind: 'primary', stage: 'Read the moral standard', whyHere: branchStatement('These chapters connect impartial concern to arguments about benefit, conflict, and public policy.', 'mohism')},
+      {entityId: 'legalism', title: 'Han Feizi, selections on the two handles and matching names to results', author: 'Han Feizi', kind: 'primary', stage: 'Read the administrative response', whyHere: branchStatement('The selections show why technique, office, performance, reward, and punishment form a system rather than a slogan about harsh law.', 'legalism')},
+    ],
+    interpretiveLimits: [branchStatement('Neither Mohism nor the retrospectively grouped fa tradition is internally uniform, and neither maps cleanly onto modern utilitarianism, technocracy, rule of law, or authoritarianism.', 'mohism', 'legalism')],
+    followOns: [{kind: 'branch', participantIds: ['confucianism', 'daoism'], label: 'Confucianism and Daoism', reason: branchStatement('Compare a different dispute over cultivation, inherited forms, non-forcing, and the danger of rigid standards.', 'confucianism', 'daoism')}],
+  }),
+  branchCase(['chinese-philosophy', 'confucianism'], {
+    sharedQuestion: branchStatement('When does a broad historical field clarify a debate, and when must interpretation move to one specific lineage, corpus, or practice?', 'chinese-philosophy', 'confucianism'),
+    historicalRelationship: branchStatement('Chinese Philosophy is an umbrella for many changing debates; Confucianism is one internally diverse tradition within that field, alongside Daoist, Mohist, fa, Buddhist, and other conversations.', 'chinese-philosophy', 'confucianism'),
+    sharedAssumptions: [branchStatement('Both labels direct attention to philosophy formed through Chinese texts, languages, institutions, and receptions, while neither names a single timeless doctrine.', 'chinese-philosophy', 'confucianism')],
+    axes: [
+      {label: 'Scope of the label', question: branchStatement('What kind of unity does each category claim?', 'chinese-philosophy', 'confucianism'), positions: [
+        {entityId: 'chinese-philosophy', claim: branchStatement('The umbrella organizes rival schools and later transformations without implying that they agree on the Way, human nature, government, knowledge, or reality.', 'chinese-philosophy')},
+        {entityId: 'confucianism', claim: branchStatement('The tradition links arguments about learning, ritual, humaneness, family, government, and canonical interpretation across sharply different thinkers and periods.', 'confucianism')},
+      ], contrast: branchStatement('One category maps a plural field; the other follows a particular, contested lineage inside it, so they are nested rather than symmetrical rivals.', 'chinese-philosophy', 'confucianism')},
+      {label: 'Explanatory stakes', question: branchStatement('What disappears when the broader or narrower frame is used alone?', 'chinese-philosophy', 'confucianism'), positions: [
+        {entityId: 'chinese-philosophy', claim: branchStatement('The broad frame preserves Mohist, Daoist, fa, Buddhist, and other challenges that make the history an argument rather than a Confucian consensus.', 'chinese-philosophy')},
+        {entityId: 'confucianism', claim: branchStatement('The narrower frame makes visible disputes among Confucius, Mencius, Xunzi, Zhu Xi, Wang Yangming, and modern interpreters that an umbrella survey can compress.', 'confucianism')},
+      ], contrast: branchStatement('Breadth prevents one-tradition reduction; lineage-specific study prevents regional context from substituting for an actual position.', 'chinese-philosophy', 'confucianism')},
+    ],
+    terminology: [{topic: 'The Way', positions: [
+      {entityId: 'chinese-philosophy', term: 'dao across debates', explanation: branchStatement('Dao can name rival ways, guidance, practices, or patterns across texts; its recurrence does not guarantee doctrinal agreement.', 'chinese-philosophy')},
+      {entityId: 'confucianism', term: 'the Confucian dao', explanation: branchStatement('Confucian uses connect the Way to learning, ritual, humane relationships, exemplary rule, and contested accounts of cultivation.', 'confucianism')},
+    ], warning: branchStatement('A shared translated word should prompt comparison of textual use, not a claim that all Chinese traditions express one holistic worldview.', 'chinese-philosophy', 'confucianism')}],
+    arguments: [
+      {entityId: 'chinese-philosophy', title: 'Preserve the argument culture', summary: branchStatement('A plural field frame keeps conquest, institutions, translation, and rivalry visible instead of making one school the voice of a civilization.', 'chinese-philosophy'), pressure: branchStatement('An umbrella can become so broad that it supplies context without enough conceptual precision to answer a philosophical question.', 'chinese-philosophy')},
+      {entityId: 'confucianism', title: 'Follow a durable contested lineage', summary: branchStatement('A tradition frame lets readers trace how canonical texts, commentaries, ritual, education, and political criticism were reconstructed over time.', 'confucianism'), pressure: branchStatement('It must not turn later canonization or state sponsorship into proof that Confucianism exhausted Chinese philosophy.', 'confucianism')},
+    ],
+    readings: [
+      {entityId: 'chinese-philosophy', title: 'Classical Chinese philosophical texts', author: 'Chinese Text Project', kind: 'primary', stage: 'Survey rival corpora', whyHere: branchStatement('Sample named texts side by side so the umbrella category remains visibly plural and source-based.', 'chinese-philosophy')},
+      {entityId: 'confucianism', title: 'Analects, Books 1–4', author: 'Confucius and transmitters', kind: 'primary', stage: 'Enter one lineage closely', whyHere: branchStatement('The layered text introduces learning, ritual, relationship, and humane conduct without standing for every later Confucian view.', 'confucianism')},
+    ],
+    interpretiveLimits: [branchStatement('Because the categories are nested, this casefile clarifies scale and method rather than staging a doctrinal contest between equal opponents.', 'chinese-philosophy', 'confucianism')],
+    followOns: [{kind: 'branch', participantIds: ['confucianism', 'daoism'], label: 'Confucianism and Daoism', reason: branchStatement('Move from field boundaries to a historically sharper dispute about cultivation, standards, and non-forcing.', 'confucianism', 'daoism')}],
+  }),
+  branchCase(['confucianism', 'daoism'], {
+    sharedQuestion: branchStatement('Does good order emerge through cultivated forms and relationships, or by loosening the forcing and fixed distinctions through which people try to impose order?', 'confucianism', 'daoism'),
+    historicalRelationship: branchStatement('Classical texts later grouped as Confucian and Daoist developed amid overlapping debates about dao, names, government, cultivation, and skill, but both labels cover layered corpora and later traditions.', 'confucianism', 'daoism'),
+    sharedAssumptions: [branchStatement('Both ask how conduct can become responsive to a larger way of life and criticize rulers whose desires and coercion deform social order.', 'confucianism', 'daoism')],
+    axes: [
+      {label: 'Cultivation and form', question: branchStatement('Do inherited practices educate responsiveness or obstruct it?', 'confucianism', 'daoism'), positions: [
+        {entityId: 'confucianism', claim: branchStatement('Confucian traditions treat ritual, study, music, family relation, and exemplary conduct as practices through which feeling and judgment can be cultivated.', 'confucianism')},
+        {entityId: 'daoism', claim: branchStatement('Daoist texts question rigid naming, moral display, and coercive schemes, often praising non-forcing, adaptive skill, simplicity, and responsiveness to changing situations.', 'daoism')},
+      ], contrast: branchStatement('Confucian practice reforms desire through patterned participation; Daoist critique asks when the pattern itself becomes an artificial obstacle to attunement.', 'confucianism', 'daoism')},
+      {label: 'Political action', question: branchStatement('How should a ruler act without producing greater disorder?', 'confucianism', 'daoism'), positions: [
+        {entityId: 'confucianism', claim: branchStatement('Confucian arguments emphasize cultivated example, humane government, appropriate roles, remonstrance, and institutions of learning.', 'confucianism')},
+        {entityId: 'daoism', claim: branchStatement('Daodejing-oriented arguments warn that aggressive intervention, status competition, and multiplying prohibitions can generate the disorder they claim to cure.', 'daoism')},
+      ], contrast: branchStatement('Both can oppose punitive overreach, but they diagnose and repair political distortion through different accounts of norm, desire, and action.', 'confucianism', 'daoism')},
+    ],
+    terminology: [{topic: 'Following the Way', positions: [
+      {entityId: 'confucianism', term: 'li and ren', explanation: branchStatement('Ritual propriety and humaneness concern formed relationships and responsive conduct, not etiquette mechanically obeyed.', 'confucianism')},
+      {entityId: 'daoism', term: 'wuwei and ziran', explanation: branchStatement('Non-forcing and spontaneity name modes of action less dominated by contrivance; they do not prescribe literal inactivity.', 'daoism')},
+    ], warning: branchStatement('“Harmony” and “the Way” are insufficient comparisons unless the text, practice, and disputed standard are named.', 'confucianism', 'daoism')}],
+    arguments: [
+      {entityId: 'confucianism', title: 'Good judgment is socially cultivated', summary: branchStatement('Confucian reasoning presses the fact that people learn attention, feeling, and responsibility through relationships and practices rather than inventing themselves alone.', 'confucianism'), pressure: branchStatement('Inherited rites and roles can also entrench hierarchy, exclusion, or deference unless their authority remains criticizable.', 'confucianism')},
+      {entityId: 'daoism', title: 'Forced order defeats its own purpose', summary: branchStatement('Daoist critique exposes how fixed distinctions, reputation, utility, and controlling action can narrow perception and multiply conflict.', 'daoism'), pressure: branchStatement('Non-forcing must still guide action amid injustice and cannot be assumed to settle institutional questions by itself.', 'daoism')},
+    ],
+    readings: [
+      {entityId: 'confucianism', title: 'Analects', author: 'Confucius and followers', kind: 'primary', stage: 'Read cultivation in aphoristic form', whyHere: branchStatement('Track learning, ritual, relationship, and government before treating Confucianism as a fixed code.', 'confucianism')},
+      {entityId: 'daoism', title: 'Daodejing in two reputable translations', author: 'Laozi tradition', kind: 'primary', stage: 'Compare non-forcing across translations', whyHere: branchStatement('Differences between translations make the conceptual risks of easy equivalence visible.', 'daoism')},
+    ],
+    interpretiveLimits: [branchStatement('Later religious Daoism, Neo-Confucian borrowing, imperial institutions, and modern reconstructions exceed a simple two-school opposition.', 'confucianism', 'daoism')],
+    followOns: [{kind: 'branch', participantIds: ['confucianism', 'mohism'], label: 'Confucianism and Mohism', reason: branchStatement('Turn from non-forcing to the sharper classical dispute over graded care, impartial concern, ritual, and public benefit.', 'confucianism', 'mohism')}],
+  }),
   branchCase(['buddhist-philosophy', 'vedanta'], {
     sharedQuestion: branchStatement('What is liberated, and what kind of inquiry or discipline can loosen suffering and ignorance?', 'buddhist-philosophy', 'vedanta'),
     historicalRelationship: branchStatement('These are internally diverse South Asian philosophical traditions with long histories of debate, commentary, and changing institutional settings; comparison must not erase that plurality.', 'buddhist-philosophy', 'vedanta'),
@@ -139,6 +260,64 @@ export const comparisonCasefiles: readonly ComparisonCasefile[] = [
     ],
     interpretiveLimits: [branchStatement('Dates, textual strata, Sanskrit and Pāli translation choices, and later commentarial affiliations require caution; “Hinduism versus Buddhism” is too coarse for the arguments here.', 'buddhist-philosophy', 'vedanta')],
     followOns: [{kind: 'philosopher', participantIds: ['buddha', 'nagarjuna'], label: 'The Buddha and Nāgārjuna', reason: philosopherStatement('Follow one historically later Buddhist development while keeping early-discourse and Madhyamaka vocabularies distinct.', 'buddha', 'nagarjuna')}],
+  }),
+  branchCase(['buddhist-philosophy', 'jainism'], {
+    sharedQuestion: branchStatement('How can embodied beings escape karmic bondage and suffering through knowledge, discipline, and transformed conduct?', 'buddhist-philosophy', 'jainism'),
+    historicalRelationship: branchStatement('Buddhist and Jain communities emerged in the wider śramaṇa environment of ancient South Asia and developed through long debate, institutional rivalry, and distinct canons rather than as two versions of one path.', 'buddhist-philosophy', 'jainism'),
+    sharedAssumptions: [branchStatement('Both connect liberation to disciplined conduct, reject the sufficiency of inherited ritual status, and make the consequences of harmful action central to the path.', 'buddhist-philosophy', 'jainism')],
+    axes: [
+      {label: 'What is liberated', question: branchStatement('Does liberation perfect a living self or undo attachment to any permanent self?', 'buddhist-philosophy', 'jainism'), positions: [
+        {entityId: 'buddhist-philosophy', claim: branchStatement('Buddhist traditions analyze persons without an eternal independent self, using aggregates and dependent arising while disagreeing over the status of persons and consciousness.', 'buddhist-philosophy')},
+        {entityId: 'jainism', claim: branchStatement('Jain philosophy affirms living, conscious substances whose capacities are obscured by karmic matter and disclosed through purification.', 'jainism')},
+      ], contrast: branchStatement('The traditions disagree at the center: Jain liberation releases the jīva, whereas Buddhist non-self analysis rejects that enduring substance.', 'buddhist-philosophy', 'jainism')},
+      {label: 'Action and nonviolence', question: branchStatement('How does conduct bind, purify, or cease the processes that sustain suffering?', 'buddhist-philosophy', 'jainism'), positions: [
+        {entityId: 'buddhist-philosophy', claim: branchStatement('Buddhist ethics relates intention, karma, compassion, discipline, and insight within varied monastic and lay paths.', 'buddhist-philosophy')},
+        {entityId: 'jainism', claim: branchStatement('Jain discipline radicalizes nonviolence and restraint because actions and passions contribute to karmic influx and bondage of living beings.', 'jainism')},
+      ], contrast: branchStatement('Both condemn harm, but Jain karmic materialism and Buddhist intention-centered analyses give nonviolence different metaphysical and practical roles.', 'buddhist-philosophy', 'jainism')},
+    ],
+    terminology: [{topic: 'Karma', positions: [
+      {entityId: 'buddhist-philosophy', term: 'kamma / karma', explanation: branchStatement('Buddhist accounts emphasize intentional action and its conditioning consequences without positing a permanent owner of karma.', 'buddhist-philosophy')},
+      {entityId: 'jainism', term: 'karman', explanation: branchStatement('Jain accounts describe subtle karmic matter binding to the jīva through action, passion, and carelessness.', 'jainism')},
+    ], warning: branchStatement('The same Sanskrit-derived term belongs to rival causal and ontological theories; it should not be translated as a single cosmic reward system.', 'buddhist-philosophy', 'jainism')}],
+    arguments: [
+      {entityId: 'buddhist-philosophy', title: 'No permanent owner is required', summary: branchStatement('Dependent continuity can explain suffering, practice, and responsibility without treating a changing person as an eternal substance.', 'buddhist-philosophy'), pressure: branchStatement('Different Buddhist schools give importantly different accounts of continuity, mind, conventional persons, and liberation.', 'buddhist-philosophy')},
+      {entityId: 'jainism', title: 'Many living standpoints are real', summary: branchStatement('Jain realism connects the plurality of living selves to disciplined nonviolence and many-sided analysis of complex objects and claims.', 'jainism'), pressure: branchStatement('The relation between many-sidedness, omniscience, and determinate truth requires more care than the slogan that every view is true.', 'jainism')},
+    ],
+    readings: [
+      {entityId: 'buddhist-philosophy', title: 'Selected early discourses', author: 'Early Buddhist traditions', kind: 'primary', stage: 'Read suffering and non-self', whyHere: branchStatement('Begin with named discourses before treating later Buddhist metaphysics as one original doctrine.', 'buddhist-philosophy')},
+      {entityId: 'jainism', title: 'Ācārāṅga Sūtra, Book I', author: 'Śvetāmbara canonical transmitters', kind: 'primary', stage: 'Read disciplined nonviolence', whyHere: branchStatement('The text gives restraint and harm their ascetic setting before comparison with a general ethics of compassion.', 'jainism')},
+    ],
+    interpretiveLimits: [branchStatement('Both traditions span languages, sects, philosophical schools, lay and monastic practices, and changing historical settings that no single self-versus-no-self axis exhausts.', 'buddhist-philosophy', 'jainism')],
+    followOns: [{kind: 'branch', participantIds: ['buddhist-philosophy', 'vedanta'], label: 'Buddhist Philosophy and Vedānta', reason: branchStatement('Continue the self debate through rival interpretations of liberation, ultimate reality, and scriptural authority.', 'buddhist-philosophy', 'vedanta')}],
+  }),
+  branchCase(['platonism', 'aristotelianism'], {
+    sharedQuestion: branchStatement('How can changing particular things be intelligible through stable forms, causes, definitions, and ordered inquiry?', 'platonism', 'aristotelianism'),
+    historicalRelationship: branchStatement('Aristotle studied in Plato’s Academy and criticized Platonic positions, but Platonism and Aristotelianism are later, internally diverse reception traditions extending through Greek, Arabic, Jewish, Christian, and modern settings.', 'platonism', 'aristotelianism'),
+    sharedAssumptions: [branchStatement('Both treat philosophy as systematic inquiry linking logic, knowledge, nature, ethics, and first principles, and both became adaptable curricula for later commentators.', 'platonism', 'aristotelianism')],
+    axes: [
+      {label: 'Forms and particulars', question: branchStatement('How does an intelligible structure explain the many changing things that exhibit it?', 'platonism', 'aristotelianism'), positions: [
+        {entityId: 'platonism', claim: branchStatement('Platonist traditions often give intelligible Forms or principles explanatory priority over sensible particulars, though separation and participation receive many interpretations.', 'platonism')},
+        {entityId: 'aristotelianism', claim: branchStatement('Aristotelian traditions analyze substances through form and matter, essence, actuality, potentiality, and causes rather than a separate realm of Forms.', 'aristotelianism')},
+      ], contrast: branchStatement('The dispute concerns where explanatory form belongs and how it accounts for particulars, not whether either side recognizes structure.', 'platonism', 'aristotelianism')},
+      {label: 'The route to knowledge', question: branchStatement('Should inquiry ascend toward first principles or begin from differentiated natural subjects?', 'platonism', 'aristotelianism'), positions: [
+        {entityId: 'platonism', claim: branchStatement('Platonist dialectic, recollection, mathematical order, and purification place transformation of the knower within the ascent toward intelligible reality.', 'platonism')},
+        {entityId: 'aristotelianism', claim: branchStatement('Aristotelian inquiry starts from appearances, distinctions, and established opinions, then seeks demonstrations and causes appropriate to each subject.', 'aristotelianism')},
+      ], contrast: branchStatement('Platonist ascent and Aristotelian differentiation are recurring orientations, not algorithms uniformly followed by every later member of either tradition.', 'platonism', 'aristotelianism')},
+    ],
+    terminology: [{topic: 'Form', positions: [
+      {entityId: 'platonism', term: 'eidos / idea', explanation: branchStatement('A Form can function as a stable intelligible object and explanatory standard, but Plato’s dialogues and later Platonists do not supply one uncontroversial theory.', 'platonism')},
+      {entityId: 'aristotelianism', term: 'eidos / morphē', explanation: branchStatement('Form is analyzed within hylomorphic substances and definitions as a cause of what a thing is, rather than simply copied from a separate object.', 'aristotelianism')},
+    ], warning: branchStatement('Shared Greek vocabulary sharpens the disagreement; it does not make the two metaphysical roles interchangeable.', 'platonism', 'aristotelianism')}],
+    arguments: [
+      {entityId: 'platonism', title: 'Explanation reaches beyond sensible flux', summary: branchStatement('If knowledge and value require stable standards, sensible particulars alone may not explain what they are, why they count as instances, or how judgment can criticize appearance.', 'platonism'), pressure: branchStatement('Participation, separation, and the unity of Forms generate problems already dramatized inside the Platonic corpus.', 'platonism')},
+      {entityId: 'aristotelianism', title: 'Explain substances through their causes', summary: branchStatement('Form, matter, actuality, potentiality, and four-cause analysis aim to explain change without separating a thing’s intelligible nature from the substance under study.', 'aristotelianism'), pressure: branchStatement('Aristotelian accounts face their own disputes about substance, universals, intellect, theology, and the scope of teleology.', 'aristotelianism')},
+    ],
+    readings: [
+      {entityId: 'platonism', title: 'Republic, Books VI–VII', author: 'Plato', kind: 'primary', stage: 'Read intelligibility and education', whyHere: branchStatement('The sun, line, and cave connect knowledge, value, and formation without serving as a complete handbook of Platonism.', 'platonism')},
+      {entityId: 'aristotelianism', title: 'Metaphysics, Books VII–IX', author: 'Aristotle', kind: 'primary', stage: 'Read substance and actuality', whyHere: branchStatement('These books expose the difficult arguments behind the hylomorphic contrast with separate Forms.', 'aristotelianism')},
+    ],
+    interpretiveLimits: [branchStatement('Neoplatonists used Aristotle, Aristotelians absorbed Platonic materials, and later religious and linguistic settings transformed both lineages; the traditions are not sealed camps.', 'platonism', 'aristotelianism')],
+    followOns: [{kind: 'philosopher', participantIds: ['plato', 'aristotle'], label: 'Plato and Aristotle', reason: philosopherStatement('Return from reception traditions to the two corpora whose internal tensions later schools repeatedly reconstructed.', 'plato', 'aristotle')}],
   }),
   branchCase(['islamic-philosophy', 'medieval-scholasticism'], {
     sharedQuestion: branchStatement('How can philosophical argument, inherited sciences, and revealed traditions be brought into a disciplined relation?', 'islamic-philosophy', 'medieval-scholasticism'),
@@ -285,6 +464,93 @@ export const comparisonCasefiles: readonly ComparisonCasefile[] = [
     interpretiveLimits: [philosopherStatement('The famous opposition has a long Latin and modern reception; reading it only through a later “Islam versus reason” story distorts both authors and their settings.', 'al-ghazali', 'averroes')],
     followOns: [{kind: 'branch', participantIds: ['islamic-philosophy', 'medieval-scholasticism'], label: 'Islamic Philosophy and Medieval Scholasticism', reason: branchStatement('Trace translation, commentary, and contested reception across Arabic-speaking and Latin institutions without narrating a one-way transfer.', 'islamic-philosophy', 'medieval-scholasticism')}],
   }),
+  branchCase(['metaphysics', 'ontology'], {
+    sharedQuestion: branchStatement('What exists, how is it categorized, and what broader explanatory work remains after an inventory of being is proposed?', 'metaphysics', 'ontology'),
+    historicalRelationship: branchStatement('Ontology is often treated as a part, method, or successor vocabulary within metaphysics, but the scope of both terms has shifted from early modern system building through contemporary analytic, continental, and comparative uses.', 'metaphysics', 'ontology'),
+    sharedAssumptions: [branchStatement('Both investigate being and reality at a general level and require more than listing familiar objects, because categories and commitments themselves need justification.', 'metaphysics', 'ontology')],
+    axes: [
+      {label: 'Scope', question: branchStatement('Does the inquiry ask what there is, or also how reality is structured and explained?', 'metaphysics', 'ontology'), positions: [
+        {entityId: 'metaphysics', claim: branchStatement('Metaphysics includes existence and categories but also modality, time, causation, persistence, dependence, mind and matter, and questions about first principles or fundamentality.', 'metaphysics')},
+        {entityId: 'ontology', claim: branchStatement('Ontology focuses on being, categories, ontological commitment, and the kinds of entities a theory recognizes, though traditions define that task differently.', 'ontology')},
+      ], contrast: branchStatement('Ontology supplies a focused family of questions inside or alongside the broader metaphysical project; neither term has one universally fixed boundary.', 'metaphysics', 'ontology')},
+      {label: 'Method and commitment', question: branchStatement('How does a theory reveal what it is committed to?', 'metaphysics', 'ontology'), positions: [
+        {entityId: 'metaphysics', claim: branchStatement('Metaphysicians use explanation, grounding, modality, conceptual analysis, science, phenomenology, and tradition-specific arguments to compare structures of reality.', 'metaphysics')},
+        {entityId: 'ontology', claim: branchStatement('Ontological inquiry may analyze categories, quantify over entities, formalize relations, or question the meaning of being before proposing an inventory.', 'ontology')},
+      ], contrast: branchStatement('A formal inventory can clarify commitment without settling grounding or causation, while a rich metaphysical explanation can conceal an unclear ontology.', 'metaphysics', 'ontology')},
+    ],
+    terminology: [{topic: 'Priority', positions: [
+      {entityId: 'metaphysics', term: 'grounding / fundamentality', explanation: branchStatement('These terms ask what explains or determines other facts or entities and whether reality has a more basic level.', 'metaphysics')},
+      {entityId: 'ontology', term: 'category / commitment', explanation: branchStatement('These terms ask which kinds a scheme recognizes and what entities must exist if its claims are true.', 'ontology')},
+    ], warning: branchStatement('“What exists?” and “what is fundamental?” are connected but distinct questions; answering one does not automatically answer the other.', 'metaphysics', 'ontology')}],
+    arguments: [
+      {entityId: 'metaphysics', title: 'An inventory does not explain itself', summary: branchStatement('Even a clear list of entities leaves questions about possibility, dependence, identity through change, causation, and why the categories fit together.', 'metaphysics'), pressure: branchStatement('The broader the field becomes, the harder it is to state a distinctive method or prevent speculative excess.', 'metaphysics')},
+      {entityId: 'ontology', title: 'Make commitments explicit', summary: branchStatement('Ontology forces a theory to say what kinds of things its explanations presuppose and whether its language carries avoidable commitments.', 'ontology'), pressure: branchStatement('Formal clarity can still leave disputed whether the framework tracks reality, language, thought, social practice, or only a chosen model.', 'ontology')},
+    ],
+    readings: [
+      {entityId: 'metaphysics', title: 'Metaphysics', author: 'Peter van Inwagen, Meghan Sullivan, and Sara Bernstein', kind: 'secondary', stage: 'Map the broader field', whyHere: branchStatement('Use a contemporary overview to separate recurring problem families before treating metaphysics as one ancient project.', 'metaphysics')},
+      {entityId: 'ontology', title: 'Empiricism, Semantics, and Ontology', author: 'Rudolf Carnap', kind: 'primary', stage: 'Test a framework challenge', whyHere: branchStatement('Carnap makes the relation among language, framework choice, and ontological questions explicit and contestable.', 'ontology')},
+    ],
+    interpretiveLimits: [branchStatement('Ancient Greek, Islamic, South Asian, Chinese, phenomenological, and analytic inquiries do not all divide metaphysics from ontology in the same way.', 'metaphysics', 'ontology')],
+    followOns: [{kind: 'branch', participantIds: ['platonism', 'aristotelianism'], label: 'Platonism and Aristotelianism', reason: branchStatement('Apply the distinction to rival historical accounts of form, substance, cause, and intelligibility.', 'platonism', 'aristotelianism')}],
+  }),
+  branchCase(['analytic-philosophy', 'continental-philosophy'], {
+    sharedQuestion: branchStatement('What do modern philosophical labels reveal about method, canon, institution, and problem choice—and what histories do they conceal?', 'analytic-philosophy', 'continental-philosophy'),
+    historicalRelationship: branchStatement('The analytic–continental divide hardened through twentieth-century institutions, curricula, languages, and retrospective narratives; neither side is geographically pure or doctrinally unified.', 'analytic-philosophy', 'continental-philosophy'),
+    sharedAssumptions: [branchStatement('Both contain arguments about language, mind, science, ethics, politics, history, and metaphysics, and both repeatedly criticize earlier pictures of reason and philosophical method.', 'analytic-philosophy', 'continental-philosophy')],
+    axes: [
+      {label: 'Philosophical method', question: branchStatement('Should progress come chiefly through explicit argument and analysis or through historical, phenomenological, genealogical, and critical reconstruction?', 'analytic-philosophy', 'continental-philosophy'), positions: [
+        {entityId: 'analytic-philosophy', claim: branchStatement('Analytic lineages often prize explicit premises, distinctions, formal tools, conceptual analysis, and problem-focused exchange, while disagreeing about the purpose of analysis.', 'analytic-philosophy')},
+        {entityId: 'continental-philosophy', claim: branchStatement('Continental lineages include phenomenology, existentialism, hermeneutics, critical theory, genealogy, and deconstruction, often foregrounding history, interpretation, embodiment, and power.', 'continental-philosophy')},
+      ], contrast: branchStatement('The contrast concerns recurring emphases and institutions, not a license to equate one side with argument and the other with literature.', 'analytic-philosophy', 'continental-philosophy')},
+      {label: 'History and language', question: branchStatement('Is philosophical language a tool to clarify, or also a historical medium that shapes what can appear as a problem?', 'analytic-philosophy', 'continental-philosophy'), positions: [
+        {entityId: 'analytic-philosophy', claim: branchStatement('From Frege and Russell through ordinary-language and later work, analytic philosophers repeatedly revise how logical form, use, reference, and argument bear on philosophical confusion.', 'analytic-philosophy')},
+        {entityId: 'continental-philosophy', claim: branchStatement('Continental thinkers often examine how inherited concepts, texts, practices, and institutions produce horizons of meaning and structures of exclusion.', 'continental-philosophy')},
+      ], contrast: branchStatement('Both analyze language and inherit histories; they differ more in characteristic questions, styles of reconstruction, and canons than in possessing mutually exclusive methods.', 'analytic-philosophy', 'continental-philosophy')},
+    ],
+    terminology: [{topic: 'Critique', positions: [
+      {entityId: 'analytic-philosophy', term: 'analysis', explanation: branchStatement('Analysis can mean logical decomposition, conceptual clarification, linguistic attention, model building, or argumentative reconstruction across changing phases.', 'analytic-philosophy')},
+      {entityId: 'continental-philosophy', term: 'genealogy / deconstruction', explanation: branchStatement('These practices interrogate historical formation, exclusions, and unstable oppositions rather than merely rejecting clarity or truth.', 'continental-philosophy')},
+    ], warning: branchStatement('No single method defines either family, and many philosophers cross the divide or reject the label assigned to them.', 'analytic-philosophy', 'continental-philosophy')}],
+    arguments: [
+      {entityId: 'analytic-philosophy', title: 'Expose the inferential structure', summary: branchStatement('Explicit distinctions and reconstructable arguments make disagreement easier to test, revise, and connect to logic or science.', 'analytic-philosophy'), pressure: branchStatement('Problem-focused clarity can hide the historical and institutional conditions that made a question or vocabulary seem neutral.', 'analytic-philosophy')},
+      {entityId: 'continental-philosophy', title: 'Interrogate the conditions of the question', summary: branchStatement('Historical and phenomenological critique asks how a problem emerges through experience, language, power, and inherited conceptual schemes.', 'continental-philosophy'), pressure: branchStatement('Expansive contextualization can make the standard of argumentative success or the scope of a claim difficult to identify.', 'continental-philosophy')},
+    ],
+    readings: [
+      {entityId: 'analytic-philosophy', title: 'On Sense and Reference', author: 'Gottlob Frege', kind: 'primary', stage: 'Read a founding problem closely', whyHere: branchStatement('The essay shows how a precise distinction about meaning becomes a wider philosophical method.', 'analytic-philosophy')},
+      {entityId: 'continental-philosophy', title: 'Phenomenology of Spirit, guided selections on recognition', author: 'G. W. F. Hegel', kind: 'primary', stage: 'Read historical experience and recognition', whyHere: branchStatement('Guided selections show why conceptual development and social relation matter to a major continental inheritance.', 'continental-philosophy')},
+    ],
+    interpretiveLimits: [branchStatement('The divide omits pragmatist, feminist, Africana, Asian, Indigenous, Latin American, and other formations when it is mistaken for a complete map of modern philosophy.', 'analytic-philosophy', 'continental-philosophy')],
+    followOns: [{kind: 'branch', participantIds: ['phenomenology', 'existentialism'], label: 'Phenomenology and Existentialism', reason: branchStatement('Replace umbrella labels with a documented methodological and historical relationship inside one part of the continental family.', 'phenomenology', 'existentialism')}],
+  }),
+  branchCase(['phenomenology', 'existentialism'], {
+    sharedQuestion: branchStatement('How should philosophy describe lived experience when persons are embodied, temporal, situated, and responsible for projects they did not begin from nowhere?', 'phenomenology', 'existentialism'),
+    historicalRelationship: branchStatement('Twentieth-century existential thinkers transformed phenomenological methods associated with Husserl and Heidegger, but existentialism also has nineteenth-century sources and phenomenology extends far beyond existential themes.', 'phenomenology', 'existentialism'),
+    sharedAssumptions: [branchStatement('Both resist explaining human life only as an external object and attend to first-person orientation, meaning, embodiment, temporality, and relation to a shared world.', 'phenomenology', 'existentialism')],
+    axes: [
+      {label: 'Primary task', question: branchStatement('Is the first task to describe structures of experience or to confront the demands of concrete existence?', 'phenomenology', 'existentialism'), positions: [
+        {entityId: 'phenomenology', claim: branchStatement('Phenomenology studies intentionality and structures of appearing through descriptive, transcendental, hermeneutic, genetic, and embodied approaches.', 'phenomenology')},
+        {entityId: 'existentialism', claim: branchStatement('Existentialism foregrounds freedom, anxiety, finitude, authenticity, absurdity, responsibility, and the social situations in which projects acquire meaning.', 'existentialism')},
+      ], contrast: branchStatement('Phenomenology names a family of methods and research programs; existentialism names a problem orientation and movement that selectively reworks those methods.', 'phenomenology', 'existentialism')},
+      {label: 'Suspension and engagement', question: branchStatement('Should inquiry bracket ordinary commitments or begin from urgent involvement in the world?', 'phenomenology', 'existentialism'), positions: [
+        {entityId: 'phenomenology', claim: branchStatement('Husserlian reduction suspends the natural attitude to investigate how objects and meanings are given, while later phenomenologists revise that procedure.', 'phenomenology')},
+        {entityId: 'existentialism', claim: branchStatement('Existential arguments often begin from unavoidable involvement—choice, oppression, death, bad faith, and responsibility—rather than a detached inventory of consciousness.', 'existentialism')},
+      ], contrast: branchStatement('The difference is one of emphasis, not clean separation: existential description can be phenomenological, and phenomenology can be ethical, political, or historical.', 'phenomenology', 'existentialism')},
+    ],
+    terminology: [{topic: 'Situated meaning', positions: [
+      {entityId: 'phenomenology', term: 'intentionality', explanation: branchStatement('Intentionality names experience as directed toward something through meaningful structures, not a private picture sealed inside the mind.', 'phenomenology')},
+      {entityId: 'existentialism', term: 'existence / situation', explanation: branchStatement('Existence and situation mark the unfinished, factical field in which a person interprets limits and undertakes projects.', 'existentialism')},
+    ], warning: branchStatement('First-person analysis is not introspective autobiography, and existential freedom is not absence of bodily, social, or historical constraint.', 'phenomenology', 'existentialism')}],
+    arguments: [
+      {entityId: 'phenomenology', title: 'Return to how meaning is given', summary: branchStatement('Careful description can expose structures of perception, embodiment, time, and intersubjectivity hidden by premature scientific or metaphysical theories.', 'phenomenology'), pressure: branchStatement('Phenomenology must explain how first-person evidence addresses social power, unconscious formation, and competing descriptions.', 'phenomenology')},
+      {entityId: 'existentialism', title: 'No theory removes the demand to live', summary: branchStatement('Existential thought presses the fact that finite persons must act and become responsible amid contingency, uncertainty, and inherited situations.', 'existentialism'), pressure: branchStatement('Strong language of freedom and authenticity can obscure material constraint or turn one model of selfhood into a universal ideal.', 'existentialism')},
+    ],
+    readings: [
+      {entityId: 'phenomenology', title: 'The Idea of Phenomenology', author: 'Edmund Husserl', kind: 'primary', stage: 'Enter the method', whyHere: branchStatement('The lectures introduce reduction and givenness before later existential transformations are assumed.', 'phenomenology')},
+      {entityId: 'existentialism', title: 'The Ethics of Ambiguity', author: 'Simone de Beauvoir', kind: 'primary', stage: 'Read situated freedom ethically', whyHere: branchStatement('Beauvoir connects freedom to ambiguity, oppression, and the freedom of others rather than an isolated act of choice.', 'existentialism')},
+    ],
+    interpretiveLimits: [branchStatement('Husserl, Heidegger, Sartre, Beauvoir, Merleau-Ponty, and later phenomenologists disagree substantially; genealogy does not imply one shared doctrine.', 'phenomenology', 'existentialism')],
+    followOns: [{kind: 'philosopher', participantIds: ['beauvoir', 'sartre'], label: 'Beauvoir and Sartre', reason: philosopherStatement('Test how two close interlocutors differently connect phenomenology, freedom, ethics, embodiment, and oppression.', 'beauvoir', 'sartre')}],
+  }),
   branchCase(['rationalism', 'empiricism'], {
     sharedQuestion: branchStatement('What can make knowledge reliable: rational structure, experience, or a more complicated cooperation between them?', 'rationalism', 'empiricism'),
     historicalRelationship: branchStatement('“Rationalism” and “empiricism” are later organizing labels for early modern debates; they identify real contrasts without neatly sorting every author or argument into two camps.', 'rationalism', 'empiricism'),
@@ -313,6 +579,64 @@ export const comparisonCasefiles: readonly ComparisonCasefile[] = [
     ],
     interpretiveLimits: [branchStatement('The labels are retrospective and can conceal other early modern debates about religion, politics, gender, colonialism, science, and institutions.', 'rationalism', 'empiricism')],
     followOns: [{kind: 'philosopher', participantIds: ['kant', 'hume'], label: 'Kant and Hume', reason: philosopherStatement('Follow how Kant recasts a familiar early modern contrast through a critical account of the conditions of experience and knowledge.', 'kant', 'hume')}],
+  }),
+  branchCase(['virtue-ethics', 'deontology'], {
+    sharedQuestion: branchStatement('What makes a person’s action ethically good when admirable character, practical judgment, duty, and respect appear to point in different directions?', 'virtue-ethics', 'deontology'),
+    historicalRelationship: branchStatement('Contemporary virtue ethics partly revived through criticism of modern obligation-centered theory, while deontology includes Kantian, Rossian, rights-based, and contractualist approaches rather than one rulebook.', 'virtue-ethics', 'deontology'),
+    sharedAssumptions: [branchStatement('Both deny that a favorable outcome alone settles moral worth and ask agents to act for reasons that discipline appetite, convenience, and self-serving exception.', 'virtue-ethics', 'deontology')],
+    axes: [
+      {label: 'Primary ethical focus', question: branchStatement('Should evaluation begin from the excellent person or from what persons owe one another?', 'virtue-ethics', 'deontology'), positions: [
+        {entityId: 'virtue-ethics', claim: branchStatement('Virtue ethics makes traits, emotions, practical wisdom, relationships, and flourishing basic to understanding what a good agent sees and does.', 'virtue-ethics')},
+        {entityId: 'deontology', claim: branchStatement('Deontological theories make duties, rights, permissions, constraints, or principles basic to what agents may do to and for persons.', 'deontology')},
+      ], contrast: branchStatement('Virtue ethics asks what good practical perception and character require; deontology asks which claims bind action even when character or benefit is disputed.', 'virtue-ethics', 'deontology')},
+      {label: 'Judgment and constraint', question: branchStatement('How should an agent decide when context is complex but some acts seem impermissible?', 'virtue-ethics', 'deontology'), positions: [
+        {entityId: 'virtue-ethics', claim: branchStatement('Practical wisdom interprets particulars and coordinates virtues without assuming that every case can be solved by a context-free decision procedure.', 'virtue-ethics')},
+        {entityId: 'deontology', claim: branchStatement('Duties and rights identify reasons and constraints that remain authoritative even when violating them could express an attractive trait or improve outcomes.', 'deontology')},
+      ], contrast: branchStatement('Sensitivity without constraint risks rationalization; constraint without cultivated judgment risks misdescribing the act, conflict, or person to whom duty is owed.', 'virtue-ethics', 'deontology')},
+    ],
+    terminology: [{topic: 'Moral reason', positions: [
+      {entityId: 'virtue-ethics', term: 'phronēsis', explanation: branchStatement('Practical wisdom is the developed capacity to perceive and deliberate well about action in a whole life, not cleverness at reaching a chosen end.', 'virtue-ethics')},
+      {entityId: 'deontology', term: 'duty / right', explanation: branchStatement('A duty or right marks a normative claim that can constrain choice independently of the agent’s preferred outcome.', 'deontology')},
+    ], warning: branchStatement('“Character versus rules” is too crude: virtues shape action, and sophisticated deontology requires judgment about maxims, claims, conflicts, and exceptions.', 'virtue-ethics', 'deontology')}],
+    arguments: [
+      {entityId: 'virtue-ethics', title: 'Right action requires formed perception', summary: branchStatement('Rules cannot apply themselves; an agent must notice what matters, feel appropriately, deliberate across a life, and act from more than reluctant compliance.', 'virtue-ethics'), pressure: branchStatement('Virtue ethics must clarify action guidance, cultural disagreement, situationist evidence, and whether flourishing can protect those treated unjustly.', 'virtue-ethics')},
+      {entityId: 'deontology', title: 'Persons impose limits on choice', summary: branchStatement('Duties and rights articulate why another person cannot be used merely as material for one’s project, character, or favored vision of flourishing.', 'deontology'), pressure: branchStatement('Deontology must explain conflicts, thresholds, moral remainder, and why a constraint holds when grave harm could be prevented.', 'deontology')},
+    ],
+    readings: [
+      {entityId: 'virtue-ethics', title: 'Nicomachean Ethics, Books I, II, and VI', author: 'Aristotle', kind: 'primary', stage: 'Read flourishing and practical wisdom', whyHere: branchStatement('The books connect habituation, choice, virtue, and judgment rather than offering a list of admirable traits.', 'virtue-ethics')},
+      {entityId: 'deontology', title: 'Groundwork of the Metaphysics of Morals', author: 'Immanuel Kant', kind: 'primary', stage: 'Read obligation and respect', whyHere: branchStatement('The text develops good will, universal law, and humanity beyond the caricature that morality means obeying any rule.', 'deontology')},
+    ],
+    interpretiveLimits: [branchStatement('Aristotle is not all virtue ethics, Kant is not all deontology, and traditions such as Confucian and feminist virtue ethics revise the terms of the comparison.', 'virtue-ethics', 'deontology')],
+    followOns: [{kind: 'branch', participantIds: ['virtue-ethics', 'utilitarianism'], label: 'Virtue Ethics and Utilitarianism', reason: branchStatement('Hold character and practical judgment against impartial welfare and outcome-sensitive institutional reasoning.', 'virtue-ethics', 'utilitarianism')}],
+  }),
+  branchCase(['virtue-ethics', 'utilitarianism'], {
+    sharedQuestion: branchStatement('Should ethical life be organized around excellent character and flourishing or around impartially producing the best consequences for everyone affected?', 'virtue-ethics', 'utilitarianism'),
+    historicalRelationship: branchStatement('Modern virtue ethics often defines itself against consequence-centered theory, while utilitarianism developed through Bentham, Mill, Sidgwick, and later act, rule, preference, and plural-value revisions.', 'virtue-ethics', 'utilitarianism'),
+    sharedAssumptions: [branchStatement('Both can criticize egoism, take moral development seriously, and assess practices and institutions rather than limiting ethics to isolated emergency choices.', 'virtue-ethics', 'utilitarianism')],
+    axes: [
+      {label: 'Standard of success', question: branchStatement('What ultimately makes an action or life ethically successful?', 'virtue-ethics', 'utilitarianism'), positions: [
+        {entityId: 'virtue-ethics', claim: branchStatement('Virtue ethics evaluates action through excellent practical reason, emotion, relationship, and human flourishing across a life.', 'virtue-ethics')},
+        {entityId: 'utilitarianism', claim: branchStatement('Utilitarian theories evaluate actions, rules, motives, or institutions by their contribution to aggregate or impartial welfare under a specified account of value.', 'utilitarianism')},
+      ], contrast: branchStatement('The dispute asks whether good character helps constitute the ethical end or is chiefly valuable because of the outcomes it tends to produce.', 'virtue-ethics', 'utilitarianism')},
+      {label: 'Partial ties and impartial concern', question: branchStatement('How should friendship, family, and personal projects weigh against equal concern for distant others?', 'virtue-ethics', 'utilitarianism'), positions: [
+        {entityId: 'virtue-ethics', claim: branchStatement('Many virtue theories treat friendship, role, attachment, and particular judgment as constituents of flourishing rather than biases to be subtracted.', 'virtue-ethics')},
+        {entityId: 'utilitarianism', claim: branchStatement('Utilitarian impartiality requires each person’s welfare to count, while indirect theories may defend partial practices by their wider consequences.', 'utilitarianism')},
+      ], contrast: branchStatement('Virtue ethics risks parochial exclusion; utilitarianism risks alienating agents from constitutive relationships or treating persons as locations in an aggregate.', 'virtue-ethics', 'utilitarianism')},
+    ],
+    terminology: [{topic: 'The human good', positions: [
+      {entityId: 'virtue-ethics', term: 'eudaimonia', explanation: branchStatement('Flourishing concerns excellent activity and a whole human life, not a passing feeling of happiness or private success.', 'virtue-ethics')},
+      {entityId: 'utilitarianism', term: 'utility', explanation: branchStatement('Utility is a standard of value or welfare whose interpretation varies across pleasure, preference, rule, and pluralist accounts.', 'utilitarianism')},
+    ], warning: branchStatement('Both can use “happiness,” but Aristotelian flourishing and classical utilitarian happiness play different explanatory roles.', 'virtue-ethics', 'utilitarianism')}],
+    arguments: [
+      {entityId: 'virtue-ethics', title: 'Ethics must form reliable agents', summary: branchStatement('A good life requires attention, emotion, habit, and judgment that can respond well when no calculation captures the morally salient particulars.', 'virtue-ethics'), pressure: branchStatement('Character language must still criticize unjust social norms and explain what to do when virtuous considerations conflict.', 'virtue-ethics')},
+      {entityId: 'utilitarianism', title: 'Every affected welfare claim counts', summary: branchStatement('Impartial consequence makes preventable suffering visible even when custom, loyalty, or admired character would otherwise exclude distant people.', 'utilitarianism'), pressure: branchStatement('The theory must address demandingness, distribution, rights, measurement, uncertainty, and integrity.', 'utilitarianism')},
+    ],
+    readings: [
+      {entityId: 'virtue-ethics', title: 'Modern Moral Philosophy', author: 'G. E. M. Anscombe', kind: 'primary', stage: 'Read the modern challenge', whyHere: branchStatement('The essay helps explain why modern virtue ethics questioned obligation-centered moral theory and revived older vocabularies.', 'virtue-ethics')},
+      {entityId: 'utilitarianism', title: 'Utilitarianism', author: 'John Stuart Mill', kind: 'primary', stage: 'Read utility and objections', whyHere: branchStatement('Mill addresses happiness, quality, proof, justice, and moral cultivation rather than presenting a bare maximizing formula.', 'utilitarianism')},
+    ],
+    interpretiveLimits: [branchStatement('Agent-based and target-centered virtue theories differ, as do act, rule, preference, and ideal utilitarianisms; one axis cannot decide every hybrid proposal.', 'virtue-ethics', 'utilitarianism')],
+    followOns: [{kind: 'branch', participantIds: ['deontology', 'utilitarianism'], label: 'Deontology and Utilitarianism', reason: branchStatement('Compare the better-known dispute over rights, constraints, welfare, and what may be done for a better outcome.', 'deontology', 'utilitarianism')}],
   }),
   branchCase(['deontology', 'utilitarianism'], {
     sharedQuestion: branchStatement('What makes an action right when duties, welfare, rights, and foreseeable harms pull in different directions?', 'deontology', 'utilitarianism'),
