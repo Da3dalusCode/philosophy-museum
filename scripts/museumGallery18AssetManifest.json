@@ -71,22 +71,22 @@
       "hallFolder": "enlightenment-revolution-kant",
       "visualCharacter": "text-dominant",
       "textDominantOrSingleBook": true,
-      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:AstellProposal.jpg",
-      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/AstellProposal.jpg",
-      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/AstellProposal.jpg?width=1600",
+      "sourcePageUrl": "https://projectvox.org/astell-1666-1731/attachment/first-edition-of-a-serious-proposal-to-the-ladies-ed/",
+      "sourceImageUrl": "https://projectvox.org/wp-content/uploads/2017/03/First-edition-of-A-serious-proposal-to-the-ladies-ed.jpg",
+      "selectedThumbnailUrl": "https://projectvox.org/wp-content/uploads/2017/03/First-edition-of-A-serious-proposal-to-the-ladies-ed.jpg",
       "sceneMaximum": 640,
       "panelMaximum": 1280,
       "scene": {
-        "width": 356,
+        "width": 362,
         "height": 640,
-        "bytes": 49418,
-        "sha256": "2e279ca103de53551deef666d33ac7f3379771c6dc19a97b4efbd77b6f5b7345"
+        "bytes": 31978,
+        "sha256": "c78630209abe92e23b641133603630d1362c7dab1334e9a9bb71914eaeb2db52"
       },
       "panel": {
-        "width": 570,
-        "height": 1025,
-        "bytes": 138156,
-        "sha256": "14a39d726f1c563e47e489bb5948d5b406cf716bb2fbf3c53357801735cc8a0e"
+        "width": 599,
+        "height": 1060,
+        "bytes": 94282,
+        "sha256": "6fe1dd3e98fc460e464b67f106c7227e910aa95660643f25876c9ea6e429a7c2"
       }
     },
     "enlightenment-wollstonecraft-heath-engraving": {

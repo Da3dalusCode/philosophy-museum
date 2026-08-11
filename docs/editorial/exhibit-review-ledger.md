@@ -16,7 +16,7 @@ Regenerate it with `npm run report:exhibits` and verify it with `npm run audit:e
 
 | Total | Unreviewed | Reconciled | Standard compliant | Out of date |
 | ---: | ---: | ---: | ---: | ---: |
-| 192 | 2 | 0 | 190 | 0 |
+| 192 | 0 | 0 | 192 | 0 |
 
 ## Article relationships
 
@@ -127,6 +127,7 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | Ibn Sina / Avicenna | claim-reviewed | standard-compliant | 33 | 349 | 3 | 3 | 6 | standard presentation |
 | Al-Ghazali | claim-reviewed | standard-compliant | 32 | 346 | 3 | 3 | 5 | standard presentation |
 | Ibn Rushd / Averroes | claim-reviewed | standard-compliant | 32 | 350 | 3 | 3 | 5 | standard presentation |
+| Ibn Tufayl | claim-reviewed | standard-compliant | 32 | 320 | 3 | 3 | 6 | standard presentation |
 | Suhrawardi | claim-reviewed | standard-compliant | 32 | 343 | 3 | 3 | 5 | standard presentation |
 | Mulla Sadra | claim-reviewed | standard-compliant | 32 | 347 | 3 | 3 | 6 | standard presentation |
 | Zhu Xi | claim-reviewed | standard-compliant | 32 | 319 | 3 | 3 | 6 | standard presentation |
@@ -183,6 +184,7 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | Montesquieu | claim-reviewed | standard-compliant | 32 | 292 | 3 | 3 | 6 | standard presentation |
 | Jean-Jacques Rousseau | claim-reviewed | standard-compliant | 32 | 296 | 4 | 3 | 6 | standard presentation |
 | Adam Smith | claim-reviewed | standard-compliant | 33 | 292 | 3 | 3 | 6 | standard presentation |
+| Mary Astell | claim-reviewed | standard-compliant | 32 | 305 | 3 | 3 | 6 | standard presentation |
 | Mary Wollstonecraft | claim-reviewed | standard-compliant | 32 | 290 | 3 | 3 | 6 | standard presentation |
 | Immanuel Kant | claim-reviewed | standard-compliant | 32 | 303 | 3 | 3 | 7 | standard presentation |
 | German Idealism | claim-reviewed | standard-compliant | 32 | 320 | 3 | 3 | 6 | standard presentation |
@@ -322,7 +324,7 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | islamic-philosophical-worlds | islamic-avicennan-system | avicenna | philosopher:avicenna | matched | claim-reviewed | standard-compliant |
 | islamic-philosophical-worlds | islamic-kalam-critique | al-ghazali | philosopher:al-ghazali | matched | claim-reviewed | standard-compliant |
 | islamic-philosophical-worlds | islamic-andalusian-worlds | averroes | philosopher:averroes | matched | claim-reviewed | standard-compliant |
-| islamic-philosophical-worlds | islamic-andalusian-worlds | ibn-tufayl | philosopher:ibn-tufayl | matched | claim-reviewed | unreviewed |
+| islamic-philosophical-worlds | islamic-andalusian-worlds | ibn-tufayl | philosopher:ibn-tufayl | matched | claim-reviewed | standard-compliant |
 | islamic-philosophical-worlds | islamic-post-avicennian | suhrawardi | philosopher:suhrawardi | matched | claim-reviewed | standard-compliant |
 | islamic-philosophical-worlds | islamic-post-avicennian | mulla-sadra | philosopher:mulla-sadra | matched | claim-reviewed | standard-compliant |
 | east-asian-continuities | east-song-ming-confucian | zhu-xi | philosopher:zhu-xi | matched | claim-reviewed | standard-compliant |
@@ -379,7 +381,7 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | enlightenment-revolution-kant | enlightenment-law-institutions | montesquieu | philosopher:montesquieu | matched | claim-reviewed | standard-compliant |
 | enlightenment-revolution-kant | enlightenment-society-freedom | rousseau | philosopher:rousseau | matched | claim-reviewed | standard-compliant |
 | enlightenment-revolution-kant | enlightenment-sentiment-commerce | adam-smith | philosopher:adam-smith | matched | claim-reviewed | standard-compliant |
-| enlightenment-revolution-kant | enlightenment-equality-education | mary-astell | philosopher:mary-astell | matched | claim-reviewed | unreviewed |
+| enlightenment-revolution-kant | enlightenment-equality-education | mary-astell | philosopher:mary-astell | matched | claim-reviewed | standard-compliant |
 | enlightenment-revolution-kant | enlightenment-equality-education | wollstonecraft | philosopher:wollstonecraft | matched | claim-reviewed | standard-compliant |
 | enlightenment-revolution-kant | enlightenment-kant-critical | kant | philosopher:kant | matched | claim-reviewed | standard-compliant |
 | german-idealism-afterlives | german-idealism-orientation | german-idealism | branch:german-idealism | matched | claim-reviewed | standard-compliant |

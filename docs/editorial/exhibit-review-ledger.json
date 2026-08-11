@@ -13,9 +13,9 @@
   "canonicalExhibitBaseline": {
     "total": 192,
     "countsByEffectiveStatus": {
-      "unreviewed": 2,
+      "unreviewed": 0,
       "reconciled": 0,
-      "standard-compliant": 190,
+      "standard-compliant": 192,
       "out-of-date": 0
     }
   },
@@ -27,7 +27,7 @@
     },
     "blockers": []
   },
-  "reviewedExhibits": 190,
+  "reviewedExhibits": 192,
   "errors": [],
   "entries": [
     {
@@ -2760,9 +2760,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-10",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 32,
+        "mainInterpretationWords": 320,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 6,
+        "principalAssetId": "ibn-tufayl-hayy-1929",
+        "issues": []
+      }
     },
     {
       "hallId": "islamic-philosophical-worlds",
@@ -4346,9 +4356,19 @@
         "routeMatches": true
       },
       "articleReviewStatus": "claim-reviewed",
-      "exhibitAuthoredStatus": "unreviewed",
-      "exhibitStatus": "unreviewed",
-      "reviewedOn": null
+      "exhibitAuthoredStatus": "standard-compliant",
+      "exhibitStatus": "standard-compliant",
+      "reviewedOn": "2026-08-10",
+      "presentation": {
+        "standardCompliant": true,
+        "plaqueWords": 32,
+        "mainInterpretationWords": 305,
+        "paragraphCount": 3,
+        "guideSectionCount": 3,
+        "guideItemCount": 6,
+        "principalAssetId": "enlightenment-astell-serious-proposal-1694",
+        "issues": []
+      }
     },
     {
       "hallId": "enlightenment-revolution-kant",

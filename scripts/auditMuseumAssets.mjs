@@ -448,6 +448,11 @@ const TRUSTED_EXTERNAL_SOURCE_LOCKS = new Map([
     sourceImageUrl: 'https://books.google.com/books/content?id=y6hbDBQqTiQC&printsec=frontcover&img=1&zoom=2&edge=curl&source=gbs_api',
     selectedThumbnailUrl: 'https://books.google.com/books/content?id=y6hbDBQqTiQC&printsec=frontcover&img=1&zoom=2&edge=curl&source=gbs_api',
   }],
+  ['enlightenment-astell-serious-proposal-1694', {
+    sourcePageUrl: 'https://projectvox.org/astell-1666-1731/attachment/first-edition-of-a-serious-proposal-to-the-ladies-ed/',
+    sourceImageUrl: 'https://projectvox.org/wp-content/uploads/2017/03/First-edition-of-A-serious-proposal-to-the-ladies-ed.jpg',
+    selectedThumbnailUrl: 'https://projectvox.org/wp-content/uploads/2017/03/First-edition-of-A-serious-proposal-to-the-ladies-ed.jpg',
+  }],
 ]);
 const TRUSTED_EXTERNAL_OBJECT_PAGES = new Map([
   ['saadia-beliefs-landauer', 'https://archive.org/details/kitbalamnt00saaduoft'],
@@ -2163,8 +2168,15 @@ check('the 44-source Galleries 17 and 18 locks reproduce every curated derivativ
     for (const field of ['sourcePageUrl', 'sourceImageUrl', 'selectedThumbnailUrl']) {
       assert(lock[field]?.startsWith('https://'), `${id}.${field} must be locked HTTPS`);
     }
-    assert.equal(new URL(lock.sourcePageUrl).hostname, 'commons.wikimedia.org', `${id} source page must use Commons`);
-    assert(new URL(lock.sourcePageUrl).pathname.startsWith('/wiki/File:'), `${id} source page must identify an exact Commons file`);
+    const trustedExternalSource = TRUSTED_EXTERNAL_SOURCE_LOCKS.get(id);
+    if (trustedExternalSource) {
+      assert.equal(lock.sourcePageUrl, trustedExternalSource.sourcePageUrl, `${id} trusted source page changed`);
+      assert.equal(lock.sourceImageUrl, trustedExternalSource.sourceImageUrl, `${id} trusted source image changed`);
+      assert.equal(lock.selectedThumbnailUrl, trustedExternalSource.selectedThumbnailUrl, `${id} trusted thumbnail changed`);
+    } else {
+      assert.equal(new URL(lock.sourcePageUrl).hostname, 'commons.wikimedia.org', `${id} source page must use Commons`);
+      assert(new URL(lock.sourcePageUrl).pathname.startsWith('/wiki/File:'), `${id} source page must identify an exact Commons file`);
+    }
     assert(!previousSourcePages.has(lock.sourcePageUrl), `${id} reuses a source page owned by an earlier manifest`);
     newSourcePages.push(lock.sourcePageUrl);
     for (const variantName of ['scene', 'panel']) {

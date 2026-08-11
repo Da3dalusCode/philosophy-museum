@@ -10,6 +10,7 @@ type VisitorGuideSection = {
 type ConciseOptions = {
   readonly objectLed?: boolean;
   readonly review?: MuseumExhibitReview;
+  readonly sources?: MuseumPrimaryInterpretationEnrichment['sources'];
 };
 
 const standardReview = (lock: string): MuseumExhibitReview => ({
@@ -42,6 +43,7 @@ const concise = (
     plaqueSubtitleLines: 4,
   },
   objectInterpretations: {[assetId]: objectText},
+  ...(options.sources ? {sources: options.sources} : {}),
   ...(options.review ? {review: options.review} : {}),
 });
 
@@ -189,22 +191,43 @@ Readonly<Record<string, MuseumPrimaryInterpretationEnrichment>> = {
   ),
   'mary-astell': concise(
     'Mary Astell',
-    'Follow Astell from the rational soul to the classroom and household: denied education manufactures dependence, yet her challenge to arbitrary marital power coexists with Anglican, royalist, and hierarchical commitments.',
+    '',
     [
-      'Mary Astell wrote from a world that excluded women from universities, professions, and much public authority while still teaching that rational souls were capable of truth and virtue. A Serious Proposal to the Ladies argues that ignorance produced by poor education cannot demonstrate natural incapacity. Its proposed women’s community joins study, friendship, religious retreat, and moral discipline rather than simply anticipating a modern secular college. Part II offers a method of definition, analysis, attention, and ordered reasoning so women can govern their own understanding instead of depending on fashion or flattery.',
-      'Her rationalism is practical and theological. Clear judgment should direct desire and will toward genuine good, while self-knowledge exposes habits encouraged by a culture of display. Astell drew on Cartesian methods and exchanged arguments with John Norris about divine love, but she was not merely applying a borrowed system. She connects intellectual formation to institutions: time, books, conversation, economic independence, and a protected setting make agency possible. Blaming people for traits cultivated by deprivation confuses a social result with a natural fact.',
-      'Some Reflections upon Marriage applies the language of arbitrary sovereignty to domestic rule. If political absolutism is objectionable, why should a husband’s absolute authority appear natural? Marriage distributes property, legal status, labor, vulnerability, and opportunities, so consent cannot be evaluated apart from women’s education and alternatives. Yet Astell often counsels prudence and duty within existing marriage rather than proposing equal citizenship or a comprehensive transformation of law. The critique is forceful precisely because it grows inside commitments that also limit it.',
-      'Calling Astell an early feminist can orient readers if it marks a later genealogy rather than her self-description or a complete modern platform. She was a High Church Anglican, royalist, critic of Locke, defender of social hierarchy, and opponent of broad toleration. Those positions do not cancel her arguments about women’s reason, education, and arbitrary power; they prevent admiration from becoming anachronism. Ask which freedoms she makes thinkable, which authorities she preserves, and how reform can expose contradictions without escaping its own historical world.',
+      'Mary Astell wrote in a world that excluded women from universities, professions, and much public authority while affirming that rational souls could know truth and pursue virtue. A Serious Proposal to the Ladies argues that ignorance produced by denied education cannot demonstrate natural incapacity. Its proposed women’s retirement joins study, friendship, religious discipline, and refuge rather than simply anticipating a modern secular college. Part II develops habits of attention, definition, analysis, and ordered judgment. The displayed 1694 title page records how Part I entered print anonymously as “By a Lover of Her Sex,” not how every reader received its challenge.',
+      'Astell’s rationalism is practical, social, and theological. Clearer ideas should help the will pursue genuine goods, but time, books, conversation, economic security, and freedom from flattery also shape whether judgment can develop. Some Reflections upon Marriage applies this diagnosis to consent and domestic power. A woman trained chiefly to attract a husband may formally choose without adequate knowledge or meaningful alternatives. Astell asks why men who condemn arbitrary sovereignty accept something like it at home, yet she does not reject marriage, authorize divorce, or give wives a general right of resistance after a valid marriage.',
+      'Those limits belong inside the philosophy. Astell was a High Church Anglican, royalist, critic of Locke and broad toleration, and defender of passive political obedience. Her proposed institution chiefly addresses genteel women, not a universal public system. Calling her an early feminist can identify a later genealogy if it does not turn her into a complete modern egalitarian. Her arguments make women’s reason, education, friendship, consent, and domination unavoidable philosophical questions while preserving authorities that later feminists would challenge. The title page is therefore a primary-text threshold: it identifies an anonymous 1694 intervention, but it is neither Astell’s portrait nor proof that premise, remedy, and reception formed one emancipatory program.',
     ],
     [
-      {label: 'Core problem', value: 'Rational equality under unequal education and marriage'},
-      {label: 'Method', value: 'Attention · definition · analysis · self-government'},
-      {label: 'Major works', value: 'A Serious Proposal · Reflections upon Marriage · Christian Religion'},
-      {label: 'Political tension', value: 'Critic of domestic absolutism · royalist and hierarchical'},
-      {label: 'Category caution', value: '“Early feminist” is a useful later genealogy, not her platform'},
+      {heading: 'Key ideas', items: [
+        {label: 'Rational-soul equality', description: 'Women share the human capacity for truth and virtue; denied education helps manufacture the ignorance later blamed on nature.'},
+        {label: 'Educational method', description: 'Attention, definition, analysis, and ordered judgment cultivate intellectual self-government rather than ornamental accomplishment.'},
+      ]},
+      {heading: 'Works and institutions', items: [
+        {label: 'A Serious Proposal to the Ladies', description: 'A two-part project for women’s religious-educational community and a disciplined method of thinking.'},
+        {label: 'Some Reflections upon Marriage', description: 'A critique of distorted consent and arbitrary domestic power that still preserves marriage and post-consent obedience.'},
+      ]},
+      {heading: 'Historical tensions', items: [
+        {label: 'Anglican and Tory commitments', description: 'Church hierarchy, royalism, and passive obedience ground parts of Astell’s philosophy while limiting its emancipatory reach.'},
+        {label: '“Early feminist”', description: 'A useful later genealogy for her challenge to women’s subordination, not her own label or a complete modern equality platform.'},
+      ]},
     ],
     'enlightenment-astell-serious-proposal-1694',
-    'No securely authenticated portrait of Astell is known. This anonymous 1694 title page—“By a Lover of Her Sex”—is therefore an honest primary-text witness rather than an invented face. Its current Commons record does not identify the holding institution, a limitation the Atlas preserves rather than silently filling.',
+    'This first-edition title page shows how Astell’s proposal entered print anonymously as “By a Lover of Her Sex” in 1694. It supports the exhibit’s account of authorship and educational address, but not Astell’s appearance, private intention, every reader’s response, or the later history of her two-part work.',
+    {
+      objectLed: true,
+      sources: [
+        {label: 'Project Vox — A Serious Proposal first-edition title page', url: 'https://projectvox.org/astell-1666-1731/attachment/first-edition-of-a-serious-proposal-to-the-ladies-ed/', kind: 'collection-record'},
+        {label: 'Stanford Encyclopedia of Philosophy — Mary Astell', url: 'https://plato.stanford.edu/entries/astell/', kind: 'academic-reference'},
+        {label: 'Internet Encyclopedia of Philosophy — Mary Astell', url: 'https://iep.utm.edu/mary-astell/', kind: 'academic-reference'},
+        {label: 'Project Gutenberg — A Serious Proposal to the Ladies, Parts I and II', url: 'https://www.gutenberg.org/ebooks/54984', kind: 'primary-text'},
+      ],
+      review: {
+        status: 'standard-compliant',
+        reviewedOn: '2026-08-10',
+        method: 'Reconciled against the current claim-reviewed article, registered interpretation sources, and the corrected 1694 principal-object record; caption, rights, alt text, full-composition preview, object-led presentation, and subject-specific visitor guide reviewed against the locked exhibit standard.',
+        lock: 'fnv1a64:9f14fca45c4602cb',
+      },
+    },
   ),
   rousseau: concise(
     'Jean-Jacques Rousseau',

@@ -199,20 +199,24 @@ export const ENLIGHTENMENT_GALLERY_ASSETS = [
     visualCharacter: 'text-dominant',
     title: 'Title page of A Serious Proposal to the Ladies',
     creator: 'Mary Astell; printed for R. Wilkin',
-    objectDate: '1694',
-    institution: 'Public-domain scan; holding institution not identified on the current Commons file page',
-    sourcePageUrl: 'https://commons.wikimedia.org/wiki/File:AstellProposal.jpg',
+    objectDate: '1694 first edition',
+    institution: 'Source library: Yale University Library; image published by Project Vox, Duke University',
+    sourcePageUrl:
+      'https://projectvox.org/astell-1666-1731/attachment/first-edition-of-a-serious-proposal-to-the-ladies-ed/',
     ...publicDomain,
+    license: 'Public domain (Project Vox rights statement)',
+    licenseUrl:
+      'https://projectvox.org/astell-1666-1731/attachment/first-edition-of-a-serious-proposal-to-the-ladies-ed/',
     derivativeNotice,
     attribution:
-      'Mary Astell, A Serious Proposal to the Ladies, title page, 1694. Public Domain Mark 1.0.',
-    scene: [356, 640],
-    panel: [570, 1025],
-    alt: 'The 1694 title page of Mary Astell’s A Serious Proposal to the Ladies is printed in black type.',
+      'Mary Astell, A Serious Proposal to the Ladies, first-edition title page, 1694. Yale University Library; image via Project Vox, Duke University. Public domain.',
+    scene: [362, 640],
+    panel: [599, 1060],
+    alt: 'The title page of Mary Astell’s anonymously published 1694 A Serious Proposal to the Ladies identifies its author as “By a Lover of Her Sex” and names R. Wilkin as printer.',
     caption:
-      'Mary Astell’s anonymous 1694 proposal for women’s education—the gallery’s only text-dominant image.',
+      'A Serious Proposal to the Ladies (1694) enters print under the description “By a Lover of Her Sex.”',
     historicalNote:
-      'No securely authenticated portrait of Mary Astell is known. A primary-text witness is therefore more honest than assigning her an invented face. The Commons page’s embedded external-source endpoint is stale, so no holding institution is claimed.',
+      'Project Vox identifies this first-edition title page as an image of a Yale University Library copy and marks the image public domain. No securely authenticated portrait of Astell is known, so the exhibit uses a primary-text witness without treating it as a likeness or evidence of every reader’s response.',
     likenessStatus: 'not-applicable',
   }),
   asset({
