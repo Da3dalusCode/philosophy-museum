@@ -11306,6 +11306,16 @@
       "id": "later-east-asian-philosophy",
       "title": "Later East Asian Philosophy",
       "stepCount": 4
+    },
+    {
+      "id": "aesthetics",
+      "title": "Aesthetics",
+      "stepCount": 4
+    },
+    {
+      "id": "pragmatism",
+      "title": "Pragmatism",
+      "stepCount": 4
     }
   ],
   "museumHalls": [

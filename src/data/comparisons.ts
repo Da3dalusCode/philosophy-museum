@@ -1,6 +1,7 @@
 import {branchById} from './branches';
 import {philosopherById} from './philosophers';
 import {expansionRun2ComparisonCasefiles} from './comparisonsRun2';
+import {expansionRun3ComparisonCasefiles} from './comparisonsRun3';
 import type {
   ComparisonCasefile,
   ComparisonEntityKind,
@@ -727,6 +728,7 @@ export const comparisonCasefiles: readonly ComparisonCasefile[] = [
     followOns: [{kind: 'branch', participantIds: ['buddhist-philosophy', 'vedanta'], label: 'Buddhist Philosophy and Vedānta', reason: branchStatement('Shift traditions and test how different accounts of self, situation, and liberation complicate familiar existential vocabulary.', 'buddhist-philosophy', 'vedanta')}],
   }),
   ...expansionRun2ComparisonCasefiles,
+  ...expansionRun3ComparisonCasefiles,
 ];
 
 export const comparisonCasefileKey = (kind: ComparisonKind, firstId: string, secondId: string): string =>
