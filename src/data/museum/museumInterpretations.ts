@@ -20,7 +20,10 @@ import {EARLY_MODERN_MUSEUM_INTERPRETATIONS} from './renaissanceReasonRevolution
 import {MODERNITY_MUSEUM_INTERPRETATIONS} from './modernityFreedomCritiqueInterpretations';
 import {MUSEUM_EXPANSION_INTERPRETATIONS} from './museumExpansionInterpretations';
 import {KRISHNAMURTI_MUSEUM_INTERPRETATIONS} from './krishnamurtiMuseumInterpretations';
-import {SCHOLASTIC_RATIONALIST_PRIMARY_INTERPRETATION_ENRICHMENT} from './scholasticRationalistPrimaryInterpretationEnrichment';
+import {
+  SCHOLASTIC_RATIONALIST_PRIMARY_INTERPRETATION_ENRICHMENT,
+  type MuseumPrimaryInterpretationEnrichment,
+} from './scholasticRationalistPrimaryInterpretationEnrichment';
 import {EMPIRICISM_ENLIGHTENMENT_PRIMARY_INTERPRETATION_ENRICHMENT} from './empiricismEnlightenmentPrimaryInterpretationEnrichment';
 import {NINETEENTH_PRIMARY_INTERPRETATION_ENRICHMENT} from './nineteenthPrimaryInterpretationEnrichment';
 import {CONCISE_PRIMARY_INTERPRETATIONS} from './concisePrimaryInterpretations';
@@ -46,6 +49,8 @@ import {ARTICLE_CLAIM_REVIEW_BATCH_PHILOSOPHER_EXHIBIT_EDITORIAL} from './articl
 import {ARTICLE_CLAIM_REVIEW_BATCH_BRANCH_PRIMARY_INTERPRETATIONS} from './articleClaimReviewBatchBranchExhibitEditorial';
 import {EXHIBITS_FOUNDATIONS_PRIMARY_INTERPRETATIONS} from './exhibitsFoundationsPrimaryInterpretations';
 import {MODERN_FIELDS_PRIMARY_INTERPRETATIONS} from './modernFieldsPrimaryExhibitOverlay';
+import {FINAL_CHINESE_TRADITIONS_PRIMARY_INTERPRETATIONS} from './finalChineseTraditionsPrimaryInterpretations';
+import {FINAL_WORLD_TRADITIONS_PRIMARY_INTERPRETATIONS} from './finalWorldTraditionsPrimaryInterpretations';
 
 export type MuseumInterpretationSource = {
   label: string;
@@ -1401,7 +1406,8 @@ const branchInterpretation = (
   };
 };
 
-const PRIMARY_INTERPRETATION_ENRICHMENT = {
+const PRIMARY_INTERPRETATION_ENRICHMENT:
+Readonly<Record<string, MuseumPrimaryInterpretationEnrichment>> = {
   ...SCHOLASTIC_RATIONALIST_PRIMARY_INTERPRETATION_ENRICHMENT,
   ...EMPIRICISM_ENLIGHTENMENT_PRIMARY_INTERPRETATION_ENRICHMENT,
   ...NINETEENTH_PRIMARY_INTERPRETATION_ENRICHMENT,
@@ -1428,6 +1434,8 @@ const PRIMARY_INTERPRETATION_ENRICHMENT = {
   ...ARTICLE_CLAIM_REVIEW_BATCH_BRANCH_PRIMARY_INTERPRETATIONS,
   ...EXHIBITS_FOUNDATIONS_PRIMARY_INTERPRETATIONS,
   ...MODERN_FIELDS_PRIMARY_INTERPRETATIONS,
+  ...FINAL_CHINESE_TRADITIONS_PRIMARY_INTERPRETATIONS,
+  ...FINAL_WORLD_TRADITIONS_PRIMARY_INTERPRETATIONS,
 };
 
 const PRIMARY_PHILOSOPHER_BIOGRAPHY_OVERRIDES:

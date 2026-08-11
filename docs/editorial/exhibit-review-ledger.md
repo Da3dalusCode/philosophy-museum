@@ -16,7 +16,7 @@ Regenerate it with `npm run report:exhibits` and verify it with `npm run audit:e
 
 | Total | Unreviewed | Reconciled | Standard compliant | Out of date |
 | ---: | ---: | ---: | ---: | ---: |
-| 192 | 11 | 0 | 181 | 0 |
+| 192 | 2 | 0 | 190 | 0 |
 
 ## Article relationships
 
@@ -93,6 +93,7 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | Thomas Kuhn | claim-reviewed | standard-compliant | 32 | 307 | 3 | 3 | 6 | standard presentation |
 | Aesthetics | claim-reviewed | standard-compliant | 32 | 319 | 3 | 3 | 6 | standard presentation |
 | Philosophy of Religion | claim-reviewed | standard-compliant | 32 | 303 | 3 | 3 | 6 | standard presentation |
+| Indian Philosophy | claim-reviewed | standard-compliant | 34 | 319 | 3 | 3 | 5 | standard presentation |
 | Jainism | claim-reviewed | standard-compliant | 32 | 302 | 3 | 3 | 6 | standard presentation |
 | Mahāvīra | claim-reviewed | standard-compliant | 32 | 311 | 3 | 3 | 6 | standard presentation |
 | Kaṇāda | claim-reviewed | standard-compliant | 32 | 307 | 3 | 3 | 5 | standard presentation |
@@ -101,6 +102,7 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | Adi Shankara | claim-reviewed | standard-compliant | 32 | 320 | 3 | 3 | 6 | standard presentation |
 | Ramanuja | claim-reviewed | standard-compliant | 32 | 319 | 3 | 3 | 6 | standard presentation |
 | Madhva | claim-reviewed | standard-compliant | 32 | 320 | 3 | 3 | 6 | standard presentation |
+| Buddhist Philosophy | claim-reviewed | standard-compliant | 32 | 318 | 3 | 2 | 5 | standard presentation |
 | Siddhartha Gautama / the Buddha | claim-reviewed | standard-compliant | 32 | 317 | 3 | 3 | 6 | standard presentation |
 | Nāgārjuna | claim-reviewed | standard-compliant | 32 | 263 | 3 | 4 | 7 | standard presentation |
 | Vasubandhu | claim-reviewed | standard-compliant | 32 | 314 | 3 | 3 | 6 | standard presentation |
@@ -108,11 +110,15 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | Dignāga | claim-reviewed | standard-compliant | 32 | 310 | 3 | 3 | 6 | standard presentation |
 | Dharmakīrti | claim-reviewed | standard-compliant | 32 | 293 | 3 | 3 | 6 | standard presentation |
 | Chinese Philosophy | claim-reviewed | standard-compliant | 34 | 319 | 3 | 3 | 6 | standard presentation |
+| Confucianism | claim-reviewed | standard-compliant | 33 | 320 | 3 | 3 | 5 | standard presentation |
 | Confucius | claim-reviewed | standard-compliant | 34 | 299 | 3 | 3 | 5 | standard presentation |
 | Mencius | claim-reviewed | standard-compliant | 32 | 292 | 3 | 3 | 5 | standard presentation |
 | Xunzi | claim-reviewed | standard-compliant | 32 | 296 | 3 | 3 | 5 | standard presentation |
+| Daoism | claim-reviewed | standard-compliant | 34 | 317 | 3 | 3 | 5 | standard presentation |
 | Laozi | claim-reviewed | standard-compliant | 33 | 290 | 3 | 3 | 5 | standard presentation |
 | Zhuangzi | claim-reviewed | standard-compliant | 32 | 294 | 3 | 3 | 5 | standard presentation |
+| Mohism | claim-reviewed | standard-compliant | 34 | 313 | 3 | 3 | 5 | standard presentation |
+| Legalism | claim-reviewed | standard-compliant | 32 | 320 | 3 | 3 | 5 | standard presentation |
 | Mozi | claim-reviewed | standard-compliant | 32 | 308 | 3 | 3 | 5 | standard presentation |
 | Han Feizi | claim-reviewed | standard-compliant | 32 | 298 | 3 | 3 | 5 | standard presentation |
 | Islamic Philosophy | claim-reviewed | standard-compliant | 32 | 350 | 3 | 3 | 5 | standard presentation |
@@ -165,10 +171,12 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | Augustine | claim-reviewed | standard-compliant | 32 | 319 | 3 | 3 | 6 | standard presentation |
 | Gregory of Nyssa | claim-reviewed | standard-compliant | 32 | 300 | 3 | 3 | 6 | standard presentation |
 | Pseudo-Dionysius | claim-reviewed | standard-compliant | 32 | 302 | 3 | 3 | 6 | standard presentation |
+| Rationalism | claim-reviewed | standard-compliant | 32 | 317 | 3 | 3 | 5 | standard presentation |
 | René Descartes | claim-reviewed | standard-compliant | 33 | 303 | 3 | 3 | 5 | standard presentation |
 | Spinoza | claim-reviewed | standard-compliant | 32 | 311 | 3 | 3 | 6 | standard presentation |
 | Anne Conway | claim-reviewed | standard-compliant | 32 | 318 | 3 | 3 | 6 | standard presentation |
 | Leibniz | claim-reviewed | standard-compliant | 32 | 303 | 3 | 3 | 6 | standard presentation |
+| Empiricism | claim-reviewed | standard-compliant | 32 | 314 | 3 | 2 | 5 | standard presentation |
 | Locke | claim-reviewed | standard-compliant | 32 | 310 | 3 | 3 | 6 | standard presentation |
 | George Berkeley | claim-reviewed | standard-compliant | 32 | 290 | 3 | 3 | 6 | standard presentation |
 | David Hume | claim-reviewed | standard-compliant | 32 | 320 | 3 | 3 | 6 | standard presentation |
@@ -177,6 +185,7 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | Adam Smith | claim-reviewed | standard-compliant | 33 | 292 | 3 | 3 | 6 | standard presentation |
 | Mary Wollstonecraft | claim-reviewed | standard-compliant | 32 | 290 | 3 | 3 | 6 | standard presentation |
 | Immanuel Kant | claim-reviewed | standard-compliant | 32 | 303 | 3 | 3 | 7 | standard presentation |
+| German Idealism | claim-reviewed | standard-compliant | 32 | 320 | 3 | 3 | 6 | standard presentation |
 | Fichte | claim-reviewed | standard-compliant | 32 | 314 | 3 | 3 | 6 | standard presentation |
 | Schelling | claim-reviewed | standard-compliant | 32 | 316 | 3 | 3 | 6 | standard presentation |
 | Hegel | claim-reviewed | standard-compliant | 33 | 297 | 3 | 3 | 6 | standard presentation |
@@ -279,7 +288,7 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | core-questions-forum | core-science | kuhn | philosopher:kuhn | matched | claim-reviewed | standard-compliant |
 | core-questions-forum | core-aesthetics | aesthetics | branch:aesthetics | matched | claim-reviewed | standard-compliant |
 | core-questions-forum | core-religion | philosophy-of-religion | branch:philosophy-of-religion | matched | claim-reviewed | standard-compliant |
-| classical-south-asian-worlds | south-orientation-many-schools | indian-philosophy | branch:indian-philosophy | matched | claim-reviewed | unreviewed |
+| classical-south-asian-worlds | south-orientation-many-schools | indian-philosophy | branch:indian-philosophy | matched | claim-reviewed | standard-compliant |
 | classical-south-asian-worlds | south-jain-worlds | jainism | branch:jainism | matched | claim-reviewed | standard-compliant |
 | classical-south-asian-worlds | south-jain-worlds | mahavira | philosopher:mahavira | matched | claim-reviewed | standard-compliant |
 | classical-south-asian-worlds | south-categories-realism | kanada | philosopher:kanada | matched | claim-reviewed | standard-compliant |
@@ -288,7 +297,7 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | classical-south-asian-worlds | south-vedanta-rival-readings | shankara | philosopher:shankara | matched | claim-reviewed | standard-compliant |
 | classical-south-asian-worlds | south-vedanta-rival-readings | ramanuja | philosopher:ramanuja | matched | claim-reviewed | standard-compliant |
 | classical-south-asian-worlds | south-vedanta-rival-readings | madhva | philosopher:madhva | matched | claim-reviewed | standard-compliant |
-| buddhist-philosophies | buddhist-many-paths | buddhist-philosophy | branch:buddhist-philosophy | matched | claim-reviewed | unreviewed |
+| buddhist-philosophies | buddhist-many-paths | buddhist-philosophy | branch:buddhist-philosophy | matched | claim-reviewed | standard-compliant |
 | buddhist-philosophies | buddhist-many-paths | buddha | philosopher:buddha | matched | claim-reviewed | standard-compliant |
 | buddhist-philosophies | buddhist-madhyamaka | nagarjuna | philosopher:nagarjuna | matched | claim-reviewed | standard-compliant |
 | buddhist-philosophies | buddhist-abhidharma-yogacara | vasubandhu | philosopher:vasubandhu | matched | claim-reviewed | standard-compliant |
@@ -296,15 +305,15 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | buddhist-philosophies | buddhist-pramana | dignaga | philosopher:dignaga | matched | claim-reviewed | standard-compliant |
 | buddhist-philosophies | buddhist-pramana | dharmakirti | philosopher:dharmakirti | matched | claim-reviewed | standard-compliant |
 | classical-chinese-traditions | china-many-ways | chinese-philosophy | branch:chinese-philosophy | matched | claim-reviewed | standard-compliant |
-| classical-chinese-traditions | china-confucian-cultivation | confucianism | branch:confucianism | matched | claim-reviewed | unreviewed |
+| classical-chinese-traditions | china-confucian-cultivation | confucianism | branch:confucianism | matched | claim-reviewed | standard-compliant |
 | classical-chinese-traditions | china-confucian-cultivation | confucius | philosopher:confucius | matched | claim-reviewed | standard-compliant |
 | classical-chinese-traditions | china-confucian-cultivation | mencius | philosopher:mencius | matched | claim-reviewed | standard-compliant |
 | classical-chinese-traditions | china-confucian-cultivation | xunzi | philosopher:xunzi | matched | claim-reviewed | standard-compliant |
-| classical-chinese-traditions | china-daoist-way | daoism | branch:daoism | matched | claim-reviewed | unreviewed |
+| classical-chinese-traditions | china-daoist-way | daoism | branch:daoism | matched | claim-reviewed | standard-compliant |
 | classical-chinese-traditions | china-daoist-way | laozi | philosopher:laozi | matched | claim-reviewed | standard-compliant |
 | classical-chinese-traditions | china-daoist-way | zhuangzi | philosopher:zhuangzi | matched | claim-reviewed | standard-compliant |
-| classical-chinese-traditions | china-mohist-fa | mohism | branch:mohism | matched | claim-reviewed | unreviewed |
-| classical-chinese-traditions | china-mohist-fa | legalism | branch:legalism | matched | claim-reviewed | unreviewed |
+| classical-chinese-traditions | china-mohist-fa | mohism | branch:mohism | matched | claim-reviewed | standard-compliant |
+| classical-chinese-traditions | china-mohist-fa | legalism | branch:legalism | matched | claim-reviewed | standard-compliant |
 | classical-chinese-traditions | china-mohist-fa | mozi | philosopher:mozi | matched | claim-reviewed | standard-compliant |
 | classical-chinese-traditions | china-mohist-fa | han-feizi | philosopher:han-feizi | matched | claim-reviewed | standard-compliant |
 | islamic-philosophical-worlds | islamic-translation-falsafa | islamic-philosophy | branch:islamic-philosophy | matched | claim-reviewed | standard-compliant |
@@ -358,12 +367,12 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | late-antiquity-inheritance | late-christian-platonisms | augustine | philosopher:augustine | matched | claim-reviewed | standard-compliant |
 | late-antiquity-inheritance | late-christian-platonisms | gregory-nyssa | philosopher:gregory-nyssa | matched | claim-reviewed | standard-compliant |
 | late-antiquity-inheritance | late-christian-platonisms | pseudo-dionysius | philosopher:pseudo-dionysius | matched | claim-reviewed | standard-compliant |
-| rationalism-mind-nature-system | rationalism-cartesian-foundations | rationalism | branch:rationalism | matched | claim-reviewed | unreviewed |
+| rationalism-mind-nature-system | rationalism-cartesian-foundations | rationalism | branch:rationalism | matched | claim-reviewed | standard-compliant |
 | rationalism-mind-nature-system | rationalism-cartesian-foundations | descartes | philosopher:descartes | matched | claim-reviewed | standard-compliant |
 | rationalism-mind-nature-system | rationalism-spinoza-conway | spinoza | philosopher:spinoza | matched | claim-reviewed | standard-compliant |
 | rationalism-mind-nature-system | rationalism-spinoza-conway | anne-conway | philosopher:anne-conway | matched | claim-reviewed | standard-compliant |
 | rationalism-mind-nature-system | rationalism-leibniz-system | leibniz | philosopher:leibniz | matched | claim-reviewed | standard-compliant |
-| empiricism-science-political-order | empiricism-locke-ideas-rights | empiricism | branch:empiricism | matched | claim-reviewed | unreviewed |
+| empiricism-science-political-order | empiricism-locke-ideas-rights | empiricism | branch:empiricism | matched | claim-reviewed | standard-compliant |
 | empiricism-science-political-order | empiricism-locke-ideas-rights | locke | philosopher:locke | matched | claim-reviewed | standard-compliant |
 | empiricism-science-political-order | empiricism-berkeley-perception | berkeley | philosopher:berkeley | matched | claim-reviewed | standard-compliant |
 | empiricism-science-political-order | empiricism-hume-skepticism | hume | philosopher:hume | matched | claim-reviewed | standard-compliant |
@@ -373,7 +382,7 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | enlightenment-revolution-kant | enlightenment-equality-education | mary-astell | philosopher:mary-astell | matched | claim-reviewed | unreviewed |
 | enlightenment-revolution-kant | enlightenment-equality-education | wollstonecraft | philosopher:wollstonecraft | matched | claim-reviewed | standard-compliant |
 | enlightenment-revolution-kant | enlightenment-kant-critical | kant | philosopher:kant | matched | claim-reviewed | standard-compliant |
-| german-idealism-afterlives | german-idealism-orientation | german-idealism | branch:german-idealism | matched | claim-reviewed | unreviewed |
+| german-idealism-afterlives | german-idealism-orientation | german-idealism | branch:german-idealism | matched | claim-reviewed | standard-compliant |
 | german-idealism-afterlives | german-idealism-orientation | fichte | philosopher:fichte | matched | claim-reviewed | standard-compliant |
 | german-idealism-afterlives | german-idealism-nature | schelling | philosopher:schelling | matched | claim-reviewed | standard-compliant |
 | german-idealism-afterlives | german-idealism-hegel | hegel | philosopher:hegel | matched | claim-reviewed | standard-compliant |
