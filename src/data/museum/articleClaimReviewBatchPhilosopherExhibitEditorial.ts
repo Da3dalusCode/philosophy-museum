@@ -25,10 +25,10 @@ const EXHIBIT_REVIEW_LOCKS_BY_NAME: Readonly<Record<string, `fnv1a64:${string}`>
 
 /** Exact-title wall copy mirrored by the authoritative primary plaque contract. */
 export const ARTICLE_CLAIM_REVIEW_BATCH_PHILOSOPHER_WALL_COPY = {
-  rawls: {title: 'John Rawls', invitation: 'Use Rawls’s 1971 dust-jacket portrait to enter justice as fairness. Ask how equal liberty, fair opportunity, the difference principle, public reason, and global duties work—and which histories and exclusions still pressure the framework.'},
+  rawls: {title: 'John Rawls', invitation: 'Use Rawls’s 1971 book portrait to ask how equal liberty, fair chances, aid to the least advantaged, public reason, and global duty work—and which past wrongs and exclusions still strain the view.'},
   nozick: {
     title: 'Robert Nozick',
-    invitation: 'Meet Nozick through a 1977 magazine portrait. Ask how rights, entitlement, rectification, the minimal state, and voluntary community fit—and why later reservations do not amount to a simple recantation of his political philosophy.',
+    invitation: 'Use Nozick’s 1977 magazine portrait to ask how rights, just holdings, repair, the minimal state, and free community fit—and why his later public doubts did not amount to a full political recantation.',
   },
   foucault: {
     title: 'Michel Foucault',
@@ -36,7 +36,7 @@ export const ARTICLE_CLAIM_REVIEW_BATCH_PHILOSOPHER_WALL_COPY = {
   },
   derrida: {
     title: 'Jacques Derrida',
-    invitation: 'Meet Derrida through a posthumous pencil portrait. Ask how différance, trace, iterability, justice, and hospitality unsettle inherited oppositions, while this imagined likeness cannot make deconstruction arbitrary or resolve the arguments it recalls.',
+    invitation: 'Use Derrida’s later pencil portrait to ask how différance, trace, repetition, justice, and hospitality unsettle old oppositions—while this imagined face cannot make deconstruction arbitrary or settle the live debates it still recalls.',
   },
   habermas: {
     title: 'Jürgen Habermas',
@@ -44,11 +44,11 @@ export const ARTICLE_CLAIM_REVIEW_BATCH_PHILOSOPHER_WALL_COPY = {
   },
   fanon: {
     title: 'Frantz Fanon',
-    invitation: 'See Fanon speaking at a Tunis press conference whose date remains uncertain. Ask how racialization, psychiatry, colonial violence, organization, and national consciousness shape liberation without reducing his analysis to a timeless defense of force.',
+    invitation: 'See Fanon at a Tunis press event with an uncertain date. Ask how race, psychiatry, colonial force, shared action, and national thought shape freedom without turning his analysis into a timeless praise of violence.',
   },
   'jiddu-krishnamurti': {
     title: 'Jiddu Krishnamurti',
-    invitation: 'Meet the young Krishnamurti in a 1920s press portrait. Ask how conditioning, authority, fear, attention, relationship, and education shape freedom—and why this Theosophical-era image cannot represent his mature teaching after the 1929 dissolution.',
+    invitation: 'Meet young Krishnamurti in a 1920s press portrait. Ask how conditioning, authority, fear, attention, ties, and learning shape freedom—and why this Theosophical-era image cannot show his mature teaching after the 1929 break.',
   },
 } as const;
 

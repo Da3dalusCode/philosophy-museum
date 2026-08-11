@@ -71,16 +71,16 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | Elizabeth Anscombe | claim-reviewed | standard-compliant | 32 | 320 | 3 | 2 | 6 | standard presentation |
 | Political Philosophy | claim-reviewed | standard-compliant | 32 | 319 | 3 | 3 | 6 | standard presentation |
 | Hannah Arendt | claim-reviewed | standard-compliant | 32 | 320 | 3 | 3 | 7 | standard presentation |
-| John Rawls | claim-reviewed | standard-compliant | 33 | 320 | 3 | 3 | 7 | standard presentation |
-| Robert Nozick | claim-reviewed | standard-compliant | 33 | 313 | 3 | 3 | 7 | standard presentation |
+| John Rawls | claim-reviewed | standard-compliant | 32 | 320 | 3 | 3 | 7 | standard presentation |
+| Robert Nozick | claim-reviewed | standard-compliant | 32 | 313 | 3 | 3 | 7 | standard presentation |
 | Martha Nussbaum | claim-reviewed | standard-compliant | 32 | 312 | 3 | 3 | 6 | standard presentation |
-| Metaphysics | claim-reviewed | standard-compliant | 33 | 316 | 3 | 3 | 6 | standard presentation |
+| Metaphysics | claim-reviewed | standard-compliant | 32 | 316 | 3 | 3 | 6 | standard presentation |
 | Ontology | claim-reviewed | standard-compliant | 32 | 320 | 3 | 3 | 6 | standard presentation |
 | Alfred North Whitehead | claim-reviewed | standard-compliant | 32 | 304 | 3 | 3 | 6 | standard presentation |
 | Epistemology | claim-reviewed | standard-compliant | 33 | 317 | 3 | 3 | 7 | standard presentation |
 | Philosophy of Mind | claim-reviewed | standard-compliant | 32 | 310 | 3 | 3 | 6 | standard presentation |
 | Thomas Nagel | claim-reviewed | standard-compliant | 32 | 318 | 3 | 3 | 6 | standard presentation |
-| Jiddu Krishnamurti | claim-reviewed | standard-compliant | 33 | 320 | 3 | 3 | 7 | standard presentation |
+| Jiddu Krishnamurti | claim-reviewed | standard-compliant | 32 | 320 | 3 | 3 | 7 | standard presentation |
 | Philosophy of Science | claim-reviewed | standard-compliant | 32 | 316 | 3 | 3 | 6 | standard presentation |
 | Rudolf Carnap | claim-reviewed | standard-compliant | 32 | 306 | 3 | 3 | 6 | standard presentation |
 | Karl Popper | claim-reviewed | standard-compliant | 32 | 311 | 3 | 3 | 6 | standard presentation |
@@ -145,7 +145,7 @@ No unmatched or ambiguous canonical exhibit-to-article relationships were found.
 | Arcesilaus | claim-reviewed | standard-compliant | 32 | 320 | 3 | 3 | 6 | standard presentation |
 | Carneades | claim-reviewed | standard-compliant | 32 | 319 | 3 | 3 | 6 | standard presentation |
 | Sextus Empiricus | claim-reviewed | standard-compliant | 32 | 268 | 3 | 4 | 7 | standard presentation |
-| Neoplatonism | claim-reviewed | standard-compliant | 33 | 303 | 3 | 3 | 7 | standard presentation |
+| Neoplatonism | claim-reviewed | standard-compliant | 32 | 303 | 3 | 3 | 7 | standard presentation |
 | Plotinus | claim-reviewed | standard-compliant | 32 | 316 | 3 | 3 | 6 | standard presentation |
 | Porphyry | claim-reviewed | standard-compliant | 32 | 281 | 3 | 3 | 6 | standard presentation |
 | Iamblichus | claim-reviewed | standard-compliant | 32 | 294 | 3 | 3 | 6 | standard presentation |

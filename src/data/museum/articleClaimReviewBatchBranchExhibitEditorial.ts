@@ -262,7 +262,7 @@ Readonly<Record<string, BranchExhibitEditorialRecord>> = {
     gallery: 'Late Antiquity & Neoplatonic Inheritance',
     roomId: 'late-neoplatonic-systems',
     roomTitle: 'Plotinus and later pagan Platonisms',
-    plaqueInvitation: 'Study a late-antique sarcophagus relief of a public reader, not an authenticated Plotinus. Ask how unity, intellect, soul, procession, return, commentary, and theurgy differ across traditions later grouped under the imperfect label Neoplatonism.',
+    plaqueInvitation: 'See a late-antique relief of a public reader, not a proven Plotinus. Ask how unity, intellect, soul, procession, return, commentary, and ritual vary across traditions now grouped under the imperfect name Neoplatonism.',
     principalAsset: {
       id: 'late-neoplatonic-reader-sarcophagus',
       title: 'Roman sarcophagus relief of a public reader',
@@ -318,7 +318,7 @@ Readonly<Record<string, BranchExhibitEditorialRecord>> = {
     gallery: 'Core Questions Forum',
     roomId: 'core-reality-being',
     roomTitle: 'Reality & Being',
-    plaqueInvitation: 'Use a new interpretive collage to compare substance, process, identity, possibility, cause, time, and dependence. Ask what kinds of explanation reality permits without treating this illustration—or the modern field name—as one agreed hierarchy.',
+    plaqueInvitation: 'Use a new collage to compare substance, process, identity, chance, cause, time, and dependence. Ask what reality permits without treating this image—or the field’s modern name—as one shared fixed ladder of being.',
     principalAsset: {
       id: 'metaphysics-reality-layers-interpretive',
       title: 'Layers of reality and explanation',
