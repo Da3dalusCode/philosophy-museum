@@ -1,5 +1,6 @@
 import {branchById} from './branches';
 import {philosopherById} from './philosophers';
+import {expansionRun2ComparisonCasefiles} from './comparisonsRun2';
 import type {
   ComparisonCasefile,
   ComparisonEntityKind,
@@ -484,7 +485,7 @@ export const comparisonCasefiles: readonly ComparisonCasefile[] = [
     ], warning: branchStatement('“What exists?” and “what is fundamental?” are connected but distinct questions; answering one does not automatically answer the other.', 'metaphysics', 'ontology')}],
     arguments: [
       {entityId: 'metaphysics', title: 'An inventory does not explain itself', summary: branchStatement('Even a clear list of entities leaves questions about possibility, dependence, identity through change, causation, and why the categories fit together.', 'metaphysics'), pressure: branchStatement('The broader the field becomes, the harder it is to state a distinctive method or prevent speculative excess.', 'metaphysics')},
-      {entityId: 'ontology', title: 'Make commitments explicit', summary: branchStatement('Ontology forces a theory to say what kinds of things its explanations presuppose and whether its language carries avoidable commitments.', 'ontology'), pressure: branchStatement('Formal clarity can still leave disputed whether the framework tracks reality, language, thought, social practice, or only a chosen model.', 'ontology')},
+      {entityId: 'ontology', title: 'Make commitments explicit', summary: branchStatement('Ontology forces a theory to say what kinds of things its explanations presuppose and whether its language carries avoidable commitments.', 'ontology'), pressure: branchStatement('Formal clarity can still leave open whether the framework tracks reality, language, thought, social practice, or only a chosen model.', 'ontology')},
     ],
     readings: [
       {entityId: 'metaphysics', title: 'Metaphysics', author: 'Peter van Inwagen, Meghan Sullivan, and Sara Bernstein', kind: 'secondary', stage: 'Map the broader field', whyHere: branchStatement('Use a contemporary overview to separate recurring problem families before treating metaphysics as one ancient project.', 'metaphysics')},
@@ -523,7 +524,7 @@ export const comparisonCasefiles: readonly ComparisonCasefile[] = [
     followOns: [{kind: 'branch', participantIds: ['phenomenology', 'existentialism'], label: 'Phenomenology and Existentialism', reason: branchStatement('Replace umbrella labels with a documented methodological and historical relationship inside one part of the continental family.', 'phenomenology', 'existentialism')}],
   }),
   branchCase(['phenomenology', 'existentialism'], {
-    sharedQuestion: branchStatement('How should philosophy describe lived experience when persons are embodied, temporal, situated, and responsible for projects they did not begin from nowhere?', 'phenomenology', 'existentialism'),
+    sharedQuestion: branchStatement('How should philosophy describe lived experience when persons are embodied, temporal, situated, and responsible for projects undertaken within conditions they did not choose?', 'phenomenology', 'existentialism'),
     historicalRelationship: branchStatement('Twentieth-century existential thinkers transformed phenomenological methods associated with Husserl and Heidegger, but existentialism also has nineteenth-century sources and phenomenology extends far beyond existential themes.', 'phenomenology', 'existentialism'),
     sharedAssumptions: [branchStatement('Both resist explaining human life only as an external object and attend to first-person orientation, meaning, embodiment, temporality, and relation to a shared world.', 'phenomenology', 'existentialism')],
     axes: [
@@ -725,6 +726,7 @@ export const comparisonCasefiles: readonly ComparisonCasefile[] = [
     interpretiveLimits: [philosopherStatement('Their friendship, collaboration, disagreement, and later receptions are historically important but do not authorize biographical reduction of either philosopher’s arguments.', 'beauvoir', 'sartre')],
     followOns: [{kind: 'branch', participantIds: ['buddhist-philosophy', 'vedanta'], label: 'Buddhist Philosophy and Vedānta', reason: branchStatement('Shift traditions and test how different accounts of self, situation, and liberation complicate familiar existential vocabulary.', 'buddhist-philosophy', 'vedanta')}],
   }),
+  ...expansionRun2ComparisonCasefiles,
 ];
 
 export const comparisonCasefileKey = (kind: ComparisonKind, firstId: string, secondId: string): string =>

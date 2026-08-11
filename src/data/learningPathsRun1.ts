@@ -122,7 +122,7 @@ export const expansionRun1LearningPaths: readonly LearningPath[] = [
       step({
         id: 'ratemp-kant', title: 'Let Hume’s problem change the question',
         sequenceRationale: 'The final step shows why Kant cannot be understood as averaging two pre-existing doctrines.',
-        explanation: 'Hume argues that reason does not justify the inductive transition from observed regularity to future necessity; custom explains how the expectation arises. Kant asks instead which a priori forms and concepts make objectively ordered experience possible for finite knowers. His critical project limits knowledge to possible experience while assigning the understanding an active structuring role.',
+        explanation: 'Hume argues that reason does not justify projecting observed regularities into unobserved cases or the future, while custom explains how the expectation arises. Kant asks instead which a priori forms and concepts make objectively ordered experience possible for finite knowers. His critical project limits knowledge to possible experience while assigning the understanding an active structuring role.',
         objectives: ['State Hume’s problem of induction without saying that daily inference stops.', 'Explain how Kant changes the level of the question.'],
         branchIds: ['rationalism', 'empiricism', 'kantianism'], philosopherIds: ['hume', 'kant'], conceptIds: ['induction', 'custom', 'a-priori', 'categories'],
         articleLinks: [article('philosopher', 'hume', 'The reviewed article distinguishes psychological and skeptical readings of custom.'), article('philosopher', 'kant', 'His profile connects the critical turn to theoretical and practical reason.')],

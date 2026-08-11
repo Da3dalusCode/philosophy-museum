@@ -11,6 +11,7 @@ import type {
   LearningPathStep,
 } from '../types/philosophy';
 import {expansionRun1LearningPaths} from './learningPathsRun1';
+import {expansionRun2LearningPaths} from './learningPathsRun2';
 
 const branch = (id: string, reason: string): LearningPathArticleLink => ({kind: 'branch', id, reason});
 const thinker = (id: string, reason: string): LearningPathArticleLink => ({kind: 'philosopher', id, reason});
@@ -182,6 +183,7 @@ export const learningPaths: LearningPath[] = [
       step('south-rivals', 'Set pluralism and selfhood in disagreement', 'The final step places Buddhist arguments beside Jain and Vedānta positions that reject different premises.', 'Jain thought develops nonviolence, karma, and many-sidedness; Vedānta traditions debate the relation of self, ultimate reality, world, devotion, and liberation. Śaṅkara and Rāmānuja disagree sharply, and neither stands for all Vedānta. These are philosophical arguments embedded in textual, ritual, and institutional practices.', ['Identify one Jain or Vedānta claim without generic spiritual language.', 'State one disagreement between Śaṅkara and Rāmānuja.'], ['jainism', 'vedanta', 'buddhist-philosophy'], ['mahavira', 'shankara', 'ramanuja'], ['ahimsa', 'anekantavada', 'atman'], [branch('jainism', 'The article grounds Jain philosophy in its own textual and ethical traditions.'), branch('vedanta', 'The article preserves competing Vedānta schools rather than one “Hindu” doctrine.')], [stop('classical-south-asian-worlds', 'vedanta', 'Vedanta', 'The exhibit frames several Vedānta debates and historical inheritances.')], [primary('Vedārthasaṅgraha', 'Rāmānuja', 'vedanta', 'A primary entry into qualified nondualism and interpretation of scriptural sources.'), secondary('Bhedābheda Vedānta', 'Andrew J. Nicholson', 'vedanta', 'A secondary study that broadens the map beyond a two-figure summary.')], ['What is plural or many-sided in the Jain account?', 'Which relation between self and ultimate reality is contested in Vedānta?'], 'Which disagreement prevents a single “South Asian view of self”?', 'Continue with Mind or Knowledge to compare questions about personhood and valid cognition.')],
   },
   ...expansionRun1LearningPaths,
+  ...expansionRun2LearningPaths,
 ];
 
 export const learningPathById = new Map(learningPaths.map((path) => [path.id, path]));

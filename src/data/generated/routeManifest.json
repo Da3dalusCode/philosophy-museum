@@ -11291,6 +11291,21 @@
       "id": "kant-german-idealism",
       "title": "Kant and German Idealism",
       "stepCount": 4
+    },
+    {
+      "id": "jewish-philosophy",
+      "title": "Jewish Philosophy",
+      "stepCount": 4
+    },
+    {
+      "id": "late-antiquity-latin-scholasticism",
+      "title": "Late Antiquity and Latin Scholasticism",
+      "stepCount": 4
+    },
+    {
+      "id": "later-east-asian-philosophy",
+      "title": "Later East Asian Philosophy",
+      "stepCount": 4
     }
   ],
   "museumHalls": [
