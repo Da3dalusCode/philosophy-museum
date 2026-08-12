@@ -25,7 +25,195 @@ type WallFillInput = {
   entityKind: 'philosopher' | 'branch';
 };
 
-const wallFill = (input: WallFillInput): MuseumSupplementalExhibit => ({
+type Gallery05WallFillReviewEvidence = {
+  plaqueTitle: string;
+  invitation: string;
+  objectInterpretation: string;
+  detail: readonly [string, string, string];
+  sources: MuseumSupplementalExhibit['sources'];
+  sectionSourceIds: readonly [readonly string[], readonly string[], readonly string[]];
+  visitorGuide: NonNullable<MuseumSupplementalExhibit['visitorGuide']>;
+  articleTitle: string;
+  canonicalContexts: NonNullable<MuseumSupplementalExhibit['wallPlaque']>['canonicalContexts'];
+  plaqueType: NonNullable<MuseumSupplementalExhibit['wallPlaque']>['type'];
+  resolution: string;
+  lock: string;
+};
+
+const gallery05WallFillReviewEvidence: Partial<Record<MuseumSupplementalExhibitId, Gallery05WallFillReviewEvidence>> = {
+  'buddhist-first-sermon-four-truths': {
+    plaqueTitle: 'Gandharan Relief of the First Sermon',
+    invitation: 'This later relief remembers the teaching associated with the Four Truths; the Buddha article distinguishes the transmitted discourse from a historical eyewitness record.',
+    objectInterpretation: 'Gary Todd’s CC0 photograph records a Kushan-period Gandharan relief displayed at the Aurora Museum, Shanghai. The Commons description supplies no accession record; the sculpture is later reception, not an eyewitness image or transcript of the first sermon.',
+    detail: [
+      'The installed landscape image is Gary Todd’s CC0 photograph of a second- or third-century Gandharan relief displayed at the Aurora Museum in Shanghai. The file record identifies the remembered first-sermon subject but supplies no institutional accession number or catalogue page. The holding therefore remains source-reported rather than independently verified.',
+      'Saṃyutta Nikāya 56.11 organizes the teaching around suffering, its origin, cessation, and a path, with each truth framed through tasks of understanding and cultivation. The discourse is a transmitted textual witness. It cannot convert a sculpture made centuries later into evidence that the scene records Sarnath as it appeared or preserves the Buddha’s exact words.',
+      'Gandharan artists made Buddhist narrative memory visible through later regional materials and conventions. The relief supports reception history: a teaching scene, assembled listeners, and the visual authority of a remembered event. Claims about the Four Truths and path remain mapped to the discourse and historical scholarship, while the object record supports only identity, reported display, date range, photograph, and rights.',
+    ],
+    sources: [
+      {id: 'first-sermon-commons', label: 'Wikimedia Commons — Gandharan first-sermon relief photograph', url: 'https://commons.wikimedia.org/wiki/File:Buddha%27s_First_Sermon_at_Sarnath_(22220250308).jpg', kind: 'collection-record'},
+      {id: 'first-sermon-sutta', label: 'SuttaCentral — SN 56.11, Setting the Dhamma Wheel in Motion', url: 'https://suttacentral.net/sn56.11/en/sujato', kind: 'primary-text'},
+      {id: 'buddha-sep', label: 'Stanford Encyclopedia of Philosophy — Buddha', url: 'https://plato.stanford.edu/entries/buddha/', kind: 'academic-reference'},
+      {id: 'gandhara-met', label: 'Metropolitan Museum of Art — Gandhara', url: 'https://www.metmuseum.org/essays/gandhara', kind: 'academic-reference'},
+    ],
+    sectionSourceIds: [['first-sermon-commons', 'first-sermon-sutta'], ['first-sermon-sutta', 'buddha-sep'], ['first-sermon-commons', 'gandhara-met', 'buddha-sep']],
+    visitorGuide: [
+      {heading: 'Reading the Gandharan relief', items: [
+        {label: 'Later reception', description: 'A Kushan-period relief gives material form to the remembered first teaching centuries after the Buddha.', sourceIds: ['first-sermon-commons', 'gandhara-met']},
+        {label: 'Holding limit', description: 'Commons reports display at the Aurora Museum but supplies no accession or institutional object page.', sourceIds: ['first-sermon-commons']},
+      ]},
+      {heading: 'Four truths as tasks', items: [
+        {label: 'Diagnosis and response', description: 'The discourse pairs suffering and its origin with cessation and a path of cultivation.', sourceIds: ['first-sermon-sutta', 'buddha-sep']},
+        {label: 'Text is not eyewitness access', description: 'A transmitted discourse and a later relief require historical comparison rather than claims of direct recording.', sourceIds: ['buddha-sep', 'first-sermon-commons']},
+      ]},
+    ],
+    articleTitle: 'Siddhartha Gautama / the Buddha', canonicalContexts: [{kind: 'philosopher', id: 'buddha'}], plaqueType: 'reception-or-transmission-history',
+    resolution: 'Resolved: retitled the object as a Gandharan first-sermon relief, exposed the lack of an Aurora accession record, preserved Todd’s CC0 credit and natural ratio, and mapped Four Truths claims to SN 56.11 and historical scholarship rather than the later sculpture.', lock: 'fnv1a64:70910247cfd2ab0e',
+  },
+  'ashoka-dhamma-public-ethics': {
+    plaqueTitle: 'Lion Capital of Aśoka at Sarnath',
+    invitation: 'This Mauryan capital stood above a pillar; Aśoka’s inscriptions—not the sculpture alone—are evidence for dhamma, administration, patronage, and imperial authority.',
+    objectInterpretation: 'The c. 250 BCE Lion Capital at the Sarnath Archaeological Museum establishes the monumental and imperial setting of Aśoka’s program. It is sculpture from a pillar, not an edict; inscriptions must support claims about dhamma and policy.',
+    detail: [
+      'The installed CC BY 2.0 photograph by lisa bat records the polished sandstone Lion Capital of Aśoka at the Sarnath Archaeological Museum. Made around 250 BCE by a Mauryan imperial workshop, the four lions, abacus, animals, wheels, and inverted lotus once crowned a pillar. The capital contains no substitute for reading Aśoka’s inscriptions.',
+      'Major Rock Edicts and related inscriptions address welfare, restraint, administration, religious communities, remorse, conquest, and respect across sectarian difference. “Dhamma” in this imperial register should not be reduced to a concise statement of Buddhist doctrine. A ruler’s public ethical language also operates through unequal institutional power, officials, punishment, patronage, and claims to legitimacy.',
+      'The monument and inscriptions must therefore remain distinct sources. Sculpture establishes scale, imperial craft, place, custody, and later symbolic afterlives; the edicts establish what Aśoka publicly ordered or commended. The exhibit can ask how Buddhist patronage entered public policy without romanticizing empire or claiming that the capital itself speaks the content of an edict.',
+    ],
+    sources: [
+      {id: 'ashoka-capital-commons', label: 'Wikimedia Commons — Lion Capital of Aśoka at Sarnath', url: 'https://commons.wikimedia.org/wiki/File:Lion_capital_of_Ashoka,_Sarnath.jpg', kind: 'collection-record'},
+      {id: 'ashoka-capital-smarthistory', label: 'Smarthistory — Lion Capital, Ashokan Pillar at Sarnath', url: 'https://smarthistory.org/lion-capital-ashokan-pillar-at-sarnath/', kind: 'academic-reference'},
+      {id: 'ashoka-edicts', label: 'Columbia University — The Edicts of King Asoka, trans. Ven. S. Dhammika', url: 'https://www.columbia.edu/itc/religion/f2001/edit/docs/edicts_asoka.pdf', kind: 'primary-text'},
+    ],
+    sectionSourceIds: [['ashoka-capital-commons', 'ashoka-capital-smarthistory'], ['ashoka-edicts'], ['ashoka-capital-smarthistory', 'ashoka-edicts']],
+    visitorGuide: [
+      {heading: 'Separating capital and edicts', items: [
+        {label: 'Mauryan sculpture', description: 'The polished sandstone capital crowned a pillar and is now held at the Sarnath Archaeological Museum.', sourceIds: ['ashoka-capital-smarthistory', 'ashoka-capital-commons']},
+        {label: 'Not an inscription', description: 'The sculpture establishes imperial context; translated edicts establish the content of Aśoka’s public claims.', sourceIds: ['ashoka-capital-smarthistory', 'ashoka-edicts']},
+      ]},
+      {heading: 'Dhamma and public power', items: [
+        {label: 'Broad ethical register', description: 'Aśoka’s dhamma addresses welfare, restraint, administration, and plural communities beyond a doctrinal summary.', sourceIds: ['ashoka-edicts']},
+        {label: 'Imperial tension', description: 'Remorse, patronage, persuasion, authority, and punitive capacity coexist in the inscriptional program.', sourceIds: ['ashoka-edicts']},
+      ]},
+    ],
+    articleTitle: 'Buddhist Philosophy', canonicalContexts: [{kind: 'branch', id: 'buddhist-philosophy'}], plaqueType: 'object-manuscript-site-or-archaeological-context',
+    resolution: 'Resolved: verified the Sarnath capital, maker horizon, holding and CC BY rights, separated sculpture from inscriptional evidence, added an edict translation, qualified imperial dhamma, and corrected the natural portrait mount.', lock: 'fnv1a64:32d5aba9a994fcfb',
+  },
+  'early-buddhist-stupa-community': {
+    plaqueTitle: 'Great Stupa (Stupa 1), Sanchi',
+    invitation: 'Built and transformed across centuries, Sanchi’s Great Stupa makes relics, pilgrimage, donor networks, and monastic communities integral to Buddhist philosophical history.',
+    objectInterpretation: 'Asitjain’s CC BY-SA photograph records Great Stupa 1 at the Archaeological Survey of India-managed Sanchi site. Its Aśokan beginnings and later expansions span centuries; the present monument is not one unchanged third-century BCE object.',
+    detail: [
+      'UNESCO describes Sanchi’s Buddhist monuments as beginning with Aśokan work in the third century BCE and expanding under later dynasties. The installed photograph by Asitjain shows Great Stupa 1 with a carved gateway, rail, ambulatory, and hemispherical mound. It is a managed archaeological and religious site rather than a museum-held portable object.',
+      'Relic veneration, circumambulation, donation, narrative carving, monastic residence, patronage, and pilgrimage made philosophical and ethical traditions durable through embodied communal practices. Inscriptions and architectural phases also record many contributors. Those histories resist the fantasy that Buddhist philosophy moved only through disembodied propositions or through one founder speaking to passive recipients.',
+      'The current view incorporates construction, alteration, conservation, and restoration across long periods. It cannot document one original appearance or prove that every Buddhist school shared the same doctrine, ritual, or institutional organization. The site instead shows how communities repeatedly rebuilt relationships among memory, merit, teaching, movement, image, and authority.',
+    ],
+    sources: [
+      {id: 'sanchi-commons', label: 'Wikimedia Commons — Great Stupa 1 at Sanchi', url: 'https://commons.wikimedia.org/wiki/File:Sanchi1_N-MP-220.jpg', kind: 'collection-record'},
+      {id: 'sanchi-unesco', label: 'UNESCO World Heritage Centre — Buddhist Monuments at Sanchi', url: 'https://whc.unesco.org/en/list/524/', kind: 'collection-record'},
+      {id: 'buddhist-philosophy-iep', label: 'Internet Encyclopedia of Philosophy — Buddhist Philosophy', url: 'https://iep.utm.edu/buddha/', kind: 'academic-reference'},
+    ],
+    sectionSourceIds: [['sanchi-unesco', 'sanchi-commons'], ['sanchi-unesco', 'buddhist-philosophy-iep'], ['sanchi-unesco', 'sanchi-commons']],
+    visitorGuide: [
+      {heading: 'Reading a layered site', items: [
+        {label: 'Many building phases', description: 'Aśokan beginnings were expanded, decorated, altered, and conserved across later centuries.', sourceIds: ['sanchi-unesco']},
+        {label: 'Site stewardship', description: 'The Archaeological Survey of India manages Sanchi; it is not a conventional museum holding.', sourceIds: ['sanchi-unesco', 'sanchi-commons']},
+      ]},
+      {heading: 'Community and practice', items: [
+        {label: 'Embodied participation', description: 'Relics, circumambulation, gateways, donations, pilgrimage, and monastic life join material and intellectual history.', sourceIds: ['sanchi-unesco', 'buddhist-philosophy-iep']},
+        {label: 'No timeless consensus', description: 'One accumulated monument cannot represent every Buddhist school, period, or community.', sourceIds: ['sanchi-unesco', 'buddhist-philosophy-iep']},
+      ]},
+    ],
+    articleTitle: 'Buddhist Philosophy', canonicalContexts: [{kind: 'branch', id: 'buddhist-philosophy'}], plaqueType: 'object-manuscript-site-or-archaeological-context',
+    resolution: 'Resolved: added UNESCO’s institutional site record, distinguished ASI stewardship from museum holding, retained the multi-phase chronology and CC BY-SA credit, mapped community claims carefully, and corrected the mount to the photograph’s natural ratio.', lock: 'fnv1a64:d4510293aea76cb0',
+  },
+  'kumarajiva-madhyamaka-translation': {
+    plaqueTitle: 'Kumārajīva Translates the Madhyamaka',
+    invitation: 'This modern Buddhavanam relief commemorates Kumārajīva’s translation work; the Buddhist Philosophy article traces how Chinese Madhyamaka developed through texts, interpretation, and institutions.',
+    objectInterpretation: 'Anandajoti Bhikkhu’s 2024 CC BY-SA photograph records a modern Buddhavanam relief imagining Kumārajīva and collaborators. It is commemorative public art, not documentary evidence for his appearance, workshop, or any precise translation session.',
+    detail: [
+      'The installed image was photographed by Anandajoti Bhikkhu on 9 December 2024 at Buddhavanam Stupa, Telangana, and is licensed CC BY-SA 4.0. The modern relief artist is not stated. Its seated translator and collaborators intentionally visualize collective work, but the scene was created about sixteen centuries after Kumārajīva and cannot reconstruct his workshop.',
+      'Kumārajīva reached Chang’an in 401 and his translation activity helped transmit works central to Chinese Madhyamaka and the Three Treatises tradition. Choosing vocabulary, comparing texts, explaining arguments, organizing assistants, and establishing a corpus are philosophical acts. Chinese interpreters then developed those resources within new linguistic, institutional, and polemical settings rather than merely storing an Indian original.',
+      'The relief supports claims about modern commemoration only. Specialist Madhyamaka history supports translation, corpus, and Chinese reception. That division lets visitors use the visual scene without mistaking its details for evidence, and it preserves disagreement about how translated terms, attributions, and later commentaries should shape interpretation of emptiness and the middle way.',
+    ],
+    sources: [
+      {id: 'kumarajiva-relief-commons', label: 'Wikimedia Commons — Kumārajīva translation relief at Buddhavanam', url: 'https://commons.wikimedia.org/wiki/File:202_Kumarajiva_Translates_the_Madhyamaka_into_Chinese.jpg', kind: 'collection-record'},
+      {id: 'madhyamaka-iep', label: 'Internet Encyclopedia of Philosophy — Madhyamaka Buddhist Philosophy', url: 'https://iep.utm.edu/madhyamaka-buddhist-philosophy/', kind: 'academic-reference'},
+      {id: 'chinese-madhyamaka-rep', label: 'Routledge Encyclopedia of Philosophy — Chinese Buddhist philosophy: Madhyamaka', url: 'https://www.rep.routledge.com/articles/overview/buddhist-philosophy-chinese/v-1/sections/indian-transplants-madhyamaka-and-icchantikas', kind: 'academic-reference'},
+    ],
+    sectionSourceIds: [['kumarajiva-relief-commons'], ['madhyamaka-iep', 'chinese-madhyamaka-rep'], ['kumarajiva-relief-commons', 'madhyamaka-iep', 'chinese-madhyamaka-rep']],
+    visitorGuide: [
+      {heading: 'Reading the modern relief', items: [
+        {label: 'Commemorative scene', description: 'The 2024 photograph records modern Buddhavanam public art, not a historical translation session.', sourceIds: ['kumarajiva-relief-commons']},
+        {label: 'Unknown relief maker', description: 'The source credits the photographer but does not identify the sculptor.', sourceIds: ['kumarajiva-relief-commons']},
+      ]},
+      {heading: 'Translation creates traditions', items: [
+        {label: 'A selected corpus', description: 'Kumārajīva’s translations became central resources for Chinese Madhyamaka and the Three Treatises tradition.', sourceIds: ['madhyamaka-iep', 'chinese-madhyamaka-rep']},
+        {label: 'Interpretive labor', description: 'Terminology, assistants, commentary, institutions, and later readers all shape what a translated argument becomes.', sourceIds: ['chinese-madhyamaka-rep']},
+      ]},
+    ],
+    articleTitle: 'Buddhist Philosophy', canonicalContexts: [{kind: 'branch', id: 'buddhist-philosophy'}], plaqueType: 'reception-or-transmission-history',
+    resolution: 'Resolved: retained the verified modern Buddhavanam relief and CC BY-SA credit, made unknown authorship and commemorative status explicit, added Chinese Madhyamaka evidence, separated image from historical claims, and corrected the natural mount ratio.', lock: 'fnv1a64:9d200fc553d7a908',
+  },
+  'tripitaka-koreana-printing-canon': {
+    plaqueTitle: 'Tripiṭaka Koreana Woodblocks',
+    invitation: 'Haeinsa’s thirteenth-century woodblocks show how Korean Buddhist institutions preserved and reproduced a canon through collation, carving, storage, and continuing stewardship.',
+    objectInterpretation: 'Arian Zwegers’s 2006 CC BY photograph records shelves of the Tripiṭaka Koreana at Haeinsa. UNESCO dates the 81,258 printing blocks to 1237–1248; the fifteenth-century depository is later and should not date the blocks.',
+    detail: [
+      'The installed CC BY 2.0 image derives from Arian Zwegers’s 3 November 2006 photograph of the woodblocks at Haeinsa. UNESCO records 81,258 blocks carved between 1237 and 1248 under Goryeo patronage. The purpose-built depository buildings are fifteenth-century structures, so collection, carving, and storage architecture require separate dates.',
+      'At this scale, a canon depends on textual comparison, correction, ordering, skilled carving, funding, buildings, environmental management, and continuing stewardship. Printing makes repeated impressions possible but does not erase editorial choice, textual variants, damaged blocks, or later interpretation. Material infrastructure helps determine what later readers can encounter as an authoritative collection.',
+      'Haeinsa is a Korean center of Buddhist intellectual and institutional history, not a passive endpoint of an exclusively Indian story. The blocks do not contain every Buddhist text or establish one final reading. Their survival instead demonstrates sustained regional work through which a selected canon could be collated, reproduced, preserved, studied, and reinterpreted.',
+    ],
+    sources: [
+      {id: 'tripitaka-commons', label: 'Wikimedia Commons — Tripiṭaka Koreana woodblocks', url: 'https://commons.wikimedia.org/wiki/File:Tripitaka_Koreana.jpg', kind: 'collection-record'},
+      {id: 'tripitaka-unesco-mow', label: 'UNESCO Memory of the World — Printing woodblocks of the Tripiṭaka Koreana', url: 'https://www.unesco.org/en/memory-world/printing-woodblocks-tripitaka-koreana-and-miscellaneous-buddhist-scriptures', kind: 'collection-record'},
+      {id: 'haeinsa-unesco', label: 'UNESCO World Heritage Centre — Haeinsa Temple Janggyeong Panjeon', url: 'https://whc.unesco.org/en/list/737/', kind: 'collection-record'},
+    ],
+    sectionSourceIds: [['tripitaka-commons', 'tripitaka-unesco-mow', 'haeinsa-unesco'], ['tripitaka-unesco-mow', 'haeinsa-unesco'], ['tripitaka-unesco-mow', 'haeinsa-unesco']],
+    visitorGuide: [
+      {heading: 'Reading the Haeinsa collection', items: [
+        {label: 'Blocks and buildings', description: 'The 1237–1248 blocks predate the fifteenth-century depository that protects them.', sourceIds: ['tripitaka-unesco-mow', 'haeinsa-unesco']},
+        {label: 'Photographic rights', description: 'The installed 2006 photograph is credited to Arian Zwegers through its CC BY 2.0 derivative record.', sourceIds: ['tripitaka-commons']},
+      ]},
+      {heading: 'Canon as infrastructure', items: [
+        {label: '81,258 carved blocks', description: 'Collation, correction, carving, funding, storage, and stewardship make canonical reproduction possible.', sourceIds: ['tripitaka-unesco-mow']},
+        {label: 'A Korean center', description: 'Haeinsa actively shaped transmission rather than merely preserving an untouched origin.', sourceIds: ['tripitaka-unesco-mow', 'haeinsa-unesco']},
+      ]},
+    ],
+    articleTitle: 'Buddhist Philosophy', canonicalContexts: [{kind: 'branch', id: 'buddhist-philosophy'}], plaqueType: 'object-manuscript-site-or-archaeological-context',
+    resolution: 'Resolved: added UNESCO institutional records, separated the 1237–1248 blocks from their fifteenth-century depository, preserved Zwegers’s CC BY attribution, qualified canon and regional-history claims, and corrected the natural mount ratio.', lock: 'fnv1a64:8fc2cdd331e247e9',
+  },
+  'pali-kammavaca-southeast-asia': {
+    plaqueTitle: 'Burmese Kammavācā Manuscript',
+    invitation: 'This nineteenth-century Pāli ritual manuscript connects Buddhist Philosophy to monastic procedure and to the distinctive material traditions through which Burmese communities preserved it.',
+    objectInterpretation: 'Kaldari’s 2018 CC0 photograph records a nineteenth-century Burmese Kammavācā at San Diego Public Library. Its Pāli formulae serve formal monastic acts; this lavish Burmese object does not represent all Southeast Asian manuscripts or traditions.',
+    detail: [
+      'The installed CC0 photograph was made by Kaldari on 9 December 2018 at San Diego Public Library. The source identifies a nineteenth-century Burmese Kammavācā, with Pāli writing presented across richly gilded manuscript leaves. The makers are unknown. Its striking material form is historically specific rather than a generic image of Buddhist scripture.',
+      'Kammavācā collections draw on Vinaya passages recited for formal acts of a monastic community. Meaning depends on qualified participants, occasions, procedure, recitation, and institutional continuity as well as written words. Gilding, script, boards, ordered leaves, patronage, and craft give those formulae ceremonial and material authority in a Burmese setting.',
+      'The object opens a route into Theravāda and Southeast Asian histories without claiming that one Burmese example stands for Sri Lanka, Thailand, Cambodia, Laos, Myanmar, every period, or every community. It is also not an early Buddhist manuscript. The source record supports the particular photographed object, while the genre source supports the bounded description of monastic function.',
+    ],
+    sources: [
+      {id: 'kammavaca-commons', label: 'Wikimedia Commons — Burmese Kammavācā at San Diego Public Library', url: 'https://commons.wikimedia.org/wiki/File:Burmese_Kammavaca.jpg', kind: 'collection-record'},
+      {id: 'kammavaca-lacma', label: 'Los Angeles County Museum of Art — Kammavaca manuscript', url: 'https://collections.lacma.org/object/223306', kind: 'collection-record'},
+      {id: 'buddhist-philosophy-iep', label: 'Internet Encyclopedia of Philosophy — Buddhist Philosophy', url: 'https://iep.utm.edu/buddha/', kind: 'academic-reference'},
+    ],
+    sectionSourceIds: [['kammavaca-commons', 'kammavaca-lacma'], ['kammavaca-lacma', 'buddhist-philosophy-iep'], ['kammavaca-commons', 'kammavaca-lacma']],
+    visitorGuide: [
+      {heading: 'Reading the Burmese manuscript', items: [
+        {label: 'Specific object', description: 'Kaldari photographed this nineteenth-century Burmese Kammavācā at San Diego Public Library in 2018.', sourceIds: ['kammavaca-commons']},
+        {label: 'Ceremonial material form', description: 'Gilded leaves, script, ordered text, and protective elements mark a distinctive manuscript tradition.', sourceIds: ['kammavaca-commons', 'kammavaca-lacma']},
+      ]},
+      {heading: 'Text as monastic action', items: [
+        {label: 'Vinaya procedure', description: 'Kammavācā formulae are recited for formal acts of the monastic community.', sourceIds: ['kammavaca-lacma', 'buddhist-philosophy-iep']},
+        {label: 'Regional limit', description: 'One Burmese object cannot represent every Southeast Asian or Theravāda tradition.', sourceIds: ['kammavaca-commons', 'buddhist-philosophy-iep']},
+      ]},
+    ],
+    articleTitle: 'Buddhist Philosophy', canonicalContexts: [{kind: 'branch', id: 'buddhist-philosophy'}], plaqueType: 'object-manuscript-site-or-archaeological-context',
+    resolution: 'Resolved: verified the nineteenth-century Burmese manuscript, San Diego holding, Kaldari credit and CC0 rights, added a genre record, limited regional generalization, explained ceremonial function, and corrected the natural mount ratio.', lock: 'fnv1a64:978e58c2fcf49430',
+  },
+};
+
+const wallFill = (input: WallFillInput): MuseumSupplementalExhibit => {
+  const baseline: MuseumSupplementalExhibit = ({
   id: input.id,
   displayName: input.displayName,
   shortTitle: input.shortTitle,
@@ -59,7 +247,40 @@ const wallFill = (input: WallFillInput): MuseumSupplementalExhibit => ({
     keyIdeasLabel: 'Interpretive anchors',
     cautionsLabel: 'Keep in view',
   },
-});
+  });
+  const evidence = gallery05WallFillReviewEvidence[input.id];
+  if (!evidence) return baseline;
+  const basePresentation = baseline.presentation;
+  if (!basePresentation) throw new Error(`Missing Gallery 05 presentation for ${input.id}.`);
+  return {
+    ...baseline,
+    sections: [
+      {heading: '', paragraphs: [`${input.lead} ${evidence.detail[0]} ${input.sections[0].paragraph}`], sourceIds: evidence.sectionSourceIds[0]},
+      {heading: '', paragraphs: [`${input.sections[1].paragraph} ${evidence.detail[1]} ${input.keyIdeas.join(' ')}`], sourceIds: evidence.sectionSourceIds[1]},
+      {heading: '', paragraphs: [`${input.sections[2].paragraph} ${evidence.detail[2]} ${input.cautions.join(' ')}`], sourceIds: evidence.sectionSourceIds[2]},
+    ],
+    visitorGuide: evidence.visitorGuide,
+    sources: evidence.sources,
+    objectInterpretation: evidence.objectInterpretation,
+    presentation: {
+      ...basePresentation,
+      panelKicker: 'Gallery 05 supplemental exhibit',
+      articleActionLabel: `Read the full sourced ${evidence.articleTitle} article`,
+      exhibitLayout: 'object-led',
+    },
+    wallPlaque: {type: evidence.plaqueType, title: evidence.plaqueTitle, invitation: evidence.invitation, canonicalContexts: evidence.canonicalContexts},
+    review: {
+      status: 'standard-compliant', reviewedOn: '2026-08-12',
+      method: 'Gallery 05 supplemental review: two non-overlapping Terra/High evidence scopes of six exhibits each reconciled by the Sol parent across installed-object identity, interpretation, attribution, dating, institution, provenance, rights, source mapping, accessibility, article relationship, routes, and aspect-safe presentation.',
+      resolution: evidence.resolution, lock: evidence.lock,
+      visualReview: {
+        desktop: {reviewedOn: '2026-08-12', viewport: '1280×720', evidence: `Direct route inspected with the installed object, three-paragraph interpretation, subject-specific sidebar, article CTA, and no horizontal overflow. Evidence: docs/visual-validation/gallery-05-supplementals/desktop/${input.id}.png`},
+        mobile: {reviewedOn: '2026-08-12', viewport: '390×844', evidence: `Direct route inspected with wrapped copy, loaded object preview, scrollable interpretation, visible controls, and no horizontal overflow. Evidence: docs/visual-validation/gallery-05-supplementals/mobile/${input.id}.png`},
+        threeDimensional: {reviewedOn: '2026-08-12', viewport: '1280×720 fresh direct-route session', evidence: `Fresh-session authored viewpoint inspected with a live 3D canvas, closed detail panel, readable plaque, distinct installation, and the image mounted at its natural scene ratio. Evidence: docs/visual-validation/gallery-05-supplementals/staged-3d/${input.id}.png`},
+      },
+    },
+  };
+};
 
 const buddhistReference = {
   label: 'Internet Encyclopedia of Philosophy — Buddhist Philosophy',

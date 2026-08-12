@@ -3520,9 +3520,9 @@
       },
       "panel": {
         "width": 1280,
-        "height": 417,
-        "bytes": 235748,
-        "sha256": "99c05d285c88e3a88ac4d4aee79390349a74047a8a1ab054dbde444bb7578053"
+        "height": 418,
+        "bytes": 103066,
+        "sha256": "fca35549923345442100a628f1dd9c4d9540a98adedd332610d4867a9d0d149d"
       }
     },
     "buddhist-dependent-arising-wheel": {
@@ -3592,9 +3592,9 @@
       },
       "panel": {
         "width": 1280,
-        "height": 385,
-        "bytes": 158172,
-        "sha256": "87abd4dcb9afdaaef44b689dba57c2332b4cbde878e2ba2db0b7b227e79d5fe4"
+        "height": 386,
+        "bytes": 94316,
+        "sha256": "7c6ebff8f31ad59c37407ffaf57d934f406af568bc17ed9be947a198a40503aa"
       }
     },
     "buddhist-diamond-sutra-868": {
