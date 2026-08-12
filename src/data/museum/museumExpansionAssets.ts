@@ -337,10 +337,10 @@ export const MUSEUM_EXPANSION_ASSETS = [
   }),
   expansionAsset({
     id: 'patanjali-yoga-sutra-manuscript', hallFolder: 'mind-consciousness-self', entityId: 'patanjali', role: 'primary-source', mediaKind: 'manuscript',
-    title: 'Yoga Sutras manuscript, Th 217', creator: 'Unknown copyist; text traditionally attributed to Patañjali', objectDate: 'Before 1900; exact date unknown', institution: 'National Library of India, Rare Books Division, Th 217',
+    title: 'Yoga Sutras manuscript, Th 217 (reported identification)', creator: 'Unknown copyist; text traditionally attributed to Patañjali', objectDate: 'Reported before 1900; exact date unknown', institution: 'Reported as National Library of India, Rare Books Division, Th 217; stable catalogue record unavailable',
     sourcePageUrl: 'https://commons.wikimedia.org/wiki/File:Patanjali_Yoga_Sutras_manuscript.jpg', ...publicDomainMark,
-    attribution: 'National Library of India, Rare Books Division, Yoga Sutras manuscript Th 217. Public domain.', alt: 'Open manuscript leaves densely written in an Indic script with red ruling and marginal marks.',
-    caption: 'A pre-1900 manuscript witness to the Yoga Sutras, National Library of India Th 217.', historicalNote: 'Neither an autograph nor a securely dated early copy: the copyist and precise date are unknown, and authorship of the Yoga Sutras is traditionally rather than documentarily assigned to Patañjali. Commons’ immediate source was a National Library of India social-media post.', likenessStatus: 'not-applicable',
+    attribution: 'Yoga Sutras manuscript reported as National Library of India, Rare Books Division, Th 217; Wikimedia Commons marks the file Public Domain Mark 1.0.', alt: 'Two pale manuscript pages numbered 180 and 181 are densely written in Devanagari above and below the central binding.',
+    caption: 'A manuscript opening reported as Yoga Sutras, National Library of India Th 217; its exact date and stable catalogue record remain unavailable.', historicalNote: 'Neither an autograph nor a securely dated early copy: Commons derives the holding, shelfmark, and pre-1900 description from a National Library of India social-media post, not a stable catalogue or institutional rights record.', likenessStatus: 'not-applicable',
   }),
   expansionAsset({
     id: 'vasubandhu-statue', hallFolder: 'mind-consciousness-self', entityId: 'vasubandhu', role: 'identity', mediaKind: 'sculpture-photograph',

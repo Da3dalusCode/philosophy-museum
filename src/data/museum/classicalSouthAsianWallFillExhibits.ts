@@ -21,11 +21,105 @@ type WallFillInput = {
   ];
   imageSource: {label: string; url: string};
   reference: {label: string; url: string};
-  articleRoute: MuseumSupplementalExhibit['articleRoute'];
+  articleRoute: Extract<NonNullable<MuseumSupplementalExhibit['articleRoute']>, {kind: 'philosopher'}>;
   entityKind: 'philosopher' | 'branch';
 };
 
-const wallFill = (input: WallFillInput): MuseumSupplementalExhibit => ({
+const remainingReviewEvidence: Record<string, {
+  plaqueTitle: string;
+  invitation: string;
+  objectInterpretation: string;
+  objectSource?: {label: string; url: string};
+  detail: readonly [string, string, string];
+  resolution: string;
+  lock: string;
+}> = {
+  'nyaya-argument-before-authority': {
+    plaqueTitle: 'Two Scholars Quarreling',
+    invitation: 'A later Persian scene of two physicians before a king serves only as a proxy while Kaṇāda’s intellectual context asks how reasons withstand structured challenge.',
+    objectInterpretation: 'Walters W.609.25A depicts two physicians quarreling before a king in a Persian literary manuscript. It is neither a Nyāya–Vaiśeṣika debate nor evidence for how classical Indian arguments were staged.',
+    objectSource: {label: 'Walters Art Museum — Two Scholars Quarreling, W.609.25A', url: 'https://art.thewalters.org/object/W.609.25A/'},
+    detail: [
+      'The Walters identifies Nizami Ganjavi as author, Yar Muhammad al-Haravi as scribe, and ʿAbd al-Wahhab ibn ʿAbd al-Fattah ibn ʿAli as artist. The text was completed in 1516, while the miniature was repainted in the eighteenth-century Safavid period. The museum describes two physicians quarreling before a king, not generic philosophers in a documented Indian debate.',
+      'The work’s geography spans Persian manuscript production and later repainting, with Walters fields naming India and Afghanistan; one definite place of manufacture would overstate the record. Its provenance passes through named owners before Henry Walters and the museum, and the collection image is CC0.',
+      'The comparison remains useful only because its limit is explicit. Social confrontation can prompt visitors to notice objections and accountability, but the philosophical structure comes from independently sourced Indian epistemology rather than the painted story.',
+    ],
+    resolution: 'Resolved: verified Walters W.609.25A, corrected the scene to two physicians before a king, restored author/scribe/artist/date/provenance limits and CC0 rights, and retained it only as an explicit proxy at its natural ratio.',
+    lock: 'fnv1a64:6473e7e113e85119',
+  },
+  'nyaya-spitzer-philosophy-fragments': {
+    plaqueTitle: 'Spitzer Manuscript Folio 383 Fragments',
+    invitation: 'A modern recto-verso assembly of early Sanskrit fragments reveals mobile philosophical transmission while refusing to assign this damaged witness to Kaṇāda or Vaiśeṣika.',
+    objectInterpretation: 'Ms Sarah Welch’s modern assembly labels recto and verso fragments assigned to Spitzer folio 383. The specific folio’s holding is unresolved, its dating spans the second–third century, and it is not a Vaiśeṣika text.',
+    detail: [
+      'The installed image is Ms Sarah Welch’s 2019 CC BY-SA 4.0 assembly, not an unmediated photograph of an intact leaf. It places the reconstructed recto and verso in labeled rows. More than one thousand fragments were found at Ming-oi/Kizil during the Turfan expeditions; the broader corpus is divided between Berlin and London, but the source does not securely identify which institution holds this displayed folio fragment.',
+      'A conventional calibrated radiocarbon range of roughly 80–230 CE and paleographic debate make “second–third century CE” more responsible than one exact year. The manuscript is exceptionally early material evidence for Sanskrit philosophical writing, yet damage, editorial joins, and incomplete text make reconstruction part of the evidence rather than an inconvenience to hide.',
+      'Its relevance to Kaṇāda’s room is contextual: it witnesses an argumentative and classificatory world moving across South and Central Asia. It does not name a Vaiśeṣika author, preserve the Vaiśeṣika Sūtra, or license claims that one school owned its surviving arguments.',
+    ],
+    resolution: 'Resolved: verified Welch’s recto-verso assembly and CC BY-SA rights, widened the date to second–third century, exposed the unresolved specific holding and reconstructed form, and corrected the mount to its natural ratio.',
+    lock: 'fnv1a64:33f4b625c9ca6411',
+  },
+  'nyaya-smoke-fire-inference': {
+    plaqueTitle: 'Winter Haze over Northern India',
+    invitation: 'A 2021 MODIS haze image tests how cautiously visible signs should be read before Kaṇāda’s realist context turns to the classical inference from smoke to fire.',
+    objectInterpretation: 'NASA’s record describes winter haze and a pollution-trapping inversion, not visible active fires. The image is a modern prompt about uncertain signs; the classical smoke-fire example comes from textual sources.',
+    objectSource: {label: 'NASA MODIS — Fire and Smoke in India, acquired 24 February 2021', url: 'https://modis.gsfc.nasa.gov/gallery/individual.php?db_date=2021-02-28'},
+    detail: [
+      'The installed public-domain NASA image was acquired on 24 February 2021 by MODIS and shows a broad gray winter haze south of the Himalayas. NASA’s factual description emphasizes pollution trapped by a temperature inversion rather than an observed active fire-and-smoke pair. Its page is inconsistent about Terra versus Aqua, so the exhibit names the MODIS Land Rapid Response Team without choosing a platform.',
+      'This correction changes the image’s evidentiary role. A viewer cannot point to the haze and claim the classical example is literally pictured. Instead, the difficulty of interpreting a large atmospheric field makes a better prompt: a visible sign may admit smoke, dust, haze, steam, scale, or other explanations, and responsible inference depends on background conditions and defeaters.',
+      'The stock movement from smoke to fire belongs to independent Nyāya and wider Indian epistemological discussions. The modern satellite view contributes uncertainty and visual scale, while the philosophical sources establish sign, target, pervasion, application, counterexample, and school-level disagreement.',
+    ],
+    resolution: 'Resolved: corrected the installed NASA scene from active fire and smoke to winter haze, preserved federal public-domain credit, exposed the Terra/Aqua inconsistency, remapped the classical inference to textual sources, and matched the mount ratio.',
+    lock: 'fnv1a64:470dd4d3325ed603',
+  },
+  'yoga-six-yogis-banyan': {
+    plaqueTitle: 'Six Yogis Meditate under a Banyan',
+    invitation: 'An anonymous seventeenth-century painting makes ascetic practice communal and embodied while Patañjali’s Yoga remains only one tradition within this much wider visual afterlife.',
+    objectInterpretation: 'The anonymous c. 1640 painting, San Diego Museum of Art 1990.355, visualizes six ascetics in community. It postdates the Yoga Sūtra by centuries and does not identify its figures as Pātañjala practitioners.',
+    detail: [
+      'The installed image matches an anonymous Indian painting commonly titled Six Yogis Meditate under a Banyan, c. 1640, in the San Diego Museum of Art’s Edwin Binney 3rd Collection, accession 1990.355. The source records the gift of Dr. and Mrs. Edwin Binney 3rd. Commons marks the faithful reproduction of the public-domain painting with Public Domain Mark 1.0, and the complete portrait composition is preserved.',
+      'The scene makes varied bodies, vessels, books, setting, and proximity visible, correcting a text-only account of practice. It nevertheless supplies no lineage labels, named teachers, or evidence that the six figures follow Patañjali. “Yogi” covers wider ascetic, devotional, courtly, and vernacular histories than the Pātañjalayogaśāstra alone.',
+      'The relationship is consequently one of reception and context. The painting can show that discipline was represented as social as well as solitary, while the Yoga Sūtra and scholarship establish claims about mental fluctuation, ethics, posture, concentration, and liberation.',
+    ],
+    resolution: 'Resolved: verified the anonymous c. 1640 San Diego painting, accession and Binney gift provenance, qualified its PDM reproduction rights, kept it outside automatic Pātañjala ownership, and retained its natural portrait ratio.',
+    lock: 'fnv1a64:ed6869b86cda2fbd',
+  },
+  'yoga-posture-inner-heat': {
+    plaqueTitle: 'Ascetic Deity',
+    invitation: 'A tenth- or eleventh-century ascetic deity with crossed legs and a meditation strap provides bounded context for embodied discipline without becoming an image of Patañjali.',
+    objectInterpretation: 'Walters 25.255 is an ascetic deity from Madhya Pradesh, possibly a divinized guru or Agni. Its crossed posture and strap support cautious comparison, not identification with Patañjali or a Yoga Sūtra practice.',
+    objectSource: {label: 'Walters Art Museum — Ascetic Deity, 25.255', url: 'https://art.thewalters.org/object/25.255/'},
+    detail: [
+      'The installed image matches Walters Art Museum 25.255, a pink-sandstone Ascetic Deity from Madhya Pradesh dated to the tenth–eleventh century. The bearded four-armed figure sits with crossed legs held by a strap. Walters cautiously proposes a divinized guru or Agni rather than the earlier categorical label “Śaiva deity.” The Commons photograph is CC BY-SA 3.0 and remains mounted at its full portrait ratio.',
+      'Recorded provenance runs from the Doris Wiener Gallery through a 1993 Sotheby’s sale to John and Berthe Ford, whose 2004 gift brought it to the Walters. Those material facts matter because they separate what the object record establishes—form, material, place, date range, collection history, and uncertain iconography—from philosophical comparison.',
+      'Posture and strap make sustained embodied discipline visible, but the sculpture does not illustrate a particular Yoga Sūtra aphorism, prove “inner heat,” or depict Patañjali. Comparison must preserve differences among Śaiva, yogic, ritual, and ascetic contexts while textual sources support claims about Pātañjala practice.',
+    ],
+    resolution: 'Resolved: adopted the Walters title, tenth–eleventh-century date, Madhya Pradesh origin, uncertain guru-or-Agni identification and provenance, retained the installed CC BY-SA image, and bounded comparison at its natural ratio.',
+    lock: 'fnv1a64:ad5e70ccb70e4ad1',
+  },
+  'yoga-asavari-ascetic-princess': {
+    plaqueTitle: 'Asavari Ragini',
+    invitation: 'A c. 1650 Bikaner Ragamala painting presents an ascetic princess among snakes while careful comparison keeps its musical genre distinct from Patañjali’s Yoga.',
+    objectInterpretation: 'Cleveland 2018.190 is a c. 1650 Ragamala painting titled Asavari Ragini. Its ascetic princess broadens visual questions of discipline and gender but is not a portrait or Pātañjala document.',
+    objectSource: {label: 'Cleveland Museum of Art — Ascetic Princess with Snakes in a Wilderness: Asavari Ragini, 2018.190', url: 'https://www.clevelandart.org/art/2018.190'},
+    detail: [
+      'The installed CC0 image matches Cleveland Museum of Art 2018.190, Ascetic Princess with Snakes in a Wilderness: Asavari Ragini, from a Ragamala. The museum dates the anonymous Bikaner painting to c. 1650, superseding the Commons description’s 1640 date. Its gum tempera and gold on paper entered Cleveland through purchase and partial gift from the Catherine and Ralph Benkaim Collection with the Severance and Greta Millikin Purchase Fund.',
+      'The title and object record establish a Ragamala work whose central princess practices ascetic disciplines among water snakes. That does not make her a portrait, historical practitioner, or illustration of the Yoga Sūtra. Preserving the artistic and musical genre prevents a compelling female figure from being recruited into a lineage the object does not name.',
+      'The comparison still matters. A gallery dominated by male sages can mistake its own image selection for the historical whole. Asavari Ragini invites questions about gender, visibility, patronage, and ascetic imagination, while the caution prevents representation from becoming evidence of equal institutional access or a single Yoga tradition.',
+    ],
+    resolution: 'Resolved: followed Cleveland’s c. 1650 date and full object title, recorded anonymous maker, Bikaner origin, acquisition provenance and CC0 rights, preserved the Ragamala genre, and retained the natural ratio.',
+    lock: 'fnv1a64:fe7ce0afe4320936',
+  },
+};
+
+const wallFill = (input: WallFillInput): MuseumSupplementalExhibit => {
+  const evidence = remainingReviewEvidence[input.id];
+  if (!evidence) throw new Error(`Missing Gallery 04 evidence review for ${input.id}.`);
+  const imageId = `${input.id}-image`;
+  const referenceId = `${input.id}-reference`;
+  const objectId = `${input.id}-object`;
+  const articleTitle = input.articleRoute.kind === 'philosopher' && input.articleRoute.philosopherId === 'patanjali' ? 'Patañjali' : 'Kaṇāda';
+  return ({
   id: input.id,
   displayName: input.displayName,
   shortTitle: input.shortTitle,
@@ -36,30 +130,57 @@ const wallFill = (input: WallFillInput): MuseumSupplementalExhibit => ({
   lead: input.lead,
   keyIdeas: input.keyIdeas,
   cautions: input.cautions,
-  sections: input.sections.map(({heading, paragraph}) => ({heading, paragraphs: [paragraph]})),
-  sources: [
-    {label: input.imageSource.label, url: input.imageSource.url, kind: 'collection-record'},
-    {label: input.reference.label, url: input.reference.url, kind: 'academic-reference'},
+  sections: [
+    {heading: '', paragraphs: [`${input.lead} ${evidence.detail[0]} ${input.sections[0].paragraph}`], sourceIds: [imageId, ...(evidence.objectSource ? [objectId] : []), referenceId]},
+    {heading: '', paragraphs: [`${input.sections[1].paragraph} ${evidence.detail[1]} ${input.keyIdeas.join(' ')}`], sourceIds: [referenceId, ...(evidence.objectSource ? [objectId] : []), imageId]},
+    {heading: '', paragraphs: [`${input.sections[2].paragraph} ${evidence.detail[2]} ${input.cautions.join(' ')}`], sourceIds: [referenceId, imageId, ...(evidence.objectSource ? [objectId] : [])]},
   ],
+  visitorGuide: [
+    {heading: 'Reading the installed object', items: [
+      {label: evidence.plaqueTitle, description: evidence.objectInterpretation, sourceIds: [imageId, ...(evidence.objectSource ? [objectId] : [])]},
+      {label: 'Evidentiary limit', description: input.cautions[0], sourceIds: [imageId, referenceId]},
+    ]},
+    {heading: 'Philosophical relationship', items: [
+      {label: 'Central question', description: input.question, sourceIds: [referenceId]},
+      {label: 'Keep in view', description: input.keyIdeas[0], sourceIds: [referenceId]},
+    ]},
+  ],
+  sources: [
+    {id: imageId, label: input.imageSource.label, url: input.imageSource.url, kind: 'collection-record'},
+    ...(evidence.objectSource ? [{id: objectId, label: evidence.objectSource.label, url: evidence.objectSource.url, kind: 'collection-record' as const}] : []),
+    {id: referenceId, label: input.reference.label, url: input.reference.url, kind: 'academic-reference'},
+  ],
+  objectInterpretation: evidence.objectInterpretation,
   assetId: input.assetId,
   panelAssetId: input.assetId,
   articleRoute: input.articleRoute,
   presentation: {
-    panelKicker: 'Gallery 07 supporting exhibit',
+    panelKicker: 'Gallery 04 supplemental exhibit',
     proximityKicker: input.shortTitle,
     factRows: [
       {label: 'Focus', value: input.workLabel},
       {label: 'Question', value: input.question},
       {label: 'Status', value: 'Contextual witness, read with the stated caution'},
     ],
-    articleActionLabel: input.entityKind === 'philosopher'
-      ? 'Open the philosopher in the Atlas'
-      : 'Open the tradition in the Atlas',
+    articleActionLabel: `Read the full sourced ${articleTitle} article`,
     entityKind: input.entityKind,
     keyIdeasLabel: 'Interpretive anchors',
     cautionsLabel: 'Keep in view',
+    exhibitLayout: 'object-led',
   },
-});
+  wallPlaque: {type: 'object-manuscript-site-or-archaeological-context', title: evidence.plaqueTitle, invitation: evidence.invitation, canonicalContexts: [{kind: 'philosopher', id: articleTitle === 'Patañjali' ? 'patanjali' : 'kanada'}]},
+  review: {
+    status: 'standard-compliant', reviewedOn: '2026-08-12',
+    method: 'Gallery 04 supplemental review: two non-overlapping Terra/High evidence scopes reconciled by the Sol parent across installed-object identity, attribution, dating, institution, source record, rights, claim mapping, accessibility, provenance, routes, and aspect-safe presentation.',
+    resolution: evidence.resolution, lock: evidence.lock,
+    visualReview: {
+      desktop: {reviewedOn: '2026-08-12', viewport: '1280×720', evidence: `Direct route inspected with the installed object, three-paragraph interpretation, subject-specific sidebar, article CTA, and no horizontal overflow. Evidence: docs/visual-validation/gallery-04-supplementals/desktop/${input.id}.png`},
+      mobile: {reviewedOn: '2026-08-12', viewport: '390×844', evidence: `Direct route inspected with wrapped copy, loaded object preview, scrollable interpretation, visible controls, and no horizontal overflow. Evidence: docs/visual-validation/gallery-04-supplementals/mobile/${input.id}.png`},
+      threeDimensional: {reviewedOn: '2026-08-12', viewport: '1280×720 fresh direct-route session', evidence: `Fresh-session authored viewpoint inspected with a live 3D canvas, closed detail panel, readable plaque, distinct installation, and the image mounted at its natural scene ratio. Evidence: docs/visual-validation/gallery-04-supplementals/staged-3d/${input.id}.png`},
+    },
+  },
+  });
+};
 
 type ReviewedWallFillInput = Omit<MuseumSupplementalExhibit, 'sections' | 'visitorGuide' | 'review' | 'presentation' | 'panelAssetId'> & {
   sections: readonly {paragraph: string; sourceIds: readonly string[]}[];

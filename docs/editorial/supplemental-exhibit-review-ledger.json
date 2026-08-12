@@ -17,18 +17,18 @@
   },
   "inventory": {
     "total": 411,
-    "backlog": 381,
-    "reviewed": 30,
-    "resolvedStandardCompliant": 30,
+    "backlog": 369,
+    "reviewed": 42,
+    "resolvedStandardCompliant": 42,
     "countsByAuthoredStatus": {
-      "unreviewed": 381,
+      "unreviewed": 369,
       "reconciled": 0,
-      "standard-compliant": 30
+      "standard-compliant": 42
     },
     "countsByEffectiveStatus": {
-      "unreviewed": 381,
+      "unreviewed": 369,
       "reconciled": 0,
-      "standard-compliant": 30,
+      "standard-compliant": 42,
       "out-of-date": 0
     },
     "countsByArticleRelationship": {
@@ -81,9 +81,9 @@
       "hallId": "classical-south-asian-worlds",
       "hallTitle": "Classical South Asia: Jain, Yoga, and Brahmanical Systems",
       "total": 21,
-      "backlog": 12,
-      "reviewed": 9,
-      "standardCompliant": 9
+      "backlog": 0,
+      "reviewed": 21,
+      "standardCompliant": 21
     },
     {
       "galleryNumber": 5,
@@ -12101,65 +12101,177 @@
         }
       },
       "exhibitReview": {
-        "authoredStatus": "unreviewed",
-        "effectiveStatus": "unreviewed",
-        "reviewedOn": null,
-        "method": null,
-        "resolution": null,
-        "lockPresent": false,
-        "lockCurrent": null
+        "authoredStatus": "standard-compliant",
+        "effectiveStatus": "standard-compliant",
+        "reviewedOn": "2026-08-12",
+        "method": "Gallery 04 supplemental review: two non-overlapping Terra/High evidence scopes reconciled by the Sol parent across installed-object identity, attribution, dating, institution, source record, rights, claim mapping, accessibility, provenance, routes, and aspect-safe presentation.",
+        "resolution": "Resolved: verified the 2026 CC BY-SA teaching image, exposed its imagined portrait and unsupported printed chronology, separated textual evidence from illustration, and matched the mount to its natural ratio.",
+        "lockPresent": true,
+        "lockCurrent": true
       },
       "interpretation": {
-        "objectLed": false,
-        "objectInterpretation": null,
-        "mainWordCount": 80,
+        "objectLed": true,
+        "objectInterpretation": "Xaetherion’s 2026 image is a modern teaching aid with an imagined Kaṇāda and simplified atoms, dyads, and triads; it is not an ancient diagram, portrait, verified chronology, or scientific model.",
+        "mainWordCount": 280,
         "paragraphCount": 3,
-        "untitledParagraphs": false,
-        "sidebarSectionCount": 0,
-        "sidebarItemCount": 0,
-        "sidebarSections": []
+        "untitledParagraphs": true,
+        "sidebarSectionCount": 2,
+        "sidebarItemCount": 4,
+        "sidebarSections": [
+          {
+            "heading": "From atom to composite",
+            "items": [
+              {
+                "label": "Paramāṇu",
+                "description": "An imperceptible ultimate constituent in Vaiśeṣika accounts, not a particle defined by modern physics.",
+                "sourceIds": [
+                  "kanada-naturalism-sep",
+                  "kanada-iep"
+                ]
+              },
+              {
+                "label": "Combination",
+                "description": "Dyads and larger composites offer a later explanatory bridge between enduring atoms and visible bodies.",
+                "sourceIds": [
+                  "kanada-naturalism-sep",
+                  "kanada-iep"
+                ]
+              }
+            ]
+          },
+          {
+            "heading": "Keep the history layered",
+            "items": [
+              {
+                "label": "Attributed author",
+                "description": "Kaṇāda names the traditional author figure, but secure life dates and a recoverable biography are unavailable.",
+                "sourceIds": [
+                  "kanada-sutra",
+                  "kanada-naturalism-sep"
+                ]
+              },
+              {
+                "label": "Modern visual",
+                "description": "The 2026 image simplifies doctrine and includes an imagined portrait and unsupported printed chronology.",
+                "sourceIds": [
+                  "kanada-atomic-commons"
+                ]
+              }
+            ]
+          }
+        ]
       },
       "claimEvidence": {
         "sources": [
           {
-            "label": "Wikimedia Commons — Vaiśeṣika atomic-theory illustration",
+            "id": "kanada-atomic-commons",
+            "label": "Wikimedia Commons — Xaetherion’s 2026 Vaiśeṣika atomic-theory illustration and CC BY-SA record",
             "url": "https://commons.wikimedia.org/wiki/File:Illustration_of_the_atomic_theory_of_Acharya_Kanada_showing_Param%C4%81%E1%B9%87u,_Dvya%E1%B9%87uka,_and_Trya%E1%B9%87uka_concepts_from_the_Vaisheshika_philosophy..jpg",
             "kind": "collection-record"
           },
           {
+            "id": "kanada-naturalism-sep",
+            "label": "Stanford Encyclopedia of Philosophy — Naturalism in Classical Indian Philosophy",
+            "url": "https://plato.stanford.edu/entries/naturalism-india/",
+            "kind": "academic-reference"
+          },
+          {
+            "id": "kanada-iep",
             "label": "Internet Encyclopedia of Philosophy — Vaiśeṣika",
             "url": "https://iep.utm.edu/vaisesika/",
             "kind": "academic-reference"
+          },
+          {
+            "id": "kanada-sutra",
+            "label": "Vaiśeṣika Sūtra with Upaskāra commentary, historical English translation",
+            "url": "https://www.wisdomlib.org/hinduism/book/vaisheshika-sutra-commentary",
+            "kind": "primary-text"
           }
         ],
         "paragraphMappings": [
           {
             "paragraph": 1,
-            "wordCount": 23,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 90,
+            "sourceIds": [
+              "kanada-atomic-commons",
+              "kanada-naturalism-sep",
+              "kanada-sutra"
+            ],
+            "valid": true
           },
           {
             "paragraph": 2,
-            "wordCount": 20,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 91,
+            "sourceIds": [
+              "kanada-naturalism-sep",
+              "kanada-sutra",
+              "kanada-iep"
+            ],
+            "valid": true
           },
           {
             "paragraph": 3,
-            "wordCount": 37,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 99,
+            "sourceIds": [
+              "kanada-naturalism-sep",
+              "kanada-iep",
+              "kanada-sutra"
+            ],
+            "valid": true
           }
         ],
-        "sidebarMappings": []
+        "sidebarMappings": [
+          {
+            "row": 1,
+            "heading": "From atom to composite",
+            "label": "Paramāṇu",
+            "descriptionWordCount": 14,
+            "sourceIds": [
+              "kanada-naturalism-sep",
+              "kanada-iep"
+            ],
+            "valid": true
+          },
+          {
+            "row": 2,
+            "heading": "From atom to composite",
+            "label": "Combination",
+            "descriptionWordCount": 15,
+            "sourceIds": [
+              "kanada-naturalism-sep",
+              "kanada-iep"
+            ],
+            "valid": true
+          },
+          {
+            "row": 3,
+            "heading": "Keep the history layered",
+            "label": "Attributed author",
+            "descriptionWordCount": 16,
+            "sourceIds": [
+              "kanada-sutra",
+              "kanada-naturalism-sep"
+            ],
+            "valid": true
+          },
+          {
+            "row": 4,
+            "heading": "Keep the history layered",
+            "label": "Modern visual",
+            "descriptionWordCount": 14,
+            "sourceIds": [
+              "kanada-atomic-commons"
+            ],
+            "valid": true
+          }
+        ]
       },
       "assets": {
         "principal": {
           "id": "kanada-atomic-theory-illustration",
           "status": "registered",
           "identity": {
-            "title": "Modern illustration of Vaiśeṣika atomic combinations",
+            "title": "Illustration of Vaiśeṣika atomic combinations",
             "entityKind": "philosopher",
             "entityId": "kanada",
             "role": "context",
@@ -12167,14 +12279,14 @@
             "creator": "Xaetherion",
             "objectDate": "2026",
             "imageCreator": null,
-            "institution": "Wikimedia Commons",
+            "institution": "Wikimedia Commons (self-published educational image)",
             "likenessStatus": "imagined"
           },
           "provenance": {
             "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Illustration_of_the_atomic_theory_of_Acharya_Kanada_showing_Param%C4%81%E1%B9%87u,_Dvya%E1%B9%87uka,_and_Trya%E1%B9%87uka_concepts_from_the_Vaisheshika_philosophy..jpg",
             "objectPageUrl": null,
-            "historicalNote": "A modern explanatory illustration, not an ancient diagram, portrait, or literal scientific model.",
-            "derivativeNotice": "Original image retained uncropped; resized and converted to WebP by Philosophy Atlas.",
+            "historicalNote": "A modern explanatory illustration, not an ancient diagram, historical portrait, verified chronology, or literal scientific model; its printed “6th–2nd BCE” range is not reliable biographical evidence.",
+            "derivativeNotice": "Original image retained uncropped; resized, given one sampled-color padding row to align scene and panel ratios, and converted to WebP by Philosophy Atlas.",
             "manifestFiles": [
               "museumModernAssetManifest.json"
             ],
@@ -12187,8 +12299,8 @@
             "attribution": "Xaetherion, illustration of Vaiśeṣika atomic combinations, 2026, CC BY-SA 4.0."
           },
           "accessibility": {
-            "caption": "A contemporary educational graphic distinguishes atom, dyad, and triad concepts.",
-            "alt": "Contemporary postage-stamp-style illustration of Kaṇāda with labeled circles for atom, dyad, and triad."
+            "caption": "Xaetherion’s 2026 educational graphic distinguishes atom, dyad, and triad beside an imagined Kaṇāda.",
+            "alt": "Contemporary postage-stamp-style illustration with an imagined seated Kaṇāda and labeled circles for atom, dyad, and triad."
           },
           "dimensions": {
             "scene": {
@@ -12197,19 +12309,30 @@
             },
             "panel": {
               "width": 1280,
-              "height": 749
+              "height": 750
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 65110,
+                "sha256": "b89d93529cee5b477c92e057fedc6846ff8fec04873f867e573f76c3dd3e1713"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 326222,
+                "sha256": "3a4075b807e7b2986d7dbd007049f20812ae0aa0fd3d0f05f667f91bdd4f2890"
+              }
+            }
           }
         },
         "physical": {
           "id": "kanada-atomic-theory-illustration",
           "status": "registered",
           "identity": {
-            "title": "Modern illustration of Vaiśeṣika atomic combinations",
+            "title": "Illustration of Vaiśeṣika atomic combinations",
             "entityKind": "philosopher",
             "entityId": "kanada",
             "role": "context",
@@ -12217,14 +12340,14 @@
             "creator": "Xaetherion",
             "objectDate": "2026",
             "imageCreator": null,
-            "institution": "Wikimedia Commons",
+            "institution": "Wikimedia Commons (self-published educational image)",
             "likenessStatus": "imagined"
           },
           "provenance": {
             "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Illustration_of_the_atomic_theory_of_Acharya_Kanada_showing_Param%C4%81%E1%B9%87u,_Dvya%E1%B9%87uka,_and_Trya%E1%B9%87uka_concepts_from_the_Vaisheshika_philosophy..jpg",
             "objectPageUrl": null,
-            "historicalNote": "A modern explanatory illustration, not an ancient diagram, portrait, or literal scientific model.",
-            "derivativeNotice": "Original image retained uncropped; resized and converted to WebP by Philosophy Atlas.",
+            "historicalNote": "A modern explanatory illustration, not an ancient diagram, historical portrait, verified chronology, or literal scientific model; its printed “6th–2nd BCE” range is not reliable biographical evidence.",
+            "derivativeNotice": "Original image retained uncropped; resized, given one sampled-color padding row to align scene and panel ratios, and converted to WebP by Philosophy Atlas.",
             "manifestFiles": [
               "museumModernAssetManifest.json"
             ],
@@ -12237,8 +12360,8 @@
             "attribution": "Xaetherion, illustration of Vaiśeṣika atomic combinations, 2026, CC BY-SA 4.0."
           },
           "accessibility": {
-            "caption": "A contemporary educational graphic distinguishes atom, dyad, and triad concepts.",
-            "alt": "Contemporary postage-stamp-style illustration of Kaṇāda with labeled circles for atom, dyad, and triad."
+            "caption": "Xaetherion’s 2026 educational graphic distinguishes atom, dyad, and triad beside an imagined Kaṇāda.",
+            "alt": "Contemporary postage-stamp-style illustration with an imagined seated Kaṇāda and labeled circles for atom, dyad, and triad."
           },
           "dimensions": {
             "scene": {
@@ -12247,30 +12370,41 @@
             },
             "panel": {
               "width": 1280,
-              "height": 749
+              "height": 750
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 65110,
+                "sha256": "b89d93529cee5b477c92e057fedc6846ff8fec04873f867e573f76c3dd3e1713"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 326222,
+                "sha256": "3a4075b807e7b2986d7dbd007049f20812ae0aa0fd3d0f05f667f91bdd4f2890"
+              }
+            }
           }
         }
       },
       "aspectRatios": {
         "principalSceneToPanel": {
           "scene": 1.7066666666666668,
-          "panel": 1.7089452603471296,
-          "status": "mismatch"
+          "panel": 1.7066666666666668,
+          "status": "match"
         },
         "physicalSceneToPanel": {
           "scene": 1.7066666666666668,
-          "panel": 1.7089452603471296,
-          "status": "mismatch"
+          "panel": 1.7066666666666668,
+          "status": "match"
         },
         "mediaMountToPhysicalScene": {
-          "mount": 1.71,
+          "mount": 1.7066666665,
           "scene": 1.7066666666666668,
-          "status": "mismatch"
+          "status": "match"
         },
         "nonUniformScalingProtected": true
       },
@@ -12284,29 +12418,41 @@
           "status": "pass"
         },
         "fullArticleCta": {
-          "label": "Open Kaṇāda in the Atlas",
+          "label": "Read the full sourced Kaṇāda article",
           "expectedLabel": "Read the full sourced Kaṇāda article",
           "href": "#/philosophers/kanada",
-          "status": "fail"
+          "status": "pass"
         }
       },
       "visualReview": {
         "desktop": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720",
+            "evidence": "Direct route inspected with the installed object, three-paragraph interpretation, subject-specific sidebar, article CTA, and no horizontal overflow. Evidence: docs/visual-validation/gallery-04-supplementals/desktop/kanada-atomism-dyads.png"
+          }
         },
         "mobile": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "390×844",
+            "evidence": "Direct route inspected with wrapped copy, loaded object preview, scrollable interpretation, visible controls, and no horizontal overflow. Evidence: docs/visual-validation/gallery-04-supplementals/mobile/kanada-atomism-dyads.png"
+          }
         },
         "threeDimensional": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720 fresh direct-route session",
+            "evidence": "Fresh-session authored viewpoint inspected with a live 3D canvas, closed detail panel, readable plaque, distinct installation, and the image mounted at its natural scene ratio. Evidence: docs/visual-validation/gallery-04-supplementals/staged-3d/kanada-atomism-dyads.png"
+          }
         }
       },
       "contract": {
-        "evaluated": false,
-        "status": "not-evaluated",
+        "evaluated": true,
+        "status": "pass",
         "issues": []
       }
     },
@@ -12352,58 +12498,170 @@
         }
       },
       "exhibitReview": {
-        "authoredStatus": "unreviewed",
-        "effectiveStatus": "unreviewed",
-        "reviewedOn": null,
-        "method": null,
-        "resolution": null,
-        "lockPresent": false,
-        "lockCurrent": null
+        "authoredStatus": "standard-compliant",
+        "effectiveStatus": "standard-compliant",
+        "reviewedOn": "2026-08-12",
+        "method": "Gallery 04 supplemental review: two non-overlapping Terra/High evidence scopes reconciled by the Sol parent across installed-object identity, attribution, dating, institution, source record, rights, claim mapping, accessibility, provenance, routes, and aspect-safe presentation.",
+        "resolution": "Resolved: verified Welch’s 2016 CC BY-SA diagram, separated its pedagogical simplification from historical evidence, mapped epistemological claims independently, and corrected the mount to its natural ratio.",
+        "lockPresent": true,
+        "lockCurrent": true
       },
       "interpretation": {
-        "objectLed": false,
-        "objectInterpretation": null,
-        "mainWordCount": 84,
+        "objectLed": true,
+        "objectInterpretation": "Ms Sarah Welch’s 2016 diagram is a modern orientation aid, not historical evidence. Its two-pramāṇa summary must be read within changing Vaiśeṣika and Nyāya–Vaiśeṣika textual traditions.",
+        "mainWordCount": 280,
         "paragraphCount": 3,
-        "untitledParagraphs": false,
-        "sidebarSectionCount": 0,
-        "sidebarItemCount": 0,
-        "sidebarSections": []
+        "untitledParagraphs": true,
+        "sidebarSectionCount": 2,
+        "sidebarItemCount": 4,
+        "sidebarSections": [
+          {
+            "heading": "Two routes to knowledge",
+            "items": [
+              {
+                "label": "Perception",
+                "description": "Direct cognition requires appropriate objects, senses, and conditions; it is not whatever merely seems present.",
+                "sourceIds": [
+                  "indian-epistemology-sep",
+                  "kanada-iep"
+                ]
+              },
+              {
+                "label": "Inference",
+                "description": "Reasoning moves beyond what is perceived only through a defensible relation between sign and target.",
+                "sourceIds": [
+                  "indian-epistemology-sep",
+                  "kanada-iep"
+                ]
+              }
+            ]
+          },
+          {
+            "heading": "Historical limits",
+            "items": [
+              {
+                "label": "Modern diagram",
+                "description": "Welch created this explanatory SVG in 2016; it is not primary evidence for the school.",
+                "sourceIds": [
+                  "vaiseshika-pramana-commons"
+                ]
+              },
+              {
+                "label": "Changing synthesis",
+                "description": "Later Nyāya–Vaiśeṣika interaction prevents one two-item list from defining every period.",
+                "sourceIds": [
+                  "indian-epistemology-sep",
+                  "kanada-iep"
+                ]
+              }
+            ]
+          }
+        ]
       },
       "claimEvidence": {
         "sources": [
           {
-            "label": "Wikimedia Commons — Two Pramāṇas in Vaiśeṣika",
+            "id": "vaiseshika-pramana-commons",
+            "label": "Wikimedia Commons — Ms Sarah Welch, Two Pramāṇas in Vaiśeṣika, 2016",
             "url": "https://commons.wikimedia.org/wiki/File:2_Pramana_Epistemology_Vaisheshika_Hindu_school.svg",
             "kind": "collection-record"
           },
           {
+            "id": "indian-epistemology-sep",
+            "label": "Stanford Encyclopedia of Philosophy — Epistemology in Classical Indian Philosophy",
+            "url": "https://plato.stanford.edu/entries/epistemology-india/",
+            "kind": "academic-reference"
+          },
+          {
+            "id": "kanada-iep",
             "label": "Internet Encyclopedia of Philosophy — Vaiśeṣika",
             "url": "https://iep.utm.edu/vaisesika/",
             "kind": "academic-reference"
+          },
+          {
+            "id": "kanada-sutra-pramana",
+            "label": "Vaiśeṣika Sūtra with Upaskāra commentary, historical English translation",
+            "url": "https://www.wisdomlib.org/hinduism/book/vaisheshika-sutra-commentary",
+            "kind": "primary-text"
           }
         ],
         "paragraphMappings": [
           {
             "paragraph": 1,
-            "wordCount": 25,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 90,
+            "sourceIds": [
+              "vaiseshika-pramana-commons",
+              "indian-epistemology-sep",
+              "kanada-iep"
+            ],
+            "valid": true
           },
           {
             "paragraph": 2,
-            "wordCount": 18,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 94,
+            "sourceIds": [
+              "indian-epistemology-sep",
+              "kanada-iep",
+              "kanada-sutra-pramana"
+            ],
+            "valid": true
           },
           {
             "paragraph": 3,
-            "wordCount": 41,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 96,
+            "sourceIds": [
+              "indian-epistemology-sep",
+              "kanada-iep",
+              "vaiseshika-pramana-commons"
+            ],
+            "valid": true
           }
         ],
-        "sidebarMappings": []
+        "sidebarMappings": [
+          {
+            "row": 1,
+            "heading": "Two routes to knowledge",
+            "label": "Perception",
+            "descriptionWordCount": 15,
+            "sourceIds": [
+              "indian-epistemology-sep",
+              "kanada-iep"
+            ],
+            "valid": true
+          },
+          {
+            "row": 2,
+            "heading": "Two routes to knowledge",
+            "label": "Inference",
+            "descriptionWordCount": 15,
+            "sourceIds": [
+              "indian-epistemology-sep",
+              "kanada-iep"
+            ],
+            "valid": true
+          },
+          {
+            "row": 3,
+            "heading": "Historical limits",
+            "label": "Modern diagram",
+            "descriptionWordCount": 15,
+            "sourceIds": [
+              "vaiseshika-pramana-commons"
+            ],
+            "valid": true
+          },
+          {
+            "row": 4,
+            "heading": "Historical limits",
+            "label": "Changing synthesis",
+            "descriptionWordCount": 12,
+            "sourceIds": [
+              "indian-epistemology-sep",
+              "kanada-iep"
+            ],
+            "valid": true
+          }
+        ]
       },
       "assets": {
         "principal": {
@@ -12416,9 +12674,9 @@
             "role": "context",
             "mediaKind": "drawing",
             "creator": "Ms Sarah Welch",
-            "objectDate": "2016",
+            "objectDate": "19 January 2016",
             "imageCreator": null,
-            "institution": "Wikimedia Commons",
+            "institution": "Wikimedia Commons (self-published explanatory diagram)",
             "likenessStatus": "not-applicable"
           },
           "provenance": {
@@ -12452,8 +12710,19 @@
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 14618,
+                "sha256": "8bd940e6b16965e320ad0a3ca8790979fe40de1e028be59916393bb59eb910ac"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 37782,
+                "sha256": "f64c6d99a81462cfd6797278510943a6e9cfe9ef538b2026468e2f5711c92408"
+              }
+            }
           }
         },
         "physical": {
@@ -12466,9 +12735,9 @@
             "role": "context",
             "mediaKind": "drawing",
             "creator": "Ms Sarah Welch",
-            "objectDate": "2016",
+            "objectDate": "19 January 2016",
             "imageCreator": null,
-            "institution": "Wikimedia Commons",
+            "institution": "Wikimedia Commons (self-published explanatory diagram)",
             "likenessStatus": "not-applicable"
           },
           "provenance": {
@@ -12502,8 +12771,19 @@
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 14618,
+                "sha256": "8bd940e6b16965e320ad0a3ca8790979fe40de1e028be59916393bb59eb910ac"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 37782,
+                "sha256": "f64c6d99a81462cfd6797278510943a6e9cfe9ef538b2026468e2f5711c92408"
+              }
+            }
           }
         }
       },
@@ -12519,9 +12799,9 @@
           "status": "match"
         },
         "mediaMountToPhysicalScene": {
-          "mount": 0.6274509803921569,
+          "mount": 0.6265625,
           "scene": 0.6265625,
-          "status": "mismatch"
+          "status": "match"
         },
         "nonUniformScalingProtected": true
       },
@@ -12535,29 +12815,41 @@
           "status": "pass"
         },
         "fullArticleCta": {
-          "label": "Open Kaṇāda in the Atlas",
+          "label": "Read the full sourced Kaṇāda article",
           "expectedLabel": "Read the full sourced Kaṇāda article",
           "href": "#/philosophers/kanada",
-          "status": "fail"
+          "status": "pass"
         }
       },
       "visualReview": {
         "desktop": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720",
+            "evidence": "Direct route inspected with the installed object, three-paragraph interpretation, subject-specific sidebar, article CTA, and no horizontal overflow. Evidence: docs/visual-validation/gallery-04-supplementals/desktop/vaiseshika-pramana.png"
+          }
         },
         "mobile": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "390×844",
+            "evidence": "Direct route inspected with wrapped copy, loaded object preview, scrollable interpretation, visible controls, and no horizontal overflow. Evidence: docs/visual-validation/gallery-04-supplementals/mobile/vaiseshika-pramana.png"
+          }
         },
         "threeDimensional": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720 fresh direct-route session",
+            "evidence": "Fresh-session authored viewpoint inspected with a live 3D canvas, closed detail panel, readable plaque, distinct installation, and the image mounted at its natural scene ratio. Evidence: docs/visual-validation/gallery-04-supplementals/staged-3d/vaiseshika-pramana.png"
+          }
         }
       },
       "contract": {
-        "evaluated": false,
-        "status": "not-evaluated",
+        "evaluated": true,
+        "status": "pass",
         "issues": []
       }
     },
@@ -12603,32 +12895,81 @@
         }
       },
       "exhibitReview": {
-        "authoredStatus": "unreviewed",
-        "effectiveStatus": "unreviewed",
-        "reviewedOn": null,
-        "method": null,
-        "resolution": null,
-        "lockPresent": false,
-        "lockCurrent": null
+        "authoredStatus": "standard-compliant",
+        "effectiveStatus": "standard-compliant",
+        "reviewedOn": "2026-08-12",
+        "method": "Gallery 04 supplemental review: two non-overlapping Terra/High evidence scopes reconciled by the Sol parent across installed-object identity, attribution, dating, institution, source record, rights, claim mapping, accessibility, provenance, routes, and aspect-safe presentation.",
+        "resolution": "Resolved: verified Walters W.609.25A, corrected the scene to two physicians before a king, restored author/scribe/artist/date/provenance limits and CC0 rights, and retained it only as an explicit proxy at its natural ratio.",
+        "lockPresent": true,
+        "lockCurrent": true
       },
       "interpretation": {
-        "objectLed": false,
-        "objectInterpretation": null,
-        "mainWordCount": 95,
+        "objectLed": true,
+        "objectInterpretation": "Walters W.609.25A depicts two physicians quarreling before a king in a Persian literary manuscript. It is neither a Nyāya–Vaiśeṣika debate nor evidence for how classical Indian arguments were staged.",
+        "mainWordCount": 328,
         "paragraphCount": 3,
-        "untitledParagraphs": false,
-        "sidebarSectionCount": 0,
-        "sidebarItemCount": 0,
-        "sidebarSections": []
+        "untitledParagraphs": true,
+        "sidebarSectionCount": 2,
+        "sidebarItemCount": 4,
+        "sidebarSections": [
+          {
+            "heading": "Reading the installed object",
+            "items": [
+              {
+                "label": "Two Scholars Quarreling",
+                "description": "Walters W.609.25A depicts two physicians quarreling before a king in a Persian literary manuscript. It is neither a Nyāya–Vaiśeṣika debate nor evidence for how classical Indian arguments were staged.",
+                "sourceIds": [
+                  "nyaya-argument-before-authority-image",
+                  "nyaya-argument-before-authority-object"
+                ]
+              },
+              {
+                "label": "Evidentiary limit",
+                "description": "The figures are not Nyāya or Vaiśeṣika philosophers.",
+                "sourceIds": [
+                  "nyaya-argument-before-authority-image",
+                  "nyaya-argument-before-authority-reference"
+                ]
+              }
+            ]
+          },
+          {
+            "heading": "Philosophical relationship",
+            "items": [
+              {
+                "label": "Central question",
+                "description": "What makes a reason answerable to an opponent?",
+                "sourceIds": [
+                  "nyaya-argument-before-authority-reference"
+                ]
+              },
+              {
+                "label": "Keep in view",
+                "description": "Argument exposes a claim to structured challenge.",
+                "sourceIds": [
+                  "nyaya-argument-before-authority-reference"
+                ]
+              }
+            ]
+          }
+        ]
       },
       "claimEvidence": {
         "sources": [
           {
+            "id": "nyaya-argument-before-authority-image",
             "label": "Wikimedia Commons — Two Scholars Quarreling, Walters W.609",
             "url": "https://commons.wikimedia.org/wiki/File:Yar_Muhammad_al-Haravi_-_Two_Scholars_Quarreling_-_Walters_W60925A_-_Full_Page.jpg",
             "kind": "collection-record"
           },
           {
+            "id": "nyaya-argument-before-authority-object",
+            "label": "Walters Art Museum — Two Scholars Quarreling, W.609.25A",
+            "url": "https://art.thewalters.org/object/W.609.25A/",
+            "kind": "collection-record"
+          },
+          {
+            "id": "nyaya-argument-before-authority-reference",
             "label": "Stanford Encyclopedia of Philosophy — Epistemology in Classical Indian Philosophy",
             "url": "https://plato.stanford.edu/entries/epistemology-india/",
             "kind": "academic-reference"
@@ -12637,24 +12978,79 @@
         "paragraphMappings": [
           {
             "paragraph": 1,
-            "wordCount": 35,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 145,
+            "sourceIds": [
+              "nyaya-argument-before-authority-image",
+              "nyaya-argument-before-authority-object",
+              "nyaya-argument-before-authority-reference"
+            ],
+            "valid": true
           },
           {
             "paragraph": 2,
-            "wordCount": 29,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 98,
+            "sourceIds": [
+              "nyaya-argument-before-authority-reference",
+              "nyaya-argument-before-authority-object",
+              "nyaya-argument-before-authority-image"
+            ],
+            "valid": true
           },
           {
             "paragraph": 3,
-            "wordCount": 31,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 85,
+            "sourceIds": [
+              "nyaya-argument-before-authority-reference",
+              "nyaya-argument-before-authority-image",
+              "nyaya-argument-before-authority-object"
+            ],
+            "valid": true
           }
         ],
-        "sidebarMappings": []
+        "sidebarMappings": [
+          {
+            "row": 1,
+            "heading": "Reading the installed object",
+            "label": "Two Scholars Quarreling",
+            "descriptionWordCount": 32,
+            "sourceIds": [
+              "nyaya-argument-before-authority-image",
+              "nyaya-argument-before-authority-object"
+            ],
+            "valid": true
+          },
+          {
+            "row": 2,
+            "heading": "Reading the installed object",
+            "label": "Evidentiary limit",
+            "descriptionWordCount": 8,
+            "sourceIds": [
+              "nyaya-argument-before-authority-image",
+              "nyaya-argument-before-authority-reference"
+            ],
+            "valid": true
+          },
+          {
+            "row": 3,
+            "heading": "Philosophical relationship",
+            "label": "Central question",
+            "descriptionWordCount": 8,
+            "sourceIds": [
+              "nyaya-argument-before-authority-reference"
+            ],
+            "valid": true
+          },
+          {
+            "row": 4,
+            "heading": "Philosophical relationship",
+            "label": "Keep in view",
+            "descriptionWordCount": 7,
+            "sourceIds": [
+              "nyaya-argument-before-authority-reference"
+            ],
+            "valid": true
+          }
+        ]
       },
       "assets": {
         "principal": {
@@ -12666,15 +13062,15 @@
             "entityId": "kanada",
             "role": "context",
             "mediaKind": "painting",
-            "creator": "Scribe Yar Muhammad al-Haravi; painter recorded as ʿAbd al-Wahhab ibn ʿAbd al-Fattah ibn ʿAli",
-            "objectDate": "Composition 1516; miniature repainted later",
+            "creator": "Nizami Ganjavi (author); Yar Muhammad al-Haravi (scribe); ʿAbd al-Wahhab ibn ʿAbd al-Fattah ibn ʿAli (artist)",
+            "objectDate": "Text completed 1516; miniature repainted in the 18th-century Safavid period",
             "imageCreator": null,
             "institution": "Walters Art Museum, W.609.25A",
             "likenessStatus": "not-applicable"
           },
           "provenance": {
             "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Yar_Muhammad_al-Haravi_-_Two_Scholars_Quarreling_-_Walters_W60925A_-_Full_Page.jpg",
-            "objectPageUrl": null,
+            "objectPageUrl": "https://art.thewalters.org/object/W.609.25A/",
             "historicalNote": "The figures are not documented Nyāya or Vaiśeṣika philosophers; this Persian literary scene must not be relabeled as a historical image of classical Indian debate.",
             "derivativeNotice": "Original image retained uncropped; resized and converted to WebP by Philosophy Atlas.",
             "manifestFiles": [
@@ -12683,14 +13079,14 @@
             "exactSourceRecord": true
           },
           "rights": {
-            "license": "Public Domain Mark 1.0",
-            "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
-            "rightsKind": "rights-status",
-            "attribution": "Walters Art Museum, Two Scholars Quarreling, W.609.25A. Public domain."
+            "license": "CC0 1.0",
+            "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "rightsKind": "dedication",
+            "attribution": "Walters Art Museum, Two Scholars Quarreling, W.609.25A. Collection image CC0."
           },
           "accessibility": {
-            "caption": "A later literary scene acts as an explicit proxy for the social visibility of contested reasons.",
-            "alt": "A Persian literary miniature made in India shows two seated scholars confronting one another before an authority."
+            "caption": "A later Persian literary scene of two physicians quarreling before a king serves only as a proxy for contestable reasons.",
+            "alt": "A Persian manuscript page shows two physicians quarreling before a seated king beneath columns of text."
           },
           "dimensions": {
             "scene": {
@@ -12703,8 +13099,19 @@
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 31660,
+                "sha256": "6f69512301b5c987a632cf4b2444b22da3fb23d32425c4a02175e064a396c8de"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 154730,
+                "sha256": "c4ce548e76b8c957be640f62d0e43eed50c20f85ab461629195b6713ab42d16e"
+              }
+            }
           }
         },
         "physical": {
@@ -12716,15 +13123,15 @@
             "entityId": "kanada",
             "role": "context",
             "mediaKind": "painting",
-            "creator": "Scribe Yar Muhammad al-Haravi; painter recorded as ʿAbd al-Wahhab ibn ʿAbd al-Fattah ibn ʿAli",
-            "objectDate": "Composition 1516; miniature repainted later",
+            "creator": "Nizami Ganjavi (author); Yar Muhammad al-Haravi (scribe); ʿAbd al-Wahhab ibn ʿAbd al-Fattah ibn ʿAli (artist)",
+            "objectDate": "Text completed 1516; miniature repainted in the 18th-century Safavid period",
             "imageCreator": null,
             "institution": "Walters Art Museum, W.609.25A",
             "likenessStatus": "not-applicable"
           },
           "provenance": {
             "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Yar_Muhammad_al-Haravi_-_Two_Scholars_Quarreling_-_Walters_W60925A_-_Full_Page.jpg",
-            "objectPageUrl": null,
+            "objectPageUrl": "https://art.thewalters.org/object/W.609.25A/",
             "historicalNote": "The figures are not documented Nyāya or Vaiśeṣika philosophers; this Persian literary scene must not be relabeled as a historical image of classical Indian debate.",
             "derivativeNotice": "Original image retained uncropped; resized and converted to WebP by Philosophy Atlas.",
             "manifestFiles": [
@@ -12733,14 +13140,14 @@
             "exactSourceRecord": true
           },
           "rights": {
-            "license": "Public Domain Mark 1.0",
-            "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
-            "rightsKind": "rights-status",
-            "attribution": "Walters Art Museum, Two Scholars Quarreling, W.609.25A. Public domain."
+            "license": "CC0 1.0",
+            "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "rightsKind": "dedication",
+            "attribution": "Walters Art Museum, Two Scholars Quarreling, W.609.25A. Collection image CC0."
           },
           "accessibility": {
-            "caption": "A later literary scene acts as an explicit proxy for the social visibility of contested reasons.",
-            "alt": "A Persian literary miniature made in India shows two seated scholars confronting one another before an authority."
+            "caption": "A later Persian literary scene of two physicians quarreling before a king serves only as a proxy for contestable reasons.",
+            "alt": "A Persian manuscript page shows two physicians quarreling before a seated king beneath columns of text."
           },
           "dimensions": {
             "scene": {
@@ -12753,8 +13160,19 @@
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 31660,
+                "sha256": "6f69512301b5c987a632cf4b2444b22da3fb23d32425c4a02175e064a396c8de"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 154730,
+                "sha256": "c4ce548e76b8c957be640f62d0e43eed50c20f85ab461629195b6713ab42d16e"
+              }
+            }
           }
         }
       },
@@ -12770,9 +13188,9 @@
           "status": "match"
         },
         "mediaMountToPhysicalScene": {
-          "mount": 0.603030303030303,
+          "mount": 0.603125,
           "scene": 0.603125,
-          "status": "mismatch"
+          "status": "match"
         },
         "nonUniformScalingProtected": true
       },
@@ -12786,29 +13204,41 @@
           "status": "pass"
         },
         "fullArticleCta": {
-          "label": "Open the philosopher in the Atlas",
+          "label": "Read the full sourced Kaṇāda article",
           "expectedLabel": "Read the full sourced Kaṇāda article",
           "href": "#/philosophers/kanada",
-          "status": "fail"
+          "status": "pass"
         }
       },
       "visualReview": {
         "desktop": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720",
+            "evidence": "Direct route inspected with the installed object, three-paragraph interpretation, subject-specific sidebar, article CTA, and no horizontal overflow. Evidence: docs/visual-validation/gallery-04-supplementals/desktop/nyaya-argument-before-authority.png"
+          }
         },
         "mobile": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "390×844",
+            "evidence": "Direct route inspected with wrapped copy, loaded object preview, scrollable interpretation, visible controls, and no horizontal overflow. Evidence: docs/visual-validation/gallery-04-supplementals/mobile/nyaya-argument-before-authority.png"
+          }
         },
         "threeDimensional": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720 fresh direct-route session",
+            "evidence": "Fresh-session authored viewpoint inspected with a live 3D canvas, closed detail panel, readable plaque, distinct installation, and the image mounted at its natural scene ratio. Evidence: docs/visual-validation/gallery-04-supplementals/staged-3d/nyaya-argument-before-authority.png"
+          }
         }
       },
       "contract": {
-        "evaluated": false,
-        "status": "not-evaluated",
+        "evaluated": true,
+        "status": "pass",
         "issues": []
       }
     },
@@ -12854,32 +13284,74 @@
         }
       },
       "exhibitReview": {
-        "authoredStatus": "unreviewed",
-        "effectiveStatus": "unreviewed",
-        "reviewedOn": null,
-        "method": null,
-        "resolution": null,
-        "lockPresent": false,
-        "lockCurrent": null
+        "authoredStatus": "standard-compliant",
+        "effectiveStatus": "standard-compliant",
+        "reviewedOn": "2026-08-12",
+        "method": "Gallery 04 supplemental review: two non-overlapping Terra/High evidence scopes reconciled by the Sol parent across installed-object identity, attribution, dating, institution, source record, rights, claim mapping, accessibility, provenance, routes, and aspect-safe presentation.",
+        "resolution": "Resolved: verified Welch’s recto-verso assembly and CC BY-SA rights, widened the date to second–third century, exposed the unresolved specific holding and reconstructed form, and corrected the mount to its natural ratio.",
+        "lockPresent": true,
+        "lockCurrent": true
       },
       "interpretation": {
-        "objectLed": false,
-        "objectInterpretation": null,
-        "mainWordCount": 97,
+        "objectLed": true,
+        "objectInterpretation": "Ms Sarah Welch’s modern assembly labels recto and verso fragments assigned to Spitzer folio 383. The specific folio’s holding is unresolved, its dating spans the second–third century, and it is not a Vaiśeṣika text.",
+        "mainWordCount": 360,
         "paragraphCount": 3,
-        "untitledParagraphs": false,
-        "sidebarSectionCount": 0,
-        "sidebarItemCount": 0,
-        "sidebarSections": []
+        "untitledParagraphs": true,
+        "sidebarSectionCount": 2,
+        "sidebarItemCount": 4,
+        "sidebarSections": [
+          {
+            "heading": "Reading the installed object",
+            "items": [
+              {
+                "label": "Spitzer Manuscript Folio 383 Fragments",
+                "description": "Ms Sarah Welch’s modern assembly labels recto and verso fragments assigned to Spitzer folio 383. The specific folio’s holding is unresolved, its dating spans the second–third century, and it is not a Vaiśeṣika text.",
+                "sourceIds": [
+                  "nyaya-spitzer-philosophy-fragments-image"
+                ]
+              },
+              {
+                "label": "Evidentiary limit",
+                "description": "The fragments are not specifically a Nyāya or Vaiśeṣika manuscript.",
+                "sourceIds": [
+                  "nyaya-spitzer-philosophy-fragments-image",
+                  "nyaya-spitzer-philosophy-fragments-reference"
+                ]
+              }
+            ]
+          },
+          {
+            "heading": "Philosophical relationship",
+            "items": [
+              {
+                "label": "Central question",
+                "description": "What can a damaged manuscript reveal about an argumentative world?",
+                "sourceIds": [
+                  "nyaya-spitzer-philosophy-fragments-reference"
+                ]
+              },
+              {
+                "label": "Keep in view",
+                "description": "Fragmentary evidence can still reveal structures of argument.",
+                "sourceIds": [
+                  "nyaya-spitzer-philosophy-fragments-reference"
+                ]
+              }
+            ]
+          }
+        ]
       },
       "claimEvidence": {
         "sources": [
           {
+            "id": "nyaya-spitzer-philosophy-fragments-image",
             "label": "Wikimedia Commons — Spitzer manuscript folio 383 fragments",
             "url": "https://commons.wikimedia.org/wiki/File:2nd-century_CE_Sanskrit,_Kizil_China,_Spitzer_Manuscript_folio_383_fragment_recto_and_verso.jpg",
             "kind": "collection-record"
           },
           {
+            "id": "nyaya-spitzer-philosophy-fragments-reference",
             "label": "Stanford Encyclopedia of Philosophy — Epistemology in Classical Indian Philosophy",
             "url": "https://plato.stanford.edu/entries/epistemology-india/",
             "kind": "academic-reference"
@@ -12888,24 +13360,75 @@
         "paragraphMappings": [
           {
             "paragraph": 1,
-            "wordCount": 29,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 155,
+            "sourceIds": [
+              "nyaya-spitzer-philosophy-fragments-image",
+              "nyaya-spitzer-philosophy-fragments-reference"
+            ],
+            "valid": true
           },
           {
             "paragraph": 2,
-            "wordCount": 30,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 111,
+            "sourceIds": [
+              "nyaya-spitzer-philosophy-fragments-reference",
+              "nyaya-spitzer-philosophy-fragments-image"
+            ],
+            "valid": true
           },
           {
             "paragraph": 3,
-            "wordCount": 38,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 94,
+            "sourceIds": [
+              "nyaya-spitzer-philosophy-fragments-reference",
+              "nyaya-spitzer-philosophy-fragments-image"
+            ],
+            "valid": true
           }
         ],
-        "sidebarMappings": []
+        "sidebarMappings": [
+          {
+            "row": 1,
+            "heading": "Reading the installed object",
+            "label": "Spitzer Manuscript Folio 383 Fragments",
+            "descriptionWordCount": 35,
+            "sourceIds": [
+              "nyaya-spitzer-philosophy-fragments-image"
+            ],
+            "valid": true
+          },
+          {
+            "row": 2,
+            "heading": "Reading the installed object",
+            "label": "Evidentiary limit",
+            "descriptionWordCount": 10,
+            "sourceIds": [
+              "nyaya-spitzer-philosophy-fragments-image",
+              "nyaya-spitzer-philosophy-fragments-reference"
+            ],
+            "valid": true
+          },
+          {
+            "row": 3,
+            "heading": "Philosophical relationship",
+            "label": "Central question",
+            "descriptionWordCount": 10,
+            "sourceIds": [
+              "nyaya-spitzer-philosophy-fragments-reference"
+            ],
+            "valid": true
+          },
+          {
+            "row": 4,
+            "heading": "Philosophical relationship",
+            "label": "Keep in view",
+            "descriptionWordCount": 8,
+            "sourceIds": [
+              "nyaya-spitzer-philosophy-fragments-reference"
+            ],
+            "valid": true
+          }
+        ]
       },
       "assets": {
         "principal": {
@@ -12917,10 +13440,10 @@
             "entityId": "kanada",
             "role": "primary-source",
             "mediaKind": "manuscript",
-            "creator": "Ancient copyist unknown; image assembly by Ms Sarah Welch",
-            "objectDate": "Carbon-dated around 130 CE",
+            "creator": "Ancient copyist unknown; recto/verso image assembly by Ms Sarah Welch",
+            "objectDate": "Second–third century CE; conventional calibrated range 80–230 CE",
             "imageCreator": null,
-            "institution": "Berlin State Library and British Library fragments",
+            "institution": "Specific folio holding not established; Spitzer fragments divided between Berlin State Library and British Library",
             "likenessStatus": "not-applicable"
           },
           "provenance": {
@@ -12940,8 +13463,8 @@
             "attribution": "Ms Sarah Welch, assembly of Spitzer manuscript folio 383 fragments, CC BY-SA 4.0."
           },
           "accessibility": {
-            "caption": "The Spitzer fragments provide exceptionally early material evidence for Sanskrit philosophical argument and transmission.",
-            "alt": "Small brown Sanskrit manuscript fragments appear in paired recto and verso arrangements against a neutral field."
+            "caption": "Ms Sarah Welch’s recto/verso assembly presents fragments assigned to Spitzer manuscript folio 383.",
+            "alt": "A modern image assembly places the recto and verso of small brown Sanskrit manuscript fragments in two labeled horizontal rows."
           },
           "dimensions": {
             "scene": {
@@ -12954,8 +13477,19 @@
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 48946,
+                "sha256": "a2e6918586efae83a282ec4627a9f296709164b0c4903a600c9110a1201beaec"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 145036,
+                "sha256": "e218fb2ecde037ed4843eb1137ae5aa75f60dea3e83988bd12e7f29b834d67a3"
+              }
+            }
           }
         },
         "physical": {
@@ -12967,10 +13501,10 @@
             "entityId": "kanada",
             "role": "primary-source",
             "mediaKind": "manuscript",
-            "creator": "Ancient copyist unknown; image assembly by Ms Sarah Welch",
-            "objectDate": "Carbon-dated around 130 CE",
+            "creator": "Ancient copyist unknown; recto/verso image assembly by Ms Sarah Welch",
+            "objectDate": "Second–third century CE; conventional calibrated range 80–230 CE",
             "imageCreator": null,
-            "institution": "Berlin State Library and British Library fragments",
+            "institution": "Specific folio holding not established; Spitzer fragments divided between Berlin State Library and British Library",
             "likenessStatus": "not-applicable"
           },
           "provenance": {
@@ -12990,8 +13524,8 @@
             "attribution": "Ms Sarah Welch, assembly of Spitzer manuscript folio 383 fragments, CC BY-SA 4.0."
           },
           "accessibility": {
-            "caption": "The Spitzer fragments provide exceptionally early material evidence for Sanskrit philosophical argument and transmission.",
-            "alt": "Small brown Sanskrit manuscript fragments appear in paired recto and verso arrangements against a neutral field."
+            "caption": "Ms Sarah Welch’s recto/verso assembly presents fragments assigned to Spitzer manuscript folio 383.",
+            "alt": "A modern image assembly places the recto and verso of small brown Sanskrit manuscript fragments in two labeled horizontal rows."
           },
           "dimensions": {
             "scene": {
@@ -13004,8 +13538,19 @@
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 48946,
+                "sha256": "a2e6918586efae83a282ec4627a9f296709164b0c4903a600c9110a1201beaec"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 145036,
+                "sha256": "e218fb2ecde037ed4843eb1137ae5aa75f60dea3e83988bd12e7f29b834d67a3"
+              }
+            }
           }
         }
       },
@@ -13021,9 +13566,9 @@
           "status": "match"
         },
         "mediaMountToPhysicalScene": {
-          "mount": 1.777777777777778,
+          "mount": 1.7977528090909092,
           "scene": 1.797752808988764,
-          "status": "mismatch"
+          "status": "match"
         },
         "nonUniformScalingProtected": true
       },
@@ -13037,29 +13582,41 @@
           "status": "pass"
         },
         "fullArticleCta": {
-          "label": "Open the philosopher in the Atlas",
+          "label": "Read the full sourced Kaṇāda article",
           "expectedLabel": "Read the full sourced Kaṇāda article",
           "href": "#/philosophers/kanada",
-          "status": "fail"
+          "status": "pass"
         }
       },
       "visualReview": {
         "desktop": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720",
+            "evidence": "Direct route inspected with the installed object, three-paragraph interpretation, subject-specific sidebar, article CTA, and no horizontal overflow. Evidence: docs/visual-validation/gallery-04-supplementals/desktop/nyaya-spitzer-philosophy-fragments.png"
+          }
         },
         "mobile": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "390×844",
+            "evidence": "Direct route inspected with wrapped copy, loaded object preview, scrollable interpretation, visible controls, and no horizontal overflow. Evidence: docs/visual-validation/gallery-04-supplementals/mobile/nyaya-spitzer-philosophy-fragments.png"
+          }
         },
         "threeDimensional": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720 fresh direct-route session",
+            "evidence": "Fresh-session authored viewpoint inspected with a live 3D canvas, closed detail panel, readable plaque, distinct installation, and the image mounted at its natural scene ratio. Evidence: docs/visual-validation/gallery-04-supplementals/staged-3d/nyaya-spitzer-philosophy-fragments.png"
+          }
         }
       },
       "contract": {
-        "evaluated": false,
-        "status": "not-evaluated",
+        "evaluated": true,
+        "status": "pass",
         "issues": []
       }
     },
@@ -13105,32 +13662,81 @@
         }
       },
       "exhibitReview": {
-        "authoredStatus": "unreviewed",
-        "effectiveStatus": "unreviewed",
-        "reviewedOn": null,
-        "method": null,
-        "resolution": null,
-        "lockPresent": false,
-        "lockCurrent": null
+        "authoredStatus": "standard-compliant",
+        "effectiveStatus": "standard-compliant",
+        "reviewedOn": "2026-08-12",
+        "method": "Gallery 04 supplemental review: two non-overlapping Terra/High evidence scopes reconciled by the Sol parent across installed-object identity, attribution, dating, institution, source record, rights, claim mapping, accessibility, provenance, routes, and aspect-safe presentation.",
+        "resolution": "Resolved: corrected the installed NASA scene from active fire and smoke to winter haze, preserved federal public-domain credit, exposed the Terra/Aqua inconsistency, remapped the classical inference to textual sources, and matched the mount ratio.",
+        "lockPresent": true,
+        "lockCurrent": true
       },
       "interpretation": {
-        "objectLed": false,
-        "objectInterpretation": null,
-        "mainWordCount": 94,
+        "objectLed": true,
+        "objectInterpretation": "NASA’s record describes winter haze and a pollution-trapping inversion, not visible active fires. The image is a modern prompt about uncertain signs; the classical smoke-fire example comes from textual sources.",
+        "mainWordCount": 361,
         "paragraphCount": 3,
-        "untitledParagraphs": false,
-        "sidebarSectionCount": 0,
-        "sidebarItemCount": 0,
-        "sidebarSections": []
+        "untitledParagraphs": true,
+        "sidebarSectionCount": 2,
+        "sidebarItemCount": 4,
+        "sidebarSections": [
+          {
+            "heading": "Reading the installed object",
+            "items": [
+              {
+                "label": "Winter Haze over Northern India",
+                "description": "NASA’s record describes winter haze and a pollution-trapping inversion, not visible active fires. The image is a modern prompt about uncertain signs; the classical smoke-fire example comes from textual sources.",
+                "sourceIds": [
+                  "nyaya-smoke-fire-inference-image",
+                  "nyaya-smoke-fire-inference-object"
+                ]
+              },
+              {
+                "label": "Evidentiary limit",
+                "description": "The satellite image is a modern teaching prompt, not a historical source.",
+                "sourceIds": [
+                  "nyaya-smoke-fire-inference-image",
+                  "nyaya-smoke-fire-inference-reference"
+                ]
+              }
+            ]
+          },
+          {
+            "heading": "Philosophical relationship",
+            "items": [
+              {
+                "label": "Central question",
+                "description": "When does smoke justify an inference to fire?",
+                "sourceIds": [
+                  "nyaya-smoke-fire-inference-reference"
+                ]
+              },
+              {
+                "label": "Keep in view",
+                "description": "Inference moves from a recognized sign to an unobserved target.",
+                "sourceIds": [
+                  "nyaya-smoke-fire-inference-reference"
+                ]
+              }
+            ]
+          }
+        ]
       },
       "claimEvidence": {
         "sources": [
           {
+            "id": "nyaya-smoke-fire-inference-image",
             "label": "Wikimedia Commons — Fire and Smoke in India, MODIS",
             "url": "https://commons.wikimedia.org/wiki/File:Fire_and_Smoke_in_India_%28MODIS_2021-02-28%29.jpg",
             "kind": "collection-record"
           },
           {
+            "id": "nyaya-smoke-fire-inference-object",
+            "label": "NASA MODIS — Fire and Smoke in India, acquired 24 February 2021",
+            "url": "https://modis.gsfc.nasa.gov/gallery/individual.php?db_date=2021-02-28",
+            "kind": "collection-record"
+          },
+          {
+            "id": "nyaya-smoke-fire-inference-reference",
             "label": "Stanford Encyclopedia of Philosophy — Epistemology in Classical Indian Philosophy",
             "url": "https://plato.stanford.edu/entries/epistemology-india/",
             "kind": "academic-reference"
@@ -13139,31 +13745,86 @@
         "paragraphMappings": [
           {
             "paragraph": 1,
-            "wordCount": 32,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 153,
+            "sourceIds": [
+              "nyaya-smoke-fire-inference-image",
+              "nyaya-smoke-fire-inference-object",
+              "nyaya-smoke-fire-inference-reference"
+            ],
+            "valid": true
           },
           {
             "paragraph": 2,
-            "wordCount": 33,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 117,
+            "sourceIds": [
+              "nyaya-smoke-fire-inference-reference",
+              "nyaya-smoke-fire-inference-object",
+              "nyaya-smoke-fire-inference-image"
+            ],
+            "valid": true
           },
           {
             "paragraph": 3,
-            "wordCount": 29,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 91,
+            "sourceIds": [
+              "nyaya-smoke-fire-inference-reference",
+              "nyaya-smoke-fire-inference-image",
+              "nyaya-smoke-fire-inference-object"
+            ],
+            "valid": true
           }
         ],
-        "sidebarMappings": []
+        "sidebarMappings": [
+          {
+            "row": 1,
+            "heading": "Reading the installed object",
+            "label": "Winter Haze over Northern India",
+            "descriptionWordCount": 30,
+            "sourceIds": [
+              "nyaya-smoke-fire-inference-image",
+              "nyaya-smoke-fire-inference-object"
+            ],
+            "valid": true
+          },
+          {
+            "row": 2,
+            "heading": "Reading the installed object",
+            "label": "Evidentiary limit",
+            "descriptionWordCount": 12,
+            "sourceIds": [
+              "nyaya-smoke-fire-inference-image",
+              "nyaya-smoke-fire-inference-reference"
+            ],
+            "valid": true
+          },
+          {
+            "row": 3,
+            "heading": "Philosophical relationship",
+            "label": "Central question",
+            "descriptionWordCount": 8,
+            "sourceIds": [
+              "nyaya-smoke-fire-inference-reference"
+            ],
+            "valid": true
+          },
+          {
+            "row": 4,
+            "heading": "Philosophical relationship",
+            "label": "Keep in view",
+            "descriptionWordCount": 10,
+            "sourceIds": [
+              "nyaya-smoke-fire-inference-reference"
+            ],
+            "valid": true
+          }
+        ]
       },
       "assets": {
         "principal": {
           "id": "nyaya-smoke-fire-inference",
           "status": "registered",
           "identity": {
-            "title": "Fire and smoke over India observed by Aqua MODIS",
+            "title": "Winter haze over northern India observed by MODIS",
             "entityKind": "philosopher",
             "entityId": "kanada",
             "role": "context",
@@ -13177,7 +13838,7 @@
           "provenance": {
             "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Fire_and_Smoke_in_India_%28MODIS_2021-02-28%29.jpg",
             "objectPageUrl": null,
-            "historicalNote": "A contemporary teaching image rather than a classical source; it visualizes an evidential problem without implying that all Indian schools analyze inference identically.",
+            "historicalNote": "A contemporary prompt about uncertainty in reading visible signs, not a depiction of active fires or a classical source; NASA’s page is internally inconsistent about whether Terra or Aqua acquired it.",
             "derivativeNotice": "Original image retained uncropped; resized and converted to WebP by Philosophy Atlas.",
             "manifestFiles": [
               "museumModernAssetManifest.json"
@@ -13191,8 +13852,8 @@
             "attribution": "NASA GSFC MODIS Land Rapid Response Team, fire and smoke over India, 2021. Public domain."
           },
           "accessibility": {
-            "caption": "A modern satellite field gives visual scale to the classical example of inferring fire from smoke.",
-            "alt": "A satellite image shows broad smoke plumes and active fire markings across a large landscape in India."
+            "caption": "A 2021 MODIS image records winter haze over northern India; it does not display the classical smoke-and-fire example.",
+            "alt": "A true-color satellite image shows a broad gray winter haze across northern India south of the snow-covered Himalayas."
           },
           "dimensions": {
             "scene": {
@@ -13205,15 +13866,26 @@
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 71166,
+                "sha256": "29a7395125c53193181cdc9dc224514a378e816909a31867d6f9d129dc6dd7cd"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 401844,
+                "sha256": "a10d18b38f93186112407aba13dcdd86fc768581b996e18aa6cbd7ba6833c52c"
+              }
+            }
           }
         },
         "physical": {
           "id": "nyaya-smoke-fire-inference",
           "status": "registered",
           "identity": {
-            "title": "Fire and smoke over India observed by Aqua MODIS",
+            "title": "Winter haze over northern India observed by MODIS",
             "entityKind": "philosopher",
             "entityId": "kanada",
             "role": "context",
@@ -13227,7 +13899,7 @@
           "provenance": {
             "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Fire_and_Smoke_in_India_%28MODIS_2021-02-28%29.jpg",
             "objectPageUrl": null,
-            "historicalNote": "A contemporary teaching image rather than a classical source; it visualizes an evidential problem without implying that all Indian schools analyze inference identically.",
+            "historicalNote": "A contemporary prompt about uncertainty in reading visible signs, not a depiction of active fires or a classical source; NASA’s page is internally inconsistent about whether Terra or Aqua acquired it.",
             "derivativeNotice": "Original image retained uncropped; resized and converted to WebP by Philosophy Atlas.",
             "manifestFiles": [
               "museumModernAssetManifest.json"
@@ -13241,8 +13913,8 @@
             "attribution": "NASA GSFC MODIS Land Rapid Response Team, fire and smoke over India, 2021. Public domain."
           },
           "accessibility": {
-            "caption": "A modern satellite field gives visual scale to the classical example of inferring fire from smoke.",
-            "alt": "A satellite image shows broad smoke plumes and active fire markings across a large landscape in India."
+            "caption": "A 2021 MODIS image records winter haze over northern India; it does not display the classical smoke-and-fire example.",
+            "alt": "A true-color satellite image shows a broad gray winter haze across northern India south of the snow-covered Himalayas."
           },
           "dimensions": {
             "scene": {
@@ -13255,8 +13927,19 @@
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 71166,
+                "sha256": "29a7395125c53193181cdc9dc224514a378e816909a31867d6f9d129dc6dd7cd"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 401844,
+                "sha256": "a10d18b38f93186112407aba13dcdd86fc768581b996e18aa6cbd7ba6833c52c"
+              }
+            }
           }
         }
       },
@@ -13272,9 +13955,9 @@
           "status": "match"
         },
         "mediaMountToPhysicalScene": {
-          "mount": 1.27007299270073,
+          "mount": 1.272365805109489,
           "scene": 1.2723658051689861,
-          "status": "mismatch"
+          "status": "match"
         },
         "nonUniformScalingProtected": true
       },
@@ -13288,29 +13971,41 @@
           "status": "pass"
         },
         "fullArticleCta": {
-          "label": "Open the philosopher in the Atlas",
+          "label": "Read the full sourced Kaṇāda article",
           "expectedLabel": "Read the full sourced Kaṇāda article",
           "href": "#/philosophers/kanada",
-          "status": "fail"
+          "status": "pass"
         }
       },
       "visualReview": {
         "desktop": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720",
+            "evidence": "Direct route inspected with the installed object, three-paragraph interpretation, subject-specific sidebar, article CTA, and no horizontal overflow. Evidence: docs/visual-validation/gallery-04-supplementals/desktop/nyaya-smoke-fire-inference.png"
+          }
         },
         "mobile": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "390×844",
+            "evidence": "Direct route inspected with wrapped copy, loaded object preview, scrollable interpretation, visible controls, and no horizontal overflow. Evidence: docs/visual-validation/gallery-04-supplementals/mobile/nyaya-smoke-fire-inference.png"
+          }
         },
         "threeDimensional": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720 fresh direct-route session",
+            "evidence": "Fresh-session authored viewpoint inspected with a live 3D canvas, closed detail panel, readable plaque, distinct installation, and the image mounted at its natural scene ratio. Evidence: docs/visual-validation/gallery-04-supplementals/staged-3d/nyaya-smoke-fire-inference.png"
+          }
         }
       },
       "contract": {
-        "evaluated": false,
-        "status": "not-evaluated",
+        "evaluated": true,
+        "status": "pass",
         "issues": []
       }
     },
@@ -13356,37 +14051,82 @@
         }
       },
       "exhibitReview": {
-        "authoredStatus": "unreviewed",
-        "effectiveStatus": "unreviewed",
-        "reviewedOn": null,
-        "method": null,
-        "resolution": null,
-        "lockPresent": false,
-        "lockCurrent": null
+        "authoredStatus": "standard-compliant",
+        "effectiveStatus": "standard-compliant",
+        "reviewedOn": "2026-08-12",
+        "method": "Gallery 04 supplemental review: two non-overlapping Terra/High evidence scopes reconciled by the Sol parent across installed-object identity, attribution, dating, institution, source record, rights, claim mapping, accessibility, provenance, routes, and aspect-safe presentation.",
+        "resolution": "Resolved: verified the installed two-page image, qualified its social-media-derived shelfmark, date, and rights record, corrected its description, separated transmission from authorship, and matched its natural ratio.",
+        "lockPresent": true,
+        "lockCurrent": true
       },
       "interpretation": {
-        "objectLed": false,
-        "objectInterpretation": null,
-        "mainWordCount": 86,
+        "objectLed": true,
+        "objectInterpretation": "The two-page opening is reported as National Library of India Th 217. It evidences later transmission only; its shelfmark, pre-1900 date, and PDM status lack a stable institutional catalogue or rights record.",
+        "mainWordCount": 280,
         "paragraphCount": 3,
-        "untitledParagraphs": false,
-        "sidebarSectionCount": 0,
-        "sidebarItemCount": 0,
-        "sidebarSections": []
+        "untitledParagraphs": true,
+        "sidebarSectionCount": 2,
+        "sidebarItemCount": 4,
+        "sidebarSections": [
+          {
+            "heading": "Reading the witness",
+            "items": [
+              {
+                "label": "Reported shelfmark",
+                "description": "Commons identifies National Library of India Th 217, but no stable public catalogue record was available.",
+                "sourceIds": [
+                  "patanjali-ms-commons"
+                ]
+              },
+              {
+                "label": "Late copy",
+                "description": "The manuscript witnesses transmission before 1900, not an autograph or authorial biography.",
+                "sourceIds": [
+                  "patanjali-ms-commons",
+                  "patanjali-iep"
+                ]
+              }
+            ]
+          },
+          {
+            "heading": "Textual questions",
+            "items": [
+              {
+                "label": "Sūtra and bhāṣya",
+                "description": "Their authorship and degree of unity remain central scholarly disputes.",
+                "sourceIds": [
+                  "patanjali-maas",
+                  "patanjali-iep"
+                ]
+              },
+              {
+                "label": "Approximate horizon",
+                "description": "A fourth-century placement describes a textual hypothesis, never a precise lifespan.",
+                "sourceIds": [
+                  "patanjali-maas",
+                  "patanjali-iep"
+                ]
+              }
+            ]
+          }
+        ]
       },
       "claimEvidence": {
         "sources": [
           {
-            "label": "Wikimedia Commons — Yoga Sūtras manuscript Th 217",
+            "id": "patanjali-ms-commons",
+            "label": "Wikimedia Commons — reported Yoga Sutras manuscript Th 217 and PDM record",
             "url": "https://commons.wikimedia.org/wiki/File:Patanjali_Yoga_Sutras_manuscript.jpg",
             "kind": "collection-record"
           },
           {
+            "id": "patanjali-iep",
             "label": "Internet Encyclopedia of Philosophy — Yoga",
             "url": "https://iep.utm.edu/yoga/",
             "kind": "academic-reference"
           },
           {
+            "id": "patanjali-maas",
             "label": "Philipp A. Maas — Samādhipāda critical edition",
             "url": "https://www.shaker.de/de/site/content/shop/index.asp?ID=8&ISBN=978-3-8322-4987-8&lang=de",
             "kind": "academic-reference"
@@ -13395,45 +14135,101 @@
         "paragraphMappings": [
           {
             "paragraph": 1,
-            "wordCount": 23,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 93,
+            "sourceIds": [
+              "patanjali-ms-commons",
+              "patanjali-iep",
+              "patanjali-maas"
+            ],
+            "valid": true
           },
           {
             "paragraph": 2,
-            "wordCount": 26,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 85,
+            "sourceIds": [
+              "patanjali-iep",
+              "patanjali-maas",
+              "patanjali-ms-commons"
+            ],
+            "valid": true
           },
           {
             "paragraph": 3,
-            "wordCount": 37,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 102,
+            "sourceIds": [
+              "patanjali-iep",
+              "patanjali-maas",
+              "patanjali-ms-commons"
+            ],
+            "valid": true
           }
         ],
-        "sidebarMappings": []
+        "sidebarMappings": [
+          {
+            "row": 1,
+            "heading": "Reading the witness",
+            "label": "Reported shelfmark",
+            "descriptionWordCount": 16,
+            "sourceIds": [
+              "patanjali-ms-commons"
+            ],
+            "valid": true
+          },
+          {
+            "row": 2,
+            "heading": "Reading the witness",
+            "label": "Late copy",
+            "descriptionWordCount": 12,
+            "sourceIds": [
+              "patanjali-ms-commons",
+              "patanjali-iep"
+            ],
+            "valid": true
+          },
+          {
+            "row": 3,
+            "heading": "Textual questions",
+            "label": "Sūtra and bhāṣya",
+            "descriptionWordCount": 10,
+            "sourceIds": [
+              "patanjali-maas",
+              "patanjali-iep"
+            ],
+            "valid": true
+          },
+          {
+            "row": 4,
+            "heading": "Textual questions",
+            "label": "Approximate horizon",
+            "descriptionWordCount": 11,
+            "sourceIds": [
+              "patanjali-maas",
+              "patanjali-iep"
+            ],
+            "valid": true
+          }
+        ]
       },
       "assets": {
         "principal": {
           "id": "patanjali-yoga-sutra-manuscript",
           "status": "registered",
           "identity": {
-            "title": "Yoga Sutras manuscript, Th 217",
+            "title": "Yoga Sutras manuscript, Th 217 (reported identification)",
             "entityKind": "philosopher",
             "entityId": "patanjali",
             "role": "primary-source",
             "mediaKind": "manuscript",
             "creator": "Unknown copyist; text traditionally attributed to Patañjali",
-            "objectDate": "Before 1900; exact date unknown",
+            "objectDate": "Reported before 1900; exact date unknown",
             "imageCreator": null,
-            "institution": "National Library of India, Rare Books Division, Th 217",
+            "institution": "Reported as National Library of India, Rare Books Division, Th 217; stable catalogue record unavailable",
             "likenessStatus": "not-applicable"
           },
           "provenance": {
             "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Patanjali_Yoga_Sutras_manuscript.jpg",
             "objectPageUrl": null,
-            "historicalNote": "Neither an autograph nor a securely dated early copy: the copyist and precise date are unknown, and authorship of the Yoga Sutras is traditionally rather than documentarily assigned to Patañjali. Commons’ immediate source was a National Library of India social-media post.",
+            "historicalNote": "Neither an autograph nor a securely dated early copy: Commons derives the holding, shelfmark, and pre-1900 description from a National Library of India social-media post, not a stable catalogue or institutional rights record.",
             "derivativeNotice": "Resized without upscaling and converted to WebP by Philosophy Atlas.",
             "manifestFiles": [
               "museumModernAssetManifest.json"
@@ -13444,11 +14240,11 @@
             "license": "Public Domain Mark 1.0",
             "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
             "rightsKind": "rights-status",
-            "attribution": "National Library of India, Rare Books Division, Yoga Sutras manuscript Th 217. Public domain."
+            "attribution": "Yoga Sutras manuscript reported as National Library of India, Rare Books Division, Th 217; Wikimedia Commons marks the file Public Domain Mark 1.0."
           },
           "accessibility": {
-            "caption": "A pre-1900 manuscript witness to the Yoga Sutras, National Library of India Th 217.",
-            "alt": "Open manuscript leaves densely written in an Indic script with red ruling and marginal marks."
+            "caption": "A manuscript opening reported as Yoga Sutras, National Library of India Th 217; its exact date and stable catalogue record remain unavailable.",
+            "alt": "Two pale manuscript pages numbered 180 and 181 are densely written in Devanagari above and below the central binding."
           },
           "dimensions": {
             "scene": {
@@ -13461,29 +14257,40 @@
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 89922,
+                "sha256": "fbc70ec9f3a490dbdba7f1eb739a760844023321f323c48146b030622c4d15bf"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 242874,
+                "sha256": "4abc6d51ab30233326971b3a42922ec522989414c5057572f49d782e4b1ce462"
+              }
+            }
           }
         },
         "physical": {
           "id": "patanjali-yoga-sutra-manuscript",
           "status": "registered",
           "identity": {
-            "title": "Yoga Sutras manuscript, Th 217",
+            "title": "Yoga Sutras manuscript, Th 217 (reported identification)",
             "entityKind": "philosopher",
             "entityId": "patanjali",
             "role": "primary-source",
             "mediaKind": "manuscript",
             "creator": "Unknown copyist; text traditionally attributed to Patañjali",
-            "objectDate": "Before 1900; exact date unknown",
+            "objectDate": "Reported before 1900; exact date unknown",
             "imageCreator": null,
-            "institution": "National Library of India, Rare Books Division, Th 217",
+            "institution": "Reported as National Library of India, Rare Books Division, Th 217; stable catalogue record unavailable",
             "likenessStatus": "not-applicable"
           },
           "provenance": {
             "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Patanjali_Yoga_Sutras_manuscript.jpg",
             "objectPageUrl": null,
-            "historicalNote": "Neither an autograph nor a securely dated early copy: the copyist and precise date are unknown, and authorship of the Yoga Sutras is traditionally rather than documentarily assigned to Patañjali. Commons’ immediate source was a National Library of India social-media post.",
+            "historicalNote": "Neither an autograph nor a securely dated early copy: Commons derives the holding, shelfmark, and pre-1900 description from a National Library of India social-media post, not a stable catalogue or institutional rights record.",
             "derivativeNotice": "Resized without upscaling and converted to WebP by Philosophy Atlas.",
             "manifestFiles": [
               "museumModernAssetManifest.json"
@@ -13494,11 +14301,11 @@
             "license": "Public Domain Mark 1.0",
             "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
             "rightsKind": "rights-status",
-            "attribution": "National Library of India, Rare Books Division, Yoga Sutras manuscript Th 217. Public domain."
+            "attribution": "Yoga Sutras manuscript reported as National Library of India, Rare Books Division, Th 217; Wikimedia Commons marks the file Public Domain Mark 1.0."
           },
           "accessibility": {
-            "caption": "A pre-1900 manuscript witness to the Yoga Sutras, National Library of India Th 217.",
-            "alt": "Open manuscript leaves densely written in an Indic script with red ruling and marginal marks."
+            "caption": "A manuscript opening reported as Yoga Sutras, National Library of India Th 217; its exact date and stable catalogue record remain unavailable.",
+            "alt": "Two pale manuscript pages numbered 180 and 181 are densely written in Devanagari above and below the central binding."
           },
           "dimensions": {
             "scene": {
@@ -13511,8 +14318,19 @@
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 89922,
+                "sha256": "fbc70ec9f3a490dbdba7f1eb739a760844023321f323c48146b030622c4d15bf"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 242874,
+                "sha256": "4abc6d51ab30233326971b3a42922ec522989414c5057572f49d782e4b1ce462"
+              }
+            }
           }
         }
       },
@@ -13528,9 +14346,9 @@
           "status": "match"
         },
         "mediaMountToPhysicalScene": {
-          "mount": 1.1111111111111112,
+          "mount": 1.109185442013889,
           "scene": 1.1091854419410745,
-          "status": "mismatch"
+          "status": "match"
         },
         "nonUniformScalingProtected": true
       },
@@ -13544,29 +14362,41 @@
           "status": "pass"
         },
         "fullArticleCta": {
-          "label": "Open Patañjali in the Atlas",
+          "label": "Read the full sourced Patañjali article",
           "expectedLabel": "Read the full sourced Patañjali article",
           "href": "#/philosophers/patanjali",
-          "status": "fail"
+          "status": "pass"
         }
       },
       "visualReview": {
         "desktop": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720",
+            "evidence": "Direct route inspected with the installed object, three-paragraph interpretation, subject-specific sidebar, article CTA, and no horizontal overflow. Evidence: docs/visual-validation/gallery-04-supplementals/desktop/patanjali-yogasutra-manuscript.png"
+          }
         },
         "mobile": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "390×844",
+            "evidence": "Direct route inspected with wrapped copy, loaded object preview, scrollable interpretation, visible controls, and no horizontal overflow. Evidence: docs/visual-validation/gallery-04-supplementals/mobile/patanjali-yogasutra-manuscript.png"
+          }
         },
         "threeDimensional": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720 fresh direct-route session",
+            "evidence": "Fresh-session authored viewpoint inspected with a live 3D canvas, closed detail panel, readable plaque, distinct installation, and the image mounted at its natural scene ratio. Evidence: docs/visual-validation/gallery-04-supplementals/staged-3d/patanjali-yogasutra-manuscript.png"
+          }
         }
       },
       "contract": {
-        "evaluated": false,
-        "status": "not-evaluated",
+        "evaluated": true,
+        "status": "pass",
         "issues": []
       }
     },
@@ -13612,58 +14442,170 @@
         }
       },
       "exhibitReview": {
-        "authoredStatus": "unreviewed",
-        "effectiveStatus": "unreviewed",
-        "reviewedOn": null,
-        "method": null,
-        "resolution": null,
-        "lockPresent": false,
-        "lockCurrent": null
+        "authoredStatus": "standard-compliant",
+        "effectiveStatus": "standard-compliant",
+        "reviewedOn": "2026-08-12",
+        "method": "Gallery 04 supplemental review: two non-overlapping Terra/High evidence scopes reconciled by the Sol parent across installed-object identity, attribution, dating, institution, source record, rights, claim mapping, accessibility, provenance, routes, and aspect-safe presentation.",
+        "resolution": "Resolved: verified Welch’s modern CC BY-SA diagram, grounded the three means in Yoga Sūtra 1.7, separated Sāṃkhya-Yoga comparison from identity, and corrected the mount ratio.",
+        "lockPresent": true,
+        "lockCurrent": true
       },
       "interpretation": {
-        "objectLed": false,
-        "objectInterpretation": null,
-        "mainWordCount": 96,
+        "objectLed": true,
+        "objectInterpretation": "Ms Sarah Welch’s diagram is a modern comparison of three pramāṇas, not a historical witness. Yoga Sūtra 1.7 and scholarship, rather than the graphic, support the philosophical claims.",
+        "mainWordCount": 280,
         "paragraphCount": 3,
-        "untitledParagraphs": false,
-        "sidebarSectionCount": 0,
-        "sidebarItemCount": 0,
-        "sidebarSections": []
+        "untitledParagraphs": true,
+        "sidebarSectionCount": 2,
+        "sidebarItemCount": 4,
+        "sidebarSections": [
+          {
+            "heading": "Yoga Sūtra 1.7",
+            "items": [
+              {
+                "label": "Perception",
+                "description": "Direct cognition is one valid mode, not a guarantee that every appearance is true.",
+                "sourceIds": [
+                  "yoga-sutra",
+                  "patanjali-iep"
+                ]
+              },
+              {
+                "label": "Inference",
+                "description": "Reasoning reaches beyond present perception through a warranted relation among signs and claims.",
+                "sourceIds": [
+                  "yoga-sutra",
+                  "patanjali-iep"
+                ]
+              }
+            ]
+          },
+          {
+            "heading": "Word and practice",
+            "items": [
+              {
+                "label": "Reliable testimony",
+                "description": "Authoritative words require competence and transmission rather than blind repetition.",
+                "sourceIds": [
+                  "yoga-sutra",
+                  "patanjali-iep"
+                ]
+              },
+              {
+                "label": "Modern comparison",
+                "description": "Welch’s combined Sāṃkhya-Yoga image is a teaching aid, not primary historical evidence.",
+                "sourceIds": [
+                  "yoga-pramana-commons"
+                ]
+              }
+            ]
+          }
+        ]
       },
       "claimEvidence": {
         "sources": [
           {
-            "label": "Wikimedia Commons — Three Pramāṇas in Sāṃkhya-Yoga",
+            "id": "yoga-pramana-commons",
+            "label": "Wikimedia Commons — Ms Sarah Welch, Three Pramāṇas in Sāṃkhya and Yoga",
             "url": "https://commons.wikimedia.org/wiki/File:3_Pramana_Epistemology_Samkhya_Yoga_Hindu_schools.svg",
             "kind": "collection-record"
           },
           {
+            "id": "patanjali-iep",
             "label": "Internet Encyclopedia of Philosophy — Yoga",
             "url": "https://iep.utm.edu/yoga/",
+            "kind": "academic-reference"
+          },
+          {
+            "id": "yoga-sutra",
+            "label": "Yoga Sūtra, especially 1.6–1.7, historical English translation",
+            "url": "https://sacred-texts.com/hin/yogasutr.htm",
+            "kind": "primary-text"
+          },
+          {
+            "id": "patanjali-maas-pramana",
+            "label": "Philipp A. Maas — Samādhipāda critical edition",
+            "url": "https://www.shaker.de/de/site/content/shop/index.asp?ID=8&ISBN=978-3-8322-4987-8&lang=de",
             "kind": "academic-reference"
           }
         ],
         "paragraphMappings": [
           {
             "paragraph": 1,
-            "wordCount": 32,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 87,
+            "sourceIds": [
+              "yoga-pramana-commons",
+              "yoga-sutra",
+              "patanjali-iep"
+            ],
+            "valid": true
           },
           {
             "paragraph": 2,
-            "wordCount": 25,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 90,
+            "sourceIds": [
+              "yoga-sutra",
+              "patanjali-iep",
+              "patanjali-maas-pramana"
+            ],
+            "valid": true
           },
           {
             "paragraph": 3,
-            "wordCount": 39,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 103,
+            "sourceIds": [
+              "patanjali-iep",
+              "patanjali-maas-pramana",
+              "yoga-pramana-commons"
+            ],
+            "valid": true
           }
         ],
-        "sidebarMappings": []
+        "sidebarMappings": [
+          {
+            "row": 1,
+            "heading": "Yoga Sūtra 1.7",
+            "label": "Perception",
+            "descriptionWordCount": 14,
+            "sourceIds": [
+              "yoga-sutra",
+              "patanjali-iep"
+            ],
+            "valid": true
+          },
+          {
+            "row": 2,
+            "heading": "Yoga Sūtra 1.7",
+            "label": "Inference",
+            "descriptionWordCount": 13,
+            "sourceIds": [
+              "yoga-sutra",
+              "patanjali-iep"
+            ],
+            "valid": true
+          },
+          {
+            "row": 3,
+            "heading": "Word and practice",
+            "label": "Reliable testimony",
+            "descriptionWordCount": 10,
+            "sourceIds": [
+              "yoga-sutra",
+              "patanjali-iep"
+            ],
+            "valid": true
+          },
+          {
+            "row": 4,
+            "heading": "Word and practice",
+            "label": "Modern comparison",
+            "descriptionWordCount": 12,
+            "sourceIds": [
+              "yoga-pramana-commons"
+            ],
+            "valid": true
+          }
+        ]
       },
       "assets": {
         "principal": {
@@ -13676,9 +14618,9 @@
             "role": "context",
             "mediaKind": "drawing",
             "creator": "Ms Sarah Welch",
-            "objectDate": "2016; updated 2020",
+            "objectDate": "19 January 2016; translated versions added 2020",
             "imageCreator": null,
-            "institution": "Wikimedia Commons",
+            "institution": "Wikimedia Commons (self-published explanatory diagram)",
             "likenessStatus": "not-applicable"
           },
           "provenance": {
@@ -13712,8 +14654,19 @@
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 18102,
+                "sha256": "72868741979a11627b4aa3f1b994014c0308abac168adb579efdad818b1fbe7d"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 47758,
+                "sha256": "85a90dd2c1c692ff1bac135b805eed5b939faeb95fba2d6bd5e78f73ad34b30e"
+              }
+            }
           }
         },
         "physical": {
@@ -13726,9 +14679,9 @@
             "role": "context",
             "mediaKind": "drawing",
             "creator": "Ms Sarah Welch",
-            "objectDate": "2016; updated 2020",
+            "objectDate": "19 January 2016; translated versions added 2020",
             "imageCreator": null,
-            "institution": "Wikimedia Commons",
+            "institution": "Wikimedia Commons (self-published explanatory diagram)",
             "likenessStatus": "not-applicable"
           },
           "provenance": {
@@ -13762,8 +14715,19 @@
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 18102,
+                "sha256": "72868741979a11627b4aa3f1b994014c0308abac168adb579efdad818b1fbe7d"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 47758,
+                "sha256": "85a90dd2c1c692ff1bac135b805eed5b939faeb95fba2d6bd5e78f73ad34b30e"
+              }
+            }
           }
         }
       },
@@ -13779,9 +14743,9 @@
           "status": "match"
         },
         "mediaMountToPhysicalScene": {
-          "mount": 0.6274509803921569,
+          "mount": 0.6265625,
           "scene": 0.6265625,
-          "status": "mismatch"
+          "status": "match"
         },
         "nonUniformScalingProtected": true
       },
@@ -13795,29 +14759,41 @@
           "status": "pass"
         },
         "fullArticleCta": {
-          "label": "Open Patañjali in the Atlas",
+          "label": "Read the full sourced Patañjali article",
           "expectedLabel": "Read the full sourced Patañjali article",
           "href": "#/philosophers/patanjali",
-          "status": "fail"
+          "status": "pass"
         }
       },
       "visualReview": {
         "desktop": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720",
+            "evidence": "Direct route inspected with the installed object, three-paragraph interpretation, subject-specific sidebar, article CTA, and no horizontal overflow. Evidence: docs/visual-validation/gallery-04-supplementals/desktop/patanjali-samkhya-yoga-pramana.png"
+          }
         },
         "mobile": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "390×844",
+            "evidence": "Direct route inspected with wrapped copy, loaded object preview, scrollable interpretation, visible controls, and no horizontal overflow. Evidence: docs/visual-validation/gallery-04-supplementals/mobile/patanjali-samkhya-yoga-pramana.png"
+          }
         },
         "threeDimensional": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720 fresh direct-route session",
+            "evidence": "Fresh-session authored viewpoint inspected with a live 3D canvas, closed detail panel, readable plaque, distinct installation, and the image mounted at its natural scene ratio. Evidence: docs/visual-validation/gallery-04-supplementals/staged-3d/patanjali-samkhya-yoga-pramana.png"
+          }
         }
       },
       "contract": {
-        "evaluated": false,
-        "status": "not-evaluated",
+        "evaluated": true,
+        "status": "pass",
         "issues": []
       }
     },
@@ -13863,32 +14839,74 @@
         }
       },
       "exhibitReview": {
-        "authoredStatus": "unreviewed",
-        "effectiveStatus": "unreviewed",
-        "reviewedOn": null,
-        "method": null,
-        "resolution": null,
-        "lockPresent": false,
-        "lockCurrent": null
+        "authoredStatus": "standard-compliant",
+        "effectiveStatus": "standard-compliant",
+        "reviewedOn": "2026-08-12",
+        "method": "Gallery 04 supplemental review: two non-overlapping Terra/High evidence scopes reconciled by the Sol parent across installed-object identity, attribution, dating, institution, source record, rights, claim mapping, accessibility, provenance, routes, and aspect-safe presentation.",
+        "resolution": "Resolved: verified the anonymous c. 1640 San Diego painting, accession and Binney gift provenance, qualified its PDM reproduction rights, kept it outside automatic Pātañjala ownership, and retained its natural portrait ratio.",
+        "lockPresent": true,
+        "lockCurrent": true
       },
       "interpretation": {
-        "objectLed": false,
-        "objectInterpretation": null,
-        "mainWordCount": 82,
+        "objectLed": true,
+        "objectInterpretation": "The anonymous c. 1640 painting, San Diego Museum of Art 1990.355, visualizes six ascetics in community. It postdates the Yoga Sūtra by centuries and does not identify its figures as Pātañjala practitioners.",
+        "mainWordCount": 335,
         "paragraphCount": 3,
-        "untitledParagraphs": false,
-        "sidebarSectionCount": 0,
-        "sidebarItemCount": 0,
-        "sidebarSections": []
+        "untitledParagraphs": true,
+        "sidebarSectionCount": 2,
+        "sidebarItemCount": 4,
+        "sidebarSections": [
+          {
+            "heading": "Reading the installed object",
+            "items": [
+              {
+                "label": "Six Yogis Meditate under a Banyan",
+                "description": "The anonymous c. 1640 painting, San Diego Museum of Art 1990.355, visualizes six ascetics in community. It postdates the Yoga Sūtra by centuries and does not identify its figures as Pātañjala practitioners.",
+                "sourceIds": [
+                  "yoga-six-yogis-banyan-image"
+                ]
+              },
+              {
+                "label": "Evidentiary limit",
+                "description": "The painting is not a scene from Patañjali’s lifetime.",
+                "sourceIds": [
+                  "yoga-six-yogis-banyan-image",
+                  "yoga-six-yogis-banyan-reference"
+                ]
+              }
+            ]
+          },
+          {
+            "heading": "Philosophical relationship",
+            "items": [
+              {
+                "label": "Central question",
+                "description": "What becomes visible when Yoga is shown as shared discipline?",
+                "sourceIds": [
+                  "yoga-six-yogis-banyan-reference"
+                ]
+              },
+              {
+                "label": "Keep in view",
+                "description": "Practice is transmitted through people and settings as well as texts.",
+                "sourceIds": [
+                  "yoga-six-yogis-banyan-reference"
+                ]
+              }
+            ]
+          }
+        ]
       },
       "claimEvidence": {
         "sources": [
           {
+            "id": "yoga-six-yogis-banyan-image",
             "label": "Wikimedia Commons — Six yogis under a banyan",
             "url": "https://commons.wikimedia.org/wiki/File:Six_yogis_meditate_under_a_banyan_%286125077334%29.jpg",
             "kind": "collection-record"
           },
           {
+            "id": "yoga-six-yogis-banyan-reference",
             "label": "Internet Encyclopedia of Philosophy — Yoga",
             "url": "https://iep.utm.edu/yoga/",
             "kind": "academic-reference"
@@ -13897,36 +14915,87 @@
         "paragraphMappings": [
           {
             "paragraph": 1,
-            "wordCount": 27,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 148,
+            "sourceIds": [
+              "yoga-six-yogis-banyan-image",
+              "yoga-six-yogis-banyan-reference"
+            ],
+            "valid": true
           },
           {
             "paragraph": 2,
-            "wordCount": 26,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 100,
+            "sourceIds": [
+              "yoga-six-yogis-banyan-reference",
+              "yoga-six-yogis-banyan-image"
+            ],
+            "valid": true
           },
           {
             "paragraph": 3,
-            "wordCount": 29,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 87,
+            "sourceIds": [
+              "yoga-six-yogis-banyan-reference",
+              "yoga-six-yogis-banyan-image"
+            ],
+            "valid": true
           }
         ],
-        "sidebarMappings": []
+        "sidebarMappings": [
+          {
+            "row": 1,
+            "heading": "Reading the installed object",
+            "label": "Six Yogis Meditate under a Banyan",
+            "descriptionWordCount": 33,
+            "sourceIds": [
+              "yoga-six-yogis-banyan-image"
+            ],
+            "valid": true
+          },
+          {
+            "row": 2,
+            "heading": "Reading the installed object",
+            "label": "Evidentiary limit",
+            "descriptionWordCount": 9,
+            "sourceIds": [
+              "yoga-six-yogis-banyan-image",
+              "yoga-six-yogis-banyan-reference"
+            ],
+            "valid": true
+          },
+          {
+            "row": 3,
+            "heading": "Philosophical relationship",
+            "label": "Central question",
+            "descriptionWordCount": 10,
+            "sourceIds": [
+              "yoga-six-yogis-banyan-reference"
+            ],
+            "valid": true
+          },
+          {
+            "row": 4,
+            "heading": "Philosophical relationship",
+            "label": "Keep in view",
+            "descriptionWordCount": 11,
+            "sourceIds": [
+              "yoga-six-yogis-banyan-reference"
+            ],
+            "valid": true
+          }
+        ]
       },
       "assets": {
         "principal": {
           "id": "yoga-six-yogis-banyan",
           "status": "registered",
           "identity": {
-            "title": "Six yogis meditate under a banyan",
+            "title": "Six Yogis Meditate under a Banyan",
             "entityKind": "philosopher",
             "entityId": "patanjali",
             "role": "context",
             "mediaKind": "painting",
-            "creator": "Artist unknown",
+            "creator": "Anonymous Indian artist",
             "objectDate": "c. 1640",
             "imageCreator": null,
             "institution": "San Diego Museum of Art, Edwin Binney 3rd Collection, 1990.355",
@@ -13963,20 +15032,31 @@
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 79906,
+                "sha256": "d76fe25879616e2f8205fecf3d2cf968bbe3fe19cf8ac4b2ef78d34f86cf0de4"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 355308,
+                "sha256": "95d575b4b30c4a1bac3071c09ffd0c2c507960a72e217f5c3eacee4994362287"
+              }
+            }
           }
         },
         "physical": {
           "id": "yoga-six-yogis-banyan",
           "status": "registered",
           "identity": {
-            "title": "Six yogis meditate under a banyan",
+            "title": "Six Yogis Meditate under a Banyan",
             "entityKind": "philosopher",
             "entityId": "patanjali",
             "role": "context",
             "mediaKind": "painting",
-            "creator": "Artist unknown",
+            "creator": "Anonymous Indian artist",
             "objectDate": "c. 1640",
             "imageCreator": null,
             "institution": "San Diego Museum of Art, Edwin Binney 3rd Collection, 1990.355",
@@ -14013,8 +15093,19 @@
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 79906,
+                "sha256": "d76fe25879616e2f8205fecf3d2cf968bbe3fe19cf8ac4b2ef78d34f86cf0de4"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 355308,
+                "sha256": "95d575b4b30c4a1bac3071c09ffd0c2c507960a72e217f5c3eacee4994362287"
+              }
+            }
           }
         }
       },
@@ -14030,9 +15121,9 @@
           "status": "match"
         },
         "mediaMountToPhysicalScene": {
-          "mount": 0.7181818181818183,
+          "mount": 0.7171875,
           "scene": 0.7171875,
-          "status": "mismatch"
+          "status": "match"
         },
         "nonUniformScalingProtected": true
       },
@@ -14046,29 +15137,41 @@
           "status": "pass"
         },
         "fullArticleCta": {
-          "label": "Open the philosopher in the Atlas",
+          "label": "Read the full sourced Patañjali article",
           "expectedLabel": "Read the full sourced Patañjali article",
           "href": "#/philosophers/patanjali",
-          "status": "fail"
+          "status": "pass"
         }
       },
       "visualReview": {
         "desktop": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720",
+            "evidence": "Direct route inspected with the installed object, three-paragraph interpretation, subject-specific sidebar, article CTA, and no horizontal overflow. Evidence: docs/visual-validation/gallery-04-supplementals/desktop/yoga-six-yogis-banyan.png"
+          }
         },
         "mobile": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "390×844",
+            "evidence": "Direct route inspected with wrapped copy, loaded object preview, scrollable interpretation, visible controls, and no horizontal overflow. Evidence: docs/visual-validation/gallery-04-supplementals/mobile/yoga-six-yogis-banyan.png"
+          }
         },
         "threeDimensional": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720 fresh direct-route session",
+            "evidence": "Fresh-session authored viewpoint inspected with a live 3D canvas, closed detail panel, readable plaque, distinct installation, and the image mounted at its natural scene ratio. Evidence: docs/visual-validation/gallery-04-supplementals/staged-3d/yoga-six-yogis-banyan.png"
+          }
         }
       },
       "contract": {
-        "evaluated": false,
-        "status": "not-evaluated",
+        "evaluated": true,
+        "status": "pass",
         "issues": []
       }
     },
@@ -14114,32 +15217,81 @@
         }
       },
       "exhibitReview": {
-        "authoredStatus": "unreviewed",
-        "effectiveStatus": "unreviewed",
-        "reviewedOn": null,
-        "method": null,
-        "resolution": null,
-        "lockPresent": false,
-        "lockCurrent": null
+        "authoredStatus": "standard-compliant",
+        "effectiveStatus": "standard-compliant",
+        "reviewedOn": "2026-08-12",
+        "method": "Gallery 04 supplemental review: two non-overlapping Terra/High evidence scopes reconciled by the Sol parent across installed-object identity, attribution, dating, institution, source record, rights, claim mapping, accessibility, provenance, routes, and aspect-safe presentation.",
+        "resolution": "Resolved: adopted the Walters title, tenth–eleventh-century date, Madhya Pradesh origin, uncertain guru-or-Agni identification and provenance, retained the installed CC BY-SA image, and bounded comparison at its natural ratio.",
+        "lockPresent": true,
+        "lockCurrent": true
       },
       "interpretation": {
-        "objectLed": false,
-        "objectInterpretation": null,
-        "mainWordCount": 90,
+        "objectLed": true,
+        "objectInterpretation": "Walters 25.255 is an ascetic deity from Madhya Pradesh, possibly a divinized guru or Agni. Its crossed posture and strap support cautious comparison, not identification with Patañjali or a Yoga Sūtra practice.",
+        "mainWordCount": 360,
         "paragraphCount": 3,
-        "untitledParagraphs": false,
-        "sidebarSectionCount": 0,
-        "sidebarItemCount": 0,
-        "sidebarSections": []
+        "untitledParagraphs": true,
+        "sidebarSectionCount": 2,
+        "sidebarItemCount": 4,
+        "sidebarSections": [
+          {
+            "heading": "Reading the installed object",
+            "items": [
+              {
+                "label": "Ascetic Deity",
+                "description": "Walters 25.255 is an ascetic deity from Madhya Pradesh, possibly a divinized guru or Agni. Its crossed posture and strap support cautious comparison, not identification with Patañjali or a Yoga Sūtra practice.",
+                "sourceIds": [
+                  "yoga-posture-inner-heat-image",
+                  "yoga-posture-inner-heat-object"
+                ]
+              },
+              {
+                "label": "Evidentiary limit",
+                "description": "The sculpture is Śaiva, not an image of Patañjali or his school.",
+                "sourceIds": [
+                  "yoga-posture-inner-heat-image",
+                  "yoga-posture-inner-heat-reference"
+                ]
+              }
+            ]
+          },
+          {
+            "heading": "Philosophical relationship",
+            "items": [
+              {
+                "label": "Central question",
+                "description": "How can posture become part of a disciplined transformation?",
+                "sourceIds": [
+                  "yoga-posture-inner-heat-reference"
+                ]
+              },
+              {
+                "label": "Keep in view",
+                "description": "Posture supports sustained attention rather than functioning as display alone.",
+                "sourceIds": [
+                  "yoga-posture-inner-heat-reference"
+                ]
+              }
+            ]
+          }
+        ]
       },
       "claimEvidence": {
         "sources": [
           {
+            "id": "yoga-posture-inner-heat-image",
             "label": "Wikimedia Commons — Ascetic Śaiva deity, Walters 25.255",
             "url": "https://commons.wikimedia.org/wiki/File:Indian_-_An_Ascetic_Shaiva_Deity_-_Walters_25255.jpg",
             "kind": "collection-record"
           },
           {
+            "id": "yoga-posture-inner-heat-object",
+            "label": "Walters Art Museum — Ascetic Deity, 25.255",
+            "url": "https://art.thewalters.org/object/25.255/",
+            "kind": "collection-record"
+          },
+          {
+            "id": "yoga-posture-inner-heat-reference",
             "label": "Internet Encyclopedia of Philosophy — Yoga",
             "url": "https://iep.utm.edu/yoga/",
             "kind": "academic-reference"
@@ -14148,45 +15300,100 @@
         "paragraphMappings": [
           {
             "paragraph": 1,
-            "wordCount": 29,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 155,
+            "sourceIds": [
+              "yoga-posture-inner-heat-image",
+              "yoga-posture-inner-heat-object",
+              "yoga-posture-inner-heat-reference"
+            ],
+            "valid": true
           },
           {
             "paragraph": 2,
-            "wordCount": 27,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 104,
+            "sourceIds": [
+              "yoga-posture-inner-heat-reference",
+              "yoga-posture-inner-heat-object",
+              "yoga-posture-inner-heat-image"
+            ],
+            "valid": true
           },
           {
             "paragraph": 3,
-            "wordCount": 34,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 101,
+            "sourceIds": [
+              "yoga-posture-inner-heat-reference",
+              "yoga-posture-inner-heat-image",
+              "yoga-posture-inner-heat-object"
+            ],
+            "valid": true
           }
         ],
-        "sidebarMappings": []
+        "sidebarMappings": [
+          {
+            "row": 1,
+            "heading": "Reading the installed object",
+            "label": "Ascetic Deity",
+            "descriptionWordCount": 33,
+            "sourceIds": [
+              "yoga-posture-inner-heat-image",
+              "yoga-posture-inner-heat-object"
+            ],
+            "valid": true
+          },
+          {
+            "row": 2,
+            "heading": "Reading the installed object",
+            "label": "Evidentiary limit",
+            "descriptionWordCount": 12,
+            "sourceIds": [
+              "yoga-posture-inner-heat-image",
+              "yoga-posture-inner-heat-reference"
+            ],
+            "valid": true
+          },
+          {
+            "row": 3,
+            "heading": "Philosophical relationship",
+            "label": "Central question",
+            "descriptionWordCount": 9,
+            "sourceIds": [
+              "yoga-posture-inner-heat-reference"
+            ],
+            "valid": true
+          },
+          {
+            "row": 4,
+            "heading": "Philosophical relationship",
+            "label": "Keep in view",
+            "descriptionWordCount": 10,
+            "sourceIds": [
+              "yoga-posture-inner-heat-reference"
+            ],
+            "valid": true
+          }
+        ]
       },
       "assets": {
         "principal": {
           "id": "yoga-ascetic-shaiva-deity",
           "status": "registered",
           "identity": {
-            "title": "Ascetic Śaiva deity",
+            "title": "Ascetic Deity",
             "entityKind": "philosopher",
             "entityId": "patanjali",
             "role": "context",
             "mediaKind": "sculpture-photograph",
             "creator": "Anonymous Indian sculptor; Walters Art Museum photograph",
-            "objectDate": "c. 1000–1200",
+            "objectDate": "10th–11th century",
             "imageCreator": null,
-            "institution": "Walters Art Museum, 25.255",
+            "institution": "Walters Art Museum, 25.255; Madhya Pradesh",
             "likenessStatus": "not-applicable"
           },
           "provenance": {
             "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Indian_-_An_Ascetic_Shaiva_Deity_-_Walters_25255.jpg",
-            "objectPageUrl": null,
-            "historicalNote": "This is a Śaiva object, not an image of Patañjali or evidence for a specific Yoga Sūtra practice; the comparison depends on keeping that boundary explicit.",
+            "objectPageUrl": "https://art.thewalters.org/object/25.255/",
+            "historicalNote": "The figure’s identity is uncertain and it is not an image of Patañjali or evidence for a specific Yoga Sūtra practice; the comparison depends on keeping that boundary explicit.",
             "derivativeNotice": "Original image retained uncropped; resized and converted to WebP by Philosophy Atlas.",
             "manifestFiles": [
               "museumModernAssetManifest.json"
@@ -14200,8 +15407,8 @@
             "attribution": "Walters Art Museum, Ascetic Śaiva Deity, c. 1000–1200, image CC BY-SA 3.0."
           },
           "accessibility": {
-            "caption": "A Śaiva ascetic image supplies carefully bounded context for embodied discipline beyond one Yoga lineage.",
-            "alt": "A stone ascetic deity sits cross-legged with a meditation strap and gestures associated with disciplined inner heat."
+            "caption": "The Walters identifies this tenth- or eleventh-century figure cautiously as an ascetic deity, possibly a divinized guru or Agni.",
+            "alt": "A bearded four-armed pink-sandstone deity sits cross-legged with a strap holding the raised legs in position."
           },
           "dimensions": {
             "scene": {
@@ -14214,29 +15421,40 @@
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 34950,
+                "sha256": "18e4a35d6536dd8d84ea8a31429fc27379c516d9b0c5f93f06c40c3d0687ea26"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 142684,
+                "sha256": "612139c899d3be022b75b616508941477139d47f093b9cfe961c17408a1edd4b"
+              }
+            }
           }
         },
         "physical": {
           "id": "yoga-ascetic-shaiva-deity",
           "status": "registered",
           "identity": {
-            "title": "Ascetic Śaiva deity",
+            "title": "Ascetic Deity",
             "entityKind": "philosopher",
             "entityId": "patanjali",
             "role": "context",
             "mediaKind": "sculpture-photograph",
             "creator": "Anonymous Indian sculptor; Walters Art Museum photograph",
-            "objectDate": "c. 1000–1200",
+            "objectDate": "10th–11th century",
             "imageCreator": null,
-            "institution": "Walters Art Museum, 25.255",
+            "institution": "Walters Art Museum, 25.255; Madhya Pradesh",
             "likenessStatus": "not-applicable"
           },
           "provenance": {
             "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Indian_-_An_Ascetic_Shaiva_Deity_-_Walters_25255.jpg",
-            "objectPageUrl": null,
-            "historicalNote": "This is a Śaiva object, not an image of Patañjali or evidence for a specific Yoga Sūtra practice; the comparison depends on keeping that boundary explicit.",
+            "objectPageUrl": "https://art.thewalters.org/object/25.255/",
+            "historicalNote": "The figure’s identity is uncertain and it is not an image of Patañjali or evidence for a specific Yoga Sūtra practice; the comparison depends on keeping that boundary explicit.",
             "derivativeNotice": "Original image retained uncropped; resized and converted to WebP by Philosophy Atlas.",
             "manifestFiles": [
               "museumModernAssetManifest.json"
@@ -14250,8 +15468,8 @@
             "attribution": "Walters Art Museum, Ascetic Śaiva Deity, c. 1000–1200, image CC BY-SA 3.0."
           },
           "accessibility": {
-            "caption": "A Śaiva ascetic image supplies carefully bounded context for embodied discipline beyond one Yoga lineage.",
-            "alt": "A stone ascetic deity sits cross-legged with a meditation strap and gestures associated with disciplined inner heat."
+            "caption": "The Walters identifies this tenth- or eleventh-century figure cautiously as an ascetic deity, possibly a divinized guru or Agni.",
+            "alt": "A bearded four-armed pink-sandstone deity sits cross-legged with a strap holding the raised legs in position."
           },
           "dimensions": {
             "scene": {
@@ -14264,8 +15482,19 @@
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 34950,
+                "sha256": "18e4a35d6536dd8d84ea8a31429fc27379c516d9b0c5f93f06c40c3d0687ea26"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 142684,
+                "sha256": "612139c899d3be022b75b616508941477139d47f093b9cfe961c17408a1edd4b"
+              }
+            }
           }
         }
       },
@@ -14281,9 +15510,9 @@
           "status": "match"
         },
         "mediaMountToPhysicalScene": {
-          "mount": 0.6606060606060606,
+          "mount": 0.659375,
           "scene": 0.659375,
-          "status": "mismatch"
+          "status": "match"
         },
         "nonUniformScalingProtected": true
       },
@@ -14297,29 +15526,41 @@
           "status": "pass"
         },
         "fullArticleCta": {
-          "label": "Open the philosopher in the Atlas",
+          "label": "Read the full sourced Patañjali article",
           "expectedLabel": "Read the full sourced Patañjali article",
           "href": "#/philosophers/patanjali",
-          "status": "fail"
+          "status": "pass"
         }
       },
       "visualReview": {
         "desktop": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720",
+            "evidence": "Direct route inspected with the installed object, three-paragraph interpretation, subject-specific sidebar, article CTA, and no horizontal overflow. Evidence: docs/visual-validation/gallery-04-supplementals/desktop/yoga-posture-inner-heat.png"
+          }
         },
         "mobile": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "390×844",
+            "evidence": "Direct route inspected with wrapped copy, loaded object preview, scrollable interpretation, visible controls, and no horizontal overflow. Evidence: docs/visual-validation/gallery-04-supplementals/mobile/yoga-posture-inner-heat.png"
+          }
         },
         "threeDimensional": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720 fresh direct-route session",
+            "evidence": "Fresh-session authored viewpoint inspected with a live 3D canvas, closed detail panel, readable plaque, distinct installation, and the image mounted at its natural scene ratio. Evidence: docs/visual-validation/gallery-04-supplementals/staged-3d/yoga-posture-inner-heat.png"
+          }
         }
       },
       "contract": {
-        "evaluated": false,
-        "status": "not-evaluated",
+        "evaluated": true,
+        "status": "pass",
         "issues": []
       }
     },
@@ -14365,32 +15606,81 @@
         }
       },
       "exhibitReview": {
-        "authoredStatus": "unreviewed",
-        "effectiveStatus": "unreviewed",
-        "reviewedOn": null,
-        "method": null,
-        "resolution": null,
-        "lockPresent": false,
-        "lockCurrent": null
+        "authoredStatus": "standard-compliant",
+        "effectiveStatus": "standard-compliant",
+        "reviewedOn": "2026-08-12",
+        "method": "Gallery 04 supplemental review: two non-overlapping Terra/High evidence scopes reconciled by the Sol parent across installed-object identity, attribution, dating, institution, source record, rights, claim mapping, accessibility, provenance, routes, and aspect-safe presentation.",
+        "resolution": "Resolved: followed Cleveland’s c. 1650 date and full object title, recorded anonymous maker, Bikaner origin, acquisition provenance and CC0 rights, preserved the Ragamala genre, and retained the natural ratio.",
+        "lockPresent": true,
+        "lockCurrent": true
       },
       "interpretation": {
-        "objectLed": false,
-        "objectInterpretation": null,
-        "mainWordCount": 96,
+        "objectLed": true,
+        "objectInterpretation": "Cleveland 2018.190 is a c. 1650 Ragamala painting titled Asavari Ragini. Its ascetic princess broadens visual questions of discipline and gender but is not a portrait or Pātañjala document.",
+        "mainWordCount": 373,
         "paragraphCount": 3,
-        "untitledParagraphs": false,
-        "sidebarSectionCount": 0,
-        "sidebarItemCount": 0,
-        "sidebarSections": []
+        "untitledParagraphs": true,
+        "sidebarSectionCount": 2,
+        "sidebarItemCount": 4,
+        "sidebarSections": [
+          {
+            "heading": "Reading the installed object",
+            "items": [
+              {
+                "label": "Asavari Ragini",
+                "description": "Cleveland 2018.190 is a c. 1650 Ragamala painting titled Asavari Ragini. Its ascetic princess broadens visual questions of discipline and gender but is not a portrait or Pātañjala document.",
+                "sourceIds": [
+                  "yoga-asavari-ascetic-princess-image",
+                  "yoga-asavari-ascetic-princess-object"
+                ]
+              },
+              {
+                "label": "Evidentiary limit",
+                "description": "Āsāvarī is a Ragamala personification, not a portrait or Yoga manual illustration.",
+                "sourceIds": [
+                  "yoga-asavari-ascetic-princess-image",
+                  "yoga-asavari-ascetic-princess-reference"
+                ]
+              }
+            ]
+          },
+          {
+            "heading": "Philosophical relationship",
+            "items": [
+              {
+                "label": "Central question",
+                "description": "Who disappears when ascetic practice is pictured only through male sages?",
+                "sourceIds": [
+                  "yoga-asavari-ascetic-princess-reference"
+                ]
+              },
+              {
+                "label": "Keep in view",
+                "description": "Visual canons shape who appears to count as a practitioner.",
+                "sourceIds": [
+                  "yoga-asavari-ascetic-princess-reference"
+                ]
+              }
+            ]
+          }
+        ]
       },
       "claimEvidence": {
         "sources": [
           {
+            "id": "yoga-asavari-ascetic-princess-image",
             "label": "Wikimedia Commons — Ascetic Princess Āsāvarī, Cleveland Museum of Art",
             "url": "https://commons.wikimedia.org/wiki/File:Northwestern_India,_Rajasthan,_Rajput_Kingdom_of_Bikaner_-_Ascetic_Princess_with_Snakes_in_a_Wilderness-_Asavari_Ragini,_from_a_Ragama_-_2018.190_-_Cleveland_Museum_of_Art.jpg",
             "kind": "collection-record"
           },
           {
+            "id": "yoga-asavari-ascetic-princess-object",
+            "label": "Cleveland Museum of Art — Ascetic Princess with Snakes in a Wilderness: Asavari Ragini, 2018.190",
+            "url": "https://www.clevelandart.org/art/2018.190",
+            "kind": "collection-record"
+          },
+          {
+            "id": "yoga-asavari-ascetic-princess-reference",
             "label": "Internet Encyclopedia of Philosophy — Yoga",
             "url": "https://iep.utm.edu/yoga/",
             "kind": "academic-reference"
@@ -14399,45 +15689,100 @@
         "paragraphMappings": [
           {
             "paragraph": 1,
-            "wordCount": 30,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 151,
+            "sourceIds": [
+              "yoga-asavari-ascetic-princess-image",
+              "yoga-asavari-ascetic-princess-object",
+              "yoga-asavari-ascetic-princess-reference"
+            ],
+            "valid": true
           },
           {
             "paragraph": 2,
-            "wordCount": 32,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 114,
+            "sourceIds": [
+              "yoga-asavari-ascetic-princess-reference",
+              "yoga-asavari-ascetic-princess-object",
+              "yoga-asavari-ascetic-princess-image"
+            ],
+            "valid": true
           },
           {
             "paragraph": 3,
-            "wordCount": 34,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 108,
+            "sourceIds": [
+              "yoga-asavari-ascetic-princess-reference",
+              "yoga-asavari-ascetic-princess-image",
+              "yoga-asavari-ascetic-princess-object"
+            ],
+            "valid": true
           }
         ],
-        "sidebarMappings": []
+        "sidebarMappings": [
+          {
+            "row": 1,
+            "heading": "Reading the installed object",
+            "label": "Asavari Ragini",
+            "descriptionWordCount": 30,
+            "sourceIds": [
+              "yoga-asavari-ascetic-princess-image",
+              "yoga-asavari-ascetic-princess-object"
+            ],
+            "valid": true
+          },
+          {
+            "row": 2,
+            "heading": "Reading the installed object",
+            "label": "Evidentiary limit",
+            "descriptionWordCount": 12,
+            "sourceIds": [
+              "yoga-asavari-ascetic-princess-image",
+              "yoga-asavari-ascetic-princess-reference"
+            ],
+            "valid": true
+          },
+          {
+            "row": 3,
+            "heading": "Philosophical relationship",
+            "label": "Central question",
+            "descriptionWordCount": 11,
+            "sourceIds": [
+              "yoga-asavari-ascetic-princess-reference"
+            ],
+            "valid": true
+          },
+          {
+            "row": 4,
+            "heading": "Philosophical relationship",
+            "label": "Keep in view",
+            "descriptionWordCount": 10,
+            "sourceIds": [
+              "yoga-asavari-ascetic-princess-reference"
+            ],
+            "valid": true
+          }
+        ]
       },
       "assets": {
         "principal": {
           "id": "yoga-asavari-ascetic-princess",
           "status": "registered",
           "identity": {
-            "title": "Ascetic Princess with Snakes in a Wilderness: Āsāvarī Rāginī",
+            "title": "Ascetic Princess with Snakes in a Wilderness: Asavari Ragini, from a Ragamala",
             "entityKind": "philosopher",
             "entityId": "patanjali",
             "role": "context",
             "mediaKind": "painting",
-            "creator": "Anonymous Bikaner artist",
-            "objectDate": "1640",
+            "creator": "Anonymous artist, Bikaner",
+            "objectDate": "c. 1650",
             "imageCreator": null,
             "institution": "Cleveland Museum of Art, 2018.190",
             "likenessStatus": "not-applicable"
           },
           "provenance": {
             "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Northwestern_India,_Rajasthan,_Rajput_Kingdom_of_Bikaner_-_Ascetic_Princess_with_Snakes_in_a_Wilderness-_Asavari_Ragini,_from_a_Ragama_-_2018.190_-_Cleveland_Museum_of_Art.jpg",
-            "objectPageUrl": null,
-            "historicalNote": "A personification of the musical mode Āsāvarī, not a portrait or direct record of a woman practicing Patañjali Yoga; its use is contextual and comparative.",
+            "objectPageUrl": "https://www.clevelandart.org/art/2018.190",
+            "historicalNote": "A Ragamala painting titled Asavari Ragini, not a portrait or direct record of a woman practicing Patañjali Yoga; its use is contextual and comparative.",
             "derivativeNotice": "Original image retained uncropped; resized and converted to WebP by Philosophy Atlas.",
             "manifestFiles": [
               "museumModernAssetManifest.json"
@@ -14448,7 +15793,7 @@
             "license": "CC0 1.0",
             "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
             "rightsKind": "dedication",
-            "attribution": "Cleveland Museum of Art, Ascetic Princess Āsāvarī, Bikaner, 1640, CC0."
+            "attribution": "Cleveland Museum of Art, Ascetic Princess with Snakes in a Wilderness: Asavari Ragini, Bikaner, c. 1650, 2018.190. Image CC0."
           },
           "accessibility": {
             "caption": "The Ragamala image broadens the room’s visual account of asceticism while preserving its actual musical genre.",
@@ -14465,29 +15810,40 @@
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 51892,
+                "sha256": "70075f69043c2d81ecbc70dd5b65a7eed1efe90b69c398afb68bdc2d56ef511e"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 325364,
+                "sha256": "601d798b37fd553a32951ab0c2ae20ada4fb78e2b1ad466b826b25fb1f06a2b9"
+              }
+            }
           }
         },
         "physical": {
           "id": "yoga-asavari-ascetic-princess",
           "status": "registered",
           "identity": {
-            "title": "Ascetic Princess with Snakes in a Wilderness: Āsāvarī Rāginī",
+            "title": "Ascetic Princess with Snakes in a Wilderness: Asavari Ragini, from a Ragamala",
             "entityKind": "philosopher",
             "entityId": "patanjali",
             "role": "context",
             "mediaKind": "painting",
-            "creator": "Anonymous Bikaner artist",
-            "objectDate": "1640",
+            "creator": "Anonymous artist, Bikaner",
+            "objectDate": "c. 1650",
             "imageCreator": null,
             "institution": "Cleveland Museum of Art, 2018.190",
             "likenessStatus": "not-applicable"
           },
           "provenance": {
             "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Northwestern_India,_Rajasthan,_Rajput_Kingdom_of_Bikaner_-_Ascetic_Princess_with_Snakes_in_a_Wilderness-_Asavari_Ragini,_from_a_Ragama_-_2018.190_-_Cleveland_Museum_of_Art.jpg",
-            "objectPageUrl": null,
-            "historicalNote": "A personification of the musical mode Āsāvarī, not a portrait or direct record of a woman practicing Patañjali Yoga; its use is contextual and comparative.",
+            "objectPageUrl": "https://www.clevelandart.org/art/2018.190",
+            "historicalNote": "A Ragamala painting titled Asavari Ragini, not a portrait or direct record of a woman practicing Patañjali Yoga; its use is contextual and comparative.",
             "derivativeNotice": "Original image retained uncropped; resized and converted to WebP by Philosophy Atlas.",
             "manifestFiles": [
               "museumModernAssetManifest.json"
@@ -14498,7 +15854,7 @@
             "license": "CC0 1.0",
             "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
             "rightsKind": "dedication",
-            "attribution": "Cleveland Museum of Art, Ascetic Princess Āsāvarī, Bikaner, 1640, CC0."
+            "attribution": "Cleveland Museum of Art, Ascetic Princess with Snakes in a Wilderness: Asavari Ragini, Bikaner, c. 1650, 2018.190. Image CC0."
           },
           "accessibility": {
             "caption": "The Ragamala image broadens the room’s visual account of asceticism while preserving its actual musical genre.",
@@ -14515,8 +15871,19 @@
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 51892,
+                "sha256": "70075f69043c2d81ecbc70dd5b65a7eed1efe90b69c398afb68bdc2d56ef511e"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 325364,
+                "sha256": "601d798b37fd553a32951ab0c2ae20ada4fb78e2b1ad466b826b25fb1f06a2b9"
+              }
+            }
           }
         }
       },
@@ -14532,9 +15899,9 @@
           "status": "match"
         },
         "mediaMountToPhysicalScene": {
-          "mount": 0.7121212121212122,
+          "mount": 0.7109375000000001,
           "scene": 0.7109375,
-          "status": "mismatch"
+          "status": "match"
         },
         "nonUniformScalingProtected": true
       },
@@ -14548,29 +15915,41 @@
           "status": "pass"
         },
         "fullArticleCta": {
-          "label": "Open the philosopher in the Atlas",
+          "label": "Read the full sourced Patañjali article",
           "expectedLabel": "Read the full sourced Patañjali article",
           "href": "#/philosophers/patanjali",
-          "status": "fail"
+          "status": "pass"
         }
       },
       "visualReview": {
         "desktop": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720",
+            "evidence": "Direct route inspected with the installed object, three-paragraph interpretation, subject-specific sidebar, article CTA, and no horizontal overflow. Evidence: docs/visual-validation/gallery-04-supplementals/desktop/yoga-asavari-ascetic-princess.png"
+          }
         },
         "mobile": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "390×844",
+            "evidence": "Direct route inspected with wrapped copy, loaded object preview, scrollable interpretation, visible controls, and no horizontal overflow. Evidence: docs/visual-validation/gallery-04-supplementals/mobile/yoga-asavari-ascetic-princess.png"
+          }
         },
         "threeDimensional": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720 fresh direct-route session",
+            "evidence": "Fresh-session authored viewpoint inspected with a live 3D canvas, closed detail panel, readable plaque, distinct installation, and the image mounted at its natural scene ratio. Evidence: docs/visual-validation/gallery-04-supplementals/staged-3d/yoga-asavari-ascetic-princess.png"
+          }
         }
       },
       "contract": {
-        "evaluated": false,
-        "status": "not-evaluated",
+        "evaluated": true,
+        "status": "pass",
         "issues": []
       }
     },
@@ -14590,7 +15969,7 @@
       },
       "exhibit": {
         "id": "shankara-aitareya-bhasya",
-        "title": "Śaṅkara: Commentary on the Aitareya Upaniṣad",
+        "title": "Śaṅkara: Teaching, Commentary, and Devotional Memory",
         "directRoute": "#/museum/classical-south-asian-worlds/exhibits/shankara-aitareya-bhasya",
         "directRouteStatus": "canonical"
       },
@@ -14616,58 +15995,160 @@
         }
       },
       "exhibitReview": {
-        "authoredStatus": "unreviewed",
-        "effectiveStatus": "unreviewed",
-        "reviewedOn": null,
-        "method": null,
-        "resolution": null,
-        "lockPresent": false,
-        "lockCurrent": null
+        "authoredStatus": "standard-compliant",
+        "effectiveStatus": "standard-compliant",
+        "reviewedOn": "2026-08-12",
+        "method": "Gallery 04 supplemental review: two non-overlapping Terra/High evidence scopes reconciled by the Sol parent across installed-object identity, attribution, dating, institution, source record, rights, claim mapping, accessibility, provenance, routes, and aspect-safe presentation.",
+        "resolution": "Resolved: reconciled the exhibit to the installed modern Warangal sculpture instead of the falsely claimed 1593 manuscript, corrected identity, rights, accessibility, interpretation, and exact 4:3 mount, and bounded the imagined likeness.",
+        "lockPresent": true,
+        "lockCurrent": true
       },
       "interpretation": {
-        "objectLed": false,
-        "objectInterpretation": null,
-        "mainWordCount": 93,
+        "objectLed": true,
+        "objectInterpretation": "The 2016 photograph records a modern imagined teacher-and-disciples group in Warangal. It is not a historical likeness, manuscript, documented episode, or evidence about the Aitareya commentary.",
+        "mainWordCount": 280,
         "paragraphCount": 3,
-        "untitledParagraphs": false,
-        "sidebarSectionCount": 0,
-        "sidebarItemCount": 0,
-        "sidebarSections": []
+        "untitledParagraphs": true,
+        "sidebarSectionCount": 2,
+        "sidebarItemCount": 4,
+        "sidebarSections": [
+          {
+            "heading": "What the image establishes",
+            "items": [
+              {
+                "label": "Modern devotional group",
+                "description": "The 2016 photograph records an imagined Śaṅkara teaching four disciples in Warangal.",
+                "sourceIds": [
+                  "shankara-sculpture-commons"
+                ]
+              },
+              {
+                "label": "Unknown provenance",
+                "description": "The source does not verify the sculptor, commission, or holding institution.",
+                "sourceIds": [
+                  "shankara-sculpture-commons"
+                ]
+              }
+            ]
+          },
+          {
+            "heading": "What commentary does",
+            "items": [
+              {
+                "label": "Argument through reading",
+                "description": "Śaṅkara interprets inherited texts by ranking passages, answering objections, and guiding inquiry.",
+                "sourceIds": [
+                  "shankara-sep",
+                  "shankara-hirst"
+                ]
+              },
+              {
+                "label": "Contested inheritance",
+                "description": "Other Vedāntins reject central Advaita conclusions rather than merely repeating one consensus.",
+                "sourceIds": [
+                  "shankara-sep",
+                  "shankara-hirst"
+                ]
+              }
+            ]
+          }
+        ]
       },
       "claimEvidence": {
         "sources": [
           {
-            "label": "Wikimedia Commons — 1593 Aitareya Upaniṣad bhāṣya manuscript",
-            "url": "https://commons.wikimedia.org/wiki/File:1593_CE,_Adi_Shankara_bhasya_Aitareya_Upanishad,_Varanasi_Jain_temple_bhandara,_Sanskrit,_Devanagari,_MS_Add.2092.jpg",
+            "id": "shankara-sculpture-commons",
+            "label": "Wikimedia Commons — Ādi Śaṅkarācārya with Disciples, Warangal, 2016",
+            "url": "https://commons.wikimedia.org/wiki/File:Adi_Shankaracharya_with_Disciples.jpg",
             "kind": "collection-record"
           },
           {
+            "id": "shankara-sep",
             "label": "Stanford Encyclopedia of Philosophy — Śaṅkara",
             "url": "https://plato.stanford.edu/entries/shankara/",
+            "kind": "academic-reference"
+          },
+          {
+            "id": "shankara-hirst",
+            "label": "Jacqueline Suthren Hirst — Śaṃkara’s Advaita Vedānta: A Way of Teaching",
+            "url": "https://www.routledge.com/Samkaras-Advaita-Vedanta-A-Way-of-Teaching/SuthrenHirst/p/book/9780415406017",
             "kind": "academic-reference"
           }
         ],
         "paragraphMappings": [
           {
             "paragraph": 1,
-            "wordCount": 25,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 90,
+            "sourceIds": [
+              "shankara-sculpture-commons",
+              "shankara-sep"
+            ],
+            "valid": true
           },
           {
             "paragraph": 2,
-            "wordCount": 29,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 92,
+            "sourceIds": [
+              "shankara-sep",
+              "shankara-hirst",
+              "shankara-sculpture-commons"
+            ],
+            "valid": true
           },
           {
             "paragraph": 3,
-            "wordCount": 39,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 98,
+            "sourceIds": [
+              "shankara-sep",
+              "shankara-hirst"
+            ],
+            "valid": true
           }
         ],
-        "sidebarMappings": []
+        "sidebarMappings": [
+          {
+            "row": 1,
+            "heading": "What the image establishes",
+            "label": "Modern devotional group",
+            "descriptionWordCount": 12,
+            "sourceIds": [
+              "shankara-sculpture-commons"
+            ],
+            "valid": true
+          },
+          {
+            "row": 2,
+            "heading": "What the image establishes",
+            "label": "Unknown provenance",
+            "descriptionWordCount": 11,
+            "sourceIds": [
+              "shankara-sculpture-commons"
+            ],
+            "valid": true
+          },
+          {
+            "row": 3,
+            "heading": "What commentary does",
+            "label": "Argument through reading",
+            "descriptionWordCount": 12,
+            "sourceIds": [
+              "shankara-sep",
+              "shankara-hirst"
+            ],
+            "valid": true
+          },
+          {
+            "row": 4,
+            "heading": "What commentary does",
+            "label": "Contested inheritance",
+            "descriptionWordCount": 12,
+            "sourceIds": [
+              "shankara-sep",
+              "shankara-hirst"
+            ],
+            "valid": true
+          }
+        ]
       },
       "assets": {
         "principal": {
@@ -14680,15 +16161,15 @@
             "role": "primary-source",
             "mediaKind": "sculpture-photograph",
             "creator": "Modern sculptor unrecorded",
-            "objectDate": "modern devotional sculpture; photographed 2016",
+            "objectDate": "modern devotional sculpture; photographed 26 December 2016",
             "imageCreator": "Shishirdasika",
-            "institution": "Warangal, Telangana",
+            "institution": "Warangal, Telangana; holding institution not verified",
             "likenessStatus": "imagined"
           },
           "provenance": {
             "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Adi_Shankaracharya_with_Disciples.jpg",
             "objectPageUrl": null,
-            "historicalNote": "The group makes teaching and interpretive transmission visible, but it is a modern devotional image—not a historical likeness or evidence about this particular commentary.",
+            "historicalNote": "A modern imagined teaching group with unknown sculptor and unverified holding institution; it is not a historical likeness, manuscript, or evidence for a particular commentary.",
             "derivativeNotice": "The source image was resized and converted to WebP by Philosophy Atlas; no interpretive elements were added.",
             "manifestFiles": [
               "museumModernAssetManifest.json"
@@ -14699,11 +16180,11 @@
             "license": "CC BY-SA 4.0",
             "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
             "rightsKind": "license",
-            "attribution": "Shishirdasika, Ādi Śaṅkarācārya with disciples, 2016, CC BY-SA 4.0."
+            "attribution": "Shishirdasika, photograph of Ādi Śaṅkarācārya with Disciples, Warangal, 26 December 2016, CC BY-SA 4.0."
           },
           "accessibility": {
-            "caption": "Modern devotional sculpture of Śaṅkara with disciples, Warangal.",
-            "alt": "Modern sculptural group imagining Śaṅkara seated as a teacher among four disciples."
+            "caption": "A modern devotional sculpture in Warangal imagines Śaṅkara teaching four disciples; photograph by Shishirdasika, 2016.",
+            "alt": "Modern orange-painted sculptural group imagining Śaṅkara seated as a teacher among four disciples in Warangal."
           },
           "dimensions": {
             "scene": {
@@ -14716,8 +16197,19 @@
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 103114,
+                "sha256": "0c1ac352400904292f2716e7e62e4a097dce9bc7be695c02a85ab86a2a625e89"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 498166,
+                "sha256": "fa88685ae66935c699337e2eeb81b61bb1b101c7587905f8ef65e3ce91f4e8f5"
+              }
+            }
           }
         },
         "physical": {
@@ -14730,15 +16222,15 @@
             "role": "primary-source",
             "mediaKind": "sculpture-photograph",
             "creator": "Modern sculptor unrecorded",
-            "objectDate": "modern devotional sculpture; photographed 2016",
+            "objectDate": "modern devotional sculpture; photographed 26 December 2016",
             "imageCreator": "Shishirdasika",
-            "institution": "Warangal, Telangana",
+            "institution": "Warangal, Telangana; holding institution not verified",
             "likenessStatus": "imagined"
           },
           "provenance": {
             "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Adi_Shankaracharya_with_Disciples.jpg",
             "objectPageUrl": null,
-            "historicalNote": "The group makes teaching and interpretive transmission visible, but it is a modern devotional image—not a historical likeness or evidence about this particular commentary.",
+            "historicalNote": "A modern imagined teaching group with unknown sculptor and unverified holding institution; it is not a historical likeness, manuscript, or evidence for a particular commentary.",
             "derivativeNotice": "The source image was resized and converted to WebP by Philosophy Atlas; no interpretive elements were added.",
             "manifestFiles": [
               "museumModernAssetManifest.json"
@@ -14749,11 +16241,11 @@
             "license": "CC BY-SA 4.0",
             "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
             "rightsKind": "license",
-            "attribution": "Shishirdasika, Ādi Śaṅkarācārya with disciples, 2016, CC BY-SA 4.0."
+            "attribution": "Shishirdasika, photograph of Ādi Śaṅkarācārya with Disciples, Warangal, 26 December 2016, CC BY-SA 4.0."
           },
           "accessibility": {
-            "caption": "Modern devotional sculpture of Śaṅkara with disciples, Warangal.",
-            "alt": "Modern sculptural group imagining Śaṅkara seated as a teacher among four disciples."
+            "caption": "A modern devotional sculpture in Warangal imagines Śaṅkara teaching four disciples; photograph by Shishirdasika, 2016.",
+            "alt": "Modern orange-painted sculptural group imagining Śaṅkara seated as a teacher among four disciples in Warangal."
           },
           "dimensions": {
             "scene": {
@@ -14766,8 +16258,19 @@
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 103114,
+                "sha256": "0c1ac352400904292f2716e7e62e4a097dce9bc7be695c02a85ab86a2a625e89"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 498166,
+                "sha256": "fa88685ae66935c699337e2eeb81b61bb1b101c7587905f8ef65e3ce91f4e8f5"
+              }
+            }
           }
         }
       },
@@ -14783,9 +16286,9 @@
           "status": "match"
         },
         "mediaMountToPhysicalScene": {
-          "mount": 2.4748201438848922,
+          "mount": 1.3333333333333333,
           "scene": 1.3333333333333333,
-          "status": "mismatch"
+          "status": "match"
         },
         "nonUniformScalingProtected": true
       },
@@ -14799,29 +16302,41 @@
           "status": "pass"
         },
         "fullArticleCta": {
-          "label": "Open Śaṅkara in the Atlas",
+          "label": "Read the full sourced Adi Shankara article",
           "expectedLabel": "Read the full sourced Adi Shankara article",
           "href": "#/philosophers/shankara",
-          "status": "fail"
+          "status": "pass"
         }
       },
       "visualReview": {
         "desktop": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720",
+            "evidence": "Direct route inspected with the installed object, three-paragraph interpretation, subject-specific sidebar, article CTA, and no horizontal overflow. Evidence: docs/visual-validation/gallery-04-supplementals/desktop/shankara-aitareya-bhasya.png"
+          }
         },
         "mobile": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "390×844",
+            "evidence": "Direct route inspected with wrapped copy, loaded object preview, scrollable interpretation, visible controls, and no horizontal overflow. Evidence: docs/visual-validation/gallery-04-supplementals/mobile/shankara-aitareya-bhasya.png"
+          }
         },
         "threeDimensional": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720 fresh direct-route session",
+            "evidence": "Fresh-session authored viewpoint inspected with a live 3D canvas, closed detail panel, readable plaque, distinct installation, and the image mounted at its natural scene ratio. Evidence: docs/visual-validation/gallery-04-supplementals/staged-3d/shankara-aitareya-bhasya.png"
+          }
         }
       },
       "contract": {
-        "evaluated": false,
-        "status": "not-evaluated",
+        "evaluated": true,
+        "status": "pass",
         "issues": []
       }
     },
@@ -14867,58 +16382,168 @@
         }
       },
       "exhibitReview": {
-        "authoredStatus": "unreviewed",
-        "effectiveStatus": "unreviewed",
-        "reviewedOn": null,
-        "method": null,
-        "resolution": null,
-        "lockPresent": false,
-        "lockCurrent": null
+        "authoredStatus": "standard-compliant",
+        "effectiveStatus": "standard-compliant",
+        "reviewedOn": "2026-08-12",
+        "method": "Gallery 04 supplemental review: two non-overlapping Terra/High evidence scopes reconciled by the Sol parent across installed-object identity, attribution, dating, institution, source record, rights, claim mapping, accessibility, provenance, routes, and aspect-safe presentation.",
+        "resolution": "Resolved: verified Syam’s 2008 CC BY photograph, treated Udupi as a living site rather than a holding institution, separated later built fabric from foundation memory, and retained the exact 4:3 mount.",
+        "lockPresent": true,
+        "lockCurrent": true
       },
       "interpretation": {
-        "objectLed": false,
-        "objectInterpretation": null,
-        "mainWordCount": 90,
+        "objectLed": true,
+        "objectInterpretation": "Syam’s 2008 photograph records later built fabric at a living Udupi institution associated with Madhva. It establishes neither the tower’s age nor Dvaita doctrine or a thirteenth-century view.",
+        "mainWordCount": 288,
         "paragraphCount": 3,
-        "untitledParagraphs": false,
-        "sidebarSectionCount": 0,
-        "sidebarItemCount": 0,
-        "sidebarSections": []
+        "untitledParagraphs": true,
+        "sidebarSectionCount": 2,
+        "sidebarItemCount": 4,
+        "sidebarSections": [
+          {
+            "heading": "Reading the site",
+            "items": [
+              {
+                "label": "Living institution",
+                "description": "Udupi Kṛṣṇa Maṭha remains a religious and teaching center rather than a museum holding.",
+                "sourceIds": [
+                  "madhva-matha-official"
+                ]
+              },
+              {
+                "label": "Modern photograph",
+                "description": "Syam’s 2008 view does not date the visible tower or reconstruct Madhva’s Udupi.",
+                "sourceIds": [
+                  "madhva-udupi-commons"
+                ]
+              }
+            ]
+          },
+          {
+            "heading": "Dvaita in transmission",
+            "items": [
+              {
+                "label": "Real difference",
+                "description": "Madhva treats God, selves, and matter as genuinely distinct while all dependent reality relies on Viṣṇu.",
+                "sourceIds": [
+                  "madhva-iep",
+                  "madhva-sarma"
+                ]
+              },
+              {
+                "label": "Institutional argument",
+                "description": "Lineage, teaching, commentary, ritual, and debate carry a school through changing historical settings.",
+                "sourceIds": [
+                  "madhva-matha-official",
+                  "madhva-sarma"
+                ]
+              }
+            ]
+          }
+        ]
       },
       "claimEvidence": {
         "sources": [
           {
-            "label": "Wikimedia Commons — Udupi Kṛṣṇa Maṭha",
+            "id": "madhva-udupi-commons",
+            "label": "Wikimedia Commons — Syam photograph of Udupi Kṛṣṇa Maṭha, 2008",
             "url": "https://commons.wikimedia.org/wiki/File:Madhvacharya_Krishna_Matha_Udupi_Karnataka.jpg",
             "kind": "collection-record"
           },
           {
+            "id": "madhva-matha-official",
+            "label": "Śrī Kṛṣṇa Maṭha — official institutional site",
+            "url": "https://shrikrishnamatha.org/",
+            "kind": "primary-text"
+          },
+          {
+            "id": "madhva-iep",
             "label": "Internet Encyclopedia of Philosophy — Madhva",
             "url": "https://iep.utm.edu/madhva/",
+            "kind": "academic-reference"
+          },
+          {
+            "id": "madhva-sarma",
+            "label": "Deepak Sarma — An Introduction to Madhva Vedanta",
+            "url": "https://www.routledge.com/An-Introduction-to-Madhva-Vedanta/Sarma/p/book/9780754606376",
             "kind": "academic-reference"
           }
         ],
         "paragraphMappings": [
           {
             "paragraph": 1,
-            "wordCount": 32,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 99,
+            "sourceIds": [
+              "madhva-udupi-commons",
+              "madhva-matha-official",
+              "madhva-iep"
+            ],
+            "valid": true
           },
           {
             "paragraph": 2,
-            "wordCount": 22,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 93,
+            "sourceIds": [
+              "madhva-iep",
+              "madhva-sarma",
+              "madhva-matha-official"
+            ],
+            "valid": true
           },
           {
             "paragraph": 3,
-            "wordCount": 36,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 96,
+            "sourceIds": [
+              "madhva-iep",
+              "madhva-sarma",
+              "madhva-matha-official"
+            ],
+            "valid": true
           }
         ],
-        "sidebarMappings": []
+        "sidebarMappings": [
+          {
+            "row": 1,
+            "heading": "Reading the site",
+            "label": "Living institution",
+            "descriptionWordCount": 14,
+            "sourceIds": [
+              "madhva-matha-official"
+            ],
+            "valid": true
+          },
+          {
+            "row": 2,
+            "heading": "Reading the site",
+            "label": "Modern photograph",
+            "descriptionWordCount": 13,
+            "sourceIds": [
+              "madhva-udupi-commons"
+            ],
+            "valid": true
+          },
+          {
+            "row": 3,
+            "heading": "Dvaita in transmission",
+            "label": "Real difference",
+            "descriptionWordCount": 16,
+            "sourceIds": [
+              "madhva-iep",
+              "madhva-sarma"
+            ],
+            "valid": true
+          },
+          {
+            "row": 4,
+            "heading": "Dvaita in transmission",
+            "label": "Institutional argument",
+            "descriptionWordCount": 13,
+            "sourceIds": [
+              "madhva-matha-official",
+              "madhva-sarma"
+            ],
+            "valid": true
+          }
+        ]
       },
       "assets": {
         "principal": {
@@ -14931,9 +16556,9 @@
             "role": "material-history",
             "mediaKind": "photograph",
             "creator": "Photograph by Syam",
-            "objectDate": "Photographed 2008",
+            "objectDate": "Photographed 21 August 2008",
             "imageCreator": null,
-            "institution": "Udupi, Karnataka",
+            "institution": "Living religious site, Udupi, Karnataka",
             "likenessStatus": "not-applicable"
           },
           "provenance": {
@@ -14967,8 +16592,19 @@
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 42504,
+                "sha256": "f7019e0e48019d5ecd826418577a69c5f9e506ce1f9c4fabed6e45a3b84c9786"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 184122,
+                "sha256": "d3bd1cfaba1c1bc139df8b46393bae3ba2107eec7cb450e48efe307e3b93b349"
+              }
+            }
           }
         },
         "physical": {
@@ -14981,9 +16617,9 @@
             "role": "material-history",
             "mediaKind": "photograph",
             "creator": "Photograph by Syam",
-            "objectDate": "Photographed 2008",
+            "objectDate": "Photographed 21 August 2008",
             "imageCreator": null,
-            "institution": "Udupi, Karnataka",
+            "institution": "Living religious site, Udupi, Karnataka",
             "likenessStatus": "not-applicable"
           },
           "provenance": {
@@ -15017,8 +16653,19 @@
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 42504,
+                "sha256": "f7019e0e48019d5ecd826418577a69c5f9e506ce1f9c4fabed6e45a3b84c9786"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 184122,
+                "sha256": "d3bd1cfaba1c1bc139df8b46393bae3ba2107eec7cb450e48efe307e3b93b349"
+              }
+            }
           }
         }
       },
@@ -15050,29 +16697,41 @@
           "status": "pass"
         },
         "fullArticleCta": {
-          "label": "Open Madhva in the Atlas",
+          "label": "Read the full sourced Madhva article",
           "expectedLabel": "Read the full sourced Madhva article",
           "href": "#/philosophers/madhva",
-          "status": "fail"
+          "status": "pass"
         }
       },
       "visualReview": {
         "desktop": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720",
+            "evidence": "Direct route inspected with the installed object, three-paragraph interpretation, subject-specific sidebar, article CTA, and no horizontal overflow. Evidence: docs/visual-validation/gallery-04-supplementals/desktop/madhva-udupi-matha.png"
+          }
         },
         "mobile": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "390×844",
+            "evidence": "Direct route inspected with wrapped copy, loaded object preview, scrollable interpretation, visible controls, and no horizontal overflow. Evidence: docs/visual-validation/gallery-04-supplementals/mobile/madhva-udupi-matha.png"
+          }
         },
         "threeDimensional": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720 fresh direct-route session",
+            "evidence": "Fresh-session authored viewpoint inspected with a live 3D canvas, closed detail panel, readable plaque, distinct installation, and the image mounted at its natural scene ratio. Evidence: docs/visual-validation/gallery-04-supplementals/staged-3d/madhva-udupi-matha.png"
+          }
         }
       },
       "contract": {
-        "evaluated": false,
-        "status": "not-evaluated",
+        "evaluated": true,
+        "status": "pass",
         "issues": []
       }
     },
