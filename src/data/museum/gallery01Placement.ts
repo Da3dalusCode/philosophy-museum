@@ -80,13 +80,13 @@ export const GALLERY_01_TRANSVERSE_PILOT = Object.freeze({
     prodicus: 5.3,
     'hippias-of-elis': 4.925,
     gorgias: 5.425,
-    platonism: 5.425,
-    aristotelianism: 5.425,
+    platonism: 5.885,
+    aristotelianism: 5.885,
     'miletus-ionian-coast': 5.885,
     'greek-philosophy-reception': 5.885,
     'socrates-trial-death': 5.885,
-    'plato-republic': 5.885,
-    'plato-cave-book-vii': 5.885,
+    'plato-republic': 5.425,
+    'plato-cave-book-vii': 5.425,
   }),
 });
 
@@ -160,9 +160,9 @@ export const GALLERY_01_PRIMARY_PLACEMENTS = Object.freeze({
 
   // Room 04: Plato and Aristotle are the final anchors; their institutional
   // afterlives terminate the gallery and point toward the successor galleries.
-  platonism: {x: transverseX('platonism', 'west'), z: -26.85, rotationY: 0},
+  platonism: {x: transverseX('platonism', 'west'), z: -15.12, rotationY: Math.PI},
   plato: {x: -10.85, z: -21, rotationY: Math.PI / 2},
-  aristotelianism: {x: transverseX('aristotelianism', 'east'), z: -26.85, rotationY: 0},
+  aristotelianism: {x: transverseX('aristotelianism', 'east'), z: -15.12, rotationY: Math.PI},
   aristotle: {x: 10.85, z: -21, rotationY: -Math.PI / 2},
 }) satisfies Readonly<Record<Gallery01PrimaryExhibitId, Gallery01Placement>>;
 
@@ -175,14 +175,14 @@ export const GALLERY_01_ENTRANCE_ORIENTATION_PLACEMENT = Object.freeze({
 
 export const GALLERY_01_PLATO_SUPPLEMENTAL_PLACEMENTS = Object.freeze({
   'plato-republic': {
-    position: {x: transverseX('plato-republic', 'east'), z: -15.12},
-    rotationY: Math.PI,
-    viewpoint: {x: transverseX('plato-republic', 'east'), z: -18.28, yaw: Math.PI, pitch: -.08},
+    position: {x: transverseX('plato-republic', 'east'), z: -26.85},
+    rotationY: 0,
+    viewpoint: {x: transverseX('plato-republic', 'east'), z: -23.69, yaw: 0, pitch: -.08},
   },
   'plato-cave-book-vii': {
-    position: {x: transverseX('plato-cave-book-vii', 'west'), z: -15.12},
-    rotationY: Math.PI,
-    viewpoint: {x: transverseX('plato-cave-book-vii', 'west'), z: -18.28, yaw: Math.PI, pitch: -.08},
+    position: {x: transverseX('plato-cave-book-vii', 'west'), z: -26.85},
+    rotationY: 0,
+    viewpoint: {x: transverseX('plato-cave-book-vii', 'west'), z: -23.69, yaw: 0, pitch: -.08},
   },
 });
 
@@ -223,8 +223,8 @@ export const GALLERY_01_CURATORIAL_WALL_SEQUENCES = Object.freeze({
     east: ['gorgias', 'socrates', 'socrates-trial-death'],
   },
   'med-plato-aristotle': {
-    west: ['plato-cave-book-vii', 'plato', 'platonism'],
-    east: ['plato-republic', 'aristotle', 'aristotelianism'],
+    west: ['platonism', 'plato', 'plato-cave-book-vii'],
+    east: ['aristotelianism', 'aristotle', 'plato-republic'],
   },
 }) satisfies Readonly<Record<Gallery01RoomId, Readonly<{
   west: readonly Gallery01InstallationId[];

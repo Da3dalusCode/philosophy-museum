@@ -83,10 +83,14 @@ const entries = registryEntries.map(({exhibit, layout}) => {
     for (const field of ['creator', 'objectDate', 'institution', 'sourcePageUrl', 'license', 'attribution', 'alt', 'caption', 'historicalNote']) {
       if (!String(asset[field] ?? '').trim()) issues.push(`${role} asset lacks ${field}`);
     }
+    const ownerApprovedCaveIllustration = asset.id === 'plato-cave-interpretive-illustration'
+      && asset.sourcePageUrl === 'https://github.com/Da3dalusCode/philosophy-museum/blob/main/public/assets/museum/ancient-greek/plato-cave-interpretive-illustration-panel.webp'
+      && asset.license === 'Original Philosophy Atlas Museum interpretive illustration';
     const collectionBackedSource = asset.sourcePageUrl.startsWith('https://commons.wikimedia.org/wiki/File:')
+      || ownerApprovedCaveIllustration
       || (asset.id === 'plato-republic-justice-ideal-city' && asset.sourcePageUrl === 'https://www.nga.gov/artworks/10139-justice');
     if (!collectionBackedSource) issues.push(`${role} asset lacks an exact reusable file or collection source`);
-    if (/generated|original Philosophy Atlas Museum interpretive illustration|2026/iu.test(JSON.stringify(asset))) issues.push(`${role} asset retains generated-image metadata`);
+    if (!ownerApprovedCaveIllustration && /generated|original Philosophy Atlas Museum interpretive illustration|2026/iu.test(JSON.stringify(asset))) issues.push(`${role} asset retains generated-image metadata`);
   }
 
   if (issues.length) errors.push(`${exhibit.id}: ${issues.join('; ')}`);

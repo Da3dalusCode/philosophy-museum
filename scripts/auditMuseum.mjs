@@ -2123,7 +2123,7 @@ check('Gallery 01 has bounded authored curation, minimum-scale exhibits, and a c
   assert(entranceConnection?.accessible && entranceConnection.implementationStatus === 'live', 'Grand Entrance does not connect physically to Gallery 01');
 });
 
-check('Plato’s Cave and Republic frame the final room without entering the primary program', () => {
+check('Plato’s Cave and Republic retain their supplemental identity after the Room 04 wall exchange', () => {
   const definition = definitionById.get(MEDITERRANEAN_GALLERY_ID);
   const hall = hallById.get(MEDITERRANEAN_GALLERY_ID);
   assert(definition && hall);
@@ -2145,13 +2145,18 @@ check('Plato’s Cave and Republic frame the final room without entering the pri
   assert.deepEqual(MEDITERRANEAN_EXHIBIT_CURATION.plato.authored, GALLERY_01_PRIMARY_PLACEMENTS.plato, 'The principal Plato wall left the Gallery 01 placement contract');
   assert.deepEqual(MEDITERRANEAN_EXHIBIT_CURATION.aristotelianism.authored, GALLERY_01_PRIMARY_PLACEMENTS.aristotelianism, 'The Aristotelianism wall left the Gallery 01 placement contract');
   assert.deepEqual(MEDITERRANEAN_EXHIBIT_CURATION.aristotle.authored, GALLERY_01_PRIMARY_PLACEMENTS.aristotle, 'The Aristotle wall left the Gallery 01 placement contract');
+  approx(GALLERY_01_PRIMARY_PLACEMENTS.platonism.x, -GALLERY_01_TRANSVERSE_PILOT.centerXByInstallation['platonism'], 'Platonism exchanged north-west wall centre');
+  approx(GALLERY_01_PRIMARY_PLACEMENTS.platonism.z, -15.12, 'Platonism exchanged north-wall position');
+  approx(GALLERY_01_PRIMARY_PLACEMENTS.platonism.rotationY, Math.PI, 'Platonism exchanged inward-facing rotation');
+  approx(GALLERY_01_PRIMARY_PLACEMENTS.aristotelianism.x, GALLERY_01_TRANSVERSE_PILOT.centerXByInstallation.aristotelianism, 'Aristotelianism exchanged north-east wall centre');
+  approx(GALLERY_01_PRIMARY_PLACEMENTS.aristotelianism.z, -15.12, 'Aristotelianism exchanged north-wall position');
+  approx(GALLERY_01_PRIMARY_PLACEMENTS.aristotelianism.rotationY, Math.PI, 'Aristotelianism exchanged inward-facing rotation');
 
   const byId = new Map(supplemental.map((layout) => [layout.id, layout]));
   const republic = byId.get('plato-republic');
   const cave = byId.get('plato-cave-book-vii');
   assert(republic && cave);
-  const requiredInnerEdge = GALLERY_01_TRANSVERSE_PILOT.protectedRouteHalfWidth
-    + GALLERY_01_TRANSVERSE_PILOT.targetInnerEdgeGap;
+  const protectedInnerEdge = GALLERY_01_TRANSVERSE_PILOT.protectedRouteHalfWidth;
   approx(
     republic.position.x,
     GALLERY_01_TRANSVERSE_PILOT.centerXByInstallation['plato-republic'],
@@ -2162,13 +2167,13 @@ check('Plato’s Cave and Republic frame the final room without entering the pri
     -GALLERY_01_TRANSVERSE_PILOT.centerXByInstallation['plato-cave-book-vii'],
     'Cave south-west wall centre',
   );
-  approx(republic.position.z, -15.12, 'Republic final-room entry position');
-  approx(cave.position.z, -15.12, 'Cave final-room entry position');
-  approx(republic.rotationY, Math.PI, 'Republic inward-facing rotation');
-  approx(cave.rotationY, Math.PI, 'Cave inward-facing rotation');
+  approx(republic.position.z, -26.85, 'Republic exchanged south-wall position');
+  approx(cave.position.z, -26.85, 'Cave exchanged south-wall position');
+  approx(republic.rotationY, 0, 'Republic exchanged inward-facing rotation');
+  approx(cave.rotationY, 0, 'Cave exchanged inward-facing rotation');
   assert(
     distance(republic.position, cave.position)
-      >= republic.footprint.width / 2 + cave.footprint.width / 2 + 2 * requiredInnerEdge,
+      >= republic.footprint.width / 2 + cave.footprint.width / 2 + 2 * protectedInnerEdge,
     'The paired Plato works collapsed into the central doorway',
   );
   for (const layout of supplemental) {
@@ -2176,7 +2181,7 @@ check('Plato’s Cave and Republic frame the final room without entering the pri
     assert.equal(layout.zoneId, 'med-plato-aristotle', `${layout.id} left Room 04`);
     assert.equal(layout.spatialCellId, 'med-plato-aristotle', `${layout.id} left the Room 04 spatial cell`);
     assert(
-      Math.abs(layout.position.x) - layout.footprint.width / 2 >= requiredInnerEdge,
+      Math.abs(layout.position.x) - layout.footprint.width / 2 >= protectedInnerEdge,
       `${layout.id} intrudes into the central circulation/sightline`,
     );
     assert(layout.footprint.width >= 4.7 && layout.footprint.height >= 4.5, `${layout.id} is not visually substantial`);

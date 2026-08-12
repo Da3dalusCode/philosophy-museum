@@ -105,21 +105,21 @@
       "authoredReviewStatus": "standard-compliant",
       "effectiveReviewStatus": "standard-compliant",
       "reviewedOn": "2026-08-11",
-      "resolution": "Resolved: replaced the unsupported generated illustration with Saenredam’s public-domain 1604 engraving; distinguished Plato’s argument from later Christian additions; mapped the ascent, turning, and compelled return to exact sources.",
+      "resolution": "Resolved: restored the approved portrait-format Museum interpretive illustration from repository history; identified it as contemporary interpretation; retained exact source mapping for the Cave’s ascent, turning, and compelled return.",
       "presentation": {
         "objectLed": true,
-        "mainWords": 298,
+        "mainWords": 295,
         "paragraphs": 3,
         "visitorGuideSections": 0,
         "visitorGuideItems": 0
       },
       "evidence": {
-        "interpretationSources": 6,
+        "interpretationSources": 5,
         "mappedClaimUnits": 3,
         "panelAssetId": "plato-cave-interpretive-illustration",
         "physicalAssetId": "plato-cave-interpretive-illustration",
-        "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Platon_Cave_Sanraedam_1604.jpg",
-        "rights": "Public Domain Mark 1.0"
+        "sourcePageUrl": "https://github.com/Da3dalusCode/philosophy-museum/blob/main/public/assets/museum/ancient-greek/plato-cave-interpretive-illustration-panel.webp",
+        "rights": "Original Philosophy Atlas Museum interpretive illustration"
       },
       "issues": []
     },

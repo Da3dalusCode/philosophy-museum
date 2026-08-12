@@ -350,6 +350,7 @@ const NEW_CANONICAL_ASSET_IDS = [
   'buddhist-diamond-sutra-868',
 ];
 const ORIGINAL_INTERPRETIVE_ASSET_IDS = new Set([
+  'plato-cave-interpretive-illustration',
   'levinas-totality-infinity-2002',
   'phenomenology-intentionality-interpretive',
   'heidegger-being-time-interpretive',
@@ -1987,7 +1988,13 @@ check('the 25-source Gallery 01 lock reproduces all curated Mediterranean media'
     const asset = assetById.get(id);
     assert(asset && lock, `${id} is absent from its runtime record or source lock`);
     assert.equal(lock.sourcePageUrl, asset.sourcePageUrl, `${id} lock source page differs from provenance`);
-    if (lock.sourceKind === 'curated-two-object-composite') {
+    if (lock.sourceKind === 'owner-approved-original-illustration') {
+      assert.equal(id, 'plato-cave-interpretive-illustration');
+      assert.equal(new URL(lock.sourcePageUrl).hostname, 'github.com');
+      assert.equal(new URL(lock.sourceImageUrl).hostname, 'github.com');
+      assert.equal(new URL(lock.selectedThumbnailUrl).hostname, 'github.com');
+      assert.equal(lock.sceneMaximum, 450, `${id} must retain its tighter scene cap`);
+    } else if (lock.sourceKind === 'curated-two-object-composite') {
       assert.equal(id, 'plato-republic-justice-ideal-city');
       assert.equal(new URL(lock.sourcePageUrl).hostname, 'www.nga.gov');
       assert.equal(new URL(lock.sourceImageUrl).hostname, 'api.nga.gov');

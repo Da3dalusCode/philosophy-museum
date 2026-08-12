@@ -147,8 +147,8 @@ export const PLATO_SUPPLEMENTAL_EXHIBITS = [
     sections: [
       {
         heading: '',
-        paragraphs: ['Jan Saenredam made this engraving of Plato’s Cave in 1604, after a design by Cornelis van Haarlem. Across the dark interior, prisoners watch shadows cast from figures carried behind a wall; beyond them, a bright passage leads upward into daylight. The print offers a vivid route through the image described in Book VII of the Republic, but it also belongs to its own early-modern world. Saenredam added Christian personifications of virtues and vices, turning Plato’s story into a moral drama that seventeenth-century viewers could read through familiar religious ideas.'],
-        sourceIds: ['british-cave', 'commons-cave'],
+        paragraphs: ['This Museum interpretive illustration presents Plato’s Cave as a vertical passage from confinement toward light. Below ground, chained prisoners face shadows cast by objects carried behind them; above, a sunlit landscape opens beyond the cave. The image follows the central movement of Book VII of the Republic while remaining a contemporary visual interpretation rather than historical artwork. Its divided composition makes the contrast between an enclosed field of experience and a wider world immediately visible, preparing the ascent that Plato describes as difficult, gradual, and transformative.'],
+        sourceIds: ['cave-illustration', 'republic-cave'],
       },
       {
         heading: '',
@@ -157,7 +157,7 @@ export const PLATO_SUPPLEMENTAL_EXHIBITS = [
       },
       {
         heading: '',
-        paragraphs: ['The story does not end in sunlight. The educated person must return to the cave, accept the confusion of descending into darkness, and share the work of governing with those who remain below. This return links knowledge to public responsibility, yet it also supports Plato’s controversial claim that philosophers should rule. The image asks difficult questions that remain alive: who can tell the difference between clearer understanding and confident illusion, who decides what education should turn us toward, and when does claimed knowledge become a reason to concentrate power? Saenredam’s engraving extends those questions by showing how each later age can reshape the Cave in its own moral language.'],
+        paragraphs: ['The story does not end in sunlight. The educated person must return to the cave, accept the confusion of descending into darkness, and share the work of governing with those who remain below. This return links knowledge to public responsibility, yet it also supports Plato’s controversial claim that philosophers should rule. The image asks difficult questions that remain alive: who can tell the difference between clearer understanding and confident illusion, who decides what education should turn us toward, and when does claimed knowledge become a reason to concentrate power? The illustration holds ascent and confinement in one view, keeping that political return visible alongside the promise of clearer understanding.'],
         sourceIds: ['republic-return', 'iep-republic'],
       },
     ],
@@ -166,10 +166,9 @@ export const PLATO_SUPPLEMENTAL_EXHIBITS = [
       {id: 'republic-turning', label: 'Plato, Republic 518c–d: education as turning the soul (Perseus)', url: 'https://www.perseus.tufts.edu/hopper/text?doc=Plat.+Rep.+518C', kind: 'primary-text'},
       {id: 'republic-return', label: 'Plato, Republic 519c–520e: compelled return (Perseus)', url: 'https://www.perseus.tufts.edu/hopper/text?doc=Plat.+Rep.+519C', kind: 'primary-text'},
       {id: 'iep-republic', label: 'Internet Encyclopedia of Philosophy: Plato’s Republic', url: 'https://iep.utm.edu/republic/', kind: 'academic-reference'},
-      {id: 'british-cave', label: 'British Museum: The Cave of Plato, 1604', url: 'https://www.britishmuseum.org/collection/object/P_1852-1211-120', kind: 'collection-record'},
-      {id: 'commons-cave', label: 'Wikimedia Commons: Saenredam engraving and public-domain record', url: 'https://commons.wikimedia.org/wiki/File:Platon_Cave_Sanraedam_1604.jpg', kind: 'collection-record'},
+      {id: 'cave-illustration', label: 'Philosophy Atlas Museum: Cave interpretive illustration', url: 'https://github.com/Da3dalusCode/philosophy-museum/blob/main/public/assets/museum/ancient-greek/plato-cave-interpretive-illustration-panel.webp', kind: 'collection-record'},
     ],
-    objectInterpretation: 'Saenredam’s 1604 engraving translates the Cave into an early-modern Christian setting. Its personified virtues and vices show how later viewers adapted Plato’s image to their own moral world.',
+    objectInterpretation: 'This contemporary Museum illustration places the prisoners, shadow-making objects, cave, and sunlit world in one vertical composition. It interprets Plato’s argument rather than documenting an ancient place or object.',
     assetId: 'plato-cave-interpretive-illustration',
     panelAssetId: 'plato-cave-interpretive-illustration',
     articleRoute: {kind: 'philosopher', philosopherId: 'plato'},
@@ -197,8 +196,8 @@ export const PLATO_SUPPLEMENTAL_EXHIBITS = [
       status: 'standard-compliant',
       reviewedOn: '2026-08-11',
       method: 'Gallery 01 supplemental review: object identity, claims, sources, rights, accessibility, provenance, and the established untitled object-led exhibit presentation.',
-      resolution: 'Resolved: replaced the unsupported generated illustration with Saenredam’s public-domain 1604 engraving; distinguished Plato’s argument from later Christian additions; mapped the ascent, turning, and compelled return to exact sources.',
-      lock: 'fnv1a64:7c5fb25e374fd3d6',
+      resolution: 'Resolved: restored the approved portrait-format Museum interpretive illustration from repository history; identified it as contemporary interpretation; retained exact source mapping for the Cave’s ascent, turning, and compelled return.',
+      lock: 'fnv1a64:eb886164d6a13d4e',
     },
   },
   {
@@ -318,7 +317,7 @@ export const PLATO_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     collider: {id: `supplemental:${CAVE_ID}`, center: GALLERY_01_PLATO_SUPPLEMENTAL_PLACEMENTS['plato-cave-book-vii'].position, size: {width: 4.75, depth: 1.08}, rotation: GALLERY_01_PLATO_SUPPLEMENTAL_PLACEMENTS['plato-cave-book-vii'].rotationY},
     viewpoint: GALLERY_01_PLATO_SUPPLEMENTAL_PLACEMENTS['plato-cave-book-vii'].viewpoint,
     assetId: 'plato-cave-interpretive-illustration',
-    mediaMount: mediaMount(CAVE_ID, 'plato-cave-interpretive-illustration', 3.8, 2.82, 1.82),
+    mediaMount: mediaMount(CAVE_ID, 'plato-cave-interpretive-illustration', 2.72, 3.4, 1.82),
     label: {position: [0, 4.03, -.31], width: 4.18, height: .84},
     footprint: {width: 4.75, height: 4.55, depth: 1.08},
     installationKind: 'cave-ascent',

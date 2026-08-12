@@ -376,20 +376,23 @@
       }
     },
     "plato-cave-interpretive-illustration": {
-      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Platon_Cave_Sanraedam_1604.jpg",
-      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b1/Platon_Cave_Sanraedam_1604.jpg",
-      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Platon_Cave_Sanraedam_1604.jpg/1280px-Platon_Cave_Sanraedam_1604.jpg",
+      "sourceKind": "owner-approved-original-illustration",
+      "sourcePageUrl": "https://github.com/Da3dalusCode/philosophy-museum/blob/main/public/assets/museum/ancient-greek/plato-cave-interpretive-illustration-panel.webp",
+      "sourceImageUrl": "https://github.com/Da3dalusCode/philosophy-museum/raw/main/public/assets/museum/ancient-greek/plato-cave-interpretive-illustration-panel.webp",
+      "selectedThumbnailUrl": "https://github.com/Da3dalusCode/philosophy-museum/raw/main/public/assets/museum/ancient-greek/plato-cave-interpretive-illustration-panel.webp",
+      "sceneMaximum": 450,
+      "panelMaximum": 900,
       "scene": {
-        "width": 640,
-        "height": 467,
-        "bytes": 116780,
-        "sha256": "d5dd0c321746bb89fd21de357232ec3f5b74c6639cb4cc832576e45546832067"
+        "width": 360,
+        "height": 450,
+        "bytes": 45728,
+        "sha256": "ae00750c5a0f6b220ab80c0b006706d6d1e5aa5476ca7cc2a7c8a9ad68e49109"
       },
       "panel": {
-        "width": 1280,
-        "height": 933,
-        "bytes": 549736,
-        "sha256": "ea968caede181b4ab83ecf271481548f095fb4e33894fec2cc09541413938a77"
+        "width": 720,
+        "height": 900,
+        "bytes": 245220,
+        "sha256": "bea6207e3d8cd730b5fb33c0d05eb3aa285e8e72c7764cd96294baed07f19e77"
       }
     },
     "plato-republic-justice-ideal-city": {
