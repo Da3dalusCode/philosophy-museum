@@ -3442,7 +3442,7 @@ check('Gallery 14 is a complete 25-installation crossroads of four distinct Hell
   assert.match(successorSupplementalSceneSource, /onClick=\{activate\}/u, 'Gallery 14 supplemental installations lack mouse activation');
   assert.match(successorSupplementalSceneSource, /interactionForSupplemental/u, 'Gallery 14 supplemental installations lack stable interaction identity');
   assert.match(successorSupplementalSceneSource, /MuseumSceneMedia/u, 'Gallery 14 supplemental installations lack provenance-backed media');
-  assert.match(hellenisticRomanSupplementalDataSource, /Frank Speech[\s\S]*Partnership Against Convention[\s\S]*Cosmopolitan Claim/u, 'Gallery 14 Cynic context is incomplete');
+  assert.match(hellenisticRomanSupplementalDataSource, /Diogenes with His Lantern[\s\S]*Hipparchia and Crates[\s\S]*Cynic Cosmopolitanism/u, 'Gallery 14 Cynic context is incomplete');
 });
 
 check('Galleries 09 and 14 have finished full-height baffles and four-metre room throats', () => {

@@ -1,0 +1,214 @@
+{
+  "dataAsOf": "2026-08-12",
+  "authority": "Runtime MUSEUM_SUPPLEMENTAL_EXHIBITS registry filtered by hallId",
+  "hallId": "hellenistic-roman-ways",
+  "registryCount": 7,
+  "reviewedCount": 7,
+  "resolvedCount": 7,
+  "errors": [],
+  "entries": [
+    {
+      "id": "cynic-frank-speech-in-public",
+      "title": "Diogenes with His Lantern",
+      "articleRoute": {
+        "kind": "philosopher",
+        "philosopherId": "diogenes"
+      },
+      "articleStatus": "claim-reviewed",
+      "authoredReviewStatus": "standard-compliant",
+      "effectiveReviewStatus": "standard-compliant",
+      "reviewedOn": "2026-08-12",
+      "resolution": "Resolved: identified van Mol’s painting as early-modern reception, corrected the image description, and mapped the lamp anecdote and Cynic frank speech to their distinct ancient and scholarly evidence.",
+      "presentation": {
+        "objectLed": true,
+        "mainWords": 305,
+        "paragraphs": 3,
+        "visitorGuideSections": 0,
+        "visitorGuideItems": 0
+      },
+      "evidence": {
+        "interpretationSources": 4,
+        "mappedClaimUnits": 3,
+        "panelAssetId": "cynic-diogenes-honest-man",
+        "physicalAssetId": "cynic-diogenes-honest-man",
+        "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Pieter_van_Mol_-_Diogenes_with_his_lantern_looking_for_an_honest_man.jpg",
+        "rights": "Public Domain Mark 1.0"
+      },
+      "issues": []
+    },
+    {
+      "id": "cynic-hipparchia-crates",
+      "title": "Hipparchia and Crates",
+      "articleRoute": {
+        "kind": "branch",
+        "branchId": "cynicism"
+      },
+      "articleStatus": "claim-reviewed",
+      "authoredReviewStatus": "standard-compliant",
+      "effectiveReviewStatus": "standard-compliant",
+      "reviewedOn": "2026-08-12",
+      "resolution": "Resolved: corrected the 1643 Rijksmuseum print’s maker and design credit, distinguished its marriage-proposal scene from ancient evidence, and mapped the Hipparchia–Crates account to Diogenes Laertius with explicit uncertainty.",
+      "presentation": {
+        "objectLed": true,
+        "mainWords": 312,
+        "paragraphs": 3,
+        "visitorGuideSections": 0,
+        "visitorGuideItems": 0
+      },
+      "evidence": {
+        "interpretationSources": 4,
+        "mappedClaimUnits": 3,
+        "panelAssetId": "cynic-hipparchia-crates-print",
+        "physicalAssetId": "cynic-hipparchia-crates-print",
+        "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Hipparchia_en_Krates,_RP-P-1938-2026.jpg",
+        "rights": "CC0 1.0"
+      },
+      "issues": []
+    },
+    {
+      "id": "cynic-cosmopolitan-constellation",
+      "title": "Cynic Cosmopolitanism",
+      "articleRoute": {
+        "kind": "branch",
+        "branchId": "cynicism"
+      },
+      "articleStatus": "claim-reviewed",
+      "authoredReviewStatus": "standard-compliant",
+      "effectiveReviewStatus": "standard-compliant",
+      "reviewedOn": "2026-08-12",
+      "resolution": "Resolved: recast the portrait grid as nineteenth-century reception, mapped Diogenes’s attributed kosmopolitēs reply and the disputed Cynic lineage, and separated Cynic refusal from later Stoic cosmopolitan theory.",
+      "presentation": {
+        "objectLed": true,
+        "mainWords": 301,
+        "paragraphs": 3,
+        "visitorGuideSections": 0,
+        "visitorGuideItems": 0
+      },
+      "evidence": {
+        "interpretationSources": 5,
+        "mappedClaimUnits": 3,
+        "panelAssetId": "cynic-philosophers-constellation",
+        "physicalAssetId": "cynic-philosophers-constellation",
+        "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Philosophers;_twenty_portraits_of_classical_thinkers._Engrav_Wellcome_V0006810.jpg",
+        "rights": "CC BY 4.0"
+      },
+      "issues": []
+    },
+    {
+      "id": "epicurean-fourfold-remedy",
+      "title": "The Epicurean Inscription at Oinoanda",
+      "articleRoute": {
+        "kind": "branch",
+        "branchId": "epicureanism"
+      },
+      "articleStatus": "claim-reviewed",
+      "authoredReviewStatus": "standard-compliant",
+      "effectiveReviewStatus": "standard-compliant",
+      "reviewedOn": "2026-08-12",
+      "resolution": "Resolved: retitled the exhibit around the installed Oinoanda fragment, corrected its identity, credit, rights, dimensions, and accessibility text, and mapped its public Epicurean teaching to primary and scholarly evidence.",
+      "presentation": {
+        "objectLed": true,
+        "mainWords": 298,
+        "paragraphs": 3,
+        "visitorGuideSections": 0,
+        "visitorGuideItems": 0
+      },
+      "evidence": {
+        "interpretationSources": 4,
+        "mappedClaimUnits": 3,
+        "panelAssetId": "epicurean-tetrapharmakos",
+        "physicalAssetId": "epicurean-tetrapharmakos",
+        "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:OinoandaInscription.JPG",
+        "rights": "CC BY-SA 3.0"
+      },
+      "issues": []
+    },
+    {
+      "id": "epicurean-philodemus-library",
+      "title": "Athena from the Villa of the Papyri",
+      "articleRoute": {
+        "kind": "branch",
+        "branchId": "epicureanism"
+      },
+      "articleStatus": "claim-reviewed",
+      "authoredReviewStatus": "standard-compliant",
+      "effectiveReviewStatus": "standard-compliant",
+      "reviewedOn": "2026-08-12",
+      "resolution": "Resolved: identified the installed Athena and its licensed photograph, recast it as truthful Villa material context, and qualified every claim connecting the library, Philodemus, residence, ownership, and Roman patronage.",
+      "presentation": {
+        "objectLed": true,
+        "mainWords": 319,
+        "paragraphs": 3,
+        "visitorGuideSections": 0,
+        "visitorGuideItems": 0
+      },
+      "evidence": {
+        "interpretationSources": 3,
+        "mappedClaimUnits": 3,
+        "panelAssetId": "epicurean-philodemus-subscription",
+        "physicalAssetId": "epicurean-philodemus-subscription",
+        "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:From_the_Villa_of_the_Papyri_in_Herculaneum,_Naples_National_Archaeological_Museum_(49439110928).jpg",
+        "rights": "CC BY-SA 2.0"
+      },
+      "issues": []
+    },
+    {
+      "id": "epicurean-herculaneum-afterlife",
+      "title": "Piaggio’s Papyrus-Unrolling Machine",
+      "articleRoute": {
+        "kind": "branch",
+        "branchId": "epicureanism"
+      },
+      "articleStatus": "claim-reviewed",
+      "authoredReviewStatus": "standard-compliant",
+      "effectiveReviewStatus": "standard-compliant",
+      "reviewedOn": "2026-08-12",
+      "resolution": "Resolved: identified the displayed object as Castrucci’s 1858 diagram of Piaggio’s unrolling machine, corrected its provenance and accessibility record, and mapped the conservation claims to documented material limits.",
+      "presentation": {
+        "objectLed": true,
+        "mainWords": 300,
+        "paragraphs": 3,
+        "visitorGuideSections": 0,
+        "visitorGuideItems": 0
+      },
+      "evidence": {
+        "interpretationSources": 3,
+        "mappedClaimUnits": 3,
+        "panelAssetId": "epicurean-herculaneum-papyrus",
+        "physicalAssetId": "epicurean-herculaneum-papyrus",
+        "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Abbot_Piaggios_machine_Device-to-unroll-papyri_1756_Vatican.jpg",
+        "rights": "Public Domain Mark 1.0"
+      },
+      "issues": []
+    },
+    {
+      "id": "skeptical-arguments-preserved",
+      "title": "Pyrrho in the Storm",
+      "articleRoute": {
+        "kind": "philosopher",
+        "philosopherId": "sextus-empiricus"
+      },
+      "articleStatus": "claim-reviewed",
+      "authoredReviewStatus": "standard-compliant",
+      "effectiveReviewStatus": "standard-compliant",
+      "reviewedOn": "2026-08-12",
+      "resolution": "Resolved: identified the installed Pyrrho storm drawing and its public-domain record, corrected the anecdote to Diogenes Laertius 9.68, and distinguished reception, Pyrrho’s contested views, and Sextus’s later practice.",
+      "presentation": {
+        "objectLed": true,
+        "mainWords": 319,
+        "paragraphs": 3,
+        "visitorGuideSections": 0,
+        "visitorGuideItems": 0
+      },
+      "evidence": {
+        "interpretationSources": 7,
+        "mappedClaimUnits": 3,
+        "panelAssetId": "skeptical-sextus-adversus-edition",
+        "physicalAssetId": "skeptical-sextus-adversus-edition",
+        "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Petrarca-Meister_001.jpg",
+        "rights": "Public Domain Mark 1.0"
+      },
+      "issues": []
+    }
+  ]
+}
