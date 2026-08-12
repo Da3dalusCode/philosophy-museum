@@ -324,24 +324,72 @@
         "sha256": "fbc1202b04ac12be71b62e00910f0120d65f3a12861caa4ff2ed3587d8c6f9a7"
       }
     },
-    "plato-cave-interpretive-illustration": {
-      "sourceKind": "owner-approved-original-illustration",
-      "sourcePageUrl": "https://github.com/Da3dalusCode/philosophy-museum/blob/main/public/assets/museum/ancient-greek/plato-cave-interpretive-illustration-panel.webp",
-      "sourceImageUrl": "https://github.com/Da3dalusCode/philosophy-museum/raw/main/public/assets/museum/ancient-greek/plato-cave-interpretive-illustration-panel.webp",
-      "selectedThumbnailUrl": "https://github.com/Da3dalusCode/philosophy-museum/raw/main/public/assets/museum/ancient-greek/plato-cave-interpretive-illustration-panel.webp",
-      "sceneMaximum": 450,
-      "panelMaximum": 900,
+    "socrates-trial-interpretive": {
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Death_of_Socrates_-_Francois-Xavier_Fabre.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Death_of_Socrates_-_Francois-Xavier_Fabre.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Death_of_Socrates_-_Francois-Xavier_Fabre.jpg/1280px-Death_of_Socrates_-_Francois-Xavier_Fabre.jpg",
       "scene": {
-        "width": 360,
-        "height": 450,
-        "bytes": 45728,
-        "sha256": "ae00750c5a0f6b220ab80c0b006706d6d1e5aa5476ca7cc2a7c8a9ad68e49109"
+        "width": 640,
+        "height": 480,
+        "bytes": 32110,
+        "sha256": "47ece43d0e2052a07714d1127e26be50c2e310ed2b89b02da611bd6ebf14118f"
       },
       "panel": {
-        "width": 720,
-        "height": 900,
-        "bytes": 245220,
-        "sha256": "bea6207e3d8cd730b5fb33c0d05eb3aa285e8e72c7764cd96294baed07f19e77"
+        "width": 1280,
+        "height": 960,
+        "bytes": 175842,
+        "sha256": "c18e8ddd5fa7352f773a3b7e70386a97bbdb713ef359454a91c3c78ef13bc74a"
+      }
+    },
+    "greek-philosophy-reception-interpretive": {
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:The_School_of_Athens_by_Raffaello_Sanzio_da_Urbino,_Vatican.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a4/The_School_of_Athens_by_Raffaello_Sanzio_da_Urbino%2C_Vatican.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/The_School_of_Athens_by_Raffaello_Sanzio_da_Urbino%2C_Vatican.jpg/1280px-The_School_of_Athens_by_Raffaello_Sanzio_da_Urbino%2C_Vatican.jpg",
+      "scene": {
+        "width": 640,
+        "height": 435,
+        "bytes": 96376,
+        "sha256": "6d2efbc67ffaad535a8188c05d6fed7185332480cc56e121c14ad34d27ce9ed1"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 870,
+        "bytes": 468936,
+        "sha256": "fafc13162a50049d3d6602b8f6b129ef091bd185513ef525cd1a053447cf6a09"
+      }
+    },
+    "miletus-ionian-coast-interpretive": {
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:MiletusIonicStoa.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/04/MiletusIonicStoa.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/0/04/MiletusIonicStoa.jpg",
+      "scene": {
+        "width": 640,
+        "height": 480,
+        "bytes": 42196,
+        "sha256": "f5742e917a4cd17af4b1fe833048d92311f4d30136547373cafe6805382e9cb0"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 960,
+        "bytes": 185456,
+        "sha256": "b5409909a90d2b0ef5fe2ae9b966412f45d04d8651ff5f271a193fab4764c00d"
+      }
+    },
+    "plato-cave-interpretive-illustration": {
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Platon_Cave_Sanraedam_1604.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b1/Platon_Cave_Sanraedam_1604.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Platon_Cave_Sanraedam_1604.jpg/1280px-Platon_Cave_Sanraedam_1604.jpg",
+      "scene": {
+        "width": 640,
+        "height": 467,
+        "bytes": 116780,
+        "sha256": "d5dd0c321746bb89fd21de357232ec3f5b74c6639cb4cc832576e45546832067"
+      },
+      "panel": {
+        "width": 1280,
+        "height": 933,
+        "bytes": 549736,
+        "sha256": "ea968caede181b4ab83ecf271481548f095fb4e33894fec2cc09541413938a77"
       }
     },
     "plato-republic-justice-ideal-city": {

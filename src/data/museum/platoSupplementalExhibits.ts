@@ -1,4 +1,5 @@
 import type {NavigableAppRoute} from '../../routing/routes';
+import type {MuseumExhibitReview} from '../../editorial/exhibitReview';
 import type {MuseumAssetId} from './museumAssetTypes';
 import type {
   MuseumMediaMountDefinition,
@@ -9,6 +10,7 @@ import type {
 import {GALLERY_01_PLATO_SUPPLEMENTAL_PLACEMENTS} from './gallery01Placement';
 
 export type MuseumSupplementalInterpretationSource = {
+  id?: string;
   label: string;
   url: string;
   kind: 'primary-text' | 'academic-reference' | 'collection-record';
@@ -18,6 +20,7 @@ export type MuseumSupplementalInterpretationSection = {
   heading: string;
   paragraphs: readonly string[];
   points?: readonly string[];
+  sourceIds?: readonly string[];
 };
 
 export type MuseumSupplementalExhibitPresentation = {
@@ -28,6 +31,7 @@ export type MuseumSupplementalExhibitPresentation = {
   entityKind: 'philosopher' | 'branch';
   keyIdeasLabel?: string;
   cautionsLabel?: string;
+  exhibitLayout?: 'object-led';
 };
 
 export type MuseumSupplementalPlaqueType =
@@ -68,6 +72,7 @@ export type MuseumSupplementalExhibit = {
   cautions: readonly string[];
   sections: readonly MuseumSupplementalInterpretationSection[];
   sources: readonly MuseumSupplementalInterpretationSource[];
+  objectInterpretation?: string;
   assetId: MuseumAssetId;
   panelAssetId: MuseumAssetId;
   /** Omitted when the Atlas has no truthful canonical article for this context. */
@@ -76,6 +81,7 @@ export type MuseumSupplementalExhibit = {
   presentation?: MuseumSupplementalExhibitPresentation;
   /** Wall-only presentation metadata. Modal and article copy remain independent. */
   wallPlaque?: MuseumSupplementalWallPlaque;
+  review?: MuseumExhibitReview & {resolution: string};
 };
 
 export type PlatoSupplementalExhibit = MuseumSupplementalExhibit;
@@ -122,7 +128,7 @@ export const PLATO_SUPPLEMENTAL_EXHIBITS = [
     displayName: 'The Allegory of the Cave',
     shortTitle: 'The Allegory of the Cave',
     workLabel: 'PLATO · REPUBLIC, BOOK VII',
-    dateLabel: 'Republic, Book VII · composition date uncertain, often placed c. 380 BCE',
+    dateLabel: 'Republic VII, 514a–520e · composition date uncertain, fourth century BCE',
     question: 'What if everything familiar were only shadows?',
     frontSubtitle: 'Shadows, awakening, and the world beyond appearances',
     lead: 'The Cave is an image of education, intellectual reorientation, and civic responsibility. Prisoners mistake a constrained field of shadows and echoes for the whole of reality; release first hurts, clearer sight comes gradually, and the person who ascends is required to return. Plato is not merely saying that ordinary reality is an illusion.',
@@ -135,38 +141,72 @@ export const PLATO_SUPPLEMENTAL_EXHIBITS = [
     ],
     cautions: [
       'This is one argument-image inside the Republic, not a free-standing doctrine that “everything is fake.”',
-      'The exhibit image is a contemporary Philosophy Atlas Museum interpretive illustration, not an ancient image or historical witness.',
+      'Saenredam’s 1604 engraving is later reception art, not an ancient image or direct witness to Plato’s text.',
       'Plato connects education to rule by philosophers; that hierarchical political conclusion remains contestable.',
     ],
     sections: [
       {
-        heading: 'A world narrowed to shadows',
-        paragraphs: ['The prisoners have been constrained since childhood. A fire burns behind them, carried objects cast shadows, and echoes seem to come from the wall. Their mistake is not stupidity: their available evidence has been organized so that the shadows appear complete.'],
+        heading: '',
+        paragraphs: ['Jan Saenredam made this engraving of Plato’s Cave in 1604, after a design by Cornelis van Haarlem. Across the dark interior, prisoners watch shadows cast from figures carried behind a wall; beyond them, a bright passage leads upward into daylight. The print offers a vivid route through the image described in Book VII of the Republic, but it also belongs to its own early-modern world. Saenredam added Christian personifications of virtues and vices, turning Plato’s story into a moral drama that seventeenth-century viewers could read through familiar religious ideas.'],
+        sourceIds: ['british-cave', 'commons-cave'],
       },
       {
-        heading: 'Why turning toward knowledge hurts',
-        paragraphs: ['Release begins with coercion, glare, confusion, and resistance. The freed prisoner must learn to see in stages—first shadows and reflections, then objects, the night sky, and finally the sun. Plato makes education a reorientation of desire, attention, and judgment, not an instant revelation.'],
+        heading: '',
+        paragraphs: ['In Plato’s account, the prisoners have been confined since childhood, so shadows and echoes make up the only world they know. Release is painful and confusing. The familiar shadows at first seem clearer than the objects responsible for them, and the freed prisoner must adjust gradually before looking toward the sun. Plato compares education to this turning of the whole person: learning is not simply filling an empty mind with facts, but changing what someone is able and willing to see. The Cave is therefore about habit, attention, desire, explanation, and the difficulty of leaving a settled way of understanding.'],
+        sourceIds: ['republic-cave', 'republic-turning', 'iep-republic'],
       },
       {
-        heading: 'The return is part of the argument',
-        paragraphs: ['The enlightened prisoner does not simply escape society. In the Republic, those educated for philosophy must descend again, accept ridicule and danger, and govern for the city’s sake. The image therefore joins knowledge to a demanding—and politically controversial—account of obligation.'],
+        heading: '',
+        paragraphs: ['The story does not end in sunlight. The educated person must return to the cave, accept the confusion of descending into darkness, and share the work of governing with those who remain below. This return links knowledge to public responsibility, yet it also supports Plato’s controversial claim that philosophers should rule. The image asks difficult questions that remain alive: who can tell the difference between clearer understanding and confident illusion, who decides what education should turn us toward, and when does claimed knowledge become a reason to concentrate power? Saenredam’s engraving extends those questions by showing how each later age can reshape the Cave in its own moral language.'],
+        sourceIds: ['republic-return', 'iep-republic'],
       },
     ],
     sources: [
-      {label: 'Plato, Republic VII, 514a–520e (Perseus)', url: 'https://www.perseus.tufts.edu/hopper/text?doc=plat.+rep.+7.514a', kind: 'primary-text'},
-      {label: 'Plato, Republic 518c: education as turning the soul (Perseus)', url: 'https://www.perseus.tufts.edu/hopper/text?doc=Plat.+Rep.+518C', kind: 'primary-text'},
-      {label: 'Internet Encyclopedia of Philosophy: Plato’s Republic', url: 'https://iep.utm.edu/republic/', kind: 'academic-reference'},
+      {id: 'republic-cave', label: 'Plato, Republic VII, 514a–518b: cave and ascent (Perseus)', url: 'https://www.perseus.tufts.edu/hopper/text?doc=plat.+rep.+7.514a', kind: 'primary-text'},
+      {id: 'republic-turning', label: 'Plato, Republic 518c–d: education as turning the soul (Perseus)', url: 'https://www.perseus.tufts.edu/hopper/text?doc=Plat.+Rep.+518C', kind: 'primary-text'},
+      {id: 'republic-return', label: 'Plato, Republic 519c–520e: compelled return (Perseus)', url: 'https://www.perseus.tufts.edu/hopper/text?doc=Plat.+Rep.+519C', kind: 'primary-text'},
+      {id: 'iep-republic', label: 'Internet Encyclopedia of Philosophy: Plato’s Republic', url: 'https://iep.utm.edu/republic/', kind: 'academic-reference'},
+      {id: 'british-cave', label: 'British Museum: The Cave of Plato, 1604', url: 'https://www.britishmuseum.org/collection/object/P_1852-1211-120', kind: 'collection-record'},
+      {id: 'commons-cave', label: 'Wikimedia Commons: Saenredam engraving and public-domain record', url: 'https://commons.wikimedia.org/wiki/File:Platon_Cave_Sanraedam_1604.jpg', kind: 'collection-record'},
     ],
+    objectInterpretation: 'Saenredam’s 1604 engraving translates the Cave into an early-modern Christian setting. Its personified virtues and vices show how later viewers adapted Plato’s image to their own moral world.',
     assetId: 'plato-cave-interpretive-illustration',
     panelAssetId: 'plato-cave-interpretive-illustration',
     articleRoute: {kind: 'philosopher', philosopherId: 'plato'},
+    presentation: {
+      panelKicker: 'Gallery 01 Plato work exhibit',
+      proximityKicker: 'Plato work',
+      factRows: [
+        {label: 'Text', value: 'Republic VII, 514a–520e'},
+        {label: 'Object', value: 'Jan Saenredam engraving · 1604 · British Museum'},
+        {label: 'Museum role', value: 'Argument image and reception history; not ancient evidence'},
+      ],
+      articleActionLabel: 'Read the full sourced Plato article',
+      entityKind: 'philosopher',
+      keyIdeasLabel: 'Interpretive anchors',
+      cautionsLabel: 'Historical cautions',
+      exhibitLayout: 'object-led',
+    },
+    wallPlaque: {
+      type: 'concept-argument-diagram-or-method',
+      title: 'The Allegory of the Cave',
+      invitation: 'Plato’s Cave makes education a painful turning toward understanding and binds the ascent to a contested obligation to return.',
+      canonicalContexts: [{kind: 'philosopher', id: 'plato'}],
+    },
+    review: {
+      status: 'standard-compliant',
+      reviewedOn: '2026-08-11',
+      method: 'Gallery 01 supplemental review: object identity, claims, sources, rights, accessibility, provenance, and the established untitled object-led exhibit presentation.',
+      resolution: 'Resolved: replaced the unsupported generated illustration with Saenredam’s public-domain 1604 engraving; distinguished Plato’s argument from later Christian additions; mapped the ascent, turning, and compelled return to exact sources.',
+      lock: 'fnv1a64:7c5fb25e374fd3d6',
+    },
   },
   {
     id: REPUBLIC_ID,
     displayName: 'Plato’s Republic',
     shortTitle: 'Plato’s Republic',
     workLabel: 'PLATO · POLITEIA (REPUBLIC)',
-    dateLabel: 'Composition date uncertain, often placed in Plato’s middle period, perhaps c. 380 BCE',
+    dateLabel: 'Composition date uncertain · fourth century BCE · medieval witness c. 900 CE',
     question: 'What would a just city—and a just person—require?',
     frontSubtitle: 'Justice in the soul and the city',
     lead: 'The Republic asks why anyone should be just when injustice can look profitable. Socrates builds a city “in speech” so that justice can be examined at a larger scale, then turns back to the person. The work is a serious political provocation and an ethical inquiry—not a simple municipal blueprint to copy.',
@@ -185,33 +225,67 @@ export const PLATO_SUPPLEMENTAL_EXHIBITS = [
     ],
     sections: [
       {
-        heading: 'Justice written in larger letters',
-        paragraphs: ['Glaucon challenges Socrates to show that justice is worth choosing for itself. The imagined city enlarges the problem: rulers deliberate, guardians defend, and producers supply material needs; the corresponding soul contains reason, spirit, and appetite. Plato calls justice an order in which each part does its work without taking over the whole.'],
+        heading: '',
+        paragraphs: ['The image shows the opening page of Plato’s Politeia, or Republic, in Codex Parisinus graecus 1807. An unknown Byzantine scribe copied the manuscript around 900 CE, more than a thousand years after Plato composed the dialogue. The carefully written Greek page is an important witness to the text’s survival and transmission. Elsewhere in this installation, Raimondi’s figure of Justice and the Renaissance painting The Ideal City offer later visual responses to justice and ordered civic space. The manuscript preserves Plato’s words; the Renaissance images show how later artists gave related ideals visible form.'],
+        sourceIds: ['biblissima-manuscript', 'commons-manuscript', 'nga-justice', 'walters-city'],
       },
       {
-        heading: 'Education and philosopher-rulers',
-        paragraphs: ['Stories, music, physical training, mathematics, and dialectic shape both desire and judgment. Philosophers are made to rule because Plato thinks knowledge of the Good qualifies political authority—but the Cave’s return also shows that they must be compelled to accept that burden.'],
+        heading: '',
+        paragraphs: ['The dialogue begins from a troubling question: why be just when injustice can appear profitable? Socrates enlarges the problem by building a city “in speech,” reasoning that justice may be easier to recognize in a community before turning back to the individual. He compares the city’s different functions with reason, spirit, and appetite in the soul, and describes an education meant to shape desire as well as judgment. The ascent toward knowledge of the Good and the return to the Cave lead to the proposal that philosophers should rule. These ideas belong together within a single inquiry into what makes a life and a community well ordered.'],
+        sourceIds: ['republic-city', 'republic-soul', 'republic-education', 'republic-philosophers', 'republic-cave', 'sep-republic'],
       },
       {
-        heading: 'Regimes as moral psychology',
-        paragraphs: ['The sequence from ideal order through timocracy, oligarchy, democracy, and tyranny is not a neutral constitutional history. Plato pairs each regime with a dominant motive—reason, honor, wealth, unbounded desire, and finally lawless appetite—to argue that political disorder and inner disorder mirror one another.'],
-      },
-      {
-        heading: 'What should trouble us?',
-        paragraphs: ['The Republic’s concentration of authority in a supposedly knowing elite, restrictions on poetry and public stories, hierarchy of social roles, hostility to democracy, communal guardian families, deceptive reproductive management, and doubtful feasibility have driven lasting criticism. Qualified women may become guardians, an unusual claim in its setting, but that inclusion does not cancel the system’s coercive structure.'],
+        heading: '',
+        paragraphs: ['The political vision remains deliberately unsettling. It gives great power to a supposedly knowledgeable elite, regulates education and poetry, reshapes family life among the guardians, and places democracy on a path of decline toward tyranny. Plato’s proposal that qualified women may serve as guardians challenges one ancient convention, but it does so within a strict hierarchy rather than a modern ideal of equality. The city in speech can be read as a model for thinking about the soul, yet its institutions are too serious to dismiss as harmless metaphor. That tension—between ethical inquiry, imaginative construction, and coercive politics—has kept the Republic at the center of philosophical argument for centuries.'],
+        sourceIds: ['republic-education', 'republic-women', 'republic-regimes', 'sep-republic', 'iep-republic'],
       },
     ],
     sources: [
-      {label: 'Plato, Republic 369a–c: the city in speech (Perseus)', url: 'https://www.perseus.tufts.edu/hopper/text?doc=urn:cts:greekLit:tlg0059.tlg030.perseus-eng1:369', kind: 'primary-text'},
-      {label: 'Plato, Republic IV, 441a–b: city and soul (Perseus)', url: 'https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.01.0168:book=4:page=441', kind: 'primary-text'},
-      {label: 'Stanford Encyclopedia of Philosophy: Plato’s Ethics and Politics in the Republic', url: 'https://plato.stanford.edu/entries/plato-ethics-politics/', kind: 'academic-reference'},
-      {label: 'Internet Encyclopedia of Philosophy: Plato’s Republic', url: 'https://iep.utm.edu/republic/', kind: 'academic-reference'},
-      {label: 'National Gallery of Art: Justice by Marcantonio Raimondi after Raphael', url: 'https://www.nga.gov/artworks/10139-justice', kind: 'collection-record'},
-      {label: 'Walters Art Museum: The Ideal City', url: 'https://art.thewalters.org/object/37.677/', kind: 'collection-record'},
+      {id: 'republic-city', label: 'Plato, Republic 369a–c: the city in speech (Perseus)', url: 'https://www.perseus.tufts.edu/hopper/text?doc=urn:cts:greekLit:tlg0059.tlg030.perseus-eng1:369', kind: 'primary-text'},
+      {id: 'republic-education', label: 'Plato, Republic III, 376c onward: guardian education (Perseus)', url: 'https://www.perseus.tufts.edu/hopper/text?doc=Plat.+Rep.+3.376c', kind: 'primary-text'},
+      {id: 'republic-soul', label: 'Plato, Republic IV, 435b–441c: city and soul (Perseus)', url: 'https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.01.0168:book=4:page=435', kind: 'primary-text'},
+      {id: 'republic-women', label: 'Plato, Republic V, 451c onward: women, guardians, and families (Perseus)', url: 'https://www.perseus.tufts.edu/hopper/text?doc=Plat.+Rep.+5.451c', kind: 'primary-text'},
+      {id: 'republic-philosophers', label: 'Plato, Republic VI, 484a onward: philosopher-rulers (Perseus)', url: 'https://www.perseus.tufts.edu/hopper/text?doc=Plat.+Rep.+6.484a', kind: 'primary-text'},
+      {id: 'republic-cave', label: 'Plato, Republic VII, 514a–520e: Cave and return (Perseus)', url: 'https://www.perseus.tufts.edu/hopper/text?doc=plat.+rep.+7.514a', kind: 'primary-text'},
+      {id: 'republic-regimes', label: 'Plato, Republic VIII, 543a onward: regime sequence (Perseus)', url: 'https://www.perseus.tufts.edu/hopper/text?doc=Plat.+Rep.+8.543a', kind: 'primary-text'},
+      {id: 'sep-republic', label: 'Stanford Encyclopedia of Philosophy: Plato’s Ethics and Politics in the Republic', url: 'https://plato.stanford.edu/entries/plato-ethics-politics/', kind: 'academic-reference'},
+      {id: 'iep-republic', label: 'Internet Encyclopedia of Philosophy: Plato’s Republic', url: 'https://iep.utm.edu/republic/', kind: 'academic-reference'},
+      {id: 'biblissima-manuscript', label: 'Biblissima: BnF Grec 1807 manuscript record', url: 'https://portail.biblissima.fr/ark:/43093/mdatabde59ea6f8e12384377f802b6c3df691133c0893', kind: 'collection-record'},
+      {id: 'commons-manuscript', label: 'Wikimedia Commons: Codex Parisinus graecus 1807 reproduction', url: 'https://commons.wikimedia.org/wiki/File:Politeia_beginning._Codex_Parisinus_graecus_1807.jpg', kind: 'collection-record'},
+      {id: 'nga-justice', label: 'National Gallery of Art: Justice by Marcantonio Raimondi after Raphael', url: 'https://www.nga.gov/artworks/10139-justice', kind: 'collection-record'},
+      {id: 'walters-city', label: 'Walters Art Museum: The Ideal City', url: 'https://art.thewalters.org/object/37.677/', kind: 'collection-record'},
     ],
+    objectInterpretation: 'Copied around 900 CE, this Greek manuscript preserves the opening of the Republic and gives material form to the long history through which Plato’s dialogue reached later readers.',
     assetId: 'plato-republic-justice-ideal-city',
     panelAssetId: 'plato-republic-parisinus-1807',
     articleRoute: {kind: 'philosopher', philosopherId: 'plato'},
+    presentation: {
+      panelKicker: 'Gallery 01 Plato work exhibit',
+      proximityKicker: 'Plato work',
+      factRows: [
+        {label: 'Text', value: 'Plato’s Politeia (Republic) · fourth century BCE'},
+        {label: 'Manuscript', value: 'BnF Codex Parisinus graecus 1807 · c. 900 CE'},
+        {label: 'Related imagery', value: 'Later representations of Justice and the Ideal City'},
+      ],
+      articleActionLabel: 'Read the full sourced Plato article',
+      entityKind: 'philosopher',
+      keyIdeasLabel: 'Interpretive anchors',
+      cautionsLabel: 'Historical cautions',
+      exhibitLayout: 'object-led',
+    },
+    wallPlaque: {
+      type: 'work-or-text',
+      title: 'Plato’s Republic',
+      invitation: 'The Republic tests justice through a city in speech and a divided soul while making philosopher-rule inseparable from coercive political risks.',
+      canonicalContexts: [{kind: 'philosopher', id: 'plato'}],
+    },
+    review: {
+      status: 'standard-compliant',
+      reviewedOn: '2026-08-11',
+      method: 'Gallery 01 supplemental review: object identity, claims, sources, rights, accessibility, provenance, and the established untitled object-led exhibit presentation.',
+      resolution: 'Resolved: distinguished the manuscript panel from the installed reception composite; added an authenticated manuscript catalogue; mapped every major political and interpretive claim to primary locators and scholarly support.',
+      lock: 'fnv1a64:e44a85c9ef6fac49',
+    },
   },
 ] as const satisfies readonly PlatoSupplementalExhibit[];
 
@@ -244,7 +318,7 @@ export const PLATO_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     collider: {id: `supplemental:${CAVE_ID}`, center: GALLERY_01_PLATO_SUPPLEMENTAL_PLACEMENTS['plato-cave-book-vii'].position, size: {width: 4.75, depth: 1.08}, rotation: GALLERY_01_PLATO_SUPPLEMENTAL_PLACEMENTS['plato-cave-book-vii'].rotationY},
     viewpoint: GALLERY_01_PLATO_SUPPLEMENTAL_PLACEMENTS['plato-cave-book-vii'].viewpoint,
     assetId: 'plato-cave-interpretive-illustration',
-    mediaMount: mediaMount(CAVE_ID, 'plato-cave-interpretive-illustration', 2.72, 3.4, 1.82),
+    mediaMount: mediaMount(CAVE_ID, 'plato-cave-interpretive-illustration', 3.8, 2.82, 1.82),
     label: {position: [0, 4.03, -.31], width: 4.18, height: .84},
     footprint: {width: 4.75, height: 4.55, depth: 1.08},
     installationKind: 'cave-ascent',

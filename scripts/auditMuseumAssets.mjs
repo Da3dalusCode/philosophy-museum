@@ -350,10 +350,6 @@ const NEW_CANONICAL_ASSET_IDS = [
   'buddhist-diamond-sutra-868',
 ];
 const ORIGINAL_INTERPRETIVE_ASSET_IDS = new Set([
-  'plato-cave-interpretive-illustration',
-  'miletus-ionian-coast-interpretive',
-  'greek-philosophy-reception-interpretive',
-  'socrates-trial-interpretive',
   'levinas-totality-infinity-2002',
   'phenomenology-intentionality-interpretive',
   'heidegger-being-time-interpretive',
@@ -408,6 +404,9 @@ const MEDITERRANEAN_ASSET_IDS = [
   'gorgias-ortolani',
   'platonism-academy-mosaic',
   'aristotelianism-walters-teaching',
+  'socrates-trial-interpretive',
+  'greek-philosophy-reception-interpretive',
+  'miletus-ionian-coast-interpretive',
   'plato-cave-interpretive-illustration',
   'plato-republic-justice-ideal-city',
   'plato-republic-parisinus-1807',
@@ -1975,12 +1974,12 @@ check('all 636 managed derivatives match exact dimensions, bytes, and SHA-256 lo
   }
 });
 
-check('the 22-source Gallery 01 lock reproduces all curated Mediterranean media', () => {
+check('the 25-source Gallery 01 lock reproduces all curated Mediterranean media', () => {
   assert.equal(mediterraneanManifest.version, 1);
-  assert.equal(Object.keys(mediterraneanManifestAssets).length, 22);
+  assert.equal(Object.keys(mediterraneanManifestAssets).length, 25);
   assert.deepEqual(Object.keys(mediterraneanManifestAssets).sort(), [...MEDITERRANEAN_ASSET_IDS].sort());
   assert.match(mediterraneanPreparationSource, /museumMediterraneanAssetManifest\.json/);
-  assert.match(mediterraneanPreparationSource, /EXPECTED_ASSET_COUNT = 22/);
+  assert.match(mediterraneanPreparationSource, /EXPECTED_ASSET_COUNT = 25/);
   assert.match(mediterraneanPreparationSource, /Resampling\.LANCZOS/);
   assert.match(mediterraneanPreparationSource, /"sha256": sha256\(destination\)/);
   for (const id of MEDITERRANEAN_ASSET_IDS) {
@@ -1988,13 +1987,7 @@ check('the 22-source Gallery 01 lock reproduces all curated Mediterranean media'
     const asset = assetById.get(id);
     assert(asset && lock, `${id} is absent from its runtime record or source lock`);
     assert.equal(lock.sourcePageUrl, asset.sourcePageUrl, `${id} lock source page differs from provenance`);
-    if (lock.sourceKind === 'owner-approved-original-illustration') {
-      assert.equal(id, 'plato-cave-interpretive-illustration');
-      assert.equal(new URL(lock.sourcePageUrl).hostname, 'github.com');
-      assert.equal(new URL(lock.sourceImageUrl).hostname, 'github.com');
-      assert.equal(new URL(lock.selectedThumbnailUrl).hostname, 'github.com');
-      assert.equal(lock.sceneMaximum, 450, `${id} must retain its tighter scene cap`);
-    } else if (lock.sourceKind === 'curated-two-object-composite') {
+    if (lock.sourceKind === 'curated-two-object-composite') {
       assert.equal(id, 'plato-republic-justice-ideal-city');
       assert.equal(new URL(lock.sourcePageUrl).hostname, 'www.nga.gov');
       assert.equal(new URL(lock.sourceImageUrl).hostname, 'api.nga.gov');
@@ -2067,11 +2060,11 @@ check('the 42-source Galleries 13 and 16 lock reproduces every curated derivativ
     ...Object.keys(mediterraneanManifestAssets),
     ...Object.keys(successorManifestAssets),
   ]);
-  assert.equal(previouslyLockedIds.size, 374, 'The pre-Gallery-13/16 source-lock inventories overlap');
+  assert.equal(previouslyLockedIds.size, 377, 'The pre-Gallery-13/16 source-lock inventories overlap');
   for (const id of Object.keys(galleries13And16ManifestAssets)) {
     assert(!previouslyLockedIds.has(id), `${id} is redundantly owned by an older preparation manifest`);
   }
-  assert.equal(previouslyLockedIds.size + Object.keys(galleries13And16ManifestAssets).length, 416);
+  assert.equal(previouslyLockedIds.size + Object.keys(galleries13And16ManifestAssets).length, 419);
   assert.match(galleries13And16PreparationSource, /museumGalleries13And16AssetManifest\.json/);
   assert.match(galleries13And16PreparationSource, /EXPECTED_ASSET_COUNT = 42/);
   assert.match(galleries13And16PreparationSource, /assert_locked\(slug, "scene"/);
@@ -2128,12 +2121,12 @@ check('the 44-source Galleries 17 and 18 locks reproduce every curated derivativ
   const previouslyLockedIds = new Set(Object.keys(previousManifestAssets));
   const newManifestAssets = {...gallery17ManifestAssets, ...gallery18ManifestAssets};
   const newManifestIds = Object.keys(newManifestAssets);
-  assert.equal(previouslyLockedIds.size, 416, 'The pre-Gallery-17/18 source-lock inventories overlap');
+  assert.equal(previouslyLockedIds.size, 419, 'The pre-Gallery-17/18 source-lock inventories overlap');
   assert.equal(newManifestIds.length, 44, 'The Gallery 17/18 source-lock inventories overlap');
   for (const id of newManifestIds) {
     assert(!previouslyLockedIds.has(id), `${id} is redundantly owned by an older preparation manifest`);
   }
-  assert.equal(previouslyLockedIds.size + newManifestIds.length, 460);
+  assert.equal(previouslyLockedIds.size + newManifestIds.length, 463);
 
   for (const [source, manifestName, count] of [
     [gallery17PreparationSource, 'museumGallery17AssetManifest.json', 18],
@@ -2275,7 +2268,7 @@ check('the 43-source Galleries 20 and 21 lock reproduces every derivative withou
     ...gallery18ManifestAssets,
   };
   const previouslyLockedIds = new Set(Object.keys(previousManifestAssets));
-  assert.equal(previouslyLockedIds.size, 460, 'The pre-Gallery-20/21 source-lock inventories overlap');
+  assert.equal(previouslyLockedIds.size, 463, 'The pre-Gallery-20/21 source-lock inventories overlap');
   const previousSourcePages = new Set(Object.values(previousManifestAssets).map(({sourcePageUrl}) => sourcePageUrl));
   const previousSceneHashes = new Set(Object.values(previousManifestAssets).map(({scene}) => scene.sha256));
   const previousPanelHashes = new Set(Object.values(previousManifestAssets).map(({panel}) => panel.sha256));
@@ -2327,7 +2320,7 @@ check('the 43-source Galleries 20 and 21 lock reproduces every derivative withou
       }
     }
   }
-  assert.equal(previouslyLockedIds.size + Object.keys(galleries20And21ManifestAssets).length, 503);
+  assert.equal(previouslyLockedIds.size + Object.keys(galleries20And21ManifestAssets).length, 506);
   assert(unique(sourcePages), 'Galleries 20 and 21 reuse an exact source page');
   assert(unique(sceneHashes), 'Galleries 20 and 21 reuse identical scene bytes');
   assert(unique(panelHashes), 'Galleries 20 and 21 reuse identical panel bytes');
@@ -2358,7 +2351,7 @@ check('the 49-source Galleries 19 and 22 lock reproduces every derivative withou
     ...galleries20And21ManifestAssets,
   };
   const previouslyLockedIds = new Set(Object.keys(previousManifestAssets));
-  assert.equal(previouslyLockedIds.size, 503, 'The pre-Gallery-19/22 source-lock inventories overlap');
+  assert.equal(previouslyLockedIds.size, 506, 'The pre-Gallery-19/22 source-lock inventories overlap');
   const previousSourcePages = new Set(Object.values(previousManifestAssets).map(({sourcePageUrl}) => sourcePageUrl));
   const previousSceneHashes = new Set(Object.values(previousManifestAssets).map(({scene}) => scene.sha256));
   const previousPanelHashes = new Set(Object.values(previousManifestAssets).map(({panel}) => panel.sha256));
@@ -2410,7 +2403,7 @@ check('the 49-source Galleries 19 and 22 lock reproduces every derivative withou
       }
     }
   }
-  assert.equal(previouslyLockedIds.size + Object.keys(galleries19And22ManifestAssets).length, 552);
+  assert.equal(previouslyLockedIds.size + Object.keys(galleries19And22ManifestAssets).length, 555);
   assert(unique(sourcePages), 'Galleries 19 and 22 reuse an exact source page');
   assert(unique(sceneHashes), 'Galleries 19 and 22 reuse identical scene bytes');
   assert(unique(panelHashes), 'Galleries 19 and 22 reuse identical panel bytes');
@@ -2442,7 +2435,7 @@ check('the 48-source Galleries 23 and 24 lock reproduces every derivative withou
     ...galleries19And22ManifestAssets,
   };
   const previouslyLockedIds = new Set(Object.keys(previousManifestAssets));
-  assert.equal(previouslyLockedIds.size, 552, 'The pre-Gallery-23/24 source-lock inventories overlap');
+  assert.equal(previouslyLockedIds.size, 555, 'The pre-Gallery-23/24 source-lock inventories overlap');
   const previousSourcePages = new Set(Object.values(previousManifestAssets).map(({sourcePageUrl}) => sourcePageUrl));
   const previousSceneHashes = new Set(Object.values(previousManifestAssets).map(({scene}) => scene.sha256));
   const previousPanelHashes = new Set(Object.values(previousManifestAssets).map(({panel}) => panel.sha256));
@@ -2494,7 +2487,7 @@ check('the 48-source Galleries 23 and 24 lock reproduces every derivative withou
       }
     }
   }
-  assert.equal(previouslyLockedIds.size + Object.keys(galleries23And24ManifestAssets).length, 600);
+  assert.equal(previouslyLockedIds.size + Object.keys(galleries23And24ManifestAssets).length, 603);
   assert(unique(sourcePages), 'Galleries 23 and 24 reuse an exact source page');
   assert(unique(sceneHashes), 'Galleries 23 and 24 reuse identical scene bytes');
   assert(unique(panelHashes), 'Galleries 23 and 24 reuse identical panel bytes');
@@ -2529,7 +2522,7 @@ check('the 18-source Gallery 26 lock reproduces every derivative without source 
     ...galleries23And24ManifestAssets,
   };
   const previouslyLockedIds = new Set(Object.keys(previousManifestAssets));
-  assert.equal(previouslyLockedIds.size, 600, 'The pre-Gallery-26 source-lock inventories overlap');
+  assert.equal(previouslyLockedIds.size, 603, 'The pre-Gallery-26 source-lock inventories overlap');
   const previousSourcePages = new Set(Object.values(previousManifestAssets).map(({sourcePageUrl}) => sourcePageUrl));
   const previousSceneHashes = new Set(Object.values(previousManifestAssets).map(({scene}) => scene.sha256));
   const previousPanelHashes = new Set(Object.values(previousManifestAssets).map(({panel}) => panel.sha256));
@@ -2579,7 +2572,7 @@ check('the 18-source Gallery 26 lock reproduces every derivative without source 
       }
     }
   }
-  assert.equal(previouslyLockedIds.size + Object.keys(gallery26ManifestAssets).length, 618);
+  assert.equal(previouslyLockedIds.size + Object.keys(gallery26ManifestAssets).length, 621);
   assert.equal(visualCharacters.size >= 4, true, 'Gallery 26 has insufficient visual-character diversity');
   assert(unique(sourcePages), 'Gallery 26 reuses an exact source page');
   assert(unique(sceneHashes), 'Gallery 26 reuses identical scene bytes');
@@ -2605,7 +2598,7 @@ check('the 24-source Gallery 25 lock reproduces every derivative without source 
     ...gallery26ManifestAssets,
   };
   const previouslyLockedIds = new Set(Object.keys(previousManifestAssets));
-  assert.equal(previouslyLockedIds.size, 618, 'The pre-Gallery-25 source-lock inventories overlap');
+  assert.equal(previouslyLockedIds.size, 621, 'The pre-Gallery-25 source-lock inventories overlap');
   const previousSourcePages = new Set(Object.values(previousManifestAssets).map(({sourcePageUrl}) => sourcePageUrl));
   const previousSceneHashes = new Set(Object.values(previousManifestAssets).map(({scene}) => scene.sha256));
   const previousPanelHashes = new Set(Object.values(previousManifestAssets).map(({panel}) => panel.sha256));
@@ -2645,7 +2638,7 @@ check('the 24-source Gallery 25 lock reproduces every derivative without source 
       }
     }
   }
-  assert.equal(previouslyLockedIds.size + Object.keys(gallery25ManifestAssets).length, 642);
+  assert.equal(previouslyLockedIds.size + Object.keys(gallery25ManifestAssets).length, 645);
   assert(visualCharacters.size >= 4);
   assert(unique(sourcePages));
   assert(unique(sceneHashes));

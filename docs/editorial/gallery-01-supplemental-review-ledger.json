@@ -1,0 +1,156 @@
+{
+  "dataAsOf": "2026-08-11",
+  "authority": "Runtime MUSEUM_SUPPLEMENTAL_EXHIBITS registry filtered by hallId",
+  "hallId": "mediterranean-beginnings-classical",
+  "registryCount": 5,
+  "reviewedCount": 5,
+  "resolvedCount": 5,
+  "errors": [],
+  "entries": [
+    {
+      "id": "miletus-ionian-coast",
+      "title": "Miletus and the Ionian Coast",
+      "articleRoute": {
+        "kind": "branch",
+        "branchId": "ancient-greek"
+      },
+      "articleStatus": "claim-reviewed",
+      "authoredReviewStatus": "standard-compliant",
+      "effectiveReviewStatus": "standard-compliant",
+      "reviewedOn": "2026-08-11",
+      "resolution": "Resolved: replaced the unverified generated scene with a public-domain site photograph; qualified the site’s chronology and contextual inferences; added claim-level source mapping and object-led guidance.",
+      "presentation": {
+        "objectLed": true,
+        "mainWords": 296,
+        "paragraphs": 3,
+        "visitorGuideSections": 0,
+        "visitorGuideItems": 0
+      },
+      "evidence": {
+        "interpretationSources": 3,
+        "mappedClaimUnits": 3,
+        "panelAssetId": "miletus-ionian-coast-interpretive",
+        "physicalAssetId": "miletus-ionian-coast-interpretive",
+        "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:MiletusIonicStoa.jpg",
+        "rights": "Public-domain dedication (PD-user)"
+      },
+      "issues": []
+    },
+    {
+      "id": "greek-philosophy-reception",
+      "title": "The School of Athens",
+      "articleRoute": {
+        "kind": "branch",
+        "branchId": "ancient-greek"
+      },
+      "articleStatus": "claim-reviewed",
+      "authoredReviewStatus": "standard-compliant",
+      "effectiveReviewStatus": "standard-compliant",
+      "reviewedOn": "2026-08-11",
+      "resolution": "Resolved: replaced the mismatched 2026 AI illustration with Wilfredor’s CC0 photograph of Raphael’s actual fresco and reconciled every title, caption, prose, source, provenance, credit, rights, and accessibility field.",
+      "presentation": {
+        "objectLed": true,
+        "mainWords": 290,
+        "paragraphs": 3,
+        "visitorGuideSections": 0,
+        "visitorGuideItems": 0
+      },
+      "evidence": {
+        "interpretationSources": 3,
+        "mappedClaimUnits": 3,
+        "panelAssetId": "greek-philosophy-reception-interpretive",
+        "physicalAssetId": "greek-philosophy-reception-interpretive",
+        "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:The_School_of_Athens_by_Raffaello_Sanzio_da_Urbino,_Vatican.jpg",
+        "rights": "CC0 1.0 Universal Public Domain Dedication"
+      },
+      "issues": []
+    },
+    {
+      "id": "socrates-trial-death",
+      "title": "The Trial and Death of Socrates",
+      "articleRoute": {
+        "kind": "philosopher",
+        "philosopherId": "socrates"
+      },
+      "articleStatus": "claim-reviewed",
+      "authoredReviewStatus": "standard-compliant",
+      "effectiveReviewStatus": "standard-compliant",
+      "reviewedOn": "2026-08-11",
+      "resolution": "Resolved: replaced the unverified generated trial scene with Fabre’s authenticated 1802 reception painting; separated event from reception; removed the unrelated Met record and added mapped primary, scholarly, object, and rights evidence.",
+      "presentation": {
+        "objectLed": true,
+        "mainWords": 309,
+        "paragraphs": 3,
+        "visitorGuideSections": 0,
+        "visitorGuideItems": 0
+      },
+      "evidence": {
+        "interpretationSources": 6,
+        "mappedClaimUnits": 3,
+        "panelAssetId": "socrates-trial-interpretive",
+        "physicalAssetId": "socrates-trial-interpretive",
+        "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Death_of_Socrates_-_Francois-Xavier_Fabre.jpg",
+        "rights": "CC BY-SA 4.0"
+      },
+      "issues": []
+    },
+    {
+      "id": "plato-cave-book-vii",
+      "title": "The Allegory of the Cave",
+      "articleRoute": {
+        "kind": "philosopher",
+        "philosopherId": "plato"
+      },
+      "articleStatus": "claim-reviewed",
+      "authoredReviewStatus": "standard-compliant",
+      "effectiveReviewStatus": "standard-compliant",
+      "reviewedOn": "2026-08-11",
+      "resolution": "Resolved: replaced the unsupported generated illustration with Saenredam’s public-domain 1604 engraving; distinguished Plato’s argument from later Christian additions; mapped the ascent, turning, and compelled return to exact sources.",
+      "presentation": {
+        "objectLed": true,
+        "mainWords": 298,
+        "paragraphs": 3,
+        "visitorGuideSections": 0,
+        "visitorGuideItems": 0
+      },
+      "evidence": {
+        "interpretationSources": 6,
+        "mappedClaimUnits": 3,
+        "panelAssetId": "plato-cave-interpretive-illustration",
+        "physicalAssetId": "plato-cave-interpretive-illustration",
+        "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Platon_Cave_Sanraedam_1604.jpg",
+        "rights": "Public Domain Mark 1.0"
+      },
+      "issues": []
+    },
+    {
+      "id": "plato-republic",
+      "title": "Plato’s Republic",
+      "articleRoute": {
+        "kind": "philosopher",
+        "philosopherId": "plato"
+      },
+      "articleStatus": "claim-reviewed",
+      "authoredReviewStatus": "standard-compliant",
+      "effectiveReviewStatus": "standard-compliant",
+      "reviewedOn": "2026-08-11",
+      "resolution": "Resolved: distinguished the manuscript panel from the installed reception composite; added an authenticated manuscript catalogue; mapped every major political and interpretive claim to primary locators and scholarly support.",
+      "presentation": {
+        "objectLed": true,
+        "mainWords": 309,
+        "paragraphs": 3,
+        "visitorGuideSections": 0,
+        "visitorGuideItems": 0
+      },
+      "evidence": {
+        "interpretationSources": 13,
+        "mappedClaimUnits": 3,
+        "panelAssetId": "plato-republic-parisinus-1807",
+        "physicalAssetId": "plato-republic-justice-ideal-city",
+        "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Politeia_beginning._Codex_Parisinus_graecus_1807.jpg",
+        "rights": "Public Domain Mark 1.0"
+      },
+      "issues": []
+    }
+  ]
+}

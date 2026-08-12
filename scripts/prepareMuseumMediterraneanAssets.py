@@ -27,7 +27,7 @@ USER_AGENT = (
     "PhilosophyAtlasMuseum/1.0 "
     "(+https://github.com/Da3dalusCode/philosophy-museum; local educational asset preparation)"
 )
-EXPECTED_ASSET_COUNT = 22
+EXPECTED_ASSET_COUNT = 25
 MAX_DERIVATIVE_BYTES = 600_000
 
 

@@ -56,6 +56,20 @@ export function MuseumSupplementalInterpretationPanel({
   // hall is supplied by the scene, not stored on the record, so avoid exposing
   // a stale number while retaining the visitor-facing exhibit role.
   const publicPanelKicker = presentation.panelKicker.replace(/^Gallery \d{2}\s+/, '');
+  const objectLed = presentation.exhibitLayout === 'object-led';
+  const principalFigure = <figure className="museum-object-hero">
+    <MuseumAssetImage asset={asset} priority/>
+    <figcaption><strong>{asset.caption}</strong><span>{exhibit.objectInterpretation ?? asset.historicalNote}</span></figcaption>
+  </figure>;
+  const interpretationBody = <div className="museum-interpretive-sections" data-body-layout={objectLed ? 'prose' : 'sections'}>
+    {objectLed ? <section>
+      {exhibit.sections.flatMap((section) => section.paragraphs).map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+    </section> : exhibit.sections.map((section, index) => <section key={section.heading || index}>
+      {section.heading && <h3>{section.heading}</h3>}
+      {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+      {section.points && <ul>{section.points.map((point) => <li key={point}>{point}</li>)}</ul>}
+    </section>)}
+  </div>;
 
   useEffect(() => {
     const frame = window.requestAnimationFrame(() => document.getElementById(titleId)?.focus({preventScroll: true}));
@@ -99,48 +113,47 @@ export function MuseumSupplementalInterpretationPanel({
       role="dialog"
       aria-modal="true"
       aria-labelledby={titleId}
-      aria-describedby={descriptionId}
+      aria-describedby={objectLed ? undefined : descriptionId}
       tabIndex={-1}
       data-entity-kind={presentation.entityKind}
       data-supplemental-id={exhibit.id}
+      data-exhibit-layout={presentation.exhibitLayout ?? 'default'}
       onKeyDown={handleKeyDown}
     >
       <header className="museum-panel-header">
         <div>
-          <p className="museum-panel-kicker">{publicPanelKicker} · {exhibit.dateLabel}</p>
+          {!objectLed && <p className="museum-panel-kicker">{publicPanelKicker} · {exhibit.dateLabel}</p>}
           <h2 id={titleId} tabIndex={-1}>{exhibit.displayName}</h2>
         </div>
         <button className="museum-icon-button" type="button" onClick={() => onClose('gesture')} aria-label={`Close ${exhibit.displayName} exhibit`}><X/></button>
       </header>
 
       <div className="museum-panel-scroll">
-        <section className="museum-panel-opening" data-has-object="true">
-          <figure className="museum-object-hero">
-            <MuseumAssetImage asset={asset} priority/>
-            <figcaption><strong>{asset.caption}</strong><span>{asset.historicalNote}</span></figcaption>
-          </figure>
-          <div className="museum-panel-opening-copy">
-            <p className="museum-exhibit-question" id={descriptionId}>{exhibit.question}</p>
-            <p className="museum-panel-lead">{exhibit.lead}</p>
+        {objectLed ? <div className="museum-primary-flow">
+          <aside className="museum-primary-reference" aria-label="Exhibit object">
+            {principalFigure}
+          </aside>
+          {interpretationBody}
+        </div> : <>
+          <section className="museum-panel-opening" data-has-object="true">
+            {principalFigure}
+            <div className="museum-panel-opening-copy">
+              <p className="museum-exhibit-question" id={descriptionId}>{exhibit.question}</p>
+              <p className="museum-panel-lead">{exhibit.lead}</p>
+            </div>
+          </section>
+
+          <dl className="museum-fact-grid">
+            {presentation.factRows.map(({label, value}) => <div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}
+          </dl>
+
+          <div className="museum-idea-grid">
+            <section><p className="museum-object-role">{presentation.keyIdeasLabel ?? 'Argument map'}</p><ul>{exhibit.keyIdeas.map((idea) => <li key={idea}>{idea}</li>)}</ul></section>
+            <section><p className="museum-object-role">{presentation.cautionsLabel ?? 'Historical cautions'}</p><ul>{exhibit.cautions.map((caution) => <li key={caution}>{caution}</li>)}</ul></section>
           </div>
-        </section>
 
-        <dl className="museum-fact-grid">
-          {presentation.factRows.map(({label, value}) => <div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}
-        </dl>
-
-        <div className="museum-idea-grid">
-          <section><p className="museum-object-role">{presentation.keyIdeasLabel ?? 'Argument map'}</p><ul>{exhibit.keyIdeas.map((idea) => <li key={idea}>{idea}</li>)}</ul></section>
-          <section><p className="museum-object-role">{presentation.cautionsLabel ?? 'Historical cautions'}</p><ul>{exhibit.cautions.map((caution) => <li key={caution}>{caution}</li>)}</ul></section>
-        </div>
-
-        <div className="museum-interpretive-sections">
-          {exhibit.sections.map((section) => <section key={section.heading}>
-            <h3>{section.heading}</h3>
-            {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
-            {section.points && <ul>{section.points.map((point) => <li key={point}>{point}</li>)}</ul>}
-          </section>)}
-        </div>
+          {interpretationBody}
+        </>}
 
         <MuseumSourceDetails asset={asset}/>
 

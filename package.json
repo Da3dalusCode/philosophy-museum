@@ -18,6 +18,7 @@
     "audit:museum-mobile-controls": "node scripts/auditMuseumMobileControls.mjs",
     "audit:museum-plaques": "node scripts/auditMuseumPlaques.mjs",
     "audit:museum-assets": "node scripts/auditMuseumAssets.mjs",
+    "audit:gallery01-supplementals": "node scripts/auditGallery01Supplementals.mjs",
     "audit:exhibits": "node scripts/auditExhibitReview.mjs",
     "audit:articles": "node scripts/auditArticleDepth.mjs",
     "audit:articles:pilots": "node scripts/auditArticleDepth.mjs --id socrates --id nagarjuna --id feminist-philosophy",
@@ -31,6 +32,7 @@
     "report:flagships": "node scripts/reportFlagshipProgram.mjs",
     "report:editorial": "node scripts/reportEditorial.mjs",
     "report:exhibits": "node scripts/auditExhibitReview.mjs --write",
+    "report:gallery01-supplementals": "node scripts/auditGallery01Supplementals.mjs --write",
     "report:bundle": "node scripts/reportBundle.mjs",
     "preview": "vite preview"
   },
