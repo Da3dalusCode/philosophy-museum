@@ -1,5 +1,5 @@
 {
-  "dataAsOf": "2026-08-11",
+  "dataAsOf": "2026-08-12",
   "authority": "Runtime MUSEUM_SUPPLEMENTAL_EXHIBITS registry filtered by hallId",
   "hallId": "mediterranean-beginnings-classical",
   "registryCount": 5,
@@ -17,22 +17,25 @@
       "articleStatus": "claim-reviewed",
       "authoredReviewStatus": "standard-compliant",
       "effectiveReviewStatus": "standard-compliant",
-      "reviewedOn": "2026-08-11",
-      "resolution": "Resolved: replaced the unverified generated scene with a public-domain site photograph; qualified the site’s chronology and contextual inferences; added claim-level source mapping and object-led guidance.",
+      "reviewedOn": "2026-08-12",
+      "resolution": "Resolved: replaced the unverified generated scene with a public-domain site photograph; qualified the site’s chronology and contextual inferences; restored a claim-mapped site-and-inquiry sidebar; and matched the 3D frame to the complete photograph.",
       "presentation": {
         "objectLed": true,
         "mainWords": 296,
         "paragraphs": 3,
-        "visitorGuideSections": 0,
-        "visitorGuideItems": 0
+        "visitorGuideSections": 2,
+        "visitorGuideItems": 4,
+        "aspectSafe": true
       },
       "evidence": {
         "interpretationSources": 3,
-        "mappedClaimUnits": 3,
+        "mappedClaimUnits": 7,
         "panelAssetId": "miletus-ionian-coast-interpretive",
         "physicalAssetId": "miletus-ionian-coast-interpretive",
         "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:MiletusIonicStoa.jpg",
-        "rights": "Public-domain dedication (PD-user)"
+        "rights": "Public-domain dedication (PD-user)",
+        "sceneDimensions": "640×480",
+        "panelDimensions": "1280×960"
       },
       "issues": []
     },
@@ -46,22 +49,25 @@
       "articleStatus": "claim-reviewed",
       "authoredReviewStatus": "standard-compliant",
       "effectiveReviewStatus": "standard-compliant",
-      "reviewedOn": "2026-08-11",
-      "resolution": "Resolved: replaced the mismatched 2026 AI illustration with Wilfredor’s CC0 photograph of Raphael’s actual fresco and reconciled every title, caption, prose, source, provenance, credit, rights, and accessibility field.",
+      "reviewedOn": "2026-08-12",
+      "resolution": "Resolved: replaced the mismatched 2026 AI illustration with Wilfredor’s CC0 photograph of Raphael’s actual fresco; reconciled its records; restored a claim-mapped canon-and-composition sidebar; and matched the 3D frame to the complete photograph.",
       "presentation": {
         "objectLed": true,
         "mainWords": 290,
         "paragraphs": 3,
-        "visitorGuideSections": 0,
-        "visitorGuideItems": 0
+        "visitorGuideSections": 2,
+        "visitorGuideItems": 4,
+        "aspectSafe": true
       },
       "evidence": {
         "interpretationSources": 3,
-        "mappedClaimUnits": 3,
+        "mappedClaimUnits": 7,
         "panelAssetId": "greek-philosophy-reception-interpretive",
         "physicalAssetId": "greek-philosophy-reception-interpretive",
         "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:The_School_of_Athens_by_Raffaello_Sanzio_da_Urbino,_Vatican.jpg",
-        "rights": "CC0 1.0 Universal Public Domain Dedication"
+        "rights": "CC0 1.0 Universal Public Domain Dedication",
+        "sceneDimensions": "640×435",
+        "panelDimensions": "1280×870"
       },
       "issues": []
     },
@@ -75,22 +81,25 @@
       "articleStatus": "claim-reviewed",
       "authoredReviewStatus": "standard-compliant",
       "effectiveReviewStatus": "standard-compliant",
-      "reviewedOn": "2026-08-11",
-      "resolution": "Resolved: replaced the unverified generated trial scene with Fabre’s authenticated 1802 reception painting; separated event from reception; removed the unrelated Met record and added mapped primary, scholarly, object, and rights evidence.",
+      "reviewedOn": "2026-08-12",
+      "resolution": "Resolved: replaced the unverified generated trial scene with Fabre’s authenticated 1802 reception painting; separated event from reception; restored a claim-mapped event-and-reception sidebar; and matched the 3D frame to the complete photograph.",
       "presentation": {
         "objectLed": true,
         "mainWords": 309,
         "paragraphs": 3,
-        "visitorGuideSections": 0,
-        "visitorGuideItems": 0
+        "visitorGuideSections": 2,
+        "visitorGuideItems": 4,
+        "aspectSafe": true
       },
       "evidence": {
         "interpretationSources": 6,
-        "mappedClaimUnits": 3,
+        "mappedClaimUnits": 7,
         "panelAssetId": "socrates-trial-interpretive",
         "physicalAssetId": "socrates-trial-interpretive",
         "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Death_of_Socrates_-_Francois-Xavier_Fabre.jpg",
-        "rights": "CC BY-SA 4.0"
+        "rights": "CC BY-SA 4.0",
+        "sceneDimensions": "640×480",
+        "panelDimensions": "1280×960"
       },
       "issues": []
     },
@@ -104,22 +113,25 @@
       "articleStatus": "claim-reviewed",
       "authoredReviewStatus": "standard-compliant",
       "effectiveReviewStatus": "standard-compliant",
-      "reviewedOn": "2026-08-11",
-      "resolution": "Resolved: restored the approved portrait-format Museum interpretive illustration from repository history; identified it as contemporary interpretation; retained exact source mapping for the Cave’s ascent, turning, and compelled return.",
+      "reviewedOn": "2026-08-12",
+      "resolution": "Resolved: restored the approved portrait-format Museum interpretive illustration; identified it honestly as contemporary interpretation; corrected its presentation metadata; and restored a claim-mapped ascent, education, and return sidebar while retaining its natural 4:5 wall format.",
       "presentation": {
         "objectLed": true,
         "mainWords": 295,
         "paragraphs": 3,
-        "visitorGuideSections": 0,
-        "visitorGuideItems": 0
+        "visitorGuideSections": 2,
+        "visitorGuideItems": 4,
+        "aspectSafe": true
       },
       "evidence": {
         "interpretationSources": 5,
-        "mappedClaimUnits": 3,
+        "mappedClaimUnits": 7,
         "panelAssetId": "plato-cave-interpretive-illustration",
         "physicalAssetId": "plato-cave-interpretive-illustration",
         "sourcePageUrl": "https://github.com/Da3dalusCode/philosophy-museum/blob/main/public/assets/museum/ancient-greek/plato-cave-interpretive-illustration-panel.webp",
-        "rights": "Original Philosophy Atlas Museum interpretive illustration"
+        "rights": "Original Philosophy Atlas Museum interpretive illustration",
+        "sceneDimensions": "360×450",
+        "panelDimensions": "720×900"
       },
       "issues": []
     },
@@ -133,22 +145,25 @@
       "articleStatus": "claim-reviewed",
       "authoredReviewStatus": "standard-compliant",
       "effectiveReviewStatus": "standard-compliant",
-      "reviewedOn": "2026-08-11",
-      "resolution": "Resolved: distinguished the manuscript panel from the installed reception composite; added an authenticated manuscript catalogue; mapped every major political and interpretive claim to primary locators and scholarly support.",
+      "reviewedOn": "2026-08-12",
+      "resolution": "Resolved: distinguished the manuscript panel from the installed reception composite; retained authenticated catalogue evidence; restored a claim-mapped transmission-and-justice sidebar; and confirmed natural proportions for both the manuscript panel and 3:4 wall composition.",
       "presentation": {
         "objectLed": true,
         "mainWords": 309,
         "paragraphs": 3,
-        "visitorGuideSections": 0,
-        "visitorGuideItems": 0
+        "visitorGuideSections": 2,
+        "visitorGuideItems": 4,
+        "aspectSafe": true
       },
       "evidence": {
         "interpretationSources": 13,
-        "mappedClaimUnits": 3,
+        "mappedClaimUnits": 7,
         "panelAssetId": "plato-republic-parisinus-1807",
         "physicalAssetId": "plato-republic-justice-ideal-city",
         "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Politeia_beginning._Codex_Parisinus_graecus_1807.jpg",
-        "rights": "Public Domain Mark 1.0"
+        "rights": "Public Domain Mark 1.0",
+        "sceneDimensions": "360×480",
+        "panelDimensions": "663×960"
       },
       "issues": []
     }

@@ -61,6 +61,17 @@ export function MuseumSupplementalInterpretationPanel({
     <MuseumAssetImage asset={asset} priority/>
     <figcaption><strong>{asset.caption}</strong><span>{exhibit.objectInterpretation ?? asset.historicalNote}</span></figcaption>
   </figure>;
+  const structuredInterpretation = exhibit.visitorGuide?.length ? <div
+    className="museum-visitor-guide"
+    aria-label={`Structured interpretation for ${exhibit.displayName}`}
+  >
+    {exhibit.visitorGuide.map((section) => <section key={section.heading}>
+      <h3>{section.heading}</h3>
+      <ul>{section.items.map((item, index) => <li key={`${item.label}:${index}`}>
+        <strong>{item.label}</strong><span>{item.description}</span>
+      </li>)}</ul>
+    </section>)}
+  </div> : null;
   const interpretationBody = <div className="museum-interpretive-sections" data-body-layout={objectLed ? 'prose' : 'sections'}>
     {objectLed ? <section>
       {exhibit.sections.flatMap((section) => section.paragraphs).map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
@@ -130,8 +141,9 @@ export function MuseumSupplementalInterpretationPanel({
 
       <div className="museum-panel-scroll">
         {objectLed ? <div className="museum-primary-flow">
-          <aside className="museum-primary-reference" aria-label="Exhibit object">
+          <aside className="museum-primary-reference" aria-label={`Object and structured interpretation for ${exhibit.displayName}`}>
             {principalFigure}
+            {structuredInterpretation}
           </aside>
           {interpretationBody}
         </div> : <>

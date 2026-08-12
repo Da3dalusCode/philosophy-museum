@@ -85,6 +85,22 @@ export const GALLERY_01_CONTEXT_SUPPLEMENTAL_EXHIBITS = [
         sourceIds: ['sep-presocratics'],
       },
     ],
+    visitorGuide: [
+      {
+        heading: 'Reading the site',
+        items: [
+          {label: 'Later fabric', description: 'The restored stoa belongs to later phases of Miletus, not the sixth-century city known to the Milesians.', sourceIds: ['miletus-photo', 'miletus-site']},
+          {label: 'Coastal setting', description: 'The remains locate inquiry within an Ionian port shaped by maritime travel, craft, and exchange.', sourceIds: ['miletus-site', 'sep-presocratics']},
+        ],
+      },
+      {
+        heading: 'From place to inquiry',
+        items: [
+          {label: 'Shared setting', description: 'Thales, Anaximander, and Anaximenes are associated with Miletus, though their writings survive chiefly through later testimony.', sourceIds: ['sep-presocratics']},
+          {label: 'Different accounts', description: 'Their proposals revise one another rather than forming a single fixed Milesian doctrine.', sourceIds: ['sep-presocratics']},
+        ],
+      },
+    ],
     sources: [
       {id: 'miletus-photo', label: 'Wikimedia Commons: Ionic Stoa at Miletus photograph and public-domain record', url: 'https://commons.wikimedia.org/wiki/File:MiletusIonicStoa.jpg', kind: 'collection-record'},
       {id: 'miletus-site', label: 'Perseus Art & Archaeology: Miletus site record', url: 'https://www.perseus.tufts.edu/hopper/artifact?name=Miletus&object=Site', kind: 'collection-record'},
@@ -115,10 +131,10 @@ export const GALLERY_01_CONTEXT_SUPPLEMENTAL_EXHIBITS = [
     },
     review: {
       status: 'standard-compliant',
-      reviewedOn: '2026-08-11',
-      method: 'Gallery 01 supplemental review: object identity, claims, sources, rights, accessibility, provenance, and the established untitled object-led exhibit presentation.',
-      resolution: 'Resolved: replaced the unverified generated scene with a public-domain site photograph; qualified the site’s chronology and contextual inferences; added claim-level source mapping and object-led guidance.',
-      lock: 'fnv1a64:6bd67e2c93fa4da5',
+      reviewedOn: '2026-08-12',
+      method: 'Gallery 01 supplemental review: object identity, claims, sources, rights, accessibility, provenance, subject-specific structured interpretation, and aspect-safe object-led presentation.',
+      resolution: 'Resolved: replaced the unverified generated scene with a public-domain site photograph; qualified the site’s chronology and contextual inferences; restored a claim-mapped site-and-inquiry sidebar; and matched the 3D frame to the complete photograph.',
+      lock: 'fnv1a64:722f7350085a42a7',
     },
   },
   {
@@ -158,6 +174,22 @@ export const GALLERY_01_CONTEXT_SUPPLEMENTAL_EXHIBITS = [
         sourceIds: ['vatican-school', 'smarthistory-school'],
       },
     ],
+    visitorGuide: [
+      {
+        heading: 'How the fresco organizes philosophy',
+        items: [
+          {label: 'Central pair', description: 'Plato and Aristotle give the composition a legible center through their books, gestures, and movement.', sourceIds: ['vatican-school', 'smarthistory-school']},
+          {label: 'Invented assembly', description: 'Raphael joins thinkers from different centuries and traditions inside one Renaissance architectural vision.', sourceIds: ['vatican-school', 'smarthistory-school']},
+        ],
+      },
+      {
+        heading: 'What a canon conceals',
+        items: [
+          {label: 'Compressed time', description: 'The harmonious gathering makes historical separation and disagreement less visible.', sourceIds: ['vatican-school', 'smarthistory-school']},
+          {label: 'Selective inheritance', description: 'The fresco celebrates ancient learning while showing how later cultures decide who occupies its center.', sourceIds: ['vatican-school', 'smarthistory-school']},
+        ],
+      },
+    ],
     sources: [
       {id: 'vatican-school', label: 'Vatican Museums: The School of Athens', url: 'https://www.museivaticani.va/content/museivaticani/en/collezioni/musei/stanze-di-raffaello/stanza-della-segnatura/scuola-di-atene.html', kind: 'collection-record'},
       {id: 'commons-school', label: 'Wikimedia Commons: Wilfredor photograph and CC0 rights record', url: 'https://commons.wikimedia.org/wiki/File:The_School_of_Athens_by_Raffaello_Sanzio_da_Urbino,_Vatican.jpg', kind: 'collection-record'},
@@ -189,10 +221,10 @@ export const GALLERY_01_CONTEXT_SUPPLEMENTAL_EXHIBITS = [
     },
     review: {
       status: 'standard-compliant',
-      reviewedOn: '2026-08-11',
-      method: 'Gallery 01 supplemental review: object identity, claims, sources, rights, accessibility, provenance, and the established untitled object-led exhibit presentation.',
-      resolution: 'Resolved: replaced the mismatched 2026 AI illustration with Wilfredor’s CC0 photograph of Raphael’s actual fresco and reconciled every title, caption, prose, source, provenance, credit, rights, and accessibility field.',
-      lock: 'fnv1a64:236de58679ba2d2f',
+      reviewedOn: '2026-08-12',
+      method: 'Gallery 01 supplemental review: object identity, claims, sources, rights, accessibility, provenance, subject-specific structured interpretation, and aspect-safe object-led presentation.',
+      resolution: 'Resolved: replaced the mismatched 2026 AI illustration with Wilfredor’s CC0 photograph of Raphael’s actual fresco; reconciled its records; restored a claim-mapped canon-and-composition sidebar; and matched the 3D frame to the complete photograph.',
+      lock: 'fnv1a64:813bfb74b6d559fc',
     },
   },
   {
@@ -232,6 +264,22 @@ export const GALLERY_01_CONTEXT_SUPPLEMENTAL_EXHIBITS = [
         sourceIds: ['plato-apology', 'plato-phaedo', 'sep-socrates', 'geneva-fabre'],
       },
     ],
+    visitorGuide: [
+      {
+        heading: 'Two histories in view',
+        items: [
+          {label: 'Ancient event', description: 'Socrates was tried and executed at Athens in 399 BCE; surviving accounts are literary works by followers.', sourceIds: ['plato-apology', 'plato-phaedo', 'xenophon-memorabilia', 'sep-socrates']},
+          {label: 'Modern reception', description: 'Fabre’s 1802 painting turns those accounts into a later moral drama rather than an eyewitness scene.', sourceIds: ['fabre-commons', 'geneva-fabre']},
+        ],
+      },
+      {
+        heading: 'Examination before the city',
+        items: [
+          {label: 'Philosophical duty', description: 'Plato’s Apology presents Socrates as refusing to abandon examination in exchange for safety.', sourceIds: ['plato-apology']},
+          {label: 'Contested record', description: 'The sources differ in purpose, and the prosecution’s political background remains debated.', sourceIds: ['plato-apology', 'xenophon-memorabilia', 'sep-socrates']},
+        ],
+      },
+    ],
     sources: [
       {id: 'plato-apology', label: 'Plato, Apology (Perseus)', url: 'https://www.perseus.tufts.edu/hopper/text?doc=Plat.+Apol.', kind: 'primary-text'},
       {id: 'plato-phaedo', label: 'Plato, Phaedo (Perseus)', url: 'https://www.perseus.tufts.edu/hopper/text?doc=Plat.+Phaedo', kind: 'primary-text'},
@@ -265,10 +313,10 @@ export const GALLERY_01_CONTEXT_SUPPLEMENTAL_EXHIBITS = [
     },
     review: {
       status: 'standard-compliant',
-      reviewedOn: '2026-08-11',
-      method: 'Gallery 01 supplemental review: object identity, claims, sources, rights, accessibility, provenance, and the established untitled object-led exhibit presentation.',
-      resolution: 'Resolved: replaced the unverified generated trial scene with Fabre’s authenticated 1802 reception painting; separated event from reception; removed the unrelated Met record and added mapped primary, scholarly, object, and rights evidence.',
-      lock: 'fnv1a64:78793eb292c8bd48',
+      reviewedOn: '2026-08-12',
+      method: 'Gallery 01 supplemental review: object identity, claims, sources, rights, accessibility, provenance, subject-specific structured interpretation, and aspect-safe object-led presentation.',
+      resolution: 'Resolved: replaced the unverified generated trial scene with Fabre’s authenticated 1802 reception painting; separated event from reception; restored a claim-mapped event-and-reception sidebar; and matched the 3D frame to the complete photograph.',
+      lock: 'fnv1a64:7e07e9e83bc261e1',
     },
   },
 ] as const satisfies readonly MuseumSupplementalExhibit[];
@@ -284,7 +332,7 @@ export const GALLERY_01_CONTEXT_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     interactionRadius: 3.35,
     collider: {id: `supplemental:${MILETUS_CONTEXT_ID}`, center: GALLERY_01_CONTEXT_SUPPLEMENTAL_PLACEMENTS[MILETUS_CONTEXT_ID].position, size: {width: 4.35, depth: 1.04}, rotation: GALLERY_01_CONTEXT_SUPPLEMENTAL_PLACEMENTS[MILETUS_CONTEXT_ID].rotationY},
     assetId: 'miletus-ionian-coast-interpretive',
-    mediaMount: mediaMount(MILETUS_CONTEXT_ID, 'miletus-ionian-coast-interpretive', 3.35, 2.24),
+    mediaMount: mediaMount(MILETUS_CONTEXT_ID, 'miletus-ionian-coast-interpretive', 3.35, 2.5125),
     label: {position: [0, 3.82, -.31], width: 4.05, height: .82},
     footprint: {width: 4.35, height: 4.38, depth: 1.04},
     installationKind: 'mediterranean-context',
@@ -300,7 +348,7 @@ export const GALLERY_01_CONTEXT_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     interactionRadius: 3.35,
     collider: {id: `supplemental:${RECEPTION_ID}`, center: GALLERY_01_CONTEXT_SUPPLEMENTAL_PLACEMENTS[RECEPTION_ID].position, size: {width: 4.35, depth: 1.04}, rotation: GALLERY_01_CONTEXT_SUPPLEMENTAL_PLACEMENTS[RECEPTION_ID].rotationY},
     assetId: 'greek-philosophy-reception-interpretive',
-    mediaMount: mediaMount(RECEPTION_ID, 'greek-philosophy-reception-interpretive', 3.35, 2.18),
+    mediaMount: mediaMount(RECEPTION_ID, 'greek-philosophy-reception-interpretive', 3.35, 2.276953125),
     label: {position: [0, 3.82, -.31], width: 4.05, height: .82},
     footprint: {width: 4.35, height: 4.38, depth: 1.04},
     installationKind: 'mediterranean-context',
@@ -316,7 +364,7 @@ export const GALLERY_01_CONTEXT_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     interactionRadius: 3.35,
     collider: {id: `supplemental:${SOCRATES_CONTEXT_ID}`, center: GALLERY_01_CONTEXT_SUPPLEMENTAL_PLACEMENTS[SOCRATES_CONTEXT_ID].position, size: {width: 4.35, depth: 1.04}, rotation: GALLERY_01_CONTEXT_SUPPLEMENTAL_PLACEMENTS[SOCRATES_CONTEXT_ID].rotationY},
     assetId: 'socrates-trial-interpretive',
-    mediaMount: mediaMount(SOCRATES_CONTEXT_ID, 'socrates-trial-interpretive', 3.35, 2.2),
+    mediaMount: mediaMount(SOCRATES_CONTEXT_ID, 'socrates-trial-interpretive', 3.35, 2.5125),
     label: {position: [0, 3.82, -.31], width: 4.05, height: .82},
     footprint: {width: 4.35, height: 4.38, depth: 1.04},
     installationKind: 'mediterranean-context',

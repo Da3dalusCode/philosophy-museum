@@ -23,6 +23,17 @@ export type MuseumSupplementalInterpretationSection = {
   sourceIds?: readonly string[];
 };
 
+export type MuseumSupplementalVisitorGuideItem = {
+  label: string;
+  description: string;
+  sourceIds: readonly string[];
+};
+
+export type MuseumSupplementalVisitorGuideSection = {
+  heading: string;
+  items: readonly MuseumSupplementalVisitorGuideItem[];
+};
+
 export type MuseumSupplementalExhibitPresentation = {
   panelKicker: string;
   proximityKicker: string;
@@ -71,6 +82,7 @@ export type MuseumSupplementalExhibit = {
   keyIdeas: readonly string[];
   cautions: readonly string[];
   sections: readonly MuseumSupplementalInterpretationSection[];
+  visitorGuide?: readonly MuseumSupplementalVisitorGuideSection[];
   sources: readonly MuseumSupplementalInterpretationSource[];
   objectInterpretation?: string;
   assetId: MuseumAssetId;
@@ -161,6 +173,22 @@ export const PLATO_SUPPLEMENTAL_EXHIBITS = [
         sourceIds: ['republic-return', 'iep-republic'],
       },
     ],
+    visitorGuide: [
+      {
+        heading: 'The image’s vertical argument',
+        items: [
+          {label: 'Below ground', description: 'Prisoners encounter shadows and echoes within a field they have never been able to test.', sourceIds: ['republic-cave']},
+          {label: 'Toward the light', description: 'The ascent proceeds by painful adjustment rather than one effortless leap into knowledge.', sourceIds: ['republic-cave', 'republic-turning']},
+        ],
+      },
+      {
+        heading: 'Education and return',
+        items: [
+          {label: 'Turning the soul', description: 'Education redirects attention and desire toward better objects of understanding.', sourceIds: ['republic-turning', 'iep-republic']},
+          {label: 'Civic obligation', description: 'The person who ascends is required to return, linking knowledge to Plato’s contested case for philosopher-rule.', sourceIds: ['republic-return', 'iep-republic']},
+        ],
+      },
+    ],
     sources: [
       {id: 'republic-cave', label: 'Plato, Republic VII, 514a–518b: cave and ascent (Perseus)', url: 'https://www.perseus.tufts.edu/hopper/text?doc=plat.+rep.+7.514a', kind: 'primary-text'},
       {id: 'republic-turning', label: 'Plato, Republic 518c–d: education as turning the soul (Perseus)', url: 'https://www.perseus.tufts.edu/hopper/text?doc=Plat.+Rep.+518C', kind: 'primary-text'},
@@ -177,8 +205,8 @@ export const PLATO_SUPPLEMENTAL_EXHIBITS = [
       proximityKicker: 'Plato work',
       factRows: [
         {label: 'Text', value: 'Republic VII, 514a–520e'},
-        {label: 'Object', value: 'Jan Saenredam engraving · 1604 · British Museum'},
-        {label: 'Museum role', value: 'Argument image and reception history; not ancient evidence'},
+        {label: 'Object', value: 'Philosophy Atlas Museum interpretive illustration · 2026'},
+        {label: 'Museum role', value: 'Contemporary argument image; not ancient evidence'},
       ],
       articleActionLabel: 'Read the full sourced Plato article',
       entityKind: 'philosopher',
@@ -194,10 +222,10 @@ export const PLATO_SUPPLEMENTAL_EXHIBITS = [
     },
     review: {
       status: 'standard-compliant',
-      reviewedOn: '2026-08-11',
-      method: 'Gallery 01 supplemental review: object identity, claims, sources, rights, accessibility, provenance, and the established untitled object-led exhibit presentation.',
-      resolution: 'Resolved: restored the approved portrait-format Museum interpretive illustration from repository history; identified it as contemporary interpretation; retained exact source mapping for the Cave’s ascent, turning, and compelled return.',
-      lock: 'fnv1a64:eb886164d6a13d4e',
+      reviewedOn: '2026-08-12',
+      method: 'Gallery 01 supplemental review: object identity, claims, sources, rights, accessibility, provenance, subject-specific structured interpretation, and aspect-safe object-led presentation.',
+      resolution: 'Resolved: restored the approved portrait-format Museum interpretive illustration; identified it honestly as contemporary interpretation; corrected its presentation metadata; and restored a claim-mapped ascent, education, and return sidebar while retaining its natural 4:5 wall format.',
+      lock: 'fnv1a64:e6686f5d26301468',
     },
   },
   {
@@ -237,6 +265,22 @@ export const PLATO_SUPPLEMENTAL_EXHIBITS = [
         heading: '',
         paragraphs: ['The political vision remains deliberately unsettling. It gives great power to a supposedly knowledgeable elite, regulates education and poetry, reshapes family life among the guardians, and places democracy on a path of decline toward tyranny. Plato’s proposal that qualified women may serve as guardians challenges one ancient convention, but it does so within a strict hierarchy rather than a modern ideal of equality. The city in speech can be read as a model for thinking about the soul, yet its institutions are too serious to dismiss as harmless metaphor. That tension—between ethical inquiry, imaginative construction, and coercive politics—has kept the Republic at the center of philosophical argument for centuries.'],
         sourceIds: ['republic-education', 'republic-women', 'republic-regimes', 'sep-republic', 'iep-republic'],
+      },
+    ],
+    visitorGuide: [
+      {
+        heading: 'What the manuscript witnesses',
+        items: [
+          {label: 'Byzantine copy', description: 'Codex Parisinus graecus 1807 was copied around 900 CE, long after Plato composed the dialogue.', sourceIds: ['biblissima-manuscript', 'commons-manuscript']},
+          {label: 'Textual survival', description: 'The page is evidence for the Republic’s transmission, not Plato’s handwriting or an ancient original.', sourceIds: ['biblissima-manuscript', 'commons-manuscript']},
+        ],
+      },
+      {
+        heading: 'Justice at two scales',
+        items: [
+          {label: 'City and soul', description: 'The city in speech enlarges the question of justice before the dialogue returns to reason, spirit, and appetite in a person.', sourceIds: ['republic-city', 'republic-soul', 'sep-republic']},
+          {label: 'Political risk', description: 'Guardian education and philosopher-rule join ethical order to hierarchy, concentrated authority, and coercive institutions.', sourceIds: ['republic-education', 'republic-women', 'republic-philosophers', 'republic-regimes', 'sep-republic', 'iep-republic']},
+        ],
       },
     ],
     sources: [
@@ -280,10 +324,10 @@ export const PLATO_SUPPLEMENTAL_EXHIBITS = [
     },
     review: {
       status: 'standard-compliant',
-      reviewedOn: '2026-08-11',
-      method: 'Gallery 01 supplemental review: object identity, claims, sources, rights, accessibility, provenance, and the established untitled object-led exhibit presentation.',
-      resolution: 'Resolved: distinguished the manuscript panel from the installed reception composite; added an authenticated manuscript catalogue; mapped every major political and interpretive claim to primary locators and scholarly support.',
-      lock: 'fnv1a64:e44a85c9ef6fac49',
+      reviewedOn: '2026-08-12',
+      method: 'Gallery 01 supplemental review: object identity, claims, sources, rights, accessibility, provenance, subject-specific structured interpretation, and aspect-safe object-led presentation.',
+      resolution: 'Resolved: distinguished the manuscript panel from the installed reception composite; retained authenticated catalogue evidence; restored a claim-mapped transmission-and-justice sidebar; and confirmed natural proportions for both the manuscript panel and 3:4 wall composition.',
+      lock: 'fnv1a64:858b7e3f6004bef6',
     },
   },
 ] as const satisfies readonly PlatoSupplementalExhibit[];

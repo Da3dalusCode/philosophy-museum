@@ -18,21 +18,24 @@
       "authoredReviewStatus": "standard-compliant",
       "effectiveReviewStatus": "standard-compliant",
       "reviewedOn": "2026-08-12",
-      "resolution": "Resolved: identified van Mol’s painting as early-modern reception, corrected the image description, and mapped the lamp anecdote and Cynic frank speech to their distinct ancient and scholarly evidence.",
+      "resolution": "Resolved: identified van Mol’s painting as early-modern reception, mapped the anecdote and frank speech, restored a claim-mapped performance-and-evidence sidebar, and matched the wall frame to the complete painting.",
       "presentation": {
         "objectLed": true,
         "mainWords": 305,
         "paragraphs": 3,
-        "visitorGuideSections": 0,
-        "visitorGuideItems": 0
+        "visitorGuideSections": 2,
+        "visitorGuideItems": 4,
+        "aspectSafe": true
       },
       "evidence": {
         "interpretationSources": 4,
-        "mappedClaimUnits": 3,
+        "mappedClaimUnits": 7,
         "panelAssetId": "cynic-diogenes-honest-man",
         "physicalAssetId": "cynic-diogenes-honest-man",
         "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Pieter_van_Mol_-_Diogenes_with_his_lantern_looking_for_an_honest_man.jpg",
-        "rights": "Public Domain Mark 1.0"
+        "rights": "Public Domain Mark 1.0",
+        "sceneDimensions": "640×494",
+        "panelDimensions": "1280×988"
       },
       "issues": []
     },
@@ -47,21 +50,24 @@
       "authoredReviewStatus": "standard-compliant",
       "effectiveReviewStatus": "standard-compliant",
       "reviewedOn": "2026-08-12",
-      "resolution": "Resolved: corrected the 1643 Rijksmuseum print’s maker and design credit, distinguished its marriage-proposal scene from ancient evidence, and mapped the Hipparchia–Crates account to Diogenes Laertius with explicit uncertainty.",
+      "resolution": "Resolved: corrected the Rijksmuseum print’s credit, distinguished reception from ancient evidence, restored a claim-mapped choice-and-archive sidebar, and confirmed the complete print’s natural 3:5 wall format.",
       "presentation": {
         "objectLed": true,
         "mainWords": 312,
         "paragraphs": 3,
-        "visitorGuideSections": 0,
-        "visitorGuideItems": 0
+        "visitorGuideSections": 2,
+        "visitorGuideItems": 4,
+        "aspectSafe": true
       },
       "evidence": {
         "interpretationSources": 4,
-        "mappedClaimUnits": 3,
+        "mappedClaimUnits": 7,
         "panelAssetId": "cynic-hipparchia-crates-print",
         "physicalAssetId": "cynic-hipparchia-crates-print",
         "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Hipparchia_en_Krates,_RP-P-1938-2026.jpg",
-        "rights": "CC0 1.0"
+        "rights": "CC0 1.0",
+        "sceneDimensions": "384×640",
+        "panelDimensions": "768×1280"
       },
       "issues": []
     },
@@ -76,21 +82,24 @@
       "authoredReviewStatus": "standard-compliant",
       "effectiveReviewStatus": "standard-compliant",
       "reviewedOn": "2026-08-12",
-      "resolution": "Resolved: recast the portrait grid as nineteenth-century reception, mapped Diogenes’s attributed kosmopolitēs reply and the disputed Cynic lineage, and separated Cynic refusal from later Stoic cosmopolitan theory.",
+      "resolution": "Resolved: recast the portrait grid as nineteenth-century reception, separated the Cynic saying from later Stoic theory, restored a claim-mapped phrase-and-lineage sidebar, and matched the wall frame to the complete print.",
       "presentation": {
         "objectLed": true,
         "mainWords": 301,
         "paragraphs": 3,
-        "visitorGuideSections": 0,
-        "visitorGuideItems": 0
+        "visitorGuideSections": 2,
+        "visitorGuideItems": 4,
+        "aspectSafe": true
       },
       "evidence": {
         "interpretationSources": 5,
-        "mappedClaimUnits": 3,
+        "mappedClaimUnits": 7,
         "panelAssetId": "cynic-philosophers-constellation",
         "physicalAssetId": "cynic-philosophers-constellation",
         "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Philosophers;_twenty_portraits_of_classical_thinkers._Engrav_Wellcome_V0006810.jpg",
-        "rights": "CC BY 4.0"
+        "rights": "CC BY 4.0",
+        "sceneDimensions": "464×640",
+        "panelDimensions": "927×1280"
       },
       "issues": []
     },
@@ -105,21 +114,24 @@
       "authoredReviewStatus": "standard-compliant",
       "effectiveReviewStatus": "standard-compliant",
       "reviewedOn": "2026-08-12",
-      "resolution": "Resolved: retitled the exhibit around the installed Oinoanda fragment, corrected its identity, credit, rights, dimensions, and accessibility text, and mapped its public Epicurean teaching to primary and scholarly evidence.",
+      "resolution": "Resolved: retitled the exhibit around the installed Oinoanda fragment, corrected its object record, restored a claim-mapped public-stone-and-fragment sidebar, and replaced the landscape wall aperture with the photograph’s natural 3:4 portrait format.",
       "presentation": {
         "objectLed": true,
         "mainWords": 298,
         "paragraphs": 3,
-        "visitorGuideSections": 0,
-        "visitorGuideItems": 0
+        "visitorGuideSections": 2,
+        "visitorGuideItems": 4,
+        "aspectSafe": true
       },
       "evidence": {
         "interpretationSources": 4,
-        "mappedClaimUnits": 3,
+        "mappedClaimUnits": 7,
         "panelAssetId": "epicurean-tetrapharmakos",
         "physicalAssetId": "epicurean-tetrapharmakos",
         "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:OinoandaInscription.JPG",
-        "rights": "CC BY-SA 3.0"
+        "rights": "CC BY-SA 3.0",
+        "sceneDimensions": "480×640",
+        "panelDimensions": "960×1280"
       },
       "issues": []
     },
@@ -134,21 +146,24 @@
       "authoredReviewStatus": "standard-compliant",
       "effectiveReviewStatus": "standard-compliant",
       "reviewedOn": "2026-08-12",
-      "resolution": "Resolved: identified the installed Athena and its licensed photograph, recast it as truthful Villa material context, and qualified every claim connecting the library, Philodemus, residence, ownership, and Roman patronage.",
+      "resolution": "Resolved: identified the installed Athena, qualified the Villa and Philodemus claims, restored a claim-mapped sculpture-and-papyri sidebar, and matched the wall frame to the complete photograph.",
       "presentation": {
         "objectLed": true,
         "mainWords": 319,
         "paragraphs": 3,
-        "visitorGuideSections": 0,
-        "visitorGuideItems": 0
+        "visitorGuideSections": 2,
+        "visitorGuideItems": 4,
+        "aspectSafe": true
       },
       "evidence": {
         "interpretationSources": 3,
-        "mappedClaimUnits": 3,
+        "mappedClaimUnits": 7,
         "panelAssetId": "epicurean-philodemus-subscription",
         "physicalAssetId": "epicurean-philodemus-subscription",
         "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:From_the_Villa_of_the_Papyri_in_Herculaneum,_Naples_National_Archaeological_Museum_(49439110928).jpg",
-        "rights": "CC BY-SA 2.0"
+        "rights": "CC BY-SA 2.0",
+        "sceneDimensions": "424×640",
+        "panelDimensions": "848×1280"
       },
       "issues": []
     },
@@ -163,21 +178,24 @@
       "authoredReviewStatus": "standard-compliant",
       "effectiveReviewStatus": "standard-compliant",
       "reviewedOn": "2026-08-12",
-      "resolution": "Resolved: identified the displayed object as Castrucci’s 1858 diagram of Piaggio’s unrolling machine, corrected its provenance and accessibility record, and mapped the conservation claims to documented material limits.",
+      "resolution": "Resolved: identified Castrucci’s 1858 diagram, mapped its conservation limits, restored a claim-mapped intervention-and-imaging sidebar, and matched the wall frame to the complete diagram.",
       "presentation": {
         "objectLed": true,
         "mainWords": 300,
         "paragraphs": 3,
-        "visitorGuideSections": 0,
-        "visitorGuideItems": 0
+        "visitorGuideSections": 2,
+        "visitorGuideItems": 4,
+        "aspectSafe": true
       },
       "evidence": {
         "interpretationSources": 3,
-        "mappedClaimUnits": 3,
+        "mappedClaimUnits": 7,
         "panelAssetId": "epicurean-herculaneum-papyrus",
         "physicalAssetId": "epicurean-herculaneum-papyrus",
         "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Abbot_Piaggios_machine_Device-to-unroll-papyri_1756_Vatican.jpg",
-        "rights": "Public Domain Mark 1.0"
+        "rights": "Public Domain Mark 1.0",
+        "sceneDimensions": "414×640",
+        "panelDimensions": "663×1024"
       },
       "issues": []
     },
@@ -192,21 +210,24 @@
       "authoredReviewStatus": "standard-compliant",
       "effectiveReviewStatus": "standard-compliant",
       "reviewedOn": "2026-08-12",
-      "resolution": "Resolved: identified the installed Pyrrho storm drawing and its public-domain record, corrected the anecdote to Diogenes Laertius 9.68, and distinguished reception, Pyrrho’s contested views, and Sextus’s later practice.",
+      "resolution": "Resolved: identified the Pyrrho storm drawing, corrected the anecdote to Diogenes Laertius 9.68, restored a claim-mapped reception-and-practice sidebar, and replaced the portrait wall aperture with the drawing’s natural landscape format.",
       "presentation": {
         "objectLed": true,
         "mainWords": 319,
         "paragraphs": 3,
-        "visitorGuideSections": 0,
-        "visitorGuideItems": 0
+        "visitorGuideSections": 2,
+        "visitorGuideItems": 4,
+        "aspectSafe": true
       },
       "evidence": {
         "interpretationSources": 7,
-        "mappedClaimUnits": 3,
+        "mappedClaimUnits": 7,
         "panelAssetId": "skeptical-sextus-adversus-edition",
         "physicalAssetId": "skeptical-sextus-adversus-edition",
         "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Petrarca-Meister_001.jpg",
-        "rights": "Public Domain Mark 1.0"
+        "rights": "Public Domain Mark 1.0",
+        "sceneDimensions": "640×468",
+        "panelDimensions": "1280×936"
       },
       "issues": []
     }

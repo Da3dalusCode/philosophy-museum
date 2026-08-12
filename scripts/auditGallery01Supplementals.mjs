@@ -2,20 +2,45 @@ import {readFile, writeFile} from 'node:fs/promises';
 import {loadAppData} from './loadAppData.mjs';
 
 const HALL_ID = 'mediterranean-beginnings-classical';
+const EXPECTED_COUNT = 5;
 const LEDGER_JSON_URL = new URL('../docs/editorial/gallery-01-supplemental-review-ledger.json', import.meta.url);
 const LEDGER_MARKDOWN_URL = new URL('../docs/editorial/gallery-01-supplemental-review-ledger.md', import.meta.url);
+const PANEL_RENDERER_URL = new URL('../src/components/MuseumGallery/MuseumSupplementalInterpretationPanel.tsx', import.meta.url);
+const MUSEUM_CSS_URL = new URL('../src/components/MuseumGallery/museum.css', import.meta.url);
 const write = process.argv.includes('--write');
 const countWords = (value = '') => String(value).trim().split(/\s+/u).filter(Boolean).length;
 const escapeCell = (value) => String(value ?? '').replaceAll('|', '\\|').replaceAll('\n', ' ');
+const aspectRatio = ({width, height}) => width / height;
+const aspectMatches = (left, right, tolerance = .002) => Math.abs(left - right) <= tolerance;
+const genericGuideHeading = /^(?:visitor guide|how to read(?: this exhibit)?|key ideas|historical cautions|interpretive anchors|keep in view)$/iu;
 
 const data = await loadAppData();
+const [panelRendererSource, museumCssSource] = await Promise.all([
+  readFile(PANEL_RENDERER_URL, 'utf8'),
+  readFile(MUSEUM_CSS_URL, 'utf8'),
+]);
 const registryEntries = data.museumSupplementalExhibits.filter(({hallId}) => hallId === HALL_ID);
 const assetsById = new Map(data.museumAssets.map((asset) => [asset.id, asset]));
 const errors = [];
+const reviewedGuideHeadingCounts = new Map();
+for (const {exhibit} of data.museumSupplementalExhibits.filter(({hallId}) =>
+  hallId === HALL_ID || hallId === 'hellenistic-roman-ways')) {
+  for (const {heading} of exhibit.visitorGuide ?? []) {
+    reviewedGuideHeadingCounts.set(heading, (reviewedGuideHeadingCounts.get(heading) ?? 0) + 1);
+  }
+}
 
-if (!registryEntries.length) errors.push(`${HALL_ID}: authoritative runtime registry returned no supplementals`);
+if (registryEntries.length !== EXPECTED_COUNT) {
+  errors.push(`${HALL_ID}: authoritative runtime registry returned ${registryEntries.length}, expected ${EXPECTED_COUNT}`);
+}
 if (new Set(registryEntries.map(({exhibit}) => exhibit.id)).size !== registryEntries.length) {
   errors.push(`${HALL_ID}: duplicate supplemental IDs in authoritative runtime registry`);
+}
+if (!/exhibit\.visitorGuide[\s\S]*museum-visitor-guide/u.test(panelRendererSource)) {
+  errors.push('supplemental renderer does not consume the subject-specific structured interpretation');
+}
+if (!/museum-primary-reference \.museum-object-hero img\{width:auto;max-width:100%;height:auto;[\s\S]*object-fit:contain/u.test(museumCssSource)) {
+  errors.push('object-led panel images are not protected from non-uniform scaling');
 }
 
 const entries = registryEntries.map(({exhibit, layout}) => {
@@ -33,14 +58,25 @@ const entries = registryEntries.map(({exhibit, layout}) => {
   const articleStatus = article ? data.reviewLock.effectiveEditorialStatus(article.editorialRecord) : null;
   const sourceIds = exhibit.sources.map(({id}) => id).filter(Boolean);
   const sourceIdSet = new Set(sourceIds);
+  const visitorGuide = exhibit.visitorGuide ?? [];
+  const visitorGuideItems = visitorGuide.flatMap(({items}) => items);
   const mappedClaims = [
     ...exhibit.sections.map((section, index) => ({kind: `paragraph ${index + 1}`, ids: section.sourceIds})),
+    ...visitorGuide.flatMap((section, sectionIndex) => section.items.map((item, itemIndex) => ({
+      kind: `structured interpretation ${sectionIndex + 1}.${itemIndex + 1}`,
+      ids: item.sourceIds,
+    }))),
   ];
   const principalAsset = assetsById.get(exhibit.panelAssetId);
   const physicalAsset = assetsById.get(layout.assetId);
   const paragraphs = exhibit.sections.flatMap(({paragraphs}) => paragraphs);
   const mainWords = countWords(paragraphs.join(' '));
-  const visitorCopy = [exhibit.displayName, exhibit.objectInterpretation, ...paragraphs].filter(Boolean).join(' ');
+  const visitorCopy = [
+    exhibit.displayName,
+    exhibit.objectInterpretation,
+    ...paragraphs,
+    ...visitorGuide.flatMap(({heading, items}) => [heading, ...items.flatMap(({label, description}) => [label, description])]),
+  ].filter(Boolean).join(' ');
   const issues = [];
 
   if (!article) issues.push('canonical article route is unmatched');
@@ -49,8 +85,17 @@ const entries = registryEntries.map(({exhibit, layout}) => {
   if (effectiveStatus !== 'standard-compliant') issues.push(`effective review status is ${effectiveStatus}`);
   if (!exhibit.review?.resolution?.trim()) issues.push('missing explicit resolution');
   if (exhibit.presentation?.exhibitLayout !== 'object-led') issues.push('not object-led');
-  if (exhibit.visitorGuide) issues.push('visitor-facing guide should not be present');
-  if (paragraphs.length < 3 || paragraphs.length > 4 || mainWords < 280) issues.push(`interpretation depth is ${paragraphs.length} paragraphs / ${mainWords} words`);
+  if (visitorGuide.length < 1 || visitorGuide.length > 3) issues.push(`structured interpretation has ${visitorGuide.length} sections`);
+  if (visitorGuideItems.length < 2 || visitorGuideItems.length > 6) issues.push(`structured interpretation has ${visitorGuideItems.length} items`);
+  for (const section of visitorGuide) {
+    if (!section.heading.trim() || genericGuideHeading.test(section.heading.trim())) issues.push(`generic structured heading: ${section.heading || '(blank)'}`);
+    if (reviewedGuideHeadingCounts.get(section.heading) !== 1) issues.push(`structured heading is reused across reviewed supplementals: ${section.heading}`);
+    if (section.items.length < 1 || section.items.length > 3) issues.push(`${section.heading} has ${section.items.length} items`);
+    for (const item of section.items) {
+      if (!item.label.trim() || !item.description.trim()) issues.push(`${section.heading} has an empty label or explanation`);
+    }
+  }
+  if (paragraphs.length !== 3 || mainWords < 280) issues.push(`interpretation depth is ${paragraphs.length} paragraphs / ${mainWords} words`);
   if (exhibit.sections.some(({heading}) => heading.trim())) issues.push('object-led interpretation retains visible section headings');
   if (!exhibit.objectInterpretation?.trim()) issues.push('missing object interpretation');
   if (/\b(?:modal|panel|room) object\b|Visitor Guide|How to read this exhibit|previously displayed|generated (?:hall|image|illustration)/iu.test(visitorCopy)) {
@@ -91,7 +136,16 @@ const entries = registryEntries.map(({exhibit, layout}) => {
       || (asset.id === 'plato-republic-justice-ideal-city' && asset.sourcePageUrl === 'https://www.nga.gov/artworks/10139-justice');
     if (!collectionBackedSource) issues.push(`${role} asset lacks an exact reusable file or collection source`);
     if (!ownerApprovedCaveIllustration && /generated|original Philosophy Atlas Museum interpretive illustration|2026/iu.test(JSON.stringify(asset))) issues.push(`${role} asset retains generated-image metadata`);
+    if (!asset.variants?.scene || !asset.variants?.panel) issues.push(`${role} asset lacks scene or panel derivative dimensions`);
+    else if (!aspectMatches(aspectRatio(asset.variants.scene), aspectRatio(asset.variants.panel))) {
+      issues.push(`${role} scene and panel derivatives use inconsistent aspect ratios`);
+    }
   }
+  if (physicalAsset?.variants?.scene && !aspectMatches(
+    layout.mediaMount.width / layout.mediaMount.height,
+    aspectRatio(physicalAsset.variants.scene),
+    .00001,
+  )) issues.push('3D media mount distorts the scene derivative aspect ratio');
 
   if (issues.length) errors.push(`${exhibit.id}: ${issues.join('; ')}`);
   return {
@@ -107,8 +161,13 @@ const entries = registryEntries.map(({exhibit, layout}) => {
       objectLed: exhibit.presentation?.exhibitLayout === 'object-led',
       mainWords,
       paragraphs: paragraphs.length,
-      visitorGuideSections: 0,
-      visitorGuideItems: 0,
+      visitorGuideSections: visitorGuide.length,
+      visitorGuideItems: visitorGuideItems.length,
+      aspectSafe: Boolean(physicalAsset?.variants?.scene) && aspectMatches(
+        layout.mediaMount.width / layout.mediaMount.height,
+        aspectRatio(physicalAsset.variants.scene),
+        .00001,
+      ),
     },
     evidence: {
       interpretationSources: exhibit.sources.length,
@@ -117,6 +176,12 @@ const entries = registryEntries.map(({exhibit, layout}) => {
       physicalAssetId: layout.assetId,
       sourcePageUrl: principalAsset?.sourcePageUrl ?? null,
       rights: principalAsset?.license ?? null,
+      sceneDimensions: physicalAsset?.variants?.scene
+        ? `${physicalAsset.variants.scene.width}×${physicalAsset.variants.scene.height}`
+        : null,
+      panelDimensions: principalAsset?.variants?.panel
+        ? `${principalAsset.variants.panel.width}×${principalAsset.variants.panel.height}`
+        : null,
     },
     issues,
   };
@@ -145,9 +210,9 @@ Regenerate with \`npm run report:gallery01-supplementals\` and verify with \`npm
 | ---: | ---: | ---: | ---: |
 | ${ledger.registryCount} | ${ledger.reviewedCount} | ${ledger.resolvedCount} | ${errors.length} |
 
-| ID | Title | Resolution | Article | Main words | Sources | Asset / rights |
-| --- | --- | --- | --- | ---: | ---: | --- |
-${entries.map((entry) => `| ${escapeCell(entry.id)} | ${escapeCell(entry.title)} | ${escapeCell(entry.resolution)} | ${escapeCell(entry.articleStatus)} / ${escapeCell(entry.effectiveReviewStatus)} | ${entry.presentation.mainWords} | ${entry.evidence.interpretationSources} | ${escapeCell(entry.evidence.panelAssetId)} / ${escapeCell(entry.evidence.rights)} |`).join('\n')}
+| ID | Title | Resolution | Article | Main words | Sidebar | Sources | Scene / panel pixels | Asset / rights |
+| --- | --- | --- | --- | ---: | ---: | ---: | --- | --- |
+${entries.map((entry) => `| ${escapeCell(entry.id)} | ${escapeCell(entry.title)} | ${escapeCell(entry.resolution)} | ${escapeCell(entry.articleStatus)} / ${escapeCell(entry.effectiveReviewStatus)} | ${entry.presentation.mainWords} | ${entry.presentation.visitorGuideSections} / ${entry.presentation.visitorGuideItems} | ${entry.evidence.interpretationSources} | ${escapeCell(entry.evidence.sceneDimensions)} / ${escapeCell(entry.evidence.panelDimensions)} | ${escapeCell(entry.evidence.panelAssetId)} / ${escapeCell(entry.evidence.rights)} |`).join('\n')}
 `;
 
 if (write) {
