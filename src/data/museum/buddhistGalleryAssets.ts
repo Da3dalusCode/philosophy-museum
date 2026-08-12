@@ -92,11 +92,11 @@ export const BUDDHIST_GALLERY_ASSETS = [
   }),
   asset({
     id: 'vasubandhu-mere-ideation', entityKind: 'philosopher', entityId: 'vasubandhu', role: 'primary-source', mediaKind: 'manuscript',
-    title: 'The Completion of Mere Ideation', creator: 'Text attributed to Vasubandhu; Tibetan printers unknown', objectDate: 'Tibetan xylograph edition; date not stated on the Commons record', institution: 'World Digital Library / Library of Congress',
+    title: 'The Completion of Mere Ideation (Cheng weishi lun)', creator: 'Xuanzang-linked commentary and synthesis; Kasuga-edition printers unknown', objectDate: '14th century, Japan', institution: 'National Diet Library, Japan',
     sourcePageUrl: 'https://commons.wikimedia.org/wiki/File:The_Completion_of_Mere_Ideation_WDL11843.jpg', ...publicDomain, derivativeNotice,
-    attribution: 'World Digital Library, Tibetan xylograph of Vasubandhu’s Completion of Mere Ideation. Public domain.', scene: [640, 180], panel: [1280, 299],
-    alt: 'A long horizontal Tibetan printed leaf with dense black text and a red title block.', caption: 'A Tibetan xylograph witnesses the long transmission of a text attributed to Vasubandhu.',
-    historicalNote: 'A later printed witness, not Vasubandhu’s autograph; “mere ideation” should not be treated as a simple claim that nothing exists.', likenessStatus: 'not-applicable',
+    attribution: 'National Diet Library, fourteenth-century Japanese Kasuga edition of The Completion of Mere Ideation. Public domain.', scene: [640, 180], panel: [1280, 360],
+    alt: 'A very wide Japanese printed Buddhist text in Chinese characters, with dense vertical columns across pale paper.', caption: 'A fourteenth-century Kōfuku-ji Kasuga edition transmits Xuanzang-linked consciousness-only commentary in Japan.',
+    historicalNote: 'This Japanese witness belongs to the later Cheng weishi lun synthesis and commentary tradition; it is neither a Tibetan xylograph nor Vasubandhu’s autograph or original Thirty Verses.', likenessStatus: 'not-applicable',
   }),
   asset({
     id: 'buddhist-xuanzang-statue', entityKind: 'branch', entityId: 'buddhist-philosophy', role: 'material-history', mediaKind: 'sculpture-photograph',
@@ -223,9 +223,9 @@ export const BUDDHIST_GALLERY_ASSETS = [
   }),
   asset({
     id: 'dharmakirti-tibetan-woodblock-portrait', entityKind: 'philosopher', entityId: 'dharmakirti', role: 'context', mediaKind: 'engraving',
-    title: 'Traditional Tibetan woodblock portrait of Dharmakīrti', creator: 'Artist not supplied', objectDate: 'Object date not supplied', institution: 'Asian Classics Input Project; holding collection not stated',
+    title: 'Traditional Tibetan woodblock portrait of Dharmakīrti', creator: 'Tibetan woodblock-print artist not supplied', objectDate: 'Object date not supplied', institution: 'Holding collection not supplied; image provenance reported through ACIP and Wikimedia Commons',
     sourcePageUrl: 'https://commons.wikimedia.org/wiki/File:Dharmakirti.gif', ...publicDomain, derivativeNotice,
-    attribution: 'Traditional Tibetan woodblock portrait of Dharmakīrti, Asian Classics Input Project. Public domain.', scene: [616, 640], panel: [1229, 1277],
+    attribution: 'Traditional Tibetan woodblock portrait of Dharmakīrti; artist, date, and holding collection not supplied; image provenance reported through ACIP and Wikimedia Commons. Public domain.', scene: [616, 640], panel: [1229, 1277],
     alt: 'A black-and-white Tibetan woodblock image identifies Dharmakirti as a seated scholar within a traditional portrait frame.',
     caption: 'The woodblock witnesses Dharmakīrti’s later Tibetan curricular and commentarial presence.',
     historicalNote: 'The Commons record supplies neither artist, object date, nor holding collection; the image is a later traditional representation, not a historical likeness.', likenessStatus: 'later-traditional-representation',

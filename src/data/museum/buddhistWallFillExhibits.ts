@@ -38,6 +38,7 @@ type Gallery05WallFillReviewEvidence = {
   plaqueType: NonNullable<MuseumSupplementalExhibit['wallPlaque']>['type'];
   resolution: string;
   lock: string;
+  reviewMethod?: string;
 };
 
 const gallery05WallFillReviewEvidence: Partial<Record<MuseumSupplementalExhibitId, Gallery05WallFillReviewEvidence>> = {
@@ -212,6 +213,268 @@ const gallery05WallFillReviewEvidence: Partial<Record<MuseumSupplementalExhibitI
   },
 };
 
+const gallery05CompletionMethod = 'Gallery 05 supplemental completion: two non-overlapping Terra/High read-only evidence scopes split six and five exhibits, reconciled by the Sol parent across installed-object identity, interpretation, attribution, dating, institution, provenance, rights, source mapping, accessibility, article relationship, routes, and aspect-safe presentation.';
+
+const gallery05WallFillCompletionEvidence: Partial<Record<MuseumSupplementalExhibitId, Gallery05WallFillReviewEvidence>> = {
+  'nagarjuna-root-verses-middle-way': {
+    plaqueTitle: 'Nāgārjuna Composes the Madhyamaka Texts',
+    invitation: 'This modern Buddhavanam relief commemorates authorship; the Nāgārjuna article—not the imagined scene—guides visitors through the Root Verses and their middle-way argument.',
+    objectInterpretation: 'Anandajoti Bhikkhu’s 2024 CC BY-SA photograph records a modern Buddhavanam drum relief whose maker and installation date are not supplied. It commemorates Nāgārjuna writing but is not a lifetime portrait, historical composition scene, or manuscript witness.',
+    detail: [
+      'The installed photograph was made at Buddhavanam Stupa in Telangana on 9 December 2024. Its caption identifies a modern relief of Nāgārjuna composing Madhyamaka texts, while the physical maker and date remain unreported. Rights belong to the photograph’s CC BY-SA 4.0 release; neither title nor iconography supplies documentary access to a second-century author.',
+      'The Mūlamadhyamakakārikā examines causation, motion, persons, time, and nirvāṇa to challenge intrinsic nature. Its “middle” avoids treating things either as independently self-grounding or as simply nonexistent. Dependent arising and emptiness name the same anti-essentialist structure while conventional relations remain indispensable for language, reasoning, ethics, and practice.',
+      'The Nāgārjuna article, primary-text translation, and Madhyamaka scholarship support those arguments. The relief supports only modern commemoration, visual description, location, photographer, and image rights. That division lets the staged writing scene welcome visitors without turning an educational monument into evidence for the work’s exact date, authorship history, or original material form.',
+    ],
+    sources: [
+      {id: 'root-verses-relief', label: 'Wikimedia Commons — Nāgārjuna composes Madhyamaka texts at Buddhavanam', url: 'https://commons.wikimedia.org/wiki/File:207_Nagarjuna_Composes_the_Madhyamaka_Texts.jpg', kind: 'collection-record'},
+      {id: 'nagarjuna-sep', label: 'Stanford Encyclopedia of Philosophy — Nāgārjuna', url: 'https://plato.stanford.edu/entries/nagarjuna/', kind: 'academic-reference'},
+      {id: 'root-verses-translation', label: 'Wisdom Experience — Root Verses of the Middle Way, translated reading', url: 'https://wisdomexperience.org/wp-content/uploads/2018/07/Three-Turnings-Lesson-6-Reading.pdf', kind: 'primary-text'},
+      {id: 'madhyamaka-iep', label: 'Internet Encyclopedia of Philosophy — Madhyamaka Buddhist Philosophy', url: 'https://iep.utm.edu/madhyamaka-buddhist-philosophy/', kind: 'academic-reference'},
+    ],
+    sectionSourceIds: [['root-verses-relief', 'nagarjuna-sep'], ['root-verses-translation', 'nagarjuna-sep'], ['root-verses-relief', 'madhyamaka-iep']],
+    visitorGuide: [
+      {heading: 'Reading the commemorative relief', items: [
+        {label: 'Verified photograph', description: 'Anandajoti photographed this Buddhavanam relief on 9 December 2024 under CC BY-SA 4.0.', sourceIds: ['root-verses-relief']},
+        {label: 'Unknown relief maker', description: 'The file does not identify its sculptor or establish the physical relief’s date.', sourceIds: ['root-verses-relief']},
+      ]},
+      {heading: 'Following the middle way', items: [
+        {label: 'Dependent and empty', description: 'Dependently arisen things lack independent essence without becoming causally or conventionally nothing.', sourceIds: ['root-verses-translation', 'nagarjuna-sep']},
+        {label: 'Scene versus argument', description: 'An imagined author at work cannot source the philosophical steps or textual history.', sourceIds: ['root-verses-relief', 'madhyamaka-iep']},
+      ]},
+    ],
+    articleTitle: 'Nāgārjuna', canonicalContexts: [{kind: 'philosopher', id: 'nagarjuna'}], plaqueType: 'reception-or-transmission-history',
+    resolution: 'Resolved: retained the modern Buddhavanam relief, exposed its unknown maker and commemorative status, mapped Root Verses claims to primary and specialist sources, preserved CC BY-SA credit, and matched the natural photograph ratio.', lock: 'fnv1a64:8afbb94c39ae3b76', reviewMethod: gallery05CompletionMethod,
+  },
+  'madhyamaka-lineage-aryadeva': {
+    plaqueTitle: 'Nāgārjuna and Āryadeva',
+    invitation: 'This nineteenth-century Tibetan painting remembers a formative teacher-disciple lineage; the Nāgārjuna article places that reception beside texts and historical uncertainty.',
+    objectInterpretation: 'Rubin Museum C2006.66.167 is an anonymous nineteenth-century painting from Kham or eastern Tibet, made with pigments on cloth after Situ Panchen’s lineage set. It is later lineage memory, not a lifetime double portrait or proof of every traditional biographical detail.',
+    detail: [
+      'The Rubin record identifies Nāgārjuna and Āryadeva within a set of the Six Ornaments and Two Excellent Ones, gives the eastern Tibetan or Kham origin, nineteenth-century date, pigments-on-cloth medium, and Shelley and Donald Rubin gift. The installed public-domain reproduction preserves that object record instead of using the figures as undated historical portraits.',
+      'Āryadeva is traditionally presented as Nāgārjuna’s direct disciple and is associated with the Catuḥśataka. Later Madhyamaka authors repeatedly read, systematized, and disputed arguments inherited through such lineages. The painting visualizes authority and succession, but textual and specialist evidence must support chronology, works, philosophical positions, and the variety of later receptions.',
+      'A lineage can preserve interpretive relationships while also smoothing uncertainty into a memorable genealogy. The exhibit therefore uses the painting to ask how traditions authorize continuity without claiming that historical influence always followed one simple chain. Differences among later Madhyamaka readings remain philosophical developments, not failures to reproduce a single frozen doctrine.',
+    ],
+    sources: [
+      {id: 'aryadeva-rubin', label: 'Rubin Museum — Nāgārjuna and Āryadeva, C2006.66.167', url: 'https://rubinmuseum.org/collection/c2006-66-167/?relatedview=all', kind: 'collection-record'},
+      {id: 'aryadeva-commons', label: 'Wikimedia Commons — installed Rubin painting reproduction', url: 'https://commons.wikimedia.org/wiki/File:Nagarjuna_and_Aryadeva_as_Two_Great_Indian_Buddhist_Scholastics_-_Google_Art_Project.jpg', kind: 'collection-record'},
+      {id: 'madhyamaka-sep', label: 'Stanford Encyclopedia of Philosophy — Madhyamaka', url: 'https://plato.stanford.edu/entries/madhyamaka/', kind: 'academic-reference'},
+      {id: 'madhyamaka-iep', label: 'Internet Encyclopedia of Philosophy — Madhyamaka Buddhist Philosophy', url: 'https://iep.utm.edu/madhyamaka-buddhist-philosophy/', kind: 'academic-reference'},
+    ],
+    sectionSourceIds: [['aryadeva-rubin', 'aryadeva-commons'], ['madhyamaka-sep', 'madhyamaka-iep'], ['aryadeva-rubin', 'madhyamaka-sep']],
+    visitorGuide: [
+      {heading: 'Reading lineage portraiture', items: [
+        {label: 'Specific Tibetan object', description: 'The Rubin dates the anonymous pigments-on-cloth painting to nineteenth-century eastern Tibet or Kham.', sourceIds: ['aryadeva-rubin']},
+        {label: 'Later memory', description: 'The paired likenesses were made long after both thinkers and cannot preserve their appearances.', sourceIds: ['aryadeva-rubin', 'madhyamaka-sep']},
+      ]},
+      {heading: 'Lineage and argument', items: [
+        {label: 'Traditional succession', description: 'Sources associate Āryadeva with Nāgārjuna and the Catuḥśataka while historical details remain bounded.', sourceIds: ['madhyamaka-sep']},
+        {label: 'Plural receptions', description: 'Later Madhyamaka traditions developed different interpretations rather than transmitting one unaltered consensus.', sourceIds: ['madhyamaka-sep', 'madhyamaka-iep']},
+      ]},
+    ],
+    articleTitle: 'Nāgārjuna', canonicalContexts: [{kind: 'philosopher', id: 'nagarjuna'}], plaqueType: 'paired-or-grouped-historical-figures',
+    resolution: 'Resolved: added the Rubin object record, exact title, regional origin, medium, gift provenance and public-domain status, treated the figures as later lineage memory, bounded disciple claims, and matched the natural portrait ratio.', lock: 'fnv1a64:fa2bfabde092db12', reviewMethod: gallery05CompletionMethod,
+  },
+  'prajnaparamita-wisdom-embodied': {
+    plaqueTitle: 'Prajñāpāramitā',
+    invitation: 'This twelfth-century Pāla-period bronze personifies perfected wisdom centuries after Nāgārjuna; his article explains the philosophical relationship without claiming ownership or autograph evidence.',
+    objectInterpretation: 'Daderot’s 2013 CC0 photograph records a source-reported twelfth-century northeast Indian Pāla-period bronze displayed at the Fitchburg Art Museum. No accession, official catalogue, prior provenance, or maker is supplied; it is not a Nāgārjuna object.',
+    detail: [
+      'The Commons record is the available object source: it identifies the bronze as Prajñāpāramitā, northeast India, twelfth century, Pāla period, and reports display at Fitchburg. Daderot photographed it on 14 June 2013 and released the image as CC0. Attribution remains an unknown Pāla-period artist, and missing accession and provenance are stated rather than invented.',
+      'Perfection-of-wisdom literature repeatedly unsettles attachment to persons, factors, stages, and even wisdom as self-grounding possessions. Personification does not therefore require a permanent metaphysical substance. The bronze participates in later devotional and artistic histories, while textual sources establish the literature’s strategies and the complex historical relationship through which Madhyamaka came to be read alongside it.',
+      'The chronology matters: a twelfth-century northeast Indian sculpture cannot document Nāgārjuna’s lifetime, authorship, or exact reading of earlier texts. Its material form instead lets visitors ask how embodied devotion and anti-reification coexist. The Nāgārjuna article supplies the route into emptiness and dependent arising; the object record remains deliberately narrower.',
+    ],
+    sources: [
+      {id: 'prajnaparamita-bronze', label: 'Wikimedia Commons — Pāla-period Prajñāpāramitā bronze at Fitchburg', url: 'https://commons.wikimedia.org/wiki/File:Prajnaparamita,_northeast_India,_12th_century_AD,_Pala_Period,_bronze_-_Fitchburg_Art_Museum_-_DSC08844.JPG', kind: 'collection-record'},
+      {id: 'prajnaparamita-84000', label: '84000 — The Perfection of Wisdom in Eighteen Thousand Lines', url: 'https://reader.84000.co/toh12', kind: 'primary-text'},
+      {id: 'nagarjuna-sep', label: 'Stanford Encyclopedia of Philosophy — Nāgārjuna', url: 'https://plato.stanford.edu/entries/nagarjuna/', kind: 'academic-reference'},
+      {id: 'madhyamaka-iep', label: 'Internet Encyclopedia of Philosophy — Madhyamaka Buddhist Philosophy', url: 'https://iep.utm.edu/madhyamaka-buddhist-philosophy/', kind: 'academic-reference'},
+    ],
+    sectionSourceIds: [['prajnaparamita-bronze'], ['prajnaparamita-84000', 'nagarjuna-sep'], ['prajnaparamita-bronze', 'madhyamaka-iep']],
+    visitorGuide: [
+      {heading: 'Reading the bronze cautiously', items: [
+        {label: 'Source-reported identity', description: 'Commons reports a twelfth-century northeast Indian Pāla bronze displayed at Fitchburg.', sourceIds: ['prajnaparamita-bronze']},
+        {label: 'Missing catalogue data', description: 'No official accession, maker, or earlier provenance is supplied by the available source.', sourceIds: ['prajnaparamita-bronze']},
+      ]},
+      {heading: 'Wisdom without reification', items: [
+        {label: 'Embodied devotion', description: 'Personification can organize devotion without asserting that wisdom exists as an independent substance.', sourceIds: ['prajnaparamita-84000', 'nagarjuna-sep']},
+        {label: 'Later relationship', description: 'The bronze belongs to later reception and cannot prove Nāgārjuna’s authorship or precise textual dependence.', sourceIds: ['prajnaparamita-bronze', 'madhyamaka-iep']},
+      ]},
+    ],
+    articleTitle: 'Nāgārjuna', canonicalContexts: [{kind: 'philosopher', id: 'nagarjuna'}], plaqueType: 'reception-or-transmission-history',
+    resolution: 'Resolved: retained the source-reported Pāla bronze and unknown maker, exposed the missing accession and provenance, preserved Daderot’s CC0 credit, bounded its later relationship to Nāgārjuna, and matched the natural portrait ratio.', lock: 'fnv1a64:78873967f87e267e', reviewMethod: gallery05CompletionMethod,
+  },
+  'asanga-vasubandhu-yogacara-lineage': {
+    plaqueTitle: 'Asaṅga and Vasubandhu Establish Vijñānavāda',
+    invitation: 'This modern relief compresses a disputed intellectual history into one scene; Vasubandhu’s article restores the corpus, attribution questions, and transformative purpose of Yogācāra analysis.',
+    objectInterpretation: 'Anandajoti Bhikkhu’s 2024 CC BY-SA photograph records a modern Buddhavanam relief whose maker and object date are not supplied. It is commemorative public art, not evidence of the brothers’ appearance, a documented meeting, or one settled conversion narrative.',
+    detail: [
+      'The installed image was photographed at Buddhavanam Stupa, Telangana, on 9 December 2024. The file title presents Asaṅga and Vasubandhu establishing Vijñānavāda, but the modern sculptor and installation date remain unknown. Its grouped figures make a lineage story legible for visitors while providing no independent evidence for ancient biography.',
+      'Yogācāra developed through multiple texts associated with Asaṅga, Vasubandhu, Maitreya, and later commentators. Accounts of representation, dispositions, three natures, and transformed cognition differ by genre and interpretation. Even the familiar division between logical-epistemological and exegetical branches is retrospective rather than a self-announced ancient institutional split.',
+      'Scholarship disputes aspects of Vasubandhu’s chronology, affiliations, and whether all attributed works belong to one author. The relief cannot settle those questions or reduce Yogācāra to private-mind idealism. It functions instead as modern lineage memory, while the article and specialist sources support the intellectual claims and preserve historical uncertainty.',
+    ],
+    sources: [
+      {id: 'asanga-vasubandhu-relief', label: 'Wikimedia Commons — Asaṅga and Vasubandhu relief at Buddhavanam', url: 'https://commons.wikimedia.org/wiki/File:212_Asanga_and_Vasubandhu_Establish_the_Vijnanavada.jpg', kind: 'collection-record'},
+      {id: 'vasubandhu-sep', label: 'Stanford Encyclopedia of Philosophy — Vasubandhu', url: 'https://plato.stanford.edu/entries/vasubandhu/', kind: 'academic-reference'},
+      {id: 'yogacara-sep', label: 'Stanford Encyclopedia of Philosophy — Yogācāra', url: 'https://plato.stanford.edu/entries/yogacara/', kind: 'academic-reference'},
+    ],
+    sectionSourceIds: [['asanga-vasubandhu-relief'], ['yogacara-sep', 'vasubandhu-sep'], ['asanga-vasubandhu-relief', 'vasubandhu-sep']],
+    visitorGuide: [
+      {heading: 'Reading modern lineage art', items: [
+        {label: 'Photographed in 2024', description: 'Anandajoti’s CC BY-SA image documents contemporary Buddhavanam public art.', sourceIds: ['asanga-vasubandhu-relief']},
+        {label: 'Not a historical meeting', description: 'The scene cannot establish appearance, collaboration, conversion, or event chronology.', sourceIds: ['asanga-vasubandhu-relief', 'vasubandhu-sep']},
+      ]},
+      {heading: 'A plural Yogācāra corpus', items: [
+        {label: 'Many texts and authors', description: 'Yogācāra developed through varied works, practices, commentators, and later classifications.', sourceIds: ['yogacara-sep']},
+        {label: 'Biography remains disputed', description: 'Attribution and intellectual-stage questions should remain open rather than forced into one relief’s sequence.', sourceIds: ['vasubandhu-sep']},
+      ]},
+    ],
+    articleTitle: 'Vasubandhu', canonicalContexts: [{kind: 'philosopher', id: 'vasubandhu'}], plaqueType: 'paired-or-grouped-historical-figures',
+    resolution: 'Resolved: retained the modern Buddhavanam relief and CC BY-SA credit, exposed the unknown maker and commemorative status, separated lineage art from disputed biography, qualified school labels, and matched the natural ratio.', lock: 'fnv1a64:37064b4917a072ad', reviewMethod: gallery05CompletionMethod,
+  },
+  'abhidharma-cosmology-mount-meru': {
+    plaqueTitle: 'Cosmological Mandala with Mount Meru',
+    invitation: 'This fourteenth-century Chinese tapestry visualizes a later cosmological reception; Vasubandhu’s article explains why Abhidharma joined world systems to analysis and debate.',
+    objectInterpretation: 'Metropolitan Museum of Art 1989.140 is an anonymous fourteenth-century Chinese silk kesi tapestry, acquired through the Fletcher Fund and Hotung and Rosenberg gifts. It is later reception, not Vasubandhu’s diagram or proof of a uniform Buddhist cosmos.',
+    detail: [
+      'The Met identifies the installed object as a Yuan-period Cosmological Mandala with Mount Meru woven in silk kesi. Its accession and credit line document museum custody and acquisition; the Met also places the work in the public domain. The near-square tapestry’s concentric terrain and architecture belong to a later Chinese artistic and ritual setting.',
+      'Abhidharma cosmology organizes realms, world systems, embodiment, karma, and possible forms of experience within accounts of conditioned continuity. Vasubandhu reports and criticizes scholastic positions rather than merely listing an uncontested map. Cosmological categories therefore participate in arguments about causation and what should count as conventionally or ultimately real.',
+      'The tapestry was made centuries after Vasubandhu and does not reproduce a page of the Abhidharmakośa. Its coherence demonstrates reception and reorganization, not timeless uniformity across India, China, Tibet, schools, or periods. The object source establishes material history; the article and text establish the bounded philosophical relationship.',
+    ],
+    sources: [
+      {id: 'meru-met', label: 'Metropolitan Museum of Art — Cosmological Mandala with Mount Meru, 1989.140', url: 'https://www.metmuseum.org/art/collection/search/39738', kind: 'collection-record'},
+      {id: 'meru-commons', label: 'Wikimedia Commons — installed Met tapestry image', url: 'https://commons.wikimedia.org/wiki/File:%E5%85%83_%E7%B7%99%E7%B5%B2_%E9%A0%88%E5%BD%8C%E5%B1%B1%E6%9B%BC%E9%99%80%E7%BE%85-Cosmological_Mandala_with_Mount_Meru_MET_DP276037.jpg', kind: 'collection-record'},
+      {id: 'vasubandhu-sep', label: 'Stanford Encyclopedia of Philosophy — Vasubandhu', url: 'https://plato.stanford.edu/entries/vasubandhu/', kind: 'academic-reference'},
+      {id: 'abhidharma-gretil', label: 'GRETIL — Vasubandhu, Abhidharmakośabhāṣya', url: 'https://gretil.sub.uni-goettingen.de/gretil/corpustei/transformations/html/sa_vasubandhu-abhidharmakozabhASya.htm', kind: 'primary-text'},
+    ],
+    sectionSourceIds: [['meru-met', 'meru-commons'], ['vasubandhu-sep', 'abhidharma-gretil'], ['meru-met', 'vasubandhu-sep']],
+    visitorGuide: [
+      {heading: 'Reading the woven mandala', items: [
+        {label: 'Met object 1989.140', description: 'The Met records an anonymous fourteenth-century Chinese silk kesi tapestry and its acquisition credit.', sourceIds: ['meru-met']},
+        {label: 'Later visual reception', description: 'The tapestry postdates Vasubandhu and is not an illustration made for his Treasury.', sourceIds: ['meru-met', 'vasubandhu-sep']},
+      ]},
+      {heading: 'Cosmology as analysis', items: [
+        {label: 'Conditioned worlds', description: 'Realms and world systems relate karma, embodiment, and possible experience without a permanent owner.', sourceIds: ['abhidharma-gretil', 'vasubandhu-sep']},
+        {label: 'No single Buddhist map', description: 'Schools and later visual cultures receive and reorganize cosmological models differently.', sourceIds: ['meru-met', 'vasubandhu-sep']},
+      ]},
+    ],
+    articleTitle: 'Vasubandhu', canonicalContexts: [{kind: 'philosopher', id: 'vasubandhu'}], plaqueType: 'reception-or-transmission-history',
+    resolution: 'Resolved: added the Met object and acquisition record, preserved public-domain rights, separated the Yuan tapestry from Vasubandhu’s text, qualified cosmological diversity, and matched the exact 640×619 scene ratio.', lock: 'fnv1a64:239e1fd2e4a221a0', reviewMethod: gallery05CompletionMethod,
+  },
+  'asanga-yogacara-transmission': {
+    plaqueTitle: 'Unkei’s Muchaku (Asaṅga)',
+    invitation: 'This Kamakura-period sculpture makes an Indian scholar present in Japanese Hossō lineage memory; Vasubandhu’s article restores the historical distance and transmission work.',
+    objectInterpretation: 'Unkei’s Muchaku, made about 1212 for Kōfuku-ji’s North Octagonal Hall, is represented here through a public-domain photograph published in 1953. The sculpture is a later Japanese lineage portrait, not Asaṅga’s lifetime likeness or a document of his relationship with Vasubandhu.',
+    detail: [
+      'The Tokyo National Museum confirms the paired Muchaku and Seshin sculptures, their Kōfuku-ji setting, Unkei attribution, and 1212 date. Commons traces the installed black-and-white image to a 1953 Japanese sculpture publication. Public-domain status applies to that photograph as an old reproduction; the historical wooden sculpture remains at Kōfuku-ji.',
+      'Muchaku is the Japanese name for Asaṅga within the East Asian Hossō reception of Yogācāra. Translation, commentary, cataloguing, teaching, ritual, and institutional memory carried works and attributed corpora into new settings. That labor produced new philosophical forms rather than preserving an Indian origin without change.',
+      'The sculpture’s individualized face and bodily presence construct authority across roughly eight centuries of distance. They do not record Asaṅga’s appearance or prove one identical doctrine across regions. The object can therefore show how lineage becomes present while the Vasubandhu article and specialist evidence carry claims about texts, biography, and contested Yogācāra interpretation.',
+    ],
+    sources: [
+      {id: 'asanga-tnm', label: 'Tokyo National Museum — Muchaku and Seshin by Unkei', url: 'https://www.tnm.jp/modules/r_free_page/index.php?id=1861&lang=en', kind: 'collection-record'},
+      {id: 'asanga-commons', label: 'Wikimedia Commons — installed 1953 Muchaku photograph', url: 'https://commons.wikimedia.org/wiki/File:Kofukuji_Hokuendo_Muchaku_Unkei.jpg', kind: 'collection-record'},
+      {id: 'vasubandhu-sep', label: 'Stanford Encyclopedia of Philosophy — Vasubandhu', url: 'https://plato.stanford.edu/entries/vasubandhu/', kind: 'academic-reference'},
+      {id: 'yogacara-sep', label: 'Stanford Encyclopedia of Philosophy — Yogācāra', url: 'https://plato.stanford.edu/entries/yogacara/', kind: 'academic-reference'},
+    ],
+    sectionSourceIds: [['asanga-tnm', 'asanga-commons'], ['yogacara-sep', 'vasubandhu-sep'], ['asanga-tnm', 'vasubandhu-sep']],
+    visitorGuide: [
+      {heading: 'Reading Unkei’s lineage portrait', items: [
+        {label: 'Kōfuku-ji, 1212', description: 'Museum evidence attributes the Muchaku sculpture to Unkei and dates it to 1212.', sourceIds: ['asanga-tnm']},
+        {label: 'Old photograph', description: 'The installed public-domain image comes through a Japanese publication from 1953.', sourceIds: ['asanga-commons']},
+      ]},
+      {heading: 'Transmission across Asia', items: [
+        {label: 'Names and institutions', description: 'Muchaku marks Asaṅga’s presence within later Japanese Hossō lineage and curriculum.', sourceIds: ['asanga-tnm', 'yogacara-sep']},
+        {label: 'Not a lifetime likeness', description: 'Kamakura portraiture constructs remembered authority rather than documentary appearance.', sourceIds: ['asanga-tnm', 'vasubandhu-sep']},
+      ]},
+    ],
+    articleTitle: 'Vasubandhu', canonicalContexts: [{kind: 'philosopher', id: 'vasubandhu'}], plaqueType: 'reception-or-transmission-history',
+    resolution: 'Resolved: added the Tokyo National Museum record, confirmed Unkei, 1212 and Kōfuku-ji, distinguished the 1953 photograph’s public-domain status, bounded likeness and lineage claims, and matched the exact portrait ratio.', lock: 'fnv1a64:14ad7fdb0306537c', reviewMethod: gallery05CompletionMethod,
+  },
+  'buddhist-pramana-two-sources': {
+    plaqueTitle: 'Diagram of Two Buddhist Pramāṇas',
+    invitation: 'This modern teaching diagram isolates perception and inference; the Buddhist Epistemology article restores their technical definitions, disputes, and wider Indian setting.',
+    objectInterpretation: 'Ms Sarah Welch’s 2016 CC BY-SA 4.0 diagram is a modern educational aid about Indian pramāṇa theory. It can orient visitors to a two-source Buddhist account but cannot itself prove that claim or represent definitions shared unchanged by every Buddhist epistemologist.',
+    detail: [
+      'The installed SVG was created by Ms Sarah Welch on 19 January 2016 and released under CC BY-SA 4.0. Its Commons description notes the wider Indian debate in which traditions recognize different numbers and kinds of knowledge sources. The symmetrical graphic is therefore a teaching design, not a diagram by Dignāga or Dharmakīrti.',
+      'Dignāga’s Pramāṇasamuccaya opens by distinguishing perception and inference, and later Buddhist epistemologists refine what each apprehends and how error, concepts, signs, and successful action are explained. Perception is not simply passive seeing, and inference requires a reason whose relation to what is established satisfies technical constraints.',
+      'The diagram offers a doorway rather than a conclusion. Specialist text and scholarship support the specifically Buddhist two-pramāṇa claim; the modern file supports creator, date, design, and license. Visitors can then use the article to recover disputes over reflexive awareness, exclusion, universals, language, conceptual construction, and soteriological purpose.',
+    ],
+    sources: [
+      {id: 'pramana-diagram', label: 'Wikimedia Commons — Two Pramāṇas in Buddhist epistemology', url: 'https://commons.wikimedia.org/wiki/File:2_Pramana_Epistemology_Buddhism.svg', kind: 'collection-record'},
+      {id: 'dignaga-ps', label: 'Austrian Academy of Sciences — Dignāga, Pramāṇasamuccaya chapter 1', url: 'https://www.oeaw.ac.at/fileadmin/Institute/IKGA/PDF/digitales/dignaga_PS_1.pdf', kind: 'primary-text'},
+      {id: 'dharmakirti-sep', label: 'Stanford Encyclopedia of Philosophy — Dharmakīrti', url: 'https://plato.stanford.edu/entries/dharmakiirti/', kind: 'academic-reference'},
+    ],
+    sectionSourceIds: [['pramana-diagram', 'dignaga-ps'], ['dignaga-ps', 'dharmakirti-sep'], ['pramana-diagram', 'dharmakirti-sep']],
+    visitorGuide: [
+      {heading: 'Reading the modern diagram', items: [
+        {label: 'Teaching aid', description: 'Welch created the image in 2016 and released it under CC BY-SA 4.0.', sourceIds: ['pramana-diagram']},
+        {label: 'Wider Indian debate', description: 'The image’s own context acknowledges traditions with different lists of knowledge sources.', sourceIds: ['pramana-diagram']},
+      ]},
+      {heading: 'Two sources, technical roles', items: [
+        {label: 'Perception', description: 'Buddhist analysis asks what makes awareness direct and how conceptual construction differs from it.', sourceIds: ['dignaga-ps', 'dharmakirti-sep']},
+        {label: 'Inference', description: 'A valid reason must be connected to what is established under precise constraints.', sourceIds: ['dignaga-ps', 'dharmakirti-sep']},
+      ]},
+    ],
+    articleTitle: 'Buddhist Epistemology', canonicalContexts: [{kind: 'branch', id: 'buddhist-epistemology'}], plaqueType: 'concept-argument-diagram-or-method',
+    resolution: 'Resolved: retained Welch’s modern CC BY-SA diagram, limited it to educational orientation, mapped the Buddhist two-source claim to Dignāga and specialist scholarship, restored the wider Indian debate, and matched the exact SVG ratio.', lock: 'fnv1a64:a58edbaf8f8ba970', reviewMethod: gallery05CompletionMethod,
+  },
+  'nalanda-scholastic-institution': {
+    plaqueTitle: 'Nālandā Mahāvihāra Ruins',
+    invitation: 'These conserved ruins materialize a long-lived monastic and scholastic institution; the Dignāga article supplies the cautious relationship to Buddhist logic without inventing his classroom.',
+    objectInterpretation: 'Mrityunjay.nalanda’s 2012 CC BY-SA photograph records conserved remains at the Archaeological Site of Nālandā Mahāvihāra, ASI monument N-BR-43. The image establishes a layered institution and site, not a room securely assigned to Dignāga or proof of his presence.',
+    detail: [
+      'UNESCO describes the archaeological site as remains of a monastic and scholastic institution whose surviving history spans approximately the third century BCE through the thirteenth century CE, with sustained institutional activity especially from the fifth century onward. The installed photograph, made on 10 June 2012, shows red-brick courts and cells under ASI stewardship.',
+      'Specialist reasoning becomes durable through teachers, students, manuscripts, memorization, examples, debate, commentary, travel, patronage, and institutional authority. Nālandā helps materialize those conditions. It should not be reduced to one timeless university model, one school, or a neutral container that left arguments unchanged as communities and languages shifted.',
+      'The ruins do not identify a Dignāga lecture room, and archaeology alone cannot settle later biographical traditions. Their relationship to his article is contextual: technical philosophy requires social and material practices of transmission. The site and image sources support place, phases, stewardship, photographer, and rights; the article supports Dignāga’s philosophical work.',
+    ],
+    sources: [
+      {id: 'nalanda-unesco', label: 'UNESCO World Heritage Centre — Archaeological Site of Nālandā Mahāvihāra', url: 'https://whc.unesco.org/en/list/1502/', kind: 'collection-record'},
+      {id: 'nalanda-commons', label: 'Wikimedia Commons — Nālandā University ruins photograph', url: 'https://commons.wikimedia.org/wiki/File:Nalanda_University_ruins.JPG', kind: 'collection-record'},
+      {id: 'dignaga-sep', label: 'Stanford Encyclopedia of Philosophy — Dignāga', url: 'https://plato.stanford.edu/entries/dignaga/', kind: 'academic-reference'},
+    ],
+    sectionSourceIds: [['nalanda-unesco', 'nalanda-commons'], ['nalanda-unesco', 'dignaga-sep'], ['nalanda-unesco', 'dignaga-sep']],
+    visitorGuide: [
+      {heading: 'Reading a layered institution', items: [
+        {label: 'Long chronology', description: 'UNESCO documents remains and institutional phases extending across many centuries.', sourceIds: ['nalanda-unesco']},
+        {label: 'ASI-managed site', description: 'This is a conserved archaeological complex rather than a portable museum object.', sourceIds: ['nalanda-unesco', 'nalanda-commons']},
+      ]},
+      {heading: 'Institutions of reasoning', items: [
+        {label: 'Material supports', description: 'Teaching, debate, manuscripts, travel, and commentary help specialist arguments persist.', sourceIds: ['nalanda-unesco', 'dignaga-sep']},
+        {label: 'No invented classroom', description: 'The photographed brickwork cannot securely be assigned to Dignāga or prove his presence.', sourceIds: ['nalanda-unesco', 'dignaga-sep']},
+      ]},
+    ],
+    articleTitle: 'Dignāga', canonicalContexts: [{kind: 'philosopher', id: 'dignaga'}], plaqueType: 'historical-event-or-institutional-context',
+    resolution: 'Resolved: added UNESCO’s institutional site record, retained ASI stewardship and the photographer’s CC BY-SA credit, bounded chronology and Dignāga claims, separated archaeology from biography, and preserved the exact landscape ratio.', lock: 'fnv1a64:212e84fc6f2f5eec', reviewMethod: gallery05CompletionMethod,
+  },
+  'dharmakirti-pramanavarttika-reception': {
+    plaqueTitle: 'Tibetan Woodblock Portrait of Dharmakīrti',
+    invitation: 'This later traditional image marks Dharmakīrti’s Tibetan curricular presence; his article traces the Pramāṇavārttika and the commentarial arguments the portrait cannot document.',
+    objectInterpretation: 'The Commons file is a traditional Tibetan woodblock portrait reported through the Asian Classics Input Project. Its artist, object date, holding collection, and catalogue are not supplied. It is later reception, not a lifetime likeness or secure object-provenance record.',
+    detail: [
+      'The installed black-and-white file identifies Dharmakīrti within Tibetan portrait convention and is marked public domain or PD-Art on Commons. The record reports transmission through ACIP but does not establish ACIP as a holding institution. Responsible metadata therefore keeps the maker, object date, and collection explicitly unknown instead of turning an image provider into an owner.',
+      'The Pramāṇavārttika became a central and contested work on perception, inference, language, authority, and Buddhist commitments. Indian and Tibetan commentators explained compressed arguments, organized the work, disputed readings, and created further philosophical questions. Commentary is thus part of the work’s historical life rather than merely a transparent shell around an unchanged original.',
+      'Dharmakīrti’s epistemology remains joined to questions of error, successful action, authority, suffering, and liberation. The portrait can document recognition and curricular presence only at a broad level; it cannot date a commentary, prove a likeness, or substitute for textual evidence. The article and specialist sources carry those philosophical and reception claims.',
+    ],
+    sources: [
+      {id: 'dharmakirti-woodblock', label: 'Wikimedia Commons — traditional Tibetan woodblock portrait of Dharmakīrti', url: 'https://commons.wikimedia.org/wiki/File:Dharmakirti.gif', kind: 'collection-record'},
+      {id: 'dharmakirti-sep', label: 'Stanford Encyclopedia of Philosophy — Dharmakīrti', url: 'https://plato.stanford.edu/entries/dharmakiirti/', kind: 'academic-reference'},
+      {id: 'mind-indian-sep', label: 'Stanford Encyclopedia of Philosophy — Mind in Indian Buddhist Philosophy', url: 'https://plato.stanford.edu/entries/mind-indian-buddhism/', kind: 'academic-reference'},
+    ],
+    sectionSourceIds: [['dharmakirti-woodblock'], ['dharmakirti-sep'], ['dharmakirti-woodblock', 'dharmakirti-sep', 'mind-indian-sep']],
+    visitorGuide: [
+      {heading: 'Reading incomplete provenance', items: [
+        {label: 'What is supplied', description: 'Commons identifies a traditional Tibetan woodblock image reported through ACIP with public-domain status.', sourceIds: ['dharmakirti-woodblock']},
+        {label: 'What remains unknown', description: 'Artist, object date, holding collection, and catalogue are not provided.', sourceIds: ['dharmakirti-woodblock']},
+      ]},
+      {heading: 'A commentarial work', items: [
+        {label: 'Arguments stay contested', description: 'Later readers organize and dispute perception, inference, language, and authority in the Pramāṇavārttika.', sourceIds: ['dharmakirti-sep']},
+        {label: 'Reason and liberation', description: 'Technical accounts of cognition participate in Buddhist diagnoses of error and transformative practice.', sourceIds: ['dharmakirti-sep', 'mind-indian-sep']},
+      ]},
+    ],
+    articleTitle: 'Dharmakīrti', canonicalContexts: [{kind: 'philosopher', id: 'dharmakirti'}], plaqueType: 'reception-or-transmission-history',
+    resolution: 'Resolved: retained the installed public-domain woodblock while removing ACIP as a false holding institution, exposed missing artist, date, collection and catalogue, limited likeness and provenance claims, mapped reception to scholarship, and matched the natural ratio.', lock: 'fnv1a64:1126dd9a758e3066', reviewMethod: gallery05CompletionMethod,
+  },
+};
+
 const wallFill = (input: WallFillInput): MuseumSupplementalExhibit => {
   const baseline: MuseumSupplementalExhibit = ({
   id: input.id,
@@ -248,7 +511,7 @@ const wallFill = (input: WallFillInput): MuseumSupplementalExhibit => {
     cautionsLabel: 'Keep in view',
   },
   });
-  const evidence = gallery05WallFillReviewEvidence[input.id];
+  const evidence = gallery05WallFillCompletionEvidence[input.id] ?? gallery05WallFillReviewEvidence[input.id];
   if (!evidence) return baseline;
   const basePresentation = baseline.presentation;
   if (!basePresentation) throw new Error(`Missing Gallery 05 presentation for ${input.id}.`);
@@ -271,7 +534,7 @@ const wallFill = (input: WallFillInput): MuseumSupplementalExhibit => {
     wallPlaque: {type: evidence.plaqueType, title: evidence.plaqueTitle, invitation: evidence.invitation, canonicalContexts: evidence.canonicalContexts},
     review: {
       status: 'standard-compliant', reviewedOn: '2026-08-12',
-      method: 'Gallery 05 supplemental review: two non-overlapping Terra/High evidence scopes of six exhibits each reconciled by the Sol parent across installed-object identity, interpretation, attribution, dating, institution, provenance, rights, source mapping, accessibility, article relationship, routes, and aspect-safe presentation.',
+      method: evidence.reviewMethod ?? 'Gallery 05 supplemental review: two non-overlapping Terra/High evidence scopes of six exhibits each reconciled by the Sol parent across installed-object identity, interpretation, attribution, dating, institution, provenance, rights, source mapping, accessibility, article relationship, routes, and aspect-safe presentation.',
       resolution: evidence.resolution, lock: evidence.lock,
       visualReview: {
         desktop: {reviewedOn: '2026-08-12', viewport: '1280×720', evidence: `Direct route inspected with the installed object, three-paragraph interpretation, subject-specific sidebar, article CTA, and no horizontal overflow. Evidence: docs/visual-validation/gallery-05-supplementals/desktop/${input.id}.png`},

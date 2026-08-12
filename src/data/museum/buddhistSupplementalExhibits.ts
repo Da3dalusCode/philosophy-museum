@@ -116,6 +116,7 @@ type Gallery05ReviewEvidence = {
   plaqueType: NonNullable<MuseumSupplementalExhibit['wallPlaque']>['type'];
   resolution: string;
   lock: string;
+  reviewMethod?: string;
 };
 
 const gallery05ReviewEvidence: Partial<Record<MuseumSupplementalExhibitId, Gallery05ReviewEvidence>> = {
@@ -290,8 +291,71 @@ const gallery05ReviewEvidence: Partial<Record<MuseumSupplementalExhibitId, Galle
   },
 };
 
+const gallery05CompletionMethod = 'Gallery 05 supplemental completion: two non-overlapping Terra/High read-only evidence scopes split six and five exhibits, reconciled by the Sol parent across installed-object identity, interpretation, attribution, dating, institution, provenance, rights, source mapping, accessibility, article relationship, routes, and aspect-safe presentation.';
+
+const gallery05CompletionEvidence: Partial<Record<MuseumSupplementalExhibitId, Gallery05ReviewEvidence>> = {
+  'vasubandhu-abhidharmakosa': {
+    plaqueTitle: 'Meta-Discourse on the Teachings from the Treasury (Abhidharmakośa-bhāṣya)',
+    invitation: 'This late-Heian handscroll transmits part of Xuanzang’s Chinese translation centuries after Vasubandhu; his article traces how the Treasury classifies and criticizes Abhidharma positions.',
+    objectInterpretation: 'Cleveland Museum of Art 1916.1060 is part 17 of a thirty-part late-Heian Japanese handscroll, written in gold and silver on indigo paper. It is a later witness to Xuanzang’s Chinese translation, not a Nepalese manuscript, Indian original, or Vasubandhu autograph.',
+    detail: [
+      'The Cleveland Museum identifies the installed object as an anonymous Japanese handscroll from the 1100s, acquired from Kuroda Takuma through the Worcester R. Warner Collection in 1916. Gold and silver characters cross indigo-dyed paper. The museum record—not the unrelated Nepalese manuscript formerly cited—establishes title, date, material, accession, provenance, and public-domain image status.',
+      'The Abhidharmakośa organizes inherited analyses of factors, causation, karma, cognition, meditation, and cosmology, while its bhāṣya stages objections and critiques positions associated with Sarvāstivāda. The surviving Japanese object displays the long material transmission of that discourse; it cannot determine which positions Vasubandhu finally endorsed or resolve disputes about his intellectual biography.',
+      'Xuanzang’s Chinese translation and the later Japanese copy are themselves chapters of reception. The Vasubandhu article and Sanskrit witness support philosophical claims; the Cleveland record supports this object. Keeping those evidentiary roles distinct prevents a beautiful handscroll from becoming an imagined autograph while still showing how scholastic arguments remained available across languages and centuries.',
+    ],
+    sources: [
+      {id: 'abhidharma-cleveland', label: 'Cleveland Museum of Art — Meta-Discourse on the Teachings from the Treasury, 1916.1060', url: 'https://www.clevelandart.org/art/1916.1060', kind: 'collection-record'},
+      {id: 'abhidharma-commons', label: 'Wikimedia Commons — installed Cleveland handscroll image', url: 'https://commons.wikimedia.org/wiki/File:Japan,_late_Heian_period_-_Further_Discourses_on_the_Supreme_Truth_(Abidharmakosha-Bhashya)_-_1916.1060_-_Cleveland_Museum_of_Art.tif', kind: 'collection-record'},
+      {id: 'vasubandhu-sep', label: 'Stanford Encyclopedia of Philosophy — Vasubandhu', url: 'https://plato.stanford.edu/entries/vasubandhu/', kind: 'academic-reference'},
+      {id: 'abhidharma-gretil', label: 'GRETIL — Vasubandhu, Abhidharmakośabhāṣya', url: 'https://gretil.sub.uni-goettingen.de/gretil/corpustei/transformations/html/sa_vasubandhu-abhidharmakozabhASya.htm', kind: 'primary-text'},
+    ],
+    sectionSourceIds: [['abhidharma-cleveland', 'abhidharma-commons'], ['vasubandhu-sep', 'abhidharma-gretil'], ['abhidharma-cleveland', 'vasubandhu-sep']],
+    visitorGuide: [
+      {heading: 'Reading the late-Heian handscroll', items: [
+        {label: 'Part 17 of 30', description: 'The museum identifies this as one section of Xuanzang’s Chinese translation copied in twelfth-century Japan.', sourceIds: ['abhidharma-cleveland']},
+        {label: 'Known provenance', description: 'Kuroda Takuma, Worcester R. Warner, and the Cleveland Museum form the documented modern custody chain.', sourceIds: ['abhidharma-cleveland']},
+      ]},
+      {heading: 'Treasury and critique', items: [
+        {label: 'Systematic analysis', description: 'The work classifies conditioned processes while preserving arguments among Buddhist scholastic positions.', sourceIds: ['vasubandhu-sep', 'abhidharma-gretil']},
+        {label: 'Transmission, not autograph', description: 'A Japanese copy of a Chinese translation cannot establish Vasubandhu’s handwriting or original manuscript form.', sourceIds: ['abhidharma-cleveland', 'vasubandhu-sep']},
+      ]},
+    ],
+    articleTitle: 'Vasubandhu', canonicalContexts: [{kind: 'philosopher', id: 'vasubandhu'}], plaqueType: 'work-or-text',
+    resolution: 'Resolved: corrected a material Nepal/Cleveland mismatch, identified the late-Heian handscroll and its documented provenance, separated object from philosophical evidence, preserved CC0 rights, bounded the transmission claim, and matched the natural ratio.', lock: 'fnv1a64:5fd394ed25e9e8a7', reviewMethod: gallery05CompletionMethod,
+  },
+  'vasubandhu-mere-ideation': {
+    plaqueTitle: 'The Completion of Mere Ideation (Cheng weishi lun)',
+    invitation: 'This fourteenth-century Japanese Kasuga-edition print transmits Xuanzang’s synthesis around consciousness-only thought; Vasubandhu’s article restores the earlier texts and their contested interpretation.',
+    objectInterpretation: 'The installed image is a fourteenth-century Japanese Kasuga edition from Kōfuku-ji, now in the National Diet Library. It transmits the Cheng weishi lun associated with Xuanzang’s synthesis of commentaries on Vasubandhu’s Thirty Verses; it is not a Tibetan xylograph or Vasubandhu’s original text.',
+    detail: [
+      'The Commons and World Digital Library description identifies a Japanese Kasuga edition printed at Kōfuku-ji during the fourteenth century and held by the National Diet Library. Its wide field of printed Chinese characters is therefore a later East Asian witness. The earlier label’s Tibetan, Library of Congress, and direct-author claims did not match the installed image and have been removed.',
+      'The Cheng weishi lun is connected with Xuanzang’s translation and synthesis of commentarial traditions around Vasubandhu’s concise Thirty Verses. It should not be collapsed into those verses or treated as a transparent copy of an Indian original. The object helps visitors see how a corpus was organized and taught in Japan after multiple stages of translation, commentary, selection, and printing.',
+      'Vasubandhu’s “mere representation” remains interpretively contested: realist critique, idealist readings, phenomenological description, causal dispositions, and soteriological transformation cannot be settled by a modern slogan. The article and specialist sources support those claims; the print supports its own date, format, Japanese institutional setting, custody, and public-domain image status.',
+    ],
+    sources: [
+      {id: 'mere-ideation-commons', label: 'Wikimedia Commons — The Completion of Mere Ideation, WDL 11843', url: 'https://commons.wikimedia.org/wiki/File:The_Completion_of_Mere_Ideation_WDL11843.jpg', kind: 'collection-record'},
+      {id: 'vasubandhu-sep', label: 'Stanford Encyclopedia of Philosophy — Vasubandhu', url: 'https://plato.stanford.edu/entries/vasubandhu/', kind: 'academic-reference'},
+      {id: 'mind-indian-sep', label: 'Stanford Encyclopedia of Philosophy — Mind in Indian Buddhist Philosophy', url: 'https://plato.stanford.edu/entries/mind-indian-buddhism/', kind: 'academic-reference'},
+      {id: 'consciousness-only-hawaii', label: 'University of Hawai‘i Press — Three Texts on Consciousness Only', url: 'https://uhpress.hawaii.edu/title/three-texts-on-consciousness-only/', kind: 'academic-reference'},
+    ],
+    sectionSourceIds: [['mere-ideation-commons', 'consciousness-only-hawaii'], ['vasubandhu-sep', 'mind-indian-sep'], ['mere-ideation-commons', 'vasubandhu-sep', 'consciousness-only-hawaii']],
+    visitorGuide: [
+      {heading: 'Reading the Kasuga edition', items: [
+        {label: 'Japanese witness', description: 'The National Diet Library object was printed at Kōfuku-ji in fourteenth-century Japan.', sourceIds: ['mere-ideation-commons']},
+        {label: 'A later synthesis', description: 'Cheng weishi lun belongs to Xuanzang-linked commentary and synthesis around the Thirty Verses, not to Vasubandhu’s pen as one unchanged text.', sourceIds: ['consciousness-only-hawaii', 'vasubandhu-sep']},
+      ]},
+      {heading: 'Interpreting representation', items: [
+        {label: 'Beyond a slogan', description: 'Mere representation is debated across metaphysical, phenomenological, causal, and therapeutic readings.', sourceIds: ['vasubandhu-sep', 'mind-indian-sep']},
+        {label: 'Shared conditions', description: 'Karmic dispositions and regularity complicate the caricature of a sovereign private mind inventing everything.', sourceIds: ['vasubandhu-sep', 'mind-indian-sep']},
+      ]},
+    ],
+    articleTitle: 'Vasubandhu', canonicalContexts: [{kind: 'philosopher', id: 'vasubandhu'}], plaqueType: 'work-or-text',
+    resolution: 'Resolved: corrected a material Tibetan/Japanese mismatch, identified the National Diet Library Kasuga edition and Xuanzang-linked synthesis, qualified authorship, preserved public-domain status, regenerated the natural-ratio panel, and retained the contested philosophical readings.', lock: 'fnv1a64:d0109db55c5ac279', reviewMethod: gallery05CompletionMethod,
+  },
+};
+
 const reviewGallery05Exhibit = (input: MuseumSupplementalExhibit): MuseumSupplementalExhibit => {
-  const evidence = gallery05ReviewEvidence[input.id];
+  const evidence = gallery05CompletionEvidence[input.id] ?? gallery05ReviewEvidence[input.id];
   if (!evidence) return input;
   const basePresentation = input.presentation;
   if (!basePresentation) throw new Error(`Missing Gallery 05 presentation for ${input.id}.`);
@@ -314,7 +378,7 @@ const reviewGallery05Exhibit = (input: MuseumSupplementalExhibit): MuseumSupplem
     wallPlaque: {type: evidence.plaqueType, title: evidence.plaqueTitle, invitation: evidence.invitation, canonicalContexts: evidence.canonicalContexts},
     review: {
       status: 'standard-compliant', reviewedOn: '2026-08-12',
-      method: 'Gallery 05 supplemental review: two non-overlapping Terra/High evidence scopes of six exhibits each reconciled by the Sol parent across installed-object identity, interpretation, attribution, dating, institution, provenance, rights, source mapping, accessibility, article relationship, routes, and aspect-safe presentation.',
+      method: evidence.reviewMethod ?? 'Gallery 05 supplemental review: two non-overlapping Terra/High evidence scopes of six exhibits each reconciled by the Sol parent across installed-object identity, interpretation, attribution, dating, institution, provenance, rights, source mapping, accessibility, article relationship, routes, and aspect-safe presentation.',
       resolution: evidence.resolution, lock: evidence.lock,
       visualReview: {
         desktop: {reviewedOn: '2026-08-12', viewport: '1280×720', evidence: `Direct route inspected with the installed object, three-paragraph interpretation, subject-specific sidebar, article CTA, and no horizontal overflow. Evidence: docs/visual-validation/gallery-05-supplementals/desktop/${input.id}.png`},
@@ -409,7 +473,7 @@ const rawExhibits = [
     displayName: 'Vasubandhu’s Abhidharmakośa: Analysis and Critique',
     shortTitle: 'Vasubandhu: Abhidharmakośa',
     workLabel: 'VASUBANDHU · TREASURY OF ABHIDHARMA',
-    dateLabel: 'Later manuscript witness · National Archives of Nepal',
+    dateLabel: 'Late-Heian Japanese handscroll · 1100s · Cleveland 1916.1060',
     question: 'How can experience be analyzed without positing a permanent self?',
     frontSubtitle: 'Dharmas, causation, cognition, karma, and Vasubandhu’s critical commentary',
     lead: 'The Abhidharmakośa organizes a vast field of scholastic analysis while its commentary also questions positions associated with Sarvāstivāda. Vasubandhu is therefore not a static label between “Abhidharma” and “Yogācāra,” but a thinker working across inherited systems, criticism, and later reinterpretation.',
@@ -435,7 +499,7 @@ const rawExhibits = [
     displayName: 'Vasubandhu’s Mere Ideation: Representation and Experience',
     shortTitle: 'Vasubandhu: Mere Ideation',
     workLabel: 'VASUBANDHU · VIJÑAPTIMĀTRATĀ',
-    dateLabel: 'Later Tibetan xylograph witness',
+    dateLabel: 'Japanese Kasuga edition · 14th century · National Diet Library',
     question: 'What changes when experience is analyzed through representation rather than external objects as ordinarily assumed?',
     frontSubtitle: 'Cognition, appearance, karmic continuity, and rival readings of Yogācāra',
     lead: 'Texts attributed to Vasubandhu use “mere ideation” to analyze how experience appears structured by cognition and karmic dispositions. Interpreters dispute whether this amounts to idealism, a phenomenological method, a soteriological strategy, or some combination. The exhibit keeps that tension visible instead of translating the doctrine into a slogan.',
@@ -549,17 +613,17 @@ export const BUDDHIST_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
   layout({id: 'early-buddhist-stupa-community', parentExhibitId: 'buddhist-philosophy', zoneId: 'buddhist-many-paths', position: {x: 5.55, z: -17.92}, rotationY: Math.PI, assetId: 'buddhist-sanchi-great-stupa', mediaWidth: 3.4610722611, mediaHeight: 2.32, installationKind: 'buddhist-context', accent: BUDDHIST_PALETTE.jade}),
   layout({id: 'nagarjuna-prajnaparamita-witness', parentExhibitId: 'nagarjuna', zoneId: 'buddhist-madhyamaka', position: {x: 10.85, z: -11.2}, rotationY: -Math.PI / 2, assetId: 'buddhist-prajnaparamita-walters', mediaWidth: 3.5827751196, mediaHeight: 1.17, installationKind: 'buddhist-work', accent: BUDDHIST_PALETTE.lapis}),
   layout({id: 'nagarjuna-dependent-arising', parentExhibitId: 'nagarjuna', zoneId: 'buddhist-madhyamaka', position: {x: -5.55, z: -6.72}, rotationY: Math.PI, assetId: 'buddhist-dependent-arising-wheel', mediaWidth: 2.782875, mediaHeight: 3.28, installationKind: 'buddhist-concept', accent: BUDDHIST_PALETTE.lotus}),
-  layout({id: 'nagarjuna-root-verses-middle-way', parentExhibitId: 'nagarjuna', zoneId: 'buddhist-madhyamaka', position: {x: -5.55, z: -15.68}, rotationY: 0, assetId: 'nagarjuna-composes-madhyamaka-relief', mediaWidth: 3.48, mediaHeight: 2.55, installationKind: 'buddhist-work', accent: BUDDHIST_PALETTE.lotus}),
-  layout({id: 'madhyamaka-lineage-aryadeva', parentExhibitId: 'nagarjuna', zoneId: 'buddhist-madhyamaka', position: {x: 5.55, z: -15.68}, rotationY: 0, assetId: 'nagarjuna-aryadeva-rubin-painting', mediaWidth: 2.29, mediaHeight: 3.3, installationKind: 'buddhist-context', accent: BUDDHIST_PALETTE.saffron}),
-  layout({id: 'prajnaparamita-wisdom-embodied', parentExhibitId: 'nagarjuna', zoneId: 'buddhist-madhyamaka', position: {x: 5.55, z: -6.72}, rotationY: Math.PI, assetId: 'buddhist-prajnaparamita-pala-bronze', mediaWidth: 2.48, mediaHeight: 3.3, installationKind: 'buddhist-context', accent: BUDDHIST_PALETTE.lapis}),
-  layout({id: 'vasubandhu-abhidharmakosa', parentExhibitId: 'vasubandhu', zoneId: 'buddhist-abhidharma-yogacara', position: {x: -5.55, z: 4.48}, rotationY: Math.PI, assetId: 'vasubandhu-abhidharmakosha-manuscript', mediaWidth: 3.42, mediaHeight: 2.61, installationKind: 'buddhist-work', accent: BUDDHIST_PALETTE.saffron}),
-  layout({id: 'vasubandhu-mere-ideation', parentExhibitId: 'vasubandhu', zoneId: 'buddhist-abhidharma-yogacara', position: {x: 10.85, z: 0}, rotationY: -Math.PI / 2, assetId: 'vasubandhu-mere-ideation', mediaWidth: 3.58, mediaHeight: 1, installationKind: 'buddhist-work', accent: BUDDHIST_PALETTE.jade}),
-  layout({id: 'asanga-vasubandhu-yogacara-lineage', parentExhibitId: 'vasubandhu', zoneId: 'buddhist-abhidharma-yogacara', position: {x: -5.55, z: -4.48}, rotationY: 0, assetId: 'buddhist-asanga-vasubandhu-relief', mediaWidth: 3.48, mediaHeight: 2.6, installationKind: 'buddhist-context', accent: BUDDHIST_PALETTE.lotus}),
-  layout({id: 'abhidharma-cosmology-mount-meru', parentExhibitId: 'vasubandhu', zoneId: 'buddhist-abhidharma-yogacara', position: {x: 5.55, z: -4.48}, rotationY: 0, assetId: 'buddhist-mount-meru-met-tapestry', mediaWidth: 3.41, mediaHeight: 3.3, installationKind: 'buddhist-concept', accent: BUDDHIST_PALETTE.lapis}),
-  layout({id: 'asanga-yogacara-transmission', parentExhibitId: 'vasubandhu', zoneId: 'buddhist-abhidharma-yogacara', position: {x: 5.55, z: 4.48}, rotationY: Math.PI, assetId: 'buddhist-asanga-kofukuji-statue', mediaWidth: 2.39, mediaHeight: 3.3, installationKind: 'buddhist-context', accent: BUDDHIST_PALETTE.saffron}),
-  layout({id: 'buddhist-pramana-two-sources', parentExhibitId: 'buddhist-epistemology', zoneId: 'buddhist-pramana', position: {x: 5.55, z: 6.72}, rotationY: 0, assetId: 'buddhist-pramana-perception-inference-diagram', mediaWidth: 2.07, mediaHeight: 3.3, installationKind: 'buddhist-concept', accent: BUDDHIST_PALETTE.lapis}),
+  layout({id: 'nagarjuna-root-verses-middle-way', parentExhibitId: 'nagarjuna', zoneId: 'buddhist-madhyamaka', position: {x: -5.55, z: -15.68}, rotationY: 0, assetId: 'nagarjuna-composes-madhyamaka-relief', mediaWidth: 3.48, mediaHeight: 2.5501875, installationKind: 'buddhist-work', accent: BUDDHIST_PALETTE.lotus}),
+  layout({id: 'madhyamaka-lineage-aryadeva', parentExhibitId: 'nagarjuna', zoneId: 'buddhist-madhyamaka', position: {x: 5.55, z: -15.68}, rotationY: 0, assetId: 'nagarjuna-aryadeva-rubin-painting', mediaWidth: 2.289375, mediaHeight: 3.3, installationKind: 'buddhist-context', accent: BUDDHIST_PALETTE.saffron}),
+  layout({id: 'prajnaparamita-wisdom-embodied', parentExhibitId: 'nagarjuna', zoneId: 'buddhist-madhyamaka', position: {x: 5.55, z: -6.72}, rotationY: Math.PI, assetId: 'buddhist-prajnaparamita-pala-bronze', mediaWidth: 2.475, mediaHeight: 3.3, installationKind: 'buddhist-context', accent: BUDDHIST_PALETTE.lapis}),
+  layout({id: 'vasubandhu-abhidharmakosa', parentExhibitId: 'vasubandhu', zoneId: 'buddhist-abhidharma-yogacara', position: {x: -5.55, z: 4.48}, rotationY: Math.PI, assetId: 'vasubandhu-abhidharmakosha-manuscript', mediaWidth: 3.42, mediaHeight: 2.60775, installationKind: 'buddhist-work', accent: BUDDHIST_PALETTE.saffron}),
+  layout({id: 'vasubandhu-mere-ideation', parentExhibitId: 'vasubandhu', zoneId: 'buddhist-abhidharma-yogacara', position: {x: 10.85, z: 0}, rotationY: -Math.PI / 2, assetId: 'vasubandhu-mere-ideation', mediaWidth: 3.58, mediaHeight: 1.006875, installationKind: 'buddhist-work', accent: BUDDHIST_PALETTE.jade}),
+  layout({id: 'asanga-vasubandhu-yogacara-lineage', parentExhibitId: 'vasubandhu', zoneId: 'buddhist-abhidharma-yogacara', position: {x: -5.55, z: -4.48}, rotationY: 0, assetId: 'buddhist-asanga-vasubandhu-relief', mediaWidth: 3.48, mediaHeight: 2.6045625, installationKind: 'buddhist-context', accent: BUDDHIST_PALETTE.lotus}),
+  layout({id: 'abhidharma-cosmology-mount-meru', parentExhibitId: 'vasubandhu', zoneId: 'buddhist-abhidharma-yogacara', position: {x: 5.55, z: -4.48}, rotationY: 0, assetId: 'buddhist-mount-meru-met-tapestry', mediaWidth: 3.41, mediaHeight: 3.298109375, installationKind: 'buddhist-concept', accent: BUDDHIST_PALETTE.lapis}),
+  layout({id: 'asanga-yogacara-transmission', parentExhibitId: 'vasubandhu', zoneId: 'buddhist-abhidharma-yogacara', position: {x: 5.55, z: 4.48}, rotationY: Math.PI, assetId: 'buddhist-asanga-kofukuji-statue', mediaWidth: 2.3925, mediaHeight: 3.3, installationKind: 'buddhist-context', accent: BUDDHIST_PALETTE.saffron}),
+  layout({id: 'buddhist-pramana-two-sources', parentExhibitId: 'buddhist-epistemology', zoneId: 'buddhist-pramana', position: {x: 5.55, z: 6.72}, rotationY: 0, assetId: 'buddhist-pramana-perception-inference-diagram', mediaWidth: 2.06765625, mediaHeight: 3.3, installationKind: 'buddhist-concept', accent: BUDDHIST_PALETTE.lapis}),
   layout({id: 'nalanda-scholastic-institution', parentExhibitId: 'dignaga', zoneId: 'buddhist-pramana', position: {x: -5.55, z: 15.68}, rotationY: Math.PI, assetId: 'buddhist-nalanda-scholastic-ruins', mediaWidth: 3.48, mediaHeight: 2.61, installationKind: 'buddhist-context', accent: BUDDHIST_PALETTE.saffron}),
-  layout({id: 'dharmakirti-pramanavarttika-reception', parentExhibitId: 'dharmakirti', zoneId: 'buddhist-pramana', position: {x: 5.55, z: 15.68}, rotationY: Math.PI, assetId: 'dharmakirti-tibetan-woodblock-portrait', mediaWidth: 3.18, mediaHeight: 3.3, installationKind: 'buddhist-work', accent: BUDDHIST_PALETTE.lotus}),
+  layout({id: 'dharmakirti-pramanavarttika-reception', parentExhibitId: 'dharmakirti', zoneId: 'buddhist-pramana', position: {x: 5.55, z: 15.68}, rotationY: Math.PI, assetId: 'dharmakirti-tibetan-woodblock-portrait', mediaWidth: 3.17625, mediaHeight: 3.3, installationKind: 'buddhist-work', accent: BUDDHIST_PALETTE.lotus}),
   layout({id: 'buddhist-xuanzang-translation', parentExhibitId: 'buddhist-philosophy', zoneId: 'buddhist-transmission-reserve', position: {x: -10.85, z: 22.4}, rotationY: Math.PI / 2, assetId: 'buddhist-xuanzang-statue', mediaWidth: 2.221734375, mediaHeight: 3.33, installationKind: 'buddhist-context', accent: BUDDHIST_PALETTE.saffron}),
   layout({id: 'buddhist-tibetan-pecha', parentExhibitId: 'buddhist-philosophy', zoneId: 'buddhist-transmission-reserve', position: {x: 10.85, z: 22.4}, rotationY: -Math.PI / 2, assetId: 'buddhist-tibetan-pecha', mediaWidth: 3.58, mediaHeight: 1.07959375, installationKind: 'buddhist-context', accent: BUDDHIST_PALETTE.lapis}),
   layout({id: 'buddhist-diamond-sutra', parentExhibitId: 'buddhist-philosophy', zoneId: 'buddhist-transmission-reserve', position: {x: -5.55, z: 27.38}, rotationY: Math.PI, assetId: 'buddhist-diamond-sutra-868', mediaWidth: 3.32, mediaHeight: 1.9971875, installationKind: 'buddhist-context', accent: BUDDHIST_PALETTE.lotus}),

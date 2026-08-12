@@ -17,18 +17,18 @@
   },
   "inventory": {
     "total": 411,
-    "backlog": 357,
-    "reviewed": 54,
-    "resolvedStandardCompliant": 54,
+    "backlog": 346,
+    "reviewed": 65,
+    "resolvedStandardCompliant": 65,
     "countsByAuthoredStatus": {
-      "unreviewed": 357,
+      "unreviewed": 346,
       "reconciled": 0,
-      "standard-compliant": 54
+      "standard-compliant": 65
     },
     "countsByEffectiveStatus": {
-      "unreviewed": 357,
+      "unreviewed": 346,
       "reconciled": 0,
-      "standard-compliant": 54,
+      "standard-compliant": 65,
       "out-of-date": 0
     },
     "countsByArticleRelationship": {
@@ -91,9 +91,9 @@
       "hallId": "buddhist-philosophies",
       "hallTitle": "Buddhist Philosophies of Liberation and Knowledge",
       "total": 23,
-      "backlog": 11,
-      "reviewed": 12,
-      "standardCompliant": 12
+      "backlog": 0,
+      "reviewed": 23,
+      "standardCompliant": 23
     },
     {
       "galleryNumber": 6,
@@ -21424,58 +21424,165 @@
         }
       },
       "exhibitReview": {
-        "authoredStatus": "unreviewed",
-        "effectiveStatus": "unreviewed",
-        "reviewedOn": null,
-        "method": null,
-        "resolution": null,
-        "lockPresent": false,
-        "lockCurrent": null
+        "authoredStatus": "standard-compliant",
+        "effectiveStatus": "standard-compliant",
+        "reviewedOn": "2026-08-12",
+        "method": "Gallery 05 supplemental completion: two non-overlapping Terra/High read-only evidence scopes split six and five exhibits, reconciled by the Sol parent across installed-object identity, interpretation, attribution, dating, institution, provenance, rights, source mapping, accessibility, article relationship, routes, and aspect-safe presentation.",
+        "resolution": "Resolved: retained the modern Buddhavanam relief, exposed its unknown maker and commemorative status, mapped Root Verses claims to primary and specialist sources, preserved CC BY-SA credit, and matched the natural photograph ratio.",
+        "lockPresent": true,
+        "lockCurrent": true
       },
       "interpretation": {
-        "objectLed": false,
-        "objectInterpretation": null,
-        "mainWordCount": 89,
+        "objectLed": true,
+        "objectInterpretation": "Anandajoti Bhikkhu’s 2024 CC BY-SA photograph records a modern Buddhavanam drum relief whose maker and installation date are not supplied. It commemorates Nāgārjuna writing but is not a lifetime portrait, historical composition scene, or manuscript witness.",
+        "mainWordCount": 339,
         "paragraphCount": 3,
-        "untitledParagraphs": false,
-        "sidebarSectionCount": 0,
-        "sidebarItemCount": 0,
-        "sidebarSections": []
+        "untitledParagraphs": true,
+        "sidebarSectionCount": 2,
+        "sidebarItemCount": 4,
+        "sidebarSections": [
+          {
+            "heading": "Reading the commemorative relief",
+            "items": [
+              {
+                "label": "Verified photograph",
+                "description": "Anandajoti photographed this Buddhavanam relief on 9 December 2024 under CC BY-SA 4.0.",
+                "sourceIds": [
+                  "root-verses-relief"
+                ]
+              },
+              {
+                "label": "Unknown relief maker",
+                "description": "The file does not identify its sculptor or establish the physical relief’s date.",
+                "sourceIds": [
+                  "root-verses-relief"
+                ]
+              }
+            ]
+          },
+          {
+            "heading": "Following the middle way",
+            "items": [
+              {
+                "label": "Dependent and empty",
+                "description": "Dependently arisen things lack independent essence without becoming causally or conventionally nothing.",
+                "sourceIds": [
+                  "root-verses-translation",
+                  "nagarjuna-sep"
+                ]
+              },
+              {
+                "label": "Scene versus argument",
+                "description": "An imagined author at work cannot source the philosophical steps or textual history.",
+                "sourceIds": [
+                  "root-verses-relief",
+                  "madhyamaka-iep"
+                ]
+              }
+            ]
+          }
+        ]
       },
       "claimEvidence": {
         "sources": [
           {
-            "label": "Wikimedia Commons — Nāgārjuna composes the Madhyamaka texts",
-            "url": "https://commons.wikimedia.org/wiki/File:201_Nagarjuna_Composes_the_Madhyamaka_Texts.jpg",
+            "id": "root-verses-relief",
+            "label": "Wikimedia Commons — Nāgārjuna composes Madhyamaka texts at Buddhavanam",
+            "url": "https://commons.wikimedia.org/wiki/File:207_Nagarjuna_Composes_the_Madhyamaka_Texts.jpg",
             "kind": "collection-record"
           },
           {
+            "id": "nagarjuna-sep",
             "label": "Stanford Encyclopedia of Philosophy — Nāgārjuna",
             "url": "https://plato.stanford.edu/entries/nagarjuna/",
+            "kind": "academic-reference"
+          },
+          {
+            "id": "root-verses-translation",
+            "label": "Wisdom Experience — Root Verses of the Middle Way, translated reading",
+            "url": "https://wisdomexperience.org/wp-content/uploads/2018/07/Three-Turnings-Lesson-6-Reading.pdf",
+            "kind": "primary-text"
+          },
+          {
+            "id": "madhyamaka-iep",
+            "label": "Internet Encyclopedia of Philosophy — Madhyamaka Buddhist Philosophy",
+            "url": "https://iep.utm.edu/madhyamaka-buddhist-philosophy/",
             "kind": "academic-reference"
           }
         ],
         "paragraphMappings": [
           {
             "paragraph": 1,
-            "wordCount": 27,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 132,
+            "sourceIds": [
+              "root-verses-relief",
+              "nagarjuna-sep"
+            ],
+            "valid": true
           },
           {
             "paragraph": 2,
-            "wordCount": 30,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 102,
+            "sourceIds": [
+              "root-verses-translation",
+              "nagarjuna-sep"
+            ],
+            "valid": true
           },
           {
             "paragraph": 3,
-            "wordCount": 32,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 105,
+            "sourceIds": [
+              "root-verses-relief",
+              "madhyamaka-iep"
+            ],
+            "valid": true
           }
         ],
-        "sidebarMappings": []
+        "sidebarMappings": [
+          {
+            "row": 1,
+            "heading": "Reading the commemorative relief",
+            "label": "Verified photograph",
+            "descriptionWordCount": 14,
+            "sourceIds": [
+              "root-verses-relief"
+            ],
+            "valid": true
+          },
+          {
+            "row": 2,
+            "heading": "Reading the commemorative relief",
+            "label": "Unknown relief maker",
+            "descriptionWordCount": 13,
+            "sourceIds": [
+              "root-verses-relief"
+            ],
+            "valid": true
+          },
+          {
+            "row": 3,
+            "heading": "Following the middle way",
+            "label": "Dependent and empty",
+            "descriptionWordCount": 12,
+            "sourceIds": [
+              "root-verses-translation",
+              "nagarjuna-sep"
+            ],
+            "valid": true
+          },
+          {
+            "row": 4,
+            "heading": "Following the middle way",
+            "label": "Scene versus argument",
+            "descriptionWordCount": 13,
+            "sourceIds": [
+              "root-verses-relief",
+              "madhyamaka-iep"
+            ],
+            "valid": true
+          }
+        ]
       },
       "assets": {
         "principal": {
@@ -21524,8 +21631,19 @@
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 26750,
+                "sha256": "824fecfeca28d88af227bc878af418dc5778a852838f3674d317db3589ea47e9"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 240584,
+                "sha256": "992d2f29106bd0c6037f386a9f4d872781dd9894e586f885dc47f7bc2db7effa"
+              }
+            }
           }
         },
         "physical": {
@@ -21574,8 +21692,19 @@
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 26750,
+                "sha256": "824fecfeca28d88af227bc878af418dc5778a852838f3674d317db3589ea47e9"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 240584,
+                "sha256": "992d2f29106bd0c6037f386a9f4d872781dd9894e586f885dc47f7bc2db7effa"
+              }
+            }
           }
         }
       },
@@ -21591,9 +21720,9 @@
           "status": "match"
         },
         "mediaMountToPhysicalScene": {
-          "mount": 1.3647058823529412,
+          "mount": 1.3646055437100213,
           "scene": 1.3646055437100213,
-          "status": "mismatch"
+          "status": "match"
         },
         "nonUniformScalingProtected": true
       },
@@ -21607,29 +21736,41 @@
           "status": "pass"
         },
         "fullArticleCta": {
-          "label": "Open the philosopher in the Atlas",
+          "label": "Read the full sourced Nāgārjuna article",
           "expectedLabel": "Read the full sourced Nāgārjuna article",
           "href": "#/philosophers/nagarjuna",
-          "status": "fail"
+          "status": "pass"
         }
       },
       "visualReview": {
         "desktop": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720",
+            "evidence": "Direct route inspected with the installed object, three-paragraph interpretation, subject-specific sidebar, article CTA, and no horizontal overflow. Evidence: docs/visual-validation/gallery-05-supplementals/desktop/nagarjuna-root-verses-middle-way.png"
+          }
         },
         "mobile": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "390×844",
+            "evidence": "Direct route inspected with wrapped copy, loaded object preview, scrollable interpretation, visible controls, and no horizontal overflow. Evidence: docs/visual-validation/gallery-05-supplementals/mobile/nagarjuna-root-verses-middle-way.png"
+          }
         },
         "threeDimensional": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720 fresh direct-route session",
+            "evidence": "Fresh-session authored viewpoint inspected with a live 3D canvas, closed detail panel, readable plaque, distinct installation, and the image mounted at its natural scene ratio. Evidence: docs/visual-validation/gallery-05-supplementals/staged-3d/nagarjuna-root-verses-middle-way.png"
+          }
         }
       },
       "contract": {
-        "evaluated": false,
-        "status": "not-evaluated",
+        "evaluated": true,
+        "status": "pass",
         "issues": []
       }
     },
@@ -21675,58 +21816,165 @@
         }
       },
       "exhibitReview": {
-        "authoredStatus": "unreviewed",
-        "effectiveStatus": "unreviewed",
-        "reviewedOn": null,
-        "method": null,
-        "resolution": null,
-        "lockPresent": false,
-        "lockCurrent": null
+        "authoredStatus": "standard-compliant",
+        "effectiveStatus": "standard-compliant",
+        "reviewedOn": "2026-08-12",
+        "method": "Gallery 05 supplemental completion: two non-overlapping Terra/High read-only evidence scopes split six and five exhibits, reconciled by the Sol parent across installed-object identity, interpretation, attribution, dating, institution, provenance, rights, source mapping, accessibility, article relationship, routes, and aspect-safe presentation.",
+        "resolution": "Resolved: added the Rubin object record, exact title, regional origin, medium, gift provenance and public-domain status, treated the figures as later lineage memory, bounded disciple claims, and matched the natural portrait ratio.",
+        "lockPresent": true,
+        "lockCurrent": true
       },
       "interpretation": {
-        "objectLed": false,
-        "objectInterpretation": null,
-        "mainWordCount": 94,
+        "objectLed": true,
+        "objectInterpretation": "Rubin Museum C2006.66.167 is an anonymous nineteenth-century painting from Kham or eastern Tibet, made with pigments on cloth after Situ Panchen’s lineage set. It is later lineage memory, not a lifetime double portrait or proof of every traditional biographical detail.",
+        "mainWordCount": 344,
         "paragraphCount": 3,
-        "untitledParagraphs": false,
-        "sidebarSectionCount": 0,
-        "sidebarItemCount": 0,
-        "sidebarSections": []
+        "untitledParagraphs": true,
+        "sidebarSectionCount": 2,
+        "sidebarItemCount": 4,
+        "sidebarSections": [
+          {
+            "heading": "Reading lineage portraiture",
+            "items": [
+              {
+                "label": "Specific Tibetan object",
+                "description": "The Rubin dates the anonymous pigments-on-cloth painting to nineteenth-century eastern Tibet or Kham.",
+                "sourceIds": [
+                  "aryadeva-rubin"
+                ]
+              },
+              {
+                "label": "Later memory",
+                "description": "The paired likenesses were made long after both thinkers and cannot preserve their appearances.",
+                "sourceIds": [
+                  "aryadeva-rubin",
+                  "madhyamaka-sep"
+                ]
+              }
+            ]
+          },
+          {
+            "heading": "Lineage and argument",
+            "items": [
+              {
+                "label": "Traditional succession",
+                "description": "Sources associate Āryadeva with Nāgārjuna and the Catuḥśataka while historical details remain bounded.",
+                "sourceIds": [
+                  "madhyamaka-sep"
+                ]
+              },
+              {
+                "label": "Plural receptions",
+                "description": "Later Madhyamaka traditions developed different interpretations rather than transmitting one unaltered consensus.",
+                "sourceIds": [
+                  "madhyamaka-sep",
+                  "madhyamaka-iep"
+                ]
+              }
+            ]
+          }
+        ]
       },
       "claimEvidence": {
         "sources": [
           {
-            "label": "Wikimedia Commons — Nāgārjuna and Āryadeva, Rubin Museum",
+            "id": "aryadeva-rubin",
+            "label": "Rubin Museum — Nāgārjuna and Āryadeva, C2006.66.167",
+            "url": "https://rubinmuseum.org/collection/c2006-66-167/?relatedview=all",
+            "kind": "collection-record"
+          },
+          {
+            "id": "aryadeva-commons",
+            "label": "Wikimedia Commons — installed Rubin painting reproduction",
             "url": "https://commons.wikimedia.org/wiki/File:Nagarjuna_and_Aryadeva_as_Two_Great_Indian_Buddhist_Scholastics_-_Google_Art_Project.jpg",
             "kind": "collection-record"
           },
           {
-            "label": "Stanford Encyclopedia of Philosophy — Nāgārjuna",
-            "url": "https://plato.stanford.edu/entries/nagarjuna/",
+            "id": "madhyamaka-sep",
+            "label": "Stanford Encyclopedia of Philosophy — Madhyamaka",
+            "url": "https://plato.stanford.edu/entries/madhyamaka/",
+            "kind": "academic-reference"
+          },
+          {
+            "id": "madhyamaka-iep",
+            "label": "Internet Encyclopedia of Philosophy — Madhyamaka Buddhist Philosophy",
+            "url": "https://iep.utm.edu/madhyamaka-buddhist-philosophy/",
             "kind": "academic-reference"
           }
         ],
         "paragraphMappings": [
           {
             "paragraph": 1,
-            "wordCount": 31,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 137,
+            "sourceIds": [
+              "aryadeva-rubin",
+              "aryadeva-commons"
+            ],
+            "valid": true
           },
           {
             "paragraph": 2,
-            "wordCount": 29,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 100,
+            "sourceIds": [
+              "madhyamaka-sep",
+              "madhyamaka-iep"
+            ],
+            "valid": true
           },
           {
             "paragraph": 3,
-            "wordCount": 34,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 107,
+            "sourceIds": [
+              "aryadeva-rubin",
+              "madhyamaka-sep"
+            ],
+            "valid": true
           }
         ],
-        "sidebarMappings": []
+        "sidebarMappings": [
+          {
+            "row": 1,
+            "heading": "Reading lineage portraiture",
+            "label": "Specific Tibetan object",
+            "descriptionWordCount": 13,
+            "sourceIds": [
+              "aryadeva-rubin"
+            ],
+            "valid": true
+          },
+          {
+            "row": 2,
+            "heading": "Reading lineage portraiture",
+            "label": "Later memory",
+            "descriptionWordCount": 14,
+            "sourceIds": [
+              "aryadeva-rubin",
+              "madhyamaka-sep"
+            ],
+            "valid": true
+          },
+          {
+            "row": 3,
+            "heading": "Lineage and argument",
+            "label": "Traditional succession",
+            "descriptionWordCount": 13,
+            "sourceIds": [
+              "madhyamaka-sep"
+            ],
+            "valid": true
+          },
+          {
+            "row": 4,
+            "heading": "Lineage and argument",
+            "label": "Plural receptions",
+            "descriptionWordCount": 12,
+            "sourceIds": [
+              "madhyamaka-sep",
+              "madhyamaka-iep"
+            ],
+            "valid": true
+          }
+        ]
       },
       "assets": {
         "principal": {
@@ -21775,8 +22023,19 @@
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 36914,
+                "sha256": "2b7a0ab903d84e24f2bfd75893edf4ec4bf9b319d2169c58168f171ebc308e5d"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 270930,
+                "sha256": "51cd1234a370764706321f73a65db09a77a9ee140c4bc1b15b22b2fdb39142c1"
+              }
+            }
           }
         },
         "physical": {
@@ -21825,8 +22084,19 @@
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 36914,
+                "sha256": "2b7a0ab903d84e24f2bfd75893edf4ec4bf9b319d2169c58168f171ebc308e5d"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 270930,
+                "sha256": "51cd1234a370764706321f73a65db09a77a9ee140c4bc1b15b22b2fdb39142c1"
+              }
+            }
           }
         }
       },
@@ -21842,9 +22112,9 @@
           "status": "match"
         },
         "mediaMountToPhysicalScene": {
-          "mount": 0.693939393939394,
+          "mount": 0.6937500000000001,
           "scene": 0.69375,
-          "status": "mismatch"
+          "status": "match"
         },
         "nonUniformScalingProtected": true
       },
@@ -21858,29 +22128,41 @@
           "status": "pass"
         },
         "fullArticleCta": {
-          "label": "Open the philosopher in the Atlas",
+          "label": "Read the full sourced Nāgārjuna article",
           "expectedLabel": "Read the full sourced Nāgārjuna article",
           "href": "#/philosophers/nagarjuna",
-          "status": "fail"
+          "status": "pass"
         }
       },
       "visualReview": {
         "desktop": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720",
+            "evidence": "Direct route inspected with the installed object, three-paragraph interpretation, subject-specific sidebar, article CTA, and no horizontal overflow. Evidence: docs/visual-validation/gallery-05-supplementals/desktop/madhyamaka-lineage-aryadeva.png"
+          }
         },
         "mobile": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "390×844",
+            "evidence": "Direct route inspected with wrapped copy, loaded object preview, scrollable interpretation, visible controls, and no horizontal overflow. Evidence: docs/visual-validation/gallery-05-supplementals/mobile/madhyamaka-lineage-aryadeva.png"
+          }
         },
         "threeDimensional": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720 fresh direct-route session",
+            "evidence": "Fresh-session authored viewpoint inspected with a live 3D canvas, closed detail panel, readable plaque, distinct installation, and the image mounted at its natural scene ratio. Evidence: docs/visual-validation/gallery-05-supplementals/staged-3d/madhyamaka-lineage-aryadeva.png"
+          }
         }
       },
       "contract": {
-        "evaluated": false,
-        "status": "not-evaluated",
+        "evaluated": true,
+        "status": "pass",
         "issues": []
       }
     },
@@ -21926,58 +22208,164 @@
         }
       },
       "exhibitReview": {
-        "authoredStatus": "unreviewed",
-        "effectiveStatus": "unreviewed",
-        "reviewedOn": null,
-        "method": null,
-        "resolution": null,
-        "lockPresent": false,
-        "lockCurrent": null
+        "authoredStatus": "standard-compliant",
+        "effectiveStatus": "standard-compliant",
+        "reviewedOn": "2026-08-12",
+        "method": "Gallery 05 supplemental completion: two non-overlapping Terra/High read-only evidence scopes split six and five exhibits, reconciled by the Sol parent across installed-object identity, interpretation, attribution, dating, institution, provenance, rights, source mapping, accessibility, article relationship, routes, and aspect-safe presentation.",
+        "resolution": "Resolved: retained the source-reported Pāla bronze and unknown maker, exposed the missing accession and provenance, preserved Daderot’s CC0 credit, bounded its later relationship to Nāgārjuna, and matched the natural portrait ratio.",
+        "lockPresent": true,
+        "lockCurrent": true
       },
       "interpretation": {
-        "objectLed": false,
-        "objectInterpretation": null,
-        "mainWordCount": 94,
+        "objectLed": true,
+        "objectInterpretation": "Daderot’s 2013 CC0 photograph records a source-reported twelfth-century northeast Indian Pāla-period bronze displayed at the Fitchburg Art Museum. No accession, official catalogue, prior provenance, or maker is supplied; it is not a Nāgārjuna object.",
+        "mainWordCount": 355,
         "paragraphCount": 3,
-        "untitledParagraphs": false,
-        "sidebarSectionCount": 0,
-        "sidebarItemCount": 0,
-        "sidebarSections": []
+        "untitledParagraphs": true,
+        "sidebarSectionCount": 2,
+        "sidebarItemCount": 4,
+        "sidebarSections": [
+          {
+            "heading": "Reading the bronze cautiously",
+            "items": [
+              {
+                "label": "Source-reported identity",
+                "description": "Commons reports a twelfth-century northeast Indian Pāla bronze displayed at Fitchburg.",
+                "sourceIds": [
+                  "prajnaparamita-bronze"
+                ]
+              },
+              {
+                "label": "Missing catalogue data",
+                "description": "No official accession, maker, or earlier provenance is supplied by the available source.",
+                "sourceIds": [
+                  "prajnaparamita-bronze"
+                ]
+              }
+            ]
+          },
+          {
+            "heading": "Wisdom without reification",
+            "items": [
+              {
+                "label": "Embodied devotion",
+                "description": "Personification can organize devotion without asserting that wisdom exists as an independent substance.",
+                "sourceIds": [
+                  "prajnaparamita-84000",
+                  "nagarjuna-sep"
+                ]
+              },
+              {
+                "label": "Later relationship",
+                "description": "The bronze belongs to later reception and cannot prove Nāgārjuna’s authorship or precise textual dependence.",
+                "sourceIds": [
+                  "prajnaparamita-bronze",
+                  "madhyamaka-iep"
+                ]
+              }
+            ]
+          }
+        ]
       },
       "claimEvidence": {
         "sources": [
           {
-            "label": "Wikimedia Commons — Pāla bronze Prajñāpāramitā",
+            "id": "prajnaparamita-bronze",
+            "label": "Wikimedia Commons — Pāla-period Prajñāpāramitā bronze at Fitchburg",
             "url": "https://commons.wikimedia.org/wiki/File:Prajnaparamita,_northeast_India,_12th_century_AD,_Pala_Period,_bronze_-_Fitchburg_Art_Museum_-_DSC08844.JPG",
             "kind": "collection-record"
           },
           {
+            "id": "prajnaparamita-84000",
+            "label": "84000 — The Perfection of Wisdom in Eighteen Thousand Lines",
+            "url": "https://reader.84000.co/toh12",
+            "kind": "primary-text"
+          },
+          {
+            "id": "nagarjuna-sep",
             "label": "Stanford Encyclopedia of Philosophy — Nāgārjuna",
             "url": "https://plato.stanford.edu/entries/nagarjuna/",
+            "kind": "academic-reference"
+          },
+          {
+            "id": "madhyamaka-iep",
+            "label": "Internet Encyclopedia of Philosophy — Madhyamaka Buddhist Philosophy",
+            "url": "https://iep.utm.edu/madhyamaka-buddhist-philosophy/",
             "kind": "academic-reference"
           }
         ],
         "paragraphMappings": [
           {
             "paragraph": 1,
-            "wordCount": 30,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 139,
+            "sourceIds": [
+              "prajnaparamita-bronze"
+            ],
+            "valid": true
           },
           {
             "paragraph": 2,
-            "wordCount": 35,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 114,
+            "sourceIds": [
+              "prajnaparamita-84000",
+              "nagarjuna-sep"
+            ],
+            "valid": true
           },
           {
             "paragraph": 3,
-            "wordCount": 29,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 102,
+            "sourceIds": [
+              "prajnaparamita-bronze",
+              "madhyamaka-iep"
+            ],
+            "valid": true
           }
         ],
-        "sidebarMappings": []
+        "sidebarMappings": [
+          {
+            "row": 1,
+            "heading": "Reading the bronze cautiously",
+            "label": "Source-reported identity",
+            "descriptionWordCount": 11,
+            "sourceIds": [
+              "prajnaparamita-bronze"
+            ],
+            "valid": true
+          },
+          {
+            "row": 2,
+            "heading": "Reading the bronze cautiously",
+            "label": "Missing catalogue data",
+            "descriptionWordCount": 13,
+            "sourceIds": [
+              "prajnaparamita-bronze"
+            ],
+            "valid": true
+          },
+          {
+            "row": 3,
+            "heading": "Wisdom without reification",
+            "label": "Embodied devotion",
+            "descriptionWordCount": 13,
+            "sourceIds": [
+              "prajnaparamita-84000",
+              "nagarjuna-sep"
+            ],
+            "valid": true
+          },
+          {
+            "row": 4,
+            "heading": "Wisdom without reification",
+            "label": "Later relationship",
+            "descriptionWordCount": 15,
+            "sourceIds": [
+              "prajnaparamita-bronze",
+              "madhyamaka-iep"
+            ],
+            "valid": true
+          }
+        ]
       },
       "assets": {
         "principal": {
@@ -22026,8 +22414,19 @@
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 30996,
+                "sha256": "fea84d2dfad00cb0c3d1c11448a5e3d5958bfc7a7f2d1b5404b6a7ce99fab246"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 143802,
+                "sha256": "d9d8f6a02f734d821d6b6626362e23c0e45b0186f8b1cbcfad96b53fac7d376f"
+              }
+            }
           }
         },
         "physical": {
@@ -22076,8 +22475,19 @@
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 30996,
+                "sha256": "fea84d2dfad00cb0c3d1c11448a5e3d5958bfc7a7f2d1b5404b6a7ce99fab246"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 143802,
+                "sha256": "d9d8f6a02f734d821d6b6626362e23c0e45b0186f8b1cbcfad96b53fac7d376f"
+              }
+            }
           }
         }
       },
@@ -22093,9 +22503,9 @@
           "status": "match"
         },
         "mediaMountToPhysicalScene": {
-          "mount": 0.7515151515151516,
+          "mount": 0.7500000000000001,
           "scene": 0.75,
-          "status": "mismatch"
+          "status": "match"
         },
         "nonUniformScalingProtected": true
       },
@@ -22109,29 +22519,41 @@
           "status": "pass"
         },
         "fullArticleCta": {
-          "label": "Open the philosopher in the Atlas",
+          "label": "Read the full sourced Nāgārjuna article",
           "expectedLabel": "Read the full sourced Nāgārjuna article",
           "href": "#/philosophers/nagarjuna",
-          "status": "fail"
+          "status": "pass"
         }
       },
       "visualReview": {
         "desktop": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720",
+            "evidence": "Direct route inspected with the installed object, three-paragraph interpretation, subject-specific sidebar, article CTA, and no horizontal overflow. Evidence: docs/visual-validation/gallery-05-supplementals/desktop/prajnaparamita-wisdom-embodied.png"
+          }
         },
         "mobile": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "390×844",
+            "evidence": "Direct route inspected with wrapped copy, loaded object preview, scrollable interpretation, visible controls, and no horizontal overflow. Evidence: docs/visual-validation/gallery-05-supplementals/mobile/prajnaparamita-wisdom-embodied.png"
+          }
         },
         "threeDimensional": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720 fresh direct-route session",
+            "evidence": "Fresh-session authored viewpoint inspected with a live 3D canvas, closed detail panel, readable plaque, distinct installation, and the image mounted at its natural scene ratio. Evidence: docs/visual-validation/gallery-05-supplementals/staged-3d/prajnaparamita-wisdom-embodied.png"
+          }
         }
       },
       "contract": {
-        "evaluated": false,
-        "status": "not-evaluated",
+        "evaluated": true,
+        "status": "pass",
         "issues": []
       }
     },
@@ -22177,58 +22599,165 @@
         }
       },
       "exhibitReview": {
-        "authoredStatus": "unreviewed",
-        "effectiveStatus": "unreviewed",
-        "reviewedOn": null,
-        "method": null,
-        "resolution": null,
-        "lockPresent": false,
-        "lockCurrent": null
+        "authoredStatus": "standard-compliant",
+        "effectiveStatus": "standard-compliant",
+        "reviewedOn": "2026-08-12",
+        "method": "Gallery 05 supplemental completion: two non-overlapping Terra/High read-only evidence scopes split six and five exhibits, reconciled by the Sol parent across installed-object identity, interpretation, attribution, dating, institution, provenance, rights, source mapping, accessibility, article relationship, routes, and aspect-safe presentation.",
+        "resolution": "Resolved: corrected a material Nepal/Cleveland mismatch, identified the late-Heian handscroll and its documented provenance, separated object from philosophical evidence, preserved CC0 rights, bounded the transmission claim, and matched the natural ratio.",
+        "lockPresent": true,
+        "lockCurrent": true
       },
       "interpretation": {
-        "objectLed": false,
-        "objectInterpretation": null,
-        "mainWordCount": 83,
+        "objectLed": true,
+        "objectInterpretation": "Cleveland Museum of Art 1916.1060 is part 17 of a thirty-part late-Heian Japanese handscroll, written in gold and silver on indigo paper. It is a later witness to Xuanzang’s Chinese translation, not a Nepalese manuscript, Indian original, or Vasubandhu autograph.",
+        "mainWordCount": 322,
         "paragraphCount": 3,
-        "untitledParagraphs": false,
-        "sidebarSectionCount": 0,
-        "sidebarItemCount": 0,
-        "sidebarSections": []
+        "untitledParagraphs": true,
+        "sidebarSectionCount": 2,
+        "sidebarItemCount": 4,
+        "sidebarSections": [
+          {
+            "heading": "Reading the late-Heian handscroll",
+            "items": [
+              {
+                "label": "Part 17 of 30",
+                "description": "The museum identifies this as one section of Xuanzang’s Chinese translation copied in twelfth-century Japan.",
+                "sourceIds": [
+                  "abhidharma-cleveland"
+                ]
+              },
+              {
+                "label": "Known provenance",
+                "description": "Kuroda Takuma, Worcester R. Warner, and the Cleveland Museum form the documented modern custody chain.",
+                "sourceIds": [
+                  "abhidharma-cleveland"
+                ]
+              }
+            ]
+          },
+          {
+            "heading": "Treasury and critique",
+            "items": [
+              {
+                "label": "Systematic analysis",
+                "description": "The work classifies conditioned processes while preserving arguments among Buddhist scholastic positions.",
+                "sourceIds": [
+                  "vasubandhu-sep",
+                  "abhidharma-gretil"
+                ]
+              },
+              {
+                "label": "Transmission, not autograph",
+                "description": "A Japanese copy of a Chinese translation cannot establish Vasubandhu’s handwriting or original manuscript form.",
+                "sourceIds": [
+                  "abhidharma-cleveland",
+                  "vasubandhu-sep"
+                ]
+              }
+            ]
+          }
+        ]
       },
       "claimEvidence": {
         "sources": [
           {
-            "label": "Wikimedia Commons — Abhidharmakośa manuscript",
-            "url": "https://commons.wikimedia.org/wiki/File:Abhidharmakosha_manuscript.jpg",
+            "id": "abhidharma-cleveland",
+            "label": "Cleveland Museum of Art — Meta-Discourse on the Teachings from the Treasury, 1916.1060",
+            "url": "https://www.clevelandart.org/art/1916.1060",
             "kind": "collection-record"
           },
           {
+            "id": "abhidharma-commons",
+            "label": "Wikimedia Commons — installed Cleveland handscroll image",
+            "url": "https://commons.wikimedia.org/wiki/File:Japan,_late_Heian_period_-_Further_Discourses_on_the_Supreme_Truth_(Abidharmakosha-Bhashya)_-_1916.1060_-_Cleveland_Museum_of_Art.tif",
+            "kind": "collection-record"
+          },
+          {
+            "id": "vasubandhu-sep",
             "label": "Stanford Encyclopedia of Philosophy — Vasubandhu",
             "url": "https://plato.stanford.edu/entries/vasubandhu/",
             "kind": "academic-reference"
+          },
+          {
+            "id": "abhidharma-gretil",
+            "label": "GRETIL — Vasubandhu, Abhidharmakośabhāṣya",
+            "url": "https://gretil.sub.uni-goettingen.de/gretil/corpustei/transformations/html/sa_vasubandhu-abhidharmakozabhASya.htm",
+            "kind": "primary-text"
           }
         ],
         "paragraphMappings": [
           {
             "paragraph": 1,
-            "wordCount": 20,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 114,
+            "sourceIds": [
+              "abhidharma-cleveland",
+              "abhidharma-commons"
+            ],
+            "valid": true
           },
           {
             "paragraph": 2,
-            "wordCount": 20,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 95,
+            "sourceIds": [
+              "vasubandhu-sep",
+              "abhidharma-gretil"
+            ],
+            "valid": true
           },
           {
             "paragraph": 3,
-            "wordCount": 43,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 113,
+            "sourceIds": [
+              "abhidharma-cleveland",
+              "vasubandhu-sep"
+            ],
+            "valid": true
           }
         ],
-        "sidebarMappings": []
+        "sidebarMappings": [
+          {
+            "row": 1,
+            "heading": "Reading the late-Heian handscroll",
+            "label": "Part 17 of 30",
+            "descriptionWordCount": 15,
+            "sourceIds": [
+              "abhidharma-cleveland"
+            ],
+            "valid": true
+          },
+          {
+            "row": 2,
+            "heading": "Reading the late-Heian handscroll",
+            "label": "Known provenance",
+            "descriptionWordCount": 15,
+            "sourceIds": [
+              "abhidharma-cleveland"
+            ],
+            "valid": true
+          },
+          {
+            "row": 3,
+            "heading": "Treasury and critique",
+            "label": "Systematic analysis",
+            "descriptionWordCount": 12,
+            "sourceIds": [
+              "vasubandhu-sep",
+              "abhidharma-gretil"
+            ],
+            "valid": true
+          },
+          {
+            "row": 4,
+            "heading": "Treasury and critique",
+            "label": "Transmission, not autograph",
+            "descriptionWordCount": 15,
+            "sourceIds": [
+              "abhidharma-cleveland",
+              "vasubandhu-sep"
+            ],
+            "valid": true
+          }
+        ]
       },
       "assets": {
         "principal": {
@@ -22277,8 +22806,19 @@
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 25824,
+                "sha256": "be9fa53b0702953f41becede46df96bf3d5b1eee8bf256a8901a7f63b5616734"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 139912,
+                "sha256": "9cdfe7a4b91e44aac3ce2fee8a4a0dd791e45cc752ea88a3ed76f7c568ca273e"
+              }
+            }
           }
         },
         "physical": {
@@ -22327,8 +22867,19 @@
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 25824,
+                "sha256": "be9fa53b0702953f41becede46df96bf3d5b1eee8bf256a8901a7f63b5616734"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 139912,
+                "sha256": "9cdfe7a4b91e44aac3ce2fee8a4a0dd791e45cc752ea88a3ed76f7c568ca273e"
+              }
+            }
           }
         }
       },
@@ -22344,9 +22895,9 @@
           "status": "match"
         },
         "mediaMountToPhysicalScene": {
-          "mount": 1.3103448275862069,
+          "mount": 1.3114754098360657,
           "scene": 1.3114754098360655,
-          "status": "mismatch"
+          "status": "match"
         },
         "nonUniformScalingProtected": true
       },
@@ -22360,29 +22911,41 @@
           "status": "pass"
         },
         "fullArticleCta": {
-          "label": "Open Vasubandhu in the Atlas",
+          "label": "Read the full sourced Vasubandhu article",
           "expectedLabel": "Read the full sourced Vasubandhu article",
           "href": "#/philosophers/vasubandhu",
-          "status": "fail"
+          "status": "pass"
         }
       },
       "visualReview": {
         "desktop": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720",
+            "evidence": "Direct route inspected with the installed object, three-paragraph interpretation, subject-specific sidebar, article CTA, and no horizontal overflow. Evidence: docs/visual-validation/gallery-05-supplementals/desktop/vasubandhu-abhidharmakosa.png"
+          }
         },
         "mobile": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "390×844",
+            "evidence": "Direct route inspected with wrapped copy, loaded object preview, scrollable interpretation, visible controls, and no horizontal overflow. Evidence: docs/visual-validation/gallery-05-supplementals/mobile/vasubandhu-abhidharmakosa.png"
+          }
         },
         "threeDimensional": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720 fresh direct-route session",
+            "evidence": "Fresh-session authored viewpoint inspected with a live 3D canvas, closed detail panel, readable plaque, distinct installation, and the image mounted at its natural scene ratio. Evidence: docs/visual-validation/gallery-05-supplementals/staged-3d/vasubandhu-abhidharmakosa.png"
+          }
         }
       },
       "contract": {
-        "evaluated": false,
-        "status": "not-evaluated",
+        "evaluated": true,
+        "status": "pass",
         "issues": []
       }
     },
@@ -22428,79 +22991,189 @@
         }
       },
       "exhibitReview": {
-        "authoredStatus": "unreviewed",
-        "effectiveStatus": "unreviewed",
-        "reviewedOn": null,
-        "method": null,
-        "resolution": null,
-        "lockPresent": false,
-        "lockCurrent": null
+        "authoredStatus": "standard-compliant",
+        "effectiveStatus": "standard-compliant",
+        "reviewedOn": "2026-08-12",
+        "method": "Gallery 05 supplemental completion: two non-overlapping Terra/High read-only evidence scopes split six and five exhibits, reconciled by the Sol parent across installed-object identity, interpretation, attribution, dating, institution, provenance, rights, source mapping, accessibility, article relationship, routes, and aspect-safe presentation.",
+        "resolution": "Resolved: corrected a material Tibetan/Japanese mismatch, identified the National Diet Library Kasuga edition and Xuanzang-linked synthesis, qualified authorship, preserved public-domain status, regenerated the natural-ratio panel, and retained the contested philosophical readings.",
+        "lockPresent": true,
+        "lockCurrent": true
       },
       "interpretation": {
-        "objectLed": false,
-        "objectInterpretation": null,
-        "mainWordCount": 81,
+        "objectLed": true,
+        "objectInterpretation": "The installed image is a fourteenth-century Japanese Kasuga edition from Kōfuku-ji, now in the National Diet Library. It transmits the Cheng weishi lun associated with Xuanzang’s synthesis of commentaries on Vasubandhu’s Thirty Verses; it is not a Tibetan xylograph or Vasubandhu’s original text.",
+        "mainWordCount": 341,
         "paragraphCount": 3,
-        "untitledParagraphs": false,
-        "sidebarSectionCount": 0,
-        "sidebarItemCount": 0,
-        "sidebarSections": []
+        "untitledParagraphs": true,
+        "sidebarSectionCount": 2,
+        "sidebarItemCount": 4,
+        "sidebarSections": [
+          {
+            "heading": "Reading the Kasuga edition",
+            "items": [
+              {
+                "label": "Japanese witness",
+                "description": "The National Diet Library object was printed at Kōfuku-ji in fourteenth-century Japan.",
+                "sourceIds": [
+                  "mere-ideation-commons"
+                ]
+              },
+              {
+                "label": "A later synthesis",
+                "description": "Cheng weishi lun belongs to Xuanzang-linked commentary and synthesis around the Thirty Verses, not to Vasubandhu’s pen as one unchanged text.",
+                "sourceIds": [
+                  "consciousness-only-hawaii",
+                  "vasubandhu-sep"
+                ]
+              }
+            ]
+          },
+          {
+            "heading": "Interpreting representation",
+            "items": [
+              {
+                "label": "Beyond a slogan",
+                "description": "Mere representation is debated across metaphysical, phenomenological, causal, and therapeutic readings.",
+                "sourceIds": [
+                  "vasubandhu-sep",
+                  "mind-indian-sep"
+                ]
+              },
+              {
+                "label": "Shared conditions",
+                "description": "Karmic dispositions and regularity complicate the caricature of a sovereign private mind inventing everything.",
+                "sourceIds": [
+                  "vasubandhu-sep",
+                  "mind-indian-sep"
+                ]
+              }
+            ]
+          }
+        ]
       },
       "claimEvidence": {
         "sources": [
           {
-            "label": "Wikimedia Commons — Completion of Mere Ideation",
+            "id": "mere-ideation-commons",
+            "label": "Wikimedia Commons — The Completion of Mere Ideation, WDL 11843",
             "url": "https://commons.wikimedia.org/wiki/File:The_Completion_of_Mere_Ideation_WDL11843.jpg",
             "kind": "collection-record"
           },
           {
+            "id": "vasubandhu-sep",
             "label": "Stanford Encyclopedia of Philosophy — Vasubandhu",
             "url": "https://plato.stanford.edu/entries/vasubandhu/",
+            "kind": "academic-reference"
+          },
+          {
+            "id": "mind-indian-sep",
+            "label": "Stanford Encyclopedia of Philosophy — Mind in Indian Buddhist Philosophy",
+            "url": "https://plato.stanford.edu/entries/mind-indian-buddhism/",
+            "kind": "academic-reference"
+          },
+          {
+            "id": "consciousness-only-hawaii",
+            "label": "University of Hawai‘i Press — Three Texts on Consciousness Only",
+            "url": "https://uhpress.hawaii.edu/title/three-texts-on-consciousness-only/",
             "kind": "academic-reference"
           }
         ],
         "paragraphMappings": [
           {
             "paragraph": 1,
-            "wordCount": 23,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 131,
+            "sourceIds": [
+              "mere-ideation-commons",
+              "consciousness-only-hawaii"
+            ],
+            "valid": true
           },
           {
             "paragraph": 2,
-            "wordCount": 24,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 110,
+            "sourceIds": [
+              "vasubandhu-sep",
+              "mind-indian-sep"
+            ],
+            "valid": true
           },
           {
             "paragraph": 3,
-            "wordCount": 34,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 100,
+            "sourceIds": [
+              "mere-ideation-commons",
+              "vasubandhu-sep",
+              "consciousness-only-hawaii"
+            ],
+            "valid": true
           }
         ],
-        "sidebarMappings": []
+        "sidebarMappings": [
+          {
+            "row": 1,
+            "heading": "Reading the Kasuga edition",
+            "label": "Japanese witness",
+            "descriptionWordCount": 12,
+            "sourceIds": [
+              "mere-ideation-commons"
+            ],
+            "valid": true
+          },
+          {
+            "row": 2,
+            "heading": "Reading the Kasuga edition",
+            "label": "A later synthesis",
+            "descriptionWordCount": 21,
+            "sourceIds": [
+              "consciousness-only-hawaii",
+              "vasubandhu-sep"
+            ],
+            "valid": true
+          },
+          {
+            "row": 3,
+            "heading": "Interpreting representation",
+            "label": "Beyond a slogan",
+            "descriptionWordCount": 11,
+            "sourceIds": [
+              "vasubandhu-sep",
+              "mind-indian-sep"
+            ],
+            "valid": true
+          },
+          {
+            "row": 4,
+            "heading": "Interpreting representation",
+            "label": "Shared conditions",
+            "descriptionWordCount": 14,
+            "sourceIds": [
+              "vasubandhu-sep",
+              "mind-indian-sep"
+            ],
+            "valid": true
+          }
+        ]
       },
       "assets": {
         "principal": {
           "id": "vasubandhu-mere-ideation",
           "status": "registered",
           "identity": {
-            "title": "The Completion of Mere Ideation",
+            "title": "The Completion of Mere Ideation (Cheng weishi lun)",
             "entityKind": "philosopher",
             "entityId": "vasubandhu",
             "role": "primary-source",
             "mediaKind": "manuscript",
-            "creator": "Text attributed to Vasubandhu; Tibetan printers unknown",
-            "objectDate": "Tibetan xylograph edition; date not stated on the Commons record",
+            "creator": "Xuanzang-linked commentary and synthesis; Kasuga-edition printers unknown",
+            "objectDate": "14th century, Japan",
             "imageCreator": null,
-            "institution": "World Digital Library / Library of Congress",
+            "institution": "National Diet Library, Japan",
             "likenessStatus": "not-applicable"
           },
           "provenance": {
             "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:The_Completion_of_Mere_Ideation_WDL11843.jpg",
             "objectPageUrl": null,
-            "historicalNote": "A later printed witness, not Vasubandhu’s autograph; “mere ideation” should not be treated as a simple claim that nothing exists.",
+            "historicalNote": "This Japanese witness belongs to the later Cheng weishi lun synthesis and commentary tradition; it is neither a Tibetan xylograph nor Vasubandhu’s autograph or original Thirty Verses.",
             "derivativeNotice": "Original image retained uncropped; resized and converted to WebP by Philosophy Atlas.",
             "manifestFiles": [
               "museumModernAssetManifest.json"
@@ -22511,11 +23184,11 @@
             "license": "Public Domain Mark 1.0",
             "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
             "rightsKind": "rights-status",
-            "attribution": "World Digital Library, Tibetan xylograph of Vasubandhu’s Completion of Mere Ideation. Public domain."
+            "attribution": "National Diet Library, fourteenth-century Japanese Kasuga edition of The Completion of Mere Ideation. Public domain."
           },
           "accessibility": {
-            "caption": "A Tibetan xylograph witnesses the long transmission of a text attributed to Vasubandhu.",
-            "alt": "A long horizontal Tibetan printed leaf with dense black text and a red title block."
+            "caption": "A fourteenth-century Kōfuku-ji Kasuga edition transmits Xuanzang-linked consciousness-only commentary in Japan.",
+            "alt": "A very wide Japanese printed Buddhist text in Chinese characters, with dense vertical columns across pale paper."
           },
           "dimensions": {
             "scene": {
@@ -22524,33 +23197,44 @@
             },
             "panel": {
               "width": 1280,
-              "height": 299
+              "height": 360
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 18036,
+                "sha256": "2817b95e65e14fb44cf338b28e2c991952f5ba0996a7b50b6146d4a4cf69c242"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 42776,
+                "sha256": "03dcf67c1c26cd5be6d6fd6298850587b1f4733b7ec75146a2ace285e23b9b8f"
+              }
+            }
           }
         },
         "physical": {
           "id": "vasubandhu-mere-ideation",
           "status": "registered",
           "identity": {
-            "title": "The Completion of Mere Ideation",
+            "title": "The Completion of Mere Ideation (Cheng weishi lun)",
             "entityKind": "philosopher",
             "entityId": "vasubandhu",
             "role": "primary-source",
             "mediaKind": "manuscript",
-            "creator": "Text attributed to Vasubandhu; Tibetan printers unknown",
-            "objectDate": "Tibetan xylograph edition; date not stated on the Commons record",
+            "creator": "Xuanzang-linked commentary and synthesis; Kasuga-edition printers unknown",
+            "objectDate": "14th century, Japan",
             "imageCreator": null,
-            "institution": "World Digital Library / Library of Congress",
+            "institution": "National Diet Library, Japan",
             "likenessStatus": "not-applicable"
           },
           "provenance": {
             "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:The_Completion_of_Mere_Ideation_WDL11843.jpg",
             "objectPageUrl": null,
-            "historicalNote": "A later printed witness, not Vasubandhu’s autograph; “mere ideation” should not be treated as a simple claim that nothing exists.",
+            "historicalNote": "This Japanese witness belongs to the later Cheng weishi lun synthesis and commentary tradition; it is neither a Tibetan xylograph nor Vasubandhu’s autograph or original Thirty Verses.",
             "derivativeNotice": "Original image retained uncropped; resized and converted to WebP by Philosophy Atlas.",
             "manifestFiles": [
               "museumModernAssetManifest.json"
@@ -22561,11 +23245,11 @@
             "license": "Public Domain Mark 1.0",
             "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
             "rightsKind": "rights-status",
-            "attribution": "World Digital Library, Tibetan xylograph of Vasubandhu’s Completion of Mere Ideation. Public domain."
+            "attribution": "National Diet Library, fourteenth-century Japanese Kasuga edition of The Completion of Mere Ideation. Public domain."
           },
           "accessibility": {
-            "caption": "A Tibetan xylograph witnesses the long transmission of a text attributed to Vasubandhu.",
-            "alt": "A long horizontal Tibetan printed leaf with dense black text and a red title block."
+            "caption": "A fourteenth-century Kōfuku-ji Kasuga edition transmits Xuanzang-linked consciousness-only commentary in Japan.",
+            "alt": "A very wide Japanese printed Buddhist text in Chinese characters, with dense vertical columns across pale paper."
           },
           "dimensions": {
             "scene": {
@@ -22574,30 +23258,41 @@
             },
             "panel": {
               "width": 1280,
-              "height": 299
+              "height": 360
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 18036,
+                "sha256": "2817b95e65e14fb44cf338b28e2c991952f5ba0996a7b50b6146d4a4cf69c242"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 42776,
+                "sha256": "03dcf67c1c26cd5be6d6fd6298850587b1f4733b7ec75146a2ace285e23b9b8f"
+              }
+            }
           }
         }
       },
       "aspectRatios": {
         "principalSceneToPanel": {
           "scene": 3.5555555555555554,
-          "panel": 4.280936454849498,
-          "status": "mismatch"
+          "panel": 3.5555555555555554,
+          "status": "match"
         },
         "physicalSceneToPanel": {
           "scene": 3.5555555555555554,
-          "panel": 4.280936454849498,
-          "status": "mismatch"
+          "panel": 3.5555555555555554,
+          "status": "match"
         },
         "mediaMountToPhysicalScene": {
-          "mount": 3.58,
+          "mount": 3.555555555555556,
           "scene": 3.5555555555555554,
-          "status": "mismatch"
+          "status": "match"
         },
         "nonUniformScalingProtected": true
       },
@@ -22611,29 +23306,41 @@
           "status": "pass"
         },
         "fullArticleCta": {
-          "label": "Open Vasubandhu in the Atlas",
+          "label": "Read the full sourced Vasubandhu article",
           "expectedLabel": "Read the full sourced Vasubandhu article",
           "href": "#/philosophers/vasubandhu",
-          "status": "fail"
+          "status": "pass"
         }
       },
       "visualReview": {
         "desktop": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720",
+            "evidence": "Direct route inspected with the installed object, three-paragraph interpretation, subject-specific sidebar, article CTA, and no horizontal overflow. Evidence: docs/visual-validation/gallery-05-supplementals/desktop/vasubandhu-mere-ideation.png"
+          }
         },
         "mobile": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "390×844",
+            "evidence": "Direct route inspected with wrapped copy, loaded object preview, scrollable interpretation, visible controls, and no horizontal overflow. Evidence: docs/visual-validation/gallery-05-supplementals/mobile/vasubandhu-mere-ideation.png"
+          }
         },
         "threeDimensional": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720 fresh direct-route session",
+            "evidence": "Fresh-session authored viewpoint inspected with a live 3D canvas, closed detail panel, readable plaque, distinct installation, and the image mounted at its natural scene ratio. Evidence: docs/visual-validation/gallery-05-supplementals/staged-3d/vasubandhu-mere-ideation.png"
+          }
         }
       },
       "contract": {
-        "evaluated": false,
-        "status": "not-evaluated",
+        "evaluated": true,
+        "status": "pass",
         "issues": []
       }
     },
@@ -22679,58 +23386,156 @@
         }
       },
       "exhibitReview": {
-        "authoredStatus": "unreviewed",
-        "effectiveStatus": "unreviewed",
-        "reviewedOn": null,
-        "method": null,
-        "resolution": null,
-        "lockPresent": false,
-        "lockCurrent": null
+        "authoredStatus": "standard-compliant",
+        "effectiveStatus": "standard-compliant",
+        "reviewedOn": "2026-08-12",
+        "method": "Gallery 05 supplemental completion: two non-overlapping Terra/High read-only evidence scopes split six and five exhibits, reconciled by the Sol parent across installed-object identity, interpretation, attribution, dating, institution, provenance, rights, source mapping, accessibility, article relationship, routes, and aspect-safe presentation.",
+        "resolution": "Resolved: retained the modern Buddhavanam relief and CC BY-SA credit, exposed the unknown maker and commemorative status, separated lineage art from disputed biography, qualified school labels, and matched the natural ratio.",
+        "lockPresent": true,
+        "lockCurrent": true
       },
       "interpretation": {
-        "objectLed": false,
-        "objectInterpretation": null,
-        "mainWordCount": 85,
+        "objectLed": true,
+        "objectInterpretation": "Anandajoti Bhikkhu’s 2024 CC BY-SA photograph records a modern Buddhavanam relief whose maker and object date are not supplied. It is commemorative public art, not evidence of the brothers’ appearance, a documented meeting, or one settled conversion narrative.",
+        "mainWordCount": 331,
         "paragraphCount": 3,
-        "untitledParagraphs": false,
-        "sidebarSectionCount": 0,
-        "sidebarItemCount": 0,
-        "sidebarSections": []
+        "untitledParagraphs": true,
+        "sidebarSectionCount": 2,
+        "sidebarItemCount": 4,
+        "sidebarSections": [
+          {
+            "heading": "Reading modern lineage art",
+            "items": [
+              {
+                "label": "Photographed in 2024",
+                "description": "Anandajoti’s CC BY-SA image documents contemporary Buddhavanam public art.",
+                "sourceIds": [
+                  "asanga-vasubandhu-relief"
+                ]
+              },
+              {
+                "label": "Not a historical meeting",
+                "description": "The scene cannot establish appearance, collaboration, conversion, or event chronology.",
+                "sourceIds": [
+                  "asanga-vasubandhu-relief",
+                  "vasubandhu-sep"
+                ]
+              }
+            ]
+          },
+          {
+            "heading": "A plural Yogācāra corpus",
+            "items": [
+              {
+                "label": "Many texts and authors",
+                "description": "Yogācāra developed through varied works, practices, commentators, and later classifications.",
+                "sourceIds": [
+                  "yogacara-sep"
+                ]
+              },
+              {
+                "label": "Biography remains disputed",
+                "description": "Attribution and intellectual-stage questions should remain open rather than forced into one relief’s sequence.",
+                "sourceIds": [
+                  "vasubandhu-sep"
+                ]
+              }
+            ]
+          }
+        ]
       },
       "claimEvidence": {
         "sources": [
           {
-            "label": "Wikimedia Commons — Asaṅga and Vasubandhu establish Vijñānavāda",
+            "id": "asanga-vasubandhu-relief",
+            "label": "Wikimedia Commons — Asaṅga and Vasubandhu relief at Buddhavanam",
             "url": "https://commons.wikimedia.org/wiki/File:212_Asanga_and_Vasubandhu_Establish_the_Vijnanavada.jpg",
             "kind": "collection-record"
           },
           {
+            "id": "vasubandhu-sep",
             "label": "Stanford Encyclopedia of Philosophy — Vasubandhu",
             "url": "https://plato.stanford.edu/entries/vasubandhu/",
+            "kind": "academic-reference"
+          },
+          {
+            "id": "yogacara-sep",
+            "label": "Stanford Encyclopedia of Philosophy — Yogācāra",
+            "url": "https://plato.stanford.edu/entries/yogacara/",
             "kind": "academic-reference"
           }
         ],
         "paragraphMappings": [
           {
             "paragraph": 1,
-            "wordCount": 28,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 127,
+            "sourceIds": [
+              "asanga-vasubandhu-relief"
+            ],
+            "valid": true
           },
           {
             "paragraph": 2,
-            "wordCount": 28,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 99,
+            "sourceIds": [
+              "yogacara-sep",
+              "vasubandhu-sep"
+            ],
+            "valid": true
           },
           {
             "paragraph": 3,
-            "wordCount": 29,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 105,
+            "sourceIds": [
+              "asanga-vasubandhu-relief",
+              "vasubandhu-sep"
+            ],
+            "valid": true
           }
         ],
-        "sidebarMappings": []
+        "sidebarMappings": [
+          {
+            "row": 1,
+            "heading": "Reading modern lineage art",
+            "label": "Photographed in 2024",
+            "descriptionWordCount": 9,
+            "sourceIds": [
+              "asanga-vasubandhu-relief"
+            ],
+            "valid": true
+          },
+          {
+            "row": 2,
+            "heading": "Reading modern lineage art",
+            "label": "Not a historical meeting",
+            "descriptionWordCount": 10,
+            "sourceIds": [
+              "asanga-vasubandhu-relief",
+              "vasubandhu-sep"
+            ],
+            "valid": true
+          },
+          {
+            "row": 3,
+            "heading": "A plural Yogācāra corpus",
+            "label": "Many texts and authors",
+            "descriptionWordCount": 10,
+            "sourceIds": [
+              "yogacara-sep"
+            ],
+            "valid": true
+          },
+          {
+            "row": 4,
+            "heading": "A plural Yogācāra corpus",
+            "label": "Biography remains disputed",
+            "descriptionWordCount": 14,
+            "sourceIds": [
+              "vasubandhu-sep"
+            ],
+            "valid": true
+          }
+        ]
       },
       "assets": {
         "principal": {
@@ -22779,8 +23584,19 @@
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 22624,
+                "sha256": "2117a2661a71a264b2f5052803f469aafd41bea8407d63102243e88727b34eb7"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 145938,
+                "sha256": "3c6afd916ab5ec9debf2e97b04cb77c3ae0e8b804a57ee976b3347652797ccdf"
+              }
+            }
           }
         },
         "physical": {
@@ -22829,8 +23645,19 @@
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 22624,
+                "sha256": "2117a2661a71a264b2f5052803f469aafd41bea8407d63102243e88727b34eb7"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 145938,
+                "sha256": "3c6afd916ab5ec9debf2e97b04cb77c3ae0e8b804a57ee976b3347652797ccdf"
+              }
+            }
           }
         }
       },
@@ -22846,9 +23673,9 @@
           "status": "match"
         },
         "mediaMountToPhysicalScene": {
-          "mount": 1.3384615384615384,
+          "mount": 1.336116910229645,
           "scene": 1.336116910229645,
-          "status": "mismatch"
+          "status": "match"
         },
         "nonUniformScalingProtected": true
       },
@@ -22862,29 +23689,41 @@
           "status": "pass"
         },
         "fullArticleCta": {
-          "label": "Open the philosopher in the Atlas",
+          "label": "Read the full sourced Vasubandhu article",
           "expectedLabel": "Read the full sourced Vasubandhu article",
           "href": "#/philosophers/vasubandhu",
-          "status": "fail"
+          "status": "pass"
         }
       },
       "visualReview": {
         "desktop": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720",
+            "evidence": "Direct route inspected with the installed object, three-paragraph interpretation, subject-specific sidebar, article CTA, and no horizontal overflow. Evidence: docs/visual-validation/gallery-05-supplementals/desktop/asanga-vasubandhu-yogacara-lineage.png"
+          }
         },
         "mobile": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "390×844",
+            "evidence": "Direct route inspected with wrapped copy, loaded object preview, scrollable interpretation, visible controls, and no horizontal overflow. Evidence: docs/visual-validation/gallery-05-supplementals/mobile/asanga-vasubandhu-yogacara-lineage.png"
+          }
         },
         "threeDimensional": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720 fresh direct-route session",
+            "evidence": "Fresh-session authored viewpoint inspected with a live 3D canvas, closed detail panel, readable plaque, distinct installation, and the image mounted at its natural scene ratio. Evidence: docs/visual-validation/gallery-05-supplementals/staged-3d/asanga-vasubandhu-yogacara-lineage.png"
+          }
         }
       },
       "contract": {
-        "evaluated": false,
-        "status": "not-evaluated",
+        "evaluated": true,
+        "status": "pass",
         "issues": []
       }
     },
@@ -22930,58 +23769,167 @@
         }
       },
       "exhibitReview": {
-        "authoredStatus": "unreviewed",
-        "effectiveStatus": "unreviewed",
-        "reviewedOn": null,
-        "method": null,
-        "resolution": null,
-        "lockPresent": false,
-        "lockCurrent": null
+        "authoredStatus": "standard-compliant",
+        "effectiveStatus": "standard-compliant",
+        "reviewedOn": "2026-08-12",
+        "method": "Gallery 05 supplemental completion: two non-overlapping Terra/High read-only evidence scopes split six and five exhibits, reconciled by the Sol parent across installed-object identity, interpretation, attribution, dating, institution, provenance, rights, source mapping, accessibility, article relationship, routes, and aspect-safe presentation.",
+        "resolution": "Resolved: added the Met object and acquisition record, preserved public-domain rights, separated the Yuan tapestry from Vasubandhu’s text, qualified cosmological diversity, and matched the exact 640×619 scene ratio.",
+        "lockPresent": true,
+        "lockCurrent": true
       },
       "interpretation": {
-        "objectLed": false,
-        "objectInterpretation": null,
-        "mainWordCount": 92,
+        "objectLed": true,
+        "objectInterpretation": "Metropolitan Museum of Art 1989.140 is an anonymous fourteenth-century Chinese silk kesi tapestry, acquired through the Fletcher Fund and Hotung and Rosenberg gifts. It is later reception, not Vasubandhu’s diagram or proof of a uniform Buddhist cosmos.",
+        "mainWordCount": 341,
         "paragraphCount": 3,
-        "untitledParagraphs": false,
-        "sidebarSectionCount": 0,
-        "sidebarItemCount": 0,
-        "sidebarSections": []
+        "untitledParagraphs": true,
+        "sidebarSectionCount": 2,
+        "sidebarItemCount": 4,
+        "sidebarSections": [
+          {
+            "heading": "Reading the woven mandala",
+            "items": [
+              {
+                "label": "Met object 1989.140",
+                "description": "The Met records an anonymous fourteenth-century Chinese silk kesi tapestry and its acquisition credit.",
+                "sourceIds": [
+                  "meru-met"
+                ]
+              },
+              {
+                "label": "Later visual reception",
+                "description": "The tapestry postdates Vasubandhu and is not an illustration made for his Treasury.",
+                "sourceIds": [
+                  "meru-met",
+                  "vasubandhu-sep"
+                ]
+              }
+            ]
+          },
+          {
+            "heading": "Cosmology as analysis",
+            "items": [
+              {
+                "label": "Conditioned worlds",
+                "description": "Realms and world systems relate karma, embodiment, and possible experience without a permanent owner.",
+                "sourceIds": [
+                  "abhidharma-gretil",
+                  "vasubandhu-sep"
+                ]
+              },
+              {
+                "label": "No single Buddhist map",
+                "description": "Schools and later visual cultures receive and reorganize cosmological models differently.",
+                "sourceIds": [
+                  "meru-met",
+                  "vasubandhu-sep"
+                ]
+              }
+            ]
+          }
+        ]
       },
       "claimEvidence": {
         "sources": [
           {
-            "label": "Wikimedia Commons — Cosmological Mandala with Mount Meru, Met",
+            "id": "meru-met",
+            "label": "Metropolitan Museum of Art — Cosmological Mandala with Mount Meru, 1989.140",
+            "url": "https://www.metmuseum.org/art/collection/search/39738",
+            "kind": "collection-record"
+          },
+          {
+            "id": "meru-commons",
+            "label": "Wikimedia Commons — installed Met tapestry image",
             "url": "https://commons.wikimedia.org/wiki/File:%E5%85%83_%E7%B7%99%E7%B5%B2_%E9%A0%88%E5%BD%8C%E5%B1%B1%E6%9B%BC%E9%99%80%E7%BE%85-Cosmological_Mandala_with_Mount_Meru_MET_DP276037.jpg",
             "kind": "collection-record"
           },
           {
+            "id": "vasubandhu-sep",
             "label": "Stanford Encyclopedia of Philosophy — Vasubandhu",
             "url": "https://plato.stanford.edu/entries/vasubandhu/",
             "kind": "academic-reference"
+          },
+          {
+            "id": "abhidharma-gretil",
+            "label": "GRETIL — Vasubandhu, Abhidharmakośabhāṣya",
+            "url": "https://gretil.sub.uni-goettingen.de/gretil/corpustei/transformations/html/sa_vasubandhu-abhidharmakozabhASya.htm",
+            "kind": "primary-text"
           }
         ],
         "paragraphMappings": [
           {
             "paragraph": 1,
-            "wordCount": 31,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 142,
+            "sourceIds": [
+              "meru-met",
+              "meru-commons"
+            ],
+            "valid": true
           },
           {
             "paragraph": 2,
-            "wordCount": 29,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 99,
+            "sourceIds": [
+              "vasubandhu-sep",
+              "abhidharma-gretil"
+            ],
+            "valid": true
           },
           {
             "paragraph": 3,
-            "wordCount": 32,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 100,
+            "sourceIds": [
+              "meru-met",
+              "vasubandhu-sep"
+            ],
+            "valid": true
           }
         ],
-        "sidebarMappings": []
+        "sidebarMappings": [
+          {
+            "row": 1,
+            "heading": "Reading the woven mandala",
+            "label": "Met object 1989.140",
+            "descriptionWordCount": 14,
+            "sourceIds": [
+              "meru-met"
+            ],
+            "valid": true
+          },
+          {
+            "row": 2,
+            "heading": "Reading the woven mandala",
+            "label": "Later visual reception",
+            "descriptionWordCount": 13,
+            "sourceIds": [
+              "meru-met",
+              "vasubandhu-sep"
+            ],
+            "valid": true
+          },
+          {
+            "row": 3,
+            "heading": "Cosmology as analysis",
+            "label": "Conditioned worlds",
+            "descriptionWordCount": 14,
+            "sourceIds": [
+              "abhidharma-gretil",
+              "vasubandhu-sep"
+            ],
+            "valid": true
+          },
+          {
+            "row": 4,
+            "heading": "Cosmology as analysis",
+            "label": "No single Buddhist map",
+            "descriptionWordCount": 11,
+            "sourceIds": [
+              "meru-met",
+              "vasubandhu-sep"
+            ],
+            "valid": true
+          }
+        ]
       },
       "assets": {
         "principal": {
@@ -23030,8 +23978,19 @@
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 112914,
+                "sha256": "d8e4417bfb6f10b888850da15ccd1f75c41eccf5745d569d97e57bcf7c461665"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 566308,
+                "sha256": "2ee5e226044357c716085bed2d44a24911204544f5a7919a2f5e01ccf4ce6acc"
+              }
+            }
           }
         },
         "physical": {
@@ -23080,8 +24039,19 @@
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 112914,
+                "sha256": "d8e4417bfb6f10b888850da15ccd1f75c41eccf5745d569d97e57bcf7c461665"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 566308,
+                "sha256": "2ee5e226044357c716085bed2d44a24911204544f5a7919a2f5e01ccf4ce6acc"
+              }
+            }
           }
         }
       },
@@ -23097,9 +24067,9 @@
           "status": "match"
         },
         "mediaMountToPhysicalScene": {
-          "mount": 1.0333333333333334,
+          "mount": 1.0339256865912763,
           "scene": 1.0339256865912763,
-          "status": "mismatch"
+          "status": "match"
         },
         "nonUniformScalingProtected": true
       },
@@ -23113,29 +24083,41 @@
           "status": "pass"
         },
         "fullArticleCta": {
-          "label": "Open the philosopher in the Atlas",
+          "label": "Read the full sourced Vasubandhu article",
           "expectedLabel": "Read the full sourced Vasubandhu article",
           "href": "#/philosophers/vasubandhu",
-          "status": "fail"
+          "status": "pass"
         }
       },
       "visualReview": {
         "desktop": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720",
+            "evidence": "Direct route inspected with the installed object, three-paragraph interpretation, subject-specific sidebar, article CTA, and no horizontal overflow. Evidence: docs/visual-validation/gallery-05-supplementals/desktop/abhidharma-cosmology-mount-meru.png"
+          }
         },
         "mobile": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "390×844",
+            "evidence": "Direct route inspected with wrapped copy, loaded object preview, scrollable interpretation, visible controls, and no horizontal overflow. Evidence: docs/visual-validation/gallery-05-supplementals/mobile/abhidharma-cosmology-mount-meru.png"
+          }
         },
         "threeDimensional": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720 fresh direct-route session",
+            "evidence": "Fresh-session authored viewpoint inspected with a live 3D canvas, closed detail panel, readable plaque, distinct installation, and the image mounted at its natural scene ratio. Evidence: docs/visual-validation/gallery-05-supplementals/staged-3d/abhidharma-cosmology-mount-meru.png"
+          }
         }
       },
       "contract": {
-        "evaluated": false,
-        "status": "not-evaluated",
+        "evaluated": true,
+        "status": "pass",
         "issues": []
       }
     },
@@ -23181,58 +24163,165 @@
         }
       },
       "exhibitReview": {
-        "authoredStatus": "unreviewed",
-        "effectiveStatus": "unreviewed",
-        "reviewedOn": null,
-        "method": null,
-        "resolution": null,
-        "lockPresent": false,
-        "lockCurrent": null
+        "authoredStatus": "standard-compliant",
+        "effectiveStatus": "standard-compliant",
+        "reviewedOn": "2026-08-12",
+        "method": "Gallery 05 supplemental completion: two non-overlapping Terra/High read-only evidence scopes split six and five exhibits, reconciled by the Sol parent across installed-object identity, interpretation, attribution, dating, institution, provenance, rights, source mapping, accessibility, article relationship, routes, and aspect-safe presentation.",
+        "resolution": "Resolved: added the Tokyo National Museum record, confirmed Unkei, 1212 and Kōfuku-ji, distinguished the 1953 photograph’s public-domain status, bounded likeness and lineage claims, and matched the exact portrait ratio.",
+        "lockPresent": true,
+        "lockCurrent": true
       },
       "interpretation": {
-        "objectLed": false,
-        "objectInterpretation": null,
-        "mainWordCount": 87,
+        "objectLed": true,
+        "objectInterpretation": "Unkei’s Muchaku, made about 1212 for Kōfuku-ji’s North Octagonal Hall, is represented here through a public-domain photograph published in 1953. The sculpture is a later Japanese lineage portrait, not Asaṅga’s lifetime likeness or a document of his relationship with Vasubandhu.",
+        "mainWordCount": 342,
         "paragraphCount": 3,
-        "untitledParagraphs": false,
-        "sidebarSectionCount": 0,
-        "sidebarItemCount": 0,
-        "sidebarSections": []
+        "untitledParagraphs": true,
+        "sidebarSectionCount": 2,
+        "sidebarItemCount": 4,
+        "sidebarSections": [
+          {
+            "heading": "Reading Unkei’s lineage portrait",
+            "items": [
+              {
+                "label": "Kōfuku-ji, 1212",
+                "description": "Museum evidence attributes the Muchaku sculpture to Unkei and dates it to 1212.",
+                "sourceIds": [
+                  "asanga-tnm"
+                ]
+              },
+              {
+                "label": "Old photograph",
+                "description": "The installed public-domain image comes through a Japanese publication from 1953.",
+                "sourceIds": [
+                  "asanga-commons"
+                ]
+              }
+            ]
+          },
+          {
+            "heading": "Transmission across Asia",
+            "items": [
+              {
+                "label": "Names and institutions",
+                "description": "Muchaku marks Asaṅga’s presence within later Japanese Hossō lineage and curriculum.",
+                "sourceIds": [
+                  "asanga-tnm",
+                  "yogacara-sep"
+                ]
+              },
+              {
+                "label": "Not a lifetime likeness",
+                "description": "Kamakura portraiture constructs remembered authority rather than documentary appearance.",
+                "sourceIds": [
+                  "asanga-tnm",
+                  "vasubandhu-sep"
+                ]
+              }
+            ]
+          }
+        ]
       },
       "claimEvidence": {
         "sources": [
           {
-            "label": "Wikimedia Commons — Unkei’s Muchaku at Kōfuku-ji",
+            "id": "asanga-tnm",
+            "label": "Tokyo National Museum — Muchaku and Seshin by Unkei",
+            "url": "https://www.tnm.jp/modules/r_free_page/index.php?id=1861&lang=en",
+            "kind": "collection-record"
+          },
+          {
+            "id": "asanga-commons",
+            "label": "Wikimedia Commons — installed 1953 Muchaku photograph",
             "url": "https://commons.wikimedia.org/wiki/File:Kofukuji_Hokuendo_Muchaku_Unkei.jpg",
             "kind": "collection-record"
           },
           {
+            "id": "vasubandhu-sep",
             "label": "Stanford Encyclopedia of Philosophy — Vasubandhu",
             "url": "https://plato.stanford.edu/entries/vasubandhu/",
+            "kind": "academic-reference"
+          },
+          {
+            "id": "yogacara-sep",
+            "label": "Stanford Encyclopedia of Philosophy — Yogācāra",
+            "url": "https://plato.stanford.edu/entries/yogacara/",
             "kind": "academic-reference"
           }
         ],
         "paragraphMappings": [
           {
             "paragraph": 1,
-            "wordCount": 28,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 132,
+            "sourceIds": [
+              "asanga-tnm",
+              "asanga-commons"
+            ],
+            "valid": true
           },
           {
             "paragraph": 2,
-            "wordCount": 29,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 99,
+            "sourceIds": [
+              "yogacara-sep",
+              "vasubandhu-sep"
+            ],
+            "valid": true
           },
           {
             "paragraph": 3,
-            "wordCount": 30,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 111,
+            "sourceIds": [
+              "asanga-tnm",
+              "vasubandhu-sep"
+            ],
+            "valid": true
           }
         ],
-        "sidebarMappings": []
+        "sidebarMappings": [
+          {
+            "row": 1,
+            "heading": "Reading Unkei’s lineage portrait",
+            "label": "Kōfuku-ji, 1212",
+            "descriptionWordCount": 13,
+            "sourceIds": [
+              "asanga-tnm"
+            ],
+            "valid": true
+          },
+          {
+            "row": 2,
+            "heading": "Reading Unkei’s lineage portrait",
+            "label": "Old photograph",
+            "descriptionWordCount": 11,
+            "sourceIds": [
+              "asanga-commons"
+            ],
+            "valid": true
+          },
+          {
+            "row": 3,
+            "heading": "Transmission across Asia",
+            "label": "Names and institutions",
+            "descriptionWordCount": 11,
+            "sourceIds": [
+              "asanga-tnm",
+              "yogacara-sep"
+            ],
+            "valid": true
+          },
+          {
+            "row": 4,
+            "heading": "Transmission across Asia",
+            "label": "Not a lifetime likeness",
+            "descriptionWordCount": 9,
+            "sourceIds": [
+              "asanga-tnm",
+              "vasubandhu-sep"
+            ],
+            "valid": true
+          }
+        ]
       },
       "assets": {
         "principal": {
@@ -23281,8 +24370,19 @@
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 21462,
+                "sha256": "117cbb38e103f591d8e9cc4aa223ac1e0f72856588457cdabeff910220199700"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 174668,
+                "sha256": "ee5938e82651e4c74ce9c5f44b0468554a4526f95e1e8312d8ba638688929f4a"
+              }
+            }
           }
         },
         "physical": {
@@ -23331,8 +24431,19 @@
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 21462,
+                "sha256": "117cbb38e103f591d8e9cc4aa223ac1e0f72856588457cdabeff910220199700"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 174668,
+                "sha256": "ee5938e82651e4c74ce9c5f44b0468554a4526f95e1e8312d8ba638688929f4a"
+              }
+            }
           }
         }
       },
@@ -23348,9 +24459,9 @@
           "status": "match"
         },
         "mediaMountToPhysicalScene": {
-          "mount": 0.7242424242424244,
+          "mount": 0.7250000000000001,
           "scene": 0.725,
-          "status": "mismatch"
+          "status": "match"
         },
         "nonUniformScalingProtected": true
       },
@@ -23364,29 +24475,41 @@
           "status": "pass"
         },
         "fullArticleCta": {
-          "label": "Open the philosopher in the Atlas",
+          "label": "Read the full sourced Vasubandhu article",
           "expectedLabel": "Read the full sourced Vasubandhu article",
           "href": "#/philosophers/vasubandhu",
-          "status": "fail"
+          "status": "pass"
         }
       },
       "visualReview": {
         "desktop": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720",
+            "evidence": "Direct route inspected with the installed object, three-paragraph interpretation, subject-specific sidebar, article CTA, and no horizontal overflow. Evidence: docs/visual-validation/gallery-05-supplementals/desktop/asanga-yogacara-transmission.png"
+          }
         },
         "mobile": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "390×844",
+            "evidence": "Direct route inspected with wrapped copy, loaded object preview, scrollable interpretation, visible controls, and no horizontal overflow. Evidence: docs/visual-validation/gallery-05-supplementals/mobile/asanga-yogacara-transmission.png"
+          }
         },
         "threeDimensional": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720 fresh direct-route session",
+            "evidence": "Fresh-session authored viewpoint inspected with a live 3D canvas, closed detail panel, readable plaque, distinct installation, and the image mounted at its natural scene ratio. Evidence: docs/visual-validation/gallery-05-supplementals/staged-3d/asanga-yogacara-transmission.png"
+          }
         }
       },
       "contract": {
-        "evaluated": false,
-        "status": "not-evaluated",
+        "evaluated": true,
+        "status": "pass",
         "issues": []
       }
     },
@@ -23432,32 +24555,81 @@
         }
       },
       "exhibitReview": {
-        "authoredStatus": "unreviewed",
-        "effectiveStatus": "unreviewed",
-        "reviewedOn": null,
-        "method": null,
-        "resolution": null,
-        "lockPresent": false,
-        "lockCurrent": null
+        "authoredStatus": "standard-compliant",
+        "effectiveStatus": "standard-compliant",
+        "reviewedOn": "2026-08-12",
+        "method": "Gallery 05 supplemental completion: two non-overlapping Terra/High read-only evidence scopes split six and five exhibits, reconciled by the Sol parent across installed-object identity, interpretation, attribution, dating, institution, provenance, rights, source mapping, accessibility, article relationship, routes, and aspect-safe presentation.",
+        "resolution": "Resolved: retained Welch’s modern CC BY-SA diagram, limited it to educational orientation, mapped the Buddhist two-source claim to Dignāga and specialist scholarship, restored the wider Indian debate, and matched the exact SVG ratio.",
+        "lockPresent": true,
+        "lockCurrent": true
       },
       "interpretation": {
-        "objectLed": false,
-        "objectInterpretation": null,
-        "mainWordCount": 83,
+        "objectLed": true,
+        "objectInterpretation": "Ms Sarah Welch’s 2016 CC BY-SA 4.0 diagram is a modern educational aid about Indian pramāṇa theory. It can orient visitors to a two-source Buddhist account but cannot itself prove that claim or represent definitions shared unchanged by every Buddhist epistemologist.",
+        "mainWordCount": 331,
         "paragraphCount": 3,
-        "untitledParagraphs": false,
-        "sidebarSectionCount": 0,
-        "sidebarItemCount": 0,
-        "sidebarSections": []
+        "untitledParagraphs": true,
+        "sidebarSectionCount": 2,
+        "sidebarItemCount": 4,
+        "sidebarSections": [
+          {
+            "heading": "Reading the modern diagram",
+            "items": [
+              {
+                "label": "Teaching aid",
+                "description": "Welch created the image in 2016 and released it under CC BY-SA 4.0.",
+                "sourceIds": [
+                  "pramana-diagram"
+                ]
+              },
+              {
+                "label": "Wider Indian debate",
+                "description": "The image’s own context acknowledges traditions with different lists of knowledge sources.",
+                "sourceIds": [
+                  "pramana-diagram"
+                ]
+              }
+            ]
+          },
+          {
+            "heading": "Two sources, technical roles",
+            "items": [
+              {
+                "label": "Perception",
+                "description": "Buddhist analysis asks what makes awareness direct and how conceptual construction differs from it.",
+                "sourceIds": [
+                  "dignaga-ps",
+                  "dharmakirti-sep"
+                ]
+              },
+              {
+                "label": "Inference",
+                "description": "A valid reason must be connected to what is established under precise constraints.",
+                "sourceIds": [
+                  "dignaga-ps",
+                  "dharmakirti-sep"
+                ]
+              }
+            ]
+          }
+        ]
       },
       "claimEvidence": {
         "sources": [
           {
+            "id": "pramana-diagram",
             "label": "Wikimedia Commons — Two Pramāṇas in Buddhist epistemology",
             "url": "https://commons.wikimedia.org/wiki/File:2_Pramana_Epistemology_Buddhism.svg",
             "kind": "collection-record"
           },
           {
+            "id": "dignaga-ps",
+            "label": "Austrian Academy of Sciences — Dignāga, Pramāṇasamuccaya chapter 1",
+            "url": "https://www.oeaw.ac.at/fileadmin/Institute/IKGA/PDF/digitales/dignaga_PS_1.pdf",
+            "kind": "primary-text"
+          },
+          {
+            "id": "dharmakirti-sep",
             "label": "Stanford Encyclopedia of Philosophy — Dharmakīrti",
             "url": "https://plato.stanford.edu/entries/dharmakiirti/",
             "kind": "academic-reference"
@@ -23466,24 +24638,76 @@
         "paragraphMappings": [
           {
             "paragraph": 1,
-            "wordCount": 29,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 137,
+            "sourceIds": [
+              "pramana-diagram",
+              "dignaga-ps"
+            ],
+            "valid": true
           },
           {
             "paragraph": 2,
-            "wordCount": 29,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 100,
+            "sourceIds": [
+              "dignaga-ps",
+              "dharmakirti-sep"
+            ],
+            "valid": true
           },
           {
             "paragraph": 3,
-            "wordCount": 25,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 94,
+            "sourceIds": [
+              "pramana-diagram",
+              "dharmakirti-sep"
+            ],
+            "valid": true
           }
         ],
-        "sidebarMappings": []
+        "sidebarMappings": [
+          {
+            "row": 1,
+            "heading": "Reading the modern diagram",
+            "label": "Teaching aid",
+            "descriptionWordCount": 14,
+            "sourceIds": [
+              "pramana-diagram"
+            ],
+            "valid": true
+          },
+          {
+            "row": 2,
+            "heading": "Reading the modern diagram",
+            "label": "Wider Indian debate",
+            "descriptionWordCount": 12,
+            "sourceIds": [
+              "pramana-diagram"
+            ],
+            "valid": true
+          },
+          {
+            "row": 3,
+            "heading": "Two sources, technical roles",
+            "label": "Perception",
+            "descriptionWordCount": 14,
+            "sourceIds": [
+              "dignaga-ps",
+              "dharmakirti-sep"
+            ],
+            "valid": true
+          },
+          {
+            "row": 4,
+            "heading": "Two sources, technical roles",
+            "label": "Inference",
+            "descriptionWordCount": 13,
+            "sourceIds": [
+              "dignaga-ps",
+              "dharmakirti-sep"
+            ],
+            "valid": true
+          }
+        ]
       },
       "assets": {
         "principal": {
@@ -23532,8 +24756,19 @@
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 16582,
+                "sha256": "95062ada59352d4fa9e43e312016528840dcc9c73704fb12e1ca8cbd86e093e3"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 43878,
+                "sha256": "9419b8cf8ad6f8f7e6b8a99e0dc37225d153b5ddd3ae78b34939a9cd934695f7"
+              }
+            }
           }
         },
         "physical": {
@@ -23582,8 +24817,19 @@
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 16582,
+                "sha256": "95062ada59352d4fa9e43e312016528840dcc9c73704fb12e1ca8cbd86e093e3"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 43878,
+                "sha256": "9419b8cf8ad6f8f7e6b8a99e0dc37225d153b5ddd3ae78b34939a9cd934695f7"
+              }
+            }
           }
         }
       },
@@ -23599,9 +24845,9 @@
           "status": "match"
         },
         "mediaMountToPhysicalScene": {
-          "mount": 0.6272727272727272,
+          "mount": 0.6265625000000001,
           "scene": 0.6265625,
-          "status": "mismatch"
+          "status": "match"
         },
         "nonUniformScalingProtected": true
       },
@@ -23615,29 +24861,41 @@
           "status": "pass"
         },
         "fullArticleCta": {
-          "label": "Open the tradition in the Atlas",
+          "label": "Read the full sourced Buddhist Epistemology article",
           "expectedLabel": "Read the full sourced Buddhist Epistemology article",
           "href": "#/branches/buddhist-epistemology",
-          "status": "fail"
+          "status": "pass"
         }
       },
       "visualReview": {
         "desktop": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720",
+            "evidence": "Direct route inspected with the installed object, three-paragraph interpretation, subject-specific sidebar, article CTA, and no horizontal overflow. Evidence: docs/visual-validation/gallery-05-supplementals/desktop/buddhist-pramana-two-sources.png"
+          }
         },
         "mobile": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "390×844",
+            "evidence": "Direct route inspected with wrapped copy, loaded object preview, scrollable interpretation, visible controls, and no horizontal overflow. Evidence: docs/visual-validation/gallery-05-supplementals/mobile/buddhist-pramana-two-sources.png"
+          }
         },
         "threeDimensional": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720 fresh direct-route session",
+            "evidence": "Fresh-session authored viewpoint inspected with a live 3D canvas, closed detail panel, readable plaque, distinct installation, and the image mounted at its natural scene ratio. Evidence: docs/visual-validation/gallery-05-supplementals/staged-3d/buddhist-pramana-two-sources.png"
+          }
         }
       },
       "contract": {
-        "evaluated": false,
-        "status": "not-evaluated",
+        "evaluated": true,
+        "status": "pass",
         "issues": []
       }
     },
@@ -23683,58 +24941,161 @@
         }
       },
       "exhibitReview": {
-        "authoredStatus": "unreviewed",
-        "effectiveStatus": "unreviewed",
-        "reviewedOn": null,
-        "method": null,
-        "resolution": null,
-        "lockPresent": false,
-        "lockCurrent": null
+        "authoredStatus": "standard-compliant",
+        "effectiveStatus": "standard-compliant",
+        "reviewedOn": "2026-08-12",
+        "method": "Gallery 05 supplemental completion: two non-overlapping Terra/High read-only evidence scopes split six and five exhibits, reconciled by the Sol parent across installed-object identity, interpretation, attribution, dating, institution, provenance, rights, source mapping, accessibility, article relationship, routes, and aspect-safe presentation.",
+        "resolution": "Resolved: added UNESCO’s institutional site record, retained ASI stewardship and the photographer’s CC BY-SA credit, bounded chronology and Dignāga claims, separated archaeology from biography, and preserved the exact landscape ratio.",
+        "lockPresent": true,
+        "lockCurrent": true
       },
       "interpretation": {
-        "objectLed": false,
-        "objectInterpretation": null,
-        "mainWordCount": 89,
+        "objectLed": true,
+        "objectInterpretation": "Mrityunjay.nalanda’s 2012 CC BY-SA photograph records conserved remains at the Archaeological Site of Nālandā Mahāvihāra, ASI monument N-BR-43. The image establishes a layered institution and site, not a room securely assigned to Dignāga or proof of his presence.",
+        "mainWordCount": 342,
         "paragraphCount": 3,
-        "untitledParagraphs": false,
-        "sidebarSectionCount": 0,
-        "sidebarItemCount": 0,
-        "sidebarSections": []
+        "untitledParagraphs": true,
+        "sidebarSectionCount": 2,
+        "sidebarItemCount": 4,
+        "sidebarSections": [
+          {
+            "heading": "Reading a layered institution",
+            "items": [
+              {
+                "label": "Long chronology",
+                "description": "UNESCO documents remains and institutional phases extending across many centuries.",
+                "sourceIds": [
+                  "nalanda-unesco"
+                ]
+              },
+              {
+                "label": "ASI-managed site",
+                "description": "This is a conserved archaeological complex rather than a portable museum object.",
+                "sourceIds": [
+                  "nalanda-unesco",
+                  "nalanda-commons"
+                ]
+              }
+            ]
+          },
+          {
+            "heading": "Institutions of reasoning",
+            "items": [
+              {
+                "label": "Material supports",
+                "description": "Teaching, debate, manuscripts, travel, and commentary help specialist arguments persist.",
+                "sourceIds": [
+                  "nalanda-unesco",
+                  "dignaga-sep"
+                ]
+              },
+              {
+                "label": "No invented classroom",
+                "description": "The photographed brickwork cannot securely be assigned to Dignāga or prove his presence.",
+                "sourceIds": [
+                  "nalanda-unesco",
+                  "dignaga-sep"
+                ]
+              }
+            ]
+          }
+        ]
       },
       "claimEvidence": {
         "sources": [
           {
-            "label": "Wikimedia Commons — Nālandā University ruins",
+            "id": "nalanda-unesco",
+            "label": "UNESCO World Heritage Centre — Archaeological Site of Nālandā Mahāvihāra",
+            "url": "https://whc.unesco.org/en/list/1502/",
+            "kind": "collection-record"
+          },
+          {
+            "id": "nalanda-commons",
+            "label": "Wikimedia Commons — Nālandā University ruins photograph",
             "url": "https://commons.wikimedia.org/wiki/File:Nalanda_University_ruins.JPG",
             "kind": "collection-record"
           },
           {
-            "label": "Stanford Encyclopedia of Philosophy — Dharmakīrti",
-            "url": "https://plato.stanford.edu/entries/dharmakiirti/",
+            "id": "dignaga-sep",
+            "label": "Stanford Encyclopedia of Philosophy — Dignāga",
+            "url": "https://plato.stanford.edu/entries/dignaga/",
             "kind": "academic-reference"
           }
         ],
         "paragraphMappings": [
           {
             "paragraph": 1,
-            "wordCount": 27,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 135,
+            "sourceIds": [
+              "nalanda-unesco",
+              "nalanda-commons"
+            ],
+            "valid": true
           },
           {
             "paragraph": 2,
-            "wordCount": 28,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 103,
+            "sourceIds": [
+              "nalanda-unesco",
+              "dignaga-sep"
+            ],
+            "valid": true
           },
           {
             "paragraph": 3,
-            "wordCount": 34,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 104,
+            "sourceIds": [
+              "nalanda-unesco",
+              "dignaga-sep"
+            ],
+            "valid": true
           }
         ],
-        "sidebarMappings": []
+        "sidebarMappings": [
+          {
+            "row": 1,
+            "heading": "Reading a layered institution",
+            "label": "Long chronology",
+            "descriptionWordCount": 10,
+            "sourceIds": [
+              "nalanda-unesco"
+            ],
+            "valid": true
+          },
+          {
+            "row": 2,
+            "heading": "Reading a layered institution",
+            "label": "ASI-managed site",
+            "descriptionWordCount": 12,
+            "sourceIds": [
+              "nalanda-unesco",
+              "nalanda-commons"
+            ],
+            "valid": true
+          },
+          {
+            "row": 3,
+            "heading": "Institutions of reasoning",
+            "label": "Material supports",
+            "descriptionWordCount": 10,
+            "sourceIds": [
+              "nalanda-unesco",
+              "dignaga-sep"
+            ],
+            "valid": true
+          },
+          {
+            "row": 4,
+            "heading": "Institutions of reasoning",
+            "label": "No invented classroom",
+            "descriptionWordCount": 13,
+            "sourceIds": [
+              "nalanda-unesco",
+              "dignaga-sep"
+            ],
+            "valid": true
+          }
+        ]
       },
       "assets": {
         "principal": {
@@ -23783,8 +25144,19 @@
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 62262,
+                "sha256": "8589b60483252e9118aa3802a4a4944e61eec6c2d549a2a70cfcc3f3e27a6f97"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 341828,
+                "sha256": "2b5e21bc61b61842a245601ed4fe55cd5cf3236154461795a4e2319239ea68ac"
+              }
+            }
           }
         },
         "physical": {
@@ -23833,8 +25205,19 @@
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 62262,
+                "sha256": "8589b60483252e9118aa3802a4a4944e61eec6c2d549a2a70cfcc3f3e27a6f97"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 341828,
+                "sha256": "2b5e21bc61b61842a245601ed4fe55cd5cf3236154461795a4e2319239ea68ac"
+              }
+            }
           }
         }
       },
@@ -23866,29 +25249,41 @@
           "status": "pass"
         },
         "fullArticleCta": {
-          "label": "Open the philosopher in the Atlas",
+          "label": "Read the full sourced Dignāga article",
           "expectedLabel": "Read the full sourced Dignāga article",
           "href": "#/philosophers/dignaga",
-          "status": "fail"
+          "status": "pass"
         }
       },
       "visualReview": {
         "desktop": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720",
+            "evidence": "Direct route inspected with the installed object, three-paragraph interpretation, subject-specific sidebar, article CTA, and no horizontal overflow. Evidence: docs/visual-validation/gallery-05-supplementals/desktop/nalanda-scholastic-institution.png"
+          }
         },
         "mobile": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "390×844",
+            "evidence": "Direct route inspected with wrapped copy, loaded object preview, scrollable interpretation, visible controls, and no horizontal overflow. Evidence: docs/visual-validation/gallery-05-supplementals/mobile/nalanda-scholastic-institution.png"
+          }
         },
         "threeDimensional": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720 fresh direct-route session",
+            "evidence": "Fresh-session authored viewpoint inspected with a live 3D canvas, closed detail panel, readable plaque, distinct installation, and the image mounted at its natural scene ratio. Evidence: docs/visual-validation/gallery-05-supplementals/staged-3d/nalanda-scholastic-institution.png"
+          }
         }
       },
       "contract": {
-        "evaluated": false,
-        "status": "not-evaluated",
+        "evaluated": true,
+        "status": "pass",
         "issues": []
       }
     },
@@ -23934,58 +25329,156 @@
         }
       },
       "exhibitReview": {
-        "authoredStatus": "unreviewed",
-        "effectiveStatus": "unreviewed",
-        "reviewedOn": null,
-        "method": null,
-        "resolution": null,
-        "lockPresent": false,
-        "lockCurrent": null
+        "authoredStatus": "standard-compliant",
+        "effectiveStatus": "standard-compliant",
+        "reviewedOn": "2026-08-12",
+        "method": "Gallery 05 supplemental completion: two non-overlapping Terra/High read-only evidence scopes split six and five exhibits, reconciled by the Sol parent across installed-object identity, interpretation, attribution, dating, institution, provenance, rights, source mapping, accessibility, article relationship, routes, and aspect-safe presentation.",
+        "resolution": "Resolved: retained the installed public-domain woodblock while removing ACIP as a false holding institution, exposed missing artist, date, collection and catalogue, limited likeness and provenance claims, mapped reception to scholarship, and matched the natural ratio.",
+        "lockPresent": true,
+        "lockCurrent": true
       },
       "interpretation": {
-        "objectLed": false,
-        "objectInterpretation": null,
-        "mainWordCount": 93,
+        "objectLed": true,
+        "objectInterpretation": "The Commons file is a traditional Tibetan woodblock portrait reported through the Asian Classics Input Project. Its artist, object date, holding collection, and catalogue are not supplied. It is later reception, not a lifetime likeness or secure object-provenance record.",
+        "mainWordCount": 355,
         "paragraphCount": 3,
-        "untitledParagraphs": false,
-        "sidebarSectionCount": 0,
-        "sidebarItemCount": 0,
-        "sidebarSections": []
+        "untitledParagraphs": true,
+        "sidebarSectionCount": 2,
+        "sidebarItemCount": 4,
+        "sidebarSections": [
+          {
+            "heading": "Reading incomplete provenance",
+            "items": [
+              {
+                "label": "What is supplied",
+                "description": "Commons identifies a traditional Tibetan woodblock image reported through ACIP with public-domain status.",
+                "sourceIds": [
+                  "dharmakirti-woodblock"
+                ]
+              },
+              {
+                "label": "What remains unknown",
+                "description": "Artist, object date, holding collection, and catalogue are not provided.",
+                "sourceIds": [
+                  "dharmakirti-woodblock"
+                ]
+              }
+            ]
+          },
+          {
+            "heading": "A commentarial work",
+            "items": [
+              {
+                "label": "Arguments stay contested",
+                "description": "Later readers organize and dispute perception, inference, language, and authority in the Pramāṇavārttika.",
+                "sourceIds": [
+                  "dharmakirti-sep"
+                ]
+              },
+              {
+                "label": "Reason and liberation",
+                "description": "Technical accounts of cognition participate in Buddhist diagnoses of error and transformative practice.",
+                "sourceIds": [
+                  "dharmakirti-sep",
+                  "mind-indian-sep"
+                ]
+              }
+            ]
+          }
+        ]
       },
       "claimEvidence": {
         "sources": [
           {
+            "id": "dharmakirti-woodblock",
             "label": "Wikimedia Commons — traditional Tibetan woodblock portrait of Dharmakīrti",
             "url": "https://commons.wikimedia.org/wiki/File:Dharmakirti.gif",
             "kind": "collection-record"
           },
           {
+            "id": "dharmakirti-sep",
             "label": "Stanford Encyclopedia of Philosophy — Dharmakīrti",
             "url": "https://plato.stanford.edu/entries/dharmakiirti/",
+            "kind": "academic-reference"
+          },
+          {
+            "id": "mind-indian-sep",
+            "label": "Stanford Encyclopedia of Philosophy — Mind in Indian Buddhist Philosophy",
+            "url": "https://plato.stanford.edu/entries/mind-indian-buddhism/",
             "kind": "academic-reference"
           }
         ],
         "paragraphMappings": [
           {
             "paragraph": 1,
-            "wordCount": 28,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 139,
+            "sourceIds": [
+              "dharmakirti-woodblock"
+            ],
+            "valid": true
           },
           {
             "paragraph": 2,
-            "wordCount": 33,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 107,
+            "sourceIds": [
+              "dharmakirti-sep"
+            ],
+            "valid": true
           },
           {
             "paragraph": 3,
-            "wordCount": 32,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 109,
+            "sourceIds": [
+              "dharmakirti-woodblock",
+              "dharmakirti-sep",
+              "mind-indian-sep"
+            ],
+            "valid": true
           }
         ],
-        "sidebarMappings": []
+        "sidebarMappings": [
+          {
+            "row": 1,
+            "heading": "Reading incomplete provenance",
+            "label": "What is supplied",
+            "descriptionWordCount": 13,
+            "sourceIds": [
+              "dharmakirti-woodblock"
+            ],
+            "valid": true
+          },
+          {
+            "row": 2,
+            "heading": "Reading incomplete provenance",
+            "label": "What remains unknown",
+            "descriptionWordCount": 10,
+            "sourceIds": [
+              "dharmakirti-woodblock"
+            ],
+            "valid": true
+          },
+          {
+            "row": 3,
+            "heading": "A commentarial work",
+            "label": "Arguments stay contested",
+            "descriptionWordCount": 13,
+            "sourceIds": [
+              "dharmakirti-sep"
+            ],
+            "valid": true
+          },
+          {
+            "row": 4,
+            "heading": "A commentarial work",
+            "label": "Reason and liberation",
+            "descriptionWordCount": 13,
+            "sourceIds": [
+              "dharmakirti-sep",
+              "mind-indian-sep"
+            ],
+            "valid": true
+          }
+        ]
       },
       "assets": {
         "principal": {
@@ -23997,10 +25490,10 @@
             "entityId": "dharmakirti",
             "role": "context",
             "mediaKind": "engraving",
-            "creator": "Artist not supplied",
+            "creator": "Tibetan woodblock-print artist not supplied",
             "objectDate": "Object date not supplied",
             "imageCreator": null,
-            "institution": "Asian Classics Input Project; holding collection not stated",
+            "institution": "Holding collection not supplied; image provenance reported through ACIP and Wikimedia Commons",
             "likenessStatus": "later-traditional-representation"
           },
           "provenance": {
@@ -24017,7 +25510,7 @@
             "license": "Public Domain Mark 1.0",
             "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
             "rightsKind": "rights-status",
-            "attribution": "Traditional Tibetan woodblock portrait of Dharmakīrti, Asian Classics Input Project. Public domain."
+            "attribution": "Traditional Tibetan woodblock portrait of Dharmakīrti; artist, date, and holding collection not supplied; image provenance reported through ACIP and Wikimedia Commons. Public domain."
           },
           "accessibility": {
             "caption": "The woodblock witnesses Dharmakīrti’s later Tibetan curricular and commentarial presence.",
@@ -24034,8 +25527,19 @@
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 50778,
+                "sha256": "76d1218f3e0fce23d14e67adc8853817f0d22f1f0d2b4e88a748e1793d14c6d3"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 131404,
+                "sha256": "22e078fbb55af4dbbb810986aa386d8fdb1f51ee3a6f974ec9d06f22864afb74"
+              }
+            }
           }
         },
         "physical": {
@@ -24047,10 +25551,10 @@
             "entityId": "dharmakirti",
             "role": "context",
             "mediaKind": "engraving",
-            "creator": "Artist not supplied",
+            "creator": "Tibetan woodblock-print artist not supplied",
             "objectDate": "Object date not supplied",
             "imageCreator": null,
-            "institution": "Asian Classics Input Project; holding collection not stated",
+            "institution": "Holding collection not supplied; image provenance reported through ACIP and Wikimedia Commons",
             "likenessStatus": "later-traditional-representation"
           },
           "provenance": {
@@ -24067,7 +25571,7 @@
             "license": "Public Domain Mark 1.0",
             "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
             "rightsKind": "rights-status",
-            "attribution": "Traditional Tibetan woodblock portrait of Dharmakīrti, Asian Classics Input Project. Public domain."
+            "attribution": "Traditional Tibetan woodblock portrait of Dharmakīrti; artist, date, and holding collection not supplied; image provenance reported through ACIP and Wikimedia Commons. Public domain."
           },
           "accessibility": {
             "caption": "The woodblock witnesses Dharmakīrti’s later Tibetan curricular and commentarial presence.",
@@ -24084,8 +25588,19 @@
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 50778,
+                "sha256": "76d1218f3e0fce23d14e67adc8853817f0d22f1f0d2b4e88a748e1793d14c6d3"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 131404,
+                "sha256": "22e078fbb55af4dbbb810986aa386d8fdb1f51ee3a6f974ec9d06f22864afb74"
+              }
+            }
           }
         }
       },
@@ -24101,9 +25616,9 @@
           "status": "match"
         },
         "mediaMountToPhysicalScene": {
-          "mount": 0.9636363636363637,
+          "mount": 0.9625,
           "scene": 0.9625,
-          "status": "mismatch"
+          "status": "match"
         },
         "nonUniformScalingProtected": true
       },
@@ -24117,29 +25632,41 @@
           "status": "pass"
         },
         "fullArticleCta": {
-          "label": "Open the philosopher in the Atlas",
+          "label": "Read the full sourced Dharmakīrti article",
           "expectedLabel": "Read the full sourced Dharmakīrti article",
           "href": "#/philosophers/dharmakirti",
-          "status": "fail"
+          "status": "pass"
         }
       },
       "visualReview": {
         "desktop": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720",
+            "evidence": "Direct route inspected with the installed object, three-paragraph interpretation, subject-specific sidebar, article CTA, and no horizontal overflow. Evidence: docs/visual-validation/gallery-05-supplementals/desktop/dharmakirti-pramanavarttika-reception.png"
+          }
         },
         "mobile": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "390×844",
+            "evidence": "Direct route inspected with wrapped copy, loaded object preview, scrollable interpretation, visible controls, and no horizontal overflow. Evidence: docs/visual-validation/gallery-05-supplementals/mobile/dharmakirti-pramanavarttika-reception.png"
+          }
         },
         "threeDimensional": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720 fresh direct-route session",
+            "evidence": "Fresh-session authored viewpoint inspected with a live 3D canvas, closed detail panel, readable plaque, distinct installation, and the image mounted at its natural scene ratio. Evidence: docs/visual-validation/gallery-05-supplementals/staged-3d/dharmakirti-pramanavarttika-reception.png"
+          }
         }
       },
       "contract": {
-        "evaluated": false,
-        "status": "not-evaluated",
+        "evaluated": true,
+        "status": "pass",
         "issues": []
       }
     },
