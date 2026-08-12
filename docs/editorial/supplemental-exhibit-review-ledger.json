@@ -17,18 +17,18 @@
   },
   "inventory": {
     "total": 411,
-    "backlog": 399,
-    "reviewed": 12,
-    "resolvedStandardCompliant": 12,
+    "backlog": 390,
+    "reviewed": 21,
+    "resolvedStandardCompliant": 21,
     "countsByAuthoredStatus": {
-      "unreviewed": 399,
+      "unreviewed": 390,
       "reconciled": 0,
-      "standard-compliant": 12
+      "standard-compliant": 21
     },
     "countsByEffectiveStatus": {
-      "unreviewed": 399,
+      "unreviewed": 390,
       "reconciled": 0,
-      "standard-compliant": 12,
+      "standard-compliant": 21,
       "out-of-date": 0
     },
     "countsByArticleRelationship": {
@@ -71,9 +71,9 @@
       "hallId": "late-antiquity-inheritance",
       "hallTitle": "Late Antiquity & Neoplatonic Inheritance",
       "total": 9,
-      "backlog": 9,
-      "reviewed": 0,
-      "standardCompliant": 0
+      "backlog": 0,
+      "reviewed": 9,
+      "standardCompliant": 9
     },
     {
       "galleryNumber": 4,
@@ -5054,33 +5054,74 @@
         }
       },
       "exhibitReview": {
-        "authoredStatus": "unreviewed",
-        "effectiveStatus": "unreviewed",
-        "reviewedOn": null,
-        "method": null,
-        "resolution": null,
-        "lockPresent": false,
-        "lockCurrent": null
+        "authoredStatus": "standard-compliant",
+        "effectiveStatus": "standard-compliant",
+        "reviewedOn": "2026-08-12",
+        "method": "Gallery 03 supplemental review: two independent evidence scopes reconciled by the parent across object identity, claims, source mapping, rights, accessibility, provenance, structured interpretation, linking, and aspect-safe presentation.",
+        "resolution": "Resolved: identified the displayed 1493 Politics manuscript and qualified shelfmark, separated it from late-antique classroom evidence, and restored sourced interpretation of commentary authorship, method, and concord.",
+        "lockPresent": true,
+        "lockCurrent": true
       },
       "interpretation": {
-        "objectLed": false,
-        "objectInterpretation": null,
-        "mainWordCount": 94,
+        "objectLed": true,
+        "objectInterpretation": "The 1493 Greek Politics manuscript is a post-Byzantine material witness to Aristotelian transmission. It is not a surviving late-antique classroom copy or the work of a named commentator.",
+        "mainWordCount": 334,
         "paragraphCount": 3,
-        "untitledParagraphs": false,
-        "sidebarSectionCount": 0,
-        "sidebarItemCount": 0,
-        "sidebarSections": []
+        "untitledParagraphs": true,
+        "sidebarSectionCount": 2,
+        "sidebarItemCount": 4,
+        "sidebarSections": [
+          {
+            "heading": "From lecture to commentary",
+            "items": [
+              {
+                "label": "Layered authorship",
+                "description": "Some Alexandrian commentaries preserve teaching recorded by pupils rather than a single author’s finished book.",
+                "sourceIds": [
+                  "commentators-sep"
+                ]
+              },
+              {
+                "label": "Lemma and problem",
+                "description": "Selecting a passage for exposition frames vocabulary, contradictions, and the larger curricular question to be solved.",
+                "sourceIds": [
+                  "commentators-sep"
+                ]
+              }
+            ]
+          },
+          {
+            "heading": "Concord as a strategy",
+            "items": [
+              {
+                "label": "Plato and Aristotle",
+                "description": "Late commentators often argued for harmony between the two philosophers; the harmony was an interpretive achievement, not a given.",
+                "sourceIds": [
+                  "commentators-sep"
+                ]
+              },
+              {
+                "label": "Later material witness",
+                "description": "The 1493 Politics codex shows continued Greek transmission, not the physical setting of a late-antique class.",
+                "sourceIds": [
+                  "commentary-codex-commons"
+                ]
+              }
+            ]
+          }
+        ]
       },
       "claimEvidence": {
         "sources": [
           {
-            "label": "Wikimedia Commons — Greek minuscule Aristotle manuscript",
+            "id": "commentary-codex-commons",
+            "label": "Wikimedia Commons: Greek minuscule manuscript of Aristotle’s Politics IV",
             "url": "https://commons.wikimedia.org/wiki/File:Greek_manuscript_minuscule_Aristotle.png",
             "kind": "collection-record"
           },
           {
-            "label": "Stanford Encyclopedia of Philosophy — Ancient Commentators on Aristotle",
+            "id": "commentators-sep",
+            "label": "Stanford Encyclopedia of Philosophy: Commentators on Aristotle",
             "url": "https://plato.stanford.edu/entries/aristotle-commentators/",
             "kind": "academic-reference"
           }
@@ -5088,45 +5129,94 @@
         "paragraphMappings": [
           {
             "paragraph": 1,
-            "wordCount": 26,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 108,
+            "sourceIds": [
+              "commentary-codex-commons",
+              "commentators-sep"
+            ],
+            "valid": true
           },
           {
             "paragraph": 2,
-            "wordCount": 27,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 115,
+            "sourceIds": [
+              "commentators-sep"
+            ],
+            "valid": true
           },
           {
             "paragraph": 3,
-            "wordCount": 41,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 111,
+            "sourceIds": [
+              "commentators-sep",
+              "commentary-codex-commons"
+            ],
+            "valid": true
           }
         ],
-        "sidebarMappings": []
+        "sidebarMappings": [
+          {
+            "row": 1,
+            "heading": "From lecture to commentary",
+            "label": "Layered authorship",
+            "descriptionWordCount": 15,
+            "sourceIds": [
+              "commentators-sep"
+            ],
+            "valid": true
+          },
+          {
+            "row": 2,
+            "heading": "From lecture to commentary",
+            "label": "Lemma and problem",
+            "descriptionWordCount": 16,
+            "sourceIds": [
+              "commentators-sep"
+            ],
+            "valid": true
+          },
+          {
+            "row": 3,
+            "heading": "Concord as a strategy",
+            "label": "Plato and Aristotle",
+            "descriptionWordCount": 19,
+            "sourceIds": [
+              "commentators-sep"
+            ],
+            "valid": true
+          },
+          {
+            "row": 4,
+            "heading": "Concord as a strategy",
+            "label": "Later material witness",
+            "descriptionWordCount": 16,
+            "sourceIds": [
+              "commentary-codex-commons"
+            ],
+            "valid": true
+          }
+        ]
       },
       "assets": {
         "principal": {
           "id": "late-greek-aristotle-codex",
           "status": "registered",
           "identity": {
-            "title": "Greek minuscule manuscript of Aristotle",
+            "title": "Aristotle, Politics IV, in Greek minuscule",
             "entityKind": "branch",
             "entityId": "neoplatonism",
             "role": "material-history",
             "mediaKind": "manuscript",
-            "creator": "Anonymous Byzantine copyist",
-            "objectDate": "Medieval manuscript",
+            "creator": "Anonymous post-Byzantine copyist",
+            "objectDate": "1493",
             "imageCreator": null,
-            "institution": "Public-domain manuscript reproduction",
+            "institution": "Reported as Biblioteca Nazionale di Napoli, III.E.2, fols. 157r–158? (source record)",
             "likenessStatus": "not-applicable"
           },
           "provenance": {
             "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Greek_manuscript_minuscule_Aristotle.png",
             "objectPageUrl": null,
-            "historicalNote": "The page is used as material context for commentary practice; it is not identified as an autograph or as one specific late-antique commentator’s copy.",
+            "historicalNote": "The page is a post-Byzantine witness, not an autograph or a surviving late-antique classroom copy; the reported shelfmark and folio range remain qualified to the source record.",
             "derivativeNotice": null,
             "manifestFiles": [
               "museumSuccessorGalleriesAssetManifest.json"
@@ -5137,11 +5227,11 @@
             "license": "Public Domain Mark 1.0",
             "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
             "rightsKind": "rights-status",
-            "attribution": "Greek minuscule manuscript of Aristotle. Public domain."
+            "attribution": "Aristotle, Politics IV, post-Byzantine Greek manuscript dated 1493, reported as Naples, Biblioteca Nazionale III.E.2. Public domain."
           },
           "accessibility": {
-            "caption": "A Greek Aristotle codex evokes the manuscript ecology of commentary, correction, and teaching.",
-            "alt": "A compact Greek minuscule manuscript page contains dense text and marginal notes."
+            "caption": "A 1493 Greek Politics manuscript provides later material context for the commentary tradition.",
+            "alt": "An open Greek minuscule manuscript of Aristotle’s Politics has dense text and a large ornamental initial."
           },
           "dimensions": {
             "scene": {
@@ -5154,29 +5244,40 @@
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 78884,
+                "sha256": "12d6bb3b8943c03f59ab0badb7917238df965bed9b6a7a30f721e170e0c16e1e"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 89448,
+                "sha256": "b0bda1d235664c5a921f5d4fe476857206fda0211968d5ee30650e06749def05"
+              }
+            }
           }
         },
         "physical": {
           "id": "late-greek-aristotle-codex",
           "status": "registered",
           "identity": {
-            "title": "Greek minuscule manuscript of Aristotle",
+            "title": "Aristotle, Politics IV, in Greek minuscule",
             "entityKind": "branch",
             "entityId": "neoplatonism",
             "role": "material-history",
             "mediaKind": "manuscript",
-            "creator": "Anonymous Byzantine copyist",
-            "objectDate": "Medieval manuscript",
+            "creator": "Anonymous post-Byzantine copyist",
+            "objectDate": "1493",
             "imageCreator": null,
-            "institution": "Public-domain manuscript reproduction",
+            "institution": "Reported as Biblioteca Nazionale di Napoli, III.E.2, fols. 157r–158? (source record)",
             "likenessStatus": "not-applicable"
           },
           "provenance": {
             "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Greek_manuscript_minuscule_Aristotle.png",
             "objectPageUrl": null,
-            "historicalNote": "The page is used as material context for commentary practice; it is not identified as an autograph or as one specific late-antique commentator’s copy.",
+            "historicalNote": "The page is a post-Byzantine witness, not an autograph or a surviving late-antique classroom copy; the reported shelfmark and folio range remain qualified to the source record.",
             "derivativeNotice": null,
             "manifestFiles": [
               "museumSuccessorGalleriesAssetManifest.json"
@@ -5187,11 +5288,11 @@
             "license": "Public Domain Mark 1.0",
             "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
             "rightsKind": "rights-status",
-            "attribution": "Greek minuscule manuscript of Aristotle. Public domain."
+            "attribution": "Aristotle, Politics IV, post-Byzantine Greek manuscript dated 1493, reported as Naples, Biblioteca Nazionale III.E.2. Public domain."
           },
           "accessibility": {
-            "caption": "A Greek Aristotle codex evokes the manuscript ecology of commentary, correction, and teaching.",
-            "alt": "A compact Greek minuscule manuscript page contains dense text and marginal notes."
+            "caption": "A 1493 Greek Politics manuscript provides later material context for the commentary tradition.",
+            "alt": "An open Greek minuscule manuscript of Aristotle’s Politics has dense text and a large ornamental initial."
           },
           "dimensions": {
             "scene": {
@@ -5204,8 +5305,19 @@
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 78884,
+                "sha256": "12d6bb3b8943c03f59ab0badb7917238df965bed9b6a7a30f721e170e0c16e1e"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 89448,
+                "sha256": "b0bda1d235664c5a921f5d4fe476857206fda0211968d5ee30650e06749def05"
+              }
+            }
           }
         }
       },
@@ -5221,9 +5333,9 @@
           "status": "match"
         },
         "mediaMountToPhysicalScene": {
-          "mount": 1.2248995983935742,
+          "mount": 1.223587223574297,
           "scene": 1.2235872235872236,
-          "status": "mismatch"
+          "status": "match"
         },
         "nonUniformScalingProtected": true
       },
@@ -5237,29 +5349,41 @@
           "status": "pass"
         },
         "fullArticleCta": {
-          "label": "Open the related tradition in the Atlas",
+          "label": "Read the full sourced Neoplatonism article",
           "expectedLabel": "Read the full sourced Neoplatonism article",
           "href": "#/branches/neoplatonism",
-          "status": "fail"
+          "status": "pass"
         }
       },
       "visualReview": {
         "desktop": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720",
+            "evidence": "Direct route inspected with loaded principal preview, readable three-paragraph interpretation and structured sidebar, visible article CTA, and no horizontal overflow. Evidence: docs/visual-validation/gallery-03-supplementals/desktop/late-commentary-codex.png"
+          }
         },
         "mobile": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "390×844",
+            "evidence": "Direct route inspected with wrapped title, loaded object preview, scrollable interpretation, visible article and return controls, and no horizontal overflow. Evidence: docs/visual-validation/gallery-03-supplementals/mobile/late-commentary-codex.png"
+          }
         },
         "threeDimensional": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720 fresh direct-route session",
+            "evidence": "Fresh-session authored viewpoint inspected with a live 3D canvas, closed detail panel, distinct installation, readable plaque, and image mounted at its natural scene ratio. Evidence: docs/visual-validation/gallery-03-supplementals/staged-3d/late-commentary-codex.png"
+          }
         }
       },
       "contract": {
-        "evaluated": false,
-        "status": "not-evaluated",
+        "evaluated": true,
+        "status": "pass",
         "issues": []
       }
     },
@@ -5305,33 +5429,74 @@
         }
       },
       "exhibitReview": {
-        "authoredStatus": "unreviewed",
-        "effectiveStatus": "unreviewed",
-        "reviewedOn": null,
-        "method": null,
-        "resolution": null,
-        "lockPresent": false,
-        "lockCurrent": null
+        "authoredStatus": "standard-compliant",
+        "effectiveStatus": "standard-compliant",
+        "reviewedOn": "2026-08-12",
+        "method": "Gallery 03 supplemental review: two independent evidence scopes reconciled by the parent across object identity, claims, source mapping, rights, accessibility, provenance, structured interpretation, linking, and aspect-safe presentation.",
+        "resolution": "Resolved: verified the Glasgow manuscript, makers, date, and medieval reception status; corrected Boethius’s dates; and mapped the Consolation and Latin logic transmission without changing the canonical article.",
+        "lockPresent": true,
+        "lockCurrent": true
       },
       "interpretation": {
-        "objectLed": false,
-        "objectInterpretation": null,
-        "mainWordCount": 82,
+        "objectLed": true,
+        "objectInterpretation": "The 1385 Glasgow manuscript imagines Boethius first teaching and then imprisoned. Its miniatures are medieval reception, not a likeness or record of his confinement.",
+        "mainWordCount": 315,
         "paragraphCount": 3,
-        "untitledParagraphs": false,
-        "sidebarSectionCount": 0,
-        "sidebarItemCount": 0,
-        "sidebarSections": []
+        "untitledParagraphs": true,
+        "sidebarSectionCount": 2,
+        "sidebarItemCount": 4,
+        "sidebarSections": [
+          {
+            "heading": "Prose, verse, and therapy",
+            "items": [
+              {
+                "label": "Prison dialogue",
+                "description": "Personified Philosophy addresses a condemned prisoner through alternating argument and poetry.",
+                "sourceIds": [
+                  "boethius-sep"
+                ]
+              },
+              {
+                "label": "Fortune and freedom",
+                "description": "The dialogue connects unstable goods to providence, divine foreknowledge, human freedom, and the highest good.",
+                "sourceIds": [
+                  "boethius-sep"
+                ]
+              }
+            ]
+          },
+          {
+            "heading": "The Latin logic channel",
+            "items": [
+              {
+                "label": "Technical vocabulary",
+                "description": "Translation and commentary established Latin distinctions that structured later logical education.",
+                "sourceIds": [
+                  "boethius-sep"
+                ]
+              },
+              {
+                "label": "Uneven inheritance",
+                "description": "Boethius’s Aristotle and Porphyry circulated widely, while his planned translation program remained incomplete.",
+                "sourceIds": [
+                  "boethius-sep"
+                ]
+              }
+            ]
+          }
+        ]
       },
       "claimEvidence": {
         "sources": [
           {
-            "label": "Glasgow University Library / Wikimedia Commons — Consolation manuscript",
+            "id": "boethius-commons",
+            "label": "Wikimedia Commons / University of Glasgow: Consolation manuscript, MS Hunter 374, fol. 4r",
             "url": "https://commons.wikimedia.org/wiki/File:Consolation_of_philosophy_1385_boethius_images.jpg",
             "kind": "collection-record"
           },
           {
-            "label": "Stanford Encyclopedia of Philosophy — Anicius Manlius Severinus Boethius",
+            "id": "boethius-sep",
+            "label": "Stanford Encyclopedia of Philosophy: Anicius Manlius Severinus Boethius",
             "url": "https://plato.stanford.edu/entries/boethius/",
             "kind": "academic-reference"
           }
@@ -5339,24 +5504,73 @@
         "paragraphMappings": [
           {
             "paragraph": 1,
-            "wordCount": 22,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 102,
+            "sourceIds": [
+              "boethius-commons",
+              "boethius-sep"
+            ],
+            "valid": true
           },
           {
             "paragraph": 2,
-            "wordCount": 21,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 100,
+            "sourceIds": [
+              "boethius-sep"
+            ],
+            "valid": true
           },
           {
             "paragraph": 3,
-            "wordCount": 39,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 113,
+            "sourceIds": [
+              "boethius-sep",
+              "boethius-commons"
+            ],
+            "valid": true
           }
         ],
-        "sidebarMappings": []
+        "sidebarMappings": [
+          {
+            "row": 1,
+            "heading": "Prose, verse, and therapy",
+            "label": "Prison dialogue",
+            "descriptionWordCount": 11,
+            "sourceIds": [
+              "boethius-sep"
+            ],
+            "valid": true
+          },
+          {
+            "row": 2,
+            "heading": "Prose, verse, and therapy",
+            "label": "Fortune and freedom",
+            "descriptionWordCount": 15,
+            "sourceIds": [
+              "boethius-sep"
+            ],
+            "valid": true
+          },
+          {
+            "row": 3,
+            "heading": "The Latin logic channel",
+            "label": "Technical vocabulary",
+            "descriptionWordCount": 11,
+            "sourceIds": [
+              "boethius-sep"
+            ],
+            "valid": true
+          },
+          {
+            "row": 4,
+            "heading": "The Latin logic channel",
+            "label": "Uneven inheritance",
+            "descriptionWordCount": 13,
+            "sourceIds": [
+              "boethius-sep"
+            ],
+            "valid": true
+          }
+        ]
       },
       "assets": {
         "principal": {
@@ -5405,8 +5619,19 @@
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 83520,
+                "sha256": "bf66a498d81b2a4638926dd56f4d68ac6f1d447adfba8521d2205c5b9d5cd110"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 322918,
+                "sha256": "780bb43368734f512760b9c06a076aa0da1cd9c0eb550a4c127d6ad975d8e44f"
+              }
+            }
           }
         },
         "physical": {
@@ -5455,8 +5680,19 @@
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 83520,
+                "sha256": "bf66a498d81b2a4638926dd56f4d68ac6f1d447adfba8521d2205c5b9d5cd110"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 322918,
+                "sha256": "780bb43368734f512760b9c06a076aa0da1cd9c0eb550a4c127d6ad975d8e44f"
+              }
+            }
           }
         }
       },
@@ -5472,9 +5708,9 @@
           "status": "match"
         },
         "mediaMountToPhysicalScene": {
-          "mount": 0.7222222222222222,
+          "mount": 0.7218749999999999,
           "scene": 0.721875,
-          "status": "mismatch"
+          "status": "match"
         },
         "nonUniformScalingProtected": true
       },
@@ -5488,29 +5724,41 @@
           "status": "pass"
         },
         "fullArticleCta": {
-          "label": "Open the related tradition in the Atlas",
+          "label": "Read the full sourced Neoplatonism article",
           "expectedLabel": "Read the full sourced Neoplatonism article",
           "href": "#/branches/neoplatonism",
-          "status": "fail"
+          "status": "pass"
         }
       },
       "visualReview": {
         "desktop": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720",
+            "evidence": "Direct route inspected with loaded principal preview, readable three-paragraph interpretation and structured sidebar, visible article CTA, and no horizontal overflow. Evidence: docs/visual-validation/gallery-03-supplementals/desktop/boethius-philosophy-in-prison.png"
+          }
         },
         "mobile": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "390×844",
+            "evidence": "Direct route inspected with wrapped title, loaded object preview, scrollable interpretation, visible article and return controls, and no horizontal overflow. Evidence: docs/visual-validation/gallery-03-supplementals/mobile/boethius-philosophy-in-prison.png"
+          }
         },
         "threeDimensional": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720 fresh direct-route session",
+            "evidence": "Fresh-session authored viewpoint inspected with a live 3D canvas, closed detail panel, distinct installation, readable plaque, and image mounted at its natural scene ratio. Evidence: docs/visual-validation/gallery-03-supplementals/staged-3d/boethius-philosophy-in-prison.png"
+          }
         }
       },
       "contract": {
-        "evaluated": false,
-        "status": "not-evaluated",
+        "evaluated": true,
+        "status": "pass",
         "issues": []
       }
     },
@@ -5556,58 +5804,214 @@
         }
       },
       "exhibitReview": {
-        "authoredStatus": "unreviewed",
-        "effectiveStatus": "unreviewed",
-        "reviewedOn": null,
-        "method": null,
-        "resolution": null,
-        "lockPresent": false,
-        "lockCurrent": null
+        "authoredStatus": "standard-compliant",
+        "effectiveStatus": "standard-compliant",
+        "reviewedOn": "2026-08-12",
+        "method": "Gallery 03 supplemental review: two independent evidence scopes reconciled by the parent across object identity, claims, source mapping, rights, accessibility, provenance, structured interpretation, linking, and aspect-safe presentation.",
+        "resolution": "Resolved: identified the 1908 publication object, removed likeness implications, separated contemporary correspondence from later testimony, and mapped teaching, work attribution, murder, and modern reception claims.",
+        "lockPresent": true,
+        "lockCurrent": true
       },
       "interpretation": {
-        "objectLed": false,
-        "objectInterpretation": null,
-        "mainWordCount": 93,
+        "objectLed": true,
+        "objectInterpretation": "Gaspard’s 1908 printed profile supplies an imagined modern face for Hypatia. It is evidence for her later reception, not her appearance, clothing, or Alexandrian teaching environment.",
+        "mainWordCount": 312,
         "paragraphCount": 3,
-        "untitledParagraphs": false,
-        "sidebarSectionCount": 0,
-        "sidebarItemCount": 0,
-        "sidebarSections": []
+        "untitledParagraphs": true,
+        "sidebarSectionCount": 3,
+        "sidebarItemCount": 6,
+        "sidebarSections": [
+          {
+            "heading": "A teacher in surviving letters",
+            "items": [
+              {
+                "label": "Direct address",
+                "description": "Synesius’s Letter 15 is extant contemporary correspondence addressed to Hypatia and witnesses her continuing authority.",
+                "sourceIds": [
+                  "synesius-letter-15"
+                ]
+              },
+              {
+                "label": "Work attributions",
+                "description": "The Suda links Hypatia to mathematical and astronomical works, but its testimony is much later and requires qualification.",
+                "sourceIds": [
+                  "hypatia-suda",
+                  "hypatia-iep"
+                ]
+              }
+            ]
+          },
+          {
+            "heading": "Murder and testimony",
+            "items": [
+              {
+                "label": "Socrates, Book VII",
+                "description": "Socrates Scholasticus reports the 415 murder within Alexandrian civic and ecclesiastical conflict.",
+                "sourceIds": [
+                  "socrates-hypatia"
+                ]
+              },
+              {
+                "label": "Not a complete account",
+                "description": "One narrative source cannot by itself resolve every political motive, responsibility, or later interpretation.",
+                "sourceIds": [
+                  "socrates-hypatia",
+                  "hypatia-iep"
+                ]
+              }
+            ]
+          },
+          {
+            "heading": "The invented face",
+            "items": [
+              {
+                "label": "1908 publication",
+                "description": "Gaspard’s profile was printed in Little Journeys; it is not derived from an authenticated ancient likeness.",
+                "sourceIds": [
+                  "hypatia-commons"
+                ]
+              },
+              {
+                "label": "Reception evidence",
+                "description": "The portrait shows modern demand for a recognizable Hypatia, not what the Alexandrian philosopher looked like.",
+                "sourceIds": [
+                  "hypatia-commons",
+                  "hypatia-iep"
+                ]
+              }
+            ]
+          }
+        ]
       },
       "claimEvidence": {
         "sources": [
           {
-            "label": "Wikimedia Commons — Jules Maurice Gaspard’s imagined Hypatia",
+            "id": "hypatia-commons",
+            "label": "Wikimedia Commons: Jules Maurice Gaspard, Hypatia, 1908",
             "url": "https://commons.wikimedia.org/wiki/File:Hypatia.jpg",
             "kind": "collection-record"
           },
           {
-            "label": "Internet Encyclopedia of Philosophy — Hypatia",
+            "id": "hypatia-iep",
+            "label": "Internet Encyclopedia of Philosophy: Hypatia",
             "url": "https://iep.utm.edu/hypatia/",
             "kind": "academic-reference"
+          },
+          {
+            "id": "synesius-letter-15",
+            "label": "Synesius of Cyrene, Letter 15",
+            "url": "https://romanletters.org/letters/synesius_cyrene/15/",
+            "kind": "primary-text"
+          },
+          {
+            "id": "socrates-hypatia",
+            "label": "Socrates Scholasticus, Ecclesiastical History VII.15",
+            "url": "https://en.wikisource.org/wiki/Nicene_and_Post-Nicene_Fathers:_Series_II/Volume_II/Socrates/Book_VII/Chapter_15",
+            "kind": "primary-text"
+          },
+          {
+            "id": "hypatia-suda",
+            "label": "Suda testimony on Hypatia, translated by Diotíma",
+            "url": "https://diotima-doctafemina.org/translations/anthologies/womens-life-in-greece-and-rome-selections/x-religion/451-the-martyrdom-of-the-pagan-philosopher-hypatia/",
+            "kind": "primary-text"
           }
         ],
         "paragraphMappings": [
           {
             "paragraph": 1,
-            "wordCount": 22,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 103,
+            "sourceIds": [
+              "hypatia-commons",
+              "hypatia-iep"
+            ],
+            "valid": true
           },
           {
             "paragraph": 2,
-            "wordCount": 24,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 96,
+            "sourceIds": [
+              "synesius-letter-15",
+              "hypatia-suda",
+              "hypatia-iep"
+            ],
+            "valid": true
           },
           {
             "paragraph": 3,
-            "wordCount": 47,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 113,
+            "sourceIds": [
+              "socrates-hypatia",
+              "hypatia-iep",
+              "hypatia-commons"
+            ],
+            "valid": true
           }
         ],
-        "sidebarMappings": []
+        "sidebarMappings": [
+          {
+            "row": 1,
+            "heading": "A teacher in surviving letters",
+            "label": "Direct address",
+            "descriptionWordCount": 15,
+            "sourceIds": [
+              "synesius-letter-15"
+            ],
+            "valid": true
+          },
+          {
+            "row": 2,
+            "heading": "A teacher in surviving letters",
+            "label": "Work attributions",
+            "descriptionWordCount": 18,
+            "sourceIds": [
+              "hypatia-suda",
+              "hypatia-iep"
+            ],
+            "valid": true
+          },
+          {
+            "row": 3,
+            "heading": "Murder and testimony",
+            "label": "Socrates, Book VII",
+            "descriptionWordCount": 12,
+            "sourceIds": [
+              "socrates-hypatia"
+            ],
+            "valid": true
+          },
+          {
+            "row": 4,
+            "heading": "Murder and testimony",
+            "label": "Not a complete account",
+            "descriptionWordCount": 14,
+            "sourceIds": [
+              "socrates-hypatia",
+              "hypatia-iep"
+            ],
+            "valid": true
+          },
+          {
+            "row": 5,
+            "heading": "The invented face",
+            "label": "1908 publication",
+            "descriptionWordCount": 16,
+            "sourceIds": [
+              "hypatia-commons"
+            ],
+            "valid": true
+          },
+          {
+            "row": 6,
+            "heading": "The invented face",
+            "label": "Reception evidence",
+            "descriptionWordCount": 16,
+            "sourceIds": [
+              "hypatia-commons",
+              "hypatia-iep"
+            ],
+            "valid": true
+          }
+        ]
       },
       "assets": {
         "principal": {
@@ -5622,7 +6026,7 @@
             "creator": "Jules Maurice Gaspard",
             "objectDate": "1908",
             "imageCreator": null,
-            "institution": "Little Journeys to the Homes of Great Teachers",
+            "institution": "Printed insert in Elbert Hubbard, Little Journeys to the Homes of Great Teachers, vol. 23, no. 4",
             "likenessStatus": "imagined"
           },
           "provenance": {
@@ -5642,8 +6046,8 @@
             "attribution": "Jules Maurice Gaspard, Hypatia, 1908. Public domain."
           },
           "accessibility": {
-            "caption": "A 1908 imagined Hypatia anchors a discussion of evidence, teaching, and later legend.",
-            "alt": "A modern profile sketch imagines Hypatia in a classicalizing head covering."
+            "caption": "Gaspard’s 1908 printed portrait is an imagined Hypatia, not a historical likeness.",
+            "alt": "A 1908 classicalizing profile illustration imagines Hypatia as a young woman."
           },
           "dimensions": {
             "scene": {
@@ -5656,8 +6060,19 @@
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 16050,
+                "sha256": "3ec7c0fac769691f961b1ba3e9ccf613193cfdc779b70d5a5311292f3dfed50b"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 20998,
+                "sha256": "911710197b104f0c99a76a00315ea83123d1a1656cafc7ba1a42f87c79c76c8f"
+              }
+            }
           }
         },
         "physical": {
@@ -5672,7 +6087,7 @@
             "creator": "Jules Maurice Gaspard",
             "objectDate": "1908",
             "imageCreator": null,
-            "institution": "Little Journeys to the Homes of Great Teachers",
+            "institution": "Printed insert in Elbert Hubbard, Little Journeys to the Homes of Great Teachers, vol. 23, no. 4",
             "likenessStatus": "imagined"
           },
           "provenance": {
@@ -5692,8 +6107,8 @@
             "attribution": "Jules Maurice Gaspard, Hypatia, 1908. Public domain."
           },
           "accessibility": {
-            "caption": "A 1908 imagined Hypatia anchors a discussion of evidence, teaching, and later legend.",
-            "alt": "A modern profile sketch imagines Hypatia in a classicalizing head covering."
+            "caption": "Gaspard’s 1908 printed portrait is an imagined Hypatia, not a historical likeness.",
+            "alt": "A 1908 classicalizing profile illustration imagines Hypatia as a young woman."
           },
           "dimensions": {
             "scene": {
@@ -5706,8 +6121,19 @@
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 16050,
+                "sha256": "3ec7c0fac769691f961b1ba3e9ccf613193cfdc779b70d5a5311292f3dfed50b"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 20998,
+                "sha256": "911710197b104f0c99a76a00315ea83123d1a1656cafc7ba1a42f87c79c76c8f"
+              }
+            }
           }
         }
       },
@@ -5723,9 +6149,9 @@
           "status": "match"
         },
         "mediaMountToPhysicalScene": {
-          "mount": 0.929368029739777,
+          "mount": 0.9294478527509294,
           "scene": 0.9294478527607362,
-          "status": "mismatch"
+          "status": "match"
         },
         "nonUniformScalingProtected": true
       },
@@ -5739,29 +6165,41 @@
           "status": "pass"
         },
         "fullArticleCta": {
-          "label": "Open the related tradition in the Atlas",
+          "label": "Read the full sourced Neoplatonism article",
           "expectedLabel": "Read the full sourced Neoplatonism article",
           "href": "#/branches/neoplatonism",
-          "status": "fail"
+          "status": "pass"
         }
       },
       "visualReview": {
         "desktop": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720",
+            "evidence": "Direct route inspected with loaded principal preview, readable three-paragraph interpretation and structured sidebar, visible article CTA, and no horizontal overflow. Evidence: docs/visual-validation/gallery-03-supplementals/desktop/hypatia-alexandrian-teaching.png"
+          }
         },
         "mobile": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "390×844",
+            "evidence": "Direct route inspected with wrapped title, loaded object preview, scrollable interpretation, visible article and return controls, and no horizontal overflow. Evidence: docs/visual-validation/gallery-03-supplementals/mobile/hypatia-alexandrian-teaching.png"
+          }
         },
         "threeDimensional": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720 fresh direct-route session",
+            "evidence": "Fresh-session authored viewpoint inspected with a live 3D canvas, closed detail panel, distinct installation, readable plaque, and image mounted at its natural scene ratio. Evidence: docs/visual-validation/gallery-03-supplementals/staged-3d/hypatia-alexandrian-teaching.png"
+          }
         }
       },
       "contract": {
-        "evaluated": false,
-        "status": "not-evaluated",
+        "evaluated": true,
+        "status": "pass",
         "issues": []
       }
     },
@@ -5807,33 +6245,81 @@
         }
       },
       "exhibitReview": {
-        "authoredStatus": "unreviewed",
-        "effectiveStatus": "unreviewed",
-        "reviewedOn": null,
-        "method": null,
-        "resolution": null,
-        "lockPresent": false,
-        "lockCurrent": null
+        "authoredStatus": "standard-compliant",
+        "effectiveStatus": "standard-compliant",
+        "reviewedOn": "2026-08-12",
+        "method": "Gallery 03 supplemental review: two independent evidence scopes reconciled by the parent across object identity, claims, source mapping, rights, accessibility, provenance, structured interpretation, linking, and aspect-safe presentation.",
+        "resolution": "Resolved: identified the c. 1225 bestiary and its composite source tradition, separated it from translation-workshop evidence, restored Syriac agency, and corrected the 4:3 image mount.",
+        "lockPresent": true,
+        "lockCurrent": true
       },
       "interpretation": {
-        "objectLed": false,
-        "objectInterpretation": null,
-        "mainWordCount": 98,
+        "objectLed": true,
+        "objectInterpretation": "The c. 1225 British Library bestiary imagines Aristotle teaching within a later Arabic compilation. It witnesses reception, not an Abbasid translation workshop or Aristotle’s historical classroom.",
+        "mainWordCount": 308,
         "paragraphCount": 3,
-        "untitledParagraphs": false,
-        "sidebarSectionCount": 0,
-        "sidebarItemCount": 0,
-        "sidebarSections": []
+        "untitledParagraphs": true,
+        "sidebarSectionCount": 2,
+        "sidebarItemCount": 4,
+        "sidebarSections": [
+          {
+            "heading": "Syriac scholarly worlds",
+            "items": [
+              {
+                "label": "Before Islam",
+                "description": "Syriac Christian traditions translated and taught Aristotelian logic and Porphyry before the major Arabic translation movement.",
+                "sourceIds": [
+                  "greek-arabic-sep"
+                ]
+              },
+              {
+                "label": "Beside Arabic",
+                "description": "Syriac translation and scholarship continued alongside Arabic work rather than disappearing after a single handoff.",
+                "sourceIds": [
+                  "greek-arabic-sep"
+                ]
+              }
+            ]
+          },
+          {
+            "heading": "The bestiary’s Aristotle",
+            "items": [
+              {
+                "label": "Composite source",
+                "description": "The compiler of Kitāb naʿt al-ḥayawān names Aristotle and Ibn Bakhtīshūʿ among the work’s sources.",
+                "sourceIds": [
+                  "arabic-aristotle-bl"
+                ]
+              },
+              {
+                "label": "Later teaching image",
+                "description": "The c. 1225 miniature imagines Aristotelian authority; it is not a documentary view of translation practice.",
+                "sourceIds": [
+                  "arabic-aristotle-commons",
+                  "arabic-aristotle-bl"
+                ]
+              }
+            ]
+          }
+        ]
       },
       "claimEvidence": {
         "sources": [
           {
-            "label": "British Library / Wikimedia Commons — Aristotle instructing a pupil",
+            "id": "arabic-aristotle-commons",
+            "label": "Wikimedia Commons / British Library: Aristotle instructing a pupil in Kitāb naʿt al-ḥayawān",
             "url": "https://commons.wikimedia.org/wiki/File:Aristotle_instructs_a_pupil_in_the_%22Kitab_na%E2%80%98t_al-hayawan%22.jpg",
             "kind": "collection-record"
           },
           {
-            "label": "Stanford Encyclopedia of Philosophy — Greek Sources in Arabic and Islamic Philosophy",
+            "id": "arabic-aristotle-bl",
+            "label": "British Library archives: Oriental Manuscripts related to Aristotle, including Or. 2784",
+            "url": "https://searcharchives.bl.uk/?f%5Bcollection_area_ssi%5D%5B%5D=Oriental+Manuscripts&f%5Brelated_names_ssim%5D%5B%5D=Aristotle%2C+philosopher%2C+384+BC-322+BC&per_page=100&search_field=all_fields&sort=date",
+            "kind": "collection-record"
+          },
+          {
+            "id": "greek-arabic-sep",
+            "label": "Stanford Encyclopedia of Philosophy: Greek Sources in Arabic and Islamic Philosophy",
             "url": "https://plato.stanford.edu/entries/arabic-islamic-greek/",
             "kind": "academic-reference"
           }
@@ -5841,37 +6327,88 @@
         "paragraphMappings": [
           {
             "paragraph": 1,
-            "wordCount": 27,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 95,
+            "sourceIds": [
+              "arabic-aristotle-commons",
+              "arabic-aristotle-bl"
+            ],
+            "valid": true
           },
           {
             "paragraph": 2,
-            "wordCount": 24,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 101,
+            "sourceIds": [
+              "greek-arabic-sep"
+            ],
+            "valid": true
           },
           {
             "paragraph": 3,
-            "wordCount": 47,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 112,
+            "sourceIds": [
+              "greek-arabic-sep",
+              "arabic-aristotle-bl",
+              "arabic-aristotle-commons"
+            ],
+            "valid": true
           }
         ],
-        "sidebarMappings": []
+        "sidebarMappings": [
+          {
+            "row": 1,
+            "heading": "Syriac scholarly worlds",
+            "label": "Before Islam",
+            "descriptionWordCount": 16,
+            "sourceIds": [
+              "greek-arabic-sep"
+            ],
+            "valid": true
+          },
+          {
+            "row": 2,
+            "heading": "Syriac scholarly worlds",
+            "label": "Beside Arabic",
+            "descriptionWordCount": 15,
+            "sourceIds": [
+              "greek-arabic-sep"
+            ],
+            "valid": true
+          },
+          {
+            "row": 3,
+            "heading": "The bestiary’s Aristotle",
+            "label": "Composite source",
+            "descriptionWordCount": 15,
+            "sourceIds": [
+              "arabic-aristotle-bl"
+            ],
+            "valid": true
+          },
+          {
+            "row": 4,
+            "heading": "The bestiary’s Aristotle",
+            "label": "Later teaching image",
+            "descriptionWordCount": 16,
+            "sourceIds": [
+              "arabic-aristotle-commons",
+              "arabic-aristotle-bl"
+            ],
+            "valid": true
+          }
+        ]
       },
       "assets": {
         "principal": {
           "id": "late-arabic-aristotle",
           "status": "registered",
           "identity": {
-            "title": "Aristotle instructing a pupil in an Arabic bestiary",
+            "title": "Aristotle instructing a pupil in Kitāb naʿt al-ḥayawān",
             "entityKind": "branch",
             "entityId": "neoplatonism",
             "role": "context",
             "mediaKind": "manuscript",
             "creator": "Unknown manuscript artist; modern photograph by British Library staff",
-            "objectDate": "c. 1225; modern photograph",
+            "objectDate": "c. 1225, probably Baghdad; modern photograph",
             "imageCreator": null,
             "institution": "British Library, Or. 2784, fols. 95v–96r",
             "likenessStatus": "imagined"
@@ -5879,7 +6416,7 @@
           "provenance": {
             "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Aristotle_instructs_a_pupil_in_the_%22Kitab_na%E2%80%98t_al-hayawan%22.jpg",
             "objectPageUrl": null,
-            "historicalNote": "The miniature belongs to a later bestiary manuscript and is not a record of the Abbasid translation movement, Aristotle’s historical classroom, or one specific late-antique commentary session.",
+            "historicalNote": "The miniature belongs to a later bestiary whose compiler drew on Aristotle and Ibn Bakhtīshūʿ; it is not a record of the Abbasid translation movement, Aristotle’s classroom, or a late-antique commentary session.",
             "derivativeNotice": null,
             "manifestFiles": [
               "museumSuccessorGalleriesAssetManifest.json"
@@ -5893,8 +6430,8 @@
             "attribution": "Aristotle instructing a pupil, British Library Or. 2784, fols. 95v–96r. CC0 1.0."
           },
           "accessibility": {
-            "caption": "A c. 1225 Arabic manuscript image makes Aristotle’s long reception in Arabic-reading worlds visible.",
-            "alt": "An Arabic manuscript opening depicts Aristotle seated and instructing a pupil beside text and animal illustrations."
+            "caption": "A c. 1225 Arabic bestiary imagines Aristotle teaching and witnesses his later reception.",
+            "alt": "An open Arabic manuscript depicts a haloed, seated Aristotle-like figure instructing another figure beside columns of text."
           },
           "dimensions": {
             "scene": {
@@ -5907,21 +6444,32 @@
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 45498,
+                "sha256": "643922c1d54f5e7001f9b7f4962bb2a5a6a519f489f9ea408f4ea3f15ef31d26"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 184852,
+                "sha256": "fde9fcc1d0ed16ac8ce92ac46e0fb2104cc5a4d1228114829ffd10c8fe3e2c9a"
+              }
+            }
           }
         },
         "physical": {
           "id": "late-arabic-aristotle",
           "status": "registered",
           "identity": {
-            "title": "Aristotle instructing a pupil in an Arabic bestiary",
+            "title": "Aristotle instructing a pupil in Kitāb naʿt al-ḥayawān",
             "entityKind": "branch",
             "entityId": "neoplatonism",
             "role": "context",
             "mediaKind": "manuscript",
             "creator": "Unknown manuscript artist; modern photograph by British Library staff",
-            "objectDate": "c. 1225; modern photograph",
+            "objectDate": "c. 1225, probably Baghdad; modern photograph",
             "imageCreator": null,
             "institution": "British Library, Or. 2784, fols. 95v–96r",
             "likenessStatus": "imagined"
@@ -5929,7 +6477,7 @@
           "provenance": {
             "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Aristotle_instructs_a_pupil_in_the_%22Kitab_na%E2%80%98t_al-hayawan%22.jpg",
             "objectPageUrl": null,
-            "historicalNote": "The miniature belongs to a later bestiary manuscript and is not a record of the Abbasid translation movement, Aristotle’s historical classroom, or one specific late-antique commentary session.",
+            "historicalNote": "The miniature belongs to a later bestiary whose compiler drew on Aristotle and Ibn Bakhtīshūʿ; it is not a record of the Abbasid translation movement, Aristotle’s classroom, or a late-antique commentary session.",
             "derivativeNotice": null,
             "manifestFiles": [
               "museumSuccessorGalleriesAssetManifest.json"
@@ -5943,8 +6491,8 @@
             "attribution": "Aristotle instructing a pupil, British Library Or. 2784, fols. 95v–96r. CC0 1.0."
           },
           "accessibility": {
-            "caption": "A c. 1225 Arabic manuscript image makes Aristotle’s long reception in Arabic-reading worlds visible.",
-            "alt": "An Arabic manuscript opening depicts Aristotle seated and instructing a pupil beside text and animal illustrations."
+            "caption": "A c. 1225 Arabic bestiary imagines Aristotle teaching and witnesses his later reception.",
+            "alt": "An open Arabic manuscript depicts a haloed, seated Aristotle-like figure instructing another figure beside columns of text."
           },
           "dimensions": {
             "scene": {
@@ -5957,8 +6505,19 @@
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 45498,
+                "sha256": "643922c1d54f5e7001f9b7f4962bb2a5a6a519f489f9ea408f4ea3f15ef31d26"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 184852,
+                "sha256": "fde9fcc1d0ed16ac8ce92ac46e0fb2104cc5a4d1228114829ffd10c8fe3e2c9a"
+              }
+            }
           }
         }
       },
@@ -5974,9 +6533,9 @@
           "status": "match"
         },
         "mediaMountToPhysicalScene": {
-          "mount": 0.6814814814814815,
+          "mount": 1.3333333333333333,
           "scene": 1.3333333333333333,
-          "status": "mismatch"
+          "status": "match"
         },
         "nonUniformScalingProtected": true
       },
@@ -5990,29 +6549,41 @@
           "status": "pass"
         },
         "fullArticleCta": {
-          "label": "Open the related tradition in the Atlas",
+          "label": "Read the full sourced Neoplatonism article",
           "expectedLabel": "Read the full sourced Neoplatonism article",
           "href": "#/branches/neoplatonism",
-          "status": "fail"
+          "status": "pass"
         }
       },
       "visualReview": {
         "desktop": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720",
+            "evidence": "Direct route inspected with loaded principal preview, readable three-paragraph interpretation and structured sidebar, visible article CTA, and no horizontal overflow. Evidence: docs/visual-validation/gallery-03-supplementals/desktop/aristotle-across-languages.png"
+          }
         },
         "mobile": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "390×844",
+            "evidence": "Direct route inspected with wrapped title, loaded object preview, scrollable interpretation, visible article and return controls, and no horizontal overflow. Evidence: docs/visual-validation/gallery-03-supplementals/mobile/aristotle-across-languages.png"
+          }
         },
         "threeDimensional": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720 fresh direct-route session",
+            "evidence": "Fresh-session authored viewpoint inspected with a live 3D canvas, closed detail panel, distinct installation, readable plaque, and image mounted at its natural scene ratio. Evidence: docs/visual-validation/gallery-03-supplementals/staged-3d/aristotle-across-languages.png"
+          }
         }
       },
       "contract": {
-        "evaluated": false,
-        "status": "not-evaluated",
+        "evaluated": true,
+        "status": "pass",
         "issues": []
       }
     },
@@ -6058,33 +6629,75 @@
         }
       },
       "exhibitReview": {
-        "authoredStatus": "unreviewed",
-        "effectiveStatus": "unreviewed",
-        "reviewedOn": null,
-        "method": null,
-        "resolution": null,
-        "lockPresent": false,
-        "lockCurrent": null
+        "authoredStatus": "standard-compliant",
+        "effectiveStatus": "standard-compliant",
+        "reviewedOn": "2026-08-12",
+        "method": "Gallery 03 supplemental review: two independent evidence scopes reconciled by the parent across object identity, claims, source mapping, rights, accessibility, provenance, structured interpretation, linking, and aspect-safe presentation.",
+        "resolution": "Resolved: verified the 1491 Strozzi manuscript, dedication, and reception status; expanded Ficino’s translation project without projecting it onto Iamblichus; and added claim-mapped object and scholarship sources.",
+        "lockPresent": true,
+        "lockCurrent": true
       },
       "interpretation": {
-        "objectLed": false,
-        "objectInterpretation": null,
-        "mainWordCount": 92,
+        "objectLed": true,
+        "objectInterpretation": "The 1491 Strozzi manuscript is Ficino’s Renaissance preface to a Latin Iamblichus translation. It documents later reconstruction, not Iamblichus’s original manuscript or ritual setting.",
+        "mainWordCount": 295,
         "paragraphCount": 3,
-        "untitledParagraphs": false,
-        "sidebarSectionCount": 0,
-        "sidebarItemCount": 0,
-        "sidebarSections": []
+        "untitledParagraphs": true,
+        "sidebarSectionCount": 2,
+        "sidebarItemCount": 4,
+        "sidebarSections": [
+          {
+            "heading": "A translation for a patron",
+            "items": [
+              {
+                "label": "Strozzi 97",
+                "description": "The 1491 manuscript preserves Ficino’s preface to his Latin Iamblichus and is dedicated to Cardinal Giovanni de’ Medici.",
+                "sourceIds": [
+                  "ficino-iamblichus-commons"
+                ]
+              },
+              {
+                "label": "Material reconstruction",
+                "description": "Illumination, dedication, preface, and Latin vocabulary place the late-antique text in a Renaissance institutional world.",
+                "sourceIds": [
+                  "ficino-iamblichus-commons",
+                  "ficino-sep"
+                ]
+              }
+            ]
+          },
+          {
+            "heading": "Ficino’s late-antique canon",
+            "items": [
+              {
+                "label": "Plotinus in Latin",
+                "description": "Ficino produced a complete Latin Plotinus with commentary, joining translation to sustained exegesis.",
+                "sourceIds": [
+                  "ficino-sep"
+                ]
+              },
+              {
+                "label": "The 1497 collection",
+                "description": "His later collection brought Iamblichus, Proclus, Porphyry, and other Platonist materials together for Latin readers.",
+                "sourceIds": [
+                  "ficino-sep"
+                ]
+              }
+            ]
+          }
+        ]
       },
       "claimEvidence": {
         "sources": [
           {
-            "label": "Biblioteca Medicea Laurenziana / Wikimedia Commons — Ficino, De mysteriis Aegyptiorum",
+            "id": "ficino-iamblichus-commons",
+            "label": "Wikimedia Commons / Biblioteca Medicea Laurenziana: Ficino, De mysteriis Aegyptiorum, Strozzi 97, fol. 1r",
             "url": "https://commons.wikimedia.org/wiki/File:Ficino,_De_mysteriis_Aegyptiorum.jpg",
             "kind": "collection-record"
           },
           {
-            "label": "Stanford Encyclopedia of Philosophy — Marsilio Ficino",
+            "id": "ficino-sep",
+            "label": "Stanford Encyclopedia of Philosophy: Marsilio Ficino",
             "url": "https://plato.stanford.edu/entries/ficino/",
             "kind": "academic-reference"
           }
@@ -6092,24 +6705,74 @@
         "paragraphMappings": [
           {
             "paragraph": 1,
-            "wordCount": 22,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 95,
+            "sourceIds": [
+              "ficino-iamblichus-commons",
+              "ficino-sep"
+            ],
+            "valid": true
           },
           {
             "paragraph": 2,
-            "wordCount": 24,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 94,
+            "sourceIds": [
+              "ficino-sep"
+            ],
+            "valid": true
           },
           {
             "paragraph": 3,
-            "wordCount": 46,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 106,
+            "sourceIds": [
+              "ficino-sep",
+              "ficino-iamblichus-commons"
+            ],
+            "valid": true
           }
         ],
-        "sidebarMappings": []
+        "sidebarMappings": [
+          {
+            "row": 1,
+            "heading": "A translation for a patron",
+            "label": "Strozzi 97",
+            "descriptionWordCount": 18,
+            "sourceIds": [
+              "ficino-iamblichus-commons"
+            ],
+            "valid": true
+          },
+          {
+            "row": 2,
+            "heading": "A translation for a patron",
+            "label": "Material reconstruction",
+            "descriptionWordCount": 15,
+            "sourceIds": [
+              "ficino-iamblichus-commons",
+              "ficino-sep"
+            ],
+            "valid": true
+          },
+          {
+            "row": 3,
+            "heading": "Ficino’s late-antique canon",
+            "label": "Plotinus in Latin",
+            "descriptionWordCount": 13,
+            "sourceIds": [
+              "ficino-sep"
+            ],
+            "valid": true
+          },
+          {
+            "row": 4,
+            "heading": "Ficino’s late-antique canon",
+            "label": "The 1497 collection",
+            "descriptionWordCount": 15,
+            "sourceIds": [
+              "ficino-sep"
+            ],
+            "valid": true
+          }
+        ]
       },
       "assets": {
         "principal": {
@@ -6158,8 +6821,19 @@
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 90338,
+                "sha256": "320629298d73e8cae493e20d2d5a494ed488c202d4672a8ddaee7e96781cd584"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 486502,
+                "sha256": "dc0506442194c8db9aec5b9b98484dade194f79c8382779770ed1c6c37f1e93b"
+              }
+            }
           }
         },
         "physical": {
@@ -6208,8 +6882,19 @@
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 90338,
+                "sha256": "320629298d73e8cae493e20d2d5a494ed488c202d4672a8ddaee7e96781cd584"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 486502,
+                "sha256": "dc0506442194c8db9aec5b9b98484dade194f79c8382779770ed1c6c37f1e93b"
+              }
+            }
           }
         }
       },
@@ -6225,9 +6910,9 @@
           "status": "match"
         },
         "mediaMountToPhysicalScene": {
-          "mount": 0.662962962962963,
+          "mount": 0.6640625,
           "scene": 0.6640625,
-          "status": "mismatch"
+          "status": "match"
         },
         "nonUniformScalingProtected": true
       },
@@ -6241,29 +6926,41 @@
           "status": "pass"
         },
         "fullArticleCta": {
-          "label": "Open the related tradition in the Atlas",
+          "label": "Read the full sourced Neoplatonism article",
           "expectedLabel": "Read the full sourced Neoplatonism article",
           "href": "#/branches/neoplatonism",
-          "status": "fail"
+          "status": "pass"
         }
       },
       "visualReview": {
         "desktop": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720",
+            "evidence": "Direct route inspected with loaded principal preview, readable three-paragraph interpretation and structured sidebar, visible article CTA, and no horizontal overflow. Evidence: docs/visual-validation/gallery-03-supplementals/desktop/ficino-late-antique-revival.png"
+          }
         },
         "mobile": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "390×844",
+            "evidence": "Direct route inspected with wrapped title, loaded object preview, scrollable interpretation, visible article and return controls, and no horizontal overflow. Evidence: docs/visual-validation/gallery-03-supplementals/mobile/ficino-late-antique-revival.png"
+          }
         },
         "threeDimensional": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720 fresh direct-route session",
+            "evidence": "Fresh-session authored viewpoint inspected with a live 3D canvas, closed detail panel, distinct installation, readable plaque, and image mounted at its natural scene ratio. Evidence: docs/visual-validation/gallery-03-supplementals/staged-3d/ficino-late-antique-revival.png"
+          }
         }
       },
       "contract": {
-        "evaluated": false,
-        "status": "not-evaluated",
+        "evaluated": true,
+        "status": "pass",
         "issues": []
       }
     },
@@ -6309,58 +7006,160 @@
         }
       },
       "exhibitReview": {
-        "authoredStatus": "unreviewed",
-        "effectiveStatus": "unreviewed",
-        "reviewedOn": null,
-        "method": null,
-        "resolution": null,
-        "lockPresent": false,
-        "lockCurrent": null
+        "authoredStatus": "standard-compliant",
+        "effectiveStatus": "standard-compliant",
+        "reviewedOn": "2026-08-12",
+        "method": "Gallery 03 supplemental review: two independent evidence scopes reconciled by the parent across object identity, claims, source mapping, rights, accessibility, provenance, structured interpretation, linking, and aspect-safe presentation.",
+        "resolution": "Resolved: qualified the displayed tree’s source-record attribution and date, separated it from Porphyry’s authorship, expanded the claim-mapped interpretation, and preserved its natural proportions.",
+        "lockPresent": true,
+        "lockCurrent": true
       },
       "interpretation": {
-        "objectLed": false,
-        "objectInterpretation": null,
-        "mainWordCount": 96,
+        "objectLed": true,
+        "objectInterpretation": "The Latin tree is a later visualization of distinctions associated with Porphyry’s Isagoge. Its attribution and date are cautiously reported from the source record; it is not Porphyry’s drawing or an authorial manuscript.",
+        "mainWordCount": 287,
         "paragraphCount": 3,
-        "untitledParagraphs": false,
-        "sidebarSectionCount": 0,
-        "sidebarItemCount": 0,
-        "sidebarSections": []
+        "untitledParagraphs": true,
+        "sidebarSectionCount": 2,
+        "sidebarItemCount": 4,
+        "sidebarSections": [
+          {
+            "heading": "Five predicables",
+            "items": [
+              {
+                "label": "Kinds of predication",
+                "description": "Genus, species, difference, property, and accident organize the Isagoge’s introduction to Aristotelian logic.",
+                "sourceIds": [
+                  "porphyry-sep"
+                ]
+              },
+              {
+                "label": "Questions postponed",
+                "description": "Porphyry declines to decide whether genera and species exist, are bodies, or are separable from sensible particulars.",
+                "sourceIds": [
+                  "porphyry-sep",
+                  "medieval-universals-sep"
+                ]
+              }
+            ]
+          },
+          {
+            "heading": "Boethian afterlife",
+            "items": [
+              {
+                "label": "Latin curriculum",
+                "description": "Boethius’s translations and commentaries helped carry the Isagoge into long-lived Latin programs of logical study.",
+                "sourceIds": [
+                  "porphyry-sep"
+                ]
+              },
+              {
+                "label": "Diagram, not autograph",
+                "description": "The displayed tree is a later classification image; its source record does not make it a drawing by Porphyry.",
+                "sourceIds": [
+                  "porphyry-tree-commons",
+                  "porphyry-sep"
+                ]
+              }
+            ]
+          }
+        ]
       },
       "claimEvidence": {
         "sources": [
           {
-            "label": "Wikimedia Commons — later Arbor porphyrii diagram",
+            "id": "porphyry-tree-commons",
+            "label": "Wikimedia Commons: Arbor porphyrii source record",
             "url": "https://commons.wikimedia.org/wiki/File:Arbor_porphyrii_(probably_from_one_of_Boethius'_translations).png",
             "kind": "collection-record"
           },
           {
-            "label": "Stanford Encyclopedia of Philosophy — Porphyry",
+            "id": "porphyry-sep",
+            "label": "Stanford Encyclopedia of Philosophy: Porphyry",
             "url": "https://plato.stanford.edu/entries/porphyry/",
+            "kind": "academic-reference"
+          },
+          {
+            "id": "medieval-universals-sep",
+            "label": "Stanford Encyclopedia of Philosophy: The Medieval Problem of Universals",
+            "url": "https://plato.stanford.edu/entries/universals-medieval/",
             "kind": "academic-reference"
           }
         ],
         "paragraphMappings": [
           {
             "paragraph": 1,
-            "wordCount": 24,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 96,
+            "sourceIds": [
+              "porphyry-tree-commons",
+              "porphyry-sep"
+            ],
+            "valid": true
           },
           {
             "paragraph": 2,
-            "wordCount": 27,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 90,
+            "sourceIds": [
+              "porphyry-sep",
+              "medieval-universals-sep"
+            ],
+            "valid": true
           },
           {
             "paragraph": 3,
-            "wordCount": 45,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 101,
+            "sourceIds": [
+              "porphyry-sep",
+              "medieval-universals-sep",
+              "porphyry-tree-commons"
+            ],
+            "valid": true
           }
         ],
-        "sidebarMappings": []
+        "sidebarMappings": [
+          {
+            "row": 1,
+            "heading": "Five predicables",
+            "label": "Kinds of predication",
+            "descriptionWordCount": 13,
+            "sourceIds": [
+              "porphyry-sep"
+            ],
+            "valid": true
+          },
+          {
+            "row": 2,
+            "heading": "Five predicables",
+            "label": "Questions postponed",
+            "descriptionWordCount": 17,
+            "sourceIds": [
+              "porphyry-sep",
+              "medieval-universals-sep"
+            ],
+            "valid": true
+          },
+          {
+            "row": 3,
+            "heading": "Boethian afterlife",
+            "label": "Latin curriculum",
+            "descriptionWordCount": 15,
+            "sourceIds": [
+              "porphyry-sep"
+            ],
+            "valid": true
+          },
+          {
+            "row": 4,
+            "heading": "Boethian afterlife",
+            "label": "Diagram, not autograph",
+            "descriptionWordCount": 19,
+            "sourceIds": [
+              "porphyry-tree-commons",
+              "porphyry-sep"
+            ],
+            "valid": true
+          }
+        ]
       },
       "assets": {
         "principal": {
@@ -6372,10 +7171,10 @@
             "entityId": "porphyry",
             "role": "context",
             "mediaKind": "drawing",
-            "creator": "Later diagram associated with Boethian transmission",
-            "objectDate": "Medieval or early modern diagram tradition",
+            "creator": "Attributed on the source record to Boethius",
+            "objectDate": "Sixth century (source-record attribution; uncertain)",
             "imageCreator": null,
-            "institution": "Wikimedia Commons public-domain reproduction",
+            "institution": "No holding institution supplied; Wikimedia Commons reproduction",
             "likenessStatus": "not-applicable"
           },
           "provenance": {
@@ -6392,7 +7191,7 @@
             "license": "Public Domain Mark 1.0",
             "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
             "rightsKind": "rights-status",
-            "attribution": "Arbor porphyrii, probably transmitted with a Boethian translation. Public domain."
+            "attribution": "Arbor porphyrii, attributed to Boethius and dated to the sixth century on the source record. Public domain."
           },
           "accessibility": {
             "caption": "The Porphyrian tree turns a short logical introduction into a durable visual classifier.",
@@ -6409,8 +7208,19 @@
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 49538,
+                "sha256": "1a4bee661e1fc9bdb8344d60aca29eddbe01e5fd0c9e4b00cba18d22af7dad7f"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 122622,
+                "sha256": "3bb48cfd88cf9b05d39dab2d245eee41c8743315df1e1e1319ca74eb94684a09"
+              }
+            }
           }
         },
         "physical": {
@@ -6422,10 +7232,10 @@
             "entityId": "porphyry",
             "role": "context",
             "mediaKind": "drawing",
-            "creator": "Later diagram associated with Boethian transmission",
-            "objectDate": "Medieval or early modern diagram tradition",
+            "creator": "Attributed on the source record to Boethius",
+            "objectDate": "Sixth century (source-record attribution; uncertain)",
             "imageCreator": null,
-            "institution": "Wikimedia Commons public-domain reproduction",
+            "institution": "No holding institution supplied; Wikimedia Commons reproduction",
             "likenessStatus": "not-applicable"
           },
           "provenance": {
@@ -6442,7 +7252,7 @@
             "license": "Public Domain Mark 1.0",
             "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
             "rightsKind": "rights-status",
-            "attribution": "Arbor porphyrii, probably transmitted with a Boethian translation. Public domain."
+            "attribution": "Arbor porphyrii, attributed to Boethius and dated to the sixth century on the source record. Public domain."
           },
           "accessibility": {
             "caption": "The Porphyrian tree turns a short logical introduction into a durable visual classifier.",
@@ -6459,8 +7269,19 @@
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 49538,
+                "sha256": "1a4bee661e1fc9bdb8344d60aca29eddbe01e5fd0c9e4b00cba18d22af7dad7f"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 122622,
+                "sha256": "3bb48cfd88cf9b05d39dab2d245eee41c8743315df1e1e1319ca74eb94684a09"
+              }
+            }
           }
         }
       },
@@ -6476,9 +7297,9 @@
           "status": "match"
         },
         "mediaMountToPhysicalScene": {
-          "mount": 0.9444444444444443,
+          "mount": 0.9453124999999999,
           "scene": 0.9453125,
-          "status": "mismatch"
+          "status": "match"
         },
         "nonUniformScalingProtected": true
       },
@@ -6492,29 +7313,41 @@
           "status": "pass"
         },
         "fullArticleCta": {
-          "label": "Open the philosopher in the Atlas",
+          "label": "Read the full sourced Porphyry article",
           "expectedLabel": "Read the full sourced Porphyry article",
           "href": "#/philosophers/porphyry",
-          "status": "fail"
+          "status": "pass"
         }
       },
       "visualReview": {
         "desktop": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720",
+            "evidence": "Direct route inspected with loaded principal preview, readable three-paragraph interpretation and structured sidebar, visible article CTA, and no horizontal overflow. Evidence: docs/visual-validation/gallery-03-supplementals/desktop/porphyrian-tree-classification.png"
+          }
         },
         "mobile": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "390×844",
+            "evidence": "Direct route inspected with wrapped title, loaded object preview, scrollable interpretation, visible article and return controls, and no horizontal overflow. Evidence: docs/visual-validation/gallery-03-supplementals/mobile/porphyrian-tree-classification.png"
+          }
         },
         "threeDimensional": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720 fresh direct-route session",
+            "evidence": "Fresh-session authored viewpoint inspected with a live 3D canvas, closed detail panel, distinct installation, readable plaque, and image mounted at its natural scene ratio. Evidence: docs/visual-validation/gallery-03-supplementals/staged-3d/porphyrian-tree-classification.png"
+          }
         }
       },
       "contract": {
-        "evaluated": false,
-        "status": "not-evaluated",
+        "evaluated": true,
+        "status": "pass",
         "issues": []
       }
     },
@@ -6560,58 +7393,161 @@
         }
       },
       "exhibitReview": {
-        "authoredStatus": "unreviewed",
-        "effectiveStatus": "unreviewed",
-        "reviewedOn": null,
-        "method": null,
-        "resolution": null,
-        "lockPresent": false,
-        "lockCurrent": null
+        "authoredStatus": "standard-compliant",
+        "effectiveStatus": "standard-compliant",
+        "reviewedOn": "2026-08-12",
+        "method": "Gallery 03 supplemental review: two independent evidence scopes reconciled by the parent across object identity, claims, source mapping, rights, accessibility, provenance, structured interpretation, linking, and aspect-safe presentation.",
+        "resolution": "Resolved: reconciled the record to the installed Patrizi portrait, separated translator from ancient author, and mapped the Elements’ demonstrative form and transformed Arabic, Latin, and Renaissance receptions.",
+        "lockPresent": true,
+        "lockCurrent": true
       },
       "interpretation": {
-        "objectLed": false,
-        "objectInterpretation": null,
-        "mainWordCount": 89,
+        "objectLed": true,
+        "objectInterpretation": "The 1580 engraving portrays Francesco Patrizi, whose Latin Proclus belongs to Renaissance reception. It is not Proclus’s likeness, an image of the Elements, or a late-antique artifact.",
+        "mainWordCount": 321,
         "paragraphCount": 3,
-        "untitledParagraphs": false,
-        "sidebarSectionCount": 0,
-        "sidebarItemCount": 0,
-        "sidebarSections": []
+        "untitledParagraphs": true,
+        "sidebarSectionCount": 2,
+        "sidebarItemCount": 4,
+        "sidebarSections": [
+          {
+            "heading": "Demonstrative architecture",
+            "items": [
+              {
+                "label": "Ordered propositions",
+                "description": "Each proof builds on earlier distinctions, making sequence part of the Elements’ philosophical argument.",
+                "sourceIds": [
+                  "proclus-sep",
+                  "proclus-elements-primary"
+                ]
+              },
+              {
+                "label": "Causal triad",
+                "description": "Remaining, procession, and return describe how effects depend on causes without becoming identical to them.",
+                "sourceIds": [
+                  "proclus-sep",
+                  "proclus-elements-primary"
+                ]
+              }
+            ]
+          },
+          {
+            "heading": "Changed routes of reception",
+            "items": [
+              {
+                "label": "Book of Causes",
+                "description": "A ninth-century Arabic adaptation carried Proclean material into Latin under Aristotle’s name.",
+                "sourceIds": [
+                  "proclus-sep"
+                ]
+              },
+              {
+                "label": "Patrizi, not Proclus",
+                "description": "The 1580 engraving portrays a Renaissance translator and philosopher associated with Proclus’s later Latin reception.",
+                "sourceIds": [
+                  "patrizi-portrait-commons",
+                  "proclus-sep"
+                ]
+              }
+            ]
+          }
+        ]
       },
       "claimEvidence": {
         "sources": [
           {
-            "label": "Wikimedia Commons — Patrizi’s 1583 Latin Proclus",
-            "url": "https://commons.wikimedia.org/wiki/File:Proclus_Elements_of_Theology_and_Elements_of_Physics_Latin_translation_by_Patricius_1583.png",
+            "id": "patrizi-portrait-commons",
+            "label": "Wikimedia Commons: portrait of Francesco Patrizi, 1580",
+            "url": "https://commons.wikimedia.org/wiki/File:Francesco_Patrizi_1580.jpg",
             "kind": "collection-record"
           },
           {
-            "label": "Stanford Encyclopedia of Philosophy — Proclus",
+            "id": "proclus-sep",
+            "label": "Stanford Encyclopedia of Philosophy: Proclus",
             "url": "https://plato.stanford.edu/entries/proclus/",
             "kind": "academic-reference"
+          },
+          {
+            "id": "proclus-elements-primary",
+            "label": "Proclus, Elements of Theology (Internet Archive)",
+            "url": "https://archive.org/details/proclus-the-elements-of-theology",
+            "kind": "primary-text"
           }
         ],
         "paragraphMappings": [
           {
             "paragraph": 1,
-            "wordCount": 28,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 107,
+            "sourceIds": [
+              "patrizi-portrait-commons",
+              "proclus-sep"
+            ],
+            "valid": true
           },
           {
             "paragraph": 2,
-            "wordCount": 24,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 105,
+            "sourceIds": [
+              "proclus-sep",
+              "proclus-elements-primary"
+            ],
+            "valid": true
           },
           {
             "paragraph": 3,
-            "wordCount": 37,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 109,
+            "sourceIds": [
+              "proclus-sep",
+              "patrizi-portrait-commons"
+            ],
+            "valid": true
           }
         ],
-        "sidebarMappings": []
+        "sidebarMappings": [
+          {
+            "row": 1,
+            "heading": "Demonstrative architecture",
+            "label": "Ordered propositions",
+            "descriptionWordCount": 14,
+            "sourceIds": [
+              "proclus-sep",
+              "proclus-elements-primary"
+            ],
+            "valid": true
+          },
+          {
+            "row": 2,
+            "heading": "Demonstrative architecture",
+            "label": "Causal triad",
+            "descriptionWordCount": 15,
+            "sourceIds": [
+              "proclus-sep",
+              "proclus-elements-primary"
+            ],
+            "valid": true
+          },
+          {
+            "row": 3,
+            "heading": "Changed routes of reception",
+            "label": "Book of Causes",
+            "descriptionWordCount": 12,
+            "sourceIds": [
+              "proclus-sep"
+            ],
+            "valid": true
+          },
+          {
+            "row": 4,
+            "heading": "Changed routes of reception",
+            "label": "Patrizi, not Proclus",
+            "descriptionWordCount": 15,
+            "sourceIds": [
+              "patrizi-portrait-commons",
+              "proclus-sep"
+            ],
+            "valid": true
+          }
+        ]
       },
       "assets": {
         "principal": {
@@ -6660,8 +7596,19 @@
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 128490,
+                "sha256": "e71db306e41c1a46a688ec2060512debd362f133b891c9bd981b7d036e974a7b"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 494216,
+                "sha256": "f5be1504b3896cb6ddf711a97ad1c9682b39211e63fd30b0a8069f7c43fdb648"
+              }
+            }
           }
         },
         "physical": {
@@ -6710,8 +7657,19 @@
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 128490,
+                "sha256": "e71db306e41c1a46a688ec2060512debd362f133b891c9bd981b7d036e974a7b"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 494216,
+                "sha256": "f5be1504b3896cb6ddf711a97ad1c9682b39211e63fd30b0a8069f7c43fdb648"
+              }
+            }
           }
         }
       },
@@ -6727,9 +7685,9 @@
           "status": "match"
         },
         "mediaMountToPhysicalScene": {
-          "mount": 0.7370370370370369,
+          "mount": 0.7859375,
           "scene": 0.7859375,
-          "status": "mismatch"
+          "status": "match"
         },
         "nonUniformScalingProtected": true
       },
@@ -6743,29 +7701,41 @@
           "status": "pass"
         },
         "fullArticleCta": {
-          "label": "Open the philosopher in the Atlas",
+          "label": "Read the full sourced Proclus article",
           "expectedLabel": "Read the full sourced Proclus article",
           "href": "#/philosophers/proclus",
-          "status": "fail"
+          "status": "pass"
         }
       },
       "visualReview": {
         "desktop": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720",
+            "evidence": "Direct route inspected with loaded principal preview, readable three-paragraph interpretation and structured sidebar, visible article CTA, and no horizontal overflow. Evidence: docs/visual-validation/gallery-03-supplementals/desktop/proclus-elements-afterlife.png"
+          }
         },
         "mobile": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "390×844",
+            "evidence": "Direct route inspected with wrapped title, loaded object preview, scrollable interpretation, visible article and return controls, and no horizontal overflow. Evidence: docs/visual-validation/gallery-03-supplementals/mobile/proclus-elements-afterlife.png"
+          }
         },
         "threeDimensional": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720 fresh direct-route session",
+            "evidence": "Fresh-session authored viewpoint inspected with a live 3D canvas, closed detail panel, distinct installation, readable plaque, and image mounted at its natural scene ratio. Evidence: docs/visual-validation/gallery-03-supplementals/staged-3d/proclus-elements-afterlife.png"
+          }
         }
       },
       "contract": {
-        "evaluated": false,
-        "status": "not-evaluated",
+        "evaluated": true,
+        "status": "pass",
         "issues": []
       }
     },
@@ -6811,58 +7781,170 @@
         }
       },
       "exhibitReview": {
-        "authoredStatus": "unreviewed",
-        "effectiveStatus": "unreviewed",
-        "reviewedOn": null,
-        "method": null,
-        "resolution": null,
-        "lockPresent": false,
-        "lockCurrent": null
+        "authoredStatus": "standard-compliant",
+        "effectiveStatus": "standard-compliant",
+        "reviewedOn": "2026-08-12",
+        "method": "Gallery 03 supplemental review: two independent evidence scopes reconciled by the parent across object identity, claims, source mapping, rights, accessibility, provenance, structured interpretation, linking, and aspect-safe presentation.",
+        "resolution": "Resolved: named the 1471 copyist and exact codex, distinguished transmission from composition, expanded the divided-will and time interpretation, and added claim-mapped object and text sources.",
+        "lockPresent": true,
+        "lockCurrent": true
       },
       "interpretation": {
-        "objectLed": false,
-        "objectInterpretation": null,
-        "mainWordCount": 102,
+        "objectLed": true,
+        "objectInterpretation": "Copied by Henricus de Bocholdia in 1471, Basel A IV 4 is a late material witness to the Confessions. It is not Augustine’s working manuscript or evidence for his appearance.",
+        "mainWordCount": 325,
         "paragraphCount": 3,
-        "untitledParagraphs": false,
-        "sidebarSectionCount": 0,
-        "sidebarItemCount": 0,
-        "sidebarSections": []
+        "untitledParagraphs": true,
+        "sidebarSectionCount": 2,
+        "sidebarItemCount": 4,
+        "sidebarSections": [
+          {
+            "heading": "Will and conversion",
+            "items": [
+              {
+                "label": "Competing willing",
+                "description": "Book VIII presents judgment, habit, and desire pulling the agent in opposing directions immediately before conversion.",
+                "sourceIds": [
+                  "augustine-sep",
+                  "augustine-confessions"
+                ]
+              },
+              {
+                "label": "Crafted address",
+                "description": "The life story is addressed to God and shaped as theological interpretation, not offered as neutral modern autobiography.",
+                "sourceIds": [
+                  "augustine-sep",
+                  "augustine-confessions"
+                ]
+              }
+            ]
+          },
+          {
+            "heading": "Time in Book XI",
+            "items": [
+              {
+                "label": "Threefold present",
+                "description": "Memory, attention, and expectation explain how past and future bear on present temporal experience.",
+                "sourceIds": [
+                  "augustine-sep",
+                  "augustine-confessions"
+                ]
+              },
+              {
+                "label": "Recitation test",
+                "description": "The song or poem example tracks attention as anticipated syllables pass into memory.",
+                "sourceIds": [
+                  "augustine-sep",
+                  "augustine-confessions"
+                ]
+              }
+            ]
+          }
+        ]
       },
       "claimEvidence": {
         "sources": [
           {
-            "label": "Universitätsbibliothek Basel / Wikimedia Commons — Confessiones manuscript",
+            "id": "augustine-commons",
+            "label": "Wikimedia Commons: Basel A IV 4, fol. 1r",
             "url": "https://commons.wikimedia.org/wiki/File:Basel,_Universitätsbibliothek,_A_IV_4,_f._1r_–_Aurelius_Augustinus,_Confessiones.JPG",
             "kind": "collection-record"
           },
           {
-            "label": "Stanford Encyclopedia of Philosophy — Augustine",
+            "id": "augustine-ecodices",
+            "label": "e-codices: Universitätsbibliothek Basel A IV 4",
+            "url": "https://www.e-codices.unifr.ch/en/list/one/ubb/A-IV-0004",
+            "kind": "collection-record"
+          },
+          {
+            "id": "augustine-sep",
+            "label": "Stanford Encyclopedia of Philosophy: Saint Augustine",
             "url": "https://plato.stanford.edu/entries/augustine/",
             "kind": "academic-reference"
+          },
+          {
+            "id": "augustine-confessions",
+            "label": "Augustine, Confessions (Christian Classics Ethereal Library)",
+            "url": "https://www.ccel.org/ccel/augustine/confessions.html",
+            "kind": "primary-text"
           }
         ],
         "paragraphMappings": [
           {
             "paragraph": 1,
-            "wordCount": 28,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 100,
+            "sourceIds": [
+              "augustine-commons",
+              "augustine-ecodices"
+            ],
+            "valid": true
           },
           {
             "paragraph": 2,
-            "wordCount": 27,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 108,
+            "sourceIds": [
+              "augustine-sep",
+              "augustine-confessions"
+            ],
+            "valid": true
           },
           {
             "paragraph": 3,
-            "wordCount": 47,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 117,
+            "sourceIds": [
+              "augustine-sep",
+              "augustine-confessions",
+              "augustine-ecodices"
+            ],
+            "valid": true
           }
         ],
-        "sidebarMappings": []
+        "sidebarMappings": [
+          {
+            "row": 1,
+            "heading": "Will and conversion",
+            "label": "Competing willing",
+            "descriptionWordCount": 16,
+            "sourceIds": [
+              "augustine-sep",
+              "augustine-confessions"
+            ],
+            "valid": true
+          },
+          {
+            "row": 2,
+            "heading": "Will and conversion",
+            "label": "Crafted address",
+            "descriptionWordCount": 18,
+            "sourceIds": [
+              "augustine-sep",
+              "augustine-confessions"
+            ],
+            "valid": true
+          },
+          {
+            "row": 3,
+            "heading": "Time in Book XI",
+            "label": "Threefold present",
+            "descriptionWordCount": 14,
+            "sourceIds": [
+              "augustine-sep",
+              "augustine-confessions"
+            ],
+            "valid": true
+          },
+          {
+            "row": 4,
+            "heading": "Time in Book XI",
+            "label": "Recitation test",
+            "descriptionWordCount": 13,
+            "sourceIds": [
+              "augustine-sep",
+              "augustine-confessions"
+            ],
+            "valid": true
+          }
+        ]
       },
       "assets": {
         "principal": {
@@ -6874,7 +7956,7 @@
             "entityId": "augustine",
             "role": "primary-source",
             "mediaKind": "manuscript",
-            "creator": "Augustine; anonymous copyist",
+            "creator": "Augustine; copied by Henricus de Bocholdia",
             "objectDate": "1471",
             "imageCreator": null,
             "institution": "Universitätsbibliothek Basel, A IV 4, fol. 1r",
@@ -6911,8 +7993,19 @@
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 77098,
+                "sha256": "70b157b42158d67121e8b2b8f2391540b6d8db16e5348abd1f00f9a114ad74c6"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 466576,
+                "sha256": "ac93dcbfaccfd19c4f0f8a9b880eeeea242b56a1a820de53a43ca1de8f5da4e9"
+              }
+            }
           }
         },
         "physical": {
@@ -6924,7 +8017,7 @@
             "entityId": "augustine",
             "role": "primary-source",
             "mediaKind": "manuscript",
-            "creator": "Augustine; anonymous copyist",
+            "creator": "Augustine; copied by Henricus de Bocholdia",
             "objectDate": "1471",
             "imageCreator": null,
             "institution": "Universitätsbibliothek Basel, A IV 4, fol. 1r",
@@ -6961,8 +8054,19 @@
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 77098,
+                "sha256": "70b157b42158d67121e8b2b8f2391540b6d8db16e5348abd1f00f9a114ad74c6"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 466576,
+                "sha256": "ac93dcbfaccfd19c4f0f8a9b880eeeea242b56a1a820de53a43ca1de8f5da4e9"
+              }
+            }
           }
         }
       },
@@ -6978,9 +8082,9 @@
           "status": "match"
         },
         "mediaMountToPhysicalScene": {
-          "mount": 0.7518518518518518,
+          "mount": 0.7499999999999999,
           "scene": 0.75,
-          "status": "mismatch"
+          "status": "match"
         },
         "nonUniformScalingProtected": true
       },
@@ -6994,29 +8098,41 @@
           "status": "pass"
         },
         "fullArticleCta": {
-          "label": "Open the philosopher in the Atlas",
+          "label": "Read the full sourced Augustine article",
           "expectedLabel": "Read the full sourced Augustine article",
           "href": "#/philosophers/augustine",
-          "status": "fail"
+          "status": "pass"
         }
       },
       "visualReview": {
         "desktop": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720",
+            "evidence": "Direct route inspected with loaded principal preview, readable three-paragraph interpretation and structured sidebar, visible article CTA, and no horizontal overflow. Evidence: docs/visual-validation/gallery-03-supplementals/desktop/augustine-confessions-memory-time.png"
+          }
         },
         "mobile": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "390×844",
+            "evidence": "Direct route inspected with wrapped title, loaded object preview, scrollable interpretation, visible article and return controls, and no horizontal overflow. Evidence: docs/visual-validation/gallery-03-supplementals/mobile/augustine-confessions-memory-time.png"
+          }
         },
         "threeDimensional": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720 fresh direct-route session",
+            "evidence": "Fresh-session authored viewpoint inspected with a live 3D canvas, closed detail panel, distinct installation, readable plaque, and image mounted at its natural scene ratio. Evidence: docs/visual-validation/gallery-03-supplementals/staged-3d/augustine-confessions-memory-time.png"
+          }
         }
       },
       "contract": {
-        "evaluated": false,
-        "status": "not-evaluated",
+        "evaluated": true,
+        "status": "pass",
         "issues": []
       }
     },
@@ -7062,58 +8178,160 @@
         }
       },
       "exhibitReview": {
-        "authoredStatus": "unreviewed",
-        "effectiveStatus": "unreviewed",
-        "reviewedOn": null,
-        "method": null,
-        "resolution": null,
-        "lockPresent": false,
-        "lockCurrent": null
+        "authoredStatus": "standard-compliant",
+        "effectiveStatus": "standard-compliant",
+        "reviewedOn": "2026-08-12",
+        "method": "Gallery 03 supplemental review: two independent evidence scopes reconciled by the parent across object identity, claims, source mapping, rights, accessibility, provenance, structured interpretation, linking, and aspect-safe presentation.",
+        "resolution": "Resolved: reconciled the record to the installed Walters illumination, separated medieval visualization from the late-antique corpus, and mapped the nine ranks, symbolic method, and pseudonymous reception to sources.",
+        "lockPresent": true,
+        "lockCurrent": true
       },
       "interpretation": {
-        "objectLed": false,
-        "objectInterpretation": null,
-        "mainWordCount": 95,
+        "objectLed": true,
+        "objectInterpretation": "Van Delft’s 1400–1404 illumination visualizes the nine angelic choirs in medieval reception. It is not a manuscript of Pseudo-Dionysius or evidence for the corpus’s original setting.",
+        "mainWordCount": 317,
         "paragraphCount": 3,
-        "untitledParagraphs": false,
-        "sidebarSectionCount": 0,
-        "sidebarItemCount": 0,
-        "sidebarSections": []
+        "untitledParagraphs": true,
+        "sidebarSectionCount": 2,
+        "sidebarItemCount": 4,
+        "sidebarSections": [
+          {
+            "heading": "Nine ranks, three triads",
+            "items": [
+              {
+                "label": "Scriptural orders",
+                "description": "The treatise reads nine named angelic ranks as ordered forms of receiving and transmitting illumination.",
+                "sourceIds": [
+                  "pseudo-dionysius-sep",
+                  "celestial-hierarchy-primary"
+                ]
+              },
+              {
+                "label": "Medieval visualization",
+                "description": "Van Delft’s three painted bands render those nine choirs as later reception, not as a late-antique authorial diagram.",
+                "sourceIds": [
+                  "nine-choirs-commons"
+                ]
+              }
+            ]
+          },
+          {
+            "heading": "Symbol and unknowing",
+            "items": [
+              {
+                "label": "Unlike symbols",
+                "description": "The Celestial Hierarchy treats incongruous scriptural images as a way to resist literal likeness.",
+                "sourceIds": [
+                  "celestial-hierarchy-primary",
+                  "pseudo-dionysius-sep"
+                ]
+              },
+              {
+                "label": "Pseudonymous authority",
+                "description": "The apostolic persona shaped reception even though scholarship dates the corpus to late antiquity.",
+                "sourceIds": [
+                  "pseudo-dionysius-sep"
+                ]
+              }
+            ]
+          }
+        ]
       },
       "claimEvidence": {
         "sources": [
           {
-            "label": "Vatican Library / Wikimedia Commons — Celestial Hierarchy in Latin",
-            "url": "https://commons.wikimedia.org/wiki/File:Dionysius_Areopagita,_De_coelesti_hierarchia_(Latin).jpg",
+            "id": "nine-choirs-commons",
+            "label": "Wikimedia Commons / Walters Art Museum: Dirc van Delft, The Nine Choirs of Angels",
+            "url": "https://commons.wikimedia.org/wiki/File:Dirc_van_Delft_-_The_Nine_Choirs_of_Angels_-_Walters_W1716V_-_Full_Page.jpg",
             "kind": "collection-record"
           },
           {
-            "label": "Stanford Encyclopedia of Philosophy — Pseudo-Dionysius",
+            "id": "pseudo-dionysius-sep",
+            "label": "Stanford Encyclopedia of Philosophy: Pseudo-Dionysius the Areopagite",
             "url": "https://plato.stanford.edu/entries/pseudo-dionysius-areopagite/",
             "kind": "academic-reference"
+          },
+          {
+            "id": "celestial-hierarchy-primary",
+            "label": "Pseudo-Dionysius, The Celestial Hierarchy (Christian Classics Ethereal Library)",
+            "url": "https://ccel.org/ccel/dionysius/celestial.toc.html",
+            "kind": "primary-text"
           }
         ],
         "paragraphMappings": [
           {
             "paragraph": 1,
-            "wordCount": 28,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 98,
+            "sourceIds": [
+              "nine-choirs-commons",
+              "pseudo-dionysius-sep"
+            ],
+            "valid": true
           },
           {
             "paragraph": 2,
-            "wordCount": 23,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 107,
+            "sourceIds": [
+              "pseudo-dionysius-sep",
+              "celestial-hierarchy-primary"
+            ],
+            "valid": true
           },
           {
             "paragraph": 3,
-            "wordCount": 44,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 112,
+            "sourceIds": [
+              "pseudo-dionysius-sep",
+              "celestial-hierarchy-primary",
+              "nine-choirs-commons"
+            ],
+            "valid": true
           }
         ],
-        "sidebarMappings": []
+        "sidebarMappings": [
+          {
+            "row": 1,
+            "heading": "Nine ranks, three triads",
+            "label": "Scriptural orders",
+            "descriptionWordCount": 15,
+            "sourceIds": [
+              "pseudo-dionysius-sep",
+              "celestial-hierarchy-primary"
+            ],
+            "valid": true
+          },
+          {
+            "row": 2,
+            "heading": "Nine ranks, three triads",
+            "label": "Medieval visualization",
+            "descriptionWordCount": 18,
+            "sourceIds": [
+              "nine-choirs-commons"
+            ],
+            "valid": true
+          },
+          {
+            "row": 3,
+            "heading": "Symbol and unknowing",
+            "label": "Unlike symbols",
+            "descriptionWordCount": 14,
+            "sourceIds": [
+              "celestial-hierarchy-primary",
+              "pseudo-dionysius-sep"
+            ],
+            "valid": true
+          },
+          {
+            "row": 4,
+            "heading": "Symbol and unknowing",
+            "label": "Pseudonymous authority",
+            "descriptionWordCount": 14,
+            "sourceIds": [
+              "pseudo-dionysius-sep"
+            ],
+            "valid": true
+          }
+        ]
       },
       "assets": {
         "principal": {
@@ -7123,7 +8341,7 @@
             "title": "The Nine Choirs of Angels",
             "entityKind": "philosopher",
             "entityId": "pseudo-dionysius",
-            "role": "primary-source",
+            "role": "context",
             "mediaKind": "painting",
             "creator": "Dirc van Delft",
             "objectDate": "1400–1404",
@@ -7162,8 +8380,19 @@
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 92286,
+                "sha256": "bb209c907d1ed1edcc60bef73c989a771209f446185cd54e624a953033495257"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 143954,
+                "sha256": "a226ab1c1ee9ed195843fec31495257b706aa47415b376169d8f0058e9f8d3b3"
+              }
+            }
           }
         },
         "physical": {
@@ -7173,7 +8402,7 @@
             "title": "The Nine Choirs of Angels",
             "entityKind": "philosopher",
             "entityId": "pseudo-dionysius",
-            "role": "primary-source",
+            "role": "context",
             "mediaKind": "painting",
             "creator": "Dirc van Delft",
             "objectDate": "1400–1404",
@@ -7212,8 +8441,19 @@
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 92286,
+                "sha256": "bb209c907d1ed1edcc60bef73c989a771209f446185cd54e624a953033495257"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 143954,
+                "sha256": "a226ab1c1ee9ed195843fec31495257b706aa47415b376169d8f0058e9f8d3b3"
+              }
+            }
           }
         }
       },
@@ -7229,9 +8469,9 @@
           "status": "match"
         },
         "mediaMountToPhysicalScene": {
-          "mount": 0.6666666666666666,
+          "mount": 0.9046875,
           "scene": 0.9046875,
-          "status": "mismatch"
+          "status": "match"
         },
         "nonUniformScalingProtected": true
       },
@@ -7245,29 +8485,41 @@
           "status": "pass"
         },
         "fullArticleCta": {
-          "label": "Open the philosopher in the Atlas",
+          "label": "Read the full sourced Pseudo-Dionysius article",
           "expectedLabel": "Read the full sourced Pseudo-Dionysius article",
           "href": "#/philosophers/pseudo-dionysius",
-          "status": "fail"
+          "status": "pass"
         }
       },
       "visualReview": {
         "desktop": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720",
+            "evidence": "Direct route inspected with loaded principal preview, readable three-paragraph interpretation and structured sidebar, visible article CTA, and no horizontal overflow. Evidence: docs/visual-validation/gallery-03-supplementals/desktop/pseudo-dionysius-celestial-hierarchy.png"
+          }
         },
         "mobile": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "390×844",
+            "evidence": "Direct route inspected with wrapped title, loaded object preview, scrollable interpretation, visible article and return controls, and no horizontal overflow. Evidence: docs/visual-validation/gallery-03-supplementals/mobile/pseudo-dionysius-celestial-hierarchy.png"
+          }
         },
         "threeDimensional": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720 fresh direct-route session",
+            "evidence": "Fresh-session authored viewpoint inspected with a live 3D canvas, closed detail panel, distinct installation, readable plaque, and image mounted at its natural scene ratio. Evidence: docs/visual-validation/gallery-03-supplementals/staged-3d/pseudo-dionysius-celestial-hierarchy.png"
+          }
         }
       },
       "contract": {
-        "evaluated": false,
-        "status": "not-evaluated",
+        "evaluated": true,
+        "status": "pass",
         "issues": []
       }
     },

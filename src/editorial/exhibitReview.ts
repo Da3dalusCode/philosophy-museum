@@ -17,6 +17,17 @@ export type MuseumExhibitReview = {
   reviewedOn: string;
   method: string;
   lock: string;
+  visualReview?: {
+    desktop?: MuseumExhibitVisualReviewEvidence;
+    mobile?: MuseumExhibitVisualReviewEvidence;
+    threeDimensional?: MuseumExhibitVisualReviewEvidence;
+  };
+};
+
+export type MuseumExhibitVisualReviewEvidence = {
+  reviewedOn: string;
+  evidence: string;
+  viewport?: string;
 };
 
 export type MuseumExhibitReviewRecord = Record<string, unknown> & {
