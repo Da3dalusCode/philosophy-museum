@@ -17,18 +17,18 @@
   },
   "inventory": {
     "total": 411,
-    "backlog": 390,
-    "reviewed": 21,
-    "resolvedStandardCompliant": 21,
+    "backlog": 381,
+    "reviewed": 30,
+    "resolvedStandardCompliant": 30,
     "countsByAuthoredStatus": {
-      "unreviewed": 390,
+      "unreviewed": 381,
       "reconciled": 0,
-      "standard-compliant": 21
+      "standard-compliant": 30
     },
     "countsByEffectiveStatus": {
-      "unreviewed": 390,
+      "unreviewed": 381,
       "reconciled": 0,
-      "standard-compliant": 21,
+      "standard-compliant": 30,
       "out-of-date": 0
     },
     "countsByArticleRelationship": {
@@ -81,9 +81,9 @@
       "hallId": "classical-south-asian-worlds",
       "hallTitle": "Classical South Asia: Jain, Yoga, and Brahmanical Systems",
       "total": 21,
-      "backlog": 21,
-      "reviewed": 0,
-      "standardCompliant": 0
+      "backlog": 12,
+      "reviewed": 9,
+      "standardCompliant": 9
     },
     {
       "galleryNumber": 5,
@@ -8539,7 +8539,7 @@
       },
       "exhibit": {
         "id": "south-sarva-darsana-compendium",
-        "title": "Indian Philosophy: A Compendium Is Not the Whole Field",
+        "title": "Indian Philosophy: A Gathering and Its Limits",
         "directRoute": "#/museum/classical-south-asian-worlds/exhibits/south-sarva-darsana-compendium",
         "directRouteStatus": "canonical"
       },
@@ -8565,58 +8565,167 @@
         }
       },
       "exhibitReview": {
-        "authoredStatus": "unreviewed",
-        "effectiveStatus": "unreviewed",
-        "reviewedOn": null,
-        "method": null,
-        "resolution": null,
-        "lockPresent": false,
-        "lockCurrent": null
+        "authoredStatus": "standard-compliant",
+        "effectiveStatus": "standard-compliant",
+        "reviewedOn": "2026-08-12",
+        "method": "Gallery 04 supplemental review: two non-overlapping Terra/High evidence scopes reconciled by the Sol parent across installed-object identity, attribution, dating, institution, source record, rights, claim mapping, accessibility, provenance, routes, and aspect-safe presentation.",
+        "resolution": "Resolved: reconciled the mount to the installed Met painting rather than the unrelated compendium scan, replaced its identity, rights, provenance, caption, alt text, and interpretation, and preserved the painting’s natural proportions.",
+        "lockPresent": true,
+        "lockCurrent": true
       },
       "interpretation": {
-        "objectLed": false,
-        "objectInterpretation": null,
-        "mainWordCount": 104,
+        "objectLed": true,
+        "objectInterpretation": "Mir Kalan Khan’s c. 1770–75 Lucknow painting is evidence for a later representation of named holy men. It is not the previously described compendium, an ancient debate, or a comprehensive map of Indian philosophy.",
+        "mainWordCount": 333,
         "paragraphCount": 3,
-        "untitledParagraphs": false,
-        "sidebarSectionCount": 0,
-        "sidebarItemCount": 0,
-        "sidebarSections": []
+        "untitledParagraphs": true,
+        "sidebarSectionCount": 2,
+        "sidebarItemCount": 4,
+        "sidebarSections": [
+          {
+            "heading": "Inside the painted gathering",
+            "items": [
+              {
+                "label": "Named holy men",
+                "description": "The Met identifies a later Lucknow composition of devotional and ascetic figures, not representatives of the six classical schools.",
+                "sourceIds": [
+                  "gathering-met"
+                ]
+              },
+              {
+                "label": "Constructed encounter",
+                "description": "The arrangement records Mir Kalan Khan’s early-modern act of representation, not a witnessed meeting of every person shown.",
+                "sourceIds": [
+                  "gathering-met",
+                  "gathering-commons"
+                ]
+              }
+            ]
+          },
+          {
+            "heading": "Beyond the frame",
+            "items": [
+              {
+                "label": "Real disagreement",
+                "description": "Indian traditions offered incompatible accounts of knowledge, self, reality, language, action, and liberation.",
+                "sourceIds": [
+                  "iep-hindu-philosophy",
+                  "sep-indian-epistemology"
+                ]
+              },
+              {
+                "label": "Visible omissions",
+                "description": "One gathering cannot contain the field’s Buddhist, materialist, regional, vernacular, devotional, and scholastic histories.",
+                "sourceIds": [
+                  "iep-hindu-philosophy"
+                ]
+              }
+            ]
+          }
+        ]
       },
       "claimEvidence": {
         "sources": [
           {
-            "label": "Wikimedia Commons — 1908 Sarva-darśana-saṃgraha scan",
-            "url": "https://commons.wikimedia.org/wiki/File:The_Sarva-darsana-samgraha;_or,_Review_of_the_different_systems_of_Hindu_philosophy_(IA_sarvadarsanasamg00madhrich).pdf",
+            "id": "gathering-met",
+            "label": "Metropolitan Museum of Art: A Gathering of Holy Men of Different Faiths, 2009.318",
+            "url": "https://www.metmuseum.org/art/collection/search/456967",
             "kind": "collection-record"
           },
           {
-            "label": "Internet Encyclopedia of Philosophy — Indian Philosophy",
-            "url": "https://iep.utm.edu/indian-philosophy/",
+            "id": "gathering-commons",
+            "label": "Wikimedia Commons: A Gathering of Holy Men of Different Faiths, installed CC0 image record",
+            "url": "https://commons.wikimedia.org/wiki/File:A_Gathering_of_Holy_Men_of_Different_Faiths_MET_DP213133.jpg",
+            "kind": "collection-record"
+          },
+          {
+            "id": "iep-hindu-philosophy",
+            "label": "Internet Encyclopedia of Philosophy: Hindu Philosophy",
+            "url": "https://iep.utm.edu/hindu-ph/",
+            "kind": "academic-reference"
+          },
+          {
+            "id": "sep-indian-epistemology",
+            "label": "Stanford Encyclopedia of Philosophy: Epistemology in Classical Indian Philosophy",
+            "url": "https://plato.stanford.edu/entries/epistemology-india/",
             "kind": "academic-reference"
           }
         ],
         "paragraphMappings": [
           {
             "paragraph": 1,
-            "wordCount": 36,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 106,
+            "sourceIds": [
+              "gathering-met",
+              "gathering-commons"
+            ],
+            "valid": true
           },
           {
             "paragraph": 2,
-            "wordCount": 29,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 109,
+            "sourceIds": [
+              "iep-hindu-philosophy",
+              "sep-indian-epistemology",
+              "gathering-met"
+            ],
+            "valid": true
           },
           {
             "paragraph": 3,
-            "wordCount": 39,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 118,
+            "sourceIds": [
+              "gathering-met",
+              "gathering-commons",
+              "iep-hindu-philosophy"
+            ],
+            "valid": true
           }
         ],
-        "sidebarMappings": []
+        "sidebarMappings": [
+          {
+            "row": 1,
+            "heading": "Inside the painted gathering",
+            "label": "Named holy men",
+            "descriptionWordCount": 19,
+            "sourceIds": [
+              "gathering-met"
+            ],
+            "valid": true
+          },
+          {
+            "row": 2,
+            "heading": "Inside the painted gathering",
+            "label": "Constructed encounter",
+            "descriptionWordCount": 18,
+            "sourceIds": [
+              "gathering-met",
+              "gathering-commons"
+            ],
+            "valid": true
+          },
+          {
+            "row": 3,
+            "heading": "Beyond the frame",
+            "label": "Real disagreement",
+            "descriptionWordCount": 13,
+            "sourceIds": [
+              "iep-hindu-philosophy",
+              "sep-indian-epistemology"
+            ],
+            "valid": true
+          },
+          {
+            "row": 4,
+            "heading": "Beyond the frame",
+            "label": "Visible omissions",
+            "descriptionWordCount": 14,
+            "sourceIds": [
+              "iep-hindu-philosophy"
+            ],
+            "valid": true
+          }
+        ]
       },
       "assets": {
         "principal": {
@@ -8626,18 +8735,18 @@
             "title": "A Gathering of Holy Men of Different Faiths",
             "entityKind": "branch",
             "entityId": "indian-philosophy",
-            "role": "material-history",
+            "role": "context",
             "mediaKind": "painting",
             "creator": "Mir Kalan Khan",
-            "objectDate": "c. 1770–1775",
+            "objectDate": "c. 1770–75",
             "imageCreator": null,
-            "institution": "The Metropolitan Museum of Art, 2009.318",
+            "institution": "Metropolitan Museum of Art, 2009.318",
             "likenessStatus": "not-applicable"
           },
           "provenance": {
             "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:A_Gathering_of_Holy_Men_of_Different_Faiths_MET_DP213133.jpg",
-            "objectPageUrl": null,
-            "historicalNote": "The painting offers a later visual analogue for plural traditions; it does not depict the schools catalogued by Mādhava or illustrate the Sarva-darśana-saṃgraha itself.",
+            "objectPageUrl": "https://www.metmuseum.org/art/collection/search/456967",
+            "historicalNote": "The installed object is an early-modern painting, not the unrelated 1908 Sarva-darśana-saṃgraha scan previously described by this asset ID, an ancient assembly, or a comprehensive map of Indian philosophy.",
             "derivativeNotice": "The source image was resized and converted to WebP by Philosophy Atlas; no interpretive elements were added.",
             "manifestFiles": [
               "museumModernAssetManifest.json"
@@ -8645,14 +8754,14 @@
             "exactSourceRecord": true
           },
           "rights": {
-            "license": "Public Domain Mark 1.0",
-            "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
-            "rightsKind": "rights-status",
-            "attribution": "Mir Kalan Khan, A Gathering of Holy Men of Different Faiths, c. 1770–1775. The Metropolitan Museum of Art. Public domain."
+            "license": "CC0 1.0",
+            "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "rightsKind": "dedication",
+            "attribution": "Mir Kalan Khan, A Gathering of Holy Men of Different Faiths, Lucknow, c. 1770–75, Metropolitan Museum of Art 2009.318. Image CC0."
           },
           "accessibility": {
-            "caption": "Mir Kalan Khan, A Gathering of Holy Men of Different Faiths, c. 1770–1775.",
-            "alt": "Indian painting assembling many named teachers and holy men in a landscape for conversation and practice."
+            "caption": "Mir Kalan Khan’s c. 1770–75 Lucknow painting composes a later gathering of named holy men from different faiths.",
+            "alt": "A richly patterned Lucknow painting gathers named holy men in small groups across a gold-toned ground."
           },
           "dimensions": {
             "scene": {
@@ -8665,8 +8774,19 @@
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 64768,
+                "sha256": "9cb8ca804c8af12ce17758ad69dee36b0c7600d9bb252d8672a912197ffbde63"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 306662,
+                "sha256": "c98f7bf9c7ffbf3a6d7037def8687850db2eb35e73c2d85c08d3863439f3e246"
+              }
+            }
           }
         },
         "physical": {
@@ -8676,18 +8796,18 @@
             "title": "A Gathering of Holy Men of Different Faiths",
             "entityKind": "branch",
             "entityId": "indian-philosophy",
-            "role": "material-history",
+            "role": "context",
             "mediaKind": "painting",
             "creator": "Mir Kalan Khan",
-            "objectDate": "c. 1770–1775",
+            "objectDate": "c. 1770–75",
             "imageCreator": null,
-            "institution": "The Metropolitan Museum of Art, 2009.318",
+            "institution": "Metropolitan Museum of Art, 2009.318",
             "likenessStatus": "not-applicable"
           },
           "provenance": {
             "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:A_Gathering_of_Holy_Men_of_Different_Faiths_MET_DP213133.jpg",
-            "objectPageUrl": null,
-            "historicalNote": "The painting offers a later visual analogue for plural traditions; it does not depict the schools catalogued by Mādhava or illustrate the Sarva-darśana-saṃgraha itself.",
+            "objectPageUrl": "https://www.metmuseum.org/art/collection/search/456967",
+            "historicalNote": "The installed object is an early-modern painting, not the unrelated 1908 Sarva-darśana-saṃgraha scan previously described by this asset ID, an ancient assembly, or a comprehensive map of Indian philosophy.",
             "derivativeNotice": "The source image was resized and converted to WebP by Philosophy Atlas; no interpretive elements were added.",
             "manifestFiles": [
               "museumModernAssetManifest.json"
@@ -8695,14 +8815,14 @@
             "exactSourceRecord": true
           },
           "rights": {
-            "license": "Public Domain Mark 1.0",
-            "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
-            "rightsKind": "rights-status",
-            "attribution": "Mir Kalan Khan, A Gathering of Holy Men of Different Faiths, c. 1770–1775. The Metropolitan Museum of Art. Public domain."
+            "license": "CC0 1.0",
+            "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "rightsKind": "dedication",
+            "attribution": "Mir Kalan Khan, A Gathering of Holy Men of Different Faiths, Lucknow, c. 1770–75, Metropolitan Museum of Art 2009.318. Image CC0."
           },
           "accessibility": {
-            "caption": "Mir Kalan Khan, A Gathering of Holy Men of Different Faiths, c. 1770–1775.",
-            "alt": "Indian painting assembling many named teachers and holy men in a landscape for conversation and practice."
+            "caption": "Mir Kalan Khan’s c. 1770–75 Lucknow painting composes a later gathering of named holy men from different faiths.",
+            "alt": "A richly patterned Lucknow painting gathers named holy men in small groups across a gold-toned ground."
           },
           "dimensions": {
             "scene": {
@@ -8715,8 +8835,19 @@
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 64768,
+                "sha256": "9cb8ca804c8af12ce17758ad69dee36b0c7600d9bb252d8672a912197ffbde63"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 306662,
+                "sha256": "c98f7bf9c7ffbf3a6d7037def8687850db2eb35e73c2d85c08d3863439f3e246"
+              }
+            }
           }
         }
       },
@@ -8732,9 +8863,9 @@
           "status": "match"
         },
         "mediaMountToPhysicalScene": {
-          "mount": 0.6585365853658537,
+          "mount": 0.759375,
           "scene": 0.759375,
-          "status": "mismatch"
+          "status": "match"
         },
         "nonUniformScalingProtected": true
       },
@@ -8748,29 +8879,41 @@
           "status": "pass"
         },
         "fullArticleCta": {
-          "label": "Open Indian Philosophy in the Atlas",
+          "label": "Read the full sourced Indian Philosophy article",
           "expectedLabel": "Read the full sourced Indian Philosophy article",
           "href": "#/branches/indian-philosophy",
-          "status": "fail"
+          "status": "pass"
         }
       },
       "visualReview": {
         "desktop": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720",
+            "evidence": "Direct route inspected with the installed object, three-paragraph interpretation, subject-specific sidebar, article CTA, and no horizontal overflow. Evidence: docs/visual-validation/gallery-04-supplementals/desktop/south-sarva-darsana-compendium.png"
+          }
         },
         "mobile": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "390×844",
+            "evidence": "Direct route inspected with wrapped copy, loaded object preview, scrollable interpretation, visible controls, and no horizontal overflow. Evidence: docs/visual-validation/gallery-04-supplementals/mobile/south-sarva-darsana-compendium.png"
+          }
         },
         "threeDimensional": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720 fresh direct-route session",
+            "evidence": "Fresh-session authored viewpoint inspected with a live 3D canvas, closed detail panel, readable plaque, distinct installation, and the image mounted at its natural scene ratio. Evidence: docs/visual-validation/gallery-04-supplementals/staged-3d/south-sarva-darsana-compendium.png"
+          }
         }
       },
       "contract": {
-        "evaluated": false,
-        "status": "not-evaluated",
+        "evaluated": true,
+        "status": "pass",
         "issues": []
       }
     },
@@ -8816,80 +8959,183 @@
         }
       },
       "exhibitReview": {
-        "authoredStatus": "unreviewed",
-        "effectiveStatus": "unreviewed",
-        "reviewedOn": null,
-        "method": null,
-        "resolution": null,
-        "lockPresent": false,
-        "lockCurrent": null
+        "authoredStatus": "standard-compliant",
+        "effectiveStatus": "standard-compliant",
+        "reviewedOn": "2026-08-12",
+        "method": "Gallery 04 supplemental review: two non-overlapping Terra/High evidence scopes reconciled by the Sol parent across installed-object identity, attribution, dating, institution, source record, rights, claim mapping, accessibility, provenance, routes, and aspect-safe presentation.",
+        "resolution": "Resolved: retained the installed manuscript, replaced the unsupported c. 1800–1850 date with explicit uncertainty, identified its reported Thrissur custody, added the British Library collection record, and restored natural derivative and mount proportions.",
+        "lockPresent": true,
+        "lockCurrent": true
       },
       "interpretation": {
-        "objectLed": false,
-        "objectInterpretation": null,
-        "mainWordCount": 91,
+        "objectLed": true,
+        "objectInterpretation": "The photographed palm-leaf witness reports Sanskrit Sāmaveda and Upaniṣadic material in Malayalam script at Vadakke Madham Brahmaswam. Its precise shelfmark and copying date remain unconfirmed.",
+        "mainWordCount": 340,
         "paragraphCount": 3,
-        "untitledParagraphs": false,
-        "sidebarSectionCount": 0,
-        "sidebarItemCount": 0,
-        "sidebarSections": []
+        "untitledParagraphs": true,
+        "sidebarSectionCount": 2,
+        "sidebarItemCount": 4,
+        "sidebarSections": [
+          {
+            "heading": "What the witness establishes",
+            "items": [
+              {
+                "label": "Language and script",
+                "description": "The image record reports Sanskrit material written in Malayalam script; those are different descriptive layers.",
+                "sourceIds": [
+                  "upanishad-commons"
+                ]
+              },
+              {
+                "label": "Reported custody",
+                "description": "Commons locates the original at Vadakke Madham Brahmaswam, whose manuscript collection is independently documented by the British Library.",
+                "sourceIds": [
+                  "upanishad-commons",
+                  "vadakke-eap"
+                ]
+              }
+            ]
+          },
+          {
+            "heading": "What remains uncertain",
+            "items": [
+              {
+                "label": "Copying date",
+                "description": "Without a secure match to a catalogued item or folio, the photograph does not justify a precise date.",
+                "sourceIds": [
+                  "upanishad-commons",
+                  "vadakke-eap"
+                ]
+              },
+              {
+                "label": "Philosophical reach",
+                "description": "One material witness cannot settle the composition history or rival interpretations of Upaniṣadic texts.",
+                "sourceIds": [
+                  "iep-hindu-philosophy"
+                ]
+              }
+            ]
+          }
+        ]
       },
       "claimEvidence": {
         "sources": [
           {
-            "label": "Wikimedia Commons — Sāma Veda manuscript with Upaniṣad",
+            "id": "upanishad-commons",
+            "label": "Wikimedia Commons: photographed Sāmaveda/Upaniṣad manuscript source record",
             "url": "https://commons.wikimedia.org/wiki/File:An_Upanishad_embedded_in_Sama_Veda,_Sanskrit_manuscript_in_Thrissur_Hindu_monastery,_Malayalam_script_-_1.jpg",
             "kind": "collection-record"
           },
           {
-            "label": "Internet Encyclopedia of Philosophy — Indian Philosophy",
-            "url": "https://iep.utm.edu/indian-philosophy/",
+            "id": "vadakke-eap",
+            "label": "British Library Endangered Archives Programme: Vadakke Madham Brahmaswam collection, EAP1039/1",
+            "url": "https://searcharchives.bl.uk/catalog/032-003481723",
+            "kind": "collection-record"
+          },
+          {
+            "id": "iep-hindu-philosophy",
+            "label": "Internet Encyclopedia of Philosophy: Hindu Philosophy",
+            "url": "https://iep.utm.edu/hindu-ph/",
             "kind": "academic-reference"
           }
         ],
         "paragraphMappings": [
           {
             "paragraph": 1,
-            "wordCount": 27,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 111,
+            "sourceIds": [
+              "upanishad-commons",
+              "vadakke-eap"
+            ],
+            "valid": true
           },
           {
             "paragraph": 2,
-            "wordCount": 24,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 110,
+            "sourceIds": [
+              "upanishad-commons",
+              "vadakke-eap",
+              "iep-hindu-philosophy"
+            ],
+            "valid": true
           },
           {
             "paragraph": 3,
-            "wordCount": 40,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 119,
+            "sourceIds": [
+              "iep-hindu-philosophy",
+              "upanishad-commons",
+              "vadakke-eap"
+            ],
+            "valid": true
           }
         ],
-        "sidebarMappings": []
+        "sidebarMappings": [
+          {
+            "row": 1,
+            "heading": "What the witness establishes",
+            "label": "Language and script",
+            "descriptionWordCount": 15,
+            "sourceIds": [
+              "upanishad-commons"
+            ],
+            "valid": true
+          },
+          {
+            "row": 2,
+            "heading": "What the witness establishes",
+            "label": "Reported custody",
+            "descriptionWordCount": 18,
+            "sourceIds": [
+              "upanishad-commons",
+              "vadakke-eap"
+            ],
+            "valid": true
+          },
+          {
+            "row": 3,
+            "heading": "What remains uncertain",
+            "label": "Copying date",
+            "descriptionWordCount": 18,
+            "sourceIds": [
+              "upanishad-commons",
+              "vadakke-eap"
+            ],
+            "valid": true
+          },
+          {
+            "row": 4,
+            "heading": "What remains uncertain",
+            "label": "Philosophical reach",
+            "descriptionWordCount": 14,
+            "sourceIds": [
+              "iep-hindu-philosophy"
+            ],
+            "valid": true
+          }
+        ]
       },
       "assets": {
         "principal": {
           "id": "south-upanishad-sama-veda-manuscript",
           "status": "registered",
           "identity": {
-            "title": "Upaniṣad embedded in a Sāma Veda manuscript",
+            "title": "Upaniṣad embedded in a Sāmaveda manuscript",
             "entityKind": "branch",
             "entityId": "indian-philosophy",
             "role": "material-history",
             "mediaKind": "manuscript",
             "creator": "Unknown copyist; photograph by Ms Sarah Welch",
-            "objectDate": "c. 1800–1850 manuscript",
+            "objectDate": "Copying date not securely established by the image record",
             "imageCreator": null,
-            "institution": "Hindu monastery collection, Thrissur, Kerala",
+            "institution": "Vadakke Madham Brahmaswam, Thrissur, Kerala (reported by source record)",
             "likenessStatus": "not-applicable"
           },
           "provenance": {
             "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:An_Upanishad_embedded_in_Sama_Veda,_Sanskrit_manuscript_in_Thrissur_Hindu_monastery,_Malayalam_script_-_1.jpg",
             "objectPageUrl": null,
-            "historicalNote": "The manuscript’s material history is much later than the text it transmits and should not be treated as an authorial original.",
-            "derivativeNotice": "Original image retained uncropped; resized and converted to WebP by Philosophy Atlas.",
+            "historicalNote": "The image record reports the original at Vadakke Madham Brahmaswam, but no secure shelfmark match establishes a precise copying date; the witness is not an authorial original.",
+            "derivativeNotice": "Original image retained uncropped; resized, padded with a sampled neutral field to keep scene and panel ratios aligned, and converted to WebP by Philosophy Atlas.",
             "manifestFiles": [
               "museumModernAssetManifest.json"
             ],
@@ -8902,7 +9148,7 @@
             "attribution": "Ms Sarah Welch, photograph of a Sanskrit Sāma Veda manuscript with an Upaniṣad in Malayalam script, CC0."
           },
           "accessibility": {
-            "caption": "A nineteenth-century manuscript witness to an Upaniṣad embedded in Sāma Veda transmission.",
+            "caption": "A photographed palm-leaf witness to Sanskrit Sāmaveda and Upaniṣadic transmission in Malayalam script; its precise copying date is unconfirmed.",
             "alt": "Long palm-leaf manuscript strip written in Malayalam script with red guide marks."
           },
           "dimensions": {
@@ -8912,34 +9158,45 @@
             },
             "panel": {
               "width": 1280,
-              "height": 303
+              "height": 360
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 26498,
+                "sha256": "6f9302f6d1a0f935658d7f5f3de8d8dd00b5e2ffc602f46a4826acaa026e7f94"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 152492,
+                "sha256": "24befd6aa48406c2a8b56de81345e9325b4fc014dafb4b67707022ecce4fd11f"
+              }
+            }
           }
         },
         "physical": {
           "id": "south-upanishad-sama-veda-manuscript",
           "status": "registered",
           "identity": {
-            "title": "Upaniṣad embedded in a Sāma Veda manuscript",
+            "title": "Upaniṣad embedded in a Sāmaveda manuscript",
             "entityKind": "branch",
             "entityId": "indian-philosophy",
             "role": "material-history",
             "mediaKind": "manuscript",
             "creator": "Unknown copyist; photograph by Ms Sarah Welch",
-            "objectDate": "c. 1800–1850 manuscript",
+            "objectDate": "Copying date not securely established by the image record",
             "imageCreator": null,
-            "institution": "Hindu monastery collection, Thrissur, Kerala",
+            "institution": "Vadakke Madham Brahmaswam, Thrissur, Kerala (reported by source record)",
             "likenessStatus": "not-applicable"
           },
           "provenance": {
             "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:An_Upanishad_embedded_in_Sama_Veda,_Sanskrit_manuscript_in_Thrissur_Hindu_monastery,_Malayalam_script_-_1.jpg",
             "objectPageUrl": null,
-            "historicalNote": "The manuscript’s material history is much later than the text it transmits and should not be treated as an authorial original.",
-            "derivativeNotice": "Original image retained uncropped; resized and converted to WebP by Philosophy Atlas.",
+            "historicalNote": "The image record reports the original at Vadakke Madham Brahmaswam, but no secure shelfmark match establishes a precise copying date; the witness is not an authorial original.",
+            "derivativeNotice": "Original image retained uncropped; resized, padded with a sampled neutral field to keep scene and panel ratios aligned, and converted to WebP by Philosophy Atlas.",
             "manifestFiles": [
               "museumModernAssetManifest.json"
             ],
@@ -8952,7 +9209,7 @@
             "attribution": "Ms Sarah Welch, photograph of a Sanskrit Sāma Veda manuscript with an Upaniṣad in Malayalam script, CC0."
           },
           "accessibility": {
-            "caption": "A nineteenth-century manuscript witness to an Upaniṣad embedded in Sāma Veda transmission.",
+            "caption": "A photographed palm-leaf witness to Sanskrit Sāmaveda and Upaniṣadic transmission in Malayalam script; its precise copying date is unconfirmed.",
             "alt": "Long palm-leaf manuscript strip written in Malayalam script with red guide marks."
           },
           "dimensions": {
@@ -8962,30 +9219,41 @@
             },
             "panel": {
               "width": 1280,
-              "height": 303
+              "height": 360
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 26498,
+                "sha256": "6f9302f6d1a0f935658d7f5f3de8d8dd00b5e2ffc602f46a4826acaa026e7f94"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 152492,
+                "sha256": "24befd6aa48406c2a8b56de81345e9325b4fc014dafb4b67707022ecce4fd11f"
+              }
+            }
           }
         }
       },
       "aspectRatios": {
         "principalSceneToPanel": {
           "scene": 3.5555555555555554,
-          "panel": 4.224422442244224,
-          "status": "mismatch"
+          "panel": 3.5555555555555554,
+          "status": "match"
         },
         "physicalSceneToPanel": {
           "scene": 3.5555555555555554,
-          "panel": 4.224422442244224,
-          "status": "mismatch"
+          "panel": 3.5555555555555554,
+          "status": "match"
         },
         "mediaMountToPhysicalScene": {
-          "mount": 4.211764705882353,
+          "mount": 3.555555555555556,
           "scene": 3.5555555555555554,
-          "status": "mismatch"
+          "status": "match"
         },
         "nonUniformScalingProtected": true
       },
@@ -8999,29 +9267,41 @@
           "status": "pass"
         },
         "fullArticleCta": {
-          "label": "Open Indian Philosophy in the Atlas",
+          "label": "Read the full sourced Indian Philosophy article",
           "expectedLabel": "Read the full sourced Indian Philosophy article",
           "href": "#/branches/indian-philosophy",
-          "status": "fail"
+          "status": "pass"
         }
       },
       "visualReview": {
         "desktop": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720",
+            "evidence": "Direct route inspected with the installed object, three-paragraph interpretation, subject-specific sidebar, article CTA, and no horizontal overflow. Evidence: docs/visual-validation/gallery-04-supplementals/desktop/south-upanishad-manuscript-world.png"
+          }
         },
         "mobile": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "390×844",
+            "evidence": "Direct route inspected with wrapped copy, loaded object preview, scrollable interpretation, visible controls, and no horizontal overflow. Evidence: docs/visual-validation/gallery-04-supplementals/mobile/south-upanishad-manuscript-world.png"
+          }
         },
         "threeDimensional": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720 fresh direct-route session",
+            "evidence": "Fresh-session authored viewpoint inspected with a live 3D canvas, closed detail panel, readable plaque, distinct installation, and the image mounted at its natural scene ratio. Evidence: docs/visual-validation/gallery-04-supplementals/staged-3d/south-upanishad-manuscript-world.png"
+          }
         }
       },
       "contract": {
-        "evaluated": false,
-        "status": "not-evaluated",
+        "evaluated": true,
+        "status": "pass",
         "issues": []
       }
     },
@@ -9067,73 +9347,178 @@
         }
       },
       "exhibitReview": {
-        "authoredStatus": "unreviewed",
-        "effectiveStatus": "unreviewed",
-        "reviewedOn": null,
-        "method": null,
-        "resolution": null,
-        "lockPresent": false,
-        "lockCurrent": null
+        "authoredStatus": "standard-compliant",
+        "effectiveStatus": "standard-compliant",
+        "reviewedOn": "2026-08-12",
+        "method": "Gallery 04 supplemental review: two non-overlapping Terra/High evidence scopes reconciled by the Sol parent across installed-object identity, attribution, dating, institution, source record, rights, claim mapping, accessibility, provenance, routes, and aspect-safe presentation.",
+        "resolution": "Resolved: verified the Nar Singh attribution and Chester Beatty folio, retained a conservative date across differing published records, bounded the image to Akbar’s court, and replaced generic Gallery 07 copy with sourced Gallery 04 interpretation.",
+        "lockPresent": true,
+        "lockCurrent": true
       },
       "interpretation": {
-        "objectLed": false,
-        "objectInterpretation": null,
-        "mainWordCount": 97,
+        "objectLed": true,
+        "objectInterpretation": "Nar Singh’s Akbarnāma miniature is a later Mughal representation of a managed interreligious encounter at Akbar’s court. It is not an ancient philosophical congress or a transcript of debate.",
+        "mainWordCount": 321,
         "paragraphCount": 3,
-        "untitledParagraphs": false,
-        "sidebarSectionCount": 0,
-        "sidebarItemCount": 0,
-        "sidebarSections": []
+        "untitledParagraphs": true,
+        "sidebarSectionCount": 2,
+        "sidebarItemCount": 4,
+        "sidebarSections": [
+          {
+            "heading": "Court and manuscript",
+            "items": [
+              {
+                "label": "Named folio",
+                "description": "The work is attributed to Nar Singh and identified as Chester Beatty Library MS 3, folio 263b.",
+                "sourceIds": [
+                  "ibadat-commons",
+                  "ibadat-met-publication"
+                ]
+              },
+              {
+                "label": "Conservative date",
+                "description": "Published descriptions differ between 1597 and c. 1605, so the plaque keeps the range broad.",
+                "sourceIds": [
+                  "ibadat-commons",
+                  "ibadat-met-publication"
+                ]
+              }
+            ]
+          },
+          {
+            "heading": "Limits of the encounter",
+            "items": [
+              {
+                "label": "Mughal setting",
+                "description": "The painting concerns Akbar’s court, not an ancient meeting of philosophical schools.",
+                "sourceIds": [
+                  "ibadat-commons"
+                ]
+              },
+              {
+                "label": "Power in the room",
+                "description": "Patronage, protocol, translation, and artistic selection shape whose encounter becomes visible.",
+                "sourceIds": [
+                  "ibadat-met-publication",
+                  "iep-hindu-philosophy"
+                ]
+              }
+            ]
+          }
+        ]
       },
       "claimEvidence": {
         "sources": [
           {
-            "label": "Wikimedia Commons — Jesuits at Akbar’s court",
+            "id": "ibadat-commons",
+            "label": "Wikimedia Commons: Jesuits at Akbar’s court",
             "url": "https://commons.wikimedia.org/wiki/File:Jesuits_at_Akbar%27s_court.jpg",
             "kind": "collection-record"
           },
           {
-            "label": "Internet Encyclopedia of Philosophy — Indian Philosophy",
-            "url": "https://iep.utm.edu/indian-philosophy/",
+            "id": "ibadat-met-publication",
+            "label": "Metropolitan Museum of Art: Wonder of the Age, object citation for Chester Beatty MS 3, fol. 263b",
+            "url": "https://resources.metmuseum.org/resources/metpublications/pdf/Wonder_of_the_Age_Master_Painters_of_India_1100_1900.pdf",
+            "kind": "academic-reference"
+          },
+          {
+            "id": "iep-hindu-philosophy",
+            "label": "Internet Encyclopedia of Philosophy: Hindu Philosophy",
+            "url": "https://iep.utm.edu/hindu-ph/",
             "kind": "academic-reference"
           }
         ],
         "paragraphMappings": [
           {
             "paragraph": 1,
-            "wordCount": 33,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 100,
+            "sourceIds": [
+              "ibadat-commons",
+              "ibadat-met-publication"
+            ],
+            "valid": true
           },
           {
             "paragraph": 2,
-            "wordCount": 31,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 109,
+            "sourceIds": [
+              "ibadat-commons",
+              "ibadat-met-publication",
+              "iep-hindu-philosophy"
+            ],
+            "valid": true
           },
           {
             "paragraph": 3,
-            "wordCount": 33,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 112,
+            "sourceIds": [
+              "iep-hindu-philosophy",
+              "ibadat-commons",
+              "ibadat-met-publication"
+            ],
+            "valid": true
           }
         ],
-        "sidebarMappings": []
+        "sidebarMappings": [
+          {
+            "row": 1,
+            "heading": "Court and manuscript",
+            "label": "Named folio",
+            "descriptionWordCount": 17,
+            "sourceIds": [
+              "ibadat-commons",
+              "ibadat-met-publication"
+            ],
+            "valid": true
+          },
+          {
+            "row": 2,
+            "heading": "Court and manuscript",
+            "label": "Conservative date",
+            "descriptionWordCount": 15,
+            "sourceIds": [
+              "ibadat-commons",
+              "ibadat-met-publication"
+            ],
+            "valid": true
+          },
+          {
+            "row": 3,
+            "heading": "Limits of the encounter",
+            "label": "Mughal setting",
+            "descriptionWordCount": 12,
+            "sourceIds": [
+              "ibadat-commons"
+            ],
+            "valid": true
+          },
+          {
+            "row": 4,
+            "heading": "Limits of the encounter",
+            "label": "Power in the room",
+            "descriptionWordCount": 11,
+            "sourceIds": [
+              "ibadat-met-publication",
+              "iep-hindu-philosophy"
+            ],
+            "valid": true
+          }
+        ]
       },
       "assets": {
         "principal": {
           "id": "south-ibadat-khana-debate",
           "status": "registered",
           "identity": {
-            "title": "Jesuits at Akbar’s court",
+            "title": "Jesuits at Akbar’s Court",
             "entityKind": "branch",
             "entityId": "indian-philosophy",
             "role": "context",
             "mediaKind": "painting",
             "creator": "Nar Singh",
-            "objectDate": "c. 1605",
+            "objectDate": "Late 16th or early 17th century (published descriptions range from 1597 to c. 1605)",
             "imageCreator": null,
-            "institution": "Chester Beatty Library, Akbarnama CBL In 03",
+            "institution": "Chester Beatty Library, Akbarnāma MS 3, fol. 263b",
             "likenessStatus": "not-applicable"
           },
           "provenance": {
@@ -9150,7 +9535,7 @@
             "license": "Public Domain Mark 1.0",
             "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
             "rightsKind": "rights-status",
-            "attribution": "Nar Singh, Jesuits at Akbar’s court, c. 1605, Chester Beatty Library. Public domain."
+            "attribution": "Nar Singh, Jesuits at Akbar’s Court, Akbarnāma MS 3, fol. 263b, late sixteenth or early seventeenth century, Chester Beatty Library. Public domain."
           },
           "accessibility": {
             "caption": "Nar Singh’s Akbarnāma painting gives later visual form to deliberation across traditions at Akbar’s court.",
@@ -9167,23 +9552,34 @@
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 48470,
+                "sha256": "3bb0cd79bbc19a9dd7d2983906e138d32f6d74ac61d538365493b553ec4ecce4"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 273230,
+                "sha256": "59c915bfbf2ef8b5cf8cb65cb7e0fc4a40ce3e556bfa5cd3a334166b778fc3d2"
+              }
+            }
           }
         },
         "physical": {
           "id": "south-ibadat-khana-debate",
           "status": "registered",
           "identity": {
-            "title": "Jesuits at Akbar’s court",
+            "title": "Jesuits at Akbar’s Court",
             "entityKind": "branch",
             "entityId": "indian-philosophy",
             "role": "context",
             "mediaKind": "painting",
             "creator": "Nar Singh",
-            "objectDate": "c. 1605",
+            "objectDate": "Late 16th or early 17th century (published descriptions range from 1597 to c. 1605)",
             "imageCreator": null,
-            "institution": "Chester Beatty Library, Akbarnama CBL In 03",
+            "institution": "Chester Beatty Library, Akbarnāma MS 3, fol. 263b",
             "likenessStatus": "not-applicable"
           },
           "provenance": {
@@ -9200,7 +9596,7 @@
             "license": "Public Domain Mark 1.0",
             "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
             "rightsKind": "rights-status",
-            "attribution": "Nar Singh, Jesuits at Akbar’s court, c. 1605, Chester Beatty Library. Public domain."
+            "attribution": "Nar Singh, Jesuits at Akbar’s Court, Akbarnāma MS 3, fol. 263b, late sixteenth or early seventeenth century, Chester Beatty Library. Public domain."
           },
           "accessibility": {
             "caption": "Nar Singh’s Akbarnāma painting gives later visual form to deliberation across traditions at Akbar’s court.",
@@ -9217,8 +9613,19 @@
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 48470,
+                "sha256": "3bb0cd79bbc19a9dd7d2983906e138d32f6d74ac61d538365493b553ec4ecce4"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 273230,
+                "sha256": "59c915bfbf2ef8b5cf8cb65cb7e0fc4a40ce3e556bfa5cd3a334166b778fc3d2"
+              }
+            }
           }
         }
       },
@@ -9234,9 +9641,9 @@
           "status": "match"
         },
         "mediaMountToPhysicalScene": {
-          "mount": 0.5515151515151515,
+          "mount": 0.5515625,
           "scene": 0.5515625,
-          "status": "mismatch"
+          "status": "match"
         },
         "nonUniformScalingProtected": true
       },
@@ -9250,29 +9657,41 @@
           "status": "pass"
         },
         "fullArticleCta": {
-          "label": "Open the tradition in the Atlas",
+          "label": "Read the full sourced Indian Philosophy article",
           "expectedLabel": "Read the full sourced Indian Philosophy article",
           "href": "#/branches/indian-philosophy",
-          "status": "fail"
+          "status": "pass"
         }
       },
       "visualReview": {
         "desktop": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720",
+            "evidence": "Direct route inspected with the installed object, three-paragraph interpretation, subject-specific sidebar, article CTA, and no horizontal overflow. Evidence: docs/visual-validation/gallery-04-supplementals/desktop/south-ibadat-khana-plurality.png"
+          }
         },
         "mobile": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "390×844",
+            "evidence": "Direct route inspected with wrapped copy, loaded object preview, scrollable interpretation, visible controls, and no horizontal overflow. Evidence: docs/visual-validation/gallery-04-supplementals/mobile/south-ibadat-khana-plurality.png"
+          }
         },
         "threeDimensional": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720 fresh direct-route session",
+            "evidence": "Fresh-session authored viewpoint inspected with a live 3D canvas, closed detail panel, readable plaque, distinct installation, and the image mounted at its natural scene ratio. Evidence: docs/visual-validation/gallery-04-supplementals/staged-3d/south-ibadat-khana-plurality.png"
+          }
         }
       },
       "contract": {
-        "evaluated": false,
-        "status": "not-evaluated",
+        "evaluated": true,
+        "status": "pass",
         "issues": []
       }
     },
@@ -9318,73 +9737,173 @@
         }
       },
       "exhibitReview": {
-        "authoredStatus": "unreviewed",
-        "effectiveStatus": "unreviewed",
-        "reviewedOn": null,
-        "method": null,
-        "resolution": null,
-        "lockPresent": false,
-        "lockCurrent": null
+        "authoredStatus": "standard-compliant",
+        "effectiveStatus": "standard-compliant",
+        "reviewedOn": "2026-08-12",
+        "method": "Gallery 04 supplemental review: two non-overlapping Terra/High evidence scopes reconciled by the Sol parent across installed-object identity, attribution, dating, institution, source record, rights, claim mapping, accessibility, provenance, routes, and aspect-safe presentation.",
+        "resolution": "Resolved: removed the unsupported Monastery 1 identification, verified the 2023 photograph and UNESCO site context, separated present ruins from historical classroom claims, and added explicit archaeological limits.",
+        "lockPresent": true,
+        "lockCurrent": true
       },
       "interpretation": {
-        "objectLed": false,
-        "objectInterpretation": null,
-        "mainWordCount": 96,
+        "objectLed": true,
+        "objectInterpretation": "This 2023 photograph documents conserved remains at Nālandā. Its source does not identify the precise structure, and the image cannot assign a school, activity, or historical phase to the visible walls.",
+        "mainWordCount": 335,
         "paragraphCount": 3,
-        "untitledParagraphs": false,
-        "sidebarSectionCount": 0,
-        "sidebarItemCount": 0,
-        "sidebarSections": []
+        "untitledParagraphs": true,
+        "sidebarSectionCount": 2,
+        "sidebarItemCount": 4,
+        "sidebarSections": [
+          {
+            "heading": "Reading the photograph",
+            "items": [
+              {
+                "label": "Modern record",
+                "description": "The image documents the conserved archaeological site in 2023, not Nālandā during its period of teaching.",
+                "sourceIds": [
+                  "nalanda-commons"
+                ]
+              },
+              {
+                "label": "Unidentified structure",
+                "description": "The image source does not name the exact building or phase, so the exhibit avoids “Monastery 1.”",
+                "sourceIds": [
+                  "nalanda-commons"
+                ]
+              }
+            ]
+          },
+          {
+            "heading": "Institutional learning",
+            "items": [
+              {
+                "label": "Monastic-scholastic site",
+                "description": "UNESCO identifies a long-lived complex of stupas, shrines, and vihāras with residential and educational functions.",
+                "sourceIds": [
+                  "nalanda-unesco"
+                ]
+              },
+              {
+                "label": "Buddhist specificity",
+                "description": "Nālandā’s importance to Buddhist learning should not be generalized into custody of every Indian tradition.",
+                "sourceIds": [
+                  "nalanda-unesco",
+                  "iep-hindu-philosophy"
+                ]
+              }
+            ]
+          }
+        ]
       },
       "claimEvidence": {
         "sources": [
           {
-            "label": "Wikimedia Commons — Nālandā Monastery 1",
+            "id": "nalanda-commons",
+            "label": "Wikimedia Commons: Nalanda Ruins (32), Sumitsurai, 2023",
             "url": "https://commons.wikimedia.org/wiki/File:Nalanda_Ruins_%2832%29.jpg",
             "kind": "collection-record"
           },
           {
-            "label": "Internet Encyclopedia of Philosophy — Indian Philosophy",
-            "url": "https://iep.utm.edu/indian-philosophy/",
+            "id": "nalanda-unesco",
+            "label": "UNESCO World Heritage Centre: Archaeological Site of Nalanda Mahavihara at Nalanda, Bihar",
+            "url": "https://whc.unesco.org/en/list/1502/",
+            "kind": "collection-record"
+          },
+          {
+            "id": "iep-hindu-philosophy",
+            "label": "Internet Encyclopedia of Philosophy: Hindu Philosophy",
+            "url": "https://iep.utm.edu/hindu-ph/",
             "kind": "academic-reference"
           }
         ],
         "paragraphMappings": [
           {
             "paragraph": 1,
-            "wordCount": 32,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 112,
+            "sourceIds": [
+              "nalanda-commons",
+              "nalanda-unesco"
+            ],
+            "valid": true
           },
           {
             "paragraph": 2,
-            "wordCount": 32,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 106,
+            "sourceIds": [
+              "nalanda-unesco",
+              "iep-hindu-philosophy"
+            ],
+            "valid": true
           },
           {
             "paragraph": 3,
-            "wordCount": 32,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 117,
+            "sourceIds": [
+              "nalanda-commons",
+              "nalanda-unesco",
+              "iep-hindu-philosophy"
+            ],
+            "valid": true
           }
         ],
-        "sidebarMappings": []
+        "sidebarMappings": [
+          {
+            "row": 1,
+            "heading": "Reading the photograph",
+            "label": "Modern record",
+            "descriptionWordCount": 16,
+            "sourceIds": [
+              "nalanda-commons"
+            ],
+            "valid": true
+          },
+          {
+            "row": 2,
+            "heading": "Reading the photograph",
+            "label": "Unidentified structure",
+            "descriptionWordCount": 17,
+            "sourceIds": [
+              "nalanda-commons"
+            ],
+            "valid": true
+          },
+          {
+            "row": 3,
+            "heading": "Institutional learning",
+            "label": "Monastic-scholastic site",
+            "descriptionWordCount": 15,
+            "sourceIds": [
+              "nalanda-unesco"
+            ],
+            "valid": true
+          },
+          {
+            "row": 4,
+            "heading": "Institutional learning",
+            "label": "Buddhist specificity",
+            "descriptionWordCount": 15,
+            "sourceIds": [
+              "nalanda-unesco",
+              "iep-hindu-philosophy"
+            ],
+            "valid": true
+          }
+        ]
       },
       "assets": {
         "principal": {
           "id": "south-nalanda-learning-courtyard",
           "status": "registered",
           "identity": {
-            "title": "Monastery 1 at Nālandā Mahāvihāra",
+            "title": "Archaeological remains at Nālandā Mahāvihāra",
             "entityKind": "branch",
             "entityId": "indian-philosophy",
             "role": "material-history",
             "mediaKind": "photograph",
-            "creator": "Sumitsurai",
+            "creator": "Photograph by Sumitsurai",
             "objectDate": "Photographed 9 October 2023",
             "imageCreator": null,
-            "institution": "Nālandā Mahāvihāra, Bihar",
+            "institution": "Archaeological Site of Nālandā Mahāvihāra, Bihar; precise structure not identified by image source",
             "likenessStatus": "not-applicable"
           },
           "provenance": {
@@ -9401,11 +9920,11 @@
             "license": "CC BY-SA 4.0",
             "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
             "rightsKind": "license",
-            "attribution": "Sumitsurai, Monastery 1 at Nālandā Mahāvihāra, 2023, CC BY-SA 4.0."
+            "attribution": "Sumitsurai, photograph of archaeological remains at Nālandā Mahāvihāra, 9 October 2023, CC BY-SA 4.0."
           },
           "accessibility": {
             "caption": "The material remains of Nālandā foreground the institutions, travel, and labor behind philosophical learning.",
-            "alt": "Sunlit brick walls and a central courtyard reveal the scale of the preserved monastic complex at Nalanda."
+            "alt": "Sunlit brick walls and passages at the conserved archaeological remains of Nālandā; the exact structure is not identified by the image source."
           },
           "dimensions": {
             "scene": {
@@ -9418,23 +9937,34 @@
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 120046,
+                "sha256": "6ed7a8ea7bfcd465b1ac79beb50de75e2ef3b486df218d9c406f2560c3643adf"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 576532,
+                "sha256": "2c78818d77a3bc5844336add1df32304a0b0644cf5cba74961a8c0a00ea7fb7b"
+              }
+            }
           }
         },
         "physical": {
           "id": "south-nalanda-learning-courtyard",
           "status": "registered",
           "identity": {
-            "title": "Monastery 1 at Nālandā Mahāvihāra",
+            "title": "Archaeological remains at Nālandā Mahāvihāra",
             "entityKind": "branch",
             "entityId": "indian-philosophy",
             "role": "material-history",
             "mediaKind": "photograph",
-            "creator": "Sumitsurai",
+            "creator": "Photograph by Sumitsurai",
             "objectDate": "Photographed 9 October 2023",
             "imageCreator": null,
-            "institution": "Nālandā Mahāvihāra, Bihar",
+            "institution": "Archaeological Site of Nālandā Mahāvihāra, Bihar; precise structure not identified by image source",
             "likenessStatus": "not-applicable"
           },
           "provenance": {
@@ -9451,11 +9981,11 @@
             "license": "CC BY-SA 4.0",
             "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
             "rightsKind": "license",
-            "attribution": "Sumitsurai, Monastery 1 at Nālandā Mahāvihāra, 2023, CC BY-SA 4.0."
+            "attribution": "Sumitsurai, photograph of archaeological remains at Nālandā Mahāvihāra, 9 October 2023, CC BY-SA 4.0."
           },
           "accessibility": {
             "caption": "The material remains of Nālandā foreground the institutions, travel, and labor behind philosophical learning.",
-            "alt": "Sunlit brick walls and a central courtyard reveal the scale of the preserved monastic complex at Nalanda."
+            "alt": "Sunlit brick walls and passages at the conserved archaeological remains of Nālandā; the exact structure is not identified by the image source."
           },
           "dimensions": {
             "scene": {
@@ -9468,8 +9998,19 @@
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 120046,
+                "sha256": "6ed7a8ea7bfcd465b1ac79beb50de75e2ef3b486df218d9c406f2560c3643adf"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 576532,
+                "sha256": "2c78818d77a3bc5844336add1df32304a0b0644cf5cba74961a8c0a00ea7fb7b"
+              }
+            }
           }
         }
       },
@@ -9485,9 +10026,9 @@
           "status": "match"
         },
         "mediaMountToPhysicalScene": {
-          "mount": 1.3333333333333335,
+          "mount": 1.330561330651341,
           "scene": 1.3305613305613306,
-          "status": "mismatch"
+          "status": "match"
         },
         "nonUniformScalingProtected": true
       },
@@ -9501,29 +10042,41 @@
           "status": "pass"
         },
         "fullArticleCta": {
-          "label": "Open the tradition in the Atlas",
+          "label": "Read the full sourced Indian Philosophy article",
           "expectedLabel": "Read the full sourced Indian Philosophy article",
           "href": "#/branches/indian-philosophy",
-          "status": "fail"
+          "status": "pass"
         }
       },
       "visualReview": {
         "desktop": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720",
+            "evidence": "Direct route inspected with the installed object, three-paragraph interpretation, subject-specific sidebar, article CTA, and no horizontal overflow. Evidence: docs/visual-validation/gallery-04-supplementals/desktop/south-nalanda-learning-network.png"
+          }
         },
         "mobile": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "390×844",
+            "evidence": "Direct route inspected with wrapped copy, loaded object preview, scrollable interpretation, visible controls, and no horizontal overflow. Evidence: docs/visual-validation/gallery-04-supplementals/mobile/south-nalanda-learning-network.png"
+          }
         },
         "threeDimensional": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720 fresh direct-route session",
+            "evidence": "Fresh-session authored viewpoint inspected with a live 3D canvas, closed detail panel, readable plaque, distinct installation, and the image mounted at its natural scene ratio. Evidence: docs/visual-validation/gallery-04-supplementals/staged-3d/south-nalanda-learning-network.png"
+          }
         }
       },
       "contract": {
-        "evaluated": false,
-        "status": "not-evaluated",
+        "evaluated": true,
+        "status": "pass",
         "issues": []
       }
     },
@@ -9569,65 +10122,173 @@
         }
       },
       "exhibitReview": {
-        "authoredStatus": "unreviewed",
-        "effectiveStatus": "unreviewed",
-        "reviewedOn": null,
-        "method": null,
-        "resolution": null,
-        "lockPresent": false,
-        "lockCurrent": null
+        "authoredStatus": "standard-compliant",
+        "effectiveStatus": "standard-compliant",
+        "reviewedOn": "2026-08-12",
+        "method": "Gallery 04 supplemental review: two non-overlapping Terra/High evidence scopes reconciled by the Sol parent across installed-object identity, attribution, dating, institution, source record, rights, claim mapping, accessibility, provenance, routes, and aspect-safe presentation.",
+        "resolution": "Resolved: verified the Sarnath capital and accession 355, separated the sculpture from inscriptional evidence for dhamma, preserved the CC BY-SA photograph credit, and replaced the thematic plaque with a factual object title.",
+        "lockPresent": true,
+        "lockCurrent": true
       },
       "interpretation": {
-        "objectLed": false,
-        "objectInterpretation": null,
-        "mainWordCount": 95,
+        "objectLed": true,
+        "objectInterpretation": "The capital establishes the monumental and political setting of Aśoka’s program. It is sculpture, not an edict; surviving inscriptions must support claims about the content of dhamma.",
+        "mainWordCount": 329,
         "paragraphCount": 3,
-        "untitledParagraphs": false,
-        "sidebarSectionCount": 0,
-        "sidebarItemCount": 0,
-        "sidebarSections": []
+        "untitledParagraphs": true,
+        "sidebarSectionCount": 2,
+        "sidebarItemCount": 4,
+        "sidebarSections": [
+          {
+            "heading": "Capital and pillar",
+            "items": [
+              {
+                "label": "Museum object",
+                "description": "The Sarnath museum identifies the Mauryan capital as accession 355 and records its pillar context.",
+                "sourceIds": [
+                  "ashoka-sarnath"
+                ]
+              },
+              {
+                "label": "Licensed photograph",
+                "description": "Chrisi1964’s modern image is reused under CC BY-SA 4.0; that license concerns the photograph.",
+                "sourceIds": [
+                  "ashoka-commons"
+                ]
+              }
+            ]
+          },
+          {
+            "heading": "Evidence for dhamma",
+            "items": [
+              {
+                "label": "Textual witness",
+                "description": "Surviving inscriptions, rather than the carved lions alone, provide Aśokan ethical language.",
+                "sourceIds": [
+                  "ashoka-edict"
+                ]
+              },
+              {
+                "label": "Imperial address",
+                "description": "Public exhortation joins ideals of conduct to the authority and institutions of a ruler.",
+                "sourceIds": [
+                  "ashoka-edict",
+                  "iep-hindu-philosophy"
+                ]
+              }
+            ]
+          }
+        ]
       },
       "claimEvidence": {
         "sources": [
           {
-            "label": "Wikimedia Commons — Sarnath lion capital",
+            "id": "ashoka-commons",
+            "label": "Wikimedia Commons: Sarnath capital photograph by Chrisi1964",
             "url": "https://commons.wikimedia.org/wiki/File:Sarnath_capital.jpg",
             "kind": "collection-record"
           },
           {
-            "label": "Internet Encyclopedia of Philosophy — Indian Philosophy",
-            "url": "https://iep.utm.edu/indian-philosophy/",
+            "id": "ashoka-sarnath",
+            "label": "Archaeological Museum Sarnath: Lion Capital, accession 355",
+            "url": "https://www.sarnathmuseumasi.org/gallery/Gallery3-Acc-No-355.html",
+            "kind": "collection-record"
+          },
+          {
+            "id": "ashoka-edict",
+            "label": "National Museum, New Delhi: Edict of Aśoka",
+            "url": "https://www.nationalmuseumindia.gov.in/en/collections/index/21",
+            "kind": "primary-text"
+          },
+          {
+            "id": "iep-hindu-philosophy",
+            "label": "Internet Encyclopedia of Philosophy: Hindu Philosophy",
+            "url": "https://iep.utm.edu/hindu-ph/",
             "kind": "academic-reference"
           }
         ],
         "paragraphMappings": [
           {
             "paragraph": 1,
-            "wordCount": 30,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 105,
+            "sourceIds": [
+              "ashoka-commons",
+              "ashoka-sarnath"
+            ],
+            "valid": true
           },
           {
             "paragraph": 2,
-            "wordCount": 33,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 112,
+            "sourceIds": [
+              "ashoka-sarnath",
+              "ashoka-edict",
+              "iep-hindu-philosophy"
+            ],
+            "valid": true
           },
           {
             "paragraph": 3,
-            "wordCount": 32,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 112,
+            "sourceIds": [
+              "ashoka-sarnath",
+              "ashoka-edict",
+              "ashoka-commons",
+              "iep-hindu-philosophy"
+            ],
+            "valid": true
           }
         ],
-        "sidebarMappings": []
+        "sidebarMappings": [
+          {
+            "row": 1,
+            "heading": "Capital and pillar",
+            "label": "Museum object",
+            "descriptionWordCount": 15,
+            "sourceIds": [
+              "ashoka-sarnath"
+            ],
+            "valid": true
+          },
+          {
+            "row": 2,
+            "heading": "Capital and pillar",
+            "label": "Licensed photograph",
+            "descriptionWordCount": 15,
+            "sourceIds": [
+              "ashoka-commons"
+            ],
+            "valid": true
+          },
+          {
+            "row": 3,
+            "heading": "Evidence for dhamma",
+            "label": "Textual witness",
+            "descriptionWordCount": 12,
+            "sourceIds": [
+              "ashoka-edict"
+            ],
+            "valid": true
+          },
+          {
+            "row": 4,
+            "heading": "Evidence for dhamma",
+            "label": "Imperial address",
+            "descriptionWordCount": 14,
+            "sourceIds": [
+              "ashoka-edict",
+              "iep-hindu-philosophy"
+            ],
+            "valid": true
+          }
+        ]
       },
       "assets": {
         "principal": {
           "id": "south-ashoka-lion-capital",
           "status": "registered",
           "identity": {
-            "title": "Lion Capital of Aśoka at Sarnath",
+            "title": "Lion Capital of the Aśokan Pillar at Sarnath",
             "entityKind": "branch",
             "entityId": "indian-philosophy",
             "role": "material-history",
@@ -9635,12 +10296,12 @@
             "creator": "Mauryan sculptor unknown; photograph by Chrisi1964",
             "objectDate": "c. 250 BCE; modern photograph",
             "imageCreator": null,
-            "institution": "Sarnath Archaeological Museum",
+            "institution": "Archaeological Museum Sarnath, accession 355",
             "likenessStatus": "not-applicable"
           },
           "provenance": {
             "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Sarnath_capital.jpg",
-            "objectPageUrl": null,
+            "objectPageUrl": "https://www.sarnathmuseumasi.org/gallery/Gallery3-Acc-No-355.html",
             "historicalNote": "The capital is not itself an edict or complete account of Aśokan dhamma, and Aśoka’s patronage does not make him representative of every South Asian philosophy.",
             "derivativeNotice": "Original image retained uncropped; resized and converted to WebP by Philosophy Atlas.",
             "manifestFiles": [
@@ -9669,15 +10330,26 @@
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 31754,
+                "sha256": "0316d5b8c29054dd983a151f3f51bba386a69a70365d76123f9dcbebb1da2734"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 169840,
+                "sha256": "dead837db6ccecb34fe362f6a4efae6c1973aebf8826c46a1abf660682209d22"
+              }
+            }
           }
         },
         "physical": {
           "id": "south-ashoka-lion-capital",
           "status": "registered",
           "identity": {
-            "title": "Lion Capital of Aśoka at Sarnath",
+            "title": "Lion Capital of the Aśokan Pillar at Sarnath",
             "entityKind": "branch",
             "entityId": "indian-philosophy",
             "role": "material-history",
@@ -9685,12 +10357,12 @@
             "creator": "Mauryan sculptor unknown; photograph by Chrisi1964",
             "objectDate": "c. 250 BCE; modern photograph",
             "imageCreator": null,
-            "institution": "Sarnath Archaeological Museum",
+            "institution": "Archaeological Museum Sarnath, accession 355",
             "likenessStatus": "not-applicable"
           },
           "provenance": {
             "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Sarnath_capital.jpg",
-            "objectPageUrl": null,
+            "objectPageUrl": "https://www.sarnathmuseumasi.org/gallery/Gallery3-Acc-No-355.html",
             "historicalNote": "The capital is not itself an edict or complete account of Aśokan dhamma, and Aśoka’s patronage does not make him representative of every South Asian philosophy.",
             "derivativeNotice": "Original image retained uncropped; resized and converted to WebP by Philosophy Atlas.",
             "manifestFiles": [
@@ -9719,8 +10391,19 @@
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 31754,
+                "sha256": "0316d5b8c29054dd983a151f3f51bba386a69a70365d76123f9dcbebb1da2734"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 169840,
+                "sha256": "dead837db6ccecb34fe362f6a4efae6c1973aebf8826c46a1abf660682209d22"
+              }
+            }
           }
         }
       },
@@ -9736,9 +10419,9 @@
           "status": "match"
         },
         "mediaMountToPhysicalScene": {
-          "mount": 0.5606060606060607,
+          "mount": 0.5609375,
           "scene": 0.5609375,
-          "status": "mismatch"
+          "status": "match"
         },
         "nonUniformScalingProtected": true
       },
@@ -9752,29 +10435,41 @@
           "status": "pass"
         },
         "fullArticleCta": {
-          "label": "Open the tradition in the Atlas",
+          "label": "Read the full sourced Indian Philosophy article",
           "expectedLabel": "Read the full sourced Indian Philosophy article",
           "href": "#/branches/indian-philosophy",
-          "status": "fail"
+          "status": "pass"
         }
       },
       "visualReview": {
         "desktop": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720",
+            "evidence": "Direct route inspected with the installed object, three-paragraph interpretation, subject-specific sidebar, article CTA, and no horizontal overflow. Evidence: docs/visual-validation/gallery-04-supplementals/desktop/south-ashoka-public-dhamma.png"
+          }
         },
         "mobile": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "390×844",
+            "evidence": "Direct route inspected with wrapped copy, loaded object preview, scrollable interpretation, visible controls, and no horizontal overflow. Evidence: docs/visual-validation/gallery-04-supplementals/mobile/south-ashoka-public-dhamma.png"
+          }
         },
         "threeDimensional": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720 fresh direct-route session",
+            "evidence": "Fresh-session authored viewpoint inspected with a live 3D canvas, closed detail panel, readable plaque, distinct installation, and the image mounted at its natural scene ratio. Evidence: docs/visual-validation/gallery-04-supplementals/staged-3d/south-ashoka-public-dhamma.png"
+          }
         }
       },
       "contract": {
-        "evaluated": false,
-        "status": "not-evaluated",
+        "evaluated": true,
+        "status": "pass",
         "issues": []
       }
     },
@@ -9820,33 +10515,96 @@
         }
       },
       "exhibitReview": {
-        "authoredStatus": "unreviewed",
-        "effectiveStatus": "unreviewed",
-        "reviewedOn": null,
-        "method": null,
-        "resolution": null,
-        "lockPresent": false,
-        "lockCurrent": null
+        "authoredStatus": "standard-compliant",
+        "effectiveStatus": "standard-compliant",
+        "reviewedOn": "2026-08-12",
+        "method": "Gallery 04 supplemental review: two non-overlapping Terra/High evidence scopes reconciled by the Sol parent across installed-object identity, attribution, dating, institution, source record, rights, claim mapping, accessibility, provenance, routes, and aspect-safe presentation.",
+        "resolution": "Resolved: verified the installed map and dealer-derived source record, changed the creator to anonymous, preserved the unknown holding institution, kept “moral geography” interpretive, and mapped the image to Jain cosmology without modern-cartographic claims.",
+        "lockPresent": true,
+        "lockCurrent": true
       },
       "interpretation": {
-        "objectLed": false,
-        "objectInterpretation": null,
-        "mainWordCount": 100,
+        "objectLed": true,
+        "objectInterpretation": "The anonymous c. 1800 Rajasthan attribution comes from a dealer/source record, and no holding institution is identified. The image is later Jain cosmological reception, not modern survey geography.",
+        "mainWordCount": 336,
         "paragraphCount": 3,
-        "untitledParagraphs": false,
-        "sidebarSectionCount": 0,
-        "sidebarItemCount": 0,
-        "sidebarSections": []
+        "untitledParagraphs": true,
+        "sidebarSectionCount": 2,
+        "sidebarItemCount": 4,
+        "sidebarSections": [
+          {
+            "heading": "Source-record boundaries",
+            "items": [
+              {
+                "label": "Anonymous maker",
+                "description": "The source identifies no artist; Rajasthan and c. 1800 are reported through the dealer record.",
+                "sourceIds": [
+                  "jambudvipa-ruderman",
+                  "jambudvipa-commons"
+                ]
+              },
+              {
+                "label": "Unknown holding",
+                "description": "No museum, library, or current collection is named, so institutional provenance remains unresolved.",
+                "sourceIds": [
+                  "jambudvipa-ruderman",
+                  "jambudvipa-commons"
+                ]
+              }
+            ]
+          },
+          {
+            "heading": "Cosmological reading",
+            "items": [
+              {
+                "label": "Middle-world continent",
+                "description": "Jambūdvīpa belongs to the Jain middle world and locates regions significant to embodied life and liberation.",
+                "sourceIds": [
+                  "jambudvipa-jainpedia",
+                  "jain-universe-jainpedia"
+                ]
+              },
+              {
+                "label": "Not survey geography",
+                "description": "Symbolic proportion and cosmological order answer different questions from modern terrestrial cartography.",
+                "sourceIds": [
+                  "jain-universe-jainpedia",
+                  "jain-philosophy-sep"
+                ]
+              }
+            ]
+          }
+        ]
       },
       "claimEvidence": {
         "sources": [
           {
-            "label": "Wikimedia Commons — Jain map of Jambūdvīpa",
+            "id": "jambudvipa-commons",
+            "label": "Wikimedia Commons: Jain Cosmological Map of the Universe—Jambūdvīpa",
             "url": "https://commons.wikimedia.org/wiki/File:Jain_Cosmological_Map_of_the_Universe_-_Jambudvipa.jpg",
             "kind": "collection-record"
           },
           {
-            "label": "Stanford Encyclopedia of Philosophy — Jain Philosophy",
+            "id": "jambudvipa-ruderman",
+            "label": "Barry Lawrence Ruderman Antique Maps: Jain Cosmological Map of the Universe—Jambūdvīpa",
+            "url": "https://www.raremaps.com/gallery/detail/93336/jain-cosmological-map-of-the-universe-jambudvipa-anonymous",
+            "kind": "collection-record"
+          },
+          {
+            "id": "jain-universe-jainpedia",
+            "label": "JAINpedia: Jain universe",
+            "url": "https://jainpedia.org/themes/principles/jain-universe/",
+            "kind": "academic-reference"
+          },
+          {
+            "id": "jambudvipa-jainpedia",
+            "label": "JAINpedia: Jambū-dvīpa",
+            "url": "https://jainpedia.org/glossary/jambu-dvipa/",
+            "kind": "academic-reference"
+          },
+          {
+            "id": "jain-philosophy-sep",
+            "label": "Stanford Encyclopedia of Philosophy: Jaina Philosophy",
             "url": "https://plato.stanford.edu/entries/jaina-philosophy/",
             "kind": "academic-reference"
           }
@@ -9854,24 +10612,80 @@
         "paragraphMappings": [
           {
             "paragraph": 1,
-            "wordCount": 33,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 112,
+            "sourceIds": [
+              "jambudvipa-commons",
+              "jambudvipa-ruderman"
+            ],
+            "valid": true
           },
           {
             "paragraph": 2,
-            "wordCount": 33,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 108,
+            "sourceIds": [
+              "jain-universe-jainpedia",
+              "jambudvipa-jainpedia",
+              "jain-philosophy-sep"
+            ],
+            "valid": true
           },
           {
             "paragraph": 3,
-            "wordCount": 34,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 116,
+            "sourceIds": [
+              "jambudvipa-commons",
+              "jain-universe-jainpedia",
+              "jain-philosophy-sep"
+            ],
+            "valid": true
           }
         ],
-        "sidebarMappings": []
+        "sidebarMappings": [
+          {
+            "row": 1,
+            "heading": "Source-record boundaries",
+            "label": "Anonymous maker",
+            "descriptionWordCount": 15,
+            "sourceIds": [
+              "jambudvipa-ruderman",
+              "jambudvipa-commons"
+            ],
+            "valid": true
+          },
+          {
+            "row": 2,
+            "heading": "Source-record boundaries",
+            "label": "Unknown holding",
+            "descriptionWordCount": 13,
+            "sourceIds": [
+              "jambudvipa-ruderman",
+              "jambudvipa-commons"
+            ],
+            "valid": true
+          },
+          {
+            "row": 3,
+            "heading": "Cosmological reading",
+            "label": "Middle-world continent",
+            "descriptionWordCount": 16,
+            "sourceIds": [
+              "jambudvipa-jainpedia",
+              "jain-universe-jainpedia"
+            ],
+            "valid": true
+          },
+          {
+            "row": 4,
+            "heading": "Cosmological reading",
+            "label": "Not survey geography",
+            "descriptionWordCount": 12,
+            "sourceIds": [
+              "jain-universe-jainpedia",
+              "jain-philosophy-sep"
+            ],
+            "valid": true
+          }
+        ]
       },
       "assets": {
         "principal": {
@@ -9883,10 +10697,10 @@
             "entityId": "jainism",
             "role": "context",
             "mediaKind": "painting",
-            "creator": "Anonymous Jain artist",
-            "objectDate": "c. 1800",
+            "creator": "Anonymous artist",
+            "objectDate": "c. 1800, Rajasthan (as described by dealer/source record)",
             "imageCreator": null,
-            "institution": "Collection not identified; Commons record credits Barry Lawrence Ruderman Antique Maps",
+            "institution": "Current collection not identified; source record via Barry Lawrence Ruderman Antique Maps",
             "likenessStatus": "not-applicable"
           },
           "provenance": {
@@ -9903,7 +10717,7 @@
             "license": "Public Domain Mark 1.0",
             "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
             "rightsKind": "rights-status",
-            "attribution": "Anonymous Jain artist, cosmological map of Jambūdvīpa, c. 1800. Public domain."
+            "attribution": "Anonymous artist, cosmological map of Jambūdvīpa, Rajasthan, c. 1800 as described by source record. Public Domain Mark 1.0."
           },
           "accessibility": {
             "caption": "A later Jain map presents Jambūdvīpa as a structured moral and cosmological geography.",
@@ -9920,8 +10734,19 @@
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 141534,
+                "sha256": "590a6b0aed15bab4c1db9eb95c9d231ff40e909d06e94949f983e60a6d5389b7"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 535572,
+                "sha256": "f21dd502669d39127b187c51fdbb955611de3c7900468700a3a93bce9abc8b0c"
+              }
+            }
           }
         },
         "physical": {
@@ -9933,10 +10758,10 @@
             "entityId": "jainism",
             "role": "context",
             "mediaKind": "painting",
-            "creator": "Anonymous Jain artist",
-            "objectDate": "c. 1800",
+            "creator": "Anonymous artist",
+            "objectDate": "c. 1800, Rajasthan (as described by dealer/source record)",
             "imageCreator": null,
-            "institution": "Collection not identified; Commons record credits Barry Lawrence Ruderman Antique Maps",
+            "institution": "Current collection not identified; source record via Barry Lawrence Ruderman Antique Maps",
             "likenessStatus": "not-applicable"
           },
           "provenance": {
@@ -9953,7 +10778,7 @@
             "license": "Public Domain Mark 1.0",
             "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
             "rightsKind": "rights-status",
-            "attribution": "Anonymous Jain artist, cosmological map of Jambūdvīpa, c. 1800. Public domain."
+            "attribution": "Anonymous artist, cosmological map of Jambūdvīpa, Rajasthan, c. 1800 as described by source record. Public Domain Mark 1.0."
           },
           "accessibility": {
             "caption": "A later Jain map presents Jambūdvīpa as a structured moral and cosmological geography.",
@@ -9970,8 +10795,19 @@
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 141534,
+                "sha256": "590a6b0aed15bab4c1db9eb95c9d231ff40e909d06e94949f983e60a6d5389b7"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 535572,
+                "sha256": "f21dd502669d39127b187c51fdbb955611de3c7900468700a3a93bce9abc8b0c"
+              }
+            }
           }
         }
       },
@@ -9987,9 +10823,9 @@
           "status": "match"
         },
         "mediaMountToPhysicalScene": {
-          "mount": 1.074074074074074,
+          "mount": 1.072026800617284,
           "scene": 1.0720268006700167,
-          "status": "mismatch"
+          "status": "match"
         },
         "nonUniformScalingProtected": true
       },
@@ -10003,29 +10839,41 @@
           "status": "pass"
         },
         "fullArticleCta": {
-          "label": "Open the tradition in the Atlas",
+          "label": "Read the full sourced Jainism article",
           "expectedLabel": "Read the full sourced Jainism article",
           "href": "#/branches/jainism",
-          "status": "fail"
+          "status": "pass"
         }
       },
       "visualReview": {
         "desktop": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720",
+            "evidence": "Direct route inspected with the installed object, three-paragraph interpretation, subject-specific sidebar, article CTA, and no horizontal overflow. Evidence: docs/visual-validation/gallery-04-supplementals/desktop/jain-jambudvipa-moral-geography.png"
+          }
         },
         "mobile": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "390×844",
+            "evidence": "Direct route inspected with wrapped copy, loaded object preview, scrollable interpretation, visible controls, and no horizontal overflow. Evidence: docs/visual-validation/gallery-04-supplementals/mobile/jain-jambudvipa-moral-geography.png"
+          }
         },
         "threeDimensional": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720 fresh direct-route session",
+            "evidence": "Fresh-session authored viewpoint inspected with a live 3D canvas, closed detail panel, readable plaque, distinct installation, and the image mounted at its natural scene ratio. Evidence: docs/visual-validation/gallery-04-supplementals/staged-3d/jain-jambudvipa-moral-geography.png"
+          }
         }
       },
       "contract": {
-        "evaluated": false,
-        "status": "not-evaluated",
+        "evaluated": true,
+        "status": "pass",
         "issues": []
       }
     },
@@ -10071,33 +10919,88 @@
         }
       },
       "exhibitReview": {
-        "authoredStatus": "unreviewed",
-        "effectiveStatus": "unreviewed",
-        "reviewedOn": null,
-        "method": null,
-        "resolution": null,
-        "lockPresent": false,
-        "lockCurrent": null
+        "authoredStatus": "standard-compliant",
+        "effectiveStatus": "standard-compliant",
+        "reviewedOn": "2026-08-12",
+        "method": "Gallery 04 supplemental review: two non-overlapping Terra/High evidence scopes reconciled by the Sol parent across installed-object identity, attribution, dating, institution, source record, rights, claim mapping, accessibility, provenance, routes, and aspect-safe presentation.",
+        "resolution": "Resolved: retained the source-recorded Rajasthan attribution and date with explicit uncertainty, preserved the unknown holding institution and qualified rights record, and separated universal peaceful assembly from a direct argument for many-sidedness.",
+        "lockPresent": true,
+        "lockCurrent": true
       },
       "interpretation": {
-        "objectLed": false,
-        "objectInterpretation": null,
-        "mainWordCount": 83,
+        "objectLed": true,
+        "objectInterpretation": "The source-recorded c. 1800 Rajasthan painting visualizes a traditional universal teaching assembly. Its artist and holding institution are unknown, and it is not eyewitness evidence for a sermon.",
+        "mainWordCount": 342,
         "paragraphCount": 3,
-        "untitledParagraphs": false,
-        "sidebarSectionCount": 0,
-        "sidebarItemCount": 0,
-        "sidebarSections": []
+        "untitledParagraphs": true,
+        "sidebarSectionCount": 2,
+        "sidebarItemCount": 4,
+        "sidebarSections": [
+          {
+            "heading": "The represented assembly",
+            "items": [
+              {
+                "label": "Universal audience",
+                "description": "Traditional samavasaraṇa imagery gathers humans, animals, and celestial beings around a Jina’s teaching.",
+                "sourceIds": [
+                  "samavasarana-jainpedia",
+                  "jina-preaching-jainpedia"
+                ]
+              },
+              {
+                "label": "Peaceful order",
+                "description": "The concentric scene makes non-harm and access visible across different embodied forms.",
+                "sourceIds": [
+                  "jina-preaching-jainpedia",
+                  "jain-philosophy-sep"
+                ]
+              }
+            ]
+          },
+          {
+            "heading": "Source and doctrine limits",
+            "items": [
+              {
+                "label": "Unknown provenance",
+                "description": "The Commons record names no maker, accession, or holding institution and is the only object-specific record.",
+                "sourceIds": [
+                  "samavasarana-commons"
+                ]
+              },
+              {
+                "label": "Not many-sidedness itself",
+                "description": "A varied audience does not independently establish Jain arguments about one-sided and conditional predication.",
+                "sourceIds": [
+                  "jain-philosophy-sep"
+                ]
+              }
+            ]
+          }
+        ]
       },
       "claimEvidence": {
         "sources": [
           {
-            "label": "Wikimedia Commons — Samavasaraṇa painting",
+            "id": "samavasarana-commons",
+            "label": "Wikimedia Commons: Samavasaraṇa painting described as Rajasthan, 1800",
             "url": "https://commons.wikimedia.org/wiki/File:Samavasarana_painting_from_1800_AD_Rajasthan.jpg",
             "kind": "collection-record"
           },
           {
-            "label": "Stanford Encyclopedia of Philosophy — Jain Philosophy",
+            "id": "samavasarana-jainpedia",
+            "label": "JAINpedia glossary: Samavasaraṇa",
+            "url": "https://jainpedia.org/glossary/samavasara%E1%B9%87a/",
+            "kind": "academic-reference"
+          },
+          {
+            "id": "jina-preaching-jainpedia",
+            "label": "JAINpedia manuscript guide: A Jina’s omniscience and preaching",
+            "url": "https://jainpedia.org/manuscript/a-jinas-omniscience-and-preaching/",
+            "kind": "academic-reference"
+          },
+          {
+            "id": "jain-philosophy-sep",
+            "label": "Stanford Encyclopedia of Philosophy: Jaina Philosophy",
             "url": "https://plato.stanford.edu/entries/jaina-philosophy/",
             "kind": "academic-reference"
           }
@@ -10105,24 +11008,78 @@
         "paragraphMappings": [
           {
             "paragraph": 1,
-            "wordCount": 25,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 111,
+            "sourceIds": [
+              "samavasarana-commons"
+            ],
+            "valid": true
           },
           {
             "paragraph": 2,
-            "wordCount": 29,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 112,
+            "sourceIds": [
+              "samavasarana-jainpedia",
+              "jina-preaching-jainpedia",
+              "jain-philosophy-sep"
+            ],
+            "valid": true
           },
           {
             "paragraph": 3,
-            "wordCount": 29,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 119,
+            "sourceIds": [
+              "jain-philosophy-sep",
+              "samavasarana-jainpedia",
+              "jina-preaching-jainpedia",
+              "samavasarana-commons"
+            ],
+            "valid": true
           }
         ],
-        "sidebarMappings": []
+        "sidebarMappings": [
+          {
+            "row": 1,
+            "heading": "The represented assembly",
+            "label": "Universal audience",
+            "descriptionWordCount": 13,
+            "sourceIds": [
+              "samavasarana-jainpedia",
+              "jina-preaching-jainpedia"
+            ],
+            "valid": true
+          },
+          {
+            "row": 2,
+            "heading": "The represented assembly",
+            "label": "Peaceful order",
+            "descriptionWordCount": 12,
+            "sourceIds": [
+              "jina-preaching-jainpedia",
+              "jain-philosophy-sep"
+            ],
+            "valid": true
+          },
+          {
+            "row": 3,
+            "heading": "Source and doctrine limits",
+            "label": "Unknown provenance",
+            "descriptionWordCount": 16,
+            "sourceIds": [
+              "samavasarana-commons"
+            ],
+            "valid": true
+          },
+          {
+            "row": 4,
+            "heading": "Source and doctrine limits",
+            "label": "Not many-sidedness itself",
+            "descriptionWordCount": 14,
+            "sourceIds": [
+              "jain-philosophy-sep"
+            ],
+            "valid": true
+          }
+        ]
       },
       "assets": {
         "principal": {
@@ -10134,10 +11091,10 @@
             "entityId": "jainism",
             "role": "context",
             "mediaKind": "painting",
-            "creator": "Unknown Rajasthani artist",
-            "objectDate": "c. 1800",
+            "creator": "Unknown artist; Rajasthan attribution reported by source record",
+            "objectDate": "c. 1800 as described by source record",
             "imageCreator": null,
-            "institution": "Collection not identified on the Commons record",
+            "institution": "Current collection or holding institution not identified",
             "likenessStatus": "not-applicable"
           },
           "provenance": {
@@ -10154,7 +11111,7 @@
             "license": "Public Domain Mark 1.0",
             "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
             "rightsKind": "rights-status",
-            "attribution": "Unknown Rajasthani artist, Samavasaraṇa painting, c. 1800. Public domain."
+            "attribution": "Unknown artist, Samavasaraṇa painting described as Rajasthan, c. 1800. Public Domain Mark 1.0; no holding institution identified."
           },
           "accessibility": {
             "caption": "The samavasaraṇa makes universal teaching, peaceful gathering, and many kinds of embodied listener visible.",
@@ -10171,8 +11128,19 @@
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 128332,
+                "sha256": "4081626eb20843952c408a41a541ed2b6e2a6a5d25ae185f8bf00e3935e4ef79"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 568054,
+                "sha256": "1f72dd8a373d70cbc5c3fa4a5203b0aa79d88f3cfcadcee8822a7c976a93d3a3"
+              }
+            }
           }
         },
         "physical": {
@@ -10184,10 +11152,10 @@
             "entityId": "jainism",
             "role": "context",
             "mediaKind": "painting",
-            "creator": "Unknown Rajasthani artist",
-            "objectDate": "c. 1800",
+            "creator": "Unknown artist; Rajasthan attribution reported by source record",
+            "objectDate": "c. 1800 as described by source record",
             "imageCreator": null,
-            "institution": "Collection not identified on the Commons record",
+            "institution": "Current collection or holding institution not identified",
             "likenessStatus": "not-applicable"
           },
           "provenance": {
@@ -10204,7 +11172,7 @@
             "license": "Public Domain Mark 1.0",
             "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
             "rightsKind": "rights-status",
-            "attribution": "Unknown Rajasthani artist, Samavasaraṇa painting, c. 1800. Public domain."
+            "attribution": "Unknown artist, Samavasaraṇa painting described as Rajasthan, c. 1800. Public Domain Mark 1.0; no holding institution identified."
           },
           "accessibility": {
             "caption": "The samavasaraṇa makes universal teaching, peaceful gathering, and many kinds of embodied listener visible.",
@@ -10221,8 +11189,19 @@
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 128332,
+                "sha256": "4081626eb20843952c408a41a541ed2b6e2a6a5d25ae185f8bf00e3935e4ef79"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 568054,
+                "sha256": "1f72dd8a373d70cbc5c3fa4a5203b0aa79d88f3cfcadcee8822a7c976a93d3a3"
+              }
+            }
           }
         }
       },
@@ -10238,9 +11217,9 @@
           "status": "match"
         },
         "mediaMountToPhysicalScene": {
-          "mount": 0.9848484848484849,
+          "mount": 0.9859375,
           "scene": 0.9859375,
-          "status": "mismatch"
+          "status": "match"
         },
         "nonUniformScalingProtected": true
       },
@@ -10254,29 +11233,41 @@
           "status": "pass"
         },
         "fullArticleCta": {
-          "label": "Open the tradition in the Atlas",
+          "label": "Read the full sourced Jainism article",
           "expectedLabel": "Read the full sourced Jainism article",
           "href": "#/branches/jainism",
-          "status": "fail"
+          "status": "pass"
         }
       },
       "visualReview": {
         "desktop": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720",
+            "evidence": "Direct route inspected with the installed object, three-paragraph interpretation, subject-specific sidebar, article CTA, and no horizontal overflow. Evidence: docs/visual-validation/gallery-04-supplementals/desktop/jain-samavasarana-open-assembly.png"
+          }
         },
         "mobile": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "390×844",
+            "evidence": "Direct route inspected with wrapped copy, loaded object preview, scrollable interpretation, visible controls, and no horizontal overflow. Evidence: docs/visual-validation/gallery-04-supplementals/mobile/jain-samavasarana-open-assembly.png"
+          }
         },
         "threeDimensional": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720 fresh direct-route session",
+            "evidence": "Fresh-session authored viewpoint inspected with a live 3D canvas, closed detail panel, readable plaque, distinct installation, and the image mounted at its natural scene ratio. Evidence: docs/visual-validation/gallery-04-supplementals/staged-3d/jain-samavasarana-open-assembly.png"
+          }
         }
       },
       "contract": {
-        "evaluated": false,
-        "status": "not-evaluated",
+        "evaluated": true,
+        "status": "pass",
         "issues": []
       }
     },
@@ -10322,33 +11313,88 @@
         }
       },
       "exhibitReview": {
-        "authoredStatus": "unreviewed",
-        "effectiveStatus": "unreviewed",
-        "reviewedOn": null,
-        "method": null,
-        "resolution": null,
-        "lockPresent": false,
-        "lockCurrent": null
+        "authoredStatus": "standard-compliant",
+        "effectiveStatus": "standard-compliant",
+        "reviewedOn": "2026-08-12",
+        "method": "Gallery 04 supplemental review: two non-overlapping Terra/High evidence scopes reconciled by the Sol parent across installed-object identity, attribution, dating, institution, source record, rights, claim mapping, accessibility, provenance, routes, and aspect-safe presentation.",
+        "resolution": "Resolved: verified the Mathura sculpture, eighth-century date, Stockholm accession, gift provenance, and CC0 photograph; corrected the pose from seated to standing and replaced the curatorial plaque title with the factual object name.",
+        "lockPresent": true,
+        "lockCurrent": true
       },
       "interpretation": {
-        "objectLed": false,
-        "objectInterpretation": null,
-        "mainWordCount": 93,
+        "objectLed": true,
+        "objectInterpretation": "The eighth-century Mathura sculpture is securely a standing Tīrthaṅkara but not a named Jina or portrait of Mahāvīra. Its philosophical role is later representation of disciplined liberation.",
+        "mainWordCount": 331,
         "paragraphCount": 3,
-        "untitledParagraphs": false,
-        "sidebarSectionCount": 0,
-        "sidebarItemCount": 0,
-        "sidebarSections": []
+        "untitledParagraphs": true,
+        "sidebarSectionCount": 2,
+        "sidebarItemCount": 4,
+        "sidebarSections": [
+          {
+            "heading": "The Stockholm object",
+            "items": [
+              {
+                "label": "Verified identity",
+                "description": "The museum records an eighth-century red-sandstone Tīrthaṅkara from Mathura, accession OM-1982-0043.",
+                "sourceIds": [
+                  "tirthankara-museum"
+                ]
+              },
+              {
+                "label": "Standing figure",
+                "description": "The installed image shows an upright Jina; the corrected alt text no longer describes a seated pose.",
+                "sourceIds": [
+                  "tirthankara-commons",
+                  "tirthankara-museum"
+                ]
+              }
+            ]
+          },
+          {
+            "heading": "Icon and discipline",
+            "items": [
+              {
+                "label": "Generic Jina",
+                "description": "No secure marker in the record identifies Mahāvīra or another individual Tīrthaṅkara.",
+                "sourceIds": [
+                  "tirthankara-museum"
+                ]
+              },
+              {
+                "label": "Ethical stillness",
+                "description": "Composure can orient interpretation toward restraint and liberation without functioning as proof of doctrine.",
+                "sourceIds": [
+                  "jain-sculpture-met",
+                  "jain-philosophy-sep"
+                ]
+              }
+            ]
+          }
+        ]
       },
       "claimEvidence": {
         "sources": [
           {
-            "label": "Wikimedia Commons — Mathura Tīrthaṅkara",
+            "id": "tirthankara-museum",
+            "label": "National Museums of World Culture / Carlotta: Tīrthaṅkara, OM-1982-0043",
+            "url": "https://collections.smvk.se/carlotta-om/web/object/101121",
+            "kind": "collection-record"
+          },
+          {
+            "id": "tirthankara-commons",
+            "label": "Wikimedia Commons: Daderot photograph of the Mathura Tīrthaṅkara",
             "url": "https://commons.wikimedia.org/wiki/File:Tirthankara,_Jain_sculpture,_Mathura,_India,_8th_century_AD,_red_sandstone_-_%C3%96stasiatiska_museet,_Stockholm_-_DSC09268.JPG",
             "kind": "collection-record"
           },
           {
-            "label": "Stanford Encyclopedia of Philosophy — Jain Philosophy",
+            "id": "jain-sculpture-met",
+            "label": "Metropolitan Museum of Art: Jain Sculpture",
+            "url": "https://www.metmuseum.org/essays/jain-sculpture",
+            "kind": "academic-reference"
+          },
+          {
+            "id": "jain-philosophy-sep",
+            "label": "Stanford Encyclopedia of Philosophy: Jaina Philosophy",
             "url": "https://plato.stanford.edu/entries/jaina-philosophy/",
             "kind": "academic-reference"
           }
@@ -10356,24 +11402,78 @@
         "paragraphMappings": [
           {
             "paragraph": 1,
-            "wordCount": 31,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 107,
+            "sourceIds": [
+              "tirthankara-museum",
+              "tirthankara-commons"
+            ],
+            "valid": true
           },
           {
             "paragraph": 2,
-            "wordCount": 31,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 112,
+            "sourceIds": [
+              "tirthankara-museum",
+              "jain-sculpture-met",
+              "jain-philosophy-sep"
+            ],
+            "valid": true
           },
           {
             "paragraph": 3,
-            "wordCount": 31,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 112,
+            "sourceIds": [
+              "jain-philosophy-sep",
+              "jain-sculpture-met",
+              "tirthankara-museum"
+            ],
+            "valid": true
           }
         ],
-        "sidebarMappings": []
+        "sidebarMappings": [
+          {
+            "row": 1,
+            "heading": "The Stockholm object",
+            "label": "Verified identity",
+            "descriptionWordCount": 11,
+            "sourceIds": [
+              "tirthankara-museum"
+            ],
+            "valid": true
+          },
+          {
+            "row": 2,
+            "heading": "The Stockholm object",
+            "label": "Standing figure",
+            "descriptionWordCount": 17,
+            "sourceIds": [
+              "tirthankara-commons",
+              "tirthankara-museum"
+            ],
+            "valid": true
+          },
+          {
+            "row": 3,
+            "heading": "Icon and discipline",
+            "label": "Generic Jina",
+            "descriptionWordCount": 12,
+            "sourceIds": [
+              "tirthankara-museum"
+            ],
+            "valid": true
+          },
+          {
+            "row": 4,
+            "heading": "Icon and discipline",
+            "label": "Ethical stillness",
+            "descriptionWordCount": 14,
+            "sourceIds": [
+              "jain-sculpture-met",
+              "jain-philosophy-sep"
+            ],
+            "valid": true
+          }
+        ]
       },
       "assets": {
         "principal": {
@@ -10393,7 +11493,7 @@
           },
           "provenance": {
             "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Tirthankara,_Jain_sculpture,_Mathura,_India,_8th_century_AD,_red_sandstone_-_%C3%96stasiatiska_museet,_Stockholm_-_DSC09268.JPG",
-            "objectPageUrl": null,
+            "objectPageUrl": "https://collections.smvk.se/carlotta-om/web/object/101121",
             "historicalNote": "A generic Tīrthaṅkara image, not a secure identification or historical portrait of Mahāvīra; it postdates the early Jain community by many centuries.",
             "derivativeNotice": "Original image retained uncropped; resized and converted to WebP by Philosophy Atlas.",
             "manifestFiles": [
@@ -10409,7 +11509,7 @@
           },
           "accessibility": {
             "caption": "An eighth-century Tīrthaṅkara sculpture makes disciplined stillness and later Jain representation visible.",
-            "alt": "A frontal red-sandstone Tirthankara sits in composed stillness against a carved architectural backing."
+            "alt": "A frontal red-sandstone Tīrthaṅkara stands in composed stillness against a carved architectural backing."
           },
           "dimensions": {
             "scene": {
@@ -10422,8 +11522,19 @@
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 24220,
+                "sha256": "e5873558fd5ba6746f1efc3ce4a9298ec8f2af3a65c0fa71b0cf2ca0932990f2"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 115762,
+                "sha256": "2b0355d5b52f23f2675c98694c9281e123537b5e344e795b91f7d53d9da2efcf"
+              }
+            }
           }
         },
         "physical": {
@@ -10443,7 +11554,7 @@
           },
           "provenance": {
             "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Tirthankara,_Jain_sculpture,_Mathura,_India,_8th_century_AD,_red_sandstone_-_%C3%96stasiatiska_museet,_Stockholm_-_DSC09268.JPG",
-            "objectPageUrl": null,
+            "objectPageUrl": "https://collections.smvk.se/carlotta-om/web/object/101121",
             "historicalNote": "A generic Tīrthaṅkara image, not a secure identification or historical portrait of Mahāvīra; it postdates the early Jain community by many centuries.",
             "derivativeNotice": "Original image retained uncropped; resized and converted to WebP by Philosophy Atlas.",
             "manifestFiles": [
@@ -10459,7 +11570,7 @@
           },
           "accessibility": {
             "caption": "An eighth-century Tīrthaṅkara sculpture makes disciplined stillness and later Jain representation visible.",
-            "alt": "A frontal red-sandstone Tirthankara sits in composed stillness against a carved architectural backing."
+            "alt": "A frontal red-sandstone Tīrthaṅkara stands in composed stillness against a carved architectural backing."
           },
           "dimensions": {
             "scene": {
@@ -10472,8 +11583,19 @@
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 24220,
+                "sha256": "e5873558fd5ba6746f1efc3ce4a9298ec8f2af3a65c0fa71b0cf2ca0932990f2"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 115762,
+                "sha256": "2b0355d5b52f23f2675c98694c9281e123537b5e344e795b91f7d53d9da2efcf"
+              }
+            }
           }
         }
       },
@@ -10489,9 +11611,9 @@
           "status": "match"
         },
         "mediaMountToPhysicalScene": {
-          "mount": 0.6666666666666667,
+          "mount": 0.6671875,
           "scene": 0.6671875,
-          "status": "mismatch"
+          "status": "match"
         },
         "nonUniformScalingProtected": true
       },
@@ -10505,29 +11627,41 @@
           "status": "pass"
         },
         "fullArticleCta": {
-          "label": "Open the tradition in the Atlas",
+          "label": "Read the full sourced Jainism article",
           "expectedLabel": "Read the full sourced Jainism article",
           "href": "#/branches/jainism",
-          "status": "fail"
+          "status": "pass"
         }
       },
       "visualReview": {
         "desktop": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720",
+            "evidence": "Direct route inspected with the installed object, three-paragraph interpretation, subject-specific sidebar, article CTA, and no horizontal overflow. Evidence: docs/visual-validation/gallery-04-supplementals/desktop/jain-tirthankara-stillness.png"
+          }
         },
         "mobile": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "390×844",
+            "evidence": "Direct route inspected with wrapped copy, loaded object preview, scrollable interpretation, visible controls, and no horizontal overflow. Evidence: docs/visual-validation/gallery-04-supplementals/mobile/jain-tirthankara-stillness.png"
+          }
         },
         "threeDimensional": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720 fresh direct-route session",
+            "evidence": "Fresh-session authored viewpoint inspected with a live 3D canvas, closed detail panel, readable plaque, distinct installation, and the image mounted at its natural scene ratio. Evidence: docs/visual-validation/gallery-04-supplementals/staged-3d/jain-tirthankara-stillness.png"
+          }
         }
       },
       "contract": {
-        "evaluated": false,
-        "status": "not-evaluated",
+        "evaluated": true,
+        "status": "pass",
         "issues": []
       }
     },
@@ -10573,71 +11707,180 @@
         }
       },
       "exhibitReview": {
-        "authoredStatus": "unreviewed",
-        "effectiveStatus": "unreviewed",
-        "reviewedOn": null,
-        "method": null,
-        "resolution": null,
-        "lockPresent": false,
-        "lockCurrent": null
+        "authoredStatus": "standard-compliant",
+        "effectiveStatus": "standard-compliant",
+        "reviewedOn": "2026-08-12",
+        "method": "Gallery 04 supplemental review: two non-overlapping Terra/High evidence scopes reconciled by the Sol parent across installed-object identity, attribution, dating, institution, source record, rights, claim mapping, accessibility, provenance, routes, and aspect-safe presentation.",
+        "resolution": "Resolved: retained the installed Cleveland folio but corrected it from a birth scene to Queen Triśalā reclining, restored the museum’s c. 1450–75 date and object identity, and bounded the image as later sacred-biographical transmission.",
+        "lockPresent": true,
+        "lockCurrent": true
       },
       "interpretation": {
-        "objectLed": false,
-        "objectInterpretation": null,
-        "mainWordCount": 96,
+        "objectLed": true,
+        "objectInterpretation": "Cleveland 1925.1340 shows Queen Triśalā reclining while pregnant with the Jina-to-be. The c. 1450–75 painting is later sacred-biographical transmission, not a birth scene, lifetime portrait, or eyewitness record.",
+        "mainWordCount": 324,
         "paragraphCount": 3,
-        "untitledParagraphs": false,
-        "sidebarSectionCount": 0,
-        "sidebarItemCount": 0,
-        "sidebarSections": []
+        "untitledParagraphs": true,
+        "sidebarSectionCount": 2,
+        "sidebarItemCount": 4,
+        "sidebarSections": [
+          {
+            "heading": "The Cleveland folio",
+            "items": [
+              {
+                "label": "Correct scene",
+                "description": "The museum identifies Queen Triśalā reclining while pregnant with the Jina-to-be, not Mahāvīra’s birth.",
+                "sourceIds": [
+                  "kalpasutra-cma"
+                ]
+              },
+              {
+                "label": "Layered object",
+                "description": "The painting dates c. 1450–75; its gold-flecked border was added in the eighteenth century.",
+                "sourceIds": [
+                  "kalpasutra-cma"
+                ]
+              }
+            ]
+          },
+          {
+            "heading": "Biography and lineage",
+            "items": [
+              {
+                "label": "Twenty-fourth Jina",
+                "description": "Jain traditions place Mahāvīra within an older Tīrthaṅkara succession rather than at the absolute beginning of Jainism.",
+                "sourceIds": [
+                  "mahavira-jainpedia",
+                  "jain-philosophy-sep"
+                ]
+              },
+              {
+                "label": "Later witness",
+                "description": "The folio documents sacred biography in transmission, not Mahāvīra’s appearance, lifetime, or independently verified chronology.",
+                "sourceIds": [
+                  "kalpasutra-cma",
+                  "jain-philosophy-sep"
+                ]
+              }
+            ]
+          }
+        ]
       },
       "claimEvidence": {
         "sources": [
           {
-            "label": "Cleveland Museum of Art — The Birth of Mahāvīra",
+            "id": "kalpasutra-cma",
+            "label": "Cleveland Museum of Art: Painting from a Kalpa-sutra: Queen Trishala Reclining, 1925.1340",
             "url": "https://www.clevelandart.org/art/1925.1340",
             "kind": "collection-record"
           },
           {
-            "label": "Stanford Encyclopedia of Philosophy — Jain Philosophy",
+            "id": "kalpasutra-commons",
+            "label": "Wikimedia Commons: installed CC0 image record for Cleveland 1925.1340",
+            "url": "https://commons.wikimedia.org/wiki/File:Jain,_Western_India,_Gujarat,_early_16th_century_-_Page_from_a_Kalpa-sutra-_The_Birth_of_Mahavira_-_1925.1340_-_Cleveland_Museum_of_Art.jpg",
+            "kind": "collection-record"
+          },
+          {
+            "id": "jain-philosophy-sep",
+            "label": "Stanford Encyclopedia of Philosophy: Jaina Philosophy",
             "url": "https://plato.stanford.edu/entries/jaina-philosophy/",
+            "kind": "academic-reference"
+          },
+          {
+            "id": "mahavira-jainpedia",
+            "label": "JAINpedia: Mahāvīra",
+            "url": "https://jainpedia.org/article/themes/people/jina/mahavira/",
             "kind": "academic-reference"
           }
         ],
         "paragraphMappings": [
           {
             "paragraph": 1,
-            "wordCount": 33,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 106,
+            "sourceIds": [
+              "kalpasutra-cma",
+              "kalpasutra-commons"
+            ],
+            "valid": true
           },
           {
             "paragraph": 2,
-            "wordCount": 30,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 103,
+            "sourceIds": [
+              "jain-philosophy-sep",
+              "mahavira-jainpedia",
+              "kalpasutra-cma"
+            ],
+            "valid": true
           },
           {
             "paragraph": 3,
-            "wordCount": 33,
-            "sourceIds": [],
-            "valid": false
+            "wordCount": 115,
+            "sourceIds": [
+              "jain-philosophy-sep",
+              "mahavira-jainpedia",
+              "kalpasutra-cma"
+            ],
+            "valid": true
           }
         ],
-        "sidebarMappings": []
+        "sidebarMappings": [
+          {
+            "row": 1,
+            "heading": "The Cleveland folio",
+            "label": "Correct scene",
+            "descriptionWordCount": 14,
+            "sourceIds": [
+              "kalpasutra-cma"
+            ],
+            "valid": true
+          },
+          {
+            "row": 2,
+            "heading": "The Cleveland folio",
+            "label": "Layered object",
+            "descriptionWordCount": 15,
+            "sourceIds": [
+              "kalpasutra-cma"
+            ],
+            "valid": true
+          },
+          {
+            "row": 3,
+            "heading": "Biography and lineage",
+            "label": "Twenty-fourth Jina",
+            "descriptionWordCount": 17,
+            "sourceIds": [
+              "mahavira-jainpedia",
+              "jain-philosophy-sep"
+            ],
+            "valid": true
+          },
+          {
+            "row": 4,
+            "heading": "Biography and lineage",
+            "label": "Later witness",
+            "descriptionWordCount": 15,
+            "sourceIds": [
+              "kalpasutra-cma",
+              "jain-philosophy-sep"
+            ],
+            "valid": true
+          }
+        ]
       },
       "assets": {
         "principal": {
           "id": "mahavira-kalpasutra-birth",
           "status": "registered",
           "identity": {
-            "title": "The birth of Mahāvīra, page from a Kalpa-sūtra",
+            "title": "Painting from a Kalpa-sūtra: Queen Triśalā Reclining",
             "entityKind": "philosopher",
             "entityId": "mahavira",
             "role": "material-history",
             "mediaKind": "manuscript",
-            "creator": "Unknown Jain artist in Gujarat",
-            "objectDate": "Early 16th century",
+            "creator": "Unknown artist, western India, Gujarat",
+            "objectDate": "c. 1450–75; gold-flecked border added in the 18th century",
             "imageCreator": null,
             "institution": "Cleveland Museum of Art, 1925.1340",
             "likenessStatus": "later-traditional-representation"
@@ -10645,7 +11888,7 @@
           "provenance": {
             "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Jain,_Western_India,_Gujarat,_early_16th_century_-_Page_from_a_Kalpa-sutra-_The_Birth_of_Mahavira_-_1925.1340_-_Cleveland_Museum_of_Art.jpg",
             "objectPageUrl": "https://www.clevelandart.org/art/1925.1340",
-            "historicalNote": "A richly developed later manuscript tradition, not a contemporary record of Mahāvīra’s life.",
+            "historicalNote": "The museum identifies Queen Triśalā reclining, not Mahāvīra’s birth; this later sacred-biographical image is not a contemporary record or lifetime portrait.",
             "derivativeNotice": "Original image retained uncropped; resized and converted to WebP by Philosophy Atlas.",
             "manifestFiles": [
               "museumModernAssetManifest.json"
@@ -10656,11 +11899,11 @@
             "license": "CC0 1.0",
             "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
             "rightsKind": "dedication",
-            "attribution": "Cleveland Museum of Art, Page from a Kalpa-sūtra: The Birth of Mahāvīra, early 16th century, CC0."
+            "attribution": "Cleveland Museum of Art, Painting from a Kalpa-sūtra: Queen Triśalā Reclining, western India, Gujarat, c. 1450–75, 1925.1340. Image CC0."
           },
           "accessibility": {
-            "caption": "An early sixteenth-century Kalpa-sūtra page narrating the birth of Mahāvīra.",
-            "alt": "Illuminated Jain manuscript page with red, blue, gold, and dense text surrounding a birth scene."
+            "caption": "A c. 1450–75 Kalpa-sūtra painting shows Queen Triśalā reclining while pregnant with the Jina-to-be.",
+            "alt": "Illuminated Jain manuscript painting in red, blue, and gold showing Queen Trishala reclining on a bed while pregnant with the Jina-to-be."
           },
           "dimensions": {
             "scene": {
@@ -10673,21 +11916,32 @@
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 124904,
+                "sha256": "b766f08b7602c180a5a8423e2c62e9fb97d04df0779b2b52ee57f6789b980f7f"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 539516,
+                "sha256": "8f72a7b6b34f742de444613f4523b46c4ef0e415cd7730c4e672e10ce2467cb5"
+              }
+            }
           }
         },
         "physical": {
           "id": "mahavira-kalpasutra-birth",
           "status": "registered",
           "identity": {
-            "title": "The birth of Mahāvīra, page from a Kalpa-sūtra",
+            "title": "Painting from a Kalpa-sūtra: Queen Triśalā Reclining",
             "entityKind": "philosopher",
             "entityId": "mahavira",
             "role": "material-history",
             "mediaKind": "manuscript",
-            "creator": "Unknown Jain artist in Gujarat",
-            "objectDate": "Early 16th century",
+            "creator": "Unknown artist, western India, Gujarat",
+            "objectDate": "c. 1450–75; gold-flecked border added in the 18th century",
             "imageCreator": null,
             "institution": "Cleveland Museum of Art, 1925.1340",
             "likenessStatus": "later-traditional-representation"
@@ -10695,7 +11949,7 @@
           "provenance": {
             "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Jain,_Western_India,_Gujarat,_early_16th_century_-_Page_from_a_Kalpa-sutra-_The_Birth_of_Mahavira_-_1925.1340_-_Cleveland_Museum_of_Art.jpg",
             "objectPageUrl": "https://www.clevelandart.org/art/1925.1340",
-            "historicalNote": "A richly developed later manuscript tradition, not a contemporary record of Mahāvīra’s life.",
+            "historicalNote": "The museum identifies Queen Triśalā reclining, not Mahāvīra’s birth; this later sacred-biographical image is not a contemporary record or lifetime portrait.",
             "derivativeNotice": "Original image retained uncropped; resized and converted to WebP by Philosophy Atlas.",
             "manifestFiles": [
               "museumModernAssetManifest.json"
@@ -10706,11 +11960,11 @@
             "license": "CC0 1.0",
             "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
             "rightsKind": "dedication",
-            "attribution": "Cleveland Museum of Art, Page from a Kalpa-sūtra: The Birth of Mahāvīra, early 16th century, CC0."
+            "attribution": "Cleveland Museum of Art, Painting from a Kalpa-sūtra: Queen Triśalā Reclining, western India, Gujarat, c. 1450–75, 1925.1340. Image CC0."
           },
           "accessibility": {
-            "caption": "An early sixteenth-century Kalpa-sūtra page narrating the birth of Mahāvīra.",
-            "alt": "Illuminated Jain manuscript page with red, blue, gold, and dense text surrounding a birth scene."
+            "caption": "A c. 1450–75 Kalpa-sūtra painting shows Queen Triśalā reclining while pregnant with the Jina-to-be.",
+            "alt": "Illuminated Jain manuscript painting in red, blue, and gold showing Queen Trishala reclining on a bed while pregnant with the Jina-to-be."
           },
           "dimensions": {
             "scene": {
@@ -10723,8 +11977,19 @@
             }
           },
           "installedFile": {
-            "status": "not-checked",
-            "variants": {}
+            "status": "verified",
+            "variants": {
+              "scene": {
+                "status": "verified",
+                "bytes": 124904,
+                "sha256": "b766f08b7602c180a5a8423e2c62e9fb97d04df0779b2b52ee57f6789b980f7f"
+              },
+              "panel": {
+                "status": "verified",
+                "bytes": 539516,
+                "sha256": "8f72a7b6b34f742de444613f4523b46c4ef0e415cd7730c4e672e10ce2467cb5"
+              }
+            }
           }
         }
       },
@@ -10740,9 +12005,9 @@
           "status": "match"
         },
         "mediaMountToPhysicalScene": {
-          "mount": 0.7834394904458598,
+          "mount": 0.7843749999999999,
           "scene": 0.784375,
-          "status": "mismatch"
+          "status": "match"
         },
         "nonUniformScalingProtected": true
       },
@@ -10756,29 +12021,41 @@
           "status": "pass"
         },
         "fullArticleCta": {
-          "label": "Open Mahāvīra in the Atlas",
+          "label": "Read the full sourced Mahāvīra article",
           "expectedLabel": "Read the full sourced Mahāvīra article",
           "href": "#/philosophers/mahavira",
-          "status": "fail"
+          "status": "pass"
         }
       },
       "visualReview": {
         "desktop": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720",
+            "evidence": "Direct route inspected with the installed object, three-paragraph interpretation, subject-specific sidebar, article CTA, and no horizontal overflow. Evidence: docs/visual-validation/gallery-04-supplementals/desktop/mahavira-kalpasutra-transmission.png"
+          }
         },
         "mobile": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "390×844",
+            "evidence": "Direct route inspected with wrapped copy, loaded object preview, scrollable interpretation, visible controls, and no horizontal overflow. Evidence: docs/visual-validation/gallery-04-supplementals/mobile/mahavira-kalpasutra-transmission.png"
+          }
         },
         "threeDimensional": {
-          "status": "not-recorded",
-          "evidence": null
+          "status": "recorded",
+          "evidence": {
+            "reviewedOn": "2026-08-12",
+            "viewport": "1280×720 fresh direct-route session",
+            "evidence": "Fresh-session authored viewpoint inspected with a live 3D canvas, closed detail panel, readable plaque, distinct installation, and the image mounted at its natural scene ratio. Evidence: docs/visual-validation/gallery-04-supplementals/staged-3d/mahavira-kalpasutra-transmission.png"
+          }
         }
       },
       "contract": {
-        "evaluated": false,
-        "status": "not-evaluated",
+        "evaluated": true,
+        "status": "pass",
         "issues": []
       }
     },
