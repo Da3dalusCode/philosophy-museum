@@ -18,6 +18,9 @@ export const loadAppData = async () => {
       {MUSEUM_CANONICAL_PROGRAM},
       {MUSEUM_ASSETS},
       {PRIMARY_PLAQUE_INVITATION_OVERRIDES},
+      {MUSEUM_PUBLIC_ROUTE_HALL_IDS},
+      {MUSEUM_BUILDING_GUIDED_STOPS},
+      hashRouter,
       reviewLock,
       exhibitReview,
     ] = await Promise.all([
@@ -29,6 +32,9 @@ export const loadAppData = async () => {
       server.ssrLoadModule('/src/data/museum/museumCanonicalProgram.ts'),
       server.ssrLoadModule('/src/data/museum/museumAssets.ts'),
       server.ssrLoadModule('/src/components/MuseumGallery/primaryPlaqueContract.ts'),
+      server.ssrLoadModule('/src/data/museum/museumPublicRoute.ts'),
+      server.ssrLoadModule('/src/components/MuseumGallery/museumGuidedRoute.ts'),
+      server.ssrLoadModule('/src/routing/hashRouter.ts'),
       server.ssrLoadModule('/src/editorial/reviewLock.ts'),
       server.ssrLoadModule('/src/editorial/exhibitReview.ts'),
     ]);
@@ -41,6 +47,9 @@ export const loadAppData = async () => {
       museumCanonicalProgram: MUSEUM_CANONICAL_PROGRAM,
       museumAssets: MUSEUM_ASSETS,
       primaryPlaqueInvitationOverrides: PRIMARY_PLAQUE_INVITATION_OVERRIDES,
+      museumPublicRouteHallIds: MUSEUM_PUBLIC_ROUTE_HALL_IDS,
+      museumBuildingGuidedStops: MUSEUM_BUILDING_GUIDED_STOPS,
+      hashRouter,
       reviewLock,
       exhibitReview,
     };
